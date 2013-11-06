@@ -1,0 +1,20 @@
+Principal Authors (major contributors, alphabetically)
+
+Ed Sanders <esanders@wikimedia.org>
+Roan Kattouw <roan@wikimedia.org>
+Rob Moen <rmoen@wikimedia.org>
+Timo Tijhof <timo@wikimedia.org>
+Trevor Parscal <trevor@wikimedia.org>
+
+Patch Contributors (minor contributors, alphabetically)
+
+Amir Aharoni <aaharoni@wikimedia.org>
+Bartosz Dziewoński <matma.rex@gmail.com>
+Erik Moeller <erik@wikimedia.org>
+Erick Guan <fantasticfears@gmail.com>
+Inez Korczyński <inez@wikia-inc.com>
+James Forrester  <jforrester@wikimedia.org>
+Kyle Florence <kflorence@wikia-inc.com>
+Moriel Schottlender <moriel@gmail.com>
+Niklas Laxström <nlaxstrom@wikimedia.org>
+Sam Reed <reedy@wikimedia.org>
