@@ -32,6 +32,9 @@ OO.ui.Window = function OoUiWindow( windowSet, config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-window' )
+		// Hide the window using visibility: hidden; while the iframe is still loading
+		// Can't use display: none; because that prevents the iframe from loading in Firefox
+		.css( 'visibility', 'hidden' )
 		.append( this.$frame );
 	this.$frame
 		.addClass( 'oo-ui-window-frame' )
@@ -268,6 +271,10 @@ OO.ui.Window.prototype.initialize = function () {
 		this.$overlay
 	);
 
+	// Undo the visibility: hidden; hack from the constructor and apply display: none;
+	// We can do this safely now that the iframe has initialized
+	this.$element.hide().css( 'visibility', '' );
+
 	this.emit( 'initialize' );
 
 	return this;
@@ -318,9 +325,9 @@ OO.ui.Window.prototype.teardown = function () {
 OO.ui.Window.prototype.open = function ( data ) {
 	if ( !this.opening && !this.closing && !this.visible ) {
 		this.opening = true;
-		this.$element.show();
-		this.visible = true;
 		this.frame.run( OO.ui.bind( function () {
+			this.$element.show();
+			this.visible = true;
 			this.frame.$element.focus();
 			this.emit( 'opening', data );
 			this.setup( data );
