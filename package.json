@@ -1,0 +1,32 @@
+{
+  "name": "oojs-ui",
+  "version": "0.1.0",
+  "description": "User interface classes built on the OOJS framework.",
+  "keywords": [
+    "oojs-plugin",
+    "ui"
+  ],
+  "homepage": "https://www.mediawiki.org/wiki/OOJS",
+  "repository": {
+    "type": "git",
+    "url": "https://git.wikimedia.org/git/oojs/ui.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://oojs.mit-license.org"
+    }
+  ],
+  "scripts": {
+    "test": "grunt test",
+    "prepublish": "grunt build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.5.4",
+    "grunt-contrib-csslint": "~0.1.2",
+    "grunt-contrib-qunit": "~0.2.1",
+    "grunt-contrib-watch": "~0.4.3"
+  }
+}

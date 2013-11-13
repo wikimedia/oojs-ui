@@ -29,8 +29,7 @@
 	"onevar": true,
 
 	"globals": {
-		"OO": true,
-		"oo": false,
+		"OO": false,
 		"QUnit": false
 	}
 }
