@@ -49,6 +49,7 @@
 			"src/widgets/OO.ui.SearchWidget.js",
 			"src/widgets/OO.ui.TextInputWidget.js",
 			"src/widgets/OO.ui.TextInputMenuWidget.js",
+			"src/widgets/OO.ui.ToggleWidget.js",
 			"src/outro.js"
 		],
 		"styles": [
