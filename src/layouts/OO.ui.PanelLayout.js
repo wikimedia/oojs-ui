@@ -1,10 +1,3 @@
-/*!
- * ObjectOriented UserInterface PanelLayout class.
- *
- * @copyright 2011-2013 OOJS Team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
- */
-
 /**
  * Layout that expands to cover the entire area of its parent, with optional scrolling and padding.
  *

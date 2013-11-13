@@ -1,11 +1,4 @@
-/*!
- * user interface PagedPagedOutlineLayout class.
- *
- * @copyright 2011-2013 OOJS Team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
- */
-
- /**
+/**
  * Layout containing a series of pages and an outline controlling their visibility.
  *
  * The outline takes up the left third, the pages taking up the remaining two-thirds on the right.

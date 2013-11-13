@@ -1,12 +1,5 @@
-/*!
- * ObjectOriented UserInterface namespace.
- *
- * @copyright 2011-2013 OOJS Team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
- */
-
 /**
- * Namespace for all ObjectOriented UserInterface classes, static methods and static properties.
+ * Namespace for all classes, static methods and static properties.
  *
  * @class
  * @singleton

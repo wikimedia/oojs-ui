@@ -1,10 +1,3 @@
-/*!
- * ObjectOriented UserInterface InputLabelWidget class.
- *
- * @copyright 2011-2013 OOJS Team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
- */
-
 /**
  * Creates an OO.ui.InputLabelWidget object.
  *

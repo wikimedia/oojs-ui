@@ -1,10 +1,3 @@
-/*!
- * ObjectOriented UserInterface PopupToolGroup class.
- *
- * @copyright 2011-2013 OOJS Team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
- */
-
 /**
  * Popup list of tools with an icon and optional label.
  *

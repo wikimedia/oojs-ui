@@ -1,10 +1,3 @@
-/*!
- * ObjectOriented UserInterface FlaggableElement class.
- *
- * @copyright 2011-2013 OOJS Team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
- */
-
 /**
  * Element with named flags, used for styling, that can be added, removed and listed and checked.
  *
