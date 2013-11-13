@@ -30,6 +30,7 @@
 			"src/toolgroups/OO.ui.PopupToolGroup.js",
 			"src/toolgroups/OO.ui.ListToolGroup.js",
 			"src/toolgroups/OO.ui.MenuToolGroup.js",
+			"src/tools/OO.ui.PopupTool.js",
 			"src/widgets/OO.ui.ButtonWidget.js",
 			"src/widgets/OO.ui.IconButtonWidget.js",
 			"src/widgets/OO.ui.InputWidget.js",
