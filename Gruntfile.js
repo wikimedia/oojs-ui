@@ -4,8 +4,9 @@
 
 /*jshint node:true */
 module.exports = function ( grunt ) {
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
+	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadTasks( 'build/tasks' );
@@ -14,7 +15,10 @@ module.exports = function ( grunt ) {
 
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
-		build: {
+		clean: {
+			dist: ['dist/*/', 'dist/*.*']
+		},
+		concat: {
 			js: {
 				dest: 'dist/oojs-ui.js',
 				src: modules['oojs-ui'].scripts
@@ -22,6 +26,13 @@ module.exports = function ( grunt ) {
 			css: {
 				dest: 'dist/oojs-ui.css',
 				src: modules['oojs-ui'].styles
+			}
+		},
+		copy: {
+			images: {
+				src: 'src/styles/images/**/*.*',
+				strip: 'src/styles/images',
+				dest: 'dist/images'
 			}
 		},
 		jshint: {
@@ -44,6 +55,7 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
+	grunt.registerTask( 'build', ['clean', 'concat', 'copy'] );
 	grunt.registerTask( 'test', ['git-build', 'build', 'jshint', 'csslint', 'qunit'] );
 	grunt.registerTask( 'default', 'test' );
 };

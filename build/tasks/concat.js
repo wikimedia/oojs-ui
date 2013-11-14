@@ -8,7 +8,7 @@
 /*jshint node:true */
 module.exports = function ( grunt ) {
 
-	grunt.registerMultiTask( 'build', function () {
+	grunt.registerMultiTask( 'concat', function () {
 		var variant,
 			variantVersion,
 			variantFileName,
@@ -78,4 +78,5 @@ module.exports = function ( grunt ) {
 		}
 
 	} );
+
 };
