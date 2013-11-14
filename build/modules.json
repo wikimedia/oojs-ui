@@ -64,7 +64,15 @@
 			"src/styles/OO.ui.Toolbar.css",
 			"src/styles/OO.ui.ToolGroup.css",
 			"src/styles/OO.ui.Widget.css",
-			"src/styles/OO.ui.Window.css"
+			"src/styles/OO.ui.Window.css",
+			{
+				"default": [
+					"src/styles/OO.ui.Icons-raster.css"
+				],
+				"svg": [
+					"src/styles/OO.ui.Icons-vector.css"
+				]
+			}
 		]
 	}
 }

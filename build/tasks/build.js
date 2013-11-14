@@ -9,38 +9,73 @@
 module.exports = function ( grunt ) {
 
 	grunt.registerMultiTask( 'build', function () {
-		var isBad = false,
-			compiled = '',
-			name = this.data.dest,
+		var variant,
+			variantVersion,
+			variantFileName,
+			isBad = false,
+			compiled = {
+				'default': ''
+			},
+			fileName = this.data.dest,
 			src = this.data.src,
 			version = grunt.config( 'pkg.version' );
 
 		src.forEach( function ( filepath ) {
-			var text = grunt.file.read( __dirname + '/../../' + filepath );
+			var variant, text;
 
-			// Ensure files use only \n for line endings, not \r\n
-			if ( /\x0d\x0a/.test( text ) ) {
-				grunt.log.error( filepath + ': Incorrect line endings (\\r\\n)' );
-				isBad = true;
+			if ( typeof filepath !== 'object' ) {
+				filepath = { 'default': filepath };
 			}
 
-			compiled += text;
+			for ( variant in filepath ) {
+				if ( compiled[variant] === undefined ) {
+					compiled[variant] = compiled['default'];
+				}
+
+				text = grunt.file.read( __dirname + '/../../' + filepath[variant] );
+
+				// Ensure files use only \n for line endings, not \r\n
+				if ( /\x0d\x0a/.test( text ) ) {
+					grunt.log.error( filepath + ': Incorrect line endings (\\r\\n)' );
+					isBad = true;
+				}
+
+				compiled[variant] += text;
+			}
 		} );
 
 		if ( isBad ) {
 			return false;
 		}
 
-		// Replace version and date placeholders
-		compiled = compiled.replace( /@VERSION/g, version ).replace( /@DATE/g, new Date() );
+		for ( variant in compiled ) {
 
-		grunt.file.write( name, compiled );
+			if ( variant === 'default' ) {
+				variantVersion = version;
+				variantFileName = fileName;
+			} else {
+				// Transform:
+				// - "v1.0.0-pre (hash)" -> "v1.0.0-pre-variant (git)"
+				// - "v1.0.0"            -> "v1.0.0-variant"
+				variantVersion = version.replace(/(\s|$)/, '-' + variant + '$1');
+
+				// Turn example.foo.css into example.foo.variant.css
+				variantFileName = fileName.split('.');
+				variantFileName.splice( -1, 0, variant );
+				variantFileName = variantFileName.join('.');
+			}
+
+			// Replace version and date placeholders
+			compiled[variant] = compiled[variant].replace( /@VERSION/g, variantVersion ).replace( /@DATE/g, new Date() );
+
+			grunt.file.write( variantFileName, compiled[variant] );
+			grunt.log.ok( 'File "' + variantFileName + '" created.' );
+		}
 
 		// Fail task if errors were logged.
 		if ( this.errorCount ) {
 			return false;
 		}
 
-		grunt.log.ok( 'File "' + name + '" created.' );
 	} );
 };
