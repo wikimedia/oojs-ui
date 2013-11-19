@@ -10,6 +10,7 @@
  * @cfg {string} [name=''] HTML input name
  * @cfg {string} [value=''] Input value
  * @cfg {boolean} [readOnly=false] Prevent changes
+ * @cfg {Function} [inputFilter] Filter function to apply to the input. Takes a string argument and returns a string.
  */
 OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	// Config intialization
@@ -22,6 +23,7 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	this.$input = this.getInputElement( config );
 	this.value = '';
 	this.readonly = false;
+	this.inputFilter = config.inputFilter;
 
 	// Events
 	this.$input.on( 'keydown mouseup cut paste change input select', OO.ui.bind( this.onEdit, this ) );
@@ -130,7 +132,13 @@ OO.ui.InputWidget.prototype.setValue = function ( value ) {
  * @returns {string} Sanitized value
  */
 OO.ui.InputWidget.prototype.sanitizeValue = function ( value ) {
-	return value === undefined || value === null ? '' : String( value );
+	if ( value === undefined || value === null ) {
+		return '';
+	} else if ( this.inputFilter ) {
+		return this.inputFilter( String( value ) );
+	} else {
+		return String( value );
+	}
 };
 
 /**
