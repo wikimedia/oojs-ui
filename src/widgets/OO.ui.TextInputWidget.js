@@ -77,7 +77,7 @@ OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
  * @returns {jQuery} Input element
  */
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
-	return config.multiline ? this.$( '<textarea>' ) : this.$( '<input>' ).attr( 'type', 'text' );
+	return config.multiline ? this.$( '<textarea>' ) : this.$( '<input type="text" />' );
 };
 
 /* Methods */

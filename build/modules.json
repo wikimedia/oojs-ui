@@ -34,6 +34,8 @@
 			"src/widgets/OO.ui.ButtonWidget.js",
 			"src/widgets/OO.ui.IconButtonWidget.js",
 			"src/widgets/OO.ui.InputWidget.js",
+			"src/widgets/OO.ui.CheckboxInputWidget.js",
+			"src/widgets/OO.ui.CheckboxWidget.js",
 			"src/widgets/OO.ui.InputLabelWidget.js",
 			"src/widgets/OO.ui.LookupInputWidget.js",
 			"src/widgets/OO.ui.OptionWidget.js",

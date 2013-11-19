@@ -404,6 +404,16 @@ a.oo-ui-buttonWidget-button {
 	background-repeat: no-repeat;
 }
 
+/* OO.ui.CheckboxWidget */
+.oo-ui-checkboxWidget .oo-ui-labeledElement-label {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.oo-ui-checkboxWidget input {
+	vertical-align: middle;
+}
+
 /* OO.ui.MenuWidget */
 
 .oo-ui-menuWidget {
