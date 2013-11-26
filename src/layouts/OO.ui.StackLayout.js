@@ -7,9 +7,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {boolean} [continuous=false] Show all pages, one after another
  * @cfg {string} [icon=''] Symbolic icon name
  */
-OO.ui.StackPanelLayout = function OoUiStackPanelLayout( config ) {
+OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	// Config initialization
 	config = $.extend( { 'scrollable': true }, config );
 
@@ -21,16 +22,27 @@ OO.ui.StackPanelLayout = function OoUiStackPanelLayout( config ) {
 
 	// Properties
 	this.currentItem = null;
+	this.continuous = !!config.continuous;
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-stackPanelLayout' );
+	this.$element.addClass( 'oo-ui-stackLayout' );
+	if ( this.continuous ) {
+		this.$element.addClass( 'oo-ui-stackLayout-continuous' );
+	}
 };
 
 /* Inheritance */
 
-OO.inheritClass( OO.ui.StackPanelLayout, OO.ui.PanelLayout );
+OO.inheritClass( OO.ui.StackLayout, OO.ui.PanelLayout );
 
-OO.mixinClass( OO.ui.StackPanelLayout, OO.ui.GroupElement );
+OO.mixinClass( OO.ui.StackLayout, OO.ui.GroupElement );
+
+/* Events */
+
+/**
+ * @event set
+ * @param {OO.ui.PanelLayout|null} [item] Current item
+ */
 
 /* Methods */
 
@@ -44,13 +56,13 @@ OO.mixinClass( OO.ui.StackPanelLayout, OO.ui.GroupElement );
  * @param {number} [index] Index to insert items after
  * @chainable
  */
-OO.ui.StackPanelLayout.prototype.addItems = function ( items, index ) {
+OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
 	var i, len;
 
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		if ( !this.currentItem ) {
-			this.showItem( items[i] );
-		} else {
+			this.setItem( items[i] );
+		} else if ( !this.continuous ) {
 			items[i].$element.hide();
 		}
 	}
@@ -68,12 +80,12 @@ OO.ui.StackPanelLayout.prototype.addItems = function ( items, index ) {
  * @param {OO.ui.PanelLayout[]} items Items to remove
  * @chainable
  */
-OO.ui.StackPanelLayout.prototype.removeItems = function ( items ) {
+OO.ui.StackLayout.prototype.removeItems = function ( items ) {
 	OO.ui.GroupElement.prototype.removeItems.call( this, items );
 	if ( items.indexOf( this.currentItem ) !== -1 ) {
 		this.currentItem = null;
 		if ( !this.currentItem && this.items.length ) {
-			this.showItem( this.items[0] );
+			this.setItem( this.items[0] );
 		}
 	}
 
@@ -88,7 +100,7 @@ OO.ui.StackPanelLayout.prototype.removeItems = function ( items ) {
  * @method
  * @chainable
  */
-OO.ui.StackPanelLayout.prototype.clearItems = function () {
+OO.ui.StackLayout.prototype.clearItems = function () {
 	this.currentItem = null;
 	OO.ui.GroupElement.prototype.clearItems.call( this );
 
@@ -104,10 +116,17 @@ OO.ui.StackPanelLayout.prototype.clearItems = function () {
  * @param {OO.ui.PanelLayout} item Item to show
  * @chainable
  */
-OO.ui.StackPanelLayout.prototype.showItem = function ( item ) {
-	this.$items.hide();
-	item.$element.show();
+OO.ui.StackLayout.prototype.setItem = function ( item ) {
+	if ( this.items.indexOf( item ) !== -1 ) {
+		if ( !this.continuous ) {
+			this.$items.hide();
+			item.$element.show();
+		}
+	} else {
+		item = null;
+	}
 	this.currentItem = item;
+	this.emit( 'set', item );
 
 	return this;
 };
