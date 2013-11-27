@@ -22,14 +22,16 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	// Properties
 	this.$input = this.getInputElement( config );
 	this.value = '';
-	this.readonly = false;
+	this.readOnly = false;
 	this.inputFilter = config.inputFilter;
 
 	// Events
 	this.$input.on( 'keydown mouseup cut paste change input select', OO.ui.bind( this.onEdit, this ) );
 
 	// Initialization
-	this.$input.attr( 'name', config.name );
+	this.$input
+		.attr( 'name', config.name )
+		.prop( 'disabled', this.disabled );
 	this.setReadOnly( config.readOnly );
 	this.$element.addClass( 'oo-ui-inputWidget' ).append( this.$input );
 	this.setValue( config.value );
@@ -163,5 +165,16 @@ OO.ui.InputWidget.prototype.isReadOnly = function () {
 OO.ui.InputWidget.prototype.setReadOnly = function ( state ) {
 	this.readOnly = !!state;
 	this.$input.prop( 'readonly', this.readOnly );
+	return this;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.InputWidget.prototype.setDisabled = function ( state ) {
+	OO.ui.Widget.prototype.setDisabled.call( this, state );
+	if ( this.$input ) {
+		this.$input.prop( 'disabled', this.disabled );
+	}
 	return this;
 };
