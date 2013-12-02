@@ -51,6 +51,10 @@ OO.ui.Frame.static.tagName = 'iframe';
  * frame's document. It then polls the document to see when all styles have loaded, and once they
  * have, invokes the callback.
  *
+ * If the styles still haven't loaded after a long time (5 seconds by default), we give up waiting
+ * and invoke the callback anyway. This protects against cases like a display: none; iframe in
+ * Firefox, where the styles won't load until the iframe becomes visible.
+ *
  * For details of how we arrived at the strategy used in this function, see #load.
  *
  * @static
@@ -59,9 +63,10 @@ OO.ui.Frame.static.tagName = 'iframe';
  * @param {HTMLDocument} parentDoc Document to transplant styles from
  * @param {HTMLDocument} frameDoc Document to transplant styles to
  * @param {Function} [callback] Callback to execute once styles have loaded
+ * @param {number} [timeout=5000] How long to wait before giving up (in ms). If 0, never give up.
  */
-OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, callback ) {
-	var i, numSheets, styleNode, newNode, timeout, pollNodeId, $pendingPollNodes,
+OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, callback, timeout ) {
+	var i, numSheets, styleNode, newNode, timeoutID, pollNodeId, $pendingPollNodes,
 		$pollNodes = $( [] ),
 		// Fake font-family value
 		fontFamily = 'oo-ui-frame-transplantStyles-loaded';
@@ -93,7 +98,7 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, callback )
 	if ( callback ) {
 		// Poll every 100ms until all external stylesheets have loaded
 		$pendingPollNodes = $pollNodes;
-		timeout = setTimeout( function pollExternalStylesheets() {
+		timeoutID = setTimeout( function pollExternalStylesheets() {
 			while (
 				$pendingPollNodes.length > 0 &&
 				$pendingPollNodes.eq( 0 ).css( 'font-family' ) === fontFamily
@@ -103,12 +108,26 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, callback )
 
 			if ( $pendingPollNodes.length === 0 ) {
 				// We're done!
-				$pollNodes.remove();
-				callback();
+				if ( timeoutID !== null ) {
+					timeoutID = null;
+					$pollNodes.remove();
+					callback();
+				}
 			} else {
-				timeout = setTimeout( pollExternalStylesheets, 100 );
+				timeoutID = setTimeout( pollExternalStylesheets, 100 );
 			}
 		}, 100 );
+		// ...but give up after a while
+		if ( timeout !== 0 ) {
+			setTimeout( function () {
+				if ( timeoutID ) {
+					clearTimeout( timeoutID );
+					timeoutID = null;
+					$pollNodes.remove();
+					callback();
+				}
+			}, timeout || 5000 );
+		}
 	}
 };
 
