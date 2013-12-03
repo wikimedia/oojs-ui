@@ -70,10 +70,6 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 var messages = {
 	// Label text for button to exit from dialog
 	'ooui-dialog-action-close': 'Close',
-	// TODO remove me
-	'ooui-inspector-close-tooltip': 'Close',
-	// TODO remove me
-	'ooui-inspector-remove-tooltip': 'Remove',
 	// Tool tip for a button that moves items in a list down one place
 	'ooui-outline-control-move-down': 'Move item down',
 	// Tool tip for a button that moves items in a list up one place
