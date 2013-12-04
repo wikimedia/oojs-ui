@@ -579,6 +579,10 @@ a.oo-ui-buttonWidget-button {
 	transition: background-color 200ms;
 }
 
+.oo-ui-toggleWidget.oo-ui-widget-disabled {
+	opacity: 0.5;
+}
+
 .oo-ui-toggleWidget-slide {
 	position: absolute;
 	top: 0;
@@ -636,7 +640,7 @@ a.oo-ui-buttonWidget-button {
 	background-image: linear-gradient(top, #ffffff 0%, #f0f0f0 100%);
 }
 
-.oo-ui-toggleWidget:hover,
+.oo-ui-toggleWidget:not(.oo-ui-widget-disabled):hover,
 .oo-ui-toggleWidget-dragging,
 .oo-ui-toggleWidget:hover .oo-ui-toggleWidget-grip,
 .oo-ui-toggleWidget-dragging .oo-ui-toggleWidget-grip {
