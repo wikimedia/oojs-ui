@@ -408,10 +408,15 @@ a.oo-ui-buttonWidget-button {
 .oo-ui-checkboxWidget .oo-ui-labeledElement-label {
 	display: inline-block;
 	vertical-align: middle;
+	padding-left: 0.5em;
 }
 
 .oo-ui-checkboxWidget input {
 	vertical-align: middle;
+}
+
+.oo-ui-checkboxWidget.oo-ui-widget-disabled .oo-ui-labeledElement-label {
+	opacity: 0.5;
 }
 
 /* OO.ui.MenuWidget */
