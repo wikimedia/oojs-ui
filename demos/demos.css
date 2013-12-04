@@ -1,0 +1,35 @@
+body {
+	font-size: 100%;
+	font-family: sans-serif;
+}
+
+.oo-ui-demo {
+	font-size: 0.8em;
+	width: 50em;
+	margin: 3em auto;
+	padding: 2em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	box-shadow: 0 0.25em 1em rgba(0,0,0,0.25);
+	border-radius: 0.5em;
+}
+
+.oo-ui-demo-item {
+	clear: both;
+	padding: 1em 0;
+}
+
+.oo-ui-demo-item:not(:last-child) {
+	margin-bottom: 1em;
+}
+.oo-ui-demo-item-label {
+	width: 30%;
+	float: left;
+	line-height: 2em;
+}
+
+.oo-ui-demo-item-widget {
+	width: 60%;
+	float: right;
+}
