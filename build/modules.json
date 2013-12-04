@@ -31,6 +31,7 @@
 			"src/toolgroups/OO.ui.ListToolGroup.js",
 			"src/toolgroups/OO.ui.MenuToolGroup.js",
 			"src/tools/OO.ui.PopupTool.js",
+			"src/widgets/OO.ui.ButtonGroupWidget.js",
 			"src/widgets/OO.ui.ButtonWidget.js",
 			"src/widgets/OO.ui.IconButtonWidget.js",
 			"src/widgets/OO.ui.InputWidget.js",
@@ -53,6 +54,8 @@
 			"src/widgets/OO.ui.TextInputWidget.js",
 			"src/widgets/OO.ui.TextInputMenuWidget.js",
 			"src/widgets/OO.ui.ToggleWidget.js",
+			"src/widgets/OO.ui.ToggleButtonWidget.js",
+			"src/widgets/OO.ui.ToggleSwitchWidget.js",
 			"src/outro.js"
 		],
 		"styles": [

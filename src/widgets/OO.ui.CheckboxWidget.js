@@ -12,8 +12,10 @@
 OO.ui.CheckboxWidget = function OoUiCheckboxWidget( config ) {
 	config = config || {};
 
-	// Parent constructors
+	// Parent constructor
 	OO.ui.CheckboxInputWidget.call( this, config );
+
+	// Mixin constructors
 	OO.ui.LabeledElement.call( this, this.$( '<span>' ) , config );
 
 	this.$( '<label>' ).append( this.$input, this.$label ).appendTo( this.$element );
@@ -25,4 +27,5 @@ OO.ui.CheckboxWidget = function OoUiCheckboxWidget( config ) {
 /* Inheritance */
 
 OO.inheritClass( OO.ui.CheckboxWidget, OO.ui.CheckboxInputWidget );
+
 OO.mixinClass( OO.ui.CheckboxWidget, OO.ui.LabeledElement );
