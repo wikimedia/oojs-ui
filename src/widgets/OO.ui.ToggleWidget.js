@@ -15,7 +15,7 @@ OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {
 	// Configuration initialization
 	config = $.extend( {
 		'onLabel': OO.ui.msg( 'ooui-toggle-on' ),
-		'offLabel': OO.ui.msg( 'ooui-toggle-on' )
+		'offLabel': OO.ui.msg( 'ooui-toggle-off' )
 	}, config );
 
 	// Parent constructor
@@ -73,7 +73,7 @@ OO.inheritClass( OO.ui.ToggleWidget, OO.ui.Widget );
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.ToggleWidget.prototype.onMouseDown = function ( e ) {
-	if ( e.which === 1 ) {
+	if ( !this.disabled && e.which === 1 ) {
 		this.dragging = true;
 		this.dragStart = e.pageX;
 		this.$( this.$.context ).on( {
