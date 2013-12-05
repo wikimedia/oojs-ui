@@ -57,16 +57,11 @@ OO.mixinClass( OO.ui.StackLayout, OO.ui.GroupElement );
  * @chainable
  */
 OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
-	var i, len;
-
-	for ( i = 0, len = items.length; i < len; i++ ) {
-		if ( !this.currentItem ) {
-			this.setItem( items[i] );
-		} else if ( !this.continuous ) {
-			items[i].$element.hide();
-		}
-	}
 	OO.ui.GroupElement.prototype.addItems.call( this, items, index );
+
+	if ( !this.currentItem && items.length ) {
+		this.setItem( items[0] );
+	}
 
 	return this;
 };
@@ -117,10 +112,12 @@ OO.ui.StackLayout.prototype.clearItems = function () {
  * @chainable
  */
 OO.ui.StackLayout.prototype.setItem = function ( item ) {
+	if ( !this.continuous ) {
+		this.$items.css( 'display', '' );
+	}
 	if ( this.items.indexOf( item ) !== -1 ) {
 		if ( !this.continuous ) {
-			this.$items.hide();
-			item.$element.show();
+			item.$element.css( 'display', 'block' );
 		}
 	} else {
 		item = null;

@@ -6,6 +6,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {boolean} [continuous=false] Show all pages, one after another
  * @cfg {boolean} [autoFocus=false] Focus on the first focusable element when changing to a page
  * @cfg {boolean} [outlined=false] Show an outline
  * @cfg {boolean} [editable=false] Show controls for adding, removing and reordering pages
@@ -23,7 +24,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.pages = {};
 	this.scrolling = false;
 	this.selecting = false;
-	this.stackLayout = new OO.ui.StackLayout( { '$': this.$, 'continuous': true } );
+	this.stackLayout = new OO.ui.StackLayout( { '$': this.$, 'continuous': !!config.continuous } );
 	this.scrollingTimeout = null;
 	this.onStackLayoutDebouncedScrollHandler =
 		OO.ui.bind( this.onStackLayoutDebouncedScroll, this );

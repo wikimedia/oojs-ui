@@ -84,7 +84,12 @@
 	box-shadow: 0 0 0.25em rgba(0,0,0,0.25);
 }
 
+.oo-ui-stackLayout > .oo-ui-panelLayout {
+	display: none;
+}
+
 .oo-ui-stackLayout-continuous > .oo-ui-panelLayout {
+	display: block;
 	position: relative;
 	margin-bottom: 1em;
 	box-shadow: 0 0 0.5em rgba(0,0,0,0.25);
