@@ -6,12 +6,19 @@
  *
  * @constructor
  * @param {jQuery} $group Container node, assigned to #$group
+ * @param {Object} [config] Configuration options
+ * @cfg {Object.<string,string>} [aggregations] Events to aggregate, keyed by item event name
  */
-OO.ui.GroupElement = function OoUiGroupElement( $group ) {
+OO.ui.GroupElement = function OoUiGroupElement( $group, config ) {
+	// Configuration
+	config = config || {};
+
 	// Properties
 	this.$group = $group;
 	this.items = [];
 	this.$items = this.$( [] );
+	this.aggregate = !$.isEmptyObject( config.aggregations );
+	this.aggregations = config.aggregations || {};
 };
 
 /* Methods */
@@ -35,7 +42,7 @@ OO.ui.GroupElement.prototype.getItems = function () {
  * @chainable
  */
 OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
-	var i, len, item, currentIndex,
+	var i, len, item, event, events, currentIndex,
 		$items = this.$( [] );
 
 	for ( i = 0, len = items.length; i < len; i++ ) {
@@ -51,6 +58,13 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 			}
 		}
 		// Add the item
+		if ( this.aggregate ) {
+			events = {};
+			for ( event in this.aggregations ) {
+				events[event] = [ 'emit', this.aggregations[event], item ];
+			}
+			item.connect( this, events );
+		}
 		$items = $items.add( item.$element );
 	}
 
@@ -80,12 +94,20 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
  * @chainable
  */
 OO.ui.GroupElement.prototype.removeItems = function ( items ) {
-	var i, len, item, index;
+	var i, len, item, index, event, events;
+
 	// Remove specific items
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[i];
 		index = this.items.indexOf( item );
 		if ( index !== -1 ) {
+			if ( this.aggregate ) {
+				events = {};
+				for ( event in this.aggregations ) {
+					events[event] = 'emit';
+				}
+				item.disconnect( this, events );
+			}
 			this.items.splice( index, 1 );
 			item.$element.detach();
 			this.$items = this.$items.not( item.$element );
@@ -104,9 +126,5 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
  * @chainable
  */
 OO.ui.GroupElement.prototype.clearItems = function () {
-	this.items = [];
-	this.$items.detach();
-	this.$items = this.$( [] );
-
-	return this;
+	return this.removeItems( this.items );
 };
