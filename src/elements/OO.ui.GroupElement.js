@@ -94,7 +94,7 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
  * @chainable
  */
 OO.ui.GroupElement.prototype.removeItems = function ( items ) {
-	var i, len, item, index, event, events;
+	var i, len, item, index;
 
 	// Remove specific items
 	for ( i = 0, len = items.length; i < len; i++ ) {
@@ -102,11 +102,7 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
 		index = this.items.indexOf( item );
 		if ( index !== -1 ) {
 			if ( this.aggregate ) {
-				events = {};
-				for ( event in this.aggregations ) {
-					events[event] = 'emit';
-				}
-				item.disconnect( this, events );
+				item.disconnect( this );
 			}
 			this.items.splice( index, 1 );
 			item.$element.detach();
@@ -126,5 +122,15 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
  * @chainable
  */
 OO.ui.GroupElement.prototype.clearItems = function () {
-	return this.removeItems( this.items );
+	var i, len, item;
+
+	// Remove all items
+	if ( this.aggregate ) {
+		for ( i = 0, len = this.items.length; i < len; i++ ) {
+			item.disconnect( this );
+		}
+	}
+	this.items = [];
+	this.$items.detach();
+	this.$items = this.$( [] );
 };
