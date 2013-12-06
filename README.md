@@ -20,7 +20,7 @@ For more information on SemVer, please visit http://semver.org/.
 Bug tracker
 -----------
 
-Found a bug? Please report it in the [issue tracker](https://bugzilla.wikimedia.org/enter_bug.cgi?product=OOJS+UI)!
+Found a bug? Please report it in the [issue tracker](https://bugzilla.wikimedia.org/enter_bug.cgi?product=OOjs+UI)!
 
 Release
 ----------
