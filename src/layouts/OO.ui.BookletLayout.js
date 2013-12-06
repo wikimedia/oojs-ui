@@ -22,12 +22,8 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	// Properties
 	this.currentPageName = null;
 	this.pages = {};
-	this.scrolling = false;
-	this.selecting = false;
+	this.ignoreFocus = false;
 	this.stackLayout = new OO.ui.StackLayout( { '$': this.$, 'continuous': !!config.continuous } );
-	this.scrollingTimeout = null;
-	this.onStackLayoutDebouncedScrollHandler =
-		OO.ui.bind( this.onStackLayoutDebouncedScroll, this );
 	this.autoFocus = !!config.autoFocus;
 	this.outlined = !!config.outlined;
 	if ( this.outlined ) {
@@ -41,7 +37,8 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 		);
 		if ( this.editable ) {
 			this.outlineControlsWidget = new OO.ui.OutlineControlsWidget(
-				this.outlineWidget, { '$': this.$, 'adders': this.adders }
+				this.outlineWidget,
+				{ '$': this.$, 'adders': this.adders }
 			);
 		}
 	}
@@ -50,7 +47,8 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.stackLayout.connect( this, { 'set': 'onStackLayoutSet' } );
 	if ( this.outlined ) {
 		this.outlineWidget.connect( this, { 'select': 'onOutlineWidgetSelect' } );
-		this.stackLayout.$element.on( 'scroll', OO.ui.bind( this.onStackLayoutScroll, this ) );
+		// Event 'focus' does not bubble, but 'focusin' does
+		this.stackLayout.onDOMEvent( 'focusin', OO.ui.bind( this.onStackLayoutFocus, this ) );
 	}
 
 	// Initialization
@@ -96,46 +94,26 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.Layout );
 /* Methods */
 
 /**
- * Handle stack layout scroll events.
+ * Handle stack layout focus.
  *
  * @method
- * @param {jQuery.Event} e Scroll event
+ * @param {jQuery.Event} e Focusin event
  */
-OO.ui.BookletLayout.prototype.onStackLayoutScroll = function () {
-	if ( !this.selecting ) {
-		this.scrolling = true;
-		if ( !this.scrollingTimeout ) {
-			this.scrollingTimeout = setTimeout( this.onStackLayoutDebouncedScrollHandler, 100 );
-		}
+OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
+	var name, $target;
+
+	if ( this.ignoreFocus ) {
+		// Avoid recursion from programmatic focus trigger in #onStackLayoutSet
+		return;
 	}
-};
 
-OO.ui.BookletLayout.prototype.onStackLayoutDebouncedScroll = function () {
-	var i, len, name, top, height, $item, visible,
-		items = this.stackLayout.getItems(),
-		middle = this.stackLayout.$element.height() / 2;
-
-	for ( i = 0, len = items.length; i < len; i++ ) {
-		$item = items[i].$element;
-		top = $item.position().top;
-		height = $item.height();
-		if ( top < middle && top + height > middle ) {
-			visible = items[i];
+	$target = $( e.target ).closest( '.oo-ui-pageLayout' );
+	for ( name in this.pages ) {
+		if ( this.pages[ name ].$element[0] === $target[0] ) {
+			this.setPage( name );
 			break;
 		}
 	}
-	if ( visible ) {
-		for ( name in this.pages ) {
-			if ( this.pages[name] === items[i] ) {
-				break;
-			}
-		}
-		if ( name !== this.currentPageName ) {
-			this.setPage( name );
-		}
-	}
-	this.scrolling = false;
-	this.scrollingTimeout = null;
 };
 
 /**
@@ -146,20 +124,13 @@ OO.ui.BookletLayout.prototype.onStackLayoutDebouncedScroll = function () {
  */
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
 	if ( page ) {
-		this.selecting = true;
-		if ( this.scrolling ) {
+		page.scrollElementIntoView( { 'complete': OO.ui.bind( function () {
+			this.ignoreFocus = true;
 			if ( this.autoFocus ) {
 				page.$element.find( ':input:first' ).focus();
 			}
-			this.selecting = false;
-		} else {
-			page.scrollElementIntoView( { 'complete': OO.ui.bind( function () {
-				if ( this.autoFocus ) {
-					page.$element.find( ':input:first' ).focus();
-				}
-				this.selecting = false;
-			}, this ) } );
-		}
+			this.ignoreFocus = false;
+		}, this ) } );
 	}
 };
 
@@ -170,7 +141,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
  * @param {OO.ui.OptionWidget|null} item Selected item
  */
 OO.ui.BookletLayout.prototype.onOutlineWidgetSelect = function ( item ) {
-	if ( item && !this.scrolling ) {
+	if ( item ) {
 		this.setPage( item.getData() );
 	}
 };
