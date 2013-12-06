@@ -5,13 +5,14 @@
  * @extends OO.ui.PanelLayout
  *
  * @constructor
+ * @param {string} name Unique symbolic name of page
  * @param {Object} [config] Configuration options
  * @param {string} [icon=''] Symbolic name of icon to display in outline
  * @param {string} [label=''] Label to display in outline
  * @param {number} [level=0] Indentation level of item in outline
  * @param {boolean} [movable=false] Page should be movable using outline controls
  */
-OO.ui.PageLayout = function OoUiPageLayout( config ) {
+OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
 	// Configuration initialization
 	config = $.extend( { 'scrollable': true }, config );
 
@@ -19,6 +20,7 @@ OO.ui.PageLayout = function OoUiPageLayout( config ) {
 	OO.ui.PanelLayout.call( this, config );
 
 	// Properties
+	this.name = name;
 	this.icon = config.icon || '';
 	this.label = config.label || '';
 	this.level = config.level || 0;
@@ -30,6 +32,15 @@ OO.ui.PageLayout = function OoUiPageLayout( config ) {
 OO.inheritClass( OO.ui.PageLayout, OO.ui.PanelLayout );
 
 /* Methods */
+
+/**
+ * Get page name.
+ *
+ * @returns {string} Symbolic name of page
+ */
+OO.ui.PageLayout.prototype.getName = function () {
+	return this.name;
+};
 
 /**
  * Get page icon.

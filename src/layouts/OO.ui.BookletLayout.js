@@ -78,19 +78,19 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.Layout );
 /* Events */
 
 /**
+ * @event set
+ * @param {OO.ui.PageLayout} page Current page
+ */
+
+/**
  * @event add
- * @param {string} name The name of the page added.
- * @param {OO.ui.PageLayout} page The page panel.
+ * @param {OO.ui.PageLayout[]} page Added pages
+ * @param {number} index Index pages were added at
  */
 
 /**
  * @event remove
- * @param {OO.ui.PageLayout[]} pages An array of page panels that were removed.
- */
-
-/**
- * @event set
- * @param {OO.ui.PageLayout} page The page panel that is now the current page.
+ * @param {OO.ui.PageLayout[]} pages Removed pages
  */
 
 /* Methods */
@@ -199,7 +199,7 @@ OO.ui.BookletLayout.prototype.isEditable = function () {
  * Get the outline widget.
  *
  * @method
- * @returns {OO.ui.OutlineWidget} Outline widget
+ * @returns {OO.ui.OutlineWidget|null} Outline widget, or null if boolet has no outline
  */
 OO.ui.BookletLayout.prototype.getOutline = function () {
 	return this.outlineWidget;
@@ -239,17 +239,30 @@ OO.ui.BookletLayout.prototype.getPageName = function () {
 /**
  * Add a page to the layout.
  *
+ * When pages are added with the same names as existing pages, the existing pages will be
+ * automatically removed before the new pages are added.
+ *
  * @method
- * @param {string} name Symbolic name of page
- * @param {OO.ui.PageLayout} page Page to add
- * @param {number} index Specific index to insert page at
+ * @param {OO.ui.PageLayout[]} pages Pages to add
+ * @param {number} index Index to insert pages after
  * @fires add
  * @chainable
  */
-OO.ui.BookletLayout.prototype.addPage = function ( name, page, index ) {
-	if ( this.outlined ) {
-		this.outlineWidget.addItems(
-			[
+OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
+	var i, len, name, page,
+		items = [],
+		remove = [];
+
+	for ( i = 0, len = pages.length; i < len; i++ ) {
+		page = pages[i];
+		name = page.getName();
+		if ( name in this.pages ) {
+			// Remove page with same name
+			remove.push( this.pages[name] );
+		}
+		this.pages[page.getName()] = page;
+		if ( this.outlined ) {
+			items.push(
 				new OO.ui.OutlineItemWidget( name, {
 					'$': this.$,
 					'label': page.getLabel() || name,
@@ -257,14 +270,20 @@ OO.ui.BookletLayout.prototype.addPage = function ( name, page, index ) {
 					'icon': page.getIcon(),
 					'moveable': page.isMovable()
 				} )
-			],
-			index
-		);
+			);
+		}
+	}
+	if ( remove.length ) {
+		this.removePages( remove );
+	}
+
+	if ( this.outlined && items.length ) {
+		this.outlineWidget.addItems( items, index );
 		this.updateOutlineWidget();
 	}
-	this.pages[name] = page;
-	this.stackLayout.addItems( [ page ], index );
-	this.emit( 'add', name, page );
+	this.stackLayout.addItems( pages, index );
+	this.emit( 'add', pages, index );
+
 	return this;
 };
 
@@ -275,19 +294,24 @@ OO.ui.BookletLayout.prototype.addPage = function ( name, page, index ) {
  * @fires remove
  * @chainable
  */
-OO.ui.BookletLayout.prototype.removePage = function ( name ) {
-	var page = this.pages[name];
+OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
+	var i, len, name, page,
+		items = [];
 
-	if ( page ) {
-		if ( this.outlined ) {
-			this.outlineWidget.removeItems( [ this.outlineWidget.getItemFromData( name ) ] );
-			this.updateOutlineWidget();
-		}
-		page = [ page ];
+	for ( i = 0, len = pages.length; i < len; i++ ) {
+		page = pages[i];
+		name = page.getName();
 		delete this.pages[name];
-		this.stackLayout.removeItems( page );
-		this.emit( 'remove', page );
+		if ( this.outlined ) {
+			items.push( this.outlineWidget.getItemFromData( name ) );
+		}
 	}
+	if ( this.outlined && items.length ) {
+		this.outlineWidget.removeItems( items );
+		this.updateOutlineWidget();
+	}
+	this.stackLayout.removeItems( pages );
+	this.emit( 'remove', pages );
 
 	return this;
 };
@@ -302,12 +326,13 @@ OO.ui.BookletLayout.prototype.removePage = function ( name ) {
 OO.ui.BookletLayout.prototype.clearPages = function () {
 	var pages = this.stackLayout.getItems();
 
+	this.pages = {};
+	this.currentPageName = null;
 	if ( this.outlined ) {
 		this.outlineWidget.clearItems();
 	}
-	this.currentPageName = null;
-	this.pages = {};
 	this.stackLayout.clearItems();
+
 	this.emit( 'remove', pages );
 
 	return this;
@@ -321,11 +346,16 @@ OO.ui.BookletLayout.prototype.clearPages = function () {
  * @param {string} name Symbolic name of page
  */
 OO.ui.BookletLayout.prototype.setPage = function ( name ) {
-	var page = this.pages[name];
+	var selectedItem,
+		page = this.pages[name];
 
-	if ( this.outlined && name !== this.outlineWidget.getSelectedItem().getData() ) {
-		this.outlineWidget.selectItem( this.outlineWidget.getItemFromData( name ) );
+	if ( this.outlined ) {
+		selectedItem = this.outlineWidget.getSelectedItem();
+		if ( selectedItem && selectedItem.getData() !== name ) {
+			this.outlineWidget.selectItem( this.outlineWidget.getItemFromData( name ) );
+		}
 	}
+
 	if ( page ) {
 		this.currentPageName = name;
 		this.stackLayout.setItem( page );

@@ -47,12 +47,12 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupElement );
 
 /**
  * @event highlight
- * @param {OO.ui.OptionWidget|null} item Highlighted item or null if no item is highlighted
+ * @param {OO.ui.OptionWidget|null} item Highlighted item
  */
 
 /**
  * @event select
- * @param {OO.ui.OptionWidget|null} item Selected item or null if no item is selected
+ * @param {OO.ui.OptionWidget|null} item Selected item
  */
 
 /**
@@ -354,7 +354,8 @@ OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
 /**
  * Add items.
  *
- * Adding an existing item (by value) will move it.
+ * When items are added with the same values as existing items, the existing items will be
+ * automatically removed before the new items are added.
  *
  * @method
  * @param {OO.ui.OptionWidget[]} items Items to add
@@ -363,19 +364,22 @@ OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
  * @chainable
  */
 OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
-	var i, len, item, hash;
+	var i, len, item, hash,
+		remove = [];
 
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[i];
 		hash = OO.getHash( item.getData() );
 		if ( hash in this.hashes ) {
-			// Use existing item with the same value
-			items[i] = this.hashes[hash];
-		} else {
-			// Add new item
-			this.hashes[hash] = item;
+			// Remove item with same value
+			remove.push( this.hashes[hash] );
 		}
+		this.hashes[hash] = item;
 	}
+	if ( remove.length ) {
+		this.removeItems( remove );
+	}
+
 	OO.ui.GroupElement.prototype.addItems.call( this, items, index );
 
 	// Always provide an index, even if it was omitted
