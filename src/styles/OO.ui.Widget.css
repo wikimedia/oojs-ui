@@ -310,11 +310,8 @@ a.oo-ui-buttonWidget-button {
 	float: right;
 }
 
-.oo-ui-outlineControlsWidget-adders:not(:hover) .oo-ui-iconButtonWidget:not(:first-child) {
-	opacity: 0;
-}
-
-.oo-ui-outlineControlsWidget-adders:hover .oo-ui-iconButtonWidget:first-child {
+.oo-ui-outlineControlsWidget-adders .oo-ui-iconButtonWidget:first-child,
+.oo-ui-outlineControlsWidget-adders .oo-ui-iconButtonWidget:first-child:hover {
 	opacity: 0.25;
 	cursor: default;
 }

@@ -8,7 +8,7 @@
  * @param {Mixed} data Item data
  * @param {Object} [config] Configuration options
  * @cfg {number} [level] Indentation level
- * @cfg {boolean} [moveable] Allow modification from outline controls
+ * @cfg {boolean} [movable] Allow modification from outline controls
  */
 OO.ui.OutlineItemWidget = function OoUiOutlineItemWidget( data, config ) {
 	// Config intialization
@@ -19,7 +19,7 @@ OO.ui.OutlineItemWidget = function OoUiOutlineItemWidget( data, config ) {
 
 	// Properties
 	this.level = 0;
-	this.moveable = !!config.moveable;
+	this.movable = !!config.movable;
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-outlineItemWidget' );
@@ -43,14 +43,14 @@ OO.ui.OutlineItemWidget.static.levels = 3;
 /* Methods */
 
 /**
- * Check if item is moveable.
+ * Check if item is movable.
  *
  * Moveablilty is used by outline controls.
  *
- * @returns {boolean} Item is moveable
+ * @returns {boolean} Item is movable
  */
-OO.ui.OutlineItemWidget.prototype.isMoveable = function () {
-	return this.moveable;
+OO.ui.OutlineItemWidget.prototype.isMovable = function () {
+	return this.movable;
 };
 
 /**

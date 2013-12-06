@@ -268,7 +268,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 					'label': page.getLabel() || name,
 					'level': page.getLevel(),
 					'icon': page.getIcon(),
-					'moveable': page.isMovable()
+					'movable': page.isMovable()
 				} )
 			);
 		}

@@ -69,31 +69,31 @@ OO.inheritClass( OO.ui.OutlineControlsWidget, OO.ui.Widget );
  * @method
  */
 OO.ui.OutlineControlsWidget.prototype.onOutlineChange = function () {
-	var i, len, firstMoveable, lastMoveable,
-		moveable = false,
+	var i, len, firstMovable, lastMovable,
+		movable = false,
 		items = this.outline.getItems(),
 		selectedItem = this.outline.getSelectedItem();
 
-	if ( selectedItem && selectedItem.isMoveable() ) {
-		moveable = true;
+	if ( selectedItem && selectedItem.isMovable() ) {
+		movable = true;
 		i = -1;
 		len = items.length;
 		while ( ++i < len ) {
-			if ( items[i].isMoveable() ) {
-				firstMoveable = items[i];
+			if ( items[i].isMovable() ) {
+				firstMovable = items[i];
 				break;
 			}
 		}
 		i = len;
 		while ( i-- ) {
-			if ( items[i].isMoveable() ) {
-				lastMoveable = items[i];
+			if ( items[i].isMovable() ) {
+				lastMovable = items[i];
 				break;
 			}
 		}
 	}
-	this.upButton.setDisabled( !moveable || selectedItem === firstMoveable );
-	this.downButton.setDisabled( !moveable || selectedItem === lastMoveable );
+	this.upButton.setDisabled( !movable || selectedItem === firstMovable );
+	this.downButton.setDisabled( !movable || selectedItem === lastMovable );
 };
 
 /**
