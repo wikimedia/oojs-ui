@@ -10,6 +10,7 @@
  * @cfg {string} [label=''] Label
  */
 OO.ui.CheckboxWidget = function OoUiCheckboxWidget( config ) {
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor
@@ -18,10 +19,10 @@ OO.ui.CheckboxWidget = function OoUiCheckboxWidget( config ) {
 	// Mixin constructors
 	OO.ui.LabeledElement.call( this, this.$( '<span>' ) , config );
 
-	this.$( '<label>' ).append( this.$input, this.$label ).appendTo( this.$element );
-
 	// Initialization
-	this.$element.addClass( 'oo-ui-checkboxWidget' );
+	this.$element
+		.addClass( 'oo-ui-checkboxWidget' )
+		.append( this.$( '<label>' ).append( this.$input, this.$label ) );
 };
 
 /* Inheritance */

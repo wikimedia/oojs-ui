@@ -8,12 +8,8 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
-	config = config || {};
-
 	// Parent constructor
 	OO.ui.InputWidget.call( this, config );
-
-	this.value = false;
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-checkboxInputWidget' );
@@ -49,9 +45,10 @@ OO.ui.CheckboxInputWidget.prototype.getValue = function () {
  * Set value
  */
 OO.ui.CheckboxInputWidget.prototype.setValue = function ( value ) {
+	value = !!value;
 	if ( this.value !== value ) {
-		this.value = !!value;
-		this.$element.attr( 'checked', this.value );
+		this.value = value;
+		this.$input.prop( 'checked', this.value );
 		this.emit( 'change', this.value );
 	}
 };
@@ -63,7 +60,7 @@ OO.ui.CheckboxInputWidget.prototype.onEdit = function () {
 	if ( !this.disabled ) {
 		// Allow the stack to clear so the value will be updated
 		setTimeout( OO.ui.bind( function () {
-			this.setValue( this.$input.attr( 'checked' ) );
+			this.setValue( this.$input.prop( 'checked' ) );
 		}, this ) );
 	}
 };
