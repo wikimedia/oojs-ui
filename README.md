@@ -30,7 +30,7 @@ Release process:
 ```bash
 $ cd path/to/oojs-ui/
 $ git remote update
-$ git checkout origin/master
+$ git checkout -b release -t origin/master
 
 # Ensure tests pass
 $ npm install && npm test
@@ -41,13 +41,13 @@ $ npm install && npm test
 
 # Change the version number
 $ edit package.json
-$ git add package.json && git commit -m "Tag v%s"
+$ git add package.json && git commit -m "Tag vX.X.X"
 $ git review
 
 # After merging:
 $ git remote update
 $ git checkout origin/master
-$ git tag "v%s"
+$ git tag "vX.X.X"
 $ git push --tags
 $ npm publish
 ```
