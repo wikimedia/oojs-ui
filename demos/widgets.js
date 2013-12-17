@@ -159,7 +159,8 @@ $( function () {
 							.text( item.label ),
 						$( '<div>' )
 							.addClass( 'oo-ui-demo-item-widget' )
-							.append( item.widget.$element )
+							.append( item.widget.$element ),
+						OO.ui.demo.buildConsole( item )
 					)
 			);
 		}
