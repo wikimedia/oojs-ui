@@ -38,7 +38,7 @@ module.exports = function ( grunt ) {
 		jshint: {
 			options: JSON.parse( grunt.file.read( '.jshintrc' )
 				.replace( /\/\*(?:(?!\*\/)[\s\S])*\*\//g, '' ).replace( /\/\/[^\n\r]*/g, '' ) ),
-			all: ['*.js', '{build,dist,src,test}/**/*.js']
+			all: ['*.js', '{build,demos,dist,src,test}/**/*.js']
 		},
 		csslint: {
 			options: {
