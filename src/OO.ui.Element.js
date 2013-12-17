@@ -197,6 +197,7 @@ OO.ui.Element.getRelativePosition = function ( $from, $to ) {
 /**
  * Get element border sizes.
  *
+ * @static
  * @param {HTMLElement} el Element to measure
  * @return {Object} Dimensions object with `top`, `left`, `bottom` and `right` properties
  */
@@ -223,6 +224,7 @@ OO.ui.Element.getBorders = function ( el ) {
 /**
  * Get dimensions of an element or window.
  *
+ * @static
  * @param {HTMLElement|Window} el Element to measure
  * @return {Object} Dimensions object with `borders`, `scroll`, `scrollbar` and `rect` properties
  */
@@ -408,3 +410,86 @@ OO.ui.Element.prototype.getClosestScrollableElementContainer = function () {
 OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
 	return OO.ui.Element.scrollIntoView( this.$element[0], config );
 };
+
+( function () {
+	// Static
+	var specialFocusin;
+
+	function handler( e ) {
+		jQuery.event.simulate( 'focusin', e.target, jQuery.event.fix( e ), /* bubble = */ true );
+	}
+
+	specialFocusin = {
+		setup: function () {
+			var doc = this.ownerDocument || this,
+				attaches = $.data( doc, 'ooui-focusin-attaches' );
+			if ( !attaches ) {
+				doc.addEventListener( 'focus', handler, true );
+			}
+			$.data( doc, 'ooui-focusin-attaches', ( attaches || 0 ) + 1 );
+		},
+		teardown: function () {
+			var doc = this.ownerDocument || this,
+				attaches = $.data( doc, 'ooui-focusin-attaches' ) - 1;
+			if ( !attaches ) {
+				doc.removeEventListener( 'focus', handler, true );
+				$.removeData( doc, 'ooui-focusin-attaches' );
+			} else {
+				$.data( doc, 'ooui-focusin-attaches', attaches );
+			}
+		}
+	};
+
+	/**
+	 * Bind a handler for an event on the DOM element.
+	 *
+	 * Uses jQuery internally for everything except for events which are
+	 * known to have issues in the browser or in jQuery. This method
+	 * should become obsolete eventually.
+	 *
+	 * @param {string} event
+	 * @param {Function} callback
+	 */
+	OO.ui.Element.prototype.onDOMEvent = function ( event, callback ) {
+		var orig;
+
+		if ( event === 'focusin' ) {
+			// jQuery 1.8.3 has a bug with handling focusin events inside iframes.
+			// Firefox doesn't support focusin at all, so we listen for 'focus' on the
+			// document, and simulate a 'focusin' event on the target element and make
+			// it bubble from there.
+			//
+			// - http://jsfiddle.net/sw3hr/
+			// - http://bugs.jquery.com/ticket/14180
+			// - https://github.com/jquery/jquery/commit/1cecf64e5aa4153
+
+			// Replace jQuery's override with our own
+			orig = $.event.special.focusin;
+			$.event.special.focusin = specialFocusin;
+
+			this.$element.on( event, callback );
+
+			// Restore
+			$.event.special.focusin = orig;
+
+		} else {
+			this.$element.on( event, callback );
+		}
+	};
+
+	/**
+	 * @param {string} event
+	 * @param {Function} callback
+	 */
+	OO.ui.Element.prototype.offDOMEvent = function ( event, callback ) {
+		var orig;
+		if ( event === 'focusin' ) {
+			orig = $.event.special.focusin;
+			$.event.special.focusin = specialFocusin;
+			this.$element.off( event, callback );
+			$.event.special.focusin = orig;
+		} else {
+			this.$element.off( event, callback );
+		}
+	};
+}() );

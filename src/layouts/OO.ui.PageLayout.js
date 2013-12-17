@@ -25,6 +25,9 @@ OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
 	this.label = config.label || '';
 	this.level = config.level || 0;
 	this.movable = !!config.movable;
+
+	// Initialization
+	this.$element.addClass( 'oo-ui-pageLayout' );
 };
 
 /* Inheritance */
