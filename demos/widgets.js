@@ -81,11 +81,14 @@ $( function () {
 				{
 					'widget': new OO.ui.ToggleSwitchWidget( {
 						'onLabel': 'Any',
-						'offLabel': 'Label',
+						'offLabel': 'Label'
 					} )
 				},
 				{
-					'widget': new OO.ui.ToggleSwitchWidget( { 'disabled': true } )
+					'widget': new OO.ui.ToggleSwitchWidget( {
+						'offLabel': 'Disabled',
+						'disabled': true
+					} )
 				},
 				{
 					'label': 'CheckboxInputWidget',
