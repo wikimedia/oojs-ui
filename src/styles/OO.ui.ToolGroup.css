@@ -114,7 +114,11 @@
 .oo-ui-popupToolGroup {
 	position: relative;
 	height: 2em;
-	min-width: 2em;
+	min-width: 2.5em;
+}
+
+.oo-ui-popupToolGroup.oo-ui-indicatedElement.oo-ui-iconedElement {
+	min-width: 3.5em;
 }
 
 .oo-ui-popupToolGroup-handle {
@@ -122,21 +126,37 @@
 	cursor: pointer;
 }
 
+.oo-ui-popupToolGroup-handle .oo-ui-indicatedElement-indicator,
 .oo-ui-popupToolGroup-handle .oo-ui-iconedElement-icon {
 	position: absolute;
 	top: 0;
-	right: 0;
-	height: 2em;
 	width: 2em;
+	height: 2em;
 	background-position: center center;
 	background-repeat: no-repeat;
 	opacity: 0.8;
 }
 
+.oo-ui-popupToolGroup-handle .oo-ui-indicatedElement-indicator {
+	right: 0;
+}
+
+.oo-ui-popupToolGroup-handle .oo-ui-iconedElement-icon {
+	left: 0.25em;
+}
+
 .oo-ui-popupToolGroup-handle .oo-ui-labeledElement-label {
 	line-height: 2.6em;
 	font-size: 0.8em;
-	margin: 0 2.25em 0 1em;
+	margin: 0 1em;
+}
+
+.oo-ui-popupToolGroup.oo-ui-iconedElement .oo-ui-popupToolGroup-handle .oo-ui-labeledElement-label {
+	margin-left: 3.25em;
+}
+
+.oo-ui-popupToolGroup.oo-ui-indicatedElement .oo-ui-popupToolGroup-handle .oo-ui-labeledElement-label {
+	margin-right: 2.25em;
 }
 
 .oo-ui-popupToolGroup-handle .oo-ui-labeledElement-empty {
@@ -190,7 +210,7 @@
 /* OO.ui.ListToolGroup */
 
 .oo-ui-listToolGroup .oo-ui-toolGroup-tools {
-	padding: 0.5em;
+	padding: 0.25em;
 }
 
 .oo-ui-listToolGroup .oo-ui-tool {
@@ -200,7 +220,7 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	border: solid 1px transparent;
-	margin: -1px 0 -1px -1px;
+	margin: -1px 0;
 }
 
 .oo-ui-listToolGroup .oo-ui-tool-link {

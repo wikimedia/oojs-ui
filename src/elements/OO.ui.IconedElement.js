@@ -45,5 +45,7 @@ OO.ui.IconedElement.prototype.setIcon = function ( value ) {
 			this.icon = icon;
 		}
 	}
+	this.$element.toggleClass( 'oo-ui-iconedElement', !!this.icon );
+
 	return this;
 };

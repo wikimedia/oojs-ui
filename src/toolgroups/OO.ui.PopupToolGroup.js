@@ -5,6 +5,7 @@
  * @abstract
  * @extends OO.ui.ToolGroup
  * @mixins OO.ui.IconedElement
+ * @mixins OO.ui.IndicatedElement
  * @mixins OO.ui.LabeledElement
  * @mixins OO.ui.ClippableElement
  *
@@ -14,7 +15,7 @@
  */
 OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Configuration initialization
-	config = $.extend( { 'icon': 'down' }, config );
+	config = config || {};
 
 	// Parent constructor
 	OO.ui.ToolGroup.call( this, toolbar, config );
@@ -22,6 +23,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Mixin constructors
 	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
 	OO.ui.LabeledElement.call( this, this.$( '<span>' ) );
+	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
 	OO.ui.ClippableElement.call( this, this.$group );
 
 	// Properties
@@ -39,7 +41,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Initialization
 	this.$handle
 		.addClass( 'oo-ui-popupToolGroup-handle' )
-		.append( this.$label, this.$icon );
+		.append( this.$icon, this.$label, this.$indicator );
 	this.$element
 		.addClass( 'oo-ui-popupToolGroup' )
 		.prepend( this.$handle );
@@ -51,6 +53,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 OO.inheritClass( OO.ui.PopupToolGroup, OO.ui.ToolGroup );
 
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.IconedElement );
+OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.IndicatedElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.LabeledElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.ClippableElement );
 

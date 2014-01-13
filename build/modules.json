@@ -14,6 +14,7 @@
 			"src/elements/OO.ui.FlaggableElement.js",
 			"src/elements/OO.ui.GroupElement.js",
 			"src/elements/OO.ui.IconedElement.js",
+			"src/elements/OO.ui.IndicatedElement.js",
 			"src/elements/OO.ui.LabeledElement.js",
 			"src/elements/OO.ui.PopuppableElement.js",
 			"src/OO.ui.Tool.js",

@@ -1,3 +1,5 @@
+/* Icons */
+
 .oo-ui-icon-add-item {
 	/* @embed */
 	background-image: url(images/icons/add-item.png);
@@ -36,11 +38,6 @@
 .oo-ui-icon-comment {
 	/* @embed */
 	background-image: url(images/icons/comment.png);
-}
-
-.oo-ui-icon-down {
-	/* @embed */
-	background-image: url(images/icons/down.png);
 }
 
 .oo-ui-icon-expand {
@@ -108,12 +105,19 @@
 	background-image: url(images/icons/arched-arrow-rtl.png);
 }
 
-.oo-ui-icon-up {
-	/* @embed */
-	background-image: url(images/icons/up.png);
-}
-
 .oo-ui-icon-window {
 	/* @embed */
 	background-image: url(images/icons/window.png);
+}
+
+/* Indicators */
+
+.oo-ui-indicator-down {
+	/* @embed */
+	background-image: url(images/indicators/down.png);
+}
+
+.oo-ui-indicator-up {
+	/* @embed */
+	background-image: url(images/indicators/up.png);
 }

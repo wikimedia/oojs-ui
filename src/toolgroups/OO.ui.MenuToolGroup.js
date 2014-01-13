@@ -10,6 +10,9 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.MenuToolGroup = function OoUiMenuToolGroup( toolbar, config ) {
+	// Configuration initialization
+	config = config || {};
+
 	// Parent constructor
 	OO.ui.PopupToolGroup.call( this, toolbar, config );
 
