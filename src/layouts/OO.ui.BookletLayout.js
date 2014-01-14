@@ -239,6 +239,8 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 					'label': page.getLabel() || name,
 					'level': page.getLevel(),
 					'icon': page.getIcon(),
+					'indicator': page.getIndicator(),
+					'indicatorLabel': page.getIndicatorLabel(),
 					'movable': page.isMovable()
 				} )
 			);
