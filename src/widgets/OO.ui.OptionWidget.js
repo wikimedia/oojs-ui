@@ -4,7 +4,9 @@
  * @class
  * @abstract
  * @extends OO.ui.Widget
+ * @mixins OO.ui.IconedElement
  * @mixins OO.ui.LabeledElement
+ * @mixins OO.ui.IndicatedElement
  *
  * @constructor
  * @param {Mixed} data Option data
@@ -23,7 +25,9 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 	OO.ui.Widget.call( this, config );
 
 	// Mixin constructors
+	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
 	OO.ui.LabeledElement.call( this, this.$( '<span>' ), config );
+	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
 
 	// Properties
 	this.data = data;
@@ -40,18 +44,16 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 	this.setHighlighted( config.highlighted );
 
 	// Options
-	if ( config.icon ) {
-		this.$icon = this.$( '<div>' )
-			.addClass( 'oo-ui-optionWidget-icon oo-ui-icon-' + config.icon )
-			.appendTo( this.$element );
-	}
+	this.$element.append( this.$icon, this.$indicator );
 };
 
 /* Inheritance */
 
 OO.inheritClass( OO.ui.OptionWidget, OO.ui.Widget );
 
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.LabeledElement );
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.IndicatedElement );
 
 /* Static Properties */
 
