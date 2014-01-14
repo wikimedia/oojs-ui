@@ -233,17 +233,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 		}
 		this.pages[page.getName()] = page;
 		if ( this.outlined ) {
-			items.push(
-				new OO.ui.OutlineItemWidget( name, {
-					'$': this.$,
-					'label': page.getLabel() || name,
-					'level': page.getLevel(),
-					'icon': page.getIcon(),
-					'indicator': page.getIndicator(),
-					'indicatorLabel': page.getIndicatorLabel(),
-					'movable': page.isMovable()
-				} )
-			);
+			items.push( new OO.ui.BookletOutlineItemWidget( name, page, { '$': this.$ } ) );
 		}
 	}
 	if ( remove.length ) {
