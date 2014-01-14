@@ -238,8 +238,8 @@ OO.ui.ToolGroup.prototype.populate = function () {
 			}
 			this.toolbar.reserveTool( tool );
 			add.push( tool );
-			names[name] = true;
 		}
+		names[name] = true;
 	}
 	// Remove tools that are no longer needed
 	for ( name in this.tools ) {

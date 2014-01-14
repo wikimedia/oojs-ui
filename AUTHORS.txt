@@ -10,6 +10,7 @@ Patch Contributors (minor contributors, alphabetically)
 
 Amir Aharoni <aaharoni@wikimedia.org>
 Bartosz Dziewoński <matma.rex@gmail.com>
+Eranroz <eranroz89@gmail.com>
 Erik Moeller <erik@wikimedia.org>
 Erick Guan <fantasticfears@gmail.com>
 Inez Korczyński <inez@wikia-inc.com>
