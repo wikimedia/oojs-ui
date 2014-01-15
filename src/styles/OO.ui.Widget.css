@@ -247,15 +247,23 @@ a.oo-ui-buttonWidget-button {
 	cursor: default;
 }
 
-.oo-ui-optionWidget .oo-ui-optionWidget-icon {
+.oo-ui-optionWidget .oo-ui-iconedElement-icon,
+.oo-ui-optionWidget .oo-ui-indicatedElement-indicator {
 	position: absolute;
 	top: 50%;
-	left: 0.5em;
 	width: 2em;
 	height: 2em;
 	margin-top: -1em;
 	background-repeat: no-repeat;
 	background-position: center center;
+}
+
+.oo-ui-optionWidget .oo-ui-iconedElement-icon {
+	left: 0.5em;
+}
+
+.oo-ui-optionWidget .oo-ui-indicatedElement-indicator {
+	right: 0.5em;
 }
 
 /* OO.ui.OutlineItemWidget */
@@ -284,15 +292,15 @@ a.oo-ui-buttonWidget-button {
 	text-shadow: 0 1px 1px rgba(255,255,255,0.5);
 }
 
-.oo-ui-outlineItemWidget-level-0 .oo-ui-optionWidget-icon {
+.oo-ui-outlineItemWidget-level-0 .oo-ui-iconedElement-icon {
 	left: 1em;
 }
 
-.oo-ui-outlineItemWidget-level-1 .oo-ui-optionWidget-icon {
+.oo-ui-outlineItemWidget-level-1 .oo-ui-iconedElement-icon {
 	left: 2.5em;
 }
 
-.oo-ui-outlineItemWidget-level-2 .oo-ui-optionWidget-icon {
+.oo-ui-outlineItemWidget-level-2 .oo-ui-iconedElement-icon {
 	left: 4em;
 }
 
@@ -459,11 +467,11 @@ a.oo-ui-buttonWidget-button {
 	position: relative;
 }
 
-.oo-ui-menuItemWidget .oo-ui-optionWidget-icon {
+.oo-ui-menuItemWidget .oo-ui-iconedElement-icon {
 	display: none;
 }
 
-.oo-ui-menuItemWidget.oo-ui-optionWidget-selected .oo-ui-optionWidget-icon {
+.oo-ui-menuItemWidget.oo-ui-optionWidget-selected .oo-ui-iconedElement-icon {
 	display: block;
 }
 
