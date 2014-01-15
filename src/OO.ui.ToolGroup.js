@@ -218,6 +218,7 @@ OO.ui.ToolGroup.prototype.getToolbar = function () {
  */
 OO.ui.ToolGroup.prototype.populate = function () {
 	var i, len, name, tool,
+		toolFactory = this.toolbar.getToolFactory(),
 		names = {},
 		add = [],
 		remove = [],
@@ -228,12 +229,16 @@ OO.ui.ToolGroup.prototype.populate = function () {
 	// Build a list of needed tools
 	for ( i = 0, len = list.length; i < len; i++ ) {
 		name = list[i];
-		if ( this.toolbar.isToolAvailable( name ) ) {
+		if (
+			// Tool exists
+			toolFactory.lookup( name ) &&
+			// Tool is available or is already in this group
+			( this.toolbar.isToolAvailable( name ) || this.tools[name] )
+		) {
 			tool = this.tools[name];
 			if ( !tool ) {
 				// Auto-initialize tools on first use
-				this.tools[name] = tool =
-					this.toolbar.getToolFactory().create( name, this );
+				this.tools[name] = tool = toolFactory.create( name, this );
 				tool.updateLabel();
 			}
 			this.toolbar.reserveTool( tool );
