@@ -33,6 +33,10 @@ module.exports = function ( grunt ) {
 				src: 'src/styles/images/**/*.*',
 				strip: 'src/styles/images',
 				dest: 'dist/images'
+			},
+			i18n: {
+				src: 'i18n/*.json',
+				dest: 'dist'
 			}
 		},
 		jshint: {
