@@ -154,7 +154,7 @@ a.oo-ui-buttonedElement-button {
 
 .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-constructive .oo-ui-buttonedElement-button {
 	/* Green */
-	border: solid 1px #c3e59a;
+	border: solid 1px #b8d892;
 	background-color: #f0fbe1;
 	filter: progid:DXImageTransform.Microsoft.gradient(
 		GradientType=0,startColorstr=#f0fbe1, endColorstr=#c3e59a
@@ -171,13 +171,13 @@ a.oo-ui-buttonedElement-button {
 
 .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-constructive .oo-ui-buttonedElement-button:hover,
 .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-constructive .oo-ui-buttonedElement-button:focus {
-	border-color: #a6cf74;
+	border-color: #adcb89;
 }
 
 .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-constructive .oo-ui-buttonedElement-button:active,
 .oo-ui-buttonedElement-framed.oo-ui-buttonedElement-active.oo-ui-flaggableElement-constructive .oo-ui-buttonedElement-button {
 	/* Green */
-	border: solid 1px #c3e59a;
+	border: solid 1px #b8d892;
 	background-color: #c3e59a;
 	filter: progid:DXImageTransform.Microsoft.gradient(
 		GradientType=0,startColorstr=#c3e59a, endColorstr=#f0fbe1
@@ -194,7 +194,7 @@ a.oo-ui-buttonedElement-button {
 
 .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-primary .oo-ui-buttonedElement-button {
 	/* Blue */
-	border: solid 1px #b0d9ee;
+	border: solid 1px #a6cee1;
 	background-color: #eaf4fa;
 	filter: progid:DXImageTransform.Microsoft.gradient(
 		GradientType=0,startColorstr=#eaf4fa, endColorstr=#b0d9ee
@@ -211,13 +211,13 @@ a.oo-ui-buttonedElement-button {
 
 .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-primary .oo-ui-buttonedElement-button:hover,
 .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-primary .oo-ui-buttonedElement-button:focus {
-	border-color: #84b9d4;
+	border-color: #9dc2d4;
 }
 
 .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-primary .oo-ui-buttonedElement-button:active,
 .oo-ui-buttonedElement-framed.oo-ui-buttonedElement-active.oo-ui-flaggableElement-primary .oo-ui-buttonedElement-button {
 	/* Blue */
-	border: solid 1px #b0d9ee;
+	border: solid 1px #a6cee1;
 	background-color: #b0d9ee;
 	filter: progid:DXImageTransform.Microsoft.gradient(
 		GradientType=0,startColorstr=#b0d9ee, endColorstr=#eaf4fa

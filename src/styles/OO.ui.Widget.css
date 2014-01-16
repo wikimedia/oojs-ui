@@ -21,11 +21,15 @@
 
 .oo-ui-buttonGroupWidget {
 	display: inline-block;
+	border-radius: 0.3em;
+	box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.1);
 }
 
 .oo-ui-buttonGroupWidget .oo-ui-buttonedElement-framed .oo-ui-buttonedElement-button {
 	border-radius: 0;
+	margin-bottom: -1px;
 	margin-left: -1px;
+	box-shadow: none;
 }
 
 .oo-ui-buttonGroupWidget .oo-ui-buttonedElement-framed:first-child .oo-ui-buttonedElement-button {
@@ -326,11 +330,14 @@
 
 .oo-ui-buttonSelectWidget {
 	display: inline-block;
+	border-radius: 0.3em;
+	box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.1);
 }
 
 .oo-ui-buttonSelectWidget .oo-ui-buttonOptionWidget .oo-ui-buttonedElement-button {
 	border-radius: 0;
 	margin-left: -1px;
+	box-shadow: none;
 }
 
 .oo-ui-buttonSelectWidget .oo-ui-buttonOptionWidget:first-child .oo-ui-buttonedElement-button {
@@ -572,19 +579,19 @@
 	-o-transition: opacity 200ms ease-in-out;
 	transition: opacity 200ms ease-in-out;
 
-	/* Green */
-	background-color: #c3e59a;
+	/* Blue */
+	background-color: #eaf4fa;
 	filter: progid:DXImageTransform.Microsoft.gradient(
-		GradientType=0,startColorstr=#c3e59a, endColorstr=#f0fbe1
+		GradientType=0,startColorstr=#b0d9ee, endColorstr=#eaf4fa
 	);
 	background-image: -webkit-gradient(
-		linear, right top, right bottom, color-stop(0%,#c3e59a), color-stop(100%,#f0fbe1)
+		linear, right top, right bottom, color-stop(0%,#b0d9ee), color-stop(100%,#eaf4fa)
 	);
-	background-image: -webkit-linear-gradient(top, #c3e59a 0%, #f0fbe1 100%);
-	background-image: -moz-linear-gradient(top, #c3e59a 0%, #f0fbe1 100%);
-	background-image: -ms-linear-gradient(top, #c3e59a 0%, #f0fbe1 100%);
-	background-image: -o-linear-gradient(top, #c3e59a 0%, #f0fbe1 100%);
-	background-image: linear-gradient(top, #c3e59a 0%, #f0fbe1 100%);
+	background-image: -webkit-linear-gradient(top, #b0d9ee 0%, #eaf4fa 100%);
+	background-image: -moz-linear-gradient(top, #b0d9ee 0%, #eaf4fa 100%);
+	background-image: -ms-linear-gradient(top, #b0d9ee 0%, #eaf4fa 100%);
+	background-image: -o-linear-gradient(top, #b0d9ee 0%, #eaf4fa 100%);
+	background-image: linear-gradient(top, #b0d9ee 0%, #eaf4fa 100%);
 }
 
 .oo-ui-toggleWidget-on .oo-ui-toggleSwitchWidget-on {
