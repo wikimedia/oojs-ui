@@ -49,7 +49,8 @@ OO.ui.LabeledElement.prototype.setLabel = function ( value ) {
 		this.label = null;
 		empty = true;
 	}
-	this.$label[empty ? 'addClass' : 'removeClass']( 'oo-ui-labeledElement-empty' );
+	this.$element.toggleClass( 'oo-ui-labeledElement', !empty );
+	this.$label.css( 'display', empty ? 'none' : '' );
 
 	return this;
 };

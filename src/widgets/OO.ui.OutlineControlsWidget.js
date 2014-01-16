@@ -21,12 +21,22 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 	this.adders = {};
 	this.$adders = this.$( '<div>' );
 	this.$movers = this.$( '<div>' );
-	this.addButton = new OO.ui.IconButtonWidget( { '$': this.$, 'icon': 'add-item' } );
-	this.upButton = new OO.ui.IconButtonWidget( {
-		'$': this.$, 'icon': 'collapse', 'title': OO.ui.msg( 'ooui-outline-control-move-up' )
+	this.addButton = new OO.ui.ButtonWidget( {
+		'$': this.$,
+		'frameless': true,
+		'icon': 'add-item'
 	} );
-	this.downButton = new OO.ui.IconButtonWidget( {
-		'$': this.$, 'icon': 'expand', 'title': OO.ui.msg( 'ooui-outline-control-move-down' )
+	this.upButton = new OO.ui.ButtonWidget( {
+		'$': this.$,
+		'frameless': true,
+		'icon': 'collapse',
+		'title': OO.ui.msg( 'ooui-outline-control-move-up' )
+	} );
+	this.downButton = new OO.ui.ButtonWidget( {
+		'$': this.$,
+		'frameless': true,
+		'icon': 'expand',
+		'title': OO.ui.msg( 'ooui-outline-control-move-down' )
 	} );
 
 	// Events
@@ -110,8 +120,8 @@ OO.ui.OutlineControlsWidget.prototype.setupAdders = function ( adders ) {
 	this.$adders.append( this.addButton.$element );
 	for ( i = 0, len = adders.length; i < len; i++ ) {
 		addition = adders[i];
-		button = new OO.ui.IconButtonWidget( {
-			'$': this.$, 'icon': addition.icon, 'title': addition.title
+		button = new OO.ui.ButtonWidget( {
+			'$': this.$, 'frameless': true, 'icon': addition.icon, 'title': addition.title
 		} );
 		button.connect( this, { 'click': ['emit', 'add', addition.name] } );
 		this.adders[addition.name] = button;

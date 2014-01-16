@@ -2,7 +2,7 @@
  * Button that shows and hides a popup.
  *
  * @class
- * @extends OO.ui.IconButtonWidget
+ * @extends OO.ui.ButtonWidget
  * @mixins OO.ui.PopuppableElement
  *
  * @constructor
@@ -10,7 +10,7 @@
  */
 OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 	// Parent constructor
-	OO.ui.IconButtonWidget.call( this, config );
+	OO.ui.ButtonWidget.call( this, config );
 
 	// Mixin constructors
 	OO.ui.PopuppableElement.call( this, config );
@@ -23,7 +23,7 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 
 /* Inheritance */
 
-OO.inheritClass( OO.ui.PopupButtonWidget, OO.ui.IconButtonWidget );
+OO.inheritClass( OO.ui.PopupButtonWidget, OO.ui.ButtonWidget );
 
 OO.mixinClass( OO.ui.PopupButtonWidget, OO.ui.PopuppableElement );
 
@@ -47,7 +47,7 @@ OO.ui.PopupButtonWidget.prototype.onClick = function ( e ) {
 		} else {
 			this.showPopup();
 		}
-		OO.ui.IconButtonWidget.prototype.onClick.call( this );
+		OO.ui.ButtonWidget.prototype.onClick.call( this );
 	}
 	return false;
 };

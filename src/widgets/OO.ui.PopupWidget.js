@@ -36,7 +36,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.transitionTimeout = null;
 	this.tail = false;
 	this.align = config.align || 'center';
-	this.closeButton = new OO.ui.IconButtonWidget( { '$': this.$, 'icon': 'close' } );
+	this.closeButton = new OO.ui.ButtonWidget( { '$': this.$, 'frameless': true, 'icon': 'close' } );
 	this.onMouseDownHandler = OO.ui.bind( this.onMouseDown, this );
 
 	// Events

@@ -107,14 +107,14 @@
 	line-height: 2.8em;
 }
 
-.oo-ui-dialog-content .oo-ui-window-foot .oo-ui-pushButtonWidget {
+.oo-ui-dialog-content .oo-ui-window-foot .oo-ui-buttonedElement-framed {
 	float: left;
 	margin: 0.125em 0.25em;
 }
 
-.oo-ui-dialog-content .oo-ui-window-foot .oo-ui-pushButtonWidget.oo-ui-flaggableElement-primary,
-.oo-ui-dialog-content .oo-ui-window-foot .oo-ui-pushButtonWidget.oo-ui-flaggableElement-constructive,
-.oo-ui-dialog-content .oo-ui-window-foot .oo-ui-pushButtonWidget.oo-ui-flaggableElement-destructive {
+.oo-ui-dialog-content .oo-ui-window-foot .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-primary,
+.oo-ui-dialog-content .oo-ui-window-foot .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-constructive,
+.oo-ui-dialog-content .oo-ui-window-foot .oo-ui-buttonedElement-framed.oo-ui-flaggableElement-destructive {
 	float: right;
 }
 

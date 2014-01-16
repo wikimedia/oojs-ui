@@ -44,7 +44,9 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 	this.setHighlighted( config.highlighted );
 
 	// Options
-	this.$element.append( this.$icon, this.$indicator );
+	this.$element
+		.prepend( this.$icon )
+		.append( this.$indicator );
 };
 
 /* Inheritance */

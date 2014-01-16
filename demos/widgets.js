@@ -1,65 +1,75 @@
 $( function () {
-	var i, j, name, iLen, jLen, item, items, fieldset,
+	var i, name, len, item, items, fieldset,
 		$demo = $( '.oo-ui-demo' ),
 		sections = {
 			'Widgets': [
 				{
-					'label': 'PushButtonWidget',
-					'widget': new OO.ui.PushButtonWidget( { 'label': 'Normal' } ),
+					'label': 'ButtonWidget',
+					'widget': new OO.ui.ButtonWidget( { 'label': 'Normal' } )
 				},
 				{
-					'widget': new OO.ui.PushButtonWidget( {
+					'widget': new OO.ui.ButtonWidget( {
 						'label': 'Primary',
 						'flags': [ 'primary' ]
-					} ),
+					} )
 				},
 				{
-					'widget': new OO.ui.PushButtonWidget( {
+					'widget': new OO.ui.ButtonWidget( {
 						'label': 'Constructive',
 						'flags': [ 'constructive' ]
-					} ),
+					} )
 				},
 				{
-					'widget': new OO.ui.PushButtonWidget( {
+					'widget': new OO.ui.ButtonWidget( {
 						'label': 'Destructive',
 						'flags': [ 'destructive' ]
-					} ),
+					} )
 				},
 				{
-					'widget': new OO.ui.PushButtonWidget( {
+					'widget': new OO.ui.ButtonWidget( {
 						'label': 'Disabled',
 						'disabled': true
-					} ),
+					} )
 				},
 				{
-					'label': 'IconButtonWidget',
-					'widget': new OO.ui.IconButtonWidget( {
+					'widget': new OO.ui.ButtonWidget( {
+						'label': 'Iconed',
+						'icon': 'check'
+					} )
+				},
+				{
+					'widget': new OO.ui.ButtonWidget( {
+						'label': 'Indicated',
+						'indicator': 'down'
+					} )
+				},
+				{
+					'widget': new OO.ui.ButtonWidget( {
+						'frameless': true,
 						'icon': 'help',
 						'title': 'Icon only'
 					} )
 				},
 				{
-					'widget': new OO.ui.IconButtonWidget( {
+					'widget': new OO.ui.ButtonWidget( {
+						'frameless': true,
 						'icon': 'alert',
 						'label': 'Labeled'
 					} )
 				},
 				{
-					'widget': new OO.ui.IconButtonWidget( {
+					'widget': new OO.ui.ButtonWidget( {
+						'frameless': true,
 						'icon': 'menu',
 						'label': 'Disabled',
 						'disabled': true
 					} )
 				},
 				{
-					'label': 'ToggleButtonWidget',
-					'widget': new OO.ui.ToggleButtonWidget( { 'label': 'Toggle' } ),
-				},
-				{
 					'label': 'ButtonGroupWidget',
 					'widget': new OO.ui.ButtonGroupWidget(),
-					'content': [
-						new OO.ui.ToggleButtonWidget( { 'label': 'Normal' } ),
+					'items': [
+						new OO.ui.ButtonWidget( { 'icon': 'check', 'indicator': 'down' } ),
 						new OO.ui.ToggleButtonWidget( {
 							'label': 'Primary',
 							'flags': [ 'primary' ]
@@ -73,6 +83,34 @@ $( function () {
 							'flags': [ 'destructive' ]
 						} )
 					]
+				},
+				{
+					'label': 'ButtonSelectWidget',
+					'widget': new OO.ui.ButtonSelectWidget(),
+					'items': [
+						new OO.ui.ButtonOptionWidget( 'a',  { 'icon': 'check', 'indicator': 'down' } ),
+						new OO.ui.ButtonOptionWidget( 'b', {
+							'label': 'Primary',
+							'flags': [ 'primary' ]
+						} ),
+						new OO.ui.ButtonOptionWidget( 'c', {
+							'label': 'Constructive',
+							'flags': [ 'constructive' ]
+						} ),
+						new OO.ui.ButtonOptionWidget( 'd', {
+							'label': 'Destructive',
+							'flags': [ 'destructive' ]
+						} )
+					]
+				},
+				{
+					'label': 'ToggleButtonWidget',
+					'widget': new OO.ui.ToggleButtonWidget( { 'label': 'Toggle' } )
+				},
+				{
+					'widget': new OO.ui.ToggleButtonWidget( {
+						'icon': 'next'
+					} )
 				},
 				{
 					'label': 'ToggleSwitchWidget',
@@ -143,12 +181,10 @@ $( function () {
 	for ( name in sections ) {
 		fieldset = new OO.ui.FieldsetLayout( { 'label': name } );
 		items = sections[name];
-		for ( i = 0, iLen = items.length; i < iLen; i++ ) {
+		for ( i = 0, len = items.length; i < len; i++ ) {
 			item = items[i];
-			if ( item.content ) {
-				for ( j = 0, jLen = item.content.length; j < jLen; j++ ) {
-					item.widget.$element.append( item.content[j].$element );
-				}
+			if ( item.items ) {
+				item.widget.addItems( item.items );
 			}
 			fieldset.$element.append(
 				$( '<div>' )

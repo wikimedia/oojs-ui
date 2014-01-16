@@ -159,10 +159,6 @@
 	margin-right: 2.25em;
 }
 
-.oo-ui-popupToolGroup-handle .oo-ui-labeledElement-empty {
-	display: none;
-}
-
 .oo-ui-popupToolGroup .oo-ui-toolGroup-tools {
 	display: none;
 	position: absolute;
