@@ -111,8 +111,11 @@ OO.ui.Dialog.prototype.initialize = function () {
 	OO.ui.Window.prototype.initialize.call( this );
 
 	// Properties
-	this.closeButton = new OO.ui.IconButtonWidget( {
-		'$': this.$, 'title': OO.ui.msg( 'ooui-dialog-action-close' ), 'icon': 'close'
+	this.closeButton = new OO.ui.ButtonWidget( {
+		'$': this.$,
+		'frameless': true,
+		'icon': 'close',
+		'title': OO.ui.msg( 'ooui-dialog-action-close' )
 	} );
 
 	// Events

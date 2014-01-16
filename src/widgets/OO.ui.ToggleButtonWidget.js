@@ -1,17 +1,18 @@
 /**
  * @class
- * @extends OO.ui.PushButtonWidget
+ * @extends OO.ui.ButtonWidget
  * @mixins OO.ui.ToggleWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [value=false] Initial value
- * @cfg {string} [onLabel='On'] Label for on state
- * @cfg {string} [offLabel='Off'] Label for off state
  */
 OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
+	// Configuration initialization
+	config = config || {};
+
 	// Parent constructor
-	OO.ui.PushButtonWidget.call( this, config );
+	OO.ui.ButtonWidget.call( this, config );
 
 	// Mixin constructors
 	OO.ui.ToggleWidget.call( this, config );
@@ -22,7 +23,7 @@ OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
 
 /* Inheritance */
 
-OO.inheritClass( OO.ui.ToggleButtonWidget, OO.ui.PushButtonWidget );
+OO.inheritClass( OO.ui.ToggleButtonWidget, OO.ui.ButtonWidget );
 
 OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.ToggleWidget );
 
@@ -46,7 +47,7 @@ OO.ui.ToggleButtonWidget.prototype.onClick = function () {
 OO.ui.ToggleButtonWidget.prototype.setValue = function ( value ) {
 	value = !!value;
 	if ( value !== this.value ) {
-		this.setLabel( value ? this.$onLabel : this.$offLabel );
+		this.setActive( value );
 	}
 
 	// Parent method
