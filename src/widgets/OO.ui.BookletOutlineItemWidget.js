@@ -15,7 +15,7 @@ OO.ui.BookletOutlineItemWidget = function OoUiBookletOutlineItemWidget( data, pa
 		'level': page.getLevel(),
 		'icon': page.getIcon(),
 		'indicator': page.getIndicator(),
-		'indicatorLabel': page.getIndicatorLabel(),
+		'indicatorTitle': page.getIndicatorTitle(),
 		'movable': page.isMovable()
 	}, config );
 

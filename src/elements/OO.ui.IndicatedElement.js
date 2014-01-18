@@ -8,7 +8,7 @@
  * @param {jQuery} $indicator Indicator node, assigned to #$indicator
  * @param {Object} [config] Configuration options
  * @cfg {string} [indicator=''] Symbolic indicator name
- * @cfg {string} [indicatorLabel=''] Description of indicator meaning
+ * @cfg {string} [indicatorTitle=''] Description of indicator meaning
  */
 OO.ui.IndicatedElement = function OoUiIndicatedElement( $indicator, config ) {
 	// Config intialization
@@ -21,7 +21,7 @@ OO.ui.IndicatedElement = function OoUiIndicatedElement( $indicator, config ) {
 	// Initialization
 	this.$indicator.addClass( 'oo-ui-indicatedElement-indicator' );
 	this.setIndicator( config.indicator );
-	this.setIndicatorLabel( config.indicatorLabel );
+	this.setIndicatorTitle( config.indicatorTitle );
 };
 
 /* Methods */
@@ -54,12 +54,12 @@ OO.ui.IndicatedElement.prototype.setIndicator = function ( value ) {
  * Set the indicator label.
  *
  * @method
- * @param {string} [label] Description of indicator meaning
+ * @param {string} [value] Description of indicator meaning
  * @chainable
  */
-OO.ui.IndicatedElement.prototype.setIndicatorLabel = function ( label ) {
-	if ( typeof label === 'string' && label.length ) {
-		this.$indicator.attr( 'title', label );
+OO.ui.IndicatedElement.prototype.setIndicatorTitle = function ( value ) {
+	if ( typeof value === 'string' && value.length ) {
+		this.$indicator.attr( 'title', value );
 	} else {
 		this.$indicator.removeAttr( 'title' );
 	}

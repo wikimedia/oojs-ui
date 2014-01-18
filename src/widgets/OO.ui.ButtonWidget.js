@@ -5,9 +5,10 @@
  * @abstract
  * @extends OO.ui.Widget
  * @mixins OO.ui.ButtonedElement
- * @mixins OO.ui.LabeledElement
  * @mixins OO.ui.IconedElement
  * @mixins OO.ui.IndicatedElement
+ * @mixins OO.ui.LabeledElement
+ * @mixins OO.ui.TitledElement
  * @mixins OO.ui.FlaggableElement
  *
  * @constructor
@@ -25,9 +26,10 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 
 	// Mixin constructors
 	OO.ui.ButtonedElement.call( this, this.$( '<a>' ), config );
-	OO.ui.LabeledElement.call( this, this.$( '<span>' ), config );
 	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
 	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
+	OO.ui.LabeledElement.call( this, this.$( '<span>' ), config );
+	OO.ui.TitledElement.call( this, this.$button, config );
 	OO.ui.FlaggableElement.call( this, config );
 
 	// Properties
@@ -42,11 +44,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	// Initialization
 	this.$button
 		.append( this.$icon, this.$label, this.$indicator )
-		.attr( {
-			'title': config.title,
-			'href': config.href,
-			'target': config.target
-		} );
+		.attr( { 'href': config.href, 'target': config.target } );
 	this.$element
 		.addClass( 'oo-ui-buttonWidget' )
 		.append( this.$button );
@@ -57,9 +55,10 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 OO.inheritClass( OO.ui.ButtonWidget, OO.ui.Widget );
 
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.ButtonedElement );
-OO.mixinClass( OO.ui.ButtonWidget, OO.ui.LabeledElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.IndicatedElement );
+OO.mixinClass( OO.ui.ButtonWidget, OO.ui.LabeledElement );
+OO.mixinClass( OO.ui.ButtonWidget, OO.ui.TitledElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.FlaggableElement );
 
 /* Events */

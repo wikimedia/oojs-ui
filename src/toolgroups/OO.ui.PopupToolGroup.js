@@ -7,6 +7,7 @@
  * @mixins OO.ui.IconedElement
  * @mixins OO.ui.IndicatedElement
  * @mixins OO.ui.LabeledElement
+ * @mixins OO.ui.TitledElement
  * @mixins OO.ui.ClippableElement
  *
  * @constructor
@@ -22,8 +23,9 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 
 	// Mixin constructors
 	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
-	OO.ui.LabeledElement.call( this, this.$( '<span>' ) );
 	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
+	OO.ui.LabeledElement.call( this, this.$( '<span>' ) );
+	OO.ui.TitledElement.call( this, this.$element, config );
 	OO.ui.ClippableElement.call( this, this.$group );
 
 	// Properties
@@ -55,6 +57,7 @@ OO.inheritClass( OO.ui.PopupToolGroup, OO.ui.ToolGroup );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.IndicatedElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.LabeledElement );
+OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.TitledElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.ClippableElement );
 
 /* Static Properties */

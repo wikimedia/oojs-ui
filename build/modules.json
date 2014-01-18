@@ -18,6 +18,7 @@
 			"src/elements/OO.ui.IndicatedElement.js",
 			"src/elements/OO.ui.LabeledElement.js",
 			"src/elements/OO.ui.PopuppableElement.js",
+			"src/elements/OO.ui.TitledElement.js",
 			"src/OO.ui.Tool.js",
 			"src/OO.ui.Toolbar.js",
 			"src/OO.ui.ToolFactory.js",
