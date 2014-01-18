@@ -9,7 +9,7 @@
  * @param {Object} [config] Configuration options
  * @param {string} [icon=''] Symbolic name of icon to display in outline
  * @param {string} [indicator=''] Symbolic name of indicator to display in outline
- * @param {string} [indicatorLabel=''] Description of indicator meaning to display in outline
+ * @param {string} [indicatorTitle=''] Description of indicator meaning to display in outline
  * @param {string} [label=''] Label to display in outline
  * @param {number} [level=0] Indentation level of item in outline
  * @param {boolean} [movable=false] Page should be movable using outline controls
@@ -25,7 +25,7 @@ OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
 	this.name = name;
 	this.icon = config.icon || '';
 	this.indicator = config.indicator || '';
-	this.indicatorLabel = config.indicatorLabel || '';
+	this.indicatorTitle = config.indicatorTitle || '';
 	this.label = config.label || '';
 	this.level = config.level || 0;
 	this.movable = !!config.movable;
@@ -72,8 +72,8 @@ OO.ui.PageLayout.prototype.getIndicator = function () {
  *
  * @returns {string} Description of indicator meaning
  */
-OO.ui.PageLayout.prototype.getIndicatorLabel = function () {
-	return this.indicatorLabel;
+OO.ui.PageLayout.prototype.getIndicatorTitle = function () {
+	return this.indicatorTitle;
 };
 
 /**
