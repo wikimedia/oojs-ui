@@ -8,20 +8,20 @@
  *
  * @constructor
  * @param {OO.Factory} toolFactory Factory for creating tools
- * @param {Object} [options] Configuration options
+ * @param {Object} [config] Configuration options
  * @cfg {boolean} [actions] Add an actions section opposite to the tools
  * @cfg {boolean} [shadow] Add a shadow below the toolbar
  */
-OO.ui.Toolbar = function OoUiToolbar( toolFactory, options ) {
+OO.ui.Toolbar = function OoUiToolbar( toolFactory, config ) {
 	// Configuration initialization
-	options = options || {};
+	config = config || {};
 
 	// Parent constructor
-	OO.ui.Element.call( this, options );
+	OO.ui.Element.call( this, config );
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );
-	OO.ui.GroupElement.call( this, this.$( '<div>' ) );
+	OO.ui.GroupElement.call( this, this.$( '<div>' ), config );
 
 	// Properties
 	this.toolFactory = toolFactory;
@@ -39,12 +39,12 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, options ) {
 	// Initialization
 	this.$group.addClass( 'oo-ui-toolbar-tools' );
 	this.$bar.addClass( 'oo-ui-toolbar-bar' ).append( this.$group );
-	if ( options.actions ) {
+	if ( config.actions ) {
 		this.$actions.addClass( 'oo-ui-toolbar-actions' );
 		this.$bar.append( this.$actions );
 	}
 	this.$bar.append( '<div style="clear:both"></div>' );
-	if ( options.shadow ) {
+	if ( config.shadow ) {
 		this.$bar.append( '<div class="oo-ui-toolbar-shadow"></div>' );
 	}
 	this.$element.addClass( 'oo-ui-toolbar' ).append( this.$bar );

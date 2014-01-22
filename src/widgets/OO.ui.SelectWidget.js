@@ -8,6 +8,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {OO.ui.OptionWidget[]} [items] Options to add
  */
 OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	// Config intialization
@@ -35,6 +36,9 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-selectWidget' );
+	if ( $.isArray( config.items ) ) {
+		this.addItems( config.items );
+	}
 };
 
 /* Inheritance */
@@ -313,7 +317,7 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 	var inc = direction > 0 ? 1 : -1,
 		len = this.items.length,
 		index = item instanceof OO.ui.OptionWidget ?
-			this.items.indexOf( item ) : ( inc > 0 ? -1 : 0 ),
+			$.inArray( item, this.items ) : ( inc > 0 ? -1 : 0 ),
 		stopAt = Math.max( Math.min( index, len - 1 ), 0 ),
 		i = inc > 0 ?
 			// Default to 0 instead of -1, if nothing is selected let's start at the beginning

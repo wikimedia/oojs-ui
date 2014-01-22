@@ -7,6 +7,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {OO.ui.ButtonWidget} [items] Buttons to add
  */
 OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 	// Parent constructor
@@ -17,6 +18,9 @@ OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonGroupWidget' );
+	if ( $.isArray( config.items ) ) {
+		this.addItems( config.items );
+	}
 };
 
 /* Inheritance */

@@ -17,7 +17,7 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	OO.ui.SelectWidget.call( this, config );
 
 	// Mixin constructors
-	OO.ui.ClippableElement.call( this, this.$group );
+	OO.ui.ClippableElement.call( this, this.$group, config );
 
 	// Properties
 	this.newItems = [];

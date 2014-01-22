@@ -54,7 +54,7 @@ OO.ui.FlaggableElement.prototype.setFlags = function ( flags ) {
 	var i, len, flag,
 		classPrefix = 'oo-ui-flaggableElement-';
 
-	if ( Array.isArray( flags ) ) {
+	if ( $.isArray( flags ) ) {
 		for ( i = 0, len = flags.length; i < len; i++ ) {
 			flag = flags[i];
 			// Set

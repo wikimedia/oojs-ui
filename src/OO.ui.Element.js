@@ -20,7 +20,7 @@ OO.ui.Element = function OoUiElement( config ) {
 	this.elementGroup = null;
 
 	// Initialization
-	if ( Array.isArray( config.classes ) ) {
+	if ( $.isArray( config.classes ) ) {
 		this.$element.addClass( config.classes.join( ' ' ) );
 	}
 	if ( config.$content ) {

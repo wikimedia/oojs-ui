@@ -26,7 +26,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
 	OO.ui.LabeledElement.call( this, this.$( '<span>' ), config );
 	OO.ui.TitledElement.call( this, this.$element, config );
-	OO.ui.ClippableElement.call( this, this.$group );
+	OO.ui.ClippableElement.call( this, this.$group, config );
 
 	// Properties
 	this.active = false;

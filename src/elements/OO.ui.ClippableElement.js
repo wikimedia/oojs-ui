@@ -6,8 +6,12 @@
  *
  * @constructor
  * @param {jQuery} $clippable Nodes to clip, assigned to #$clippable
+ * @param {Object} [config] Configuration options
  */
-OO.ui.ClippableElement = function OoUiClippableElement( $clippable ) {
+OO.ui.ClippableElement = function OoUiClippableElement( $clippable, config ) {
+	// Configuration initialization
+	config = config || {};
+
 	// Properties
 	this.$clippable = $clippable;
 	this.clipping = false;

@@ -9,6 +9,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [continuous=false] Show all pages, one after another
  * @cfg {string} [icon=''] Symbolic icon name
+ * @cfg {OO.ui.Layout[]} [items] Layouts to add
  */
 OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	// Config initialization
@@ -28,6 +29,9 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	this.$element.addClass( 'oo-ui-stackLayout' );
 	if ( this.continuous ) {
 		this.$element.addClass( 'oo-ui-stackLayout-continuous' );
+	}
+	if ( $.isArray( config.items ) ) {
+		this.addItems( config.items );
 	}
 };
 
@@ -77,7 +81,7 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
  */
 OO.ui.StackLayout.prototype.removeItems = function ( items ) {
 	OO.ui.GroupElement.prototype.removeItems.call( this, items );
-	if ( items.indexOf( this.currentItem ) !== -1 ) {
+	if ( $.inArray( this.currentItem, items  ) !== -1 ) {
 		this.currentItem = null;
 		if ( !this.currentItem && this.items.length ) {
 			this.setItem( this.items[0] );
@@ -115,7 +119,7 @@ OO.ui.StackLayout.prototype.setItem = function ( item ) {
 	if ( !this.continuous ) {
 		this.$items.css( 'display', '' );
 	}
-	if ( this.items.indexOf( item ) !== -1 ) {
+	if ( $.inArray( item, this.items ) !== -1 ) {
 		if ( !this.continuous ) {
 			item.$element.css( 'display', 'block' );
 		}

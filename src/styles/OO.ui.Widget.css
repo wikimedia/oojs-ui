@@ -21,6 +21,7 @@
 
 .oo-ui-buttonGroupWidget {
 	display: inline-block;
+	white-space: nowrap;
 	border-radius: 0.3em;
 }
 
@@ -191,9 +192,9 @@
 	cursor: default;
 }
 
-/* OO.ui.InputLabelWidget */
+/* OO.ui.LabelWidget */
 
-.oo-ui-inputLabelWidget {
+.oo-ui-labelWidget {
 	padding: 0.5em 0;
 }
 
@@ -276,21 +277,6 @@
 	background-repeat: no-repeat;
 }
 
-/* OO.ui.CheckboxWidget */
-.oo-ui-checkboxWidget .oo-ui-labeledElement-label {
-	display: inline-block;
-	vertical-align: middle;
-	padding-left: 0.5em;
-}
-
-.oo-ui-checkboxWidget input {
-	vertical-align: middle;
-}
-
-.oo-ui-checkboxWidget.oo-ui-widget-disabled .oo-ui-labeledElement-label {
-	opacity: 0.5;
-}
-
 /* OO.ui.MenuWidget */
 
 .oo-ui-menuWidget {
@@ -344,6 +330,7 @@
 
 .oo-ui-buttonSelectWidget {
 	display: inline-block;
+	white-space: nowrap;
 	border-radius: 0.3em;
 }
 

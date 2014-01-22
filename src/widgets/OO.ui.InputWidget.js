@@ -144,6 +144,21 @@ OO.ui.InputWidget.prototype.sanitizeValue = function ( value ) {
 };
 
 /**
+ * Simulate the behavior of clicking on a label bound to this input.
+ *
+ * @method
+ */
+OO.ui.InputWidget.prototype.simulateLabelClick = function () {
+	if ( !this.isDisabled() ) {
+		if ( this.$input.is( ':checkbox,:radio' ) ) {
+			this.$input.click();
+		} else if ( this.$input.is( ':input' ) ) {
+			this.$input.focus();
+		}
+	}
+};
+
+/**
  * Check if the widget is read-only.
  *
  * @method
