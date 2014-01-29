@@ -4,7 +4,15 @@
 Quick start
 ----------
 
-Clone the repo, `git clone https://git.wikimedia.org/git/oojs/ui.git`.
+# Clone the repo, `git clone https://git.wikimedia.org/git/oojs/ui.git`.
+
+# Install Grunt command-line utility.
+$ npm install -g grunt-cli
+
+# Install dev dependencies and build the distribution files.
+$ npm install
+
+# You can now copy the distribution files from the dist directory into your project.
 
 Versioning
 ----------
