@@ -54,7 +54,12 @@ module.exports = function ( grunt ) {
 			all: ['test/index.html']
 		},
 		watch: {
-			files: ['<%= jshint.all %>', '<%= qunit.all %>', '.{jshintrc,jshintignore}'],
+			files: [
+				'<%= jshint.all %>',
+				'<%= csslint.all %>',
+				'<%= qunit.all %>',
+				'.{jshintrc,jshintignore}'
+			],
 			tasks: ['test']
 		}
 	} );
