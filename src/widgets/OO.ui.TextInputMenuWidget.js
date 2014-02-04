@@ -45,10 +45,11 @@ OO.ui.TextInputMenuWidget.prototype.onWindowResize = function () {
  * @chainable
  */
 OO.ui.TextInputMenuWidget.prototype.show = function () {
+	this.position();
+
 	// Parent method
 	OO.ui.MenuWidget.prototype.show.call( this );
 
-	this.position();
 	this.$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
 	return this;
 };
@@ -80,7 +81,6 @@ OO.ui.TextInputMenuWidget.prototype.position = function () {
 
 	// Position under input
 	dimensions.top += $container.height();
-	dimensions.width = $container.width();
 
 	// Compensate for frame position if in a differnt frame
 	if ( this.input.$.frame && this.input.$.context !== this.$element[0].ownerDocument ) {
@@ -92,12 +92,14 @@ OO.ui.TextInputMenuWidget.prototype.position = function () {
 	} else {
 		// Fix for RTL (for some reason, no need to fix if the frameoffset is set)
 		if ( this.$element.css( 'direction' ) === 'rtl' ) {
-			dimensions.right = this.$element.parent().position().left - dimensions.width - dimensions.left;
+			dimensions.right = this.$element.parent().position().left -
+				dimensions.width - dimensions.left;
 			// Erase the value for 'left':
 			delete dimensions.left;
 		}
 	}
 
 	this.$element.css( dimensions );
+	this.setIdealSize( $container.width() );
 	return this;
 };

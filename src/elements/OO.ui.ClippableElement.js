@@ -15,6 +15,8 @@ OO.ui.ClippableElement = function OoUiClippableElement( $clippable ) {
 	this.$clippableContainer = null;
 	this.$clippableScroller = null;
 	this.$clippableWindow = null;
+	this.idealWidth = null;
+	this.idealHeight = null;
 	this.onClippableContainerScrollHandler = OO.ui.bind( this.clip, this );
 	this.onClippableWindowResizeHandler = OO.ui.bind( this.clip, this );
 
@@ -81,6 +83,18 @@ OO.ui.ClippableElement.prototype.isClipped = function () {
 };
 
 /**
+ * Set the ideal size.
+ *
+ * @method
+ * @param {number|string} [width] Width as a number of pixels or CSS string with unit suffix
+ * @param {number|string} [height] Height as a number of pixels or CSS string with unit suffix
+ */
+OO.ui.ClippableElement.prototype.setIdealSize = function ( width, height ) {
+	this.idealWidth = width;
+	this.idealHeight = height;
+};
+
+/**
  * Clip element to visible boundaries and allow scrolling when needed.
  *
  * Element will be clipped the bottom or right of the element is within 10px of the edge of, or
@@ -112,12 +126,12 @@ OO.ui.ClippableElement.prototype.clip = function () {
 	if ( clipWidth ) {
 		this.$clippable.css( { 'overflow-x': 'auto', 'width': desiredWidth } );
 	} else {
-		this.$clippable.css( { 'overflow-x': '', 'width': '' } );
+		this.$clippable.css( { 'overflow-x': '', 'width': this.idealWidth || '' } );
 	}
 	if ( clipHeight ) {
 		this.$clippable.css( { 'overflow-y': 'auto', 'height': desiredHeight } );
 	} else {
-		this.$clippable.css( { 'overflow-y': '', 'height': '' } );
+		this.$clippable.css( { 'overflow-y': '', 'height': this.idealHeight || '' } );
 	}
 
 	this.clipped = clipWidth || clipHeight;
