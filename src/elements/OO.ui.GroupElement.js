@@ -38,7 +38,7 @@ OO.ui.GroupElement.prototype.getItems = function () {
  *
  * @method
  * @param {OO.ui.Element[]} items Item
- * @param {number} [index] Index to insert items after
+ * @param {number} [index] Index to insert items at
  * @chainable
  */
 OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
