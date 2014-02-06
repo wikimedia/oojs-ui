@@ -24,7 +24,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Mixin constructors
 	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
 	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
-	OO.ui.LabeledElement.call( this, this.$( '<span>' ) );
+	OO.ui.LabeledElement.call( this, this.$( '<span>' ), config );
 	OO.ui.TitledElement.call( this, this.$element, config );
 	OO.ui.ClippableElement.call( this, this.$group );
 
@@ -47,7 +47,6 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	this.$element
 		.addClass( 'oo-ui-popupToolGroup' )
 		.prepend( this.$handle );
-	this.setLabel( config.label ? OO.ui.msg( config.label ) : '' );
 };
 
 /* Inheritance */

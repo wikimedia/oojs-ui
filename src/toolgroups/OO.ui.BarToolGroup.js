@@ -23,6 +23,6 @@ OO.inheritClass( OO.ui.BarToolGroup, OO.ui.ToolGroup );
 
 /* Static Properties */
 
-OO.ui.BarToolGroup.static.labelTooltips = true;
+OO.ui.BarToolGroup.static.titleTooltips = true;
 
 OO.ui.BarToolGroup.static.accelTooltips = true;
