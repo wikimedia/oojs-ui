@@ -63,7 +63,7 @@ OO.ui.FlaggableElement.prototype.setFlags = function ( flags ) {
 		}
 	} else if ( OO.isPlainObject( flags ) ) {
 		for ( flag in flags ) {
-			if ( flags[flags] ) {
+			if ( flags[flag] ) {
 				// Set
 				this.flags[flag] = true;
 				this.$element.addClass( classPrefix + flag );

@@ -45,7 +45,7 @@ OO.ui.OutlineItemWidget.static.levels = 3;
 /**
  * Check if item is movable.
  *
- * Moveablilty is used by outline controls.
+ * Movablilty is used by outline controls.
  *
  * @returns {boolean} Item is movable
  */
@@ -60,6 +60,19 @@ OO.ui.OutlineItemWidget.prototype.isMovable = function () {
  */
 OO.ui.OutlineItemWidget.prototype.getLevel = function () {
 	return this.level;
+};
+
+/**
+ * Set movability.
+ *
+ * Movablilty is used by outline controls.
+ *
+ * @param {boolean} movable Item is movable
+ * @chainable
+ */
+OO.ui.OutlineItemWidget.prototype.setMovable = function ( movable ) {
+	this.movable = !!movable;
+	return this;
 };
 
 /**

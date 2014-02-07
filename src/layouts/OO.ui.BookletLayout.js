@@ -220,7 +220,7 @@ OO.ui.BookletLayout.prototype.getPageName = function () {
  * @chainable
  */
 OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
-	var i, len, name, page,
+	var i, len, name, page, item,
 		items = [],
 		remove = [];
 
@@ -233,7 +233,9 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 		}
 		this.pages[page.getName()] = page;
 		if ( this.outlined ) {
-			items.push( new OO.ui.BookletOutlineItemWidget( name, page, { '$': this.$ } ) );
+			item = new OO.ui.OutlineItemWidget( name, page, { '$': this.$ } );
+			page.setOutlineItem( item );
+			items.push( item );
 		}
 	}
 	if ( remove.length ) {
@@ -267,6 +269,7 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
 		delete this.pages[name];
 		if ( this.outlined ) {
 			items.push( this.outlineWidget.getItemFromData( name ) );
+			page.setOutlineItem( null );
 		}
 	}
 	if ( this.outlined && items.length ) {
@@ -287,12 +290,16 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
  * @chainable
  */
 OO.ui.BookletLayout.prototype.clearPages = function () {
-	var pages = this.stackLayout.getItems();
+	var i, len,
+		pages = this.stackLayout.getItems();
 
 	this.pages = {};
 	this.currentPageName = null;
 	if ( this.outlined ) {
 		this.outlineWidget.clearItems();
+		for ( i = 0, len = pages.length; i < len; i++ ) {
+			pages[i].setOutlineItem( null );
+		}
 	}
 	this.stackLayout.clearItems();
 

@@ -51,7 +51,6 @@
 			"src/widgets/OO.ui.OutlineWidget.js",
 			"src/widgets/OO.ui.OutlineControlsWidget.js",
 			"src/widgets/OO.ui.OutlineItemWidget.js",
-			"src/widgets/OO.ui.BookletOutlineItemWidget.js",
 			"src/widgets/OO.ui.ButtonOptionWidget.js",
 			"src/widgets/OO.ui.ButtonSelectWidget.js",
 			"src/widgets/OO.ui.PopupWidget.js",

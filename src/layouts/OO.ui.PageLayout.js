@@ -7,12 +7,7 @@
  * @constructor
  * @param {string} name Unique symbolic name of page
  * @param {Object} [config] Configuration options
- * @param {string} [icon=''] Symbolic name of icon to display in outline
- * @param {string} [indicator=''] Symbolic name of indicator to display in outline
- * @param {string} [indicatorTitle=''] Description of indicator meaning to display in outline
- * @param {string} [label=''] Label to display in outline
- * @param {number} [level=0] Indentation level of item in outline
- * @param {boolean} [movable=false] Page should be movable using outline controls
+ * @param {string} [outlineItem] Outline item widget
  */
 OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
 	// Configuration initialization
@@ -23,12 +18,7 @@ OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
 
 	// Properties
 	this.name = name;
-	this.icon = config.icon || '';
-	this.indicator = config.indicator || '';
-	this.indicatorTitle = OO.ui.resolveMsg( config.indicatorTitle ) || '';
-	this.label = OO.ui.resolveMsg( config.label ) || '';
-	this.level = config.level || 0;
-	this.movable = !!config.movable;
+	this.outlineItem = config.outlineItem || null;
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-pageLayout' );
@@ -50,55 +40,21 @@ OO.ui.PageLayout.prototype.getName = function () {
 };
 
 /**
- * Get page icon.
+ * Get outline item.
  *
- * @returns {string} Symbolic name of icon
+ * @returns {OO.ui.OutlineItemWidget|null} Outline item widget
  */
-OO.ui.PageLayout.prototype.getIcon = function () {
-	return this.icon;
+OO.ui.PageLayout.prototype.getOutlineItem = function () {
+	return this.outlineItem;
 };
 
 /**
- * Get page indicator.
+ * Get outline item.
  *
- * @returns {string} Symbolic name of indicator
+ * @param {OO.ui.OutlineItemWidget|null} outlineItem Outline item widget, null to clear
+ * @chainable
  */
-OO.ui.PageLayout.prototype.getIndicator = function () {
-	return this.indicator;
-};
-
-/**
- * Get page indicator label.
- *
- * @returns {string} Description of indicator meaning
- */
-OO.ui.PageLayout.prototype.getIndicatorTitle = function () {
-	return this.indicatorTitle;
-};
-
-/**
- * Get page label.
- *
- * @returns {string} Label text
- */
-OO.ui.PageLayout.prototype.getLabel = function () {
-	return this.label;
-};
-
-/**
- * Get outline item indentation level.
- *
- * @returns {number} Indentation level
- */
-OO.ui.PageLayout.prototype.getLevel = function () {
-	return this.level;
-};
-
-/**
- * Check if page is movable using outline controls.
- *
- * @returns {boolean} Page is movable
- */
-OO.ui.PageLayout.prototype.isMovable = function () {
-	return this.movable;
+OO.ui.PageLayout.prototype.setOutlineItem = function ( outlineItem ) {
+	this.outlineItem = outlineItem;
+	return this;
 };

@@ -7,6 +7,7 @@
  * @mixins OO.ui.IconedElement
  * @mixins OO.ui.LabeledElement
  * @mixins OO.ui.IndicatedElement
+ * @mixins OO.ui.FlaggableElement
  *
  * @constructor
  * @param {Mixed} data Option data
@@ -27,6 +28,7 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
 	OO.ui.LabeledElement.call( this, this.$( '<span>' ), config );
 	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
+	OO.ui.FlaggableElement.call( this, config );
 
 	// Properties
 	this.data = data;
@@ -56,6 +58,7 @@ OO.mixinClass( OO.ui.OptionWidget, OO.ui.ItemWidget );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.LabeledElement );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.IndicatedElement );
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.FlaggableElement );
 
 /* Static Properties */
 
