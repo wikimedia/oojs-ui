@@ -27,6 +27,7 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	this.lookupCache = {};
 	this.lookupQuery = null;
 	this.lookupRequest = null;
+	this.populating = false;
 
 	// Events
 	this.$overlay.append( this.lookupMenu.$element );
@@ -100,6 +101,7 @@ OO.ui.LookupInputWidget.prototype.openLookupMenu = function () {
 			this.lookupMenu.show();
 		}
 	} else {
+		this.lookupMenu.clearItems();
 		this.lookupMenu.hide();
 	}
 
@@ -113,16 +115,25 @@ OO.ui.LookupInputWidget.prototype.openLookupMenu = function () {
  * @chainable
  */
 OO.ui.LookupInputWidget.prototype.populateLookupMenu = function () {
-	var items = this.getLookupMenuItems();
-
-	this.lookupMenu.clearItems();
-
-	if ( items.length ) {
-		this.lookupMenu.show();
-		this.lookupMenu.addItems( items );
-		this.initializeLookupMenuSelection();
-	} else {
-		this.lookupMenu.hide();
+	if ( !this.populating ) {
+		this.populating = true;
+		this.getLookupMenuItems()
+			.done( OO.ui.bind( function ( items ) {
+				this.lookupMenu.clearItems();
+				if ( items.length ) {
+					this.lookupMenu.show();
+					this.lookupMenu.addItems( items );
+					this.initializeLookupMenuSelection();
+					this.openLookupMenu();
+				} else {
+					this.lookupMenu.hide();
+				}
+				this.populating = false;
+			}, this ) )
+			.fail( OO.ui.bind( function () {
+				this.lookupMenu.clearItems();
+				this.populating = false;
+			}, this ) );
 	}
 
 	return this;
@@ -145,10 +156,12 @@ OO.ui.LookupInputWidget.prototype.initializeLookupMenuSelection = function () {
  * Get lookup menu items for the current query.
  *
  * @method
- * @returns {OO.ui.MenuItemWidget[]} Menu items
+ * @returns {jQuery.Promise} Promise object which will be passed menu items as the first argument
+ * of the done event
  */
 OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
-	var value = this.lookupInput.getValue();
+	var value = this.lookupInput.getValue(),
+		deferred = $.Deferred();
 
 	if ( value && value !== this.lookupQuery ) {
 		// Abort current request if query has changed
@@ -158,7 +171,7 @@ OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
 			this.lookupRequest = null;
 		}
 		if ( value in this.lookupCache ) {
-			return this.getLookupMenuItemsFromData( this.lookupCache[value] );
+			deferred.resolve( this.getLookupMenuItemsFromData( this.lookupCache[value] ) );
 		} else {
 			this.lookupQuery = value;
 			this.lookupRequest = this.getLookupRequest()
@@ -168,15 +181,18 @@ OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
 				}, this ) )
 				.done( OO.ui.bind( function ( data ) {
 					this.lookupCache[value] = this.getLookupCacheItemFromData( data );
-					this.openLookupMenu();
-				}, this ) );
+					deferred.resolve( this.getLookupMenuItemsFromData( this.lookupCache[value] ) );
+				}, this ) )
+				.fail( function () {
+					deferred.reject();
+				} );
 			this.pushPending();
 			this.lookupRequest.always( OO.ui.bind( function () {
 				this.popPending();
 			}, this ) );
 		}
 	}
-	return [];
+	return deferred.promise();
 };
 
 /**
