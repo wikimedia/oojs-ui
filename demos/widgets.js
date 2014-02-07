@@ -351,7 +351,7 @@ $( function () {
 		fieldset = new OO.ui.FieldsetLayout( { 'label': name } );
 		fieldset.addItems( sections[name] );
 		// TODO: Update buildConsole to add consoles to fieldsets full of field layouts
-		// OO.ui.demo.buildConsole( item );
+		// OO.ui.demo.buildConsole( item, 'widget' );
 		$demo.append( fieldset.$element );
 	}
 } );

@@ -2,14 +2,14 @@
 
 	/**
 	 * @param {Object} item
-	 * @param {OO.ui.Widget} item.widget
+	 * @param {string} key Name of key in item
 	 * @param {string} [item.label=""]
 	 * @return {jQuery} Console interface element
 	 */
-	function buildConsole( item ) {
+	function buildConsole( item, key ) {
 		var $toggle, $log, $label, $input, $submit, $console, $form,
 			console = window.console,
-			name = item.label || item.widget.constructor.name;
+			name = item.label || item[ key ].constructor.name;
 
 		function exec( str ) {
 			var func, ret;
@@ -18,8 +18,8 @@
 				str = 'return ' + str;
 			}
 			try {
-				func = new Function( 'widget', 'item', str );
-				ret = { value: func( item.widget, item ) };
+				func = new Function( key, 'item', str );
+				ret = { value: func( item[ key ], item ) };
 			} catch ( error ) {
 				ret = {
 					value: undefined,
@@ -82,9 +82,9 @@
 				if ( $input.is( ':visible' ) ) {
 					$input.focus();
 					if ( console && console.log ) {
-						window.$widget = item.widget;
-						console.log( '[Console "' + name + '"]', 'Global $widget has been set' );
-						console.log( '[Console "' + name + '"]', item.widget );
+						window[ '$' + key ] = item[ key ];
+						console.log( '[Console "' + name + '"]', 'Global $' + key + ' has been set' );
+						console.log( '[Console "' + name + '"]', item[ key ] );
 					}
 				}
 			} );
@@ -97,7 +97,7 @@
 
 		$input = $( '<input>' )
 			.addClass( 'oo-ui-demo-console-input' )
-			.prop( 'placeholder', '... (predefined: OoUiWidget widget, Object item)' );
+			.prop( 'placeholder', '... (predefined: ' + key + ', Object item)' );
 
 		$submit = $( '<div>' )
 			.addClass( 'oo-ui-demo-console-submit' )
