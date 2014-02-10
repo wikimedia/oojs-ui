@@ -5,6 +5,11 @@
 	background-image: url(images/icons/add-item.png);
 }
 
+.oo-ui-icon-advanced {
+	/* @embed */
+	background-image: url(images/icons/advanced.png);
+}
+
 .oo-ui-icon-alert {
 	/* @embed */
 	background-image: url(images/icons/alert.png);
