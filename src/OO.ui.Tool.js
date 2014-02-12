@@ -44,7 +44,6 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 			this.constructor.static.name.replace( /^([^\/]+)\/([^\/]+).*$/, '$1-$2' )
 		)
 		.append( this.$link );
-	this.setIcon( this.constructor.static.icon );
 	this.setTitle( config.title || this.constructor.static.title );
 };
 
