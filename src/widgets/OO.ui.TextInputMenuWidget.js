@@ -45,11 +45,10 @@ OO.ui.TextInputMenuWidget.prototype.onWindowResize = function () {
  * @chainable
  */
 OO.ui.TextInputMenuWidget.prototype.show = function () {
-	this.position();
-
 	// Parent method
 	OO.ui.MenuWidget.prototype.show.call( this );
 
+	this.position();
 	this.$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
 	return this;
 };
