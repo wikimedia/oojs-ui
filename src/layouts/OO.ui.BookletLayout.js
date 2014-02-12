@@ -10,7 +10,7 @@
  * @cfg {boolean} [autoFocus=false] Focus on the first focusable element when changing to a page
  * @cfg {boolean} [outlined=false] Show an outline
  * @cfg {boolean} [editable=false] Show controls for adding, removing and reordering pages
- * @cfg {Object[]} [adders List of adders for controls, each with name, icon and title properties
+ * @cfg {Object[]} [adders] List of adders for controls, each with name, icon and title properties
  */
 OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	// Initialize configuration

@@ -5,33 +5,38 @@
  * @abstract
  * @extends OO.ui.Widget
  * @mixins OO.ui.IconedElement
- * @mixins OO.ui.LabeledElement
  *
  * @constructor
  * @param {OO.ui.ToolGroup} toolGroup
  * @param {Object} [config] Configuration options
+ * @cfg {string|Function} [title] Title text or a function that returns text
  */
 OO.ui.Tool = function OoUiTool( toolGroup, config ) {
+	// Config intialization
+	config = config || {};
+
 	// Parent constructor
 	OO.ui.Widget.call( this, config );
 
 	// Mixin constructors
-	OO.ui.IconedElement.call( this, this.$( '<span>' ) );
-	OO.ui.LabeledElement.call( this, this.$( '<span>' ) );
+	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
 
 	// Properties
 	this.toolGroup = toolGroup;
 	this.toolbar = this.toolGroup.getToolbar();
 	this.active = false;
+	this.$title = this.$( '<span>' );
 	this.$link = this.$( '<a>' );
+	this.title = null;
 
 	// Events
 	this.toolbar.connect( this, { 'updateState': 'onUpdateState' } );
 
 	// Initialization
+	this.$title.addClass( 'oo-ui-tool-title' );
 	this.$link
 		.addClass( 'oo-ui-tool-link' )
-		.append( this.$icon, this.$label );
+		.append( this.$icon, this.$title );
 	this.$element
 		.data( 'oo-ui-tool', this )
 		.addClass(
@@ -40,7 +45,7 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 		)
 		.append( this.$link );
 	this.setIcon( this.constructor.static.icon );
-	this.updateLabel();
+	this.setTitle( config.title || this.constructor.static.title );
 };
 
 /* Inheritance */
@@ -48,7 +53,6 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 OO.inheritClass( OO.ui.Tool, OO.ui.Widget );
 
 OO.mixinClass( OO.ui.Tool, OO.ui.IconedElement );
-OO.mixinClass( OO.ui.Tool, OO.ui.LabeledElement );
 
 /* Events */
 
@@ -81,25 +85,7 @@ OO.ui.Tool.static.name = '';
 OO.ui.Tool.static.group = '';
 
 /**
- * Symbolic name of icon.
- *
- * Value should be the unique portion of an icon CSS class name, such as 'up' for 'oo-ui-icon-up'.
- *
- * For i18n purposes, this property can be an object containing a `default` icon name property and
- * additional icon names keyed by language code.
- *
- * Example of i18n icon definition:
- *     { 'default': 'bold-a', 'en': 'bold-b', 'de': 'bold-f' }
- *
- * @abstract
- * @static
- * @property {string|Object}
- * @inheritable
- */
-OO.ui.Tool.static.icon = '';
-
-/**
- * Message key for tool title.
+ * Tool title.
  *
  * Title is used as a tooltip when the tool is part of a bar tool group, or a label when the tool
  * is part of a list or menu tool group. If a trigger is associated with an action by the same name
@@ -108,10 +94,10 @@ OO.ui.Tool.static.icon = '';
  *
  * @abstract
  * @static
- * @property {string}
+ * @property {string|Function} Title text or a function that returns text
  * @inheritable
  */
-OO.ui.Tool.static.titleMessage = '';
+OO.ui.Tool.static.title = '';
 
 /**
  * Tool can be automatically added to tool groups.
@@ -194,11 +180,23 @@ OO.ui.Tool.prototype.setActive = function ( state ) {
  * Get the tool title.
  *
  * @method
- * @returns {string} [title] Title text
+ * @param {string|Function} title Title text or a function that returns text
+ * @chainable
+ */
+OO.ui.Tool.prototype.setTitle = function ( title ) {
+	this.title = OO.ui.resolveMsg( title );
+	this.updateTitle();
+	return this;
+};
+
+/**
+ * Get the tool title.
+ *
+ * @method
+ * @returns {string} Title text
  */
 OO.ui.Tool.prototype.getTitle = function () {
-	var key = this.constructor.static.titleMessage;
-	return typeof key === 'string' ? OO.ui.msg( key ) : '';
+	return this.title;
 };
 
 /**
@@ -212,30 +210,26 @@ OO.ui.Tool.prototype.getName = function () {
 };
 
 /**
- * Update the label.
+ * Update the title.
  *
  * @method
  */
-OO.ui.Tool.prototype.updateLabel = function () {
-	var title = this.getTitle(),
-		labelTooltips = this.toolGroup.constructor.static.labelTooltips,
+OO.ui.Tool.prototype.updateTitle = function () {
+	var titleTooltips = this.toolGroup.constructor.static.titleTooltips,
 		accelTooltips = this.toolGroup.constructor.static.accelTooltips,
 		accel = this.toolbar.getToolAccelerator( this.constructor.static.name ),
 		tooltipParts = [];
 
-	this.setLabel(
-		this.$( '<span>' )
-			.addClass( 'oo-ui-tool-title' )
-			.text( title )
-			.add(
-				this.$( '<span>' )
-					.addClass( 'oo-ui-tool-accel' )
-					.text( accel )
-			)
-	);
+	this.$title.empty()
+		.text( this.title )
+		.append(
+			this.$( '<span>' )
+				.addClass( 'oo-ui-tool-accel' )
+				.text( accel )
+		);
 
-	if ( labelTooltips && typeof title === 'string' && title.length ) {
-		tooltipParts.push( title );
+	if ( titleTooltips && typeof this.title === 'string' && this.title.length ) {
+		tooltipParts.push( this.title );
 	}
 	if ( accelTooltips && typeof accel === 'string' && accel.length ) {
 		tooltipParts.push( accel );

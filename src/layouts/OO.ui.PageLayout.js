@@ -25,8 +25,8 @@ OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
 	this.name = name;
 	this.icon = config.icon || '';
 	this.indicator = config.indicator || '';
-	this.indicatorTitle = config.indicatorTitle || '';
-	this.label = config.label || '';
+	this.indicatorTitle = OO.ui.resolveMsg( config.indicatorTitle ) || '';
+	this.label = OO.ui.resolveMsg( config.label ) || '';
 	this.level = config.level || 0;
 	this.movable = !!config.movable;
 

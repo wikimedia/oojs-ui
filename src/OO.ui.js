@@ -110,6 +110,19 @@ OO.ui.msg = function ( key ) {
 	return message;
 };
 
+OO.ui.deferMsg = function ( key ) {
+	return function () {
+		return OO.ui.msg( key );
+	};
+};
+
+OO.ui.resolveMsg = function ( msg ) {
+	if ( $.isFunction( msg ) ) {
+		return msg();
+	}
+	return msg;
+};
+
 } )();
 
 // Add more as you need

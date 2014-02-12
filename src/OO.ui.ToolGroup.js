@@ -77,7 +77,7 @@ OO.mixinClass( OO.ui.ToolGroup, OO.ui.GroupElement );
  * @property {boolean}
  * @inheritable
  */
-OO.ui.ToolGroup.static.labelTooltips = false;
+OO.ui.ToolGroup.static.titleTooltips = false;
 
 /**
  * Show acceleration labels in tooltips.
@@ -239,7 +239,7 @@ OO.ui.ToolGroup.prototype.populate = function () {
 			if ( !tool ) {
 				// Auto-initialize tools on first use
 				this.tools[name] = tool = toolFactory.create( name, this );
-				tool.updateLabel();
+				tool.updateTitle();
 			}
 			this.toolbar.reserveTool( tool );
 			add.push( tool );

@@ -1,6 +1,9 @@
 /**
  * Container for elements in a child frame.
  *
+ * There are two ways to specifiy a title: set the static `title` property or provide a `title`
+ * property in the configuration options. The latter will override the former.
+ *
  * @class
  * @abstract
  * @extends OO.ui.Element
@@ -9,6 +12,8 @@
  * @constructor
  * @param {OO.ui.WindowSet} windowSet Window set this dialog is part of
  * @param {Object} [config] Configuration options
+ * @cfg {string|Function} [title] Title string or function that returns a string
+ * @cfg {string} [icon] Symbolic name of icon
  * @fires initialize
  */
 OO.ui.Window = function OoUiWindow( windowSet, config ) {
@@ -23,6 +28,8 @@ OO.ui.Window = function OoUiWindow( windowSet, config ) {
 	this.visible = false;
 	this.opening = false;
 	this.closing = false;
+	this.title = OO.ui.resolveMsg( config.title || this.constructor.static.title );
+	this.icon = config.icon || this.constructor.static.icon;
 	this.frame = new OO.ui.Frame( { '$': this.$ } );
 	this.$frame = this.$( '<div>' );
 	this.$ = function () {
@@ -90,13 +97,13 @@ OO.mixinClass( OO.ui.Window, OO.EventEmitter );
 OO.ui.Window.static.icon = 'window';
 
 /**
- * Localized message for title.
+ * Window title.
  *
  * @static
  * @inheritable
- * @property {string}
+ * @property {string|Function} Title string or function that returns a string
  */
-OO.ui.Window.static.titleMessage = null;
+OO.ui.Window.static.title = null;
 
 /* Methods */
 
@@ -151,13 +158,21 @@ OO.ui.Window.prototype.getWindowSet = function () {
 };
 
 /**
- * Get the title of the window.
+ * Get the window title.
  *
- * Use #titleMessage to set this unless you need to do something fancy.
- * @returns {string} Window title
+ * @returns {string} Title text
  */
 OO.ui.Window.prototype.getTitle = function () {
-	return OO.ui.msg( this.constructor.static.titleMessage );
+	return this.title;
+};
+
+/**
+ * Get the window icon.
+ *
+ * @returns {string} Symbolic name of icon
+ */
+OO.ui.Window.prototype.getIcon = function () {
+	return this.icon;
 };
 
 /**
@@ -183,11 +198,32 @@ OO.ui.Window.prototype.setSize = function ( width, height ) {
 /**
  * Set the title of the window.
  *
- * @param {string} [customTitle] Custom title, override the #titleMessage
+ * @param {string|Function} title Title text or a function that returns text
  * @chainable
  */
-OO.ui.Window.prototype.setTitle = function ( customTitle ) {
-	this.$title.text( customTitle || this.getTitle() );
+OO.ui.Window.prototype.setTitle = function ( title ) {
+	this.title = OO.ui.resolveMsg( title );
+	if ( this.$title ) {
+		this.$title.text( title );
+	}
+	return this;
+};
+
+/**
+ * Set the icon of the window.
+ *
+ * @param {string} icon Symbolic name of icon
+ * @chainable
+ */
+OO.ui.Window.prototype.setIcon = function ( icon ) {
+	if ( this.$icon ) {
+		this.$icon.removeClass( 'oo-ui-icon-' + this.icon );
+	}
+	this.icon = icon;
+	if ( this.$icon ) {
+		this.$icon.addClass( 'oo-ui-icon-' + this.icon );
+	}
+
 	return this;
 };
 
@@ -252,12 +288,10 @@ OO.ui.Window.prototype.fitWidthToContents = function ( min, max ) {
 OO.ui.Window.prototype.initialize = function () {
 	// Properties
 	this.$ = this.frame.$;
-	this.$title = this.$( '<div class="oo-ui-window-title"></div>' );
-	if ( this.getTitle() ) {
-		this.setTitle();
-	}
+	this.$title = this.$( '<div class="oo-ui-window-title"></div>' )
+		.text( this.title );
 	this.$icon = this.$( '<div class="oo-ui-window-icon"></div>' )
-		.addClass( 'oo-ui-icon-' + this.constructor.static.icon );
+		.addClass( 'oo-ui-icon-' + this.icon );
 	this.$head = this.$( '<div class="oo-ui-window-head"></div>' );
 	this.$body = this.$( '<div class="oo-ui-window-body"></div>' );
 	this.$foot = this.$( '<div class="oo-ui-window-foot"></div>' );
