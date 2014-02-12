@@ -1,7 +1,7 @@
 /**
  * Container for elements in a child frame.
  *
- * There are two ways to specifiy a title: set the static `title` property or provide a `title`
+ * There are two ways to specify a title: set the static `title` property or provide a `title`
  * property in the configuration options. The latter will override the former.
  *
  * @class

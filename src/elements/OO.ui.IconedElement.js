@@ -21,7 +21,7 @@ OO.ui.IconedElement = function OoUiIconedElement( $icon, config ) {
 
 	// Initialization
 	this.$icon.addClass( 'oo-ui-iconedElement-icon' );
-	this.setIcon( config.icon || this.constructor.static.indicator  );
+	this.setIcon( config.icon || this.constructor.static.icon );
 };
 
 /* Static Properties */

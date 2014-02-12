@@ -7,7 +7,7 @@
  * @constructor
  * @param {jQuery} $label Label node, assigned to #$label
  * @param {Object} [config] Configuration options
- * @cfg {jQuery|string|function} [label] Label nodes, text or a function that returns nodes or text
+ * @cfg {jQuery|string|Function} [label] Label nodes, text or a function that returns nodes or text
  */
 OO.ui.LabeledElement = function OoUiLabeledElement( $label, config ) {
 	// Config intialization
@@ -42,7 +42,7 @@ OO.ui.LabeledElement.static.label = null;
  * Set the label.
  *
  * @method
- * @param {jQuery|string|function|null} label Label nodes; text; a function that retuns nodes or
+ * @param {jQuery|string|Function|null} label Label nodes; text; a function that retuns nodes or
  *  text; or null for no label
  * @chainable
  */
@@ -68,7 +68,7 @@ OO.ui.LabeledElement.prototype.setLabel = function ( label ) {
  * Get the label.
  *
  * @method
- * @returns {jQuery|string|function|null} label Label nodes; text; a function that returns nodes or
+ * @returns {jQuery|string|Function|null} label Label nodes; text; a function that returns nodes or
  *  text; or null for no label
  */
 OO.ui.LabeledElement.prototype.getLabel = function () {
