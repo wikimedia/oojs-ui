@@ -35,6 +35,9 @@ a.oo-ui-buttonedElement-button {
 .oo-ui-buttonedElement .oo-ui-buttonedElement-button > .oo-ui-indicatedElement-indicator {
 	margin-right: -0.75em;
 }
+.oo-ui-buttonedElement.oo-ui-widget-disabled .oo-ui-buttonedElement-button {
+	cursor: default;
+}
 
 .oo-ui-buttonedElement-frameless {
 	display: inline-block;

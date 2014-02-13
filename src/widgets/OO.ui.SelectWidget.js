@@ -17,7 +17,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	OO.ui.Widget.call( this, config );
 
 	// Mixin constructors
-	OO.ui.GroupElement.call( this, this.$element, config );
+	OO.ui.GroupWidget.call( this, this.$element, config );
 
 	// Properties
 	this.pressed = false;
@@ -41,7 +41,10 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 
 OO.inheritClass( OO.ui.SelectWidget, OO.ui.Widget );
 
+// Need to mixin base class as well
 OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupElement );
+
+OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
 
 /* Events */
 

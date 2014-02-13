@@ -23,6 +23,7 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 	OO.ui.Widget.call( this, config );
 
 	// Mixin constructors
+	OO.ui.ItemWidget.call( this );
 	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
 	OO.ui.LabeledElement.call( this, this.$( '<span>' ), config );
 	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
@@ -51,6 +52,7 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 
 OO.inheritClass( OO.ui.OptionWidget, OO.ui.Widget );
 
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.ItemWidget );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.LabeledElement );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.IndicatedElement );

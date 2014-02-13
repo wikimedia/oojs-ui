@@ -104,6 +104,44 @@ $( function () {
 					]
 				},
 				{
+					'widget': new OO.ui.ButtonSelectWidget( {
+						'disabled': true
+					} ),
+					'items': [
+						new OO.ui.ButtonOptionWidget( 1, {
+							'label': 'Disabled',
+						} ),
+						new OO.ui.ButtonOptionWidget( 2, {
+							'label': 'state',
+						} ),
+						new OO.ui.ButtonOptionWidget( 3, {
+							'label': 'is',
+						} ),
+						new OO.ui.ButtonOptionWidget( 3, {
+							'label': 'inherited',
+						} )
+					]
+				},
+				{
+					'widget': new OO.ui.ButtonSelectWidget(),
+					'items': [
+						new OO.ui.ButtonOptionWidget( 1, {
+							'label': 'Disabled',
+							'disabled': true
+						} ),
+						new OO.ui.ButtonOptionWidget( 2, {
+							'label': 'Enabled'
+						} ),
+						new OO.ui.ButtonOptionWidget( 3, {
+							'label': 'Disabled',
+							'disabled': true
+						} ),
+						new OO.ui.ButtonOptionWidget( 3, {
+							'label': 'Enabled'
+						} )
+					]
+				},
+				{
 					'label': 'ToggleButtonWidget',
 					'widget': new OO.ui.ToggleButtonWidget( { 'label': 'Toggle' } )
 				},
@@ -115,12 +153,6 @@ $( function () {
 				{
 					'label': 'ToggleSwitchWidget',
 					'widget': new OO.ui.ToggleSwitchWidget()
-				},
-				{
-					'widget': new OO.ui.ToggleSwitchWidget( {
-						'onLabel': 'Any',
-						'offLabel': 'Label'
-					} )
 				},
 				{
 					'widget': new OO.ui.ToggleSwitchWidget( {

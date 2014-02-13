@@ -65,6 +65,7 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 			}
 			item.connect( this, events );
 		}
+		item.setElementGroup( this );
 		$items = $items.add( item.$element );
 	}
 
@@ -104,6 +105,7 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
 			if ( this.aggregate ) {
 				item.disconnect( this );
 			}
+			item.setElementGroup( null );
 			this.items.splice( index, 1 );
 			item.$element.detach();
 			this.$items = this.$items.not( item.$element );
@@ -130,6 +132,7 @@ OO.ui.GroupElement.prototype.clearItems = function () {
 			item.disconnect( this );
 		}
 	}
+	item.setElementGroup( null );
 	this.items = [];
 	this.$items.detach();
 	this.$items = this.$( [] );

@@ -17,6 +17,7 @@ OO.ui.Element = function OoUiElement( config ) {
 	// Properties
 	this.$ = config.$ || OO.ui.Element.getJQuery( document );
 	this.$element = this.$( this.$.context.createElement( this.getTagName() ) );
+	this.elementGroup = null;
 
 	// Initialization
 	if ( Array.isArray( config.classes ) ) {
@@ -398,6 +399,26 @@ OO.ui.Element.prototype.getElementWindow = function () {
  */
 OO.ui.Element.prototype.getClosestScrollableElementContainer = function () {
 	return OO.ui.Element.getClosestScrollableContainer( this.$element[0] );
+};
+
+/**
+ * Get group element is in.
+ *
+ * @returns {OO.ui.GroupElement|null} Group element, null if none
+ */
+OO.ui.Element.prototype.getElementGroup = function () {
+	return this.elementGroup;
+};
+
+/**
+ * Set group element is in.
+ *
+ * @param {OO.ui.GroupElement|null} group Group element, null if none
+ * @chainable
+ */
+OO.ui.Element.prototype.setElementGroup = function ( group ) {
+	this.elementGroup = group;
+	return this;
 };
 
 /**
