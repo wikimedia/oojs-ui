@@ -21,17 +21,21 @@ module.exports = function ( grunt ) {
 			version = grunt.config( 'pkg.version' );
 
 		src.forEach( function ( filepath ) {
-			var variant, text;
+			var variant, text, buffer;
 
 			if ( typeof filepath !== 'object' ) {
 				filepath = { 'default': filepath };
 			}
 
-			for ( variant in filepath ) {
-				if ( compiled[variant] === undefined ) {
-					compiled[variant] = compiled['default'];
-				}
+			// Store buffer before we enter this loop so that when we branch for a new variant,
+			// that variant must not include the "default" chunk for filepath currently being
+			// iterated over. This can happen when the loop iterates over 'default' first.
+			// This avoids a bug where the following filepath would result in "foo" containing both
+			// default and foo, whereas "bar" would correctly only contain bar:
+			//     { bar: 'bar.css', default: 'fallback.css', foo: 'foo.css' }
+			buffer = compiled['default'];
 
+			for ( variant in filepath ) {
 				text = grunt.file.read( __dirname + '/../../' + filepath[variant] );
 
 				// Ensure files use only \n for line endings, not \r\n
@@ -40,6 +44,10 @@ module.exports = function ( grunt ) {
 					isBad = true;
 				}
 
+				if ( compiled[variant] === undefined ) {
+					// Discovered new variant. Branch from the default variant.
+					compiled[variant] = buffer;
+				}
 				compiled[variant] += text;
 			}
 		} );
