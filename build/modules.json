@@ -77,7 +77,7 @@
 			"src/styles/OO.ui.Widget.css",
 			"src/styles/OO.ui.Window.css",
 			{
-				"default": [
+				"png": [
 					"src/styles/OO.ui.Icons-raster.css"
 				],
 				"svg": [
