@@ -127,12 +127,13 @@ OO.ui.GroupElement.prototype.clearItems = function () {
 	var i, len, item;
 
 	// Remove all items
-	if ( this.aggregate ) {
-		for ( i = 0, len = this.items.length; i < len; i++ ) {
+	for ( i = 0, len = this.items.length; i < len; i++ ) {
+		item = this.items[i];
+		if ( this.aggregate ) {
 			item.disconnect( this );
 		}
+		item.setElementGroup( null );
 	}
-	item.setElementGroup( null );
 	this.items = [];
 	this.$items.detach();
 	this.$items = this.$( [] );
