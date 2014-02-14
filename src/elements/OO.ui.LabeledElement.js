@@ -41,6 +41,9 @@ OO.ui.LabeledElement.static.label = null;
 /**
  * Set the label.
  *
+ * An empty string will result in the label being hidden. A string containing only whitespace will
+ * be converted to a single &nbsp;
+ *
  * @method
  * @param {jQuery|string|Function|null} label Label nodes; text; a function that retuns nodes or
  *  text; or null for no label
@@ -50,8 +53,13 @@ OO.ui.LabeledElement.prototype.setLabel = function ( label ) {
 	var empty = false;
 
 	this.label = label = OO.ui.resolveMsg( label ) || null;
-	if ( typeof label === 'string' && label.trim() ) {
-		this.$label.text( label );
+	if ( typeof label === 'string' && label.length ) {
+		if ( label.match( /^\s*$/ ) ) {
+			// Convert whitespace only string to a single non-breaking space
+			this.$label.html( '&nbsp;' );
+		} else {
+			this.$label.text( label );
+		}
 	} else if ( label instanceof jQuery ) {
 		this.$label.empty().append( label );
 	} else {
