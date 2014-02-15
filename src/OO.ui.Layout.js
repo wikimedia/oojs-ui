@@ -4,7 +4,7 @@
  * @class
  * @abstract
  * @extends OO.ui.Element
- * @mixin OO.EventEmitter
+ * @mixins OO.EventEmitter
  *
  * @constructor
  * @param {Object} [config] Configuration options
