@@ -7,36 +7,26 @@
 
 /*jshint node:true */
 module.exports = function ( grunt ) {
+	var moduleUtils = require( '../moduleUtils' );
 
 	grunt.registerMultiTask( 'concat', function () {
 		var variant,
 			variantVersion,
 			variantFileName,
+			files,
 			isBad = false,
-			compiled = {
-				'default': ''
-			},
+			compiled = {},
+			fileCache = {},
+			version = grunt.config( 'pkg.version' ),
 			fileName = this.data.dest,
 			src = this.data.src,
-			version = grunt.config( 'pkg.version' );
+			srcExpanded = moduleUtils.expandResources( src );
 
-		src.forEach( function ( filepath ) {
-			var variant, text, buffer;
-
-			if ( typeof filepath !== 'object' ) {
-				filepath = { 'default': filepath };
-			}
-
-			// Store buffer before we enter this loop so that when we branch for a new variant,
-			// that variant must not include the "default" chunk for filepath currently being
-			// iterated over. This can happen when the loop iterates over 'default' first.
-			// This avoids a bug where the following filepath would result in "foo" containing both
-			// default and foo, whereas "bar" would correctly only contain bar:
-			//     { bar: 'bar.css', default: 'fallback.css', foo: 'foo.css' }
-			buffer = compiled['default'];
-
-			for ( variant in filepath ) {
-				text = grunt.file.read( __dirname + '/../../' + filepath[variant] );
+		function getFileHandleFile( variant ) {
+			return function ( filepath ) {
+				var text = fileCache[ filepath ] || (
+					fileCache[ filepath ] = grunt.file.read( __dirname + '/../../' + filepath )
+				);
 
 				// Ensure files use only \n for line endings, not \r\n
 				if ( /\x0d\x0a/.test( text ) ) {
@@ -44,13 +34,16 @@ module.exports = function ( grunt ) {
 					isBad = true;
 				}
 
-				if ( compiled[variant] === undefined ) {
-					// Discovered new variant. Branch from the default variant.
-					compiled[variant] = buffer;
-				}
-				compiled[variant] += text;
-			}
-		} );
+				compiled[ variant ] += text;
+			};
+		}
+
+		for ( variant in srcExpanded ) {
+			files = srcExpanded[ variant ];
+			compiled[ variant ] = '';
+
+			files.forEach( getFileHandleFile( variant ) );
+		}
 
 		if ( isBad ) {
 			return false;
@@ -74,9 +67,9 @@ module.exports = function ( grunt ) {
 			}
 
 			// Replace version and date placeholders
-			compiled[variant] = compiled[variant].replace( /@VERSION/g, variantVersion ).replace( /@DATE/g, new Date() );
+			compiled[ variant ] = compiled[ variant ].replace( /@VERSION/g, variantVersion ).replace( /@DATE/g, new Date() );
 
-			grunt.file.write( variantFileName, compiled[variant] );
+			grunt.file.write( variantFileName, compiled[ variant ] );
 			grunt.log.ok( 'File "' + variantFileName + '" created.' );
 		}
 

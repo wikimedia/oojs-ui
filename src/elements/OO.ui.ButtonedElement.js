@@ -47,7 +47,9 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 OO.ui.ButtonedElement.prototype.onMouseDown = function () {
 	this.tabIndex = this.$button.attr( 'tabIndex' );
 	// Remove the tab-index while the button is down to prevent the button from stealing focus
-	this.$button.removeAttr( 'tabIndex' );
+	this.$button
+		.removeAttr( 'tabIndex' )
+		.addClass( 'oo-ui-buttonedElement-pressed' );
 	this.getElementDocument().addEventListener( 'mouseup', this.onMouseUpHandler, true );
 };
 
@@ -59,7 +61,9 @@ OO.ui.ButtonedElement.prototype.onMouseDown = function () {
  */
 OO.ui.ButtonedElement.prototype.onMouseUp = function () {
 	// Restore the tab-index after the button is up to restore the button's accesssibility
-	this.$button.attr( 'tabIndex', this.tabIndex );
+	this.$button
+		.attr( 'tabIndex', this.tabIndex )
+		.removeClass( 'oo-ui-buttonedElement-pressed' );
 	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
 };
 
@@ -71,6 +75,6 @@ OO.ui.ButtonedElement.prototype.onMouseUp = function () {
  * @chainable
  */
 OO.ui.ButtonedElement.prototype.setActive = function ( value ) {
-	this.$element.toggleClass( 'oo-ui-buttonedElement-active', !!value );
+	this.$button.toggleClass( 'oo-ui-buttonedElement-active', !!value );
 	return this;
 };

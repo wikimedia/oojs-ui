@@ -12,8 +12,6 @@
  * @constructor
  * @param {Mixed} data Option data
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [selected=false] Select option
- * @cfg {boolean} [highlighted=false] Highlight option
  * @cfg {string} [rel] Value for `rel` attribute in DOM, allowing per-option styling
  */
 OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
@@ -41,10 +39,6 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 		.attr( 'rel', config.rel )
 		.addClass( 'oo-ui-optionWidget' )
 		.append( this.$label );
-	this.setSelected( config.selected );
-	this.setHighlighted( config.highlighted );
-
-	// Options
 	this.$element
 		.prepend( this.$icon )
 		.append( this.$indicator );

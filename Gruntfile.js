@@ -9,25 +9,51 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-recess' );
 	grunt.loadTasks( 'build/tasks' );
 
-	var modules = grunt.file.readJSON( 'build/modules.json' );
+	var modules = grunt.file.readJSON( 'build/modules.json' ),
+		moduleUtils = require( './build/moduleUtils' ),
+		styleTargets = moduleUtils.expandResources( modules['oojs-ui'].styles ),
+		recessFiles = {},
+		concatCssFiles = {};
+		( function () {
+			var distFile, target;
+			for ( target in styleTargets ) {
+
+				distFile = target === 'default' ?
+					'dist/oojs-ui.css' :
+					'dist/oojs-ui.' + target + '.css';
+
+				recessFiles[ distFile ] = styleTargets[ target ];
+
+				// Concat isn't doing much other than expanding v@VERSION...
+				concatCssFiles[ 'css-' + target ] = {
+					dest: distFile,
+					src: [ distFile ]
+				};
+			}
+		}() );
 
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
 		clean: {
 			dist: ['dist/*/', 'dist/*.*']
 		},
-		concat: {
+		recess: {
+			dist: {
+				options: {
+					compile: true
+				},
+				files: recessFiles
+			}
+		},
+		concat: grunt.util._.extend( concatCssFiles, {
 			js: {
 				dest: 'dist/oojs-ui.js',
 				src: modules['oojs-ui'].scripts
-			},
-			css: {
-				dest: 'dist/oojs-ui.css',
-				src: modules['oojs-ui'].styles
 			}
-		},
+		} ),
 		copy: {
 			images: {
 				src: 'src/styles/images/**/*.*',
@@ -48,7 +74,7 @@ module.exports = function ( grunt ) {
 			options: {
 				csslintrc: '.csslintrc'
 			},
-			all: 'src/**/*.css',
+			all: '{demos,src}/**/*.css',
 		},
 		qunit: {
 			all: ['test/index.html']
@@ -64,7 +90,7 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'build', ['clean', 'concat', 'copy'] );
+	grunt.registerTask( 'build', ['clean', 'recess', 'concat', 'copy'] );
 	grunt.registerTask( 'test', ['git-build', 'build', 'jshint', 'csslint', 'qunit'] );
 	grunt.registerTask( 'default', 'test' );
 };

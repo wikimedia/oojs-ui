@@ -19,18 +19,18 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	this.dragging = false;
 	this.dragStart = null;
 	this.sliding = false;
-	this.$on = this.$( '<span>' );
+	this.$glow = this.$( '<span>' );
 	this.$grip = this.$( '<span>' );
 
 	// Events
 	this.$element.on( 'click', OO.ui.bind( this.onClick, this ) );
 
 	// Initialization
-	this.$on.addClass( 'oo-ui-toggleSwitchWidget-on' );
+	this.$glow.addClass( 'oo-ui-toggleSwitchWidget-glow' );
 	this.$grip.addClass( 'oo-ui-toggleSwitchWidget-grip' );
 	this.$element
 		.addClass( 'oo-ui-toggleSwitchWidget' )
-		.append( this.$on, this.$grip );
+		.append( this.$glow, this.$grip );
 };
 
 /* Inheritance */

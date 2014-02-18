@@ -1,0 +1,328 @@
+@import 'mixins';
+
+/* OO.ui.ToolGroup */
+
+.oo-ui-toolGroup {
+	display: inline-block;
+	margin: 0.3em;
+	vertical-align: middle;
+	border-radius: 0.25em;
+	border: solid 1px transparent;
+	.oo-ui-transition(border-color 300ms ease-in-out);
+
+	&:hover {
+		border-color: rgba(0,0,0,0.1);
+	}
+
+	&-empty {
+		display: none;
+	}
+
+	.oo-ui-tool-link .oo-ui-tool-title {
+		color: #000;
+	}
+
+	.oo-ui-tool-link .oo-ui-iconedElement-icon {
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+}
+
+/* OO.ui.BarToolGroup */
+
+.oo-ui-barToolGroup {
+	> .oo-ui-iconedElement-icon,
+	> .oo-ui-labeledElement-label {
+		display: none;
+	}
+
+	.oo-ui-tool {
+		display: inline-block;
+		position: relative;
+		vertical-align: top;
+		margin: -1px 0 -1px -1px;
+		border: solid 1px transparent;
+
+		&:first-child {
+			border-top-left-radius: 0.25em;
+			border-bottom-left-radius: 0.25em;
+		}
+
+		&:last-child {
+			margin-right: -1px;
+			border-top-right-radius: 0.25em;
+			border-bottom-right-radius: 0.25em;
+		}
+
+		&.oo-ui-widget-enabled:hover {
+			border-color: rgba(0,0,0,0.2);
+		}
+
+		&-active {
+			&.oo-ui-widget-enabled {
+				border-color: rgba(0,0,0,0.2);
+			}
+
+			&.oo-ui-widget-enabled + .oo-ui-tool-active.oo-ui-widget-enabled {
+				border-left-color: rgba(0,0,0,0.1);
+			}
+		}
+
+		&-link {
+			display: block;
+			height: 1.5em;
+			padding: 0.25em;
+			cursor: pointer;
+
+			.oo-ui-iconedElement-icon {
+				display: block;
+				height: 1.5em;
+				width: 1.5em;
+				opacity: 0.8;
+			}
+
+			.oo-ui-tool-title {
+				display: none;
+			}
+		}
+
+		&.oo-ui-widget-disabled .oo-ui-tool-link {
+			cursor: default;
+
+			.oo-ui-iconedElement-icon {
+				opacity: 0.2;
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			.oo-ui-tool-link .oo-ui-iconedElement-icon {
+				opacity: 0.8;
+			}
+
+			&:hover .oo-ui-tool-link .oo-ui-iconedElement-icon {
+				opacity: 1;
+			}
+		}
+
+		&-title,
+		&-accel {
+			display: none;
+		}
+	}
+}
+
+/* OO.ui.PopupToolGroup */
+
+.oo-ui-popupToolGroup {
+	position: relative;
+	height: 2em;
+	min-width: 2.5em;
+
+	&.oo-ui-indicatedElement.oo-ui-iconedElement {
+		min-width: 3.5em;
+	}
+
+	&-handle {
+		display: block;
+		cursor: pointer;
+
+		.oo-ui-indicatedElement-indicator,
+		.oo-ui-iconedElement-icon {
+			position: absolute;
+			top: 0;
+			width: 2em;
+			height: 2em;
+			background-position: center center;
+			background-repeat: no-repeat;
+			opacity: 0.8;
+		}
+
+		.oo-ui-indicatedElement-indicator {
+			right: 0;
+		}
+
+		.oo-ui-iconedElement-icon {
+			left: 0.25em;
+		}
+
+		.oo-ui-labeledElement-label {
+			line-height: 2.6em;
+			font-size: 0.8em;
+			margin: 0 1em;
+		}
+	}
+
+	&.oo-ui-iconedElement .oo-ui-popupToolGroup-handle .oo-ui-labeledElement-label {
+		margin-left: 3.25em;
+	}
+
+	&.oo-ui-indicatedElement .oo-ui-popupToolGroup-handle .oo-ui-labeledElement-label {
+		margin-right: 2.25em;
+	}
+
+	.oo-ui-toolGroup-tools {
+		display: none;
+		position: absolute;
+		top: 2em;
+		left: -1px;
+		z-index: 4;
+		border: solid 1px #ccc;
+		background-color: white;
+		box-shadow: 0 0.25em 1em rgba(0,0,0,0.25);
+
+		.oo-ui-iconedElement-icon {
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+	}
+
+	&-active.oo-ui-widget-enabled {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+
+		> .oo-ui-toolGroup-tools {
+			display: block;
+		}
+	}
+
+	.oo-ui-tool-link {
+		.oo-ui-iconedElement-icon {
+			display: inline-block;
+			vertical-align: middle;
+			height: 2em;
+			width: 2em;
+			margin-right: 0.5em;
+		}
+
+		.oo-ui-tool-title {
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 2em;
+			font-size: 0.8em;
+		}
+	}
+
+	.oo-ui-tool-accel {
+		display: none;
+	}
+}
+
+/* OO.ui.ListToolGroup */
+
+.oo-ui-listToolGroup {
+	&.oo-ui-popupToolGroup-active {
+		border-color: rgba(0,0,0,0.2);
+	}
+
+	.oo-ui-toolGroup-tools {
+		padding: 0.25em;
+	}
+
+	.oo-ui-tool {
+		display: inline-block;
+		width: 100%;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		border: solid 1px transparent;
+		margin: -1px 0;
+
+
+		&-link {
+			display: block;
+			cursor: pointer;
+			white-space: nowrap;
+			padding-right: 0.5em;
+		}
+
+		&-active {
+			&.oo-ui-widget-enabled {
+				border-color: rgba(0,0,0,0.1);
+				+ .oo-ui-tool-active.oo-ui-widget-enabled {
+					border-top-color: rgba(0,0,0,0.1);
+				}
+				&:hover {
+					border-color: rgba(0,0,0,0.2);
+				}
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			&:hover {
+				border-color: rgba(0,0,0,0.2);
+			}
+			.oo-ui-tool-link .oo-ui-iconedElement-icon {
+				opacity: 0.8;
+			}
+			&:hover .oo-ui-tool-link .oo-ui-iconedElement-icon {
+				opacity: 1;
+			}
+		}
+
+		&.oo-ui-widget-disabled {
+			.oo-ui-tool-link {
+				cursor: default;
+			}
+
+			.oo-ui-tool-link .oo-ui-tool-title {
+				color: #ccc;
+			}
+
+			.oo-ui-tool-link .oo-ui-iconedElement-icon {
+				opacity: 0.2;
+			}
+		}
+	}
+
+}
+
+/* OO.ui.MenuToolGroup */
+
+.oo-ui-menuToolGroup {
+	border-color: rgba(0,0,0,0.1);
+
+	&:hover {
+		border-color: rgba(0,0,0,0.2);
+	}
+
+	&.oo-ui-popupToolGroup-active {
+		border-color: rgba(0,0,0,0.25);
+	}
+
+	.oo-ui-popupToolGroup-handle {
+		min-width: 8em;
+	}
+
+	.oo-ui-tool {
+		display: block;
+
+		&-link {
+			display: block;
+			cursor: pointer;
+			white-space: nowrap;
+			padding: 0.25em 1em 0.25em 0.25em;
+
+			.oo-ui-iconedElement-icon {
+				background-image: none;
+			}
+		}
+
+		&-active .oo-ui-tool-link .oo-ui-iconedElement-icon {
+			.oo-ui-background-image('images/icons/check.png');
+		}
+
+		&:hover {
+			background-color: #e1f3ff;
+		}
+	}
+}
+
+/* Common */
+
+.oo-ui-barToolGroup .oo-ui-tool-active.oo-ui-widget-enabled,
+.oo-ui-listToolGroup .oo-ui-tool-active.oo-ui-widget-enabled,
+.oo-ui-popupToolGroup-active.oo-ui-widget-enabled {
+	.oo-ui-vertical-gradient(#F1F7FB, #fff);
+	box-shadow: inset 0 0.07em 0.07em 0 rgba(0, 0, 0, 0.07);
+}

@@ -66,23 +66,19 @@
 		],
 		"styles": [
 			"src/styles/intro.css",
-			"src/styles/OO.ui.css",
-			"src/styles/OO.ui.Dialog.css",
-			"src/styles/OO.ui.Element.css",
-			"src/styles/OO.ui.Frame.css",
-			"src/styles/OO.ui.Layout.css",
-			"src/styles/OO.ui.Tool.css",
-			"src/styles/OO.ui.Toolbar.css",
-			"src/styles/OO.ui.ToolGroup.css",
-			"src/styles/OO.ui.Widget.css",
-			"src/styles/OO.ui.Window.css",
+			"src/styles/OO.ui.less",
+			"src/styles/OO.ui.Dialog.less",
+			"src/styles/OO.ui.Element.less",
+			"src/styles/OO.ui.Frame.less",
+			"src/styles/OO.ui.Layout.less",
+			"src/styles/OO.ui.Tool.less",
+			"src/styles/OO.ui.Toolbar.less",
+			"src/styles/OO.ui.ToolGroup.less",
+			"src/styles/OO.ui.Widget.less",
+			"src/styles/OO.ui.Window.less",
 			{
-				"default": [
-					"src/styles/OO.ui.Icons-raster.css"
-				],
-				"svg": [
-					"src/styles/OO.ui.Icons-vector.css"
-				]
+				"default": "src/styles/OO.ui.Icons-raster.less",
+				"svg": "src/styles/OO.ui.Icons-vector.less"
 			}
 		]
 	}

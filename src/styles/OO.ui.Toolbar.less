@@ -1,0 +1,64 @@
+@import 'mixins';
+
+/* OO.ui.Toolbar */
+
+.oo-ui-toolbar {
+	clear: both;
+
+	&-bar {
+		border-bottom: solid 1px #ccc;
+		line-height: 1em;
+		.oo-ui-vertical-gradient(#fff, #F1F7FB);
+
+		.oo-ui-toolbar-bar {
+			border: none;
+			background: none;
+		}
+	}
+
+	&-bottom .oo-ui-toolbar-bar {
+		position: absolute;
+	}
+
+	&-actions {
+		float: right;
+	}
+
+	&-tools {
+		float: left;
+	}
+
+	&-tools,
+	&-actions,
+	&-shadow {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+	}
+
+	&-actions .oo-ui-popupWidget {
+		-webkit-touch-callout: default;
+		-webkit-user-select: all;
+		-moz-user-select: all;
+		-ms-user-select: all;
+		user-select: all;
+	}
+
+	&-shadow {
+		.oo-ui-background-image('images/toolbar-shadow.png');
+		background-position: left top;
+		background-repeat: repeat-x;
+		position: absolute;
+		bottom: -9px;
+		height: 9px;
+		width: 100%;
+		pointer-events: none;
+		-webkit-transition: opacity 500ms ease-in-out;
+		-moz-transition: opacity 500ms ease-in-out;
+		-o-transition: opacity 500ms ease-in-out;
+		transition: opacity 500ms ease-in-out;
+		opacity: 0.125;
+	}
+}
