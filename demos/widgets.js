@@ -220,6 +220,14 @@ $( function () {
 						'value': 'Multiline'
 					} ),
 					{ 'label': 'TextInputWidget (multiline)' }
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						'multiline': true,
+						'autosize': true,
+						'value': 'Autosize'
+					} ),
+					{ 'label': 'TextInputWidget (autosize)' }
 				)
 			]
 		};

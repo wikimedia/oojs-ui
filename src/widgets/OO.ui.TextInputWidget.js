@@ -9,6 +9,7 @@
  * @cfg {string} [placeholder] Placeholder text
  * @cfg {string} [icon] Symbolic name of icon
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
+ * @cfg {boolean} [autosize=false] Automatically resize to fit content
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	config = config || {};
@@ -19,6 +20,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Properties
 	this.pending = 0;
 	this.multiline = !!config.multiline;
+	this.autosize = !!config.autosize;
 
 	// Events
 	this.$input.on( 'keypress', OO.ui.bind( this.onKeyPress, this ) );
@@ -70,6 +72,37 @@ OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
 };
 
 /**
+ * @inheritdoc
+ */
+OO.ui.TextInputWidget.prototype.onEdit = function () {
+	var $clone, scrollHeight, innerHeight, outerHeight;
+
+	// Automatic size adjustment
+	if ( this.multiline && this.autosize ) {
+		$clone = this.$input.clone()
+			.val( this.$input.val() )
+			.css( { 'height': 0 } )
+			.insertAfter( this.$input );
+		// Set inline height property to 0 to measure scroll height
+		scrollHeight = $clone[0].scrollHeight;
+		// Remove inline height property to measure natural heights
+		$clone.css( 'height', '' );
+		innerHeight = $clone.innerHeight();
+		outerHeight = $clone.outerHeight();
+		$clone.remove();
+		// Only apply inline height when expansion beyond natural height is needed
+		this.$input.css(
+			'height',
+			// Use the difference between the inner and outer height as a buffer
+			scrollHeight > outerHeight ? scrollHeight + ( outerHeight - innerHeight ) : ''
+		);
+	}
+
+	// Parent method
+	return OO.ui.InputWidget.prototype.onEdit.call( this );
+};
+
+/**
  * Get input element.
  *
  * @method
@@ -81,6 +114,26 @@ OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
 };
 
 /* Methods */
+
+/**
+ * Checks if input supports multiple lines.
+ *
+ * @method
+ * @returns {boolean} Input supports multiple lines
+ */
+OO.ui.TextInputWidget.prototype.isMultiline = function () {
+	return !!this.multiline;
+};
+
+/**
+ * Checks if input automatically adjusts its size.
+ *
+ * @method
+ * @returns {boolean} Input automatically adjusts its size
+ */
+OO.ui.TextInputWidget.prototype.isAutosizing = function () {
+	return !!this.autosize;
+};
 
 /**
  * Checks if input is pending.
