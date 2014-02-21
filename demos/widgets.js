@@ -228,6 +228,28 @@ $( function () {
 						'value': 'Autosize'
 					} ),
 					{ 'label': 'TextInputWidget (autosize)' }
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.InlineMenuWidget( {
+						'label': 'Select one',
+						'menu': {
+							'items': [
+								new OO.ui.MenuItemWidget( 'a',  {
+									'label': 'First'
+								} ),
+								new OO.ui.MenuItemWidget( 'b', {
+									'label': 'Second'
+								} ),
+								new OO.ui.MenuItemWidget( 'c', {
+									'label': 'Third'
+								} ),
+								new OO.ui.MenuItemWidget( 'd', {
+									'label': 'Fourth'
+								} )
+							]
+						}
+					} ),
+					{ 'label': 'InlineMenuWidget' }
 				)
 			]
 		};

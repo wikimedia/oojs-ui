@@ -47,6 +47,7 @@
 			"src/widgets/OO.ui.SelectWidget.js",
 			"src/widgets/OO.ui.MenuItemWidget.js",
 			"src/widgets/OO.ui.MenuWidget.js",
+			"src/widgets/OO.ui.InlineMenuWidget.js",
 			"src/widgets/OO.ui.MenuSectionItemWidget.js",
 			"src/widgets/OO.ui.OutlineWidget.js",
 			"src/widgets/OO.ui.OutlineControlsWidget.js",
