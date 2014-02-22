@@ -20,7 +20,7 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	OO.ui.ClippableElement.call( this, this.$group, config );
 
 	// Properties
-	this.newItems = [];
+	this.newItems = null;
 	this.$input = config.input ? config.input.$input : null;
 	this.$previousFocus = null;
 	this.isolated = !config.input;
@@ -170,6 +170,11 @@ OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
 	// Parent method
 	OO.ui.SelectWidget.prototype.addItems.call( this, items, index );
 
+	// Auto-initialize
+	if ( !this.newItems ) {
+		this.newItems = [];
+	}
+
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[i];
 		if ( this.visible ) {
@@ -202,11 +207,11 @@ OO.ui.MenuWidget.prototype.show = function () {
 			this.$previousFocus = this.$( ':focus' );
 			this.$input.focus();
 		}
-		if ( this.newItems.length ) {
+		if ( this.newItems && this.newItems.length ) {
 			for ( i = 0, len = this.newItems.length; i < len; i++ ) {
 				this.newItems[i].fitLabel();
 			}
-			this.newItems = [];
+			this.newItems = null;
 		}
 
 		this.setClipping( true );
