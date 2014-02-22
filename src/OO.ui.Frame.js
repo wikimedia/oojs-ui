@@ -16,7 +16,8 @@ OO.ui.Frame = function OoUiFrame( config ) {
 	OO.EventEmitter.call( this );
 
 	// Properties
-	this.initialized = false;
+	this.loading = false;
+	this.loaded = false;
 	this.config = config;
 
 	// Initialize
@@ -39,7 +40,7 @@ OO.ui.Frame.static.tagName = 'iframe';
 /* Events */
 
 /**
- * @event initialize
+ * @event load
  */
 
 /* Static Methods */
@@ -58,7 +59,6 @@ OO.ui.Frame.static.tagName = 'iframe';
  * For details of how we arrived at the strategy used in this function, see #load.
  *
  * @static
- * @method
  * @inheritable
  * @param {HTMLDocument} parentDoc Document to transplant styles from
  * @param {HTMLDocument} frameDoc Document to transplant styles to
@@ -164,12 +164,15 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, callback, 
  *
  * All this stylesheet injection and polling magic is in #transplantStyles.
  *
- * @fires initialize
+ * @private
+ * @fires load
  */
 OO.ui.Frame.prototype.load = function () {
 	var win = this.$element.prop( 'contentWindow' ),
 		doc = win.document,
 		frame = this;
+
+	this.loading = true;
 
 	// Figure out directionality:
 	this.dir = this.$element.closest( '[dir]' ).prop( 'dir' ) || 'ltr';
@@ -191,31 +194,42 @@ OO.ui.Frame.prototype.load = function () {
 	this.$content = this.$( '.oo-ui-frame-content' );
 	this.$document = this.$( doc );
 
-	this.constructor.static.transplantStyles( this.getElementDocument(), this.$document[0],
+	this.constructor.static.transplantStyles(
+		this.getElementDocument(),
+		this.$document[0],
 		function () {
-			frame.initialized = true;
-			frame.emit( 'initialize' );
+			frame.loading = false;
+			frame.loaded = true;
+			frame.emit( 'load' );
 		}
 	);
 };
 
 /**
- * Run a callback as soon as the frame has been initialized.
+ * Run a callback as soon as the frame has been loaded.
+ *
+ *
+ * This will start loading if it hasn't already, and runs
+ * immediately if the frame is already loaded.
+ *
+ * Don't call this until the element is attached.
  *
  * @param {Function} callback
  */
 OO.ui.Frame.prototype.run = function ( callback ) {
-	if ( this.initialized ) {
+	if ( this.loaded ) {
 		callback();
 	} else {
-		this.once( 'initialize', callback );
+		if ( !this.loading ) {
+			this.load();
+		}
+		this.once( 'load', callback );
 	}
 };
 
 /**
  * Sets the size of the frame.
  *
- * @method
  * @param {number} width Frame width in pixels
  * @param {number} height Frame height in pixels
  * @chainable

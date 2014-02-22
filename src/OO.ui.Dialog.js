@@ -6,17 +6,16 @@
  * @extends OO.ui.Window
  *
  * @constructor
- * @param {OO.ui.WindowSet} windowSet Window set this dialog is part of
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [footless] Hide foot
  * @cfg {boolean} [small] Make the dialog small
  */
-OO.ui.Dialog = function OoUiDialog( windowSet, config ) {
+OO.ui.Dialog = function OoUiDialog( config ) {
 	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Window.call( this, windowSet, config );
+	OO.ui.Window.call( this, config );
 
 	// Properties
 	this.visible = false;
@@ -27,6 +26,7 @@ OO.ui.Dialog = function OoUiDialog( windowSet, config ) {
 
 	// Events
 	this.$element.on( 'mousedown', false );
+	this.connect( this, { 'opening': 'onOpening' } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-dialog' );
@@ -103,6 +103,11 @@ OO.ui.Dialog.prototype.onFrameDocumentKeyDown = function ( e ) {
 	}
 };
 
+/** */
+OO.ui.Dialog.prototype.onOpening = function () {
+	this.$element.addClass( 'oo-ui-dialog-open' );
+};
+
 /**
  * @inheritdoc
  */
@@ -162,14 +167,14 @@ OO.ui.Dialog.prototype.teardown = function ( data ) {
  * @inheritdoc
  */
 OO.ui.Dialog.prototype.close = function ( data ) {
-	if ( !this.opening && !this.closing && this.visible ) {
+	var dialog = this;
+	if ( !dialog.opening && !dialog.closing && dialog.visible ) {
 		// Trigger transition
-		this.$element.addClass( 'oo-ui-dialog-closing' );
+		dialog.$element.removeClass( 'oo-ui-dialog-open' );
 		// Allow transition to complete before actually closing
-		setTimeout( OO.ui.bind( function () {
-			this.$element.removeClass( 'oo-ui-dialog-closing' );
+		setTimeout( function () {
 			// Parent method
-			OO.ui.Window.prototype.close.call( this, data );
-		}, this ), 250 );
+			OO.ui.Window.prototype.close.call( dialog, data );
+		}, 250 );
 	}
 };

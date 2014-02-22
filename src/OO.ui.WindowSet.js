@@ -18,6 +18,17 @@ OO.ui.WindowSet = function OoUiWindowSet( factory, config ) {
 
 	// Properties
 	this.factory = factory;
+
+	/**
+	 * List of all windows associated with this window set
+	 * @property {OO.ui.Window[]}
+	 */
+	this.windowList = [];
+
+	/**
+	 * Mapping of OO.ui.Window objects created by name from the #factory.
+	 * @property {Object}
+	 */
 	this.windows = {};
 	this.currentWindow = null;
 
@@ -136,14 +147,31 @@ OO.ui.WindowSet.prototype.getWindow = function ( name ) {
 	}
 	if ( !( name in this.windows ) ) {
 		win = this.windows[name] = this.factory.create( name, this, { '$': this.$ } );
-		win.connect( this, {
-			'opening': [ 'onWindowOpening', win ],
-			'open': [ 'onWindowOpen', win ],
-			'closing': [ 'onWindowClosing', win ],
-			'close': [ 'onWindowClose', win ]
-		} );
-		this.$element.append( win.$element );
-		win.getFrame().load();
+		this.addWindow( win );
 	}
 	return this.windows[name];
+};
+
+/**
+ * Add a given window to this window set.
+ *
+ * Connects event handlers and attaches it to the DOM. Calling
+ * OO.ui.Window#open will not work until the window is added to the set.
+ *
+ * @param {OO.ui.Window} win
+ */
+OO.ui.WindowSet.prototype.addWindow = function ( win ) {
+	if ( this.windowList.indexOf( win ) !== -1 ) {
+		// Already set up
+		return;
+	}
+	this.windowList.push( win );
+
+	win.connect( this, {
+		'opening': [ 'onWindowOpening', win ],
+		'open': [ 'onWindowOpen', win ],
+		'closing': [ 'onWindowClosing', win ],
+		'close': [ 'onWindowClose', win ]
+	} );
+	this.$element.append( win.$element );
 };

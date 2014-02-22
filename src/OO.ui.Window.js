@@ -10,13 +10,12 @@
  * @mixins OO.EventEmitter
  *
  * @constructor
- * @param {OO.ui.WindowSet} windowSet Window set this dialog is part of
  * @param {Object} [config] Configuration options
  * @cfg {string|Function} [title] Title string or function that returns a string
  * @cfg {string} [icon] Symbolic name of icon
  * @fires initialize
  */
-OO.ui.Window = function OoUiWindow( windowSet, config ) {
+OO.ui.Window = function OoUiWindow( config ) {
 	// Parent constructor
 	OO.ui.Element.call( this, config );
 
@@ -24,7 +23,6 @@ OO.ui.Window = function OoUiWindow( windowSet, config ) {
 	OO.EventEmitter.call( this );
 
 	// Properties
-	this.windowSet = windowSet;
 	this.visible = false;
 	this.opening = false;
 	this.closing = false;
@@ -48,7 +46,7 @@ OO.ui.Window = function OoUiWindow( windowSet, config ) {
 		.append( this.frame.$element );
 
 	// Events
-	this.frame.connect( this, { 'initialize': 'initialize' } );
+	this.frame.connect( this, { 'load': 'initialize' } );
 };
 
 /* Inheritance */
@@ -99,7 +97,11 @@ OO.ui.Window.static.icon = 'window';
 /**
  * Window title.
  *
+ * Subclasses must implement this property before instantiating the window.
+ * Alternatively, override #getTitle with an alternative implementation.
+ *
  * @static
+ * @abstract
  * @inheritable
  * @property {string|Function} Title string or function that returns a string
  */
@@ -148,17 +150,7 @@ OO.ui.Window.prototype.getFrame = function () {
 };
 
 /**
- * Get the window set.
- *
- * @method
- * @returns {OO.ui.WindowSet} Window set
- */
-OO.ui.Window.prototype.getWindowSet = function () {
-	return this.windowSet;
-};
-
-/**
- * Get the window title.
+ * Get the title of the window.
  *
  * @returns {string} Title text
  */
