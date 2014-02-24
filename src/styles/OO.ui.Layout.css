@@ -38,7 +38,7 @@
 .oo-ui-fieldsetLayout > legend.oo-ui-labeledElement-label {
 	font-size: 1.5em;
 	margin-bottom: 0.5em;
-	padding-left: 0;
+	padding: 0.25em 0;
 }
 
 .oo-ui-fieldsetLayout.oo-ui-iconedElement > legend.oo-ui-labeledElement-label {
@@ -49,7 +49,7 @@
 	display: block;
 	position: absolute;
 	left: 0;
-	top: 0.5em;
+	top: 0;
 	width: 2em;
 	height: 2em;
 	background-position: center center;
@@ -158,10 +158,4 @@
 .oo-ui-stackLayout-continuous > .oo-ui-panelLayout {
 	display: block;
 	position: relative;
-	margin-bottom: 1em;
-	box-shadow: 0 0 0.5em rgba(0,0,0,0.25);
-}
-
-.oo-ui-stackLayout-continuous > .oo-ui-panelLayout:last-child {
-	margin-bottom: 0;
 }
