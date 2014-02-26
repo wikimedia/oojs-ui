@@ -128,19 +128,25 @@
 /* OO.ui.BookletLayout */
 
 .oo-ui-bookletLayout {
-	&-stackLayout .oo-ui-panelLayout {
-		padding: 1.5em;
-		width: 100%;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-
-		&-scrollable {
-			overflow-y: auto;
+	&-stackLayout {
+		&.oo-ui-stackLayout-continuous .oo-ui-panelLayout-scrollable {
+			overflow-y: hidden;
 		}
 
-		&-padded {
-			padding: 2em;
+		.oo-ui-panelLayout {
+			padding: 1.5em;
+			width: 100%;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+
+			&-scrollable {
+				overflow-y: auto;
+			}
+
+			&-padded {
+				padding: 2em;
+			}
 		}
 	}
 
