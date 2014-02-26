@@ -8,7 +8,7 @@
  * @param {jQuery} $button Button node, assigned to #$button
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [frameless] Render button without a frame
- * @cfg {number} [tabIndex] Button's tab index
+ * @cfg {number} [tabIndex=0] Button's tab index, use -1 to prevent tab focusing
  */
 OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 	// Configuration initialization
