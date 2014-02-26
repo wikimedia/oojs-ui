@@ -47,9 +47,9 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.stackLayout.connect( this, { 'set': 'onStackLayoutSet' } );
 	if ( this.outlined ) {
 		this.outlineWidget.connect( this, { 'select': 'onOutlineWidgetSelect' } );
-		// Event 'focus' does not bubble, but 'focusin' does
-		this.stackLayout.onDOMEvent( 'focusin', OO.ui.bind( this.onStackLayoutFocus, this ) );
 	}
+	// Event 'focus' does not bubble, but 'focusin' does
+	this.stackLayout.onDOMEvent( 'focusin', OO.ui.bind( this.onStackLayoutFocus, this ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-bookletLayout' );
@@ -327,8 +327,12 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 	}
 
 	if ( page ) {
+		if ( this.currentPageName && this.pages[this.currentPageName] ) {
+			this.pages[this.currentPageName].setActive( false );
+		}
 		this.currentPageName = name;
 		this.stackLayout.setItem( page );
+		page.setActive( true );
 		this.emit( 'set', page );
 	}
 };
