@@ -82,15 +82,10 @@ OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
  * @inheritdoc
  */
 OO.ui.PopupToolGroup.prototype.onMouseUp = function ( e ) {
-	this.setActive( false );
+	if ( !this.disabled && e.which === 1 ) {
+		this.setActive( false );
+	}
 	return OO.ui.ToolGroup.prototype.onMouseUp.call( this, e );
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.PopupToolGroup.prototype.onMouseDown = function ( e ) {
-	return OO.ui.ToolGroup.prototype.onMouseDown.call( this, e );
 };
 
 /**
