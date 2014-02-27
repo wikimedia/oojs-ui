@@ -6,26 +6,21 @@
  * @constructor
  * @param {OO.ui.OutlineWidget} outline Outline to control
  * @param {Object} [config] Configuration options
- * @cfg {Object[]} [adders] List of icons to show as addable item types, each an object with
- *  name, title and icon properties
  */
 OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, config ) {
 	// Configuration initialization
-	config = config || {};
+	config = $.extend( { 'icon': 'add-item' }, config );
 
 	// Parent constructor
 	OO.ui.Widget.call( this, config );
 
+	// Mixin constructors
+	OO.ui.GroupElement.call( this, this.$( '<div>' ), config );
+	OO.ui.IconedElement.call( this, this.$( '<div>' ), config );
+
 	// Properties
 	this.outline = outline;
-	this.adders = {};
-	this.$adders = this.$( '<div>' );
 	this.$movers = this.$( '<div>' );
-	this.addButton = new OO.ui.ButtonWidget( {
-		'$': this.$,
-		'frameless': true,
-		'icon': 'add-item'
-	} );
 	this.upButton = new OO.ui.ButtonWidget( {
 		'$': this.$,
 		'frameless': true,
@@ -38,6 +33,12 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 		'icon': 'expand',
 		'title': OO.ui.msg( 'ooui-outline-control-move-down' )
 	} );
+	this.removeButton = new OO.ui.ButtonWidget( {
+		'$': this.$,
+		'frameless': true,
+		'icon': 'remove',
+		'title': OO.ui.msg( 'ooui-outline-control-remove' )
+	} );
 
 	// Events
 	outline.connect( this, {
@@ -47,28 +48,33 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 	} );
 	this.upButton.connect( this, { 'click': ['emit', 'move', -1] } );
 	this.downButton.connect( this, { 'click': ['emit', 'move', 1] } );
+	this.removeButton.connect( this, { 'click': ['emit', 'remove'] } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-outlineControlsWidget' );
-	this.$adders.addClass( 'oo-ui-outlineControlsWidget-adders' );
+	this.$group.addClass( 'oo-ui-outlineControlsWidget-adders' );
 	this.$movers
 		.addClass( 'oo-ui-outlineControlsWidget-movers' )
-		.append( this.upButton.$element, this.downButton.$element );
-	this.$element.append( this.$adders, this.$movers );
-	if ( config.adders && config.adders.length ) {
-		this.setupAdders( config.adders );
-	}
+		.append( this.removeButton.$element, this.upButton.$element, this.downButton.$element );
+	this.$element.append( this.$icon, this.$group, this.$movers );
 };
 
 /* Inheritance */
 
 OO.inheritClass( OO.ui.OutlineControlsWidget, OO.ui.Widget );
 
+OO.mixinClass( OO.ui.OutlineControlsWidget, OO.ui.GroupElement );
+OO.mixinClass( OO.ui.OutlineControlsWidget, OO.ui.IconedElement );
+
 /* Events */
 
 /**
  * @event move
  * @param {number} places Number of places to move
+ */
+
+/**
+ * @event remove
  */
 
 /* Methods */
@@ -80,12 +86,12 @@ OO.inheritClass( OO.ui.OutlineControlsWidget, OO.ui.Widget );
  */
 OO.ui.OutlineControlsWidget.prototype.onOutlineChange = function () {
 	var i, len, firstMovable, lastMovable,
-		movable = false,
 		items = this.outline.getItems(),
-		selectedItem = this.outline.getSelectedItem();
+		selectedItem = this.outline.getSelectedItem(),
+		movable = selectedItem && selectedItem.isMovable(),
+		removable = selectedItem && selectedItem.isRemovable();
 
-	if ( selectedItem && selectedItem.isMovable() ) {
-		movable = true;
+	if ( movable ) {
 		i = -1;
 		len = items.length;
 		while ( ++i < len ) {
@@ -104,28 +110,5 @@ OO.ui.OutlineControlsWidget.prototype.onOutlineChange = function () {
 	}
 	this.upButton.setDisabled( !movable || selectedItem === firstMovable );
 	this.downButton.setDisabled( !movable || selectedItem === lastMovable );
-};
-
-/**
- * Setup adders icons.
- *
- * @method
- * @param {Object[]} adders List of configuations for adder buttons, each containing a name, title
- *  and icon property
- */
-OO.ui.OutlineControlsWidget.prototype.setupAdders = function ( adders ) {
-	var i, len, addition, button,
-		$buttons = this.$( [] );
-
-	this.$adders.append( this.addButton.$element );
-	for ( i = 0, len = adders.length; i < len; i++ ) {
-		addition = adders[i];
-		button = new OO.ui.ButtonWidget( {
-			'$': this.$, 'frameless': true, 'icon': addition.icon, 'title': addition.title
-		} );
-		button.connect( this, { 'click': ['emit', 'add', addition.name] } );
-		this.adders[addition.name] = button;
-		this.$adders.append( button.$element );
-		$buttons = $buttons.add( button.$element );
-	}
+	this.removeButton.setDisabled( !removable );
 };

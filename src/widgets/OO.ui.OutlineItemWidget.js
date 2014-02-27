@@ -20,6 +20,7 @@ OO.ui.OutlineItemWidget = function OoUiOutlineItemWidget( data, config ) {
 	// Properties
 	this.level = 0;
 	this.movable = !!config.movable;
+	this.removable = !!config.removable;
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-outlineItemWidget' );
@@ -54,6 +55,17 @@ OO.ui.OutlineItemWidget.prototype.isMovable = function () {
 };
 
 /**
+ * Check if item is removable.
+ *
+ * Removablilty is used by outline controls.
+ *
+ * @returns {boolean} Item is removable
+ */
+OO.ui.OutlineItemWidget.prototype.isRemovable = function () {
+	return this.removable;
+};
+
+/**
  * Get indentation level.
  *
  * @returns {number} Indentation level
@@ -72,6 +84,19 @@ OO.ui.OutlineItemWidget.prototype.getLevel = function () {
  */
 OO.ui.OutlineItemWidget.prototype.setMovable = function ( movable ) {
 	this.movable = !!movable;
+	return this;
+};
+
+/**
+ * Set removability.
+ *
+ * Removablilty is used by outline controls.
+ *
+ * @param {boolean} movable Item is removable
+ * @chainable
+ */
+OO.ui.OutlineItemWidget.prototype.setRemovable = function ( removable ) {
+	this.removable = !!removable;
 	return this;
 };
 

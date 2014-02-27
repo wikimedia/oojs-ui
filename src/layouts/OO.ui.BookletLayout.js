@@ -124,6 +124,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
  */
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
 	if ( page ) {
+		this.stackLayout.$element.find( ':focus' ).blur();
 		page.scrollElementIntoView( { 'complete': OO.ui.bind( function () {
 			this.ignoreFocus = true;
 			if ( this.autoFocus ) {
@@ -164,6 +165,41 @@ OO.ui.BookletLayout.prototype.isOutlined = function () {
  */
 OO.ui.BookletLayout.prototype.isEditable = function () {
 	return this.editable;
+};
+
+/**
+ * Get the outline widget.
+ *
+ * @method
+ * @param {OO.ui.PageLayout} page Page to be selected
+ * @returns {OO.ui.PageLayout|null} Closest page to another
+ */
+OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
+	var next, prev, level,
+		pages = this.stackLayout.getItems(),
+		index = $.inArray( page, pages );
+
+	if ( index !== -1 ) {
+		next = pages[index + 1];
+		prev = pages[index - 1];
+		// Prefer adjacent pages at the same level
+		if ( this.outlined ) {
+			level = this.outlineWidget.getItemFromData( page.getName() ).getLevel();
+			if (
+				prev &&
+				level === this.outlineWidget.getItemFromData( prev.getName() ).getLevel()
+			) {
+				return prev;
+			}
+			if (
+				next &&
+				level === this.outlineWidget.getItemFromData( next.getName() ).getLevel()
+			) {
+				return next;
+			}
+		}
+	}
+	return prev || next || null;
 };
 
 /**
@@ -220,26 +256,39 @@ OO.ui.BookletLayout.prototype.getPageName = function () {
  * @chainable
  */
 OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
-	var i, len, name, page, item,
-		items = [],
-		remove = [];
+	var i, len, name, page, item, currentIndex,
+		stackLayoutPages = this.stackLayout.getItems(),
+		remove = [],
+		items = [];
 
+	// Remove pages with same names
 	for ( i = 0, len = pages.length; i < len; i++ ) {
 		page = pages[i];
 		name = page.getName();
-		if ( name in this.pages ) {
-			// Remove page with same name
+
+		if ( Object.prototype.hasOwnProperty.call( this.pages, name ) ) {
+			// Correct the insertion index
+			currentIndex = $.inArray( this.pages[name], stackLayoutPages );
+			if ( currentIndex !== -1 && currentIndex + 1 < index ) {
+				index--;
+			}
 			remove.push( this.pages[name] );
 		}
+	}
+	if ( remove.length ) {
+		this.removePages( remove );
+	}
+
+	// Add new pages
+	for ( i = 0, len = pages.length; i < len; i++ ) {
+		page = pages[i];
+		name = page.getName();
 		this.pages[page.getName()] = page;
 		if ( this.outlined ) {
 			item = new OO.ui.OutlineItemWidget( name, page, { '$': this.$ } );
 			page.setOutlineItem( item );
 			items.push( item );
 		}
-	}
-	if ( remove.length ) {
-		this.removePages( remove );
 	}
 
 	if ( this.outlined && items.length ) {
