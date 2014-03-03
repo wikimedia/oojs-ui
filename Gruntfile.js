@@ -14,24 +14,28 @@ module.exports = function ( grunt ) {
 
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
 		moduleUtils = require( './build/moduleUtils' ),
-		styleTargets = moduleUtils.expandResources( modules['oojs-ui'].styles ),
+		styleTargets = {
+			'oojs-ui': moduleUtils.expandResources( modules['oojs-ui'].styles ),
+			'oojs-ui-apex': moduleUtils.expandResources( modules['oojs-ui-apex'].styles )
+		},
 		recessFiles = {},
 		concatCssFiles = {};
 		( function () {
-			var distFile, target;
-			for ( target in styleTargets ) {
+			var distFile, target, module;
+			for ( module in styleTargets ) {
+				for ( target in styleTargets[module] ) {
+					distFile = target === 'default' ?
+						'dist/' + module + '.css' :
+						'dist/' + module + '.' + target + '.css';
 
-				distFile = target === 'default' ?
-					'dist/oojs-ui.css' :
-					'dist/oojs-ui.' + target + '.css';
+					recessFiles[distFile] = styleTargets[module][target];
 
-				recessFiles[ distFile ] = styleTargets[ target ];
-
-				// Concat isn't doing much other than expanding v@VERSION...
-				concatCssFiles[ 'css-' + target ] = {
-					dest: distFile,
-					src: [ distFile ]
-				};
+					// Concat isn't doing much other than expanding v@VERSION...
+					concatCssFiles[ module + '-css-' + target ] = {
+						dest: distFile,
+						src: [ distFile ]
+					};
+				}
 			}
 		}() );
 

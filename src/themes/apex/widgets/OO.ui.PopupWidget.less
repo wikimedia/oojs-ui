@@ -1,0 +1,31 @@
+@import '../../../styles/mixins';
+
+/* OO.ui.PopupWidget */
+
+.oo-ui-popupWidget {
+	&-popup {
+		border: solid 1px #ccc;
+		border-radius: 0.25em;
+		background-color: #fff;
+		box-shadow: 0 0.15em 0.5em 0 rgba(0, 0, 0, 0.2);
+	}
+
+	&-tailed {
+		.oo-ui-popupWidget-tail {
+			.oo-ui-background-image('images/tail.svg');
+			width: 15px;
+			height: 8px;
+			margin-left: -7px;
+		}
+	}
+
+	&-transitioning .oo-ui-popupWidget-popup {
+		.oo-ui-transition(
+			width 100ms ease-in-out, height 100ms ease-in-out, left 100ms ease-in-out
+		);
+	}
+
+	&-body {
+		box-shadow: 0 0 0.66em rgba(0,0,0,0.25);
+	}
+}

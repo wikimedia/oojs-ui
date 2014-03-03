@@ -1,0 +1,51 @@
+@import '../../../styles/mixins';
+
+/* OO.ui.ListToolGroup */
+
+.oo-ui-listToolGroup {
+	&.oo-ui-popupToolGroup-active {
+		border-color: rgba(0,0,0,0.2);
+	}
+
+	.oo-ui-tool {
+		border: solid 1px transparent;
+		margin: -1px 0;
+
+		&-active {
+			&.oo-ui-widget-enabled {
+				border-color: rgba(0,0,0,0.1);
+				box-shadow: inset 0 0.07em 0.07em 0 rgba(0, 0, 0, 0.07);
+				.oo-ui-vertical-gradient(#F1F7FB, #fff);
+
+				+ .oo-ui-tool-active.oo-ui-widget-enabled {
+					border-top-color: rgba(0,0,0,0.1);
+				}
+				&:hover {
+					border-color: rgba(0,0,0,0.2);
+				}
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			&:hover {
+				border-color: rgba(0,0,0,0.2);
+			}
+			.oo-ui-tool-link .oo-ui-iconedElement-icon {
+				opacity: 0.8;
+			}
+			&:hover .oo-ui-tool-link .oo-ui-iconedElement-icon {
+				opacity: 1;
+			}
+		}
+
+		&.oo-ui-widget-disabled {
+			.oo-ui-tool-link .oo-ui-tool-title {
+				color: #ccc;
+			}
+
+			.oo-ui-tool-link .oo-ui-iconedElement-icon {
+				opacity: 0.2;
+			}
+		}
+	}
+}

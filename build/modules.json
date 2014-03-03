@@ -109,5 +109,33 @@
 				"svg": "src/styles/OO.ui.Icons-vector.less"
 			}
 		]
+	},
+	"oojs-ui-apex": {
+		"styles": [
+			"src/themes/apex/OO.ui.Dialog.less",
+			"src/themes/apex/OO.ui.Toolbar.less",
+			"src/themes/apex/OO.ui.ToolGroup.less",
+			"src/themes/apex/OO.ui.Window.less",
+			"src/themes/apex/elements/OO.ui.ButtonedElement.less",
+			"src/themes/apex/layouts/OO.ui.BookletLayout.less",
+			"src/themes/apex/layouts/OO.ui.FieldsetLayout.less",
+			"src/themes/apex/toolgroups/OO.ui.BarToolgroup.less",
+			"src/themes/apex/toolgroups/OO.ui.ListToolgroup.less",
+			"src/themes/apex/toolgroups/OO.ui.MenuToolgroup.less",
+			"src/themes/apex/toolgroups/OO.ui.PopupToolgroup.less",
+			"src/themes/apex/widgets/OO.ui.OptionWidget.less",
+			"src/themes/apex/widgets/OO.ui.MenuWidget.less",
+			"src/themes/apex/widgets/OO.ui.PopupWidget.less",
+			"src/themes/apex/widgets/OO.ui.ButtonGroupWidget.less",
+			"src/themes/apex/widgets/OO.ui.ButtonSelectWidget.less",
+			"src/themes/apex/widgets/OO.ui.InlineMenuWidget.less",
+			"src/themes/apex/widgets/OO.ui.MenuItemWidget.less",
+			"src/themes/apex/widgets/OO.ui.MenuSectionItemWidget.less",
+			"src/themes/apex/widgets/OO.ui.OutlineControlsWidget.less",
+			"src/themes/apex/widgets/OO.ui.OutlineItemWidget.less",
+			"src/themes/apex/widgets/OO.ui.SearchWidget.less",
+			"src/themes/apex/widgets/OO.ui.TextInputWidget.less",
+			"src/themes/apex/widgets/OO.ui.ToggleSwitchWidget.less"
+		]
 	}
 }
