@@ -1,0 +1,23 @@
+.oo-ui-buttonSelectWidget {
+	display: inline-block;
+	white-space: nowrap;
+	border-radius: 0.3em;
+
+	.oo-ui-buttonOptionWidget {
+		.oo-ui-buttonedElement-button {
+			border-radius: 0;
+			margin-left: -1px;
+		}
+
+		&:first-child .oo-ui-buttonedElement-button {
+			border-bottom-left-radius: 0.3em;
+			border-top-left-radius: 0.3em;
+			margin-left: 0;
+		}
+
+		&:last-child .oo-ui-buttonedElement-button {
+			border-bottom-right-radius: 0.3em;
+			border-top-right-radius: 0.3em;
+		}
+	}
+}

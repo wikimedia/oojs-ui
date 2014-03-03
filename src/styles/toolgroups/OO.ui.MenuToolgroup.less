@@ -1,0 +1,40 @@
+@import '../mixins';
+
+.oo-ui-menuToolGroup {
+	border-color: rgba(0,0,0,0.1);
+
+	&:hover {
+		border-color: rgba(0,0,0,0.2);
+	}
+
+	&.oo-ui-popupToolGroup-active {
+		border-color: rgba(0,0,0,0.25);
+	}
+
+	.oo-ui-popupToolGroup-handle {
+		min-width: 8em;
+	}
+
+	.oo-ui-tool {
+		display: block;
+
+		&-link {
+			display: block;
+			cursor: pointer;
+			white-space: nowrap;
+			padding: 0.25em 1em 0.25em 0.25em;
+
+			.oo-ui-iconedElement-icon {
+				background-image: none;
+			}
+		}
+
+		&-active .oo-ui-tool-link .oo-ui-iconedElement-icon {
+			.oo-ui-background-image('images/icons/check.png');
+		}
+
+		&:hover {
+			background-color: #e1f3ff;
+		}
+	}
+}

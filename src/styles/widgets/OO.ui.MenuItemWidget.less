@@ -1,0 +1,21 @@
+.oo-ui-menuItemWidget {
+	position: relative;
+
+	.oo-ui-iconedElement-icon {
+		display: none;
+	}
+
+	&.oo-ui-optionWidget {
+		&-selected {
+			background-color: transparent;
+
+			.oo-ui-iconedElement-icon {
+				display: block;
+			}
+		}
+
+		&-highlighted {
+			background-color: #e1f3ff;
+		}
+	}
+}
