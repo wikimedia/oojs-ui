@@ -48,8 +48,10 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	if ( this.outlined ) {
 		this.outlineWidget.connect( this, { 'select': 'onOutlineWidgetSelect' } );
 	}
-	// Event 'focus' does not bubble, but 'focusin' does
-	this.stackLayout.onDOMEvent( 'focusin', OO.ui.bind( this.onStackLayoutFocus, this ) );
+	if ( this.autoFocus ) {
+		// Event 'focus' does not bubble, but 'focusin' does
+		this.stackLayout.onDOMEvent( 'focusin', OO.ui.bind( this.onStackLayoutFocus, this ) );
+	}
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-bookletLayout' );
@@ -368,21 +370,22 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 	var selectedItem,
 		page = this.pages[name];
 
-	if ( this.outlined ) {
-		selectedItem = this.outlineWidget.getSelectedItem();
-		if ( selectedItem && selectedItem.getData() !== name ) {
-			this.outlineWidget.selectItem( this.outlineWidget.getItemFromData( name ) );
+	if ( name !== this.currentPageName ) {
+		if ( this.outlined ) {
+			selectedItem = this.outlineWidget.getSelectedItem();
+			if ( selectedItem && selectedItem.getData() !== name ) {
+				this.outlineWidget.selectItem( this.outlineWidget.getItemFromData( name ) );
+			}
 		}
-	}
-
-	if ( page ) {
-		if ( this.currentPageName && this.pages[this.currentPageName] ) {
-			this.pages[this.currentPageName].setActive( false );
+		if ( page ) {
+			if ( this.currentPageName && this.pages[this.currentPageName] ) {
+				this.pages[this.currentPageName].setActive( false );
+			}
+			this.currentPageName = name;
+			this.stackLayout.setItem( page );
+			page.setActive( true );
+			this.emit( 'set', page );
 		}
-		this.currentPageName = name;
-		this.stackLayout.setItem( page );
-		page.setActive( true );
-		this.emit( 'set', page );
 	}
 };
 
