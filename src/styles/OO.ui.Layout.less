@@ -1,3 +1,5 @@
+@import 'mixins';
+
 /* OO.ui.GridLayout */
 
 .oo-ui-gridLayout {
@@ -136,9 +138,8 @@
 		.oo-ui-panelLayout {
 			padding: 1.5em;
 			width: 100%;
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
+
+			.oo-ui-box-sizing(border-box);
 
 			&-scrollable {
 				overflow-y: auto;

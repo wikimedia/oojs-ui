@@ -1,12 +1,10 @@
+@import 'mixins';
+
 /* OO.ui.Window */
 
 .oo-ui-window {
 	&-head {
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
+		.oo-ui-unselectable();
 	}
 
 	&-body {

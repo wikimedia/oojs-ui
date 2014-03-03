@@ -109,12 +109,9 @@
 .oo-ui-outlineItemWidget {
 	position: relative;
 	padding: 0.75em;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 	cursor: pointer;
 	font-size: 1.1em;
+	.oo-ui-unselectable();
 
 	&.oo-ui-optionWidget-selected {
 		background-color: #a7dcff;
@@ -174,12 +171,10 @@
 	&-adders,
 	&-movers {
 		float: left;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
 		height: 2em;
 		margin: 0.5em;
 		padding: 0;
+		.oo-ui-box-sizing(border-box);
 	}
 
 	> .oo-ui-iconedElement-icon {
@@ -218,11 +213,9 @@
 /* OO.ui.TextInputWidget */
 
 .oo-ui-textInputWidget {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 	width: 20em;
 	position: relative;
+	.oo-ui-box-sizing(border-box);
 
 	input,
 	textarea {
@@ -234,11 +227,9 @@
 		box-shadow: 0 0 0 white, inset 0 0.1em 0.2em #ddd;
 		padding: 0.5em;
 		border-radius: 0.25em;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
 		width: 100%;
 		resize: none;
+		.oo-ui-box-sizing(border-box);
 
 		/* Animation */
 		.oo-ui-transition(border-color 200ms, box-shadow 200ms);
@@ -329,12 +320,8 @@
 		height: 2.5em;
 		border: solid 1px rgba(0,0,0,0.1);
 		border-radius: 0.25em;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
 		cursor: pointer;
+		.oo-ui-unselectable();
 
 		.oo-ui-box-sizing(border-box);
 
@@ -494,23 +481,12 @@
 	}
 
 	&-transitioning .oo-ui-popupWidget-popup {
-		-webkit-transition: width 100ms, height 100ms, left 100ms;
-		-moz-transition: width 100ms, height 100ms, left 100ms;
-		-o-transition: width 100ms, height 100ms, left 100ms;
-		transition: width 100ms, height 100ms, left 100ms;
-		-webkit-transition-timing-function: ease-in-out;
-		-moz-transition-timing-function: ease-in-out;
-		-o-transition-timing-function: ease-in-out;
-		transition-timing-function: ease-in-out;
+		.oo-ui-transition(width 100ms ease-in-out, height 100ms ease-in-out, left 100ms ease-in-out);
 	}
 
 	&-head {
 		height: 2.5em;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
+		.oo-ui-unselectable();
 
 		.oo-ui-buttonWidget {
 			float: right;
@@ -594,9 +570,7 @@
 		height: 1.5em;
 		border-radius: 1em;
 		box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.1);
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
+		.oo-ui-box-sizing(border-box);
 
 		/* Gray */
 		border: 1px #c9c9c9 solid;
@@ -620,11 +594,7 @@
 		left: 0;
 		border-radius: 1em;
 		box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.07);
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
+		.oo-ui-unselectable();
 
 		.oo-ui-transition(opacity 200ms ease-in-out);
 

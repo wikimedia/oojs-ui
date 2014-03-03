@@ -17,7 +17,6 @@
 	-ms-transform: @string;
 	-o-transform: @string;
 	transform: @string;
-
 }
 
 .oo-ui-box-sizing (@type: border-box) {
@@ -35,4 +34,20 @@
 	background-image: -ms-linear-gradient(top, @start 0%, @stop 100%);
 	background-image: -o-linear-gradient(top, @start 0%, @stop 100%);
 	background-image: linear-gradient(top, @start 0%, @stop 100%);
+}
+
+.oo-ui-unselectable () {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.oo-ui-selectable () {
+	-webkit-touch-callout: default;
+	-webkit-user-select: all;
+	-moz-user-select: all;
+	-ms-user-select: all;
+	user-select: all;
 }

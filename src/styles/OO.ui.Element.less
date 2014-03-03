@@ -8,11 +8,7 @@
 		cursor: pointer;
 		display: inline-block;
 		vertical-align: middle;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
+		.oo-ui-unselectable();
 
 		> .oo-ui-iconedElement-icon,
 		> .oo-ui-indicatedElement-indicator {
@@ -47,10 +43,7 @@
 .oo-ui-buttonedElement-frameless {
 	display: inline-block;
 	position: relative;
-	-webkit-transition: opacity 200ms;
-	-moz-transition: opacity 200ms;
-	-o-transition: opacity 200ms;
-	transition: opacity 200ms;
+	.oo-ui-transition(opacity 200ms);
 
 	.oo-ui-buttonedElement-button {
 		&:hover,
@@ -204,7 +197,5 @@
 /* OO.ui.ClippableElement */
 
 .oo-ui-clippableElement-clippable {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+	.oo-ui-box-sizing(border-box);
 }
