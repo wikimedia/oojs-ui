@@ -116,18 +116,20 @@ OO.ui.StackLayout.prototype.clearItems = function () {
  * @chainable
  */
 OO.ui.StackLayout.prototype.setItem = function ( item ) {
-	if ( !this.continuous ) {
-		this.$items.css( 'display', '' );
-	}
-	if ( $.inArray( item, this.items ) !== -1 ) {
+	if ( item !== this.currentItem ) {
 		if ( !this.continuous ) {
-			item.$element.css( 'display', 'block' );
+			this.$items.css( 'display', '' );
 		}
-	} else {
-		item = null;
+		if ( $.inArray( item, this.items ) !== -1 ) {
+			if ( !this.continuous ) {
+				item.$element.css( 'display', 'block' );
+			}
+		} else {
+			item = null;
+		}
+		this.currentItem = item;
+		this.emit( 'set', item );
 	}
-	this.currentItem = item;
-	this.emit( 'set', item );
 
 	return this;
 };
