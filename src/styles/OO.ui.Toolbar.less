@@ -4,14 +4,7 @@
 	clear: both;
 
 	&-bar {
-		border-bottom: solid 1px #ccc;
 		line-height: 1em;
-		.oo-ui-vertical-gradient(#fff, #F1F7FB);
-
-		.oo-ui-toolbar-bar {
-			border: none;
-			background: none;
-		}
 	}
 
 	&-bottom .oo-ui-toolbar-bar {
@@ -37,15 +30,10 @@
 	}
 
 	&-shadow {
-		.oo-ui-background-image('images/toolbar-shadow.png');
 		background-position: left top;
 		background-repeat: repeat-x;
 		position: absolute;
-		bottom: -9px;
-		height: 9px;
 		width: 100%;
 		pointer-events: none;
-		opacity: 0.125;
-		.oo-ui-transition(opacity 500ms ease-in-out);
 	}
 }

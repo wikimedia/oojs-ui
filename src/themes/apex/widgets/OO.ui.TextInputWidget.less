@@ -1,0 +1,50 @@
+@import '../../../styles/mixins';
+
+/* OO.ui.TextInputWidget */
+
+.oo-ui-textInputWidget {
+	input,
+	textarea {
+		font-size: 1em;
+		font-family: sans-serif;
+		background-color: #fff;
+		border: solid 1px #ccc;
+		box-shadow: 0 0 0 white, inset 0 0.1em 0.2em #ddd;
+		border-radius: 0.25em;
+		.oo-ui-transition(border-color 200ms, box-shadow 200ms);
+	}
+
+	&.oo-ui-widget-enabled {
+		input:focus,
+		textarea:focus {
+			outline: none;
+			border-color: #a7dcff;
+			box-shadow: 0 0 0.3em #a7dcff, 0 0 0 white;
+		}
+	}
+
+	input[readonly],
+	textarea[readonly] {
+		color: #777;
+		text-shadow: 0 1px 1px #fff;
+	}
+
+	&-pending {
+		input,
+		textarea {
+			background-color: transparent;
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		input,
+		input:focus,
+		textarea,
+		textarea:focus {
+			color: #ccc;
+			text-shadow: 0 1px 1px #fff;
+			border-color: #ddd;
+			background-color: #f3f3f3;
+		}
+	}
+}
