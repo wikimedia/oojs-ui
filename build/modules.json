@@ -127,6 +127,7 @@
 			"src/themes/apex/widgets/OO.ui.MenuWidget.less",
 			"src/themes/apex/widgets/OO.ui.PopupWidget.less",
 			"src/themes/apex/widgets/OO.ui.ButtonGroupWidget.less",
+			"src/themes/apex/widgets/OO.ui.ButtonOptionWidget.less",
 			"src/themes/apex/widgets/OO.ui.ButtonSelectWidget.less",
 			"src/themes/apex/widgets/OO.ui.InlineMenuWidget.less",
 			"src/themes/apex/widgets/OO.ui.MenuItemWidget.less",
