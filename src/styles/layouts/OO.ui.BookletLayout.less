@@ -1,0 +1,45 @@
+@import '../mixins';
+
+.oo-ui-bookletLayout {
+	&-stackLayout {
+		&.oo-ui-stackLayout-continuous .oo-ui-panelLayout-scrollable {
+			overflow-y: hidden;
+		}
+
+		.oo-ui-panelLayout {
+			padding: 1.5em;
+			width: 100%;
+
+			.oo-ui-box-sizing(border-box);
+
+			&-scrollable {
+				overflow-y: auto;
+			}
+
+			&-padded {
+				padding: 2em;
+			}
+		}
+	}
+
+	&-outlinePanel {
+		border-right: solid 1px #ddd;
+
+		&-editable .oo-ui-outlineWidget {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 3em;
+			overflow-y: auto;
+		}
+
+		.oo-ui-outlineControlsWidget {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			box-shadow: 0 0 0.25em rgba(0,0,0,0.25);
+		}
+	}
+}

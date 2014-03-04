@@ -1,0 +1,41 @@
+@import '../mixins';
+
+.oo-ui-outlineControlsWidget {
+	height: 3em;
+	background-color: #fff;
+
+	&-adders,
+	&-movers {
+		float: left;
+		height: 2em;
+		margin: 0.5em;
+		padding: 0;
+		.oo-ui-box-sizing(border-box);
+	}
+
+	> .oo-ui-iconedElement-icon {
+		float: left;
+		width: 1.5em;
+		height: 2em;
+		margin: 0.5em 0 0.5em 0.5em;
+		background-position: right center;
+		background-repeat: no-repeat;
+		opacity: 0.2;
+	}
+
+	&-adders {
+		float: left;
+		margin-left: 0;
+
+		.oo-ui-buttonWidget {
+			float: left;
+		}
+	}
+	&-movers {
+		float: right;
+
+		.oo-ui-buttonWidget {
+			float: right;
+		}
+	}
+}

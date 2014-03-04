@@ -1,0 +1,76 @@
+@import '../mixins';
+
+.oo-ui-textInputWidget {
+	width: 20em;
+	position: relative;
+	.oo-ui-box-sizing(border-box);
+
+	input,
+	textarea {
+		display: inline-block;
+		font-size: 1em;
+		font-family: sans-serif;
+		background-color: #fff;
+		border: solid 1px #ccc;
+		box-shadow: 0 0 0 white, inset 0 0.1em 0.2em #ddd;
+		padding: 0.5em;
+		border-radius: 0.25em;
+		width: 100%;
+		resize: none;
+		.oo-ui-box-sizing(border-box);
+
+		/* Animation */
+		.oo-ui-transition(border-color 200ms, box-shadow 200ms);
+	}
+
+	&.oo-ui-widget-enabled {
+		input:focus,
+		textarea:focus {
+			outline: none;
+			border-color: #a7dcff;
+			box-shadow: 0 0 0.3em #a7dcff, 0 0 0 white;
+		}
+	}
+
+	input[readonly],
+	textarea[readonly] {
+		color: #777;
+		text-shadow: 0 1px 1px #fff;
+	}
+
+	&-pending {
+		input,
+		textarea {
+			background-color: transparent;
+		}
+	}
+
+	&-decorated {
+		input,
+		textarea {
+			padding-left: 2em;
+		}
+	}
+
+	&-icon {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 2em;
+		height: 100%;
+		background-position: right center;
+		background-repeat: no-repeat;
+	}
+
+	&.oo-ui-widget-disabled {
+		input,
+		input:focus,
+		textarea,
+		textarea:focus {
+			color: #ccc;
+			text-shadow: 0 1px 1px #fff;
+			border-color: #ddd;
+			background-color: #f3f3f3;
+		}
+	}
+}

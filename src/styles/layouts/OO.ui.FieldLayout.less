@@ -1,0 +1,57 @@
+.oo-ui-fieldLayout {
+	margin-bottom: 1em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+	&.oo-ui-fieldLayout-align-left,
+	&.oo-ui-fieldLayout-align-right {
+		> .oo-ui-labeledElement-label {
+			display: block;
+			float: left;
+			width: 35%;
+			padding-top: 0.5em;
+			margin-right: 5%;
+		}
+
+		> .oo-ui-fieldLayout-field {
+			display: block;
+			float: left;
+			width: 60%;
+		}
+	}
+
+	&.oo-ui-fieldLayout-align-right > .oo-ui-labeledElement-label {
+		text-align: right;
+	}
+
+	&.oo-ui-fieldLayout-align-inline {
+		> .oo-ui-labeledElement-label {
+			display: inline-block;
+			vertical-align: middle;
+			padding: 0.75em 0.5em 0.5em 0.5em;
+		}
+
+		> .oo-ui-fieldLayout-field {
+			display: inline-block;
+			vertical-align: middle;
+			padding: 0.5em 0;
+		}
+	}
+
+
+	&.oo-ui-fieldLayout-align-top > .oo-ui-labeledElement-label {
+		padding: 0.5em 0;
+	}
+}
