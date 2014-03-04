@@ -25,6 +25,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.ignoreFocus = false;
 	this.stackLayout = new OO.ui.StackLayout( { '$': this.$, 'continuous': !!config.continuous } );
 	this.autoFocus = !!config.autoFocus;
+	this.outlineVisible = false;
 	this.outlined = !!config.outlined;
 	if ( this.outlined ) {
 		this.editable = !!config.editable;
@@ -35,6 +36,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 		this.gridLayout = new OO.ui.GridLayout(
 			[this.outlinePanel, this.stackLayout], { '$': this.$, 'widths': [1, 2] }
 		);
+		this.outlineVisible = true;
 		if ( this.editable ) {
 			this.outlineControlsWidget = new OO.ui.OutlineControlsWidget(
 				this.outlineWidget,
@@ -167,6 +169,32 @@ OO.ui.BookletLayout.prototype.isOutlined = function () {
  */
 OO.ui.BookletLayout.prototype.isEditable = function () {
 	return this.editable;
+};
+
+/**
+ * Check if booklet has editing controls.
+ *
+ * @method
+ * @returns {boolean} Booklet is outlined
+ */
+OO.ui.BookletLayout.prototype.isOutlineVisible = function () {
+	return this.outlined && this.outlineVisible;
+};
+
+/**
+ * Hide or show the outline.
+ *
+ * @param {boolean} [show] Show outline, omit to invert current state
+ * @chainable
+ */
+OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
+	if ( this.outlined ) {
+		show = show === undefined ? !this.outlineVisible : !!show;
+		this.outlineVisible = show;
+		this.gridLayout.layout( show ? [ 1, 2 ] : [ 0, 1 ], [ 1 ] );
+	}
+
+	return this;
 };
 
 /**
