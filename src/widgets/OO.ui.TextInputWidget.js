@@ -26,6 +26,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 
 	// Events
 	this.$input.on( 'keypress', OO.ui.bind( this.onKeyPress, this ) );
+	this.$element.on( 'DOMNodeInsertedIntoDocument', OO.ui.bind( this.onElementAttach, this ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-textInputWidget' );
@@ -74,12 +75,34 @@ OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
 };
 
 /**
+ * Handles element attach events.
+ *
+ * @param {jQuery.Event} e Element attach event
+ */
+OO.ui.TextInputWidget.prototype.onElementAttach = function () {
+	this.adjustSize();
+};
+
+/**
  * @inheritdoc
  */
 OO.ui.TextInputWidget.prototype.onEdit = function () {
+	this.adjustSize();
+
+	// Parent method
+	return OO.ui.InputWidget.prototype.onEdit.call( this );
+};
+
+/**
+ * Automatically adjust the size of the text input.
+ *
+ * This only affects multi-line inputs that are auto-sized.
+ *
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.adjustSize = function() {
 	var $clone, scrollHeight, innerHeight, outerHeight, maxInnerHeight, idealHeight;
 
-	// Automatic size adjustment
 	if ( this.multiline && this.autosize ) {
 		$clone = this.$input.clone()
 			.val( this.$input.val() )
@@ -104,9 +127,7 @@ OO.ui.TextInputWidget.prototype.onEdit = function () {
 			idealHeight > outerHeight ? idealHeight + ( outerHeight - innerHeight ) : ''
 		);
 	}
-
-	// Parent method
-	return OO.ui.InputWidget.prototype.onEdit.call( this );
+	return this;
 };
 
 /**
