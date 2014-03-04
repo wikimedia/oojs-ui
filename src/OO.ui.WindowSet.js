@@ -146,10 +146,20 @@ OO.ui.WindowSet.prototype.getWindow = function ( name ) {
 		throw new Error( 'Unknown window: ' + name );
 	}
 	if ( !( name in this.windows ) ) {
-		win = this.windows[name] = this.factory.create( name, this, { '$': this.$ } );
+		win = this.windows[name] = this.createWindow( name );
 		this.addWindow( win );
 	}
 	return this.windows[name];
+};
+
+/**
+ * Create a window for use in this window set.
+ *
+ * @param {string} name Symbolic name of window
+ * @return {OO.ui.Window} Window with specified name
+ */
+OO.ui.WindowSet.prototype.createWindow = function ( name ) {
+	return this.factory.create( name, { '$': this.$ } );
 };
 
 /**
