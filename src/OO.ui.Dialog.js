@@ -8,11 +8,11 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [footless] Hide foot
- * @cfg {boolean} [small] Make the dialog small
+ * @cfg {string} [size='large'] Symbolic name of dialog size, `small`, `medium` or `large`
  */
 OO.ui.Dialog = function OoUiDialog( config ) {
 	// Configuration initialization
-	config = config || {};
+	config = $.extend( { 'size': 'large' }, config );
 
 	// Parent constructor
 	OO.ui.Window.call( this, config );
@@ -20,7 +20,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 	// Properties
 	this.visible = false;
 	this.footless = !!config.footless;
-	this.small = !!config.small;
+	this.size = null;
 	this.onWindowMouseWheelHandler = OO.ui.bind( this.onWindowMouseWheel, this );
 	this.onDocumentKeyDownHandler = OO.ui.bind( this.onDocumentKeyDown, this );
 
@@ -30,6 +30,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-dialog' );
+	this.setSize( config.size );
 };
 
 /* Inheritance */
@@ -47,6 +48,18 @@ OO.inheritClass( OO.ui.Dialog, OO.ui.Window );
  * @inheritable
  */
 OO.ui.Dialog.static.name = '';
+
+/**
+ * Map of symbolic size names and CSS classes.
+ *
+ * @static
+ * @property {Object}
+ */
+OO.ui.Dialog.static.sizeCssClasses = {
+	'small': 'oo-ui-dialog-small',
+	'medium': 'oo-ui-dialog-medium',
+	'large': 'oo-ui-dialog-large'
+};
 
 /* Methods */
 
@@ -109,6 +122,29 @@ OO.ui.Dialog.prototype.onOpening = function () {
 };
 
 /**
+ * Set dialog size.
+ *
+ * @param {string} [size='large'] Symbolic name of dialog size, `small`, `medium` or `large`
+ */
+OO.ui.Dialog.prototype.setSize = function ( size ) {
+	var name, state, cssClass,
+		sizeCssClasses = OO.ui.Dialog.static.sizeCssClasses;
+
+	if ( !sizeCssClasses[size] ) {
+		size = 'large';
+	}
+	this.size = size;
+	for ( name in sizeCssClasses ) {
+		state = name === size;
+		cssClass = sizeCssClasses[name];
+		this.$element.toggleClass( cssClass, state );
+		if ( this.frame.$content ) {
+			this.frame.$content.toggleClass( cssClass, state );
+		}
+	}
+};
+
+/**
  * @inheritdoc
  */
 OO.ui.Dialog.prototype.initialize = function () {
@@ -131,9 +167,6 @@ OO.ui.Dialog.prototype.initialize = function () {
 	this.frame.$content.addClass( 'oo-ui-dialog-content' );
 	if ( this.footless ) {
 		this.frame.$content.addClass( 'oo-ui-dialog-content-footless' );
-	}
-	if ( this.small ) {
-		this.$frame.addClass( 'oo-ui-window-frame-small' );
 	}
 	this.closeButton.$element.addClass( 'oo-ui-window-closeButton' );
 	this.$head.append( this.closeButton.$element );
