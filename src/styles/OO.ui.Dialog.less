@@ -9,6 +9,16 @@
 	padding: 1em;
 	line-height: 1em;
 
+	/* Fix for strange opacity-related rendering issues.
+	   CAUTION: -webkit-backface-visibility: hidden; is EXTREMELY DANGEROUS.
+	   If applied to a VE surface directly, it will break selection of
+	   FocusableNodes, and in the past it's caused transparent PNGs to
+	   render as opaque black images. For some reason applying it to the dialog
+	   wrapper in the main document fixes opacity-related behavior in the iframe
+	   document, but doesn't break the surface inside the iframe. */
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+
 	.oo-ui-window-frame {
 		position: fixed;
 		top: 1em;
