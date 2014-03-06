@@ -62,8 +62,7 @@ OO.mixinClass( OO.ui.Toolbar, OO.ui.GroupElement );
 /**
  * Get the tool factory.
  *
- * @method
- * @returns {OO.Factory} Tool factory
+ * @return {OO.Factory} Tool factory
  */
 OO.ui.Toolbar.prototype.getToolFactory = function () {
 	return this.toolFactory;
@@ -72,7 +71,6 @@ OO.ui.Toolbar.prototype.getToolFactory = function () {
 /**
  * Handles mouse down events.
  *
- * @method
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.Toolbar.prototype.onMouseDown = function ( e ) {
@@ -95,11 +93,11 @@ OO.ui.Toolbar.prototype.initialize = function () {
  * Setup toolbar.
  *
  * Tools can be specified in the following ways:
- *  - A specific tool: `{ 'name': 'tool-name' }` or `'tool-name'`
- *  - All tools in a group: `{ 'group': 'group-name' }`
- *  - All tools: `'*'` - Using this will make the group a list with a "More" label by default
  *
- * @method
+ * - A specific tool: `{ 'name': 'tool-name' }` or `'tool-name'`
+ * - All tools in a group: `{ 'group': 'group-name' }`
+ * - All tools: `'*'` - Using this will make the group a list with a "More" label by default
+ *
  * @param {Object.<string,Array>} groups List of tool group configurations
  * @param {Array|string} [groups.include] Tools to include
  * @param {Array|string} [groups.exclude] Tools to exclude
@@ -198,7 +196,7 @@ OO.ui.Toolbar.prototype.releaseTool = function ( tool ) {
  * This is a stub that should be overridden to provide access to accelerator information.
  *
  * @param {string} name Symbolic name of tool
- * @returns {string|undefined} Tool accelerator label if available
+ * @return {string|undefined} Tool accelerator label if available
  */
 OO.ui.Toolbar.prototype.getToolAccelerator = function () {
 	return undefined;

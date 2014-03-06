@@ -16,6 +16,7 @@ OO.inheritClass( OO.ui.ToolFactory, OO.Factory );
 
 /* Methods */
 
+/** */
 OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, demote ) {
 	var i, len, included, promoted, demoted,
 		auto = [],
@@ -42,14 +43,15 @@ OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, dem
  * Get a flat list of names from a list of names or groups.
  *
  * Tools can be specified in the following ways:
- *  - A specific tool: `{ 'name': 'tool-name' }` or `'tool-name'`
- *  - All tools in a group: `{ 'group': 'group-name' }`
- *  - All tools: `'*'`
+ *
+ * - A specific tool: `{ 'name': 'tool-name' }` or `'tool-name'`
+ * - All tools in a group: `{ 'group': 'group-name' }`
+ * - All tools: `'*'`
  *
  * @private
  * @param {Array|string} collection List of tools
  * @param {Object} [used] Object with names that should be skipped as properties; extracted
- *   names will be added as properties
+ *  names will be added as properties
  * @return {string[]} List of extracted names
  */
 OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {

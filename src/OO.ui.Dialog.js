@@ -1,8 +1,6 @@
 /**
- * Modal dialog box.
- *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.Window
  *
  * @constructor
@@ -54,6 +52,7 @@ OO.ui.Dialog.static.name = '';
  *
  * @static
  * @property {Object}
+ * @inheritable
  */
 OO.ui.Dialog.static.sizeCssClasses = {
 	'small': 'oo-ui-dialog-small',
@@ -65,8 +64,6 @@ OO.ui.Dialog.static.sizeCssClasses = {
 
 /**
  * Handle close button click events.
- *
- * @method
  */
 OO.ui.Dialog.prototype.onCloseButtonClick = function () {
 	this.close( { 'action': 'cancel' } );
@@ -75,7 +72,6 @@ OO.ui.Dialog.prototype.onCloseButtonClick = function () {
 /**
  * Handle window mouse wheel events.
  *
- * @method
  * @param {jQuery.Event} e Mouse wheel event
  */
 OO.ui.Dialog.prototype.onWindowMouseWheel = function () {
@@ -85,7 +81,6 @@ OO.ui.Dialog.prototype.onWindowMouseWheel = function () {
 /**
  * Handle document key down events.
  *
- * @method
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.Dialog.prototype.onDocumentKeyDown = function ( e ) {
@@ -106,7 +101,6 @@ OO.ui.Dialog.prototype.onDocumentKeyDown = function ( e ) {
 /**
  * Handle frame document key down events.
  *
- * @method
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.Dialog.prototype.onFrameDocumentKeyDown = function ( e ) {

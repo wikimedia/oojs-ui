@@ -9,6 +9,28 @@ OO.ui = {};
 OO.ui.bind = $.proxy;
 
 /**
+ * @property {Object}
+ */
+OO.ui.Keys = {
+	'UNDEFINED': 0,
+	'BACKSPACE': 8,
+	'DELETE': 46,
+	'LEFT': 37,
+	'RIGHT': 39,
+	'UP': 38,
+	'DOWN': 40,
+	'ENTER': 13,
+	'END': 35,
+	'HOME': 36,
+	'TAB': 9,
+	'PAGEUP': 33,
+	'PAGEDOWN': 34,
+	'ESCAPE': 27,
+	'SHIFT': 16,
+	'SPACE': 32
+};
+
+/**
  * Get the user's language and any fallback languages.
  *
  * These language codes are used to localize user interface elements in the user's language.
@@ -16,7 +38,7 @@ OO.ui.bind = $.proxy;
  * In environments that provide a localization system, this function should be overridden to
  * return the user's language(s). The default implementation returns English (en) only.
  *
- * @returns {string[]} Language codes, in descending order of priority
+ * @return {string[]} Language codes, in descending order of priority
  */
 OO.ui.getUserLanguages = function () {
 	return [ 'en' ];
@@ -28,7 +50,7 @@ OO.ui.getUserLanguages = function () {
  * @param {Object.<string,Mixed>} obj Object keyed by language code
  * @param {string|null} [lang] Language code, if omitted or null defaults to any user language
  * @param {string} [fallback] Fallback code, used if no matching language can be found
- * @returns {Mixed} Local value
+ * @return {Mixed} Local value
  */
 OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 	var i, len, langs;
@@ -95,7 +117,7 @@ var messages = {
  * @abstract
  * @param {string} key Message key
  * @param {Mixed...} [params] Message parameters
- * @returns {string} Translated message with parameters substituted
+ * @return {string} Translated message with parameters substituted
  */
 OO.ui.msg = function ( key ) {
 	var message = messages[key], params = Array.prototype.slice.call( arguments, 1 );
@@ -112,12 +134,14 @@ OO.ui.msg = function ( key ) {
 	return message;
 };
 
+/** */
 OO.ui.deferMsg = function ( key ) {
 	return function () {
 		return OO.ui.msg( key );
 	};
 };
 
+/** */
 OO.ui.resolveMsg = function ( msg ) {
 	if ( $.isFunction( msg ) ) {
 		return msg();
@@ -126,23 +150,3 @@ OO.ui.resolveMsg = function ( msg ) {
 };
 
 } )();
-
-// Add more as you need
-OO.ui.Keys = {
-	'UNDEFINED': 0,
-	'BACKSPACE': 8,
-	'DELETE': 46,
-	'LEFT': 37,
-	'RIGHT': 39,
-	'UP': 38,
-	'DOWN': 40,
-	'ENTER': 13,
-	'END': 35,
-	'HOME': 36,
-	'TAB': 9,
-	'PAGEUP': 33,
-	'PAGEDOWN': 34,
-	'ESCAPE': 27,
-	'SHIFT': 16,
-	'SPACE': 32
-};

@@ -1,8 +1,8 @@
 /**
  * Container for elements.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.Element
  * @mixins OO.EventEmitter
  *

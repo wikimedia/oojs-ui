@@ -35,6 +35,10 @@ OO.mixinClass( OO.ui.Frame, OO.EventEmitter );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.Frame.static.tagName = 'iframe';
 
 /* Events */

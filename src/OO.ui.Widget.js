@@ -1,8 +1,8 @@
 /**
  * User interface control.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.Element
  * @mixins OO.EventEmitter
  *
@@ -47,7 +47,6 @@ OO.mixinClass( OO.ui.Widget, OO.EventEmitter );
 /**
  * Check if the widget is disabled.
  *
- * @method
  * @param {boolean} Button is disabled
  */
 OO.ui.Widget.prototype.isDisabled = function () {
@@ -57,7 +56,6 @@ OO.ui.Widget.prototype.isDisabled = function () {
 /**
  * Update the disabled state, in case of changes in parent widget.
  *
- * @method
  * @chainable
  */
 OO.ui.Widget.prototype.updateDisabled = function () {
@@ -70,7 +68,6 @@ OO.ui.Widget.prototype.updateDisabled = function () {
  *
  * This should probably change the widgets's appearance and prevent it from being used.
  *
- * @method
  * @param {boolean} disabled Disable widget
  * @chainable
  */

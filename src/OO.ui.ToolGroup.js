@@ -1,15 +1,16 @@
 /**
  * Collection of tools.
  *
- * @class
+ * Tools can be specified in the following ways:
+ *
+ * - A specific tool: `{ 'name': 'tool-name' }` or `'tool-name'`
+ * - All tools in a group: `{ 'group': 'group-name' }`
+ * - All tools: `'*'`
+ *
  * @abstract
+ * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.GroupElement
- *
- * Tools can be specified in the following ways:
- *  - A specific tool: `{ 'name': 'tool-name' }` or `'tool-name'`
- *  - All tools in a group: `{ 'group': 'group-name' }`
- *  - All tools: `'*'`
  *
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
@@ -93,7 +94,6 @@ OO.ui.ToolGroup.static.accelTooltips = false;
 /**
  * Handle mouse down events.
  *
- * @method
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.ToolGroup.prototype.onMouseDown = function ( e ) {
@@ -112,7 +112,6 @@ OO.ui.ToolGroup.prototype.onMouseDown = function ( e ) {
 /**
  * Handle captured mouse up events.
  *
- * @method
  * @param {Event} e Mouse up event
  */
 OO.ui.ToolGroup.prototype.onCapturedMouseUp = function ( e ) {
@@ -125,7 +124,6 @@ OO.ui.ToolGroup.prototype.onCapturedMouseUp = function ( e ) {
 /**
  * Handle mouse up events.
  *
- * @method
  * @param {jQuery.Event} e Mouse up event
  */
 OO.ui.ToolGroup.prototype.onMouseUp = function ( e ) {
@@ -142,7 +140,6 @@ OO.ui.ToolGroup.prototype.onMouseUp = function ( e ) {
 /**
  * Handle mouse over events.
  *
- * @method
  * @param {jQuery.Event} e Mouse over event
  */
 OO.ui.ToolGroup.prototype.onMouseOver = function ( e ) {
@@ -156,7 +153,6 @@ OO.ui.ToolGroup.prototype.onMouseOver = function ( e ) {
 /**
  * Handle mouse out events.
  *
- * @method
  * @param {jQuery.Event} e Mouse out event
  */
 OO.ui.ToolGroup.prototype.onMouseOut = function ( e ) {
@@ -173,10 +169,9 @@ OO.ui.ToolGroup.prototype.onMouseOut = function ( e ) {
  * Only tool links are considered, which prevents other elements in the tool such as popups from
  * triggering tool group interactions.
  *
- * @method
  * @private
  * @param {jQuery.Event} e
- * @returns {OO.ui.Tool|null} Tool, `null` if none was found
+ * @return {OO.ui.Tool|null} Tool, `null` if none was found
  */
 OO.ui.ToolGroup.prototype.getTargetTool = function ( e ) {
 	var tool,
@@ -193,6 +188,7 @@ OO.ui.ToolGroup.prototype.getTargetTool = function ( e ) {
  * Handle tool registry register events.
  *
  * If a tool is registered after the group is created, we must repopulate the list to account for:
+ *
  * - a tool being added that may be included
  * - a tool already included being overridden
  *
@@ -213,8 +209,6 @@ OO.ui.ToolGroup.prototype.getToolbar = function () {
 
 /**
  * Add and remove tools based on configuration.
- *
- * @method
  */
 OO.ui.ToolGroup.prototype.populate = function () {
 	var i, len, name, tool,
@@ -270,8 +264,6 @@ OO.ui.ToolGroup.prototype.populate = function () {
 
 /**
  * Destroy tool group.
- *
- * @method
  */
 OO.ui.ToolGroup.prototype.destroy = function () {
 	var name;

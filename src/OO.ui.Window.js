@@ -4,8 +4,8 @@
  * There are two ways to specify a title: set the static `title` property or provide a `title`
  * property in the configuration options. The latter will override the former.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.Element
  * @mixins OO.EventEmitter
  *
@@ -112,8 +112,7 @@ OO.ui.Window.static.title = null;
 /**
  * Check if window is visible.
  *
- * @method
- * @returns {boolean} Window is visible
+ * @return {boolean} Window is visible
  */
 OO.ui.Window.prototype.isVisible = function () {
 	return this.visible;
@@ -122,8 +121,7 @@ OO.ui.Window.prototype.isVisible = function () {
 /**
  * Check if window is opening.
  *
- * @method
- * @returns {boolean} Window is opening
+ * @return {boolean} Window is opening
  */
 OO.ui.Window.prototype.isOpening = function () {
 	return this.opening;
@@ -132,8 +130,7 @@ OO.ui.Window.prototype.isOpening = function () {
 /**
  * Check if window is closing.
  *
- * @method
- * @returns {boolean} Window is closing
+ * @return {boolean} Window is closing
  */
 OO.ui.Window.prototype.isClosing = function () {
 	return this.closing;
@@ -142,8 +139,7 @@ OO.ui.Window.prototype.isClosing = function () {
 /**
  * Get the window frame.
  *
- * @method
- * @returns {OO.ui.Frame} Frame of window
+ * @return {OO.ui.Frame} Frame of window
  */
 OO.ui.Window.prototype.getFrame = function () {
 	return this.frame;
@@ -152,7 +148,7 @@ OO.ui.Window.prototype.getFrame = function () {
 /**
  * Get the title of the window.
  *
- * @returns {string} Title text
+ * @return {string} Title text
  */
 OO.ui.Window.prototype.getTitle = function () {
 	return this.title;
@@ -161,7 +157,7 @@ OO.ui.Window.prototype.getTitle = function () {
 /**
  * Get the window icon.
  *
- * @returns {string} Symbolic name of icon
+ * @return {string} Symbolic name of icon
  */
 OO.ui.Window.prototype.getIcon = function () {
 	return this.icon;
@@ -220,7 +216,7 @@ OO.ui.Window.prototype.setIcon = function ( icon ) {
 };
 
 /**
- * Set the position of window to fit with contents..
+ * Set the position of window to fit with contents.
  *
  * @param {string} left Left offset
  * @param {string} top Top offset
@@ -273,7 +269,6 @@ OO.ui.Window.prototype.fitWidthToContents = function ( min, max ) {
  *
  * Once this method is called, this.$$ can be used to create elements within the frame.
  *
- * @method
  * @fires initialize
  * @chainable
  */
@@ -314,7 +309,6 @@ OO.ui.Window.prototype.initialize = function () {
  *
  * When you override this method, you must call the parent method at the very beginning.
  *
- * @method
  * @abstract
  * @param {Object} [data] Window opening data
  */
@@ -330,7 +324,6 @@ OO.ui.Window.prototype.setup = function () {
  *
  * When you override this method, you must call the parent method at the very end.
  *
- * @method
  * @abstract
  * @param {Object} [data] Window closing data
  */
@@ -343,7 +336,6 @@ OO.ui.Window.prototype.teardown = function () {
  *
  * Do not override this method. See #setup for a way to make changes each time the window opens.
  *
- * @method
  * @param {Object} [data] Window opening data
  * @fires open
  * @chainable
@@ -370,7 +362,6 @@ OO.ui.Window.prototype.open = function ( data ) {
  *
  * See #teardown for a way to do something each time the window closes.
  *
- * @method
  * @param {Object} [data] Window closing data
  * @fires close
  * @chainable

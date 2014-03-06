@@ -1,8 +1,8 @@
 /**
  * Generic toolbar tool.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.IconedElement
  *
@@ -61,6 +61,10 @@ OO.mixinClass( OO.ui.Tool, OO.ui.IconedElement );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.Tool.static.tagName = 'span';
 
 /**
@@ -110,11 +114,11 @@ OO.ui.Tool.static.autoAdd = true;
 /**
  * Check if this tool is compatible with given data.
  *
- * @method
  * @static
+ * @method
  * @inheritable
  * @param {Mixed} data Data to check
- * @returns {boolean} Tool can be used with data
+ * @return {boolean} Tool can be used with data
  */
 OO.ui.Tool.static.isCompatibleWith = function () {
 	return false;
@@ -128,7 +132,6 @@ OO.ui.Tool.static.isCompatibleWith = function () {
  * This is an abstract method that must be overridden in a concrete subclass.
  *
  * @abstract
- * @method
  */
 OO.ui.Tool.prototype.onUpdateState = function () {
 	throw new Error(
@@ -142,7 +145,6 @@ OO.ui.Tool.prototype.onUpdateState = function () {
  * This is an abstract method that must be overridden in a concrete subclass.
  *
  * @abstract
- * @method
  */
 OO.ui.Tool.prototype.onSelect = function () {
 	throw new Error(
@@ -153,7 +155,6 @@ OO.ui.Tool.prototype.onSelect = function () {
 /**
  * Check if the button is active.
  *
- * @method
  * @param {boolean} Button is active
  */
 OO.ui.Tool.prototype.isActive = function () {
@@ -163,7 +164,6 @@ OO.ui.Tool.prototype.isActive = function () {
 /**
  * Make the button appear active or inactive.
  *
- * @method
  * @param {boolean} state Make button appear active
  */
 OO.ui.Tool.prototype.setActive = function ( state ) {
@@ -178,7 +178,6 @@ OO.ui.Tool.prototype.setActive = function ( state ) {
 /**
  * Get the tool title.
  *
- * @method
  * @param {string|Function} title Title text or a function that returns text
  * @chainable
  */
@@ -191,8 +190,7 @@ OO.ui.Tool.prototype.setTitle = function ( title ) {
 /**
  * Get the tool title.
  *
- * @method
- * @returns {string} Title text
+ * @return {string} Title text
  */
 OO.ui.Tool.prototype.getTitle = function () {
 	return this.title;
@@ -201,8 +199,7 @@ OO.ui.Tool.prototype.getTitle = function () {
 /**
  * Get the tool's symbolic name.
  *
- * @method
- * @returns {string} Symbolic name of tool
+ * @return {string} Symbolic name of tool
  */
 OO.ui.Tool.prototype.getName = function () {
 	return this.constructor.static.name;
@@ -210,8 +207,6 @@ OO.ui.Tool.prototype.getName = function () {
 
 /**
  * Update the title.
- *
- * @method
  */
 OO.ui.Tool.prototype.updateTitle = function () {
 	var titleTooltips = this.toolGroup.constructor.static.titleTooltips,
@@ -242,8 +237,6 @@ OO.ui.Tool.prototype.updateTitle = function () {
 
 /**
  * Destroy tool.
- *
- * @method
  */
 OO.ui.Tool.prototype.destroy = function () {
 	this.toolbar.disconnect( this );

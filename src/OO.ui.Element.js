@@ -1,8 +1,8 @@
 /**
  * DOM element abstraction.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -30,11 +30,6 @@ OO.ui.Element = function OoUiElement( config ) {
 
 /* Static Properties */
 
-/**
- * @static
- * @property
- * @inheritable
- */
 OO.ui.Element.static = {};
 
 /**
@@ -51,12 +46,12 @@ OO.ui.Element.static.tagName = 'div';
 /* Static Methods */
 
 /**
- * Gets a jQuery function within a specific document.
+ * Get a jQuery function within a specific document.
  *
  * @static
  * @param {jQuery|HTMLElement|HTMLDocument|Window} context Context to bind the function to
  * @param {OO.ui.Frame} [frame] Frame of the document context
- * @returns {Function} Bound jQuery function
+ * @return {Function} Bound jQuery function
  */
 OO.ui.Element.getJQuery = function ( context, frame ) {
 	function wrapper( selector ) {
@@ -77,7 +72,7 @@ OO.ui.Element.getJQuery = function ( context, frame ) {
  *
  * @static
  * @param {jQuery|HTMLElement|HTMLDocument|Window} obj Object to get the document for
- * @returns {HTMLDocument} Document object
+ * @return {HTMLDocument} Document object
  * @throws {Error} If context is invalid
  */
 OO.ui.Element.getDocument = function ( obj ) {
@@ -105,7 +100,7 @@ OO.ui.Element.getDocument = function ( obj ) {
  *
  * @static
  * @param {jQuery|HTMLElement|HTMLDocument|Window} obj Context to get the window for
- * @returns {Window} Window object
+ * @return {Window} Window object
  */
 OO.ui.Element.getWindow = function ( obj ) {
 	var doc = this.getDocument( obj );
@@ -117,7 +112,7 @@ OO.ui.Element.getWindow = function ( obj ) {
  *
  * @static
  * @param {jQuery|HTMLElement|HTMLDocument|Window} obj Context to get the direction for
- * @returns {string} Text direction, either `ltr` or `rtl`
+ * @return {string} Text direction, either `ltr` or `rtl`
  */
 OO.ui.Element.getDir = function ( obj ) {
 	var isDoc, isWin;
@@ -145,7 +140,7 @@ OO.ui.Element.getDir = function ( obj ) {
  * @param {Window} from Window of the child frame
  * @param {Window} [to=window] Window of the parent frame
  * @param {Object} [offset] Offset to start with, used internally
- * @returns {Object} Offset object, containing left and top properties
+ * @return {Object} Offset object, containing left and top properties
  */
 OO.ui.Element.getFrameOffset = function ( from, to, offset ) {
 	var i, len, frames, frame, rect;
@@ -187,7 +182,7 @@ OO.ui.Element.getFrameOffset = function ( from, to, offset ) {
  * @static
  * @param {jQuery} $from
  * @param {jQuery} $to
- * @returns {Object} Translated position coordinates, containing top and left properties
+ * @return {Object} Translated position coordinates, containing top and left properties
  */
 OO.ui.Element.getRelativePosition = function ( $from, $to ) {
 	var from = $from.offset(),
@@ -304,7 +299,7 @@ OO.ui.Element.getClosestScrollableContainer = function ( el, dimension ) {
 };
 
 /**
- * Scroll element into view
+ * Scroll element into view.
  *
  * @static
  * @param {HTMLElement} el Element to scroll into view
@@ -367,7 +362,7 @@ OO.ui.Element.scrollIntoView = function ( el, config ) {
  *
  * Override this method to base the result on instance information.
  *
- * @returns {string} HTML tag name
+ * @return {string} HTML tag name
  */
 OO.ui.Element.prototype.getTagName = function () {
 	return this.constructor.static.tagName;
@@ -376,7 +371,7 @@ OO.ui.Element.prototype.getTagName = function () {
 /**
  * Get the DOM document.
  *
- * @returns {HTMLDocument} Document object
+ * @return {HTMLDocument} Document object
  */
 OO.ui.Element.prototype.getElementDocument = function () {
 	return OO.ui.Element.getDocument( this.$element );
@@ -385,7 +380,7 @@ OO.ui.Element.prototype.getElementDocument = function () {
 /**
  * Get the DOM window.
  *
- * @returns {Window} Window object
+ * @return {Window} Window object
  */
 OO.ui.Element.prototype.getElementWindow = function () {
 	return OO.ui.Element.getWindow( this.$element );
@@ -394,7 +389,6 @@ OO.ui.Element.prototype.getElementWindow = function () {
 /**
  * Get closest scrollable container.
  *
- * @method
  * @see #static-method-getClosestScrollableContainer
  */
 OO.ui.Element.prototype.getClosestScrollableElementContainer = function () {
@@ -404,7 +398,7 @@ OO.ui.Element.prototype.getClosestScrollableElementContainer = function () {
 /**
  * Get group element is in.
  *
- * @returns {OO.ui.GroupElement|null} Group element, null if none
+ * @return {OO.ui.GroupElement|null} Group element, null if none
  */
 OO.ui.Element.prototype.getElementGroup = function () {
 	return this.elementGroup;
@@ -422,9 +416,8 @@ OO.ui.Element.prototype.setElementGroup = function ( group ) {
 };
 
 /**
- * Scroll element into view
+ * Scroll element into view.
  *
- * @method
  * @see #static-method-scrollIntoView
  * @param {Object} [config={}]
  */

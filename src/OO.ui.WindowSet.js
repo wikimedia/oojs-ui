@@ -20,13 +20,15 @@ OO.ui.WindowSet = function OoUiWindowSet( factory, config ) {
 	this.factory = factory;
 
 	/**
-	 * List of all windows associated with this window set
+	 * List of all windows associated with this window set.
+	 *
 	 * @property {OO.ui.Window[]}
 	 */
 	this.windowList = [];
 
 	/**
 	 * Mapping of OO.ui.Window objects created by name from the #factory.
+	 *
 	 * @property {Object}
 	 */
 	this.windows = {};
@@ -73,7 +75,6 @@ OO.mixinClass( OO.ui.WindowSet, OO.EventEmitter );
 /**
  * Handle a window that's being opened.
  *
- * @method
  * @param {OO.ui.Window} win Window that's being opened
  * @param {Object} [config] Window opening information
  * @fires opening
@@ -89,7 +90,6 @@ OO.ui.WindowSet.prototype.onWindowOpening = function ( win, config ) {
 /**
  * Handle a window that's been opened.
  *
- * @method
  * @param {OO.ui.Window} win Window that's been opened
  * @param {Object} [config] Window opening information
  * @fires open
@@ -101,7 +101,6 @@ OO.ui.WindowSet.prototype.onWindowOpen = function ( win, config ) {
 /**
  * Handle a window that's being closed.
  *
- * @method
  * @param {OO.ui.Window} win Window that's being closed
  * @param {Object} [config] Window closing information
  * @fires closing
@@ -114,7 +113,6 @@ OO.ui.WindowSet.prototype.onWindowClosing = function ( win, config ) {
 /**
  * Handle a window that's been closed.
  *
- * @method
  * @param {OO.ui.Window} win Window that's been closed
  * @param {Object} [config] Window closing information
  * @fires close
@@ -126,8 +124,7 @@ OO.ui.WindowSet.prototype.onWindowClose = function ( win, config ) {
 /**
  * Get the current window.
  *
- * @method
- * @returns {OO.ui.Window} Current window
+ * @return {OO.ui.Window} Current window
  */
 OO.ui.WindowSet.prototype.getCurrentWindow = function () {
 	return this.currentWindow;
