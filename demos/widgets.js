@@ -4,6 +4,36 @@ $( function () {
 		sections = {
 			'Widgets': [
 				new OO.ui.FieldLayout(
+					new OO.ui.IconWidget( {
+						'icon': 'picture',
+						'title': 'Picture icon'
+					} ),
+					{ 'label': 'IconWidget (normal)' }
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.IconWidget( {
+						'icon': 'picture',
+						'title': 'Picture icon',
+						'disabled': true
+					} ),
+					{ 'label': 'IconWidget (disabled)' }
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.IndicatorWidget( {
+						'indicator': 'required',
+						'title': 'Required icon'
+					} ),
+					{ 'label': 'IndicatorWidget (normal)' }
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.IndicatorWidget( {
+						'indicator': 'required',
+						'title': 'Required icon',
+						'disabled': true
+					} ),
+					{ 'label': 'IndicatorWidget (disabled)' }
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( { 'label': 'Normal' } ),
 					{ 'label': 'ButtonWidget (normal)' }
 				),
