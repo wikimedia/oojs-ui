@@ -1,5 +1,5 @@
 /**
- * Create an OO.ui.ButtonSelect object.
+ * Create an OO.ui.ButtonOptionWidget object.
  *
  * @class
  * @extends OO.ui.OptionWidget
