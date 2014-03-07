@@ -68,7 +68,7 @@ $( function () {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						'label': 'Iconed',
-						'icon': 'check'
+						'icon': 'picture'
 					} ),
 					{ 'label': 'ButtonWidget (iconed)' }
 				),
