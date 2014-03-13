@@ -6,9 +6,9 @@ Quick start
 
 1. Clone the repo, `git clone https://git.wikimedia.org/git/oojs/ui.git`.
 
-1. Install Grunt command-line utility:<br>`$ npm install -g grunt-cli`
+1. Install Grunt command-line utility:<br/>`$ npm install -g grunt-cli`
 
-1. Install dev dependencies and build the distribution files:<br>`$ npm install`
+1. Install dev dependencies and build the distribution files:<br/>`$ npm install`
 
 1. You can now copy the distribution files from the dist directory into your project.
 
