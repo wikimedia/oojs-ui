@@ -8,7 +8,7 @@
  * @param {jQuery} $label Label node, assigned to #$label
  * @param {Object} [config] Configuration options
  * @cfg {jQuery|string|Function} [label] Label nodes, text or a function that returns nodes or text
- * @cfg {bool} [autoFitLabel=true] Whether to fit the label or not.
+ * @cfg {boolean} [autoFitLabel=true] Whether to fit the label or not.
  */
 OO.ui.LabeledElement = function OoUiLabeledElement( $label, config ) {
 	// Config intialization
