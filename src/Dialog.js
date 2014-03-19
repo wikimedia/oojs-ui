@@ -143,7 +143,7 @@ OO.ui.Dialog.prototype.setSize = function ( size ) {
  */
 OO.ui.Dialog.prototype.initialize = function () {
 	// Parent method
-	OO.ui.Window.prototype.initialize.call( this );
+	OO.ui.Dialog.super.prototype.initialize.call( this );
 
 	// Properties
 	this.closeButton = new OO.ui.ButtonWidget( {
@@ -171,7 +171,7 @@ OO.ui.Dialog.prototype.initialize = function () {
  */
 OO.ui.Dialog.prototype.setup = function ( data ) {
 	// Parent method
-	OO.ui.Window.prototype.setup.call( this, data );
+	OO.ui.Dialog.super.prototype.setup.call( this, data );
 
 	// Prevent scrolling in top-level window
 	this.$( window ).on( 'mousewheel', this.onWindowMouseWheelHandler );
@@ -183,7 +183,7 @@ OO.ui.Dialog.prototype.setup = function ( data ) {
  */
 OO.ui.Dialog.prototype.teardown = function ( data ) {
 	// Parent method
-	OO.ui.Window.prototype.teardown.call( this, data );
+	OO.ui.Dialog.super.prototype.teardown.call( this, data );
 
 	// Allow scrolling in top-level window
 	this.$( window ).off( 'mousewheel', this.onWindowMouseWheelHandler );
@@ -201,7 +201,7 @@ OO.ui.Dialog.prototype.close = function ( data ) {
 		// Allow transition to complete before actually closing
 		setTimeout( function () {
 			// Parent method
-			OO.ui.Window.prototype.close.call( dialog, data );
+			OO.ui.Dialog.super.prototype.close.call( dialog, data );
 		}, 250 );
 	}
 };
