@@ -7,7 +7,7 @@
  * @mixins OO.ui.GroupElement
  *
  * @constructor
- * @param {OO.Factory} toolFactory Factory for creating tools
+ * @param {OO.ui.ToolFactory} toolFactory Factory for creating tools
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [actions] Add an actions section opposite to the tools
  * @cfg {boolean} [shadow] Add a shadow below the toolbar
@@ -62,7 +62,7 @@ OO.mixinClass( OO.ui.Toolbar, OO.ui.GroupElement );
 /**
  * Get the tool factory.
  *
- * @return {OO.Factory} Tool factory
+ * @return {OO.ui.ToolFactory} Tool factory
  */
 OO.ui.Toolbar.prototype.getToolFactory = function () {
 	return this.toolFactory;
