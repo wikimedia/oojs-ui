@@ -204,6 +204,10 @@ $( function () {
 					{ 'label': 'ToggleSwitchWidget (disabled)' }
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.ToggleSwitchWidget( { 'disabled': true, value: true } ),
+					{ 'label': 'ToggleSwitchWidget (disabled, checked)' }
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.CheckboxInputWidget( {
 						'value': true
 					} ),
