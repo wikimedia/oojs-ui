@@ -53,5 +53,5 @@ OO.ui.MenuToolGroup.prototype.onUpdateState = function () {
 		}
 	}
 
-	this.setLabel( labelTexts.join( ', ' ) );
+	this.setLabel( labelTexts.join( ', ' ) || ' ' );
 };
