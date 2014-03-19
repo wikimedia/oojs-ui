@@ -5,11 +5,13 @@
 	border: solid 1px transparent;
 	.oo-ui-transition(border-color 300ms ease-in-out);
 
-	&:hover {
-		border-color: rgba(0,0,0,0.1);
-	}
+	&.oo-ui-widget-enabled {
+		&:hover {
+			border-color: rgba(0,0,0,0.1);
+		}
 
-	.oo-ui-tool-link .oo-ui-tool-title {
-		color: #000;
+		.oo-ui-tool-link .oo-ui-tool-title {
+			color: #000;
+		}
 	}
 }
