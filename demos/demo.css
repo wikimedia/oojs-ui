@@ -17,6 +17,17 @@ body {
 	border-radius: 0.5em;
 }
 
+.oo-ui-demo-toolbar {
+	padding: 0;
+	font-size: 1em;
+}
+
+.oo-ui-demo-toolbar-contents {
+	padding: 2em;
+	font-size: 0.8em;
+	min-height: 300px;
+}
+
 .oo-ui-demo-item {
 	clear: both;
 	padding: 1em 0;
