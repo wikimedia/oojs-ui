@@ -12,7 +12,7 @@
  */
 OO.ui.PopupTool = function OoUiPopupTool( toolbar, config ) {
 	// Parent constructor
-	OO.ui.Tool.call( this, toolbar, config );
+	OO.ui.PopupTool.super.call( this, toolbar, config );
 
 	// Mixin constructors
 	OO.ui.PopuppableElement.call( this, config );

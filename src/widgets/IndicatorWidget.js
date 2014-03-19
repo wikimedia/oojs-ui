@@ -14,7 +14,7 @@ OO.ui.IndicatorWidget = function OoUiIndicatorWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Widget.call( this, config );
+	OO.ui.IndicatorWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.IndicatedElement.call( this, this.$element, config );

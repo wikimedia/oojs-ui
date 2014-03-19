@@ -19,7 +19,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Widget.call( this, config );
+	OO.ui.PopupWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.LabeledElement.call( this, this.$( '<div>' ), config );

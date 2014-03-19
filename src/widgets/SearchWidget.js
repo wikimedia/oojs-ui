@@ -14,7 +14,7 @@ OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Widget.call( this, config );
+	OO.ui.SearchWidget.super.call( this, config );
 
 	// Properties
 	this.query = new OO.ui.TextInputWidget( {

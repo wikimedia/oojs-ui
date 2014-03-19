@@ -17,7 +17,7 @@
  */
 OO.ui.Window = function OoUiWindow( config ) {
 	// Parent constructor
-	OO.ui.Element.call( this, config );
+	OO.ui.Window.super.call( this, config );
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );

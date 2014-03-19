@@ -12,7 +12,7 @@ OO.ui.OutlineWidget = function OoUiOutlineWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.SelectWidget.call( this, config );
+	OO.ui.OutlineWidget.super.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-outlineWidget' );

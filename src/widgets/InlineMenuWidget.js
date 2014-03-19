@@ -17,7 +17,7 @@ OO.ui.InlineMenuWidget = function OoUiInlineMenuWidget( config ) {
 	config = $.extend( { 'indicator': 'down' }, config );
 
 	// Parent constructor
-	OO.ui.Widget.call( this, config );
+	OO.ui.InlineMenuWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );

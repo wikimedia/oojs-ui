@@ -10,7 +10,7 @@
  */
 OO.ui.Frame = function OoUiFrame( config ) {
 	// Parent constructor
-	OO.ui.Element.call( this, config );
+	OO.ui.Frame.super.call( this, config );
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );

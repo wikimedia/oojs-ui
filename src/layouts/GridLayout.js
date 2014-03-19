@@ -17,7 +17,7 @@ OO.ui.GridLayout = function OoUiGridLayout( panels, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Layout.call( this, config );
+	OO.ui.GridLayout.super.call( this, config );
 
 	// Properties
 	this.panels = [];

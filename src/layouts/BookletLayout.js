@@ -17,7 +17,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Layout.call( this, config );
+	OO.ui.BookletLayout.super.call( this, config );
 
 	// Properties
 	this.currentPageName = null;

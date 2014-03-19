@@ -11,7 +11,7 @@
  */
 OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 	// Parent constructor
-	OO.ui.Widget.call( this, config );
+	OO.ui.ButtonGroupWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.GroupElement.call( this, this.$element, config );

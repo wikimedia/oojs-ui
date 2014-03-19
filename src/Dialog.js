@@ -13,7 +13,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 	config = $.extend( { 'size': 'large' }, config );
 
 	// Parent constructor
-	OO.ui.Window.call( this, config );
+	OO.ui.Dialog.super.call( this, config );
 
 	// Properties
 	this.visible = false;

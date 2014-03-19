@@ -11,7 +11,7 @@
  */
 OO.ui.TextInputMenuWidget = function OoUiTextInputMenuWidget( input, config ) {
 	// Parent constructor
-	OO.ui.MenuWidget.call( this, config );
+	OO.ui.TextInputMenuWidget.super.call( this, config );
 
 	// Properties
 	this.input = input;

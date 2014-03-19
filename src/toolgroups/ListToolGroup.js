@@ -11,7 +11,7 @@
  */
 OO.ui.ListToolGroup = function OoUiListToolGroup( toolbar, config ) {
 	// Parent constructor
-	OO.ui.PopupToolGroup.call( this, toolbar, config );
+	OO.ui.ListToolGroup.super.call( this, toolbar, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-listToolGroup' );

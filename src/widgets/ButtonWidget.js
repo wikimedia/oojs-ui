@@ -22,7 +22,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	config = $.extend( { 'target': '_blank' }, config );
 
 	// Parent constructor
-	OO.ui.Widget.call( this, config );
+	OO.ui.ButtonWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.ButtonedElement.call( this, this.$( '<a>' ), config );

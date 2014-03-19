@@ -11,7 +11,7 @@
  */
 OO.ui.BarToolGroup = function OoUiBarToolGroup( toolbar, config ) {
 	// Parent constructor
-	OO.ui.ToolGroup.call( this, toolbar, config );
+	OO.ui.BarToolGroup.super.call( this, toolbar, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-barToolGroup' );

@@ -25,7 +25,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	config = $.extend( { 'align': 'left' }, config );
 
 	// Parent constructor
-	OO.ui.Layout.call( this, config );
+	OO.ui.FieldLayout.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.LabeledElement.call( this, this.$( '<label>' ), config );

@@ -14,7 +14,7 @@ OO.ui.MenuToolGroup = function OoUiMenuToolGroup( toolbar, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.PopupToolGroup.call( this, toolbar, config );
+	OO.ui.MenuToolGroup.super.call( this, toolbar, config );
 
 	// Events
 	this.toolbar.connect( this, { 'updateState': 'onUpdateState' } );

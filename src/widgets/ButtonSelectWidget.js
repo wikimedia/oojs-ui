@@ -9,7 +9,7 @@
  */
 OO.ui.ButtonSelectWidget = function OoUiButtonSelectWidget( config ) {
 	// Parent constructor
-	OO.ui.SelectWidget.call( this, config );
+	OO.ui.ButtonSelectWidget.super.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonSelectWidget' );

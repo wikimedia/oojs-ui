@@ -13,7 +13,7 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Widget.call( this, config );
+	OO.ui.LabelWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.LabeledElement.call( this, this.$element, config );

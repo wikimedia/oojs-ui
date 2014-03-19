@@ -15,7 +15,7 @@ OO.ui.Widget = function OoUiWidget( config ) {
 	config = $.extend( { 'disabled': false }, config );
 
 	// Parent constructor
-	OO.ui.Element.call( this, config );
+	OO.ui.Widget.super.call( this, config );
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );

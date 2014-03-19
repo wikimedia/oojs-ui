@@ -10,7 +10,7 @@
  */
 OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 	// Parent constructor
-	OO.ui.ButtonWidget.call( this, config );
+	OO.ui.PopupButtonWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.PopuppableElement.call( this, config );

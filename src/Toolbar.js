@@ -17,7 +17,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Element.call( this, config );
+	OO.ui.Toolbar.super.call( this, config );
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );

@@ -12,7 +12,7 @@ OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ButtonWidget.call( this, config );
+	OO.ui.ToggleButtonWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.ToggleWidget.call( this, config );

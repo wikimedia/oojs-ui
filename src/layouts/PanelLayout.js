@@ -14,7 +14,7 @@ OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Layout.call( this, config );
+	OO.ui.PanelLayout.super.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-panelLayout' );

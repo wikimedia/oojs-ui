@@ -15,7 +15,7 @@ OO.ui.OutlineItemWidget = function OoUiOutlineItemWidget( data, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.OptionWidget.call( this, data, config );
+	OO.ui.OutlineItemWidget.super.call( this, data, config );
 
 	// Properties
 	this.level = 0;

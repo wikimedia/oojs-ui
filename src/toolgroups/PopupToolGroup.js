@@ -19,7 +19,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ToolGroup.call( this, toolbar, config );
+	OO.ui.PopupToolGroup.super.call( this, toolbar, config );
 
 	// Mixin constructors
 	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );

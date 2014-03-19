@@ -25,7 +25,7 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Widget.call( this, config );
+	OO.ui.ToolGroup.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.GroupElement.call( this, this.$( '<div>' ), config );

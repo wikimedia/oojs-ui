@@ -16,7 +16,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	config = $.extend( { 'maxRows': 10 }, config );
 
 	// Parent constructor
-	OO.ui.InputWidget.call( this, config );
+	OO.ui.TextInputWidget.super.call( this, config );
 
 	// Properties
 	this.pending = 0;

@@ -13,7 +13,7 @@
  */
 OO.ui.GroupWidget = function OoUiGroupWidget( $element, config ) {
 	// Parent constructor
-	OO.ui.GroupElement.call( this, $element, config );
+	OO.ui.GroupWidget.super.call( this, $element, config );
 };
 
 /* Inheritance */

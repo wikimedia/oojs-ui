@@ -7,7 +7,7 @@
  */
 OO.ui.ToolFactory = function OoUiToolFactory() {
 	// Parent constructor
-	OO.Factory.call( this );
+	OO.ui.ToolFactory.super.call( this );
 };
 
 /* Inheritance */

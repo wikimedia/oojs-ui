@@ -10,7 +10,7 @@
  */
 OO.ui.MenuSectionItemWidget = function OoUiMenuSectionItemWidget( data, config ) {
 	// Parent constructor
-	OO.ui.OptionWidget.call( this, data, config );
+	OO.ui.MenuSectionItemWidget.super.call( this, data, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuSectionItemWidget' );

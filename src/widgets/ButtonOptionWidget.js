@@ -12,7 +12,7 @@
  */
 OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( data, config ) {
 	// Parent constructor
-	OO.ui.OptionWidget.call( this, data, config );
+	OO.ui.ButtonOptionWidget.super.call( this, data, config );
 
 	// Mixin constructors
 	OO.ui.ButtonedElement.call( this, this.$( '<a>' ), config );
