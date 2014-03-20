@@ -103,13 +103,22 @@ OO.ui.Tool.static.group = '';
 OO.ui.Tool.static.title = '';
 
 /**
- * Tool can be automatically added to tool groups.
+ * Tool can be automatically added to catch-all groups.
  *
  * @static
  * @property {boolean}
  * @inheritable
  */
-OO.ui.Tool.static.autoAdd = true;
+OO.ui.Tool.static.autoAddToCatchall = true;
+
+/**
+ * Tool can be automatically added to named groups.
+ *
+ * @static
+ * @property {boolean}
+ * @inheritable
+ */
+OO.ui.Tool.static.autoAddToGroup = true;
 
 /**
  * Check if this tool is compatible with given data.

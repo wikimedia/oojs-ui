@@ -63,7 +63,7 @@ OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {
 			tool = this.registry[name];
 			if (
 				// Only add tools by group name when auto-add is enabled
-				tool.static.autoAdd &&
+				tool.static.autoAddToCatchall &&
 				// Exclude already used tools
 				( !used || !used[name] )
 			) {
@@ -88,7 +88,7 @@ OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {
 							// Include tools with matching group
 							tool.static.group === item.group &&
 							// Only add tools by group name when auto-add is enabled
-							tool.static.autoAdd &&
+							tool.static.autoAddToGroup &&
 							// Exclude already used tools
 							( !used || !used[name] )
 						) {
