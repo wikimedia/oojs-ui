@@ -137,7 +137,7 @@ OO.ui.MenuWidget.prototype.unbindKeyDownListener = function () {
  */
 OO.ui.MenuWidget.prototype.selectItem = function ( item ) {
 	// Parent method
-	OO.ui.MenuWidget.super.prototype.selectItem.call( this, item );
+	OO.ui.SelectWidget.prototype.selectItem.call( this, item );
 
 	if ( !this.disabled ) {
 		if ( item ) {
@@ -168,7 +168,7 @@ OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
 	var i, len, item;
 
 	// Parent method
-	OO.ui.MenuWidget.super.prototype.addItems.call( this, items, index );
+	OO.ui.SelectWidget.prototype.addItems.call( this, items, index );
 
 	// Auto-initialize
 	if ( !this.newItems ) {
