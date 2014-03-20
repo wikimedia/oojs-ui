@@ -5,8 +5,7 @@
  *
  * @class
  * @abstract
- * @extends OO.ui.Widget
- * @mixins OO.ui.GroupElement
+ * @extends OO.ui.GroupElement
  *
  * @constructor
  * @param {jQuery} $group Container node, assigned to #$group
@@ -14,16 +13,12 @@
  */
 OO.ui.GroupWidget = function OoUiGroupWidget( $element, config ) {
 	// Parent constructor
-	OO.ui.GroupWidget.super.call( this, config );
-
-	// Mixin constructors
-	OO.ui.GroupElement.call( this, $element, config );
+	OO.ui.GroupWidget.super.call( this, $element, config );
 };
 
 /* Inheritance */
 
-OO.inheritClass( OO.ui.GroupWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.GroupWidget, OO.ui.GroupElement );
+OO.inheritClass( OO.ui.GroupWidget, OO.ui.GroupElement );
 
 /* Methods */
 
