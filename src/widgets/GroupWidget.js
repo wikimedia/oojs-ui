@@ -35,7 +35,7 @@ OO.ui.GroupWidget.prototype.setDisabled = function ( disabled ) {
 	var i, len;
 
 	// Parent method
-	OO.ui.GroupWidget.super.prototype.setDisabled.call( this, disabled );
+	OO.ui.Widget.prototype.setDisabled.call( this, disabled );
 
 	// During construction, #setDisabled is called before the OO.ui.GroupElement constructor
 	if ( this.items ) {

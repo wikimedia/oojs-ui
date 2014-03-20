@@ -34,7 +34,7 @@ OO.ui.ItemWidget.prototype.isDisabled = function () {
  */
 OO.ui.ItemWidget.prototype.setElementGroup = function ( group ) {
 	// Parent method
-	OO.ui.ItemWidget.super.prototype.setElementGroup.call( this, group );
+	OO.ui.Element.prototype.setElementGroup.call( this, group );
 
 	// Initialize item disabled states
 	this.updateDisabled();

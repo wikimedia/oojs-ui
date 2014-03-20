@@ -46,7 +46,7 @@ OO.ui.TextInputMenuWidget.prototype.onWindowResize = function () {
  */
 OO.ui.TextInputMenuWidget.prototype.show = function () {
 	// Parent method
-	OO.ui.TextInputMenuWidget.super.prototype.show.call( this );
+	OO.ui.MenuWidget.prototype.show.call( this );
 
 	this.position();
 	this.$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
@@ -61,7 +61,7 @@ OO.ui.TextInputMenuWidget.prototype.show = function () {
  */
 OO.ui.TextInputMenuWidget.prototype.hide = function () {
 	// Parent method
-	OO.ui.TextInputMenuWidget.super.prototype.hide.call( this );
+	OO.ui.MenuWidget.prototype.hide.call( this );
 
 	this.$( this.getElementWindow() ).off( 'resize', this.onWindowResizeHandler );
 	return this;

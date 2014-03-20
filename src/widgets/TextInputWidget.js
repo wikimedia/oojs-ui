@@ -90,7 +90,7 @@ OO.ui.TextInputWidget.prototype.onEdit = function () {
 	this.adjustSize();
 
 	// Parent method
-	return OO.ui.TextInputWidget.super.prototype.onEdit.call( this );
+	return OO.ui.InputWidget.prototype.onEdit.call( this );
 };
 
 /**
