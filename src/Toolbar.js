@@ -8,11 +8,12 @@
  *
  * @constructor
  * @param {OO.ui.ToolFactory} toolFactory Factory for creating tools
+ * @param {OO.ui.ToolGroupFactory} toolGroupFactory Factory for creating tool groups
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [actions] Add an actions section opposite to the tools
  * @cfg {boolean} [shadow] Add a shadow below the toolbar
  */
-OO.ui.Toolbar = function OoUiToolbar( toolFactory, config ) {
+OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -25,6 +26,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, config ) {
 
 	// Properties
 	this.toolFactory = toolFactory;
+	this.toolGroupFactory = toolGroupFactory;
 	this.groups = [];
 	this.tools = {};
 	this.$bar = this.$( '<div>' );
@@ -69,6 +71,15 @@ OO.ui.Toolbar.prototype.getToolFactory = function () {
 };
 
 /**
+ * Get the tool group factory.
+ *
+ * @return {OO.Factory} Tool group factory
+ */
+OO.ui.Toolbar.prototype.getToolGroupFactory = function () {
+	return this.toolGroupFactory;
+};
+
+/**
  * Handles mouse down events.
  *
  * @param {jQuery.Event} e Mouse down event
@@ -107,13 +118,7 @@ OO.ui.Toolbar.prototype.initialize = function () {
 OO.ui.Toolbar.prototype.setup = function ( groups ) {
 	var i, len, type, group,
 		items = [],
-		// TODO: Use a registry instead
-		defaultType = 'bar',
-		constructors = {
-			'bar': OO.ui.BarToolGroup,
-			'list': OO.ui.ListToolGroup,
-			'menu': OO.ui.MenuToolGroup
-		};
+		defaultType = 'bar';
 
 	// Cleanup previous groups
 	this.reset();
@@ -130,9 +135,10 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 				group.label = 'ooui-toolbar-more';
 			}
 		}
-		type = constructors[group.type] ? group.type : defaultType;
+		// Check type has been registered
+		type = this.getToolGroupFactory().lookup( group.type ) ? group.type : defaultType;
 		items.push(
-			new constructors[type]( this, $.extend( { '$': this.$ }, group ) )
+			this.getToolGroupFactory().create( type, this, $.extend( { '$': this.$ }, group ) )
 		);
 	}
 	this.addItems( items );

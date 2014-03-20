@@ -26,3 +26,5 @@ OO.inheritClass( OO.ui.BarToolGroup, OO.ui.ToolGroup );
 OO.ui.BarToolGroup.static.titleTooltips = true;
 
 OO.ui.BarToolGroup.static.accelTooltips = true;
+
+OO.ui.BarToolGroup.static.name = 'bar';
