@@ -16,7 +16,8 @@ module.exports = function ( grunt ) {
 		moduleUtils = require( './build/moduleUtils' ),
 		styleTargets = {
 			'oojs-ui': moduleUtils.expandResources( modules['oojs-ui'].styles ),
-			'oojs-ui-apex': moduleUtils.expandResources( modules['oojs-ui-apex'].styles )
+			'oojs-ui-apex': moduleUtils.expandResources( modules['oojs-ui-apex'].styles ),
+			'oojs-ui-agora': moduleUtils.expandResources( modules['oojs-ui-agora'].styles )
 		},
 		recessFiles = {},
 		concatCssFiles = {};
