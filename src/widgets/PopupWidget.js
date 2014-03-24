@@ -23,12 +23,13 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 
 	// Mixin constructors
 	OO.ui.LabeledElement.call( this, this.$( '<div>' ), config );
+	OO.ui.ClippableElement.call( this, this.$( '<div>' ), config );
 
 	// Properties
 	this.visible = false;
 	this.$popup = this.$( '<div>' );
 	this.$head = this.$( '<div>' );
-	this.$body = this.$( '<div>' );
+	this.$body = this.$clippable;
 	this.$tail = this.$( '<div>' );
 	this.$container = config.$container || this.$( 'body' );
 	this.autoClose = !!config.autoClose;
@@ -65,6 +66,8 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 OO.inheritClass( OO.ui.PopupWidget, OO.ui.Widget );
 
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.LabeledElement );
+
+OO.mixinClass( OO.ui.PopupWidget, OO.ui.ClippableElement );
 
 /* Events */
 
@@ -171,6 +174,7 @@ OO.ui.PopupWidget.prototype.hasTail = function () {
  */
 OO.ui.PopupWidget.prototype.show = function () {
 	if ( !this.visible ) {
+		this.setClipping( true );
 		this.$element.show();
 		this.visible = true;
 		this.emit( 'show' );
@@ -190,6 +194,7 @@ OO.ui.PopupWidget.prototype.show = function () {
  */
 OO.ui.PopupWidget.prototype.hide = function () {
 	if ( this.visible ) {
+		this.setClipping( false );
 		this.$element.hide();
 		this.visible = false;
 		this.emit( 'hide' );
