@@ -148,6 +148,13 @@ OO.ui.SearchWidget.prototype.getQuery = function () {
 };
 
 /**
+ * Reset the widget to initial value.
+ */
+OO.ui.SearchWidget.prototype.clear = function () {
+	this.query.setValue( '' );
+};
+
+/**
  * Get the results list.
  *
  * @method
