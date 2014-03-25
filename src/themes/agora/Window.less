@@ -1,0 +1,23 @@
+@import 'mixins';
+@import 'variables';
+
+.oo-ui-window {
+	&-head {
+		height: @window-header-height;
+		border-bottom: 1px solid @color-shadow;
+	}
+
+	&-body {
+		padding: 2em @window-header-height;
+	}
+
+	&-icon {
+		.icon();
+
+		border-left: 1px solid @color-shadow;
+	}
+
+	&-title {
+		line-height: @window-header-height;
+	}
+}
