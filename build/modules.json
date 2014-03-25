@@ -117,6 +117,7 @@
 	"oojs-ui-apex": {
 		"styles": [
 			"src/themes/apex/Dialog.less",
+			"src/themes/apex/Frame.less",
 			"src/themes/apex/Toolbar.less",
 			"src/themes/apex/ToolGroup.less",
 			"src/themes/apex/Window.less",
