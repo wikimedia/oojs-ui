@@ -192,6 +192,10 @@ $( function () {
 					{ 'label': 'ToggleButtonWidget' }
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.ToggleButtonWidget( { 'label': 'Toggle', 'value': true } ),
+					{ 'label': 'ToggleButtonWidget (initially active)' }
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.ToggleButtonWidget( { 'icon': 'next' } ),
 					{ 'label': 'ToggleButtonWidget (icon only)' }
 				),
