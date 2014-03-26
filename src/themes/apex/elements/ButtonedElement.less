@@ -16,7 +16,8 @@
 .oo-ui-buttonedElement-frameless {
 	.oo-ui-buttonedElement-button {
 		> .oo-ui-iconedElement-icon {
-			.oo-ui-transition(opacity 200ms);
+			/* Don't animate opacities for now, causes wiggling in Chrome (bug 63020) */
+			/*.oo-ui-transition(opacity 200ms);*/
 		}
 
 		&:hover,
