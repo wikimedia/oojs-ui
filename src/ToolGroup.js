@@ -22,7 +22,9 @@
  */
 OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	// Configuration initialization
-	config = config || {};
+	config = $.extend( true, {
+		'aggregations': { 'disable': 'itemDisable' }
+	}, config );
 
 	// Parent constructor
 	OO.ui.ToolGroup.super.call( this, config );
@@ -34,6 +36,7 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	this.toolbar = toolbar;
 	this.tools = {};
 	this.pressed = null;
+	this.autoDisabled = false;
 	this.include = config.include || [];
 	this.exclude = config.exclude || [];
 	this.promote = config.promote || [];
@@ -48,6 +51,7 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 		'mouseout': OO.ui.bind( this.onMouseOut, this )
 	} );
 	this.toolbar.getToolFactory().connect( this, { 'register': 'onToolFactoryRegister' } );
+	this.connect( this, { 'itemDisable': 'updateDisabled' } );
 
 	// Initialization
 	this.$group.addClass( 'oo-ui-toolGroup-tools' );
@@ -89,7 +93,42 @@ OO.ui.ToolGroup.static.titleTooltips = false;
  */
 OO.ui.ToolGroup.static.accelTooltips = false;
 
+/**
+ * Automatically disable the toolgroup when all tools are disabled
+ *
+ * @static
+ * @property {boolean}
+ * @inheritable
+ */
+OO.ui.ToolGroup.static.autoDisable = true;
+
 /* Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ToolGroup.prototype.isDisabled = function () {
+	return this.autoDisabled || OO.ui.ToolGroup.super.prototype.isDisabled.apply( this, arguments );
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ToolGroup.prototype.updateDisabled = function () {
+	var i, item, allDisabled = true;
+
+	if ( this.constructor.static.autoDisable ) {
+		for ( i = this.items.length - 1; i >= 0; i-- ) {
+			item = this.items[i];
+			if ( !item.isDisabled() ) {
+				allDisabled = false;
+				break;
+			}
+		}
+		this.autoDisabled = allDisabled;
+	}
+	OO.ui.ToolGroup.super.prototype.updateDisabled.apply( this, arguments );
+};
 
 /**
  * Handle mouse down events.
@@ -260,6 +299,8 @@ OO.ui.ToolGroup.prototype.populate = function () {
 	}
 	// Re-add tools (moving existing ones to new locations)
 	this.addItems( add );
+	// Disabled state may depend on items
+	this.updateDisabled();
 };
 
 /**

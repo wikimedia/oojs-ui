@@ -64,6 +64,18 @@ OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.ClippableElement );
 /* Methods */
 
 /**
+ * @inheritdoc
+ */
+OO.ui.PopupToolGroup.prototype.setDisabled = function () {
+	// Parent method
+	OO.ui.PopupToolGroup.super.prototype.setDisabled.apply( this, arguments );
+
+	if ( this.isDisabled() && this.isElementAttached() ) {
+		this.setActive( false );
+	}
+};
+
+/**
  * Handle focus being lost.
  *
  * The event is actually generated from a mouseup, so it is not a normal blur event object.
