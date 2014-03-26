@@ -362,6 +362,14 @@ OO.ui.Element.prototype.getTagName = function () {
 };
 
 /**
+ * Check if the element is attached to the DOM
+ * @return {boolean} The element is attached to the DOM
+ */
+OO.ui.Element.prototype.isElementAttached = function () {
+	return $.contains( this.getElementDocument(), this.$element[0] );
+};
+
+/**
  * Get the DOM document.
  *
  * @return {HTMLDocument} Document object
