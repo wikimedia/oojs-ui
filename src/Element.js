@@ -72,13 +72,11 @@ OO.ui.Element.getJQuery = function ( context, frame ) {
  *
  * @static
  * @param {jQuery|HTMLElement|HTMLDocument|Window} obj Object to get the document for
- * @return {HTMLDocument} Document object
- * @throws {Error} If context is invalid
+ * @return {HTMLDocument|null} Document object
  */
 OO.ui.Element.getDocument = function ( obj ) {
-	var doc =
-		// jQuery - selections created "offscreen" won't have a context, so .context isn't reliable
-		( obj[0] && obj[0].ownerDocument ) ||
+	// jQuery - selections created "offscreen" won't have a context, so .context isn't reliable
+	return ( obj[0] && obj[0].ownerDocument ) ||
 		// Empty jQuery selections might have a context
 		obj.context ||
 		// HTMLElement
@@ -86,13 +84,8 @@ OO.ui.Element.getDocument = function ( obj ) {
 		// Window
 		obj.document ||
 		// HTMLDocument
-		( obj.nodeType === 9 && obj );
-
-	if ( doc ) {
-		return doc;
-	}
-
-	throw new Error( 'Invalid context' );
+		( obj.nodeType === 9 && obj ) ||
+		null;
 };
 
 /**

@@ -29,7 +29,5 @@ QUnit.test( 'getDocument', 10, function ( assert ) {
 	assert.strictEqual( OO.ui.Element.getDocument( frameDiv ), frameDoc, 'HTMLElement (framed, detached)' );
 	assert.strictEqual( OO.ui.Element.getDocument( frameDoc ), frameDoc, 'HTMLDocument (framed)' );
 
-	assert.throws( function () {
-		OO.ui.Element.getDocument( {} );
-	}, 'Invalid' );
+	assert.strictEqual( OO.ui.Element.getDocument( {} ), null, 'Invalid' );
 } );
