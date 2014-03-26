@@ -1,11 +1,13 @@
 @import '../mixins';
 
 .oo-ui-toggleSwitchWidget {
+	@travelDistance: 2em;
+
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
 	height: 2em;
-	width: 4em;
+	width: @travelDistance + 2em;
 	overflow: hidden;
 	cursor: pointer;
 	.oo-ui-box-sizing(border-box);
@@ -38,7 +40,7 @@
 
 	.oo-ui-toggleWidget-on & {
 		&-grip {
-			left: 2.25em;
+			left: @travelDistance + 0.25em;
 			margin-left: -2px;
 		}
 	}
