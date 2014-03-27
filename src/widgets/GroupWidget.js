@@ -1,6 +1,8 @@
 /**
  * Group widget.
  *
+ * Mixin for OO.ui.Widget subclasses.
+ *
  * Use together with OO.ui.ItemWidget to make disabled state inheritable.
  *
  * @class
@@ -35,6 +37,8 @@ OO.ui.GroupWidget.prototype.setDisabled = function ( disabled ) {
 	var i, len;
 
 	// Parent method
+	// Note this is calling OO.ui.Widget; we're assuming the class this is mixed into
+	// is a subclass of OO.ui.Widget.
 	OO.ui.Widget.prototype.setDisabled.call( this, disabled );
 
 	// During construction, #setDisabled is called before the OO.ui.GroupElement constructor
