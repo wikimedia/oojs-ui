@@ -8,6 +8,6 @@
  *
  * Date: @DATE
  */
-( function () {
+( function ( OO ) {
 
 'use strict';
