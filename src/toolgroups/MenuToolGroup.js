@@ -31,6 +31,8 @@ OO.inheritClass( OO.ui.MenuToolGroup, OO.ui.PopupToolGroup );
 
 OO.ui.MenuToolGroup.static.accelTooltips = true;
 
+OO.ui.MenuToolGroup.static.name = 'menu';
+
 /* Methods */
 
 /**

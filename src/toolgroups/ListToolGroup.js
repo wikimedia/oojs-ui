@@ -24,3 +24,5 @@ OO.inheritClass( OO.ui.ListToolGroup, OO.ui.PopupToolGroup );
 /* Static Properties */
 
 OO.ui.ListToolGroup.static.accelTooltips = true;
+
+OO.ui.ListToolGroup.static.name = 'list';

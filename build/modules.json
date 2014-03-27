@@ -23,6 +23,7 @@
 			"src/Toolbar.js",
 			"src/ToolFactory.js",
 			"src/ToolGroup.js",
+			"src/ToolGroupFactory.js",
 			"src/layouts/FieldsetLayout.js",
 			"src/layouts/FieldLayout.js",
 			"src/layouts/GridLayout.js",
