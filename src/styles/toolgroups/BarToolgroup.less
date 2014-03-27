@@ -15,7 +15,6 @@
 			display: block;
 			height: 1.5em;
 			padding: 0.25em;
-			cursor: pointer;
 
 			.oo-ui-iconedElement-icon {
 				display: block;
@@ -35,6 +34,12 @@
 		&-title,
 		&-accel {
 			display: none;
+		}
+	}
+
+	&.oo-ui-widget-enabled .oo-ui-tool {
+		&-link {
+			cursor: pointer;
 		}
 	}
 }
