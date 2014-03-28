@@ -255,12 +255,19 @@ OO.ui.SelectWidget.prototype.getItemFromData = function ( data ) {
  * @chainable
  */
 OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
-	var i, len;
+	var i, len, highlighted,
+		changed = false;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		this.items[i].setHighlighted( this.items[i] === item );
+		highlighted = this.items[i] === item;
+		if ( this.items[i].isHighlighted() !== highlighted ) {
+			this.items[i].setHighlighted( highlighted );
+			changed = true;
+		}
 	}
-	this.emit( 'highlight', item );
+	if ( changed ) {
+		this.emit( 'highlight', item );
+	}
 
 	return this;
 };
@@ -274,12 +281,19 @@ OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
  * @chainable
  */
 OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
-	var i, len;
+	var i, len, selected,
+		changed = false;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		this.items[i].setSelected( this.items[i] === item );
+		selected = this.items[i] === item;
+		if ( this.items[i].isSelected() !== selected ) {
+			this.items[i].setSelected( selected );
+			changed = true;
+		}
 	}
-	this.emit( 'select', item );
+	if ( changed ) {
+		this.emit( 'select', item );
+	}
 
 	return this;
 };
