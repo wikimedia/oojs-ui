@@ -88,6 +88,7 @@ module.exports = function ( grunt ) {
 			files: [
 				'<%= jshint.all %>',
 				'<%= csslint.all %>',
+				'{demos,src}/**/*.less',
 				'<%= qunit.all %>',
 				'.{jshintrc,jshintignore}'
 			],
