@@ -27,10 +27,9 @@ OO.ui.Frame = function OoUiFrame( config ) {
 
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.Frame, OO.ui.Element );
-
 OO.mixinClass( OO.ui.Frame, OO.EventEmitter );
 
 /* Static Properties */

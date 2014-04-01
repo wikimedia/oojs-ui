@@ -23,10 +23,9 @@ OO.ui.PopupTool = function OoUiPopupTool( toolbar, config ) {
 		.append( this.popup.$element );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.PopupTool, OO.ui.Tool );
-
 OO.mixinClass( OO.ui.PopupTool, OO.ui.PopuppableElement );
 
 /* Methods */

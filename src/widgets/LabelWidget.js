@@ -30,10 +30,9 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 	this.$element.addClass( 'oo-ui-labelWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.LabelWidget, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.LabelWidget, OO.ui.LabeledElement );
 
 /* Static Properties */

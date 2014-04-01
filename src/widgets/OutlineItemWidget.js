@@ -27,7 +27,7 @@ OO.ui.OutlineItemWidget = function OoUiOutlineItemWidget( data, config ) {
 	this.setLevel( config.level );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.OutlineItemWidget, OO.ui.OptionWidget );
 

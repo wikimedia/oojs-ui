@@ -23,8 +23,7 @@ OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 	}
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.ButtonGroupWidget, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.ButtonGroupWidget, OO.ui.GroupElement );

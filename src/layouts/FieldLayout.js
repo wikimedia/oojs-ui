@@ -48,10 +48,9 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	this.setAlignment( config.align );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.FieldLayout, OO.ui.Layout );
-
 OO.mixinClass( OO.ui.FieldLayout, OO.ui.LabeledElement );
 
 /* Methods */

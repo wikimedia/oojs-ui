@@ -24,10 +24,9 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( data, config ) {
 	this.$element.append( this.$button );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.ButtonOptionWidget, OO.ui.OptionWidget );
-
 OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.ButtonedElement );
 OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.FlaggableElement );
 

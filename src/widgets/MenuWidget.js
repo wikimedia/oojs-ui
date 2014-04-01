@@ -31,10 +31,9 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	this.$element.hide().addClass( 'oo-ui-menuWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.MenuWidget, OO.ui.SelectWidget );
-
 OO.mixinClass( OO.ui.MenuWidget, OO.ui.ClippableElement );
 
 /* Methods */

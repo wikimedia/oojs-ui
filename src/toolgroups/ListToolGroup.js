@@ -17,7 +17,7 @@ OO.ui.ListToolGroup = function OoUiListToolGroup( toolbar, config ) {
 	this.$element.addClass( 'oo-ui-listToolGroup' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.ListToolGroup, OO.ui.PopupToolGroup );
 

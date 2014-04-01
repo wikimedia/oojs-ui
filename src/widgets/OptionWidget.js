@@ -45,10 +45,9 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 		.append( this.$indicator );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.OptionWidget, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.ItemWidget );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.LabeledElement );

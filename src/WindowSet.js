@@ -38,10 +38,9 @@ OO.ui.WindowSet = function OoUiWindowSet( factory, config ) {
 	this.$element.addClass( 'oo-ui-windowSet' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.WindowSet, OO.ui.Element );
-
 OO.mixinClass( OO.ui.WindowSet, OO.EventEmitter );
 
 /* Events */

@@ -59,10 +59,9 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 	this.$element.append( this.$icon, this.$group, this.$movers );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.OutlineControlsWidget, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.OutlineControlsWidget, OO.ui.GroupElement );
 OO.mixinClass( OO.ui.OutlineControlsWidget, OO.ui.IconedElement );
 

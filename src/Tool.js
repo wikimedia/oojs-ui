@@ -47,10 +47,9 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	this.setTitle( config.title || this.constructor.static.title );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.Tool, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.Tool, OO.ui.IconedElement );
 
 /* Events */

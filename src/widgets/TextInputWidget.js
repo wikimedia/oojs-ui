@@ -46,7 +46,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.TextInputWidget, OO.ui.InputWidget );
 

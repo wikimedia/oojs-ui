@@ -25,7 +25,7 @@ OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
 	this.$element.addClass( 'oo-ui-pageLayout' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.PageLayout, OO.ui.PanelLayout );
 

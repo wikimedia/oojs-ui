@@ -50,10 +50,9 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 		.append( this.$button );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.ButtonWidget, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.ButtonedElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.IndicatedElement );

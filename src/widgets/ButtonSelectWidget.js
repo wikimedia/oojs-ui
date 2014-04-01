@@ -15,6 +15,6 @@ OO.ui.ButtonSelectWidget = function OoUiButtonSelectWidget( config ) {
 	this.$element.addClass( 'oo-ui-buttonSelectWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.ButtonSelectWidget, OO.ui.SelectWidget );

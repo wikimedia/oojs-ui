@@ -49,10 +49,9 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 		.prepend( this.$handle );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.PopupToolGroup, OO.ui.ToolGroup );
-
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.IndicatedElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.LabeledElement );

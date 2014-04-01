@@ -19,6 +19,6 @@ OO.ui.MenuItemWidget = function OoUiMenuItemWidget( data, config ) {
 	this.$element.addClass( 'oo-ui-menuItemWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.MenuItemWidget, OO.ui.OptionWidget );

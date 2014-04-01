@@ -41,13 +41,12 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	}
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.SelectWidget, OO.ui.Widget );
 
 // Need to mixin base class as well
 OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupElement );
-
 OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
 
 /* Events */

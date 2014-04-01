@@ -17,7 +17,7 @@ OO.ui.BarToolGroup = function OoUiBarToolGroup( toolbar, config ) {
 	this.$element.addClass( 'oo-ui-barToolGroup' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.BarToolGroup, OO.ui.ToolGroup );
 

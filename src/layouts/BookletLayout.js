@@ -73,7 +73,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	}
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.BookletLayout, OO.ui.Layout );
 

@@ -49,10 +49,9 @@ OO.ui.Window = function OoUiWindow( config ) {
 	this.frame.connect( this, { 'load': 'initialize' } );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.Window, OO.ui.Element );
-
 OO.mixinClass( OO.ui.Window, OO.EventEmitter );
 
 /* Events */

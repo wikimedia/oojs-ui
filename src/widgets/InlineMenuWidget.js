@@ -42,10 +42,9 @@ OO.ui.InlineMenuWidget = function OoUiInlineMenuWidget( config ) {
 		.append( this.$handle, this.menu.$element );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.InlineMenuWidget, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.IndicatedElement );
 OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.LabeledElement );

@@ -35,10 +35,9 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	}
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.FieldsetLayout, OO.ui.Layout );
-
 OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.LabeledElement );
 OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.GroupElement );

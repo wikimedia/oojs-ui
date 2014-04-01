@@ -23,7 +23,7 @@ OO.ui.MenuToolGroup = function OoUiMenuToolGroup( toolbar, config ) {
 	this.$element.addClass( 'oo-ui-menuToolGroup' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.MenuToolGroup, OO.ui.PopupToolGroup );
 

@@ -24,10 +24,9 @@ OO.ui.IndicatorWidget = function OoUiIndicatorWidget( config ) {
 	this.$element.addClass( 'oo-ui-indicatorWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.IndicatorWidget, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.IndicatorWidget, OO.ui.IndicatedElement );
 OO.mixinClass( OO.ui.IndicatorWidget, OO.ui.TitledElement );
 

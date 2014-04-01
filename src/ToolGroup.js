@@ -61,10 +61,9 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	this.populate();
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.ToolGroup, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.ToolGroup, OO.ui.GroupElement );
 
 /* Events */

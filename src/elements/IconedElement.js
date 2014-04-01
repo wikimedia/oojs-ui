@@ -24,9 +24,11 @@ OO.ui.IconedElement = function OoUiIconedElement( $icon, config ) {
 	this.setIcon( config.icon || this.constructor.static.icon );
 };
 
-/* Static Properties */
+/* Setup */
 
-OO.ui.IconedElement.static = {};
+OO.initClass( OO.ui.IconedElement );
+
+/* Static Properties */
 
 /**
  * Icon.

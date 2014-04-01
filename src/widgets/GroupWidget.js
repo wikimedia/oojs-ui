@@ -18,7 +18,7 @@ OO.ui.GroupWidget = function OoUiGroupWidget( $element, config ) {
 	OO.ui.GroupWidget.super.call( this, $element, config );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.GroupWidget, OO.ui.GroupElement );
 

@@ -18,6 +18,6 @@ OO.ui.OutlineWidget = function OoUiOutlineWidget( config ) {
 	this.$element.addClass( 'oo-ui-outlineWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.OutlineWidget, OO.ui.SelectWidget );

@@ -21,9 +21,11 @@ OO.ui.TitledElement = function OoUiTitledElement( $titled, config ) {
 	this.setTitle( config.title || this.constructor.static.title );
 };
 
-/* Static Properties */
+/* Setup */
 
-OO.ui.TitledElement.static = {};
+OO.initClass( OO.ui.TitledElement );
+
+/* Static Properties */
 
 /**
  * Title.

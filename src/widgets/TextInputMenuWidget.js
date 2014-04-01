@@ -22,7 +22,7 @@ OO.ui.TextInputMenuWidget = function OoUiTextInputMenuWidget( input, config ) {
 	this.$element.addClass( 'oo-ui-textInputMenuWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.TextInputMenuWidget, OO.ui.MenuWidget );
 

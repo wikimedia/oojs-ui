@@ -18,7 +18,7 @@ OO.ui.ToolGroupFactory = function OoUiToolGroupFactory() {
 	}
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.ToolGroupFactory, OO.Factory );
 

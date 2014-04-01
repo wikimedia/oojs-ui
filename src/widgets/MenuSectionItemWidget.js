@@ -16,9 +16,11 @@ OO.ui.MenuSectionItemWidget = function OoUiMenuSectionItemWidget( data, config )
 	this.$element.addClass( 'oo-ui-menuSectionItemWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.MenuSectionItemWidget, OO.ui.OptionWidget );
+
+/* Static Properties */
 
 OO.ui.MenuSectionItemWidget.static.selectable = false;
 

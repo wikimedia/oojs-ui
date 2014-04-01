@@ -42,7 +42,7 @@ OO.ui.GridLayout = function OoUiGridLayout( panels, config ) {
 	}
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.GridLayout, OO.ui.Layout );
 

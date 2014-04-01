@@ -50,7 +50,7 @@ OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
 		.append( this.$results, this.$query );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.SearchWidget, OO.ui.Widget );
 

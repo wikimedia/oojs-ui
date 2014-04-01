@@ -24,9 +24,11 @@ OO.ui.LabeledElement = function OoUiLabeledElement( $label, config ) {
 	this.autoFitLabel = config.autoFitLabel === undefined || !!config.autoFitLabel;
 };
 
-/* Static Properties */
+/* Setup */
 
-OO.ui.LabeledElement.static = {};
+OO.initClass( OO.ui.LabeledElement );
+
+/* Static Properties */
 
 /**
  * Label.

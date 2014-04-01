@@ -21,10 +21,9 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 		.append( this.popup.$element );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.PopupButtonWidget, OO.ui.ButtonWidget );
-
 OO.mixinClass( OO.ui.PopupButtonWidget, OO.ui.PopuppableElement );
 
 /* Methods */

@@ -37,7 +37,7 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	this.setValue( config.value );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.InputWidget, OO.ui.Widget );
 

@@ -23,8 +23,7 @@ OO.ui.Layout = function OoUiLayout( config ) {
 	this.$element.addClass( 'oo-ui-layout' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.Layout, OO.ui.Element );
-
 OO.mixinClass( OO.ui.Layout, OO.EventEmitter );

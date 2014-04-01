@@ -35,10 +35,9 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	}
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.StackLayout, OO.ui.PanelLayout );
-
 OO.mixinClass( OO.ui.StackLayout, OO.ui.GroupElement );
 
 /* Events */

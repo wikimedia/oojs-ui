@@ -52,10 +52,9 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.$element.addClass( 'oo-ui-toolbar' ).append( this.$bar );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.Toolbar, OO.ui.Element );
-
 OO.mixinClass( OO.ui.Toolbar, OO.EventEmitter );
 OO.mixinClass( OO.ui.Toolbar, OO.ui.GroupElement );
 

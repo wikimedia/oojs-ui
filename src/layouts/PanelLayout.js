@@ -30,6 +30,6 @@ OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	this.$element.addClass( 'oo-ui-' + OO.ui.Element.getDir( this.$.context ) );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.PanelLayout, OO.ui.Layout );

@@ -10,7 +10,7 @@ OO.ui.ToolFactory = function OoUiToolFactory() {
 	OO.ui.ToolFactory.super.call( this );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.ToolFactory, OO.Factory );
 

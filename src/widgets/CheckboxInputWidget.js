@@ -15,7 +15,7 @@ OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 	this.$element.addClass( 'oo-ui-checkboxInputWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.CheckboxInputWidget, OO.ui.InputWidget );
 

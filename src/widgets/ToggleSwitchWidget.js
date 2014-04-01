@@ -33,10 +33,9 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 		.append( this.$glow, this.$grip );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.ToggleSwitchWidget, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.ToggleWidget );
 
 /* Methods */

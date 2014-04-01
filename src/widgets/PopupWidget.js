@@ -61,12 +61,10 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 		.append( this.$popup, this.$tail );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.PopupWidget, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.LabeledElement );
-
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.ClippableElement );
 
 /* Events */

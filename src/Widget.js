@@ -29,10 +29,9 @@ OO.ui.Widget = function OoUiWidget( config ) {
 	this.setDisabled( !!config.disabled );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.Widget, OO.ui.Element );
-
 OO.mixinClass( OO.ui.Widget, OO.EventEmitter );
 
 /* Events */

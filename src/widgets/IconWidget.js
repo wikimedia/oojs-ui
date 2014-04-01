@@ -24,10 +24,9 @@ OO.ui.IconWidget = function OoUiIconWidget( config ) {
 	this.$element.addClass( 'oo-ui-iconWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.IconWidget, OO.ui.Widget );
-
 OO.mixinClass( OO.ui.IconWidget, OO.ui.IconedElement );
 OO.mixinClass( OO.ui.IconWidget, OO.ui.TitledElement );
 

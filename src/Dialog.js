@@ -31,7 +31,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 	this.setSize( config.size );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.Dialog, OO.ui.Window );
 

@@ -28,9 +28,11 @@ OO.ui.Element = function OoUiElement( config ) {
 	}
 };
 
-/* Static Properties */
+/* Setup */
 
-OO.ui.Element.static = {};
+OO.initClass( OO.ui.Element );
+
+/* Static Properties */
 
 /**
  * HTML tag name.

@@ -25,9 +25,11 @@ OO.ui.IndicatedElement = function OoUiIndicatedElement( $indicator, config ) {
 	this.setIndicatorTitle( config.indicatorTitle  || this.constructor.static.indicatorTitle );
 };
 
-/* Static Properties */
+/* Setup */
 
-OO.ui.IndicatedElement.static = {};
+OO.initClass( OO.ui.IndicatedElement );
+
+/* Static Properties */
 
 /**
  * indicator.

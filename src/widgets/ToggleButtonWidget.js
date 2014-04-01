@@ -21,10 +21,9 @@ OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
 	this.$element.addClass( 'oo-ui-toggleButtonWidget' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.ToggleButtonWidget, OO.ui.ButtonWidget );
-
 OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.ToggleWidget );
 
 /* Methods */
