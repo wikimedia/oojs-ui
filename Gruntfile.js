@@ -89,6 +89,9 @@ module.exports = function ( grunt ) {
 			},
 			all: '{demos,src}/**/*.css',
 		},
+		messageDocumentation: {
+			all: 'i18n/'
+		},
 		qunit: {
 			all: ['test/index.html']
 		},
@@ -105,6 +108,6 @@ module.exports = function ( grunt ) {
 	} );
 
 	grunt.registerTask( 'build', ['clean', 'recess', 'concat', 'copy'] );
-	grunt.registerTask( 'test', ['git-build', 'build', 'jshint', 'jscs', 'csslint', 'qunit'] );
+	grunt.registerTask( 'test', ['git-build', 'build', 'jshint', 'jscs', 'csslint', 'messageDocumentation', 'qunit'] );
 	grunt.registerTask( 'default', 'test' );
 };
