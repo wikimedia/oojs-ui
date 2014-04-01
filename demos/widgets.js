@@ -67,6 +67,14 @@ $( function () {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
+						'label': 'Constructive',
+						'flags': [ 'constructive' ],
+						'disabled': true
+					} ),
+					{ 'label': 'ButtonWidget (constructive, disabled)' }
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
 						'label': 'Iconed',
 						'icon': 'picture'
 					} ),
