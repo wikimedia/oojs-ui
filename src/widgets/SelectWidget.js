@@ -307,7 +307,7 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
  * @param {OO.ui.OptionWidget} [item] Item to select
  * @chainable
  */
-OO.ui.SelectWidget.prototype.intializeSelection = function( item ) {
+OO.ui.SelectWidget.prototype.intializeSelection = function ( item ) {
 	var i, len, selected;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {

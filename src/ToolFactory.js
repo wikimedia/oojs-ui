@@ -98,9 +98,8 @@ OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {
 							}
 						}
 					}
-				}
 				// Include tools with matching name and exclude already used tools
-				else if ( item.name && ( !used || !used[item.name] ) ) {
+				} else if ( item.name && ( !used || !used[item.name] ) ) {
 					names.push( item.name );
 					if ( used ) {
 						used[item.name] = true;

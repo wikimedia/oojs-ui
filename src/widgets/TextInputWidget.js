@@ -100,7 +100,7 @@ OO.ui.TextInputWidget.prototype.onEdit = function () {
  *
  * @chainable
  */
-OO.ui.TextInputWidget.prototype.adjustSize = function() {
+OO.ui.TextInputWidget.prototype.adjustSize = function () {
 	var $clone, scrollHeight, innerHeight, outerHeight, maxInnerHeight, idealHeight;
 
 	if ( this.multiline && this.autosize ) {

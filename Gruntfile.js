@@ -9,6 +9,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-jscs-checker' );
 	grunt.loadNpmTasks( 'grunt-recess' );
 	grunt.loadTasks( 'build/tasks' );
 
@@ -75,6 +76,13 @@ module.exports = function ( grunt ) {
 				.replace( /\/\*(?:(?!\*\/)[\s\S])*\*\//g, '' ).replace( /\/\/[^\n\r]*/g, '' ) ),
 			all: ['*.js', '{build,demos,dist,src,test}/**/*.js']
 		},
+		jscs: {
+			src: [
+				'<%= jshint.all %>',
+				'!src/intro.js',
+				'!src/outro.js'
+			]
+		},
 		csslint: {
 			options: {
 				csslintrc: '.csslintrc'
@@ -97,6 +105,6 @@ module.exports = function ( grunt ) {
 	} );
 
 	grunt.registerTask( 'build', ['clean', 'recess', 'concat', 'copy'] );
-	grunt.registerTask( 'test', ['git-build', 'build', 'jshint', 'csslint', 'qunit'] );
+	grunt.registerTask( 'test', ['git-build', 'build', 'jshint', 'jscs', 'csslint', 'qunit'] );
 	grunt.registerTask( 'default', 'test' );
 };
