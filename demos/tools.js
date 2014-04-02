@@ -52,38 +52,38 @@ $( function () {
 	toolGroupFactory.register( createDisabledToolGroup( OO.ui.MenuToolGroup, 'disabledMenu' ) );
 
 	toolbar.setup( [
-			{
-				'type': 'bar',
-				'include': [ { 'group': 'barTools' } ]
-			},
-			{
-				'type': 'disabledBar',
-				'include': [ { 'group': 'disabledBarTools' } ]
-			},
-			{
-				'type': 'list',
-				'indicator': 'down',
-				'icon': 'picture',
-				'include': [ { 'group': 'listTools' } ]
-			},
-			{
-				'type': 'disabledList',
-				'indicator': 'down',
-				'icon': 'picture',
-				'include': [ { 'group': 'disabledListTools' } ]
-			},
-			{
-				'type': 'menu',
-				'indicator': 'down',
-				'icon': 'picture',
-				'include': [ { 'group': 'menuTools' } ]
-			},
-			{
-				'type': 'disabledMenu',
-				'indicator': 'down',
-				'icon': 'picture',
-				'include': [ { 'group': 'disabledMenuTools' } ]
-			}
+		{
+			'type': 'bar',
+			'include': [ { 'group': 'barTools' } ]
+		},
+		{
+			'type': 'disabledBar',
+			'include': [ { 'group': 'disabledBarTools' } ]
+		},
+		{
+			'type': 'list',
+			'indicator': 'down',
+			'icon': 'picture',
+			'include': [ { 'group': 'listTools' } ]
+		},
+		{
+			'type': 'disabledList',
+			'indicator': 'down',
+			'icon': 'picture',
+			'include': [ { 'group': 'disabledListTools' } ]
+		},
+		{
+			'type': 'menu',
+			'indicator': 'down',
+			'icon': 'picture',
+			'include': [ { 'group': 'menuTools' } ]
+		},
+		{
+			'type': 'disabledMenu',
+			'indicator': 'down',
+			'icon': 'picture',
+			'include': [ { 'group': 'disabledMenuTools' } ]
+		}
 	] );
 
 	toolbar.emit( 'updateState' );
