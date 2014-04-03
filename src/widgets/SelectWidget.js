@@ -35,7 +35,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	} );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-selectWidget' );
+	this.$element.addClass( 'oo-ui-selectWidget oo-ui-selectWidget-depressed' );
 	if ( $.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}
@@ -55,6 +55,11 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
 /**
  * @event highlight
  * @param {OO.ui.OptionWidget|null} item Highlighted item
+ */
+
+/**
+ * @event press
+ * @param {OO.ui.OptionWidget|null} item Pressed item
  */
 
 /**
@@ -90,10 +95,10 @@ OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
 	var item;
 
 	if ( !this.disabled && e.which === 1 ) {
-		this.pressed = true;
+		this.togglePressed( true );
 		item = this.getTargetItem( e );
 		if ( item && item.isSelectable() ) {
-			this.intializeSelection( item );
+			this.pressItem( item );
 			this.selecting = item;
 			this.$( this.$.context ).one( 'mouseup', OO.ui.bind( this.onMouseUp, this ) );
 		}
@@ -110,7 +115,8 @@ OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
  */
 OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 	var item;
-	this.pressed = false;
+
+	this.togglePressed( false );
 	if ( !this.selecting ) {
 		item = this.getTargetItem( e );
 		if ( item && item.isSelectable() ) {
@@ -118,9 +124,11 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 		}
 	}
 	if ( !this.disabled && e.which === 1 && this.selecting ) {
+		this.pressItem( null );
 		this.selectItem( this.selecting );
 		this.selecting = null;
 	}
+
 	return false;
 };
 
@@ -137,7 +145,7 @@ OO.ui.SelectWidget.prototype.onMouseMove = function ( e ) {
 	if ( !this.disabled && this.pressed ) {
 		item = this.getTargetItem( e );
 		if ( item && item !== this.selecting && item.isSelectable() ) {
-			this.intializeSelection( item );
+			this.pressItem( item );
 			this.selecting = item;
 		}
 	}
@@ -172,7 +180,7 @@ OO.ui.SelectWidget.prototype.onMouseOver = function ( e ) {
  */
 OO.ui.SelectWidget.prototype.onMouseLeave = function () {
 	if ( !this.disabled ) {
-		this.highlightItem();
+		this.highlightItem( null );
 	}
 	return false;
 };
@@ -245,6 +253,22 @@ OO.ui.SelectWidget.prototype.getItemFromData = function ( data ) {
 };
 
 /**
+ * Toggle pressed state.
+ *
+ * @param {boolean} pressed An option is being pressed
+ */
+OO.ui.SelectWidget.prototype.togglePressed = function ( pressed ) {
+	if ( pressed === undefined ) {
+		pressed = !this.pressed;
+	}
+	if ( pressed !== this.pressed ) {
+		this.$element.toggleClass( 'oo-ui-selectWidget-pressed', pressed );
+		this.$element.toggleClass( 'oo-ui-selectWidget-depressed', !pressed );
+		this.pressed = pressed;
+	}
+};
+
+/**
  * Highlight an item.
  *
  * Highlighting is mutually exclusive.
@@ -293,6 +317,32 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 	}
 	if ( changed ) {
 		this.emit( 'select', item );
+	}
+
+	return this;
+};
+
+/**
+ * Press an item.
+ *
+ * @method
+ * @param {OO.ui.OptionWidget} [item] Item to press, omit to depress all
+ * @fires press
+ * @chainable
+ */
+OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
+	var i, len, pressed,
+		changed = false;
+
+	for ( i = 0, len = this.items.length; i < len; i++ ) {
+		pressed = this.items[i] === item;
+		if ( this.items[i].isPressed() !== pressed ) {
+			this.items[i].setPressed( pressed );
+			changed = true;
+		}
+	}
+	if ( changed ) {
+		this.emit( 'press', item );
 	}
 
 	return this;

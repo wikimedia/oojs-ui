@@ -32,6 +32,7 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 	this.data = data;
 	this.selected = false;
 	this.highlighted = false;
+	this.pressed = false;
 
 	// Initialization
 	this.$element
@@ -62,6 +63,8 @@ OO.ui.OptionWidget.static.selectable = true;
 
 OO.ui.OptionWidget.static.highlightable = true;
 
+OO.ui.OptionWidget.static.pressable = true;
+
 OO.ui.OptionWidget.static.scrollIntoViewOnSelect = false;
 
 /* Methods */
@@ -87,6 +90,16 @@ OO.ui.OptionWidget.prototype.isHighlightable = function () {
 };
 
 /**
+ * Check if option can be pressed.
+ *
+ * @method
+ * @returns {boolean} Item is pressable
+ */
+OO.ui.OptionWidget.prototype.isPressable = function () {
+	return this.constructor.static.pressable && !this.disabled;
+};
+
+/**
  * Check if option is selected.
  *
  * @method
@@ -104,6 +117,16 @@ OO.ui.OptionWidget.prototype.isSelected = function () {
  */
 OO.ui.OptionWidget.prototype.isHighlighted = function () {
 	return this.highlighted;
+};
+
+/**
+ * Check if option is pressed.
+ *
+ * @method
+ * @returns {boolean} Item is pressed
+ */
+OO.ui.OptionWidget.prototype.isPressed = function () {
+	return this.pressed;
 };
 
 /**
@@ -148,7 +171,28 @@ OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
 };
 
 /**
+ * Set pressed state.
+ *
+ * @method
+ * @param {boolean} [state=false] Press option
+ * @chainable
+ */
+OO.ui.OptionWidget.prototype.setPressed = function ( state ) {
+	if ( !this.disabled && this.constructor.static.pressable ) {
+		this.pressed = !!state;
+		if ( this.pressed ) {
+			this.$element.addClass( 'oo-ui-optionWidget-pressed' );
+		} else {
+			this.$element.removeClass( 'oo-ui-optionWidget-pressed' );
+		}
+	}
+	return this;
+};
+
+/**
  * Make the option's highlight flash.
+ *
+ * While flashing, the visual style of the pressed state is removed if present.
  *
  * @method
  * @param {Function} [done] Callback to execute when flash effect is complete.
@@ -156,11 +200,15 @@ OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
 OO.ui.OptionWidget.prototype.flash = function ( done ) {
 	var $this = this.$element;
 
-	if ( !this.disabled && this.constructor.static.highlightable ) {
-		$this.removeClass( 'oo-ui-optionWidget-highlighted' );
+	if ( !this.disabled && this.constructor.static.pressable ) {
+		$this.removeClass( 'oo-ui-optionWidget-highlighted oo-ui-optionWidget-pressed' );
 		setTimeout( OO.ui.bind( function () {
 			$this.addClass( 'oo-ui-optionWidget-highlighted' );
 			if ( done ) {
+				// Restore original classes
+				$this
+					.toggleClass( 'oo-ui-optionWidget-highlighted', this.highlighted )
+					.toggleClass( 'oo-ui-optionWidget-pressed', this.pressed );
 				setTimeout( done, 100 );
 			}
 		}, this ), 100 );
