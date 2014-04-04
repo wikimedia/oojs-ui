@@ -147,7 +147,7 @@ OO.ui.LookupInputWidget.prototype.populateLookupMenu = function () {
  */
 OO.ui.LookupInputWidget.prototype.initializeLookupMenuSelection = function () {
 	if ( !this.lookupMenu.getSelectedItem() ) {
-		this.lookupMenu.intializeSelection( this.lookupMenu.getFirstSelectableItem() );
+		this.lookupMenu.initializeSelection( this.lookupMenu.getFirstSelectableItem() );
 	}
 	this.lookupMenu.highlightItem( this.lookupMenu.getSelectedItem() );
 };
