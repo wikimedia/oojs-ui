@@ -2,7 +2,7 @@
  * Lookup input widget.
  *
  * Mixin that adds a menu showing suggested values to a text input. Subclasses must handle `select`
- * events on #lookupMenu to make use of selections.
+ * and `choose` events on #lookupMenu to make use of selections.
  *
  * @class
  * @abstract
@@ -147,7 +147,7 @@ OO.ui.LookupInputWidget.prototype.populateLookupMenu = function () {
  */
 OO.ui.LookupInputWidget.prototype.initializeLookupMenuSelection = function () {
 	if ( !this.lookupMenu.getSelectedItem() ) {
-		this.lookupMenu.initializeSelection( this.lookupMenu.getFirstSelectableItem() );
+		this.lookupMenu.selectItem( this.lookupMenu.getFirstSelectableItem() );
 	}
 	this.lookupMenu.highlightItem( this.lookupMenu.getSelectedItem() );
 };

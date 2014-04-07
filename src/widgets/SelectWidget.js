@@ -67,6 +67,11 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
  */
 
 /**
+ * @event choose
+ * @param {OO.ui.OptionWidget|null} item Chosen item
+ */
+
+/**
  * @event add
  * @param {OO.ui.OptionWidget[]} items Added items
  * @param {number} index Index items were added at
@@ -124,7 +129,7 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 	}
 	if ( !this.disabled && e.which === 1 && this.selecting ) {
 		this.pressItem( null );
-		this.selectItem( this.selecting );
+		this.chooseItem( this.selecting );
 		this.selecting = null;
 	}
 
@@ -163,9 +168,7 @@ OO.ui.SelectWidget.prototype.onMouseOver = function ( e ) {
 
 	if ( !this.disabled ) {
 		item = this.getTargetItem( e );
-		if ( item && item.isHighlightable() ) {
-			this.highlightItem( item );
-		}
+		this.highlightItem( item && item.isHighlightable() ? item : null );
 	}
 	return false;
 };
@@ -348,22 +351,19 @@ OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
 };
 
 /**
- * Setup selection and highlighting.
+ * Choose an item.
  *
- * This should be used to synchronize the UI with the model without emitting events that would in
- * turn update the model.
+ * Identical to #selectItem, but may vary in subclasses that want to take additional action when
+ * an item is selected using the keyboard or mouse.
  *
- * @param {OO.ui.OptionWidget} [item] Item to select
+ * @method
+ * @param {OO.ui.OptionWidget} item Item to choose
+ * @fires choose
  * @chainable
  */
-OO.ui.SelectWidget.prototype.initializeSelection = function ( item ) {
-	var i, len, selected;
-
-	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		selected = this.items[i] === item;
-		this.items[i].setSelected( selected );
-		this.items[i].setHighlighted( selected );
-	}
+OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
+	this.selectItem( item );
+	this.emit( 'choose', item );
 
 	return this;
 };

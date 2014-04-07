@@ -25,6 +25,7 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	this.$previousFocus = null;
 	this.isolated = !config.input;
 	this.visible = false;
+	this.flashing = false;
 	this.onKeyDownHandler = OO.ui.bind( this.onKeyDown, this );
 
 	// Initialization
@@ -55,7 +56,7 @@ OO.ui.MenuWidget.prototype.onKeyDown = function ( e ) {
 		}
 		switch ( e.keyCode ) {
 			case OO.ui.Keys.ENTER:
-				this.selectItem( highlightItem );
+				this.chooseItem( highlightItem );
 				handled = true;
 				break;
 			case OO.ui.Keys.UP:
@@ -126,28 +127,26 @@ OO.ui.MenuWidget.prototype.unbindKeyDownListener = function () {
 };
 
 /**
- * Select an item.
+ * Choose an item.
  *
- * The menu will stay open if an item is silently selected.
+ * This will close the menu when done, unlike selectItem which only changes selection.
  *
  * @method
- * @param {OO.ui.OptionWidget} [item] Item to select, omit to deselect all
+ * @param {OO.ui.OptionWidget} item Item to choose
  * @chainable
  */
-OO.ui.MenuWidget.prototype.selectItem = function ( item ) {
+OO.ui.MenuWidget.prototype.chooseItem = function ( item ) {
 	// Parent method
-	OO.ui.SelectWidget.prototype.selectItem.call( this, item );
+	OO.ui.MenuWidget.super.prototype.chooseItem.call( this, item );
 
-	if ( !this.disabled ) {
-		if ( item ) {
-			this.disabled = true;
-			item.flash( OO.ui.bind( function () {
-				this.hide();
-				this.disabled = false;
-			}, this ) );
-		} else {
+	if ( item && !this.flashing ) {
+		this.flashing = true;
+		item.flash( OO.ui.bind( function () {
 			this.hide();
-		}
+			this.flashing = false;
+		}, this ) );
+	} else {
+		this.hide();
 	}
 
 	return this;
