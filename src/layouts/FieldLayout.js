@@ -39,11 +39,13 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	if ( this.field instanceof OO.ui.InputWidget ) {
 		this.$label.on( 'click', OO.ui.bind( this.onLabelClick, this ) );
 	}
+	this.field.connect( this, { 'disable': 'onFieldDisable' } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-fieldLayout' );
 	this.$field
 		.addClass( 'oo-ui-fieldLayout-field' )
+		.toggleClass( 'oo-ui-fieldLayout-disable', this.field.isDisabled() )
 		.append( this.field.$element );
 	this.setAlignment( config.align );
 };
@@ -56,7 +58,16 @@ OO.mixinClass( OO.ui.FieldLayout, OO.ui.LabeledElement );
 /* Methods */
 
 /**
- * Handles label mouse click events.
+ * Handle field disable events.
+ *
+ * @param {boolean} value Field is disabled
+ */
+OO.ui.FieldLayout.prototype.onFieldDisable = function ( value ) {
+	this.$element.toggleClass( 'oo-ui-fieldLayout-disabled', value );
+};
+
+/**
+ * Handle label mouse click events.
  *
  * @method
  * @param {jQuery.Event} e Mouse click event
