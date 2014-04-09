@@ -1,4 +1,6 @@
 /**
+ * Modal dialog window.
+ *
  * @abstract
  * @class
  * @extends OO.ui.Window

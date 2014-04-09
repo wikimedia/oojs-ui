@@ -1,5 +1,5 @@
 /**
- * Factory for tools.
+ * Factory for tool groups.
  *
  * @class
  * @extends OO.Factory

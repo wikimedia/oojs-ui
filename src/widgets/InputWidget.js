@@ -1,5 +1,5 @@
 /**
- * Creates an OO.ui.InputWidget object.
+ * Input widget.
  *
  * @class
  * @abstract

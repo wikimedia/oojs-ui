@@ -1,5 +1,7 @@
 /**
- * Create an OO.ui.ButtonOptionWidget object.
+ * Option widget that looks like a button.
+ *
+ * Use together with OO.ui.ButtonSelectWidget.
  *
  * @class
  * @extends OO.ui.OptionWidget

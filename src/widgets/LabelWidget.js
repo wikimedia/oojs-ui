@@ -1,5 +1,5 @@
 /**
- * Creates an OO.ui.LabelWidget object.
+ * Label widget.
  *
  * @class
  * @extends OO.ui.Widget

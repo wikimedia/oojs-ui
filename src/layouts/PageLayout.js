@@ -1,5 +1,5 @@
 /**
- * Page within an OO.ui.BookletLayout.
+ * Page within an booklet layout.
  *
  * @class
  * @extends OO.ui.PanelLayout

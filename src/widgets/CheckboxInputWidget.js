@@ -1,5 +1,5 @@
 /**
- * Creates an OO.ui.CheckboxInputWidget object.
+ * Checkbox widget.
  *
  * @class
  * @extends OO.ui.InputWidget

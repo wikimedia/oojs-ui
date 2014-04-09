@@ -1,5 +1,7 @@
 /**
- * Creates an OO.ui.OptionWidget object.
+ * Option widget.
+ *
+ * Use with OO.ui.SelectWidget.
  *
  * @class
  * @abstract

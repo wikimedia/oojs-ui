@@ -1,5 +1,5 @@
 /**
- * Creates an OO.ui.IconWidget object.
+ * Icon widget.
  *
  * @class
  * @extends OO.ui.Widget

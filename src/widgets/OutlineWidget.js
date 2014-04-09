@@ -1,6 +1,8 @@
 /**
  * Create an OO.ui.OutlineWidget object.
  *
+ * Use with OO.ui.OutlineItemWidget.
+ *
  * @class
  * @extends OO.ui.SelectWidget
  *

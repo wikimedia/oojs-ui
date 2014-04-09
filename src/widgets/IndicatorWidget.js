@@ -1,5 +1,5 @@
 /**
- * Creates an OO.ui.IndicatorWidget object.
+ * Indicator widget.
  *
  * @class
  * @extends OO.ui.Widget

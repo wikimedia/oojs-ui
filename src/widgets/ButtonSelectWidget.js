@@ -1,5 +1,7 @@
 /**
- * Create an OO.ui.ButtonSelect object.
+ * Select widget containing button options.
+ *
+ * Use together with OO.ui.ButtonOptionWidget.
  *
  * @class
  * @extends OO.ui.SelectWidget

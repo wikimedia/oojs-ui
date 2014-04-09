@@ -1,4 +1,6 @@
 /**
+ * Button that toggles on and off.
+ *
  * @class
  * @extends OO.ui.ButtonWidget
  * @mixins OO.ui.ToggleWidget

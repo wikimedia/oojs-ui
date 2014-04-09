@@ -1,6 +1,8 @@
 /**
  * Inline menu of options.
  *
+ * Use with OO.ui.MenuOptionWidget.
+ *
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.IconedElement

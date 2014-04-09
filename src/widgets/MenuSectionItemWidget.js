@@ -1,5 +1,7 @@
 /**
- * Creates an OO.ui.MenuSectionItemWidget object.
+ * Menu section item widget.
+ *
+ * Use with OO.ui.MenuWidget.
  *
  * @class
  * @extends OO.ui.OptionWidget

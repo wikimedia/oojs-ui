@@ -1,6 +1,8 @@
 /**
  * Creates an OO.ui.OutlineControlsWidget object.
  *
+ * Use together with OO.ui.OutlineWidget.js
+ *
  * @class
  *
  * @constructor

@@ -1,4 +1,6 @@
 /**
+ * Switch that slides on and off.
+ *
  * @class
  * @abstract
  * @extends OO.ui.Widget

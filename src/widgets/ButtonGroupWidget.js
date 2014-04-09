@@ -1,6 +1,8 @@
 /**
  * Container for multiple related buttons.
  *
+ * Use together with OO.ui.ButtonWidget.
+ *
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.GroupElement

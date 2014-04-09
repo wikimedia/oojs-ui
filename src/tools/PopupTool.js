@@ -1,5 +1,5 @@
 /**
- * UserInterface popup tool.
+ * Tool that shows a popup when selected.
  *
  * @abstract
  * @class

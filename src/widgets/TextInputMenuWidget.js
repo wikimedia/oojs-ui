@@ -1,5 +1,5 @@
 /**
- * Creates an OO.ui.TextInputMenuWidget object.
+ * Menu for a text input widget.
  *
  * @class
  * @extends OO.ui.MenuWidget

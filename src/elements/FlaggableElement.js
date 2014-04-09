@@ -1,5 +1,8 @@
 /**
- * Element with named flags, used for styling, that can be added, removed and listed and checked.
+ * Element with named flags that can be added, removed, listed and checked.
+ *
+ * A flag, when set, adds a CSS class on the `$element` by combing `oo-ui-flaggableElement-` with
+ * the flag name. Flags are primarily useful for styling.
  *
  * @class
  * @abstract

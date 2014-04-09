@@ -1,5 +1,7 @@
 /**
- * Create an OO.ui.SelectWidget object.
+ * Selection of options.
+ *
+ * Use together with OO.ui.OptionWidget.
  *
  * @class
  * @abstract

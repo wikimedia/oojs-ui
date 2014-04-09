@@ -1,5 +1,5 @@
 /**
- * Creates an OO.ui.ButtonWidget object.
+ * Button widget.
  *
  * @class
  * @abstract

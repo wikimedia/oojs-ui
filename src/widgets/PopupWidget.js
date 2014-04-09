@@ -1,5 +1,5 @@
 /**
- * Creates an OO.ui.PopupWidget object.
+ * Container for content that is overlaid and positioned absolutely.
  *
  * @class
  * @extends OO.ui.Widget

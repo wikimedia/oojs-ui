@@ -1,5 +1,7 @@
 /**
- * Creates an OO.ui.SearchWidget object.
+ * Search widget.
+ *
+ * Combines query and results selection widgets.
  *
  * @class
  * @extends OO.ui.Widget
