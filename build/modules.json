@@ -124,6 +124,7 @@
 			"src/themes/apex/Window.less",
 			"src/themes/apex/elements/ButtonedElement.less",
 			"src/themes/apex/layouts/BookletLayout.less",
+			"src/themes/apex/layouts/FieldLayout.less",
 			"src/themes/apex/layouts/FieldsetLayout.less",
 			"src/themes/apex/toolgroups/BarToolgroup.less",
 			"src/themes/apex/toolgroups/ListToolgroup.less",
