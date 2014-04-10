@@ -45,10 +45,13 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.ButtonedElement.prototype.onMouseDown = function () {
-	this.tabIndex = this.$button.attr( 'tabIndex' );
+	// tabIndex should generally be interacted with via the property,
+	// but it's not possible to reliably unset a tabIndex via a property
+	// so we use the (lowercase) "tabindex" attribute instead.
+	this.tabIndex = this.$button.attr( 'tabindex' );
 	// Remove the tab-index while the button is down to prevent the button from stealing focus
 	this.$button
-		.removeAttr( 'tabIndex' )
+		.removeAttr( 'tabindex' )
 		.addClass( 'oo-ui-buttonedElement-pressed' );
 	this.getElementDocument().addEventListener( 'mouseup', this.onMouseUpHandler, true );
 };
@@ -62,7 +65,7 @@ OO.ui.ButtonedElement.prototype.onMouseDown = function () {
 OO.ui.ButtonedElement.prototype.onMouseUp = function () {
 	// Restore the tab-index after the button is up to restore the button's accesssibility
 	this.$button
-		.attr( 'tabIndex', this.tabIndex )
+		.attr( 'tabindex', this.tabIndex )
 		.removeClass( 'oo-ui-buttonedElement-pressed' );
 	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
 };
