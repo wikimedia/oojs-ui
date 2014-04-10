@@ -21,9 +21,7 @@
 
 	> .oo-ui-window-frame {
 		position: fixed;
-		top: 1em;
 		right: 0;
-		bottom: 1em;
 		left: 0;
 		min-height: 12em;
 		margin: auto;
@@ -35,58 +33,8 @@
 		}
 	}
 
-	&-small > .oo-ui-window-frame {
-		width: 400px;
-		max-height: 230px;
-	}
-
-	&-medium > .oo-ui-window-frame {
-		width: 600px;
-		max-height: 460px;
-	}
-
-	&-large > .oo-ui-window-frame {
-		width: 800px;
-		max-height: 690px;
-	}
-
 	&-content {
 		.oo-ui-window {
-			&-head,
-			&-body,
-			&-foot {
-				position: absolute;
-				left: 0;
-				right: 0;
-				overflow: hidden;
-				.oo-ui-box-sizing(border-box);
-			}
-
-			&-head {
-				top: 0;
-				height: 3.8em;
-				padding: 0.5em;
-			}
-
-			&-title {
-				line-height: 2.8em;
-			}
-
-			&-icon {
-				width: 2.4em;
-				height: 2.8em;
-				line-height: 2.8em;
-			}
-
-			&-closeButton {
-				float: right;
-				margin: 0.25em 0.25em;
-			}
-
-			&-body {
-				top: 3.8em;
-				bottom: 4.8em;
-			}
 
 			&-foot {
 				bottom: 0;

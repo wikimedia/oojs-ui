@@ -126,6 +126,7 @@
 			"src/themes/apex/layouts/BookletLayout.less",
 			"src/themes/apex/layouts/FieldLayout.less",
 			"src/themes/apex/layouts/FieldsetLayout.less",
+			"src/themes/apex/layouts/PanelLayout.less",
 			"src/themes/apex/toolgroups/BarToolgroup.less",
 			"src/themes/apex/toolgroups/ListToolgroup.less",
 			"src/themes/apex/toolgroups/MenuToolgroup.less",
@@ -148,6 +149,7 @@
 	},
 	"oojs-ui-agora": {
 		"styles": [
+			"src/themes/agora/Dialog.less",
 			"src/themes/agora/Window.less",
 			"src/themes/agora/elements/ButtonedElement.less",
 			"src/themes/agora/widgets/OptionWidget.less",
