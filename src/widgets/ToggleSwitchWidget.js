@@ -1,8 +1,8 @@
 /**
  * Switch that slides on and off.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.ToggleWidget
  *
@@ -43,9 +43,8 @@ OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.ToggleWidget );
 /* Methods */
 
 /**
- * Handles mouse down events.
+ * Handle mouse down events.
  *
- * @method
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.ToggleSwitchWidget.prototype.onClick = function ( e ) {

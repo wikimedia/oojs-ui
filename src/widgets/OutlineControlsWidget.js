@@ -82,8 +82,6 @@ OO.mixinClass( OO.ui.OutlineControlsWidget, OO.ui.IconedElement );
 
 /**
  * Handle outline change events.
- *
- * @method
  */
 OO.ui.OutlineControlsWidget.prototype.onOutlineChange = function () {
 	var i, len, firstMovable, lastMovable,

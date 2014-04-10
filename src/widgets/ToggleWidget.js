@@ -3,8 +3,8 @@
  *
  * Mixin for widgets with a boolean state.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -34,8 +34,7 @@ OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {
 /**
  * Get the value of the toggle.
  *
- * @method
- * @returns {boolean} Toggle value
+ * @return {boolean}
  */
 OO.ui.ToggleWidget.prototype.getValue = function () {
 	return this.value;
@@ -44,7 +43,6 @@ OO.ui.ToggleWidget.prototype.getValue = function () {
 /**
  * Set the value of the toggle.
  *
- * @method
  * @param {boolean} value New value
  * @fires change
  * @chainable

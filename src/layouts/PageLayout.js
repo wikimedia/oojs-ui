@@ -41,7 +41,7 @@ OO.inheritClass( OO.ui.PageLayout, OO.ui.PanelLayout );
 /**
  * Get page name.
  *
- * @returns {string} Symbolic name of page
+ * @return {string} Symbolic name of page
  */
 OO.ui.PageLayout.prototype.getName = function () {
 	return this.name;
@@ -50,7 +50,7 @@ OO.ui.PageLayout.prototype.getName = function () {
 /**
  * Check if page is active.
  *
- * @returns {boolean} Page is active
+ * @return {boolean} Page is active
  */
 OO.ui.PageLayout.prototype.isActive = function () {
 	return this.active;
@@ -59,7 +59,7 @@ OO.ui.PageLayout.prototype.isActive = function () {
 /**
  * Get outline item.
  *
- * @returns {OO.ui.OutlineItemWidget|null} Outline item widget
+ * @return {OO.ui.OutlineItemWidget|null} Outline item widget
  */
 OO.ui.PageLayout.prototype.getOutlineItem = function () {
 	return this.outlineItem;

@@ -82,7 +82,6 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.ClippableElement );
 /**
  * Handles mouse down events.
  *
- * @method
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
@@ -96,9 +95,7 @@ OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
 };
 
 /**
- * Bind mouse down listener
- *
- * @method
+ * Bind mouse down listener.
  */
 OO.ui.PopupWidget.prototype.bindMouseDownListener = function () {
 	// Capture clicks outside popup
@@ -107,8 +104,6 @@ OO.ui.PopupWidget.prototype.bindMouseDownListener = function () {
 
 /**
  * Handles close button click events.
- *
- * @method
  */
 OO.ui.PopupWidget.prototype.onCloseButtonClick = function () {
 	if ( this.visible ) {
@@ -117,9 +112,7 @@ OO.ui.PopupWidget.prototype.onCloseButtonClick = function () {
 };
 
 /**
- * Unbind mouse down listener
- *
- * @method
+ * Unbind mouse down listener.
  */
 OO.ui.PopupWidget.prototype.unbindMouseDownListener = function () {
 	this.getElementWindow().removeEventListener( 'mousedown', this.onMouseDownHandler, true );
@@ -128,8 +121,7 @@ OO.ui.PopupWidget.prototype.unbindMouseDownListener = function () {
 /**
  * Check if the popup is visible.
  *
- * @method
- * @returns {boolean} Popup is visible
+ * @return {boolean} Popup is visible
  */
 OO.ui.PopupWidget.prototype.isVisible = function () {
 	return this.visible;
@@ -138,8 +130,7 @@ OO.ui.PopupWidget.prototype.isVisible = function () {
 /**
  * Set whether to show a tail.
  *
- * @method
- * @returns {boolean} Make tail visible
+ * @return {boolean} Make tail visible
  */
 OO.ui.PopupWidget.prototype.useTail = function ( value ) {
 	value = !!value;
@@ -156,8 +147,7 @@ OO.ui.PopupWidget.prototype.useTail = function ( value ) {
 /**
  * Check if showing a tail.
  *
- * @method
- * @returns {boolean} tail is visible
+ * @return {boolean} tail is visible
  */
 OO.ui.PopupWidget.prototype.hasTail = function () {
 	return this.tail;
@@ -166,7 +156,6 @@ OO.ui.PopupWidget.prototype.hasTail = function () {
 /**
  * Show the context.
  *
- * @method
  * @fires show
  * @chainable
  */
@@ -186,7 +175,6 @@ OO.ui.PopupWidget.prototype.show = function () {
 /**
  * Hide the context.
  *
- * @method
  * @fires hide
  * @chainable
  */
@@ -206,7 +194,6 @@ OO.ui.PopupWidget.prototype.hide = function () {
 /**
  * Updates the position and size.
  *
- * @method
  * @param {number} width Width
  * @param {number} height Height
  * @param {boolean} [transition=false] Use a smooth transition

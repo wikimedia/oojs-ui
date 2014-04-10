@@ -69,7 +69,6 @@ OO.ui.FieldLayout.prototype.onFieldDisable = function ( value ) {
 /**
  * Handle label mouse click events.
  *
- * @method
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.FieldLayout.prototype.onLabelClick = function () {
@@ -80,7 +79,7 @@ OO.ui.FieldLayout.prototype.onLabelClick = function () {
 /**
  * Get the field.
  *
- * @returns {OO.ui.Widget} Field widget
+ * @return {OO.ui.Widget} Field widget
  */
 OO.ui.FieldLayout.prototype.getField = function () {
 	return this.field;

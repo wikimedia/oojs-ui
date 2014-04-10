@@ -1,8 +1,8 @@
 /**
  * Drop down menu layout of tools as selectable menu items.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.PopupToolGroup
  *
  * @constructor
@@ -40,8 +40,6 @@ OO.ui.MenuToolGroup.static.name = 'menu';
  *
  * When the state changes, the title of each active item in the menu will be joined together and
  * used as a label for the group. The label will be empty if none of the items are active.
- *
- * @method
  */
 OO.ui.MenuToolGroup.prototype.onUpdateState = function () {
 	var name,

@@ -1,8 +1,8 @@
 /**
  * Horizontal bar layout of tools as icon buttons.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.ToolGroup
  *
  * @constructor

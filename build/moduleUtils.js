@@ -31,7 +31,7 @@ module.exports = {
 	 *    ]
 	 *
 	 * @param {Array} resources List of expandable resources
-	 * @returns {Array} Flat list of file paths
+	 * @return {Array} Flat list of file paths
 	 */
 	expandResources: function ( resources ) {
 		// Figure out what the different css targets will be,

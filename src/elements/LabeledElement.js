@@ -1,8 +1,8 @@
 /**
  * Element containing a label.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {jQuery} $label Label node, assigned to #$label
@@ -48,7 +48,6 @@ OO.ui.LabeledElement.static.label = null;
  * An empty string will result in the label being hidden. A string containing only whitespace will
  * be converted to a single &nbsp;
  *
- * @method
  * @param {jQuery|string|Function|null} label Label nodes; text; a function that retuns nodes or
  *  text; or null for no label
  * @chainable
@@ -79,8 +78,7 @@ OO.ui.LabeledElement.prototype.setLabel = function ( label ) {
 /**
  * Get the label.
  *
- * @method
- * @returns {jQuery|string|Function|null} label Label nodes; text; a function that returns nodes or
+ * @return {jQuery|string|Function|null} label Label nodes; text; a function that returns nodes or
  *  text; or null for no label
  */
 OO.ui.LabeledElement.prototype.getLabel = function () {
@@ -90,7 +88,6 @@ OO.ui.LabeledElement.prototype.getLabel = function () {
 /**
  * Fit the label.
  *
- * @method
  * @chainable
  */
 OO.ui.LabeledElement.prototype.fitLabel = function () {

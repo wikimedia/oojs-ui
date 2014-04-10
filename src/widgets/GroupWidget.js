@@ -5,8 +5,8 @@
  *
  * Use together with OO.ui.ItemWidget to make disabled state inheritable.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.GroupElement
  *
  * @constructor
@@ -29,7 +29,6 @@ OO.inheritClass( OO.ui.GroupWidget, OO.ui.GroupElement );
  *
  * This will also update the disabled state of child widgets.
  *
- * @method
  * @param {boolean} disabled Disable widget
  * @chainable
  */

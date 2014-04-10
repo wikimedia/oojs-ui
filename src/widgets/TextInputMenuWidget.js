@@ -31,7 +31,6 @@ OO.inheritClass( OO.ui.TextInputMenuWidget, OO.ui.MenuWidget );
 /**
  * Handle window resize event.
  *
- * @method
  * @param {jQuery.Event} e Window resize event
  */
 OO.ui.TextInputMenuWidget.prototype.onWindowResize = function () {
@@ -39,9 +38,8 @@ OO.ui.TextInputMenuWidget.prototype.onWindowResize = function () {
 };
 
 /**
- * Shows the menu.
+ * Show the menu.
  *
- * @method
  * @chainable
  */
 OO.ui.TextInputMenuWidget.prototype.show = function () {
@@ -54,9 +52,8 @@ OO.ui.TextInputMenuWidget.prototype.show = function () {
 };
 
 /**
- * Hides the menu.
+ * Hide the menu.
  *
- * @method
  * @chainable
  */
 OO.ui.TextInputMenuWidget.prototype.hide = function () {
@@ -68,9 +65,8 @@ OO.ui.TextInputMenuWidget.prototype.hide = function () {
 };
 
 /**
- * Positions the menu.
+ * Position the menu.
  *
- * @method
  * @chainable
  */
 OO.ui.TextInputMenuWidget.prototype.position = function () {

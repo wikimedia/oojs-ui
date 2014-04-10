@@ -66,7 +66,6 @@ OO.ui.InlineMenuWidget.prototype.getMenu = function () {
 /**
  * Handles menu select events.
  *
- * @method
  * @param {OO.ui.MenuItemWidget} item Selected menu item
  */
 OO.ui.InlineMenuWidget.prototype.onMenuSelect = function ( item ) {
@@ -89,7 +88,6 @@ OO.ui.InlineMenuWidget.prototype.onMenuSelect = function ( item ) {
 /**
  * Handles mouse click events.
  *
- * @method
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.InlineMenuWidget.prototype.onClick = function ( e ) {

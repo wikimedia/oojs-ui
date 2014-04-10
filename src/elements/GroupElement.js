@@ -1,8 +1,8 @@
 /**
  * Element containing a sequence of child elements.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {jQuery} $group Container node, assigned to #$group
@@ -26,8 +26,7 @@ OO.ui.GroupElement = function OoUiGroupElement( $group, config ) {
 /**
  * Get items.
  *
- * @method
- * @returns {OO.ui.Element[]} Items
+ * @return {OO.ui.Element[]} Items
  */
 OO.ui.GroupElement.prototype.getItems = function () {
 	return this.items.slice( 0 );
@@ -36,7 +35,6 @@ OO.ui.GroupElement.prototype.getItems = function () {
 /**
  * Add items.
  *
- * @method
  * @param {OO.ui.Element[]} items Item
  * @param {number} [index] Index to insert items at
  * @chainable
@@ -90,7 +88,6 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
  *
  * Items will be detached, not removed, so they can be used later.
  *
- * @method
  * @param {OO.ui.Element[]} items Items to remove
  * @chainable
  */
@@ -120,7 +117,6 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
  *
  * Items will be detached, not removed, so they can be used later.
  *
- * @method
  * @chainable
  */
 OO.ui.GroupElement.prototype.clearItems = function () {
@@ -137,4 +133,6 @@ OO.ui.GroupElement.prototype.clearItems = function () {
 	this.items = [];
 	this.$items.detach();
 	this.$items = this.$( [] );
+
+	return this;
 };

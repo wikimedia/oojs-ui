@@ -73,7 +73,6 @@ OO.inheritClass( OO.ui.SearchWidget, OO.ui.Widget );
 /**
  * Handle query key down events.
  *
- * @method
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.SearchWidget.prototype.onQueryKeydown = function ( e ) {
@@ -96,7 +95,6 @@ OO.ui.SearchWidget.prototype.onQueryKeydown = function ( e ) {
  *
  * Clears existing results. Subclasses should repopulate items according to new query.
  *
- * @method
  * @param {string} value New value
  */
 OO.ui.SearchWidget.prototype.onQueryChange = function () {
@@ -109,7 +107,6 @@ OO.ui.SearchWidget.prototype.onQueryChange = function () {
  *
  * Selects highlighted item.
  *
- * @method
  * @param {string} value New value
  */
 OO.ui.SearchWidget.prototype.onQueryEnter = function () {
@@ -120,7 +117,6 @@ OO.ui.SearchWidget.prototype.onQueryEnter = function () {
 /**
  * Handle select widget highlight events.
  *
- * @method
  * @param {OO.ui.OptionWidget} item Highlighted item
  * @fires highlight
  */
@@ -131,7 +127,6 @@ OO.ui.SearchWidget.prototype.onResultsHighlight = function ( item ) {
 /**
  * Handle select widget select events.
  *
- * @method
  * @param {OO.ui.OptionWidget} item Selected item
  * @fires select
  */
@@ -142,8 +137,7 @@ OO.ui.SearchWidget.prototype.onResultsSelect = function ( item ) {
 /**
  * Get the query input.
  *
- * @method
- * @returns {OO.ui.TextInputWidget} Query input
+ * @return {OO.ui.TextInputWidget} Query input
  */
 OO.ui.SearchWidget.prototype.getQuery = function () {
 	return this.query;
@@ -159,8 +153,7 @@ OO.ui.SearchWidget.prototype.clear = function () {
 /**
  * Get the results list.
  *
- * @method
- * @returns {OO.ui.SelectWidget} Select list
+ * @return {OO.ui.SelectWidget} Select list
  */
 OO.ui.SearchWidget.prototype.getResults = function () {
 	return this.results;

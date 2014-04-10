@@ -3,8 +3,8 @@
  *
  * Use with OO.ui.SelectWidget.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.IconedElement
  * @mixins OO.ui.LabeledElement
@@ -73,8 +73,7 @@ OO.ui.OptionWidget.static.scrollIntoViewOnSelect = false;
 /**
  * Check if option can be selected.
  *
- * @method
- * @returns {boolean} Item is selectable
+ * @return {boolean} Item is selectable
  */
 OO.ui.OptionWidget.prototype.isSelectable = function () {
 	return this.constructor.static.selectable && !this.disabled;
@@ -83,8 +82,7 @@ OO.ui.OptionWidget.prototype.isSelectable = function () {
 /**
  * Check if option can be highlighted.
  *
- * @method
- * @returns {boolean} Item is highlightable
+ * @return {boolean} Item is highlightable
  */
 OO.ui.OptionWidget.prototype.isHighlightable = function () {
 	return this.constructor.static.highlightable && !this.disabled;
@@ -93,8 +91,7 @@ OO.ui.OptionWidget.prototype.isHighlightable = function () {
 /**
  * Check if option can be pressed.
  *
- * @method
- * @returns {boolean} Item is pressable
+ * @return {boolean} Item is pressable
  */
 OO.ui.OptionWidget.prototype.isPressable = function () {
 	return this.constructor.static.pressable && !this.disabled;
@@ -103,8 +100,7 @@ OO.ui.OptionWidget.prototype.isPressable = function () {
 /**
  * Check if option is selected.
  *
- * @method
- * @returns {boolean} Item is selected
+ * @return {boolean} Item is selected
  */
 OO.ui.OptionWidget.prototype.isSelected = function () {
 	return this.selected;
@@ -113,8 +109,7 @@ OO.ui.OptionWidget.prototype.isSelected = function () {
 /**
  * Check if option is highlighted.
  *
- * @method
- * @returns {boolean} Item is highlighted
+ * @return {boolean} Item is highlighted
  */
 OO.ui.OptionWidget.prototype.isHighlighted = function () {
 	return this.highlighted;
@@ -123,8 +118,7 @@ OO.ui.OptionWidget.prototype.isHighlighted = function () {
 /**
  * Check if option is pressed.
  *
- * @method
- * @returns {boolean} Item is pressed
+ * @return {boolean} Item is pressed
  */
 OO.ui.OptionWidget.prototype.isPressed = function () {
 	return this.pressed;
@@ -133,7 +127,6 @@ OO.ui.OptionWidget.prototype.isPressed = function () {
 /**
  * Set selected state.
  *
- * @method
  * @param {boolean} [state=false] Select option
  * @chainable
  */
@@ -155,7 +148,6 @@ OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
 /**
  * Set highlighted state.
  *
- * @method
  * @param {boolean} [state=false] Highlight option
  * @chainable
  */
@@ -174,7 +166,6 @@ OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
 /**
  * Set pressed state.
  *
- * @method
  * @param {boolean} [state=false] Press option
  * @chainable
  */
@@ -195,7 +186,6 @@ OO.ui.OptionWidget.prototype.setPressed = function ( state ) {
  *
  * While flashing, the visual style of the pressed state is removed if present.
  *
- * @method
  * @param {Function} [done] Callback to execute when flash effect is complete.
  */
 OO.ui.OptionWidget.prototype.flash = function ( done ) {
@@ -219,8 +209,7 @@ OO.ui.OptionWidget.prototype.flash = function ( done ) {
 /**
  * Get option data.
  *
- * @method
- * @returns {Mixed} Option data
+ * @return {Mixed} Option data
  */
 OO.ui.OptionWidget.prototype.getData = function () {
 	return this.data;

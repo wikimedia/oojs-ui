@@ -44,7 +44,6 @@ OO.mixinClass( OO.ui.MenuWidget, OO.ui.ClippableElement );
 /**
  * Handles key down events.
  *
- * @method
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.MenuWidget.prototype.onKeyDown = function ( e ) {
@@ -94,17 +93,14 @@ OO.ui.MenuWidget.prototype.onKeyDown = function ( e ) {
 /**
  * Check if the menu is visible.
  *
- * @method
- * @returns {boolean} Menu is visible
+ * @return {boolean} Menu is visible
  */
 OO.ui.MenuWidget.prototype.isVisible = function () {
 	return this.visible;
 };
 
 /**
- * Bind key down listener
- *
- * @method
+ * Bind key down listener.
  */
 OO.ui.MenuWidget.prototype.bindKeyDownListener = function () {
 	if ( this.$input ) {
@@ -116,9 +112,7 @@ OO.ui.MenuWidget.prototype.bindKeyDownListener = function () {
 };
 
 /**
- * Unbind key down listener
- *
- * @method
+ * Unbind key down listener.
  */
 OO.ui.MenuWidget.prototype.unbindKeyDownListener = function () {
 	if ( this.$input ) {
@@ -133,7 +127,6 @@ OO.ui.MenuWidget.prototype.unbindKeyDownListener = function () {
  *
  * This will close the menu when done, unlike selectItem which only changes selection.
  *
- * @method
  * @param {OO.ui.OptionWidget} item Item to choose
  * @chainable
  */
@@ -159,7 +152,6 @@ OO.ui.MenuWidget.prototype.chooseItem = function ( item ) {
  *
  * Adding an existing item (by value) will move it.
  *
- * @method
  * @param {OO.ui.MenuItemWidget[]} items Items to add
  * @param {number} [index] Index to insert items after
  * @chainable
@@ -191,7 +183,6 @@ OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
 /**
  * Show the menu.
  *
- * @method
  * @chainable
  */
 OO.ui.MenuWidget.prototype.show = function () {
@@ -223,7 +214,6 @@ OO.ui.MenuWidget.prototype.show = function () {
 /**
  * Hide the menu.
  *
- * @method
  * @chainable
  */
 OO.ui.MenuWidget.prototype.hide = function () {

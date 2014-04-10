@@ -231,7 +231,7 @@ OO.ui.Frame.prototype.run = function ( callback ) {
 };
 
 /**
- * Sets the size of the frame.
+ * Set the size of the frame.
  *
  * @param {number} width Frame width in pixels
  * @param {number} height Frame height in pixels

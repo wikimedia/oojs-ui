@@ -78,8 +78,8 @@ OO.mixinClass( OO.ui.ToolGroup, OO.ui.GroupElement );
  * Show labels in tooltips.
  *
  * @static
- * @property {boolean}
  * @inheritable
+ * @property {boolean}
  */
 OO.ui.ToolGroup.static.titleTooltips = false;
 
@@ -87,8 +87,8 @@ OO.ui.ToolGroup.static.titleTooltips = false;
  * Show acceleration labels in tooltips.
  *
  * @static
- * @property {boolean}
  * @inheritable
+ * @property {boolean}
  */
 OO.ui.ToolGroup.static.accelTooltips = false;
 
@@ -96,8 +96,8 @@ OO.ui.ToolGroup.static.accelTooltips = false;
  * Automatically disable the toolgroup when all tools are disabled
  *
  * @static
- * @property {boolean}
  * @inheritable
+ * @property {boolean}
  */
 OO.ui.ToolGroup.static.autoDisable = true;
 

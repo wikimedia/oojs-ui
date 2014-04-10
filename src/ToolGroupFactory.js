@@ -26,6 +26,7 @@ OO.inheritClass( OO.ui.ToolGroupFactory, OO.Factory );
 
 /**
  * Get a default set of classes to be registered on construction
+ *
  * @return {Function[]} Default classes
  */
 OO.ui.ToolGroupFactory.static.getDefaultClasses = function () {

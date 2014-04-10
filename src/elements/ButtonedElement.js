@@ -1,8 +1,8 @@
 /**
  * Element with a button.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {jQuery} $button Button node, assigned to #$button
@@ -41,7 +41,6 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 /**
  * Handles mouse down events.
  *
- * @method
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.ButtonedElement.prototype.onMouseDown = function () {
@@ -59,7 +58,6 @@ OO.ui.ButtonedElement.prototype.onMouseDown = function () {
 /**
  * Handles mouse up events.
  *
- * @method
  * @param {jQuery.Event} e Mouse up event
  */
 OO.ui.ButtonedElement.prototype.onMouseUp = function () {
@@ -73,7 +71,6 @@ OO.ui.ButtonedElement.prototype.onMouseUp = function () {
 /**
  * Set active state.
  *
- * @method
  * @param {boolean} [value] Make button active
  * @chainable
  */

@@ -65,7 +65,6 @@ OO.ui.GridLayout.static.tagName = 'div';
 /**
  * Set grid dimensions.
  *
- * @method
  * @param {number[]} widths Widths of columns as ratios
  * @param {number[]} heights Heights of rows as ratios
  * @fires layout
@@ -107,7 +106,6 @@ OO.ui.GridLayout.prototype.layout = function ( widths, heights ) {
 /**
  * Update panel positions and sizes.
  *
- * @method
  * @fires update
  */
 OO.ui.GridLayout.prototype.update = function () {
@@ -153,10 +151,9 @@ OO.ui.GridLayout.prototype.update = function () {
  *
  * The x and y position is affected by the current grid layout.
  *
- * @method
  * @param {number} x Horizontal position
  * @param {number} y Vertical position
- * @returns {OO.ui.PanelLayout} The panel at the given postion
+ * @return {OO.ui.PanelLayout} The panel at the given postion
  */
 OO.ui.GridLayout.prototype.getPanel = function ( x, y ) {
 	return this.panels[( x * this.widths.length ) + y];

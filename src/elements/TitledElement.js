@@ -1,8 +1,8 @@
 /**
  * Element with a title.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {jQuery} $label Titled node, assigned to #$titled
@@ -41,7 +41,6 @@ OO.ui.TitledElement.static.title = null;
 /**
  * Set title.
  *
- * @method
  * @param {string|Function|null} title Title text, a function that returns text or null for no title
  * @chainable
  */
@@ -60,8 +59,7 @@ OO.ui.TitledElement.prototype.setTitle = function ( title ) {
 /**
  * Get title.
  *
- * @method
- * @returns {string} Title string
+ * @return {string} Title string
  */
 OO.ui.TitledElement.prototype.getTitle = function () {
 	return this.title;

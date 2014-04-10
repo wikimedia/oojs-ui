@@ -1,8 +1,8 @@
 /**
  * Element containing an indicator.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {jQuery} $indicator Indicator node, assigned to #$indicator
@@ -55,7 +55,6 @@ OO.ui.IndicatedElement.static.indicatorTitle = null;
 /**
  * Set indicator.
  *
- * @method
  * @param {string|null} indicator Symbolic name of indicator to use or null for no indicator
  * @chainable
  */
@@ -79,7 +78,6 @@ OO.ui.IndicatedElement.prototype.setIndicator = function ( indicator ) {
 /**
  * Set indicator label.
  *
- * @method
  * @param {string|Function|null} indicator Indicator title text, a function that return text or null
  *  for no indicator title
  * @chainable
@@ -99,8 +97,7 @@ OO.ui.IndicatedElement.prototype.setIndicatorTitle = function ( indicatorTitle )
 /**
  * Get indicator.
  *
- * @method
- * @returns {string} title Symbolic name of indicator
+ * @return {string} title Symbolic name of indicator
  */
 OO.ui.IndicatedElement.prototype.getIndicator = function () {
 	return this.indicator;
@@ -109,8 +106,7 @@ OO.ui.IndicatedElement.prototype.getIndicator = function () {
 /**
  * Get indicator title.
  *
- * @method
- * @returns {string} Indicator title text
+ * @return {string} Indicator title text
  */
 OO.ui.IndicatedElement.prototype.getIndicatorTitle = function () {
 	return this.indicatorTitle;

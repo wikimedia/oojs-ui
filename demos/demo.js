@@ -4,7 +4,7 @@
 	 * @param {Object} item
 	 * @param {OO.ui.Widget} item.widget
 	 * @param {string} [item.label=""]
-	 * @returns {jQuery} Console interface element
+	 * @return {jQuery} Console interface element
 	 */
 	function buildConsole( item ) {
 		var $toggle, $log, $label, $input, $submit, $console, $form,

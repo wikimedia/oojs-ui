@@ -49,7 +49,6 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 /**
  * Handle input focus event.
  *
- * @method
  * @param {jQuery.Event} e Input focus event
  */
 OO.ui.LookupInputWidget.prototype.onLookupInputFocus = function () {
@@ -59,7 +58,6 @@ OO.ui.LookupInputWidget.prototype.onLookupInputFocus = function () {
 /**
  * Handle input blur event.
  *
- * @method
  * @param {jQuery.Event} e Input blur event
  */
 OO.ui.LookupInputWidget.prototype.onLookupInputBlur = function () {
@@ -69,7 +67,6 @@ OO.ui.LookupInputWidget.prototype.onLookupInputBlur = function () {
 /**
  * Handle input mouse down event.
  *
- * @method
  * @param {jQuery.Event} e Input mouse down event
  */
 OO.ui.LookupInputWidget.prototype.onLookupInputMouseDown = function () {
@@ -79,7 +76,6 @@ OO.ui.LookupInputWidget.prototype.onLookupInputMouseDown = function () {
 /**
  * Handle input change event.
  *
- * @method
  * @param {string} value New input value
  */
 OO.ui.LookupInputWidget.prototype.onLookupInputChange = function () {
@@ -89,7 +85,6 @@ OO.ui.LookupInputWidget.prototype.onLookupInputChange = function () {
 /**
  * Open the menu.
  *
- * @method
  * @chainable
  */
 OO.ui.LookupInputWidget.prototype.openLookupMenu = function () {
@@ -111,7 +106,6 @@ OO.ui.LookupInputWidget.prototype.openLookupMenu = function () {
 /**
  * Populate lookup menu with current information.
  *
- * @method
  * @chainable
  */
 OO.ui.LookupInputWidget.prototype.populateLookupMenu = function () {
@@ -142,7 +136,6 @@ OO.ui.LookupInputWidget.prototype.populateLookupMenu = function () {
 /**
  * Set selection in the lookup menu with current information.
  *
- * @method
  * @chainable
  */
 OO.ui.LookupInputWidget.prototype.initializeLookupMenuSelection = function () {
@@ -155,8 +148,7 @@ OO.ui.LookupInputWidget.prototype.initializeLookupMenuSelection = function () {
 /**
  * Get lookup menu items for the current query.
  *
- * @method
- * @returns {jQuery.Promise} Promise object which will be passed menu items as the first argument
+ * @return {jQuery.Promise} Promise object which will be passed menu items as the first argument
  * of the done event
  */
 OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
@@ -198,9 +190,8 @@ OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
 /**
  * Get a new request object of the current lookup query value.
  *
- * @method
  * @abstract
- * @returns {jqXHR} jQuery AJAX object, or promise object with an .abort() method
+ * @return {jqXHR} jQuery AJAX object, or promise object with an .abort() method
  */
 OO.ui.LookupInputWidget.prototype.getLookupRequest = function () {
 	// Stub, implemented in subclass
@@ -213,7 +204,6 @@ OO.ui.LookupInputWidget.prototype.getLookupRequest = function () {
  * Overriding methods should call #populateLookupMenu when results are available and cache results
  * for future lookups in #lookupCache as an array of #OO.ui.MenuItemWidget objects.
  *
- * @method
  * @abstract
  * @param {Mixed} data Response from server
  */
@@ -224,10 +214,9 @@ OO.ui.LookupInputWidget.prototype.onLookupRequestDone = function () {
 /**
  * Get a list of menu item widgets from the data stored by the lookup request's done handler.
  *
- * @method
  * @abstract
  * @param {Mixed} data Cached result data, usually an array
- * @returns {OO.ui.MenuItemWidget[]} Menu items
+ * @return {OO.ui.MenuItemWidget[]} Menu items
  */
 OO.ui.LookupInputWidget.prototype.getLookupMenuItemsFromData = function () {
 	// Stub, implemented in subclass

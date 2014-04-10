@@ -71,8 +71,8 @@ OO.ui.Tool.static.tagName = 'span';
  *
  * @abstract
  * @static
- * @property {string}
  * @inheritable
+ * @property {string}
  */
 OO.ui.Tool.static.name = '';
 
@@ -81,8 +81,8 @@ OO.ui.Tool.static.name = '';
  *
  * @abstract
  * @static
- * @property {string}
  * @inheritable
+ * @property {string}
  */
 OO.ui.Tool.static.group = '';
 
@@ -96,8 +96,8 @@ OO.ui.Tool.static.group = '';
  *
  * @abstract
  * @static
- * @property {string|Function} Title text or a function that returns text
  * @inheritable
+ * @property {string|Function} Title text or a function that returns text
  */
 OO.ui.Tool.static.title = '';
 
@@ -105,8 +105,8 @@ OO.ui.Tool.static.title = '';
  * Tool can be automatically added to catch-all groups.
  *
  * @static
- * @property {boolean}
  * @inheritable
+ * @property {boolean}
  */
 OO.ui.Tool.static.autoAddToCatchall = true;
 
@@ -123,7 +123,6 @@ OO.ui.Tool.static.autoAddToGroup = true;
  * Check if this tool is compatible with given data.
  *
  * @static
- * @method
  * @inheritable
  * @param {Mixed} data Data to check
  * @return {boolean} Tool can be used with data

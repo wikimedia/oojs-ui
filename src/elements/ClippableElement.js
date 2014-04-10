@@ -1,8 +1,8 @@
 /**
  * Element that can be automatically clipped to visible boundaies.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {jQuery} $clippable Nodes to clip, assigned to #$clippable
@@ -33,7 +33,6 @@ OO.ui.ClippableElement = function OoUiClippableElement( $clippable, config ) {
 /**
  * Set clipping.
  *
- * @method
  * @param {boolean} value Enable clipping
  * @chainable
  */
@@ -69,7 +68,6 @@ OO.ui.ClippableElement.prototype.setClipping = function ( value ) {
 /**
  * Check if the element will be clipped to fit the visible area of the nearest scrollable container.
  *
- * @method
  * @return {boolean} Element will be clipped to the visible area
  */
 OO.ui.ClippableElement.prototype.isClipping = function () {
@@ -79,7 +77,6 @@ OO.ui.ClippableElement.prototype.isClipping = function () {
 /**
  * Check if the bottom or right of the element is being clipped by the nearest scrollable container.
  *
- * @method
  * @return {boolean} Part of the element is being clipped
  */
 OO.ui.ClippableElement.prototype.isClipped = function () {
@@ -89,7 +86,6 @@ OO.ui.ClippableElement.prototype.isClipped = function () {
 /**
  * Set the ideal size.
  *
- * @method
  * @param {number|string} [width] Width as a number of pixels or CSS string with unit suffix
  * @param {number|string} [height] Height as a number of pixels or CSS string with unit suffix
  */
@@ -104,7 +100,6 @@ OO.ui.ClippableElement.prototype.setIdealSize = function ( width, height ) {
  * Element will be clipped the bottom or right of the element is within 10px of the edge of, or
  * overlapped by, the visible area of the nearest scrollable container.
  *
- * @method
  * @chainable
  */
 OO.ui.ClippableElement.prototype.clip = function () {

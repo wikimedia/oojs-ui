@@ -31,7 +31,6 @@ OO.mixinClass( OO.ui.PopupButtonWidget, OO.ui.PopuppableElement );
 /**
  * Handles mouse click events.
  *
- * @method
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.PopupButtonWidget.prototype.onClick = function ( e ) {

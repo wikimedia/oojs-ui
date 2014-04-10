@@ -4,8 +4,8 @@
  * A flag, when set, adds a CSS class on the `$element` by combing `oo-ui-flaggableElement-` with
  * the flag name. Flags are primarily useful for styling.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -27,19 +27,17 @@ OO.ui.FlaggableElement = function OoUiFlaggableElement( config ) {
 /**
  * Check if a flag is set.
  *
- * @method
- * @param {string} flag Flag name to check
- * @returns {boolean} Has flag
+ * @param {string} flag Name of flag
+ * @return {boolean} Has flag
  */
 OO.ui.FlaggableElement.prototype.hasFlag = function ( flag ) {
 	return flag in this.flags;
 };
 
 /**
- * Get the names of all flags.
+ * Get the names of all flags set.
  *
- * @method
- * @returns {string[]} flags Flag names
+ * @return {string[]} flags Flag names
  */
 OO.ui.FlaggableElement.prototype.getFlags = function () {
 	return Object.keys( this.flags );
@@ -48,7 +46,6 @@ OO.ui.FlaggableElement.prototype.getFlags = function () {
 /**
  * Add one or more flags.
  *
- * @method
  * @param {string[]|Object.<string, boolean>} flags List of flags to add, or list of set/remove
  *  values, keyed by flag name
  * @chainable

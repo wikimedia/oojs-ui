@@ -40,8 +40,8 @@ OO.initClass( OO.ui.Element );
  * This may be ignored if getTagName is overridden.
  *
  * @static
- * @property {string}
  * @inheritable
+ * @property {string}
  */
 OO.ui.Element.static.tagName = 'div';
 

@@ -44,8 +44,8 @@ OO.inheritClass( OO.ui.Dialog, OO.ui.Window );
  *
  * @abstract
  * @static
- * @property {string}
  * @inheritable
+ * @property {string}
  */
 OO.ui.Dialog.static.name = '';
 
@@ -53,8 +53,8 @@ OO.ui.Dialog.static.name = '';
  * Map of symbolic size names and CSS classes.
  *
  * @static
- * @property {Object}
  * @inheritable
+ * @property {Object}
  */
 OO.ui.Dialog.static.sizeCssClasses = {
 	'small': 'oo-ui-dialog-small',

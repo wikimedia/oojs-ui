@@ -44,7 +44,6 @@ OO.ui.LabelWidget.static.tagName = 'label';
 /**
  * Handles label mouse click events.
  *
- * @method
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.LabelWidget.prototype.onClick = function () {

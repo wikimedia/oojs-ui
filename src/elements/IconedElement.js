@@ -1,8 +1,8 @@
 /**
  * Element containing an icon.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {jQuery} $icon Icon node, assigned to #$icon
@@ -54,7 +54,6 @@ OO.ui.IconedElement.static.icon = null;
 /**
  * Set icon.
  *
- * @method
  * @param {Object|string} icon Symbolic icon name, or map of icon names keyed by language ID;
  *  use the 'default' key to specify the icon to be used when there is no icon in the user's
  *  language
@@ -81,8 +80,7 @@ OO.ui.IconedElement.prototype.setIcon = function ( icon ) {
 /**
  * Get icon.
  *
- * @method
- * @returns {string} Icon
+ * @return {string} Icon
  */
 OO.ui.IconedElement.prototype.getIcon = function () {
 	return this.icon;

@@ -1,8 +1,8 @@
 /**
  * Drop down list layout of tools as labeled icon buttons.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.PopupToolGroup
  *
  * @constructor

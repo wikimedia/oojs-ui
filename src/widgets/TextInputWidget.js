@@ -63,7 +63,7 @@ OO.inheritClass( OO.ui.TextInputWidget, OO.ui.InputWidget );
 /* Methods */
 
 /**
- * Handles key press events.
+ * Handle key press events.
  *
  * @param {jQuery.Event} e Key press event
  * @fires enter If enter key is pressed and input is not multiline
@@ -75,7 +75,7 @@ OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
 };
 
 /**
- * Handles element attach events.
+ * Handle element attach events.
  *
  * @param {jQuery.Event} e Element attach event
  */
@@ -133,9 +133,8 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 /**
  * Get input element.
  *
- * @method
  * @param {Object} [config] Configuration options
- * @returns {jQuery} Input element
+ * @return {jQuery} Input element
  */
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
 	return config.multiline ? this.$( '<textarea>' ) : this.$( '<input type="text" />' );
@@ -144,39 +143,35 @@ OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
 /* Methods */
 
 /**
- * Checks if input supports multiple lines.
+ * Check if input supports multiple lines.
  *
- * @method
- * @returns {boolean} Input supports multiple lines
+ * @return {boolean}
  */
 OO.ui.TextInputWidget.prototype.isMultiline = function () {
 	return !!this.multiline;
 };
 
 /**
- * Checks if input automatically adjusts its size.
+ * Check if input automatically adjusts its size.
  *
- * @method
- * @returns {boolean} Input automatically adjusts its size
+ * @return {boolean}
  */
 OO.ui.TextInputWidget.prototype.isAutosizing = function () {
 	return !!this.autosize;
 };
 
 /**
- * Checks if input is pending.
+ * Check if input is pending.
  *
- * @method
- * @returns {boolean} Input is pending
+ * @return {boolean}
  */
 OO.ui.TextInputWidget.prototype.isPending = function () {
 	return !!this.pending;
 };
 
 /**
- * Increases the pending stack.
+ * Increase the pending stack.
  *
- * @method
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.pushPending = function () {
@@ -187,11 +182,10 @@ OO.ui.TextInputWidget.prototype.pushPending = function () {
 };
 
 /**
- * Reduces the pending stack.
+ * Reduce the pending stack.
  *
  * Clamped at zero.
  *
- * @method
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.popPending = function () {

@@ -1,8 +1,8 @@
 /**
  * Button widget.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.ButtonedElement
  * @mixins OO.ui.IconedElement
@@ -71,7 +71,6 @@ OO.mixinClass( OO.ui.ButtonWidget, OO.ui.FlaggableElement );
 /**
  * Handles mouse click events.
  *
- * @method
  * @param {jQuery.Event} e Mouse click event
  * @fires click
  */
@@ -88,7 +87,6 @@ OO.ui.ButtonWidget.prototype.onClick = function () {
 /**
  * Handles keypress events.
  *
- * @method
  * @param {jQuery.Event} e Keypress event
  * @fires click
  */

@@ -1,8 +1,8 @@
 /**
  * Popup list of tools with an icon and optional label.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.ToolGroup
  * @mixins OO.ui.IconedElement
  * @mixins OO.ui.IndicatedElement
@@ -79,7 +79,6 @@ OO.ui.PopupToolGroup.prototype.setDisabled = function () {
  *
  * The event is actually generated from a mouseup, so it is not a normal blur event object.
  *
- * @method
  * @param {jQuery.Event} e Mouse up event
  */
 OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
@@ -102,7 +101,6 @@ OO.ui.PopupToolGroup.prototype.onMouseUp = function ( e ) {
 /**
  * Handle mouse up events.
  *
- * @method
  * @param {jQuery.Event} e Mouse up event
  */
 OO.ui.PopupToolGroup.prototype.onHandleMouseUp = function () {
@@ -112,7 +110,6 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseUp = function () {
 /**
  * Handle mouse down events.
  *
- * @method
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.PopupToolGroup.prototype.onHandleMouseDown = function ( e ) {
@@ -126,8 +123,6 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseDown = function ( e ) {
  * Switch into active mode.
  *
  * When active, mouseup events anywhere in the document will trigger deactivation.
- *
- * @method
  */
 OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 	value = !!value;

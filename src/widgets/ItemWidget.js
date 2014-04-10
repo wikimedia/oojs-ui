@@ -3,8 +3,8 @@
  *
  * Use together with OO.ui.GroupWidget to make disabled state inheritable.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  */
@@ -19,7 +19,7 @@ OO.ui.ItemWidget = function OoUiItemWidget() {
  *
  * Checks parent if present, making disabled state inheritable.
  *
- * @returns {boolean} Widget is disabled
+ * @return {boolean} Widget is disabled
  */
 OO.ui.ItemWidget.prototype.isDisabled = function () {
 	return this.disabled ||

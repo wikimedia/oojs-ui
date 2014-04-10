@@ -1,8 +1,8 @@
 /**
  * Input widget.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.Widget
  *
  * @constructor
@@ -53,9 +53,8 @@ OO.inheritClass( OO.ui.InputWidget, OO.ui.Widget );
 /**
  * Get input element.
  *
- * @method
  * @param {Object} [config] Configuration options
- * @returns {jQuery} Input element
+ * @return {jQuery} Input element
  */
 OO.ui.InputWidget.prototype.getInputElement = function () {
 	return this.$( '<input>' );
@@ -64,7 +63,6 @@ OO.ui.InputWidget.prototype.getInputElement = function () {
 /**
  * Handle potentially value-changing events.
  *
- * @method
  * @param {jQuery.Event} e Key down, mouse up, cut, paste, change, input, or select event
  */
 OO.ui.InputWidget.prototype.onEdit = function () {
@@ -79,8 +77,7 @@ OO.ui.InputWidget.prototype.onEdit = function () {
 /**
  * Get the value of the input.
  *
- * @method
- * @returns {string} Input value
+ * @return {string} Input value
  */
 OO.ui.InputWidget.prototype.getValue = function () {
 	return this.value;
@@ -89,7 +86,6 @@ OO.ui.InputWidget.prototype.getValue = function () {
 /**
  * Sets the direction of the current input, either RTL or LTR
  *
- * @method
  * @param {boolean} isRTL
  */
 OO.ui.InputWidget.prototype.setRTL = function ( isRTL ) {
@@ -105,7 +101,6 @@ OO.ui.InputWidget.prototype.setRTL = function ( isRTL ) {
 /**
  * Set the value of the input.
  *
- * @method
  * @param {string} value New value
  * @fires change
  * @chainable
@@ -129,9 +124,8 @@ OO.ui.InputWidget.prototype.setValue = function ( value ) {
  *
  * Ensures value is a string, and converts undefined and null to empty strings.
  *
- * @method
  * @param {string} value Original value
- * @returns {string} Sanitized value
+ * @return {string} Sanitized value
  */
 OO.ui.InputWidget.prototype.sanitizeValue = function ( value ) {
 	if ( value === undefined || value === null ) {
@@ -145,8 +139,6 @@ OO.ui.InputWidget.prototype.sanitizeValue = function ( value ) {
 
 /**
  * Simulate the behavior of clicking on a label bound to this input.
- *
- * @method
  */
 OO.ui.InputWidget.prototype.simulateLabelClick = function () {
 	if ( !this.isDisabled() ) {
@@ -161,8 +153,7 @@ OO.ui.InputWidget.prototype.simulateLabelClick = function () {
 /**
  * Check if the widget is read-only.
  *
- * @method
- * @param {boolean} Input is read-only
+ * @param {boolean}
  */
 OO.ui.InputWidget.prototype.isReadOnly = function () {
 	return this.readOnly;
@@ -173,7 +164,6 @@ OO.ui.InputWidget.prototype.isReadOnly = function () {
  *
  * This should probably change the widgets's appearance and prevent it from being used.
  *
- * @method
  * @param {boolean} state Make input read-only
  * @chainable
  */

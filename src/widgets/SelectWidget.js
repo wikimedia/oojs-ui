@@ -3,8 +3,8 @@
  *
  * Use together with OO.ui.OptionWidget.
  *
- * @class
  * @abstract
+ * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.GroupElement
  *
@@ -93,7 +93,6 @@ OO.ui.SelectWidget.static.tagName = 'ul';
 /**
  * Handle mouse down events.
  *
- * @method
  * @private
  * @param {jQuery.Event} e Mouse down event
  */
@@ -115,7 +114,6 @@ OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
 /**
  * Handle mouse up events.
  *
- * @method
  * @private
  * @param {jQuery.Event} e Mouse up event
  */
@@ -141,7 +139,6 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 /**
  * Handle mouse move events.
  *
- * @method
  * @private
  * @param {jQuery.Event} e Mouse move event
  */
@@ -161,7 +158,6 @@ OO.ui.SelectWidget.prototype.onMouseMove = function ( e ) {
 /**
  * Handle mouse over events.
  *
- * @method
  * @private
  * @param {jQuery.Event} e Mouse over event
  */
@@ -178,7 +174,6 @@ OO.ui.SelectWidget.prototype.onMouseOver = function ( e ) {
 /**
  * Handle mouse leave events.
  *
- * @method
  * @private
  * @param {jQuery.Event} e Mouse over event
  */
@@ -192,10 +187,9 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
 /**
  * Get the closest item to a jQuery.Event.
  *
- * @method
  * @private
  * @param {jQuery.Event} e
- * @returns {OO.ui.OptionWidget|null} Outline item widget, `null` if none was found
+ * @return {OO.ui.OptionWidget|null} Outline item widget, `null` if none was found
  */
 OO.ui.SelectWidget.prototype.getTargetItem = function ( e ) {
 	var $item = this.$( e.target ).closest( '.oo-ui-optionWidget' );
@@ -208,8 +202,7 @@ OO.ui.SelectWidget.prototype.getTargetItem = function ( e ) {
 /**
  * Get selected item.
  *
- * @method
- * @returns {OO.ui.OptionWidget|null} Selected item, `null` if no item is selected
+ * @return {OO.ui.OptionWidget|null} Selected item, `null` if no item is selected
  */
 OO.ui.SelectWidget.prototype.getSelectedItem = function () {
 	var i, len;
@@ -225,8 +218,7 @@ OO.ui.SelectWidget.prototype.getSelectedItem = function () {
 /**
  * Get highlighted item.
  *
- * @method
- * @returns {OO.ui.OptionWidget|null} Highlighted item, `null` if no item is highlighted
+ * @return {OO.ui.OptionWidget|null} Highlighted item, `null` if no item is highlighted
  */
 OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
 	var i, len;
@@ -242,9 +234,8 @@ OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
 /**
  * Get an existing item with equivilant data.
  *
- * @method
  * @param {Object} data Item data to search for
- * @returns {OO.ui.OptionWidget|null} Item with equivilent value, `null` if none exists
+ * @return {OO.ui.OptionWidget|null} Item with equivilent value, `null` if none exists
  */
 OO.ui.SelectWidget.prototype.getItemFromData = function ( data ) {
 	var hash = OO.getHash( data );
@@ -277,7 +268,6 @@ OO.ui.SelectWidget.prototype.togglePressed = function ( pressed ) {
  *
  * Highlighting is mutually exclusive.
  *
- * @method
  * @param {OO.ui.OptionWidget} [item] Item to highlight, omit to deselect all
  * @fires highlight
  * @chainable
@@ -303,7 +293,6 @@ OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
 /**
  * Select an item.
  *
- * @method
  * @param {OO.ui.OptionWidget} [item] Item to select, omit to deselect all
  * @fires select
  * @chainable
@@ -329,7 +318,6 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 /**
  * Press an item.
  *
- * @method
  * @param {OO.ui.OptionWidget} [item] Item to press, omit to depress all
  * @fires press
  * @chainable
@@ -358,7 +346,6 @@ OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
  * Identical to #selectItem, but may vary in subclasses that want to take additional action when
  * an item is selected using the keyboard or mouse.
  *
- * @method
  * @param {OO.ui.OptionWidget} item Item to choose
  * @fires choose
  * @chainable
@@ -373,10 +360,9 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
 /**
  * Get an item relative to another one.
  *
- * @method
  * @param {OO.ui.OptionWidget} item Item to start at
  * @param {number} direction Direction to move in
- * @returns {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the menu
+ * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the menu
  */
 OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direction ) {
 	var inc = direction > 0 ? 1 : -1,
@@ -407,8 +393,7 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 /**
  * Get the next selectable item.
  *
- * @method
- * @returns {OO.ui.OptionWidget|null} Item, `null` if ther aren't any selectable items
+ * @return {OO.ui.OptionWidget|null} Item, `null` if ther aren't any selectable items
  */
 OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
 	var i, len, item;
@@ -429,7 +414,6 @@ OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
  * When items are added with the same values as existing items, the existing items will be
  * automatically removed before the new items are added.
  *
- * @method
  * @param {OO.ui.OptionWidget[]} items Items to add
  * @param {number} [index] Index to insert items after
  * @fires add
@@ -465,7 +449,6 @@ OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
  *
  * Items will be detached, not removed, so they can be used later.
  *
- * @method
  * @param {OO.ui.OptionWidget[]} items Items to remove
  * @fires remove
  * @chainable
@@ -496,7 +479,6 @@ OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
  *
  * Items will be detached, not removed, so they can be used later.
  *
- * @method
  * @fires remove
  * @chainable
  */

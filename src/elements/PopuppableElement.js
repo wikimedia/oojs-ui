@@ -1,8 +1,8 @@
 /**
  * Popuppable element.
  *
- * @class
  * @abstract
+ * @class
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -29,8 +29,7 @@ OO.ui.PopuppableElement = function OoUiPopuppableElement( config ) {
 /**
  * Get popup.
  *
- * @method
- * @returns {OO.ui.PopupWidget} Popup widget
+ * @return {OO.ui.PopupWidget} Popup widget
  */
 OO.ui.PopuppableElement.prototype.getPopup = function () {
 	return this.popup;
@@ -38,8 +37,6 @@ OO.ui.PopuppableElement.prototype.getPopup = function () {
 
 /**
  * Show popup.
- *
- * @method
  */
 OO.ui.PopuppableElement.prototype.showPopup = function () {
 	this.popup.show().display( this.popupWidth, this.popupHeight );
@@ -47,8 +44,6 @@ OO.ui.PopuppableElement.prototype.showPopup = function () {
 
 /**
  * Hide popup.
- *
- * @method
  */
 OO.ui.PopuppableElement.prototype.hidePopup = function () {
 	this.popup.hide();

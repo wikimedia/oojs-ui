@@ -26,7 +26,7 @@ OO.inheritClass( OO.ui.CheckboxInputWidget, OO.ui.InputWidget );
 /**
  * Get input element.
  *
- * @returns {jQuery} Input element
+ * @return {jQuery} Input element
  */
 OO.ui.CheckboxInputWidget.prototype.getInputElement = function () {
 	return this.$( '<input type="checkbox" />' );
@@ -35,7 +35,7 @@ OO.ui.CheckboxInputWidget.prototype.getInputElement = function () {
 /**
  * Get checked state of the checkbox
  *
- * @returns {boolean} If the checkbox is checked
+ * @return {boolean} If the checkbox is checked
  */
 OO.ui.CheckboxInputWidget.prototype.getValue = function () {
 	return this.value;
