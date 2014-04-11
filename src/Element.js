@@ -428,6 +428,26 @@ OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
 	return OO.ui.Element.scrollIntoView( this.$element[0], config );
 };
 
+/**
+ * Bind a handler for an event on this.$element
+ * @see #static-method-onDOMEvent
+ * @param {string} event
+ * @param {Function} callback
+ */
+OO.ui.Element.prototype.onDOMEvent = function ( event, callback ) {
+	OO.ui.Element.onDOMEvent( this.$element, event, callback );
+};
+
+/**
+ * Unbind a handler bound with #offDOMEvent
+ * @see #static-method-offDOMEvent
+ * @param {string} event
+ * @param {Function} callback
+ */
+OO.ui.Element.prototype.offDOMEvent = function ( event, callback ) {
+	OO.ui.Element.offDOMEvent( this.$element, event, callback );
+};
+
 ( function () {
 	// Static
 	var specialFocusin;
@@ -458,16 +478,17 @@ OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
 	};
 
 	/**
-	 * Bind a handler for an event on the DOM element.
+	 * Bind a handler for an event on a DOM element.
 	 *
 	 * Uses jQuery internally for everything except for events which are
 	 * known to have issues in the browser or in jQuery. This method
 	 * should become obsolete eventually.
 	 *
-	 * @param {string} event
-	 * @param {Function} callback
+	 * @param {HTMLElement|jQuery} el DOM element
+	 * @param {string} event Event to bind
+	 * @param {Function} callback Callback to call when the event fires
 	 */
-	OO.ui.Element.prototype.onDOMEvent = function ( event, callback ) {
+	OO.ui.Element.onDOMEvent = function ( el, event, callback ) {
 		var orig;
 
 		if ( event === 'focusin' ) {
@@ -484,29 +505,31 @@ OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
 			orig = $.event.special.focusin;
 			$.event.special.focusin = specialFocusin;
 
-			this.$element.on( event, callback );
+			$( el ).on( event, callback );
 
 			// Restore
 			$.event.special.focusin = orig;
 
 		} else {
-			this.$element.on( event, callback );
+			$( el ).on( event, callback );
 		}
 	};
 
 	/**
-	 * @param {string} event
-	 * @param {Function} callback
+	 * Unbind a handler bound with #static-method-onDOMEvent
+	 * @param {HTMLElement|jQuery} el DOM element
+	 * @param {string} event Event to unbind
+	 * @param {Function} [callback] Callback to unbind
 	 */
-	OO.ui.Element.prototype.offDOMEvent = function ( event, callback ) {
+	OO.ui.Element.offDOMEvent = function ( el, event, callback ) {
 		var orig;
 		if ( event === 'focusin' ) {
 			orig = $.event.special.focusin;
 			$.event.special.focusin = specialFocusin;
-			this.$element.off( event, callback );
+			$( el ).off( event, callback );
 			$.event.special.focusin = orig;
 		} else {
-			this.$element.off( event, callback );
+			$( el ).off( event, callback );
 		}
 	};
 }() );
