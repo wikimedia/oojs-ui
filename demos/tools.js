@@ -63,12 +63,14 @@ $( function () {
 		{
 			'type': 'list',
 			'indicator': 'down',
+			'label': 'List',
 			'icon': 'picture',
 			'include': [ { 'group': 'listTools' } ]
 		},
 		{
 			'type': 'disabledList',
 			'indicator': 'down',
+			'label': 'List',
 			'icon': 'picture',
 			'include': [ { 'group': 'disabledListTools' } ]
 		},
