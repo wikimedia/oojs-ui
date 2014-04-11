@@ -153,7 +153,7 @@ OO.ui.InputWidget.prototype.simulateLabelClick = function () {
 /**
  * Check if the widget is read-only.
  *
- * @param {boolean}
+ * @return {boolean}
  */
 OO.ui.InputWidget.prototype.isReadOnly = function () {
 	return this.readOnly;

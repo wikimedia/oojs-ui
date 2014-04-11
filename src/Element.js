@@ -484,6 +484,7 @@ OO.ui.Element.prototype.offDOMEvent = function ( event, callback ) {
 	 * known to have issues in the browser or in jQuery. This method
 	 * should become obsolete eventually.
 	 *
+	 * @static
 	 * @param {HTMLElement|jQuery} el DOM element
 	 * @param {string} event Event to bind
 	 * @param {Function} callback Callback to call when the event fires
@@ -516,7 +517,9 @@ OO.ui.Element.prototype.offDOMEvent = function ( event, callback ) {
 	};
 
 	/**
-	 * Unbind a handler bound with #static-method-onDOMEvent
+	 * Unbind a handler bound with #static-method-onDOMEvent.
+	 *
+	 * @static
 	 * @param {HTMLElement|jQuery} el DOM element
 	 * @param {string} event Event to unbind
 	 * @param {Function} [callback] Callback to unbind
