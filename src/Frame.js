@@ -194,7 +194,7 @@ OO.ui.Frame.prototype.load = function () {
 
 	// Properties
 	this.$ = OO.ui.Element.getJQuery( doc, this );
-	this.$content = this.$( '.oo-ui-frame-content' );
+	this.$content = this.$( '.oo-ui-frame-content' ).attr( 'tabIndex', 0 );
 	this.$document = this.$( doc );
 
 	this.constructor.static.transplantStyles(

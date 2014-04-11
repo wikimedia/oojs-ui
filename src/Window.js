@@ -345,11 +345,14 @@ OO.ui.Window.prototype.open = function ( data ) {
 		this.frame.run( OO.ui.bind( function () {
 			this.$element.show();
 			this.visible = true;
-			this.frame.$element.focus();
 			this.emit( 'opening', data );
 			this.setup( data );
 			this.emit( 'open', data );
 			this.opening = false;
+			// Focus the content div (which has a tabIndex) to inactivate
+			// (but not clear) selections in the parent frame.
+			// Must happen after the window has opened.
+			this.frame.$content.focus();
 		}, this ) );
 	}
 
