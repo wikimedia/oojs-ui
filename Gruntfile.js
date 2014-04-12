@@ -80,6 +80,7 @@ module.exports = function ( grunt ) {
 		jscs: {
 			src: [
 				'<%= jshint.all %>',
+				'!demos/{dist,lib}/**',
 				'!src/intro.js',
 				'!src/outro.js'
 			]
@@ -88,7 +89,10 @@ module.exports = function ( grunt ) {
 			options: {
 				csslintrc: '.csslintrc'
 			},
-			all: '{demos,src}/**/*.css',
+			all: [
+				'{demos,src}/**/*.css',
+				'!demos/{dist,lib}/**'
+			],
 		},
 		banana: {
 			all: 'i18n/'

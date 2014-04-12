@@ -1,3 +1,5 @@
+demos/dist/**
+demos/lib/**
 lib/
 node_modules
 src/intro.js
