@@ -347,12 +347,13 @@ OO.ui.Window.prototype.open = function ( data ) {
 			this.visible = true;
 			this.emit( 'opening', data );
 			this.setup( data );
-			this.emit( 'open', data );
-			this.opening = false;
 			// Focus the content div (which has a tabIndex) to inactivate
 			// (but not clear) selections in the parent frame.
-			// Must happen after the window has opened.
+			// Must happen after setup runs (otherwise focusing it doesn't work)
+			// but before 'open' is emitted (so subclasses can give focus to something else)
 			this.frame.$content.focus();
+			this.emit( 'open', data );
+			this.opening = false;
 		}, this ) );
 	}
 
