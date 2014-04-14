@@ -123,7 +123,7 @@ OO.ui.WindowSet.prototype.onWindowClose = function ( win, config ) {
 /**
  * Get the current window.
  *
- * @return {OO.ui.Window} Current window
+ * @return {OO.ui.Window|null} Current window or null if none open
  */
 OO.ui.WindowSet.prototype.getCurrentWindow = function () {
 	return this.currentWindow;
