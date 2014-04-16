@@ -29,7 +29,7 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-fieldsetLayout' )
-		.append( this.$icon, this.$label, this.$group );
+		.prepend( this.$icon, this.$label, this.$group );
 	if ( $.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}
