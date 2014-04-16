@@ -53,6 +53,7 @@ OO.ui.ButtonedElement.prototype.onMouseDown = function () {
 		.removeAttr( 'tabindex' )
 		.addClass( 'oo-ui-buttonedElement-pressed' );
 	this.getElementDocument().addEventListener( 'mouseup', this.onMouseUpHandler, true );
+	return false;
 };
 
 /**
