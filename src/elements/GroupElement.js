@@ -7,7 +7,6 @@
  * @constructor
  * @param {jQuery} $group Container node, assigned to #$group
  * @param {Object} [config] Configuration options
- * @cfg {Object.<string,string>} [aggregations] Events to aggregate, keyed by item event name
  */
 OO.ui.GroupElement = function OoUiGroupElement( $group, config ) {
 	// Configuration
@@ -17,8 +16,7 @@ OO.ui.GroupElement = function OoUiGroupElement( $group, config ) {
 	this.$group = $group;
 	this.items = [];
 	this.$items = this.$( [] );
-	this.aggregate = !$.isEmptyObject( config.aggregations );
-	this.aggregations = config.aggregations || {};
+	this.aggregateItemEvents = {};
 };
 
 /* Methods */
@@ -30,6 +28,54 @@ OO.ui.GroupElement = function OoUiGroupElement( $group, config ) {
  */
 OO.ui.GroupElement.prototype.getItems = function () {
 	return this.items.slice( 0 );
+};
+
+/**
+ * Add an aggregate item event.
+ *
+ * Aggregated events are listened to on each item and then emitted by the group under a new name,
+ * and with an additional leading parameter containing the item that emitted the original event.
+ * Other arguments that were emitted from the original event are passed through.
+ *
+ * @param {Object.<string,string|null>} events Aggregate events emitted by group, keyed by item
+ *   event, use null value to remove aggregation
+ * @throws {Error} If aggregation already exists
+ */
+OO.ui.GroupElement.prototype.aggregate = function ( events ) {
+	var i, len, item, add, remove, itemEvent, groupEvent;
+
+	for ( itemEvent in events ) {
+		groupEvent = events[itemEvent];
+
+		// Remove existing aggregated event
+		if ( itemEvent in this.aggregateItemEvents ) {
+			// Don't allow duplicate aggregations
+			if ( groupEvent ) {
+				throw new Error( 'Duplicate item event aggregation for ' + itemEvent );
+			}
+			// Remove event aggregation from existing items
+			remove = {};
+			remove[itemEvent] = this.aggregateItemEvents[itemEvent];
+			for ( i = 0, len = this.items.length; i < len; i++ ) {
+				this.items[i].disconnect( this, remove );
+			}
+			// Prevent future items from aggregating event
+			delete this.aggregateItemEvents[itemEvent];
+		}
+
+		// Add new aggregate event
+		if ( groupEvent ) {
+			// Make future items aggregate event
+			this.aggregateItemEvents[itemEvent] = groupEvent;
+			// Add event aggregation to existing items
+			for ( i = 0, len = this.items.length; i < len; i++ ) {
+				item = this.items[i];
+				add = {};
+				add[itemEvent] = [ 'emit', groupEvent, item ];
+				item.connect( this, add );
+			}
+		}
+	}
 };
 
 /**
@@ -56,10 +102,10 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 			}
 		}
 		// Add the item
-		if ( this.aggregate ) {
+		if ( !$.isEmptyObject( this.aggregateItemEvents ) ) {
 			events = {};
-			for ( event in this.aggregations ) {
-				events[event] = [ 'emit', this.aggregations[event], item ];
+			for ( event in this.aggregateItemEvents ) {
+				events[event] = [ 'emit', this.aggregateItemEvents[event], item ];
 			}
 			item.connect( this, events );
 		}
@@ -99,7 +145,7 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
 		item = items[i];
 		index = $.inArray( item, this.items );
 		if ( index !== -1 ) {
-			if ( this.aggregate ) {
+			if ( !$.isEmptyObject( this.aggregateItemEvents ) ) {
 				item.disconnect( this );
 			}
 			item.setElementGroup( null );
@@ -125,7 +171,7 @@ OO.ui.GroupElement.prototype.clearItems = function () {
 	// Remove all items
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
 		item = this.items[i];
-		if ( this.aggregate ) {
+		if ( !$.isEmptyObject( this.aggregateItemEvents ) ) {
 			item.disconnect( this );
 		}
 		item.setElementGroup( null );
