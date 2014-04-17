@@ -21,6 +21,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 	this.visible = false;
 	this.footless = !!config.footless;
 	this.size = null;
+	this.pending = 0;
 	this.onWindowMouseWheelHandler = OO.ui.bind( this.onWindowMouseWheel, this );
 	this.onDocumentKeyDownHandler = OO.ui.bind( this.onDocumentKeyDown, this );
 
@@ -206,4 +207,47 @@ OO.ui.Dialog.prototype.close = function ( data ) {
 			OO.ui.Window.prototype.close.call( dialog, data );
 		}, 250 );
 	}
+};
+
+/**
+ * Check if input is pending.
+ *
+ * @return {boolean}
+ */
+OO.ui.Dialog.prototype.isPending = function () {
+	return !!this.pending;
+};
+
+/**
+ * Increase the pending stack.
+ *
+ * @chainable
+ */
+OO.ui.Dialog.prototype.pushPending = function () {
+	if ( this.pending === 0 ) {
+		this.frame.$content.addClass( 'oo-ui-dialog-pending' );
+		this.$head.addClass( 'oo-ui-texture-pending' );
+		this.$foot.addClass( 'oo-ui-texture-pending' );
+	}
+	this.pending++;
+
+	return this;
+};
+
+/**
+ * Reduce the pending stack.
+ *
+ * Clamped at zero.
+ *
+ * @chainable
+ */
+OO.ui.Dialog.prototype.popPending = function () {
+	if ( this.pending === 1 ) {
+		this.frame.$content.removeClass( 'oo-ui-dialog-pending' );
+		this.$head.removeClass( 'oo-ui-texture-pending' );
+		this.$foot.removeClass( 'oo-ui-texture-pending' );
+	}
+	this.pending = Math.max( 0, this.pending - 1 );
+
+	return this;
 };

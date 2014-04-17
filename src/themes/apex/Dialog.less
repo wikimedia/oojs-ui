@@ -26,8 +26,13 @@
 
 	&-content {
 		.oo-ui-window {
+			&-head,
+			&-foot {
+				z-index: 1;
+			}
 			&-body {
 				box-shadow: 0 0 0.66em rgba(0,0,0,0.25);
+				z-index: 2;
 			}
 		}
 	}
