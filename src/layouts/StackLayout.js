@@ -44,17 +44,26 @@ OO.mixinClass( OO.ui.StackLayout, OO.ui.GroupElement );
 
 /**
  * @event set
- * @param {OO.ui.PanelLayout|null} [item] Current item
+ * @param {OO.ui.Layout|null} [item] Current item
  */
 
 /* Methods */
+
+/**
+ * Get the current item.
+ *
+ * @return {OO.ui.Layout|null} [description]
+ */
+OO.ui.StackLayout.prototype.getCurrentItem = function () {
+	return this.currentItem;
+};
 
 /**
  * Add items.
  *
  * Adding an existing item (by value) will move it.
  *
- * @param {OO.ui.PanelLayout[]} items Items to add
+ * @param {OO.ui.Layout[]} items Items to add
  * @param {number} [index] Index to insert items after
  * @chainable
  */
@@ -73,7 +82,7 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
  *
  * Items will be detached, not removed, so they can be used later.
  *
- * @param {OO.ui.PanelLayout[]} items Items to remove
+ * @param {OO.ui.Layout[]} items Items to remove
  * @chainable
  */
 OO.ui.StackLayout.prototype.removeItems = function ( items ) {
@@ -107,7 +116,7 @@ OO.ui.StackLayout.prototype.clearItems = function () {
  *
  * Any currently shown item will be hidden.
  *
- * @param {OO.ui.PanelLayout} item Item to show
+ * @param {OO.ui.Layout} item Item to show
  * @chainable
  */
 OO.ui.StackLayout.prototype.setItem = function ( item ) {
