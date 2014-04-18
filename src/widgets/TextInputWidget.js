@@ -175,9 +175,12 @@ OO.ui.TextInputWidget.prototype.isPending = function () {
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.pushPending = function () {
+	if ( this.pending === 0 ) {
+		this.$element.addClass( 'oo-ui-textInputWidget-pending' );
+		this.$input.addClass( 'oo-ui-texture-pending' );
+	}
 	this.pending++;
-	this.$element.addClass( 'oo-ui-textInputWidget-pending' );
-	this.$input.addClass( 'oo-ui-texture-pending' );
+
 	return this;
 };
 
@@ -189,10 +192,11 @@ OO.ui.TextInputWidget.prototype.pushPending = function () {
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.popPending = function () {
-	this.pending = Math.max( 0, this.pending - 1 );
-	if ( !this.pending ) {
+	if ( this.pending === 1 ) {
 		this.$element.removeClass( 'oo-ui-textInputWidget-pending' );
 		this.$input.removeClass( 'oo-ui-texture-pending' );
 	}
+	this.pending = Math.max( 0, this.pending - 1 );
+
 	return this;
 };
