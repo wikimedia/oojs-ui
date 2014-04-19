@@ -1,0 +1,15 @@
+{
+	"--title": "OOjs UI - Documentation",
+	"--footer": "Documentation for OOjs UI.",
+	"--output": "docs",
+	"--categories": "./jsduck.categories.json",
+	"--warnings-exit-nonzero": true,
+	"--builtin-classes": true,
+	"--external": "HTMLDocument,Window",
+	"--warnings": ["-nodoc(class,public)"],
+	"--": [
+		"jsduck.external.js",
+		"lib/oojs.js",
+		"dist/oojs-ui.js"
+	]
+}

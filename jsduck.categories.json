@@ -1,0 +1,69 @@
+[
+	{
+		"name": "OOjs UI",
+		"groups": [
+			{
+				"name": "General",
+				"classes": [
+					"OO.ui",
+					"OO.ui.Element",
+					"OO.ui.Frame",
+					"OO.ui.Toolbar",
+					"OO.ui.Window",
+					"OO.ui.WindowSet",
+					"OO.ui.Dialog"
+				]
+			},
+			{
+				"name": "Factories",
+				"classes": ["OO.ui.*Factory"]
+			},
+			{
+				"name": "Tools",
+				"classes": ["OO.ui.*Tool"]
+			},
+			{
+				"name": "Elements",
+				"classes": ["OO.ui.*Element"]
+			},
+			{
+				"name": "Layouts",
+				"classes": ["OO.ui.*Layout"]
+			},
+			{
+				"name": "Tool groups",
+				"classes": ["OO.ui.*ToolGroup"]
+			},
+			{
+				"name": "Widgets",
+				"classes": ["OO.ui.*Widget"]
+			}
+		]
+	},
+	{
+		"name": "Upstream",
+		"groups": [
+			{
+				"name": "OOJS",
+				"classes": ["OO", "OO.EventEmitter", "OO.Factory", "OO.Registry"]
+			},
+			{
+				"name": "jQuery",
+				"classes": ["jQuery", "jQuery.Event", "jQuery.Promise", "jQuery.Deferred", "jQuery.jqXHR"]
+			},
+			{
+				"name": "JavaScript",
+				"classes": [
+					"Array",
+					"Boolean",
+					"Date",
+					"Function",
+					"Number",
+					"Object",
+					"RegExp",
+					"String"
+				]
+			}
+		]
+	}
+]

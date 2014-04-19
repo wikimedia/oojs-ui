@@ -391,8 +391,6 @@ OO.ui.Element.prototype.getElementWindow = function () {
 
 /**
  * Get closest scrollable container.
- *
- * @see #static-method-getClosestScrollableContainer
  */
 OO.ui.Element.prototype.getClosestScrollableElementContainer = function () {
 	return OO.ui.Element.getClosestScrollableContainer( this.$element[0] );
@@ -421,7 +419,6 @@ OO.ui.Element.prototype.setElementGroup = function ( group ) {
 /**
  * Scroll element into view.
  *
- * @see #static-method-scrollIntoView
  * @param {Object} [config={}]
  */
 OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
@@ -430,7 +427,7 @@ OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
 
 /**
  * Bind a handler for an event on this.$element
- * @see #static-method-onDOMEvent
+ *
  * @param {string} event
  * @param {Function} callback
  */
@@ -440,7 +437,7 @@ OO.ui.Element.prototype.onDOMEvent = function ( event, callback ) {
 
 /**
  * Unbind a handler bound with #offDOMEvent
- * @see #static-method-offDOMEvent
+ *
  * @param {string} event
  * @param {Function} callback
  */
