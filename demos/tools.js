@@ -5,7 +5,7 @@ $( function () {
 		toolGroupFactory = new OO.ui.ToolGroupFactory(),
 		toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
 
-	function createTool( name, group, icon, title, init ) {
+	function createTool( name, group, icon, title, init, onSelect ) {
 		var Tool = function () {
 			Tool.super.apply( this, arguments );
 			this.toggled = false;
@@ -17,8 +17,12 @@ $( function () {
 		OO.inheritClass( Tool, OO.ui.Tool );
 
 		Tool.prototype.onSelect = function () {
-			this.toggled = !this.toggled;
-			this.setActive( this.toggled );
+			if ( onSelect ) {
+				onSelect.call( this );
+			} else {
+				this.toggled = !this.toggled;
+				this.setActive( this.toggled );
+			}
 			toolbar.emit( 'updateState' );
 		};
 		Tool.prototype.onUpdateState = function () {};
@@ -75,6 +79,13 @@ $( function () {
 			'include': [ { 'group': 'disabledListTools' } ]
 		},
 		{
+			'type': 'list',
+			'indicator': 'down',
+			'label': 'Auto-disabling list',
+			'icon': 'picture',
+			'include': [ { 'group': 'autoDisableListTools' } ]
+		},
+		{
 			'type': 'menu',
 			'indicator': 'down',
 			'icon': 'picture',
@@ -91,19 +102,28 @@ $( function () {
 	toolbar.emit( 'updateState' );
 
 	tools = [
+		// barTools
 		[ 'barTool', 'barTools', 'picture', 'Basic tool in bar' ],
 		[ 'disabledBarTool', 'barTools', 'picture', 'Basic tool in bar disabled', function () { this.setDisabled( true ); } ],
 
+		// disabledBarTools
 		[ 'barToolInDisabled', 'disabledBarTools', 'picture', 'Basic tool in disabled bar' ],
 
+		// listTool
 		[ 'listTool', 'listTools', 'picture', 'Basic tool in list' ],
 		[ 'disabledListTool', 'listTools', 'picture', 'Basic tool in list disabled', function () { this.setDisabled( true ); } ],
 
+		// disabledListTools
 		[ 'listToolInDisabled', 'disabledListTools', 'picture', 'Basic tool in disabled list' ],
 
+		// allDisabledListTools
+		[ 'allDisabledListTool', 'autoDisableListTools', 'picture', 'Click to disable this tool', null, function () { this.setDisabled( true ); } ],
+
+		// menuTools
 		[ 'menuTool', 'menuTools', 'picture', 'Basic tool' ],
 		[ 'disabledMenuTool', 'menuTools', 'picture', 'Basic tool disabled', function () { this.setDisabled( true ); } ],
 
+		// disabledMenuTools
 		[ 'menuToolInDisabled', 'disabledMenuTools', 'picture', 'Basic tool' ]
 	];
 
