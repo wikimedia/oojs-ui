@@ -108,7 +108,7 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 		}
 		// Add the item
 		if (
-			item instanceof OO.ui.EventEmitter &&
+			item instanceof OO.EventEmitter &&
 			!$.isPlainObject( this.aggregateItemEvents )
 		) {
 			events = {};
@@ -154,7 +154,7 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
 		index = $.inArray( item, this.items );
 		if ( index !== -1 ) {
 			if (
-				item instanceof OO.ui.EventEmitter &&
+				item instanceof OO.EventEmitter &&
 				!$.isPlainObject( this.aggregateItemEvents )
 			) {
 				remove = {};
@@ -187,7 +187,7 @@ OO.ui.GroupElement.prototype.clearItems = function () {
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
 		item = this.items[i];
 		if (
-			item instanceof OO.ui.EventEmitter &&
+			item instanceof OO.EventEmitter &&
 			!$.isPlainObject( this.aggregateItemEvents )
 		) {
 			remove = {};
