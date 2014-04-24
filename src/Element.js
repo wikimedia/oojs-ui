@@ -8,7 +8,8 @@
  * @param {Object} [config] Configuration options
  * @cfg {Function} [$] jQuery for the frame the widget is in
  * @cfg {string[]} [classes] CSS class names
- * @cfg {jQuery} [$content] Content elements to append
+ * @cfg {string} [text] Text to insert
+ * @cfg {jQuery} [$content] Content elements to append (after text)
  */
 OO.ui.Element = function OoUiElement( config ) {
 	// Configuration initialization
@@ -22,6 +23,9 @@ OO.ui.Element = function OoUiElement( config ) {
 	// Initialization
 	if ( $.isArray( config.classes ) ) {
 		this.$element.addClass( config.classes.join( ' ' ) );
+	}
+	if ( config.text ) {
+		this.$element.text( config.text );
 	}
 	if ( config.$content ) {
 		this.$element.append( config.$content );
