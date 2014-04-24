@@ -44,6 +44,23 @@ OO.ui.FlaggableElement.prototype.getFlags = function () {
 };
 
 /**
+ * Clear all flags.
+ *
+ * @chainable
+ */
+OO.ui.FlaggableElement.prototype.clearFlags = function () {
+	var flag,
+		classPrefix = 'oo-ui-flaggableElement-';
+
+	for ( flag in this.flags ) {
+		delete this.flags[flag];
+		this.$element.removeClass( classPrefix + flag );
+	}
+
+	return this;
+};
+
+/**
  * Add one or more flags.
  *
  * @param {string[]|Object.<string, boolean>} flags List of flags to add, or list of set/remove
