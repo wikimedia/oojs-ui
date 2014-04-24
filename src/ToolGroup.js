@@ -22,9 +22,7 @@
  */
 OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	// Configuration initialization
-	config = $.extend( true, {
-		'aggregations': { 'disable': 'itemDisable' }
-	}, config );
+	config = config || {};
 
 	// Parent constructor
 	OO.ui.ToolGroup.super.call( this, config );
@@ -51,6 +49,7 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 		'mouseout': OO.ui.bind( this.onMouseOut, this )
 	} );
 	this.toolbar.getToolFactory().connect( this, { 'register': 'onToolFactoryRegister' } );
+	this.aggregate( { 'disable': 'itemDisable' } );
 	this.connect( this, { 'itemDisable': 'updateDisabled' } );
 
 	// Initialization
