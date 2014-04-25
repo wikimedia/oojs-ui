@@ -56,10 +56,10 @@ OO.ui.GroupElement.prototype.aggregate = function ( events ) {
 			// Remove event aggregation from existing items
 			for ( i = 0, len = this.items.length; i < len; i++ ) {
 				item = this.items[i];
-				if ( item instanceof OO.EventEmitter ) {
+				if ( item.connect && item.disconnect ) {
 					remove = {};
 					remove[itemEvent] = [ 'emit', groupEvent, item ];
-					this.items[i].disconnect( this, remove );
+					item.disconnect( this, remove );
 				}
 			}
 			// Prevent future items from aggregating event
@@ -73,7 +73,7 @@ OO.ui.GroupElement.prototype.aggregate = function ( events ) {
 			// Add event aggregation to existing items
 			for ( i = 0, len = this.items.length; i < len; i++ ) {
 				item = this.items[i];
-				if ( item instanceof OO.EventEmitter ) {
+				if ( item.connect && item.disconnect ) {
 					add = {};
 					add[itemEvent] = [ 'emit', groupEvent, item ];
 					item.connect( this, add );
@@ -107,10 +107,7 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 			}
 		}
 		// Add the item
-		if (
-			item instanceof OO.EventEmitter &&
-			!$.isPlainObject( this.aggregateItemEvents )
-		) {
+		if ( item.connect && item.disconnect && !$.isEmptyObject( this.aggregateItemEvents ) ) {
 			events = {};
 			for ( event in this.aggregateItemEvents ) {
 				events[event] = [ 'emit', this.aggregateItemEvents[event], item ];
@@ -154,8 +151,8 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
 		index = $.inArray( item, this.items );
 		if ( index !== -1 ) {
 			if (
-				item instanceof OO.EventEmitter &&
-				!$.isPlainObject( this.aggregateItemEvents )
+				item.connect && item.disconnect &&
+				!$.isEmptyObject( this.aggregateItemEvents )
 			) {
 				remove = {};
 				if ( itemEvent in this.aggregateItemEvents ) {
@@ -187,8 +184,8 @@ OO.ui.GroupElement.prototype.clearItems = function () {
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
 		item = this.items[i];
 		if (
-			item instanceof OO.EventEmitter &&
-			!$.isPlainObject( this.aggregateItemEvents )
+			item.connect && item.disconnect &&
+			!$.isEmptyObject( this.aggregateItemEvents )
 		) {
 			remove = {};
 			if ( itemEvent in this.aggregateItemEvents ) {
