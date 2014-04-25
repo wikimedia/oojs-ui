@@ -451,32 +451,52 @@ OO.ui.Element.prototype.offDOMEvent = function ( event, callback ) {
 
 ( function () {
 	// Static
-	var specialFocusin;
 
-	function handler( e ) {
-		jQuery.event.simulate( 'focusin', e.target, jQuery.event.fix( e ), /* bubble = */ true );
+	// jQuery 1.8.3 has a bug with handling focusin/focusout events inside iframes.
+	// Firefox doesn't support focusin/focusout at all, so we listen for 'focus'/'blur' on the
+	// document, and simulate a 'focusin'/'focusout' event on the target element and make
+	// it bubble from there.
+	//
+	// - http://jsfiddle.net/sw3hr/
+	// - http://bugs.jquery.com/ticket/14180
+	// - https://github.com/jquery/jquery/commit/1cecf64e5aa4153
+	function specialEvent( simulatedName, realName ) {
+		function handler( e ) {
+			jQuery.event.simulate(
+				simulatedName,
+				e.target,
+				jQuery.event.fix( e ),
+				/* bubble = */ true
+			);
+		}
+
+		return {
+			setup: function () {
+				var doc = this.ownerDocument || this,
+					attaches = $.data( doc, 'ooui-' + simulatedName + '-attaches' );
+				if ( !attaches ) {
+					doc.addEventListener( realName, handler, true );
+				}
+				$.data( doc, 'ooui-' + simulatedName + '-attaches', ( attaches || 0 ) + 1 );
+			},
+			teardown: function () {
+				var doc = this.ownerDocument || this,
+					attaches = $.data( doc, 'ooui-' + simulatedName + '-attaches' ) - 1;
+				if ( !attaches ) {
+					doc.removeEventListener( realName, handler, true );
+					$.removeData( doc, 'ooui-' + simulatedName + '-attaches' );
+				} else {
+					$.data( doc, 'ooui-' + simulatedName + '-attaches', attaches );
+				}
+			}
+		};
 	}
 
-	specialFocusin = {
-		setup: function () {
-			var doc = this.ownerDocument || this,
-				attaches = $.data( doc, 'ooui-focusin-attaches' );
-			if ( !attaches ) {
-				doc.addEventListener( 'focus', handler, true );
-			}
-			$.data( doc, 'ooui-focusin-attaches', ( attaches || 0 ) + 1 );
-		},
-		teardown: function () {
-			var doc = this.ownerDocument || this,
-				attaches = $.data( doc, 'ooui-focusin-attaches' ) - 1;
-			if ( !attaches ) {
-				doc.removeEventListener( 'focus', handler, true );
-				$.removeData( doc, 'ooui-focusin-attaches' );
-			} else {
-				$.data( doc, 'ooui-focusin-attaches', attaches );
-			}
-		}
-	};
+	var hasOwn = Object.prototype.hasOwnProperty,
+		specialEvents = {
+			focusin: specialEvent( 'focusin', 'focus' ),
+			focusout: specialEvent( 'focusout', 'blur' )
+		};
 
 	/**
 	 * Bind a handler for an event on a DOM element.
@@ -493,25 +513,15 @@ OO.ui.Element.prototype.offDOMEvent = function ( event, callback ) {
 	OO.ui.Element.onDOMEvent = function ( el, event, callback ) {
 		var orig;
 
-		if ( event === 'focusin' ) {
-			// jQuery 1.8.3 has a bug with handling focusin events inside iframes.
-			// Firefox doesn't support focusin at all, so we listen for 'focus' on the
-			// document, and simulate a 'focusin' event on the target element and make
-			// it bubble from there.
-			//
-			// - http://jsfiddle.net/sw3hr/
-			// - http://bugs.jquery.com/ticket/14180
-			// - https://github.com/jquery/jquery/commit/1cecf64e5aa4153
-
+		if ( hasOwn.call( specialEvents, event ) ) {
 			// Replace jQuery's override with our own
-			orig = $.event.special.focusin;
-			$.event.special.focusin = specialFocusin;
+			orig = $.event.special[event];
+			$.event.special[event] = specialEvents[event];
 
 			$( el ).on( event, callback );
 
 			// Restore
-			$.event.special.focusin = orig;
-
+			$.event.special[event] = orig;
 		} else {
 			$( el ).on( event, callback );
 		}
@@ -527,11 +537,15 @@ OO.ui.Element.prototype.offDOMEvent = function ( event, callback ) {
 	 */
 	OO.ui.Element.offDOMEvent = function ( el, event, callback ) {
 		var orig;
-		if ( event === 'focusin' ) {
-			orig = $.event.special.focusin;
-			$.event.special.focusin = specialFocusin;
+		if ( hasOwn.call( specialEvents, event ) ) {
+			// Replace jQuery's override with our own
+			orig = $.event.special[event];
+			$.event.special[event] = specialEvents[event];
+
 			$( el ).off( event, callback );
-			$.event.special.focusin = orig;
+
+			// Restore
+			$.event.special[event] = orig;
 		} else {
 			$( el ).off( event, callback );
 		}
