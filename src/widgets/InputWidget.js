@@ -169,7 +169,7 @@ OO.ui.InputWidget.prototype.isReadOnly = function () {
  */
 OO.ui.InputWidget.prototype.setReadOnly = function ( state ) {
 	this.readOnly = !!state;
-	this.$input.prop( 'readonly', this.readOnly );
+	this.$input.prop( 'readOnly', this.readOnly );
 	return this;
 };
 
