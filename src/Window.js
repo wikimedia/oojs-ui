@@ -336,7 +336,9 @@ OO.ui.Window.prototype.teardown = function () {
  * Do not override this method. See #setup for a way to make changes each time the window opens.
  *
  * @param {Object} [data] Window opening data
+ * @fires opening
  * @fires open
+ * @fires ready
  * @chainable
  */
 OO.ui.Window.prototype.open = function ( data ) {
@@ -347,12 +349,13 @@ OO.ui.Window.prototype.open = function ( data ) {
 			this.visible = true;
 			this.emit( 'opening', data );
 			this.setup( data );
+			this.emit( 'open', data );
 			// Focus the content div (which has a tabIndex) to inactivate
 			// (but not clear) selections in the parent frame.
-			// Must happen after setup runs (otherwise focusing it doesn't work)
-			// but before 'open' is emitted (so subclasses can give focus to something else)
+			// Must happen after 'open' is emitted (to ensure it is visible)
+			// but before 'ready' is emitted (so subclasses can give focus to something else)
 			this.frame.$content.focus();
-			this.emit( 'open', data );
+			this.emit( 'ready', data );
 			this.opening = false;
 		}, this ) );
 	}
@@ -366,6 +369,7 @@ OO.ui.Window.prototype.open = function ( data ) {
  * See #teardown for a way to do something each time the window closes.
  *
  * @param {Object} [data] Window closing data
+ * @fires closing
  * @fires close
  * @chainable
  */
