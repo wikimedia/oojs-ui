@@ -73,17 +73,20 @@ module.exports = function ( grunt ) {
 			}
 		},
 		jshint: {
-			options: JSON.parse( grunt.file.read( '.jshintrc' )
-				.replace( /\/\*(?:(?!\*\/)[\s\S])*\*\//g, '' ).replace( /\/\/[^\n\r]*/g, '' ) ),
-			all: ['*.js', '{build,demos,dist,src,test}/**/*.js']
+			options: {
+				jshintrc: true
+			},
+			dev: ['*.js', '{build,demos,src,test}/**/*.js'],
+			dist: 'dist/**/*.js'
 		},
 		jscs: {
-			src: [
-				'<%= jshint.all %>',
+			dev: [
+				'<%= jshint.dev %>',
 				'!demos/{dist,lib}/**',
 				'!src/intro.js',
 				'!src/outro.js'
-			]
+			],
+			dist: '<%= jshint.dist %>'
 		},
 		csslint: {
 			options: {
