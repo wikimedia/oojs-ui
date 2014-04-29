@@ -183,3 +183,13 @@ OO.ui.InputWidget.prototype.setDisabled = function ( state ) {
 	}
 	return this;
 };
+
+/**
+ * Focus the input.
+ *
+ * @chainable
+ */
+OO.ui.InputWidget.prototype.focus = function () {
+	this.$input.focus();
+	return this;
+};
