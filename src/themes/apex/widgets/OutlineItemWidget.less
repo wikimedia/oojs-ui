@@ -5,6 +5,10 @@
 		padding-right: 1.5em;
 	}
 
+	&.oo-ui-indicatedElement .oo-ui-indicatedElement-indicator {
+		opacity: 0.5;
+	}
+
 	&-level-0 {
 		padding-left: 3.5em;
 
@@ -41,11 +45,12 @@
 		font-style: italic;
 	}
 
-	&.oo-ui-flaggableElement-empty .oo-ui-iconedElement-icon,
-	&.oo-ui-flaggableElement-empty .oo-ui-indicatedElement-indicator {
-		opacity: 0.5;
-	}
-	&.oo-ui-flaggableElement-empty .oo-ui-labeledElement-label {
-		color: #777;
+	&.oo-ui-flaggableElement-empty {
+		.oo-ui-iconedElement-icon {
+			opacity: 0.5;
+		}
+		.oo-ui-labeledElement-label {
+			color: #777;
+		}
 	}
 }
