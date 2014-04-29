@@ -151,6 +151,13 @@ OO.ui.SearchWidget.prototype.clear = function () {
 };
 
 /**
+ * Focus the query input.
+ */
+OO.ui.SearchWidget.prototype.focus = function () {
+	this.query.$input[0].focus();
+};
+
+/**
  * Get the results list.
  *
  * @return {OO.ui.SelectWidget} Select list
