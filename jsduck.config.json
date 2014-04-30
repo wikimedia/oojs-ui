@@ -10,6 +10,6 @@
 	"--": [
 		"jsduck.external.js",
 		"lib/oojs.js",
-		"dist/oojs-ui.js"
+		"src"
 	]
 }

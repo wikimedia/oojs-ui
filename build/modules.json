@@ -1,7 +1,7 @@
 {
 	"oojs-ui": {
 		"scripts": [
-			"src/intro.js",
+			"src/intro.js.txt",
 			"src/core.js",
 			"src/Element.js",
 			"src/Frame.js",
@@ -65,7 +65,7 @@
 			"src/widgets/ToggleWidget.js",
 			"src/widgets/ToggleButtonWidget.js",
 			"src/widgets/ToggleSwitchWidget.js",
-			"src/outro.js"
+			"src/outro.js.txt"
 		],
 		"styles": [
 			"src/styles/intro.css",

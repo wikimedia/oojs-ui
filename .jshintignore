@@ -3,5 +3,3 @@ demos/lib/**
 docs/
 lib/
 node_modules
-src/intro.js
-src/outro.js

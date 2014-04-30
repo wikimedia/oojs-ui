@@ -82,9 +82,7 @@ module.exports = function ( grunt ) {
 		jscs: {
 			dev: [
 				'<%= jshint.dev %>',
-				'!demos/{dist,lib}/**',
-				'!src/intro.js',
-				'!src/outro.js'
+				'!demos/{dist,lib}/**'
 			],
 			dist: '<%= jshint.dist %>'
 		},
