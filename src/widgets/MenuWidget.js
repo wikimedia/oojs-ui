@@ -136,7 +136,7 @@ OO.ui.MenuWidget.prototype.chooseItem = function ( item ) {
 
 	if ( item && !this.flashing ) {
 		this.flashing = true;
-		item.flash( OO.ui.bind( function () {
+		item.flash().done( OO.ui.bind( function () {
 			this.hide();
 			this.flashing = false;
 		}, this ) );
