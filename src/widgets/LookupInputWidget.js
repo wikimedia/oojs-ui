@@ -83,6 +83,15 @@ OO.ui.LookupInputWidget.prototype.onLookupInputChange = function () {
 };
 
 /**
+ * Get lookup menu.
+ *
+ * @return {OO.ui.TextInputMenuWidget}
+ */
+OO.ui.LookupInputWidget.prototype.getLookupMenu = function () {
+	return this.lookupMenu;
+};
+
+/**
  * Open the menu.
  *
  * @chainable
