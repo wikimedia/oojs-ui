@@ -200,3 +200,13 @@ OO.ui.TextInputWidget.prototype.popPending = function () {
 
 	return this;
 };
+
+/**
+ * Select the contents of the input.
+ *
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.select = function () {
+	this.$input.select();
+	return this;
+};
