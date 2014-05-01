@@ -1,0 +1,31 @@
+@import 'mixins';
+@import 'variables';
+
+.oo-ui-dialog {
+
+	&-content {
+		.oo-ui-window-closeButton {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		.oo-ui-window-icon {
+			margin-left: @window-header-height;
+		}
+
+		.oo-ui-window {
+			&-body {
+				position: relative;
+			}
+		}
+	}
+
+	&-medium {
+		.oo-ui-window-frame {
+			top: 0;
+			bottom: 0;
+			background-color: white;
+		}
+	}
+}
