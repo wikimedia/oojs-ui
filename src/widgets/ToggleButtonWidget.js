@@ -34,7 +34,7 @@ OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.ToggleWidget );
  * @inheritdoc
  */
 OO.ui.ToggleButtonWidget.prototype.onClick = function () {
-	if ( !this.disabled ) {
+	if ( !this.isDisabled() ) {
 		this.setValue( !this.value );
 	}
 

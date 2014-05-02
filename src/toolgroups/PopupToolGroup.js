@@ -92,7 +92,7 @@ OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
  * @inheritdoc
  */
 OO.ui.PopupToolGroup.prototype.onMouseUp = function ( e ) {
-	if ( !this.disabled && e.which === 1 ) {
+	if ( !this.isDisabled() && e.which === 1 ) {
 		this.setActive( false );
 	}
 	return OO.ui.ToolGroup.prototype.onMouseUp.call( this, e );
@@ -113,7 +113,7 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseUp = function () {
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.PopupToolGroup.prototype.onHandleMouseDown = function ( e ) {
-	if ( !this.disabled && e.which === 1 ) {
+	if ( !this.isDisabled() && e.which === 1 ) {
 		this.setActive( !this.active );
 	}
 	return false;

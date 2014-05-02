@@ -75,7 +75,7 @@ OO.mixinClass( OO.ui.ButtonWidget, OO.ui.FlaggableElement );
  * @fires click
  */
 OO.ui.ButtonWidget.prototype.onClick = function () {
-	if ( !this.disabled ) {
+	if ( !this.isDisabled() ) {
 		this.emit( 'click' );
 		if ( this.isHyperlink ) {
 			return true;
@@ -91,7 +91,7 @@ OO.ui.ButtonWidget.prototype.onClick = function () {
  * @fires click
  */
 OO.ui.ButtonWidget.prototype.onKeyPress = function ( e ) {
-	if ( !this.disabled && e.which === OO.ui.Keys.SPACE ) {
+	if ( !this.isDisabled() && e.which === OO.ui.Keys.SPACE ) {
 		if ( this.isHyperlink ) {
 			this.onClick();
 			return true;

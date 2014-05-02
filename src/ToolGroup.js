@@ -134,7 +134,7 @@ OO.ui.ToolGroup.prototype.updateDisabled = function () {
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.ToolGroup.prototype.onMouseDown = function ( e ) {
-	if ( !this.disabled && e.which === 1 ) {
+	if ( !this.isDisabled() && e.which === 1 ) {
 		this.pressed = this.getTargetTool( e );
 		if ( this.pressed ) {
 			this.pressed.setActive( true );
@@ -166,7 +166,7 @@ OO.ui.ToolGroup.prototype.onCapturedMouseUp = function ( e ) {
 OO.ui.ToolGroup.prototype.onMouseUp = function ( e ) {
 	var tool = this.getTargetTool( e );
 
-	if ( !this.disabled && e.which === 1 && this.pressed && this.pressed === tool ) {
+	if ( !this.isDisabled() && e.which === 1 && this.pressed && this.pressed === tool ) {
 		this.pressed.onSelect();
 	}
 

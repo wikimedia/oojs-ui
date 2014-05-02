@@ -44,7 +44,7 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.ButtonedElement.prototype.onMouseDown = function ( e ) {
-	if ( this.disabled || e.which !== 1 ) {
+	if ( this.isDisabled() || e.which !== 1 ) {
 		return false;
 	}
 	// tabIndex should generally be interacted with via the property,
@@ -65,7 +65,7 @@ OO.ui.ButtonedElement.prototype.onMouseDown = function ( e ) {
  * @param {jQuery.Event} e Mouse up event
  */
 OO.ui.ButtonedElement.prototype.onMouseUp = function ( e ) {
-	if ( this.disabled || e.which !== 1 ) {
+	if ( this.isDisabled() || e.which !== 1 ) {
 		return false;
 	}
 	// Restore the tab-index after the button is up to restore the button's accesssibility

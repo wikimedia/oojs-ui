@@ -39,7 +39,7 @@ OO.ui.PopupButtonWidget.prototype.onClick = function ( e ) {
 		return;
 	}
 
-	if ( !this.disabled ) {
+	if ( !this.isDisabled() ) {
 		if ( this.popup.isVisible() ) {
 			this.hidePopup();
 		} else {

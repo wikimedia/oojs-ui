@@ -51,7 +51,7 @@ OO.ui.MenuWidget.prototype.onKeyDown = function ( e ) {
 		handled = false,
 		highlightItem = this.getHighlightedItem();
 
-	if ( !this.disabled && this.visible ) {
+	if ( !this.isDisabled() && this.visible ) {
 		if ( !highlightItem ) {
 			highlightItem = this.getSelectedItem();
 		}
