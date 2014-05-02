@@ -48,7 +48,7 @@ OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.ToggleWidget );
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.ToggleSwitchWidget.prototype.onClick = function ( e ) {
-	if ( !this.disabled && e.which === 1 ) {
+	if ( !this.isDisabled() && e.which === 1 ) {
 		this.setValue( !this.value );
 	}
 };

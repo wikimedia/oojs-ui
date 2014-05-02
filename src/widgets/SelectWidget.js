@@ -99,7 +99,7 @@ OO.ui.SelectWidget.static.tagName = 'ul';
 OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
 	var item;
 
-	if ( !this.disabled && e.which === 1 ) {
+	if ( !this.isDisabled() && e.which === 1 ) {
 		this.togglePressed( true );
 		item = this.getTargetItem( e );
 		if ( item && item.isSelectable() ) {
@@ -127,7 +127,7 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 			this.selecting = item;
 		}
 	}
-	if ( !this.disabled && e.which === 1 && this.selecting ) {
+	if ( !this.isDisabled() && e.which === 1 && this.selecting ) {
 		this.pressItem( null );
 		this.chooseItem( this.selecting );
 		this.selecting = null;
@@ -145,7 +145,7 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 OO.ui.SelectWidget.prototype.onMouseMove = function ( e ) {
 	var item;
 
-	if ( !this.disabled && this.pressed ) {
+	if ( !this.isDisabled() && this.pressed ) {
 		item = this.getTargetItem( e );
 		if ( item && item !== this.selecting && item.isSelectable() ) {
 			this.pressItem( item );
@@ -164,7 +164,7 @@ OO.ui.SelectWidget.prototype.onMouseMove = function ( e ) {
 OO.ui.SelectWidget.prototype.onMouseOver = function ( e ) {
 	var item;
 
-	if ( !this.disabled ) {
+	if ( !this.isDisabled() ) {
 		item = this.getTargetItem( e );
 		this.highlightItem( item && item.isHighlightable() ? item : null );
 	}
@@ -178,7 +178,7 @@ OO.ui.SelectWidget.prototype.onMouseOver = function ( e ) {
  * @param {jQuery.Event} e Mouse over event
  */
 OO.ui.SelectWidget.prototype.onMouseLeave = function () {
-	if ( !this.disabled ) {
+	if ( !this.isDisabled() ) {
 		this.highlightItem( null );
 	}
 	return false;

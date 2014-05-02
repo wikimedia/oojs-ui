@@ -31,7 +31,7 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	// Initialization
 	this.$input
 		.attr( 'name', config.name )
-		.prop( 'disabled', this.disabled );
+		.prop( 'disabled', this.isDisabled() );
 	this.setReadOnly( config.readOnly );
 	this.$element.addClass( 'oo-ui-inputWidget' ).append( this.$input );
 	this.setValue( config.value );
@@ -66,7 +66,7 @@ OO.ui.InputWidget.prototype.getInputElement = function () {
  * @param {jQuery.Event} e Key down, mouse up, cut, paste, change, input, or select event
  */
 OO.ui.InputWidget.prototype.onEdit = function () {
-	if ( !this.disabled ) {
+	if ( !this.isDisabled() ) {
 		// Allow the stack to clear so the value will be updated
 		setTimeout( OO.ui.bind( function () {
 			this.setValue( this.$input.val() );
@@ -179,7 +179,7 @@ OO.ui.InputWidget.prototype.setReadOnly = function ( state ) {
 OO.ui.InputWidget.prototype.setDisabled = function ( state ) {
 	OO.ui.Widget.prototype.setDisabled.call( this, state );
 	if ( this.$input ) {
-		this.$input.prop( 'disabled', this.disabled );
+		this.$input.prop( 'disabled', this.isDisabled() );
 	}
 	return this;
 };

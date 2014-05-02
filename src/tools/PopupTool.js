@@ -36,7 +36,7 @@ OO.mixinClass( OO.ui.PopupTool, OO.ui.PopuppableElement );
  * @inheritdoc
  */
 OO.ui.PopupTool.prototype.onSelect = function () {
-	if ( !this.disabled ) {
+	if ( !this.isDisabled() ) {
 		if ( this.popup.isVisible() ) {
 			this.hidePopup();
 		} else {
