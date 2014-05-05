@@ -7,7 +7,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [continuous=false] Show all pages, one after another
- * @cfg {boolean} [autoFocus=false] Focus on the first focusable element when changing to a page
+ * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when changing to a page
  * @cfg {boolean} [outlined=false] Show an outline
  * @cfg {boolean} [editable=false] Show controls for adding, removing and reordering pages
  * @cfg {Object[]} [adders] List of adders for controls, each with name, icon and title properties
@@ -24,7 +24,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.pages = {};
 	this.ignoreFocus = false;
 	this.stackLayout = new OO.ui.StackLayout( { '$': this.$, 'continuous': !!config.continuous } );
-	this.autoFocus = !!config.autoFocus;
+	this.autoFocus = config.autoFocus === undefined ? true : !!config.autoFocus;
 	this.outlineVisible = false;
 	this.outlined = !!config.outlined;
 	if ( this.outlined ) {
