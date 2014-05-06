@@ -1,15 +1,14 @@
 ( function ( $ ) {
 
 	/**
-	 * @param {Object} item
-	 * @param {string} key Name of key in item
+	 * @param {OO.ui.Element} item
+	 * @param {string} key Variable name for item
 	 * @param {string} [item.label=""]
 	 * @return {jQuery} Console interface element
 	 */
 	function buildConsole( item, key ) {
 		var $toggle, $log, $label, $input, $submit, $console, $form,
-			console = window.console,
-			name = item.label || item[ key ].constructor.name;
+			console = window.console;
 
 		function exec( str ) {
 			var func, ret;
@@ -19,7 +18,7 @@
 			}
 			try {
 				func = new Function( key, 'item', str );
-				ret = { value: func( item[ key ], item ) };
+				ret = { value: func( item, item ) };
 			} catch ( error ) {
 				ret = {
 					value: undefined,
@@ -36,13 +35,9 @@
 			$input.val( '' ).focus();
 			result = exec( val );
 
-			if ( result.value && $.type( result.value ) === 'object' ) {
-				logval = '[object ' + ( result.value.constructor.name || 'Object' ) + ']';
-			} else {
-				logval = String( result.value );
-				if ( logval === '' ) {
-					logval = '""';
-				}
+			logval = String( result.value );
+			if ( logval === '' ) {
+				logval = '""';
 			}
 
 			$log.append(
@@ -59,12 +54,12 @@
 			}
 
 			if ( console && console.log ) {
-				console.log( '[Console "' + name + '"]', result.value );
+				console.log( '[demo]', result.value );
 				if ( result.error ) {
 					if ( console.error ) {
-						console.error( '[Console "' + name + '"]', String( result.error ), result.error );
+						console.error( '[demo]', String( result.error ), result.error );
 					} else {
-						console.log( '[Console "' + name + '"] Error: ', result.error );
+						console.log( '[demo] Error: ', result.error );
 					}
 				}
 			}
@@ -82,9 +77,9 @@
 				if ( $input.is( ':visible' ) ) {
 					$input.focus();
 					if ( console && console.log ) {
-						window[ '$' + key ] = item[ key ];
-						console.log( '[Console "' + name + '"]', 'Global $' + key + ' has been set' );
-						console.log( '[Console "' + name + '"]', item[ key ] );
+						window[ '$' + key ] = item;
+						console.log( '[demo]', 'Global $' + key + ' has been set' );
+						console.log( '[demo]', item );
 					}
 				}
 			} );
@@ -97,7 +92,7 @@
 
 		$input = $( '<input>' )
 			.addClass( 'oo-ui-demo-console-input' )
-			.prop( 'placeholder', '... (predefined: ' + key + ', Object item)' );
+			.prop( 'placeholder', '... (predefined: ' + key + ')' );
 
 		$submit = $( '<div>' )
 			.addClass( 'oo-ui-demo-console-submit' )

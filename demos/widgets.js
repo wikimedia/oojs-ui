@@ -1,5 +1,5 @@
 $( function () {
-	var name, fieldset,
+	var name, fieldset, fieldlayouts,
 		$demo = $( '.oo-ui-demo' ),
 		sections = {
 			'Widgets': [
@@ -347,11 +347,18 @@ $( function () {
 			]
 		};
 
+	function insertConsole( fieldLayout ) {
+		fieldLayout.$element.append(
+			OO.ui.demo.buildConsole( fieldLayout.field, 'widget' )
+		);
+	}
+
 	for ( name in sections ) {
+		fieldlayouts = sections[ name ];
 		fieldset = new OO.ui.FieldsetLayout( { 'label': name } );
-		fieldset.addItems( sections[name] );
-		// TODO: Update buildConsole to add consoles to fieldsets full of field layouts
-		// OO.ui.demo.buildConsole( item, 'widget' );
+		$.map( fieldlayouts, insertConsole );
+		fieldset.addItems( fieldlayouts );
+
 		$demo.append( fieldset.$element );
 	}
 } );
