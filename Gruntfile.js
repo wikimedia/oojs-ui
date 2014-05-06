@@ -107,7 +107,7 @@ module.exports = function ( grunt ) {
 				'<%= csslint.all %>',
 				'{demos,src}/**/*.less',
 				'<%= qunit.all %>',
-				'.{jshintrc,jshintignore}'
+				'.{csslintrc,jscsrc,jshintignore,jshintrc}'
 			],
 			tasks: ['test']
 		}
