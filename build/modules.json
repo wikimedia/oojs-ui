@@ -8,6 +8,7 @@
 			"src/Window.js",
 			"src/WindowSet.js",
 			"src/Dialog.js",
+			"src/ConfirmationDialog.js",
 			"src/Layout.js",
 			"src/Widget.js",
 			"src/elements/ButtonedElement.js",
