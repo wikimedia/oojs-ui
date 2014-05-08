@@ -1,3 +1,4 @@
+@import '../../styles/mixins';
 @import 'mixins';
 @import 'variables';
 
@@ -5,6 +6,7 @@
 	&-head {
 		height: @window-header-height;
 		border-bottom: 1px solid @color-shadow;
+		.oo-ui-box-sizing(border-box);
 	}
 
 	&-body {
