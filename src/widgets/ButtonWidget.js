@@ -91,9 +91,9 @@ OO.ui.ButtonWidget.prototype.onClick = function () {
  * @fires click
  */
 OO.ui.ButtonWidget.prototype.onKeyPress = function ( e ) {
-	if ( !this.isDisabled() && e.which === OO.ui.Keys.SPACE ) {
+	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
+		this.onClick();
 		if ( this.isHyperlink ) {
-			this.onClick();
 			return true;
 		}
 	}
