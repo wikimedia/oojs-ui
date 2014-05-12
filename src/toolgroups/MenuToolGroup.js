@@ -1,7 +1,6 @@
 /**
  * Drop down menu layout of tools as selectable menu items.
  *
- * @abstract
  * @class
  * @extends OO.ui.PopupToolGroup
  *

@@ -1,7 +1,6 @@
 /**
  * Switch that slides on and off.
  *
- * @abstract
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.ToggleWidget

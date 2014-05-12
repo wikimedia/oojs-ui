@@ -3,7 +3,6 @@
  *
  * Use with OO.ui.SelectWidget.
  *
- * @abstract
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.IconedElement

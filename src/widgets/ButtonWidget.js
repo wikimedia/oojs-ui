@@ -1,7 +1,6 @@
 /**
  * Button widget.
  *
- * @abstract
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.ButtonedElement

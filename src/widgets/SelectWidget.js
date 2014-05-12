@@ -3,7 +3,6 @@
  *
  * Use together with OO.ui.OptionWidget.
  *
- * @abstract
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.GroupElement
