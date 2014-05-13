@@ -45,7 +45,7 @@ OO.ui.PopupButtonWidget.prototype.onClick = function ( e ) {
 		} else {
 			this.showPopup();
 		}
-		OO.ui.ButtonWidget.prototype.onClick.call( this );
+		OO.ui.PopupButtonWidget.super.prototype.onClick.call( this );
 	}
 	return false;
 };

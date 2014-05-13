@@ -27,7 +27,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 
 	// Events
 	this.$element.on( 'mousedown', false );
-	this.connect( this, { 'opening': 'onOpening' } );
+	this.connect( this, { 'open': 'onOpen' } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-dialog' );
@@ -113,8 +113,10 @@ OO.ui.Dialog.prototype.onFrameDocumentKeyDown = function ( e ) {
 	}
 };
 
-/** */
-OO.ui.Dialog.prototype.onOpening = function () {
+/**
+ * Handle window open events.
+ */
+OO.ui.Dialog.prototype.onOpen = function () {
 	this.$element.addClass( 'oo-ui-dialog-open' );
 };
 
@@ -146,7 +148,7 @@ OO.ui.Dialog.prototype.setSize = function ( size ) {
  */
 OO.ui.Dialog.prototype.initialize = function () {
 	// Parent method
-	OO.ui.Window.prototype.initialize.call( this );
+	OO.ui.Dialog.super.prototype.initialize.call( this );
 
 	// Properties
 	this.closeButton = new OO.ui.ButtonWidget( {
@@ -172,41 +174,29 @@ OO.ui.Dialog.prototype.initialize = function () {
 /**
  * @inheritdoc
  */
-OO.ui.Dialog.prototype.setup = function ( data ) {
-	// Parent method
-	OO.ui.Window.prototype.setup.call( this, data );
-
-	// Prevent scrolling in top-level window
-	this.$( window ).on( 'mousewheel', this.onWindowMouseWheelHandler );
-	this.$( document ).on( 'keydown', this.onDocumentKeyDownHandler );
+OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
+	return OO.ui.Dialog.super.prototype.getSetupProcess.call( this, data )
+		.next( function () {
+			// Prevent scrolling in top-level window
+			this.$( window ).on( 'mousewheel', this.onWindowMouseWheelHandler );
+			this.$( document ).on( 'keydown', this.onDocumentKeyDownHandler );
+		}, this );
 };
 
 /**
  * @inheritdoc
  */
-OO.ui.Dialog.prototype.teardown = function ( data ) {
-	// Parent method
-	OO.ui.Window.prototype.teardown.call( this, data );
-
-	// Allow scrolling in top-level window
-	this.$( window ).off( 'mousewheel', this.onWindowMouseWheelHandler );
-	this.$( document ).off( 'keydown', this.onDocumentKeyDownHandler );
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.Dialog.prototype.close = function ( data ) {
-	var dialog = this;
-	if ( !dialog.opening && !dialog.closing && dialog.visible ) {
-		// Trigger transition
-		dialog.$element.removeClass( 'oo-ui-dialog-open' );
-		// Allow transition to complete before actually closing
-		setTimeout( function () {
-			// Parent method
-			OO.ui.Window.prototype.close.call( dialog, data );
-		}, 250 );
-	}
+OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
+	return OO.ui.Dialog.super.prototype.getTeardownProcess.call( this, data )
+		.first( function () {
+			this.$element.removeClass( 'oo-ui-dialog-open' );
+			return OO.ui.Process.static.delay( 250 );
+		}, this )
+		.next( function () {
+			// Allow scrolling in top-level window
+			this.$( window ).off( 'mousewheel', this.onWindowMouseWheelHandler );
+			this.$( document ).off( 'keydown', this.onDocumentKeyDownHandler );
+		}, this );
 };
 
 /**

@@ -106,7 +106,7 @@ OO.ui.PopupToolGroup.prototype.onMouseUp = function ( e ) {
 	if ( !this.isDisabled() && e.which === 1 ) {
 		this.setActive( false );
 	}
-	return OO.ui.ToolGroup.prototype.onMouseUp.call( this, e );
+	return OO.ui.PopupToolGroup.super.prototype.onMouseUp.call( this, e );
 };
 
 /**

@@ -38,7 +38,7 @@ OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.FlaggableElement );
  * @inheritdoc
  */
 OO.ui.ButtonOptionWidget.prototype.setSelected = function ( state ) {
-	OO.ui.OptionWidget.prototype.setSelected.call( this, state );
+	OO.ui.ButtonOptionWidget.super.prototype.setSelected.call( this, state );
 
 	this.setActive( state );
 
