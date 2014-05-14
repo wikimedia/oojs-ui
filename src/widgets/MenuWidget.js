@@ -10,6 +10,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {OO.ui.InputWidget} [input] Input to bind keyboard handlers to
+ * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu
  */
 OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	// Config intialization
@@ -22,6 +23,7 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	OO.ui.ClippableElement.call( this, this.$group, config );
 
 	// Properties
+	this.autoHide = config.autoHide === undefined || !!config.autoHide;
 	this.newItems = null;
 	this.$input = config.input ? config.input.$input : null;
 	this.$previousFocus = null;
@@ -29,6 +31,7 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	this.visible = false;
 	this.flashing = false;
 	this.onKeyDownHandler = OO.ui.bind( this.onKeyDown, this );
+	this.onDocumentMouseDownHandler = OO.ui.bind( this.onDocumentMouseDown, this );
 
 	// Initialization
 	this.$element.hide().addClass( 'oo-ui-menuWidget' );
@@ -40,6 +43,17 @@ OO.inheritClass( OO.ui.MenuWidget, OO.ui.SelectWidget );
 OO.mixinClass( OO.ui.MenuWidget, OO.ui.ClippableElement );
 
 /* Methods */
+
+/**
+ * Handles document mouse down events.
+ *
+ * @param {jQuery.Event} e Key down event
+ */
+OO.ui.MenuWidget.prototype.onDocumentMouseDown = function ( e ) {
+	if ( !$.contains( this.$element[0], e.target ) ) {
+		this.hide();
+	}
+};
 
 /**
  * Handles key down events.
@@ -206,6 +220,13 @@ OO.ui.MenuWidget.prototype.show = function () {
 		}
 
 		this.setClipping( true );
+
+		// Auto-hide
+		if ( this.autoHide ) {
+			this.getElementDocument().addEventListener(
+				'mousedown', this.onDocumentMouseDownHandler, true
+			);
+		}
 	}
 
 	return this;
@@ -225,6 +246,10 @@ OO.ui.MenuWidget.prototype.hide = function () {
 		this.$previousFocus.focus();
 		this.$previousFocus = null;
 	}
+
+	this.getElementDocument().removeEventListener(
+		'mousedown', this.onDocumentMouseDownHandler, true
+	);
 
 	this.setClipping( false );
 
