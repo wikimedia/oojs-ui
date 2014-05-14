@@ -99,7 +99,16 @@ var messages = {
 	// Tool tip for a button that removes items from a list
 	'ooui-outline-control-remove': 'Remove item',
 	// Label for the toolbar group that contains a list of all other available tools
-	'ooui-toolbar-more': 'More'
+	'ooui-toolbar-more': 'More',
+
+	// Label for the generic dialog used to confirm things
+	'ooui-dialog-confirm-title': 'Confirm',
+	// The default prompt of a confirmation dialog
+	'ooui-dialog-confirm-default-prompt': 'Are you sure?',
+	// The default OK button text on a confirmation dialog
+	'ooui-dialog-confirm-default-ok': 'OK',
+	// The default cancel button text on a confirmation dialog
+	'ooui-dialog-confirm-default-cancel': 'Cancel'
 };
 
 /**
