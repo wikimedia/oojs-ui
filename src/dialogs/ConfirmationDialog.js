@@ -42,7 +42,7 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
 		'padded': true
 	} );
 
-	this.$promptContainer = this.$( '<div>' ).addClass( 'oo-ui-dialog-confirmation-container' );
+	this.$promptContainer = this.$( '<div>' ).addClass( 'oo-ui-dialog-confirm-promptContainer' );
 
 	this.cancelButton = new OO.ui.ButtonWidget( {
 		'flags': [ 'destructive' ]
@@ -59,8 +59,8 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
 	this.$body.append( contentLayout.$element );
 
 	this.$foot.append(
-		this.cancelButton.$element,
-		this.okButton.$element
+		this.okButton.$element,
+		this.cancelButton.$element
 	);
 
 	this.connect( this, {

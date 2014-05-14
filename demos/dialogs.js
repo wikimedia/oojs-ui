@@ -28,6 +28,15 @@ $( function () {
 					'size': 'medium',
 					'footless': true
 				}
+			},
+			{
+				'name': 'Confirmation dialog',
+				'dialogClass': OO.ui.ConfirmationDialog,
+				'data': {
+					'prompt': 'Prompt text',
+					'okLabel': 'Custom ok text',
+					'cancelLabel': 'Custom cancel text'
+				}
 			}
 		];
 
@@ -45,16 +54,21 @@ $( function () {
 		this.$foot.html( 'Footer' );
 	};
 
-	function openDialog( config ) {
-		var dialog = new SampleDialog( config );
+	function openDialog( DialogClass, config, data ) {
+		var dialog = new DialogClass( config );
 		$( 'body' ).append( dialog.$element );
-		dialog.open();
+		dialog.open( data );
 	}
 
 	fieldset = new OO.ui.FieldsetLayout( { 'label': 'Dialogs' } );
 	for ( i = 0, l = dialogs.length; i < l; i++ ) {
 		openButton = new OO.ui.ButtonWidget( { 'label': 'Open' } );
-		openButton.on( 'click', OO.ui.bind( openDialog, this, dialogs[i].config ) );
+		openButton.on( 'click', OO.ui.bind(
+			openDialog, this,
+			dialogs[i].dialogClass || SampleDialog,
+			dialogs[i].config,
+			dialogs[i].data
+		) );
 		fieldset.addItems( [
 			new OO.ui.FieldLayout(
 				openButton,
