@@ -93,7 +93,7 @@ module.exports = function ( grunt ) {
 			all: [
 				'{demos,src}/**/*.css',
 				'!demos/{dist,lib}/**'
-			],
+			]
 		},
 		banana: {
 			all: 'i18n/'

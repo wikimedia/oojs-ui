@@ -1,16 +1,15 @@
 {
 	// Enforcing
 	"bitwise": true,
-	"curly": true,
 	"eqeqeq": true,
+	"freeze": true,
 	"latedef": true,
 	"noarg": true,
-	"noempty": true,
 	"nonew": true,
-	"regexp": true,
-	"strict": false,
 	"undef": true,
 	"unused": true,
+	"strict": false,
+
 	// Environment
 	"browser": true,
 	"jquery": true,

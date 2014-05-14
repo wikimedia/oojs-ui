@@ -158,16 +158,16 @@ $( function () {
 					'disabled': true,
 					'items': [
 						new OO.ui.ButtonOptionWidget( 1, {
-							'label': 'Disabled',
+							'label': 'Disabled'
 						} ),
 						new OO.ui.ButtonOptionWidget( 2, {
-							'label': 'state',
+							'label': 'state'
 						} ),
 						new OO.ui.ButtonOptionWidget( 3, {
-							'label': 'is',
+							'label': 'is'
 						} ),
 						new OO.ui.ButtonOptionWidget( 3, {
-							'label': 'inherited',
+							'label': 'inherited'
 						} )
 					]
 				} ),

@@ -13,13 +13,13 @@ $( function () {
 			{
 				'name': 'Medium dialog',
 				'config': {
-					'size': 'medium',
+					'size': 'medium'
 				}
 			},
 			{
 				'name': 'Large dialog',
 				'config': {
-					'size': 'large',
+					'size': 'large'
 				}
 			},
 			{
@@ -31,7 +31,7 @@ $( function () {
 			}
 		];
 
-	function SampleDialog ( config ) {
+	function SampleDialog( config ) {
 		config = $.extend( { 'title': 'Title' }, config );
 		SampleDialog.super.call( this, config );
 	}
@@ -45,7 +45,7 @@ $( function () {
 		this.$foot.html( 'Footer' );
 	};
 
-	function openDialog ( config ) {
+	function openDialog( config ) {
 		var dialog = new SampleDialog( config );
 		$( 'body' ).append( dialog.$element );
 		dialog.open();
