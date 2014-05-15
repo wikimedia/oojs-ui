@@ -23,29 +23,30 @@ module.exports = function ( grunt ) {
 		},
 		recessFiles = {},
 		concatCssFiles = {};
-		( function () {
-			var distFile, target, module;
-			for ( module in styleTargets ) {
-				for ( target in styleTargets[module] ) {
-					distFile = target === 'default' ?
-						'dist/' + module + '.css' :
-						'dist/' + module + '.' + target + '.css';
 
-					recessFiles[distFile] = styleTargets[module][target];
+	( function () {
+		var distFile, target, module;
+		for ( module in styleTargets ) {
+			for ( target in styleTargets[module] ) {
+				distFile = target === 'default' ?
+					'dist/' + module + '.css' :
+					'dist/' + module + '.' + target + '.css';
 
-					// Concat isn't doing much other than expanding v@VERSION...
-					concatCssFiles[ module + '-css-' + target ] = {
-						dest: distFile,
-						src: [ distFile ]
-					};
-				}
+				recessFiles[distFile] = styleTargets[module][target];
+
+				// Concat isn't doing much other than expanding v@VERSION...
+				concatCssFiles[ module + '-css-' + target ] = {
+					dest: distFile,
+					src: [ distFile ]
+				};
 			}
-		}() );
+		}
+	}() );
 
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
 		clean: {
-			dist: ['dist/*/', 'dist/*.*']
+			dist: [ 'dist/*/', 'dist/*.*' ]
 		},
 		recess: {
 			dist: {
@@ -76,7 +77,7 @@ module.exports = function ( grunt ) {
 			options: {
 				jshintrc: true
 			},
-			dev: ['*.js', '{build,demos,src,test}/**/*.js'],
+			dev: [ '*.js', '{build,demos,src,test}/**/*.js' ],
 			dist: 'dist/**/*.js'
 		},
 		jscs: {
@@ -99,21 +100,21 @@ module.exports = function ( grunt ) {
 			all: 'i18n/'
 		},
 		qunit: {
-			all: ['test/index.html']
+			all: 'test/index.html'
 		},
 		watch: {
 			files: [
-				'<%= jshint.all %>',
+				'<%= jshint.dev %>',
 				'<%= csslint.all %>',
 				'{demos,src}/**/*.less',
 				'<%= qunit.all %>',
 				'.{csslintrc,jscsrc,jshintignore,jshintrc}'
 			],
-			tasks: ['test']
+			tasks: 'test'
 		}
 	} );
 
-	grunt.registerTask( 'build', ['clean', 'recess', 'concat', 'copy'] );
-	grunt.registerTask( 'test', ['git-build', 'build', 'jshint', 'jscs', 'csslint', 'banana', 'qunit'] );
+	grunt.registerTask( 'build', [ 'clean', 'recess', 'concat', 'copy' ] );
+	grunt.registerTask( 'test', [ 'git-build', 'build', 'jshint', 'jscs', 'csslint', 'banana', 'qunit' ] );
 	grunt.registerTask( 'default', 'test' );
 };
