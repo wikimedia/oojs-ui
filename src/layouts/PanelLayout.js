@@ -25,9 +25,6 @@ OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	if ( config.padded ) {
 		this.$element.addClass( 'oo-ui-panelLayout-padded' );
 	}
-
-	// Add directionality class:
-	this.$element.addClass( 'oo-ui-' + OO.ui.Element.getDir( this.$.context ) );
 };
 
 /* Setup */
