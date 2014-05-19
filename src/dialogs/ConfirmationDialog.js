@@ -44,14 +44,10 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
 
 	this.$promptContainer = this.$( '<div>' ).addClass( 'oo-ui-dialog-confirm-promptContainer' );
 
-	this.cancelButton = new OO.ui.ButtonWidget( {
-		'flags': [ 'destructive' ]
-	} );
+	this.cancelButton = new OO.ui.ButtonWidget();
 	this.cancelButton.connect( this, { 'click': [ 'emit', 'cancel' ] } );
 
-	this.okButton = new OO.ui.ButtonWidget( {
-		'flags': [ 'constructive' ]
-	} );
+	this.okButton = new OO.ui.ButtonWidget();
 	this.okButton.connect( this, { 'click': [ 'emit', 'ok' ] } );
 
 	// Make the buttons
@@ -77,6 +73,8 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
  * @param {jQuery|string} [data.prompt] The text of the dialog.
  * @param {jQuery|string|Function|null} [data.okLabel] The text used on the OK button
  * @param {jQuery|string|Function|null} [data.cancelLabel] The text used on the cancel button
+ * @param {string[]} [data.okFlags] Flags for the OK button
+ * @param {string[]} [data.cancelFlags] Flags for the cancel button
  */
 OO.ui.ConfirmationDialog.prototype.setup = function ( data ) {
 	// Parent method
@@ -84,7 +82,9 @@ OO.ui.ConfirmationDialog.prototype.setup = function ( data ) {
 
 	var prompt = data.prompt || OO.ui.deferMsg( 'ooui-dialog-confirm-default-prompt' ),
 		okLabel = data.okLabel || OO.ui.deferMsg( 'ooui-dialog-confirm-default-ok' ),
-		cancelLabel = data.cancelLabel || OO.ui.deferMsg( 'ooui-dialog-confirm-default-cancel' );
+		cancelLabel = data.cancelLabel || OO.ui.deferMsg( 'ooui-dialog-confirm-default-cancel' ),
+		okFlags = data.okFlags || [ 'constructive'],
+		cancelFlags = data.cancelFlags || [ 'destructive' ];
 
 	if ( typeof prompt === 'string' ) {
 		this.$promptContainer.text( prompt );
@@ -92,6 +92,6 @@ OO.ui.ConfirmationDialog.prototype.setup = function ( data ) {
 		this.$promptContainer.empty().append( prompt );
 	}
 
-	this.okButton.setLabel( okLabel );
-	this.cancelButton.setLabel( cancelLabel );
+	this.okButton.setLabel( okLabel ).clearFlags().setFlags( okFlags );
+	this.cancelButton.setLabel( cancelLabel ).clearFlags().setFlags( cancelFlags );
 };
