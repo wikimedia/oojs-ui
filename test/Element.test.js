@@ -1,6 +1,4 @@
-QUnit.module( 'OO.ui.Element' );
-
-/* Tests */
+QUnit.module( 'Element' );
 
 QUnit.test( 'getDocument', 10, function ( assert ) {
 	var frameDoc, frameEl, frameDiv,
