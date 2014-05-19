@@ -2,56 +2,47 @@ $( function () {
 	var i, l,
 		openButton,
 		fieldset,
-		$demo = $( '.oo-ui-demo' ),
-		dialogs = [
-			{
-				'name': 'Small dialog',
-				'config': {
-					'size': 'small'
-				}
-			},
-			{
-				'name': 'Medium dialog',
-				'config': {
-					'size': 'medium'
-				}
-			},
-			{
-				'name': 'Large dialog',
-				'config': {
-					'size': 'large'
-				}
-			},
-			{
-				'name': 'Medium footless dialog',
-				'config': {
-					'size': 'medium',
-					'footless': true
-				}
-			},
-			{
-				'name': 'Confirmation dialog',
-				'dialogClass': OO.ui.ConfirmationDialog,
-				'data': {
-					'prompt': 'Prompt text',
-					'okLabel': 'Custom ok text',
-					'cancelLabel': 'Custom cancel text'
-				}
-			}
-		];
+		dialogs,
+		$demo = $( '.oo-ui-demo' );
 
-	function SampleDialog( config ) {
+	function SimpleDialog( config ) {
 		config = $.extend( { 'title': 'Title' }, config );
-		SampleDialog.super.call( this, config );
+		SimpleDialog.super.call( this, config );
 	}
 
-	OO.inheritClass( SampleDialog, OO.ui.Dialog );
+	OO.inheritClass( SimpleDialog, OO.ui.Dialog );
 
-	SampleDialog.prototype.initialize = function () {
-		SampleDialog.super.prototype.initialize.apply( this, arguments );
+	SimpleDialog.prototype.initialize = function () {
+		SimpleDialog.super.prototype.initialize.apply( this, arguments );
 
 		this.$body.html( '<p>Dialog content</p>' );
 		this.$foot.html( 'Footer' );
+	};
+
+	function GridDialog( config ) {
+		config = $.extend( { 'title': 'Grid dialog' }, config );
+		GridDialog.super.call( this, config );
+	}
+
+	OO.inheritClass( GridDialog, OO.ui.Dialog );
+
+	GridDialog.prototype.initialize = function () {
+		GridDialog.super.prototype.initialize.apply( this, arguments );
+
+		this.panels = new OO.ui.StackLayout( { '$': this.$ } );
+		this.$body.append( this.panels.$element );
+
+		this.bookletLayout = new OO.ui.BookletLayout( { '$': this.$, 'outlined': true } );
+
+		this.fooBarPage = new OO.ui.PageLayout(
+			'fooBar',
+			{ '$': this.$ }
+		);
+
+		this.panels.addItems( [ this.bookletLayout ] );
+		this.bookletLayout.addPages( [
+			this.fooBarPage
+		] );
 	};
 
 	function openDialog( DialogClass, config, data ) {
@@ -60,12 +51,55 @@ $( function () {
 		dialog.open( data );
 	}
 
+	dialogs = [
+		{
+			'name': 'Simple dialog (small)',
+			'config': {
+				'size': 'small'
+			}
+		},
+		{
+			'name': 'Simple dialog (medium)',
+			'config': {
+				'size': 'medium'
+			}
+		},
+		{
+			'name': 'Simple dialog (large)',
+			'config': {
+				'size': 'large'
+			}
+		},
+		{
+			'name': 'Simple dialog (medium, footless)',
+			'config': {
+				'size': 'medium',
+				'footless': true
+			}
+		},
+		{
+			'name': 'Confirmation dialog',
+			'dialogClass': OO.ui.ConfirmationDialog,
+			'data': {
+				'prompt': 'Prompt text',
+				'okLabel': 'Custom ok text',
+				'cancelLabel': 'Custom cancel text'
+			}
+		},
+		{
+			'name': 'Grid dialog (medium)',
+			'dialogClass': GridDialog,
+			'config': {
+				'size': 'medium'
+			}
+		}
+	];
 	fieldset = new OO.ui.FieldsetLayout( { 'label': 'Dialogs' } );
 	for ( i = 0, l = dialogs.length; i < l; i++ ) {
 		openButton = new OO.ui.ButtonWidget( { 'label': 'Open' } );
 		openButton.on( 'click', OO.ui.bind(
 			openDialog, this,
-			dialogs[i].dialogClass || SampleDialog,
+			dialogs[i].dialogClass || SimpleDialog,
 			dialogs[i].config,
 			dialogs[i].data
 		) );
