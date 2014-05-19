@@ -63,15 +63,19 @@ OO.ui.FlaggableElement.prototype.clearFlags = function () {
 /**
  * Add one or more flags.
  *
- * @param {string[]|Object.<string, boolean>} flags List of flags to add, or list of set/remove
- *  values, keyed by flag name
+ * @param {string|string[]|Object.<string, boolean>} flags One or more flags to add, or an object
+ *  keyed by flag name containing boolean set/remove instructions.
  * @chainable
  */
 OO.ui.FlaggableElement.prototype.setFlags = function ( flags ) {
 	var i, len, flag,
 		classPrefix = 'oo-ui-flaggableElement-';
 
-	if ( $.isArray( flags ) ) {
+	if ( typeof flags === 'string' ) {
+		// Set
+		this.flags[flags] = true;
+		this.$element.addClass( classPrefix + flags );
+	} else if ( $.isArray( flags ) ) {
 		for ( i = 0, len = flags.length; i < len; i++ ) {
 			flag = flags[i];
 			// Set
