@@ -69,12 +69,12 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
 /*
  * Open a confirmation dialog.
  *
- * @param {object} [data] Window opening data including text of the dialog and text for the buttons
- * @param {jQuery|string} [data.prompt] The text of the dialog.
- * @param {jQuery|string|Function|null} [data.okLabel] The text used on the OK button
- * @param {jQuery|string|Function|null} [data.cancelLabel] The text used on the cancel button
- * @param {string[]} [data.okFlags] Flags for the OK button
- * @param {string[]} [data.cancelFlags] Flags for the cancel button
+ * @param {Object} [data] Window opening data including text of the dialog and text for the buttons
+ * @param {jQuery|string} [data.prompt] Text to display or list of nodes to use as content of the dialog.
+ * @param {jQuery|string|Function|null} [data.okLabel] Label of the OK button
+ * @param {jQuery|string|Function|null} [data.cancelLabel] Label of the cancel button
+ * @param {string|string[]} [data.okFlags="constructive"] Flags for the OK button
+ * @param {string|string[]} [data.cancelFlags="destructive"] Flags for the cancel button
  */
 OO.ui.ConfirmationDialog.prototype.setup = function ( data ) {
 	// Parent method
@@ -83,8 +83,8 @@ OO.ui.ConfirmationDialog.prototype.setup = function ( data ) {
 	var prompt = data.prompt || OO.ui.deferMsg( 'ooui-dialog-confirm-default-prompt' ),
 		okLabel = data.okLabel || OO.ui.deferMsg( 'ooui-dialog-confirm-default-ok' ),
 		cancelLabel = data.cancelLabel || OO.ui.deferMsg( 'ooui-dialog-confirm-default-cancel' ),
-		okFlags = data.okFlags || [ 'constructive'],
-		cancelFlags = data.cancelFlags || [ 'destructive' ];
+		okFlags = data.okFlags || 'constructive',
+		cancelFlags = data.cancelFlags || 'destructive';
 
 	if ( typeof prompt === 'string' ) {
 		this.$promptContainer.text( prompt );
