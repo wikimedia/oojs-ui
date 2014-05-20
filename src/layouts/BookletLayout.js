@@ -34,7 +34,8 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 		this.outlineWidget = new OO.ui.OutlineWidget( { '$': this.$ } );
 		this.outlinePanel = new OO.ui.PanelLayout( { '$': this.$, 'scrollable': true } );
 		this.gridLayout = new OO.ui.GridLayout(
-			[this.outlinePanel, this.stackLayout], { '$': this.$, 'widths': [1, 2] }
+			[ this.outlinePanel, this.stackLayout ],
+			{ '$': this.$, 'widths': [ 1, 2 ] }
 		);
 		this.outlineVisible = true;
 		if ( this.editable ) {

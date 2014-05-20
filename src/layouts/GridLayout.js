@@ -31,14 +31,14 @@ OO.ui.GridLayout = function OoUiGridLayout( panels, config ) {
 		this.$element.append( panels[i].$element );
 	}
 	if ( config.widths || config.heights ) {
-		this.layout( config.widths || [1], config.heights || [1] );
+		this.layout( config.widths || [ 1 ], config.heights || [ 1 ] );
 	} else {
 		// Arrange in columns by default
 		widths = [];
 		for ( i = 0, len = this.panels.length; i < len; i++ ) {
 			widths[i] = 1;
 		}
-		this.layout( widths, [1] );
+		this.layout( widths, [ 1 ] );
 	}
 };
 

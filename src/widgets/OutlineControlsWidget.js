@@ -48,9 +48,9 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 		'add': 'onOutlineChange',
 		'remove': 'onOutlineChange'
 	} );
-	this.upButton.connect( this, { 'click': ['emit', 'move', -1] } );
-	this.downButton.connect( this, { 'click': ['emit', 'move', 1] } );
-	this.removeButton.connect( this, { 'click': ['emit', 'remove'] } );
+	this.upButton.connect( this, { 'click': [ 'emit', 'move', -1 ] } );
+	this.downButton.connect( this, { 'click': [ 'emit', 'move', 1 ] } );
+	this.removeButton.connect( this, { 'click': [ 'emit', 'remove' ] } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-outlineControlsWidget' );

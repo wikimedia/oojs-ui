@@ -33,6 +33,7 @@
 	"requireBlocksOnNewline": 1,
 	"disallowEmptyBlocks": true,
 	"requireSpacesInsideObjectBrackets": "all",
+	"requireSpacesInsideArrayBrackets": "all",
 	"disallowDanglingUnderscores": true,
 	"disallowSpaceAfterObjectKeys": true,
 	"requireCommaBeforeLineBreak": true,
