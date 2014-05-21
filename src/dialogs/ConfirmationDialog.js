@@ -45,10 +45,10 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
 	this.$promptContainer = this.$( '<div>' ).addClass( 'oo-ui-dialog-confirm-promptContainer' );
 
 	this.cancelButton = new OO.ui.ButtonWidget();
-	this.cancelButton.connect( this, { 'click': [ 'emit', 'cancel' ] } );
+	this.cancelButton.connect( this, { 'click': [ 'emit', 'done', 'cancel' ] } );
 
 	this.okButton = new OO.ui.ButtonWidget();
-	this.okButton.connect( this, { 'click': [ 'emit', 'ok' ] } );
+	this.okButton.connect( this, { 'click': [ 'emit', 'done', 'ok' ] } );
 
 	// Make the buttons
 	contentLayout.$element.append( this.$promptContainer );
@@ -60,8 +60,7 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
 	);
 
 	this.connect( this, {
-		'ok': 'close',
-		'cancel': 'close',
+		'done': 'close',
 		'close': [ 'emit', 'cancel' ]
 	} );
 };
