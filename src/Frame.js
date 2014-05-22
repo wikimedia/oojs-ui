@@ -178,7 +178,7 @@ OO.ui.Frame.prototype.load = function () {
 	this.loading = true;
 
 	// Figure out directionality:
-	this.dir = this.$element.closest( '[dir]' ).prop( 'dir' ) || 'ltr';
+	this.dir = OO.ui.Element.getDir( this.$element ) || 'ltr';
 
 	// Initialize contents
 	doc.open();
