@@ -47,6 +47,8 @@
 
 .oo-ui-buttonedElement-framed {
 	.oo-ui-buttonedElement-button {
+		margin: 0.1em 0;
+		padding: 0.2em 0.8em;
 		border-radius: 0.3em;
 		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 		border: 1px #c9c9c9 solid;
@@ -64,6 +66,18 @@
 			color: black;
 			border-color: #c9c9c9;
 			.oo-ui-vertical-gradient(#ddd, #fff);
+		}
+	}
+
+	&.oo-ui-iconedElement {
+		.oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
+			margin-left: -0.5em;
+			margin-right: -0.5em;
+		}
+
+		&.oo-ui-labeledElement .oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
+			margin-left: -0.5em;
+			margin-right: 0.3em;
 		}
 	}
 

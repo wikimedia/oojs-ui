@@ -153,11 +153,13 @@
 			"src/themes/agora/Dialog.less",
 			"src/themes/agora/Window.less",
 			"src/themes/agora/elements/ButtonedElement.less",
+			"src/themes/agora/layouts/BookletLayout.less",
 			"src/themes/agora/widgets/OptionWidget.less",
 			"src/themes/agora/widgets/ButtonOptionWidget.less",
 			"src/themes/agora/widgets/MenuItemWidget.less",
 			"src/themes/agora/widgets/MenuSectionItemWidget.less",
-			"src/themes/agora/widgets/TextInputWidget.less"
+			"src/themes/agora/widgets/TextInputWidget.less",
+			"src/themes/agora/Icons.less"
 		]
 	}
 }

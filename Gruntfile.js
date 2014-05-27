@@ -68,6 +68,11 @@ module.exports = function ( grunt ) {
 				strip: 'src/styles/images',
 				dest: 'dist/images'
 			},
+			imagesAgora: {
+				src: 'src/themes/agora/images/**/*.*',
+				strip: 'src/themes/agora/images',
+				dest: 'dist/themes/agora/images'
+			},
 			i18n: {
 				src: 'i18n/*.json',
 				dest: 'dist'
