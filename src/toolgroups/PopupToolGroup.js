@@ -13,6 +13,7 @@
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
+ * @cfg {string} [header] Text to display at the top of the pop-up
  */
 OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Configuration initialization
@@ -44,6 +45,16 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	this.$handle
 		.addClass( 'oo-ui-popupToolGroup-handle' )
 		.append( this.$icon, this.$label, this.$indicator );
+	// If the pop-up should have a header, add it to the top of the toolGroup.
+	// Note: If this feature is useful for other widgets, we could abstract it into an
+	// OO.ui.HeaderedElement mixin constructor.
+	if ( config.header !== undefined ) {
+		this.$group
+			.prepend( this.$( '<span>' )
+				.addClass( 'oo-ui-popupToolGroup-header' )
+				.text( config.header )
+			);
+	}
 	this.$element
 		.addClass( 'oo-ui-popupToolGroup' )
 		.prepend( this.$handle );
