@@ -36,6 +36,21 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 	}
 };
 
+/* Setup */
+
+OO.initClass( OO.ui.ButtonedElement );
+
+/* Static Properties */
+
+/**
+ * Cancel mouse down events.
+ *
+ * @static
+ * @inheritable
+ * @property {boolean}
+ */
+OO.ui.ButtonedElement.static.cancelButtonMouseDownEvents = true;
+
 /* Methods */
 
 /**
@@ -47,16 +62,20 @@ OO.ui.ButtonedElement.prototype.onMouseDown = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
 		return false;
 	}
-	// tabIndex should generally be interacted with via the property,
-	// but it's not possible to reliably unset a tabIndex via a property
-	// so we use the (lowercase) "tabindex" attribute instead.
+	// tabIndex should generally be interacted with via the property, but it's not possible to
+	// reliably unset a tabIndex via a property so we use the (lowercase) "tabindex" attribute
 	this.tabIndex = this.$button.attr( 'tabindex' );
-	// Remove the tab-index while the button is down to prevent the button from stealing focus
 	this.$button
+		// Remove the tab-index while the button is down to prevent the button from stealing focus
 		.removeAttr( 'tabindex' )
 		.addClass( 'oo-ui-buttonedElement-pressed' );
+	// Run the mouseup handler no matter where the mouse is when the button is let go, so we can
+	// reliably reapply the tabindex and remove the pressed class
 	this.getElementDocument().addEventListener( 'mouseup', this.onMouseUpHandler, true );
-	return false;
+	// Prevent change of focus unless specifically configured otherwise
+	if ( this.constructor.static.cancelButtonMouseDownEvents ) {
+		return false;
+	}
 };
 
 /**
@@ -68,10 +87,11 @@ OO.ui.ButtonedElement.prototype.onMouseUp = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
 		return false;
 	}
-	// Restore the tab-index after the button is up to restore the button's accesssibility
 	this.$button
+		// Restore the tab-index after the button is up to restore the button's accesssibility
 		.attr( 'tabindex', this.tabIndex )
 		.removeClass( 'oo-ui-buttonedElement-pressed' );
+	// Stop listening for mouseup, since we only needed this once
 	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
 };
 

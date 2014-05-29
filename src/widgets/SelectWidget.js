@@ -25,12 +25,12 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	this.pressed = false;
 	this.selecting = null;
 	this.hashes = {};
+	this.onMouseUpHandler = OO.ui.bind( this.onMouseUp, this );
+	this.onMouseMoveHandler = OO.ui.bind( this.onMouseMove, this );
 
 	// Events
 	this.$element.on( {
 		'mousedown': OO.ui.bind( this.onMouseDown, this ),
-		'mouseup': OO.ui.bind( this.onMouseUp, this ),
-		'mousemove': OO.ui.bind( this.onMouseMove, this ),
 		'mouseover': OO.ui.bind( this.onMouseOver, this ),
 		'mouseleave': OO.ui.bind( this.onMouseLeave, this )
 	} );
@@ -104,7 +104,12 @@ OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
 		if ( item && item.isSelectable() ) {
 			this.pressItem( item );
 			this.selecting = item;
-			this.$( this.$.context ).one( 'mouseup', OO.ui.bind( this.onMouseUp, this ) );
+			this.getElementDocument().addEventListener(
+				'mouseup', this.onMouseUpHandler, true
+			);
+			this.getElementDocument().addEventListener(
+				'mousemove', this.onMouseMoveHandler, true
+			);
 		}
 	}
 	return false;
@@ -131,6 +136,13 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 		this.chooseItem( this.selecting );
 		this.selecting = null;
 	}
+
+	this.getElementDocument().removeEventListener(
+		'mouseup', this.onMouseUpHandler, true
+	);
+	this.getElementDocument().removeEventListener(
+		'mousemove', this.onMouseMoveHandler, true
+	);
 
 	return false;
 };

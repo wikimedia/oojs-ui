@@ -32,6 +32,11 @@ OO.inheritClass( OO.ui.ButtonOptionWidget, OO.ui.OptionWidget );
 OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.ButtonedElement );
 OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.FlaggableElement );
 
+/* Static Properties */
+
+// Allow button mouse down events to pass through so they can be handled by the parent select widget
+OO.ui.ButtonOptionWidget.static.cancelButtonMouseDownEvents = false;
+
 /* Methods */
 
 /**
