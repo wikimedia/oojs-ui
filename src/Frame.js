@@ -16,8 +16,7 @@ OO.ui.Frame = function OoUiFrame( config ) {
 	OO.EventEmitter.call( this );
 
 	// Properties
-	this.loading = false;
-	this.loaded = false;
+	this.loading = null;
 	this.config = config;
 
 	// Initialize
@@ -53,10 +52,10 @@ OO.ui.Frame.static.tagName = 'iframe';
  *
  * This loops over the style sheets in the parent document, and copies their nodes to the
  * frame's document. It then polls the document to see when all styles have loaded, and once they
- * have, invokes the callback.
+ * have, resolves the promise.
  *
  * If the styles still haven't loaded after a long time (5 seconds by default), we give up waiting
- * and invoke the callback anyway. This protects against cases like a display: none; iframe in
+ * and resolve the promise anyway. This protects against cases like a display: none; iframe in
  * Firefox, where the styles won't load until the iframe becomes visible.
  *
  * For details of how we arrived at the strategy used in this function, see #load.
@@ -65,18 +64,19 @@ OO.ui.Frame.static.tagName = 'iframe';
  * @inheritable
  * @param {HTMLDocument} parentDoc Document to transplant styles from
  * @param {HTMLDocument} frameDoc Document to transplant styles to
- * @param {Function} [callback] Callback to execute once styles have loaded
  * @param {number} [timeout=5000] How long to wait before giving up (in ms). If 0, never give up.
+ * @return {jQuery.Promise} Promise resolved when styles have loaded
  */
-OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, callback, timeout ) {
+OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, timeout ) {
 	var i, numSheets, styleNode, newNode, timeoutID, pollNodeId, $pendingPollNodes,
 		$pollNodes = $( [] ),
 		// Fake font-family value
-		fontFamily = 'oo-ui-frame-transplantStyles-loaded';
+		fontFamily = 'oo-ui-frame-transplantStyles-loaded',
+		deferred = $.Deferred();
 
 	for ( i = 0, numSheets = parentDoc.styleSheets.length; i < numSheets; i++ ) {
 		styleNode = parentDoc.styleSheets[i].ownerNode;
-		if ( callback && styleNode.nodeName.toLowerCase() === 'link' ) {
+		if ( styleNode.nodeName.toLowerCase() === 'link' ) {
 			// External stylesheet
 			// Create a node with a unique ID that we're going to monitor to see when the CSS
 			// has loaded
@@ -98,40 +98,40 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, callback, 
 		frameDoc.head.appendChild( newNode );
 	}
 
-	if ( callback ) {
-		// Poll every 100ms until all external stylesheets have loaded
-		$pendingPollNodes = $pollNodes;
-		timeoutID = setTimeout( function pollExternalStylesheets() {
-			while (
-				$pendingPollNodes.length > 0 &&
-				$pendingPollNodes.eq( 0 ).css( 'font-family' ) === fontFamily
-			) {
-				$pendingPollNodes = $pendingPollNodes.slice( 1 );
-			}
-
-			if ( $pendingPollNodes.length === 0 ) {
-				// We're done!
-				if ( timeoutID !== null ) {
-					timeoutID = null;
-					$pollNodes.remove();
-					callback();
-				}
-			} else {
-				timeoutID = setTimeout( pollExternalStylesheets, 100 );
-			}
-		}, 100 );
-		// ...but give up after a while
-		if ( timeout !== 0 ) {
-			setTimeout( function () {
-				if ( timeoutID ) {
-					clearTimeout( timeoutID );
-					timeoutID = null;
-					$pollNodes.remove();
-					callback();
-				}
-			}, timeout || 5000 );
+	// Poll every 100ms until all external stylesheets have loaded
+	$pendingPollNodes = $pollNodes;
+	timeoutID = setTimeout( function pollExternalStylesheets() {
+		while (
+			$pendingPollNodes.length > 0 &&
+			$pendingPollNodes.eq( 0 ).css( 'font-family' ) === fontFamily
+		) {
+			$pendingPollNodes = $pendingPollNodes.slice( 1 );
 		}
+
+		if ( $pendingPollNodes.length === 0 ) {
+			// We're done!
+			if ( timeoutID !== null ) {
+				timeoutID = null;
+				$pollNodes.remove();
+				deferred.resolve();
+			}
+		} else {
+			timeoutID = setTimeout( pollExternalStylesheets, 100 );
+		}
+	}, 100 );
+	// ...but give up after a while
+	if ( timeout !== 0 ) {
+		setTimeout( function () {
+			if ( timeoutID ) {
+				clearTimeout( timeoutID );
+				timeoutID = null;
+				$pollNodes.remove();
+				deferred.reject();
+			}
+		}, timeout || 5000 );
 	}
+
+	return deferred.promise();
 };
 
 /* Methods */
@@ -139,7 +139,10 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, callback, 
 /**
  * Load the frame contents.
  *
- * Once the iframe's stylesheets are loaded, the `initialize` event will be emitted.
+ * Once the iframe's stylesheets are loaded, the `load` event will be emitted and the returned
+ * promise will be resolved. Calling while loading will return a promise but not trigger a new
+ * loading cycle. Calling after loading is complete will return a promise that's already been
+ * resolved.
  *
  * Sounds simple right? Read on...
  *
@@ -167,15 +170,22 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, callback, 
  *
  * All this stylesheet injection and polling magic is in #transplantStyles.
  *
- * @private
+ * @return {jQuery.Promise} Promise resolved when loading is complete
  * @fires load
  */
 OO.ui.Frame.prototype.load = function () {
-	var win = this.$element.prop( 'contentWindow' ),
-		doc = win.document,
-		frame = this;
+	var win, doc;
 
-	this.loading = true;
+	// Return existing promise if already loading or loaded
+	if ( this.loading ) {
+		return this.loading.promise();
+	}
+
+	// Load the frame
+	this.loading = $.Deferred();
+
+	win = this.$element.prop( 'contentWindow' );
+	doc = win.document;
 
 	// Figure out directionality:
 	this.dir = OO.ui.Element.getDir( this.$element ) || 'ltr';
@@ -197,37 +207,14 @@ OO.ui.Frame.prototype.load = function () {
 	this.$content = this.$( '.oo-ui-frame-content' ).attr( 'tabIndex', 0 );
 	this.$document = this.$( doc );
 
-	this.constructor.static.transplantStyles(
-		this.getElementDocument(),
-		this.$document[0],
-		function () {
-			frame.loading = false;
-			frame.loaded = true;
-			frame.emit( 'load' );
-		}
-	);
-};
+	// Initialization
+	this.constructor.static.transplantStyles( this.getElementDocument(), this.$document[0] )
+		.always( OO.ui.bind( function () {
+			this.emit( 'load' );
+			this.loading.resolve();
+		}, this ) );
 
-/**
- * Run a callback as soon as the frame has been loaded.
- *
- *
- * This will start loading if it hasn't already, and runs
- * immediately if the frame is already loaded.
- *
- * Don't call this until the element is attached.
- *
- * @param {Function} callback
- */
-OO.ui.Frame.prototype.run = function ( callback ) {
-	if ( this.loaded ) {
-		callback();
-	} else {
-		if ( !this.loading ) {
-			this.load();
-		}
-		this.once( 'load', callback );
-	}
+	return this.loading.promise();
 };
 
 /**

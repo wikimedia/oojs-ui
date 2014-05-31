@@ -36,8 +36,7 @@ OO.ui.GroupWidget.prototype.setDisabled = function ( disabled ) {
 	var i, len;
 
 	// Parent method
-	// Note this is calling OO.ui.Widget; we're assuming the class this is mixed into
-	// is a subclass of OO.ui.Widget.
+	// Note: Calling #setDisabled this way assumes this is mixed into an OO.ui.Widget
 	OO.ui.Widget.prototype.setDisabled.call( this, disabled );
 
 	// During construction, #setDisabled is called before the OO.ui.GroupElement constructor

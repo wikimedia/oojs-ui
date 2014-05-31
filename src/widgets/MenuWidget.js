@@ -174,7 +174,7 @@ OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
 	var i, len, item;
 
 	// Parent method
-	OO.ui.SelectWidget.prototype.addItems.call( this, items, index );
+	OO.ui.MenuWidget.super.prototype.addItems.call( this, items, index );
 
 	// Auto-initialize
 	if ( !this.newItems ) {

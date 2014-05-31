@@ -25,8 +25,9 @@ OO.ui.Window = function OoUiWindow( config ) {
 
 	// Properties
 	this.visible = false;
-	this.opening = false;
-	this.closing = false;
+	this.opening = null;
+	this.closing = null;
+	this.opened = null;
 	this.title = OO.ui.resolveMsg( config.title || this.constructor.static.title );
 	this.icon = config.icon || this.constructor.static.icon;
 	this.frame = new OO.ui.Frame( { '$': this.$ } );
@@ -63,14 +64,6 @@ OO.inheritClass( OO.ui.Window, OO.ui.Element );
 OO.mixinClass( OO.ui.Window, OO.EventEmitter );
 
 /* Events */
-
-/**
- * Initialize contents.
- *
- * Fired asynchronously after construction when iframe is ready.
- *
- * @event initialize
- */
 
 /**
  * Open window.
@@ -131,7 +124,7 @@ OO.ui.Window.prototype.isVisible = function () {
  * @return {boolean} Window is opening
  */
 OO.ui.Window.prototype.isOpening = function () {
-	return this.opening;
+	return !!this.opening && !this.opening.isResolved();
 };
 
 /**
@@ -140,7 +133,16 @@ OO.ui.Window.prototype.isOpening = function () {
  * @return {boolean} Window is closing
  */
 OO.ui.Window.prototype.isClosing = function () {
-	return this.closing;
+	return !!this.closing && !this.closing.isResolved();
+};
+
+/**
+ * Check if window is opened.
+ *
+ * @return {boolean} Window is opened
+ */
+OO.ui.Window.prototype.isOpened = function () {
+	return !!this.opened && !this.opened.isResolved();
 };
 
 /**
@@ -276,7 +278,6 @@ OO.ui.Window.prototype.fitWidthToContents = function ( min, max ) {
  *
  * Once this method is called, this.$$ can be used to create elements within the frame.
  *
- * @fires initialize
  * @chainable
  */
 OO.ui.Window.prototype.initialize = function () {
@@ -303,91 +304,135 @@ OO.ui.Window.prototype.initialize = function () {
 };
 
 /**
- * Setup window for use.
+ * Get a process for setting up a window for use.
  *
- * Each time the window is opened, once it's ready to be interacted with, this will set it up for
- * use in a particular context, based on the `data` argument.
+ * Each time the window is opened this process will set it up for use in a particular context, based
+ * on the `data` argument.
  *
- * When you override this method, you must call the parent method at the very beginning.
+ * When you override this method, you can add additional setup steps to the process the parent
+ * method provides using the 'first' and 'next' methods.
  *
  * @abstract
  * @param {Object} [data] Window opening data
+ * @return {OO.ui.Process} Setup process
  */
-OO.ui.Window.prototype.setup = function () {
-	// Override to do something
+OO.ui.Window.prototype.getSetupProcess = function () {
+	return new OO.ui.Process();
 };
 
 /**
- * Tear down window after use.
+ * Get a process for readying a window for use.
  *
- * Each time the window is closed, and it's done being interacted with, this will tear it down and
- * do something with the user's interactions within the window, based on the `data` argument.
+ * Each time the window is open and setup, this process will ready it up for use in a particular
+ * context, based on the `data` argument.
  *
- * When you override this method, you must call the parent method at the very end.
+ * When you override this method, you can add additional setup steps to the process the parent
+ * method provides using the 'first' and 'next' methods.
+ *
+ * @abstract
+ * @param {Object} [data] Window opening data
+ * @return {OO.ui.Process} Setup process
+ */
+OO.ui.Window.prototype.getReadyProcess = function () {
+	return new OO.ui.Process();
+};
+
+/**
+ * Get a process for tearing down a window after use.
+ *
+ * Each time the window is closed this process will tear it down and do something with the user's
+ * interactions within the window, based on the `data` argument.
+ *
+ * When you override this method, you can add additional teardown steps to the process the parent
+ * method provides using the 'first' and 'next' methods.
  *
  * @abstract
  * @param {Object} [data] Window closing data
+ * @return {OO.ui.Process} Teardown process
  */
-OO.ui.Window.prototype.teardown = function () {
-	// Override to do something
+OO.ui.Window.prototype.getTeardownProcess = function () {
+	return new OO.ui.Process();
 };
 
 /**
  * Open window.
  *
- * Do not override this method. See #setup for a way to make changes each time the window opens.
+ * Do not override this method. Use #geSetupProcess to do something each time the window closes.
  *
  * @param {Object} [data] Window opening data
+ * @fires initialize
  * @fires opening
  * @fires open
  * @fires ready
- * @chainable
+ * @return {jQuery.Promise} Promise resolved when window is opened; when the promise is resolved the
+ *   first argument will be a promise which will be resolved when the window begins closing
  */
 OO.ui.Window.prototype.open = function ( data ) {
-	if ( !this.opening && !this.closing && !this.visible ) {
-		this.opening = true;
-		this.frame.run( OO.ui.bind( function () {
-			this.$element.show();
-			this.visible = true;
-			this.emit( 'opening', data );
-			this.setup( data );
+	// Return existing promise if already opening or open
+	if ( this.opening ) {
+		return this.opening.promise();
+	}
+
+	// Open the window
+	this.opening = $.Deferred();
+	this.frame.load().done( OO.ui.bind( function () {
+		this.$element.show();
+		this.visible = true;
+		this.emit( 'opening', data );
+		this.getSetupProcess( data ).execute().done( OO.ui.bind( function () {
 			this.emit( 'open', data );
 			setTimeout( OO.ui.bind( function () {
 				// Focus the content div (which has a tabIndex) to inactivate
 				// (but not clear) selections in the parent frame.
 				// Must happen after 'open' is emitted (to ensure it is visible)
-				// but before 'ready' is emitted (so subclasses can give focus to something else)
+				// but before 'ready' is emitted (so subclasses can give focus to something
+				// else)
 				this.frame.$content.focus();
-				this.emit( 'ready', data );
-				this.opening = false;
+				this.getReadyProcess( data ).execute().done( OO.ui.bind( function () {
+					this.emit( 'ready', data );
+					this.opened = $.Deferred();
+					this.opening.resolve( this.opened.promise() );
+					// Now that we are totally done opening, it's safe to allow closing
+					this.closing = null;
+				}, this ) );
 			}, this ) );
 		}, this ) );
-	}
+	}, this ) );
 
-	return this;
+	return this.opening.promise();
 };
 
 /**
  * Close window.
  *
- * See #teardown for a way to do something each time the window closes.
+ * Do not override this method. Use #getTeardownProcess to do something each time the window closes.
  *
  * @param {Object} [data] Window closing data
  * @fires closing
  * @fires close
- * @chainable
+ * @return {jQuery.Promise} Promise resolved when window is closed
  */
 OO.ui.Window.prototype.close = function ( data ) {
-	if ( !this.opening && !this.closing && this.visible ) {
-		this.frame.$content.find( ':focus' ).blur();
-		this.closing = true;
-		this.$element.hide();
-		this.visible = false;
-		this.emit( 'closing', data );
-		this.teardown( data );
-		this.emit( 'close', data );
-		this.closing = false;
+	// Return existing promise if already closing or closed
+	if ( this.closing ) {
+		return this.closing.promise();
 	}
 
-	return this;
+	// Close the window
+	this.opened.resolve();
+	// This.closing needs to exist before we emit the closing event so that handlers can call
+	// window.close() and trigger the safety check above
+	this.closing = $.Deferred();
+	this.frame.$content.find( ':focus' ).blur();
+	this.emit( 'closing', data );
+	this.getTeardownProcess( data ).execute().done( OO.ui.bind( function () {
+		this.emit( 'close', data );
+		this.$element.hide();
+		this.visible = false;
+		this.closing.resolve();
+		// Now that we are totally done closing, it's safe to allow opening
+		this.opening = null;
+	}, this ) );
+
+	return this.closing.promise();
 };

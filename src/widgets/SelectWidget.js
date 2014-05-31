@@ -447,7 +447,8 @@ OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
 		this.removeItems( remove );
 	}
 
-	OO.ui.GroupElement.prototype.addItems.call( this, items, index );
+	// Mixin method
+	OO.ui.GroupWidget.prototype.addItems.call( this, items, index );
 
 	// Always provide an index, even if it was omitted
 	this.emit( 'add', items, index === undefined ? this.items.length - items.length - 1 : index );
@@ -478,7 +479,9 @@ OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
 			this.selectItem( null );
 		}
 	}
-	OO.ui.GroupElement.prototype.removeItems.call( this, items );
+
+	// Mixin method
+	OO.ui.GroupWidget.prototype.removeItems.call( this, items );
 
 	this.emit( 'remove', items );
 
@@ -498,7 +501,8 @@ OO.ui.SelectWidget.prototype.clearItems = function () {
 
 	// Clear all items
 	this.hashes = {};
-	OO.ui.GroupElement.prototype.clearItems.call( this );
+	// Mixin method
+	OO.ui.GroupWidget.prototype.clearItems.call( this );
 	this.selectItem( null );
 
 	this.emit( 'remove', items );

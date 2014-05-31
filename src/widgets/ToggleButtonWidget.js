@@ -39,7 +39,7 @@ OO.ui.ToggleButtonWidget.prototype.onClick = function () {
 	}
 
 	// Parent method
-	return OO.ui.ButtonWidget.prototype.onClick.call( this );
+	return OO.ui.ToggleButtonWidget.super.prototype.onClick.call( this );
 };
 
 /**
@@ -52,7 +52,7 @@ OO.ui.ToggleButtonWidget.prototype.setValue = function ( value ) {
 	}
 
 	// Parent method
-	OO.ui.ToggleWidget.prototype.setValue.call( this, value );
+	OO.ui.ToggleButtonWidget.super.prototype.setValue.call( this, value );
 
 	return this;
 };

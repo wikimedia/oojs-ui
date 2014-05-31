@@ -10,6 +10,7 @@
 			"src/Dialog.js",
 			"src/Layout.js",
 			"src/Widget.js",
+			"src/Process.js",
 			"src/dialogs/ConfirmationDialog.js",
 			"src/elements/ButtonedElement.js",
 			"src/elements/ClippableElement.js",

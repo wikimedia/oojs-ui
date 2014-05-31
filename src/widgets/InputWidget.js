@@ -177,7 +177,7 @@ OO.ui.InputWidget.prototype.setReadOnly = function ( state ) {
  * @inheritdoc
  */
 OO.ui.InputWidget.prototype.setDisabled = function ( state ) {
-	OO.ui.Widget.prototype.setDisabled.call( this, state );
+	OO.ui.InputWidget.super.prototype.setDisabled.call( this, state );
 	if ( this.$input ) {
 		this.$input.prop( 'disabled', this.isDisabled() );
 	}

@@ -85,6 +85,7 @@ OO.ui.StackLayout.prototype.unsetCurrentItem = function () {
  * @chainable
  */
 OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
+	// Mixin method
 	OO.ui.GroupElement.prototype.addItems.call( this, items, index );
 
 	if ( !this.currentItem && items.length ) {
@@ -104,6 +105,7 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
  * @fires set
  */
 OO.ui.StackLayout.prototype.removeItems = function ( items ) {
+	// Mixin method
 	OO.ui.GroupElement.prototype.removeItems.call( this, items );
 
 	if ( $.inArray( this.currentItem, items  ) !== -1 ) {
