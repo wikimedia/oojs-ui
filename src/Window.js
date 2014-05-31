@@ -357,7 +357,7 @@ OO.ui.Window.prototype.getTeardownProcess = function () {
 /**
  * Open window.
  *
- * Do not override this method. Use #geSetupProcess to do something each time the window closes.
+ * Do not override this method. Use #getSetupProcess to do something each time the window closes.
  *
  * @param {Object} [data] Window opening data
  * @fires initialize
