@@ -124,7 +124,7 @@ OO.ui.Window.prototype.isVisible = function () {
  * @return {boolean} Window is opening
  */
 OO.ui.Window.prototype.isOpening = function () {
-	return !!this.opening && !this.opening.isResolved();
+	return !!this.opening && this.opening.state() !== 'resolved';
 };
 
 /**
@@ -133,7 +133,7 @@ OO.ui.Window.prototype.isOpening = function () {
  * @return {boolean} Window is closing
  */
 OO.ui.Window.prototype.isClosing = function () {
-	return !!this.closing && !this.closing.isResolved();
+	return !!this.closing && this.closing.state() !== 'resolved';
 };
 
 /**
@@ -142,7 +142,7 @@ OO.ui.Window.prototype.isClosing = function () {
  * @return {boolean} Window is opened
  */
 OO.ui.Window.prototype.isOpened = function () {
-	return !!this.opened && !this.opened.isResolved();
+	return !!this.opened && this.opened.state() !== 'resolved';
 };
 
 /**
@@ -426,7 +426,7 @@ OO.ui.Window.prototype.close = function ( data ) {
 	this.emit( 'closing', data );
 	this.getTeardownProcess( data ).execute().done( OO.ui.bind( function () {
 		// To do something different with #opened, resolve/reject #opened in the teardown process
-		if ( !this.opened.isResolved() && !this.opened.isRejected() ) {
+		if ( this.opened.state() === 'pending' ) {
 			this.opened.resolve();
 		}
 		this.emit( 'close', data );
