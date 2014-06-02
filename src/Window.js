@@ -419,13 +419,16 @@ OO.ui.Window.prototype.close = function ( data ) {
 	}
 
 	// Close the window
-	this.opened.resolve();
 	// This.closing needs to exist before we emit the closing event so that handlers can call
 	// window.close() and trigger the safety check above
 	this.closing = $.Deferred();
 	this.frame.$content.find( ':focus' ).blur();
 	this.emit( 'closing', data );
 	this.getTeardownProcess( data ).execute().done( OO.ui.bind( function () {
+		// To do something different with #opened, resolve/reject #opened in the teardown process
+		if ( !this.opened.isResolved() && !this.opened.isRejected() ) {
+			this.opened.resolve();
+		}
 		this.emit( 'close', data );
 		this.$element.hide();
 		this.visible = false;
