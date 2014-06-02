@@ -51,8 +51,8 @@ OO.ui.ToggleButtonWidget.prototype.setValue = function ( value ) {
 		this.setActive( value );
 	}
 
-	// Parent method
-	OO.ui.ToggleButtonWidget.super.prototype.setValue.call( this, value );
+	// Parent method (from mixin)
+	OO.ui.ToggleWidget.prototype.setValue.call( this, value );
 
 	return this;
 };
