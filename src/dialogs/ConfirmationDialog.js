@@ -45,10 +45,10 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
 	this.$promptContainer = this.$( '<div>' ).addClass( 'oo-ui-dialog-confirm-promptContainer' );
 
 	this.cancelButton = new OO.ui.ButtonWidget();
-	this.cancelButton.connect( this, { 'click': [ 'emit', 'done', 'cancel' ] } );
+	this.cancelButton.connect( this, { 'click': [ 'close', 'cancel' ] } );
 
 	this.okButton = new OO.ui.ButtonWidget();
-	this.okButton.connect( this, { 'click': [ 'emit', 'done', 'ok' ] } );
+	this.okButton.connect( this, { 'click': [ 'close', 'ok' ] } );
 
 	// Make the buttons
 	contentLayout.$element.append( this.$promptContainer );
@@ -59,14 +59,11 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
 		this.cancelButton.$element
 	);
 
-	this.connect( this, {
-		'done': 'close',
-		'close': [ 'emit', 'cancel' ]
-	} );
+	this.connect( this, { 'close': [ 'close', 'cancel' ] } );
 };
 
 /*
- * Open a confirmation dialog.
+ * Setup a confirmation dialog.
  *
  * @param {Object} [data] Window opening data including text of the dialog and text for the buttons
  * @param {jQuery|string} [data.prompt] Text to display or list of nodes to use as content of the dialog.
@@ -74,23 +71,40 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
  * @param {jQuery|string|Function|null} [data.cancelLabel] Label of the cancel button
  * @param {string|string[]} [data.okFlags="constructive"] Flags for the OK button
  * @param {string|string[]} [data.cancelFlags="destructive"] Flags for the cancel button
+ * @return {OO.ui.Process} Setup process
  */
-OO.ui.ConfirmationDialog.prototype.setup = function ( data ) {
+OO.ui.ConfirmationDialog.prototype.getSetupProcess = function ( data ) {
 	// Parent method
-	OO.ui.Dialog.prototype.setup.call( this, data );
+	return OO.ui.ConfirmationDialog.super.prototype.getSetupProcess.call( this, data )
+		.next( function () {
+			var prompt = data.prompt || OO.ui.deferMsg( 'ooui-dialog-confirm-default-prompt' ),
+				okLabel = data.okLabel || OO.ui.deferMsg( 'ooui-dialog-confirm-default-ok' ),
+				cancelLabel = data.cancelLabel || OO.ui.deferMsg( 'ooui-dialog-confirm-default-cancel' ),
+				okFlags = data.okFlags || 'constructive',
+				cancelFlags = data.cancelFlags || 'destructive';
 
-	var prompt = data.prompt || OO.ui.deferMsg( 'ooui-dialog-confirm-default-prompt' ),
-		okLabel = data.okLabel || OO.ui.deferMsg( 'ooui-dialog-confirm-default-ok' ),
-		cancelLabel = data.cancelLabel || OO.ui.deferMsg( 'ooui-dialog-confirm-default-cancel' ),
-		okFlags = data.okFlags || 'constructive',
-		cancelFlags = data.cancelFlags || 'destructive';
+			if ( typeof prompt === 'string' ) {
+				this.$promptContainer.text( prompt );
+			} else {
+				this.$promptContainer.empty().append( prompt );
+			}
 
-	if ( typeof prompt === 'string' ) {
-		this.$promptContainer.text( prompt );
-	} else {
-		this.$promptContainer.empty().append( prompt );
-	}
+			this.okButton.setLabel( okLabel ).clearFlags().setFlags( okFlags );
+			this.cancelButton.setLabel( cancelLabel ).clearFlags().setFlags( cancelFlags );
+		}, this );
+};
 
-	this.okButton.setLabel( okLabel ).clearFlags().setFlags( okFlags );
-	this.cancelButton.setLabel( cancelLabel ).clearFlags().setFlags( cancelFlags );
+/**
+ * @inheritdoc
+ */
+OO.ui.ConfirmationDialog.prototype.getTeardownProcess = function ( data ) {
+	// Parent method
+	return OO.ui.ConfirmationDialog.super.prototype.getTeardownProcess.call( this, data )
+		.first( function () {
+			if ( data === 'ok' ) {
+				this.opened.resolve();
+			} else if ( data === 'cancel' ) {
+				this.opened.reject();
+			}
+		}, this );
 };
