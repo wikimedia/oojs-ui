@@ -45,7 +45,9 @@ OO.ui.ButtonOptionWidget.static.cancelButtonMouseDownEvents = false;
 OO.ui.ButtonOptionWidget.prototype.setSelected = function ( state ) {
 	OO.ui.ButtonOptionWidget.super.prototype.setSelected.call( this, state );
 
-	this.setActive( state );
+	if ( this.constructor.static.selectable ) {
+		this.setActive( state );
+	}
 
 	return this;
 };

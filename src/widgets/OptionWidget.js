@@ -130,7 +130,7 @@ OO.ui.OptionWidget.prototype.isPressed = function () {
  * @chainable
  */
 OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
-	if ( !this.isDisabled() && this.constructor.static.selectable ) {
+	if ( this.constructor.static.selectable ) {
 		this.selected = !!state;
 		if ( this.selected ) {
 			this.$element.addClass( 'oo-ui-optionWidget-selected' );
@@ -151,7 +151,7 @@ OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
  * @chainable
  */
 OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
-	if ( !this.isDisabled() && this.constructor.static.highlightable ) {
+	if ( this.constructor.static.highlightable ) {
 		this.highlighted = !!state;
 		if ( this.highlighted ) {
 			this.$element.addClass( 'oo-ui-optionWidget-highlighted' );
@@ -169,7 +169,7 @@ OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
  * @chainable
  */
 OO.ui.OptionWidget.prototype.setPressed = function ( state ) {
-	if ( !this.isDisabled() && this.constructor.static.pressable ) {
+	if ( this.constructor.static.pressable ) {
 		this.pressed = !!state;
 		if ( this.pressed ) {
 			this.$element.addClass( 'oo-ui-optionWidget-pressed' );
