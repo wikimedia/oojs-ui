@@ -15,7 +15,6 @@ OO.ui.GroupElement = function OoUiGroupElement( $group, config ) {
 	// Properties
 	this.$group = $group;
 	this.items = [];
-	this.$items = this.$( [] );
 	this.aggregateItemEvents = {};
 };
 
@@ -92,7 +91,7 @@ OO.ui.GroupElement.prototype.aggregate = function ( events ) {
  */
 OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 	var i, len, item, event, events, currentIndex,
-		$items = this.$( [] );
+		itemElements = [];
 
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[i];
@@ -115,21 +114,19 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 			item.connect( this, events );
 		}
 		item.setElementGroup( this );
-		$items = $items.add( item.$element );
+		itemElements.push( item.$element.get( 0 ) );
 	}
 
 	if ( index === undefined || index < 0 || index >= this.items.length ) {
-		this.$group.append( $items );
+		this.$group.append( itemElements );
 		this.items.push.apply( this.items, items );
 	} else if ( index === 0 ) {
-		this.$group.prepend( $items );
+		this.$group.prepend( itemElements );
 		this.items.unshift.apply( this.items, items );
 	} else {
-		this.$items.eq( index ).before( $items );
+		this.items[index].$element.before( itemElements );
 		this.items.splice.apply( this.items, [ index, 0 ].concat( items ) );
 	}
-
-	this.$items = this.$items.add( $items );
 
 	return this;
 };
@@ -163,7 +160,6 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
 			item.setElementGroup( null );
 			this.items.splice( index, 1 );
 			item.$element.detach();
-			this.$items = this.$items.not( item.$element );
 		}
 	}
 
@@ -194,10 +190,8 @@ OO.ui.GroupElement.prototype.clearItems = function () {
 			item.disconnect( this, remove );
 		}
 		item.setElementGroup( null );
+		item.$element.detach();
 	}
-	this.items = [];
-	this.$items.detach();
-	this.$items = this.$( [] );
 
 	return this;
 };
