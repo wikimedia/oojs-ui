@@ -46,78 +46,61 @@ OO.mixinClass( OO.ui.WindowSet, OO.EventEmitter );
 /* Events */
 
 /**
- * @event opening
- * @param {OO.ui.Window} win Window that's being opened
+ * @event setup
+ * @param {OO.ui.Window} win Window that's been setup
  * @param {Object} config Window opening information
  */
 
 /**
- * @event open
- * @param {OO.ui.Window} win Window that's been opened
+ * @event ready
+ * @param {OO.ui.Window} win Window that's ready
  * @param {Object} config Window opening information
  */
 
 /**
- * @event closing
- * @param {OO.ui.Window} win Window that's being closed
- * @param {Object} config Window closing information
- */
-
-/**
- * @event close
- * @param {OO.ui.Window} win Window that's been closed
+ * @event teardown
+ * @param {OO.ui.Window} win Window that's been torn down
  * @param {Object} config Window closing information
  */
 
 /* Methods */
 
 /**
- * Handle a window that's being opened.
+ * Handle a window setup event.
  *
- * @param {OO.ui.Window} win Window that's being opened
+ * @param {OO.ui.Window} win Window that's been setup
  * @param {Object} [config] Window opening information
- * @fires opening
+ * @fires setup
  */
-OO.ui.WindowSet.prototype.onWindowOpening = function ( win, config ) {
+OO.ui.WindowSet.prototype.onWindowSetup = function ( win, config ) {
 	if ( this.currentWindow && this.currentWindow !== win ) {
 		this.currentWindow.close();
 	}
 	this.currentWindow = win;
-	this.emit( 'opening', win, config );
+	this.emit( 'setup', win, config );
 };
 
 /**
- * Handle a window that's been opened.
+ * Handle a window ready event.
  *
- * @param {OO.ui.Window} win Window that's been opened
+ * @param {OO.ui.Window} win Window that's ready
  * @param {Object} [config] Window opening information
- * @fires open
+ * @fires ready
  */
-OO.ui.WindowSet.prototype.onWindowOpen = function ( win, config ) {
-	this.emit( 'open', win, config );
+OO.ui.WindowSet.prototype.onWindowReady = function ( win, config ) {
+	this.emit( 'ready', win, config );
 };
 
 /**
- * Handle a window that's being closed.
+ * Handle a window teardown event.
  *
- * @param {OO.ui.Window} win Window that's being closed
+ * @param {OO.ui.Window} win Window that's been torn down
  * @param {Object} [config] Window closing information
- * @fires closing
+ * @fires teardown
  */
-OO.ui.WindowSet.prototype.onWindowClosing = function ( win, config ) {
+OO.ui.WindowSet.prototype.onWindowTeardown = function ( win, config ) {
 	this.currentWindow = null;
-	this.emit( 'closing', win, config );
-};
-
-/**
- * Handle a window that's been closed.
- *
- * @param {OO.ui.Window} win Window that's been closed
- * @param {Object} [config] Window closing information
- * @fires close
- */
-OO.ui.WindowSet.prototype.onWindowClose = function ( win, config ) {
-	this.emit( 'close', win, config );
+	this.emit( 'teardown', win, config );
 };
 
 /**
@@ -164,7 +147,7 @@ OO.ui.WindowSet.prototype.createWindow = function ( name ) {
  * Connects event handlers and attaches it to the DOM. Calling
  * OO.ui.Window#open will not work until the window is added to the set.
  *
- * @param {OO.ui.Window} win
+ * @param {OO.ui.Window} win Window to add
  */
 OO.ui.WindowSet.prototype.addWindow = function ( win ) {
 	if ( this.windowList.indexOf( win ) !== -1 ) {
@@ -174,10 +157,9 @@ OO.ui.WindowSet.prototype.addWindow = function ( win ) {
 	this.windowList.push( win );
 
 	win.connect( this, {
-		'opening': [ 'onWindowOpening', win ],
-		'open': [ 'onWindowOpen', win ],
-		'closing': [ 'onWindowClosing', win ],
-		'close': [ 'onWindowClose', win ]
+		'setup': [ 'onWindowSetup', win ],
+		'ready': [ 'onWindowReady', win ],
+		'teardown': [ 'onWindowTeardown', win ]
 	} );
 	this.$element.append( win.$element );
 };

@@ -27,7 +27,6 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 
 	// Events
 	this.$element.on( 'mousedown', false );
-	this.connect( this, { 'open': 'onOpen' } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-dialog' );
@@ -114,13 +113,6 @@ OO.ui.Dialog.prototype.onFrameDocumentKeyDown = function ( e ) {
 };
 
 /**
- * Handle window open events.
- */
-OO.ui.Dialog.prototype.onOpen = function () {
-	this.$element.addClass( 'oo-ui-dialog-open' );
-};
-
-/**
  * Set dialog size.
  *
  * @param {string} [size='large'] Symbolic name of dialog size, `small`, `medium` or `large`
@@ -137,9 +129,6 @@ OO.ui.Dialog.prototype.setSize = function ( size ) {
 		state = name === size;
 		cssClass = sizeCssClasses[name];
 		this.$element.toggleClass( cssClass, state );
-		if ( this.frame.$content ) {
-			this.frame.$content.toggleClass( cssClass, state );
-		}
 	}
 };
 
@@ -189,7 +178,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
 	return OO.ui.Dialog.super.prototype.getTeardownProcess.call( this, data )
 		.first( function () {
-			this.$element.removeClass( 'oo-ui-dialog-open' );
+			// Wait for closing transition
 			return OO.ui.Process.static.delay( 250 );
 		}, this )
 		.next( function () {
