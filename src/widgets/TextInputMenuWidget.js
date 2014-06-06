@@ -88,7 +88,7 @@ OO.ui.TextInputMenuWidget.prototype.position = function () {
 		// Fix for RTL (for some reason, no need to fix if the frameoffset is set)
 		if ( this.$element.css( 'direction' ) === 'rtl' ) {
 			dimensions.right = this.$element.parent().position().left -
-				dimensions.width - dimensions.left;
+				$container.width() - dimensions.left;
 			// Erase the value for 'left':
 			delete dimensions.left;
 		}
