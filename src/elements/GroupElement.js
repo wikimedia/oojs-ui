@@ -193,5 +193,6 @@ OO.ui.GroupElement.prototype.clearItems = function () {
 		item.$element.detach();
 	}
 
+	this.items = [];
 	return this;
 };
