@@ -147,9 +147,13 @@ OO.ui.StackLayout.prototype.clearItems = function () {
  * @fires set
  */
 OO.ui.StackLayout.prototype.setItem = function ( item ) {
+	var i, len;
+
 	if ( item !== this.currentItem ) {
 		if ( !this.continuous ) {
-			this.$items.css( 'display', '' );
+			for ( i = 0, len = this.items.length; i < len; i++ ) {
+				this.items[i].$element.css( 'display', '' );
+			}
 		}
 		if ( $.inArray( item, this.items ) !== -1 ) {
 			if ( !this.continuous ) {
