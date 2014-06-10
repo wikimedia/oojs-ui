@@ -29,3 +29,38 @@ QUnit.test( 'getDocument', 10, function ( assert ) {
 
 	assert.strictEqual( OO.ui.Element.getDocument( {} ), null, 'Invalid' );
 } );
+
+QUnit.test( 'onDOMEvent( "onfocusin" )', 1, function ( assert ) {
+	var frameDoc, frameEl,
+		log = [],
+		frame = document.createElement( 'iframe' );
+
+	function handleParentBodyFocus() {
+		log.push('parent-body');
+	}
+	function handleIframeDocFocus() {
+		log.push('iframe-doc');
+	}
+	function handleIframeInputFocus() {
+		log.push('iframe-input');
+	}
+
+	$( '#qunit-fixture' ).append( frame );
+	frameDoc = ( frame.contentWindow && frame.contentWindow.document ) || frame.contentDocument;
+	frameEl = frameDoc.createElement( 'input' );
+	frameDoc.documentElement.appendChild( frameEl );
+
+	$( 'body' ).on( 'focusin', handleParentBodyFocus );
+	$( frameDoc )
+		.on( 'focusin', handleIframeDocFocus );
+
+	$( frameEl ).on( 'focusin', handleIframeInputFocus );
+	frameEl.focus();
+	$( frameEl ).remove();
+	frameEl.focus();
+
+	$( 'body' ).off( 'focusin', handleParentBodyFocus );
+	$( frameDoc ).off( 'focusin', handleIframeDocFocus );
+
+	assert.deepEqual( log, [ 'iframe-input', 'iframe-doc' ] );
+} );
