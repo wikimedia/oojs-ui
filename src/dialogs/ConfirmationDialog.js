@@ -59,7 +59,7 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
 		this.cancelButton.$element
 	);
 
-	this.connect( this, { 'close': [ 'close', 'cancel' ] } );
+	this.connect( this, { 'teardown': [ 'close', 'cancel' ] } );
 };
 
 /*

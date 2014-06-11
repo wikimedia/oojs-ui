@@ -3,8 +3,25 @@
 .oo-ui-dialog {
 	background-color: #fff;
 	background-color: rgba(255,255,255,0.5);
+
+	/* Opening and closing animation */
 	opacity: 0;
-	.oo-ui-transition(all 250ms ease-in-out);
+	> .oo-ui-window-frame {
+		.oo-ui-transform(scale(0.5));
+	}
+
+	&.oo-ui-window-setup,
+	&.oo-ui-window-setup > .oo-ui-window-frame {
+		.oo-ui-transition(all 250ms ease-in-out);
+	}
+
+	&.oo-ui-window-ready {
+		opacity: 1;
+
+		> .oo-ui-window-frame  {
+			.oo-ui-transform(scale(1));
+		}
+	}
 
 	&-content {
 		.oo-ui-window {
@@ -61,9 +78,6 @@
 		border: solid 1px #ccc;
 		border-radius: 0.5em;
 		box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
-
-		.oo-ui-transform(scale(0.5));
-		.oo-ui-transition(all 250ms ease-in-out);
 	}
 
 	&-small > .oo-ui-window-frame {
@@ -79,14 +93,6 @@
 	&-large > .oo-ui-window-frame {
 		width: 800px;
 		max-height: 690px;
-	}
-
-	&-open {
-		opacity: 1;
-
-		> .oo-ui-window-frame  {
-			.oo-ui-transform(scale(1));
-		}
 	}
 
 	&-content {

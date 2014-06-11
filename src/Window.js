@@ -66,20 +66,29 @@ OO.mixinClass( OO.ui.Window, OO.EventEmitter );
 /* Events */
 
 /**
- * Open window.
+ * Window is setup.
  *
- * Fired after window has been opened.
+ * Fired after the setup process has been executed.
  *
- * @event open
+ * @event setup
  * @param {Object} data Window opening data
  */
 
 /**
- * Close window.
+ * Window is ready.
  *
- * Fired after window has been closed.
+ * Fired after the ready process has been executed.
  *
- * @event close
+ * @event ready
+ * @param {Object} data Window opening data
+ */
+
+/**
+ * Window is torn down
+ *
+ * Fired after the teardown process has been executed.
+ *
+ * @event teardown
  * @param {Object} data Window closing data
  */
 
@@ -124,7 +133,7 @@ OO.ui.Window.prototype.isVisible = function () {
  * @return {boolean} Window is opening
  */
 OO.ui.Window.prototype.isOpening = function () {
-	return !!this.opening && this.opening.state() !== 'resolved';
+	return !!this.opening && this.opening.state() === 'pending';
 };
 
 /**
@@ -133,7 +142,7 @@ OO.ui.Window.prototype.isOpening = function () {
  * @return {boolean} Window is closing
  */
 OO.ui.Window.prototype.isClosing = function () {
-	return !!this.closing && this.closing.state() !== 'resolved';
+	return !!this.closing && this.closing.state() === 'pending';
 };
 
 /**
@@ -142,7 +151,7 @@ OO.ui.Window.prototype.isClosing = function () {
  * @return {boolean} Window is opened
  */
 OO.ui.Window.prototype.isOpened = function () {
-	return !!this.opened && this.opened.state() !== 'resolved';
+	return !!this.opened && this.opened.state() === 'pending';
 };
 
 /**
@@ -378,22 +387,18 @@ OO.ui.Window.prototype.open = function ( data ) {
 	this.frame.load().done( OO.ui.bind( function () {
 		this.$element.show();
 		this.visible = true;
-		this.emit( 'opening', data );
 		this.getSetupProcess( data ).execute().done( OO.ui.bind( function () {
-			this.emit( 'open', data );
+			this.$element.addClass( 'oo-ui-window-setup' );
+			this.emit( 'setup', data );
 			setTimeout( OO.ui.bind( function () {
-				// Focus the content div (which has a tabIndex) to inactivate
-				// (but not clear) selections in the parent frame.
-				// Must happen after 'open' is emitted (to ensure it is visible)
-				// but before 'ready' is emitted (so subclasses can give focus to something
-				// else)
 				this.frame.$content.focus();
 				this.getReadyProcess( data ).execute().done( OO.ui.bind( function () {
+					this.$element.addClass( 'oo-ui-window-ready' );
 					this.emit( 'ready', data );
 					this.opened = $.Deferred();
-					this.opening.resolve( this.opened.promise() );
 					// Now that we are totally done opening, it's safe to allow closing
 					this.closing = null;
+					this.opening.resolve( this.opened.promise() );
 				}, this ) );
 			}, this ) );
 		}, this ) );
@@ -413,9 +418,19 @@ OO.ui.Window.prototype.open = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is closed
  */
 OO.ui.Window.prototype.close = function ( data ) {
+	var close;
+
 	// Return existing promise if already closing or closed
 	if ( this.closing ) {
 		return this.closing.promise();
+	}
+
+	// Close after opening is done if opening is in progress
+	if ( this.opening && this.opening.state() === 'pending' ) {
+		close = OO.ui.bind( function () {
+			return this.close( data );
+		}, this );
+		return this.opening.then( close, close );
 	}
 
 	// Close the window
@@ -423,13 +438,14 @@ OO.ui.Window.prototype.close = function ( data ) {
 	// window.close() and trigger the safety check above
 	this.closing = $.Deferred();
 	this.frame.$content.find( ':focus' ).blur();
-	this.emit( 'closing', data );
+	this.$element.removeClass( 'oo-ui-window-ready' );
 	this.getTeardownProcess( data ).execute().done( OO.ui.bind( function () {
+		this.$element.removeClass( 'oo-ui-window-setup' );
+		this.emit( 'teardown', data );
 		// To do something different with #opened, resolve/reject #opened in the teardown process
-		if ( this.opened.state() === 'pending' ) {
+		if ( this.opened && this.opened.state() === 'pending' ) {
 			this.opened.resolve();
 		}
-		this.emit( 'close', data );
 		this.$element.hide();
 		this.visible = false;
 		this.closing.resolve();
