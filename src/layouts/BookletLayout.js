@@ -10,7 +10,6 @@
  * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when changing to a page
  * @cfg {boolean} [outlined=false] Show an outline
  * @cfg {boolean} [editable=false] Show controls for adding, removing and reordering pages
- * @cfg {Object[]} [adders] List of adders for controls, each with name, icon and title properties
  */
 OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	// Initialize configuration
@@ -29,7 +28,6 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.outlined = !!config.outlined;
 	if ( this.outlined ) {
 		this.editable = !!config.editable;
-		this.adders = config.adders || null;
 		this.outlineControlsWidget = null;
 		this.outlineWidget = new OO.ui.OutlineWidget( { '$': this.$ } );
 		this.outlinePanel = new OO.ui.PanelLayout( { '$': this.$, 'scrollable': true } );
@@ -40,8 +38,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 		this.outlineVisible = true;
 		if ( this.editable ) {
 			this.outlineControlsWidget = new OO.ui.OutlineControlsWidget(
-				this.outlineWidget,
-				{ '$': this.$, 'adders': this.adders }
+				this.outlineWidget, { '$': this.$ }
 			);
 		}
 	}
