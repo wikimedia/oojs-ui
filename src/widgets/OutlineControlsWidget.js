@@ -54,7 +54,7 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-outlineControlsWidget' );
-	this.$group.addClass( 'oo-ui-outlineControlsWidget-adders' );
+	this.$group.addClass( 'oo-ui-outlineControlsWidget-items' );
 	this.$movers
 		.addClass( 'oo-ui-outlineControlsWidget-movers' )
 		.append( this.removeButton.$element, this.upButton.$element, this.downButton.$element );
