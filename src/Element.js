@@ -312,18 +312,32 @@ OO.ui.Element.scrollIntoView = function ( el, config ) {
 	// Configuration initialization
 	config = config || {};
 
-	var anim = {},
+	var rel, anim = {},
 		callback = typeof config.complete === 'function' && config.complete,
 		sc = this.getClosestScrollableContainer( el, config.direction ),
 		$sc = $( sc ),
 		eld = this.getDimensions( el ),
 		scd = this.getDimensions( sc ),
+		$win = $( this.getWindow( el ) );
+
+	// Compute the distances between the edges of el and the edges of the scroll viewport
+	if ( $sc.is( 'body' ) ) {
+		// If the scrollable container is the <body> this is easy
+		rel = {
+			'top': eld.rect.top,
+			'bottom': $win.innerHeight() - eld.rect.bottom,
+			'left': eld.rect.left,
+			'right': $win.innerWidth() - eld.rect.right
+		};
+	} else {
+		// Otherwise, we have to subtract el's coordinates from sc's coordinates
 		rel = {
 			'top': eld.rect.top - ( scd.rect.top + scd.borders.top ),
 			'bottom': scd.rect.bottom - scd.borders.bottom - scd.scrollbar.bottom - eld.rect.bottom,
 			'left': eld.rect.left - ( scd.rect.left + scd.borders.left ),
 			'right': scd.rect.right - scd.borders.right - scd.scrollbar.right - eld.rect.right
 		};
+	}
 
 	if ( !config.direction || config.direction === 'y' ) {
 		if ( rel.top < 0 ) {
