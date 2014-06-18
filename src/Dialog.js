@@ -29,7 +29,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 	this.$element.on( 'mousedown', false );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-dialog' );
+	this.$element.addClass( 'oo-ui-dialog' ).attr( 'role', 'dialog' );
 	this.setSize( config.size );
 };
 
