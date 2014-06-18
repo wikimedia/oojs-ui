@@ -384,6 +384,10 @@ OO.ui.Window.prototype.open = function ( data ) {
 
 	// Open the window
 	this.opening = $.Deferred();
+
+	// So we can restore focus on closing
+	this.$prevFocus = $( document.activeElement );
+
 	this.frame.load().done( OO.ui.bind( function () {
 		this.$element.show();
 		this.visible = true;
@@ -447,6 +451,11 @@ OO.ui.Window.prototype.close = function ( data ) {
 			this.opened.resolve();
 		}
 		this.$element.hide();
+		// Restore focus to whatever was focused before opening
+		if ( this.$prevFocus ) {
+			this.$prevFocus.focus();
+			this.$prevFocus = undefined;
+		}
 		this.visible = false;
 		this.closing.resolve();
 		// Now that we are totally done closing, it's safe to allow opening
