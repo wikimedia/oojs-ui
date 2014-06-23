@@ -19,8 +19,10 @@
  * @param {OO.ui.Widget} field Field widget
  * @param {Object} [config] Configuration options
  * @cfg {string} [align='left'] Alignment mode, either 'left', 'right', 'top' or 'inline'
+ * @cfg {string} [help] Explanatory text shown as a '?' icon.
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
+	var popupButtonWidget;
 	// Config initialization
 	config = $.extend( { 'align': 'left' }, config );
 
@@ -28,7 +30,22 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	OO.ui.FieldLayout.super.call( this, config );
 
 	// Mixin constructors
+	this.$help = this.$( '<div>' );
 	OO.ui.LabeledElement.call( this, this.$( '<label>' ), config );
+	if ( config.help ) {
+		popupButtonWidget = new OO.ui.PopupButtonWidget( $.extend(
+			{
+				'$': this.$,
+				'frameless': true,
+				'icon': 'info',
+				'title': config.help
+			},
+			config,
+			{ label: null }
+		) );
+		popupButtonWidget.getPopup().$body.append( this.getElementDocument().createTextNode( config.help ) );
+		this.$help = popupButtonWidget.$element;
+	}
 
 	// Properties
 	this.$field = this.$( '<div>' );
@@ -99,9 +116,9 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 		}
 		// Reorder elements
 		if ( value === 'inline' ) {
-			this.$element.append( this.$field, this.$label );
+			this.$element.append( this.$field, this.$label, this.$help );
 		} else {
-			this.$element.append( this.$label, this.$field );
+			this.$element.append( this.$help, this.$label, this.$field );
 		}
 		// Set classes
 		if ( this.align ) {
