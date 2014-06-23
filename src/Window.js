@@ -387,6 +387,8 @@ OO.ui.Window.prototype.open = function ( data ) {
 
 	// So we can restore focus on closing
 	this.$prevFocus = $( document.activeElement );
+	this.$ariaHidden = $( 'body' ).children().not( this.$element.parentsUntil( 'body' ).last() )
+		.attr( 'aria-hidden', '' );
 
 	this.frame.load().done( OO.ui.bind( function () {
 		this.$element.show();
@@ -455,6 +457,10 @@ OO.ui.Window.prototype.close = function ( data ) {
 		if ( this.$prevFocus ) {
 			this.$prevFocus.focus();
 			this.$prevFocus = undefined;
+		}
+		if ( this.$ariaHidden ) {
+			this.$ariaHidden.removeAttr( 'aria-hidden' );
+			this.$ariaHidden = undefined;
 		}
 		this.visible = false;
 		this.closing.resolve();
