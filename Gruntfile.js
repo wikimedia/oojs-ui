@@ -89,8 +89,7 @@ module.exports = function ( grunt ) {
 			dev: [
 				'<%= jshint.dev %>',
 				'!demos/{dist,lib}/**'
-			],
-			dist: '<%= jshint.dist %>'
+			]
 		},
 		csslint: {
 			options: {
