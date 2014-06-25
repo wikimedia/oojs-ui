@@ -125,12 +125,16 @@ OO.ui.ClippableElement.prototype.clip = function () {
 	if ( clipWidth ) {
 		this.$clippable.css( { 'overflow-x': 'auto', 'width': desiredWidth } );
 	} else {
-		this.$clippable.css( { 'overflow-x': '', 'width': this.idealWidth || '' } );
+		this.$clippable.css( 'width', this.idealWidth || '' );
+		this.$clippable.width(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
+		this.$clippable.css( 'overflow-x', '' );
 	}
 	if ( clipHeight ) {
 		this.$clippable.css( { 'overflow-y': 'auto', 'height': desiredHeight } );
 	} else {
-		this.$clippable.css( { 'overflow-y': '', 'height': this.idealHeight || '' } );
+		this.$clippable.css( 'height', this.idealHeight || '' );
+		this.$clippable.height(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
+		this.$clippable.css( 'overflow-y', '' );
 	}
 
 	this.clipped = clipWidth || clipHeight;
