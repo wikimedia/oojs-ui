@@ -385,8 +385,6 @@ OO.ui.Window.prototype.open = function ( data ) {
 	// Open the window
 	this.opening = $.Deferred();
 
-	// So we can restore focus on closing
-	this.$prevFocus = $( document.activeElement );
 	this.$ariaHidden = $( 'body' ).children().not( this.$element.parentsUntil( 'body' ).last() )
 		.attr( 'aria-hidden', '' );
 
@@ -453,11 +451,6 @@ OO.ui.Window.prototype.close = function ( data ) {
 			this.opened.resolve();
 		}
 		this.$element.hide();
-		// Restore focus to whatever was focused before opening
-		if ( this.$prevFocus ) {
-			this.$prevFocus.focus();
-			this.$prevFocus = undefined;
-		}
 		if ( this.$ariaHidden ) {
 			this.$ariaHidden.removeAttr( 'aria-hidden' );
 			this.$ariaHidden = undefined;
