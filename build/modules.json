@@ -70,7 +70,6 @@
 			"src/outro.js.txt"
 		],
 		"styles": [
-			"src/styles/intro.css",
 			"src/styles/core.less",
 			"src/styles/Dialog.less",
 			"src/styles/Frame.less",

@@ -5,6 +5,7 @@
 /*jshint node:true */
 module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
+	grunt.loadNpmTasks( 'grunt-contrib-concat-sourcemaps' );
 	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
@@ -34,11 +35,8 @@ module.exports = function ( grunt ) {
 
 				recessFiles[distFile] = styleTargets[module][target];
 
-				// Concat isn't doing much other than expanding v@VERSION...
-				concatCssFiles[ module + '-css-' + target ] = {
-					dest: distFile,
-					src: [ distFile ]
-				};
+				// Concat isn't doing much other than prepending the banner...
+				concatCssFiles[ distFile ] = distFile;
 			}
 		}
 	}() );
@@ -46,7 +44,7 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
 		clean: {
-			dist: [ 'dist/*/', 'dist/*.*' ]
+			dist: 'dist/*'
 		},
 		recess: {
 			dist: {
@@ -56,12 +54,22 @@ module.exports = function ( grunt ) {
 				files: recessFiles
 			}
 		},
-		concat: grunt.util._.extend( concatCssFiles, {
+		concat: {
+			options: {
+				banner: grunt.file.read( 'build/banner.txt' )
+			},
+			css: {
+				files: concatCssFiles
+			},
 			js: {
+				options: {
+					sourceMap: true,
+					sourceMapStyle: 'link'
+				},
 				dest: 'dist/oojs-ui.js',
 				src: modules['oojs-ui'].scripts
 			}
-		} ),
+		},
 		copy: {
 			images: {
 				src: 'src/styles/images/**/*.*',
