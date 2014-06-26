@@ -6,5 +6,5 @@
  * Released under the MIT license
  * http://oojs.mit-license.org
  *
- * Date: <%= grunt.template.today("yyyy-mm-dd") %>
+ * Date: <%= grunt.template.today("isoUtcDateTime") %>
  */
