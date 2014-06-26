@@ -58,8 +58,6 @@ OO.ui.ConfirmationDialog.prototype.initialize = function () {
 		this.okButton.$element,
 		this.cancelButton.$element
 	);
-
-	this.connect( this, { 'teardown': [ 'close', 'cancel' ] } );
 };
 
 /*
@@ -103,7 +101,7 @@ OO.ui.ConfirmationDialog.prototype.getTeardownProcess = function ( data ) {
 		.first( function () {
 			if ( data === 'ok' ) {
 				this.opened.resolve();
-			} else if ( data === 'cancel' ) {
+			} else { // data === 'cancel', or no data
 				this.opened.reject();
 			}
 		}, this );
