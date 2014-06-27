@@ -7,6 +7,13 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'git-build', function () {
 		var done = this.async();
+
+		// Only create Source maps when doing a git-build for testing and local
+		// development. Distributions for export should not, as the map would
+		// be pointing at "../src".
+		grunt.config.set( 'concat.js.options.sourceMap', true );
+		grunt.config.set( 'concat.js.options.sourceMapStyle', 'link' );
+
 		require( 'child_process' ).exec( 'git rev-parse HEAD', function ( err, stout, stderr ) {
 			if ( !stout || err || stderr ) {
 				grunt.log.err( err || stderr );

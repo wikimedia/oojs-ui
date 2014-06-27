@@ -62,10 +62,6 @@ module.exports = function ( grunt ) {
 				files: concatCssFiles
 			},
 			js: {
-				options: {
-					sourceMap: true,
-					sourceMapStyle: 'link'
-				},
 				dest: 'dist/oojs-ui.js',
 				src: modules['oojs-ui'].scripts
 			}
