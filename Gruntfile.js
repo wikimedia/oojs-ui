@@ -122,7 +122,30 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
+	grunt.registerTask( 'pre-test', function () {
+		// Only create Source maps when doing a git-build for testing and local
+		// development. Distributions for export should not, as the map would
+		// be pointing at "../src".
+		grunt.config.set( 'concat.js.options.sourceMap', true );
+		grunt.config.set( 'concat.js.options.sourceMapStyle', 'link' );
+	} );
+
+	grunt.registerTask( 'pre-git-build', function () {
+		var done = this.async();
+		require( 'child_process' ).exec( 'git rev-parse HEAD', function ( err, stout, stderr ) {
+			if ( !stout || err || stderr ) {
+				grunt.log.err( err || stderr );
+				done( false );
+				return;
+			}
+			grunt.config.set( 'pkg.version', grunt.config( 'pkg.version' ) + '-pre (' + stout.substr( 0, 10 ) + ')' );
+			grunt.verbose.writeln( 'Added git HEAD to pgk.version' );
+			done();
+		} );
+	} );
+
 	grunt.registerTask( 'build', [ 'clean', 'recess', 'concat', 'copy' ] );
-	grunt.registerTask( 'test', [ 'git-build', 'build', 'jshint', 'jscs', 'csslint', 'banana', 'qunit' ] );
+	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
+	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'jshint', 'jscs', 'csslint', 'banana', 'qunit' ] );
 	grunt.registerTask( 'default', 'test' );
 };
