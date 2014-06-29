@@ -5,6 +5,11 @@ body {
 
 /* Layout */
 
+.oo-ui-demo-dir {
+	font-size: 0.8em;
+	text-align: center;
+}
+
 .oo-ui-demo {
 	font-size: 0.8em;
 	width: 50em;

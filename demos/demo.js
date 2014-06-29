@@ -124,4 +124,23 @@
 		buildConsole: buildConsole
 	};
 
+	$( function () {
+		var directionSelect = new OO.ui.ButtonSelectWidget().addItems( [
+			new OO.ui.ButtonOptionWidget( 'ltr', { '$': this.$, 'label': 'LTR' } ),
+			new OO.ui.ButtonOptionWidget( 'rtl', { '$': this.$, 'label': 'RTL' } )
+		] )
+		.on( 'select', function ( option ) {
+			var dir = option.getData(),
+				oldDir = dir === 'ltr' ? 'rtl' : 'ltr';
+
+			$( '.stylesheet-' + dir ).removeAttr( 'disabled' );
+			$( '.stylesheet-' + oldDir ).attr( 'disabled', 'disabled' );
+			$( 'body' ).addClass( 'oo-ui-' + dir );
+			$( 'body' ).removeClass( 'oo-ui-' + oldDir );
+		} );
+
+		directionSelect.selectItem( directionSelect.getItemFromData( 'ltr' ) );
+		$( '.oo-ui-demo-dir' ).prepend( directionSelect.$element );
+	} );
+
 } )( jQuery );
