@@ -24,11 +24,12 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 	this.$button.on( 'mousedown', OO.ui.bind( this.onMouseDown, this ) );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-buttonedElement' );
+	this.$element
+		.addClass( 'oo-ui-buttonedElement' )
+		.prop( 'tabIndex', config.tabIndex || 0 );
 	this.$button
 		.addClass( 'oo-ui-buttonedElement-button' )
-		.attr( 'role', 'button' )
-		.prop( 'tabIndex', config.tabIndex || 0 );
+		.attr( 'role', 'button' );
 	if ( config.frameless ) {
 		this.$element.addClass( 'oo-ui-buttonedElement-frameless' );
 	} else {
