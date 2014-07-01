@@ -4,13 +4,14 @@
 
 /*jshint node:true */
 module.exports = function ( grunt ) {
+	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat-sourcemaps' );
 	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
-	grunt.loadNpmTasks( 'grunt-banana-checker' );
+	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-jscs-checker' );
 	grunt.loadNpmTasks( 'grunt-recess' );
 	grunt.loadTasks( 'build/tasks' );
@@ -23,7 +24,10 @@ module.exports = function ( grunt ) {
 			'oojs-ui-agora': moduleUtils.expandResources( modules['oojs-ui-agora'].styles )
 		},
 		recessFiles = {},
-		concatCssFiles = {};
+		concatCssFiles = {},
+		rtlFiles = {
+			'demos/demo.rtl.css': 'demos/demo.css'
+		};
 
 	( function () {
 		var distFile, target, module;
@@ -37,6 +41,7 @@ module.exports = function ( grunt ) {
 
 				// Concat isn't doing much other than prepending the banner...
 				concatCssFiles[ distFile ] = distFile;
+				rtlFiles[ distFile.replace( '.css', '.rtl.css' ) ] = distFile;
 			}
 		}
 	}() );
@@ -52,6 +57,11 @@ module.exports = function ( grunt ) {
 					compile: true
 				},
 				files: recessFiles
+			}
+		},
+		cssjanus: {
+			dist: {
+				files: rtlFiles
 			}
 		},
 		concat: {
@@ -144,7 +154,7 @@ module.exports = function ( grunt ) {
 		} );
 	} );
 
-	grunt.registerTask( 'build', [ 'clean', 'recess', 'concat', 'copy' ] );
+	grunt.registerTask( 'build', [ 'clean', 'recess', 'concat', 'cssjanus', 'copy' ] );
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'jshint', 'jscs', 'csslint', 'banana', 'qunit' ] );
 	grunt.registerTask( 'default', 'test' );
