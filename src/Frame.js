@@ -76,6 +76,9 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, timeout ) 
 
 	for ( i = 0, numSheets = parentDoc.styleSheets.length; i < numSheets; i++ ) {
 		styleNode = parentDoc.styleSheets[i].ownerNode;
+		if ( styleNode.disabled ) {
+			continue;
+		}
 		if ( styleNode.nodeName.toLowerCase() === 'link' ) {
 			// External stylesheet
 			// Create a node with a unique ID that we're going to monitor to see when the CSS
