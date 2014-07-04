@@ -120,14 +120,16 @@ OO.ui.GridLayout.prototype.update = function () {
 		rows = this.heights.length;
 
 	for ( y = 0; y < rows; y++ ) {
+		height = this.heights[y];
 		for ( x = 0; x < cols; x++ ) {
 			panel = this.panels[i];
 			width = this.widths[x];
-			height = this.heights[y];
 			dimensions = {
 				'width': Math.round( width * 100 ) + '%',
 				'height': Math.round( height * 100 ) + '%',
-				'top': Math.round( top * 100 ) + '%'
+				'top': Math.round( top * 100 ) + '%',
+				// HACK: Work around IE bug by setting visibility: hidden; if width or height is zero
+				'visibility': width === 0 || height === 0 ? 'hidden' : ''
 			};
 			// If RTL, reverse:
 			if ( OO.ui.Element.getDir( this.$.context ) === 'rtl' ) {
