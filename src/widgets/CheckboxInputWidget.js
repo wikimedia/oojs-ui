@@ -57,10 +57,11 @@ OO.ui.CheckboxInputWidget.prototype.setValue = function ( value ) {
  * @inheritdoc
  */
 OO.ui.CheckboxInputWidget.prototype.onEdit = function () {
+	var widget = this;
 	if ( !this.isDisabled() ) {
 		// Allow the stack to clear so the value will be updated
-		setTimeout( OO.ui.bind( function () {
-			this.setValue( this.$input.prop( 'checked' ) );
-		}, this ) );
+		setTimeout( function () {
+			widget.setValue( widget.$input.prop( 'checked' ) );
+		} );
 	}
 };

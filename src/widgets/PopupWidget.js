@@ -200,7 +200,8 @@ OO.ui.PopupWidget.prototype.hide = function () {
  * @chainable
  */
 OO.ui.PopupWidget.prototype.display = function ( width, height, transition ) {
-	var padding = 10,
+	var widget = this,
+		padding = 10,
 		originOffset = Math.round( this.$element.offset().left ),
 		containerLeft = Math.round( this.$container.offset().left ),
 		containerWidth = this.$container.innerWidth(),
@@ -233,9 +234,9 @@ OO.ui.PopupWidget.prototype.display = function ( width, height, transition ) {
 
 	if ( transition ) {
 		// Prevent transitioning after transition is complete
-		this.transitionTimeout = setTimeout( OO.ui.bind( function () {
-			this.$element.removeClass( 'oo-ui-popupWidget-transitioning' );
-		}, this ), 200 );
+		this.transitionTimeout = setTimeout( function () {
+			widget.$element.removeClass( 'oo-ui-popupWidget-transitioning' );
+		}, 200 );
 	} else {
 		// Prevent transitioning immediately
 		this.$element.removeClass( 'oo-ui-popupWidget-transitioning' );

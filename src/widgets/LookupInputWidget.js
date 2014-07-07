@@ -118,25 +118,26 @@ OO.ui.LookupInputWidget.prototype.openLookupMenu = function () {
  * @chainable
  */
 OO.ui.LookupInputWidget.prototype.populateLookupMenu = function () {
+	var widget = this;
 	if ( !this.populating ) {
 		this.populating = true;
 		this.getLookupMenuItems()
-			.done( OO.ui.bind( function ( items ) {
-				this.lookupMenu.clearItems();
+			.done( function ( items ) {
+				widget.lookupMenu.clearItems();
 				if ( items.length ) {
-					this.lookupMenu.show();
-					this.lookupMenu.addItems( items );
-					this.initializeLookupMenuSelection();
-					this.openLookupMenu();
+					widget.lookupMenu.show();
+					widget.lookupMenu.addItems( items );
+					widget.initializeLookupMenuSelection();
+					widget.openLookupMenu();
 				} else {
-					this.lookupMenu.hide();
+					widget.lookupMenu.hide();
 				}
-				this.populating = false;
-			}, this ) )
-			.fail( OO.ui.bind( function () {
-				this.lookupMenu.clearItems();
-				this.populating = false;
-			}, this ) );
+				widget.populating = false;
+			} )
+			.fail( function () {
+				widget.lookupMenu.clearItems();
+				widget.populating = false;
+			} );
 	}
 
 	return this;
@@ -162,7 +163,8 @@ OO.ui.LookupInputWidget.prototype.initializeLookupMenuSelection = function () {
  */
 OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
 	var value = this.lookupInput.getValue(),
-		deferred = $.Deferred();
+		deferred = $.Deferred(),
+		widget = this;
 
 	if ( value && value !== this.lookupQuery ) {
 		// Abort current request if query has changed
@@ -176,21 +178,21 @@ OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
 		} else {
 			this.lookupQuery = value;
 			this.lookupRequest = this.getLookupRequest()
-				.always( OO.ui.bind( function () {
-					this.lookupQuery = null;
-					this.lookupRequest = null;
-				}, this ) )
-				.done( OO.ui.bind( function ( data ) {
-					this.lookupCache[value] = this.getLookupCacheItemFromData( data );
-					deferred.resolve( this.getLookupMenuItemsFromData( this.lookupCache[value] ) );
-				}, this ) )
+				.always( function () {
+					widget.lookupQuery = null;
+					widget.lookupRequest = null;
+				} )
+				.done( function ( data ) {
+					widget.lookupCache[value] = widget.getLookupCacheItemFromData( data );
+					deferred.resolve( widget.getLookupMenuItemsFromData( widget.lookupCache[value] ) );
+				} )
 				.fail( function () {
 					deferred.reject();
 				} );
 			this.pushPending();
-			this.lookupRequest.always( OO.ui.bind( function () {
-				this.popPending();
-			}, this ) );
+			this.lookupRequest.always( function () {
+				widget.popPending();
+			} );
 		}
 	}
 	return deferred.promise();

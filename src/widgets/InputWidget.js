@@ -66,11 +66,12 @@ OO.ui.InputWidget.prototype.getInputElement = function () {
  * @param {jQuery.Event} e Key down, mouse up, cut, paste, change, input, or select event
  */
 OO.ui.InputWidget.prototype.onEdit = function () {
+	var widget = this;
 	if ( !this.isDisabled() ) {
 		// Allow the stack to clear so the value will be updated
-		setTimeout( OO.ui.bind( function () {
-			this.setValue( this.$input.val() );
-		}, this ) );
+		setTimeout( function () {
+			widget.setValue( widget.$input.val() );
+		} );
 	}
 };
 

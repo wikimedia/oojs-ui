@@ -188,20 +188,23 @@ OO.ui.OptionWidget.prototype.setPressed = function ( state ) {
  * @return {jQuery.Promise} Promise resolved when flashing is done
  */
 OO.ui.OptionWidget.prototype.flash = function () {
-	var $this = this.$element,
+	var widget = this,
+		$element = this.$element,
 		deferred = $.Deferred();
 
 	if ( !this.isDisabled() && this.constructor.static.pressable ) {
-		$this.removeClass( 'oo-ui-optionWidget-highlighted oo-ui-optionWidget-pressed' );
-		setTimeout( OO.ui.bind( function () {
+		$element.removeClass( 'oo-ui-optionWidget-highlighted oo-ui-optionWidget-pressed' );
+		setTimeout( function () {
 			// Restore original classes
-			$this
-				.toggleClass( 'oo-ui-optionWidget-highlighted', this.highlighted )
-				.toggleClass( 'oo-ui-optionWidget-pressed', this.pressed );
+			$element
+				.toggleClass( 'oo-ui-optionWidget-highlighted', widget.highlighted )
+				.toggleClass( 'oo-ui-optionWidget-pressed', widget.pressed );
+
 			setTimeout( function () {
 				deferred.resolve();
 			}, 100 );
-		}, this ), 100 );
+
+		}, 100 );
 	}
 
 	return deferred.promise();

@@ -13,6 +13,7 @@
  * @cfg {boolean} [maxRows=10] Maximum number of rows to make visible when autosizing
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
+	var widget = this;
 	config = $.extend( { 'maxRows': 10 }, config );
 
 	// Parent constructor
@@ -35,10 +36,10 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		this.$element.append(
 			this.$( '<span>' )
 				.addClass( 'oo-ui-textInputWidget-icon oo-ui-icon-' + config.icon )
-				.mousedown( OO.ui.bind( function () {
-					this.$input.focus();
+				.mousedown( function () {
+					widget.$input.focus();
 					return false;
-				}, this ) )
+				} )
 		);
 	}
 	if ( config.placeholder ) {

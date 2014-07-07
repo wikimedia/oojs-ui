@@ -177,7 +177,8 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, timeout ) 
  * @fires load
  */
 OO.ui.Frame.prototype.load = function () {
-	var win, doc;
+	var win, doc,
+		frame = this;
 
 	// Return existing promise if already loading or loaded
 	if ( this.loading ) {
@@ -212,10 +213,10 @@ OO.ui.Frame.prototype.load = function () {
 
 	// Initialization
 	this.constructor.static.transplantStyles( this.getElementDocument(), this.$document[0] )
-		.always( OO.ui.bind( function () {
-			this.emit( 'load' );
-			this.loading.resolve();
-		}, this ) );
+		.always( function () {
+			frame.emit( 'load' );
+			frame.loading.resolve();
+		} );
 
 	return this.loading.promise();
 };

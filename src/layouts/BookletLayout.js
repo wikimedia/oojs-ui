@@ -120,15 +120,16 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
  * @param {OO.ui.PanelLayout|null} page The page panel that is now the current panel
  */
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
+	var layout = this;
 	if ( page ) {
-		page.scrollElementIntoView( { 'complete': OO.ui.bind( function () {
-			if ( this.autoFocus ) {
+		page.scrollElementIntoView( { 'complete': function () {
+			if ( layout.autoFocus ) {
 				// Set focus to the first input if nothing on the page is focused yet
 				if ( !page.$element.find( ':focus' ).length ) {
 					page.$element.find( ':input:first' ).focus();
 				}
 			}
-		}, this ) } );
+		} } );
 	}
 };
 

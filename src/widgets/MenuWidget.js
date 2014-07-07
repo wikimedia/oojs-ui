@@ -145,15 +145,16 @@ OO.ui.MenuWidget.prototype.unbindKeyDownListener = function () {
  * @chainable
  */
 OO.ui.MenuWidget.prototype.chooseItem = function ( item ) {
+	var widget = this;
 	// Parent method
 	OO.ui.MenuWidget.super.prototype.chooseItem.call( this, item );
 
 	if ( item && !this.flashing ) {
 		this.flashing = true;
-		item.flash().done( OO.ui.bind( function () {
-			this.hide();
-			this.flashing = false;
-		}, this ) );
+		item.flash().done( function () {
+			widget.hide();
+			widget.flashing = false;
+		} );
 	} else {
 		this.hide();
 	}

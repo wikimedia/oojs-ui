@@ -377,6 +377,7 @@ OO.ui.Window.prototype.getTeardownProcess = function () {
  *   first argument will be a promise which will be resolved when the window begins closing
  */
 OO.ui.Window.prototype.open = function ( data ) {
+	var element = this;
 	// Return existing promise if already opening or open
 	if ( this.opening ) {
 		return this.opening.promise();
@@ -388,25 +389,25 @@ OO.ui.Window.prototype.open = function ( data ) {
 	this.$ariaHidden = $( 'body' ).children().not( this.$element.parentsUntil( 'body' ).last() )
 		.attr( 'aria-hidden', '' );
 
-	this.frame.load().done( OO.ui.bind( function () {
-		this.$element.show();
-		this.visible = true;
-		this.getSetupProcess( data ).execute().done( OO.ui.bind( function () {
-			this.$element.addClass( 'oo-ui-window-setup' );
-			this.emit( 'setup', data );
-			setTimeout( OO.ui.bind( function () {
-				this.frame.$content.focus();
-				this.getReadyProcess( data ).execute().done( OO.ui.bind( function () {
-					this.$element.addClass( 'oo-ui-window-ready' );
-					this.emit( 'ready', data );
-					this.opened = $.Deferred();
+	this.frame.load().done( function () {
+		element.$element.show();
+		element.visible = true;
+		element.getSetupProcess( data ).execute().done( function () {
+			element.$element.addClass( 'oo-ui-window-setup' );
+			element.emit( 'setup', data );
+			setTimeout( function () {
+				element.frame.$content.focus();
+				element.getReadyProcess( data ).execute().done( function () {
+					element.$element.addClass( 'oo-ui-window-ready' );
+					element.emit( 'ready', data );
+					element.opened = $.Deferred();
 					// Now that we are totally done opening, it's safe to allow closing
-					this.closing = null;
-					this.opening.resolve( this.opened.promise() );
-				}, this ) );
-			}, this ) );
-		}, this ) );
-	}, this ) );
+					element.closing = null;
+					element.opening.resolve( element.opened.promise() );
+				} );
+			} );
+		} );
+	} );
 
 	return this.opening.promise();
 };
@@ -422,7 +423,8 @@ OO.ui.Window.prototype.open = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is closed
  */
 OO.ui.Window.prototype.close = function ( data ) {
-	var close;
+	var close,
+		win = this;
 
 	// Return existing promise if already closing or closed
 	if ( this.closing ) {
@@ -431,9 +433,9 @@ OO.ui.Window.prototype.close = function ( data ) {
 
 	// Close after opening is done if opening is in progress
 	if ( this.opening && this.opening.state() === 'pending' ) {
-		close = OO.ui.bind( function () {
-			return this.close( data );
-		}, this );
+		close = function () {
+			return win.close( data );
+		};
 		return this.opening.then( close, close );
 	}
 
@@ -443,23 +445,23 @@ OO.ui.Window.prototype.close = function ( data ) {
 	this.closing = $.Deferred();
 	this.frame.$content.find( ':focus' ).blur();
 	this.$element.removeClass( 'oo-ui-window-ready' );
-	this.getTeardownProcess( data ).execute().done( OO.ui.bind( function () {
-		this.$element.removeClass( 'oo-ui-window-setup' );
-		this.emit( 'teardown', data );
+	this.getTeardownProcess( data ).execute().done( function () {
+		win.$element.removeClass( 'oo-ui-window-setup' );
+		win.emit( 'teardown', data );
 		// To do something different with #opened, resolve/reject #opened in the teardown process
-		if ( this.opened && this.opened.state() === 'pending' ) {
-			this.opened.resolve();
+		if ( win.opened && win.opened.state() === 'pending' ) {
+			win.opened.resolve();
 		}
-		this.$element.hide();
-		if ( this.$ariaHidden ) {
-			this.$ariaHidden.removeAttr( 'aria-hidden' );
-			this.$ariaHidden = undefined;
+		win.$element.hide();
+		if ( win.$ariaHidden ) {
+			win.$ariaHidden.removeAttr( 'aria-hidden' );
+			win.$ariaHidden = undefined;
 		}
-		this.visible = false;
-		this.closing.resolve();
+		win.visible = false;
+		win.closing.resolve();
 		// Now that we are totally done closing, it's safe to allow opening
-		this.opening = null;
-	}, this ) );
+		win.opening = null;
+	} );
 
 	return this.closing.promise();
 };
