@@ -12,14 +12,29 @@ body {
 
 .oo-ui-demo {
 	font-size: 0.8em;
-	width: 50em;
-	margin: 3em auto;
-	padding: 2em;
+	max-width: 50em;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	box-shadow: 0 0.25em 1em rgba(0,0,0,0.25);
-	border-radius: 0.5em;
+}
+
+@media (max-width: 750px) {
+	.oo-ui-demo {
+		margin: 1em auto;
+		padding: 1em 2em;
+	}
+	.oo-ui-demo-console {
+		display: none;
+	}
+}
+
+@media (min-width: 751px) {
+	.oo-ui-demo {
+		margin: 3em auto;
+		padding: 2em 4em;
+		box-shadow: 0 0.25em 1em rgba(0,0,0,0.25);
+		border-radius: 0.5em;
+	}
 }
 
 .oo-ui-demo-toolbar {
@@ -72,7 +87,8 @@ body {
 .oo-ui-demo-console-toggle {
 	position: absolute;
 	bottom: 100%;
-	margin-bottom: 0.5em;
+	margin-bottom: 1em;
+	margin-right: -3em;
 	right: 0;
 	cursor: pointer;
 }
