@@ -143,14 +143,30 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 		return message;
 	};
 
-	/** */
-	OO.ui.deferMsg = function ( key ) {
+	/**
+	 * Package a message and arguments for deferred resolution.
+	 *
+	 * Use this when you are statically specifying a message and the message may not yet be present.
+	 *
+	 * @param {string} key Message key
+	 * @param {Mixed...} [params] Message parameters
+	 * @return {Function} Function that returns the resolved message when executed
+	 */
+	OO.ui.deferMsg = function () {
+		var args = arguments;
 		return function () {
-			return OO.ui.msg( key );
+			return OO.ui.msg.apply( OO.ui, args );
 		};
 	};
 
-	/** */
+	/**
+	 * Resolve a message.
+	 *
+	 * If the message is a function it will be executed, otherwise it will pass through directly.
+	 *
+	 * @param {Function|string} msg Deferred message, or message text
+	 * @return {string} Resolved message
+	 */
 	OO.ui.resolveMsg = function ( msg ) {
 		if ( $.isFunction( msg ) ) {
 			return msg();
