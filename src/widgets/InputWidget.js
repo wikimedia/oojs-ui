@@ -194,3 +194,13 @@ OO.ui.InputWidget.prototype.focus = function () {
 	this.$input.focus();
 	return this;
 };
+
+/**
+ * Blur the input.
+ *
+ * @chainable
+ */
+OO.ui.InputWidget.prototype.blur = function () {
+	this.$input.blur();
+	return this;
+};
