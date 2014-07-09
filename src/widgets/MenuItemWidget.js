@@ -4,7 +4,7 @@
  * Use with OO.ui.MenuWidget.
  *
  * @class
- * @extends OO.ui.OptionWidget
+ * @extends OO.ui.DecoratedOptionWidget
  *
  * @constructor
  * @param {Mixed} data Item data
@@ -23,4 +23,4 @@ OO.ui.MenuItemWidget = function OoUiMenuItemWidget( data, config ) {
 
 /* Setup */
 
-OO.inheritClass( OO.ui.MenuItemWidget, OO.ui.OptionWidget );
+OO.inheritClass( OO.ui.MenuItemWidget, OO.ui.DecoratedOptionWidget );

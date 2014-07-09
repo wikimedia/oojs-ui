@@ -4,7 +4,7 @@
  * Use with OO.ui.OutlineWidget.
  *
  * @class
- * @extends OO.ui.OptionWidget
+ * @extends OO.ui.DecoratedOptionWidget
  *
  * @constructor
  * @param {Mixed} data Item data
@@ -31,7 +31,7 @@ OO.ui.OutlineItemWidget = function OoUiOutlineItemWidget( data, config ) {
 
 /* Setup */
 
-OO.inheritClass( OO.ui.OutlineItemWidget, OO.ui.OptionWidget );
+OO.inheritClass( OO.ui.OutlineItemWidget, OO.ui.DecoratedOptionWidget );
 
 /* Static Properties */
 

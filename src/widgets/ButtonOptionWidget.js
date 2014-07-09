@@ -4,9 +4,8 @@
  * Use together with OO.ui.ButtonSelectWidget.
  *
  * @class
- * @extends OO.ui.OptionWidget
+ * @extends OO.ui.DecoratedOptionWidget
  * @mixins OO.ui.ButtonedElement
- * @mixins OO.ui.FlaggableElement
  *
  * @constructor
  * @param {Mixed} data Option data
@@ -18,7 +17,6 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( data, config ) {
 
 	// Mixin constructors
 	OO.ui.ButtonedElement.call( this, this.$( '<a>' ), config );
-	OO.ui.FlaggableElement.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonOptionWidget' );
@@ -28,9 +26,8 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( data, config ) {
 
 /* Setup */
 
-OO.inheritClass( OO.ui.ButtonOptionWidget, OO.ui.OptionWidget );
+OO.inheritClass( OO.ui.ButtonOptionWidget, OO.ui.DecoratedOptionWidget );
 OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.ButtonedElement );
-OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.FlaggableElement );
 
 /* Static Properties */
 
