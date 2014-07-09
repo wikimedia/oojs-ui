@@ -8,7 +8,7 @@
  * @param {jQuery} $button Button node, assigned to #$button
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [frameless] Render button without a frame
- * @cfg {number} [tabIndex=0] Button's tab index, use -1 to prevent tab focusing
+ * @cfg {number} [tabIndex=0] Button's tab index, use null to have no tabIndex
  * @cfg {string} [accessKey] Button's access key
  */
 OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
@@ -25,9 +25,7 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 	this.$button.on( 'mousedown', OO.ui.bind( this.onMouseDown, this ) );
 
 	// Initialization
-	this.$element
-		.addClass( 'oo-ui-buttonedElement' )
-		.prop( 'tabIndex', config.tabIndex || 0 );
+	this.$element.addClass( 'oo-ui-buttonedElement' );
 	this.$button
 		.addClass( 'oo-ui-buttonedElement-button' )
 		.attr( 'role', 'button' );
@@ -36,6 +34,7 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 	} else {
 		this.$element.addClass( 'oo-ui-buttonedElement-framed' );
 	}
+	this.setTabIndex( config.tabIndex || 0 );
 	this.setAccessKey( config.accessKey );
 };
 
@@ -96,6 +95,21 @@ OO.ui.ButtonedElement.prototype.onMouseUp = function ( e ) {
 		.removeClass( 'oo-ui-buttonedElement-pressed' );
 	// Stop listening for mouseup, since we only needed this once
 	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
+};
+
+/**
+ * Set tab index.
+ *
+ * @param {number|null} tabIndex Button's tab index, use null to remove
+ * @chainable
+ */
+OO.ui.ButtonedElement.prototype.setTabIndex = function ( tabIndex ) {
+	if ( typeof tabIndex === 'number' && tabIndex >= 0 ) {
+		this.$button.attr( 'tabindex', tabIndex );
+	} else {
+		this.$button.removeAttr( 'tabindex' );
+	}
+	return this;
 };
 
 /**
