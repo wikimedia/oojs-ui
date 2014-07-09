@@ -23,18 +23,20 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	OO.ui.ClippableElement.call( this, this.$group, config );
 
 	// Properties
-	this.autoHide = config.autoHide === undefined || !!config.autoHide;
+	this.flashing = false;
+	this.visible = false;
 	this.newItems = null;
+	this.autoHide = config.autoHide === undefined || !!config.autoHide;
 	this.$input = config.input ? config.input.$input : null;
 	this.$previousFocus = null;
 	this.isolated = !config.input;
-	this.visible = false;
-	this.flashing = false;
 	this.onKeyDownHandler = OO.ui.bind( this.onKeyDown, this );
 	this.onDocumentMouseDownHandler = OO.ui.bind( this.onDocumentMouseDown, this );
 
 	// Initialization
-	this.$element.hide().addClass( 'oo-ui-menuWidget' );
+	this.$element
+		.hide()
+		.addClass( 'oo-ui-menuWidget' );
 };
 
 /* Setup */
@@ -51,7 +53,7 @@ OO.mixinClass( OO.ui.MenuWidget, OO.ui.ClippableElement );
  */
 OO.ui.MenuWidget.prototype.onDocumentMouseDown = function ( e ) {
 	if ( !$.contains( this.$element[0], e.target ) ) {
-		this.hide();
+		this.toggle( false );
 	}
 };
 
@@ -65,7 +67,7 @@ OO.ui.MenuWidget.prototype.onKeyDown = function ( e ) {
 		handled = false,
 		highlightItem = this.getHighlightedItem();
 
-	if ( !this.isDisabled() && this.visible ) {
+	if ( !this.isDisabled() && this.isVisible() ) {
 		if ( !highlightItem ) {
 			highlightItem = this.getSelectedItem();
 		}
@@ -86,7 +88,7 @@ OO.ui.MenuWidget.prototype.onKeyDown = function ( e ) {
 				if ( highlightItem ) {
 					highlightItem.setHighlighted( false );
 				}
-				this.hide();
+				this.toggle( false );
 				handled = true;
 				break;
 		}
@@ -102,15 +104,6 @@ OO.ui.MenuWidget.prototype.onKeyDown = function ( e ) {
 			return false;
 		}
 	}
-};
-
-/**
- * Check if the menu is visible.
- *
- * @return {boolean} Menu is visible
- */
-OO.ui.MenuWidget.prototype.isVisible = function () {
-	return this.visible;
 };
 
 /**
@@ -146,17 +139,18 @@ OO.ui.MenuWidget.prototype.unbindKeyDownListener = function () {
  */
 OO.ui.MenuWidget.prototype.chooseItem = function ( item ) {
 	var widget = this;
+
 	// Parent method
 	OO.ui.MenuWidget.super.prototype.chooseItem.call( this, item );
 
 	if ( item && !this.flashing ) {
 		this.flashing = true;
 		item.flash().done( function () {
-			widget.hide();
+			widget.toggle( false );
 			widget.flashing = false;
 		} );
 	} else {
-		this.hide();
+		this.toggle( false );
 	}
 
 	return this;
@@ -184,7 +178,7 @@ OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
 
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[i];
-		if ( this.visible ) {
+		if ( this.isVisible() ) {
 			// Defer fitting label until
 			item.fitLabel();
 		} else {
@@ -196,63 +190,52 @@ OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
 };
 
 /**
- * Show the menu.
- *
- * @chainable
+ * @inheritdoc
  */
-OO.ui.MenuWidget.prototype.show = function () {
-	var i, len;
+OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
+	visible = !!visible && !!this.items.length;
 
-	if ( this.items.length ) {
-		this.$element.show();
-		this.visible = true;
-		this.bindKeyDownListener();
+	var i, len,
+		change = visible !== this.isVisible();
 
-		// Change focus to enable keyboard navigation
-		if ( this.isolated && this.$input && !this.$input.is( ':focus' ) ) {
-			this.$previousFocus = this.$( ':focus' );
-			this.$input.focus();
-		}
-		if ( this.newItems && this.newItems.length ) {
-			for ( i = 0, len = this.newItems.length; i < len; i++ ) {
-				this.newItems[i].fitLabel();
+	// Parent method
+	OO.ui.MenuWidget.super.prototype.toggle.call( this, visible );
+
+	if ( change ) {
+		if ( visible ) {
+			this.bindKeyDownListener();
+
+			// Change focus to enable keyboard navigation
+			if ( this.isolated && this.$input && !this.$input.is( ':focus' ) ) {
+				this.$previousFocus = this.$( ':focus' );
+				this.$input.focus();
 			}
-			this.newItems = null;
-		}
+			if ( this.newItems && this.newItems.length ) {
+				for ( i = 0, len = this.newItems.length; i < len; i++ ) {
+					this.newItems[i].fitLabel();
+				}
+				this.newItems = null;
+			}
+			this.setClipping( true );
 
-		this.setClipping( true );
-
-		// Auto-hide
-		if ( this.autoHide ) {
-			this.getElementDocument().addEventListener(
+			// Auto-hide
+			if ( this.autoHide ) {
+				this.getElementDocument().addEventListener(
+					'mousedown', this.onDocumentMouseDownHandler, true
+				);
+			}
+		} else {
+			this.unbindKeyDownListener();
+			if ( this.isolated && this.$previousFocus ) {
+				this.$previousFocus.focus();
+				this.$previousFocus = null;
+			}
+			this.getElementDocument().removeEventListener(
 				'mousedown', this.onDocumentMouseDownHandler, true
 			);
+			this.setClipping( false );
 		}
 	}
-
-	return this;
-};
-
-/**
- * Hide the menu.
- *
- * @chainable
- */
-OO.ui.MenuWidget.prototype.hide = function () {
-	this.$element.hide();
-	this.visible = false;
-	this.unbindKeyDownListener();
-
-	if ( this.isolated && this.$previousFocus ) {
-		this.$previousFocus.focus();
-		this.$previousFocus = null;
-	}
-
-	this.getElementDocument().removeEventListener(
-		'mousedown', this.onDocumentMouseDownHandler, true
-	);
-
-	this.setClipping( false );
 
 	return this;
 };

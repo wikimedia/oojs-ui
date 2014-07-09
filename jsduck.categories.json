@@ -10,11 +10,11 @@
 					"OO.ui.Frame",
 					"OO.ui.Toolbar",
 					"OO.ui.Window",
-					"OO.ui.WindowSet",
 					"OO.ui.Dialog",
-					"OO.ui.ConfirmationDialog",
+					"OO.ui.WindowManager",
 					"OO.ui.Process",
-					"OO.ui.Error"
+					"OO.ui.Error",
+					"OO.ui.ActionSet"
 				]
 			},
 			{
@@ -40,6 +40,10 @@
 			{
 				"name": "Widgets",
 				"classes": ["OO.ui.*Widget"]
+			},
+			{
+				"name": "Dialogs",
+				"classes": ["OO.ui.*Dialog"]
 			}
 		]
 	},

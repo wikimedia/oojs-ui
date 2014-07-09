@@ -1,12 +1,12 @@
 @import '../../../styles/mixins';
 
 .oo-ui-buttonedElement {
-	.oo-ui-buttonedElement-button {
+	> .oo-ui-buttonedElement-button {
 		color: #333;
 	}
 
-	&.oo-ui-indicatedElement .oo-ui-buttonedElement-button > .oo-ui-indicatedElement-indicator,
-	&.oo-ui-iconedElement .oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
+	&.oo-ui-indicatedElement > .oo-ui-buttonedElement-button > .oo-ui-indicatedElement-indicator,
+	&.oo-ui-iconedElement > .oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
 		opacity: 0.8;
 		width: 1.9em;
 		height: 1.9em;
@@ -14,7 +14,7 @@
 }
 
 .oo-ui-buttonedElement-frameless {
-	.oo-ui-buttonedElement-button {
+	> .oo-ui-buttonedElement-button {
 		> .oo-ui-iconedElement-icon {
 			/* Don't animate opacities for now, causes wiggling in Chrome (bug 63020) */
 			/*.oo-ui-transition(opacity 200ms);*/
@@ -36,20 +36,20 @@
 	}
 
 	&.oo-ui-flaggableElement {
-		&-primary .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
+		&-primary > .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
 			color: #087ecc;
 		}
 
-		&-constructive .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
+		&-constructive > .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
 			color: #76ab36;
 		}
 
-		&-destructive .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
+		&-destructive > .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
 			color: #d45353;
 		}
 	}
 
-	&.oo-ui-widget-disabled .oo-ui-buttonedElement-button {
+	&.oo-ui-widget-disabled > .oo-ui-buttonedElement-button {
 		> .oo-ui-iconedElement-icon {
 			opacity: 0.2;
 		}
@@ -60,7 +60,7 @@
 }
 
 .oo-ui-buttonedElement-framed {
-	.oo-ui-buttonedElement-button {
+	> .oo-ui-buttonedElement-button {
 		margin: 0.1em 0;
 		padding: 0.2em 0.8em;
 		border-radius: 0.3em;
@@ -84,19 +84,19 @@
 	}
 
 	&.oo-ui-iconedElement {
-		.oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
+		> .oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
 			margin-left: -0.5em;
 			margin-right: -0.5em;
 		}
 
-		&.oo-ui-labeledElement .oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
+		&.oo-ui-labeledElement > .oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
 			margin-left: -0.5em;
 			margin-right: 0.3em;
 		}
 	}
 
 	&.oo-ui-flaggableElement {
-		&-primary .oo-ui-buttonedElement-button {
+		&-primary > .oo-ui-buttonedElement-button {
 			border: solid 1px #a6cee1;
 			.oo-ui-vertical-gradient(#eaf4fa, #b0d9ee);
 
@@ -112,7 +112,7 @@
 			}
 		}
 
-		&-constructive .oo-ui-buttonedElement-button {
+		&-constructive > .oo-ui-buttonedElement-button {
 			border: solid 1px #b8d892;
 			.oo-ui-vertical-gradient(#f0fbe1, #c3e59a);
 
@@ -128,15 +128,15 @@
 			}
 		}
 
-		&-destructive .oo-ui-buttonedElement-button {
+		&-destructive > .oo-ui-buttonedElement-button {
 			color: #d45353;
 		}
 	}
 
 	&.oo-ui-widget-disabled {
-		.oo-ui-buttonedElement-button,
-		.oo-ui-buttonedElement-button.oo-ui-buttonedElement-active,
-		.oo-ui-buttonedElement-button.oo-ui-buttonedElement-pressed {
+		> .oo-ui-buttonedElement-button,
+		> .oo-ui-buttonedElement-button.oo-ui-buttonedElement-active,
+		> .oo-ui-buttonedElement-button.oo-ui-buttonedElement-pressed {
 			opacity: 0.5;
 			box-shadow: none;
 			color: #333;

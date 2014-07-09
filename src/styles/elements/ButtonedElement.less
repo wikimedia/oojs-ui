@@ -1,7 +1,7 @@
 @import '../mixins';
 
 .oo-ui-buttonedElement {
-	.oo-ui-buttonedElement-button {
+	> .oo-ui-buttonedElement-button {
 		cursor: pointer;
 		display: inline-block;
 		vertical-align: middle;
@@ -18,12 +18,12 @@
 		}
 	}
 
-	&.oo-ui-widget-disabled .oo-ui-buttonedElement-button {
+	&.oo-ui-widget-disabled > .oo-ui-buttonedElement-button {
 		cursor: default;
 	}
 
-	&.oo-ui-indicatedElement .oo-ui-buttonedElement-button > .oo-ui-indicatedElement-indicator,
-	&.oo-ui-iconedElement .oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
+	&.oo-ui-indicatedElement > .oo-ui-buttonedElement-button > .oo-ui-indicatedElement-indicator,
+	&.oo-ui-iconedElement > .oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
 		display: inline-block;
 		vertical-align: middle;
 		background-position: center center;
@@ -35,7 +35,7 @@
 	display: inline-block;
 	position: relative;
 
-	.oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
+	> .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
 		display: inline-block;
 		vertical-align: middle;
 		margin-left: 0.25em;
@@ -43,7 +43,7 @@
 }
 
 .oo-ui-buttonedElement-framed {
-	.oo-ui-buttonedElement-button {
+	> .oo-ui-buttonedElement-button {
 		display: inline-block;
 		vertical-align: top;
 		text-align: center;
@@ -56,9 +56,9 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		.oo-ui-buttonedElement-button,
-		.oo-ui-buttonedElement-button.oo-ui-buttonedElement-active,
-		.oo-ui-buttonedElement-button.oo-ui-buttonedElement-pressed {
+		> .oo-ui-buttonedElement-button,
+		> .oo-ui-buttonedElement-button.oo-ui-buttonedElement-active,
+		> .oo-ui-buttonedElement-button.oo-ui-buttonedElement-pressed {
 			cursor: default;
 		}
 	}

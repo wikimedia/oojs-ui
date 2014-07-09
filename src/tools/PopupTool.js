@@ -37,11 +37,7 @@ OO.mixinClass( OO.ui.PopupTool, OO.ui.PopuppableElement );
  */
 OO.ui.PopupTool.prototype.onSelect = function () {
 	if ( !this.isDisabled() ) {
-		if ( this.popup.isVisible() ) {
-			this.hidePopup();
-		} else {
-			this.showPopup();
-		}
+		this.popup.toggle();
 	}
 	this.setActive( false );
 	return false;

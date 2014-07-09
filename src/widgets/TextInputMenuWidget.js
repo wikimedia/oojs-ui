@@ -38,29 +38,24 @@ OO.ui.TextInputMenuWidget.prototype.onWindowResize = function () {
 };
 
 /**
- * Show the menu.
- *
- * @chainable
+ * @inheritdoc
  */
-OO.ui.TextInputMenuWidget.prototype.show = function () {
+OO.ui.TextInputMenuWidget.prototype.toggle = function ( visible ) {
+	visible = !!visible;
+
+	var change = visible !== this.isVisible();
+
 	// Parent method
-	OO.ui.TextInputMenuWidget.super.prototype.show.call( this );
+	OO.ui.TextInputMenuWidget.super.prototype.toggle.call( this, visible );
 
-	this.position();
-	this.$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
-	return this;
-};
-
-/**
- * Hide the menu.
- *
- * @chainable
- */
-OO.ui.TextInputMenuWidget.prototype.hide = function () {
-	// Parent method
-	OO.ui.TextInputMenuWidget.super.prototype.hide.call( this );
-
-	this.$( this.getElementWindow() ).off( 'resize', this.onWindowResizeHandler );
+	if ( change ) {
+		if ( this.isVisible() ) {
+			this.position();
+			this.$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
+		} else {
+			this.$( this.getElementWindow() ).off( 'resize', this.onWindowResizeHandler );
+		}
+	}
 	return this;
 };
 
@@ -93,8 +88,8 @@ OO.ui.TextInputMenuWidget.prototype.position = function () {
 			delete dimensions.left;
 		}
 	}
-
 	this.$element.css( dimensions );
 	this.setIdealSize( $container.width() );
+
 	return this;
 };

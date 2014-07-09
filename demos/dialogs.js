@@ -1,61 +1,186 @@
 $( function () {
-	var i, l,
-		openButton,
-		fieldset,
-		dialogs,
-		$demo = $( '.oo-ui-demo' );
+	var i, l, name, openButton, DialogClass, config,
+		$demo = $( '.oo-ui-demo' ),
+		fieldset = new OO.ui.FieldsetLayout( { 'label': 'Dialogs' } ),
+		windows = {},
+		windowManager = new OO.ui.WindowManager();
 
-	function SimpleDialog( config ) {
-		config = $.extend( { 'title': 'Title' }, config );
-		SimpleDialog.super.call( this, config );
+	function SimpleDialog( manager, config ) {
+		SimpleDialog.super.call( this, manager, config );
 	}
-
 	OO.inheritClass( SimpleDialog, OO.ui.Dialog );
-
+	SimpleDialog.static.title = 'Simple dialog';
 	SimpleDialog.prototype.initialize = function () {
+		var closeButton,
+			dialog = this;
+
 		SimpleDialog.super.prototype.initialize.apply( this, arguments );
+		this.content = new OO.ui.PanelLayout( { '$': this.$, 'padded': true } );
+		this.content.$element.append( '<p>Dialog content</p>' );
 
-		this.$body.html( '<p>Dialog content</p>' );
-		this.$foot.html( 'Footer' );
+		closeButton = new OO.ui.ButtonWidget( {
+			'$': this.$,
+			'label': OO.ui.msg( 'ooui-dialog-process-dismiss' )
+		} );
+		closeButton.on('click', function () {
+			dialog.close();
+		});
+
+		this.content.$element.append( closeButton.$element );
+		this.$body.append( this.content.$element );
 	};
 
-	function GridDialog( config ) {
-		config = $.extend( { 'title': 'Grid dialog' }, config );
-		GridDialog.super.call( this, config );
+	function ProcessDialog( manager, config ) {
+		ProcessDialog.super.call( this, manager, config );
 	}
+	OO.inheritClass( ProcessDialog, OO.ui.ProcessDialog );
+	ProcessDialog.static.title = 'Process dialog';
+	ProcessDialog.static.actions = [
+		{ 'action': 'save', 'label': 'Done', 'flags': 'primary' },
+		{ 'action': 'cancel', 'label': 'Cancel', 'flags': 'safe' }
+	];
+	ProcessDialog.prototype.initialize = function () {
+		ProcessDialog.super.prototype.initialize.apply( this, arguments );
+		this.content = new OO.ui.PanelLayout( { '$': this.$, 'padded': true } );
+		this.content.$element.append( '<p>Dialog content</p>' );
+		this.$body.append( this.content.$element );
+	};
+	ProcessDialog.prototype.getActionProcess = function ( action ) {
+		var dialog = this;
+		if ( action ) {
+			return new OO.ui.Process( function () {
+				dialog.close( { 'action': action } );
+			} );
+		}
+		return ProcessDialog.super.prototype.getActionProcess.call( this, action );
+	};
 
-	OO.inheritClass( GridDialog, OO.ui.Dialog );
+	function BrokenDialog( manager, config ) {
+		BrokenDialog.super.call( this, manager, config );
+		this.broken = false;
+	}
+	OO.inheritClass( BrokenDialog, OO.ui.ProcessDialog );
+	BrokenDialog.static.title = 'Broken dialog';
+	BrokenDialog.static.actions = [
+		{ 'action': 'save', 'label': 'Save', 'flags': [ 'primary', 'constructive' ] },
+		{ 'action': 'delete', 'label': 'Delete', 'flags': 'destructive' },
+		{ 'action': 'cancel', 'label': 'Cancel', 'flags': 'safe' }
+	];
+	BrokenDialog.prototype.getBodyHeight = function () {
+		return 250;
+	};
+	BrokenDialog.prototype.initialize = function () {
+		BrokenDialog.super.prototype.initialize.apply( this, arguments );
+		this.content = new OO.ui.PanelLayout( { '$': this.$, 'padded': true } );
+		this.fieldset = new OO.ui.FieldsetLayout( {
+			'$': this.$, 'label': 'Dialog with error handling', 'icon': 'alert'
+		} );
+		this.description = new OO.ui.LabelWidget( {
+			'$': this.$, 'label': 'Deleting will fail and will not be recoverable. ' +
+				'Saving will fail the first time, but succeed the second time.'
+		} );
+		this.fieldset.addItems( [ this.description ] );
+		this.content.$element.append( this.fieldset.$element );
+		this.$body.append( this.content.$element );
+	};
+	BrokenDialog.prototype.getSetupProcess = function ( data ) {
+		return BrokenDialog.super.prototype.getSetupProcess.call( this, data )
+			.next( function () {
+				this.broken = true;
+			}, this );
+	};
+	BrokenDialog.prototype.getActionProcess = function ( action ) {
+		return BrokenDialog.super.prototype.getActionProcess.call( this, action )
+			.next( function () {
+				if ( action === 'save' ) {
+					return 1000;
+				}
+			}, this )
+			.next( function () {
+				var closing;
+				if ( this.broken ) {
+					if ( action === 'save' ) {
+						this.broken = false;
+						return new OO.ui.Error( 'Server did not respond' );
+					} else if ( action === 'delete' ) {
+						return new OO.ui.Error( 'Permission denied', { 'recoverable': false } );
+					}
+				}
+				closing = this.close( { 'action': action } );
+				if ( action === 'save' ) {
+					// Return a promise to remaing pending while closing
+					return closing;
+				}
+				return BrokenDialog.super.prototype.getActionProcess.call( this, action );
+			}, this );
+	};
 
-	GridDialog.prototype.initialize = function () {
-		GridDialog.super.prototype.initialize.apply( this, arguments );
+	function SamplePage( name, config ) {
+		config = $.extend( { 'label': 'Sample page', 'icon': 'Sample icon' }, config );
+		OO.ui.PageLayout.call( this, name, config );
+		this.label = config.label;
+		this.icon = config.icon;
+		this.$element.text( this.label );
+	}
+	OO.inheritClass( SamplePage, OO.ui.PageLayout );
+	SamplePage.prototype.setupOutlineItem = function ( outlineItem ) {
+		SamplePage.super.prototype.setupOutlineItem.call( this, outlineItem );
+		this.outlineItem
+			.setIcon( this.icon )
+			.setLabel( this.label );
+	};
 
-		this.panels = new OO.ui.StackLayout( { '$': this.$ } );
-		this.$body.append( this.panels.$element );
-
+	function BookletDialog( manager, config ) {
+		BookletDialog.super.call( this, manager, config );
+	}
+	OO.inheritClass( BookletDialog, OO.ui.ProcessDialog );
+	BookletDialog.static.title = 'Booklet dialog';
+	BookletDialog.static.actions = [
+		{ 'action': 'save', 'label': 'Done', 'flags': 'primary' },
+		{ 'action': 'cancel', 'label': 'Cancel', 'flags': 'safe' }
+	];
+	BookletDialog.prototype.getBodyHeight = function () {
+		return 250;
+	};
+	BookletDialog.prototype.initialize = function () {
+		BookletDialog.super.prototype.initialize.apply( this, arguments );
 		this.bookletLayout = new OO.ui.BookletLayout( { '$': this.$, 'outlined': true } );
-
-		this.fooBarPage = new OO.ui.PageLayout(
-			'fooBar',
-			{ '$': this.$ }
-		);
-
-		this.panels.addItems( [ this.bookletLayout ] );
-		this.bookletLayout.addPages( [
-			this.fooBarPage
-		] );
+		this.pages = [
+			new SamplePage( 'small', { '$': this.$, 'label': 'Small', 'icon': 'window' } ),
+			new SamplePage( 'medium', { '$': this.$, 'label': 'Medium', 'icon': 'window' } ),
+			new SamplePage( 'large', { '$': this.$, 'label': 'Large', 'icon': 'window' } ),
+			new SamplePage( 'full', { '$': this.$, 'label': 'Full', 'icon': 'window' } )
+		];
+		this.bookletLayout.addPages( this.pages );
+		this.bookletLayout.connect( this, { 'set': 'onBookletLayoutSet' } );
+		this.$body.append( this.bookletLayout.$element );
+	};
+	BookletDialog.prototype.getActionProcess = function ( action ) {
+		if ( action ) {
+			return new OO.ui.Process( function () {
+				this.close( { 'action': action } );
+			}, this );
+		}
+		return BookletDialog.super.prototype.getActionProcess.call( this, action );
+	};
+	BookletDialog.prototype.onBookletLayoutSet = function ( page ) {
+		this.setSize( page.getName() );
+	};
+	BookletDialog.prototype.getSetupProcess = function ( data ) {
+		return BookletDialog.super.prototype.getSetupProcess.call( this, data )
+			.next( function () {
+				this.bookletLayout.setPage( this.getSize() );
+			}, this );
 	};
 
-	function openDialog( DialogClass, config, data ) {
-		var dialog = new DialogClass( config );
-		$( 'body' ).append( dialog.$element );
-		dialog.open( data );
-	}
-
-	dialogs = [
+	config = [
 		{
 			'name': 'Simple dialog (small)',
 			'config': {
 				'size': 'small'
+			},
+			'data': {
+				'title': 'Sample dialog with very long title that does not fit'
 			}
 		},
 		{
@@ -71,45 +196,124 @@ $( function () {
 			}
 		},
 		{
-			'name': 'Simple dialog (medium, footless)',
+			'name': 'Simple dialog (full)',
 			'config': {
-				'size': 'medium',
-				'footless': true
+				'size': 'full'
 			}
 		},
 		{
-			'name': 'Confirmation dialog',
-			'dialogClass': OO.ui.ConfirmationDialog,
-			'data': {
-				'prompt': 'Prompt text',
-				'okLabel': 'Custom ok text',
-				'cancelLabel': 'Custom cancel text'
-			}
-		},
-		{
-			'name': 'Grid dialog (medium)',
-			'dialogClass': GridDialog,
+			'name': 'Process dialog (medium)',
+			'dialogClass': ProcessDialog,
 			'config': {
 				'size': 'medium'
 			}
+		},
+		{
+			'name': 'Process dialog (full)',
+			'dialogClass': ProcessDialog,
+			'config': {
+				'size': 'full'
+			}
+		},
+		{
+			'name': 'Broken dialog (error handling)',
+			'dialogClass': BrokenDialog,
+			'config': {
+				'size': 'medium'
+			}
+		},
+		{
+			'name': 'Booklet dialog',
+			'dialogClass': BookletDialog,
+			'config': {
+				'size': 'medium'
+			}
+		},
+		{
+			'name': 'Message dialog (generic)',
+			'dialogClass': OO.ui.MessageDialog,
+			'data': {
+				'title': 'Continue?',
+				'message': 'It may be risky'
+			}
+		},
+		{
+			'name': 'Message dialog (verbose)',
+			'dialogClass': OO.ui.MessageDialog,
+			'data': {
+				'title': 'Continue?',
+				'message': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis laoreet elit. Nam eu velit ullamcorper, volutpat elit sed, viverra massa. Aenean congue aliquam lorem, et laoreet risus condimentum vel. Praesent nec imperdiet mauris. Nunc eros magna, iaculis sit amet ante id, dapibus tristique lorem. Praesent in feugiat lorem, sit amet porttitor eros. Donec sapien turpis, pretium eget ligula id, scelerisque tincidunt diam. Pellentesque a venenatis tortor, at luctus nisl. Quisque vel urna a enim mattis rutrum. Morbi eget consequat nisl. Nam tristique molestie diam ac consequat. Nam varius adipiscing mattis. Praesent sodales volutpat nulla lobortis iaculis. Quisque vel odio eget diam posuere imperdiet. Fusce et iaculis odio. Donec in nibh ut dui accumsan vehicula quis et massa.',
+				'verbose': true
+			}
+		},
+		{
+			'name': 'Message dialog (1 action)',
+			'dialogClass': OO.ui.MessageDialog,
+			'data': {
+				'title': 'Storage limit reached',
+				'message': 'You are out of disk space',
+				'actions': [
+					{
+						'action': 'accept',
+						'label': 'Dismiss',
+						'flags': 'primary'
+					}
+				]
+			}
+		},
+		{
+			'name': 'Message dialog (2 actions)',
+			'dialogClass': OO.ui.MessageDialog,
+			'data': {
+				'title': 'Cannot save data',
+				'message': 'The server is not responding',
+				'actions': [
+					{
+						'action': 'reject',
+						'label': 'Cancel',
+						'flags': 'safe'
+					},
+					{
+						'action': 'repeat',
+						'label': 'Try again',
+						'flags': [ 'primary', 'constructive' ]
+					}
+				]
+			}
+		},
+		{
+			'name': 'Message dialog (3 actions)',
+			'dialogClass': OO.ui.MessageDialog,
+			'data': {
+				'title': 'Delete file?',
+				'message': 'The file will be irreversably obliterated. Proceed with caution.',
+				'actions': [
+					{ 'action': 'reject', 'label': 'Cancel', 'flags': 'safe' },
+					{ 'action': 'reject', 'label': 'Move file to trash' },
+					{
+						'action': 'accept',
+						'label': 'Obliterate',
+						'flags': [ 'primary', 'destructive' ]
+					}
+				]
+			}
 		}
 	];
-	fieldset = new OO.ui.FieldsetLayout( { 'label': 'Dialogs' } );
-	for ( i = 0, l = dialogs.length; i < l; i++ ) {
-		openButton = new OO.ui.ButtonWidget( { 'label': 'Open' } );
-		openButton.on( 'click', OO.ui.bind(
-			openDialog, this,
-			dialogs[i].dialogClass || SimpleDialog,
-			dialogs[i].config,
-			dialogs[i].data
-		) );
-		fieldset.addItems( [
-			new OO.ui.FieldLayout(
-				openButton,
-				{ 'label': dialogs[i].name }
-			)
-		] );
+	for ( i = 0, l = config.length; i < l; i++ ) {
+		name = 'window_' + i;
+		DialogClass = config[i].dialogClass || SimpleDialog;
+		windows[name] = new DialogClass( windowManager, config[i].config );
+		openButton = new OO.ui.ButtonWidget( {
+			'framed': false,
+			'icon': 'window',
+			'label': config[i].name
+		} );
+		openButton.on(
+			'click', OO.ui.bind( windowManager.openWindow, windowManager, name, config[i].data )
+		);
+		fieldset.addItems( [ new OO.ui.FieldLayout( openButton, { 'align': 'inline' } ) ] );
 	}
+	windowManager.addWindows( windows );
 
-	$demo.append( fieldset.$element );
+	$demo.append( fieldset.$element, windowManager.$element );
 } );

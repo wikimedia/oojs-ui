@@ -1,0 +1,135 @@
+.oo-ui-messageDialog {
+	&-text.oo-ui-panelLayout {
+		bottom: auto;
+	}
+
+	&-title {
+		display: block;
+		font-size: 1.5em;
+		color: #000;
+		padding-top: 0;
+		text-align: center;
+	}
+
+	&-message {
+		display: block;
+		font-size: 0.9em;
+		line-height: 1.25em;
+		color: #666;
+		text-align: center;
+
+		&-verbose {
+			text-align: left;
+			font-size: 1.1em;
+			line-height: 1.5em;
+		}
+	}
+
+	&-content > .oo-ui-window {
+		&-body {
+			bottom: 3.4em;
+			box-shadow: 0 0 0.66em rgba(0,0,0,0.25);
+		}
+		&-foot {
+			min-height: 3.4em;
+		}
+	}
+
+	&-actions {
+		&-horizontal {
+			width: 100%;
+			display: table;
+			table-layout: fixed;
+
+			.oo-ui-actionWidget {
+				display: table-cell;
+				width: 1%;
+				border-right: solid 1px #e5e5e5;
+
+				&:last-child {
+					border-right-width: 0;
+				}
+			}
+		}
+
+		&-vertical {
+			display: block;
+
+			.oo-ui-actionWidget {
+				display: block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				border-bottom: solid 1px #e5e5e5;
+
+				&:last-child {
+					border-bottom-width: 0;
+				}
+			}
+		}
+
+		.oo-ui-actionWidget {
+			position: relative;
+			height: 3.4em;
+			padding: 0;
+			text-align: center;
+
+			&:hover {
+				background-color: rgba(0,0,0,0.05);
+			}
+
+			&:active {
+				background-color: rgba(0,0,0,0.1);
+			}
+
+			&.oo-ui-flaggableElement {
+				&-primary {
+					&:hover {
+						background-color: rgba(8,126,204,0.05);
+					}
+
+					&:active {
+						background-color: rgba(8,126,204,0.1);
+					}
+
+					.oo-ui-labeledElement-label {
+						font-weight: bold;
+					}
+				}
+
+				&-constructive {
+					&:hover {
+						background-color: rgba(118,171,54,0.05);
+					}
+
+					&:active {
+						background-color: rgba(118,171,54,0.1);
+					}
+				}
+
+				&-destructive {
+					&:hover {
+						background-color: rgba(212,83,83,0.05);
+					}
+
+					&:active {
+						background-color: rgba(212,83,83,0.1);
+					}
+				}
+			}
+
+			.oo-ui-buttonedElement-button {
+				display: block;
+			}
+
+			.oo-ui-labeledElement-label {
+				position: relative;
+				top: auto;
+				bottom: auto;
+				display: inline;
+				line-height: 3.4em;
+				white-space: nowrap;
+				padding: 0 2em;
+			}
+		}
+	}
+}

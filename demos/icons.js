@@ -14,7 +14,7 @@ $( function () {
 				if ( matches ) {
 					fieldset = matches[1] === 'icon' ? iconsFieldset : indicatorsFieldset;
 					options = {
-						'frameless': true,
+						'framed': false,
 						'label': matches[2]
 					};
 					options[matches[1]] = matches[2];

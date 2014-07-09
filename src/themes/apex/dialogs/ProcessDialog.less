@@ -1,0 +1,203 @@
+@import '../../../styles/mixins';
+
+.oo-ui-processDialog {
+	&-content  > .oo-ui-window {
+		&-head {
+			height: 3.4em;
+		}
+
+		&-body {
+			top: 3.4em;
+			box-shadow: 0 0 0.66em rgba(0,0,0,0.25);
+		}
+	}
+
+	&-navigation {
+		position: relative;
+		height: 3.4em;
+		padding: 0 1em;
+		.oo-ui-unselectable();
+	}
+
+	&-location {
+		padding: 0.75em 0;
+		height: 1.9em;
+		overflow: hidden;
+		cursor: default;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		text-align: center;
+
+		.oo-ui-labelWidget {
+			display: inline;
+		}
+	}
+
+	&-title {
+		font-weight: bold;
+		line-height: 1.9em;
+	}
+
+	&-actions {
+		&-safe,
+		&-primary,
+		&-other {
+			.oo-ui-actionWidget {
+				white-space: nowrap;
+
+				.oo-ui-buttonedElement-button {
+					padding-top: 0.75em;
+					padding-bottom: 0.75em;
+					min-width: 1.9em;
+					min-height: 1.9em;
+				}
+
+				.oo-ui-labeledElement-label {
+					line-height: 1.9em;
+					padding: 0 1em;
+				}
+
+				.oo-ui-iconedElement-icon {
+					position: absolute;
+					margin-top: -0.125em;
+				}
+
+				&.oo-ui-buttonedElement-framed .oo-ui-buttonedElement-button {
+					padding: 0;
+					vertical-align: middle;
+				}
+			}
+		}
+
+		&-safe,
+		&-primary {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+
+			&.oo-ui-buttonedElement-framed .oo-ui-buttonedElement-button {
+				margin: 0.75em;
+			}
+
+			.oo-ui-actionWidget {
+				&:hover {
+					background-color: rgba(0,0,0,0.05);
+				}
+
+				&:active {
+					background-color: rgba(0,0,0,0.1);
+				}
+
+				&.oo-ui-flaggableElement {
+					&-primary {
+						&:hover {
+							background-color: rgba(8,126,204,0.05);
+						}
+
+						&:active {
+							background-color: rgba(8,126,204,0.1);
+						}
+
+						.oo-ui-labeledElement-label {
+							font-weight: bold;
+						}
+					}
+
+					&-constructive {
+						&:hover {
+							background-color: rgba(118,171,54,0.05);
+						}
+
+						&:active {
+							background-color: rgba(118,171,54,0.1);
+						}
+					}
+
+					&-destructive {
+						&:hover {
+							background-color: rgba(212,83,83,0.05);
+						}
+
+						&:active {
+							background-color: rgba(212,83,83,0.1);
+						}
+					}
+				}
+			}
+		}
+
+		&-safe {
+			left: 0;
+
+			.oo-ui-actionWidget.oo-ui-iconedElement {
+				.oo-ui-iconedElement-icon {
+					left: 0.5em;
+				}
+
+				.oo-ui-labeledElement-label {
+					padding-left: 2.25em;
+				}
+			}
+		}
+
+		&-primary {
+			right: 0;
+
+			.oo-ui-actionWidget.oo-ui-iconedElement {
+				.oo-ui-iconedElement-icon {
+					right: 0.5em;
+				}
+
+				.oo-ui-labeledElement-label {
+					padding-right: 2.25em;
+				}
+			}
+		}
+
+		&-other:not(:empty) {
+			padding: 0.75em;
+
+			.oo-ui-actionWidget {
+				margin: 0 0.75em 0 0;
+			}
+		}
+	}
+
+	> .oo-ui-window-frame {
+		min-height: 5em;
+	}
+
+	&-errors {
+		display: none;
+		position: absolute;
+		background-color: rgba(255,255,255,0.9);
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 3em 3em 1.5em 3em;
+		z-index: 2;
+		overflow-x: hidden;
+		overflow-y: auto;
+		text-align: center;
+
+		.oo-ui-buttonWidget {
+			margin: 2em 1em 2em 1em;
+		}
+
+		&-title {
+			font-size: 1.5em;
+			color: #000;
+			margin-bottom: 2em;
+		}
+	}
+
+	&-error {
+		text-align: left;
+		margin: 1em;
+		padding: 1em;
+		border: solid 1px #ff9e9e;
+		background-color: #fff7f7;
+		border-radius: 0.25em;
+	}
+}

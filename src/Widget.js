@@ -21,6 +21,7 @@ OO.ui.Widget = function OoUiWidget( config ) {
 	OO.EventEmitter.call( this );
 
 	// Properties
+	this.visible = true;
 	this.disabled = null;
 	this.wasDisabled = null;
 
@@ -41,6 +42,11 @@ OO.mixinClass( OO.ui.Widget, OO.EventEmitter );
  * @param {boolean} disabled Widget is disabled
  */
 
+/**
+ * @event toggle
+ * @param {boolean} visible Widget is visible
+ */
+
 /* Methods */
 
 /**
@@ -53,13 +59,12 @@ OO.ui.Widget.prototype.isDisabled = function () {
 };
 
 /**
- * Update the disabled state, in case of changes in parent widget.
+ * Check if widget is visible.
  *
- * @chainable
+ * @return {boolean} Widget is visible
  */
-OO.ui.Widget.prototype.updateDisabled = function () {
-	this.setDisabled( this.disabled );
-	return this;
+OO.ui.Widget.prototype.isVisible = function () {
+	return this.visible;
 };
 
 /**
@@ -81,5 +86,35 @@ OO.ui.Widget.prototype.setDisabled = function ( disabled ) {
 		this.emit( 'disable', isDisabled );
 	}
 	this.wasDisabled = isDisabled;
+
+	return this;
+};
+
+/**
+ * Toggle visibility of widget.
+ *
+ * @param {boolean} [show] Make widget visible, omit to toggle visibility
+ * @fires visible
+ * @chainable
+ */
+OO.ui.Widget.prototype.toggle = function ( show ) {
+	show = show === undefined ? !this.visible : !!show;
+
+	if ( show !== this.isVisible() ) {
+		this.visible = show;
+		this.$element.toggle( show );
+		this.emit( 'toggle', show );
+	}
+
+	return this;
+};
+
+/**
+ * Update the disabled state, in case of changes in parent widget.
+ *
+ * @chainable
+ */
+OO.ui.Widget.prototype.updateDisabled = function () {
+	this.setDisabled( this.disabled );
 	return this;
 };

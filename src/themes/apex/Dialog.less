@@ -1,30 +1,8 @@
 @import '../../styles/mixins';
 
 .oo-ui-dialog {
-	background-color: #fff;
-	background-color: rgba(255,255,255,0.5);
-
-	/* Opening and closing animation */
-	opacity: 0;
-	> .oo-ui-window-frame {
-		.oo-ui-transform(scale(0.5));
-	}
-
-	&.oo-ui-window-setup,
-	&.oo-ui-window-setup > .oo-ui-window-frame {
-		.oo-ui-transition(all 250ms ease-in-out);
-	}
-
-	&.oo-ui-window-ready {
-		opacity: 1;
-
-		> .oo-ui-window-frame  {
-			.oo-ui-transform(scale(1));
-		}
-	}
-
 	&-content {
-		.oo-ui-window {
+		> .oo-ui-window {
 			&-head,
 			&-body,
 			&-foot {
@@ -36,84 +14,22 @@
 			}
 
 			&-head {
+				z-index: 1;
 				top: 0;
-				height: 3.8em;
-				padding: 0.5em;
-			}
-
-			&-title {
-				line-height: 2.8em;
-			}
-
-			&-icon {
-				width: 2.4em;
-				height: 2.8em;
-				line-height: 2.8em;
-			}
-
-			&-closeButton {
-				float: right;
-				margin: 0.25em 0.25em;
 			}
 
 			&-body {
-				top: 3.8em;
-				bottom: 4.8em;
+				z-index: 2;
+				top: 0;
+				bottom: 0;
+				box-shadow: 0 0 0.66em rgba(0,0,0,0.25);
 			}
-		}
 
-		&-footless {
-			.oo-ui-window {
-				&-body {
-					bottom: 0;
-				}
-			}
-		}
-	}
-
-	> .oo-ui-window-frame {
-		top: 1em;
-		bottom: 1em;
-		background-color: #fff;
-		border: solid 1px #ccc;
-		border-radius: 0.5em;
-		box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
-	}
-
-	&-small > .oo-ui-window-frame {
-		width: 400px;
-		max-height: 230px;
-	}
-
-	&-medium > .oo-ui-window-frame {
-		width: 600px;
-		max-height: 460px;
-	}
-
-	&-large > .oo-ui-window-frame {
-		width: 800px;
-		max-height: 690px;
-	}
-
-	&-content {
-		.oo-ui-window {
-			&-head,
 			&-foot {
 				z-index: 1;
-			}
-			&-body {
-				box-shadow: 0 0 0.66em rgba(0,0,0,0.25);
-				z-index: 2;
-			}
-			&-foot {
 				bottom: 0;
-				height: 4.8em;
-				padding: 1em;
-
-				.oo-ui-buttonedElement-framed {
-					margin: 0.125em 0.25em;
-				}
 			}
+
 			&-overlay {
 				z-index: 3;
 			}

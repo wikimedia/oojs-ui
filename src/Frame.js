@@ -199,8 +199,7 @@ OO.ui.Frame.prototype.load = function () {
 	doc.write(
 		'<!doctype html>' +
 		'<html>' +
-			'<body class="oo-ui-frame-body oo-ui-' + this.dir + '" style="direction:' + this.dir + ';" dir="' + this.dir + '">' +
-				'<div class="oo-ui-frame-content"></div>' +
+			'<body class="oo-ui-frame-content oo-ui-' + this.dir + '" style="direction:' + this.dir + ';" dir="' + this.dir + '">' +
 			'</body>' +
 		'</html>'
 	);

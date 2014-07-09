@@ -1,18 +1,12 @@
+@import '../../styles/mixins';
+
 .oo-ui-window {
-	&-body {
-		padding: 0 0.75em;
+	> .oo-ui-window-frame {
+		.oo-ui-box-sizing(border-box);
 	}
 
-	&-icon {
-		width: 2em;
-		height: 2em;
-		line-height: 2em;
-		margin-right: 0.5em;
-	}
-
-	&-title {
-		color: #333;
-		line-height: 2em;
+	&-content {
+		background: transparent;
 	}
 
 	&-overlay {

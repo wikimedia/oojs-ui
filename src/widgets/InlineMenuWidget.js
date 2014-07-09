@@ -98,9 +98,9 @@ OO.ui.InlineMenuWidget.prototype.onClick = function ( e ) {
 
 	if ( !this.isDisabled() ) {
 		if ( this.menu.isVisible() ) {
-			this.menu.hide();
+			this.menu.toggle( false );
 		} else {
-			this.menu.show();
+			this.menu.toggle( true );
 		}
 	}
 	return false;

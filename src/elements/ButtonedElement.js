@@ -7,7 +7,7 @@
  * @constructor
  * @param {jQuery} $button Button node, assigned to #$button
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [frameless] Render button without a frame
+ * @cfg {boolean} [framed=true] Render button with a frame
  * @cfg {number} [tabIndex=0] Button's tab index, use null to have no tabIndex
  * @cfg {string} [accessKey] Button's access key
  */
@@ -18,6 +18,7 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 	// Properties
 	this.$button = $button;
 	this.tabIndex = null;
+	this.framed = null;
 	this.active = false;
 	this.onMouseUpHandler = OO.ui.bind( this.onMouseUp, this );
 
@@ -29,13 +30,9 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 	this.$button
 		.addClass( 'oo-ui-buttonedElement-button' )
 		.attr( 'role', 'button' );
-	if ( config.frameless ) {
-		this.$element.addClass( 'oo-ui-buttonedElement-frameless' );
-	} else {
-		this.$element.addClass( 'oo-ui-buttonedElement-framed' );
-	}
 	this.setTabIndex( config.tabIndex || 0 );
 	this.setAccessKey( config.accessKey );
+	this.toggleFramed( config.framed === undefined || config.framed );
 };
 
 /* Setup */
@@ -95,6 +92,24 @@ OO.ui.ButtonedElement.prototype.onMouseUp = function ( e ) {
 		.removeClass( 'oo-ui-buttonedElement-pressed' );
 	// Stop listening for mouseup, since we only needed this once
 	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
+};
+
+/**
+ * Toggle frame.
+ *
+ * @param {boolean} [framed] Make button framed, omit to toggle
+ * @chainable
+ */
+OO.ui.ButtonedElement.prototype.toggleFramed = function ( framed ) {
+	framed = framed === undefined ? !this.framed : !!framed;
+	if ( framed !== this.framed ) {
+		this.framed = framed;
+		this.$element
+			.toggleClass( 'oo-ui-buttonedElement-frameless', !framed )
+			.toggleClass( 'oo-ui-buttonedElement-framed', framed );
+	}
+
+	return this;
 };
 
 /**

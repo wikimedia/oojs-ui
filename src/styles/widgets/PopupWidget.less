@@ -4,18 +4,20 @@
 	&-popup {
 		position: absolute;
 		overflow: hidden;
+		z-index: 1;
 	}
 
-	&-tail {
+	&-anchor {
 		display: none;
+		z-index: 1;
 	}
 
-	&-tailed {
+	&-anchored {
 		.oo-ui-popupWidget-popup {
 			margin-top: 7px;
 		}
 
-		.oo-ui-popupWidget-tail {
+		.oo-ui-popupWidget-anchor {
 			display: block;
 			position: absolute;
 			background-repeat: no-repeat;
@@ -40,5 +42,10 @@
 
 	&-body {
 		clear: both;
+		overflow: hidden;
+
+		&-padded {
+			padding: 0 1em;
+		}
 	}
 }

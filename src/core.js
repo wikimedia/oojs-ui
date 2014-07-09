@@ -80,7 +80,6 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 };
 
 ( function () {
-
 	/**
 	 * Message store for the default implementation of OO.ui.msg
 	 *
@@ -90,8 +89,6 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 	 * @private
 	 */
 	var messages = {
-		// Label text for button to exit from dialog
-		'ooui-dialog-action-close': 'Close',
 		// Tool tip for a button that moves items in a list down one place
 		'ooui-outline-control-move-down': 'Move item down',
 		// Tool tip for a button that moves items in a list up one place
@@ -100,15 +97,16 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 		'ooui-outline-control-remove': 'Remove item',
 		// Label for the toolbar group that contains a list of all other available tools
 		'ooui-toolbar-more': 'More',
-
-		// Label for the generic dialog used to confirm things
-		'ooui-dialog-confirm-title': 'Confirm',
-		// The default prompt of a confirmation dialog
-		'ooui-dialog-confirm-default-prompt': 'Are you sure?',
-		// The default OK button text on a confirmation dialog
-		'ooui-dialog-confirm-default-ok': 'OK',
-		// The default cancel button text on a confirmation dialog
-		'ooui-dialog-confirm-default-cancel': 'Cancel'
+		// Default label for the accept button of a confirmation dialog
+		'ooui-dialog-message-accept': 'OK',
+		// Default label for the reject button of a confirmation dialog
+		'ooui-dialog-message-reject': 'Cancel',
+		// Title for process dialog error description
+		'ooui-dialog-process-error': 'Something went wrong',
+		// Label for process dialog dismiss error button, visible when describing errors
+		'ooui-dialog-process-dismiss': 'Dismiss',
+		// Label for process dialog retry action button, visible when describing recoverable errors
+		'ooui-dialog-process-retry': 'Try again'
 	};
 
 	/**

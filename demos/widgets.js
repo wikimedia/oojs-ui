@@ -7,7 +7,10 @@ $( function () {
 					'icon': 'picture',
 					'title': 'Picture icon'
 				} ),
-				{ 'label': 'IconWidget (normal)' }
+				{
+					'label': 'IconWidget (normal)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.IconWidget( {
@@ -15,14 +18,20 @@ $( function () {
 					'title': 'Picture icon',
 					'disabled': true
 				} ),
-				{ 'label': 'IconWidget (disabled)' }
+				{
+					'label': 'IconWidget (disabled)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.IndicatorWidget( {
 					'indicator': 'required',
 					'title': 'Required icon'
 				} ),
-				{ 'label': 'IndicatorWidget (normal)' }
+				{
+					'label': 'IndicatorWidget (normal)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.IndicatorWidget( {
@@ -30,39 +39,57 @@ $( function () {
 					'title': 'Required icon',
 					'disabled': true
 				} ),
-				{ 'label': 'IndicatorWidget (disabled)' }
+				{
+					'label': 'IndicatorWidget (disabled)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( { 'label': 'Normal' } ),
-				{ 'label': 'ButtonWidget (normal)' }
+				{
+					'label': 'ButtonWidget (normal)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
 					'label': 'Primary',
 					'flags': [ 'primary' ]
 				} ),
-				{ 'label': 'ButtonWidget (primary)' }
+				{
+					'label': 'ButtonWidget (primary)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
 					'label': 'Constructive',
 					'flags': [ 'constructive' ]
 				} ),
-				{ 'label': 'ButtonWidget (constructive)' }
+				{
+					'label': 'ButtonWidget (constructive)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
 					'label': 'Destructive',
 					'flags': [ 'destructive' ]
 				} ),
-				{ 'label': 'ButtonWidget (destructive)' }
+				{
+					'label': 'ButtonWidget (destructive)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
 					'label': 'Disabled',
 					'disabled': true
 				} ),
-				{ 'label': 'ButtonWidget (disabled)' }
+				{
+					'label': 'ButtonWidget (disabled)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
@@ -70,153 +97,282 @@ $( function () {
 					'flags': [ 'constructive' ],
 					'disabled': true
 				} ),
-				{ 'label': 'ButtonWidget (constructive, disabled)' }
+				{
+					'label': 'ButtonWidget (constructive, disabled)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
 					'label': 'Iconed',
 					'icon': 'picture'
 				} ),
-				{ 'label': 'ButtonWidget (iconed)' }
+				{
+					'label': 'ButtonWidget (iconed)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
 					'label': 'Indicated',
 					'indicator': 'down'
 				} ),
-				{ 'label': 'ButtonWidget (indicated)' }
+				{
+					'label': 'ButtonWidget (indicated)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
-					'frameless': true,
+					'framed': false,
 					'icon': 'help',
 					'title': 'Icon only'
 				} ),
-				{ 'label': 'ButtonWidget (icon only)' }
+				{
+					'label': 'ButtonWidget (icon only)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
-					'frameless': true,
-					'icon': 'alert',
+					'framed': false,
+					'icon': 'picture',
 					'label': 'Labeled'
 				} ),
-				{ 'label': 'ButtonWidget (frameless)' }
+				{
+					'label': 'ButtonWidget (frameless)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
-					'frameless': true,
-					'icon': 'menu',
+					'framed': false,
+					'flags': [ 'primary' ],
+					'icon': 'picture',
+					'label': 'Primary'
+				} ),
+				{
+					'label': 'ButtonWidget (frameless, primary)',
+					'align': 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ButtonWidget( {
+					'framed': false,
+					'flags': [ 'destructive' ],
+					'icon': 'picture',
+					'label': 'Destructive'
+				} ),
+				{
+					'label': 'ButtonWidget (frameless, destructive)',
+					'align': 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ButtonWidget( {
+					'framed': false,
+					'flags': [ 'constructive' ],
+					'icon': 'picture',
+					'label': 'Constructive'
+				} ),
+				{
+					'label': 'ButtonWidget (frameless, constructive)',
+					'align': 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ButtonWidget( {
+					'framed': false,
+					'icon': 'picture',
 					'label': 'Disabled',
 					'disabled': true
 				} ),
-				{ 'label': 'ButtonWidget (frameless, disabled)' }
+				{
+					'label': 'ButtonWidget (frameless, disabled)',
+					'align': 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ButtonWidget( {
+					'framed': false,
+					'flags': [ 'constructive' ],
+					'icon': 'picture',
+					'label': 'Constructive',
+					'disabled': true
+				} ),
+				{
+					'label': 'ButtonWidget (frameless, constructive, disabled)',
+					'align': 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.PopupButtonWidget( {
+					'icon': 'info',
+					'framed': false,
+					'popup': {
+						'head': true,
+						'label': 'More information',
+						'$content': $( '<p>Extra information here.</p>' ),
+						'padded': true,
+						'align': 'left'
+					}
+				} ),
+				{
+					'label': 'PopupButtonWidget (frameless, with popup head)',
+					'align': 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.PopupButtonWidget( {
+					'icon': 'menu',
+					'label': 'Options',
+					'popup': {
+						'$content': $( '<p>Additional options here.</p>' ),
+						'padded': true,
+						'align': 'left'
+					}
+				} ),
+				{
+					'label': 'PopupButtonWidget (framed, no popup head)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonGroupWidget( {
 					'items': [
-						new OO.ui.ButtonWidget( { 'icon': 'check', 'indicator': 'down' } ),
+						new OO.ui.ButtonWidget( { 'icon': 'picture', 'indicator': 'down' } ),
 						new OO.ui.ToggleButtonWidget( {
-							'label': 'Primary',
+							'label': 'One',
 							'flags': [ 'primary' ]
 						} ),
 						new OO.ui.ToggleButtonWidget( {
-							'label': 'Constructive',
+							'label': 'Two',
 							'flags': [ 'constructive' ]
 						} ),
 						new OO.ui.ToggleButtonWidget( {
-							'label': 'Destructive',
+							'label': 'Three',
 							'flags': [ 'destructive' ]
 						} )
 					]
 				} ),
-				{ 'label': 'ButtonGroupWidget' }
+				{
+					'label': 'ButtonGroupWidget',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonSelectWidget( {
 					'items': [
 						new OO.ui.ButtonOptionWidget( 'a',  {
-							'icon': 'check', 'indicator': 'down'
+							'icon': 'picture', 'indicator': 'down'
 						} ),
 						new OO.ui.ButtonOptionWidget( 'b', {
-							'label': 'Primary',
+							'label': 'One',
 							'flags': [ 'primary' ]
 						} ),
 						new OO.ui.ButtonOptionWidget( 'c', {
-							'label': 'Constructive',
+							'label': 'Two',
 							'flags': [ 'constructive' ]
 						} ),
 						new OO.ui.ButtonOptionWidget( 'd', {
-							'label': 'Destructive',
+							'label': 'Three',
 							'flags': [ 'destructive' ]
 						} )
 					]
 				} ),
-				{ 'label': 'ButtonSelectWidget' }
+				{
+					'label': 'ButtonSelectWidget',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonSelectWidget( {
 					'disabled': true,
 					'items': [
+						new OO.ui.ButtonOptionWidget( 'a',  {
+							'icon': 'picture', 'indicator': 'down'
+						} ),
 						new OO.ui.ButtonOptionWidget( 1, {
-							'label': 'Disabled'
+							'label': 'One'
 						} ),
 						new OO.ui.ButtonOptionWidget( 2, {
-							'label': 'state'
+							'label': 'Two'
 						} ),
 						new OO.ui.ButtonOptionWidget( 3, {
-							'label': 'is'
-						} ),
-						new OO.ui.ButtonOptionWidget( 3, {
-							'label': 'inherited'
+							'label': 'Three'
 						} )
 					]
 				} ),
-				{ 'label': 'ButtonSelectWidget (disabled)' }
+				{
+					'label': 'ButtonSelectWidget (disabled)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonSelectWidget( {
 					'items': [
+						new OO.ui.ButtonOptionWidget( 'a',  {
+							'icon': 'picture', 'indicator': 'down'
+						} ),
 						new OO.ui.ButtonOptionWidget( 1, {
-							'label': 'Disabled',
+							'label': 'One',
 							'disabled': true
 						} ),
 						new OO.ui.ButtonOptionWidget( 2, {
-							'label': 'Enabled'
+							'label': 'Two'
 						} ),
 						new OO.ui.ButtonOptionWidget( 3, {
-							'label': 'Disabled',
+							'label': 'Three',
 							'disabled': true
-						} ),
-						new OO.ui.ButtonOptionWidget( 3, {
-							'label': 'Enabled'
 						} )
 					]
 				} ),
-				{ 'label': 'ButtonSelectWidget (disabled items)' }
+				{
+					'label': 'ButtonSelectWidget (disabled items)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ToggleButtonWidget( { 'label': 'Toggle' } ),
-				{ 'label': 'ToggleButtonWidget' }
+				{
+					'label': 'ToggleButtonWidget',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ToggleButtonWidget( { 'label': 'Toggle', 'value': true } ),
-				{ 'label': 'ToggleButtonWidget (initially active)' }
+				{
+					'label': 'ToggleButtonWidget (initially active)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ToggleButtonWidget( { 'icon': 'next' } ),
-				{ 'label': 'ToggleButtonWidget (icon only)' }
+				{
+					'label': 'ToggleButtonWidget (icon only)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ToggleSwitchWidget(),
-				{ 'label': 'ToggleSwitchWidget' }
+				{
+					'label': 'ToggleSwitchWidget',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ToggleSwitchWidget( { 'disabled': true } ),
-				{ 'label': 'ToggleSwitchWidget (disabled)' }
+				{
+					'label': 'ToggleSwitchWidget (disabled)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ToggleSwitchWidget( { 'disabled': true, value: true } ),
-				{ 'label': 'ToggleSwitchWidget (disabled, checked)' }
+				{
+					'label': 'ToggleSwitchWidget (disabled, checked)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.CheckboxInputWidget( {
@@ -239,32 +395,47 @@ $( function () {
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.TextInputWidget( { 'value': 'Text input' } ),
-				{ 'label': 'TextInputWidget' }
+				{
+					'label': 'TextInputWidget',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.TextInputWidget( { 'placeholder': 'Placeholder' } ),
-				{ 'label': 'TextInputWidget (placeholder)' }
+				{
+					'label': 'TextInputWidget (placeholder)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.TextInputWidget( {
 					'value': 'Readonly',
 					'readOnly': true
 				} ),
-				{ 'label': 'TextInputWidget (readonly)' }
+				{
+					'label': 'TextInputWidget (readonly)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.TextInputWidget( {
 					'value': 'Disabled',
 					'disabled': true
 				} ),
-				{ 'label': 'TextInputWidget (disabled)' }
+				{
+					'label': 'TextInputWidget (disabled)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.TextInputWidget( {
 					'multiline': true,
 					'value': 'Multiline'
 				} ),
-				{ 'label': 'TextInputWidget (multiline)' }
+				{
+					'label': 'TextInputWidget (multiline)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.TextInputWidget( {
@@ -272,11 +443,15 @@ $( function () {
 					'autosize': true,
 					'value': 'Autosize'
 				} ),
-				{ 'label': 'TextInputWidget (autosize)' }
+				{
+					'label': 'TextInputWidget (autosize)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.InlineMenuWidget( {
 					'label': 'Select one',
+					'align': 'top',
 					'menu': {
 						'items': [
 							new OO.ui.MenuItemWidget( 'a',  {
@@ -294,7 +469,10 @@ $( function () {
 						]
 					}
 				} ),
-				{ 'label': 'InlineMenuWidget' }
+				{
+					'label': 'InlineMenuWidget',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.InlineMenuWidget( {
@@ -318,7 +496,10 @@ $( function () {
 						]
 					}
 				} ),
-				{ 'label': 'InlineMenuWidget (disabled options)' }
+				{
+					'label': 'InlineMenuWidget (disabled options)',
+					'align': 'top'
+				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.InlineMenuWidget( {
@@ -341,7 +522,10 @@ $( function () {
 						]
 					}
 				} ),
-				{ 'label': 'InlineMenuWidget (disabled)' }
+				{
+					'label': 'InlineMenuWidget (disabled)',
+					'align': 'top'
+				}
 			)
 		];
 

@@ -7,12 +7,16 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [tail=true] Show tail pointing to origin of popup
+ * @cfg {number} [width=320] Width of popup in pixels
+ * @cfg {number} [height] Height of popup, omit to use automatic height
+ * @cfg {boolean} [anchor=true] Show anchor pointing to origin of popup
  * @cfg {string} [align='center'] Alignment of popup to origin
  * @cfg {jQuery} [$container] Container to prevent popup from rendering outside of
+ * @cfg {jQuery} [$content] Content to append to the popup's body
  * @cfg {boolean} [autoClose=false] Popup auto-closes when it loses focus
  * @cfg {jQuery} [$autoCloseIgnore] Elements to not auto close when clicked
  * @cfg {boolean} [head] Show label and close button at the top
+ * @cfg {boolean} [padded] Add padding to the body
  */
 OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	// Config intialization
@@ -30,23 +34,25 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.$popup = this.$( '<div>' );
 	this.$head = this.$( '<div>' );
 	this.$body = this.$clippable;
-	this.$tail = this.$( '<div>' );
+	this.$anchor = this.$( '<div>' );
 	this.$container = config.$container || this.$( 'body' );
 	this.autoClose = !!config.autoClose;
 	this.$autoCloseIgnore = config.$autoCloseIgnore;
 	this.transitionTimeout = null;
-	this.tail = false;
+	this.anchor = false;
+	this.width = config.width !== undefined ? config.width : 320;
+	this.height = config.height !== undefined ? config.height : null;
 	this.align = config.align || 'center';
-	this.closeButton = new OO.ui.ButtonWidget( { '$': this.$, 'frameless': true, 'icon': 'close' } );
+	this.closeButton = new OO.ui.ButtonWidget( { '$': this.$, 'framed': false, 'icon': 'close' } );
 	this.onMouseDownHandler = OO.ui.bind( this.onMouseDown, this );
 
 	// Events
 	this.closeButton.connect( this, { 'click': 'onCloseButtonClick' } );
 
 	// Initialization
-	this.useTail( config.tail !== undefined ? !!config.tail : true );
+	this.toggleAnchor( config.anchor !== undefined ? !!config.anchor : true );
 	this.$body.addClass( 'oo-ui-popupWidget-body' );
-	this.$tail.addClass( 'oo-ui-popupWidget-tail' );
+	this.$anchor.addClass( 'oo-ui-popupWidget-anchor' );
 	this.$head
 		.addClass( 'oo-ui-popupWidget-head' )
 		.append( this.$label, this.closeButton.$element );
@@ -56,9 +62,17 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.$popup
 		.addClass( 'oo-ui-popupWidget-popup' )
 		.append( this.$head, this.$body );
-	this.$element.hide()
+	this.$element
+		.hide()
 		.addClass( 'oo-ui-popupWidget' )
-		.append( this.$popup, this.$tail );
+		.append( this.$popup, this.$anchor );
+	// Move content, which was added to #$element by OO.ui.Widget, to the body
+	if ( config.$content instanceof jQuery ) {
+		this.$body.append( config.$content );
+	}
+	if ( config.padded ) {
+		this.$body.addClass( 'oo-ui-popupWidget-body-padded' );
+	}
 };
 
 /* Setup */
@@ -86,11 +100,11 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.ClippableElement );
  */
 OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
 	if (
-		this.visible &&
+		this.isVisible() &&
 		!$.contains( this.$element[0], e.target ) &&
 		( !this.$autoCloseIgnore || !this.$autoCloseIgnore.has( e.target ).length )
 	) {
-		this.hide();
+		this.toggle( false );
 	}
 };
 
@@ -106,8 +120,8 @@ OO.ui.PopupWidget.prototype.bindMouseDownListener = function () {
  * Handles close button click events.
  */
 OO.ui.PopupWidget.prototype.onCloseButtonClick = function () {
-	if ( this.visible ) {
-		this.hide();
+	if ( this.isVisible() ) {
+		this.toggle( false );
 	}
 };
 
@@ -119,96 +133,99 @@ OO.ui.PopupWidget.prototype.unbindMouseDownListener = function () {
 };
 
 /**
- * Check if the popup is visible.
+ * Set whether to show a anchor.
  *
- * @return {boolean} Popup is visible
+ * @param {boolean} [show] Show anchor, omit to toggle
  */
-OO.ui.PopupWidget.prototype.isVisible = function () {
-	return this.visible;
-};
+OO.ui.PopupWidget.prototype.toggleAnchor = function ( show ) {
+	show = show === undefined ? !this.anchored : !!show;
 
-/**
- * Set whether to show a tail.
- *
- * @return {boolean} Make tail visible
- */
-OO.ui.PopupWidget.prototype.useTail = function ( value ) {
-	value = !!value;
-	if ( this.tail !== value ) {
-		this.tail = value;
-		if ( value ) {
-			this.$element.addClass( 'oo-ui-popupWidget-tailed' );
+	if ( this.anchored !== show ) {
+		if ( show ) {
+			this.$element.addClass( 'oo-ui-popupWidget-anchored' );
 		} else {
-			this.$element.removeClass( 'oo-ui-popupWidget-tailed' );
+			this.$element.removeClass( 'oo-ui-popupWidget-anchored' );
 		}
+		this.anchored = show;
 	}
 };
 
 /**
- * Check if showing a tail.
+ * Check if showing a anchor.
  *
- * @return {boolean} tail is visible
+ * @return {boolean} anchor is visible
  */
-OO.ui.PopupWidget.prototype.hasTail = function () {
-	return this.tail;
+OO.ui.PopupWidget.prototype.hasAnchor = function () {
+	return this.anchor;
 };
 
 /**
- * Show the context.
- *
- * @fires show
- * @chainable
+ * @inheritdoc
  */
-OO.ui.PopupWidget.prototype.show = function () {
-	if ( !this.visible ) {
-		this.setClipping( true );
-		this.$element.show();
-		this.visible = true;
-		this.emit( 'show' );
-		if ( this.autoClose ) {
-			this.bindMouseDownListener();
+OO.ui.PopupWidget.prototype.toggle = function ( show ) {
+	show = show === undefined ? !this.isVisible() : !!show;
+
+	var change = show !== this.isVisible();
+
+	// Parent method
+	OO.ui.PopupWidget.super.prototype.toggle.call( this, show );
+
+	if ( change ) {
+		if ( show ) {
+			this.setClipping( true );
+			if ( this.autoClose ) {
+				this.bindMouseDownListener();
+			}
+			this.updateDimensions();
+		} else {
+			this.setClipping( false );
+			if ( this.autoClose ) {
+				this.unbindMouseDownListener();
+			}
 		}
 	}
+
 	return this;
 };
 
 /**
- * Hide the context.
+ * Set the size of the popup.
  *
- * @fires hide
- * @chainable
- */
-OO.ui.PopupWidget.prototype.hide = function () {
-	if ( this.visible ) {
-		this.setClipping( false );
-		this.$element.hide();
-		this.visible = false;
-		this.emit( 'hide' );
-		if ( this.autoClose ) {
-			this.unbindMouseDownListener();
-		}
-	}
-	return this;
-};
-
-/**
- * Updates the position and size.
+ * Changing the size may also change the popup's position depending on the alignment.
  *
  * @param {number} width Width
  * @param {number} height Height
  * @param {boolean} [transition=false] Use a smooth transition
  * @chainable
  */
-OO.ui.PopupWidget.prototype.display = function ( width, height, transition ) {
+OO.ui.PopupWidget.prototype.setSize = function ( width, height, transition ) {
+	this.width = width;
+	this.height = height !== undefined ? height : null;
+	if ( this.isVisible() ) {
+		this.updateDimensions( transition );
+	}
+};
+
+/**
+ * Update the size and position.
+ *
+ * Only use this to keep the popup properly anchored. Use #setSize to change the size, and this will
+ * be called automatically.
+ *
+ * @param {boolean} [transition=false] Use a smooth transition
+ * @chainable
+ */
+OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	var widget = this,
 		padding = 10,
 		originOffset = Math.round( this.$element.offset().left ),
 		containerLeft = Math.round( this.$container.offset().left ),
 		containerWidth = this.$container.innerWidth(),
 		containerRight = containerLeft + containerWidth,
-		popupOffset = width * ( { 'left': 0, 'center': -0.5, 'right': -1 } )[this.align],
+		popupOffset = this.width * ( { 'left': 0, 'center': -0.5, 'right': -1 } )[this.align],
+		anchorWidth = this.$anchor.width(),
 		popupLeft = popupOffset - padding,
-		popupRight = popupOffset + padding + width + padding,
+		popupRight = popupOffset + padding + this.width + padding,
 		overlapLeft = ( originOffset + popupLeft ) - containerLeft,
 		overlapRight = containerRight - ( originOffset + popupRight );
 
@@ -225,11 +242,18 @@ OO.ui.PopupWidget.prototype.display = function ( width, height, transition ) {
 		popupOffset -= overlapLeft;
 	}
 
+	// Adjust offset to avoid anchor being rendered too close to the edge
+	if ( this.align === 'right' ) {
+		popupOffset += anchorWidth;
+	} else if ( this.align === 'left' ) {
+		popupOffset -= anchorWidth;
+	}
+
 	// Position body relative to anchor and resize
 	this.$popup.css( {
 		'left': popupOffset,
-		'width': width,
-		'height': height === undefined ? 'auto' : height
+		'width': this.width,
+		'height': this.height !== null ? this.height : 'auto'
 	} );
 
 	if ( transition ) {

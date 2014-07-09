@@ -40,11 +40,8 @@ OO.ui.PopupButtonWidget.prototype.onClick = function ( e ) {
 	}
 
 	if ( !this.isDisabled() ) {
-		if ( this.popup.isVisible() ) {
-			this.hidePopup();
-		} else {
-			this.showPopup();
-		}
+		this.popup.toggle();
+		// Parent method
 		OO.ui.PopupButtonWidget.super.prototype.onClick.call( this );
 	}
 	return false;

@@ -61,7 +61,7 @@ OO.ui.LookupInputWidget.prototype.onLookupInputFocus = function () {
  * @param {jQuery.Event} e Input blur event
  */
 OO.ui.LookupInputWidget.prototype.onLookupInputBlur = function () {
-	this.lookupMenu.hide();
+	this.lookupMenu.toggle( false );
 };
 
 /**
@@ -101,12 +101,11 @@ OO.ui.LookupInputWidget.prototype.openLookupMenu = function () {
 
 	if ( this.lookupMenu.$input.is( ':focus' ) && $.trim( value ) !== '' ) {
 		this.populateLookupMenu();
-		if ( !this.lookupMenu.isVisible() ) {
-			this.lookupMenu.show();
-		}
+		this.lookupMenu.toggle( true );
 	} else {
-		this.lookupMenu.clearItems();
-		this.lookupMenu.hide();
+		this.lookupMenu
+			.clearItems()
+			.toggle( false );
 	}
 
 	return this;
@@ -119,18 +118,20 @@ OO.ui.LookupInputWidget.prototype.openLookupMenu = function () {
  */
 OO.ui.LookupInputWidget.prototype.populateLookupMenu = function () {
 	var widget = this;
+
 	if ( !this.populating ) {
 		this.populating = true;
 		this.getLookupMenuItems()
 			.done( function ( items ) {
 				widget.lookupMenu.clearItems();
 				if ( items.length ) {
-					widget.lookupMenu.show();
-					widget.lookupMenu.addItems( items );
+					widget.lookupMenu
+						.addItems( items )
+						.toggle( true );
 					widget.initializeLookupMenuSelection();
 					widget.openLookupMenu();
 				} else {
-					widget.lookupMenu.hide();
+					widget.lookupMenu.toggle( true );
 				}
 				widget.populating = false;
 			} )
@@ -162,9 +163,9 @@ OO.ui.LookupInputWidget.prototype.initializeLookupMenuSelection = function () {
  * of the done event
  */
 OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
-	var value = this.lookupInput.getValue(),
-		deferred = $.Deferred(),
-		widget = this;
+	var widget = this,
+		value = this.lookupInput.getValue(),
+		deferred = $.Deferred();
 
 	if ( value && value !== this.lookupQuery ) {
 		// Abort current request if query has changed

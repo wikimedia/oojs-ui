@@ -1,20 +1,16 @@
 @import 'mixins';
 
 .oo-ui-window {
-	&-head {
+	line-height: 1em;
+
+	&-frame > .oo-ui-frame {
+		width: 100%;
+		height: 100%;
+	}
+
+	&-head,
+	&-foot {
 		.oo-ui-unselectable();
-	}
-
-	&-icon {
-		float: left;
-		background-position: center center;
-		background-repeat: no-repeat;
-	}
-
-	&-title {
-		float: left;
-		white-space: nowrap;
-		cursor: default;
 	}
 
 	&-overlay {
