@@ -12,6 +12,7 @@
 			"src/Widget.js",
 			"src/Process.js",
 			"src/dialogs/ConfirmationDialog.js",
+			"src/Error.js",
 			"src/elements/ButtonedElement.js",
 			"src/elements/ClippableElement.js",
 			"src/elements/FlaggableElement.js",

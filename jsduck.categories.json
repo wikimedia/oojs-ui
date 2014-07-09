@@ -13,7 +13,8 @@
 					"OO.ui.WindowSet",
 					"OO.ui.Dialog",
 					"OO.ui.ConfirmationDialog",
-					"OO.ui.Process"
+					"OO.ui.Process",
+					"OO.ui.Error"
 				]
 			},
 			{
