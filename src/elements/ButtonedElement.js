@@ -9,6 +9,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [frameless] Render button without a frame
  * @cfg {number} [tabIndex=0] Button's tab index, use -1 to prevent tab focusing
+ * @cfg {string} [accessKey] Button's access key
  */
 OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 	// Configuration initialization
@@ -35,6 +36,7 @@ OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
 	} else {
 		this.$element.addClass( 'oo-ui-buttonedElement-framed' );
 	}
+	this.setAccessKey( config.accessKey );
 };
 
 /* Setup */
@@ -94,6 +96,21 @@ OO.ui.ButtonedElement.prototype.onMouseUp = function ( e ) {
 		.removeClass( 'oo-ui-buttonedElement-pressed' );
 	// Stop listening for mouseup, since we only needed this once
 	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
+};
+
+/**
+ * Set access key
+ *
+ * @param {string} accessKey Button's access key, use empty string to remove
+ * @chainable
+ */
+OO.ui.ButtonedElement.prototype.setAccessKey = function ( accessKey ) {
+	if ( typeof accessKey === 'string' && accessKey.length ) {
+		this.$button.attr( 'accesskey', accessKey );
+	} else {
+		this.$button.removeAttr( 'accesskey' );
+	}
+	return this;
 };
 
 /**
