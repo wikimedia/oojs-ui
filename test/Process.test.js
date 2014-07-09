@@ -147,18 +147,33 @@ QUnit.asyncTest( 'execute (async reject)', 1, function ( assert ) {
 	} );
 } );
 
-QUnit.asyncTest( 'delay', 2, function ( assert ) {
-	var result = [];
+QUnit.asyncTest( 'execute (wait)', 1, function ( assert ) {
+	var process = new OO.ui.Process(),
+		result = [];
 
-	OO.ui.Process.static.delay( 10 ).done( function () {
-		result.push( 0 );
+	process
+		.next( function () {
+			result.push( 'A' );
+			return 100;
+		} )
+		.next( function () {
+			result.push( 'B' );
+		} );
+
+	// Steps defined above don't run until execute()
+	result.push( 'before' );
+
+	// Process yields between step A and B
+	setTimeout( function () {
+		result.push( 'yield' );
 	} );
 
-	// Will still be empty because delayed promise hasn't been resolved yet
-	assert.deepEqual( result, [], 'Delayed promises take time to resolve' );
-
-	setTimeout( function () {
-		assert.deepEqual( result, [ 0 ], 'Delayed promises resolve after a time' );
+	process.execute().done( function () {
+		assert.deepEqual(
+			result,
+			[ 'before', 'A', 'yield', 'B' ],
+			'Process is stopped when a step returns a promise that is then rejected'
+		);
 		QUnit.start();
-	}, 20 );
+	} );
 } );

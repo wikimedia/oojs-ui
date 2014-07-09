@@ -8,33 +8,25 @@
  * @class
  *
  * @constructor
+ * @param {number|jQuery.Promise|Function} step Time to wait, promise to wait for or function to
+ *   call, see #createStep for more information
+ * @param {Object} [context=null] Context to call the step function in, ignored if step is a number
+ *   or a promise
+ * @return {Object} Step object, with `callback` and `context` properties
  */
-OO.ui.Process = function () {
+OO.ui.Process = function ( step, context ) {
 	// Properties
 	this.steps = [];
+
+	// Initialization
+	if ( step !== undefined ) {
+		this.next( step, context );
+	}
 };
 
 /* Setup */
 
 OO.initClass( OO.ui.Process );
-
-/* Static Methods */
-
-/**
- * Generate a promise which is resolved after a set amount of time.
- *
- * @param {number} length Number of milliseconds before resolving the promise
- * @return {jQuery.Promise} Promise that will be resolved after a set amount of time
- */
-OO.ui.Process.static.delay = function ( length ) {
-	var deferred = $.Deferred();
-
-	setTimeout( function () {
-		deferred.resolve();
-	}, length );
-
-	return deferred.promise();
-};
 
 /* Methods */
 
@@ -58,11 +50,29 @@ OO.ui.Process.prototype.execute = function () {
 	function proceed( step ) {
 		return function () {
 			// Execute step in the correct context
-			var result = step[0].call( step[1] );
+			var deferred,
+				result = step.callback.call( step.context );
 
 			if ( result === false ) {
 				// Use rejected promise for boolean false results
-				return $.Deferred().reject().promise();
+				return $.Deferred().reject( [] ).promise();
+			}
+			if ( typeof result === 'number' ) {
+				if ( result < 0 ) {
+					throw new Error( 'Cannot go back in time: flux capacitor is out of service' );
+				}
+				// Use a delayed promise for numbers, expecting them to be in milliseconds
+				deferred = $.Deferred();
+				setTimeout( deferred.resolve, result );
+				return deferred.promise();
+			}
+			if ( result instanceof OO.ui.Error ) {
+				// Use rejected promise for error
+				return $.Deferred().reject( [ result ] ).promise();
+			}
+			if ( $.isArray( result ) && result.length && result[0] instanceof OO.ui.Error ) {
+				// Use rejected promise for list of errors
+				return $.Deferred().reject( result ).promise();
 			}
 			// Duck-type the object to see if it can produce a promise
 			if ( result && $.isFunction( result.promise ) ) {
@@ -88,29 +98,61 @@ OO.ui.Process.prototype.execute = function () {
 };
 
 /**
+ * Create a process step.
+ *
+ * @private
+ * @param {number|jQuery.Promise|Function} step
+ *
+ * - Number of milliseconds to wait; or
+ * - Promise to wait to be resolved; or
+ * - Function to execute
+ *   - If it returns boolean false the process will stop
+ *   - If it returns an object with a `promise` method the process will use the promise to either
+ *     continue to the next step when the promise is resolved or stop when the promise is rejected
+ *   - If it returns a number, the process will wait for that number of milliseconds before
+ *     proceeding
+ * @param {Object} [context=null] Context to call the step function in, ignored if step is a number
+ *   or a promise
+ * @return {Object} Step object, with `callback` and `context` properties
+ */
+OO.ui.Process.prototype.createStep = function ( step, context ) {
+	if ( typeof step === 'number' || $.isFunction( step.promise ) ) {
+		return {
+			'callback': function () {
+				return step;
+			},
+			'context': null
+		};
+	}
+	if ( $.isFunction( step ) ) {
+		return {
+			'callback': step,
+			'context': context
+		};
+	}
+	throw new Error( 'Cannot create process step: number, promise or function expected' );
+};
+
+/**
  * Add step to the beginning of the process.
  *
- * @param {Function} step Function to execute; if it returns boolean false the process will stop; if
- *   it returns an object with a `promise` method the process will use the promise to either
- *   continue to the next step when the promise is resolved or stop when the promise is rejected
- * @param {Object} [context=null] Context to call the step function in
+ * @inheritdoc #createStep
+ * @return {OO.ui.Process} this
  * @chainable
  */
 OO.ui.Process.prototype.first = function ( step, context ) {
-	this.steps.unshift( [ step, context || null ] );
+	this.steps.unshift( this.createStep( step, context ) );
 	return this;
 };
 
 /**
  * Add step to the end of the process.
  *
- * @param {Function} step Function to execute; if it returns boolean false the process will stop; if
- *   it returns an object with a `promise` method the process will use the promise to either
- *   continue to the next step when the promise is resolved or stop when the promise is rejected
- * @param {Object} [context=null] Context to call the step function in
+ * @inheritdoc #createStep
+ * @return {OO.ui.Process} this
  * @chainable
  */
 OO.ui.Process.prototype.next = function ( step, context ) {
-	this.steps.push( [ step, context || null ] );
+	this.steps.push( this.createStep( step, context ) );
 	return this;
 };
