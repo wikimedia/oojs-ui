@@ -12,7 +12,6 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [title=''] Title text
  * @cfg {string} [href] Hyperlink to visit when clicked
  * @cfg {string} [target] Target to open hyperlink in
  */
@@ -32,7 +31,9 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	OO.ui.FlaggableElement.call( this, config );
 
 	// Properties
-	this.isHyperlink = typeof config.href === 'string';
+	this.href = null;
+	this.target = null;
+	this.isHyperlink = false;
 
 	// Events
 	this.$button.on( {
@@ -41,12 +42,12 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	} );
 
 	// Initialization
-	this.$button
-		.append( this.$icon, this.$label, this.$indicator )
-		.attr( { 'href': config.href, 'target': config.target } );
+	this.$button.append( this.$icon, this.$label, this.$indicator );
 	this.$element
 		.addClass( 'oo-ui-buttonWidget' )
 		.append( this.$button );
+	this.setHref( config.href );
+	this.setTarget( config.target );
 };
 
 /* Setup */
@@ -97,4 +98,64 @@ OO.ui.ButtonWidget.prototype.onKeyPress = function ( e ) {
 		}
 	}
 	return false;
+};
+
+/**
+ * Get hyperlink location.
+ *
+ * @return {string} Hyperlink location
+ */
+OO.ui.ButtonWidget.prototype.getHref = function () {
+	return this.href;
+};
+
+/**
+ * Get hyperlink target.
+ *
+ * @return {string} Hyperlink target
+ */
+OO.ui.ButtonWidget.prototype.getTarget = function () {
+	return this.target;
+};
+
+/**
+ * Set hyperlink location.
+ *
+ * @param {string|null} href Hyperlink location, null to remove
+ */
+OO.ui.ButtonWidget.prototype.setHref = function ( href ) {
+	href = typeof href === 'string' ? href : null;
+
+	if ( href !== this.href ) {
+		this.href = href;
+		if ( href !== null ) {
+			this.$button.attr( 'href', href );
+			this.isHyperlink = true;
+		} else {
+			this.$button.removeAttr( 'href' );
+			this.isHyperlink = false;
+		}
+	}
+
+	return this;
+};
+
+/**
+ * Set hyperlink target.
+ *
+ * @param {string|null} target Hyperlink target, null to remove
+ */
+OO.ui.ButtonWidget.prototype.setTarget = function ( target ) {
+	target = typeof target === 'string' ? target : null;
+
+	if ( target !== this.target ) {
+		this.target = target;
+		if ( target !== null ) {
+			this.$button.attr( 'target', target );
+		} else {
+			this.$button.removeAttr( 'target' );
+		}
+	}
+
+	return this;
 };
