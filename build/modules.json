@@ -32,6 +32,7 @@
 			"src/layouts/GridLayout.js",
 			"src/layouts/BookletLayout.js",
 			"src/layouts/PanelLayout.js",
+			"src/layouts/FormLayout.js",
 			"src/layouts/PageLayout.js",
 			"src/layouts/StackLayout.js",
 			"src/toolgroups/BarToolGroup.js",
