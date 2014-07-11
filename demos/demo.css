@@ -6,6 +6,7 @@ body {
 /* Layout */
 
 .oo-ui-demo-dir {
+	margin: 0 0 2em 0;
 	font-size: 0.8em;
 	text-align: center;
 }
@@ -30,7 +31,7 @@ body {
 
 @media (min-width: 751px) {
 	.oo-ui-demo {
-		margin: 3em auto;
+		margin: 0 auto 2em auto;
 		padding: 2em 4em;
 		box-shadow: 0 0.25em 1em rgba(0,0,0,0.25);
 		border-radius: 0.5em;
@@ -45,7 +46,24 @@ body {
 .oo-ui-demo-toolbar-contents {
 	padding: 2em;
 	font-size: 0.8em;
-	min-height: 300px;
+	min-height: 100px;
+}
+
+.oo-ui-demo-toolbar-actionButtons {
+	font-size: 0.8em;
+	vertical-align: top;
+	padding: 0.25em;
+}
+
+.oo-ui-demo-toolbar-actionButtons > .oo-ui-buttonedElement-framed {
+	margin-left: 0.25em;
+	margin-right: 0.25em;
+	margin-top: 0.2em;
+}
+
+.oo-ui-demo-label {
+	margin: 0.5em auto;
+	max-width: 50em;
 }
 
 .oo-ui-demo-item {

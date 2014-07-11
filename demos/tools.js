@@ -1,11 +1,17 @@
 $( function () {
-	var i, tools,
-		$demo = $( '.oo-ui-demo' ),
-		toolFactory = new OO.ui.ToolFactory(),
-		toolGroupFactory = new OO.ui.ToolGroupFactory(),
-		toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
+	var i, tools, actionButton, actionButtonDisabled,
+		$demos = $( '.oo-ui-demo' ),
+		toolFactories = [],
+		toolGroupFactories = [],
+		toolbars = [];
 
-	function createTool( name, group, icon, title, init, onSelect ) {
+	for ( i = 0; i < 2; i++ ) {
+		toolFactories.push( new OO.ui.ToolFactory() );
+		toolGroupFactories.push( new OO.ui.ToolGroupFactory() );
+		toolbars.push( new OO.ui.Toolbar( toolFactories[i], toolGroupFactories[i], { actions: true } ) );
+	}
+
+	function createTool( toolbar, name, group, icon, title, init, onSelect ) {
 		var Tool = function () {
 			Tool.super.apply( this, arguments );
 			this.toggled = false;
@@ -23,7 +29,7 @@ $( function () {
 				this.toggled = !this.toggled;
 				this.setActive( this.toggled );
 			}
-			toolbar.emit( 'updateState' );
+			toolbars[toolbar].emit( 'updateState' );
 		};
 		Tool.prototype.onUpdateState = function () {};
 
@@ -51,11 +57,11 @@ $( function () {
 		return DisabledToolGroup;
 	}
 
-	toolGroupFactory.register( createDisabledToolGroup( OO.ui.BarToolGroup, 'disabledBar' ) );
-	toolGroupFactory.register( createDisabledToolGroup( OO.ui.ListToolGroup, 'disabledList' ) );
-	toolGroupFactory.register( createDisabledToolGroup( OO.ui.MenuToolGroup, 'disabledMenu' ) );
+	toolGroupFactories[0].register( createDisabledToolGroup( OO.ui.BarToolGroup, 'disabledBar' ) );
+	toolGroupFactories[0].register( createDisabledToolGroup( OO.ui.ListToolGroup, 'disabledList' ) );
+	toolGroupFactories[1].register( createDisabledToolGroup( OO.ui.MenuToolGroup, 'disabledMenu' ) );
 
-	toolbar.setup( [
+	toolbars[0].setup( [
 		{
 			'type': 'bar',
 			'include': [ { 'group': 'barTools' } ]
@@ -84,7 +90,9 @@ $( function () {
 			'label': 'Auto-disabling list',
 			'icon': 'picture',
 			'include': [ { 'group': 'autoDisableListTools' } ]
-		},
+		}
+	] );
+	toolbars[1].setup( [
 		{
 			'type': 'menu',
 			'indicator': 'down',
@@ -99,37 +107,48 @@ $( function () {
 		}
 	] );
 
-	toolbar.emit( 'updateState' );
+	actionButton = new OO.ui.ButtonWidget( { 'label': 'Action' } );
+	actionButtonDisabled = new OO.ui.ButtonWidget( { 'label': 'Disabled', 'disabled': true } );
+	toolbars[1].$actions
+		.addClass( 'oo-ui-demo-toolbar-actionButtons' )
+		.append( actionButton.$element, actionButtonDisabled.$element );
+
+	for ( i = 0; i < toolbars.length; i++ ) {
+		toolbars[i].emit( 'updateState' );
+	}
 
 	tools = [
 		// barTools
-		[ 'barTool', 'barTools', 'picture', 'Basic tool in bar' ],
-		[ 'disabledBarTool', 'barTools', 'picture', 'Basic tool in bar disabled', function () { this.setDisabled( true ); } ],
+		[ 0, 'barTool', 'barTools', 'picture', 'Basic tool in bar' ],
+		[ 0, 'disabledBarTool', 'barTools', 'picture', 'Basic tool in bar disabled', function () { this.setDisabled( true ); } ],
 
 		// disabledBarTools
-		[ 'barToolInDisabled', 'disabledBarTools', 'picture', 'Basic tool in disabled bar' ],
+		[ 0, 'barToolInDisabled', 'disabledBarTools', 'picture', 'Basic tool in disabled bar' ],
 
 		// listTool
-		[ 'listTool', 'listTools', 'picture', 'Basic tool in list' ],
-		[ 'disabledListTool', 'listTools', 'picture', 'Basic tool in list disabled', function () { this.setDisabled( true ); } ],
+		[ 0, 'listTool', 'listTools', 'picture', 'Basic tool in list' ],
+		[ 0, 'disabledListTool', 'listTools', 'picture', 'Basic tool in list disabled', function () { this.setDisabled( true ); } ],
 
 		// disabledListTools
-		[ 'listToolInDisabled', 'disabledListTools', 'picture', 'Basic tool in disabled list' ],
+		[ 0, 'listToolInDisabled', 'disabledListTools', 'picture', 'Basic tool in disabled list' ],
 
 		// allDisabledListTools
-		[ 'allDisabledListTool', 'autoDisableListTools', 'picture', 'Click to disable this tool', null, function () { this.setDisabled( true ); } ],
+		[ 0, 'allDisabledListTool', 'autoDisableListTools', 'picture', 'Click to disable this tool', null, function () { this.setDisabled( true ); } ],
 
 		// menuTools
-		[ 'menuTool', 'menuTools', 'picture', 'Basic tool' ],
-		[ 'disabledMenuTool', 'menuTools', 'picture', 'Basic tool disabled', function () { this.setDisabled( true ); } ],
+		[ 1, 'menuTool', 'menuTools', 'picture', 'Basic tool' ],
+		[ 1, 'disabledMenuTool', 'menuTools', 'picture', 'Basic tool disabled', function () { this.setDisabled( true ); } ],
 
 		// disabledMenuTools
-		[ 'menuToolInDisabled', 'disabledMenuTools', 'picture', 'Basic tool' ]
+		[ 1, 'menuToolInDisabled', 'disabledMenuTools', 'picture', 'Basic tool' ]
 	];
 
 	for ( i = 0; i < tools.length; i++ ) {
-		toolFactory.register( createTool.apply( this, tools[i] ) );
+		toolFactories[tools[i][0]].register( createTool.apply( this, tools[i] ) );
 	}
 
-	$demo.append( toolbar.$element, '<div class="oo-ui-demo-toolbar-contents">Toolbar demo</div>' );
+	for ( i = 0; i < toolbars.length; i++ ) {
+		$demos.eq( i ).append( toolbars[i].$element );
+	}
+	$demos.append( '<div class="oo-ui-demo-toolbar-contents">Toolbar demo</div>' );
 } );
