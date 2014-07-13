@@ -133,10 +133,11 @@
 			var dir = option.getData(),
 				oldDir = dir === 'ltr' ? 'rtl' : 'ltr';
 
-			$( '.stylesheet-' + dir ).removeAttr( 'disabled' );
-			$( '.stylesheet-' + oldDir ).attr( 'disabled', 'disabled' );
-			$( 'body' ).addClass( 'oo-ui-' + dir );
-			$( 'body' ).removeClass( 'oo-ui-' + oldDir );
+			$( '.stylesheet-' + dir ).prop( 'disabled', false );
+			$( '.stylesheet-' + oldDir ).prop( 'disabled', true );
+			$( 'body' )
+				.addClass( 'oo-ui-' + dir )
+				.removeClass( 'oo-ui-' + oldDir );
 		} );
 
 		directionSelect.selectItem( directionSelect.getItemFromData( 'ltr' ) );
