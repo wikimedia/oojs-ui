@@ -28,7 +28,7 @@ OO.ui.InlineMenuWidget = function OoUiInlineMenuWidget( config ) {
 	OO.ui.TitledElement.call( this, this.$label, config );
 
 	// Properties
-	this.menu = new OO.ui.MenuWidget( $.extend( { '$': this.$ }, config.menu ) );
+	this.menu = new OO.ui.MenuWidget( $.extend( { '$': this.$, 'widget': this }, config.menu ) );
 	this.$handle = this.$( '<span>' );
 
 	// Events
