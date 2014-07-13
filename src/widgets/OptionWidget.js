@@ -126,13 +126,9 @@ OO.ui.OptionWidget.prototype.isPressed = function () {
 OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
 	if ( this.constructor.static.selectable ) {
 		this.selected = !!state;
-		if ( this.selected ) {
-			this.$element.addClass( 'oo-ui-optionWidget-selected' );
-			if ( this.constructor.static.scrollIntoViewOnSelect ) {
-				this.scrollElementIntoView();
-			}
-		} else {
-			this.$element.removeClass( 'oo-ui-optionWidget-selected' );
+		this.$element.toggleClass( 'oo-ui-optionWidget-selected', state );
+		if ( state && this.constructor.static.scrollIntoViewOnSelect ) {
+			this.scrollElementIntoView();
 		}
 	}
 	return this;
@@ -147,11 +143,7 @@ OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
 OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
 	if ( this.constructor.static.highlightable ) {
 		this.highlighted = !!state;
-		if ( this.highlighted ) {
-			this.$element.addClass( 'oo-ui-optionWidget-highlighted' );
-		} else {
-			this.$element.removeClass( 'oo-ui-optionWidget-highlighted' );
-		}
+		this.$element.toggleClass( 'oo-ui-optionWidget-highlighted', state );
 	}
 	return this;
 };
@@ -165,11 +157,7 @@ OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
 OO.ui.OptionWidget.prototype.setPressed = function ( state ) {
 	if ( this.constructor.static.pressable ) {
 		this.pressed = !!state;
-		if ( this.pressed ) {
-			this.$element.addClass( 'oo-ui-optionWidget-pressed' );
-		} else {
-			this.$element.removeClass( 'oo-ui-optionWidget-pressed' );
-		}
+		this.$element.toggleClass( 'oo-ui-optionWidget-pressed', state );
 	}
 	return this;
 };
