@@ -105,10 +105,14 @@ OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
 			this.pressItem( item );
 			this.selecting = item;
 			this.getElementDocument().addEventListener(
-				'mouseup', this.onMouseUpHandler, true
+				'mouseup',
+				this.onMouseUpHandler,
+				true
 			);
 			this.getElementDocument().addEventListener(
-				'mousemove', this.onMouseMoveHandler, true
+				'mousemove',
+				this.onMouseMoveHandler,
+				true
 			);
 		}
 	}
@@ -138,10 +142,14 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 	}
 
 	this.getElementDocument().removeEventListener(
-		'mouseup', this.onMouseUpHandler, true
+		'mouseup',
+		this.onMouseUpHandler,
+		true
 	);
 	this.getElementDocument().removeEventListener(
-		'mousemove', this.onMouseMoveHandler, true
+		'mousemove',
+		this.onMouseMoveHandler,
+		true
 	);
 
 	return false;
@@ -268,8 +276,9 @@ OO.ui.SelectWidget.prototype.togglePressed = function ( pressed ) {
 		pressed = !this.pressed;
 	}
 	if ( pressed !== this.pressed ) {
-		this.$element.toggleClass( 'oo-ui-selectWidget-pressed', pressed );
-		this.$element.toggleClass( 'oo-ui-selectWidget-depressed', !pressed );
+		this.$element
+			.toggleClass( 'oo-ui-selectWidget-pressed', pressed )
+			.toggleClass( 'oo-ui-selectWidget-depressed', !pressed );
 		this.pressed = pressed;
 	}
 };
