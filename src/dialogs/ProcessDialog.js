@@ -138,6 +138,7 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
 		for ( i = 0, len = others.length; i < len; i++ ) {
 			other = others[i];
 			this.$otherActions.append( other.$element );
+			other.toggleFramed( true );
 		}
 	}
 	if ( special.safe ) {
