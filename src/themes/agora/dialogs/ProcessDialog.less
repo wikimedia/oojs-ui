@@ -1,31 +1,38 @@
+@import '../../../styles/mixins';
+@import '../mixins';
+@import '../variables';
+
+@window-header-inner-height: @window-header-height - 1.5em;
+
 .oo-ui-processDialog {
 	&-content {
 		.oo-ui-window-head {
-			height: 3.4em;
+			height: @window-header-height;
+			border-bottom: 1px solid @color-shadow;
+			.oo-ui-box-sizing(border-box);
 		}
-
 		.oo-ui-window-body {
-			top: 3.4em;
-			box-shadow: 0 0 0.33em rgba(0,0,0,0.33);
+			top: @window-header-height;
+			padding: 2em 0;
 		}
 	}
 
 	&-navigation {
 		position: relative;
-		height: 3.4em;
+		height: @window-header-height;
 		padding: 0 1em;
 	}
 
 	&-location {
-		padding: 0.75em 0;
-		height: 1.9em;
+		padding: 0.25em 0;
+		height: @window-header-height;
 		cursor: default;
 		text-align: center;
 	}
 
 	&-title {
 		font-weight: bold;
-		line-height: 1.9em;
+		line-height: @window-header-inner-height;
 	}
 
 	&-actions {
@@ -36,12 +43,12 @@
 				.oo-ui-buttonedElement-button {
 					padding-top: 0.75em;
 					padding-bottom: 0.75em;
-					min-width: 1.9em;
-					min-height: 1.9em;
+					min-width: @window-header-inner-height;
+					min-height: @window-header-inner-height;
 				}
 
 				.oo-ui-labeledElement-label {
-					line-height: 1.9em;
+					line-height: @window-header-inner-height;
 					padding: 0 1em;
 				}
 
@@ -139,6 +146,8 @@
 
 			.oo-ui-actionWidget {
 				margin: 0 0.75em 0 0;
+				border: solid 1px #ccc;
+				border-radius: 0.25em;
 			}
 		}
 	}

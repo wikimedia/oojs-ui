@@ -151,7 +151,7 @@ OO.ui.MessageDialog.prototype.initialize = function () {
 		'$': this.$, 'scrollable': true, 'classes': [ 'oo-ui-messageDialog-container' ]
 	} );
 	this.text = new OO.ui.PanelLayout( {
-		'$': this.$, 'padded': true, 'classes': [ 'oo-ui-messageDialog-text' ]
+		'$': this.$, 'padded': true, 'expanded': false, 'classes': [ 'oo-ui-messageDialog-text' ]
 	} );
 	this.message = new OO.ui.LabelWidget( {
 		'$': this.$, 'classes': [ 'oo-ui-messageDialog-message' ]

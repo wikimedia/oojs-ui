@@ -6,8 +6,9 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [scrollable] Allow vertical scrolling
- * @cfg {boolean} [padded] Pad the content from the edges
+ * @cfg {boolean} [scrollable=false] Allow vertical scrolling
+ * @cfg {boolean} [padded=false] Pad the content from the edges
+ * @cfg {boolean} [expanded=true] Expand size to fill the entire parent element
  */
 OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	// Config initialization
@@ -24,6 +25,10 @@ OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 
 	if ( config.padded ) {
 		this.$element.addClass( 'oo-ui-panelLayout-padded' );
+	}
+
+	if ( config.expanded === undefined || config.expanded ) {
+		this.$element.addClass( 'oo-ui-panelLayout-expanded' );
 	}
 };
 
