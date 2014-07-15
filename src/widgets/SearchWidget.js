@@ -1,7 +1,8 @@
 /**
  * Search widget.
  *
- * Combines query and results selection widgets.
+ * Search widgets combine a query input, placed above, and a results selection widget, placed below.
+ * Results are cleared and populated each time the query is changed.
  *
  * @class
  * @extends OO.ui.Widget

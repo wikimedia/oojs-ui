@@ -1,6 +1,9 @@
 /**
  * Element with a title.
  *
+ * Titles are rendered by the browser and are made visible when hovering the element. Titles are
+ * not visible on touch devices.
+ *
  * @abstract
  * @class
  *

@@ -1,5 +1,5 @@
 /**
- * Text input widget.
+ * Input widget with a text field.
  *
  * @class
  * @extends OO.ui.InputWidget

@@ -1,7 +1,5 @@
 /**
- * Group widget.
- *
- * Mixin for OO.ui.Widget subclasses.
+ * Mixin for OO.ui.Widget subclasses to provide OO.ui.GroupElement.
  *
  * Use together with OO.ui.ItemWidget to make disabled state inheritable.
  *

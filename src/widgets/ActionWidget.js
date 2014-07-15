@@ -1,5 +1,5 @@
 /**
- * ActionButton widget.
+ * Button widget that executes an action and is managed by an OO.ui.ActionSet.
  *
  * @class
  * @extends OO.ui.ButtonWidget

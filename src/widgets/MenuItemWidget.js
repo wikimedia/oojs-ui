@@ -1,7 +1,5 @@
 /**
- * Menu item widget.
- *
- * Use with OO.ui.MenuWidget.
+ * Item of an OO.ui.MenuWidget.
  *
  * @class
  * @extends OO.ui.DecoratedOptionWidget

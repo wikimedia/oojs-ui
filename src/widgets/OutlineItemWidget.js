@@ -1,7 +1,5 @@
 /**
- * Creates an OO.ui.OutlineItemWidget object.
- *
- * Use with OO.ui.OutlineWidget.
+ * Items for an OO.ui.OutlineWidget.
  *
  * @class
  * @extends OO.ui.DecoratedOptionWidget

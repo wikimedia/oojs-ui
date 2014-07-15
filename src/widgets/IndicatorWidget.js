@@ -1,6 +1,8 @@
 /**
  * Indicator widget.
  *
+ * See OO.ui.IndicatedElement for more information.
+ *
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.IndicatedElement

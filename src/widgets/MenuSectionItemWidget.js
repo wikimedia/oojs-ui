@@ -1,7 +1,5 @@
 /**
- * Menu section item widget.
- *
- * Use with OO.ui.MenuWidget.
+ * Section to group one or more items in a OO.ui.MenuWidget.
  *
  * @class
  * @extends OO.ui.DecoratedOptionWidget

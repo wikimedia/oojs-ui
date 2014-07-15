@@ -1,5 +1,5 @@
 /**
- * Form layout.
+ * Layout with an HTML form.
  *
  * @class
  * @extends OO.ui.Layout

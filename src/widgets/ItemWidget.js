@@ -1,5 +1,8 @@
 /**
- * Item widget.
+ * Mixin for widgets used as items in widgets that inherit OO.ui.GroupWidget.
+ *
+ * Item widgets have a reference to a OO.ui.GroupWidget while they are attached to the group. This
+ * allows bidrectional communication.
  *
  * Use together with OO.ui.GroupWidget to make disabled state inheritable.
  *

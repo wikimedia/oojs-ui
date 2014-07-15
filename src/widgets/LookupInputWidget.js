@@ -1,8 +1,7 @@
 /**
- * Lookup input widget.
+ * Mixin that adds a menu showing suggested values for a text input.
  *
- * Mixin that adds a menu showing suggested values to a text input. Subclasses must handle `select`
- * and `choose` events on #lookupMenu to make use of selections.
+ * Subclasses must handle `select` and `choose` events on #lookupMenu to make use of selections.
  *
  * @class
  * @abstract

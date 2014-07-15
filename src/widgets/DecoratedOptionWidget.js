@@ -1,5 +1,5 @@
 /**
- * Option with an option icon and indicator.
+ * Option widget with an option icon and indicator.
  *
  * Use together with OO.ui.SelectWidget.
  *

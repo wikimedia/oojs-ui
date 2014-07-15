@@ -1,6 +1,4 @@
 /**
- * Process error.
- *
  * @abstract
  * @class
  *
