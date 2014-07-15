@@ -43,8 +43,8 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 
 	// Events
 	this.$element.on( {
-		'mousedown': OO.ui.bind( this.onMouseDown, this ),
-		'mouseup': OO.ui.bind( this.onMouseUp, this ),
+		'mousedown touchstart': OO.ui.bind( this.onPointerDown, this ),
+		'mouseup touchend': OO.ui.bind( this.onPointerUp, this ),
 		'mouseover': OO.ui.bind( this.onMouseOver, this ),
 		'mouseout': OO.ui.bind( this.onMouseOut, this )
 	} );
@@ -133,8 +133,9 @@ OO.ui.ToolGroup.prototype.updateDisabled = function () {
  *
  * @param {jQuery.Event} e Mouse down event
  */
-OO.ui.ToolGroup.prototype.onMouseDown = function ( e ) {
-	if ( !this.isDisabled() && e.which === 1 ) {
+OO.ui.ToolGroup.prototype.onPointerDown = function ( e ) {
+	// e.which is 0 for touch events, 1 for left mouse button
+	if ( !this.isDisabled() && e.which <= 1 ) {
 		this.pressed = this.getTargetTool( e );
 		if ( this.pressed ) {
 			this.pressed.setActive( true );
@@ -153,9 +154,9 @@ OO.ui.ToolGroup.prototype.onMouseDown = function ( e ) {
  */
 OO.ui.ToolGroup.prototype.onCapturedMouseUp = function ( e ) {
 	this.getElementDocument().removeEventListener( 'mouseup', this.onCapturedMouseUpHandler, true );
-	// onMouseUp may be called a second time, depending on where the mouse is when the button is
+	// onPointerUp may be called a second time, depending on where the mouse is when the button is
 	// released, but since `this.pressed` will no longer be true, the second call will be ignored.
-	this.onMouseUp( e );
+	this.onPointerUp( e );
 };
 
 /**
@@ -163,10 +164,11 @@ OO.ui.ToolGroup.prototype.onCapturedMouseUp = function ( e ) {
  *
  * @param {jQuery.Event} e Mouse up event
  */
-OO.ui.ToolGroup.prototype.onMouseUp = function ( e ) {
+OO.ui.ToolGroup.prototype.onPointerUp = function ( e ) {
 	var tool = this.getTargetTool( e );
 
-	if ( !this.isDisabled() && e.which === 1 && this.pressed && this.pressed === tool ) {
+	// e.which is 0 for touch events, 1 for left mouse button
+	if ( !this.isDisabled() && e.which <= 1 && this.pressed && this.pressed === tool ) {
 		this.pressed.onSelect();
 	}
 

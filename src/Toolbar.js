@@ -36,7 +36,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	// Events
 	this.$element
 		.add( this.$bar ).add( this.$group ).add( this.$actions )
-		.on( 'mousedown', OO.ui.bind( this.onMouseDown, this ) );
+		.on( 'mousedown touchstart', OO.ui.bind( this.onPointerDown, this ) );
 
 	// Initialization
 	this.$group.addClass( 'oo-ui-toolbar-tools' );
@@ -83,7 +83,7 @@ OO.ui.Toolbar.prototype.getToolGroupFactory = function () {
  *
  * @param {jQuery.Event} e Mouse down event
  */
-OO.ui.Toolbar.prototype.onMouseDown = function ( e ) {
+OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
 	var $closestWidgetToEvent = this.$( e.target ).closest( '.oo-ui-widget' ),
 		$closestWidgetToToolbar = this.$element.closest( '.oo-ui-widget' );
 	if ( !$closestWidgetToEvent.length || $closestWidgetToEvent[0] === $closestWidgetToToolbar[0] ) {
