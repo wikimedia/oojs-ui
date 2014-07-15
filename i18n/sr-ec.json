@@ -12,5 +12,7 @@
 	"ooui-toolbar-more": "Више",
 	"ooui-dialog-message-accept": "У реду",
 	"ooui-dialog-message-reject": "Откажи",
-	"ooui-dialog-process-error": "Нешто је пошло наопако"
+	"ooui-dialog-process-error": "Нешто је пошло наопако",
+	"ooui-dialog-process-dismiss": "Одбаци",
+	"ooui-dialog-process-retry": "Покушај поново"
 }
