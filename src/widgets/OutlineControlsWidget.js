@@ -1,9 +1,12 @@
 /**
- * Creates an OO.ui.OutlineControlsWidget object.
+ * Set of controls for an OO.ui.OutlineWidget.
  *
- * Use together with OO.ui.OutlineWidget.js
+ * Controls include moving items up and down, removing items, and adding different kinds of items.
  *
  * @class
+ * @extends OO.ui.Widget
+ * @mixins OO.ui.GroupElement
+ * @mixins OO.ui.IconedElement
  *
  * @constructor
  * @param {OO.ui.OutlineWidget} outline Outline to control

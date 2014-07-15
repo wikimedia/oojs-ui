@@ -1,5 +1,5 @@
 /**
- * Popuppable element.
+ * Element containing an OO.ui.PopupWidget object.
  *
  * @abstract
  * @class

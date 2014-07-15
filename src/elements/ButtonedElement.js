@@ -1,6 +1,9 @@
 /**
  * Element with a button.
  *
+ * Buttons are used for controls which can be clicked. They can be configured to use tab indexing
+ * and access keys for accessibility purposes.
+ *
  * @abstract
  * @class
  *

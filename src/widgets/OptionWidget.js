@@ -1,7 +1,5 @@
 /**
- * Option widget.
- *
- * Use with OO.ui.SelectWidget.
+ * Generic option widget for use with OO.ui.SelectWidget.
  *
  * @class
  * @extends OO.ui.Widget

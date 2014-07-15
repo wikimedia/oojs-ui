@@ -1,5 +1,5 @@
 /**
- * Input widget.
+ * Base class for input widgets.
  *
  * @abstract
  * @class

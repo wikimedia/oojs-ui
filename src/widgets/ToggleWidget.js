@@ -1,7 +1,5 @@
 /**
- * Width with on and off states.
- *
- * Mixin for widgets with a boolean state.
+ * Mixin for widgets with a boolean on/off state.
  *
  * @abstract
  * @class

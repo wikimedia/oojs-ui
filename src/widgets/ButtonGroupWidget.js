@@ -1,5 +1,5 @@
 /**
- * Container for multiple related buttons.
+ * Group widget for multiple related buttons.
  *
  * Use together with OO.ui.ButtonWidget.
  *

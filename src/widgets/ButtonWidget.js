@@ -1,5 +1,5 @@
 /**
- * Button widget.
+ * Generic widget for buttons.
  *
  * @class
  * @extends OO.ui.Widget

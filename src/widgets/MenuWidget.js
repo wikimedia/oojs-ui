@@ -1,5 +1,8 @@
 /**
- * Menu widget.
+ * Overlaid menu of options.
+ *
+ * Menus are clipped to the visible viewport. They do not provide a control for opening or closing
+ * the menu.
  *
  * Use together with OO.ui.MenuItemWidget.
  *

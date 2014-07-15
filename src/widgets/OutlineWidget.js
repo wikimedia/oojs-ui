@@ -1,5 +1,5 @@
 /**
- * Create an OO.ui.OutlineWidget object.
+ * Structured list of items.
  *
  * Use with OO.ui.OutlineItemWidget.
  *
