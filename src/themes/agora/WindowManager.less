@@ -12,15 +12,15 @@
 			bottom: 1em;
 			background-color: #fff;
 
-			.oo-ui-transform(scale(0.5));
-			.oo-ui-transition(all 250ms ease-in-out);
+			.oo-ui-transform(translate3d(0,-200%,0));
+			.oo-ui-transition(transform 250ms ease-in-out);
 		}
 
 		&.oo-ui-window-ready {
 			opacity: 1;
 
 			> .oo-ui-window-frame  {
-				.oo-ui-transform(scale(1));
+				.oo-ui-transform(translate3d(0,0,0));
 			}
 		}
 	}

@@ -13,7 +13,7 @@ OO.ui.Error = function OoUiElement( message, config ) {
 
 	// Properties
 	this.message = message instanceof jQuery ? message : String( message );
-	this.recoverable = config.recoverable === undefined ? true : !!config.recoverable;
+	this.recoverable = config.recoverable === undefined || !!config.recoverable;
 };
 
 /* Setup */

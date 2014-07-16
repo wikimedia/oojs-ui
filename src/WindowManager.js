@@ -53,7 +53,7 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 
 	// Properties
 	this.factory = config.factory;
-	this.modal = config.modal === undefined ? true : !!config.modal;
+	this.modal = config.modal === undefined || !!config.modal;
 	this.windows = {};
 	this.opening = null;
 	this.opened = null;
@@ -617,6 +617,7 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 	}
 
 	this.$element.toggleClass( 'oo-ui-windowManager-fullscreen', size === 'full' );
+	this.$element.toggleClass( 'oo-ui-windowManager-floating', size !== 'full' );
 	win.setDimensions( sizes[size] );
 
 	return this;

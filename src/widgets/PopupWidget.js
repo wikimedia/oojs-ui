@@ -39,7 +39,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.autoClose = !!config.autoClose;
 	this.$autoCloseIgnore = config.$autoCloseIgnore;
 	this.transitionTimeout = null;
-	this.anchor = false;
+	this.anchor = null;
 	this.width = config.width !== undefined ? config.width : 320;
 	this.height = config.height !== undefined ? config.height : null;
 	this.align = config.align || 'center';
@@ -50,7 +50,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.closeButton.connect( this, { 'click': 'onCloseButtonClick' } );
 
 	// Initialization
-	this.toggleAnchor( config.anchor !== undefined ? !!config.anchor : true );
+	this.toggleAnchor( config.anchor === undefined || config.anchor );
 	this.$body.addClass( 'oo-ui-popupWidget-body' );
 	this.$anchor.addClass( 'oo-ui-popupWidget-anchor' );
 	this.$head
