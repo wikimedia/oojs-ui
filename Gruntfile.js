@@ -12,7 +12,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
-	grunt.loadNpmTasks( 'grunt-jscs-checker' );
+	grunt.loadNpmTasks( 'grunt-jscs' );
 	grunt.loadNpmTasks( 'grunt-recess' );
 	grunt.loadTasks( 'build/tasks' );
 
