@@ -50,19 +50,18 @@
 					margin-top: -0.125em;
 				}
 
-				&.oo-ui-buttonedElement-framed .oo-ui-buttonedElement-button {
-					padding: 0;
-					vertical-align: middle;
+				&.oo-ui-buttonedElement-framed {
+					margin: 0.75em 0 0.75em 0.75em;
+					.oo-ui-buttonedElement-button {
+						padding: 0;
+						vertical-align: middle;
+					}
 				}
 			}
 		}
 
 		&-safe,
 		&-primary {
-			&.oo-ui-buttonedElement-framed .oo-ui-buttonedElement-button {
-				margin: 0.75em;
-			}
-
 			.oo-ui-actionWidget {
 				&:hover {
 					background-color: rgba(0,0,0,0.05);
@@ -70,6 +69,14 @@
 
 				&:active {
 					background-color: rgba(0,0,0,0.1);
+				}
+
+				&.oo-ui-buttonedElement-framed {
+					margin: 0.75em;
+					.oo-ui-buttonedElement-button {
+						/* Adjust for border so text aligns with title */
+						margin: -1px;
+					}
 				}
 
 				&.oo-ui-flaggableElement {
@@ -131,14 +138,6 @@
 				.oo-ui-labeledElement-label {
 					padding-right: 2.25em;
 				}
-			}
-		}
-
-		&-other:not(:empty) {
-			padding: 0.75em;
-
-			.oo-ui-actionWidget {
-				margin: 0 0.75em 0 0;
 			}
 		}
 	}

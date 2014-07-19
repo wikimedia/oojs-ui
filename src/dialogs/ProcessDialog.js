@@ -132,7 +132,7 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
 	others = this.actions.getOthers();
 	if ( special.primary ) {
 		this.$primaryActions.append( special.primary.$element );
-		special.primary.toggleFramed( false );
+		special.primary.toggleFramed( true );
 	}
 	if ( others.length ) {
 		for ( i = 0, len = others.length; i < len; i++ ) {
@@ -143,7 +143,7 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
 	}
 	if ( special.safe ) {
 		this.$safeActions.append( special.safe.$element );
-		special.safe.toggleFramed( false );
+		special.safe.toggleFramed( true );
 	}
 
 	this.fitLabel();
