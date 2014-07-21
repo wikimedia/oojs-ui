@@ -33,6 +33,7 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 	this.$element
 		.data( 'oo-ui-optionWidget', this )
 		.attr( 'rel', config.rel )
+		.attr( 'role', 'option' )
 		.addClass( 'oo-ui-optionWidget' )
 		.append( this.$label );
 	this.$element

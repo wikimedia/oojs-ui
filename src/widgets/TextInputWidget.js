@@ -45,6 +45,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	if ( config.placeholder ) {
 		this.$input.attr( 'placeholder', config.placeholder );
 	}
+	this.$element.attr( 'role', 'textbox' );
 };
 
 /* Setup */

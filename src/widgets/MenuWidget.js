@@ -41,6 +41,7 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	// Initialization
 	this.$element
 		.hide()
+		.attr( 'role', 'menu' )
 		.addClass( 'oo-ui-menuWidget' );
 };
 
