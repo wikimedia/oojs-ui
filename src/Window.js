@@ -439,7 +439,7 @@ OO.ui.Window.prototype.ready = function ( data ) {
 	var win = this,
 		deferred = $.Deferred();
 
-	this.frame.$content.focus();
+	this.frame.$content[0].focus();
 	this.getReadyProcess( data ).execute().done( function () {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.addClass( 'oo-ui-window-ready' ).width();
@@ -464,7 +464,10 @@ OO.ui.Window.prototype.hold = function ( data ) {
 		deferred = $.Deferred();
 
 	this.getHoldProcess( data ).execute().done( function () {
-		win.frame.$content.find( ':focus' ).blur();
+		var $focused = win.frame.$content.find( ':focus' );
+		if ( $focused.length ) {
+			$focused[0].blur();
+		}
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.removeClass( 'oo-ui-window-ready' ).width();
 		win.frame.$content.removeClass( 'oo-ui-window-content-ready' ).width();

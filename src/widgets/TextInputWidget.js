@@ -37,7 +37,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 			this.$( '<span>' )
 				.addClass( 'oo-ui-textInputWidget-icon oo-ui-icon-' + config.icon )
 				.mousedown( function () {
-					widget.$input.focus();
+					widget.$input[0].focus();
 					return false;
 				} )
 		);

@@ -32,7 +32,8 @@
 			var val, result, logval;
 
 			val = $input.val();
-			$input.val( '' ).focus();
+			$input.val( '' );
+			$input[0].focus();
 			result = exec( val );
 
 			logval = String( result.value );
@@ -75,7 +76,7 @@
 				e.preventDefault();
 				$console.toggleClass( 'oo-ui-demo-console-collapsed oo-ui-demo-console-expanded' );
 				if ( $input.is( ':visible' ) ) {
-					$input.focus();
+					$input[0].focus();
 					if ( console && console.log ) {
 						window[ '$' + key ] = item;
 						console.log( '[demo]', 'Global $' + key + ' has been set' );

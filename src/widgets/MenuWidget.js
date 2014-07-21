@@ -213,7 +213,7 @@ OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
 			// Change focus to enable keyboard navigation
 			if ( this.isolated && this.$input && !this.$input.is( ':focus' ) ) {
 				this.$previousFocus = this.$( ':focus' );
-				this.$input.focus();
+				this.$input[0].focus();
 			}
 			if ( this.newItems && this.newItems.length ) {
 				for ( i = 0, len = this.newItems.length; i < len; i++ ) {
@@ -232,7 +232,7 @@ OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
 		} else {
 			this.unbindKeyDownListener();
 			if ( this.isolated && this.$previousFocus ) {
-				this.$previousFocus.focus();
+				this.$previousFocus[0].focus();
 				this.$previousFocus = null;
 			}
 			this.getElementDocument().removeEventListener(
