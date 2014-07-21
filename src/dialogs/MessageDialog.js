@@ -57,8 +57,8 @@ OO.ui.MessageDialog.static.title = null;
 OO.ui.MessageDialog.static.message = null;
 
 OO.ui.MessageDialog.static.actions = [
-	{ 'label': OO.ui.deferMsg( 'ooui-dialog-message-accept' ), 'flags': 'primary' },
-	{ 'label': OO.ui.deferMsg( 'ooui-dialog-message-reject' ), 'flags': 'safe' }
+	{ 'action': 'accept', 'label': OO.ui.deferMsg( 'ooui-dialog-message-accept' ), 'flags': 'primary' },
+	{ 'action': 'reject', 'label': OO.ui.deferMsg( 'ooui-dialog-message-reject' ), 'flags': 'safe' }
 ];
 
 /* Methods */
