@@ -1,6 +1,11 @@
-$( function () {
+OO.ui.demo.toolbars = function () {
+
 	var i, tools, actionButton, actionButtonDisabled,
-		$demos = $( '.oo-ui-demo' ),
+		$demo = $( '.oo-ui-demo' ),
+		$containers = $(
+			'<div class="oo-ui-demo-container oo-ui-demo-toolbars"></div>' +
+			'<div class="oo-ui-demo-container oo-ui-demo-toolbars"></div>'
+		),
 		toolFactories = [],
 		toolGroupFactories = [],
 		toolbars = [];
@@ -148,7 +153,11 @@ $( function () {
 	}
 
 	for ( i = 0; i < toolbars.length; i++ ) {
-		$demos.eq( i ).append( toolbars[i].$element );
+		$containers.eq( i ).append( toolbars[i].$element );
 	}
-	$demos.append( '<div class="oo-ui-demo-toolbar-contents">Toolbar demo</div>' );
-} );
+	$containers.append( '' );
+	$demo.append(
+		$containers.eq( 0 ).append( '<div class="oo-ui-demo-toolbars-contents">Toolbar</div>' ),
+		$containers.eq( 1 ).append( '<div class="oo-ui-demo-toolbars-contents">Toolbar with action buttons</div>' )
+	);
+};

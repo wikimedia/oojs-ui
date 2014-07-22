@@ -1,5 +1,66 @@
 ( function ( $ ) {
 
+	var pageMenu = new OO.ui.InlineMenuWidget( {
+			menu: {
+				items: [
+					new OO.ui.MenuItemWidget( 'dialogs',  { label: 'Dialogs' } ),
+					new OO.ui.MenuItemWidget( 'icons',  { label: 'Icons' } ),
+					new OO.ui.MenuItemWidget( 'toolbars',  { label: 'Toolbars' } ),
+					new OO.ui.MenuItemWidget( 'widgets',  { label: 'Widgets' } )
+				]
+			}
+		} ),
+		pageMenuMenu = pageMenu.getMenu(),
+		themeSelect = new OO.ui.ButtonSelectWidget().addItems( [
+			new OO.ui.ButtonOptionWidget( 'apex', { label: 'Apex' } ),
+			new OO.ui.ButtonOptionWidget( 'agora', { label: 'Agora' } )
+		] ),
+		directionSelect = new OO.ui.ButtonSelectWidget().addItems( [
+			new OO.ui.ButtonOptionWidget( 'ltr', { label: 'LTR' } ),
+			new OO.ui.ButtonOptionWidget( 'rtl', { label: 'RTL' } )
+		] );
+
+	function updateDemo() {
+		var page = pageMenuMenu.getSelectedItem().getData(),
+			theme = themeSelect.getSelectedItem().getData(),
+			dir = directionSelect.getSelectedItem().getData();
+
+		$( 'link[rel=stylesheet]' )
+			.prop( 'disabled', true )
+			.filter( '.stylesheet-dir-' + dir + ', .stylesheet-dir-all' )
+			.filter( '.stylesheet-theme-' + theme + ', .stylesheet-theme-all' )
+			.prop( 'disabled', false );
+
+		$( 'body' ).removeClass( 'oo-ui-ltr oo-ui-rtl' ).addClass( 'oo-ui-' + dir );
+
+		$( '.oo-ui-demo' ).empty();
+
+		OO.ui.demo[page]();
+
+		location.hash = [ page, theme, dir ].join( '-' );
+	}
+
+	function onHashChange() {
+		var parts = location.hash.substr( 1 ).split( '-' );
+		if ( parts.length !== 3 ) {
+			parts = [ 'widgets', 'apex', 'ltr' ];
+		}
+		pageMenuMenu.selectItem( pageMenuMenu.getItemFromData( parts[0] ) );
+		themeSelect.selectItem( themeSelect.getItemFromData( parts[1] ) );
+		directionSelect.selectItem( directionSelect.getItemFromData( parts[2] ) );
+	}
+	$( window ).on( 'hashchange', onHashChange );
+	onHashChange();
+
+	pageMenuMenu.on( 'select', updateDemo );
+	themeSelect.on( 'select', updateDemo );
+	directionSelect.on( 'select', updateDemo );
+
+	$( function () {
+		$( '.oo-ui-demo-menu' ).append( pageMenu.$element, themeSelect.$element, directionSelect.$element );
+		updateDemo();
+	} );
+
 	/**
 	 * @param {OO.ui.Element} item
 	 * @param {string} key Variable name for item
@@ -124,25 +185,5 @@
 	OO.ui.demo = {
 		buildConsole: buildConsole
 	};
-
-	$( function () {
-		var directionSelect = new OO.ui.ButtonSelectWidget().addItems( [
-			new OO.ui.ButtonOptionWidget( 'ltr', { $: this.$, label: 'LTR' } ),
-			new OO.ui.ButtonOptionWidget( 'rtl', { $: this.$, label: 'RTL' } )
-		] )
-		.on( 'select', function ( option ) {
-			var dir = option.getData(),
-				oldDir = dir === 'ltr' ? 'rtl' : 'ltr';
-
-			$( '.stylesheet-' + dir ).prop( 'disabled', false );
-			$( '.stylesheet-' + oldDir ).prop( 'disabled', true );
-			$( 'body' )
-				.addClass( 'oo-ui-' + dir )
-				.removeClass( 'oo-ui-' + oldDir );
-		} );
-
-		directionSelect.selectItem( directionSelect.getItemFromData( 'ltr' ) );
-		$( '.oo-ui-demo-dir' ).prepend( directionSelect.$element );
-	} );
 
 } )( jQuery );

@@ -1,4 +1,4 @@
-$( function () {
+OO.ui.demo.dialogs = function () {
 	var i, l, name, openButton, DialogClass, config,
 		$demo = $( '.oo-ui-demo' ),
 		fieldset = new OO.ui.FieldsetLayout( { label: 'Dialogs' } ),
@@ -315,5 +315,7 @@ $( function () {
 	}
 	windowManager.addWindows( windows );
 
-	$demo.append( fieldset.$element, windowManager.$element );
-} );
+	$demo.append( $( '<div class="oo-ui-demo-container"></div>' ).append(
+		fieldset.$element, windowManager.$element
+	) );
+};

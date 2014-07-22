@@ -1,4 +1,4 @@
-$( function () {
+OO.ui.demo.widgets = function () {
 	var fieldset,
 		$demo = $( '.oo-ui-demo' ),
 		fieldLayouts = [
@@ -537,5 +537,5 @@ $( function () {
 
 	fieldset = new OO.ui.FieldsetLayout( { label: 'Widgets' } );
 	fieldset.addItems( fieldLayouts );
-	$demo.append( fieldset.$element );
-} );
+	$demo.append( $( '<div class="oo-ui-demo-container">' ).append( fieldset.$element ) );
+};
