@@ -16,7 +16,9 @@ OO.ui.MenuItemWidget = function OoUiMenuItemWidget( data, config ) {
 	OO.ui.MenuItemWidget.super.call( this, data, config );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-menuItemWidget' );
+	this.$element
+		.attr( 'role', 'menuitem' )
+		.addClass( 'oo-ui-menuItemWidget' );
 };
 
 /* Setup */
