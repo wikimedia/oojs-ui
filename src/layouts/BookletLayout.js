@@ -120,13 +120,16 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
  * @param {OO.ui.PanelLayout|null} page The page panel that is now the current panel
  */
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
-	var layout = this;
+	var $input, layout = this;
 	if ( page ) {
 		page.scrollElementIntoView( { 'complete': function () {
 			if ( layout.autoFocus ) {
 				// Set focus to the first input if nothing on the page is focused yet
 				if ( !page.$element.find( ':focus' ).length ) {
-					page.$element.find( ':input:first' ).focus();
+					$input = page.$element.find( ':input:first' );
+					if ( $input.length ) {
+						$input[0].focus();
+					}
 				}
 			}
 		} } );
@@ -377,6 +380,7 @@ OO.ui.BookletLayout.prototype.clearPages = function () {
  */
 OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 	var selectedItem,
+		$focused,
 		page = this.pages[name];
 
 	if ( name !== this.currentPageName ) {
@@ -393,7 +397,10 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 				// is not needed if the next page has something focusable because once it is focused
 				// this blur happens automatically
 				if ( this.autoFocus && !page.$element.find( ':input' ).length ) {
-					this.pages[this.currentPageName].$element.find( ':focus' ).blur();
+					$focused = this.pages[this.currentPageName].$element.find( ':focus' );
+					if ( $focused.length ) {
+						$focused[0].blur();
+					}
 				}
 			}
 			this.currentPageName = name;
