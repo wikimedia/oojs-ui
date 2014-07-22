@@ -110,9 +110,10 @@ OO.ui.ClippableElement.prototype.clip = function () {
 
 	var buffer = 10,
 		cOffset = this.$clippable.offset(),
-		ccOffset = this.$clippableContainer.offset() || { 'top': 0, 'left': 0 },
-		ccHeight = this.$clippableContainer.innerHeight() - buffer,
-		ccWidth = this.$clippableContainer.innerWidth() - buffer,
+		$container = this.$clippableContainer.is( 'body' ) ? this.$clippableWindow : this.$clippableContainer,
+		ccOffset = $container.offset() || { 'top': 0, 'left': 0 },
+		ccHeight = $container.innerHeight() - buffer,
+		ccWidth = $container.innerWidth() - buffer,
 		scrollTop = this.$clippableScroller.scrollTop(),
 		scrollLeft = this.$clippableScroller.scrollLeft(),
 		desiredWidth = ( ccOffset.left + scrollLeft + ccWidth ) - cOffset.left,
