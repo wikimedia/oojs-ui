@@ -96,7 +96,7 @@ module.exports = function ( grunt ) {
 			options: {
 				jshintrc: true
 			},
-			dev: [ '*.js', '{build,demos,src,test}/**/*.js' ],
+			dev: [ '*.js', '{build,demos,src,tests}/**/*.js' ],
 			dist: 'dist/**/*.js'
 		},
 		jscs: {
@@ -118,7 +118,7 @@ module.exports = function ( grunt ) {
 			all: 'i18n/'
 		},
 		qunit: {
-			all: 'test/index.html'
+			all: 'tests/index.html'
 		},
 		watch: {
 			files: [
