@@ -96,6 +96,17 @@ OO.ui.TextInputWidget.prototype.onEdit = function () {
 };
 
 /**
+ * @inheritdoc
+ */
+OO.ui.TextInputWidget.prototype.setValue = function ( value ) {
+	// Parent method
+	OO.ui.TextInputWidget.super.prototype.setValue.call( this, value );
+
+	this.adjustSize();
+	return this;
+};
+
+/**
  * Automatically adjust the size of the text input.
  *
  * This only affects multi-line inputs that are auto-sized.
