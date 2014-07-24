@@ -320,13 +320,13 @@ OO.ui.Window.prototype.setDimensions = function ( dim ) {
 	// Apply width before height so height is not based on wrapping content using the wrong width
 	this.$frame.css( {
 		width: dim.width || '',
-		'min-width': dim.minWidth || '',
-		'max-width': dim.maxWidth || ''
+		minWidth: dim.minWidth || '',
+		maxWidth: dim.maxWidth || ''
 	} );
 	this.$frame.css( {
 		height: ( dim.height !== undefined ? dim.height : this.getContentHeight() ) || '',
-		'min-height': dim.minHeight || '',
-		'max-height': dim.maxHeight || ''
+		minHeight: dim.minHeight || '',
+		maxHeight: dim.maxHeight || ''
 	} );
 	return this;
 };

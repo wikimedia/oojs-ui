@@ -168,7 +168,7 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
 		this.$safeActions.is( ':visible' ) ? this.$safeActions.width() : 0,
 		this.$primaryActions.is( ':visible' ) ? this.$primaryActions.width() : 0
 	);
-	this.$location.css( { 'padding-left': width, 'padding-right': width } );
+	this.$location.css( { paddingLeft: width, paddingRight: width } );
 
 	return this;
 };
