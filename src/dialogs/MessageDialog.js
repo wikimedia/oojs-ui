@@ -57,8 +57,8 @@ OO.ui.MessageDialog.static.title = null;
 OO.ui.MessageDialog.static.message = null;
 
 OO.ui.MessageDialog.static.actions = [
-	{ 'action': 'accept', 'label': OO.ui.deferMsg( 'ooui-dialog-message-accept' ), 'flags': 'primary' },
-	{ 'action': 'reject', 'label': OO.ui.deferMsg( 'ooui-dialog-message-reject' ), 'flags': 'safe' }
+	{ action: 'accept', label: OO.ui.deferMsg( 'ooui-dialog-message-accept' ), flags: 'primary' },
+	{ action: 'reject', label: OO.ui.deferMsg( 'ooui-dialog-message-reject' ), flags: 'safe' }
 ];
 
 /* Methods */
@@ -96,7 +96,7 @@ OO.ui.MessageDialog.prototype.toggleVerticalActionLayout = function ( value ) {
 OO.ui.MessageDialog.prototype.getActionProcess = function ( action ) {
 	if ( action ) {
 		return new OO.ui.Process( function () {
-			this.close( { 'action': action } );
+			this.close( { action: action } );
 		}, this );
 	}
 	return OO.ui.MessageDialog.super.prototype.getActionProcess.call( this, action );
@@ -148,13 +148,13 @@ OO.ui.MessageDialog.prototype.initialize = function () {
 	// Properties
 	this.$actions = this.$( '<div>' );
 	this.container = new OO.ui.PanelLayout( {
-		'$': this.$, 'scrollable': true, 'classes': [ 'oo-ui-messageDialog-container' ]
+		$: this.$, scrollable: true, classes: [ 'oo-ui-messageDialog-container' ]
 	} );
 	this.text = new OO.ui.PanelLayout( {
-		'$': this.$, 'padded': true, 'expanded': false, 'classes': [ 'oo-ui-messageDialog-text' ]
+		$: this.$, padded: true, expanded: false, classes: [ 'oo-ui-messageDialog-text' ]
 	} );
 	this.message = new OO.ui.LabelWidget( {
-		'$': this.$, 'classes': [ 'oo-ui-messageDialog-message' ]
+		$: this.$, classes: [ 'oo-ui-messageDialog-message' ]
 	} );
 
 	// Initialization

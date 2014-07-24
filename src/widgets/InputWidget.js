@@ -14,7 +14,7 @@
  */
 OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	// Config intialization
-	config = $.extend( { 'readOnly': false }, config );
+	config = $.extend( { readOnly: false }, config );
 
 	// Parent constructor
 	OO.ui.InputWidget.super.call( this, config );

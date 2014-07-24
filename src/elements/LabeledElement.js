@@ -92,7 +92,7 @@ OO.ui.LabeledElement.prototype.getLabel = function () {
  */
 OO.ui.LabeledElement.prototype.fitLabel = function () {
 	if ( this.$label.autoEllipsis && this.autoFitLabel ) {
-		this.$label.autoEllipsis( { 'hasSpan': false, 'tooltip': true } );
+		this.$label.autoEllipsis( { hasSpan: false, tooltip: true } );
 	}
 	return this;
 };

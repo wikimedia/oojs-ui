@@ -44,7 +44,7 @@ OO.initClass( OO.ui.IconedElement );
  * additional icon names keyed by language code.
  *
  * Example of i18n icon definition:
- *     { 'default': 'bold-a', 'en': 'bold-b', 'de': 'bold-f' }
+ *     { default: 'bold-a', en: 'bold-b', de: 'bold-f' }
  *
  * @static
  * @inheritable

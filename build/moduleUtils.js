@@ -9,10 +9,10 @@ module.exports = {
 	 * a flattened list by variant.
 	 *
 	 *     input = [
-	 *       'foo.js',
-	 *       'bar.js',
-	 *       { default: 'baz-fallback.js', svg: 'baz-svg.js', }.
-	 *       'quux.js'
+	 *         'foo.js',
+	 *         'bar.js',
+	 *         { default: 'baz-fallback.js', svg: 'baz-svg.js', }.
+	 *         'quux.js'
 	 *     ]
 	 *
 	 *     output = {
@@ -28,7 +28,7 @@ module.exports = {
 	 *             'baz-svg.js'
 	 *             'quux.js'
 	 *         ]
-	 *    ]
+	 *     ]
 	 *
 	 * @param {Array} resources List of expandable resources
 	 * @return {Array} Flat list of file paths

@@ -1,5 +1,3 @@
 {
-	"preset": "wikimedia",
-
-	"disallowQuotedKeysInObjects": null
+	"preset": "wikimedia"
 }

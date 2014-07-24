@@ -13,7 +13,7 @@
  */
 OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	// Config initialization
-	config = $.extend( { 'scrollable': true }, config );
+	config = $.extend( { scrollable: true }, config );
 
 	// Parent constructor
 	OO.ui.StackLayout.super.call( this, config );
@@ -108,7 +108,7 @@ OO.ui.StackLayout.prototype.removeItems = function ( items ) {
 	// Mixin method
 	OO.ui.GroupElement.prototype.removeItems.call( this, items );
 
-	if ( $.inArray( this.currentItem, items  ) !== -1 ) {
+	if ( $.inArray( this.currentItem, items ) !== -1 ) {
 		if ( this.items.length ) {
 			this.setItem( this.items[0] );
 		} else {

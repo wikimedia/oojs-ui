@@ -12,7 +12,7 @@
  */
 OO.ui.Widget = function OoUiWidget( config ) {
 	// Initialize config
-	config = $.extend( { 'disabled': false }, config );
+	config = $.extend( { disabled: false }, config );
 
 	// Parent constructor
 	OO.ui.Widget.super.call( this, config );

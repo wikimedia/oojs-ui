@@ -118,16 +118,16 @@ OO.ui.Process.prototype.execute = function () {
 OO.ui.Process.prototype.createStep = function ( step, context ) {
 	if ( typeof step === 'number' || $.isFunction( step.promise ) ) {
 		return {
-			'callback': function () {
+			callback: function () {
 				return step;
 			},
-			'context': null
+			context: null
 		};
 	}
 	if ( $.isFunction( step ) ) {
 		return {
-			'callback': step,
-			'context': context
+			callback: step,
+			context: context
 		};
 	}
 	throw new Error( 'Cannot create process step: number, promise or function expected' );

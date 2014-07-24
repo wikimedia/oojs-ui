@@ -15,7 +15,7 @@
 		assert.deepEqual( element.getFlags(), [], 'No flags by default' );
 
 		element = new TestElement( {
-			'flags': [ 'foo' ]
+			flags: [ 'foo' ]
 		} );
 		assert.deepEqual( element.getFlags(), [ 'foo' ], 'Config option "flags"' );
 	} );
@@ -53,11 +53,11 @@
 		element.setFlags( 'foo' );
 		assert.deepEqual( element.hasFlag( 'foo' ), true, 'string' );
 
-		element.setFlags( [ 'bar', 'qux' ]  );
+		element.setFlags( [ 'bar', 'qux' ] );
 		assert.deepEqual( element.hasFlag( 'bar' ), true, 'array[0]' );
 		assert.deepEqual( element.hasFlag( 'qux' ), true, 'array[1]' );
 
-		element.setFlags( { 'bar': false, 'quux': true }  );
+		element.setFlags( { bar: false, quux: true } );
 		assert.deepEqual( element.hasFlag( 'bar' ), false, 'object set' );
 		assert.deepEqual( element.hasFlag( 'quux' ), true, 'object remove' );
 	} );

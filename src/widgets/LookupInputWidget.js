@@ -19,9 +19,9 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	this.lookupInput = input;
 	this.$overlay = config.$overlay || this.$( 'body,.oo-ui-window-overlay' ).last();
 	this.lookupMenu = new OO.ui.TextInputMenuWidget( this, {
-		'$': OO.ui.Element.getJQuery( this.$overlay ),
-		'input': this.lookupInput,
-		'$container': config.$container
+		$: OO.ui.Element.getJQuery( this.$overlay ),
+		input: this.lookupInput,
+		$container: config.$container
 	} );
 	this.lookupCache = {};
 	this.lookupQuery = null;
@@ -32,11 +32,11 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	this.$overlay.append( this.lookupMenu.$element );
 
 	this.lookupInput.$input.on( {
-		'focus': OO.ui.bind( this.onLookupInputFocus, this ),
-		'blur': OO.ui.bind( this.onLookupInputBlur, this ),
-		'mousedown': OO.ui.bind( this.onLookupInputMouseDown, this )
+		focus: OO.ui.bind( this.onLookupInputFocus, this ),
+		blur: OO.ui.bind( this.onLookupInputBlur, this ),
+		mousedown: OO.ui.bind( this.onLookupInputMouseDown, this )
 	} );
-	this.lookupInput.connect( this, { 'change': 'onLookupInputChange' } );
+	this.lookupInput.connect( this, { change: 'onLookupInputChange' } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-lookupWidget' );

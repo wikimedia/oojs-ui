@@ -22,31 +22,31 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.currentPageName = null;
 	this.pages = {};
 	this.ignoreFocus = false;
-	this.stackLayout = new OO.ui.StackLayout( { '$': this.$, 'continuous': !!config.continuous } );
+	this.stackLayout = new OO.ui.StackLayout( { $: this.$, continuous: !!config.continuous } );
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 	this.outlineVisible = false;
 	this.outlined = !!config.outlined;
 	if ( this.outlined ) {
 		this.editable = !!config.editable;
 		this.outlineControlsWidget = null;
-		this.outlineWidget = new OO.ui.OutlineWidget( { '$': this.$ } );
-		this.outlinePanel = new OO.ui.PanelLayout( { '$': this.$, 'scrollable': true } );
+		this.outlineWidget = new OO.ui.OutlineWidget( { $: this.$ } );
+		this.outlinePanel = new OO.ui.PanelLayout( { $: this.$, scrollable: true } );
 		this.gridLayout = new OO.ui.GridLayout(
 			[ this.outlinePanel, this.stackLayout ],
-			{ '$': this.$, 'widths': [ 1, 2 ] }
+			{ $: this.$, widths: [ 1, 2 ] }
 		);
 		this.outlineVisible = true;
 		if ( this.editable ) {
 			this.outlineControlsWidget = new OO.ui.OutlineControlsWidget(
-				this.outlineWidget, { '$': this.$ }
+				this.outlineWidget, { $: this.$ }
 			);
 		}
 	}
 
 	// Events
-	this.stackLayout.connect( this, { 'set': 'onStackLayoutSet' } );
+	this.stackLayout.connect( this, { set: 'onStackLayoutSet' } );
 	if ( this.outlined ) {
-		this.outlineWidget.connect( this, { 'select': 'onOutlineWidgetSelect' } );
+		this.outlineWidget.connect( this, { select: 'onOutlineWidgetSelect' } );
 	}
 	if ( this.autoFocus ) {
 		// Event 'focus' does not bubble, but 'focusin' does
@@ -122,7 +122,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
 	var $input, layout = this;
 	if ( page ) {
-		page.scrollElementIntoView( { 'complete': function () {
+		page.scrollElementIntoView( { complete: function () {
 			if ( layout.autoFocus ) {
 				// Set focus to the first input if nothing on the page is focused yet
 				if ( !page.$element.find( ':focus' ).length ) {
@@ -302,7 +302,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 		name = page.getName();
 		this.pages[page.getName()] = page;
 		if ( this.outlined ) {
-			item = new OO.ui.OutlineItemWidget( name, page, { '$': this.$ } );
+			item = new OO.ui.OutlineItemWidget( name, page, { $: this.$ } );
 			page.setOutlineItem( item );
 			items.push( item );
 		}

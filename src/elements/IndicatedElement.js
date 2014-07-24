@@ -27,7 +27,7 @@ OO.ui.IndicatedElement = function OoUiIndicatedElement( $indicator, config ) {
 	// Initialization
 	this.$indicator.addClass( 'oo-ui-indicatedElement-indicator' );
 	this.setIndicator( config.indicator || this.constructor.static.indicator );
-	this.setIndicatorTitle( config.indicatorTitle  || this.constructor.static.indicatorTitle );
+	this.setIndicatorTitle( config.indicatorTitle || this.constructor.static.indicatorTitle );
 };
 
 /* Setup */

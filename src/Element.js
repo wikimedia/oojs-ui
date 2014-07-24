@@ -148,7 +148,7 @@ OO.ui.Element.getFrameOffset = function ( from, to, offset ) {
 		to = window;
 	}
 	if ( !offset ) {
-		offset = { 'top': 0, 'left': 0 };
+		offset = { top: 0, left: 0 };
 	}
 	if ( from.parent === from ) {
 		return offset;
@@ -186,7 +186,7 @@ OO.ui.Element.getFrameOffset = function ( from, to, offset ) {
 OO.ui.Element.getRelativePosition = function ( $from, $to ) {
 	var from = $from.offset(),
 		to = $to.offset();
-	return { 'top': Math.round( from.top - to.top ), 'left': Math.round( from.left - to.left ) };
+	return { top: Math.round( from.top - to.top ), left: Math.round( from.left - to.left ) };
 };
 
 /**
@@ -209,10 +209,10 @@ OO.ui.Element.getBorders = function ( el ) {
 		right = parseFloat( style ? style.borderRightWidth : $el.css( 'borderRightWidth' ) ) || 0;
 
 	return {
-		'top': Math.round( top ),
-		'left': Math.round( left ),
-		'bottom': Math.round( bottom ),
-		'right': Math.round( right )
+		top: Math.round( top ),
+		left: Math.round( left ),
+		bottom: Math.round( bottom ),
+		right: Math.round( right )
 	};
 };
 
@@ -231,32 +231,32 @@ OO.ui.Element.getDimensions = function ( el ) {
 	if ( win === el || el === doc.documentElement ) {
 		$win = $( win );
 		return {
-			'borders': { 'top': 0, 'left': 0, 'bottom': 0, 'right': 0 },
-			'scroll': {
-				'top': $win.scrollTop(),
-				'left': $win.scrollLeft()
+			borders: { top: 0, left: 0, bottom: 0, right: 0 },
+			scroll: {
+				top: $win.scrollTop(),
+				left: $win.scrollLeft()
 			},
-			'scrollbar': { 'right': 0, 'bottom': 0 },
-			'rect': {
-				'top': 0,
-				'left': 0,
-				'bottom': $win.innerHeight(),
-				'right': $win.innerWidth()
+			scrollbar: { right: 0, bottom: 0 },
+			rect: {
+				top: 0,
+				left: 0,
+				bottom: $win.innerHeight(),
+				right: $win.innerWidth()
 			}
 		};
 	} else {
 		$el = $( el );
 		return {
-			'borders': this.getBorders( el ),
-			'scroll': {
-				'top': $el.scrollTop(),
-				'left': $el.scrollLeft()
+			borders: this.getBorders( el ),
+			scroll: {
+				top: $el.scrollTop(),
+				left: $el.scrollLeft()
 			},
-			'scrollbar': {
-				'right': $el.innerWidth() - el.clientWidth,
-				'bottom': $el.innerHeight() - el.clientHeight
+			scrollbar: {
+				right: $el.innerWidth() - el.clientWidth,
+				bottom: $el.innerHeight() - el.clientHeight
 			},
-			'rect': el.getBoundingClientRect()
+			rect: el.getBoundingClientRect()
 		};
 	}
 };
@@ -324,18 +324,18 @@ OO.ui.Element.scrollIntoView = function ( el, config ) {
 	if ( $sc.is( 'body' ) ) {
 		// If the scrollable container is the <body> this is easy
 		rel = {
-			'top': eld.rect.top,
-			'bottom': $win.innerHeight() - eld.rect.bottom,
-			'left': eld.rect.left,
-			'right': $win.innerWidth() - eld.rect.right
+			top: eld.rect.top,
+			bottom: $win.innerHeight() - eld.rect.bottom,
+			left: eld.rect.left,
+			right: $win.innerWidth() - eld.rect.right
 		};
 	} else {
 		// Otherwise, we have to subtract el's coordinates from sc's coordinates
 		rel = {
-			'top': eld.rect.top - ( scd.rect.top + scd.borders.top ),
-			'bottom': scd.rect.bottom - scd.borders.bottom - scd.scrollbar.bottom - eld.rect.bottom,
-			'left': eld.rect.left - ( scd.rect.left + scd.borders.left ),
-			'right': scd.rect.right - scd.borders.right - scd.scrollbar.right - eld.rect.right
+			top: eld.rect.top - ( scd.rect.top + scd.borders.top ),
+			bottom: scd.rect.bottom - scd.borders.bottom - scd.scrollbar.bottom - eld.rect.bottom,
+			left: eld.rect.left - ( scd.rect.left + scd.borders.left ),
+			right: scd.rect.right - scd.borders.right - scd.scrollbar.right - eld.rect.right
 		};
 	}
 

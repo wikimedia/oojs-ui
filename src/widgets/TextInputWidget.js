@@ -14,7 +14,7 @@
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	var widget = this;
-	config = $.extend( { 'maxRows': 10 }, config );
+	config = $.extend( { maxRows: 10 }, config );
 
 	// Parent constructor
 	OO.ui.TextInputWidget.super.call( this, config );
@@ -119,7 +119,7 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 	if ( this.multiline && this.autosize ) {
 		$clone = this.$input.clone()
 			.val( this.$input.val() )
-			.css( { 'height': 0 } )
+			.css( { height: 0 } )
 			.insertAfter( this.$input );
 		// Set inline height property to 0 to measure scroll height
 		scrollHeight = $clone[0].scrollHeight;

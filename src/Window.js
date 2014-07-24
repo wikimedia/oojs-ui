@@ -65,7 +65,7 @@ OO.ui.Window = function OoUiWindow( manager, config ) {
 	this.opened = null;
 	this.timing = null;
 	this.size = config.size || this.constructor.static.size;
-	this.frame = new OO.ui.Frame( { '$': this.$ } );
+	this.frame = new OO.ui.Frame( { $: this.$ } );
 	this.$frame = this.$( '<div>' );
 	this.$ = function () {
 		throw new Error( 'this.$() cannot be used until the frame has been initialized.' );
@@ -319,12 +319,12 @@ OO.ui.Window.prototype.setSize = function ( size ) {
 OO.ui.Window.prototype.setDimensions = function ( dim ) {
 	// Apply width before height so height is not based on wrapping content using the wrong width
 	this.$frame.css( {
-		'width': dim.width || '',
+		width: dim.width || '',
 		'min-width': dim.minWidth || '',
 		'max-width': dim.maxWidth || ''
 	} );
 	this.$frame.css( {
-		'height': ( dim.height !== undefined ? dim.height : this.getContentHeight() ) || '',
+		height: ( dim.height !== undefined ? dim.height : this.getContentHeight() ) || '',
 		'min-height': dim.minHeight || '',
 		'max-height': dim.maxHeight || ''
 	} );

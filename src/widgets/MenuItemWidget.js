@@ -10,7 +10,7 @@
  */
 OO.ui.MenuItemWidget = function OoUiMenuItemWidget( data, config ) {
 	// Configuration initialization
-	config = $.extend( { 'icon': 'check' }, config );
+	config = $.extend( { icon: 'check' }, config );
 
 	// Parent constructor
 	OO.ui.MenuItemWidget.super.call( this, data, config );

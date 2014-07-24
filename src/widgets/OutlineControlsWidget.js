@@ -14,7 +14,7 @@
  */
 OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, config ) {
 	// Configuration initialization
-	config = $.extend( { 'icon': 'add-item' }, config );
+	config = $.extend( { icon: 'add-item' }, config );
 
 	// Parent constructor
 	OO.ui.OutlineControlsWidget.super.call( this, config );
@@ -27,33 +27,33 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 	this.outline = outline;
 	this.$movers = this.$( '<div>' );
 	this.upButton = new OO.ui.ButtonWidget( {
-		'$': this.$,
-		'framed': false,
-		'icon': 'collapse',
-		'title': OO.ui.msg( 'ooui-outline-control-move-up' )
+		$: this.$,
+		framed: false,
+		icon: 'collapse',
+		title: OO.ui.msg( 'ooui-outline-control-move-up' )
 	} );
 	this.downButton = new OO.ui.ButtonWidget( {
-		'$': this.$,
-		'framed': false,
-		'icon': 'expand',
-		'title': OO.ui.msg( 'ooui-outline-control-move-down' )
+		$: this.$,
+		framed: false,
+		icon: 'expand',
+		title: OO.ui.msg( 'ooui-outline-control-move-down' )
 	} );
 	this.removeButton = new OO.ui.ButtonWidget( {
-		'$': this.$,
-		'framed': false,
-		'icon': 'remove',
-		'title': OO.ui.msg( 'ooui-outline-control-remove' )
+		$: this.$,
+		framed: false,
+		icon: 'remove',
+		title: OO.ui.msg( 'ooui-outline-control-remove' )
 	} );
 
 	// Events
 	outline.connect( this, {
-		'select': 'onOutlineChange',
-		'add': 'onOutlineChange',
-		'remove': 'onOutlineChange'
+		select: 'onOutlineChange',
+		add: 'onOutlineChange',
+		remove: 'onOutlineChange'
 	} );
-	this.upButton.connect( this, { 'click': [ 'emit', 'move', -1 ] } );
-	this.downButton.connect( this, { 'click': [ 'emit', 'move', 1 ] } );
-	this.removeButton.connect( this, { 'click': [ 'emit', 'remove' ] } );
+	this.upButton.connect( this, { click: [ 'emit', 'move', -1 ] } );
+	this.downButton.connect( this, { click: [ 'emit', 'move', 1 ] } );
+	this.removeButton.connect( this, { click: [ 'emit', 'remove' ] } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-outlineControlsWidget' );

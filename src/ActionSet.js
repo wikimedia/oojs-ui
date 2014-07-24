@@ -18,9 +18,9 @@ OO.ui.ActionSet = function OoUiActionSet( config ) {
 	// Properties
 	this.list = [];
 	this.categories = {
-		'actions': 'getAction',
-		'flags': 'getFlags',
-		'modes': 'getModes'
+		actions: 'getAction',
+		flags: 'getFlags',
+		modes: 'getModes'
 	};
 	this.categorized = {};
 	this.special = {};
@@ -279,9 +279,9 @@ OO.ui.ActionSet.prototype.add = function ( actions ) {
 	for ( i = 0, len = actions.length; i < len; i++ ) {
 		action = actions[i];
 		action.connect( this, {
-			'click': [ 'emit', 'click', action ],
-			'resize': [ 'emit', 'resize', action ],
-			'toggle': [ 'onActionChange' ]
+			click: [ 'emit', 'click', action ],
+			resize: [ 'emit', 'resize', action ],
+			toggle: [ 'onActionChange' ]
 		} );
 		this.list.push( action );
 	}

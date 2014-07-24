@@ -111,7 +111,7 @@ OO.ui.ClippableElement.prototype.clip = function () {
 	var buffer = 10,
 		cOffset = this.$clippable.offset(),
 		$container = this.$clippableContainer.is( 'body' ) ? this.$clippableWindow : this.$clippableContainer,
-		ccOffset = $container.offset() || { 'top': 0, 'left': 0 },
+		ccOffset = $container.offset() || { top: 0, left: 0 },
 		ccHeight = $container.innerHeight() - buffer,
 		ccWidth = $container.innerWidth() - buffer,
 		scrollTop = this.$clippableScroller.scrollTop(),
@@ -124,14 +124,14 @@ OO.ui.ClippableElement.prototype.clip = function () {
 		clipHeight = desiredHeight < naturalHeight;
 
 	if ( clipWidth ) {
-		this.$clippable.css( { 'overflow-x': 'auto', 'width': desiredWidth } );
+		this.$clippable.css( { 'overflow-x': 'auto', width: desiredWidth } );
 	} else {
 		this.$clippable.css( 'width', this.idealWidth || '' );
 		this.$clippable.width(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
 		this.$clippable.css( 'overflow-x', '' );
 	}
 	if ( clipHeight ) {
-		this.$clippable.css( { 'overflow-y': 'auto', 'height': desiredHeight } );
+		this.$clippable.css( { 'overflow-y': 'auto', height: desiredHeight } );
 	} else {
 		this.$clippable.css( 'height', this.idealHeight || '' );
 		this.$clippable.height(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290

@@ -3,8 +3,8 @@
  *
  * Tools can be specified in the following ways:
  *
- * - A specific tool: `{ 'name': 'tool-name' }` or `'tool-name'`
- * - All tools in a group: `{ 'group': 'group-name' }`
+ * - A specific tool: `{ name: 'tool-name' }` or `'tool-name'`
+ * - All tools in a group: `{ group: 'group-name' }`
  * - All tools: `'*'`
  *
  * @abstract
@@ -45,12 +45,12 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	this.$element.on( {
 		'mousedown touchstart': OO.ui.bind( this.onPointerDown, this ),
 		'mouseup touchend': OO.ui.bind( this.onPointerUp, this ),
-		'mouseover': OO.ui.bind( this.onMouseOver, this ),
-		'mouseout': OO.ui.bind( this.onMouseOut, this )
+		mouseover: OO.ui.bind( this.onMouseOver, this ),
+		mouseout: OO.ui.bind( this.onMouseOut, this )
 	} );
-	this.toolbar.getToolFactory().connect( this, { 'register': 'onToolFactoryRegister' } );
-	this.aggregate( { 'disable': 'itemDisable' } );
-	this.connect( this, { 'itemDisable': 'updateDisabled' } );
+	this.toolbar.getToolFactory().connect( this, { register: 'onToolFactoryRegister' } );
+	this.aggregate( { disable: 'itemDisable' } );
+	this.connect( this, { itemDisable: 'updateDisabled' } );
 
 	// Initialization
 	this.$group.addClass( 'oo-ui-toolGroup-tools' );

@@ -44,8 +44,8 @@ OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, dem
  *
  * Tools can be specified in the following ways:
  *
- * - A specific tool: `{ 'name': 'tool-name' }` or `'tool-name'`
- * - All tools in a group: `{ 'group': 'group-name' }`
+ * - A specific tool: `{ name: 'tool-name' }` or `'tool-name'`
+ * - All tools in a group: `{ group: 'group-name' }`
  * - All tools: `'*'`
  *
  * @private
@@ -78,7 +78,7 @@ OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {
 			item = collection[i];
 			// Allow plain strings as shorthand for named tools
 			if ( typeof item === 'string' ) {
-				item = { 'name': item };
+				item = { name: item };
 			}
 			if ( OO.isPlainObject( item ) ) {
 				if ( item.group ) {

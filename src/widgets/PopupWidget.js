@@ -43,11 +43,11 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.width = config.width !== undefined ? config.width : 320;
 	this.height = config.height !== undefined ? config.height : null;
 	this.align = config.align || 'center';
-	this.closeButton = new OO.ui.ButtonWidget( { '$': this.$, 'framed': false, 'icon': 'close' } );
+	this.closeButton = new OO.ui.ButtonWidget( { $: this.$, framed: false, icon: 'close' } );
 	this.onMouseDownHandler = OO.ui.bind( this.onMouseDown, this );
 
 	// Events
-	this.closeButton.connect( this, { 'click': 'onCloseButtonClick' } );
+	this.closeButton.connect( this, { click: 'onCloseButtonClick' } );
 
 	// Initialization
 	this.toggleAnchor( config.anchor === undefined || config.anchor );
@@ -222,7 +222,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 		containerLeft = Math.round( this.$container.offset().left ),
 		containerWidth = this.$container.innerWidth(),
 		containerRight = containerLeft + containerWidth,
-		popupOffset = this.width * ( { 'left': 0, 'center': -0.5, 'right': -1 } )[this.align],
+		popupOffset = this.width * ( { left: 0, center: -0.5, right: -1 } )[this.align],
 		anchorWidth = this.$anchor.width(),
 		popupLeft = popupOffset - padding,
 		popupRight = popupOffset + padding + this.width + padding,
@@ -251,9 +251,9 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 
 	// Position body relative to anchor and resize
 	this.$popup.css( {
-		'left': popupOffset,
-		'width': this.width,
-		'height': this.height !== null ? this.height : 'auto'
+		left: popupOffset,
+		width: this.width,
+		height: this.height !== null ? this.height : 'auto'
 	} );
 
 	if ( transition ) {

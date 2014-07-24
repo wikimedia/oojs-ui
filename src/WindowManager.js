@@ -121,19 +121,19 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
  * @property {Object}
  */
 OO.ui.WindowManager.static.sizes = {
-	'small': {
-		'width': 300
+	small: {
+		width: 300
 	},
-	'medium': {
-		'width': 500
+	medium: {
+		width: 500
 	},
-	'large': {
-		'width': 700
+	large: {
+		width: 700
 	},
-	'full': {
+	full: {
 		// These can be non-numeric because they are never used in calculations
-		'width': '100%',
-		'height': '100%'
+		width: '100%',
+		height: '100%'
 	}
 };
 
@@ -311,7 +311,7 @@ OO.ui.WindowManager.prototype.getWindow = function ( name ) {
 					'Cannot auto-instantiate window: symbolic name is unrecognized by the factory'
 				) );
 			} else {
-				win = this.factory.create( name, this, { '$': this.$ } );
+				win = this.factory.create( name, this, { $: this.$ } );
 				this.addWindows( [ win ] ).then(
 					OO.ui.bind( deferred.resolve, deferred, win ),
 					deferred.reject
@@ -384,11 +384,11 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 			if ( manager.modal ) {
 				manager.$( manager.getElementDocument() ).on( {
 					// Prevent scrolling by keys in top-level window
-					'keydown': manager.onDocumentKeyDownHandler
+					keydown: manager.onDocumentKeyDownHandler
 				} );
 				manager.$( manager.getElementWindow() ).on( {
 					// Prevent scrolling by wheel in top-level window
-					'mousewheel': manager.onWindowMouseWheelHandler,
+					mousewheel: manager.onWindowMouseWheelHandler,
 					// Start listening for top-level window dimension changes
 					'orientationchange resize': manager.onWindowResizeHandler
 				} );
@@ -404,10 +404,10 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 			manager.updateWindowSize( win );
 			setTimeout( function () {
 				win.setup( data ).then( function () {
-					manager.opening.notify( { 'state': 'setup' } );
+					manager.opening.notify( { state: 'setup' } );
 					setTimeout( function () {
 						win.ready( data ).then( function () {
-							manager.opening.notify( { 'state': 'ready' } );
+							manager.opening.notify( { state: 'ready' } );
 							manager.opening = null;
 							manager.opened = $.Deferred();
 							opening.resolve( manager.opened.promise(), data );
@@ -474,18 +474,18 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 			opened.resolve( closing.promise(), data );
 			setTimeout( function () {
 				win.hold( data ).then( function () {
-					closing.notify( { 'state': 'hold' } );
+					closing.notify( { state: 'hold' } );
 					setTimeout( function () {
 						win.teardown( data ).then( function () {
-							closing.notify( { 'state': 'teardown' } );
+							closing.notify( { state: 'teardown' } );
 							if ( manager.modal ) {
 								manager.$( manager.getElementDocument() ).off( {
 									// Allow scrolling by keys in top-level window
-									'keydown': manager.onDocumentKeyDownHandler
+									keydown: manager.onDocumentKeyDownHandler
 								} );
 								manager.$( manager.getElementWindow() ).off( {
 									// Allow scrolling by wheel in top-level window
-									'mousewheel': manager.onWindowMouseWheelHandler,
+									mousewheel: manager.onWindowMouseWheelHandler,
 									// Stop listening for top-level window dimension changes
 									'orientationchange resize': manager.onWindowResizeHandler
 								} );

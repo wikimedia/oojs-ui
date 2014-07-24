@@ -33,9 +33,9 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 
 	// Events
 	this.$element.on( {
-		'mousedown': OO.ui.bind( this.onMouseDown, this ),
-		'mouseover': OO.ui.bind( this.onMouseOver, this ),
-		'mouseleave': OO.ui.bind( this.onMouseLeave, this )
+		mousedown: OO.ui.bind( this.onMouseDown, this ),
+		mouseover: OO.ui.bind( this.onMouseOver, this ),
+		mouseleave: OO.ui.bind( this.onMouseLeave, this )
 	} );
 
 	// Initialization

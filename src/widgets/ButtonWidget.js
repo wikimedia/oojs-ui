@@ -17,7 +17,7 @@
  */
 OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	// Configuration initialization
-	config = $.extend( { 'target': '_blank' }, config );
+	config = $.extend( { target: '_blank' }, config );
 
 	// Parent constructor
 	OO.ui.ButtonWidget.super.call( this, config );
@@ -37,8 +37,8 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 
 	// Events
 	this.$button.on( {
-		'click': OO.ui.bind( this.onClick, this ),
-		'keypress': OO.ui.bind( this.onKeyPress, this )
+		click: OO.ui.bind( this.onClick, this ),
+		keypress: OO.ui.bind( this.onKeyPress, this )
 	} );
 
 	// Initialization

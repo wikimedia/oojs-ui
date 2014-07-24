@@ -21,23 +21,23 @@ OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
 
 	// Properties
 	this.query = new OO.ui.TextInputWidget( {
-		'$': this.$,
-		'icon': 'search',
-		'placeholder': config.placeholder,
-		'value': config.value
+		$: this.$,
+		icon: 'search',
+		placeholder: config.placeholder,
+		value: config.value
 	} );
-	this.results = new OO.ui.SelectWidget( { '$': this.$ } );
+	this.results = new OO.ui.SelectWidget( { $: this.$ } );
 	this.$query = this.$( '<div>' );
 	this.$results = this.$( '<div>' );
 
 	// Events
 	this.query.connect( this, {
-		'change': 'onQueryChange',
-		'enter': 'onQueryEnter'
+		change: 'onQueryChange',
+		enter: 'onQueryEnter'
 	} );
 	this.results.connect( this, {
-		'highlight': 'onResultsHighlight',
-		'select': 'onResultsSelect'
+		highlight: 'onResultsHighlight',
+		select: 'onResultsSelect'
 	} );
 	this.query.$input.on( 'keydown', OO.ui.bind( this.onQueryKeydown, this ) );
 

@@ -127,8 +127,8 @@
 
 	$( function () {
 		var directionSelect = new OO.ui.ButtonSelectWidget().addItems( [
-			new OO.ui.ButtonOptionWidget( 'ltr', { '$': this.$, 'label': 'LTR' } ),
-			new OO.ui.ButtonOptionWidget( 'rtl', { '$': this.$, 'label': 'RTL' } )
+			new OO.ui.ButtonOptionWidget( 'ltr', { $: this.$, label: 'LTR' } ),
+			new OO.ui.ButtonOptionWidget( 'rtl', { $: this.$, label: 'RTL' } )
 		] )
 		.on( 'select', function ( option ) {
 			var dir = option.getData(),

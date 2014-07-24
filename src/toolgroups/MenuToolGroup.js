@@ -16,7 +16,7 @@ OO.ui.MenuToolGroup = function OoUiMenuToolGroup( toolbar, config ) {
 	OO.ui.MenuToolGroup.super.call( this, toolbar, config );
 
 	// Events
-	this.toolbar.connect( this, { 'updateState': 'onUpdateState' } );
+	this.toolbar.connect( this, { updateState: 'onUpdateState' } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuToolGroup' );

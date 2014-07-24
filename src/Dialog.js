@@ -39,9 +39,9 @@ OO.ui.Dialog = function OoUiDialog( manager, config ) {
 
 	// Events
 	this.actions.connect( this, {
-		'click': 'onActionClick',
-		'resize': 'onActionResize',
-		'change': 'onActionsChange'
+		click: 'onActionClick',
+		resize: 'onActionResize',
+		change: 'onActionsChange'
 	} );
 
 	// Initialization
@@ -203,7 +203,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 			);
 			for ( i = 0, len = actions.length; i < len; i++ ) {
 				items.push(
-					new OO.ui.ActionWidget( $.extend( { '$': this.$ }, actions[i] ) )
+					new OO.ui.ActionWidget( $.extend( { $: this.$ }, actions[i] ) )
 				);
 			}
 			this.actions.add( items );
@@ -230,7 +230,7 @@ OO.ui.Dialog.prototype.initialize = function () {
 	OO.ui.Dialog.super.prototype.initialize.call( this );
 
 	// Properties
-	this.title = new OO.ui.LabelWidget( { '$': this.$ } );
+	this.title = new OO.ui.LabelWidget( { $: this.$ } );
 
 	// Events
 	if ( this.constructor.static.escapable ) {

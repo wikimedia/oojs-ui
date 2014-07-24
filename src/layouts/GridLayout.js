@@ -125,11 +125,11 @@ OO.ui.GridLayout.prototype.update = function () {
 			panel = this.panels[i];
 			width = this.widths[x];
 			dimensions = {
-				'width': Math.round( width * 100 ) + '%',
-				'height': Math.round( height * 100 ) + '%',
-				'top': Math.round( top * 100 ) + '%',
+				width: Math.round( width * 100 ) + '%',
+				height: Math.round( height * 100 ) + '%',
+				top: Math.round( top * 100 ) + '%',
 				// HACK: Work around IE bug by setting visibility: hidden; if width or height is zero
-				'visibility': width === 0 || height === 0 ? 'hidden' : ''
+				visibility: width === 0 || height === 0 ? 'hidden' : ''
 			};
 			// If RTL, reverse:
 			if ( OO.ui.Element.getDir( this.$.context ) === 'rtl' ) {

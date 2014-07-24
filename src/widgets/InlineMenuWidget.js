@@ -19,7 +19,7 @@
  */
 OO.ui.InlineMenuWidget = function OoUiInlineMenuWidget( config ) {
 	// Configuration initialization
-	config = $.extend( { 'indicator': 'down' }, config );
+	config = $.extend( { indicator: 'down' }, config );
 
 	// Parent constructor
 	OO.ui.InlineMenuWidget.super.call( this, config );
@@ -31,12 +31,12 @@ OO.ui.InlineMenuWidget = function OoUiInlineMenuWidget( config ) {
 	OO.ui.TitledElement.call( this, this.$label, config );
 
 	// Properties
-	this.menu = new OO.ui.MenuWidget( $.extend( { '$': this.$, 'widget': this }, config.menu ) );
+	this.menu = new OO.ui.MenuWidget( $.extend( { $: this.$, widget: this }, config.menu ) );
 	this.$handle = this.$( '<span>' );
 
 	// Events
-	this.$element.on( { 'click': OO.ui.bind( this.onClick, this ) } );
-	this.menu.connect( this, { 'select': 'onMenuSelect' } );
+	this.$element.on( { click: OO.ui.bind( this.onClick, this ) } );
+	this.menu.connect( this, { select: 'onMenuSelect' } );
 
 	// Initialization
 	this.$handle

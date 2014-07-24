@@ -104,8 +104,8 @@ OO.ui.Toolbar.prototype.initialize = function () {
  *
  * Tools can be specified in the following ways:
  *
- * - A specific tool: `{ 'name': 'tool-name' }` or `'tool-name'`
- * - All tools in a group: `{ 'group': 'group-name' }`
+ * - A specific tool: `{ name: 'tool-name' }` or `'tool-name'`
+ * - All tools in a group: `{ group: 'group-name' }`
  * - All tools: `'*'` - Using this will make the group a list with a "More" label by default
  *
  * @param {Object.<string,Array>} groups List of tool group configurations
@@ -137,7 +137,7 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 		// Check type has been registered
 		type = this.getToolGroupFactory().lookup( group.type ) ? group.type : defaultType;
 		items.push(
-			this.getToolGroupFactory().create( type, this, $.extend( { '$': this.$ }, group ) )
+			this.getToolGroupFactory().create( type, this, $.extend( { $: this.$ }, group ) )
 		);
 	}
 	this.addItems( items );

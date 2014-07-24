@@ -81,19 +81,19 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 	this.$primaryActions = this.$( '<div>' );
 	this.$otherActions = this.$( '<div>' );
 	this.dismissButton = new OO.ui.ButtonWidget( {
-		'$': this.$,
-		'label': OO.ui.msg( 'ooui-dialog-process-dismiss' )
+		$: this.$,
+		label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
 	} );
 	this.retryButton = new OO.ui.ButtonWidget( {
-		'$': this.$,
-		'label': OO.ui.msg( 'ooui-dialog-process-retry' )
+		$: this.$,
+		label: OO.ui.msg( 'ooui-dialog-process-retry' )
 	} );
 	this.$errors = this.$( '<div>' );
 	this.$errorsTitle = this.$( '<div>' );
 
 	// Events
-	this.dismissButton.connect( this, { 'click': 'onDismissErrorButtonClick' } );
-	this.retryButton.connect( this, { 'click': 'onRetryButtonClick' } );
+	this.dismissButton.connect( this, { click: 'onDismissErrorButtonClick' } );
+	this.retryButton.connect( this, { click: 'onRetryButtonClick' } );
 
 	// Initialization
 	this.title.$element.addClass( 'oo-ui-processDialog-title' );

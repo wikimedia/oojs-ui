@@ -11,7 +11,7 @@
  */
 OO.ui.ActionWidget = function OoUiActionWidget( config ) {
 	// Config intialization
-	config = $.extend( { 'framed': false }, config );
+	config = $.extend( { framed: false }, config );
 
 	// Parent constructor
 	OO.ui.ActionWidget.super.call( this, config );

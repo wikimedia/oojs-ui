@@ -6,13 +6,13 @@
  * @mixins OO.ui.LabeledElement
  *
  * Available label alignment modes include:
- *  - 'left': Label is before the field and aligned away from it, best for when the user will be
+ *  - left: Label is before the field and aligned away from it, best for when the user will be
  *    scanning for a specific label in a form with many fields
- *  - 'right': Label is before the field and aligned toward it, best for forms the user is very
+ *  - right: Label is before the field and aligned toward it, best for forms the user is very
  *    familiar with and will tab through field checking quickly to verify which field they are in
- *  - 'top': Label is before the field and above it, best for when the use will need to fill out all
+ *  - top: Label is before the field and above it, best for when the use will need to fill out all
  *    fields from top to bottom in a form with few fields
- *  - 'inline': Label is after the field and aligned toward it, best for small boolean fields like
+ *  - inline: Label is after the field and aligned toward it, best for small boolean fields like
  *    checkboxes or radio buttons
  *
  * @constructor
@@ -24,7 +24,7 @@
 OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	var popupButtonWidget;
 	// Config initialization
-	config = $.extend( { 'align': 'left' }, config );
+	config = $.extend( { align: 'left' }, config );
 
 	// Parent constructor
 	OO.ui.FieldLayout.super.call( this, config );
@@ -35,10 +35,10 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	if ( config.help ) {
 		popupButtonWidget = new OO.ui.PopupButtonWidget( $.extend(
 			{
-				'$': this.$,
-				'frameless': true,
-				'icon': 'info',
-				'title': config.help
+				$: this.$,
+				frameless: true,
+				icon: 'info',
+				title: config.help
 			},
 			config,
 			{ label: null }
@@ -56,7 +56,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	if ( this.field instanceof OO.ui.InputWidget ) {
 		this.$label.on( 'click', OO.ui.bind( this.onLabelClick, this ) );
 	}
-	this.field.connect( this, { 'disable': 'onFieldDisable' } );
+	this.field.connect( this, { disable: 'onFieldDisable' } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-fieldLayout' );

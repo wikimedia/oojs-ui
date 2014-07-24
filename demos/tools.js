@@ -63,52 +63,52 @@ $( function () {
 
 	toolbars[0].setup( [
 		{
-			'type': 'bar',
-			'include': [ { 'group': 'barTools' } ]
+			type: 'bar',
+			include: [ { group: 'barTools' } ]
 		},
 		{
-			'type': 'disabledBar',
-			'include': [ { 'group': 'disabledBarTools' } ]
+			type: 'disabledBar',
+			include: [ { group: 'disabledBarTools' } ]
 		},
 		{
-			'type': 'list',
-			'indicator': 'down',
-			'label': 'List',
-			'icon': 'picture',
-			'include': [ { 'group': 'listTools' } ]
+			type: 'list',
+			indicator: 'down',
+			label: 'List',
+			icon: 'picture',
+			include: [ { group: 'listTools' } ]
 		},
 		{
-			'type': 'disabledList',
-			'indicator': 'down',
-			'label': 'List',
-			'icon': 'picture',
-			'include': [ { 'group': 'disabledListTools' } ]
+			type: 'disabledList',
+			indicator: 'down',
+			label: 'List',
+			icon: 'picture',
+			include: [ { group: 'disabledListTools' } ]
 		},
 		{
-			'type': 'list',
-			'indicator': 'down',
-			'label': 'Auto-disabling list',
-			'icon': 'picture',
-			'include': [ { 'group': 'autoDisableListTools' } ]
+			type: 'list',
+			indicator: 'down',
+			label: 'Auto-disabling list',
+			icon: 'picture',
+			include: [ { group: 'autoDisableListTools' } ]
 		}
 	] );
 	toolbars[1].setup( [
 		{
-			'type': 'menu',
-			'indicator': 'down',
-			'icon': 'picture',
-			'include': [ { 'group': 'menuTools' } ]
+			type: 'menu',
+			indicator: 'down',
+			icon: 'picture',
+			include: [ { group: 'menuTools' } ]
 		},
 		{
-			'type': 'disabledMenu',
-			'indicator': 'down',
-			'icon': 'picture',
-			'include': [ { 'group': 'disabledMenuTools' } ]
+			type: 'disabledMenu',
+			indicator: 'down',
+			icon: 'picture',
+			include: [ { group: 'disabledMenuTools' } ]
 		}
 	] );
 
-	actionButton = new OO.ui.ButtonWidget( { 'label': 'Action' } );
-	actionButtonDisabled = new OO.ui.ButtonWidget( { 'label': 'Disabled', 'disabled': true } );
+	actionButton = new OO.ui.ButtonWidget( { label: 'Action' } );
+	actionButtonDisabled = new OO.ui.ButtonWidget( { label: 'Disabled', disabled: true } );
 	toolbars[1].$actions
 		.addClass( 'oo-ui-demo-toolbar-actionButtons' )
 		.append( actionButton.$element, actionButtonDisabled.$element );

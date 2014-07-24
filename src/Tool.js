@@ -30,7 +30,7 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	this.title = null;
 
 	// Events
-	this.toolbar.connect( this, { 'updateState': 'onUpdateState' } );
+	this.toolbar.connect( this, { updateState: 'onUpdateState' } );
 
 	// Initialization
 	this.$title.addClass( 'oo-ui-tool-title' );

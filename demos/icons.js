@@ -2,8 +2,8 @@ $( function () {
 	var i, j, iLen, jLen, rules, selectorText, matches, options, fieldset,
 		sheets = document.styleSheets,
 		pattern = /\.oo-ui-(icon|indicator)-(.*)/,
-		iconsFieldset = new OO.ui.FieldsetLayout( { 'label': 'Icons' } ),
-		indicatorsFieldset = new OO.ui.FieldsetLayout( { 'label': 'Indicators' } );
+		iconsFieldset = new OO.ui.FieldsetLayout( { label: 'Icons' } ),
+		indicatorsFieldset = new OO.ui.FieldsetLayout( { label: 'Indicators' } );
 
 	for ( i = 0, iLen = sheets.length; i < iLen; i++ ) {
 		rules = sheets[i].cssRules;
@@ -14,8 +14,8 @@ $( function () {
 				if ( matches ) {
 					fieldset = matches[1] === 'icon' ? iconsFieldset : indicatorsFieldset;
 					options = {
-						'framed': false,
-						'label': matches[2]
+						framed: false,
+						label: matches[2]
 					};
 					options[matches[1]] = matches[2];
 					fieldset.addItems( [

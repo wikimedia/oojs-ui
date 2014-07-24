@@ -22,7 +22,7 @@ OO.ui.Frame = function OoUiFrame( config ) {
 	// Initialize
 	this.$element
 		.addClass( 'oo-ui-frame' )
-		.attr( { 'frameborder': 0, 'scrolling': 'no' } );
+		.attr( { frameborder: 0, scrolling: 'no' } );
 
 };
 
@@ -228,6 +228,6 @@ OO.ui.Frame.prototype.load = function () {
  * @chainable
  */
 OO.ui.Frame.prototype.setSize = function ( width, height ) {
-	this.$element.css( { 'width': width, 'height': height } );
+	this.$element.css( { width: width, height: height } );
 	return this;
 };
