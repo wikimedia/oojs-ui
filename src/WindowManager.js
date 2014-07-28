@@ -26,7 +26,7 @@
  *
  * - {@link #closeWindow} or {@link OO.ui.Window#close} methods are used to start closing
  * - `opened` promise is resolved with `closing` promise
- * - {@link #event-opening} is emitted with `closing` promise
+ * - {@link #event-closing} is emitted with `closing` promise
  * - {@link #getHoldDelay} is called the returned value is used to time a pause in execution
  * - {@link OO.ui.Window#getHoldProcess} method is called on the window and its result executed
  * - `hold` progress notification is emitted from opening promise
