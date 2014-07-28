@@ -6,7 +6,6 @@
 
 			"src/ActionSet.js",
 			"src/Element.js",
-				"src/Frame.js",
 				"src/Layout.js",
 				"src/Widget.js",
 				"src/Window.js",
@@ -87,7 +86,6 @@
 		],
 		"styles": [
 			"src/styles/core.less",
-			"src/styles/Frame.less",
 			"src/styles/Toolbar.less",
 			"src/styles/ToolGroup.less",
 			"src/styles/Window.less",
@@ -138,7 +136,6 @@
 	"oojs-ui-apex": {
 		"styles": [
 			"src/themes/apex/Dialog.less",
-			"src/themes/apex/Frame.less",
 			"src/themes/apex/Toolbar.less",
 			"src/themes/apex/ToolGroup.less",
 			"src/themes/apex/Window.less",

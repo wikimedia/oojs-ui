@@ -56,18 +56,19 @@ OO.ui.Element.static.tagName = 'div';
  *
  * @static
  * @param {jQuery|HTMLElement|HTMLDocument|Window} context Context to bind the function to
- * @param {OO.ui.Frame} [frame] Frame of the document context
+ * @param {jQuery} [$iframe] HTML iframe element that contains the document, omit if document is
+ *   not in an iframe
  * @return {Function} Bound jQuery function
  */
-OO.ui.Element.getJQuery = function ( context, frame ) {
+OO.ui.Element.getJQuery = function ( context, $iframe ) {
 	function wrapper( selector ) {
 		return $( selector, wrapper.context );
 	}
 
 	wrapper.context = this.getDocument( context );
 
-	if ( frame ) {
-		wrapper.frame = frame;
+	if ( $iframe ) {
+		wrapper.$iframe = $iframe;
 	}
 
 	return wrapper;

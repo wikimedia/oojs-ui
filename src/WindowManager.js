@@ -38,6 +38,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {boolean} [isolate] Configure managed windows to isolate their content using inline frames
  * @cfg {OO.Factory} [factory] Window factory to use for automatic instantiation
  * @cfg {boolean} [modal=true] Prevent interaction outside the dialog
  */
@@ -54,10 +55,13 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	// Properties
 	this.factory = config.factory;
 	this.modal = config.modal === undefined || !!config.modal;
+	this.isolate = !!config.isolate;
 	this.windows = {};
 	this.opening = null;
 	this.opened = null;
 	this.closing = null;
+	this.preparingToOpen = null;
+	this.preparingToClose = null;
 	this.size = null;
 	this.currentWindow = null;
 	this.$ariaHidden = null;
@@ -228,6 +232,17 @@ OO.ui.WindowManager.prototype.isOpened = function ( win ) {
 };
 
 /**
+ * Check if window contents should be isolated.
+ *
+ * Window content isolation is done using inline frames.
+ *
+ * @return {boolean} Window contents should be isolated
+ */
+OO.ui.WindowManager.prototype.shouldIsolate = function () {
+	return this.isolate;
+};
+
+/**
  * Check if a window is being managed.
  *
  * @param {OO.ui.Window} win Window to check
@@ -295,8 +310,7 @@ OO.ui.WindowManager.prototype.getTeardownDelay = function () {
  * If window is not yet instantiated, it will be instantiated and added automatically.
  *
  * @param {string} name Symbolic window name
- * @return {jQuery.Promise} Promise resolved when window is ready to be accessed; when resolved the
- *   first argument is an OO.ui.Window; when rejected the first argument is an OO.ui.Error
+ * @return {jQuery.Promise} Promise resolved with matching window, or rejected with an OO.ui.Error
  * @throws {Error} If the symbolic name is unrecognized by the factory
  * @throws {Error} If the symbolic name unrecognized as a managed window
  */
@@ -312,10 +326,8 @@ OO.ui.WindowManager.prototype.getWindow = function ( name ) {
 				) );
 			} else {
 				win = this.factory.create( name, this, { $: this.$ } );
-				this.addWindows( [ win ] ).then(
-					OO.ui.bind( deferred.resolve, deferred, win ),
-					deferred.reject
-				);
+				this.addWindows( [ win ] );
+				deferred.resolve( win );
 			}
 		} else {
 			deferred.reject( new OO.ui.Error(
@@ -364,23 +376,30 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 		opening.reject( new OO.ui.Error(
 			'Cannot open window: window is not attached to manager'
 		) );
+	} else if ( this.preparingToOpen || this.opening || this.opened ) {
+		opening.reject( new OO.ui.Error(
+			'Cannot open window: another window is opening or open'
+		) );
 	}
 
 	// Window opening
 	if ( opening.state() !== 'rejected' ) {
-		// Begin loading the window if it's not loaded already - may take noticable time and we want
-		// too do this in paralell with any preparatory actions
-		preparing.push( win.load() );
+		// Begin loading the window if it's not loading or loaded already - may take noticable time
+		// and we want to do this in paralell with any other preparatory actions
+		if ( !win.isLoading() && !win.isLoaded() ) {
+			// Finish initializing the window (must be done after manager is attached to DOM)
+			win.setManager( this );
+			preparing.push( win.load() );
+		}
 
-		if ( this.opening || this.opened ) {
-			// If a window is currently opening or opened, close it first
-			preparing.push( this.closeWindow( this.currentWindow ) );
-		} else if ( this.closing ) {
+		if ( this.closing ) {
 			// If a window is currently closing, wait for it to complete
 			preparing.push( this.closing );
 		}
 
-		$.when.apply( $, preparing ).done( function () {
+		this.preparingToOpen = $.when.apply( $, preparing );
+		// Ensure handlers get called after preparingToOpen is set
+		this.preparingToOpen.done( function () {
 			if ( manager.modal ) {
 				manager.$( manager.getElementDocument() ).on( {
 					// Prevent scrolling by keys in top-level window
@@ -400,13 +419,15 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 			}
 			manager.currentWindow = win;
 			manager.opening = opening;
+			manager.preparingToOpen = null;
 			manager.emit( 'opening', win, opening, data );
-			manager.updateWindowSize( win );
 			setTimeout( function () {
 				win.setup( data ).then( function () {
+					manager.updateWindowSize( win );
 					manager.opening.notify( { state: 'setup' } );
 					setTimeout( function () {
 						win.ready( data ).then( function () {
+							manager.updateWindowSize( win );
 							manager.opening.notify( { state: 'ready' } );
 							manager.opening = null;
 							manager.opened = $.Deferred();
@@ -418,7 +439,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 		} );
 	}
 
-	return opening;
+	return opening.promise();
 };
 
 /**
@@ -453,7 +474,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		closing.reject( new OO.ui.Error(
 			'Cannot close window: window already closed with different data'
 		) );
-	} else if ( this.closing ) {
+	} else if ( this.preparingToClose || this.closing ) {
 		closing.reject( new OO.ui.Error(
 			'Cannot close window: window already closing with different data'
 		) );
@@ -466,9 +487,11 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 			preparing.push( this.opening );
 		}
 
-		// Close the window
-		$.when.apply( $, preparing ).done( function () {
+		this.preparingToClose = $.when.apply( $, preparing );
+		// Ensure handlers get called after preparingToClose is set
+		this.preparingToClose.done( function () {
 			manager.closing = closing;
+			manager.preparingToClose = null;
 			manager.emit( 'closing', win, closing, data );
 			manager.opened = null;
 			opened.resolve( closing.promise(), data );
@@ -505,23 +528,18 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		} );
 	}
 
-	return closing;
+	return closing.promise();
 };
 
 /**
  * Add windows.
  *
- * If the window manager is attached to the DOM then windows will be automatically loaded as they
- * are added.
- *
  * @param {Object.<string,OO.ui.Window>|OO.ui.Window[]} windows Windows to add
- * @return {jQuery.Promise} Promise resolved when all windows are added
  * @throws {Error} If one of the windows being added without an explicit symbolic name does not have
  *   a statically configured symbolic name
  */
 OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
-	var i, len, win, name, list,
-		promises = [];
+	var i, len, win, name, list;
 
 	if ( $.isArray( windows ) ) {
 		// Convert to map of windows by looking up symbolic names from static configuration
@@ -542,13 +560,7 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 		win = list[name];
 		this.windows[name] = win;
 		this.$element.append( win.$element );
-
-		if ( this.isElementAttached() ) {
-			promises.push( win.load() );
-		}
 	}
-
-	return $.when.apply( $, promises );
 };
 
 /**

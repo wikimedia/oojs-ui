@@ -24,9 +24,9 @@
  * @constructor
  * @param {Object} [config] Configuration options
  */
-OO.ui.ProcessDialog = function OoUiProcessDialog( manager, config ) {
+OO.ui.ProcessDialog = function OoUiProcessDialog( config ) {
 	// Parent constructor
-	OO.ui.ProcessDialog.super.call( this, manager, config );
+	OO.ui.ProcessDialog.super.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-processDialog' );
@@ -109,7 +109,7 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 	this.$errors
 		.addClass( 'oo-ui-processDialog-errors' )
 		.append( this.$errorsTitle, this.dismissButton.$element, this.retryButton.$element );
-	this.frame.$content
+	this.$content
 		.addClass( 'oo-ui-processDialog-content' )
 		.append( this.$errors );
 	this.$navigation

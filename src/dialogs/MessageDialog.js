@@ -11,9 +11,9 @@
  * @constructor
  * @param {Object} [config] Configuration options
  */
-OO.ui.MessageDialog = function OoUiMessageDialog( manager, config ) {
+OO.ui.MessageDialog = function OoUiMessageDialog( config ) {
 	// Parent constructor
-	OO.ui.MessageDialog.super.call( this, manager, config );
+	OO.ui.MessageDialog.super.call( this, config );
 
 	// Properties
 	this.verticalActionLayout = null;
@@ -159,7 +159,7 @@ OO.ui.MessageDialog.prototype.initialize = function () {
 
 	// Initialization
 	this.title.$element.addClass( 'oo-ui-messageDialog-title' );
-	this.frame.$content.addClass( 'oo-ui-messageDialog-content' );
+	this.$content.addClass( 'oo-ui-messageDialog-content' );
 	this.container.$element.append( this.text.$element );
 	this.text.$element.append( this.title.$element, this.message.$element );
 	this.$body.append( this.container.$element );
