@@ -394,61 +394,6 @@ OO.ui.demo.widgets = function () {
 				}
 			),
 			new OO.ui.FieldLayout(
-				new OO.ui.TextInputWidget( { value: 'Text input' } ),
-				{
-					label: 'TextInputWidget',
-					align: 'top'
-				}
-			),
-			new OO.ui.FieldLayout(
-				new OO.ui.TextInputWidget( { placeholder: 'Placeholder' } ),
-				{
-					label: 'TextInputWidget (placeholder)',
-					align: 'top'
-				}
-			),
-			new OO.ui.FieldLayout(
-				new OO.ui.TextInputWidget( {
-					value: 'Readonly',
-					readOnly: true
-				} ),
-				{
-					label: 'TextInputWidget (readonly)',
-					align: 'top'
-				}
-			),
-			new OO.ui.FieldLayout(
-				new OO.ui.TextInputWidget( {
-					value: 'Disabled',
-					disabled: true
-				} ),
-				{
-					label: 'TextInputWidget (disabled)',
-					align: 'top'
-				}
-			),
-			new OO.ui.FieldLayout(
-				new OO.ui.TextInputWidget( {
-					multiline: true,
-					value: 'Multiline'
-				} ),
-				{
-					label: 'TextInputWidget (multiline)',
-					align: 'top'
-				}
-			),
-			new OO.ui.FieldLayout(
-				new OO.ui.TextInputWidget( {
-					multiline: true,
-					autosize: true,
-					value: 'Autosize'
-				} ),
-				{
-					label: 'TextInputWidget (autosize)',
-					align: 'top'
-				}
-			),
-			new OO.ui.FieldLayout(
 				new OO.ui.InlineMenuWidget( {
 					label: 'Select one',
 					align: 'top',
@@ -530,6 +475,117 @@ OO.ui.demo.widgets = function () {
 				} ),
 				{
 					label: 'InlineMenuWidget (disabled)',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ComboBoxWidget( {
+					menu: {
+						items: [
+							new OO.ui.MenuItemWidget( 'asd', { label: 'Label for asd' } ),
+							new OO.ui.MenuItemWidget( 'fgh', { label: 'Label for fgh' } ),
+							new OO.ui.MenuItemWidget( 'jkl', { label: 'Label for jkl' } ),
+							new OO.ui.MenuItemWidget( 'zxc', { label: 'Label for zxc' } ),
+							new OO.ui.MenuItemWidget( 'vbn', { label: 'Label for vbn' } )
+						]
+					}
+				} ),
+				{
+					label: 'ComboBoxWidget',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ComboBoxWidget( {
+					disabled: true,
+					menu: {
+						items: [
+							new OO.ui.MenuItemWidget( 'asd', { label: 'Label for asd' } ),
+							new OO.ui.MenuItemWidget( 'fgh', { label: 'Label for fgh' } ),
+							new OO.ui.MenuItemWidget( 'jkl', { label: 'Label for jkl' } ),
+							new OO.ui.MenuItemWidget( 'zxc', { label: 'Label for zxc' } ),
+							new OO.ui.MenuItemWidget( 'vbn', { label: 'Label for vbn' } )
+						]
+					}
+				} ),
+				{
+					label: 'ComboBoxWidget (disabled)',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ComboBoxWidget(),
+				{
+					label: 'ComboBoxWidget (empty)',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.TextInputWidget( { value: 'Text input' } ),
+				{
+					label: 'TextInputWidget',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.TextInputWidget( { icon: 'search' } ),
+				{
+					label: 'TextInputWidget (icon)',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.TextInputWidget( { indicator: 'required' } ),
+				{
+					label: 'TextInputWidget (indicator)',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.TextInputWidget( { placeholder: 'Placeholder' } ),
+				{
+					label: 'TextInputWidget (placeholder)',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.TextInputWidget( {
+					value: 'Readonly',
+					readOnly: true
+				} ),
+				{
+					label: 'TextInputWidget (readonly)',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.TextInputWidget( {
+					value: 'Disabled',
+					disabled: true
+				} ),
+				{
+					label: 'TextInputWidget (disabled)',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.TextInputWidget( {
+					multiline: true,
+					value: 'Multiline'
+				} ),
+				{
+					label: 'TextInputWidget (multiline)',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.TextInputWidget( {
+					multiline: true,
+					autosize: true,
+					value: 'Autosize'
+				} ),
+				{
+					label: 'TextInputWidget (autosize)',
 					align: 'top'
 				}
 			)

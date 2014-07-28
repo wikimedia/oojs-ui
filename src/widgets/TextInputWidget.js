@@ -3,45 +3,43 @@
  *
  * @class
  * @extends OO.ui.InputWidget
+ * @mixins OO.ui.IconedElement
+ * @mixins OO.ui.IndicatedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {string} [placeholder] Placeholder text
- * @cfg {string} [icon] Symbolic name of icon
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
  * @cfg {boolean} [autosize=false] Automatically resize to fit content
  * @cfg {boolean} [maxRows=10] Maximum number of rows to make visible when autosizing
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
-	var widget = this;
-	config = $.extend( { maxRows: 10 }, config );
+	// Configuration initialization
+	config = config || {};
 
 	// Parent constructor
 	OO.ui.TextInputWidget.super.call( this, config );
+
+	// Mixin constructors
+	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
+	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
 
 	// Properties
 	this.pending = 0;
 	this.multiline = !!config.multiline;
 	this.autosize = !!config.autosize;
-	this.maxRows = config.maxRows;
+	this.maxRows = config.maxRows !== undefined ? config.maxRows : 10;
 
 	// Events
 	this.$input.on( 'keypress', OO.ui.bind( this.onKeyPress, this ) );
 	this.$element.on( 'DOMNodeInsertedIntoDocument', OO.ui.bind( this.onElementAttach, this ) );
+	this.$icon.on( 'mousedown', OO.ui.bind( this.onIconMouseDown, this ) );
+	this.$indicator.on( 'mousedown', OO.ui.bind( this.onIndicatorMouseDown, this ) );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-textInputWidget' );
-	if ( config.icon ) {
-		this.$element.addClass( 'oo-ui-textInputWidget-decorated' );
-		this.$element.append(
-			this.$( '<span>' )
-				.addClass( 'oo-ui-textInputWidget-icon oo-ui-icon-' + config.icon )
-				.mousedown( function () {
-					widget.$input[0].focus();
-					return false;
-				} )
-		);
-	}
+	this.$element
+		.addClass( 'oo-ui-textInputWidget' )
+		.append( this.$icon, this.$indicator );
 	if ( config.placeholder ) {
 		this.$input.attr( 'placeholder', config.placeholder );
 	}
@@ -51,6 +49,8 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.TextInputWidget, OO.ui.InputWidget );
+OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IconedElement );
+OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IndicatedElement );
 
 /* Events */
 
@@ -62,7 +62,47 @@ OO.inheritClass( OO.ui.TextInputWidget, OO.ui.InputWidget );
  * @event enter
  */
 
+/**
+ * User clicks the icon.
+ *
+ * @event icon
+ */
+
+/**
+ * User clicks the indicator.
+ *
+ * @event indicator
+ */
+
 /* Methods */
+
+/**
+ * Handle icon mouse down events.
+ *
+ * @param {jQuery.Event} e Mouse down event
+ * @fires icon
+ */
+OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
+	if ( e.which === 1 ) {
+		this.$input[0].focus();
+		this.emit( 'icon' );
+		return false;
+	}
+};
+
+/**
+ * Handle indicator mouse down events.
+ *
+ * @param {jQuery.Event} e Mouse down event
+ * @fires indicator
+ */
+OO.ui.TextInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
+	if ( e.which === 1 ) {
+		this.$input[0].focus();
+		this.emit( 'indicator' );
+		return false;
+	}
+};
 
 /**
  * Handle key press events.

@@ -21,6 +21,15 @@ OO.ui.GroupElement = function OoUiGroupElement( $group, config ) {
 /* Methods */
 
 /**
+ * Check if there are no items.
+ *
+ * @return {boolean} Group is empty
+ */
+OO.ui.GroupElement.prototype.isEmpty = function () {
+	return !this.items.length;
+};
+
+/**
  * Get items.
  *
  * @return {OO.ui.Element[]} Items

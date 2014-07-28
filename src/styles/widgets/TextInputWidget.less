@@ -12,12 +12,22 @@
 		.oo-ui-box-sizing(border-box);
 	}
 
-	&-icon {
+	> .oo-ui-iconedElement-icon,
+	> .oo-ui-indicatedElement-indicator {
 		position: absolute;
 		top: 0;
-		left: 0;
 		height: 100%;
-		background-position: right center;
 		background-repeat: no-repeat;
+		cursor: pointer;
+
+		.oo-ui-unselectable();
+	}
+
+	> .oo-ui-iconedElement-icon {
+		left: 0;
+	}
+
+	> .oo-ui-indicatedElement-indicator {
+		right: 0;
 	}
 }

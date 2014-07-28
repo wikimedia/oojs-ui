@@ -199,7 +199,7 @@ OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
  * @inheritdoc
  */
 OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
-	visible = !!visible && !!this.items.length;
+	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
 
 	var i, len,
 		change = visible !== this.isVisible();
