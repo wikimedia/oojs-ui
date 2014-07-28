@@ -463,8 +463,11 @@ OO.ui.demo.widgets = function () {
 							new OO.ui.MenuItemWidget( 'c', {
 								label: 'Third'
 							} ),
+							new OO.ui.MenuItemWidget( 'c', {
+								label: 'The fourth option has a long label'
+							} ),
 							new OO.ui.MenuItemWidget( 'd', {
-								label: 'Fourth'
+								label: 'Fifth'
 							} )
 						]
 					}
@@ -483,15 +486,18 @@ OO.ui.demo.widgets = function () {
 								label: 'First'
 							} ),
 							new OO.ui.MenuItemWidget( 'b', {
-								label: 'Disabled',
+								label: 'Disabled second option',
 								disabled: true
 							} ),
 							new OO.ui.MenuItemWidget( 'c', {
 								label: 'Third'
 							} ),
 							new OO.ui.MenuItemWidget( 'd', {
-								label: 'Disabled',
+								label: 'Disabled fourth option with long label',
 								disabled: true
+							} ),
+							new OO.ui.MenuItemWidget( 'c', {
+								label: 'Third'
 							} )
 						]
 					}
