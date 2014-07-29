@@ -196,6 +196,9 @@ OO.ui.Frame.prototype.load = function () {
 
 	// Initialize contents
 	doc.open();
+	// The following classes can be used here:
+	// oo-ui-ltr
+	// oo-ui-rtl
 	doc.write(
 		'<!doctype html>' +
 		'<html>' +
