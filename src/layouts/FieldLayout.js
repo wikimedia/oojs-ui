@@ -125,6 +125,11 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 			this.$element.removeClass( 'oo-ui-fieldLayout-align-' + this.align );
 		}
 		this.align = value;
+		// The following classes can be used here:
+		// oo-ui-fieldLayout-align-left
+		// oo-ui-fieldLayout-align-right
+		// oo-ui-fieldLayout-align-top
+		// oo-ui-fieldLayout-align-inline
 		this.$element.addClass( 'oo-ui-fieldLayout-align-' + this.align );
 	}
 
