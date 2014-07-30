@@ -70,6 +70,11 @@ body {
 	min-height: 100px;
 }
 
+.oo-ui-demo-toolbar-utilities {
+	display: inline-block;
+	vertical-align: middle;
+}
+
 .oo-ui-demo-toolbar-actionButtons {
 	font-size: 0.8em;
 	vertical-align: top;
