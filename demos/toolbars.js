@@ -10,7 +10,7 @@ OO.ui.demo.toolbars = function () {
 		toolGroupFactories = [],
 		toolbars = [];
 
-	for ( i = 0; i < 2; i++ ) {
+	for ( i = 0; i < 3; i++ ) {
 		toolFactories.push( new OO.ui.ToolFactory() );
 		toolGroupFactories.push( new OO.ui.ToolGroupFactory() );
 		toolbars.push( new OO.ui.Toolbar( toolFactories[i], toolGroupFactories[i], { actions: true } ) );
@@ -66,6 +66,7 @@ OO.ui.demo.toolbars = function () {
 	toolGroupFactories[0].register( createDisabledToolGroup( OO.ui.ListToolGroup, 'disabledList' ) );
 	toolGroupFactories[1].register( createDisabledToolGroup( OO.ui.MenuToolGroup, 'disabledMenu' ) );
 
+	// Toolbar
 	toolbars[0].setup( [
 		{
 			type: 'bar',
@@ -97,6 +98,7 @@ OO.ui.demo.toolbars = function () {
 			include: [ { group: 'autoDisableListTools' } ]
 		}
 	] );
+	// Toolbar with action buttons
 	toolbars[1].setup( [
 		{
 			type: 'menu',
@@ -111,6 +113,20 @@ OO.ui.demo.toolbars = function () {
 			include: [ { group: 'disabledMenuTools' } ]
 		}
 	] );
+	// Fake toolbar to be injected into the first toolbar
+	// demonstrating right-aligned menus
+	toolbars[2].setup( [
+		{
+			type: 'list',
+			icon: 'picture',
+			include: [ { group: 'menuTools' } ]
+		}
+	] );
+	toolbars[0].$actions.append(
+		$( '<div>' )
+			.addClass( 'oo-ui-demo-toolbar-utilities' )
+			.append( toolbars[2].$element )
+	);
 
 	actionButton = new OO.ui.ButtonWidget( { label: 'Action' } );
 	actionButtonDisabled = new OO.ui.ButtonWidget( { label: 'Disabled', disabled: true } );
@@ -145,7 +161,11 @@ OO.ui.demo.toolbars = function () {
 		[ 1, 'disabledMenuTool', 'menuTools', 'picture', 'Basic tool disabled', function () { this.setDisabled( true ); } ],
 
 		// disabledMenuTools
-		[ 1, 'menuToolInDisabled', 'disabledMenuTools', 'picture', 'Basic tool' ]
+		[ 1, 'menuToolInDisabled', 'disabledMenuTools', 'picture', 'Basic tool' ],
+
+		// menuTools
+		[ 2, 'menuTool', 'menuTools', 'picture', 'Basic tool' ],
+		[ 2, 'disabledMenuTool', 'menuTools', 'picture', 'Basic tool disabled', function () { this.setDisabled( true ); } ]
 	];
 
 	for ( i = 0; i < tools.length; i++ ) {
