@@ -41,15 +41,18 @@
 		&-other {
 			.oo-ui-actionWidget {
 				.oo-ui-buttonedElement-button {
-					padding-top: 0.75em;
-					padding-bottom: 0.75em;
+					padding: 0.35em 0.75em;
 					min-width: @window-header-inner-height;
 					min-height: @window-header-inner-height;
+					border: 1px solid @color-shadow;
+					border-radius: 4px;
 				}
 
 				.oo-ui-labeledElement-label {
 					line-height: @window-header-inner-height;
 					padding: 0 1em;
+					font-weight: bold;
+					color: @color-neutral;
 				}
 
 				.oo-ui-iconedElement-icon {
@@ -58,12 +61,20 @@
 				}
 
 				&.oo-ui-buttonedElement-framed {
-					margin: 0.75em 0 0.75em 0.75em;
-					border: solid 1px #ccc;
-					border-radius: 0.25em;
 					.oo-ui-buttonedElement-button {
-						padding: 0;
 						vertical-align: middle;
+					}
+				}
+
+				&.oo-ui-flaggableElement {
+					&-destructive {
+						.oo-ui-buttonedElement-button {
+							border: 1px solid transparent;
+						}
+
+						.oo-ui-labeledElement-label {
+							color: @color-destructive;
+						}
 					}
 				}
 			}
@@ -71,59 +82,21 @@
 
 		&-safe,
 		&-primary {
-			&.oo-ui-buttonedElement-framed .oo-ui-buttonedElement-button {
-				margin: 0.75em;
-			}
-
 			.oo-ui-actionWidget {
-				&:hover {
-					background-color: rgba(0,0,0,0.05);
-				}
-
-				&:active {
-					background-color: rgba(0,0,0,0.1);
-				}
-
-				&.oo-ui-buttonedElement-framed {
-					margin: 0.75em;
-					.oo-ui-buttonedElement-button {
-						/* Adjust for border so text aligns with title */
-						margin: -1px;
-					}
+				.oo-ui-buttonedElement-button {
+					padding: 0.75em 0.35em;
+					border: none;
+					border-radius: 0;
 				}
 
 				&.oo-ui-flaggableElement {
 					&-primary {
-						&:hover {
-							background-color: rgba(8,126,204,0.05);
-						}
-
-						&:active {
-							background-color: rgba(8,126,204,0.1);
+						.oo-ui-buttonedElement-button {
+							background-color: @color-progressive;
 						}
 
 						.oo-ui-labeledElement-label {
-							font-weight: bold;
-						}
-					}
-
-					&-constructive {
-						&:hover {
-							background-color: rgba(118,171,54,0.05);
-						}
-
-						&:active {
-							background-color: rgba(118,171,54,0.1);
-						}
-					}
-
-					&-destructive {
-						&:hover {
-							background-color: rgba(212,83,83,0.05);
-						}
-
-						&:active {
-							background-color: rgba(212,83,83,0.1);
+							color: @color-white;
 						}
 					}
 				}
@@ -152,6 +125,11 @@
 					padding-right: 2.25em;
 				}
 			}
+		}
+
+		&-other {
+			position: absolute;
+			bottom: 1em;
 		}
 	}
 
