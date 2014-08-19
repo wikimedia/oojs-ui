@@ -97,7 +97,9 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, timeout ) 
 				'#' + pollNodeId + ' { font-family: ' + fontFamily + '; }';
 		} else {
 			// Not an external stylesheet, or no polling required; just copy the node over
-			newNode = frameDoc.importNode( styleNode, true );
+			// Can't use importNode here because that breaks in IE
+			newNode = frameDoc.createElement( 'style' );
+			newNode.textContent = styleNode.textContent;
 		}
 		frameDoc.head.appendChild( newNode );
 	}
