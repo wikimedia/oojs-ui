@@ -69,7 +69,7 @@ OO.ui.Frame.static.tagName = 'iframe';
  * @return {jQuery.Promise} Promise resolved when styles have loaded
  */
 OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, timeout ) {
-	var i, numSheets, styleNode, newNode, timeoutID, pollNodeId, $pendingPollNodes,
+	var i, numSheets, styleNode, styleText, newNode, timeoutID, pollNodeId, $pendingPollNodes,
 		$pollNodes = $( [] ),
 		// Fake font-family value
 		fontFamily = 'oo-ui-frame-transplantStyles-loaded',
@@ -80,27 +80,30 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, timeout ) 
 		if ( styleNode.disabled ) {
 			continue;
 		}
-		if ( styleNode.nodeName.toLowerCase() === 'link' ) {
-			// External stylesheet
-			// Create a node with a unique ID that we're going to monitor to see when the CSS
-			// has loaded
-			pollNodeId = 'oo-ui-frame-transplantStyles-loaded-' + i;
-			$pollNodes = $pollNodes.add( $( '<div>', frameDoc )
-				.attr( 'id', pollNodeId )
-				.appendTo( frameDoc.body )
-			);
 
-			// Add <style>@import url(...); #pollNodeId { font-family: ... }</style>
-			// The font-family rule will only take effect once the @import finishes
-			newNode = frameDoc.createElement( 'style' );
-			newNode.textContent = '@import url(' + styleNode.href + ');\n' +
-				'#' + pollNodeId + ' { font-family: ' + fontFamily + '; }';
+		if ( styleNode.nodeName.toLowerCase() === 'link' ) {
+			// External stylesheet; use @import
+			styleText = '@import url(' + styleNode.href + ');';
 		} else {
-			// Not an external stylesheet, or no polling required; just copy the node over
-			// Can't use importNode here because that breaks in IE
-			newNode = frameDoc.createElement( 'style' );
-			newNode.textContent = styleNode.textContent;
+			// Internal stylesheet; just copy the text
+			styleText = styleNode.textContent;
 		}
+
+		// Create a node with a unique ID that we're going to monitor to see when the CSS
+		// has loaded
+		pollNodeId = 'oo-ui-frame-transplantStyles-loaded-' + i;
+		$pollNodes = $pollNodes.add( $( '<div>', frameDoc )
+			.attr( 'id', pollNodeId )
+			.appendTo( frameDoc.body )
+		);
+
+		// Add #pollNodeId { font-family: ... } to the end of the stylesheet / after the @import
+		// The font-family rule will only take effect once the @import finishes
+		styleText += '\n' + '#' + pollNodeId + ' { font-family: ' + fontFamily + '; }';
+
+		// Add our modified CSS as a <style> tag
+		newNode = frameDoc.createElement( 'style' );
+		newNode.textContent = styleText;
 		frameDoc.head.appendChild( newNode );
 	}
 
