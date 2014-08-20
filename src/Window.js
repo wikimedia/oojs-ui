@@ -734,8 +734,9 @@ OO.ui.Window.prototype.load = function () {
 	doc.write(
 		'<!doctype html>' +
 		'<html>' +
-			'<body class="oo-ui-window-isolated oo-ui-window-content oo-ui-' + this.dir + '"' +
+			'<body class="oo-ui-window-isolated oo-ui-' + this.dir + '"' +
 				' style="direction:' + this.dir + ';" dir="' + this.dir + '">' +
+				'<div class="oo-ui-window-content"></div>' +
 			'</body>' +
 		'</html>'
 	);
