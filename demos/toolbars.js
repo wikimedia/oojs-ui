@@ -1,6 +1,6 @@
 OO.ui.demo.toolbars = function () {
 
-	var i, tools, actionButton, actionButtonDisabled,
+	var i, toolGroups, actionButton, actionButtonDisabled,
 		$demo = $( '.oo-ui-demo' ),
 		$containers = $(
 			'<div class="oo-ui-demo-container oo-ui-demo-toolbars"></div>' +
@@ -16,7 +16,7 @@ OO.ui.demo.toolbars = function () {
 		toolbars.push( new OO.ui.Toolbar( toolFactories[i], toolGroupFactories[i], { actions: true } ) );
 	}
 
-	function createTool( toolbar, name, group, icon, title, init, onSelect ) {
+	function createTool( toolbar, group, name, icon, title, init, onSelect ) {
 		var Tool = function () {
 			Tool.super.apply( this, arguments );
 			this.toggled = false;
@@ -43,6 +43,14 @@ OO.ui.demo.toolbars = function () {
 		Tool.static.icon = icon;
 		Tool.static.title = title;
 		return Tool;
+	}
+
+	function createToolGroup( toolbar, group ) {
+		$.each( toolGroups[group], function ( i, tool ) {
+			var args = tool.slice();
+			args.splice( 0, 0, toolbar, group );
+			toolFactories[ toolbar ].register( createTool.apply( null, args ) );
+		} );
 	}
 
 	function createDisabledToolGroup( parent, name ) {
@@ -119,7 +127,7 @@ OO.ui.demo.toolbars = function () {
 		{
 			type: 'list',
 			icon: 'picture',
-			include: [ { group: 'menuTools' } ]
+			include: [ { group: 'listTools' } ]
 		}
 	] );
 	toolbars[0].$actions.append(
@@ -138,39 +146,52 @@ OO.ui.demo.toolbars = function () {
 		toolbars[i].emit( 'updateState' );
 	}
 
-	tools = [
-		// barTools
-		[ 0, 'barTool', 'barTools', 'picture', 'Basic tool in bar' ],
-		[ 0, 'disabledBarTool', 'barTools', 'picture', 'Basic tool in bar disabled', function () { this.setDisabled( true ); } ],
+	toolGroups = {
+		barTools: [
+			[ 'barTool', 'picture', 'Basic tool in bar' ],
+			[ 'disabledBarTool', 'picture', 'Basic tool in bar disabled', function () { this.setDisabled( true ); } ]
+		],
 
-		// disabledBarTools
-		[ 0, 'barToolInDisabled', 'disabledBarTools', 'picture', 'Basic tool in disabled bar' ],
+		disabledBarTools: [
+			[ 'barToolInDisabled', 'picture', 'Basic tool in disabled bar' ]
+		],
 
-		// listTool
-		[ 0, 'listTool', 'listTools', 'picture', 'Basic tool in list' ],
-		[ 0, 'disabledListTool', 'listTools', 'picture', 'Basic tool in list disabled', function () { this.setDisabled( true ); } ],
+		listTools: [
+			[ 'listTool', 'picture', 'First basic tool in list' ],
+			[ 'listTool1', 'picture', 'Basic tool in list' ],
+			[ 'listTool2', 'picture', 'Another basic tool' ],
+			[ 'listTool3', 'picture', 'Basic disabled tool in list', function () { this.setDisabled( true ); } ],
+			[ 'listTool4', 'picture', 'More basic tools' ],
+			[ 'listTool5', 'picture', 'And even more' ],
+			[ 'listTool6', 'picture', 'A final tool' ]
+		],
 
-		// disabledListTools
-		[ 0, 'listToolInDisabled', 'disabledListTools', 'picture', 'Basic tool in disabled list' ],
+		disabledListTools: [
+			[ 'listToolInDisabled', 'picture', 'Basic tool in disabled list' ]
+		],
 
-		// allDisabledListTools
-		[ 0, 'allDisabledListTool', 'autoDisableListTools', 'picture', 'Click to disable this tool', null, function () { this.setDisabled( true ); } ],
+		allDisabledListTools: [
+			[ 'allDisabledListTool', 'picture', 'Click to disable this tool', null, function () { this.setDisabled( true ); } ]
+		],
 
-		// menuTools
-		[ 1, 'menuTool', 'menuTools', 'picture', 'Basic tool' ],
-		[ 1, 'disabledMenuTool', 'menuTools', 'picture', 'Basic tool disabled', function () { this.setDisabled( true ); } ],
+		menuTools: [
+			[ 'menuTool', 'picture', 'Basic tool' ],
+			[ 'disabledMenuTool', 'picture', 'Basic tool disabled', function () { this.setDisabled( true ); } ]
+		],
 
-		// disabledMenuTools
-		[ 1, 'menuToolInDisabled', 'disabledMenuTools', 'picture', 'Basic tool' ],
+		disabledMenuTools: [
+			[ 'menuToolInDisabled', 'picture', 'Basic tool' ]
+		]
+	};
 
-		// menuTools
-		[ 2, 'menuTool', 'menuTools', 'picture', 'Basic tool' ],
-		[ 2, 'disabledMenuTool', 'menuTools', 'picture', 'Basic tool disabled', function () { this.setDisabled( true ); } ]
-	];
-
-	for ( i = 0; i < tools.length; i++ ) {
-		toolFactories[tools[i][0]].register( createTool.apply( this, tools[i] ) );
-	}
+	createToolGroup( 0, 'barTools' );
+	createToolGroup( 0, 'disabledBarTools' );
+	createToolGroup( 0, 'listTools' );
+	createToolGroup( 0, 'disabledListTools' );
+	createToolGroup( 0, 'allDisabledListTools' );
+	createToolGroup( 1, 'menuTools' );
+	createToolGroup( 1, 'disabledMenuTools' );
+	createToolGroup( 2, 'listTools' );
 
 	for ( i = 0; i < toolbars.length; i++ ) {
 		$containers.eq( i ).append( toolbars[i].$element );
