@@ -1,8 +1,33 @@
+// Variables
+
+@oo-ui-default-image-ext: svg;
+@oo-ui-default-image-path: 'images';
+
+// Mixins
+
 .oo-ui-background-image(@url) {
 	background-image: e('/* @embed */') url(~'@{url}');
 }
 
-.oo-ui-transition (@value1,@value2:X,...) {
+.oo-ui-icon(@name, @file, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path) {
+	.oo-ui-icon-@{name} {
+		.oo-ui-background-image('@{path}/icons/@{file}.@{ext}');
+	}
+}
+
+.oo-ui-indicator(@name, @file, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path ) {
+	.oo-ui-indicator-@{name} {
+		.oo-ui-background-image('@{path}/indicators/@{file}.@{ext}');
+	}
+}
+
+.oo-ui-texture(@name, @file, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path) {
+	.oo-ui-texture-@{name} {
+		.oo-ui-background-image('@{path}/textures/@{file}.@{ext}');
+	}
+}
+
+.oo-ui-transition (@value1, @value2: X, ...) {
 	@value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
 	-webkit-transition: @value;
 	-moz-transition: @value;
@@ -27,7 +52,7 @@
 
 .oo-ui-vertical-gradient (@start: #EEE, @stop: #FFF) {
 	background: mix(@start, @stop, 50%);
-	filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='%d', endColorstr='%d')",@start,@stop));
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='%d', endColorstr='%d')", @start, @stop));
 	background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0%, @start), color-stop(100%, @stop));
 	background-image: -webkit-linear-gradient(top, @start 0%, @stop 100%);
 	background-image: -moz-linear-gradient(top, @start 0%, @stop 100%);
