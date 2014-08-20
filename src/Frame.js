@@ -73,6 +73,7 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, timeout ) 
 		$pollNodes = $( [] ),
 		// Fake font-family value
 		fontFamily = 'oo-ui-frame-transplantStyles-loaded',
+		nextIndex = parentDoc.oouiFrameTransplantStylesNextIndex || 0,
 		deferred = $.Deferred();
 
 	for ( i = 0, numSheets = parentDoc.styleSheets.length; i < numSheets; i++ ) {
@@ -91,21 +92,33 @@ OO.ui.Frame.static.transplantStyles = function ( parentDoc, frameDoc, timeout ) 
 
 		// Create a node with a unique ID that we're going to monitor to see when the CSS
 		// has loaded
-		pollNodeId = 'oo-ui-frame-transplantStyles-loaded-' + i;
+		if ( styleNode.oouiFrameTransplantStylesId ) {
+			// If we're nesting transplantStyles operations and this node already has
+			// a CSS rule to wait for loading, reuse it
+			pollNodeId = styleNode.oouiFrameTransplantStylesId;
+		} else {
+			// Otherwise, create a new ID
+			pollNodeId = 'oo-ui-frame-transplantStyles-loaded-' + nextIndex;
+			nextIndex++;
+
+			// Add #pollNodeId { font-family: ... } to the end of the stylesheet / after the @import
+			// The font-family rule will only take effect once the @import finishes
+			styleText += '\n' + '#' + pollNodeId + ' { font-family: ' + fontFamily + '; }';
+		}
+
+		// Create a node with id=pollNodeId
 		$pollNodes = $pollNodes.add( $( '<div>', frameDoc )
 			.attr( 'id', pollNodeId )
 			.appendTo( frameDoc.body )
 		);
 
-		// Add #pollNodeId { font-family: ... } to the end of the stylesheet / after the @import
-		// The font-family rule will only take effect once the @import finishes
-		styleText += '\n' + '#' + pollNodeId + ' { font-family: ' + fontFamily + '; }';
-
 		// Add our modified CSS as a <style> tag
 		newNode = frameDoc.createElement( 'style' );
 		newNode.textContent = styleText;
+		newNode.oouiFrameTransplantStylesId = pollNodeId;
 		frameDoc.head.appendChild( newNode );
 	}
+	frameDoc.oouiFrameTransplantStylesNextIndex = nextIndex;
 
 	// Poll every 100ms until all external stylesheets have loaded
 	$pendingPollNodes = $pollNodes;
