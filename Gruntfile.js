@@ -12,6 +12,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-file-exists' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
 	grunt.loadTasks( 'build/tasks' );
@@ -50,6 +51,12 @@ module.exports = function ( grunt ) {
 		pkg: grunt.file.readJSON( 'package.json' ),
 		clean: {
 			dist: 'dist/*'
+		},
+		fileExists: {
+			code: modules['oojs-ui'].scripts,
+			styles: [].concat( lessFiles['dist/oojs-ui.css'], lessFiles['dist/oojs-ui.svg.css'] ),
+			apex: lessFiles['dist/oojs-ui-apex.css'],
+			agora: lessFiles['dist/oojs-ui-agora.css']
 		},
 		less: {
 			dist: {
@@ -155,7 +162,7 @@ module.exports = function ( grunt ) {
 		} );
 	} );
 
-	grunt.registerTask( 'build', [ 'clean', 'less', 'concat', 'cssjanus', 'copy' ] );
+	grunt.registerTask( 'build', [ 'clean', 'fileExists', 'less', 'concat', 'cssjanus', 'copy' ] );
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'jshint', 'jscs', 'csslint', 'banana', 'qunit' ] );
 	grunt.registerTask( 'default', 'test' );
