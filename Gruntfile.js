@@ -9,11 +9,11 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-concat-sourcemaps' );
 	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+	grunt.loadNpmTasks( 'grunt-contrib-less' );
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
-	grunt.loadNpmTasks( 'grunt-recess' );
 	grunt.loadTasks( 'build/tasks' );
 
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
@@ -23,7 +23,7 @@ module.exports = function ( grunt ) {
 			'oojs-ui-apex': moduleUtils.expandResources( modules['oojs-ui-apex'].styles ),
 			'oojs-ui-agora': moduleUtils.expandResources( modules['oojs-ui-agora'].styles )
 		},
-		recessFiles = {},
+		lessFiles = {},
 		concatCssFiles = {},
 		rtlFiles = {
 			'demos/demo.rtl.css': 'demos/demo.css'
@@ -37,7 +37,7 @@ module.exports = function ( grunt ) {
 					'dist/' + module + '.css' :
 					'dist/' + module + '.' + target + '.css';
 
-				recessFiles[distFile] = styleTargets[module][target];
+				lessFiles[distFile] = styleTargets[module][target];
 
 				// Concat isn't doing much other than prepending the banner...
 				concatCssFiles[ distFile ] = distFile;
@@ -51,12 +51,13 @@ module.exports = function ( grunt ) {
 		clean: {
 			dist: 'dist/*'
 		},
-		recess: {
+		less: {
 			dist: {
 				options: {
-					compile: true
+					ieCompat: true,
+					report: 'gzip'
 				},
-				files: recessFiles
+				files: lessFiles
 			}
 		},
 		cssjanus: {
@@ -154,7 +155,7 @@ module.exports = function ( grunt ) {
 		} );
 	} );
 
-	grunt.registerTask( 'build', [ 'clean', 'recess', 'concat', 'cssjanus', 'copy' ] );
+	grunt.registerTask( 'build', [ 'clean', 'less', 'concat', 'cssjanus', 'copy' ] );
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'jshint', 'jscs', 'csslint', 'banana', 'qunit' ] );
 	grunt.registerTask( 'default', 'test' );
