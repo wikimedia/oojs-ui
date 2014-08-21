@@ -2,11 +2,14 @@ OO.ui.demo.dialogs = function () {
 	var i, l, name, openButton, DialogClass, config,
 		$demo = $( '.oo-ui-demo' ),
 		fieldset = new OO.ui.FieldsetLayout( { label: 'Dialogs' } ),
+		isolateSwitch = new OO.ui.ToggleSwitchWidget(),
 		windows = {},
-		windowManager = new OO.ui.WindowManager();
+		isolatedWindows = {},
+		windowManager = new OO.ui.WindowManager(),
+		isolatedWindowManager = new OO.ui.WindowManager( { isolate: true } );
 
-	function SimpleDialog( manager, config ) {
-		SimpleDialog.super.call( this, manager, config );
+	function SimpleDialog( config ) {
+		SimpleDialog.super.call( this, config );
 	}
 	OO.inheritClass( SimpleDialog, OO.ui.Dialog );
 	SimpleDialog.static.title = 'Simple dialog';
@@ -15,7 +18,7 @@ OO.ui.demo.dialogs = function () {
 			dialog = this;
 
 		SimpleDialog.super.prototype.initialize.apply( this, arguments );
-		this.content = new OO.ui.PanelLayout( { $: this.$, padded: true } );
+		this.content = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
 		this.content.$element.append( '<p>Dialog content</p>' );
 
 		closeButton = new OO.ui.ButtonWidget( {
@@ -29,9 +32,12 @@ OO.ui.demo.dialogs = function () {
 		this.content.$element.append( closeButton.$element );
 		this.$body.append( this.content.$element );
 	};
+	SimpleDialog.prototype.getBodyHeight = function () {
+		return this.content.$element.outerHeight( true );
+	};
 
-	function ProcessDialog( manager, config ) {
-		ProcessDialog.super.call( this, manager, config );
+	function ProcessDialog( config ) {
+		ProcessDialog.super.call( this, config );
 	}
 	OO.inheritClass( ProcessDialog, OO.ui.ProcessDialog );
 	ProcessDialog.static.title = 'Process dialog';
@@ -41,7 +47,7 @@ OO.ui.demo.dialogs = function () {
 	];
 	ProcessDialog.prototype.initialize = function () {
 		ProcessDialog.super.prototype.initialize.apply( this, arguments );
-		this.content = new OO.ui.PanelLayout( { $: this.$, padded: true } );
+		this.content = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
 		this.content.$element.append( '<p>Dialog content</p>' );
 		this.$body.append( this.content.$element );
 	};
@@ -54,9 +60,12 @@ OO.ui.demo.dialogs = function () {
 		}
 		return ProcessDialog.super.prototype.getActionProcess.call( this, action );
 	};
+	ProcessDialog.prototype.getBodyHeight = function () {
+		return this.content.$element.outerHeight( true );
+	};
 
-	function BrokenDialog( manager, config ) {
-		BrokenDialog.super.call( this, manager, config );
+	function BrokenDialog( config ) {
+		BrokenDialog.super.call( this, config );
 		this.broken = false;
 	}
 	OO.inheritClass( BrokenDialog, OO.ui.ProcessDialog );
@@ -130,8 +139,8 @@ OO.ui.demo.dialogs = function () {
 			.setLabel( this.label );
 	};
 
-	function BookletDialog( manager, config ) {
-		BookletDialog.super.call( this, manager, config );
+	function BookletDialog( config ) {
+		BookletDialog.super.call( this, config );
 	}
 	OO.inheritClass( BookletDialog, OO.ui.ProcessDialog );
 	BookletDialog.static.title = 'Booklet dialog';
@@ -299,23 +308,35 @@ OO.ui.demo.dialogs = function () {
 			}
 		}
 	];
+
+	function openDialog( name, data ) {
+		if ( isolateSwitch.getValue() ) {
+			isolatedWindowManager.openWindow( name, data );
+		} else {
+			windowManager.openWindow( name, data );
+		}
+	}
+
+	fieldset.addItems( [ new OO.ui.FieldLayout( isolateSwitch, { label: 'Isolate dialogs', align: 'top' } ) ] );
 	for ( i = 0, l = config.length; i < l; i++ ) {
 		name = 'window_' + i;
 		DialogClass = config[i].dialogClass || SimpleDialog;
-		windows[name] = new DialogClass( windowManager, config[i].config );
+		windows[name] = new DialogClass( config[i].config );
+		isolatedWindows[name] = new DialogClass( config[i].config );
 		openButton = new OO.ui.ButtonWidget( {
 			framed: false,
 			icon: 'window',
 			label: config[i].name
 		} );
 		openButton.on(
-			'click', OO.ui.bind( windowManager.openWindow, windowManager, name, config[i].data )
+			'click', OO.ui.bind( openDialog, this, name, config[i].data )
 		);
 		fieldset.addItems( [ new OO.ui.FieldLayout( openButton, { align: 'inline' } ) ] );
 	}
 	windowManager.addWindows( windows );
+	isolatedWindowManager.addWindows( isolatedWindows );
 
 	$demo.append( $( '<div class="oo-ui-demo-container"></div>' ).append(
-		fieldset.$element, windowManager.$element
+		fieldset.$element, windowManager.$element, isolatedWindowManager.$element
 	) );
 };

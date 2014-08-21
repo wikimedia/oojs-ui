@@ -7,7 +7,6 @@
 				"classes": [
 					"OO.ui",
 					"OO.ui.Element",
-					"OO.ui.Frame",
 					"OO.ui.Toolbar",
 					"OO.ui.Window",
 					"OO.ui.Dialog",

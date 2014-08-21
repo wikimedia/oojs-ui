@@ -77,9 +77,9 @@ OO.ui.TextInputMenuWidget.prototype.position = function () {
 	dimensions.top += $container.height();
 
 	// Compensate for frame position if in a differnt frame
-	if ( this.input.$.frame && this.input.$.context !== this.$element[0].ownerDocument ) {
+	if ( this.input.$.$iframe && this.input.$.context !== this.$element[0].ownerDocument ) {
 		frameOffset = OO.ui.Element.getRelativePosition(
-			this.input.$.frame.$element, this.$element.offsetParent()
+			this.input.$.$iframe, this.$element.offsetParent()
 		);
 		dimensions.left += frameOffset.left;
 		dimensions.top += frameOffset.top;

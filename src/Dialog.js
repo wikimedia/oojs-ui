@@ -27,9 +27,9 @@
  * @constructor
  * @param {Object} [config] Configuration options
  */
-OO.ui.Dialog = function OoUiDialog( manager, config ) {
+OO.ui.Dialog = function OoUiDialog( config ) {
 	// Parent constructor
-	OO.ui.Dialog.super.call( this, manager, config );
+	OO.ui.Dialog.super.call( this, config );
 
 	// Properties
 	this.actions = new OO.ui.ActionSet();
@@ -102,7 +102,7 @@ OO.ui.Dialog.static.escapable = true;
  *
  * @param {jQuery.Event} e Key down event
  */
-OO.ui.Dialog.prototype.onFrameDocumentKeyDown = function ( e ) {
+OO.ui.Dialog.prototype.onDocumentKeyDown = function ( e ) {
 	if ( e.which === OO.ui.Keys.ESCAPE ) {
 		this.close();
 		return false;
@@ -234,11 +234,11 @@ OO.ui.Dialog.prototype.initialize = function () {
 
 	// Events
 	if ( this.constructor.static.escapable ) {
-		this.frame.$document.on( 'keydown', OO.ui.bind( this.onFrameDocumentKeyDown, this ) );
+		this.$document.on( 'keydown', OO.ui.bind( this.onDocumentKeyDown, this ) );
 	}
 
 	// Initialization
-	this.frame.$content.addClass( 'oo-ui-dialog-content' );
+	this.$content.addClass( 'oo-ui-dialog-content' );
 };
 
 /**
@@ -283,7 +283,7 @@ OO.ui.Dialog.prototype.executeAction = function ( action ) {
  */
 OO.ui.Dialog.prototype.pushPending = function () {
 	if ( this.pending === 0 ) {
-		this.frame.$content.addClass( 'oo-ui-actionDialog-content-pending' );
+		this.$content.addClass( 'oo-ui-actionDialog-content-pending' );
 		this.$head.addClass( 'oo-ui-texture-pending' );
 	}
 	this.pending++;
@@ -300,7 +300,7 @@ OO.ui.Dialog.prototype.pushPending = function () {
  */
 OO.ui.Dialog.prototype.popPending = function () {
 	if ( this.pending === 1 ) {
-		this.frame.$content.removeClass( 'oo-ui-actionDialog-content-pending' );
+		this.$content.removeClass( 'oo-ui-actionDialog-content-pending' );
 		this.$head.removeClass( 'oo-ui-texture-pending' );
 	}
 	this.pending = Math.max( 0, this.pending - 1 );

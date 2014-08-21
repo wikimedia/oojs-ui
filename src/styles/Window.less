@@ -3,18 +3,31 @@
 .oo-ui-window {
 	line-height: 1em;
 
-	& > &-frame {
+	&-frame {
 		.oo-ui-box-sizing(border-box);
 
-		 > .oo-ui-frame {
+		 > iframe {
 			width: 100%;
 			height: 100%;
+			margin: 0;
+			padding: 0;
 		}
+	}
+
+	/* Content div takes focus when opened, so hide outline */
+	&-content:focus {
+		outline: none;
 	}
 
 	&-head,
 	&-foot {
 		.oo-ui-unselectable();
+	}
+
+	&-body {
+		margin: 0;
+		padding: 0;
+		background: none;
 	}
 
 	&-overlay {
