@@ -73,14 +73,14 @@
 		&:focus {
 			border-color: #aaa;
 		}
+	}
 
-		&.oo-ui-buttonedElement-active,
-		&.oo-ui-buttonedElement-pressed {
-			box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.07);
-			color: black;
-			border-color: #c9c9c9;
-			.oo-ui-vertical-gradient(#ddd, #fff);
-		}
+	&.oo-ui-buttonedElement-active > .oo-ui-buttonedElement-button,
+	&.oo-ui-buttonedElement-pressed > .oo-ui-buttonedElement-button {
+		box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.07);
+		color: black;
+		border-color: #c9c9c9;
+		.oo-ui-vertical-gradient(#ddd, #fff);
 	}
 
 	&.oo-ui-iconedElement {
@@ -96,33 +96,36 @@
 	}
 
 	&.oo-ui-flaggableElement {
-		&-primary > .oo-ui-buttonedElement-button {
-			border: solid 1px #a6cee1;
-			.oo-ui-vertical-gradient(#eaf4fa, #b0d9ee);
+		&-primary {
+			> .oo-ui-buttonedElement-button {
+				border: solid 1px #a6cee1;
+				.oo-ui-vertical-gradient(#eaf4fa, #b0d9ee);
 
-			&:hover,
-			&:focus {
-				border-color: #9dc2d4;
+				&:hover,
+				&:focus {
+					border-color: #9dc2d4;
+				}
 			}
 
-			&.oo-ui-buttonedElement-active,
-			&.oo-ui-buttonedElement-pressed {
+			&.oo-ui-buttonedElement-active > .oo-ui-buttonedElement-button,
+			&.oo-ui-buttonedElement-pressed > .oo-ui-buttonedElement-button {
 				border: solid 1px #a6cee1;
 				.oo-ui-vertical-gradient(#b0d9ee, #eaf4fa);
 			}
 		}
 
-		&-constructive > .oo-ui-buttonedElement-button {
-			border: solid 1px #b8d892;
-			.oo-ui-vertical-gradient(#f0fbe1, #c3e59a);
+		&-constructive {
+			> .oo-ui-buttonedElement-button {
+				border: solid 1px #b8d892;
+				.oo-ui-vertical-gradient(#f0fbe1, #c3e59a);
 
-			&:hover,
-			&:focus {
-				border-color: #adcb89;
+				&:hover,
+				&:focus {
+					border-color: #adcb89;
+				}
 			}
-
-			&.oo-ui-buttonedElement-active,
-			&.oo-ui-buttonedElement-pressed {
+			&.oo-ui-buttonedElement-active > .oo-ui-buttonedElement-button,
+			&.oo-ui-buttonedElement-pressed > .oo-ui-buttonedElement-button {
 				border: solid 1px #b8d892;
 				.oo-ui-vertical-gradient(#c3e59a, #f0fbe1);
 			}
@@ -135,8 +138,8 @@
 
 	&.oo-ui-widget-disabled {
 		> .oo-ui-buttonedElement-button,
-		> .oo-ui-buttonedElement-button.oo-ui-buttonedElement-active,
-		> .oo-ui-buttonedElement-button.oo-ui-buttonedElement-pressed {
+		&.oo-ui-buttonedElement-active > .oo-ui-buttonedElement-button,
+		&.oo-ui-buttonedElement-pressed > .oo-ui-buttonedElement-button {
 			opacity: 0.5;
 			box-shadow: none;
 			color: #333;
