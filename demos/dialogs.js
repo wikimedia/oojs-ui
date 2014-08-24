@@ -101,20 +101,20 @@ OO.ui.demo.dialogs = function () {
 	BrokenDialog.prototype.getActionProcess = function ( action ) {
 		return BrokenDialog.super.prototype.getActionProcess.call( this, action )
 			.next( function () {
-				if ( action === 'save' ) {
-					return 1000;
-				}
+				return 1000;
 			}, this )
 			.next( function () {
 				var closing;
-				if ( this.broken ) {
-					if ( action === 'save' ) {
+
+				if ( action === 'save' ) {
+					if ( this.broken ) {
 						this.broken = false;
 						return new OO.ui.Error( 'Server did not respond' );
-					} else if ( action === 'delete' ) {
-						return new OO.ui.Error( 'Permission denied', { recoverable: false } );
 					}
+				} else if ( action === 'delete' ) {
+					return new OO.ui.Error( 'Permission denied', { recoverable: false } );
 				}
+
 				closing = this.close( { action: action } );
 				if ( action === 'save' ) {
 					// Return a promise to remaing pending while closing
