@@ -35,7 +35,7 @@ OO.initClass( OO.ui.LabeledElement );
  *
  * @static
  * @inheritable
- * @property {string|Function|null} Label text; a function that returns a nodes or text; or null for
+ * @property {string|Function|null} Label text; a function that returns nodes or text; or null for
  *  no label
  */
 OO.ui.LabeledElement.static.label = null;
