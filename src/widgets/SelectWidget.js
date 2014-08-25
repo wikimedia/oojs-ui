@@ -86,10 +86,6 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
  * @param {OO.ui.OptionWidget[]} items Removed items
  */
 
-/* Static Properties */
-
-OO.ui.SelectWidget.static.tagName = 'ul';
-
 /* Methods */
 
 /**

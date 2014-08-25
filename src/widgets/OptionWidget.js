@@ -50,8 +50,6 @@ OO.mixinClass( OO.ui.OptionWidget, OO.ui.FlaggableElement );
 
 /* Static Properties */
 
-OO.ui.OptionWidget.static.tagName = 'li';
-
 OO.ui.OptionWidget.static.selectable = true;
 
 OO.ui.OptionWidget.static.highlightable = true;

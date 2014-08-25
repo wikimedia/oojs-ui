@@ -2,12 +2,6 @@
 
 .oo-ui-popupToolGroup {
 	position: relative;
-	height: 2em;
-	min-width: 2.5em;
-
-	&.oo-ui-indicatedElement.oo-ui-iconedElement {
-		min-width: 3.5em;
-	}
 
 	&-handle {
 		display: block;
@@ -16,33 +10,9 @@
 		.oo-ui-indicatedElement-indicator,
 		.oo-ui-iconedElement-icon {
 			position: absolute;
-			top: 0;
-			width: 2em;
-			height: 2em;
 			background-position: center center;
 			background-repeat: no-repeat;
 		}
-
-		.oo-ui-indicatedElement-indicator {
-			right: 0;
-		}
-
-		.oo-ui-iconedElement-icon {
-			left: 0.25em;
-		}
-
-		.oo-ui-labeledElement-label {
-			line-height: 2.6em;
-			font-size: 0.8em;
-			margin: 0 1em;
-		}
-	}
-
-	&-header {
-		line-height: 2.6em;
-		font-size: 0.8em;
-		margin: 0 0.6em;
-		font-weight: bold;
 	}
 
 	&.oo-ui-widget-disabled {
@@ -51,19 +21,9 @@
 		}
 	}
 
-	&.oo-ui-iconedElement .oo-ui-popupToolGroup-handle .oo-ui-labeledElement-label {
-		margin-left: 3em;
-	}
-
-	&.oo-ui-indicatedElement .oo-ui-popupToolGroup-handle .oo-ui-labeledElement-label {
-		margin-right: 2.25em;
-	}
-
 	.oo-ui-toolGroup-tools {
 		display: none;
 		position: absolute;
-		top: 2em;
-		left: -1px;
 		z-index: 4;
 
 		.oo-ui-iconedElement-icon {
@@ -82,16 +42,11 @@
 		.oo-ui-iconedElement-icon {
 			display: inline-block;
 			vertical-align: middle;
-			height: 2em;
-			width: 2em;
-			margin-right: 0.25em;
 		}
 
 		.oo-ui-tool-title {
 			display: inline-block;
 			vertical-align: middle;
-			line-height: 2em;
-			font-size: 0.8em;
 		}
 	}
 

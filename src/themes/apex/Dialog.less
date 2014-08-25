@@ -1,38 +1,5 @@
 @import 'common';
 
-.oo-ui-dialog {
-	&-content {
-		> .oo-ui-window {
-			&-head,
-			&-body,
-			&-foot {
-				position: absolute;
-				left: 0;
-				right: 0;
-				overflow: hidden;
-				.oo-ui-box-sizing(border-box);
-			}
-
-			&-head {
-				z-index: 1;
-				top: 0;
-			}
-
-			&-body {
-				z-index: 2;
-				top: 0;
-				bottom: 0;
-				box-shadow: 0 0 0.66em rgba(0,0,0,0.25);
-			}
-
-			&-foot {
-				z-index: 1;
-				bottom: 0;
-			}
-
-			&-overlay {
-				z-index: 3;
-			}
-		}
-	}
+.oo-ui-dialog-content > .oo-ui-window-body {
+	box-shadow: 0 0 0.66em rgba(0,0,0,0.25);
 }

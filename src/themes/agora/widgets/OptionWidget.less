@@ -1,9 +1,14 @@
 @import '../common';
 
 .oo-ui-optionWidget {
-	padding: .8em 1em .8em @window-header-height;
-	font-weight: bold;
+	padding: 0.8em 1em 0.8em @window-header-height;
+	border: none;
 	border-bottom: 1px solid @color-shadow;
+	font-weight: bold;
+
+	.oo-ui-labeledElement-label {
+		line-height: 1.5em;
+	}
 
 	&.oo-ui-indicatedElement .oo-ui-labeledElement-label {
 		padding-right: 1.5em;

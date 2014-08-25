@@ -1,6 +1,10 @@
 @import '../common';
 
 .oo-ui-listToolGroup {
+	.oo-ui-toolGroup-tools {
+		padding: 0.25em;
+	}
+
 	&.oo-ui-popupToolGroup-active {
 		border-color: rgba(0,0,0,0.2);
 	}
@@ -8,6 +12,10 @@
 	.oo-ui-tool {
 		border: solid 1px transparent;
 		margin: -1px 0;
+
+		&-link {
+			padding-right: 0.5em;
+		}
 
 		&-active {
 			&.oo-ui-widget-enabled {

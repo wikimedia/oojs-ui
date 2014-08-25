@@ -3,6 +3,14 @@
 .oo-ui-buttonedElement {
 	> .oo-ui-buttonedElement-button {
 		color: #333;
+
+		> .oo-ui-iconedElement-icon {
+			margin-left: 0;
+		}
+
+		> .oo-ui-indicatedElement-indicator {
+			margin-right: -0.75em;
+		}
 	}
 
 	&.oo-ui-indicatedElement > .oo-ui-buttonedElement-button > .oo-ui-indicatedElement-indicator,
@@ -32,6 +40,7 @@
 
 		> .oo-ui-labeledElement-label {
 			color: #333;
+			margin-left: 0.25em;
 		}
 	}
 
@@ -72,6 +81,10 @@
 		&:hover,
 		&:focus {
 			border-color: #aaa;
+		}
+
+		> .oo-ui-labeledElement-label {
+			line-height: 1.9em;
 		}
 	}
 

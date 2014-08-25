@@ -3,53 +3,27 @@
 .oo-ui-inlineMenuWidget {
 	position: relative;
 	display: inline-block;
-	margin: 0.25em 0;
-	min-width: 20em;
 
 	&-handle {
-		display: inline-block;
 		width: 100%;
-		height: 2.5em;
+		display: inline-block;
 		cursor: pointer;
+
 		.oo-ui-unselectable();
 		.oo-ui-box-sizing(border-box);
+
 
 		.oo-ui-indicatedElement-indicator,
 		.oo-ui-iconedElement-icon {
 			position: absolute;
-			top: 0;
-			width: 2.5em;
-			height: 2.5em;
 			background-position: center center;
 			background-repeat: no-repeat;
 		}
-
-		.oo-ui-indicatedElement-indicator {
-			right: 0;
-		}
-
-		.oo-ui-iconedElement-icon {
-			left: 0.25em;
-		}
-
-		.oo-ui-labeledElement-label {
-			line-height: 2.5em;
-			margin: 0 0.5em;
-		}
-
-	}
-
-	&.oo-ui-iconedElement .oo-ui-inlineMenuWidget-handle .oo-ui-labeledElement-label {
-		margin-left: 3em;
-	}
-
-	&.oo-ui-indicatedElement .oo-ui-inlineMenuWidget-handle .oo-ui-labeledElement-label {
-		margin-right: 2em;
 	}
 
 	.oo-ui-menuWidget {
-		width: 100%;
 		z-index: 1;
+		width: 100%;
 	}
 
 	&.oo-ui-widget-disabled .oo-ui-inlineMenuWidget-handle {

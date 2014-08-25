@@ -9,11 +9,16 @@
 	}
 
 	&-anchored {
+		.oo-ui-popupWidget-popup {
+			margin-top: 7px;
+		}
+
 		.oo-ui-popupWidget-anchor {
-			.oo-ui-background-image('images/anchor.svg');
 			width: 15px;
 			height: 8px;
 			margin-left: -7px;
+
+			.oo-ui-background-image('images/anchor.svg');
 		}
 	}
 
@@ -23,7 +28,23 @@
 		);
 	}
 
+	&-head {
+		height: 2.5em;
+
+		.oo-ui-buttonWidget {
+			margin: 0.25em;
+		}
+
+		.oo-ui-labeledElement-label {
+			margin: 0.75em 1em;
+		}
+	}
+
 	&-body {
 		box-shadow: 0 0 0.66em rgba(0,0,0,0.25);
+
+		&-padded {
+			padding: 0 1em;
+		}
 	}
 }

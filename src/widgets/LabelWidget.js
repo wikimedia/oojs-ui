@@ -37,7 +37,7 @@ OO.mixinClass( OO.ui.LabelWidget, OO.ui.LabeledElement );
 
 /* Static Properties */
 
-OO.ui.LabelWidget.static.tagName = 'label';
+OO.ui.LabelWidget.static.tagName = 'span';
 
 /* Methods */
 
