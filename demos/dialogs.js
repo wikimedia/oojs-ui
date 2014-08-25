@@ -326,7 +326,7 @@ OO.ui.demo.dialogs = function () {
 		openButton = new OO.ui.ButtonWidget( {
 			framed: false,
 			icon: 'window',
-			label: config[i].name
+			label: $( '<span dir="ltr"></span>' ).text( config[i].name )
 		} );
 		openButton.on(
 			'click', OO.ui.bind( openDialog, this, name, config[i].data )
