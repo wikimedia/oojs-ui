@@ -8,7 +8,7 @@ OO.ui.demo.widgets = function () {
 					title: 'Picture icon'
 				} ),
 				{
-					label: 'IconWidget (normal)',
+					label: 'IconWidget (normal)\u200E',
 					align: 'top'
 				}
 			),
@@ -19,7 +19,7 @@ OO.ui.demo.widgets = function () {
 					disabled: true
 				} ),
 				{
-					label: 'IconWidget (disabled)',
+					label: 'IconWidget (disabled)\u200E',
 					align: 'top'
 				}
 			),
@@ -29,7 +29,7 @@ OO.ui.demo.widgets = function () {
 					title: 'Required icon'
 				} ),
 				{
-					label: 'IndicatorWidget (normal)',
+					label: 'IndicatorWidget (normal)\u200E',
 					align: 'top'
 				}
 			),
@@ -40,14 +40,14 @@ OO.ui.demo.widgets = function () {
 					disabled: true
 				} ),
 				{
-					label: 'IndicatorWidget (disabled)',
+					label: 'IndicatorWidget (disabled)\u200E',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( { label: 'Normal' } ),
 				{
-					label: 'ButtonWidget (normal)',
+					label: 'ButtonWidget (normal)\u200E',
 					align: 'top'
 				}
 			),
@@ -57,7 +57,7 @@ OO.ui.demo.widgets = function () {
 					flags: [ 'primary' ]
 				} ),
 				{
-					label: 'ButtonWidget (primary)',
+					label: 'ButtonWidget (primary)\u200E',
 					align: 'top'
 				}
 			),
@@ -67,7 +67,7 @@ OO.ui.demo.widgets = function () {
 					flags: [ 'constructive' ]
 				} ),
 				{
-					label: 'ButtonWidget (constructive)',
+					label: 'ButtonWidget (constructive)\u200E',
 					align: 'top'
 				}
 			),
@@ -77,7 +77,7 @@ OO.ui.demo.widgets = function () {
 					flags: [ 'destructive' ]
 				} ),
 				{
-					label: 'ButtonWidget (destructive)',
+					label: 'ButtonWidget (destructive)\u200E',
 					align: 'top'
 				}
 			),
@@ -87,7 +87,7 @@ OO.ui.demo.widgets = function () {
 					disabled: true
 				} ),
 				{
-					label: 'ButtonWidget (disabled)',
+					label: 'ButtonWidget (disabled)\u200E',
 					align: 'top'
 				}
 			),
@@ -98,7 +98,7 @@ OO.ui.demo.widgets = function () {
 					disabled: true
 				} ),
 				{
-					label: 'ButtonWidget (constructive, disabled)',
+					label: 'ButtonWidget (constructive, disabled)\u200E',
 					align: 'top'
 				}
 			),
@@ -108,7 +108,7 @@ OO.ui.demo.widgets = function () {
 					icon: 'picture'
 				} ),
 				{
-					label: 'ButtonWidget (iconed)',
+					label: 'ButtonWidget (iconed)\u200E',
 					align: 'top'
 				}
 			),
@@ -118,7 +118,7 @@ OO.ui.demo.widgets = function () {
 					indicator: 'down'
 				} ),
 				{
-					label: 'ButtonWidget (indicated)',
+					label: 'ButtonWidget (indicated)\u200E',
 					align: 'top'
 				}
 			),
@@ -129,7 +129,7 @@ OO.ui.demo.widgets = function () {
 					title: 'Icon only'
 				} ),
 				{
-					label: 'ButtonWidget (icon only)',
+					label: 'ButtonWidget (icon only)\u200E',
 					align: 'top'
 				}
 			),
@@ -140,7 +140,7 @@ OO.ui.demo.widgets = function () {
 					label: 'Labeled'
 				} ),
 				{
-					label: 'ButtonWidget (frameless)',
+					label: 'ButtonWidget (frameless)\u200E',
 					align: 'top'
 				}
 			),
@@ -152,7 +152,7 @@ OO.ui.demo.widgets = function () {
 					label: 'Primary'
 				} ),
 				{
-					label: 'ButtonWidget (frameless, primary)',
+					label: 'ButtonWidget (frameless, primary)\u200E',
 					align: 'top'
 				}
 			),
@@ -164,7 +164,7 @@ OO.ui.demo.widgets = function () {
 					label: 'Destructive'
 				} ),
 				{
-					label: 'ButtonWidget (frameless, destructive)',
+					label: 'ButtonWidget (frameless, destructive)\u200E',
 					align: 'top'
 				}
 			),
@@ -176,7 +176,7 @@ OO.ui.demo.widgets = function () {
 					label: 'Constructive'
 				} ),
 				{
-					label: 'ButtonWidget (frameless, constructive)',
+					label: 'ButtonWidget (frameless, constructive)\u200E',
 					align: 'top'
 				}
 			),
@@ -188,7 +188,7 @@ OO.ui.demo.widgets = function () {
 					disabled: true
 				} ),
 				{
-					label: 'ButtonWidget (frameless, disabled)',
+					label: 'ButtonWidget (frameless, disabled)\u200E',
 					align: 'top'
 				}
 			),
@@ -201,7 +201,7 @@ OO.ui.demo.widgets = function () {
 					disabled: true
 				} ),
 				{
-					label: 'ButtonWidget (frameless, constructive, disabled)',
+					label: 'ButtonWidget (frameless, constructive, disabled)\u200E',
 					align: 'top'
 				}
 			),
@@ -218,7 +218,7 @@ OO.ui.demo.widgets = function () {
 					}
 				} ),
 				{
-					label: 'PopupButtonWidget (frameless, with popup head)',
+					label: 'PopupButtonWidget (frameless, with popup head)\u200E',
 					align: 'top'
 				}
 			),
@@ -233,7 +233,7 @@ OO.ui.demo.widgets = function () {
 					}
 				} ),
 				{
-					label: 'PopupButtonWidget (framed, no popup head)',
+					label: 'PopupButtonWidget (framed, no popup head)\u200E',
 					align: 'top'
 				}
 			),
@@ -304,7 +304,7 @@ OO.ui.demo.widgets = function () {
 					]
 				} ),
 				{
-					label: 'ButtonSelectWidget (disabled)',
+					label: 'ButtonSelectWidget (disabled)\u200E',
 					align: 'top'
 				}
 			),
@@ -328,7 +328,7 @@ OO.ui.demo.widgets = function () {
 					]
 				} ),
 				{
-					label: 'ButtonSelectWidget (disabled items)',
+					label: 'ButtonSelectWidget (disabled items)\u200E',
 					align: 'top'
 				}
 			),
@@ -342,14 +342,14 @@ OO.ui.demo.widgets = function () {
 			new OO.ui.FieldLayout(
 				new OO.ui.ToggleButtonWidget( { label: 'Toggle', value: true } ),
 				{
-					label: 'ToggleButtonWidget (initially active)',
+					label: 'ToggleButtonWidget (initially active)\u200E',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ToggleButtonWidget( { icon: 'next' } ),
 				{
-					label: 'ToggleButtonWidget (icon only)',
+					label: 'ToggleButtonWidget (icon only)\u200E',
 					align: 'top'
 				}
 			),
@@ -363,14 +363,14 @@ OO.ui.demo.widgets = function () {
 			new OO.ui.FieldLayout(
 				new OO.ui.ToggleSwitchWidget( { disabled: true } ),
 				{
-					label: 'ToggleSwitchWidget (disabled)',
+					label: 'ToggleSwitchWidget (disabled)\u200E',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ToggleSwitchWidget( { disabled: true, value: true } ),
 				{
-					label: 'ToggleSwitchWidget (disabled, checked)',
+					label: 'ToggleSwitchWidget (disabled, checked)\u200E',
 					align: 'top'
 				}
 			),
@@ -390,7 +390,7 @@ OO.ui.demo.widgets = function () {
 				} ),
 				{
 					align: 'inline',
-					label: 'CheckboxInputWidget (disabled)'
+					label: 'CheckboxInputWidget (disabled)\u200E'
 				}
 			),
 			new OO.ui.FieldLayout(
@@ -448,7 +448,7 @@ OO.ui.demo.widgets = function () {
 					}
 				} ),
 				{
-					label: 'InlineMenuWidget (disabled options)',
+					label: 'InlineMenuWidget (disabled options)\u200E',
 					align: 'top'
 				}
 			),
@@ -474,7 +474,7 @@ OO.ui.demo.widgets = function () {
 					}
 				} ),
 				{
-					label: 'InlineMenuWidget (disabled)',
+					label: 'InlineMenuWidget (disabled)\u200E',
 					align: 'top'
 				}
 			),
@@ -509,42 +509,42 @@ OO.ui.demo.widgets = function () {
 					}
 				} ),
 				{
-					label: 'ComboBoxWidget (disabled)',
+					label: 'ComboBoxWidget (disabled)\u200E',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ComboBoxWidget(),
 				{
-					label: 'ComboBoxWidget (empty)',
+					label: 'ComboBoxWidget (empty)\u200E',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.TextInputWidget( { value: 'Text input' } ),
 				{
-					label: 'TextInputWidget',
+					label: 'TextInputWidget\u200E',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.TextInputWidget( { icon: 'search' } ),
 				{
-					label: 'TextInputWidget (icon)',
+					label: 'TextInputWidget (icon)\u200E',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.TextInputWidget( { indicator: 'required' } ),
 				{
-					label: 'TextInputWidget (indicator)',
+					label: 'TextInputWidget (indicator)\u200E',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.TextInputWidget( { placeholder: 'Placeholder' } ),
 				{
-					label: 'TextInputWidget (placeholder)',
+					label: 'TextInputWidget (placeholder)\u200E',
 					align: 'top'
 				}
 			),
@@ -554,7 +554,7 @@ OO.ui.demo.widgets = function () {
 					readOnly: true
 				} ),
 				{
-					label: 'TextInputWidget (readonly)',
+					label: 'TextInputWidget (readonly)\u200E',
 					align: 'top'
 				}
 			),
@@ -564,7 +564,7 @@ OO.ui.demo.widgets = function () {
 					disabled: true
 				} ),
 				{
-					label: 'TextInputWidget (disabled)',
+					label: 'TextInputWidget (disabled)\u200E',
 					align: 'top'
 				}
 			),
@@ -574,7 +574,7 @@ OO.ui.demo.widgets = function () {
 					value: 'Multiline'
 				} ),
 				{
-					label: 'TextInputWidget (multiline)',
+					label: 'TextInputWidget (multiline)\u200E',
 					align: 'top'
 				}
 			),
@@ -585,7 +585,7 @@ OO.ui.demo.widgets = function () {
 					value: 'Autosize'
 				} ),
 				{
-					label: 'TextInputWidget (autosize)',
+					label: 'TextInputWidget (autosize)\u200E',
 					align: 'top'
 				}
 			)
