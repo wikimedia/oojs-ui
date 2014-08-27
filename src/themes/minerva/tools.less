@@ -1,0 +1,124 @@
+@import 'common';
+
+.theme-oo-ui-toolbar () {}
+
+.theme-oo-ui-tool () {}
+
+.theme-oo-ui-popupTool () {
+	.oo-ui-popupWidget {
+		margin-left: 1.25em;
+		font-size: 0.8em;
+	}
+}
+
+.theme-oo-ui-toolGroup () {
+	margin: 0.3em;
+}
+
+.theme-oo-ui-barToolGroup () {
+	.oo-ui-tool {
+		&-link {
+			height: 1.5em;
+			padding: 0.25em;
+
+			.oo-ui-iconedElement-icon {
+				height: 1.5em;
+				width: 1.5em;
+			}
+		}
+	}
+}
+
+.theme-oo-ui-popupToolGroup () {
+	height: 2em;
+	min-width: 2.5em;
+
+	&.oo-ui-indicatedElement.oo-ui-iconedElement {
+		min-width: 3.5em;
+	}
+
+	&-handle {
+		.oo-ui-indicatedElement-indicator,
+		.oo-ui-iconedElement-icon {
+			top: 0;
+			width: 2em;
+			height: 2em;
+		}
+
+		.oo-ui-indicatedElement-indicator {
+			right: 0;
+		}
+
+		.oo-ui-iconedElement-icon {
+			left: 0.25em;
+		}
+
+		.oo-ui-labeledElement-label {
+			line-height: 2.6em;
+			font-size: 0.8em;
+			margin: 0 1em;
+		}
+	}
+
+	&-header {
+		line-height: 2.6em;
+		font-size: 0.8em;
+		margin: 0 0.6em;
+		font-weight: bold;
+	}
+
+	&.oo-ui-iconedElement .oo-ui-popupToolGroup-handle .oo-ui-labeledElement-label {
+		margin-left: 3em;
+	}
+
+	&.oo-ui-indicatedElement .oo-ui-popupToolGroup-handle .oo-ui-labeledElement-label {
+		margin-right: 2.25em;
+	}
+
+	.oo-ui-toolGroup-tools {
+		top: 2em;
+		left: -1px;
+	}
+
+	.oo-ui-tool-link {
+		.oo-ui-iconedElement-icon {
+			height: 2em;
+			width: 2em;
+			margin-right: 0.25em;
+		}
+
+		.oo-ui-tool-title {
+			line-height: 2em;
+			font-size: 0.8em;
+		}
+	}
+}
+
+.theme-oo-ui-listToolGroup () {
+	.oo-ui-toolGroup-tools {
+		padding: 0.25em;
+	}
+
+	.oo-ui-tool {
+		&-link {
+			padding-right: 0.5em;
+		}
+	}
+}
+
+.theme-oo-ui-menuToolGroup () {
+	.oo-ui-popupToolGroup-handle {
+		min-width: 8em;
+	}
+
+	.oo-ui-toolGroup-tools {
+		padding: 0.25em 0 0.25em 0;
+	}
+
+	.oo-ui-tool {
+		&-link {
+			padding: 0 1em 0 0.25em;
+		}
+	}
+}
+

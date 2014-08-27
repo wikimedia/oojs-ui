@@ -13,7 +13,7 @@
 		pageMenuMenu = pageMenu.getMenu(),
 		themeSelect = new OO.ui.ButtonSelectWidget().addItems( [
 			new OO.ui.ButtonOptionWidget( 'apex', { label: 'Apex' } ),
-			new OO.ui.ButtonOptionWidget( 'agora', { label: 'Agora' } )
+			new OO.ui.ButtonOptionWidget( 'minerva', { label: 'Minerva' } )
 		] ),
 		directionSelect = new OO.ui.ButtonSelectWidget().addItems( [
 			new OO.ui.ButtonOptionWidget( 'ltr', { label: 'LTR' } ),

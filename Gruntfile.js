@@ -22,7 +22,7 @@ module.exports = function ( grunt ) {
 		styleTargets = {
 			'oojs-ui': moduleUtils.expandResources( modules['oojs-ui'].styles ),
 			'oojs-ui-apex': moduleUtils.expandResources( modules['oojs-ui-apex'].styles ),
-			'oojs-ui-agora': moduleUtils.expandResources( modules['oojs-ui-agora'].styles )
+			'oojs-ui-minerva': moduleUtils.expandResources( modules['oojs-ui-minerva'].styles )
 		},
 		lessFiles = {},
 		concatCssFiles = {},
@@ -56,7 +56,7 @@ module.exports = function ( grunt ) {
 			code: modules['oojs-ui'].scripts,
 			styles: [].concat( lessFiles['dist/oojs-ui.css'], lessFiles['dist/oojs-ui.svg.css'] ),
 			apex: lessFiles['dist/oojs-ui-apex.css'],
-			agora: lessFiles['dist/oojs-ui-agora.css']
+			minerva: lessFiles['dist/oojs-ui-minerva.css']
 		},
 		less: {
 			dist: {
@@ -90,10 +90,10 @@ module.exports = function ( grunt ) {
 				strip: 'src/styles/images',
 				dest: 'dist/images'
 			},
-			imagesAgora: {
-				src: 'src/themes/agora/images/**/*.*',
-				strip: 'src/themes/agora/images',
-				dest: 'dist/themes/agora/images'
+			imagesMinerva: {
+				src: 'src/themes/minerva/images/**/*.*',
+				strip: 'src/themes/minerva/images',
+				dest: 'dist/themes/minerva/images'
 			},
 			i18n: {
 				src: 'i18n/*.json',

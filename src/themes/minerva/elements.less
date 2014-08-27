@@ -1,0 +1,46 @@
+@import 'common';
+
+.theme-oo-ui-buttonedElement () {
+	> .oo-ui-buttonedElement-button {
+		> .oo-ui-iconedElement-icon {
+			margin-left: 0;
+		}
+
+		> .oo-ui-indicatedElement-indicator {
+			margin-right: -0.75em;
+		}
+	}
+
+	&.oo-ui-indicatedElement .oo-ui-buttonedElement-button > .oo-ui-indicatedElement-indicator,
+	&.oo-ui-iconedElement .oo-ui-buttonedElement-button > .oo-ui-iconedElement-icon {
+		.icon();
+	}
+
+	&-frameless {
+		> .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
+			margin-left: 0.25em;
+		}
+	}
+
+	&-framed {
+		> .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
+			line-height: 1.9em;
+		}
+	}
+}
+
+.theme-oo-ui-clippableElement () {}
+
+.theme-oo-ui-flaggableElement () {}
+
+.theme-oo-ui-groupElement () {}
+
+.theme-oo-ui-iconedElement () {}
+
+.theme-oo-ui-indicatedElement () {}
+
+.theme-oo-ui-labeledElement () {}
+
+.theme-oo-ui-popuppableElement () {}
+
+.theme-oo-ui-titledElement () {}

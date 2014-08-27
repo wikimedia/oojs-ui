@@ -86,58 +86,6 @@
 			"src/outro.js.txt"
 		],
 		"styles": [
-			"src/styles/core.less",
-
-			"src/styles/Dialog.less",
-			"src/styles/Toolbar.less",
-			"src/styles/ToolGroup.less",
-			"src/styles/Window.less",
-			"src/styles/WindowManager.less",
-
-			"src/styles/dialogs/MessageDialog.less",
-			"src/styles/dialogs/ProcessDialog.less",
-
-			"src/styles/elements/ButtonedElement.less",
-			"src/styles/elements/ClippableElement.less",
-
-			"src/styles/layouts/BookletLayout.less",
-			"src/styles/layouts/FieldLayout.less",
-			"src/styles/layouts/FieldsetLayout.less",
-			"src/styles/layouts/GridLayout.less",
-
-			"src/styles/widgets/LabelWidget.less",
-
-			"src/styles/layouts/PanelLayout.less",
-			"src/styles/layouts/StackLayout.less",
-
-			"src/styles/toolgroups/BarToolgroup.less",
-			"src/styles/toolgroups/ListToolgroup.less",
-			"src/styles/toolgroups/MenuToolgroup.less",
-			"src/styles/toolgroups/PopupToolgroup.less",
-
-			"src/styles/tools/PopupTool.less",
-
-			"src/styles/widgets/IconWidget.less",
-			"src/styles/widgets/IndicatorWidget.less",
-			"src/styles/widgets/LabelWidget.less",
-			"src/styles/widgets/OptionWidget.less",
-			"src/styles/widgets/DecoratedOptionWidget.less",
-			"src/styles/widgets/MenuWidget.less",
-			"src/styles/widgets/ComboBoxWidget.less",
-			"src/styles/widgets/PopupWidget.less",
-			"src/styles/widgets/ButtonOptionWidget.less",
-			"src/styles/widgets/ButtonSelectWidget.less",
-			"src/styles/widgets/ButtonWidget.less",
-			"src/styles/widgets/InlineMenuWidget.less",
-			"src/styles/widgets/MenuItemWidget.less",
-			"src/styles/widgets/MenuSectionItemWidget.less",
-			"src/styles/widgets/OutlineControlsWidget.less",
-			"src/styles/widgets/OutlineItemWidget.less",
-			"src/styles/widgets/PopupButtonWidget.less",
-			"src/styles/widgets/SearchWidget.less",
-			"src/styles/widgets/TextInputWidget.less",
-			"src/styles/widgets/ToggleSwitchWidget.less",
-
 			{
 				"default": "src/styles/images/raster.less",
 				"svg": "src/styles/images/vector.less"
@@ -146,91 +94,13 @@
 	},
 	"oojs-ui-apex": {
 		"styles": [
-			"src/themes/apex/Dialog.less",
-			"src/themes/apex/Toolbar.less",
-			"src/themes/apex/ToolGroup.less",
-			"src/themes/apex/Window.less",
-			"src/themes/apex/WindowManager.less",
-
-			"src/themes/apex/dialogs/MessageDialog.less",
-			"src/themes/apex/dialogs/ProcessDialog.less",
-
-			"src/themes/apex/elements/ButtonedElement.less",
-
-			"src/themes/apex/layouts/BookletLayout.less",
-			"src/themes/apex/layouts/FieldLayout.less",
-			"src/themes/apex/layouts/FieldsetLayout.less",
-			"src/themes/apex/layouts/PanelLayout.less",
-
-			"src/themes/apex/tools/PopupTool.less",
-
-			"src/themes/apex/toolgroups/BarToolgroup.less",
-			"src/themes/apex/toolgroups/ListToolgroup.less",
-			"src/themes/apex/toolgroups/MenuToolgroup.less",
-			"src/themes/apex/toolgroups/PopupToolgroup.less",
-
-			"src/themes/apex/widgets/OptionWidget.less",
-			"src/themes/apex/widgets/DecoratedOptionWidget.less",
-			"src/themes/apex/widgets/IconWidget.less",
-			"src/themes/apex/widgets/IndicatorWidget.less",
-			"src/themes/apex/widgets/LabelWidget.less",
-			"src/themes/apex/widgets/MenuWidget.less",
-			"src/themes/apex/widgets/PopupWidget.less",
-			"src/themes/apex/widgets/ButtonGroupWidget.less",
-			"src/themes/apex/widgets/ButtonOptionWidget.less",
-			"src/themes/apex/widgets/ButtonSelectWidget.less",
-			"src/themes/apex/widgets/ComboBoxWidget.less",
-			"src/themes/apex/widgets/InlineMenuWidget.less",
-			"src/themes/apex/widgets/MenuItemWidget.less",
-			"src/themes/apex/widgets/MenuSectionItemWidget.less",
-			"src/themes/apex/widgets/OutlineControlsWidget.less",
-			"src/themes/apex/widgets/OutlineItemWidget.less",
-			"src/themes/apex/widgets/SearchWidget.less",
-			"src/themes/apex/widgets/TextInputWidget.less",
-			"src/themes/apex/widgets/ToggleSwitchWidget.less"
+			"src/themes/apex/core.less"
 		]
 	},
-	"oojs-ui-agora": {
+	"oojs-ui-minerva": {
 		"styles": [
-			"src/themes/agora/ToolGroup.less",
-			"src/themes/agora/WindowManager.less",
-
-			"src/themes/agora/dialogs/MessageDialog.less",
-			"src/themes/agora/dialogs/ProcessDialog.less",
-
-			"src/themes/agora/elements/ButtonedElement.less",
-
-			"src/themes/agora/layouts/BookletLayout.less",
-			"src/themes/agora/layouts/FieldLayout.less",
-			"src/themes/agora/layouts/FieldsetLayout.less",
-			"src/themes/agora/layouts/PanelLayout.less",
-
-			"src/themes/agora/tools/PopupTool.less",
-
-			"src/themes/agora/toolgroups/BarToolgroup.less",
-			"src/themes/agora/toolgroups/ListToolgroup.less",
-			"src/themes/agora/toolgroups/MenuToolgroup.less",
-			"src/themes/agora/toolgroups/PopupToolgroup.less",
-
-			"src/themes/agora/widgets/OptionWidget.less",
-			"src/themes/agora/widgets/DecoratedOptionWidget.less",
-			"src/themes/agora/widgets/IconWidget.less",
-			"src/themes/agora/widgets/IndicatorWidget.less",
-			"src/themes/agora/widgets/LabelWidget.less",
-			"src/themes/agora/widgets/PopupWidget.less",
-			"src/themes/agora/widgets/ButtonOptionWidget.less",
-			"src/themes/agora/widgets/ComboBoxWidget.less",
-			"src/themes/agora/widgets/InlineMenuWidget.less",
-			"src/themes/agora/widgets/LookupWidget.less",
-			"src/themes/agora/widgets/MenuItemWidget.less",
-			"src/themes/agora/widgets/MenuSectionItemWidget.less",
-			"src/themes/agora/widgets/OutlineControlsWidget.less",
-			"src/themes/agora/widgets/OutlineItemWidget.less",
-			"src/themes/agora/widgets/SearchWidget.less",
-			"src/themes/agora/widgets/TextInputWidget.less",
-			"src/themes/agora/widgets/ToggleSwitchWidget.less",
-
-			"src/themes/agora/images/vector.less"
+			"src/themes/minerva/core.less",
+			"src/themes/minerva/images/vector.less"
 		]
 	}
 }

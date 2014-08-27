@@ -27,35 +27,37 @@
 		background-position: center center;
 		background-repeat: no-repeat;
 	}
-}
 
-.oo-ui-buttonedElement-frameless {
-	display: inline-block;
-	position: relative;
-
-	> .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
+	&-frameless {
 		display: inline-block;
-		vertical-align: middle;
-	}
-}
+		position: relative;
 
-.oo-ui-buttonedElement-framed {
-	> .oo-ui-buttonedElement-button {
-		display: inline-block;
-		vertical-align: top;
-		text-align: center;
-
-		> .oo-ui-labeledElement-label {
+		> .oo-ui-buttonedElement-button > .oo-ui-labeledElement-label {
 			display: inline-block;
 			vertical-align: middle;
 		}
 	}
 
-	&.oo-ui-widget-disabled {
-		> .oo-ui-buttonedElement-button,
-		&.oo-ui-buttonedElement-active > .oo-ui-buttonedElement-button,
-		&.oo-ui-buttonedElement-pressed > .oo-ui-buttonedElement-button {
-			cursor: default;
+	&-framed {
+		> .oo-ui-buttonedElement-button {
+			display: inline-block;
+			vertical-align: top;
+			text-align: center;
+
+			> .oo-ui-labeledElement-label {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+
+		&.oo-ui-widget-disabled {
+			> .oo-ui-buttonedElement-button,
+			&.oo-ui-buttonedElement-active > .oo-ui-buttonedElement-button,
+			&.oo-ui-buttonedElement-pressed > .oo-ui-buttonedElement-button {
+				cursor: default;
+			}
 		}
 	}
+
+	.theme-oo-ui-buttonedElement();
 }
