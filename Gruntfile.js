@@ -87,12 +87,12 @@ module.exports = function ( grunt ) {
 		},
 		copy: {
 			images: {
-				src: 'src/styles/images/**/*.*',
+				src: [ 'src/styles/images/**/*.svg', 'src/styles/images/**/*.png' ],
 				strip: 'src/styles/images',
 				dest: 'dist/images'
 			},
 			imagesMinerva: {
-				src: 'src/themes/minerva/images/**/*.*',
+				src: [ 'src/themes/minerva/images/**/*.svg', 'src/themes/minerva/images/**/*.png' ],
 				strip: 'src/themes/minerva/images',
 				dest: 'dist/themes/minerva/images'
 			},
