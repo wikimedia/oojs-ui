@@ -1,5 +1,8 @@
 /**
- * Element that can be automatically clipped to visible boundaies.
+ * Element that can be automatically clipped to visible boundaries.
+ *
+ * Whenever the element's natural height changes, you have to call
+ * #clip to make sure it's still clipping correctly.
  *
  * @abstract
  * @class
@@ -95,7 +98,8 @@ OO.ui.ClippableElement.prototype.setIdealSize = function ( width, height ) {
 };
 
 /**
- * Clip element to visible boundaries and allow scrolling when needed.
+ * Clip element to visible boundaries and allow scrolling when needed. Call this method when
+ * the element's natural height changes.
  *
  * Element will be clipped the bottom or right of the element is within 10px of the edge of, or
  * overlapped by, the visible area of the nearest scrollable container.
