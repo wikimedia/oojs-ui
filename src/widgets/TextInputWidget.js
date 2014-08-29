@@ -3,8 +3,8 @@
  *
  * @class
  * @extends OO.ui.InputWidget
- * @mixins OO.ui.IconedElement
- * @mixins OO.ui.IndicatedElement
+ * @mixins OO.ui.IconElement
+ * @mixins OO.ui.IndicatorElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -21,8 +21,8 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	OO.ui.TextInputWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
-	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
+	OO.ui.IconElement.call( this, config );
+	OO.ui.IndicatorElement.call( this, config );
 
 	// Properties
 	this.pending = 0;
@@ -49,8 +49,8 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.TextInputWidget, OO.ui.InputWidget );
-OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IconedElement );
-OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IndicatedElement );
+OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IconElement );
+OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IndicatorElement );
 
 /* Events */
 

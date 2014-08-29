@@ -3,12 +3,12 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.ButtonedElement
- * @mixins OO.ui.IconedElement
- * @mixins OO.ui.IndicatedElement
- * @mixins OO.ui.LabeledElement
+ * @mixins OO.ui.ButtonElement
+ * @mixins OO.ui.IconElement
+ * @mixins OO.ui.IndicatorElement
+ * @mixins OO.ui.LabelElement
  * @mixins OO.ui.TitledElement
- * @mixins OO.ui.FlaggableElement
+ * @mixins OO.ui.FlaggedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -23,12 +23,12 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	OO.ui.ButtonWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.ButtonedElement.call( this, this.$( '<a>' ), config );
-	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
-	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
-	OO.ui.LabeledElement.call( this, this.$( '<span>' ), config );
-	OO.ui.TitledElement.call( this, this.$button, config );
-	OO.ui.FlaggableElement.call( this, config );
+	OO.ui.ButtonElement.call( this, config );
+	OO.ui.IconElement.call( this, config );
+	OO.ui.IndicatorElement.call( this, config );
+	OO.ui.LabelElement.call( this, config );
+	OO.ui.TitledElement.call( this, config, $.extend( {}, config, { $titled: this.$button } ) );
+	OO.ui.FlaggedElement.call( this, config );
 
 	// Properties
 	this.href = null;
@@ -53,12 +53,12 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ButtonWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.ButtonWidget, OO.ui.ButtonedElement );
-OO.mixinClass( OO.ui.ButtonWidget, OO.ui.IconedElement );
-OO.mixinClass( OO.ui.ButtonWidget, OO.ui.IndicatedElement );
-OO.mixinClass( OO.ui.ButtonWidget, OO.ui.LabeledElement );
+OO.mixinClass( OO.ui.ButtonWidget, OO.ui.ButtonElement );
+OO.mixinClass( OO.ui.ButtonWidget, OO.ui.IconElement );
+OO.mixinClass( OO.ui.ButtonWidget, OO.ui.IndicatorElement );
+OO.mixinClass( OO.ui.ButtonWidget, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.TitledElement );
-OO.mixinClass( OO.ui.ButtonWidget, OO.ui.FlaggableElement );
+OO.mixinClass( OO.ui.ButtonWidget, OO.ui.FlaggedElement );
 
 /* Events */
 

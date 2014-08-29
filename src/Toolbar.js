@@ -22,7 +22,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );
-	OO.ui.GroupElement.call( this, this.$( '<div>' ), config );
+	OO.ui.GroupElement.call( this, config );
 
 	// Properties
 	this.toolFactory = toolFactory;

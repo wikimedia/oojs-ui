@@ -5,8 +5,8 @@
  *
  * @class
  * @extends OO.ui.OptionWidget
- * @mixins OO.ui.IconedElement
- * @mixins OO.ui.IndicatedElement
+ * @mixins OO.ui.IconElement
+ * @mixins OO.ui.IndicatorElement
  *
  * @constructor
  * @param {Mixed} data Option data
@@ -17,8 +17,8 @@ OO.ui.DecoratedOptionWidget = function OoUiDecoratedOptionWidget( data, config )
 	OO.ui.DecoratedOptionWidget.super.call( this, data, config );
 
 	// Mixin constructors
-	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
-	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
+	OO.ui.IconElement.call( this, config );
+	OO.ui.IndicatorElement.call( this, config );
 
 	// Initialization
 	this.$element
@@ -30,5 +30,5 @@ OO.ui.DecoratedOptionWidget = function OoUiDecoratedOptionWidget( data, config )
 /* Setup */
 
 OO.inheritClass( OO.ui.DecoratedOptionWidget, OO.ui.OptionWidget );
-OO.mixinClass( OO.ui.OptionWidget, OO.ui.IconedElement );
-OO.mixinClass( OO.ui.OptionWidget, OO.ui.IndicatedElement );
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.IconElement );
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.IndicatorElement );

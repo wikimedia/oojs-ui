@@ -4,7 +4,7 @@
  * @abstract
  * @class
  * @extends OO.ui.Tool
- * @mixins OO.ui.PopuppableElement
+ * @mixins OO.ui.PopupElement
  *
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
@@ -15,7 +15,7 @@ OO.ui.PopupTool = function OoUiPopupTool( toolbar, config ) {
 	OO.ui.PopupTool.super.call( this, toolbar, config );
 
 	// Mixin constructors
-	OO.ui.PopuppableElement.call( this, config );
+	OO.ui.PopupElement.call( this, config );
 
 	// Initialization
 	this.$element
@@ -26,7 +26,7 @@ OO.ui.PopupTool = function OoUiPopupTool( toolbar, config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.PopupTool, OO.ui.Tool );
-OO.mixinClass( OO.ui.PopupTool, OO.ui.PopuppableElement );
+OO.mixinClass( OO.ui.PopupTool, OO.ui.PopupElement );
 
 /* Methods */
 

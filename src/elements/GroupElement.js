@@ -5,20 +5,39 @@
  * @class
  *
  * @constructor
- * @param {jQuery} $group Container node, assigned to #$group
  * @param {Object} [config] Configuration options
+ * @cfg {jQuery} [$group] Container node, assigned to #$group, omit to use a generated `<div>`
  */
-OO.ui.GroupElement = function OoUiGroupElement( $group, config ) {
+OO.ui.GroupElement = function OoUiGroupElement( config ) {
 	// Configuration
 	config = config || {};
 
 	// Properties
-	this.$group = $group;
+	this.$group = null;
 	this.items = [];
 	this.aggregateItemEvents = {};
+
+	// Initialization
+	this.setGroupElement( config.$group || this.$( '<div>' ) );
 };
 
 /* Methods */
+
+/**
+ * Set the group element.
+ *
+ * If an element is already set, items will be moved to the new element.
+ *
+ * @param {jQuery} $group Element to use as group
+ */
+OO.ui.GroupElement.prototype.setGroupElement = function ( $group ) {
+	var i, len;
+
+	this.$group = $group;
+	for ( i = 0, len = this.items.length; i < len; i++ ) {
+		this.$group.append( this.items[i].$element );
+	}
+};
 
 /**
  * Check if there are no items.

@@ -5,15 +5,15 @@
  * @class
  *
  * @constructor
- * @param {jQuery} $clippable Nodes to clip, assigned to #$clippable
  * @param {Object} [config] Configuration options
+ * @cfg {jQuery} [$clippable] Nodes to clip, assigned to #$clippable, omit to use #$element
  */
-OO.ui.ClippableElement = function OoUiClippableElement( $clippable, config ) {
+OO.ui.ClippableElement = function OoUiClippableElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
 	// Properties
-	this.$clippable = $clippable;
+	this.$clippable = null;
 	this.clipping = false;
 	this.clipped = false;
 	this.$clippableContainer = null;
@@ -25,23 +25,41 @@ OO.ui.ClippableElement = function OoUiClippableElement( $clippable, config ) {
 	this.onClippableWindowResizeHandler = OO.ui.bind( this.clip, this );
 
 	// Initialization
-	this.$clippable.addClass( 'oo-ui-clippableElement-clippable' );
+	this.setClippableElement( config.$clippable || this.$element );
 };
 
 /* Methods */
 
 /**
- * Set clipping.
+ * Set clippable element.
  *
- * @param {boolean} value Enable clipping
+ * If an element is already set, it will be cleaned up before setting up the new element.
+ *
+ * @param {jQuery} $clippable Element to make clippable
+ */
+OO.ui.ClippableElement.prototype.setClippableElement = function ( $clippable ) {
+	if ( this.$clippable ) {
+		this.$clippable.removeClass( 'oo-ui-clippableElement-clippable' );
+		this.$clippable.css( { width: '', height: '' } );
+		this.$clippable.width(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
+		this.$clippable.css( { overflowX: '', overflowY: '' } );
+	}
+
+	this.$clippable = $clippable.addClass( 'oo-ui-clippableElement-clippable' );
+	this.clip();
+};
+
+/**
+ * Toggle clipping.
+ *
+ * @param {boolean} [clipping] Enable clipping, omit to toggle
  * @chainable
  */
-OO.ui.ClippableElement.prototype.setClipping = function ( value ) {
-	value = !!value;
+OO.ui.ClippableElement.prototype.toggleClipping = function ( clipping ) {
+	clipping = clipping === undefined ? !this.clipping : !!clipping;
 
-	if ( this.clipping !== value ) {
-		this.clipping = value;
-		if ( this.clipping ) {
+	if ( this.clipping !== clipping ) {
+		if ( clipping ) {
 			this.$clippableContainer = this.$( this.getClosestScrollableElementContainer() );
 			// If the clippable container is the body, we have to listen to scroll events and check
 			// jQuery.scrollTop on the window because of browser inconsistencies
@@ -60,6 +78,7 @@ OO.ui.ClippableElement.prototype.setClipping = function ( value ) {
 			this.$clippableWindow.off( 'resize', this.onClippableWindowResizeHandler );
 			this.$clippableWindow = null;
 		}
+		this.clipping = clipping;
 	}
 
 	return this;
@@ -110,7 +129,8 @@ OO.ui.ClippableElement.prototype.clip = function () {
 
 	var buffer = 10,
 		cOffset = this.$clippable.offset(),
-		$container = this.$clippableContainer.is( 'body' ) ? this.$clippableWindow : this.$clippableContainer,
+		$container = this.$clippableContainer.is( 'body' ) ?
+			this.$clippableWindow : this.$clippableContainer,
 		ccOffset = $container.offset() || { top: 0, left: 0 },
 		ccHeight = $container.innerHeight() - buffer,
 		ccWidth = $container.innerWidth() - buffer,

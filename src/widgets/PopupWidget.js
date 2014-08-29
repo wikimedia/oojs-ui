@@ -3,7 +3,7 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.LabeledElement
+ * @mixins OO.ui.LabelElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -26,14 +26,14 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	OO.ui.PopupWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.LabeledElement.call( this, this.$( '<div>' ), config );
-	OO.ui.ClippableElement.call( this, this.$( '<div>' ), config );
+	OO.ui.LabelElement.call( this, config );
+	OO.ui.ClippableElement.call( this, config );
 
 	// Properties
 	this.visible = false;
 	this.$popup = this.$( '<div>' );
 	this.$head = this.$( '<div>' );
-	this.$body = this.$clippable;
+	this.$body = this.$( '<div>' );
 	this.$anchor = this.$( '<div>' );
 	this.$container = config.$container || this.$( 'body' );
 	this.autoClose = !!config.autoClose;
@@ -73,12 +73,13 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	if ( config.padded ) {
 		this.$body.addClass( 'oo-ui-popupWidget-body-padded' );
 	}
+	this.setClippableElement( this.$body );
 };
 
 /* Setup */
 
 OO.inheritClass( OO.ui.PopupWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.PopupWidget, OO.ui.LabeledElement );
+OO.mixinClass( OO.ui.PopupWidget, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.ClippableElement );
 
 /* Events */
@@ -172,13 +173,13 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 
 	if ( change ) {
 		if ( show ) {
-			this.setClipping( true );
+			this.toggleClipping( true );
 			if ( this.autoClose ) {
 				this.bindMouseDownListener();
 			}
 			this.updateDimensions();
 		} else {
-			this.setClipping( false );
+			this.toggleClipping( false );
 			if ( this.autoClose ) {
 				this.unbindMouseDownListener();
 			}

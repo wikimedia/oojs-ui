@@ -54,7 +54,7 @@
 		}
 
 		.oo-ui-actionWidget {
-			.oo-ui-labeledElement-label {
+			.oo-ui-labelElement-label {
 				text-align: center;
 				line-height: 3.4em;
 				padding: 0 2em;
@@ -68,7 +68,7 @@
 				background-color: rgba(0,0,0,0.1);
 			}
 
-			&.oo-ui-flaggableElement {
+			&.oo-ui-flaggedElement {
 				&-primary {
 					&:hover {
 						background-color: rgba(8,126,204,0.05);
@@ -78,7 +78,7 @@
 						background-color: rgba(8,126,204,0.1);
 					}
 
-					.oo-ui-labeledElement-label {
+					.oo-ui-labelElement-label {
 						font-weight: bold;
 					}
 				}
@@ -143,7 +143,7 @@
 		&-primary,
 		&-other {
 			.oo-ui-actionWidget {
-				.oo-ui-buttonedElement-button {
+				.oo-ui-buttonElement-button {
 					padding: 0.35em 0.75em;
 					min-width: @window-header-inner-height;
 					min-height: @window-header-inner-height;
@@ -151,31 +151,31 @@
 					border-radius: 4px;
 				}
 
-				.oo-ui-labeledElement-label {
+				.oo-ui-labelElement-label {
 					line-height: @window-header-inner-height;
 					padding: 0 1em;
 					font-weight: bold;
 					color: @color-neutral;
 				}
 
-				.oo-ui-iconedElement-icon {
+				.oo-ui-iconElement-icon {
 					position: absolute;
 					margin-top: -0.125em;
 				}
 
-				&.oo-ui-buttonedElement-framed {
-					.oo-ui-buttonedElement-button {
+				&.oo-ui-buttonElement-framed {
+					.oo-ui-buttonElement-button {
 						vertical-align: middle;
 					}
 				}
 
-				&.oo-ui-flaggableElement {
+				&.oo-ui-flaggedElement {
 					&-destructive {
-						.oo-ui-buttonedElement-button {
+						.oo-ui-buttonElement-button {
 							border: 1px solid transparent;
 						}
 
-						.oo-ui-labeledElement-label {
+						.oo-ui-labelElement-label {
 							color: @color-destructive;
 						}
 					}
@@ -186,19 +186,19 @@
 		&-safe,
 		&-primary {
 			.oo-ui-actionWidget {
-				.oo-ui-buttonedElement-button {
+				.oo-ui-buttonElement-button {
 					padding: 0.75em 0.35em;
 					border: none;
 					border-radius: 0;
 				}
 
-				&.oo-ui-flaggableElement {
+				&.oo-ui-flaggedElement {
 					&-primary {
-						.oo-ui-buttonedElement-button {
+						.oo-ui-buttonElement-button {
 							background-color: @color-progressive;
 						}
 
-						.oo-ui-labeledElement-label {
+						.oo-ui-labelElement-label {
 							color: @color-white;
 						}
 					}
@@ -207,24 +207,24 @@
 		}
 
 		&-safe {
-			.oo-ui-actionWidget.oo-ui-iconedElement {
-				.oo-ui-iconedElement-icon {
+			.oo-ui-actionWidget.oo-ui-iconElement {
+				.oo-ui-iconElement-icon {
 					left: 0.5em;
 				}
 
-				.oo-ui-labeledElement-label {
+				.oo-ui-labelElement-label {
 					padding-left: 2.25em;
 				}
 			}
 		}
 
 		&-primary {
-			.oo-ui-actionWidget.oo-ui-iconedElement {
-				.oo-ui-iconedElement-icon {
+			.oo-ui-actionWidget.oo-ui-iconElement {
+				.oo-ui-iconElement-icon {
 					right: 0.5em;
 				}
 
-				.oo-ui-labeledElement-label {
+				.oo-ui-labelElement-label {
 					padding-right: 2.25em;
 				}
 			}

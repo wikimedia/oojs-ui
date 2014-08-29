@@ -93,7 +93,7 @@ OO.ui.ActionWidget.prototype.propagateResize = function () {
  */
 OO.ui.ActionWidget.prototype.setIcon = function () {
 	// Mixin method
-	OO.ui.IconedElement.prototype.setIcon.apply( this, arguments );
+	OO.ui.IconElement.prototype.setIcon.apply( this, arguments );
 	this.propagateResize();
 
 	return this;
@@ -104,7 +104,7 @@ OO.ui.ActionWidget.prototype.setIcon = function () {
  */
 OO.ui.ActionWidget.prototype.setLabel = function () {
 	// Mixin method
-	OO.ui.LabeledElement.prototype.setLabel.apply( this, arguments );
+	OO.ui.LabelElement.prototype.setLabel.apply( this, arguments );
 	this.propagateResize();
 
 	return this;
@@ -115,7 +115,7 @@ OO.ui.ActionWidget.prototype.setLabel = function () {
  */
 OO.ui.ActionWidget.prototype.setFlags = function () {
 	// Mixin method
-	OO.ui.FlaggableElement.prototype.setFlags.apply( this, arguments );
+	OO.ui.FlaggedElement.prototype.setFlags.apply( this, arguments );
 	this.propagateResize();
 
 	return this;
@@ -126,7 +126,7 @@ OO.ui.ActionWidget.prototype.setFlags = function () {
  */
 OO.ui.ActionWidget.prototype.clearFlags = function () {
 	// Mixin method
-	OO.ui.FlaggableElement.prototype.clearFlags.apply( this, arguments );
+	OO.ui.FlaggedElement.prototype.clearFlags.apply( this, arguments );
 	this.propagateResize();
 
 	return this;

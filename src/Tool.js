@@ -4,7 +4,7 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.IconedElement
+ * @mixins OO.ui.IconElement
  *
  * @constructor
  * @param {OO.ui.ToolGroup} toolGroup
@@ -19,7 +19,7 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	OO.ui.Tool.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
+	OO.ui.IconElement.call( this, config );
 
 	// Properties
 	this.toolGroup = toolGroup;
@@ -52,7 +52,7 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.Tool, OO.ui.Widget );
-OO.mixinClass( OO.ui.Tool, OO.ui.IconedElement );
+OO.mixinClass( OO.ui.Tool, OO.ui.IconElement );
 
 /* Events */
 

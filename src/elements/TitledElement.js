@@ -8,20 +8,21 @@
  * @class
  *
  * @constructor
- * @param {jQuery} $label Titled node, assigned to #$titled
  * @param {Object} [config] Configuration options
+ * @cfg {jQuery} [$titled] Titled node, assigned to #$titled, omit to use #$element
  * @cfg {string|Function} [title] Title text or a function that returns text
  */
-OO.ui.TitledElement = function OoUiTitledElement( $titled, config ) {
+OO.ui.TitledElement = function OoUiTitledElement( config ) {
 	// Config intialization
 	config = config || {};
 
 	// Properties
-	this.$titled = $titled;
+	this.$titled = null;
 	this.title = null;
 
 	// Initialization
 	this.setTitle( config.title || this.constructor.static.title );
+	this.setTitledElement( config.$titled || this.$element );
 };
 
 /* Setup */
@@ -42,18 +43,41 @@ OO.ui.TitledElement.static.title = null;
 /* Methods */
 
 /**
+ * Set the titled element.
+ *
+ * If an element is already set, it will be cleaned up before setting up the new element.
+ *
+ * @param {jQuery} $titled Element to set title on
+ */
+OO.ui.TitledElement.prototype.setTitledElement = function ( $titled ) {
+	if ( this.$titled ) {
+		this.$titled.removeAttr( 'title' );
+	}
+
+	this.$titled = $titled;
+	if ( this.title ) {
+		this.$titled.attr( 'title', this.title );
+	}
+};
+
+/**
  * Set title.
  *
  * @param {string|Function|null} title Title text, a function that returns text or null for no title
  * @chainable
  */
 OO.ui.TitledElement.prototype.setTitle = function ( title ) {
-	this.title = title = OO.ui.resolveMsg( title ) || null;
+	title = typeof title === 'string' ? OO.ui.resolveMsg( title ) : null;
 
-	if ( typeof title === 'string' && title.length ) {
-		this.$titled.attr( 'title', title );
-	} else {
-		this.$titled.removeAttr( 'title' );
+	if ( this.title !== title ) {
+		if ( this.$titled ) {
+			if ( title !== null ) {
+				this.$titled.attr( 'title', title );
+			} else {
+				this.$titled.removeAttr( 'title' );
+			}
+		}
+		this.title = title;
 	}
 
 	return this;

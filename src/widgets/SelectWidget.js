@@ -22,7 +22,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	OO.ui.SelectWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.GroupWidget.call( this, this.$element, config );
+	OO.ui.GroupWidget.call( this, $.extend( {}, config, { $group: this.$element } ) );
 
 	// Properties
 	this.pressed = false;

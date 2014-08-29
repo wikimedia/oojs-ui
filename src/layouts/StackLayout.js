@@ -19,7 +19,7 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	OO.ui.StackLayout.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.GroupElement.call( this, this.$element, config );
+	OO.ui.GroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
 
 	// Properties
 	this.currentItem = null;

@@ -1,11 +1,11 @@
 /**
  * Indicator widget.
  *
- * See OO.ui.IndicatedElement for more information.
+ * See OO.ui.IndicatorElement for more information.
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.IndicatedElement
+ * @mixins OO.ui.IndicatorElement
  * @mixins OO.ui.TitledElement
  *
  * @constructor
@@ -19,8 +19,8 @@ OO.ui.IndicatorWidget = function OoUiIndicatorWidget( config ) {
 	OO.ui.IndicatorWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.IndicatedElement.call( this, this.$element, config );
-	OO.ui.TitledElement.call( this, this.$element, config );
+	OO.ui.IndicatorElement.call( this, $.extend( {}, config, { $indicator: this.$element } ) );
+	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$element } ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-indicatorWidget' );
@@ -29,7 +29,7 @@ OO.ui.IndicatorWidget = function OoUiIndicatorWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.IndicatorWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.IndicatorWidget, OO.ui.IndicatedElement );
+OO.mixinClass( OO.ui.IndicatorWidget, OO.ui.IndicatorElement );
 OO.mixinClass( OO.ui.IndicatorWidget, OO.ui.TitledElement );
 
 /* Static Properties */
