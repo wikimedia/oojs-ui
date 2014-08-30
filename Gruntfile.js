@@ -8,9 +8,11 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat-sourcemaps' );
 	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
+	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
+	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-csscomb' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
@@ -33,7 +35,8 @@ module.exports = function ( grunt ) {
 		concatCssFiles = {},
 		rtlFiles = {
 			'demos/styles/demo.rtl.css': 'demos/styles/demo.css'
-		};
+		},
+		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
 	( function () {
 		var distFile, target, module;
@@ -78,6 +81,8 @@ module.exports = function ( grunt ) {
 
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
+
+		// Build
 		clean: {
 			dist: 'dist/*',
 			temp: 'dist-temp/*'
@@ -97,6 +102,44 @@ module.exports = function ( grunt ) {
 				originalLessFiles['dist/oojs-ui-mediawiki.svg.css']
 			)
 		},
+		concat: {
+			options: {
+				banner: grunt.file.read( 'build/banner.txt' )
+			},
+			js: {
+				files: {
+					'dist/oojs-ui.js': modules['oojs-ui'].scripts,
+					'dist/oojs-ui-apex.js': modules['oojs-ui-apex'].scripts,
+					'dist/oojs-ui-minerva.js': modules['oojs-ui-minerva'].scripts,
+					'dist/oojs-ui-mediawiki.js': modules['oojs-ui-mediawiki'].scripts
+				}
+			},
+			css: {
+				files: concatCssFiles
+			}
+		},
+
+		// Build – Code
+		uglify: {
+			options: {
+				banner: minBanner,
+				sourceMap: true,
+				sourceMapIncludeSources: true,
+				report: 'gzip'
+			},
+			js: {
+				files: [ {
+					expand: true,
+					cwd: 'dist/',
+					src: '*.js',
+					dest: 'dist/',
+					ext: '.min.js',
+					extDot: 'last'
+				} ]
+			}
+		},
+
+		// Build – Styling
 		less: {
 			distDefault: {
 				options: {
@@ -122,22 +165,6 @@ module.exports = function ( grunt ) {
 		cssjanus: {
 			dist: {
 				files: rtlFiles
-			}
-		},
-		concat: {
-			options: {
-				banner: grunt.file.read( 'build/banner.txt' )
-			},
-			css: {
-				files: concatCssFiles
-			},
-			js: {
-				files: {
-					'dist/oojs-ui.js': modules['oojs-ui'].scripts,
-					'dist/oojs-ui-apex.js': modules['oojs-ui-apex'].scripts,
-					'dist/oojs-ui-minerva.js': modules['oojs-ui-minerva'].scripts,
-					'dist/oojs-ui-mediawiki.js': modules['oojs-ui-mediawiki'].scripts
-				}
 			}
 		},
 		csscomb: {
@@ -236,12 +263,31 @@ module.exports = function ( grunt ) {
 				]
 			}
 		},
+		cssmin: {
+			options: {
+				keepSpecialComments: 0,
+				banner: minBanner,
+				compatibility: 'ie8',
+				report: 'gzip'
+			},
+			dist: {
+				files: [ {
+					expand: true,
+					cwd: 'dist/',
+					src: '*.css',
+					dest: 'dist/',
+					ext: '.min.css',
+					extDot: 'last'
+				} ]
+			}
+		},
+
+		// Lint – Code
 		jshint: {
 			options: {
 				jshintrc: true
 			},
-			dev: [ '*.js', '{build,demos,src,tests}/**/*.js' ],
-			dist: 'dist/**/*.js'
+			dev: [ '*.js', '{build,demos,src,tests}/**/*.js' ]
 		},
 		jscs: {
 			dev: [
@@ -249,6 +295,8 @@ module.exports = function ( grunt ) {
 				'!demos/{dist,lib}/**'
 			]
 		},
+
+		// Lint – Styling
 		csslint: {
 			options: {
 				csslintrc: '.csslintrc'
@@ -258,12 +306,18 @@ module.exports = function ( grunt ) {
 				'!demos/{dist,lib}/**'
 			]
 		},
+
+		// Lint – i18n
 		banana: {
 			all: 'i18n/'
 		},
+
+		// Test
 		qunit: {
 			all: 'tests/index.html'
 		},
+
+		// Development
 		watch: {
 			files: [
 				'<%= jshint.dev %>',
@@ -298,17 +352,19 @@ module.exports = function ( grunt ) {
 		} );
 	} );
 
-	grunt.registerTask( 'build', [
-		'clean',
-		'fileExists', // src
-		'copy:lessTemp', 'colorizeSvg', // src → dist-temp
-		'less', 'copy:svg', // dist-temp → dist
-		'copy:imagesApex', 'copy:imagesMinerva', 'copy:imagesMediaWiki', // src → dist
-		'copy:i18n', // i18n → dist
-		'concat', 'cssjanus', 'csscomb', 'svg2png' // dist → dist
+	grunt.registerTask( 'build-code', [ 'concat:js', 'uglify' ] );
+	grunt.registerTask( 'build-styling', [
+		'copy:lessTemp', 'colorizeSvg', 'less', 'copy:svg',
+		'copy:imagesApex', 'copy:imagesMinerva', 'copy:imagesMediaWiki', 'svg2png',
+		'concat:css', 'cssjanus', 'csscomb', 'cssmin'
 	] );
+	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
+	grunt.registerTask( 'build', [ 'clean', 'fileExists', 'build-code', 'build-styling', 'build-i18n' ] );
+
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
+
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'lint', 'qunit' ] );
+
 	grunt.registerTask( 'default', 'test' );
 };
