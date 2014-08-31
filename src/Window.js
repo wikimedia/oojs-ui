@@ -208,6 +208,18 @@ OO.ui.Window.static.transplantStyles = function ( parentDoc, frameDoc, timeout )
 /* Methods */
 
 /**
+ * Handle mouse down events.
+ *
+ * @param {jQuery.Event} e Mouse down event
+ */
+OO.ui.Window.prototype.onMouseDown = function ( e ) {
+	// Prevent clicking on the click-block from stealing focus
+	if ( e.target === this.$element[0] ) {
+		return false;
+	}
+};
+
+/**
  * Check if window has been initialized.
  *
  * @return {boolean} Window has been initialized
@@ -526,6 +538,9 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$body = this.$( '<div>' );
 	this.$foot = this.$( '<div>' );
 	this.$overlay = this.$( '<div>' );
+
+	// Events
+	this.$element.on( 'mousedown', OO.ui.bind( this.onMouseDown, this ) );
 
 	// Initialization
 	this.$head.addClass( 'oo-ui-window-head' );

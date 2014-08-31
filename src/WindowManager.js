@@ -72,9 +72,6 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	this.onWindowMouseWheelHandler = OO.ui.bind( this.onWindowMouseWheel, this );
 	this.onDocumentKeyDownHandler = OO.ui.bind( this.onDocumentKeyDown, this );
 
-	// Events
-	this.$element.on( 'mousedown', false );
-
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-windowManager' )
