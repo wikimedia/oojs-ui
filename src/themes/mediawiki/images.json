@@ -1,0 +1,65 @@
+{
+	"variants": {
+		"icons": {
+			"invert": {
+				"color": "#FFFFFF",
+				"global": true
+			},
+			"primary": {
+				"color": "#598AD1"
+			},
+			"constructive": {
+				"color": "#00C697"
+			},
+			"destructive": {
+				"color": "#E81915"
+			}
+		},
+		"indicators": {
+			"invert": {
+				"color": "#FFFFFF",
+				"global": true
+			}
+		}
+	},
+	"images": {
+		"icons": {
+			"add": { "file": "add.svg", "variants": [ "constructive" ] },
+			"advanced": { "file": "advanced.svg" },
+			"alert": { "file": "alert.svg" },
+			"check": { "file": "check.svg", "variants": [ "primary" ] },
+			"clear": { "file": "clear.svg" },
+			"close": { "file": "close.svg" },
+			"code": { "file": "code.svg" },
+			"collapse": { "file": "collapse.svg" },
+			"comment": { "file": "comment.svg" },
+			"expand": { "file": "expand.svg" },
+			"help": { "file": "help.svg" },
+			"info": { "file": "info.svg" },
+			"link": { "file": "link.svg" },
+			"menu": { "file": "menu.svg" },
+			"next": { "file": "move-ltr.svg" },
+			"picture": { "file": "picture.svg" },
+			"previous": { "file": "move-rtl.svg" },
+			"redo": { "file": "arched-arrow-ltr.svg" },
+			"remove": { "file": "remove.svg", "variants": [ "destructive" ] },
+			"search": { "file": "search.svg" },
+			"settings": { "file": "settings.svg" },
+			"tag": { "file": "tag.svg" },
+			"undo": { "file": "arched-arrow-rtl.svg" },
+			"window": { "file": "window.svg" }
+		},
+		"indicators": {
+			"alert": { "file": "alert.svg" },
+			"up": { "file": "arrow-up.svg" },
+			"down": { "file": "arrow-down.svg" },
+			"next": { "file": "arrow-ltr.svg" },
+			"previous": { "file": "arrow-rtl.svg" },
+			"required": { "file": "required.svg" }
+		},
+		"textures": {
+			"pending": { "file": "pending.gif" },
+			"transparency": { "file": "transparency.svg" }
+		}
+	}
+}

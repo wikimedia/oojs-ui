@@ -1,0 +1,258 @@
+@import 'common';
+
+.theme-oo-ui-toolbar () {
+	&-bar {
+		border-bottom: solid 1px #ccc;
+
+		.oo-ui-toolbar-bar {
+			border: none;
+			background: none;
+		}
+	}
+
+	&-shadow {
+		display: none;
+	}
+}
+
+.theme-oo-ui-tool () {}
+
+.theme-oo-ui-popupTool () {
+	.oo-ui-popupWidget {
+		margin-left: 1.25em;
+		font-size: 0.8em;
+	}
+}
+
+.theme-oo-ui-toolGroup () {
+	margin: 0.3em;
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-tool-link .oo-ui-tool-title {
+			color: #000;
+		}
+	}
+}
+
+.theme-oo-ui-barToolGroup () {
+	.oo-ui-tool {
+		&-link {
+			height: 1.5em;
+			padding: 0.25em;
+
+			.oo-ui-iconElement-icon {
+				height: 1.5em;
+				width: 1.5em;
+				opacity: 0.8;
+			}
+		}
+	}
+
+	&.oo-ui-widget-enabled .oo-ui-tool {
+		&-active {
+			&.oo-ui-widget-enabled {
+				background-color: #eee;
+			}
+		}
+
+		&.oo-ui-widget-disabled .oo-ui-tool-link {
+			.oo-ui-iconElement-icon {
+				opacity: 0.2;
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			.oo-ui-tool-link .oo-ui-iconElement-icon {
+				opacity: 0.8;
+			}
+
+			&:hover .oo-ui-tool-link .oo-ui-iconElement-icon {
+				opacity: 1;
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled .oo-ui-tool {
+		&-link {
+			.oo-ui-iconElement-icon {
+				opacity: 0.2;
+			}
+		}
+	}
+}
+
+.theme-oo-ui-popupToolGroup () {
+	height: 2em;
+	min-width: 2.5em;
+
+	&.oo-ui-indicatorElement.oo-ui-iconElement {
+		min-width: 3.5em;
+	}
+
+	&-handle {
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			top: 0;
+			width: 2em;
+			height: 2em;
+			opacity: 0.8;
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			right: 0;
+		}
+
+		.oo-ui-iconElement-icon {
+			left: 0.25em;
+		}
+
+		.oo-ui-labelElement-label {
+			line-height: 2.6em;
+			font-size: 0.8em;
+			margin: 0 1em;
+		}
+	}
+
+	&-header {
+		line-height: 2.6em;
+		font-size: 0.8em;
+		margin: 0 0.6em;
+		font-weight: bold;
+	}
+
+	&.oo-ui-iconElement .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
+		margin-left: 3em;
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
+		margin-right: 2.25em;
+	}
+
+	.oo-ui-toolGroup-tools {
+		top: 2em;
+		background-color: white;
+	}
+
+	.oo-ui-tool-link {
+		.oo-ui-iconElement-icon {
+			height: 2em;
+			width: 2em;
+			margin-right: 0.25em;
+		}
+
+		.oo-ui-tool-title {
+			line-height: 2em;
+			font-size: 0.8em;
+		}
+	}
+}
+
+.theme-oo-ui-listToolGroup () {
+	.oo-ui-tool {
+		padding: 0 0.25em;
+
+		&-link {
+			padding-right: 0.5em;
+		}
+
+		&-active {
+			&.oo-ui-widget-enabled {
+				background-color: #eee;
+			}
+		}
+
+		&.oo-ui-widget-disabled {
+			.oo-ui-tool-link .oo-ui-tool-title {
+				color: #ccc;
+			}
+
+			.oo-ui-tool-link .oo-ui-iconElement-icon {
+				opacity: 0.2;
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		color: #ccc;
+
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			opacity: 0.2;
+		}
+	}
+
+	.oo-ui-toolGroup-tools {
+		padding: 0.25em 0 0.25em 0;
+		border: 1px solid #aaa;
+		box-shadow: inset 0 -0.2em 0 0 rgba(0,0,0,0.2), 0 0.1em 0 0 rgba(0,0,0,0.2);
+	}
+}
+
+.theme-oo-ui-menuToolGroup () {
+	border: solid 1px #ccc;
+	border-radius: 0.1em;
+
+	.oo-ui-popupToolGroup-handle {
+		min-width: 8em;
+	}
+
+	.oo-ui-toolGroup-tools {
+		margin-left: -1px;
+		padding: 0.25em 0 0.25em 0;
+		border: 1px solid #aaa;
+		box-shadow: inset 0 -0.2em 0 0 rgba(0,0,0,0.2), 0 0.1em 0 0 rgba(0,0,0,0.2);
+	}
+
+	&.oo-ui-widget-enabled {
+		&:hover {
+			border-color: #aaa;
+		}
+	}
+
+	&.oo-ui-popupToolGroup-active {
+		border-color: #aaa;
+	}
+
+	.oo-ui-tool {
+		&-link {
+			padding: 0 1em 0 0.25em;
+			display: block;
+			cursor: pointer;
+			white-space: nowrap;
+
+			.oo-ui-iconElement-icon {
+				background-image: none;
+			}
+		}
+
+		&-active .oo-ui-tool-link .oo-ui-iconElement-icon {
+			.oo-ui-background-image('themes/mediawiki/images/icons/check.svg');
+		}
+
+		&.oo-ui-widget-enabled {
+			&:hover {
+				background-color: #e1f3ff;
+			}
+		}
+
+		&.oo-ui-widget-disabled {
+			.oo-ui-tool-link .oo-ui-tool-title {
+				color: #ccc;
+			}
+
+			.oo-ui-tool-link .oo-ui-iconElement-icon {
+				opacity: 0.2;
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		color: #ccc;
+		border-color: #ccc;
+
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			opacity: 0.2;
+		}
+	}
+}

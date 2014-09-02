@@ -84,6 +84,7 @@ OO.ui.Widget.prototype.setDisabled = function ( disabled ) {
 		this.$element.toggleClass( 'oo-ui-widget-disabled', isDisabled );
 		this.$element.toggleClass( 'oo-ui-widget-enabled', !isDisabled );
 		this.emit( 'disable', isDisabled );
+		this.updateThemeClasses();
 	}
 	this.wasDisabled = isDisabled;
 

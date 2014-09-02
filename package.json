@@ -36,6 +36,8 @@
     "grunt-cssjanus": "0.2.2",
     "grunt-file-exists": "0.1.1",
     "grunt-jscs": "0.7.1",
-    "grunt-svg2png": "0.2.5"
+    "grunt-svg2png": "0.2.5",
+    "grunt-promise-q": "0.1.1",
+    "q": "1.0.1"
   }
 }

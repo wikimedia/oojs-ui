@@ -1,0 +1,13 @@
+{
+	"css": {
+		"indicators": {
+			"classPrefix": ".oo-ui-indicator"
+		},
+		"icons": {
+			"classPrefix": ".oo-ui-icon"
+		},
+		"textures": {
+			"classPrefix": ".oo-ui-texture"
+		}
+	}
+}

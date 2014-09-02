@@ -58,7 +58,23 @@
 
 .theme-oo-ui-actionWidget () {}
 
-.theme-oo-ui-popupButtonWidget () {}
+.theme-oo-ui-popupButtonWidget () {
+	> .oo-ui-popupWidget {
+		margin-left: -1em;
+	}
+
+	&.oo-ui-buttonElement-frameless {
+		.oo-ui-popupWidget {
+			left: 0.5em;
+		}
+	}
+
+	&.oo-ui-buttonElement-framed {
+		.oo-ui-popupWidget {
+			left: 1em;
+		}
+	}
+}
 
 .theme-oo-ui-toggleButtonWidget () {}
 
@@ -255,6 +271,10 @@
 			}
 		}
 	}
+
+	> .oo-ui-selectWidget {
+		margin-top: -3px
+	}
 }
 
 .theme-oo-ui-labelWidget () {
@@ -413,12 +433,29 @@
 			margin-top: 7px;
 		}
 
-		.oo-ui-popupWidget-anchor {
-			width: 15px;
-			height: 8px;
-			margin-left: -7px;
+		.oo-ui-popupWidget-anchor:before,
+		.oo-ui-popupWidget-anchor:after {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-top: 0;
+		}
 
-			.oo-ui-background-image('images/anchor.svg');
+		.oo-ui-popupWidget-anchor:before {
+			bottom: -8px;
+			left: 11px;
+			border-bottom-color: #aaa;
+			border-width: 7px;
+		}
+
+		.oo-ui-popupWidget-anchor:after {
+			bottom: -8px;
+			left: 12px;
+			border-bottom-color: #fff;
+			border-width: 6px;
 		}
 	}
 

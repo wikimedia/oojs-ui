@@ -96,6 +96,7 @@ OO.ui.FlaggedElement.prototype.clearFlags = function () {
 		this.$flagged.removeClass( remove.join( ' ' ) );
 	}
 
+	this.updateThemeClasses();
 	this.emit( 'flag', changes );
 
 	return this;
@@ -161,6 +162,7 @@ OO.ui.FlaggedElement.prototype.setFlags = function ( flags ) {
 			.removeClass( remove.join( ' ' ) );
 	}
 
+	this.updateThemeClasses();
 	this.emit( 'flag', changes );
 
 	return this;
