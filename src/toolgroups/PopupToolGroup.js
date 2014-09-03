@@ -142,13 +142,25 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 	if ( this.active !== value ) {
 		this.active = value;
 		if ( value ) {
-			this.toggleClipping( true );
-			this.$element.addClass( 'oo-ui-popupToolGroup-active' );
 			this.getElementDocument().addEventListener( 'mouseup', this.onBlurHandler, true );
+
+			// Try anchoring the popup to the left first
+			this.$element.addClass( 'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left' );
+			this.toggleClipping( true );
+			if ( this.isClippedHorizontally() ) {
+				// Anchoring to the left caused the popup to clip, so anchor it to the right instead
+				this.toggleClipping( false );
+				this.$element
+					.removeClass( 'oo-ui-popupToolGroup-left' )
+					.addClass( 'oo-ui-popupToolGroup-right' );
+				this.toggleClipping( true );
+			}
 		} else {
-			this.toggleClipping( false );
-			this.$element.removeClass( 'oo-ui-popupToolGroup-active' );
 			this.getElementDocument().removeEventListener( 'mouseup', this.onBlurHandler, true );
+			this.$element.removeClass(
+				'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left  oo-ui-popupToolGroup-right'
+			);
+			this.toggleClipping( false );
 		}
 	}
 };

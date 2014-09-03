@@ -15,7 +15,8 @@ OO.ui.ClippableElement = function OoUiClippableElement( config ) {
 	// Properties
 	this.$clippable = null;
 	this.clipping = false;
-	this.clipped = false;
+	this.clippedHorizontally = false;
+	this.clippedVertically = false;
 	this.$clippableContainer = null;
 	this.$clippableScroller = null;
 	this.$clippableWindow = null;
@@ -52,6 +53,8 @@ OO.ui.ClippableElement.prototype.setClippableElement = function ( $clippable ) {
 /**
  * Toggle clipping.
  *
+ * Do not turn clipping on until after the element is attached to the DOM and visible.
+ *
  * @param {boolean} [clipping] Enable clipping, omit to toggle
  * @chainable
  */
@@ -59,6 +62,7 @@ OO.ui.ClippableElement.prototype.toggleClipping = function ( clipping ) {
 	clipping = clipping === undefined ? !this.clipping : !!clipping;
 
 	if ( this.clipping !== clipping ) {
+		this.clipping = clipping;
 		if ( clipping ) {
 			this.$clippableContainer = this.$( this.getClosestScrollableElementContainer() );
 			// If the clippable container is the body, we have to listen to scroll events and check
@@ -70,15 +74,18 @@ OO.ui.ClippableElement.prototype.toggleClipping = function ( clipping ) {
 			this.$clippableWindow = this.$( this.getElementWindow() )
 				.on( 'resize', this.onClippableWindowResizeHandler );
 			// Initial clip after visible
-			setTimeout( OO.ui.bind( this.clip, this ) );
+			this.clip();
 		} else {
+			this.$clippable.css( { width: '', height: '' } );
+			this.$clippable.width(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
+			this.$clippable.css( { overflowX: '', overflowY: '' } );
+
 			this.$clippableContainer = null;
 			this.$clippableScroller.off( 'scroll', this.onClippableContainerScrollHandler );
 			this.$clippableScroller = null;
 			this.$clippableWindow.off( 'resize', this.onClippableWindowResizeHandler );
 			this.$clippableWindow = null;
 		}
-		this.clipping = clipping;
 	}
 
 	return this;
@@ -99,7 +106,25 @@ OO.ui.ClippableElement.prototype.isClipping = function () {
  * @return {boolean} Part of the element is being clipped
  */
 OO.ui.ClippableElement.prototype.isClipped = function () {
-	return this.clipped;
+	return this.clippedHorizontally || this.clippedVertically;
+};
+
+/**
+ * Check if the right of the element is being clipped by the nearest scrollable container.
+ *
+ * @return {boolean} Part of the element is being clipped
+ */
+OO.ui.ClippableElement.prototype.isClippedHorizontally = function () {
+	return this.clippedHorizontally;
+};
+
+/**
+ * Check if the bottom of the element is being clipped by the nearest scrollable container.
+ *
+ * @return {boolean} Part of the element is being clipped
+ */
+OO.ui.ClippableElement.prototype.isClippedVertically = function () {
+	return this.clippedVertically;
 };
 
 /**
@@ -158,7 +183,8 @@ OO.ui.ClippableElement.prototype.clip = function () {
 		this.$clippable.css( 'overflowY', '' );
 	}
 
-	this.clipped = clipWidth || clipHeight;
+	this.clippedHorizontally = clipWidth;
+	this.clippedVertically = clipHeight;
 
 	return this;
 };
