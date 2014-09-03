@@ -431,7 +431,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
  *
  * @param {OO.ui.Window|string} win Window object or symbolic name of window to close
  * @param {Object} [data] Window closing data
- * @return {jQuery.Promise} Promise resolved when window is done opening; see {@link #event-closing}
+ * @return {jQuery.Promise} Promise resolved when window is done closing; see {@link #event-closing}
  *   for more details about the `closing` promise
  * @throws {Error} If no window by that name is being managed
  * @fires closing
