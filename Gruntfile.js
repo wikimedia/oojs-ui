@@ -62,7 +62,6 @@ module.exports = function ( grunt ) {
 			dist: {
 				options: {
 					ieCompat: true,
-					cleancss: true,
 					report: 'gzip'
 				},
 				files: lessFiles
