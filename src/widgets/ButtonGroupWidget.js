@@ -16,7 +16,7 @@ OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 	OO.ui.ButtonGroupWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.GroupElement.call( this, this.$element, config );
+	OO.ui.GroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonGroupWidget' );

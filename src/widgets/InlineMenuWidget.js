@@ -8,9 +8,9 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.IconedElement
- * @mixins OO.ui.IndicatedElement
- * @mixins OO.ui.LabeledElement
+ * @mixins OO.ui.IconElement
+ * @mixins OO.ui.IndicatorElement
+ * @mixins OO.ui.LabelElement
  * @mixins OO.ui.TitledElement
  *
  * @constructor
@@ -25,10 +25,10 @@ OO.ui.InlineMenuWidget = function OoUiInlineMenuWidget( config ) {
 	OO.ui.InlineMenuWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
-	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
-	OO.ui.LabeledElement.call( this, this.$( '<span>' ), config );
-	OO.ui.TitledElement.call( this, this.$label, config );
+	OO.ui.IconElement.call( this, config );
+	OO.ui.IndicatorElement.call( this, config );
+	OO.ui.LabelElement.call( this, config );
+	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$label } ) );
 
 	// Properties
 	this.menu = new OO.ui.MenuWidget( $.extend( { $: this.$, widget: this }, config.menu ) );
@@ -50,9 +50,9 @@ OO.ui.InlineMenuWidget = function OoUiInlineMenuWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.InlineMenuWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.IconedElement );
-OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.IndicatedElement );
-OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.LabeledElement );
+OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.IconElement );
+OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.IndicatorElement );
+OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.TitledElement );
 
 /* Methods */

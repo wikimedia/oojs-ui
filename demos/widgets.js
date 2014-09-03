@@ -104,21 +104,21 @@ OO.ui.demo.widgets = function () {
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
-					label: 'Iconed',
+					label: 'Icon',
 					icon: 'picture'
 				} ),
 				{
-					label: 'ButtonWidget (iconed)\u200E',
+					label: 'ButtonWidget (icon)\u200E',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
-					label: 'Indicated',
+					label: 'Indicator',
 					indicator: 'down'
 				} ),
 				{
-					label: 'ButtonWidget (indicated)\u200E',
+					label: 'ButtonWidget (indicator)\u200E',
 					align: 'top'
 				}
 			),

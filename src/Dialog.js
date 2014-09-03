@@ -22,7 +22,6 @@
  * @abstract
  * @class
  * @extends OO.ui.Window
- * @mixins OO.ui.LabeledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options

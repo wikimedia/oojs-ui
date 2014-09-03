@@ -8,39 +8,36 @@
  * @class
  *
  * @constructor
- * @param {jQuery} $button Button node, assigned to #$button
  * @param {Object} [config] Configuration options
+ * @cfg {jQuery} [$button] Button node, assigned to #$button, omit to use a generated `<a>`
  * @cfg {boolean} [framed=true] Render button with a frame
  * @cfg {number} [tabIndex=0] Button's tab index, use null to have no tabIndex
  * @cfg {string} [accessKey] Button's access key
  */
-OO.ui.ButtonedElement = function OoUiButtonedElement( $button, config ) {
+OO.ui.ButtonElement = function OoUiButtonElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
 	// Properties
-	this.$button = $button;
-	this.tabIndex = null;
+	this.$button = null;
 	this.framed = null;
+	this.tabIndex = null;
+	this.accessKey = null;
 	this.active = false;
 	this.onMouseUpHandler = OO.ui.bind( this.onMouseUp, this );
-
-	// Events
-	this.$button.on( 'mousedown', OO.ui.bind( this.onMouseDown, this ) );
+	this.onMouseDownHandler = OO.ui.bind( this.onMouseDown, this );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-buttonedElement' );
-	this.$button
-		.addClass( 'oo-ui-buttonedElement-button' )
-		.attr( 'role', 'button' );
+	this.$element.addClass( 'oo-ui-buttonElement' );
+	this.toggleFramed( config.framed === undefined || config.framed );
 	this.setTabIndex( config.tabIndex || 0 );
 	this.setAccessKey( config.accessKey );
-	this.toggleFramed( config.framed === undefined || config.framed );
+	this.setButtonElement( config.$button || this.$( '<a>' ) );
 };
 
 /* Setup */
 
-OO.initClass( OO.ui.ButtonedElement );
+OO.initClass( OO.ui.ButtonElement );
 
 /* Static Properties */
 
@@ -51,25 +48,43 @@ OO.initClass( OO.ui.ButtonedElement );
  * @inheritable
  * @property {boolean}
  */
-OO.ui.ButtonedElement.static.cancelButtonMouseDownEvents = true;
+OO.ui.ButtonElement.static.cancelButtonMouseDownEvents = true;
 
 /* Methods */
+
+/**
+ * Set the button element.
+ *
+ * If an element is already set, it will be cleaned up before setting up the new element.
+ *
+ * @param {jQuery} $button Element to use as button
+ */
+OO.ui.ButtonElement.prototype.setButtonElement = function ( $button ) {
+	if ( this.$button ) {
+		this.$button
+			.removeClass( 'oo-ui-buttonElement-button' )
+			.removeAttr( 'role accesskey tabindex' )
+			.off( this.onMouseDownHandler );
+	}
+
+	this.$button = $button
+		.addClass( 'oo-ui-buttonElement-button' )
+		.attr( { role: 'button', accesskey: this.accessKey, tabindex: this.tabIndex } )
+		.on( 'mousedown', this.onMouseDownHandler );
+};
 
 /**
  * Handles mouse down events.
  *
  * @param {jQuery.Event} e Mouse down event
  */
-OO.ui.ButtonedElement.prototype.onMouseDown = function ( e ) {
+OO.ui.ButtonElement.prototype.onMouseDown = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
 		return false;
 	}
-	// tabIndex should generally be interacted with via the property, but it's not possible to
-	// reliably unset a tabIndex via a property so we use the (lowercase) "tabindex" attribute
-	this.tabIndex = this.$button.attr( 'tabindex' );
 	// Remove the tab-index while the button is down to prevent the button from stealing focus
 	this.$button.removeAttr( 'tabindex' );
-	this.$element.addClass( 'oo-ui-buttonedElement-pressed' );
+	this.$element.addClass( 'oo-ui-buttonElement-pressed' );
 	// Run the mouseup handler no matter where the mouse is when the button is let go, so we can
 	// reliably reapply the tabindex and remove the pressed class
 	this.getElementDocument().addEventListener( 'mouseup', this.onMouseUpHandler, true );
@@ -84,13 +99,13 @@ OO.ui.ButtonedElement.prototype.onMouseDown = function ( e ) {
  *
  * @param {jQuery.Event} e Mouse up event
  */
-OO.ui.ButtonedElement.prototype.onMouseUp = function ( e ) {
+OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
 		return false;
 	}
 	// Restore the tab-index after the button is up to restore the button's accesssibility
 	this.$button.attr( 'tabindex', this.tabIndex );
-	this.$element.removeClass( 'oo-ui-buttonedElement-pressed' );
+	this.$element.removeClass( 'oo-ui-buttonElement-pressed' );
 	// Stop listening for mouseup, since we only needed this once
 	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
 };
@@ -101,13 +116,13 @@ OO.ui.ButtonedElement.prototype.onMouseUp = function ( e ) {
  * @param {boolean} [framed] Make button framed, omit to toggle
  * @chainable
  */
-OO.ui.ButtonedElement.prototype.toggleFramed = function ( framed ) {
+OO.ui.ButtonElement.prototype.toggleFramed = function ( framed ) {
 	framed = framed === undefined ? !this.framed : !!framed;
 	if ( framed !== this.framed ) {
 		this.framed = framed;
 		this.$element
-			.toggleClass( 'oo-ui-buttonedElement-frameless', !framed )
-			.toggleClass( 'oo-ui-buttonedElement-framed', framed );
+			.toggleClass( 'oo-ui-buttonElement-frameless', !framed )
+			.toggleClass( 'oo-ui-buttonElement-framed', framed );
 	}
 
 	return this;
@@ -119,27 +134,43 @@ OO.ui.ButtonedElement.prototype.toggleFramed = function ( framed ) {
  * @param {number|null} tabIndex Button's tab index, use null to remove
  * @chainable
  */
-OO.ui.ButtonedElement.prototype.setTabIndex = function ( tabIndex ) {
-	if ( typeof tabIndex === 'number' && tabIndex >= 0 ) {
-		this.$button.attr( 'tabindex', tabIndex );
-	} else {
-		this.$button.removeAttr( 'tabindex' );
+OO.ui.ButtonElement.prototype.setTabIndex = function ( tabIndex ) {
+	tabIndex = typeof tabIndex === 'number' && tabIndex >= 0 ? tabIndex : null;
+
+	if ( this.tabIndex !== tabIndex ) {
+		if ( this.$button ) {
+			if ( tabIndex !== null ) {
+				this.$button.attr( 'tabindex', tabIndex );
+			} else {
+				this.$button.removeAttr( 'tabindex' );
+			}
+		}
+		this.tabIndex = tabIndex;
 	}
+
 	return this;
 };
 
 /**
- * Set access key
+ * Set access key.
  *
  * @param {string} accessKey Button's access key, use empty string to remove
  * @chainable
  */
-OO.ui.ButtonedElement.prototype.setAccessKey = function ( accessKey ) {
-	if ( typeof accessKey === 'string' && accessKey.length ) {
-		this.$button.attr( 'accesskey', accessKey );
-	} else {
-		this.$button.removeAttr( 'accesskey' );
+OO.ui.ButtonElement.prototype.setAccessKey = function ( accessKey ) {
+	accessKey = typeof accessKey === 'string' && accessKey.length ? accessKey : null;
+
+	if ( this.accessKey !== accessKey ) {
+		if ( this.$button ) {
+			if ( accessKey !== null ) {
+				this.$button.attr( 'accesskey', accessKey );
+			} else {
+				this.$button.removeAttr( 'accesskey' );
+			}
+		}
+		this.accessKey = accessKey;
 	}
+
 	return this;
 };
 
@@ -149,7 +180,7 @@ OO.ui.ButtonedElement.prototype.setAccessKey = function ( accessKey ) {
  * @param {boolean} [value] Make button active
  * @chainable
  */
-OO.ui.ButtonedElement.prototype.setActive = function ( value ) {
-	this.$element.toggleClass( 'oo-ui-buttonedElement-active', !!value );
+OO.ui.ButtonElement.prototype.setActive = function ( value ) {
+	this.$element.toggleClass( 'oo-ui-buttonElement-active', !!value );
 	return this;
 };

@@ -5,7 +5,7 @@
  *
  * @class
  * @extends OO.ui.DecoratedOptionWidget
- * @mixins OO.ui.ButtonedElement
+ * @mixins OO.ui.ButtonElement
  *
  * @constructor
  * @param {Mixed} data Option data
@@ -16,7 +16,7 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( data, config ) {
 	OO.ui.ButtonOptionWidget.super.call( this, data, config );
 
 	// Mixin constructors
-	OO.ui.ButtonedElement.call( this, this.$( '<a>' ), config );
+	OO.ui.ButtonElement.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonOptionWidget' );
@@ -27,7 +27,7 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( data, config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ButtonOptionWidget, OO.ui.DecoratedOptionWidget );
-OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.ButtonedElement );
+OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.ButtonElement );
 
 /* Static Properties */
 

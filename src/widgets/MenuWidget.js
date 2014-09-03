@@ -24,7 +24,7 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	OO.ui.MenuWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.ClippableElement.call( this, this.$group, config );
+	OO.ui.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
 
 	// Properties
 	this.flashing = false;
@@ -222,7 +222,7 @@ OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
 				}
 				this.newItems = null;
 			}
-			this.setClipping( true );
+			this.toggleClipping( true );
 
 			// Auto-hide
 			if ( this.autoHide ) {
@@ -239,7 +239,7 @@ OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
 			this.getElementDocument().removeEventListener(
 				'mousedown', this.onDocumentMouseDownHandler, true
 			);
-			this.setClipping( false );
+			this.toggleClipping( false );
 		}
 	}
 

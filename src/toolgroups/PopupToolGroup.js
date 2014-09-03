@@ -4,9 +4,9 @@
  * @abstract
  * @class
  * @extends OO.ui.ToolGroup
- * @mixins OO.ui.IconedElement
- * @mixins OO.ui.IndicatedElement
- * @mixins OO.ui.LabeledElement
+ * @mixins OO.ui.IconElement
+ * @mixins OO.ui.IndicatorElement
+ * @mixins OO.ui.LabelElement
  * @mixins OO.ui.TitledElement
  * @mixins OO.ui.ClippableElement
  *
@@ -23,11 +23,11 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	OO.ui.PopupToolGroup.super.call( this, toolbar, config );
 
 	// Mixin constructors
-	OO.ui.IconedElement.call( this, this.$( '<span>' ), config );
-	OO.ui.IndicatedElement.call( this, this.$( '<span>' ), config );
-	OO.ui.LabeledElement.call( this, this.$( '<span>' ), config );
-	OO.ui.TitledElement.call( this, this.$element, config );
-	OO.ui.ClippableElement.call( this, this.$group, config );
+	OO.ui.IconElement.call( this, config );
+	OO.ui.IndicatorElement.call( this, config );
+	OO.ui.LabelElement.call( this, config );
+	OO.ui.TitledElement.call( this, config );
+	OO.ui.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
 
 	// Properties
 	this.active = false;
@@ -63,9 +63,9 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.PopupToolGroup, OO.ui.ToolGroup );
-OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.IconedElement );
-OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.IndicatedElement );
-OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.LabeledElement );
+OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.IconElement );
+OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.IndicatorElement );
+OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.TitledElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.ClippableElement );
 
@@ -142,11 +142,11 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 	if ( this.active !== value ) {
 		this.active = value;
 		if ( value ) {
-			this.setClipping( true );
+			this.toggleClipping( true );
 			this.$element.addClass( 'oo-ui-popupToolGroup-active' );
 			this.getElementDocument().addEventListener( 'mouseup', this.onBlurHandler, true );
 		} else {
-			this.setClipping( false );
+			this.toggleClipping( false );
 			this.$element.removeClass( 'oo-ui-popupToolGroup-active' );
 			this.getElementDocument().removeEventListener( 'mouseup', this.onBlurHandler, true );
 		}

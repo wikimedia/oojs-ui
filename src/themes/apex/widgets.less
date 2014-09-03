@@ -15,7 +15,7 @@
 		padding: 0;
 	}
 
-	> .oo-ui-iconedElement-icon {
+	> .oo-ui-iconElement-icon {
 		width: 1.5em;
 		height: 2em;
 		margin: 0.5em 0 0.5em 0.5em;
@@ -34,20 +34,20 @@
 	white-space: nowrap;
 	border-radius: 0.3em;
 
-	.oo-ui-buttonedElement-framed {
-		.oo-ui-buttonedElement-button {
+	.oo-ui-buttonElement-framed {
+		.oo-ui-buttonElement-button {
 			border-radius: 0;
 			margin-bottom: -1px;
 			margin-left: -1px;
 		}
 
-		&:first-child .oo-ui-buttonedElement-button {
+		&:first-child .oo-ui-buttonElement-button {
 			border-bottom-left-radius: 0.3em;
 			border-top-left-radius: 0.3em;
 			margin-left: 0;
 		}
 
-		&:last-child .oo-ui-buttonedElement-button {
+		&:last-child .oo-ui-buttonElement-button {
 			border-bottom-right-radius: 0.3em;
 			border-top-right-radius: 0.3em;
 		}
@@ -97,21 +97,21 @@
 			border-color: rgba(0,0,0,0.2);
 		}
 
-		.oo-ui-indicatedElement-indicator {
+		.oo-ui-indicatorElement-indicator {
 			right: 0;
 		}
 
-		.oo-ui-iconedElement-icon {
+		.oo-ui-iconElement-icon {
 			left: 0.25em;
 		}
 
-		.oo-ui-labeledElement-label {
+		.oo-ui-labelElement-label {
 			line-height: 2.5em;
 			margin: 0 0.5em;
 		}
 
-		.oo-ui-indicatedElement-indicator,
-		.oo-ui-iconedElement-icon {
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
 			top: 0;
 			width: 2.5em;
 			height: 2.5em;
@@ -126,16 +126,16 @@
 			border-color: #ddd;
 			background-color: #f3f3f3;
 		}
-		.oo-ui-indicatedElement-indicator {
+		.oo-ui-indicatorElement-indicator {
 			opacity: 0.2;
 		}
 	}
 
-	&.oo-ui-iconedElement .oo-ui-inlineMenuWidget-handle .oo-ui-labeledElement-label {
+	&.oo-ui-iconElement .oo-ui-inlineMenuWidget-handle .oo-ui-labelElement-label {
 		margin-left: 3em;
 	}
 
-	&.oo-ui-indicatedElement .oo-ui-inlineMenuWidget-handle .oo-ui-labeledElement-label {
+	&.oo-ui-indicatorElement .oo-ui-inlineMenuWidget-handle .oo-ui-labelElement-label {
 		margin-right: 2em;
 	}
 }
@@ -204,30 +204,30 @@
 		}
 	}
 
-	.oo-ui-iconedElement-icon,
-	.oo-ui-indicatedElement-indicator {
+	.oo-ui-iconElement-icon,
+	.oo-ui-indicatorElement-indicator {
 		opacity: 0.8;
 	}
 
-	&.oo-ui-iconedElement {
+	&.oo-ui-iconElement {
 		input,
 		textarea {
 			padding-left: 2em;
 		}
 
-		.oo-ui-iconedElement-icon {
+		.oo-ui-iconElement-icon {
 			width: 2em;
 			background-position: right center;
 		}
 	}
 
-	&.oo-ui-indicatedElement {
+	&.oo-ui-indicatorElement {
 		input,
 		textarea {
 			padding-right: 1.5em;
 		}
 
-		.oo-ui-indicatedElement-indicator {
+		.oo-ui-indicatorElement-indicator {
 			width: 1.5em;
 			background-position: left center;
 		}
@@ -248,8 +248,8 @@
 
 	&.oo-ui-widget-disabled,
 	&-empty {
-		.oo-ui-textInputWidget.oo-ui-indicatedElement {
-			.oo-ui-indicatedElement-indicator {
+		.oo-ui-textInputWidget.oo-ui-indicatorElement {
+			.oo-ui-indicatorElement-indicator {
 				cursor: default;
 				opacity: 0.2;
 			}
@@ -269,7 +269,7 @@
 		background-color: #e1f3ff;
 	}
 
-	.oo-ui-labeledElement-label {
+	.oo-ui-labelElement-label {
 		line-height: 1.5em;
 	}
 
@@ -287,19 +287,19 @@
 }
 
 .theme-oo-ui-decoratedOptionWidget () {
-	.oo-ui-iconedElement-icon,
-	.oo-ui-indicatedElement-indicator {
+	.oo-ui-iconElement-icon,
+	.oo-ui-indicatorElement-indicator {
 		top: 50%;
 		width: 2em;
 		height: 2em;
 		margin-top: -1em;
 	}
 
-	.oo-ui-iconedElement-icon {
+	.oo-ui-iconElement-icon {
 		left: 0.5em;
 	}
 
-	.oo-ui-indicatedElement-indicator {
+	.oo-ui-indicatorElement-indicator {
 		right: 0.5em;
 	}
 }
@@ -308,12 +308,12 @@
 	padding: 0;
 	background-color: transparent;
 
-	.oo-ui-buttonedElement-button {
+	.oo-ui-buttonElement-button {
 		height: 1.9em;
 	}
 
-	&.oo-ui-iconedElement .oo-ui-iconedElement-icon,
-	&.oo-ui-indicatedElement .oo-ui-indicatedElement-indicator {
+	&.oo-ui-iconElement .oo-ui-iconElement-icon,
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
 		height: 1.9em;
 		margin-top: 0;
 	}
@@ -346,25 +346,25 @@
 	font-size: 1.1em;
 	padding: 0.75em;
 
-	&.oo-ui-indicatedElement .oo-ui-labeledElement-label {
+	&.oo-ui-indicatorElement .oo-ui-labelElement-label {
 		padding-right: 1.5em;
 	}
 
-	&.oo-ui-indicatedElement .oo-ui-indicatedElement-indicator {
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
 		opacity: 0.5;
 	}
 
 	&-level-0 {
 		padding-left: 3.5em;
 
-		.oo-ui-iconedElement-icon {
+		.oo-ui-iconElement-icon {
 			left: 1em;
 		}
 	}
 	&-level-1 {
 		padding-left: 5em;
 
-		.oo-ui-iconedElement-icon {
+		.oo-ui-iconElement-icon {
 			left: 2.5em;
 		}
 	}
@@ -372,7 +372,7 @@
 	&-level-2 {
 		padding-left: 6.5em;
 
-		.oo-ui-iconedElement-icon {
+		.oo-ui-iconElement-icon {
 			left: 4em;
 		}
 	}
@@ -382,19 +382,19 @@
 		text-shadow: 0 1px 1px rgba(255,255,255,0.5);
 	}
 
-	&.oo-ui-flaggableElement-important {
+	&.oo-ui-flaggedElement-important {
 		font-weight: bold;
 	}
 
-	&.oo-ui-flaggableElement-placeholder {
+	&.oo-ui-flaggedElement-placeholder {
 		font-style: italic;
 	}
 
-	&.oo-ui-flaggableElement-empty {
-		.oo-ui-iconedElement-icon {
+	&.oo-ui-flaggedElement-empty {
+		.oo-ui-iconElement-icon {
 			opacity: 0.5;
 		}
-		.oo-ui-labeledElement-label {
+		.oo-ui-labelElement-label {
 			color: #777;
 		}
 	}
@@ -435,7 +435,7 @@
 			margin: 0.25em;
 		}
 
-		.oo-ui-labeledElement-label {
+		.oo-ui-labelElement-label {
 			margin: 0.75em 1em;
 		}
 	}
@@ -473,18 +473,18 @@
 	border-radius: 0.3em;
 
 	.oo-ui-buttonOptionWidget {
-		.oo-ui-buttonedElement-button {
+		.oo-ui-buttonElement-button {
 			border-radius: 0;
 			margin-left: -1px;
 		}
 
-		&:first-child .oo-ui-buttonedElement-button {
+		&:first-child .oo-ui-buttonElement-button {
 			border-bottom-left-radius: 0.3em;
 			border-top-left-radius: 0.3em;
 			margin-left: 0;
 		}
 
-		&:last-child .oo-ui-buttonedElement-button {
+		&:last-child .oo-ui-buttonElement-button {
 			border-bottom-right-radius: 0.3em;
 			border-top-right-radius: 0.3em;
 		}

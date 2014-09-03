@@ -8,12 +8,11 @@
  * @extends OO.ui.GroupElement
  *
  * @constructor
- * @param {jQuery} $group Container node, assigned to #$group
  * @param {Object} [config] Configuration options
  */
-OO.ui.GroupWidget = function OoUiGroupWidget( $element, config ) {
+OO.ui.GroupWidget = function OoUiGroupWidget( config ) {
 	// Parent constructor
-	OO.ui.GroupWidget.super.call( this, $element, config );
+	OO.ui.GroupWidget.super.call( this, config );
 };
 
 /* Setup */

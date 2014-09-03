@@ -5,8 +5,8 @@
  *
  * @class
  * @extends OO.ui.Layout
- * @mixins OO.ui.LabeledElement
- * @mixins OO.ui.IconedElement
+ * @mixins OO.ui.LabelElement
+ * @mixins OO.ui.IconElement
  * @mixins OO.ui.GroupElement
  *
  * @constructor
@@ -22,9 +22,9 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	OO.ui.FieldsetLayout.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.IconedElement.call( this, this.$( '<div>' ), config );
-	OO.ui.LabeledElement.call( this, this.$( '<div>' ), config );
-	OO.ui.GroupElement.call( this, this.$( '<div>' ), config );
+	OO.ui.IconElement.call( this, config );
+	OO.ui.LabelElement.call( this, config );
+	OO.ui.GroupElement.call( this, config );
 
 	// Initialization
 	this.$element
@@ -38,8 +38,8 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.FieldsetLayout, OO.ui.Layout );
-OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.IconedElement );
-OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.LabeledElement );
+OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.IconElement );
+OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.GroupElement );
 
 /* Static Properties */

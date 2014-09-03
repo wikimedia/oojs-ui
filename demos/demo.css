@@ -81,7 +81,7 @@ body {
 	padding: 0.25em;
 }
 
-.oo-ui-demo-toolbar-actionButtons > .oo-ui-buttonedElement-framed {
+.oo-ui-demo-toolbar-actionButtons > .oo-ui-buttonElement-framed {
 	margin-left: 0.25em;
 	margin-right: 0.25em;
 	margin-top: 0.2em;
@@ -89,14 +89,14 @@ body {
 
 /* Icons demo */
 
-.oo-ui-demo-icons .oo-ui-buttonedElement-button {
+.oo-ui-demo-icons .oo-ui-buttonElement-button {
 	margin: 1em 1em 1em 0;
 	width: 9.75em;
 	opacity: 0.8;
 	text-transform: capitalize;
 }
 
-.oo-ui-demo-icons .oo-ui-buttonedElement-button:hover {
+.oo-ui-demo-icons .oo-ui-buttonElement-button:hover {
 	opacity: 1;
 }
 

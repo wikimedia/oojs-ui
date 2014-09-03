@@ -3,7 +3,7 @@
  *
  * @class
  * @extends OO.ui.Layout
- * @mixins OO.ui.LabeledElement
+ * @mixins OO.ui.LabelElement
  *
  * Available label alignment modes include:
  *  - left: Label is before the field and aligned away from it, best for when the user will be
@@ -22,7 +22,6 @@
  * @cfg {string} [help] Explanatory text shown as a '?' icon.
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
-	var popupButtonWidget;
 	// Config initialization
 	config = $.extend( { align: 'left' }, config );
 
@@ -30,27 +29,25 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	OO.ui.FieldLayout.super.call( this, config );
 
 	// Mixin constructors
-	this.$help = this.$( '<div>' );
-	OO.ui.LabeledElement.call( this, this.$( '<label>' ), config );
-	if ( config.help ) {
-		popupButtonWidget = new OO.ui.PopupButtonWidget( $.extend(
-			{
-				$: this.$,
-				frameless: true,
-				icon: 'info',
-				title: config.help
-			},
-			config,
-			{ label: null }
-		) );
-		popupButtonWidget.getPopup().$body.append( this.getElementDocument().createTextNode( config.help ) );
-		this.$help = popupButtonWidget.$element;
-	}
+	OO.ui.LabelElement.call( this, config );
 
 	// Properties
 	this.$field = this.$( '<div>' );
 	this.field = field;
 	this.align = null;
+	if ( config.help ) {
+		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
+			$: this.$,
+			frameless: true,
+			icon: 'info',
+			title: config.help
+		} );
+
+		this.popupButtonWidget.getPopup().$body.append( this.$( '<span>' ).text( config.help ) );
+		this.$help = this.popupButtonWidget.$element;
+	} else {
+		this.$help = this.$( '<div>' );
+	}
 
 	// Events
 	if ( this.field instanceof OO.ui.InputWidget ) {
@@ -70,7 +67,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.FieldLayout, OO.ui.Layout );
-OO.mixinClass( OO.ui.FieldLayout, OO.ui.LabeledElement );
+OO.mixinClass( OO.ui.FieldLayout, OO.ui.LabelElement );
 
 /* Methods */
 
