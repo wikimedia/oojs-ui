@@ -163,13 +163,7 @@ OO.ui.MenuWidget.prototype.chooseItem = function ( item ) {
 };
 
 /**
- * Add items.
- *
- * Adding an existing item (by value) will move it.
- *
- * @param {OO.ui.MenuItemWidget[]} items Items to add
- * @param {number} [index] Index to insert items after
- * @chainable
+ * @inheritdoc
  */
 OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
 	var i, len, item;
@@ -185,12 +179,41 @@ OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[i];
 		if ( this.isVisible() ) {
-			// Defer fitting label until
+			// Defer fitting label until item has been attached
 			item.fitLabel();
 		} else {
 			this.newItems.push( item );
 		}
 	}
+
+	// Reevaluate clipping
+	this.clip();
+
+	return this;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.MenuWidget.prototype.removeItems = function ( items ) {
+	// Parent method
+	OO.ui.MenuWidget.super.prototype.removeItems.call( this, items );
+
+	// Reevaluate clipping
+	this.clip();
+
+	return this;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.MenuWidget.prototype.clearItems = function () {
+	// Parent method
+	OO.ui.MenuWidget.super.prototype.clearItems.call( this );
+
+	// Reevaluate clipping
+	this.clip();
 
 	return this;
 };

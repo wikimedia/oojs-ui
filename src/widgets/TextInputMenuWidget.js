@@ -1,7 +1,7 @@
 /**
  * Menu for a text input widget.
  *
- * This menu is specially designed to be positioned beneeth the text input widget. Even if the input
+ * This menu is specially designed to be positioned beneath the text input widget. Even if the input
  * is in a different frame, the menu's position is automatically calulated and maintained when the
  * menu is toggled or the window is resized.
  *
