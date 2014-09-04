@@ -34,6 +34,7 @@
     "grunt-contrib-watch": "0.6.1",
     "grunt-file-exists": "0.1.1",
     "grunt-cssjanus": "0.2.2",
-    "grunt-jscs": "0.6.1"
+    "grunt-jscs": "0.6.1",
+    "grunt-svg2png": "0.2.5"
   }
 }

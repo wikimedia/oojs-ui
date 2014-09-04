@@ -15,6 +15,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-file-exists' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
+	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadTasks( 'build/tasks' );
 
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
@@ -100,6 +101,17 @@ module.exports = function ( grunt ) {
 				dest: 'dist'
 			}
 		},
+		svg2png: {
+			images: {
+				files: [
+					{
+						cwd: 'dist/',
+						src: '**/*.svg',
+						dest: 'dist/'
+					}
+				]
+			}
+		},
 		jshint: {
 			options: {
 				jshintrc: true
@@ -162,7 +174,7 @@ module.exports = function ( grunt ) {
 		} );
 	} );
 
-	grunt.registerTask( 'build', [ 'clean', 'fileExists', 'less', 'concat', 'cssjanus', 'copy' ] );
+	grunt.registerTask( 'build', [ 'clean', 'fileExists', 'less', 'concat', 'cssjanus', 'copy', 'svg2png' ] );
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'jshint', 'jscs', 'csslint', 'banana', 'qunit' ] );
 	grunt.registerTask( 'default', 'test' );
