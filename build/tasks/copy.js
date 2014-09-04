@@ -1,8 +1,5 @@
 /*!
- * Build a distribution file
- *
- * Concatenates the list of input files, and performs
- * version/date placeholder replacements.
+ * Copy files and directory structure from 'src' to 'dest', stripping the 'strip' path prefix.
  */
 
 /*jshint node:true */
