@@ -136,8 +136,9 @@ OO.ui.Window.static.transplantStyles = function ( parentDoc, frameDoc, timeout )
 			styleText = '@import url(' + styleNode.href + ');';
 		} else {
 			// Internal stylesheet; just copy the text
-			// For IE10 we need to fall back to .cssText
-			styleText = styleNode.textContent || parentDoc.styleSheets[i].cssText;
+			// For IE10 we need to fall back to .cssText, BUT that's undefined in
+			// other browsers, so fall back to '' rather than 'undefined'
+			styleText = styleNode.textContent || parentDoc.styleSheets[i].cssText || '';
 		}
 
 		// Create a node with a unique ID that we're going to monitor to see when the CSS
