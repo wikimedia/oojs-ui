@@ -38,7 +38,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
 			$: this.$,
-			frameless: true,
+			framed: false,
 			icon: 'info',
 			title: config.help
 		} );
