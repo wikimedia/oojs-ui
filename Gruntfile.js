@@ -12,6 +12,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-csscomb' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
@@ -83,6 +84,28 @@ module.exports = function ( grunt ) {
 			js: {
 				dest: 'dist/oojs-ui.js',
 				src: modules['oojs-ui'].scripts
+			}
+		},
+		csscomb: {
+			core: {
+				files: {
+					'dist/oojs-ui.css': [ 'dist/oojs-ui.css' ],
+					'dist/oojs-ui.rtl.css': [ 'dist/oojs-ui.rtl.css' ],
+					'dist/oojs-ui.svg.css': [ 'dist/oojs-ui.svg.css' ],
+					'dist/oojs-ui.svg.rtl.css': [ 'dist/oojs-ui.svg.rtl.css' ]
+				}
+			},
+			apex: {
+				files: {
+					'dist/oojs-ui-apex.css': [ 'dist/oojs-ui-apex.css' ],
+					'dist/oojs-ui-apex.rtl.css': [ 'dist/oojs-ui-apex.rtl.css' ]
+				}
+			},
+			minerva: {
+				files: {
+					'dist/oojs-ui-minerva.css': [ 'dist/oojs-ui-minerva.css' ],
+					'dist/oojs-ui-minerva.rtl.css': [ 'dist/oojs-ui-minerva.rtl.css' ]
+				}
 			}
 		},
 		copy: {
@@ -174,7 +197,7 @@ module.exports = function ( grunt ) {
 		} );
 	} );
 
-	grunt.registerTask( 'build', [ 'clean', 'fileExists', 'less', 'concat', 'cssjanus', 'copy', 'svg2png' ] );
+	grunt.registerTask( 'build', [ 'clean', 'fileExists', 'less', 'concat', 'cssjanus', 'csscomb', 'copy', 'svg2png' ] );
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'jshint', 'jscs', 'csslint', 'banana', 'qunit' ] );
 	grunt.registerTask( 'default', 'test' );
