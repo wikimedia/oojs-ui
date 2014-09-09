@@ -1,6 +1,17 @@
 @import 'common';
 
-.theme-oo-ui-toolbar () {}
+.theme-oo-ui-toolbar () {
+	&-bar {
+		border-bottom: solid 1px @color-shadow;
+		background: white;
+
+		.oo-ui-toolbar-bar {
+			border: none;
+			background: none;
+		}
+	}
+
+}
 
 .theme-oo-ui-tool () {}
 
@@ -76,8 +87,10 @@
 	}
 
 	.oo-ui-toolGroup-tools {
-		top: 2em;
+		top: 2.3em;
 		margin: 0 -1px;
+		border: solid 1px @color-shadow;
+		background-color: white;
 	}
 
 	.oo-ui-tool-link {

@@ -146,7 +146,6 @@
 .theme-oo-ui-optionWidget () {
 	padding: 0.8em 1em 0.8em @window-header-height;
 	border: none;
-	border-bottom: 1px solid @color-shadow;
 	font-weight: bold;
 
 	.oo-ui-labelElement-label {
@@ -273,7 +272,8 @@
 		top: 4em;
 		padding: 1em;
 		line-height: 0;
-	}}
+	}
+}
 
 .theme-oo-ui-selectWidget () {
 	margin: 0;
@@ -282,7 +282,10 @@
 
 .theme-oo-ui-buttonSelectWidget () {}
 
-.theme-oo-ui-menuWidget () {}
+.theme-oo-ui-menuWidget () {
+	background: white;
+	border: solid 1px @color-shadow;
+}
 
 .theme-oo-ui-textInputMenuWidget () {}
 
