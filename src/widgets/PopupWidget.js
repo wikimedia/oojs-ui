@@ -173,11 +173,11 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 
 	if ( change ) {
 		if ( show ) {
-			this.toggleClipping( true );
 			if ( this.autoClose ) {
 				this.bindMouseDownListener();
 			}
 			this.updateDimensions();
+			this.toggleClipping( true );
 		} else {
 			this.toggleClipping( false );
 			if ( this.autoClose ) {
