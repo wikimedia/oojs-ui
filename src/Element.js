@@ -271,7 +271,7 @@ OO.ui.Element.getDimensions = function ( el ) {
  * @static
  * @param {HTMLElement} el Element to find scrollable container for
  * @param {string} [dimension] Dimension of scrolling to look for; `x`, `y` or omit for either
- * @return {HTMLElement|Window} Closest scrollable container
+ * @return {HTMLElement} Closest scrollable container
  */
 OO.ui.Element.getClosestScrollableContainer = function ( el, dimension ) {
 	var i, val,

@@ -35,7 +35,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.$head = this.$( '<div>' );
 	this.$body = this.$( '<div>' );
 	this.$anchor = this.$( '<div>' );
-	this.$container = config.$container || this.$( 'body' );
+	this.$container = config.$container; // If undefined, will be computed lazily in updateDimensions()
 	this.autoClose = !!config.autoClose;
 	this.$autoCloseIgnore = config.$autoCloseIgnore;
 	this.transitionTimeout = null;
@@ -217,18 +217,50 @@ OO.ui.PopupWidget.prototype.setSize = function ( width, height, transition ) {
  * @chainable
  */
 OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
-	var widget = this,
-		padding = 10,
-		originOffset = Math.round( this.$element.offset().left ),
-		containerLeft = Math.round( this.$container.offset().left ),
-		containerWidth = this.$container.innerWidth(),
-		containerRight = containerLeft + containerWidth,
-		popupOffset = this.width * ( { left: 0, center: -0.5, right: -1 } )[this.align],
-		anchorWidth = this.$anchor.width(),
-		popupLeft = popupOffset - padding,
-		popupRight = popupOffset + padding + this.width + padding,
-		overlapLeft = ( originOffset + popupLeft ) - containerLeft,
-		overlapRight = containerRight - ( originOffset + popupRight );
+	var popupOffset, originOffset, containerLeft, containerWidth, containerRight,
+		popupLeft, popupRight, overlapLeft, overlapRight, anchorWidth,
+		widget = this,
+		padding = 10;
+
+	if ( !this.$container ) {
+		// Lazy-initialize $container if not specified in constructor
+		this.$container = this.$( this.getClosestScrollableElementContainer() );
+	}
+
+	// Set height and width before measuring things, since it might cause our measurements
+	// to change (e.g. due to scrollbars appearing or disappearing)
+	this.$popup.css( {
+		width: this.width,
+		height: this.height !== null ? this.height : 'auto'
+	} );
+
+	// Compute initial popupOffset based on alignment
+	popupOffset = this.width * ( { left: 0, center: -0.5, right: -1 } )[this.align];
+
+	// Figure out if this will cause the popup to go beyond the edge of the container
+	originOffset = Math.round( this.$element.offset().left );
+	containerLeft = Math.round( this.$container.offset().left );
+	containerWidth = this.$container.innerWidth();
+	containerRight = containerLeft + containerWidth;
+	popupLeft = popupOffset - padding;
+	popupRight = popupOffset + padding + this.width + padding;
+	overlapLeft = ( originOffset + popupLeft ) - containerLeft;
+	overlapRight = containerRight - ( originOffset + popupRight );
+
+	// Adjust offset to make the popup not go beyond the edge, if needed
+	if ( overlapRight < 0 ) {
+		popupOffset += overlapRight;
+	} else if ( overlapLeft < 0 ) {
+		popupOffset -= overlapLeft;
+	}
+
+	// Adjust offset to avoid anchor being rendered too close to the edge
+	anchorWidth = this.$anchor.width();
+	if ( this.align === 'right' ) {
+		popupOffset += anchorWidth;
+	} else if ( this.align === 'left' ) {
+		popupOffset -= anchorWidth;
+	}
 
 	// Prevent transition from being interrupted
 	clearTimeout( this.transitionTimeout );
@@ -237,25 +269,8 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 		this.$element.addClass( 'oo-ui-popupWidget-transitioning' );
 	}
 
-	if ( overlapRight < 0 ) {
-		popupOffset += overlapRight;
-	} else if ( overlapLeft < 0 ) {
-		popupOffset -= overlapLeft;
-	}
-
-	// Adjust offset to avoid anchor being rendered too close to the edge
-	if ( this.align === 'right' ) {
-		popupOffset += anchorWidth;
-	} else if ( this.align === 'left' ) {
-		popupOffset -= anchorWidth;
-	}
-
-	// Position body relative to anchor and resize
-	this.$popup.css( {
-		left: popupOffset,
-		width: this.width,
-		height: this.height !== null ? this.height : 'auto'
-	} );
+	// Position body relative to anchor
+	this.$popup.css( 'left', popupOffset );
 
 	if ( transition ) {
 		// Prevent transitioning after transition is complete
