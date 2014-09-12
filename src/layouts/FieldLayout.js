@@ -38,15 +38,19 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
 			$: this.$,
+			classes: [ 'oo-ui-fieldLayout-help' ],
 			framed: false,
-			icon: 'info',
-			title: config.help
+			icon: 'info'
 		} );
 
-		this.popupButtonWidget.getPopup().$body.append( this.$( '<span>' ).text( config.help ) );
+		this.popupButtonWidget.getPopup().$body.append(
+			this.$( '<div>' )
+				.text( config.help )
+				.addClass( 'oo-ui-fieldLayout-help-content' )
+		);
 		this.$help = this.popupButtonWidget.$element;
 	} else {
-		this.$help = this.$( '<div>' );
+		this.$help = this.$( [] );
 	}
 
 	// Events
