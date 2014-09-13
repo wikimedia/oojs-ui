@@ -8,6 +8,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {string} [action] Symbolic action name
  * @cfg {string[]} [modes] Symbolic mode names
+ * @cfg {boolean} [framed=false] Render button with a frame
  */
 OO.ui.ActionWidget = function OoUiActionWidget( config ) {
 	// Config intialization
