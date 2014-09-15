@@ -4,6 +4,8 @@
 			"src/intro.js.txt",
 			"src/core.js",
 
+			"src/elements/PendingElement.js",
+
 			"src/ActionSet.js",
 			"src/Element.js",
 				"src/Layout.js",

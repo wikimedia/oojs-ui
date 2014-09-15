@@ -5,6 +5,7 @@
  * @extends OO.ui.InputWidget
  * @mixins OO.ui.IconElement
  * @mixins OO.ui.IndicatorElement
+ * @mixins OO.ui.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -23,9 +24,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Mixin constructors
 	OO.ui.IconElement.call( this, config );
 	OO.ui.IndicatorElement.call( this, config );
+	OO.ui.PendingElement.call( this, config );
 
 	// Properties
-	this.pending = 0;
 	this.multiline = !!config.multiline;
 	this.autosize = !!config.autosize;
 	this.maxRows = config.maxRows !== undefined ? config.maxRows : 10;
@@ -51,6 +52,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 OO.inheritClass( OO.ui.TextInputWidget, OO.ui.InputWidget );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IconElement );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IndicatorElement );
+OO.mixinClass( OO.ui.TextInputWidget, OO.ui.PendingElement );
 
 /* Events */
 
@@ -211,47 +213,6 @@ OO.ui.TextInputWidget.prototype.isMultiline = function () {
  */
 OO.ui.TextInputWidget.prototype.isAutosizing = function () {
 	return !!this.autosize;
-};
-
-/**
- * Check if input is pending.
- *
- * @return {boolean}
- */
-OO.ui.TextInputWidget.prototype.isPending = function () {
-	return !!this.pending;
-};
-
-/**
- * Increase the pending stack.
- *
- * @chainable
- */
-OO.ui.TextInputWidget.prototype.pushPending = function () {
-	if ( this.pending === 0 ) {
-		this.$element.addClass( 'oo-ui-textInputWidget-pending' );
-		this.$input.addClass( 'oo-ui-texture-pending' );
-	}
-	this.pending++;
-
-	return this;
-};
-
-/**
- * Reduce the pending stack.
- *
- * Clamped at zero.
- *
- * @chainable
- */
-OO.ui.TextInputWidget.prototype.popPending = function () {
-	if ( this.pending === 1 ) {
-		this.$element.removeClass( 'oo-ui-textInputWidget-pending' );
-		this.$input.removeClass( 'oo-ui-texture-pending' );
-	}
-	this.pending = Math.max( 0, this.pending - 1 );
-
-	return this;
 };
 
 /**

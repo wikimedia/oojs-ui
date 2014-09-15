@@ -3,6 +3,7 @@
  *
  * @class
  * @extends OO.ui.ButtonWidget
+ * @mixins OO.ui.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -15,6 +16,9 @@ OO.ui.ActionWidget = function OoUiActionWidget( config ) {
 
 	// Parent constructor
 	OO.ui.ActionWidget.super.call( this, config );
+
+	// Mixin constructors
+	OO.ui.PendingElement.call( this, config );
 
 	// Properties
 	this.action = config.action || '';
@@ -29,6 +33,7 @@ OO.ui.ActionWidget = function OoUiActionWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ActionWidget, OO.ui.ButtonWidget );
+OO.mixinClass( OO.ui.ActionWidget, OO.ui.PendingElement );
 
 /* Events */
 

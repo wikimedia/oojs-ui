@@ -22,6 +22,7 @@
  * @abstract
  * @class
  * @extends OO.ui.Window
+ * @mixins OO.ui.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -30,11 +31,13 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 	// Parent constructor
 	OO.ui.Dialog.super.call( this, config );
 
+	// Mixin constructors
+	OO.ui.PendingElement.call( this );
+
 	// Properties
 	this.actions = new OO.ui.ActionSet();
 	this.attachedActions = [];
 	this.currentAction = null;
-	this.pending = 0;
 
 	// Events
 	this.actions.connect( this, {
@@ -52,6 +55,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.Dialog, OO.ui.Window );
+OO.mixinClass( OO.ui.Dialog, OO.ui.PendingElement );
 
 /* Static Properties */
 
@@ -137,15 +141,6 @@ OO.ui.Dialog.prototype.onActionsChange = function () {
 	if ( !this.isClosing() ) {
 		this.attachActions();
 	}
-};
-
-/**
- * Check if input is pending.
- *
- * @return {boolean}
- */
-OO.ui.Dialog.prototype.isPending = function () {
-	return !!this.pending;
 };
 
 /**
@@ -238,6 +233,7 @@ OO.ui.Dialog.prototype.initialize = function () {
 
 	// Initialization
 	this.$content.addClass( 'oo-ui-dialog-content' );
+	this.setPendingElement( this.$head );
 };
 
 /**
@@ -273,36 +269,4 @@ OO.ui.Dialog.prototype.executeAction = function ( action ) {
 	this.pushPending();
 	return this.getActionProcess( action ).execute()
 		.always( OO.ui.bind( this.popPending, this ) );
-};
-
-/**
- * Increase the pending stack.
- *
- * @chainable
- */
-OO.ui.Dialog.prototype.pushPending = function () {
-	if ( this.pending === 0 ) {
-		this.$content.addClass( 'oo-ui-actionDialog-content-pending' );
-		this.$head.addClass( 'oo-ui-texture-pending' );
-	}
-	this.pending++;
-
-	return this;
-};
-
-/**
- * Reduce the pending stack.
- *
- * Clamped at zero.
- *
- * @chainable
- */
-OO.ui.Dialog.prototype.popPending = function () {
-	if ( this.pending === 1 ) {
-		this.$content.removeClass( 'oo-ui-actionDialog-content-pending' );
-		this.$head.removeClass( 'oo-ui-texture-pending' );
-	}
-	this.pending = Math.max( 0, this.pending - 1 );
-
-	return this;
 };
