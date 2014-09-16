@@ -210,11 +210,31 @@ OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
  * @chainable
  */
 OO.ui.ProcessDialog.prototype.fitLabel = function () {
-	var width = Math.max(
-		this.$safeActions.is( ':visible' ) ? this.$safeActions.width() : 0,
-		this.$primaryActions.is( ':visible' ) ? this.$primaryActions.width() : 0
-	);
-	this.$location.css( { paddingLeft: width, paddingRight: width } );
+	var safeWidth, primaryWidth, biggerWidth, labelWidth, navigationWidth, leftWidth, rightWidth;
+
+	safeWidth = this.$safeActions.is( ':visible' ) ? this.$safeActions.width() : 0;
+	primaryWidth = this.$primaryActions.is( ':visible' ) ? this.$primaryActions.width() : 0;
+	biggerWidth = Math.max( safeWidth, primaryWidth );
+
+	labelWidth = this.title.$element.width();
+	// Is there a better way to calculate this?
+	navigationWidth = OO.ui.WindowManager.static.sizes[ this.getSize() ].width - 20;
+
+	if ( 2 * biggerWidth + labelWidth < navigationWidth ) {
+		// We have enough space to center the label
+		leftWidth = rightWidth = biggerWidth;
+	} else {
+		// Let's hope we at least have enough space not to overlap, because we can't wrap the label…
+		if ( this.getDir() === 'ltr' ) {
+			leftWidth = safeWidth;
+			rightWidth = primaryWidth;
+		} else {
+			leftWidth = primaryWidth;
+			rightWidth = safeWidth;
+		}
+	}
+
+	this.$location.css( { paddingLeft: leftWidth, paddingRight: rightWidth } );
 
 	return this;
 };
