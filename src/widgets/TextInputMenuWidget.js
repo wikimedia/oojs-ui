@@ -49,18 +49,17 @@ OO.ui.TextInputMenuWidget.prototype.toggle = function ( visible ) {
 
 	var change = visible !== this.isVisible();
 
-	// Parent method
-	OO.ui.TextInputMenuWidget.super.prototype.toggle.call( this, visible );
-
 	if ( change ) {
-		if ( this.isVisible() ) {
+		if ( visible ) {
 			this.position();
 			this.$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
 		} else {
 			this.$( this.getElementWindow() ).off( 'resize', this.onWindowResizeHandler );
 		}
 	}
-	return this;
+
+	// Parent method
+	return OO.ui.TextInputMenuWidget.super.prototype.toggle.call( this, visible );
 };
 
 /**
