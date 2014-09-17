@@ -131,7 +131,7 @@ OO.ui.ClippableElement.prototype.isClippedVertically = function () {
 };
 
 /**
- * Set the ideal size.
+ * Set the ideal size. These are the dimensions the element will have when it's not being clipped.
  *
  * @param {number|string} [width] Width as a number of pixels or CSS string with unit suffix
  * @param {number|string} [height] Height as a number of pixels or CSS string with unit suffix
@@ -139,6 +139,12 @@ OO.ui.ClippableElement.prototype.isClippedVertically = function () {
 OO.ui.ClippableElement.prototype.setIdealSize = function ( width, height ) {
 	this.idealWidth = width;
 	this.idealHeight = height;
+
+	if ( !this.clipping ) {
+		// Update dimensions
+		this.$clippable.css( { width: width, height: height } );
+	}
+	// While clipping, idealWidth and idealHeight are not considered
 };
 
 /**
