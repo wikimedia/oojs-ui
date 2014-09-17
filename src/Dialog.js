@@ -177,7 +177,7 @@ OO.ui.Dialog.prototype.getActionProcess = function ( action ) {
  * @inheritdoc
  *
  * @param {Object} [data] Dialog opening data
- * @param {jQuery|string|Function|null} [data.label] Dialog label, omit to use #static-label
+ * @param {jQuery|string|Function|null} [data.title] Dialog title, omit to use #static-title
  * @param {Object[]} [data.actions] List of OO.ui.ActionWidget configuration options for each
  *   action item, omit to use #static-actions
  */
