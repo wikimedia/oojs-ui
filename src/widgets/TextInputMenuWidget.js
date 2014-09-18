@@ -49,8 +49,18 @@ OO.ui.TextInputMenuWidget.prototype.toggle = function ( visible ) {
 
 	var change = visible !== this.isVisible();
 
+	if ( change && visible ) {
+		// Make sure the width is set before the parent method runs.
+		// After this we have to call this.position(); again to actually
+		// position ourselves correctly.
+		this.position();
+	}
+
+	// Parent method
+	OO.ui.TextInputMenuWidget.super.prototype.toggle.call( this, visible );
+
 	if ( change ) {
-		if ( visible ) {
+		if ( this.isVisible() ) {
 			this.position();
 			this.$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
 		} else {
@@ -58,8 +68,7 @@ OO.ui.TextInputMenuWidget.prototype.toggle = function ( visible ) {
 		}
 	}
 
-	// Parent method
-	return OO.ui.TextInputMenuWidget.super.prototype.toggle.call( this, visible );
+	return this;
 };
 
 /**
