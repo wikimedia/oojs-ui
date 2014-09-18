@@ -411,7 +411,6 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 					manager.opening.notify( { state: 'setup' } );
 					setTimeout( function () {
 						win.ready( data ).then( function () {
-							manager.updateWindowSize( win );
 							manager.opening.notify( { state: 'ready' } );
 							manager.opening = null;
 							manager.opened = $.Deferred();

@@ -314,16 +314,25 @@ OO.ui.Window.prototype.getSize = function () {
  * @return {number} Content height
  */
 OO.ui.Window.prototype.getContentHeight = function () {
+	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements
+	var bodyHeight, oldHeight = this.$frame[0].style.height;
+	this.$frame[0].style.height = '1px';
+	bodyHeight = this.getBodyHeight();
+	this.$frame[0].style.height = oldHeight;
+
 	return Math.round(
 		// Add buffer for border
 		( this.$frame.outerHeight() - this.$frame.innerHeight() ) +
 		// Use combined heights of children
-		( this.$head.outerHeight( true ) + this.getBodyHeight() + this.$foot.outerHeight( true ) )
+		( this.$head.outerHeight( true ) + bodyHeight + this.$foot.outerHeight( true ) )
 	);
 };
 
 /**
  * Get the height of the dialog contents.
+ *
+ * When this function is called, the dialog will temporarily have been resized
+ * to height=1px, so .scrollHeight measurements can be taken accurately.
  *
  * @return {number} Height of content
  */
