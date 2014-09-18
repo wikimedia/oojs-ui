@@ -1,4 +1,4 @@
-[![NPM version](https://badge.fury.io/js/oojs-ui.png)](https://badge.fury.io/js/oojs-ui)
+[![NPM version](https://badge.fury.io/js/oojs-ui.png)](https://badge.fury.io/js/oojs-ui) [![devDependency Status](https://david-dm.org/wikimedia/oojs-ui/dev-status.svg)](https://david-dm.org/wikimedia/oojs-ui#info=devDependencies)
 =================
 
 Quick start
