@@ -102,6 +102,8 @@ OO.ui.TextInputMenuWidget.prototype.position = function () {
 	}
 	this.$element.css( dimensions );
 	this.setIdealSize( $container.width() );
+	// We updated the position, so re-evaluate the clipping state
+	this.clip();
 
 	return this;
 };
