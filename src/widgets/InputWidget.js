@@ -4,6 +4,7 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
+ * @mixins OO.ui.FlaggedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -18,6 +19,9 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 
 	// Parent constructor
 	OO.ui.InputWidget.super.call( this, config );
+
+	// Mixin constructors
+	OO.ui.FlaggedElement.call( this, config );
 
 	// Properties
 	this.$input = this.getInputElement( config );
@@ -40,6 +44,7 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.InputWidget, OO.ui.Widget );
+OO.mixinClass( OO.ui.InputWidget, OO.ui.FlaggedElement );
 
 /* Events */
 
