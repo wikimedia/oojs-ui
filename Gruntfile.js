@@ -199,6 +199,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'build', [ 'clean', 'fileExists', 'less', 'concat', 'cssjanus', 'csscomb', 'copy', 'svg2png' ] );
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
-	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'jshint', 'jscs', 'csslint', 'banana', 'qunit' ] );
+	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'banana' ] );
+	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'lint', 'qunit' ] );
 	grunt.registerTask( 'default', 'test' );
 };
