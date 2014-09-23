@@ -282,5 +282,8 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 		this.$element.removeClass( 'oo-ui-popupWidget-transitioning' );
 	}
 
+	// Reevaluate clipping state since we've relocated and resized the popup
+	this.clip();
+
 	return this;
 };
