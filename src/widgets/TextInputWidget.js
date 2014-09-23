@@ -13,6 +13,8 @@
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
  * @cfg {boolean} [autosize=false] Automatically resize to fit content
  * @cfg {boolean} [maxRows=10] Maximum number of rows to make visible when autosizing
+ * @cfg {RegExp|string} [validate] Regular expression (or symbolic name referencing
+ *  one, see #static-validationPatterns)
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Configuration initialization
@@ -30,9 +32,13 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.multiline = !!config.multiline;
 	this.autosize = !!config.autosize;
 	this.maxRows = config.maxRows !== undefined ? config.maxRows : 10;
+	this.validate = config.validate || null;
 
 	// Events
-	this.$input.on( 'keypress', OO.ui.bind( this.onKeyPress, this ) );
+	this.$input.on( {
+		keypress: OO.ui.bind( this.onKeyPress, this ),
+		blur: OO.ui.bind( this.setValidityFlag, this )
+	} );
 	this.$element.on( 'DOMNodeInsertedIntoDocument', OO.ui.bind( this.onElementAttach, this ) );
 	this.$icon.on( 'mousedown', OO.ui.bind( this.onIconMouseDown, this ) );
 	this.$indicator.on( 'mousedown', OO.ui.bind( this.onIndicatorMouseDown, this ) );
@@ -53,6 +59,13 @@ OO.inheritClass( OO.ui.TextInputWidget, OO.ui.InputWidget );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IconElement );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IndicatorElement );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.PendingElement );
+
+/* Static properties */
+
+OO.ui.TextInputWidget.static.validationPatterns = {
+	'non-empty': /.+/,
+	integer: /^\d+$/
+};
 
 /* Events */
 
@@ -144,6 +157,7 @@ OO.ui.TextInputWidget.prototype.setValue = function ( value ) {
 	// Parent method
 	OO.ui.TextInputWidget.super.prototype.setValue.call( this, value );
 
+	this.setValidityFlag();
 	this.adjustSize();
 	return this;
 };
@@ -223,4 +237,29 @@ OO.ui.TextInputWidget.prototype.isAutosizing = function () {
 OO.ui.TextInputWidget.prototype.select = function () {
 	this.$input.select();
 	return this;
+};
+
+/**
+ * Sets the 'invalid' flag appropriately.
+ */
+OO.ui.TextInputWidget.prototype.setValidityFlag = function () {
+	this.isValid().done( OO.ui.bind( function ( valid ) {
+		this.setFlags( { invalid: !valid } );
+	}, this ) );
+};
+
+/**
+ * Returns whether or not the current value is considered valid, according to the
+ * supplied validation pattern.
+ *
+ * @return {jQuery.Deferred}
+ */
+OO.ui.TextInputWidget.prototype.isValid = function () {
+	var validationRegexp;
+	if ( this.validate instanceof RegExp ) {
+		validationRegexp = this.validate;
+	} else {
+		validationRegexp = this.constructor.static.validationPatterns[this.validate];
+	}
+	return $.Deferred().resolve( !!this.getValue().match( validationRegexp ) ).promise();
 };
