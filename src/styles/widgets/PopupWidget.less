@@ -1,8 +1,10 @@
 @import '../common';
 
 .oo-ui-popupWidget {
+	position: absolute;
+
 	&-popup {
-		position: absolute;
+		position: relative;
 		overflow: hidden;
 		z-index: 1;
 	}
@@ -16,6 +18,7 @@
 		.oo-ui-popupWidget-anchor {
 			display: block;
 			position: absolute;
+			top: 0;
 			background-repeat: no-repeat;
 		}
 	}
