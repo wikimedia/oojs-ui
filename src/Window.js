@@ -769,7 +769,7 @@ OO.ui.Window.prototype.load = function () {
 	doc.close();
 
 	// Properties
-	this.$ = OO.ui.Element.getJQuery( doc, this.$element );
+	this.$ = OO.ui.Element.getJQuery( doc, this.$iframe );
 	this.$content = this.$( '.oo-ui-window-content' ).attr( 'tabIndex', 0 );
 	this.$document = this.$( doc );
 
