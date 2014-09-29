@@ -32,7 +32,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.multiline = !!config.multiline;
 	this.autosize = !!config.autosize;
 	this.maxRows = config.maxRows !== undefined ? config.maxRows : 10;
-	this.validate = config.validate || null;
+	this.validate = null;
+
+	this.setValidation( config.validate );
 
 	// Events
 	this.$input.on( {
@@ -240,6 +242,19 @@ OO.ui.TextInputWidget.prototype.select = function () {
 };
 
 /**
+ * Sets the validation pattern to use.
+ * @param validate {RegExp|string|null} Regular expression (or symbolic name referencing
+ *  one, see #static-validationPatterns)
+ */
+OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
+	if ( validate instanceof RegExp ) {
+		this.validate = validate;
+	} else {
+		this.validate = this.constructor.static.validationPatterns[validate] || /.*/;
+	}
+};
+
+/**
  * Sets the 'invalid' flag appropriately.
  */
 OO.ui.TextInputWidget.prototype.setValidityFlag = function () {
@@ -255,11 +270,5 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function () {
  * @return {jQuery.Deferred}
  */
 OO.ui.TextInputWidget.prototype.isValid = function () {
-	var validationRegexp;
-	if ( this.validate instanceof RegExp ) {
-		validationRegexp = this.validate;
-	} else {
-		validationRegexp = this.constructor.static.validationPatterns[this.validate];
-	}
-	return $.Deferred().resolve( !!this.getValue().match( validationRegexp ) ).promise();
+	return $.Deferred().resolve( !!this.getValue().match( this.validate ) ).promise();
 };
