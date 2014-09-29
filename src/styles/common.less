@@ -2,34 +2,53 @@
 
 // Variables
 
-@oo-ui-default-image-ext: svg;
+// @oo-ui-default-image-ext set during build
 @oo-ui-default-image-path: 'images';
 
 // Mixins
 
-.oo-ui-background-image(@url) {
+.oo-ui-background-image( @url ) {
 	background-image: e('/* @embed */') url(~'@{url}');
 }
 
-.oo-ui-icon(@name, @file, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path) {
-	.oo-ui-icon-@{name} {
-		.oo-ui-background-image('@{path}/icons/@{file}.@{ext}');
+.oo-ui-image( @type, @name, @file, @ext, @path ) {
+	.oo-ui-@{type}-@{name} {
+		.oo-ui-background-image('@{path}/@{type}s/@{file}.@{ext}');
 	}
 }
 
-.oo-ui-indicator(@name, @file, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path ) {
-	.oo-ui-indicator-@{name} {
-		.oo-ui-background-image('@{path}/indicators/@{file}.@{ext}');
+.oo-ui-image-variant( @type, @name, @file, @variant, @ext, @path ) {
+	.oo-ui-image-@{variant} .oo-ui-@{type}-@{name},
+	.oo-ui-image-@{variant}.oo-ui-@{type}-@{name} {
+		.oo-ui-background-image('@{path}/@{type}s/@{file}-@{variant}.@{ext}');
 	}
 }
 
-.oo-ui-texture(@name, @file, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path) {
-	.oo-ui-texture-@{name} {
-		.oo-ui-background-image('@{path}/textures/@{file}.@{ext}');
-	}
+.oo-ui-icon( @name, @file, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path ) {
+	.oo-ui-image( icon, @name, @file, @ext, @path );
 }
 
-.oo-ui-transition (@value1, @value2: X, ...) {
+.oo-ui-icon-variant( @name, @file, @variant, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path ) {
+	.oo-ui-image-variant( icon, @name, @file, @variant, @ext, @path );
+}
+
+.oo-ui-indicator( @name, @file, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path ) {
+	.oo-ui-image( indicator, @name, @file, @ext, @path );
+}
+
+.oo-ui-indicator-variant( @name, @file, @variant, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path ) {
+	.oo-ui-image-variant( indicator, @name, @file, @variant, @ext, @path );
+}
+
+.oo-ui-texture( @name, @file, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path ) {
+	.oo-ui-image( texture, @name, @file, @ext, @path );
+}
+
+.oo-ui-texture-variant ( @name, @file, @variant, @ext: @oo-ui-default-image-ext, @path: @oo-ui-default-image-path ) {
+	.oo-ui-image-variant( texture, @name, @file, @variant, @ext, @path );
+}
+
+.oo-ui-transition( @value1, @value2: X, ... ) {
 	@value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
 	-webkit-transition: @value;
 	-moz-transition: @value;
@@ -38,7 +57,7 @@
 	transition: @value;
 }
 
-.oo-ui-transform (@string) {
+.oo-ui-transform( @string ) {
 	-webkit-transform: @string;
 	-moz-transform: @string;
 	-ms-transform: @string;
@@ -46,13 +65,13 @@
 	transform: @string;
 }
 
-.oo-ui-box-sizing (@type: border-box) {
+.oo-ui-box-sizing( @type: border-box ) {
 	-webkit-box-sizing: @type;
 	-moz-box-sizing:    @type;
 	box-sizing:         @type;
 }
 
-.oo-ui-vertical-gradient (@start: #EEE, @stop: #FFF) {
+.oo-ui-vertical-gradient( @start: #EEE, @stop: #FFF ) {
 	background: mix(@start, @stop, 50%);
 	filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='%d', endColorstr='%d')", @start, @stop));
 	background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0%, @start), color-stop(100%, @stop));
@@ -63,7 +82,7 @@
 	background-image: linear-gradient(top, @start 0%, @stop 100%);
 }
 
-.oo-ui-unselectable () {
+.oo-ui-unselectable() {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -71,7 +90,7 @@
 	user-select: none;
 }
 
-.oo-ui-selectable () {
+.oo-ui-selectable() {
 	-webkit-touch-callout: default;
 	-webkit-user-select: all;
 	-moz-user-select: all;

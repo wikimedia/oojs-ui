@@ -127,6 +127,7 @@ OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
 		if ( state && this.constructor.static.scrollIntoViewOnSelect ) {
 			this.scrollElementIntoView();
 		}
+		this.updateThemeClasses();
 	}
 	return this;
 };
@@ -141,6 +142,7 @@ OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
 	if ( this.constructor.static.highlightable ) {
 		this.highlighted = !!state;
 		this.$element.toggleClass( 'oo-ui-optionWidget-highlighted', state );
+		this.updateThemeClasses();
 	}
 	return this;
 };
@@ -155,6 +157,7 @@ OO.ui.OptionWidget.prototype.setPressed = function ( state ) {
 	if ( this.constructor.static.pressable ) {
 		this.pressed = !!state;
 		this.$element.toggleClass( 'oo-ui-optionWidget-pressed', state );
+		this.updateThemeClasses();
 	}
 	return this;
 };

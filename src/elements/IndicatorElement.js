@@ -102,6 +102,7 @@ OO.ui.IndicatorElement.prototype.setIndicator = function ( indicator ) {
 	}
 
 	this.$element.toggleClass( 'oo-ui-indicatorElement', !!this.indicator );
+	this.updateThemeClasses();
 
 	return this;
 };

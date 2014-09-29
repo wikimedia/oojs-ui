@@ -116,6 +116,7 @@ OO.ui.IconElement.prototype.setIcon = function ( icon ) {
 	}
 
 	this.$element.toggleClass( 'oo-ui-iconElement', !!this.icon );
+	this.updateThemeClasses();
 
 	return this;
 };

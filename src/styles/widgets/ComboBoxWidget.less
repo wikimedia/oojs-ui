@@ -1,7 +1,13 @@
 @import '../common';
 
-.oo-ui-comboBoxWidget > .oo-ui-selectWidget {
-	z-index: 1;
+.oo-ui-comboBoxWidget {
+	display: inline-block;
+	position: relative;
+
+	> .oo-ui-selectWidget {
+		width: 100%;
+		z-index: 1;
+	}
 
 	.theme-oo-ui-comboBoxWidget();
 }

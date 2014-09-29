@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"icons": {
+			"invert": {
+				"color": "#FFFFFF"
+			}
+		}
+	},
+	"images": {
+		"icons": {
+			"check": {
+				"file": "check.svg",
+				"variants": [ "invert" ]
+			}
+		},
+		"indicators": {},
+		"textures": {}
+	}
+}

@@ -84,6 +84,7 @@ OO.ui.OutlineItemWidget.prototype.getLevel = function () {
  */
 OO.ui.OutlineItemWidget.prototype.setMovable = function ( movable ) {
 	this.movable = !!movable;
+	this.updateThemeClasses();
 	return this;
 };
 
@@ -97,6 +98,7 @@ OO.ui.OutlineItemWidget.prototype.setMovable = function ( movable ) {
  */
 OO.ui.OutlineItemWidget.prototype.setRemovable = function ( removable ) {
 	this.removable = !!removable;
+	this.updateThemeClasses();
 	return this;
 };
 
@@ -119,6 +121,7 @@ OO.ui.OutlineItemWidget.prototype.setLevel = function ( level ) {
 			this.$element.removeClass( levelClass + i );
 		}
 	}
+	this.updateThemeClasses();
 
 	return this;
 };

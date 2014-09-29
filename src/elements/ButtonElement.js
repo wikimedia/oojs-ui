@@ -111,6 +111,15 @@ OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
 };
 
 /**
+ * Check if button has a frame.
+ *
+ * @return {boolean} Button is framed
+ */
+OO.ui.ButtonElement.prototype.isFramed = function () {
+	return this.framed;
+};
+
+/**
  * Toggle frame.
  *
  * @param {boolean} [framed] Make button framed, omit to toggle
@@ -123,6 +132,7 @@ OO.ui.ButtonElement.prototype.toggleFramed = function ( framed ) {
 		this.$element
 			.toggleClass( 'oo-ui-buttonElement-frameless', !framed )
 			.toggleClass( 'oo-ui-buttonElement-framed', framed );
+		this.updateThemeClasses();
 	}
 
 	return this;

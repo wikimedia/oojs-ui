@@ -58,6 +58,7 @@ OO.ui.PendingElement.prototype.isPending = function () {
 OO.ui.PendingElement.prototype.pushPending = function () {
 	if ( this.pending === 0 ) {
 		this.$pending.addClass( 'oo-ui-pendingElement-pending' );
+		this.updateThemeClasses();
 	}
 	this.pending++;
 
@@ -74,6 +75,7 @@ OO.ui.PendingElement.prototype.pushPending = function () {
 OO.ui.PendingElement.prototype.popPending = function () {
 	if ( this.pending === 1 ) {
 		this.$pending.removeClass( 'oo-ui-pendingElement-pending' );
+		this.updateThemeClasses();
 	}
 	this.pending = Math.max( 0, this.pending - 1 );
 

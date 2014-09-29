@@ -43,6 +43,10 @@
 			{
 				"name": "Dialogs",
 				"classes": ["OO.ui.*Dialog"]
+			},
+			{
+				"name": "Themes",
+				"classes": ["OO.ui.*Theme"]
 			}
 		]
 	},

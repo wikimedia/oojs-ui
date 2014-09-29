@@ -14,7 +14,7 @@
  */
 OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, config ) {
 	// Configuration initialization
-	config = $.extend( { icon: 'add-item' }, config );
+	config = $.extend( { icon: 'add' }, config );
 
 	// Parent constructor
 	OO.ui.OutlineControlsWidget.super.call( this, config );

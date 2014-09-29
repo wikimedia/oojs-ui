@@ -17,6 +17,7 @@
 			"src/Process.js",
 			"src/ToolFactory.js",
 			"src/ToolGroupFactory.js",
+			"src/Theme.js",
 
 			"src/elements/ButtonElement.js",
 			"src/elements/GroupElement.js",
@@ -86,23 +87,33 @@
 			"src/widgets/ToggleSwitchWidget.js",
 
 			"src/outro.js.txt"
-		],
-		"styles": [
-			{
-				"default": "src/styles/images/raster.less",
-				"svg": "src/styles/images/vector.less"
-			}
 		]
 	},
 	"oojs-ui-apex": {
+		"scripts": [
+			"src/themes/apex/ApexTheme.js"
+		],
 		"styles": [
-			"src/themes/apex/core.less"
+			"src/themes/apex/core.less",
+			"src/themes/apex/images.less"
 		]
 	},
 	"oojs-ui-minerva": {
+		"scripts": [
+			"src/themes/minerva/MinervaTheme.js"
+		],
 		"styles": [
 			"src/themes/minerva/core.less",
-			"src/themes/minerva/images/vector.less"
+			"src/themes/minerva/images.less"
+		]
+	},
+	"oojs-ui-mediawiki": {
+		"scripts": [
+			"src/themes/mediawiki/MediaWikiTheme.js"
+		],
+		"styles": [
+			"src/themes/mediawiki/core.less",
+			"src/themes/mediawiki/images.less"
 		]
 	}
 }

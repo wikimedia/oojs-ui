@@ -19,6 +19,10 @@ OO.ui.Element = function OoUiElement( config ) {
 	this.$ = config.$ || OO.ui.Element.getJQuery( document );
 	this.$element = this.$( this.$.context.createElement( this.getTagName() ) );
 	this.elementGroup = null;
+	this.debouncedUpdateThemeClassesHandler = OO.ui.bind(
+		this.debouncedUpdateThemeClasses, this
+	);
+	this.updateThemeClassesPending = false;
 
 	// Initialization
 	if ( $.isArray( config.classes ) ) {
@@ -370,6 +374,28 @@ OO.ui.Element.scrollIntoView = function ( el, config ) {
 };
 
 /* Methods */
+
+/**
+ * Update the theme-provided classes.
+ *
+ * @localdoc This is called in element mixins and widget classes anytime state changes.
+ *   Updating is debounced, minimizing overhead of changing multiple attributes and
+ *   guaranteeing that theme updates do not occur within an element's constructor
+ */
+OO.ui.Element.prototype.updateThemeClasses = function () {
+	if ( !this.updateThemeClassesPending ) {
+		this.updateThemeClassesPending = true;
+		setTimeout( this.debouncedUpdateThemeClassesHandler );
+	}
+};
+
+/**
+ * @private
+ */
+OO.ui.Element.prototype.debouncedUpdateThemeClasses = function () {
+	OO.ui.theme.updateElementClasses( this );
+	this.updateThemeClassesPending = false;
+};
 
 /**
  * Get the HTML tag name.
