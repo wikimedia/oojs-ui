@@ -270,7 +270,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	}
 
 	// Position body relative to anchor
-	this.$popup.css( 'left', popupOffset );
+	this.$popup.css( 'margin-left', popupOffset );
 
 	if ( transition ) {
 		// Prevent transitioning after transition is complete
