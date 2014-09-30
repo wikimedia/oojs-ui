@@ -177,9 +177,9 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 	if ( this.multiline && this.autosize ) {
 		$clone = this.$input.clone()
 			.val( this.$input.val() )
+			// Set inline height property to 0 to measure scroll height
 			.css( { height: 0 } )
 			.insertAfter( this.$input );
-		// Set inline height property to 0 to measure scroll height
 		scrollHeight = $clone[0].scrollHeight;
 		// Remove inline height property to measure natural heights
 		$clone.css( 'height', '' );
@@ -188,15 +188,15 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 		// Measure max rows height
 		$clone.attr( 'rows', this.maxRows ).css( 'height', 'auto' );
 		maxInnerHeight = $clone.innerHeight();
-		$clone.removeAttr( 'rows' ).css( 'height', '' );
 		$clone.remove();
 		idealHeight = Math.min( maxInnerHeight, scrollHeight );
 		// Only apply inline height when expansion beyond natural height is needed
-		this.$input.css(
-			'height',
+		if ( idealHeight > innerHeight ) {
 			// Use the difference between the inner and outer height as a buffer
-			idealHeight > outerHeight ? idealHeight + ( outerHeight - innerHeight ) : ''
-		);
+			this.$input.css( 'height', idealHeight + ( outerHeight - innerHeight ) );
+		} else {
+			this.$input.css( 'height', '' );
+		}
 	}
 	return this;
 };
