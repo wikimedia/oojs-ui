@@ -172,7 +172,7 @@ OO.ui.TextInputWidget.prototype.setValue = function ( value ) {
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.adjustSize = function () {
-	var $clone, scrollHeight, innerHeight, outerHeight, maxInnerHeight, idealHeight;
+	var $clone, scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError, idealHeight;
 
 	if ( this.multiline && this.autosize ) {
 		$clone = this.$input.clone()
@@ -186,10 +186,13 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 		innerHeight = $clone.innerHeight();
 		outerHeight = $clone.outerHeight();
 		// Measure max rows height
-		$clone.attr( 'rows', this.maxRows ).css( 'height', 'auto' );
+		$clone.attr( 'rows', this.maxRows ).css( 'height', 'auto' ).val( '' );
 		maxInnerHeight = $clone.innerHeight();
+		// Difference between reported innerHeight and scrollHeight with no scrollbars present
+		// Equals 1 on Blink-based browsers and 0 everywhere else
+		measurementError = maxInnerHeight - $clone[0].scrollHeight;
 		$clone.remove();
-		idealHeight = Math.min( maxInnerHeight, scrollHeight );
+		idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
 		// Only apply inline height when expansion beyond natural height is needed
 		if ( idealHeight > innerHeight ) {
 			// Use the difference between the inner and outer height as a buffer
