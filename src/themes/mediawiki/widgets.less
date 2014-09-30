@@ -35,7 +35,11 @@
 
 .theme-oo-ui-buttonWidget () {}
 
-.theme-oo-ui-actionWidget () {}
+.theme-oo-ui-actionWidget () {
+	&.oo-ui-pendingElement-pending {
+		.oo-ui-background-image('@{oo-ui-default-image-path}/textures/pending.gif');
+	}
+}
 
 .theme-oo-ui-popupButtonWidget () {
 	&.oo-ui-buttonElement-frameless > .oo-ui-popupWidget {
@@ -178,6 +182,12 @@
 			outline: none;
 			border-color: #aaa;
 			box-shadow: inset 0.4em 0 0 0 #0274ff;
+		}
+	}
+
+	&.oo-ui-pendingElement-pending {
+		input, textarea {
+			.oo-ui-background-image('@{oo-ui-default-image-path}/textures/pending.gif');
 		}
 	}
 
