@@ -549,6 +549,7 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$body = this.$( '<div>' );
 	this.$foot = this.$( '<div>' );
 	this.$overlay = this.$( '<div>' );
+	this.$focusTrap = this.$( '<div>' ).prop( 'tabIndex', 0 );
 
 	// Events
 	this.$element.on( 'mousedown', OO.ui.bind( this.onMouseDown, this ) );
@@ -558,9 +559,18 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$body.addClass( 'oo-ui-window-body' );
 	this.$foot.addClass( 'oo-ui-window-foot' );
 	this.$overlay.addClass( 'oo-ui-window-overlay' );
-	this.$content.append( this.$head, this.$body, this.$foot, this.$overlay );
+	this.$focusTrap.addClass( 'oo-ui-window-focustrap' );
+	this.$content.append( this.$head, this.$body, this.$foot, this.$overlay, this.$focusTrap );
 
 	return this;
+};
+
+/**
+ * Called when someone tries to focus the hidden element at the end of the dialog.
+ * Sends focus back to the start of the dialog.
+ */
+OO.ui.Window.prototype.onFocusTrapFocused = function () {
+	this.$content.find( ':focusable:first' ).focus();
 };
 
 /**
@@ -605,6 +615,8 @@ OO.ui.Window.prototype.setup = function ( data ) {
 
 	this.$element.show();
 	this.visible = true;
+	this.focusTrapHandler = OO.ui.bind( this.onFocusTrapFocused, this );
+	this.$focusTrap.on( 'focus', this.focusTrapHandler );
 	this.getSetupProcess( data ).execute().done( function () {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.addClass( 'oo-ui-window-setup' ).width();
@@ -683,14 +695,15 @@ OO.ui.Window.prototype.teardown = function ( data ) {
 	var win = this,
 		deferred = $.Deferred();
 
-	this.getTeardownProcess( data ).execute().done( function () {
+	this.getTeardownProcess( data ).execute().done( OO.ui.bind( function () {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.removeClass( 'oo-ui-window-setup' ).width();
 		win.$content.removeClass( 'oo-ui-window-content-setup' ).width();
 		win.$element.hide();
+		this.$focusTrap.off( 'focus', this.focusTrapHandler );
 		win.visible = false;
 		deferred.resolve();
-	} );
+	}, this ) );
 
 	return deferred.promise();
 };
