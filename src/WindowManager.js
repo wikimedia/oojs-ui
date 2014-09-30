@@ -112,6 +112,13 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
  * @param {Object} data Window closing data
  */
 
+/**
+ * Window was resized.
+ *
+ * @event resize
+ * @param {OO.ui.Window} win Window that was resized
+ */
+
 /* Static Properties */
 
 /**
@@ -601,6 +608,8 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 	this.$element.toggleClass( 'oo-ui-windowManager-fullscreen', size === 'full' );
 	this.$element.toggleClass( 'oo-ui-windowManager-floating', size !== 'full' );
 	win.setDimensions( sizes[size] );
+
+	this.emit( 'resize', win );
 
 	return this;
 };

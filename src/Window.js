@@ -75,13 +75,6 @@ OO.ui.Window = function OoUiWindow( config ) {
 OO.inheritClass( OO.ui.Window, OO.ui.Element );
 OO.mixinClass( OO.ui.Window, OO.EventEmitter );
 
-/* Events */
-
-/**
- * @event resize
- * @param {string} size Symbolic size name, e.g. 'small', 'medium', 'large', 'full'
- */
-
 /* Static Properties */
 
 /**
