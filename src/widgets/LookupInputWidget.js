@@ -9,7 +9,7 @@
  * @constructor
  * @param {OO.ui.TextInputWidget} input Input widget
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$overlay=this.$( 'body' )] Overlay layer
+ * @cfg {jQuery} [$overlay=this.$( 'body, .oo-ui-window-overlay' ).last()] Overlay layer
  */
 OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	// Config intialization
@@ -17,7 +17,7 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 
 	// Properties
 	this.lookupInput = input;
-	this.$overlay = config.$overlay || this.$( 'body,.oo-ui-window-overlay' ).last();
+	this.$overlay = config.$overlay || this.$( 'body, .oo-ui-window-overlay' ).last();
 	this.lookupMenu = new OO.ui.TextInputMenuWidget( this, {
 		$: OO.ui.Element.getJQuery( this.$overlay ),
 		input: this.lookupInput,
