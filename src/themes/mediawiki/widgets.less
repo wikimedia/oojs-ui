@@ -38,19 +38,23 @@
 .theme-oo-ui-actionWidget () {}
 
 .theme-oo-ui-popupButtonWidget () {
-	> .oo-ui-popupWidget {
-		margin-left: -1em;
-	}
+	&.oo-ui-buttonElement-frameless > .oo-ui-popupWidget {
+		// Compensate for icon being inset
+		left: 1em;
 
-	&.oo-ui-buttonElement-frameless {
-		.oo-ui-popupWidget {
-			left: 0.125em;
+		> .oo-ui-popupWidget-popup {
+			// Provide space between left edge and anchor
+			left: -1em;
 		}
 	}
 
-	&.oo-ui-buttonElement-framed {
-		.oo-ui-popupWidget {
-			left: 1em;
+	&.oo-ui-buttonElement-framed > .oo-ui-popupWidget {
+		// Compensate for icon being inset
+		left: 1.75em;
+
+		> .oo-ui-popupWidget-popup {
+			// Provide space between left edge and anchor
+			left: -1.75em;
 		}
 	}
 }
@@ -362,14 +366,14 @@
 
 		.oo-ui-popupWidget-anchor:before {
 			bottom: -8px;
-			left: 11px;
+			left: -13px;
 			border-bottom-color: #888;
 			border-width: 13px;
 		}
 
 		.oo-ui-popupWidget-anchor:after {
 			bottom: -8px;
-			left: 12px;
+			left: -12px;
 			border-bottom-color: #fff;
 			border-width: 12px;
 		}
