@@ -179,14 +179,14 @@ OO.ui.ClippableElement.prototype.clip = function () {
 		clipHeight = desiredHeight < naturalHeight;
 
 	if ( clipWidth ) {
-		this.$clippable.css( { overflowX: 'auto', width: desiredWidth } );
+		this.$clippable.css( { overflowX: 'scroll', width: desiredWidth } );
 	} else {
 		this.$clippable.css( 'width', this.idealWidth || '' );
 		this.$clippable.width(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
 		this.$clippable.css( 'overflowX', '' );
 	}
 	if ( clipHeight ) {
-		this.$clippable.css( { overflowY: 'auto', height: desiredHeight } );
+		this.$clippable.css( { overflowY: 'scroll', height: desiredHeight } );
 	} else {
 		this.$clippable.css( 'height', this.idealHeight || '' );
 		this.$clippable.height(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
