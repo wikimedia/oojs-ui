@@ -30,8 +30,8 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 		// Parent method
 		classes = OO.ui.MediaWikiTheme.super.prototype.getElementClasses.call( this, element );
 
-	if ( element.isFramed && element.hasFlag ) {
-		if ( element.isFramed() ) {
+	if ( element.supports( [ 'isFramed', 'isDisabled', 'hasFlag' ] ) ) {
+		if ( element.isFramed() && !element.isDisabled() ) {
 			if (
 				element.hasFlag( 'primary' ) ||
 				element.hasFlag( 'constructive' ) ||

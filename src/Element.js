@@ -403,6 +403,26 @@ OO.ui.Element.offDOMEvent = function ( el, event, callback ) {
 /* Methods */
 
 /**
+ * Check if element supports one or more methods.
+ *
+ * @param {string|string[]} methods Method or list of methods to check
+ * @return boolean All methods are supported
+ */
+OO.ui.Element.prototype.supports = function ( methods ) {
+	var i, len,
+		support = 0;
+
+	methods = $.isArray( methods ) ? methods : [ methods ];
+	for ( i = 0, len = methods.length; i < len; i++ ) {
+		if ( $.isFunction( this[methods[i]] ) ) {
+			support++;
+		}
+	}
+
+	return methods.length === support;
+};
+
+/**
  * Update the theme-provided classes.
  *
  * @localdoc This is called in element mixins and widget classes anytime state changes.

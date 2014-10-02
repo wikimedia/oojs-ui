@@ -104,6 +104,18 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			),
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
+					label: 'Constructive',
+					icon: 'picture',
+					flags: [ 'constructive' ],
+					disabled: true
+				} ),
+				{
+					label: 'ButtonWidget (constructive, icon, disabled)\u200E',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ButtonWidget( {
 					label: 'Icon',
 					icon: 'picture'
 				} ),
