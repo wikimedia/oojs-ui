@@ -32,7 +32,7 @@
 		}
 
 		> .oo-ui-labelElement-label {
-			color: #ddd;
+			color: @disabled-text;
 		}
 	}
 
@@ -50,25 +50,25 @@
 
 		&.oo-ui-widget-enabled {
 			> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-				color: #757575;
+				color: @text;
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button > .oo-ui-labelElement-label,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-				color: #444444;
+				color: @active-text;
 			}
 
 			&.oo-ui-flaggedElement {
 				&-primary {
-					.mediawiki-frameless-button-colored(#598AD1, #015CCC);
+					.mediawiki-frameless-button-colored(@primary, @primary-selected);
 				}
 
 				&-constructive {
-					.mediawiki-frameless-button-colored(#00C697, #008C6D);
+					.mediawiki-frameless-button-colored(@constructive, @constructive-selected);
 				}
 
 				&-destructive {
-					.mediawiki-frameless-button-colored(#E81915, #A7170F);
+					.mediawiki-frameless-button-colored(@destructive, @destructive-selected);
 				}
 			}
 		}
@@ -111,16 +111,16 @@
 		}
 
 		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
-			color: #ddd;
-			background: #fff;
-			border: solid 1px #cdcdcd;
+			color: @disabled-text;
+			background: @background;
+			border: @disabled-button-border;
 		}
 
 		&.oo-ui-widget-enabled {
 			> .oo-ui-buttonElement-button {
-				color: #757575;
-				background-color: #fff;
-				border: solid 1px #cdcdcd;
+				color: @text;
+				background-color: @background;
+				border: @disabled-button-border;
 
 				&:hover,
 				&:focus {
@@ -138,15 +138,15 @@
 
 			&.oo-ui-flaggedElement {
 				&-primary {
-					.mediawiki-framed-button-colored(#0274ff, #015ccc);
+					.mediawiki-framed-button-colored(@primary-fill, @primary-fill-selected);
 				}
 
 				&-constructive {
-					.mediawiki-framed-button-colored(#00Af89, #008c6d);
+					.mediawiki-framed-button-colored(@constructive-fill, @constructive-fill-selected);
 				}
 
 				&-destructive {
-					.mediawiki-framed-button-colored(#d11d13, #a7170f);
+					.mediawiki-framed-button-colored(@destructive-fill, @destructive-fill-selected);
 				}
 			}
 		}
@@ -179,7 +179,7 @@
 .mediawiki-framed-button-colored( @neutral, @active ) {
 	> .oo-ui-buttonElement-button {
 		text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
-		color: #fff;
+		color: @background;
 		background-color: @neutral;
 		border-color: @neutral;
 
@@ -214,4 +214,3 @@
 .theme-oo-ui-popupElement () {}
 
 .theme-oo-ui-titledElement () {}
-

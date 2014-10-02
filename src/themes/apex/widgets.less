@@ -621,13 +621,13 @@
 
 .theme-oo-ui-progressBarWidget () {
 	width: 20em;
-	border: solid 1px #a6cee1;
+	border: solid 1px @primary-border;
 	border-radius: 0.25em;
 	&-bar {
 		height: 1em;
-		border-right: solid 1px #a6cee1;
+		border-right: solid 1px @primary-border;
 		.oo-ui-transition(width 200ms);
-		.oo-ui-vertical-gradient(#eaf4fa, #b0d9ee);
+		.oo-ui-vertical-gradient(@primary-gradient-start, @primary-gradient-end);
 	}
 	&.oo-ui-widget-disabled {
 		opacity: 0.6;
