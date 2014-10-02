@@ -9,7 +9,7 @@
  * @constructor
  * @param {OO.ui.TextInputWidget} input Input widget
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$overlay=this.$( 'body, .oo-ui-window-overlay' ).last()] Overlay layer
+ * @cfg {jQuery} [$overlay] Overlay layer; defaults to the current window's overlay.
  */
 OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	// Config intialization
@@ -17,7 +17,10 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 
 	// Properties
 	this.lookupInput = input;
-	this.$overlay = config.$overlay || this.$( 'body, .oo-ui-window-overlay' ).last();
+	this.$overlay = config.$overlay || ( this.$.$iframe || this.$element ).closest( '.oo-ui-window' ).children( '.oo-ui-window-overlay' );
+	if ( this.$overlay.length === 0 ) {
+		this.$overlay = this.$( 'body' );
+	}
 	this.lookupMenu = new OO.ui.TextInputMenuWidget( this, {
 		$: OO.ui.Element.getJQuery( this.$overlay ),
 		input: this.lookupInput,
