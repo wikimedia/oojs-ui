@@ -88,7 +88,8 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 			indicator: 'down',
 			label: 'List',
 			icon: 'picture',
-			include: [ { group: 'listTools' } ]
+			include: [ { group: 'listTools' } ],
+			allowCollapse: [ 'listTool4', 'listTool5', 'listTool6' ]
 		},
 		{
 			type: 'disabledList',

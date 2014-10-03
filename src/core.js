@@ -97,6 +97,10 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 		'ooui-outline-control-remove': 'Remove item',
 		// Label for the toolbar group that contains a list of all other available tools
 		'ooui-toolbar-more': 'More',
+		// Label for the fake tool that expands the full list of tools in a toolbar group
+		'ooui-toolgroup-expand': 'More',
+		// Label for the fake tool that collapses the full list of tools in a toolbar group
+		'ooui-toolgroup-collapse': 'Fewer',
 		// Default label for the accept button of a confirmation dialog
 		'ooui-dialog-message-accept': 'OK',
 		// Default label for the reject button of a confirmation dialog
