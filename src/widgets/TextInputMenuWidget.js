@@ -2,7 +2,7 @@
  * Menu for a text input widget.
  *
  * This menu is specially designed to be positioned beneath the text input widget. Even if the input
- * is in a different frame, the menu's position is automatically calulated and maintained when the
+ * is in a different frame, the menu's position is automatically calculated and maintained when the
  * menu is toggled or the window is resized.
  *
  * @class
@@ -84,7 +84,7 @@ OO.ui.TextInputMenuWidget.prototype.position = function () {
 	// Position under input
 	dimensions.top += $container.height();
 
-	// Compensate for frame position if in a differnt frame
+	// Compensate for frame position if in a different frame
 	if ( this.input.$.$iframe && this.input.$.context !== this.$element[0].ownerDocument ) {
 		frameOffset = OO.ui.Element.getRelativePosition(
 			this.input.$.$iframe, this.$element.offsetParent()
@@ -96,7 +96,7 @@ OO.ui.TextInputMenuWidget.prototype.position = function () {
 		if ( this.$element.css( 'direction' ) === 'rtl' ) {
 			dimensions.right = this.$element.parent().position().left -
 				$container.width() - dimensions.left;
-			// Erase the value for 'left':
+			// Erase the value for 'left'
 			delete dimensions.left;
 		}
 	}
