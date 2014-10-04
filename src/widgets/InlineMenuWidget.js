@@ -4,7 +4,7 @@
  * Inline menus provide a control for accessing a menu and compose a menu within the widget, which
  * can be accessed using the #getMenu method.
  *
- * Use with OO.ui.MenuOptionWidget.
+ * Use with OO.ui.MenuItemWidget.
  *
  * @class
  * @extends OO.ui.Widget
