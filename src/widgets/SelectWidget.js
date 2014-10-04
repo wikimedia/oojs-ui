@@ -1,7 +1,7 @@
 /**
  * Generic selection of options.
  *
- * Items can contain any rendering, and are uniquely identified by a has of thier data. Any widget
+ * Items can contain any rendering, and are uniquely identified by a hash of their data. Any widget
  * that provides options, from which the user must choose one, should be built on this class.
  *
  * Use together with OO.ui.OptionWidget.
