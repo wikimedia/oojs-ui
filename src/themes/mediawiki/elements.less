@@ -10,7 +10,13 @@
 
 		> .oo-ui-indicatorElement-indicator {
 			margin-right: -0.75em;
+			margin-left: -0.75em;
 		}
+	}
+
+	&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+		margin-left: 0;
 	}
 
 	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
@@ -31,8 +37,15 @@
 	}
 
 	&-frameless {
-		> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-			margin-left: 0.25em;
+		> .oo-ui-buttonElement-button {
+			&:hover,
+			&:focus {
+				outline: none;
+			}
+
+			> .oo-ui-labelElement-label {
+				margin-left: 0.25em;
+			}
 		}
 
 		&.oo-ui-widget-enabled {
@@ -66,6 +79,11 @@
 			margin: 0.1em 0;
 			padding: 0.3em 1.2em;
 			border-radius: 0.3em;
+
+			&:hover,
+			&:focus {
+				outline: none;
+			}
 
 			.oo-ui-transition(
 				background 0.1s ease-in-out,
@@ -109,6 +127,7 @@
 				}
 			}
 
+			& > .oo-ui-buttonElement-button:active,
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 				background-color: #d0d0d0;
@@ -146,9 +165,12 @@
 		}
 	}
 
-	&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button > .oo-ui-labelElement-label,
-	&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-		color: @active;
+	&.oo-ui-widget-enabled {
+		& > .oo-ui-buttonElement-button:active > .oo-ui-labelElement-label,
+		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button > .oo-ui-labelElement-label,
+		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			color: @active;
+		}
 	}
 }
 
@@ -166,9 +188,12 @@
 		}
 	}
 
-	&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
-	&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-		background-color: @active;
+	&.oo-ui-widget-enabled {
+		.oo-ui-buttonElement-button:active,
+		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
+		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+			background-color: @active;
+		}
 	}
 }
 
