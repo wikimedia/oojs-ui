@@ -131,7 +131,7 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 				group.type = 'list';
 			}
 			if ( group.label === undefined ) {
-				group.label = 'ooui-toolbar-more';
+				group.label = OO.ui.msg( 'ooui-toolbar-more' );
 			}
 		}
 		// Check type has been registered

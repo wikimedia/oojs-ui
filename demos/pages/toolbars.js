@@ -103,6 +103,10 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 			label: 'Auto-disabling list',
 			icon: 'picture',
 			include: [ { group: 'autoDisableListTools' } ]
+		},
+		{
+			label: 'Catch-all',
+			include: '*'
 		}
 	] );
 	// Toolbar with action buttons
@@ -180,9 +184,15 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 
 		disabledMenuTools: [
 			[ 'menuToolInDisabled', 'picture', 'Basic tool' ]
+		],
+
+		unusedStuff: [
+			[ 'unusedTool', 'help', 'This tool is not explicitly used anywhere' ],
+			[ 'unusedTool1', 'help', 'And neither is this one' ]
 		]
 	};
 
+	createToolGroup( 0, 'unusedStuff' );
 	createToolGroup( 0, 'barTools' );
 	createToolGroup( 0, 'disabledBarTools' );
 	createToolGroup( 0, 'listTools' );
