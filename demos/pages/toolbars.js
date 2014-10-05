@@ -173,8 +173,8 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 			[ 'listToolInDisabled', 'picture', 'Basic tool in disabled list' ]
 		],
 
-		allDisabledListTools: [
-			[ 'allDisabledListTool', 'picture', 'Click to disable this tool', null, function () { this.setDisabled( true ); } ]
+		autoDisableListTools: [
+			[ 'autoDisableListTool', 'picture', 'Click to disable this tool', null, function () { this.setDisabled( true ); } ]
 		],
 
 		menuTools: [
@@ -197,7 +197,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 	createToolGroup( 0, 'disabledBarTools' );
 	createToolGroup( 0, 'listTools' );
 	createToolGroup( 0, 'disabledListTools' );
-	createToolGroup( 0, 'allDisabledListTools' );
+	createToolGroup( 0, 'autoDisableListTools' );
 	createToolGroup( 1, 'menuTools' );
 	createToolGroup( 1, 'disabledMenuTools' );
 	createToolGroup( 2, 'listTools' );
