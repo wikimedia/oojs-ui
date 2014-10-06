@@ -8,6 +8,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {Object} [menu] Configuration options to pass to menu widget
  * @cfg {Object} [input] Configuration options to pass to input widget
+ * @cfg {jQuery} [$overlay] Overlay layer; defaults to the current window's overlay.
  */
 OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 	// Configuration initialization
@@ -17,11 +18,15 @@ OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 	OO.ui.ComboBoxWidget.super.call( this, config );
 
 	// Properties
+	this.$overlay = config.$overlay || ( this.$.$iframe || this.$element ).closest( '.oo-ui-window' ).children( '.oo-ui-window-overlay' );
+	if ( this.$overlay.length === 0 ) {
+		this.$overlay = this.$( 'body' );
+	}
 	this.input = new OO.ui.TextInputWidget( $.extend(
 		{ $: this.$, indicator: 'down', disabled: this.isDisabled() },
 		config.input
 	) );
-	this.menu = new OO.ui.MenuWidget( $.extend(
+	this.menu = new OO.ui.TextInputMenuWidget( this.input, $.extend(
 		{ $: this.$, widget: this, input: this.input, disabled: this.isDisabled() },
 		config.menu
 	) );
@@ -39,10 +44,8 @@ OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 	} );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-comboBoxWidget' ).append(
-		this.input.$element,
-		this.menu.$element
-	);
+	this.$element.addClass( 'oo-ui-comboBoxWidget' ).append( this.input.$element );
+	this.$overlay.append( this.menu.$element );
 	this.onMenuItemsChange();
 };
 
