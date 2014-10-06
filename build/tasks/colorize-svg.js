@@ -22,18 +22,19 @@ module.exports = function ( grunt ) {
 		function () {
 			var originals = 0,
 				data = this.data,
+				options = this.options(),
 				source = new Source(
-					data.files.src,
-					data.options.images,
-					data.options.variants,
-					data.options.css
+					data.srcDir,
+					options.images,
+					options.variants,
+					options.css
 				),
 				imageLists = source.getImageLists();
 
 			return Q.all( Object.keys( imageLists ).map( function ( type ) {
 				originals += imageLists[type].getLength();
 				return imageLists[type].generate(
-					new Destination( path.join( data.files.dest, type ) )
+					new Destination( path.join( data.destDir, type ) )
 				);
 			} ) ).then( function ( sums ) {
 				grunt.log.writeln(
@@ -55,7 +56,7 @@ module.exports = function ( grunt ) {
 	 * @class
 	 *
 	 * @constructor
-	 * @param {string} path Path to source images
+	 * @param {string} path Directory containing source images
 	 * @param {Object} images Lists of image configurations, keyed by type
 	 * @param {Object} variants List of variant configurations, keyed by type and variant name
 	 * @param {Object} css List of CSS class configurations, keyed by type
@@ -68,7 +69,7 @@ module.exports = function ( grunt ) {
 	}
 
 	/**
-	 * Get the path to source images.
+	 * Get the path to source images directory.
 	 *
 	 * @return {string} Path
 	 */
@@ -110,7 +111,7 @@ module.exports = function ( grunt ) {
 	}
 
 	/**
-	 * Get image destination path.
+	 * Get image destination directory.
 	 *
 	 * @return {string} Destination path
 	 */
@@ -119,7 +120,7 @@ module.exports = function ( grunt ) {
 	};
 
 	/**
-	 * Get image destination path.
+	 * Get path to file of generated Less stylesheet.
 	 *
 	 * @return {string} Destination path
 	 */
@@ -391,7 +392,7 @@ module.exports = function ( grunt ) {
 	 * Get variant by name.
 	 *
 	 * @param {string} name Variant name
-	 * @return {Variant|null} Variant with matching name, or null of none exists.
+	 * @return {Variant|undefined} Variant with matching name, or undefined of none exists.
 	 */
 	VariantList.prototype.getVariant = function ( name ) {
 		return this.list[name];

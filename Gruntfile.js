@@ -42,7 +42,7 @@ module.exports = function ( grunt ) {
 		var distFile, target, module;
 		// We compile LESS copied to a different directory
 		function fixLessDirectory( fileName ) {
-			return fileName.replace( /^src\//, 'dist-temp/' );
+			return fileName.replace( /^src\//, 'dist/tmp/' );
 		}
 		for ( module in styleTargets ) {
 			for ( target in lessFiles ) {
@@ -84,20 +84,15 @@ module.exports = function ( grunt ) {
 
 		// Build
 		clean: {
-			dist: 'dist/*',
-			temp: 'dist-temp/*'
+			build: 'dist/*',
+			tmp: 'dist/tmp'
 		},
 		fileExists: {
-			code: modules['oojs-ui'].scripts,
-			apex: [].concat(
+			src: modules['oojs-ui'].scripts.concat(
 				originalLessFiles['dist/oojs-ui-apex.css'],
-				originalLessFiles['dist/oojs-ui-apex.svg.css']
-			),
-			minerva: [].concat(
+				originalLessFiles['dist/oojs-ui-apex.svg.css'],
 				originalLessFiles['dist/oojs-ui-minerva.css'],
-				originalLessFiles['dist/oojs-ui-minerva.svg.css']
-			),
-			mediawiki: [].concat(
+				originalLessFiles['dist/oojs-ui-minerva.svg.css'],
 				originalLessFiles['dist/oojs-ui-mediawiki.css'],
 				originalLessFiles['dist/oojs-ui-mediawiki.svg.css']
 			)
@@ -128,14 +123,10 @@ module.exports = function ( grunt ) {
 				report: 'gzip'
 			},
 			js: {
-				files: [ {
-					expand: true,
-					cwd: 'dist/',
-					src: '*.js',
-					dest: 'dist/',
-					ext: '.min.js',
-					extDot: 'last'
-				} ]
+				expand: true,
+				src: 'dist/*.js',
+				ext: '.min.js',
+				extDot: 'last'
 			}
 		},
 
@@ -168,25 +159,9 @@ module.exports = function ( grunt ) {
 			}
 		},
 		csscomb: {
-			core: {
-				files: {
-					'dist/oojs-ui.css': [ 'dist/oojs-ui.css' ],
-					'dist/oojs-ui.rtl.css': [ 'dist/oojs-ui.rtl.css' ],
-					'dist/oojs-ui.svg.css': [ 'dist/oojs-ui.svg.css' ],
-					'dist/oojs-ui.svg.rtl.css': [ 'dist/oojs-ui.svg.rtl.css' ]
-				}
-			},
-			apex: {
-				files: {
-					'dist/oojs-ui-apex.css': [ 'dist/oojs-ui-apex.css' ],
-					'dist/oojs-ui-apex.rtl.css': [ 'dist/oojs-ui-apex.rtl.css' ]
-				}
-			},
-			minerva: {
-				files: {
-					'dist/oojs-ui-minerva.css': [ 'dist/oojs-ui-minerva.css' ],
-					'dist/oojs-ui-minerva.rtl.css': [ 'dist/oojs-ui-minerva.rtl.css' ]
-				}
+			dist: {
+				expand: true,
+				src: 'dist/*.css'
 			}
 		},
 		copy: {
@@ -211,56 +186,45 @@ module.exports = function ( grunt ) {
 			},
 			lessTemp: {
 				src: 'src/**/*.less',
-				strip: 'src',
-				dest: 'dist-temp'
+				strip: 'src/',
+				dest: 'dist/tmp'
 			},
 			svg: {
-				src: 'dist-temp/**/*.svg',
-				strip: 'dist-temp',
+				src: 'dist/tmp/**/*.svg',
+				strip: 'dist/tmp/',
 				dest: 'dist'
 			}
 		},
 		colorizeSvg: {
-			imagesApex: {
+			apex: {
 				options: merge(
 					grunt.file.readJSON( 'build/images.json' ),
 					grunt.file.readJSON( 'src/themes/apex/images.json' )
 				),
-				files: {
-					src: 'src/themes/apex/images',
-					dest: 'dist-temp/themes/apex/images'
-				}
+				srcDir: 'src/themes/apex/images',
+				destDir: 'dist/tmp/themes/apex/images'
 			},
-			imagesMinerva: {
+			minerva: {
 				options: merge(
 					grunt.file.readJSON( 'build/images.json' ),
 					grunt.file.readJSON( 'src/themes/minerva/images.json' )
 				),
-				files: {
-					src: 'src/themes/minerva/images',
-					dest: 'dist-temp/themes/minerva/images'
-				}
+				srcDir: 'src/themes/minerva/images',
+				destDir: 'dist/tmp/themes/minerva/images'
 			},
-			imagesMediaWiki: {
+			mediawiki: {
 				options: merge(
 					grunt.file.readJSON( 'build/images.json' ),
 					grunt.file.readJSON( 'src/themes/mediawiki/images.json' )
 				),
-				files: {
-					src: 'src/themes/mediawiki/images',
-					dest: 'dist-temp/themes/mediawiki/images'
-				}
+				srcDir: 'src/themes/mediawiki/images',
+				destDir: 'dist/tmp/themes/mediawiki/images'
 			}
 		},
 		svg2png: {
-			images: {
-				files: [
-					{
-						cwd: 'dist/',
-						src: '**/*.svg',
-						dest: 'dist/'
-					}
-				]
+			dist: {
+				src: 'dist/{images,themes}/**/*.svg',
+				dest: 'dist/'
 			}
 		},
 		cssmin: {
@@ -271,14 +235,10 @@ module.exports = function ( grunt ) {
 				report: 'gzip'
 			},
 			dist: {
-				files: [ {
-					expand: true,
-					cwd: 'dist/',
-					src: '*.css',
-					dest: 'dist/',
-					ext: '.min.css',
-					extDot: 'last'
-				} ]
+				expand: true,
+				src: 'dist/*.css',
+				ext: '.min.css',
+				extDot: 'last'
 			}
 		},
 
@@ -359,7 +319,7 @@ module.exports = function ( grunt ) {
 		'concat:css', 'cssjanus', 'csscomb', 'cssmin'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
-	grunt.registerTask( 'build', [ 'clean', 'fileExists', 'build-code', 'build-styling', 'build-i18n' ] );
+	grunt.registerTask( 'build', [ 'clean:build', 'fileExists', 'build-code', 'build-styling', 'build-i18n', 'clean:tmp' ] );
 
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 

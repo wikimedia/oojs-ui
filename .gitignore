@@ -1,5 +1,4 @@
 /dist/*
-/dist-temp/*
 /docs
 node_modules
 npm-debug.log
