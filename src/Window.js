@@ -60,12 +60,14 @@ OO.ui.Window = function OoUiWindow( config ) {
 	this.loading = null;
 	this.size = config.size || this.constructor.static.size;
 	this.$frame = this.$( '<div>' );
+	this.$overlay = this.$( '<div>' );
 
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-window' )
-		.append( this.$frame );
+		.append( this.$frame, this.$overlay );
 	this.$frame.addClass( 'oo-ui-window-frame' );
+	this.$overlay.addClass( 'oo-ui-window-overlay' );
 
 	// NOTE: Additional intitialization will occur when #setManager is called
 };
@@ -541,7 +543,6 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$head = this.$( '<div>' );
 	this.$body = this.$( '<div>' );
 	this.$foot = this.$( '<div>' );
-	this.$overlay = this.$( '<div>' );
 	this.$focusTrap = this.$( '<div>' ).prop( 'tabIndex', 0 );
 
 	// Events
@@ -551,9 +552,8 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$head.addClass( 'oo-ui-window-head' );
 	this.$body.addClass( 'oo-ui-window-body' );
 	this.$foot.addClass( 'oo-ui-window-foot' );
-	this.$overlay.addClass( 'oo-ui-window-overlay' );
 	this.$focusTrap.addClass( 'oo-ui-window-focustrap' );
-	this.$content.append( this.$head, this.$body, this.$foot, this.$overlay, this.$focusTrap );
+	this.$content.append( this.$head, this.$body, this.$foot, this.$focusTrap );
 
 	return this;
 };
