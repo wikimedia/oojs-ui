@@ -1,11 +1,20 @@
-QUnit.module( 'Element' );
+QUnit.module( 'Element', {
+	setup: function () {
+		this.fixture = document.createElement( 'div' );
+		document.body.appendChild( this.fixture );
+	},
+	teardown: function () {
+		this.fixture.parentNode.removeChild( this.fixture );
+		this.fixture = null;
+	}
+} );
 
 QUnit.test( 'getDocument', 10, function ( assert ) {
 	var frameDoc, frameEl, frameDiv,
-		$el = $( '#qunit-fixture' ),
-		$div = $( '<div>' ),
-		el = document.getElementById( 'qunit-fixture' ),
+		el = this.fixture,
 		div = document.createElement( 'div' ),
+		$el = $( this.fixture ),
+		$div = $( '<div>' ),
 		win = window,
 		doc = document,
 		frame = doc.createElement( 'iframe' );
