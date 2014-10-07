@@ -11,15 +11,16 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
-	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-csscomb' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
+	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadTasks( 'build/tasks' );
+	grunt.renameTask( 'watch', 'runwatch' );
 
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
 		styleTargets = {
@@ -273,20 +274,50 @@ module.exports = function ( grunt ) {
 		},
 
 		// Test
-		qunit: {
-			all: 'tests/index.html'
+		karma: {
+			options: {
+				frameworks: [ 'qunit' ],
+				files: [
+					'lib/jquery.js',
+					'lib/oojs.js',
+					'dist/oojs-ui.js',
+					'dist/oojs-ui-apex.js',
+					'tests/**/*.test.js'
+				],
+				reporters: [ 'dots' ],
+				singleRun: true,
+				autoWatch: false
+			},
+			main: {
+				browsers: [ 'PhantomJS' ],
+				preprocessors: {
+					'dist/*.js': [ 'coverage' ]
+				},
+				reporters: [ 'dots', 'coverage' ],
+				coverageReporter: { reporters: [
+					{ type: 'html', dir: 'dist/coverage/' },
+					{ type: 'text-summary', dir: 'dist/coverage/' }
+				] }
+			},
+			local: {
+				browsers: [ 'PhantomJS', 'Chrome', 'Firefox' ]
+			},
+			bg: {
+				singleRun: false,
+				background: true,
+				browsers: [ 'PhantomJS', 'Chrome', 'Firefox' ]
+			}
 		},
 
 		// Development
-		watch: {
+		runwatch: {
 			files: [
 				'<%= jshint.dev %>',
 				'<%= csslint.all %>',
 				'{demos,src}/**/*.less',
-				'<%= qunit.all %>',
 				'.{csslintrc,jscsrc,jshintignore,jshintrc}'
 			],
-			tasks: 'test'
+			tasks: [ '_test', 'karma:bg:run' ]
 		}
 	} );
 
@@ -324,7 +355,10 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'banana' ] );
-	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'lint', 'qunit' ] );
+	grunt.registerTask( '_test', [ 'pre-test', 'git-build', 'lint' ] );
+	grunt.registerTask( 'test', [ '_test', 'karma:main' ] );
+
+	grunt.registerTask( 'watch', [ 'karma:bg:start', 'runwatch' ] );
 
 	grunt.registerTask( 'default', 'test' );
 };
