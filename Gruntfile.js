@@ -20,7 +20,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadTasks( 'build/tasks' );
-	grunt.renameTask( 'watch', 'runwatch' );
 
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
 		styleTargets = {
@@ -289,7 +288,7 @@ module.exports = function ( grunt ) {
 				autoWatch: false
 			},
 			main: {
-				browsers: [ 'PhantomJS' ],
+				browsers: [ 'Chrome' ],
 				preprocessors: {
 					'dist/*.js': [ 'coverage' ]
 				},
@@ -299,25 +298,20 @@ module.exports = function ( grunt ) {
 					{ type: 'text-summary', dir: 'dist/coverage/' }
 				] }
 			},
-			local: {
-				browsers: [ 'PhantomJS', 'Chrome', 'Firefox' ]
-			},
-			bg: {
-				singleRun: false,
-				background: true,
-				browsers: [ 'PhantomJS', 'Chrome', 'Firefox' ]
+			other: {
+				browsers: [ 'Firefox' ]
 			}
 		},
 
 		// Development
-		runwatch: {
+		watch: {
 			files: [
 				'<%= jshint.dev %>',
 				'<%= csslint.all %>',
 				'{demos,src}/**/*.less',
 				'.{csslintrc,jscsrc,jshintignore,jshintrc}'
 			],
-			tasks: [ '_test', 'karma:bg:run' ]
+			tasks: '_test'
 		}
 	} );
 
@@ -355,10 +349,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'banana' ] );
-	grunt.registerTask( '_test', [ 'pre-test', 'git-build', 'lint' ] );
-	grunt.registerTask( 'test', [ '_test', 'karma:main' ] );
-
-	grunt.registerTask( 'watch', [ 'karma:bg:start', 'runwatch' ] );
+	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'lint', 'karma:main', 'karma:other' ] );
 
 	grunt.registerTask( 'default', 'test' );
 };
