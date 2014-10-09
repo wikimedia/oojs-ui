@@ -24,7 +24,6 @@ module.exports = function ( grunt ) {
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
 		styleTargets = {
 			'oojs-ui-apex': modules['oojs-ui-apex'].styles,
-			'oojs-ui-minerva': modules['oojs-ui-minerva'].styles,
 			'oojs-ui-mediawiki': modules['oojs-ui-mediawiki'].styles
 		},
 		lessFiles = {
@@ -91,8 +90,6 @@ module.exports = function ( grunt ) {
 			src: modules['oojs-ui'].scripts.concat(
 				originalLessFiles['dist/oojs-ui-apex.css'],
 				originalLessFiles['dist/oojs-ui-apex.svg.css'],
-				originalLessFiles['dist/oojs-ui-minerva.css'],
-				originalLessFiles['dist/oojs-ui-minerva.svg.css'],
 				originalLessFiles['dist/oojs-ui-mediawiki.css'],
 				originalLessFiles['dist/oojs-ui-mediawiki.svg.css']
 			)
@@ -105,7 +102,6 @@ module.exports = function ( grunt ) {
 				files: {
 					'dist/oojs-ui.js': modules['oojs-ui'].scripts,
 					'dist/oojs-ui-apex.js': modules['oojs-ui-apex'].scripts,
-					'dist/oojs-ui-minerva.js': modules['oojs-ui-minerva'].scripts,
 					'dist/oojs-ui-mediawiki.js': modules['oojs-ui-mediawiki'].scripts
 				}
 			},
@@ -170,11 +166,6 @@ module.exports = function ( grunt ) {
 				strip: 'src/themes/apex/images',
 				dest: 'dist/themes/apex/images'
 			},
-			imagesMinerva: {
-				src: 'src/themes/minerva/images/**/*.{png,gif}',
-				strip: 'src/themes/minerva/images',
-				dest: 'dist/themes/minerva/images'
-			},
 			imagesMediaWiki: {
 				src: 'src/themes/mediawiki/images/**/*.{png,gif}',
 				strip: 'src/themes/mediawiki/images',
@@ -203,14 +194,6 @@ module.exports = function ( grunt ) {
 				),
 				srcDir: 'src/themes/apex/images',
 				destDir: 'dist/tmp/themes/apex/images'
-			},
-			minerva: {
-				options: merge(
-					grunt.file.readJSON( 'build/images.json' ),
-					grunt.file.readJSON( 'src/themes/minerva/images.json' )
-				),
-				srcDir: 'src/themes/minerva/images',
-				destDir: 'dist/tmp/themes/minerva/images'
 			},
 			mediawiki: {
 				options: merge(
@@ -340,7 +323,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build-code', [ 'concat:js', 'uglify' ] );
 	grunt.registerTask( 'build-styling', [
 		'copy:lessTemp', 'colorizeSvg', 'less', 'copy:svg',
-		'copy:imagesApex', 'copy:imagesMinerva', 'copy:imagesMediaWiki', 'svg2png',
+		'copy:imagesApex', 'copy:imagesMediaWiki', 'svg2png',
 		'concat:css', 'cssjanus', 'csscomb', 'cssmin'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
