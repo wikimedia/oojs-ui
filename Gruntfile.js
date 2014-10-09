@@ -311,7 +311,7 @@ module.exports = function ( grunt ) {
 				'{demos,src}/**/*.less',
 				'.{csslintrc,jscsrc,jshintignore,jshintrc}'
 			],
-			tasks: '_test'
+			tasks: 'build'
 		}
 	} );
 
