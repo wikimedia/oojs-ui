@@ -184,8 +184,10 @@ OO.ui.WindowManager.prototype.afterWindowResize = function () {
  *
  * @param {jQuery.Event} e Mouse wheel event
  */
-OO.ui.WindowManager.prototype.onWindowMouseWheel = function () {
-	return false;
+OO.ui.WindowManager.prototype.onWindowMouseWheel = function ( e ) {
+	// Kill all events in the parent window if the child window is isolated,
+	// or if the event didn't come from the child window
+	return !( this.shouldIsolate() || !$.contains( this.getCurrentWindow().$frame[0], e.target ) );
 };
 
 /**
@@ -203,8 +205,9 @@ OO.ui.WindowManager.prototype.onDocumentKeyDown = function ( e ) {
 		case OO.ui.Keys.UP:
 		case OO.ui.Keys.RIGHT:
 		case OO.ui.Keys.DOWN:
-			// Prevent any key events that might cause scrolling
-			return false;
+			// Kill all events in the parent window if the child window is isolated,
+			// or if the event didn't come from the child window
+			return !( this.shouldIsolate() || !$.contains( this.getCurrentWindow().$frame[0], e.target ) );
 	}
 };
 
