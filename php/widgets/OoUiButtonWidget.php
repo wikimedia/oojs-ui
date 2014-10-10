@@ -15,6 +15,7 @@ class OoUiButtonWidget extends OoUiWidget {
 		$this->mixin( new OoUiLabelElement( $this, $config ) );
 		$this->mixin( new OoUiIconElement( $this, $config ) );
 		$this->mixin( new OoUiIndicatorElement( $this, $config ) );
+		$this->mixin( new OoUiTitledElement( $this, $config ) );
 		$this->mixin( new OoUiFlaggedElement( $this, $config ) );
 
 		// Initialization

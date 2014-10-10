@@ -18,6 +18,7 @@
 				require_once '../php/elements/OoUiLabelElement.php';
 				require_once '../php/elements/OoUiIconElement.php';
 				require_once '../php/elements/OoUiIndicatorElement.php';
+				require_once '../php/elements/OoUiTitledElement.php';
 				require_once '../php/elements/OoUiFlaggedElement.php';
 				require_once '../php/widgets/OoUiButtonWidget.php';
 				require_once '../php/OoUiTheme.php';
@@ -26,6 +27,7 @@
 				new OoUiMediaWikiTheme();
 			?>
 
+			<h1>Regular buttons</h1>
 			<table>
 				<tbody>
 					<?php
@@ -56,6 +58,7 @@
 							),
 							array(
 								'icon' => 'picture',
+								'title' => "Title text",
 							),
 							array(
 								'indicator' => 'down',
@@ -70,6 +73,7 @@
 							),
 							array(
 								'icon' => 'picture',
+								'title' => "Title text",
 								'disabled' => true,
 							),
 							array(
@@ -91,6 +95,18 @@
 					?>
 				</tbody>
 			</table>
+
+			<h1>Random stuff</h1>
+			<?php
+				class OoUiButtonWidgetTitled extends OoUiButtonWidget {
+					public static $title = "Title from a static property";
+				}
+
+				echo new OoUiButtonWidgetTitled( array(
+					'label' => 'Titled button',
+				) );
+
+			?>
 		</div>
 	</div>
 </body>
