@@ -24,7 +24,7 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 
 	// Events
 	if ( this.input instanceof OO.ui.InputWidget ) {
-		this.$element.on( 'click', OO.ui.bind( this.onClick, this ) );
+		this.$element.on( 'click', this.onClick.bind( this ) );
 	}
 
 	// Initialization

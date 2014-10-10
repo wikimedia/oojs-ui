@@ -36,7 +36,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	// Events
 	this.$element
 		.add( this.$bar ).add( this.$group ).add( this.$actions )
-		.on( 'mousedown touchstart', OO.ui.bind( this.onPointerDown, this ) );
+		.on( 'mousedown touchstart', this.onPointerDown.bind( this ) );
 
 	// Initialization
 	this.$group.addClass( 'oo-ui-toolbar-tools' );

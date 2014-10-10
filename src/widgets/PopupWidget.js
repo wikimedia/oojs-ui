@@ -44,7 +44,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.height = config.height !== undefined ? config.height : null;
 	this.align = config.align || 'center';
 	this.closeButton = new OO.ui.ButtonWidget( { $: this.$, framed: false, icon: 'close' } );
-	this.onMouseDownHandler = OO.ui.bind( this.onMouseDown, this );
+	this.onMouseDownHandler = this.onMouseDown.bind( this );
 
 	// Events
 	this.closeButton.connect( this, { click: 'onCloseButtonClick' } );

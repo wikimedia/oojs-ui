@@ -38,12 +38,12 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 
 	// Events
 	this.$input.on( {
-		keypress: OO.ui.bind( this.onKeyPress, this ),
-		blur: OO.ui.bind( this.setValidityFlag, this )
+		keypress: this.onKeyPress.bind( this ),
+		blur: this.setValidityFlag.bind( this )
 	} );
-	this.$element.on( 'DOMNodeInsertedIntoDocument', OO.ui.bind( this.onElementAttach, this ) );
-	this.$icon.on( 'mousedown', OO.ui.bind( this.onIconMouseDown, this ) );
-	this.$indicator.on( 'mousedown', OO.ui.bind( this.onIndicatorMouseDown, this ) );
+	this.$element.on( 'DOMNodeInsertedIntoDocument', this.onElementAttach.bind( this ) );
+	this.$icon.on( 'mousedown', this.onIconMouseDown.bind( this ) );
+	this.$indicator.on( 'mousedown', this.onIndicatorMouseDown.bind( this ) );
 
 	// Initialization
 	this.$element
@@ -261,9 +261,9 @@ OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
  * Sets the 'invalid' flag appropriately.
  */
 OO.ui.TextInputWidget.prototype.setValidityFlag = function () {
-	this.isValid().done( OO.ui.bind( function ( valid ) {
+	this.isValid().done( function ( valid ) {
 		this.setFlags( { invalid: !valid } );
-	}, this ) );
+	}.bind( this ) );
 };
 
 /**

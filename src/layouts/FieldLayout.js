@@ -55,7 +55,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 
 	// Events
 	if ( this.field instanceof OO.ui.InputWidget ) {
-		this.$label.on( 'click', OO.ui.bind( this.onLabelClick, this ) );
+		this.$label.on( 'click', this.onLabelClick.bind( this ) );
 	}
 	this.field.connect( this, { disable: 'onFieldDisable' } );
 

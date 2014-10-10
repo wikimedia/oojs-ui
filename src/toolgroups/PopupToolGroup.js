@@ -32,13 +32,13 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Properties
 	this.active = false;
 	this.dragging = false;
-	this.onBlurHandler = OO.ui.bind( this.onBlur, this );
+	this.onBlurHandler = this.onBlur.bind( this );
 	this.$handle = this.$( '<span>' );
 
 	// Events
 	this.$handle.on( {
-		'mousedown touchstart': OO.ui.bind( this.onHandlePointerDown, this ),
-		'mouseup touchend': OO.ui.bind( this.onHandlePointerUp, this )
+		'mousedown touchstart': this.onHandlePointerDown.bind( this ),
+		'mouseup touchend': this.onHandlePointerUp.bind( this )
 	} );
 
 	// Initialization

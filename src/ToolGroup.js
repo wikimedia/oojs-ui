@@ -39,14 +39,14 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	this.exclude = config.exclude || [];
 	this.promote = config.promote || [];
 	this.demote = config.demote || [];
-	this.onCapturedMouseUpHandler = OO.ui.bind( this.onCapturedMouseUp, this );
+	this.onCapturedMouseUpHandler = this.onCapturedMouseUp.bind( this );
 
 	// Events
 	this.$element.on( {
-		'mousedown touchstart': OO.ui.bind( this.onPointerDown, this ),
-		'mouseup touchend': OO.ui.bind( this.onPointerUp, this ),
-		mouseover: OO.ui.bind( this.onMouseOver, this ),
-		mouseout: OO.ui.bind( this.onMouseOut, this )
+		'mousedown touchstart': this.onPointerDown.bind( this ),
+		'mouseup touchend': this.onPointerUp.bind( this ),
+		mouseover: this.onMouseOver.bind( this ),
+		mouseout: this.onMouseOut.bind( this )
 	} );
 	this.toolbar.getToolFactory().connect( this, { register: 'onToolFactoryRegister' } );
 	this.aggregate( { disable: 'itemDisable' } );

@@ -155,7 +155,7 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
  */
 OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
 	OO.ui.ProcessDialog.super.prototype.executeAction.call( this, action )
-		.fail( OO.ui.bind( this.showErrors, this ) );
+		.fail( this.showErrors.bind( this ) );
 };
 
 /**

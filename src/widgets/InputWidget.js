@@ -30,7 +30,7 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	this.inputFilter = config.inputFilter;
 
 	// Events
-	this.$input.on( 'keydown mouseup cut paste change input select', OO.ui.bind( this.onEdit, this ) );
+	this.$input.on( 'keydown mouseup cut paste change input select', this.onEdit.bind( this ) );
 
 	// Initialization
 	this.$input

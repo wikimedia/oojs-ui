@@ -39,7 +39,7 @@ OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
 		highlight: 'onResultsHighlight',
 		select: 'onResultsSelect'
 	} );
-	this.query.$input.on( 'keydown', OO.ui.bind( this.onQueryKeydown, this ) );
+	this.query.$input.on( 'keydown', this.onQueryKeydown.bind( this ) );
 
 	// Initialization
 	this.$query

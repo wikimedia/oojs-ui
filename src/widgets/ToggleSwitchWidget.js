@@ -24,7 +24,7 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	this.$grip = this.$( '<span>' );
 
 	// Events
-	this.$element.on( 'click', OO.ui.bind( this.onClick, this ) );
+	this.$element.on( 'click', this.onClick.bind( this ) );
 
 	// Initialization
 	this.$glow.addClass( 'oo-ui-toggleSwitchWidget-glow' );

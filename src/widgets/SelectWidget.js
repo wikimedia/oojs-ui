@@ -28,14 +28,14 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	this.pressed = false;
 	this.selecting = null;
 	this.hashes = {};
-	this.onMouseUpHandler = OO.ui.bind( this.onMouseUp, this );
-	this.onMouseMoveHandler = OO.ui.bind( this.onMouseMove, this );
+	this.onMouseUpHandler = this.onMouseUp.bind( this );
+	this.onMouseMoveHandler = this.onMouseMove.bind( this );
 
 	// Events
 	this.$element.on( {
-		mousedown: OO.ui.bind( this.onMouseDown, this ),
-		mouseover: OO.ui.bind( this.onMouseOver, this ),
-		mouseleave: OO.ui.bind( this.onMouseLeave, this )
+		mousedown: this.onMouseDown.bind( this ),
+		mouseover: this.onMouseOver.bind( this ),
+		mouseleave: this.onMouseLeave.bind( this )
 	} );
 
 	// Initialization

@@ -546,7 +546,7 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$innerOverlay = this.$( '<div>' );
 
 	// Events
-	this.$element.on( 'mousedown', OO.ui.bind( this.onMouseDown, this ) );
+	this.$element.on( 'mousedown', this.onMouseDown.bind( this ) );
 
 	// Initialization
 	this.$head.addClass( 'oo-ui-window-head' );
@@ -685,7 +685,7 @@ OO.ui.Window.prototype.teardown = function ( data ) {
 		win.$element.hide();
 		win.visible = false;
 		deferred.resolve();
-	} );
+	}.bind( this ) );
 
 	return deferred.promise();
 };

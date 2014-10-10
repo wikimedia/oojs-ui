@@ -25,8 +25,8 @@ OO.ui.ClippableElement = function OoUiClippableElement( config ) {
 	this.$clippableWindow = null;
 	this.idealWidth = null;
 	this.idealHeight = null;
-	this.onClippableContainerScrollHandler = OO.ui.bind( this.clip, this );
-	this.onClippableWindowResizeHandler = OO.ui.bind( this.clip, this );
+	this.onClippableContainerScrollHandler = this.clip.bind( this );
+	this.onClippableWindowResizeHandler = this.clip.bind( this );
 
 	// Initialization
 	this.setClippableElement( config.$clippable || this.$element );

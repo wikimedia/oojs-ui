@@ -35,9 +35,9 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	this.$overlay.append( this.lookupMenu.$element );
 
 	this.lookupInput.$input.on( {
-		focus: OO.ui.bind( this.onLookupInputFocus, this ),
-		blur: OO.ui.bind( this.onLookupInputBlur, this ),
-		mousedown: OO.ui.bind( this.onLookupInputMouseDown, this )
+		focus: this.onLookupInputFocus.bind( this ),
+		blur: this.onLookupInputBlur.bind( this ),
+		mousedown: this.onLookupInputMouseDown.bind( this )
 	} );
 	this.lookupInput.connect( this, { change: 'onLookupInputChange' } );
 

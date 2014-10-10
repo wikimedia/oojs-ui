@@ -228,7 +228,7 @@ OO.ui.Dialog.prototype.initialize = function () {
 
 	// Events
 	if ( this.constructor.static.escapable ) {
-		this.$document.on( 'keydown', OO.ui.bind( this.onDocumentKeyDown, this ) );
+		this.$document.on( 'keydown', this.onDocumentKeyDown.bind( this ) );
 	}
 
 	// Initialization
@@ -268,5 +268,5 @@ OO.ui.Dialog.prototype.detachActions = function () {
 OO.ui.Dialog.prototype.executeAction = function ( action ) {
 	this.pushPending();
 	return this.getActionProcess( action ).execute()
-		.always( OO.ui.bind( this.popPending, this ) );
+		.always( this.popPending.bind( this ) );
 };

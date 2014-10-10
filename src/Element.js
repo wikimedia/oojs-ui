@@ -19,9 +19,7 @@ OO.ui.Element = function OoUiElement( config ) {
 	this.$ = config.$ || OO.ui.Element.getJQuery( document );
 	this.$element = this.$( this.$.context.createElement( this.getTagName() ) );
 	this.elementGroup = null;
-	this.debouncedUpdateThemeClassesHandler = OO.ui.bind(
-		this.debouncedUpdateThemeClasses, this
-	);
+	this.debouncedUpdateThemeClassesHandler = this.debouncedUpdateThemeClasses.bind( this );
 	this.updateThemeClassesPending = false;
 
 	// Initialization

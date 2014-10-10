@@ -37,8 +37,8 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 
 	// Events
 	this.$button.on( {
-		click: OO.ui.bind( this.onClick, this ),
-		keypress: OO.ui.bind( this.onKeyPress, this )
+		click: this.onClick.bind( this ),
+		keypress: this.onKeyPress.bind( this )
 	} );
 
 	// Initialization

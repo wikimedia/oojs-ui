@@ -15,7 +15,7 @@ OO.ui.FormLayout = function OoUiFormLayout( config ) {
 	OO.ui.FormLayout.super.call( this, config );
 
 	// Events
-	this.$element.on( 'submit', OO.ui.bind( this.onFormSubmit, this ) );
+	this.$element.on( 'submit', this.onFormSubmit.bind( this ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-formLayout' );

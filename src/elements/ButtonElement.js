@@ -24,8 +24,8 @@ OO.ui.ButtonElement = function OoUiButtonElement( config ) {
 	this.tabIndex = null;
 	this.accessKey = null;
 	this.active = false;
-	this.onMouseUpHandler = OO.ui.bind( this.onMouseUp, this );
-	this.onMouseDownHandler = OO.ui.bind( this.onMouseDown, this );
+	this.onMouseUpHandler = this.onMouseUp.bind( this );
+	this.onMouseDownHandler = this.onMouseDown.bind( this );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonElement' );

@@ -67,10 +67,10 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	this.$ariaHidden = null;
 	this.requestedSize = null;
 	this.onWindowResizeTimeout = null;
-	this.onWindowResizeHandler = OO.ui.bind( this.onWindowResize, this );
-	this.afterWindowResizeHandler = OO.ui.bind( this.afterWindowResize, this );
-	this.onWindowMouseWheelHandler = OO.ui.bind( this.onWindowMouseWheel, this );
-	this.onDocumentKeyDownHandler = OO.ui.bind( this.onDocumentKeyDown, this );
+	this.onWindowResizeHandler = this.onWindowResize.bind( this );
+	this.afterWindowResizeHandler = this.afterWindowResize.bind( this );
+	this.onWindowMouseWheelHandler = this.onWindowMouseWheel.bind( this );
+	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
 
 	// Initialization
 	this.$element
@@ -568,7 +568,7 @@ OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
 		if ( !win ) {
 			throw new Error( 'Cannot remove window' );
 		}
-		promises.push( this.closeWindow( name ).then( OO.ui.bind( cleanup, null, name, win ) ) );
+		promises.push( this.closeWindow( name ).then( cleanup.bind( null, name, win ) ) );
 	}
 
 	return $.when.apply( $, promises );

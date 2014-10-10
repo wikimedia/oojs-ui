@@ -35,8 +35,8 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	this.$widget = config.widget ? config.widget.$element : null;
 	this.$previousFocus = null;
 	this.isolated = !config.input;
-	this.onKeyDownHandler = OO.ui.bind( this.onKeyDown, this );
-	this.onDocumentMouseDownHandler = OO.ui.bind( this.onDocumentMouseDown, this );
+	this.onKeyDownHandler = this.onKeyDown.bind( this );
+	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
 
 	// Initialization
 	this.$element

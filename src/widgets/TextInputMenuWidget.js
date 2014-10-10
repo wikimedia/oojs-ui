@@ -20,7 +20,7 @@ OO.ui.TextInputMenuWidget = function OoUiTextInputMenuWidget( input, config ) {
 	// Properties
 	this.input = input;
 	this.$container = config.$container || this.input.$element;
-	this.onWindowResizeHandler = OO.ui.bind( this.onWindowResize, this );
+	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-textInputMenuWidget' );

@@ -35,7 +35,7 @@ OO.ui.InlineMenuWidget = function OoUiInlineMenuWidget( config ) {
 	this.$handle = this.$( '<span>' );
 
 	// Events
-	this.$element.on( { click: OO.ui.bind( this.onClick, this ) } );
+	this.$element.on( { click: this.onClick.bind( this ) } );
 	this.menu.connect( this, { select: 'onMenuSelect' } );
 
 	// Initialization

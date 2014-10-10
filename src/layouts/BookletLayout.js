@@ -50,7 +50,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	}
 	if ( this.autoFocus ) {
 		// Event 'focus' does not bubble, but 'focusin' does
-		this.stackLayout.onDOMEvent( 'focusin', OO.ui.bind( this.onStackLayoutFocus, this ) );
+		this.stackLayout.onDOMEvent( 'focusin', this.onStackLayoutFocus.bind( this ) );
 	}
 
 	// Initialization
