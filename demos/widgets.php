@@ -20,7 +20,9 @@
 				require_once '../php/elements/OoUiIndicatorElement.php';
 				require_once '../php/elements/OoUiTitledElement.php';
 				require_once '../php/elements/OoUiFlaggedElement.php';
+				require_once '../php/elements/OoUiGroupElement.php';
 				require_once '../php/widgets/OoUiButtonWidget.php';
+				require_once '../php/widgets/OoUiButtonGroupWidget.php';
 				require_once '../php/OoUiTheme.php';
 				require_once '../php/themes/OoUiMediaWikiTheme.php';
 
@@ -104,6 +106,28 @@
 
 				echo new OoUiButtonWidgetTitled( array(
 					'label' => 'Titled button',
+				) );
+				echo '<br>';
+
+				echo new OoUiButtonGroupWidget( array(
+					'items' => array(
+						new OoUiButtonWidget( array(
+							'icon' => 'picture',
+							'indicator' => 'down',
+						) ),
+						new OoUiButtonWidget( array(
+							'label' => 'One',
+							'flags' => array( 'primary' ),
+						) ),
+						new OoUiButtonWidget( array(
+							'label' => 'Two',
+							'flags' => array( 'constructive' ),
+						) ),
+						new OoUiButtonWidget( array(
+							'label' => 'Three',
+							'flags' => array( 'destructive' ),
+						) )
+					)
 				) );
 
 			?>

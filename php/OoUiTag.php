@@ -32,6 +32,13 @@ class OoUiTag {
 	 */
 	protected $content = array();
 
+	/**
+	 * Group.
+	 *
+	 * @var OoUiGroupElement|null Group element is in
+	 */
+	protected $elementGroup = null;
+
 	/* Methods */
 
 	/**
@@ -163,6 +170,26 @@ class OoUiTag {
 	 */
 	public function clearContent() {
 		$this->content = array();
+		return $this;
+	}
+
+	/**
+	 * Get group element is in.
+	 *
+	 * @return OoUiGroupElement|null Group element, null if none
+	 */
+	public function getElementGroup() {
+		return $this->elementGroup;
+	}
+
+	/**
+	 * Set group element is in.
+	 *
+	 * @param OoUiGroupElement|null group Group element, null if none
+	 * @chainable
+	 */
+	public function setElementGroup( $group ) {
+		$this->elementGroup = $group;
 		return $this;
 	}
 

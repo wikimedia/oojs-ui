@@ -115,7 +115,7 @@ OO.ui.GroupElement.prototype.aggregate = function ( events ) {
  *
  * Adding an existing item (by value) will move it.
  *
- * @param {OO.ui.Element[]} items Item
+ * @param {OO.ui.Element[]} items Items
  * @param {number} [index] Index to insert items at
  * @chainable
  */
