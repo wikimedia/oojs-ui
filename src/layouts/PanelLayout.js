@@ -12,7 +12,11 @@
  */
 OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	// Config initialization
-	config = config || {};
+	config = $.extend( {
+		scrollable: false,
+		padded: false,
+		expanded: true
+	}, config );
 
 	// Parent constructor
 	OO.ui.PanelLayout.super.call( this, config );
@@ -22,12 +26,10 @@ OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	if ( config.scrollable ) {
 		this.$element.addClass( 'oo-ui-panelLayout-scrollable' );
 	}
-
 	if ( config.padded ) {
 		this.$element.addClass( 'oo-ui-panelLayout-padded' );
 	}
-
-	if ( config.expanded === undefined || config.expanded ) {
+	if ( config.expanded ) {
 		this.$element.addClass( 'oo-ui-panelLayout-expanded' );
 	}
 };

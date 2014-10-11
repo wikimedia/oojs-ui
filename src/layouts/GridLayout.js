@@ -8,7 +8,7 @@
  * @param {OO.ui.PanelLayout[]} panels Panels in the grid
  * @param {Object} [config] Configuration options
  * @cfg {number[]} [widths] Widths of columns as ratios
- * @cfg {number[]} [heights] Heights of columns as ratios
+ * @cfg {number[]} [heights] Heights of rows as ratios
  */
 OO.ui.GridLayout = function OoUiGridLayout( panels, config ) {
 	var i, len, widths;
@@ -34,10 +34,7 @@ OO.ui.GridLayout = function OoUiGridLayout( panels, config ) {
 		this.layout( config.widths || [ 1 ], config.heights || [ 1 ] );
 	} else {
 		// Arrange in columns by default
-		widths = [];
-		for ( i = 0, len = this.panels.length; i < len; i++ ) {
-			widths[i] = 1;
-		}
+		widths = this.panels.map( function () { return 1; } );
 		this.layout( widths, [ 1 ] );
 	}
 };
@@ -55,10 +52,6 @@ OO.inheritClass( OO.ui.GridLayout, OO.ui.Layout );
 /**
  * @event update
  */
-
-/* Static Properties */
-
-OO.ui.GridLayout.static.tagName = 'div';
 
 /* Methods */
 
@@ -109,33 +102,32 @@ OO.ui.GridLayout.prototype.layout = function ( widths, heights ) {
  * @fires update
  */
 OO.ui.GridLayout.prototype.update = function () {
-	var x, y, panel,
+	var x, y, panel, width, height, dimensions,
 		i = 0,
-		left = 0,
 		top = 0,
-		dimensions,
-		width = 0,
-		height = 0,
+		left = 0,
 		cols = this.widths.length,
 		rows = this.heights.length;
 
 	for ( y = 0; y < rows; y++ ) {
 		height = this.heights[y];
 		for ( x = 0; x < cols; x++ ) {
-			panel = this.panels[i];
 			width = this.widths[x];
+			panel = this.panels[i];
 			dimensions = {
 				width: Math.round( width * 100 ) + '%',
 				height: Math.round( height * 100 ) + '%',
-				top: Math.round( top * 100 ) + '%',
-				// HACK: Work around IE bug by setting visibility: hidden; if width or height is zero
-				visibility: width === 0 || height === 0 ? 'hidden' : ''
+				top: Math.round( top * 100 ) + '%'
 			};
 			// If RTL, reverse:
 			if ( OO.ui.Element.getDir( this.$.context ) === 'rtl' ) {
 				dimensions.right = Math.round( left * 100 ) + '%';
 			} else {
 				dimensions.left = Math.round( left * 100 ) + '%';
+			}
+			// HACK: Work around IE bug by setting visibility: hidden; if width or height is zero
+			if ( width === 0 || height === 0 ) {
+				dimensions.visibility = 'hidden';
 			}
 			panel.$element.css( dimensions );
 			i++;
@@ -158,5 +150,5 @@ OO.ui.GridLayout.prototype.update = function () {
  * @return {OO.ui.PanelLayout} The panel at the given postion
  */
 OO.ui.GridLayout.prototype.getPanel = function ( x, y ) {
-	return this.panels[( x * this.widths.length ) + y];
+	return this.panels[ ( x * this.widths.length ) + y ];
 };

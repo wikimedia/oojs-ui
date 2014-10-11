@@ -10,18 +10,18 @@
  *    scanning for a specific label in a form with many fields
  *  - right: Label is before the field and aligned toward it, best for forms the user is very
  *    familiar with and will tab through field checking quickly to verify which field they are in
- *  - top: Label is before the field and above it, best for when the use will need to fill out all
+ *  - top: Label is before the field and above it, best for when the user will need to fill out all
  *    fields from top to bottom in a form with few fields
  *  - inline: Label is after the field and aligned toward it, best for small boolean fields like
  *    checkboxes or radio buttons
  *
  * @constructor
- * @param {OO.ui.Widget} field Field widget
+ * @param {OO.ui.Widget} fieldWidget Field widget
  * @param {Object} [config] Configuration options
  * @cfg {string} [align='left'] Alignment mode, either 'left', 'right', 'top' or 'inline'
  * @cfg {string} [help] Explanatory text shown as a '?' icon.
  */
-OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
+OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Config initialization
 	config = $.extend( { align: 'left' }, config );
 
@@ -33,7 +33,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 
 	// Properties
 	this.$field = this.$( '<div>' );
-	this.field = field;
+	this.fieldWidget = fieldWidget;
 	this.align = null;
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
@@ -54,17 +54,17 @@ OO.ui.FieldLayout = function OoUiFieldLayout( field, config ) {
 	}
 
 	// Events
-	if ( this.field instanceof OO.ui.InputWidget ) {
+	if ( this.fieldWidget instanceof OO.ui.InputWidget ) {
 		this.$label.on( 'click', this.onLabelClick.bind( this ) );
 	}
-	this.field.connect( this, { disable: 'onFieldDisable' } );
+	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-fieldLayout' );
 	this.$field
 		.addClass( 'oo-ui-fieldLayout-field' )
-		.toggleClass( 'oo-ui-fieldLayout-disable', this.field.isDisabled() )
-		.append( this.field.$element );
+		.toggleClass( 'oo-ui-fieldLayout-disable', this.fieldWidget.isDisabled() )
+		.append( this.fieldWidget.$element );
 	this.setAlignment( config.align );
 };
 
@@ -90,7 +90,7 @@ OO.ui.FieldLayout.prototype.onFieldDisable = function ( value ) {
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.FieldLayout.prototype.onLabelClick = function () {
-	this.field.simulateLabelClick();
+	this.fieldWidget.simulateLabelClick();
 	return false;
 };
 
@@ -100,7 +100,7 @@ OO.ui.FieldLayout.prototype.onLabelClick = function () {
  * @return {OO.ui.Widget} Field widget
  */
 OO.ui.FieldLayout.prototype.getField = function () {
-	return this.field;
+	return this.fieldWidget;
 };
 
 /**
@@ -121,17 +121,16 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 		} else {
 			this.$element.append( this.$help, this.$label, this.$field );
 		}
-		// Set classes
+		// Set classes. The following classes can be used here:
+		// * oo-ui-fieldLayout-align-left
+		// * oo-ui-fieldLayout-align-right
+		// * oo-ui-fieldLayout-align-top
+		// * oo-ui-fieldLayout-align-inline
 		if ( this.align ) {
 			this.$element.removeClass( 'oo-ui-fieldLayout-align-' + this.align );
 		}
+		this.$element.addClass( 'oo-ui-fieldLayout-align-' + value );
 		this.align = value;
-		// The following classes can be used here:
-		// oo-ui-fieldLayout-align-left
-		// oo-ui-fieldLayout-align-right
-		// oo-ui-fieldLayout-align-top
-		// oo-ui-fieldLayout-align-inline
-		this.$element.addClass( 'oo-ui-fieldLayout-align-' + this.align );
 	}
 
 	return this;

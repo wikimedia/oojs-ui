@@ -150,4 +150,15 @@ class OoUiElement extends OoUiTag {
 		OoUiTheme::$current->updateElementClasses( $this );
 		return parent::__toString();
 	}
+
+	/**
+	 * Get the direction of the user interface.
+	 *
+	 * @return string Text direction, either `ltr` or `rtl`
+	 */
+	public static function getDir() {
+		// TODO: Figure out a way to override this functionality when used within MediaWiki, and use
+		// $wgLang->getDir() to get the user interface direction
+		return 'ltr';
+	}
 }

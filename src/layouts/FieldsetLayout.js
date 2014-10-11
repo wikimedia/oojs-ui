@@ -11,7 +11,6 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [icon] Symbolic icon name
  * @cfg {OO.ui.FieldLayout[]} [items] Items to add
  */
 OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
@@ -41,7 +40,3 @@ OO.inheritClass( OO.ui.FieldsetLayout, OO.ui.Layout );
 OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.IconElement );
 OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.GroupElement );
-
-/* Static Properties */
-
-OO.ui.FieldsetLayout.static.tagName = 'div';
