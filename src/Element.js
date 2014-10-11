@@ -45,7 +45,7 @@ OO.initClass( OO.ui.Element );
 /**
  * HTML tag name.
  *
- * This may be ignored if getTagName is overridden.
+ * This may be ignored if #getTagName is overridden.
  *
  * @static
  * @inheritable
