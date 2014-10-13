@@ -45,7 +45,7 @@ OO.ui.TextInputMenuWidget.prototype.onWindowResize = function () {
  * @inheritdoc
  */
 OO.ui.TextInputMenuWidget.prototype.toggle = function ( visible ) {
-	visible = !!visible;
+	visible = visible === undefined ? !this.isVisible() : !!visible;
 
 	var change = visible !== this.isVisible();
 
