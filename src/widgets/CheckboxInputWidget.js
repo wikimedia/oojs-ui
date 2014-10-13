@@ -19,8 +19,6 @@ OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 
 OO.inheritClass( OO.ui.CheckboxInputWidget, OO.ui.InputWidget );
 
-/* Events */
-
 /* Methods */
 
 /**
@@ -42,7 +40,9 @@ OO.ui.CheckboxInputWidget.prototype.getValue = function () {
 };
 
 /**
- * Set value
+ * Set checked state of the checkbox
+ *
+ * @param {boolean} value New value
  */
 OO.ui.CheckboxInputWidget.prototype.setValue = function ( value ) {
 	value = !!value;

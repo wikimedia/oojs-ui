@@ -24,6 +24,12 @@
 				require_once '../php/elements/OoUiGroupElement.php';
 				require_once '../php/widgets/OoUiButtonWidget.php';
 				require_once '../php/widgets/OoUiButtonGroupWidget.php';
+				require_once '../php/widgets/OoUiIconWidget.php';
+				require_once '../php/widgets/OoUiIndicatorWidget.php';
+				require_once '../php/widgets/OoUiLabelWidget.php';
+				require_once '../php/widgets/OoUiInputWidget.php';
+				require_once '../php/widgets/OoUiCheckboxInputWidget.php';
+				require_once '../php/widgets/OoUiTextInputWidget.php';
 				require_once '../php/OoUiTheme.php';
 				require_once '../php/layouts/OoUiFieldLayout.php';
 				require_once '../php/layouts/OoUiFieldsetLayout.php';
@@ -179,6 +185,134 @@
 							array(
 								'label' => 'Form layout',
 								'align' => 'top',
+							)
+						),
+					)
+				) );
+
+			?>
+
+			<?php
+				echo new OoUiFieldsetLayout( array(
+					'label' => 'Super simple widgets',
+					'items' => array(
+						new OoUiFieldLayout(
+							new OoUiIconWidget( array(
+								'icon' => 'picture',
+								'title' => 'Picture icon'
+							) ),
+							array(
+								'label' => 'IconWidget (normal)',
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiIconWidget( array(
+								'icon' => 'picture',
+								'title' => 'Picture icon',
+								'disabled' => true
+							) ),
+							array(
+								'label' => 'IconWidget (disabled)',
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiIndicatorWidget( array(
+								'indicator' => 'required',
+								'title' => 'Required icon'
+							) ),
+							array(
+								'label' => 'IndicatorWidget (normal)',
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiIndicatorWidget( array(
+								'indicator' => 'required',
+								'title' => 'Required icon',
+								'disabled' => true
+							) ),
+							array(
+								'label' => 'IndicatorWidget (disabled)',
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiCheckboxInputWidget( array(
+								'value' => true
+							) ),
+							array(
+								'align' => 'inline',
+								'label' => 'CheckboxInputWidget'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiCheckboxInputWidget( array(
+								'value' => true,
+								'disabled' => true
+							) ),
+							array(
+								'align' => 'inline',
+								'label' => 'CheckboxInputWidget (disabled)'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiTextInputWidget( array( 'value' => 'Text input' ) ),
+							array(
+								'label' => 'TextInputWidget',
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiTextInputWidget( array( 'icon' => 'search' ) ),
+							array(
+								'label' => 'TextInputWidget (icon)',
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiTextInputWidget( array( 'indicator' => 'required' ) ),
+							array(
+								'label' => 'TextInputWidget (indicator)',
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiTextInputWidget( array( 'placeholder' => 'Placeholder' ) ),
+							array(
+								'label' => 'TextInputWidget (placeholder)',
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiTextInputWidget( array(
+								'value' => 'Readonly',
+								'readOnly' => true
+							) ),
+							array(
+								'label' => 'TextInputWidget (readonly)',
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiTextInputWidget( array(
+								'value' => 'Disabled',
+								'disabled' => true
+							) ),
+							array(
+								'label' => 'TextInputWidget (disabled)',
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiTextInputWidget( array(
+								'multiline' => true,
+								'value' => 'Multiline'
+							) ),
+							array(
+								'label' => 'TextInputWidget (multiline)',
+								'align' => 'top'
 							)
 						),
 					)

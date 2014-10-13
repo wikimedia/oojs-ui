@@ -127,6 +127,22 @@ class OoUiTag {
 	}
 
 	/**
+	 * Set value of input element ('value' attribute for most, element content for textarea).
+	 *
+	 * @param string $value Value to set
+	 * @chainable
+	 */
+	public function setValue( $value ) {
+		if ( strtolower( $this->tag ) === 'textarea' ) {
+			$this->clearContent();
+			$this->appendContent( htmlspecialchars( $value ) );
+		} else {
+			$this->setAttributes( array( 'value' => $value ) );
+		}
+		return $this;
+	}
+
+	/**
 	 * Remove HTML attributes.
 	 *
 	 * @param array $keys List of attribute keys to remove
