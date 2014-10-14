@@ -446,7 +446,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 	var manager = this,
 		preparing = [],
 		closing = $.Deferred(),
-		opened = this.opened;
+		opened;
 
 	// Argument handling
 	if ( typeof win === 'string' ) {
@@ -483,6 +483,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 			manager.closing = closing;
 			manager.preparingToClose = null;
 			manager.emit( 'closing', win, closing, data );
+			opened = manager.opened;
 			manager.opened = null;
 			opened.resolve( closing.promise(), data );
 			setTimeout( function () {
