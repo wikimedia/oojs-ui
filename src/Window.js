@@ -543,6 +543,7 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$head = this.$( '<div>' );
 	this.$body = this.$( '<div>' );
 	this.$foot = this.$( '<div>' );
+	this.$innerOverlay = this.$( '<div>' );
 
 	// Events
 	this.$element.on( 'mousedown', OO.ui.bind( this.onMouseDown, this ) );
@@ -551,7 +552,8 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$head.addClass( 'oo-ui-window-head' );
 	this.$body.addClass( 'oo-ui-window-body' );
 	this.$foot.addClass( 'oo-ui-window-foot' );
-	this.$content.append( this.$head, this.$body, this.$foot );
+	this.$innerOverlay.addClass( 'oo-ui-window-inner-overlay' );
+	this.$content.append( this.$head, this.$body, this.$foot, this.$innerOverlay );
 
 	return this;
 };
