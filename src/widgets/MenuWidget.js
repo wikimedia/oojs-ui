@@ -225,7 +225,9 @@ OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
 	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
 
 	var i, len,
-		change = visible !== this.isVisible();
+		change = visible !== this.isVisible(),
+		elementDoc = this.getElementDocument(),
+		widgetDoc = this.$widget ? this.$widget[0].ownerDocument : null;
 
 	// Parent method
 	OO.ui.MenuWidget.super.prototype.toggle.call( this, visible );
@@ -249,9 +251,15 @@ OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
 
 			// Auto-hide
 			if ( this.autoHide ) {
-				this.getElementDocument().addEventListener(
+				elementDoc.addEventListener(
 					'mousedown', this.onDocumentMouseDownHandler, true
 				);
+				// Support $widget being in a different document
+				if ( widgetDoc && widgetDoc !== elementDoc ) {
+					widgetDoc.addEventListener(
+						'mousedown', this.onDocumentMouseDownHandler, true
+					);
+				}
 			}
 		} else {
 			this.unbindKeyDownListener();
@@ -259,9 +267,15 @@ OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
 				this.$previousFocus[0].focus();
 				this.$previousFocus = null;
 			}
-			this.getElementDocument().removeEventListener(
+			elementDoc.removeEventListener(
 				'mousedown', this.onDocumentMouseDownHandler, true
 			);
+			// Support $widget being in a different document
+			if ( widgetDoc && widgetDoc !== elementDoc ) {
+				widgetDoc.removeEventListener(
+					'mousedown', this.onDocumentMouseDownHandler, true
+				);
+			}
 			this.toggleClipping( false );
 		}
 	}
