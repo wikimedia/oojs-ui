@@ -261,9 +261,10 @@ OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
  * Sets the 'invalid' flag appropriately.
  */
 OO.ui.TextInputWidget.prototype.setValidityFlag = function () {
+	var widget = this;
 	this.isValid().done( function ( valid ) {
-		this.setFlags( { invalid: !valid } );
-	}.bind( this ) );
+		widget.setFlags( { invalid: !valid } );
+	} );
 };
 
 /**

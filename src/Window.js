@@ -685,7 +685,7 @@ OO.ui.Window.prototype.teardown = function ( data ) {
 		win.$element.hide();
 		win.visible = false;
 		deferred.resolve();
-	}.bind( this ) );
+	} );
 
 	return deferred.promise();
 };
