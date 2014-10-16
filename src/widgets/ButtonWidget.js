@@ -27,7 +27,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	OO.ui.IconElement.call( this, config );
 	OO.ui.IndicatorElement.call( this, config );
 	OO.ui.LabelElement.call( this, config );
-	OO.ui.TitledElement.call( this, config, $.extend( {}, config, { $titled: this.$button } ) );
+	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$button } ) );
 	OO.ui.FlaggedElement.call( this, config );
 
 	// Properties
