@@ -29,7 +29,6 @@ OO.ui.Demo = function OoUiDemo() {
 	this.pageMenuMenu = this.pageMenu.getMenu();
 	this.themeSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
 		new OO.ui.ButtonOptionWidget( 'apex', { $: this.$, label: 'Apex' } ),
-		new OO.ui.ButtonOptionWidget( 'minerva', { $: this.$, label: 'Minerva' } ),
 		new OO.ui.ButtonOptionWidget( 'mediawiki', { $: this.$, label: 'MediaWiki' } )
 	] );
 	this.graphicsSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
@@ -103,10 +102,6 @@ OO.ui.Demo.static.themes = {
 	mediawiki: {
 		fileSuffix: '-mediawiki',
 		theme: OO.ui.MediaWikiTheme || OO.ui.Theme
-	},
-	minerva: {
-		fileSuffix: '-minerva',
-		theme: OO.ui.MinervaTheme || OO.ui.Theme
 	}
 };
 
