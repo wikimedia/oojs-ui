@@ -77,21 +77,14 @@ OO.ui.TextInputMenuWidget.prototype.toggle = function ( visible ) {
  * @chainable
  */
 OO.ui.TextInputMenuWidget.prototype.position = function () {
-	var frameOffset,
-		$container = this.$container,
-		dimensions = $container.offset();
+	var $container = this.$container,
+		pos = OO.ui.Element.getRelativePosition( $container, this.$element.offsetParent() );
 
 	// Position under input
-	dimensions.top += $container.height();
-	// Compensate for frame position if in a different frame
-	if ( this.input.$.$iframe && this.input.$.context !== this.$element[0].ownerDocument ) {
-		frameOffset = OO.ui.Element.getRelativePosition(
-			this.input.$.$iframe, this.$element.offsetParent()
-		);
-		dimensions.left += frameOffset.left;
-		dimensions.top += frameOffset.top;
-	}
-	this.$element.css( dimensions );
+	pos.top += $container.height();
+	this.$element.css( pos );
+
+	// Set width
 	this.setIdealSize( $container.width() );
 	// We updated the position, so re-evaluate the clipping state
 	this.clip();

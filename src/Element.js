@@ -183,15 +183,35 @@ OO.ui.Element.getFrameOffset = function ( from, to, offset ) {
 /**
  * Get the offset between two elements.
  *
+ * The two elements may be in a different frame, but in that case the frame $element is in must
+ * be contained in the frame $anchor is in.
+ *
  * @static
- * @param {jQuery} $from
- * @param {jQuery} $to
+ * @param {jQuery} $element Element whose position to get
+ * @param {jQuery} $anchor Element to get $element's position relative to
  * @return {Object} Translated position coordinates, containing top and left properties
  */
-OO.ui.Element.getRelativePosition = function ( $from, $to ) {
-	var from = $from.offset(),
-		to = $to.offset();
-	return { top: Math.round( from.top - to.top ), left: Math.round( from.left - to.left ) };
+OO.ui.Element.getRelativePosition = function ( $element, $anchor ) {
+	var iframe, iframePos,
+		pos = $element.offset(),
+		anchorPos = $anchor.offset(),
+		elementDocument = this.getDocument( $element ),
+		anchorDocument = this.getDocument( $anchor );
+
+	// If $element isn't in the same document as $anchor, traverse up
+	while ( elementDocument !== anchorDocument ) {
+		iframe = elementDocument.defaultView.frameElement;
+		if ( !iframe ) {
+			throw new Error( '$element frame is not contained in $anchor frame' );
+		}
+		iframePos = $( iframe ).offset();
+		pos.left += iframePos.left;
+		pos.top += iframePos.top;
+		elementDocument = iframe.ownerDocument;
+	}
+	pos.left -= anchorPos.left;
+	pos.top -= anchorPos.top;
+	return pos;
 };
 
 /**
