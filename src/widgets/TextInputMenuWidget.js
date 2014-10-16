@@ -83,7 +83,6 @@ OO.ui.TextInputMenuWidget.prototype.position = function () {
 
 	// Position under input
 	dimensions.top += $container.height();
-
 	// Compensate for frame position if in a different frame
 	if ( this.input.$.$iframe && this.input.$.context !== this.$element[0].ownerDocument ) {
 		frameOffset = OO.ui.Element.getRelativePosition(
@@ -91,14 +90,6 @@ OO.ui.TextInputMenuWidget.prototype.position = function () {
 		);
 		dimensions.left += frameOffset.left;
 		dimensions.top += frameOffset.top;
-	} else {
-		// Fix for RTL (for some reason, no need to fix if the frameoffset is set)
-		if ( this.$element.css( 'direction' ) === 'rtl' ) {
-			dimensions.right = this.$element.parent().position().left -
-				$container.width() - dimensions.left;
-			// Erase the value for 'left'
-			delete dimensions.left;
-		}
 	}
 	this.$element.css( dimensions );
 	this.setIdealSize( $container.width() );
