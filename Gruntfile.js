@@ -206,8 +206,7 @@ module.exports = function ( grunt ) {
 		},
 		svg2png: {
 			dist: {
-				src: 'dist/{images,themes}/**/*.svg',
-				dest: 'dist/'
+				src: 'dist/{images,themes}/**/*.svg'
 			}
 		},
 		cssmin: {
