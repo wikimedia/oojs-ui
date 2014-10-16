@@ -64,6 +64,35 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return this.content.$element.outerHeight( true );
 	};
 
+	function SearchWidgetDialog( config ) {
+		SearchWidgetDialog.super.call( this, config );
+		this.broken = false;
+	}
+	OO.inheritClass( SearchWidgetDialog, OO.ui.ProcessDialog );
+	SearchWidgetDialog.static.title = 'Search widget dialog';
+	SearchWidgetDialog.prototype.initialize = function () {
+		SearchWidgetDialog.super.prototype.initialize.apply( this, arguments );
+		var i, items = [], searchWidget = new OO.ui.SearchWidget( { $: this.$ } );
+		for ( i = 1; i <= 20; i++ ) {
+			items.push( new OO.ui.OptionWidget( i, { $: this.$, label: 'Item ' + i } ) );
+		}
+		searchWidget.results.addItems( items );
+		searchWidget.onQueryChange = function () {};
+		this.$body.append( searchWidget.$element );
+	};
+	SearchWidgetDialog.prototype.getBodyHeight = function () {
+		return 300;
+	};
+	SearchWidgetDialog.static.actions = [
+		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+	];
+	SearchWidgetDialog.prototype.getActionProcess = function ( action ) {
+		var dialog = this;
+		return new OO.ui.Process( function () {
+			dialog.close( { action: action } );
+		} );
+	};
+
 	function BrokenDialog( config ) {
 		BrokenDialog.super.call( this, config );
 		this.broken = false;
@@ -222,6 +251,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			dialogClass: ProcessDialog,
 			config: {
 				size: 'full'
+			}
+		},
+		{
+			name: 'Search widget dialog (medium)',
+			dialogClass: SearchWidgetDialog,
+			config: {
+				size: 'medium'
 			}
 		},
 		{
