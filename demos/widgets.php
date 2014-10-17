@@ -173,23 +173,68 @@
 								'align' => 'top',
 							)
 						),
-						new OoUiFieldLayout(
-							widgetWrap(
-								call_user_func(
-									function () {
-										return new OoUiFormLayout();
-									}
-								)->appendContent(
-									"I am actually a form, but there's no way to submit me yet :("
-								)
-							),
-							array(
-								'label' => 'Form layout',
-								'align' => 'top',
-							)
-						),
 					)
 				) );
+
+			?>
+
+			<?php
+				$form = new OoUiFormLayout( array(
+					'method' => 'GET',
+					'action' => 'widgets.php',
+				) );
+
+				$form->appendContent(
+					new OoUiFieldsetLayout( array(
+						'label' => 'FormLayout that is a real HTML form',
+						'items' => array(
+							new OoUiFieldLayout(
+								new OoUiTextInputWidget( array(
+									'name' => 'username',
+								) ),
+								array(
+									'label' => 'User name',
+									'align' => 'top',
+								)
+							),
+							new OoUiFieldLayout(
+								new OoUiTextInputWidget( array(
+									'name' => 'password',
+									'type' => 'password',
+								) ),
+								array(
+									'label' => 'Password',
+									'align' => 'top',
+								)
+							),
+							new OoUiFieldLayout(
+								new OoUiCheckboxInputWidget( array(
+									'name' => 'rememberme',
+									'value' => true,
+								) ),
+								array(
+									'label' => 'Remember me',
+									'align' => 'inline',
+								)
+							),
+							new OoUiFieldLayout(
+								new OoUiButtonInputWidget( array(
+									'name' => 'login',
+									'label' => 'Log in',
+									'type' => 'submit',
+									'flags' => 'primary',
+									'icon' => 'check',
+								) ),
+								array(
+									'label' => null,
+									'align' => 'top',
+								)
+							),
+						)
+					) )
+				);
+
+				echo $form;
 
 			?>
 
