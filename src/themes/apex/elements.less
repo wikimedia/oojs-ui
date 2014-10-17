@@ -90,10 +90,12 @@
 				border-color: #aaa;
 				outline: none;
 			}
+		}
 
-			> .oo-ui-labelElement-label {
-				line-height: 1.9em;
-			}
+		// Support <input/> from ButtonInputWidget
+		> input.oo-ui-buttonElement-button,
+		> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			line-height: 1.9em;
 		}
 
 		&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,

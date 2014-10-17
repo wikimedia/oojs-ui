@@ -67,6 +67,7 @@
 			"src/widgets/IndicatorWidget.js",
 			"src/widgets/InlineMenuWidget.js",
 			"src/widgets/InputWidget.js",
+				"src/widgets/ButtonInputWidget.js",
 				"src/widgets/CheckboxInputWidget.js",
 				"src/widgets/TextInputWidget.js",
 					"src/widgets/ComboBoxWidget.js",

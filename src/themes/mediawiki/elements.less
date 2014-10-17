@@ -90,10 +90,12 @@
 				color 0.1s ease-in-out,
 				box-shadow 0.1s ease-in-out
 			);
+		}
 
-			> .oo-ui-labelElement-label {
-				line-height: 2.2em;
-			}
+		// Support <input/> from ButtonInputWidget
+		> input.oo-ui-buttonElement-button,
+		> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			line-height: 2.2em;
 		}
 
 		&.oo-ui-iconElement {

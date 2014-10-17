@@ -409,6 +409,27 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				}
 			),
 			new OO.ui.FieldLayout(
+				new OO.ui.ButtonInputWidget( {
+					label: 'Submit the form',
+					type: 'submit'
+				} ),
+				{
+					align: 'top',
+					label: 'ButtonInputWidget (type: submit)'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ButtonInputWidget( {
+					label: 'Submit the form',
+					type: 'submit',
+					useInputTag: true
+				} ),
+				{
+					align: 'top',
+					label: 'ButtonInputWidget (type: submit, using <input/>)'
+				}
+			),
+			new OO.ui.FieldLayout(
 				new OO.ui.CheckboxInputWidget( {
 					value: true
 				} ),

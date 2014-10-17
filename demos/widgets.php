@@ -28,6 +28,7 @@
 				require_once '../php/widgets/OoUiIndicatorWidget.php';
 				require_once '../php/widgets/OoUiLabelWidget.php';
 				require_once '../php/widgets/OoUiInputWidget.php';
+				require_once '../php/widgets/OoUiButtonInputWidget.php';
 				require_once '../php/widgets/OoUiCheckboxInputWidget.php';
 				require_once '../php/widgets/OoUiTextInputWidget.php';
 				require_once '../php/OoUiTheme.php';
@@ -236,6 +237,27 @@
 							array(
 								'label' => 'IndicatorWidget (disabled)',
 								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiButtonInputWidget( array(
+								'label' => 'Submit the form',
+								'type' => 'submit'
+							) ),
+							array(
+								'align' => 'top',
+								'label' => 'ButtonInputWidget (type: submit)'
+							)
+						),
+						new OoUiFieldLayout(
+							new OoUiButtonInputWidget( array(
+								'label' => 'Submit the form',
+								'type' => 'submit',
+								'useInputTag' => true
+							) ),
+							array(
+								'align' => 'top',
+								'label' => 'ButtonInputWidget (type: submit, using &lt;input/>)'
 							)
 						),
 						new OoUiFieldLayout(
