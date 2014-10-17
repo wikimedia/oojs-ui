@@ -15,7 +15,7 @@ class OoUiFlaggedElement extends OoUiElementMixin {
 	 *
 	 * @param OoUiElement $element Element being mixed into
 	 * @param array $config Configuration options
-	 * @param string $config['flags'] Flags
+	 * @param string|string[] $config['flags'] Flags
 	 */
 	public function __construct( OoUiElement $element, array $config = array() ) {
 		// Parent constructor
@@ -78,7 +78,7 @@ class OoUiFlaggedElement extends OoUiElementMixin {
 
 		if ( is_string( $flags ) ) {
 			// Set
-			if ( !$this->flags[$flags] ) {
+			if ( !isset( $this->flags[$flags] ) ) {
 				$this->flags[$flags] = true;
 				$add[] = $classPrefix . $flags;
 			}
