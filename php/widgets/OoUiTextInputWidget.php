@@ -15,6 +15,7 @@ class OoUiTextInputWidget extends OoUiInputWidget {
 	 * Create text input widget.
 	 *
 	 * @param array $config Configuration options
+	 * @param string $config['type'] HTML tag `type` attribute (default: 'text')
 	 * @param boolean $config['multiline'] Allow multiple lines of text (default: false)
 	 */
 	public function __construct( array $config = array() ) {
@@ -48,8 +49,9 @@ class OoUiTextInputWidget extends OoUiInputWidget {
 		if ( isset( $config['multiline'] ) && $config['multiline'] ) {
 			return new OoUiTag( 'textarea' );
 		} else {
+			$type = isset( $config['type'] ) ? $config['type'] : 'text';
 			$input = new OoUiTag( 'input' );
-			$input->setAttributes( array( 'type' => 'text' ) );
+			$input->setAttributes( array( 'type' => $type ) );
 			return $input;
 		}
 	}
