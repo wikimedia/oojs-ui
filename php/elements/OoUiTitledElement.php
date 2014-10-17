@@ -13,7 +13,7 @@ class OoUiTitledElement extends OoUiElementMixin {
 	/**
 	 * Mixin titled element.
 	 *
-	 * If the 'title' config option is not provided, the static property '$title' of $target is used.
+	 * If the 'title' config option is not provided, the static property '$title' of $element is used.
 	 *
 	 * @param OoUiElement $element Element being mixed into
 	 * @param array $config Configuration options
@@ -25,10 +25,9 @@ class OoUiTitledElement extends OoUiElementMixin {
 		parent::__construct( $element, $target, $config );
 
 		// Initialization
-		$target = $this->target;
 		$this->setTitle(
 			isset( $config['title'] ) ? $config['title'] :
-			( isset( $target::$title ) ? $target::$title : null )
+			( isset( $element::$title ) ? $element::$title : null )
 		);
 	}
 

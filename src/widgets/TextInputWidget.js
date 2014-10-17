@@ -214,8 +214,6 @@ OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
 	return config.multiline ? this.$( '<textarea>' ) : this.$( '<input type="text" />' );
 };
 
-/* Methods */
-
 /**
  * Check if input supports multiple lines.
  *
