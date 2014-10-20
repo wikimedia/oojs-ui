@@ -402,8 +402,8 @@ OO.ui.Demo.prototype.buildConsole = function ( item, key ) {
 			if ( $input.is( ':visible' ) ) {
 				$input[0].focus();
 				if ( console && console.log ) {
-					window[ '$' + key ] = item;
-					console.log( '[demo]', 'Global $' + key + ' has been set' );
+					window[ key ] = item;
+					console.log( '[demo]', 'Global ' + key + ' has been set' );
 					console.log( '[demo]', item );
 				}
 			}

@@ -657,7 +657,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 
 	$.each( fieldLayouts, function ( i, fieldLayout ) {
 		fieldLayout.$element.append(
-			demo.buildConsole( fieldLayout.field, 'widget' )
+			demo.buildConsole( fieldLayout.fieldWidget, 'widget' )
 		);
 	} );
 
