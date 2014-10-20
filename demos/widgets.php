@@ -10,34 +10,7 @@
 	<div class="oo-ui-demo">
 		<div class="oo-ui-demo-container">
 			<?php
-				require_once '../php/OoUiTag.php';
-				require_once '../php/OoUiElement.php';
-				require_once '../php/OoUiElementMixin.php';
-				require_once '../php/OoUiLayout.php';
-				require_once '../php/OoUiWidget.php';
-				require_once '../php/elements/OoUiButtonElement.php';
-				require_once '../php/elements/OoUiLabelElement.php';
-				require_once '../php/elements/OoUiIconElement.php';
-				require_once '../php/elements/OoUiIndicatorElement.php';
-				require_once '../php/elements/OoUiTitledElement.php';
-				require_once '../php/elements/OoUiFlaggedElement.php';
-				require_once '../php/elements/OoUiGroupElement.php';
-				require_once '../php/widgets/OoUiButtonWidget.php';
-				require_once '../php/widgets/OoUiButtonGroupWidget.php';
-				require_once '../php/widgets/OoUiIconWidget.php';
-				require_once '../php/widgets/OoUiIndicatorWidget.php';
-				require_once '../php/widgets/OoUiLabelWidget.php';
-				require_once '../php/widgets/OoUiInputWidget.php';
-				require_once '../php/widgets/OoUiButtonInputWidget.php';
-				require_once '../php/widgets/OoUiCheckboxInputWidget.php';
-				require_once '../php/widgets/OoUiTextInputWidget.php';
-				require_once '../php/OoUiTheme.php';
-				require_once '../php/layouts/OoUiFieldLayout.php';
-				require_once '../php/layouts/OoUiFieldsetLayout.php';
-				require_once '../php/layouts/OoUiFormLayout.php';
-				require_once '../php/layouts/OoUiPanelLayout.php';
-				require_once '../php/layouts/OoUiGridLayout.php';
-				require_once '../php/themes/OoUiMediaWikiTheme.php';
+				require_once '../vendor/autoload.php';
 
 				OoUiTheme::setSingleton( new OoUiMediaWikiTheme() );
 			?>

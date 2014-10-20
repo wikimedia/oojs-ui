@@ -1,0 +1,12 @@
+{
+	"name": "oojs/ui",
+	"homepage": "https://www.mediawiki.org/wiki/OOjs_UI",
+	"license": "MIT",
+	"require": {
+		"php": ">=5.3.2"
+	},
+	"autoload": {
+		"classmap": ["php/"]
+	}
+}
+
