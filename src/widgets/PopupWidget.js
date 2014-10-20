@@ -255,11 +255,13 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	}
 
 	// Adjust offset to avoid anchor being rendered too close to the edge
-	anchorWidth = this.$anchor.width();
-	if ( this.align === 'right' ) {
-		popupOffset += anchorWidth;
-	} else if ( this.align === 'left' ) {
-		popupOffset -= anchorWidth;
+	// $anchor.width() doesn't work with the pure CSS anchor (returns 0)
+	// TODO: Find a measurement that works for CSS anchors and image anchors
+	anchorWidth = this.$anchor[0].scrollWidth * 2;
+	if ( popupOffset + this.width < anchorWidth ) {
+		popupOffset = anchorWidth - this.width;
+	} else if ( -popupOffset < anchorWidth ) {
+		popupOffset = -anchorWidth;
 	}
 
 	// Prevent transition from being interrupted
