@@ -4,16 +4,20 @@ class OoUiTheme {
 
 	/* Members */
 
-	public static $current;
+	private static $singleton;
 
-	/* Methods */
+	/* Static Methods */
 
-	/**
-	 * Create theme.
-	 */
-	public function __construct() {
-		// Initialization
-		static::$current = $this;
+	public static function setSingleton( OoUiTheme $theme ) {
+		self::$singleton = $theme;
+	}
+
+	public static function singleton() {
+		if ( !self::$singleton ) {
+			throw new Exception( __METHOD__ . ' was called with no singleton theme set.' );
+		}
+
+		return self::$singleton;
 	}
 
 	/**

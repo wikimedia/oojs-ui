@@ -147,7 +147,7 @@ class OoUiElement extends OoUiTag {
 	 * @return string HTML serialization
 	 */
 	public function __toString() {
-		OoUiTheme::$current->updateElementClasses( $this );
+		OoUiTheme::singleton()->updateElementClasses( $this );
 		return parent::__toString();
 	}
 
