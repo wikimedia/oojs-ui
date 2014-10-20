@@ -560,3 +560,17 @@
 	}
 }
 
+.theme-oo-ui-progressBarWidget () {
+	width: 20em;
+	border: solid 1px #ccc;
+	border-radius: 0.1em;
+	&-bar {
+		height: 1em;
+		border-right: solid 1px #ccc;
+		background: #0274ff;
+		.oo-ui-transition(width 200ms);
+	}
+	&.oo-ui-widget-disabled {
+		opacity: 0.2;
+	}
+}
