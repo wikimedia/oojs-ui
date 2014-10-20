@@ -12,6 +12,7 @@
  * @cfg {boolean} [anchor=true] Show anchor pointing to origin of popup
  * @cfg {string} [align='center'] Alignment of popup to origin
  * @cfg {jQuery} [$container] Container to prevent popup from rendering outside of
+ * @cfg {number} [containerPadding=10] How much padding to keep between popup and container
  * @cfg {jQuery} [$content] Content to append to the popup's body
  * @cfg {boolean} [autoClose=false] Popup auto-closes when it loses focus
  * @cfg {jQuery} [$autoCloseIgnore] Elements to not auto close when clicked
@@ -35,7 +36,9 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.$head = this.$( '<div>' );
 	this.$body = this.$( '<div>' );
 	this.$anchor = this.$( '<div>' );
-	this.$container = config.$container; // If undefined, will be computed lazily in updateDimensions()
+	// If undefined, will be computed lazily in updateDimensions()
+	this.$container = config.$container;
+	this.containerPadding = config.containerPadding !== undefined ? config.containerPadding : 10;
 	this.autoClose = !!config.autoClose;
 	this.$autoCloseIgnore = config.$autoCloseIgnore;
 	this.transitionTimeout = null;
@@ -219,8 +222,7 @@ OO.ui.PopupWidget.prototype.setSize = function ( width, height, transition ) {
 OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	var popupOffset, originOffset, containerLeft, containerWidth, containerRight,
 		popupLeft, popupRight, overlapLeft, overlapRight, anchorWidth,
-		widget = this,
-		padding = 10;
+		widget = this;
 
 	if ( !this.$container ) {
 		// Lazy-initialize $container if not specified in constructor
@@ -242,8 +244,8 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	containerLeft = Math.round( this.$container.offset().left );
 	containerWidth = this.$container.innerWidth();
 	containerRight = containerLeft + containerWidth;
-	popupLeft = popupOffset - padding;
-	popupRight = popupOffset + padding + this.width + padding;
+	popupLeft = popupOffset - this.containerPadding;
+	popupRight = popupOffset + this.containerPadding + this.width + this.containerPadding;
 	overlapLeft = ( originOffset + popupLeft ) - containerLeft;
 	overlapRight = containerRight - ( originOffset + popupRight );
 
