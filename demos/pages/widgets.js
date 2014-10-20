@@ -643,6 +643,15 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					label: 'TextInputWidget (autosize)\u200E',
 					align: 'top'
 				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ProgressBarWidget( {
+					progress: 33
+				} ),
+				{
+					label: 'Progress bar',
+					align: 'top'
+				}
 			)
 		];
 

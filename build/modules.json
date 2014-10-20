@@ -79,6 +79,7 @@
 					"src/widgets/MenuSectionItemWidget.js",
 					"src/widgets/OutlineItemWidget.js",
 			"src/widgets/PopupWidget.js",
+			"src/widgets/ProgressBarWidget.js",
 			"src/widgets/SearchWidget.js",
 			"src/widgets/SelectWidget.js",
 				"src/widgets/ButtonSelectWidget.js",

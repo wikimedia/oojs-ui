@@ -618,3 +618,18 @@
 		}
 	}
 }
+
+.theme-oo-ui-progressBarWidget () {
+	width: 20em;
+	border: solid 1px #ccc;
+	border-radius: 0.25em;
+	&-bar {
+		height: 1em;
+		border-right: solid 1px #ccc;
+		.oo-ui-transition(width 200ms);
+		.oo-ui-vertical-gradient(#fff, #ddd);
+	}
+	&.oo-ui-widget-disabled {
+		opacity: 0.6;
+	}
+}
