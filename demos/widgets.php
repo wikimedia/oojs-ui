@@ -39,7 +39,7 @@
 				require_once '../php/layouts/OoUiGridLayout.php';
 				require_once '../php/themes/OoUiMediaWikiTheme.php';
 
-				new OoUiMediaWikiTheme();
+				OoUiTheme::setSingleton( new OoUiMediaWikiTheme() );
 			?>
 
 			<?php
