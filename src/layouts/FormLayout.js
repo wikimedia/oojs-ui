@@ -6,6 +6,9 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {string} [method] HTML form `method` attribute
+ * @cfg {string} [action] HTML form `action` attribute
+ * @cfg {string} [enctype] HTML form `enctype` attribute
  */
 OO.ui.FormLayout = function OoUiFormLayout( config ) {
 	// Configuration initialization
@@ -18,7 +21,13 @@ OO.ui.FormLayout = function OoUiFormLayout( config ) {
 	this.$element.on( 'submit', this.onFormSubmit.bind( this ) );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-formLayout' );
+	this.$element
+		.addClass( 'oo-ui-formLayout' )
+		.attr( {
+			method: config.method,
+			action: config.action,
+			enctype: config.enctype
+		} );
 };
 
 /* Setup */
