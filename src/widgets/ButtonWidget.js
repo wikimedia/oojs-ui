@@ -92,7 +92,7 @@ OO.ui.ButtonWidget.prototype.onClick = function () {
  */
 OO.ui.ButtonWidget.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
-		this.onClick();
+		this.emit( 'click' );
 		if ( this.isHyperlink ) {
 			return true;
 		}

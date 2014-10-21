@@ -121,6 +121,16 @@
 							)
 						),
 						new OoUiFieldLayout(
+							new OoUiButtonWidget( array(
+								'label' => 'Click me!',
+								'href' => 'http://example.com/',
+							) ),
+							array(
+								'label' => 'Hyperlink button',
+								'align' => 'top',
+							)
+						),
+						new OoUiFieldLayout(
 							new OoUiButtonGroupWidget( array(
 								'items' => array(
 									new OoUiButtonWidget( array(
