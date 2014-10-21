@@ -9,6 +9,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {string} [type='text'] HTML tag `type` attribute
  * @cfg {string} [placeholder] Placeholder text
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
  * @cfg {boolean} [autosize=false] Automatically resize to fit content
@@ -211,7 +212,8 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
  * @return {jQuery} Input element
  */
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
-	return config.multiline ? this.$( '<textarea>' ) : this.$( '<input type="text" />' );
+	var type = config.type || 'text';
+	return config.multiline ? this.$( '<textarea>' ) : this.$( '<input type="' + type + '" />' );
 };
 
 /**
