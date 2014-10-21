@@ -9,10 +9,21 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 		toolGroupFactories = [],
 		toolbars = [];
 
+	// Show some random accelerator keys that don't actually work
+	function getToolAccelerator( name ) {
+		return {
+			listTool1: 'Ctrl+Shift+1',
+			listTool2: 'Ctrl+Shift+2',
+			listTool5: 'Ctrl+Shift+5',
+			menuTool: 'Ctrl+M'
+		}[name];
+	}
+
 	for ( i = 0; i < 3; i++ ) {
 		toolFactories.push( new OO.ui.ToolFactory() );
 		toolGroupFactories.push( new OO.ui.ToolGroupFactory() );
 		toolbars.push( new OO.ui.Toolbar( toolFactories[i], toolGroupFactories[i], { actions: true } ) );
+		toolbars[i].getToolAccelerator = getToolAccelerator;
 	}
 
 	function createTool( toolbar, group, name, icon, title, init, onSelect ) {

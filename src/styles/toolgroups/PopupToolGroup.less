@@ -53,13 +53,33 @@
 		}
 
 		.oo-ui-tool-title {
-			display: inline-block;
+			display: inline-table;
 			vertical-align: middle;
-		}
-	}
+			width: 100%;
+			// HACK: We take 100% of available width, but there's already an icon taking space before this element.
+			// Offset by 2.25em to match icon width+margin, 0.25em more to avoid border overlap
+			margin-right: -2.5em;
 
-	.oo-ui-tool-accel {
-		display: none;
+			.oo-ui-tool-title-text,
+			.oo-ui-tool-accel {
+				display: table-cell;
+			}
+
+			.oo-ui-tool-title-text {
+				width: 100%;
+			}
+
+			.oo-ui-tool-accel {
+				text-align: right;
+				// HACK: 2.25em to match icon width+margin, 0.25em more to avoid border overlap
+				padding-right: 2.5em;
+			}
+
+			.oo-ui-tool-accel:not(:empty) {
+				// Push away from tool's title
+				padding-left: 3em;
+			}
+		}
 	}
 
 	.theme-oo-ui-popupToolGroup();
