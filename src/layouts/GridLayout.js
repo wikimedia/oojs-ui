@@ -128,6 +128,8 @@ OO.ui.GridLayout.prototype.update = function () {
 			// HACK: Work around IE bug by setting visibility: hidden; if width or height is zero
 			if ( width === 0 || height === 0 ) {
 				dimensions.visibility = 'hidden';
+			} else {
+				dimensions.visibility = '';
 			}
 			panel.$element.css( dimensions );
 			i++;
