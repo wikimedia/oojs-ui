@@ -82,16 +82,6 @@ OO.inheritClass( OO.ui.PopupWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.ClippableElement );
 
-/* Events */
-
-/**
- * @event hide
- */
-
-/**
- * @event show
- */
-
 /* Methods */
 
 /**
