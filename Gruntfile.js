@@ -330,6 +330,15 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 
+	// Quickly build a no-frills vector-only ltr-only version for development
+	grunt.registerTask( 'quick-build', [
+		'pre-git-build', 'clean:build', 'fileExists',
+		'concat:js',
+		'copy:lessTemp', 'colorizeSvg', 'less:distSvg', 'copy:svg',
+		'copy:imagesApex', 'copy:imagesMediaWiki',
+		'build-i18n'
+	] );
+
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'lint', 'karma:main', 'karma:other' ] );
 
