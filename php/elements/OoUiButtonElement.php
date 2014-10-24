@@ -15,8 +15,8 @@ class OoUiButtonElement extends OoUiElementMixin {
 	 *
 	 * @param OoUiElement $element Element being mixed into
 	 * @param array $config Configuration options
-	 * @param {boolean} $config['framed'] Render button with a frame
-	 * @param {number} $config['tabIndex'] Button's tab index, use -1 to prevent tab focusing
+	 * @param boolean $config['framed'] Render button with a frame
+	 * @param number $config['tabIndex'] Button's tab index, use -1 to prevent tab focusing
 	 */
 	public function __construct( OoUiElement $element, array $config = array() ) {
 		// Parent constructor
@@ -37,7 +37,7 @@ class OoUiButtonElement extends OoUiElementMixin {
 	/**
 	 * Toggle frame.
 	 *
-	 * @param boolean [framed] Make button framed, omit to toggle
+	 * @param boolean $framed Make button framed, omit to toggle
 	 * @chainable
 	 */
 	public function toggleFramed( $framed = null ) {

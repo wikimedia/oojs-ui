@@ -158,7 +158,9 @@ class OoUiTag {
 	/**
 	 * Add content to the end.
 	 *
-	 * @param string|array|Serializable One or more strings or serializable elements to append
+	 * Accepts variadic arguments (the $content argument can be repeated any number of times).
+	 *
+	 * @param string|OoUiTag $content Content to append
 	 * @chainable
 	 */
 	public function appendContent( /* $content... */ ) {
@@ -170,7 +172,9 @@ class OoUiTag {
 	/**
 	 * Add content to the beginning.
 	 *
-	 * @param string|array|Serializable One or more strings or serializable elements to prepend
+	 * Accepts variadic arguments (the $content argument can be repeated any number of times).
+	 *
+	 * @param string|OoUiTag $content Content to prepend
 	 * @chainable
 	 */
 	public function prependContent( /* $content... */ ) {
@@ -201,7 +205,7 @@ class OoUiTag {
 	/**
 	 * Set group element is in.
 	 *
-	 * @param OoUiGroupElement|null group Group element, null if none
+	 * @param OoUiGroupElement|null $group Group element, null if none
 	 * @chainable
 	 */
 	public function setElementGroup( $group ) {

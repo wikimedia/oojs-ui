@@ -246,7 +246,7 @@ OO.ui.TextInputWidget.prototype.select = function () {
 
 /**
  * Sets the validation pattern to use.
- * @param validate {RegExp|string|null} Regular expression (or symbolic name referencing
+ * @param {RegExp|string|null} validate Regular expression (or symbolic name referencing
  *  one, see #static-validationPatterns)
  */
 OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {

@@ -33,7 +33,7 @@ class OoUiWidget extends OoUiElement {
 	/**
 	 * Check if the widget is disabled.
 	 *
-	 * @param boolean Button is disabled
+	 * @return boolean Button is disabled
 	 */
 	public function isDisabled() {
 		return $this->disabled;
@@ -44,7 +44,7 @@ class OoUiWidget extends OoUiElement {
 	 *
 	 * This should probably change the widgets' appearance and prevent it from being used.
 	 *
-	 * @param boolean disabled Disable widget
+	 * @param boolean $disabled Disable widget
 	 * @chainable
 	 */
 	public function setDisabled( $disabled ) {

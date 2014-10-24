@@ -38,7 +38,7 @@ class OoUiTheme {
 	 *
 	 * For elements with theme logic hooks, this should be called anytime there's a state change.
 	 *
-	 * @param OoUiElement Element for which to update classes
+	 * @param OoUiElement $element Element for which to update classes
 	 * @return array Categorized class names with `on` and `off` lists
 	 */
 	public function updateElementClasses( OoUiElement $element ) {

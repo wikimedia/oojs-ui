@@ -67,7 +67,7 @@ class OoUiFlaggedElement extends OoUiElementMixin {
 	/**
 	 * Add one or more flags.
 	 *
-	 * @param string|array One or more flags to add, or an array keyed by flag name
+	 * @param string|array $flags One or more flags to add, or an array keyed by flag name
 	 *   containing boolean set/remove instructions.
 	 * @chainable
 	 */

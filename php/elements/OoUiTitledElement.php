@@ -34,7 +34,7 @@ class OoUiTitledElement extends OoUiElementMixin {
 	/**
 	 * Add one or more flags.
 	 *
-	 * @param string|null Title text or null for no title
+	 * @param string|null $title Title text or null for no title
 	 * @chainable
 	 */
 	public function setTitle( $title ) {

@@ -52,7 +52,7 @@ OO.mixinClass( OO.ui.Widget, OO.EventEmitter );
 /**
  * Check if the widget is disabled.
  *
- * @param {boolean} Button is disabled
+ * @return {boolean} Button is disabled
  */
 OO.ui.Widget.prototype.isDisabled = function () {
 	return this.disabled;

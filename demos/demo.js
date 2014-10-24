@@ -267,7 +267,7 @@ OO.ui.Demo.prototype.getCurrentMode = function () {
 /**
  * Get link elements for the current mode.
  *
- * @returns {HTMLElement[]} List of link elements
+ * @return {HTMLElement[]} List of link elements
  */
 OO.ui.Demo.prototype.getStylesheetLinks = function () {
 	var i, len, link, fragments,

@@ -50,7 +50,7 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.FlaggedElement );
 
 /**
  * @event change
- * @param value
+ * @param {string} value
  */
 
 /* Methods */

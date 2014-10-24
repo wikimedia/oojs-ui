@@ -10,7 +10,7 @@ class OoUiButtonInputWidget extends OoUiInputWidget {
 	 * @param boolean $config['useInputTag'] Whether to use `<input/>` rather than `<button/>`. Only
 	 *   useful if you need IE 6 support in a form with multiple buttons. By using this option, you
 	 *   sacrifice icons and indicators, as well as the ability to have non-plaintext label or a
-	 *   label different from the value. (default: false).
+	 *   label different from the value. (default: false)
 	 */
 	public function __construct( array $config = array() ) {
 		// Configuration initialization

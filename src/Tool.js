@@ -173,7 +173,7 @@ OO.ui.Tool.prototype.onSelect = function () {
 /**
  * Check if the button is active.
  *
- * @param {boolean} Button is active
+ * @return {boolean} Button is active
  */
 OO.ui.Tool.prototype.isActive = function () {
 	return this.active;
