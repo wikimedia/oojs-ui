@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Layout made of proportionally sized columns and rows.
+ */
 class OoUiGridLayout extends OoUiLayout {
 
 	/* Properties */
@@ -26,8 +29,6 @@ class OoUiGridLayout extends OoUiLayout {
 	protected $heights = array();
 
 	/**
-	 * Create field layout.
-	 *
 	 * @param OoUiPanelLayout[] $panels Panels in the grid
 	 * @param array $config Configuration options
 	 * @param number[] $config['widths'] Widths of columns as ratios

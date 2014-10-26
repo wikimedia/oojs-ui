@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * User interface control.
+ */
 class OoUiWidget extends OoUiElement {
 
 	/* Properties */
@@ -14,9 +17,8 @@ class OoUiWidget extends OoUiElement {
 	/* Methods */
 
 	/**
-	 * Create widget.
-	 *
 	 * @param array $config Configuration options
+	 * @param boolean $config['disabled'] Disable (default: false)
 	 */
 	public function __construct( array $config = array() ) {
 		// Initialize config

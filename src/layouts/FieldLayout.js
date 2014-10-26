@@ -1,10 +1,6 @@
 /**
  * Layout made of a field and optional label.
  *
- * @class
- * @extends OO.ui.Layout
- * @mixins OO.ui.LabelElement
- *
  * Available label alignment modes include:
  *  - left: Label is before the field and aligned away from it, best for when the user will be
  *    scanning for a specific label in a form with many fields
@@ -14,6 +10,10 @@
  *    fields from top to bottom in a form with few fields
  *  - inline: Label is after the field and aligned toward it, best for small boolean fields like
  *    checkboxes or radio buttons
+ *
+ * @class
+ * @extends OO.ui.Layout
+ * @mixins OO.ui.LabelElement
  *
  * @constructor
  * @param {OO.ui.Widget} fieldWidget Field widget
@@ -106,6 +106,7 @@ OO.ui.FieldLayout.prototype.getField = function () {
 /**
  * Set the field alignment mode.
  *
+ * @private
  * @param {string} value Alignment mode, either 'left', 'right', 'top' or 'inline'
  * @chainable
  */

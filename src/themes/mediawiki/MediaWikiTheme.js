@@ -1,6 +1,6 @@
 /**
  * @class
- * @extends {OO.ui.Theme}
+ * @extends OO.ui.Theme
  *
  * @constructor
  */

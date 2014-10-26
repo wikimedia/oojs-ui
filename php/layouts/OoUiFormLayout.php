@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Layout with an HTML form.
+ */
 class OoUiFormLayout extends OoUiLayout {
 
 	/* Static properties */
@@ -7,8 +10,6 @@ class OoUiFormLayout extends OoUiLayout {
 	public static $tagName = 'form';
 
 	/**
-	 * Create form layout.
-	 *
 	 * @param array $config Configuration options
 	 * @param string $config['method'] HTML form `method` attribute
 	 * @param string $config['action'] HTML form `action` attribute

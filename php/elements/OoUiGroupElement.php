@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Element containing a sequence of child elements.
+ */
 class OoUiGroupElement extends OoUiElementMixin {
 	/**
 	 * List of items in the group.
@@ -11,8 +14,6 @@ class OoUiGroupElement extends OoUiElementMixin {
 	public static $targetPropertyName = 'group';
 
 	/**
-	 * Element containing a sequence of child elements.
-	 *
 	 * @param OoUiElement $element Element being mixed into
 	 * @param array $config Configuration options
 	 */
@@ -41,7 +42,7 @@ class OoUiGroupElement extends OoUiElementMixin {
 	}
 
 	/**
-	 * Add items at the end.
+	 * Add items.
 	 *
 	 * Adding an existing item will move it.
 	 *

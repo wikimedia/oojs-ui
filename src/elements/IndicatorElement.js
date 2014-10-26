@@ -42,7 +42,7 @@ OO.initClass( OO.ui.IndicatorElement );
  *
  * @static
  * @inheritable
- * @property {string|null} Symbolic indicator name or null for no indicator
+ * @property {string|null} Symbolic indicator name
  */
 OO.ui.IndicatorElement.static.indicator = null;
 
@@ -81,7 +81,7 @@ OO.ui.IndicatorElement.prototype.setIndicatorElement = function ( $indicator ) {
 };
 
 /**
- * Set indicator.
+ * Set indicator name.
  *
  * @param {string|null} indicator Symbolic name of indicator to use or null for no indicator
  * @chainable
@@ -134,7 +134,7 @@ OO.ui.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle )
 };
 
 /**
- * Get indicator.
+ * Get indicator name.
  *
  * @return {string} title Symbolic name of indicator
  */

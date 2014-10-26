@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Base class for input widgets.
+ */
 class OoUiInputWidget extends OoUiWidget {
 
 	/* Properties */
@@ -19,8 +22,6 @@ class OoUiInputWidget extends OoUiWidget {
 	protected $readOnly = false;
 
 	/**
-	 * Create input widget.
-	 *
 	 * @param array $config Configuration options
 	 * @param string $config['name'] HTML input name (default: '')
 	 * @param string $config['value'] Input value (default: '')
@@ -126,7 +127,8 @@ class OoUiInputWidget extends OoUiWidget {
 	}
 
 	/**
-	 * Set the read-only state of the widget.
+	 * Set the read-only state of the widget. This should probably change the widgets's appearance and
+	 * prevent it from being used.
 	 *
 	 * @param boolean $state Make input read-only
 	 * @chainable

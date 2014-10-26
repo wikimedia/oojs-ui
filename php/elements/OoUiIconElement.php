@@ -1,8 +1,16 @@
 <?php
 
+/**
+ * Element containing an icon.
+ *
+ * Icons are graphics, about the size of normal text. They can be used to aid the user in locating
+ * a control or convey information in a more space efficient way. Icons should rarely be used
+ * without labels; such as in a toolbar where space is at a premium or within a context where the
+ * meaning is very clear to the user.
+ */
 class OoUiIconElement extends OoUiElementMixin {
 	/**
-	 * Icon value.
+	 * Symbolic icon name.
 	 *
 	 * @var string
 	 */
@@ -11,11 +19,9 @@ class OoUiIconElement extends OoUiElementMixin {
 	public static $targetPropertyName = 'icon';
 
 	/**
-	 * Mixin icon element.
-	 *
 	 * @param OoUiElement $element Element being mixed into
 	 * @param array $config Configuration options
-	 * @param string $config['icon'] Icon value
+	 * @param string $config['icon'] Symbolic icon name
 	 */
 	public function __construct( OoUiElement $element, array $config = array() ) {
 		// Parent constructor
@@ -29,9 +35,9 @@ class OoUiIconElement extends OoUiElementMixin {
 	}
 
 	/**
-	 * Set icon value.
+	 * Set icon name.
 	 *
-	 * @param string $icon Icon value
+	 * @param string|null $icon Symbolic icon name
 	 * @chainable
 	 */
 	public function setIcon( $icon = null ) {
@@ -42,9 +48,9 @@ class OoUiIconElement extends OoUiElementMixin {
 	}
 
 	/**
-	 * Get icon value.
+	 * Get icon name.
 	 *
-	 * @return string Icon value
+	 * @return string Icon name
 	 */
 	public function getIcon() {
 		return $this->icon;

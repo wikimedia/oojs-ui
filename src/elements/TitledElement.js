@@ -10,7 +10,8 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$titled] Titled node, assigned to #$titled, omit to use #$element
- * @cfg {string|Function} [title] Title text or a function that returns text
+ * @cfg {string|Function} [title] Title text or a function that returns text. If not provided, the
+ *    static property 'title' is used.
  */
 OO.ui.TitledElement = function OoUiTitledElement( config ) {
 	// Config intialization

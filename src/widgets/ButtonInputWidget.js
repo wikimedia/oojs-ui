@@ -1,5 +1,5 @@
 /**
- * A button that is an input widget. Intended to be used within FormLayouts.
+ * A button that is an input widget. Intended to be used within a OO.ui.FormLayout.
  *
  * @class
  * @extends OO.ui.InputWidget
@@ -70,6 +70,7 @@ OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.FlaggedElement );
 /**
  * Get input element.
  *
+ * @private
  * @param {Object} [config] Configuration options
  * @return {jQuery} Input element
  */
@@ -79,7 +80,7 @@ OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
 };
 
 /**
- * Set the label.
+ * Set label value.
  *
  * Overridden to support setting the 'value' of `<input/>` elements.
  *

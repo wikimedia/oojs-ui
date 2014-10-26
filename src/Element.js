@@ -7,7 +7,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {Function} [$] jQuery for the frame the widget is in
- * @cfg {string[]} [classes] CSS class names
+ * @cfg {string[]} [classes] CSS class names to add
  * @cfg {string} [text] Text to insert
  * @cfg {jQuery} [$content] Content elements to append (after text)
  */
@@ -325,7 +325,7 @@ OO.ui.Element.getClosestScrollableContainer = function ( el, dimension ) {
  *
  * @static
  * @param {HTMLElement} el Element to scroll into view
- * @param {Object} [config={}] Configuration config
+ * @param {Object} [config] Configuration options
  * @param {string} [config.duration] jQuery animation duration value
  * @param {string} [config.direction] Scroll in only one direction, e.g. 'x' or 'y', omit
  *  to scroll in both directions
@@ -426,7 +426,7 @@ OO.ui.Element.offDOMEvent = function ( el, event, callback ) {
  * Check if element supports one or more methods.
  *
  * @param {string|string[]} methods Method or list of methods to check
- * @return boolean All methods are supported
+ * @return {boolean} All methods are supported
  */
 OO.ui.Element.prototype.supports = function ( methods ) {
 	var i, len,
@@ -531,7 +531,7 @@ OO.ui.Element.prototype.setElementGroup = function ( group ) {
 /**
  * Scroll element into view.
  *
- * @param {Object} [config={}]
+ * @param {Object} [config] Configuration options
  */
 OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
 	return OO.ui.Element.scrollIntoView( this.$element[0], config );

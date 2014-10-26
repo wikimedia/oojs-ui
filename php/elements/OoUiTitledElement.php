@@ -1,8 +1,14 @@
 <?php
 
+/**
+ * Element with a title.
+ *
+ * Titles are rendered by the browser and are made visible when hovering the element. Titles are
+ * not visible on touch devices.
+ */
 class OoUiTitledElement extends OoUiElementMixin {
 	/**
-	 * Title.
+	 * Title text.
 	 *
 	 * @var string
 	 */
@@ -11,13 +17,11 @@ class OoUiTitledElement extends OoUiElementMixin {
 	public static $targetPropertyName = 'titled';
 
 	/**
-	 * Mixin titled element.
-	 *
-	 * If the 'title' config option is not provided, the static property '$title' of $element is used.
+	 * 
 	 *
 	 * @param OoUiElement $element Element being mixed into
 	 * @param array $config Configuration options
-	 * @param string $config['title'] Title
+	 * @param string $config['title'] Title. If not provided, the static property 'title' is used.
 	 */
 	public function __construct( OoUiElement $element, array $config = array() ) {
 		// Parent constructor
@@ -32,7 +36,7 @@ class OoUiTitledElement extends OoUiElementMixin {
 	}
 
 	/**
-	 * Add one or more flags.
+	 * Set title.
 	 *
 	 * @param string|null $title Title text or null for no title
 	 * @chainable

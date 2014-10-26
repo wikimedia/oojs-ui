@@ -1,9 +1,10 @@
 <?php
 
+/**
+ * Layout that expands to cover the entire area of its parent, with optional scrolling and padding.
+ */
 class OoUiPanelLayout extends OoUiLayout {
 	/**
-	 * Create panel layout.
-	 *
 	 * @param array $config Configuration options
 	 * @param boolean $config['scrollable'] Allow vertical scrolling (default: false)
 	 * @param boolean $config['padded'] Pad the content from the edges (default: false)

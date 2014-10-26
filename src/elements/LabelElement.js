@@ -62,7 +62,7 @@ OO.ui.LabelElement.prototype.setLabelElement = function ( $label ) {
  * Set the label.
  *
  * An empty string will result in the label being hidden. A string containing only whitespace will
- * be converted to a single &nbsp;
+ * be converted to a single `&nbsp;`.
  *
  * @param {jQuery|string|Function|null} label Label nodes; text; a function that returns nodes or
  *  text; or null for no label

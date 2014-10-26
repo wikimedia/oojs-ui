@@ -92,7 +92,7 @@ OO.ui.IconElement.prototype.setIconElement = function ( $icon ) {
 };
 
 /**
- * Set icon.
+ * Set icon name.
  *
  * @param {Object|string|null} icon Symbolic icon name, or map of icon names keyed by language ID;
  *  use the 'default' key to specify the icon to be used when there is no icon in the user's
@@ -148,9 +148,9 @@ OO.ui.IconElement.prototype.setIconTitle = function ( iconTitle ) {
 };
 
 /**
- * Get icon.
+ * Get icon name.
  *
- * @return {string} Icon
+ * @return {string} Icon name
  */
 OO.ui.IconElement.prototype.getIcon = function () {
 	return this.icon;

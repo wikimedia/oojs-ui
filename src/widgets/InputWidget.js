@@ -58,6 +58,7 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.FlaggedElement );
 /**
  * Get input element.
  *
+ * @private
  * @param {Object} [config] Configuration options
  * @return {jQuery} Input element
  */
@@ -128,8 +129,9 @@ OO.ui.InputWidget.prototype.setValue = function ( value ) {
 /**
  * Sanitize incoming value.
  *
- * Ensures value is a string, and converts undefined and null to empty strings.
+ * Ensures value is a string, and converts undefined and null to empty string.
  *
+ * @private
  * @param {string} value Original value
  * @return {string} Sanitized value
  */

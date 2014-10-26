@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Indicator widget.
+ *
+ * See OoUiIndicatorElement for more information.
+ */
 class OoUiIndicatorWidget extends OoUiWidget {
 
 	/* Static properties */
@@ -7,8 +12,6 @@ class OoUiIndicatorWidget extends OoUiWidget {
 	public static $tagName = 'span';
 
 	/**
-	 * Create indicator widget.
-	 *
 	 * @param array $config Configuration options
 	 */
 	public function __construct( array $config = array() ) {

@@ -1,9 +1,10 @@
 <?php
 
+/**
+ * Container for elements.
+ */
 class OoUiLayout extends OoUiElement {
 	/**
-	 * Create layout.
-	 *
 	 * @param array $config Configuration options
 	 */
 	public function __construct( array $config = array() ) {

@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Layout made of a field and optional label.
+ *
+ * Available label alignment modes include:
+ *  - left: Label is before the field and aligned away from it, best for when the user will be
+ *    scanning for a specific label in a form with many fields
+ *  - right: Label is before the field and aligned toward it, best for forms the user is very
+ *    familiar with and will tab through field checking quickly to verify which field they are in
+ *  - top: Label is before the field and above it, best for when the user will need to fill out all
+ *    fields from top to bottom in a form with few fields
+ *  - inline: Label is after the field and aligned toward it, best for small boolean fields like
+ *    checkboxes or radio buttons
+ */
 class OoUiFieldLayout extends OoUiLayout {
 	/**
 	 * Alignment.
@@ -9,12 +22,10 @@ class OoUiFieldLayout extends OoUiLayout {
 	protected $align;
 
 	/**
-	 * Create field layout.
-	 *
 	 * @param OoUiWidget $fieldWidget Field widget
 	 * @param array $config Configuration options
 	 * @param string $config['align'] Alignment mode, either 'left', 'right', 'top' or 'inline'
-	 * @param string $config['help'] Explanatory text shown as a '?' icon (not implemented).
+	 *   (default: 'left')
 	 */
 	public function __construct( OoUiWidget $fieldWidget, array $config = array() ) {
 		// Config initialization
@@ -26,7 +37,7 @@ class OoUiFieldLayout extends OoUiLayout {
 		// Properties
 		$this->field = new OoUiTag( 'div' );
 		$this->fieldWidget = $fieldWidget;
-		$this->help = ""; // TODO implement
+		$this->help = ''; // TODO implement
 
 		// Mixins
 		$this->mixin( new OoUiLabelElement( $this, $config ) );
