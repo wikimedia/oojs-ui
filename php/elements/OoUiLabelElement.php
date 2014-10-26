@@ -32,18 +32,27 @@ class OoUiLabelElement extends OoUiElementMixin {
 	/**
 	 * Set the label.
 	 *
-	 * An empty string will result in the label being hidden.
+	 * An empty string will result in the label being hidden. A string containing only whitespace will
+	 * be converted to a single `&nbsp;`.
 	 *
 	 * @param string|null $label Label text
 	 * @chainable
 	 */
 	public function setLabel( $label ) {
 		$this->label = is_string( $label ) ? $label : null;
-		$this->element->toggleClasses( array( 'oo-ui-labelElement' ), !!$this->label );
+
 		$this->target->clearContent();
-		if ( $this->label ) {
-			$this->target->appendContent( $label );
+		if ( $this->label !== null ) {
+			if ( $this->label !== '' && trim( $this->label ) === '' ) {
+				$this->target->appendContent( new OoUiHtmlSnippet( '&nbsp;' ) );
+			} else {
+				$this->target->appendContent( $label );
+			}
 		}
+
+		$this->target->setAttributes( !$label ? array( 'style' => 'display: none;' ) : array() );
+		$this->element->toggleClasses( array( 'oo-ui-labelElement' ), !!$this->label );
+
 		return $this;
 	}
 

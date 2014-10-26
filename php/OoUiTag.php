@@ -222,14 +222,13 @@ class OoUiTag {
 	 */
 	public function __toString() {
 		// Attributes
+		$attributesArray = $this->attributes;
+		if ( $this->classes ) {
+			$attributesArray['class'] = implode( ' ', array_unique( $this->classes ) );
+		}
+
 		$attributes = '';
-		foreach (
-			array_merge(
-				$this->attributes,
-				array( 'class' => implode( ' ', array_unique( $this->classes ) ) )
-			) as
-			$key => $value
-		) {
+		foreach ( $attributesArray as $key => $value ) {
 			$attributes .= ' ' . $key . '="' . htmlspecialchars( $value ) . '"';
 		}
 

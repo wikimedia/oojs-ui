@@ -43,9 +43,16 @@ class OoUiIndicatorElement extends OoUiElementMixin {
 	 * @chainable
 	 */
 	public function setIndicator( $indicator = null ) {
-		$this->indicator = is_string( $indicator ) ? $indicator : null;
-		$this->element->toggleClasses( array( 'oo-ui-indicatorElement' ), !!$this->indicator );
-		$this->target->addClasses( array( 'oo-ui-indicator-' . $this->indicator ) );
+		if ( $this->indicator !== null ) {
+			$this->target->removeClasses( array( 'oo-ui-indicator-' . $this->indicator ) );
+		}
+		if ( $indicator !== null ) {
+			$this->target->addClasses( array( 'oo-ui-indicator-' . $indicator ) );
+		}
+
+		$this->indicator = $indicator;
+		$this->element->toggleClasses( array( 'oo-ui-indicatorElement' ), (bool)$this->indicator );
+
 		return $this;
 	}
 
