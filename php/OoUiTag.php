@@ -135,7 +135,7 @@ class OoUiTag {
 	public function setValue( $value ) {
 		if ( strtolower( $this->tag ) === 'textarea' ) {
 			$this->clearContent();
-			$this->appendContent( htmlspecialchars( $value ) );
+			$this->appendContent( $value );
 		} else {
 			$this->setAttributes( array( 'value' => $value ) );
 		}
@@ -160,7 +160,8 @@ class OoUiTag {
 	 *
 	 * Accepts variadic arguments (the $content argument can be repeated any number of times).
 	 *
-	 * @param string|OoUiTag $content Content to append
+	 * @param string|OoUiTag|OoUiHtmlSnippet $content Content to append. Strings will be HTML-escaped
+	 *   for output, use a OoUiHtmlSnippet instance to prevent that.
 	 * @chainable
 	 */
 	public function appendContent( /* $content... */ ) {
@@ -174,7 +175,8 @@ class OoUiTag {
 	 *
 	 * Accepts variadic arguments (the $content argument can be repeated any number of times).
 	 *
-	 * @param string|OoUiTag $content Content to prepend
+	 * @param string|OoUiTag|OoUiHtmlSnippet $content Content to prepend. Strings will be HTML-escaped
+	 *   for output, use a OoUiHtmlSnippet instance to prevent that.
 	 * @chainable
 	 */
 	public function prependContent( /* $content... */ ) {
@@ -234,7 +236,9 @@ class OoUiTag {
 		// Content
 		$content = '';
 		foreach ( $this->content as $part ) {
-			if ( is_string( $part ) || $part instanceof OoUiTag ) {
+			if ( is_string( $part ) ) {
+				$content .= htmlspecialchars( $part );
+			} elseif ( $part instanceof OoUiTag || $part instanceof OoUiHtmlSnippet ) {
 				$content .= (string)$part;
 			}
 		}

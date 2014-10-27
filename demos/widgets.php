@@ -292,7 +292,7 @@
 							) ),
 							array(
 								'align' => 'top',
-								'label' => 'ButtonInputWidget (type: submit, using &lt;input/>)'
+								'label' => 'ButtonInputWidget (type: submit, using <input/>)'
 							)
 						),
 						new OoUiFieldLayout(

@@ -30,7 +30,8 @@ class OoUiElement extends OoUiTag {
 	/**
 	 * @param array $config Configuration options
 	 * @param string[] $config['classes'] CSS class names to add
-	 * @param array $config['content'] Content to append, text or OoUiElement objects
+	 * @param array $config['content'] Content to append, strings or OoUiElement objects. Strings will
+	 *   be HTML-escaped for output, use a OoUiHtmlSnippet instance to prevent that.
 	 */
 	public function __construct( array $config = array() ) {
 		// Parent constructor
