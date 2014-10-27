@@ -168,6 +168,8 @@
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 				opacity: 0.5;
+				// Opacity causes 1px measurement errors in Chrome, so force GPU rendering
+				.oo-ui-force-webkit-gpu();
 				box-shadow: none;
 				color: #333;
 				background: #eee;
