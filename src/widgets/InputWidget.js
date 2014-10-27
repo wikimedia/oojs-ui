@@ -10,12 +10,11 @@
  * @param {Object} [config] Configuration options
  * @cfg {string} [name=''] HTML input name
  * @cfg {string} [value=''] Input value
- * @cfg {boolean} [readOnly=false] Prevent changes
  * @cfg {Function} [inputFilter] Filter function to apply to the input. Takes a string argument and returns a string.
  */
 OO.ui.InputWidget = function OoUiInputWidget( config ) {
-	// Config intialization
-	config = $.extend( { readOnly: false }, config );
+	// Configuration initialization
+	config = config || {};
 
 	// Parent constructor
 	OO.ui.InputWidget.super.call( this, config );
@@ -26,7 +25,6 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	// Properties
 	this.$input = this.getInputElement( config );
 	this.value = '';
-	this.readOnly = false;
 	this.inputFilter = config.inputFilter;
 
 	// Events
@@ -36,7 +34,6 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	this.$input
 		.attr( 'name', config.name )
 		.prop( 'disabled', this.isDisabled() );
-	this.setReadOnly( config.readOnly );
 	this.$element.addClass( 'oo-ui-inputWidget' ).append( this.$input );
 	this.setValue( config.value );
 };
@@ -156,29 +153,6 @@ OO.ui.InputWidget.prototype.simulateLabelClick = function () {
 			this.$input[0].focus();
 		}
 	}
-};
-
-/**
- * Check if the widget is read-only.
- *
- * @return {boolean}
- */
-OO.ui.InputWidget.prototype.isReadOnly = function () {
-	return this.readOnly;
-};
-
-/**
- * Set the read-only state of the widget.
- *
- * This should probably change the widgets's appearance and prevent it from being used.
- *
- * @param {boolean} state Make input read-only
- * @chainable
- */
-OO.ui.InputWidget.prototype.setReadOnly = function ( state ) {
-	this.readOnly = !!state;
-	this.$input.prop( 'readOnly', this.readOnly );
-	return this;
 };
 
 /**

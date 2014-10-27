@@ -15,22 +15,11 @@ class OoUiInputWidget extends OoUiWidget {
 	protected $value = '';
 
 	/**
-	 * Prevent chages.
-	 *
-	 * @var boolean
-	 */
-	protected $readOnly = false;
-
-	/**
 	 * @param array $config Configuration options
 	 * @param string $config['name'] HTML input name (default: '')
 	 * @param string $config['value'] Input value (default: '')
-	 * @param boolean $config['readOnly'] Prevent changes (default: false)
 	 */
 	public function __construct( array $config = array() ) {
-		// Config initialization
-		$config = array_merge( array( 'readOnly' => false ), $config );
-
 		// Parent constructor
 		parent::__construct( $config );
 
@@ -48,7 +37,6 @@ class OoUiInputWidget extends OoUiWidget {
 		if ( $this->isDisabled() ) {
 			$this->input->setAttributes( array( 'disabled' => 'disabled' ) );
 		}
-		$this->setReadOnly( $config['readOnly'] );
 		$this
 			->addClasses( array( 'oo-ui-inputWidget' ) )
 			->appendContent( $this->input );
@@ -115,32 +103,6 @@ class OoUiInputWidget extends OoUiWidget {
 		} else {
 			return (string)$value;
 		}
-	}
-
-	/**
-	 * Check if the widget is read-only.
-	 *
-	 * @return boolean
-	 */
-	public function isReadOnly() {
-		return $this->readOnly;
-	}
-
-	/**
-	 * Set the read-only state of the widget. This should probably change the widgets's appearance and
-	 * prevent it from being used.
-	 *
-	 * @param boolean $state Make input read-only
-	 * @chainable
-	 */
-	public function setReadOnly( $state ) {
-		$this->readOnly = (bool)$state;
-		if ( $this->readOnly ) {
-			$this->input->setAttributes( array( 'readonly' => 'readonly' ) );
-		} else {
-			$this->input->removeAttributes( array( 'readonly' ) );
-		}
-		return $this;
 	}
 
 	public function setDisabled( $state ) {

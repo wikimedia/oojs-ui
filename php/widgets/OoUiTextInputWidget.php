@@ -8,6 +8,13 @@ class OoUiTextInputWidget extends OoUiInputWidget {
 	/* Properties */
 
 	/**
+	 * Prevent chages.
+	 *
+	 * @var boolean
+	 */
+	protected $readOnly = false;
+
+	/**
 	 * Allow multiple lines of text.
 	 *
 	 * @var boolean
@@ -16,11 +23,15 @@ class OoUiTextInputWidget extends OoUiInputWidget {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param string $config['placeholder'] Placeholder text
 	 * @param string $config['type'] HTML tag `type` attribute (default: 'text')
+	 * @param string $config['placeholder'] Placeholder text
+	 * @param boolean $config['readOnly'] Prevent changes (default: false)
 	 * @param boolean $config['multiline'] Allow multiple lines of text (default: false)
 	 */
 	public function __construct( array $config = array() ) {
+		// Config initialization
+		$config = array_merge( array( 'readOnly' => false ), $config );
+
 		// Parent constructor
 		parent::__construct( $config );
 
@@ -35,10 +46,37 @@ class OoUiTextInputWidget extends OoUiInputWidget {
 		$this
 			->addClasses( array( 'oo-ui-textInputWidget' ) )
 			->appendContent( $this->icon, $this->indicator );
+		$this->setReadOnly( $config['readOnly'] );
 		if ( isset( $config['placeholder'] ) ) {
 			$this->input->setAttributes( array( 'placeholder' => $config['placeholder'] ) );
 		}
 		$this->setAttributes( array( 'role' => 'textbox' ) );
+	}
+
+	/**
+	 * Check if the widget is read-only.
+	 *
+	 * @return boolean
+	 */
+	public function isReadOnly() {
+		return $this->readOnly;
+	}
+
+	/**
+	 * Set the read-only state of the widget. This should probably change the widgets's appearance and
+	 * prevent it from being used.
+	 *
+	 * @param boolean $state Make input read-only
+	 * @chainable
+	 */
+	public function setReadOnly( $state ) {
+		$this->readOnly = (bool)$state;
+		if ( $this->readOnly ) {
+			$this->input->setAttributes( array( 'readonly' => 'readonly' ) );
+		} else {
+			$this->input->removeAttributes( array( 'readonly' ) );
+		}
+		return $this;
 	}
 
 	/**
