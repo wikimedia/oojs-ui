@@ -9,13 +9,17 @@ class OoUiButtonInputWidget extends OoUiInputWidget {
 	 * @param string $config['type'] HTML tag `type` attribute, may be 'button', 'submit' or 'reset'
 	 *   (default: 'button')
 	 * @param boolean $config['useInputTag'] Whether to use `<input/>` rather than `<button/>`. Only
-	 *   useful if you need IE 6 support in a form with multiple buttons. By using this option, you
-	 *   sacrifice icons and indicators, as well as the ability to have non-plaintext label or a
-	 *   label different from the value. (default: false)
+	 *   useful if you need IE 6 support in a form with multiple buttons. If you use this option,
+	 *   icons and indicators will not be displayed, it won't be possible to have a non-plaintext
+	 *   label, and it won't be possible to set a value (which will internally become identical to the
+	 *   label). (default: false)
 	 */
 	public function __construct( array $config = array() ) {
 		// Configuration initialization
 		$config = array_merge( array( 'type' => 'button', 'useInputTag' => false ), $config );
+
+	// Properties (must be set before parent constructor, which calls setValue())
+		$this->useInputTag = $config['useInputTag'];
 
 		// Parent constructor
 		parent::__construct( $config );
@@ -30,9 +34,6 @@ class OoUiButtonInputWidget extends OoUiInputWidget {
 		$this->mixin( new OoUiTitledElement( $this,
 			array_merge( $config, array( 'titled' => $this->input ) ) ) );
 		$this->mixin( new OoUiFlaggedElement( $this, $config ) );
-
-		// Properties
-		$this->useInputTag = $config['useInputTag'];
 
 		// Initialization
 		if ( !$config['useInputTag'] ) {
@@ -74,6 +75,21 @@ class OoUiButtonInputWidget extends OoUiInputWidget {
 			$this->input->setValue( $label );
 		}
 
+		return $this;
+	}
+
+	/**
+	 * Set the value of the input.
+	 *
+	 * Overridden to disable for `<input/>` elements, which have value identical to the label.
+	 *
+	 * @param string $value New value
+	 * @chainable
+	 */
+	public function setValue( $value ) {
+		if ( !$this->useInputTag ) {
+			parent::setValue( $value );
+		}
 		return $this;
 	}
 }

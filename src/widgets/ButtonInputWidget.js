@@ -22,6 +22,9 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	// Configuration initialization
 	config = $.extend( { type: 'button', useInputTag: false }, config );
 
+	// Properties (must be set before parent constructor, which calls #setValue)
+	this.useInputTag = config.useInputTag;
+
 	// Parent constructor
 	OO.ui.ButtonInputWidget.super.call( this, config );
 
@@ -32,9 +35,6 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	OO.ui.LabelElement.call( this, config );
 	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$input } ) );
 	OO.ui.FlaggedElement.call( this, config );
-
-	// Properties
-	this.useInputTag = config.useInputTag;
 
 	// Events
 	this.$input.on( {
@@ -104,6 +104,21 @@ OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
 		this.$input.val( label );
 	}
 
+	return this;
+};
+
+/**
+ * Set the value of the input.
+ *
+ * Overridden to disable for `<input/>` elements, which have value identical to the label.
+ *
+ * @param {string} value New value
+ * @chainable
+ */
+OO.ui.ButtonInputWidget.prototype.setValue = function ( value ) {
+	if ( !this.useInputTag ) {
+		OO.ui.ButtonInputWidget.super.prototype.setValue.call( this, value );
+	}
 	return this;
 };
 
