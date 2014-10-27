@@ -1,6 +1,11 @@
 <?php
 
 class OoUiFieldLayout extends OoUiLayout {
+
+	/* Static properties */
+
+	public static $tagName = 'label';
+
 	/**
 	 * Alignment.
 	 *

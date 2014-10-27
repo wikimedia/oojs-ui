@@ -73,6 +73,10 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 OO.inheritClass( OO.ui.FieldLayout, OO.ui.Layout );
 OO.mixinClass( OO.ui.FieldLayout, OO.ui.LabelElement );
 
+/* Static Properties */
+
+OO.ui.FieldLayout.static.tagName = 'label';
+
 /* Methods */
 
 /**
