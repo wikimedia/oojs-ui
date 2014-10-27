@@ -11,6 +11,10 @@
 	background-image: e('/* @embed */') url(~'@{url}');
 }
 
+.oo-ui-force-webkit-gpu() {
+	-webkit-transform: translate3d(0, 0, 0);
+}
+
 .oo-ui-image( @type, @name, @file, @ext, @path ) {
 	.oo-ui-@{type}-@{name} {
 		.oo-ui-background-image('@{path}/@{type}s/@{file}.@{ext}');
