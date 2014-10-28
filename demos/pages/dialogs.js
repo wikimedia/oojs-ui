@@ -372,7 +372,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	windowManager.addWindows( windows );
 	isolatedWindowManager.addWindows( isolatedWindows );
 
-	$demo.append( $( '<div class="oo-ui-demo-container"></div>' ).append(
-		fieldset.$element, windowManager.$element, isolatedWindowManager.$element
-	) );
+	$demo.append( $( '<div class="oo-ui-demo-container"></div>' ).append( fieldset.$element ),
+		windowManager.$element, isolatedWindowManager.$element
+	);
 };
