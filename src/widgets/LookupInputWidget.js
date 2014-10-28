@@ -9,7 +9,7 @@
  * @constructor
  * @param {OO.ui.TextInputWidget} input Input widget
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$overlay] Overlay layer; defaults to the current window's overlay.
+ * @cfg {jQuery} [$overlay] Overlay for dropdown; defaults to relative positioning
  */
 OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	// Config intialization
@@ -17,10 +17,7 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 
 	// Properties
 	this.lookupInput = input;
-	this.$overlay = config.$overlay || ( this.$.$iframe || this.$element ).closest( '.oo-ui-window' ).children( '.oo-ui-window-overlay' );
-	if ( this.$overlay.length === 0 ) {
-		this.$overlay = this.$( 'body' );
-	}
+	this.$overlay = config.$overlay || this.$element;
 	this.lookupMenu = new OO.ui.TextInputMenuWidget( this, {
 		$: OO.ui.Element.getJQuery( this.$overlay ),
 		input: this.lookupInput,
@@ -32,8 +29,6 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	this.populating = false;
 
 	// Events
-	this.$overlay.append( this.lookupMenu.$element );
-
 	this.lookupInput.$input.on( {
 		focus: this.onLookupInputFocus.bind( this ),
 		blur: this.onLookupInputBlur.bind( this ),
@@ -44,6 +39,7 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	// Initialization
 	this.$element.addClass( 'oo-ui-lookupWidget' );
 	this.lookupMenu.$element.addClass( 'oo-ui-lookupWidget-menu' );
+	this.$overlay.append( this.lookupMenu.$element );
 };
 
 /* Methods */
