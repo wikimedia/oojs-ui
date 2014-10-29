@@ -232,3 +232,15 @@ OO.ui.LookupInputWidget.prototype.getLookupMenuItemsFromData = function () {
 	// Stub, implemented in subclass
 	return [];
 };
+
+/**
+ * Get lookup cache item from server response data.
+ *
+ * @abstract
+ * @param {Mixed} data Response from server
+ * @return {Mixed} Cached result data
+ */
+OO.ui.LookupInputWidget.prototype.getLookupCacheItemFromData = function () {
+	// Stub, implemented in subclass
+	return [];
+};
