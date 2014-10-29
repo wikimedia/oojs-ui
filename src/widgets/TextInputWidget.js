@@ -11,6 +11,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {string} [type='text'] HTML tag `type` attribute
  * @cfg {string} [placeholder] Placeholder text
+ * @cfg {boolean} [readOnly=false] Prevent changes
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
  * @cfg {boolean} [autosize=false] Automatically resize to fit content
  * @cfg {boolean} [maxRows=10] Maximum number of rows to make visible when autosizing
@@ -19,7 +20,7 @@
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Configuration initialization
-	config = config || {};
+	config = $.extend( { readOnly: false }, config );
 
 	// Parent constructor
 	OO.ui.TextInputWidget.super.call( this, config );
@@ -30,6 +31,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	OO.ui.PendingElement.call( this, config );
 
 	// Properties
+	this.readOnly = false;
 	this.multiline = !!config.multiline;
 	this.autosize = !!config.autosize;
 	this.maxRows = config.maxRows !== undefined ? config.maxRows : 10;
@@ -50,6 +52,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.$element
 		.addClass( 'oo-ui-textInputWidget' )
 		.append( this.$icon, this.$indicator );
+	this.setReadOnly( config.readOnly );
 	if ( config.placeholder ) {
 		this.$input.attr( 'placeholder', config.placeholder );
 	}
@@ -162,6 +165,29 @@ OO.ui.TextInputWidget.prototype.setValue = function ( value ) {
 
 	this.setValidityFlag();
 	this.adjustSize();
+	return this;
+};
+
+/**
+ * Check if the widget is read-only.
+ *
+ * @return {boolean}
+ */
+OO.ui.TextInputWidget.prototype.isReadOnly = function () {
+	return this.readOnly;
+};
+
+/**
+ * Set the read-only state of the widget.
+ *
+ * This should probably change the widgets's appearance and prevent it from being used.
+ *
+ * @param {boolean} state Make input read-only
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
+	this.readOnly = !!state;
+	this.$input.prop( 'readOnly', this.readOnly );
 	return this;
 };
 
