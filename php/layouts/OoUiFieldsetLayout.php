@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Layout made of a fieldset and optional legend.
+ *
+ * Just add OoUiFieldLayout items.
+ */
 class OoUiFieldsetLayout extends OoUiLayout {
 	/**
 	 * Alignment.
@@ -9,10 +14,8 @@ class OoUiFieldsetLayout extends OoUiLayout {
 	protected $align;
 
 	/**
-	 * Create fieldset layout.
-	 *
 	 * @param array $config Configuration options
-	 * @param OoUiFieldLayout $config['items'] Items to add
+	 * @param OoUiFieldLayout[] $config['items'] Items to add
 	 */
 	public function __construct( array $config = array() ) {
 		// Parent constructor

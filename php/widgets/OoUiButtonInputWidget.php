@@ -1,9 +1,10 @@
 <?php
 
+/**
+ * A button that is an input widget. Intended to be used within a OoUiFormLayout.
+ */
 class OoUiButtonInputWidget extends OoUiInputWidget {
 	/**
-	 * Create button input widget.
-	 *
 	 * @param array $config Configuration options
 	 * @param string $config['type'] HTML tag `type` attribute, may be 'button', 'submit' or 'reset'
 	 *   (default: 'button')
@@ -62,7 +63,7 @@ class OoUiButtonInputWidget extends OoUiInputWidget {
 	 *
 	 * Overridden to support setting the 'value' of `<input/>` elements.
 	 *
-	 * @param string $label Label value
+	 * @param string|null $label Label text
 	 * @chainable
 	 */
 	public function setLabel( $label ) {

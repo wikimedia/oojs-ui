@@ -208,6 +208,7 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 /**
  * Get input element.
  *
+ * @private
  * @param {Object} [config] Configuration options
  * @return {jQuery} Input element
  */

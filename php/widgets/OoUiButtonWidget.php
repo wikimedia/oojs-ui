@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Generic widget for buttons.
+ */
 class OoUiButtonWidget extends OoUiWidget {
 
 	/**
@@ -17,9 +20,9 @@ class OoUiButtonWidget extends OoUiWidget {
 	protected $target = null;
 
 	/**
-	 * Create button widget.
-	 *
 	 * @param array $config Configuration options
+	 * @param string $config['href'] Hyperlink to visit when clicked
+	 * @param string $config['target'] Target to open hyperlink in
 	 */
 	public function __construct( array $config = array() ) {
 		// Configuration initialization

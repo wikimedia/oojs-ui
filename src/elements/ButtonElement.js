@@ -11,7 +11,8 @@
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$button] Button node, assigned to #$button, omit to use a generated `<a>`
  * @cfg {boolean} [framed=true] Render button with a frame
- * @cfg {number} [tabIndex=0] Button's tab index, use null to have no tabIndex
+ * @cfg {number} [tabIndex=0] Button's tab index. Use 0 to use default ordering, use -1 to prevent
+ *   tab focusing.
  * @cfg {string} [accessKey] Button's access key
  */
 OO.ui.ButtonElement = function OoUiButtonElement( config ) {

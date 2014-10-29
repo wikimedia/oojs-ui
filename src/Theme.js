@@ -21,8 +21,8 @@ OO.initClass( OO.ui.Theme );
 /**
  * Get a list of classes to be applied to a widget.
  *
- * @localdoc The 'on' and 'off' lists combined MUST contain keys for all classes the theme adds or
- *   removes, otherwise state transitions will not work properly.
+ * The 'on' and 'off' lists combined MUST contain keys for all classes the theme adds or removes,
+ * otherwise state transitions will not work properly.
  *
  * @param {OO.ui.Element} element Element for which to get classes
  * @return {Object.<string,string[]>} Categorized class names with `on` and `off` lists
@@ -36,7 +36,7 @@ OO.ui.Theme.prototype.getElementClasses = function ( /* element */ ) {
  *
  * For elements with theme logic hooks, this should be called anytime there's a state change.
  *
- * @param {OO.ui.Element} Element for which to update classes
+ * @param {OO.ui.Element} element Element for which to update classes
  * @return {Object.<string,string[]>} Categorized class names with `on` and `off` lists
  */
 OO.ui.Theme.prototype.updateElementClasses = function ( element ) {

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Label widget.
+ */
 class OoUiLabelWidget extends OoUiWidget {
 
 	/* Static properties */
@@ -7,8 +10,6 @@ class OoUiLabelWidget extends OoUiWidget {
 	public static $tagName = 'span';
 
 	/**
-	 * Create label widget.
-	 *
 	 * @param array $config Configuration options
 	 */
 	public function __construct( array $config = array() ) {

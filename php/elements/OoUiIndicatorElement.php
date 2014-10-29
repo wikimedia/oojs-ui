@@ -1,21 +1,27 @@
 <?php
 
+/**
+ * Element containing an indicator.
+ *
+ * Indicators are graphics, smaller than normal text. They can be used to describe unique status or
+ * behavior. Indicators should only be used in exceptional cases; such as a button that opens a menu
+ * instead of performing an action directly, or an item in a list which has errors that need to be
+ * resolved.
+ */
 class OoUiIndicatorElement extends OoUiElementMixin {
 	/**
-	 * Indicator value.
+	 * Symbolic indicator name
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	protected $indicator = null;
 
 	public static $targetPropertyName = 'indicator';
 
 	/**
-	 * Mixin indicator element.
-	 *
 	 * @param OoUiElement $element Element being mixed into
 	 * @param array $config Configuration options
-	 * @param string $config['indicator'] Indicator value
+	 * @param string $config['indicator'] Symbolic indicator name
 	 */
 	public function __construct( OoUiElement $element, array $config = array() ) {
 		// Parent constructor
@@ -31,9 +37,9 @@ class OoUiIndicatorElement extends OoUiElementMixin {
 	}
 
 	/**
-	 * Set indicator value.
+	 * Set indicator name.
 	 *
-	 * @param string $indicator Indicator value
+	 * @param string|null $indicator Symbolic name of indicator to use or null for no indicator
 	 * @chainable
 	 */
 	public function setIndicator( $indicator = null ) {
@@ -44,9 +50,9 @@ class OoUiIndicatorElement extends OoUiElementMixin {
 	}
 
 	/**
-	 * Get indicator value.
+	 * Get indicator name.
 	 *
-	 * @return string Indicator value
+	 * @return string Indicator name
 	 */
 	public function getIndicator() {
 		return $this->indicator;

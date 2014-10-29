@@ -1,10 +1,11 @@
 <?php
 
+/**
+ * Checkbox input widget.
+ */
 class OoUiCheckboxInputWidget extends OoUiInputWidget {
 
 	/**
-	 * Create checkbox input widget.
-	 *
 	 * @param array $config Configuration options
 	 */
 	public function __construct( array $config = array() ) {

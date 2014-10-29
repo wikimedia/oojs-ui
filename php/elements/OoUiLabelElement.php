@@ -1,21 +1,22 @@
 <?php
 
+/**
+ * Element containing a label.
+ */
 class OoUiLabelElement extends OoUiElementMixin {
 	/**
 	 * Label value.
 	 *
-	 * @var string
+	 * @var string|null
 	 */
-	protected $label;
+	protected $label = null;
 
 	public static $targetPropertyName = 'label';
 
 	/**
-	 * Mixin label element.
-	 *
 	 * @param OoUiElement $element Element being mixed into
 	 * @param array $config Configuration options
-	 * @param string $config['label'] Label value
+	 * @param string $config['label'] Label text
 	 */
 	public function __construct( OoUiElement $element, array $config = array() ) {
 		// Parent constructor
@@ -29,9 +30,11 @@ class OoUiLabelElement extends OoUiElementMixin {
 	}
 
 	/**
-	 * Set label value.
+	 * Set the label.
 	 *
-	 * @param string $label Label value
+	 * An empty string will result in the label being hidden.
+	 *
+	 * @param string|null $label Label text
 	 * @chainable
 	 */
 	public function setLabel( $label ) {
@@ -45,9 +48,9 @@ class OoUiLabelElement extends OoUiElementMixin {
 	}
 
 	/**
-	 * Get label value.
+	 * Get the label.
 	 *
-	 * @return string Label value
+	 * @return string Label text
 	 */
 	public function getLabel() {
 		return $this->label;

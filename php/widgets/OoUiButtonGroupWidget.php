@@ -1,11 +1,14 @@
 <?php
 
+/**
+ * Group widget for multiple related buttons.
+ *
+ * Use together with OoUiButtonWidget.
+ */
 class OoUiButtonGroupWidget extends OoUiWidget {
 	/**
-	 * Create button group widget.
-	 *
 	 * @param array $config Configuration options
-	 * @param array $config['items'] Buttons to add
+	 * @param OoUiButtonWidget[] $config['items'] Buttons to add
 	 */
 	public function __construct( array $config = array() ) {
 		// Parent constructor

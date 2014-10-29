@@ -5,8 +5,8 @@
  *
  * @class
  * @extends OO.ui.Layout
- * @mixins OO.ui.LabelElement
  * @mixins OO.ui.IconElement
+ * @mixins OO.ui.LabelElement
  * @mixins OO.ui.GroupElement
  *
  * @constructor

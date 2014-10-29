@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Input widget with a text field.
+ */
 class OoUiTextInputWidget extends OoUiInputWidget {
 
 	/* Properties */
@@ -12,9 +15,8 @@ class OoUiTextInputWidget extends OoUiInputWidget {
 	protected $multiline = false;
 
 	/**
-	 * Create text input widget.
-	 *
 	 * @param array $config Configuration options
+	 * @param string $config['placeholder'] Placeholder text
 	 * @param string $config['type'] HTML tag `type` attribute (default: 'text')
 	 * @param boolean $config['multiline'] Allow multiple lines of text (default: false)
 	 */
@@ -57,11 +59,11 @@ class OoUiTextInputWidget extends OoUiInputWidget {
 	}
 
 	/**
-	 * Check if the widget is read-only.
+	 * Check if input supports multiple lines.
 	 *
 	 * @return boolean
 	 */
-	public function isMultiLine() {
+	public function isMultiline() {
 		return (bool)$this->multiline;
 	}
 }

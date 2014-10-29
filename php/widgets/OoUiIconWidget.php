@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Icon widget.
+ *
+ * See OoUiIconElement for more information.
+ */
 class OoUiIconWidget extends OoUiWidget {
 
 	/* Static properties */
@@ -7,8 +12,6 @@ class OoUiIconWidget extends OoUiWidget {
 	public static $tagName = 'span';
 
 	/**
-	 * Create icon widget.
-	 *
 	 * @param array $config Configuration options
 	 */
 	public function __construct( array $config = array() ) {

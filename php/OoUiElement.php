@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * DOM element abstraction.
+ */
 class OoUiElement extends OoUiTag {
 
 	/* Static properties */
@@ -25,10 +28,8 @@ class OoUiElement extends OoUiTag {
 	/* Methods */
 
 	/**
-	 * Create element.
-	 *
 	 * @param array $config Configuration options
-	 * @param array $config['classes'] CSS class names to add
+	 * @param string[] $config['classes'] CSS class names to add
 	 * @param array $config['content'] Content to append, text or OoUiElement objects
 	 */
 	public function __construct( array $config = array() ) {
@@ -105,9 +106,9 @@ class OoUiElement extends OoUiTag {
 	}
 
 	/**
-	 * Check if element or a mixin supports a method.
+	 * Check if element supports one or more methods.
 	 *
-	 * @param string|array $method Method to check
+	 * @param string|string[] $methods Method or list of methods to check
 	 * @return boolean Method is supported
 	 */
 	public function supports( $methods ) {

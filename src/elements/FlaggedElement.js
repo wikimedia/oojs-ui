@@ -9,7 +9,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string[]} [flags=[]] Styling flags, e.g. 'primary', 'destructive' or 'constructive'
+ * @cfg {string|string[]} [flags] Styling flags, e.g. 'primary', 'destructive' or 'constructive'
  * @cfg {jQuery} [$flagged] Flagged node, assigned to #$flagged, omit to use #$element
  */
 OO.ui.FlaggedElement = function OoUiFlaggedElement( config ) {
