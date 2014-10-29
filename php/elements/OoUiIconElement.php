@@ -41,9 +41,16 @@ class OoUiIconElement extends OoUiElementMixin {
 	 * @chainable
 	 */
 	public function setIcon( $icon = null ) {
-		$this->icon = is_string( $icon ) ? $icon : null;
-		$this->element->toggleClasses( array( 'oo-ui-iconElement' ), !!$this->icon );
-		$this->target->addClasses( array( 'oo-ui-icon-' . $this->icon ) );
+		if ( $this->icon !== null ) {
+			$this->target->removeClasses( array( 'oo-ui-icon-' . $this->icon ) );
+		}
+		if ( $icon !== null ) {
+			$this->target->addClasses( array( 'oo-ui-icon-' . $icon ) );
+		}
+
+		$this->icon = $icon;
+		$this->element->toggleClasses( array( 'oo-ui-iconElement' ), (bool)$this->icon );
+
 		return $this;
 	}
 
