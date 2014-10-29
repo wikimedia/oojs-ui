@@ -53,15 +53,15 @@
 
 		&.oo-ui-flaggedElement {
 			&-primary > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-				color: #087ecc;
+				color: @primary;
 			}
 
 			&-constructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-				color: #76ab36;
+				color: @constructive;
 			}
 
 			&-destructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-				color: #d45353;
+				color: @destructive;
 			}
 		}
 
@@ -122,44 +122,44 @@
 		&.oo-ui-flaggedElement {
 			&-primary {
 				> .oo-ui-buttonElement-button {
-					border: solid 1px #a6cee1;
-					.oo-ui-vertical-gradient(#eaf4fa, #b0d9ee);
+					border: solid 1px @primary-border;
+					.oo-ui-vertical-gradient(@primary-gradient-start, @primary-gradient-end);
 
 					&:hover,
 					&:focus {
-						border-color: #9dc2d4;
+						border-color: @primary-border-selected;
 					}
 				}
 
 				&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
 				&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
 				&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-					border: solid 1px #a6cee1;
-					.oo-ui-vertical-gradient(#b0d9ee, #eaf4fa);
+					border: solid 1px @primary-border;
+					.oo-ui-vertical-gradient(@primary-gradient-end, @primary-gradient-start);
 				}
 			}
 
 			&-constructive {
 				> .oo-ui-buttonElement-button {
-					border: solid 1px #b8d892;
-					.oo-ui-vertical-gradient(#f0fbe1, #c3e59a);
+					border: solid 1px @constructive-border;
+					.oo-ui-vertical-gradient(@constructive-gradient-start, @constructive-gradient-end);
 
 					&:hover,
 					&:focus {
-						border-color: #adcb89;
+						border-color: @constructive-border-selected;
 					}
 				}
 
 				&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
 				&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
 				&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-					border: solid 1px #b8d892;
-					.oo-ui-vertical-gradient(#c3e59a, #f0fbe1);
+					border: solid 1px @constructive-border;
+					.oo-ui-vertical-gradient(@constructive-gradient-end, @constructive-gradient-start);
 				}
 			}
 
 			&-destructive > .oo-ui-buttonElement-button {
-				color: #d45353;
+				color: @destructive;
 			}
 		}
 
@@ -200,4 +200,3 @@
 .theme-oo-ui-popupElement () {}
 
 .theme-oo-ui-titledElement () {}
-
