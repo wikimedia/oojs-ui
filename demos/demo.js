@@ -24,7 +24,8 @@ OO.ui.Demo = function OoUiDemo() {
 				new OO.ui.MenuItemWidget( 'toolbars',  { $: this.$, label: 'Toolbars' } ),
 				new OO.ui.MenuItemWidget( 'widgets',  { $: this.$, label: 'Widgets' } )
 			]
-		}
+		},
+		classes: [ 'oo-ui-demo-pageMenu' ]
 	} );
 	this.pageMenuMenu = this.pageMenu.getMenu();
 	this.themeSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [

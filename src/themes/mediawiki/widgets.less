@@ -87,7 +87,8 @@
 
 .theme-oo-ui-inlineMenuWidget () {
 	margin: 0.25em 0;
-	min-width: 20em;
+	width: 100%;
+	max-width: 50em;
 
 	&-handle {
 		height: 2.5em;
@@ -149,7 +150,8 @@
 .theme-oo-ui-checkboxInputWidget () {}
 
 .theme-oo-ui-textInputWidget () {
-	width: 20em;
+	width: 100%;
+	max-width: 50em;
 
 	input,
 	textarea {
@@ -249,6 +251,9 @@
 }
 
 .theme-oo-ui-comboBoxWidget () {
+	width: 100%;
+	max-width: 50em;
+
 	.oo-ui-textInputWidget {
 		input,
 		textarea {
@@ -561,7 +566,8 @@
 }
 
 .theme-oo-ui-progressBarWidget () {
-	width: 20em;
+	width: 100%;
+	max-width: 50em;
 	border: solid 1px @primary-fill;
 	border-radius: 0.1em;
 	&-bar {

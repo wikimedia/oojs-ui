@@ -20,6 +20,10 @@ body {
 	min-width: 10em;
 }
 
+.oo-ui-demo-menu .oo-ui-demo-pageMenu {
+	width: 10em;
+}
+
 .oo-ui-demo {
 	max-width: 50em;
 }
