@@ -110,7 +110,7 @@ class OoUiElement extends OoUiTag {
 	 * Check if element supports one or more methods.
 	 *
 	 * @param string|string[] $methods Method or list of methods to check
-	 * @return boolean Method is supported
+	 * @return boolean All methods are supported
 	 */
 	public function supports( $methods ) {
 		$support = 0;

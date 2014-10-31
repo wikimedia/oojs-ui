@@ -59,7 +59,7 @@ class OoUiIndicatorElement extends OoUiElementMixin {
 	/**
 	 * Get indicator name.
 	 *
-	 * @return string Indicator name
+	 * @return string Symbolic name of indicator
 	 */
 	public function getIndicator() {
 		return $this->indicator;

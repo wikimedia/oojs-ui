@@ -44,7 +44,7 @@ class OoUiFlaggedElement extends OoUiElementMixin {
 	/**
 	 * Get the names of all flags set.
 	 *
-	 * @return array Flag names
+	 * @return string[] Flag names
 	 */
 	public function getFlags() {
 		return array_keys( $this->flags );

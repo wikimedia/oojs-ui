@@ -136,7 +136,7 @@ OO.ui.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle )
 /**
  * Get indicator name.
  *
- * @return {string} title Symbolic name of indicator
+ * @return {string} Symbolic name of indicator
  */
 OO.ui.IndicatorElement.prototype.getIndicator = function () {
 	return this.indicator;

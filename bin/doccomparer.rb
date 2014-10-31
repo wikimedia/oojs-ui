@@ -35,9 +35,11 @@ def sanitize_description text
 		.gsub('undefined and null', 'null')
 		.gsub('array()', '[]')
 		.gsub('jQuery|string|Function', 'string')
+		.gsub('jQuery', 'Tag')
 		.gsub('string|Function', 'string')
 		.gsub('object', 'array')
 		.gsub(/#(\w+)/, '\1()')
+		.gsub(/Object\.<.+?>/, 'array')
 end
 
 def smart_compare_process val, type
@@ -69,6 +71,10 @@ def smart_compare_process val, type
 			v[:description] = sanitize_description v[:description]
 			v[:type] = sanitize_description v[:type]
 		}
+		if val[:return]
+			val[:return][:description] = sanitize_description val[:return][:description]
+			val[:return][:type] = sanitize_description val[:return][:type]
+		end
 
 	when :property
 		val[:description] = sanitize_description val[:description]
