@@ -105,7 +105,7 @@ class OoUiGridLayout extends OoUiLayout {
 				$cssHeight = round( $height * 100 ) . '%';
 				$cssTop = round( $top * 100 ) . '%';
 
-				$direction = OoUiElement::getDir() === 'ltr' ? 'left' : 'right';
+				$direction = OoUiElement::getDir( $this ) === 'ltr' ? 'left' : 'right';
 				$cssLeft = round( $left * 100 ) . '%';
 
 				$css =

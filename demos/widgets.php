@@ -1,27 +1,48 @@
+<?php
+	$autoload = '../vendor/autoload.php';
+	if ( !file_exists( $autoload ) ) {
+		trigger_error(
+			'<h1>Did you forget to run <code>composer install</code>?</h1>'
+		);
+		exit();
+	}
+	require_once $autoload;
+
+	OoUiTheme::setSingleton( new OoUiMediaWikiTheme() );
+
+	$direction = ( isset( $_GET['dir'] ) && $_GET['dir'] === 'rtl' ) ? 'rtl' : 'ltr';
+	$directionSuffix = $direction === 'rtl' ? '.rtl' : '';
+	OoUiElement::setDefaultDir( $direction );
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
 	<meta charset="UTF-8">
 	<title>OOjs UI Widget Demo</title>
-	<link rel="stylesheet" href="../dist/oojs-ui-mediawiki.svg.css">
-	<link rel="stylesheet" href="styles/demo.css">
+	<link rel="stylesheet" href="../dist/oojs-ui-mediawiki.svg<?php echo $directionSuffix; ?>.css">
+	<link rel="stylesheet" href="styles/demo<?php echo $directionSuffix; ?>.css">
 </head>
-<body>
+<body class="oo-ui-<?php echo $direction; ?>">
 	<div class="oo-ui-demo">
-		<div class="oo-ui-demo-container">
+		<div class="oo-ui-demo-menu">
 			<?php
-				$autoload = '../vendor/autoload.php';
-				if ( !file_exists( $autoload ) ) {
-					trigger_error(
-						'<h1>Did you forget to run <code>composer install</code>?</h1>'
-					);
-					exit();
-				}
-				require_once $autoload;
-
-				OoUiTheme::setSingleton( new OoUiMediaWikiTheme() );
+				echo new OoUiButtonGroupWidget( array(
+					'items' => array(
+						new OoUiButtonWidget( array(
+							'label' => 'LTR',
+							'href' => '?dir=ltr',
+							'target' => null,
+						) ),
+						new OoUiButtonWidget( array(
+							'label' => 'RTL',
+							'href' => '?dir=rtl',
+							'target' => null,
+						) ),
+					)
+				) );
 			?>
-
+		</div>
+		<div class="oo-ui-demo-container">
 			<?php
 
 				function widgetWrap( $element ) {
@@ -120,7 +141,7 @@
 					'items' => array(
 						new OoUiFieldLayout(
 							new ButtonWidgetTitled( array(
-								'label' => 'Hover me!',
+								'label' => "Hover me!\xE2\x80\x8E",
 							) ),
 							array(
 								'label' => 'Titled button',
@@ -129,7 +150,7 @@
 						),
 						new OoUiFieldLayout(
 							new OoUiButtonWidget( array(
-								'label' => 'Click me!',
+								'label' => "Click me!\xE2\x80\x8E",
 								'href' => 'http://example.com/',
 							) ),
 							array(
@@ -238,7 +259,7 @@
 								'title' => 'Picture icon'
 							) ),
 							array(
-								'label' => 'IconWidget (normal)',
+								'label' => "IconWidget (normal)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
@@ -249,7 +270,7 @@
 								'disabled' => true
 							) ),
 							array(
-								'label' => 'IconWidget (disabled)',
+								'label' => "IconWidget (disabled)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
@@ -259,7 +280,7 @@
 								'title' => 'Required icon'
 							) ),
 							array(
-								'label' => 'IndicatorWidget (normal)',
+								'label' => "IndicatorWidget (normal)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
@@ -270,7 +291,7 @@
 								'disabled' => true
 							) ),
 							array(
-								'label' => 'IndicatorWidget (disabled)',
+								'label' => "IndicatorWidget (disabled)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
@@ -281,7 +302,7 @@
 							) ),
 							array(
 								'align' => 'top',
-								'label' => 'ButtonInputWidget (type: submit)'
+								'label' => "ButtonInputWidget (type: submit)\xE2\x80\x8E"
 							)
 						),
 						new OoUiFieldLayout(
@@ -292,7 +313,7 @@
 							) ),
 							array(
 								'align' => 'top',
-								'label' => 'ButtonInputWidget (type: submit, using <input/>)'
+								'label' => "ButtonInputWidget (type: submit, using <input/>)\xE2\x80\x8E"
 							)
 						),
 						new OoUiFieldLayout(
@@ -311,7 +332,7 @@
 							) ),
 							array(
 								'align' => 'inline',
-								'label' => 'CheckboxInputWidget (disabled)'
+								'label' => "CheckboxInputWidget (disabled)\xE2\x80\x8E"
 							)
 						),
 						new OoUiFieldLayout(
@@ -324,21 +345,21 @@
 						new OoUiFieldLayout(
 							new OoUiTextInputWidget( array( 'icon' => 'search' ) ),
 							array(
-								'label' => 'TextInputWidget (icon)',
+								'label' => "TextInputWidget (icon)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
 						new OoUiFieldLayout(
 							new OoUiTextInputWidget( array( 'indicator' => 'required' ) ),
 							array(
-								'label' => 'TextInputWidget (indicator)',
+								'label' => "TextInputWidget (indicator)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
 						new OoUiFieldLayout(
 							new OoUiTextInputWidget( array( 'placeholder' => 'Placeholder' ) ),
 							array(
-								'label' => 'TextInputWidget (placeholder)',
+								'label' => "TextInputWidget (placeholder)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
@@ -348,7 +369,7 @@
 								'readOnly' => true
 							) ),
 							array(
-								'label' => 'TextInputWidget (readonly)',
+								'label' => "TextInputWidget (readonly)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
@@ -358,7 +379,7 @@
 								'disabled' => true
 							) ),
 							array(
-								'label' => 'TextInputWidget (disabled)',
+								'label' => "TextInputWidget (disabled)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
@@ -368,7 +389,7 @@
 								'value' => 'Multiline'
 							) ),
 							array(
-								'label' => 'TextInputWidget (multiline)',
+								'label' => "TextInputWidget (multiline)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),

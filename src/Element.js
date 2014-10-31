@@ -114,7 +114,7 @@ OO.ui.Element.getWindow = function ( obj ) {
  *
  * @static
  * @param {jQuery|HTMLElement|HTMLDocument|Window} obj Context to get the direction for
- * @return {string} Text direction, either `ltr` or `rtl`
+ * @return {string} Text direction, either 'ltr' or 'rtl'
  */
 OO.ui.Element.getDir = function ( obj ) {
 	var isDoc, isWin;

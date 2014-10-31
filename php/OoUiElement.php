@@ -16,6 +16,15 @@ class OoUiElement extends OoUiTag {
 	 */
 	public static $tagName = 'div';
 
+	/**
+	 * Default text direction, used for some layout calculations. Use setDefaultDir() to change.
+	 *
+	 * Currently only per-document directionality is supported.
+	 *
+	 * @var string
+	 */
+	public static $defaultDir = 'ltr';
+
 	/* Members */
 
 	/**
@@ -154,13 +163,23 @@ class OoUiElement extends OoUiTag {
 	}
 
 	/**
-	 * Get the direction of the user interface.
+	 * Get the direction of the user interface for a given element.
 	 *
-	 * @return string Text direction, either `ltr` or `rtl`
+	 * Currently only per-document directionality is supported.
+	 *
+	 * @param OoUiTag $element Element to check
+	 * @return string Text direction, either 'ltr' or 'rtl'
 	 */
-	public static function getDir() {
-		// TODO: Figure out a way to override this functionality when used within MediaWiki, and use
-		// $wgLang->getDir() to get the user interface direction
-		return 'ltr';
+	public static function getDir( OoUiTag $element ) {
+		return self::$defaultDir;
+	}
+
+	/**
+	 * Set the default direction of the user interface.
+	 *
+	 * @return string Text direction, either 'ltr' or 'rtl'
+	 */
+	public static function setDefaultDir( $dir ) {
+		self::$defaultDir = $dir === 'rtl' ? 'rtl' : 'ltr';
 	}
 }
