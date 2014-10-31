@@ -15,7 +15,7 @@ OO.ui.Demo = function OoUiDemo() {
 	this.stylesheetLinks = this.getStylesheetLinks();
 	this.mode = this.getCurrentMode();
 	this.$menu = this.$( '<div>' );
-	this.pageMenu = new OO.ui.InlineMenuWidget( {
+	this.pageDropdown = new OO.ui.DropdownWidget( {
 		$: this.$,
 		menu: {
 			items: [
@@ -25,9 +25,9 @@ OO.ui.Demo = function OoUiDemo() {
 				new OO.ui.MenuItemWidget( 'widgets',  { $: this.$, label: 'Widgets' } )
 			]
 		},
-		classes: [ 'oo-ui-demo-pageMenu' ]
+		classes: [ 'oo-ui-demo-pageDropdown' ]
 	} );
-	this.pageMenuMenu = this.pageMenu.getMenu();
+	this.pageMenu = this.pageDropdown.getMenu();
 	this.themeSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
 		new OO.ui.ButtonOptionWidget( 'apex', { $: this.$, label: 'Apex' } ),
 		new OO.ui.ButtonOptionWidget( 'mediawiki', { $: this.$, label: 'MediaWiki' } )
@@ -42,20 +42,20 @@ OO.ui.Demo = function OoUiDemo() {
 	] );
 
 	// Events
-	this.pageMenuMenu.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
+	this.pageMenu.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.themeSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.graphicsSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.directionSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 
 	// Initialization
-	this.pageMenuMenu.selectItem( this.pageMenuMenu.getItemFromData( this.mode.page ) );
+	this.pageMenu.selectItem( this.pageMenu.getItemFromData( this.mode.page ) );
 	this.themeSelect.selectItem( this.themeSelect.getItemFromData( this.mode.theme ) );
 	this.graphicsSelect.selectItem( this.graphicsSelect.getItemFromData( this.mode.graphics ) );
 	this.directionSelect.selectItem( this.directionSelect.getItemFromData( this.mode.direction ) );
 	this.$menu
 		.addClass( 'oo-ui-demo-menu' )
 		.append(
-			this.pageMenu.$element,
+			this.pageDropdown.$element,
 			this.themeSelect.$element,
 			this.graphicsSelect.$element,
 			this.directionSelect.$element
@@ -182,7 +182,7 @@ OO.ui.Demo.static.defaultDirection = 'ltr';
  * Will load a new page.
  */
 OO.ui.Demo.prototype.onModeChange = function () {
-	var page = this.pageMenuMenu.getSelectedItem().getData(),
+	var page = this.pageMenu.getSelectedItem().getData(),
 		theme = this.themeSelect.getSelectedItem().getData(),
 		direction = this.directionSelect.getSelectedItem().getData(),
 		graphics = this.graphicsSelect.getSelectedItem().getData();

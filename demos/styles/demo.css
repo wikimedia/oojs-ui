@@ -16,11 +16,11 @@ body {
 	margin-right: 1em;
 }
 
-.oo-ui-demo-menu .oo-ui-inlineMenuWidget {
+.oo-ui-demo-menu .oo-ui-dropdownWidget {
 	min-width: 10em;
 }
 
-.oo-ui-demo-menu .oo-ui-demo-pageMenu {
+.oo-ui-demo-menu .oo-ui-demo-pageDropdown {
 	width: 10em;
 }
 

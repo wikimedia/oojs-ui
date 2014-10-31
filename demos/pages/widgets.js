@@ -449,7 +449,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				}
 			),
 			new OO.ui.FieldLayout(
-				new OO.ui.InlineMenuWidget( {
+				new OO.ui.DropdownWidget( {
 					label: 'Select one',
 					align: 'top',
 					menu: {
@@ -473,12 +473,12 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				} ),
 				{
-					label: 'InlineMenuWidget',
+					label: 'DropdownWidget',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
-				new OO.ui.InlineMenuWidget( {
+				new OO.ui.DropdownWidget( {
 					label: 'Select one',
 					menu: {
 						items: [
@@ -503,12 +503,12 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				} ),
 				{
-					label: 'InlineMenuWidget (disabled options)\u200E',
+					label: 'DropdownWidget (disabled options)\u200E',
 					align: 'top'
 				}
 			),
 			new OO.ui.FieldLayout(
-				new OO.ui.InlineMenuWidget( {
+				new OO.ui.DropdownWidget( {
 					label: 'Select one',
 					disabled: true,
 					menu: {
@@ -529,7 +529,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				} ),
 				{
-					label: 'InlineMenuWidget (disabled)\u200E',
+					label: 'DropdownWidget (disabled)\u200E',
 					align: 'top'
 				}
 			),

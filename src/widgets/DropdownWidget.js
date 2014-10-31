@@ -1,7 +1,7 @@
 /**
- * Inline menu of options.
+ * Dropdown menu of options.
  *
- * Inline menus provide a control for accessing a menu and compose a menu within the widget, which
+ * Dropdown menus provide a control for accessing a menu and compose a menu within the widget, which
  * can be accessed using the #getMenu method.
  *
  * Use with OO.ui.MenuItemWidget.
@@ -17,12 +17,12 @@
  * @param {Object} [config] Configuration options
  * @cfg {Object} [menu] Configuration options to pass to menu widget
  */
-OO.ui.InlineMenuWidget = function OoUiInlineMenuWidget( config ) {
+OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	// Configuration initialization
 	config = $.extend( { indicator: 'down' }, config );
 
 	// Parent constructor
-	OO.ui.InlineMenuWidget.super.call( this, config );
+	OO.ui.DropdownWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.IconElement.call( this, config );
@@ -40,20 +40,20 @@ OO.ui.InlineMenuWidget = function OoUiInlineMenuWidget( config ) {
 
 	// Initialization
 	this.$handle
-		.addClass( 'oo-ui-inlineMenuWidget-handle' )
+		.addClass( 'oo-ui-dropdownWidget-handle' )
 		.append( this.$icon, this.$label, this.$indicator );
 	this.$element
-		.addClass( 'oo-ui-inlineMenuWidget' )
+		.addClass( 'oo-ui-dropdownWidget' )
 		.append( this.$handle, this.menu.$element );
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.InlineMenuWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.IconElement );
-OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.IndicatorElement );
-OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.LabelElement );
-OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.TitledElement );
+OO.inheritClass( OO.ui.DropdownWidget, OO.ui.Widget );
+OO.mixinClass( OO.ui.DropdownWidget, OO.ui.IconElement );
+OO.mixinClass( OO.ui.DropdownWidget, OO.ui.IndicatorElement );
+OO.mixinClass( OO.ui.DropdownWidget, OO.ui.LabelElement );
+OO.mixinClass( OO.ui.DropdownWidget, OO.ui.TitledElement );
 
 /* Methods */
 
@@ -62,7 +62,7 @@ OO.mixinClass( OO.ui.InlineMenuWidget, OO.ui.TitledElement );
  *
  * @return {OO.ui.MenuWidget} Menu of widget
  */
-OO.ui.InlineMenuWidget.prototype.getMenu = function () {
+OO.ui.DropdownWidget.prototype.getMenu = function () {
 	return this.menu;
 };
 
@@ -71,7 +71,7 @@ OO.ui.InlineMenuWidget.prototype.getMenu = function () {
  *
  * @param {OO.ui.MenuItemWidget} item Selected menu item
  */
-OO.ui.InlineMenuWidget.prototype.onMenuSelect = function ( item ) {
+OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
 	var selectedLabel;
 
 	if ( !item ) {
@@ -93,7 +93,7 @@ OO.ui.InlineMenuWidget.prototype.onMenuSelect = function ( item ) {
  *
  * @param {jQuery.Event} e Mouse click event
  */
-OO.ui.InlineMenuWidget.prototype.onClick = function ( e ) {
+OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
 	// Skip clicks within the menu
 	if ( $.contains( this.menu.$element[0], e.target ) ) {
 		return;
