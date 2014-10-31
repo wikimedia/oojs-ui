@@ -87,7 +87,7 @@ OO.ui.LabelElement.prototype.setLabel = function ( label ) {
 /**
  * Get the label.
  *
- * @return {jQuery|string|Function|null} label Label nodes; text; a function that returns nodes or
+ * @return {jQuery|string|Function|null} Label nodes; text; a function that returns nodes or
  *  text; or null for no label
  */
 OO.ui.LabelElement.prototype.getLabel = function () {

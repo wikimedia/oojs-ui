@@ -14,9 +14,9 @@
  * @param {Object} [config] Configuration options
  * @cfg {string} [type='button'] HTML tag `type` attribute, may be 'button', 'submit' or 'reset'
  * @cfg {boolean} [useInputTag=false] Whether to use `<input/>` rather than `<button/>`. Only useful
- *  if you need IE 6 support in a form with multiple buttons. By using this option, you sacrifice
- *  icons and indicators, as well as the ability to have non-plaintext label or a label different
- *  from the value.
+ *  if you need IE 6 support in a form with multiple buttons. If you use this option, icons and
+ *  indicators will not be displayed, it won't be possible to have a non-plaintext label, and it
+ *  won't be possible to set a value (which will internally become identical to the label).
  */
 OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	// Configuration initialization

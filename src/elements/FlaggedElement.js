@@ -67,7 +67,7 @@ OO.ui.FlaggedElement.prototype.hasFlag = function ( flag ) {
 /**
  * Get the names of all flags set.
  *
- * @return {string[]} flags Flag names
+ * @return {string[]} Flag names
  */
 OO.ui.FlaggedElement.prototype.getFlags = function () {
 	return Object.keys( this.flags );
