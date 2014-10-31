@@ -296,6 +296,16 @@
 							)
 						),
 						new OoUiFieldLayout(
+							new OoUiButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => "FieldLayout with help",
+								'help' => "I am an additional, helpful information.\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OoUiFieldLayout(
 							new OoUiButtonInputWidget( array(
 								'label' => 'Submit the form',
 								'type' => 'submit'
