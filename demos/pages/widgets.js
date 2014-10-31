@@ -409,6 +409,16 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				}
 			),
 			new OO.ui.FieldLayout(
+				new OO.ui.ButtonWidget( {
+					label: 'Button'
+				} ),
+				{
+					label: 'FieldLayout with help',
+					help: 'I am an additional, helpful information.\u200E',
+					align: 'top'
+				}
+			),
+			new OO.ui.FieldLayout(
 				new OO.ui.ButtonInputWidget( {
 					label: 'Submit the form',
 					type: 'submit'

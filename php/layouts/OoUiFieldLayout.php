@@ -31,6 +31,7 @@ class OoUiFieldLayout extends OoUiLayout {
 	 * @param array $config Configuration options
 	 * @param string $config['align'] Alignment mode, either 'left', 'right', 'top' or 'inline'
 	 *   (default: 'left')
+	 * @param string $config['help'] Explanatory text shown as a '?' icon.
 	 */
 	public function __construct( OoUiWidget $fieldWidget, array $config = array() ) {
 		// Config initialization
@@ -42,7 +43,16 @@ class OoUiFieldLayout extends OoUiLayout {
 		// Properties
 		$this->field = new OoUiTag( 'div' );
 		$this->fieldWidget = $fieldWidget;
-		$this->help = ''; // TODO implement
+		if ( isset( $config['help'] ) ) {
+			$this->help = new OoUiButtonWidget( array(
+				'classes' => array( 'oo-ui-fieldLayout-help' ),
+				'framed' => false,
+				'icon' => 'info',
+				'title' => $config['help'],
+			) );
+		} else {
+			$this->help = '';
+		}
 
 		// Mixins
 		$this->mixin( new OoUiLabelElement( $this, $config ) );
