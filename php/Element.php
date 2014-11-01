@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * DOM element abstraction.
  */
-class OoUiElement extends OoUiTag {
+class Element extends Tag {
 
 	/* Static properties */
 
@@ -39,8 +41,8 @@ class OoUiElement extends OoUiTag {
 	/**
 	 * @param array $config Configuration options
 	 * @param string[] $config['classes'] CSS class names to add
-	 * @param array $config['content'] Content to append, strings or OoUiElement objects. Strings will
-	 *   be HTML-escaped for output, use a OoUiHtmlSnippet instance to prevent that.
+	 * @param array $config['content'] Content to append, strings or Element objects. Strings will
+	 *   be HTML-escaped for output, use a HtmlSnippet instance to prevent that.
 	 */
 	public function __construct( array $config = array() ) {
 		// Parent constructor
@@ -90,7 +92,7 @@ class OoUiElement extends OoUiTag {
 	 * Triggers a notice if the property is not found, as normal.
 	 *
 	 * @param string $name Property name
-	 * @return OoUiTag|null Target property or null if not found
+	 * @return Tag|null Target property or null if not found
 	 */
 	public function __get( $name ) {
 		// Search mixins for methods
@@ -146,9 +148,9 @@ class OoUiElement extends OoUiTag {
 	/**
 	 * Mixin a class.
 	 *
-	 * @param OoUiElementMixin $mixin Mixin object
+	 * @param ElementMixin $mixin Mixin object
 	 */
-	public function mixin( OoUiElementMixin $mixin ) {
+	public function mixin( ElementMixin $mixin ) {
 		$this->mixins[] = $mixin;
 	}
 
@@ -158,7 +160,7 @@ class OoUiElement extends OoUiTag {
 	 * @return string HTML serialization
 	 */
 	public function __toString() {
-		OoUiTheme::singleton()->updateElementClasses( $this );
+		Theme::singleton()->updateElementClasses( $this );
 		return parent::__toString();
 	}
 
@@ -167,10 +169,10 @@ class OoUiElement extends OoUiTag {
 	 *
 	 * Currently only per-document directionality is supported.
 	 *
-	 * @param OoUiTag $element Element to check
+	 * @param Tag $element Element to check
 	 * @return string Text direction, either 'ltr' or 'rtl'
 	 */
-	public static function getDir( OoUiTag $element ) {
+	public static function getDir( Tag $element ) {
 		return self::$defaultDir;
 	}
 

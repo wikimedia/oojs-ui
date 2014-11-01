@@ -1,5 +1,7 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Element containing an indicator.
  *
@@ -8,7 +10,7 @@
  * instead of performing an action directly, or an item in a list which has errors that need to be
  * resolved.
  */
-class OoUiIndicatorElement extends OoUiElementMixin {
+class IndicatorElement extends ElementMixin {
 	/**
 	 * Symbolic indicator name
 	 *
@@ -19,16 +21,16 @@ class OoUiIndicatorElement extends OoUiElementMixin {
 	public static $targetPropertyName = 'indicator';
 
 	/**
-	 * @param OoUiElement $element Element being mixed into
+	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param string $config['indicator'] Symbolic indicator name
 	 */
-	public function __construct( OoUiElement $element, array $config = array() ) {
+	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor
 		// FIXME 'indicatorElement' is a very stupid way to call '$indicator'
 		$target = isset( $config['indicatorElement'] )
 			? $config['indicatorElement']
-			: new OoUiTag( 'span' );
+			: new Tag( 'span' );
 		parent::__construct( $element, $target, $config );
 
 		// Initialization

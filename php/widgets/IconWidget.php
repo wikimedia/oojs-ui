@@ -1,11 +1,13 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Icon widget.
  *
- * See OoUiIconElement for more information.
+ * See IconElement for more information.
  */
-class OoUiIconWidget extends OoUiWidget {
+class IconWidget extends Widget {
 
 	/* Static properties */
 
@@ -19,9 +21,9 @@ class OoUiIconWidget extends OoUiWidget {
 		parent::__construct( $config );
 
 		// Mixins
-		$this->mixin( new OoUiIconElement( $this,
+		$this->mixin( new IconElement( $this,
 			array_merge( $config, array( 'iconElement' => $this ) ) ) );
-		$this->mixin( new OoUiTitledElement( $this,
+		$this->mixin( new TitledElement( $this,
 			array_merge( $config, array( 'titled' => $this ) ) ) );
 
 		// Initialization

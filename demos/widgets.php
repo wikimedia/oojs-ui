@@ -8,11 +8,11 @@
 	}
 	require_once $autoload;
 
-	OoUiTheme::setSingleton( new OoUiMediaWikiTheme() );
+	OOUI\Theme::setSingleton( new OOUI\MediaWikiTheme() );
 
 	$direction = ( isset( $_GET['dir'] ) && $_GET['dir'] === 'rtl' ) ? 'rtl' : 'ltr';
 	$directionSuffix = $direction === 'rtl' ? '.rtl' : '';
-	OoUiElement::setDefaultDir( $direction );
+	OOUI\Element::setDefaultDir( $direction );
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -26,14 +26,14 @@
 	<div class="oo-ui-demo">
 		<div class="oo-ui-demo-menu">
 			<?php
-				echo new OoUiButtonGroupWidget( array(
+				echo new OOUI\ButtonGroupWidget( array(
 					'items' => array(
-						new OoUiButtonWidget( array(
+						new OOUI\ButtonWidget( array(
 							'label' => 'LTR',
 							'href' => '?dir=ltr',
 							'target' => null,
 						) ),
-						new OoUiButtonWidget( array(
+						new OOUI\ButtonWidget( array(
 							'label' => 'RTL',
 							'href' => '?dir=rtl',
 							'target' => null,
@@ -46,7 +46,7 @@
 			<?php
 
 				function widgetWrap( $element ) {
-					$widget = new OoUiWidget();
+					$widget = new OOUI\Widget();
 					$widget->appendContent( $element );
 					return $widget;
 				}
@@ -105,15 +105,15 @@
 				$panels = array();
 				foreach ( $styles as $style ) {
 					foreach ( $states as $state ) {
-						$panel = new OoUiPanelLayout();
-						$panel->appendContent( new OoUiButtonWidget( array_merge( $style, $state ) ) );
+						$panel = new OOUI\PanelLayout();
+						$panel->appendContent( new OOUI\ButtonWidget( array_merge( $style, $state ) ) );
 						$panels[] = $panel;
 					}
 				}
 
 				// Now that I think about it, using a grid layout wasn't the greatest idea.
 				// But I need an example of it, so it stays for now.
-				$grid = new OoUiGridLayout(
+				$grid = new OOUI\GridLayout(
 					$panels,
 					array(
 						// Determined empirically
@@ -123,7 +123,7 @@
 				);
 				$grid->setAttributes( array( 'style' => 'height: 12em; position: relative;' ) );
 
-				echo new OoUiFieldsetLayout( array(
+				echo new OOUI\FieldsetLayout( array(
 					'label' => 'Regular buttons',
 					'items' => array(
 						widgetWrap( $grid ),
@@ -132,14 +132,14 @@
 			?>
 
 			<?php
-				class ButtonWidgetTitled extends OoUiButtonWidget {
+				class ButtonWidgetTitled extends OOUI\ButtonWidget {
 					public static $title = "Title from a static property";
 				}
 
-				echo new OoUiFieldsetLayout( array(
+				echo new OOUI\FieldsetLayout( array(
 					'label' => 'Random stuff',
 					'items' => array(
-						new OoUiFieldLayout(
+						new OOUI\FieldLayout(
 							new ButtonWidgetTitled( array(
 								'label' => "Hover me!\xE2\x80\x8E",
 							) ),
@@ -148,8 +148,8 @@
 								'align' => 'top',
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiButtonWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\ButtonWidget( array(
 								'label' => "Click me!\xE2\x80\x8E",
 								'href' => 'http://example.com/',
 							) ),
@@ -158,22 +158,22 @@
 								'align' => 'top',
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiButtonGroupWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\ButtonGroupWidget( array(
 								'items' => array(
-									new OoUiButtonWidget( array(
+									new OOUI\ButtonWidget( array(
 										'icon' => 'picture',
 										'indicator' => 'down',
 									) ),
-									new OoUiButtonWidget( array(
+									new OOUI\ButtonWidget( array(
 										'label' => 'One',
 										'flags' => array( 'primary' ),
 									) ),
-									new OoUiButtonWidget( array(
+									new OOUI\ButtonWidget( array(
 										'label' => 'Two',
 										'flags' => array( 'constructive' ),
 									) ),
-									new OoUiButtonWidget( array(
+									new OOUI\ButtonWidget( array(
 										'label' => 'Three',
 										'flags' => array( 'destructive' ),
 									) )
@@ -190,17 +190,17 @@
 			?>
 
 			<?php
-				$form = new OoUiFormLayout( array(
+				$form = new OOUI\FormLayout( array(
 					'method' => 'GET',
 					'action' => 'widgets.php',
 				) );
 
 				$form->appendContent(
-					new OoUiFieldsetLayout( array(
+					new OOUI\FieldsetLayout( array(
 						'label' => 'FormLayout that is a real HTML form',
 						'items' => array(
-							new OoUiFieldLayout(
-								new OoUiTextInputWidget( array(
+							new OOUI\FieldLayout(
+								new OOUI\TextInputWidget( array(
 									'name' => 'username',
 								) ),
 								array(
@@ -208,8 +208,8 @@
 									'align' => 'top',
 								)
 							),
-							new OoUiFieldLayout(
-								new OoUiTextInputWidget( array(
+							new OOUI\FieldLayout(
+								new OOUI\TextInputWidget( array(
 									'name' => 'password',
 									'type' => 'password',
 								) ),
@@ -218,8 +218,8 @@
 									'align' => 'top',
 								)
 							),
-							new OoUiFieldLayout(
-								new OoUiCheckboxInputWidget( array(
+							new OOUI\FieldLayout(
+								new OOUI\CheckboxInputWidget( array(
 									'name' => 'rememberme',
 									'value' => true,
 								) ),
@@ -228,8 +228,8 @@
 									'align' => 'inline',
 								)
 							),
-							new OoUiFieldLayout(
-								new OoUiButtonInputWidget( array(
+							new OOUI\FieldLayout(
+								new OOUI\ButtonInputWidget( array(
 									'name' => 'login',
 									'label' => 'Log in',
 									'type' => 'submit',
@@ -250,11 +250,11 @@
 			?>
 
 			<?php
-				echo new OoUiFieldsetLayout( array(
+				echo new OOUI\FieldsetLayout( array(
 					'label' => 'Super simple widgets',
 					'items' => array(
-						new OoUiFieldLayout(
-							new OoUiIconWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\IconWidget( array(
 								'icon' => 'picture',
 								'title' => 'Picture icon'
 							) ),
@@ -263,8 +263,8 @@
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiIconWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\IconWidget( array(
 								'icon' => 'picture',
 								'title' => 'Picture icon',
 								'disabled' => true
@@ -274,8 +274,8 @@
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiIndicatorWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\IndicatorWidget( array(
 								'indicator' => 'required',
 								'title' => 'Required icon'
 							) ),
@@ -284,8 +284,8 @@
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiIndicatorWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\IndicatorWidget( array(
 								'indicator' => 'required',
 								'title' => 'Required icon',
 								'disabled' => true
@@ -295,8 +295,8 @@
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiButtonWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\ButtonWidget( array(
 								'label' => 'Button'
 							) ),
 							array(
@@ -305,8 +305,8 @@
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiButtonInputWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\ButtonInputWidget( array(
 								'label' => 'Submit the form',
 								'type' => 'submit'
 							) ),
@@ -315,8 +315,8 @@
 								'label' => "ButtonInputWidget (type: submit)\xE2\x80\x8E"
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiButtonInputWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\ButtonInputWidget( array(
 								'label' => 'Submit the form',
 								'type' => 'submit',
 								'useInputTag' => true
@@ -326,8 +326,8 @@
 								'label' => "ButtonInputWidget (type: submit, using <input/>)\xE2\x80\x8E"
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiCheckboxInputWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\CheckboxInputWidget( array(
 								'value' => true
 							) ),
 							array(
@@ -335,8 +335,8 @@
 								'label' => 'CheckboxInputWidget'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiCheckboxInputWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\CheckboxInputWidget( array(
 								'value' => true,
 								'disabled' => true
 							) ),
@@ -345,36 +345,36 @@
 								'label' => "CheckboxInputWidget (disabled)\xE2\x80\x8E"
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiTextInputWidget( array( 'value' => 'Text input' ) ),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array( 'value' => 'Text input' ) ),
 							array(
 								'label' => 'TextInputWidget',
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiTextInputWidget( array( 'icon' => 'search' ) ),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array( 'icon' => 'search' ) ),
 							array(
 								'label' => "TextInputWidget (icon)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiTextInputWidget( array( 'indicator' => 'required' ) ),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array( 'indicator' => 'required' ) ),
 							array(
 								'label' => "TextInputWidget (indicator)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiTextInputWidget( array( 'placeholder' => 'Placeholder' ) ),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array( 'placeholder' => 'Placeholder' ) ),
 							array(
 								'label' => "TextInputWidget (placeholder)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiTextInputWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
 								'value' => 'Readonly',
 								'readOnly' => true
 							) ),
@@ -383,8 +383,8 @@
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiTextInputWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
 								'value' => 'Disabled',
 								'disabled' => true
 							) ),
@@ -393,8 +393,8 @@
 								'align' => 'top'
 							)
 						),
-						new OoUiFieldLayout(
-							new OoUiTextInputWidget( array(
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
 								'multiline' => true,
 								'value' => 'Multiline'
 							) ),

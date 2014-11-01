@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Generic widget for buttons.
  */
-class OoUiButtonWidget extends OoUiWidget {
+class ButtonWidget extends Widget {
 
 	/**
 	 * Hyperlink to visit when clicked.
@@ -32,13 +34,13 @@ class OoUiButtonWidget extends OoUiWidget {
 		parent::__construct( $config );
 
 		// Mixins
-		$this->mixin( new OoUiButtonElement( $this, $config ) );
-		$this->mixin( new OoUiIconElement( $this, $config ) );
-		$this->mixin( new OoUiIndicatorElement( $this, $config ) );
-		$this->mixin( new OoUiLabelElement( $this, $config ) );
-		$this->mixin( new OoUiTitledElement( $this,
+		$this->mixin( new ButtonElement( $this, $config ) );
+		$this->mixin( new IconElement( $this, $config ) );
+		$this->mixin( new IndicatorElement( $this, $config ) );
+		$this->mixin( new LabelElement( $this, $config ) );
+		$this->mixin( new TitledElement( $this,
 			array_merge( $config, array( 'titled' => $this->button ) ) ) );
-		$this->mixin( new OoUiFlaggedElement( $this, $config ) );
+		$this->mixin( new FlaggedElement( $this, $config ) );
 
 		// Initialization
 		$this->button->appendContent( $this->icon, $this->label, $this->indicator );

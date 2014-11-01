@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * User interface control.
  */
-class OoUiWidget extends OoUiElement {
+class Widget extends Element {
 
 	/* Properties */
 

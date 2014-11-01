@@ -15,8 +15,6 @@ INPUT                  = php/
 FILE_PATTERNS          = *.php
 RECURSIVE              = YES
 
-IGNORE_PREFIX          = OoUi
-
 HTML_DYNAMIC_SECTIONS  = YES
 GENERATE_TREEVIEW      = YES
 TREEVIEW_WIDTH         = 250
@@ -31,4 +29,3 @@ CALL_GRAPH             = NO
 CALLER_GRAPH           = NO
 # Makes dot run faster. Requires graphviz >1.8.10
 DOT_MULTI_TARGETS      = YES
-

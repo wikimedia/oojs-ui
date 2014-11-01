@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Container for elements.
  */
-class OoUiLayout extends OoUiElement {
+class Layout extends Element {
 	/**
 	 * @param array $config Configuration options
 	 */

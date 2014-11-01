@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Base class for input widgets.
  */
-class OoUiInputWidget extends OoUiWidget {
+class InputWidget extends Widget {
 
 	/* Properties */
 
@@ -27,7 +29,7 @@ class OoUiInputWidget extends OoUiWidget {
 		$this->input = $this->getInputElement( $config );
 
 		// Mixins
-		$this->mixin( new OoUiFlaggedElement( $this,
+		$this->mixin( new FlaggedElement( $this,
 			array_merge( $config, array( 'flagged' => $this ) ) ) );
 
 		// Initialization
@@ -47,10 +49,10 @@ class OoUiInputWidget extends OoUiWidget {
 	 * Get input element.
 	 *
 	 * @param array $config Configuration options
-	 * @return OoUiTag Input element
+	 * @return Tag Input element
 	 */
 	protected function getInputElement( $config ) {
-		return new OoUiTag( 'input' );
+		return new Tag( 'input' );
 	}
 
 	/**

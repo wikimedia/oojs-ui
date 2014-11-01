@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Input widget with a text field.
  */
-class OoUiTextInputWidget extends OoUiInputWidget {
+class TextInputWidget extends InputWidget {
 
 	/* Properties */
 
@@ -39,8 +41,8 @@ class OoUiTextInputWidget extends OoUiInputWidget {
 		$this->multiline = isset( $config['multiline'] ) ? (bool)$config['multiline'] : false;
 
 		// Mixins
-		$this->mixin( new OoUiIconElement( $this, $config ) );
-		$this->mixin( new OoUiIndicatorElement( $this, $config ) );
+		$this->mixin( new IconElement( $this, $config ) );
+		$this->mixin( new IndicatorElement( $this, $config ) );
 
 		// Initialization
 		$this
@@ -83,14 +85,14 @@ class OoUiTextInputWidget extends OoUiInputWidget {
 	 * Get input element.
 	 *
 	 * @param array $config Configuration options
-	 * @return OoUiTag Input element
+	 * @return Tag Input element
 	 */
 	protected function getInputElement( $config ) {
 		if ( isset( $config['multiline'] ) && $config['multiline'] ) {
-			return new OoUiTag( 'textarea' );
+			return new Tag( 'textarea' );
 		} else {
 			$type = isset( $config['type'] ) ? $config['type'] : 'text';
-			$input = new OoUiTag( 'input' );
+			$input = new Tag( 'input' );
 			$input->setAttributes( array( 'type' => $type ) );
 			return $input;
 		}

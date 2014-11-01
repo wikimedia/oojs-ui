@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Label widget.
  */
-class OoUiLabelWidget extends OoUiWidget {
+class LabelWidget extends Widget {
 
 	/* Static properties */
 
@@ -17,7 +19,7 @@ class OoUiLabelWidget extends OoUiWidget {
 		parent::__construct( $config );
 
 		// Mixins
-		$this->mixin( new OoUiLabelElement( $this,
+		$this->mixin( new LabelElement( $this,
 			array_merge( $config, array( 'labelElement' => $this ) ) ) );
 
 		// Properties

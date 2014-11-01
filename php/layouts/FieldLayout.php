@@ -1,5 +1,7 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Layout made of a field and optional label.
  *
@@ -13,7 +15,7 @@
  *  - inline: Label is after the field and aligned toward it, best for small boolean fields like
  *    checkboxes or radio buttons
  */
-class OoUiFieldLayout extends OoUiLayout {
+class FieldLayout extends Layout {
 
 	/* Static properties */
 
@@ -27,13 +29,13 @@ class OoUiFieldLayout extends OoUiLayout {
 	protected $align;
 
 	/**
-	 * @param OoUiWidget $fieldWidget Field widget
+	 * @param Widget $fieldWidget Field widget
 	 * @param array $config Configuration options
 	 * @param string $config['align'] Alignment mode, either 'left', 'right', 'top' or 'inline'
 	 *   (default: 'left')
 	 * @param string $config['help'] Explanatory text shown as a '?' icon.
 	 */
-	public function __construct( OoUiWidget $fieldWidget, array $config = array() ) {
+	public function __construct( Widget $fieldWidget, array $config = array() ) {
 		// Config initialization
 		$config = array_merge( array( 'align' => 'left' ), $config );
 
@@ -41,10 +43,10 @@ class OoUiFieldLayout extends OoUiLayout {
 		parent::__construct( $config );
 
 		// Properties
-		$this->field = new OoUiTag( 'div' );
+		$this->field = new Tag( 'div' );
 		$this->fieldWidget = $fieldWidget;
 		if ( isset( $config['help'] ) ) {
-			$this->help = new OoUiButtonWidget( array(
+			$this->help = new ButtonWidget( array(
 				'classes' => array( 'oo-ui-fieldLayout-help' ),
 				'framed' => false,
 				'icon' => 'info',
@@ -55,7 +57,7 @@ class OoUiFieldLayout extends OoUiLayout {
 		}
 
 		// Mixins
-		$this->mixin( new OoUiLabelElement( $this, $config ) );
+		$this->mixin( new LabelElement( $this, $config ) );
 
 		// Initialization
 		$this->addClasses( array( 'oo-ui-fieldLayout' ) );
@@ -70,7 +72,7 @@ class OoUiFieldLayout extends OoUiLayout {
 	/**
 	 * Get the field.
 	 *
-	 * @return OoUiWidget Field widget
+	 * @return Widget Field widget
 	 */
 	public function getField() {
 		return $this->fieldWidget;
