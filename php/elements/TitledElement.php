@@ -19,8 +19,6 @@ class TitledElement extends ElementMixin {
 	public static $targetPropertyName = 'titled';
 
 	/**
-	 * 
-	 *
 	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param string $config['title'] Title. If not provided, the static property 'title' is used.
