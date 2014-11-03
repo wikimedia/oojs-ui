@@ -6,6 +6,7 @@
  * @param {string|jQuery} message Description of error
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [recoverable=true] Error is recoverable
+ * @cfg {boolean} [warning=false] Whether this error is a warning or not.
  */
 OO.ui.Error = function OoUiElement( message, config ) {
 	// Configuration initialization
@@ -14,6 +15,7 @@ OO.ui.Error = function OoUiElement( message, config ) {
 	// Properties
 	this.message = message instanceof jQuery ? message : String( message );
 	this.recoverable = config.recoverable === undefined || !!config.recoverable;
+	this.warning = !!config.warning;
 };
 
 /* Setup */
@@ -29,6 +31,15 @@ OO.initClass( OO.ui.Error );
  */
 OO.ui.Error.prototype.isRecoverable = function () {
 	return this.recoverable;
+};
+
+/**
+ * Check if the error is a warning
+ *
+ * @return {boolean} Error is warning
+ */
+OO.ui.Error.prototype.isWarning = function () {
+	return this.warning;
 };
 
 /**
