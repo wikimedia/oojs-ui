@@ -13,8 +13,9 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 	function getToolAccelerator( name ) {
 		return {
 			listTool1: 'Ctrl+Shift+1',
-			listTool2: 'Ctrl+Shift+2',
-			listTool5: 'Ctrl+Shift+5',
+			listTool2: 'Ctrl+Alt+2',
+			listTool3: 'Cmd+Enter',
+			listTool5: 'Shift+Down',
 			menuTool: 'Ctrl+M'
 		}[name];
 	}
