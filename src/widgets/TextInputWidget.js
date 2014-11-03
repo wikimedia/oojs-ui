@@ -239,7 +239,11 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
  * @return {jQuery} Input element
  */
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
+	// Configuration initialization
+	config = config || {};
+
 	var type = config.type || 'text';
+
 	return config.multiline ? this.$( '<textarea>' ) : this.$( '<input type="' + type + '" />' );
 };
 

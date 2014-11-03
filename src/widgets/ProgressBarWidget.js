@@ -9,7 +9,7 @@
  * @cfg {number} [progress=0] Initial progress
  */
 OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

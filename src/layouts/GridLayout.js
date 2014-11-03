@@ -13,7 +13,7 @@
 OO.ui.GridLayout = function OoUiGridLayout( panels, config ) {
 	var i, len, widths;
 
-	// Config initialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

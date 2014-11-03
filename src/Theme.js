@@ -8,7 +8,7 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.Theme = function OoUiTheme( config ) {
-	// Initialize config
+	// Configuration initialization
 	config = config || {};
 };
 

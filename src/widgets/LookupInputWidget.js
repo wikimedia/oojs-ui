@@ -14,9 +14,10 @@
  * @param {OO.ui.TextInputWidget} input Input widget
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$overlay] Overlay for dropdown; defaults to relative positioning
+ * @cfg {jQuery} [$container=input.$element] Element to render menu under
  */
 OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Properties

@@ -14,7 +14,7 @@
  * @cfg {OO.ui.FieldLayout[]} [items] Items to add
  */
 OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
-	// Config initialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

@@ -12,7 +12,7 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.IconWidget = function OoUiIconWidget( config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

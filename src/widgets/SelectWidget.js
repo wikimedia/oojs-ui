@@ -15,7 +15,7 @@
  * @cfg {OO.ui.OptionWidget[]} [items] Options to add
  */
 OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor
