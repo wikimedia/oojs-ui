@@ -12,6 +12,9 @@
  * @cfg {OO.ui.ButtonWidget[]} [items] Buttons to add
  */
 OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
+	// Configuration initialization
+	config = config || {};
+
 	// Parent constructor
 	OO.ui.ButtonGroupWidget.super.call( this, config );
 

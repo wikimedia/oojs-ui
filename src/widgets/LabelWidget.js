@@ -9,7 +9,7 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

@@ -20,7 +20,7 @@
  * @cfg {boolean} [padded] Add padding to the body
  */
 OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

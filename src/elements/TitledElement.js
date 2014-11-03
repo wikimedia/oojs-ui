@@ -14,7 +14,7 @@
  *    static property 'title' is used.
  */
 OO.ui.TitledElement = function OoUiTitledElement( config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Properties

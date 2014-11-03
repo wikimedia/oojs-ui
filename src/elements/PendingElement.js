@@ -8,7 +8,7 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.PendingElement = function OoUiPendingElement( config ) {
-	// Config initialisation
+	// Configuration initialization
 	config = config || {};
 
 	// Properties

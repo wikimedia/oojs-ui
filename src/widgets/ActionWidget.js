@@ -12,7 +12,7 @@
  * @cfg {boolean} [framed=false] Render button with a frame
  */
 OO.ui.ActionWidget = function OoUiActionWidget( config ) {
-	// Config intialization
+	// Configuration initialization
 	config = $.extend( { framed: false }, config );
 
 	// Parent constructor

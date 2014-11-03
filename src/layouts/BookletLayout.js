@@ -12,7 +12,7 @@
  * @cfg {boolean} [editable=false] Show controls for adding, removing and reordering pages
  */
 OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
-	// Initialize configuration
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

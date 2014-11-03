@@ -13,7 +13,7 @@
  * @cfg {jQuery} [$flagged] Flagged node, assigned to #$flagged, omit to use #$element
  */
 OO.ui.FlaggedElement = function OoUiFlaggedElement( config ) {
-	// Config initialization
+	// Configuration initialization
 	config = config || {};
 
 	// Properties

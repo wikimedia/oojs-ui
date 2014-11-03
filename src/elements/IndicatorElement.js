@@ -17,7 +17,7 @@
  * @cfg {string} [indicatorTitle] Indicator title text or a function that returns text
  */
 OO.ui.IndicatorElement = function OoUiIndicatorElement( config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Properties

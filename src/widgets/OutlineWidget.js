@@ -10,7 +10,7 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.OutlineWidget = function OoUiOutlineWidget( config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

@@ -11,7 +11,7 @@
  * @cfg {boolean} [movable] Allow modification from outline controls
  */
 OO.ui.OutlineItemWidget = function OoUiOutlineItemWidget( data, config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

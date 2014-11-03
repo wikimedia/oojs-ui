@@ -75,7 +75,11 @@ OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.FlaggedElement );
  * @return {jQuery} Input element
  */
 OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
+	// Configuration intialization
+	config = config || {};
+
 	var html = '<' + ( config.useInputTag ? 'input' : 'button' ) + ' type="' + config.type + '">';
+
 	return this.$( html );
 };
 

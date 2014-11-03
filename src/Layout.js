@@ -10,7 +10,7 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.Layout = function OoUiLayout( config ) {
-	// Initialize config
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

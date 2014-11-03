@@ -12,7 +12,7 @@
  * @cfg {OO.ui.Layout[]} [items] Layouts to add
  */
 OO.ui.StackLayout = function OoUiStackLayout( config ) {
-	// Config initialization
+	// Configuration initialization
 	config = $.extend( { scrollable: true }, config );
 
 	// Parent constructor

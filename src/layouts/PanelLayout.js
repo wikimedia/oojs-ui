@@ -11,7 +11,7 @@
  * @cfg {boolean} [expanded=true] Expand size to fill the entire parent element
  */
 OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
-	// Config initialization
+	// Configuration initialization
 	config = $.extend( {
 		scrollable: false,
 		padded: false,

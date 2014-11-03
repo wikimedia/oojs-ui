@@ -22,7 +22,7 @@
  * @cfg {string} [help] Explanatory text shown as a '?' icon.
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
-	// Config initialization
+	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );
 
 	// Parent constructor

@@ -13,7 +13,7 @@
  * @cfg {string|Function} [title] Title text or a function that returns text
  */
 OO.ui.Tool = function OoUiTool( toolGroup, config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

@@ -11,7 +11,7 @@
  * @cfg {boolean} [autoFitLabel=true] Whether to fit the label or not.
  */
 OO.ui.LabelElement = function OoUiLabelElement( config ) {
-	// Config intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Properties
