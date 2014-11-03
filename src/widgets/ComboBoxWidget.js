@@ -105,6 +105,8 @@ OO.ui.ComboBoxWidget.prototype.onMenuChoose = function ( item ) {
  * Handle menu item change events.
  */
 OO.ui.ComboBoxWidget.prototype.onMenuItemsChange = function () {
+	var match = this.menu.getItemFromData( this.input.getValue() );
+	this.menu.selectItem( match );
 	this.$element.toggleClass( 'oo-ui-comboBoxWidget-empty', this.menu.isEmpty() );
 };
 
