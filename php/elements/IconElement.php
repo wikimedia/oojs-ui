@@ -1,5 +1,7 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Element containing an icon.
  *
@@ -8,7 +10,7 @@
  * without labels; such as in a toolbar where space is at a premium or within a context where the
  * meaning is very clear to the user.
  */
-class OoUiIconElement extends OoUiElementMixin {
+class IconElement extends ElementMixin {
 	/**
 	 * Symbolic icon name.
 	 *
@@ -19,14 +21,14 @@ class OoUiIconElement extends OoUiElementMixin {
 	public static $targetPropertyName = 'icon';
 
 	/**
-	 * @param OoUiElement $element Element being mixed into
+	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param string $config['icon'] Symbolic icon name
 	 */
-	public function __construct( OoUiElement $element, array $config = array() ) {
+	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor
 		// FIXME 'iconElement' is a very stupid way to call '$icon'
-		$target = isset( $config['iconElement'] ) ? $config['iconElement'] : new OoUiTag( 'span' );
+		$target = isset( $config['iconElement'] ) ? $config['iconElement'] : new Tag( 'span' );
 		parent::__construct( $element, $target, $config );
 
 		// Initialization

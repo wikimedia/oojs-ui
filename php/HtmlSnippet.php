@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
- * Wraps a HTML snippet for use with OoUiTag::appendContent() and OoUiTag::prependContent().
+ * Wraps a HTML snippet for use with Tag::appendContent() and Tag::prependContent().
  */
-class OoUiHtmlSnippet {
+class HtmlSnippet {
 
 	/* Members */
 

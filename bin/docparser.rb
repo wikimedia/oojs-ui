@@ -12,7 +12,7 @@ def parse_dir dirname
 end
 
 def cleanup_class_name class_name
-	class_name.sub(/OoUi/, '').sub(/OO\.ui\./, '')
+	class_name.sub(/OO\.ui\./, '')
 end
 
 def parse_file filename

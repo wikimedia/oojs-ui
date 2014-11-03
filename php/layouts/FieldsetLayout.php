@@ -1,11 +1,13 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Layout made of a fieldset and optional legend.
  *
- * Just add OoUiFieldLayout items.
+ * Just add FieldLayout items.
  */
-class OoUiFieldsetLayout extends OoUiLayout {
+class FieldsetLayout extends Layout {
 	/**
 	 * Alignment.
 	 *
@@ -15,16 +17,16 @@ class OoUiFieldsetLayout extends OoUiLayout {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param OoUiFieldLayout[] $config['items'] Items to add
+	 * @param FieldLayout[] $config['items'] Items to add
 	 */
 	public function __construct( array $config = array() ) {
 		// Parent constructor
 		parent::__construct( $config );
 
 		// Mixins
-		$this->mixin( new OoUiIconElement( $this, $config ) );
-		$this->mixin( new OoUiLabelElement( $this, $config ) );
-		$this->mixin( new OoUiGroupElement( $this, $config ) );
+		$this->mixin( new IconElement( $this, $config ) );
+		$this->mixin( new LabelElement( $this, $config ) );
+		$this->mixin( new GroupElement( $this, $config ) );
 
 		// Initialization
 		$this

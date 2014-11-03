@@ -1,12 +1,14 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Element with a button.
  *
  * Buttons are used for controls which can be clicked. They can be configured to use tab indexing
  * and access keys for accessibility purposes.
  */
-class OoUiButtonElement extends OoUiElementMixin {
+class ButtonElement extends ElementMixin {
 	/**
 	 * Button is framed.
 	 *
@@ -17,15 +19,15 @@ class OoUiButtonElement extends OoUiElementMixin {
 	public static $targetPropertyName = 'button';
 
 	/**
-	 * @param OoUiElement $element Element being mixed into
+	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param boolean $config['framed'] Render button with a frame (default: true)
 	 * @param number $config['tabIndex'] Button's tab index. Use 0 to use default ordering, use -1 to
 	 *   prevent tab focusing. (default: 0)
 	 */
-	public function __construct( OoUiElement $element, array $config = array() ) {
+	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor
-		$target = isset( $config['button'] ) ? $config['button'] : new OoUiTag( 'a' );
+		$target = isset( $config['button'] ) ? $config['button'] : new Tag( 'a' );
 		parent::__construct( $element, $target, $config );
 
 		// Initialization

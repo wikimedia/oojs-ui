@@ -1,12 +1,14 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Element with named flags that can be added, removed, listed and checked.
  *
  * A flag, when set, adds a CSS class on the `$element` by combining `oo-ui-flaggedElement-` with
  * the flag name. Flags are primarily useful for styling.
  */
-class OoUiFlaggedElement extends OoUiElementMixin {
+class FlaggedElement extends ElementMixin {
 	/**
 	 * Flags.
 	 *
@@ -17,12 +19,12 @@ class OoUiFlaggedElement extends OoUiElementMixin {
 	public static $targetPropertyName = 'flagged';
 
 	/**
-	 * @param OoUiElement $element Element being mixed into
+	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param string|string[] $config['flags'] Styling flags, e.g. 'primary', 'destructive' or
 	 *   'constructive'
 	 */
-	public function __construct( OoUiElement $element, array $config = array() ) {
+	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor
 		$target = isset( $config['flagged'] ) ? $config['flagged'] : $element;
 		parent::__construct( $element, $target, $config );

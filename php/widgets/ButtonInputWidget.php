@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
- * A button that is an input widget. Intended to be used within a OoUiFormLayout.
+ * A button that is an input widget. Intended to be used within a FormLayout.
  */
-class OoUiButtonInputWidget extends OoUiInputWidget {
+class ButtonInputWidget extends InputWidget {
 	/**
 	 * @param array $config Configuration options
 	 * @param string $config['type'] HTML tag `type` attribute, may be 'button', 'submit' or 'reset'
@@ -25,15 +27,15 @@ class OoUiButtonInputWidget extends OoUiInputWidget {
 		parent::__construct( $config );
 
 		// Mixins
-		$this->mixin( new OoUiButtonElement( $this,
+		$this->mixin( new ButtonElement( $this,
 			array_merge( $config, array( 'button' => $this->input ) ) ) );
-		$this->mixin( new OoUiIconElement( $this, $config ) );
-		$this->mixin( new OoUiIndicatorElement( $this, $config ) );
+		$this->mixin( new IconElement( $this, $config ) );
+		$this->mixin( new IndicatorElement( $this, $config ) );
 		// HACK: We need to have access to the mixin to override the setLabel() method
-		$this->mixin( $this->labelElementMixin = new OoUiLabelElement( $this, $config ) );
-		$this->mixin( new OoUiTitledElement( $this,
+		$this->mixin( $this->labelElementMixin = new LabelElement( $this, $config ) );
+		$this->mixin( new TitledElement( $this,
 			array_merge( $config, array( 'titled' => $this->input ) ) ) );
-		$this->mixin( new OoUiFlaggedElement( $this, $config ) );
+		$this->mixin( new FlaggedElement( $this, $config ) );
 
 		// Initialization
 		if ( !$config['useInputTag'] ) {
@@ -51,10 +53,10 @@ class OoUiButtonInputWidget extends OoUiInputWidget {
 	 * Get input element.
 	 *
 	 * @param array $config Configuration options
-	 * @return OoUiTag Input element
+	 * @return Tag Input element
 	 */
 	protected function getInputElement( $config ) {
-		$input = new OoUiTag( $config['useInputTag'] ? 'input' : 'button' );
+		$input = new Tag( $config['useInputTag'] ? 'input' : 'button' );
 		$input->setAttributes( array( 'type' => $config['type'] ) );
 		return $input;
 	}

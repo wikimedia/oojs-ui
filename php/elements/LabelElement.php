@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Element containing a label.
  */
-class OoUiLabelElement extends OoUiElementMixin {
+class LabelElement extends ElementMixin {
 	/**
 	 * Label value.
 	 *
@@ -14,14 +16,14 @@ class OoUiLabelElement extends OoUiElementMixin {
 	public static $targetPropertyName = 'label';
 
 	/**
-	 * @param OoUiElement $element Element being mixed into
+	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param string $config['label'] Label text
 	 */
-	public function __construct( OoUiElement $element, array $config = array() ) {
+	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor
 		// FIXME 'labelElement' is a very stupid way to call '$label'
-		$target = isset( $config['labelElement'] ) ? $config['labelElement'] : new OoUiTag( 'span' );
+		$target = isset( $config['labelElement'] ) ? $config['labelElement'] : new Tag( 'span' );
 		parent::__construct( $element, $target, $config );
 
 		// Initialization
@@ -44,7 +46,7 @@ class OoUiLabelElement extends OoUiElementMixin {
 		$this->target->clearContent();
 		if ( $this->label !== null ) {
 			if ( $this->label !== '' && trim( $this->label ) === '' ) {
-				$this->target->appendContent( new OoUiHtmlSnippet( '&nbsp;' ) );
+				$this->target->appendContent( new HtmlSnippet( '&nbsp;' ) );
 			} else {
 				$this->target->appendContent( $label );
 			}

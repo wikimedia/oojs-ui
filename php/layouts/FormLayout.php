@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Layout with an HTML form.
  */
-class OoUiFormLayout extends OoUiLayout {
+class FormLayout extends Layout {
 
 	/* Static properties */
 

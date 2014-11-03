@@ -1,25 +1,27 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Element containing a sequence of child elements.
  */
-class OoUiGroupElement extends OoUiElementMixin {
+class GroupElement extends ElementMixin {
 	/**
 	 * List of items in the group.
 	 *
-	 * @var OoUiElement[]
+	 * @var Element[]
 	 */
 	protected $items = array();
 
 	public static $targetPropertyName = 'group';
 
 	/**
-	 * @param OoUiElement $element Element being mixed into
+	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 */
-	public function __construct( OoUiElement $element, array $config = array() ) {
+	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor
-		$target = isset( $config['group'] ) ? $config['group'] : new OoUiTag( 'div' );
+		$target = isset( $config['group'] ) ? $config['group'] : new Tag( 'div' );
 		parent::__construct( $element, $target, $config );
 	}
 
@@ -35,7 +37,7 @@ class OoUiGroupElement extends OoUiElementMixin {
 	/**
 	 * Get items.
 	 *
-	 * @return OoUiElement[] Items
+	 * @return Element[] Items
 	 */
 	public function getItems() {
 		return $this->items;
@@ -46,7 +48,7 @@ class OoUiGroupElement extends OoUiElementMixin {
 	 *
 	 * Adding an existing item will move it.
 	 *
-	 * @param OoUiElement[] $items Items
+	 * @param Element[] $items Items
 	 * @param number $index Index to insert items at
 	 * @chainable
 	 */
@@ -81,7 +83,7 @@ class OoUiGroupElement extends OoUiElementMixin {
 	/**
 	 * Remove items.
 	 *
-	 * @param OoUiElement[] $items Items to remove
+	 * @param Element[] $items Items to remove
 	 * @chainable
 	 */
 	public function removeItems( $items ) {

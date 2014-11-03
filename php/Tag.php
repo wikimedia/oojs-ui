@@ -1,6 +1,8 @@
 <?php
 
-class OoUiTag {
+namespace OOUI;
+
+class Tag {
 
 	/* Members */
 
@@ -35,7 +37,7 @@ class OoUiTag {
 	/**
 	 * Group.
 	 *
-	 * @var OoUiGroupElement|null Group element is in
+	 * @var GroupElement|null Group element is in
 	 */
 	protected $elementGroup = null;
 
@@ -160,8 +162,8 @@ class OoUiTag {
 	 *
 	 * Accepts variadic arguments (the $content argument can be repeated any number of times).
 	 *
-	 * @param string|OoUiTag|OoUiHtmlSnippet $content Content to append. Strings will be HTML-escaped
-	 *   for output, use a OoUiHtmlSnippet instance to prevent that.
+	 * @param string|Tag|HtmlSnippet $content Content to append. Strings will be HTML-escaped
+	 *   for output, use a HtmlSnippet instance to prevent that.
 	 * @chainable
 	 */
 	public function appendContent( /* $content... */ ) {
@@ -175,8 +177,8 @@ class OoUiTag {
 	 *
 	 * Accepts variadic arguments (the $content argument can be repeated any number of times).
 	 *
-	 * @param string|OoUiTag|OoUiHtmlSnippet $content Content to prepend. Strings will be HTML-escaped
-	 *   for output, use a OoUiHtmlSnippet instance to prevent that.
+	 * @param string|Tag|HtmlSnippet $content Content to prepend. Strings will be HTML-escaped
+	 *   for output, use a HtmlSnippet instance to prevent that.
 	 * @chainable
 	 */
 	public function prependContent( /* $content... */ ) {
@@ -198,7 +200,7 @@ class OoUiTag {
 	/**
 	 * Get group element is in.
 	 *
-	 * @return OoUiGroupElement|null Group element, null if none
+	 * @return GroupElement|null Group element, null if none
 	 */
 	public function getElementGroup() {
 		return $this->elementGroup;
@@ -207,7 +209,7 @@ class OoUiTag {
 	/**
 	 * Set group element is in.
 	 *
-	 * @param OoUiGroupElement|null $group Group element, null if none
+	 * @param GroupElement|null $group Group element, null if none
 	 * @chainable
 	 */
 	public function setElementGroup( $group ) {
@@ -237,7 +239,7 @@ class OoUiTag {
 		foreach ( $this->content as $part ) {
 			if ( is_string( $part ) ) {
 				$content .= htmlspecialchars( $part );
-			} elseif ( $part instanceof OoUiTag || $part instanceof OoUiHtmlSnippet ) {
+			} elseif ( $part instanceof Tag || $part instanceof HtmlSnippet ) {
 				$content .= (string)$part;
 			}
 		}

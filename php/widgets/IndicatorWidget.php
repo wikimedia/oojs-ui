@@ -1,11 +1,13 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Indicator widget.
  *
- * See OoUiIndicatorElement for more information.
+ * See IndicatorElement for more information.
  */
-class OoUiIndicatorWidget extends OoUiWidget {
+class IndicatorWidget extends Widget {
 
 	/* Static properties */
 
@@ -19,9 +21,9 @@ class OoUiIndicatorWidget extends OoUiWidget {
 		parent::__construct( $config );
 
 		// Mixins
-		$this->mixin( new OoUiIndicatorElement( $this,
+		$this->mixin( new IndicatorElement( $this,
 			array_merge( $config, array( 'indicatorElement' => $this ) ) ) );
-		$this->mixin( new OoUiTitledElement( $this,
+		$this->mixin( new TitledElement( $this,
 			array_merge( $config, array( 'titled' => $this ) ) ) );
 
 		// Initialization

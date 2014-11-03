@@ -40,10 +40,10 @@
 	<div id="JSPHPTestSuite" style="display: none;">
 		<?php
 			function expandClass( $class ) {
-				return "OoUi" . $class;
+				return "OOUI\\" . $class;
 			}
 
-			OoUiTheme::setSingleton( new OoUiMediaWikiTheme() );
+			OOUI\Theme::setSingleton( new OOUI\MediaWikiTheme() );
 			foreach ( $testSuite as $className => $tests ) {
 				foreach ( $tests as $index => $test ) {
 					$class = expandClass( $test['class'] );

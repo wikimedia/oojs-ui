@@ -1,10 +1,12 @@
 <?php
 
-class OoUiMediaWikiTheme extends OoUiTheme {
+namespace OOUI;
+
+class MediaWikiTheme extends Theme {
 
 	/* Methods */
 
-	public function getElementClasses( OoUiElement $element ) {
+	public function getElementClasses( Element $element ) {
 		$variants = array(
 			'invert' => false,
 			'primary' => false,

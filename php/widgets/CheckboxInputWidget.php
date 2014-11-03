@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Checkbox input widget.
  */
-class OoUiCheckboxInputWidget extends OoUiInputWidget {
+class CheckboxInputWidget extends InputWidget {
 
 	/**
 	 * @param array $config Configuration options
@@ -17,7 +19,7 @@ class OoUiCheckboxInputWidget extends OoUiInputWidget {
 	}
 
 	protected function getInputElement( $config ) {
-		$input = new OoUiTag( 'input' );
+		$input = new Tag( 'input' );
 		$input->setAttributes( array( 'type' => 'checkbox' ) );
 		return $input;
 	}

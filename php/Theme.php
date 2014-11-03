@@ -1,9 +1,11 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Theme logic.
  */
-class OoUiTheme {
+class Theme {
 
 	/* Members */
 
@@ -11,7 +13,7 @@ class OoUiTheme {
 
 	/* Static Methods */
 
-	public static function setSingleton( OoUiTheme $theme ) {
+	public static function setSingleton( Theme $theme ) {
 		self::$singleton = $theme;
 	}
 
@@ -29,10 +31,10 @@ class OoUiTheme {
 	 * The 'on' and 'off' lists combined MUST contain keys for all classes the theme adds or removes,
 	 * otherwise state transitions will not work properly.
 	 *
-	 * @param OoUiElement $element Element for which to get classes
+	 * @param Element $element Element for which to get classes
 	 * @return array Categorized class names with `on` and `off` lists
 	 */
-	public function getElementClasses( OoUiElement $element ) {
+	public function getElementClasses( Element $element ) {
 		return array( 'on' => array(), 'off' => array() );
 	}
 
@@ -41,10 +43,10 @@ class OoUiTheme {
 	 *
 	 * For elements with theme logic hooks, this should be called anytime there's a state change.
 	 *
-	 * @param OoUiElement $element Element for which to update classes
+	 * @param Element $element Element for which to update classes
 	 * @return array Categorized class names with `on` and `off` lists
 	 */
-	public function updateElementClasses( OoUiElement $element ) {
+	public function updateElementClasses( Element $element ) {
 		$classes = $this->getElementClasses( $element );
 
 		$element

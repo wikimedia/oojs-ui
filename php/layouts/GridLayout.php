@@ -1,16 +1,18 @@
 <?php
 
+namespace OOUI;
+
 /**
  * Layout made of proportionally sized columns and rows.
  */
-class OoUiGridLayout extends OoUiLayout {
+class GridLayout extends Layout {
 
 	/* Properties */
 
 	/**
 	 * Panels in the grid.
 	 *
-	 * @var OoUiPanelLayout[]
+	 * @var PanelLayout[]
 	 */
 	protected $panels = array();
 
@@ -29,7 +31,7 @@ class OoUiGridLayout extends OoUiLayout {
 	protected $heights = array();
 
 	/**
-	 * @param OoUiPanelLayout[] $panels Panels in the grid
+	 * @param PanelLayout[] $panels Panels in the grid
 	 * @param array $config Configuration options
 	 * @param number[] $config['widths'] Widths of columns as ratios
 	 * @param number[] $config['heights'] Heights of rows as ratios
@@ -105,7 +107,7 @@ class OoUiGridLayout extends OoUiLayout {
 				$cssHeight = round( $height * 100 ) . '%';
 				$cssTop = round( $top * 100 ) . '%';
 
-				$direction = OoUiElement::getDir( $this ) === 'ltr' ? 'left' : 'right';
+				$direction = Element::getDir( $this ) === 'ltr' ? 'left' : 'right';
 				$cssLeft = round( $left * 100 ) . '%';
 
 				$css =
@@ -133,7 +135,7 @@ class OoUiGridLayout extends OoUiLayout {
 	 *
 	 * @param number $x Horizontal position
 	 * @param number $y Vertical position
-	 * @return OoUiPanelLayout The panel at the given postion
+	 * @return PanelLayout The panel at the given postion
 	 */
 	public function getPanel( $x, $y ) {
 		return $this->panels[ ( $x * count( $this->widths ) ) + $y ];
