@@ -20,7 +20,7 @@ class ButtonInputWidget extends InputWidget {
 		// Configuration initialization
 		$config = array_merge( array( 'type' => 'button', 'useInputTag' => false ), $config );
 
-	// Properties (must be set before parent constructor, which calls setValue())
+		// Properties (must be set before parent constructor, which calls setValue())
 		$this->useInputTag = $config['useInputTag'];
 
 		// Parent constructor
