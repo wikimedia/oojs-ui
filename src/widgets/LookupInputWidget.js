@@ -81,8 +81,8 @@ OO.ui.LookupInputWidget.prototype.onLookupInputMouseDown = function () {
 	// This way we allow the user to open the menu again after closing it with Esc
 	// by clicking in the input. Opening (and populating) the menu when initially
 	// clicking into the input is handled by the focus handler.
-	if ( this.lookupInputFocused ) {
-		this.openLookupMenu();
+	if ( this.lookupInputFocused && !this.lookupMenu.isVisible() ) {
+		this.populateLookupMenu();
 	}
 };
 
