@@ -147,7 +147,79 @@
 
 .theme-oo-ui-inputWidget () {}
 
-.theme-oo-ui-checkboxInputWidget () {}
+.theme-oo-ui-checkboxInputWidget () {
+	position: relative;
+	line-height: @checkbox-size;
+
+	* {
+		vertical-align: middle;
+	}
+
+	input[type="checkbox"] {
+		// we hide the input element as instead we will style the span that follows
+		// we use opacity so that VoiceOver software can still identify it
+		opacity: 0;
+		// ensure the invisible checkbox takes up the required width
+		width: @checkbox-size;
+		height: @checkbox-size;
+		// This is needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
+		max-width: none;
+
+		// the pseudo before element of the span after the checkbox now looks like a checkbox
+		& + span {
+			cursor: pointer;
+			margin: 0 0.4em;
+
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				border-radius: @border-radius;
+				width: @checkbox-size;
+				height: @checkbox-size;
+				background-color: #fff;
+				border: 1px solid grey;
+			}
+		}
+
+		// when the input is checked, style the span pseudo before element that followed as a checked checkbox
+		&:checked {
+			+ span {
+				&::before {
+					.oo-ui-background-image('@{oo-ui-default-image-path}/icons/check-constructive.svg');
+					background-size: @checkbox-size, @checkbox-size;
+					background-repeat: no-repeat;
+					background-position: center top;
+				}
+			}
+		}
+
+		@focus-bottom-border-size: 0.2em;
+		&:active,
+		&:focus {
+			+ span {
+				&::after {
+					content: '';
+					position: absolute;
+					width: @checkbox-size;
+					height: @checkbox-size - @focus-bottom-border-size + 0.1; // offset by bottom border
+					// offset from the checkbox by 1px to account for left border
+					left: 1px;
+					border-bottom: solid @focus-bottom-border-size lightgrey;
+				}
+			}
+		}
+
+		// disabled checked boxes have a gray background
+		&:disabled + span {
+			cursor: default;
+
+			&::before {
+				background-color: lightgrey;
+			}
+		}
+	}
+}
 
 .theme-oo-ui-textInputWidget () {
 	width: 100%;
