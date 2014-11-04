@@ -109,8 +109,10 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 		'ooui-dialog-process-error': 'Something went wrong',
 		// Label for process dialog dismiss error button, visible when describing errors
 		'ooui-dialog-process-dismiss': 'Dismiss',
-		// Label for process dialog retry action button, visible when describing recoverable errors
-		'ooui-dialog-process-retry': 'Try again'
+		// Label for process dialog retry action button, visible when describing only recoverable errors
+		'ooui-dialog-process-retry': 'Try again',
+		// Label for process dialog retry action button, visible when describing only warnings
+		'ooui-dialog-process-continue': 'Continue'
 	};
 
 	/**
