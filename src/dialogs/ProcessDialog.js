@@ -84,10 +84,7 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 		$: this.$,
 		label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
 	} );
-	this.retryButton = new OO.ui.ButtonWidget( {
-		$: this.$,
-		label: OO.ui.msg( 'ooui-dialog-process-retry' )
-	} );
+	this.retryButton = new OO.ui.ButtonWidget( { $: this.$ } );
 	this.$errors = this.$( '<div>' );
 	this.$errorsTitle = this.$( '<div>' );
 
@@ -181,11 +178,15 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
 OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 	var i, len, $item,
 		items = [],
-		recoverable = true;
+		recoverable = true,
+		warning = false;
 
 	for ( i = 0, len = errors.length; i < len; i++ ) {
 		if ( !errors[i].isRecoverable() ) {
 			recoverable = false;
+		}
+		if ( errors[i].isWarning() ) {
+			warning = true;
 		}
 		$item = this.$( '<div>' )
 			.addClass( 'oo-ui-processDialog-error' )
@@ -197,6 +198,11 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 		this.retryButton.clearFlags().setFlags( this.currentAction.getFlags() );
 	} else {
 		this.currentAction.setDisabled( true );
+	}
+	if ( warning ) {
+		this.retryButton.setLabel( OO.ui.msg( 'ooui-dialog-process-continue' ) );
+	} else {
+		this.retryButton.setLabel( OO.ui.msg( 'ooui-dialog-process-retry' ) );
 	}
 	this.retryButton.toggle( recoverable );
 	this.$errorsTitle.after( this.$errorItems );
