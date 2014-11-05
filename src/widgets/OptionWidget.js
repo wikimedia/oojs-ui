@@ -36,9 +36,6 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 		.attr( 'role', 'option' )
 		.addClass( 'oo-ui-optionWidget' )
 		.append( this.$label );
-	this.$element
-		.prepend( this.$icon )
-		.append( this.$indicator );
 };
 
 /* Setup */
