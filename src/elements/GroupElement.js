@@ -75,7 +75,7 @@ OO.ui.GroupElement.prototype.aggregate = function ( events ) {
 		groupEvent = events[itemEvent];
 
 		// Remove existing aggregated event
-		if ( itemEvent in this.aggregateItemEvents ) {
+		if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {
 			// Don't allow duplicate aggregations
 			if ( groupEvent ) {
 				throw new Error( 'Duplicate item event aggregation for ' + itemEvent );
@@ -182,7 +182,7 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
 				!$.isEmptyObject( this.aggregateItemEvents )
 			) {
 				remove = {};
-				if ( itemEvent in this.aggregateItemEvents ) {
+				if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {
 					remove[itemEvent] = [ 'emit', this.aggregateItemEvents[itemEvent], item ];
 				}
 				item.disconnect( this, remove );
@@ -214,7 +214,7 @@ OO.ui.GroupElement.prototype.clearItems = function () {
 			!$.isEmptyObject( this.aggregateItemEvents )
 		) {
 			remove = {};
-			if ( itemEvent in this.aggregateItemEvents ) {
+			if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {
 				remove[itemEvent] = [ 'emit', this.aggregateItemEvents[itemEvent], item ];
 			}
 			item.disconnect( this, remove );

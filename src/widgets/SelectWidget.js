@@ -258,7 +258,7 @@ OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
 OO.ui.SelectWidget.prototype.getItemFromData = function ( data ) {
 	var hash = OO.getHash( data );
 
-	if ( hash in this.hashes ) {
+	if ( Object.prototype.hasOwnProperty.call( this.hashes, hash ) ) {
 		return this.hashes[hash];
 	}
 
@@ -445,7 +445,7 @@ OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[i];
 		hash = OO.getHash( item.getData() );
-		if ( hash in this.hashes ) {
+		if ( Object.prototype.hasOwnProperty.call( this.hashes, hash ) ) {
 			// Remove item with same value
 			remove.push( this.hashes[hash] );
 		}
@@ -479,7 +479,7 @@ OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[i];
 		hash = OO.getHash( item.getData() );
-		if ( hash in this.hashes ) {
+		if ( Object.prototype.hasOwnProperty.call( this.hashes, hash ) ) {
 			// Remove existing item
 			delete this.hashes[hash];
 		}
