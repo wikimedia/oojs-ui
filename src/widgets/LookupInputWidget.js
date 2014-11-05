@@ -222,7 +222,7 @@ OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
 		ourRequest;
 
 	this.abortLookupRequest();
-	if ( value in this.lookupCache ) {
+	if ( Object.prototype.hasOwnProperty.call( this.lookupCache, value ) ) {
 		deferred.resolve( this.getLookupMenuItemsFromData( this.lookupCache[value] ) );
 	} else {
 		this.lookupInput.pushPending();
