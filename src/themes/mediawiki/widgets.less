@@ -638,17 +638,35 @@
 }
 
 .theme-oo-ui-progressBarWidget () {
-	width: 100%;
 	max-width: 50em;
 	border: solid 1px @primary-fill;
 	border-radius: 0.1em;
+	overflow: hidden;
+
 	&-bar {
 		height: 1em;
-		border-right: solid 1px @primary-fill;
 		background: @primary-fill;
-		.oo-ui-transition(width 200ms);
+		.oo-ui-transition(width 200ms, margin-left 200ms);
+	}
+	&-indeterminate {
+		.oo-ui-progressBarWidget-bar {
+			.oo-ui-animation(oo-ui-progressBarWidget-slide 2s infinite linear);
+			width: 40%;
+			margin-left: -10%;
+			border-left-width: 1px;
+		}
 	}
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
 	}
 }
+
+.oo-ui-progressBarWidget-slide-frames {
+	from { margin-left: -40%; }
+	to { margin-left: 100%; }
+}
+@-webkit-keyframes oo-ui-progressBarWidget-slide { .oo-ui-progressBarWidget-slide-frames }
+@-moz-keyframes oo-ui-progressBarWidget-slide { .oo-ui-progressBarWidget-slide-frames }
+@-ms-keyframes oo-ui-progressBarWidget-slide { .oo-ui-progressBarWidget-slide-frames }
+@-o-keyframes oo-ui-progressBarWidget-slide { .oo-ui-progressBarWidget-slide-frames }
+@keyframes oo-ui-progressBarWidget-slide { .oo-ui-progressBarWidget-slide-frames }

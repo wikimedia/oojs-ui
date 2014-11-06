@@ -662,6 +662,15 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					label: 'Progress bar',
 					align: 'top'
 				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.ProgressBarWidget( {
+					progress: false
+				} ),
+				{
+					label: 'Progress bar (indeterminate)\u200E',
+					align: 'top'
+				}
 			)
 		];
 
