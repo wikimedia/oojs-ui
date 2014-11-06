@@ -9,7 +9,6 @@
  * @constructor
  * @param {Mixed} data Option data
  * @param {Object} [config] Configuration options
- * @cfg {string} [rel] Value for `rel` attribute in DOM, allowing per-option styling
  */
 OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 	// Configuration initialization
@@ -32,7 +31,6 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 	// Initialization
 	this.$element
 		.data( 'oo-ui-optionWidget', this )
-		.attr( 'rel', config.rel )
 		.attr( 'role', 'option' )
 		.addClass( 'oo-ui-optionWidget' )
 		.append( this.$label );
