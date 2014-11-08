@@ -21,6 +21,8 @@
 
 			"src/elements/ButtonElement.js",
 			"src/elements/GroupElement.js",
+			"src/elements/DraggableElement.js",
+			"src/elements/DraggableGroupElement.js",
 			"src/elements/IconElement.js",
 			"src/elements/IndicatorElement.js",
 			"src/elements/LabelElement.js",
