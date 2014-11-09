@@ -204,35 +204,28 @@
 			border-color: #a7dcff;
 			box-shadow: 0 0 0.3em #a7dcff, 0 0 0 white;
 		}
-	}
 
-	&.oo-ui-pendingElement-pending {
-		input, textarea {
-			.oo-ui-background-image('@{oo-ui-default-image-path}/textures/pending.gif');
+		input[readonly],
+		textarea[readonly] {
+			color: #777;
 		}
 	}
 
-	input[readonly],
-	textarea[readonly] {
-		color: #777;
+	&.oo-ui-widget-disabled {
+		input,
+		textarea {
+			color: #ccc;
+			text-shadow: 0 1px 1px #fff;
+			border-color: #ddd;
+			background-color: #f3f3f3;
+		}
 	}
 
 	&.oo-ui-pendingElement-pending {
 		input,
 		textarea {
 			background-color: transparent;
-		}
-	}
-
-	&.oo-ui-widget-disabled {
-		input,
-		input:focus,
-		textarea,
-		textarea:focus {
-			color: #ccc;
-			text-shadow: 0 1px 1px #fff;
-			border-color: #ddd;
-			background-color: #f3f3f3;
+			.oo-ui-background-image('@{oo-ui-default-image-path}/textures/pending.gif');
 		}
 	}
 
