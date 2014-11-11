@@ -6,6 +6,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {jQuery} [$pending] Element to mark as pending, defaults to this.$element
  */
 OO.ui.PendingElement = function OoUiPendingElement( config ) {
 	// Configuration initialization
