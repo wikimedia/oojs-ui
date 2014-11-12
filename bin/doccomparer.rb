@@ -118,9 +118,9 @@ def compare_hash a, b, a_name, b_name, nested = :compare_hash
 		else
 			if a_val == b_val
 				"#{key}: match" if $VERBOSE
-			elsif a_val == nil
+			elsif a_val.nil?
 				"#{key}: #{a_name} missing"
-			elsif b_val == nil
+			elsif b_val.nil?
 				"#{key}: #{b_name} missing"
 			else
 				"#{key}: MISMATCH\n  #{a_name}: #{a_val.inspect}\n  #{b_name}: #{b_val.inspect}"

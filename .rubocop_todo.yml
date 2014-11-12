@@ -81,11 +81,6 @@ Style/MultilineOperationIndentation:
 Style/Next:
   Enabled: false
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/NilComparison:
-  Enabled: false
-
 # Offense count: 6
 # Cop supports --auto-correct.
 # Configuration parameters: PreferredDelimiters.
