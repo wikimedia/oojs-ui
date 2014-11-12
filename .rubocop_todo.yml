@@ -42,11 +42,6 @@ Style/Blocks:
 Style/CommentIndentation:
   Enabled: false
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/EmptyLines:
-  Enabled: false
-
 # Offense count: 3
 # Configuration parameters: MaxLineLength.
 Style/IfUnlessModifier:

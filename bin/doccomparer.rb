@@ -130,7 +130,6 @@ def compare_hash a, b, a_name, b_name, nested=:compare_hash
 	out.compact.join "\n"
 end
 
-
 if ARGV.empty? || ARGV == ['-h'] || ARGV == ['--help']
 	$stderr.puts "usage: ruby [-v] #{$0} <dirA> <dirB> <nameA> <nameB>"
 	$stderr.puts "       ruby #{$0} src php JS PHP > compare.txt"
