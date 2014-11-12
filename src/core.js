@@ -79,6 +79,30 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 	return undefined;
 };
 
+/**
+ * Check if a node is contained within another node
+ *
+ * Similar to jQuery#contains except a list of containers can be supplied
+ * and a boolean argument allows you to include the container in the match list
+ *
+ * @param {HTMLElement|HTMLElement[]} containers Container node(s) to search in
+ * @param {HTMLElement} contained Node to find
+ * @param {boolean} [matchContainers] Include the container(s) in the list of nodes to match, otherwise only match descendents
+ * @returns {boolean} The node is in the list of target nodes
+ */
+OO.ui.contains = function ( containers, contained, matchContainers ) {
+	var i;
+	if ( !Array.isArray( containers ) ) {
+		containers = [ containers ];
+	}
+	for ( i = containers.length - 1; i >= 0; i-- ) {
+		if ( ( matchContainers && contained === containers[i] ) || $.contains( containers[i], contained ) ) {
+			return true;
+		}
+	}
+	return false;
+};
+
 ( function () {
 	/**
 	 * Message store for the default implementation of OO.ui.msg

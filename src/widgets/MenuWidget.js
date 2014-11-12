@@ -58,7 +58,10 @@ OO.mixinClass( OO.ui.MenuWidget, OO.ui.ClippableElement );
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.MenuWidget.prototype.onDocumentMouseDown = function ( e ) {
-	if ( !$.contains( this.$element[0], e.target ) && ( !this.$widget || !$.contains( this.$widget[0], e.target ) ) ) {
+	if (
+		!OO.ui.contains( this.$element[0], e.target, true ) &&
+		( !this.$widget || !OO.ui.contains( this.$widget[0], e.target, true ) )
+	) {
 		this.toggle( false );
 	}
 };
