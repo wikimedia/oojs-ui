@@ -107,7 +107,7 @@ def compare_hash a, b, a_name, b_name, nested=:compare_hash
 			a_val, b_val = {}, {}
 		end
 
-		if a_val.is_a? Hash and b_val.is_a? Hash
+		if a_val.is_a?(Hash) && b_val.is_a?(Hash)
 			comparison_result = indent method(nested).call(a_val, b_val, a_name, b_name), 2
 			if comparison_result.strip == ''
 				"#{key}: match" if $VERBOSE
