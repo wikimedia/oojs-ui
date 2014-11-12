@@ -148,7 +148,7 @@ def parse_file filename
 			when 'abstract', 'inheritable', 'deprecated', 'singleton', 'throws', 'chainable', 'fires', 'localdoc', 'inheritdoc'
 				# skip
 			else
-				raise "unrecognized keyword: #{keyword}"
+				fail "unrecognized keyword: #{keyword}"
 			end
 		}
 
