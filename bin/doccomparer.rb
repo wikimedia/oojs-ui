@@ -1,7 +1,7 @@
 require 'pp'
 require_relative 'docparser'
 
-# convert [ {name: 'foo'}, … ] to { foo: {name: 'foo'}, … }
+# convert [ {name: 'foo'}, ... ] to { foo: {name: 'foo'}, ... }
 def reindex arg
 	if arg.is_a?(Array) && arg.all?{|v| v.is_a? Hash }
 		Hash[ arg.map{|v| [ v[:name], reindex(v) ] } ]
