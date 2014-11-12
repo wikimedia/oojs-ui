@@ -69,7 +69,7 @@ def parse_file filename
 			c.sub!(/^[ \t]*\*[ \t]?/, '') # strip leading *
 
 			m = c.match(/^@(\w+)[ \t]*(.*)/)
-			if !m
+			unless m
 				previous_item[:description] << c + "\n"
 				next
 			end
