@@ -178,7 +178,7 @@ def parse_file filename
 			if current_class
 				output << current_class
 			end
-			current_class = data.select{|k,v| valid_per_kind[:class].include? k }
+			current_class = data.select{|k, v| valid_per_kind[:class].include? k }
 			current_class[:description] = js_class_constructor_desc if js_class_constructor_desc != ''
 			previous_item = current_class
 		end
@@ -195,7 +195,7 @@ def parse_file filename
 				property: :properties,
 				event: :events,
 			}
-			current_class[keys[kind]] << data.select{|k,v| valid_per_kind[kind].include? k }
+			current_class[keys[kind]] << data.select{|k, v| valid_per_kind[kind].include? k }
 			previous_item = current_class[keys[kind]]
 		end
 	}

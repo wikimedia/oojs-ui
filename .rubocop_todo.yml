@@ -91,11 +91,6 @@ Style/PercentLiteralDelimiters:
 Style/RegexpLiteral:
   MaxSlashes: 3
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/SpaceAfterComma:
-  Enabled: false
-
 # Offense count: 8
 # Cop supports --auto-correct.
 Style/SpaceAroundOperators:
