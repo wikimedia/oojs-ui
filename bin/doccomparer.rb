@@ -98,7 +98,7 @@ def smart_compare_properties a, b, a_name, b_name
 	smart_compare a, b, a_name, b_name, :property
 end
 
-def compare_hash a, b, a_name, b_name, nested=:compare_hash
+def compare_hash a, b, a_name, b_name, nested = :compare_hash
 	keys = (a ? a.keys: []) + (b ? b.keys : [])
 	out = keys.to_a.sort.uniq.map do |key|
 		a_val = a ? canonicalize(a[key]) : nil
