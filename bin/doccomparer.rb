@@ -93,6 +93,7 @@ end
 def smart_compare_methods a, b, a_name, b_name
 	smart_compare a, b, a_name, b_name, :method
 end
+
 def smart_compare_properties a, b, a_name, b_name
 	smart_compare a, b, a_name, b_name, :property
 end
