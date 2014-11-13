@@ -6,7 +6,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {number} [progress=0] Initial progress
+ * @cfg {number|boolean} [progress=false] Initial progress percent or false for indeterminate
  */
 OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
 	// Configuration initialization
@@ -20,7 +20,7 @@ OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
 	this.progress = null;
 
 	// Initialization
-	this.setProgress( config.progress || 0 );
+	this.setProgress( config.progress !== undefined ? config.progress : false );
 	this.$bar.addClass( 'oo-ui-progressBarWidget-bar');
 	this.$element
 		.attr( {
@@ -54,11 +54,17 @@ OO.ui.ProgressBarWidget.prototype.getProgress = function () {
 /**
  * Set progress percent
  *
- * @param {number} progress Progress percent
+ * @param {number|boolean} progress Progress percent or false for indeterminate
  */
 OO.ui.ProgressBarWidget.prototype.setProgress = function ( progress ) {
 	this.progress = progress;
 
-	this.$bar.css( 'width', this.progress + '%' );
-	this.$element.attr( 'aria-valuenow', this.progress );
+	if ( progress !== false ) {
+		this.$bar.css( 'width', this.progress + '%' );
+		this.$element.attr( 'aria-valuenow', this.progress );
+	} else {
+		this.$bar.css( 'width', '' );
+		this.$element.removeAttr( 'aria-valuenow' );
+	}
+	this.$element.toggleClass( 'oo-ui-progressBarWidget-indeterminate', !progress );
 };

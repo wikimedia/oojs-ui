@@ -52,6 +52,15 @@
 	.oo-ui-image-variant( texture, @name, @file, @variant, @ext, @path );
 }
 
+.oo-ui-animation( @value1, @value2: X, ... ) {
+	@value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+	-webkit-animation: @value;
+	-moz-animation: @value;
+	-ms-animation: @value;
+	-o-animation: @value;
+	animation: @value;
+}
+
 .oo-ui-transition( @value1, @value2: X, ... ) {
 	@value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
 	-webkit-transition: @value;
