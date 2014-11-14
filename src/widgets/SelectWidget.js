@@ -380,7 +380,7 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
  * Get an item relative to another one.
  *
  * @param {OO.ui.OptionWidget} item Item to start at
- * @param {number} direction Direction to move in
+ * @param {number} direction Direction to move in, -1 to look backward, 1 to move forward
  * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the menu
  */
 OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direction ) {
