@@ -40,12 +40,10 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 
 	// Initialization
 	this.$group.addClass( 'oo-ui-toolbar-tools' );
-	this.$bar.addClass( 'oo-ui-toolbar-bar' ).append( this.$group );
 	if ( config.actions ) {
-		this.$actions.addClass( 'oo-ui-toolbar-actions' );
-		this.$bar.append( this.$actions );
+		this.$bar.append( this.$actions.addClass( 'oo-ui-toolbar-actions' ) );
 	}
-	this.$bar.append( '<div style="clear:both"></div>' );
+	this.$bar.append( this.$group, '<div style="clear:both"></div>' );
 	if ( config.shadow ) {
 		this.$bar.append( '<div class="oo-ui-toolbar-shadow"></div>' );
 	}
