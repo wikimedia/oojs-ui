@@ -19,10 +19,10 @@ OO.ui.Demo = function OoUiDemo() {
 		$: this.$,
 		menu: {
 			items: [
-				new OO.ui.MenuItemWidget( 'dialogs',  { $: this.$, label: 'Dialogs' } ),
-				new OO.ui.MenuItemWidget( 'icons',  { $: this.$, label: 'Icons' } ),
-				new OO.ui.MenuItemWidget( 'toolbars',  { $: this.$, label: 'Toolbars' } ),
-				new OO.ui.MenuItemWidget( 'widgets',  { $: this.$, label: 'Widgets' } )
+				new OO.ui.MenuOptionWidget( 'dialogs',  { $: this.$, label: 'Dialogs' } ),
+				new OO.ui.MenuOptionWidget( 'icons',  { $: this.$, label: 'Icons' } ),
+				new OO.ui.MenuOptionWidget( 'toolbars',  { $: this.$, label: 'Toolbars' } ),
+				new OO.ui.MenuOptionWidget( 'widgets',  { $: this.$, label: 'Widgets' } )
 			]
 		},
 		classes: [ 'oo-ui-demo-pageDropdown' ]

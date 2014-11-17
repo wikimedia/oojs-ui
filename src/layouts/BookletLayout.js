@@ -29,7 +29,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	if ( this.outlined ) {
 		this.editable = !!config.editable;
 		this.outlineControlsWidget = null;
-		this.outlineWidget = new OO.ui.OutlineWidget( { $: this.$ } );
+		this.outlineSelectWidget = new OO.ui.OutlineSelectWidget( { $: this.$ } );
 		this.outlinePanel = new OO.ui.PanelLayout( { $: this.$, scrollable: true } );
 		this.gridLayout = new OO.ui.GridLayout(
 			[ this.outlinePanel, this.stackLayout ],
@@ -38,7 +38,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 		this.outlineVisible = true;
 		if ( this.editable ) {
 			this.outlineControlsWidget = new OO.ui.OutlineControlsWidget(
-				this.outlineWidget, { $: this.$ }
+				this.outlineSelectWidget, { $: this.$ }
 			);
 		}
 	}
@@ -46,7 +46,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	// Events
 	this.stackLayout.connect( this, { set: 'onStackLayoutSet' } );
 	if ( this.outlined ) {
-		this.outlineWidget.connect( this, { select: 'onOutlineWidgetSelect' } );
+		this.outlineSelectWidget.connect( this, { select: 'onOutlineSelectWidgetSelect' } );
 	}
 	if ( this.autoFocus ) {
 		// Event 'focus' does not bubble, but 'focusin' does
@@ -59,7 +59,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	if ( this.outlined ) {
 		this.outlinePanel.$element
 			.addClass( 'oo-ui-bookletLayout-outlinePanel' )
-			.append( this.outlineWidget.$element );
+			.append( this.outlineSelectWidget.$element );
 		if ( this.editable ) {
 			this.outlinePanel.$element
 				.addClass( 'oo-ui-bookletLayout-outlinePanel-editable' )
@@ -141,7 +141,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
  *
  * @param {OO.ui.OptionWidget|null} item Selected item
  */
-OO.ui.BookletLayout.prototype.onOutlineWidgetSelect = function ( item ) {
+OO.ui.BookletLayout.prototype.onOutlineSelectWidgetSelect = function ( item ) {
 	if ( item ) {
 		this.setPage( item.getData() );
 	}
@@ -206,16 +206,16 @@ OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
 		prev = pages[index - 1];
 		// Prefer adjacent pages at the same level
 		if ( this.outlined ) {
-			level = this.outlineWidget.getItemFromData( page.getName() ).getLevel();
+			level = this.outlineSelectWidget.getItemFromData( page.getName() ).getLevel();
 			if (
 				prev &&
-				level === this.outlineWidget.getItemFromData( prev.getName() ).getLevel()
+				level === this.outlineSelectWidget.getItemFromData( prev.getName() ).getLevel()
 			) {
 				return prev;
 			}
 			if (
 				next &&
-				level === this.outlineWidget.getItemFromData( next.getName() ).getLevel()
+				level === this.outlineSelectWidget.getItemFromData( next.getName() ).getLevel()
 			) {
 				return next;
 			}
@@ -227,10 +227,10 @@ OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
 /**
  * Get the outline widget.
  *
- * @return {OO.ui.OutlineWidget|null} Outline widget, or null if boolet has no outline
+ * @return {OO.ui.OutlineSelectWidget|null} Outline widget, or null if boolet has no outline
  */
 OO.ui.BookletLayout.prototype.getOutline = function () {
-	return this.outlineWidget;
+	return this.outlineSelectWidget;
 };
 
 /**
@@ -302,15 +302,15 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 		name = page.getName();
 		this.pages[page.getName()] = page;
 		if ( this.outlined ) {
-			item = new OO.ui.OutlineItemWidget( name, page, { $: this.$ } );
+			item = new OO.ui.OutlineOptionWidget( name, page, { $: this.$ } );
 			page.setOutlineItem( item );
 			items.push( item );
 		}
 	}
 
 	if ( this.outlined && items.length ) {
-		this.outlineWidget.addItems( items, index );
-		this.updateOutlineWidget();
+		this.outlineSelectWidget.addItems( items, index );
+		this.updateOutlineSelectWidget();
 	}
 	this.stackLayout.addItems( pages, index );
 	this.emit( 'add', pages, index );
@@ -333,13 +333,13 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
 		name = page.getName();
 		delete this.pages[name];
 		if ( this.outlined ) {
-			items.push( this.outlineWidget.getItemFromData( name ) );
+			items.push( this.outlineSelectWidget.getItemFromData( name ) );
 			page.setOutlineItem( null );
 		}
 	}
 	if ( this.outlined && items.length ) {
-		this.outlineWidget.removeItems( items );
-		this.updateOutlineWidget();
+		this.outlineSelectWidget.removeItems( items );
+		this.updateOutlineSelectWidget();
 	}
 	this.stackLayout.removeItems( pages );
 	this.emit( 'remove', pages );
@@ -360,7 +360,7 @@ OO.ui.BookletLayout.prototype.clearPages = function () {
 	this.pages = {};
 	this.currentPageName = null;
 	if ( this.outlined ) {
-		this.outlineWidget.clearItems();
+		this.outlineSelectWidget.clearItems();
 		for ( i = 0, len = pages.length; i < len; i++ ) {
 			pages[i].setOutlineItem( null );
 		}
@@ -385,9 +385,9 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 
 	if ( name !== this.currentPageName ) {
 		if ( this.outlined ) {
-			selectedItem = this.outlineWidget.getSelectedItem();
+			selectedItem = this.outlineSelectWidget.getSelectedItem();
 			if ( selectedItem && selectedItem.getData() !== name ) {
-				this.outlineWidget.selectItem( this.outlineWidget.getItemFromData( name ) );
+				this.outlineSelectWidget.selectItem( this.outlineSelectWidget.getItemFromData( name ) );
 			}
 		}
 		if ( page ) {
@@ -412,14 +412,14 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 };
 
 /**
- * Call this after adding or removing items from the OutlineWidget.
+ * Call this after adding or removing items from the OutlineSelectWidget.
  *
  * @chainable
  */
-OO.ui.BookletLayout.prototype.updateOutlineWidget = function () {
+OO.ui.BookletLayout.prototype.updateOutlineSelectWidget = function () {
 	// Auto-select first item when nothing is selected anymore
-	if ( !this.outlineWidget.getSelectedItem() ) {
-		this.outlineWidget.selectItem( this.outlineWidget.getFirstSelectableItem() );
+	if ( !this.outlineSelectWidget.getSelectedItem() ) {
+		this.outlineSelectWidget.selectItem( this.outlineSelectWidget.getFirstSelectableItem() );
 	}
 
 	return this;

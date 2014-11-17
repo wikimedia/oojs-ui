@@ -59,7 +59,7 @@ OO.ui.PageLayout.prototype.isActive = function () {
 /**
  * Get outline item.
  *
- * @return {OO.ui.OutlineItemWidget|null} Outline item widget
+ * @return {OO.ui.OutlineOptionWidget|null} Outline item widget
  */
 OO.ui.PageLayout.prototype.getOutlineItem = function () {
 	return this.outlineItem;
@@ -71,9 +71,9 @@ OO.ui.PageLayout.prototype.getOutlineItem = function () {
  * @localdoc Subclasses should override #setupOutlineItem instead of this method to adjust the
  *   outline item as desired; this method is called for setting (with an object) and unsetting
  *   (with null) and overriding methods would have to check the value of `outlineItem` to avoid
- *   operating on null instead of an OO.ui.OutlineItemWidget object.
+ *   operating on null instead of an OO.ui.OutlineOptionWidget object.
  *
- * @param {OO.ui.OutlineItemWidget|null} outlineItem Outline item widget, null to clear
+ * @param {OO.ui.OutlineOptionWidget|null} outlineItem Outline item widget, null to clear
  * @chainable
  */
 OO.ui.PageLayout.prototype.setOutlineItem = function ( outlineItem ) {
@@ -89,7 +89,7 @@ OO.ui.PageLayout.prototype.setOutlineItem = function ( outlineItem ) {
  *
  * @localdoc Subclasses should override this method to adjust the outline item as desired.
  *
- * @param {OO.ui.OutlineItemWidget} outlineItem Outline item widget to setup
+ * @param {OO.ui.OutlineOptionWidget} outlineItem Outline item widget to setup
  * @chainable
  */
 OO.ui.PageLayout.prototype.setupOutlineItem = function () {

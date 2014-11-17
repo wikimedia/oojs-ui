@@ -1,5 +1,5 @@
 /**
- * Items for an OO.ui.OutlineWidget.
+ * Items for an OO.ui.OutlineSelectWidget.
  *
  * @class
  * @extends OO.ui.DecoratedOptionWidget
@@ -10,12 +10,12 @@
  * @cfg {number} [level] Indentation level
  * @cfg {boolean} [movable] Allow modification from outline controls
  */
-OO.ui.OutlineItemWidget = function OoUiOutlineItemWidget( data, config ) {
+OO.ui.OutlineOptionWidget = function OoUiOutlineOptionWidget( data, config ) {
 	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.OutlineItemWidget.super.call( this, data, config );
+	OO.ui.OutlineOptionWidget.super.call( this, data, config );
 
 	// Properties
 	this.level = 0;
@@ -23,23 +23,23 @@ OO.ui.OutlineItemWidget = function OoUiOutlineItemWidget( data, config ) {
 	this.removable = !!config.removable;
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-outlineItemWidget' );
+	this.$element.addClass( 'oo-ui-outlineOptionWidget' );
 	this.setLevel( config.level );
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.OutlineItemWidget, OO.ui.DecoratedOptionWidget );
+OO.inheritClass( OO.ui.OutlineOptionWidget, OO.ui.DecoratedOptionWidget );
 
 /* Static Properties */
 
-OO.ui.OutlineItemWidget.static.highlightable = false;
+OO.ui.OutlineOptionWidget.static.highlightable = false;
 
-OO.ui.OutlineItemWidget.static.scrollIntoViewOnSelect = true;
+OO.ui.OutlineOptionWidget.static.scrollIntoViewOnSelect = true;
 
-OO.ui.OutlineItemWidget.static.levelClass = 'oo-ui-outlineItemWidget-level-';
+OO.ui.OutlineOptionWidget.static.levelClass = 'oo-ui-outlineOptionWidget-level-';
 
-OO.ui.OutlineItemWidget.static.levels = 3;
+OO.ui.OutlineOptionWidget.static.levels = 3;
 
 /* Methods */
 
@@ -50,7 +50,7 @@ OO.ui.OutlineItemWidget.static.levels = 3;
  *
  * @return {boolean} Item is movable
  */
-OO.ui.OutlineItemWidget.prototype.isMovable = function () {
+OO.ui.OutlineOptionWidget.prototype.isMovable = function () {
 	return this.movable;
 };
 
@@ -61,7 +61,7 @@ OO.ui.OutlineItemWidget.prototype.isMovable = function () {
  *
  * @return {boolean} Item is removable
  */
-OO.ui.OutlineItemWidget.prototype.isRemovable = function () {
+OO.ui.OutlineOptionWidget.prototype.isRemovable = function () {
 	return this.removable;
 };
 
@@ -70,7 +70,7 @@ OO.ui.OutlineItemWidget.prototype.isRemovable = function () {
  *
  * @return {number} Indentation level
  */
-OO.ui.OutlineItemWidget.prototype.getLevel = function () {
+OO.ui.OutlineOptionWidget.prototype.getLevel = function () {
 	return this.level;
 };
 
@@ -82,7 +82,7 @@ OO.ui.OutlineItemWidget.prototype.getLevel = function () {
  * @param {boolean} movable Item is movable
  * @chainable
  */
-OO.ui.OutlineItemWidget.prototype.setMovable = function ( movable ) {
+OO.ui.OutlineOptionWidget.prototype.setMovable = function ( movable ) {
 	this.movable = !!movable;
 	this.updateThemeClasses();
 	return this;
@@ -96,7 +96,7 @@ OO.ui.OutlineItemWidget.prototype.setMovable = function ( movable ) {
  * @param {boolean} movable Item is removable
  * @chainable
  */
-OO.ui.OutlineItemWidget.prototype.setRemovable = function ( removable ) {
+OO.ui.OutlineOptionWidget.prototype.setRemovable = function ( removable ) {
 	this.removable = !!removable;
 	this.updateThemeClasses();
 	return this;
@@ -108,7 +108,7 @@ OO.ui.OutlineItemWidget.prototype.setRemovable = function ( removable ) {
  * @param {number} [level=0] Indentation level, in the range of [0,#maxLevel]
  * @chainable
  */
-OO.ui.OutlineItemWidget.prototype.setLevel = function ( level ) {
+OO.ui.OutlineOptionWidget.prototype.setLevel = function ( level ) {
 	var levels = this.constructor.static.levels,
 		levelClass = this.constructor.static.levelClass,
 		i = levels;

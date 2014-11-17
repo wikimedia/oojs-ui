@@ -6,19 +6,19 @@
  * menu is toggled or the window is resized.
  *
  * @class
- * @extends OO.ui.MenuWidget
+ * @extends OO.ui.MenuSelectWidget
  *
  * @constructor
  * @param {OO.ui.TextInputWidget} input Text input widget to provide menu for
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$container=input.$element] Element to render menu under
  */
-OO.ui.TextInputMenuWidget = function OoUiTextInputMenuWidget( input, config ) {
+OO.ui.TextInputMenuSelectWidget = function OoUiTextInputMenuSelectWidget( input, config ) {
 	// Configuration intialization
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.TextInputMenuWidget.super.call( this, config );
+	OO.ui.TextInputMenuSelectWidget.super.call( this, config );
 
 	// Properties
 	this.input = input;
@@ -26,12 +26,12 @@ OO.ui.TextInputMenuWidget = function OoUiTextInputMenuWidget( input, config ) {
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-textInputMenuWidget' );
+	this.$element.addClass( 'oo-ui-textInputMenuSelectWidget' );
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.TextInputMenuWidget, OO.ui.MenuWidget );
+OO.inheritClass( OO.ui.TextInputMenuSelectWidget, OO.ui.MenuSelectWidget );
 
 /* Methods */
 
@@ -40,14 +40,14 @@ OO.inheritClass( OO.ui.TextInputMenuWidget, OO.ui.MenuWidget );
  *
  * @param {jQuery.Event} e Window resize event
  */
-OO.ui.TextInputMenuWidget.prototype.onWindowResize = function () {
+OO.ui.TextInputMenuSelectWidget.prototype.onWindowResize = function () {
 	this.position();
 };
 
 /**
  * @inheritdoc
  */
-OO.ui.TextInputMenuWidget.prototype.toggle = function ( visible ) {
+OO.ui.TextInputMenuSelectWidget.prototype.toggle = function ( visible ) {
 	visible = visible === undefined ? !this.isVisible() : !!visible;
 
 	var change = visible !== this.isVisible();
@@ -60,7 +60,7 @@ OO.ui.TextInputMenuWidget.prototype.toggle = function ( visible ) {
 	}
 
 	// Parent method
-	OO.ui.TextInputMenuWidget.super.prototype.toggle.call( this, visible );
+	OO.ui.TextInputMenuSelectWidget.super.prototype.toggle.call( this, visible );
 
 	if ( change ) {
 		if ( this.isVisible() ) {
@@ -79,7 +79,7 @@ OO.ui.TextInputMenuWidget.prototype.toggle = function ( visible ) {
  *
  * @chainable
  */
-OO.ui.TextInputMenuWidget.prototype.position = function () {
+OO.ui.TextInputMenuSelectWidget.prototype.position = function () {
 	var $container = this.$container,
 		pos = OO.ui.Element.getRelativePosition( $container, this.$element.offsetParent() );
 

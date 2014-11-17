@@ -4,7 +4,7 @@
  * Dropdown menus provide a control for accessing a menu and compose a menu within the widget, which
  * can be accessed using the #getMenu method.
  *
- * Use with OO.ui.MenuItemWidget.
+ * Use with OO.ui.MenuOptionWidget.
  *
  * @class
  * @extends OO.ui.Widget
@@ -31,7 +31,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$label } ) );
 
 	// Properties
-	this.menu = new OO.ui.MenuWidget( $.extend( { $: this.$, widget: this }, config.menu ) );
+	this.menu = new OO.ui.MenuSelectWidget( $.extend( { $: this.$, widget: this }, config.menu ) );
 	this.$handle = this.$( '<span>' );
 
 	// Events
@@ -60,7 +60,7 @@ OO.mixinClass( OO.ui.DropdownWidget, OO.ui.TitledElement );
 /**
  * Get the menu.
  *
- * @return {OO.ui.MenuWidget} Menu of widget
+ * @return {OO.ui.MenuSelectWidget} Menu of widget
  */
 OO.ui.DropdownWidget.prototype.getMenu = function () {
 	return this.menu;
@@ -69,7 +69,7 @@ OO.ui.DropdownWidget.prototype.getMenu = function () {
 /**
  * Handles menu select events.
  *
- * @param {OO.ui.MenuItemWidget} item Selected menu item
+ * @param {OO.ui.MenuOptionWidget} item Selected menu item
  */
 OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
 	var selectedLabel;

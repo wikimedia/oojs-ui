@@ -1,5 +1,5 @@
 /**
- * Set of controls for an OO.ui.OutlineWidget.
+ * Set of controls for an OO.ui.OutlineSelectWidget.
  *
  * Controls include moving items up and down, removing items, and adding different kinds of items.
  *
@@ -9,7 +9,7 @@
  * @mixins OO.ui.IconElement
  *
  * @constructor
- * @param {OO.ui.OutlineWidget} outline Outline to control
+ * @param {OO.ui.OutlineSelectWidget} outline Outline to control
  * @param {Object} [config] Configuration options
  */
 OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, config ) {
