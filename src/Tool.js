@@ -38,7 +38,14 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 
 	// Initialization
 	this.$titleText.addClass( 'oo-ui-tool-title-text' );
-	this.$accel.addClass( 'oo-ui-tool-accel' );
+	this.$accel
+		.addClass( 'oo-ui-tool-accel' )
+		.prop( {
+			// This may need to be changed if the key names are ever localized,
+			// but for now they are essentially written in English
+			dir: 'ltr',
+			lang: 'en'
+		} );
 	this.$title
 		.addClass( 'oo-ui-tool-title' )
 		.append( this.$titleText, this.$accel );
