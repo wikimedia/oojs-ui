@@ -20,7 +20,7 @@
 	 * @private
 	 * @param {HTMLElement} element Element to summarize
 	 * @param {boolean} [includeHtml=false] Include an HTML summary for element nodes
-	 * @returns {Object} Summary of element.
+	 * @return {Object} Summary of element.
 	 */
 	function getDomElementSummary( element, includeHtml ) {
 		var i,
