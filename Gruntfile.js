@@ -98,6 +98,12 @@ module.exports = function ( grunt ) {
 				return files;
 			}() )
 		},
+		typos: {
+			options: {
+				typos: 'build/typos.json'
+			},
+			src: '{src,php}/**/*.{js,json,less,css}'
+		},
 		concat: {
 			options: {
 				banner: grunt.file.read( 'build/banner.txt' )
@@ -330,13 +336,13 @@ module.exports = function ( grunt ) {
 		'concat:css', 'cssjanus', 'csscomb', 'cssmin'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
-	grunt.registerTask( 'build', [ 'clean:build', 'fileExists', 'build-code', 'build-styling', 'build-i18n', 'clean:tmp' ] );
+	grunt.registerTask( 'build', [ 'clean:build', 'fileExists', 'typos', 'build-code', 'build-styling', 'build-i18n', 'clean:tmp' ] );
 
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 
 	// Quickly build a no-frills vector-only ltr-only version for development
 	grunt.registerTask( 'quick-build', [
-		'pre-git-build', 'clean:build', 'fileExists',
+		'pre-git-build', 'clean:build', 'fileExists', 'typos',
 		'concat:js',
 		'copy:lessTemp', 'colorizeSvg', 'less:distSvg', 'copy:svg',
 		'copy:imagesApex', 'copy:imagesMediaWiki',
