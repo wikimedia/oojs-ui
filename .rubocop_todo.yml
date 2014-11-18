@@ -32,16 +32,6 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 48
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/AndOr:
-  Enabled: false
-
-# Offense count: 1
-Style/AsciiComments:
-  Enabled: false
-
 # Offense count: 8
 # Cop supports --auto-correct.
 Style/Blocks:
@@ -50,17 +40,6 @@ Style/Blocks:
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/CommentIndentation:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AllowAdjacentOneLineDefs.
-Style/EmptyLineBetweenDefs:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/EmptyLines:
   Enabled: false
 
 # Offense count: 3
@@ -97,19 +76,9 @@ Style/MethodDefParentheses:
 Style/MultilineOperationIndentation:
   Enabled: false
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/NegatedIf:
-  Enabled: false
-
 # Offense count: 2
 # Configuration parameters: EnforcedStyle, MinBodyLength, SupportedStyles.
 Style/Next:
-  Enabled: false
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/NilComparison:
   Enabled: false
 
 # Offense count: 6
@@ -121,23 +90,6 @@ Style/PercentLiteralDelimiters:
 # Offense count: 1
 Style/RegexpLiteral:
   MaxSlashes: 3
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/SignalException:
-  Enabled: false
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/SpaceAfterComma:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: SupportedStyles.
-Style/SpaceAroundEqualsInParameterDefault:
-  EnforcedStyle: no_space
 
 # Offense count: 8
 # Cop supports --auto-correct.
@@ -186,12 +138,6 @@ Style/StringLiterals:
 # Offense count: 393
 # Cop supports --auto-correct.
 Style/Tab:
-  Enabled: false
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/TrailingBlankLines:
   Enabled: false
 
 # Offense count: 5

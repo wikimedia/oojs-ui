@@ -98,4 +98,3 @@ else
 
 	puts JSON.pretty_generate tests
 end
-

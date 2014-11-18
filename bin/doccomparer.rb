@@ -1,7 +1,7 @@
 require 'pp'
 require_relative 'docparser'
 
-# convert [ {name: 'foo'}, … ] to { foo: {name: 'foo'}, … }
+# convert [ {name: 'foo'}, ... ] to { foo: {name: 'foo'}, ... }
 def reindex arg
 	if arg.is_a?(Array) && arg.all?{|v| v.is_a? Hash }
 		Hash[ arg.map{|v| [ v[:name], reindex(v) ] } ]
@@ -93,11 +93,12 @@ end
 def smart_compare_methods a, b, a_name, b_name
 	smart_compare a, b, a_name, b_name, :method
 end
+
 def smart_compare_properties a, b, a_name, b_name
 	smart_compare a, b, a_name, b_name, :property
 end
 
-def compare_hash a, b, a_name, b_name, nested=:compare_hash
+def compare_hash a, b, a_name, b_name, nested = :compare_hash
 	keys = (a ? a.keys: []) + (b ? b.keys : [])
 	out = keys.to_a.sort.uniq.map do |key|
 		a_val = a ? canonicalize(a[key]) : nil
@@ -107,7 +108,7 @@ def compare_hash a, b, a_name, b_name, nested=:compare_hash
 			a_val, b_val = {}, {}
 		end
 
-		if a_val.is_a? Hash and b_val.is_a? Hash
+		if a_val.is_a?(Hash) && b_val.is_a?(Hash)
 			comparison_result = indent method(nested).call(a_val, b_val, a_name, b_name), 2
 			if comparison_result.strip == ''
 				"#{key}: match" if $VERBOSE
@@ -117,9 +118,9 @@ def compare_hash a, b, a_name, b_name, nested=:compare_hash
 		else
 			if a_val == b_val
 				"#{key}: match" if $VERBOSE
-			elsif a_val == nil
+			elsif a_val.nil?
 				"#{key}: #{a_name} missing"
-			elsif b_val == nil
+			elsif b_val.nil?
 				"#{key}: #{b_name} missing"
 			else
 				"#{key}: MISMATCH\n  #{a_name}: #{a_val.inspect}\n  #{b_name}: #{b_val.inspect}"
@@ -128,7 +129,6 @@ def compare_hash a, b, a_name, b_name, nested=:compare_hash
 	end
 	out.compact.join "\n"
 end
-
 
 if ARGV.empty? || ARGV == ['-h'] || ARGV == ['--help']
 	$stderr.puts "usage: ruby [-v] #{$0} <dirA> <dirB> <nameA> <nameB>"
@@ -159,4 +159,3 @@ else
 		end
 	end
 end
-
