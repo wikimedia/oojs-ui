@@ -87,12 +87,16 @@ module.exports = function ( grunt ) {
 			tmp: 'dist/tmp'
 		},
 		fileExists: {
-			src: modules['oojs-ui'].scripts.concat(
-				originalLessFiles['dist/oojs-ui-apex.css'],
-				originalLessFiles['dist/oojs-ui-apex.svg.css'],
-				originalLessFiles['dist/oojs-ui-mediawiki.css'],
-				originalLessFiles['dist/oojs-ui-mediawiki.svg.css']
-			)
+			src: ( function () {
+				var distFile,
+					files = modules['oojs-ui'].scripts.slice();
+
+				for ( distFile in originalLessFiles ) {
+					files.push.apply( files, originalLessFiles[distFile] );
+				}
+
+				return files;
+			}() )
 		},
 		concat: {
 			options: {
