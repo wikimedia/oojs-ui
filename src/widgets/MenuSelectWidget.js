@@ -4,7 +4,7 @@
  * Menus are clipped to the visible viewport. They do not provide a control for opening or closing
  * the menu.
  *
- * Use together with OO.ui.MenuItemWidget.
+ * Use together with OO.ui.MenuOptionWidget.
  *
  * @class
  * @extends OO.ui.SelectWidget
@@ -16,12 +16,12 @@
  * @cfg {OO.ui.Widget} [widget] Widget to bind mouse handlers to
  * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu
  */
-OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
+OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.MenuWidget.super.call( this, config );
+	OO.ui.MenuSelectWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
@@ -42,13 +42,13 @@ OO.ui.MenuWidget = function OoUiMenuWidget( config ) {
 	this.$element
 		.hide()
 		.attr( 'role', 'menu' )
-		.addClass( 'oo-ui-menuWidget' );
+		.addClass( 'oo-ui-menuSelectWidget' );
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.MenuWidget, OO.ui.SelectWidget );
-OO.mixinClass( OO.ui.MenuWidget, OO.ui.ClippableElement );
+OO.inheritClass( OO.ui.MenuSelectWidget, OO.ui.SelectWidget );
+OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.ClippableElement );
 
 /* Methods */
 
@@ -57,7 +57,7 @@ OO.mixinClass( OO.ui.MenuWidget, OO.ui.ClippableElement );
  *
  * @param {jQuery.Event} e Key down event
  */
-OO.ui.MenuWidget.prototype.onDocumentMouseDown = function ( e ) {
+OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
 	if (
 		!OO.ui.contains( this.$element[0], e.target, true ) &&
 		( !this.$widget || !OO.ui.contains( this.$widget[0], e.target, true ) )
@@ -71,7 +71,7 @@ OO.ui.MenuWidget.prototype.onDocumentMouseDown = function ( e ) {
  *
  * @param {jQuery.Event} e Key down event
  */
-OO.ui.MenuWidget.prototype.onKeyDown = function ( e ) {
+OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
 	var nextItem,
 		handled = false,
 		highlightItem = this.getHighlightedItem();
@@ -118,7 +118,7 @@ OO.ui.MenuWidget.prototype.onKeyDown = function ( e ) {
 /**
  * Bind key down listener.
  */
-OO.ui.MenuWidget.prototype.bindKeyDownListener = function () {
+OO.ui.MenuSelectWidget.prototype.bindKeyDownListener = function () {
 	if ( this.$input ) {
 		this.$input.on( 'keydown', this.onKeyDownHandler );
 	} else {
@@ -130,7 +130,7 @@ OO.ui.MenuWidget.prototype.bindKeyDownListener = function () {
 /**
  * Unbind key down listener.
  */
-OO.ui.MenuWidget.prototype.unbindKeyDownListener = function () {
+OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
 	if ( this.$input ) {
 		this.$input.off( 'keydown' );
 	} else {
@@ -146,11 +146,11 @@ OO.ui.MenuWidget.prototype.unbindKeyDownListener = function () {
  * @param {OO.ui.OptionWidget} item Item to choose
  * @chainable
  */
-OO.ui.MenuWidget.prototype.chooseItem = function ( item ) {
+OO.ui.MenuSelectWidget.prototype.chooseItem = function ( item ) {
 	var widget = this;
 
 	// Parent method
-	OO.ui.MenuWidget.super.prototype.chooseItem.call( this, item );
+	OO.ui.MenuSelectWidget.super.prototype.chooseItem.call( this, item );
 
 	if ( item && !this.flashing ) {
 		this.flashing = true;
@@ -168,11 +168,11 @@ OO.ui.MenuWidget.prototype.chooseItem = function ( item ) {
 /**
  * @inheritdoc
  */
-OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
+OO.ui.MenuSelectWidget.prototype.addItems = function ( items, index ) {
 	var i, len, item;
 
 	// Parent method
-	OO.ui.MenuWidget.super.prototype.addItems.call( this, items, index );
+	OO.ui.MenuSelectWidget.super.prototype.addItems.call( this, items, index );
 
 	// Auto-initialize
 	if ( !this.newItems ) {
@@ -198,9 +198,9 @@ OO.ui.MenuWidget.prototype.addItems = function ( items, index ) {
 /**
  * @inheritdoc
  */
-OO.ui.MenuWidget.prototype.removeItems = function ( items ) {
+OO.ui.MenuSelectWidget.prototype.removeItems = function ( items ) {
 	// Parent method
-	OO.ui.MenuWidget.super.prototype.removeItems.call( this, items );
+	OO.ui.MenuSelectWidget.super.prototype.removeItems.call( this, items );
 
 	// Reevaluate clipping
 	this.clip();
@@ -211,9 +211,9 @@ OO.ui.MenuWidget.prototype.removeItems = function ( items ) {
 /**
  * @inheritdoc
  */
-OO.ui.MenuWidget.prototype.clearItems = function () {
+OO.ui.MenuSelectWidget.prototype.clearItems = function () {
 	// Parent method
-	OO.ui.MenuWidget.super.prototype.clearItems.call( this );
+	OO.ui.MenuSelectWidget.super.prototype.clearItems.call( this );
 
 	// Reevaluate clipping
 	this.clip();
@@ -224,7 +224,7 @@ OO.ui.MenuWidget.prototype.clearItems = function () {
 /**
  * @inheritdoc
  */
-OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
+OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
 
 	var i, len,
@@ -233,7 +233,7 @@ OO.ui.MenuWidget.prototype.toggle = function ( visible ) {
 		widgetDoc = this.$widget ? this.$widget[0].ownerDocument : null;
 
 	// Parent method
-	OO.ui.MenuWidget.super.prototype.toggle.call( this, visible );
+	OO.ui.MenuSelectWidget.super.prototype.toggle.call( this, visible );
 
 	if ( change ) {
 		if ( visible ) {

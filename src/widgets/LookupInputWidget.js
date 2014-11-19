@@ -23,7 +23,7 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	// Properties
 	this.lookupInput = input;
 	this.$overlay = config.$overlay || this.$element;
-	this.lookupMenu = new OO.ui.TextInputMenuWidget( this, {
+	this.lookupMenu = new OO.ui.TextInputMenuSelectWidget( this, {
 		$: OO.ui.Element.getJQuery( this.$overlay ),
 		input: this.lookupInput,
 		$container: config.$container
@@ -105,7 +105,7 @@ OO.ui.LookupInputWidget.prototype.onLookupMenuToggle = function ( visible ) {
 	if ( !visible ) {
 		// When the menu is hidden, abort any active request and clear the menu.
 		// This has to be done here in addition to closeLookupMenu(), because
-		// MenuWidget will close itself when the user presses Esc.
+		// MenuSelectWidget will close itself when the user presses Esc.
 		this.abortLookupRequest();
 		this.lookupMenu.clearItems();
 	}
@@ -114,7 +114,7 @@ OO.ui.LookupInputWidget.prototype.onLookupMenuToggle = function ( visible ) {
 /**
  * Get lookup menu.
  *
- * @return {OO.ui.TextInputMenuWidget}
+ * @return {OO.ui.TextInputMenuSelectWidget}
  */
 OO.ui.LookupInputWidget.prototype.getLookupMenu = function () {
 	return this.lookupMenu;
@@ -291,7 +291,7 @@ OO.ui.LookupInputWidget.prototype.getLookupRequest = function () {
  *
  * @abstract
  * @param {Mixed} data Cached result data, usually an array
- * @return {OO.ui.MenuItemWidget[]} Menu items
+ * @return {OO.ui.MenuOptionWidget[]} Menu items
  */
 OO.ui.LookupInputWidget.prototype.getLookupMenuItemsFromData = function () {
 	// Stub, implemented in subclass
