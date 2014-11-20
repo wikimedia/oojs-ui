@@ -414,7 +414,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				} ),
 				{
 					label: 'FieldLayout with help',
-					help: 'I am an additional, helpful information.\u200E',
+					help: 'I am an additional, helpful information. Lorem ipsum dolor sit amet, cibo definiebas pri ' +
+						'in, duo ex inimicus perpetua complectitur, mel periculis similique at.\u200E',
 					align: 'top'
 				}
 			),
