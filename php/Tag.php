@@ -231,6 +231,38 @@ class Tag {
 
 		$attributes = '';
 		foreach ( $attributesArray as $key => $value ) {
+			if ( !preg_match( '/^[0-9a-zA-Z-]+$/', $key ) ) {
+				throw new Exception( 'Attribute name must consist of only ASCII letters, numbers and dash' );
+			}
+
+			if ( $key === 'href' || $key === 'action' ) {
+				// Make it impossible to point a link or a form to a 'javascript:' URL. There's no good way
+				// to blacklist them because of very lax parsing, so instead we whitelist known-good
+				// protocols (and also accept protocol-less and protocol-relative links). There are no good
+				// reasons to ever use 'javascript:' URLs anyway.
+				$protocolWhitelist = array(
+					// Sourced from MediaWiki's $wgUrlProtocols
+					'bitcoin', 'ftp', 'ftps', 'geo', 'git', 'gopher', 'http', 'https', 'irc', 'ircs',
+					'magnet', 'mailto', 'mms', 'news', 'nntp', 'redis', 'sftp', 'sip', 'sips', 'sms', 'ssh',
+					'svn', 'tel', 'telnet', 'urn', 'worldwind', 'xmpp',
+				);
+
+				// Protocol-relative URLs are handled really badly by parse_url()
+				if ( substr( $value, 0, 2 ) === '//' ) {
+					$url = "http:$value";
+				} else {
+					$url = $value;
+				}
+				// Must suppress warnings when the value is not a valid URL. parse_url() returns false then.
+				// @codingStandardsIgnoreStart
+				$scheme = @parse_url( $url, PHP_URL_SCHEME );
+				// @codingStandardsIgnoreEnd
+
+				if ( !( $scheme === null || in_array( strtolower( $scheme ), $protocolWhitelist ) ) ) {
+					throw new Exception( "Potentially unsafe '$key' attribute value" );
+				}
+			}
+
 			$attributes .= ' ' . $key . '="' . htmlspecialchars( $value ) . '"';
 		}
 
