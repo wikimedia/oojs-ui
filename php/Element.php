@@ -159,9 +159,9 @@ class Element extends Tag {
 	 *
 	 * @return string HTML serialization
 	 */
-	public function __toString() {
+	public function toString() {
 		Theme::singleton()->updateElementClasses( $this );
-		return parent::__toString();
+		return parent::toString();
 	}
 
 	/**

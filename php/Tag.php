@@ -222,7 +222,7 @@ class Tag {
 	 *
 	 * @return string HTML serialization
 	 */
-	public function __toString() {
+	public function toString() {
 		// Attributes
 		$attributesArray = $this->attributes;
 		if ( $this->classes ) {
@@ -244,7 +244,31 @@ class Tag {
 			}
 		}
 
+		if ( !preg_match( '/^[0-9a-zA-Z]+$/', $this->tag ) ) {
+			throw new Exception( 'Tag name must consist of only ASCII letters and numbers' );
+		}
+
 		// Tag
 		return '<' . $this->tag . $attributes . '>' . $content . '</' . $this->tag . '>';
+	}
+
+	/**
+	 * Magic method implementation.
+	 *
+	 * PHP doesn't allow __toString to throw exceptions and will trigger a fatal error if it does.
+	 * This is a wrapper around the real toString() to convert them to errors instead.
+	 *
+	 * @return string
+	 */
+	public function __toString() {
+		try {
+			return $this->toString();
+		} catch ( Exception $ex ) {
+			try {
+				trigger_error( (string)$ex, E_USER_ERROR );
+			} catch ( Exception $ex ) {
+			}
+			return '';
+		}
 	}
 }
