@@ -43,7 +43,9 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	if ( config.actions ) {
 		this.$bar.append( this.$actions.addClass( 'oo-ui-toolbar-actions' ) );
 	}
-	this.$bar.append( this.$group, '<div style="clear:both"></div>' );
+	this.$bar
+		.addClass( 'oo-ui-toolbar-bar' )
+		.append( this.$group, '<div style="clear:both"></div>' );
 	if ( config.shadow ) {
 		this.$bar.append( '<div class="oo-ui-toolbar-shadow"></div>' );
 	}
