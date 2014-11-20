@@ -129,5 +129,4 @@ OO.ui.LabelElement.prototype.setLabelContent = function ( label ) {
 	} else {
 		this.$label.empty();
 	}
-	this.$label.css( 'display', !label ? 'none' : '' );
 };
