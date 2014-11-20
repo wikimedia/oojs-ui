@@ -264,10 +264,7 @@ class Tag {
 		try {
 			return $this->toString();
 		} catch ( Exception $ex ) {
-			try {
-				trigger_error( (string)$ex, E_USER_ERROR );
-			} catch ( Exception $ex ) {
-			}
+			trigger_error( (string)$ex, E_USER_ERROR );
 			return '';
 		}
 	}
