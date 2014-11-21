@@ -110,12 +110,12 @@ OO.ui.InputWidget.prototype.setRTL = function ( isRTL ) {
  * @chainable
  */
 OO.ui.InputWidget.prototype.setValue = function ( value ) {
-	value = this.sanitizeValue( value );
+	value = this.cleanUpValue( value );
 	if ( this.value !== value ) {
 		this.value = value;
 		this.emit( 'change', this.value );
 	}
-	// Update the DOM if it has changed. Note that with sanitizeValue, it
+	// Update the DOM if it has changed. Note that with cleanUpValue, it
 	// is possible for the DOM value to change without this.value changing.
 	if ( this.$input.val() !== this.value ) {
 		this.$input.val( this.value );
@@ -124,15 +124,15 @@ OO.ui.InputWidget.prototype.setValue = function ( value ) {
 };
 
 /**
- * Sanitize incoming value.
+ * Clean up incoming value.
  *
  * Ensures value is a string, and converts undefined and null to empty string.
  *
  * @private
  * @param {string} value Original value
- * @return {string} Sanitized value
+ * @return {string} Cleaned up value
  */
-OO.ui.InputWidget.prototype.sanitizeValue = function ( value ) {
+OO.ui.InputWidget.prototype.cleanUpValue = function ( value ) {
 	if ( value === undefined || value === null ) {
 		return '';
 	} else if ( this.inputFilter ) {

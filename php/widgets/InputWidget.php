@@ -87,20 +87,20 @@ class InputWidget extends Widget {
 	 * @chainable
 	 */
 	public function setValue( $value ) {
-		$this->value = $this->sanitizeValue( $value );
+		$this->value = $this->cleanUpValue( $value );
 		$this->input->setValue( $this->value );
 		return $this;
 	}
 
 	/**
-	 * Sanitize incoming value.
+	 * Clean up incoming value.
 	 *
 	 * Ensures value is a string, and converts null to empty string.
 	 *
 	 * @param string $value Original value
-	 * @return string Sanitized value
+	 * @return string Cleaned up value
 	 */
-	protected function sanitizeValue( $value ) {
+	protected function cleanUpValue( $value ) {
 		if ( $value === null ) {
 			return '';
 		} else {
