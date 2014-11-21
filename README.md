@@ -32,7 +32,8 @@ Release
 ----------
 
 Release process:
-<pre lang="bash">
+
+~~~bash
 $ cd path/to/oojs-ui/
 $ git remote update
 $ git checkout -b release -t origin/master
@@ -55,4 +56,4 @@ $ git checkout origin/master
 $ git tag "vX.X.X"
 $ git push --tags
 $ npm publish
-</pre>
+~~~

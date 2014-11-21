@@ -11,9 +11,11 @@ QT_AUTOBRIEF           = YES
 
 WARN_NO_PARAMDOC       = YES
 
-INPUT                  = php/
+INPUT                  = README.md php/
 FILE_PATTERNS          = *.php
 RECURSIVE              = YES
+# Requires doxygen 1.8.3+
+USE_MDFILE_AS_MAINPAGE = README.md
 
 HTML_DYNAMIC_SECTIONS  = YES
 GENERATE_TREEVIEW      = YES
