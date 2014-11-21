@@ -10,6 +10,7 @@
  * @cfg {string[]} [classes] CSS class names to add
  * @cfg {string} [text] Text to insert
  * @cfg {jQuery} [$content] Content elements to append (after text)
+ * @cfg {Mixed} [data] Element data
  */
 OO.ui.Element = function OoUiElement( config ) {
 	// Configuration initialization
@@ -17,6 +18,7 @@ OO.ui.Element = function OoUiElement( config ) {
 
 	// Properties
 	this.$ = config.$ || OO.ui.Element.getJQuery( document );
+	this.data = config.data;
 	this.$element = this.$( this.$.context.createElement( this.getTagName() ) );
 	this.elementGroup = null;
 	this.debouncedUpdateThemeClassesHandler = this.debouncedUpdateThemeClasses.bind( this );
@@ -421,6 +423,26 @@ OO.ui.Element.offDOMEvent = function ( el, event, callback ) {
 };
 
 /* Methods */
+
+/**
+ * Get element data.
+ *
+ * @return {Mixed} Element data
+ */
+OO.ui.Element.prototype.getData = function () {
+	return this.data;
+};
+
+/**
+ * Set element data.
+ *
+ * @param {Mixed} Element data
+ * @chainable
+ */
+OO.ui.Element.prototype.setData = function ( data ) {
+	this.data = data;
+	return this;
+};
 
 /**
  * Check if element supports one or more methods.

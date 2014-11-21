@@ -9,12 +9,11 @@
  * @mixins OO.ui.IndicatorElement
  *
  * @constructor
- * @param {Mixed} data Option data
  * @param {Object} [config] Configuration options
  */
-OO.ui.DecoratedOptionWidget = function OoUiDecoratedOptionWidget( data, config ) {
+OO.ui.DecoratedOptionWidget = function OoUiDecoratedOptionWidget( config ) {
 	// Parent constructor
-	OO.ui.DecoratedOptionWidget.super.call( this, data, config );
+	OO.ui.DecoratedOptionWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.IconElement.call( this, config );

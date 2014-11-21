@@ -8,12 +8,11 @@
  * @mixins OO.ui.ButtonElement
  *
  * @constructor
- * @param {Mixed} data Option data
  * @param {Object} [config] Configuration options
  */
-OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( data, config ) {
+OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( config ) {
 	// Parent constructor
-	OO.ui.ButtonOptionWidget.super.call( this, data, config );
+	OO.ui.ButtonOptionWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.ButtonElement.call( this, config );

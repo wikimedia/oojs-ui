@@ -8,15 +8,14 @@
  * @mixins OO.ui.ButtonElement
  *
  * @constructor
- * @param {Mixed} data Option data
  * @param {Object} [config] Configuration options
  */
-OO.ui.RadioOptionWidget = function OoUiRadioOptionWidget( data, config ) {
+OO.ui.RadioOptionWidget = function OoUiRadioOptionWidget( config ) {
 	// Parent constructor
-	OO.ui.RadioOptionWidget.super.call( this, data, config );
+	OO.ui.RadioOptionWidget.super.call( this, config );
 
 	// Properties
-	this.radio = new OO.ui.RadioInputWidget( { value: data } );
+	this.radio = new OO.ui.RadioInputWidget( { value: config.data } );
 
 	// Initialization
 	this.$element

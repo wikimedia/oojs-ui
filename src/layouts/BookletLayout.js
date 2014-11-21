@@ -302,7 +302,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 		name = page.getName();
 		this.pages[page.getName()] = page;
 		if ( this.outlined ) {
-			item = new OO.ui.OutlineOptionWidget( name, page, { $: this.$ } );
+			item = new OO.ui.OutlineOptionWidget( { $: this.$, data: name } );
 			page.setOutlineItem( item );
 			items.push( item );
 		}

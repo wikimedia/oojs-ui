@@ -297,18 +297,23 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonSelectWidget( {
 					items: [
-						new OO.ui.ButtonOptionWidget( 'a', {
-							icon: 'picture', indicator: 'down'
+						new OO.ui.ButtonOptionWidget( {
+							data: 'a',
+							icon: 'picture',
+							indicator: 'down'
 						} ),
-						new OO.ui.ButtonOptionWidget( 'b', {
+						new OO.ui.ButtonOptionWidget( {
+							data: 'b',
 							label: 'One',
 							flags: [ 'primary' ]
 						} ),
-						new OO.ui.ButtonOptionWidget( 'c', {
+						new OO.ui.ButtonOptionWidget( {
+							data: 'c',
 							label: 'Two',
 							flags: [ 'constructive' ]
 						} ),
-						new OO.ui.ButtonOptionWidget( 'd', {
+						new OO.ui.ButtonOptionWidget( {
+							data: 'd',
 							label: 'Three',
 							flags: [ 'destructive' ]
 						} )
@@ -323,16 +328,20 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.ButtonSelectWidget( {
 					disabled: true,
 					items: [
-						new OO.ui.ButtonOptionWidget( 'a', {
+						new OO.ui.ButtonOptionWidget( {
+							data: 'a',
 							icon: 'picture', indicator: 'down'
 						} ),
-						new OO.ui.ButtonOptionWidget( 1, {
+						new OO.ui.ButtonOptionWidget( {
+							data: 1,
 							label: 'One'
 						} ),
-						new OO.ui.ButtonOptionWidget( 2, {
+						new OO.ui.ButtonOptionWidget( {
+							data: 2,
 							label: 'Two'
 						} ),
-						new OO.ui.ButtonOptionWidget( 3, {
+						new OO.ui.ButtonOptionWidget( {
+							data: 3,
 							label: 'Three'
 						} )
 					]
@@ -345,17 +354,21 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonSelectWidget( {
 					items: [
-						new OO.ui.ButtonOptionWidget( 'a', {
+						new OO.ui.ButtonOptionWidget( {
+							data: 'a',
 							icon: 'picture', indicator: 'down'
 						} ),
-						new OO.ui.ButtonOptionWidget( 1, {
+						new OO.ui.ButtonOptionWidget( {
+							data: 1,
 							label: 'One',
 							disabled: true
 						} ),
-						new OO.ui.ButtonOptionWidget( 2, {
+						new OO.ui.ButtonOptionWidget( {
+							data: 2,
 							label: 'Two'
 						} ),
-						new OO.ui.ButtonOptionWidget( 3, {
+						new OO.ui.ButtonOptionWidget( {
+							data: 3,
 							label: 'Three',
 							disabled: true
 						} )
@@ -500,19 +513,24 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					align: 'top',
 					menu: {
 						items: [
-							new OO.ui.MenuOptionWidget( 'a', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'a',
 								label: 'First'
 							} ),
-							new OO.ui.MenuOptionWidget( 'b', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'b',
 								label: 'Second'
 							} ),
-							new OO.ui.MenuOptionWidget( 'c', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'c',
 								label: 'Third'
 							} ),
-							new OO.ui.MenuOptionWidget( 'c', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'c',
 								label: 'The fourth option has a long label'
 							} ),
-							new OO.ui.MenuOptionWidget( 'd', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'd',
 								label: 'Fifth'
 							} )
 						]
@@ -528,21 +546,26 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					label: 'Select one',
 					menu: {
 						items: [
-							new OO.ui.MenuOptionWidget( 'a', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'a',
 								label: 'First'
 							} ),
-							new OO.ui.MenuOptionWidget( 'b', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'b',
 								label: 'Disabled second option',
 								disabled: true
 							} ),
-							new OO.ui.MenuOptionWidget( 'c', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'c',
 								label: 'Third'
 							} ),
-							new OO.ui.MenuOptionWidget( 'd', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'd',
 								label: 'Disabled fourth option with long label',
 								disabled: true
 							} ),
-							new OO.ui.MenuOptionWidget( 'c', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'c',
 								label: 'Third'
 							} )
 						]
@@ -559,16 +582,20 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					disabled: true,
 					menu: {
 						items: [
-							new OO.ui.MenuOptionWidget( 'a', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'a',
 								label: 'First'
 							} ),
-							new OO.ui.MenuOptionWidget( 'b', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'b',
 								label: 'Second'
 							} ),
-							new OO.ui.MenuOptionWidget( 'c', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'c',
 								label: 'Third'
 							} ),
-							new OO.ui.MenuOptionWidget( 'd', {
+							new OO.ui.MenuOptionWidget( {
+								data: 'd',
 								label: 'Fourth'
 							} )
 						]
@@ -583,11 +610,11 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.ComboBoxWidget( {
 					menu: {
 						items: [
-							new OO.ui.MenuOptionWidget( 'asd', { label: 'Label for asd' } ),
-							new OO.ui.MenuOptionWidget( 'fgh', { label: 'Label for fgh' } ),
-							new OO.ui.MenuOptionWidget( 'jkl', { label: 'Label for jkl' } ),
-							new OO.ui.MenuOptionWidget( 'zxc', { label: 'Label for zxc' } ),
-							new OO.ui.MenuOptionWidget( 'vbn', { label: 'Label for vbn' } )
+							new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
+							new OO.ui.MenuOptionWidget( { data: 'fgh', label: 'Label for fgh' } ),
+							new OO.ui.MenuOptionWidget( { data: 'jkl', label: 'Label for jkl' } ),
+							new OO.ui.MenuOptionWidget( { data: 'zxc', label: 'Label for zxc' } ),
+							new OO.ui.MenuOptionWidget( { data: 'vbn', label: 'Label for vbn' } )
 						]
 					}
 				} ),
@@ -601,11 +628,11 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					disabled: true,
 					menu: {
 						items: [
-							new OO.ui.MenuOptionWidget( 'asd', { label: 'Label for asd' } ),
-							new OO.ui.MenuOptionWidget( 'fgh', { label: 'Label for fgh' } ),
-							new OO.ui.MenuOptionWidget( 'jkl', { label: 'Label for jkl' } ),
-							new OO.ui.MenuOptionWidget( 'zxc', { label: 'Label for zxc' } ),
-							new OO.ui.MenuOptionWidget( 'vbn', { label: 'Label for vbn' } )
+							new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
+							new OO.ui.MenuOptionWidget( { data: 'fgh', label: 'Label for fgh' } ),
+							new OO.ui.MenuOptionWidget( { data: 'jkl', label: 'Label for jkl' } ),
+							new OO.ui.MenuOptionWidget( { data: 'zxc', label: 'Label for zxc' } ),
+							new OO.ui.MenuOptionWidget( { data: 'vbn', label: 'Label for vbn' } )
 						]
 					}
 				} ),

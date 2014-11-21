@@ -5,17 +5,16 @@
  * @extends OO.ui.DecoratedOptionWidget
  *
  * @constructor
- * @param {Mixed} data Item data
  * @param {Object} [config] Configuration options
  * @cfg {number} [level] Indentation level
  * @cfg {boolean} [movable] Allow modification from outline controls
  */
-OO.ui.OutlineOptionWidget = function OoUiOutlineOptionWidget( data, config ) {
+OO.ui.OutlineOptionWidget = function OoUiOutlineOptionWidget( config ) {
 	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.OutlineOptionWidget.super.call( this, data, config );
+	OO.ui.OutlineOptionWidget.super.call( this, config );
 
 	// Properties
 	this.level = 0;

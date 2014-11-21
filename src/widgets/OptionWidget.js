@@ -7,10 +7,9 @@
  * @mixins OO.ui.FlaggedElement
  *
  * @constructor
- * @param {Mixed} data Option data
  * @param {Object} [config] Configuration options
  */
-OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
+OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -23,7 +22,6 @@ OO.ui.OptionWidget = function OoUiOptionWidget( data, config ) {
 	OO.ui.FlaggedElement.call( this, config );
 
 	// Properties
-	this.data = data;
 	this.selected = false;
 	this.highlighted = false;
 	this.pressed = false;
@@ -185,13 +183,4 @@ OO.ui.OptionWidget.prototype.flash = function () {
 	}
 
 	return deferred.promise();
-};
-
-/**
- * Get option data.
- *
- * @return {Mixed} Option data
- */
-OO.ui.OptionWidget.prototype.getData = function () {
-	return this.data;
 };

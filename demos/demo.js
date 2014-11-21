@@ -19,26 +19,26 @@ OO.ui.Demo = function OoUiDemo() {
 		$: this.$,
 		menu: {
 			items: [
-				new OO.ui.MenuOptionWidget( 'dialogs',  { $: this.$, label: 'Dialogs' } ),
-				new OO.ui.MenuOptionWidget( 'icons',  { $: this.$, label: 'Icons' } ),
-				new OO.ui.MenuOptionWidget( 'toolbars',  { $: this.$, label: 'Toolbars' } ),
-				new OO.ui.MenuOptionWidget( 'widgets',  { $: this.$, label: 'Widgets' } )
+				new OO.ui.MenuOptionWidget( { $: this.$, data: 'dialogs', label: 'Dialogs' } ),
+				new OO.ui.MenuOptionWidget( { $: this.$, data: 'icons', label: 'Icons' } ),
+				new OO.ui.MenuOptionWidget( { $: this.$, data: 'toolbars', label: 'Toolbars' } ),
+				new OO.ui.MenuOptionWidget( { $: this.$, data: 'widgets', label: 'Widgets' } )
 			]
 		},
 		classes: [ 'oo-ui-demo-pageDropdown' ]
 	} );
 	this.pageMenu = this.pageDropdown.getMenu();
 	this.themeSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
-		new OO.ui.ButtonOptionWidget( 'apex', { $: this.$, label: 'Apex' } ),
-		new OO.ui.ButtonOptionWidget( 'mediawiki', { $: this.$, label: 'MediaWiki' } )
+		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'apex', label: 'Apex' } ),
+		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'mediawiki', label: 'MediaWiki' } )
 	] );
 	this.graphicsSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
-		new OO.ui.ButtonOptionWidget( 'vector', { $: this.$, label: 'Vector' } ),
-		new OO.ui.ButtonOptionWidget( 'raster', { $: this.$, label: 'Raster' } )
+		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'vector', label: 'Vector' } ),
+		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'raster', label: 'Raster' } )
 	] );
 	this.directionSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
-		new OO.ui.ButtonOptionWidget( 'ltr', { $: this.$, label: 'LTR' } ),
-		new OO.ui.ButtonOptionWidget( 'rtl', { $: this.$, label: 'RTL' } )
+		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'ltr', label: 'LTR' } ),
+		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'rtl', label: 'RTL' } )
 	] );
 
 	// Events

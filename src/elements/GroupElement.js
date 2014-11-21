@@ -58,6 +58,51 @@ OO.ui.GroupElement.prototype.getItems = function () {
 };
 
 /**
+ * Get an item by its data.
+ *
+ * Data is compared by a hash of its value. Only the first item with matching data will be returned.
+ *
+ * @param {Object} data Item data to search for
+ * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
+ */
+OO.ui.GroupElement.prototype.getItemFromData = function ( data ) {
+	var i, len, item,
+		hash = OO.getHash( data );
+
+	for ( i = 0, len = this.items.length; i < len; i++ ) {
+		item = this.items[i];
+		if ( hash === OO.getHash( item.getData() ) ) {
+			return item;
+		}
+	}
+
+	return null;
+};
+
+/**
+ * Get items by their data.
+ *
+ * Data is compared by a hash of its value. All items with matching data will be returned.
+ *
+ * @param {Object} data Item data to search for
+ * @return {OO.ui.Element[]} Items with equivalent data
+ */
+OO.ui.GroupElement.prototype.getItemsFromData = function ( data ) {
+	var i, len, item,
+		hash = OO.getHash( data ),
+		items = [];
+
+	for ( i = 0, len = this.items.length; i < len; i++ ) {
+		item = this.items[i];
+		if ( hash === OO.getHash( item.getData() ) ) {
+			items.push( item );
+		}
+	}
+
+	return items;
+};
+
+/**
  * Add an aggregate item event.
  *
  * Aggregated events are listened to on each item and then emitted by the group under a new name,
