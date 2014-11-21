@@ -159,6 +159,8 @@
 
 .theme-oo-ui-checkboxInputWidget () {}
 
+.theme-oo-ui-radioInputWidget () {}
+
 .theme-oo-ui-textInputWidget () {
 	width: 100%;
 	max-width: 50em;
@@ -345,6 +347,21 @@
 	}
 }
 
+.theme-oo-ui-radioOptionWidget () {
+	padding: 0;
+	background-color: transparent;
+
+	&.oo-ui-optionWidget-selected,
+	&.oo-ui-optionWidget-pressed,
+	&.oo-ui-optionWidget-highlighted {
+		background-color: transparent;
+	}
+
+	> .oo-ui-labelElement-label {
+		padding: 0 0.5em;
+	}
+}
+
 .theme-oo-ui-menuOptionWidget () {
 	&.oo-ui-optionWidget {
 		&-selected {
@@ -526,6 +543,10 @@
 			border-top-right-radius: 0.3em;
 		}
 	}
+}
+
+.theme-oo-ui-radioSelectWidget () {
+	padding: 0.75em 0 0.5em 0;
 }
 
 .theme-oo-ui-menuSelectWidget () {

@@ -14850,6 +14850,94 @@
       }
     }
   ],
+  "RadioInputWidget": [
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "Foo bar"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "value": "Foo bar"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "value": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "value": "Foo bar"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "value": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "Foo bar"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+      }
+    }
+  ],
   "TextInputWidget": [
     {
       "class": "TextInputWidget",
