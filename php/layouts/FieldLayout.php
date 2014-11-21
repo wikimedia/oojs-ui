@@ -17,10 +17,6 @@ namespace OOUI;
  */
 class FieldLayout extends Layout {
 
-	/* Static properties */
-
-	public static $tagName = 'label';
-
 	/**
 	 * Alignment.
 	 *
@@ -39,12 +35,14 @@ class FieldLayout extends Layout {
 		// Config initialization
 		$config = array_merge( array( 'align' => 'left' ), $config );
 
+		// Properties (must be set before parent constructor, which calls #getTagName)
+		$this->fieldWidget = $fieldWidget;
+
 		// Parent constructor
 		parent::__construct( $config );
 
 		// Properties
 		$this->field = new Tag( 'div' );
-		$this->fieldWidget = $fieldWidget;
 		if ( isset( $config['help'] ) ) {
 			$this->help = new ButtonWidget( array(
 				'classes' => array( 'oo-ui-fieldLayout-help' ),
@@ -67,6 +65,14 @@ class FieldLayout extends Layout {
 			->appendContent( $fieldWidget );
 
 		$this->setAlignment( $config['align'] );
+	}
+
+	public function getTagName() {
+		if ( $this->fieldWidget instanceof InputWidget ) {
+			return 'label';
+		} else {
+			return 'div';
+		}
 	}
 
 	/**

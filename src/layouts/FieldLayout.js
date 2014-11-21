@@ -25,6 +25,9 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );
 
+	// Properties (must be set before parent constructor, which calls #getTagName)
+	this.fieldWidget = fieldWidget;
+
 	// Parent constructor
 	OO.ui.FieldLayout.super.call( this, config );
 
@@ -33,7 +36,6 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 
 	// Properties
 	this.$field = this.$( '<div>' );
-	this.fieldWidget = fieldWidget;
 	this.align = null;
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
@@ -73,11 +75,18 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 OO.inheritClass( OO.ui.FieldLayout, OO.ui.Layout );
 OO.mixinClass( OO.ui.FieldLayout, OO.ui.LabelElement );
 
-/* Static Properties */
-
-OO.ui.FieldLayout.static.tagName = 'label';
-
 /* Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.FieldLayout.prototype.getTagName = function () {
+	if ( this.fieldWidget instanceof OO.ui.InputWidget ) {
+		return 'label';
+	} else {
+		return 'div';
+	}
+};
 
 /**
  * Handle field disable events.
