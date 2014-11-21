@@ -1,0 +1,67 @@
+/**
+ * Radio input widget.
+ *
+ * Radio buttons only make sense as a set, and you probably want to use the OO.ui.RadioSelectWidget
+ * class instead of using this class directly.
+ *
+ * This class doesn't make it possible to learn whether the radio button is selected ("pressed").
+ *
+ * @class
+ * @extends OO.ui.InputWidget
+ *
+ * @constructor
+ * @param {Object} [config] Configuration options
+ * @param {boolean} [config.selected=false] Whether the radio button is initially selected
+ */
+OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
+	// Parent constructor
+	OO.ui.RadioInputWidget.super.call( this, config );
+
+	// Initialization
+	this.$element.addClass( 'oo-ui-radioInputWidget' );
+	this.setSelected( config.selected !== undefined ? config.selected : false );
+};
+
+/* Setup */
+
+OO.inheritClass( OO.ui.RadioInputWidget, OO.ui.InputWidget );
+
+/* Methods */
+
+/**
+ * Get input element.
+ *
+ * @private
+ * @return {jQuery} Input element
+ */
+OO.ui.RadioInputWidget.prototype.getInputElement = function () {
+	return this.$( '<input type="radio" />' );
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.RadioInputWidget.prototype.onEdit = function () {
+	// RadioInputWidget doesn't track its state.
+};
+
+/**
+ * Set selection state of this radio button.
+ *
+ * @param {boolean} state Whether the button is selected
+ * @chainable
+ */
+OO.ui.RadioInputWidget.prototype.setSelected = function ( state ) {
+	// RadioInputWidget doesn't track its state.
+	this.$input.prop( 'checked', state );
+	return this;
+};
+
+/**
+ * Check if this radio button is selected.
+ *
+ * @return {boolean} Radio is selected
+ */
+OO.ui.RadioInputWidget.prototype.isSelected = function () {
+	return this.$input.prop( 'checked' );
+};

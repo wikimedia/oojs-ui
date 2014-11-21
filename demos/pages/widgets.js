@@ -460,6 +460,41 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				}
 			),
 			new OO.ui.FieldLayout(
+				new OO.ui.RadioInputWidget( {
+					name: 'oojs-ui-radio-demo'
+				} ),
+				{
+					align: 'inline',
+					label: 'Connected RadioInputWidget #1'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.RadioInputWidget( {
+					name: 'oojs-ui-radio-demo',
+					selected: true
+				} ),
+				{
+					align: 'inline',
+					label: 'Connected RadioInputWidget #2'
+				}
+			),
+			new OO.ui.FieldLayout(
+				new OO.ui.RadioSelectWidget( {
+					items: [
+						new OO.ui.RadioOptionWidget( 'Cat', {
+							label: 'Cat'
+						} ),
+						new OO.ui.RadioOptionWidget( 'Dog', {
+							label: 'Dog'
+						} )
+					]
+				} ),
+				{
+					align: 'top',
+					label: 'RadioSelectWidget'
+				}
+			),
+			new OO.ui.FieldLayout(
 				new OO.ui.DropdownWidget( {
 					label: 'Select one',
 					align: 'top',

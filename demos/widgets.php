@@ -346,6 +346,25 @@
 							)
 						),
 						new OOUI\FieldLayout(
+							new OOUI\RadioInputWidget( array(
+								'name' => 'oojs-ui-radio-demo',
+							) ),
+							array(
+								'align' => 'inline',
+								'label' => 'Connected RadioInputWidget #1'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\RadioInputWidget( array(
+								'name' => 'oojs-ui-radio-demo',
+								'selected' => true
+							) ),
+							array(
+								'align' => 'inline',
+								'label' => 'Connected RadioInputWidget #2'
+							)
+						),
+						new OOUI\FieldLayout(
 							new OOUI\TextInputWidget( array( 'value' => 'Text input' ) ),
 							array(
 								'label' => 'TextInputWidget',
