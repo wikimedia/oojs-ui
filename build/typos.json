@@ -1,0 +1,16 @@
+{
+	"caseSensitive": [
+		[ "@returns", "@return" ]
+	],
+	"caseInsensitive": [
+		[ "paralell", "parallel" ],
+		[ "properites", "properties" ],
+		[ "visiblit(ies|y)", "visibilit$1" ],
+		[ "movablilties", "movabilities" ],
+		[ "inpsect(ors?|ion)", "inspect$1" ],
+		[ "teh", "the" ],
+		[ "intialization", "initialization" ],
+		[ "durring", "during" ],
+		[ "occured", "occurred" ]
+	]
+}
