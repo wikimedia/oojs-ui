@@ -25,8 +25,8 @@
  *
  * Each process (setup, ready, hold and teardown) can be extended in subclasses by overriding
  * {@link #getSetupProcess}, {@link #getReadyProcess}, {@link #getHoldProcess} and
- * {@link #getTeardownProcess} respectively. Each process is executed in series, so asynchonous
- * processing can complete. Always assume window processes are executed asychronously. See
+ * {@link #getTeardownProcess} respectively. Each process is executed in series, so asynchronous
+ * processing can complete. Always assume window processes are executed asynchronously. See
  * OO.ui.Process for more details about how to work with processes. Some events, as well as the
  * #open and #close methods, provide promises which are resolved when the window enters a new state.
  *
@@ -69,7 +69,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 	this.$frame.addClass( 'oo-ui-window-frame' );
 	this.$overlay.addClass( 'oo-ui-window-overlay' );
 
-	// NOTE: Additional intitialization will occur when #setManager is called
+	// NOTE: Additional initialization will occur when #setManager is called
 };
 
 /* Setup */
@@ -415,7 +415,7 @@ OO.ui.Window.prototype.getTeardownProcess = function () {
 /**
  * Toggle visibility of window.
  *
- * If the window is isolated and hasn't fully loaded yet, the visiblity property will be used
+ * If the window is isolated and hasn't fully loaded yet, the visibility property will be used
  * instead of display.
  *
  * @param {boolean} [show] Make window visible, omit to toggle visibility
@@ -588,7 +588,7 @@ OO.ui.Window.prototype.close = function ( data ) {
 /**
  * Setup window.
  *
- * This is called by OO.ui.WindowManager durring window opening, and should not be called directly
+ * This is called by OO.ui.WindowManager during window opening, and should not be called directly
  * by other systems.
  *
  * @param {Object} [data] Window opening data
@@ -613,7 +613,7 @@ OO.ui.Window.prototype.setup = function ( data ) {
 /**
  * Ready window.
  *
- * This is called by OO.ui.WindowManager durring window opening, and should not be called directly
+ * This is called by OO.ui.WindowManager during window opening, and should not be called directly
  * by other systems.
  *
  * @param {Object} [data] Window opening data
@@ -637,7 +637,7 @@ OO.ui.Window.prototype.ready = function ( data ) {
 /**
  * Hold window.
  *
- * This is called by OO.ui.WindowManager durring window closing, and should not be called directly
+ * This is called by OO.ui.WindowManager during window closing, and should not be called directly
  * by other systems.
  *
  * @param {Object} [data] Window closing data
@@ -668,7 +668,7 @@ OO.ui.Window.prototype.hold = function ( data ) {
 /**
  * Teardown window.
  *
- * This is called by OO.ui.WindowManager durring window closing, and should not be called directly
+ * This is called by OO.ui.WindowManager during window closing, and should not be called directly
  * by other systems.
  *
  * @param {Object} [data] Window closing data

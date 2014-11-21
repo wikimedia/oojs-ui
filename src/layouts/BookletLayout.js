@@ -227,7 +227,7 @@ OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
 /**
  * Get the outline widget.
  *
- * @return {OO.ui.OutlineSelectWidget|null} Outline widget, or null if boolet has no outline
+ * @return {OO.ui.OutlineSelectWidget|null} Outline widget, or null if booklet has no outline
  */
 OO.ui.BookletLayout.prototype.getOutline = function () {
 	return this.outlineSelectWidget;

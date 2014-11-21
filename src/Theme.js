@@ -34,7 +34,7 @@ OO.ui.Theme.prototype.getElementClasses = function ( /* element */ ) {
 /**
  * Update CSS classes provided by the theme.
  *
- * For elements with theme logic hooks, this should be called anytime there's a state change.
+ * For elements with theme logic hooks, this should be called any time there's a state change.
  *
  * @param {OO.ui.Element} element Element for which to update classes
  * @return {Object.<string,string[]>} Categorized class names with `on` and `off` lists

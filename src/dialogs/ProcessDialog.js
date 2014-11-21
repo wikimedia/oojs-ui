@@ -171,7 +171,7 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
 };
 
 /**
- * Handle errors that occured durring accept or reject processes.
+ * Handle errors that occurred during accept or reject processes.
  *
  * @param {OO.ui.Error[]} errors Errors to be handled
  */

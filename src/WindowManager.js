@@ -677,7 +677,7 @@ OO.ui.WindowManager.prototype.toggleAriaIsolation = function ( isolate ) {
 				.attr( 'aria-hidden', '' );
 		}
 	} else if ( this.$ariaHidden ) {
-		// Restore screen reader visiblity
+		// Restore screen reader visibility
 		this.$ariaHidden.removeAttr( 'aria-hidden' );
 		this.$ariaHidden = null;
 	}

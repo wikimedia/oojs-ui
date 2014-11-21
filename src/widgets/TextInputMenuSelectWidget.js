@@ -14,7 +14,7 @@
  * @cfg {jQuery} [$container=input.$element] Element to render menu under
  */
 OO.ui.TextInputMenuSelectWidget = function OoUiTextInputMenuSelectWidget( input, config ) {
-	// Configuration intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

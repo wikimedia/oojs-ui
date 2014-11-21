@@ -87,7 +87,7 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
  *
  * @param {HTMLElement|HTMLElement[]} containers Container node(s) to search in
  * @param {HTMLElement} contained Node to find
- * @param {boolean} [matchContainers] Include the container(s) in the list of nodes to match, otherwise only match descendents
+ * @param {boolean} [matchContainers] Include the container(s) in the list of nodes to match, otherwise only match descendants
  * @return {boolean} The node is in the list of target nodes
  */
 OO.ui.contains = function ( containers, contained, matchContainers ) {

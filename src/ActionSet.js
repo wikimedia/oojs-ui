@@ -9,7 +9,7 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.ActionSet = function OoUiActionSet( config ) {
-	// Configuration intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Mixin constructors
@@ -351,7 +351,7 @@ OO.ui.ActionSet.prototype.clear = function () {
 /**
  * Organize actions.
  *
- * This is called whenver organized information is requested. It will only reorganize the actions
+ * This is called whenever organized information is requested. It will only reorganize the actions
  * if something has changed since the last time it ran.
  *
  * @private
@@ -368,7 +368,7 @@ OO.ui.ActionSet.prototype.organize = function () {
 		for ( i = 0, iLen = this.list.length; i < iLen; i++ ) {
 			action = this.list[i];
 			if ( action.isVisible() ) {
-				// Populate catgeories
+				// Populate categories
 				for ( category in this.categories ) {
 					if ( !this.categorized[category] ) {
 						this.categorized[category] = {};

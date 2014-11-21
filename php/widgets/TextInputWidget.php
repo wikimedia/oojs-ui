@@ -65,7 +65,7 @@ class TextInputWidget extends InputWidget {
 	}
 
 	/**
-	 * Set the read-only state of the widget. This should probably change the widgets's appearance and
+	 * Set the read-only state of the widget. This should probably change the widget's appearance and
 	 * prevent it from being used.
 	 *
 	 * @param boolean $state Make input read-only

@@ -18,7 +18,7 @@
  * @cfg {string} [iconTitle] Icon title text or a function that returns text
  */
 OO.ui.IconElement = function OoUiIconElement( config ) {
-	// Configuration intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Properties

@@ -18,7 +18,7 @@
  * @cfg {boolean} [expanded=false] Whether the collapsible tools are expanded by default
  */
 OO.ui.ListToolGroup = function OoUiListToolGroup( toolbar, config ) {
-	// Configuration intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Properties (must be set before parent constructor, which calls #populate)

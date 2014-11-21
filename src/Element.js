@@ -445,7 +445,7 @@ OO.ui.Element.prototype.supports = function ( methods ) {
 /**
  * Update the theme-provided classes.
  *
- * @localdoc This is called in element mixins and widget classes anytime state changes.
+ * @localdoc This is called in element mixins and widget classes any time state changes.
  *   Updating is debounced, minimizing overhead of changing multiple attributes and
  *   guaranteeing that theme updates do not occur within an element's constructor
  */

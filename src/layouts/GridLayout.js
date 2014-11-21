@@ -149,7 +149,7 @@ OO.ui.GridLayout.prototype.update = function () {
  *
  * @param {number} x Horizontal position
  * @param {number} y Vertical position
- * @return {OO.ui.PanelLayout} The panel at the given postion
+ * @return {OO.ui.PanelLayout} The panel at the given position
  */
 OO.ui.GridLayout.prototype.getPanel = function ( x, y ) {
 	return this.panels[ ( x * this.widths.length ) + y ];

@@ -104,7 +104,7 @@ OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
 		return false;
 	}
-	// Restore the tab-index after the button is up to restore the button's accesssibility
+	// Restore the tab-index after the button is up to restore the button's accessibility
 	this.$button.attr( 'tabindex', this.tabIndex );
 	this.$element.removeClass( 'oo-ui-buttonElement-pressed' );
 	// Stop listening for mouseup, since we only needed this once

@@ -38,7 +38,7 @@ OO.ui.MessageDialog.static.verbose = false;
  * Dialog title.
  *
  * A confirmation dialog's title should describe what the progressive action will do. An alert
- * dialog's title should describe what event occured.
+ * dialog's title should describe what event occurred.
  *
  * @static
  * inheritable
@@ -48,7 +48,7 @@ OO.ui.MessageDialog.static.title = null;
 
 /**
  * A confirmation dialog's message should describe the consequences of the progressive action. An
- * alert dialog's message should describe why the event occured.
+ * alert dialog's message should describe why the event occurred.
  *
  * @static
  * inheritable

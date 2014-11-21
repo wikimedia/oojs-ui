@@ -135,7 +135,7 @@ class GridLayout extends Layout {
 	 *
 	 * @param number $x Horizontal position
 	 * @param number $y Vertical position
-	 * @return PanelLayout The panel at the given postion
+	 * @return PanelLayout The panel at the given position
 	 */
 	public function getPanel( $x, $y ) {
 		return $this->panels[ ( $x * count( $this->widths ) ) + $y ];

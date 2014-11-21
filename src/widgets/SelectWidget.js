@@ -250,10 +250,10 @@ OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
 };
 
 /**
- * Get an existing item with equivilant data.
+ * Get an existing item with equivalent data.
  *
  * @param {Object} data Item data to search for
- * @return {OO.ui.OptionWidget|null} Item with equivilent value, `null` if none exists
+ * @return {OO.ui.OptionWidget|null} Item with equivalent value, `null` if none exists
  */
 OO.ui.SelectWidget.prototype.getItemFromData = function ( data ) {
 	var hash = OO.getHash( data );
@@ -412,7 +412,7 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 /**
  * Get the next selectable item.
  *
- * @return {OO.ui.OptionWidget|null} Item, `null` if ther aren't any selectable items
+ * @return {OO.ui.OptionWidget|null} Item, `null` if there aren't any selectable items
  */
 OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
 	var i, len, item;

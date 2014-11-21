@@ -41,7 +41,7 @@ class Theme {
 	/**
 	 * Update CSS classes provided by the theme.
 	 *
-	 * For elements with theme logic hooks, this should be called anytime there's a state change.
+	 * For elements with theme logic hooks, this should be called any time there's a state change.
 	 *
 	 * @param Element $element Element for which to update classes
 	 * @return array Categorized class names with `on` and `off` lists

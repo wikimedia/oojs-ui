@@ -13,7 +13,7 @@
  * @cfg {string} [value] Initial query value
  */
 OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
-	// Configuration intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor

@@ -9,7 +9,7 @@
  * @cfg {jQuery} [$group] Container node, assigned to #$group, omit to use a generated `<div>`
  */
 OO.ui.GroupElement = function OoUiGroupElement( config ) {
-	// Configuration intialization
+	// Configuration initialization
 	config = config || {};
 
 	// Properties

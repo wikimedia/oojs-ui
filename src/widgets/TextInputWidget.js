@@ -180,7 +180,7 @@ OO.ui.TextInputWidget.prototype.isReadOnly = function () {
 /**
  * Set the read-only state of the widget.
  *
- * This should probably change the widgets's appearance and prevent it from being used.
+ * This should probably change the widget's appearance and prevent it from being used.
  *
  * @param {boolean} state Make input read-only
  * @chainable
