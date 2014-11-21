@@ -391,10 +391,13 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 
 	// Window opening
 	if ( opening.state() !== 'rejected' ) {
-		if ( !win.getManager() ) {
+		// Begin loading the window if it's not loading or loaded already - may take noticable time
+		// and we want to do this in parallel with any other preparatory actions
+		if ( !win.isLoading() && !win.isLoaded() ) {
+			// Finish initializing the window (must be done after manager is attached to DOM)
 			win.setManager( this );
+			preparing.push( win.load() );
 		}
-		preparing.push( win.load() );
 
 		if ( this.closing ) {
 			// If a window is currently closing, wait for it to complete
