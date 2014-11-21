@@ -58,6 +58,14 @@ OO.inheritClass( OO.ui.ComboBoxWidget, OO.ui.Widget );
 /* Methods */
 
 /**
+ * Get the combobox's menu.
+ * @return {OO.ui.TextInputMenuSelectWidget} Menu widget
+ */
+OO.ui.ComboBoxWidget.prototype.getMenu = function () {
+	return this.menu;
+};
+
+/**
  * Handle input change events.
  *
  * @param {string} value New value
