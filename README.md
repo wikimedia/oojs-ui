@@ -33,7 +33,7 @@ Release
 
 Release process:
 
-~~~bash
+<pre lang="bash">
 $ cd path/to/oojs-ui/
 $ git remote update
 $ git checkout -b release -t origin/master
@@ -45,9 +45,16 @@ $ npm install && npm test
 # both a commit and a tag, and we shouldn't tag until after
 # the commit is merged.
 
-# Change the version number
+# Update release notes
+# Copy the resulting list into a new section on History.md
+$ git log --format='* %s (%aN)' --no-merges --reverse v$(node -e 'console.log(JSON.parse(require("fs").readFileSync("package.json")).version);')...HEAD
+$ edit History.md
+
+# Update the version number
 $ edit package.json
-$ git add package.json && git commit -m "Tag vX.X.X"
+
+$ git add -p
+$ git commit -m "Tag vX.X.X"
 $ git review
 
 # After merging:
@@ -56,4 +63,4 @@ $ git checkout origin/master
 $ git tag "vX.X.X"
 $ git push --tags
 $ npm publish
-~~~
+</pre>
