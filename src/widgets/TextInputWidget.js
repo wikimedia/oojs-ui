@@ -133,7 +133,7 @@ OO.ui.TextInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
  */
 OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
 	if ( e.which === OO.ui.Keys.ENTER && !this.multiline ) {
-		this.emit( 'enter' );
+		this.emit( 'enter', e );
 	}
 };
 
