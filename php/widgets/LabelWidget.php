@@ -13,6 +13,7 @@ class LabelWidget extends Widget {
 
 	/**
 	 * @param array $config Configuration options
+	 * @param InputWidget $config['input'] Input widget this label is for (default: null)
 	 */
 	public function __construct( array $config = array() ) {
 		// Parent constructor

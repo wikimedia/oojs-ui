@@ -7,6 +7,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {OO.ui.InputWidget} [input] Input widget this label is for
  */
 OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 	// Configuration initialization
