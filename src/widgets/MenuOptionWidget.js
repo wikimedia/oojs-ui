@@ -5,15 +5,14 @@
  * @extends OO.ui.DecoratedOptionWidget
  *
  * @constructor
- * @param {Mixed} data Item data
  * @param {Object} [config] Configuration options
  */
-OO.ui.MenuOptionWidget = function OoUiMenuOptionWidget( data, config ) {
+OO.ui.MenuOptionWidget = function OoUiMenuOptionWidget( config ) {
 	// Configuration initialization
 	config = $.extend( { icon: 'check' }, config );
 
 	// Parent constructor
-	OO.ui.MenuOptionWidget.super.call( this, data, config );
+	OO.ui.MenuOptionWidget.super.call( this, config );
 
 	// Initialization
 	this.$element

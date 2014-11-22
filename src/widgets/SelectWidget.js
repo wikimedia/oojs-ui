@@ -1,8 +1,8 @@
 /**
  * Generic selection of options.
  *
- * Items can contain any rendering, and are uniquely identified by a hash of their data. Any widget
- * that provides options, from which the user must choose one, should be built on this class.
+ * Items can contain any rendering. Any widget that provides options, from which the user must
+ * choose one, should be built on this class.
  *
  * Use together with OO.ui.OptionWidget.
  *
@@ -27,7 +27,6 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	// Properties
 	this.pressed = false;
 	this.selecting = null;
-	this.hashes = {};
 	this.onMouseUpHandler = this.onMouseUp.bind( this );
 	this.onMouseMoveHandler = this.onMouseMove.bind( this );
 
@@ -250,22 +249,6 @@ OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
 };
 
 /**
- * Get an existing item with equivalent data.
- *
- * @param {Object} data Item data to search for
- * @return {OO.ui.OptionWidget|null} Item with equivalent value, `null` if none exists
- */
-OO.ui.SelectWidget.prototype.getItemFromData = function ( data ) {
-	var hash = OO.getHash( data );
-
-	if ( Object.prototype.hasOwnProperty.call( this.hashes, hash ) ) {
-		return this.hashes[hash];
-	}
-
-	return null;
-};
-
-/**
  * Toggle pressed state.
  *
  * @param {boolean} pressed An option is being pressed
@@ -430,31 +413,12 @@ OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
 /**
  * Add items.
  *
- * When items are added with the same values as existing items, the existing items will be
- * automatically removed before the new items are added.
- *
  * @param {OO.ui.OptionWidget[]} items Items to add
  * @param {number} [index] Index to insert items after
  * @fires add
  * @chainable
  */
 OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
-	var i, len, item, hash,
-		remove = [];
-
-	for ( i = 0, len = items.length; i < len; i++ ) {
-		item = items[i];
-		hash = OO.getHash( item.getData() );
-		if ( Object.prototype.hasOwnProperty.call( this.hashes, hash ) ) {
-			// Remove item with same value
-			remove.push( this.hashes[hash] );
-		}
-		this.hashes[hash] = item;
-	}
-	if ( remove.length ) {
-		this.removeItems( remove );
-	}
-
 	// Mixin method
 	OO.ui.GroupWidget.prototype.addItems.call( this, items, index );
 
@@ -474,15 +438,11 @@ OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
  * @chainable
  */
 OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
-	var i, len, item, hash;
+	var i, len, item;
 
+	// Deselect items being removed
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[i];
-		hash = OO.getHash( item.getData() );
-		if ( Object.prototype.hasOwnProperty.call( this.hashes, hash ) ) {
-			// Remove existing item
-			delete this.hashes[hash];
-		}
 		if ( item.isSelected() ) {
 			this.selectItem( null );
 		}
@@ -507,10 +467,10 @@ OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
 OO.ui.SelectWidget.prototype.clearItems = function () {
 	var items = this.items.slice();
 
-	// Clear all items
-	this.hashes = {};
 	// Mixin method
 	OO.ui.GroupWidget.prototype.clearItems.call( this );
+
+	// Clear selection
 	this.selectItem( null );
 
 	this.emit( 'remove', items );

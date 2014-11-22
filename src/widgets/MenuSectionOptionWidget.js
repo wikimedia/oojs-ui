@@ -5,12 +5,11 @@
  * @extends OO.ui.DecoratedOptionWidget
  *
  * @constructor
- * @param {Mixed} data Item data
  * @param {Object} [config] Configuration options
  */
-OO.ui.MenuSectionOptionWidget = function OoUiMenuSectionOptionWidget( data, config ) {
+OO.ui.MenuSectionOptionWidget = function OoUiMenuSectionOptionWidget( config ) {
 	// Parent constructor
-	OO.ui.MenuSectionOptionWidget.super.call( this, data, config );
+	OO.ui.MenuSectionOptionWidget.super.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuSectionOptionWidget' );

@@ -74,7 +74,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		SearchWidgetDialog.super.prototype.initialize.apply( this, arguments );
 		var i, items = [], searchWidget = new OO.ui.SearchWidget( { $: this.$ } );
 		for ( i = 1; i <= 20; i++ ) {
-			items.push( new OO.ui.OptionWidget( i, { $: this.$, label: 'Item ' + i } ) );
+			items.push( new OO.ui.OptionWidget( { $: this.$, data: i, label: 'Item ' + i } ) );
 		}
 		searchWidget.results.addItems( items );
 		searchWidget.onQueryChange = function () {};
