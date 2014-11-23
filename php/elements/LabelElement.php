@@ -52,7 +52,6 @@ class LabelElement extends ElementMixin {
 			}
 		}
 
-		$this->target->setAttributes( !$label ? array( 'style' => 'display: none;' ) : array() );
 		$this->element->toggleClasses( array( 'oo-ui-labelElement' ), !!$this->label );
 
 		return $this;
