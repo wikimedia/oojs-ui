@@ -120,19 +120,34 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
  * @param {OO.ui.PanelLayout|null} page The page panel that is now the current panel
  */
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
-	var $input, layout = this;
+	var layout = this;
 	if ( page ) {
 		page.scrollElementIntoView( { complete: function () {
 			if ( layout.autoFocus ) {
-				// Set focus to the first input if nothing on the page is focused yet
-				if ( !page.$element.find( ':focus' ).length ) {
-					$input = page.$element.find( ':input:first' );
-					if ( $input.length ) {
-						$input[0].focus();
-					}
-				}
+				layout.focus();
 			}
 		} } );
+	}
+};
+
+/**
+ * Focus the first input in the current page.
+ *
+ * If no page is selected, the first selectable page will be selected.
+ * If the focus is already in an element on the current page, nothing will happen.
+ */
+OO.ui.BookletLayout.prototype.focus = function () {
+	var $input, page = this.stackLayout.getCurrentItem();
+	if ( !page ) {
+		this.selectFirstSelectablePage();
+		page = this.stackLayout.getCurrentItem();
+	}
+	// Only change the focus if is not already in the current page
+	if ( !page.$element.find( ':focus' ).length ) {
+		$input = page.$element.find( ':input:first' );
+		if ( $input.length ) {
+			$input[0].focus();
+		}
 	}
 };
 
@@ -310,7 +325,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 
 	if ( this.outlined && items.length ) {
 		this.outlineSelectWidget.addItems( items, index );
-		this.updateOutlineSelectWidget();
+		this.selectFirstSelectablePage();
 	}
 	this.stackLayout.addItems( pages, index );
 	this.emit( 'add', pages, index );
@@ -339,7 +354,7 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
 	}
 	if ( this.outlined && items.length ) {
 		this.outlineSelectWidget.removeItems( items );
-		this.updateOutlineSelectWidget();
+		this.selectFirstSelectablePage();
 	}
 	this.stackLayout.removeItems( pages );
 	this.emit( 'remove', pages );
@@ -412,12 +427,11 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 };
 
 /**
- * Call this after adding or removing items from the OutlineSelectWidget.
+ * Select the first selectable page.
  *
  * @chainable
  */
-OO.ui.BookletLayout.prototype.updateOutlineSelectWidget = function () {
-	// Auto-select first item when nothing is selected anymore
+OO.ui.BookletLayout.prototype.selectFirstSelectablePage = function () {
 	if ( !this.outlineSelectWidget.getSelectedItem() ) {
 		this.outlineSelectWidget.selectItem( this.outlineSelectWidget.getFirstSelectableItem() );
 	}
