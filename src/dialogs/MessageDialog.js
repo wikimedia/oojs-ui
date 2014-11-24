@@ -68,7 +68,7 @@ OO.ui.MessageDialog.static.actions = [
  */
 OO.ui.MessageDialog.prototype.onActionResize = function ( action ) {
 	this.fitActions();
-	return OO.ui.ProcessDialog.super.prototype.onActionResize.call( this, action );
+	return OO.ui.MessageDialog.super.prototype.onActionResize.call( this, action );
 };
 
 /**
