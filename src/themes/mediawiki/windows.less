@@ -63,6 +63,8 @@
 		}
 
 		.oo-ui-actionWidget {
+			height: 3.4em;
+
 			&.oo-ui-labelElement .oo-ui-labelElement-label {
 				text-align: center;
 				line-height: 3.4em;
@@ -156,26 +158,22 @@
 		&-other {
 			.oo-ui-actionWidget {
 				.oo-ui-buttonElement-button {
-					padding-top: 0.75em;
-					padding-bottom: 0.75em;
 					min-width: 1.9em;
 					min-height: 1.9em;
 				}
 
-				&.oo-ui-labelElement .oo-ui-labelElement-label {
+				.oo-ui-labelElement-label {
 					line-height: 1.9em;
-					padding: 0 1em;
 				}
 
-				.oo-ui-iconElement-icon {
-					position: absolute;
+				&.oo-ui-iconElement .oo-ui-iconElement-icon {
 					margin-top: -0.125em;
 				}
 
 				&.oo-ui-buttonElement-framed {
 					margin: 0.75em 0 0.75em 0.75em;
 					.oo-ui-buttonElement-button {
-						padding: 0;
+						padding: 0 1em;
 						vertical-align: middle;
 					}
 				}
@@ -235,30 +233,6 @@
 							background-color: rgba(212,83,83,0.1);
 						}
 					}
-				}
-			}
-		}
-
-		&-safe {
-			.oo-ui-actionWidget.oo-ui-iconElement {
-				.oo-ui-iconElement-icon {
-					left: 0.5em;
-				}
-
-				&.oo-ui-labelElement .oo-ui-labelElement-label {
-					padding-left: 2.25em;
-				}
-			}
-		}
-
-		&-primary {
-			.oo-ui-actionWidget.oo-ui-iconElement {
-				.oo-ui-iconElement-icon {
-					right: 0.5em;
-				}
-
-				&.oo-ui-labelElement .oo-ui-labelElement-label {
-					padding-right: 2.25em;
 				}
 			}
 		}
