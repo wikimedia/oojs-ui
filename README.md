@@ -65,8 +65,6 @@ $ npm install && npm test
 $ git log --format='* %s (%aN)' --no-merges --reverse v$(node -e 'console.log(require("./package.json").version);')...HEAD
 $ edit History.md
 
-node -e 'console.log(require(package.json).version);'
-
 # Update the version number
 $ edit package.json
 
