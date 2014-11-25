@@ -194,10 +194,9 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
 		special.primary.toggleFramed( false );
 	}
 
+	this.manager.updateWindowSize( this );
 	this.fitActions();
-	if ( !this.isOpening() ) {
-		this.manager.updateWindowSize( this );
-	}
+
 	this.$body.css( 'bottom', this.$foot.outerHeight( true ) );
 };
 
