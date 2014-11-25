@@ -38,6 +38,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 	this.actions = new OO.ui.ActionSet();
 	this.attachedActions = [];
 	this.currentAction = null;
+	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
 
 	// Events
 	this.actions.connect( this, {
@@ -201,6 +202,10 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 				);
 			}
 			this.actions.add( items );
+
+			if ( this.constructor.static.escapable ) {
+				this.$document.on( 'keydown', this.onDocumentKeyDownHandler );
+			}
 		}, this );
 };
 
@@ -211,6 +216,10 @@ OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
 	// Parent method
 	return OO.ui.Dialog.super.prototype.getTeardownProcess.call( this, data )
 		.first( function () {
+			if ( this.constructor.static.escapable ) {
+				this.$document.off( 'keydown', this.onDocumentKeyDownHandler );
+			}
+
 			this.actions.clear();
 			this.currentAction = null;
 		}, this );
@@ -225,11 +234,6 @@ OO.ui.Dialog.prototype.initialize = function () {
 
 	// Properties
 	this.title = new OO.ui.LabelWidget( { $: this.$ } );
-
-	// Events
-	if ( this.constructor.static.escapable ) {
-		this.$document.on( 'keydown', this.onDocumentKeyDown.bind( this ) );
-	}
 
 	// Initialization
 	this.$content.addClass( 'oo-ui-dialog-content' );
