@@ -1,5 +1,13 @@
 # OOjs UI Release History
 
+## v0.2.2 / 2014-11-25
+* LabelWidget: Add missing documentation for input configuration option (Ed Sanders)
+* MessageDialog: Fit actions after updating window size, not before (Bartosz Dziewoński)
+* MessageDialog: Use the right superclass (Bartosz Dziewoński)
+* ProcessDialog, MessageDialog: Support iconed actions (Bartosz Dziewoński)
+* Remove padding from undecorated option widgets (Ed Sanders)
+* build: Add .npmignore (Timo Tijhof)
+
 ## v0.2.1 / 2014-11-24
 * Start the window opening transition before ready, not after (Roan Kattouw)
 * Add focus method to BookletLayout (Roan Kattouw)
