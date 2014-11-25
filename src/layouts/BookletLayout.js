@@ -138,9 +138,12 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
  */
 OO.ui.BookletLayout.prototype.focus = function () {
 	var $input, page = this.stackLayout.getCurrentItem();
-	if ( !page ) {
+	if ( !page && this.outlined ) {
 		this.selectFirstSelectablePage();
 		page = this.stackLayout.getCurrentItem();
+		if ( !page ) {
+			return;
+		}
 	}
 	// Only change the focus if is not already in the current page
 	if ( !page.$element.find( ':focus' ).length ) {
