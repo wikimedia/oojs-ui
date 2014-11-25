@@ -308,11 +308,20 @@ OO.ui.Window.prototype.getSize = function () {
  * @return {number} Content height
  */
 OO.ui.Window.prototype.getContentHeight = function () {
-	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements
-	var bodyHeight, oldHeight = this.$frame[0].style.height;
-	this.$frame[0].style.height = '1px';
+	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements.
+	// Disable transitions first, otherwise we'll get values from when the window was animating.
+	var bodyHeight, oldHeight, oldTransition,
+		styleObj = this.$frame[0].style;
+	oldTransition = styleObj.transition || styleObj.OTransition || styleObj.MsTransition ||
+		styleObj.MozTransition || styleObj.WebkitTransition;
+	styleObj.transition = styleObj.OTransition = styleObj.MsTransition =
+		styleObj.MozTransition = styleObj.WebkitTransition = 'none';
+	oldHeight = styleObj.height;
+	styleObj.height = '1px';
 	bodyHeight = this.getBodyHeight();
-	this.$frame[0].style.height = oldHeight;
+	styleObj.height = oldHeight;
+	styleObj.transition = styleObj.OTransition = styleObj.MsTransition =
+		styleObj.MozTransition = styleObj.WebkitTransition = oldTransition;
 
 	return Math.round(
 		// Add buffer for border
