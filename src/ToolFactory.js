@@ -16,7 +16,15 @@ OO.inheritClass( OO.ui.ToolFactory, OO.Factory );
 
 /* Methods */
 
-/** */
+/**
+ * Get tools from the factory
+ *
+ * @param {Array} include Included tools
+ * @param {Array} exclude Excluded tools
+ * @param {Array} promote Promoted tools
+ * @param {Array} demote Demoted tools
+ * @return {string[]} List of tools
+ */
 OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, demote ) {
 	var i, len, included, promoted, demoted,
 		auto = [],
