@@ -1,5 +1,17 @@
 # OOjs UI Release History
 
+## v0.2.3 / 2014-11-26
+* Dialog: Only handle escape events when open (Alex Monk)
+* Pass original event with TextInputWidget#enter (Ed Sanders)
+* Add missing documentation to ToolFactory (Ed Sanders)
+* BookletLayout: Make #focus not crash when there are zero pages or when there is no outline (Roan Kattouw)
+* Window: Disable transitions when changing window height to calculate content height (Bartosz Dziewoński)
+* MessageDialog: Add Firefox hack for scrollbars when sizing dialogs (Bartosz Dziewoński)
+* Fix RadioOptionWidget demos (Trevor Parscal)
+* RadioOptionWidget: Remove lies from documentation (Trevor Parscal)
+* RadioOptionWidget: Increase rule specificity to match OptionWidget (Bartosz Dziewoński)
+* MessageDialog: Actually correctly calculate and set height (Bartosz Dziewoński)
+
 ## v0.2.2 / 2014-11-25
 * LabelWidget: Add missing documentation for input configuration option (Ed Sanders)
 * MessageDialog: Fit actions after updating window size, not before (Bartosz Dziewoński)
