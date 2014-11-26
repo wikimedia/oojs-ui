@@ -5,7 +5,6 @@
  *
  * @class
  * @extends OO.ui.OptionWidget
- * @mixins OO.ui.ButtonElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
