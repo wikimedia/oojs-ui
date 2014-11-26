@@ -135,7 +135,21 @@ OO.ui.MessageDialog.prototype.getSetupProcess = function ( data ) {
  * @inheritdoc
  */
 OO.ui.MessageDialog.prototype.getBodyHeight = function () {
-	return Math.round( this.text.$element.outerHeight( true ) );
+	var bodyHeight, oldOverflow,
+		$scrollable = this.container.$element;
+
+	oldOverflow = $scrollable[0].style.overflow;
+	$scrollable[0].style.overflow = 'hidden';
+
+	// Force… ugh… something to happen
+	$scrollable.contents().hide();
+	$scrollable.height();
+	$scrollable.contents().show();
+
+	bodyHeight = Math.round( this.text.$element.outerHeight( true ) );
+	$scrollable[0].style.overflow = oldOverflow;
+
+	return bodyHeight;
 };
 
 /**
@@ -145,13 +159,18 @@ OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
 	var $scrollable = this.container.$element;
 	OO.ui.MessageDialog.super.prototype.setDimensions.call( this, dim );
 
-	// Firefox hack:
-	// Twiddle the overflow property, otherwise an unnecessary scrollbar may be produced.
+	// Twiddle the overflow property, otherwise an unnecessary scrollbar will be produced.
 	// Need to do it after transition completes (250ms), add 50ms just in case.
 	setTimeout( function () {
-		$scrollable.css( 'overflow', 'hidden' );
-		$scrollable.height(); // Force reflow
-		$scrollable.css( 'overflow', '' );
+		var oldOverflow = $scrollable[0].style.overflow;
+		$scrollable[0].style.overflow = 'hidden';
+
+		// Force… ugh… something to happen
+		$scrollable.contents().hide();
+		$scrollable.height();
+		$scrollable.contents().show();
+
+		$scrollable[0].style.overflow = oldOverflow;
 	}, 300 );
 
 	return this;
