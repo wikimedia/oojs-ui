@@ -494,10 +494,12 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			new OO.ui.FieldLayout(
 				new OO.ui.RadioSelectWidget( {
 					items: [
-						new OO.ui.RadioOptionWidget( 'Cat', {
+						new OO.ui.RadioOptionWidget( {
+							data: 'Cat',
 							label: 'Cat'
 						} ),
-						new OO.ui.RadioOptionWidget( 'Dog', {
+						new OO.ui.RadioOptionWidget( {
+							data: 'Dog',
 							label: 'Dog'
 						} )
 					]
