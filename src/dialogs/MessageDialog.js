@@ -141,6 +141,25 @@ OO.ui.MessageDialog.prototype.getBodyHeight = function () {
 /**
  * @inheritdoc
  */
+OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
+	var $scrollable = this.container.$element;
+	OO.ui.MessageDialog.super.prototype.setDimensions.call( this, dim );
+
+	// Firefox hack:
+	// Twiddle the overflow property, otherwise an unnecessary scrollbar may be produced.
+	// Need to do it after transition completes (250ms), add 50ms just in case.
+	setTimeout( function () {
+		$scrollable.css( 'overflow', 'hidden' );
+		$scrollable.height(); // Force reflow
+		$scrollable.css( 'overflow', '' );
+	}, 300 );
+
+	return this;
+};
+
+/**
+ * @inheritdoc
+ */
 OO.ui.MessageDialog.prototype.initialize = function () {
 	// Parent method
 	OO.ui.MessageDialog.super.prototype.initialize.call( this );
