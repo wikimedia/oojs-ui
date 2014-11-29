@@ -303,25 +303,46 @@ OO.ui.Window.prototype.getSize = function () {
 };
 
 /**
- * Get the height of the dialog contents.
+ * Disable transitions on window's frame for the duration of the callback function, then enable them
+ * back.
  *
- * @return {number} Content height
+ * @private
+ * @param {Function} callback Function to call while transitions are disabled
  */
-OO.ui.Window.prototype.getContentHeight = function () {
+OO.ui.Window.prototype.withoutSizeTransitions = function ( callback ) {
 	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements.
 	// Disable transitions first, otherwise we'll get values from when the window was animating.
-	var bodyHeight, oldHeight, oldTransition,
+	var oldTransition,
 		styleObj = this.$frame[0].style;
 	oldTransition = styleObj.transition || styleObj.OTransition || styleObj.MsTransition ||
 		styleObj.MozTransition || styleObj.WebkitTransition;
 	styleObj.transition = styleObj.OTransition = styleObj.MsTransition =
 		styleObj.MozTransition = styleObj.WebkitTransition = 'none';
-	oldHeight = styleObj.height;
-	styleObj.height = '1px';
-	bodyHeight = this.getBodyHeight();
-	styleObj.height = oldHeight;
+	callback();
+	// Force reflow to make sure the style changes done inside callback really are not transitioned
+	this.$frame.height();
 	styleObj.transition = styleObj.OTransition = styleObj.MsTransition =
 		styleObj.MozTransition = styleObj.WebkitTransition = oldTransition;
+};
+
+/**
+ * Get the height of the dialog contents.
+ *
+ * @return {number} Content height
+ */
+OO.ui.Window.prototype.getContentHeight = function () {
+	var bodyHeight,
+		win = this,
+		styleObj = this.$frame[0].style;
+
+	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements.
+	// Disable transitions first, otherwise we'll get values from when the window was animating.
+	this.withoutSizeTransitions( function () {
+		var oldHeight = styleObj.height;
+		styleObj.height = '1px';
+		bodyHeight = win.getBodyHeight();
+		styleObj.height = oldHeight;
+	} );
 
 	return Math.round(
 		// Add buffer for border
@@ -517,17 +538,31 @@ OO.ui.Window.prototype.setSize = function ( size ) {
  * @chainable
  */
 OO.ui.Window.prototype.setDimensions = function ( dim ) {
-	// Apply width before height so height is not based on wrapping content using the wrong width
+	var height,
+		win = this,
+		styleObj = this.$frame[0].style;
+
+	// Calculate the height we need to set using the correct width
+	if ( dim.height === undefined ) {
+		this.withoutSizeTransitions( function () {
+			var oldWidth = styleObj.width;
+			win.$frame.css( 'width', dim.width || '' );
+			height = win.getContentHeight();
+			styleObj.width = oldWidth;
+		} );
+	} else {
+		height = dim.height;
+	}
+
 	this.$frame.css( {
 		width: dim.width || '',
 		minWidth: dim.minWidth || '',
-		maxWidth: dim.maxWidth || ''
-	} );
-	this.$frame.css( {
-		height: ( dim.height !== undefined ? dim.height : this.getContentHeight() ) || '',
+		maxWidth: dim.maxWidth || '',
+		height: height || '',
 		minHeight: dim.minHeight || '',
 		maxHeight: dim.maxHeight || ''
 	} );
+
 	return this;
 };
 
