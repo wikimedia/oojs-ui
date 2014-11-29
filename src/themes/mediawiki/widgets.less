@@ -159,54 +159,44 @@
 		& + span {
 			cursor: pointer;
 			margin: 0 0.4em;
+		}
 
-			&::before {
-				content: '';
-				position: absolute;
-				left: 0;
-				border-radius: @border-radius;
-				width: @checkbox-size;
-				height: @checkbox-size;
-				background-color: #fff;
-				border: 1px solid grey;
-			}
+		& + span::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			border-radius: @border-radius;
+			width: @checkbox-size;
+			height: @checkbox-size;
+			background-color: #fff;
+			border: 1px solid grey;
 		}
 
 		// when the input is checked, style the span pseudo before element that followed as a checked checkbox
-		&:checked {
-			+ span {
-				&::before {
-					.oo-ui-background-image('@{oo-ui-default-image-path}/icons/check-constructive.svg');
-					background-size: @checkbox-size, @checkbox-size;
-					background-repeat: no-repeat;
-					background-position: center top;
-				}
-			}
+		&:checked + span::before  {
+			.oo-ui-background-image('@{oo-ui-default-image-path}/icons/check-constructive.svg');
+			background-size: @checkbox-size, @checkbox-size;
+			background-repeat: no-repeat;
+			background-position: center top;
 		}
 
 		@focus-bottom-border-size: 0.2em;
-		&:active,
-		&:focus {
-			+ span {
-				&::after {
-					content: '';
-					position: absolute;
-					width: @checkbox-size;
-					height: @checkbox-size - @focus-bottom-border-size + 0.1; // offset by bottom border
-					// offset from the checkbox by 1px to account for left border
-					left: 1px;
-					border-bottom: solid @focus-bottom-border-size lightgrey;
-				}
-			}
+
+		&:active + span::after,
+		&:focus + span::after {
+			content: '';
+			position: absolute;
+			width: @checkbox-size;
+			height: @checkbox-size - @focus-bottom-border-size + 0.1; // offset by bottom border
+			// offset from the checkbox by 1px to account for left border
+			left: 1px;
+			border-bottom: solid @focus-bottom-border-size lightgrey;
 		}
 
 		// disabled checked boxes have a gray background
-		&:disabled + span {
+		&:disabled + span::before {
 			cursor: default;
-
-			&::before {
-				background-color: lightgrey;
-			}
+			background-color: lightgrey;
 		}
 	}
 }
