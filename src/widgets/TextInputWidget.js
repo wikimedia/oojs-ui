@@ -201,12 +201,13 @@ OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
 OO.ui.TextInputWidget.prototype.adjustSize = function () {
 	var $clone, scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError, idealHeight;
 
-	if ( this.multiline && this.autosize ) {
+	if ( this.multiline && this.autosize && this.$input.val() !== this.valCache ) {
 		$clone = this.$input.clone()
 			.val( this.$input.val() )
 			// Set inline height property to 0 to measure scroll height
 			.css( 'height', 0 )
 			.insertAfter( this.$input );
+		this.valCache = this.$input.val();
 		scrollHeight = $clone[0].scrollHeight;
 		// Remove inline height property to measure natural heights
 		$clone.css( 'height', '' );
