@@ -205,7 +205,7 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 		$clone = this.$input.clone()
 			.val( this.$input.val() )
 			// Set inline height property to 0 to measure scroll height
-			.css( { height: 0 } )
+			.css( 'height', 0 )
 			.insertAfter( this.$input );
 		scrollHeight = $clone[0].scrollHeight;
 		// Remove inline height property to measure natural heights
