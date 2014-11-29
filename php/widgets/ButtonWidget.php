@@ -27,9 +27,6 @@ class ButtonWidget extends Widget {
 	 * @param string $config['target'] Target to open hyperlink in
 	 */
 	public function __construct( array $config = array() ) {
-		// Configuration initialization
-		$config = array_merge( array( 'target' => '_blank' ), $config );
-
 		// Parent constructor
 		parent::__construct( $config );
 
@@ -49,7 +46,7 @@ class ButtonWidget extends Widget {
 			->appendContent( $this->button );
 
 		$this->setHref( isset( $config['href'] ) ? $config['href'] : null );
-		$this->setTarget( $config['target'] );
+		$this->setTarget( isset( $config['target'] ) ? $config['target'] : null );
 	}
 
 	/**
