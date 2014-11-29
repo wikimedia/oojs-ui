@@ -66,9 +66,35 @@ OO.ui.MessageDialog.static.actions = [
 /**
  * @inheritdoc
  */
+OO.ui.MessageDialog.prototype.setManager = function ( manager ) {
+	OO.ui.MessageDialog.super.prototype.setManager.call( this, manager );
+
+	// Events
+	this.manager.connect( this, {
+		resize: 'onResize'
+	} );
+
+	return this;
+};
+
+/**
+ * @inheritdoc
+ */
 OO.ui.MessageDialog.prototype.onActionResize = function ( action ) {
 	this.fitActions();
 	return OO.ui.MessageDialog.super.prototype.onActionResize.call( this, action );
+};
+
+/**
+ * Handle window resized events.
+ */
+OO.ui.MessageDialog.prototype.onResize = function () {
+	var dialog = this;
+	dialog.fitActions();
+	// Wait for CSS transition to finish and do it again :(
+	setTimeout( function () {
+		dialog.fitActions();
+	}, 300 );
 };
 
 /**
@@ -232,10 +258,11 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
 		special.primary.toggleFramed( false );
 	}
 
-	this.manager.updateWindowSize( this );
-	this.fitActions();
-
-	this.$body.css( 'bottom', this.$foot.outerHeight( true ) );
+	if ( !this.isOpening() ) {
+		// If the dialog is currently opening, this will be called automatically soon.
+		// This also calls #fitActions.
+		this.manager.updateWindowSize( this );
+	}
 };
 
 /**
@@ -245,6 +272,7 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
  */
 OO.ui.MessageDialog.prototype.fitActions = function () {
 	var i, len, action,
+		previous = this.verticalActionLayout,
 		actions = this.actions.get();
 
 	// Detect clipping
@@ -255,5 +283,11 @@ OO.ui.MessageDialog.prototype.fitActions = function () {
 			this.toggleVerticalActionLayout( true );
 			break;
 		}
+	}
+
+	if ( this.verticalActionLayout !== previous ) {
+		this.$body.css( 'bottom', this.$foot.outerHeight( true ) );
+		// We changed the layout, window height might need to be updated.
+		this.manager.updateWindowSize( this );
 	}
 };
