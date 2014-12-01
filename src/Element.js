@@ -287,6 +287,38 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 };
 
 /**
+ * Get scrollable object parent
+ *
+ * documentElement can't be used to get or set the scrollTop
+ * property on Blink. Changing and testing its value lets us
+ * use 'body' or 'documentElement' based on what is working.
+ *
+ * https://code.google.com/p/chromium/issues/detail?id=303131
+ *
+ * @static
+ * @param {HTMLElement} el Element to find scrollable parent for
+ * @return {HTMLElement} Scrollable parent
+ */
+OO.ui.Element.static.getRootScrollableElement = function ( el ) {
+	var scrollTop, body;
+
+	if ( OO.ui.scrollableElement === undefined ) {
+		body = el.ownerDocument.body;
+		scrollTop = body.scrollTop;
+		body.scrollTop = 1;
+
+		if ( body.scrollTop === 1 ) {
+			body.scrollTop = scrollTop;
+			OO.ui.scrollableElement = 'body';
+		} else {
+			OO.ui.scrollableElement = 'documentElement';
+		}
+	}
+
+	return el.ownerDocument[ OO.ui.scrollableElement ];
+};
+
+/**
  * Get closest scrollable container.
  *
  * Traverses up until either a scrollable element or the root is reached, in which case the window
@@ -307,7 +339,7 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
 	}
 
 	while ( $parent.length ) {
-		if ( $parent[0] === el.ownerDocument.body ) {
+		if ( $parent[0] === this.getRootScrollableElement( el ) ) {
 			return $parent[0];
 		}
 		i = props.length;
