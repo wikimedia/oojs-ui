@@ -1,5 +1,11 @@
 # OOjs UI Release History
 
+## v0.2.4 / 2014-12-02
+* TextInputWidget: Use .css( propertyName, value ) instead of .css( properties) for single property (Prateek Saxena)
+* TextInputWidget: Stop adjustSize if the value of the textarea is the same (Prateek Saxena)
+* Window: Avoid height flickering when resizing dialogs (Bartosz Dziewoński)
+* MessageDialog: Fit actions again when the dialog is resized (Bartosz Dziewoński)
+
 ## v0.2.3 / 2014-11-26
 * Dialog: Only handle escape events when open (Alex Monk)
 * Pass original event with TextInputWidget#enter (Ed Sanders)
