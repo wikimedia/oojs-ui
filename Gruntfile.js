@@ -303,7 +303,7 @@ module.exports = function ( grunt ) {
 				'{demos,src}/**/*.less',
 				'.{csslintrc,jscsrc,jshintignore,jshintrc}'
 			],
-			tasks: 'build'
+			tasks: 'quick-build'
 		}
 	} );
 
