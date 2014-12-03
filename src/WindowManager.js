@@ -551,7 +551,7 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
  * @throws {Error} If windows being removed are not being managed
  */
 OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
-	var i, len, win, name,
+	var i, len, win, name, cleanupWindow,
 		manager = this,
 		promises = [],
 		cleanup = function ( name, win ) {
@@ -565,7 +565,8 @@ OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
 		if ( !win ) {
 			throw new Error( 'Cannot remove window' );
 		}
-		promises.push( this.closeWindow( name ).then( cleanup.bind( null, name, win ) ) );
+		cleanupWindow = cleanup.bind( null, name, win );
+		promises.push( this.closeWindow( name ).then( cleanupWindow, cleanupWindow ) );
 	}
 
 	return $.when.apply( $, promises );
