@@ -31,12 +31,10 @@
 						new OOUI\ButtonWidget( array(
 							'label' => 'LTR',
 							'href' => '?dir=ltr',
-							'target' => null,
 						) ),
 						new OOUI\ButtonWidget( array(
 							'label' => 'RTL',
 							'href' => '?dir=rtl',
-							'target' => null,
 						) ),
 					)
 				) );
