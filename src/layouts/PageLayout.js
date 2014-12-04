@@ -7,7 +7,6 @@
  * @constructor
  * @param {string} name Unique symbolic name of page
  * @param {Object} [config] Configuration options
- * @param {string} [outlineItem] Outline item widget
  */
 OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
 	// Configuration initialization
@@ -18,7 +17,7 @@ OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
 
 	// Properties
 	this.name = name;
-	this.outlineItem = config.outlineItem || null;
+	this.outlineItem = null;
 	this.active = false;
 
 	// Initialization
