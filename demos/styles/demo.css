@@ -93,6 +93,15 @@ body {
 
 /* Icons demo */
 
+.oo-ui-demo-icons .oo-ui-fieldLayout {
+	display: inline-block;
+	margin-bottom: 0;
+}
+
+.oo-ui-demo-icons .oo-ui-fieldLayout .oo-ui-labelElement-label {
+	display: none;
+}
+
 .oo-ui-demo-icons .oo-ui-buttonElement-button {
 	margin: 1em 1em 1em 0;
 	width: 8em;

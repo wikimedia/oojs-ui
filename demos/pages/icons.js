@@ -39,20 +39,26 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 
 	for ( i = 0, len = indicators.length; i < len; i++ ) {
 		indicatorsFieldset.addItems( [
-			new OO.ui.ButtonWidget( {
-				indicator: indicators[i],
-				framed: false,
-				label: indicators[i]
-			} )
+			new OO.ui.FieldLayout(
+				new OO.ui.ButtonWidget( {
+					indicator: indicators[i],
+					framed: false,
+					label: indicators[i]
+				} ),
+				{ align: 'top' }
+			)
 		] );
 	}
 	for ( i = 0, len = icons.length; i < len; i++ ) {
 		iconsFieldset.addItems( [
-			new OO.ui.ButtonWidget( {
-				icon: icons[i],
-				framed: false,
-				label: icons[i]
-			} )
+			new OO.ui.FieldLayout(
+				new OO.ui.ButtonWidget( {
+					icon: icons[i],
+					framed: false,
+					label: icons[i]
+				} ),
+				{ align: 'top' }
+			)
 		] );
 	}
 
