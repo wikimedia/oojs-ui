@@ -362,32 +362,30 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
 /**
  * Get an item relative to another one.
  *
- * @param {OO.ui.OptionWidget} item Item to start at
- * @param {number} direction Direction to move in, -1 to look backward, 1 to move forward
+ * @param {OO.ui.OptionWidget|null} item Item to start at, null to get relative to list start
+ * @param {number} direction Direction to move in, -1 to move backward, 1 to move forward
  * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the menu
  */
 OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direction ) {
-	var inc = direction > 0 ? 1 : -1,
-		len = this.items.length,
-		index = item instanceof OO.ui.OptionWidget ?
-			$.inArray( item, this.items ) : ( inc > 0 ? -1 : 0 ),
-		stopAt = Math.max( Math.min( index, len - 1 ), 0 ),
-		i = inc > 0 ?
-			// Default to 0 instead of -1, if nothing is selected let's start at the beginning
-			Math.max( index, -1 ) :
-			// Default to n-1 instead of -1, if nothing is selected let's start at the end
-			Math.min( index, len );
+	var currentIndex, nextIndex, i,
+		increase = direction > 0 ? 1 : -1,
+		len = this.items.length;
 
-	while ( len !== 0 ) {
-		i = ( i + inc + len ) % len;
-		item = this.items[i];
+	if ( item instanceof OO.ui.OptionWidget ) {
+		currentIndex = $.inArray( item, this.items );
+		nextIndex = ( currentIndex + increase + len ) % len;
+	} else {
+		// If no item is selected and moving forward, start at the beginning.
+		// If moving backward, start at the end.
+		nextIndex = direction > 0 ? 0 : len - 1;
+	}
+
+	for ( i = 0; i < len; i++ ) {
+		item = this.items[nextIndex];
 		if ( item instanceof OO.ui.OptionWidget && item.isSelectable() ) {
 			return item;
 		}
-		// Stop iterating when we've looped all the way around
-		if ( i === stopAt ) {
-			break;
-		}
+		nextIndex = ( nextIndex + increase + len ) % len;
 	}
 	return null;
 };
