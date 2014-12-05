@@ -81,7 +81,7 @@ OO.ui.TextInputMenuSelectWidget.prototype.toggle = function ( visible ) {
  */
 OO.ui.TextInputMenuSelectWidget.prototype.position = function () {
 	var $container = this.$container,
-		pos = OO.ui.Element.getRelativePosition( $container, this.$element.offsetParent() );
+		pos = OO.ui.Element.static.getRelativePosition( $container, this.$element.offsetParent() );
 
 	// Position under input
 	pos.top += $container.height();

@@ -506,7 +506,7 @@ OO.ui.Window.prototype.setManager = function ( manager ) {
 	this.toggle( false );
 
 	// Figure out directionality:
-	this.dir = OO.ui.Element.getDir( this.$iframe || this.$content ) || 'ltr';
+	this.dir = OO.ui.Element.static.getDir( this.$iframe || this.$content ) || 'ltr';
 
 	return this;
 };
@@ -692,7 +692,7 @@ OO.ui.Window.prototype.hold = function ( data ) {
 
 	this.getHoldProcess( data ).execute().done( function () {
 		// Get the focused element within the window's content
-		var $focus = win.$content.find( OO.ui.Element.getDocument( win.$content ).activeElement );
+		var $focus = win.$content.find( OO.ui.Element.static.getDocument( win.$content ).activeElement );
 
 		// Blur the focused element
 		if ( $focus.length ) {
@@ -807,7 +807,7 @@ OO.ui.Window.prototype.load = function () {
 	doc.close();
 
 	// Properties
-	this.$ = OO.ui.Element.getJQuery( doc, this.$iframe );
+	this.$ = OO.ui.Element.static.getJQuery( doc, this.$iframe );
 	this.$content = this.$( '.oo-ui-window-content' ).attr( 'tabIndex', 0 );
 	this.$document = this.$( doc );
 

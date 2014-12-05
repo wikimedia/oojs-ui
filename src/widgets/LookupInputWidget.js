@@ -24,7 +24,7 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	this.lookupInput = input;
 	this.$overlay = config.$overlay || this.$element;
 	this.lookupMenu = new OO.ui.TextInputMenuSelectWidget( this, {
-		$: OO.ui.Element.getJQuery( this.$overlay ),
+		$: OO.ui.Element.static.getJQuery( this.$overlay ),
 		input: this.lookupInput,
 		$container: config.$container
 	} );

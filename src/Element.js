@@ -17,7 +17,7 @@ OO.ui.Element = function OoUiElement( config ) {
 	config = config || {};
 
 	// Properties
-	this.$ = config.$ || OO.ui.Element.getJQuery( document );
+	this.$ = config.$ || OO.ui.Element.static.getJQuery( document );
 	this.data = config.data;
 	this.$element = this.$( this.$.context.createElement( this.getTagName() ) );
 	this.elementGroup = null;
@@ -64,7 +64,7 @@ OO.ui.Element.static.tagName = 'div';
  *   not in an iframe
  * @return {Function} Bound jQuery function
  */
-OO.ui.Element.getJQuery = function ( context, $iframe ) {
+OO.ui.Element.static.getJQuery = function ( context, $iframe ) {
 	function wrapper( selector ) {
 		return $( selector, wrapper.context );
 	}
@@ -85,7 +85,7 @@ OO.ui.Element.getJQuery = function ( context, $iframe ) {
  * @param {jQuery|HTMLElement|HTMLDocument|Window} obj Object to get the document for
  * @return {HTMLDocument|null} Document object
  */
-OO.ui.Element.getDocument = function ( obj ) {
+OO.ui.Element.static.getDocument = function ( obj ) {
 	// jQuery - selections created "offscreen" won't have a context, so .context isn't reliable
 	return ( obj[0] && obj[0].ownerDocument ) ||
 		// Empty jQuery selections might have a context
@@ -106,7 +106,7 @@ OO.ui.Element.getDocument = function ( obj ) {
  * @param {jQuery|HTMLElement|HTMLDocument|Window} obj Context to get the window for
  * @return {Window} Window object
  */
-OO.ui.Element.getWindow = function ( obj ) {
+OO.ui.Element.static.getWindow = function ( obj ) {
 	var doc = this.getDocument( obj );
 	return doc.parentWindow || doc.defaultView;
 };
@@ -118,7 +118,7 @@ OO.ui.Element.getWindow = function ( obj ) {
  * @param {jQuery|HTMLElement|HTMLDocument|Window} obj Context to get the direction for
  * @return {string} Text direction, either 'ltr' or 'rtl'
  */
-OO.ui.Element.getDir = function ( obj ) {
+OO.ui.Element.static.getDir = function ( obj ) {
 	var isDoc, isWin;
 
 	if ( obj instanceof jQuery ) {
@@ -146,7 +146,7 @@ OO.ui.Element.getDir = function ( obj ) {
  * @param {Object} [offset] Offset to start with, used internally
  * @return {Object} Offset object, containing left and top properties
  */
-OO.ui.Element.getFrameOffset = function ( from, to, offset ) {
+OO.ui.Element.static.getFrameOffset = function ( from, to, offset ) {
 	var i, len, frames, frame, rect;
 
 	if ( !to ) {
@@ -191,7 +191,7 @@ OO.ui.Element.getFrameOffset = function ( from, to, offset ) {
  * @param {jQuery} $anchor Element to get $element's position relative to
  * @return {Object} Translated position coordinates, containing top and left properties
  */
-OO.ui.Element.getRelativePosition = function ( $element, $anchor ) {
+OO.ui.Element.static.getRelativePosition = function ( $element, $anchor ) {
 	var iframe, iframePos,
 		pos = $element.offset(),
 		anchorPos = $anchor.offset(),
@@ -221,7 +221,7 @@ OO.ui.Element.getRelativePosition = function ( $element, $anchor ) {
  * @param {HTMLElement} el Element to measure
  * @return {Object} Dimensions object with `top`, `left`, `bottom` and `right` properties
  */
-OO.ui.Element.getBorders = function ( el ) {
+OO.ui.Element.static.getBorders = function ( el ) {
 	var doc = el.ownerDocument,
 		win = doc.parentWindow || doc.defaultView,
 		style = win && win.getComputedStyle ?
@@ -248,7 +248,7 @@ OO.ui.Element.getBorders = function ( el ) {
  * @param {HTMLElement|Window} el Element to measure
  * @return {Object} Dimensions object with `borders`, `scroll`, `scrollbar` and `rect` properties
  */
-OO.ui.Element.getDimensions = function ( el ) {
+OO.ui.Element.static.getDimensions = function ( el ) {
 	var $el, $win,
 		doc = el.ownerDocument || el.document,
 		win = doc.parentWindow || doc.defaultView;
@@ -297,7 +297,7 @@ OO.ui.Element.getDimensions = function ( el ) {
  * @param {string} [dimension] Dimension of scrolling to look for; `x`, `y` or omit for either
  * @return {HTMLElement} Closest scrollable container
  */
-OO.ui.Element.getClosestScrollableContainer = function ( el, dimension ) {
+OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) {
 	var i, val,
 		props = [ 'overflow' ],
 		$parent = $( el ).parent();
@@ -333,7 +333,7 @@ OO.ui.Element.getClosestScrollableContainer = function ( el, dimension ) {
  *  to scroll in both directions
  * @param {Function} [config.complete] Function to call when scrolling completes
  */
-OO.ui.Element.scrollIntoView = function ( el, config ) {
+OO.ui.Element.static.scrollIntoView = function ( el, config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -482,7 +482,7 @@ OO.ui.Element.prototype.isElementAttached = function () {
  * @return {HTMLDocument} Document object
  */
 OO.ui.Element.prototype.getElementDocument = function () {
-	return OO.ui.Element.getDocument( this.$element );
+	return OO.ui.Element.static.getDocument( this.$element );
 };
 
 /**
@@ -491,14 +491,14 @@ OO.ui.Element.prototype.getElementDocument = function () {
  * @return {Window} Window object
  */
 OO.ui.Element.prototype.getElementWindow = function () {
-	return OO.ui.Element.getWindow( this.$element );
+	return OO.ui.Element.static.getWindow( this.$element );
 };
 
 /**
  * Get closest scrollable container.
  */
 OO.ui.Element.prototype.getClosestScrollableElementContainer = function () {
-	return OO.ui.Element.getClosestScrollableContainer( this.$element[0] );
+	return OO.ui.Element.static.getClosestScrollableContainer( this.$element[0] );
 };
 
 /**
@@ -527,5 +527,5 @@ OO.ui.Element.prototype.setElementGroup = function ( group ) {
  * @param {Object} [config] Configuration options
  */
 OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
-	return OO.ui.Element.scrollIntoView( this.$element[0], config );
+	return OO.ui.Element.static.scrollIntoView( this.$element[0], config );
 };

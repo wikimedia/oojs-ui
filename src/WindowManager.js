@@ -596,7 +596,7 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 		return;
 	}
 
-	var viewport = OO.ui.Element.getDimensions( win.getElementWindow() ),
+	var viewport = OO.ui.Element.static.getDimensions( win.getElementWindow() ),
 		sizes = this.constructor.static.sizes,
 		size = win.getSize();
 
