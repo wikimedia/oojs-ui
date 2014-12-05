@@ -1,5 +1,15 @@
 # OOjs UI Release History
 
+## v0.3.0 / 2014-12-04
+* [BREAKING CHANGE] ButtonWidget: Don't default 'target' to 'blank' (Bartosz Dziewoński)
+* InputWidget: Update DOM value before firing 'change' event (Bartosz Dziewoński)
+* TextInputWidget: Reuse a single clone instead of appending and removing new ones (Prateek Saxena)
+* build: Have grunt watch run 'quick-build' instead of 'build' (Prateek Saxena)
+* MediaWiki Theme: Reduce indentation in theme-oo-ui-checkboxInputWidget (Prateek Saxena)
+* Adding DraggableGroupElement and DraggableElement mixins (Moriel Schottlender)
+* Remove window even if closing promise rejects (Ed Sanders)
+* Fix lies in documentation (Trevor Parscal)
+
 ## v0.2.4 / 2014-12-02
 * TextInputWidget: Use .css( propertyName, value ) instead of .css( properties) for single property (Prateek Saxena)
 * TextInputWidget: Stop adjustSize if the value of the textarea is the same (Prateek Saxena)
