@@ -393,35 +393,6 @@ OO.ui.Element.scrollIntoView = function ( el, config ) {
 	}
 };
 
-/**
- * Bind a handler for an event on a DOM element.
- *
- * Used to be for working around a jQuery bug (jqbug.com/14180),
- * but obsolete as of jQuery 1.11.0.
- *
- * @static
- * @deprecated Use jQuery#on instead.
- * @param {HTMLElement|jQuery} el DOM element
- * @param {string} event Event to bind
- * @param {Function} callback Callback to call when the event fires
- */
-OO.ui.Element.onDOMEvent = function ( el, event, callback ) {
-	$( el ).on( event, callback );
-};
-
-/**
- * Unbind a handler bound with #static-method-onDOMEvent.
- *
- * @deprecated Use jQuery#off instead.
- * @static
- * @param {HTMLElement|jQuery} el DOM element
- * @param {string} event Event to unbind
- * @param {Function} [callback] Callback to unbind
- */
-OO.ui.Element.offDOMEvent = function ( el, event, callback ) {
-	$( el ).off( event, callback );
-};
-
 /* Methods */
 
 /**
@@ -557,26 +528,4 @@ OO.ui.Element.prototype.setElementGroup = function ( group ) {
  */
 OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
 	return OO.ui.Element.scrollIntoView( this.$element[0], config );
-};
-
-/**
- * Bind a handler for an event on this.$element
- *
- * @deprecated Use jQuery#on instead.
- * @param {string} event
- * @param {Function} callback
- */
-OO.ui.Element.prototype.onDOMEvent = function ( event, callback ) {
-	OO.ui.Element.onDOMEvent( this.$element, event, callback );
-};
-
-/**
- * Unbind a handler bound with #offDOMEvent
- *
- * @deprecated Use jQuery#off instead.
- * @param {string} event
- * @param {Function} callback
- */
-OO.ui.Element.prototype.offDOMEvent = function ( event, callback ) {
-	OO.ui.Element.offDOMEvent( this.$element, event, callback );
 };
