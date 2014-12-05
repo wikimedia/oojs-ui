@@ -37,6 +37,14 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.maxRows = config.maxRows !== undefined ? config.maxRows : 10;
 	this.validate = null;
 
+	// Clone for resizing
+	if ( this.autosize ) {
+		this.$clone = this.$input
+			.clone()
+			.insertAfter( this.$input )
+			.hide();
+	}
+
 	this.setValidation( config.validate );
 
 	// Events
@@ -199,28 +207,40 @@ OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.adjustSize = function () {
-	var $clone, scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError, idealHeight;
+	var scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError, idealHeight;
 
 	if ( this.multiline && this.autosize && this.$input.val() !== this.valCache ) {
-		$clone = this.$input.clone()
+		this.$clone
 			.val( this.$input.val() )
+			.attr( 'rows', '' )
 			// Set inline height property to 0 to measure scroll height
-			.css( 'height', 0 )
-			.insertAfter( this.$input );
+			.css( 'height', 0 );
+
+		this.$clone[0].style.display = 'block';
+
 		this.valCache = this.$input.val();
-		scrollHeight = $clone[0].scrollHeight;
+
+		scrollHeight = this.$clone[0].scrollHeight;
+
 		// Remove inline height property to measure natural heights
-		$clone.css( 'height', '' );
-		innerHeight = $clone.innerHeight();
-		outerHeight = $clone.outerHeight();
+		this.$clone.css( 'height', '' );
+		innerHeight = this.$clone.innerHeight();
+		outerHeight = this.$clone.outerHeight();
+
 		// Measure max rows height
-		$clone.attr( 'rows', this.maxRows ).css( 'height', 'auto' ).val( '' );
-		maxInnerHeight = $clone.innerHeight();
+		this.$clone
+			.attr( 'rows', this.maxRows )
+			.css( 'height', 'auto' )
+			.val( '' );
+		maxInnerHeight = this.$clone.innerHeight();
+
 		// Difference between reported innerHeight and scrollHeight with no scrollbars present
 		// Equals 1 on Blink-based browsers and 0 everywhere else
-		measurementError = maxInnerHeight - $clone[0].scrollHeight;
-		$clone.remove();
+		measurementError = maxInnerHeight - this.$clone[0].scrollHeight;
 		idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
+
+		this.$clone[0].style.display = 'none';
+
 		// Only apply inline height when expansion beyond natural height is needed
 		if ( idealHeight > innerHeight ) {
 			// Use the difference between the inner and outer height as a buffer
