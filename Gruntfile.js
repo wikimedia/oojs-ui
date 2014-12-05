@@ -171,6 +171,11 @@ module.exports = function ( grunt ) {
 			}
 		},
 		copy: {
+			imagesCommon: {
+				src: 'src/styles/images/*.cur',
+				strip: 'src/styles/images/',
+				dest: 'dist/images'
+			},
 			imagesApex: {
 				src: 'src/themes/apex/images/**/*.{png,gif}',
 				strip: 'src/themes/apex/images',
@@ -331,7 +336,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'build-code', [ 'concat:js', 'uglify' ] );
 	grunt.registerTask( 'build-styling', [
-		'copy:lessTemp', 'colorizeSvg', 'less', 'copy:svg',
+		'copy:lessTemp', 'colorizeSvg', 'less', 'copy:svg', 'copy:imagesCommon',
 		'copy:imagesApex', 'copy:imagesMediaWiki', 'svg2png',
 		'concat:css', 'cssjanus', 'csscomb', 'cssmin'
 	] );
