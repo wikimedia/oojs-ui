@@ -482,7 +482,7 @@ OO.ui.Element.prototype.isElementAttached = function () {
  * @return {HTMLDocument} Document object
  */
 OO.ui.Element.prototype.getElementDocument = function () {
-	return OO.ui.Element.static.getDocument( this.$element );
+	return this.$.context;
 };
 
 /**
