@@ -275,7 +275,7 @@ OO.ui.BookletLayout.prototype.getPage = function ( name ) {
  *
  * @return {string|null} Current page name
  */
-OO.ui.BookletLayout.prototype.getPageName = function () {
+OO.ui.BookletLayout.prototype.getCurrentPageName = function () {
 	return this.currentPageName;
 };
 
