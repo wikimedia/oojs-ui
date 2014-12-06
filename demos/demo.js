@@ -244,7 +244,7 @@ OO.ui.Demo.prototype.getDefaultFactorValues = function () {
  * @return {string[]} Factor values in URL order: page, theme, graphics, direction
  */
 OO.ui.Demo.prototype.getCurrentFactorValues = function () {
-	return location.hash.substr( 1 ).split( '-' );
+	return location.hash.slice( 1 ).split( '-' );
 };
 
 /**

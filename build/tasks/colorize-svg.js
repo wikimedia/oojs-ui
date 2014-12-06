@@ -163,7 +163,7 @@ module.exports = function ( grunt ) {
 			file = this.file,
 			name = this.name,
 			fileExtension = path.extname( file ),
-			fileExtensionBase = fileExtension.substr( 1 ),
+			fileExtensionBase = fileExtension.slice( 1 ),
 			fileNameBase = path.basename( file, fileExtension ),
 			filePath = path.join( this.list.getPath(), file ),
 			variable = fileExtensionBase.toLowerCase() === 'svg',
