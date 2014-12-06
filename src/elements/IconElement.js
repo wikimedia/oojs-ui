@@ -155,3 +155,12 @@ OO.ui.IconElement.prototype.setIconTitle = function ( iconTitle ) {
 OO.ui.IconElement.prototype.getIcon = function () {
 	return this.icon;
 };
+
+/**
+ * Get icon title.
+ *
+ * @return {string} Icon title text
+ */
+OO.ui.IconElement.prototype.getIconTitle = function () {
+	return this.iconTitle;
+};
