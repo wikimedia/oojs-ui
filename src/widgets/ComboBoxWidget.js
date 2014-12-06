@@ -25,7 +25,7 @@ OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 	) );
 	this.menu = new OO.ui.TextInputMenuSelectWidget( this.input, $.extend(
 		{
-			$: OO.ui.Element.getJQuery( this.$overlay ),
+			$: OO.ui.Element.static.getJQuery( this.$overlay ),
 			widget: this,
 			input: this.input,
 			disabled: this.isDisabled()

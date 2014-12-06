@@ -120,7 +120,7 @@ OO.ui.GridLayout.prototype.update = function () {
 				top: Math.round( top * 100 ) + '%'
 			};
 			// If RTL, reverse:
-			if ( OO.ui.Element.getDir( this.$.context ) === 'rtl' ) {
+			if ( OO.ui.Element.static.getDir( this.$.context ) === 'rtl' ) {
 				dimensions.right = Math.round( left * 100 ) + '%';
 			} else {
 				dimensions.left = Math.round( left * 100 ) + '%';

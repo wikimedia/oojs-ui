@@ -71,7 +71,7 @@ OO.ui.ClippableElement.prototype.toggleClipping = function ( clipping ) {
 			// If the clippable container is the body, we have to listen to scroll events and check
 			// jQuery.scrollTop on the window because of browser inconsistencies
 			this.$clippableScroller = this.$clippableContainer.is( 'body' ) ?
-				this.$( OO.ui.Element.getWindow( this.$clippableContainer ) ) :
+				this.$( OO.ui.Element.static.getWindow( this.$clippableContainer ) ) :
 				this.$clippableContainer;
 			this.$clippableScroller.on( 'scroll', this.onClippableContainerScrollHandler );
 			this.$clippableWindow = this.$( this.getElementWindow() )
