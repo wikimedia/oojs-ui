@@ -1,5 +1,14 @@
 # OOjs UI Release History
 
+## v0.4.0 / 2014-12-05
+* [BREAKING CHANGE] Remove deprecated Element#onDOMEvent and #offDOMEvent (Bartosz Dziewoński)
+* [BREAKING CHANGE] Make a number of Element getters static (Bartosz Dziewoński)
+* [BREAKING CHANGE] Rename BookletLayout#getPageName → #getCurrentPageName (Bartosz Dziewoński)
+* demo: Don't put buttons in a FieldsetLayout without FieldLayouts around them (Bartosz Dziewoński)
+* IconElement: Add missing #getIconTitle (Bartosz Dziewoński)
+* SelectWidget: Rewrite #getRelativeSelectableItem (Bartosz Dziewoński)
+* Follow-up I859ff276e: Add cursor files to repo (Trevor Parscal)
+
 ## v0.3.0 / 2014-12-04
 * [BREAKING CHANGE] ButtonWidget: Don't default 'target' to 'blank' (Bartosz Dziewoński)
 * InputWidget: Update DOM value before firing 'change' event (Bartosz Dziewoński)
