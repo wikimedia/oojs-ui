@@ -4,14 +4,12 @@
  * Radio buttons only make sense as a set, and you probably want to use the OO.ui.RadioSelectWidget
  * class instead of using this class directly.
  *
- * This class doesn't make it possible to learn whether the radio button is selected ("pressed").
- *
  * @class
  * @extends OO.ui.InputWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @param {boolean} [config.selected=false] Whether the radio button is initially selected
+ * @cfg {boolean} [selected=false] Whether the radio button is initially selected
  */
 OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 	// Parent constructor
