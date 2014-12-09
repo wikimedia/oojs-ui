@@ -228,7 +228,7 @@
 							new OOUI\FieldLayout(
 								new OOUI\CheckboxInputWidget( array(
 									'name' => 'rememberme',
-									'value' => true,
+									'selected' => true,
 								) ),
 								array(
 									'label' => 'Remember me',
@@ -335,7 +335,7 @@
 						),
 						new OOUI\FieldLayout(
 							new OOUI\CheckboxInputWidget( array(
-								'value' => true
+								'selected' => true
 							) ),
 							array(
 								'align' => 'inline',
@@ -344,7 +344,7 @@
 						),
 						new OOUI\FieldLayout(
 							new OOUI\CheckboxInputWidget( array(
-								'value' => true,
+								'selected' => true,
 								'disabled' => true
 							) ),
 							array(

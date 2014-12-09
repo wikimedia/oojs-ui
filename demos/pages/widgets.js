@@ -595,7 +595,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		),
 		new OO.ui.FieldLayout(
 			new OO.ui.CheckboxInputWidget( {
-				value: true
+				selected: true
 			} ),
 			{
 				align: 'inline',
@@ -604,7 +604,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		),
 		new OO.ui.FieldLayout(
 			new OO.ui.CheckboxInputWidget( {
-				value: true,
+				selected: true,
 				disabled: true
 			} ),
 			{
