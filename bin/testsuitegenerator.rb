@@ -81,7 +81,7 @@ else
 				end
 			}
 			expanded.length > 0 ? expanded[0].product(*expanded[1..-1]) : []
-		}.inject(:concat).uniq
+		}.inject(:concat).map(&:compact).uniq
 
 		# param_types = params.map{|p| { placeholder_for: p[:type] } }
 
@@ -89,7 +89,7 @@ else
 			tests << {
 				class: klass[:name],
 				# params: param_types,
-				config: Hash[ config_comb.compact.map{|c| [ c[:name], c[:value] ] } ]
+				config: Hash[ config_comb.map{|c| [ c[:name], c[:value] ] } ]
 			}
 		end
 	end
