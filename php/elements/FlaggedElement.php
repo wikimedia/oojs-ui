@@ -21,8 +21,8 @@ class FlaggedElement extends ElementMixin {
 	/**
 	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
-	 * @param string|string[] $config['flags'] Styling flags, e.g. 'primary', 'destructive' or
-	 *   'constructive'
+	 * @param string|string[] $config['flags'] Flags describing importance and functionality, e.g.
+	 *   'primary', 'safe', 'progressive', 'destructive' or 'constructive'
 	 */
 	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor

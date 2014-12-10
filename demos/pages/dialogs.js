@@ -42,7 +42,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	OO.inheritClass( ProcessDialog, OO.ui.ProcessDialog );
 	ProcessDialog.static.title = 'Process dialog';
 	ProcessDialog.static.actions = [
-		{ action: 'save', label: 'Done', flags: 'primary' },
+		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
 		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
 	];
 	ProcessDialog.prototype.initialize = function () {
@@ -174,7 +174,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	OO.inheritClass( BookletDialog, OO.ui.ProcessDialog );
 	BookletDialog.static.title = 'Booklet dialog';
 	BookletDialog.static.actions = [
-		{ action: 'save', label: 'Done', flags: 'primary' },
+		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
 		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
 	];
 	BookletDialog.prototype.getBodyHeight = function () {

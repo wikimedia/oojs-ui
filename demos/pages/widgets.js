@@ -102,11 +102,11 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		),
 		new OO.ui.FieldLayout(
 			new OO.ui.ButtonWidget( {
-				label: 'Primary',
-				flags: [ 'primary' ]
+				label: 'Progressive',
+				flags: [ 'progressive' ]
 			} ),
 			{
-				label: 'ButtonWidget (primary)\u200E',
+				label: 'ButtonWidget (progressive)\u200E',
 				align: 'top'
 			}
 		),
@@ -127,6 +127,36 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			} ),
 			{
 				label: 'ButtonWidget (destructive)\u200E',
+				align: 'top'
+			}
+		),
+		new OO.ui.FieldLayout(
+			new OO.ui.ButtonWidget( {
+				label: 'Primary progressive',
+				flags: [ 'primary', 'progressive' ]
+			} ),
+			{
+				label: 'ButtonWidget (primary, progressive)\u200E',
+				align: 'top'
+			}
+		),
+		new OO.ui.FieldLayout(
+			new OO.ui.ButtonWidget( {
+				label: 'Primary constructive',
+				flags: [ 'primary', 'constructive' ]
+			} ),
+			{
+				label: 'ButtonWidget (primary, constructive)\u200E',
+				align: 'top'
+			}
+		),
+		new OO.ui.FieldLayout(
+			new OO.ui.ButtonWidget( {
+				label: 'Primary destructive',
+				flags: [ 'primary', 'destructive' ]
+			} ),
+			{
+				label: 'ButtonWidget (primary, destructive)\u200E',
 				align: 'top'
 			}
 		),
@@ -177,10 +207,10 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			new OO.ui.ButtonWidget( {
 				label: 'Icon',
 				icon: 'picture',
-				flags: [ 'primary' ]
+				flags: [ 'progressive' ]
 			} ),
 			{
-				label: 'ButtonWidget (icon, primary)\u200E',
+				label: 'ButtonWidget (icon, progressive)\u200E',
 				align: 'top'
 			}
 		),
@@ -230,12 +260,12 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		new OO.ui.FieldLayout(
 			new OO.ui.ButtonWidget( {
 				framed: false,
-				flags: [ 'primary' ],
+				flags: [ 'progressive' ],
 				icon: 'check',
-				label: 'Primary'
+				label: 'Progressive'
 			} ),
 			{
-				label: 'ButtonWidget (frameless, primary)\u200E',
+				label: 'ButtonWidget (frameless, progressive)\u200E',
 				align: 'top'
 			}
 		),
@@ -387,7 +417,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonWidget( { icon: 'picture', indicator: 'down' } ),
 					new OO.ui.ToggleButtonWidget( {
 						label: 'One',
-						flags: [ 'primary' ]
+						flags: [ 'progressive' ]
 					} ),
 					new OO.ui.ToggleButtonWidget( {
 						label: 'Two',
@@ -415,7 +445,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonOptionWidget( {
 						data: 'b',
 						label: 'One',
-						flags: [ 'primary' ]
+						flags: [ 'progressive' ]
 					} ),
 					new OO.ui.ButtonOptionWidget( {
 						data: 'c',

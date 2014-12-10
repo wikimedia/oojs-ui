@@ -52,13 +52,22 @@
 				$styles = array(
 					array(),
 					array(
-						'flags' => array( 'primary' ),
+						'flags' => array( 'progressive' ),
 					),
 					array(
 						'flags' => array( 'constructive' ),
 					),
 					array(
 						'flags' => array( 'destructive' ),
+					),
+					array(
+						'flags' => array( 'primary', 'progressive' ),
+					),
+					array(
+						'flags' => array( 'primary', 'constructive' ),
+					),
+					array(
+						'flags' => array( 'primary', 'destructive' ),
 					),
 				);
 				$states = array(
@@ -116,10 +125,10 @@
 					array(
 						// Determined empirically
 						'widths' => array( 83, 108, 127, 58, 52, 77, 83, 58, 42 ),
-						'heights' => array( 1, 1, 1, 1 ),
+						'heights' => array( 1, 1, 1, 1, 1, 1, 1 ),
 					)
 				);
-				$grid->setAttributes( array( 'style' => 'height: 12em; position: relative;' ) );
+				$grid->setAttributes( array( 'style' => 'height: 24em; position: relative;' ) );
 
 				echo new OOUI\FieldsetLayout( array(
 					'label' => 'Regular buttons',
@@ -165,7 +174,7 @@
 									) ),
 									new OOUI\ButtonWidget( array(
 										'label' => 'One',
-										'flags' => array( 'primary' ),
+										'flags' => array( 'progressive' ),
 									) ),
 									new OOUI\ButtonWidget( array(
 										'label' => 'Two',
@@ -231,7 +240,7 @@
 									'name' => 'login',
 									'label' => 'Log in',
 									'type' => 'submit',
-									'flags' => 'primary',
+									'flags' => array( 'primary', 'progressive' ),
 									'icon' => 'check',
 								) ),
 								array(

@@ -9,7 +9,7 @@ class MediaWikiTheme extends Theme {
 	public function getElementClasses( Element $element ) {
 		$variants = array(
 			'invert' => false,
-			'primary' => false,
+			'progressive' => false,
 			'constructive' => false,
 			'destructive' => false
 		);
@@ -18,16 +18,14 @@ class MediaWikiTheme extends Theme {
 		$classes = parent::getElementClasses( $element );
 
 		if ( $element->supports( array( 'isFramed', 'isDisabled', 'hasFlag' ) ) ) {
-			if ( $element->isFramed() && !$element->isDisabled() ) {
-				if (
-					$element->hasFlag( 'primary' ) ||
-					$element->hasFlag( 'constructive' ) ||
-					$element->hasFlag( 'destructive' )
-				) {
-					$variants['invert'] = true;
-				}
+			if (
+				!$element->isDisabled() &&
+				$element->isFramed() &&
+				$element->hasFlag( 'primary' )
+			) {
+				$variants['invert'] = true;
 			} else {
-				$variants['primary'] = $element->hasFlag( 'primary' );
+				$variants['progressive'] = $element->hasFlag( 'progressive' );
 				$variants['constructive'] = $element->hasFlag( 'constructive' );
 				$variants['destructive'] = $element->hasFlag( 'destructive' );
 			}

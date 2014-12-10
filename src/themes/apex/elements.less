@@ -59,8 +59,8 @@
 		}
 
 		&.oo-ui-flaggedElement {
-			&-primary > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-				color: @primary;
+			&-progressive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+				color: @progressive;
 			}
 
 			&-constructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
@@ -127,22 +127,22 @@
 		}
 
 		&.oo-ui-flaggedElement {
-			&-primary {
+			&-progressive {
 				> .oo-ui-buttonElement-button {
-					border: solid 1px @primary-border;
-					.oo-ui-vertical-gradient(@primary-gradient-start, @primary-gradient-end);
+					border: solid 1px @progressive-border;
+					.oo-ui-vertical-gradient(@progressive-gradient-start, @progressive-gradient-end);
 
 					&:hover,
 					&:focus {
-						border-color: @primary-border-selected;
+						border-color: @progressive-border-selected;
 					}
 				}
 
 				&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
 				&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
 				&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-					border: solid 1px @primary-border;
-					.oo-ui-vertical-gradient(@primary-gradient-end, @primary-gradient-start);
+					border: solid 1px @progressive-border;
+					.oo-ui-vertical-gradient(@progressive-gradient-end, @progressive-gradient-start);
 				}
 			}
 
