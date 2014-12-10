@@ -15,47 +15,41 @@
 
 	&.oo-ui-fieldLayout-align-left,
 	&.oo-ui-fieldLayout-align-right {
-		> .oo-ui-labelElement-label {
-			display: block;
-			float: left;
-		}
-
-		> .oo-ui-fieldLayout-field {
-			display: block;
-			float: left;
+		> .oo-ui-fieldLayout-body {
+			> .oo-ui-labelElement-label,
+			> .oo-ui-fieldLayout-field {
+				display: block;
+				float: left;
+			}
 		}
 	}
 
-	&.oo-ui-fieldLayout-align-right > .oo-ui-labelElement-label {
+	&.oo-ui-fieldLayout-align-right > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
 		text-align: right;
 	}
 
-	&.oo-ui-fieldLayout-align-inline {
-		> .oo-ui-labelElement-label {
-			display: inline-block;
-			vertical-align: middle;
-		}
+	&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body {
+		display: table;
 
+		> .oo-ui-labelElement-label,
 		> .oo-ui-fieldLayout-field {
-			display: inline-block;
+			display: table-cell;
 			vertical-align: middle;
 		}
 	}
 
-	&.oo-ui-fieldLayout-align-top > .oo-ui-labelElement-label {
+	&.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
 		display: inline-block;
 	}
 
-	> .oo-ui-popupButtonWidget {
+	> .oo-ui-fieldLayout-help {
+		float: right;
+
 		> .oo-ui-popupWidget > .oo-ui-popupWidget-popup {
 			z-index: 1;
 		}
-	}
 
-	.oo-ui-fieldLayout-help {
-		float: right;
-
-		&-content {
+		.oo-ui-fieldLayout-help-content {
 			padding: 0.5em 0.75em;
 			line-height: 1.5em;
 		}

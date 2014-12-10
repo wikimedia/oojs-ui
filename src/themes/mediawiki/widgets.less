@@ -140,6 +140,8 @@
 .theme-oo-ui-checkboxInputWidget () {
 	position: relative;
 	line-height: @input-size;
+	// Prevent the fake span from jumping to the next line of text
+	white-space: nowrap;
 
 	* {
 		font: inherit;
