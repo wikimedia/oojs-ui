@@ -41,6 +41,7 @@
 			"next": { "file": "move-ltr.svg" },
 			"picture": { "file": "picture.svg" },
 			"previous": { "file": "move-rtl.svg" },
+			"circle": { "file": "circle.svg", "variants": [ "constructive" ] },
 			"redo": { "file": "arched-arrow-ltr.svg" },
 			"remove": { "file": "remove.svg", "variants": [ "destructive" ] },
 			"search": { "file": "search.svg" },

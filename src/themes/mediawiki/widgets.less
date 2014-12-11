@@ -213,7 +213,81 @@
 	}
 }
 
-.theme-oo-ui-radioInputWidget () {}
+.theme-oo-ui-radioInputWidget () {
+	position: relative;
+	line-height: @input-size;
+
+	* {
+		font: inherit;
+		vertical-align: middle;
+	}
+
+	input[type="radio"] {
+		// we hide the input element as instead we will style the span that follows
+		// we use opacity so that VoiceOver software can still identify it
+		opacity: 0;
+
+		// having a margin might offset the checkbox from the pseudo element
+		// making only the overlap region react to events
+		margin: 0;
+
+		// ensure the invisible checkbox takes up the required width
+		width: @input-size;
+		height: @input-size;
+
+		// This is needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
+		max-width: none;
+
+		& + span {
+			cursor: pointer;
+			margin: 0 0.4em;
+		}
+
+		& + span::before {
+			content: '';
+			.oo-ui-box-sizing( border-box );
+			position: absolute;
+			left: 0;
+			border-radius: 100%;
+			width: @input-size;
+			height: @input-size;
+			background: white;
+			border: 1px solid @input-border-color;
+		}
+
+		&:checked + span::before  {
+			.oo-ui-background-image('@{oo-ui-default-image-path}/icons/circle-constructive.svg');
+			background-size: @input-size, @input-size;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-origin: border-box;
+		}
+
+		&:active + span::before {
+			background-color: @input-active-color;
+			border-color: @input-active-color;
+		}
+
+		&:focus + span::before {
+			border-width: @input-focus-border-width;
+		}
+
+		&:focus:hover + span::before,
+		&:hover + span::before {
+			border-bottom-width: @input-hover-border-bottom-width;
+		}
+
+		&:disabled + span::before {
+			cursor: default;
+			background-color: @input-disabled-color;
+			border-color: @input-disabled-color;
+		}
+
+		&:disabled:checked + span::before {
+			.oo-ui-background-image('@{oo-ui-default-image-path}/icons/circle-invert.svg');
+		}
+	}
+}
 
 .theme-oo-ui-textInputWidget () {
 	width: 100%;
