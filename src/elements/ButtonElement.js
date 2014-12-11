@@ -65,7 +65,7 @@ OO.ui.ButtonElement.prototype.setButtonElement = function ( $button ) {
 		this.$button
 			.removeClass( 'oo-ui-buttonElement-button' )
 			.removeAttr( 'role accesskey tabindex' )
-			.off( this.onMouseDownHandler );
+			.off( 'mousedown', this.onMouseDownHandler );
 	}
 
 	this.$button = $button
