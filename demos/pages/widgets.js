@@ -180,7 +180,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				flags: [ 'primary' ]
 			} ),
 			{
-				label: 'ButtonWidget (icon, constructive)\u200E',
+				label: 'ButtonWidget (icon, primary)\u200E',
 				align: 'top'
 			}
 		),
