@@ -500,7 +500,7 @@ OO.ui.Window.prototype.setManager = function ( manager ) {
 	} else {
 		this.$content = this.$( '<div>' );
 		this.$document = $( this.getElementDocument() );
-		this.$content.addClass( 'oo-ui-window-content' );
+		this.$content.addClass( 'oo-ui-window-content' ).attr( 'tabIndex', 0 );
 		this.$frame.append( this.$content );
 	}
 	this.toggle( false );
