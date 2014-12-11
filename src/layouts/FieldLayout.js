@@ -36,6 +36,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 
 	// Properties
 	this.$field = this.$( '<div>' );
+	this.$body = this.$( '<div>' );
 	this.align = null;
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
@@ -67,6 +68,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		.addClass( 'oo-ui-fieldLayout-field' )
 		.toggleClass( 'oo-ui-fieldLayout-disable', this.fieldWidget.isDisabled() )
 		.append( this.fieldWidget.$element );
+	this.$body.addClass( 'oo-ui-fieldLayout-body' );
 	this.setAlignment( config.align );
 };
 
@@ -131,10 +133,11 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 		}
 		// Reorder elements
 		if ( value === 'inline' ) {
-			this.$element.append( this.$field, this.$label, this.$help );
+			this.$body.append( this.$field, this.$label );
 		} else {
-			this.$element.append( this.$help, this.$label, this.$field );
+			this.$body.append( this.$label, this.$field );
 		}
+		this.$element.append( this.$help, this.$body );
 		// Set classes. The following classes can be used here:
 		// * oo-ui-fieldLayout-align-left
 		// * oo-ui-fieldLayout-align-right
