@@ -514,7 +514,9 @@ OO.ui.Element.prototype.isElementAttached = function () {
  * @return {HTMLDocument} Document object
  */
 OO.ui.Element.prototype.getElementDocument = function () {
-	return this.$.context;
+	// Don't use this.$.context because subclasses can rebind this.$
+	// Don't cache this in other ways either because subclasses could can change this.$element
+	return OO.ui.Element.static.getDocument( this.$element );
 };
 
 /**
