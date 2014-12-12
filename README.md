@@ -38,10 +38,10 @@ Releases will be numbered in the following format:
 For more information on SemVer, please visit http://semver.org/.
 
 
-Bug tracker
------------
+Issue tracker
+-------------
 
-Found a bug? Please report it in the [issue tracker](https://bugzilla.wikimedia.org/enter_bug.cgi?product=OOjs+UI)!
+Found a bug or missing feature? Please report it in the [issue tracker](https://phabricator.wikimedia.org/maniphest/task/create/?projects=PHID-PROJ-dgmoevjqeqlerleqzzx5)!
 
 
 Release
