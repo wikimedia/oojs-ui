@@ -172,7 +172,7 @@ OO.ui.MessageDialog.prototype.getBodyHeight = function () {
 	$scrollable.height();
 	$scrollable.contents().show();
 
-	bodyHeight = Math.round( this.text.$element.outerHeight( true ) );
+	bodyHeight = this.text.$element.outerHeight( true );
 	$scrollable[0].style.overflow = oldOverflow;
 
 	return bodyHeight;

@@ -230,8 +230,8 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	popupOffset = this.width * ( { left: 0, center: -0.5, right: -1 } )[this.align];
 
 	// Figure out if this will cause the popup to go beyond the edge of the container
-	originOffset = Math.round( this.$element.offset().left );
-	containerLeft = Math.round( this.$container.offset().left );
+	originOffset = this.$element.offset().left;
+	containerLeft = this.$container.offset().left;
 	containerWidth = this.$container.innerWidth();
 	containerRight = containerLeft + containerWidth;
 	popupLeft = popupOffset - this.containerPadding;

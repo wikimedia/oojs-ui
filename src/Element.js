@@ -234,10 +234,10 @@ OO.ui.Element.static.getBorders = function ( el ) {
 		right = parseFloat( style ? style.borderRightWidth : $el.css( 'borderRightWidth' ) ) || 0;
 
 	return {
-		top: Math.round( top ),
-		left: Math.round( left ),
-		bottom: Math.round( bottom ),
-		right: Math.round( right )
+		top: top,
+		left: left,
+		bottom: bottom,
+		right: right
 	};
 };
 

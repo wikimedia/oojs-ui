@@ -348,7 +348,7 @@ OO.ui.Window.prototype.getContentHeight = function () {
 		bodyStyleObj.position = oldPosition;
 	} );
 
-	return Math.round(
+	return (
 		// Add buffer for border
 		( this.$frame.outerHeight() - this.$frame.innerHeight() ) +
 		// Use combined heights of children
