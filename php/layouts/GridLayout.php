@@ -103,12 +103,12 @@ class GridLayout extends Layout {
 		foreach ( $this->heights as $height ) {
 			foreach ( $this->widths as $width ) {
 				$panel = $this->panels[$i];
-				$cssWidth = round( $width * 100 ) . '%';
-				$cssHeight = round( $height * 100 ) . '%';
-				$cssTop = round( $top * 100 ) . '%';
+				$cssWidth = ( $width * 100 ) . '%';
+				$cssHeight = ( $height * 100 ) . '%';
+				$cssTop = ( $top * 100 ) . '%';
 
 				$direction = Element::getDir( $this ) === 'ltr' ? 'left' : 'right';
-				$cssLeft = round( $left * 100 ) . '%';
+				$cssLeft = ( $left * 100 ) . '%';
 
 				$css =
 					"width: $cssWidth; height: $cssHeight; " .
