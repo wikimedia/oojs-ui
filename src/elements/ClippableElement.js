@@ -162,7 +162,7 @@ OO.ui.ClippableElement.prototype.clip = function () {
 		return this;
 	}
 
-	var buffer = 10,
+	var buffer = 7, // Chosen by fair dice roll
 		cOffset = this.$clippable.offset(),
 		$container = this.$clippableContainer.is( 'body' ) ?
 			this.$clippableWindow : this.$clippableContainer,
