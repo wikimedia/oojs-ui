@@ -648,18 +648,21 @@
 }
 
 .theme-oo-ui-searchWidget () {
-	&-query {
-		height: 2.4em;
-		top: 1px;
+	border: solid 1px #ccc;
 
-		.oo-ui-textInputWidget input {
-			border-width: 1px 0;
+	&-query {
+		height: 4em;
+		padding: 0 1em;
+		border-bottom: solid 1px #ccc;
+
+		.oo-ui-textInputWidget {
+			margin: 0.75em 0;
 		}
 	}
 
 	&-results {
-		top: 1.9em;
-		bottom: 0.2em;
+		top: 4em;
+		padding: 1em;
 		line-height: 0;
 	}
 }
