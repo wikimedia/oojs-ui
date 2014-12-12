@@ -115,15 +115,15 @@ OO.ui.GridLayout.prototype.update = function () {
 			width = this.widths[x];
 			panel = this.panels[i];
 			dimensions = {
-				width: Math.round( width * 100 ) + '%',
-				height: Math.round( height * 100 ) + '%',
-				top: Math.round( top * 100 ) + '%'
+				width: ( width * 100 ) + '%',
+				height: ( height * 100 ) + '%',
+				top: ( top * 100 ) + '%'
 			};
 			// If RTL, reverse:
 			if ( OO.ui.Element.static.getDir( this.$.context ) === 'rtl' ) {
-				dimensions.right = Math.round( left * 100 ) + '%';
+				dimensions.right = ( left * 100 ) + '%';
 			} else {
-				dimensions.left = Math.round( left * 100 ) + '%';
+				dimensions.left = ( left * 100 ) + '%';
 			}
 			// HACK: Work around IE bug by setting visibility: hidden; if width or height is zero
 			if ( width === 0 || height === 0 ) {
