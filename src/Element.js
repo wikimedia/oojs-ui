@@ -378,8 +378,8 @@ OO.ui.Element.static.scrollIntoView = function ( el, config ) {
 		$win = $( this.getWindow( el ) );
 
 	// Compute the distances between the edges of el and the edges of the scroll viewport
-	if ( $sc.is( 'body' ) ) {
-		// If the scrollable container is the <body> this is easy
+	if ( $sc.is( 'html, body' ) ) {
+		// If the scrollable container is the root, this is easy
 		rel = {
 			top: eld.rect.top,
 			bottom: $win.innerHeight() - eld.rect.bottom,
