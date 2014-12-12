@@ -263,6 +263,12 @@
 		}
 
 		& + span::before {
+			transition: background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			-moz-transition: background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			-ms-transition: background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			-o-transition: background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			-webkit-transition: background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
 			content: '';
 			.oo-ui-box-sizing( border-box );
 			position: absolute;
@@ -272,14 +278,15 @@
 			height: @input-size;
 			background: white;
 			border: 1px solid @input-border-color;
-		}
-
-		&:checked + span::before  {
 			.oo-ui-background-image('@{oo-ui-default-image-path}/icons/circle-constructive.svg');
-			background-size: @input-size, @input-size;
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-origin: border-box;
+			background-size: 0 0;
+		}
+
+		&:checked + span::before  {
+			background-size: 100% 100%;
 		}
 
 		&:active + span::before {
