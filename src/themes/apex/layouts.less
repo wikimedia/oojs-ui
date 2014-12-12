@@ -27,7 +27,7 @@
 
 	&.oo-ui-fieldLayout-align-left,
 	&.oo-ui-fieldLayout-align-right {
-		> .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
 			padding-top: 0.5em;
 			margin-right: 5%;
 			width: 35%;
@@ -39,7 +39,7 @@
 	}
 
 	&.oo-ui-fieldLayout-align-inline {
-		> .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
 			padding: 0.5em;
 		}
 
@@ -48,8 +48,10 @@
 		}
 	}
 
-	&.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
-		padding: 0.5em 0;
+	&.oo-ui-fieldLayout-align-top {
+		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+			padding: 0.5em 0;
+		}
 	}
 
 	> .oo-ui-popupButtonWidget {
