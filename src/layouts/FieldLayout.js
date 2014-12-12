@@ -22,6 +22,8 @@
  * @cfg {string} [help] Explanatory text shown as a '?' icon.
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
+	var hasInputWidget = fieldWidget instanceof OO.ui.InputWidget;
+
 	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );
 
@@ -36,7 +38,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 
 	// Properties
 	this.$field = this.$( '<div>' );
-	this.$body = this.$( '<div>' );
+	this.$body = this.$( '<' + ( hasInputWidget ? 'label' : 'div' ) + '>' );
 	this.align = null;
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
@@ -57,7 +59,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	}
 
 	// Events
-	if ( this.fieldWidget instanceof OO.ui.InputWidget ) {
+	if ( hasInputWidget ) {
 		this.$label.on( 'click', this.onLabelClick.bind( this ) );
 	}
 	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
@@ -81,17 +83,6 @@ OO.inheritClass( OO.ui.FieldLayout, OO.ui.Layout );
 OO.mixinClass( OO.ui.FieldLayout, OO.ui.LabelElement );
 
 /* Methods */
-
-/**
- * @inheritdoc
- */
-OO.ui.FieldLayout.prototype.getTagName = function () {
-	if ( this.fieldWidget instanceof OO.ui.InputWidget ) {
-		return 'label';
-	} else {
-		return 'div';
-	}
-};
 
 /**
  * Handle field disable events.

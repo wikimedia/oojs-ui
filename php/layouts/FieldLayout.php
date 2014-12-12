@@ -32,6 +32,8 @@ class FieldLayout extends Layout {
 	 * @param string $config['help'] Explanatory text shown as a '?' icon.
 	 */
 	public function __construct( Widget $fieldWidget, array $config = array() ) {
+		$hasInputWidget = $fieldWidget instanceof InputWidget;
+
 		// Config initialization
 		$config = array_merge( array( 'align' => 'left' ), $config );
 
@@ -43,7 +45,7 @@ class FieldLayout extends Layout {
 
 		// Properties
 		$this->field = new Tag( 'div' );
-		$this->body = new Tag( 'div' );
+		$this->body = new Tag( $hasInputWidget ? 'label' : 'div' );
 		if ( isset( $config['help'] ) ) {
 			$this->help = new ButtonWidget( array(
 				'classes' => array( 'oo-ui-fieldLayout-help' ),
@@ -69,14 +71,6 @@ class FieldLayout extends Layout {
 			->appendContent( $fieldWidget );
 
 		$this->setAlignment( $config['align'] );
-	}
-
-	public function getTagName() {
-		if ( $this->fieldWidget instanceof InputWidget ) {
-			return 'label';
-		} else {
-			return 'div';
-		}
 	}
 
 	/**
