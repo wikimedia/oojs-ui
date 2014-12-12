@@ -63,12 +63,15 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-fieldLayout' );
+	this.$element
+		.addClass( 'oo-ui-fieldLayout' )
+		.append( this.$help, this.$body );
+	this.$body.addClass( 'oo-ui-fieldLayout-body' );
 	this.$field
 		.addClass( 'oo-ui-fieldLayout-field' )
 		.toggleClass( 'oo-ui-fieldLayout-disable', this.fieldWidget.isDisabled() )
 		.append( this.fieldWidget.$element );
-	this.$body.addClass( 'oo-ui-fieldLayout-body' );
+
 	this.setAlignment( config.align );
 };
 
@@ -137,7 +140,6 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 		} else {
 			this.$body.append( this.$label, this.$field );
 		}
-		this.$element.append( this.$help, this.$body );
 		// Set classes. The following classes can be used here:
 		// * oo-ui-fieldLayout-align-left
 		// * oo-ui-fieldLayout-align-right
