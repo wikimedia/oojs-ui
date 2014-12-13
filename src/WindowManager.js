@@ -184,10 +184,9 @@ OO.ui.WindowManager.prototype.afterWindowResize = function () {
  *
  * @param {jQuery.Event} e Mouse wheel event
  */
-OO.ui.WindowManager.prototype.onWindowMouseWheel = function ( e ) {
-	// Kill all events in the parent window if the child window is isolated,
-	// or if the event didn't come from the child window
-	return !( this.shouldIsolate() || !$.contains( this.getCurrentWindow().$frame[0], e.target ) );
+OO.ui.WindowManager.prototype.onWindowMouseWheel = function () {
+	// Kill all events in the parent window if the child window is isolated
+	return !this.shouldIsolate();
 };
 
 /**
@@ -205,9 +204,8 @@ OO.ui.WindowManager.prototype.onDocumentKeyDown = function ( e ) {
 		case OO.ui.Keys.UP:
 		case OO.ui.Keys.RIGHT:
 		case OO.ui.Keys.DOWN:
-			// Kill all events in the parent window if the child window is isolated,
-			// or if the event didn't come from the child window
-			return !( this.shouldIsolate() || !$.contains( this.getCurrentWindow().$frame[0], e.target ) );
+			// Kill all events in the parent window if the child window is isolated
+			return !this.shouldIsolate();
 	}
 };
 
@@ -637,6 +635,10 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 				// Start listening for top-level window dimension changes
 				'orientationchange resize': this.onWindowResizeHandler
 			} );
+			// Disable window scrolling in isolated windows
+			if ( !this.shouldIsolate() ) {
+				$( this.getElementDocument().body ).css( 'overflow', 'hidden' );
+			}
 			this.globalEvents = true;
 		}
 	} else if ( this.globalEvents ) {
@@ -651,6 +653,9 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 			// Stop listening for top-level window dimension changes
 			'orientationchange resize': this.onWindowResizeHandler
 		} );
+		if ( !this.shouldIsolate() ) {
+			$( this.getElementDocument().body ).css( 'overflow', '' );
+		}
 		this.globalEvents = false;
 	}
 
