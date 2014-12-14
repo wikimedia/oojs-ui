@@ -187,15 +187,21 @@
 		.oo-ui-iconElement-icon {
 			height: 2em;
 			width: 2em;
-			margin-right: 0.25em;
+			min-width: 2em;
 		}
 
 		.oo-ui-tool-title {
+			padding-left: 0.25em;
+		}
+
+		.oo-ui-tool-accel,
+		.oo-ui-tool-title {
 			line-height: 2em;
 			font-size: 0.8em;
-			.oo-ui-tool-accel {
-				color: #888;
-			}
+		}
+
+		.oo-ui-tool-accel {
+			color: #888;
 		}
 	}
 }
@@ -212,10 +218,7 @@
 	.oo-ui-tool {
 		border: solid 1px transparent;
 		margin: -1px 0;
-
-		&-link {
-			padding-right: 0.5em;
-		}
+		padding: 0 0.25em 0 0;
 
 		&-active {
 			&.oo-ui-widget-enabled {
@@ -245,15 +248,18 @@
 		}
 
 		&.oo-ui-widget-disabled {
-			.oo-ui-tool-link .oo-ui-tool-title {
-				color: #ccc;
+			.oo-ui-tool-link {
+				.oo-ui-tool-title {
+					color: #ccc;
+				}
+
 				.oo-ui-tool-accel {
 					color: #ddd;
 				}
-			}
 
-			.oo-ui-tool-link .oo-ui-iconElement-icon {
-				opacity: 0.2;
+				.oo-ui-iconElement-icon {
+					opacity: 0.2;
+				}
 			}
 		}
 	}
@@ -289,12 +295,9 @@
 	}
 
 	.oo-ui-tool {
-		&-link {
-			padding: 0 1em 0 0.25em;
-			display: block;
-			cursor: pointer;
-			white-space: nowrap;
+		padding: 0 0.75em 0 0.25em;
 
+		&-link {
 			.oo-ui-iconElement-icon {
 				background-image: none;
 			}

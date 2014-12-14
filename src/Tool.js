@@ -28,7 +28,6 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	this.toolbar = this.toolGroup.getToolbar();
 	this.active = false;
 	this.$title = this.$( '<span>' );
-	this.$titleText = this.$( '<span>' );
 	this.$accel = this.$( '<span>' );
 	this.$link = this.$( '<a>' );
 	this.title = null;
@@ -37,7 +36,7 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	this.toolbar.connect( this, { updateState: 'onUpdateState' } );
 
 	// Initialization
-	this.$titleText.addClass( 'oo-ui-tool-title-text' );
+	this.$title.addClass( 'oo-ui-tool-title' );
 	this.$accel
 		.addClass( 'oo-ui-tool-accel' )
 		.prop( {
@@ -46,12 +45,9 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 			dir: 'ltr',
 			lang: 'en'
 		} );
-	this.$title
-		.addClass( 'oo-ui-tool-title' )
-		.append( this.$titleText, this.$accel );
 	this.$link
 		.addClass( 'oo-ui-tool-link' )
-		.append( this.$icon, this.$title )
+		.append( this.$icon, this.$title, this.$accel )
 		.prop( 'tabIndex', 0 )
 		.attr( 'role', 'button' );
 	this.$element
@@ -239,7 +235,7 @@ OO.ui.Tool.prototype.updateTitle = function () {
 		accel = this.toolbar.getToolAccelerator( this.constructor.static.name ),
 		tooltipParts = [];
 
-	this.$titleText.text( this.title );
+	this.$title.text( this.title );
 	this.$accel.text( accel );
 
 	if ( titleTooltips && typeof this.title === 'string' && this.title.length ) {
