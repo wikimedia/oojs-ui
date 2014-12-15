@@ -235,6 +235,8 @@
 .theme-oo-ui-radioInputWidget () {
 	position: relative;
 	line-height: @input-size;
+	// Prevent the fake span from jumping to the next line of text
+	white-space: nowrap;
 
 	* {
 		font: inherit;
@@ -263,14 +265,9 @@
 		}
 
 		& + span::before {
-			transition: background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			-moz-transition: background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			-ms-transition: background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			-o-transition: background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			-webkit-transition: background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
+			.oo-ui-transition(background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275));
 			content: '';
-			.oo-ui-box-sizing( border-box );
+			.oo-ui-box-sizing(border-box);
 			position: absolute;
 			left: 0;
 			border-radius: 100%;
