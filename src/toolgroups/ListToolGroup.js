@@ -77,7 +77,7 @@ OO.ui.ListToolGroup.prototype.populate = function () {
 	// 'display' attribute and restores it, and the tool uses a <span> and can be hidden and re-shown.
 	// Is this a jQuery bug? http://jsfiddle.net/gtj4hu3h/
 	if ( this.getExpandCollapseTool().$element.css( 'display' ) === 'inline' ) {
-		this.getExpandCollapseTool().$element.css( 'display', 'inline-block' );
+		this.getExpandCollapseTool().$element.css( 'display', 'block' );
 	}
 
 	this.updateCollapsibleState();
