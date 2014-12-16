@@ -1,5 +1,13 @@
 # OOjs UI Release History
 
+## v0.6.0 / 2014-12-16
+* [BREAKING CHANGE] PopupToolGroup and friends: Pay off technical debt (Bartosz Dziewoński)
+* ButtonGroupWidget: Remove weird margin-bottom: -1px; from theme styles (Bartosz Dziewoński)
+* Prevent parent window scroll in modal mode using overflow hidden (Ed Sanders)
+* MediaWiki theme: RadioInputWidget tweaks (Bartosz Dziewoński)
+* ClippableElement: Handle clipping with left edge (Bartosz Dziewoński)
+* Sprinkle some child selectors around in BookletLayout styles (Roan Kattouw)
+
 ## v0.5.0 / 2014-12-12
 * [BREAKING CHANGE] FieldLayout: Handle 'inline' alignment better (Bartosz Dziewoński)
 * [BREAKING CHANGE] Split primary flag into primary and progressive (Trevor Parscal)
