@@ -9002,6 +9002,23 @@
     {
       "class": "CheckboxInputWidget",
       "config": {
+        "selected": true
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
         "value": "Foo bar"
       }
     },
@@ -9014,6 +9031,29 @@
     {
       "class": "CheckboxInputWidget",
       "config": {
+        "selected": true,
+        "value": "Foo bar"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "value": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "value": "Foo bar"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "value": "<b>HTML?</b>"
       }
     }
   ],
