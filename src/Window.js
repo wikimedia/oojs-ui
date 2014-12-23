@@ -339,7 +339,8 @@ OO.ui.Window.prototype.getContentHeight = function () {
 	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements.
 	// Disable transitions first, otherwise we'll get values from when the window was animating.
 	this.withoutSizeTransitions( function () {
-		var oldHeight = frameStyleObj.height, oldPosition = bodyStyleObj.position;
+		var oldHeight = frameStyleObj.height,
+			oldPosition = bodyStyleObj.position;
 		frameStyleObj.height = '1px';
 		// Force body to resize to new width
 		bodyStyleObj.position = 'relative';

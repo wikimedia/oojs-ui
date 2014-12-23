@@ -157,7 +157,8 @@ OO.ui.contains = function ( containers, contained, matchContainers ) {
 	 * @return {string} Translated message with parameters substituted
 	 */
 	OO.ui.msg = function ( key ) {
-		var message = messages[key], params = Array.prototype.slice.call( arguments, 1 );
+		var message = messages[key],
+			params = Array.prototype.slice.call( arguments, 1 );
 		if ( typeof message === 'string' ) {
 			// Perform $1 substitution
 			message = message.replace( /\$(\d+)/g, function ( unused, n ) {

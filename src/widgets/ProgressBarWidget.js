@@ -21,7 +21,7 @@ OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
 
 	// Initialization
 	this.setProgress( config.progress !== undefined ? config.progress : false );
-	this.$bar.addClass( 'oo-ui-progressBarWidget-bar');
+	this.$bar.addClass( 'oo-ui-progressBarWidget-bar' );
 	this.$element
 		.attr( {
 			role: 'progressbar',
