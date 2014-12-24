@@ -25,9 +25,9 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			$: this.$,
 			label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
 		} );
-		closeButton.on('click', function () {
+		closeButton.on( 'click', function () {
 			dialog.close();
-		});
+		} );
 
 		this.content.$element.append( closeButton.$element );
 		this.$body.append( this.content.$element );
@@ -72,7 +72,9 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	SearchWidgetDialog.static.title = 'Search widget dialog';
 	SearchWidgetDialog.prototype.initialize = function () {
 		SearchWidgetDialog.super.prototype.initialize.apply( this, arguments );
-		var i, items = [], searchWidget = new OO.ui.SearchWidget( { $: this.$ } );
+		var i,
+			items = [],
+			searchWidget = new OO.ui.SearchWidget( { $: this.$ } );
 		for ( i = 1; i <= 20; i++ ) {
 			items.push( new OO.ui.OptionWidget( { $: this.$, data: i, label: 'Item ' + i } ) );
 		}

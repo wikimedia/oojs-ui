@@ -370,13 +370,13 @@ OO.ui.Demo.prototype.buildConsole = function ( item, key ) {
 			$( '<div>' )
 				.addClass( 'oo-ui-demo-console-log-line oo-ui-demo-console-log-line-input' )
 				.text( val ),
-			$('<div>')
+			$( '<div>' )
 				.addClass( 'oo-ui-demo-console-log-line oo-ui-demo-console-log-line-return' )
 				.text( logval || result.value )
 		);
 
 		if ( result.error ) {
-			$log.append( $('<div>').addClass( 'oo-ui-demo-console-log-line oo-ui-demo-console-log-line-error' ).text( result.error ) );
+			$log.append( $( '<div>' ).addClass( 'oo-ui-demo-console-log-line oo-ui-demo-console-log-line-error' ).text( result.error ) );
 		}
 
 		if ( console && console.log ) {

@@ -83,7 +83,7 @@ module.exports = function ( grunt ) {
 		}
 
 		grunt.log.ok( 'No typos found; ' +
-			fileCount + ' file' + ( fileCount !== 1 ? 's' : '') + ' checked for ' +
-			typoCount + ' typo' + ( typoCount !== 1 ? 's' : '') + '.' );
+			fileCount + ' file' + ( fileCount !== 1 ? 's' : '' ) + ' checked for ' +
+			typoCount + ' typo' + ( typoCount !== 1 ? 's' : '' ) + '.' );
 	} );
 };
