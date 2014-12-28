@@ -8,9 +8,6 @@ OOjs UI is a modern JavaScript UI toolkit for browsers. It provides a library of
 Quick start
 ----------
 
-Quick start
-----------
-
 This library is available as an [npm](https://npmjs.org/) package! Install it right away:
 <pre lang="bash">
 npm install oojs-ui
