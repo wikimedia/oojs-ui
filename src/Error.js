@@ -1,5 +1,4 @@
 /**
- * @abstract
  * @class
  *
  * @constructor
