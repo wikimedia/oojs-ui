@@ -76,7 +76,7 @@ OO.ui.IndicatorElement.prototype.setIndicatorElement = function ( $indicator ) {
 		.addClass( 'oo-ui-indicatorElement-indicator' )
 		.toggleClass( 'oo-ui-indicator-' + this.indicator, !!this.indicator );
 	if ( this.indicatorTitle !== null ) {
-		this.$indicatorTitle.attr( 'title', this.indicatorTitle );
+		this.$indicator.attr( 'title', this.indicatorTitle );
 	}
 };
 
