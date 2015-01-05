@@ -690,11 +690,10 @@ OO.ui.WindowManager.prototype.toggleAriaIsolation = function ( isolate ) {
 
 /**
  * Destroy window manager.
- *
- * Windows will not be closed, only removed from the DOM.
  */
 OO.ui.WindowManager.prototype.destroy = function () {
 	this.toggleGlobalEvents( false );
 	this.toggleAriaIsolation( false );
+	this.clearWindows();
 	this.$element.remove();
 };
