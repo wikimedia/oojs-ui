@@ -1,5 +1,16 @@
 # OOjs UI Release History
 
+## v0.6.1 / 2015-01-05
+* Remove use of Math.round() for offset and position pixel values (Bartosz Dziewoński)
+* Update JSPHP-suite.json (Bartosz Dziewoński)
+* ButtonElement: Inherit all 'font' styles, not only 'font-family' (Bartosz Dziewoński)
+* FieldsetLayout: Shrink size of label and bump the weight to compensate (James D. Forrester)
+* IndicatorElement: Fix 'indicatorTitle' config option (Bartosz Dziewoński)
+* Error: Unmark as @abstract (Bartosz Dziewoński)
+* build: Update various devDependencies (James D. Forrester)
+* readme: Update badges (Timo Tijhof)
+* readme: No need to put the same heading in twice (James D. Forrester)
+
 ## v0.6.0 / 2014-12-16
 * [BREAKING CHANGE] PopupToolGroup and friends: Pay off technical debt (Bartosz Dziewoński)
 * ButtonGroupWidget: Remove weird margin-bottom: -1px; from theme styles (Bartosz Dziewoński)
