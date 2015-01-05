@@ -544,7 +544,7 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
  *
  * Windows will be closed before they are removed.
  *
- * @param {string} name Symbolic name of window to remove
+ * @param {string[]} names Symbolic names of windows to remove
  * @return {jQuery.Promise} Promise resolved when window is closed and removed
  * @throws {Error} If windows being removed are not being managed
  */
