@@ -216,22 +216,22 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		),
 		new OO.ui.FieldLayout(
 			new OO.ui.ButtonWidget( {
-				label: 'Icon',
-				indicator: 'down',
-				flags: [ 'constructive' ]
+				label: 'Indicator',
+				indicator: 'down'
 			} ),
 			{
-				label: 'ButtonWidget (indicator, constructive)\u200E',
+				label: 'ButtonWidget (indicator)\u200E',
 				align: 'top'
 			}
 		),
 		new OO.ui.FieldLayout(
 			new OO.ui.ButtonWidget( {
 				label: 'Indicator',
-				indicator: 'down'
+				indicator: 'down',
+				flags: [ 'constructive' ]
 			} ),
 			{
-				label: 'ButtonWidget (indicator)\u200E',
+				label: 'ButtonWidget (indicator, constructive)\u200E',
 				align: 'top'
 			}
 		),
