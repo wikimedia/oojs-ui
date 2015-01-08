@@ -39,6 +39,7 @@ else
 		'enctype' => true,
 		'target' => ['_blank'],
 		'name' => true,
+		'autofocus' => true, # usually makes no sense in JS
 		'tabIndex' => true,
 		'icon' => ['picture'],
 		'indicator' => ['down'],

@@ -27,12 +27,14 @@ class TextInputWidget extends InputWidget {
 	 * @param array $config Configuration options
 	 * @param string $config['type'] HTML tag `type` attribute (default: 'text')
 	 * @param string $config['placeholder'] Placeholder text
+	 * @param boolean $config['autofocus'] Ask the browser to focus this widget, using the 'autofocus'
+	 *   HTML attribute (default: false)
 	 * @param boolean $config['readOnly'] Prevent changes (default: false)
 	 * @param boolean $config['multiline'] Allow multiple lines of text (default: false)
 	 */
 	public function __construct( array $config = array() ) {
 		// Config initialization
-		$config = array_merge( array( 'readOnly' => false ), $config );
+		$config = array_merge( array( 'readOnly' => false, 'autofocus' => false ), $config );
 
 		// Parent constructor
 		parent::__construct( $config );
@@ -51,6 +53,9 @@ class TextInputWidget extends InputWidget {
 		$this->setReadOnly( $config['readOnly'] );
 		if ( isset( $config['placeholder'] ) ) {
 			$this->input->setAttributes( array( 'placeholder' => $config['placeholder'] ) );
+		}
+		if ( $config['autofocus'] ) {
+			$this->input->setAttributes( array( 'autofocus' => 'autofocus' ) );
 		}
 		$this->setAttributes( array( 'role' => 'textbox' ) );
 	}
