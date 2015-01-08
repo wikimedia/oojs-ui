@@ -33,6 +33,7 @@
 
 		> .oo-ui-labelElement-label {
 			color: @disabled-text;
+			background: @disabled-background;
 		}
 	}
 
@@ -116,15 +117,15 @@
 
 		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
 			color: @disabled-text;
-			background: @background;
-			border: @disabled-button-border;
+			background: @disabled-background;
+			border: @disabled-background;
 		}
 
 		&.oo-ui-widget-enabled {
 			> .oo-ui-buttonElement-button {
 				color: @text;
 				background-color: @background;
-				border: @disabled-button-border;
+				border: @neutral-button-border;
 
 				&:hover,
 				&:focus {
