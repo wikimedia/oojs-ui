@@ -19,6 +19,7 @@
 			"src/ToolGroupFactory.js",
 			"src/Theme.js",
 
+			"src/elements/TabIndexedElement.js",
 			"src/elements/ButtonElement.js",
 			"src/elements/GroupElement.js",
 			"src/elements/DraggableElement.js",

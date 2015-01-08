@@ -24,8 +24,6 @@ class ButtonElement extends ElementMixin {
 	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param boolean $config['framed'] Render button with a frame (default: true)
-	 * @param number $config['tabIndex'] Button's tab index. Use 0 to use default ordering, use -1 to
-	 *   prevent tab focusing. (default: 0)
 	 */
 	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor
@@ -38,8 +36,6 @@ class ButtonElement extends ElementMixin {
 		$this->toggleFramed( isset( $config['framed'] ) ? $config['framed'] : true );
 		$this->target->setAttributes( array(
 			'role' => 'button',
-			'tabIndex' => isset( $config['tabIndex'] ) &&
-				is_numeric( $config['tabIndex'] ) ? $config['tabIndex'] : 0
 		) );
 	}
 
@@ -62,27 +58,6 @@ class ButtonElement extends ElementMixin {
 	 */
 	public function isFramed() {
 		return $this->framed;
-	}
-
-	/**
-	 * Set tab index.
-	 *
-	 * @param number|null $tabIndex Button's tab index, use null to remove
-	 * @chainable
-	 */
-	public function setTabIndex( $tabIndex ) {
-		$tabIndex = is_numeric( $tabIndex ) && $tabIndex >= 0 ? $tabIndex : null;
-
-		if ( $this->tabIndex !== $tabIndex ) {
-			if ( $tabIndex !== null ) {
-				$this->target->setAttributes( array( 'tabindex' => $tabIndex ) );
-			} else {
-				$this->target->removeAttributes( array( 'tabindex' ) );
-			}
-			$this->tabIndex = $tabIndex;
-		}
-
-		return $this;
 	}
 
 	/**

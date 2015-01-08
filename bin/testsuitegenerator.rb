@@ -40,7 +40,7 @@ else
 		'target' => ['_blank'],
 		'name' => true,
 		'autofocus' => true, # usually makes no sense in JS
-		'tabIndex' => true,
+		'tabIndex' => [-1, 0, 100],
 		'icon' => ['picture'],
 		'indicator' => ['down'],
 		'flags' => %w[constructive],
