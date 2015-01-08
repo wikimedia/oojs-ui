@@ -14,6 +14,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 			'help',
 			'info',
 			'link',
+			'lock',
 			'menu',
 			'next',
 			'picture',
