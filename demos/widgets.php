@@ -372,6 +372,15 @@
 							)
 						),
 						new OOUI\FieldLayout(
+							new OOUI\LabelWidget( array(
+								'label' => new OOUI\HtmlSnippet( '<b>Fancy</b> <i>text</i> <u>formatting</u>!' ),
+							) ),
+							array(
+								'label' => 'LabelWidget with HtmlSnippet',
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
 							new OOUI\TextInputWidget( array( 'value' => 'Text input' ) ),
 							array(
 								'label' => 'TextInputWidget',
