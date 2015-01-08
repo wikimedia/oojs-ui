@@ -442,9 +442,11 @@
 		box-shadow: 0 0.15em 0.5em 0 rgba(0, 0, 0, 0.2);
 	}
 
+	@anchor-size: 6px;
+
 	&-anchored {
 		.oo-ui-popupWidget-popup {
-			margin-top: 7px;
+			margin-top: @anchor-size;
 		}
 
 		.oo-ui-popupWidget-anchor:before,
@@ -459,17 +461,17 @@
 		}
 
 		.oo-ui-popupWidget-anchor:before {
-			bottom: -8px;
-			left: -7px;
+			bottom: -@anchor-size - 1px;
+			left: -@anchor-size;
 			border-bottom-color: #aaa;
-			border-width: 7px;
+			border-width: @anchor-size + 1px;
 		}
 
 		.oo-ui-popupWidget-anchor:after {
-			bottom: -8px;
-			left: -6px;
+			bottom: -@anchor-size - 1px;
+			left: -@anchor-size + 1px;
 			border-bottom-color: #fff;
-			border-width: 6px;
+			border-width: @anchor-size;
 		}
 	}
 
