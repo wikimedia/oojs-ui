@@ -15,6 +15,7 @@
 			"help": { "file": "help.svg" },
 			"info": { "file": "info.svg" },
 			"link": { "file": "link.svg" },
+			"lock": { "file": "lock.svg" },
 			"menu": { "file": "menu.svg" },
 			"next": { "file": "move-ltr.svg" },
 			"picture": { "file": "picture.svg" },
