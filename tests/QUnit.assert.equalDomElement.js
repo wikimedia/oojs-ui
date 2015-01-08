@@ -5,8 +5,8 @@
  * attributes (for dynamically generated nodes) and order-insensitive comparison of classes on DOM
  * nodes.
  *
- * @copyright 2011-2014 VisualEditor Team and others; see http://ve.mit-license.org
- * @copyright 2011-2014 OOjs Team and other contributors
+ * @copyright 2011-2015 VisualEditor Team and others; see http://ve.mit-license.org
+ * @copyright 2011-2015 OOjs Team and other contributors
  */
 
 ( function ( QUnit ) {
