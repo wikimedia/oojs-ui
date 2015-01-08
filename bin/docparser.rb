@@ -50,10 +50,11 @@ def parse_file filename
 			visibility: :public,
 			type: nil,
 			# static: false, # unnecessary, skip it
+			# abstract: false, # unnecessary, skip it
 		}
 		valid_for_all = %I[name description]
 		valid_per_kind = {
-			class:    valid_for_all + %I[parent mixins methods properties events],
+			class:    valid_for_all + %I[parent mixins methods properties events abstract],
 			method:   valid_for_all + %I[params config return visibility static],
 			property: valid_for_all + %I[type static],
 			event:    valid_for_all + %I[params],
@@ -143,9 +144,11 @@ def parse_file filename
 				data[:visibility] = :private
 			when 'static'
 				data[:static] = true
+			when 'abstract'
+				data[:abstract] = true
 			when 'ignore'
 				ignore = true
-			when 'abstract', 'inheritable', 'deprecated', 'singleton', 'throws', 'chainable', 'fires', 'localdoc', 'inheritdoc'
+			when 'inheritable', 'deprecated', 'singleton', 'throws', 'chainable', 'fires', 'localdoc', 'inheritdoc'
 				# skip
 			else
 				fail "unrecognized keyword: #{keyword}"

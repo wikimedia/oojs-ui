@@ -15,7 +15,8 @@ else
 	classes = php.select{|c| class_names.include? c[:name] }
 
 	testable_classes = classes
-		.reject{|c| !c[:parent] || c[:parent] == 'ElementMixin' } # can't test mixins separately
+		.reject{|c| c[:abstract] } # can't test abstract classes
+		.reject{|c| !c[:parent] || c[:parent] == 'ElementMixin' } # can't test abstract
 		.reject{|c| %w[Element Widget Layout Theme MediaWikiTheme].include? c[:name] } # no toplevel
 		.select{|c| c[:methods][0][:params].empty? } # only without params :(
 
