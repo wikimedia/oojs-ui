@@ -138,6 +138,7 @@
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 				background-color: @active-color;
 				border-color: @active-color;
+				box-shadow: none;
 			}
 
 			&.oo-ui-flaggedElement {
@@ -189,6 +190,7 @@
 		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button > .oo-ui-labelElement-label,
 		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 			color: @active;
+			box-shadow: none;
 		}
 	}
 }
@@ -201,6 +203,16 @@
 		&:focus {
 			box-shadow: inset 0 -0.2em 0 0 @active, 0 0.1em 0 0 rgba(0,0,0,0.1);
 			border-bottom-color: @active;
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-buttonElement-button:active,
+		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
+		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+			color: @active;
+			border-color: @active-color;
+			box-shadow: none;
 		}
 	}
 }
@@ -224,6 +236,8 @@
 		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
 		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 			background-color: @active;
+			border-color: @active;
+			box-shadow: none;
 		}
 	}
 }
