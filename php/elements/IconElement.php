@@ -9,6 +9,8 @@ namespace OOUI;
  * a control or convey information in a more space efficient way. Icons should rarely be used
  * without labels; such as in a toolbar where space is at a premium or within a context where the
  * meaning is very clear to the user.
+ *
+ * @abstract
  */
 class IconElement extends ElementMixin {
 	/**

@@ -4,6 +4,8 @@ namespace OOUI;
 
 /**
  * Element containing a sequence of child elements.
+ *
+ * @abstract
  */
 class GroupElement extends ElementMixin {
 	/**

@@ -4,6 +4,8 @@ namespace OOUI;
 
 /**
  * Element containing a label.
+ *
+ * @abstract
  */
 class LabelElement extends ElementMixin {
 	/**

@@ -4,6 +4,8 @@ namespace OOUI;
 
 /**
  * DOM element abstraction.
+ *
+ * @abstract
  */
 class Element extends Tag {
 

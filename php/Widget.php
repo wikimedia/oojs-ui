@@ -4,6 +4,8 @@ namespace OOUI;
 
 /**
  * User interface control.
+ *
+ * @abstract
  */
 class Widget extends Element {
 

@@ -7,6 +7,8 @@ namespace OOUI;
  *
  * Buttons are used for controls which can be clicked. They can be configured to use tab indexing
  * and access keys for accessibility purposes.
+ *
+ * @abstract
  */
 class ButtonElement extends ElementMixin {
 	/**

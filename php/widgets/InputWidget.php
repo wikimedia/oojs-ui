@@ -4,6 +4,8 @@ namespace OOUI;
 
 /**
  * Base class for input widgets.
+ *
+ * @abstract
  */
 class InputWidget extends Widget {
 

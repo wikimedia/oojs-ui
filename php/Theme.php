@@ -4,6 +4,8 @@ namespace OOUI;
 
 /**
  * Theme logic.
+ *
+ * @abstract
  */
 class Theme {
 

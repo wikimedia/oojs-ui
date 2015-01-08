@@ -4,6 +4,8 @@ namespace OOUI;
 
 /**
  * Container for elements.
+ *
+ * @abstract
  */
 class Layout extends Element {
 	/**

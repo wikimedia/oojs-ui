@@ -7,6 +7,8 @@ namespace OOUI;
  *
  * A flag, when set, adds a CSS class on the `$element` by combining `oo-ui-flaggedElement-` with
  * the flag name. Flags are primarily useful for styling.
+ *
+ * @abstract
  */
 class FlaggedElement extends ElementMixin {
 	/**

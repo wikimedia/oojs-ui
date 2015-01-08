@@ -9,6 +9,8 @@ namespace OOUI;
  * behavior. Indicators should only be used in exceptional cases; such as a button that opens a menu
  * instead of performing an action directly, or an item in a list which has errors that need to be
  * resolved.
+ *
+ * @abstract
  */
 class IndicatorElement extends ElementMixin {
 	/**
