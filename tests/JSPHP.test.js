@@ -17,8 +17,7 @@ QUnit.module( 'JSPHP' );
 				instance = new klass( test.config );
 
 				id = 'JSPHPTestSuite_' + klassName + i;
-				fromPhp = document.getElementById( id );
-				fromPhp.removeAttribute( 'id' );
+				fromPhp = document.getElementById( id ).firstChild;
 				instance.$element.insertBefore( fromPhp );
 
 				// Updating theme classes is normally debounced, we need to do it immediately
