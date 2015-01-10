@@ -1,5 +1,24 @@
 # OOjs UI Release History
 
+## v0.6.2 / 2015-01-09
+* WindowManager#removeWindows: Documentation fix (Ed Sanders)
+* Clear windows when destroying window manager (Ed Sanders)
+* MediaWiki theme: Slightly reduce size of indicator arrows (Ed Sanders)
+* MediaWiki Theme: Remove text-shadow on  button (Prateek Saxena)
+* MediaWiki Theme: Fix focus state for buttons (Prateek Saxena)
+* MediaWiki Theme: Fix disabled state of buttons (Prateek Saxena)
+* MediaWiki Theme: Fix overlap between hover and active states (Prateek Saxena)
+* Make @anchor-size a less variable and calculate borders from it (Ed Sanders)
+* PHP LabelElement: Actually allow non-plaintext labels (Bartosz Dziewoński)
+* MediaWiki Theme: Add state change transition to checkbox (Prateek Saxena)
+* Synchronize @abstract class annotations between PHP and JS (Bartosz Dziewoński)
+* Add 'lock' icon (Trevor Parscal)
+* Don't test abstract classes (Bartosz Dziewoński)
+* Element: Add support for 'id' config option (Bartosz Dziewoński)
+* testsuitegenerator.rb: Handle inheritance chains (Bartosz Dziewoński)
+* TextInputWidget: Add support for 'autofocus' config option (Bartosz Dziewoński)
+* tests: Don't overwrite 'id' attribute (Bartosz Dziewoński)
+
 ## v0.6.1 / 2015-01-05
 * Remove use of Math.round() for offset and position pixel values (Bartosz Dziewoński)
 * Update JSPHP-suite.json (Bartosz Dziewoński)
