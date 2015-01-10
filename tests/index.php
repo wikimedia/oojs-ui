@@ -48,8 +48,7 @@
 				foreach ( $tests as $index => $test ) {
 					$class = expandClass( $test['class'] );
 					$instance = new $class( $test['config'] );
-					$instance->setAttributes( array( 'id' => "JSPHPTestSuite_$className$index" ) );
-					echo "$instance\n";
+					echo "<div id='JSPHPTestSuite_$className$index'>$instance</div>\n";
 				}
 			}
 		?>
