@@ -338,6 +338,24 @@
     {
       "class": "ButtonInputWidget",
       "config": {
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
         "framed": true
       }
     },
@@ -393,12 +411,6 @@
       "class": "ButtonInputWidget",
       "config": {
         "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "flags": "constructive"
       }
     },
     {
@@ -461,6 +473,48 @@
       "class": "ButtonInputWidget",
       "config": {
         "type": "button",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
         "framed": true
       }
     },
@@ -595,20 +649,6 @@
       "config": {
         "type": "input",
         "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "flags": "constructive"
       }
     },
     {
@@ -643,6 +683,48 @@
       "class": "ButtonInputWidget",
       "config": {
         "useInputTag": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
         "framed": true
       }
     },
@@ -782,14 +864,42 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": true,
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
         "flags": "constructive"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": false,
+        "value": "<b>HTML?</b>",
         "flags": "constructive"
       }
     },
@@ -936,15 +1046,225 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
+        "disabled": true,
         "flags": "constructive"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "title": "<b>HTML?</b>"
       }
     },
     {
@@ -1062,20 +1382,6 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "framed": true,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": false,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
         "icon": "picture",
         "indicator": "down"
       }
@@ -1125,13 +1431,6 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "icon": "picture",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
         "indicator": "down",
         "label": "Foo bar"
       }
@@ -1169,13 +1468,6 @@
       "config": {
         "indicator": "down",
         "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "indicator": "down",
-        "flags": "constructive"
       }
     },
     {
@@ -1232,48 +1524,6 @@
       "config": {
         "label": " ",
         "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": "",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": " ",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
       }
     },
     {
@@ -1345,6 +1595,102 @@
       "config": {
         "type": "button",
         "useInputTag": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "useInputTag": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "useInputTag": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "useInputTag": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "useInputTag": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "useInputTag": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "useInputTag": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "useInputTag": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "useInputTag": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "useInputTag": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "useInputTag": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "useInputTag": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "useInputTag": true,
         "framed": true
       }
     },
@@ -1664,7 +2010,71 @@
       "class": "ButtonInputWidget",
       "config": {
         "type": "button",
-        "useInputTag": true,
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "value": "Foo bar",
         "flags": "constructive"
       }
     },
@@ -1672,7 +2082,7 @@
       "class": "ButtonInputWidget",
       "config": {
         "type": "button",
-        "useInputTag": false,
+        "value": "<b>HTML?</b>",
         "flags": "constructive"
       }
     },
@@ -1680,7 +2090,7 @@
       "class": "ButtonInputWidget",
       "config": {
         "type": "input",
-        "useInputTag": true,
+        "value": "Foo bar",
         "flags": "constructive"
       }
     },
@@ -1688,7 +2098,7 @@
       "class": "ButtonInputWidget",
       "config": {
         "type": "input",
-        "useInputTag": false,
+        "value": "<b>HTML?</b>",
         "flags": "constructive"
       }
     },
@@ -2016,6 +2426,1174 @@
       "class": "ButtonInputWidget",
       "config": {
         "type": "button",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": true,
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": true,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "disabled": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "disabled": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive",
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive",
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive",
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive",
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "flags": "constructive",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "flags": "constructive",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "framed": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "framed": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "icon": "picture",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "icon": "picture",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "icon": "picture",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "icon": "picture",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "icon": "picture",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "icon": "picture",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "icon": "picture",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "icon": "picture",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "icon": "picture",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "icon": "picture",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "icon": "picture",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "icon": "picture",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "icon": "picture",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "icon": "picture",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "indicator": "down",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "indicator": "down",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "indicator": "down",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "indicator": "down",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "indicator": "down",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "indicator": "down",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "indicator": "down",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "indicator": "down",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "indicator": "down",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "indicator": "down",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "indicator": "down",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "indicator": "down",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "label": "Foo bar",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "label": "Foo bar",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "label": "<b>HTML?</b>",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "label": "<b>HTML?</b>",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "label": "",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "label": "",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "label": " ",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
+        "label": " ",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "label": "Foo bar",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "label": "Foo bar",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "label": "<b>HTML?</b>",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "label": "<b>HTML?</b>",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "label": "",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "label": "",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "label": " ",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "label": " ",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
         "value": "Foo bar",
         "flags": "constructive"
       }
@@ -2023,7 +3601,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "type": "button",
+        "useInputTag": true,
         "value": "<b>HTML?</b>",
         "flags": "constructive"
       }
@@ -2031,7 +3609,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "type": "input",
+        "useInputTag": false,
         "value": "Foo bar",
         "flags": "constructive"
       }
@@ -2039,760 +3617,8 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "type": "input",
+        "useInputTag": false,
         "value": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": true,
-        "icon": "picture"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": false,
-        "icon": "picture"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": true,
-        "icon": "picture"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": false,
-        "icon": "picture"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": true,
-        "indicator": "down"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": false,
-        "indicator": "down"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": true,
-        "indicator": "down"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": false,
-        "indicator": "down"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": true,
-        "label": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": true,
-        "label": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": true,
-        "label": ""
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": true,
-        "label": " "
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": false,
-        "label": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": false,
-        "label": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": false,
-        "label": ""
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": false,
-        "label": " "
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": true,
-        "label": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": true,
-        "label": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": true,
-        "label": ""
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": true,
-        "label": " "
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": false,
-        "label": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": false,
-        "label": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": false,
-        "label": ""
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": false,
-        "label": " "
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": true,
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": true,
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": false,
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": false,
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": true,
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": true,
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": false,
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": false,
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": true,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "framed": false,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": true,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "framed": false,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "icon": "picture",
-        "indicator": "down"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "icon": "picture",
-        "indicator": "down"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "icon": "picture",
-        "label": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "icon": "picture",
-        "label": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "icon": "picture",
-        "label": ""
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "icon": "picture",
-        "label": " "
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "icon": "picture",
-        "label": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "icon": "picture",
-        "label": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "icon": "picture",
-        "label": ""
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "icon": "picture",
-        "label": " "
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "icon": "picture",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "icon": "picture",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "icon": "picture",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "icon": "picture",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "icon": "picture",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "icon": "picture",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "indicator": "down",
-        "label": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "indicator": "down",
-        "label": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "indicator": "down",
-        "label": ""
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "indicator": "down",
-        "label": " "
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "indicator": "down",
-        "label": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "indicator": "down",
-        "label": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "indicator": "down",
-        "label": ""
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "indicator": "down",
-        "label": " "
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "indicator": "down",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "indicator": "down",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "indicator": "down",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "indicator": "down",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "indicator": "down",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "indicator": "down",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": "Foo bar",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": "Foo bar",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": "<b>HTML?</b>",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": "<b>HTML?</b>",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": "",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": "",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": " ",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": " ",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": "Foo bar",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": "Foo bar",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": "<b>HTML?</b>",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": "<b>HTML?</b>",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": "",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": "",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": " ",
-        "title": "Foo bar"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": " ",
-        "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": "",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "label": " ",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": "",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "label": " ",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "button",
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "type": "input",
-        "title": "<b>HTML?</b>",
         "flags": "constructive"
       }
     },
@@ -3120,7 +3946,7 @@
       "class": "ButtonInputWidget",
       "config": {
         "useInputTag": true,
-        "value": "Foo bar",
+        "disabled": true,
         "flags": "constructive"
       }
     },
@@ -3128,7 +3954,7 @@
       "class": "ButtonInputWidget",
       "config": {
         "useInputTag": true,
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "flags": "constructive"
       }
     },
@@ -3136,7 +3962,7 @@
       "class": "ButtonInputWidget",
       "config": {
         "useInputTag": false,
-        "value": "Foo bar",
+        "disabled": true,
         "flags": "constructive"
       }
     },
@@ -3144,8 +3970,488 @@
       "class": "ButtonInputWidget",
       "config": {
         "useInputTag": false,
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": true,
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": true,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false,
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true,
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false,
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "disabled": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "disabled": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive",
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive",
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive",
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive",
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
+        "flags": "constructive",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "flags": "constructive",
+        "title": "<b>HTML?</b>"
       }
     },
     {
@@ -3408,38 +4714,6 @@
       "class": "ButtonInputWidget",
       "config": {
         "useInputTag": true,
-        "framed": true,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "useInputTag": true,
-        "framed": false,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "useInputTag": false,
-        "framed": true,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "useInputTag": false,
-        "framed": false,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "useInputTag": true,
         "icon": "picture",
         "indicator": "down"
       }
@@ -3552,22 +4826,6 @@
       "class": "ButtonInputWidget",
       "config": {
         "useInputTag": true,
-        "icon": "picture",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "useInputTag": false,
-        "icon": "picture",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "useInputTag": true,
         "indicator": "down",
         "label": "Foo bar"
       }
@@ -3664,22 +4922,6 @@
       "class": "ButtonInputWidget",
       "config": {
         "useInputTag": true,
-        "indicator": "down",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "useInputTag": false,
-        "indicator": "down",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "useInputTag": true,
         "label": "Foo bar",
         "title": "Foo bar"
       }
@@ -3807,97 +5049,513 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": true,
-        "label": "Foo bar",
+        "value": "Foo bar",
+        "disabled": true,
         "flags": "constructive"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": true,
-        "label": "<b>HTML?</b>",
+        "value": "Foo bar",
+        "disabled": false,
         "flags": "constructive"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": true,
-        "label": "",
+        "value": "<b>HTML?</b>",
+        "disabled": true,
         "flags": "constructive"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": true,
-        "label": " ",
+        "value": "<b>HTML?</b>",
+        "disabled": false,
         "flags": "constructive"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": false,
-        "label": "Foo bar",
-        "flags": "constructive"
+        "value": "Foo bar",
+        "disabled": true,
+        "framed": true
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": false,
-        "label": "<b>HTML?</b>",
-        "flags": "constructive"
+        "value": "Foo bar",
+        "disabled": true,
+        "framed": false
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": false,
-        "label": "",
-        "flags": "constructive"
+        "value": "Foo bar",
+        "disabled": false,
+        "framed": true
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": false,
-        "label": " ",
-        "flags": "constructive"
+        "value": "Foo bar",
+        "disabled": false,
+        "framed": false
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": true,
-        "title": "Foo bar",
-        "flags": "constructive"
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "framed": true
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": true,
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "framed": false
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": false,
-        "title": "Foo bar",
-        "flags": "constructive"
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "framed": true
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "useInputTag": false,
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "title": "<b>HTML?</b>"
       }
     },
     {
@@ -4160,38 +5818,6 @@
       "class": "ButtonInputWidget",
       "config": {
         "value": "Foo bar",
-        "framed": true,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "Foo bar",
-        "framed": false,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "framed": true,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "framed": false,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "Foo bar",
         "icon": "picture",
         "indicator": "down"
       }
@@ -4304,22 +5930,6 @@
       "class": "ButtonInputWidget",
       "config": {
         "value": "Foo bar",
-        "icon": "picture",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "icon": "picture",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "Foo bar",
         "indicator": "down",
         "label": "Foo bar"
       }
@@ -4416,22 +6026,758 @@
       "class": "ButtonInputWidget",
       "config": {
         "value": "Foo bar",
+        "label": "Foo bar",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "label": "Foo bar",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "label": "<b>HTML?</b>",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "label": "<b>HTML?</b>",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "label": "",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "label": "",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "label": " ",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "label": " ",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "label": "Foo bar",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "label": "Foo bar",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "label": "<b>HTML?</b>",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "label": "<b>HTML?</b>",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "label": "",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "label": "",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "label": " ",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "label": " ",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "framed": true
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "framed": false
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "framed": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "framed": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "icon": "picture",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "icon": "picture",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "icon": "picture",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "icon": "picture",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "icon": "picture",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "icon": "picture",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "icon": "picture",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "icon": "picture",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "icon": "picture",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "icon": "picture",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "icon": "picture",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "icon": "picture",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "icon": "picture",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "icon": "picture",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
         "indicator": "down",
-        "flags": "constructive"
+        "label": "Foo bar"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "disabled": true,
         "indicator": "down",
-        "flags": "constructive"
+        "label": "<b>HTML?</b>"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
+        "disabled": true,
+        "indicator": "down",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "indicator": "down",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "indicator": "down",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "indicator": "down",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "indicator": "down",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "indicator": "down",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "indicator": "down",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
+        "indicator": "down",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "indicator": "down",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "indicator": "down",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
         "label": "Foo bar",
         "title": "Foo bar"
       }
@@ -4439,7 +6785,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
+        "disabled": true,
         "label": "Foo bar",
         "title": "<b>HTML?</b>"
       }
@@ -4447,7 +6793,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
+        "disabled": true,
         "label": "<b>HTML?</b>",
         "title": "Foo bar"
       }
@@ -4455,7 +6801,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
+        "disabled": true,
         "label": "<b>HTML?</b>",
         "title": "<b>HTML?</b>"
       }
@@ -4463,7 +6809,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
+        "disabled": true,
         "label": "",
         "title": "Foo bar"
       }
@@ -4471,7 +6817,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
+        "disabled": true,
         "label": "",
         "title": "<b>HTML?</b>"
       }
@@ -4479,7 +6825,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
+        "disabled": true,
         "label": " ",
         "title": "Foo bar"
       }
@@ -4487,7 +6833,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
+        "disabled": true,
         "label": " ",
         "title": "<b>HTML?</b>"
       }
@@ -4495,7 +6841,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "label": "Foo bar",
         "title": "Foo bar"
       }
@@ -4503,7 +6849,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "label": "Foo bar",
         "title": "<b>HTML?</b>"
       }
@@ -4511,7 +6857,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "label": "<b>HTML?</b>",
         "title": "Foo bar"
       }
@@ -4519,7 +6865,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "label": "<b>HTML?</b>",
         "title": "<b>HTML?</b>"
       }
@@ -4527,7 +6873,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "label": "",
         "title": "Foo bar"
       }
@@ -4535,7 +6881,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "label": "",
         "title": "<b>HTML?</b>"
       }
@@ -4543,7 +6889,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "label": " ",
         "title": "Foo bar"
       }
@@ -4551,7 +6897,7 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "disabled": false,
         "label": " ",
         "title": "<b>HTML?</b>"
       }
@@ -4559,97 +6905,297 @@
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
+        "flags": "constructive",
+        "framed": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": true,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": true,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": true,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": true,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": false,
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": false,
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": false,
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": false,
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": true,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": true,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": false,
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "framed": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "icon": "picture",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "icon": "picture",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "icon": "picture",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "icon": "picture",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "icon": "picture",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "icon": "picture",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "icon": "picture",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "indicator": "down",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "indicator": "down",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "indicator": "down",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "indicator": "down",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "indicator": "down",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
+        "indicator": "down",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
         "label": "Foo bar",
-        "flags": "constructive"
+        "title": "Foo bar"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
-        "label": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "Foo bar",
-        "label": "",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "Foo bar",
-        "label": " ",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
+        "flags": "constructive",
         "label": "Foo bar",
-        "flags": "constructive"
+        "title": "<b>HTML?</b>"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "flags": "constructive",
         "label": "<b>HTML?</b>",
-        "flags": "constructive"
+        "title": "Foo bar"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "label": "<b>HTML?</b>",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
         "label": "",
-        "flags": "constructive"
+        "title": "Foo bar"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "label": "",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
         "label": " ",
-        "flags": "constructive"
+        "title": "Foo bar"
       }
     },
     {
       "class": "ButtonInputWidget",
       "config": {
-        "value": "Foo bar",
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "Foo bar",
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
+        "flags": "constructive",
+        "label": " ",
+        "title": "<b>HTML?</b>"
       }
     },
     {
@@ -4768,22 +7314,6 @@
       "class": "ButtonInputWidget",
       "config": {
         "framed": true,
-        "icon": "picture",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": false,
-        "icon": "picture",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": true,
         "indicator": "down",
         "label": "Foo bar"
       }
@@ -4880,22 +7410,6 @@
       "class": "ButtonInputWidget",
       "config": {
         "framed": true,
-        "indicator": "down",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": false,
-        "indicator": "down",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": true,
         "label": "Foo bar",
         "title": "Foo bar"
       }
@@ -5018,102 +7532,6 @@
         "framed": false,
         "label": " ",
         "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": true,
-        "label": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": true,
-        "label": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": true,
-        "label": "",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": true,
-        "label": " ",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": false,
-        "label": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": false,
-        "label": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": false,
-        "label": "",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": false,
-        "label": " ",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": true,
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": true,
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": false,
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "framed": false,
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
       }
     },
     {
@@ -5168,14 +7586,6 @@
       "class": "ButtonInputWidget",
       "config": {
         "icon": "picture",
-        "indicator": "down",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "icon": "picture",
         "label": "Foo bar",
         "title": "Foo bar"
       }
@@ -5234,54 +7644,6 @@
         "icon": "picture",
         "label": " ",
         "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "icon": "picture",
-        "label": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "icon": "picture",
-        "label": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "icon": "picture",
-        "label": "",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "icon": "picture",
-        "label": " ",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "icon": "picture",
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "icon": "picture",
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
       }
     },
     {
@@ -5346,118 +7708,6 @@
         "indicator": "down",
         "label": " ",
         "title": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "indicator": "down",
-        "label": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "indicator": "down",
-        "label": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "indicator": "down",
-        "label": "",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "indicator": "down",
-        "label": " ",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "indicator": "down",
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "indicator": "down",
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": "Foo bar",
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": "Foo bar",
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": "<b>HTML?</b>",
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": "<b>HTML?</b>",
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": "",
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": "",
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": " ",
-        "title": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "ButtonInputWidget",
-      "config": {
-        "label": " ",
-        "title": "<b>HTML?</b>",
-        "flags": "constructive"
       }
     }
   ],
@@ -9031,6 +11281,24 @@
     {
       "class": "CheckboxInputWidget",
       "config": {
+        "disabled": true
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "disabled": false
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
         "selected": true,
         "value": "Foo bar"
       }
@@ -9054,6 +11322,264 @@
       "config": {
         "selected": false,
         "value": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": true,
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "selected": false,
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "CheckboxInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "flags": "constructive"
       }
     }
   ],
@@ -9439,6 +11965,24 @@
     {
       "class": "RadioInputWidget",
       "config": {
+        "disabled": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "disabled": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
         "selected": true,
         "value": "Foo bar"
       }
@@ -9462,6 +12006,264 @@
       "config": {
         "selected": false,
         "value": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": true,
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "selected": false,
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "RadioInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "flags": "constructive"
       }
     }
   ],
@@ -9534,6 +12336,24 @@
     {
       "class": "TextInputWidget",
       "config": {
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
         "icon": "picture"
       }
     },
@@ -9659,6 +12479,48 @@
       "class": "TextInputWidget",
       "config": {
         "type": "text",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
         "icon": "picture"
       }
     },
@@ -9771,6 +12633,48 @@
       "class": "TextInputWidget",
       "config": {
         "placeholder": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
         "icon": "picture"
       }
     },
@@ -9855,6 +12759,48 @@
       "class": "TextInputWidget",
       "config": {
         "readOnly": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
         "icon": "picture"
       }
     },
@@ -9911,6 +12857,48 @@
       "class": "TextInputWidget",
       "config": {
         "multiline": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
         "icon": "picture"
       }
     },
@@ -9939,6 +12927,48 @@
       "class": "TextInputWidget",
       "config": {
         "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
         "icon": "picture"
       }
     },
@@ -9960,6 +12990,62 @@
       "class": "TextInputWidget",
       "config": {
         "value": "<b>HTML?</b>",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "flags": "constructive",
         "indicator": "down"
       }
     },
@@ -10167,6 +13253,102 @@
       "config": {
         "type": "text",
         "placeholder": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "placeholder": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "placeholder": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "placeholder": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "placeholder": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "placeholder": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "placeholder": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "placeholder": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "placeholder": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "placeholder": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "placeholder": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "placeholder": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "placeholder": "Foo bar",
         "icon": "picture"
       }
     },
@@ -10359,6 +13541,102 @@
       "config": {
         "type": "text",
         "readOnly": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "readOnly": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "readOnly": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "readOnly": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "readOnly": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "readOnly": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "readOnly": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "readOnly": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "readOnly": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "readOnly": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "readOnly": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "readOnly": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "readOnly": true,
         "icon": "picture"
       }
     },
@@ -10487,6 +13765,102 @@
       "config": {
         "type": "text",
         "multiline": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "multiline": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "multiline": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "multiline": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "multiline": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "multiline": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "multiline": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "multiline": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "multiline": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "multiline": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "multiline": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "multiline": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "multiline": true,
         "icon": "picture"
       }
     },
@@ -10551,6 +13925,102 @@
       "config": {
         "type": "text",
         "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "value": "Foo bar",
         "icon": "picture"
       }
     },
@@ -10607,6 +14077,134 @@
       "config": {
         "type": "password",
         "value": "<b>HTML?</b>",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "text",
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "type": "password",
+        "flags": "constructive",
         "indicator": "down"
       }
     },
@@ -10759,6 +14357,102 @@
       "config": {
         "placeholder": "Foo bar",
         "readOnly": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "readOnly": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "readOnly": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "readOnly": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "readOnly": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "readOnly": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "readOnly": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "readOnly": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "readOnly": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "readOnly": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "readOnly": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "readOnly": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "readOnly": true,
         "icon": "picture"
       }
     },
@@ -10887,6 +14581,102 @@
       "config": {
         "placeholder": "Foo bar",
         "multiline": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "multiline": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "multiline": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "multiline": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "multiline": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "multiline": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "multiline": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "multiline": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "multiline": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "multiline": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "multiline": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "multiline": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "multiline": true,
         "icon": "picture"
       }
     },
@@ -10951,6 +14741,102 @@
       "config": {
         "placeholder": "Foo bar",
         "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "value": "Foo bar",
         "icon": "picture"
       }
     },
@@ -11007,6 +14893,134 @@
       "config": {
         "placeholder": "<b>HTML?</b>",
         "value": "<b>HTML?</b>",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "Foo bar",
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "placeholder": "<b>HTML?</b>",
+        "flags": "constructive",
         "indicator": "down"
       }
     },
@@ -11095,6 +15109,102 @@
       "config": {
         "readOnly": true,
         "multiline": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "multiline": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "multiline": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "multiline": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "multiline": true,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "multiline": true,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "multiline": false,
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "multiline": false,
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "multiline": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "multiline": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "multiline": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "multiline": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "multiline": true,
         "icon": "picture"
       }
     },
@@ -11159,6 +15269,102 @@
       "config": {
         "readOnly": true,
         "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "value": "Foo bar",
         "icon": "picture"
       }
     },
@@ -11215,6 +15421,134 @@
       "config": {
         "readOnly": false,
         "value": "<b>HTML?</b>",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": true,
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "readOnly": false,
+        "flags": "constructive",
         "indicator": "down"
       }
     },
@@ -11239,6 +15573,102 @@
       "config": {
         "multiline": true,
         "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "value": "Foo bar",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "value": "Foo bar",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "value": "<b>HTML?</b>",
+        "disabled": true
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "value": "<b>HTML?</b>",
+        "disabled": false
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "value": "Foo bar",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "value": "<b>HTML?</b>",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "value": "Foo bar",
         "icon": "picture"
       }
     },
@@ -11295,6 +15725,134 @@
       "config": {
         "multiline": false,
         "value": "<b>HTML?</b>",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": true,
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "multiline": false,
+        "flags": "constructive",
         "indicator": "down"
       }
     },
@@ -11318,6 +15876,134 @@
       "class": "TextInputWidget",
       "config": {
         "value": "Foo bar",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": true,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "disabled": false,
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "value": "Foo bar",
         "icon": "picture",
         "indicator": "down"
       }
@@ -11326,6 +16012,62 @@
       "class": "TextInputWidget",
       "config": {
         "value": "<b>HTML?</b>",
+        "icon": "picture",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": true,
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": false,
+        "flags": "constructive",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": true,
+        "icon": "picture",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "disabled": false,
+        "icon": "picture",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "TextInputWidget",
+      "config": {
+        "flags": "constructive",
         "icon": "picture",
         "indicator": "down"
       }

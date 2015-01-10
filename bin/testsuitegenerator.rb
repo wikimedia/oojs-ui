@@ -44,6 +44,10 @@ else
 		'indicator' => ['down'],
 		'flags' => %w[constructive],
 		'label' => expandos['string'] + ['', ' '],
+		# these are defined by Element and would bloat the tests
+		'classes' => true,
+		'id' => true,
+		'content' => true,
 	}
 
 	expand_types_to_values = lambda do |types|
@@ -58,11 +62,25 @@ else
 		return classes.find{|c| c[:name] == klass }
 	end
 
+	find_config_sources = lambda do |klass_name|
+		return [] unless klass_name
+		klass_names = [klass_name]
+		while klass_name
+			klass = find_class.call(klass_name)
+			break unless klass
+			klass_names +=
+				find_config_sources.call(klass[:parent]) +
+				klass[:mixins].map(&find_config_sources).flatten
+			klass_name = klass[:parent]
+		end
+		return klass_names.uniq
+	end
+
 	testable_classes.each do |klass|
 		# constructor = klass[:methods][0]
 		# params = constructor[:params]
 
-		config_sources = [ klass[:name], klass[:parent] ] + klass[:mixins]
+		config_sources = find_config_sources.call klass[:name]
 		config = config_sources.map{|c| find_class.call(c)[:methods][0][:config] }.compact.inject(:+)
 
 		# generate every possible configuration of configuration option sets
