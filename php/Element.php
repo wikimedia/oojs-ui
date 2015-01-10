@@ -43,6 +43,7 @@ class Element extends Tag {
 	/**
 	 * @param array $config Configuration options
 	 * @param string[] $config['classes'] CSS class names to add
+	 * @param string $config['id'] HTML id attribute
 	 * @param array $config['content'] Content to append, strings or Element objects. Strings will
 	 *   be HTML-escaped for output, use a HtmlSnippet instance to prevent that.
 	 */
@@ -53,6 +54,9 @@ class Element extends Tag {
 		// Initialization
 		if ( isset( $config['classes'] ) && is_array( $config['classes'] ) ) {
 			$this->addClasses( $config['classes'] );
+		}
+		if ( isset( $config['id'] ) ) {
+			$this->setAttributes( array( 'id' => $config['id'] ) );
 		}
 		if ( isset( $config['content'] ) ) {
 			$this->appendContent( $config['content'] );
