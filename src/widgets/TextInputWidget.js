@@ -11,6 +11,8 @@
  * @param {Object} [config] Configuration options
  * @cfg {string} [type='text'] HTML tag `type` attribute
  * @cfg {string} [placeholder] Placeholder text
+ * @cfg {boolean} [autofocus=false] Ask the browser to focus this widget, using the 'autofocus' HTML
+ *  attribute
  * @cfg {boolean} [readOnly=false] Prevent changes
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
  * @cfg {boolean} [autosize=false] Automatically resize to fit content
@@ -63,6 +65,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.setReadOnly( config.readOnly );
 	if ( config.placeholder ) {
 		this.$input.attr( 'placeholder', config.placeholder );
+	}
+	if ( config.autofocus ) {
+		this.$input.attr( 'autofocus', 'autofocus' );
 	}
 	this.$element.attr( 'role', 'textbox' );
 };
