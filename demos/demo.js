@@ -29,8 +29,8 @@ OO.ui.Demo = function OoUiDemo() {
 	} );
 	this.pageMenu = this.pageDropdown.getMenu();
 	this.themeSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
-		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'apex', label: 'Apex' } ),
-		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'mediawiki', label: 'MediaWiki' } )
+		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'mediawiki', label: 'MediaWiki' } ),
+		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'apex', label: 'Apex' } )
 	] );
 	this.graphicsSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
 		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'vector', label: 'Vector' } ),
@@ -96,13 +96,13 @@ OO.ui.Demo.static.pages = {};
  * @property {Object.<string,Object>}
  */
 OO.ui.Demo.static.themes = {
-	apex: {
-		fileSuffix: '-apex',
-		theme: OO.ui.ApexTheme || OO.ui.Theme
-	},
 	mediawiki: {
 		fileSuffix: '-mediawiki',
 		theme: OO.ui.MediaWikiTheme || OO.ui.Theme
+	},
+	apex: {
+		fileSuffix: '-apex',
+		theme: OO.ui.ApexTheme || OO.ui.Theme
 	}
 };
 
@@ -152,7 +152,7 @@ OO.ui.Demo.static.defaultPage = null;
  * @static
  * @property {string}
  */
-OO.ui.Demo.static.defaultTheme = 'apex';
+OO.ui.Demo.static.defaultTheme = 'mediawiki';
 
 /**
  * Default page.
