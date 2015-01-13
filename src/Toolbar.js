@@ -93,7 +93,7 @@ OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
 
 /**
  * Sets up handles and preloads required information for the toolbar to work.
- * This must be called immediately after it is attached to a visible document.
+ * This must be called after it is attached to a visible document and before doing anything else.
  */
 OO.ui.Toolbar.prototype.initialize = function () {
 	this.initialized = true;
