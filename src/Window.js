@@ -35,8 +35,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [size] Symbolic name of dialog size, `small`, `medium`, `large` or `full`; omit to
- *   use #static-size
+ * @cfg {string} [size] Symbolic name of dialog size, `small`, `medium`, `large`, `larger` or
+ *  `full`; omit to use #static-size
  */
 OO.ui.Window = function OoUiWindow( config ) {
 	// Configuration initialization
@@ -296,7 +296,7 @@ OO.ui.Window.prototype.getManager = function () {
 /**
  * Get the window size.
  *
- * @return {string} Symbolic size name, e.g. 'small', 'medium', 'large', 'full'
+ * @return {string} Symbolic size name, e.g. `small`, `medium`, `large`, `larger`, `full`
  */
 OO.ui.Window.prototype.getSize = function () {
 	return this.size;

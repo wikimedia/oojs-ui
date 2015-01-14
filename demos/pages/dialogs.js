@@ -189,6 +189,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			new SamplePage( 'small', { $: this.$, label: 'Small', icon: 'window' } ),
 			new SamplePage( 'medium', { $: this.$, label: 'Medium', icon: 'window' } ),
 			new SamplePage( 'large', { $: this.$, label: 'Large', icon: 'window' } ),
+			new SamplePage( 'larger', { $: this.$, label: 'Larger', icon: 'window' } ),
 			new SamplePage( 'full', { $: this.$, label: 'Full', icon: 'window' } )
 		];
 		this.bookletLayout.addPages( this.pages );
@@ -233,6 +234,12 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			name: 'Simple dialog (large)',
 			config: {
 				size: 'large'
+			}
+		},
+		{
+			name: 'Simple dialog (larger)',
+			config: {
+				size: 'larger'
 			}
 		},
 		{
