@@ -561,6 +561,58 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				align: 'top'
 			}
 		),
+		new OO.ui.ActionFieldLayout(
+			new OO.ui.TextInputWidget( {} ),
+			new OO.ui.ButtonWidget( {
+				label: 'Button'
+			} ),
+			{
+				label: 'ActionFieldLayout aligned left',
+				align: 'left'
+			}
+		),
+		new OO.ui.ActionFieldLayout(
+			new OO.ui.TextInputWidget( {} ),
+			new OO.ui.ButtonWidget( {
+				label: 'Button'
+			} ),
+			{
+				label: 'ActionFieldLayout aligned inline',
+				align: 'inline'
+			}
+		),
+		new OO.ui.ActionFieldLayout(
+			new OO.ui.TextInputWidget( {} ),
+			new OO.ui.ButtonWidget( {
+				label: 'Button'
+			} ),
+			{
+				label: 'ActionFieldLayout aligned right',
+				align: 'right'
+			}
+		),
+		new OO.ui.ActionFieldLayout(
+			new OO.ui.TextInputWidget( {} ),
+			new OO.ui.ButtonWidget( {
+				label: 'Button'
+			} ),
+			{
+				label: 'ActionFieldLayout aligned top',
+				align: 'top'
+			}
+		),
+		new OO.ui.ActionFieldLayout(
+			new OO.ui.TextInputWidget( {} ),
+			new OO.ui.ButtonWidget( {
+				label: 'Button'
+			} ),
+			{
+				label: 'ActionFieldLayout aligned top with help',
+				help: 'I am an additional, helpful information. Lorem ipsum dolor sit amet, cibo definiebas pri ' +
+					'in, duo ex inimicus perpetua complectitur, mel periculis similique at.\u200E',
+				align: 'top'
+			}
+		),
 		new OO.ui.FieldLayout(
 			new OO.ui.ButtonWidget( {
 				label: 'Button'
