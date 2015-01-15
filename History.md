@@ -1,5 +1,17 @@
 # OOjs UI Release History
 
+## v0.6.3 / 2015-01-14
+* DEPRECATION: LookupInputWidget should no longer be used, instead use LookupElement
+
+* MediaWiki Theme: Adjust toolbar popups' border and shadows (Bartosz Dziewoński)
+* MediaWiki Theme: Don't use 'box-shadow' to produce thin grey lines in dialogs (Bartosz Dziewoński)
+* demo: Switch the default theme from 'Apex' to 'MediaWiki' (Ricordisamoa)
+* Toolbar: Update #initialize docs (Bartosz Dziewoński)
+* Add an ActionFieldLayout (Moriel Schottlender)
+* dialog: Provide a 'larger' size for things for which 'large' isn't enough (James D. Forrester)
+* Synchronize ComboBoxWidget and DropdownWidget styles (Bartosz Dziewoński)
+* Replace old&busted LookupInputWidget with new&hot LookupElement (Bartosz Dziewoński)
+
 ## v0.6.2 / 2015-01-09
 * WindowManager#removeWindows: Documentation fix (Ed Sanders)
 * Clear windows when destroying window manager (Ed Sanders)
