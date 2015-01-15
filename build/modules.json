@@ -61,7 +61,6 @@
 
 			"src/widgets/GroupWidget.js",
 			"src/widgets/ItemWidget.js",
-			"src/widgets/LookupInputWidget.js",
 			"src/widgets/OutlineControlsWidget.js",
 			"src/widgets/ToggleWidget.js",
 
