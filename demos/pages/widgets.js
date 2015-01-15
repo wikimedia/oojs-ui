@@ -50,6 +50,69 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 	OO.inheritClass( DragDropItemWidget, OO.ui.OptionWidget );
 	OO.mixinClass( DragDropItemWidget, OO.ui.DraggableElement );
 
+	/**
+	 * Demo for LookupElement.
+	 * @extends OO.ui.TextInputWidget
+	 * @mixins OO.ui.LookupElement
+	 */
+	function NumberLookupTextInputWidget() {
+		// Parent constructor
+		OO.ui.TextInputWidget.call( this, { validate: 'integer' } );
+		// Mixin constructors
+		OO.ui.LookupElement.call( this );
+	}
+	OO.inheritClass( NumberLookupTextInputWidget, OO.ui.TextInputWidget );
+	OO.mixinClass( NumberLookupTextInputWidget, OO.ui.LookupElement );
+
+	/**
+	 * @inheritdoc
+	 */
+	NumberLookupTextInputWidget.prototype.getLookupRequest = function () {
+		var
+			value = this.getValue(),
+			deferred = $.Deferred(),
+			delay = 500 + Math.floor( Math.random() * 500 );
+
+		this.isValid().done( function ( valid ) {
+			if ( valid ) {
+				// Resolve with results after a faked delay
+				setTimeout( function () {
+					deferred.resolve( [ value * 1, value * 2, value * 3, value * 4, value * 5 ] );
+				}, delay );
+			} else {
+				// No results when the input contains invalid content
+				deferred.resolve( [] );
+			}
+		} );
+
+		return deferred.promise( { abort: function () {} } );
+	};
+
+	/**
+	 * @inheritdoc
+	 */
+	NumberLookupTextInputWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
+		return response || [];
+	};
+
+	/**
+	 * @inheritdoc
+	 */
+	NumberLookupTextInputWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
+		var
+			items = [],
+			i, number;
+		for ( i = 0; i < data.length; i++ ) {
+			number = String( data[i] );
+			items.push( new OO.ui.MenuOptionWidget( {
+				data: number,
+				label: number
+			} ) );
+		}
+
+		return items;
+	};
+
 	fieldLayouts = [
 		new OO.ui.FieldLayout(
 			new OO.ui.IconWidget( {
@@ -699,6 +762,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			{
 				align: 'top',
 				label: 'RadioSelectWidget'
+			}
+		),
+		new OO.ui.FieldLayout(
+			new NumberLookupTextInputWidget(),
+			{
+				label: 'LookupElement demo (try inputting an integer)',
+				align: 'top'
 			}
 		),
 		new OO.ui.FieldLayout(

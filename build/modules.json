@@ -26,6 +26,7 @@
 			"src/elements/IconElement.js",
 			"src/elements/IndicatorElement.js",
 			"src/elements/LabelElement.js",
+			"src/elements/LookupElement.js",
 			"src/elements/PopupElement.js",
 			"src/elements/FlaggedElement.js",
 			"src/elements/TitledElement.js",
