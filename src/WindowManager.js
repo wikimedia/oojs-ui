@@ -138,6 +138,9 @@ OO.ui.WindowManager.static.sizes = {
 	large: {
 		width: 700
 	},
+	larger: {
+		width: 900
+	},
 	full: {
 		// These can be non-numeric because they are never used in calculations
 		width: '100%',
