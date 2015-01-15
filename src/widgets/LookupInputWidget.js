@@ -1,5 +1,5 @@
 /**
- * Mixin that adds a menu showing suggested values for a OO.ui.TextInputWidget.
+ * Mixin that adds a menu showing suggested values for a text input.
  *
  * Subclasses must handle `select` and `choose` events on #lookupMenu to make use of selections.
  *
@@ -11,18 +11,21 @@
  * @abstract
  *
  * @constructor
+ * @param {OO.ui.TextInputWidget} input Input widget
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$overlay] Overlay for dropdown; defaults to relative positioning
- * @cfg {jQuery} [$container=this.$element] Element to render menu under
+ * @cfg {jQuery} [$container=input.$element] Element to render menu under
  */
-OO.ui.LookupInputWidget = function OoUiLookupInputWidget( config ) {
+OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
 	// Configuration initialization
 	config = config || {};
 
 	// Properties
+	this.lookupInput = input;
 	this.$overlay = config.$overlay || this.$element;
 	this.lookupMenu = new OO.ui.TextInputMenuSelectWidget( this, {
 		$: OO.ui.Element.static.getJQuery( this.$overlay ),
+		input: this.lookupInput,
 		$container: config.$container
 	} );
 	this.lookupCache = {};
@@ -32,12 +35,12 @@ OO.ui.LookupInputWidget = function OoUiLookupInputWidget( config ) {
 	this.lookupInputFocused = false;
 
 	// Events
-	this.$input.on( {
+	this.lookupInput.$input.on( {
 		focus: this.onLookupInputFocus.bind( this ),
 		blur: this.onLookupInputBlur.bind( this ),
 		mousedown: this.onLookupInputMouseDown.bind( this )
 	} );
-	this.connect( this, { change: 'onLookupInputChange' } );
+	this.lookupInput.connect( this, { change: 'onLookupInputChange' } );
 	this.lookupMenu.connect( this, { toggle: 'onLookupMenuToggle' } );
 
 	// Initialization
@@ -162,7 +165,7 @@ OO.ui.LookupInputWidget.prototype.closeLookupMenu = function () {
  */
 OO.ui.LookupInputWidget.prototype.populateLookupMenu = function () {
 	var widget = this,
-		value = this.getValue();
+		value = this.lookupInput.getValue();
 
 	if ( this.lookupsDisabled ) {
 		return;
@@ -214,7 +217,7 @@ OO.ui.LookupInputWidget.prototype.initializeLookupMenuSelection = function () {
  */
 OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
 	var widget = this,
-		value = this.getValue(),
+		value = this.lookupInput.getValue(),
 		deferred = $.Deferred(),
 		ourRequest;
 
@@ -222,7 +225,7 @@ OO.ui.LookupInputWidget.prototype.getLookupMenuItems = function () {
 	if ( Object.prototype.hasOwnProperty.call( this.lookupCache, value ) ) {
 		deferred.resolve( this.getLookupMenuItemsFromData( this.lookupCache[value] ) );
 	} else {
-		this.pushPending();
+		this.lookupInput.pushPending();
 		this.lookupQuery = value;
 		ourRequest = this.lookupRequest = this.getLookupRequest();
 		ourRequest
