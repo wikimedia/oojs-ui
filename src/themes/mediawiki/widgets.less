@@ -182,7 +182,7 @@
 
 		& + span {
 			cursor: pointer;
-			margin: 0 0.4em;
+			margin: 0 0.2em;
 		}
 
 		& + span::before {
@@ -197,7 +197,6 @@
 			background-color: white;
 			border: 1px solid @input-border-color;
 			.oo-ui-background-image('@{oo-ui-default-image-path}/icons/check-constructive.svg');
-			background-size: @input-size, @input-size;
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-origin: border-box;
@@ -263,7 +262,7 @@
 
 		& + span {
 			cursor: pointer;
-			margin: 0 0.4em;
+			margin: 0 0.2em;
 		}
 
 		& + span::before {
@@ -499,7 +498,7 @@
 }
 
 .theme-oo-ui-radioOptionWidget () {
-	padding: 0;
+	padding: 0.25em 0;
 	background-color: transparent;
 
 	&.oo-ui-optionWidget-selected,
@@ -715,9 +714,7 @@
 	}
 }
 
-.theme-oo-ui-radioSelectWidget () {
-	padding: 0.75em 0 0.5em 0;
-}
+.theme-oo-ui-radioSelectWidget () {}
 
 .theme-oo-ui-menuSelectWidget () {
 	background: #fff;
