@@ -774,7 +774,6 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		new OO.ui.FieldLayout(
 			new OO.ui.DropdownWidget( {
 				label: 'Select one',
-				align: 'top',
 				menu: {
 					items: [
 						new OO.ui.MenuOptionWidget( {
