@@ -911,6 +911,29 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			}
 		),
 		new OO.ui.FieldLayout(
+			new OO.ui.DropdownInputWidget( {
+				options: [
+					{
+						data: 'a',
+						label: 'First'
+					},
+					{
+						data: 'b',
+						label: 'Second'
+					},
+					{
+						data: 'c',
+						label: 'Third'
+					}
+				],
+				value: 'b'
+			} ),
+			{
+				label: 'DropdownInputWidget',
+				align: 'top'
+			}
+		),
+		new OO.ui.FieldLayout(
 			new OO.ui.ComboBoxWidget( {
 				menu: {
 					items: [

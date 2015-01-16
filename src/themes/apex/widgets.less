@@ -154,6 +154,36 @@
 
 .theme-oo-ui-checkboxInputWidget () {}
 
+.theme-oo-ui-dropdownInputWidget () {
+	width: 100%;
+	max-width: 50em;
+
+	select {
+		height: 2.5em;
+		padding: 0.5em;
+		font-size: 1em;
+		font-family: sans-serif;
+		border: solid 1px rgba(0,0,0,0.1);
+		border-radius: 0.25em;
+	}
+
+	&.oo-ui-widget-enabled {
+		select:hover,
+		select:focus {
+			border-color: rgba(0,0,0,0.2);
+			outline: none;
+		}
+	}
+	
+	&.oo-ui-widget-disabled {
+		select {
+			color: #ccc;
+			border-color: #ddd;
+			background-color: #f3f3f3;
+		}
+	}
+}
+
 .theme-oo-ui-radioInputWidget () {}
 
 .theme-oo-ui-textInputWidget () {

@@ -438,6 +438,29 @@
 								'align' => 'top'
 							)
 						),
+						new OOUI\FieldLayout(
+							new OOUI\DropdownInputWidget( array(
+								'options' => array(
+									array(
+										'data' => 'a',
+										'label' => 'First'
+									),
+									array(
+										'data' => 'b',
+										'label' => 'Second'
+									),
+									array(
+										'data' => 'c',
+										'label' => 'Third'
+									),
+								),
+								'value' => 'b',
+							) ),
+							array(
+								'label' => 'DropdownInputWidget',
+								'align' => 'top'
+							)
+						),
 					)
 				) );
 

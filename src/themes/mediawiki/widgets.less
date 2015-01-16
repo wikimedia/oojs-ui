@@ -240,6 +240,36 @@
 	}
 }
 
+.theme-oo-ui-dropdownInputWidget () {
+	width: 100%;
+	max-width: 50em;
+
+	select {
+		height: 2.5em;
+		padding: 0.5em;
+		font-size: 1em;
+		font-family: sans-serif;
+		.oo-ui-box-sizing(border-box);
+		border: solid 1px #ccc;
+	}
+
+	&.oo-ui-widget-enabled {
+		select:hover,
+		select:focus {
+			border-color: #aaa;
+			outline: none;
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		select {
+			color: #ccc;
+			border-color: #ddd;
+			background-color: #f3f3f3;
+		}
+	}
+}
+
 .theme-oo-ui-radioInputWidget () {
 	position: relative;
 	line-height: @input-size;
