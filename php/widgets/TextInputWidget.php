@@ -30,6 +30,7 @@ class TextInputWidget extends InputWidget {
 	 * @param boolean $config['autofocus'] Ask the browser to focus this widget, using the 'autofocus'
 	 *   HTML attribute (default: false)
 	 * @param boolean $config['readOnly'] Prevent changes (default: false)
+	 * @param number $config['maxLength'] Maximum allowed number of characters to input
 	 * @param boolean $config['multiline'] Allow multiple lines of text (default: false)
 	 */
 	public function __construct( array $config = array() ) {
@@ -53,6 +54,9 @@ class TextInputWidget extends InputWidget {
 		$this->setReadOnly( $config['readOnly'] );
 		if ( isset( $config['placeholder'] ) ) {
 			$this->input->setAttributes( array( 'placeholder' => $config['placeholder'] ) );
+		}
+		if ( isset( $config['maxLength'] ) ) {
+			$this->input->setAttributes( array( 'maxlength' => $config['maxLength'] ) );
 		}
 		if ( $config['autofocus'] ) {
 			$this->input->setAttributes( array( 'autofocus' => 'autofocus' ) );

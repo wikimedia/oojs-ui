@@ -14,6 +14,7 @@
  * @cfg {boolean} [autofocus=false] Ask the browser to focus this widget, using the 'autofocus' HTML
  *  attribute
  * @cfg {boolean} [readOnly=false] Prevent changes
+ * @cfg {number} [maxLength] Maximum allowed number of characters to input
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
  * @cfg {boolean} [autosize=false] Automatically resize to fit content
  * @cfg {boolean} [maxRows=10] Maximum number of rows to make visible when autosizing
@@ -65,6 +66,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.setReadOnly( config.readOnly );
 	if ( config.placeholder ) {
 		this.$input.attr( 'placeholder', config.placeholder );
+	}
+	if ( config.maxLength ) {
+		this.$input.attr( 'maxlength', config.maxLength );
 	}
 	if ( config.autofocus ) {
 		this.$input.attr( 'autofocus', 'autofocus' );
