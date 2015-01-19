@@ -28,6 +28,13 @@ OO.ui.LabelElement = function OoUiLabelElement( config ) {
 
 OO.initClass( OO.ui.LabelElement );
 
+/* Events */
+
+/**
+ * @event labelChange
+ * @param {string} value
+ */
+
 /* Static Properties */
 
 /**
@@ -72,14 +79,15 @@ OO.ui.LabelElement.prototype.setLabel = function ( label ) {
 	label = typeof label === 'function' ? OO.ui.resolveMsg( label ) : label;
 	label = ( typeof label === 'string' && label.length ) || label instanceof jQuery ? label : null;
 
+	this.$element.toggleClass( 'oo-ui-labelElement', !!label );
+
 	if ( this.label !== label ) {
 		if ( this.$label ) {
 			this.setLabelContent( label );
 		}
 		this.label = label;
+		this.emit( 'labelChange' );
 	}
-
-	this.$element.toggleClass( 'oo-ui-labelElement', !!this.label );
 
 	return this;
 };

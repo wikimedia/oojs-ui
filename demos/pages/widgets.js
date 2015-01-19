@@ -1045,6 +1045,18 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			}
 		),
 		new OO.ui.FieldLayout(
+			new OO.ui.TextInputWidget( {
+				icon: 'picture',
+				indicator: 'required',
+				value: 'Text input with label',
+				label: 'Inline label'
+			} ),
+			{
+				label: 'TextInputWidget (label)\u200E',
+				align: 'top'
+			}
+		),
+		new OO.ui.FieldLayout(
 			new OO.ui.ProgressBarWidget( {
 				progress: 33
 			} ),

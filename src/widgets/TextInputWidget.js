@@ -18,6 +18,7 @@
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
  * @cfg {boolean} [autosize=false] Automatically resize to fit content
  * @cfg {boolean} [maxRows=10] Maximum number of rows to make visible when autosizing
+ * @cfg {string} [labelPosition='after'] Label position, 'before' or 'after'
  * @cfg {RegExp|string} [validate] Regular expression to validate against (or symbolic name referencing
  *  one, see #static-validationPatterns)
  */
@@ -25,6 +26,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Configuration initialization
 	config = $.extend( {
 		type: 'text',
+		labelPosition: 'after',
 		maxRows: 10
 	}, config );
 
@@ -35,6 +37,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	OO.ui.IconElement.call( this, config );
 	OO.ui.IndicatorElement.call( this, config );
 	OO.ui.PendingElement.call( this, config );
+	OO.ui.LabelElement.call( this, config );
 
 	// Properties
 	this.readOnly = false;
@@ -52,6 +55,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 
 	this.setValidation( config.validate );
+	if ( config.labelPosition ) {
+		this.setPosition( config.labelPosition );
+	}
 
 	// Events
 	this.$input.on( {
@@ -61,11 +67,12 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.$element.on( 'DOMNodeInsertedIntoDocument', this.onElementAttach.bind( this ) );
 	this.$icon.on( 'mousedown', this.onIconMouseDown.bind( this ) );
 	this.$indicator.on( 'mousedown', this.onIndicatorMouseDown.bind( this ) );
+	this.on( 'labelChange', this.updatePosition.bind( this ) );
 
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-textInputWidget' )
-		.append( this.$icon, this.$indicator );
+		.append( this.$icon, this.$indicator, this.$label );
 	this.setReadOnly( !!config.readOnly );
 	if ( config.placeholder ) {
 		this.$input.attr( 'placeholder', config.placeholder );
@@ -84,6 +91,7 @@ OO.inheritClass( OO.ui.TextInputWidget, OO.ui.InputWidget );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IconElement );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.IndicatorElement );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.PendingElement );
+OO.mixinClass( OO.ui.TextInputWidget, OO.ui.LabelElement );
 
 /* Static properties */
 
@@ -163,6 +171,7 @@ OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
  */
 OO.ui.TextInputWidget.prototype.onElementAttach = function () {
 	this.adjustSize();
+	this.positionLabel();
 };
 
 /**
@@ -330,4 +339,62 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function () {
  */
 OO.ui.TextInputWidget.prototype.isValid = function () {
 	return $.Deferred().resolve( !!this.getValue().match( this.validate ) ).promise();
+};
+
+/**
+ * Set the position of the inline label.
+ *
+ * @param {string} labelPosition Label position, 'before' or 'after'
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.setPosition = function ( labelPosition ) {
+	this.labelPosition = labelPosition;
+	this.updatePosition();
+	return this;
+};
+
+/**
+ * Update the position of the inline label.
+ *
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.updatePosition = function () {
+	var after = this.labelPosition === 'after';
+
+	this.$element
+		.toggleClass( 'oo-ui-textInputWidget-labelPosition-after', this.label && after )
+		.toggleClass( 'oo-ui-textInputWidget-labelPosition-before', this.label && !after );
+
+	if ( this.label ) {
+		this.positionLabel();
+	}
+
+	return this;
+};
+
+/**
+ * Position the label by setting the correct padding on the input.
+ *
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.positionLabel = function () {
+	// Clear old values
+	this.$input
+		// Clear old values if present
+		.css( {
+			'padding-right': '',
+			'padding-left': ''
+		} );
+
+	if ( !this.$label.text() ) {
+		return;
+	}
+
+	var after = this.labelPosition === 'after',
+		rtl = this.$element.css( 'direction' ) === 'rtl',
+		property = after === rtl ? 'padding-left' : 'padding-right';
+
+	this.$input.css( property, this.$label.outerWidth() );
+
+	return this;
 };
