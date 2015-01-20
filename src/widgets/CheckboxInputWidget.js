@@ -68,5 +68,11 @@ OO.ui.CheckboxInputWidget.prototype.setSelected = function ( state ) {
  * @return {boolean} Checkbox is selected
  */
 OO.ui.CheckboxInputWidget.prototype.isSelected = function () {
+	// Resynchronize our internal data with DOM data. Other scripts executing on the page can modify
+	// it, and we won't know unless they're kind enough to trigger a 'change' event.
+	var selected = this.$input.prop( 'checked' );
+	if ( this.selected !== selected ) {
+		this.setSelected( selected );
+	}
 	return this.selected;
 };

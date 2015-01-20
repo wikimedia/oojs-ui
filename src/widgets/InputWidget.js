@@ -84,6 +84,12 @@ OO.ui.InputWidget.prototype.onEdit = function () {
  * @return {string} Input value
  */
 OO.ui.InputWidget.prototype.getValue = function () {
+	// Resynchronize our internal data with DOM data. Other scripts executing on the page can modify
+	// it, and we won't know unless they're kind enough to trigger a 'change' event.
+	var value = this.$input.val();
+	if ( this.value !== value ) {
+		this.setValue( value );
+	}
 	return this.value;
 };
 
