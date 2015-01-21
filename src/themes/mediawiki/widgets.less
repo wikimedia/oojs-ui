@@ -31,6 +31,13 @@
 	border-radius: @border-radius;
 
 	.oo-ui-buttonElement-framed {
+		&.oo-ui-buttonElement-active {
+			.oo-ui-buttonElement-button {
+				background: @highlight;
+				color: #fff;
+			}
+		}
+
 		.oo-ui-buttonElement-button {
 			border-radius: 0;
 			margin-left: -1px;
@@ -694,6 +701,12 @@
 	border-radius: @border-radius;
 
 	.oo-ui-buttonOptionWidget {
+		&.oo-ui-buttonElement-active {
+			.oo-ui-buttonElement-button {
+				background: @highlight;
+				color: #fff;
+			}
+		}
 		.oo-ui-buttonElement-button {
 			border-radius: 0;
 			margin-left: -1px;

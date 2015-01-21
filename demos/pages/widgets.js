@@ -493,6 +493,25 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				]
 			} ),
 			{
+				label: 'ButtonGroupWidget (colors)',
+				align: 'top'
+			}
+		),
+		new OO.ui.FieldLayout(
+			new OO.ui.ButtonGroupWidget( {
+				items: [
+					new OO.ui.ToggleButtonWidget( {
+						label: 'One'
+					} ),
+					new OO.ui.ToggleButtonWidget( {
+						label: 'Two'
+					} ),
+					new OO.ui.ToggleButtonWidget( {
+						label: 'Three'
+					} )
+				]
+			} ),
+			{
 				label: 'ButtonGroupWidget',
 				align: 'top'
 			}
@@ -519,6 +538,28 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						data: 'd',
 						label: 'Three',
 						flags: [ 'destructive' ]
+					} )
+				]
+			} ),
+			{
+				label: 'ButtonSelectWidget (colors)',
+				align: 'top'
+			}
+		),
+		new OO.ui.FieldLayout(
+			new OO.ui.ButtonSelectWidget( {
+				items: [
+					new OO.ui.ButtonOptionWidget( {
+						data: 'b',
+						label: 'One'
+					} ),
+					new OO.ui.ButtonOptionWidget( {
+						data: 'c',
+						label: 'Two'
+					} ),
+					new OO.ui.ButtonOptionWidget( {
+						data: 'd',
+						label: 'Three'
 					} )
 				]
 			} ),
