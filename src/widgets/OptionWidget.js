@@ -154,33 +154,3 @@ OO.ui.OptionWidget.prototype.setPressed = function ( state ) {
 	}
 	return this;
 };
-
-/**
- * Make the option's highlight flash.
- *
- * While flashing, the visual style of the pressed state is removed if present.
- *
- * @return {jQuery.Promise} Promise resolved when flashing is done
- */
-OO.ui.OptionWidget.prototype.flash = function () {
-	var widget = this,
-		$element = this.$element,
-		deferred = $.Deferred();
-
-	if ( !this.isDisabled() && this.constructor.static.pressable ) {
-		$element.removeClass( 'oo-ui-optionWidget-highlighted oo-ui-optionWidget-pressed' );
-		setTimeout( function () {
-			// Restore original classes
-			$element
-				.toggleClass( 'oo-ui-optionWidget-highlighted', widget.highlighted )
-				.toggleClass( 'oo-ui-optionWidget-pressed', widget.pressed );
-
-			setTimeout( function () {
-				deferred.resolve();
-			}, 100 );
-
-		}, 100 );
-	}
-
-	return deferred.promise();
-};

@@ -27,7 +27,6 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	OO.ui.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
 
 	// Properties
-	this.flashing = false;
 	this.visible = false;
 	this.newItems = null;
 	this.autoHide = config.autoHide === undefined || !!config.autoHide;
@@ -141,27 +140,14 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
 /**
  * Choose an item.
  *
- * This will close the menu when done, unlike selectItem which only changes selection.
+ * This will close the menu, unlike #selectItem which only changes selection.
  *
  * @param {OO.ui.OptionWidget} item Item to choose
  * @chainable
  */
 OO.ui.MenuSelectWidget.prototype.chooseItem = function ( item ) {
-	var widget = this;
-
-	// Parent method
 	OO.ui.MenuSelectWidget.super.prototype.chooseItem.call( this, item );
-
-	if ( item && !this.flashing ) {
-		this.flashing = true;
-		item.flash().done( function () {
-			widget.toggle( false );
-			widget.flashing = false;
-		} );
-	} else {
-		this.toggle( false );
-	}
-
+	this.toggle( false );
 	return this;
 };
 
