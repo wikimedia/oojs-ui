@@ -9,7 +9,7 @@
 	"--warnings": ["-nodoc(class,public)"],
 	"--": [
 		"jsduck.external.js",
-		"lib/oojs.js",
+		"lib/oojs.jquery.js",
 		"src"
 	]
 }

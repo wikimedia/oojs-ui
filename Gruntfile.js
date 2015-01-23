@@ -275,7 +275,7 @@ module.exports = function ( grunt ) {
 				frameworks: [ 'qunit' ],
 				files: [
 					'lib/jquery.js',
-					'lib/oojs.js',
+					'lib/oojs.jquery.js',
 					'dist/oojs-ui.js',
 					'dist/oojs-ui-apex.js',
 					'tests/**/*.test.js'

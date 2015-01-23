@@ -24,7 +24,7 @@
 	</script>
 	<!-- Dependencies -->
 	<script src="../lib/jquery.js"></script>
-	<script src="../lib/oojs.js"></script>
+	<script src="../lib/oojs.jquery.js"></script>
 	<!-- Source code -->
 	<script src="../dist/oojs-ui.js"></script>
 	<script src="../dist/oojs-ui-mediawiki.js"></script>
