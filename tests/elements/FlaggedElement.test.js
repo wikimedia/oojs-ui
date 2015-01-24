@@ -54,8 +54,8 @@
 		assert.deepEqual( element.hasFlag( 'foo' ), true, 'string' );
 
 		element.setFlags( [ 'bar', 'qux' ] );
-		assert.deepEqual( element.hasFlag( 'bar' ), true, 'array[0]' );
-		assert.deepEqual( element.hasFlag( 'qux' ), true, 'array[1]' );
+		assert.deepEqual( element.hasFlag( 'bar' ), true, 'array[ 0 ]' );
+		assert.deepEqual( element.hasFlag( 'qux' ), true, 'array[ 1 ]' );
 
 		element.setFlags( { bar: false, quux: true } );
 		assert.deepEqual( element.hasFlag( 'bar' ), false, 'object set' );

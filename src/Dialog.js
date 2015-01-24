@@ -199,7 +199,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 			);
 			for ( i = 0, len = actions.length; i < len; i++ ) {
 				items.push(
-					new OO.ui.ActionWidget( $.extend( { $: this.$ }, actions[i] ) )
+					new OO.ui.ActionWidget( $.extend( { $: this.$ }, actions[ i ] ) )
 				);
 			}
 			this.actions.add( items );
@@ -259,7 +259,7 @@ OO.ui.Dialog.prototype.detachActions = function () {
 
 	// Detach all actions that may have been previously attached
 	for ( i = 0, len = this.attachedActions.length; i < len; i++ ) {
-		this.attachedActions[i].$element.detach();
+		this.attachedActions[ i ].$element.detach();
 	}
 	this.attachedActions = [];
 };

@@ -41,7 +41,7 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 	}
 
 	for ( variant in variants ) {
-		classes[variants[variant] ? 'on' : 'off'].push( 'oo-ui-image-' + variant );
+		classes[ variants[ variant ] ? 'on' : 'off' ].push( 'oo-ui-image-' + variant );
 	}
 
 	return classes;

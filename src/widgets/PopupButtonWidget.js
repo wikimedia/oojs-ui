@@ -35,7 +35,7 @@ OO.mixinClass( OO.ui.PopupButtonWidget, OO.ui.PopupElement );
  */
 OO.ui.PopupButtonWidget.prototype.onClick = function ( e ) {
 	// Skip clicks within the popup
-	if ( $.contains( this.popup.$element[0], e.target ) ) {
+	if ( $.contains( this.popup.$element[ 0 ], e.target ) ) {
 		return;
 	}
 

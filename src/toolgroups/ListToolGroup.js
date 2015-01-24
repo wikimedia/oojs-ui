@@ -63,8 +63,8 @@ OO.ui.ListToolGroup.prototype.populate = function () {
 
 	this.collapsibleTools = [];
 	for ( i = 0, len = allowCollapse.length; i < len; i++ ) {
-		if ( this.tools[ allowCollapse[i] ] !== undefined ) {
-			this.collapsibleTools.push( this.tools[ allowCollapse[i] ] );
+		if ( this.tools[ allowCollapse[ i ] ] !== undefined ) {
+			this.collapsibleTools.push( this.tools[ allowCollapse[ i ] ] );
 		}
 	}
 
@@ -130,6 +130,6 @@ OO.ui.ListToolGroup.prototype.updateCollapsibleState = function () {
 		.setTitle( OO.ui.msg( this.expanded ? 'ooui-toolgroup-collapse' : 'ooui-toolgroup-expand' ) );
 
 	for ( i = 0, len = this.collapsibleTools.length; i < len; i++ ) {
-		this.collapsibleTools[i].toggle( this.expanded );
+		this.collapsibleTools[ i ].toggle( this.expanded );
 	}
 };

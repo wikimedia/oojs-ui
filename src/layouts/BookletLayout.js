@@ -107,7 +107,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
 	$target = $( e.target ).closest( '.oo-ui-pageLayout' );
 	for ( name in this.pages ) {
 		// Check for page match, exclude current page to find only page changes
-		if ( this.pages[name].$element[0] === $target[0] && name !== this.currentPageName ) {
+		if ( this.pages[ name ].$element[ 0 ] === $target[ 0 ] && name !== this.currentPageName ) {
 			this.setPage( name );
 			break;
 		}
@@ -149,7 +149,7 @@ OO.ui.BookletLayout.prototype.focus = function () {
 	if ( !page.$element.find( ':focus' ).length ) {
 		$input = page.$element.find( ':input:first' );
 		if ( $input.length ) {
-			$input[0].focus();
+			$input[ 0 ].focus();
 		}
 	}
 };
@@ -220,8 +220,8 @@ OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
 		index = $.inArray( page, pages );
 
 	if ( index !== -1 ) {
-		next = pages[index + 1];
-		prev = pages[index - 1];
+		next = pages[ index + 1 ];
+		prev = pages[ index - 1 ];
 		// Prefer adjacent pages at the same level
 		if ( this.outlined ) {
 			level = this.outlineSelectWidget.getItemFromData( page.getName() ).getLevel();
@@ -267,7 +267,7 @@ OO.ui.BookletLayout.prototype.getOutlineControls = function () {
  * @return {OO.ui.PageLayout|undefined} Page, if found
  */
 OO.ui.BookletLayout.prototype.getPage = function ( name ) {
-	return this.pages[name];
+	return this.pages[ name ];
 };
 
 /**
@@ -298,16 +298,16 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 
 	// Remove pages with same names
 	for ( i = 0, len = pages.length; i < len; i++ ) {
-		page = pages[i];
+		page = pages[ i ];
 		name = page.getName();
 
 		if ( Object.prototype.hasOwnProperty.call( this.pages, name ) ) {
 			// Correct the insertion index
-			currentIndex = $.inArray( this.pages[name], stackLayoutPages );
+			currentIndex = $.inArray( this.pages[ name ], stackLayoutPages );
 			if ( currentIndex !== -1 && currentIndex + 1 < index ) {
 				index--;
 			}
-			remove.push( this.pages[name] );
+			remove.push( this.pages[ name ] );
 		}
 	}
 	if ( remove.length ) {
@@ -316,9 +316,9 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 
 	// Add new pages
 	for ( i = 0, len = pages.length; i < len; i++ ) {
-		page = pages[i];
+		page = pages[ i ];
 		name = page.getName();
-		this.pages[page.getName()] = page;
+		this.pages[ page.getName() ] = page;
 		if ( this.outlined ) {
 			item = new OO.ui.OutlineOptionWidget( { $: this.$, data: name } );
 			page.setOutlineItem( item );
@@ -347,9 +347,9 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
 		items = [];
 
 	for ( i = 0, len = pages.length; i < len; i++ ) {
-		page = pages[i];
+		page = pages[ i ];
 		name = page.getName();
-		delete this.pages[name];
+		delete this.pages[ name ];
 		if ( this.outlined ) {
 			items.push( this.outlineSelectWidget.getItemFromData( name ) );
 			page.setOutlineItem( null );
@@ -380,7 +380,7 @@ OO.ui.BookletLayout.prototype.clearPages = function () {
 	if ( this.outlined ) {
 		this.outlineSelectWidget.clearItems();
 		for ( i = 0, len = pages.length; i < len; i++ ) {
-			pages[i].setOutlineItem( null );
+			pages[ i ].setOutlineItem( null );
 		}
 	}
 	this.stackLayout.clearItems();
@@ -399,7 +399,7 @@ OO.ui.BookletLayout.prototype.clearPages = function () {
 OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 	var selectedItem,
 		$focused,
-		page = this.pages[name];
+		page = this.pages[ name ];
 
 	if ( name !== this.currentPageName ) {
 		if ( this.outlined ) {
@@ -409,15 +409,15 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 			}
 		}
 		if ( page ) {
-			if ( this.currentPageName && this.pages[this.currentPageName] ) {
-				this.pages[this.currentPageName].setActive( false );
+			if ( this.currentPageName && this.pages[ this.currentPageName ] ) {
+				this.pages[ this.currentPageName ].setActive( false );
 				// Blur anything focused if the next page doesn't have anything focusable - this
 				// is not needed if the next page has something focusable because once it is focused
 				// this blur happens automatically
 				if ( this.autoFocus && !page.$element.find( ':input' ).length ) {
-					$focused = this.pages[this.currentPageName].$element.find( ':focus' );
+					$focused = this.pages[ this.currentPageName ].$element.find( ':focus' );
 					if ( $focused.length ) {
-						$focused[0].blur();
+						$focused[ 0 ].blur();
 					}
 				}
 			}

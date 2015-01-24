@@ -39,7 +39,7 @@ OO.ui.GroupWidget.prototype.setDisabled = function ( disabled ) {
 	// During construction, #setDisabled is called before the OO.ui.GroupElement constructor
 	if ( this.items ) {
 		for ( i = 0, len = this.items.length; i < len; i++ ) {
-			this.items[i].updateDisabled();
+			this.items[ i ].updateDisabled();
 		}
 	}
 

@@ -156,7 +156,7 @@ OO.ui.InputWidget.prototype.simulateLabelClick = function () {
 		if ( this.$input.is( ':checkbox,:radio' ) ) {
 			this.$input.click();
 		} else if ( this.$input.is( ':input' ) ) {
-			this.$input[0].focus();
+			this.$input[ 0 ].focus();
 		}
 	}
 };
@@ -178,7 +178,7 @@ OO.ui.InputWidget.prototype.setDisabled = function ( state ) {
  * @chainable
  */
 OO.ui.InputWidget.prototype.focus = function () {
-	this.$input[0].focus();
+	this.$input[ 0 ].focus();
 	return this;
 };
 
@@ -188,6 +188,6 @@ OO.ui.InputWidget.prototype.focus = function () {
  * @chainable
  */
 OO.ui.InputWidget.prototype.blur = function () {
-	this.$input[0].blur();
+	this.$input[ 0 ].blur();
 	return this;
 };

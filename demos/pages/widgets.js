@@ -103,7 +103,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			items = [],
 			i, number;
 		for ( i = 0; i < data.length; i++ ) {
-			number = String( data[i] );
+			number = String( data[ i ] );
 			items.push( new OO.ui.MenuOptionWidget( {
 				data: number,
 				label: number

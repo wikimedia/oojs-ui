@@ -95,7 +95,7 @@ OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
  */
 OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
 	// Skip clicks within the menu
-	if ( $.contains( this.menu.$element[0], e.target ) ) {
+	if ( $.contains( this.menu.$element[ 0 ], e.target ) ) {
 		return;
 	}
 

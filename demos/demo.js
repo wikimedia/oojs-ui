@@ -65,8 +65,8 @@ OO.ui.Demo = function OoUiDemo() {
 		.append( this.$menu );
 	$( 'body' ).addClass( 'oo-ui-' + this.mode.direction );
 	$( 'head' ).append( this.stylesheetLinks );
-	this.constructor.static.pages[this.mode.page]( this );
-	OO.ui.theme = new ( this.constructor.static.themes[this.mode.theme].theme )();
+	this.constructor.static.pages[ this.mode.page ]( this );
+	OO.ui.theme = new ( this.constructor.static.themes[ this.mode.theme ].theme )();
 };
 
 /* Setup */
@@ -206,16 +206,16 @@ OO.ui.Demo.prototype.getFactors = function () {
 		factors = [ {}, {}, {}, {} ];
 
 	for ( key in this.constructor.static.pages ) {
-		factors[0][key] = key;
+		factors[ 0 ][ key ] = key;
 	}
 	for ( key in this.constructor.static.themes ) {
-		factors[1][key] = this.constructor.static.themes[key].fileSuffix;
+		factors[ 1 ][ key ] = this.constructor.static.themes[ key ].fileSuffix;
 	}
 	for ( key in this.constructor.static.graphics ) {
-		factors[2][key] = this.constructor.static.graphics[key].fileSuffix;
+		factors[ 2 ][ key ] = this.constructor.static.graphics[ key ].fileSuffix;
 	}
 	for ( key in this.constructor.static.directions ) {
-		factors[3][key] = this.constructor.static.directions[key].fileSuffix;
+		factors[ 3 ][ key ] = this.constructor.static.directions[ key ].fileSuffix;
 	}
 
 	return factors;
@@ -258,10 +258,10 @@ OO.ui.Demo.prototype.getCurrentMode = function () {
 	var factorValues = this.getCurrentFactorValues();
 
 	return {
-		page: factorValues[0],
-		theme: factorValues[1],
-		graphics: factorValues[2],
-		direction: factorValues[3]
+		page: factorValues[ 0 ],
+		theme: factorValues[ 1 ],
+		graphics: factorValues[ 2 ],
+		direction: factorValues[ 3 ]
 	};
 };
 
@@ -278,19 +278,19 @@ OO.ui.Demo.prototype.getStylesheetLinks = function () {
 
 	// Translate modes to filename fragments
 	fragments = this.getCurrentFactorValues().map( function ( val, index ) {
-		return factors[index][val];
+		return factors[ index ][ val ];
 	} );
 
 	// Theme styles
 	urls.push( '../dist/oojs-ui' + fragments.slice( 1 ).join( '' ) + '.css' );
 	// Demo styles
-	urls.push( 'styles/demo' + fragments[3] + '.css' );
+	urls.push( 'styles/demo' + fragments[ 3 ] + '.css' );
 
 	// Add link tags
 	for ( i = 0, len = urls.length; i < len; i++ ) {
 		link = document.createElement( 'link' );
 		link.setAttribute( 'rel', 'stylesheet' );
-		link.setAttribute( 'href', urls[i] );
+		link.setAttribute( 'href', urls[ i ] );
 		links.push( link );
 	}
 	return links;
@@ -307,7 +307,7 @@ OO.ui.Demo.prototype.normalizeHash = function () {
 
 	factorValues = this.getCurrentFactorValues();
 	for ( i = 0, len = factors.length; i < len; i++ ) {
-		modes[i] = factors[i][factorValues[i]] !== undefined ? factorValues[i] : defaults[i];
+		modes[ i ] = factors[ i ][ factorValues[ i ] ] !== undefined ? factorValues[ i ] : defaults[ i ];
 	}
 
 	// Update hash
@@ -358,7 +358,7 @@ OO.ui.Demo.prototype.buildConsole = function ( item, key ) {
 
 		val = $input.val();
 		$input.val( '' );
-		$input[0].focus();
+		$input[ 0 ].focus();
 		result = exec( val );
 
 		logval = String( result.value );
@@ -401,7 +401,7 @@ OO.ui.Demo.prototype.buildConsole = function ( item, key ) {
 			e.preventDefault();
 			$console.toggleClass( 'oo-ui-demo-console-collapsed oo-ui-demo-console-expanded' );
 			if ( $input.is( ':visible' ) ) {
-				$input[0].focus();
+				$input[ 0 ].focus();
 				if ( console && console.log ) {
 					window[ key ] = item;
 					console.log( '[demo]', 'Global ' + key + ' has been set' );

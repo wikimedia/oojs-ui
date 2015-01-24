@@ -86,7 +86,7 @@ OO.ui.Toolbar.prototype.getToolGroupFactory = function () {
 OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
 	var $closestWidgetToEvent = this.$( e.target ).closest( '.oo-ui-widget' ),
 		$closestWidgetToToolbar = this.$element.closest( '.oo-ui-widget' );
-	if ( !$closestWidgetToEvent.length || $closestWidgetToEvent[0] === $closestWidgetToToolbar[0] ) {
+	if ( !$closestWidgetToEvent.length || $closestWidgetToEvent[ 0 ] === $closestWidgetToToolbar[ 0 ] ) {
 		return false;
 	}
 };
@@ -124,7 +124,7 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 
 	// Build out new groups
 	for ( i = 0, len = groups.length; i < len; i++ ) {
-		group = groups[i];
+		group = groups[ i ];
 		if ( group.include === '*' ) {
 			// Apply defaults to catch-all groups
 			if ( group.type === undefined ) {
@@ -152,7 +152,7 @@ OO.ui.Toolbar.prototype.reset = function () {
 	this.groups = [];
 	this.tools = {};
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		this.items[i].destroy();
+		this.items[ i ].destroy();
 	}
 	this.clearItems();
 };
@@ -174,7 +174,7 @@ OO.ui.Toolbar.prototype.destroy = function () {
  * @return {boolean} Tool is available
  */
 OO.ui.Toolbar.prototype.isToolAvailable = function ( name ) {
-	return !this.tools[name];
+	return !this.tools[ name ];
 };
 
 /**
@@ -183,7 +183,7 @@ OO.ui.Toolbar.prototype.isToolAvailable = function ( name ) {
  * @param {OO.ui.Tool} tool Tool to reserve
  */
 OO.ui.Toolbar.prototype.reserveTool = function ( tool ) {
-	this.tools[tool.getName()] = tool;
+	this.tools[ tool.getName() ] = tool;
 };
 
 /**
@@ -192,7 +192,7 @@ OO.ui.Toolbar.prototype.reserveTool = function ( tool ) {
  * @param {OO.ui.Tool} tool Tool to release
  */
 OO.ui.Toolbar.prototype.releaseTool = function ( tool ) {
-	delete this.tools[tool.getName()];
+	delete this.tools[ tool.getName() ];
 };
 
 /**

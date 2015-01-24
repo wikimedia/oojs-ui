@@ -91,7 +91,7 @@ OO.ui.Element.static.getJQuery = function ( context, $iframe ) {
  */
 OO.ui.Element.static.getDocument = function ( obj ) {
 	// jQuery - selections created "offscreen" won't have a context, so .context isn't reliable
-	return ( obj[0] && obj[0].ownerDocument ) ||
+	return ( obj[ 0 ] && obj[ 0 ].ownerDocument ) ||
 		// Empty jQuery selections might have a context
 		obj.context ||
 		// HTMLElement
@@ -126,7 +126,7 @@ OO.ui.Element.static.getDir = function ( obj ) {
 	var isDoc, isWin;
 
 	if ( obj instanceof jQuery ) {
-		obj = obj[0];
+		obj = obj[ 0 ];
 	}
 	isDoc = obj.nodeType === 9;
 	isWin = obj.document !== undefined;
@@ -166,8 +166,8 @@ OO.ui.Element.static.getFrameOffset = function ( from, to, offset ) {
 	// Get iframe element
 	frames = from.parent.document.getElementsByTagName( 'iframe' );
 	for ( i = 0, len = frames.length; i < len; i++ ) {
-		if ( frames[i].contentWindow === from ) {
-			frame = frames[i];
+		if ( frames[ i ].contentWindow === from ) {
+			frame = frames[ i ];
 			break;
 		}
 	}
@@ -343,14 +343,14 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
 	}
 
 	while ( $parent.length ) {
-		if ( $parent[0] === this.getRootScrollableElement( el ) ) {
-			return $parent[0];
+		if ( $parent[ 0 ] === this.getRootScrollableElement( el ) ) {
+			return $parent[ 0 ];
 		}
 		i = props.length;
 		while ( i-- ) {
-			val = $parent.css( props[i] );
+			val = $parent.css( props[ i ] );
 			if ( val === 'auto' || val === 'scroll' ) {
-				return $parent[0];
+				return $parent[ 0 ];
 			}
 		}
 		$parent = $parent.parent();
@@ -463,7 +463,7 @@ OO.ui.Element.prototype.supports = function ( methods ) {
 
 	methods = $.isArray( methods ) ? methods : [ methods ];
 	for ( i = 0, len = methods.length; i < len; i++ ) {
-		if ( $.isFunction( this[methods[i]] ) ) {
+		if ( $.isFunction( this[ methods[ i ] ] ) ) {
 			support++;
 		}
 	}
@@ -509,7 +509,7 @@ OO.ui.Element.prototype.getTagName = function () {
  * @return {boolean} The element is attached to the DOM
  */
 OO.ui.Element.prototype.isElementAttached = function () {
-	return $.contains( this.getElementDocument(), this.$element[0] );
+	return $.contains( this.getElementDocument(), this.$element[ 0 ] );
 };
 
 /**
@@ -536,7 +536,7 @@ OO.ui.Element.prototype.getElementWindow = function () {
  * Get closest scrollable container.
  */
 OO.ui.Element.prototype.getClosestScrollableElementContainer = function () {
-	return OO.ui.Element.static.getClosestScrollableContainer( this.$element[0] );
+	return OO.ui.Element.static.getClosestScrollableContainer( this.$element[ 0 ] );
 };
 
 /**
@@ -565,5 +565,5 @@ OO.ui.Element.prototype.setElementGroup = function ( group ) {
  * @param {Object} [config] Configuration options
  */
 OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
-	return OO.ui.Element.static.scrollIntoView( this.$element[0], config );
+	return OO.ui.Element.static.scrollIntoView( this.$element[ 0 ], config );
 };

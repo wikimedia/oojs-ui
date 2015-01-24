@@ -260,7 +260,7 @@ OO.ui.WindowManager.prototype.hasWindow = function ( win ) {
 	var name;
 
 	for ( name in this.windows ) {
-		if ( this.windows[name] === win ) {
+		if ( this.windows[ name ] === win ) {
 			return true;
 		}
 	}
@@ -324,7 +324,7 @@ OO.ui.WindowManager.prototype.getTeardownDelay = function () {
  */
 OO.ui.WindowManager.prototype.getWindow = function ( name ) {
 	var deferred = $.Deferred(),
-		win = this.windows[name];
+		win = this.windows[ name ];
 
 	if ( !( win instanceof OO.ui.Window ) ) {
 		if ( this.factory ) {
@@ -451,7 +451,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 
 	// Argument handling
 	if ( typeof win === 'string' ) {
-		win = this.windows[win];
+		win = this.windows[ win ];
 	} else if ( !this.hasWindow( win ) ) {
 		win = null;
 	}
@@ -524,11 +524,11 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 		// Convert to map of windows by looking up symbolic names from static configuration
 		list = {};
 		for ( i = 0, len = windows.length; i < len; i++ ) {
-			name = windows[i].constructor.static.name;
+			name = windows[ i ].constructor.static.name;
 			if ( typeof name !== 'string' ) {
 				throw new Error( 'Cannot add window' );
 			}
-			list[name] = windows[i];
+			list[ name ] = windows[ i ];
 		}
 	} else if ( $.isPlainObject( windows ) ) {
 		list = windows;
@@ -536,8 +536,8 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 
 	// Add windows
 	for ( name in list ) {
-		win = list[name];
-		this.windows[name] = win;
+		win = list[ name ];
+		this.windows[ name ] = win;
 		this.$element.append( win.$element );
 	}
 };
@@ -556,13 +556,13 @@ OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
 		manager = this,
 		promises = [],
 		cleanup = function ( name, win ) {
-			delete manager.windows[name];
+			delete manager.windows[ name ];
 			win.$element.detach();
 		};
 
 	for ( i = 0, len = names.length; i < len; i++ ) {
-		name = names[i];
-		win = this.windows[name];
+		name = names[ i ];
+		win = this.windows[ name ];
 		if ( !win ) {
 			throw new Error( 'Cannot remove window' );
 		}
@@ -601,16 +601,16 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 		sizes = this.constructor.static.sizes,
 		size = win.getSize();
 
-	if ( !sizes[size] ) {
+	if ( !sizes[ size ] ) {
 		size = this.constructor.static.defaultSize;
 	}
-	if ( size !== 'full' && viewport.rect.right - viewport.rect.left < sizes[size].width ) {
+	if ( size !== 'full' && viewport.rect.right - viewport.rect.left < sizes[ size ].width ) {
 		size = 'full';
 	}
 
 	this.$element.toggleClass( 'oo-ui-windowManager-fullscreen', size === 'full' );
 	this.$element.toggleClass( 'oo-ui-windowManager-floating', size !== 'full' );
-	win.setDimensions( sizes[size] );
+	win.setDimensions( sizes[ size ] );
 
 	this.emit( 'resize', win );
 

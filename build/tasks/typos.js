@@ -28,7 +28,7 @@ module.exports = function ( grunt ) {
 		typoCount += typosData.caseSensitive.length + typosData.caseInsensitive.length;
 
 		function patternMap( typo ) {
-			return typo[0];
+			return typo[ 0 ];
 		}
 
 		if ( typosData.caseSensitive.length ) {
@@ -47,14 +47,14 @@ module.exports = function ( grunt ) {
 			// Check each pattern to find the replacement
 			typos.forEach( function ( typo ) {
 				var replace,
-					pattern = new RegExp( typo[0], flags ),
+					pattern = new RegExp( typo[ 0 ], flags ),
 					matches = line.match( pattern );
 
 				if ( matches ) {
 					ok = false;
-					replace = matches[0].replace( pattern, typo[1], flags );
+					replace = matches[ 0 ].replace( pattern, typo[ 1 ], flags );
 					grunt.log.error(
-						'File "' + filepath + '" contains typo "' + matches[0] + '" on line ' + lineNumber +
+						'File "' + filepath + '" contains typo "' + matches[ 0 ] + '" on line ' + lineNumber +
 						', did you mean "' + replace + '"?'
 					);
 				}

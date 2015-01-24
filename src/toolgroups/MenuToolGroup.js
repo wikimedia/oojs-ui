@@ -45,8 +45,8 @@ OO.ui.MenuToolGroup.prototype.onUpdateState = function () {
 		labelTexts = [];
 
 	for ( name in this.tools ) {
-		if ( this.tools[name].isActive() ) {
-			labelTexts.push( this.tools[name].getTitle() );
+		if ( this.tools[ name ].isActive() ) {
+			labelTexts.push( this.tools[ name ].getTitle() );
 		}
 	}
 

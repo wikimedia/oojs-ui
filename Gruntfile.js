@@ -23,8 +23,8 @@ module.exports = function ( grunt ) {
 
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
 		styleTargets = {
-			'oojs-ui-apex': modules['oojs-ui-apex'].styles,
-			'oojs-ui-mediawiki': modules['oojs-ui-mediawiki'].styles
+			'oojs-ui-apex': modules[ 'oojs-ui-apex' ].styles,
+			'oojs-ui-mediawiki': modules[ 'oojs-ui-mediawiki' ].styles
 		},
 		lessFiles = {
 			default: {},
@@ -49,8 +49,8 @@ module.exports = function ( grunt ) {
 					'dist/' + module + '.css' :
 					'dist/' + module + '.' + target + '.css';
 
-				originalLessFiles[distFile] = styleTargets[module];
-				lessFiles[target][distFile] = styleTargets[module].map( fixLessDirectory );
+				originalLessFiles[ distFile ] = styleTargets[ module ];
+				lessFiles[ target ][ distFile ] = styleTargets[ module ].map( fixLessDirectory );
 
 				// Concat isn't doing much other than prepending the banner...
 				concatCssFiles[ distFile ] = distFile;
@@ -67,10 +67,10 @@ module.exports = function ( grunt ) {
 			source, prop;
 
 		for ( ; i < len; i++ ) {
-			source = sources[i];
+			source = sources[ i ];
 			if ( source ) {
 				for ( prop in source ) {
-					target[prop] = source[prop];
+					target[ prop ] = source[ prop ];
 				}
 			}
 		}
@@ -89,10 +89,10 @@ module.exports = function ( grunt ) {
 		fileExists: {
 			src: ( function () {
 				var distFile,
-					files = modules['oojs-ui'].scripts.slice();
+					files = modules[ 'oojs-ui' ].scripts.slice();
 
 				for ( distFile in originalLessFiles ) {
-					files.push.apply( files, originalLessFiles[distFile] );
+					files.push.apply( files, originalLessFiles[ distFile ] );
 				}
 
 				return files;
@@ -110,9 +110,9 @@ module.exports = function ( grunt ) {
 			},
 			js: {
 				files: {
-					'dist/oojs-ui.js': modules['oojs-ui'].scripts,
-					'dist/oojs-ui-apex.js': modules['oojs-ui-apex'].scripts,
-					'dist/oojs-ui-mediawiki.js': modules['oojs-ui-mediawiki'].scripts
+					'dist/oojs-ui.js': modules[ 'oojs-ui' ].scripts,
+					'dist/oojs-ui-apex.js': modules[ 'oojs-ui-apex' ].scripts,
+					'dist/oojs-ui-mediawiki.js': modules[ 'oojs-ui-mediawiki' ].scripts
 				}
 			},
 			css: {

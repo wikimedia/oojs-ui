@@ -75,7 +75,7 @@ OO.ui.DraggableGroupElement.prototype.onItemDragStart = function ( item ) {
 
 	// Map the index of each object
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		this.items[i].setIndex( i );
+		this.items[ i ].setIndex( i );
 	}
 
 	if ( this.orientation === 'horizontal' ) {
@@ -148,9 +148,9 @@ OO.ui.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 	// Get the OptionWidget item we are dragging over
 	dragOverObj = this.getElementDocument().elementFromPoint( clientX, clientY );
 	$optionWidget = $( dragOverObj ).closest( '.oo-ui-draggableElement' );
-	if ( $optionWidget[0] ) {
+	if ( $optionWidget[ 0 ] ) {
 		itemOffset = $optionWidget.offset();
-		itemBoundingRect = $optionWidget[0].getBoundingClientRect();
+		itemBoundingRect = $optionWidget[ 0 ].getBoundingClientRect();
 		itemPosition = $optionWidget.position();
 		itemIndex = $optionWidget.data( 'index' );
 	}

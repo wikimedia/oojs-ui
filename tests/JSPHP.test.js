@@ -4,14 +4,14 @@ QUnit.module( 'JSPHP' );
 	// Generate some tests based on the test suite data and HTML from PHP version.
 
 	function expandClass( klass ) {
-		return OO.ui[klass];
+		return OO.ui[ klass ];
 	}
 
 	function makeTest( klassName, suite ) {
-		QUnit.test( klassName, suite[klassName].length, function ( assert ) {
+		QUnit.test( klassName, suite[ klassName ].length, function ( assert ) {
 			var test, klass, instance, id, fromPhp, i, testName;
-			for ( i = 0; i < suite[klassName].length; i++ ) {
-				test = suite[klassName][i];
+			for ( i = 0; i < suite[ klassName ].length; i++ ) {
+				test = suite[ klassName ][ i ];
 				klass = expandClass( test.class );
 				// jscs:disable requireCapitalizedConstructors
 				instance = new klass( test.config );
@@ -24,7 +24,7 @@ QUnit.module( 'JSPHP' );
 				instance.debouncedUpdateThemeClasses();
 
 				testName = JSON.stringify( test.config );
-				assert.equalDomElement( instance.$element[0], fromPhp, testName );
+				assert.equalDomElement( instance.$element[ 0 ], fromPhp, testName );
 			}
 		} );
 	}

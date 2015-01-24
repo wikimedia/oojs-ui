@@ -32,8 +32,8 @@ module.exports = function ( grunt ) {
 				imageLists = source.getImageLists();
 
 			return Q.all( Object.keys( imageLists ).map( function ( type ) {
-				originals += imageLists[type].getLength();
-				return imageLists[type].generate(
+				originals += imageLists[ type ].getLength();
+				return imageLists[ type ].generate(
 					new Destination( path.join( data.destDir, type ) )
 				);
 			} ) ).then( function ( sums ) {
@@ -87,11 +87,11 @@ module.exports = function ( grunt ) {
 			lists = {};
 
 		for ( type in this.images ) {
-			lists[type] = new ImageList(
+			lists[ type ] = new ImageList(
 				path.join( this.path, type ),
-				new VariantList( this.variants[type] || {} ),
-				this.css[type] || {},
-				this.images[type]
+				new VariantList( this.variants[ type ] || {} ),
+				this.css[ type ] || {},
+				this.images[ type ]
 			);
 		}
 
@@ -260,7 +260,7 @@ module.exports = function ( grunt ) {
 		this.css = css;
 
 		for ( key in data ) {
-			this.list[key] = new Image( this, key, data[key] );
+			this.list[ key ] = new Image( this, key, data[ key ] );
 		}
 	}
 
@@ -310,7 +310,7 @@ module.exports = function ( grunt ) {
 	ImageList.prototype.generate = function ( destination ) {
 		var list = this.list;
 		return Q.all( Object.keys( this.list ).map( function ( key ) {
-			return list[key].generate( destination );
+			return list[ key ].generate( destination );
 		} ) ).then( function ( rules ) {
 			var stylesheetPath = destination.getStylesheetPath();
 			grunt.file.write( stylesheetPath, rules.map( function ( value ) {
@@ -372,8 +372,8 @@ module.exports = function ( grunt ) {
 		this.globals = [];
 
 		for ( key in data ) {
-			this.list[key] = new Variant( this, key, data[key] );
-			if ( this.list[key].isGlobal() ) {
+			this.list[ key ] = new Variant( this, key, data[ key ] );
+			if ( this.list[ key ].isGlobal() ) {
 				this.globals.push( key );
 			}
 		}
@@ -395,7 +395,7 @@ module.exports = function ( grunt ) {
 	 * @return {Variant|undefined} Variant with matching name, or undefined of none exists.
 	 */
 	VariantList.prototype.getVariant = function ( name ) {
-		return this.list[name];
+		return this.list[ name ];
 	};
 
 	/**

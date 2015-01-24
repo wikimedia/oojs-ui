@@ -88,8 +88,8 @@ OO.ui.FlaggedElement.prototype.clearFlags = function () {
 
 	for ( flag in this.flags ) {
 		className = classPrefix + flag;
-		changes[flag] = false;
-		delete this.flags[flag];
+		changes[ flag ] = false;
+		delete this.flags[ flag ];
 		remove.push( className );
 	}
 
@@ -121,36 +121,36 @@ OO.ui.FlaggedElement.prototype.setFlags = function ( flags ) {
 	if ( typeof flags === 'string' ) {
 		className = classPrefix + flags;
 		// Set
-		if ( !this.flags[flags] ) {
-			this.flags[flags] = true;
+		if ( !this.flags[ flags ] ) {
+			this.flags[ flags ] = true;
 			add.push( className );
 		}
 	} else if ( $.isArray( flags ) ) {
 		for ( i = 0, len = flags.length; i < len; i++ ) {
-			flag = flags[i];
+			flag = flags[ i ];
 			className = classPrefix + flag;
 			// Set
-			if ( !this.flags[flag] ) {
-				changes[flag] = true;
-				this.flags[flag] = true;
+			if ( !this.flags[ flag ] ) {
+				changes[ flag ] = true;
+				this.flags[ flag ] = true;
 				add.push( className );
 			}
 		}
 	} else if ( OO.isPlainObject( flags ) ) {
 		for ( flag in flags ) {
 			className = classPrefix + flag;
-			if ( flags[flag] ) {
+			if ( flags[ flag ] ) {
 				// Set
-				if ( !this.flags[flag] ) {
-					changes[flag] = true;
-					this.flags[flag] = true;
+				if ( !this.flags[ flag ] ) {
+					changes[ flag ] = true;
+					this.flags[ flag ] = true;
 					add.push( className );
 				}
 			} else {
 				// Remove
-				if ( this.flags[flag] ) {
-					changes[flag] = false;
-					delete this.flags[flag];
+				if ( this.flags[ flag ] ) {
+					changes[ flag ] = false;
+					delete this.flags[ flag ];
 					remove.push( className );
 				}
 			}

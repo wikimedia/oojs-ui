@@ -39,8 +39,8 @@ OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, dem
 
 	// Auto
 	for ( i = 0, len = included.length; i < len; i++ ) {
-		if ( !used[included[i]] ) {
-			auto.push( included[i] );
+		if ( !used[ included[ i ] ] ) {
+			auto.push( included[ i ] );
 		}
 	}
 
@@ -68,22 +68,22 @@ OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {
 
 	if ( collection === '*' ) {
 		for ( name in this.registry ) {
-			tool = this.registry[name];
+			tool = this.registry[ name ];
 			if (
 				// Only add tools by group name when auto-add is enabled
 				tool.static.autoAddToCatchall &&
 				// Exclude already used tools
-				( !used || !used[name] )
+				( !used || !used[ name ] )
 			) {
 				names.push( name );
 				if ( used ) {
-					used[name] = true;
+					used[ name ] = true;
 				}
 			}
 		}
 	} else if ( $.isArray( collection ) ) {
 		for ( i = 0, len = collection.length; i < len; i++ ) {
-			item = collection[i];
+			item = collection[ i ];
 			// Allow plain strings as shorthand for named tools
 			if ( typeof item === 'string' ) {
 				item = { name: item };
@@ -91,26 +91,26 @@ OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {
 			if ( OO.isPlainObject( item ) ) {
 				if ( item.group ) {
 					for ( name in this.registry ) {
-						tool = this.registry[name];
+						tool = this.registry[ name ];
 						if (
 							// Include tools with matching group
 							tool.static.group === item.group &&
 							// Only add tools by group name when auto-add is enabled
 							tool.static.autoAddToGroup &&
 							// Exclude already used tools
-							( !used || !used[name] )
+							( !used || !used[ name ] )
 						) {
 							names.push( name );
 							if ( used ) {
-								used[name] = true;
+								used[ name ] = true;
 							}
 						}
 					}
 				// Include tools with matching name and exclude already used tools
-				} else if ( item.name && ( !used || !used[item.name] ) ) {
+				} else if ( item.name && ( !used || !used[ item.name ] ) ) {
 					names.push( item.name );
 					if ( used ) {
-						used[item.name] = true;
+						used[ item.name ] = true;
 					}
 				}
 			}

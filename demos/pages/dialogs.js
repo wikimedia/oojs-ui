@@ -365,16 +365,16 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	fieldset.addItems( [ new OO.ui.FieldLayout( isolateSwitch, { label: 'Isolate dialogs', align: 'top' } ) ] );
 	for ( i = 0, l = config.length; i < l; i++ ) {
 		name = 'window_' + i;
-		DialogClass = config[i].dialogClass || SimpleDialog;
-		windows[name] = new DialogClass( config[i].config );
-		isolatedWindows[name] = new DialogClass( config[i].config );
+		DialogClass = config[ i ].dialogClass || SimpleDialog;
+		windows[ name ] = new DialogClass( config[ i ].config );
+		isolatedWindows[ name ] = new DialogClass( config[ i ].config );
 		openButton = new OO.ui.ButtonWidget( {
 			framed: false,
 			icon: 'window',
-			label: $( '<span dir="ltr"></span>' ).text( config[i].name )
+			label: $( '<span dir="ltr"></span>' ).text( config[ i ].name )
 		} );
 		openButton.on(
-			'click', OO.ui.bind( openDialog, this, name, config[i].data )
+			'click', OO.ui.bind( openDialog, this, name, config[ i ].data )
 		);
 		fieldset.addItems( [ new OO.ui.FieldLayout( openButton, { align: 'inline' } ) ] );
 	}

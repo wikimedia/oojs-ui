@@ -35,7 +35,7 @@ OO.ui.GroupElement.prototype.setGroupElement = function ( $group ) {
 
 	this.$group = $group;
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		this.$group.append( this.items[i].$element );
+		this.$group.append( this.items[ i ].$element );
 	}
 };
 
@@ -70,7 +70,7 @@ OO.ui.GroupElement.prototype.getItemFromData = function ( data ) {
 		hash = OO.getHash( data );
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		item = this.items[i];
+		item = this.items[ i ];
 		if ( hash === OO.getHash( item.getData() ) ) {
 			return item;
 		}
@@ -93,7 +93,7 @@ OO.ui.GroupElement.prototype.getItemsFromData = function ( data ) {
 		items = [];
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		item = this.items[i];
+		item = this.items[ i ];
 		if ( hash === OO.getHash( item.getData() ) ) {
 			items.push( item );
 		}
@@ -117,7 +117,7 @@ OO.ui.GroupElement.prototype.aggregate = function ( events ) {
 	var i, len, item, add, remove, itemEvent, groupEvent;
 
 	for ( itemEvent in events ) {
-		groupEvent = events[itemEvent];
+		groupEvent = events[ itemEvent ];
 
 		// Remove existing aggregated event
 		if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {
@@ -127,27 +127,27 @@ OO.ui.GroupElement.prototype.aggregate = function ( events ) {
 			}
 			// Remove event aggregation from existing items
 			for ( i = 0, len = this.items.length; i < len; i++ ) {
-				item = this.items[i];
+				item = this.items[ i ];
 				if ( item.connect && item.disconnect ) {
 					remove = {};
-					remove[itemEvent] = [ 'emit', groupEvent, item ];
+					remove[ itemEvent ] = [ 'emit', groupEvent, item ];
 					item.disconnect( this, remove );
 				}
 			}
 			// Prevent future items from aggregating event
-			delete this.aggregateItemEvents[itemEvent];
+			delete this.aggregateItemEvents[ itemEvent ];
 		}
 
 		// Add new aggregate event
 		if ( groupEvent ) {
 			// Make future items aggregate event
-			this.aggregateItemEvents[itemEvent] = groupEvent;
+			this.aggregateItemEvents[ itemEvent ] = groupEvent;
 			// Add event aggregation to existing items
 			for ( i = 0, len = this.items.length; i < len; i++ ) {
-				item = this.items[i];
+				item = this.items[ i ];
 				if ( item.connect && item.disconnect ) {
 					add = {};
-					add[itemEvent] = [ 'emit', groupEvent, item ];
+					add[ itemEvent ] = [ 'emit', groupEvent, item ];
 					item.connect( this, add );
 				}
 			}
@@ -169,7 +169,7 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 		itemElements = [];
 
 	for ( i = 0, len = items.length; i < len; i++ ) {
-		item = items[i];
+		item = items[ i ];
 
 		// Check if item exists then remove it first, effectively "moving" it
 		currentIndex = $.inArray( item, this.items );
@@ -184,7 +184,7 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 		if ( item.connect && item.disconnect && !$.isEmptyObject( this.aggregateItemEvents ) ) {
 			events = {};
 			for ( event in this.aggregateItemEvents ) {
-				events[event] = [ 'emit', this.aggregateItemEvents[event], item ];
+				events[ event ] = [ 'emit', this.aggregateItemEvents[ event ], item ];
 			}
 			item.connect( this, events );
 		}
@@ -199,7 +199,7 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 		this.$group.prepend( itemElements );
 		this.items.unshift.apply( this.items, items );
 	} else {
-		this.items[index].$element.before( itemElements );
+		this.items[ index ].$element.before( itemElements );
 		this.items.splice.apply( this.items, [ index, 0 ].concat( items ) );
 	}
 
@@ -219,7 +219,7 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
 
 	// Remove specific items
 	for ( i = 0, len = items.length; i < len; i++ ) {
-		item = items[i];
+		item = items[ i ];
 		index = $.inArray( item, this.items );
 		if ( index !== -1 ) {
 			if (
@@ -228,7 +228,7 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
 			) {
 				remove = {};
 				if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {
-					remove[itemEvent] = [ 'emit', this.aggregateItemEvents[itemEvent], item ];
+					remove[ itemEvent ] = [ 'emit', this.aggregateItemEvents[ itemEvent ], item ];
 				}
 				item.disconnect( this, remove );
 			}
@@ -253,14 +253,14 @@ OO.ui.GroupElement.prototype.clearItems = function () {
 
 	// Remove all items
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		item = this.items[i];
+		item = this.items[ i ];
 		if (
 			item.connect && item.disconnect &&
 			!$.isEmptyObject( this.aggregateItemEvents )
 		) {
 			remove = {};
 			if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {
-				remove[itemEvent] = [ 'emit', this.aggregateItemEvents[itemEvent], item ];
+				remove[ itemEvent ] = [ 'emit', this.aggregateItemEvents[ itemEvent ], item ];
 			}
 			item.disconnect( this, remove );
 		}

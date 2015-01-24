@@ -14,7 +14,7 @@ OO.ui.ToolGroupFactory = function OoUiToolGroupFactory() {
 
 	// Register default toolgroups
 	for ( i = 0, l = defaultClasses.length; i < l; i++ ) {
-		this.register( defaultClasses[i] );
+		this.register( defaultClasses[ i ] );
 	}
 };
 

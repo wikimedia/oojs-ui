@@ -56,24 +56,24 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 	var i, len, langs;
 
 	// Requested language
-	if ( obj[lang] ) {
-		return obj[lang];
+	if ( obj[ lang ] ) {
+		return obj[ lang ];
 	}
 	// Known user language
 	langs = OO.ui.getUserLanguages();
 	for ( i = 0, len = langs.length; i < len; i++ ) {
-		lang = langs[i];
-		if ( obj[lang] ) {
-			return obj[lang];
+		lang = langs[ i ];
+		if ( obj[ lang ] ) {
+			return obj[ lang ];
 		}
 	}
 	// Fallback language
-	if ( obj[fallback] ) {
-		return obj[fallback];
+	if ( obj[ fallback ] ) {
+		return obj[ fallback ];
 	}
 	// First existing language
 	for ( lang in obj ) {
-		return obj[lang];
+		return obj[ lang ];
 	}
 
 	return undefined;
@@ -96,7 +96,7 @@ OO.ui.contains = function ( containers, contained, matchContainers ) {
 		containers = [ containers ];
 	}
 	for ( i = containers.length - 1; i >= 0; i-- ) {
-		if ( ( matchContainers && contained === containers[i] ) || $.contains( containers[i], contained ) ) {
+		if ( ( matchContainers && contained === containers[ i ] ) || $.contains( containers[ i ], contained ) ) {
 			return true;
 		}
 	}
@@ -157,13 +157,13 @@ OO.ui.contains = function ( containers, contained, matchContainers ) {
 	 * @return {string} Translated message with parameters substituted
 	 */
 	OO.ui.msg = function ( key ) {
-		var message = messages[key],
+		var message = messages[ key ],
 			params = Array.prototype.slice.call( arguments, 1 );
 		if ( typeof message === 'string' ) {
 			// Perform $1 substitution
 			message = message.replace( /\$(\d+)/g, function ( unused, n ) {
 				var i = parseInt( n, 10 );
-				return params[i - 1] !== undefined ? params[i - 1] : '$' + n;
+				return params[ i - 1 ] !== undefined ? params[ i - 1 ] : '$' + n;
 			} );
 		} else {
 			// Return placeholder if message not found

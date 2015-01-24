@@ -17,14 +17,14 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 			listTool3: 'Cmd+Enter',
 			listTool5: 'Shift+Down',
 			menuTool: 'Ctrl+M'
-		}[name];
+		}[ name ];
 	}
 
 	for ( i = 0; i < 3; i++ ) {
 		toolFactories.push( new OO.ui.ToolFactory() );
 		toolGroupFactories.push( new OO.ui.ToolGroupFactory() );
-		toolbars.push( new OO.ui.Toolbar( toolFactories[i], toolGroupFactories[i], { actions: true } ) );
-		toolbars[i].getToolAccelerator = getToolAccelerator;
+		toolbars.push( new OO.ui.Toolbar( toolFactories[ i ], toolGroupFactories[ i ], { actions: true } ) );
+		toolbars[ i ].getToolAccelerator = getToolAccelerator;
 	}
 
 	function createTool( toolbar, group, name, icon, title, init, onSelect ) {
@@ -45,7 +45,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 				this.toggled = !this.toggled;
 				this.setActive( this.toggled );
 			}
-			toolbars[toolbar].emit( 'updateState' );
+			toolbars[ toolbar ].emit( 'updateState' );
 		};
 		Tool.prototype.onUpdateState = function () {};
 
@@ -57,7 +57,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 	}
 
 	function createToolGroup( toolbar, group ) {
-		$.each( toolGroups[group], function ( i, tool ) {
+		$.each( toolGroups[ group ], function ( i, tool ) {
 			var args = tool.slice();
 			args.splice( 0, 0, toolbar, group );
 			toolFactories[ toolbar ].register( createTool.apply( null, args ) );
@@ -81,12 +81,12 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 		return DisabledToolGroup;
 	}
 
-	toolGroupFactories[0].register( createDisabledToolGroup( OO.ui.BarToolGroup, 'disabledBar' ) );
-	toolGroupFactories[0].register( createDisabledToolGroup( OO.ui.ListToolGroup, 'disabledList' ) );
-	toolGroupFactories[1].register( createDisabledToolGroup( OO.ui.MenuToolGroup, 'disabledMenu' ) );
+	toolGroupFactories[ 0 ].register( createDisabledToolGroup( OO.ui.BarToolGroup, 'disabledBar' ) );
+	toolGroupFactories[ 0 ].register( createDisabledToolGroup( OO.ui.ListToolGroup, 'disabledList' ) );
+	toolGroupFactories[ 1 ].register( createDisabledToolGroup( OO.ui.MenuToolGroup, 'disabledMenu' ) );
 
 	// Toolbar
-	toolbars[0].setup( [
+	toolbars[ 0 ].setup( [
 		{
 			type: 'bar',
 			include: [ { group: 'barTools' } ]
@@ -123,7 +123,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 		}
 	] );
 	// Toolbar with action buttons
-	toolbars[1].setup( [
+	toolbars[ 1 ].setup( [
 		{
 			type: 'menu',
 			indicator: 'down',
@@ -139,27 +139,27 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 	] );
 	// Fake toolbar to be injected into the first toolbar
 	// demonstrating right-aligned menus
-	toolbars[2].setup( [
+	toolbars[ 2 ].setup( [
 		{
 			type: 'list',
 			icon: 'picture',
 			include: [ { group: 'listTools' } ]
 		}
 	] );
-	toolbars[0].$actions.append(
+	toolbars[ 0 ].$actions.append(
 		$( '<div>' )
 			.addClass( 'oo-ui-demo-toolbar-utilities' )
-			.append( toolbars[2].$element )
+			.append( toolbars[ 2 ].$element )
 	);
 
 	actionButton = new OO.ui.ButtonWidget( { label: 'Action' } );
 	actionButtonDisabled = new OO.ui.ButtonWidget( { label: 'Disabled', disabled: true } );
-	toolbars[1].$actions
+	toolbars[ 1 ].$actions
 		.addClass( 'oo-ui-demo-toolbar-actionButtons' )
 		.append( actionButton.$element, actionButtonDisabled.$element );
 
 	for ( i = 0; i < toolbars.length; i++ ) {
-		toolbars[i].emit( 'updateState' );
+		toolbars[ i ].emit( 'updateState' );
 	}
 
 	toolGroups = {
@@ -216,7 +216,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 	createToolGroup( 2, 'listTools' );
 
 	for ( i = 0; i < toolbars.length; i++ ) {
-		$containers.eq( i ).append( toolbars[i].$element );
+		$containers.eq( i ).append( toolbars[ i ].$element );
 	}
 	$containers.append( '' );
 	$demo.append(

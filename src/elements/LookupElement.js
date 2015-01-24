@@ -233,7 +233,7 @@ OO.ui.LookupElement.prototype.getLookupMenuItems = function () {
 
 	this.abortLookupRequest();
 	if ( Object.prototype.hasOwnProperty.call( this.lookupCache, value ) ) {
-		deferred.resolve( this.getLookupMenuOptionsFromData( this.lookupCache[value] ) );
+		deferred.resolve( this.getLookupMenuOptionsFromData( this.lookupCache[ value ] ) );
 	} else {
 		this.pushPending();
 		this.lookupQuery = value;
@@ -254,8 +254,8 @@ OO.ui.LookupElement.prototype.getLookupMenuItems = function () {
 				if ( ourRequest === widget.lookupRequest ) {
 					widget.lookupQuery = null;
 					widget.lookupRequest = null;
-					widget.lookupCache[value] = widget.getLookupCacheDataFromResponse( data );
-					deferred.resolve( widget.getLookupMenuOptionsFromData( widget.lookupCache[value] ) );
+					widget.lookupCache[ value ] = widget.getLookupCacheDataFromResponse( data );
+					deferred.resolve( widget.getLookupMenuOptionsFromData( widget.lookupCache[ value ] ) );
 				}
 			} )
 			.fail( function () {

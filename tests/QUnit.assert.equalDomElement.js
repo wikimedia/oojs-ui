@@ -40,7 +40,7 @@
 		// Gather attributes
 		if ( element.attributes ) {
 			for ( i = 0; i < element.attributes.length; i++ ) {
-				summary.attributes[element.attributes[i].name] = element.attributes[i].value;
+				summary.attributes[ element.attributes[ i ].name ] = element.attributes[ i ].value;
 			}
 		}
 
@@ -70,7 +70,7 @@
 		// Summarize children
 		if ( element.childNodes ) {
 			for ( i = 0; i < element.childNodes.length; i++ ) {
-				summary.children.push( getDomElementSummary( element.childNodes[i], includeHtml ) );
+				summary.children.push( getDomElementSummary( element.childNodes[ i ], includeHtml ) );
 			}
 		}
 

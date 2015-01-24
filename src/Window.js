@@ -120,7 +120,7 @@ OO.ui.Window.static.transplantStyles = function ( parentDoc, frameDoc, timeout )
 		deferred = $.Deferred();
 
 	for ( i = 0, numSheets = parentDoc.styleSheets.length; i < numSheets; i++ ) {
-		styleNode = parentDoc.styleSheets[i].ownerNode;
+		styleNode = parentDoc.styleSheets[ i ].ownerNode;
 		if ( styleNode.disabled ) {
 			continue;
 		}
@@ -132,7 +132,7 @@ OO.ui.Window.static.transplantStyles = function ( parentDoc, frameDoc, timeout )
 			// Internal stylesheet; just copy the text
 			// For IE10 we need to fall back to .cssText, BUT that's undefined in
 			// other browsers, so fall back to '' rather than 'undefined'
-			styleText = styleNode.textContent || parentDoc.styleSheets[i].cssText || '';
+			styleText = styleNode.textContent || parentDoc.styleSheets[ i ].cssText || '';
 		}
 
 		// Create a node with a unique ID that we're going to monitor to see when the CSS
@@ -210,7 +210,7 @@ OO.ui.Window.static.transplantStyles = function ( parentDoc, frameDoc, timeout )
  */
 OO.ui.Window.prototype.onMouseDown = function ( e ) {
 	// Prevent clicking on the click-block from stealing focus
-	if ( e.target === this.$element[0] ) {
+	if ( e.target === this.$element[ 0 ] ) {
 		return false;
 	}
 };
@@ -313,7 +313,7 @@ OO.ui.Window.prototype.withoutSizeTransitions = function ( callback ) {
 	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements.
 	// Disable transitions first, otherwise we'll get values from when the window was animating.
 	var oldTransition,
-		styleObj = this.$frame[0].style;
+		styleObj = this.$frame[ 0 ].style;
 	oldTransition = styleObj.transition || styleObj.OTransition || styleObj.MsTransition ||
 		styleObj.MozTransition || styleObj.WebkitTransition;
 	styleObj.transition = styleObj.OTransition = styleObj.MsTransition =
@@ -333,8 +333,8 @@ OO.ui.Window.prototype.withoutSizeTransitions = function ( callback ) {
 OO.ui.Window.prototype.getContentHeight = function () {
 	var bodyHeight,
 		win = this,
-		bodyStyleObj = this.$body[0].style,
-		frameStyleObj = this.$frame[0].style;
+		bodyStyleObj = this.$body[ 0 ].style,
+		frameStyleObj = this.$frame[ 0 ].style;
 
 	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements.
 	// Disable transitions first, otherwise we'll get values from when the window was animating.
@@ -366,7 +366,7 @@ OO.ui.Window.prototype.getContentHeight = function () {
  * @return {number} Height of content
  */
 OO.ui.Window.prototype.getBodyHeight = function () {
-	return this.$body[0].scrollHeight;
+	return this.$body[ 0 ].scrollHeight;
 };
 
 /**
@@ -545,7 +545,7 @@ OO.ui.Window.prototype.setSize = function ( size ) {
 OO.ui.Window.prototype.setDimensions = function ( dim ) {
 	var height,
 		win = this,
-		styleObj = this.$frame[0].style;
+		styleObj = this.$frame[ 0 ].style;
 
 	// Calculate the height we need to set using the correct width
 	if ( dim.height === undefined ) {
@@ -701,7 +701,7 @@ OO.ui.Window.prototype.hold = function ( data ) {
 
 		// Blur the focused element
 		if ( $focus.length ) {
-			$focus[0].blur();
+			$focus[ 0 ].blur();
 		}
 
 		// Force redraw by asking the browser to measure the elements' widths
@@ -817,7 +817,7 @@ OO.ui.Window.prototype.load = function () {
 	this.$document = this.$( doc );
 
 	// Initialization
-	this.constructor.static.transplantStyles( this.getElementDocument(), this.$document[0] )
+	this.constructor.static.transplantStyles( this.getElementDocument(), this.$document[ 0 ] )
 		.always( function () {
 			// Initialize isolated windows
 			win.initialize();

@@ -122,7 +122,7 @@ OO.ui.TextInputWidget.static.validationPatterns = {
  */
 OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
 	if ( e.which === 1 ) {
-		this.$input[0].focus();
+		this.$input[ 0 ].focus();
 		this.emit( 'icon' );
 		return false;
 	}
@@ -136,7 +136,7 @@ OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
  */
 OO.ui.TextInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
 	if ( e.which === 1 ) {
-		this.$input[0].focus();
+		this.$input[ 0 ].focus();
 		this.emit( 'indicator' );
 		return false;
 	}
@@ -225,11 +225,11 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 			// Set inline height property to 0 to measure scroll height
 			.css( 'height', 0 );
 
-		this.$clone[0].style.display = 'block';
+		this.$clone[ 0 ].style.display = 'block';
 
 		this.valCache = this.$input.val();
 
-		scrollHeight = this.$clone[0].scrollHeight;
+		scrollHeight = this.$clone[ 0 ].scrollHeight;
 
 		// Remove inline height property to measure natural heights
 		this.$clone.css( 'height', '' );
@@ -245,10 +245,10 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 
 		// Difference between reported innerHeight and scrollHeight with no scrollbars present
 		// Equals 1 on Blink-based browsers and 0 everywhere else
-		measurementError = maxInnerHeight - this.$clone[0].scrollHeight;
+		measurementError = maxInnerHeight - this.$clone[ 0 ].scrollHeight;
 		idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
 
-		this.$clone[0].style.display = 'none';
+		this.$clone[ 0 ].style.display = 'none';
 
 		// Only apply inline height when expansion beyond natural height is needed
 		if ( idealHeight > innerHeight ) {
@@ -314,7 +314,7 @@ OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
 	if ( validate instanceof RegExp ) {
 		this.validate = validate;
 	} else {
-		this.validate = this.constructor.static.validationPatterns[validate] || /.*/;
+		this.validate = this.constructor.static.validationPatterns[ validate ] || /.*/;
 	}
 };
 

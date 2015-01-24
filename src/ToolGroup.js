@@ -117,7 +117,7 @@ OO.ui.ToolGroup.prototype.updateDisabled = function () {
 
 	if ( this.constructor.static.autoDisable ) {
 		for ( i = this.items.length - 1; i >= 0; i-- ) {
-			item = this.items[i];
+			item = this.items[ i ];
 			if ( !item.isDisabled() ) {
 				allDisabled = false;
 				break;
@@ -261,31 +261,31 @@ OO.ui.ToolGroup.prototype.populate = function () {
 
 	// Build a list of needed tools
 	for ( i = 0, len = list.length; i < len; i++ ) {
-		name = list[i];
+		name = list[ i ];
 		if (
 			// Tool exists
 			toolFactory.lookup( name ) &&
 			// Tool is available or is already in this group
-			( this.toolbar.isToolAvailable( name ) || this.tools[name] )
+			( this.toolbar.isToolAvailable( name ) || this.tools[ name ] )
 		) {
-			tool = this.tools[name];
+			tool = this.tools[ name ];
 			if ( !tool ) {
 				// Auto-initialize tools on first use
-				this.tools[name] = tool = toolFactory.create( name, this );
+				this.tools[ name ] = tool = toolFactory.create( name, this );
 				tool.updateTitle();
 			}
 			this.toolbar.reserveTool( tool );
 			add.push( tool );
-			names[name] = true;
+			names[ name ] = true;
 		}
 	}
 	// Remove tools that are no longer needed
 	for ( name in this.tools ) {
-		if ( !names[name] ) {
-			this.tools[name].destroy();
-			this.toolbar.releaseTool( this.tools[name] );
-			remove.push( this.tools[name] );
-			delete this.tools[name];
+		if ( !names[ name ] ) {
+			this.tools[ name ].destroy();
+			this.toolbar.releaseTool( this.tools[ name ] );
+			remove.push( this.tools[ name ] );
+			delete this.tools[ name ];
 		}
 	}
 	if ( remove.length ) {
@@ -312,9 +312,9 @@ OO.ui.ToolGroup.prototype.destroy = function () {
 	this.clearItems();
 	this.toolbar.getToolFactory().disconnect( this );
 	for ( name in this.tools ) {
-		this.toolbar.releaseTool( this.tools[name] );
-		this.tools[name].disconnect( this ).destroy();
-		delete this.tools[name];
+		this.toolbar.releaseTool( this.tools[ name ] );
+		this.tools[ name ].disconnect( this ).destroy();
+		delete this.tools[ name ];
 	}
 	this.$element.remove();
 };

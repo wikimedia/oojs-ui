@@ -42,9 +42,9 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 		indicatorsFieldset.addItems( [
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
-					indicator: indicators[i],
+					indicator: indicators[ i ],
 					framed: false,
-					label: indicators[i]
+					label: indicators[ i ]
 				} ),
 				{ align: 'top' }
 			)
@@ -54,9 +54,9 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 		iconsFieldset.addItems( [
 			new OO.ui.FieldLayout(
 				new OO.ui.ButtonWidget( {
-					icon: icons[i],
+					icon: icons[ i ],
 					framed: false,
-					label: icons[i]
+					label: icons[ i ]
 				} ),
 				{ align: 'top' }
 			)

@@ -164,8 +164,8 @@ OO.ui.MessageDialog.prototype.getBodyHeight = function () {
 	var bodyHeight, oldOverflow,
 		$scrollable = this.container.$element;
 
-	oldOverflow = $scrollable[0].style.overflow;
-	$scrollable[0].style.overflow = 'hidden';
+	oldOverflow = $scrollable[ 0 ].style.overflow;
+	$scrollable[ 0 ].style.overflow = 'hidden';
 
 	// Force… ugh… something to happen
 	$scrollable.contents().hide();
@@ -173,7 +173,7 @@ OO.ui.MessageDialog.prototype.getBodyHeight = function () {
 	$scrollable.contents().show();
 
 	bodyHeight = this.text.$element.outerHeight( true );
-	$scrollable[0].style.overflow = oldOverflow;
+	$scrollable[ 0 ].style.overflow = oldOverflow;
 
 	return bodyHeight;
 };
@@ -188,15 +188,15 @@ OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
 	// Twiddle the overflow property, otherwise an unnecessary scrollbar will be produced.
 	// Need to do it after transition completes (250ms), add 50ms just in case.
 	setTimeout( function () {
-		var oldOverflow = $scrollable[0].style.overflow;
-		$scrollable[0].style.overflow = 'hidden';
+		var oldOverflow = $scrollable[ 0 ].style.overflow;
+		$scrollable[ 0 ].style.overflow = 'hidden';
 
 		// Force… ugh… something to happen
 		$scrollable.contents().hide();
 		$scrollable.height();
 		$scrollable.contents().show();
 
-		$scrollable[0].style.overflow = oldOverflow;
+		$scrollable[ 0 ].style.overflow = oldOverflow;
 	}, 300 );
 
 	return this;
@@ -248,7 +248,7 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
 	}
 	if ( others.length ) {
 		for ( i = 0, len = others.length; i < len; i++ ) {
-			other = others[i];
+			other = others[ i ];
 			this.$actions.append( other.$element );
 			other.toggleFramed( false );
 		}
@@ -278,7 +278,7 @@ OO.ui.MessageDialog.prototype.fitActions = function () {
 	// Detect clipping
 	this.toggleVerticalActionLayout( false );
 	for ( i = 0, len = actions.length; i < len; i++ ) {
-		action = actions[i];
+		action = actions[ i ];
 		if ( action.$element.innerWidth() < action.$label.outerWidth( true ) ) {
 			this.toggleVerticalActionLayout( true );
 			break;

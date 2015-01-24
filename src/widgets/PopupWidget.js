@@ -95,7 +95,7 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.ClippableElement );
 OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
 	if (
 		this.isVisible() &&
-		!$.contains( this.$element[0], e.target ) &&
+		!$.contains( this.$element[ 0 ], e.target ) &&
 		( !this.$autoCloseIgnore || !this.$autoCloseIgnore.has( e.target ).length )
 	) {
 		this.toggle( false );
@@ -227,7 +227,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	} );
 
 	// Compute initial popupOffset based on alignment
-	popupOffset = this.width * ( { left: 0, center: -0.5, right: -1 } )[this.align];
+	popupOffset = this.width * ( { left: 0, center: -0.5, right: -1 } )[ this.align ];
 
 	// Figure out if this will cause the popup to go beyond the edge of the container
 	originOffset = this.$element.offset().left;
@@ -249,7 +249,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	// Adjust offset to avoid anchor being rendered too close to the edge
 	// $anchor.width() doesn't work with the pure CSS anchor (returns 0)
 	// TODO: Find a measurement that works for CSS anchors and image anchors
-	anchorWidth = this.$anchor[0].scrollWidth * 2;
+	anchorWidth = this.$anchor[ 0 ].scrollWidth * 2;
 	if ( popupOffset + this.width < anchorWidth ) {
 		popupOffset = anchorWidth - this.width;
 	} else if ( -popupOffset < anchorWidth ) {

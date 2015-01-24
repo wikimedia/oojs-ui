@@ -97,15 +97,15 @@ OO.ui.OutlineControlsWidget.prototype.onOutlineChange = function () {
 		i = -1;
 		len = items.length;
 		while ( ++i < len ) {
-			if ( items[i].isMovable() ) {
-				firstMovable = items[i];
+			if ( items[ i ].isMovable() ) {
+				firstMovable = items[ i ];
 				break;
 			}
 		}
 		i = len;
 		while ( i-- ) {
-			if ( items[i].isMovable() ) {
-				lastMovable = items[i];
+			if ( items[ i ].isMovable() ) {
+				lastMovable = items[ i ];
 				break;
 			}
 		}

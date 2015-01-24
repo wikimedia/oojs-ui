@@ -225,8 +225,8 @@ OO.ui.SelectWidget.prototype.getSelectedItem = function () {
 	var i, len;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		if ( this.items[i].isSelected() ) {
-			return this.items[i];
+		if ( this.items[ i ].isSelected() ) {
+			return this.items[ i ];
 		}
 	}
 	return null;
@@ -241,8 +241,8 @@ OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
 	var i, len;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		if ( this.items[i].isHighlighted() ) {
-			return this.items[i];
+		if ( this.items[ i ].isHighlighted() ) {
+			return this.items[ i ];
 		}
 	}
 	return null;
@@ -279,9 +279,9 @@ OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
 		changed = false;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		highlighted = this.items[i] === item;
-		if ( this.items[i].isHighlighted() !== highlighted ) {
-			this.items[i].setHighlighted( highlighted );
+		highlighted = this.items[ i ] === item;
+		if ( this.items[ i ].isHighlighted() !== highlighted ) {
+			this.items[ i ].setHighlighted( highlighted );
 			changed = true;
 		}
 	}
@@ -304,9 +304,9 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 		changed = false;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		selected = this.items[i] === item;
-		if ( this.items[i].isSelected() !== selected ) {
-			this.items[i].setSelected( selected );
+		selected = this.items[ i ] === item;
+		if ( this.items[ i ].isSelected() !== selected ) {
+			this.items[ i ].setSelected( selected );
 			changed = true;
 		}
 	}
@@ -329,9 +329,9 @@ OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
 		changed = false;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		pressed = this.items[i] === item;
-		if ( this.items[i].isPressed() !== pressed ) {
-			this.items[i].setPressed( pressed );
+		pressed = this.items[ i ] === item;
+		if ( this.items[ i ].isPressed() !== pressed ) {
+			this.items[ i ].setPressed( pressed );
 			changed = true;
 		}
 	}
@@ -381,7 +381,7 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 	}
 
 	for ( i = 0; i < len; i++ ) {
-		item = this.items[nextIndex];
+		item = this.items[ nextIndex ];
 		if ( item instanceof OO.ui.OptionWidget && item.isSelectable() ) {
 			return item;
 		}
@@ -399,7 +399,7 @@ OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
 	var i, len, item;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		item = this.items[i];
+		item = this.items[ i ];
 		if ( item instanceof OO.ui.OptionWidget && item.isSelectable() ) {
 			return item;
 		}
@@ -440,7 +440,7 @@ OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
 
 	// Deselect items being removed
 	for ( i = 0, len = items.length; i < len; i++ ) {
-		item = items[i];
+		item = items[ i ];
 		if ( item.isSelected() ) {
 			this.selectItem( null );
 		}

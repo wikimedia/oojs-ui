@@ -94,7 +94,7 @@ OO.ui.PopupToolGroup.prototype.setDisabled = function () {
  */
 OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
 	// Only deactivate when clicking outside the dropdown element
-	if ( this.$( e.target ).closest( '.oo-ui-popupToolGroup' )[0] !== this.$element[0] ) {
+	if ( this.$( e.target ).closest( '.oo-ui-popupToolGroup' )[ 0 ] !== this.$element[ 0 ] ) {
 		this.setActive( false );
 	}
 };

@@ -98,7 +98,7 @@ OO.ui.ActionSet.prototype.isSpecial = function ( action ) {
 	var flag;
 
 	for ( flag in this.special ) {
-		if ( action === this.special[flag] ) {
+		if ( action === this.special[ flag ] ) {
 			return true;
 		}
 	}
@@ -126,13 +126,13 @@ OO.ui.ActionSet.prototype.get = function ( filters ) {
 		// Collect category candidates
 		matches = [];
 		for ( category in this.categorized ) {
-			list = filters[category];
+			list = filters[ category ];
 			if ( list ) {
 				if ( !Array.isArray( list ) ) {
 					list = [ list ];
 				}
 				for ( i = 0, len = list.length; i < len; i++ ) {
-					actions = this.categorized[category][list[i]];
+					actions = this.categorized[ category ][ list[ i ] ];
 					if ( Array.isArray( actions ) ) {
 						matches.push.apply( matches, actions );
 					}
@@ -141,7 +141,7 @@ OO.ui.ActionSet.prototype.get = function ( filters ) {
 		}
 		// Remove by boolean filters
 		for ( i = 0, len = matches.length; i < len; i++ ) {
-			match = matches[i];
+			match = matches[ i ];
 			if (
 				( filters.visible !== undefined && match.isVisible() !== filters.visible ) ||
 				( filters.disabled !== undefined && match.isDisabled() !== filters.disabled )
@@ -153,7 +153,7 @@ OO.ui.ActionSet.prototype.get = function ( filters ) {
 		}
 		// Remove duplicates
 		for ( i = 0, len = matches.length; i < len; i++ ) {
-			match = matches[i];
+			match = matches[ i ];
 			index = matches.lastIndexOf( match );
 			while ( index !== i ) {
 				matches.splice( index, 1 );
@@ -207,7 +207,7 @@ OO.ui.ActionSet.prototype.setMode = function ( mode ) {
 
 	this.changing = true;
 	for ( i = 0, len = this.list.length; i < len; i++ ) {
-		action = this.list[i];
+		action = this.list[ i ];
 		action.toggle( action.hasMode( mode ) );
 	}
 
@@ -231,10 +231,10 @@ OO.ui.ActionSet.prototype.setAbilities = function ( actions ) {
 	var i, len, action, item;
 
 	for ( i = 0, len = this.list.length; i < len; i++ ) {
-		item = this.list[i];
+		item = this.list[ i ];
 		action = item.getAction();
-		if ( actions[action] !== undefined ) {
-			item.setDisabled( !actions[action] );
+		if ( actions[ action ] !== undefined ) {
+			item.setDisabled( !actions[ action ] );
 		}
 	}
 
@@ -277,7 +277,7 @@ OO.ui.ActionSet.prototype.add = function ( actions ) {
 
 	this.changing = true;
 	for ( i = 0, len = actions.length; i < len; i++ ) {
-		action = actions[i];
+		action = actions[ i ];
 		action.connect( this, {
 			click: [ 'emit', 'click', action ],
 			resize: [ 'emit', 'resize', action ],
@@ -306,7 +306,7 @@ OO.ui.ActionSet.prototype.remove = function ( actions ) {
 
 	this.changing = true;
 	for ( i = 0, len = actions.length; i < len; i++ ) {
-		action = actions[i];
+		action = actions[ i ];
 		index = this.list.indexOf( action );
 		if ( index !== -1 ) {
 			action.disconnect( this );
@@ -334,7 +334,7 @@ OO.ui.ActionSet.prototype.clear = function () {
 
 	this.changing = true;
 	for ( i = 0, len = this.list.length; i < len; i++ ) {
-		action = this.list[i];
+		action = this.list[ i ];
 		action.disconnect( this );
 	}
 
@@ -366,31 +366,31 @@ OO.ui.ActionSet.prototype.organize = function () {
 		this.special = {};
 		this.others = [];
 		for ( i = 0, iLen = this.list.length; i < iLen; i++ ) {
-			action = this.list[i];
+			action = this.list[ i ];
 			if ( action.isVisible() ) {
 				// Populate categories
 				for ( category in this.categories ) {
-					if ( !this.categorized[category] ) {
-						this.categorized[category] = {};
+					if ( !this.categorized[ category ] ) {
+						this.categorized[ category ] = {};
 					}
-					list = action[this.categories[category]]();
+					list = action[ this.categories[ category ] ]();
 					if ( !Array.isArray( list ) ) {
 						list = [ list ];
 					}
 					for ( j = 0, jLen = list.length; j < jLen; j++ ) {
-						item = list[j];
-						if ( !this.categorized[category][item] ) {
-							this.categorized[category][item] = [];
+						item = list[ j ];
+						if ( !this.categorized[ category ][ item ] ) {
+							this.categorized[ category ][ item ] = [];
 						}
-						this.categorized[category][item].push( action );
+						this.categorized[ category ][ item ].push( action );
 					}
 				}
 				// Populate special/others
 				special = false;
 				for ( j = 0, jLen = specialFlags.length; j < jLen; j++ ) {
-					flag = specialFlags[j];
-					if ( !this.special[flag] && action.hasFlag( flag ) ) {
-						this.special[flag] = action;
+					flag = specialFlags[ j ];
+					if ( !this.special[ flag ] && action.hasFlag( flag ) ) {
+						this.special[ flag ] = action;
 						special = true;
 						break;
 					}

@@ -70,7 +70,7 @@ OO.ui.Process.prototype.execute = function () {
 				// Use rejected promise for error
 				return $.Deferred().reject( [ result ] ).promise();
 			}
-			if ( $.isArray( result ) && result.length && result[0] instanceof OO.ui.Error ) {
+			if ( $.isArray( result ) && result.length && result[ 0 ] instanceof OO.ui.Error ) {
 				// Use rejected promise for list of errors
 				return $.Deferred().reject( result ).promise();
 			}
@@ -86,9 +86,9 @@ OO.ui.Process.prototype.execute = function () {
 
 	if ( this.steps.length ) {
 		// Generate a chain reaction of promises
-		promise = proceed( this.steps[0] )();
+		promise = proceed( this.steps[ 0 ] )();
 		for ( i = 1, len = this.steps.length; i < len; i++ ) {
-			promise = promise.then( proceed( this.steps[i] ) );
+			promise = promise.then( proceed( this.steps[ i ] ) );
 		}
 	} else {
 		promise = $.Deferred().resolve().promise();

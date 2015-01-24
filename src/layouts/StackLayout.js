@@ -88,7 +88,7 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
 	OO.ui.GroupElement.prototype.addItems.call( this, items, index );
 
 	if ( !this.currentItem && items.length ) {
-		this.setItem( items[0] );
+		this.setItem( items[ 0 ] );
 	}
 
 	return this;
@@ -109,7 +109,7 @@ OO.ui.StackLayout.prototype.removeItems = function ( items ) {
 
 	if ( $.inArray( this.currentItem, items ) !== -1 ) {
 		if ( this.items.length ) {
-			this.setItem( this.items[0] );
+			this.setItem( this.items[ 0 ] );
 		} else {
 			this.unsetCurrentItem();
 		}
@@ -151,7 +151,7 @@ OO.ui.StackLayout.prototype.setItem = function ( item ) {
 	if ( item !== this.currentItem ) {
 		if ( !this.continuous ) {
 			for ( i = 0, len = this.items.length; i < len; i++ ) {
-				this.items[i].$element.css( 'display', '' );
+				this.items[ i ].$element.css( 'display', '' );
 			}
 		}
 		if ( $.inArray( item, this.items ) !== -1 ) {

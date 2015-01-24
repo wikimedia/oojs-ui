@@ -133,7 +133,7 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
 	}
 	if ( others.length ) {
 		for ( i = 0, len = others.length; i < len; i++ ) {
-			other = others[i];
+			other = others[ i ];
 			this.$otherActions.append( other.$element );
 			other.toggleFramed( true );
 		}
@@ -182,16 +182,16 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 		warning = false;
 
 	for ( i = 0, len = errors.length; i < len; i++ ) {
-		if ( !errors[i].isRecoverable() ) {
+		if ( !errors[ i ].isRecoverable() ) {
 			recoverable = false;
 		}
-		if ( errors[i].isWarning() ) {
+		if ( errors[ i ].isWarning() ) {
 			warning = true;
 		}
 		$item = this.$( '<div>' )
 			.addClass( 'oo-ui-processDialog-error' )
-			.append( errors[i].getMessage() );
-		items.push( $item[0] );
+			.append( errors[ i ].getMessage() );
+		items.push( $item[ 0 ] );
 	}
 	this.$errorItems = this.$( items );
 	if ( recoverable ) {

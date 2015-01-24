@@ -27,8 +27,8 @@ OO.ui.GridLayout = function OoUiGridLayout( panels, config ) {
 	// Initialization
 	this.$element.addClass( 'oo-ui-gridLayout' );
 	for ( i = 0, len = panels.length; i < len; i++ ) {
-		this.panels.push( panels[i] );
-		this.$element.append( panels[i].$element );
+		this.panels.push( panels[ i ] );
+		this.$element.append( panels[ i ].$element );
 	}
 	if ( config.widths || config.heights ) {
 		this.layout( config.widths || [ 1 ], config.heights || [ 1 ] );
@@ -77,19 +77,19 @@ OO.ui.GridLayout.prototype.layout = function ( widths, heights ) {
 
 	// Sum up denominators
 	for ( x = 0; x < cols; x++ ) {
-		xd += widths[x];
+		xd += widths[ x ];
 	}
 	for ( y = 0; y < rows; y++ ) {
-		yd += heights[y];
+		yd += heights[ y ];
 	}
 	// Store factors
 	this.widths = [];
 	this.heights = [];
 	for ( x = 0; x < cols; x++ ) {
-		this.widths[x] = widths[x] / xd;
+		this.widths[ x ] = widths[ x ] / xd;
 	}
 	for ( y = 0; y < rows; y++ ) {
-		this.heights[y] = heights[y] / yd;
+		this.heights[ y ] = heights[ y ] / yd;
 	}
 	// Synchronize view
 	this.update();
@@ -110,10 +110,10 @@ OO.ui.GridLayout.prototype.update = function () {
 		rows = this.heights.length;
 
 	for ( y = 0; y < rows; y++ ) {
-		height = this.heights[y];
+		height = this.heights[ y ];
 		for ( x = 0; x < cols; x++ ) {
-			width = this.widths[x];
-			panel = this.panels[i];
+			width = this.widths[ x ];
+			panel = this.panels[ i ];
 			dimensions = {
 				width: ( width * 100 ) + '%',
 				height: ( height * 100 ) + '%',
