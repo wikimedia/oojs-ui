@@ -429,6 +429,33 @@ OO.ui.Element.static.scrollIntoView = function ( el, config ) {
 	}
 };
 
+/**
+ * Force the browser to reconsider whether it really needs to render scrollbars inside the element
+ * and reserve space for them, because it probably doesn't.
+ *
+ * Workaround primarily for <https://code.google.com/p/chromium/issues/detail?id=387290>, but also
+ * similar bugs in other browsers. "Just" forcing a reflow is not sufficient in all cases, we need
+ * to first actually detach (or hide, but detaching is simpler) all children, *then* force a reflow,
+ * and then reattach (or show) them back.
+ *
+ * @static
+ * @param {HTMLElement} el Element to reconsider the scrollbars on
+ */
+OO.ui.Element.static.reconsiderScrollbars = function ( el ) {
+	var i, len, nodes = [];
+	// Detach all children
+	while ( el.firstChild ) {
+		nodes.push( el.firstChild );
+		el.removeChild( el.firstChild );
+	}
+	// Force reflow
+	void el.offsetHeight;
+	// Reattach all children
+	for ( i = 0, len = nodes.length; i < len; i++ ) {
+		el.appendChild( nodes[ i ] );
+	}
+};
+
 /* Methods */
 
 /**

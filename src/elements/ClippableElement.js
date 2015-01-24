@@ -44,9 +44,8 @@ OO.ui.ClippableElement = function OoUiClippableElement( config ) {
 OO.ui.ClippableElement.prototype.setClippableElement = function ( $clippable ) {
 	if ( this.$clippable ) {
 		this.$clippable.removeClass( 'oo-ui-clippableElement-clippable' );
-		this.$clippable.css( { width: '', height: '' } );
-		this.$clippable.width(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
-		this.$clippable.css( { overflowX: '', overflowY: '' } );
+		this.$clippable.css( { width: '', height: '', overflowX: '', overflowY: '' } );
+		OO.ui.Element.static.reconsiderScrollbars( this.$clippable[ 0 ] );
 	}
 
 	this.$clippable = $clippable.addClass( 'oo-ui-clippableElement-clippable' );
@@ -79,9 +78,8 @@ OO.ui.ClippableElement.prototype.toggleClipping = function ( clipping ) {
 			// Initial clip after visible
 			this.clip();
 		} else {
-			this.$clippable.css( { width: '', height: '' } );
-			this.$clippable.width(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
-			this.$clippable.css( { overflowX: '', overflowY: '' } );
+			this.$clippable.css( { width: '', height: '', overflowX: '', overflowY: '' } );
+			OO.ui.Element.static.reconsiderScrollbars( this.$clippable[ 0 ] );
 
 			this.$clippableContainer = null;
 			this.$clippableScroller.off( 'scroll', this.onClippableContainerScrollHandler );
@@ -187,16 +185,17 @@ OO.ui.ClippableElement.prototype.clip = function () {
 	if ( clipWidth ) {
 		this.$clippable.css( { overflowX: 'scroll', width: desiredWidth } );
 	} else {
-		this.$clippable.css( 'width', this.idealWidth || '' );
-		this.$clippable.width(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
-		this.$clippable.css( 'overflowX', '' );
+		this.$clippable.css( { width: this.idealWidth || '', overflowX: '' } );
 	}
 	if ( clipHeight ) {
 		this.$clippable.css( { overflowY: 'scroll', height: desiredHeight } );
 	} else {
-		this.$clippable.css( 'height', this.idealHeight || '' );
-		this.$clippable.height(); // Force reflow for https://code.google.com/p/chromium/issues/detail?id=387290
-		this.$clippable.css( 'overflowY', '' );
+		this.$clippable.css( { height: this.idealHeight || '', overflowY: '' } );
+	}
+
+	// If we stopped clipping in at least one of the dimensions
+	if ( !clipWidth || !clipHeight ) {
+		OO.ui.Element.static.reconsiderScrollbars( this.$clippable[ 0 ] );
 	}
 
 	this.clippedHorizontally = clipWidth;

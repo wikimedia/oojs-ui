@@ -167,10 +167,7 @@ OO.ui.MessageDialog.prototype.getBodyHeight = function () {
 	oldOverflow = $scrollable[ 0 ].style.overflow;
 	$scrollable[ 0 ].style.overflow = 'hidden';
 
-	// Force… ugh… something to happen
-	$scrollable.contents().hide();
-	$scrollable.height();
-	$scrollable.contents().show();
+	OO.ui.Element.static.reconsiderScrollbars( $scrollable[ 0 ] );
 
 	bodyHeight = this.text.$element.outerHeight( true );
 	$scrollable[ 0 ].style.overflow = oldOverflow;
@@ -191,10 +188,7 @@ OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
 		var oldOverflow = $scrollable[ 0 ].style.overflow;
 		$scrollable[ 0 ].style.overflow = 'hidden';
 
-		// Force… ugh… something to happen
-		$scrollable.contents().hide();
-		$scrollable.height();
-		$scrollable.contents().show();
+		OO.ui.Element.static.reconsiderScrollbars( $scrollable[ 0 ] );
 
 		$scrollable[ 0 ].style.overflow = oldOverflow;
 	}, 300 );
