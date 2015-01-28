@@ -55,8 +55,11 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.FlaggedElement );
 /**
  * Get input element.
  *
+ * Subclasses of OO.ui.InputWidget use the `config` parameter to produce different elements in
+ * different circumstances. The element must have a `value` property (like form elements).
+ *
  * @private
- * @param {Object} [config] Configuration options
+ * @param {Object} config Configuration options
  * @return {jQuery} Input element
  */
 OO.ui.InputWidget.prototype.getInputElement = function () {

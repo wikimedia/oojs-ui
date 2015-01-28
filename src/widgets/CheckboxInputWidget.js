@@ -24,10 +24,8 @@ OO.inheritClass( OO.ui.CheckboxInputWidget, OO.ui.InputWidget );
 /* Methods */
 
 /**
- * Get input element.
- *
+ * @inheritdoc
  * @private
- * @return {jQuery} Input element
  */
 OO.ui.CheckboxInputWidget.prototype.getInputElement = function () {
 	return this.$( '<input type="checkbox" />' );
