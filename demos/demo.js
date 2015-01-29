@@ -65,8 +65,8 @@ OO.ui.Demo = function OoUiDemo() {
 		.append( this.$menu );
 	$( 'body' ).addClass( 'oo-ui-' + this.mode.direction );
 	$( 'head' ).append( this.stylesheetLinks );
-	this.constructor.static.pages[ this.mode.page ]( this );
 	OO.ui.theme = new ( this.constructor.static.themes[ this.mode.theme ].theme )();
+	this.constructor.static.pages[ this.mode.page ]( this );
 };
 
 /* Setup */

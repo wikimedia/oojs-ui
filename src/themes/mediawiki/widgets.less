@@ -431,7 +431,7 @@
 	&.oo-ui-iconElement {
 		input,
 		textarea {
-			padding-left: 2.4em;
+			padding-left: 2.75em;
 		}
 
 		.oo-ui-iconElement-icon {
@@ -452,6 +452,24 @@
 			width: 1.6em;
 			height: 100%;
 			background-position: left center;
+		}
+	}
+
+	> .oo-ui-labelElement-label {
+		padding: 0.4em;
+		line-height: 1.5em;
+		color: #888;
+	}
+
+	&-labelPosition-after {
+		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
+			padding-right: 2.4em;
+		}
+	}
+
+	&-labelPosition-before {
+		&.oo-ui-iconElement > .oo-ui-labelElement-label {
+			padding-left: 2.9em;
 		}
 	}
 }
