@@ -73,7 +73,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	if ( config.autofocus ) {
 		this.$input.attr( 'autofocus', 'autofocus' );
 	}
-	this.$element.attr( 'role', 'textbox' );
 };
 
 /* Setup */
