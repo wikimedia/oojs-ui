@@ -39,6 +39,7 @@ OO.inheritClass( OO.ui.DropdownInputWidget, OO.ui.InputWidget );
 
 /**
  * @inheritdoc
+ * @private
  */
 OO.ui.DropdownInputWidget.prototype.getInputElement = function () {
 	return this.$( '<input type="hidden">' );
