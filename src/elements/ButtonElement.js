@@ -11,8 +11,6 @@
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$button] Button node, assigned to #$button, omit to use a generated `<a>`
  * @cfg {boolean} [framed=true] Render button with a frame
- * @cfg {number} [tabIndex=0] Button's tab index. Use 0 to use default ordering, use -1 to prevent
- *   tab focusing.
  * @cfg {string} [accessKey] Button's access key
  */
 OO.ui.ButtonElement = function OoUiButtonElement( config ) {
@@ -20,9 +18,8 @@ OO.ui.ButtonElement = function OoUiButtonElement( config ) {
 	config = config || {};
 
 	// Properties
-	this.$button = null;
+	this.$button = config.$button || this.$( '<a>' );
 	this.framed = null;
-	this.tabIndex = null;
 	this.accessKey = null;
 	this.active = false;
 	this.onMouseUpHandler = this.onMouseUp.bind( this );
@@ -31,9 +28,8 @@ OO.ui.ButtonElement = function OoUiButtonElement( config ) {
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonElement' );
 	this.toggleFramed( config.framed === undefined || config.framed );
-	this.setTabIndex( config.tabIndex || 0 );
 	this.setAccessKey( config.accessKey );
-	this.setButtonElement( config.$button || this.$( '<a>' ) );
+	this.setButtonElement( this.$button );
 };
 
 /* Setup */
@@ -64,13 +60,13 @@ OO.ui.ButtonElement.prototype.setButtonElement = function ( $button ) {
 	if ( this.$button ) {
 		this.$button
 			.removeClass( 'oo-ui-buttonElement-button' )
-			.removeAttr( 'role accesskey tabindex' )
+			.removeAttr( 'role accesskey' )
 			.off( 'mousedown', this.onMouseDownHandler );
 	}
 
 	this.$button = $button
 		.addClass( 'oo-ui-buttonElement-button' )
-		.attr( { role: 'button', accesskey: this.accessKey, tabindex: this.tabIndex } )
+		.attr( { role: 'button', accesskey: this.accessKey } )
 		.on( 'mousedown', this.onMouseDownHandler );
 };
 
@@ -83,12 +79,7 @@ OO.ui.ButtonElement.prototype.onMouseDown = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
 		return false;
 	}
-	// Remove the tab-index while the button is down to prevent the button from stealing focus
-	this.$button.removeAttr( 'tabindex' );
 	this.$element.addClass( 'oo-ui-buttonElement-pressed' );
-	// Run the mouseup handler no matter where the mouse is when the button is let go, so we can
-	// reliably reapply the tabindex and remove the pressed class
-	this.getElementDocument().addEventListener( 'mouseup', this.onMouseUpHandler, true );
 	// Prevent change of focus unless specifically configured otherwise
 	if ( this.constructor.static.cancelButtonMouseDownEvents ) {
 		return false;
@@ -104,11 +95,7 @@ OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
 		return false;
 	}
-	// Restore the tab-index after the button is up to restore the button's accessibility
-	this.$button.attr( 'tabindex', this.tabIndex );
 	this.$element.removeClass( 'oo-ui-buttonElement-pressed' );
-	// Stop listening for mouseup, since we only needed this once
-	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
 };
 
 /**
@@ -134,29 +121,6 @@ OO.ui.ButtonElement.prototype.toggleFramed = function ( framed ) {
 			.toggleClass( 'oo-ui-buttonElement-frameless', !framed )
 			.toggleClass( 'oo-ui-buttonElement-framed', framed );
 		this.updateThemeClasses();
-	}
-
-	return this;
-};
-
-/**
- * Set tab index.
- *
- * @param {number|null} tabIndex Button's tab index, use null to remove
- * @chainable
- */
-OO.ui.ButtonElement.prototype.setTabIndex = function ( tabIndex ) {
-	tabIndex = typeof tabIndex === 'number' && tabIndex >= 0 ? tabIndex : null;
-
-	if ( this.tabIndex !== tabIndex ) {
-		if ( this.$button ) {
-			if ( tabIndex !== null ) {
-				this.$button.attr( 'tabindex', tabIndex );
-			} else {
-				this.$button.removeAttr( 'tabindex' );
-			}
-		}
-		this.tabIndex = tabIndex;
 	}
 
 	return this;

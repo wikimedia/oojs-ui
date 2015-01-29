@@ -33,6 +33,8 @@ class InputWidget extends Widget {
 		// Mixins
 		$this->mixin( new FlaggedElement( $this,
 			array_merge( $config, array( 'flagged' => $this ) ) ) );
+		$this->mixin( new TabIndexedElement( $this,
+			array_merge( $config, array( 'tabIndexed' => $this->input ) ) ) );
 
 		// Initialization
 		if ( isset( $config['name'] ) ) {

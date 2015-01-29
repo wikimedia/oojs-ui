@@ -38,6 +38,8 @@ class ButtonWidget extends Widget {
 		$this->mixin( new TitledElement( $this,
 			array_merge( $config, array( 'titled' => $this->button ) ) ) );
 		$this->mixin( new FlaggedElement( $this, $config ) );
+		$this->mixin( new TabIndexedElement( $this,
+			array_merge( $config, array( 'tabIndexed' => $this->button ) ) ) );
 
 		// Initialization
 		$this->button->appendContent( $this->icon, $this->label, $this->indicator );

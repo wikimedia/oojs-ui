@@ -9,6 +9,7 @@
  * @mixins OO.ui.LabelElement
  * @mixins OO.ui.TitledElement
  * @mixins OO.ui.FlaggedElement
+ * @mixins OO.ui.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -29,6 +30,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	OO.ui.LabelElement.call( this, config );
 	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$button } ) );
 	OO.ui.FlaggedElement.call( this, config );
+	OO.ui.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$button } ) );
 
 	// Properties
 	this.href = null;
@@ -59,6 +61,7 @@ OO.mixinClass( OO.ui.ButtonWidget, OO.ui.IndicatorElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.TitledElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.FlaggedElement );
+OO.mixinClass( OO.ui.ButtonWidget, OO.ui.TabIndexedElement );
 
 /* Events */
 
@@ -82,6 +85,31 @@ OO.ui.ButtonWidget.prototype.onClick = function () {
 		}
 	}
 	return false;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ButtonWidget.prototype.onMouseDown = function ( e ) {
+	// Remove the tab-index while the button is down to prevent the button from stealing focus
+	this.$button.removeAttr( 'tabindex' );
+	// Run the mouseup handler no matter where the mouse is when the button is let go, so we can
+	// reliably reapply the tabindex and remove the pressed class
+	this.getElementDocument().addEventListener( 'mouseup', this.onMouseUpHandler, true );
+
+	return OO.ui.ButtonElement.prototype.onMouseDown.call( this, e );
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ButtonWidget.prototype.onMouseUp = function ( e ) {
+	// Restore the tab-index after the button is up to restore the button's accessibility
+	this.$button.attr( 'tabindex', this.tabIndex );
+	// Stop listening for mouseup, since we only needed this once
+	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
+
+	return OO.ui.ButtonElement.prototype.onMouseUp.call( this, e );
 };
 
 /**
