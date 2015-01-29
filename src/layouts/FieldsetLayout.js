@@ -25,10 +25,28 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	OO.ui.LabelElement.call( this, config );
 	OO.ui.GroupElement.call( this, config );
 
+	if ( config.help ) {
+		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
+			$: this.$,
+			classes: [ 'oo-ui-fieldsetLayout-help' ],
+			framed: false,
+			icon: 'info'
+		} );
+
+		this.popupButtonWidget.getPopup().$body.append(
+			this.$( '<div>' )
+				.text( config.help )
+				.addClass( 'oo-ui-fieldsetLayout-help-content' )
+		);
+		this.$help = this.popupButtonWidget.$element;
+	} else {
+		this.$help = this.$( [] );
+	}
+
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-fieldsetLayout' )
-		.prepend( this.$icon, this.$label, this.$group );
+		.prepend( this.$help, this.$icon, this.$label, this.$group );
 	if ( $.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}

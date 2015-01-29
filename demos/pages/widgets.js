@@ -1070,7 +1070,11 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		);
 	} );
 
-	fieldset = new OO.ui.FieldsetLayout( { label: 'Widgets' } );
+	fieldset = new OO.ui.FieldsetLayout( {
+		label: 'Widgets',
+		help: 'I am an additional, helpful information. Lorem ipsum dolor sit amet, cibo definiebas pri ' +
+			'in, duo ex inimicus perpetua complectitur, mel periculis similique at.\u200E'
+	} );
 	fieldset.addItems( fieldLayouts );
 	$demo.append( $( '<div class="oo-ui-demo-container">' ).append( fieldset.$element ) );
 };
