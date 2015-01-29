@@ -18,6 +18,9 @@ OO.ui.TabIndexedElement = function OoUiTabIndexedElement( config ) {
 	this.$tabIndexed = null;
 	this.tabIndex = null;
 
+	// Events
+	this.connect( this, { disable: 'onDisable' } );
+
 	// Initialization
 	this.setTabIndex( config.tabIndex || 0 );
 	this.setTabIndexedElement( config.$tabIndexed || this.$element );
@@ -38,12 +41,17 @@ OO.initClass( OO.ui.TabIndexedElement );
  */
 OO.ui.TabIndexedElement.prototype.setTabIndexedElement = function ( $tabIndexed ) {
 	if ( this.$tabIndexed ) {
-		this.$tabIndexed.removeAttr( 'tabindex' );
+		this.$tabIndexed.removeAttr( 'tabindex aria-disabled' );
 	}
 
 	this.$tabIndexed = $tabIndexed;
 	if ( this.tabIndex !== null ) {
-		this.$tabIndexed.attr( 'tabindex', this.tabIndex );
+		this.$tabIndexed.attr( {
+			// Do not index over disabled elements
+			tabindex: this.isDisabled() ? -1 : this.tabIndex,
+			// ChromeVox and NVDA do not seem to inherit this from parent elements
+			'aria-disabled': this.isDisabled().toString()
+		} );
 	}
 };
 
@@ -59,15 +67,36 @@ OO.ui.TabIndexedElement.prototype.setTabIndex = function ( tabIndex ) {
 	if ( this.tabIndex !== tabIndex ) {
 		if ( this.$tabIndexed ) {
 			if ( tabIndex !== null ) {
-				this.$tabIndexed.attr( 'tabindex', tabIndex );
+				this.$tabIndexed.attr( {
+					// Do not index over disabled elements
+					tabindex: this.isDisabled() ? -1 : tabIndex,
+					// ChromeVox and NVDA do not seem to inherit this from parent elements
+					'aria-disabled': this.isDisabled().toString()
+				} );
 			} else {
-				this.$tabIndexed.removeAttr( 'tabindex' );
+				this.$tabIndexed.removeAttr( 'tabindex aria-disabled' );
 			}
 		}
 		this.tabIndex = tabIndex;
 	}
 
 	return this;
+};
+
+/**
+ * Handle disable events.
+ *
+ * @param {boolean} disabled Element is disabled
+ */
+OO.ui.TabIndexedElement.prototype.onDisable = function ( disabled ) {
+	if ( this.$tabIndexed && this.tabIndex !== null ) {
+		this.$tabIndexed.attr( {
+			// Do not index over disabled elements
+			tabindex: disabled ? -1 : this.tabIndex,
+			// ChromeVox and NVDA do not seem to inherit this from parent elements
+			'aria-disabled': disabled.toString()
+		} );
+	}
 };
 
 /**

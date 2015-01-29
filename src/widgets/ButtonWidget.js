@@ -91,8 +91,11 @@ OO.ui.ButtonWidget.prototype.onClick = function () {
  * @inheritdoc
  */
 OO.ui.ButtonWidget.prototype.onMouseDown = function ( e ) {
-	// Remove the tab-index while the button is down to prevent the button from stealing focus
-	this.$button.removeAttr( 'tabindex' );
+	if ( !this.isDisabled() ) {
+		// Remove the tab-index while the button is down to prevent the button from stealing focus
+		this.$button.removeAttr( 'tabindex' );
+	}
+
 	return OO.ui.ButtonElement.prototype.onMouseDown.call( this, e );
 };
 
@@ -100,8 +103,11 @@ OO.ui.ButtonWidget.prototype.onMouseDown = function ( e ) {
  * @inheritdoc
  */
 OO.ui.ButtonWidget.prototype.onMouseUp = function ( e ) {
-	// Restore the tab-index after the button is up to restore the button's accessibility
-	this.$button.attr( 'tabindex', this.tabIndex );
+	if ( !this.isDisabled() ) {
+		// Restore the tab-index after the button is up to restore the button's accessibility
+		this.$button.attr( 'tabindex', this.tabIndex );
+	}
+
 	return OO.ui.ButtonElement.prototype.onMouseUp.call( this, e );
 };
 
