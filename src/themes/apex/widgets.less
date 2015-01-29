@@ -30,6 +30,11 @@
 	white-space: nowrap;
 	border-radius: 0.3em;
 
+	.oo-ui-inline-spacing(0.5em);
+	.oo-ui-buttonWidget {
+		.oo-ui-inline-spacing(0);
+	}
+
 	.oo-ui-buttonElement-framed {
 		.oo-ui-buttonElement-button {
 			border-radius: 0;
@@ -49,7 +54,9 @@
 	}
 }
 
-.theme-oo-ui-buttonWidget () {}
+.theme-oo-ui-buttonWidget () {
+	.oo-ui-inline-spacing(0.5em);
+}
 
 .theme-oo-ui-actionWidget () {
 	&.oo-ui-pendingElement-pending {
@@ -97,6 +104,8 @@
 	margin: 0.25em 0;
 	width: 100%;
 	max-width: 50em;
+
+	.oo-ui-inline-spacing(0.5em);
 
 	&-handle {
 		height: 2.5em;
@@ -150,7 +159,9 @@
 	}
 }
 
-.theme-oo-ui-inputWidget () {}
+.theme-oo-ui-inputWidget () {
+	.oo-ui-inline-spacing(0.5em);
+}
 
 .theme-oo-ui-checkboxInputWidget () {}
 
@@ -174,7 +185,7 @@
 			outline: none;
 		}
 	}
-	
+
 	&.oo-ui-widget-disabled {
 		select {
 			color: #ccc;
@@ -280,6 +291,8 @@
 	width: 100%;
 	max-width: 50em;
 
+	.oo-ui-inline-spacing(0.5em);
+
 	&-handle {
 		border: solid 1px rgba(0,0,0,0.1);
 		border-radius: 0.25em;
@@ -382,10 +395,6 @@
 	&.oo-ui-optionWidget-pressed,
 	&.oo-ui-optionWidget-highlighted {
 		background-color: transparent;
-	}
-
-	> .oo-ui-labelElement-label {
-		padding: 0 0.5em;
 	}
 }
 
@@ -551,6 +560,8 @@
 .theme-oo-ui-buttonSelectWidget () {
 	border-radius: 0.3em;
 
+	.oo-ui-inline-spacing(0.5em);
+
 	.oo-ui-buttonOptionWidget {
 		.oo-ui-buttonElement-button {
 			border-radius: 0;
@@ -593,6 +604,8 @@
 	border-radius: 1em;
 	box-shadow: 0 0 0 white, inset 0 0.1em 0.2em #ddd;
 	border: solid 1px #ccc;
+
+	.oo-ui-inline-spacing(0.5em);
 
 	.oo-ui-vertical-gradient(#ddd, #fff);
 
