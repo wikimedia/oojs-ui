@@ -138,7 +138,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		new OO.ui.FieldLayout(
 			new OO.ui.IndicatorWidget( {
 				indicator: 'required',
-				title: 'Required icon'
+				title: 'Required indicator'
 			} ),
 			{
 				label: 'IndicatorWidget (normal)\u200E',
@@ -148,7 +148,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		new OO.ui.FieldLayout(
 			new OO.ui.IndicatorWidget( {
 				indicator: 'required',
-				title: 'Required icon',
+				title: 'Required indicator',
 				disabled: true
 			} ),
 			{
@@ -990,9 +990,12 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			}
 		),
 		new OO.ui.FieldLayout(
-			new OO.ui.TextInputWidget( { indicator: 'required' } ),
+			new OO.ui.TextInputWidget( {
+				indicator: 'required',
+				required: true
+			} ),
 			{
-				label: 'TextInputWidget (indicator)\u200E',
+				label: 'TextInputWidget (indicator, required)\u200E',
 				align: 'top'
 			}
 		),
@@ -1047,7 +1050,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		new OO.ui.FieldLayout(
 			new OO.ui.TextInputWidget( {
 				icon: 'picture',
-				indicator: 'required',
+				indicator: 'alert',
 				value: 'Text input with label',
 				label: 'Inline label'
 			} ),

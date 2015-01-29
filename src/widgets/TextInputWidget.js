@@ -19,6 +19,7 @@
  * @cfg {boolean} [autosize=false] Automatically resize to fit content
  * @cfg {boolean} [maxRows=10] Maximum number of rows to make visible when autosizing
  * @cfg {string} [labelPosition='after'] Label position, 'before' or 'after'
+ * @cfg {boolean} [required=false] Mark the field as required
  * @cfg {RegExp|string} [validate] Regular expression to validate against (or symbolic name referencing
  *  one, see #static-validationPatterns)
  */
@@ -80,6 +81,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 	if ( config.autofocus ) {
 		this.$input.attr( 'autofocus', 'autofocus' );
+	}
+	if ( config.required ) {
+		this.$input.attr( 'required', 'true' );
 	}
 };
 
