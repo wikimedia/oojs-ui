@@ -99,13 +99,7 @@ OO.ui.InputWidget.prototype.getValue = function () {
  * @param {boolean} isRTL
  */
 OO.ui.InputWidget.prototype.setRTL = function ( isRTL ) {
-	if ( isRTL ) {
-		this.$input.removeClass( 'oo-ui-ltr' );
-		this.$input.addClass( 'oo-ui-rtl' );
-	} else {
-		this.$input.removeClass( 'oo-ui-rtl' );
-		this.$input.addClass( 'oo-ui-ltr' );
-	}
+	this.$input.prop( 'dir', isRTL ? 'rtl' : 'ltr' );
 };
 
 /**
