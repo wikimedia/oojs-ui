@@ -1026,7 +1026,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		new OO.ui.FieldLayout(
 			new OO.ui.TextInputWidget( {
 				multiline: true,
-				value: 'Multiline'
+				value: 'Multiline\nMultiline'
 			} ),
 			{
 				label: 'TextInputWidget (multiline)\u200E',
@@ -1037,7 +1037,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			new OO.ui.TextInputWidget( {
 				multiline: true,
 				autosize: true,
-				value: 'Autosize'
+				value: 'Autosize\nAutosize\nAutosize\nAutosize'
 			} ),
 			{
 				label: 'TextInputWidget (autosize)\u200E',
