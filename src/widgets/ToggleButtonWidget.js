@@ -48,6 +48,7 @@ OO.ui.ToggleButtonWidget.prototype.onClick = function () {
 OO.ui.ToggleButtonWidget.prototype.setValue = function ( value ) {
 	value = !!value;
 	if ( value !== this.value ) {
+		this.$button.attr( 'aria-pressed', value.toString() );
 		this.setActive( value );
 	}
 
