@@ -83,6 +83,7 @@ OO.ui.Widget.prototype.setDisabled = function ( disabled ) {
 	if ( isDisabled !== this.wasDisabled ) {
 		this.$element.toggleClass( 'oo-ui-widget-disabled', isDisabled );
 		this.$element.toggleClass( 'oo-ui-widget-enabled', !isDisabled );
+		this.$element.attr( 'aria-disabled', isDisabled.toString() );
 		this.emit( 'disable', isDisabled );
 		this.updateThemeClasses();
 	}
