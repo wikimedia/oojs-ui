@@ -84,6 +84,9 @@ OO.ui.StackLayout.prototype.unsetCurrentItem = function () {
  * @chainable
  */
 OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
+	// Update the visibility
+	this.updateHiddenState( items, this.currentItem );
+
 	// Mixin method
 	OO.ui.GroupElement.prototype.addItems.call( this, items, index );
 
@@ -146,18 +149,10 @@ OO.ui.StackLayout.prototype.clearItems = function () {
  * @fires set
  */
 OO.ui.StackLayout.prototype.setItem = function ( item ) {
-	var i, len;
-
 	if ( item !== this.currentItem ) {
-		if ( !this.continuous ) {
-			for ( i = 0, len = this.items.length; i < len; i++ ) {
-				this.items[ i ].$element.css( 'display', '' );
-			}
-		}
+		this.updateHiddenState( this.items, item );
+
 		if ( $.inArray( item, this.items ) !== -1 ) {
-			if ( !this.continuous ) {
-				item.$element.css( 'display', 'block' );
-			}
 			this.currentItem = item;
 			this.emit( 'set', item );
 		} else {
@@ -166,4 +161,28 @@ OO.ui.StackLayout.prototype.setItem = function ( item ) {
 	}
 
 	return this;
+};
+
+/**
+ * Update the visibility of all items in case of non-continuous view.
+ *
+ * Ensure all items are hidden except for the selected one.
+ * This method does nothing when the stack is continuous.
+ *
+ * @param {OO.ui.Layout[]} items Item list iterate over
+ * @param {OO.ui.Layout} [selectedItem] Selected item to show
+ */
+OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem ) {
+	var i, len;
+
+	if ( !this.continuous ) {
+		for ( i = 0, len = items.length; i < len; i++ ) {
+			if ( !selectedItem || selectedItem !== items[ i ] ) {
+				items[ i ].$element.addClass( 'oo-ui-element-hidden' );
+			}
+		}
+		if ( selectedItem ) {
+			selectedItem.$element.removeClass( 'oo-ui-element-hidden' );
+		}
+	}
 };

@@ -132,7 +132,7 @@ OO.ui.DraggableGroupElement.prototype.onDragLeave = function () {
 	// This means the item was dragged outside the widget
 	this.$placeholder
 		.css( 'left', 0 )
-		.hide();
+		.addClass( 'oo-ui-element-hidden' );
 };
 
 /**
@@ -196,20 +196,20 @@ OO.ui.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 		if ( this.sideInsertion ) {
 			this.$placeholder
 				.css( cssOutput )
-				.show();
+				.removeClass( 'oo-ui-element-hidden' );
 		} else {
 			this.$placeholder
 				.css( {
 					left: 0,
 					top: 0
 				} )
-				.hide();
+				.addClass( 'oo-ui-element-hidden' );
 		}
 	} else {
 		// This means the item was dragged outside the widget
 		this.$placeholder
 			.css( 'left', 0 )
-			.hide();
+			.addClass( 'oo-ui-element-hidden' );
 	}
 	// Prevent default
 	e.preventDefault();
@@ -229,7 +229,7 @@ OO.ui.DraggableGroupElement.prototype.setDragItem = function ( item ) {
 OO.ui.DraggableGroupElement.prototype.unsetDragItem = function () {
 	this.dragItem = null;
 	this.itemDragOver = null;
-	this.$placeholder.hide();
+	this.$placeholder.addClass( 'oo-ui-element-hidden' );
 	this.sideInsertion = '';
 };
 

@@ -39,9 +39,8 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 
 	// Initialization
 	this.$element
-		.hide()
-		.attr( 'role', 'menu' )
-		.addClass( 'oo-ui-menuSelectWidget' );
+		.addClass( 'oo-ui-menuSelectWidget oo-ui-element-hidden' )
+		.attr( 'role', 'menu' );
 };
 
 /* Setup */

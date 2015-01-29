@@ -104,7 +104,7 @@ OO.ui.Widget.prototype.toggle = function ( show ) {
 
 	if ( show !== this.isVisible() ) {
 		this.visible = show;
-		this.$element.toggle( show );
+		this.$element.toggleClass( 'oo-ui-element-hidden', !this.visible );
 		this.emit( 'toggle', show );
 	}
 

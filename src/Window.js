@@ -465,9 +465,12 @@ OO.ui.Window.prototype.toggle = function ( show ) {
 		if ( this.isolated && !this.isLoaded() ) {
 			// Hide the window using visibility instead of display until loading is complete
 			// Can't use display: none; because that prevents the iframe from loading in Firefox
-			this.$element.css( 'visibility', show ? 'visible' : 'hidden' );
+			this.$element
+				.css( 'visibility', show ? 'visible' : 'hidden' );
 		} else {
-			this.$element.toggle( show ).css( 'visibility', '' );
+			this.$element
+				.toggleClass( 'oo-ui-element-hidden', !this.visible )
+				.css( 'visibility', '' );
 		}
 		this.emit( 'toggle', show );
 	}
@@ -646,8 +649,7 @@ OO.ui.Window.prototype.setup = function ( data ) {
 	var win = this,
 		deferred = $.Deferred();
 
-	this.$element.show();
-	this.visible = true;
+	this.toggle( true );
 	this.getSetupProcess( data ).execute().done( function () {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.addClass( 'oo-ui-window-setup' ).width();
@@ -730,7 +732,7 @@ OO.ui.Window.prototype.teardown = function ( data ) {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.removeClass( 'oo-ui-window-load oo-ui-window-setup' ).width();
 		win.$content.removeClass( 'oo-ui-window-content-setup' ).width();
-		win.$element.hide();
+		win.$element.addClass( 'oo-ui-element-hidden' );
 		win.visible = false;
 		deferred.resolve();
 	} );
