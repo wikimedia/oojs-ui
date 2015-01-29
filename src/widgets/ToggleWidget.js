@@ -52,6 +52,7 @@ OO.ui.ToggleWidget.prototype.setValue = function ( value ) {
 		this.emit( 'change', value );
 		this.$element.toggleClass( 'oo-ui-toggleWidget-on', value );
 		this.$element.toggleClass( 'oo-ui-toggleWidget-off', !value );
+		this.$element.attr( 'aria-checked', value.toString() );
 	}
 	return this;
 };
