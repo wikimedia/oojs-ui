@@ -579,12 +579,20 @@
 }
 
 .theme-oo-ui-menuOptionWidget () {
+	padding: 0.5em 1em;
+
 	&.oo-ui-optionWidget {
 		&-selected {
-			background-color: transparent;
+			background-color: @highlight;
+			color: #fff;
+
+			.oo-ui-iconElement-icon {
+				display: none;
+			}
 		}
 		&-highlighted {
 			background-color: #eee;
+			color: black;
 		}
 	}
 }
