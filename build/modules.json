@@ -77,7 +77,7 @@
 				"src/widgets/DropdownInputWidget.js",
 				"src/widgets/RadioInputWidget.js",
 				"src/widgets/TextInputWidget.js",
-					"src/widgets/ComboBoxWidget.js",
+			"src/widgets/ComboBoxWidget.js",
 			"src/widgets/LabelWidget.js",
 			"src/widgets/OptionWidget.js",
 				"src/widgets/DecoratedOptionWidget.js",

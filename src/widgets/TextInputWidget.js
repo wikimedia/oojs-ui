@@ -18,12 +18,15 @@
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
  * @cfg {boolean} [autosize=false] Automatically resize to fit content
  * @cfg {boolean} [maxRows=10] Maximum number of rows to make visible when autosizing
- * @cfg {RegExp|string} [validate] Regular expression (or symbolic name referencing
+ * @cfg {RegExp|string} [validate] Regular expression to validate against (or symbolic name referencing
  *  one, see #static-validationPatterns)
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Configuration initialization
-	config = $.extend( { readOnly: false }, config );
+	config = $.extend( {
+		type: 'text',
+		maxRows: 10
+	}, config );
 
 	// Parent constructor
 	OO.ui.TextInputWidget.super.call( this, config );
@@ -37,7 +40,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.readOnly = false;
 	this.multiline = !!config.multiline;
 	this.autosize = !!config.autosize;
-	this.maxRows = config.maxRows !== undefined ? config.maxRows : 10;
+	this.maxRows = config.maxRows;
 	this.validate = null;
 
 	// Clone for resizing
@@ -63,7 +66,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.$element
 		.addClass( 'oo-ui-textInputWidget' )
 		.append( this.$icon, this.$indicator );
-	this.setReadOnly( config.readOnly );
+	this.setReadOnly( !!config.readOnly );
 	if ( config.placeholder ) {
 		this.$input.attr( 'placeholder', config.placeholder );
 	}
@@ -265,8 +268,7 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
  * @private
  */
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
-	var type = config.type || 'text';
-	return config.multiline ? this.$( '<textarea>' ) : this.$( '<input type="' + type + '" />' );
+	return config.multiline ? this.$( '<textarea>' ) : this.$( '<input type="' + config.type + '" />' );
 };
 
 /**

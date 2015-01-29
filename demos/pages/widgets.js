@@ -440,7 +440,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				]
 			} ),
 			{
-				label: 'DraggableGroupWidget (horizontal)',
+				label: 'DraggableGroupWidget (horizontal)\u200E',
 				align: 'top'
 			}
 		),
@@ -470,7 +470,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				]
 			} ),
 			{
-				label: 'DraggableGroupWidget (vertical)',
+				label: 'DraggableGroupWidget (vertical)\u200E',
 				align: 'top'
 			}
 		),
@@ -493,7 +493,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				]
 			} ),
 			{
-				label: 'ButtonGroupWidget (colors)',
+				label: 'ButtonGroupWidget (colors)\u200E',
 				align: 'top'
 			}
 		),
@@ -542,7 +542,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				]
 			} ),
 			{
-				label: 'ButtonSelectWidget (colors)',
+				label: 'ButtonSelectWidget (colors)\u200E',
 				align: 'top'
 			}
 		),
@@ -735,7 +735,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			} ),
 			{
 				align: 'top',
-				label: 'ButtonInputWidget (type: submit)'
+				label: 'ButtonInputWidget (type: submit)\u200E'
 			}
 		),
 		new OO.ui.FieldLayout(
@@ -746,7 +746,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			} ),
 			{
 				align: 'top',
-				label: 'ButtonInputWidget (type: submit, using <input/>)'
+				label: 'ButtonInputWidget (type: submit, using <input/>)\u200E'
 			}
 		),
 		new OO.ui.FieldLayout(
@@ -808,7 +808,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		new OO.ui.FieldLayout(
 			new NumberLookupTextInputWidget(),
 			{
-				label: 'LookupElement demo (try inputting an integer)',
+				label: 'LookupElement (try inputting an integer)\u200E',
 				align: 'top'
 			}
 		),
