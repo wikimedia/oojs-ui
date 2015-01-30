@@ -214,6 +214,82 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			}, this );
 	};
 
+	function MenuDialog( config ) {
+		MenuDialog.super.call( this, config );
+	}
+	OO.inheritClass( MenuDialog, OO.ui.ProcessDialog );
+	MenuDialog.static.title = 'Menu dialog';
+	MenuDialog.static.actions = [
+		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
+		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+	];
+	MenuDialog.prototype.getBodyHeight = function () {
+		return 350;
+	};
+	MenuDialog.prototype.initialize = function () {
+		MenuDialog.super.prototype.initialize.apply( this, arguments );
+		var menuLayout = new OO.ui.MenuLayout( { $: this.$, menuSize: '10em' } ),
+			positionField = new OO.ui.FieldLayout(
+				new OO.ui.ButtonSelectWidget( {
+					items: [
+						new OO.ui.ButtonOptionWidget( {
+							data: 'before',
+							label: 'Before'
+						} ),
+						new OO.ui.ButtonOptionWidget( {
+							data: 'after',
+							label: 'After'
+						} ),
+						new OO.ui.ButtonOptionWidget( {
+							data: 'top',
+							label: 'Top'
+						} ),
+						new OO.ui.ButtonOptionWidget( {
+							data: 'bottom',
+							label: 'Bottom'
+						} )
+					]
+				} ).on( 'select', function ( item ) {
+					menuLayout.setMenuPosition( item.getData() );
+				} ),
+				{
+					label: 'Menu position',
+					align: 'top'
+				}
+			),
+			showField = new OO.ui.FieldLayout(
+				new OO.ui.ToggleSwitchWidget( { value: true } ).on( 'change', function ( value ) {
+					menuLayout.toggleMenu( value );
+				} ),
+				{
+					label: 'Show menu',
+					align: 'top'
+				}
+			),
+			menuPanel = new OO.ui.PanelLayout( { padded: true, expanded: true, scrollable: true } ),
+			contentPanel = new OO.ui.PanelLayout( { padded: true, expanded: true, scrollable: true } );
+
+		menuLayout.$menu.append(
+			menuPanel.$element.append( 'Menu panel' )
+		);
+		menuLayout.$content.append(
+			contentPanel.$element.append(
+				positionField.$element,
+				showField.$element
+			)
+		);
+
+		this.$body.append( menuLayout.$element );
+	};
+	MenuDialog.prototype.getActionProcess = function ( action ) {
+		if ( action ) {
+			return new OO.ui.Process( function () {
+				this.close( { action: action } );
+			}, this );
+		}
+		return MenuDialog.super.prototype.getActionProcess.call( this, action );
+	};
+
 	config = [
 		{
 			name: 'Simple dialog (small)',
@@ -279,6 +355,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		{
 			name: 'Booklet dialog',
 			dialogClass: BookletDialog,
+			config: {
+				size: 'medium'
+			}
+		},
+		{
+			name: 'Menu dialog',
+			dialogClass: MenuDialog,
 			config: {
 				size: 'medium'
 			}

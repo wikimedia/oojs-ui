@@ -1,0 +1,48 @@
+@import '../common';
+
+.oo-ui-menuLayout {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	&-menu,
+	&-content {
+		position: absolute;
+		.oo-ui-transition(all ease-in-out 200ms);
+	}
+
+	&-content {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	&-top .oo-ui-menuLayout-menu {
+		left: 0;
+		top: 0;
+		right: 0;
+	}
+
+	&-after .oo-ui-menuLayout-menu {
+		top: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	&-bottom .oo-ui-menuLayout-menu {
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	&-before .oo-ui-menuLayout-menu {
+		bottom: 0;
+		left: 0;
+		top: 0;
+	}
+
+	.theme-oo-ui-menuLayout();
+}
