@@ -524,6 +524,16 @@ OO.ui.Window.prototype.setManager = function ( manager ) {
  */
 OO.ui.Window.prototype.setSize = function ( size ) {
 	this.size = size;
+	this.updateSize();
+	return this;
+};
+
+/**
+ * Update the window size.
+ *
+ * @chainable
+ */
+OO.ui.Window.prototype.updateSize = function () {
 	this.manager.updateWindowSize( this );
 	return this;
 };

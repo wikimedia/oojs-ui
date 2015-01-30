@@ -255,7 +255,7 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
 	if ( !this.isOpening() ) {
 		// If the dialog is currently opening, this will be called automatically soon.
 		// This also calls #fitActions.
-		this.manager.updateWindowSize( this );
+		this.updateSize();
 	}
 };
 
@@ -282,6 +282,6 @@ OO.ui.MessageDialog.prototype.fitActions = function () {
 	if ( this.verticalActionLayout !== previous ) {
 		this.$body.css( 'bottom', this.$foot.outerHeight( true ) );
 		// We changed the layout, window height might need to be updated.
-		this.manager.updateWindowSize( this );
+		this.updateSize();
 	}
 };
