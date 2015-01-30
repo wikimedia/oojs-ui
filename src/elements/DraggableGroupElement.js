@@ -121,6 +121,7 @@ OO.ui.DraggableGroupElement.prototype.onItemDrop = function ( item ) {
 		// Emit change event
 		this.emit( 'reorder', this.getDragItem(), toIndex );
 	}
+	this.unsetDragItem();
 	// Return false to prevent propogation
 	return false;
 };
