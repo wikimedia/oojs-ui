@@ -184,16 +184,48 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	};
 	BookletDialog.prototype.initialize = function () {
 		BookletDialog.super.prototype.initialize.apply( this, arguments );
-		this.bookletLayout = new OO.ui.BookletLayout( { $: this.$, outlined: true } );
+
+		var dialog = this;
+
+		function changePage( direction ) {
+			var pageIndex = dialog.pages.indexOf( dialog.bookletLayout.getCurrentPage() );
+			pageIndex = ( dialog.pages.length + pageIndex + direction ) % dialog.pages.length;
+			dialog.bookletLayout.setPage( dialog.pages[ pageIndex ].getName() );
+		}
+
+		this.navigationField = new OO.ui.FieldLayout(
+			new OO.ui.ButtonGroupWidget( {
+				items: [
+					new OO.ui.ButtonWidget( {
+						data: 'previous',
+						icon: 'previous'
+					} ).on( 'click', function () {
+						changePage( -1 );
+					} ),
+					new OO.ui.ButtonWidget( {
+						data: 'next',
+						icon: 'next'
+					} ).on( 'click', function () {
+						changePage( 1 );
+					} )
+				]
+			} ),
+			{
+				label: 'Change page',
+				align: 'top'
+			}
+		);
+
+		this.bookletLayout = new OO.ui.BookletLayout( { $: this.$ } );
 		this.pages = [
-			new SamplePage( 'small', { $: this.$, label: 'Small', icon: 'window' } ),
-			new SamplePage( 'medium', { $: this.$, label: 'Medium', icon: 'window' } ),
-			new SamplePage( 'large', { $: this.$, label: 'Large', icon: 'window' } ),
-			new SamplePage( 'larger', { $: this.$, label: 'Larger', icon: 'window' } ),
-			new SamplePage( 'full', { $: this.$, label: 'Full', icon: 'window' } )
+			new SamplePage( 'page-1', { $: this.$, label: 'Page 1', icon: 'window' } ),
+			new SamplePage( 'page-2', { $: this.$, label: 'Page 2', icon: 'window' } ),
+			new SamplePage( 'page-3', { $: this.$, label: 'Page 3', icon: 'window' } )
 		];
 		this.bookletLayout.addPages( this.pages );
 		this.bookletLayout.connect( this, { set: 'onBookletLayoutSet' } );
+		this.bookletLayout.setPage( 'page-1' );
+
 		this.$body.append( this.bookletLayout.$element );
 	};
 	BookletDialog.prototype.getActionProcess = function ( action ) {
@@ -205,10 +237,52 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return BookletDialog.super.prototype.getActionProcess.call( this, action );
 	};
 	BookletDialog.prototype.onBookletLayoutSet = function ( page ) {
+		page.$element.append( this.navigationField.$element );
+	};
+
+	function OutlinedBookletDialog( config ) {
+		OutlinedBookletDialog.super.call( this, config );
+	}
+	OO.inheritClass( OutlinedBookletDialog, OO.ui.ProcessDialog );
+	OutlinedBookletDialog.static.title = 'Booklet dialog';
+	OutlinedBookletDialog.static.actions = [
+		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
+		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+	];
+	OutlinedBookletDialog.prototype.getBodyHeight = function () {
+		return 250;
+	};
+	OutlinedBookletDialog.prototype.initialize = function () {
+		OutlinedBookletDialog.super.prototype.initialize.apply( this, arguments );
+		this.bookletLayout = new OO.ui.BookletLayout( {
+			$: this.$,
+			outlined: true,
+			menuSize: '15em'
+		} );
+		this.pages = [
+			new SamplePage( 'small', { $: this.$, label: 'Small', icon: 'window' } ),
+			new SamplePage( 'medium', { $: this.$, label: 'Medium', icon: 'window' } ),
+			new SamplePage( 'large', { $: this.$, label: 'Large', icon: 'window' } ),
+			new SamplePage( 'larger', { $: this.$, label: 'Larger', icon: 'window' } ),
+			new SamplePage( 'full', { $: this.$, label: 'Full', icon: 'window' } )
+		];
+		this.bookletLayout.addPages( this.pages );
+		this.bookletLayout.connect( this, { set: 'onBookletLayoutSet' } );
+		this.$body.append( this.bookletLayout.$element );
+	};
+	OutlinedBookletDialog.prototype.getActionProcess = function ( action ) {
+		if ( action ) {
+			return new OO.ui.Process( function () {
+				this.close( { action: action } );
+			}, this );
+		}
+		return OutlinedBookletDialog.super.prototype.getActionProcess.call( this, action );
+	};
+	OutlinedBookletDialog.prototype.onBookletLayoutSet = function ( page ) {
 		this.setSize( page.getName() );
 	};
-	BookletDialog.prototype.getSetupProcess = function ( data ) {
-		return BookletDialog.super.prototype.getSetupProcess.call( this, data )
+	OutlinedBookletDialog.prototype.getSetupProcess = function ( data ) {
+		return OutlinedBookletDialog.super.prototype.getSetupProcess.call( this, data )
 			.next( function () {
 				this.bookletLayout.setPage( this.getSize() );
 			}, this );
@@ -355,6 +429,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		{
 			name: 'Booklet dialog',
 			dialogClass: BookletDialog,
+			config: {
+				size: 'medium'
+			}
+		},
+		{
+			name: 'Outlined booklet dialog',
+			dialogClass: OutlinedBookletDialog,
 			config: {
 				size: 'medium'
 			}
