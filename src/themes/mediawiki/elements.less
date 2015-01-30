@@ -30,11 +30,6 @@
 		> .oo-ui-indicatorElement-indicator {
 			opacity: 0.2;
 		}
-
-		> .oo-ui-labelElement-label {
-			color: @disabled-text;
-			background: @disabled-background;
-		}
 	}
 
 	&-frameless {
@@ -77,6 +72,10 @@
 				}
 			}
 		}
+
+		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+			color: @disabled-text;
+		}
 	}
 
 	&-framed {
@@ -116,7 +115,7 @@
 		}
 
 		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
-			color: @disabled-text;
+			color: @disabled-framed-text;
 			background: @disabled-background;
 			border: 1px solid @disabled-background;
 		}
