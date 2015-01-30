@@ -56,9 +56,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 
 	this.setValidation( config.validate );
-	if ( config.labelPosition ) {
-		this.setPosition( config.labelPosition );
-	}
+	this.setPosition( config.labelPosition );
 
 	// Events
 	this.$input.on( {
