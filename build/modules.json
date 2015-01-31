@@ -46,6 +46,7 @@
 			"src/layouts/FieldsetLayout.js",
 			"src/layouts/FormLayout.js",
 			"src/layouts/GridLayout.js",
+			"src/layouts/MenuLayout.js",
 			"src/layouts/PanelLayout.js",
 				"src/layouts/PageLayout.js",
 				"src/layouts/StackLayout.js",
