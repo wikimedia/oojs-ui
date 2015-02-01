@@ -2,7 +2,7 @@
  * Layout containing a series of pages.
  *
  * @class
- * @extends OO.ui.Layout
+ * @extends OO.ui.MenuLayout
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -23,6 +23,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.pages = {};
 	this.ignoreFocus = false;
 	this.stackLayout = new OO.ui.StackLayout( { $: this.$, continuous: !!config.continuous } );
+	this.$content.append( this.stackLayout.$element );
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 	this.outlineVisible = false;
 	this.outlined = !!config.outlined;
@@ -31,10 +32,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 		this.outlineControlsWidget = null;
 		this.outlineSelectWidget = new OO.ui.OutlineSelectWidget( { $: this.$ } );
 		this.outlinePanel = new OO.ui.PanelLayout( { $: this.$, scrollable: true } );
-		this.gridLayout = new OO.ui.GridLayout(
-			[ this.outlinePanel, this.stackLayout ],
-			{ $: this.$, widths: [ 1, 2 ] }
-		);
+		this.$menu.append( this.outlinePanel.$element );
 		this.outlineVisible = true;
 		if ( this.editable ) {
 			this.outlineControlsWidget = new OO.ui.OutlineControlsWidget(
@@ -42,6 +40,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 			);
 		}
 	}
+	this.toggleMenu( this.outlined );
 
 	// Events
 	this.stackLayout.connect( this, { set: 'onStackLayoutSet' } );
@@ -65,15 +64,12 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 				.addClass( 'oo-ui-bookletLayout-outlinePanel-editable' )
 				.append( this.outlineControlsWidget.$element );
 		}
-		this.$element.append( this.gridLayout.$element );
-	} else {
-		this.$element.append( this.stackLayout.$element );
 	}
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.BookletLayout, OO.ui.Layout );
+OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
 
 /* Events */
 
@@ -268,6 +264,16 @@ OO.ui.BookletLayout.prototype.getOutlineControls = function () {
  */
 OO.ui.BookletLayout.prototype.getPage = function ( name ) {
 	return this.pages[ name ];
+};
+
+/**
+ * Get the current page
+ *
+ * @return {OO.ui.PageLayout|undefined} Current page, if found
+ */
+OO.ui.BookletLayout.prototype.getCurrentPage = function () {
+	var name = this.getCurrentPageName();
+	return name ? this.getPage( name ) : undefined;
 };
 
 /**
