@@ -80,6 +80,9 @@ OO.ui.ButtonElement.prototype.onMouseDown = function ( e ) {
 		return false;
 	}
 	this.$element.addClass( 'oo-ui-buttonElement-pressed' );
+	// Run the mouseup handler no matter where the mouse is when the button is let go, so we can
+	// reliably remove the pressed class
+	this.getElementDocument().addEventListener( 'mouseup', this.onMouseUpHandler, true );
 	// Prevent change of focus unless specifically configured otherwise
 	if ( this.constructor.static.cancelButtonMouseDownEvents ) {
 		return false;
@@ -96,6 +99,8 @@ OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
 		return false;
 	}
 	this.$element.removeClass( 'oo-ui-buttonElement-pressed' );
+	// Stop listening for mouseup, since we only needed this once
+	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
 };
 
 /**
