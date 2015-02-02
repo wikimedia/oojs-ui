@@ -537,7 +537,7 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 	// Add windows
 	for ( name in list ) {
 		win = list[ name ];
-		this.windows[ name ] = win;
+		this.windows[ name ] = win.toggle( false );
 		this.$element.append( win.$element );
 	}
 };
