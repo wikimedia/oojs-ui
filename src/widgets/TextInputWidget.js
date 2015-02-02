@@ -52,7 +52,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		this.$clone = this.$input
 			.clone()
 			.insertAfter( this.$input )
-			.hide();
+			.addClass( 'oo-ui-element-hidden' );
 	}
 
 	this.setValidation( config.validate );

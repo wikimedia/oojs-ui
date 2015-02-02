@@ -60,14 +60,13 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 		.addClass( 'oo-ui-popupWidget-head' )
 		.append( this.$label, this.closeButton.$element );
 	if ( !config.head ) {
-		this.$head.hide();
+		this.$head.addClass( 'oo-ui-element-hidden' );
 	}
 	this.$popup
 		.addClass( 'oo-ui-popupWidget-popup' )
 		.append( this.$head, this.$body );
 	this.$element
-		.hide()
-		.addClass( 'oo-ui-popupWidget' )
+		.addClass( 'oo-ui-popupWidget oo-ui-element-hidden' )
 		.append( this.$popup, this.$anchor );
 	// Move content, which was added to #$element by OO.ui.Widget, to the body
 	if ( config.$content instanceof jQuery ) {

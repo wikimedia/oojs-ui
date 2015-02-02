@@ -206,14 +206,14 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 	}
 	this.retryButton.toggle( recoverable );
 	this.$errorsTitle.after( this.$errorItems );
-	this.$errors.show().scrollTop( 0 );
+	this.$errors.removeClass( 'oo-ui-widget-hidden' ).scrollTop( 0 );
 };
 
 /**
  * Hide errors.
  */
 OO.ui.ProcessDialog.prototype.hideErrors = function () {
-	this.$errors.hide();
+	this.$errors.addClass( 'oo-ui-widget-hidden' );
 	this.$errorItems.remove();
 	this.$errorItems = null;
 };
