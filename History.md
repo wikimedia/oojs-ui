@@ -1,5 +1,9 @@
 # OOjs UI Release History
 
+## v0.6.5 / 2014-02-01
+* Make BookletLayout inherit from MenuLayout instead of embedding a GridLayout (Ed Sanders)
+* ButtonElement: Unbreak 'pressed' state (Bartosz Dziewoński)
+
 ## v0.6.4 / 2014-01-30
 * InputWidget: Resynchronize our internal .value with DOM .value in #getValue (eranroz)
 * demo: Remove nonexistent 'align' config option for a DropdownWidget (Bartosz Dziewoński)
