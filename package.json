@@ -40,7 +40,7 @@
     "grunt-svg2png": "0.2.5",
     "grunt-karma": "0.9.0",
     "grunt-promise-q": "0.1.1",
-    "karma": "0.12.28",
+    "karma": "0.12.31",
     "karma-chrome-launcher": "0.1.7",
     "karma-coverage": "0.2.7",
     "karma-firefox-launcher": "0.1.3",
