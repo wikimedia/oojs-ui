@@ -45,7 +45,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.autosize = !!config.autosize;
 	this.maxRows = config.maxRows;
 	this.validate = null;
-	this.attached = false;
 
 	// Clone for resizing
 	if ( this.autosize ) {
@@ -64,7 +63,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		blur: this.setValidityFlag.bind( this )
 	} );
 	this.$element.on( 'DOMNodeInsertedIntoDocument', this.onElementAttach.bind( this ) );
-	this.$element.on( 'DOMNodeRemovedFromDocument', this.onElementDetach.bind( this ) );
 	this.$icon.on( 'mousedown', this.onIconMouseDown.bind( this ) );
 	this.$indicator.on( 'mousedown', this.onIndicatorMouseDown.bind( this ) );
 	this.on( 'labelChange', this.updatePosition.bind( this ) );
@@ -170,20 +168,10 @@ OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
  * @param {jQuery.Event} e Element attach event
  */
 OO.ui.TextInputWidget.prototype.onElementAttach = function () {
-	this.attached = true;
-	// If we reattached elsewhere, the valCache is now invalid
+	// Any previously calculated size is now probably invalid if we reattached elsewhere
 	this.valCache = null;
 	this.adjustSize();
 	this.positionLabel();
-};
-
-/**
- * Handle element detach events.
- *
- * @param {jQuery.Event} e Element detach event
- */
-OO.ui.TextInputWidget.prototype.onElementDetach = function () {
-	this.attached = false;
 };
 
 /**
@@ -241,7 +229,7 @@ OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
 OO.ui.TextInputWidget.prototype.adjustSize = function () {
 	var scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError, idealHeight;
 
-	if ( this.multiline && this.autosize && this.attached && this.$input.val() !== this.valCache ) {
+	if ( this.multiline && this.autosize && this.$input.val() !== this.valCache ) {
 		this.$clone
 			.val( this.$input.val() )
 			.attr( 'rows', '' )
