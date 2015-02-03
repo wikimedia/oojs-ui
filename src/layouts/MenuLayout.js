@@ -41,11 +41,9 @@ OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	 */
 	this.$content = this.$( '<div>' );
 
-	// Events
-	this.$element.on( 'DOMNodeInsertedIntoDocument', this.onElementAttach.bind( this ) );
-
 	// Initialization
 	this.toggleMenu( this.showMenu );
+	this.updateSizes();
 	this.$menu
 		.addClass( 'oo-ui-menuLayout-menu' )
 		.css( this.menuPosition.sizeProperty, this.menuSize );
@@ -64,39 +62,23 @@ OO.inheritClass( OO.ui.MenuLayout, OO.ui.Layout );
 OO.ui.MenuLayout.static.menuPositions = {
 	top: {
 		sizeProperty: 'height',
-		positionProperty: 'top',
 		className: 'oo-ui-menuLayout-top'
 	},
 	after: {
 		sizeProperty: 'width',
-		positionProperty: 'right',
-		rtlPositionProperty: 'left',
 		className: 'oo-ui-menuLayout-after'
 	},
 	bottom: {
 		sizeProperty: 'height',
-		positionProperty: 'bottom',
 		className: 'oo-ui-menuLayout-bottom'
 	},
 	before: {
 		sizeProperty: 'width',
-		positionProperty: 'left',
-		rtlPositionProperty: 'right',
 		className: 'oo-ui-menuLayout-before'
 	}
 };
 
 /* Methods */
-
-/**
- * Handle DOM attachment events
- */
-OO.ui.MenuLayout.prototype.onElementAttach = function () {
-	// getPositionProperty won't know about directionality until the layout is attached
-	if ( this.showMenu ) {
-		this.$content.css( this.getPositionProperty(), this.menuSize );
-	}
-};
 
 /**
  * Toggle menu.
@@ -139,18 +121,32 @@ OO.ui.MenuLayout.prototype.setMenuSize = function ( size ) {
 
 /**
  * Update menu and content CSS based on current menu size and visibility
+ *
+ * This method is called internally when size or position is changed.
  */
 OO.ui.MenuLayout.prototype.updateSizes = function () {
 	if ( this.showMenu ) {
 		this.$menu
 			.css( this.menuPosition.sizeProperty, this.menuSize )
 			.css( 'overflow', '' );
-		this.$content.css( this.getPositionProperty(), this.menuSize );
+		// Set offsets on all sides. CSS resets all but one with
+		// 'important' rules so directionality flips are supported
+		this.$content.css( {
+			top: this.menuSize,
+			right: this.menuSize,
+			bottom: this.menuSize,
+			left: this.menuSize
+		} );
 	} else {
 		this.$menu
 			.css( this.menuPosition.sizeProperty, 0 )
 			.css( 'overflow', 'hidden' );
-		this.$content.css( this.getPositionProperty(), 0 );
+		this.$content.css( {
+			top: 0,
+			right: 0,
+			bottom: 0,
+			left: 0
+		} );
 	}
 };
 
@@ -171,15 +167,13 @@ OO.ui.MenuLayout.prototype.getMenuSize = function () {
  * @chainable
  */
 OO.ui.MenuLayout.prototype.setMenuPosition = function ( position ) {
-	var positionProperty, positions = this.constructor.static.menuPositions;
+	var positions = this.constructor.static.menuPositions;
 
 	if ( !positions[ position ] ) {
 		throw new Error( 'Cannot set position; unsupported position value: ' + position );
 	}
 
-	positionProperty = this.getPositionProperty();
 	this.$menu.css( this.menuPosition.sizeProperty, '' );
-	this.$content.css( positionProperty, '' );
 	this.$element.removeClass( this.menuPosition.className );
 
 	this.menuPosition = positions[ position ];
@@ -197,17 +191,4 @@ OO.ui.MenuLayout.prototype.setMenuPosition = function ( position ) {
  */
 OO.ui.MenuLayout.prototype.getMenuPosition = function () {
 	return this.menuPosition;
-};
-
-/**
- * Get the menu position property.
- *
- * @return {string} Menu position CSS property
- */
-OO.ui.MenuLayout.prototype.getPositionProperty = function () {
-	if ( this.menuPosition.rtlPositionProperty && this.$element.css( 'direction' ) === 'rtl' ) {
-		return this.menuPosition.rtlPositionProperty;
-	} else {
-		return this.menuPosition.positionProperty;
-	}
 };
