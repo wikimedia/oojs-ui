@@ -1,5 +1,14 @@
 # OOjs UI Release History
 
+## v0.6.6 / 2014-02-04
+* TextInputWidget: Mostly revert "Don't try adjusting size when detached" (Bartosz Dziewoński)
+* Use css class instead of jQuery .show()/hide()/toggle() (Moriel Schottlender)
+* build: Use karma to v0.12.31 (Timo Tijhof)
+* Use standard border colours for progress bars (Ed Sanders)
+* Remove disabled elements from keyboard navigation flow (Derk-Jan Hartman)
+* Fix BookletLayout#toggleOutline to use MenuLayout method (Ed Sanders)
+* Use CSS overriding trick to support RTL in menu layouts (Ed Sanders)
+
 ## v0.6.5 / 2014-02-01
 * Make BookletLayout inherit from MenuLayout instead of embedding a GridLayout (Ed Sanders)
 * ButtonElement: Unbreak 'pressed' state (Bartosz Dziewoński)
