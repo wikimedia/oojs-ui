@@ -198,7 +198,7 @@ OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
 	if ( this.outlined ) {
 		show = show === undefined ? !this.outlineVisible : !!show;
 		this.outlineVisible = show;
-		this.gridLayout.layout( show ? [ 1, 2 ] : [ 0, 1 ], [ 1 ] );
+		this.toggleMenu( show );
 	}
 
 	return this;
