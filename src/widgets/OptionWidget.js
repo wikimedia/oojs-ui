@@ -116,7 +116,9 @@ OO.ui.OptionWidget.prototype.isPressed = function () {
 OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
 	if ( this.constructor.static.selectable ) {
 		this.selected = !!state;
-		this.$element.toggleClass( 'oo-ui-optionWidget-selected', state );
+		this.$element
+			.toggleClass( 'oo-ui-optionWidget-selected', state )
+			.attr( 'aria-selected', state.toString() );
 		if ( state && this.constructor.static.scrollIntoViewOnSelect ) {
 			this.scrollElementIntoView();
 		}
