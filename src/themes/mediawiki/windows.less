@@ -280,16 +280,20 @@
 			bottom: 1em;
 			background-color: #fff;
 
+			opacity: 0;
 			.oo-ui-transform(scale(0.5));
 			.oo-ui-transition(all 250ms ease-in-out);
 		}
 
 		&.oo-ui-window-load {
+			/* Fade window overlay */
 			opacity: 1;
 		}
 
 		&.oo-ui-window-ready {
 			> .oo-ui-window-frame  {
+				/* Fade frame */
+				opacity: 1;
 				.oo-ui-transform(scale(1));
 			}
 		}
