@@ -194,18 +194,9 @@ OO.ui.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 			this.sideInsertion = dragPosition < itemMidpoint ? 'before' : 'after';
 		}
 		// Add drop indicator between objects
-		if ( this.sideInsertion ) {
-			this.$placeholder
-				.css( cssOutput )
-				.removeClass( 'oo-ui-element-hidden' );
-		} else {
-			this.$placeholder
-				.css( {
-					left: 0,
-					top: 0
-				} )
-				.addClass( 'oo-ui-element-hidden' );
-		}
+		this.$placeholder
+			.css( cssOutput )
+			.removeClass( 'oo-ui-element-hidden' );
 	} else {
 		// This means the item was dragged outside the widget
 		this.$placeholder
