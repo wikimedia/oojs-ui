@@ -4,6 +4,8 @@ namespace OOUI;
 
 /**
  * Layout made of proportionally sized columns and rows.
+ *
+ * @deprecated
  */
 class GridLayout extends Layout {
 

@@ -43,12 +43,6 @@
 		<div class="oo-ui-demo-container">
 			<?php
 
-				function widgetWrap( $element ) {
-					$widget = new OOUI\Widget();
-					$widget->appendContent( $element );
-					return $widget;
-				}
-
 				$styles = array(
 					array(),
 					array(
@@ -109,31 +103,21 @@
 					),
 				);
 
-				$panels = array();
+				$buttons = new OOUI\Widget();
 				foreach ( $styles as $style ) {
 					foreach ( $states as $state ) {
-						$panel = new OOUI\PanelLayout();
-						$panel->appendContent( new OOUI\ButtonWidget( array_merge( $style, $state ) ) );
-						$panels[] = $panel;
+						$buttons->appendContent( new OOUI\ButtonWidget( array_merge( $style, $state ) ) );
 					}
+					$buttons->appendContent( new OOUI\HtmlSnippet( '<br />' ) );
 				}
-
-				// Now that I think about it, using a grid layout wasn't the greatest idea.
-				// But I need an example of it, so it stays for now.
-				$grid = new OOUI\GridLayout(
-					$panels,
-					array(
-						// Determined empirically
-						'widths' => array( 83, 108, 127, 58, 52, 77, 83, 58, 42 ),
-						'heights' => array( 1, 1, 1, 1, 1, 1, 1 ),
-					)
-				);
-				$grid->setAttributes( array( 'style' => 'height: 24em; position: relative;' ) );
 
 				echo new OOUI\FieldsetLayout( array(
 					'label' => 'Regular buttons',
 					'items' => array(
-						widgetWrap( $grid ),
+						new OOUI\FieldLayout(
+							$buttons,
+							array( 'align' => 'top' )
+						),
 					),
 				) );
 			?>
