@@ -23,6 +23,8 @@ OO.ui.DraggableElement = function OoUiDraggableElement() {
 		} );
 };
 
+OO.initClass( OO.ui.DraggableElement );
+
 /* Events */
 
 /**
@@ -37,6 +39,13 @@ OO.ui.DraggableElement = function OoUiDraggableElement() {
 /**
  * @event drop
  */
+
+/* Static Properties */
+
+/**
+ * @inheritdoc OO.ui.ButtonElement
+ */
+OO.ui.DraggableElement.static.cancelButtonMouseDownEvents = false;
 
 /* Methods */
 
