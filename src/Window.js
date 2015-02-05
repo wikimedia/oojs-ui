@@ -51,7 +51,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 	// Properties
 	this.manager = null;
 	this.initialized = false;
-	this.visible = false;
+	this.visible = true;
 	this.opening = null;
 	this.closing = null;
 	this.opened = null;
