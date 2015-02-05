@@ -32,6 +32,8 @@ OO.ui.RadioOptionWidget.static.highlightable = false;
 
 OO.ui.RadioOptionWidget.static.pressable = false;
 
+OO.ui.RadioOptionWidget.static.tagName = 'label';
+
 /* Methods */
 
 /**
