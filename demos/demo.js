@@ -289,8 +289,8 @@ OO.ui.Demo.prototype.getStylesheetLinks = function () {
 	// Add link tags
 	for ( i = 0, len = urls.length; i < len; i++ ) {
 		link = document.createElement( 'link' );
-		link.setAttribute( 'rel', 'stylesheet' );
-		link.setAttribute( 'href', urls[ i ] );
+		link.rel = 'stylesheet';
+		link.href = urls[ i ];
 		links.push( link );
 	}
 	return links;
