@@ -20,12 +20,11 @@ OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 	// Properties
 	this.$overlay = config.$overlay || this.$element;
 	this.input = new OO.ui.TextInputWidget( $.extend(
-		{ $: this.$, indicator: 'down', disabled: this.isDisabled() },
+		{ indicator: 'down', disabled: this.isDisabled() },
 		config.input
 	) );
 	this.menu = new OO.ui.TextInputMenuSelectWidget( this.input, $.extend(
 		{
-			$: OO.ui.Element.static.getJQuery( this.$overlay ),
 			widget: this,
 			input: this.input,
 			disabled: this.isDisabled()

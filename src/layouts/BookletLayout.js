@@ -22,7 +22,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.currentPageName = null;
 	this.pages = {};
 	this.ignoreFocus = false;
-	this.stackLayout = new OO.ui.StackLayout( { $: this.$, continuous: !!config.continuous } );
+	this.stackLayout = new OO.ui.StackLayout( { continuous: !!config.continuous } );
 	this.$content.append( this.stackLayout.$element );
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 	this.outlineVisible = false;
@@ -30,13 +30,13 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	if ( this.outlined ) {
 		this.editable = !!config.editable;
 		this.outlineControlsWidget = null;
-		this.outlineSelectWidget = new OO.ui.OutlineSelectWidget( { $: this.$ } );
-		this.outlinePanel = new OO.ui.PanelLayout( { $: this.$, scrollable: true } );
+		this.outlineSelectWidget = new OO.ui.OutlineSelectWidget();
+		this.outlinePanel = new OO.ui.PanelLayout( { scrollable: true } );
 		this.$menu.append( this.outlinePanel.$element );
 		this.outlineVisible = true;
 		if ( this.editable ) {
 			this.outlineControlsWidget = new OO.ui.OutlineControlsWidget(
-				this.outlineSelectWidget, { $: this.$ }
+				this.outlineSelectWidget
 			);
 		}
 	}
@@ -326,7 +326,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 		name = page.getName();
 		this.pages[ page.getName() ] = page;
 		if ( this.outlined ) {
-			item = new OO.ui.OutlineOptionWidget( { $: this.$, data: name } );
+			item = new OO.ui.OutlineOptionWidget( { data: name } );
 			page.setOutlineItem( item );
 			items.push( item );
 		}

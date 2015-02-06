@@ -22,8 +22,8 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	this.dragging = false;
 	this.dragStart = null;
 	this.sliding = false;
-	this.$glow = this.$( '<span>' );
-	this.$grip = this.$( '<span>' );
+	this.$glow = $( '<span>' );
+	this.$grip = $( '<span>' );
 
 	// Events
 	this.$element.on( {

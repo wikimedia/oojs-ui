@@ -51,9 +51,9 @@ OO.ui.Window = function OoUiWindow( config ) {
 	// Properties
 	this.manager = null;
 	this.size = config.size || this.constructor.static.size;
-	this.$frame = this.$( '<div>' );
-	this.$overlay = this.$( '<div>' );
-	this.$content = this.$( '<div>' );
+	this.$frame = $( '<div>' );
+	this.$overlay = $( '<div>' );
+	this.$content = $( '<div>' );
 
 	// Initialization
 	this.$overlay.addClass( 'oo-ui-window-overlay' );
@@ -448,10 +448,10 @@ OO.ui.Window.prototype.initialize = function () {
 	}
 
 	// Properties
-	this.$head = this.$( '<div>' );
-	this.$body = this.$( '<div>' );
-	this.$foot = this.$( '<div>' );
-	this.$innerOverlay = this.$( '<div>' );
+	this.$head = $( '<div>' );
+	this.$body = $( '<div>' );
+	this.$foot = $( '<div>' );
+	this.$innerOverlay = $( '<div>' );
 	this.dir = OO.ui.Element.static.getDir( this.$content ) || 'ltr';
 	this.$document = $( this.getElementDocument() );
 

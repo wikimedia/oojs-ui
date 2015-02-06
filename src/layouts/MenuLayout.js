@@ -33,13 +33,13 @@ OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	 *
 	 * @property {jQuery}
 	 */
-	this.$menu = this.$( '<div>' );
+	this.$menu = $( '<div>' );
 	/**
 	 * Content DOM node
 	 *
 	 * @property {jQuery}
 	 */
-	this.$content = this.$( '<div>' );
+	this.$content = $( '<div>' );
 
 	// Initialization
 	this.toggleMenu( this.showMenu );

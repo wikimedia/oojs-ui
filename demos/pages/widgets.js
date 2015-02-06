@@ -960,22 +960,18 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						orientation: 'horizontal',
 						items: [
 							new DragDropItemWidget( {
-								$: this.$,
 								data: 'item1',
 								label: 'Item 1'
 							} ),
 							new DragDropItemWidget( {
-								$: this.$,
 								data: 'item2',
 								label: 'Item 2'
 							} ),
 							new DragDropItemWidget( {
-								$: this.$,
 								data: 'item3',
 								label: 'Item 3'
 							} ),
 							new DragDropItemWidget( {
-								$: this.$,
 								data: 'item4',
 								label: 'Item 4'
 							} )
@@ -990,22 +986,18 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new DragDropGroupWidget( {
 						items: [
 							new DragDropItemWidget( {
-								$: this.$,
 								data: 'item1',
 								label: 'Item 1'
 							} ),
 							new DragDropItemWidget( {
-								$: this.$,
 								data: 'item2',
 								label: 'Item 2'
 							} ),
 							new DragDropItemWidget( {
-								$: this.$,
 								data: 'item3',
 								label: 'Item 3'
 							} ),
 							new DragDropItemWidget( {
-								$: this.$,
 								data: 'item4',
 								label: 'Item 4'
 							} )

@@ -43,16 +43,10 @@ QUnit.test( 'static.getDocument', 10, function ( assert ) {
 	assert.strictEqual( OO.ui.Element.static.getDocument( {} ), null, 'Invalid' );
 } );
 
-QUnit.test( 'getElementDocument', 2, function ( assert ) {
+QUnit.test( 'getElementDocument', 1, function ( assert ) {
 	var el, doc;
 
 	doc = document;
 	el = new OO.ui.Element();
-	assert.strictEqual( el.getElementDocument(), doc );
-
-	doc = this.makeFrame();
-	el = new OO.ui.Element( {
-		$: OO.ui.Element.static.getJQuery( doc )
-	} );
 	assert.strictEqual( el.getElementDocument(), doc );
 } );

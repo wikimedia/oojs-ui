@@ -66,7 +66,7 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.TabIndexedElement );
  * @return {jQuery} Input element
  */
 OO.ui.InputWidget.prototype.getInputElement = function () {
-	return this.$( '<input>' );
+	return $( '<input>' );
 };
 
 /**

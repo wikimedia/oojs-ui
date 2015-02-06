@@ -214,7 +214,7 @@ OO.ui.ToolGroup.prototype.onMouseOut = function ( e ) {
  */
 OO.ui.ToolGroup.prototype.getTargetTool = function ( e ) {
 	var tool,
-		$item = this.$( e.target ).closest( '.oo-ui-tool-link' );
+		$item = $( e.target ).closest( '.oo-ui-tool-link' );
 
 	if ( $item.length ) {
 		tool = $item.parent().data( 'oo-ui-tool' );

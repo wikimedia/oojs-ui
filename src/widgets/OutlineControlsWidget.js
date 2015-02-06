@@ -25,21 +25,18 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 
 	// Properties
 	this.outline = outline;
-	this.$movers = this.$( '<div>' );
+	this.$movers = $( '<div>' );
 	this.upButton = new OO.ui.ButtonWidget( {
-		$: this.$,
 		framed: false,
 		icon: 'collapse',
 		title: OO.ui.msg( 'ooui-outline-control-move-up' )
 	} );
 	this.downButton = new OO.ui.ButtonWidget( {
-		$: this.$,
 		framed: false,
 		icon: 'expand',
 		title: OO.ui.msg( 'ooui-outline-control-move-down' )
 	} );
 	this.removeButton = new OO.ui.ButtonWidget( {
-		$: this.$,
 		framed: false,
 		icon: 'remove',
 		title: OO.ui.msg( 'ooui-outline-control-remove' )

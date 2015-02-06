@@ -14,9 +14,7 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	config = config || {};
 
 	// Properties (must be done before parent constructor which calls #setDisabled)
-	this.dropdownWidget = new OO.ui.DropdownWidget( {
-		$: this.$
-	} );
+	this.dropdownWidget = new OO.ui.DropdownWidget();
 
 	// Parent constructor
 	OO.ui.DropdownInputWidget.super.call( this, config );
@@ -42,7 +40,7 @@ OO.inheritClass( OO.ui.DropdownInputWidget, OO.ui.InputWidget );
  * @private
  */
 OO.ui.DropdownInputWidget.prototype.getInputElement = function () {
-	return this.$( '<input type="hidden">' );
+	return $( '<input type="hidden">' );
 };
 
 /**

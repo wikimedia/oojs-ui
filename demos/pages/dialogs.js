@@ -15,11 +15,10 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			dialog = this;
 
 		SimpleDialog.super.prototype.initialize.apply( this, arguments );
-		this.content = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
+		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 		this.content.$element.append( '<p>Dialog content</p>' );
 
 		closeButton = new OO.ui.ButtonWidget( {
-			$: this.$,
 			label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
 		} );
 		closeButton.on( 'click', function () {
@@ -44,7 +43,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	];
 	ProcessDialog.prototype.initialize = function () {
 		ProcessDialog.super.prototype.initialize.apply( this, arguments );
-		this.content = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
+		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 		this.content.$element.append( '<p>Dialog content</p>' );
 		this.$body.append( this.content.$element );
 	};
@@ -71,9 +70,9 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		SearchWidgetDialog.super.prototype.initialize.apply( this, arguments );
 		var i,
 			items = [],
-			searchWidget = new OO.ui.SearchWidget( { $: this.$ } );
+			searchWidget = new OO.ui.SearchWidget();
 		for ( i = 1; i <= 20; i++ ) {
-			items.push( new OO.ui.OptionWidget( { $: this.$, data: i, label: 'Item ' + i } ) );
+			items.push( new OO.ui.OptionWidget( { data: i, label: 'Item ' + i } ) );
 		}
 		searchWidget.results.addItems( items );
 		searchWidget.onQueryChange = function () {};
@@ -108,12 +107,12 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	};
 	BrokenDialog.prototype.initialize = function () {
 		BrokenDialog.super.prototype.initialize.apply( this, arguments );
-		this.content = new OO.ui.PanelLayout( { $: this.$, padded: true } );
+		this.content = new OO.ui.PanelLayout( { padded: true } );
 		this.fieldset = new OO.ui.FieldsetLayout( {
-			$: this.$, label: 'Dialog with error handling', icon: 'alert'
+			label: 'Dialog with error handling', icon: 'alert'
 		} );
 		this.description = new OO.ui.LabelWidget( {
-			$: this.$, label: 'Deleting will fail and will not be recoverable. ' +
+			label: 'Deleting will fail and will not be recoverable. ' +
 				'Saving will fail the first time, but succeed the second time.'
 		} );
 		this.fieldset.addItems( [ this.description ] );
@@ -213,11 +212,11 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			}
 		);
 
-		this.bookletLayout = new OO.ui.BookletLayout( { $: this.$ } );
+		this.bookletLayout = new OO.ui.BookletLayout();
 		this.pages = [
-			new SamplePage( 'page-1', { $: this.$, label: 'Page 1', icon: 'window' } ),
-			new SamplePage( 'page-2', { $: this.$, label: 'Page 2', icon: 'window' } ),
-			new SamplePage( 'page-3', { $: this.$, label: 'Page 3', icon: 'window' } )
+			new SamplePage( 'page-1', { label: 'Page 1', icon: 'window' } ),
+			new SamplePage( 'page-2', { label: 'Page 2', icon: 'window' } ),
+			new SamplePage( 'page-3', { label: 'Page 3', icon: 'window' } )
 		];
 		this.bookletLayout.addPages( this.pages );
 		this.bookletLayout.connect( this, { set: 'onBookletLayoutSet' } );
@@ -252,16 +251,15 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	OutlinedBookletDialog.prototype.initialize = function () {
 		OutlinedBookletDialog.super.prototype.initialize.apply( this, arguments );
 		this.bookletLayout = new OO.ui.BookletLayout( {
-			$: this.$,
 			outlined: true,
 			menuSize: '15em'
 		} );
 		this.pages = [
-			new SamplePage( 'small', { $: this.$, label: 'Small', icon: 'window' } ),
-			new SamplePage( 'medium', { $: this.$, label: 'Medium', icon: 'window' } ),
-			new SamplePage( 'large', { $: this.$, label: 'Large', icon: 'window' } ),
-			new SamplePage( 'larger', { $: this.$, label: 'Larger', icon: 'window' } ),
-			new SamplePage( 'full', { $: this.$, label: 'Full', icon: 'window' } )
+			new SamplePage( 'small', { label: 'Small', icon: 'window' } ),
+			new SamplePage( 'medium', { label: 'Medium', icon: 'window' } ),
+			new SamplePage( 'large', { label: 'Large', icon: 'window' } ),
+			new SamplePage( 'larger', { label: 'Larger', icon: 'window' } ),
+			new SamplePage( 'full', { label: 'Full', icon: 'window' } )
 		];
 		this.bookletLayout.addPages( this.pages );
 		this.bookletLayout.connect( this, { set: 'onBookletLayoutSet' } );
@@ -299,7 +297,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	};
 	MenuDialog.prototype.initialize = function () {
 		MenuDialog.super.prototype.initialize.apply( this, arguments );
-		var menuLayout = new OO.ui.MenuLayout( { $: this.$, menuSize: '10em' } ),
+		var menuLayout = new OO.ui.MenuLayout( { menuSize: '10em' } ),
 			positionField = new OO.ui.FieldLayout(
 				new OO.ui.ButtonSelectWidget( {
 					items: [

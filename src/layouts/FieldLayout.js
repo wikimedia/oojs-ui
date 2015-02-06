@@ -37,25 +37,24 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	OO.ui.LabelElement.call( this, config );
 
 	// Properties
-	this.$field = this.$( '<div>' );
-	this.$body = this.$( '<' + ( hasInputWidget ? 'label' : 'div' ) + '>' );
+	this.$field = $( '<div>' );
+	this.$body = $( '<' + ( hasInputWidget ? 'label' : 'div' ) + '>' );
 	this.align = null;
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
-			$: this.$,
 			classes: [ 'oo-ui-fieldLayout-help' ],
 			framed: false,
 			icon: 'info'
 		} );
 
 		this.popupButtonWidget.getPopup().$body.append(
-			this.$( '<div>' )
+			$( '<div>' )
 				.text( config.help )
 				.addClass( 'oo-ui-fieldLayout-help-content' )
 		);
 		this.$help = this.popupButtonWidget.$element;
 	} else {
-		this.$help = this.$( [] );
+		this.$help = $( [] );
 	}
 
 	// Events

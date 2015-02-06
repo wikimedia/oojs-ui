@@ -29,8 +29,8 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.toolGroupFactory = toolGroupFactory;
 	this.groups = [];
 	this.tools = {};
-	this.$bar = this.$( '<div>' );
-	this.$actions = this.$( '<div>' );
+	this.$bar = $( '<div>' );
+	this.$actions = $( '<div>' );
 	this.initialized = false;
 
 	// Events
@@ -84,7 +84,7 @@ OO.ui.Toolbar.prototype.getToolGroupFactory = function () {
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
-	var $closestWidgetToEvent = this.$( e.target ).closest( '.oo-ui-widget' ),
+	var $closestWidgetToEvent = $( e.target ).closest( '.oo-ui-widget' ),
 		$closestWidgetToToolbar = this.$element.closest( '.oo-ui-widget' );
 	if ( !$closestWidgetToEvent.length || $closestWidgetToEvent[ 0 ] === $closestWidgetToToolbar[ 0 ] ) {
 		return false;
@@ -137,7 +137,7 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 		// Check type has been registered
 		type = this.getToolGroupFactory().lookup( group.type ) ? group.type : defaultType;
 		items.push(
-			this.getToolGroupFactory().create( type, this, $.extend( { $: this.$ }, group ) )
+			this.getToolGroupFactory().create( type, this, group )
 		);
 	}
 	this.addItems( items );

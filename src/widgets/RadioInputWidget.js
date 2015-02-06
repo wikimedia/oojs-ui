@@ -34,7 +34,7 @@ OO.inheritClass( OO.ui.RadioInputWidget, OO.ui.InputWidget );
  * @private
  */
 OO.ui.RadioInputWidget.prototype.getInputElement = function () {
-	return this.$( '<input type="radio" />' );
+	return $( '<input type="radio" />' );
 };
 
 /**

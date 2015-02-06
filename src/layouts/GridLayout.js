@@ -121,7 +121,7 @@ OO.ui.GridLayout.prototype.update = function () {
 				top: ( top * 100 ) + '%'
 			};
 			// If RTL, reverse:
-			if ( OO.ui.Element.static.getDir( this.$.context ) === 'rtl' ) {
+			if ( OO.ui.Element.static.getDir( document ) === 'rtl' ) {
 				dimensions.right = ( left * 100 ) + '%';
 			} else {
 				dimensions.left = ( left * 100 ) + '%';

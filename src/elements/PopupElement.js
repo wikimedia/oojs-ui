@@ -17,7 +17,7 @@ OO.ui.PopupElement = function OoUiPopupElement( config ) {
 	this.popup = new OO.ui.PopupWidget( $.extend(
 		{ autoClose: true },
 		config.popup,
-		{ $: this.$, $autoCloseIgnore: this.$element }
+		{ $autoCloseIgnore: this.$element }
 	) );
 };
 

@@ -18,7 +18,7 @@ OO.ui.ButtonElement = function OoUiButtonElement( config ) {
 	config = config || {};
 
 	// Properties
-	this.$button = config.$button || this.$( '<a>' );
+	this.$button = config.$button || $( '<a>' );
 	this.framed = null;
 	this.accessKey = null;
 	this.active = false;

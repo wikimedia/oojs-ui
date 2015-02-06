@@ -27,9 +27,9 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	this.toolGroup = toolGroup;
 	this.toolbar = this.toolGroup.getToolbar();
 	this.active = false;
-	this.$title = this.$( '<span>' );
-	this.$accel = this.$( '<span>' );
-	this.$link = this.$( '<a>' );
+	this.$title = $( '<span>' );
+	this.$accel = $( '<span>' );
+	this.$link = $( '<a>' );
 	this.title = null;
 
 	// Events

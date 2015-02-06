@@ -29,7 +29,7 @@ OO.ui.IconElement = function OoUiIconElement( config ) {
 	// Initialization
 	this.setIcon( config.icon || this.constructor.static.icon );
 	this.setIconTitle( config.iconTitle || this.constructor.static.iconTitle );
-	this.setIconElement( config.$icon || this.$( '<span>' ) );
+	this.setIconElement( config.$icon || $( '<span>' ) );
 };
 
 /* Setup */

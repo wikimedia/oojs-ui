@@ -31,10 +31,10 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	OO.ui.ClippableElement.call( this, config );
 
 	// Properties
-	this.$popup = this.$( '<div>' );
-	this.$head = this.$( '<div>' );
-	this.$body = this.$( '<div>' );
-	this.$anchor = this.$( '<div>' );
+	this.$popup = $( '<div>' );
+	this.$head = $( '<div>' );
+	this.$body = $( '<div>' );
+	this.$anchor = $( '<div>' );
 	// If undefined, will be computed lazily in updateDimensions()
 	this.$container = config.$container;
 	this.containerPadding = config.containerPadding !== undefined ? config.containerPadding : 10;
@@ -45,7 +45,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.width = config.width !== undefined ? config.width : 320;
 	this.height = config.height !== undefined ? config.height : null;
 	this.align = config.align || 'center';
-	this.closeButton = new OO.ui.ButtonWidget( { $: this.$, framed: false, icon: 'close' } );
+	this.closeButton = new OO.ui.ButtonWidget( { framed: false, icon: 'close' } );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
 
 	// Events
@@ -221,7 +221,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 
 	if ( !this.$container ) {
 		// Lazy-initialize $container if not specified in constructor
-		this.$container = this.$( this.getClosestScrollableElementContainer() );
+		this.$container = $( this.getClosestScrollableElementContainer() );
 	}
 
 	// Set height and width before measuring things, since it might cause our measurements

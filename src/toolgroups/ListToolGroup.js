@@ -114,7 +114,7 @@ OO.ui.ListToolGroup.prototype.onPointerUp = function ( e ) {
 	var ret = OO.ui.ListToolGroup.super.prototype.onPointerUp.call( this, e );
 
 	// Do not close the popup when the user wants to show more/fewer tools
-	if ( this.$( e.target ).closest( '.oo-ui-tool-name-more-fewer' ).length ) {
+	if ( $( e.target ).closest( '.oo-ui-tool-name-more-fewer' ).length ) {
 		// Prevent the popup list from being hidden
 		this.setActive( true );
 	}

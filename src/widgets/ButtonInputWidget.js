@@ -61,7 +61,7 @@ OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.FlaggedElement );
  */
 OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
 	var html = '<' + ( config.useInputTag ? 'input' : 'button' ) + ' type="' + config.type + '">';
-	return this.$( html );
+	return $( html );
 };
 
 /**

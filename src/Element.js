@@ -6,7 +6,6 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Function} [$] jQuery for the frame the widget is in
  * @cfg {string[]} [classes] CSS class names to add
  * @cfg {string} [id] HTML id attribute
  * @cfg {string} [text] Text to insert
@@ -18,9 +17,9 @@ OO.ui.Element = function OoUiElement( config ) {
 	config = config || {};
 
 	// Properties
-	this.$ = config.$ || OO.ui.Element.static.getJQuery( document );
+	this.$ = $;
 	this.data = config.data;
-	this.$element = this.$( this.$.context.createElement( this.getTagName() ) );
+	this.$element = $( document.createElement( this.getTagName() ) );
 	this.elementGroup = null;
 	this.debouncedUpdateThemeClassesHandler = this.debouncedUpdateThemeClasses.bind( this );
 	this.updateThemeClassesPending = false;
@@ -545,7 +544,6 @@ OO.ui.Element.prototype.isElementAttached = function () {
  * @return {HTMLDocument} Document object
  */
 OO.ui.Element.prototype.getElementDocument = function () {
-	// Don't use this.$.context because subclasses can rebind this.$
 	// Don't cache this in other ways either because subclasses could can change this.$element
 	return OO.ui.Element.static.getDocument( this.$element );
 };

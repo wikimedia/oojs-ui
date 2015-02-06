@@ -231,7 +231,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 
 			// Change focus to enable keyboard navigation
 			if ( this.isolated && this.$input && !this.$input.is( ':focus' ) ) {
-				this.$previousFocus = this.$( ':focus' );
+				this.$previousFocus = $( ':focus' );
 				this.$input[ 0 ].focus();
 			}
 			if ( this.newItems && this.newItems.length ) {

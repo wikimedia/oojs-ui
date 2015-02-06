@@ -14,31 +14,30 @@ OO.ui.Demo = function OoUiDemo() {
 	// Properties
 	this.stylesheetLinks = this.getStylesheetLinks();
 	this.mode = this.getCurrentMode();
-	this.$menu = this.$( '<div>' );
+	this.$menu = $( '<div>' );
 	this.pageDropdown = new OO.ui.DropdownWidget( {
-		$: this.$,
 		menu: {
 			items: [
-				new OO.ui.MenuOptionWidget( { $: this.$, data: 'dialogs', label: 'Dialogs' } ),
-				new OO.ui.MenuOptionWidget( { $: this.$, data: 'icons', label: 'Icons' } ),
-				new OO.ui.MenuOptionWidget( { $: this.$, data: 'toolbars', label: 'Toolbars' } ),
-				new OO.ui.MenuOptionWidget( { $: this.$, data: 'widgets', label: 'Widgets' } )
+				new OO.ui.MenuOptionWidget( { data: 'dialogs', label: 'Dialogs' } ),
+				new OO.ui.MenuOptionWidget( { data: 'icons', label: 'Icons' } ),
+				new OO.ui.MenuOptionWidget( { data: 'toolbars', label: 'Toolbars' } ),
+				new OO.ui.MenuOptionWidget( { data: 'widgets', label: 'Widgets' } )
 			]
 		},
 		classes: [ 'oo-ui-demo-pageDropdown' ]
 	} );
 	this.pageMenu = this.pageDropdown.getMenu();
-	this.themeSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
-		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'mediawiki', label: 'MediaWiki' } ),
-		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'apex', label: 'Apex' } )
+	this.themeSelect = new OO.ui.ButtonSelectWidget().addItems( [
+		new OO.ui.ButtonOptionWidget( { data: 'mediawiki', label: 'MediaWiki' } ),
+		new OO.ui.ButtonOptionWidget( { data: 'apex', label: 'Apex' } )
 	] );
-	this.graphicsSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
-		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'vector', label: 'Vector' } ),
-		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'raster', label: 'Raster' } )
+	this.graphicsSelect = new OO.ui.ButtonSelectWidget().addItems( [
+		new OO.ui.ButtonOptionWidget( { data: 'vector', label: 'Vector' } ),
+		new OO.ui.ButtonOptionWidget( { data: 'raster', label: 'Raster' } )
 	] );
-	this.directionSelect = new OO.ui.ButtonSelectWidget( { $: this.$ } ).addItems( [
-		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'ltr', label: 'LTR' } ),
-		new OO.ui.ButtonOptionWidget( { $: this.$, data: 'rtl', label: 'RTL' } )
+	this.directionSelect = new OO.ui.ButtonSelectWidget().addItems( [
+		new OO.ui.ButtonOptionWidget( { data: 'ltr', label: 'LTR' } ),
+		new OO.ui.ButtonOptionWidget( { data: 'rtl', label: 'RTL' } )
 	] );
 
 	// Events

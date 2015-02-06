@@ -18,7 +18,7 @@ OO.ui.GroupElement = function OoUiGroupElement( config ) {
 	this.aggregateItemEvents = {};
 
 	// Initialization
-	this.setGroupElement( config.$group || this.$( '<div>' ) );
+	this.setGroupElement( config.$group || $( '<div>' ) );
 };
 
 /* Methods */

@@ -286,7 +286,7 @@ OO.ui.WindowManager.prototype.getWindow = function ( name ) {
 					'Cannot auto-instantiate window: symbolic name is unrecognized by the factory'
 				) );
 			} else {
-				win = this.factory.create( name, this, { $: this.$ } );
+				win = this.factory.create( name, this );
 				this.addWindows( [ win ] );
 				deferred.resolve( win );
 			}
@@ -567,7 +567,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 
 	if ( on ) {
 		if ( !this.globalEvents ) {
-			this.$( this.getElementWindow() ).on( {
+			$( this.getElementWindow() ).on( {
 				// Start listening for top-level window dimension changes
 				'orientationchange resize': this.onWindowResizeHandler
 			} );
@@ -575,7 +575,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 			this.globalEvents = true;
 		}
 	} else if ( this.globalEvents ) {
-		this.$( this.getElementWindow() ).off( {
+		$( this.getElementWindow() ).off( {
 			// Stop listening for top-level window dimension changes
 			'orientationchange resize': this.onWindowResizeHandler
 		} );

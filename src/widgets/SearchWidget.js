@@ -21,14 +21,13 @@ OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
 
 	// Properties
 	this.query = new OO.ui.TextInputWidget( {
-		$: this.$,
 		icon: 'search',
 		placeholder: config.placeholder,
 		value: config.value
 	} );
-	this.results = new OO.ui.SelectWidget( { $: this.$ } );
-	this.$query = this.$( '<div>' );
-	this.$results = this.$( '<div>' );
+	this.results = new OO.ui.SelectWidget();
+	this.$query = $( '<div>' );
+	this.$results = $( '<div>' );
 
 	// Events
 	this.query.connect( this, {

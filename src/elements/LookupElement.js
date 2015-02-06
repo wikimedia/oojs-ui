@@ -20,7 +20,6 @@ OO.ui.LookupElement = function OoUiLookupElement( config ) {
 	// Properties
 	this.$overlay = config.$overlay || this.$element;
 	this.lookupMenu = new OO.ui.TextInputMenuSelectWidget( this, {
-		$: OO.ui.Element.static.getJQuery( this.$overlay ),
 		$container: config.$container
 	} );
 	this.lookupCache = {};

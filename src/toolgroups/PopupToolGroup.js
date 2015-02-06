@@ -33,7 +33,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	this.active = false;
 	this.dragging = false;
 	this.onBlurHandler = this.onBlur.bind( this );
-	this.$handle = this.$( '<span>' );
+	this.$handle = $( '<span>' );
 
 	// Events
 	this.$handle.on( {
@@ -50,7 +50,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// OO.ui.HeaderedElement mixin constructor.
 	if ( config.header !== undefined ) {
 		this.$group
-			.prepend( this.$( '<span>' )
+			.prepend( $( '<span>' )
 				.addClass( 'oo-ui-popupToolGroup-header' )
 				.text( config.header )
 			);
@@ -94,7 +94,7 @@ OO.ui.PopupToolGroup.prototype.setDisabled = function () {
  */
 OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
 	// Only deactivate when clicking outside the dropdown element
-	if ( this.$( e.target ).closest( '.oo-ui-popupToolGroup' )[ 0 ] !== this.$element[ 0 ] ) {
+	if ( $( e.target ).closest( '.oo-ui-popupToolGroup' )[ 0 ] !== this.$element[ 0 ] ) {
 		this.setActive( false );
 	}
 };

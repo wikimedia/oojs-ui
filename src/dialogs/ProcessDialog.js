@@ -75,18 +75,17 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 	OO.ui.ProcessDialog.super.prototype.initialize.call( this );
 
 	// Properties
-	this.$navigation = this.$( '<div>' );
-	this.$location = this.$( '<div>' );
-	this.$safeActions = this.$( '<div>' );
-	this.$primaryActions = this.$( '<div>' );
-	this.$otherActions = this.$( '<div>' );
+	this.$navigation = $( '<div>' );
+	this.$location = $( '<div>' );
+	this.$safeActions = $( '<div>' );
+	this.$primaryActions = $( '<div>' );
+	this.$otherActions = $( '<div>' );
 	this.dismissButton = new OO.ui.ButtonWidget( {
-		$: this.$,
 		label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
 	} );
-	this.retryButton = new OO.ui.ButtonWidget( { $: this.$ } );
-	this.$errors = this.$( '<div>' );
-	this.$errorsTitle = this.$( '<div>' );
+	this.retryButton = new OO.ui.ButtonWidget();
+	this.$errors = $( '<div>' );
+	this.$errorsTitle = $( '<div>' );
 
 	// Events
 	this.dismissButton.connect( this, { click: 'onDismissErrorButtonClick' } );
@@ -188,12 +187,12 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 		if ( errors[ i ].isWarning() ) {
 			warning = true;
 		}
-		$item = this.$( '<div>' )
+		$item = $( '<div>' )
 			.addClass( 'oo-ui-processDialog-error' )
 			.append( errors[ i ].getMessage() );
 		items.push( $item[ 0 ] );
 	}
-	this.$errorItems = this.$( items );
+	this.$errorItems = $( items );
 	if ( recoverable ) {
 		this.retryButton.clearFlags().setFlags( this.currentAction.getFlags() );
 	} else {

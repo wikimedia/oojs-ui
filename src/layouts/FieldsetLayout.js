@@ -27,20 +27,19 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
-			$: this.$,
 			classes: [ 'oo-ui-fieldsetLayout-help' ],
 			framed: false,
 			icon: 'info'
 		} );
 
 		this.popupButtonWidget.getPopup().$body.append(
-			this.$( '<div>' )
+			$( '<div>' )
 				.text( config.help )
 				.addClass( 'oo-ui-fieldsetLayout-help-content' )
 		);
 		this.$help = this.popupButtonWidget.$element;
 	} else {
-		this.$help = this.$( [] );
+		this.$help = $( [] );
 	}
 
 	// Initialization

@@ -65,9 +65,9 @@ OO.ui.TextInputMenuSelectWidget.prototype.toggle = function ( visible ) {
 	if ( change ) {
 		if ( this.isVisible() ) {
 			this.position();
-			this.$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
+			$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
 		} else {
-			this.$( this.getElementWindow() ).off( 'resize', this.onWindowResizeHandler );
+			$( this.getElementWindow() ).off( 'resize', this.onWindowResizeHandler );
 		}
 	}
 

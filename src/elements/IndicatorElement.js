@@ -28,7 +28,7 @@ OO.ui.IndicatorElement = function OoUiIndicatorElement( config ) {
 	// Initialization
 	this.setIndicator( config.indicator || this.constructor.static.indicator );
 	this.setIndicatorTitle( config.indicatorTitle || this.constructor.static.indicatorTitle );
-	this.setIndicatorElement( config.$indicator || this.$( '<span>' ) );
+	this.setIndicatorElement( config.$indicator || $( '<span>' ) );
 };
 
 /* Setup */

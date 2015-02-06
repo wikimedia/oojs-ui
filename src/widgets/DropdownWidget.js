@@ -31,8 +31,8 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$label } ) );
 
 	// Properties
-	this.menu = new OO.ui.MenuSelectWidget( $.extend( { $: this.$, widget: this }, config.menu ) );
-	this.$handle = this.$( '<span>' );
+	this.menu = new OO.ui.MenuSelectWidget( $.extend( { widget: this }, config.menu ) );
+	this.$handle = $( '<span>' );
 
 	// Events
 	this.$element.on( { click: this.onClick.bind( this ) } );

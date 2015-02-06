@@ -16,7 +16,7 @@ OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
 	OO.ui.ProgressBarWidget.super.call( this, config );
 
 	// Properties
-	this.$bar = this.$( '<div>' );
+	this.$bar = $( '<div>' );
 	this.progress = null;
 
 	// Initialization

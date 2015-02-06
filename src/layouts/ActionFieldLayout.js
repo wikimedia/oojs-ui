@@ -26,11 +26,11 @@ OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWid
 	OO.ui.LabelElement.call( this, config );
 
 	// Properties
-	this.$button = this.$( '<div>' )
+	this.$button = $( '<div>' )
 		.addClass( 'oo-ui-actionFieldLayout-button' )
 		.append( this.buttonWidget.$element );
 
-	this.$input = this.$( '<div>' )
+	this.$input = $( '<div>' )
 		.addClass( 'oo-ui-actionFieldLayout-input' )
 		.append( this.fieldWidget.$element );
 

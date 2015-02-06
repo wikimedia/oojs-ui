@@ -21,7 +21,7 @@ OO.ui.LabelElement = function OoUiLabelElement( config ) {
 
 	// Initialization
 	this.setLabel( config.label || this.constructor.static.label );
-	this.setLabelElement( config.$label || this.$( '<span>' ) );
+	this.setLabelElement( config.$label || $( '<span>' ) );
 };
 
 /* Setup */
