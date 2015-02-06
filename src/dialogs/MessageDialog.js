@@ -279,8 +279,10 @@ OO.ui.MessageDialog.prototype.fitActions = function () {
 		}
 	}
 
+	// Move the body out of the way of the foot
+	this.$body.css( 'bottom', this.$foot.outerHeight( true ) );
+
 	if ( this.verticalActionLayout !== previous ) {
-		this.$body.css( 'bottom', this.$foot.outerHeight( true ) );
 		// We changed the layout, window height might need to be updated.
 		this.updateSize();
 	}

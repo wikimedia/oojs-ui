@@ -2,11 +2,8 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	var i, l, name, openButton, DialogClass, config,
 		$demo = demo.$element,
 		fieldset = new OO.ui.FieldsetLayout( { label: 'Dialogs' } ),
-		isolateSwitch = new OO.ui.ToggleSwitchWidget(),
 		windows = {},
-		isolatedWindows = {},
-		windowManager = new OO.ui.WindowManager(),
-		isolatedWindowManager = new OO.ui.WindowManager( { isolate: true } );
+		windowManager = new OO.ui.WindowManager();
 
 	function SimpleDialog( config ) {
 		SimpleDialog.super.call( this, config );
@@ -519,19 +516,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	];
 
 	function openDialog( name, data ) {
-		if ( isolateSwitch.getValue() ) {
-			isolatedWindowManager.openWindow( name, data );
-		} else {
-			windowManager.openWindow( name, data );
-		}
+		windowManager.openWindow( name, data );
 	}
 
-	fieldset.addItems( [ new OO.ui.FieldLayout( isolateSwitch, { label: 'Isolate dialogs', align: 'top' } ) ] );
 	for ( i = 0, l = config.length; i < l; i++ ) {
 		name = 'window_' + i;
 		DialogClass = config[ i ].dialogClass || SimpleDialog;
 		windows[ name ] = new DialogClass( config[ i ].config );
-		isolatedWindows[ name ] = new DialogClass( config[ i ].config );
 		openButton = new OO.ui.ButtonWidget( {
 			framed: false,
 			icon: 'window',
@@ -543,9 +534,8 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		fieldset.addItems( [ new OO.ui.FieldLayout( openButton, { align: 'inline' } ) ] );
 	}
 	windowManager.addWindows( windows );
-	isolatedWindowManager.addWindows( isolatedWindows );
 
 	$demo.append( $( '<div class="oo-ui-demo-container"></div>' ).append( fieldset.$element ),
-		windowManager.$element, isolatedWindowManager.$element
+		windowManager.$element
 	);
 };

@@ -27,7 +27,6 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	OO.ui.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
 
 	// Properties
-	this.visible = false;
 	this.newItems = null;
 	this.autoHide = config.autoHide === undefined || !!config.autoHide;
 	this.$input = config.input ? config.input.$input : null;
@@ -39,8 +38,14 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 
 	// Initialization
 	this.$element
-		.addClass( 'oo-ui-menuSelectWidget oo-ui-element-hidden' )
+		.addClass( 'oo-ui-menuSelectWidget' )
 		.attr( 'role', 'menu' );
+
+	// Initially hidden - using #toggle may cause errors if subclasses override toggle with methods
+	// that reference properties not initialized at that time of parent class construction
+	// TODO: Find a better way to handle post-constructor setup
+	this.visible = false;
+	this.$element.addClass( 'oo-ui-element-hidden' );
 };
 
 /* Setup */

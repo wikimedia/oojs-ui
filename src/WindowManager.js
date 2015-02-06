@@ -38,7 +38,6 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [isolate] Configure managed windows to isolate their content using inline frames
  * @cfg {OO.Factory} [factory] Window factory to use for automatic instantiation
  * @cfg {boolean} [modal=true] Prevent interaction outside the dialog
  */
@@ -55,22 +54,17 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	// Properties
 	this.factory = config.factory;
 	this.modal = config.modal === undefined || !!config.modal;
-	this.isolate = !!config.isolate;
 	this.windows = {};
 	this.opening = null;
 	this.opened = null;
 	this.closing = null;
 	this.preparingToOpen = null;
 	this.preparingToClose = null;
-	this.size = null;
 	this.currentWindow = null;
 	this.$ariaHidden = null;
-	this.requestedSize = null;
 	this.onWindowResizeTimeout = null;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 	this.afterWindowResizeHandler = this.afterWindowResize.bind( this );
-	this.onWindowMouseWheelHandler = this.onWindowMouseWheel.bind( this );
-	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
 
 	// Initialization
 	this.$element
@@ -183,36 +177,6 @@ OO.ui.WindowManager.prototype.afterWindowResize = function () {
 };
 
 /**
- * Handle window mouse wheel events.
- *
- * @param {jQuery.Event} e Mouse wheel event
- */
-OO.ui.WindowManager.prototype.onWindowMouseWheel = function () {
-	// Kill all events in the parent window if the child window is isolated
-	return !this.shouldIsolate();
-};
-
-/**
- * Handle document key down events.
- *
- * @param {jQuery.Event} e Key down event
- */
-OO.ui.WindowManager.prototype.onDocumentKeyDown = function ( e ) {
-	switch ( e.which ) {
-		case OO.ui.Keys.PAGEUP:
-		case OO.ui.Keys.PAGEDOWN:
-		case OO.ui.Keys.END:
-		case OO.ui.Keys.HOME:
-		case OO.ui.Keys.LEFT:
-		case OO.ui.Keys.UP:
-		case OO.ui.Keys.RIGHT:
-		case OO.ui.Keys.DOWN:
-			// Kill all events in the parent window if the child window is isolated
-			return !this.shouldIsolate();
-	}
-};
-
-/**
  * Check if window is opening.
  *
  * @return {boolean} Window is opening
@@ -237,17 +201,6 @@ OO.ui.WindowManager.prototype.isClosing = function ( win ) {
  */
 OO.ui.WindowManager.prototype.isOpened = function ( win ) {
 	return win === this.currentWindow && !!this.opened && this.opened.state() === 'pending';
-};
-
-/**
- * Check if window contents should be isolated.
- *
- * Window content isolation is done using inline frames.
- *
- * @return {boolean} Window contents should be isolated
- */
-OO.ui.WindowManager.prototype.shouldIsolate = function () {
-	return this.isolate;
 };
 
 /**
@@ -369,7 +322,6 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  */
 OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 	var manager = this,
-		preparing = [],
 		opening = $.Deferred();
 
 	// Argument handling
@@ -392,17 +344,8 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 
 	// Window opening
 	if ( opening.state() !== 'rejected' ) {
-		if ( !win.getManager() ) {
-			win.setManager( this );
-		}
-		preparing.push( win.load() );
-
-		if ( this.closing ) {
-			// If a window is currently closing, wait for it to complete
-			preparing.push( this.closing );
-		}
-
-		this.preparingToOpen = $.when.apply( $, preparing );
+		// If a window is currently closing, wait for it to complete
+		this.preparingToOpen = $.when( this.closing );
 		// Ensure handlers get called after preparingToOpen is set
 		this.preparingToOpen.done( function () {
 			if ( manager.modal ) {
@@ -445,7 +388,6 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
  */
 OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 	var manager = this,
-		preparing = [],
 		closing = $.Deferred(),
 		opened;
 
@@ -473,12 +415,8 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 
 	// Window closing
 	if ( closing.state() !== 'rejected' ) {
-		if ( this.opening ) {
-			// If the window is currently opening, close it when it's done
-			preparing.push( this.opening );
-		}
-
-		this.preparingToClose = $.when.apply( $, preparing );
+		// If the window is currently opening, close it when it's done
+		this.preparingToClose = $.when( this.opening );
 		// Ensure handlers get called after preparingToClose is set
 		this.preparingToClose.done( function () {
 			manager.closing = closing;
@@ -539,6 +477,7 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 		win = list[ name ];
 		this.windows[ name ] = win.toggle( false );
 		this.$element.append( win.$element );
+		win.setManager( this );
 	}
 };
 
@@ -628,37 +567,19 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 
 	if ( on ) {
 		if ( !this.globalEvents ) {
-			this.$( this.getElementDocument() ).on( {
-				// Prevent scrolling by keys in top-level window
-				keydown: this.onDocumentKeyDownHandler
-			} );
 			this.$( this.getElementWindow() ).on( {
-				// Prevent scrolling by wheel in top-level window
-				mousewheel: this.onWindowMouseWheelHandler,
 				// Start listening for top-level window dimension changes
 				'orientationchange resize': this.onWindowResizeHandler
 			} );
-			// Disable window scrolling in isolated windows
-			if ( !this.shouldIsolate() ) {
-				$( this.getElementDocument().body ).css( 'overflow', 'hidden' );
-			}
+			$( this.getElementDocument().body ).css( 'overflow', 'hidden' );
 			this.globalEvents = true;
 		}
 	} else if ( this.globalEvents ) {
-		// Unbind global events
-		this.$( this.getElementDocument() ).off( {
-			// Allow scrolling by keys in top-level window
-			keydown: this.onDocumentKeyDownHandler
-		} );
 		this.$( this.getElementWindow() ).off( {
-			// Allow scrolling by wheel in top-level window
-			mousewheel: this.onWindowMouseWheelHandler,
 			// Stop listening for top-level window dimension changes
 			'orientationchange resize': this.onWindowResizeHandler
 		} );
-		if ( !this.shouldIsolate() ) {
-			$( this.getElementDocument().body ).css( 'overflow', '' );
-		}
+		$( this.getElementDocument().body ).css( 'overflow', '' );
 		this.globalEvents = false;
 	}
 

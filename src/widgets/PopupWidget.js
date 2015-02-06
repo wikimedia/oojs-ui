@@ -31,7 +31,6 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	OO.ui.ClippableElement.call( this, config );
 
 	// Properties
-	this.visible = false;
 	this.$popup = this.$( '<div>' );
 	this.$head = this.$( '<div>' );
 	this.$body = this.$( '<div>' );
@@ -66,7 +65,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 		.addClass( 'oo-ui-popupWidget-popup' )
 		.append( this.$head, this.$body );
 	this.$element
-		.addClass( 'oo-ui-popupWidget oo-ui-element-hidden' )
+		.addClass( 'oo-ui-popupWidget' )
 		.append( this.$popup, this.$anchor );
 	// Move content, which was added to #$element by OO.ui.Widget, to the body
 	if ( config.$content instanceof jQuery ) {
@@ -75,7 +74,14 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	if ( config.padded ) {
 		this.$body.addClass( 'oo-ui-popupWidget-body-padded' );
 	}
+
 	this.setClippableElement( this.$body );
+
+	// Initially hidden - using #toggle may cause errors if subclasses override toggle with methods
+	// that reference properties not initialized at that time of parent class construction
+	// TODO: Find a better way to handle post-constructor setup
+	this.visible = false;
+	this.$element.addClass( 'oo-ui-element-hidden' );
 };
 
 /* Setup */
