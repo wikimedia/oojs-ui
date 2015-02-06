@@ -9,7 +9,7 @@
  *
  * @class
  * @abstract
- * @deprecated Use LookupElement instead.
+ * @deprecated Use OO.ui.LookupElement instead.
  *
  * @constructor
  * @param {OO.ui.TextInputWidget} input Input widget

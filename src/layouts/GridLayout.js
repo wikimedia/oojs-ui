@@ -3,6 +3,7 @@
  *
  * @class
  * @extends OO.ui.Layout
+ * @deprecated Use OO.ui.MenuLayout or plain CSS instead.
  *
  * @constructor
  * @param {OO.ui.PanelLayout[]} panels Panels in the grid
