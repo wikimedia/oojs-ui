@@ -78,7 +78,7 @@ class DropdownInputWidget extends InputWidget {
 		} else {
 			// No longer valid, reset
 			if ( count( $options ) ) {
-				$this->setValue( $config['options'][0]['data'] );
+				$this->setValue( $options[0]['data'] );
 			}
 		}
 
