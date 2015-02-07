@@ -36,12 +36,6 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$input } ) );
 	OO.ui.FlaggedElement.call( this, config );
 
-	// Events
-	this.$input.on( {
-		click: this.onClick.bind( this ),
-		keypress: this.onKeyPress.bind( this )
-	} );
-
 	// Initialization
 	if ( !config.useInputTag ) {
 		this.$input.append( this.$icon, this.$label, this.$indicator );
@@ -58,12 +52,6 @@ OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.IndicatorElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.TitledElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.FlaggedElement );
-
-/* Events */
-
-/**
- * @event click
- */
 
 /* Methods */
 
@@ -117,30 +105,4 @@ OO.ui.ButtonInputWidget.prototype.setValue = function ( value ) {
 		OO.ui.ButtonInputWidget.super.prototype.setValue.call( this, value );
 	}
 	return this;
-};
-
-/**
- * Handles mouse click events.
- *
- * @param {jQuery.Event} e Mouse click event
- * @fires click
- */
-OO.ui.ButtonInputWidget.prototype.onClick = function () {
-	if ( !this.isDisabled() ) {
-		this.emit( 'click' );
-	}
-	return false;
-};
-
-/**
- * Handles keypress events.
- *
- * @param {jQuery.Event} e Keypress event
- * @fires click
- */
-OO.ui.ButtonInputWidget.prototype.onKeyPress = function ( e ) {
-	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
-		this.emit( 'click' );
-	}
-	return false;
 };

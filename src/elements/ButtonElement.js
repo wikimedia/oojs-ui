@@ -24,6 +24,10 @@ OO.ui.ButtonElement = function OoUiButtonElement( config ) {
 	this.active = false;
 	this.onMouseUpHandler = this.onMouseUp.bind( this );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
+	this.onKeyDownHandler = this.onKeyDown.bind( this );
+	this.onKeyUpHandler = this.onKeyUp.bind( this );
+	this.onClickHandler = this.onClick.bind( this );
+	this.onKeyPressHandler = this.onKeyPress.bind( this );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonElement' );
@@ -47,6 +51,12 @@ OO.initClass( OO.ui.ButtonElement );
  */
 OO.ui.ButtonElement.static.cancelButtonMouseDownEvents = true;
 
+/* Events */
+
+/**
+ * @event click
+ */
+
 /* Methods */
 
 /**
@@ -61,13 +71,23 @@ OO.ui.ButtonElement.prototype.setButtonElement = function ( $button ) {
 		this.$button
 			.removeClass( 'oo-ui-buttonElement-button' )
 			.removeAttr( 'role accesskey' )
-			.off( 'mousedown', this.onMouseDownHandler );
+			.off( {
+				mousedown: this.onMouseDownHandler,
+				keydown: this.onKeyDownHandler,
+				click: this.onClickHandler,
+				keypress: this.onKeyPressHandler
+			} );
 	}
 
 	this.$button = $button
 		.addClass( 'oo-ui-buttonElement-button' )
 		.attr( { role: 'button', accesskey: this.accessKey } )
-		.on( 'mousedown', this.onMouseDownHandler );
+		.on( {
+			mousedown: this.onMouseDownHandler,
+			keydown: this.onKeyDownHandler,
+			click: this.onClickHandler,
+			keypress: this.onKeyPressHandler
+		} );
 };
 
 /**
@@ -77,7 +97,7 @@ OO.ui.ButtonElement.prototype.setButtonElement = function ( $button ) {
  */
 OO.ui.ButtonElement.prototype.onMouseDown = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
-		return false;
+		return;
 	}
 	this.$element.addClass( 'oo-ui-buttonElement-pressed' );
 	// Run the mouseup handler no matter where the mouse is when the button is let go, so we can
@@ -96,11 +116,66 @@ OO.ui.ButtonElement.prototype.onMouseDown = function ( e ) {
  */
 OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
-		return false;
+		return;
 	}
 	this.$element.removeClass( 'oo-ui-buttonElement-pressed' );
 	// Stop listening for mouseup, since we only needed this once
 	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
+};
+
+/**
+ * Handles mouse click events.
+ *
+ * @param {jQuery.Event} e Mouse click event
+ * @fires click
+ */
+OO.ui.ButtonElement.prototype.onClick = function ( e ) {
+	if ( !this.isDisabled() && e.which === 1 ) {
+		this.emit( 'click' );
+	}
+	return false;
+};
+
+/**
+ * Handles key down events.
+ *
+ * @param {jQuery.Event} e Key down event
+ */
+OO.ui.ButtonElement.prototype.onKeyDown = function ( e ) {
+	if ( this.isDisabled() || ( e.which !== OO.ui.Keys.SPACE && e.which !== OO.ui.Keys.ENTER ) ) {
+		return;
+	}
+	this.$element.addClass( 'oo-ui-buttonElement-pressed' );
+	// Run the keyup handler no matter where the key is when the button is let go, so we can
+	// reliably remove the pressed class
+	this.getElementDocument().addEventListener( 'keyup', this.onKeyUpHandler, true );
+};
+
+/**
+ * Handles key up events.
+ *
+ * @param {jQuery.Event} e Key up event
+ */
+OO.ui.ButtonElement.prototype.onKeyUp = function ( e ) {
+	if ( this.isDisabled() || ( e.which !== OO.ui.Keys.SPACE && e.which !== OO.ui.Keys.ENTER ) ) {
+		return;
+	}
+	this.$element.removeClass( 'oo-ui-buttonElement-pressed' );
+	// Stop listening for keyup, since we only needed this once
+	this.getElementDocument().removeEventListener( 'keyup', this.onKeyUpHandler, true );
+};
+
+/**
+ * Handles key press events.
+ *
+ * @param {jQuery.Event} e Key press event
+ * @fires click
+ */
+OO.ui.ButtonElement.prototype.onKeyPress = function ( e ) {
+	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
+		this.emit( 'click' );
+	}
+	return false;
 };
 
 /**

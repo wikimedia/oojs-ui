@@ -26,7 +26,10 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	this.$grip = this.$( '<span>' );
 
 	// Events
-	this.$element.on( 'click', this.onClick.bind( this ) );
+	this.$element.on( {
+		click: this.onClick.bind( this ),
+		keypress: this.onKeyPress.bind( this )
+	} );
 
 	// Initialization
 	this.$glow.addClass( 'oo-ui-toggleSwitchWidget-glow' );
@@ -46,12 +49,25 @@ OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.TabIndexedElement );
 /* Methods */
 
 /**
- * Handle mouse down events.
+ * Handle mouse click events.
  *
- * @param {jQuery.Event} e Mouse down event
+ * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.ToggleSwitchWidget.prototype.onClick = function ( e ) {
 	if ( !this.isDisabled() && e.which === 1 ) {
 		this.setValue( !this.value );
 	}
+	return false;
+};
+
+/**
+ * Handle key press events.
+ *
+ * @param {jQuery.Event} e Key press event
+ */
+OO.ui.ToggleSwitchWidget.prototype.onKeyPress = function ( e ) {
+	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
+		this.setValue( !this.value );
+	}
+	return false;
 };

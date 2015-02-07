@@ -15,6 +15,9 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 	// Mixin constructors
 	OO.ui.PopupElement.call( this, config );
 
+	// Events
+	this.connect( this, { click: 'onAction' } );
+
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-popupButtonWidget' )
@@ -30,20 +33,8 @@ OO.mixinClass( OO.ui.PopupButtonWidget, OO.ui.PopupElement );
 /* Methods */
 
 /**
- * Handles mouse click events.
- *
- * @param {jQuery.Event} e Mouse click event
+ * Handle the button action being triggered.
  */
-OO.ui.PopupButtonWidget.prototype.onClick = function ( e ) {
-	// Skip clicks within the popup
-	if ( $.contains( this.popup.$element[ 0 ], e.target ) ) {
-		return;
-	}
-
-	if ( !this.isDisabled() ) {
-		this.popup.toggle();
-		// Parent method
-		OO.ui.PopupButtonWidget.super.prototype.onClick.call( this );
-	}
-	return false;
+OO.ui.PopupButtonWidget.prototype.onAction = function () {
+	this.popup.toggle();
 };

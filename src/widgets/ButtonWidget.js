@@ -37,12 +37,6 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	this.target = null;
 	this.isHyperlink = false;
 
-	// Events
-	this.$button.on( {
-		click: this.onClick.bind( this ),
-		keypress: this.onKeyPress.bind( this )
-	} );
-
 	// Initialization
 	this.$button.append( this.$icon, this.$label, this.$indicator );
 	this.$element
@@ -63,29 +57,7 @@ OO.mixinClass( OO.ui.ButtonWidget, OO.ui.TitledElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.FlaggedElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.TabIndexedElement );
 
-/* Events */
-
-/**
- * @event click
- */
-
 /* Methods */
-
-/**
- * Handles mouse click events.
- *
- * @param {jQuery.Event} e Mouse click event
- * @fires click
- */
-OO.ui.ButtonWidget.prototype.onClick = function () {
-	if ( !this.isDisabled() ) {
-		this.emit( 'click' );
-		if ( this.isHyperlink ) {
-			return true;
-		}
-	}
-	return false;
-};
 
 /**
  * @inheritdoc
@@ -112,19 +84,25 @@ OO.ui.ButtonWidget.prototype.onMouseUp = function ( e ) {
 };
 
 /**
- * Handles keypress events.
- *
- * @param {jQuery.Event} e Keypress event
- * @fires click
+ * @inheritdoc
+ */
+OO.ui.ButtonWidget.prototype.onClick = function ( e ) {
+	var ret = OO.ui.ButtonElement.prototype.onClick.call( this, e );
+	if ( this.isHyperlink ) {
+		return true;
+	}
+	return ret;
+};
+
+/**
+ * @inheritdoc
  */
 OO.ui.ButtonWidget.prototype.onKeyPress = function ( e ) {
-	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
-		this.emit( 'click' );
-		if ( this.isHyperlink ) {
-			return true;
-		}
+	var ret = OO.ui.ButtonElement.prototype.onKeyPress.call( this, e );
+	if ( this.isHyperlink ) {
+		return true;
 	}
-	return false;
+	return ret;
 };
 
 /**
