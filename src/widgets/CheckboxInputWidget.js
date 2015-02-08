@@ -9,6 +9,9 @@
  * @cfg {boolean} [selected=false] Whether the checkbox is initially selected
  */
 OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
+	// Configuration initialization
+	config = config || {};
+
 	// Parent constructor
 	OO.ui.CheckboxInputWidget.super.call( this, config );
 
