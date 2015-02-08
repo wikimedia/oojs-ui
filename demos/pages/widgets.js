@@ -1,5 +1,5 @@
 OO.ui.Demo.static.pages.widgets = function ( demo ) {
-	var fieldsets,
+	var styles, states, buttonStyleShowcaseWidget, fieldsets,
 		$demo = demo.$element;
 
 	/**
@@ -112,6 +112,75 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 
 		return items;
 	};
+
+	styles = [
+		{},
+		{
+			flags: [ 'progressive' ]
+		},
+		{
+			flags: [ 'constructive' ]
+		},
+		{
+			flags: [ 'destructive' ]
+		},
+		{
+			flags: [ 'primary', 'progressive' ]
+		},
+		{
+			flags: [ 'primary', 'constructive' ]
+		},
+		{
+			flags: [ 'primary', 'destructive' ]
+		}
+	];
+	states = [
+		{
+			label: 'Button'
+		},
+		{
+			label: 'Button',
+			icon: 'picture'
+		},
+		{
+			label: 'Button',
+			icon: 'picture',
+			indicator: 'down'
+		},
+		{
+			icon: 'picture',
+			title: 'Title text'
+		},
+		{
+			indicator: 'down'
+		},
+		{
+			icon: 'picture',
+			indicator: 'down'
+		},
+		{
+			label: 'Button',
+			disabled: true
+		},
+		{
+			icon: 'picture',
+			title: 'Title text',
+			disabled: true
+		},
+		{
+			indicator: 'down',
+			disabled: true
+		}
+	];
+	buttonStyleShowcaseWidget = new OO.ui.Widget();
+	$.each( styles, function ( i, style ) {
+		$.each( states, function ( j, state ) {
+			buttonStyleShowcaseWidget.$element.append(
+				new OO.ui.ButtonWidget( $.extend( {}, style, state ) ).$element
+			);
+		} );
+		buttonStyleShowcaseWidget.$element.append( $( '<br>' ) );
+	} );
 
 	fieldsets = [
 		new OO.ui.FieldsetLayout( {
@@ -493,6 +562,17 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'ButtonSelectWidget (disabled items)\u200E',
+						align: 'top'
+					}
+				)
+			]
+		} ),
+		new OO.ui.FieldsetLayout( {
+			label: 'Button style showcase',
+			items: [
+				new OO.ui.FieldLayout(
+					buttonStyleShowcaseWidget,
+					{
 						align: 'top'
 					}
 				)
