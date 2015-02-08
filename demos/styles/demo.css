@@ -110,6 +110,20 @@ body {
 	opacity: 1;
 }
 
+/* Widgets demo */
+
+.oo-ui-demo-horizontal-alignment > .oo-ui-checkboxInputWidget,
+.oo-ui-demo-horizontal-alignment > .oo-ui-radioInputWidget,
+.oo-ui-demo-horizontal-alignment > .oo-ui-buttonInputWidget,
+.oo-ui-demo-horizontal-alignment > .oo-ui-textInputWidget,
+.oo-ui-demo-horizontal-alignment > .oo-ui-dropdownInputWidget {
+	display: inline-block;
+}
+
+.oo-ui-demo-horizontal-alignment > .oo-ui-textInputWidget,
+.oo-ui-demo-horizontal-alignment > .oo-ui-dropdownInputWidget {
+	max-width: 10em;
+}
 
 /* Console */
 
