@@ -43,9 +43,6 @@ body {
 	.oo-ui-demo-container {
 		padding: 1em 2em;
 	}
-	.oo-ui-demo-console {
-		display: none;
-	}
 }
 
 @media (min-width: 751px) {
@@ -118,25 +115,30 @@ body {
 
 .oo-ui-demo-console {
 	clear: both;
-	float: right;
 	position: relative;
-	margin: 0.5em 0;
 	border: 1px solid transparent;
+	margin-bottom: -2px;
 	line-height: 1.4;
 }
 
 .oo-ui-demo-console-expanded {
-	width: 60%;
+	width: 100%;
 	border-color: #aaa;
+	margin: 0.5em 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .oo-ui-demo-console-toggle {
-	position: absolute;
-	bottom: 100%;
-	margin-bottom: 1em;
-	margin-right: -3em;
-	right: 0;
+	float: right;
+	margin-top: -2em;
+	margin-right: -2em;
 	cursor: pointer;
+}
+
+.oo-ui-demo-console-expanded .oo-ui-demo-console-toggle {
+	margin-top: -2.5em;
 }
 
 .oo-ui-demo-console-toggle::after {
@@ -149,7 +151,6 @@ body {
 	color: #999;
 	text-align: center;
 	content: "→";
-	cursor: pointer;
 }
 
 .oo-ui-demo-console-toggle:hover::after,
@@ -203,9 +204,14 @@ body {
 .oo-ui-demo-console-label {
 	position: relative;
 	display: inline-block;
-	width: calc(100% - 40px);
+	width: 100%;
 	padding-left: 20px;
+	padding-right: 20px;
+	margin-right: -20px;
 	cursor: pointer;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .oo-ui-demo-console-label::before {
