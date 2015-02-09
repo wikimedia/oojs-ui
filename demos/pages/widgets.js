@@ -419,16 +419,19 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonGroupWidget( {
 						items: [
-							new OO.ui.ButtonWidget( { icon: 'picture', indicator: 'down' } ),
-							new OO.ui.ToggleButtonWidget( {
+							new OO.ui.ButtonWidget( {
+								icon: 'picture',
+								indicator: 'down'
+							} ),
+							new OO.ui.ButtonWidget( {
 								label: 'One',
 								flags: [ 'progressive' ]
 							} ),
-							new OO.ui.ToggleButtonWidget( {
+							new OO.ui.ButtonWidget( {
 								label: 'Two',
 								flags: [ 'constructive' ]
 							} ),
-							new OO.ui.ToggleButtonWidget( {
+							new OO.ui.ButtonWidget( {
 								label: 'Three',
 								flags: [ 'destructive' ]
 							} )
@@ -442,13 +445,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonGroupWidget( {
 						items: [
-							new OO.ui.ToggleButtonWidget( {
+							new OO.ui.ButtonWidget( {
 								label: 'One'
 							} ),
-							new OO.ui.ToggleButtonWidget( {
+							new OO.ui.ButtonWidget( {
 								label: 'Two'
 							} ),
-							new OO.ui.ToggleButtonWidget( {
+							new OO.ui.ButtonWidget( {
 								label: 'Three'
 							} )
 						]
@@ -933,7 +936,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						align: 'top',
-						label: 'ButtonInputWidget (type: submit)\u200E'
+						label: 'ButtonInputWidget'
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -944,7 +947,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						align: 'top',
-						label: 'ButtonInputWidget (type: submit, using <input/>)\u200E'
+						label: 'ButtonInputWidget (using <input/>)\u200E'
 					}
 				)
 			]
