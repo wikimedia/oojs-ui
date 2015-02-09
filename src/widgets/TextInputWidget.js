@@ -114,22 +114,6 @@ OO.ui.TextInputWidget.static.validationPatterns = {
  * @event enter
  */
 
-/**
- * User clicks the icon.
- *
- * @deprecated Fundamentally not accessible. Make the icon focusable, associate a label or tooltip,
- *  and handle click/keypress events on it manually.
- * @event icon
- */
-
-/**
- * User clicks the indicator.
- *
- * @deprecated Fundamentally not accessible. Make the indicator focusable, associate a label or
- *  tooltip, and handle click/keypress events on it manually.
- * @event indicator
- */
-
 /* Methods */
 
 /**
@@ -141,7 +125,6 @@ OO.ui.TextInputWidget.static.validationPatterns = {
 OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
 	if ( e.which === 1 ) {
 		this.$input[ 0 ].focus();
-		this.emit( 'icon' );
 		return false;
 	}
 };
@@ -155,7 +138,6 @@ OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
 OO.ui.TextInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
 	if ( e.which === 1 ) {
 		this.$input[ 0 ].focus();
-		this.emit( 'indicator' );
 		return false;
 	}
 };
