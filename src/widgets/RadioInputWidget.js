@@ -12,6 +12,9 @@
  * @cfg {boolean} [selected=false] Whether the radio button is initially selected
  */
 OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
+	// Configuration initialization
+	config = config || {};
+
 	// Parent constructor
 	OO.ui.RadioInputWidget.super.call( this, config );
 
