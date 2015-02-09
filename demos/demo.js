@@ -98,11 +98,11 @@ OO.ui.Demo.static.pages = {};
 OO.ui.Demo.static.themes = {
 	mediawiki: {
 		fileSuffix: '-mediawiki',
-		theme: OO.ui.MediaWikiTheme || OO.ui.Theme
+		theme: OO.ui.MediaWikiTheme
 	},
 	apex: {
 		fileSuffix: '-apex',
-		theme: OO.ui.ApexTheme || OO.ui.Theme
+		theme: OO.ui.ApexTheme
 	}
 };
 
