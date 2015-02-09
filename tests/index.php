@@ -1,9 +1,7 @@
 <?php
 	$autoload = '../vendor/autoload.php';
 	if ( !file_exists( $autoload ) ) {
-		trigger_error(
-			'<h1>Did you forget to run <code>composer install</code>?</h1>'
-		);
+		echo '<h1>Did you forget to run <code>composer install</code>?</h1>';
 		exit();
 	}
 	require_once $autoload;
