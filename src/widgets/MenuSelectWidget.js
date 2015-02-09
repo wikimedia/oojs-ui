@@ -97,11 +97,13 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
 				handled = true;
 				break;
 			case OO.ui.Keys.ESCAPE:
+			case OO.ui.Keys.TAB:
 				if ( highlightItem ) {
 					highlightItem.setHighlighted( false );
 				}
 				this.toggle( false );
-				handled = true;
+				// Don't prevent tabbing away
+				handled = ( e.keyCode === OO.ui.Keys.ESCAPE );
 				break;
 		}
 
