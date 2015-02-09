@@ -52,6 +52,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		this.$clone = this.$input
 			.clone()
 			.insertAfter( this.$input )
+			.attr( 'aria-hidden', 'true' )
 			.addClass( 'oo-ui-element-hidden' );
 	}
 
