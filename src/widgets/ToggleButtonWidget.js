@@ -19,6 +19,9 @@ OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
 	// Mixin constructors
 	OO.ui.ToggleWidget.call( this, config );
 
+	// Events
+	this.connect( this, { click: 'onAction' } );
+
 	// Initialization
 	this.$element.addClass( 'oo-ui-toggleButtonWidget' );
 };
@@ -31,15 +34,10 @@ OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.ToggleWidget );
 /* Methods */
 
 /**
- * @inheritdoc
+ * Handle the button action being triggered.
  */
-OO.ui.ToggleButtonWidget.prototype.onClick = function () {
-	if ( !this.isDisabled() ) {
-		this.setValue( !this.value );
-	}
-
-	// Parent method
-	return OO.ui.ToggleButtonWidget.super.prototype.onClick.call( this );
+OO.ui.ToggleButtonWidget.prototype.onAction = function () {
+	this.setValue( !this.value );
 };
 
 /**
