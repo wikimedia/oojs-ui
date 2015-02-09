@@ -6,18 +6,30 @@
 	}
 	require_once $autoload;
 
-	OOUI\Theme::setSingleton( new OOUI\MediaWikiTheme() );
+	$theme = ( isset( $_GET['theme'] ) && $_GET['theme'] === 'apex' ) ? 'apex' : 'mediawiki';
+	$themeClass = 'OOUI\\' . ( $theme === 'apex' ? 'Apex' : 'MediaWiki' ) . 'Theme';
+	OOUI\Theme::setSingleton( new $themeClass() );
 
-	$direction = ( isset( $_GET['dir'] ) && $_GET['dir'] === 'rtl' ) ? 'rtl' : 'ltr';
+	$graphic = ( isset( $_GET['graphic'] ) && $_GET['graphic'] === 'raster' ) ? 'raster' : 'vector';
+	$graphicSuffix = $graphic === 'vector' ? '.svg' : '';
+
+	$direction = ( isset( $_GET['direction'] ) && $_GET['direction'] === 'rtl' ) ? 'rtl' : 'ltr';
 	$directionSuffix = $direction === 'rtl' ? '.rtl' : '';
 	OOUI\Element::setDefaultDir( $direction );
+
+	$query = array(
+		'theme' => $theme,
+		'graphic' => $graphic,
+		'direction' => $direction,
+	);
+	$styleFileName = "oojs-ui-$theme$graphicSuffix$directionSuffix.css";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
 	<meta charset="UTF-8">
 	<title>OOjs UI Widget Demo</title>
-	<link rel="stylesheet" href="../dist/oojs-ui-mediawiki.svg<?php echo $directionSuffix; ?>.css">
+	<link rel="stylesheet" href="../dist/<?php echo $styleFileName; ?>">
 	<link rel="stylesheet" href="styles/demo<?php echo $directionSuffix; ?>.css">
 </head>
 <body class="oo-ui-<?php echo $direction; ?>">
@@ -27,12 +39,36 @@
 				echo new OOUI\ButtonGroupWidget( array(
 					'items' => array(
 						new OOUI\ButtonWidget( array(
+							'label' => 'MediaWiki',
+							'href' => '?' . http_build_query( array_merge( $query, array( 'theme' => 'mediawiki' ) ) ),
+						) ),
+						new OOUI\ButtonWidget( array(
+							'label' => 'Apex',
+							'href' => '?' . http_build_query( array_merge( $query, array( 'theme' => 'apex' ) ) ),
+						) ),
+					)
+				) );
+				echo new OOUI\ButtonGroupWidget( array(
+					'items' => array(
+						new OOUI\ButtonWidget( array(
+							'label' => 'Vector',
+							'href' => '?' . http_build_query( array_merge( $query, array( 'graphic' => 'vector' ) ) ),
+						) ),
+						new OOUI\ButtonWidget( array(
+							'label' => 'Raster',
+							'href' => '?' . http_build_query( array_merge( $query, array( 'graphic' => 'raster' ) ) ),
+						) ),
+					)
+				) );
+				echo new OOUI\ButtonGroupWidget( array(
+					'items' => array(
+						new OOUI\ButtonWidget( array(
 							'label' => 'LTR',
-							'href' => '?dir=ltr',
+							'href' => '?' . http_build_query( array_merge( $query, array( 'direction' => 'ltr' ) ) ),
 						) ),
 						new OOUI\ButtonWidget( array(
 							'label' => 'RTL',
-							'href' => '?dir=rtl',
+							'href' => '?' . http_build_query( array_merge( $query, array( 'direction' => 'rtl' ) ) ),
 						) ),
 					)
 				) );
