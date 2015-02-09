@@ -4,6 +4,7 @@
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.ToggleWidget
+ * @mixins OO.ui.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -15,6 +16,7 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 
 	// Mixin constructors
 	OO.ui.ToggleWidget.call( this, config );
+	OO.ui.TabIndexedElement.call( this, config );
 
 	// Properties
 	this.dragging = false;
@@ -31,6 +33,7 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	this.$grip.addClass( 'oo-ui-toggleSwitchWidget-grip' );
 	this.$element
 		.addClass( 'oo-ui-toggleSwitchWidget' )
+		.attr( 'role', 'checkbox' )
 		.append( this.$glow, this.$grip );
 };
 
@@ -38,6 +41,7 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 
 OO.inheritClass( OO.ui.ToggleSwitchWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.ToggleWidget );
+OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.TabIndexedElement );
 
 /* Methods */
 
