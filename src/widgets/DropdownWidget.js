@@ -12,6 +12,7 @@
  * @mixins OO.ui.IndicatorElement
  * @mixins OO.ui.LabelElement
  * @mixins OO.ui.TitledElement
+ * @mixins OO.ui.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -24,18 +25,24 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	// Parent constructor
 	OO.ui.DropdownWidget.super.call( this, config );
 
+	// Properties (must be set before TabIndexedElement constructor call)
+	this.$handle = this.$( '<span>' );
+
 	// Mixin constructors
 	OO.ui.IconElement.call( this, config );
 	OO.ui.IndicatorElement.call( this, config );
 	OO.ui.LabelElement.call( this, config );
 	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$label } ) );
+	OO.ui.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
 
 	// Properties
 	this.menu = new OO.ui.MenuSelectWidget( $.extend( { widget: this }, config.menu ) );
-	this.$handle = $( '<span>' );
 
 	// Events
-	this.$element.on( { click: this.onClick.bind( this ) } );
+	this.$handle.on( {
+		click: this.onClick.bind( this ),
+		keypress: this.onKeyPress.bind( this )
+	} );
 	this.menu.connect( this, { select: 'onMenuSelect' } );
 
 	// Initialization
@@ -54,6 +61,7 @@ OO.mixinClass( OO.ui.DropdownWidget, OO.ui.IconElement );
 OO.mixinClass( OO.ui.DropdownWidget, OO.ui.IndicatorElement );
 OO.mixinClass( OO.ui.DropdownWidget, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.DropdownWidget, OO.ui.TitledElement );
+OO.mixinClass( OO.ui.DropdownWidget, OO.ui.TabIndexedElement );
 
 /* Methods */
 
@@ -89,17 +97,28 @@ OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
 };
 
 /**
- * Handles mouse click events.
+ * Handle mouse click events.
  *
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
-	// Skip clicks within the menu
-	if ( $.contains( this.menu.$element[ 0 ], e.target ) ) {
-		return;
+	if ( !this.isDisabled() && e.which === 1 ) {
+		if ( this.menu.isVisible() ) {
+			this.menu.toggle( false );
+		} else {
+			this.menu.toggle( true );
+		}
 	}
+	return false;
+};
 
-	if ( !this.isDisabled() ) {
+/**
+ * Handle key press events.
+ *
+ * @param {jQuery.Event} e Key press event
+ */
+OO.ui.DropdownWidget.prototype.onKeyPress = function ( e ) {
+	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
 		if ( this.menu.isVisible() ) {
 			this.menu.toggle( false );
 		} else {
