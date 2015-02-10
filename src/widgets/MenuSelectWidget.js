@@ -31,8 +31,6 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.autoHide = config.autoHide === undefined || !!config.autoHide;
 	this.$input = config.input ? config.input.$input : null;
 	this.$widget = config.widget ? config.widget.$element : null;
-	this.$previousFocus = null;
-	this.isolated = !config.input;
 	this.onKeyDownHandler = this.onKeyDown.bind( this );
 	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
 
@@ -220,9 +218,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
 
 	var i, len,
-		change = visible !== this.isVisible(),
-		elementDoc = this.getElementDocument(),
-		widgetDoc = this.$widget ? this.$widget[ 0 ].ownerDocument : null;
+		change = visible !== this.isVisible();
 
 	// Parent method
 	OO.ui.MenuSelectWidget.super.prototype.toggle.call( this, visible );
@@ -231,11 +227,6 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 		if ( visible ) {
 			this.bindKeyDownListener();
 
-			// Change focus to enable keyboard navigation
-			if ( this.isolated && this.$input && !this.$input.is( ':focus' ) ) {
-				this.$previousFocus = $( ':focus' );
-				this.$input[ 0 ].focus();
-			}
 			if ( this.newItems && this.newItems.length ) {
 				for ( i = 0, len = this.newItems.length; i < len; i++ ) {
 					this.newItems[ i ].fitLabel();
@@ -246,31 +237,15 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 
 			// Auto-hide
 			if ( this.autoHide ) {
-				elementDoc.addEventListener(
+				this.getElementDocument().addEventListener(
 					'mousedown', this.onDocumentMouseDownHandler, true
 				);
-				// Support $widget being in a different document
-				if ( widgetDoc && widgetDoc !== elementDoc ) {
-					widgetDoc.addEventListener(
-						'mousedown', this.onDocumentMouseDownHandler, true
-					);
-				}
 			}
 		} else {
 			this.unbindKeyDownListener();
-			if ( this.isolated && this.$previousFocus ) {
-				this.$previousFocus[ 0 ].focus();
-				this.$previousFocus = null;
-			}
-			elementDoc.removeEventListener(
+			this.getElementDocument().removeEventListener(
 				'mousedown', this.onDocumentMouseDownHandler, true
 			);
-			// Support $widget being in a different document
-			if ( widgetDoc && widgetDoc !== elementDoc ) {
-				widgetDoc.removeEventListener(
-					'mousedown', this.onDocumentMouseDownHandler, true
-				);
-			}
 			this.toggleClipping( false );
 		}
 	}
