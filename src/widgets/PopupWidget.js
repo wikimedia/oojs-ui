@@ -26,14 +26,16 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	// Parent constructor
 	OO.ui.PopupWidget.super.call( this, config );
 
+	// Properties (must be set before ClippableElement constructor call)
+	this.$body = $( '<div>' );
+
 	// Mixin constructors
 	OO.ui.LabelElement.call( this, config );
-	OO.ui.ClippableElement.call( this, config );
+	OO.ui.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$body } ) );
 
 	// Properties
 	this.$popup = $( '<div>' );
 	this.$head = $( '<div>' );
-	this.$body = $( '<div>' );
 	this.$anchor = $( '<div>' );
 	// If undefined, will be computed lazily in updateDimensions()
 	this.$container = config.$container;
@@ -74,8 +76,6 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	if ( config.padded ) {
 		this.$body.addClass( 'oo-ui-popupWidget-body-padded' );
 	}
-
-	this.setClippableElement( this.$body );
 
 	// Initially hidden - using #toggle may cause errors if subclasses override toggle with methods
 	// that reference properties not initialized at that time of parent class construction
