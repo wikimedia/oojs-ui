@@ -135,7 +135,7 @@ OO.ui.MenuSelectWidget.prototype.bindKeyDownListener = function () {
  */
 OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
 	if ( this.$input ) {
-		this.$input.off( 'keydown' );
+		this.$input.off( 'keydown', this.onKeyDownHandler );
 	} else {
 		this.getElementWindow().removeEventListener( 'keydown', this.onKeyDownHandler, true );
 	}
