@@ -39,7 +39,7 @@ class TabIndexedElement extends ElementMixin {
 	 * @chainable
 	 */
 	public function setTabIndex( $tabIndex ) {
-		$tabIndex = is_numeric( $tabIndex ) && $tabIndex >= 0 ? $tabIndex : null;
+		$tabIndex = is_numeric( $tabIndex ) ? $tabIndex : null;
 
 		if ( $this->tabIndex !== $tabIndex ) {
 			if ( $tabIndex !== null ) {

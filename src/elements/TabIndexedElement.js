@@ -62,7 +62,7 @@ OO.ui.TabIndexedElement.prototype.setTabIndexedElement = function ( $tabIndexed 
  * @chainable
  */
 OO.ui.TabIndexedElement.prototype.setTabIndex = function ( tabIndex ) {
-	tabIndex = typeof tabIndex === 'number' && tabIndex >= 0 ? tabIndex : null;
+	tabIndex = typeof tabIndex === 'number' ? tabIndex : null;
 
 	if ( this.tabIndex !== tabIndex ) {
 		if ( this.$tabIndexed ) {
