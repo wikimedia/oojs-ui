@@ -1,6 +1,6 @@
 # OOjs UI Release History
 
-## v0.6.6 / 2014-02-04
+## v0.6.6 / 2015-02-04
 * TextInputWidget: Mostly revert "Don't try adjusting size when detached" (Bartosz Dziewoński)
 * Use css class instead of jQuery .show()/hide()/toggle() (Moriel Schottlender)
 * build: Use karma to v0.12.31 (Timo Tijhof)
@@ -9,11 +9,11 @@
 * Fix BookletLayout#toggleOutline to use MenuLayout method (Ed Sanders)
 * Use CSS overriding trick to support RTL in menu layouts (Ed Sanders)
 
-## v0.6.5 / 2014-02-01
+## v0.6.5 / 2015-02-01
 * Make BookletLayout inherit from MenuLayout instead of embedding a GridLayout (Ed Sanders)
 * ButtonElement: Unbreak 'pressed' state (Bartosz Dziewoński)
 
-## v0.6.4 / 2014-01-30
+## v0.6.4 / 2015-01-30
 * InputWidget: Resynchronize our internal .value with DOM .value in #getValue (eranroz)
 * demo: Remove nonexistent 'align' config option for a DropdownWidget (Bartosz Dziewoński)
 * MediaWiki theme: Reduce size of checkboxes and radio buttons by 20% (Ed Sanders)
