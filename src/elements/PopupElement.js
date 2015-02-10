@@ -7,7 +7,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {Object} [popup] Configuration to pass to popup
- * @cfg {boolean} [autoClose=true] Popup auto-closes when it loses focus
+ * @cfg {boolean} [popup.autoClose=true] Popup auto-closes when it loses focus
  */
 OO.ui.PopupElement = function OoUiPopupElement( config ) {
 	// Configuration initialization
