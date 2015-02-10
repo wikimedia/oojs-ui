@@ -72,14 +72,6 @@ OO.ui.ListToolGroup.prototype.populate = function () {
 	this.$group.append( this.getExpandCollapseTool().$element );
 
 	this.getExpandCollapseTool().toggle( this.collapsibleTools.length !== 0 );
-
-	// Calling jQuery's .hide() and then .show() on a detached element caches the default value of its
-	// 'display' attribute and restores it, and the tool uses a <span> and can be hidden and re-shown.
-	// Is this a jQuery bug? http://jsfiddle.net/gtj4hu3h/
-	if ( this.getExpandCollapseTool().$element.css( 'display' ) === 'inline' ) {
-		this.getExpandCollapseTool().$element.css( 'display', 'block' );
-	}
-
 	this.updateCollapsibleState();
 };
 
