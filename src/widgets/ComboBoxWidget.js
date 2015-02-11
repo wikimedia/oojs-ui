@@ -88,6 +88,9 @@ OO.ui.ComboBoxWidget.prototype.onInputChange = function ( value ) {
 	var match = this.menu.getItemFromData( value );
 
 	this.menu.selectItem( match );
+	if ( this.menu.getHighlightedItem() ) {
+		this.menu.highlightItem( match );
+	}
 
 	if ( !this.isDisabled() ) {
 		this.menu.toggle( true );
@@ -146,6 +149,9 @@ OO.ui.ComboBoxWidget.prototype.onMenuChoose = function ( item ) {
 OO.ui.ComboBoxWidget.prototype.onMenuItemsChange = function () {
 	var match = this.menu.getItemFromData( this.input.getValue() );
 	this.menu.selectItem( match );
+	if ( this.menu.getHighlightedItem() ) {
+		this.menu.highlightItem( match );
+	}
 	this.$element.toggleClass( 'oo-ui-comboBoxWidget-empty', this.menu.isEmpty() );
 };
 

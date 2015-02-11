@@ -29,6 +29,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	this.selecting = null;
 	this.onMouseUpHandler = this.onMouseUp.bind( this );
 	this.onMouseMoveHandler = this.onMouseMove.bind( this );
+	this.onKeyDownHandler = this.onKeyDown.bind( this );
 
 	// Events
 	this.$element.on( {
@@ -201,6 +202,77 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
 		this.highlightItem( null );
 	}
 	return false;
+};
+
+/**
+ * Handle key down events.
+ *
+ * @param {jQuery.Event} e Key down event
+ */
+OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
+	var nextItem,
+		handled = false,
+		currentItem = this.getHighlightedItem() || this.getSelectedItem();
+
+	if ( !this.isDisabled() && this.isVisible() ) {
+		switch ( e.keyCode ) {
+			case OO.ui.Keys.ENTER:
+				if ( currentItem && currentItem.constructor.static.highlightable ) {
+					// Was only highlighted, now let's select it. No-op if already selected.
+					this.chooseItem( currentItem );
+					handled = true;
+				}
+				break;
+			case OO.ui.Keys.UP:
+			case OO.ui.Keys.LEFT:
+				nextItem = this.getRelativeSelectableItem( currentItem, -1 );
+				handled = true;
+				break;
+			case OO.ui.Keys.DOWN:
+			case OO.ui.Keys.RIGHT:
+				nextItem = this.getRelativeSelectableItem( currentItem, 1 );
+				handled = true;
+				break;
+			case OO.ui.Keys.ESCAPE:
+			case OO.ui.Keys.TAB:
+				if ( currentItem && currentItem.constructor.static.highlightable ) {
+					currentItem.setHighlighted( false );
+				}
+				this.unbindKeyDownListener();
+				// Don't prevent tabbing away / defocusing
+				handled = false;
+				break;
+		}
+
+		if ( nextItem ) {
+			if ( nextItem.constructor.static.highlightable ) {
+				this.highlightItem( nextItem );
+			} else {
+				this.chooseItem( nextItem );
+			}
+			nextItem.scrollElementIntoView();
+		}
+
+		if ( handled ) {
+			// Can't just return false, because e is not always a jQuery event
+			e.preventDefault();
+			e.stopPropagation();
+		}
+	}
+};
+
+/**
+ * Bind key down listener.
+ */
+OO.ui.SelectWidget.prototype.bindKeyDownListener = function () {
+	this.getElementWindow().addEventListener( 'keydown', this.onKeyDownHandler, true );
+};
+
+/**
+ * Unbind key down listener.
+ */
+OO.ui.SelectWidget.prototype.unbindKeyDownListener = function () {
+	this.getElementWindow().removeEventListener( 'keydown', this.onKeyDownHandler, true );
 };
 
 /**

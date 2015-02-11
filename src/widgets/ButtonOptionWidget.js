@@ -12,6 +12,9 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( config ) {
+	// Configuration initialization
+	config = $.extend( { tabIndex: -1 }, config );
+
 	// Parent constructor
 	OO.ui.ButtonOptionWidget.super.call( this, config );
 
@@ -35,6 +38,8 @@ OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.TabIndexedElement );
 
 // Allow button mouse down events to pass through so they can be handled by the parent select widget
 OO.ui.ButtonOptionWidget.static.cancelButtonMouseDownEvents = false;
+
+OO.ui.ButtonOptionWidget.static.highlightable = false;
 
 /* Methods */
 

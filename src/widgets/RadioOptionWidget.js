@@ -14,7 +14,7 @@ OO.ui.RadioOptionWidget = function OoUiRadioOptionWidget( config ) {
 	OO.ui.RadioOptionWidget.super.call( this, config );
 
 	// Properties
-	this.radio = new OO.ui.RadioInputWidget( { value: config.data } );
+	this.radio = new OO.ui.RadioInputWidget( { value: config.data, tabIndex: -1 } );
 
 	// Initialization
 	this.$element

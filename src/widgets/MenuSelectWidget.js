@@ -12,7 +12,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.InputWidget} [input] Input to bind keyboard handlers to
+ * @cfg {OO.ui.TextInputWidget} [input] Input to bind keyboard handlers to
  * @cfg {OO.ui.Widget} [widget] Widget to bind mouse handlers to
  * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu
  */
@@ -31,7 +31,6 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.autoHide = config.autoHide === undefined || !!config.autoHide;
 	this.$input = config.input ? config.input.$input : null;
 	this.$widget = config.widget ? config.widget.$element : null;
-	this.onKeyDownHandler = this.onKeyDown.bind( this );
 	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
 
 	// Initialization
@@ -68,76 +67,58 @@ OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
 };
 
 /**
- * Handles key down events.
- *
- * @param {jQuery.Event} e Key down event
+ * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
-	var nextItem,
-		handled = false,
-		highlightItem = this.getHighlightedItem();
+	var currentItem = this.getHighlightedItem() || this.getSelectedItem();
 
 	if ( !this.isDisabled() && this.isVisible() ) {
-		if ( !highlightItem ) {
-			highlightItem = this.getSelectedItem();
-		}
 		switch ( e.keyCode ) {
-			case OO.ui.Keys.ENTER:
-				this.chooseItem( highlightItem );
-				handled = true;
-				break;
-			case OO.ui.Keys.UP:
-				nextItem = this.getRelativeSelectableItem( highlightItem, -1 );
-				handled = true;
-				break;
-			case OO.ui.Keys.DOWN:
-				nextItem = this.getRelativeSelectableItem( highlightItem, 1 );
-				handled = true;
+			case OO.ui.Keys.LEFT:
+			case OO.ui.Keys.RIGHT:
+				// Do nothing if a text field is associated, arrow keys will be handled natively
+				if ( !this.$input ) {
+					OO.ui.MenuSelectWidget.super.prototype.onKeyDown.call( this, e );
+				}
 				break;
 			case OO.ui.Keys.ESCAPE:
 			case OO.ui.Keys.TAB:
-				if ( highlightItem ) {
-					highlightItem.setHighlighted( false );
+				if ( currentItem ) {
+					currentItem.setHighlighted( false );
 				}
 				this.toggle( false );
-				// Don't prevent tabbing away
-				handled = ( e.keyCode === OO.ui.Keys.ESCAPE );
+				// Don't prevent tabbing away, prevent defocusing
+				if ( e.keyCode === OO.ui.Keys.ESCAPE ) {
+					e.preventDefault();
+					e.stopPropagation();
+				}
 				break;
-		}
-
-		if ( nextItem ) {
-			this.highlightItem( nextItem );
-			nextItem.scrollElementIntoView();
-		}
-
-		if ( handled ) {
-			e.preventDefault();
-			e.stopPropagation();
-			return false;
+			default:
+				OO.ui.MenuSelectWidget.super.prototype.onKeyDown.call( this, e );
+				return;
 		}
 	}
 };
 
 /**
- * Bind key down listener.
+ * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.bindKeyDownListener = function () {
 	if ( this.$input ) {
 		this.$input.on( 'keydown', this.onKeyDownHandler );
 	} else {
-		// Capture menu navigation keys
-		this.getElementWindow().addEventListener( 'keydown', this.onKeyDownHandler, true );
+		OO.ui.MenuSelectWidget.super.prototype.bindKeyDownListener.call( this );
 	}
 };
 
 /**
- * Unbind key down listener.
+ * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
 	if ( this.$input ) {
 		this.$input.off( 'keydown', this.onKeyDownHandler );
 	} else {
-		this.getElementWindow().removeEventListener( 'keydown', this.onKeyDownHandler, true );
+		OO.ui.MenuSelectWidget.super.prototype.unbindKeyDownListener.call( this );
 	}
 };
 
