@@ -1,5 +1,10 @@
 /**
- * Generic widget for buttons.
+ * ButtonWidget is a generic widget for buttons. A wide variety of looks,
+ * feels, and functionality can be customized via the class’s configuration options
+ * and methods. Please see the OOjs UI documentation on MediaWiki for more information
+ * and examples.
+ *
+ * NOTE: HTML form buttons should use the OO.ui.ButtonInputWidget class.
  *
  * @class
  * @extends OO.ui.Widget
