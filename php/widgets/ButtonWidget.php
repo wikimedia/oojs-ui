@@ -22,9 +22,19 @@ class ButtonWidget extends Widget {
 	protected $target = null;
 
 	/**
+	 * Search engine traversal hint.
+	 *
+	 * True if search engines should avoid following this hyperlink.
+	 *
+	 * @var boolean
+	 */
+	protected $nofollow = true;
+
+	/**
 	 * @param array $config Configuration options
 	 * @param string $config['href'] Hyperlink to visit when clicked
 	 * @param string $config['target'] Target to open hyperlink in
+	 * @param boolean $config['nofollow'] Search engine traversal hint (default: true)
 	 */
 	public function __construct( array $config = array() ) {
 		// Parent constructor
@@ -49,6 +59,7 @@ class ButtonWidget extends Widget {
 
 		$this->setHref( isset( $config['href'] ) ? $config['href'] : null );
 		$this->setTarget( isset( $config['target'] ) ? $config['target'] : null );
+		$this->setNoFollow( isset( $config['nofollow'] ) ? $config['nofollow'] : true );
 	}
 
 	/**
@@ -67,6 +78,15 @@ class ButtonWidget extends Widget {
 	 */
 	public function getTarget() {
 		return $this->target;
+	}
+
+	/**
+	 * Get search engine traversal hint.
+	 *
+	 * @return boolean Whether search engines should avoid traversing this hyperlink.
+	 */
+	public function getNoFollow() {
+		return $this->nofollow;
 	}
 
 	/**
@@ -98,6 +118,23 @@ class ButtonWidget extends Widget {
 			$this->button->setAttributes( array( 'target' => $target ) );
 		} else {
 			$this->button->removeAttributes( array( 'target' ) );
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Set search engine traversal hint.
+	 *
+	 * @param boolean $nofollow True if search engines should avoid traversing this hyperlink
+	 */
+	public function setNoFollow( $nofollow ) {
+		$this->nofollow = is_bool( $nofollow ) ? $nofollow : true;
+
+		if ( $this->nofollow ) {
+			$this->button->setAttributes( array( 'rel' => 'nofollow' ) );
+		} else {
+			$this->button->removeAttributes( array( 'rel' ) );
 		}
 
 		return $this;

@@ -15,6 +15,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {string} [href] Hyperlink to visit when clicked
  * @cfg {string} [target] Target to open hyperlink in
+ * @cfg {boolean} [nofollow] Search engine traversal hint (default: true)
  */
 OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	// Configuration initialization
@@ -35,6 +36,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	// Properties
 	this.href = null;
 	this.target = null;
+	this.nofollow = false;
 	this.isHyperlink = false;
 
 	// Initialization
@@ -44,6 +46,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 		.append( this.$button );
 	this.setHref( config.href );
 	this.setTarget( config.target );
+	this.setNoFollow( config.nofollow );
 };
 
 /* Setup */
@@ -124,6 +127,15 @@ OO.ui.ButtonWidget.prototype.getTarget = function () {
 };
 
 /**
+ * Get search engine traversal hint.
+ *
+ * @return {boolean} Whether search engines should avoid traversing this hyperlink
+ */
+OO.ui.ButtonWidget.prototype.getNoFollow = function () {
+	return this.nofollow;
+};
+
+/**
  * Set hyperlink location.
  *
  * @param {string|null} href Hyperlink location, null to remove
@@ -159,6 +171,26 @@ OO.ui.ButtonWidget.prototype.setTarget = function ( target ) {
 			this.$button.attr( 'target', target );
 		} else {
 			this.$button.removeAttr( 'target' );
+		}
+	}
+
+	return this;
+};
+
+/**
+ * Set search engine traversal hint.
+ *
+ * @param {boolean} nofollow True if search engines should avoid traversing this hyperlink
+ */
+OO.ui.ButtonWidget.prototype.setNoFollow = function ( nofollow ) {
+	nofollow = typeof nofollow === 'boolean' ? nofollow : true;
+
+	if ( nofollow !== this.nofollow ) {
+		this.nofollow = nofollow;
+		if ( nofollow ) {
+			this.$button.attr( 'rel', 'nofollow' );
+		} else {
+			this.$button.removeAttr( 'rel' );
 		}
 	}
 
