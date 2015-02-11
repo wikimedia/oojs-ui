@@ -179,7 +179,7 @@
 	}
 }
 
-.mediawiki-frameless-button-colored( @neutral, @active ) {
+.mediawiki-frameless-button-colored( @neutral, @pressed ) {
 	> .oo-ui-buttonElement-button {
 		&:hover,
 		&:focus {
@@ -196,31 +196,31 @@
 	&.oo-ui-widget-enabled {
 		& > .oo-ui-buttonElement-button:active > .oo-ui-labelElement-label,
 		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-			color: @active;
+			color: @pressed;
 			box-shadow: none;
 		}
 	}
 }
 
-.mediawiki-framed-button-colored( @neutral, @active ) {
+.mediawiki-framed-button-colored( @neutral, @pressed ) {
 	> .oo-ui-buttonElement-button {
 		color: @neutral;
 
 		&:hover {
-			box-shadow: inset 0 -0.2em 0 0 @active, 0 0.1em 0 0 rgba(0,0,0,0.1);
-			border-bottom-color: @active;
+			box-shadow: inset 0 -0.2em 0 0 @pressed, 0 0.1em 0 0 rgba(0,0,0,0.1);
+			border-bottom-color: @pressed;
 		}
 
 		&:focus {
-			box-shadow: inset 0 0 0 1px @active;
-			border-color: @active;
+			box-shadow: inset 0 0 0 1px @pressed;
+			border-color: @pressed;
 		}
 	}
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-buttonElement-button:active,
 		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-			color: @active;
+			color: @pressed;
 			border-color: @active-color;
 			box-shadow: none;
 		}
@@ -232,20 +232,20 @@
 	}
 }
 
-.mediawiki-framed-primary-button-colored( @neutral, @active ) {
+.mediawiki-framed-primary-button-colored( @neutral, @pressed ) {
 	> .oo-ui-buttonElement-button {
 		color: @background;
 		background-color: @neutral;
 		border-color: @neutral;
 
 		&:hover {
-			box-shadow: inset 0 -0.2em 0 0 @active, 0 0.1em 0 0 rgba(0,0,0,0.1);
-			border-bottom-color: @active;
+			box-shadow: inset 0 -0.2em 0 0 @pressed, 0 0.1em 0 0 rgba(0,0,0,0.1);
+			border-bottom-color: @pressed;
 		}
 
 		&:focus {
-			box-shadow: inset 0 0 0 1px @active;
-			border-color: @active;
+			box-shadow: inset 0 0 0 1px @pressed;
+			border-color: @pressed;
 		}
 	}
 
@@ -253,8 +253,8 @@
 		.oo-ui-buttonElement-button:active,
 		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 			color: @background;
-			background-color: @active;
-			border-color: @active;
+			background-color: @pressed;
+			border-color: @pressed;
 			box-shadow: none;
 		}
 
