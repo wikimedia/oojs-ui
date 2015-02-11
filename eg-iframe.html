@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="UTF-8">
+	<title>OOjs UI example</title>
+	<!-- Prevent scaling on mobile devices which cause problems with dialog sizing -->
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" href="../dist/oojs-ui-apex.svg.css">
+</head>
+<body>
+	<script src="../lib/jquery.js"></script>
+	<script src="../lib/oojs.jquery.js"></script>
+	<script src="../dist/oojs-ui.js"></script>
+	<script src="../dist/oojs-ui-apex.js"></script>
+	<script>
+		function loadInlineExample( code, options, callback ) {
+			try {
+				eval( code );
+				callback && callback( true );
+			} catch (e) {
+				document.body.appendChild( document.createTextNode( e ) );
+				callback && callback( false, e );
+			}
+		}
+	</script>
+</body>
+</html>

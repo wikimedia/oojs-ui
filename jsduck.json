@@ -3,6 +3,7 @@
 	"--footer": "Documentation for OOjs UI.",
 	"--output": "docs",
 	"--categories": "./jsduck.categories.json",
+	"--eg-iframe": "./eg-iframe.html",
 	"--warnings-exit-nonzero": true,
 	"--builtin-classes": true,
 	"--external": "HTMLDocument,Window",
