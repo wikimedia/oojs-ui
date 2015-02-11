@@ -23,3 +23,7 @@ OO.ui.MenuOptionWidget = function OoUiMenuOptionWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.MenuOptionWidget, OO.ui.DecoratedOptionWidget );
+
+/* Static Properties */
+
+OO.ui.MenuOptionWidget.static.scrollIntoViewOnSelect = true;

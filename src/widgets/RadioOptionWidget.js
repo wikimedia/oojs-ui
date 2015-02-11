@@ -30,6 +30,8 @@ OO.inheritClass( OO.ui.RadioOptionWidget, OO.ui.OptionWidget );
 
 OO.ui.RadioOptionWidget.static.highlightable = false;
 
+OO.ui.RadioOptionWidget.static.scrollIntoViewOnSelect = true;
+
 OO.ui.RadioOptionWidget.static.pressable = false;
 
 OO.ui.RadioOptionWidget.static.tagName = 'label';
