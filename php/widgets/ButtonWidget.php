@@ -77,7 +77,7 @@ class ButtonWidget extends Widget {
 	public function setHref( $href ) {
 		$this->href = is_string( $href ) ? $href : null;
 
-		if ( $href !== null ) {
+		if ( $this->href !== null ) {
 			$this->button->setAttributes( array( 'href' => $href ) );
 		} else {
 			$this->button->removeAttributes( array( 'href' ) );
@@ -94,7 +94,7 @@ class ButtonWidget extends Widget {
 	public function setTarget( $target ) {
 		$this->target = is_string( $target ) ? $target : null;
 
-		if ( $target !== null ) {
+		if ( $this->target !== null ) {
 			$this->button->setAttributes( array( 'target' => $target ) );
 		} else {
 			$this->button->removeAttributes( array( 'target' ) );
