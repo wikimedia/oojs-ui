@@ -1,5 +1,7 @@
 /**
- * User interface control.
+ * Widgets are compositions of one or more OOjs UI elements that users can both view
+ * and interact with. All widgets can be configured and modified via a standard API,
+ * and their state can change dynamically according to a model.
  *
  * @abstract
  * @class
