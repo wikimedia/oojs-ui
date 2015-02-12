@@ -43,9 +43,14 @@ class TabIndexedElement extends ElementMixin {
 
 		if ( $this->tabIndex !== $tabIndex ) {
 			if ( $tabIndex !== null ) {
-				$this->target->setAttributes( array( 'tabindex' => $tabIndex ) );
+				$this->target->setAttributes( array(
+					// Do not index over disabled elements
+					'tabindex' => $this->element->isDisabled() ? -1 : $tabIndex,
+					// ChromeVox and NVDA do not seem to inherit this from parent elements
+					'aria-disabled' => $this->element->isDisabled() ? 'true' : 'false',
+				) );
 			} else {
-				$this->target->removeAttributes( array( 'tabindex' ) );
+				$this->target->removeAttributes( array( 'tabindex', 'aria-disabled' ) );
 			}
 			$this->tabIndex = $tabIndex;
 		}

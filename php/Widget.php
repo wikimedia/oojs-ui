@@ -57,6 +57,7 @@ class Widget extends Element {
 		$this->disabled = !!$disabled;
 		$this->toggleClasses( array( 'oo-ui-widget-disabled' ), $this->disabled );
 		$this->toggleClasses( array( 'oo-ui-widget-enabled' ), !$this->disabled );
+		$this->setAttributes( array( 'aria-disabled' => $this->disabled ? 'true' : 'false' ) );
 
 		return $this;
 	}

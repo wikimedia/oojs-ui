@@ -61,7 +61,6 @@ class TextInputWidget extends InputWidget {
 		if ( $config['autofocus'] ) {
 			$this->input->setAttributes( array( 'autofocus' => 'autofocus' ) );
 		}
-		$this->setAttributes( array( 'role' => 'textbox' ) );
 	}
 
 	/**
