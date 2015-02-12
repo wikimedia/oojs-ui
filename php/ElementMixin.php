@@ -40,4 +40,16 @@ class ElementMixin {
 		$this->element = $element;
 		$this->target = $target;
 	}
+
+	/**
+	 * Add properties to the given `$config` array to allow reconstruction
+	 * of this widget via its constructor.  This method is meant to be
+	 * overridden by subclasses of `ElementMixin`.
+	 *
+	 * @return array A configuration array.
+	 * @see Element::getConfig()
+	 */
+	public function getConfig( &$config ) {
+		return $config;
+	}
 }

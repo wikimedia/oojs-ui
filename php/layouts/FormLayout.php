@@ -34,4 +34,14 @@ class FormLayout extends Layout {
 			$this->addItems( $config['items'] );
 		}
 	}
+
+	public function getConfig( &$config ) {
+		foreach ( array( 'method', 'action', 'enctype' ) as $attr ) {
+			$value = $this->getAttribute( $attr );
+			if ( $value !== null ) {
+				$config[$attr] = $value;
+			}
+		}
+		return parent::getConfig( $config );
+	}
 }

@@ -89,4 +89,14 @@ class ButtonElement extends ElementMixin {
 
 		return $this;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->framed !== true ) {
+			$config['framed'] = $this->framed;
+		}
+		if ( $this->accessKey !== null ) {
+			$config['accessKey'] = $this->accessKey;
+		}
+		return parent::getConfig( $config );
+	}
 }

@@ -62,6 +62,9 @@ class Element extends Tag {
 		parent::__construct( $this->getTagName() );
 
 		// Initialization
+		if ( isset( $config['infusable'] ) && is_bool( $config['infusable'] ) ) {
+			$this->setInfusable( $config['infusable'] );
+		}
 		if ( isset( $config['data'] ) ) {
 			$this->setData( $config['data'] );
 		}
@@ -198,12 +201,76 @@ class Element extends Tag {
 	}
 
 	/**
+	 * Add the necessary properties to the given `$config` array to allow
+	 * reconstruction of this widget via its constructor.
+	 * @param array &$config
+	 *   An array which will be mutated to add the necessary configuration
+	 *   properties.  Unless you are implementing a subclass, you should
+	 *   always pass a new empty `array()`.
+	 * @return array
+	 *   A configuration array which can be passed to this object's
+	 *   constructor to recreate it.  This is a return value to allow
+	 *   the safe use of copy-by-value functions like `array_merge` in
+	 *   the implementation.
+	 */
+	public function getConfig( &$config ) {
+		foreach ( $this->mixins as $mixin ) {
+			$config = $mixin->getConfig( $config );
+		}
+		if ( $this->data !== null ) {
+			$config['data'] = $this->data;
+		}
+		return $config;
+	}
+
+	/**
+	 * Create a modified version of the configuration array suitable for
+	 * JSON serialization by replacing `Tag` references and
+	 * `HtmlSnippet`s.
+	 *
+	 * @return array
+	 *   A serialized configuration array.
+	 */
+	private function getSerializedConfig() {
+		// Ensure that '_' comes first in the output.
+		$config = array( '_' => true );
+		$config = $this->getConfig( $config );
+		// Post-process config array to turn Tag references into ID references
+		// and HtmlSnippet references into a { html: 'string' } JSON form.
+		$replaceElements = function( &$item ) {
+			if ( $item instanceof Tag ) {
+				$item->ensureInfusableId();
+				$item = array( 'tag' => $item->getAttribute( 'id' ) );
+			} elseif ( $item instanceof HtmlSnippet ) {
+				$item = array( 'html' => (string) $item );
+			}
+		};
+		array_walk_recursive( $config, $replaceElements );
+		// Set '_' last to ensure that subclasses can't accidentally step on it.
+		$config['_'] = preg_replace( '/^OOUI\\\\/', '', get_class( $this ) );
+		return $config;
+	}
+
+	protected function getGeneratedAttributes() {
+		$attributesArray = parent::getGeneratedAttributes();
+		// Add `data-ooui` attribute from serialized config array.
+		if ( $this->infusable ) {
+			$serialized = $this->getSerializedConfig();
+			$attributesArray['data-ooui'] = json_encode( $serialized );
+		}
+		return $attributesArray;
+	}
+
+	/**
 	 * Render element into HTML.
 	 *
 	 * @return string HTML serialization
 	 */
 	public function toString() {
 		Theme::singleton()->updateElementClasses( $this );
+		if ( $this->isInfusable() ) {
+			$this->ensureInfusableId();
+		}
 		return parent::toString();
 	}
 

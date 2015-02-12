@@ -130,4 +130,15 @@ class InputWidget extends Widget {
 		}
 		return $this;
 	}
+
+	public function getConfig( &$config ) {
+		$name = $this->input->getAttribute( 'name' );
+		if ( $name !== null ) {
+			$config['name'] = $name;
+		}
+		if ( $this->value !== '' ) {
+			$config['value'] = $this->value;
+		}
+		return parent::getConfig( $config );
+	}
 }

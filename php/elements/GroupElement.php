@@ -121,4 +121,9 @@ class GroupElement extends ElementMixin {
 
 		return $this;
 	}
+
+	public function getConfig( &$config ) {
+		$config['items'] = $this->items;
+		return parent::getConfig( $config );
+	}
 }

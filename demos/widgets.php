@@ -43,6 +43,7 @@
 		<div class="oo-ui-demo-menu">
 			<?php
 				echo new OOUI\ButtonGroupWidget( array(
+					'infusable' => true,
 					'items' => array(
 						new OOUI\ButtonWidget( array(
 							'label' => 'MediaWiki',
@@ -55,6 +56,7 @@
 					)
 				) );
 				echo new OOUI\ButtonGroupWidget( array(
+					'infusable' => true,
 					'items' => array(
 						new OOUI\ButtonWidget( array(
 							'label' => 'Mixed',
@@ -71,6 +73,7 @@
 					)
 				) );
 				echo new OOUI\ButtonGroupWidget( array(
+					'infusable' => true,
 					'items' => array(
 						new OOUI\ButtonWidget( array(
 							'label' => 'LTR',
@@ -150,7 +153,7 @@
 				foreach ( $styles as $style ) {
 					foreach ( $states as $state ) {
 						$buttonStyleShowcaseWidget->appendContent(
-							new OOUI\ButtonWidget( array_merge( $style, $state ) )
+							new OOUI\ButtonWidget( array_merge( $style, $state, array( 'infusable' => true ) ) )
 						);
 					}
 					$buttonStyleShowcaseWidget->appendContent( new OOUI\HtmlSnippet( '<br />' ) );
@@ -159,6 +162,8 @@
 				$horizontalAlignmentWidget = new OOUI\Widget( array(
 					'classes' => array( 'oo-ui-demo-horizontal-alignment' )
 				) );
+				# Adding content after the fact does not play well with
+				# infusability.  We should be using a proper Layout here.
 				$horizontalAlignmentWidget->appendContent(
 					new OOUI\ButtonWidget( array( 'label' => 'Button' ) ),
 					new OOUI\ButtonGroupWidget( array( 'items' => array(
@@ -179,6 +184,7 @@
 				);
 
 				echo new OOUI\FieldsetLayout( array(
+					'infusable' => true,
 					'label' => 'Simple buttons',
 					'items' => array(
 						new OOUI\FieldLayout(
@@ -409,6 +415,7 @@
 					)
 				) );
 				echo new OOUI\FieldsetLayout( array(
+					'infusable' => true,
 					'label' => 'Button sets',
 					'items' => array(
 						new OOUI\FieldLayout(
@@ -458,18 +465,30 @@
 						)
 					)
 				) );
-				echo new OOUI\FieldsetLayout( array(
-					'label' => 'Button style showcase',
-					'items' => array(
+				# Note that $buttonStyleShowcaseWidget is not infusable,
+				# because the contents would not be preserved -- we assume
+				# that widgets will manage their own contents by default,
+				# but here we've manually appended content to the widget.
+				# If we embed it in an infusable FieldsetLayout, it will be
+				# (recursively) made infusable.  We protect the FieldLayout
+				# by wrapping it with a new <div> Tag, so that it won't get
+				# rebuilt during infusion.
+				$wrappedFieldLayout = new OOUI\Tag( 'div' );
+				$wrappedFieldLayout->appendContent(
 						new OOUI\FieldLayout(
 							$buttonStyleShowcaseWidget,
 							array(
 								'align' => 'top'
 							)
 						)
-					)
+				);
+				echo new OOUI\FieldsetLayout( array(
+					'infusable' => true,
+					'label' => 'Button style showcase',
+					'items' => array( $wrappedFieldLayout ),
 				) );
 				echo new OOUI\FieldsetLayout( array(
+					'infusable' => true,
 					'label' => 'Form widgets',
 					'items' => array(
 						new OOUI\FieldLayout(
@@ -627,20 +646,29 @@
 						)
 					)
 				) );
-				echo new OOUI\FieldsetLayout( array(
-					'label' => 'Horizontal alignment',
-					'items' => array(
-						new OOUI\FieldLayout(
-							$horizontalAlignmentWidget,
-							array(
-								'label' => 'Multiple widgets shown as a single line, ' .
-									'as used in compact forms or in parts of a bigger widget.',
-								'align' => 'top'
-							)
+				# Again, $horizontalAlignmentWidget is not infusable because
+				# it manually added content after creation.  If we embed it
+				# in an infusable FieldsetLayout, it will (recursively) be made
+				# infusable.  So protect the widget by wrapping it in a
+				# <div> Tag.
+				$wrappedFieldLayout = new OOUI\Tag( 'div' );
+				$wrappedFieldLayout->appendContent(
+					new OOUI\FieldLayout(
+						$horizontalAlignmentWidget,
+						array(
+							'label' => 'Multiple widgets shown as a single line, ' .
+								'as used in compact forms or in parts of a bigger widget.',
+							'align' => 'top'
 						)
 					)
+				);
+				echo new OOUI\FieldsetLayout( array(
+					'infusable' => true,
+					'label' => 'Horizontal alignment',
+					'items' => array( $wrappedFieldLayout ),
 				) );
 				echo new OOUI\FieldsetLayout( array(
+					'infusable' => true,
 					'label' => 'Other widgets',
 					'items' => array(
 						new OOUI\FieldLayout(
@@ -716,6 +744,7 @@
 					)
 				) );
 				echo new OOUI\FieldsetLayout( array(
+					'infusable' => true,
 					'label' => 'Field layouts',
 					'help' => 'I am an additional, helpful information. Lorem ipsum dolor sit amet, cibo pri ' .
 						"in, duo ex inimicus perpetua complectitur, mel periculis similique at.\xE2\x80\x8E",
@@ -735,6 +764,7 @@
 				) );
 
 				echo new OOUI\FormLayout( array(
+					'infusable' => true,
 					'method' => 'GET',
 					'action' => 'widgets.php',
 					'items' => array(

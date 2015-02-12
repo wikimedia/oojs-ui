@@ -67,4 +67,11 @@ class LabelElement extends ElementMixin {
 	public function getLabel() {
 		return $this->label;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->label !== null ) {
+			$config['label'] = $this->label;
+		}
+		return parent::getConfig( $config );
+	}
 }

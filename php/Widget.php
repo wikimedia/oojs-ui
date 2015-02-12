@@ -61,4 +61,11 @@ class Widget extends Element {
 
 		return $this;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->disabled ) {
+			$config['disabled'] = $this->disabled;
+		}
+		return parent::getConfig( $config );
+	}
 }

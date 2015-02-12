@@ -100,4 +100,12 @@ class ButtonInputWidget extends InputWidget {
 		}
 		return $this;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->useInputTag ) {
+			$config['useInputTag'] = true;
+		}
+		$config['type'] = $this->input->getAttribute( 'type' );
+		return parent::getConfig( $config );
+	}
 }

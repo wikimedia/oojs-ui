@@ -41,6 +41,13 @@ class Tag {
 	 */
 	protected $elementGroup = null;
 
+	/**
+	 * Infusion support.
+	 *
+	 * @var boolean Whether to serialize tag/element/widget state for client-side use.
+	 */
+	protected $infusable = false;
+
 	/* Methods */
 
 	/**
@@ -218,19 +225,66 @@ class Tag {
 	}
 
 	/**
+	 * Enable widget for client-side infusion.
+	 *
+	 * @param boolean $infusable True to allow tag/element/widget to be referenced client-side.
+	 * @chainable
+	 */
+	public function setInfusable( $infusable ) {
+		$this->infusable = $infusable;
+		return $this;
+	}
+
+	/**
+	 * Get client-side infusability.
+	 *
+	 * @return boolean If this tag/element/widget can be referenced client-side.
+	 */
+	public function isInfusable() {
+		return $this->infusable;
+	}
+
+	private static $id_cnt = 0;
+	/**
+	 * Ensure that this given Tag is infusable and has a unique `id`
+	 * attribute.
+	 * @chainable
+	 */
+	public function ensureInfusableId() {
+		$this->setInfusable( true );
+		if ( $this->getAttribute( 'id' ) === null ) {
+			$this->setAttributes( array( 'id' => "ooui-" . ( self::$id_cnt++ ) ) );
+		}
+		return $this;
+	}
+
+	/**
+	 * Return an augmented `attributes` array, including synthetic attributes
+	 * which are created from other properties (like the `classes` array)
+	 * but which shouldn't be retained in the user-visible `attributes`.
+	 * @return array An attributes array.
+	 */
+	protected function getGeneratedAttributes() {
+		// Copy attributes, add `class` attribute from `$this->classes` array.
+		$attributesArray = $this->attributes;
+		if ( $this->classes ) {
+			$attributesArray['class'] = implode( ' ', array_unique( $this->classes ) );
+		}
+		if ( $this->infusable ) {
+			// Indicate that this is "just" a tag (not a widget)
+			$attributesArray['data-ooui'] = json_encode( array( '_' => 'Tag' ) );
+		}
+		return $attributesArray;
+	}
+
+	/**
 	 * Render element into HTML.
 	 *
 	 * @return string HTML serialization
 	 */
 	public function toString() {
-		// Attributes
-		$attributesArray = $this->attributes;
-		if ( $this->classes ) {
-			$attributesArray['class'] = implode( ' ', array_unique( $this->classes ) );
-		}
-
 		$attributes = '';
-		foreach ( $attributesArray as $key => $value ) {
+		foreach ( $this->getGeneratedAttributes() as $key => $value ) {
 			if ( !preg_match( '/^[0-9a-zA-Z-]+$/', $key ) ) {
 				throw new Exception( 'Attribute name must consist of only ASCII letters, numbers and dash' );
 			}
@@ -263,7 +317,14 @@ class Tag {
 				}
 			}
 
-			$attributes .= ' ' . $key . '="' . htmlspecialchars( $value ) . '"';
+			// Use single-quotes around the attribute value in HTML, because
+			// some of the values might be JSON strings
+			// 1. Encode both single and double quotes (and other special chars)
+			$value = htmlspecialchars( $value, ENT_QUOTES );
+			// 2. Decode double quotes, for readability.
+			$value = str_replace( '&quot;', '"', $value );
+			// 3. Wrap attribute value in single quotes in the HTML.
+			$attributes .= ' ' . $key . "='" . $value . "'";
 		}
 
 		// Content

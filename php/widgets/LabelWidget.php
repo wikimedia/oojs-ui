@@ -38,4 +38,11 @@ class LabelWidget extends Widget {
 		// Initialization
 		$this->addClasses( array( 'oo-ui-labelWidget' ) );
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->input !== null ) {
+			$config['input'] = $this->input;
+		}
+		return parent::getConfig( $config );
+	}
 }

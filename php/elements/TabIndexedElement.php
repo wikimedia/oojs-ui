@@ -78,4 +78,11 @@ class TabIndexedElement extends ElementMixin {
 	public function getTabIndex() {
 		return $this->tabIndex;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->tabIndex !== 0 ) {
+			$config['tabIndex'] = $this->tabIndex;
+		}
+		return parent::getConfig( $config );
+	}
 }

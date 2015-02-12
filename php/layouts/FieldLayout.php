@@ -128,4 +128,13 @@ class FieldLayout extends Layout {
 
 		return $this;
 	}
+
+	public function getConfig( &$config ) {
+		$config['fieldWidget'] = $this->fieldWidget;
+		$config['align'] = $this->align;
+		if ( $this->help !== '' ) {
+			$config['help'] = $this->help->getTitle();
+		}
+		return parent::getConfig( $config );
+	}
 }

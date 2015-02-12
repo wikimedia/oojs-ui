@@ -63,4 +63,11 @@ class TitledElement extends ElementMixin {
 	public function getTitle() {
 		return $this->title;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->title !== null ) {
+			$config['title'] = $this->title;
+		}
+		return parent::getConfig( $config );
+	}
 }
