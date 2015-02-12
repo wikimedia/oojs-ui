@@ -55,6 +55,7 @@ class DropdownInputWidget extends InputWidget {
 	public function setOptions( $options ) {
 		$value = $this->getValue();
 		$isValueAvailable = false;
+		$this->options = array();
 
 		// Rebuild the dropdown menu
 		$this->input->clearContent();

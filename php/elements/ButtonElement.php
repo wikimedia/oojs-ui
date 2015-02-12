@@ -18,12 +18,20 @@ class ButtonElement extends ElementMixin {
 	 */
 	protected $framed = false;
 
+	/**
+	 * Button's access key.
+	 *
+	 * @var string
+	 */
+	protected $accessKey = null;
+
 	public static $targetPropertyName = 'button';
 
 	/**
 	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param boolean $config['framed'] Render button with a frame (default: true)
+	 * @param string $config['accessKey'] Button's access key
 	 */
 	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor
@@ -34,6 +42,7 @@ class ButtonElement extends ElementMixin {
 		$this->element->addClasses( array( 'oo-ui-buttonElement' ) );
 		$this->target->addClasses( array( 'oo-ui-buttonElement-button' ) );
 		$this->toggleFramed( isset( $config['framed'] ) ? $config['framed'] : true );
+		$this->setAccessKey( isset( $config['accessKey'] ) ? $config['accessKey'] : null );
 		$this->target->setAttributes( array(
 			'role' => 'button',
 		) );

@@ -7,6 +7,15 @@ namespace OOUI;
  */
 class CheckboxInputWidget extends InputWidget {
 
+	/* Properties */
+
+	/**
+	 * Whether the checkbox is selected.
+	 *
+	 * @var boolean
+	 */
+	protected $selected;
+
 	/**
 	 * @param array $config Configuration options
 	 * @param boolean $config['selected'] Whether the checkbox is initially selected
@@ -31,6 +40,7 @@ class CheckboxInputWidget extends InputWidget {
 	 * Set selection state of this checkbox.
 	 *
 	 * @param boolean $state Whether the checkbox is selected
+	 * @chainable
 	 */
 	public function setSelected( $state ) {
 		$this->selected = (bool)$state;

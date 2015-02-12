@@ -10,7 +10,7 @@ class TextInputWidget extends InputWidget {
 	/* Properties */
 
 	/**
-	 * Prevent chages.
+	 * Prevent changes.
 	 *
 	 * @var boolean
 	 */

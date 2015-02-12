@@ -12,6 +12,13 @@ class InputWidget extends Widget {
 	/* Properties */
 
 	/**
+	 * Input element.
+	 *
+	 * @var Tag
+	 */
+	protected $input;
+
+	/**
 	 * Input value.
 	 *
 	 * @var string

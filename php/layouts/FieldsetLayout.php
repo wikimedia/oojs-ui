@@ -9,13 +9,6 @@ namespace OOUI;
  */
 class FieldsetLayout extends Layout {
 	/**
-	 * Alignment.
-	 *
-	 * @var string
-	 */
-	protected $align;
-
-	/**
 	 * @param array $config Configuration options
 	 * @param FieldLayout[] $config['items'] Items to add
 	 */

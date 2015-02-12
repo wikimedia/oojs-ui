@@ -1056,6 +1056,25 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.LabelWidget( {
+						label: 'Label'
+					} ),
+					{
+						label: 'LabelWidget (normal)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.LabelWidget( {
+						label: 'Label',
+						disabled: true
+					} ),
+					{
+						label: 'LabelWidget (disabled)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.PopupButtonWidget( {
 						icon: 'info',
 						framed: false,

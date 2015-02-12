@@ -11,6 +11,15 @@ class LabelWidget extends Widget {
 
 	public static $tagName = 'span';
 
+	/* Properties */
+
+	/**
+	 * Associated input element.
+	 *
+	 * @var InputWidget|null
+	 */
+	protected $input;
+
 	/**
 	 * @param array $config Configuration options
 	 * @param InputWidget $config['input'] Input widget this label is for (default: null)

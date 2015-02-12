@@ -25,6 +25,15 @@ class FieldLayout extends Layout {
 	protected $align;
 
 	/**
+	 * Field widget to be laid out.
+	 *
+	 * @var Widget
+	 */
+	protected $fieldWidget;
+
+	private $field, $body, $help;
+
+	/**
 	 * @param Widget $fieldWidget Field widget
 	 * @param array $config Configuration options
 	 * @param string $config['align'] Alignment mode, either 'left', 'right', 'top' or 'inline'

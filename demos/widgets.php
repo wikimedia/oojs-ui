@@ -628,6 +628,25 @@
 								'label' => "IndicatorWidget (disabled)\xE2\x80\x8E",
 								'align' => 'top'
 							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\LabelWidget( array(
+								'label' => 'Label'
+							) ),
+							array(
+								'label' => "LabelWidget (normal)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\LabelWidget( array(
+								'label' => 'Label',
+								'disabled' => true,
+							) ),
+							array(
+								'label' => "LabelWidget (disabled)\xE2\x80\x8E",
+								'align' => 'top'
+							)
 						)
 					)
 				) );
