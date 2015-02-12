@@ -70,7 +70,7 @@ OO.ui.Process.prototype.execute = function () {
 				// Use rejected promise for error
 				return $.Deferred().reject( [ result ] ).promise();
 			}
-			if ( $.isArray( result ) && result.length && result[ 0 ] instanceof OO.ui.Error ) {
+			if ( Array.isArray( result ) && result.length && result[ 0 ] instanceof OO.ui.Error ) {
 				// Use rejected promise for list of errors
 				return $.Deferred().reject( result ).promise();
 			}

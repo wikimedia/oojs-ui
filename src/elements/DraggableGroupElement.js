@@ -41,7 +41,7 @@ OO.ui.DraggableGroupElement = function OoUiDraggableGroupElement( config ) {
 	} );
 
 	// Initialize
-	if ( $.isArray( config.items ) ) {
+	if ( Array.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}
 	this.$placeholder = $( '<div>' )

@@ -41,7 +41,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	this.$element
 		.addClass( 'oo-ui-selectWidget oo-ui-selectWidget-depressed' )
 		.attr( 'role', 'listbox' );
-	if ( $.isArray( config.items ) ) {
+	if ( Array.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}
 };

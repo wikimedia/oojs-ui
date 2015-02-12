@@ -458,7 +458,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 	var i, len, win, name, list;
 
-	if ( $.isArray( windows ) ) {
+	if ( Array.isArray( windows ) ) {
 		// Convert to map of windows by looking up symbolic names from static configuration
 		list = {};
 		for ( i = 0, len = windows.length; i < len; i++ ) {

@@ -23,7 +23,7 @@ OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonGroupWidget' );
-	if ( $.isArray( config.items ) ) {
+	if ( Array.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}
 };

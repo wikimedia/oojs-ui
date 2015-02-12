@@ -25,7 +25,7 @@ OO.ui.Element = function OoUiElement( config ) {
 	this.updateThemeClassesPending = false;
 
 	// Initialization
-	if ( $.isArray( config.classes ) ) {
+	if ( Array.isArray( config.classes ) ) {
 		this.$element.addClass( config.classes.join( ' ' ) );
 	}
 	if ( config.id ) {
@@ -487,7 +487,7 @@ OO.ui.Element.prototype.supports = function ( methods ) {
 	var i, len,
 		support = 0;
 
-	methods = $.isArray( methods ) ? methods : [ methods ];
+	methods = Array.isArray( methods ) ? methods : [ methods ];
 	for ( i = 0, len = methods.length; i < len; i++ ) {
 		if ( $.isFunction( this[ methods[ i ] ] ) ) {
 			support++;

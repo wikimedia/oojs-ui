@@ -29,7 +29,7 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	if ( this.continuous ) {
 		this.$element.addClass( 'oo-ui-stackLayout-continuous' );
 	}
-	if ( $.isArray( config.items ) ) {
+	if ( Array.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}
 };

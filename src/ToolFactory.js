@@ -81,7 +81,7 @@ OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {
 				}
 			}
 		}
-	} else if ( $.isArray( collection ) ) {
+	} else if ( Array.isArray( collection ) ) {
 		for ( i = 0, len = collection.length; i < len; i++ ) {
 			item = collection[ i ];
 			// Allow plain strings as shorthand for named tools

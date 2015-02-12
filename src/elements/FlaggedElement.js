@@ -125,7 +125,7 @@ OO.ui.FlaggedElement.prototype.setFlags = function ( flags ) {
 			this.flags[ flags ] = true;
 			add.push( className );
 		}
-	} else if ( $.isArray( flags ) ) {
+	} else if ( Array.isArray( flags ) ) {
 		for ( i = 0, len = flags.length; i < len; i++ ) {
 			flag = flags[ i ];
 			className = classPrefix + flag;
