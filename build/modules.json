@@ -15,6 +15,7 @@
 				"src/WindowManager.js",
 			"src/Error.js",
 			"src/HtmlSnippet.js",
+			"src/Infuse.js",
 			"src/Process.js",
 			"src/ToolFactory.js",
 			"src/ToolGroupFactory.js",

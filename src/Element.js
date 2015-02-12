@@ -29,7 +29,8 @@ OO.ui.Element = function OoUiElement( config ) {
 	this.$ = $;
 	this.visible = true;
 	this.data = config.data;
-	this.$element = $( document.createElement( this.getTagName() ) );
+	this.$element = config.$element ||
+		$( document.createElement( this.getTagName() ) );
 	this.elementGroup = null;
 	this.debouncedUpdateThemeClassesHandler = this.debouncedUpdateThemeClasses.bind( this );
 	this.updateThemeClassesPending = false;
