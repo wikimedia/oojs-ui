@@ -140,6 +140,8 @@ def parse_file filename
 				end
 			when 'private'
 				data[:visibility] = :private
+			when 'protected'
+				data[:visibility] = :protected
 			when 'static'
 				data[:static] = true
 			when 'abstract'
@@ -173,7 +175,7 @@ def parse_file filename
 				/x)
 				visibility, static, kind_, name, parent = m.captures
 				kind = {'$' => :property, 'function' => :method, 'class' => :class}[ kind_.strip ]
-				data[:visibility] = {'private' => :private, 'protected' => :private, 'public' => :public}[ visibility ] || :public
+				data[:visibility] = {'private' => :private, 'protected' => :protected, 'public' => :public}[ visibility ] || :public
 				data[:static] = true if static
 				data[:parent] = cleanup_class_name(parent) if parent
 				data[:name] = cleanup_class_name(name)
