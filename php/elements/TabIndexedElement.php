@@ -11,7 +11,7 @@ class TabIndexedElement extends ElementMixin {
 	/**
 	 * Tab index value.
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	protected $tabIndex = null;
 
@@ -20,8 +20,8 @@ class TabIndexedElement extends ElementMixin {
 	/**
 	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
-	 * @param number $config['tabIndex'] Tab index value. Use 0 to use default ordering, use -1 to
-	 *   prevent tab focusing. (default: 0)
+	 * @param number|null $config['tabIndex'] Tab index value. Use 0 to use default ordering, use -1 to
+	 *   prevent tab focusing, use null for no tabindex attribute. (default: 0)
 	 */
 	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor
@@ -42,26 +42,38 @@ class TabIndexedElement extends ElementMixin {
 		$tabIndex = is_numeric( $tabIndex ) ? $tabIndex : null;
 
 		if ( $this->tabIndex !== $tabIndex ) {
-			if ( $tabIndex !== null ) {
-				$this->target->setAttributes( array(
-					// Do not index over disabled elements
-					'tabindex' => $this->element->isDisabled() ? -1 : $tabIndex,
-					// ChromeVox and NVDA do not seem to inherit this from parent elements
-					'aria-disabled' => $this->element->isDisabled() ? 'true' : 'false',
-				) );
-			} else {
-				$this->target->removeAttributes( array( 'tabindex', 'aria-disabled' ) );
-			}
 			$this->tabIndex = $tabIndex;
+			$this->updateTabIndex();
 		}
 
 		return $this;
 	}
 
 	/**
+	 * Update the tabIndex attribute, in case of changes to tabIndex or disabled
+	 * state.
+	 *
+	 * @chainable
+	 */
+	public function updateTabIndex() {
+		$disabled = $this->element->isDisabled();
+		if ( $this->tabIndex !== null ) {
+			$this->target->setAttributes( array(
+				// Do not index over disabled elements
+				'tabindex' => $disabled ? -1 : $this->tabIndex,
+				// ChromeVox and NVDA do not seem to inherit this from parent elements
+				'aria-disabled' => ( $disabled ? 'true' : 'false' )
+			) );
+		} else {
+			$this->target->removeAttributes( array( 'tabindex', 'aria-disabled' ) );
+		}
+		return $this;
+	}
+
+	/**
 	 * Get tab index value.
 	 *
-	 * @return number Tab index value
+	 * @return number|null Tab index value
 	 */
 	public function getTabIndex() {
 		return $this->tabIndex;
