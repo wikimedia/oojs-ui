@@ -93,6 +93,7 @@ OO.ui.ButtonElement.prototype.setButtonElement = function ( $button ) {
 /**
  * Handles mouse down events.
  *
+ * @protected
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.ButtonElement.prototype.onMouseDown = function ( e ) {
@@ -112,6 +113,7 @@ OO.ui.ButtonElement.prototype.onMouseDown = function ( e ) {
 /**
  * Handles mouse up events.
  *
+ * @protected
  * @param {jQuery.Event} e Mouse up event
  */
 OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
@@ -126,6 +128,7 @@ OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
 /**
  * Handles mouse click events.
  *
+ * @protected
  * @param {jQuery.Event} e Mouse click event
  * @fires click
  */
@@ -139,6 +142,7 @@ OO.ui.ButtonElement.prototype.onClick = function ( e ) {
 /**
  * Handles key down events.
  *
+ * @protected
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.ButtonElement.prototype.onKeyDown = function ( e ) {
@@ -154,6 +158,7 @@ OO.ui.ButtonElement.prototype.onKeyDown = function ( e ) {
 /**
  * Handles key up events.
  *
+ * @protected
  * @param {jQuery.Event} e Key up event
  */
 OO.ui.ButtonElement.prototype.onKeyUp = function ( e ) {
@@ -168,6 +173,7 @@ OO.ui.ButtonElement.prototype.onKeyUp = function ( e ) {
 /**
  * Handles key press events.
  *
+ * @protected
  * @param {jQuery.Event} e Key press event
  * @fires click
  */
