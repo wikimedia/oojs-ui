@@ -1,6 +1,8 @@
 /**
- * A mixin for an element that can be dragged and dropped.
- * Use in conjunction with DragGroupWidget
+ * DraggableElement is a mixin class used to create elements that can be clicked
+ * and dragged by a mouse to a new position within a group. This class must be used
+ * in conjunction with OO.ui.DraggableGroupElement, which provides a container for
+ * the draggable elements.
  *
  * @abstract
  * @class
