@@ -15,7 +15,14 @@
 	}
 
 	> .oo-ui-iconElement-icon,
-	> .oo-ui-indicatorElement-indicator {
+	> .oo-ui-indicatorElement-indicator,
+	> .oo-ui-labelElement-label {
+		display: none;
+	}
+
+	&.oo-ui-iconElement > .oo-ui-iconElement-icon,
+	&.oo-ui-indicatorElement > .oo-ui-indicatorElement-indicator {
+		display: block;
 		position: absolute;
 		top: 0;
 		height: 100%;
@@ -23,6 +30,10 @@
 		cursor: pointer;
 
 		.oo-ui-unselectable();
+	}
+
+	&.oo-ui-labelElement > .oo-ui-labelElement-label {
+		display: block;
 	}
 
 	> .oo-ui-iconElement-icon {
