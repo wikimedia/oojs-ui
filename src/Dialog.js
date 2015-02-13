@@ -1,23 +1,36 @@
 /**
- * Base class for all dialogs.
+ * The Dialog class serves as the base class for the other types of dialogs.
+ * Unless extended to include controls, the rendered dialog box is a simple window
+ * that users can close by hitting the ‘Esc’ key. Dialog windows are used with OO.ui.WindowManager,
+ * which opens, closes, and controls the presentation of the window. See the
+ * [OOjs UI documentation on MediaWiki] [1] for more information.
  *
- * Logic:
- * - Manage the window (open and close, etc.).
- * - Store the internal name and display title.
- * - A stack to track one or more pending actions.
- * - Manage a set of actions that can be performed.
- * - Configure and create action widgets.
+ *     @example
+ *     // A simple dialog window.
+ *     function MyDialog( config ) {
+ *         MyDialog.super.call( this, config );
+ *     }
+ *     OO.inheritClass( MyDialog, OO.ui.Dialog );
+ *     MyDialog.prototype.initialize = function () {
+ *         MyDialog.super.prototype.initialize.call( this );
+ *         this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
+ *         this.content.$element.append( '<p>A simple dialog window. Press \'Esc\' to close.</p>' );
+ *         this.$body.append( this.content.$element );
+ *     };
+ *     MyDialog.prototype.getBodyHeight = function () {
+ *         return this.content.$element.outerHeight( true );
+ *     };
+ *     var myDialog = new MyDialog( {
+ *         size: 'medium'
+ *     } );
+ *     // Create and append a window manager, which opens and closes the window.
+ *     var windowManager = new OO.ui.WindowManager();
+ *     $( 'body' ).append( windowManager.$element );
+ *     windowManager.addWindows( [ myDialog ] );
+ *     // Open the window!
+ *     windowManager.openWindow( myDialog );
  *
- * User interface:
- * - Close the dialog with Escape key.
- * - Visually lock the dialog while an action is in
- *   progress (aka "pending").
- *
- * Subclass responsibilities:
- * - Display the title somewhere.
- * - Add content to the dialog.
- * - Provide a UI to close the dialog.
- * - Display the action widgets somewhere.
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Dialogs
  *
  * @abstract
  * @class
