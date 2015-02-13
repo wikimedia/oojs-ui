@@ -27,9 +27,15 @@
 		top: 0;
 		height: 100%;
 		background-repeat: no-repeat;
-		cursor: pointer;
 
 		.oo-ui-unselectable();
+	}
+
+	&.oo-ui-widget-enabled {
+		> .oo-ui-iconElement-icon,
+		> .oo-ui-indicatorElement-indicator {
+			cursor: pointer;
+		}
 	}
 
 	&.oo-ui-labelElement > .oo-ui-labelElement-label {

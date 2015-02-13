@@ -759,16 +759,6 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
-						value: 'Disabled',
-						disabled: true
-					} ),
-					{
-						label: 'TextInputWidget (disabled)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( {
 						multiline: true,
 						value: 'Multiline\nMultiline'
 					} ),
@@ -797,6 +787,19 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'TextInputWidget (label)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						value: 'Disabled',
+						icon: 'picture',
+						indicator: 'required',
+						label: 'Inline label',
+						disabled: true
+					} ),
+					{
+						label: 'TextInputWidget (icon, indicator, label, disabled)\u200E',
 						align: 'top'
 					}
 				),
