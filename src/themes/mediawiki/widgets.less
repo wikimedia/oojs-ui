@@ -78,8 +78,8 @@
 
 .theme-oo-ui-iconWidget () {
 	line-height: 2.5em;
-	height: 1.9em;
-	width: 1.9em;
+	height: @icon-size;
+	width: @icon-size;
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
@@ -88,8 +88,9 @@
 
 .theme-oo-ui-indicatorWidget () {
 	line-height: 2.5em;
-	height: 1.9em;
-	width: 1.9em;
+	height: @indicator-size;
+	width: @indicator-size;
+	margin: @indicator-size / 2;
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
@@ -121,11 +122,18 @@
 			margin: 0 1em;
 		}
 
-		.oo-ui-indicatorElement-indicator,
+		.oo-ui-indicatorElement-indicator {
+			top: 0;
+			width: @indicator-size;
+			height: @indicator-size;
+			margin: 0.775em;
+		}
+
 		.oo-ui-iconElement-icon {
 			top: 0;
-			width: 2.5em;
-			height: 2.5em;
+			width: @icon-size;
+			height: @icon-size;
+			margin: 0.3em;
 		}
 	}
 
@@ -437,7 +445,8 @@
 
 		.oo-ui-iconElement-icon {
 			left: 0.4em;
-			width: 2em;
+			width: @icon-size;
+			margin-left: 0.1em;
 			height: 100%;
 			background-position: right center;
 		}
@@ -446,13 +455,13 @@
 	&.oo-ui-indicatorElement {
 		input,
 		textarea {
-			padding-right: 1.9em;
+			padding-right: @icon-size;
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			width: 1.6em;
+			width: @indicator-size;
+			margin: 0 0.775em;
 			height: 100%;
-			background-position: left center;
 		}
 	}
 
@@ -485,18 +494,6 @@
 		input,
 		textarea {
 			height: 2.35em;
-		}
-
-		&.oo-ui-indicatorElement {
-			padding-right: 1.9em;
-
-			.oo-ui-indicatorElement-indicator {
-				width: 1.9em;
-				background-position: center center;
-				border: solid 1px #ccc;
-				border-left: none;
-				.oo-ui-box-sizing(border-box);
-			}
 		}
 	}
 }
@@ -532,17 +529,17 @@
 
 	.oo-ui-iconElement-icon,
 	.oo-ui-indicatorElement-indicator {
-		top: 50%;
-		width: 2em;
-		height: 2em;
-		margin-top: -1em;
+		top: 0;
+		height: 100%;
 	}
 
 	.oo-ui-iconElement-icon {
+		width: @icon-size;
 		left: 0.5em;
 	}
 
 	.oo-ui-indicatorElement-indicator {
+		width: @indicator-size;
 		right: 0.5em;
 	}
 }
@@ -552,12 +549,10 @@
 	background-color: transparent;
 
 	.oo-ui-buttonElement-button {
-		height: 1.9em;
+		height: @icon-size;
 	}
 
-	&.oo-ui-iconElement .oo-ui-iconElement-icon,
-	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		height: 1.9em;
+	&.oo-ui-iconElement .oo-ui-iconElement-icon {
 		margin-top: 0;
 	}
 

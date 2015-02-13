@@ -70,7 +70,6 @@
 			.oo-ui-iconElement-icon {
 				height: 1.5em;
 				width: 1.5em;
-				opacity: 0.8;
 			}
 		}
 	}
@@ -99,10 +98,6 @@
 		}
 
 		&.oo-ui-widget-enabled {
-			.oo-ui-tool-link .oo-ui-iconElement-icon {
-				opacity: 0.8;
-			}
-
 			&:hover .oo-ui-tool-link .oo-ui-iconElement-icon {
 				opacity: 1;
 			}
@@ -143,20 +138,19 @@
 	}
 
 	&-handle {
-		.oo-ui-indicatorElement-indicator,
+		.oo-ui-indicatorElement-indicator {
+			top: 0;
+			right: 0;
+			width: 0.75em;
+			height: 0.75em;
+			margin: 0.625em;
+		}
 		.oo-ui-iconElement-icon {
 			top: 0;
-			width: 2em;
-			height: 2em;
-			opacity: 0.8;
-		}
-
-		.oo-ui-indicatorElement-indicator {
-			right: 0;
-		}
-
-		.oo-ui-iconElement-icon {
 			left: 0.25em;
+			width: 1.5em;
+			height: 1.5em;
+			margin: 0.25em;
 		}
 	}
 
@@ -184,14 +178,16 @@
 	}
 
 	.oo-ui-tool-link {
+		margin: 0.25em 0 0.25em 0.25em;
+
 		.oo-ui-iconElement-icon {
-			height: 2em;
-			width: 2em;
-			min-width: 2em;
+			height: 1.5em;
+			width: 1.5em;
+			min-width: 1.5em;
 		}
 
 		.oo-ui-tool-title {
-			padding-left: 0.25em;
+			padding-left: 0.5em;
 		}
 
 		.oo-ui-tool-accel,
@@ -238,9 +234,6 @@
 		&.oo-ui-widget-enabled {
 			&:hover {
 				border-color: rgba(0,0,0,0.2);
-			}
-			.oo-ui-tool-link .oo-ui-iconElement-icon {
-				opacity: 0.8;
 			}
 			&:hover .oo-ui-tool-link .oo-ui-iconElement-icon {
 				opacity: 1;

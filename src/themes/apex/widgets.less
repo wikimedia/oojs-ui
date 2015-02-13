@@ -78,9 +78,8 @@
 
 .theme-oo-ui-iconWidget () {
 	line-height: 2.5em;
-	height: 1.9em;
-	width: 1.9em;
-	opacity: 0.8;
+	height: @icon-size;
+	width: @icon-size;
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
@@ -89,9 +88,9 @@
 
 .theme-oo-ui-indicatorWidget () {
 	line-height: 2.5em;
-	height: 1.9em;
-	width: 1.9em;
-	opacity: 0.8;
+	height: @indicator-size;
+	width: @indicator-size;
+	margin: @indicator-size / 2;
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
@@ -127,12 +126,18 @@
 			margin: 0 0.5em;
 		}
 
-		.oo-ui-indicatorElement-indicator,
+		.oo-ui-indicatorElement-indicator {
+			top: 0;
+			width: @indicator-size;
+			height: @indicator-size;
+			margin: 0.775em;
+		}
+
 		.oo-ui-iconElement-icon {
 			top: 0;
-			width: 2.5em;
-			height: 2.5em;
-			opacity: 0.8;
+			width: @icon-size;
+			height: @icon-size;
+			margin: 0.3em;
 		}
 	}
 
@@ -265,11 +270,6 @@
 		}
 	}
 
-	.oo-ui-iconElement-icon,
-	.oo-ui-indicatorElement-indicator {
-		opacity: 0.8;
-	}
-
 	&.oo-ui-iconElement {
 		input,
 		textarea {
@@ -277,8 +277,8 @@
 		}
 
 		.oo-ui-iconElement-icon {
-			width: 2em;
-			background-position: right center;
+			width: @icon-size;
+			margin-left: 0.1em;
 		}
 	}
 
@@ -289,8 +289,8 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			width: 1.5em;
-			background-position: left center;
+			width: @indicator-size;
+			margin-right: 0.775em;
 		}
 	}
 
@@ -379,17 +379,21 @@
 
 	.oo-ui-iconElement-icon,
 	.oo-ui-indicatorElement-indicator {
-		top: 50%;
-		width: 2em;
-		height: 2em;
-		margin-top: -1em;
+		top: 0;
+		height: 100%;
+	}
+
+	.oo-ui-indicatorElement-indicator {
+		width: @indicator-size;
 	}
 
 	.oo-ui-iconElement-icon {
+		width: @icon-size;
 		left: 0.5em;
 	}
 
 	.oo-ui-indicatorElement-indicator {
+		width: @indicator-size;
 		right: 0.5em;
 	}
 }
@@ -399,12 +403,10 @@
 	background-color: transparent;
 
 	.oo-ui-buttonElement-button {
-		height: 1.9em;
+		height: @icon-size;
 	}
 
-	&.oo-ui-iconElement .oo-ui-iconElement-icon,
-	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		height: 1.9em;
+	&.oo-ui-iconElement .oo-ui-iconElement-icon {
 		margin-top: 0;
 	}
 
