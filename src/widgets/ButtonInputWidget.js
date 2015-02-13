@@ -1,5 +1,20 @@
 /**
- * A button that is an input widget. Intended to be used within a OO.ui.FormLayout.
+ * ButtonInputWidget is used to submit HTML forms and is intended to be used within
+ * a OO.ui.FormLayout. If you do not need the button to work with HTML forms, you probably
+ * want to use OO.ui.ButtonWidget instead. Button input widgets can be rendered as either an
+ * HTML `<button/>` (the default) or an HTML `<input/>` tags. See the
+ * [OOjs UI documentation on MediaWiki] [1] for more information.
+ *
+ *     @example
+ *     // A ButtonInputWidget rendered as an HTML button, the default.
+ *     var button = new OO.ui.ButtonInputWidget( {
+ *         label: 'Input button',
+ *         icon: 'check',
+ *         value: 'check'
+ *     } );
+ *     $( 'body' ).append( button.$element );
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Inputs#Button_inputs
  *
  * @class
  * @extends OO.ui.InputWidget
