@@ -116,12 +116,16 @@ OO.ui.TextInputWidget.static.validationPatterns = {
 /**
  * User clicks the icon.
  *
+ * @deprecated Fundamentally not accessible. Make the icon focusable, associate a label or tooltip,
+ *  and handle click/keypress events on it manually.
  * @event icon
  */
 
 /**
  * User clicks the indicator.
  *
+ * @deprecated Fundamentally not accessible. Make the indicator focusable, associate a label or
+ *  tooltip, and handle click/keypress events on it manually.
  * @event indicator
  */
 
