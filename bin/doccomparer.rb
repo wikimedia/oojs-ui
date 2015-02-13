@@ -1,7 +1,7 @@
 require 'pp'
 require_relative 'docparser'
 
-# convert [ {name: 'foo'}, ... ] to { foo: {name: 'foo'}, ... }
+# convert [ {name: 'foo'}, … ] to { foo: {name: 'foo'}, … }
 def reindex arg
 	if arg.is_a?(Array) && arg.all?{|v| v.is_a? Hash }
 		Hash[ arg.map{|v| [ v[:name], reindex(v) ] } ]
@@ -13,7 +13,7 @@ def reindex arg
 end
 
 def indent text, tabs
-	text == '' ? text : text.gsub(/^/, '  '*tabs)
+	text == '' ? text : text.gsub(/^/, '  ' * tabs)
 end
 
 # whitespace-insensitive strings
@@ -59,13 +59,13 @@ def smart_compare_process val, type
 		if val[:name] == '#constructor'
 			val[:params].delete 'element' # PHP only
 		end
-		val[:config].each_pair{|k, v|
+		val[:config].each_pair{|_k, v|
 			default = v.delete :default
 			v[:description] << " (default: #{default})" if default
 			v[:description] = sanitize_description v[:description]
 			v[:type] = sanitize_description v[:type]
 		}
-		val[:params].each_pair{|k, v|
+		val[:params].each_pair{|_k, v|
 			default = v.delete :default
 			v[:description] << " (default: #{default})" if default
 			v[:description] = sanitize_description v[:description]
@@ -98,8 +98,8 @@ def smart_compare_properties a, b, a_name, b_name
 	smart_compare a, b, a_name, b_name, :property
 end
 
-def compare_hash a, b, a_name, b_name, nested = :compare_hash
-	keys = (a ? a.keys: []) + (b ? b.keys : [])
+def compare_hash a, b, a_name, b_name, nested=:compare_hash
+	keys = (a ? a.keys : []) + (b ? b.keys : [])
 	out = keys.to_a.sort.uniq.map do |key|
 		a_val = a ? canonicalize(a[key]) : nil
 		b_val = b ? canonicalize(b[key]) : nil
@@ -131,8 +131,8 @@ def compare_hash a, b, a_name, b_name, nested = :compare_hash
 end
 
 if ARGV.empty? || ARGV == ['-h'] || ARGV == ['--help']
-	$stderr.puts "usage: ruby [-v] #{$0} <dirA> <dirB> <nameA> <nameB>"
-	$stderr.puts "       ruby #{$0} src php JS PHP > compare.txt"
+	$stderr.puts "usage: ruby [-v] #{$PROGRAM_NAME} <dirA> <dirB> <nameA> <nameB>"
+	$stderr.puts "       ruby #{$PROGRAM_NAME} src php JS PHP > compare.txt"
 else
 	dir_a, dir_b, name_a, name_b = ARGV
 
@@ -147,15 +147,19 @@ else
 		puts "\n#{class_name}: #{where.join '/'}" if $VERBOSE || where.length == 2
 
 		if where.length == 2
-			data = [
-				"Basic:",
-				( indent smart_compare(js[class_name], php[class_name], name_a, name_b, :class), 2 ),
-				"Methods:",
-				( indent compare_hash(js[class_name][:methods], php[class_name][:methods], name_a, name_b, :smart_compare_methods), 2 ),
-				"Properties:",
-				( indent compare_hash(js[class_name][:properties], php[class_name][:properties], name_a, name_b, :smart_compare_properties), 2 ),
-			]
-			puts indent data.select{|d| d != ''}.join("\n"), 2
+			data = {
+				'Basic:' =>
+					smart_compare(js[class_name], php[class_name], name_a, name_b, :class),
+				'Methods:' =>
+					compare_hash(js[class_name][:methods], php[class_name][:methods], name_a, name_b, :smart_compare_methods),
+				'Properties:' =>
+					compare_hash(js[class_name][:properties], php[class_name][:properties], name_a, name_b, :smart_compare_properties),
+			}
+			data = data
+				.select{|_k, v| v != ''}
+				.map{|k, v| "#{k}\n#{indent v, 2}" }
+				.join("\n")
+			puts indent data, 2
 		end
 	end
 end

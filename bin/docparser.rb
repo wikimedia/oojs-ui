@@ -35,7 +35,7 @@ def parse_file filename
 	output = []
 	previous_item = {} # dummy
 
-	docblocks.map{|d|
+	docblocks.each{|d|
 		kind = nil
 		previous_item = data = {
 			name: nil,
@@ -49,8 +49,6 @@ def parse_file filename
 			config: [],
 			visibility: :public,
 			type: nil,
-			# static: false, # unnecessary, skip it
-			# abstract: false, # unnecessary, skip it
 		}
 		valid_for_all = %I[name description]
 		valid_per_kind = {
@@ -112,32 +110,32 @@ def parse_file filename
 				when :js
 					type, name, default, description = content.match(/^\{(.+?)\} \[?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/).captures
 					next if type == 'Object' && name == 'config'
-					data[:params] << {name: name, type: cleanup_class_name(type), description: description||'', default: default}
+					data[:params] << {name: name, type: cleanup_class_name(type), description: description || '', default: default}
 					previous_item = data[:params][-1]
 				when :php
 					type, name, config, description = content.match(/^(\S+) \$(\w+)(?:\['(\w+)'\])?( .+)?$/).captures
 					next if type == 'array' && name == 'config' && !config
 					if config && name == 'config'
-						data[:config] << {name: config, type: cleanup_class_name(type), description: description||''}
+						data[:config] << {name: config, type: cleanup_class_name(type), description: description || ''}
 						previous_item = data[:config][-1]
 					else
-						data[:params] << {name: name, type: cleanup_class_name(type), description: description||''}
+						data[:params] << {name: name, type: cleanup_class_name(type), description: description || ''}
 						previous_item = data[:params][-1]
 					end
 				end
 			when 'cfg' # JS only
 				type, name, default, description = content.match(/^\{(.+?)\} \[?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/).captures
-				data[:config] << {name: name, type: cleanup_class_name(type), description: description||'', default: default}
+				data[:config] << {name: name, type: cleanup_class_name(type), description: description || '', default: default}
 				previous_item = data[:config][-1]
 			when 'return'
 				case filetype
 				when :js
 					type, description = content.match(/^\{(.+?)\}( .+)?$/).captures
-					data[:return] = {type: cleanup_class_name(type), description: description||''}
+					data[:return] = {type: cleanup_class_name(type), description: description || ''}
 					previous_item = data[:return]
 				when :php
 					type, description = content.match(/^(\S+)( .+)?$/).captures
-					data[:return] = {type: cleanup_class_name(type), description: description||''}
+					data[:return] = {type: cleanup_class_name(type), description: description || ''}
 					previous_item = data[:return]
 				end
 			when 'private'
@@ -166,7 +164,13 @@ def parse_file filename
 				kind = {'static' => :property, 'prototype' => :method}[ kind_.strip ] if kind_ && !kind
 				data[:name] = cleanup_class_name(name)
 			when :php
-				m = code_line.match(/\s*(?:(public|protected|private) )?(?:(static) )?(function[ \t]|class[ \t]|\$)(\w+)(?: extends (\w+))?/)
+				m = code_line.match(/
+					\s*
+					(?:(public|protected|private)\s)?
+					(?:(static)\s)?(function\s|class\s|\$)
+					(\w+)
+					(?:\sextends\s(\w+))?
+				/x)
 				visibility, static, kind_, name, parent = m.captures
 				kind = {'$' => :property, 'function' => :method, 'class' => :class}[ kind_.strip ]
 				data[:visibility] = {'private' => :private, 'protected' => :private, 'public' => :public}[ visibility ] || :public
@@ -181,7 +185,7 @@ def parse_file filename
 			if current_class
 				output << current_class
 			end
-			current_class = data.select{|k, v| valid_per_kind[:class].include? k }
+			current_class = data.select{|k, _v| valid_per_kind[:class].include? k }
 			current_class[:description] = js_class_constructor_desc if js_class_constructor_desc != ''
 			previous_item = current_class
 		end
@@ -198,7 +202,7 @@ def parse_file filename
 				property: :properties,
 				event: :events,
 			}
-			current_class[keys[kind]] << data.select{|k, v| valid_per_kind[kind].include? k }
+			current_class[keys[kind]] << data.select{|k, _v| valid_per_kind[kind].include? k }
 			previous_item = current_class[keys[kind]]
 		end
 	}
@@ -221,11 +225,11 @@ def parse_any_path path
 	end
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
 	if ARGV.empty? || ARGV == ['-h'] || ARGV == ['--help']
-		$stderr.puts "usage: ruby #{$0} <files...>"
-		$stderr.puts "       ruby #{$0} src > docs-js.json"
-		$stderr.puts "       ruby #{$0} php > docs-php.json"
+		$stderr.puts "usage: ruby #{$PROGRAM_NAME} <files...>"
+		$stderr.puts "       ruby #{$PROGRAM_NAME} src > docs-js.json"
+		$stderr.puts "       ruby #{$PROGRAM_NAME} php > docs-php.json"
 	else
 		out = JSON.pretty_generate ARGV.map{|a| parse_any_path a }.inject(:+)
 		# ew
