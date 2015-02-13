@@ -399,7 +399,7 @@ OO.ui.TextInputWidget.prototype.positionLabel = function () {
 		rtl = this.$element.css( 'direction' ) === 'rtl',
 		property = after === rtl ? 'padding-left' : 'padding-right';
 
-	this.$input.css( property, this.$label.outerWidth() );
+	this.$input.css( property, this.$label.outerWidth( true ) );
 
 	return this;
 };
