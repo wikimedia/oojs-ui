@@ -72,7 +72,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-textInputWidget' )
-		.append( this.$icon, this.$indicator, this.$label );
+		.append( this.$icon, this.$indicator );
 	this.setReadOnly( !!config.readOnly );
 	if ( config.placeholder ) {
 		this.$input.attr( 'placeholder', config.placeholder );
@@ -391,7 +391,10 @@ OO.ui.TextInputWidget.prototype.positionLabel = function () {
 			'padding-left': ''
 		} );
 
-	if ( !this.$label.text() ) {
+	if ( this.label ) {
+		this.$element.append( this.$label );
+	} else {
+		this.$label.detach();
 		return;
 	}
 
