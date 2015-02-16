@@ -61,6 +61,7 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	this.preparingToOpen = null;
 	this.preparingToClose = null;
 	this.currentWindow = null;
+	this.globalEvents = false;
 	this.$ariaHidden = null;
 	this.onWindowResizeTimeout = null;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
@@ -565,13 +566,21 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 	on = on === undefined ? !!this.globalEvents : !!on;
 
+	var $body = $( this.getElementDocument().body ),
+		// We could have multiple window managers open to only modify
+		// the body class at the bottom of the stack
+		stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0 ;
+
 	if ( on ) {
 		if ( !this.globalEvents ) {
 			$( this.getElementWindow() ).on( {
 				// Start listening for top-level window dimension changes
 				'orientationchange resize': this.onWindowResizeHandler
 			} );
-			$( this.getElementDocument().body ).css( 'overflow', 'hidden' );
+			if ( stackDepth === 0 ) {
+				$body.css( 'overflow', 'hidden' );
+			}
+			stackDepth++;
 			this.globalEvents = true;
 		}
 	} else if ( this.globalEvents ) {
@@ -579,9 +588,13 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 			// Stop listening for top-level window dimension changes
 			'orientationchange resize': this.onWindowResizeHandler
 		} );
-		$( this.getElementDocument().body ).css( 'overflow', '' );
+		stackDepth--;
+		if ( stackDepth === 0 ) {
+			$( this.getElementDocument().body ).css( 'overflow', '' );
+		}
 		this.globalEvents = false;
 	}
+	$body.data( 'windowManagerGlobalEvents', stackDepth );
 
 	return this;
 };
