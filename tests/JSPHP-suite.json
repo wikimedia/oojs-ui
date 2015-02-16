@@ -322,6 +322,12 @@
     {
       "class": "ButtonInputWidget",
       "config": {
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
         "icon": "picture"
       }
     },
@@ -539,6 +545,20 @@
       "class": "ButtonInputWidget",
       "config": {
         "type": "button",
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "input",
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "type": "button",
         "icon": "picture"
       }
     },
@@ -791,6 +811,20 @@
       "class": "ButtonInputWidget",
       "config": {
         "useInputTag": true,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": false,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "useInputTag": true,
         "icon": "picture"
       }
     },
@@ -1015,6 +1049,20 @@
       "class": "ButtonInputWidget",
       "config": {
         "value": "Foo bar",
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "<b>HTML?</b>",
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "value": "Foo bar",
         "icon": "picture"
       }
     },
@@ -1211,6 +1259,20 @@
       "class": "ButtonInputWidget",
       "config": {
         "disabled": true,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": false,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "disabled": true,
         "icon": "picture"
       }
     },
@@ -1358,6 +1420,13 @@
       "class": "ButtonInputWidget",
       "config": {
         "flags": "constructive",
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "flags": "constructive",
         "icon": "picture"
       }
     },
@@ -1456,6 +1525,27 @@
       "class": "ButtonInputWidget",
       "config": {
         "tabIndex": -1,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "tabIndex": 0,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "tabIndex": 100,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "tabIndex": -1,
         "icon": "picture"
       }
     },
@@ -1624,6 +1714,20 @@
       "class": "ButtonInputWidget",
       "config": {
         "framed": true,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "framed": false,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "framed": true,
         "icon": "picture"
       }
     },
@@ -1729,6 +1833,62 @@
       "class": "ButtonInputWidget",
       "config": {
         "framed": false,
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "accessKey": "k",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "accessKey": "k",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "accessKey": "k",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "accessKey": "k",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "accessKey": "k",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "accessKey": "k",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "accessKey": "k",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonInputWidget",
+      "config": {
+        "accessKey": "k",
         "title": "<b>HTML?</b>"
       }
     },
@@ -1937,6 +2097,12 @@
     {
       "class": "ButtonWidget",
       "config": {
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
         "icon": "picture"
       }
     },
@@ -2059,6 +2225,13 @@
       "class": "ButtonWidget",
       "config": {
         "href": "http://example.com/",
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "href": "http://example.com/",
         "icon": "picture"
       }
     },
@@ -2185,6 +2358,13 @@
       "class": "ButtonWidget",
       "config": {
         "target": "_blank",
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "target": "_blank",
         "icon": "picture"
       }
     },
@@ -2325,6 +2505,20 @@
       "class": "ButtonWidget",
       "config": {
         "nofollow": true,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "nofollow": false,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "nofollow": true,
         "icon": "picture"
       }
     },
@@ -2521,6 +2715,20 @@
       "class": "ButtonWidget",
       "config": {
         "disabled": true,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "disabled": false,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "disabled": true,
         "icon": "picture"
       }
     },
@@ -2689,6 +2897,20 @@
       "class": "ButtonWidget",
       "config": {
         "framed": true,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "framed": false,
+        "accessKey": "k"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "framed": true,
         "icon": "picture"
       }
     },
@@ -2850,6 +3072,90 @@
       "class": "ButtonWidget",
       "config": {
         "framed": false,
+        "tabIndex": 100
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "icon": "picture"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "indicator": "down"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "label": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "label": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "label": ""
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "label": " "
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "title": "Foo bar"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "title": "<b>HTML?</b>"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "flags": "constructive"
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "tabIndex": -1
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
+        "tabIndex": 0
+      }
+    },
+    {
+      "class": "ButtonWidget",
+      "config": {
+        "accessKey": "k",
         "tabIndex": 100
       }
     },
@@ -3580,222 +3886,6 @@
     },
     {
       "class": "CheckboxInputWidget",
-      "config": {
-        "flags": "constructive",
-        "tabIndex": 100
-      }
-    }
-  ],
-  "DropdownInputWidget": [
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "Foo bar"
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>"
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "disabled": true
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "disabled": false
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "tabIndex": -1
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "tabIndex": 0
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "tabIndex": 100
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "Foo bar",
-        "disabled": true
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "Foo bar",
-        "disabled": false
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "disabled": true
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "disabled": false
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "Foo bar",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "Foo bar",
-        "tabIndex": -1
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "Foo bar",
-        "tabIndex": 0
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "Foo bar",
-        "tabIndex": 100
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "tabIndex": -1
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "tabIndex": 0
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "value": "<b>HTML?</b>",
-        "tabIndex": 100
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "disabled": true,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "disabled": false,
-        "flags": "constructive"
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "disabled": true,
-        "tabIndex": -1
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "disabled": true,
-        "tabIndex": 0
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "disabled": true,
-        "tabIndex": 100
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "disabled": false,
-        "tabIndex": -1
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "disabled": false,
-        "tabIndex": 0
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "disabled": false,
-        "tabIndex": 100
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "flags": "constructive",
-        "tabIndex": -1
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
-      "config": {
-        "flags": "constructive",
-        "tabIndex": 0
-      }
-    },
-    {
-      "class": "DropdownInputWidget",
       "config": {
         "flags": "constructive",
         "tabIndex": 100

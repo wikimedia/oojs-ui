@@ -18,6 +18,7 @@ else
 		.reject{|c| c[:abstract] } # can't test abstract classes
 		.reject{|c| !c[:parent] || c[:parent] == 'ElementMixin' || c[:parent] == 'Theme' } # can't test abstract
 		.reject{|c| %w[Element Widget Layout Theme].include? c[:name] } # no toplevel
+		.reject{|c| c[:name] == 'DropdownInputWidget' } # different PHP and JS implementations
 		.select{|c| c[:methods][0][:params].empty? } # only without params :(
 
 	# values to test for each type
@@ -38,6 +39,7 @@ else
 		'action' => [],
 		'enctype' => true,
 		'target' => ['_blank'],
+		'accessKey' => ['k'],
 		'name' => true,
 		'autofocus' => true, # usually makes no sense in JS
 		'tabIndex' => [-1, 0, 100],
