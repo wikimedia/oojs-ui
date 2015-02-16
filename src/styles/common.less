@@ -3,6 +3,7 @@
 // Variables
 
 // @oo-ui-default-image-ext set during build
+// @oo-ui-distribution set during build
 @oo-ui-default-image-path: 'images';
 
 // Mixins
@@ -11,20 +12,38 @@
 	background-image: e('/* @embed */') url(~'@{url}');
 }
 
+.oo-ui-background-image-svg( @url-without-extension, @fallback-ext: @oo-ui-default-image-ext )
+		when ( @oo-ui-distribution = mixed ) {
+	@svg: '@{url-without-extension}.svg';
+	@fallback: '@{url-without-extension}.@{fallback-ext}';
+	background-image: url(@fallback);
+	background-image: -webkit-linear-gradient(transparent, transparent), e('/* @embed */') url(@svg);
+	background-image: linear-gradient(transparent, transparent), e('/* @embed */') url(@svg);
+	background-image: -o-linear-gradient(transparent, transparent), url(@fallback);
+}
+.oo-ui-background-image-svg( @url-without-extension, @fallback-ext: @oo-ui-default-image-ext )
+		when ( @oo-ui-distribution = vector ) {
+	.oo-ui-background-image('@{url-without-extension}.svg');
+}
+.oo-ui-background-image-svg( @url-without-extension, @fallback-ext: @oo-ui-default-image-ext )
+		when ( @oo-ui-distribution = raster ) {
+	.oo-ui-background-image('@{url-without-extension}.@{fallback-ext}');
+}
+
 .oo-ui-force-webkit-gpu() {
 	-webkit-transform: translate3d(0, 0, 0);
 }
 
 .oo-ui-image( @type, @name, @file, @ext, @path ) {
 	.oo-ui-@{type}-@{name} {
-		.oo-ui-background-image('@{path}/@{type}s/@{file}.@{ext}');
+		.oo-ui-background-image-svg('@{path}/@{type}s/@{file}', @ext);
 	}
 }
 
 .oo-ui-image-variant( @type, @name, @file, @variant, @ext, @path ) {
 	.oo-ui-image-@{variant} .oo-ui-@{type}-@{name},
 	.oo-ui-image-@{variant}.oo-ui-@{type}-@{name} {
-		.oo-ui-background-image('@{path}/@{type}s/@{file}-@{variant}.@{ext}');
+		.oo-ui-background-image-svg('@{path}/@{type}s/@{file}-@{variant}', @ext);
 	}
 }
 

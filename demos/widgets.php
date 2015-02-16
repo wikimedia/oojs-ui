@@ -10,8 +10,14 @@
 	$themeClass = 'OOUI\\' . ( $theme === 'apex' ? 'Apex' : 'MediaWiki' ) . 'Theme';
 	OOUI\Theme::setSingleton( new $themeClass() );
 
-	$graphic = ( isset( $_GET['graphic'] ) && $_GET['graphic'] === 'raster' ) ? 'raster' : 'vector';
-	$graphicSuffix = $graphic === 'vector' ? '.svg' : '';
+	$graphicSuffixMap = array(
+		'mixed' => '',
+		'vector' => '.svg',
+		'raster' => '.png',
+	);
+	$graphic = ( isset( $_GET['graphic'] ) && isset( $graphicSuffixMap[ $_GET['graphic'] ] ) )
+		? $_GET['graphic'] : 'vector';
+	$graphicSuffix = $graphicSuffixMap[ $graphic ];
 
 	$direction = ( isset( $_GET['direction'] ) && $_GET['direction'] === 'rtl' ) ? 'rtl' : 'ltr';
 	$directionSuffix = $direction === 'rtl' ? '.rtl' : '';
@@ -50,6 +56,10 @@
 				) );
 				echo new OOUI\ButtonGroupWidget( array(
 					'items' => array(
+						new OOUI\ButtonWidget( array(
+							'label' => 'Mixed',
+							'href' => '?' . http_build_query( array_merge( $query, array( 'graphic' => 'mixed' ) ) ),
+						) ),
 						new OOUI\ButtonWidget( array(
 							'label' => 'Vector',
 							'href' => '?' . http_build_query( array_merge( $query, array( 'graphic' => 'vector' ) ) ),

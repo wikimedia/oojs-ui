@@ -32,6 +32,7 @@ OO.ui.Demo = function OoUiDemo() {
 		new OO.ui.ButtonOptionWidget( { data: 'apex', label: 'Apex' } )
 	] );
 	this.graphicsSelect = new OO.ui.ButtonSelectWidget().addItems( [
+		new OO.ui.ButtonOptionWidget( { data: 'mixed', label: 'Mixed' } ),
 		new OO.ui.ButtonOptionWidget( { data: 'vector', label: 'Vector' } ),
 		new OO.ui.ButtonOptionWidget( { data: 'raster', label: 'Raster' } )
 	] );
@@ -115,8 +116,9 @@ OO.ui.Demo.static.themes = {
  * @property {Object.<string,Object>}
  */
 OO.ui.Demo.static.graphics = {
-	vector: { fileSuffix: '.svg' },
-	raster: { fileSuffix: '' }
+	mixed: { fileSuffix: '' },
+	vector: { fileSuffix: '.vector' },
+	raster: { fileSuffix: '.raster' }
 };
 
 /**
