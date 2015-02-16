@@ -103,11 +103,7 @@ OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
  */
 OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
 	if ( !this.isDisabled() && e.which === 1 ) {
-		if ( this.menu.isVisible() ) {
-			this.menu.toggle( false );
-		} else {
-			this.menu.toggle( true );
-		}
+		this.menu.toggle();
 	}
 	return false;
 };
@@ -119,11 +115,7 @@ OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
  */
 OO.ui.DropdownWidget.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
-		if ( this.menu.isVisible() ) {
-			this.menu.toggle( false );
-		} else {
-			this.menu.toggle( true );
-		}
+		this.menu.toggle();
 	}
 	return false;
 };
