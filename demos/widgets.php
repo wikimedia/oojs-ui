@@ -146,6 +146,28 @@
 					$buttonStyleShowcaseWidget->appendContent( new OOUI\HtmlSnippet( '<br />' ) );
 				}
 
+				$horizontalAlignmentWidget = new OOUI\Widget( array(
+					'classes' => array( 'oo-ui-demo-horizontal-alignment' )
+				) );
+				$horizontalAlignmentWidget->appendContent(
+					new OOUI\ButtonWidget( array( 'label' => 'Button' ) ),
+					new OOUI\ButtonGroupWidget( array( 'items' => array(
+						new OOUI\ButtonWidget( array( 'label' => 'A' ) ),
+						new OOUI\ButtonWidget( array( 'label' => 'B' ) )
+					) ) ),
+					new OOUI\ButtonInputWidget( array( 'label' => 'ButtonInput' ) ),
+					new OOUI\TextInputWidget( array( 'value' => 'TextInput' ) ),
+					new OOUI\DropdownInputWidget( array( 'options' => array(
+						array(
+							'label' => 'DropdownInput',
+							'data' => null
+						)
+					) ) ),
+					new OOUI\CheckboxInputWidget( array( 'selected' => true ) ),
+					new OOUI\RadioInputWidget( array( 'selected' => true ) ),
+					new OOUI\LabelWidget( array( 'label' => 'Label' ) )
+				);
+
 				echo new OOUI\FieldsetLayout( array(
 					'label' => 'Simple buttons',
 					'items' => array(
@@ -580,6 +602,19 @@
 							array(
 								'align' => 'top',
 								'label' => "ButtonInputWidget (using <input/>)\xE2\x80\x8E"
+							)
+						)
+					)
+				) );
+				echo new OOUI\FieldsetLayout( array(
+					'label' => 'Horizontal alignment',
+					'items' => array(
+						new OOUI\FieldLayout(
+							$horizontalAlignmentWidget,
+							array(
+								'label' => 'Multiple widgets shown as a single line, ' .
+									'as used in compact forms or in parts of a bigger widget.',
+								'align' => 'top'
 							)
 						)
 					)
