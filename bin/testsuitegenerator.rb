@@ -2,8 +2,8 @@ require 'pp'
 require_relative 'docparser'
 
 if ARGV.empty? || ARGV == ['-h'] || ARGV == ['--help']
-	$stderr.puts "usage: ruby #{$0} <dirA> <dirB>"
-	$stderr.puts "       ruby #{$0} src php > tests/JSPHP-suite.json"
+	$stderr.puts "usage: ruby #{$PROGRAM_NAME} <dirA> <dirB>"
+	$stderr.puts "       ruby #{$PROGRAM_NAME} src php > tests/JSPHP-suite.json"
 else
 	dir_a, dir_b = ARGV
 	js = parse_any_path dir_a
