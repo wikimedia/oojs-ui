@@ -367,8 +367,8 @@ OO.ui.TextInputWidget.prototype.updatePosition = function () {
 	var after = this.labelPosition === 'after';
 
 	this.$element
-		.toggleClass( 'oo-ui-textInputWidget-labelPosition-after', this.label && after )
-		.toggleClass( 'oo-ui-textInputWidget-labelPosition-before', this.label && !after );
+		.toggleClass( 'oo-ui-textInputWidget-labelPosition-after', !!this.label && after )
+		.toggleClass( 'oo-ui-textInputWidget-labelPosition-before', !!this.label && !after );
 
 	if ( this.label ) {
 		this.positionLabel();
