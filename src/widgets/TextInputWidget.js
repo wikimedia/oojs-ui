@@ -78,7 +78,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	if ( config.placeholder ) {
 		this.$input.attr( 'placeholder', config.placeholder );
 	}
-	if ( config.maxLength ) {
+	if ( config.maxLength !== undefined ) {
 		this.$input.attr( 'maxlength', config.maxLength );
 	}
 	if ( config.autofocus ) {
