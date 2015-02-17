@@ -15,10 +15,6 @@ OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWid
 	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );
 
-	// Properties (must be set before parent constructor, which calls #getTagName)
-	this.fieldWidget = fieldWidget;
-	this.buttonWidget = buttonWidget;
-
 	// Parent constructor
 	OO.ui.ActionFieldLayout.super.call( this, fieldWidget, config );
 
@@ -26,14 +22,14 @@ OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWid
 	OO.ui.LabelElement.call( this, config );
 
 	// Properties
+	this.fieldWidget = fieldWidget;
+	this.buttonWidget = buttonWidget;
 	this.$button = $( '<div>' )
 		.addClass( 'oo-ui-actionFieldLayout-button' )
 		.append( this.buttonWidget.$element );
-
 	this.$input = $( '<div>' )
 		.addClass( 'oo-ui-actionFieldLayout-input' )
 		.append( this.fieldWidget.$element );
-
 	this.$field
 		.addClass( 'oo-ui-actionFieldLayout' )
 		.append( this.$input, this.$button );
