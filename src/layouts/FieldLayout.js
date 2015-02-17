@@ -27,9 +27,6 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );
 
-	// Properties (must be set before parent constructor, which calls #getTagName)
-	this.fieldWidget = fieldWidget;
-
 	// Parent constructor
 	OO.ui.FieldLayout.super.call( this, config );
 
@@ -37,6 +34,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	OO.ui.LabelElement.call( this, config );
 
 	// Properties
+	this.fieldWidget = fieldWidget;
 	this.$field = $( '<div>' );
 	this.$body = $( '<' + ( hasInputWidget ? 'label' : 'div' ) + '>' );
 	this.align = null;
