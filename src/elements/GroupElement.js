@@ -1,5 +1,10 @@
 /**
- * Element containing a sequence of child elements.
+ * Any OOjs UI widget that contains other widgets (such as {@link OO.ui.ButtonWidget buttons} or
+ * {@link OO.ui.OptionWidget options}) mixes in GroupElement. Adding, removing, and clearing
+ * items from the group is done through the interface the class provides.
+ * For more information, please see the [OOjs UI documentation on MediaWiki] [1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Elements/Groups
  *
  * @abstract
  * @class
