@@ -1,16 +1,23 @@
 /**
- * Layout made of a field and optional label.
+ * FieldLayouts are used with OO.ui.FieldsetLayout. Each FieldLayout requires a field-widget,
+ * which is a widget that is specified by reference before any optional configuration settings.
  *
- * Available label alignment modes include:
- *  - left: Label is before the field and aligned away from it, best for when the user will be
- *    scanning for a specific label in a form with many fields
- *  - right: Label is before the field and aligned toward it, best for forms the user is very
- *    familiar with and will tab through field checking quickly to verify which field they are in
- *  - top: Label is before the field and above it, best for when the user will need to fill out all
- *    fields from top to bottom in a form with few fields
- *  - inline: Label is after the field and aligned toward it, best for small boolean fields like
- *    checkboxes or radio buttons
+ * Field layouts can be configured with help text and/or labels. Labels are aligned in one of four ways:
  *
+ * - **left**: The label is placed before the field-widget and aligned with the left margin.
+ *             A left-alignment is used for forms with many fields.
+ * - **right**: The label is placed before the field-widget and aligned to the right margin.
+ *              A right-alignment is used for long but familiar forms which users tab through,
+ *              verifying the current field with a quick glance at the label.
+ * - **top**: The label is placed above the field-widget. A top-alignment is used for brief forms
+ *            that users fill out from top to bottom.
+ * - **inline**: The label is placed after the field-widget and aligned to the left.
+                 An inline-alignment is best used with checkboxes or radio buttons.
+ *
+ * Help text is accessed via a help icon that appears in the upper right corner of the rendered field layout.
+ * Please see the [OOjs UI documentation on MediaWiki] [1] for examples and more information.
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Layouts/Fields_and_Fieldsets
  * @class
  * @extends OO.ui.Layout
  * @mixins OO.ui.LabelElement
