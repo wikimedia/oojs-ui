@@ -12,8 +12,8 @@
 
 	$graphicSuffixMap = array(
 		'mixed' => '',
-		'vector' => '.svg',
-		'raster' => '.png',
+		'vector' => '.vector',
+		'raster' => '.raster',
 	);
 	$graphic = ( isset( $_GET['graphic'] ) && isset( $graphicSuffixMap[ $_GET['graphic'] ] ) )
 		? $_GET['graphic'] : 'vector';
