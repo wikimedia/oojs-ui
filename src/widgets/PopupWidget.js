@@ -73,6 +73,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.align = config.align || 'center';
 	this.closeButton = new OO.ui.ButtonWidget( { framed: false, icon: 'close' } );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
+	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
 
 	// Events
 	this.closeButton.connect( this, { click: 'onCloseButtonClick' } );
@@ -120,7 +121,7 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.ClippableElement );
  * Handles mouse down events.
  *
  * @private
- * @param {jQuery.Event} e Mouse down event
+ * @param {MouseEvent} e Mouse down event
  */
 OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
 	if (
@@ -160,6 +161,41 @@ OO.ui.PopupWidget.prototype.onCloseButtonClick = function () {
  */
 OO.ui.PopupWidget.prototype.unbindMouseDownListener = function () {
 	this.getElementWindow().removeEventListener( 'mousedown', this.onMouseDownHandler, true );
+};
+
+/**
+ * Handles key down events.
+ *
+ * @private
+ * @param {KeyboardEvent} e Key down event
+ */
+OO.ui.PopupWidget.prototype.onDocumentKeyDown = function ( e ) {
+	if (
+		e.which === OO.ui.Keys.ESCAPE &&
+		this.isVisible()
+	) {
+		this.toggle( false );
+		e.preventDefault();
+		e.stopPropagation();
+	}
+};
+
+/**
+ * Bind key down listener.
+ *
+ * @private
+ */
+OO.ui.PopupWidget.prototype.bindKeyDownListener = function () {
+	this.getElementWindow().addEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
+};
+
+/**
+ * Unbind key down listener.
+ *
+ * @private
+ */
+OO.ui.PopupWidget.prototype.unbindKeyDownListener = function () {
+	this.getElementWindow().removeEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
 };
 
 /**
@@ -204,6 +240,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 		if ( show ) {
 			if ( this.autoClose ) {
 				this.bindMouseDownListener();
+				this.bindKeyDownListener();
 			}
 			this.updateDimensions();
 			this.toggleClipping( true );
@@ -211,6 +248,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 			this.toggleClipping( false );
 			if ( this.autoClose ) {
 				this.unbindMouseDownListener();
+				this.unbindKeyDownListener();
 			}
 		}
 	}
