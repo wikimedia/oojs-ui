@@ -103,7 +103,7 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 		.addClass( 'oo-ui-processDialog-errors-title' )
 		.text( OO.ui.msg( 'ooui-dialog-process-error' ) );
 	this.$errors
-		.addClass( 'oo-ui-processDialog-errors' )
+		.addClass( 'oo-ui-processDialog-errors oo-ui-element-hidden' )
 		.append( this.$errorsTitle, this.dismissButton.$element, this.retryButton.$element );
 	this.$content
 		.addClass( 'oo-ui-processDialog-content' )
@@ -205,14 +205,14 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 	}
 	this.retryButton.toggle( recoverable );
 	this.$errorsTitle.after( this.$errorItems );
-	this.$errors.removeClass( 'oo-ui-widget-hidden' ).scrollTop( 0 );
+	this.$errors.removeClass( 'oo-ui-element-hidden' ).scrollTop( 0 );
 };
 
 /**
  * Hide errors.
  */
 OO.ui.ProcessDialog.prototype.hideErrors = function () {
-	this.$errors.addClass( 'oo-ui-widget-hidden' );
+	this.$errors.addClass( 'oo-ui-element-hidden' );
 	this.$errorItems.remove();
 	this.$errorItems = null;
 };
