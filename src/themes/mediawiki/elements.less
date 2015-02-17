@@ -27,13 +27,6 @@
 		height: 1.9em;
 	}
 
-	&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
-		> .oo-ui-iconElement-icon,
-		> .oo-ui-indicatorElement-indicator {
-			opacity: 0.2;
-		}
-	}
-
 	&-frameless {
 		> .oo-ui-buttonElement-button {
 			&:hover,
@@ -76,6 +69,11 @@
 
 		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
 			color: @disabled-text;
+
+			> .oo-ui-iconElement-icon,
+			> .oo-ui-indicatorElement-indicator {
+				opacity: 0.2;
+			}
 		}
 	}
 

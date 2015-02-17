@@ -31,7 +31,7 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 		classes = OO.ui.MediaWikiTheme.super.prototype.getElementClasses.call( this, element );
 
 	if ( element.supports( [ 'isFramed', 'isDisabled', 'hasFlag' ] ) ) {
-		if ( !element.isDisabled() && element.isFramed() && element.hasFlag( 'primary' ) ) {
+		if ( element.isFramed() && ( element.isDisabled() || element.hasFlag( 'primary' ) ) ) {
 			variants.invert = true;
 		} else {
 			variants.progressive = element.hasFlag( 'progressive' );
