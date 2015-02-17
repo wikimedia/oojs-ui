@@ -51,19 +51,19 @@
 
 		// Gather certain properties and pretend they are attributes.
 		// Take note of casing differences.
-		if ( element.hasOwnProperty( 'value' ) ) {
+		if ( element.value !== undefined ) {
 			summary.attributes.value = element.value;
 		}
-		if ( element.hasOwnProperty( 'readOnly' ) ) {
+		if ( element.readOnly !== undefined ) {
 			summary.attributes.readonly = element.readOnly;
 		}
-		if ( element.hasOwnProperty( 'checked' ) ) {
+		if ( element.checked !== undefined ) {
 			summary.attributes.checked = element.checked;
 		}
-		if ( element.hasOwnProperty( 'disabled' ) ) {
+		if ( element.disabled !== undefined ) {
 			summary.attributes.disabled = element.disabled;
 		}
-		if ( element.hasOwnProperty( 'tabIndex' ) ) {
+		if ( element.tabIndex !== undefined ) {
 			summary.attributes.tabindex = element.tabIndex;
 		}
 
