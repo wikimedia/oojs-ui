@@ -60,12 +60,6 @@ class ButtonInputWidget extends InputWidget {
 		$this->addClasses( array( 'oo-ui-buttonInputWidget' ) );
 	}
 
-	/**
-	 * Get input element.
-	 *
-	 * @param array $config Configuration options
-	 * @return Tag Input element
-	 */
 	protected function getInputElement( $config ) {
 		$input = new Tag( $config['useInputTag'] ? 'input' : 'button' );
 		$input->setAttributes( array( 'type' => $config['type'] ) );

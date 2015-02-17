@@ -89,12 +89,6 @@ class TextInputWidget extends InputWidget {
 		return $this;
 	}
 
-	/**
-	 * Get input element.
-	 *
-	 * @param array $config Configuration options
-	 * @return Tag Input element
-	 */
 	protected function getInputElement( $config ) {
 		if ( isset( $config['multiline'] ) && $config['multiline'] ) {
 			return new Tag( 'textarea' );
