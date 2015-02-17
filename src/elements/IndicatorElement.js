@@ -1,10 +1,16 @@
 /**
- * Element containing an indicator.
+ * IndicatorElement is often mixed into other classes to generate an indicator.
+ * Indicators are small graphics that are generally used in two ways:
  *
- * Indicators are graphics, smaller than normal text. They can be used to describe unique status or
- * behavior. Indicators should only be used in exceptional cases; such as a button that opens a menu
- * instead of performing an action directly, or an item in a list which has errors that need to be
- * resolved.
+ * - To draw attention to the status of an item. For example, an indicator might be
+ *   used to show that an item in a list has errors that need to be resolved.
+ * - To clarify the function of a control that acts in an exceptional way (a button
+ *   that opens a menu instead of performing an action directly, for example).
+ *
+ * For a list of indicators included in the library, please see the
+ * [OOjs UI documentation on MediaWiki] [1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Icons,_Indicators,_and_Labels#Indicators
  *
  * @abstract
  * @class
