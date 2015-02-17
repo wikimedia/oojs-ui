@@ -83,7 +83,7 @@ class ButtonWidget extends Widget {
 	/**
 	 * Get search engine traversal hint.
 	 *
-	 * @return boolean Whether search engines should avoid traversing this hyperlink.
+	 * @return boolean Whether search engines should avoid traversing this hyperlink
 	 */
 	public function getNoFollow() {
 		return $this->nofollow;

@@ -21,7 +21,7 @@ class TabIndexedElement extends ElementMixin {
 	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param number|null $config['tabIndex'] Tab index value. Use 0 to use default ordering, use -1 to
-	 *   prevent tab focusing, use null for no tabindex attribute. (default: 0)
+	 *   prevent tab focusing, use null to suppress the `tabindex` attribute. (default: 0)
 	 */
 	public function __construct( Element $element, array $config = array() ) {
 		// Parent constructor
@@ -35,7 +35,7 @@ class TabIndexedElement extends ElementMixin {
 	/**
 	 * Set tab index value.
 	 *
-	 * @param number|null $tabIndex Tab index value or null for no tabIndex
+	 * @param number|null $tabIndex Tab index value or null for no tab index
 	 * @chainable
 	 */
 	public function setTabIndex( $tabIndex ) {
