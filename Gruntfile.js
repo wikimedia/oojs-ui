@@ -27,8 +27,9 @@ module.exports = function ( grunt ) {
 			'oojs-ui-mediawiki': modules[ 'oojs-ui-mediawiki' ].styles
 		},
 		lessFiles = {
-			default: {},
-			svg: {}
+			raster: {},
+			vector: {},
+			mixed: {}
 		},
 		originalLessFiles = {},
 		concatCssFiles = {},
@@ -45,9 +46,7 @@ module.exports = function ( grunt ) {
 		}
 		for ( module in styleTargets ) {
 			for ( target in lessFiles ) {
-				distFile = target === 'default' ?
-					'dist/' + module + '.css' :
-					'dist/' + module + '.' + target + '.css';
+				distFile = 'dist/' + module + ( target !== 'mixed' ? '.' + target : '' ) + '.css';
 
 				originalLessFiles[ distFile ] = styleTargets[ module ];
 				lessFiles[ target ][ distFile ] = styleTargets[ module ].map( fixLessDirectory );
@@ -138,25 +137,38 @@ module.exports = function ( grunt ) {
 
 		// Build – Styling
 		less: {
-			distDefault: {
+			distRaster: {
 				options: {
 					ieCompat: true,
 					report: 'gzip',
 					modifyVars: {
+						'oo-ui-distribution': 'raster',
 						'oo-ui-default-image-ext': 'png'
 					}
 				},
-				files: lessFiles.default
+				files: lessFiles.raster
 			},
-			distSvg: {
+			distVector: {
 				options: {
 					ieCompat: false,
 					report: 'gzip',
 					modifyVars: {
+						'oo-ui-distribution': 'vector',
 						'oo-ui-default-image-ext': 'svg'
 					}
 				},
-				files: lessFiles.svg
+				files: lessFiles.vector
+			},
+			distMixed: {
+				options: {
+					ieCompat: false,
+					report: 'gzip',
+					modifyVars: {
+						'oo-ui-distribution': 'mixed',
+						'oo-ui-default-image-ext': 'png'
+					}
+				},
+				files: lessFiles.mixed
 			}
 		},
 		cssjanus: {
@@ -349,7 +361,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'quick-build', [
 		'pre-git-build', 'clean:build', 'fileExists', 'typos',
 		'concat:js',
-		'copy:lessTemp', 'colorizeSvg', 'less:distSvg', 'copy:svg',
+		'copy:lessTemp', 'colorizeSvg', 'less:distVector', 'copy:svg',
 		'copy:imagesApex', 'copy:imagesMediaWiki',
 		'build-i18n'
 	] );
