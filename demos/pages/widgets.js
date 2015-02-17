@@ -432,6 +432,18 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						label: 'ButtonWidget (frameless, constructive, disabled)\u200E',
 						align: 'top'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						framed: false,
+						icon: 'picture',
+						indicator: 'down',
+						label: 'Labeled'
+					} ),
+					{
+						label: 'ButtonWidget (frameless, indicator)\u200E',
+						align: 'top'
+					}
 				)
 			]
 		} ),
