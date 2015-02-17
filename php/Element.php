@@ -32,6 +32,13 @@ class Element extends Tag {
 	/* Members */
 
 	/**
+	 * Element data.
+	 *
+	 * @var mixed
+	 */
+	protected $data = null;
+
+	/**
 	 * Mixins.
 	 *
 	 * @var array List mixed in objects.
@@ -46,12 +53,16 @@ class Element extends Tag {
 	 * @param string $config['id'] HTML id attribute
 	 * @param array $config['content'] Content to append, strings or Element objects. Strings will
 	 *   be HTML-escaped for output, use a HtmlSnippet instance to prevent that.
+	 * @param Mixed $config['data'] Element data
 	 */
 	public function __construct( array $config = array() ) {
 		// Parent constructor
 		parent::__construct( $this->getTagName() );
 
 		// Initialization
+		if ( isset( $config['data'] ) ) {
+			$this->setData( $config['data'] );
+		}
 		if ( isset( $config['classes'] ) && is_array( $config['classes'] ) ) {
 			$this->addClasses( $config['classes'] );
 		}
@@ -121,6 +132,26 @@ class Element extends Tag {
 	 */
 	public function getTagName() {
 		return $this::$tagName;
+	}
+
+	/**
+	 * Get element data.
+	 *
+	 * @return {Mixed} Element data
+	 */
+	public function getData() {
+		return $this->data;
+	}
+
+	/**
+	 * Set element data.
+	 *
+	 * @param {Mixed} Element data
+	 * @chainable
+	 */
+	public function setData( $data ) {
+		$this->data = $data;
+		return $this;
 	}
 
 	/**
