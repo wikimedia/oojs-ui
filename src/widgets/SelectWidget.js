@@ -1,10 +1,14 @@
 /**
- * Generic selection of options.
+ * A SelectWidget is of a generic selection of options. The OOjs UI library contains several types of
+ * select widgets, including {@link OO.ui.ButtonSelectWidget button selects},
+ * {@link OO.ui.RadioSelectWidget radio selects}, and {@link OO.ui.MenuSelectWidget
+ * menu selects}.
  *
- * Items can contain any rendering. Any widget that provides options, from which the user must
- * choose one, should be built on this class.
+ * This class should be used together with OO.ui.OptionWidget.
  *
- * Use together with OO.ui.OptionWidget.
+ * For more information, please see the [OOjs UI documentation on MediaWiki][1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.Widget
