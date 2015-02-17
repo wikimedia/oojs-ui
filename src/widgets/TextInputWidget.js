@@ -6,6 +6,7 @@
  * @mixins OO.ui.IconElement
  * @mixins OO.ui.IndicatorElement
  * @mixins OO.ui.PendingElement
+ * @mixins OO.ui.LabelElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
