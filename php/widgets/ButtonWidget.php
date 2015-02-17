@@ -28,13 +28,13 @@ class ButtonWidget extends Widget {
 	 *
 	 * @var boolean
 	 */
-	protected $nofollow = true;
+	protected $noFollow = true;
 
 	/**
 	 * @param array $config Configuration options
 	 * @param string $config['href'] Hyperlink to visit when clicked
 	 * @param string $config['target'] Target to open hyperlink in
-	 * @param boolean $config['nofollow'] Search engine traversal hint (default: true)
+	 * @param boolean $config['noFollow'] Search engine traversal hint (default: true)
 	 */
 	public function __construct( array $config = array() ) {
 		// Parent constructor
@@ -59,7 +59,11 @@ class ButtonWidget extends Widget {
 
 		$this->setHref( isset( $config['href'] ) ? $config['href'] : null );
 		$this->setTarget( isset( $config['target'] ) ? $config['target'] : null );
-		$this->setNoFollow( isset( $config['nofollow'] ) ? $config['nofollow'] : true );
+		$this->setNoFollow( isset( $config['noFollow'] ) ? $config['noFollow'] : true );
+		// FIXME: The `nofollow` alias is deprecated and will be removed (T89767)
+		if ( isset( $config['nofollow'] ) ) {
+			$this->setNoFollow( $config['nofollow'] );
+		}
 	}
 
 	/**
@@ -86,7 +90,7 @@ class ButtonWidget extends Widget {
 	 * @return boolean Whether search engines should avoid traversing this hyperlink.
 	 */
 	public function getNoFollow() {
-		return $this->nofollow;
+		return $this->noFollow;
 	}
 
 	/**
@@ -126,12 +130,12 @@ class ButtonWidget extends Widget {
 	/**
 	 * Set search engine traversal hint.
 	 *
-	 * @param boolean $nofollow True if search engines should avoid traversing this hyperlink
+	 * @param boolean $noFollow True if search engines should avoid traversing this hyperlink
 	 */
-	public function setNoFollow( $nofollow ) {
-		$this->nofollow = is_bool( $nofollow ) ? $nofollow : true;
+	public function setNoFollow( $noFollow ) {
+		$this->noFollow = is_bool( $noFollow ) ? $noFollow : true;
 
-		if ( $this->nofollow ) {
+		if ( $this->noFollow ) {
 			$this->button->setAttributes( array( 'rel' => 'nofollow' ) );
 		} else {
 			$this->button->removeAttributes( array( 'rel' ) );
