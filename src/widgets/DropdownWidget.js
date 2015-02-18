@@ -77,6 +77,7 @@ OO.ui.DropdownWidget.prototype.getMenu = function () {
 /**
  * Handles menu select events.
  *
+ * @private
  * @param {OO.ui.MenuOptionWidget} item Selected menu item
  */
 OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
@@ -99,6 +100,7 @@ OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
 /**
  * Handle mouse click events.
  *
+ * @private
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
@@ -111,6 +113,7 @@ OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
 /**
  * Handle key press events.
  *
+ * @private
  * @param {jQuery.Event} e Key press event
  */
 OO.ui.DropdownWidget.prototype.onKeyPress = function ( e ) {
