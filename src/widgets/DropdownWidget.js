@@ -1,10 +1,35 @@
 /**
- * Dropdown menu of options.
+ * DropdownWidgets are not menus themselves, rather they contain a menu of options created with
+ * OO.ui.MenuOptionWidget. The DropdownWidget takes care of opening and displaying the menu so that
+ * users can interact with it.
  *
- * Dropdown menus provide a control for accessing a menu and compose a menu within the widget, which
- * can be accessed using the #getMenu method.
+ *     @example
+ *     // Example: A DropdownWidget with a menu that contains three options
+ *     var dropDown=new OO.ui.DropdownWidget( {
+ *         label: 'Dropdown menu: Select a menu option',
+ *         menu: {
+ *             items: [
+ *                 new OO.ui.MenuOptionWidget( {
+ *                     data: 'a',
+ *                     label: 'First'
+ *                 } ),
+ *                 new OO.ui.MenuOptionWidget( {
+ *                     data: 'b',
+ *                     label: 'Second'
+ *                 } ),
+ *                 new OO.ui.MenuOptionWidget( {
+ *                     data: 'c',
+ *                     label: 'Third'
+ *                 } )
+ *             ]
+ *         }
+ *     } );
  *
- * Use with OO.ui.MenuOptionWidget.
+ *     $('body').append(dropDown.$element);
+ *
+ * For more information, please see the [OOjs UI documentation on MediaWiki] [1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options#Menu_selects_and_options
  *
  * @class
  * @extends OO.ui.Widget
