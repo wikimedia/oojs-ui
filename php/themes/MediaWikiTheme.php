@@ -18,11 +18,7 @@ class MediaWikiTheme extends Theme {
 		$classes = parent::getElementClasses( $element );
 
 		if ( $element->supports( array( 'isFramed', 'isDisabled', 'hasFlag' ) ) ) {
-			if (
-				!$element->isDisabled() &&
-				$element->isFramed() &&
-				$element->hasFlag( 'primary' )
-			) {
+			if ( $element->isFramed() && ( $element->isDisabled() || $element->hasFlag( 'primary' ) ) ) {
 				$variants['invert'] = true;
 			} else {
 				$variants['progressive'] = $element->hasFlag( 'progressive' );
