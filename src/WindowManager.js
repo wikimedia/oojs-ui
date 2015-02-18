@@ -1,40 +1,51 @@
 /**
- * Collection of windows.
+ * Window managers are used to open and close {@link OO.ui.Window windows} and control their presentation.
+ * Managed windows are mutually exclusive. If a new window is opened while a current window is opening
+ * or is opened, the current window will be closed and any ongoing {@link OO.ui.Process process} will be cancelled. Windows
+ * themselves are persistent and—rather than being torn down when closed—can be repopulated with the
+ * pertinent data and reused.
+ *
+ * Over the lifecycle of a window, the window manager makes available three promises: `opening`,
+ * `opened`, and `closing`, which represent the primary stages of the cycle:
+ *
+ * **Opening**: the opening stage begins when the window manager’s #openWindow or a window’s
+ * {@link OO.ui.Window#open open} method is used, and the window manager begins to open the window.
+ *
+ * - an `opening` event is emitted with an `opening` promise
+ * - the #getSetupDelay method is called and the returned value is used to time a pause in execution before
+ *   the window’s {@link OO.ui.Window#getSetupProcess getSetupProcess} method is called on the
+ *   window and its result executed
+ * - a `setup` progress notification is emitted from the `opening` promise
+ * - the #getReadyDelay method is called the returned value is used to time a pause in execution before
+ *   the window’s {@link OO.ui.Window#getReadyProcess getReadyProcess} method is called on the
+ *   window and its result executed
+ * - a `ready` progress notification is emitted from the `opening` promise
+ * - the `opening` promise is resolved with an `opened` promise
+ *
+ * **Opened**: the window is now open.
+ *
+ * **Closing**: the closing stage begins when the window manager's #closeWindow or the
+ * window's {@link OO.ui.Window#close close} methods is used, and the window manager begins
+ * to close the window.
+ *
+ * - the `opened` promise is resolved with `closing` promise and a `closing` event is emitted
+ * - the #getHoldDelay method is called and the returned value is used to time a pause in execution before
+ *   the window's {@link OO.ui.Window#getHoldProcess getHoldProces} method is called on the
+ *   window and its result executed
+ * - a `hold` progress notification is emitted from the `closing` promise
+ * - the #getTeardownDelay() method is called and the returned value is used to time a pause in execution before
+ *   the window's {@link OO.ui.Window#getTeardownProcess getTeardownProcess} method is called on the
+ *   window and its result executed
+ * - a `teardown` progress notification is emitted from the `closing` promise
+ * - the `closing` promise is resolved. The window is now closed
+ *
+ * See the [OOjs UI documentation on MediaWiki][1] for more information.
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Window_managers
  *
  * @class
  * @extends OO.ui.Element
  * @mixins OO.EventEmitter
- *
- * Managed windows are mutually exclusive. If a window is opened while there is a current window
- * already opening or opened, the current window will be closed without data. Empty closing data
- * should always result in the window being closed without causing constructive or destructive
- * action.
- *
- * As a window is opened and closed, it passes through several stages and the manager emits several
- * corresponding events.
- *
- * - {@link #openWindow} or {@link OO.ui.Window#open} methods are used to start opening
- * - {@link #event-opening} is emitted with `opening` promise
- * - {@link #getSetupDelay} is called the returned value is used to time a pause in execution
- * - {@link OO.ui.Window#getSetupProcess} method is called on the window and its result executed
- * - `setup` progress notification is emitted from opening promise
- * - {@link #getReadyDelay} is called the returned value is used to time a pause in execution
- * - {@link OO.ui.Window#getReadyProcess} method is called on the window and its result executed
- * - `ready` progress notification is emitted from opening promise
- * - `opening` promise is resolved with `opened` promise
- * - Window is now open
- *
- * - {@link #closeWindow} or {@link OO.ui.Window#close} methods are used to start closing
- * - `opened` promise is resolved with `closing` promise
- * - {@link #event-closing} is emitted with `closing` promise
- * - {@link #getHoldDelay} is called the returned value is used to time a pause in execution
- * - {@link OO.ui.Window#getHoldProcess} method is called on the window and its result executed
- * - `hold` progress notification is emitted from opening promise
- * - {@link #getTeardownDelay} is called the returned value is used to time a pause in execution
- * - {@link OO.ui.Window#getTeardownProcess} method is called on the window and its result executed
- * - `teardown` progress notification is emitted from opening promise
- * - Closing promise is resolved
- * - Window is now closed
  *
  * @constructor
  * @param {Object} [config] Configuration options
