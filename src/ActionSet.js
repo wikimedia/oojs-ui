@@ -1,5 +1,66 @@
 /**
- * List of actions.
+ * ActionSets manage the behavior of the {@link OO.ui.ActionWidget Action widgets} that comprise them.
+ * Actions can be made available for specific contexts (modes) and circumstances
+ * (abilities). Please see the [OOjs UI documentation on MediaWiki][1] for more information.
+ *
+ *     @example
+ *     // Example: An action set used in a process dialog
+ *     function ProcessDialog( config ) {
+ *         ProcessDialog.super.call( this, config );
+ *     }
+ *     OO.inheritClass( ProcessDialog, OO.ui.ProcessDialog );
+ *     ProcessDialog.static.title = 'An action set in a process dialog';
+ *     // An action set that uses modes ('edit' and 'help' mode, in this example).
+ *     ProcessDialog.static.actions = [
+ *        { action: 'continue', modes: 'edit', label: 'Continue', flags: [ 'primary', 'constructive' ] },
+ *        { action: 'help', modes: 'edit', label: 'Help' },
+ *        { modes: 'edit', label: 'Cancel', flags: 'safe' },
+ *        { action: 'back', modes: 'help', label: 'Back', flags: 'safe' }
+ *     ];
+ *
+ *     ProcessDialog.prototype.initialize = function () {
+ *         ProcessDialog.super.prototype.initialize.apply( this, arguments );
+ *         this.panel1 = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
+ *         this.panel1.$element.append( '<p>This dialog uses an action set (continue, help, cancel, back) configured with modes. This is edit mode. Click \'help\' to see help mode. </p>' );
+ *         this.panel2 = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
+ *         this.panel2.$element.append( '<p>This is help mode. Only the \'back\' action widget is configured to be visible here. Click \'back\' to return to \'edit\' mode</p>' );
+ *         this.stackLayout= new OO.ui.StackLayout( {
+ *             items: [ this.panel1, this.panel2 ]
+ *         });
+ *         this.$body.append( this.stackLayout.$element );
+ *     };
+ *     ProcessDialog.prototype.getSetupProcess = function ( data ) {
+ *         return ProcessDialog.super.prototype.getSetupProcess.call( this, data )
+ *         .next( function () {
+ *         this.actions.setMode('edit');
+ *         }, this );
+ *     };
+ *     ProcessDialog.prototype.getActionProcess = function ( action ) {
+ *         if ( action === 'help' ) {
+ *             this.actions.setMode( 'help' );
+ *             this.stackLayout.setItem( this.panel2 );
+ *             } else if ( action === 'back' ) {
+ *             this.actions.setMode( 'edit' );
+ *             this.stackLayout.setItem( this.panel1 );
+ *             } else if ( action === 'continue' ) {
+ *             var dialog = this;
+ *             return new OO.ui.Process( function () {
+ *                 dialog.close();
+ *             } );
+ *         }
+ *         return ProcessDialog.super.prototype.getActionProcess.call( this, action );
+ *     };
+ *     ProcessDialog.prototype.getBodyHeight = function () {
+ *         return this.panel1.$element.outerHeight( true );
+ *     };
+ *     var windowManager = new OO.ui.WindowManager();
+ *     $( 'body' ).append( windowManager.$element );
+ *     var processDialog = new ProcessDialog({
+ *        size: 'medium'});
+ *     windowManager.addWindows( [ processDialog ] );
+ *     windowManager.openWindow( processDialog );
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs#Action_sets
  *
  * @abstract
  * @class
