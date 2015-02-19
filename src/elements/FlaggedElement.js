@@ -1,8 +1,20 @@
 /**
- * Element with named flags that can be added, removed, listed and checked.
+ * The FlaggedElement class is an attribute mixin, meaning that it is used to add
+ * additional functionality to an element created by another class. The class provides
+ * a ‘flags’ property assigned the name (or an array of names) of styling flags,
+ * which are used to customize the look and feel of a widget to better describe its
+ * importance and functionality.
  *
- * A flag, when set, adds a CSS class on the `$element` by combining `oo-ui-flaggedElement-` with
- * the flag name. Flags are primarily useful for styling.
+ * The library currently contains the following styling flags for general use:
+ *
+ * - **progressive**:  Progressive styling is applied to convey that the widget will move the user forward in a process.
+ * - **destructive**: Destructive styling is applied to convey that the widget will remove something.
+ * - **constructive**: Constructive styling is applied to convey that the widget will create something.
+ *
+ * {@link OO.ui.ActionWidget ActionWidgets}, which are a special kind of button that execute an action, use these flags: **primary** and **safe**.
+ * Please see the [OOjs UI documentation on MediaWiki] [1] for more information.
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Elements/Flagged
  *
  * @abstract
  * @class
