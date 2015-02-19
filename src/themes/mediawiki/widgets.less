@@ -172,38 +172,38 @@
 	// Prevent the fake span from jumping to the next line of text
 	white-space: nowrap;
 
+	// Keep margin between the widget and its label. (Undoes oo-ui-inline-spacing.)
+	&:last-child {
+		margin-right: 0.5em;
+	}
+
 	* {
 		font: inherit;
 		vertical-align: middle;
 	}
 
+	// This input element is visually replaced by the the span that follows
 	input[type="checkbox"] {
-		// we hide the input element as instead we will style the span that follows
-		// we use opacity so that VoiceOver software can still identify it
+		// Use opacity so that VoiceOver software can still identify it
 		opacity: 0;
-		// render "on top of" the span, so that it's still clickable
-		position: relative;
+		// Render "on top of" the span, so that it's still clickable
 		z-index: 1;
+		position: relative;
 
-		// having a margin might offset the checkbox from the pseudo element
-		// making only the overlap region react to events
+		// Having margin would offset the input from where the span is absolutely positioned,
+		// making only the overlap region receive events
 		margin: 0;
 
-		// ensure the invisible checkbox takes up the required width
+		// Ensure the invisible input takes up the required width
 		width: @input-size;
 		height: @input-size;
 
-		// This is needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
+		// Needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
 		max-width: none;
 
 		& + span {
 			cursor: pointer;
-			margin: 0 0.2em;
-		}
-
-		& + span::before {
 			.oo-ui-transition(background-size 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275));
-			content: '';
 			.oo-ui-box-sizing( border-box );
 			position: absolute;
 			left: 0;
@@ -220,31 +220,31 @@
 			background-size: 0 0;
 		}
 
-		&:checked + span::before  {
+		&:checked + span  {
 			background-size: 100% 100%;
 		}
 
-		&:active + span::before {
+		&:active + span {
 			background-color: @input-active-color;
 			border-color: @input-active-color;
 		}
 
-		&:focus + span::before {
+		&:focus + span {
 			border-width: @input-focus-border-width;
 		}
 
-		&:focus:hover + span::before,
-		&:hover + span::before {
+		&:focus:hover + span,
+		&:hover + span {
 			border-bottom-width: @input-hover-border-bottom-width;
 		}
 
-		&:disabled + span::before {
+		&:disabled + span {
 			cursor: default;
 			background-color: @input-disabled-color;
 			border-color: @input-disabled-color;
 		}
 
-		&:disabled:checked + span::before {
+		&:disabled:checked + span {
 			.oo-ui-background-image-svg('@{oo-ui-default-image-path}/icons/check-invert');
 			.oo-ui-background-image-safari('@{oo-ui-default-image-path}/icons/check-invert');
 		}
