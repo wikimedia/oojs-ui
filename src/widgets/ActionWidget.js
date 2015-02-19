@@ -1,5 +1,10 @@
 /**
- * Button widget that executes an action and is managed by an OO.ui.ActionSet.
+ * An ActionWidget is a {@link OO.ui.ButtonWidget button widget} that executes an action.
+ * Action widgets are used with OO.ui.ActionSet, which manages the behavior and availability
+ * of the actions. Please see the [OOjs UI documentation on MediaWiki] [1] for more information
+ * and examples.
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs#Action_sets
  *
  * @class
  * @extends OO.ui.ButtonWidget
