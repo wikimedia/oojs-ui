@@ -1,7 +1,21 @@
 /**
- * Icon widget.
+ * IconWidget is a generic widget for {@link OO.ui.IconElement icons}. In general, IconWidgets should be used with OO.ui.LabelWidget,
+ * which creates a label that identifies the icon’s function. See the [OOjs UI documentation on MediaWiki] [1]
+ * for a list of icons included in the library.
  *
- * See OO.ui.IconElement for more information.
+ *     @example
+ *     // An icon widget with a label
+ *     var myIcon = new OO.ui.IconWidget({
+ *         icon: 'help',
+ *         iconTitle: 'Help'
+ *      });
+ *      // Create a label.
+ *      var iconLabel = new OO.ui.LabelWidget({
+ *          label: 'Help'
+ *      });
+ *      $('body').append(myIcon.$element, iconLabel.$element);
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Icons,_Indicators,_and_Labels#Icons
  *
  * @class
  * @extends OO.ui.Widget
