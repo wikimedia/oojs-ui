@@ -1,10 +1,11 @@
 /**
- * Element containing an icon.
+ * IconElement is often mixed into other classes to generate an icon.
+ * Icons are graphics, about the size of normal text. They are used to aid the user
+ * in locating a control or to convey information in a space-efficient way. See the
+ * [OOjs UI documentation on MediaWiki] [1] for a list of icons
+ * included in the library.
  *
- * Icons are graphics, about the size of normal text. They can be used to aid the user in locating
- * a control or convey information in a more space efficient way. Icons should rarely be used
- * without labels; such as in a toolbar where space is at a premium or within a context where the
- * meaning is very clear to the user.
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Icons,_Indicators,_and_Labels#Icons
  *
  * @abstract
  * @class
