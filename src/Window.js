@@ -1,37 +1,42 @@
 /**
- * Encapsulation of an user interface.
+ * A window is a container for elements that are in a child frame. They are used with
+ * a window manager (OO.ui.WindowManager), which is used to open and close the window and control
+ * its presentation. The size of a window is specified using a symbolic name (e.g., ‘small’, ‘medium’,
+ * ‘large’), which is interpreted by the window manager. If the requested size is not recognized,
+ * the window manager will choose a sensible fallback.
  *
- * Use together with OO.ui.WindowManager.
+ * The lifecycle of a window has three primary stages (opening, opened, and closing) in which
+ * different processes are executed:
+ *
+ * **opening**: The opening stage begins when the window manager's {@link OO.ui.WindowManager#openWindow
+ * openWindow} or the window's {@link #open open} methods are used, and the window manager begins to open
+ * the window.
+ *
+ * - {@link #getSetupProcess} method is called and its result executed
+ * - {@link #getReadyProcess} method is called and its result executed
+ *
+ * **opened**: The window is now open
+ *
+ * **closing**: The closing stage begins when the window manager's
+ * {@link OO.ui.WindowManager#closeWindow closeWindow}
+ * or the window's {@link #close} methods are used, and the window manager begins to close the window.
+ *
+ * - {@link #getHoldProcess} method is called and its result executed
+ * - {@link #getTeardownProcess} method is called and its result executed. The window is now closed
+ *
+ * Each of the window's processes (setup, ready, hold, and teardown) can be extended in subclasses
+ * by overriding the window's #getSetupProcess, #getReadyProcess, #getHoldProcess and #getTeardownProcess
+ * methods. Note that each {@link OO.ui.Process process} is executed in series, so asynchronous
+ * processing can complete. Always assume window processes are executed asynchronously.
+ *
+ * For more information, please see the [OOjs UI documentation on MediaWiki] [1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows
  *
  * @abstract
  * @class
  * @extends OO.ui.Element
  * @mixins OO.EventEmitter
- *
- * When a window is opened, the setup and ready processes are executed. Similarly, the hold and
- * teardown processes are executed when the window is closed.
- *
- * - {@link OO.ui.WindowManager#openWindow} or {@link #open} methods are used to start opening
- * - Window manager begins opening window
- * - {@link #getSetupProcess} method is called and its result executed
- * - {@link #getReadyProcess} method is called and its result executed
- * - Window is now open
- *
- * - {@link OO.ui.WindowManager#closeWindow} or {@link #close} methods are used to start closing
- * - Window manager begins closing window
- * - {@link #getHoldProcess} method is called and its result executed
- * - {@link #getTeardownProcess} method is called and its result executed
- * - Window is now closed
- *
- * Each process (setup, ready, hold and teardown) can be extended in subclasses by overriding
- * {@link #getSetupProcess}, {@link #getReadyProcess}, {@link #getHoldProcess} and
- * {@link #getTeardownProcess} respectively. Each process is executed in series, so asynchronous
- * processing can complete. Always assume window processes are executed asynchronously. See
- * OO.ui.Process for more details about how to work with processes. Some events, as well as the
- * #open and #close methods, provide promises which are resolved when the window enters a new state.
- *
- * Sizing of windows is specified using symbolic names which are interpreted by the window manager.
- * If the requested size is not recognized, the window manager will choose a sensible fallback.
  *
  * @constructor
  * @param {Object} [config] Configuration options
