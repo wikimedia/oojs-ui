@@ -1,5 +1,7 @@
 /**
- * DOM element abstraction.
+ * Each Element represents a rendering in the DOM—a button or an icon, for example, or anything
+ * that is visible to a user. Unlike {@link OO.ui.Widget widgets}, plain elements usually do not have events
+ * connected to them and can't be interacted with.
  *
  * @abstract
  * @class
