@@ -98,7 +98,11 @@ OO.mixinClass( OO.ui.ActionSet, OO.EventEmitter );
 /* Static Properties */
 
 /**
- * Symbolic name of dialog.
+ * Symbolic name of the flags used to identify special actions. Special actions are displayed in the
+ *  header of a {@link OO.ui.ProcessDialog process dialog}.
+ *  See the [OOjs UI documentation on MediaWiki][2] for more information and examples.
+ *
+ *  [2]:https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs
  *
  * @abstract
  * @static
