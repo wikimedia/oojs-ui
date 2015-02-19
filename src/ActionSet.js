@@ -138,6 +138,7 @@ OO.ui.ActionSet.static.specialFlags = [ 'safe', 'primary' ];
 /**
  * Handle action change events.
  *
+ * @private
  * @fires change
  */
 OO.ui.ActionSet.prototype.onActionChange = function () {
