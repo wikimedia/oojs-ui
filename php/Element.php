@@ -51,8 +51,10 @@ class Element extends Tag {
 	 * @param array $config Configuration options
 	 * @param string[] $config['classes'] CSS class names to add
 	 * @param string $config['id'] HTML id attribute
-	 * @param array $config['content'] Content to append, strings or Element objects. Strings will
-	 *   be HTML-escaped for output, use a HtmlSnippet instance to prevent that.
+	 * @param string $config['text'] Text to insert
+	 * @param array $config['content'] Content to append (after text), strings
+	 *   or Element objects. Strings will be HTML-escaped for output, use an
+	 *   HtmlSnippet instance to prevent that.
 	 * @param Mixed $config['data'] Element data
 	 */
 	public function __construct( array $config = array() ) {
@@ -68,6 +70,10 @@ class Element extends Tag {
 		}
 		if ( isset( $config['id'] ) ) {
 			$this->setAttributes( array( 'id' => $config['id'] ) );
+		}
+		if ( isset( $config['text'] ) ) {
+			// JS compatibility
+			$this->appendContent( $config['text'] );
 		}
 		if ( isset( $config['content'] ) ) {
 			$this->appendContent( $config['content'] );
