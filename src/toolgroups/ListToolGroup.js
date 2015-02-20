@@ -18,6 +18,12 @@
  * @cfg {boolean} [expanded=false] Whether the collapsible tools are expanded by default
  */
 OO.ui.ListToolGroup = function OoUiListToolGroup( toolbar, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( toolbar ) && config === undefined ) {
+		config = toolbar;
+		toolbar = config.toolbar;
+	}
+
 	// Configuration initialization
 	config = config || {};
 

@@ -14,6 +14,13 @@
  * @cfg {boolean} [shadow] Add a shadow below the toolbar
  */
 OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( toolFactory ) && config === undefined ) {
+		config = toolFactory;
+		toolFactory = config.toolFactory;
+		toolGroupFactory = config.toolGroupFactory;
+	}
+
 	// Configuration initialization
 	config = config || {};
 

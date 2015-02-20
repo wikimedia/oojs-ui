@@ -16,6 +16,12 @@
  * @cfg {string} [header] Text to display at the top of the pop-up
  */
 OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( toolbar ) && config === undefined ) {
+		config = toolbar;
+		toolbar = config.toolbar;
+	}
+
 	// Configuration initialization
 	config = config || {};
 

@@ -9,6 +9,12 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.MenuToolGroup = function OoUiMenuToolGroup( toolbar, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( toolbar ) && config === undefined ) {
+		config = toolbar;
+		toolbar = config.toolbar;
+	}
+
 	// Configuration initialization
 	config = config || {};
 

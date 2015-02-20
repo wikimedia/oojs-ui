@@ -8,6 +8,12 @@
  * @cfg {boolean} [warning=false] Whether this error is a warning or not.
  */
 OO.ui.Error = function OoUiError( message, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( message ) && config === undefined ) {
+		config = message;
+		message = config.message;
+	}
+
 	// Configuration initialization
 	config = config || {};
 

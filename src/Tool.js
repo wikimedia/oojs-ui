@@ -13,6 +13,12 @@
  * @cfg {string|Function} [title] Title text or a function that returns text
  */
 OO.ui.Tool = function OoUiTool( toolGroup, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( toolGroup ) && config === undefined ) {
+		config = toolGroup;
+		toolGroup = config.toolGroup;
+	}
+
 	// Configuration initialization
 	config = config || {};
 

@@ -8,11 +8,17 @@
  * @extends OO.ui.MenuSelectWidget
  *
  * @constructor
- * @param {OO.ui.TextInputWidget} input Text input widget to provide menu for
+ * @param {OO.ui.TextInputWidget} inputWidget Text input widget to provide menu for
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$container=input.$element] Element to render menu under
  */
-OO.ui.TextInputMenuSelectWidget = function OoUiTextInputMenuSelectWidget( input, config ) {
+OO.ui.TextInputMenuSelectWidget = function OoUiTextInputMenuSelectWidget( inputWidget, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( inputWidget ) && config === undefined ) {
+		config = inputWidget;
+		inputWidget = config.inputWidget;
+	}
+
 	// Configuration initialization
 	config = config || {};
 
@@ -20,8 +26,8 @@ OO.ui.TextInputMenuSelectWidget = function OoUiTextInputMenuSelectWidget( input,
 	OO.ui.TextInputMenuSelectWidget.super.call( this, config );
 
 	// Properties
-	this.input = input;
-	this.$container = config.$container || this.input.$element;
+	this.inputWidget = inputWidget;
+	this.$container = config.$container || this.inputWidget.$element;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 
 	// Initialization

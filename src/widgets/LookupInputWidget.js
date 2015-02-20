@@ -18,6 +18,12 @@
  * @cfg {jQuery} [$container=input.$element] Element to render menu under
  */
 OO.ui.LookupInputWidget = function OoUiLookupInputWidget( input, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( input ) && config === undefined ) {
+		config = input;
+		input = config.input;
+	}
+
 	// Configuration initialization
 	config = config || {};
 

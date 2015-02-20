@@ -12,6 +12,13 @@
  * @cfg {string} [help] Explanatory text shown as a '?' icon.
  */
 OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWidget, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( fieldWidget ) && config === undefined ) {
+		config = fieldWidget;
+		fieldWidget = config.fieldWidget;
+		buttonWidget = config.buttonWidget;
+	}
+
 	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );
 

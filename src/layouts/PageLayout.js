@@ -9,6 +9,12 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( name ) && config === undefined ) {
+		config = name;
+		name = config.name;
+	}
+
 	// Configuration initialization
 	config = $.extend( { scrollable: true }, config );
 
