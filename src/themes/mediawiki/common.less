@@ -49,4 +49,18 @@
 
 // Theme mixins
 
-// (add mixins here)
+// Workaround for Safari 8 bug. Combining a selector like `input[type="checkbox"]:checked + span`
+// with transition on background-size, background-color, and a single background-image using SVG
+// causes the selector to sometimes not be applied. (T89309)
+//
+// * Syntax mimics the core mixin .oo-ui-background-image-svg().
+// * No-op in distributions other than 'vector'.
+// * Using -webkit- prefix to limit this stupidity from impacting other browsers. Alas, some
+//   non-Safari ones also parse the -webkit- prefix (Chrome, Opera).
+// * We take the payload size hit of the unnecessary /* @embed */ hint across the board. It should
+//   be mostly mitigated by using gzip compression.
+// * Upstream bug report: https://bugs.webkit.org/show_bug.cgi?id=141789
+.oo-ui-background-image-safari( @url-without-extension ) when ( @oo-ui-distribution = vector ) {
+	@svg: '@{url-without-extension}.svg';
+	background-image: -webkit-linear-gradient(transparent, transparent), e('/* @embed */') url(@svg);
+}
