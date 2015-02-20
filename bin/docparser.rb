@@ -50,12 +50,12 @@ def parse_file filename
 			visibility: :public,
 			type: nil,
 		}
-		valid_for_all = %I[name description]
+		valid_for_all = %w[name description].map(&:to_sym)
 		valid_per_kind = {
-			class:    valid_for_all + %I[parent mixins methods properties events abstract],
-			method:   valid_for_all + %I[params config return visibility static],
-			property: valid_for_all + %I[type static],
-			event:    valid_for_all + %I[params],
+			class:    valid_for_all + %w[parent mixins methods properties events abstract].map(&:to_sym),
+			method:   valid_for_all + %w[params config return visibility static].map(&:to_sym),
+			property: valid_for_all + %w[type static].map(&:to_sym),
+			event:    valid_for_all + %w[params].map(&:to_sym),
 		}
 
 		js_class_constructor = false
