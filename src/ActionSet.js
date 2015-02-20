@@ -20,9 +20,9 @@
  *
  *     ProcessDialog.prototype.initialize = function () {
  *         ProcessDialog.super.prototype.initialize.apply( this, arguments );
- *         this.panel1 = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
+ *         this.panel1 = new OO.ui.PanelLayout( { padded: true, expanded: false } );
  *         this.panel1.$element.append( '<p>This dialog uses an action set (continue, help, cancel, back) configured with modes. This is edit mode. Click \'help\' to see help mode. </p>' );
- *         this.panel2 = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
+ *         this.panel2 = new OO.ui.PanelLayout( { padded: true, expanded: false } );
  *         this.panel2.$element.append( '<p>This is help mode. Only the \'back\' action widget is configured to be visible here. Click \'back\' to return to \'edit\' mode</p>' );
  *         this.stackLayout= new OO.ui.StackLayout( {
  *             items: [ this.panel1, this.panel2 ]
