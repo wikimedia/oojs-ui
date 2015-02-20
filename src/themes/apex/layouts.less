@@ -71,7 +71,8 @@
 	padding: 0;
 	border: none;
 
-	+ .oo-ui-fieldsetLayout {
+	+ .oo-ui-fieldsetLayout,
+	+ .oo-ui-formLayout {
 		margin-top: 2em;
 	}
 
@@ -99,7 +100,12 @@
 	}
 }
 
-.theme-oo-ui-formLayout () {}
+.theme-oo-ui-formLayout () {
+	+ .oo-ui-fieldsetLayout,
+	+ .oo-ui-formLayout {
+		margin-top: 2em;
+	}
+}
 
 .theme-oo-ui-gridLayout () {}
 
