@@ -2,11 +2,16 @@
 	$autoload = '../vendor/autoload.php';
 	if ( !file_exists( $autoload ) ) {
 		echo '<h1>Did you forget to run <code>composer install</code>?</h1>';
-		exit();
+		exit;
 	}
 	require_once $autoload;
 
-	$testSuiteJSON = file_get_contents( 'JSPHP-suite.json' );
+	$testSuiteFile = 'JSPHP-suite.json';
+	if ( !file_exists( $testSuiteFile ) ) {
+		echo '<h1>Did you forget to run <code>grunt build</code>?</h1>';
+		exit;
+	}
+	$testSuiteJSON = file_get_contents( $testSuiteFile );
 	$testSuite = json_decode( $testSuiteJSON, true );
 ?>
 <!DOCTYPE html>
@@ -25,6 +30,7 @@
 	<script src="../lib/oojs.jquery.js"></script>
 	<!-- Source code -->
 	<script src="../dist/oojs-ui.js"></script>
+	<script src="../dist/oojs-ui-apex.js"></script>
 	<script src="../dist/oojs-ui-mediawiki.js"></script>
 	<!-- Test suites -->
 	<script src="./Element.test.js"></script>
@@ -32,21 +38,22 @@
 	<script src="./elements/FlaggedElement.test.js"></script>
 	<!-- JS/PHP comparison tests -->
 	<script>OO.ui.JSPHPTestSuite = <?php echo $testSuiteJSON; ?></script>
-	<script src="./JSPHP.test.js"></script>
+	<script src="./JSPHP.test.standalone.js"></script>
 </head>
 <body>
 	<div id="JSPHPTestSuite" style="display: none;">
 		<?php
-			function expandClass( $class ) {
-				return "OOUI\\" . $class;
-			}
-
-			OOUI\Theme::setSingleton( new OOUI\MediaWikiTheme() );
-			foreach ( $testSuite as $className => $tests ) {
-				foreach ( $tests as $index => $test ) {
-					$class = expandClass( $test['class'] );
-					$instance = new $class( $test['config'] );
-					echo "<div id='JSPHPTestSuite_$className$index'>$instance</div>\n";
+			// Keep synchronized with bin/generate-JSPHP-for-karma.php
+			$themes = array( 'ApexTheme', 'MediaWikiTheme' );
+			foreach ( $themes as $theme ) {
+				$class = "OOUI\\" . $theme;
+				OOUI\Theme::setSingleton( new $class() );
+				foreach ( $testSuite as $className => $tests ) {
+					foreach ( $tests as $index => $test ) {
+						$class = "OOUI\\" . $test['class'];
+						$instance = new $class( $test['config'] );
+						echo "<div id='JSPHPTestSuite_$theme$className$index'>$instance</div>\n";
+					}
 				}
 			}
 		?>

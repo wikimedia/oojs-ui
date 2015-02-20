@@ -88,11 +88,19 @@
 	 * @method
 	 * @static
 	 */
-	QUnit.assert.equalDomElement = function ( actual, expected, message ) {
+	QUnit.assert.equalDomElement = function ( actual, expected, message, stringify ) {
 		var actualSummary = getDomElementSummary( actual ),
 			expectedSummary = getDomElementSummary( expected ),
 			actualSummaryHtml = getDomElementSummary( actual, true ),
 			expectedSummaryHtml = getDomElementSummary( expected, true );
+
+		// When running with Karma, the objects are not nicely stringified in the output when the test
+		// fails, only showing "Expected: [object Object], Actual: [object Object]" instead. Running
+		// QUnit in browser does this, and stringifying causes double escaping in output.
+		if ( stringify ) {
+			actualSummaryHtml = JSON.stringify( actualSummaryHtml, null, 2 );
+			expectedSummaryHtml = JSON.stringify( expectedSummaryHtml, null, 2 );
+		}
 
 		QUnit.push(
 			QUnit.equiv( actualSummary, expectedSummary ), actualSummaryHtml, expectedSummaryHtml, message

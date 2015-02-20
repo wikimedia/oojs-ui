@@ -3,4 +3,6 @@
 node_modules
 npm-debug.log
 *.rtl.css
+tests/JSPHP-suite.json
+tests/JSPHP.test.js
 vendor

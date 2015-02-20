@@ -15,6 +15,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-csscomb' );
+	grunt.loadNpmTasks( 'grunt-exec' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
@@ -277,7 +278,11 @@ module.exports = function ( grunt ) {
 			options: {
 				jshintrc: true
 			},
-			dev: [ '*.js', '{build,demos,src,tests}/**/*.js' ]
+			dev: [
+				'*.js',
+				'{build,demos,src,tests}/**/*.js',
+				'!tests/JSPHP.test.js'
+			]
 		},
 		jscs: {
 			dev: [
@@ -303,6 +308,15 @@ module.exports = function ( grunt ) {
 		},
 
 		// Test
+		exec: {
+			rubyTestSuiteGenerator: {
+				command: 'ruby bin/testsuitegenerator.rb src php > tests/JSPHP-suite.json'
+			},
+			phpGenerateJSPHPForKarma: {
+				command: 'php ../bin/generate-JSPHP-for-karma.php > JSPHP.test.js',
+				cwd: './tests'
+			}
+		},
 		karma: {
 			options: {
 				frameworks: [ 'qunit' ],
@@ -311,6 +325,8 @@ module.exports = function ( grunt ) {
 					'lib/oojs.jquery.js',
 					'dist/oojs-ui.js',
 					'dist/oojs-ui-apex.js',
+					'dist/oojs-ui-mediawiki.js',
+					'tests/QUnit.assert.equalDomElement.js',
 					'tests/**/*.test.js'
 				],
 				reporters: [ 'dots' ],
@@ -385,7 +401,8 @@ module.exports = function ( grunt ) {
 		'concat:css', 'cssjanus', 'csscomb', 'cssmin'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
-	grunt.registerTask( 'build', [ 'clean:build', 'fileExists', 'typos', 'build-code', 'build-styling', 'build-i18n', 'clean:tmp' ] );
+	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
+	grunt.registerTask( 'build', [ 'clean:build', 'fileExists', 'typos', 'build-code', 'build-styling', 'build-i18n', 'build-tests', 'clean:tmp' ] );
 
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 
