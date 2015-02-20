@@ -7,6 +7,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat-sourcemaps' );
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
@@ -75,6 +76,15 @@ module.exports = function ( grunt ) {
 		}
 
 		return target;
+	}
+
+	function strip( str ) {
+		var path = require( 'path' );
+		// http://gruntjs.com/configuring-tasks#building-the-files-object-dynamically
+		// http://gruntjs.com/api/grunt.file#grunt.file.expandmapping
+		return function ( dest, src ) {
+			return path.join( dest, src.replace( str, '' ) );
+		};
 	}
 
 	grunt.initConfig( {
@@ -185,32 +195,38 @@ module.exports = function ( grunt ) {
 		copy: {
 			imagesCommon: {
 				src: 'src/styles/images/*.cur',
-				strip: 'src/styles/images/',
-				dest: 'dist/images'
+				dest: 'dist/images/',
+				expand: true,
+				flatten: true
 			},
 			imagesApex: {
 				src: 'src/themes/apex/images/**/*.{png,gif}',
-				strip: 'src/themes/apex/images',
-				dest: 'dist/themes/apex/images'
+				dest: 'dist/themes/apex/images/',
+				expand: true,
+				rename: strip( 'src/themes/apex/images/' )
 			},
 			imagesMediaWiki: {
 				src: 'src/themes/mediawiki/images/**/*.{png,gif}',
-				strip: 'src/themes/mediawiki/images',
-				dest: 'dist/themes/mediawiki/images'
+				dest: 'dist/themes/mediawiki/images/',
+				expand: true,
+				rename: strip( 'src/themes/mediawiki/images/' )
 			},
 			i18n: {
 				src: 'i18n/*.json',
-				dest: 'dist'
+				expand: true,
+				dest: 'dist/'
 			},
 			lessTemp: {
 				src: 'src/**/*.less',
-				strip: 'src/',
-				dest: 'dist/tmp'
+				dest: 'dist/tmp/',
+				expand: true,
+				rename: strip( 'src/' )
 			},
 			svg: {
 				src: 'dist/tmp/**/*.svg',
-				strip: 'dist/tmp/',
-				dest: 'dist'
+				dest: 'dist/',
+				expand: true,
+				rename: strip( 'dist/tmp/' )
 			}
 		},
 		colorizeSvg: {
