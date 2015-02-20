@@ -328,25 +328,6 @@ OO.ui.Window.prototype.getTeardownProcess = function () {
 };
 
 /**
- * Toggle visibility of window.
- *
- * @param {boolean} [show] Make window visible, omit to toggle visibility
- * @fires toggle
- * @chainable
- */
-OO.ui.Window.prototype.toggle = function ( show ) {
-	show = show === undefined ? !this.visible : !!show;
-
-	if ( show !== this.isVisible() ) {
-		this.visible = show;
-		this.$element.toggleClass( 'oo-ui-element-hidden', !this.visible );
-		this.emit( 'toggle', show );
-	}
-
-	return this;
-};
-
-/**
  * Set the window manager.
  *
  * This will cause the window to initialize. Calling it more than once will cause an error.
