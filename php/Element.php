@@ -55,7 +55,7 @@ class Element extends Tag {
 	 * @param array $config['content'] Content to append (after text), strings
 	 *   or Element objects. Strings will be HTML-escaped for output, use an
 	 *   HtmlSnippet instance to prevent that.
-	 * @param Mixed $config['data'] Element data
+	 * @param mixed $config['data'] Element data
 	 */
 	public function __construct( array $config = array() ) {
 		// Parent constructor
@@ -143,7 +143,7 @@ class Element extends Tag {
 	/**
 	 * Get element data.
 	 *
-	 * @return {Mixed} Element data
+	 * @return mixed Element data
 	 */
 	public function getData() {
 		return $this->data;
@@ -152,7 +152,7 @@ class Element extends Tag {
 	/**
 	 * Set element data.
 	 *
-	 * @param {Mixed} Element data
+	 * @param mixed $data Element data
 	 * @chainable
 	 */
 	public function setData( $data ) {
