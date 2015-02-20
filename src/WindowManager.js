@@ -479,7 +479,7 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 			}
 			list[ name ] = windows[ i ];
 		}
-	} else if ( $.isPlainObject( windows ) ) {
+	} else if ( OO.isPlainObject( windows ) ) {
 		list = windows;
 	}
 
