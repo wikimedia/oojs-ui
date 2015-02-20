@@ -20,6 +20,7 @@ OO.ui.Element = function OoUiElement( config ) {
 
 	// Properties
 	this.$ = $;
+	this.visible = true;
 	this.data = config.data;
 	this.$element = $( document.createElement( this.getTagName() ) );
 	this.elementGroup = null;
@@ -458,6 +459,34 @@ OO.ui.Element.static.reconsiderScrollbars = function ( el ) {
 };
 
 /* Methods */
+
+/**
+ * Toggle visibility of an element.
+ *
+ * @param {boolean} [show] Make element visible, omit to toggle visibility
+ * @fires visible
+ * @chainable
+ */
+OO.ui.Element.prototype.toggle = function ( show ) {
+	show = show === undefined ? !this.visible : !!show;
+
+	if ( show !== this.isVisible() ) {
+		this.visible = show;
+		this.$element.toggleClass( 'oo-ui-element-hidden', !this.visible );
+		this.emit( 'toggle', show );
+	}
+
+	return this;
+};
+
+/**
+ * Check if element is visible.
+ *
+ * @return {boolean} element is visible
+ */
+OO.ui.Element.prototype.isVisible = function () {
+	return this.visible;
+};
 
 /**
  * Get element data.

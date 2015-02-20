@@ -23,7 +23,6 @@ OO.ui.Widget = function OoUiWidget( config ) {
 	OO.EventEmitter.call( this );
 
 	// Properties
-	this.visible = true;
 	this.disabled = null;
 	this.wasDisabled = null;
 
@@ -61,15 +60,6 @@ OO.ui.Widget.prototype.isDisabled = function () {
 };
 
 /**
- * Check if widget is visible.
- *
- * @return {boolean} Widget is visible
- */
-OO.ui.Widget.prototype.isVisible = function () {
-	return this.visible;
-};
-
-/**
  * Set the disabled state of the widget.
  *
  * This should probably change the widgets' appearance and prevent it from being used.
@@ -90,25 +80,6 @@ OO.ui.Widget.prototype.setDisabled = function ( disabled ) {
 		this.updateThemeClasses();
 	}
 	this.wasDisabled = isDisabled;
-
-	return this;
-};
-
-/**
- * Toggle visibility of widget.
- *
- * @param {boolean} [show] Make widget visible, omit to toggle visibility
- * @fires visible
- * @chainable
- */
-OO.ui.Widget.prototype.toggle = function ( show ) {
-	show = show === undefined ? !this.visible : !!show;
-
-	if ( show !== this.isVisible() ) {
-		this.visible = show;
-		this.$element.toggleClass( 'oo-ui-element-hidden', !this.visible );
-		this.emit( 'toggle', show );
-	}
 
 	return this;
 };
