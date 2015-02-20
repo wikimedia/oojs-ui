@@ -1267,6 +1267,59 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				)
 			]
+		} ),
+		new OO.ui.FormLayout( {
+			method: 'GET',
+			action: 'widgets.php',
+			items: [
+				new OO.ui.FieldsetLayout( {
+					label: 'Form layout',
+					items: [
+						new OO.ui.FieldLayout(
+							new OO.ui.TextInputWidget( {
+								name: 'username'
+							} ),
+							{
+								label: 'User name',
+								align: 'top'
+							}
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.TextInputWidget( {
+								name: 'password',
+								type: 'password'
+							} ),
+							{
+								label: 'Password',
+								align: 'top'
+							}
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.CheckboxInputWidget( {
+								name: 'rememberme',
+								selected: true
+							} ),
+							{
+								label: 'Remember me',
+								align: 'inline'
+							}
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.ButtonInputWidget( {
+								name: 'login',
+								label: 'Log in',
+								type: 'submit',
+								flags: [ 'primary', 'progressive' ],
+								icon: 'check'
+							} ),
+							{
+								label: null,
+								align: 'top'
+							}
+						)
+					]
+				} )
+			]
 		} )
 	];
 

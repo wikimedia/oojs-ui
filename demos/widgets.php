@@ -725,62 +725,59 @@
 					)
 				) );
 
-				$form = new OOUI\FormLayout( array(
+				echo new OOUI\FormLayout( array(
 					'method' => 'GET',
 					'action' => 'widgets.php',
+					'items' => array(
+						new OOUI\FieldsetLayout( array(
+							'label' => 'Form layout',
+							'items' => array(
+								new OOUI\FieldLayout(
+									new OOUI\TextInputWidget( array(
+										'name' => 'username',
+									) ),
+									array(
+										'label' => 'User name',
+										'align' => 'top',
+									)
+								),
+								new OOUI\FieldLayout(
+									new OOUI\TextInputWidget( array(
+										'name' => 'password',
+										'type' => 'password',
+									) ),
+									array(
+										'label' => 'Password',
+										'align' => 'top',
+									)
+								),
+								new OOUI\FieldLayout(
+									new OOUI\CheckboxInputWidget( array(
+										'name' => 'rememberme',
+										'selected' => true,
+									) ),
+									array(
+										'label' => 'Remember me',
+										'align' => 'inline',
+									)
+								),
+								new OOUI\FieldLayout(
+									new OOUI\ButtonInputWidget( array(
+										'name' => 'login',
+										'label' => 'Log in',
+										'type' => 'submit',
+										'flags' => array( 'primary', 'progressive' ),
+										'icon' => 'check',
+									) ),
+									array(
+										'label' => null,
+										'align' => 'top',
+									)
+								),
+							)
+						) )
+					)
 				) );
-
-				$form->appendContent(
-					new OOUI\FieldsetLayout( array(
-						'label' => 'Form layout',
-						'items' => array(
-							new OOUI\FieldLayout(
-								new OOUI\TextInputWidget( array(
-									'name' => 'username',
-								) ),
-								array(
-									'label' => 'User name',
-									'align' => 'top',
-								)
-							),
-							new OOUI\FieldLayout(
-								new OOUI\TextInputWidget( array(
-									'name' => 'password',
-									'type' => 'password',
-								) ),
-								array(
-									'label' => 'Password',
-									'align' => 'top',
-								)
-							),
-							new OOUI\FieldLayout(
-								new OOUI\CheckboxInputWidget( array(
-									'name' => 'rememberme',
-									'selected' => true,
-								) ),
-								array(
-									'label' => 'Remember me',
-									'align' => 'inline',
-								)
-							),
-							new OOUI\FieldLayout(
-								new OOUI\ButtonInputWidget( array(
-									'name' => 'login',
-									'label' => 'Log in',
-									'type' => 'submit',
-									'flags' => array( 'primary', 'progressive' ),
-									'icon' => 'check',
-								) ),
-								array(
-									'label' => null,
-									'align' => 'top',
-								)
-							),
-						)
-					) )
-				);
-
-				echo $form;
 
 				echo new OOUI\FieldsetLayout( array(
 					'label' => 'PHP-specific',
