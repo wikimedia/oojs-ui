@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "test": "grunt test",
+    "doc": "grunt build doc",
     "prepublish": "grunt build"
   },
   "dependencies": {},

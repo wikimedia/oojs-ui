@@ -227,6 +227,11 @@ module.exports = function ( grunt ) {
 				dest: 'dist/',
 				expand: true,
 				rename: strip( 'dist/tmp/' )
+			},
+			jsduck: {
+				src: '{lib,dist}/**/*',
+				dest: 'docs/',
+				expand: true
 			}
 		},
 		colorizeSvg: {
@@ -362,6 +367,17 @@ module.exports = function ( grunt ) {
 		} );
 	} );
 
+	grunt.registerTask( 'jsduck', function () {
+		var done = this.async(),
+			spawn = require( 'child_process' ).spawn,
+			jsduck = spawn( 'jsduck', [ '--color' ] );
+		jsduck.stdout.pipe( process.stdout );
+		jsduck.stderr.pipe( process.stderr );
+		jsduck.on( 'close', function ( code ) {
+			done( code === 0 );
+		} );
+	} );
+
 	grunt.registerTask( 'build-code', [ 'concat:js', 'uglify' ] );
 	grunt.registerTask( 'build-styling', [
 		'copy:lessTemp', 'colorizeSvg', 'less', 'copy:svg', 'copy:imagesCommon',
@@ -384,6 +400,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'lint', 'karma:main', 'karma:other' ] );
+	grunt.registerTask( 'doc', [ 'build', 'jsduck', 'copy:jsduck' ] );
 
 	grunt.registerTask( 'default', 'test' );
 };
