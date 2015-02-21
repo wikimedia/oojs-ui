@@ -23,6 +23,7 @@ Juliusz Gonera <jgonera@wikimedia.org>
 kaldari <rkaldari@wikimedia.org>
 Kunal Mehta <legoktm@gmail.com>
 Kyle Florence <kflorence@wikia-inc.com>
+May Tee-Galloway <mgalloway@wikimedia.org>
 Moriel Schottlender <moriel@gmail.com>
 Niklas Laxström <nlaxstrom@wikimedia.org>
 Ricordisamoa <ricordisamoa@openmailbox.org>

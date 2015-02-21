@@ -98,9 +98,16 @@ body {
 
 .oo-ui-demo-icons .oo-ui-buttonElement-button {
 	margin: 1em 1em 1em 0;
-	width: 8em;
+	width: 12em;
 	opacity: 0.8;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.oo-ui-demo-icons .oo-ui-buttonElement-button .oo-ui-labelElement-label {
 	text-transform: capitalize;
+	display: inline !important;
 }
 
 .oo-ui-demo-icons .oo-ui-buttonElement-button:hover {

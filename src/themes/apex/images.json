@@ -1,7 +1,20 @@
 {
+	"css": {
+		"icons-moderation": {
+			"intro": "@import '../../common';",
+			"path": "icons",
+			"classPrefix": ".oo-ui-icon"
+		},
+		"icons-editing-core": {
+			"intro": "@import '../../common';",
+			"path": "icons",
+			"classPrefix": ".oo-ui-icon"
+		}
+	},
 	"variants": {},
 	"images": {
 		"icons": {
+			"circle": { "file": "circle.svg" },
 			"add": { "file": "add.svg" },
 			"advanced": { "file": "advanced.svg" },
 			"alert": { "file": "alert.svg" },
@@ -11,11 +24,10 @@
 			"code": { "file": "code.svg" },
 			"collapse": { "file": "collapse.svg" },
 			"comment": { "file": "comment.svg" },
+			"ellipsis": { "file": "ellipsis.svg" },
 			"expand": { "file": "expand.svg" },
 			"help": { "file": "help.svg" },
 			"info": { "file": "info.svg" },
-			"link": { "file": "link.svg" },
-			"lock": { "file": "lock.svg" },
 			"menu": { "file": "menu.svg" },
 			"next": { "file": "move-ltr.svg" },
 			"picture": { "file": "picture.svg" },
@@ -39,6 +51,12 @@
 		"textures": {
 			"pending": { "file": "pending.gif" },
 			"transparency": { "file": "transparency.svg" }
+		},
+		"icons-editing-core": {
+			"link": { "file": "link.svg" }
+		},
+		"icons-moderation": {
+			"lock": { "file": "lock.svg" }
 		}
 	}
 }

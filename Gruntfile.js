@@ -24,10 +24,6 @@ module.exports = function ( grunt ) {
 	grunt.loadTasks( 'build/tasks' );
 
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
-		styleTargets = {
-			'oojs-ui-apex': modules[ 'oojs-ui-apex' ].styles,
-			'oojs-ui-mediawiki': modules[ 'oojs-ui-mediawiki' ].styles
-		},
 		lessFiles = {
 			raster: {},
 			vector: {},
@@ -41,21 +37,26 @@ module.exports = function ( grunt ) {
 		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
 	( function () {
-		var distFile, target, module;
+		var distFile, target, module, moduleStyleFiles;
 		// We compile LESS copied to a different directory
 		function fixLessDirectory( fileName ) {
 			return fileName.replace( /^src\//, 'dist/tmp/' );
 		}
-		for ( module in styleTargets ) {
-			for ( target in lessFiles ) {
-				distFile = 'dist/' + module + ( target !== 'mixed' ? '.' + target : '' ) + '.css';
+		for ( module in modules ) {
+			if ( modules[ module ].styles ) {
+				moduleStyleFiles = modules[ module ].styles;
+				for ( target in lessFiles ) {
+					distFile = 'dist/' + module + ( target !== 'mixed' ? '.' + target : '' ) + '.css';
 
-				originalLessFiles[ distFile ] = styleTargets[ module ];
-				lessFiles[ target ][ distFile ] = styleTargets[ module ].map( fixLessDirectory );
+					if ( !modules[ module ].generated ) {
+						originalLessFiles[ distFile ] = moduleStyleFiles;
+					}
+					lessFiles[ target ][ distFile ] = moduleStyleFiles.map( fixLessDirectory );
 
-				// Concat isn't doing much other than prepending the banner...
-				concatCssFiles[ distFile ] = distFile;
-				rtlFiles[ distFile.replace( '.css', '.rtl.css' ) ] = distFile;
+					// Concat isn't doing much other than prepending the banner...
+					concatCssFiles[ distFile ] = distFile;
+					rtlFiles[ distFile.replace( '.css', '.rtl.css' ) ] = distFile;
+				}
 			}
 		}
 	}() );
@@ -71,7 +72,11 @@ module.exports = function ( grunt ) {
 			source = sources[ i ];
 			if ( source ) {
 				for ( prop in source ) {
-					target[ prop ] = source[ prop ];
+					if ( typeof target[ prop ] === 'object' && target[ prop ] !== null ) {
+						target[ prop ] = merge( {}, target[ prop ], source[ prop ] );
+					} else {
+						target[ prop ] = source[ prop ];
+					}
 				}
 			}
 		}

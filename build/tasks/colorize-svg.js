@@ -34,7 +34,7 @@ module.exports = function ( grunt ) {
 			return Q.all( Object.keys( imageLists ).map( function ( type ) {
 				originals += imageLists[ type ].getLength();
 				return imageLists[ type ].generate(
-					new Destination( path.join( data.destDir, type ) )
+					new Destination( path.join( data.destDir, imageLists[ type ].css.path || type ), type )
 				);
 			} ) ).then( function ( sums ) {
 				grunt.log.writeln(
@@ -88,7 +88,7 @@ module.exports = function ( grunt ) {
 
 		for ( type in this.images ) {
 			lists[ type ] = new ImageList(
-				path.join( this.path, type ),
+				path.join( this.path, ( this.css[ type ] || {} ).path || type ),
 				new VariantList( this.variants[ type ] || {} ),
 				this.css[ type ] || {},
 				this.images[ type ]
@@ -105,9 +105,11 @@ module.exports = function ( grunt ) {
 	 *
 	 * @constructor
 	 * @param {string} path Image path
+	 * @param {string} [stylesheetName] Stylesheet file name
 	 */
-	function Destination( path ) {
+	function Destination( path, stylesheetName ) {
 		this.path = path;
+		this.stylesheetName = stylesheetName || path.basename( this.path );
 	}
 
 	/**
@@ -125,7 +127,7 @@ module.exports = function ( grunt ) {
 	 * @return {string} Destination path
 	 */
 	Destination.prototype.getStylesheetPath = function () {
-		return path.join( this.path, path.basename( this.path ) + '.less' );
+		return path.join( this.path, this.stylesheetName + '.less' );
 	};
 
 	/**
@@ -283,12 +285,21 @@ module.exports = function ( grunt ) {
 	};
 
 	/**
-	 * Get CSS class configuration.
+	 * Get CSS class prefix.
 	 *
-	 * @return {VariantsList} CSS class configuration
+	 * @return {string} CSS class prefix
 	 */
 	ImageList.prototype.getCssClassPrefix = function () {
 		return this.css.classPrefix || '';
+	};
+
+	/**
+	 * Get CSS file intro.
+	 *
+	 * @return {string} CSS file intro
+	 */
+	ImageList.prototype.getCssIntro = function () {
+		return this.css.intro || '';
 	};
 
 	/**
@@ -308,12 +319,13 @@ module.exports = function ( grunt ) {
 	 *   and generated image variants
 	 */
 	ImageList.prototype.generate = function ( destination ) {
-		var list = this.list;
+		var list = this.list,
+			intro = this.getCssIntro();
 		return Q.all( Object.keys( this.list ).map( function ( key ) {
 			return list[ key ].generate( destination );
 		} ) ).then( function ( rules ) {
 			var stylesheetPath = destination.getStylesheetPath();
-			grunt.file.write( stylesheetPath, rules.map( function ( value ) {
+			grunt.file.write( stylesheetPath, intro + '\n' + rules.map( function ( value ) {
 				return value.join( '\n' );
 			} ).join( '\n' ) );
 			grunt.log.writeln( 'Created "' + path.basename( stylesheetPath ) + '".' );

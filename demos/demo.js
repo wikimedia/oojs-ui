@@ -97,10 +97,30 @@ OO.ui.Demo.static.pages = {};
 OO.ui.Demo.static.themes = {
 	mediawiki: {
 		fileSuffix: '-mediawiki',
+		additionalSuffixes: [
+			'-icons-movement',
+			'-icons-content',
+			'-icons-alerts',
+			'-icons-interactions',
+			'-icons-moderation',
+			'-icons-editing-core',
+			'-icons-editing-styling',
+			'-icons-editing-list',
+			'-icons-editing-advanced',
+			'-icons-media',
+			'-icons-location',
+			'-icons-user',
+			'-icons-layout',
+			'-icons-wikimedia'
+		],
 		theme: OO.ui.MediaWikiTheme
 	},
 	apex: {
 		fileSuffix: '-apex',
+		additionalSuffixes: [
+			'-icons-moderation',
+			'-icons-editing-core'
+		],
 		theme: OO.ui.ApexTheme
 	}
 };
@@ -180,8 +200,7 @@ OO.ui.Demo.static.defaultDirection = 'ltr';
  * Load the demo page. Must be called after $element is attached.
  */
 OO.ui.Demo.prototype.initialize = function () {
-	var
-		demo = this,
+	var demo = this,
 		promises = $( this.stylesheetLinks ).map( function () {
 			return $( this ).data( 'load-promise' );
 		} );
@@ -289,8 +308,10 @@ OO.ui.Demo.prototype.getCurrentMode = function () {
  * @return {HTMLElement[]} List of link elements
  */
 OO.ui.Demo.prototype.getStylesheetLinks = function () {
-	var links, fragments,
+	var i, len, links, fragments,
 		factors = this.getFactors(),
+		theme = this.getCurrentFactorValues()[ 1 ],
+		suffixes = this.constructor.static.themes[ theme ].additionalSuffixes || [],
 		urls = [];
 
 	// Translate modes to filename fragments
@@ -300,6 +321,10 @@ OO.ui.Demo.prototype.getStylesheetLinks = function () {
 
 	// Theme styles
 	urls.push( '../dist/oojs-ui' + fragments.slice( 1 ).join( '' ) + '.css' );
+	for ( i = 0, len = suffixes.length; i < len; i++ ) {
+		urls.push( '../dist/oojs-ui' + fragments[1] + suffixes[i] + fragments.slice( 2 ).join( '' ) + '.css' );
+	}
+
 	// Demo styles
 	urls.push( 'styles/demo' + fragments[ 3 ] + '.css' );
 
