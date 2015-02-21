@@ -172,11 +172,6 @@
 	// Prevent the fake span from jumping to the next line of text
 	white-space: nowrap;
 
-	// Keep margin between the widget and its label. (Undoes oo-ui-inline-spacing.)
-	&:last-child {
-		margin-right: 0.5em;
-	}
-
 	* {
 		font: inherit;
 		vertical-align: middle;
@@ -286,11 +281,6 @@
 	line-height: @input-size;
 	// Prevent the fake span from jumping to the next line of text
 	white-space: nowrap;
-
-	// Keep margin between the widget and its label. (Undoes oo-ui-inline-spacing.)
-	&:last-child {
-		margin-right: 0.5em;
-	}
 
 	* {
 		font: inherit;
@@ -581,13 +571,22 @@
 }
 
 .theme-oo-ui-radioOptionWidget () {
-	padding: 0.25em 0;
+	padding: 0;
 	background-color: transparent;
 
 	&.oo-ui-optionWidget-selected,
 	&.oo-ui-optionWidget-pressed,
 	&.oo-ui-optionWidget-highlighted {
 		background-color: transparent;
+	}
+
+	&.oo-ui-labelElement .oo-ui-labelElement-label {
+		padding: 0.25em;
+		padding-left: 1em;
+	}
+
+	.oo-ui-radioInputWidget {
+		margin-right: 0;
 	}
 }
 
