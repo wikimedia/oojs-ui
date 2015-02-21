@@ -89,7 +89,7 @@ OO.ui.Demo.static.pages = {};
 /**
  * Available themes.
  *
- * List of theme descriptions, each contianing a `fileSuffix` property used for linking to the
+ * List of theme descriptions, each containing a `fileSuffix` property used for linking to the
  * correct stylesheet file and a `theme` property containing a theme class
  *
  * @static
@@ -109,7 +109,7 @@ OO.ui.Demo.static.themes = {
 /**
  * Available graphics formats.
  *
- * List of graphics format descriptions, each contianing a `fileSuffix` property used for linking
+ * List of graphics format descriptions, each containing a `fileSuffix` property used for linking
  * to the correct stylesheet file.
  *
  * @static
@@ -124,7 +124,7 @@ OO.ui.Demo.static.graphics = {
 /**
  * Available text directions.
  *
- * List of text direction descriptions, each contianing a `fileSuffix` property used for linking to
+ * List of text direction descriptions, each containing a `fileSuffix` property used for linking to
  * the correct stylesheet file.
  *
  * @static
