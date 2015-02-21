@@ -488,7 +488,8 @@
 							) ),
 							array(
 								'align' => 'inline',
-								'label' => "CheckboxInputWidget (disabled)\xE2\x80\x8E"					)
+								'label' => "CheckboxInputWidget (disabled)\xE2\x80\x8E"
+							)
 						),
 						new OOUI\FieldLayout(
 							new OOUI\RadioInputWidget( array(
@@ -507,6 +508,16 @@
 							array(
 								'align' => 'inline',
 								'label' => 'Connected RadioInputWidget #2'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\RadioInputWidget( array(
+								'selected' => true,
+								'disabled' => true
+							) ),
+							array(
+								'align' => 'inline',
+								'label' => "RadioInputWidget (disabled)\xE2\x80\x8E"
 							)
 						),
 						new OOUI\FieldLayout(
