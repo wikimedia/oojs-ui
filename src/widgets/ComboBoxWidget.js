@@ -34,6 +34,10 @@ OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 		},
 		config.input
 	) );
+	this.input.$input.eq( 0 ).attr( {
+		role: 'combobox',
+		'aria-autocomplete': 'list'
+	} );
 	this.menu = new OO.ui.TextInputMenuSelectWidget( this.input, $.extend(
 		{
 			widget: this,
