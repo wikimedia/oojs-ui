@@ -1,17 +1,27 @@
 /**
- * Element with a title.
+ * TitledElement is mixed into other classes to provide a `title` attribute.
+ * Titles are rendered by the browser and are made visible when the user moves
+ * the mouse over the element. Titles are not visible on touch devices.
  *
- * Titles are rendered by the browser and are made visible when hovering the element. Titles are
- * not visible on touch devices.
+ *     @example
+ *     // TitledElement provides a 'title' attribute to the
+ *     // ButtonWidget class
+ *     var button = new OO.ui.ButtonWidget( {
+ *         label : 'Button with Title',
+ *         title : 'I am a button'
+ *     } );
+ *     $( 'body' ).append( button.$element );
  *
  * @abstract
  * @class
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$titled] Titled node, assigned to #$titled, omit to use #$element
- * @cfg {string|Function} [title] Title text or a function that returns text. If not provided, the
- *    static property 'title' is used.
+ * @cfg {jQuery} [$titled] The element to which the `title` attribute is applied.
+ *  If this config is omitted, the title functionality is applied to $element, the
+ *  element created by the class.
+ * @cfg {string|Function} [title] The title text or a function that returns text. If
+ *  this config is omitted, the value of the static `title` property is used.
  */
 OO.ui.TitledElement = function OoUiTitledElement( config ) {
 	// Configuration initialization
@@ -33,11 +43,12 @@ OO.initClass( OO.ui.TitledElement );
 /* Static Properties */
 
 /**
- * Title.
+ * The title text, a function that returns text, or `null` for no title. The value of the static property
+ * is overridden if the #title config option is used.
  *
  * @static
  * @inheritable
- * @property {string|Function} Title text or a function that returns text
+ * @property {string|Function|null}
  */
 OO.ui.TitledElement.static.title = null;
 
