@@ -8,11 +8,15 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string[]} [classes] CSS class names to add
- * @cfg {string} [id] HTML id attribute
+ * @cfg {string[]} [classes] The names of the CSS classes to apply to the element. CSS styles are added
+ *  to the top level (e.g., the outermost div) of the element. See the [OOjs UI documentation on MediaWiki][2]
+ *  for an example.
+ *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Buttons_and_Switches#cssExample
+ * @cfg {string} [id] The HTML id attribute used in the rendered tag.
  * @cfg {string} [text] Text to insert
- * @cfg {jQuery} [$content] Content elements to append (after text)
- * @cfg {Mixed} [data] Element data
+ * @cfg {jQuery} [$content] Content elements to append (after #text)
+ * @cfg {Mixed} [data] Custom data of any type or combination of types (e.g., string, number, array, object).
+ *  Data can also be specified with the #setData method.
  */
 OO.ui.Element = function OoUiElement( config ) {
 	// Configuration initialization
@@ -49,9 +53,9 @@ OO.initClass( OO.ui.Element );
 /* Static Properties */
 
 /**
- * HTML tag name.
+ * The name of the HTML tag used by the element.
  *
- * This may be ignored if #getTagName is overridden.
+ * The static value may be ignored if the #getTagName method is overridden.
  *
  * @static
  * @inheritable
