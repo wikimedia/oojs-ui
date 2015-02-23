@@ -1,5 +1,6 @@
 {
 	"name": "oojs/oojs-ui",
+	"description": "Provides library of common widgets, layouts, and windows.",
 	"homepage": "https://www.mediawiki.org/wiki/OOjs_UI",
 	"license": "MIT",
 	"require": {
