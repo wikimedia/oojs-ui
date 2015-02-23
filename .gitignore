@@ -6,3 +6,4 @@ npm-debug.log
 tests/JSPHP-suite.json
 tests/JSPHP.test.js
 vendor
+composer.lock
