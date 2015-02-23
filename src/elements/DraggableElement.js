@@ -31,15 +31,21 @@ OO.initClass( OO.ui.DraggableElement );
 
 /**
  * @event dragstart
- * @param {OO.ui.DraggableElement} item Dragging item
+ *
+ * A dragstart event is emitted when the user clicks and begins dragging an item.
+ * @param {OO.ui.DraggableElement} item The item the user has clicked and is dragging with the mouse.
  */
 
 /**
  * @event dragend
+ * A dragend event is emitted when the user drags an item and releases the mouse,
+ * thus terminating the drag operation.
  */
 
 /**
  * @event drop
+ * A drop event is emitted when the user drags an item and then releases the mouse button
+ * over a valid target.
  */
 
 /* Static Properties */
@@ -53,6 +59,8 @@ OO.ui.DraggableElement.static.cancelButtonMouseDownEvents = false;
 
 /**
  * Respond to dragstart event.
+ *
+ * @private
  * @param {jQuery.Event} event jQuery event
  * @fires dragstart
  */
@@ -78,6 +86,8 @@ OO.ui.DraggableElement.prototype.onDragStart = function ( e ) {
 
 /**
  * Respond to dragend event.
+ *
+ * @private
  * @fires dragend
  */
 OO.ui.DraggableElement.prototype.onDragEnd = function () {
@@ -87,6 +97,8 @@ OO.ui.DraggableElement.prototype.onDragEnd = function () {
 
 /**
  * Handle drop event.
+ *
+ * @private
  * @param {jQuery.Event} event jQuery event
  * @fires drop
  */
@@ -98,6 +110,8 @@ OO.ui.DraggableElement.prototype.onDrop = function ( e ) {
 /**
  * In order for drag/drop to work, the dragover event must
  * return false and stop propogation.
+ *
+ * @private
  */
 OO.ui.DraggableElement.prototype.onDragOver = function ( e ) {
 	e.preventDefault();
@@ -106,6 +120,8 @@ OO.ui.DraggableElement.prototype.onDragOver = function ( e ) {
 /**
  * Set item index.
  * Store it in the DOM so we can access from the widget drag event
+ *
+ * @private
  * @param {number} Item index
  */
 OO.ui.DraggableElement.prototype.setIndex = function ( index ) {
@@ -117,6 +133,8 @@ OO.ui.DraggableElement.prototype.setIndex = function ( index ) {
 
 /**
  * Get item index
+ *
+ * @private
  * @return {number} Item index
  */
 OO.ui.DraggableElement.prototype.getIndex = function () {
