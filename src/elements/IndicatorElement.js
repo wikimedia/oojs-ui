@@ -17,10 +17,15 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$indicator] Indicator node, assigned to #$indicator, omit to use a generated
- *   `<span>`
- * @cfg {string} [indicator] Symbolic indicator name
- * @cfg {string} [indicatorTitle] Indicator title text or a function that returns text
+ * @cfg {jQuery} [$indicator] The indicator element created by the class. If this
+ *  configuration is omitted, the indicator element will use a generated `<span>`.
+ * @cfg {string} [indicator] Symbolic name of the indicator (e.g., ‘alert’ or  ‘down’).
+ *  See the [OOjs UI documentation on MediaWiki][2] for a list of indicators included
+ *  in the library.
+ * [2]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Icons,_Indicators,_and_Labels#Indicators
+ * @cfg {string|Function} [indicatorTitle] A text string used as the indicator title,
+ *  or a function that returns title text. The indicator title is displayed when users move
+ *  the mouse over the indicator.
  */
 OO.ui.IndicatorElement = function OoUiIndicatorElement( config ) {
 	// Configuration initialization
@@ -44,21 +49,22 @@ OO.initClass( OO.ui.IndicatorElement );
 /* Static Properties */
 
 /**
- * indicator.
+ * Symbolic name of the indicator (e.g., ‘alert’ or  ‘down’).
+ * The static property will be overridden if the #indicator configuration is used.
  *
  * @static
  * @inheritable
- * @property {string|null} Symbolic indicator name
+ * @property {string|null}
  */
 OO.ui.IndicatorElement.static.indicator = null;
 
 /**
- * Indicator title.
+ * A text string used as the indicator title, a function that returns title text, or `null`
+ * for no title. The static property will be overridden if the #indicatorTitle configuration is used.
  *
  * @static
  * @inheritable
- * @property {string|Function|null} Indicator title text, a function that returns text or null for no
- *  indicator title
+ * @property {string|Function|null}
  */
 OO.ui.IndicatorElement.static.indicatorTitle = null;
 
