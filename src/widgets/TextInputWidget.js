@@ -58,7 +58,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 
 	this.setValidation( config.validate );
-	this.setPosition( config.labelPosition );
+	this.setLabelPosition( config.labelPosition );
 
 	// Events
 	this.$input.on( {
@@ -357,11 +357,19 @@ OO.ui.TextInputWidget.prototype.isValid = function () {
  * @param {string} labelPosition Label position, 'before' or 'after'
  * @chainable
  */
-OO.ui.TextInputWidget.prototype.setPosition = function ( labelPosition ) {
+OO.ui.TextInputWidget.prototype.setLabelPosition = function ( labelPosition ) {
 	this.labelPosition = labelPosition;
 	this.updatePosition();
 	return this;
 };
+
+/**
+ * Deprecated alias of #setLabelPosition
+ *
+ * @deprecated Use setLabelPosition instead.
+ */
+OO.ui.TextInputWidget.prototype.setPosition =
+	OO.ui.TextInputWidget.prototype.setLabelPosition;
 
 /**
  * Update the position of the inline label.
