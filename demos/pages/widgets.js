@@ -676,6 +676,11 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 							new OO.ui.RadioOptionWidget( {
 								data: 'Dog',
 								label: 'Dog'
+							} ),
+							new OO.ui.RadioOptionWidget( {
+								data: 'Goldfish',
+								label: 'Goldfish',
+								disabled: true
 							} )
 						]
 					} ),
