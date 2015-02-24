@@ -657,6 +657,16 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.RadioInputWidget( {
+						selected: true,
+						disabled: true
+					} ),
+					{
+						align: 'inline',
+						label: 'RadioInputWidget (disabled)\u200E'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.RadioSelectWidget( {
 						items: [
 							new OO.ui.RadioOptionWidget( {
