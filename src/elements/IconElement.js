@@ -89,9 +89,10 @@ OO.ui.IconElement.static.iconTitle = null;
 /* Methods */
 
 /**
- * Set the icon element.
- *
- * If an element is already set, it will be cleaned up before setting up the new element.
+ * Set the icon element. This method is used to retarget an icon mixin so that its functionality
+ * applies to the specified icon element instead of the one created by the class. If an icon
+ * element is already set, the mixin’s effect on that element is removed. Generated CSS classes
+ * and mixin methods will no longer affect the element.
  *
  * @param {jQuery} $icon Element to use as icon
  */
@@ -111,11 +112,12 @@ OO.ui.IconElement.prototype.setIconElement = function ( $icon ) {
 };
 
 /**
- * Set icon name.
+ * Set icon by symbolic name (e.g., ‘remove’ or ‘menu’). Use `null` to remove an icon.
+ * The icon parameter can also be set to a map of icon names. See the #icon config setting
+ * for an example.
  *
- * @param {Object|string|null} icon Symbolic icon name, or map of icon names keyed by language ID;
- *  use the 'default' key to specify the icon to be used when there is no icon in the user's
- *  language, use null to remove icon
+ * @param {Object|string|null} icon A symbolic icon name, a {@link #icon map of icon names} keyed
+ *  by language code, or `null` to remove the icon.
  * @chainable
  */
 OO.ui.IconElement.prototype.setIcon = function ( icon ) {
@@ -141,10 +143,10 @@ OO.ui.IconElement.prototype.setIcon = function ( icon ) {
 };
 
 /**
- * Set icon title.
+ * Set the icon title. Use `null` to remove the title.
  *
- * @param {string|Function|null} icon Icon title text, a function that returns text or null
- *  for no icon title
+ * @param {string|Function|null} iconTitle A text string used as the icon title,
+ *  a function that returns title text, or `null` for no title.
  * @chainable
  */
 OO.ui.IconElement.prototype.setIconTitle = function ( iconTitle ) {
@@ -167,7 +169,7 @@ OO.ui.IconElement.prototype.setIconTitle = function ( iconTitle ) {
 };
 
 /**
- * Get icon name.
+ * Get the symbolic name of the icon.
  *
  * @return {string} Icon name
  */
@@ -176,7 +178,7 @@ OO.ui.IconElement.prototype.getIcon = function () {
 };
 
 /**
- * Get icon title.
+ * Get the icon title. The title text is displayed when a user moves the mouse over the icon.
  *
  * @return {string} Icon title text
  */
