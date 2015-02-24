@@ -130,12 +130,10 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
 		this.$primaryActions.append( special.primary.$element );
 		special.primary.toggleFramed( true );
 	}
-	if ( others.length ) {
-		for ( i = 0, len = others.length; i < len; i++ ) {
-			other = others[ i ];
-			this.$otherActions.append( other.$element );
-			other.toggleFramed( true );
-		}
+	for ( i = 0, len = others.length; i < len; i++ ) {
+		other = others[ i ];
+		this.$otherActions.append( other.$element );
+		other.toggleFramed( true );
 	}
 	if ( special.safe ) {
 		this.$safeActions.append( special.safe.$element );
