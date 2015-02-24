@@ -1,5 +1,20 @@
 /**
- * Button that shows and hides a popup.
+ * PopupButtonWidgets toggle the visibility of a contained {@link OO.ui.PopupWidget PopupWidget},
+ * which is used to display additional information or options.
+ *
+ *     @example
+ *     // Example of a popup button.
+ *     var popupButton = new OO.ui.PopupButtonWidget( {
+ *         label: 'Popup button with options',
+ *         icon: 'menu',
+ *         popup: {
+ *             $content: $( '<p>Additional options here.</p>' ),
+ *             padded: true,
+ *             align: 'left'
+ *         }
+ *     } );
+ *     // Append the button to the DOM.
+ *     $( 'body' ).append( popupButton.$element );
  *
  * @class
  * @extends OO.ui.ButtonWidget
@@ -34,6 +49,8 @@ OO.mixinClass( OO.ui.PopupButtonWidget, OO.ui.PopupElement );
 
 /**
  * Handle the button action being triggered.
+ *
+ * @private
  */
 OO.ui.PopupButtonWidget.prototype.onAction = function () {
 	this.popup.toggle();
