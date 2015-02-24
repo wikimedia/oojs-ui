@@ -160,7 +160,7 @@ def parse_file filename
 		if code_line && code_line.strip != ''
 			case filetype
 			when :js
-				m = code_line.match(/(?:(static|prototype)\.)?(\w+) = /)
+				m = code_line.match(/(?:(static|prototype)\.)?(\w+) =/)
 				kind_, name = m.captures
 				data[:static] = true if kind_ == 'static'
 				kind = {'static' => :property, 'prototype' => :method}[ kind_.strip ] if kind_ && !kind
