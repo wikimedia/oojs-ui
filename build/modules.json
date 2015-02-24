@@ -14,6 +14,7 @@
 					"src/Dialog.js",
 				"src/WindowManager.js",
 			"src/Error.js",
+			"src/HtmlSnippet.js",
 			"src/Process.js",
 			"src/ToolFactory.js",
 			"src/ToolGroupFactory.js",

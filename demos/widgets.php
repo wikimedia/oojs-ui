@@ -703,6 +703,15 @@
 								'label' => "LabelWidget (disabled)\xE2\x80\x8E",
 								'align' => 'top'
 							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\LabelWidget( array(
+								'label' => new OOUI\HtmlSnippet( '<b>Fancy</b> <i>text</i> <u>formatting</u>!' ),
+							) ),
+							array(
+								'label' => "LabelWidget (with html)\xE2\x80\x8E",
+								'align' => 'top'
+							)
 						)
 					)
 				) );
@@ -776,21 +785,6 @@
 								),
 							)
 						) )
-					)
-				) );
-
-				echo new OOUI\FieldsetLayout( array(
-					'label' => 'PHP-specific',
-					'items' => array(
-						new OOUI\FieldLayout(
-							new OOUI\LabelWidget( array(
-								'label' => new OOUI\HtmlSnippet( '<b>Fancy</b> <i>text</i> <u>formatting</u>!' ),
-							) ),
-							array(
-								'label' => 'LabelWidget with HtmlSnippet',
-								'align' => 'top'
-							)
-						),
 					)
 				) );
 

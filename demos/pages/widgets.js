@@ -1140,6 +1140,15 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.LabelWidget( {
+						label: new OO.ui.HtmlSnippet( '<b>Fancy</b> <i>text</i> <u>formatting</u>!' )
+					} ),
+					{
+						label: 'LabelWidget (with html)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.PopupButtonWidget( {
 						icon: 'info',
 						framed: false,
