@@ -21,9 +21,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string|string[]} [flags] Flags describing importance and functionality, e.g. 'primary',
- *   'safe', 'progressive', 'destructive' or 'constructive'
- * @cfg {jQuery} [$flagged] Flagged node, assigned to #$flagged, omit to use #$element
+ * @cfg {string|string[]} [flags] The name or names of the flags (e.g., 'constructive' or 'primary') to apply.
+ *  Please see the [OOjs UI documentation on MediaWiki] [2] for more information about available flags.
+ *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Elements/Flagged
+ * @cfg {jQuery} [$flagged] Flagged node, assigned to $flagged, omit to use $element
  */
 OO.ui.FlaggedElement = function OoUiFlaggedElement( config ) {
 	// Configuration initialization
@@ -42,8 +43,12 @@ OO.ui.FlaggedElement = function OoUiFlaggedElement( config ) {
 
 /**
  * @event flag
- * @param {Object.<string,boolean>} changes Object keyed by flag name containing boolean
- *   added/removed properties
+ * A flag event is emitted when the #clearFlags or #setFlags methods are used. The `changes`
+ * parameter contains the name of each modified flag and indicates whether it was
+ * added or removed.
+ *
+ * @param {Object.<string,boolean>} changes Object keyed by flag name. A Boolean `true` indicates
+ * that the flag was added, `false` that the flag was removed.
  */
 
 /* Methods */
