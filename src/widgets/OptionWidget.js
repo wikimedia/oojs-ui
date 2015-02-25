@@ -1,5 +1,10 @@
 /**
- * Generic option widget for use with OO.ui.SelectWidget.
+ * OptionWidgets are special elements that can be selected and configured with data. The
+ * data is often unique for each option, but it does not have to be. OptionWidgets are used
+ * with OO.ui.SelectWidget to create a selection of mutually exclusive options. For more information
+ * and examples, please see the [OOjs UI documentation on MediaWiki][1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.Widget
@@ -54,7 +59,7 @@ OO.ui.OptionWidget.static.scrollIntoViewOnSelect = false;
 /* Methods */
 
 /**
- * Check if option can be selected.
+ * Check if the option can be selected.
  *
  * @return {boolean} Item is selectable
  */
@@ -63,7 +68,9 @@ OO.ui.OptionWidget.prototype.isSelectable = function () {
 };
 
 /**
- * Check if option can be highlighted.
+ * Check if the option can be highlighted. A highlight indicates that the option
+ * may be selected when a user presses enter or clicks. Disabled items cannot
+ * be highlighted.
  *
  * @return {boolean} Item is highlightable
  */
@@ -72,7 +79,8 @@ OO.ui.OptionWidget.prototype.isHighlightable = function () {
 };
 
 /**
- * Check if option can be pressed.
+ * Check if the option can be pressed. The pressed state occurs when a user mouses
+ * down on an item, but has not yet let go of the mouse.
  *
  * @return {boolean} Item is pressable
  */
@@ -81,7 +89,7 @@ OO.ui.OptionWidget.prototype.isPressable = function () {
 };
 
 /**
- * Check if option is selected.
+ * Check if the option is selected.
  *
  * @return {boolean} Item is selected
  */
@@ -90,7 +98,8 @@ OO.ui.OptionWidget.prototype.isSelected = function () {
 };
 
 /**
- * Check if option is highlighted.
+ * Check if the option is highlighted. A highlight indicates that the
+ * item may be selected when a user presses enter or clicks.
  *
  * @return {boolean} Item is highlighted
  */
@@ -99,7 +108,9 @@ OO.ui.OptionWidget.prototype.isHighlighted = function () {
 };
 
 /**
- * Check if option is pressed.
+ * Check if the option is pressed. The pressed state occurs when a user mouses
+ * down on an item, but has not yet let go of the mouse. The item may appear
+ * selected, but it will not be selected until the user releases the mouse.
  *
  * @return {boolean} Item is pressed
  */
@@ -108,7 +119,9 @@ OO.ui.OptionWidget.prototype.isPressed = function () {
 };
 
 /**
- * Set selected state.
+ * Set the option’s selected state. In general, all modifications to the selection
+ * should be handled by the SelectWidget’s {@link OO.ui.SelectWidget#selectItem selectItem( [item] )}
+ * method instead of this method.
  *
  * @param {boolean} [state=false] Select option
  * @chainable
@@ -128,7 +141,10 @@ OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
 };
 
 /**
- * Set highlighted state.
+ * Set the option’s highlighted state. In general, all programmatic
+ * modifications to the highlight should be handled by the
+ * SelectWidget’s {@link OO.ui.SelectWidget#highlightItem highlightItem( [item] )}
+ * method instead of this method.
  *
  * @param {boolean} [state=false] Highlight option
  * @chainable
@@ -143,7 +159,10 @@ OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
 };
 
 /**
- * Set pressed state.
+ * Set the option’s pressed state. In general, all
+ * programmatic modifications to the pressed state should be handled by the
+ * SelectWidget’s {@link OO.ui.SelectWidget#pressItem pressItem( [item] )}
+ * method instead of this method.
  *
  * @param {boolean} [state=false] Press option
  * @chainable
