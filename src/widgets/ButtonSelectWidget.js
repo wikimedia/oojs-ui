@@ -1,7 +1,36 @@
 /**
- * Select widget containing button options.
+ * ButtonSelectWidget is a {@link OO.ui.SelectWidget select widget} that contains
+ * button options and is used together with
+ * OO.ui.ButtonOptionWidget. The ButtonSelectWidget provides an interface for
+ * highlighting, choosing, and selecting mutually exclusive options. Please see
+ * the [OOjs UI documentation on MediaWiki] [1] for more information.
  *
- * Use together with OO.ui.ButtonOptionWidget.
+ *     @example
+ *     // Example: A ButtonSelectWidget that contains three ButtonOptionWidgets
+ *     var option1 = new OO.ui.ButtonOptionWidget( {
+ *         data: 1,
+ *         label: 'Option 1',
+ *         title:'Button option 1'
+ *     } );
+ *
+ *     var option2 = new OO.ui.ButtonOptionWidget( {
+ *         data: 2,
+ *         label: 'Option 2',
+ *         title:'Button option 2'
+ *     } );
+ *
+ *     var option3 = new OO.ui.ButtonOptionWidget( {
+ *         data: 3,
+ *         label: 'Option 3',
+ *         title:'Button option 3'
+ *     } );
+ *
+ *     var buttonSelect=new OO.ui.ButtonSelectWidget( {
+ *         items: [option1, option2, option3]
+ *     } );
+ *     $('body').append(buttonSelect.$element);
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.SelectWidget
