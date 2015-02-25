@@ -14,6 +14,9 @@
  *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Buttons_and_Switches#cssExample
  * @cfg {string} [id] The HTML id attribute used in the rendered tag.
  * @cfg {string} [text] Text to insert
+ * @cfg {Array} [content] An array of content elements to append (after #text).
+ *  Strings will be html-escaped; use an OO.ui.HtmlSnippet to append raw HTML.
+ *  Instances of OO.ui.Element will have their $element appended.
  * @cfg {jQuery} [$content] Content elements to append (after #text)
  * @cfg {Mixed} [data] Custom data of any type or combination of types (e.g., string, number, array, object).
  *  Data can also be specified with the #setData method.
@@ -41,7 +44,25 @@ OO.ui.Element = function OoUiElement( config ) {
 	if ( config.text ) {
 		this.$element.text( config.text );
 	}
+	if ( config.content ) {
+		// The `content` property treats plain strings as text; use an
+		// HtmlSnippet to append HTML content.  `OO.ui.Element`s get their
+		// appropriate $element appended.
+		this.$element.append( config.content.map( function ( v ) {
+			if ( typeof v === 'string' ) {
+				// Escape string so it is properly represented in HTML.
+				return document.createTextNode( v );
+			} else if ( v instanceof OO.ui.HtmlSnippet ) {
+				// Bypass escaping.
+				return v.toString();
+			} else if ( v instanceof OO.ui.Element ) {
+				return v.$element;
+			}
+			return v;
+		} ) );
+	}
 	if ( config.$content ) {
+		// The `$content` property treats plain strings as HTML.
 		this.$element.append( config.$content );
 	}
 };

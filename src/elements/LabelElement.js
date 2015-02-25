@@ -81,13 +81,13 @@ OO.ui.LabelElement.prototype.setLabelElement = function ( $label ) {
  * An empty string will result in the label being hidden. A string containing only whitespace will
  * be converted to a single `&nbsp;`.
  *
- * @param {jQuery|string|Function|null} label Label nodes; text; a function that returns nodes or
+ * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} label Label nodes; text; a function that returns nodes or
  *  text; or null for no label
  * @chainable
  */
 OO.ui.LabelElement.prototype.setLabel = function ( label ) {
 	label = typeof label === 'function' ? OO.ui.resolveMsg( label ) : label;
-	label = ( typeof label === 'string' && label.length ) || label instanceof jQuery ? label : null;
+	label = ( ( typeof label === 'string' && label.length ) || label instanceof jQuery || label instanceof OO.ui.HtmlSnippet ) ? label : null;
 
 	this.$element.toggleClass( 'oo-ui-labelElement', !!label );
 
@@ -142,6 +142,8 @@ OO.ui.LabelElement.prototype.setLabelContent = function ( label ) {
 		} else {
 			this.$label.text( label );
 		}
+	} else if ( label instanceof OO.ui.HtmlSnippet ) {
+		this.$label.html( label.toString() );
 	} else if ( label instanceof jQuery ) {
 		this.$label.empty().append( label );
 	} else {
