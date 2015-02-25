@@ -103,6 +103,21 @@ OO.ui.contains = function ( containers, contained, matchContainers ) {
 	return false;
 };
 
+/**
+ * Reconstitute a JavaScript object corresponding to a widget created by
+ * the PHP implementation.
+ *
+ * This is an alias for `OO.ui.Element.static.infuse()`.
+ *
+ * @param {string|HTMLElement|jQuery} idOrNode
+ *   A DOM id (if a string) or node for the widget to infuse.
+ * @return {OO.ui.Element}
+ *   The `OO.ui.Element` corresponding to this (infusable) document node.
+ */
+OO.ui.infuse = function ( idOrNode ) {
+	return OO.ui.Element.static.infuse( idOrNode );
+};
+
 ( function () {
 	/**
 	 * Message store for the default implementation of OO.ui.msg
