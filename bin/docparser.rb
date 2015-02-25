@@ -113,7 +113,7 @@ def parse_file filename
 					data[:params] << {name: name, type: cleanup_class_name(type), description: description || '', default: default}
 					previous_item = data[:params][-1]
 				when :php
-					type, name, config, description = content.match(/^(\S+) \$(\w+)(?:\['(\w+)'\])?( .+)?$/).captures
+					type, name, config, description = content.match(/^(\S+) \&?\$(\w+)(?:\['(\w+)'\])?( .+)?$/).captures
 					next if type == 'array' && name == 'config' && !config
 					if config && name == 'config'
 						data[:config] << {name: config, type: cleanup_class_name(type), description: description || ''}
@@ -148,7 +148,9 @@ def parse_file filename
 				data[:abstract] = true
 			when 'ignore'
 				ignore = true
-			when 'inheritable', 'deprecated', 'singleton', 'throws', 'chainable', 'fires', 'localdoc', 'inheritdoc'
+			when 'inheritable', 'deprecated', 'singleton', 'throws',
+				 'chainable', 'fires', 'localdoc', 'inheritdoc', 'member',
+				 'see'
 				# skip
 			else
 				fail "unrecognized keyword: #{keyword}"
