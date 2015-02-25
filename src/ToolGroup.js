@@ -21,6 +21,12 @@
  * @cfg {Array|string} [demote=[]] List of tools to demote to the end
  */
 OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( toolbar ) && config === undefined ) {
+		config = toolbar;
+		toolbar = config.toolbar;
+	}
+
 	// Configuration initialization
 	config = config || {};
 

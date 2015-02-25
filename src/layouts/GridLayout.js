@@ -12,6 +12,12 @@
  * @cfg {number[]} [heights] Heights of rows as ratios
  */
 OO.ui.GridLayout = function OoUiGridLayout( panels, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( panels ) && config === undefined ) {
+		config = panels;
+		panels = config.panels;
+	}
+
 	var i, len, widths;
 
 	// Configuration initialization

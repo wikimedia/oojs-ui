@@ -13,6 +13,12 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( outline ) && config === undefined ) {
+		config = outline;
+		outline = config.outline;
+	}
+
 	// Configuration initialization
 	config = $.extend( { icon: 'add' }, config );
 

@@ -29,6 +29,12 @@
  * @cfg {string} [help] Explanatory text shown as a '?' icon.
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( fieldWidget ) && config === undefined ) {
+		config = fieldWidget;
+		fieldWidget = config.fieldWidget;
+	}
+
 	var hasInputWidget = fieldWidget instanceof OO.ui.InputWidget;
 
 	// Configuration initialization

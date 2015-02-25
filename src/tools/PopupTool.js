@@ -11,6 +11,12 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.PopupTool = function OoUiPopupTool( toolbar, config ) {
+	// Allow passing positional parameters inside the config object
+	if ( OO.isPlainObject( toolbar ) && config === undefined ) {
+		config = toolbar;
+		toolbar = config.toolbar;
+	}
+
 	// Parent constructor
 	OO.ui.PopupTool.super.call( this, toolbar, config );
 

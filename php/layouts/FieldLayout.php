@@ -40,7 +40,13 @@ class FieldLayout extends Layout {
 	 *   (default: 'left')
 	 * @param string $config['help'] Explanatory text shown as a '?' icon.
 	 */
-	public function __construct( Widget $fieldWidget, array $config = array() ) {
+	public function __construct( $fieldWidget, array $config = array() ) {
+		// Allow passing positional parameters inside the config array
+		if ( is_array( $fieldWidget ) && isset( $fieldWidget['fieldWidget'] ) ) {
+			$config = $fieldWidget;
+			$fieldWidget = $config['fieldWidget'];
+		}
+
 		$hasInputWidget = $fieldWidget instanceof InputWidget;
 
 		// Config initialization
