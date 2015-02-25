@@ -154,7 +154,7 @@ QUnit.asyncTest( 'execute (wait)', 1, function ( assert ) {
 	process
 		.next( function () {
 			result.push( 'A' );
-			return 100;
+			return 10;
 		} )
 		.next( function () {
 			result.push( 'B' );
