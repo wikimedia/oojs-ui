@@ -35,7 +35,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>OOjs UI Widget Demo</title>
-	<link rel="stylesheet" href="../dist/<?php echo $styleFileName; ?>">
+	<link rel="stylesheet" href="../dist/<?php echo $styleFileName; ?>" title="theme">
 	<link rel="stylesheet" href="styles/demo<?php echo $directionSuffix; ?>.css">
 </head>
 <body class="oo-ui-<?php echo $direction; ?>">
@@ -46,11 +46,15 @@
 					'infusable' => true,
 					'items' => array(
 						new OOUI\ButtonWidget( array(
+							'id' => 'theme-mediawiki',
 							'label' => 'MediaWiki',
+							'data' => 'mediawiki',
 							'href' => '?' . http_build_query( array_merge( $query, array( 'theme' => 'mediawiki' ) ) ),
 						) ),
 						new OOUI\ButtonWidget( array(
+							'id' => 'theme-apex',
 							'label' => 'Apex',
+							'data' => 'apex',
 							'href' => '?' . http_build_query( array_merge( $query, array( 'theme' => 'apex' ) ) ),
 						) ),
 					)
@@ -821,5 +825,13 @@
 			?>
 		</div>
 	</div>
+
+	<!-- Demonstrate JavaScript "infusion" of PHP widgets -->
+	<script src="../lib/jquery.js"></script>
+	<script src="../lib/oojs.jquery.js"></script>
+	<script src="../dist/oojs-ui.js"></script>
+	<script src="../dist/oojs-ui-apex.js"></script>
+	<script src="../dist/oojs-ui-mediawiki.js"></script>
+	<script src="./infusion.js"></script>
 </body>
 </html>
