@@ -85,4 +85,15 @@ class DropdownInputWidget extends InputWidget {
 
 		return $this;
 	}
+
+	public function getConfig( &$config ) {
+		$o = array();
+		foreach ( $this->options as $option ) {
+			$label = $option->content[0];
+			$data = $option->getAttribute( 'value' );
+			$o[] = array( 'data' => $data, 'label' => $label );
+		}
+		$config['options'] = $o;
+		return parent::getConfig( $config );
+	}
 }

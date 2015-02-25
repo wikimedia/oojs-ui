@@ -148,4 +148,11 @@ class GridLayout extends Layout {
 	public function getPanel( $x, $y ) {
 		return $this->panels[ ( $x * count( $this->widths ) ) + $y ];
 	}
+
+	public function getConfig( &$config ) {
+		$config['panels'] = $this->panels;
+		$config['widths'] = $this->widths;
+		$config['heights'] = $this->heights;
+		return parent::getConfig( $config );
+	}
 }

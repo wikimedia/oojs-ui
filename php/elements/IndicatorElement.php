@@ -68,4 +68,11 @@ class IndicatorElement extends ElementMixin {
 	public function getIndicator() {
 		return $this->indicator;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->indicator !== null ) {
+			$config['indicator'] = $this->indicator;
+		}
+		return parent::getConfig( $config );
+	}
 }

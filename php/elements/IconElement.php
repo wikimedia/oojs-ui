@@ -66,4 +66,11 @@ class IconElement extends ElementMixin {
 	public function getIcon() {
 		return $this->icon;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->icon !== null ) {
+			$config['icon'] = $this->icon;
+		}
+		return parent::getConfig( $config );
+	}
 }

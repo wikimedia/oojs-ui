@@ -36,4 +36,17 @@ class PanelLayout extends Layout {
 			$this->addClasses( array( 'oo-ui-panelLayout-expanded' ) );
 		}
 	}
+	public function getConfig( &$config ) {
+		if ( $this->hasClass( 'oo-ui-panelLayout-scrollable' ) ) {
+			$config['scrollable'] = true;
+		}
+		if ( $this->hasClass( 'oo-ui-panelLayout-padded' ) ) {
+			$config['padded'] = true;
+		}
+		if ( $this->hasClass( 'oo-ui-panelLayout-expanded' ) ) {
+			$config['expanded'] = true;
+		}
+		$config['content'] = $this->content;
+		return parent::getConfig( $config );
+	}
 }

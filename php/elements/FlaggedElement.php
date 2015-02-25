@@ -123,4 +123,11 @@ class FlaggedElement extends ElementMixin {
 
 		return $this;
 	}
+
+	public function getConfig( &$config ) {
+		if ( !empty( $this->flags ) ) {
+			$config['flags'] = $this->getFlags();
+		}
+		return parent::getConfig( $config );
+	}
 }

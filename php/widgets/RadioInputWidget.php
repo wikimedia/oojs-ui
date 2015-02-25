@@ -50,4 +50,11 @@ class RadioInputWidget extends InputWidget {
 	public function isSelected() {
 		return $this->input->getAttribute( 'checked' ) === 'checked';
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->isSelected() ) {
+			$config['selected'] = true;
+		}
+		return parent::getConfig( $config );
+	}
 }

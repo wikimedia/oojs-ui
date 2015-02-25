@@ -60,4 +60,11 @@ class CheckboxInputWidget extends InputWidget {
 	public function isSelected() {
 		return $this->selected;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->selected ) {
+			$config['selected'] = $this->selected;
+		}
+		return parent::getConfig( $config );
+	}
 }

@@ -143,4 +143,17 @@ class ButtonWidget extends Widget {
 
 		return $this;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->href !== null ) {
+			$config['href'] = $this->href;
+		}
+		if ( $this->target !== null ) {
+			$config['target'] = $this->target;
+		}
+		if ( $this->noFollow !== true ) {
+			$config['noFollow'] = $this->noFollow;
+		}
+		return parent::getConfig( $config );
+	}
 }

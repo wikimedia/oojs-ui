@@ -108,4 +108,31 @@ class TextInputWidget extends InputWidget {
 	public function isMultiline() {
 		return (bool)$this->multiline;
 	}
+
+	public function getConfig( &$config ) {
+		if ( $this->isMultiline() ) {
+			$config['multiline'] = true;
+		} else {
+			$type = $this->input->getAttribute( 'type' );
+			if ( $type !== 'text' ) {
+				$config['type'] = $type;
+			}
+		}
+		if ( $this->isReadOnly() ) {
+			$config['readOnly'] = true;
+		}
+		$placeholder = $this->input->getAttribute( 'placeholder' );
+		if ( $placeholder !== null ) {
+			$config['placeholder'] = $placeholder;
+		}
+		$maxlength = $this->input->getAttribute( 'maxlength' );
+		if ( $maxlength !== null ) {
+			$config['maxLength'] = $maxlength;
+		}
+		$autofocus = $this->input->getAttribute( 'autofocus' );
+		if ( $autofocus !== null ) {
+			$config['autofocus'] = true;
+		}
+		return parent::getConfig( $config );
+	}
 }
