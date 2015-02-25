@@ -1,7 +1,10 @@
 /**
- * Option widget that looks like a button.
+ * ButtonOptionWidget is a special type of {@link OO.ui.ButtonElement button element} that
+ * can be selected and configured with data. The class is
+ * used with OO.ui.ButtonSelectWidget to create a selection of button options. Please see the
+ * [OOjs UI documentation on MediaWiki] [1] for more information.
  *
- * Use together with OO.ui.ButtonSelectWidget.
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options#Button_selects_and_options
  *
  * @class
  * @extends OO.ui.DecoratedOptionWidget
