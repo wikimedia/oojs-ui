@@ -16,7 +16,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.OptionWidget[]} [items] Options to add
+ * @cfg {OO.ui.OptionWidget[]} [items] An array of options to add to the select.
+ *  Options are created with {@link OO.ui.OptionWidget OptionWidget} classes. See
+ *  the [OOjs UI documentation on MediaWiki] [2] for examples.
+ *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  */
 OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	// Configuration initialization
@@ -63,16 +66,26 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
 
 /**
  * @event highlight
+ *
+ * A `highlight` event is emitted when the highlight is changed with the #highlightItem method.
+ *
  * @param {OO.ui.OptionWidget|null} item Highlighted item
  */
 
 /**
  * @event press
+ *
+ * A `press` event is emitted when the #pressItem method is used to programmatically modify the
+ * pressed state of an option.
+ *
  * @param {OO.ui.OptionWidget|null} item Pressed item
  */
 
 /**
  * @event select
+ *
+ * A `select` event is emitted when the selection is modified programmatically with the #selectItem method.
+ *
  * @param {OO.ui.OptionWidget|null} item Selected item
  */
 
@@ -83,12 +96,19 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
 
 /**
  * @event add
+ *
+ * An `add` event is emitted when options are added to the select with the #addItems method.
+ *
  * @param {OO.ui.OptionWidget[]} items Added items
- * @param {number} index Index items were added at
+ * @param {number} index Index of insertion point
  */
 
 /**
  * @event remove
+ *
+ * A `remove` event is emitted when options are removed from the select with the #clearItems
+ * or #removeItems methods.
+ *
  * @param {OO.ui.OptionWidget[]} items Removed items
  */
 
@@ -211,6 +231,7 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
 /**
  * Handle key down events.
  *
+ * @protected
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
@@ -344,11 +365,10 @@ OO.ui.SelectWidget.prototype.togglePressed = function ( pressed ) {
 };
 
 /**
- * Highlight an item.
+ * Highlight an option. If the `item` param is omitted, no options will be highlighted
+ * and any existing highlight will be removed. The highlight is mutually exclusive.
  *
- * Highlighting is mutually exclusive.
- *
- * @param {OO.ui.OptionWidget} [item] Item to highlight, omit to deselect all
+ * @param {OO.ui.OptionWidget} [item] Item to highlight, omit for no highlight
  * @fires highlight
  * @chainable
  */
@@ -371,7 +391,8 @@ OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
 };
 
 /**
- * Select an item.
+ * Programmatically select an option by its reference. If the `item` parameter is omitted,
+ * all options will be deselected.
  *
  * @param {OO.ui.OptionWidget} [item] Item to select, omit to deselect all
  * @fires select
@@ -438,11 +459,14 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
 };
 
 /**
- * Get an item relative to another one.
+ * Get an option by its position relative to the specified item (or to the start of the option array,
+ * if item is `null`). The direction in which to search through the option array is specified with a
+ * number: -1 for reverse (the default) or 1 for forward. The method will return an option, or
+ * `null` if there are no options in the array.
  *
- * @param {OO.ui.OptionWidget|null} item Item to start at, null to get relative to list start
- * @param {number} direction Direction to move in, -1 to move backward, 1 to move forward
- * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the menu
+ * @param {OO.ui.OptionWidget|null} item Item to describe the start position, or `null` to start at the beginning of the array.
+ * @param {number} direction Direction to move in: -1 to move backward, 1 to move forward
+ * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the select
  */
 OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direction ) {
 	var currentIndex, nextIndex, i,
@@ -469,7 +493,8 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 };
 
 /**
- * Get the next selectable item.
+ * Get the next selectable item or `null` if there are no selectable items.
+ * Disabled options and menu-section markers and breaks are not selectable.
  *
  * @return {OO.ui.OptionWidget|null} Item, `null` if there aren't any selectable items
  */
@@ -487,7 +512,8 @@ OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
 };
 
 /**
- * Add items.
+ * Add an array of options to the select. Optionally, an index number can be used to
+ * specify an insertion point.
  *
  * @param {OO.ui.OptionWidget[]} items Items to add
  * @param {number} [index] Index to insert items after
@@ -505,9 +531,9 @@ OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
 };
 
 /**
- * Remove items.
- *
- * Items will be detached, not removed, so they can be used later.
+ * Remove the specified array of options from the select. Options will be detached
+ * from the DOM, not removed, so they can be reused later. To remove all options from
+ * the select, you may wish to use the #clearItems method instead.
  *
  * @param {OO.ui.OptionWidget[]} items Items to remove
  * @fires remove
@@ -533,9 +559,9 @@ OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
 };
 
 /**
- * Clear all items.
- *
- * Items will be detached, not removed, so they can be used later.
+ * Clear all options from the select. Options will be detached from the DOM, not removed,
+ * so that they can be reused later. To remove a subset of options from the select, use
+ * the #removeItems method.
  *
  * @fires remove
  * @chainable
