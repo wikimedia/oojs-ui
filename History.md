@@ -1,5 +1,11 @@
 # OOjs UI Release History
 
+## v0.8.2 / 2015-02-26
+* testsuitegenerator: Exclude 'text' parameter from tests, like 'content' (Bartosz Dziewoński)
+* PHP TitledElement: Actually set $this->title (Bartosz Dziewoński)
+* PHP PanelLayout: Fix getConfig() for 'expanded' config option (Bartosz Dziewoński)
+* WindowManager: Don't pass 'this' to window factory method (Bartosz Dziewoński)
+
 ## v0.8.1 / 2015-02-25
 * [DEPRECATING CHANGE] Rename setPosition to setLabelPosition (Ed Sanders)
 
