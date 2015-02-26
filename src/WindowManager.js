@@ -297,7 +297,7 @@ OO.ui.WindowManager.prototype.getWindow = function ( name ) {
 					'Cannot auto-instantiate window: symbolic name is unrecognized by the factory'
 				) );
 			} else {
-				win = this.factory.create( name, this );
+				win = this.factory.create( name );
 				this.addWindows( [ win ] );
 				deferred.resolve( win );
 			}
