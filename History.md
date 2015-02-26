@@ -1,9 +1,67 @@
 # OOjs UI Release History
 
+## v0.8.1 / 2015-02-25
+* [DEPRECATING CHANGE] Rename setPosition to setLabelPosition (Ed Sanders)
+
+* Element.php: Add "data" property (C. Scott Ananian)
+* Element.php: Add "text" configuration option (C. Scott Ananian)
+* Work around Safari 8 misrendering checkboxes in SVG-only distribution (Bartosz Dziewoński)
+* TextInputWidget: Fix appearance of icons and labels when disabled (Ed Sanders)
+* Remove '$: this.$' from code examples (Bartosz Dziewoński)
+* Prefer OO.isPlainObject to $.isPlainObject (Bartosz Dziewoński)
+* Error: Fix function name (Bartosz Dziewoński)
+* build: Use grunt-contrib-copy instead of custom 'copy' task (Timo Tijhof)
+* Element.php: Tweak docs (Bartosz Dziewoński)
+* docparser.rb: Ruby 1.9.3 compatibility (Bartosz Dziewoński)
+* Move toggle() from Widget to Element (Moriel Schottlender)
+* build: Include 'lib' and 'dist' in jsduck output (Timo Tijhof)
+* Fix typo: contian → contain (Bartosz Dziewoński)
+* MediaWiki Theme: Drop unnecessary pseudo-element of CheckboxInputWidget (Timo Tijhof)
+* MediaWiki Theme: Drop unnecessary pseudo-element of RadioInputWidget (Timo Tijhof)
+* MediaWiki theme: Simplify spacing of checkboxes/radios in FieldLayouts (Bartosz Dziewoński)
+* Add disabled RadioInputWidget to demo (Bartosz Dziewoński)
+* RadioOptionWidget: Make disabling single options work (Bartosz Dziewoński)
+* composer.json: Add description field (Kunal Mehta)
+* IconElement: Add description for config options (Kirsten Menger-Anderson)
+* IndicatorElement: Add description for configs and static properties (Kirsten Menger-Anderson)
+* DraggableElement: Mark private methods and add description to events (Kirsten Menger-Anderson)
+* Element: Add description for configs and static property (Kirsten Menger-Anderson)
+* LabelElement: Add description, config description, static property description (Kirsten Menger-Anderson)
+* TitledElement: Add description and config and static descriptions (Kirsten Menger-Anderson)
+* ComboBox: Use combobox role (Derk-Jan Hartman)
+* IconElement: Add description of methods (Kirsten Menger-Anderson)
+* Follow-up bade83bfdfc: actually remove ../ (Roan Kattouw)
+* Remove loop length check (Ed Sanders)
+* PopupButtonWidget: Add description and example and mark private method (Kirsten Menger-Anderson)
+* FlaggedElement: Add description of event and config option (Kirsten Menger-Anderson)
+* Unbreak docparser.rb (Bartosz Dziewoński)
+* Allow passing positional parameters inside the config object (Bartosz Dziewoński)
+* Run JS/PHP comparison tests using karma (Bartosz Dziewoński)
+* test: Reduce timeout in Process test from 100 to 10 (Timo Tijhof)
+* OptionWidget: Add description and descriptions of methods (Kirsten Menger-Anderson)
+* FormLayout: Allow adding child layouts via config (Bartosz Dziewoński)
+* Teach docparser about @member, @see, and PHP pass-by-reference (&$foo). (C. Scott Ananian)
+* Element: Add `content` config option, matching PHP side. (C. Scott Ananian)
+* SelectWidget: Add description for config, methods, events (Kirsten Menger-Anderson)
+* Serialize PHP widget state into data-ooui attribute (C. Scott Ananian)
+* Implement OO.ui.infuse to reconstitute PHP widgets in client-side JS (C. Scott Ananian)
+* ButtonSelectWidget: Add description and example (Kirsten Menger-Anderson)
+* RadioOptionWidget: Add description (Kirsten Menger-Anderson)
+* ButtonOptionWidget: Add description (Kirsten Menger-Anderson)
+* RadioSelectWidget: Add description and example (Kirsten Menger-Anderson)
+* Set proper spacing between interleaved FieldsetLayouts and FormLayouts (Bartosz Dziewoński)
+* MenuOptionWidget: Add description (Kirsten Menger-Anderson)
+* Unbreak form submission in JavaScript (Bartosz Dziewoński)
+* MenuSelectWidget: Add description and mark protected method (Kirsten Menger-Anderson)
+* TabIndexelement: Add description, example, and mark private method (Kirsten Menger-Anderson)
+* Add "composer test" command to lint PHP files and run phpcs (Kunal Mehta)
+* Update OOjs to v1.1.5 (James D. Forrester)
+
+
 ## v0.8.0 / 2015-02-18
 * [BREAKING CHANGE] Make default distribution provide SVG with PNG fallback (Bartosz Dziewoński)
 
-* DEPRECATION: TextInputWidget: Deprecate 'icon' and 'indicator' events (Bartosz Dziewoński)
+* [DEPRECATING CHANGE] TextInputWidget: Deprecate 'icon' and 'indicator' events (Bartosz Dziewoński)
 
 * ButtonElement: add protected to event handlers (Kirsten Menger-Anderson)
 * docs: Make @example documentation tag work (Roan Kattouw)
@@ -68,7 +126,7 @@
 ## v0.7.0 / 2015-02-11
 * [BREAKING CHANGE] Remove window isolation (Trevor Parscal)
 
-* DEPRECATION: GridLayout should no longer be used, instead use MenuLayout (Bartosz Dziewoński)
+* [DEPRECATING CHANGE] GridLayout should no longer be used, instead use MenuLayout (Bartosz Dziewoński)
 
 * Fade in window frames separately from window overlays (Ed Sanders)
 * Fix initialisation of window visible (Ed Sanders)
@@ -178,7 +236,7 @@
 * Add simpler window#updateSize API (Ed Sanders)
 
 ## v0.6.3 / 2015-01-14
-* DEPRECATION: LookupInputWidget should no longer be used, instead use LookupElement
+* [DEPRECATING CHANGE] LookupInputWidget should no longer be used, instead use LookupElement
 
 * MediaWiki Theme: Adjust toolbar popups' border and shadows (Bartosz Dziewoński)
 * MediaWiki Theme: Don't use 'box-shadow' to produce thin grey lines in dialogs (Bartosz Dziewoński)
