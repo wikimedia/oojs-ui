@@ -1,10 +1,22 @@
 /**
- * Overlaid menu of options.
+ * MenuSelectWidget is a {@link OO.ui.SelectWidget select widget} that contains options and
+ * is used together with OO.ui.MenuOptionWidget. See {@link OO.ui.DropdownWidget DropdownWidget} and
+ * {@link OO.ui.ComboBoxWidget ComboBoxWidget} for examples of interfaces that contain menus.
+ * MenuSelectWidgets themselves are not designed to be instantiated directly, rather subclassed
+ * and customized to be opened, closed, and displayed as needed.
  *
- * Menus are clipped to the visible viewport. They do not provide a control for opening or closing
- * the menu.
+ * By default, menus are clipped to the visible viewport and are not visible when a user presses the
+ * mouse outside the menu.
  *
- * Use together with OO.ui.MenuOptionWidget.
+ * Menus also have support for keyboard interaction:
+ *
+ * - Enter/Return key: choose and select a menu option
+ * - Up-arrow key: highlight the previous menu option
+ * - Down-arrow key: highlight the next menu option
+ * - Esc key: hide the menu
+ *
+ * Please see the [OOjs UI documentation on MediaWiki][1] for more information.
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.SelectWidget
@@ -55,6 +67,7 @@ OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.ClippableElement );
 /**
  * Handles document mouse down events.
  *
+ * @protected
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
