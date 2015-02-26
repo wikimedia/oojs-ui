@@ -45,6 +45,7 @@ class TitledElement extends ElementMixin {
 	 */
 	public function setTitle( $title ) {
 		if ( $this->title !== $title ) {
+			$this->title = $title;
 			if ( $title !== null ) {
 				$this->target->setAttributes( array( 'title' => $title ) );
 			} else {
