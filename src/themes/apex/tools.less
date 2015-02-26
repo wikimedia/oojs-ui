@@ -72,6 +72,12 @@
 	border: 1px solid transparent;
 	.oo-ui-transition(border-color 300ms ease-in-out);
 
+	.oo-ui-toolbar-narrow & {
+		+ .oo-ui-toolGroup {
+			margin-left: 0;
+		}
+	}
+
 	&.oo-ui-widget-enabled {
 		&:hover {
 			border-color: rgba(0,0,0,0.1);
@@ -153,12 +159,24 @@
 	height: 2em;
 	min-width: 2em;
 
+	.oo-ui-toolbar-narrow & {
+		min-width: 1.5em;
+	}
+
 	&.oo-ui-iconElement {
 		min-width: 2.5em;
+
+		.oo-ui-toolbar-narrow & {
+			min-width: 2em;
+		}
 	}
 
 	&.oo-ui-indicatorElement.oo-ui-iconElement {
 		min-width: 3.5em;
+
+		.oo-ui-toolbar-narrow & {
+			min-width: 3em;
+		}
 	}
 
 	&.oo-ui-labelElement {
@@ -166,31 +184,51 @@
 			line-height: 2.6em;
 			font-size: 0.8em;
 			margin: 0 1em;
+
+			.oo-ui-toolbar-narrow & {
+				margin: 0 0.5em;
+			}
 		}
 
 		&.oo-ui-iconElement .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
 			margin-left: 3em;
+
+			.oo-ui-toolbar-narrow & {
+				margin-left: 2.5em;
+			}
 		}
 
 		&.oo-ui-indicatorElement .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
 			margin-right: 2.25em;
+
+			.oo-ui-toolbar-narrow & {
+				margin-right: 1.75em;
+			}
 		}
 	}
 
 	&-handle {
 		.oo-ui-indicatorElement-indicator {
-			top: 0;
-			right: 0;
 			width: 0.75em;
 			height: 0.75em;
 			margin: 0.625em;
+			top: 0;
+			right: 0;
+
+			.oo-ui-toolbar-narrow & {
+				right: -0.25em;
+			}
 		}
 		.oo-ui-iconElement-icon {
-			top: 0;
-			left: 0.25em;
 			width: 1.5em;
 			height: 1.5em;
 			margin: 0.25em;
+			top: 0;
+			left: 0.25em;
+
+			.oo-ui-toolbar-narrow & {
+				left: 0;
+			}
 		}
 	}
 
@@ -311,6 +349,10 @@
 
 	.oo-ui-popupToolGroup-handle {
 		min-width: 8em;
+
+		.oo-ui-toolbar-narrow & {
+			min-width: 6.5em;
+		}
 	}
 
 	.oo-ui-toolGroup-tools {

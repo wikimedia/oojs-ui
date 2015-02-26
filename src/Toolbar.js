@@ -39,6 +39,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.$bar = $( '<div>' );
 	this.$actions = $( '<div>' );
 	this.initialized = false;
+	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 
 	// Events
 	this.$element
@@ -99,11 +100,27 @@ OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
 };
 
 /**
+ * Handle window resize event.
+ *
+ * @private
+ * @param {jQuery.Event} e Window resize event
+ */
+OO.ui.Toolbar.prototype.onWindowResize = function () {
+	this.$element.toggleClass(
+		'oo-ui-toolbar-narrow',
+		this.$bar.width() <= this.narrowThreshold
+	);
+};
+
+/**
  * Sets up handles and preloads required information for the toolbar to work.
  * This must be called after it is attached to a visible document and before doing anything else.
  */
 OO.ui.Toolbar.prototype.initialize = function () {
 	this.initialized = true;
+	this.narrowThreshold = this.$group.width() + this.$actions.width();
+	$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
+	this.onWindowResize();
 };
 
 /**
@@ -170,6 +187,7 @@ OO.ui.Toolbar.prototype.reset = function () {
  * Call this whenever you are done using a toolbar.
  */
 OO.ui.Toolbar.prototype.destroy = function () {
+	$( this.getElementWindow() ).off( 'resize', this.onWindowResizeHandler );
 	this.reset();
 	this.$element.remove();
 };
