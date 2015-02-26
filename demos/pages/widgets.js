@@ -1274,6 +1274,16 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 							'in, duo ex inimicus perpetua complectitur, mel periculis similique at.\u200E',
 						align: 'top'
 					}
+				),
+				new OO.ui.ActionFieldLayout(
+					new OO.ui.TextInputWidget( {} ),
+					new OO.ui.ButtonWidget( {
+						label: 'Button'
+					} ),
+					{
+						label: $( '<i>' ).text( 'ActionFieldLayout aligned top with rich text label' ),
+						align: 'top'
+					}
 				)
 			]
 		} ),
