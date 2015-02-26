@@ -51,6 +51,7 @@ else
 		'classes' => true,
 		'id' => true,
 		'content' => true,
+		'text' => true,
 	}
 
 	expand_types_to_values = lambda do |types|
