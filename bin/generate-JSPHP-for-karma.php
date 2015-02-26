@@ -16,15 +16,27 @@ $testSuiteJSON = file_get_contents( 'JSPHP-suite.json' );
 $testSuite = json_decode( $testSuiteJSON, true );
 $testSuiteOutput = array();
 
+function new_OOUI( $class, $config = array() ) {
+	$class = "OOUI\\" . $class;
+	return new $class( $config );
+}
+function unstub( &$value ) {
+	if ( is_string( $value ) && substr( $value, 0, 13 ) === '_placeholder_' ) {
+		$value = json_decode( substr( $value, 13 ), true );
+		array_walk_recursive( $value['config'], 'unstub' );
+		$value = new_OOUI( $value['class'], $value['config'] );
+	}
+}
 // Keep synchronized with tests/index.php
 $themes = array( 'ApexTheme', 'MediaWikiTheme' );
 foreach ( $themes as $theme ) {
-	$class = "OOUI\\" . $theme;
-	OOUI\Theme::setSingleton( new $class() );
+	OOUI\Theme::setSingleton( new_OOUI( $theme ) );
 	foreach ( $testSuite as $className => $tests ) {
 		foreach ( $tests as $test ) {
-			$class = "OOUI\\" . $test['class'];
-			$instance = new $class( $test['config'] );
+			// Unstub placeholders
+			$config = $test['config'];
+			array_walk_recursive( $config, 'unstub' );
+			$instance = new_OOUI( $test['class'], $config );
 			$testSuiteOutput[$theme][$className][] = "$instance";
 		}
 	}
