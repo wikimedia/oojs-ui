@@ -1,5 +1,28 @@
 /**
- * Element supporting "sequential focus navigation" using the 'tabindex' attribute.
+ * The TabIndexedElement class is an attribute mixin used to add additional functionality to an
+ * element created by another class. The mixin provides a ‘tabIndex’ property, which specifies the
+ * order in which users will navigate through the focusable elements via the "tab" key.
+ *
+ *     @example
+ *     // TabIndexedElement is mixed into the ButtonWidget class
+ *     // to provide a tabIndex property.
+ *     var button1 = new OO.ui.ButtonWidget( {
+ *         label : 'fourth',
+ *         tabIndex : 4
+ *     } );
+ *     var button2 = new OO.ui.ButtonWidget( {
+ *         label : 'second',
+ *         tabIndex : 2
+ *     } );
+ *     var button3 = new OO.ui.ButtonWidget( {
+ *         label : 'third',
+ *         tabIndex : 3
+ *     } );
+ *     var button4 = new OO.ui.ButtonWidget( {
+ *         label : 'first',
+ *         tabIndex : 1
+ *     } );
+ *     $( 'body' ).append( button1.$element, button2.$element, button3.$element, button4.$element );
  *
  * @abstract
  * @class
@@ -92,6 +115,7 @@ OO.ui.TabIndexedElement.prototype.updateTabIndex = function () {
 /**
  * Handle disable events.
  *
+ * @private
  * @param {boolean} disabled Element is disabled
  */
 OO.ui.TabIndexedElement.prototype.onDisable = function () {
