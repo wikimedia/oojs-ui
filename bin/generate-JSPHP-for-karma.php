@@ -36,6 +36,7 @@ foreach ( $themes as $theme ) {
 			// Unstub placeholders
 			$config = $test['config'];
 			array_walk_recursive( $config, 'unstub' );
+			$config['infusable'] = true;
 			$instance = new_OOUI( $test['class'], $config );
 			$testSuiteOutput[$theme][$className][] = "$instance";
 		}
