@@ -43,8 +43,8 @@ class PanelLayout extends Layout {
 		if ( $this->hasClass( 'oo-ui-panelLayout-padded' ) ) {
 			$config['padded'] = true;
 		}
-		if ( $this->hasClass( 'oo-ui-panelLayout-expanded' ) ) {
-			$config['expanded'] = true;
+		if ( !$this->hasClass( 'oo-ui-panelLayout-expanded' ) ) {
+			$config['expanded'] = false;
 		}
 		$config['content'] = $this->content;
 		return parent::getConfig( $config );
