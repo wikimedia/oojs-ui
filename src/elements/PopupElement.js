@@ -1,5 +1,8 @@
 /**
- * Element containing an OO.ui.PopupWidget object.
+ * PopupElement is mixed into other classes to generate a {@link OO.ui.PopupWidget popup widget}.
+ * A popup is a container for content. It is overlaid and positioned absolutely. By default, each
+ * popup has an anchor, which is an arrow-like protrusion that points toward the popup’s origin.
+ * See {@link OO.ui.PopupWidget PopupWidget} for an example.
  *
  * @abstract
  * @class
