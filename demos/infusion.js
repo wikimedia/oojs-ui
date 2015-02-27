@@ -35,8 +35,10 @@ $menu.append(
 // This is more like a typical use case: we are just infusing specific
 // named UI elements.
 themeButtons = [
-	OO.ui.infuse( 'theme-mediawiki' ),
-	OO.ui.infuse( 'theme-apex' )
+	// If you're lazy, you can just use OO.ui.infuse.  But if you name the
+	// Element type you're expecting, you can get some type checking.
+	OO.ui.ButtonWidget.static.infuse( 'theme-mediawiki' ),
+	OO.ui.ButtonWidget.static.infuse( 'theme-apex' )
 ];
 themes = {
 	mediawiki: new OO.ui.MediaWikiTheme(),
