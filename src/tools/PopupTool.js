@@ -7,18 +7,18 @@
  * @mixins OO.ui.PopupElement
  *
  * @constructor
- * @param {OO.ui.Toolbar} toolbar
+ * @param {OO.ui.ToolGroup} toolGroup
  * @param {Object} [config] Configuration options
  */
-OO.ui.PopupTool = function OoUiPopupTool( toolbar, config ) {
+OO.ui.PopupTool = function OoUiPopupTool( toolGroup, config ) {
 	// Allow passing positional parameters inside the config object
-	if ( OO.isPlainObject( toolbar ) && config === undefined ) {
-		config = toolbar;
-		toolbar = config.toolbar;
+	if ( OO.isPlainObject( toolGroup ) && config === undefined ) {
+		config = toolGroup;
+		toolGroup = config.toolGroup;
 	}
 
 	// Parent constructor
-	OO.ui.PopupTool.super.call( this, toolbar, config );
+	OO.ui.PopupTool.super.call( this, toolGroup, config );
 
 	// Mixin constructors
 	OO.ui.PopupElement.call( this, config );
