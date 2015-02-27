@@ -1,5 +1,24 @@
 /**
- * Button that toggles on and off.
+ * ToggleButtons are buttons that have a state (‘on’ or ‘off’) that is represented by a
+ * Boolean value. Like other {@link OO.ui.ButtonWidget buttons}, toggle buttons can be
+ * configured with {@link OO.ui.IconElement icons}, {@link OO.ui.IndicatorElement indicators},
+ * {@link OO.ui.TitledElement titles}, {@link OO.ui.FlaggedElement styling flags},
+ * and {@link OO.ui.LabelElement labels}. Please see
+ * the [OOjs UI documentation][1] on MediaWiki for more information.
+ *
+ *     @example
+ *     // Toggle buttons in the 'off' and 'on' state.
+ *     var toggleButton1 = new OO.ui.ToggleButtonWidget( {
+ *         label: 'Toggle Button off'
+ *     } );
+ *     var toggleButton2 = new OO.ui.ToggleButtonWidget( {
+ *         label: 'Toggle Button on',
+ *         value: true
+ *     } );
+ *     // Append the buttons to the DOM.
+ *     $( 'body' ).append( toggleButton1.$element, toggleButton2.$element );
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Buttons_and_Switches#Toggle_buttons
  *
  * @class
  * @extends OO.ui.ButtonWidget
@@ -7,7 +26,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [value=false] Initial value
+ * @cfg {boolean} [value=false] The toggle button’s initial on/off
+ *  state. By default, the button is in the 'off' state.
  */
 OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
 	// Configuration initialization
@@ -34,6 +54,8 @@ OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.ToggleWidget );
 /* Methods */
 
 /**
+ *
+ * @private
  * Handle the button action being triggered.
  */
 OO.ui.ToggleButtonWidget.prototype.onAction = function () {
