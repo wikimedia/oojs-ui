@@ -1,5 +1,5 @@
 OO.ui.Demo.static.pages.toolbars = function ( demo ) {
-	var i, toolGroups, actionButton, actionButtonDisabled,
+	var i, toolGroups, actionButton, actionButtonDisabled, PopupTool,
 		$demo = demo.$element,
 		$containers = $(
 			'<div class="oo-ui-demo-container oo-ui-demo-toolbars"></div>' +
@@ -85,6 +85,21 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 	toolGroupFactories[ 0 ].register( createDisabledToolGroup( OO.ui.ListToolGroup, 'disabledList' ) );
 	toolGroupFactories[ 1 ].register( createDisabledToolGroup( OO.ui.MenuToolGroup, 'disabledMenu' ) );
 
+	PopupTool = function ( toolGroup, config ) {
+		// Parent constructor
+		OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: { padded: true } }, config ) );
+
+		this.popup.$body.append( '<p>Popup tool</p>' );
+	};
+
+	OO.inheritClass( PopupTool, OO.ui.PopupTool );
+
+	PopupTool.static.name = 'popupTool';
+	PopupTool.static.group = 'popupTools';
+	PopupTool.static.icon = 'help';
+
+	toolFactories[ 2 ].register( PopupTool );
+
 	// Toolbar
 	toolbars[ 0 ].setup( [
 		{
@@ -144,6 +159,9 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 			type: 'list',
 			icon: 'picture',
 			include: [ { group: 'listTools' } ]
+		},
+		{
+			include: [ { group: 'popupTools' } ]
 		}
 	] );
 	toolbars[ 0 ].$actions.append(
@@ -180,6 +198,10 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 			[ 'listTool4', 'picture', 'More basic tools' ],
 			[ 'listTool5', 'picture', 'And even more' ],
 			[ 'listTool6', 'picture', 'A final tool' ]
+		],
+
+		popupTools: [
+			[ 'popupTool' ]
 		],
 
 		disabledListTools: [
