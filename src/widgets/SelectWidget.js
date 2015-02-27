@@ -91,6 +91,7 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
 
 /**
  * @event choose
+ * A `choose` event is emitted when an item is chosen with the #chooseItem method.
  * @param {OO.ui.OptionWidget|null} item Chosen item
  */
 
@@ -288,6 +289,8 @@ OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
 
 /**
  * Bind key down listener.
+ *
+ * @protected
  */
 OO.ui.SelectWidget.prototype.bindKeyDownListener = function () {
 	this.getElementWindow().addEventListener( 'keydown', this.onKeyDownHandler, true );
@@ -295,6 +298,8 @@ OO.ui.SelectWidget.prototype.bindKeyDownListener = function () {
 
 /**
  * Unbind key down listener.
+ *
+ * @protected
  */
 OO.ui.SelectWidget.prototype.unbindKeyDownListener = function () {
 	this.getElementWindow().removeEventListener( 'keydown', this.onKeyDownHandler, true );
@@ -349,6 +354,10 @@ OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
 
 /**
  * Toggle pressed state.
+ *
+ * Press is a state that occurs when a user mouses down on an item, but
+ * has not yet let go of the mouse. The item may appear selected, but it will not be selected
+ * until the user releases the mouse.
  *
  * @param {boolean} pressed An option is being pressed
  */
@@ -419,6 +428,10 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 /**
  * Press an item.
  *
+ * Press is a state that occurs when a user mouses down on an item, but has not
+ * yet let go of the mouse. The item may appear selected, but it will not be selected until the user
+ * releases the mouse.
+ *
  * @param {OO.ui.OptionWidget} [item] Item to press, omit to depress all
  * @fires press
  * @chainable
@@ -444,8 +457,12 @@ OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
 /**
  * Choose an item.
  *
- * Identical to #selectItem, but may vary in subclasses that want to take additional action when
- * an item is selected using the keyboard or mouse.
+ * Note that ‘choose’ should never be modified programmatically. A user can choose
+ * an option with the keyboard or mouse and it becomes selected. To select an item programmatically,
+ * use the #selectItem method.
+ *
+ * This method is identical to #selectItem, but may vary in subclasses that take additional action
+ * when users choose an item with the keyboard or mouse.
  *
  * @param {OO.ui.OptionWidget} item Item to choose
  * @fires choose
