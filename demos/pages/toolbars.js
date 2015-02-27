@@ -217,6 +217,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 
 	for ( i = 0; i < toolbars.length; i++ ) {
 		$containers.eq( i ).append( toolbars[ i ].$element );
+		toolbars[ i ].initialize();
 	}
 	$containers.append( '' );
 	$demo.append(
