@@ -1,5 +1,8 @@
 # OOjs UI Release History
 
+## v0.8.3 / 2015-02-27
+* Revert "Unbreak form submission in JavaScript" (Bartosz Dziewoński)
+
 ## v0.8.2 / 2015-02-26
 * testsuitegenerator: Exclude 'text' parameter from tests, like 'content' (Bartosz Dziewoński)
 * PHP TitledElement: Actually set $this->title (Bartosz Dziewoński)
