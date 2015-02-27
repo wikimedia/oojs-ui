@@ -1,12 +1,14 @@
 /**
- * Mixin for widgets with a boolean on/off state.
+ * ToggleWidget is mixed into other classes to create widgets with an on/off state.
+ * Please see OO.ui.ToggleButtonWidget and OO.ui.ToggleSwitchWidget for examples.
  *
  * @abstract
  * @class
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [value=false] Initial value
+ * @cfg {boolean} [value=false] The toggle’s initial on/off state.
+ *  By default, the toggle is in the 'off' state.
  */
 OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {
 	// Configuration initialization
@@ -24,24 +26,27 @@ OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {
 
 /**
  * @event change
- * @param {boolean} value Changed value
+ *
+ * A change event is emitted when the on/off state of the toggle changes.
+ *
+ * @param {boolean} value Value representing the new state of the toggle
  */
 
 /* Methods */
 
 /**
- * Get the value of the toggle.
+ * Get the value representing the toggle’s state.
  *
- * @return {boolean}
+ * @return {boolean} The on/off state of the toggle
  */
 OO.ui.ToggleWidget.prototype.getValue = function () {
 	return this.value;
 };
 
 /**
- * Set the value of the toggle.
+ * Set the state of the toggle: `true` for 'on', `false' for 'off'.
  *
- * @param {boolean} value New value
+ * @param {boolean} value The state of the toggle
  * @fires change
  * @chainable
  */
