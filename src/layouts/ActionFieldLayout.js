@@ -25,9 +25,6 @@ OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWid
 	// Parent constructor
 	OO.ui.ActionFieldLayout.super.call( this, fieldWidget, config );
 
-	// Mixin constructors
-	OO.ui.LabelElement.call( this, config );
-
 	// Properties
 	this.fieldWidget = fieldWidget;
 	this.buttonWidget = buttonWidget;
