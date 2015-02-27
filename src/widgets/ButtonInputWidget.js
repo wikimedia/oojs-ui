@@ -39,7 +39,6 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 
 	// Properties (must be set before parent constructor, which calls #setValue)
 	this.useInputTag = config.useInputTag;
-	this.type = config.type;
 
 	// Parent constructor
 	OO.ui.ButtonInputWidget.super.call( this, config );
@@ -121,16 +120,4 @@ OO.ui.ButtonInputWidget.prototype.setValue = function ( value ) {
 		OO.ui.ButtonInputWidget.super.prototype.setValue.call( this, value );
 	}
 	return this;
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.ButtonInputWidget.prototype.onClick = function ( e ) {
-	var ret = OO.ui.ButtonElement.prototype.onClick.call( this, e );
-	if ( this.type === 'submit' ) {
-		// Never prevent default action (form submission)
-		return true;
-	}
-	return ret;
 };

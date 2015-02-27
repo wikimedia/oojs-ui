@@ -46,11 +46,7 @@ OO.mixinClass( OO.ui.FormLayout, OO.ui.GroupElement );
 /* Events */
 
 /**
- * The HTML form was submitted. If the submission is handled, call `e.preventDefault()` to prevent
- * HTML form submission.
- *
  * @event submit
- * @param {jQuery.Event} e Submit event
  */
 
 /* Static Properties */
@@ -65,6 +61,7 @@ OO.ui.FormLayout.static.tagName = 'form';
  * @param {jQuery.Event} e Submit event
  * @fires submit
  */
-OO.ui.FormLayout.prototype.onFormSubmit = function ( e ) {
-	this.emit( 'submit', e );
+OO.ui.FormLayout.prototype.onFormSubmit = function () {
+	this.emit( 'submit' );
+	return false;
 };
