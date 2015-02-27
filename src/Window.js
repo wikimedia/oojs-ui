@@ -437,7 +437,6 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$head = $( '<div>' );
 	this.$body = $( '<div>' );
 	this.$foot = $( '<div>' );
-	this.$innerOverlay = $( '<div>' );
 	this.dir = OO.ui.Element.static.getDir( this.$content ) || 'ltr';
 	this.$document = $( this.getElementDocument() );
 
@@ -448,8 +447,7 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$head.addClass( 'oo-ui-window-head' );
 	this.$body.addClass( 'oo-ui-window-body' );
 	this.$foot.addClass( 'oo-ui-window-foot' );
-	this.$innerOverlay.addClass( 'oo-ui-window-inner-overlay' );
-	this.$content.append( this.$head, this.$body, this.$foot, this.$innerOverlay );
+	this.$content.append( this.$head, this.$body, this.$foot );
 
 	return this;
 };
