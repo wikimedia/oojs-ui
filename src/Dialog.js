@@ -143,7 +143,6 @@ OO.ui.Dialog.prototype.onActionResize = function () {
  */
 OO.ui.Dialog.prototype.onActionClick = function ( action ) {
 	if ( !this.isPending() ) {
-		this.currentAction = action;
 		this.executeAction( action.getAction() );
 	}
 };
@@ -285,6 +284,7 @@ OO.ui.Dialog.prototype.detachActions = function () {
  */
 OO.ui.Dialog.prototype.executeAction = function ( action ) {
 	this.pushPending();
+	this.currentAction = action;
 	return this.getActionProcess( action ).execute()
 		.always( this.popPending.bind( this ) );
 };

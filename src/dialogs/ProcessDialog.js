@@ -54,7 +54,7 @@ OO.ui.ProcessDialog.prototype.onDismissErrorButtonClick = function () {
  */
 OO.ui.ProcessDialog.prototype.onRetryButtonClick = function () {
 	this.hideErrors();
-	this.executeAction( this.currentAction.getAction() );
+	this.executeAction( this.currentAction );
 };
 
 /**
@@ -173,8 +173,9 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
  * @param {OO.ui.Error[]} errors Errors to be handled
  */
 OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
-	var i, len, $item,
+	var i, len, $item, actions,
 		items = [],
+		abilities = {},
 		recoverable = true,
 		warning = false;
 
@@ -192,9 +193,15 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 	}
 	this.$errorItems = $( items );
 	if ( recoverable ) {
-		this.retryButton.clearFlags().setFlags( this.currentAction.getFlags() );
+		abilities[this.currentAction] = true;
+		// Copy the flags from the first matching action
+		actions = this.actions.get( { actions: this.currentAction } );
+		if ( actions.length ) {
+			this.retryButton.clearFlags().setFlags( actions[0].getFlags() );
+		}
 	} else {
-		this.currentAction.setDisabled( true );
+		abilities[this.currentAction] = false;
+		this.actions.setAbilities( abilities );
 	}
 	if ( warning ) {
 		this.retryButton.setLabel( OO.ui.msg( 'ooui-dialog-process-continue' ) );
