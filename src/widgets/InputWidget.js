@@ -158,9 +158,10 @@ OO.ui.InputWidget.prototype.cleanUpValue = function ( value ) {
  */
 OO.ui.InputWidget.prototype.simulateLabelClick = function () {
 	if ( !this.isDisabled() ) {
-		if ( this.$input.is( ':checkbox,:radio' ) ) {
+		if ( this.$input.is( ':checkbox, :radio' ) ) {
 			this.$input.click();
-		} else if ( this.$input.is( ':input' ) ) {
+		}
+		if ( this.$input.is( ':input' ) ) {
 			this.$input[ 0 ].focus();
 		}
 	}
