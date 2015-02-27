@@ -1,5 +1,21 @@
 /**
- * Container for content that is overlaid and positioned absolutely.
+ * PopupWidget is a container for content. The popup is overlaid and positioned absolutely.
+ * By default, each popup has an anchor that points toward its origin.
+ * Please see the [OOjs UI documentation on Mediawiki] [1] for more information and examples.
+ *
+ *     @example
+ *     // A popup widget.
+ *     var popup=new OO.ui.PopupWidget({
+ *         $content: $( '<p>Hi there!</p>' ),
+ *         padded: true,
+ *         width: 300
+ *     } );
+ *
+ *     $('body').append(popup.$element);
+ *     // To display the popup, toggle the visibility to 'true'.
+ *     popup.toggle(true);
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Popups
  *
  * @class
  * @extends OO.ui.Widget
@@ -8,16 +24,24 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {number} [width=320] Width of popup in pixels
- * @cfg {number} [height] Height of popup, omit to use automatic height
+ * @cfg {number} [height] Height of popup in pixels. Omit to use the automatic height.
  * @cfg {boolean} [anchor=true] Show anchor pointing to origin of popup
- * @cfg {string} [align='center'] Alignment of popup to origin
- * @cfg {jQuery} [$container] Container to prevent popup from rendering outside of
- * @cfg {number} [containerPadding=10] How much padding to keep between popup and container
+ * @cfg {string} [align='center'] Alignment of the popup: `center`, `left`, or `right`.
+ *  If the popup is right-aligned, the right edge of the popup is aligned to the anchor.
+ *  For left-aligned popups, the left edge is aligned to the anchor.
+ * @cfg {jQuery} [$container] Constrain the popup to the boundaries of the specified container.
+ *  See the [OOjs UI docs on MediaWiki][3] for an example.
+ *  [3]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Popups#containerExample
+ * @cfg {number} [containerPadding=10] Padding between the popup and its container, specified as a number of pixels.
  * @cfg {jQuery} [$content] Content to append to the popup's body
- * @cfg {boolean} [autoClose=false] Popup auto-closes when it loses focus
- * @cfg {jQuery} [$autoCloseIgnore] Elements to not auto close when clicked
- * @cfg {boolean} [head] Show label and close button at the top
- * @cfg {boolean} [padded] Add padding to the body
+ * @cfg {boolean} [autoClose=false] Automatically close the popup when it loses focus.
+ * @cfg {jQuery} [$autoCloseIgnore] Elements that will not close the popup when clicked.
+ *  This config option is only relevant if #autoClose is set to `true`. See the [OOjs UI docs on MediaWiki][2]
+ *  for an example.
+ *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Popups#autocloseExample
+ * @cfg {boolean} [head] Show a popup header that contains a #label (if specified) and close
+ *  button.
+ * @cfg {boolean} [padded] Add padding to the popup's body
  */
 OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	// Configuration initialization
@@ -95,6 +119,7 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.ClippableElement );
 /**
  * Handles mouse down events.
  *
+ * @private
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
@@ -109,6 +134,8 @@ OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
 
 /**
  * Bind mouse down listener.
+ *
+ * @private
  */
 OO.ui.PopupWidget.prototype.bindMouseDownListener = function () {
 	// Capture clicks outside popup
@@ -117,6 +144,8 @@ OO.ui.PopupWidget.prototype.bindMouseDownListener = function () {
 
 /**
  * Handles close button click events.
+ *
+ * @private
  */
 OO.ui.PopupWidget.prototype.onCloseButtonClick = function () {
 	if ( this.isVisible() ) {
@@ -126,13 +155,15 @@ OO.ui.PopupWidget.prototype.onCloseButtonClick = function () {
 
 /**
  * Unbind mouse down listener.
+ *
+ * @private
  */
 OO.ui.PopupWidget.prototype.unbindMouseDownListener = function () {
 	this.getElementWindow().removeEventListener( 'mousedown', this.onMouseDownHandler, true );
 };
 
 /**
- * Set whether to show a anchor.
+ * Show, hide, or toggle the visibility of the anchor.
  *
  * @param {boolean} [show] Show anchor, omit to toggle
  */
@@ -150,9 +181,9 @@ OO.ui.PopupWidget.prototype.toggleAnchor = function ( show ) {
 };
 
 /**
- * Check if showing a anchor.
+ * Check if the anchor is visible.
  *
- * @return {boolean} anchor is visible
+ * @return {boolean} Anchor is visible
  */
 OO.ui.PopupWidget.prototype.hasAnchor = function () {
 	return this.anchor;
@@ -192,8 +223,8 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
  *
  * Changing the size may also change the popup's position depending on the alignment.
  *
- * @param {number} width Width
- * @param {number} height Height
+ * @param {number} width Width in pixels
+ * @param {number} height Height in pixels
  * @param {boolean} [transition=false] Use a smooth transition
  * @chainable
  */
