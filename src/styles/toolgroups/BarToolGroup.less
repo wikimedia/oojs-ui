@@ -6,12 +6,12 @@
 		display: none;
 	}
 
-	.oo-ui-tool {
+	> .oo-ui-toolGroup-tools > .oo-ui-tool {
 		display: inline-block;
 		position: relative;
 		vertical-align: top;
 
-		&-link {
+		> .oo-ui-tool-link {
 			display: block;
 
 			.oo-ui-iconElement-icon {
@@ -24,18 +24,18 @@
 			}
 		}
 
-		&.oo-ui-widget-disabled .oo-ui-tool-link {
+		&.oo-ui-widget-disabled > .oo-ui-tool-link {
 			cursor: default;
 		}
 
-		&-title,
-		&-accel {
+		> .oo-ui-tool-link > .oo-ui-tool-title,
+		> .oo-ui-tool-link > .oo-ui-tool-accel {
 			display: none;
 		}
 	}
 
-	&.oo-ui-widget-enabled .oo-ui-tool {
-		&-link {
+	&.oo-ui-widget-enabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
+		> .oo-ui-tool-link {
 			cursor: pointer;
 		}
 	}

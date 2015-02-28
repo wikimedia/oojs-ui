@@ -274,6 +274,9 @@ OO.ui.ToolGroup.prototype.populate = function () {
 			// Tool is available or is already in this group
 			( this.toolbar.isToolAvailable( name ) || this.tools[ name ] )
 		) {
+			// Hack to prevent infinite recursion via ToolGroupTool. We need to reserve the tool before
+			// creating it, but we can't call reserveTool() yet because we haven't created the tool.
+			this.toolbar.tools[ name ] = true;
 			tool = this.tools[ name ];
 			if ( !tool ) {
 				// Auto-initialize tools on first use

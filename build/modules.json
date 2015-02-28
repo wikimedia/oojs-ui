@@ -57,6 +57,7 @@
 			"src/toolgroups/MenuToolGroup.js",
 
 			"src/tools/PopupTool.js",
+			"src/tools/ToolGroupTool.js",
 
 			"src/widgets/GroupWidget.js",
 			"src/widgets/ItemWidget.js",

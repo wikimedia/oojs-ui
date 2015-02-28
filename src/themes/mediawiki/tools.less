@@ -26,6 +26,30 @@
 	}
 }
 
+.theme-oo-ui-toolGroupTool () {
+	> .oo-ui-popupToolGroup {
+		margin: 0;
+	}
+
+	// Like .oo-ui-tool-link in barToolGroup
+	> .oo-ui-popupToolGroup > .oo-ui-popupToolGroup-handle {
+		height: 1.5em;
+		padding: 0.25em;
+
+		.oo-ui-iconElement-icon {
+			height: 1.5em;
+			width: 1.5em;
+			opacity: 0.8;
+		}
+	}
+
+	> .oo-ui-popupToolGroup.oo-ui-labelElement > .oo-ui-popupToolGroup-handle {
+		.oo-ui-labelElement-label {
+			line-height: 2.1em; // 0.5em less
+		}
+	}
+}
+
 .theme-oo-ui-toolGroup () {
 	margin: 0.3em;
 
@@ -43,8 +67,8 @@
 }
 
 .theme-oo-ui-barToolGroup () {
-	.oo-ui-tool {
-		&-link {
+	> .oo-ui-toolGroup-tools > .oo-ui-tool {
+		> .oo-ui-tool-link {
 			height: 1.5em;
 			padding: 0.25em;
 
@@ -56,32 +80,32 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled .oo-ui-tool {
-		&-active {
+	&.oo-ui-widget-enabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
+		&.oo-ui-tool-active {
 			&.oo-ui-widget-enabled {
 				background-color: #eee;
 			}
 		}
 
-		&.oo-ui-widget-disabled .oo-ui-tool-link {
+		&.oo-ui-widget-disabled > .oo-ui-tool-link {
 			.oo-ui-iconElement-icon {
 				opacity: 0.2;
 			}
 		}
 
 		&.oo-ui-widget-enabled {
-			.oo-ui-tool-link .oo-ui-iconElement-icon {
+			> .oo-ui-tool-link .oo-ui-iconElement-icon {
 				opacity: 0.8;
 			}
 
-			&:hover .oo-ui-tool-link .oo-ui-iconElement-icon {
+			&:hover > .oo-ui-tool-link .oo-ui-iconElement-icon {
 				opacity: 1;
 			}
 		}
 	}
 
-	&.oo-ui-widget-disabled .oo-ui-tool {
-		&-link {
+	&.oo-ui-widget-disabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
+		> .oo-ui-tool-link {
 			.oo-ui-iconElement-icon {
 				opacity: 0.2;
 			}
@@ -91,7 +115,11 @@
 
 .theme-oo-ui-popupToolGroup () {
 	height: 2em;
-	min-width: 2.5em;
+	min-width: 2em;
+
+	&.oo-ui-iconElement {
+		min-width: 2.5em;
+	}
 
 	&.oo-ui-indicatorElement.oo-ui-iconElement {
 		min-width: 3.5em;

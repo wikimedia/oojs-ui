@@ -30,6 +30,42 @@
 	}
 }
 
+.theme-oo-ui-toolGroupTool () {
+	> .oo-ui-popupToolGroup {
+		border: 0;
+		border-radius: 0;
+		margin: 0;
+	}
+
+	// Like .oo-ui-tool in barToolGroup
+	&:first-child > .oo-ui-popupToolGroup {
+		border-top-left-radius: 0.25em;
+		border-bottom-left-radius: 0.25em;
+	}
+
+	&:last-child > .oo-ui-popupToolGroup {
+		border-top-right-radius: 0.25em;
+		border-bottom-right-radius: 0.25em;
+	}
+
+	// Like .oo-ui-tool-link in barToolGroup
+	> .oo-ui-popupToolGroup > .oo-ui-popupToolGroup-handle {
+		height: 1.5em;
+		padding: 0.25em;
+
+		.oo-ui-iconElement-icon {
+			height: 1.5em;
+			width: 1.5em;
+		}
+	}
+
+	> .oo-ui-popupToolGroup.oo-ui-labelElement > .oo-ui-popupToolGroup-handle {
+		.oo-ui-labelElement-label {
+			line-height: 2.1em; // 0.5em less
+		}
+	}
+}
+
 .theme-oo-ui-toolGroup () {
 	margin: 0.3em;
 	border-radius: 0.25em;
@@ -48,7 +84,7 @@
 }
 
 .theme-oo-ui-barToolGroup () {
-	.oo-ui-tool {
+	> .oo-ui-toolGroup-tools > .oo-ui-tool {
 		margin: -1px 0 -1px -1px;
 		border: 1px solid transparent;
 
@@ -63,7 +99,7 @@
 			border-bottom-right-radius: 0.25em;
 		}
 
-		&-link {
+		> .oo-ui-tool-link {
 			height: 1.5em;
 			padding: 0.25em;
 
@@ -74,12 +110,12 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled .oo-ui-tool {
+	&.oo-ui-widget-enabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
 		&.oo-ui-widget-enabled:hover {
 			border-color: rgba(0,0,0,0.2);
 		}
 
-		&-active {
+		&.oo-ui-tool-active {
 			&.oo-ui-widget-enabled {
 				border-color: rgba(0,0,0,0.2);
 				box-shadow: inset 0 0.07em 0.07em 0 rgba(0, 0, 0, 0.07);
@@ -91,21 +127,21 @@
 			}
 		}
 
-		&.oo-ui-widget-disabled .oo-ui-tool-link {
+		&.oo-ui-widget-disabled > .oo-ui-tool-link {
 			.oo-ui-iconElement-icon {
 				opacity: 0.2;
 			}
 		}
 
 		&.oo-ui-widget-enabled {
-			&:hover .oo-ui-tool-link .oo-ui-iconElement-icon {
+			&:hover > .oo-ui-tool-link .oo-ui-iconElement-icon {
 				opacity: 1;
 			}
 		}
 	}
 
-	&.oo-ui-widget-disabled .oo-ui-tool {
-		&-link {
+	&.oo-ui-widget-disabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
+		> .oo-ui-tool-link {
 			.oo-ui-iconElement-icon {
 				opacity: 0.2;
 			}
@@ -115,7 +151,11 @@
 
 .theme-oo-ui-popupToolGroup () {
 	height: 2em;
-	min-width: 2.5em;
+	min-width: 2em;
+
+	&.oo-ui-iconElement {
+		min-width: 2.5em;
+	}
 
 	&.oo-ui-indicatorElement.oo-ui-iconElement {
 		min-width: 3.5em;
