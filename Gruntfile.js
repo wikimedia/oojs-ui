@@ -331,6 +331,8 @@ module.exports = function ( grunt ) {
 				],
 				reporters: [ 'dots' ],
 				singleRun: true,
+				browserDisconnectTimeout: 5000,
+				browserDisconnectTolerance: 2,
 				autoWatch: false
 			},
 			main: {
