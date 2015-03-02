@@ -1,5 +1,26 @@
 /**
- * Switch that slides on and off.
+ * ToggleSwitches are switches that slide on and off. Their state is represented by a Boolean
+ * value (`true` for ‘on’, and `false` otherwise, the default). The ‘off’ state is represented
+ * visually by a slider in the leftmost position.
+ *
+ *     @example
+ *     // Toggle switches in the 'off' and 'on' position.
+ *     var toggleSwitch1 = new OO.ui.ToggleSwitchWidget({
+ *         value: false
+ *      } );
+ *     var toggleSwitch2 = new OO.ui.ToggleSwitchWidget({
+ *         value: true
+ *     } );
+ *
+ *     // Create a FieldsetLayout to layout and label switches
+ *     var fieldset = new OO.ui.FieldsetLayout( {
+ *        label: 'Toggle switches'
+ *     } );
+ *     fieldset.addItems( [
+ *         new OO.ui.FieldLayout( toggleSwitch1, {label : 'Off', align : 'top'}),
+ *         new OO.ui.FieldLayout( toggleSwitch2, {label : 'On', align : 'top'})
+ *     ] );
+ *     $( 'body' ).append( fieldset.$element );
  *
  * @class
  * @extends OO.ui.Widget
@@ -8,7 +29,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [value=false] Initial value
+ * @cfg {boolean} [value=false] The toggle switch’s initial on/off state.
+ *  By default, the toggle switch is in the 'off' position.
  */
 OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	// Parent constructor
@@ -51,6 +73,7 @@ OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.TabIndexedElement );
 /**
  * Handle mouse click events.
  *
+ * @private
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.ToggleSwitchWidget.prototype.onClick = function ( e ) {
@@ -63,6 +86,7 @@ OO.ui.ToggleSwitchWidget.prototype.onClick = function ( e ) {
 /**
  * Handle key press events.
  *
+ * @private
  * @param {jQuery.Event} e Key press event
  */
 OO.ui.ToggleSwitchWidget.prototype.onKeyPress = function ( e ) {
