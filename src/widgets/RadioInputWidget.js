@@ -1,15 +1,41 @@
 /**
- * Radio input widget.
+ * RadioInputWidget creates a single radio button. Because radio buttons are usually used as a set,
+ * in most cases you will want to use a {@link OO.ui.RadioSelectWidget radio select}
+ * with {@link OO.ui.RadioOptionWidget radio options} instead of this class. For more information,
+ * please see the [OOjs UI documentation on MediaWiki][1].
  *
- * Radio buttons only make sense as a set, and you probably want to use the OO.ui.RadioSelectWidget
- * class instead of using this class directly.
+ *     @example
+ *     // An example of selected, unselected, and disabled radio inputs
+ *     var radio1=new OO.ui.RadioInputWidget({
+ *         value: 'a',
+ *         selected: true
+ *     });
+ *     var radio2=new OO.ui.RadioInputWidget({
+ *         value: 'b'
+ *     });
+ *     var radio3=new OO.ui.RadioInputWidget( {
+ *         value:'c',
+ *         disabled: true
+ *     } );
+ *     // Create a fieldset layout with fields for each radio button.
+ *     var fieldset = new OO.ui.FieldsetLayout( {
+ *         label: 'Radio inputs'
+ *     } );
+ *     fieldset.addItems( [
+ *         new OO.ui.FieldLayout( radio1, {label : 'Selected', align : 'inline'}),
+ *         new OO.ui.FieldLayout( radio2, {label : 'Unselected', align : 'inline'}),
+ *         new OO.ui.FieldLayout( radio3, {label : 'Disabled', align : 'inline'}),
+ *     ] );
+ *     $( 'body' ).append( fieldset.$element );
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Inputs
  *
  * @class
  * @extends OO.ui.InputWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [selected=false] Whether the radio button is initially selected
+ * @cfg {boolean} [selected=false] Select the radio button initially. By default, the radio button is not selected.
  */
 OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 	// Configuration initialization
@@ -47,7 +73,7 @@ OO.ui.RadioInputWidget.prototype.onEdit = function () {
 /**
  * Set selection state of this radio button.
  *
- * @param {boolean} state Whether the button is selected
+ * @param {boolean} state `true` for selected
  * @chainable
  */
 OO.ui.RadioInputWidget.prototype.setSelected = function ( state ) {
