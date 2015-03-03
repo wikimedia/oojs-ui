@@ -82,7 +82,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		keypress: this.onKeyPress.bind( this ),
 		blur: this.setValidityFlag.bind( this )
 	} );
-	this.$element.on( 'DOMNodeInsertedIntoDocument', this.onElementAttach.bind( this ) );
 	this.$icon.on( 'mousedown', this.onIconMouseDown.bind( this ) );
 	this.$indicator.on( 'mousedown', this.onIndicatorMouseDown.bind( this ) );
 	this.on( 'labelChange', this.updatePosition.bind( this ) );
@@ -103,6 +102,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 	if ( config.required ) {
 		this.$input.attr( 'required', 'true' );
+	}
+	if ( this.label || config.autosize ) {
+		this.installParentChangeDetector();
 	}
 };
 
@@ -228,6 +230,75 @@ OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
 	this.readOnly = !!state;
 	this.$input.prop( 'readOnly', this.readOnly );
 	return this;
+};
+
+/**
+ * Support function for making #onElementAttach work across browsers.
+ *
+ * This whole function could be replaced with one line of code using the DOMNodeInsertedIntoDocument
+ * event, but it's not supported by Firefox and allegedly deprecated, so we only use it as fallback.
+ *
+ * Due to MutationObserver performance woes, #onElementAttach is only somewhat reliably called the
+ * first time that the element gets attached to the documented.
+ */
+OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
+	var mutationObserver, onRemove, topmostNode, fakeParentNode,
+		MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver,
+		widget = this;
+
+	if ( MutationObserver ) {
+		// The new way. If only it wasn't so ugly.
+
+		if ( this.$element.closest( 'html' ).length ) {
+			// Widget is attached already, do nothing. This breaks the functionality of this function when
+			// the widget is detached and reattached. Alas, doing this correctly with MutationObserver
+			// would require observation of the whole document, which would hurt performance of other,
+			// more important code.
+			return;
+		}
+
+		// Find topmost node in the tree
+		topmostNode = this.$element[0];
+		while ( topmostNode.parentNode ) {
+			topmostNode = topmostNode.parentNode;
+		}
+
+		// We have no way to detect the $element being attached somewhere without observing the entire
+		// DOM with subtree modifications, which would hurt performance. So we cheat: we hook to the
+		// parent node of $element, and instead detect when $element is removed from it (and thus
+		// probably attached somewhere else). If there is no parent, we create a "fake" one. If it
+		// doesn't get attached, we end up back here and create the parent.
+
+		mutationObserver = new MutationObserver( function ( mutations ) {
+			var i, j, removedNodes;
+			for ( i = 0; i < mutations.length; i++ ) {
+				removedNodes = mutations[ i ].removedNodes;
+				for ( j = 0; j < removedNodes.length; j++ ) {
+					if ( removedNodes[ j ] === topmostNode ) {
+						setTimeout( onRemove, 0 );
+						return;
+					}
+				}
+			}
+		} );
+
+		onRemove = function () {
+			// If the node was attached somewhere else, report it
+			if ( widget.$element.closest( 'html' ).length ) {
+				widget.onElementAttach();
+			}
+			mutationObserver.disconnect();
+			widget.installParentChangeDetector();
+		};
+
+		// Create a fake parent and observe it
+		fakeParentNode = $( '<div>' ).append( this.$element )[0];
+		mutationObserver.observe( fakeParentNode, { childList: true } );
+	} else {
+		// Using the DOMNodeInsertedIntoDocument event is much nicer and less magical, and works for
+		// detachment and reattachment, but it's not supported by Firefox and allegedly deprecated.
+		this.$element.on( 'DOMNodeInsertedIntoDocument', this.onElementAttach.bind( this ) );
+	}
 };
 
 /**
