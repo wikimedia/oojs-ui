@@ -218,6 +218,20 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
  */
 OO.ui.ProcessDialog.prototype.hideErrors = function () {
 	this.$errors.addClass( 'oo-ui-element-hidden' );
-	this.$errorItems.remove();
-	this.$errorItems = null;
+	if ( this.$errorItems ) {
+		this.$errorItems.remove();
+		this.$errorItems = null;
+	}
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ProcessDialog.prototype.getTeardownProcess = function ( data ) {
+	// Parent method
+	return OO.ui.ProcessDialog.super.prototype.getTeardownProcess.call( this, data )
+		.first( function () {
+			// Make sure to hide errors
+			this.hideErrors();
+		}, this );
 };
