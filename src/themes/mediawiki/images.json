@@ -6,13 +6,13 @@
 				"global": true
 			},
 			"progressive": {
-				"color": "#598AD1"
+				"color": "#0274FF"
 			},
 			"constructive": {
-				"color": "#00C697"
+				"color": "#00AF89"
 			},
 			"destructive": {
-				"color": "#E81915"
+				"color": "#D11D13"
 			}
 		},
 		"indicators": {
