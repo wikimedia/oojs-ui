@@ -1,7 +1,29 @@
 /**
- * Option widget with an option icon and indicator.
+ * DecoratedOptionWidgets are {@link OO.ui.OptionWidget options} that can be configured
+ * with an {@link OO.ui.IconElement icon} and/or {@link OO.ui.IndicatorElement indicator}.
+ * This class is used with OO.ui.SelectWidget to create a selection of mutually exclusive
+ * options. For more information about options and selects, please see the
+ * [OOjs UI documentation on MediaWiki][1].
  *
- * Use together with OO.ui.SelectWidget.
+ *     @example
+ *     // Decorated options in a select widget
+ *     var select=new OO.ui.SelectWidget( {
+ *         items: [
+ *             new OO.ui.DecoratedOptionWidget( {
+ *                 data: 'a',
+ *                 label: 'Option with icon',
+ *                 icon: 'help'
+ *             } ),
+ *             new OO.ui.DecoratedOptionWidget( {
+ *                 data: 'b',
+ *                 label: 'Option with indicator',
+ *                 indicator: 'next'
+ *             } )
+ *         ]
+ *     } );
+ *     $('body').append(select.$element);
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.OptionWidget
