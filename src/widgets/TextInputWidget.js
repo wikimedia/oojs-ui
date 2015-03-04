@@ -1,5 +1,19 @@
 /**
- * Input widget with a text field.
+ * TextInputWidgets, like HTML text inputs, can be configured with options that customize the
+ * size of the field as well as its presentation. In addition, these widgets can be configured
+ * with {@link OO.ui.IconElement icons}, {@link OO.ui.IndicatorElement indicators}, an optional
+ * validation-pattern (used to determine if an input value is valid or not) and an input filter,
+ * which modifies incoming values rather than validating them.
+ * Please see the [OOjs UI documentation on MediaWiki] [1] for more information and examples.
+ *
+ *     @example
+ *     // Example of a text input widget
+ *     var textInput=new OO.ui.TextInputWidget( {
+ *         value: 'Text input'
+ *     } )
+ *     $('body').append(textInput.$element);
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Inputs
  *
  * @class
  * @extends OO.ui.InputWidget
@@ -10,19 +24,22 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [type='text'] HTML tag `type` attribute
+ * @cfg {string} [type='text'] The value of the HTML `type` attribute
  * @cfg {string} [placeholder] Placeholder text
- * @cfg {boolean} [autofocus=false] Ask the browser to focus this widget, using the 'autofocus' HTML
- *  attribute
- * @cfg {boolean} [readOnly=false] Prevent changes
- * @cfg {number} [maxLength] Maximum allowed number of characters to input
+ * @cfg {boolean} [autofocus=false] Use an HTML `autofocus` attribute to
+ *  instruct the browser to focus this widget.
+ * @cfg {boolean} [readOnly=false] Prevent changes to the value of the text input.
+ * @cfg {number} [maxLength] Maximum number of characters allowed in the input.
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
- * @cfg {boolean} [autosize=false] Automatically resize to fit content
- * @cfg {boolean} [maxRows=10] Maximum number of rows to make visible when autosizing
- * @cfg {string} [labelPosition='after'] Label position, 'before' or 'after'
+ * @cfg {boolean} [autosize=false] Automatically resize the text input to fit its content.
+ *  Use the #maxRows config to specify a maximum number of displayed rows.
+ * @cfg {boolean} [maxRows=10] Maximum number of rows to display when #autosize is set to true.
+ * @cfg {string} [labelPosition='after'] The position of the inline label relative to that of
+ *  the value or placeholder text: `'before'` or `'after'`
  * @cfg {boolean} [required=false] Mark the field as required
- * @cfg {RegExp|string} [validate] Regular expression to validate against (or symbolic name referencing
- *  one, see #static-validationPatterns)
+ * @cfg {RegExp|string} [validate] Validation pattern, either a regular expression or the
+ *  symbolic name of a pattern defined by the class: 'non-empty' (the value cannot be an empty string)
+ *  or 'integer' (the value must contain only numbers).
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Configuration initialization
@@ -107,9 +124,9 @@ OO.ui.TextInputWidget.static.validationPatterns = {
 /* Events */
 
 /**
- * User presses enter inside the text box.
+ * An `enter` event is emitted when the user presses 'enter' inside the text box.
  *
- * Not called if input is multiline.
+ * Not emitted if the input is multiline.
  *
  * @event enter
  */
@@ -119,6 +136,7 @@ OO.ui.TextInputWidget.static.validationPatterns = {
 /**
  * Handle icon mouse down events.
  *
+ * @private
  * @param {jQuery.Event} e Mouse down event
  * @fires icon
  */
@@ -132,6 +150,7 @@ OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
 /**
  * Handle indicator mouse down events.
  *
+ * @private
  * @param {jQuery.Event} e Mouse down event
  * @fires indicator
  */
@@ -145,6 +164,7 @@ OO.ui.TextInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
 /**
  * Handle key press events.
  *
+ * @private
  * @param {jQuery.Event} e Key press event
  * @fires enter If enter key is pressed and input is not multiline
  */
@@ -157,6 +177,7 @@ OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
 /**
  * Handle element attach events.
  *
+ * @private
  * @param {jQuery.Event} e Element attach event
  */
 OO.ui.TextInputWidget.prototype.onElementAttach = function () {
@@ -189,7 +210,7 @@ OO.ui.TextInputWidget.prototype.setValue = function ( value ) {
 };
 
 /**
- * Check if the widget is read-only.
+ * Check if the input is {@link #readOnly read-only}.
  *
  * @return {boolean}
  */
@@ -198,9 +219,7 @@ OO.ui.TextInputWidget.prototype.isReadOnly = function () {
 };
 
 /**
- * Set the read-only state of the widget.
- *
- * This should probably change the widget's appearance and prevent it from being used.
+ * Set the {@link #readOnly read-only} state of the input.
  *
  * @param {boolean} state Make input read-only
  * @chainable
@@ -214,7 +233,7 @@ OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
 /**
  * Automatically adjust the size of the text input.
  *
- * This only affects multi-line inputs that are auto-sized.
+ * This only affects #multiline inputs that are {@link #autosize autosized}.
  *
  * @chainable
  */
@@ -273,7 +292,7 @@ OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
 };
 
 /**
- * Check if input supports multiple lines.
+ * Check if the input supports multiple lines.
  *
  * @return {boolean}
  */
@@ -282,7 +301,7 @@ OO.ui.TextInputWidget.prototype.isMultiline = function () {
 };
 
 /**
- * Check if input automatically adjusts its size.
+ * Check if the input automatically adjusts its size.
  *
  * @return {boolean}
  */
@@ -291,7 +310,7 @@ OO.ui.TextInputWidget.prototype.isAutosizing = function () {
 };
 
 /**
- * Select the contents of the input.
+ * Select the entire text of the input.
  *
  * @chainable
  */
@@ -301,9 +320,14 @@ OO.ui.TextInputWidget.prototype.select = function () {
 };
 
 /**
- * Sets the validation pattern to use.
- * @param {RegExp|string|null} validate Regular expression (or symbolic name referencing
- *  one, see #static-validationPatterns)
+ * Set the validation pattern.
+ *
+ * The validation pattern is either a regular expression or the symbolic name of a pattern
+ * defined by the class: 'non-empty' (the value cannot be an empty string) or 'integer' (the
+ * value must contain only numbers).
+ *
+ * @param {RegExp|string|null} validate Regular expression or the symbolic name of a
+ *  pattern (either ‘integer’ or ‘non-empty’) defined by the class.
  */
 OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
 	if ( validate instanceof RegExp ) {
@@ -324,17 +348,19 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function () {
 };
 
 /**
- * Returns whether or not the current value is considered valid, according to the
- * supplied validation pattern.
+ * Check if a value is valid.
  *
- * @return {jQuery.Deferred}
+ * This method returns a promise that resolves with a boolean `true` if the current value is
+ * considered valid according to the supplied {@link #validate validation pattern}.
+ *
+ * @return {jQuery.Deferred} A promise that resolves to a boolean `true` if the value is valid.
  */
 OO.ui.TextInputWidget.prototype.isValid = function () {
 	return $.Deferred().resolve( !!this.getValue().match( this.validate ) ).promise();
 };
 
 /**
- * Set the position of the inline label.
+ * Set the position of the inline label relative to that of the value: `‘before’` or `‘after’`.
  *
  * @param {string} labelPosition Label position, 'before' or 'after'
  * @chainable
@@ -356,6 +382,10 @@ OO.ui.TextInputWidget.prototype.setPosition =
 /**
  * Update the position of the inline label.
  *
+ * This method is called by #setLabelPosition, and can also be called on its own if
+ * something causes the label to be mispositioned.
+ *
+ *
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.updatePosition = function () {
@@ -375,6 +405,7 @@ OO.ui.TextInputWidget.prototype.updatePosition = function () {
 /**
  * Position the label by setting the correct padding on the input.
  *
+ * @private
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.positionLabel = function () {
