@@ -43,15 +43,27 @@
 <body>
 	<div id="JSPHPTestSuite" style="display: none;">
 		<?php
+			function new_OOUI( $class, $config = array() ) {
+				$class = "OOUI\\" . $class;
+				return new $class( $config );
+			}
+			function unstub( &$value ) {
+				if ( is_string( $value ) && substr( $value, 0, 13 ) === '_placeholder_' ) {
+					$value = json_decode( substr( $value, 13 ), true );
+					array_walk_recursive( $value['config'], 'unstub' );
+					$value = new_OOUI( $value['class'], $value['config'] );
+				}
+			}
 			// Keep synchronized with bin/generate-JSPHP-for-karma.php
 			$themes = array( 'ApexTheme', 'MediaWikiTheme' );
 			foreach ( $themes as $theme ) {
-				$class = "OOUI\\" . $theme;
-				OOUI\Theme::setSingleton( new $class() );
+				OOUI\Theme::setSingleton( new_OOUI( $theme ) );
 				foreach ( $testSuite as $className => $tests ) {
 					foreach ( $tests as $index => $test ) {
-						$class = "OOUI\\" . $test['class'];
-						$instance = new $class( $test['config'] );
+						// Unstub placeholders
+						$config = $test['config'];
+						array_walk_recursive( $config, 'unstub' );
+						$instance = new_OOUI( $test['class'], $config );
 						echo "<div id='JSPHPTestSuite_$theme$className$index'>$instance</div>\n";
 					}
 				}
