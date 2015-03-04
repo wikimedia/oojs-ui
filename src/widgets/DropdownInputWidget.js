@@ -1,6 +1,22 @@
 /**
- * A OO.ui.DropdownWidget synchronized with a `<input type=hidden>` for form submission. Intended to
- * be used within a OO.ui.FormLayout.
+ * DropdownInputWidget is a {@link OO.ui.DropdownWidget DropdownWidget} intended to be used
+ * within a {@link OO.ui.FormLayout form}. The selected value is synchronized with the value
+ * of  a hidden HTML `input` tag. Please see the [OOjs UI documentation on MediaWiki][1] for
+ * more information about input widgets.
+ *
+ *     @example
+ *     // Example: A DropdownInputWidget with three options
+ *     var dropDown=new OO.ui.DropdownInputWidget( {
+ *         label: 'Dropdown menu: Select a menu option',
+ *         options: [
+ *             { data: 'a', label: 'First' } ,
+ *             { data: 'b', label: 'Second'} ,
+ *             { data: 'c', label: 'Third' }
+ *         ]
+ *     } );
+ *     $('body').append(dropDown.$element);
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Inputs
  *
  * @class
  * @extends OO.ui.InputWidget
@@ -46,6 +62,7 @@ OO.ui.DropdownInputWidget.prototype.getInputElement = function () {
 /**
  * Handles menu select events.
  *
+ * @private
  * @param {OO.ui.MenuOptionWidget} item Selected menu item
  */
 OO.ui.DropdownInputWidget.prototype.onMenuSelect = function ( item ) {
