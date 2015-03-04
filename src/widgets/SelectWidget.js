@@ -4,9 +4,28 @@
  * {@link OO.ui.RadioSelectWidget radio selects}, and {@link OO.ui.MenuSelectWidget
  * menu selects}.
  *
- * This class should be used together with OO.ui.OptionWidget.
+ * This class should be used together with OO.ui.OptionWidget or OO.ui.DecoratedOptionWidget. For more
+ * information, please see the [OOjs UI documentation on MediaWiki][1].
  *
- * For more information, please see the [OOjs UI documentation on MediaWiki][1].
+ *     @example
+ *     // Example of a select widget with three options
+ *     var select=new OO.ui.SelectWidget( {
+ *         items: [
+ *             new OO.ui.OptionWidget( {
+ *                 data: 'a',
+ *                 label: 'Option One',
+ *             } ),
+ *             new OO.ui.OptionWidget( {
+ *                 data: 'b',
+ *                 label: 'Option Two',
+ *             } ),
+ *             new OO.ui.OptionWidget( {
+ *                 data: 'c',
+ *                 label: 'Option Three',
+ *             } ),
+ *         ]
+ *     } );
+ *     $('body').append(select.$element);
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *
