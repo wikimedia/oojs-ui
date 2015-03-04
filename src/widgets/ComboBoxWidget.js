@@ -1,5 +1,43 @@
 /**
- * Text input with a menu of optional values.
+ * ComboBoxWidgets combine a {@link OO.ui.TextInputWidget text input} (where a value
+ * can be entered manually) and a {@link OO.ui.MenuSelectWidget menu of options} (from which
+ * a value can be chosen instead). Users can choose options from the combo box in one of two ways:
+ *
+ * - by typing a value in the text input field. If the value exactly matches the value of a menu
+ *   option, that option will appear to be selected.
+ * - by choosing a value from the menu. The value of the chosen option will then appear in the text
+ *   input field.
+ *
+ * For more information about menus and options, please see the [OOjs UI documentation on MediaWiki][1].
+ *
+ *     @example
+ *     // Example: A ComboBoxWidget.
+ *     var comboBox=new OO.ui.ComboBoxWidget( {
+ *         label: 'ComboBoxWidget',
+ *         input: { value: 'Option One' },
+ *         menu: {
+ *             items: [
+ *                 new OO.ui.MenuOptionWidget( {
+ *                     data: 'Option 1',
+ *                     label: 'Option One' } ),
+ *                 new OO.ui.MenuOptionWidget( {
+ *                     data: 'Option 2',
+ *                     label: 'Option Two' } ),
+ *                 new OO.ui.MenuOptionWidget( {
+ *                     data: 'Option 3',
+ *                     label: 'Option Three'} ),
+ *                 new OO.ui.MenuOptionWidget( {
+ *                     data: 'Option 4',
+ *                     label: 'Option Four' } ),
+ *                 new OO.ui.MenuOptionWidget( {
+ *                     data: 'Option 5',
+ *                     label: 'Option Five' } )
+ *             ]
+ *         }
+ *     } );
+ *     $('body').append(comboBox.$element);
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options#Menu_selects_and_options
  *
  * @class
  * @extends OO.ui.Widget
@@ -7,9 +45,11 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Object} [menu] Configuration options to pass to menu widget
- * @cfg {Object} [input] Configuration options to pass to input widget
- * @cfg {jQuery} [$overlay] Overlay layer; defaults to relative positioning
+ * @cfg {Object} [menu] Configuration options to pass to the {@link OO.ui.MenuSelectWidget menu select widget}.
+ * @cfg {Object} [input] Configuration options to pass to the {@link OO.ui.TextInputWidget text input widget}.
+ * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful in cases where
+ *  the expanded menu is larger than its containing `<div>`. The specified overlay layer is usually on top of the
+ *  containing `<div>` and has a larger area. By default, the menu uses relative positioning.
  */
 OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 	// Configuration initialization
@@ -86,6 +126,7 @@ OO.ui.ComboBoxWidget.prototype.getMenu = function () {
 /**
  * Handle input change events.
  *
+ * @private
  * @param {string} value New value
  */
 OO.ui.ComboBoxWidget.prototype.onInputChange = function ( value ) {
@@ -104,6 +145,8 @@ OO.ui.ComboBoxWidget.prototype.onInputChange = function ( value ) {
 /**
  * Handle mouse click events.
  *
+ *
+ * @private
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.ComboBoxWidget.prototype.onClick = function ( e ) {
@@ -117,6 +160,8 @@ OO.ui.ComboBoxWidget.prototype.onClick = function ( e ) {
 /**
  * Handle key press events.
  *
+ *
+ * @private
  * @param {jQuery.Event} e Key press event
  */
 OO.ui.ComboBoxWidget.prototype.onKeyPress = function ( e ) {
@@ -129,6 +174,8 @@ OO.ui.ComboBoxWidget.prototype.onKeyPress = function ( e ) {
 
 /**
  * Handle input enter events.
+ *
+ * @private
  */
 OO.ui.ComboBoxWidget.prototype.onInputEnter = function () {
 	if ( !this.isDisabled() ) {
@@ -139,6 +186,7 @@ OO.ui.ComboBoxWidget.prototype.onInputEnter = function () {
 /**
  * Handle menu choose events.
  *
+ * @private
  * @param {OO.ui.OptionWidget} item Chosen item
  */
 OO.ui.ComboBoxWidget.prototype.onMenuChoose = function ( item ) {
@@ -149,6 +197,8 @@ OO.ui.ComboBoxWidget.prototype.onMenuChoose = function ( item ) {
 
 /**
  * Handle menu item change events.
+ *
+ * @private
  */
 OO.ui.ComboBoxWidget.prototype.onMenuItemsChange = function () {
 	var match = this.menu.getItemFromData( this.input.getValue() );
