@@ -23,7 +23,7 @@
 	 * @return {Object} Summary of element.
 	 */
 	function getDomElementSummary( element, includeHtml ) {
-		var i,
+		var i, name,
 			summary = {
 				type: element.nodeName.toLowerCase(),
 				// $( '<div><textarea>Foo</textarea></div>' )[0].textContent === 'Foo', which breaks
@@ -40,7 +40,10 @@
 		// Gather attributes
 		if ( element.attributes ) {
 			for ( i = 0; i < element.attributes.length; i++ ) {
-				summary.attributes[ element.attributes[ i ].name ] = element.attributes[ i ].value;
+				name = element.attributes[ i ].name;
+				if ( name.substr( 0, 5 ) !== 'data-' && name !== 'id' ) {
+					summary.attributes[ name ] = element.attributes[ i ].value;
+				}
 			}
 		}
 

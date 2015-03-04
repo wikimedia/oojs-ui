@@ -63,6 +63,7 @@
 						// Unstub placeholders
 						$config = $test['config'];
 						array_walk_recursive( $config, 'unstub' );
+						$config['infusable'] = true;
 						$instance = new_OOUI( $test['class'], $config );
 						echo "<div id='JSPHPTestSuite_$theme$className$index'>$instance</div>\n";
 					}
