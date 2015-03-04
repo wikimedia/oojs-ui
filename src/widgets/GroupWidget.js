@@ -3,6 +3,7 @@
  *
  * Use together with OO.ui.ItemWidget to make disabled state inheritable.
  *
+ * @private
  * @abstract
  * @class
  * @extends OO.ui.GroupElement

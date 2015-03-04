@@ -6,6 +6,7 @@
  *
  * Use together with OO.ui.GroupWidget to make disabled state inheritable.
  *
+ * @private
  * @abstract
  * @class
  *
