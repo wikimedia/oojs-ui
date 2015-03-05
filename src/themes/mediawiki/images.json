@@ -27,7 +27,7 @@
 			"add": { "file": "add.svg", "variants": [ "constructive" ] },
 			"advanced": { "file": "advanced.svg" },
 			"alert": { "file": "alert.svg" },
-			"check": { "file": "check.svg", "variants": [ "constructive" ] },
+			"check": { "file": "check.svg", "variants": [ "constructive", "progressive" ] },
 			"clear": { "file": "clear.svg" },
 			"close": { "file": "close.svg" },
 			"code": { "file": "code.svg" },
