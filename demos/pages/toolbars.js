@@ -100,9 +100,9 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 
 	toolFactories[ 2 ].register( PopupTool );
 
-	ToolGroupTool = function ( toolbar, group, config ) {
+	ToolGroupTool = function ( toolGroup, config ) {
 		// Parent constructor
-		OO.ui.ToolGroupTool.call( this, toolbar, group, config );
+		OO.ui.ToolGroupTool.call( this, toolGroup, config );
 	};
 
 	OO.inheritClass( ToolGroupTool, OO.ui.ToolGroupTool );
