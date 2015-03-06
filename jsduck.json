@@ -5,7 +5,7 @@
 	"--eg-iframe": "./jsduck.eg-iframe.html",
 	"--warnings-exit-nonzero": true,
 	"--builtin-classes": true,
-	"--external": "HTMLDocument,Window",
+	"--external": "HTMLDocument,Window,MouseEvent,KeyboardEvent",
 	"--warnings": ["-nodoc(class,public)"],
 	"--": [
 		"jsduck.external.js",
