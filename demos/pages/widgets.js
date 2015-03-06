@@ -1383,9 +1383,16 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		} );
 	} );
 
-	$demo.append( $( '<div class="oo-ui-demo-container">' ).append(
-		$( fieldsets.map( function ( fieldset ) { return fieldset.$element[ 0 ]; } ) )
-	) );
+	$demo.append(
+		new OO.ui.PanelLayout( {
+			expanded: false,
+			framed: true
+		} ).$element
+			.addClass( 'oo-ui-demo-container' )
+			.append(
+				$( fieldsets.map( function ( fieldset ) { return fieldset.$element[ 0 ]; } ) )
+			)
+	);
 };
 
 OO.ui.Demo.static.defaultPage = 'widgets';

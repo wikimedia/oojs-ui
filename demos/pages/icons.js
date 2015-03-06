@@ -63,8 +63,14 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 		] );
 	}
 
-	demo.$element.append( $( '<div class="oo-ui-demo-container oo-ui-demo-icons"></div>' ).append(
-		indicatorsFieldset.$element,
-		iconsFieldset.$element
-	) );
+	demo.$element.append(
+		new OO.ui.PanelLayout( {
+			expanded: false,
+			framed: true
+		} ).$element
+			.addClass( 'oo-ui-demo-container oo-ui-demo-icons' )
+			.append(
+				indicatorsFieldset.$element,
+				iconsFieldset.$element
+			) );
 };

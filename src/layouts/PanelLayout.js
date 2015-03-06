@@ -9,13 +9,15 @@
  * @cfg {boolean} [scrollable=false] Allow vertical scrolling
  * @cfg {boolean} [padded=false] Pad the content from the edges
  * @cfg {boolean} [expanded=true] Expand size to fill the entire parent element
+ * @cfg {boolean} [framed=false] Wrap in a frame to visually separate from outside content
  */
 OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	// Configuration initialization
 	config = $.extend( {
 		scrollable: false,
 		padded: false,
-		expanded: true
+		expanded: true,
+		framed: false
 	}, config );
 
 	// Parent constructor
@@ -31,6 +33,9 @@ OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	}
 	if ( config.expanded ) {
 		this.$element.addClass( 'oo-ui-panelLayout-expanded' );
+	}
+	if ( config.framed ) {
+		this.$element.addClass( 'oo-ui-panelLayout-framed' );
 	}
 };
 

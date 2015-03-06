@@ -51,8 +51,6 @@ body {
 	}
 	.oo-ui-demo-container {
 		padding: 2em 4em;
-		box-shadow: 0 0.25em 1em rgba(0,0,0,0.25);
-		border-radius: 0.5em;
 	}
 }
 
