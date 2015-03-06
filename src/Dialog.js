@@ -76,6 +76,11 @@ OO.mixinClass( OO.ui.Dialog, OO.ui.PendingElement );
 /**
  * Symbolic name of dialog.
  *
+ * The dialog class must have a symbolic name in order to be registered with OO.Factory.
+ * Please see the [OOjs UI documentation on MediaWiki] [3] for more information.
+ *
+ * [3]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Window_managers
+ *
  * @abstract
  * @static
  * @inheritable
@@ -84,26 +89,35 @@ OO.mixinClass( OO.ui.Dialog, OO.ui.PendingElement );
 OO.ui.Dialog.static.name = '';
 
 /**
- * Dialog title.
+ * The dialog title.
+ *
+ * The title can be specified as a plaintext string, a {@link OO.ui.LabelElement Label} node, or a function
+ * that will produce a Label node or string. The title can also be specified with data passed to the
+ * constructor (see #getSetupProcess). In this case, the static value will be overriden.
  *
  * @abstract
  * @static
  * @inheritable
- * @property {jQuery|string|Function} Label nodes, text or a function that returns nodes or text
+ * @property {jQuery|string|Function}
  */
 OO.ui.Dialog.static.title = '';
 
 /**
- * List of OO.ui.ActionWidget configuration options.
+ * An array of configured {@link OO.ui.ActionWidget action widgets}.
+ *
+ * Actions can also be specified with data passed to the constructor (see #getSetupProcess). In this case, the static
+ * value will be overriden.
+ *
+ * [2]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs#Action_sets
  *
  * @static
- * inheritable
+ * @inheritable
  * @property {Object[]}
  */
 OO.ui.Dialog.static.actions = [];
 
 /**
- * Close dialog when the escape key is pressed.
+ * Close the dialog when the 'Esc' key is pressed.
  *
  * @static
  * @abstract
@@ -117,6 +131,7 @@ OO.ui.Dialog.static.escapable = true;
 /**
  * Handle frame document key down events.
  *
+ * @private
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.Dialog.prototype.onDocumentKeyDown = function ( e ) {
@@ -130,6 +145,7 @@ OO.ui.Dialog.prototype.onDocumentKeyDown = function ( e ) {
 /**
  * Handle action resized events.
  *
+ * @private
  * @param {OO.ui.ActionWidget} action Action that was resized
  */
 OO.ui.Dialog.prototype.onActionResize = function () {
@@ -139,6 +155,7 @@ OO.ui.Dialog.prototype.onActionResize = function () {
 /**
  * Handle action click events.
  *
+ * @private
  * @param {OO.ui.ActionWidget} action Action that was clicked
  */
 OO.ui.Dialog.prototype.onActionClick = function ( action ) {
@@ -149,6 +166,8 @@ OO.ui.Dialog.prototype.onActionClick = function ( action ) {
 
 /**
  * Handle actions change event.
+ *
+ * @private
  */
 OO.ui.Dialog.prototype.onActionsChange = function () {
 	this.detachActions();
@@ -158,7 +177,7 @@ OO.ui.Dialog.prototype.onActionsChange = function () {
 };
 
 /**
- * Get set of actions.
+ * Get the set of actions used by the dialog.
  *
  * @return {OO.ui.ActionSet}
  */
@@ -169,8 +188,9 @@ OO.ui.Dialog.prototype.getActions = function () {
 /**
  * Get a process for taking action.
  *
- * When you override this method, you can add additional accept steps to the process the parent
- * method provides using the 'first' and 'next' methods.
+ * When you override this method, you can create a new OO.ui.Process and return it, or add additional
+ * accept steps to the process the parent method provides using the {@link OO.ui.Process#first 'first'}
+ * and {@link OO.ui.Process#next 'next'} methods of OO.ui.Process.
  *
  * @abstract
  * @param {string} [action] Symbolic name of action
@@ -255,6 +275,8 @@ OO.ui.Dialog.prototype.initialize = function () {
 
 /**
  * Attach action actions.
+ *
+ * @protected
  */
 OO.ui.Dialog.prototype.attachActions = function () {
 	// Remember the list of potentially attached actions
@@ -264,6 +286,7 @@ OO.ui.Dialog.prototype.attachActions = function () {
 /**
  * Detach action actions.
  *
+ * @protected
  * @chainable
  */
 OO.ui.Dialog.prototype.detachActions = function () {
