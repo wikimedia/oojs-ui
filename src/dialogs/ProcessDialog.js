@@ -1,21 +1,55 @@
 /**
- * Navigation dialog window.
+ * ProcessDialog windows encapsulate a {@link OO.ui.Process process} and all of the code necessary
+ * to complete it. If the process terminates with an error, a customizable {@link OO.ui.Error error
+ * interface} alerts users to the trouble, permitting the user to dismiss the error and try again when
+ * relevant. The ProcessDialog class is always extended and customized with the actions and content
+ * required for each process.
  *
- * Logic:
- * - Show and hide errors.
- * - Retry an action.
+ * The process dialog box consists of a header that visually represents the ‘working’ state of long
+ * processes with an animation. The header contains the dialog title as well as
+ * two {@link OO.ui.ActionWidget action widgets}:  a ‘safe’ action on the left (e.g., ‘Cancel’) and
+ * a ‘primary’ action on the right (e.g., ‘Done’).
  *
- * User interface:
- * - Renders header with dialog title and one action widget on either side
- *   (a 'safe' button on the left, and a 'primary' button on the right, both of
- *   which close the dialog).
- * - Displays any action widgets in the footer (none by default).
- * - Ability to dismiss errors.
+ * Like other windows, the process dialog is managed by a {@link OO.ui.WindowManager window manager}.
+ * Please see the [OOjs UI documentation on MediaWiki][1] for more information and examples.
  *
- * Subclass responsibilities:
- * - Register a 'safe' action.
- * - Register a 'primary' action.
- * - Add content to the dialog.
+ *     @example
+ *     // Example: Creating and opening a process dialog window.
+ *     function ProcessDialog( config ) {
+ *         ProcessDialog.super.call( this, config );
+ *     }
+ *     OO.inheritClass( ProcessDialog, OO.ui.ProcessDialog );
+ *
+ *     ProcessDialog.static.title = 'Process dialog';
+ *     ProcessDialog.static.actions = [
+ *         { action: 'save', label: 'Done', flags: 'primary' },
+ *         { label: 'Cancel', flags: 'safe' }
+ *     ];
+ *
+ *     ProcessDialog.prototype.initialize = function () {
+ *         ProcessDialog.super.prototype.initialize.apply( this, arguments );
+ *         this.content = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
+ *         this.content.$element.append( '<p>This is a process dialog window. The header contains the title and two buttons: \'Cancel\' (a safe action) on the left and \'Done\' (a primary action)  on the right. </p>' );
+ *         this.$body.append( this.content.$element );
+ *     };
+ *     ProcessDialog.prototype.getActionProcess = function ( action ) {
+ *         var dialog = this;
+ *         if ( action ) {
+ *             return new OO.ui.Process( function () {
+ *             dialog.close( { action: action } );
+ *         } );
+ *     }
+ *     return ProcessDialog.super.prototype.getActionProcess.call( this, action );
+ *     };
+ *
+ *     var windowManager = new OO.ui.WindowManager();
+ *     $( 'body' ).append( windowManager.$element );
+ *
+ *     var processDialog = new ProcessDialog();
+ *     windowManager.addWindows( [ processDialog ] );
+ *     windowManager.openWindow( processDialog );
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs
  *
  * @abstract
  * @class
@@ -42,6 +76,8 @@ OO.inheritClass( OO.ui.ProcessDialog, OO.ui.Dialog );
  * Handle dismiss button click events.
  *
  * Hides errors.
+ *
+ * @private
  */
 OO.ui.ProcessDialog.prototype.onDismissErrorButtonClick = function () {
 	this.hideErrors();
@@ -51,6 +87,8 @@ OO.ui.ProcessDialog.prototype.onDismissErrorButtonClick = function () {
  * Handle retry button click events.
  *
  * Hides errors and then tries again.
+ *
+ * @private
  */
 OO.ui.ProcessDialog.prototype.onRetryButtonClick = function () {
 	this.hideErrors();
@@ -155,6 +193,7 @@ OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
 /**
  * Fit label between actions.
  *
+ * @private
  * @chainable
  */
 OO.ui.ProcessDialog.prototype.fitLabel = function () {
@@ -170,6 +209,7 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
 /**
  * Handle errors that occurred during accept or reject processes.
  *
+ * @private
  * @param {OO.ui.Error[]} errors Errors to be handled
  */
 OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
@@ -215,6 +255,8 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 
 /**
  * Hide errors.
+ *
+ * @private
  */
 OO.ui.ProcessDialog.prototype.hideErrors = function () {
 	this.$errors.addClass( 'oo-ui-element-hidden' );
