@@ -1,8 +1,8 @@
 /**
- * Menu for a text input widget.
- *
- * This menu is specially designed to be positioned beneath a text input widget. The menu's position
- * is automatically calculated and maintained when the menu is toggled or the window is resized.
+ * TextInputMenuSelectWidget is a menu that is specially designed to be positioned beneath
+ * a {@link OO.ui.TextInputWidget text input} field. The menu's position is automatically
+ * calculated and maintained when the menu is toggled or the window is resized.
+ * See OO.ui.ComboBoxWidget for an example of a widget that uses this class.
  *
  * @class
  * @extends OO.ui.MenuSelectWidget
@@ -43,6 +43,7 @@ OO.inheritClass( OO.ui.TextInputMenuSelectWidget, OO.ui.MenuSelectWidget );
 /**
  * Handle window resize event.
  *
+ * @private
  * @param {jQuery.Event} e Window resize event
  */
 OO.ui.TextInputMenuSelectWidget.prototype.onWindowResize = function () {
@@ -82,6 +83,7 @@ OO.ui.TextInputMenuSelectWidget.prototype.toggle = function ( visible ) {
 /**
  * Position the menu.
  *
+ * @private
  * @chainable
  */
 OO.ui.TextInputMenuSelectWidget.prototype.position = function () {
