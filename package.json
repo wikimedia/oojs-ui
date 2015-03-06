@@ -19,7 +19,9 @@
   ],
   "scripts": {
     "test": "grunt test",
-    "doc": "grunt build doc",
+    "predoc": "grunt build",
+    "doc": "jsduck",
+    "postdoc": "grunt copy:jsduck",
     "prepublish": "grunt build"
   },
   "dependencies": {},
