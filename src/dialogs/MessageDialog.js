@@ -1,9 +1,37 @@
 /**
- * Dialog for showing a message.
+ * MessageDialogs display a confirmation or alert message. By default, the rendered dialog box
+ * consists of a header that contains the dialog title, a body with the message, and a footer that
+ * contains any {@link OO.ui.ActionWidget action widgets}. The MessageDialog class is the only type
+ * of {@link OO.ui.Dialog dialog} that is usually instantiated directly.
  *
- * User interface:
- * - Registers two actions by default (safe and primary).
- * - Renders action widgets in the footer.
+ * There are two basic types of message dialogs, confirmation and alert:
+ *
+ * - **confirmation**: the dialog title describes what a progressive action will do and the message provides
+ *  more details about the consequences.
+ * - **alert**: the dialog title describes which event occurred and the message provides more information
+ *  about why the event occurred.
+ *
+ * The MessageDialog class specifies two actions: ‘accept’, the primary
+ * action (e.g., ‘ok’) and ‘reject,’ the safe action (e.g., ‘cancel’). Both will close the window,
+ * passing along the selected action.
+ *
+ * For more information and examples, please see the [OOjs UI documentation on MediaWiki][1].
+ *
+ *     @example
+ *     // Example: Creating and opening a message dialog window.
+ *     var messageDialog = new OO.ui.MessageDialog();
+ *
+ *     // Create and append a window manager.
+ *     var windowManager = new OO.ui.WindowManager();
+ *     $( 'body' ).append( windowManager.$element );
+ *     windowManager.addWindows( [ messageDialog ] );
+ *     // Open the window.
+ *     windowManager.openWindow( messageDialog, {
+ *         title: 'Basic message dialog',
+ *         message: 'This is the message'
+ *     } );
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Message_Dialogs
  *
  * @class
  * @extends OO.ui.Dialog
@@ -37,21 +65,23 @@ OO.ui.MessageDialog.static.verbose = false;
 /**
  * Dialog title.
  *
- * A confirmation dialog's title should describe what the progressive action will do. An alert
- * dialog's title should describe what event occurred.
+ * The title of a confirmation dialog describes what a progressive action will do. The
+ * title of an alert dialog describes which event occurred.
  *
  * @static
- * inheritable
+ * @inheritable
  * @property {jQuery|string|Function|null}
  */
 OO.ui.MessageDialog.static.title = null;
 
 /**
- * A confirmation dialog's message should describe the consequences of the progressive action. An
- * alert dialog's message should describe why the event occurred.
+ * The message displayed in the dialog body.
+ *
+ * A confirmation message describes the consequences of a progressive action. An alert
+ * message describes why an event occurred.
  *
  * @static
- * inheritable
+ * @inheritable
  * @property {jQuery|string|Function|null}
  */
 OO.ui.MessageDialog.static.message = null;
@@ -87,6 +117,8 @@ OO.ui.MessageDialog.prototype.onActionResize = function ( action ) {
 
 /**
  * Handle window resized events.
+ *
+ * @private
  */
 OO.ui.MessageDialog.prototype.onResize = function () {
 	var dialog = this;
@@ -100,6 +132,8 @@ OO.ui.MessageDialog.prototype.onResize = function () {
 /**
  * Toggle action layout between vertical and horizontal.
  *
+ *
+ * @private
  * @param {boolean} [value] Layout actions vertically, omit to toggle
  * @chainable
  */
@@ -263,6 +297,8 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
  * Fit action actions into columns or rows.
  *
  * Columns will be used if all labels can fit without overflow, otherwise rows will be used.
+ *
+ * @private
  */
 OO.ui.MessageDialog.prototype.fitActions = function () {
 	var i, len, action,
