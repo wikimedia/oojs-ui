@@ -26,6 +26,7 @@ body {
 
 .oo-ui-demo {
 	max-width: 50em;
+	margin: 0 auto;
 }
 
 .oo-ui-demo-container {
@@ -36,9 +37,8 @@ body {
 }
 
 @media (max-width: 750px) {
-	.oo-ui-demo,
 	.oo-ui-demo-menu {
-		margin: 1em auto;
+		margin-bottom: 1em;
 	}
 	.oo-ui-demo-container {
 		padding: 1em 2em;
@@ -46,9 +46,8 @@ body {
 }
 
 @media (min-width: 751px) {
-	.oo-ui-demo,
 	.oo-ui-demo-menu {
-		margin: 0 auto 2em auto;
+		margin-bottom: 2em;
 	}
 	.oo-ui-demo-container {
 		padding: 2em 4em;
