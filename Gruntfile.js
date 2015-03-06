@@ -419,7 +419,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'pre-test', 'git-build', 'lint', 'karma:main', 'karma:other' ] );
-	grunt.registerTask( 'doc', [ 'build', 'jsduck', 'copy:jsduck' ] );
+	grunt.registerTask( 'doc', [ 'jsduck', 'copy:jsduck' ] );
 
 	grunt.registerTask( 'default', 'test' );
 };
