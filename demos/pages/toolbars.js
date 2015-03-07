@@ -87,9 +87,13 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 
 	PopupTool = function ( toolGroup, config ) {
 		// Parent constructor
-		OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: { padded: true } }, config ) );
+		OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
+			padded: true,
+			label: 'Popup head',
+			head: true
+		} }, config ) );
 
-		this.popup.$body.append( '<p>Popup tool</p>' );
+		this.popup.$body.append( '<p>Popup contents</p>' );
 	};
 
 	OO.inheritClass( PopupTool, OO.ui.PopupTool );
