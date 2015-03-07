@@ -43,8 +43,8 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 
 	// Events
 	this.$handle.on( {
-		'mousedown touchstart': this.onHandlePointerDown.bind( this ),
-		'mouseup touchend': this.onHandlePointerUp.bind( this )
+		mousedown: this.onHandlePointerDown.bind( this ),
+		mouseup: this.onHandlePointerUp.bind( this )
 	} );
 
 	// Initialization
@@ -109,10 +109,8 @@ OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
  * @inheritdoc
  */
 OO.ui.PopupToolGroup.prototype.onPointerUp = function ( e ) {
-	// e.which is 0 for touch events, 1 for left mouse button
 	// Only close toolgroup when a tool was actually selected
-	// FIXME: this duplicates logic from the parent class
-	if ( !this.isDisabled() && e.which <= 1 && this.pressed && this.pressed === this.getTargetTool( e ) ) {
+	if ( !this.isDisabled() && e.which === 1 && this.pressed && this.pressed === this.getTargetTool( e ) ) {
 		this.setActive( false );
 	}
 	return OO.ui.PopupToolGroup.super.prototype.onPointerUp.call( this, e );
@@ -133,8 +131,7 @@ OO.ui.PopupToolGroup.prototype.onHandlePointerUp = function () {
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.PopupToolGroup.prototype.onHandlePointerDown = function ( e ) {
-	// e.which is 0 for touch events, 1 for left mouse button
-	if ( !this.isDisabled() && e.which <= 1 ) {
+	if ( !this.isDisabled() && e.which === 1 ) {
 		this.setActive( !this.active );
 	}
 	return false;
