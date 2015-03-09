@@ -418,6 +418,18 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						framed: false,
+						flags: [ 'warning' ],
+						icon: 'alert',
+						label: 'Warning'
+					} ),
+					{
+						label: 'ButtonWidget (frameless, warning)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						framed: false,
 						flags: [ 'destructive' ],
 						icon: 'remove',
 						label: 'Destructive'
