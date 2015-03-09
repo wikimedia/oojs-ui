@@ -49,8 +49,8 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 
 	// Events
 	this.$element.on( {
-		'mousedown touchstart': this.onPointerDown.bind( this ),
-		'mouseup touchend': this.onPointerUp.bind( this ),
+		mousedown: this.onPointerDown.bind( this ),
+		mouseup: this.onPointerUp.bind( this ),
 		mouseover: this.onMouseOver.bind( this ),
 		mouseout: this.onMouseOut.bind( this )
 	} );
@@ -140,8 +140,7 @@ OO.ui.ToolGroup.prototype.updateDisabled = function () {
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.ToolGroup.prototype.onPointerDown = function ( e ) {
-	// e.which is 0 for touch events, 1 for left mouse button
-	if ( !this.isDisabled() && e.which <= 1 ) {
+	if ( !this.isDisabled() && e.which === 1 ) {
 		this.pressed = this.getTargetTool( e );
 		if ( this.pressed ) {
 			this.pressed.setActive( true );
@@ -173,8 +172,7 @@ OO.ui.ToolGroup.prototype.onCapturedMouseUp = function ( e ) {
 OO.ui.ToolGroup.prototype.onPointerUp = function ( e ) {
 	var tool = this.getTargetTool( e );
 
-	// e.which is 0 for touch events, 1 for left mouse button
-	if ( !this.isDisabled() && e.which <= 1 && this.pressed && this.pressed === tool ) {
+	if ( !this.isDisabled() && e.which === 1 && this.pressed && this.pressed === tool ) {
 		this.pressed.onSelect();
 	}
 
