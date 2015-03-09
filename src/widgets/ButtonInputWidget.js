@@ -27,11 +27,11 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [type='button'] HTML tag `type` attribute, may be 'button', 'submit' or 'reset'
- * @cfg {boolean} [useInputTag=false] Whether to use `<input/>` rather than `<button/>`. Only useful
- *  if you need IE 6 support in a form with multiple buttons. If you use this option, icons and
- *  indicators will not be displayed, it won't be possible to have a non-plaintext label, and it
- *  won't be possible to set a value (which will internally become identical to the label).
+ * @cfg {string} [type='button'] The value of the HTML `'type'` attribute: 'button', 'submit' or 'reset'.
+ * @cfg {boolean} [useInputTag=false] Use an `<input/>` tag instead of a `<button/>` tag, the default.
+ *  Widgets configured to be an `<input/>` do not support {@link #icon icons} and {@link #indicator indicators},
+ *  non-plaintext {@link #label labels}, or {@link #value values}. In general, useInputTag should only
+ *  be set to `true` when there’s need to support IE6 in a form with multiple buttons.
  */
 OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	// Configuration initialization
@@ -82,10 +82,10 @@ OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
 /**
  * Set label value.
  *
- * Overridden to support setting the 'value' of `<input/>` elements.
+ * If #useInputTag is `true`, the label is set as the `value` of the `<input/>` tag.
  *
- * @param {jQuery|string|Function|null} label Label nodes; text; a function that returns nodes or
- *  text; or null for no label
+ * @param {jQuery|string|Function|null} label Label nodes, text, a function that returns nodes or
+ *  text, or `null` for no label
  * @chainable
  */
 OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
@@ -110,7 +110,8 @@ OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
 /**
  * Set the value of the input.
  *
- * Overridden to disable for `<input/>` elements, which have value identical to the label.
+ * This method is disabled for button inputs configured as {@link #useInputTag <input/> tags}, as
+ * they do not support {@link #value values}.
  *
  * @param {string} value New value
  * @chainable
