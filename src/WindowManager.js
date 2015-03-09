@@ -112,7 +112,7 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
  *
  * @event closing
  * @param {OO.ui.Window} win Window that's being closed
- * @param {jQuery.Promise} opening Promise resolved when window is closed; when the promise
+ * @param {jQuery.Promise} closing Promise resolved when window is closed; when the promise
  *   is resolved the first argument will be a the closing data; progress notifications will be fired
  *   on the promise for `hold` and `teardown` when those processes are completed respectively.
  * @param {Object} data Window closing data
