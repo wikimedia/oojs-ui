@@ -22,6 +22,7 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 	// Parent method
 	var variant,
 		variants = {
+			warning: false,
 			invert: false,
 			progressive: false,
 			constructive: false,
@@ -37,6 +38,7 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 			variants.progressive = element.hasFlag( 'progressive' );
 			variants.constructive = element.hasFlag( 'constructive' );
 			variants.destructive = element.hasFlag( 'destructive' );
+			variants.warning = element.hasFlag( 'warning' );
 		}
 	}
 

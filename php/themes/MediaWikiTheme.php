@@ -8,6 +8,7 @@ class MediaWikiTheme extends Theme {
 
 	public function getElementClasses( Element $element ) {
 		$variants = array(
+			'warning' => false,
 			'invert' => false,
 			'progressive' => false,
 			'constructive' => false,
@@ -24,6 +25,7 @@ class MediaWikiTheme extends Theme {
 				$variants['progressive'] = $element->hasFlag( 'progressive' );
 				$variants['constructive'] = $element->hasFlag( 'constructive' );
 				$variants['destructive'] = $element->hasFlag( 'destructive' );
+				$variants['warning'] = $element->hasFlag( 'warning' );
 			}
 		}
 
