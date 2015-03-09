@@ -1,7 +1,14 @@
 /**
- * ActionSets manage the behavior of the {@link OO.ui.ActionWidget Action widgets} that comprise them.
+ * ActionSets manage the behavior of the {@link OO.ui.ActionWidget action widgets} that comprise them.
  * Actions can be made available for specific contexts (modes) and circumstances
- * (abilities). Please see the [OOjs UI documentation on MediaWiki][1] for more information.
+ * (abilities).
+ *
+ * ActionSets contain two types of actions:
+ *
+ * - Special: Special actions are the first visible actions with special flags, such as 'safe' and 'primary', the default special flags. Additional special flags can be configured in subclasses with the static #specialFlags property.
+ * - Other: Other actions include all non-special visible actions.
+ *
+ * Please see the [OOjs UI documentation on MediaWiki][1] for more information.
  *
  *     @example
  *     // Example: An action set used in a process dialog
@@ -115,26 +122,43 @@ OO.ui.ActionSet.static.specialFlags = [ 'safe', 'primary' ];
 
 /**
  * @event click
+ *
+ * A 'click' event is emitted when an action is clicked.
+ *
  * @param {OO.ui.ActionWidget} action Action that was clicked
  */
 
 /**
  * @event resize
+ *
+ * A 'resize' event is emitted when an action widget is resized.
+ *
  * @param {OO.ui.ActionWidget} action Action that was resized
  */
 
 /**
  * @event add
+ *
+ * An 'add' event is emitted when actions are {@link #method-add added} to the action set.
+ *
  * @param {OO.ui.ActionWidget[]} added Actions added
  */
 
 /**
  * @event remove
+ *
+ * A 'remove' event is emitted when actions are {@link #method-remove removed}
+ *  or {@link #clear cleared}.
+ *
  * @param {OO.ui.ActionWidget[]} added Actions removed
  */
 
 /**
  * @event change
+ *
+ * A 'change' event is emitted when actions are {@link #method-add added}, {@link #clear cleared},
+ * or {@link #method-remove removed} from the action set or when the {@link #setMode mode} is changed.
+ *
  */
 
 /* Methods */
@@ -155,7 +179,7 @@ OO.ui.ActionSet.prototype.onActionChange = function () {
 };
 
 /**
- * Check if a action is one of the special actions.
+ * Check if an action is one of the special actions.
  *
  * @param {OO.ui.ActionWidget} action Action to check
  * @return {boolean} Action is special
@@ -173,15 +197,16 @@ OO.ui.ActionSet.prototype.isSpecial = function ( action ) {
 };
 
 /**
- * Get actions.
+ * Get action widgets based on the specified filter: ‘actions’, ‘flags’, ‘modes’, ‘visible’,
+ *  or ‘disabled’.
  *
  * @param {Object} [filters] Filters to use, omit to get all actions
- * @param {string|string[]} [filters.actions] Actions that actions must have
- * @param {string|string[]} [filters.flags] Flags that actions must have
- * @param {string|string[]} [filters.modes] Modes that actions must have
- * @param {boolean} [filters.visible] Actions must be visible
- * @param {boolean} [filters.disabled] Actions must be disabled
- * @return {OO.ui.ActionWidget[]} Actions matching all criteria
+ * @param {string|string[]} [filters.actions] Actions that action widgets must have
+ * @param {string|string[]} [filters.flags] Flags that action widgets must have (e.g., 'safe')
+ * @param {string|string[]} [filters.modes] Modes that action widgets must have
+ * @param {boolean} [filters.visible] Action widgets must be visible
+ * @param {boolean} [filters.disabled] Action widgets must be disabled
+ * @return {OO.ui.ActionWidget[]} Action widgets matching all criteria
  */
 OO.ui.ActionSet.prototype.get = function ( filters ) {
 	var i, len, list, category, actions, index, match, matches;
@@ -233,12 +258,12 @@ OO.ui.ActionSet.prototype.get = function ( filters ) {
 };
 
 /**
- * Get special actions.
+ * Get 'special' actions.
  *
- * Special actions are the first visible actions with special flags, such as 'safe' and 'primary'.
- * Special flags can be configured by changing #static-specialFlags in a subclass.
+ * Special actions are the first visible action widgets with special flags, such as 'safe' and 'primary'.
+ * Special flags can be configured in subclasses by changing the static #specialFlags property.
  *
- * @return {OO.ui.ActionWidget|null} Safe action
+ * @return {OO.ui.ActionWidget[]|null} 'Special' action widgets.
  */
 OO.ui.ActionSet.prototype.getSpecial = function () {
 	this.organize();
@@ -246,11 +271,11 @@ OO.ui.ActionSet.prototype.getSpecial = function () {
 };
 
 /**
- * Get other actions.
+ * Get 'other' actions.
  *
- * Other actions include all non-special visible actions.
+ * Other actions include all non-special visible action widgets.
  *
- * @return {OO.ui.ActionWidget[]} Other actions
+ * @return {OO.ui.ActionWidget[]} 'Other' action widgets
  */
 OO.ui.ActionSet.prototype.getOthers = function () {
 	this.organize();
@@ -258,12 +283,11 @@ OO.ui.ActionSet.prototype.getOthers = function () {
 };
 
 /**
- * Toggle actions based on their modes.
+ * Set the mode  (e.g., ‘edit’ or ‘view’). Only {@link OO.ui.ActionWidget#modes actions} configured
+ * to be available in the specified mode will be made visible. All other actions will be hidden.
  *
- * Unlike calling toggle on actions with matching flags, this will enforce mutually exclusive
- * visibility; matching actions will be shown, non-matching actions will be hidden.
- *
- * @param {string} mode Mode actions must have
+ * @param {string} mode The mode. Only actions configured to be available in the specified
+ *  mode will be made visible.
  * @chainable
  * @fires toggle
  * @fires change
@@ -285,12 +309,14 @@ OO.ui.ActionSet.prototype.setMode = function ( mode ) {
 };
 
 /**
- * Change which actions are able to be performed.
+ * Set the abilities of the specified actions.
  *
- * Actions with matching actions will be disabled/enabled. Other actions will not be changed.
+ * Action widgets that are configured with the specified actions will be enabled
+ * or disabled based on the boolean values specified in the `actions`
+ * parameter.
  *
- * @param {Object.<string,boolean>} actions List of abilities, keyed by action name, values
- *   indicate actions are able to be performed
+ * @param {Object.<string,boolean>} actions A list keyed by action name with boolean
+ *  values that indicate whether or not the action should be enabled.
  * @chainable
  */
 OO.ui.ActionSet.prototype.setAbilities = function ( actions ) {
@@ -311,9 +337,9 @@ OO.ui.ActionSet.prototype.setAbilities = function ( actions ) {
  * Executes a function once per action.
  *
  * When making changes to multiple actions, use this method instead of iterating over the actions
- * manually to defer emitting a change event until after all actions have been changed.
+ * manually to defer emitting a #change event until after all actions have been changed.
  *
- * @param {Object|null} actions Filters to use for which actions to iterate over; see #get
+ * @param {Object|null} actions Filters to use to determine which actions to iterate over; see #get
  * @param {Function} callback Callback to run for each action; callback is invoked with three
  *   arguments: the action, the action's index, the list of actions being iterated over
  * @chainable
@@ -331,9 +357,9 @@ OO.ui.ActionSet.prototype.forEach = function ( filter, callback ) {
 };
 
 /**
- * Add actions.
+ * Add action widgets to the action set.
  *
- * @param {OO.ui.ActionWidget[]} actions Actions to add
+ * @param {OO.ui.ActionWidget[]} actions Action widgets to add
  * @chainable
  * @fires add
  * @fires change
@@ -360,9 +386,11 @@ OO.ui.ActionSet.prototype.add = function ( actions ) {
 };
 
 /**
- * Remove actions.
+ * Remove action widgets from the set.
  *
- * @param {OO.ui.ActionWidget[]} actions Actions to remove
+ * To remove all actions, you may wish to use the #clear method instead.
+ *
+ * @param {OO.ui.ActionWidget[]} actions Action widgets to remove
  * @chainable
  * @fires remove
  * @fires change
@@ -388,7 +416,9 @@ OO.ui.ActionSet.prototype.remove = function ( actions ) {
 };
 
 /**
- * Remove all actions.
+ * Remove all action widets from the set.
+ *
+ * To remove only specified actions, use the {@link #method-remove remove} method instead.
  *
  * @chainable
  * @fires remove
