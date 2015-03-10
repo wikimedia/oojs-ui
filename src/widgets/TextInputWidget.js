@@ -82,6 +82,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		keypress: this.onKeyPress.bind( this ),
 		blur: this.setValidityFlag.bind( this )
 	} );
+	this.$input.one( {
+		focus: this.onElementAttach.bind( this )
+	} );
 	this.$icon.on( 'mousedown', this.onIconMouseDown.bind( this ) );
 	this.$indicator.on( 'mousedown', this.onIndicatorMouseDown.bind( this ) );
 	this.on( 'labelChange', this.updatePosition.bind( this ) );
