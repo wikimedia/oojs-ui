@@ -1,10 +1,7 @@
 OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 	var i, toolGroups, actionButton, actionButtonDisabled, PopupTool, ToolGroupTool,
 		$demo = demo.$element,
-		$containers = $(
-			'<div class="oo-ui-demo-container oo-ui-demo-toolbars"></div>' +
-			'<div class="oo-ui-demo-container oo-ui-demo-toolbars"></div>'
-		),
+		$containers = $(),
 		toolFactories = [],
 		toolGroupFactories = [],
 		toolbars = [];
@@ -263,6 +260,13 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 	createToolGroup( 2, 'listTools' );
 
 	for ( i = 0; i < toolbars.length; i++ ) {
+		$containers = $containers.add(
+			new OO.ui.PanelLayout( {
+				expanded: false,
+				framed: true
+			} ).$element
+				.addClass( 'oo-ui-demo-container oo-ui-demo-toolbars' )
+		);
 		$containers.eq( i ).append( toolbars[ i ].$element );
 		toolbars[ i ].initialize();
 	}

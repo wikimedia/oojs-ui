@@ -12,6 +12,8 @@ class PanelLayout extends Layout {
 	 * @param boolean $config['padded'] Pad the content from the edges (default: false)
 	 * @param boolean $config['expanded'] Expand size to fill the entire parent element
 	 *   (default: true)
+	 * @param boolean $config['framed'] Wrap in a frame to visually separate from outside content
+	 *   (default: false)
 	 */
 	public function __construct( array $config = array() ) {
 		// Config initialization
@@ -19,6 +21,7 @@ class PanelLayout extends Layout {
 			'scrollable' => false,
 			'padded' => false,
 			'expanded' => true,
+			'framed' => false,
 		), $config );
 
 		// Parent constructor
@@ -35,6 +38,9 @@ class PanelLayout extends Layout {
 		if ( $config['expanded'] ) {
 			$this->addClasses( array( 'oo-ui-panelLayout-expanded' ) );
 		}
+		if ( $config['framed'] ) {
+			$this->addClasses( array( 'oo-ui-panelLayout-framed' ) );
+		}
 	}
 	public function getConfig( &$config ) {
 		if ( $this->hasClass( 'oo-ui-panelLayout-scrollable' ) ) {
@@ -45,6 +51,9 @@ class PanelLayout extends Layout {
 		}
 		if ( !$this->hasClass( 'oo-ui-panelLayout-expanded' ) ) {
 			$config['expanded'] = false;
+		}
+		if ( $this->hasClass( 'oo-ui-panelLayout-framed' ) ) {
+			$config['framed'] = true;
 		}
 		$config['content'] = $this->content;
 		return parent::getConfig( $config );
