@@ -13,6 +13,7 @@ Patch Contributors (minor contributors, alphabetically)
 Alex Monk <krenair@wikimedia.org>
 Amir E. Aharoni <aaharoni@wikimedia.org>
 Antoine Musso <hashar@free.fr>
+Derk-Jan Hartman <hartman.wiki@gmail.com>
 eranroz <eranroz89@gmail.com>
 Erik Moeller <erik@wikimedia.org>
 Erick Guan <fantasticfears@gmail.com>
