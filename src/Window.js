@@ -40,8 +40,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [size] Symbolic name of dialog size, `small`, `medium`, `large`, `larger` or
- *  `full`; omit to use #static-size
+ * @cfg {string} [size] Symbolic name of the dialog size: `small`, `medium`, `large`, `larger` or
+ *  `full`.  If omitted, the value of the {@link #static-size static size} property will be used.
  */
 OO.ui.Window = function OoUiWindow( config ) {
 	// Configuration initialization
@@ -92,9 +92,9 @@ OO.mixinClass( OO.ui.Window, OO.EventEmitter );
 /* Static Properties */
 
 /**
- * Symbolic name of size.
+ * Symbolic name of the window size: `small`, `medium`, `large`, `larger` or `full`.
  *
- * Size is used if no size is configured during construction.
+ * The static size is used if no #size is configured during construction.
  *
  * @static
  * @inheritable
@@ -107,6 +107,7 @@ OO.ui.Window.static.size = 'medium';
 /**
  * Handle mouse down events.
  *
+ * @private
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.Window.prototype.onMouseDown = function ( e ) {
@@ -117,7 +118,7 @@ OO.ui.Window.prototype.onMouseDown = function ( e ) {
 };
 
 /**
- * Check if window has been initialized.
+ * Check if the window has been initialized.
  *
  * Initialization occurs when a window is added to a manager.
  *
@@ -128,7 +129,7 @@ OO.ui.Window.prototype.isInitialized = function () {
 };
 
 /**
- * Check if window is visible.
+ * Check if the window is visible.
  *
  * @return {boolean} Window is visible
  */
@@ -137,9 +138,10 @@ OO.ui.Window.prototype.isVisible = function () {
 };
 
 /**
- * Check if window is opening.
+ * Check if the window is opening.
  *
- * This is a wrapper around OO.ui.WindowManager#isOpening.
+ * This method is a wrapper around the window manager's {@link OO.ui.WindowManager#isOpening isOpening}
+ * method.
  *
  * @return {boolean} Window is opening
  */
@@ -148,9 +150,9 @@ OO.ui.Window.prototype.isOpening = function () {
 };
 
 /**
- * Check if window is closing.
+ * Check if the window is closing.
  *
- * This is a wrapper around OO.ui.WindowManager#isClosing.
+ * This method is a wrapper around the window manager's {@link OO.ui.WindowManager#isClosing isClosing} method.
  *
  * @return {boolean} Window is closing
  */
@@ -159,9 +161,9 @@ OO.ui.Window.prototype.isClosing = function () {
 };
 
 /**
- * Check if window is opened.
+ * Check if the window is opened.
  *
- * This is a wrapper around OO.ui.WindowManager#isOpened.
+ * This method is a wrapper around the window manager's {@link OO.ui.WindowManager#isOpened isOpened} method.
  *
  * @return {boolean} Window is opened
  */
@@ -172,6 +174,9 @@ OO.ui.Window.prototype.isOpened = function () {
 /**
  * Get the window manager.
  *
+ * All windows must be attached to a window manager, which is used to open
+ * and close the window and control its presentation.
+ *
  * @return {OO.ui.WindowManager} Manager of window
  */
 OO.ui.Window.prototype.getManager = function () {
@@ -179,9 +184,9 @@ OO.ui.Window.prototype.getManager = function () {
 };
 
 /**
- * Get the window size.
+ * Get the symbolic name of the window size (e.g., `small` or `medium`).
  *
- * @return {string} Symbolic size name, e.g. `small`, `medium`, `large`, `larger`, `full`
+ * @return {string} Symbolic name of the size: `small`, `medium`, `large`, `larger`, `full`
  */
 OO.ui.Window.prototype.getSize = function () {
 	return this.size;
@@ -211,9 +216,16 @@ OO.ui.Window.prototype.withoutSizeTransitions = function ( callback ) {
 };
 
 /**
- * Get the height of the dialog contents.
+ * Get the height of the full window contents (i.e., the window head, body and foot together).
  *
- * @return {number} Content height
+ * What consistitutes the head, body, and foot varies depending on the window type.
+ * A {@link OO.ui.MessageDialog message dialog} displays a title and message in its body,
+ * and any actions in the foot. A {@link OO.ui.ProcessDialog process dialog} displays a title
+ * and special actions in the head, and dialog content in the body.
+ *
+ * To get just the height of the dialog body, use the #getBodyHeight method.
+ *
+ * @return {number} The height of the window contents (the dialog head, body and foot) in pixels
  */
 OO.ui.Window.prototype.getContentHeight = function () {
 	var bodyHeight,
@@ -243,34 +255,42 @@ OO.ui.Window.prototype.getContentHeight = function () {
 };
 
 /**
- * Get the height of the dialog contents.
+ * Get the height of the window body.
  *
- * When this function is called, the dialog will temporarily have been resized
+ * To get the height of the full window contents (the window body, head, and foot together),
+ * use #getContentHeight.
+ *
+ * When this function is called, the window will temporarily have been resized
  * to height=1px, so .scrollHeight measurements can be taken accurately.
  *
- * @return {number} Height of content
+ * @return {number} Height of the window body in pixels
  */
 OO.ui.Window.prototype.getBodyHeight = function () {
 	return this.$body[ 0 ].scrollHeight;
 };
 
 /**
- * Get the directionality of the frame
+ * Get the directionality of the frame (right-to-left or left-to-right).
  *
- * @return {string} Directionality, 'ltr' or 'rtl'
+ * @return {string} Directionality: `'ltr'` or `'rtl'`
  */
 OO.ui.Window.prototype.getDir = function () {
 	return this.dir;
 };
 
 /**
- * Get a process for setting up a window for use.
+ * Get the 'setup' process.
  *
- * Each time the window is opened this process will set it up for use in a particular context, based
- * on the `data` argument.
+ * The setup process is used to set up a window for use in a particular context,
+ * based on the `data` argument. This method is called during the opening phase of the window’s
+ * lifecycle.
  *
- * When you override this method, you can add additional setup steps to the process the parent
- * method provides using the 'first' and 'next' methods.
+ * Override this method to add additional steps to the ‘setup’ process the parent method provides
+ * using the {@link OO.ui.Process#first first} and {@link OO.ui.Process#next next} methods
+ * of OO.ui.Process.
+ *
+ * To add window content that persists between openings, you may wish to use the #initialize method
+ * instead.
  *
  * @abstract
  * @param {Object} [data] Window opening data
@@ -281,30 +301,34 @@ OO.ui.Window.prototype.getSetupProcess = function () {
 };
 
 /**
- * Get a process for readying a window for use.
+ * Get the ‘ready’ process.
  *
- * Each time the window is open and setup, this process will ready it up for use in a particular
- * context, based on the `data` argument.
+ * The ready process is used to ready a window for use in a particular
+ * context, based on the `data` argument. This method is called during the opening phase of
+ * the window’s lifecycle, after the window has been {@link #getSetupProcess setup}.
  *
- * When you override this method, you can add additional setup steps to the process the parent
- * method provides using the 'first' and 'next' methods.
+ * Override this method to add additional steps to the ‘ready’ process the parent method
+ * provides using the {@link OO.ui.Process#first first} and {@link OO.ui.Process#next next}
+ * methods of OO.ui.Process.
  *
  * @abstract
  * @param {Object} [data] Window opening data
- * @return {OO.ui.Process} Setup process
+ * @return {OO.ui.Process} Ready process
  */
 OO.ui.Window.prototype.getReadyProcess = function () {
 	return new OO.ui.Process();
 };
 
 /**
- * Get a process for holding a window from use.
+ * Get the 'hold' process.
  *
- * Each time the window is closed, this process will hold it from use in a particular context, based
- * on the `data` argument.
+ * The hold proccess is used to keep a window from being used in a particular context,
+ * based on the `data` argument. This method is called during the closing phase of the window’s
+ * lifecycle.
  *
- * When you override this method, you can add additional setup steps to the process the parent
- * method provides using the 'first' and 'next' methods.
+ * Override this method to add additional steps to the 'hold' process the parent method provides
+ * using the {@link OO.ui.Process#first first} and {@link OO.ui.Process#next next} methods
+ * of OO.ui.Process.
  *
  * @abstract
  * @param {Object} [data] Window closing data
@@ -315,13 +339,15 @@ OO.ui.Window.prototype.getHoldProcess = function () {
 };
 
 /**
- * Get a process for tearing down a window after use.
+ * Get the ‘teardown’ process.
  *
- * Each time the window is closed this process will tear it down and do something with the user's
- * interactions within the window, based on the `data` argument.
+ * The teardown process is used to teardown a window after use. During teardown,
+ * user interactions within the window are conveyed and the window is closed, based on the `data`
+ * argument. This method is called during the closing phase of the window’s lifecycle.
  *
- * When you override this method, you can add additional teardown steps to the process the parent
- * method provides using the 'first' and 'next' methods.
+ * Override this method to add additional steps to the ‘teardown’ process the parent method provides
+ * using the {@link OO.ui.Process#first first} and {@link OO.ui.Process#next next} methods
+ * of OO.ui.Process.
  *
  * @abstract
  * @param {Object} [data] Window closing data
@@ -337,7 +363,7 @@ OO.ui.Window.prototype.getTeardownProcess = function () {
  * This will cause the window to initialize. Calling it more than once will cause an error.
  *
  * @param {OO.ui.WindowManager} manager Manager for this window
- * @throws {Error} If called more than once
+ * @throws {Error} An error is thrown if the method is called more than once
  * @chainable
  */
 OO.ui.Window.prototype.setManager = function ( manager ) {
@@ -352,9 +378,10 @@ OO.ui.Window.prototype.setManager = function ( manager ) {
 };
 
 /**
- * Set the window size.
+ * Set the window size by symbolic name (e.g., 'small' or 'medium')
  *
- * @param {string} size Symbolic size name, e.g. 'small', 'medium', 'large', 'full'
+ * @param {string} size Symbolic name of size: `small`, `medium`, `large`, `larger` or
+ *  `full`
  * @chainable
  */
 OO.ui.Window.prototype.setSize = function ( size ) {
@@ -366,7 +393,7 @@ OO.ui.Window.prototype.setSize = function ( size ) {
 /**
  * Update the window size.
  *
- * @throws {Error} If not attached to a manager
+ * @throws {Error} An error is thrown if the window is not attached to a window manager
  * @chainable
  */
 OO.ui.Window.prototype.updateSize = function () {
@@ -425,11 +452,12 @@ OO.ui.Window.prototype.setDimensions = function ( dim ) {
 /**
  * Initialize window contents.
  *
- * The first time the window is opened, #initialize is called so that changes to the window that
- * will persist between openings can be made. See #getSetupProcess for a way to make changes each
- * time the window opens.
+ * Before the window is opened for the first time, #initialize is called so that content that
+ * persists between openings can be added to the window.
  *
- * @throws {Error} If not attached to a manager
+ * To set up a window with new content each time the window opens, use #getSetupProcess.
+ *
+ * @throws {Error} An error is thrown if the window is not attached to a window manager
  * @chainable
  */
 OO.ui.Window.prototype.initialize = function () {
@@ -457,15 +485,18 @@ OO.ui.Window.prototype.initialize = function () {
 };
 
 /**
- * Open window.
+ * Open the window.
  *
- * This is a wrapper around calling {@link OO.ui.WindowManager#openWindow} on the window manager.
- * To do something each time the window opens, use #getSetupProcess or #getReadyProcess.
+ * This method is a wrapper around a call to the window manager’s {@link OO.ui.WindowManager#openWindow openWindow}
+ * method, which returns a promise resolved when the window is done opening.
+ *
+ * To customize the window each time it opens, use #getSetupProcess or #getReadyProcess.
  *
  * @param {Object} [data] Window opening data
- * @return {jQuery.Promise} Promise resolved when window is opened; when the promise is resolved the
- *   first argument will be a promise which will be resolved when the window begins closing
- * @throws {Error} If not attached to a manager
+ * @return {jQuery.Promise} Promise resolved with a value when the window is opened, or rejected
+ *  if the window fails to open. When the promise is resolved successfully, the first argument of the
+ *  value is a new promise, which is resolved when the window begins closing.
+ * @throws {Error} An error is thrown if the window is not attached to a window manager
  */
 OO.ui.Window.prototype.open = function ( data ) {
 	if ( !this.manager ) {
@@ -476,14 +507,19 @@ OO.ui.Window.prototype.open = function ( data ) {
 };
 
 /**
- * Close window.
+ * Close the window.
  *
- * This is a wrapper around calling OO.ui.WindowManager#closeWindow on the window manager.
- * To do something each time the window closes, use #getHoldProcess or #getTeardownProcess.
+ * This method is a wrapper around a call to the window
+ * manager’s {@link OO.ui.WindowManager#closeWindow closeWindow} method,
+ * which returns a closing promise resolved when the window is done closing.
+ *
+ * The window's #getHoldProcess and #getTeardownProcess methods are called during the closing
+ * phase of the window’s lifecycle and can be used to specify closing behavior each time
+ * the window closes.
  *
  * @param {Object} [data] Window closing data
  * @return {jQuery.Promise} Promise resolved when window is closed
- * @throws {Error} If not attached to a manager
+ * @throws {Error} An error is thrown if the window is not attached to a window manager
  */
 OO.ui.Window.prototype.close = function ( data ) {
 	if ( !this.manager ) {
