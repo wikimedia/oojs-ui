@@ -1,7 +1,8 @@
 /**
- * Structured list of items.
+ * OutlineSelectWidget is a structured list that contains {@link OO.ui.OutlineOptionWidget outline options}
+ * A set of controls can be provided with an {@link OO.ui.OutlineControlsWidget outline controls} widget.
  *
- * Use with OO.ui.OutlineOptionWidget.
+ * ####Currently, this class is only used by {@link OO.ui.BookletLayout BookletLayouts}.####
  *
  * @class
  * @extends OO.ui.SelectWidget
