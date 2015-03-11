@@ -268,11 +268,13 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 				.addClass( 'oo-ui-demo-container oo-ui-demo-toolbars' )
 		);
 		$containers.eq( i ).append( toolbars[ i ].$element );
-		toolbars[ i ].initialize();
 	}
 	$containers.append( '' );
 	$demo.append(
 		$containers.eq( 0 ).append( '<div class="oo-ui-demo-toolbars-contents">Toolbar</div>' ),
 		$containers.eq( 1 ).append( '<div class="oo-ui-demo-toolbars-contents">Toolbar with action buttons</div>' )
 	);
+	for ( i = 0; i < toolbars.length; i++ ) {
+		toolbars[ i ].initialize();
+	}
 };
