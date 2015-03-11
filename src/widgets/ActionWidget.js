@@ -69,9 +69,9 @@ OO.ui.ActionWidget.prototype.getAction = function () {
 };
 
 /**
- * Get symbolic action name.
+ * Get symbolic mode names.
  *
- * @return {string}
+ * @return {string[]}
  */
 OO.ui.ActionWidget.prototype.getModes = function () {
 	return this.modes.slice();
