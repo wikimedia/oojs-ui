@@ -1,7 +1,10 @@
 /**
  * An ActionWidget is a {@link OO.ui.ButtonWidget button widget} that executes an action.
  * Action widgets are used with OO.ui.ActionSet, which manages the behavior and availability
- * of the actions. Please see the [OOjs UI documentation on MediaWiki] [1] for more information
+ * of the actions.
+ *
+ * Both actions and action sets are primarily used with {@link OO.ui.Dialog Dialogs}.
+ * Please see the [OOjs UI documentation on MediaWiki] [1] for more information
  * and examples.
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs#Action_sets
@@ -12,9 +15,11 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [action] Symbolic action name
- * @cfg {string[]} [modes] Symbolic mode names
- * @cfg {boolean} [framed=false] Render button with a frame
+ * @cfg {string} [action] Symbolic name of the action (e.g., ‘continue’ or ‘cancel’).
+ * @cfg {string[]} [modes] Symbolic names of the modes (e.g., ‘edit’ or ‘read’) in which the action
+ *  should be made available. See the action set's {@link OO.ui.ActionSet#setMode setMode} method
+ *  for more information about setting modes.
+ * @cfg {boolean} [framed=false] Render the action button with a frame
  */
 OO.ui.ActionWidget = function OoUiActionWidget( config ) {
 	// Configuration initialization
@@ -44,23 +49,25 @@ OO.mixinClass( OO.ui.ActionWidget, OO.ui.PendingElement );
 /* Events */
 
 /**
+ * A resize event is emitted when the size of the widget changes.
+ *
  * @event resize
  */
 
 /* Methods */
 
 /**
- * Check if action is available in a certain mode.
+ * Check if the action is configured to be available in the specified `mode`.
  *
  * @param {string} mode Name of mode
- * @return {boolean} Has mode
+ * @return {boolean} The action is configured with the mode
  */
 OO.ui.ActionWidget.prototype.hasMode = function ( mode ) {
 	return this.modes.indexOf( mode ) !== -1;
 };
 
 /**
- * Get symbolic action name.
+ * Get the symbolic name of the action (e.g., ‘continue’ or ‘cancel’).
  *
  * @return {string}
  */
@@ -69,7 +76,11 @@ OO.ui.ActionWidget.prototype.getAction = function () {
 };
 
 /**
- * Get symbolic mode names.
+ * Get the symbolic name of the mode or modes for which the action is configured to be available.
+ *
+ * The current mode is set with the action set's {@link OO.ui.ActionSet#setMode setMode} method.
+ * Only actions that are configured to be avaiable in the current mode will be visible. All other actions
+ * are hidden.
  *
  * @return {string[]}
  */
@@ -80,6 +91,7 @@ OO.ui.ActionWidget.prototype.getModes = function () {
 /**
  * Emit a resize event if the size has changed.
  *
+ * @private
  * @chainable
  */
 OO.ui.ActionWidget.prototype.propagateResize = function () {
@@ -144,7 +156,7 @@ OO.ui.ActionWidget.prototype.clearFlags = function () {
 };
 
 /**
- * Toggle visibility of button.
+ * Toggle the visibility of the action button.
  *
  * @param {boolean} [show] Show button, omit to toggle visibility
  * @chainable
