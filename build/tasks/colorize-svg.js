@@ -159,6 +159,12 @@ module.exports = function ( grunt ) {
 	 *   generated image variants
 	 */
 	Image.prototype.generate = function ( destination ) {
+		function flipPath( filePath ) {
+			return filePath.replace( /-(ltr|rtl).svg$/, function ( match ) {
+				return '-' + ( match[1] === 'rtl' ? 'ltr' : 'rtl' ) + '.svg';
+			} );
+		}
+
 		var params,
 			deferred = Q.defer(),
 			errors = 0,
@@ -168,6 +174,8 @@ module.exports = function ( grunt ) {
 			fileExtensionBase = fileExtension.slice( 1 ),
 			fileNameBase = path.basename( file, fileExtension ),
 			filePath = path.join( this.list.getPath(), file ),
+			// TODO This should be configurable in task config, like in CSSJanus
+			flippable = flipPath( filePath ) !== filePath,
 			variable = fileExtensionBase.toLowerCase() === 'svg',
 			variants = this.list.getVariants(),
 			cssClassPrefix = this.list.getCssClassPrefix(),
@@ -181,6 +189,12 @@ module.exports = function ( grunt ) {
 			params.push( fileExtensionBase );
 		}
 		grunt.file.copy( filePath, path.join( destination.getPath(), file ) );
+		if ( flippable ) {
+			grunt.file.copy(
+				flipPath( filePath ),
+				flipPath( path.join( destination.getPath(), file ) )
+			);
+		}
 		rules.push( cssClassPrefix + '( ' + params.join( ', ' ) + ' );' );
 
 		// Variants
@@ -215,6 +229,28 @@ module.exports = function ( grunt ) {
 					),
 					variantSvg
 				);
+
+				if ( flippable ) {
+					originalSvg = grunt.file.read( flipPath( filePath ) );
+					variantSvg = originalSvg.replace(
+						/<svg[^>]*>/, '$&<style>* { fill: ' + variant.getColor() + ' }</style>'
+					);
+
+					if ( originalSvg === variantSvg ) {
+						uncolorizableImages.push( flipPath( file ) );
+						errors++;
+						return;
+					}
+
+					grunt.file.write(
+						flipPath( path.join(
+							destination.getPath(),
+							fileNameBase + '-' + variantName + fileExtension
+						) ),
+						variantSvg
+					);
+					// TODO Report the correct number of files processed when flipping
+				}
 				return cssClassPrefix + '-variant' + '( ' + params.join( ', ' ) + ' );';
 			} ) );
 		}
