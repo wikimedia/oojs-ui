@@ -189,6 +189,9 @@ module.exports = function ( grunt ) {
 		},
 		cssjanus: {
 			dist: {
+				options: {
+					generateExactDuplicates: true
+				},
 				files: rtlFiles
 			}
 		},
