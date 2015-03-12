@@ -14,9 +14,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [name=''] HTML input name
- * @cfg {string} [value=''] Input value
- * @cfg {Function} [inputFilter] Filter function to apply to the input. Takes a string argument and returns a string.
+ * @cfg {string} [name=''] The value of the input’s HTML `name` attribute.
+ * @cfg {string} [value=''] The value of the input.
+ * @cfg {Function} [inputFilter] The name of an input filter function. Input filters modify the value of an input
+ *  before it is accepted.
  */
 OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	// Configuration initialization
@@ -55,6 +56,9 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.TabIndexedElement );
 
 /**
  * @event change
+ *
+ * A change event is emitted when the value of the input changes.
+ *
  * @param {string} value
  */
 
@@ -77,6 +81,7 @@ OO.ui.InputWidget.prototype.getInputElement = function () {
 /**
  * Handle potentially value-changing events.
  *
+ * @private
  * @param {jQuery.Event} e Key down, mouse up, cut, paste, change, input, or select event
  */
 OO.ui.InputWidget.prototype.onEdit = function () {
@@ -105,9 +110,10 @@ OO.ui.InputWidget.prototype.getValue = function () {
 };
 
 /**
- * Sets the direction of the current input, either RTL or LTR
+ * Set the direction of the input, either RTL (right-to-left) or LTR (left-to-right).
  *
  * @param {boolean} isRTL
+ * Direction is right-to-left
  */
 OO.ui.InputWidget.prototype.setRTL = function ( isRTL ) {
 	this.$input.prop( 'dir', isRTL ? 'rtl' : 'ltr' );
@@ -154,7 +160,9 @@ OO.ui.InputWidget.prototype.cleanUpValue = function ( value ) {
 };
 
 /**
- * Simulate the behavior of clicking on a label bound to this input.
+ * Simulate the behavior of clicking on a label bound to this input. This method is only called by
+ * {@link OO.ui.LabelWidget LabelWidget} and {@link OO.ui.FieldLayout FieldLayout}. It should not be
+ * called directly.
  */
 OO.ui.InputWidget.prototype.simulateLabelClick = function () {
 	if ( !this.isDisabled() ) {
