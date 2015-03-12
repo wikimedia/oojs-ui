@@ -56,11 +56,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 	// Properties
 	this.manager = null;
 	this.size = config.size || this.constructor.static.size;
-	this.frame = new OO.ui.PanelLayout( {
-		expanded: false,
-		framed: true
-	} );
-	this.$frame = this.frame.$element;
+	this.$frame = $( '<div>' );
 	this.$overlay = $( '<div>' );
 	this.$content = $( '<div>' );
 
