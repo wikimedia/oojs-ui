@@ -168,8 +168,8 @@ OO.ui.ComboBoxWidget.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
 		this.menu.toggle();
 		this.input.$input[ 0 ].focus();
+		return false;
 	}
-	return false;
 };
 
 /**

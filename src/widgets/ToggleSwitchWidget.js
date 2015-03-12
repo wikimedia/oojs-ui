@@ -92,6 +92,6 @@ OO.ui.ToggleSwitchWidget.prototype.onClick = function ( e ) {
 OO.ui.ToggleSwitchWidget.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
 		this.setValue( !this.value );
+		return false;
 	}
-	return false;
 };
