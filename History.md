@@ -1,5 +1,9 @@
 # OOjs UI Release History
 
+## v0.9.2 / 2014-03-12
+* Toolbar: Be less aggressive with 'white-space: nowrap' (Bartosz Dziewoński)
+* Window: Revert changes from 521061dd (Bartosz Dziewoński)
+
 ## v0.9.1 / 2014-03-11
 * Syncing some button styles with MediaWiki UI (kaldari)
 * MediaWiki Theme: Add the progressive variant to the check icon (Prateek Saxena)
