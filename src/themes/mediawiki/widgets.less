@@ -394,10 +394,16 @@
 
 	&.oo-ui-widget-enabled {
 		input:focus,
+
+		.oo-ui-transition(
+			border 0.2s cubic-bezier(0.39, 0.575, 0.565, 1)
+			box-shadow 0.2s cubic-bezier(0.39, 0.575, 0.565, 1)
+		)
+
 		textarea:focus {
 			outline: none;
-			border-color: #aaa;
-			box-shadow: inset 0.4em 0 0 0 @progressive;
+			border-color: @progressive;
+			box-shadow: inset 0 0 0 0.1em @progressive;
 		}
 
 		input[readonly],
@@ -406,7 +412,8 @@
 			text-shadow: 0 1px 1px #fff;
 
 			&:focus {
-				box-shadow: inset 0.4em 0 0 0 #ccc;
+				border-color: #ccc;
+				box-shadow: inset 0 0 0 0.1em #ccc;
 			}
 		}
 	}
