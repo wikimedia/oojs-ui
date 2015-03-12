@@ -1,7 +1,7 @@
 /**
  * ActionSets manage the behavior of the {@link OO.ui.ActionWidget action widgets} that comprise them.
  * Actions can be made available for specific contexts (modes) and circumstances
- * (abilities).
+ * (abilities). Action sets are primarily used with {@link OO.ui.Dialog Dialogs}.
  *
  * ActionSets contain two types of actions:
  *
