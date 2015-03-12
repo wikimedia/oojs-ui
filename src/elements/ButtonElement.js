@@ -180,8 +180,8 @@ OO.ui.ButtonElement.prototype.onKeyUp = function ( e ) {
 OO.ui.ButtonElement.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
 		this.emit( 'click' );
+		return false;
 	}
-	return false;
 };
 
 /**

@@ -144,6 +144,6 @@ OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
 OO.ui.DropdownWidget.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
 		this.menu.toggle();
+		return false;
 	}
-	return false;
 };
