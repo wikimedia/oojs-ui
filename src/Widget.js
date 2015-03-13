@@ -10,7 +10,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [disabled=false] Disable
+ * @cfg {boolean} [disabled=false] Disable the widget. Disabled widgets cannot be used and their
+ *  appearance reflects this state.
  */
 OO.ui.Widget = function OoUiWidget( config ) {
 	// Initialize config
@@ -40,11 +41,17 @@ OO.mixinClass( OO.ui.Widget, OO.EventEmitter );
 
 /**
  * @event disable
+ *
+ * A 'disable' event is emitted when a widget is disabled.
+ *
  * @param {boolean} disabled Widget is disabled
  */
 
 /**
  * @event toggle
+ *
+ * A 'toggle' event is emitted when the visibility of the widget changes.
+ *
  * @param {boolean} visible Widget is visible
  */
 
@@ -53,16 +60,16 @@ OO.mixinClass( OO.ui.Widget, OO.EventEmitter );
 /**
  * Check if the widget is disabled.
  *
- * @return {boolean} Button is disabled
+ * @return {boolean} Widget is disabled
  */
 OO.ui.Widget.prototype.isDisabled = function () {
 	return this.disabled;
 };
 
 /**
- * Set the disabled state of the widget.
+ * Set the 'disabled' state of the widget.
  *
- * This should probably change the widgets' appearance and prevent it from being used.
+ * When a widget is disabled, it cannot be used and its appearance is updated to reflect this state.
  *
  * @param {boolean} disabled Disable widget
  * @chainable
