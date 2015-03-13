@@ -17,6 +17,11 @@
 		"link": { "file": {
 			"ltr": "images/icons/link-ltr.svg",
 			"rtl": "images/icons/link-rtl.svg"
-		} }
+		} },
+		"linkExternal": { "file": {
+			"ltr": "images/icons/external-link-ltr.svg",
+			"rtl":  "images/icons/external-link-rtl.svg"
+		} },
+		"linkSecure": { "file": "images/icons/secure-link.svg" }
 	}
 }

@@ -98,13 +98,23 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'edit',
 				'editLock',
 				'editUndo',
-				'link'
+				'link',
+				'linkExternal',
+				'linkSecure'
 			],
 			'editing-styling': [
 				'bigger',
 				'smaller',
 				'subscript',
-				'superscript'
+				'superscript',
+				'bold',
+				'italic',
+				'strikethrough',
+				'underline',
+				'textLanguage',
+				'textDirLTR',
+				'textDirRTL',
+				'textStyle'
 			],
 			'editing-list': [
 				'indent',
@@ -113,13 +123,28 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'outdent'
 			],
 			'editing-advanced': [
+				'alignCentre',
+				'alignLeft',
+				'alignRight',
+				'insert',
+				'layout',
 				'newline',
 				'noWikiText',
+				'outline',
 				'puzzle',
 				'quotes',
 				'quotesAdd',
 				'redirect',
+				'searchCaseSensitive',
+				'searchRegularExpression',
+				'specialCharacter',
 				'table',
+				'tableAddColumnAfter',
+				'tableAddColumnBefore',
+				'tableAddRowAfter',
+				'tableAddRowBefore',
+				'tableCaption',
+				'tableMergeCells',
 				'templateAdd',
 				'translation',
 				'wikiText'

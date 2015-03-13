@@ -117,6 +117,11 @@
 			"src/themes/apex/core.less"
 		]
 	},
+	"oojs-ui-apex-icons-movement": {
+		"styles": [
+			"src/themes/apex/icons-movement.json"
+		]
+	},
 	"oojs-ui-apex-icons-moderation": {
 		"styles": [
 			"src/themes/apex/icons-moderation.json"
@@ -125,6 +130,21 @@
 	"oojs-ui-apex-icons-editing-core": {
 		"styles": [
 			"src/themes/apex/icons-editing-core.json"
+		]
+	},
+	"oojs-ui-apex-icons-editing-styling": {
+		"styles": [
+			"src/themes/apex/icons-editing-styling.json"
+		]
+	},
+	"oojs-ui-apex-icons-editing-list": {
+		"styles": [
+			"src/themes/apex/icons-editing-list.json"
+		]
+	},
+	"oojs-ui-apex-icons-editing-advanced": {
+		"styles": [
+			"src/themes/apex/icons-editing-advanced.json"
 		]
 	},
 	"oojs-ui-mediawiki": {
