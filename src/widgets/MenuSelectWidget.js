@@ -1,8 +1,9 @@
 /**
  * MenuSelectWidget is a {@link OO.ui.SelectWidget select widget} that contains options and
- * is used together with OO.ui.MenuOptionWidget. See {@link OO.ui.DropdownWidget DropdownWidget} and
- * {@link OO.ui.ComboBoxWidget ComboBoxWidget} for examples of interfaces that contain menus.
- * MenuSelectWidgets themselves are not designed to be instantiated directly, rather subclassed
+ * is used together with OO.ui.MenuOptionWidget. It is designed be used as part of another widget.
+ * See {@link OO.ui.DropdownWidget DropdownWidget}, {@link OO.ui.ComboBoxWidget ComboBoxWidget},
+ * and {@link OO.ui.LookupElement LookupElement} for examples of widgets that contain menus.
+ * MenuSelectWidgets themselves are not instantiated directly, rather subclassed
  * and customized to be opened, closed, and displayed as needed.
  *
  * By default, menus are clipped to the visible viewport and are not visible when a user presses the
@@ -24,9 +25,12 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.TextInputWidget} [input] Input to bind keyboard handlers to
- * @cfg {OO.ui.Widget} [widget] Widget to bind mouse handlers to
- * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu
+ * @cfg {OO.ui.TextInputWidget} [input] Text input used to implement option highlighting for menu items that match
+ *  the text the user types. This config is used by {@link OO.ui.ComboBoxWidget ComboBoxWidget}
+ *  and {@link OO.ui.LookupElement LookupElement}
+ * @cfg {OO.ui.Widget} [widget] Widget associated with the menu’s active state. If the user clicks the mouse
+ *  anywhere on the page outside of this widget, the menu is hidden.
+ * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu.
  */
 OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	// Configuration initialization
@@ -138,8 +142,10 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
 /**
  * Choose an item.
  *
- * This will close the menu, unlike #selectItem which only changes selection.
+ * When a user chooses an item, the menu is closed.
  *
+ * Note that ‘choose’ should never be modified programmatically. A user can choose an option with the keyboard
+ * or mouse and it becomes selected. To select an item programmatically, use the #selectItem method.
  * @param {OO.ui.OptionWidget} item Item to choose
  * @chainable
  */
