@@ -403,9 +403,10 @@ OO.ui.Window.prototype.updateSize = function () {
 };
 
 /**
- * Set window dimensions.
+ * Set window dimensions. This method is called by the {@link OO.ui.WindowManager window manager}
+ * when the window is opening. In general, setDimensions should not be called directly.
  *
- * Properties are applied to the frame container.
+ * To set the size of the window, use the #setSize method.
  *
  * @param {Object} dim CSS dimension properties
  * @param {string|number} [dim.width] Width
