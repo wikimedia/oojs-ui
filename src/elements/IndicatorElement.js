@@ -93,9 +93,9 @@ OO.ui.IndicatorElement.prototype.setIndicatorElement = function ( $indicator ) {
 };
 
 /**
- * Set indicator name.
+ * Set the indicator by its symbolic name: ‘alert’, ‘down’, ‘next’, ‘previous’, ‘required’, ‘up’. Use `null` to remove the indicator.
  *
- * @param {string|null} indicator Symbolic name of indicator to use or null for no indicator
+ * @param {string|null} indicator Symbolic name of indicator, or `null` for no indicator
  * @chainable
  */
 OO.ui.IndicatorElement.prototype.setIndicator = function ( indicator ) {
@@ -120,10 +120,12 @@ OO.ui.IndicatorElement.prototype.setIndicator = function ( indicator ) {
 };
 
 /**
- * Set indicator title.
+ * Set the indicator title.
  *
- * @param {string|Function|null} indicator Indicator title text, a function that returns text or
- *   null for no indicator title
+ * The title is displayed when a user moves the mouse over the indicator.
+ *
+ * @param {string|Function|null} indicator Indicator title text, a function that returns text, or
+ *   `null` for no indicator title
  * @chainable
  */
 OO.ui.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle ) {
@@ -146,7 +148,7 @@ OO.ui.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle )
 };
 
 /**
- * Get indicator name.
+ * Get the symbolic name of the indicator (e.g., ‘alert’ or  ‘down’).
  *
  * @return {string} Symbolic name of indicator
  */
@@ -155,7 +157,9 @@ OO.ui.IndicatorElement.prototype.getIndicator = function () {
 };
 
 /**
- * Get indicator title.
+ * Get the indicator title.
+ *
+ * The title is displayed when a user moves the mouse over the indicator.
  *
  * @return {string} Indicator title text
  */
