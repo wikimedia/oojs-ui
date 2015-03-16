@@ -29,9 +29,12 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$tabIndexed] tabIndexed node, assigned to #$tabIndexed, omit to use #$element
- * @cfg {number|null} [tabIndex=0] Tab index value. Use 0 to use default ordering, use -1 to
- *  prevent tab focusing, use null to suppress the `tabindex` attribute.
+ * @cfg {jQuery} [$tabIndexed] The element that should use the tabindex functionality. By default,
+ *  the functionality is applied to the element created by the class ($element). If a different element is specified, the tabindex
+ *  functionality will be applied to it instead.
+ * @cfg {number|null} [tabIndex=0] Number that specifies the element’s position in the tab-navigation
+ *  order (e.g., 1 for the first focusable element). Use 0 to use the default navigation order; use -1
+ *  to remove the element from the tab-navigation flow.
  */
 OO.ui.TabIndexedElement = function OoUiTabIndexedElement( config ) {
 	// Configuration initialization
@@ -56,11 +59,13 @@ OO.initClass( OO.ui.TabIndexedElement );
 /* Methods */
 
 /**
- * Set the element with `tabindex` attribute.
+ * Set the element that should use the tabindex functionality.
  *
- * If an element is already set, it will be cleaned up before setting up the new element.
+ * This method is used to retarget a tabindex mixin so that its functionality applies
+ * to the specified element. If an element is currently using the functionality, the mixin’s
+ * effect on that element is removed before the new element is set up.
  *
- * @param {jQuery} $tabIndexed Element to set tab index on
+ * @param {jQuery} $tabIndexed Element that should use the tabindex functionality
  * @chainable
  */
 OO.ui.TabIndexedElement.prototype.setTabIndexedElement = function ( $tabIndexed ) {
@@ -74,9 +79,9 @@ OO.ui.TabIndexedElement.prototype.setTabIndexedElement = function ( $tabIndexed 
 };
 
 /**
- * Set tab index value.
+ * Set the value of the tabindex.
  *
- * @param {number|null} tabIndex Tab index value or null for no tab index
+ * @param {number|null} tabIndex Tabindex value, or `null` for no tabindex
  * @chainable
  */
 OO.ui.TabIndexedElement.prototype.setTabIndex = function ( tabIndex ) {
@@ -123,9 +128,9 @@ OO.ui.TabIndexedElement.prototype.onDisable = function () {
 };
 
 /**
- * Get tab index value.
+ * Get the value of the tabindex.
  *
- * @return {number|null} Tab index value
+ * @return {number|null} Tabindex value
  */
 OO.ui.TabIndexedElement.prototype.getTabIndex = function () {
 	return this.tabIndex;
