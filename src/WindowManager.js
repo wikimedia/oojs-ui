@@ -50,6 +50,8 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {OO.Factory} [factory] Window factory to use for automatic instantiation
+ *  Note that window classes that are instantiated with a factory must have
+ *  a {@link OO.ui.Dialog#static-name static name} property that specifies a symbolic name.
  * @cfg {boolean} [modal=true] Prevent interaction outside the dialog
  */
 OO.ui.WindowManager = function OoUiWindowManager( config ) {
@@ -92,34 +94,30 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
 /* Events */
 
 /**
- * Window is opening.
- *
- * Fired when the window begins to be opened.
+ * An 'opening' event is emitted when the window begins to be opened.
  *
  * @event opening
  * @param {OO.ui.Window} win Window that's being opened
- * @param {jQuery.Promise} opening Promise resolved when window is opened; when the promise is
- *   resolved the first argument will be a promise which will be resolved when the window begins
- *   closing, the second argument will be the opening data; progress notifications will be fired on
- *   the promise for `setup` and `ready` when those processes are completed respectively.
+ * @param {jQuery.Promise} opening An `opening` promise resolved with a value when the window is opened successfully.
+ *  When the `opening` promise is resolved, the first argument of the value is an 'opened' promise, the second argument
+ *  is the opening data. The `opening` promise emits `setup` and `ready` notifications when those processes are complete.
  * @param {Object} data Window opening data
  */
 
 /**
- * Window is closing.
- *
- * Fired when the window begins to be closed.
+ * A 'closing' event is emitted when the window begins to be closed.
  *
  * @event closing
  * @param {OO.ui.Window} win Window that's being closed
- * @param {jQuery.Promise} closing Promise resolved when window is closed; when the promise
- *   is resolved the first argument will be a the closing data; progress notifications will be fired
- *   on the promise for `hold` and `teardown` when those processes are completed respectively.
+ * @param {jQuery.Promise} closing A `closing` promise is resolved with a value when the window
+ *  is closed successfully. The promise emits `hold` and `teardown` notifications when those
+ *  processes are complete. When the `closing` promise is resolved, the first argument of its value
+ *  is the closing data.
  * @param {Object} data Window closing data
  */
 
 /**
- * Window was resized.
+ * A 'resize' event is emitted when a window is resized.
  *
  * @event resize
  * @param {OO.ui.Window} win Window that was resized
@@ -128,7 +126,7 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
 /* Static Properties */
 
 /**
- * Map of symbolic size names and CSS properties.
+ * Map of the symbolic name of each window size and its CSS properties.
  *
  * @static
  * @inheritable
@@ -155,9 +153,9 @@ OO.ui.WindowManager.static.sizes = {
 };
 
 /**
- * Symbolic name of default size.
+ * Symbolic name of the default window size.
  *
- * Default size is used if the window's requested size is not recognized.
+ * The default size is used if the window's requested size is not recognized.
  *
  * @static
  * @inheritable
@@ -170,6 +168,7 @@ OO.ui.WindowManager.static.defaultSize = 'medium';
 /**
  * Handle window resize events.
  *
+ * @private
  * @param {jQuery.Event} e Window resize event
  */
 OO.ui.WindowManager.prototype.onWindowResize = function () {
@@ -180,6 +179,7 @@ OO.ui.WindowManager.prototype.onWindowResize = function () {
 /**
  * Handle window resize events.
  *
+ * @private
  * @param {jQuery.Event} e Window resize event
  */
 OO.ui.WindowManager.prototype.afterWindowResize = function () {
@@ -234,7 +234,7 @@ OO.ui.WindowManager.prototype.hasWindow = function ( win ) {
 };
 
 /**
- * Get the number of milliseconds to wait between beginning opening and executing setup process.
+ * Get the number of milliseconds to wait after opening begins before executing the ‘setup’ process.
  *
  * @param {OO.ui.Window} win Window being opened
  * @param {Object} [data] Window opening data
@@ -245,7 +245,7 @@ OO.ui.WindowManager.prototype.getSetupDelay = function () {
 };
 
 /**
- * Get the number of milliseconds to wait between finishing setup and executing ready process.
+ * Get the number of milliseconds to wait after setup has finished before executing the ‘ready’ process.
  *
  * @param {OO.ui.Window} win Window being opened
  * @param {Object} [data] Window opening data
@@ -256,7 +256,7 @@ OO.ui.WindowManager.prototype.getReadyDelay = function () {
 };
 
 /**
- * Get the number of milliseconds to wait between beginning closing and executing hold process.
+ * Get the number of milliseconds to wait after closing has begun before executing the 'hold' process.
  *
  * @param {OO.ui.Window} win Window being closed
  * @param {Object} [data] Window closing data
@@ -267,7 +267,8 @@ OO.ui.WindowManager.prototype.getHoldDelay = function () {
 };
 
 /**
- * Get the number of milliseconds to wait between finishing hold and executing teardown process.
+ * Get the number of milliseconds to wait after the ‘hold’ process has finished before
+ * executing the ‘teardown’ process.
  *
  * @param {OO.ui.Window} win Window being closed
  * @param {Object} [data] Window closing data
@@ -278,14 +279,17 @@ OO.ui.WindowManager.prototype.getTeardownDelay = function () {
 };
 
 /**
- * Get managed window by symbolic name.
+ * Get a window by its symbolic name.
  *
- * If window is not yet instantiated, it will be instantiated and added automatically.
+ * If the window is not yet instantiated and its symbolic name is recognized by a factory, it will be
+ * instantiated and added to the window manager automatically. Please see the [OOjs UI documentation on MediaWiki][3]
+ * for more information about using factories.
+ * [3]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Window_managers
  *
- * @param {string} name Symbolic window name
+ * @param {string} name Symbolic name of the window
  * @return {jQuery.Promise} Promise resolved with matching window, or rejected with an OO.ui.Error
- * @throws {Error} If the symbolic name is unrecognized by the factory
- * @throws {Error} If the symbolic name unrecognized as a managed window
+ * @throws {Error} An error is thrown if the symbolic name is not recognized by the factory.
+ * @throws {Error} An error is thrown if the named window is not recognized as a managed window.
  */
 OO.ui.WindowManager.prototype.getWindow = function ( name ) {
 	var deferred = $.Deferred(),
@@ -328,8 +332,8 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  *
  * @param {OO.ui.Window|string} win Window object or symbolic name of window to open
  * @param {Object} [data] Window opening data
- * @return {jQuery.Promise} Promise resolved when window is done opening; see {@link #event-opening}
- *   for more details about the `opening` promise
+ * @return {jQuery.Promise} An `opening` promise resolved when the window is done opening.
+ *  See {@link #event-opening 'opening' event}  for more information about `opening` promises.
  * @fires opening
  */
 OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
@@ -393,9 +397,9 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
  *
  * @param {OO.ui.Window|string} win Window object or symbolic name of window to close
  * @param {Object} [data] Window closing data
- * @return {jQuery.Promise} Promise resolved when window is done closing; see {@link #event-closing}
- *   for more details about the `closing` promise
- * @throws {Error} If no window by that name is being managed
+ * @return {jQuery.Promise} A `closing` promise resolved when the window is done closing.
+ *  See {@link #event-closing 'closing' event} for more information about closing promises.
+ * @throws {Error} An error is thrown if the window is not managed by the window manager.
  * @fires closing
  */
 OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
@@ -461,11 +465,16 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 };
 
 /**
- * Add windows.
+ * Add windows to the window manager.
  *
- * @param {Object.<string,OO.ui.Window>|OO.ui.Window[]} windows Windows to add
- * @throws {Error} If one of the windows being added without an explicit symbolic name does not have
- *   a statically configured symbolic name
+ * Windows can be added by reference, symbolic name, or explicitly defined symbolic names.
+ * See the [OOjs ui documentation on MediaWiki] [2] for examples.
+ * [2]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Window_managers
+ *
+ * @param {Object.<string,OO.ui.Window>|OO.ui.Window[]} windows An array of window objects specified
+ *  by reference, symbolic name, or explicitly defined symbolic names.
+ * @throws {Error} An error is thrown if a window is added by symbolic name, but has neither an
+ *  explicit nor a statically configured symbolic name.
  */
 OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 	var i, len, win, name, list;
@@ -494,13 +503,15 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 };
 
 /**
- * Remove windows.
+ * Remove the specified windows from the windows manager.
  *
- * Windows will be closed before they are removed.
+ * Windows will be closed before they are removed. If you wish to remove all windows, you may wish to use
+ * the #clearWindows method instead. If you no longer need the window manager and want to ensure that it no
+ * longer listens to events, use the #destroy method.
  *
  * @param {string[]} names Symbolic names of windows to remove
  * @return {jQuery.Promise} Promise resolved when window is closed and removed
- * @throws {Error} If windows being removed are not being managed
+ * @throws {Error} An error is thrown if the named windows are not managed by the window manager.
  */
 OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
 	var i, len, win, name, cleanupWindow,
@@ -525,9 +536,11 @@ OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
 };
 
 /**
- * Remove all windows.
+ * Remove all windows from the window manager.
  *
- * Windows will be closed before they are removed.
+ * Windows will be closed before they are removed. Note that the window manager, though not in use, will still
+ * listen to events. If the window manager will not be used again, you may wish to use the #destroy method instead.
+ * To remove just a subset of windows, use the #removeWindows method.
  *
  * @return {jQuery.Promise} Promise resolved when all windows are closed and removed
  */
@@ -536,7 +549,7 @@ OO.ui.WindowManager.prototype.clearWindows = function () {
 };
 
 /**
- * Set dialog size.
+ * Set dialog size. In general, this method should not be called directly.
  *
  * Fullscreen mode will be used if the dialog is too wide to fit in the screen.
  *
@@ -571,6 +584,7 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 /**
  * Bind or unbind global events for scrolling.
  *
+ * @private
  * @param {boolean} [on] Bind global events
  * @chainable
  */
@@ -613,6 +627,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 /**
  * Toggle screen reader visibility of content other than the window manager.
  *
+ * @private
  * @param {boolean} [isolate] Make only the window manager visible to screen readers
  * @chainable
  */
@@ -637,7 +652,11 @@ OO.ui.WindowManager.prototype.toggleAriaIsolation = function ( isolate ) {
 };
 
 /**
- * Destroy window manager.
+ * Destroy the window manager.
+ *
+ * Destroying the window manager ensures that it will no longer listen to events. If you would like to
+ * continue using the window manager, but wish to remove all windows from it, use the #clearWindows method
+ * instead.
  */
 OO.ui.WindowManager.prototype.destroy = function () {
 	this.toggleGlobalEvents( false );
