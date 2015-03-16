@@ -11,6 +11,24 @@
  * - **destructive**: Destructive styling is applied to convey that the widget will remove something.
  * - **constructive**: Constructive styling is applied to convey that the widget will create something.
  *
+ * The flags affect the appearance of the buttons:
+ *
+ *     @example
+ *     // FlaggedElement is mixed into ButtonWidget to provide styling flags
+ *     var button1 = new OO.ui.ButtonWidget( {
+ *         label : 'Constructive',
+ *         flags :'constructive'
+ *     } );
+ *     var button2 = new OO.ui.ButtonWidget( {
+ *         label : 'Destructive',
+ *         flags :'destructive'
+ *     } );
+ *     var button3 = new OO.ui.ButtonWidget( {
+ *         label : 'Progressive',
+ *         flags :'progressive'
+ *     } );
+ *     $( 'body' ).append( button1.$element, button2.$element, button3.$element );
+ *
  * {@link OO.ui.ActionWidget ActionWidgets}, which are a special kind of button that execute an action, use these flags: **primary** and **safe**.
  * Please see the [OOjs UI documentation on MediaWiki] [1] for more information.
  *
@@ -24,7 +42,9 @@
  * @cfg {string|string[]} [flags] The name or names of the flags (e.g., 'constructive' or 'primary') to apply.
  *  Please see the [OOjs UI documentation on MediaWiki] [2] for more information about available flags.
  *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Elements/Flagged
- * @cfg {jQuery} [$flagged] Flagged node, assigned to $flagged, omit to use $element
+ * @cfg {jQuery} [$flagged] The flagged element. By default,
+ *  the flagged functionality is applied to the element created by the class ($element).
+ *  If a different element is specified, the flagged functionality will be applied to it instead.
  */
 OO.ui.FlaggedElement = function OoUiFlaggedElement( config ) {
 	// Configuration initialization
@@ -56,9 +76,10 @@ OO.ui.FlaggedElement = function OoUiFlaggedElement( config ) {
 /**
  * Set the flagged element.
  *
- * If an element is already set, it will be cleaned up before setting up the new element.
+ * This method is used to retarget a flagged mixin so that its functionality applies to the specified element.
+ * If an element is already set, the method will remove the mixin’s effect on that element.
  *
- * @param {jQuery} $flagged Element to add flags to
+ * @param {jQuery} $flagged Element that should be flagged
  */
 OO.ui.FlaggedElement.prototype.setFlaggedElement = function ( $flagged ) {
 	var classNames = Object.keys( this.flags ).map( function ( flag ) {
@@ -73,10 +94,10 @@ OO.ui.FlaggedElement.prototype.setFlaggedElement = function ( $flagged ) {
 };
 
 /**
- * Check if a flag is set.
+ * Check if the specified flag is set.
  *
  * @param {string} flag Name of flag
- * @return {boolean} Has flag
+ * @return {boolean} The flag is set
  */
 OO.ui.FlaggedElement.prototype.hasFlag = function ( flag ) {
 	return flag in this.flags;
@@ -123,8 +144,9 @@ OO.ui.FlaggedElement.prototype.clearFlags = function () {
 /**
  * Add one or more flags.
  *
- * @param {string|string[]|Object.<string, boolean>} flags One or more flags to add, or an object
- *  keyed by flag name containing boolean set/remove instructions.
+ * @param {string|string[]|Object.<string, boolean>} flags A flag name, an array of flag names,
+ *  or an object keyed by flag name with a boolean value that indicates whether the flag should
+ *  be added (`true`) or removed (`false`).
  * @chainable
  * @fires flag
  */
