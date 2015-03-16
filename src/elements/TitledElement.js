@@ -21,7 +21,7 @@
  *  If this config is omitted, the title functionality is applied to $element, the
  *  element created by the class.
  * @cfg {string|Function} [title] The title text or a function that returns text. If
- *  this config is omitted, the value of the static `title` property is used.
+ *  this config is omitted, the value of the {@link #static-title static title} property is used.
  */
 OO.ui.TitledElement = function OoUiTitledElement( config ) {
 	// Configuration initialization
@@ -57,9 +57,10 @@ OO.ui.TitledElement.static.title = null;
 /**
  * Set the titled element.
  *
- * If an element is already set, it will be cleaned up before setting up the new element.
+ * This method is used to retarget a titledElement mixin so that its functionality applies to the specified element.
+ * If an element is already set, the mixin’s effect on that element is removed before the new element is set up.
  *
- * @param {jQuery} $titled Element to set title on
+ * @param {jQuery} $titled Element that should use the 'titled' functionality
  */
 OO.ui.TitledElement.prototype.setTitledElement = function ( $titled ) {
 	if ( this.$titled ) {
@@ -75,7 +76,7 @@ OO.ui.TitledElement.prototype.setTitledElement = function ( $titled ) {
 /**
  * Set title.
  *
- * @param {string|Function|null} title Title text, a function that returns text or null for no title
+ * @param {string|Function|null} title Title text, a function that returns text, or `null` for no title
  * @chainable
  */
 OO.ui.TitledElement.prototype.setTitle = function ( title ) {
