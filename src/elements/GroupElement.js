@@ -11,7 +11,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$group] Container node, assigned to #$group, omit to use a generated `<div>`
+ * @cfg {jQuery} [$group] The container element created by the class. If this configuration
+ *  is omitted, the group element will use a generated `<div>`.
  */
 OO.ui.GroupElement = function OoUiGroupElement( config ) {
 	// Configuration initialization
@@ -45,7 +46,7 @@ OO.ui.GroupElement.prototype.setGroupElement = function ( $group ) {
 };
 
 /**
- * Check if there are no items.
+ * Check if a group contains no items.
  *
  * @return {boolean} Group is empty
  */
@@ -54,9 +55,13 @@ OO.ui.GroupElement.prototype.isEmpty = function () {
 };
 
 /**
- * Get items.
+ * Get all items in the group.
  *
- * @return {OO.ui.Element[]} Items
+ * The method returns an array of item references (e.g., [button1, button2, button3]) and is useful
+ * when synchronizing groups of items, or whenever the references are required (e.g., when removing items
+ * from a group).
+ *
+ * @return {OO.ui.Element[]} An array of items.
  */
 OO.ui.GroupElement.prototype.getItems = function () {
 	return this.items.slice( 0 );
@@ -65,7 +70,8 @@ OO.ui.GroupElement.prototype.getItems = function () {
 /**
  * Get an item by its data.
  *
- * Data is compared by a hash of its value. Only the first item with matching data will be returned.
+ * Only the first item with matching data will be returned. To return all matching items,
+ * use the #getItemsFromData method.
  *
  * @param {Object} data Item data to search for
  * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
@@ -87,7 +93,7 @@ OO.ui.GroupElement.prototype.getItemFromData = function ( data ) {
 /**
  * Get items by their data.
  *
- * Data is compared by a hash of its value. All items with matching data will be returned.
+ * All items with matching data will be returned. To return only the first match, use the #getItemFromData method instead.
  *
  * @param {Object} data Item data to search for
  * @return {OO.ui.Element[]} Items with equivalent data
@@ -108,15 +114,18 @@ OO.ui.GroupElement.prototype.getItemsFromData = function ( data ) {
 };
 
 /**
- * Add an aggregate item event.
+ * Aggregate the events emitted by the group.
  *
- * Aggregated events are listened to on each item and then emitted by the group under a new name,
- * and with an additional leading parameter containing the item that emitted the original event.
- * Other arguments that were emitted from the original event are passed through.
+ * When events are aggregated, the group will listen to all contained items for the event,
+ * and then emit the event under a new name. The new event will contain an additional leading
+ * parameter containing the item that emitted the original event. Other arguments emitted from
+ * the original event are passed through.
  *
- * @param {Object.<string,string|null>} events Aggregate events emitted by group, keyed by item
- *   event, use null value to remove aggregation
- * @throws {Error} If aggregation already exists
+ * @param {Object.<string,string|null>} events An object keyed by the name of the event that should be
+ *  aggregated  (e.g., ‘click’) and the value of the new name to use (e.g., ‘groupClick’).
+ *  A `null` value will remove aggregated events.
+
+ * @throws {Error} An error is thrown if aggregation already exists.
  */
 OO.ui.GroupElement.prototype.aggregate = function ( events ) {
 	var i, len, item, add, remove, itemEvent, groupEvent;
@@ -161,12 +170,13 @@ OO.ui.GroupElement.prototype.aggregate = function ( events ) {
 };
 
 /**
- * Add items.
+ * Add items to the group.
  *
- * Adding an existing item will move it.
+ * Items will be added to the end of the group array unless the optional `index` parameter specifies
+ * a different insertion point. Adding an existing item will move it to the end of the array or the point specified by the `index`.
  *
- * @param {OO.ui.Element[]} items Items
- * @param {number} [index] Index to insert items at
+ * @param {OO.ui.Element[]} items An array of items to add to the group
+ * @param {number} [index] Index of the insertion point
  * @chainable
  */
 OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
@@ -212,11 +222,12 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
 };
 
 /**
- * Remove items.
+ * Remove the specified items from a group.
  *
- * Items will be detached, not removed, so they can be used later.
+ * Removed items are detached (not removed) from the DOM so that they may be reused.
+ * To remove all items from a group, you may wish to use the #clearItems method instead.
  *
- * @param {OO.ui.Element[]} items Items to remove
+ * @param {OO.ui.Element[]} items An array of items to remove
  * @chainable
  */
 OO.ui.GroupElement.prototype.removeItems = function ( items ) {
@@ -247,9 +258,10 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
 };
 
 /**
- * Clear all items.
+ * Clear all items from the group.
  *
- * Items will be detached, not removed, so they can be used later.
+ * Cleared items are detached from the DOM, not removed, so that they may be reused.
+ * To remove only a subset of items from a group, use the #removeItems method.
  *
  * @chainable
  */
