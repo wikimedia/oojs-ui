@@ -74,6 +74,7 @@ body {
 }
 
 .oo-ui-demo-toolbar-actionButtons {
+	float: right;
 	font-size: 0.8em;
 	vertical-align: top;
 	padding: 0.25em;
