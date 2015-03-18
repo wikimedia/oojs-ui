@@ -12,6 +12,8 @@
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$overlay] Overlay for dropdown; defaults to relative positioning
  * @cfg {jQuery} [$container=this.$element] Element to render menu under
+ * @cfg {boolean} [allowSuggestionsWhenEmpty=false] Whether suggestions will be requested
+ *   and shown when the user has not typed anything yet.
  */
 OO.ui.LookupElement = function OoUiLookupElement( config ) {
 	// Configuration initialization
@@ -24,6 +26,9 @@ OO.ui.LookupElement = function OoUiLookupElement( config ) {
 		input: this,
 		$container: config.$container
 	} );
+
+	this.allowSuggestionsWhenEmpty = config.allowSuggestionsWhenEmpty || false;
+
 	this.lookupCache = {};
 	this.lookupQuery = null;
 	this.lookupRequest = null;
@@ -182,8 +187,8 @@ OO.ui.LookupElement.prototype.populateLookupMenu = function () {
 		return;
 	}
 
-	// If the input is empty, clear the menu
-	if ( value === '' ) {
+	// If the input is empty, clear the menu, unless suggestions when empty are allowed.
+	if ( !this.allowSuggestionsWhenEmpty && value === '' ) {
 		this.closeLookupMenu();
 	// Skip population if there is already a request pending for the current value
 	} else if ( value !== this.lookupQuery ) {
