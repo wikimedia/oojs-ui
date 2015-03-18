@@ -186,8 +186,11 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
  * @inheritdoc
  */
 OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
+	var process = this;
 	OO.ui.ProcessDialog.super.prototype.executeAction.call( this, action )
-		.fail( this.showErrors.bind( this ) );
+		.fail( function ( errors ) {
+			process.showErrors( errors || [] );
+		} );
 };
 
 /**
