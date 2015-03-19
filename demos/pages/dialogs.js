@@ -162,6 +162,8 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	SamplePage.prototype.setupOutlineItem = function ( outlineItem ) {
 		SamplePage.super.prototype.setupOutlineItem.call( this, outlineItem );
 		this.outlineItem
+			.setMovable( true )
+			.setRemovable( true )
 			.setIcon( this.icon )
 			.setLabel( this.label );
 	};
@@ -252,6 +254,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		OutlinedBookletDialog.super.prototype.initialize.apply( this, arguments );
 		this.bookletLayout = new OO.ui.BookletLayout( {
 			outlined: true,
+			editable: true,
 			menuSize: '15em'
 		} );
 		this.pages = [
@@ -261,6 +264,8 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			new SamplePage( 'larger', { label: 'Larger', icon: 'window' } ),
 			new SamplePage( 'full', { label: 'Full', icon: 'window' } )
 		];
+
+		this.bookletLayout.getOutlineControls().setAbilities( { remove: false } );
 		this.bookletLayout.addPages( this.pages );
 		this.bookletLayout.connect( this, { set: 'onBookletLayoutSet' } );
 		this.$body.append( this.bookletLayout.$element );

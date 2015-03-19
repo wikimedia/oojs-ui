@@ -11,6 +11,9 @@
  * @constructor
  * @param {OO.ui.OutlineSelectWidget} outline Outline to control
  * @param {Object} [config] Configuration options
+ * @cfg {Object} [abilities] List of abilties
+ * @cfg {boolean} [abilities.move=true] Allow moving movable items
+ * @cfg {boolean} [abilities.remove=true] Allow removing removable items
  */
 OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, config ) {
 	// Allow passing positional parameters inside the config object
@@ -47,6 +50,7 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 		icon: 'remove',
 		title: OO.ui.msg( 'ooui-outline-control-remove' )
 	} );
+	this.abilities = { move: true, remove: true };
 
 	// Events
 	outline.connect( this, {
@@ -65,6 +69,7 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 		.addClass( 'oo-ui-outlineControlsWidget-movers' )
 		.append( this.removeButton.$element, this.upButton.$element, this.downButton.$element );
 	this.$element.append( this.$icon, this.$group, this.$movers );
+	this.setAbilities( config.abilities || {} );
 };
 
 /* Setup */
@@ -87,6 +92,25 @@ OO.mixinClass( OO.ui.OutlineControlsWidget, OO.ui.IconElement );
 /* Methods */
 
 /**
+ * Set abilities.
+ *
+ * @param {Object} abilities List of abilties
+ * @param {boolean} [abilities.move] Allow moving movable items
+ * @param {boolean} [abilities.remove] Allow removing removable items
+ */
+OO.ui.OutlineControlsWidget.prototype.setAbilities = function ( abilities ) {
+	var ability;
+
+	for ( ability in this.abilities ) {
+		if ( abilities[ability] !== undefined ) {
+			this.abilities[ability] = !!abilities[ability];
+		}
+	}
+
+	this.onOutlineChange();
+};
+
+/**
  *
  * @private
  * Handle outline change events.
@@ -95,8 +119,8 @@ OO.ui.OutlineControlsWidget.prototype.onOutlineChange = function () {
 	var i, len, firstMovable, lastMovable,
 		items = this.outline.getItems(),
 		selectedItem = this.outline.getSelectedItem(),
-		movable = selectedItem && selectedItem.isMovable(),
-		removable = selectedItem && selectedItem.isRemovable();
+		movable = this.abilities.move && selectedItem && selectedItem.isMovable(),
+		removable = this.abilities.remove && selectedItem && selectedItem.isRemovable();
 
 	if ( movable ) {
 		i = -1;
