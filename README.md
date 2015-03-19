@@ -49,7 +49,7 @@ Release process:
 <pre lang="bash">
 $ cd path/to/oojs-ui/
 $ git remote update
-$ git checkout -b release -t origin/master
+$ git checkout -B release -t origin/master
 
 # Ensure tests pass
 $ npm install && npm test

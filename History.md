@@ -1,10 +1,30 @@
 # OOjs UI Release History
 
-## v0.9.2 / 2014-03-12
+## v0.9.3 / 2015-03-19
+* Add .mailmap file (Roan Kattouw)
+* Add Kirsten to AUTHORS.txt (Roan Kattouw)
+* Dialog: Fix links to static properties (Kirsten Menger-Anderson)
+* DraggableGroupElement: Clarify description and mark private methods (Kirsten Menger-Anderson)
+* Fix code style in @examples (Ed Sanders)
+* FlaggedElement: Add example and clarify description (Kirsten Menger-Anderson)
+* GroupElement: Clarify description (Kirsten Menger-Anderson)
+* IndicatorElement: Clarify description (Kirsten Menger-Anderson)
+* LookupElement: Add optional config field for suggestions when empty (Matthew Flaschen)
+* MenuSelectWidget: Clarify description (Kirsten Menger-Anderson)
+* ProcessDialog: send an array to showErrors in failed executeAction (Moriel Schottlender)
+* TabIndexedElement: Clarify description (Kirsten Menger-Anderson)
+* TitledElement: Clarify description (Kirsten Menger-Anderson)
+* Update OOjs to v1.1.6 (James D. Forrester)
+* Widget: Clarify description (Kirsten Menger-Anderson)
+* Window: Clarify description of setDimensions method (Kirsten Menger-Anderson)
+* WindowManager: Clarify description and mark private methods (Kirsten Menger-Anderson)
+* demo: Add one more toolbars demo (Bartosz Dziewoński)
+
+## v0.9.2 / 2015-03-12
 * Toolbar: Be less aggressive with 'white-space: nowrap' (Bartosz Dziewoński)
 * Window: Revert changes from 521061dd (Bartosz Dziewoński)
 
-## v0.9.1 / 2014-03-11
+## v0.9.1 / 2015-03-11
 * Syncing some button styles with MediaWiki UI (kaldari)
 * MediaWiki Theme: Add the progressive variant to the check icon (Prateek Saxena)
 * demo: Fix typo in toolbars demo (Bartosz Dziewoński)
@@ -47,7 +67,7 @@
 * MediaWiki Theme: textInputWidget: Update focus state (Prateek Saxena)
 * Only prevent default for handled keypresses (Brad Jorsch)
 
-## v0.9.0 / 2014-03-04
+## v0.9.0 / 2015-03-04
 * [BREAKING CHANGE] Remove innerOverlay (Ed Sanders)
 * [BREAKING CHANGE] TextInputWidget: Remove 'icon' and 'indicator' events (Bartosz Dziewoński)
 * [BREAKING CHANGE] Remove deprecated LookupInputWidget (Bartosz Dziewoński)
