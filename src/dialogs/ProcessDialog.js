@@ -197,7 +197,7 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
  */
 OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
 	var process = this;
-	OO.ui.ProcessDialog.super.prototype.executeAction.call( this, action )
+	return OO.ui.ProcessDialog.super.prototype.executeAction.call( this, action )
 		.fail( function ( errors ) {
 			process.showErrors( errors || [] );
 		} );
