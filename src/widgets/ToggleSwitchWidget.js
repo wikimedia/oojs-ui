@@ -5,10 +5,8 @@
  *
  *     @example
  *     // Toggle switches in the 'off' and 'on' position.
- *     var toggleSwitch1 = new OO.ui.ToggleSwitchWidget({
- *         value: false
- *      } );
- *     var toggleSwitch2 = new OO.ui.ToggleSwitchWidget({
+ *     var toggleSwitch1 = new OO.ui.ToggleSwitchWidget();
+ *     var toggleSwitch2 = new OO.ui.ToggleSwitchWidget( {
  *         value: true
  *     } );
  *
@@ -17,8 +15,8 @@
  *        label: 'Toggle switches'
  *     } );
  *     fieldset.addItems( [
- *         new OO.ui.FieldLayout( toggleSwitch1, {label : 'Off', align : 'top'}),
- *         new OO.ui.FieldLayout( toggleSwitch2, {label : 'On', align : 'top'})
+ *         new OO.ui.FieldLayout( toggleSwitch1, { label: 'Off', align: 'top' } ),
+ *         new OO.ui.FieldLayout( toggleSwitch2, { label: 'On', align: 'top' } )
  *     ] );
  *     $( 'body' ).append( fieldset.$element );
  *

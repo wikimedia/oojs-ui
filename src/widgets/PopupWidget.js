@@ -5,15 +5,15 @@
  *
  *     @example
  *     // A popup widget.
- *     var popup=new OO.ui.PopupWidget({
+ *     var popup = new OO.ui.PopupWidget( {
  *         $content: $( '<p>Hi there!</p>' ),
  *         padded: true,
  *         width: 300
  *     } );
  *
- *     $('body').append(popup.$element);
+ *     $( 'body' ).append( popup.$element );
  *     // To display the popup, toggle the visibility to 'true'.
- *     popup.toggle(true);
+ *     popup.toggle( true );
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Popups
  *

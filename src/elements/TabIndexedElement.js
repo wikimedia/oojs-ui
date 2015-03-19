@@ -7,20 +7,20 @@
  *     // TabIndexedElement is mixed into the ButtonWidget class
  *     // to provide a tabIndex property.
  *     var button1 = new OO.ui.ButtonWidget( {
- *         label : 'fourth',
- *         tabIndex : 4
+ *         label: 'fourth',
+ *         tabIndex: 4
  *     } );
  *     var button2 = new OO.ui.ButtonWidget( {
- *         label : 'second',
- *         tabIndex : 2
+ *         label: 'second',
+ *         tabIndex: 2
  *     } );
  *     var button3 = new OO.ui.ButtonWidget( {
- *         label : 'third',
- *         tabIndex : 3
+ *         label: 'third',
+ *         tabIndex: 3
  *     } );
  *     var button4 = new OO.ui.ButtonWidget( {
- *         label : 'first',
- *         tabIndex : 1
+ *         label: 'first',
+ *         tabIndex: 1
  *     } );
  *     $( 'body' ).append( button1.$element, button2.$element, button3.$element, button4.$element );
  *

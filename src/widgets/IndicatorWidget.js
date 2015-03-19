@@ -7,12 +7,12 @@
  *     // Example of an indicator widget
  *     var indicator1 = new OO.ui.IndicatorWidget( {
  *         indicator: 'alert'
- *     });
+ *     } );
  *
  *     // Create a fieldset layout to add a label
- *     var fieldset = new OO.ui.FieldsetLayout( );
+ *     var fieldset = new OO.ui.FieldsetLayout();
  *     fieldset.addItems( [
- *         new OO.ui.FieldLayout( indicator1, {label: 'An alert indicator:'} )
+ *         new OO.ui.FieldLayout( indicator1, { label: 'An alert indicator:' } )
  *     ] );
  *     $( 'body' ).append( fieldset.$element );
  *

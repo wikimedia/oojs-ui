@@ -5,15 +5,15 @@
  *
  *     @example
  *     // An icon widget with a label
- *     var myIcon = new OO.ui.IconWidget({
+ *     var myIcon = new OO.ui.IconWidget( {
  *         icon: 'help',
  *         iconTitle: 'Help'
- *      });
+ *      } );
  *      // Create a label.
- *      var iconLabel = new OO.ui.LabelWidget({
+ *      var iconLabel = new OO.ui.LabelWidget( {
  *          label: 'Help'
- *      });
- *      $('body').append(myIcon.$element, iconLabel.$element);
+ *      } );
+ *      $( 'body' ).append( myIcon.$element, iconLabel.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Icons,_Indicators,_and_Labels#Icons
  *

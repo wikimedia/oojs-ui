@@ -6,7 +6,7 @@
  *
  *     @example
  *     // Example: A DropdownInputWidget with three options
- *     var dropDown=new OO.ui.DropdownInputWidget( {
+ *     var dropDown = new OO.ui.DropdownInputWidget( {
  *         label: 'Dropdown menu: Select a menu option',
  *         options: [
  *             { data: 'a', label: 'First' } ,
@@ -14,7 +14,7 @@
  *             { data: 'c', label: 'Third' }
  *         ]
  *     } );
- *     $('body').append(dropDown.$element);
+ *     $( 'body' ).append( dropDown.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Inputs
  *

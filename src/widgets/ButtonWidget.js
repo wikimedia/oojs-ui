@@ -9,9 +9,9 @@
  *     @example
  *     // A button widget
  *     var button = new OO.ui.ButtonWidget( {
- *         label : 'Button with Icon',
- *         icon : 'remove',
- *         iconTitle : 'Remove'
+ *         label: 'Button with Icon',
+ *         icon: 'remove',
+ *         iconTitle: 'Remove'
  *     } );
  *     $( 'body' ).append( button.$element );
  *

@@ -6,13 +6,13 @@
  *
  *     @example
  *     // An example of selected, unselected, and disabled checkbox inputs
- *     var checkbox1=new OO.ui.CheckboxInputWidget({
+ *     var checkbox1=new OO.ui.CheckboxInputWidget( {
  *          value: 'a',
  *          selected: true
- *     });
- *     var checkbox2=new OO.ui.CheckboxInputWidget({
+ *     } );
+ *     var checkbox2=new OO.ui.CheckboxInputWidget( {
  *         value: 'b'
- *     });
+ *     } );
  *     var checkbox3=new OO.ui.CheckboxInputWidget( {
  *         value:'c',
  *         disabled: true
@@ -22,9 +22,9 @@
  *         label: 'Checkboxes'
  *     } );
  *     fieldset.addItems( [
- *         new OO.ui.FieldLayout( checkbox1, {label : 'Selected checkbox', align : 'inline'}),
- *         new OO.ui.FieldLayout( checkbox2, {label : 'Unselected checkbox', align : 'inline'}),
- *         new OO.ui.FieldLayout( checkbox3, {label : 'Disabled checkbox', align : 'inline'}),
+ *         new OO.ui.FieldLayout( checkbox1, { label: 'Selected checkbox', align: 'inline' } ),
+ *         new OO.ui.FieldLayout( checkbox2, { label: 'Unselected checkbox', align: 'inline' } ),
+ *         new OO.ui.FieldLayout( checkbox3, { label: 'Disabled checkbox', align: 'inline' } ),
  *     ] );
  *     $( 'body' ).append( fieldset.$element );
  *

@@ -7,7 +7,7 @@
  *
  *     @example
  *     // Decorated options in a select widget
- *     var select=new OO.ui.SelectWidget( {
+ *     var select = new OO.ui.SelectWidget( {
  *         items: [
  *             new OO.ui.DecoratedOptionWidget( {
  *                 data: 'a',
@@ -21,7 +21,7 @@
  *             } )
  *         ]
  *     } );
- *     $('body').append(select.$element);
+ *     $( 'body' ).append( select.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *

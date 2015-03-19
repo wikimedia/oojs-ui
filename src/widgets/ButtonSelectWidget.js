@@ -10,25 +10,25 @@
  *     var option1 = new OO.ui.ButtonOptionWidget( {
  *         data: 1,
  *         label: 'Option 1',
- *         title:'Button option 1'
+ *         title: 'Button option 1'
  *     } );
  *
  *     var option2 = new OO.ui.ButtonOptionWidget( {
  *         data: 2,
  *         label: 'Option 2',
- *         title:'Button option 2'
+ *         title: 'Button option 2'
  *     } );
  *
  *     var option3 = new OO.ui.ButtonOptionWidget( {
  *         data: 3,
  *         label: 'Option 3',
- *         title:'Button option 3'
+ *         title: 'Button option 3'
  *     } );
  *
  *     var buttonSelect=new OO.ui.ButtonSelectWidget( {
- *         items: [option1, option2, option3]
+ *         items: [ option1, option2, option3 ]
  *     } );
- *     $('body').append(buttonSelect.$element);
+ *     $( 'body' ).append( buttonSelect.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *

@@ -5,7 +5,7 @@
  *
  *     @example
  *     // Example: A DropdownWidget with a menu that contains three options
- *     var dropDown=new OO.ui.DropdownWidget( {
+ *     var dropDown = new OO.ui.DropdownWidget( {
  *         label: 'Dropdown menu: Select a menu option',
  *         menu: {
  *             items: [
@@ -25,7 +25,7 @@
  *         }
  *     } );
  *
- *     $('body').append(dropDown.$element);
+ *     $( 'body' ).append( dropDown.$element );
  *
  * For more information, please see the [OOjs UI documentation on MediaWiki] [1].
  *

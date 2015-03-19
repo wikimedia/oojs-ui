@@ -9,7 +9,7 @@
  *
  *     @example
  *     // Example of a select widget with three options
- *     var select=new OO.ui.SelectWidget( {
+ *     var select = new OO.ui.SelectWidget( {
  *         items: [
  *             new OO.ui.OptionWidget( {
  *                 data: 'a',
@@ -22,10 +22,10 @@
  *             new OO.ui.OptionWidget( {
  *                 data: 'c',
  *                 label: 'Option Three',
- *             } ),
+ *             } )
  *         ]
  *     } );
- *     $('body').append(select.$element);
+ *     $( 'body' ).append( select.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *

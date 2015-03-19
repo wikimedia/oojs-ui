@@ -15,39 +15,39 @@
  *
  *     @example
  *     // Example: Creating and opening a process dialog window.
- *     function ProcessDialog( config ) {
- *         ProcessDialog.super.call( this, config );
+ *     function MyProcessDialog( config ) {
+ *         MyProcessDialog.super.call( this, config );
  *     }
- *     OO.inheritClass( ProcessDialog, OO.ui.ProcessDialog );
+ *     OO.inheritClass( MyProcessDialog, OO.ui.ProcessDialog );
  *
- *     ProcessDialog.static.title = 'Process dialog';
- *     ProcessDialog.static.actions = [
+ *     MyProcessDialog.static.title = 'Process dialog';
+ *     MyProcessDialog.static.actions = [
  *         { action: 'save', label: 'Done', flags: 'primary' },
  *         { label: 'Cancel', flags: 'safe' }
  *     ];
  *
- *     ProcessDialog.prototype.initialize = function () {
- *         ProcessDialog.super.prototype.initialize.apply( this, arguments );
+ *     MyProcessDialog.prototype.initialize = function () {
+ *         MyProcessDialog.super.prototype.initialize.apply( this, arguments );
  *         this.content = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
- *         this.content.$element.append( '<p>This is a process dialog window. The header contains the title and two buttons: \'Cancel\' (a safe action) on the left and \'Done\' (a primary action)  on the right. </p>' );
+ *         this.content.$element.append( '<p>This is a process dialog window. The header contains the title and two buttons: \'Cancel\' (a safe action) on the left and \'Done\' (a primary action)  on the right.</p>' );
  *         this.$body.append( this.content.$element );
  *     };
- *     ProcessDialog.prototype.getActionProcess = function ( action ) {
+ *     MyProcessDialog.prototype.getActionProcess = function ( action ) {
  *         var dialog = this;
  *         if ( action ) {
  *             return new OO.ui.Process( function () {
- *             dialog.close( { action: action } );
- *         } );
- *     }
- *     return ProcessDialog.super.prototype.getActionProcess.call( this, action );
+ *                 dialog.close( { action: action } );
+ *             } );
+ *         }
+ *         return MyProcessDialog.super.prototype.getActionProcess.call( this, action );
  *     };
  *
  *     var windowManager = new OO.ui.WindowManager();
  *     $( 'body' ).append( windowManager.$element );
  *
- *     var processDialog = new ProcessDialog();
- *     windowManager.addWindows( [ processDialog ] );
- *     windowManager.openWindow( processDialog );
+ *     var dialog = new MyProcessDialog();
+ *     windowManager.addWindows( [ dialog ] );
+ *     windowManager.openWindow( dialog );
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs
  *

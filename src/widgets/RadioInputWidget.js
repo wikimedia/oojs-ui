@@ -6,15 +6,15 @@
  *
  *     @example
  *     // An example of selected, unselected, and disabled radio inputs
- *     var radio1=new OO.ui.RadioInputWidget({
+ *     var radio1 = new OO.ui.RadioInputWidget( {
  *         value: 'a',
  *         selected: true
- *     });
- *     var radio2=new OO.ui.RadioInputWidget({
+ *     } );
+ *     var radio2 = new OO.ui.RadioInputWidget( {
  *         value: 'b'
- *     });
- *     var radio3=new OO.ui.RadioInputWidget( {
- *         value:'c',
+ *     } );
+ *     var radio3 = new OO.ui.RadioInputWidget( {
+ *         value: 'c',
  *         disabled: true
  *     } );
  *     // Create a fieldset layout with fields for each radio button.
@@ -22,9 +22,9 @@
  *         label: 'Radio inputs'
  *     } );
  *     fieldset.addItems( [
- *         new OO.ui.FieldLayout( radio1, {label : 'Selected', align : 'inline'}),
- *         new OO.ui.FieldLayout( radio2, {label : 'Unselected', align : 'inline'}),
- *         new OO.ui.FieldLayout( radio3, {label : 'Disabled', align : 'inline'}),
+ *         new OO.ui.FieldLayout( radio1, { label: 'Selected', align: 'inline' } ),
+ *         new OO.ui.FieldLayout( radio2, { label: 'Unselected', align: 'inline' } ),
+ *         new OO.ui.FieldLayout( radio3, { label: 'Disabled', align: 'inline' } ),
  *     ] );
  *     $( 'body' ).append( fieldset.$element );
  *

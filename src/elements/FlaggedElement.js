@@ -16,16 +16,16 @@
  *     @example
  *     // FlaggedElement is mixed into ButtonWidget to provide styling flags
  *     var button1 = new OO.ui.ButtonWidget( {
- *         label : 'Constructive',
- *         flags :'constructive'
+ *         label: 'Constructive',
+ *         flags: 'constructive'
  *     } );
  *     var button2 = new OO.ui.ButtonWidget( {
- *         label : 'Destructive',
- *         flags :'destructive'
+ *         label: 'Destructive',
+ *         flags: 'destructive'
  *     } );
  *     var button3 = new OO.ui.ButtonWidget( {
- *         label : 'Progressive',
- *         flags :'progressive'
+ *         label: 'Progressive',
+ *         flags: 'progressive'
  *     } );
  *     $( 'body' ).append( button1.$element, button2.$element, button3.$element );
  *

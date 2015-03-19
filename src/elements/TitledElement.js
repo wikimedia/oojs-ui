@@ -7,8 +7,8 @@
  *     // TitledElement provides a 'title' attribute to the
  *     // ButtonWidget class
  *     var button = new OO.ui.ButtonWidget( {
- *         label : 'Button with Title',
- *         title : 'I am a button'
+ *         label: 'Button with Title',
+ *         title: 'I am a button'
  *     } );
  *     $( 'body' ).append( button.$element );
  *

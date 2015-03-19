@@ -17,13 +17,13 @@
  *     } );
  *
  *     var radioSelect=new OO.ui.RadioSelectWidget( {
- *         items: [option1, option2]
+ *         items: [ option1, option2 ]
  *      } );
  *
  *     // Select 'option 1' using the RadioSelectWidget's selectItem() method.
  *     radioSelect.selectItem( option1 );
  *
- *     $('body').append(radioSelect.$element);
+ *     $( 'body' ).append( radioSelect.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
 

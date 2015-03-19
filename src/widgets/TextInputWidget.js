@@ -8,10 +8,10 @@
  *
  *     @example
  *     // Example of a text input widget
- *     var textInput=new OO.ui.TextInputWidget( {
+ *     var textInput = new OO.ui.TextInputWidget( {
  *         value: 'Text input'
  *     } )
- *     $('body').append(textInput.$element);
+ *     $( 'body' ).append( textInput.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Inputs
  *

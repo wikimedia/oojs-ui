@@ -12,30 +12,35 @@
  *
  *     @example
  *     // Example: A ComboBoxWidget.
- *     var comboBox=new OO.ui.ComboBoxWidget( {
+ *     var comboBox = new OO.ui.ComboBoxWidget( {
  *         label: 'ComboBoxWidget',
  *         input: { value: 'Option One' },
  *         menu: {
  *             items: [
  *                 new OO.ui.MenuOptionWidget( {
  *                     data: 'Option 1',
- *                     label: 'Option One' } ),
+ *                     label: 'Option One'
+ *                 } ),
  *                 new OO.ui.MenuOptionWidget( {
  *                     data: 'Option 2',
- *                     label: 'Option Two' } ),
+ *                     label: 'Option Two'
+ *                 } ),
  *                 new OO.ui.MenuOptionWidget( {
  *                     data: 'Option 3',
- *                     label: 'Option Three'} ),
+ *                     label: 'Option Three'
+ *                 } ),
  *                 new OO.ui.MenuOptionWidget( {
  *                     data: 'Option 4',
- *                     label: 'Option Four' } ),
+ *                     label: 'Option Four'
+ *                 } ),
  *                 new OO.ui.MenuOptionWidget( {
  *                     data: 'Option 5',
- *                     label: 'Option Five' } )
+ *                     label: 'Option Five'
+ *                 } )
  *             ]
  *         }
  *     } );
- *     $('body').append(comboBox.$element);
+ *     $( 'body' ).append( comboBox.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options#Menu_selects_and_options
  *

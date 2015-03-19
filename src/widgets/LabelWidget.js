@@ -13,14 +13,14 @@
  *
  *     @example
  *     // Examples of LabelWidgets
- *     var label1 = new OO.ui.LabelWidget({
+ *     var label1 = new OO.ui.LabelWidget( {
  *         label: 'plaintext label'
- *     });
- *     var label2 = new OO.ui.LabelWidget({
- *         label: $( '<a href="default.html">jQuery label</a>'  )
- *     });
+ *     } );
+ *     var label2 = new OO.ui.LabelWidget( {
+ *         label: $( '<a href="default.html">jQuery label</a>' )
+ *     } );
  *     // Create a fieldset layout with fields for each example
- *     var fieldset = new OO.ui.FieldsetLayout( );
+ *     var fieldset = new OO.ui.FieldsetLayout();
  *     fieldset.addItems( [
  *         new OO.ui.FieldLayout( label1 ),
  *         new OO.ui.FieldLayout( label2 )
