@@ -156,6 +156,19 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 /**
  * @inheritdoc
  */
+OO.ui.ProcessDialog.prototype.getActionWidgets = function ( actions ) {
+	var i, len, widgets = [];
+	for ( i = 0, len = actions.length; i < len; i++ ) {
+		widgets.push(
+			new OO.ui.ActionWidget( $.extend( { framed: true }, actions[ i ] ) )
+		);
+	}
+	return widgets;
+};
+
+/**
+ * @inheritdoc
+ */
 OO.ui.ProcessDialog.prototype.attachActions = function () {
 	var i, len, other, special, others;
 
@@ -166,16 +179,13 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
 	others = this.actions.getOthers();
 	if ( special.primary ) {
 		this.$primaryActions.append( special.primary.$element );
-		special.primary.toggleFramed( true );
 	}
 	for ( i = 0, len = others.length; i < len; i++ ) {
 		other = others[ i ];
 		this.$otherActions.append( other.$element );
-		other.toggleFramed( true );
 	}
 	if ( special.safe ) {
 		this.$safeActions.append( special.safe.$element );
-		special.safe.toggleFramed( true );
 	}
 
 	this.fitLabel();
