@@ -591,9 +591,10 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 	on = on === undefined ? !!this.globalEvents : !!on;
 
-	var $body = $( this.getElementDocument().body ),
-		// We could have multiple window managers open to only modify
-		// the body class at the bottom of the stack
+	var scrollWidth, bodyMargin,
+		$body = $( this.getElementDocument().body ),
+		// We could have multiple window managers open so only modify
+		// the body css at the bottom of the stack
 		stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0 ;
 
 	if ( on ) {
@@ -603,7 +604,12 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 				'orientationchange resize': this.onWindowResizeHandler
 			} );
 			if ( stackDepth === 0 ) {
-				$body.css( 'overflow', 'hidden' );
+				scrollWidth = window.innerWidth - document.documentElement.clientWidth;
+				bodyMargin = parseFloat( $body.css( 'margin-right' ) ) || 0;
+				$body.css( {
+					overflow: 'hidden',
+					'margin-right': bodyMargin + scrollWidth
+				} );
 			}
 			stackDepth++;
 			this.globalEvents = true;
@@ -615,7 +621,10 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 		} );
 		stackDepth--;
 		if ( stackDepth === 0 ) {
-			$( this.getElementDocument().body ).css( 'overflow', '' );
+			$body.css( {
+				overflow: '',
+				'margin-right': ''
+			} );
 		}
 		this.globalEvents = false;
 	}
