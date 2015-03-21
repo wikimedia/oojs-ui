@@ -254,13 +254,13 @@ OO.ui.LookupElement.prototype.getLookupMenuItems = function () {
 				// for that request.
 				widget.popPending();
 			} )
-			.done( function ( data ) {
+			.done( function ( response ) {
 				// If this is an old request (and aborting it somehow caused it to still succeed),
 				// ignore its success completely
 				if ( ourRequest === widget.lookupRequest ) {
 					widget.lookupQuery = null;
 					widget.lookupRequest = null;
-					widget.lookupCache[ value ] = widget.getLookupCacheDataFromResponse( data );
+					widget.lookupCache[ value ] = widget.getLookupCacheDataFromResponse( response );
 					deferred.resolve( widget.getLookupMenuOptionsFromData( widget.lookupCache[ value ] ) );
 				}
 			} )
@@ -309,7 +309,7 @@ OO.ui.LookupElement.prototype.getLookupRequest = function () {
  * will use the cache rather than doing API requests.
  *
  * @abstract
- * @param {Mixed} data Response from server
+ * @param {Mixed} response Response from server
  * @return {Mixed} Cached result data
  */
 OO.ui.LookupElement.prototype.getLookupCacheDataFromResponse = function () {
