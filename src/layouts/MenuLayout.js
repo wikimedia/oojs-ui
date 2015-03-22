@@ -39,29 +39,39 @@
  *     );
  *     $( 'body' ).append( menuLayout.$element );
  *
+ * If menu size needs to be overridden, it can be accomplished using CSS similar to the snippet
+ * below. MenuLayout's CSS will override the appropriate values with 'auto' or '0' to display the
+ * menu correctly. If `menuPosition` is known beforehand, CSS rules corresponding to other positions
+ * may be omitted.
+ *
+ *     .oo-ui-menuLayout-menu {
+ *         height: 200px;
+ *         width: 200px;
+ *     }
+ *     .oo-ui-menuLayout-content {
+ *         top: 200px;
+ *         left: 200px;
+ *         right: 200px;
+ *         bottom: 200px;
+ *     }
  *
  * @class
  * @extends OO.ui.Layout
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {number|string} [menuSize='18em'] Size of menu in pixels or any CSS unit
  * @cfg {boolean} [showMenu=true] Show menu
  * @cfg {string} [menuPosition='before'] Position of menu: `top`, `after`, `bottom` or `before`
  */
 OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
-	var positions = this.constructor.static.menuPositions;
-
 	// Configuration initialization
-	config = config || {};
+	config = $.extend( {
+		showMenu: true,
+		menuPosition: 'before'
+	}, config );
 
 	// Parent constructor
 	OO.ui.MenuLayout.super.call( this, config );
-
-	// Properties
-	this.showMenu = config.showMenu !== false;
-	this.menuSize = config.menuSize || '18em';
-	this.menuPosition = positions[ config.menuPosition ] || positions.before;
 
 	/**
 	 * Menu DOM node
@@ -81,35 +91,15 @@ OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 		.addClass( 'oo-ui-menuLayout-menu' );
 	this.$content.addClass( 'oo-ui-menuLayout-content' );
 	this.$element
-		.addClass( 'oo-ui-menuLayout ' + this.menuPosition.className )
+		.addClass( 'oo-ui-menuLayout' )
 		.append( this.$content, this.$menu );
-	this.updateSizes();
+	this.setMenuPosition( config.menuPosition );
+	this.toggleMenu( config.showMenu );
 };
 
 /* Setup */
 
 OO.inheritClass( OO.ui.MenuLayout, OO.ui.Layout );
-
-/* Static Properties */
-
-OO.ui.MenuLayout.static.menuPositions = {
-	top: {
-		sizeProperty: 'height',
-		className: 'oo-ui-menuLayout-top'
-	},
-	after: {
-		sizeProperty: 'width',
-		className: 'oo-ui-menuLayout-after'
-	},
-	bottom: {
-		sizeProperty: 'height',
-		className: 'oo-ui-menuLayout-bottom'
-	},
-	before: {
-		sizeProperty: 'width',
-		className: 'oo-ui-menuLayout-before'
-	}
-};
 
 /* Methods */
 
@@ -124,7 +114,9 @@ OO.ui.MenuLayout.prototype.toggleMenu = function ( showMenu ) {
 
 	if ( this.showMenu !== showMenu ) {
 		this.showMenu = showMenu;
-		this.updateSizes();
+		this.$element
+			.toggleClass( 'oo-ui-menuLayout-showMenu', this.showMenu )
+			.toggleClass( 'oo-ui-menuLayout-hideMenu', !this.showMenu );
 	}
 
 	return this;
@@ -140,59 +132,6 @@ OO.ui.MenuLayout.prototype.isMenuVisible = function () {
 };
 
 /**
- * Set menu size.
- *
- * @param {number|string} size Size of menu in pixels or any CSS unit
- * @chainable
- */
-OO.ui.MenuLayout.prototype.setMenuSize = function ( size ) {
-	this.menuSize = size;
-	this.updateSizes();
-
-	return this;
-};
-
-/**
- * Update menu and content CSS based on current menu size and visibility
- *
- * This method is called internally when size or position is changed.
- */
-OO.ui.MenuLayout.prototype.updateSizes = function () {
-	if ( this.showMenu ) {
-		this.$menu
-			.css( this.menuPosition.sizeProperty, this.menuSize )
-			.css( 'overflow', '' );
-		// Set offsets on all sides. CSS resets all but one with
-		// 'important' rules so directionality flips are supported
-		this.$content.css( {
-			top: this.menuSize,
-			right: this.menuSize,
-			bottom: this.menuSize,
-			left: this.menuSize
-		} );
-	} else {
-		this.$menu
-			.css( this.menuPosition.sizeProperty, 0 )
-			.css( 'overflow', 'hidden' );
-		this.$content.css( {
-			top: 0,
-			right: 0,
-			bottom: 0,
-			left: 0
-		} );
-	}
-};
-
-/**
- * Get menu size.
- *
- * @return {number|string} Menu size
- */
-OO.ui.MenuLayout.prototype.getMenuSize = function () {
-	return this.menuSize;
-};
-
-/**
  * Set menu position.
  *
  * @param {string} position Position of menu, either `top`, `after`, `bottom` or `before`
@@ -200,19 +139,9 @@ OO.ui.MenuLayout.prototype.getMenuSize = function () {
  * @chainable
  */
 OO.ui.MenuLayout.prototype.setMenuPosition = function ( position ) {
-	var positions = this.constructor.static.menuPositions;
-
-	if ( !positions[ position ] ) {
-		throw new Error( 'Cannot set position; unsupported position value: ' + position );
-	}
-
-	this.$menu.css( this.menuPosition.sizeProperty, '' );
-	this.$element.removeClass( this.menuPosition.className );
-
-	this.menuPosition = positions[ position ];
-
-	this.updateSizes();
-	this.$element.addClass( this.menuPosition.className );
+	this.$element.removeClass( 'oo-ui-menuLayout-' + this.menuPosition );
+	this.menuPosition = position;
+	this.$element.addClass( 'oo-ui-menuLayout-' + position );
 
 	return this;
 };
