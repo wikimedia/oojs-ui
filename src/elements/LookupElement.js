@@ -1,19 +1,26 @@
 /**
- * Mixin that adds a menu showing suggested values for a OO.ui.TextInputWidget.
+ * LookupElement is a mixin that creates a {@link OO.ui.TextInputMenuSelectWidget menu} of suggested values for
+ * a {@link OO.ui.TextInputWidget text input widget}. Suggested values are based on the characters the user types
+ * into the text input field and, in general, the menu is only displayed when the user types. If a suggested value is chosen
+ * from the lookup menu, that value becomes the value of the input field.
  *
- * Subclasses that set the value of #lookupInput from #onLookupMenuItemChoose should
- * be aware that this will cause new suggestions to be looked up for the new value. If this is
- * not desired, disable lookups with #setLookupsDisabled, then set the value, then re-enable lookups.
+ * Note that a new menu of suggested items is displayed when a value is chosen from the lookup menu. If this is
+ * not the desired behavior, disable lookup menus with the #setLookupsDisabled method, then set the value, then
+ * re-enable lookups.
+ *
+ * See the [OOjs UI demos][1] for an example.
+ *
+ * [1]: https://tools.wmflabs.org/oojs-ui/oojs-ui/demos/index.html#widgets-apex-vector-ltr
  *
  * @class
  * @abstract
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$overlay] Overlay for dropdown; defaults to relative positioning
- * @cfg {jQuery} [$container=this.$element] Element to render menu under
- * @cfg {boolean} [allowSuggestionsWhenEmpty=false] Whether suggestions will be requested
- *   and shown when the user has not typed anything yet.
+ * @cfg {jQuery} [$overlay] Overlay for the lookup menu; defaults to relative positioning
+ * @cfg {jQuery} [$container=this.$element] The container element. The lookup menu is rendered beneath the specified element.
+ * @cfg {boolean} [allowSuggestionsWhenEmpty=false] Request and display a lookup menu when the text input is empty.
+ *  By default, the lookup menu is not generated and displayed until the user begins to type.
  */
 OO.ui.LookupElement = function OoUiLookupElement( config ) {
 	// Configuration initialization
@@ -58,6 +65,7 @@ OO.ui.LookupElement = function OoUiLookupElement( config ) {
 /**
  * Handle input focus event.
  *
+ * @protected
  * @param {jQuery.Event} e Input focus event
  */
 OO.ui.LookupElement.prototype.onLookupInputFocus = function () {
@@ -68,6 +76,7 @@ OO.ui.LookupElement.prototype.onLookupInputFocus = function () {
 /**
  * Handle input blur event.
  *
+ * @protected
  * @param {jQuery.Event} e Input blur event
  */
 OO.ui.LookupElement.prototype.onLookupInputBlur = function () {
@@ -78,6 +87,7 @@ OO.ui.LookupElement.prototype.onLookupInputBlur = function () {
 /**
  * Handle input mouse down event.
  *
+ * @protected
  * @param {jQuery.Event} e Input mouse down event
  */
 OO.ui.LookupElement.prototype.onLookupInputMouseDown = function () {
@@ -93,6 +103,7 @@ OO.ui.LookupElement.prototype.onLookupInputMouseDown = function () {
 /**
  * Handle input change event.
  *
+ * @protected
  * @param {string} value New input value
  */
 OO.ui.LookupElement.prototype.onLookupInputChange = function () {
@@ -104,6 +115,7 @@ OO.ui.LookupElement.prototype.onLookupInputChange = function () {
 /**
  * Handle the lookup menu being shown/hidden.
  *
+ * @protected
  * @param {boolean} visible Whether the lookup menu is now visible.
  */
 OO.ui.LookupElement.prototype.onLookupMenuToggle = function ( visible ) {
@@ -119,6 +131,7 @@ OO.ui.LookupElement.prototype.onLookupMenuToggle = function ( visible ) {
 /**
  * Handle menu item 'choose' event, updating the text input value to the value of the clicked item.
  *
+ * @protected
  * @param {OO.ui.MenuOptionWidget|null} item Selected item
  */
 OO.ui.LookupElement.prototype.onLookupMenuItemChoose = function ( item ) {
@@ -130,6 +143,7 @@ OO.ui.LookupElement.prototype.onLookupMenuItemChoose = function ( item ) {
 /**
  * Get lookup menu.
  *
+ * @private
  * @return {OO.ui.TextInputMenuSelectWidget}
  */
 OO.ui.LookupElement.prototype.getLookupMenu = function () {
@@ -150,6 +164,7 @@ OO.ui.LookupElement.prototype.setLookupsDisabled = function ( disabled ) {
 /**
  * Open the menu. If there are no entries in the menu, this does nothing.
  *
+ * @private
  * @chainable
  */
 OO.ui.LookupElement.prototype.openLookupMenu = function () {
@@ -162,6 +177,7 @@ OO.ui.LookupElement.prototype.openLookupMenu = function () {
 /**
  * Close the menu, empty it, and abort any pending request.
  *
+ * @private
  * @chainable
  */
 OO.ui.LookupElement.prototype.closeLookupMenu = function () {
@@ -177,6 +193,7 @@ OO.ui.LookupElement.prototype.closeLookupMenu = function () {
  *
  * If lookups have been disabled with #setLookupsDisabled, this function does nothing.
  *
+ * @private
  * @chainable
  */
 OO.ui.LookupElement.prototype.populateLookupMenu = function () {
@@ -215,6 +232,7 @@ OO.ui.LookupElement.prototype.populateLookupMenu = function () {
 /**
  * Select and highlight the first selectable item in the menu.
  *
+ * @private
  * @chainable
  */
 OO.ui.LookupElement.prototype.initializeLookupMenuSelection = function () {
@@ -227,6 +245,7 @@ OO.ui.LookupElement.prototype.initializeLookupMenuSelection = function () {
 /**
  * Get lookup menu items for the current query.
  *
+ * @private
  * @return {jQuery.Promise} Promise object which will be passed menu items as the first argument of
  *   the done event. If the request was aborted to make way for a subsequent request, this promise
  *   will not be rejected: it will remain pending forever.
@@ -279,6 +298,8 @@ OO.ui.LookupElement.prototype.getLookupMenuItems = function () {
 
 /**
  * Abort the currently pending lookup request, if any.
+ *
+ * @private
  */
 OO.ui.LookupElement.prototype.abortLookupRequest = function () {
 	var oldRequest = this.lookupRequest;
@@ -294,6 +315,7 @@ OO.ui.LookupElement.prototype.abortLookupRequest = function () {
 /**
  * Get a new request object of the current lookup query value.
  *
+ * @protected
  * @abstract
  * @return {jQuery.Promise} jQuery AJAX object, or promise object with an .abort() method
  */
@@ -308,6 +330,7 @@ OO.ui.LookupElement.prototype.getLookupRequest = function () {
  * The return value of this function will be cached, and any further queries for the given value
  * will use the cache rather than doing API requests.
  *
+ * @protected
  * @abstract
  * @param {Mixed} data Response from server
  * @return {Mixed} Cached result data
@@ -321,6 +344,7 @@ OO.ui.LookupElement.prototype.getLookupCacheDataFromResponse = function () {
  * Get a list of menu option widgets from the (possibly cached) data returned by
  * #getLookupCacheDataFromResponse.
  *
+ * @protected
  * @abstract
  * @param {Mixed} data Cached result data, usually an array
  * @return {OO.ui.MenuOptionWidget[]} Menu items
