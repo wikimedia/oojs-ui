@@ -99,6 +99,7 @@ OO.ui.TabIndexedElement.prototype.setTabIndex = function ( tabIndex ) {
  * Update the `tabindex` attribute, in case of changes to tab index or
  * disabled state.
  *
+ * @private
  * @chainable
  */
 OO.ui.TabIndexedElement.prototype.updateTabIndex = function () {
