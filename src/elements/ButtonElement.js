@@ -9,8 +9,9 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$button] Button node, assigned to #$button, omit to use a generated `<a>`
- * @cfg {boolean} [framed=true] Render button with a frame
+ * @cfg {jQuery} [$button] The button element created by the class.
+ *  If this configuration is omitted, the button element will use a generated `<a>`.
+ * @cfg {boolean} [framed=true] Render the button with a frame
  * @cfg {string} [accessKey] Button's access key
  */
 OO.ui.ButtonElement = function OoUiButtonElement( config ) {
@@ -45,6 +46,11 @@ OO.initClass( OO.ui.ButtonElement );
 /**
  * Cancel mouse down events.
  *
+ * This property is usually set to `true` to prevent the focus from changing when the button is clicked.
+ * Classes such as {@link OO.ui.DraggableElement DraggableElement} and {@link OO.ui.ButtonOptionWidget ButtonOptionWidget}
+ * use a value of `false` so that dragging behavior is possible and mousedown events can be handled by a
+ * parent widget.
+ *
  * @static
  * @inheritable
  * @property {boolean}
@@ -54,6 +60,8 @@ OO.ui.ButtonElement.static.cancelButtonMouseDownEvents = true;
 /* Events */
 
 /**
+ * A 'click' event is emitted when the button element is clicked.
+ *
  * @event click
  */
 
@@ -62,7 +70,9 @@ OO.ui.ButtonElement.static.cancelButtonMouseDownEvents = true;
 /**
  * Set the button element.
  *
- * If an element is already set, it will be cleaned up before setting up the new element.
+ * This method is used to retarget a button mixin so that its functionality applies to
+ * the specified button element instead of the one created by the class. If a button element
+ * is already set, the method will remove the mixin’s effect on that element.
  *
  * @param {jQuery} $button Element to use as button
  */
@@ -194,7 +204,7 @@ OO.ui.ButtonElement.prototype.isFramed = function () {
 };
 
 /**
- * Toggle frame.
+ * Render the button with or without a frame. Omit the `framed` parameter to toggle the button frame on and off.
  *
  * @param {boolean} [framed] Make button framed, omit to toggle
  * @chainable
@@ -213,7 +223,7 @@ OO.ui.ButtonElement.prototype.toggleFramed = function ( framed ) {
 };
 
 /**
- * Set access key.
+ * Set the button's access key.
  *
  * @param {string} accessKey Button's access key, use empty string to remove
  * @chainable
@@ -236,7 +246,11 @@ OO.ui.ButtonElement.prototype.setAccessKey = function ( accessKey ) {
 };
 
 /**
- * Set active state.
+ * Set the button to its 'active' state.
+ *
+ * The active state occurs when a {@link OO.ui.ButtonOptionWidget ButtonOptionWidget} or
+ * a {@link OO.ui.ToggleButtonWidget ToggleButtonWidget} is pressed. This method does nothing
+ * for other button types.
  *
  * @param {boolean} [value] Make button active
  * @chainable
