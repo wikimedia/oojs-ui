@@ -1,8 +1,14 @@
 /**
- * Search widget.
+ * SearchWidgets combine a {@link OO.ui.TextInputWidget text input field}, where users can type a search query,
+ * and a {@link OO.ui.TextInputMenuSelectWidget menu} of search results, which is displayed beneath the query
+ * field. Unlike {@link OO.ui.LookupElement lookup menus}, search result menus are always visible to the user.
+ * Users can choose an item from the menu or type a query into the text field to search for a matching result item.
+ * In general, search widgets are used inside a separate {@link OO.ui.Dialog dialog} window.
  *
- * Search widgets combine a query input, placed above, and a results selection widget, placed below.
- * Results are cleared and populated each time the query is changed.
+ * Each time the query is changed, the search result menu is cleared and repopulated. Please see
+ * the [OOjs UI demos][1] for an example.
+ *
+ * [1]: https://tools.wmflabs.org/oojs-ui/oojs-ui/demos/#dialogs-mediawiki-vector-ltr
  *
  * @class
  * @extends OO.ui.Widget
@@ -59,11 +65,19 @@ OO.inheritClass( OO.ui.SearchWidget, OO.ui.Widget );
 /* Events */
 
 /**
+ * A 'highlight' event is emitted when an item is highlighted. The highlight indicates which
+ * item will be selected. When a user mouses over a menu item, it is highlighted. If a search
+ * string is typed into the query field instead, the first menu item that matches the query
+ * will be highlighted.
+
  * @event highlight
  * @param {Object|null} item Item data or null if no item is highlighted
  */
 
 /**
+ * A 'select' event is emitted when an item is selected. A menu item is selected when it is clicked,
+ * or when a user types a search query, a menu result is highlighted, and the user presses enter.
+ *
  * @event select
  * @param {Object|null} item Item data or null if no item is selected
  */
@@ -73,6 +87,7 @@ OO.inheritClass( OO.ui.SearchWidget, OO.ui.Widget );
 /**
  * Handle query key down events.
  *
+ * @private
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.SearchWidget.prototype.onQueryKeydown = function ( e ) {
@@ -95,6 +110,7 @@ OO.ui.SearchWidget.prototype.onQueryKeydown = function ( e ) {
  *
  * Clears existing results. Subclasses should repopulate items according to new query.
  *
+ * @private
  * @param {string} value New value
  */
 OO.ui.SearchWidget.prototype.onQueryChange = function () {
@@ -107,6 +123,7 @@ OO.ui.SearchWidget.prototype.onQueryChange = function () {
  *
  * Selects highlighted item.
  *
+ * @private
  * @param {string} value New value
  */
 OO.ui.SearchWidget.prototype.onQueryEnter = function () {
@@ -117,6 +134,7 @@ OO.ui.SearchWidget.prototype.onQueryEnter = function () {
 /**
  * Handle select widget highlight events.
  *
+ * @private
  * @param {OO.ui.OptionWidget} item Highlighted item
  * @fires highlight
  */
@@ -127,6 +145,7 @@ OO.ui.SearchWidget.prototype.onResultsHighlight = function ( item ) {
 /**
  * Handle select widget select events.
  *
+ * @private
  * @param {OO.ui.OptionWidget} item Selected item
  * @fires select
  */
@@ -144,9 +163,9 @@ OO.ui.SearchWidget.prototype.getQuery = function () {
 };
 
 /**
- * Get the results list.
+ * Get the search results menu.
  *
- * @return {OO.ui.SelectWidget} Select list
+ * @return {OO.ui.SelectWidget} Menu of search results
  */
 OO.ui.SearchWidget.prototype.getResults = function () {
 	return this.results;
