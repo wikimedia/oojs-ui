@@ -25,8 +25,9 @@
  * @constructor
  * @param {OO.ui.Widget} fieldWidget Field widget
  * @param {Object} [config] Configuration options
- * @cfg {string} [align='left'] Alignment mode, either 'left', 'right', 'top' or 'inline'
- * @cfg {string} [help] Explanatory text shown as a '?' icon.
+ * @cfg {string} [align='left'] Alignment of the label: 'left', 'right', 'top' or 'inline'
+ * @cfg {string} [help] Help text. When help text is specified, a help icon will appear
+ *  in the upper-right corner of the rendered field.
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Allow passing positional parameters inside the config object
@@ -97,6 +98,7 @@ OO.mixinClass( OO.ui.FieldLayout, OO.ui.LabelElement );
 /**
  * Handle field disable events.
  *
+ * @private
  * @param {boolean} value Field is disabled
  */
 OO.ui.FieldLayout.prototype.onFieldDisable = function ( value ) {
@@ -106,6 +108,7 @@ OO.ui.FieldLayout.prototype.onFieldDisable = function ( value ) {
 /**
  * Handle label mouse click events.
  *
+ * @private
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.FieldLayout.prototype.onLabelClick = function () {
@@ -114,7 +117,7 @@ OO.ui.FieldLayout.prototype.onLabelClick = function () {
 };
 
 /**
- * Get the field.
+ * Get the widget contained by the field.
  *
  * @return {OO.ui.Widget} Field widget
  */
