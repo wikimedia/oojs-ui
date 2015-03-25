@@ -1,7 +1,34 @@
 /**
- * Layout made of a fieldset and optional legend.
+ * FieldsetLayouts are composed of one or more {@link OO.ui.FieldLayout FieldLayouts},
+ * which each contain an individual widget and, optionally, a label. Each Fieldset can be
+ * configured with a label as well. For more information and examples,
+ * please see the [OOjs UI documentation on MediaWiki][1].
  *
- * Just add OO.ui.FieldLayout items.
+ *     @example
+ *     // Example of a fieldset layout
+ *     var input1 = new OO.ui.TextInputWidget( {
+ *         placeholder: 'A text input field'
+ *     } );
+ *
+ *     var input2 = new OO.ui.TextInputWidget( {
+ *         placeholder: 'A text input field'
+ *     } );
+ *
+ *     var fieldset = new OO.ui.FieldsetLayout( {
+ *         label: 'Example of a fieldset layout'
+ *     } );
+ *
+ *     fieldset.addItems( [
+ *         new OO.ui.FieldLayout( input1, {
+ *             label: 'Field One'
+ *         } ),
+ *         new OO.ui.FieldLayout( input2, {
+ *             label: 'Field Two'
+ *         } )
+ *     ] );
+ *     $( 'body' ).append( fieldset.$element );
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Layouts/Fields_and_Fieldsets
  *
  * @class
  * @extends OO.ui.Layout
@@ -11,7 +38,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.FieldLayout[]} [items] Items to add
+ * @cfg {OO.ui.FieldLayout[]} [items] An array of fields to add to the fieldset. See OO.ui.FieldLayout for more information about fields.
  */
 OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	// Configuration initialization
