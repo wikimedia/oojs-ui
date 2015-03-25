@@ -1,5 +1,24 @@
 # OOjs UI Release History
 
+## v0.9.4 / 2015-03-25
+* ButtonElement: Clarify description (Kirsten Menger-Anderson)
+* ButtonElement: Disable line wrapping on buttons (Ed Sanders)
+* Compensate for loss of margin when opening modals (Ed Sanders)
+* FieldLayout: Clarify description and mark private methods (Kirsten Menger-Anderson)
+* FieldsetLayout: Add description and example (Kirsten Menger-Anderson)
+* FormLayout: Add description, example, and mark private method (Kirsten Menger-Anderson)
+* Layout: Add description (Kirsten Menger-Anderson)
+* LookupElement: Add description and mark private and protected methods (Kirsten Menger-Anderson)
+* LookupElement: Fix typo in docs (Bartosz Dziewoński)
+* Make outline controls abilities configurable (Trevor Parscal)
+* MenuLayout: Reorder styles (Bartosz Dziewoński)
+* MenuSectionOptionWidget: Add description and example (Kirsten Menger-Anderson)
+* ProcessDialog#executeAction: Don't eat parent's return value (Roan Kattouw)
+* PanelLayout: Add description and example (Kirsten Menger-Anderson)
+* Reduce thickness of toolbar border in MediaWiki (Ed Sanders)
+* SearchWidget: Add description and mark private methods (Kirsten Menger-Anderson)
+* TabIndexElement: Mark private method (Kirsten Menger-Anderson)
+
 ## v0.9.3 / 2015-03-19
 * Add .mailmap file (Roan Kattouw)
 * Add Kirsten to AUTHORS.txt (Roan Kattouw)
