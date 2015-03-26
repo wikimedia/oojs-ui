@@ -195,9 +195,7 @@ OO.ui.ComboBoxWidget.prototype.onInputEnter = function () {
  * @param {OO.ui.OptionWidget} item Chosen item
  */
 OO.ui.ComboBoxWidget.prototype.onMenuChoose = function ( item ) {
-	if ( item ) {
-		this.input.setValue( item.getData() );
-	}
+	this.input.setValue( item.getData() );
 };
 
 /**

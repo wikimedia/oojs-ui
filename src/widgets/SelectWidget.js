@@ -111,7 +111,7 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
 /**
  * @event choose
  * A `choose` event is emitted when an item is chosen with the #chooseItem method.
- * @param {OO.ui.OptionWidget|null} item Chosen item
+ * @param {OO.ui.OptionWidget} item Chosen item
  */
 
 /**
