@@ -1,5 +1,42 @@
 /**
- * Layout containing a series of pages.
+ * BookletLayouts contain {@link OO.ui.PageLayout page layouts} as well as
+ * an {@link OO.ui.OutlineSelectWidget outline} that allows users to easily navigate
+ * through the pages and select which one to display. By default, only one page is
+ * displayed at a time and the outline is hidden. When a user navigates to a new page,
+ * the booklet layout automatically focuses on the first focusable element, unless the
+ * default setting is changed. Optionally, booklets can be configured to show
+ * {@link OO.ui.OutlineControlsWidget controls} for adding, moving, and removing items.
+ *
+ *     @example
+ *     // Example of a BookletLayout that contains two PageLayouts.
+ *
+ *     function PageOneLayout( name, config ) {
+ *         PageOneLayout.super.call( this, name, config );
+ *         this.$element.append( '<p>First page</p><p>(This booklet has an outline, displayed on the left)</p>' );
+ *     }
+ *     OO.inheritClass( PageOneLayout, OO.ui.PageLayout );
+ *     PageOneLayout.prototype.setupOutlineItem = function () {
+ *         this.outlineItem.setLabel( 'Page One' );
+ *     };
+ *
+ *     function PageTwoLayout( name, config ) {
+ *         PageTwoLayout.super.call( this, name, config );
+ *         this.$element.append( '<p>Second page</p>' );
+ *     }
+ *     OO.inheritClass( PageTwoLayout, OO.ui.PageLayout );
+ *     PageTwoLayout.prototype.setupOutlineItem = function () {
+ *         this.outlineItem.setLabel( 'Page Two' );
+ *     };
+ *
+ *     var page1 = new PageOneLayout( 'one' ),
+ *         page2 = new PageTwoLayout( 'two' );
+ *
+ *     var booklet = new OO.ui.BookletLayout( {
+ *         outlined: true
+ *     } );
+ *
+ *     booklet.addPages ( [ page1, page2 ] );
+ *     $( 'body' ).append( booklet.$element );
  *
  * @class
  * @extends OO.ui.MenuLayout
@@ -7,8 +44,8 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [continuous=false] Show all pages, one after another
- * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when changing to a page
- * @cfg {boolean} [outlined=false] Show an outline
+ * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new page is displayed.
+ * @cfg {boolean} [outlined=false] Show the outline. The outline is used to navigate through the pages of the booklet.
  * @cfg {boolean} [editable=false] Show controls for adding, removing and reordering pages
  */
 OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
@@ -74,17 +111,23 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
 /* Events */
 
 /**
+ * A 'set' event is emitted when a page is {@link #setPage set} to be displayed by the booklet layout.
  * @event set
  * @param {OO.ui.PageLayout} page Current page
  */
 
 /**
+ * An 'add' event is emitted when pages are {@link #addPages added} to the booklet layout.
+ *
  * @event add
  * @param {OO.ui.PageLayout[]} page Added pages
  * @param {number} index Index pages were added at
  */
 
 /**
+ * A 'remove' event is emitted when pages are {@link #clearPages cleared} or
+ * {@link #removePages removed} from the booklet.
+ *
  * @event remove
  * @param {OO.ui.PageLayout[]} pages Removed pages
  */
@@ -94,6 +137,7 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
 /**
  * Handle stack layout focus.
  *
+ * @private
  * @param {jQuery.Event} e Focusin event
  */
 OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
@@ -113,6 +157,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
 /**
  * Handle stack layout set events.
  *
+ * @private
  * @param {OO.ui.PanelLayout|null} page The page panel that is now the current panel
  */
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
@@ -153,6 +198,7 @@ OO.ui.BookletLayout.prototype.focus = function () {
 /**
  * Handle outline widget select events.
  *
+ * @private
  * @param {OO.ui.OptionWidget|null} item Selected item
  */
 OO.ui.BookletLayout.prototype.onOutlineSelectWidgetSelect = function ( item ) {
@@ -164,7 +210,7 @@ OO.ui.BookletLayout.prototype.onOutlineSelectWidgetSelect = function ( item ) {
 /**
  * Check if booklet has an outline.
  *
- * @return {boolean}
+ * @return {boolean} Booklet has an outline
  */
 OO.ui.BookletLayout.prototype.isOutlined = function () {
 	return this.outlined;
@@ -173,7 +219,7 @@ OO.ui.BookletLayout.prototype.isOutlined = function () {
 /**
  * Check if booklet has editing controls.
  *
- * @return {boolean}
+ * @return {boolean} Booklet is editable
  */
 OO.ui.BookletLayout.prototype.isEditable = function () {
 	return this.editable;
@@ -182,7 +228,7 @@ OO.ui.BookletLayout.prototype.isEditable = function () {
 /**
  * Check if booklet has a visible outline.
  *
- * @return {boolean}
+ * @return {boolean} Outline is visible
  */
 OO.ui.BookletLayout.prototype.isOutlineVisible = function () {
 	return this.outlined && this.outlineVisible;
@@ -205,10 +251,10 @@ OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
 };
 
 /**
- * Get the outline widget.
+ * Get the page closest to the specified page.
  *
- * @param {OO.ui.PageLayout} page Page to be selected
- * @return {OO.ui.PageLayout|null} Closest page to another
+ * @param {OO.ui.PageLayout} page Page to use as a reference point
+ * @return {OO.ui.PageLayout|null} Page closest to the specified page
  */
 OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
 	var next, prev, level,
@@ -241,14 +287,18 @@ OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
 /**
  * Get the outline widget.
  *
- * @return {OO.ui.OutlineSelectWidget|null} Outline widget, or null if booklet has no outline
+ * If the booklet is not outlined, the method will return `null`.
+ *
+ * @return {OO.ui.OutlineSelectWidget|null} Outline widget, or null if the booklet is not outlined
  */
 OO.ui.BookletLayout.prototype.getOutline = function () {
 	return this.outlineSelectWidget;
 };
 
 /**
- * Get the outline controls widget. If the outline is not editable, null is returned.
+ * Get the outline controls widget.
+ *
+ * If the outline is not editable, the method will return `null`.
  *
  * @return {OO.ui.OutlineControlsWidget|null} The outline controls widget.
  */
@@ -257,7 +307,7 @@ OO.ui.BookletLayout.prototype.getOutlineControls = function () {
 };
 
 /**
- * Get a page by name.
+ * Get a page by its symbolic name.
  *
  * @param {string} name Symbolic name of page
  * @return {OO.ui.PageLayout|undefined} Page, if found
@@ -267,7 +317,7 @@ OO.ui.BookletLayout.prototype.getPage = function ( name ) {
 };
 
 /**
- * Get the current page
+ * Get the current page.
  *
  * @return {OO.ui.PageLayout|undefined} Current page, if found
  */
@@ -277,22 +327,22 @@ OO.ui.BookletLayout.prototype.getCurrentPage = function () {
 };
 
 /**
- * Get the current page name.
+ * Get the symbolic name of the current page.
  *
- * @return {string|null} Current page name
+ * @return {string|null} Symbolic name of the current page
  */
 OO.ui.BookletLayout.prototype.getCurrentPageName = function () {
 	return this.currentPageName;
 };
 
 /**
- * Add a page to the layout.
+ * Add pages to the booklet layout
  *
  * When pages are added with the same names as existing pages, the existing pages will be
  * automatically removed before the new pages are added.
  *
  * @param {OO.ui.PageLayout[]} pages Pages to add
- * @param {number} index Index to insert pages after
+ * @param {number} index Index of the insertion point
  * @fires add
  * @chainable
  */
@@ -343,8 +393,11 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 };
 
 /**
- * Remove a page from the layout.
+ * Remove the specified pages from the booklet layout.
  *
+ * To remove all pages from the booklet, you may wish to use the #clearPages method instead.
+ *
+ * @param {OO.ui.PageLayout[]} pages An array of pages to remove
  * @fires remove
  * @chainable
  */
@@ -372,7 +425,9 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
 };
 
 /**
- * Clear all pages from the layout.
+ * Clear all pages from the booklet layout.
+ *
+ * To remove only a subset of pages from the booklet, use the #removePages method.
  *
  * @fires remove
  * @chainable
@@ -397,7 +452,7 @@ OO.ui.BookletLayout.prototype.clearPages = function () {
 };
 
 /**
- * Set the current page by name.
+ * Set the current page by symbolic name.
  *
  * @fires set
  * @param {string} name Symbolic name of page
