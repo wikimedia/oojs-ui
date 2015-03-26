@@ -908,6 +908,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 								new OO.ui.MenuOptionWidget( {
 									data: 'b',
 									label: 'Disabled second option',
+									indicator: 'required',
 									disabled: true
 								} ),
 								new OO.ui.MenuOptionWidget( {
