@@ -132,12 +132,10 @@ OO.ui.LookupElement.prototype.onLookupMenuToggle = function ( visible ) {
  * Handle menu item 'choose' event, updating the text input value to the value of the clicked item.
  *
  * @protected
- * @param {OO.ui.MenuOptionWidget|null} item Selected item
+ * @param {OO.ui.MenuOptionWidget} item Selected item
  */
 OO.ui.LookupElement.prototype.onLookupMenuItemChoose = function ( item ) {
-	if ( item ) {
-		this.setValue( item.getData() );
-	}
+	this.setValue( item.getData() );
 };
 
 /**
