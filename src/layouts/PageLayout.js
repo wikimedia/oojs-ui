@@ -1,5 +1,11 @@
 /**
- * Page within an booklet layout.
+ * PageLayouts are used within {@link OO.ui.BookletLayout booklet layouts} to create pages that users can select and display
+ * from the booklet's optional {@link OO.ui.OutlineSelectWidget outline} navigation. Pages are usually not instantiated directly,
+ * rather extended to include the required content and functionality.
+ *
+ * Each page must have a unique symbolic name, which is passed to the constructor. In addition, the page's outline
+ * item is customized (with a label, outline level, etc.) using the #setupOutlineItem method. See
+ * {@link OO.ui.BookletLayout BookletLayout} for an example.
  *
  * @class
  * @extends OO.ui.PanelLayout
@@ -37,6 +43,9 @@ OO.inheritClass( OO.ui.PageLayout, OO.ui.PanelLayout );
 /* Events */
 
 /**
+ * An 'active' event is emitted when the page becomes active. Pages become active when they are
+ * shown in a booklet layout that is configured to display only one page at a time.
+ *
  * @event active
  * @param {boolean} active Page is active
  */
@@ -44,7 +53,7 @@ OO.inheritClass( OO.ui.PageLayout, OO.ui.PanelLayout );
 /* Methods */
 
 /**
- * Get page name.
+ * Get the symbolic name of the page.
  *
  * @return {string} Symbolic name of page
  */
@@ -55,6 +64,9 @@ OO.ui.PageLayout.prototype.getName = function () {
 /**
  * Check if page is active.
  *
+ * Pages become active when they are shown in a {@link OO.ui.BookletLayout booklet layout} that is configured to display
+ * only one page at a time. Additional CSS is applied to the page's outline item to reflect the active state.
+ *
  * @return {boolean} Page is active
  */
 OO.ui.PageLayout.prototype.isActive = function () {
@@ -64,21 +76,23 @@ OO.ui.PageLayout.prototype.isActive = function () {
 /**
  * Get outline item.
  *
- * @return {OO.ui.OutlineOptionWidget|null} Outline item widget
+ * The outline item allows users to access the page from the booklet's outline
+ * navigation. The outline item itself can be customized (with a label, level, etc.) using the #setupOutlineItem method.
+ *
+ * @return {OO.ui.OutlineOptionWidget|null} Outline option widget
  */
 OO.ui.PageLayout.prototype.getOutlineItem = function () {
 	return this.outlineItem;
 };
 
 /**
- * Set outline item.
+ * Set or unset the outline item.
  *
- * @localdoc Subclasses should override #setupOutlineItem instead of this method to adjust the
- *   outline item as desired; this method is called for setting (with an object) and unsetting
- *   (with null) and overriding methods would have to check the value of `outlineItem` to avoid
- *   operating on null instead of an OO.ui.OutlineOptionWidget object.
+ * Specify an {@link OO.ui.OutlineOptionWidget outline option} to set it,
+ * or `null` to clear the outline item. To customize the outline item itself (e.g., to set a label or outline
+ * level), use #setupOutlineItem instead of this method.
  *
- * @param {OO.ui.OutlineOptionWidget|null} outlineItem Outline item widget, null to clear
+ * @param {OO.ui.OutlineOptionWidget|null} outlineItem Outline option widget, null to clear
  * @chainable
  */
 OO.ui.PageLayout.prototype.setOutlineItem = function ( outlineItem ) {
@@ -90,11 +104,13 @@ OO.ui.PageLayout.prototype.setOutlineItem = function ( outlineItem ) {
 };
 
 /**
- * Setup outline item.
+ * Set up the outline item.
  *
- * @localdoc Subclasses should override this method to adjust the outline item as desired.
+ * Use this method to customize the outline item (e.g., to add a label or outline level). To set or unset
+ * the outline item itself (with an {@link OO.ui.OutlineOptionWidget outline option} or `null`), use
+ * the #setOutlineItem method instead.
  *
- * @param {OO.ui.OutlineOptionWidget} outlineItem Outline item widget to setup
+ * @param {OO.ui.OutlineOptionWidget} outlineItem Outline option widget to set up
  * @chainable
  */
 OO.ui.PageLayout.prototype.setupOutlineItem = function () {
@@ -102,9 +118,13 @@ OO.ui.PageLayout.prototype.setupOutlineItem = function () {
 };
 
 /**
- * Set page active state.
+ * Set the page to its 'active' state.
  *
- * @param {boolean} Page is active
+ * Pages become active when they are shown in a booklet layout that is configured to display only one page at a time. Additional
+ * CSS is applied to the outline item to reflect the page's active state. Outside of the booklet
+ * context, setting the active state on a page does nothing.
+ *
+ * @param {boolean} value Page is active
  * @fires active
  */
 OO.ui.PageLayout.prototype.setActive = function ( active ) {
