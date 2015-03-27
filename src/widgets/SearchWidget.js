@@ -71,6 +71,7 @@ OO.inheritClass( OO.ui.SearchWidget, OO.ui.Widget );
  * will be highlighted.
 
  * @event highlight
+ * @deprecated Connect straight to getResults() events instead
  * @param {Object|null} item Item data or null if no item is highlighted
  */
 
@@ -79,6 +80,7 @@ OO.inheritClass( OO.ui.SearchWidget, OO.ui.Widget );
  * or when a user types a search query, a menu result is highlighted, and the user presses enter.
  *
  * @event select
+ * @deprecated Connect straight to getResults() events instead
  * @param {Object|null} item Item data or null if no item is selected
  */
 
@@ -135,6 +137,7 @@ OO.ui.SearchWidget.prototype.onQueryEnter = function () {
  * Handle select widget highlight events.
  *
  * @private
+ * @deprecated Connect straight to getResults() events instead
  * @param {OO.ui.OptionWidget} item Highlighted item
  * @fires highlight
  */
@@ -146,6 +149,7 @@ OO.ui.SearchWidget.prototype.onResultsHighlight = function ( item ) {
  * Handle select widget select events.
  *
  * @private
+ * @deprecated Connect straight to getResults() events instead
  * @param {OO.ui.OptionWidget} item Selected item
  * @fires select
  */
