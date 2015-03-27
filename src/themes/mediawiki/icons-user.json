@@ -1,0 +1,10 @@
+{
+	"prefix": "oo-ui-icon",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"userActive": { "file": "images/icons/userActive-ltr.svg" },
+		"userAvatar": { "file": "images/icons/userAvatar.svg" },
+		"userInactive": { "file": "images/icons/userInactive-ltr.svg" },
+		"userTalk": { "file": "images/icons/userTalk-ltr.svg" }
+	}
+}

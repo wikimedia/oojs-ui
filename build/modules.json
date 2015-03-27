@@ -107,19 +107,19 @@
 		],
 		"styles": [
 			"src/themes/apex/core.less",
-			"src/themes/apex/images.less"
+			"src/themes/apex/icons.json",
+			"src/themes/apex/indicators.json",
+			"src/themes/apex/textures.json"
 		]
 	},
 	"oojs-ui-apex-icons-moderation": {
-		"generated": true,
 		"styles": [
-			"src/themes/apex/images/icons/icons-moderation.less"
+			"src/themes/apex/icons-moderation.json"
 		]
 	},
 	"oojs-ui-apex-icons-editing-core": {
-		"generated": true,
 		"styles": [
-			"src/themes/apex/images/icons/icons-editing-core.less"
+			"src/themes/apex/icons-editing-core.json"
 		]
 	},
 	"oojs-ui-mediawiki": {
@@ -128,91 +128,79 @@
 		],
 		"styles": [
 			"src/themes/mediawiki/core.less",
-			"src/themes/mediawiki/images.less"
+			"src/themes/mediawiki/icons.json",
+			"src/themes/mediawiki/indicators.json",
+			"src/themes/mediawiki/textures.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-movement": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-movement.less"
+			"src/themes/mediawiki/icons-movement.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-content": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-content.less"
+			"src/themes/mediawiki/icons-content.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-alerts": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-alerts.less"
+			"src/themes/mediawiki/icons-alerts.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-interactions": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-interactions.less"
+			"src/themes/mediawiki/icons-interactions.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-moderation": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-moderation.less"
+			"src/themes/mediawiki/icons-moderation.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-editing-core": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-editing-core.less"
+			"src/themes/mediawiki/icons-editing-core.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-editing-styling": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-editing-styling.less"
+			"src/themes/mediawiki/icons-editing-styling.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-editing-list": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-editing-list.less"
+			"src/themes/mediawiki/icons-editing-list.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-editing-advanced": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-editing-advanced.less"
+			"src/themes/mediawiki/icons-editing-advanced.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-media": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-media.less"
+			"src/themes/mediawiki/icons-media.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-location": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-location.less"
+			"src/themes/mediawiki/icons-location.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-user": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-user.less"
+			"src/themes/mediawiki/icons-user.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-layout": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-layout.less"
+			"src/themes/mediawiki/icons-layout.json"
 		]
 	},
 	"oojs-ui-mediawiki-icons-wikimedia": {
-		"generated": true,
 		"styles": [
-			"src/themes/mediawiki/images/icons/icons-wikimedia.less"
+			"src/themes/mediawiki/icons-wikimedia.json"
 		]
 	}
 }

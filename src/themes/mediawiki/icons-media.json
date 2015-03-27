@@ -1,0 +1,12 @@
+{
+	"prefix": "oo-ui-icon",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"image": { "file": "images/icons/image-ltr.svg" },
+		"imageAdd": { "file": "images/icons/imageAdd-ltr.svg" },
+		"imageLock": { "file": "images/icons/imageLock-ltr.svg" },
+		"photoGallery": { "file": "images/icons/photoGallery-ltr.svg" },
+		"play": { "file": "images/icons/play-ltr.svg" },
+		"stop": { "file": "images/icons/stop.svg" }
+	}
+}

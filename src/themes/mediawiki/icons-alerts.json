@@ -1,0 +1,15 @@
+{
+	"prefix": "oo-ui-icon",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"bell": { "file": "images/icons/bell.svg" },
+		"bellOn": { "file": "images/icons/bellOn-ltr.svg" },
+		"eye": { "file": "images/icons/eye.svg" },
+		"eyeClosed": { "file": "images/icons/eyeClosed.svg" },
+		"message": { "file": "images/icons/message-ltr.svg" },
+		"signature": { "file": "images/icons/signature-ltr.svg" },
+		"speechBubble": { "file": "images/icons/speechBubble-ltr.svg" },
+		"speechBubbleAdd": { "file": "images/icons/speechBubbleAdd-ltr.svg" },
+		"speechBubbles": { "file": "images/icons/speechBubbles-ltr.svg" }
+	}
+}

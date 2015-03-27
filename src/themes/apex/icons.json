@@ -1,0 +1,31 @@
+{
+	"prefix": "oo-ui-icon",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"circle": { "file": "images/icons/circle.svg" },
+		"add": { "file": "images/icons/add.svg" },
+		"advanced": { "file": "images/icons/advanced.svg" },
+		"alert": { "file": "images/icons/alert.svg" },
+		"check": { "file": "images/icons/check.svg" },
+		"clear": { "file": "images/icons/clear.svg" },
+		"close": { "file": "images/icons/close.svg" },
+		"code": { "file": "images/icons/code.svg" },
+		"collapse": { "file": "images/icons/collapse.svg" },
+		"comment": { "file": "images/icons/comment.svg" },
+		"ellipsis": { "file": "images/icons/ellipsis.svg" },
+		"expand": { "file": "images/icons/expand.svg" },
+		"help": { "file": "images/icons/help.svg" },
+		"info": { "file": "images/icons/info.svg" },
+		"menu": { "file": "images/icons/menu.svg" },
+		"next": { "file": "images/icons/move-ltr.svg" },
+		"picture": { "file": "images/icons/picture.svg" },
+		"previous": { "file": "images/icons/move-rtl.svg" },
+		"redo": { "file": "images/icons/arched-arrow-ltr.svg" },
+		"remove": { "file": "images/icons/remove.svg" },
+		"search": { "file": "images/icons/search.svg" },
+		"settings": { "file": "images/icons/settings.svg" },
+		"tag": { "file": "images/icons/tag.svg" },
+		"undo": { "file": "images/icons/arched-arrow-rtl.svg" },
+		"window": { "file": "images/icons/window.svg" }
+	}
+}
