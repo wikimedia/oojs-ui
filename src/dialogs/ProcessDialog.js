@@ -223,7 +223,7 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
  * Handle errors that occurred during accept or reject processes.
  *
  * @private
- * @param {OO.ui.Error[]} errors Errors to be handled
+ * @param {OO.ui.Error[]|OO.ui.Error} errors Errors to be handled
  */
 OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 	var i, len, $item, actions,
@@ -231,6 +231,10 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 		abilities = {},
 		recoverable = true,
 		warning = false;
+
+	if ( errors instanceof OO.ui.Error ) {
+		errors = [ errors ];
+	}
 
 	for ( i = 0, len = errors.length; i < len; i++ ) {
 		if ( !errors[ i ].isRecoverable() ) {
