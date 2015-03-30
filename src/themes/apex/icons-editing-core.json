@@ -1,0 +1,7 @@
+{
+	"prefix": "oo-ui-icon",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"link": { "file": "images/icons/link.svg" }
+	}
+}

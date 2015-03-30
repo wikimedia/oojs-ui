@@ -1,0 +1,10 @@
+{
+	"prefix": "oo-ui-icon",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"indent": { "file": "images/icons/indent-ltr.svg" },
+		"listBullet": { "file": "images/icons/listBullet-ltr.svg" },
+		"listNumbered": { "file": "images/icons/listNumbered-ltr.svg" },
+		"outdent": { "file": "images/icons/outdent-ltr.svg" }
+	}
+}

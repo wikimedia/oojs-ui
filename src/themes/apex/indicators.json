@@ -1,0 +1,12 @@
+{
+	"prefix": "oo-ui-indicator",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"alert": { "file": "images/indicators/alert.svg" },
+		"up": { "file": "images/indicators/arrow-up.svg" },
+		"down": { "file": "images/indicators/arrow-down.svg" },
+		"next": { "file": "images/indicators/arrow-ltr.svg" },
+		"previous": { "file": "images/indicators/arrow-rtl.svg" },
+		"required": { "file": "images/indicators/required.svg" }
+	}
+}

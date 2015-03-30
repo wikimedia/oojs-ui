@@ -1,0 +1,10 @@
+{
+	"prefix": "oo-ui-icon",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"stripeFlow": { "file": "images/icons/stripeFlow-ltr.svg" },
+		"stripeSideMenu": { "file": "images/icons/stripeSideMenu.svg" },
+		"stripeSummary": { "file": "images/icons/stripeSummary-ltr.svg" },
+		"stripeToC": { "file": "images/icons/stripeToC-ltr.svg" }
+	}
+}

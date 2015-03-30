@@ -1,0 +1,10 @@
+{
+	"prefix": "oo-ui-icon",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"bigger": { "file": "images/icons/bigger-ltr.svg" },
+		"smaller": { "file": "images/icons/smaller-ltr.svg" },
+		"subscript": { "file": "images/icons/subscript-ltr.svg" },
+		"superscript": { "file": "images/icons/superscript-ltr.svg" }
+	}
+}

@@ -3,8 +3,6 @@
  *
  * The task currently doesn't use the standard file specifying methods with this.filesSrc.
  * An option to do it may be added in the future.
- *
- *
  */
 
 /*jshint node:true */
@@ -20,29 +18,33 @@ module.exports = function ( grunt ) {
 		'colorizeSvg',
 		'Generate colored variants of SVG images',
 		function () {
-			var originals = 0,
+			var
 				data = this.data,
 				options = this.options(),
 				source = new Source(
 					data.srcDir,
 					options.images,
 					options.variants,
-					options.css
+					{
+						intro: options.intro,
+						prefix: options.prefix,
+						cssPrependPath: data.cssPrependPath,
+						selectorWithoutVariant: options.selectorWithoutVariant || options.selector,
+						selectorWithVariant: options.selectorWithVariant || options.selector
+					}
 				),
-				imageLists = source.getImageLists();
+				imageList = source.getImageList(),
+				originals = imageList.getLength();
 
-			return Q.all( Object.keys( imageLists ).map( function ( type ) {
-				originals += imageLists[ type ].getLength();
-				return imageLists[ type ].generate(
-					new Destination( path.join( data.destDir, imageLists[ type ].css.path || type ), type )
-				);
-			} ) ).then( function ( sums ) {
+			return imageList.generate(
+				new Destination(
+					data.destDir,
+					data.destLessFile || path.join( data.destDir, 'images.less' )
+				)
+			).then( function ( processed ) {
 				grunt.log.writeln(
 					'Processed ' + originals + ' original SVG files into ' +
-					sums.reduce( function ( a, b ) {
-						return a + b;
-					} ) +
-					' additional color variants.'
+					processed + ' additional color variants.'
 				);
 			} );
 		}
@@ -57,15 +59,15 @@ module.exports = function ( grunt ) {
 	 *
 	 * @constructor
 	 * @param {string} path Directory containing source images
-	 * @param {Object} images Lists of image configurations, keyed by type
-	 * @param {Object} variants List of variant configurations, keyed by type and variant name
-	 * @param {Object} css List of CSS class configurations, keyed by type
+	 * @param {Object} images Lists of image configurations
+	 * @param {Object} [variants] List of variant configurations, keyed by variant name
+	 * @param {Object} [options] Additional options
 	 */
-	function Source( path, images, variants, css ) {
+	function Source( path, images, variants, options ) {
 		this.path = path;
 		this.images = images;
-		this.variants = variants;
-		this.css = css;
+		this.variants = variants || {};
+		this.options = options || {};
 	}
 
 	/**
@@ -78,24 +80,17 @@ module.exports = function ( grunt ) {
 	};
 
 	/**
-	 * Get image lists for each type.
+	 * Get image list.
 	 *
-	 * @return {Object.<string,ImageList>} Image lists
+	 * @return ImageList Image list
 	 */
-	Source.prototype.getImageLists = function () {
-		var type,
-			lists = {};
-
-		for ( type in this.images ) {
-			lists[ type ] = new ImageList(
-				path.join( this.path, ( this.css[ type ] || {} ).path || type ),
-				new VariantList( this.variants[ type ] || {} ),
-				this.css[ type ] || {},
-				this.images[ type ]
-			);
-		}
-
-		return lists;
+	Source.prototype.getImageList = function () {
+		return new ImageList(
+			this.path,
+			new VariantList( this.variants ),
+			this.options,
+			this.images
+		);
 	};
 
 	/**
@@ -105,11 +100,11 @@ module.exports = function ( grunt ) {
 	 *
 	 * @constructor
 	 * @param {string} path Image path
-	 * @param {string} [stylesheetName] Stylesheet file name
+	 * @param {string} stylesheetPath Stylesheet file path
 	 */
-	function Destination( path, stylesheetName ) {
+	function Destination( path, stylesheetPath ) {
 		this.path = path;
-		this.stylesheetName = stylesheetName || path.basename( this.path );
+		this.stylesheetPath = stylesheetPath;
 	}
 
 	/**
@@ -127,7 +122,7 @@ module.exports = function ( grunt ) {
 	 * @return {string} Destination path
 	 */
 	Destination.prototype.getStylesheetPath = function () {
-		return path.join( this.path, this.stylesheetName + '.less' );
+		return this.stylesheetPath;
 	};
 
 	/**
@@ -165,37 +160,49 @@ module.exports = function ( grunt ) {
 			} );
 		}
 
-		var params,
+		// TODO Make configurable
+		function getDeclarations( svg, fallback ) {
+			return '.oo-ui-background-image-svg2(' +
+				'\'' + ( cssPrependPath || '' ) + svg + '\', ' +
+				'\'' + ( cssPrependPath || '' ) + fallback + '\'' +
+				')';
+		}
+
+		var selector, declarations, destinationFilePath,
 			deferred = Q.defer(),
 			errors = 0,
 			file = this.file,
 			name = this.name,
 			fileExtension = path.extname( file ),
-			fileExtensionBase = fileExtension.slice( 1 ),
-			fileNameBase = path.basename( file, fileExtension ),
 			filePath = path.join( this.list.getPath(), file ),
 			// TODO This should be configurable in task config, like in CSSJanus
 			flippable = flipPath( filePath ) !== filePath,
-			variable = fileExtensionBase.toLowerCase() === 'svg',
+			variable = fileExtension.toLowerCase() === '.svg',
+			fallbackFile = variable ? file.replace( '.svg', '.png' ) : file,
 			variants = this.list.getVariants(),
 			cssClassPrefix = this.list.getCssClassPrefix(),
+			cssSelectors = this.list.getCssSelectors(),
+			cssPrependPath = this.list.options.cssPrependPath,
 			rules = [],
 			uncolorizableImages = [],
 			unknownVariants = [];
 
 		// Original
-		params = [ name, fileNameBase ];
-		if ( !variable ) {
-			params.push( fileExtensionBase );
-		}
-		grunt.file.copy( filePath, path.join( destination.getPath(), file ) );
+		destinationFilePath = path.join( destination.getPath(), file );
+		selector = cssSelectors.selectorWithoutVariant
+			.replace( /{prefix}/g, cssClassPrefix )
+			.replace( /{name}/g, name )
+			.replace( /{variant}/g, '' );
+		declarations = getDeclarations( file, fallbackFile );
+		rules.push( selector + ' {\n\t' + declarations + '\n}' );
+
+		grunt.file.copy( filePath, destinationFilePath );
 		if ( flippable ) {
 			grunt.file.copy(
 				flipPath( filePath ),
-				flipPath( path.join( destination.getPath(), file ) )
+				flipPath( destinationFilePath )
 			);
 		}
-		rules.push( cssClassPrefix + '( ' + params.join( ', ' ) + ' );' );
 
 		// Variants
 		if ( variable ) {
@@ -221,12 +228,21 @@ module.exports = function ( grunt ) {
 					return;
 				}
 
-				params = [ name, fileNameBase, variantName ];
+				destinationFilePath = path.join(
+					destination.getPath(),
+					file.replace( fileExtension, '-' + variantName + fileExtension )
+				);
+				selector = cssSelectors.selectorWithVariant
+					.replace( /{prefix}/g, cssClassPrefix )
+					.replace( /{name}/g, name )
+					.replace( /{variant}/g, variantName );
+				declarations = getDeclarations(
+					file.replace( fileExtension, '-' + variantName + fileExtension ),
+					file.replace( fileExtension, '-' + variantName + ( variable ? '.png' : fileExtension ) )
+				);
+
 				grunt.file.write(
-					path.join(
-						destination.getPath(),
-						fileNameBase + '-' + variantName + fileExtension
-					),
+					destinationFilePath,
 					variantSvg
 				);
 
@@ -243,15 +259,12 @@ module.exports = function ( grunt ) {
 					}
 
 					grunt.file.write(
-						flipPath( path.join(
-							destination.getPath(),
-							fileNameBase + '-' + variantName + fileExtension
-						) ),
+						flipPath( destinationFilePath ),
 						variantSvg
 					);
 					// TODO Report the correct number of files processed when flipping
 				}
-				return cssClassPrefix + '-variant' + '( ' + params.join( ', ' ) + ' );';
+				return selector + ' {\n\t' + declarations + '\n}';
 			} ) );
 		}
 
@@ -286,16 +299,16 @@ module.exports = function ( grunt ) {
 	 * @constructor
 	 * @param {string} path Images path
 	 * @param {VariantList} variants Variants list
-	 * @param {Object} css CSS class configuration
+	 * @param {Object} options Additional options
 	 * @param {Object} data List of image configurations keyed by name
 	 */
-	function ImageList( path, variants, css, data ) {
+	function ImageList( path, variants, options, data ) {
 		var key;
 
 		this.list = {};
 		this.path = path;
 		this.variants = variants;
-		this.css = css;
+		this.options = options;
 
 		for ( key in data ) {
 			this.list[ key ] = new Image( this, key, data[ key ] );
@@ -326,7 +339,19 @@ module.exports = function ( grunt ) {
 	 * @return {string} CSS class prefix
 	 */
 	ImageList.prototype.getCssClassPrefix = function () {
-		return this.css.classPrefix || '';
+		return this.options.prefix || '';
+	};
+
+	/**
+	 * Get CSS selectors.
+	 *
+	 * @return {Object.<string, string>} CSS selectors
+	 */
+	ImageList.prototype.getCssSelectors = function () {
+		return {
+			selectorWithoutVariant: this.options.selectorWithoutVariant || '.{prefix}-{name}',
+			selectorWithVariant: this.options.selectorWithVariant || '.{prefix}-{name}-{variant}'
+		};
 	};
 
 	/**
@@ -335,7 +360,7 @@ module.exports = function ( grunt ) {
 	 * @return {string} CSS file intro
 	 */
 	ImageList.prototype.getCssIntro = function () {
-		return this.css.intro || '';
+		return this.options.intro || '';
 	};
 
 	/**

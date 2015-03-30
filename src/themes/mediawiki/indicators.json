@@ -1,0 +1,19 @@
+{
+	"selectorWithoutVariant": ".oo-ui-indicator-{name}",
+	"selectorWithVariant": ".oo-ui-image-{variant} .oo-ui-indicator-{name}, .oo-ui-image-{variant}.oo-ui-indicator-{name}",
+	"intro": "@import '../../../../src/styles/common';",
+	"variants": {
+		"invert": {
+			"color": "#FFFFFF",
+			"global": true
+		}
+	},
+	"images": {
+		"alert": { "file": "images/indicators/alert.svg" },
+		"up": { "file": "images/indicators/arrow-up.svg" },
+		"down": { "file": "images/indicators/arrow-down.svg" },
+		"next": { "file": "images/indicators/arrow-ltr.svg" },
+		"previous": { "file": "images/indicators/arrow-rtl.svg" },
+		"required": { "file": "images/indicators/required.svg" }
+	}
+}

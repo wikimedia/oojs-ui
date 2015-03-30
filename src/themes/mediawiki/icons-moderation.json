@@ -1,0 +1,16 @@
+{
+	"prefix": "oo-ui-icon",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"block": { "file": "images/icons/block.svg" },
+		"blockUndo": { "file": "images/icons/blockUndo-ltr.svg" },
+		"flag": { "file": "images/icons/flag-ltr.svg" },
+		"flagUndo": { "file": "images/icons/flagUndo-ltr.svg" },
+		"lock": { "file": "images/icons/lock-ltr.svg" },
+		"star": { "file": "images/icons/star.svg" },
+		"trash": { "file": "images/icons/trash.svg" },
+		"trashUndo": { "file": "images/icons/trashUndo-ltr.svg" },
+		"unLock": { "file": "images/icons/unLock-ltr.svg" },
+		"unStar": { "file": "images/icons/unStar.svg" }
+	}
+}

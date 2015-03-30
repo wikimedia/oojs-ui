@@ -29,6 +29,7 @@ module.exports = function ( grunt ) {
 			vector: {},
 			mixed: {}
 		},
+		colorizeSvgFiles = {},
 		originalLessFiles = {},
 		concatCssFiles = {},
 		rtlFiles = {
@@ -37,10 +38,24 @@ module.exports = function ( grunt ) {
 		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
 	( function () {
-		var distFile, target, module, moduleStyleFiles;
-		// We compile LESS copied to a different directory
-		function fixLessDirectory( fileName ) {
-			return fileName.replace( /^src\//, 'dist/tmp/' );
+		var distFile, target, module, moduleStyleFiles,
+			path = require( 'path' );
+		function processFile( fileName ) {
+			if ( path.extname( fileName ) === '.json' ) {
+				var
+					theme = path.basename( path.dirname( fileName ) ),
+					lessFileName = fileName.replace( /\.json$/, '.less' ).replace( /^src\//, 'dist/tmp/' );
+				colorizeSvgFiles[ fileName ] = {
+					options: grunt.file.readJSON( fileName ),
+					srcDir: 'src/themes/' + theme,
+					destDir: 'dist/themes/' + theme,
+					// This should not be needed, but our dist directory structure is weird
+					cssPrependPath: 'themes/' + theme + '/',
+					destLessFile: lessFileName
+				};
+				return lessFileName;
+			}
+			return fileName;
 		}
 		for ( module in modules ) {
 			if ( modules[ module ].styles ) {
@@ -48,10 +63,8 @@ module.exports = function ( grunt ) {
 				for ( target in lessFiles ) {
 					distFile = 'dist/' + module + ( target !== 'mixed' ? '.' + target : '' ) + '.css';
 
-					if ( !modules[ module ].generated ) {
-						originalLessFiles[ distFile ] = moduleStyleFiles;
-					}
-					lessFiles[ target ][ distFile ] = moduleStyleFiles.map( fixLessDirectory );
+					originalLessFiles[ distFile ] = moduleStyleFiles;
+					lessFiles[ target ][ distFile ] = moduleStyleFiles.map( processFile );
 
 					// Concat isn't doing much other than prepending the banner...
 					concatCssFiles[ distFile ] = distFile;
@@ -60,29 +73,6 @@ module.exports = function ( grunt ) {
 			}
 		}
 	}() );
-
-	function merge( target/*, sources...*/ ) {
-		var
-			sources = Array.prototype.slice.call( arguments, 1 ),
-			len = sources.length,
-			i = 0,
-			source, prop;
-
-		for ( ; i < len; i++ ) {
-			source = sources[ i ];
-			if ( source ) {
-				for ( prop in source ) {
-					if ( typeof target[ prop ] === 'object' && target[ prop ] !== null ) {
-						target[ prop ] = merge( {}, target[ prop ], source[ prop ] );
-					} else {
-						target[ prop ] = source[ prop ];
-					}
-				}
-			}
-		}
-
-		return target;
-	}
 
 	function strip( str ) {
 		var path = require( 'path' );
@@ -225,42 +215,13 @@ module.exports = function ( grunt ) {
 				expand: true,
 				dest: 'dist/'
 			},
-			lessTemp: {
-				src: 'src/**/*.less',
-				dest: 'dist/tmp/',
-				expand: true,
-				rename: strip( 'src/' )
-			},
-			svg: {
-				src: 'dist/tmp/**/*.svg',
-				dest: 'dist/',
-				expand: true,
-				rename: strip( 'dist/tmp/' )
-			},
 			jsduck: {
 				src: '{lib,dist}/**/*',
 				dest: 'docs/',
 				expand: true
 			}
 		},
-		colorizeSvg: {
-			apex: {
-				options: merge(
-					grunt.file.readJSON( 'build/images.json' ),
-					grunt.file.readJSON( 'src/themes/apex/images.json' )
-				),
-				srcDir: 'src/themes/apex/images',
-				destDir: 'dist/tmp/themes/apex/images'
-			},
-			mediawiki: {
-				options: merge(
-					grunt.file.readJSON( 'build/images.json' ),
-					grunt.file.readJSON( 'src/themes/mediawiki/images.json' )
-				),
-				srcDir: 'src/themes/mediawiki/images',
-				destDir: 'dist/tmp/themes/mediawiki/images'
-			}
-		},
+		colorizeSvg: colorizeSvgFiles,
 		svg2png: {
 			dist: {
 				src: 'dist/{images,themes}/**/*.svg'
@@ -395,7 +356,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'build-code', [ 'concat:js', 'uglify' ] );
 	grunt.registerTask( 'build-styling', [
-		'copy:lessTemp', 'colorizeSvg', 'less', 'copy:svg', 'copy:imagesCommon',
+		'colorizeSvg', 'less', 'copy:imagesCommon',
 		'copy:imagesApex', 'copy:imagesMediaWiki', 'svg2png',
 		'concat:css', 'cssjanus', 'csscomb', 'cssmin'
 	] );
@@ -409,7 +370,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'quick-build', [
 		'pre-git-build', 'clean:build', 'fileExists', 'typos',
 		'concat:js',
-		'copy:lessTemp', 'colorizeSvg', 'less:distVector', 'copy:svg',
+		'colorizeSvg', 'less:distVector',
 		'copy:imagesApex', 'copy:imagesMediaWiki',
 		'build-i18n'
 	] );

@@ -1,0 +1,15 @@
+{
+	"prefix": "oo-ui-icon",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"arrowNext": { "file": "images/icons/arrow-ltr.svg" },
+		"arrowLast": { "file": "images/icons/arrow-rtl.svg" },
+		"caretNext": { "file": "images/icons/caret-rtl.svg" },
+		"caretLast": { "file": "images/icons/caret-ltr.svg" },
+		"caretDown": { "file": "images/icons/caretDown.svg" },
+		"caretUp": { "file": "images/icons/caretUp.svg" },
+		"downTriangle": { "file": "images/icons/downTriangle.svg" },
+		"move": { "file": "images/icons/move.svg" },
+		"upTriangle": { "file": "images/icons/upTriangle.svg" }
+	}
+}
