@@ -573,6 +573,14 @@
 	&.oo-ui-optionWidget-highlighted {
 		background-color: transparent;
 	}
+
+	// Override DecoratedOptionWidget styles
+	&.oo-ui-widget-disabled {
+		.oo-ui-iconElement-icon,
+		.oo-ui-indicatorElement-indicator {
+			opacity: 1;
+		}
+	}
 }
 
 .theme-oo-ui-radioOptionWidget () {
