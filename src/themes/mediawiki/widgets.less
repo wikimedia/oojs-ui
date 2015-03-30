@@ -518,7 +518,7 @@
 	}
 
 	.oo-ui-labelElement-label {
-		line-height: @button-label-height;
+		line-height: 1.5em;
 	}
 
 	.oo-ui-selectWidget-depressed &-selected,
@@ -563,6 +563,10 @@
 .theme-oo-ui-buttonOptionWidget () {
 	padding: 0;
 	background-color: transparent;
+
+	.oo-ui-buttonElement-button {
+		height: @icon-size;
+	}
 
 	&.oo-ui-iconElement .oo-ui-iconElement-icon {
 		margin-top: 0;
