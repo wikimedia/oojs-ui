@@ -1,5 +1,9 @@
 /**
- * Items for an OO.ui.OutlineSelectWidget.
+ * OutlineOptionWidget is an item in an {@link OO.ui.OutlineSelectWidget OutlineSelectWidget}.
+ *
+ * Currently, this class is only used by {@link OO.ui.BookletLayout booklet layouts}, which contain
+ * {@link OO.ui.PageLayout page layouts}. See {@link OO.ui.BookletLayout BookletLayout}
+ * for an example.
  *
  * @class
  * @extends OO.ui.DecoratedOptionWidget
@@ -7,7 +11,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {number} [level] Indentation level
- * @cfg {boolean} [movable] Allow modification from outline controls
+ * @cfg {boolean} [movable] Allow modification from {@link OO.ui.OutlineControlsWidget outline controls}.
  */
 OO.ui.OutlineOptionWidget = function OoUiOutlineOptionWidget( config ) {
 	// Configuration initialization
@@ -45,7 +49,7 @@ OO.ui.OutlineOptionWidget.static.levels = 3;
 /**
  * Check if item is movable.
  *
- * Movability is used by outline controls.
+ * Movability is used by {@link OO.ui.OutlineControlsWidget outline controls}.
  *
  * @return {boolean} Item is movable
  */
@@ -56,7 +60,7 @@ OO.ui.OutlineOptionWidget.prototype.isMovable = function () {
 /**
  * Check if item is removable.
  *
- * Removability is used by outline controls.
+ * Removability is used by {@link OO.ui.OutlineControlsWidget outline controls}.
  *
  * @return {boolean} Item is removable
  */
@@ -76,7 +80,7 @@ OO.ui.OutlineOptionWidget.prototype.getLevel = function () {
 /**
  * Set movability.
  *
- * Movability is used by outline controls.
+ * Movability is used by {@link OO.ui.OutlineControlsWidget outline controls}.
  *
  * @param {boolean} movable Item is movable
  * @chainable
@@ -90,7 +94,7 @@ OO.ui.OutlineOptionWidget.prototype.setMovable = function ( movable ) {
 /**
  * Set removability.
  *
- * Removability is used by outline controls.
+ * Removability is used by {@link OO.ui.OutlineControlsWidget outline controls}.
  *
  * @param {boolean} movable Item is removable
  * @chainable
