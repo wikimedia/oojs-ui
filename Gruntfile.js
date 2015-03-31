@@ -122,6 +122,14 @@ module.exports = function ( grunt ) {
 			},
 			css: {
 				files: concatCssFiles
+			},
+			demoCss: {
+				options: {
+					banner: '/** This file is generated automatically. Do not modify it. */\n\n'
+				},
+				files: {
+					'demos/styles/demo.rtl.css': 'demos/styles/demo.rtl.css'
+				}
 			}
 		},
 
@@ -358,7 +366,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build-styling', [
 		'colorizeSvg', 'less', 'copy:imagesCommon',
 		'copy:imagesApex', 'copy:imagesMediaWiki', 'svg2png',
-		'concat:css', 'cssjanus', 'csscomb', 'cssmin'
+		'concat:css', 'cssjanus', 'concat:demoCss', 'csscomb', 'cssmin'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
 	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
