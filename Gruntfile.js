@@ -32,9 +32,7 @@ module.exports = function ( grunt ) {
 		colorizeSvgFiles = {},
 		originalLessFiles = {},
 		concatCssFiles = {},
-		rtlFiles = {
-			'demos/styles/demo.rtl.css': 'demos/styles/demo.css'
-		},
+		rtlFiles = {},
 		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
 	( function () {
@@ -186,11 +184,16 @@ module.exports = function ( grunt ) {
 			}
 		},
 		cssjanus: {
+			options: {
+				generateExactDuplicates: true
+			},
 			dist: {
-				options: {
-					generateExactDuplicates: true
-				},
 				files: rtlFiles
+			},
+			demoCss: {
+				files: {
+					'demos/styles/demo.rtl.css': 'demos/styles/demo.css'
+				}
 			}
 		},
 		csscomb: {
