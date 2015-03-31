@@ -45,7 +45,7 @@ module.exports = function ( grunt ) {
 				var
 					theme = path.basename( path.dirname( fileName ) ),
 					lessFileName = fileName.replace( /\.json$/, '.less' ).replace( /^src\//, 'dist/tmp/' );
-				colorizeSvgFiles[ fileName ] = {
+				colorizeSvgFiles[ fileName.replace( /.+\/(\w+)\/([\w-]+)\.json$/, '$1-$2' ) ] = {
 					options: grunt.file.readJSON( fileName ),
 					srcDir: 'src/themes/' + theme,
 					destDir: 'dist/themes/' + theme,
