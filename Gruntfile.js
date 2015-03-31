@@ -30,7 +30,7 @@ module.exports = function ( grunt ) {
 			mixed: {}
 		},
 		colorizeSvgFiles = {},
-		originalLessFiles = {},
+		requiredFiles = modules[ 'oojs-ui' ].scripts.slice(),
 		concatCssFiles = {},
 		rtlFiles = {},
 		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
@@ -59,9 +59,10 @@ module.exports = function ( grunt ) {
 			if ( modules[ module ].styles ) {
 				moduleStyleFiles = modules[ module ].styles;
 				for ( target in lessFiles ) {
+					requiredFiles.push.apply( requiredFiles, moduleStyleFiles );
+
 					distFile = 'dist/' + module + ( target !== 'mixed' ? '.' + target : '' ) + '.css';
 
-					originalLessFiles[ distFile ] = moduleStyleFiles;
 					lessFiles[ target ][ distFile ] = moduleStyleFiles.map( processFile );
 
 					// Concat isn't doing much other than prepending the banner...
@@ -90,16 +91,7 @@ module.exports = function ( grunt ) {
 			tmp: 'dist/tmp'
 		},
 		fileExists: {
-			src: ( function () {
-				var distFile,
-					files = modules[ 'oojs-ui' ].scripts.slice();
-
-				for ( distFile in originalLessFiles ) {
-					files.push.apply( files, originalLessFiles[ distFile ] );
-				}
-
-				return files;
-			}() )
+			src: requiredFiles
 		},
 		typos: {
 			options: {
