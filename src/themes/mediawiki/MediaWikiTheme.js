@@ -29,10 +29,12 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 			destructive: false
 		},
 		// Parent method
-		classes = OO.ui.MediaWikiTheme.super.prototype.getElementClasses.call( this, element );
+		classes = OO.ui.MediaWikiTheme.super.prototype.getElementClasses.call( this, element ),
+		isFramed;
 
-	if ( element.supports( [ 'isFramed', 'isDisabled', 'hasFlag' ] ) ) {
-		if ( element.isFramed() && ( element.isDisabled() || element.hasFlag( 'primary' ) ) ) {
+	if ( element.supports( [ 'hasFlag' ] ) ) {
+		isFramed = element.supports( [ 'isFramed' ] ) && element.isFramed();
+		if ( isFramed && ( element.isDisabled() || element.hasFlag( 'primary' ) ) ) {
 			variants.invert = true;
 		} else {
 			variants.progressive = element.hasFlag( 'progressive' );
