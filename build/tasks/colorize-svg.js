@@ -32,20 +32,18 @@ module.exports = function ( grunt ) {
 						selectorWithoutVariant: options.selectorWithoutVariant || options.selector,
 						selectorWithVariant: options.selectorWithVariant || options.selector
 					}
-				),
-				imageList = source.getImageList(),
-				originals = imageList.getLength();
+				);
 
-			return imageList.generate(
+			return source.getImageList().generate(
 				new Destination(
 					data.destDir,
-					data.destLessFile || path.join( data.destDir, 'images.less' )
+					data.destLessFile || {
+						ltr: path.join( data.destDir, 'images.less' ),
+						rtl: path.join( data.destDir, 'images.rtl.less' )
+					}
 				)
-			).then( function ( processed ) {
-				grunt.log.writeln(
-					'Processed ' + originals + ' original SVG files into ' +
-					processed + ' additional color variants.'
-				);
+			).then( function ( totalFiles ) {
+				grunt.log.writeln( 'Created ' + totalFiles + ' SVG files.' );
 			} );
 		}
 	);
@@ -100,7 +98,9 @@ module.exports = function ( grunt ) {
 	 *
 	 * @constructor
 	 * @param {string} path Image path
-	 * @param {string} stylesheetPath Stylesheet file path
+	 * @param {Object} stylesheetPath Stylesheet file path
+	 * @param {string} stylesheetPath.ltr Stylesheet file path, left-to-right
+	 * @param {string} stylesheetPath.rtl Stylesheet file path, right-to-left
 	 */
 	function Destination( path, stylesheetPath ) {
 		this.path = path;
@@ -119,10 +119,11 @@ module.exports = function ( grunt ) {
 	/**
 	 * Get path to file of generated Less stylesheet.
 	 *
+	 * @param {string} textDirection Text direction to get stylesheet path for, 'ltr' or 'rtl'
 	 * @return {string} Destination path
 	 */
-	Destination.prototype.getStylesheetPath = function () {
-		return this.stylesheetPath;
+	Destination.prototype.getStylesheetPath = function ( textDirection ) {
+		return this.stylesheetPath[ textDirection ];
 	};
 
 	/**
@@ -150,125 +151,101 @@ module.exports = function ( grunt ) {
 	 * Generate CSS and images.
 	 *
 	 * @param {Destination} destination Destination
-	 * @return {Q.Promise} Promise resolved with generated CSS rules for original images and
-	 *   generated image variants
+	 * @return {Q.Promise}
 	 */
 	Image.prototype.generate = function ( destination ) {
-		function flipPath( filePath ) {
-			return filePath.replace( /-(ltr|rtl).svg$/, function ( match ) {
-				return '-' + ( match[1] === 'rtl' ? 'ltr' : 'rtl' ) + '.svg';
-			} );
-		}
-
 		// TODO Make configurable
-		function getDeclarations( svg, fallback ) {
+		function getDeclarations( primary ) {
+			// If 'primary' is not a SVG file, 'fallback' and 'primary' are intentionally the same
+			var fallback = primary.replace( /\.svg$/, '.png' );
 			return '.oo-ui-background-image-svg2(' +
-				'\'' + ( cssPrependPath || '' ) + svg + '\', ' +
+				'\'' + ( cssPrependPath || '' ) + primary + '\', ' +
 				'\'' + ( cssPrependPath || '' ) + fallback + '\'' +
 				')';
 		}
+		function variantizeFileName( fileName, variantName ) {
+			if ( variantName ) {
+				return fileName.replace( /\.(\w+)$/, '-' + variantName + '.$1' );
+			}
+			return fileName;
+		}
 
-		var selector, declarations, destinationFilePath,
+		var selector, declarations, direction,
 			deferred = Q.defer(),
-			errors = 0,
-			file = this.file,
+			file = typeof this.file === 'string' ?
+				{ default: this.file } :
+				{ ltr: this.file.ltr, rtl: this.file.rtl },
 			name = this.name,
-			fileExtension = path.extname( file ),
-			filePath = path.join( this.list.getPath(), file ),
-			// TODO This should be configurable in task config, like in CSSJanus
-			flippable = flipPath( filePath ) !== filePath,
-			variable = fileExtension.toLowerCase() === '.svg',
-			fallbackFile = variable ? file.replace( '.svg', '.png' ) : file,
+			sourcePath = this.list.getPath(),
+			destinationPath = destination.getPath(),
 			variants = this.list.getVariants(),
 			cssClassPrefix = this.list.getCssClassPrefix(),
 			cssSelectors = this.list.getCssSelectors(),
 			cssPrependPath = this.list.options.cssPrependPath,
-			rules = [],
+			originalSvg = {},
+			rules = {
+				default: [],
+				ltr: [],
+				rtl: []
+			},
+			files = {},
 			uncolorizableImages = [],
 			unknownVariants = [];
 
 		// Original
-		destinationFilePath = path.join( destination.getPath(), file );
 		selector = cssSelectors.selectorWithoutVariant
 			.replace( /{prefix}/g, cssClassPrefix )
 			.replace( /{name}/g, name )
 			.replace( /{variant}/g, '' );
-		declarations = getDeclarations( file, fallbackFile );
-		rules.push( selector + ' {\n\t' + declarations + '\n}' );
 
-		grunt.file.copy( filePath, destinationFilePath );
-		if ( flippable ) {
-			grunt.file.copy(
-				flipPath( filePath ),
-				flipPath( destinationFilePath )
+		for ( direction in file ) {
+			declarations = getDeclarations( file[ direction ] );
+			rules[ direction ].push( selector + ' {\n\t' + declarations + '\n}' );
+
+			originalSvg[ direction ] = grunt.file.read(
+				path.join( sourcePath, file[ direction ] )
 			);
+			files[ path.join( destinationPath, file[ direction ] ) ] = originalSvg[ direction ];
 		}
 
 		// Variants
-		if ( variable ) {
-			rules = rules.concat( this.variantNames.map( function ( variantName ) {
-				var originalSvg, variantSvg,
-					variant = variants.getVariant( variantName );
+		this.variantNames.forEach( function ( variantName ) {
+			var variantSvg, destinationFilePath,
+				variant = variants.getVariant( variantName );
 
-				if ( variant === undefined ) {
-					unknownVariants.push( variantName );
-					errors++;
-					return;
-				}
+			if ( variant === undefined ) {
+				unknownVariants.push( variantName );
+				return;
+			}
 
-				originalSvg = grunt.file.read( filePath );
+			selector = cssSelectors.selectorWithVariant
+				.replace( /{prefix}/g, cssClassPrefix )
+				.replace( /{name}/g, name )
+				.replace( /{variant}/g, variantName );
+
+			for ( direction in file ) {
+				declarations = getDeclarations( variantizeFileName( file[ direction ], variantName ) );
+				rules[ direction ].push( selector + ' {\n\t' + declarations + '\n}' );
+
 				// TODO: Do this in a safer and more clever way
-				variantSvg = originalSvg.replace(
+				variantSvg = originalSvg[ direction ].replace(
 					/<svg[^>]*>/, '$&<style>* { fill: ' + variant.getColor() + ' }</style>'
 				);
 
-				if ( originalSvg === variantSvg ) {
-					uncolorizableImages.push( file );
-					errors++;
-					return;
+				if ( originalSvg[ direction ] === variantSvg ) {
+					uncolorizableImages.push( file[ direction ] );
+					continue;
 				}
 
 				destinationFilePath = path.join(
-					destination.getPath(),
-					file.replace( fileExtension, '-' + variantName + fileExtension )
+					destinationPath,
+					variantizeFileName( file[ direction ], variantName )
 				);
-				selector = cssSelectors.selectorWithVariant
-					.replace( /{prefix}/g, cssClassPrefix )
-					.replace( /{name}/g, name )
-					.replace( /{variant}/g, variantName );
-				declarations = getDeclarations(
-					file.replace( fileExtension, '-' + variantName + fileExtension ),
-					file.replace( fileExtension, '-' + variantName + ( variable ? '.png' : fileExtension ) )
-				);
+				files[ destinationFilePath ] = variantSvg;
+			}
+		} );
 
-				grunt.file.write(
-					destinationFilePath,
-					variantSvg
-				);
-
-				if ( flippable ) {
-					originalSvg = grunt.file.read( flipPath( filePath ) );
-					variantSvg = originalSvg.replace(
-						/<svg[^>]*>/, '$&<style>* { fill: ' + variant.getColor() + ' }</style>'
-					);
-
-					if ( originalSvg === variantSvg ) {
-						uncolorizableImages.push( flipPath( file ) );
-						errors++;
-						return;
-					}
-
-					grunt.file.write(
-						flipPath( destinationFilePath ),
-						variantSvg
-					);
-					// TODO Report the correct number of files processed when flipping
-				}
-				return selector + ' {\n\t' + declarations + '\n}';
-			} ) );
-		}
-
-		if ( errors ) {
+		if ( unknownVariants.length || uncolorizableImages.length ) {
 			if ( unknownVariants.length ) {
 				grunt.log.error(
 					unknownVariants.length +
@@ -283,9 +260,15 @@ module.exports = function ( grunt ) {
 					uncolorizableImages.join( ', ' )
 				);
 			}
-			deferred.reject( 'Failed to generate ' + errors + ' images' );
+			deferred.reject( 'Failed to generate some images' );
 		} else {
-			deferred.resolve( rules );
+			rules.ltr = rules.ltr.concat( rules.default );
+			rules.rtl = rules.rtl.concat( rules.default );
+			delete rules.default;
+			deferred.resolve( {
+				rules: rules,
+				files: files
+			} );
 		}
 
 		return deferred.promise;
@@ -376,21 +359,46 @@ module.exports = function ( grunt ) {
 	 * Generate images and CSS.
 	 *
 	 * @param {Destination} destination Destination
-	 * @return {Q.Promise} Promise resolved with number of generated CSS rules for original images
-	 *   and generated image variants
+	 * @return {Q.Promise} Promise resolved with number of generated SVG files
 	 */
 	ImageList.prototype.generate = function ( destination ) {
 		var list = this.list,
 			intro = this.getCssIntro();
 		return Q.all( Object.keys( this.list ).map( function ( key ) {
 			return list[ key ].generate( destination );
-		} ) ).then( function ( rules ) {
-			var stylesheetPath = destination.getStylesheetPath();
-			grunt.file.write( stylesheetPath, intro + '\n' + rules.map( function ( value ) {
-				return value.join( '\n' );
-			} ).join( '\n' ) );
-			grunt.log.writeln( 'Created "' + path.basename( stylesheetPath ) + '".' );
-			return rules.length;
+		} ) ).then( function ( data ) {
+			var textDirection, stylesheetPath, destinationFilePath, dataFormat;
+			dataFormat = {
+				files: {},
+				rules: {
+					ltr: [],
+					rtl: []
+				}
+			};
+
+			data = data.reduce( function ( a, b ) {
+				for ( destinationFilePath in b.files ) {
+					// This de-duplicates the entries, as the same file can be used by many Images
+					a.files[ destinationFilePath ] = b.files[ destinationFilePath ];
+				}
+				a.rules.ltr = a.rules.ltr.concat( b.rules.ltr );
+				a.rules.rtl = a.rules.rtl.concat( b.rules.rtl );
+				return a;
+			}, dataFormat );
+
+			for ( textDirection in data.rules ) {
+				stylesheetPath = destination.getStylesheetPath( textDirection );
+				grunt.file.write(
+					stylesheetPath,
+					intro + '\n' + data.rules[ textDirection ].join( '\n' )
+				);
+				grunt.log.writeln( 'Created "' + stylesheetPath + '".' );
+			}
+			for ( destinationFilePath in data.files ) {
+				grunt.file.write( destinationFilePath, data.files[ destinationFilePath ] );
+			}
+
+			return Object.keys( data.files ).length;
 		} );
 	};
 

@@ -17,15 +17,27 @@
 		"help": { "file": "images/icons/help.svg" },
 		"info": { "file": "images/icons/info.svg" },
 		"menu": { "file": "images/icons/menu.svg" },
-		"next": { "file": "images/icons/move-ltr.svg" },
+		"next": { "file": {
+			"ltr": "images/icons/move-ltr.svg",
+			"rtl": "images/icons/move-rtl.svg"
+		} },
 		"picture": { "file": "images/icons/picture.svg" },
-		"previous": { "file": "images/icons/move-rtl.svg" },
-		"redo": { "file": "images/icons/arched-arrow-ltr.svg" },
+		"previous": { "file": {
+			"ltr": "images/icons/move-rtl.svg",
+			"rtl": "images/icons/move-ltr.svg"
+		} },
+		"redo": { "file": {
+			"ltr": "images/icons/arched-arrow-ltr.svg",
+			"rtl": "images/icons/arched-arrow-rtl.svg"
+		} },
 		"remove": { "file": "images/icons/remove.svg" },
 		"search": { "file": "images/icons/search.svg" },
 		"settings": { "file": "images/icons/settings.svg" },
 		"tag": { "file": "images/icons/tag.svg" },
-		"undo": { "file": "images/icons/arched-arrow-rtl.svg" },
+		"undo": { "file": {
+			"ltr": "images/icons/arched-arrow-rtl.svg",
+			"rtl": "images/icons/arched-arrow-ltr.svg"
+		} },
 		"window": { "file": "images/icons/window.svg" }
 	}
 }

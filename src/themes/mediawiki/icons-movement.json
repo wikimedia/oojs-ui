@@ -2,10 +2,22 @@
 	"prefix": "oo-ui-icon",
 	"intro": "@import '../../../../src/styles/common';",
 	"images": {
-		"arrowNext": { "file": "images/icons/arrow-ltr.svg" },
-		"arrowLast": { "file": "images/icons/arrow-rtl.svg" },
-		"caretNext": { "file": "images/icons/caret-rtl.svg" },
-		"caretLast": { "file": "images/icons/caret-ltr.svg" },
+		"arrowNext": { "file": {
+			"ltr": "images/icons/arrow-ltr.svg",
+			"rtl": "images/icons/arrow-rtl.svg"
+		} },
+		"arrowLast": { "file": {
+			"ltr": "images/icons/arrow-rtl.svg",
+			"rtl": "images/icons/arrow-ltr.svg"
+		} },
+		"caretNext": { "file": {
+			"ltr": "images/icons/caret-rtl.svg",
+			"rtl": "images/icons/caret-ltr.svg"
+		} },
+		"caretLast": { "file": {
+			"ltr": "images/icons/caret-ltr.svg",
+			"rtl": "images/icons/caret-rtl.svg"
+		} },
 		"caretDown": { "file": "images/icons/caretDown.svg" },
 		"caretUp": { "file": "images/icons/caretUp.svg" },
 		"downTriangle": { "file": "images/icons/downTriangle.svg" },
