@@ -11,8 +11,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {number|string} [menuSize='18em'] Size of menu in pixels or any CSS unit
  * @cfg {boolean} [showMenu=true] Show menu
- * @cfg {string} [position='before'] Position of menu, either `top`, `after`, `bottom` or `before`
- * @cfg {boolean} [collapse] Collapse the menu out of view
+ * @cfg {string} [menuPosition='before'] Position of menu: `top`, `after`, `bottom` or `before`
  */
 OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	var positions = this.constructor.static.menuPositions;
