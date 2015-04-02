@@ -21,6 +21,7 @@
  * @extends OO.ui.Widget
  * @mixins OO.ui.IconElement
  * @mixins OO.ui.TitledElement
+ * @mixins OO.ui.FlaggedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -35,6 +36,7 @@ OO.ui.IconWidget = function OoUiIconWidget( config ) {
 	// Mixin constructors
 	OO.ui.IconElement.call( this, $.extend( {}, config, { $icon: this.$element } ) );
 	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$element } ) );
+	OO.ui.FlaggedElement.call( this, $.extend( {}, config, { $flagged: this.$element } ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-iconWidget' );
@@ -45,6 +47,7 @@ OO.ui.IconWidget = function OoUiIconWidget( config ) {
 OO.inheritClass( OO.ui.IconWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.IconWidget, OO.ui.IconElement );
 OO.mixinClass( OO.ui.IconWidget, OO.ui.TitledElement );
+OO.mixinClass( OO.ui.IconWidget, OO.ui.FlaggedElement );
 
 /* Static Properties */
 

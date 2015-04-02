@@ -692,6 +692,17 @@
 						),
 						new OOUI\FieldLayout(
 							new OOUI\IconWidget( array(
+								'icon' => 'remove',
+								'flags' => 'destructive',
+								'title' => 'Remove icon'
+							) ),
+							array(
+								'label' => "IconWidget (flagged)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\IconWidget( array(
 								'icon' => 'picture',
 								'title' => 'Picture icon',
 								'disabled' => true

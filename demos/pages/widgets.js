@@ -1136,6 +1136,17 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.IconWidget( {
+						icon: 'remove',
+						flags: 'destructive',
+						title: 'Remove icon'
+					} ),
+					{
+						label: 'IconWidget (flagged)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.IconWidget( {
 						icon: 'picture',
 						title: 'Picture icon',
 						disabled: true

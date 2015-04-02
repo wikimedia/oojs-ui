@@ -25,6 +25,8 @@ class IconWidget extends Widget {
 			array_merge( $config, array( 'iconElement' => $this ) ) ) );
 		$this->mixin( new TitledElement( $this,
 			array_merge( $config, array( 'titled' => $this ) ) ) );
+		$this->mixin( new FlaggedElement( $this,
+			array_merge( $config, array( 'flagged' => $this ) ) ) );
 
 		// Initialization
 		$this->addClasses( array( 'oo-ui-iconWidget' ) );
