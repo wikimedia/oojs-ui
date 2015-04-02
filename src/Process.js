@@ -1,17 +1,25 @@
 /**
- * A list of functions, called in sequence.
+ * A Process is a list of steps that are called in sequence. The step can be a number, a jQuery promise,
+ * or a function:
  *
- * If a function added to a process returns boolean false the process will stop; if it returns an
- * object with a `promise` method the process will use the promise to either continue to the next
- * step when the promise is resolved or stop when the promise is rejected.
+ * - **number**: the process will wait for the specified number of milliseconds before proceeding.
+ * - **promise**: the process will continue to the next step when the promise is successfully resolved
+ *  or stop if the promise is rejected.
+ * - **function**: the process will execute the function. The process will stop if the function returns
+ *  either a boolean `false` or a promise that is rejected; if the function returns a number, the process
+ *  will wait for that number of milliseconds before proceeding.
+ *
+ * If the process fails, an {@link OO.ui.Error error} is generated. Depending on how the error is
+ * configured, users can dismiss the error and try the process again, or not. If a process is stopped,
+ * its remaining steps will not be performed.
  *
  * @class
  *
  * @constructor
- * @param {number|jQuery.Promise|Function} step Time to wait, promise to wait for or function to
- *   call, see #createStep for more information
- * @param {Object} [context=null] Context to call the step function in, ignored if step is a number
- *   or a promise
+ * @param {number|jQuery.Promise|Function} step Number of miliseconds to wait before proceeding, promise
+ *  that must be resolved before proceeding, or a function to execute. See #createStep for more information. see #createStep for more information
+ * @param {Object} [context=null] Execution context of the function. The context is ignored if the step is
+ *  a number or promise.
  * @return {Object} Step object, with `callback` and `context` properties
  */
 OO.ui.Process = function ( step, context ) {
@@ -33,9 +41,9 @@ OO.initClass( OO.ui.Process );
 /**
  * Start the process.
  *
- * @return {jQuery.Promise} Promise that is resolved when all steps have completed or rejected when
- *   any of the steps return boolean false or a promise which gets rejected; upon stopping the
- *   process, the remaining steps will not be taken
+ * @return {jQuery.Promise} Promise that is resolved when all steps have successfully completed.
+ *  If any of the steps return a promise that is rejected or a boolean false, this promise is rejected
+ *  and any remaining steps are not performed.
  */
 OO.ui.Process.prototype.execute = function () {
 	var i, len, promise;
@@ -103,16 +111,16 @@ OO.ui.Process.prototype.execute = function () {
  * @private
  * @param {number|jQuery.Promise|Function} step
  *
- * - Number of milliseconds to wait; or
- * - Promise to wait to be resolved; or
+ * - Number of milliseconds to wait before proceeding
+ * - Promise that must be resolved before proceeding
  * - Function to execute
- *   - If it returns boolean false the process will stop
- *   - If it returns an object with a `promise` method the process will use the promise to either
- *     continue to the next step when the promise is resolved or stop when the promise is rejected
- *   - If it returns a number, the process will wait for that number of milliseconds before
- *     proceeding
- * @param {Object} [context=null] Context to call the step function in, ignored if step is a number
- *   or a promise
+ *   - If the function returns a boolean false the process will stop
+ *   - If the function returns a promise, the process will continue to the next
+ *     step when the promise is resolved or stop if the promise is rejected
+ *   - If the function returns a number, the process will wait for that number of
+ *     milliseconds before proceeding
+ * @param {Object} [context=null] Execution context of the function. The context is
+ *  ignored if the step is a number or promise.
  * @return {Object} Step object, with `callback` and `context` properties
  */
 OO.ui.Process.prototype.createStep = function ( step, context ) {
