@@ -3,13 +3,31 @@
 	"intro": "@import '../../../../src/styles/common';",
 	"images": {
 		"bell": { "file": "images/icons/bell.svg" },
-		"bellOn": { "file": "images/icons/bellOn-ltr.svg" },
+		"bellOn": { "file": {
+			"ltr": "images/icons/bellOn-ltr.svg",
+			"rtl": "images/icons/bellOn-rtl.svg"
+		} },
 		"eye": { "file": "images/icons/eye.svg" },
 		"eyeClosed": { "file": "images/icons/eyeClosed.svg" },
-		"message": { "file": "images/icons/message-ltr.svg" },
-		"signature": { "file": "images/icons/signature-ltr.svg" },
-		"speechBubble": { "file": "images/icons/speechBubble-ltr.svg" },
-		"speechBubbleAdd": { "file": "images/icons/speechBubbleAdd-ltr.svg" },
-		"speechBubbles": { "file": "images/icons/speechBubbles-ltr.svg" }
+		"message": { "file": {
+			"ltr": "images/icons/message-ltr.svg",
+			"rtl": "images/icons/message-rtl.svg"
+		} },
+		"signature": { "file": {
+			"ltr": "images/icons/signature-ltr.svg",
+			"rtl": "images/icons/signature-rtl.svg"
+		} },
+		"speechBubble": { "file": {
+			"ltr": "images/icons/speechBubble-ltr.svg",
+			"rtl": "images/icons/speechBubble-rtl.svg"
+		} },
+		"speechBubbleAdd": { "file": {
+			"ltr": "images/icons/speechBubbleAdd-ltr.svg",
+			"rtl": "images/icons/speechBubbleAdd-rtl.svg"
+		} },
+		"speechBubbles": { "file": {
+			"ltr": "images/icons/speechBubbles-ltr.svg",
+			"rtl": "images/icons/speechBubbles-rtl.svg"
+		} }
 	}
 }

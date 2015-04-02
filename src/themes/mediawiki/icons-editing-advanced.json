@@ -3,14 +3,38 @@
 	"intro": "@import '../../../../src/styles/common';",
 	"images": {
 		"table": { "file": "images/icons/table.svg" },
-		"newline": { "file": "images/icons/newline-ltr.svg" },
-		"redirect": { "file": "images/icons/redirect-ltr.svg" },
-		"noWikiText": { "file": "images/icons/noWikiText-ltr.svg" },
-		"puzzle": { "file": "images/icons/puzzle-ltr.svg" },
-		"quotes": { "file": "images/icons/quotes-ltr.svg" },
-		"quotesAdd": { "file": "images/icons/quotesAdd-ltr.svg" },
-		"templateAdd": { "file": "images/icons/templateAdd-ltr.svg" },
-		"translation": { "file": "images/icons/translation-ltr.svg" },
+		"newline": { "file": {
+			"ltr": "images/icons/newline-ltr.svg",
+			"rtl": "images/icons/newline-rtl.svg"
+		} },
+		"redirect": { "file": {
+			"ltr": "images/icons/redirect-ltr.svg",
+			"rtl": "images/icons/redirect-rtl.svg"
+		} },
+		"noWikiText": { "file": {
+			"ltr": "images/icons/noWikiText-ltr.svg",
+			"rtl": "images/icons/noWikiText-rtl.svg"
+		} },
+		"puzzle": { "file": {
+			"ltr": "images/icons/puzzle-ltr.svg",
+			"rtl": "images/icons/puzzle-rtl.svg"
+		} },
+		"quotes": { "file": {
+			"ltr": "images/icons/quotes-ltr.svg",
+			"rtl": "images/icons/quotes-rtl.svg"
+		} },
+		"quotesAdd": { "file": {
+			"ltr": "images/icons/quotesAdd-ltr.svg",
+			"rtl": "images/icons/quotesAdd-rtl.svg"
+		} },
+		"templateAdd": { "file": {
+			"ltr": "images/icons/templateAdd-ltr.svg",
+			"rtl": "images/icons/templateAdd-rtl.svg"
+		} },
+		"translation": { "file": {
+			"ltr": "images/icons/translation-ltr.svg",
+			"rtl": "images/icons/translation-rtl.svg"
+		} },
 		"wikiText": { "file": "images/icons/wikiText.svg" }
 	}
 }

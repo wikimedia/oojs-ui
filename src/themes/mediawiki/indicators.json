@@ -12,8 +12,14 @@
 		"alert": { "file": "images/indicators/alert.svg" },
 		"up": { "file": "images/indicators/arrow-up.svg" },
 		"down": { "file": "images/indicators/arrow-down.svg" },
-		"next": { "file": "images/indicators/arrow-ltr.svg" },
-		"previous": { "file": "images/indicators/arrow-rtl.svg" },
+		"next": { "file": {
+			"ltr": "images/indicators/arrow-ltr.svg",
+			"rtl": "images/indicators/arrow-rtl.svg"
+		} },
+		"previous": { "file": {
+			"ltr": "images/indicators/arrow-rtl.svg",
+			"rtl": "images/indicators/arrow-ltr.svg"
+		} },
 		"required": { "file": "images/indicators/required.svg" }
 	}
 }

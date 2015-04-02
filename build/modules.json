@@ -112,6 +112,11 @@
 			"src/themes/apex/textures.json"
 		]
 	},
+	"oojs-ui-apex-noimages": {
+		"styles": [
+			"src/themes/apex/core.less"
+		]
+	},
 	"oojs-ui-apex-icons-moderation": {
 		"styles": [
 			"src/themes/apex/icons-moderation.json"
@@ -131,6 +136,11 @@
 			"src/themes/mediawiki/icons.json",
 			"src/themes/mediawiki/indicators.json",
 			"src/themes/mediawiki/textures.json"
+		]
+	},
+	"oojs-ui-mediawiki-noimages": {
+		"styles": [
+			"src/themes/mediawiki/core.less"
 		]
 	},
 	"oojs-ui-mediawiki-icons-movement": {

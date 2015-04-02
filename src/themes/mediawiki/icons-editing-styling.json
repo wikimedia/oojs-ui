@@ -2,9 +2,21 @@
 	"prefix": "oo-ui-icon",
 	"intro": "@import '../../../../src/styles/common';",
 	"images": {
-		"bigger": { "file": "images/icons/bigger-ltr.svg" },
-		"smaller": { "file": "images/icons/smaller-ltr.svg" },
-		"subscript": { "file": "images/icons/subscript-ltr.svg" },
-		"superscript": { "file": "images/icons/superscript-ltr.svg" }
+		"bigger": { "file": {
+			"ltr": "images/icons/bigger-ltr.svg",
+			"rtl": "images/icons/bigger-rtl.svg"
+		} },
+		"smaller": { "file": {
+			"ltr": "images/icons/smaller-ltr.svg",
+			"rtl": "images/icons/smaller-rtl.svg"
+		} },
+		"subscript": { "file": {
+			"ltr": "images/icons/subscript-ltr.svg",
+			"rtl": "images/icons/subscript-rtl.svg"
+		} },
+		"superscript": { "file": {
+			"ltr": "images/icons/superscript-ltr.svg",
+			"rtl": "images/icons/superscript-rtl.svg"
+		} }
 	}
 }
