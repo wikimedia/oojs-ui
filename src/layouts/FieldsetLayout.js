@@ -32,9 +32,9 @@
  *
  * @class
  * @extends OO.ui.Layout
- * @mixins OO.ui.IconElement
- * @mixins OO.ui.LabelElement
- * @mixins OO.ui.GroupElement
+ * @mixins OO.ui.mixin.IconElement
+ * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -48,9 +48,9 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	OO.ui.FieldsetLayout.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.IconElement.call( this, config );
-	OO.ui.LabelElement.call( this, config );
-	OO.ui.GroupElement.call( this, config );
+	OO.ui.mixin.IconElement.call( this, config );
+	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.GroupElement.call( this, config );
 
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
@@ -81,6 +81,6 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.FieldsetLayout, OO.ui.Layout );
-OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.IconElement );
-OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.LabelElement );
-OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.GroupElement );
+OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.mixin.IconElement );
+OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.mixin.GroupElement );

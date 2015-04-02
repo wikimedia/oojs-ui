@@ -14,18 +14,18 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		DragDropGroupWidget.super.call( this, config );
 
 		// Mixin constructors
-		OO.ui.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
+		OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
 
 		// Respond to reorder event
 		this.connect( this, { reorder: 'onReorder' } );
 	}
 	/* Setup */
 	OO.inheritClass( DragDropGroupWidget, OO.ui.Widget );
-	OO.mixinClass( DragDropGroupWidget, OO.ui.DraggableGroupElement );
+	OO.mixinClass( DragDropGroupWidget, OO.ui.mixin.DraggableGroupElement );
 
 	/**
 	 * Respond to order event
-	 * @param {OO.ui.DraggableElement} item Reordered item
+	 * @param {OO.ui.mixin.DraggableElement} item Reordered item
 	 * @param {number} newIndex New index
 	 */
 	DragDropGroupWidget.prototype.onReorder = function ( item, newIndex ) {
@@ -44,25 +44,25 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		DragDropItemWidget.super.call( this, config );
 
 		// Mixin constructors
-		OO.ui.DraggableElement.call( this, config );
+		OO.ui.mixin.DraggableElement.call( this, config );
 	}
 	/* Setup */
 	OO.inheritClass( DragDropItemWidget, OO.ui.OptionWidget );
-	OO.mixinClass( DragDropItemWidget, OO.ui.DraggableElement );
+	OO.mixinClass( DragDropItemWidget, OO.ui.mixin.DraggableElement );
 
 	/**
 	 * Demo for LookupElement.
 	 * @extends OO.ui.TextInputWidget
-	 * @mixins OO.ui.LookupElement
+	 * @mixins OO.ui.mixin.LookupElement
 	 */
 	function NumberLookupTextInputWidget() {
 		// Parent constructor
 		OO.ui.TextInputWidget.call( this, { validate: 'integer' } );
 		// Mixin constructors
-		OO.ui.LookupElement.call( this );
+		OO.ui.mixin.LookupElement.call( this );
 	}
 	OO.inheritClass( NumberLookupTextInputWidget, OO.ui.TextInputWidget );
-	OO.mixinClass( NumberLookupTextInputWidget, OO.ui.LookupElement );
+	OO.mixinClass( NumberLookupTextInputWidget, OO.ui.mixin.LookupElement );
 
 	/**
 	 * @inheritdoc

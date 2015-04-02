@@ -14,7 +14,7 @@
  * @cfg {jQuery} [$group] The container element created by the class. If this configuration
  *  is omitted, the group element will use a generated `<div>`.
  */
-OO.ui.GroupElement = function OoUiGroupElement( config ) {
+OO.ui.mixin.GroupElement = function OoUiMixinGroupElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -36,7 +36,7 @@ OO.ui.GroupElement = function OoUiGroupElement( config ) {
  *
  * @param {jQuery} $group Element to use as group
  */
-OO.ui.GroupElement.prototype.setGroupElement = function ( $group ) {
+OO.ui.mixin.GroupElement.prototype.setGroupElement = function ( $group ) {
 	var i, len;
 
 	this.$group = $group;
@@ -50,7 +50,7 @@ OO.ui.GroupElement.prototype.setGroupElement = function ( $group ) {
  *
  * @return {boolean} Group is empty
  */
-OO.ui.GroupElement.prototype.isEmpty = function () {
+OO.ui.mixin.GroupElement.prototype.isEmpty = function () {
 	return !this.items.length;
 };
 
@@ -63,7 +63,7 @@ OO.ui.GroupElement.prototype.isEmpty = function () {
  *
  * @return {OO.ui.Element[]} An array of items.
  */
-OO.ui.GroupElement.prototype.getItems = function () {
+OO.ui.mixin.GroupElement.prototype.getItems = function () {
 	return this.items.slice( 0 );
 };
 
@@ -76,7 +76,7 @@ OO.ui.GroupElement.prototype.getItems = function () {
  * @param {Object} data Item data to search for
  * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
  */
-OO.ui.GroupElement.prototype.getItemFromData = function ( data ) {
+OO.ui.mixin.GroupElement.prototype.getItemFromData = function ( data ) {
 	var i, len, item,
 		hash = OO.getHash( data );
 
@@ -98,7 +98,7 @@ OO.ui.GroupElement.prototype.getItemFromData = function ( data ) {
  * @param {Object} data Item data to search for
  * @return {OO.ui.Element[]} Items with equivalent data
  */
-OO.ui.GroupElement.prototype.getItemsFromData = function ( data ) {
+OO.ui.mixin.GroupElement.prototype.getItemsFromData = function ( data ) {
 	var i, len, item,
 		hash = OO.getHash( data ),
 		items = [];
@@ -127,7 +127,7 @@ OO.ui.GroupElement.prototype.getItemsFromData = function ( data ) {
 
  * @throws {Error} An error is thrown if aggregation already exists.
  */
-OO.ui.GroupElement.prototype.aggregate = function ( events ) {
+OO.ui.mixin.GroupElement.prototype.aggregate = function ( events ) {
 	var i, len, item, add, remove, itemEvent, groupEvent;
 
 	for ( itemEvent in events ) {
@@ -179,7 +179,7 @@ OO.ui.GroupElement.prototype.aggregate = function ( events ) {
  * @param {number} [index] Index of the insertion point
  * @chainable
  */
-OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
+OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
 	var i, len, item, event, events, currentIndex,
 		itemElements = [];
 
@@ -230,7 +230,7 @@ OO.ui.GroupElement.prototype.addItems = function ( items, index ) {
  * @param {OO.ui.Element[]} items An array of items to remove
  * @chainable
  */
-OO.ui.GroupElement.prototype.removeItems = function ( items ) {
+OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
 	var i, len, item, index, remove, itemEvent;
 
 	// Remove specific items
@@ -265,7 +265,7 @@ OO.ui.GroupElement.prototype.removeItems = function ( items ) {
  *
  * @chainable
  */
-OO.ui.GroupElement.prototype.clearItems = function () {
+OO.ui.mixin.GroupElement.prototype.clearItems = function () {
 	var i, len, item, remove, itemEvent;
 
 	// Remove all items

@@ -5,7 +5,7 @@
  *
  * @class
  * @extends OO.ui.SelectWidget
- * @mixins OO.ui.TabIndexedElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -15,7 +15,7 @@ OO.ui.TabSelectWidget = function OoUiTabSelectWidget( config ) {
 	OO.ui.TabSelectWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.TabIndexedElement.call( this, config );
+	OO.ui.mixin.TabIndexedElement.call( this, config );
 
 	// Events
 	this.$element.on( {
@@ -30,4 +30,4 @@ OO.ui.TabSelectWidget = function OoUiTabSelectWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.TabSelectWidget, OO.ui.SelectWidget );
-OO.mixinClass( OO.ui.TabSelectWidget, OO.ui.TabIndexedElement );
+OO.mixinClass( OO.ui.TabSelectWidget, OO.ui.mixin.TabIndexedElement );

@@ -23,7 +23,7 @@
  * @cfg {string|Function} [title] The title text or a function that returns text. If
  *  this config is omitted, the value of the {@link #static-title static title} property is used.
  */
-OO.ui.TitledElement = function OoUiTitledElement( config ) {
+OO.ui.mixin.TitledElement = function OoUiMixinTitledElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -38,7 +38,7 @@ OO.ui.TitledElement = function OoUiTitledElement( config ) {
 
 /* Setup */
 
-OO.initClass( OO.ui.TitledElement );
+OO.initClass( OO.ui.mixin.TitledElement );
 
 /* Static Properties */
 
@@ -50,7 +50,7 @@ OO.initClass( OO.ui.TitledElement );
  * @inheritable
  * @property {string|Function|null}
  */
-OO.ui.TitledElement.static.title = null;
+OO.ui.mixin.TitledElement.static.title = null;
 
 /* Methods */
 
@@ -62,7 +62,7 @@ OO.ui.TitledElement.static.title = null;
  *
  * @param {jQuery} $titled Element that should use the 'titled' functionality
  */
-OO.ui.TitledElement.prototype.setTitledElement = function ( $titled ) {
+OO.ui.mixin.TitledElement.prototype.setTitledElement = function ( $titled ) {
 	if ( this.$titled ) {
 		this.$titled.removeAttr( 'title' );
 	}
@@ -79,7 +79,7 @@ OO.ui.TitledElement.prototype.setTitledElement = function ( $titled ) {
  * @param {string|Function|null} title Title text, a function that returns text, or `null` for no title
  * @chainable
  */
-OO.ui.TitledElement.prototype.setTitle = function ( title ) {
+OO.ui.mixin.TitledElement.prototype.setTitle = function ( title ) {
 	title = typeof title === 'string' ? OO.ui.resolveMsg( title ) : null;
 
 	if ( this.title !== title ) {
@@ -101,6 +101,6 @@ OO.ui.TitledElement.prototype.setTitle = function ( title ) {
  *
  * @return {string} Title string
  */
-OO.ui.TitledElement.prototype.getTitle = function () {
+OO.ui.mixin.TitledElement.prototype.getTitle = function () {
 	return this.title;
 };

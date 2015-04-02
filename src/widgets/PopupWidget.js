@@ -19,7 +19,7 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.LabelElement
+ * @mixins OO.ui.mixin.LabelElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -58,8 +58,8 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.$body = $( '<div>' );
 
 	// Mixin constructors
-	OO.ui.LabelElement.call( this, config );
-	OO.ui.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$body } ) );
+	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$body } ) );
 
 	// Properties
 	this.$popup = $( '<div>' );
@@ -116,8 +116,8 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.PopupWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.PopupWidget, OO.ui.LabelElement );
-OO.mixinClass( OO.ui.PopupWidget, OO.ui.ClippableElement );
+OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.ClippableElement );
 
 /* Methods */
 

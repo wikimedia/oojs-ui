@@ -1,7 +1,7 @@
 /**
  * DraggableElement is a mixin class used to create elements that can be clicked
  * and dragged by a mouse to a new position within a group. This class must be used
- * in conjunction with OO.ui.DraggableGroupElement, which provides a container for
+ * in conjunction with OO.ui.mixin.DraggableGroupElement, which provides a container for
  * the draggable elements.
  *
  * @abstract
@@ -9,7 +9,7 @@
  *
  * @constructor
  */
-OO.ui.DraggableElement = function OoUiDraggableElement() {
+OO.ui.mixin.DraggableElement = function OoUiMixinDraggableElement() {
 	// Properties
 	this.index = null;
 
@@ -25,7 +25,7 @@ OO.ui.DraggableElement = function OoUiDraggableElement() {
 		} );
 };
 
-OO.initClass( OO.ui.DraggableElement );
+OO.initClass( OO.ui.mixin.DraggableElement );
 
 /* Events */
 
@@ -33,7 +33,7 @@ OO.initClass( OO.ui.DraggableElement );
  * @event dragstart
  *
  * A dragstart event is emitted when the user clicks and begins dragging an item.
- * @param {OO.ui.DraggableElement} item The item the user has clicked and is dragging with the mouse.
+ * @param {OO.ui.mixin.DraggableElement} item The item the user has clicked and is dragging with the mouse.
  */
 
 /**
@@ -51,9 +51,9 @@ OO.initClass( OO.ui.DraggableElement );
 /* Static Properties */
 
 /**
- * @inheritdoc OO.ui.ButtonElement
+ * @inheritdoc OO.ui.mixin.ButtonElement
  */
-OO.ui.DraggableElement.static.cancelButtonMouseDownEvents = false;
+OO.ui.mixin.DraggableElement.static.cancelButtonMouseDownEvents = false;
 
 /* Methods */
 
@@ -64,7 +64,7 @@ OO.ui.DraggableElement.static.cancelButtonMouseDownEvents = false;
  * @param {jQuery.Event} event jQuery event
  * @fires dragstart
  */
-OO.ui.DraggableElement.prototype.onDragStart = function ( e ) {
+OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	var dataTransfer = e.originalEvent.dataTransfer;
 	// Define drop effect
 	dataTransfer.dropEffect = 'none';
@@ -90,7 +90,7 @@ OO.ui.DraggableElement.prototype.onDragStart = function ( e ) {
  * @private
  * @fires dragend
  */
-OO.ui.DraggableElement.prototype.onDragEnd = function () {
+OO.ui.mixin.DraggableElement.prototype.onDragEnd = function () {
 	this.$element.removeClass( 'oo-ui-draggableElement-dragging' );
 	this.emit( 'dragend' );
 };
@@ -102,7 +102,7 @@ OO.ui.DraggableElement.prototype.onDragEnd = function () {
  * @param {jQuery.Event} event jQuery event
  * @fires drop
  */
-OO.ui.DraggableElement.prototype.onDrop = function ( e ) {
+OO.ui.mixin.DraggableElement.prototype.onDrop = function ( e ) {
 	e.preventDefault();
 	this.emit( 'drop', e );
 };
@@ -113,7 +113,7 @@ OO.ui.DraggableElement.prototype.onDrop = function ( e ) {
  *
  * @private
  */
-OO.ui.DraggableElement.prototype.onDragOver = function ( e ) {
+OO.ui.mixin.DraggableElement.prototype.onDragOver = function ( e ) {
 	e.preventDefault();
 };
 
@@ -124,7 +124,7 @@ OO.ui.DraggableElement.prototype.onDragOver = function ( e ) {
  * @private
  * @param {number} Item index
  */
-OO.ui.DraggableElement.prototype.setIndex = function ( index ) {
+OO.ui.mixin.DraggableElement.prototype.setIndex = function ( index ) {
 	if ( this.index !== index ) {
 		this.index = index;
 		this.$element.data( 'index', index );
@@ -137,6 +137,6 @@ OO.ui.DraggableElement.prototype.setIndex = function ( index ) {
  * @private
  * @return {number} Item index
  */
-OO.ui.DraggableElement.prototype.getIndex = function () {
+OO.ui.mixin.DraggableElement.prototype.getIndex = function () {
 	return this.index;
 };

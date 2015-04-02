@@ -1,7 +1,7 @@
 /**
  * SelectFileWidgets allow for selecting files, using the HTML5 File API. These
- * widgets can be configured with {@link OO.ui.IconElement icons} and {@link
- * OO.ui.IndicatorElement indicators}.
+ * widgets can be configured with {@link OO.ui.mixin.IconElement icons} and {@link
+ * OO.ui.mixin.IndicatorElement indicators}.
  * Please see the [OOjs UI documentation on MediaWiki] [1] for more information and examples.
  *
  *     @example
@@ -13,11 +13,11 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.IconElement
- * @mixins OO.ui.IndicatorElement
- * @mixins OO.ui.PendingElement
- * @mixins OO.ui.LabelElement
- * @mixins OO.ui.TabIndexedElement
+ * @mixins OO.ui.mixin.IconElement
+ * @mixins OO.ui.mixin.IndicatorElement
+ * @mixins OO.ui.mixin.PendingElement
+ * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -44,11 +44,11 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	this.$handle = $( '<span>' );
 
 	// Mixin constructors
-	OO.ui.IconElement.call( this, config );
-	OO.ui.IndicatorElement.call( this, config );
-	OO.ui.PendingElement.call( this, config );
-	OO.ui.LabelElement.call( this, $.extend( config, { autoFitLabel: true } ) );
-	OO.ui.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
+	OO.ui.mixin.IconElement.call( this, config );
+	OO.ui.mixin.IndicatorElement.call( this, config );
+	OO.ui.mixin.PendingElement.call( this, config );
+	OO.ui.mixin.LabelElement.call( this, $.extend( config, { autoFitLabel: true } ) );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
 
 	// Properties
 	this.isSupported = this.constructor.static.isSupported();
@@ -104,11 +104,11 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.SelectFileWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.IconElement );
-OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.IndicatorElement );
-OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.PendingElement );
-OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.LabelElement );
-OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.TabIndexedElement );
+OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.IconElement );
+OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.IndicatorElement );
+OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.PendingElement );
+OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.TabIndexedElement );
 
 /* Static properties */
 

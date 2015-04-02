@@ -22,7 +22,7 @@
  *
  * @class
  * @extends OO.ui.ToggleWidget
- * @mixins OO.ui.TabIndexedElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -34,7 +34,7 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	OO.ui.ToggleSwitchWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.TabIndexedElement.call( this, config );
+	OO.ui.mixin.TabIndexedElement.call( this, config );
 
 	// Properties
 	this.dragging = false;
@@ -61,7 +61,7 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ToggleSwitchWidget, OO.ui.ToggleWidget );
-OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.TabIndexedElement );
+OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.mixin.TabIndexedElement );
 
 /* Methods */
 

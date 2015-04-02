@@ -3,10 +3,10 @@
 
 	function TestElement( config ) {
 		TestElement.super.call( this, config );
-		OO.ui.FlaggedElement.call( this, config );
+		OO.ui.mixin.FlaggedElement.call( this, config );
 	}
 	OO.inheritClass( TestElement, OO.ui.Widget );
-	OO.mixinClass( TestElement, OO.ui.FlaggedElement );
+	OO.mixinClass( TestElement, OO.ui.mixin.FlaggedElement );
 
 	QUnit.test( 'constructor', 2, function ( assert ) {
 		var element;

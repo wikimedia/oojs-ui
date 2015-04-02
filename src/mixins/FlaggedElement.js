@@ -46,7 +46,7 @@
  *  the flagged functionality is applied to the element created by the class ($element).
  *  If a different element is specified, the flagged functionality will be applied to it instead.
  */
-OO.ui.FlaggedElement = function OoUiFlaggedElement( config ) {
+OO.ui.mixin.FlaggedElement = function OoUiMixinFlaggedElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -81,7 +81,7 @@ OO.ui.FlaggedElement = function OoUiFlaggedElement( config ) {
  *
  * @param {jQuery} $flagged Element that should be flagged
  */
-OO.ui.FlaggedElement.prototype.setFlaggedElement = function ( $flagged ) {
+OO.ui.mixin.FlaggedElement.prototype.setFlaggedElement = function ( $flagged ) {
 	var classNames = Object.keys( this.flags ).map( function ( flag ) {
 		return 'oo-ui-flaggedElement-' + flag;
 	} ).join( ' ' );
@@ -99,7 +99,7 @@ OO.ui.FlaggedElement.prototype.setFlaggedElement = function ( $flagged ) {
  * @param {string} flag Name of flag
  * @return {boolean} The flag is set
  */
-OO.ui.FlaggedElement.prototype.hasFlag = function ( flag ) {
+OO.ui.mixin.FlaggedElement.prototype.hasFlag = function ( flag ) {
 	return flag in this.flags;
 };
 
@@ -108,7 +108,7 @@ OO.ui.FlaggedElement.prototype.hasFlag = function ( flag ) {
  *
  * @return {string[]} Flag names
  */
-OO.ui.FlaggedElement.prototype.getFlags = function () {
+OO.ui.mixin.FlaggedElement.prototype.getFlags = function () {
 	return Object.keys( this.flags );
 };
 
@@ -118,7 +118,7 @@ OO.ui.FlaggedElement.prototype.getFlags = function () {
  * @chainable
  * @fires flag
  */
-OO.ui.FlaggedElement.prototype.clearFlags = function () {
+OO.ui.mixin.FlaggedElement.prototype.clearFlags = function () {
 	var flag, className,
 		changes = {},
 		remove = [],
@@ -150,7 +150,7 @@ OO.ui.FlaggedElement.prototype.clearFlags = function () {
  * @chainable
  * @fires flag
  */
-OO.ui.FlaggedElement.prototype.setFlags = function ( flags ) {
+OO.ui.mixin.FlaggedElement.prototype.setFlags = function ( flags ) {
 	var i, len, flag, className,
 		changes = {},
 		add = [],

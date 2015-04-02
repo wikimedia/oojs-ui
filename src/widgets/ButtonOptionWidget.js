@@ -1,5 +1,5 @@
 /**
- * ButtonOptionWidget is a special type of {@link OO.ui.ButtonElement button element} that
+ * ButtonOptionWidget is a special type of {@link OO.ui.mixin.ButtonElement button element} that
  * can be selected and configured with data. The class is
  * used with OO.ui.ButtonSelectWidget to create a selection of button options. Please see the
  * [OOjs UI documentation on MediaWiki] [1] for more information.
@@ -8,8 +8,8 @@
  *
  * @class
  * @extends OO.ui.DecoratedOptionWidget
- * @mixins OO.ui.ButtonElement
- * @mixins OO.ui.TabIndexedElement
+ * @mixins OO.ui.mixin.ButtonElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -22,8 +22,8 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( config ) {
 	OO.ui.ButtonOptionWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.ButtonElement.call( this, config );
-	OO.ui.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$button } ) );
+	OO.ui.mixin.ButtonElement.call( this, config );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$button } ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonOptionWidget' );
@@ -34,8 +34,8 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ButtonOptionWidget, OO.ui.DecoratedOptionWidget );
-OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.ButtonElement );
-OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.TabIndexedElement );
+OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.ButtonElement );
+OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.TabIndexedElement );
 
 /* Static Properties */
 

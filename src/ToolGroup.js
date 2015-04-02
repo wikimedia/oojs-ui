@@ -26,7 +26,7 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.GroupElement
+ * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
@@ -52,7 +52,7 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	OO.ui.ToolGroup.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.GroupElement.call( this, config );
+	OO.ui.mixin.GroupElement.call( this, config );
 
 	// Properties
 	this.toolbar = toolbar;
@@ -91,7 +91,7 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ToolGroup, OO.ui.Widget );
-OO.mixinClass( OO.ui.ToolGroup, OO.ui.GroupElement );
+OO.mixinClass( OO.ui.ToolGroup, OO.ui.mixin.GroupElement );
 
 /* Events */
 

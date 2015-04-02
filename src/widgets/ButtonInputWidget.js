@@ -18,11 +18,11 @@
  *
  * @class
  * @extends OO.ui.InputWidget
- * @mixins OO.ui.ButtonElement
- * @mixins OO.ui.IconElement
- * @mixins OO.ui.IndicatorElement
- * @mixins OO.ui.LabelElement
- * @mixins OO.ui.TitledElement
+ * @mixins OO.ui.mixin.ButtonElement
+ * @mixins OO.ui.mixin.IconElement
+ * @mixins OO.ui.mixin.IndicatorElement
+ * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -43,11 +43,11 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	OO.ui.ButtonInputWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.ButtonElement.call( this, $.extend( {}, config, { $button: this.$input } ) );
-	OO.ui.IconElement.call( this, config );
-	OO.ui.IndicatorElement.call( this, config );
-	OO.ui.LabelElement.call( this, config );
-	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$input } ) );
+	OO.ui.mixin.ButtonElement.call( this, $.extend( {}, config, { $button: this.$input } ) );
+	OO.ui.mixin.IconElement.call( this, config );
+	OO.ui.mixin.IndicatorElement.call( this, config );
+	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$input } ) );
 
 	// Initialization
 	if ( !config.useInputTag ) {
@@ -59,11 +59,11 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ButtonInputWidget, OO.ui.InputWidget );
-OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.ButtonElement );
-OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.IconElement );
-OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.IndicatorElement );
-OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.LabelElement );
-OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.TitledElement );
+OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.ButtonElement );
+OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.IconElement );
+OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.IndicatorElement );
+OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.TitledElement );
 
 /* Methods */
 
@@ -88,7 +88,7 @@ OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
  * @chainable
  */
 OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
-	OO.ui.LabelElement.prototype.setLabel.call( this, label );
+	OO.ui.mixin.LabelElement.prototype.setLabel.call( this, label );
 
 	if ( this.useInputTag ) {
 		if ( typeof label === 'function' ) {

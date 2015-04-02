@@ -3,8 +3,9 @@
 		"scripts": [
 			"src/intro.js.txt",
 			"src/core.js",
+			"src/mixin.js",
 
-			"src/elements/PendingElement.js",
+			"src/mixins/PendingElement.js",
 
 			"src/ActionSet.js",
 			"src/Element.js",
@@ -20,19 +21,19 @@
 			"src/ToolGroupFactory.js",
 			"src/Theme.js",
 
-			"src/elements/TabIndexedElement.js",
-			"src/elements/ButtonElement.js",
-			"src/elements/GroupElement.js",
-			"src/elements/DraggableElement.js",
-			"src/elements/DraggableGroupElement.js",
-			"src/elements/IconElement.js",
-			"src/elements/IndicatorElement.js",
-			"src/elements/LabelElement.js",
-			"src/elements/LookupElement.js",
-			"src/elements/PopupElement.js",
-			"src/elements/FlaggedElement.js",
-			"src/elements/TitledElement.js",
-			"src/elements/ClippableElement.js",
+			"src/mixins/TabIndexedElement.js",
+			"src/mixins/ButtonElement.js",
+			"src/mixins/GroupElement.js",
+			"src/mixins/DraggableElement.js",
+			"src/mixins/DraggableGroupElement.js",
+			"src/mixins/IconElement.js",
+			"src/mixins/IndicatorElement.js",
+			"src/mixins/LabelElement.js",
+			"src/mixins/LookupElement.js",
+			"src/mixins/PopupElement.js",
+			"src/mixins/FlaggedElement.js",
+			"src/mixins/TitledElement.js",
+			"src/mixins/ClippableElement.js",
 
 			"src/Tool.js",
 			"src/Toolbar.js",
@@ -61,8 +62,8 @@
 			"src/tools/PopupTool.js",
 			"src/tools/ToolGroupTool.js",
 
-			"src/widgets/GroupWidget.js",
-			"src/widgets/ItemWidget.js",
+			"src/mixins/GroupWidget.js",
+			"src/mixins/ItemWidget.js",
 			"src/widgets/OutlineControlsWidget.js",
 			"src/widgets/ToggleWidget.js",
 
@@ -105,6 +106,7 @@
 			"src/widgets/NumberInputWidget.js",
 			"src/widgets/ToggleSwitchWidget.js",
 
+			"src/mixins/aliases.js",
 			"src/outro.js.txt"
 		]
 	},

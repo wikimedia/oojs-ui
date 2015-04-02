@@ -727,7 +727,7 @@ OO.ui.Element.prototype.getClosestScrollableElementContainer = function () {
 /**
  * Get group element is in.
  *
- * @return {OO.ui.GroupElement|null} Group element, null if none
+ * @return {OO.ui.mixin.GroupElement|null} Group element, null if none
  */
 OO.ui.Element.prototype.getElementGroup = function () {
 	return this.elementGroup;
@@ -736,7 +736,7 @@ OO.ui.Element.prototype.getElementGroup = function () {
 /**
  * Set group element is in.
  *
- * @param {OO.ui.GroupElement|null} group Group element, null if none
+ * @param {OO.ui.mixin.GroupElement|null} group Group element, null if none
  * @chainable
  */
 OO.ui.Element.prototype.setElementGroup = function ( group ) {

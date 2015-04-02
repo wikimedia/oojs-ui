@@ -14,7 +14,7 @@
  * @cfg {boolean} [framed=true] Render the button with a frame
  * @cfg {string} [accessKey] Button's access key
  */
-OO.ui.ButtonElement = function OoUiButtonElement( config ) {
+OO.ui.mixin.ButtonElement = function OoUiMixinButtonElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -39,7 +39,7 @@ OO.ui.ButtonElement = function OoUiButtonElement( config ) {
 
 /* Setup */
 
-OO.initClass( OO.ui.ButtonElement );
+OO.initClass( OO.ui.mixin.ButtonElement );
 
 /* Static Properties */
 
@@ -47,7 +47,7 @@ OO.initClass( OO.ui.ButtonElement );
  * Cancel mouse down events.
  *
  * This property is usually set to `true` to prevent the focus from changing when the button is clicked.
- * Classes such as {@link OO.ui.DraggableElement DraggableElement} and {@link OO.ui.ButtonOptionWidget ButtonOptionWidget}
+ * Classes such as {@link OO.ui.mixin.DraggableElement DraggableElement} and {@link OO.ui.ButtonOptionWidget ButtonOptionWidget}
  * use a value of `false` so that dragging behavior is possible and mousedown events can be handled by a
  * parent widget.
  *
@@ -55,7 +55,7 @@ OO.initClass( OO.ui.ButtonElement );
  * @inheritable
  * @property {boolean}
  */
-OO.ui.ButtonElement.static.cancelButtonMouseDownEvents = true;
+OO.ui.mixin.ButtonElement.static.cancelButtonMouseDownEvents = true;
 
 /* Events */
 
@@ -76,7 +76,7 @@ OO.ui.ButtonElement.static.cancelButtonMouseDownEvents = true;
  *
  * @param {jQuery} $button Element to use as button
  */
-OO.ui.ButtonElement.prototype.setButtonElement = function ( $button ) {
+OO.ui.mixin.ButtonElement.prototype.setButtonElement = function ( $button ) {
 	if ( this.$button ) {
 		this.$button
 			.removeClass( 'oo-ui-buttonElement-button' )
@@ -106,7 +106,7 @@ OO.ui.ButtonElement.prototype.setButtonElement = function ( $button ) {
  * @protected
  * @param {jQuery.Event} e Mouse down event
  */
-OO.ui.ButtonElement.prototype.onMouseDown = function ( e ) {
+OO.ui.mixin.ButtonElement.prototype.onMouseDown = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
 		return;
 	}
@@ -126,7 +126,7 @@ OO.ui.ButtonElement.prototype.onMouseDown = function ( e ) {
  * @protected
  * @param {jQuery.Event} e Mouse up event
  */
-OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
+OO.ui.mixin.ButtonElement.prototype.onMouseUp = function ( e ) {
 	if ( this.isDisabled() || e.which !== 1 ) {
 		return;
 	}
@@ -142,7 +142,7 @@ OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
  * @param {jQuery.Event} e Mouse click event
  * @fires click
  */
-OO.ui.ButtonElement.prototype.onClick = function ( e ) {
+OO.ui.mixin.ButtonElement.prototype.onClick = function ( e ) {
 	if ( !this.isDisabled() && e.which === 1 ) {
 		if ( this.emit( 'click' ) ) {
 			return false;
@@ -156,7 +156,7 @@ OO.ui.ButtonElement.prototype.onClick = function ( e ) {
  * @protected
  * @param {jQuery.Event} e Key down event
  */
-OO.ui.ButtonElement.prototype.onKeyDown = function ( e ) {
+OO.ui.mixin.ButtonElement.prototype.onKeyDown = function ( e ) {
 	if ( this.isDisabled() || ( e.which !== OO.ui.Keys.SPACE && e.which !== OO.ui.Keys.ENTER ) ) {
 		return;
 	}
@@ -172,7 +172,7 @@ OO.ui.ButtonElement.prototype.onKeyDown = function ( e ) {
  * @protected
  * @param {jQuery.Event} e Key up event
  */
-OO.ui.ButtonElement.prototype.onKeyUp = function ( e ) {
+OO.ui.mixin.ButtonElement.prototype.onKeyUp = function ( e ) {
 	if ( this.isDisabled() || ( e.which !== OO.ui.Keys.SPACE && e.which !== OO.ui.Keys.ENTER ) ) {
 		return;
 	}
@@ -188,7 +188,7 @@ OO.ui.ButtonElement.prototype.onKeyUp = function ( e ) {
  * @param {jQuery.Event} e Key press event
  * @fires click
  */
-OO.ui.ButtonElement.prototype.onKeyPress = function ( e ) {
+OO.ui.mixin.ButtonElement.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
 		if ( this.emit( 'click' ) ) {
 			return false;
@@ -201,7 +201,7 @@ OO.ui.ButtonElement.prototype.onKeyPress = function ( e ) {
  *
  * @return {boolean} Button is framed
  */
-OO.ui.ButtonElement.prototype.isFramed = function () {
+OO.ui.mixin.ButtonElement.prototype.isFramed = function () {
 	return this.framed;
 };
 
@@ -211,7 +211,7 @@ OO.ui.ButtonElement.prototype.isFramed = function () {
  * @param {boolean} [framed] Make button framed, omit to toggle
  * @chainable
  */
-OO.ui.ButtonElement.prototype.toggleFramed = function ( framed ) {
+OO.ui.mixin.ButtonElement.prototype.toggleFramed = function ( framed ) {
 	framed = framed === undefined ? !this.framed : !!framed;
 	if ( framed !== this.framed ) {
 		this.framed = framed;
@@ -230,7 +230,7 @@ OO.ui.ButtonElement.prototype.toggleFramed = function ( framed ) {
  * @param {string} accessKey Button's access key, use empty string to remove
  * @chainable
  */
-OO.ui.ButtonElement.prototype.setAccessKey = function ( accessKey ) {
+OO.ui.mixin.ButtonElement.prototype.setAccessKey = function ( accessKey ) {
 	accessKey = typeof accessKey === 'string' && accessKey.length ? accessKey : null;
 
 	if ( this.accessKey !== accessKey ) {
@@ -257,7 +257,7 @@ OO.ui.ButtonElement.prototype.setAccessKey = function ( accessKey ) {
  * @param {boolean} [value] Make button active
  * @chainable
  */
-OO.ui.ButtonElement.prototype.setActive = function ( value ) {
+OO.ui.mixin.ButtonElement.prototype.setActive = function ( value ) {
 	this.$element.toggleClass( 'oo-ui-buttonElement-active', !!value );
 	return this;
 };

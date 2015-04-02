@@ -3,7 +3,7 @@
 // Quick and dirty autoloader to make it possible to run without Composer.
 spl_autoload_register( function ( $class ) {
 	$class = preg_replace( '/^OOUI\\\\/', '', $class );
-	foreach ( array( 'elements', 'layouts', 'themes', 'widgets', '.' ) as $dir ) {
+	foreach ( array( 'mixins', 'layouts', 'themes', 'widgets', '.' ) as $dir ) {
 		$path = "../php/$dir/$class.php";
 		if ( file_exists( $path ) ) {
 			require_once $path;

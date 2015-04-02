@@ -46,7 +46,7 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.TabIndexedElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -67,7 +67,7 @@ OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 	this.$indicator = this.$( '<span>' );
 
 	// Mixin constructors
-	OO.ui.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$indicator } ) );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$indicator } ) );
 
 	// Properties
 	this.$overlay = config.$overlay || this.$element;
@@ -116,7 +116,7 @@ OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ComboBoxWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.ComboBoxWidget, OO.ui.TabIndexedElement );
+OO.mixinClass( OO.ui.ComboBoxWidget, OO.ui.mixin.TabIndexedElement );
 
 /* Methods */
 

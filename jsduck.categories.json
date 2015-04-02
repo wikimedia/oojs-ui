@@ -26,8 +26,8 @@
 				"classes": ["OO.ui.*Tool"]
 			},
 			{
-				"name": "Elements",
-				"classes": ["OO.ui.*Element"]
+				"name": "Mixins",
+				"classes": ["OO.ui.mixin", "OO.ui.mixin.*"]
 			},
 			{
 				"name": "Layouts",

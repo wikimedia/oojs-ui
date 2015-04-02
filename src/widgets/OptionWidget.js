@@ -8,8 +8,8 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.LabelElement
- * @mixins OO.ui.FlaggedElement
+ * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.FlaggedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -22,9 +22,9 @@ OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 	OO.ui.OptionWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.ItemWidget.call( this );
-	OO.ui.LabelElement.call( this, config );
-	OO.ui.FlaggedElement.call( this, config );
+	OO.ui.mixin.ItemWidget.call( this );
+	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.FlaggedElement.call( this, config );
 
 	// Properties
 	this.selected = false;
@@ -42,9 +42,9 @@ OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.OptionWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.OptionWidget, OO.ui.ItemWidget );
-OO.mixinClass( OO.ui.OptionWidget, OO.ui.LabelElement );
-OO.mixinClass( OO.ui.OptionWidget, OO.ui.FlaggedElement );
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.ItemWidget );
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.FlaggedElement );
 
 /* Static Properties */
 

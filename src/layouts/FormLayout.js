@@ -51,7 +51,7 @@
  *
  * @class
  * @extends OO.ui.Layout
- * @mixins OO.ui.GroupElement
+ * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -68,7 +68,7 @@ OO.ui.FormLayout = function OoUiFormLayout( config ) {
 	OO.ui.FormLayout.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.GroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
+	OO.ui.mixin.GroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
 
 	// Events
 	this.$element.on( 'submit', this.onFormSubmit.bind( this ) );
@@ -89,7 +89,7 @@ OO.ui.FormLayout = function OoUiFormLayout( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.FormLayout, OO.ui.Layout );
-OO.mixinClass( OO.ui.FormLayout, OO.ui.GroupElement );
+OO.mixinClass( OO.ui.FormLayout, OO.ui.mixin.GroupElement );
 
 /* Events */
 
