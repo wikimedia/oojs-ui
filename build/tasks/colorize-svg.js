@@ -173,8 +173,8 @@ module.exports = function ( grunt ) {
 		var selector, declarations, direction, lang, langSelector,
 			deferred = Q.defer(),
 			file = typeof this.file === 'string' ?
-				{ default: this.file } :
-				{ ltr: this.file.ltr, rtl: this.file.rtl },
+				{ ltr: this.file, rtl: this.file } :
+				{ ltr: this.file.ltr || this.file.default, rtl: this.file.rtl || this.file.default },
 			moreLangs = this.file.lang || {},
 			name = this.name,
 			sourcePath = this.list.getPath(),
@@ -185,7 +185,6 @@ module.exports = function ( grunt ) {
 			cssPrependPath = this.list.options.cssPrependPath,
 			originalSvg = {},
 			rules = {
-				default: [],
 				ltr: [],
 				rtl: []
 			},
@@ -319,9 +318,6 @@ module.exports = function ( grunt ) {
 			}
 			deferred.reject( 'Failed to generate some images' );
 		} else {
-			rules.ltr = rules.ltr.concat( rules.default );
-			rules.rtl = rules.rtl.concat( rules.default );
-			delete rules.default;
 			deferred.resolve( {
 				rules: rules,
 				files: files
