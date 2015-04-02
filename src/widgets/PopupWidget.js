@@ -26,9 +26,13 @@
  * @cfg {number} [width=320] Width of popup in pixels
  * @cfg {number} [height] Height of popup in pixels. Omit to use the automatic height.
  * @cfg {boolean} [anchor=true] Show anchor pointing to origin of popup
- * @cfg {string} [align='center'] Alignment of the popup: `center`, `left`, or `right`.
- *  If the popup is right-aligned, the right edge of the popup is aligned to the anchor.
- *  For left-aligned popups, the left edge is aligned to the anchor.
+ * @cfg {string} [align='center'] Alignment of the popup: `center`, `force-left`, `force-right`, `backwards` or `forwards`.
+ *  If the popup is forced-left the popup body is leaning towards the left. For force-right alignment, the body of the
+ *  popup is leaning towards the right of the screen.
+ *  Using 'backwards' is a logical direction which will result in the popup leaning towards the beginning of the sentence
+ *  in the given language, which means it will flip to the correct positioning in right-to-left languages.
+ *  Using 'forward' will also result in a logical alignment where the body of the popup leans towards the end of the
+ *  sentence in the given language.
  * @cfg {jQuery} [$container] Constrain the popup to the boundaries of the specified container.
  *  See the [OOjs UI docs on MediaWiki][3] for an example.
  *  [3]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Popups#containerExample
@@ -70,7 +74,12 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.anchor = null;
 	this.width = config.width !== undefined ? config.width : 320;
 	this.height = config.height !== undefined ? config.height : null;
-	this.align = config.align || 'center';
+	// Validate alignment and transform deprecated values
+	if ( [ 'left', 'right', 'force-left', 'force-right', 'backwards', 'forwards', 'center' ].indexOf( config.align ) > -1 ) {
+		this.align = { left: 'force-right', right: 'force-left' }[ config.align ] || config.align;
+	} else {
+		this.align = 'center';
+	}
 	this.closeButton = new OO.ui.ButtonWidget( { framed: false, icon: 'close' } );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
 	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
@@ -286,6 +295,7 @@ OO.ui.PopupWidget.prototype.setSize = function ( width, height, transition ) {
 OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	var popupOffset, originOffset, containerLeft, containerWidth, containerRight,
 		popupLeft, popupRight, overlapLeft, overlapRight, anchorWidth,
+		align = this.align,
 		widget = this;
 
 	if ( !this.$container ) {
@@ -300,8 +310,18 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 		height: this.height !== null ? this.height : 'auto'
 	} );
 
+	// If we are in RTL, we need to flip the alignment, unless it is center
+	if ( align === 'forwards' || align === 'backwards' ) {
+		if ( this.$container.css( 'direction' ) === 'rtl' ) {
+			align = ( { forwards: 'force-left', backwards: 'force-right' } )[ this.align ];
+		} else {
+			align = ( { forwards: 'force-right', backwards: 'force-left' } )[ this.align ];
+		}
+
+	}
+
 	// Compute initial popupOffset based on alignment
-	popupOffset = this.width * ( { left: 0, center: -0.5, right: -1 } )[ this.align ];
+	popupOffset = this.width * ( { 'force-left': -1, center: -0.5, 'force-right': 0 } )[ align ];
 
 	// Figure out if this will cause the popup to go beyond the edge of the container
 	originOffset = this.$element.offset().left;
