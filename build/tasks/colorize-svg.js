@@ -170,11 +170,12 @@ module.exports = function ( grunt ) {
 			return fileName;
 		}
 
-		var selector, declarations, direction,
+		var selector, declarations, direction, lang, langSelector,
 			deferred = Q.defer(),
 			file = typeof this.file === 'string' ?
 				{ default: this.file } :
 				{ ltr: this.file.ltr, rtl: this.file.rtl },
+			moreLangs = this.file.lang || {},
 			name = this.name,
 			sourcePath = this.list.getPath(),
 			destinationPath = destination.getPath(),
@@ -192,6 +193,15 @@ module.exports = function ( grunt ) {
 			uncolorizableImages = [],
 			unknownVariants = [];
 
+		// Expand shorthands:
+		// { "en,de,fr": "foo.svg" } → { "en": "foo.svg", "de": "foo.svg", "fr": "foo.svg" }
+		moreLangs = Object.keys( moreLangs ).reduce( function ( langs, langList ) {
+			langList.split( ',' ).forEach( function ( lang ) {
+				langs[ lang ] = moreLangs[ langList ];
+			} );
+			return langs;
+		}, {} );
+
 		// Original
 		selector = cssSelectors.selectorWithoutVariant
 			.replace( /{prefix}/g, cssClassPrefix )
@@ -206,6 +216,25 @@ module.exports = function ( grunt ) {
 				path.join( sourcePath, file[ direction ] )
 			);
 			files[ path.join( destinationPath, file[ direction ] ) ] = originalSvg[ direction ];
+
+			for ( lang in moreLangs ) {
+				if ( file[ direction ] === moreLangs[ lang ] ) {
+					continue;
+				}
+
+				// This will not work for selectors ending in a pseudo-element.
+				langSelector = ':lang(' + lang + ')';
+				declarations = getDeclarations( moreLangs[ lang ] );
+				rules[ direction ].push(
+					selector.replace( /,|$/g, langSelector + '$&' ) +
+					' {\n\t' + declarations + '\n}'
+				);
+
+				originalSvg[ 'lang-' + lang ] = grunt.file.read(
+					path.join( sourcePath, moreLangs[ lang ] )
+				);
+				files[ path.join( destinationPath, moreLangs[ lang ] ) ] = originalSvg[ 'lang-' + lang ];
+			}
 		}
 
 		// Variants
@@ -242,6 +271,34 @@ module.exports = function ( grunt ) {
 					variantizeFileName( file[ direction ], variantName )
 				);
 				files[ destinationFilePath ] = variantSvg;
+
+				for ( lang in moreLangs ) {
+					if ( file[ direction ] === moreLangs[ lang ] ) {
+						continue;
+					}
+
+					langSelector = ':lang(' + lang + ')';
+					declarations = getDeclarations( variantizeFileName( moreLangs[ lang ], variantName ) );
+					rules[ direction ].push(
+						selector.replace( /,|$/g, langSelector + '$&' ) +
+						' {\n\t' + declarations + '\n}'
+					);
+
+					variantSvg = originalSvg[ 'lang-' + lang ].replace(
+						/<svg[^>]*>/, '$&<style>* { fill: ' + variant.getColor() + ' }</style>'
+					);
+
+					if ( originalSvg[ 'lang-' + lang ] === variantSvg ) {
+						uncolorizableImages.push( moreLangs[ lang ] );
+						continue;
+					}
+
+					destinationFilePath = path.join(
+						destinationPath,
+						variantizeFileName( moreLangs[ lang ], variantName )
+					);
+					files[ destinationFilePath ] = variantSvg;
+				}
 			}
 		} );
 
