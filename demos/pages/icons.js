@@ -175,7 +175,10 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'stripeFlow',
 				'stripeSideMenu',
 				'stripeSummary',
-				'stripeToC'
+				'stripeToC',
+				'viewCompact',
+				'viewDetails',
+				'visionSimulator'
 			],
 			wikimedia: [
 				'logoCC',

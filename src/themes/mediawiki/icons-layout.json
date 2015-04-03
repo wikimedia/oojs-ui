@@ -14,6 +14,12 @@
 		"stripeToC": { "file": {
 			"ltr": "images/icons/stripeToC-ltr.svg",
 			"rtl": "images/icons/stripeToC-rtl.svg"
-		} }
+		} },
+		"viewCompact": { "file": "images/icons/viewCompact.svg" },
+		"viewDetails": { "file": {
+			"ltr": "images/icons/viewDetails-ltr.svg",
+			"rtl": "images/icons/viewDetails-rtl.svg"
+		} },
+		"visionSimulator": { "file": "images/icons/visionSimulator.svg" }
 	}
 }
