@@ -1,6 +1,6 @@
 # OOjs UI Release History
 
-## v0.9.6 / 2015-04-03
+## v0.9.7 / 2015-04-03
 * build: Generate correct paths to fallback images (Bartosz Dziewoński)
 
 ## v0.9.5 / 2015-04-02
