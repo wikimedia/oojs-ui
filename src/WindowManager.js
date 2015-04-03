@@ -75,6 +75,7 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	this.preparingToClose = null;
 	this.currentWindow = null;
 	this.globalEvents = false;
+	this.$returnFocusTo = null;
 	this.$ariaHidden = null;
 	this.onWindowResizeTimeout = null;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
@@ -332,6 +333,7 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  *
  * @param {OO.ui.Window|string} win Window object or symbolic name of window to open
  * @param {Object} [data] Window opening data
+ * @param {jQuery} [data.$returnFocusTo] Element to which the window will return focus when closed.
  * @return {jQuery.Promise} An `opening` promise resolved when the window is done opening.
  *  See {@link #event-opening 'opening' event}  for more information about `opening` promises.
  * @fires opening
@@ -339,6 +341,7 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
 OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 	var manager = this,
 		opening = $.Deferred();
+	data = data || {};
 
 	// Argument handling
 	if ( typeof win === 'string' ) {
@@ -368,6 +371,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 				manager.toggleGlobalEvents( true );
 				manager.toggleAriaIsolation( true );
 			}
+			manager.$returnFocusTo = data.$returnFocusTo || $( document.activeElement );
 			manager.currentWindow = win;
 			manager.opening = opening;
 			manager.preparingToOpen = null;
@@ -461,6 +465,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 								manager.toggleGlobalEvents( false );
 								manager.toggleAriaIsolation( false );
 							}
+							manager.$returnFocusTo[ 0 ].focus();
 							manager.closing = null;
 							manager.currentWindow = null;
 							closing.resolve( data );
