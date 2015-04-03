@@ -1,5 +1,8 @@
 # OOjs UI Release History
 
+## v0.9.6 / 2015-04-03
+* build: Generate correct paths to fallback images (Bartosz Dziewoński)
+
 ## v0.9.5 / 2015-04-02
 * ActionFieldLayout: Add description and example (Kirsten Menger-Anderson)
 * Add vertical spacing to RadioSelectWidget in MW theme (Ed Sanders)
