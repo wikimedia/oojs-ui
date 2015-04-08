@@ -5,6 +5,10 @@
 		"alignCentre": { "file": "images/icons/align-center.svg" },
 		"alignLeft": { "file": "images/icons/align-float-left.svg" },
 		"alignRight": { "file": "images/icons/align-float-right.svg" },
+		"find": { "file": {
+			"ltr": "images/icons/find-ltr.svg",
+			"rtl": "images/icons/find-rtl.svg"
+		} },
 		"insert": { "file": "images/icons/insert.svg" },
 		"layout": { "file": {
 			"ltr": "images/icons/layout-ltr.svg",

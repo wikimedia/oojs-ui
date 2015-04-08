@@ -43,6 +43,7 @@
 				"he,yi": "images/icons/help-ltr.svg"
 			}
 		} },
+		"history": { "file": "images/icons/history.svg" },
 		"info": { "file": "images/icons/info.svg" },
 		"menu": { "file": "images/icons/menu.svg" },
 		"next": { "file": {
