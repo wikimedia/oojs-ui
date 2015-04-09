@@ -176,9 +176,18 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
  *
  * If no page is selected, the first selectable page will be selected.
  * If the focus is already in an element on the current page, nothing will happen.
+ * @param {number} [itemIndex] A specific item to focus on
  */
-OO.ui.BookletLayout.prototype.focus = function () {
-	var $input, page = this.stackLayout.getCurrentItem();
+OO.ui.BookletLayout.prototype.focus = function ( itemIndex ) {
+	var $input, page,
+		items = this.stackLayout.getItems();
+
+	if ( itemIndex !== undefined && items[ itemIndex ] ) {
+		page = items[ itemIndex ];
+	} else {
+		page = this.stackLayout.getCurrentItem();
+	}
+
 	if ( !page && this.outlined ) {
 		this.selectFirstSelectablePage();
 		page = this.stackLayout.getCurrentItem();
