@@ -28,7 +28,7 @@
  *
  *     MyProcessDialog.prototype.initialize = function () {
  *         MyProcessDialog.super.prototype.initialize.apply( this, arguments );
- *         this.content = new OO.ui.PanelLayout( { $: this.$, padded: true, expanded: false } );
+ *         this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
  *         this.content.$element.append( '<p>This is a process dialog window. The header contains the title and two buttons: \'Cancel\' (a safe action) on the left and \'Done\' (a primary action)  on the right.</p>' );
  *         this.$body.append( this.content.$element );
  *     };
