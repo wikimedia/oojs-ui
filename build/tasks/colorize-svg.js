@@ -221,6 +221,7 @@ module.exports = function ( grunt ) {
 				langSelector = ':lang(' + lang + ')';
 				declarations = getDeclarations( moreLangs[ lang ] );
 				rules[ direction ].push(
+					'/* @noflip */\n' +
 					selector.replace( /,|$/g, langSelector + '$&' ) +
 					' {\n\t' + declarations + '\n}'
 				);
@@ -271,6 +272,7 @@ module.exports = function ( grunt ) {
 					langSelector = ':lang(' + lang + ')';
 					declarations = getDeclarations( variantizeFileName( moreLangs[ lang ], variantName ) );
 					rules[ direction ].push(
+						'/* @noflip */\n' +
 						selector.replace( /,|$/g, langSelector + '$&' ) +
 						' {\n\t' + declarations + '\n}'
 					);
