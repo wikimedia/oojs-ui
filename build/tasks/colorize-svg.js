@@ -217,10 +217,6 @@ module.exports = function ( grunt ) {
 			files[ path.join( destinationPath, file[ direction ] ) ] = originalSvg[ direction ];
 
 			for ( lang in moreLangs ) {
-				if ( file[ direction ] === moreLangs[ lang ] ) {
-					continue;
-				}
-
 				// This will not work for selectors ending in a pseudo-element.
 				langSelector = ':lang(' + lang + ')';
 				declarations = getDeclarations( moreLangs[ lang ] );
@@ -272,10 +268,6 @@ module.exports = function ( grunt ) {
 				files[ destinationFilePath ] = variantSvg;
 
 				for ( lang in moreLangs ) {
-					if ( file[ direction ] === moreLangs[ lang ] ) {
-						continue;
-					}
-
 					langSelector = ':lang(' + lang + ')';
 					declarations = getDeclarations( variantizeFileName( moreLangs[ lang ], variantName ) );
 					rules[ direction ].push(
