@@ -1,5 +1,19 @@
 # OOjs UI Release History
 
+## v0.9.8 / 2015-04-12
+* Apex, MediaWiki: Correct or delete unused SVG files (James D. Forrester)
+* Apex theme: Correctly position popups in RTL; follows-up v0.9.5 (Moriel Schottlender)
+* BookletLayout: Allow focus on any item (Moriel Schottlender)
+* Error: Add description (Kirsten Menger-Anderson)
+* Move coverage output from "/dist/coverage" to "/coverage" (Timo Tijhof)
+* ProcessDialog: Remove stray 'this.$' from documentation code example (Roan Kattouw)
+* ProgressBarWidget: Remove spurious styles from CSS output (Bartosz Dziewoński)
+* build: Add explicit dependency upon grunt-cli (Kunal Mehta)
+* build: Run lint before build in grunt-test (Timo Tijhof)
+* colorize-svg: Generate language-specific rules for images even if equal to default ones (Bartosz Dziewoński)
+* colorize-svg: Sprinkle /* @noflip */ on language-specific rules (Bartosz Dziewoński)
+* demo: Change html dir property when direction changes (Moriel Schottlender)
+
 ## v0.9.7 / 2015-04-03
 * build: Generate correct paths to fallback images (Bartosz Dziewoński)
 
