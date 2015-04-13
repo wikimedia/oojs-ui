@@ -313,7 +313,8 @@ class Tag {
 				// @codingStandardsIgnoreEnd
 
 				if ( !( $scheme === null || in_array( strtolower( $scheme ), $protocolWhitelist ) ) ) {
-					throw new Exception( "Potentially unsafe '$key' attribute value" );
+					throw new Exception( "Potentially unsafe '$key' attribute value. " .
+						"Scheme: '$scheme'; value: '$value'." );
 				}
 			}
 
