@@ -31,6 +31,39 @@ OO.ui.Keys = {
 };
 
 /**
+ * Check if an element is focusable.
+ * Inspired from :focusable in jQueryUI v1.11.4 - 2015-04-14
+ *
+ * @param {jQuery} element Element to test
+ * @return {Boolean} [description]
+ */
+OO.ui.isFocusableElement = function ( $element ) {
+	var node = $element[0],
+		nodeName = node.nodeName.toLowerCase(),
+		// Check if the element have tabindex set
+		isInElementGroup = /^(input|select|textarea|button|object)$/.test( nodeName ),
+		// Check if the element is a link with href or if it has tabindex
+		isOtherElement = (
+			( nodeName === 'a' && node.href ) ||
+			!isNaN( $element.attr( 'tabindex' ) )
+		),
+		// Check if the element is visible
+		isVisible = (
+			// This is quicker than calling $element.is( ':visible' )
+			$.expr.filters.visible( node ) &&
+			// Check that all parents are visible
+			!$element.parents().addBack().filter( function () {
+				return $.css( this, 'visibility' ) === 'hidden';
+			} ).length
+		);
+
+	return (
+		( isInElementGroup ? !node.disabled : isOtherElement ) &&
+		isVisible
+	);
+};
+
+/**
  * Get the user's language and any fallback languages.
  *
  * These language codes are used to localize user interface elements in the user's language.
