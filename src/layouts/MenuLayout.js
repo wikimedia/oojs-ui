@@ -77,8 +77,6 @@ OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	this.$content = $( '<div>' );
 
 	// Initialization
-	this.toggleMenu( this.showMenu );
-	this.updateSizes();
 	this.$menu
 		.addClass( 'oo-ui-menuLayout-menu' )
 		.css( this.menuPosition.sizeProperty, this.menuSize );
@@ -86,6 +84,8 @@ OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	this.$element
 		.addClass( 'oo-ui-menuLayout ' + this.menuPosition.className )
 		.append( this.$content, this.$menu );
+	this.toggleMenu( this.showMenu );
+	this.updateSizes();
 };
 
 /* Setup */
