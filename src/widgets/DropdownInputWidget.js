@@ -73,10 +73,7 @@ OO.ui.DropdownInputWidget.prototype.onMenuSelect = function ( item ) {
  * @inheritdoc
  */
 OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
-	var item = this.dropdownWidget.getMenu().getItemFromData( value );
-	if ( item ) {
-		this.dropdownWidget.getMenu().selectItem( item );
-	}
+	this.dropdownWidget.getMenu().selectItemByData( value );
 	OO.ui.DropdownInputWidget.super.prototype.setValue.call( this, value );
 	return this;
 };

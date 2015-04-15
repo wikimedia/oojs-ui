@@ -504,7 +504,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 		if ( this.outlined ) {
 			selectedItem = this.outlineSelectWidget.getSelectedItem();
 			if ( selectedItem && selectedItem.getData() !== name ) {
-				this.outlineSelectWidget.selectItem( this.outlineSelectWidget.getItemFromData( name ) );
+				this.outlineSelectWidget.selectItemByData( name );
 			}
 		}
 		if ( page ) {

@@ -415,6 +415,22 @@ OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
 };
 
 /**
+ * Programmatically select an option by its data. If the `data` parameter is omitted,
+ * or if the item does not exist, all options will be deselected.
+ *
+ * @param {Object|string} [data] Value of the item to select, omit to deselect all
+ * @fires select
+ * @chainable
+ */
+OO.ui.SelectWidget.prototype.selectItemByData = function ( data ) {
+	var itemFromData = this.getItemFromData( data );
+	if ( data === undefined || !itemFromData ) {
+		return this.selectItem();
+	}
+	return this.selectItem( itemFromData );
+};
+
+/**
  * Programmatically select an option by its reference. If the `item` parameter is omitted,
  * all options will be deselected.
  *

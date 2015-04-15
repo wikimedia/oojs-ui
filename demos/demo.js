@@ -48,10 +48,10 @@ OO.ui.Demo = function OoUiDemo() {
 	this.directionSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 
 	// Initialization
-	this.pageMenu.selectItem( this.pageMenu.getItemFromData( this.mode.page ) );
-	this.themeSelect.selectItem( this.themeSelect.getItemFromData( this.mode.theme ) );
-	this.graphicsSelect.selectItem( this.graphicsSelect.getItemFromData( this.mode.graphics ) );
-	this.directionSelect.selectItem( this.directionSelect.getItemFromData( this.mode.direction ) );
+	this.pageMenu.selectItemByData( this.mode.page );
+	this.themeSelect.selectItemByData( this.mode.theme );
+	this.graphicsSelect.selectItemByData( this.mode.graphics );
+	this.directionSelect.selectItemByData( this.mode.direction );
 	this.$menu
 		.addClass( 'oo-ui-demo-menu' )
 		.append(
