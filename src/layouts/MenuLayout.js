@@ -1,8 +1,44 @@
 /**
- * Layout with a content and menu area.
+ * MenuLayouts combine a menu and a content {@link OO.ui.PanelLayout panel}. The menu is positioned relative to the content (after, before, top, or bottom)
+ * and its size is customized with the #menuSize config. The content area will fill all remaining space.
  *
- * The menu area can be positioned at the top, after, bottom or before. The content area will fill
- * all remaining space.
+ *     @example
+ *     var menuLayout = new OO.ui.MenuLayout( {
+ *         position: 'top'
+ *     } ),
+ *         menuPanel = new OO.ui.PanelLayout( { padded: true, expanded: true, scrollable: true } ),
+ *         contentPanel = new OO.ui.PanelLayout( { padded: true, expanded: true, scrollable: true } ),
+ *         select = new OO.ui.SelectWidget( {
+ *             items: [
+ *                 new OO.ui.OptionWidget( {
+ *                     data: 'before',
+ *                     label: 'Before',
+ *                 } ),
+ *                 new OO.ui.OptionWidget( {
+ *                     data: 'after',
+ *                     label: 'After',
+ *                 } ),
+ *                 new OO.ui.OptionWidget( {
+ *                     data: 'top',
+ *                     label: 'Top',
+ *                 } ),
+ *                 new OO.ui.OptionWidget( {
+ *                     data: 'bottom',
+ *                     label: 'Bottom',
+ *                 } )
+ *              ]
+ *         } ).on( 'select', function ( item ) {
+ *            menuLayout.setMenuPosition( item.getData() );
+ *         } );
+ *
+ *     menuLayout.$menu.append(
+ *         menuPanel.$element.append( '<b>Menu panel</b>', select.$element )
+ *     );
+ *     menuLayout.$content.append(
+ *         contentPanel.$element.append( '<b>Content panel</b>', '<p>Note that the menu is positioned relative to the content panel: top, bottom, after, before.</p>')
+ *     );
+ *     $( 'body' ).append( menuLayout.$element );
+ *
  *
  * @class
  * @extends OO.ui.Layout
