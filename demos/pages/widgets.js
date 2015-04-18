@@ -498,37 +498,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						items: [
 							new OO.ui.ButtonWidget( {
 								icon: 'picture',
-								indicator: 'down'
-							} ),
-							new OO.ui.ButtonWidget( {
-								label: 'One',
-								flags: [ 'progressive' ]
-							} ),
-							new OO.ui.ButtonWidget( {
-								label: 'Two',
-								flags: [ 'constructive' ]
-							} ),
-							new OO.ui.ButtonWidget( {
-								label: 'Three',
-								flags: [ 'destructive' ]
-							} )
-						]
-					} ),
-					{
-						label: 'ButtonGroupWidget (colors)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonGroupWidget( {
-						items: [
-							new OO.ui.ButtonWidget( {
 								label: 'One'
 							} ),
 							new OO.ui.ButtonWidget( {
 								label: 'Two'
 							} ),
 							new OO.ui.ButtonWidget( {
+								indicator: 'required',
 								label: 'Three'
 							} )
 						]
@@ -542,37 +518,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonSelectWidget( {
 						items: [
 							new OO.ui.ButtonOptionWidget( {
-								data: 'a',
+								data: 'b',
 								icon: 'picture',
-								indicator: 'down'
-							} ),
-							new OO.ui.ButtonOptionWidget( {
-								data: 'b',
-								label: 'One',
-								flags: [ 'progressive' ]
-							} ),
-							new OO.ui.ButtonOptionWidget( {
-								data: 'c',
-								label: 'Two',
-								flags: [ 'constructive' ]
-							} ),
-							new OO.ui.ButtonOptionWidget( {
-								data: 'd',
-								label: 'Three',
-								flags: [ 'destructive' ]
-							} )
-						]
-					} ),
-					{
-						label: 'ButtonSelectWidget (colors)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonSelectWidget( {
-						items: [
-							new OO.ui.ButtonOptionWidget( {
-								data: 'b',
 								label: 'One'
 							} ),
 							new OO.ui.ButtonOptionWidget( {
@@ -581,6 +528,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'd',
+								indicator: 'required',
 								label: 'Three'
 							} )
 						]
@@ -595,19 +543,17 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						disabled: true,
 						items: [
 							new OO.ui.ButtonOptionWidget( {
-								data: 'a',
-								icon: 'picture', indicator: 'down'
-							} ),
-							new OO.ui.ButtonOptionWidget( {
-								data: 1,
+								data: 'b',
+								icon: 'picture',
 								label: 'One'
 							} ),
 							new OO.ui.ButtonOptionWidget( {
-								data: 2,
+								data: 'c',
 								label: 'Two'
 							} ),
 							new OO.ui.ButtonOptionWidget( {
-								data: 3,
+								data: 'd',
+								indicator: 'required',
 								label: 'Three'
 							} )
 						]
@@ -621,22 +567,19 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonSelectWidget( {
 						items: [
 							new OO.ui.ButtonOptionWidget( {
-								data: 'a',
-								icon: 'picture', indicator: 'down'
-							} ),
-							new OO.ui.ButtonOptionWidget( {
-								data: 1,
+								data: 'b',
+								icon: 'picture',
 								label: 'One',
 								disabled: true
 							} ),
 							new OO.ui.ButtonOptionWidget( {
-								data: 2,
+								data: 'c',
 								label: 'Two'
 							} ),
 							new OO.ui.ButtonOptionWidget( {
-								data: 3,
-								label: 'Three',
-								disabled: true
+								data: 'd',
+								indicator: 'required',
+								label: 'Three'
 							} )
 						]
 					} ),
