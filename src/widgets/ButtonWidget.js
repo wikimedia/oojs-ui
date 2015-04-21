@@ -54,7 +54,6 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	this.href = null;
 	this.target = null;
 	this.noFollow = false;
-	this.isHyperlink = false;
 
 	// Initialization
 	this.$button.append( this.$icon, this.$label, this.$indicator );
@@ -108,7 +107,7 @@ OO.ui.ButtonWidget.prototype.onMouseUp = function ( e ) {
  */
 OO.ui.ButtonWidget.prototype.onClick = function ( e ) {
 	var ret = OO.ui.ButtonElement.prototype.onClick.call( this, e );
-	if ( this.isHyperlink ) {
+	if ( this.href ) {
 		return true;
 	}
 	return ret;
@@ -119,7 +118,7 @@ OO.ui.ButtonWidget.prototype.onClick = function ( e ) {
  */
 OO.ui.ButtonWidget.prototype.onKeyPress = function ( e ) {
 	var ret = OO.ui.ButtonElement.prototype.onKeyPress.call( this, e );
-	if ( this.isHyperlink ) {
+	if ( this.href ) {
 		return true;
 	}
 	return ret;
@@ -164,10 +163,8 @@ OO.ui.ButtonWidget.prototype.setHref = function ( href ) {
 		this.href = href;
 		if ( href !== null ) {
 			this.$button.attr( 'href', href );
-			this.isHyperlink = true;
 		} else {
 			this.$button.removeAttr( 'href' );
-			this.isHyperlink = false;
 		}
 	}
 
