@@ -46,7 +46,6 @@ class ButtonInputWidget extends InputWidget {
 		$this->mixin( $this->labelElementMixin = new LabelElement( $this, $config ) );
 		$this->mixin( new TitledElement( $this,
 			array_merge( $config, array( 'titled' => $this->input ) ) ) );
-		$this->mixin( new FlaggedElement( $this, $config ) );
 
 		// Initialization
 		if ( !$config['useInputTag'] ) {

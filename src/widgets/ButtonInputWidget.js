@@ -23,7 +23,6 @@
  * @mixins OO.ui.IndicatorElement
  * @mixins OO.ui.LabelElement
  * @mixins OO.ui.TitledElement
- * @mixins OO.ui.FlaggedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -49,7 +48,6 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	OO.ui.IndicatorElement.call( this, config );
 	OO.ui.LabelElement.call( this, config );
 	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$input } ) );
-	OO.ui.FlaggedElement.call( this, config );
 
 	// Initialization
 	if ( !config.useInputTag ) {
@@ -66,7 +64,6 @@ OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.IconElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.IndicatorElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.LabelElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.TitledElement );
-OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.FlaggedElement );
 
 /* Methods */
 
