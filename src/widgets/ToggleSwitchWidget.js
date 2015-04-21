@@ -21,8 +21,7 @@
  *     $( 'body' ).append( fieldset.$element );
  *
  * @class
- * @extends OO.ui.Widget
- * @mixins OO.ui.ToggleWidget
+ * @extends OO.ui.ToggleWidget
  * @mixins OO.ui.TabIndexedElement
  *
  * @constructor
@@ -35,7 +34,6 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	OO.ui.ToggleSwitchWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.ToggleWidget.call( this, config );
 	OO.ui.TabIndexedElement.call( this, config );
 
 	// Properties
@@ -62,8 +60,7 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 
 /* Setup */
 
-OO.inheritClass( OO.ui.ToggleSwitchWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.ToggleWidget );
+OO.inheritClass( OO.ui.ToggleSwitchWidget, OO.ui.ToggleWidget );
 OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.TabIndexedElement );
 
 /* Methods */
