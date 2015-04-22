@@ -101,12 +101,23 @@ class ButtonWidget extends Widget {
 	public function setHref( $href ) {
 		$this->href = is_string( $href ) ? $href : null;
 
-		if ( $this->href !== null ) {
-			$this->button->setAttributes( array( 'href' => $href ) );
+		$this->updateHref();
+
+		return $this;
+	}
+
+	/**
+	 * Update the href attribute, in case of changes to href or disabled
+	 * state.
+	 *
+	 * @chainable
+	 */
+	public function updateHref() {
+		if ( $this->href !== null && !$this->isDisabled() ) {
+			$this->button->setAttributes( array( 'href' => $this->href ) );
 		} else {
 			$this->button->removeAttributes( array( 'href' ) );
 		}
-
 		return $this;
 	}
 

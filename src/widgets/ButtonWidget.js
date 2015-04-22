@@ -55,6 +55,9 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	this.target = null;
 	this.noFollow = false;
 
+	// Events
+	this.connect( this, { disable: 'onDisable' } );
+
 	// Initialization
 	this.$button.append( this.$icon, this.$label, this.$indicator );
 	this.$element
@@ -161,14 +164,37 @@ OO.ui.ButtonWidget.prototype.setHref = function ( href ) {
 
 	if ( href !== this.href ) {
 		this.href = href;
-		if ( href !== null ) {
-			this.$button.attr( 'href', href );
-		} else {
-			this.$button.removeAttr( 'href' );
-		}
+		this.updateHref();
 	}
 
 	return this;
+};
+
+/**
+ * Update the `href` attribute, in case of changes to href or
+ * disabled state.
+ *
+ * @private
+ * @chainable
+ */
+OO.ui.ButtonWidget.prototype.updateHref = function () {
+	if ( this.href !== null && !this.isDisabled() ) {
+		this.$button.attr( 'href', this.href );
+	} else {
+		this.$button.removeAttr( 'href' );
+	}
+
+	return this;
+};
+
+/**
+ * Handle disable events.
+ *
+ * @private
+ * @param {boolean} disabled Element is disabled
+ */
+OO.ui.ButtonWidget.prototype.onDisable = function () {
+	this.updateHref();
 };
 
 /**
