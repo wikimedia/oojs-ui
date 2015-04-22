@@ -60,10 +60,6 @@ class ButtonWidget extends Widget {
 		$this->setHref( isset( $config['href'] ) ? $config['href'] : null );
 		$this->setTarget( isset( $config['target'] ) ? $config['target'] : null );
 		$this->setNoFollow( isset( $config['noFollow'] ) ? $config['noFollow'] : true );
-		// FIXME: The `nofollow` alias is deprecated and will be removed (T89767)
-		if ( isset( $config['nofollow'] ) ) {
-			$this->setNoFollow( $config['nofollow'] );
-		}
 	}
 
 	/**

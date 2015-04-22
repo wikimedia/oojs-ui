@@ -35,8 +35,7 @@
  */
 OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	// Configuration initialization
-	// FIXME: The `nofollow` alias is deprecated and will be removed (T89767)
-	config = $.extend( { noFollow: config && config.nofollow }, config );
+	config = config || {};
 
 	// Parent constructor
 	OO.ui.ButtonWidget.super.call( this, config );
