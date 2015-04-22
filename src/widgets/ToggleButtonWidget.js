@@ -21,8 +21,14 @@
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Buttons_and_Switches#Toggle_buttons
  *
  * @class
- * @extends OO.ui.ButtonWidget
- * @mixins OO.ui.ToggleWidget
+ * @extends OO.ui.ToggleWidget
+ * @mixins OO.ui.ButtonElement
+ * @mixins OO.ui.IconElement
+ * @mixins OO.ui.IndicatorElement
+ * @mixins OO.ui.LabelElement
+ * @mixins OO.ui.TitledElement
+ * @mixins OO.ui.FlaggedElement
+ * @mixins OO.ui.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -37,26 +43,41 @@ OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
 	OO.ui.ToggleButtonWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.ToggleWidget.call( this, config );
+	OO.ui.ButtonElement.call( this, config );
+	OO.ui.IconElement.call( this, config );
+	OO.ui.IndicatorElement.call( this, config );
+	OO.ui.LabelElement.call( this, config );
+	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$button } ) );
+	OO.ui.FlaggedElement.call( this, config );
+	OO.ui.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$button } ) );
 
 	// Events
 	this.connect( this, { click: 'onAction' } );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-toggleButtonWidget' );
+	this.$button.append( this.$icon, this.$label, this.$indicator );
+	this.$element
+		.addClass( 'oo-ui-toggleButtonWidget' )
+		.append( this.$button );
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.ToggleButtonWidget, OO.ui.ButtonWidget );
-OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.ToggleWidget );
+OO.inheritClass( OO.ui.ToggleButtonWidget, OO.ui.ToggleWidget );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.ButtonElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.IconElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.IndicatorElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.LabelElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.TitledElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.FlaggedElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.TabIndexedElement );
 
 /* Methods */
 
 /**
+ * Handle the button action being triggered.
  *
  * @private
- * Handle the button action being triggered.
  */
 OO.ui.ToggleButtonWidget.prototype.onAction = function () {
 	this.setValue( !this.value );
@@ -68,12 +89,26 @@ OO.ui.ToggleButtonWidget.prototype.onAction = function () {
 OO.ui.ToggleButtonWidget.prototype.setValue = function ( value ) {
 	value = !!value;
 	if ( value !== this.value ) {
-		this.$button.attr( 'aria-pressed', value.toString() );
+		// Might be called from parent constructor before ButtonElement constructor
+		if ( this.$button ) {
+			this.$button.attr( 'aria-pressed', value.toString() );
+		}
 		this.setActive( value );
 	}
 
-	// Parent method (from mixin)
-	OO.ui.ToggleWidget.prototype.setValue.call( this, value );
+	// Parent method
+	OO.ui.ToggleButtonWidget.super.prototype.setValue.call( this, value );
 
 	return this;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ToggleButtonWidget.prototype.setButtonElement = function ( $button ) {
+	if ( this.$button ) {
+		this.$button.removeAttr( 'aria-pressed' );
+	}
+	OO.ui.ButtonElement.prototype.setButtonElement.call( this, $button );
+	this.$button.attr( 'aria-pressed', this.value.toString() );
 };

@@ -1,9 +1,10 @@
 /**
- * ToggleWidget is mixed into other classes to create widgets with an on/off state.
+ * ToggleWidget implements basic behavior of widgets with an on/off state.
  * Please see OO.ui.ToggleButtonWidget and OO.ui.ToggleSwitchWidget for examples.
  *
  * @abstract
  * @class
+ * @extends OO.ui.Widget
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -14,6 +15,9 @@ OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {
 	// Configuration initialization
 	config = config || {};
 
+	// Parent constructor
+	OO.ui.ToggleWidget.super.call( this, config );
+
 	// Properties
 	this.value = null;
 
@@ -21,6 +25,10 @@ OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {
 	this.$element.addClass( 'oo-ui-toggleWidget' );
 	this.setValue( !!config.value );
 };
+
+/* Setup */
+
+OO.inheritClass( OO.ui.ToggleWidget, OO.ui.Widget );
 
 /* Events */
 
