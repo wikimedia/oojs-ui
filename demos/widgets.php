@@ -432,37 +432,13 @@
 								'items' => array(
 									new OOUI\ButtonWidget( array(
 										'icon' => 'picture',
-										'indicator' => 'down'
-									) ),
-									new OOUI\ButtonWidget( array(
-										'label' => 'One',
-										'flags' => array( 'progressive' )
-									) ),
-									new OOUI\ButtonWidget( array(
-										'label' => 'Two',
-										'flags' => array( 'constructive' )
-									) ),
-									new OOUI\ButtonWidget( array(
-										'label' => 'Three',
-										'flags' => array( 'destructive' )
-									) )
-								)
-							) ),
-							array(
-								'label' => "ButtonGroupWidget (colors)\xE2\x80\x8E",
-								'align' => 'top'
-							)
-						),
-						new OOUI\FieldLayout(
-							new OOUI\ButtonGroupWidget( array(
-								'items' => array(
-									new OOUI\ButtonWidget( array(
 										'label' => 'One'
 									) ),
 									new OOUI\ButtonWidget( array(
 										'label' => 'Two'
 									) ),
 									new OOUI\ButtonWidget( array(
+										'indicator' => 'required',
 										'label' => 'Three'
 									) )
 								)
