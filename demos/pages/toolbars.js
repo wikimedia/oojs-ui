@@ -296,7 +296,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 		],
 
 		cite: [
-			[ 'citeTool', 'tag', 'Cite' ]
+			[ 'citeTool', null, 'Cite' ]
 		]
 	};
 
