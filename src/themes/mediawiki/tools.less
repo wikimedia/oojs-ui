@@ -22,7 +22,6 @@
 	.oo-ui-popupWidget {
 		/* @noflip */
 		margin-left: 1.25em;
-		font-size: 0.8em;
 	}
 }
 
@@ -33,12 +32,12 @@
 
 	// Like .oo-ui-tool-link in barToolGroup
 	> .oo-ui-popupToolGroup > .oo-ui-popupToolGroup-handle {
-		height: 1.5em;
-		padding: 0.25em;
+		height: 1.875em;
+		padding: 0.3125em;
 
 		.oo-ui-iconElement-icon {
-			height: 1.5em;
-			width: 1.5em;
+			height: 1.875em;
+			width: 1.875em;
 			opacity: 0.8;
 		}
 	}
@@ -51,7 +50,7 @@
 }
 
 .theme-oo-ui-toolGroup () {
-	margin: 0.3em;
+	margin: 0.375em;
 
 	.oo-ui-toolbar-narrow & {
 		+ .oo-ui-toolGroup {
@@ -75,19 +74,17 @@
 .theme-oo-ui-barToolGroup () {
 	> .oo-ui-toolGroup-tools > .oo-ui-tool {
 		> .oo-ui-tool-link {
-			height: 1.5em;
-			padding: 0.25em;
+			height: 1.875em;
+			padding: 0.3125em;
 
 			.oo-ui-iconElement-icon {
-				height: 1.5em;
-				width: 1.5em;
+				height: 1.875em;
+				width: 1.875em;
 				opacity: 0.8;
 			}
 
 			.oo-ui-tool-title {
-				// 2.6em - 2 * 0.25em (padding from .oo-ui-tool-link)
-				line-height: 2.1em;
-				font-size: 0.8em;
+				line-height: 2.1em; // 0.5em less
 			}
 		}
 	}
@@ -126,33 +123,32 @@
 }
 
 .theme-oo-ui-popupToolGroup () {
-	height: 2em;
-	min-width: 2em;
+	height: 2.5em;
+	min-width: 2.5em;
 
 	.oo-ui-toolbar-narrow & {
-		min-width: 1.5em;
+		min-width: 1.875em;
 	}
 
 	&.oo-ui-iconElement {
-		min-width: 2.5em;
+		min-width: 3.125em;
 
 		.oo-ui-toolbar-narrow & {
-			min-width: 2em;
+			min-width: 2.5em;
 		}
 	}
 
 	&.oo-ui-indicatorElement.oo-ui-iconElement {
-		min-width: 3.5em;
+		min-width: 4.375em;
 
 		.oo-ui-toolbar-narrow & {
-			min-width: 3em;
+			min-width: 3.75em;
 		}
 	}
 
 	&.oo-ui-labelElement {
 		.oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
 			line-height: 2.6em;
-			font-size: 0.8em;
 			margin: 0 1em;
 
 			.oo-ui-toolbar-narrow & {
@@ -179,22 +175,22 @@
 
 	&-handle {
 		.oo-ui-indicatorElement-indicator {
-			width: 0.75em;
-			height: 0.75em;
-			margin: 0.625em;
+			width: 0.9375em;
+			height: 0.9375em;
+			margin: 0.78125em;
 			top: 0;
 			right: 0;
 
 			.oo-ui-toolbar-narrow & {
-				right: -0.25em;
+				right: -0.3125em;
 			}
 		}
 		.oo-ui-iconElement-icon {
-			width: 1.5em;
-			height: 1.5em;
-			margin: 0.25em;
+			width: 1.875em;
+			height: 1.875em;
+			margin: 0.3125em;
 			top: 0;
-			left: 0.25em;
+			left: 0.3125em;
 
 			.oo-ui-toolbar-narrow & {
 				left: 0;
@@ -204,23 +200,22 @@
 
 	&-header {
 		line-height: 2.6em;
-		font-size: 0.8em;
 		margin: 0 0.6em;
 		font-weight: bold;
 	}
 
 	.oo-ui-toolGroup-tools {
-		top: 2em;
+		top: 2.5em;
 		background-color: white;
 	}
 
 	.oo-ui-tool-link {
-		padding: 0.25em 0 0.25em 0.25em;
+		padding: 0.3125em 0 0.3125em 0.3125em;
 
 		.oo-ui-iconElement-icon {
-			height: 1.5em;
-			width: 1.5em;
-			min-width: 1.5em;
+			height: 1.875em;
+			width: 1.875em;
+			min-width: 1.875em;
 		}
 
 		.oo-ui-tool-title {
@@ -230,14 +225,13 @@
 		.oo-ui-tool-accel,
 		.oo-ui-tool-title {
 			line-height: 2em;
-			font-size: 0.8em;
 		}
 	}
 }
 
 .theme-oo-ui-listToolGroup () {
 	.oo-ui-tool {
-		padding: 0 0.75em 0 0.25em;
+		padding: 0 0.9375em 0 0.3125em;
 
 		&.oo-ui-widget-enabled {
 			&:hover {
@@ -279,32 +273,32 @@
 	}
 
 	.oo-ui-toolGroup-tools {
-		padding: 0.25em 0 0.25em 0;
+		padding: 0.3125em 0 0.3125em 0;
 		border: 1px solid #aaa;
-		border-radius: 0.2em;
-		box-shadow: inset 0 -0.2em 0 0 rgba(0,0,0,0.2), 0 0.1em 0 0 rgba(0,0,0,0.1);
+		border-radius: 0.25em;
+		box-shadow: inset 0 -0.25em 0 0 rgba(0,0,0,0.2), 0 0.125em 0 0 rgba(0,0,0,0.1);
 	}
 }
 
 .theme-oo-ui-menuToolGroup () {
 	border: 1px solid #ccc;
-	border-radius: 0.1em;
+	border-radius: 0.125em;
 
 	.oo-ui-popupToolGroup-handle {
-		min-width: 8em;
+		min-width: 10em;
 
 		.oo-ui-toolbar-narrow & {
-			min-width: 6.5em;
+			min-width: 8.125em;
 		}
 	}
 
 	.oo-ui-toolGroup-tools {
 		margin-left: -1px;
-		padding: 0.25em 0 0.25em 0;
+		padding: 0.3125em 0 0.3125em 0;
 		border: 1px solid #aaa;
-		border-radius: 0.2em;
+		border-radius: 0.25em;
 		border-top-left-radius: 0;
-		box-shadow: inset 0 -0.2em 0 0 rgba(0,0,0,0.2), 0 0.1em 0 0 rgba(0,0,0,0.1);
+		box-shadow: inset 0 -0.25em 0 0 rgba(0,0,0,0.2), 0 0.125em 0 0 rgba(0,0,0,0.1);
 	}
 
 	&.oo-ui-widget-enabled {
@@ -318,7 +312,7 @@
 	}
 
 	.oo-ui-tool {
-		padding: 0 1em 0 0.25em;
+		padding: 0 1.25em 0 0.3125em;
 
 		&-link {
 			.oo-ui-iconElement-icon {
