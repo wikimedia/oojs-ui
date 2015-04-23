@@ -188,8 +188,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 	horizontalAlignmentWidget.$element.append(
 		new OO.ui.ButtonWidget( { label: 'Button' } ).$element,
 		new OO.ui.ButtonGroupWidget( { items: [
-			new OO.ui.ButtonWidget( { label: 'A' } ),
-			new OO.ui.ButtonWidget( { label: 'B' } )
+			new OO.ui.ToggleButtonWidget( { label: 'A' } ),
+			new OO.ui.ToggleButtonWidget( { label: 'B' } )
 		] } ).$element,
 		new OO.ui.ButtonInputWidget( { label: 'ButtonInput' } ).$element,
 		new OO.ui.TextInputWidget( { value: 'TextInput' } ).$element,
