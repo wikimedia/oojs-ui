@@ -45,14 +45,18 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	this.exclude = config.exclude || [];
 	this.promote = config.promote || [];
 	this.demote = config.demote || [];
-	this.onCapturedMouseUpHandler = this.onCapturedMouseUp.bind( this );
+	this.onCapturedMouseKeyUpHandler = this.onCapturedMouseKeyUp.bind( this );
 
 	// Events
 	this.$element.on( {
-		mousedown: this.onPointerDown.bind( this ),
-		mouseup: this.onPointerUp.bind( this ),
-		mouseover: this.onMouseOver.bind( this ),
-		mouseout: this.onMouseOut.bind( this )
+		mousedown: this.onMouseKeyDown.bind( this ),
+		mouseup: this.onMouseKeyUp.bind( this ),
+		keydown: this.onMouseKeyDown.bind( this ),
+		keyup: this.onMouseKeyUp.bind( this ),
+		focus: this.onMouseOverFocus.bind( this ),
+		blur: this.onMouseOutBlur.bind( this ),
+		mouseover: this.onMouseOverFocus.bind( this ),
+		mouseout: this.onMouseOutBlur.bind( this )
 	} );
 	this.toolbar.getToolFactory().connect( this, { register: 'onToolFactoryRegister' } );
 	this.aggregate( { disable: 'itemDisable' } );
@@ -135,57 +139,64 @@ OO.ui.ToolGroup.prototype.updateDisabled = function () {
 };
 
 /**
- * Handle mouse down events.
+ * Handle mouse down and key down events.
  *
- * @param {jQuery.Event} e Mouse down event
+ * @param {jQuery.Event} e Mouse down or key down event
  */
-OO.ui.ToolGroup.prototype.onPointerDown = function ( e ) {
-	if ( !this.isDisabled() && e.which === 1 ) {
+OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
+	if (
+		!this.isDisabled() &&
+		( e.which === 1 || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+	) {
 		this.pressed = this.getTargetTool( e );
 		if ( this.pressed ) {
 			this.pressed.setActive( true );
-			this.getElementDocument().addEventListener(
-				'mouseup', this.onCapturedMouseUpHandler, true
-			);
+			this.getElementDocument().addEventListener( 'mouseup', this.onCapturedMouseKeyUpHandler, true );
+			this.getElementDocument().addEventListener( 'keyup', this.onCapturedMouseKeyUpHandler, true );
 		}
+		return false;
 	}
-	return false;
 };
 
 /**
- * Handle captured mouse up events.
+ * Handle captured mouse up and key up events.
  *
- * @param {Event} e Mouse up event
+ * @param {Event} e Mouse up or key up event
  */
-OO.ui.ToolGroup.prototype.onCapturedMouseUp = function ( e ) {
-	this.getElementDocument().removeEventListener( 'mouseup', this.onCapturedMouseUpHandler, true );
-	// onPointerUp may be called a second time, depending on where the mouse is when the button is
+OO.ui.ToolGroup.prototype.onCapturedMouseKeyUp = function ( e ) {
+	this.getElementDocument().removeEventListener( 'mouseup', this.onCapturedMouseKeyUpHandler, true );
+	this.getElementDocument().removeEventListener( 'keyup', this.onCapturedMouseKeyUpHandler, true );
+	// onMouseKeyUp may be called a second time, depending on where the mouse is when the button is
 	// released, but since `this.pressed` will no longer be true, the second call will be ignored.
-	this.onPointerUp( e );
+	this.onMouseKeyUp( e );
 };
 
 /**
- * Handle mouse up events.
+ * Handle mouse up and key up events.
  *
- * @param {jQuery.Event} e Mouse up event
+ * @param {jQuery.Event} e Mouse up or key up event
  */
-OO.ui.ToolGroup.prototype.onPointerUp = function ( e ) {
+OO.ui.ToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	var tool = this.getTargetTool( e );
 
-	if ( !this.isDisabled() && e.which === 1 && this.pressed && this.pressed === tool ) {
+	if (
+		!this.isDisabled() && this.pressed && this.pressed === tool &&
+		( e.which === 1 || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+	) {
 		this.pressed.onSelect();
+		this.pressed = null;
+		return false;
 	}
 
 	this.pressed = null;
-	return false;
 };
 
 /**
- * Handle mouse over events.
+ * Handle mouse over and focus events.
  *
- * @param {jQuery.Event} e Mouse over event
+ * @param {jQuery.Event} e Mouse over or focus event
  */
-OO.ui.ToolGroup.prototype.onMouseOver = function ( e ) {
+OO.ui.ToolGroup.prototype.onMouseOverFocus = function ( e ) {
 	var tool = this.getTargetTool( e );
 
 	if ( this.pressed && this.pressed === tool ) {
@@ -194,11 +205,11 @@ OO.ui.ToolGroup.prototype.onMouseOver = function ( e ) {
 };
 
 /**
- * Handle mouse out events.
+ * Handle mouse out and blur events.
  *
- * @param {jQuery.Event} e Mouse out event
+ * @param {jQuery.Event} e Mouse out or blur event
  */
-OO.ui.ToolGroup.prototype.onMouseOut = function ( e ) {
+OO.ui.ToolGroup.prototype.onMouseOutBlur = function ( e ) {
 	var tool = this.getTargetTool( e );
 
 	if ( this.pressed && this.pressed === tool ) {

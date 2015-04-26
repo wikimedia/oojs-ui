@@ -108,16 +108,18 @@ OO.ui.ListToolGroup.prototype.getExpandCollapseTool = function () {
 /**
  * @inheritdoc
  */
-OO.ui.ListToolGroup.prototype.onPointerUp = function ( e ) {
-	var ret = OO.ui.ListToolGroup.super.prototype.onPointerUp.call( this, e );
-
+OO.ui.ListToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	// Do not close the popup when the user wants to show more/fewer tools
-	if ( $( e.target ).closest( '.oo-ui-tool-name-more-fewer' ).length ) {
-		// Prevent the popup list from being hidden
-		this.setActive( true );
+	if (
+		$( e.target ).closest( '.oo-ui-tool-name-more-fewer' ).length &&
+		( e.which === 1 || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+	) {
+		// HACK: Prevent the popup list from being hidden. Skip the PopupToolGroup implementation (which
+		// hides the popup list when a tool is selected) and call ToolGroup's implementation directly.
+		return OO.ui.ListToolGroup.super.super.prototype.onMouseKeyUp.call( this, e );
+	} else {
+		return OO.ui.ListToolGroup.super.prototype.onMouseKeyUp.call( this, e );
 	}
-
-	return ret;
 };
 
 OO.ui.ListToolGroup.prototype.updateCollapsibleState = function () {
