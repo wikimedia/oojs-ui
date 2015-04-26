@@ -54,7 +54,7 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	this.$link
 		.addClass( 'oo-ui-tool-link' )
 		.append( this.$icon, this.$title, this.$accel )
-		.prop( 'tabIndex', 0 )
+		.attr( 'tabindex', 0 )
 		.attr( 'role', 'button' );
 	this.$element
 		.data( 'oo-ui-tool', this )

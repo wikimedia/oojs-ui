@@ -64,7 +64,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 	this.$overlay.addClass( 'oo-ui-window-overlay' );
 	this.$content
 		.addClass( 'oo-ui-window-content' )
-		.attr( 'tabIndex', 0 );
+		.attr( 'tabindex', 0 );
 	this.$frame
 		.addClass( 'oo-ui-window-frame' )
 		.append( this.$content );
