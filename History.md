@@ -1,5 +1,10 @@
 # OOjs UI Release History
 
+## v0.10.1 / 2015-04-27
+* Correct 'tabindex' attribute setting (Bartosz Dziewoński)
+* Make toolbars keyboard-accessible (Bartosz Dziewoński)
+* ToggleButtonWidget: Unbreak horizontal alignment (Bartosz Dziewoński)
+
 ## v0.10.0 / 2015-04-22
 * [BREAKING CHANGE] ButtonWidget: remove deprecated nofollow option alias (C. Scott Ananian)
 * [BREAKING CHANGE] Convert ToggleWidget from a mixin to an abstract class (Bartosz Dziewoński)
