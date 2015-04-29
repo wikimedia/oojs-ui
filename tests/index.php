@@ -26,8 +26,8 @@
 		QUnit.config.requireExpects = true;
 	</script>
 	<!-- Dependencies -->
-	<script src="../lib/jquery.js"></script>
-	<script src="../lib/oojs.jquery.js"></script>
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/oojs/dist/oojs.jquery.js"></script>
 	<!-- Source code -->
 	<script src="../dist/oojs-ui.js"></script>
 	<script src="../dist/oojs-ui-apex.js"></script>

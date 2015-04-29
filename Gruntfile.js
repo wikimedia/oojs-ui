@@ -24,6 +24,7 @@ module.exports = function ( grunt ) {
 	grunt.loadTasks( 'build/tasks' );
 
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
+		pgk = grunt.file.readJSON( 'package.json' ),
 		lessFiles = {
 			raster: {},
 			vector: {},
@@ -96,7 +97,7 @@ module.exports = function ( grunt ) {
 	}
 
 	grunt.initConfig( {
-		pkg: grunt.file.readJSON( 'package.json' ),
+		pkg: pgk,
 
 		// Build
 		clean: {
@@ -232,7 +233,8 @@ module.exports = function ( grunt ) {
 				dest: 'dist/'
 			},
 			jsduck: {
-				src: '{lib,dist}/**/*',
+				// Don't publish devDependencies
+				src: '{dist,node_modules/{' + Object.keys( pgk.dependencies ).join( ',' ) + '}}/**/*',
 				dest: 'docs/',
 				expand: true
 			}
@@ -272,7 +274,7 @@ module.exports = function ( grunt ) {
 		jscs: {
 			dev: [
 				'<%= jshint.dev %>',
-				'!demos/{dist,lib}/**'
+				'!demos/dist/**'
 			]
 		},
 
@@ -283,7 +285,7 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'{demos,src}/**/*.css',
-				'!demos/{dist,lib}/**'
+				'!demos/dist/**'
 			]
 		},
 
@@ -306,8 +308,8 @@ module.exports = function ( grunt ) {
 			options: {
 				frameworks: [ 'qunit' ],
 				files: [
-					'lib/jquery.js',
-					'lib/oojs.jquery.js',
+					'node_modules/jquery/dist/jquery.js',
+					'node_modules/oojs/dist/oojs.jquery.js',
 					'dist/oojs-ui.js',
 					'dist/oojs-ui-apex.js',
 					'dist/oojs-ui-mediawiki.js',
