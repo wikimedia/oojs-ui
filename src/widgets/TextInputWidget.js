@@ -39,9 +39,11 @@
  * @cfg {string} [labelPosition='after'] The position of the inline label relative to that of
  *  the value or placeholder text: `'before'` or `'after'`
  * @cfg {boolean} [required=false] Mark the field as required
- * @cfg {RegExp|string} [validate] Validation pattern, either a regular expression or the
- *  symbolic name of a pattern defined by the class: 'non-empty' (the value cannot be an empty string)
- *  or 'integer' (the value must contain only numbers).
+ * @cfg {RegExp|Function|string} [validate] Validation pattern: when string, a symbolic name of a
+ *  pattern defined by the class: 'non-empty' (the value cannot be an empty string) or 'integer'
+ *  (the value must contain only numbers); when RegExp, a regular expression that must match the
+ *  value for it to be considered valid; when Function, a function receiving the value as parameter
+ *  that must return true, or promise resolving to true, for it to be considered valid.
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Configuration initialization
@@ -398,15 +400,15 @@ OO.ui.TextInputWidget.prototype.select = function () {
 /**
  * Set the validation pattern.
  *
- * The validation pattern is either a regular expression or the symbolic name of a pattern
- * defined by the class: 'non-empty' (the value cannot be an empty string) or 'integer' (the
+ * The validation pattern is either a regular expression, a function, or the symbolic name of a
+ * pattern defined by the class: 'non-empty' (the value cannot be an empty string) or 'integer' (the
  * value must contain only numbers).
  *
- * @param {RegExp|string|null} validate Regular expression or the symbolic name of a
- *  pattern (either ‘integer’ or ‘non-empty’) defined by the class.
+ * @param {RegExp|Function|string|null} validate Regular expression, function, or the symbolic name
+ *  of a pattern (either ‘integer’ or ‘non-empty’) defined by the class.
  */
 OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
-	if ( validate instanceof RegExp ) {
+	if ( validate instanceof RegExp || validate instanceof Function ) {
 		this.validate = validate;
 	} else {
 		this.validate = this.constructor.static.validationPatterns[ validate ] || /.*/;
@@ -429,10 +431,19 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function () {
  * This method returns a promise that resolves with a boolean `true` if the current value is
  * considered valid according to the supplied {@link #validate validation pattern}.
  *
- * @return {jQuery.Deferred} A promise that resolves to a boolean `true` if the value is valid.
+ * @return {jQuery.Promise} A promise that resolves to a boolean `true` if the value is valid.
  */
 OO.ui.TextInputWidget.prototype.isValid = function () {
-	return $.Deferred().resolve( !!this.getValue().match( this.validate ) ).promise();
+	if ( this.validate instanceof Function ) {
+		var result = this.validate( this.getValue() );
+		if ( $.isFunction( result.promise ) ) {
+			return result.promise();
+		} else {
+			return $.Deferred().resolve( !!result ).promise();
+		}
+	} else {
+		return $.Deferred().resolve( !!this.getValue().match( this.validate ) ).promise();
+	}
 };
 
 /**

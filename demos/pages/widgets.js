@@ -743,6 +743,17 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						validate: function ( value ) {
+							return value.length % 2 === 0;
+						}
+					} ),
+					{
+						label: 'TextInputWidget (only allows even number of characters)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( { placeholder: 'Placeholder' } ),
 					{
 						label: 'TextInputWidget (placeholder)\u200E',
