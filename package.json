@@ -25,7 +25,7 @@
     "prepublish": "grunt build"
   },
   "dependencies": {
-    "jquery": "1.11.1",
+    "jquery": "1.11.3",
     "oojs": "1.1.7"
   },
   "devDependencies": {
