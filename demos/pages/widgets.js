@@ -734,7 +734,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
 						indicator: 'required',
-						required: true
+						required: true,
+						validate: 'non-empty'
 					} ),
 					{
 						label: 'TextInputWidget (indicator, required)\u200E',
