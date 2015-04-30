@@ -397,8 +397,8 @@
 	}
 
 	&.oo-ui-widget-enabled {
-
-		input, textarea {
+		input,
+		textarea {
 			.oo-ui-transition(
 				border 0.2s cubic-bezier(0.39, 0.575, 0.565, 1)
 				box-shadow 0.2s cubic-bezier(0.39, 0.575, 0.565, 1)
@@ -420,6 +420,20 @@
 			&:focus {
 				border-color: #ccc;
 				box-shadow: inset 0 0 0 0.1em #ccc;
+			}
+		}
+
+		&.oo-ui-flaggedElement-invalid {
+			input,
+			textarea {
+				border-color: red;
+				box-shadow: inset 0 0 0 0 red;
+			}
+
+			input:focus,
+			textarea:focus {
+				border-color: red;
+				box-shadow: inset 0 0 0 0.1em red;
 			}
 		}
 	}
