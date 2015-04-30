@@ -1158,11 +1158,62 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 							label: 'More information',
 							$content: $( '<p>Extra information here.</p>' ),
 							padded: true,
-							align: 'left'
+							align: 'force-left'
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (frameless, with popup head)\u200E',
+						label: 'PopupButtonWidget (frameless, with popup head, align: force-left)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'info',
+						framed: false,
+						popup: {
+							head: true,
+							label: 'More information',
+							$content: $( '<p>Extra information here.</p>' ),
+							padded: true,
+							align: 'force-right'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (frameless, with popup head align: force-right)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'info',
+						framed: false,
+						popup: {
+							head: true,
+							label: 'More information',
+							$content: $( '<p>Extra information here.</p>' ),
+							padded: true,
+							align: 'backwards'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (frameless, with popup head align: backwards)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'info',
+						framed: false,
+						popup: {
+							head: true,
+							label: 'More information',
+							$content: $( '<p>Extra information here.</p>' ),
+							padded: true,
+							align: 'forwards'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (frameless, with popup head align: forwards)\u200E',
 						align: 'top'
 					}
 				),
