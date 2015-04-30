@@ -1,5 +1,17 @@
 # OOjs UI Release History
 
+## v0.11.0 / 2015-04-29
+* [BREAKING CHANGE] Do not set font-size: 0.8em anywhere in the library (Bartosz Dziewoński)
+
+* [DEPRECATING CHANGE] Create rtl-ready alignments in PopupWidget (Moriel Schottlender)
+
+* MediaWiki theme: Adding variants to several icons (Moriel Schottlender)
+* TextInputWidget: Allow functions to be passed as 'validate' config option (Bartosz Dziewoński)
+* TextInputWidget: Styles for 'invalid' flag (Bartosz Dziewoński)
+* Update OOjs to v1.1.7 (James D. Forrester)
+* Update jQuery from v1.11.1 to v1.11.3 (James D. Forrester)
+* build: Use jquery and oojs from npm instead of embedded lib (Timo Tijhof)
+
 ## v0.10.1 / 2015-04-27
 * Correct 'tabindex' attribute setting (Bartosz Dziewoński)
 * Make toolbars keyboard-accessible (Bartosz Dziewoński)
