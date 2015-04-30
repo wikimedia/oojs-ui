@@ -10,7 +10,7 @@
  *     var toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
  *
  *     // We will be placing status text in this element when tools are used
- *     var $area = $( '<p>' ).css( 'font-size', '0.8em' ).text( 'Toolbar example' );
+ *     var $area = $( '<p>' ).text( 'Toolbar example' );
  *
  *     // Define the tools that we're going to place in our toolbar
  *

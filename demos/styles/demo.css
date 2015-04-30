@@ -1,14 +1,9 @@
 body {
-	font-size: 100%;
+	font-size: 0.8em;
 	font-family: sans-serif;
 }
 
 /* Layout */
-
-.oo-ui-demo-menu {
-	max-width: 62.5em;
-	font-size: 0.8em;
-}
 
 .oo-ui-demo-menu > .oo-ui-widget {
 	display: inline-block;
@@ -16,21 +11,16 @@ body {
 	margin-right: 1em;
 }
 
-.oo-ui-demo-menu .oo-ui-dropdownWidget {
-	min-width: 10em;
-}
-
 .oo-ui-demo-menu .oo-ui-demo-pageDropdown {
 	width: 10em;
 }
 
 .oo-ui-demo {
-	max-width: 50em;
+	max-width: 62.5em;
 	margin: 0 auto;
 }
 
 .oo-ui-demo-container {
-	font-size: 0.8em;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -58,13 +48,11 @@ body {
 
 .oo-ui-demo-toolbars {
 	padding: 0;
-	font-size: 1em;
 	margin-bottom: 2em;
 }
 
 .oo-ui-demo-toolbars-contents {
 	padding: 2em;
-	font-size: 0.8em;
 	min-height: 100px;
 }
 
@@ -75,7 +63,6 @@ body {
 
 .oo-ui-demo-toolbar-actionButtons {
 	float: right;
-	font-size: 0.8em;
 	vertical-align: top;
 	padding: 0.25em;
 }
