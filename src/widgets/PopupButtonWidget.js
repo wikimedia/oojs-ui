@@ -10,7 +10,7 @@
  *         popup: {
  *             $content: $( '<p>Additional options here.</p>' ),
  *             padded: true,
- *             align: 'left'
+ *             align: 'force-left'
  *         }
  *     } );
  *     // Append the button to the DOM.
