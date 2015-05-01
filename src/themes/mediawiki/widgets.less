@@ -381,7 +381,7 @@
 		border: solid 1px #ccc;
 		box-shadow: inset 0 0 0 0 @progressive;
 		border-radius: 0.1em;
-		.oo-ui-transition(box-shadow 0.1s);
+		.oo-ui-transition(box-shadow @quick-ease);
 		.oo-ui-box-sizing(border-box);
 	}
 
@@ -749,9 +749,7 @@
 	}
 
 	&-transitioning .oo-ui-popupWidget-popup {
-		.oo-ui-transition(
-			width 100ms ease-in-out, height 100ms ease-in-out, left 100ms ease-in-out
-		);
+		.oo-ui-transition(width @quick-ease, height @quick-ease, left @quick-ease);
 	}
 
 	&-head {
@@ -869,14 +867,14 @@
 		border: 1px #ddd solid;
 		background-color: #f7f7f7;
 
-		.oo-ui-transition(left 0.1s ease-in-out, margin-left 0.1s ease-in-out);
+		.oo-ui-transition(left @quick-ease, margin-left @quick-ease);
 	}
 
 	&-glow {
 		border-radius: 1em;
 		background-color: #f7f7f7;
 
-		.oo-ui-transition(background-color 0.1s ease-in-out);
+		.oo-ui-transition(background-color @quick-ease);
 	}
 
 	&.oo-ui-toggleWidget-on {
