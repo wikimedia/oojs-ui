@@ -47,7 +47,9 @@
 			"src/layouts/FormLayout.js",
 			"src/layouts/MenuLayout.js",
 				"src/layouts/BookletLayout.js",
+				"src/layouts/IndexLayout.js",
 			"src/layouts/PanelLayout.js",
+				"src/layouts/CardLayout.js",
 				"src/layouts/PageLayout.js",
 				"src/layouts/StackLayout.js",
 
@@ -87,6 +89,7 @@
 					"src/widgets/MenuOptionWidget.js",
 					"src/widgets/MenuSectionOptionWidget.js",
 					"src/widgets/OutlineOptionWidget.js",
+					"src/widgets/TabOptionWidget.js",
 			"src/widgets/PopupWidget.js",
 			"src/widgets/ProgressBarWidget.js",
 			"src/widgets/SearchWidget.js",
@@ -96,6 +99,7 @@
 				"src/widgets/MenuSelectWidget.js",
 					"src/widgets/TextInputMenuSelectWidget.js",
 				"src/widgets/OutlineSelectWidget.js",
+				"src/widgets/TabSelectWidget.js",
 			"src/widgets/ToggleSwitchWidget.js",
 
 			"src/outro.js.txt"

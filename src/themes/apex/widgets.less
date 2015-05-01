@@ -525,6 +525,33 @@
 	}
 }
 
+.theme-oo-ui-tabOptionWidget () {
+	padding: 0.5em 1em;
+	margin: 0.5em 0 0 0.75em;
+	border: 1px solid transparent;
+	border-bottom: none;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+
+	&.oo-ui-indicatorElement .oo-ui-labelElement-label {
+		padding-right: 1.5em;
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		opacity: 0.5;
+	}
+
+	.oo-ui-selectWidget-pressed &.oo-ui-optionWidget-pressed {
+		background-color: transparent;
+	}
+
+	.oo-ui-selectWidget-pressed &.oo-ui-optionWidget-selected,
+	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected {
+		background-color: #fff;
+		border-color: #ddd;
+	}
+}
+
 .theme-oo-ui-popupWidget () {
 	&-popup {
 		border: 1px solid #ccc;
@@ -648,6 +675,11 @@
 .theme-oo-ui-textInputMenuSelectWidget () {}
 
 .theme-oo-ui-outlineSelectWidget () {}
+
+.theme-oo-ui-tabSelectWidget () {
+	background-color: #eee;
+	box-shadow: inset 0 -0.015em 0.1em rgba(0, 0, 0, 0.1);
+}
 
 .theme-oo-ui-toggleSwitchWidget () {
 	@travelDistance: 2em;
