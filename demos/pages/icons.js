@@ -76,7 +76,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'key',
 				'keyboard',
 				'logOut',
-				'magnifyingGlass',
 				'newWindow',
 				'printer',
 				'ribbonPrize',
@@ -192,6 +191,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 			'next',
 			'previous',
 			'required',
+			'search',
 			'up'
 		],
 		iconsFieldsets = [],

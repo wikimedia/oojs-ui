@@ -60,7 +60,10 @@
 			"rtl": "images/icons/arched-arrow-rtl.svg"
 		} },
 		"remove": { "file": "images/icons/remove.svg", "variants": [ "destructive" ] },
-		"search": { "file": "images/icons/search.svg" },
+		"search": { "file": {
+			"ltr": "images/icons/search-ltr.svg",
+			"rtl": "images/icons/search-rtl.svg"
+		} },
 		"settings": { "file": "images/icons/settings.svg" },
 		"tag": { "file": "images/icons/tag.svg" },
 		"undo": { "file": {
