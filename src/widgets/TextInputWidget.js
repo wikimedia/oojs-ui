@@ -108,7 +108,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		this.$input.attr( 'autofocus', 'autofocus' );
 	}
 	if ( config.required ) {
-		this.$input.attr( 'required', 'true' );
+		this.$input.attr( 'required', 'required' );
 	}
 	if ( this.label || config.autosize ) {
 		this.installParentChangeDetector();
