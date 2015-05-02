@@ -113,6 +113,7 @@ OO.ui.FormLayout.static.tagName = 'form';
  * @fires submit
  */
 OO.ui.FormLayout.prototype.onFormSubmit = function () {
-	this.emit( 'submit' );
-	return false;
+	if ( this.emit( 'submit' ) ) {
+		return false;
+	}
 };
