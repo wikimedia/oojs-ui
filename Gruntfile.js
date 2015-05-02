@@ -102,6 +102,7 @@ module.exports = function ( grunt ) {
 		// Build
 		clean: {
 			build: 'dist/*',
+			doc: 'docs/*',
 			tmp: 'dist/tmp'
 		},
 		fileExists: {
