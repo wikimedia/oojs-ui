@@ -40,6 +40,16 @@ OO.ui.Demo = function OoUiDemo() {
 		new OO.ui.ButtonOptionWidget( { data: 'ltr', label: 'LTR' } ),
 		new OO.ui.ButtonOptionWidget( { data: 'rtl', label: 'RTL' } )
 	] );
+	this.jsPhpSelect = new OO.ui.ButtonGroupWidget().addItems( [
+		new OO.ui.ButtonWidget( { label: 'JS' } ).setActive( true ),
+		new OO.ui.ButtonWidget( {
+			label: 'PHP',
+			href: 'widgets.php' +
+				'?theme=' + this.mode.theme +
+				'&graphic=' + this.mode.graphics +
+				'&direction=' + this.mode.direction
+		} )
+	] );
 
 	// Events
 	this.pageMenu.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
@@ -58,7 +68,8 @@ OO.ui.Demo = function OoUiDemo() {
 			this.pageDropdown.$element,
 			this.themeSelect.$element,
 			this.graphicsSelect.$element,
-			this.directionSelect.$element
+			this.directionSelect.$element,
+			this.jsPhpSelect.$element
 		);
 	this.$element
 		.addClass( 'oo-ui-demo' )
