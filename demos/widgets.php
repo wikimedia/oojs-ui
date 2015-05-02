@@ -535,6 +535,29 @@
 							)
 						),
 						new OOUI\FieldLayout(
+							new OOUI\RadioSelectInputWidget( array(
+								'value' => 'dog',
+								'options' => array(
+									array(
+										'data' => 'cat',
+										'label' => 'Cat'
+									),
+									array(
+										'data' => 'dog',
+										'label' => 'Dog'
+									),
+									array(
+										'data' => 'goldfish',
+										'label' => 'Goldfish'
+									),
+								)
+							) ),
+							array(
+								'align' => 'top',
+								'label' => 'RadioSelectInputWidget',
+							)
+						),
+						new OOUI\FieldLayout(
 							new OOUI\TextInputWidget( array( 'value' => 'Text input' ) ),
 							array(
 								'label' => "TextInputWidget\xE2\x80\x8E",

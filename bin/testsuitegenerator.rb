@@ -18,7 +18,7 @@ else
 		.reject{|c| c[:abstract] } # can't test abstract classes
 		.reject{|c| !c[:parent] || c[:parent] == 'ElementMixin' || c[:parent] == 'Theme' } # can't test abstract
 		.reject{|c| %w[Element Widget Layout Theme].include? c[:name] } # no toplevel
-		.reject{|c| c[:name] == 'DropdownInputWidget' } # different PHP and JS implementations
+		.reject{|c| %w[DropdownInputWidget RadioSelectInputWidget].include? c[:name] } # different PHP and JS implementations
 
 	# values to test for each type
 	expandos = {

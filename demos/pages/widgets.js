@@ -656,15 +656,15 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.RadioSelectWidget( {
 						items: [
 							new OO.ui.RadioOptionWidget( {
-								data: 'Cat',
+								data: 'cat',
 								label: 'Cat'
 							} ),
 							new OO.ui.RadioOptionWidget( {
-								data: 'Dog',
+								data: 'dog',
 								label: 'Dog'
 							} ),
 							new OO.ui.RadioOptionWidget( {
-								data: 'Goldfish',
+								data: 'goldfish',
 								label: 'Goldfish',
 								disabled: true
 							} )
@@ -673,6 +673,29 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					{
 						align: 'top',
 						label: 'RadioSelectWidget'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.RadioSelectInputWidget( {
+						value: 'dog',
+						options: [
+							{
+								data: 'cat',
+								label: 'Cat'
+							},
+							{
+								data: 'dog',
+								label: 'Dog'
+							},
+							{
+								data: 'goldfish',
+								label: 'Goldfish'
+							}
+						]
+					} ),
+					{
+						align: 'top',
+						label: 'RadioSelectInputWidget'
 					}
 				),
 				new OO.ui.FieldLayout(
