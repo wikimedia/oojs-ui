@@ -12,9 +12,9 @@
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$label] The label element created by the class. If this
  *  configuration is omitted, the label element will use a generated `<span>`.
- * @cfg {jQuery|string|Function} [label] The label text. The label can be specified as a plaintext string,
- *  a jQuery selection of elements, or a function that will produce a string in the future. See the
- *  [OOjs UI documentation on MediaWiki] [2] for examples.
+ * @cfg {jQuery|string|Function|OO.ui.HtmlSnippet} [label] The label text. The label can be specified
+ *  as a plaintext string, a jQuery selection of elements, or a function that will produce a string
+ *  in the future. See the [OOjs UI documentation on MediaWiki] [2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Icons,_Indicators,_and_Labels#Labels
  * @cfg {boolean} [autoFitLabel=true] Fit the label to the width of the parent element.
  *  The label will be truncated to fit if necessary.
