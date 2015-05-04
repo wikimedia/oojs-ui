@@ -88,7 +88,7 @@ OO.ui.CardLayout.prototype.getTabItem = function () {
 /**
  * Set or unset the tab item.
  *
- * Specify an {@link OO.ui.TabOptionWidget tab option} to set it,
+ * Specify a {@link OO.ui.TabOptionWidget tab option} to set it,
  * or `null` to clear the tab item. To customize the tab item itself (e.g., to set a label or tab
  * level), use #setupTabItem instead of this method.
  *
@@ -107,7 +107,7 @@ OO.ui.CardLayout.prototype.setTabItem = function ( tabItem ) {
  * Set up the tab item.
  *
  * Use this method to customize the tab item (e.g., to add a label or tab level). To set or unset
- * the tab item itself (with an {@link OO.ui.TabOptionWidget tab option} or `null`), use
+ * the tab item itself (with a {@link OO.ui.TabOptionWidget tab option} or `null`), use
  * the #setTabItem method instead.
  *
  * @param {OO.ui.TabOptionWidget} tabItem Tab option widget to set up
