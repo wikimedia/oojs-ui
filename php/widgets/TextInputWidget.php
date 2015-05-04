@@ -67,7 +67,7 @@ class TextInputWidget extends InputWidget {
 			$this->input->setAttributes( array( 'autofocus' => 'autofocus' ) );
 		}
 		if ( $config['required'] ) {
-			$this->input->setAttributes( array( 'required' => 'required' ) );
+			$this->input->setAttributes( array( 'required' => 'required', 'aria-required' => 'true' ) );
 		}
 	}
 
@@ -142,7 +142,8 @@ class TextInputWidget extends InputWidget {
 			$config['autofocus'] = true;
 		}
 		$required = $this->input->getAttribute( 'required' );
-		if ( $required !== null ) {
+		$ariarequired = $this->input->getAttribute( 'aria-required' );
+		if ( ( $required !== null ) || ( $ariarequired !== null ) ) {
 			$config['required'] = true;
 		}
 		return parent::getConfig( $config );
