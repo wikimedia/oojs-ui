@@ -415,7 +415,7 @@ OO.ui.IndexLayout.prototype.setCard = function ( name ) {
 	if ( name !== this.currentCardName ) {
 		selectedItem = this.tabSelectWidget.getSelectedItem();
 		if ( selectedItem && selectedItem.getData() !== name ) {
-			this.tabSelectWidget.selectItem( this.tabSelectWidget.getItemFromData( name ) );
+			this.tabSelectWidget.selectItemByData( name );
 		}
 		if ( card ) {
 			if ( this.currentCardName && this.cards[ this.currentCardName ] ) {
