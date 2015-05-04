@@ -421,6 +421,11 @@ OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
 OO.ui.TextInputWidget.prototype.setValidityFlag = function () {
 	var widget = this;
 	this.isValid().done( function ( valid ) {
+		if ( !valid ) {
+			widget.$input.attr( 'aria-invalid', 'true' );
+		} else {
+			widget.$input.removeAttr( 'aria-invalid' );
+		}
 		widget.setFlags( { invalid: !valid } );
 	} );
 };
