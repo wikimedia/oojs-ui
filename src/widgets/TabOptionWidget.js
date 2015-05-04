@@ -1,8 +1,8 @@
 /**
- * TabOptionWidget is an item in an {@link OO.ui.TabSelectWidget TabSelectWidget}.
+ * TabOptionWidget is an item in a {@link OO.ui.TabSelectWidget TabSelectWidget}.
  *
  * Currently, this class is only used by {@link OO.ui.IndexLayout index layouts}, which contain
- * {@link OO.ui.PageLayout page layouts}. See {@link OO.ui.IndexLayout IndexLayout}
+ * {@link OO.ui.CardLayout card layouts}. See {@link OO.ui.IndexLayout IndexLayout}
  * for an example.
  *
  * @class
