@@ -74,12 +74,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.anchor = null;
 	this.width = config.width !== undefined ? config.width : 320;
 	this.height = config.height !== undefined ? config.height : null;
-	// Validate alignment and transform deprecated values
-	if ( [ 'left', 'right', 'force-left', 'force-right', 'backwards', 'forwards', 'center' ].indexOf( config.align ) > -1 ) {
-		this.align = { left: 'force-right', right: 'force-left' }[ config.align ] || config.align;
-	} else {
-		this.align = 'center';
-	}
+	this.setAlignment( config.align );
 	this.closeButton = new OO.ui.ButtonWidget( { framed: false, icon: 'close' } );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
 	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
@@ -374,4 +369,27 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	this.clip();
 
 	return this;
+};
+
+/**
+ * Set popup alignment
+ * @param {string} align Alignment of the popup, `center`, `force-left`, `force-right`,
+ *  `backwards` or `forwards`.
+ */
+OO.ui.PopupWidget.prototype.setAlignment = function ( align ) {
+	// Validate alignment and transform deprecated values
+	if ( [ 'left', 'right', 'force-left', 'force-right', 'backwards', 'forwards', 'center' ].indexOf( align ) > -1 ) {
+		this.align = { left: 'force-right', right: 'force-left' }[ align ] || align;
+	} else {
+		this.align = 'center';
+	}
+};
+
+/**
+ * Get popup alignment
+ * @return {string} align Alignment of the popup, `center`, `force-left`, `force-right`,
+ *  `backwards` or `forwards`.
+ */
+OO.ui.PopupWidget.prototype.getAlignment = function () {
+	return this.align;
 };
