@@ -1,5 +1,29 @@
 # OOjs UI Release History
 
+## v0.11.1 / 2015-05-04
+* Add IndexLayout (Trevor Parscal)
+* CardLayout: Fix typo (Kirsten Menger-Anderson)
+* LabelElement: Document that label config option can take an HtmlSnippet (Roan Kattouw)
+* PopupButtonWidget: Update align config in example (Kirsten Menger-Anderson)
+* Remove GridLayout remnants (Bartosz Dziewoński)
+* SelectWidget: Add #selectItemByData method (Moriel Schottlender)
+* TabOptionWidget: Change link to card layout (Kirsten Menger-Anderson)
+* TextInputWidget: Annotate input validation with aria-invalid (Prateek Saxena)
+* TextInputWidget: Don't set 'invalid' flag on first focus, even if invalid (Bartosz Dziewoński)
+* TextInputWidget: Support 'required' config option in PHP (Bartosz Dziewoński)
+* MediaWiki theme: Add 'destructive' variant to block icon (Moriel Schottlender)
+* MediaWiki theme: Better vertical alignment of 'search' icon (Ed Sanders)
+* MediaWiki theme: Tweak 'search' icon size (Ed Sanders)
+* MediaWiki theme: Use variable for transition time and easing function (Prateek Saxena)
+* MediaWiki theme: input: Use variable for transition time and easing function (Prateek Saxena)
+* MediaWiki theme: radio/checkbox: Use variable for transition time and easing function (Prateek Saxena)
+* MediaWiki, Apex themes: Switch icons: clear → cancel, closeInput → clear (Bartosz Dziewoński)
+* MediaWiki, Apex themes: Switch over 'magnifyingGlass' icon to be 'search' (James D. Forrester)
+* build: Add clean:doc task (Bartosz Dziewoński)
+* build: Bump grunt-jscs to latest version (James D. Forrester)
+* core: Add OO.ui.debounce() utility (Roan Kattouw)
+* demo: Add icons with variants to icons demo (Bartosz Dziewoński)
+
 ## v0.11.0 / 2015-04-29
 * [BREAKING CHANGE] Do not set font-size: 0.8em anywhere in the library (Bartosz Dziewoński)
 
