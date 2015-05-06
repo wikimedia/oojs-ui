@@ -545,8 +545,21 @@
 		background-color: transparent;
 	}
 
+	&.oo-ui-widget-enabled {
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+			border-color: #ddd;
+		}
+
+		&:active {
+			background-color: #fff;
+			border-color: #ddd;
+		}
+	}
+
 	.oo-ui-selectWidget-pressed &.oo-ui-optionWidget-selected,
-	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected {
+	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected,
+	&.oo-ui-optionWidget-selected:hover {
 		background-color: #fff;
 		border-color: #ddd;
 	}

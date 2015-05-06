@@ -321,6 +321,8 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 
 		this.indexLayout.addCards( this.cards );
 		this.$body.append( this.indexLayout.$element );
+
+		this.indexLayout.getTabs().getItemFromData( 'fourth' ).setDisabled( true );
 	};
 	IndexedDialog.prototype.getActionProcess = function ( action ) {
 		if ( action ) {
