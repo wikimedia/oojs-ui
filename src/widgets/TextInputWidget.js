@@ -84,7 +84,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Events
 	this.$input.on( {
 		keypress: this.onKeyPress.bind( this ),
-		blur: this.setValidityFlag.bind( this )
+		blur: this.onBlur.bind( this )
 	} );
 	this.$input.one( {
 		focus: this.onElementAttach.bind( this )
@@ -182,6 +182,16 @@ OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
 	if ( e.which === OO.ui.Keys.ENTER && !this.multiline ) {
 		this.emit( 'enter', e );
 	}
+};
+
+/**
+ * Handle blur events.
+ *
+ * @private
+ * @param {jQuery.Event} e Blur event
+ */
+OO.ui.TextInputWidget.prototype.onBlur = function () {
+	this.setValidityFlag();
 };
 
 /**
@@ -407,17 +417,25 @@ OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
 
 /**
  * Sets the 'invalid' flag appropriately.
+ *
+ * @param {boolean} [isValid] Optionally override validation result
  */
-OO.ui.TextInputWidget.prototype.setValidityFlag = function () {
-	var widget = this;
-	this.isValid().done( function ( valid ) {
-		if ( !valid ) {
-			widget.$input.attr( 'aria-invalid', 'true' );
-		} else {
-			widget.$input.removeAttr( 'aria-invalid' );
-		}
-		widget.setFlags( { invalid: !valid } );
-	} );
+OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
+	var widget = this,
+		setFlag = function ( valid ) {
+			if ( !valid ) {
+				widget.$input.attr( 'aria-invalid', 'true' );
+			} else {
+				widget.$input.removeAttr( 'aria-invalid' );
+			}
+			widget.setFlags( { invalid: !valid } );
+		};
+
+	if ( isValid !== undefined ) {
+		setFlag( isValid );
+	} else {
+		this.isValid().done( setFlag );
+	}
 };
 
 /**
