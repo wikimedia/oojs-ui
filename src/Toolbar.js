@@ -33,7 +33,6 @@
  *     // editor's editing area, highlighting the tools (e.g. a 'bold' tool would be shown as active
  *     // when the text cursor was inside bolded text). Here we simply disable this feature.
  *     PictureTool.prototype.onUpdateState = function () {
- *         this.setActive( false );
  *     };
  *     // Make this tool available in our toolFactory and thus our toolbar
  *     toolFactory.register( PictureTool );
@@ -51,7 +50,6 @@
  *         this.setActive( false );
  *     };
  *     SettingsTool.prototype.onUpdateState = function () {
- *         this.setActive( false );
  *     };
  *     toolFactory.register( SettingsTool );
  *
@@ -68,7 +66,6 @@
  *         this.setActive( false );
  *     };
  *     StuffTool.prototype.onUpdateState = function () {
- *         this.setActive( false );
  *     };
  *     toolFactory.register( StuffTool );
  *
