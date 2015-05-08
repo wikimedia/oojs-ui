@@ -630,8 +630,8 @@
 
 	&.oo-ui-optionWidget {
 		&-selected {
-			background-color: @active;
-			color: #fff;
+			background-color: @select;
+			color: rgba(0,0,0,0.8);
 
 			.oo-ui-iconElement-icon {
 				display: none;
@@ -640,6 +640,9 @@
 		&-highlighted {
 			background-color: #eee;
 			color: black;
+		}
+		&-selected&-highlighted {
+			background-color: @select;
 		}
 	}
 }
