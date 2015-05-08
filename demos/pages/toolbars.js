@@ -220,18 +220,10 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 	actionButton = new OO.ui.ButtonWidget( { label: 'Action' } );
 	actionButtonDisabled = new OO.ui.ButtonWidget( { label: 'Disabled', disabled: true } );
 	toolbars[ 1 ].$actions
-		.addClass( 'oo-ui-demo-toolbar-actionButtons' )
 		.append( actionButton.$element, actionButtonDisabled.$element );
 
 	toolbars[ 3 ].$actions
-		.append(
-			$( '<div>' )
-				.addClass( 'oo-ui-demo-toolbar-utilities' )
-				.append( toolbars[ 2 ].$element ),
-			$( '<div>' )
-				.addClass( 'oo-ui-demo-toolbar-actionButtons' )
-				.append( saveButton.$element )
-		);
+		.append( toolbars[ 2 ].$element, saveButton.$element );
 
 	for ( i = 0; i < toolbars.length; i++ ) {
 		toolbars[ i ].emit( 'updateState' );

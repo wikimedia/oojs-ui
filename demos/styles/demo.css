@@ -56,23 +56,6 @@ body {
 	min-height: 100px;
 }
 
-.oo-ui-demo-toolbar-utilities {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.oo-ui-demo-toolbar-actionButtons {
-	float: right;
-	vertical-align: top;
-	padding: 0.25em;
-}
-
-.oo-ui-demo-toolbar-actionButtons > .oo-ui-buttonElement-framed {
-	margin-left: 0.25em;
-	margin-right: 0.25em;
-	margin-top: 0.2em;
-}
-
 /* Icons demo */
 
 .oo-ui-demo-icons .oo-ui-buttonSelectWidget {
