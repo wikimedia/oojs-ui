@@ -80,8 +80,6 @@ OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.TitledElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.ClippableElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.TabIndexedElement );
 
-/* Static Properties */
-
 /* Methods */
 
 /**
