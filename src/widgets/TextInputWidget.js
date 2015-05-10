@@ -110,6 +110,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 	if ( config.required ) {
 		this.$input.attr( 'required', 'required' );
+		this.$input.attr( 'aria-required', 'true' );
 	}
 	if ( this.label || config.autosize ) {
 		this.installParentChangeDetector();
