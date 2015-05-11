@@ -5,6 +5,8 @@
 @oo-ui-toolbar-active: #e5e5e5;
 @oo-ui-toolbar-active-hover: #eee;
 @oo-ui-toolbar-pressed: #e7e7e7;
+@oo-ui-toolbar-bar-text: #555;
+@oo-ui-toolbar-dropdown-text: #000;
 
 .theme-oo-ui-toolbar () {
 	&-bar {
@@ -12,7 +14,7 @@
 		background-color: @oo-ui-toolbar-normal;
 		box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 		font-weight: 500;
-		color: #555;
+		color: @oo-ui-toolbar-bar-text;
 
 		.oo-ui-toolbar-bar {
 			border: none;
@@ -96,7 +98,7 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-tool-link .oo-ui-tool-title {
-			color: #000;
+			color: @oo-ui-toolbar-dropdown-text;
 		}
 	}
 }
