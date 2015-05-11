@@ -1,5 +1,22 @@
 # OOjs UI Release History
 
+## v0.11.2 / 2015-05-11
+* Don't select lookup items on initialize (Ed Sanders)
+* ListToolGroup, MenuToolGroup: Set accelTooltips = false (Bartosz Dziewoński)
+* PopupWidget: Add setAlignment (Moriel Schottlender)
+* SelectWidget: Mark as @abstract, which it is (Bartosz Dziewoński)
+* Simplify default action prevention in buttons and forms (Bartosz Dziewoński)
+* TabOptionWidget: Fix disabled styles to not react to hover/select (Ed Sanders)
+* TextInputWidget: Allow override of #setValidityFlag (Ed Sanders)
+* TextInputWidget: Use aria-required along with the required attribute (Prateek Saxena)
+* Toolbar: Fix shadow styling (Bartosz Dziewoński)
+* Toolbar: Move some tweaks from demo to actual implementation (Bartosz Dziewoński)
+* Toolbar: Remove some useless code from the example (Bartosz Dziewoński)
+* Toolbar: Rework example and add 'menu' tool group example (Bartosz Dziewoński)
+* MediaWiki theme: Change highlight color for selected menu option (nirzar)
+* MediaWiki theme: Polish the toolbar design (nirzar)
+* MediaWiki theme: Remove accidentally duplicated styles for SelectWidget (Bartosz Dziewoński)
+
 ## v0.11.1 / 2015-05-04
 * Add IndexLayout (Trevor Parscal)
 * CardLayout: Fix typo (Kirsten Menger-Anderson)
