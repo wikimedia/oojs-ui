@@ -63,6 +63,7 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 			'oo-ui-tool ' + 'oo-ui-tool-name-' +
 			this.constructor.static.name.replace( /^([^\/]+)\/([^\/]+).*$/, '$1-$2' )
 		)
+		.toggleClass( 'oo-ui-tool-with-label', this.constructor.static.displayBothIconAndLabel )
 		.append( this.$link );
 	this.setTitle( config.title || this.constructor.static.title );
 };
@@ -122,6 +123,16 @@ OO.ui.Tool.static.group = '';
  * @property {string|Function} Title text or a function that returns text
  */
 OO.ui.Tool.static.title = '';
+
+/**
+ * Whether this tool should be displayed with both title and label when used in a bar tool group.
+ * Normally only the icon is displayed, or only the label if no icon is given.
+ *
+ * @static
+ * @inheritable
+ * @property {boolean}
+ */
+OO.ui.Tool.static.displayBothIconAndLabel = false;
 
 /**
  * Tool can be automatically added to catch-all groups.

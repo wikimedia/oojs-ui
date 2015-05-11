@@ -27,11 +27,18 @@
 
 		&.oo-ui-iconElement > .oo-ui-tool-link {
 			.oo-ui-iconElement-icon {
-				display: block;
+				display: inline-block;
+				vertical-align: top;
 			}
 
 			.oo-ui-tool-title {
 				display: none;
+			}
+		}
+
+		&.oo-ui-iconElement.oo-ui-tool-with-label > .oo-ui-tool-link {
+			.oo-ui-tool-title {
+				display: inline;
 			}
 		}
 

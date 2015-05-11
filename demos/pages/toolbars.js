@@ -24,7 +24,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 		toolbars[ i ].getToolAccelerator = getToolAccelerator;
 	}
 
-	function createTool( toolbar, group, name, icon, title, init, onSelect ) {
+	function createTool( toolbar, group, name, icon, title, init, onSelect, displayBothIconAndLabel ) {
 		var Tool = function () {
 			Tool.super.apply( this, arguments );
 			this.toggled = false;
@@ -50,6 +50,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 		Tool.static.group = group;
 		Tool.static.icon = icon;
 		Tool.static.title = title;
+		Tool.static.displayBothIconAndLabel = !!displayBothIconAndLabel;
 		return Tool;
 	}
 
@@ -206,7 +207,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 		},
 		{
 			type: 'bar',
-			include: [ { group: 'cite' }, 'toolGroupTool' ]
+			include: [ { group: 'cite' } ]
 		},
 		{
 			type: 'list',
@@ -288,7 +289,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 		],
 
 		cite: [
-			[ 'citeTool', null, 'Cite' ]
+			[ 'citeTool', 'citeArticle', 'Cite', null, null, true ]
 		]
 	};
 
