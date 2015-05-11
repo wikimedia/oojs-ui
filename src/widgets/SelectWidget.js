@@ -29,6 +29,7 @@
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *
+ * @abstract
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.GroupElement
