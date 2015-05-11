@@ -23,6 +23,9 @@ OO.ui.ToolGroupTool = function OoUiToolGroupTool( toolGroup, config ) {
 	// Properties
 	this.innerToolGroup = this.createGroup( this.constructor.static.groupConfig );
 
+	// Events
+	this.innerToolGroup.connect( this, { disable: 'onToolGroupDisable' } );
+
 	// Initialization
 	this.$link.remove();
 	this.$element
@@ -53,6 +56,16 @@ OO.ui.ToolGroupTool.static.groupConfig = {};
 OO.ui.ToolGroupTool.prototype.onSelect = function () {
 	this.innerToolGroup.setActive( !this.innerToolGroup.active );
 	return false;
+};
+
+/**
+ * Synchronize disabledness state of the tool with the inner toolgroup.
+ *
+ * @private
+ * @param {boolean} disabled Element is disabled
+ */
+OO.ui.ToolGroupTool.prototype.onToolGroupDisable = function ( disabled ) {
+	this.setDisabled( disabled );
 };
 
 /**
