@@ -228,16 +228,15 @@ OO.ui.LookupElement.prototype.populateLookupMenu = function () {
 };
 
 /**
- * Select and highlight the first selectable item in the menu.
+ * Highlight the first selectable item in the menu.
  *
  * @private
  * @chainable
  */
 OO.ui.LookupElement.prototype.initializeLookupMenuSelection = function () {
 	if ( !this.lookupMenu.getSelectedItem() ) {
-		this.lookupMenu.selectItem( this.lookupMenu.getFirstSelectableItem() );
+		this.lookupMenu.highlightItem( this.lookupMenu.getFirstSelectableItem() );
 	}
-	this.lookupMenu.highlightItem( this.lookupMenu.getSelectedItem() );
 };
 
 /**
