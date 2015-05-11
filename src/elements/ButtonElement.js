@@ -144,9 +144,10 @@ OO.ui.ButtonElement.prototype.onMouseUp = function ( e ) {
  */
 OO.ui.ButtonElement.prototype.onClick = function ( e ) {
 	if ( !this.isDisabled() && e.which === 1 ) {
-		this.emit( 'click' );
+		if ( this.emit( 'click' ) ) {
+			return false;
+		}
 	}
-	return false;
 };
 
 /**
@@ -189,8 +190,9 @@ OO.ui.ButtonElement.prototype.onKeyUp = function ( e ) {
  */
 OO.ui.ButtonElement.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
-		this.emit( 'click' );
-		return false;
+		if ( this.emit( 'click' ) ) {
+			return false;
+		}
 	}
 };
 

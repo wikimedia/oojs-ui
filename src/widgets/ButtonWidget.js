@@ -105,28 +105,6 @@ OO.ui.ButtonWidget.prototype.onMouseUp = function ( e ) {
 };
 
 /**
- * @inheritdoc
- */
-OO.ui.ButtonWidget.prototype.onClick = function ( e ) {
-	var ret = OO.ui.ButtonElement.prototype.onClick.call( this, e );
-	if ( this.href ) {
-		return true;
-	}
-	return ret;
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.ButtonWidget.prototype.onKeyPress = function ( e ) {
-	var ret = OO.ui.ButtonElement.prototype.onKeyPress.call( this, e );
-	if ( this.href ) {
-		return true;
-	}
-	return ret;
-};
-
-/**
  * Get hyperlink location.
  *
  * @return {string} Hyperlink location
