@@ -114,6 +114,10 @@
 			background-color: @oo-ui-toolbar-normal-hover;
 		}
 
+		> a.oo-ui-tool-link .oo-ui-tool-title {
+			color: @oo-ui-toolbar-bar-text;
+		}
+
 		&.oo-ui-tool-active {
 			&.oo-ui-widget-enabled {
 				border-color: rgba(0,0,0,0.2);
@@ -156,7 +160,7 @@
 	}
 
 	&.oo-ui-widget-disabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
-		> .oo-ui-tool-link {
+		> a.oo-ui-tool-link {
 			.oo-ui-tool-title {
 				color: #ccc;
 			}
