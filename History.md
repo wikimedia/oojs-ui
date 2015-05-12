@@ -1,5 +1,19 @@
 # OOjs UI Release History
 
+## v0.11.3 / 2015-05-12
+* BarToolGroup: Don't use "pointer" cursor for disabled tools in enabled toolgroups (Bartosz Dziewoński)
+* Tool: Support icon+label in bar tool groups (Bartosz Dziewoński)
+* ToolGroupTool: Correct opacity of disabled nested tool group handle (Bartosz Dziewoński)
+* ToolGroupTool: Synchronize inner ToolGroup disabledness state (Bartosz Dziewoński)
+* MediaWiki theme: Add a powerful default text color for tools (Trevor Parscal)
+* MediaWiki theme: Adjust quotes icon to match other icons (nirzar)
+* MediaWiki theme: Give names to some more toolbar colours (Bartosz Dziewoński)
+* MediaWiki theme: Provide all variants of the 'tag' icon (James D. Forrester)
+* MediaWiki theme: Rejigger some toolbar coloring (Bartosz Dziewoński)
+* MediaWiki theme: Remove box-shadow from nested toolbars (Bartosz Dziewoński)
+* MediaWiki theme: Remove unusued toolbar shadow (Trevor Parscal)
+* MediaWiki theme: Update button specification (nirzar)
+
 ## v0.11.2 / 2015-05-11
 * Don't select lookup items on initialize (Ed Sanders)
 * ListToolGroup, MenuToolGroup: Set accelTooltips = false (Bartosz Dziewoński)
