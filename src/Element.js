@@ -567,7 +567,10 @@ OO.ui.Element.static.scrollIntoView = function ( el, config ) {
  * @param {HTMLElement} el Element to reconsider the scrollbars on
  */
 OO.ui.Element.static.reconsiderScrollbars = function ( el ) {
-	var i, len, nodes = [];
+	var i, len, scrollLeft, scrollTop, nodes = [];
+	// Save scroll position
+	scrollLeft = el.scrollLeft;
+	scrollTop = el.scrollTop;
 	// Detach all children
 	while ( el.firstChild ) {
 		nodes.push( el.firstChild );
@@ -579,6 +582,9 @@ OO.ui.Element.static.reconsiderScrollbars = function ( el ) {
 	for ( i = 0, len = nodes.length; i < len; i++ ) {
 		el.appendChild( nodes[ i ] );
 	}
+	// Restore scroll position (no-op if scrollbars disappeared)
+	el.scrollLeft = scrollLeft;
+	el.scrollTop = scrollTop;
 };
 
 /* Methods */
