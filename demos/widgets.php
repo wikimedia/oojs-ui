@@ -126,22 +126,22 @@
 					),
 					array(
 						'label' => 'Button',
-						'icon' => 'picture',
+						'icon' => 'tag',
 					),
 					array(
 						'label' => 'Button',
-						'icon' => 'picture',
+						'icon' => 'tag',
 						'indicator' => 'down',
 					),
 					array(
-						'icon' => 'picture',
+						'icon' => 'tag',
 						'title' => "Title text",
 					),
 					array(
 						'indicator' => 'down',
 					),
 					array(
-						'icon' => 'picture',
+						'icon' => 'tag',
 						'indicator' => 'down',
 					),
 					array(
@@ -149,7 +149,7 @@
 						'disabled' => true,
 					),
 					array(
-						'icon' => 'picture',
+						'icon' => 'tag',
 						'title' => "Title text",
 						'disabled' => true,
 					),
@@ -287,7 +287,7 @@
 						new OOUI\FieldLayout(
 							new OOUI\ButtonWidget( array(
 								'label' => 'Constructive',
-								'icon' => 'picture',
+								'icon' => 'tag',
 								'flags' => array( 'constructive' ),
 								'disabled' => true
 							) ),
@@ -299,7 +299,7 @@
 						new OOUI\FieldLayout(
 							new OOUI\ButtonWidget( array(
 								'label' => 'Icon',
-								'icon' => 'picture'
+								'icon' => 'tag'
 							) ),
 							array(
 								'label' => "ButtonWidget (icon)\xE2\x80\x8E",
@@ -309,7 +309,7 @@
 						new OOUI\FieldLayout(
 							new OOUI\ButtonWidget( array(
 								'label' => 'Icon',
-								'icon' => 'picture',
+								'icon' => 'tag',
 								'flags' => array( 'progressive' )
 							) ),
 							array(
@@ -352,7 +352,7 @@
 						new OOUI\FieldLayout(
 							new OOUI\ButtonWidget( array(
 								'framed' => false,
-								'icon' => 'picture',
+								'icon' => 'tag',
 								'label' => 'Labeled'
 							) ),
 							array(
@@ -399,7 +399,7 @@
 						new OOUI\FieldLayout(
 							new OOUI\ButtonWidget( array(
 								'framed' => false,
-								'icon' => 'picture',
+								'icon' => 'tag',
 								'label' => 'Disabled',
 								'disabled' => true
 							) ),
@@ -412,7 +412,7 @@
 							new OOUI\ButtonWidget( array(
 								'framed' => false,
 								'flags' => array( 'constructive' ),
-								'icon' => 'picture',
+								'icon' => 'tag',
 								'label' => 'Constructive',
 								'disabled' => true
 							) ),
@@ -431,7 +431,7 @@
 							new OOUI\ButtonGroupWidget( array(
 								'items' => array(
 									new OOUI\ButtonWidget( array(
-										'icon' => 'picture',
+										'icon' => 'tag',
 										'label' => 'One'
 									) ),
 									new OOUI\ButtonWidget( array(

@@ -140,22 +140,22 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		},
 		{
 			label: 'Button',
-			icon: 'picture'
+			icon: 'tag'
 		},
 		{
 			label: 'Button',
-			icon: 'picture',
+			icon: 'tag',
 			indicator: 'down'
 		},
 		{
-			icon: 'picture',
+			icon: 'tag',
 			title: 'Title text'
 		},
 		{
 			indicator: 'down'
 		},
 		{
-			icon: 'picture',
+			icon: 'tag',
 			indicator: 'down'
 		},
 		{
@@ -163,7 +163,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			disabled: true
 		},
 		{
-			icon: 'picture',
+			icon: 'tag',
 			title: 'Title text',
 			disabled: true
 		},
@@ -299,7 +299,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						label: 'Constructive',
-						icon: 'picture',
+						icon: 'tag',
 						flags: [ 'constructive' ],
 						disabled: true
 					} ),
@@ -311,7 +311,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						label: 'Icon',
-						icon: 'picture'
+						icon: 'tag'
 					} ),
 					{
 						label: 'ButtonWidget (icon)\u200E',
@@ -321,7 +321,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						label: 'Icon',
-						icon: 'picture',
+						icon: 'tag',
 						flags: [ 'progressive' ]
 					} ),
 					{
@@ -395,7 +395,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						framed: false,
-						icon: 'picture',
+						icon: 'tag',
 						label: 'Labeled'
 					} ),
 					{
@@ -454,7 +454,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						framed: false,
-						icon: 'picture',
+						icon: 'tag',
 						label: 'Disabled',
 						disabled: true
 					} ),
@@ -467,7 +467,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonWidget( {
 						framed: false,
 						flags: [ 'constructive' ],
-						icon: 'picture',
+						icon: 'tag',
 						label: 'Constructive',
 						disabled: true
 					} ),
@@ -479,7 +479,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						framed: false,
-						icon: 'picture',
+						icon: 'tag',
 						indicator: 'down',
 						label: 'Labeled'
 					} ),
@@ -497,7 +497,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonGroupWidget( {
 						items: [
 							new OO.ui.ButtonWidget( {
-								icon: 'picture',
+								icon: 'tag',
 								label: 'One'
 							} ),
 							new OO.ui.ButtonWidget( {
@@ -519,7 +519,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						items: [
 							new OO.ui.ButtonOptionWidget( {
 								data: 'b',
-								icon: 'picture',
+								icon: 'tag',
 								label: 'One'
 							} ),
 							new OO.ui.ButtonOptionWidget( {
@@ -544,7 +544,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						items: [
 							new OO.ui.ButtonOptionWidget( {
 								data: 'b',
-								icon: 'picture',
+								icon: 'tag',
 								label: 'One'
 							} ),
 							new OO.ui.ButtonOptionWidget( {
@@ -568,7 +568,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						items: [
 							new OO.ui.ButtonOptionWidget( {
 								data: 'b',
-								icon: 'picture',
+								icon: 'tag',
 								label: 'One',
 								disabled: true
 							} ),
@@ -793,7 +793,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
-						icon: 'picture',
+						icon: 'tag',
 						indicator: 'alert',
 						value: 'Text input with label',
 						label: 'Inline label'
@@ -806,7 +806,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
 						value: 'Disabled',
-						icon: 'picture',
+						icon: 'tag',
 						indicator: 'required',
 						label: 'Inline label',
 						disabled: true
@@ -853,7 +853,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.DropdownWidget( {
 						label: 'Select one',
-						icon: 'picture',
+						icon: 'tag',
 						menu: {
 							items: [
 								new OO.ui.MenuOptionWidget( {
