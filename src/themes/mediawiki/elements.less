@@ -146,7 +146,7 @@
 				border: @neutral-button-border;
 
 				&:hover {
-					box-shadow: inset 0 -0.2em 0 0 rgba(0,0,0,0.2), 0 0.1em 0 0 rgba(0,0,0,0.2);
+					background-color: darken(@background,8%);
 				}
 
 				&:focus {
@@ -156,8 +156,8 @@
 
 			& > .oo-ui-buttonElement-button:active,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-				background-color: @pressed-color;
-				border-color: @pressed-color;
+				background-color: darken(@background,15%);
+				border-color: darken(@background,15%);
 				box-shadow: none;
 			}
 
@@ -168,28 +168,28 @@
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mediawiki-framed-button-colored(@progressive, @progressive-selected);
+					.mediawiki-framed-button-colored(@progressive, @progressive-fade, @progressive-selected);
 				}
 
 				&-constructive {
-					.mediawiki-framed-button-colored(@constructive, @constructive-selected);
+					.mediawiki-framed-button-colored(@constructive, @constructive-fade, @constructive-selected);
 				}
 
 				&-destructive {
-					.mediawiki-framed-button-colored(@destructive, @destructive-selected);
+					.mediawiki-framed-button-colored(@destructive, @destructive-fade, @destructive-selected);
 				}
 			}
 			&.oo-ui-flaggedElement-primary.oo-ui-flaggedElement {
 				&-progressive {
-					.mediawiki-framed-primary-button-colored(@progressive, @progressive-selected);
+					.mediawiki-framed-primary-button-colored(@progressive, @progressive-hover, @progressive-selected);
 				}
 
 				&-constructive {
-					.mediawiki-framed-primary-button-colored(@constructive, @constructive-selected);
+					.mediawiki-framed-primary-button-colored(@constructive, @constructive-hover, @constructive-selected);
 				}
 
 				&-destructive {
-					.mediawiki-framed-primary-button-colored(@destructive, @destructive-selected);
+					.mediawiki-framed-primary-button-colored(@destructive, @destructive-hover, @destructive-selected);
 				}
 			}
 		}
@@ -219,13 +219,13 @@
 	}
 }
 
-.mediawiki-framed-button-colored( @neutral, @pressed ) {
+.mediawiki-framed-button-colored( @neutral, @hover, @pressed ) {
 	> .oo-ui-buttonElement-button {
 		color: @neutral;
 
 		&:hover {
-			box-shadow: inset 0 -0.2em 0 0 @pressed, 0 0.1em 0 0 rgba(0,0,0,0.1);
-			border-bottom-color: @pressed;
+			background-color: @hover;
+			border-color: fade(@pressed,50%);
 		}
 
 		&:focus {
@@ -238,7 +238,7 @@
 		.oo-ui-buttonElement-button:active,
 		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 			color: @pressed;
-			border-color: @pressed-color;
+			border-color: @pressed;
 			box-shadow: none;
 		}
 
@@ -249,20 +249,20 @@
 	}
 }
 
-.mediawiki-framed-primary-button-colored( @neutral, @pressed ) {
+.mediawiki-framed-primary-button-colored( @neutral, @hover, @pressed ) {
 	> .oo-ui-buttonElement-button {
 		color: @background;
 		background-color: @neutral;
 		border-color: @neutral;
 
 		&:hover {
-			box-shadow: inset 0 -0.2em 0 0 @pressed, 0 0.1em 0 0 rgba(0,0,0,0.1);
-			border-bottom-color: @pressed;
+			background: @hover;
+			border-color: @hover;
 		}
 
 		&:focus {
-			box-shadow: inset 0 0 0 1px @pressed;
-			border-color: @pressed;
+			box-shadow: inset 0 0 0 1px @background;
+			border-color: @neutral;
 		}
 	}
 
