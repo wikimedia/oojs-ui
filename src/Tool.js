@@ -1,5 +1,15 @@
 /**
- * Generic toolbar tool.
+ * Tools, together with {@link OO.ui.ToolGroup toolgroups}, constitute {@link OO.ui.Toolbar toolbars}.
+ * Each tool is configured with a static name, title, and icon and is customized with the command to carry
+ * out when the tool is selected. Tools must also be registered with a {@link OO.ui.ToolFactory tool factory},
+ * which creates the tools on demand.
+ *
+ * Tools are added to toolgroups ({@link OO.ui.ListToolGroup ListToolGroup},
+ * {@link OO.ui.BarToolGroup BarToolGroup}, or {@link OO.ui.MenuToolGroup MenuToolGroup}), which determine how
+ * the tool is displayed in the toolbar. See {@link OO.ui.Toolbar toolbars} for an example.
+ *
+ * For more information, please see the [OOjs UI documentation on MediaWiki][1].
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Toolbars
  *
  * @abstract
  * @class
@@ -11,7 +21,16 @@
  * @constructor
  * @param {OO.ui.ToolGroup} toolGroup
  * @param {Object} [config] Configuration options
- * @cfg {string|Function} [title] Title text or a function that returns text
+ * @cfg {string|Function} [title] Title text or a function that returns text. If this config is omitted, the value of
+ *  the {@link #static-title static title} property is used.
+ *
+ *  The title is used in different ways depending on the type of toolgroup that contains the tool. The
+ *  title is used as a tooltip if the tool is part of a {@link OO.ui.BarToolGroup bar} toolgroup, or as the label text if the tool is
+ *  part of a {@link OO.ui.ListToolGroup list} or {@link OO.ui.MenuToolGroup menu} toolgroup.
+ *
+ *  For bar toolgroups, a description of the accelerator key is appended to the title if an accelerator key
+ *  is associated with an action by the same name as the tool and accelerator functionality has been added to the application.
+ *  To add accelerator key functionality, you must subclass OO.ui.Toolbar and override the {@link OO.ui.Toolbar#getToolAccelerator getToolAccelerator} method.
  */
 OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	// Allow passing positional parameters inside the config object
@@ -75,12 +94,6 @@ OO.mixinClass( OO.ui.Tool, OO.ui.IconElement );
 OO.mixinClass( OO.ui.Tool, OO.ui.FlaggedElement );
 OO.mixinClass( OO.ui.Tool, OO.ui.TabIndexedElement );
 
-/* Events */
-
-/**
- * @event select
- */
-
 /* Static Properties */
 
 /**
@@ -92,6 +105,9 @@ OO.ui.Tool.static.tagName = 'span';
 /**
  * Symbolic name of tool.
  *
+ * The symbolic name is used internally to register the tool with a {@link OO.ui.ToolFactory ToolFactory}. It can
+ * also be used when adding tools to toolgroups.
+ *
  * @abstract
  * @static
  * @inheritable
@@ -100,7 +116,10 @@ OO.ui.Tool.static.tagName = 'span';
 OO.ui.Tool.static.name = '';
 
 /**
- * Tool group.
+ * Symbolic name of the group.
+ *
+ * The group name is used to associate tools with each other so that they can be selected later by
+ * a {@link OO.ui.ToolGroup toolgroup}.
  *
  * @abstract
  * @static
@@ -110,22 +129,17 @@ OO.ui.Tool.static.name = '';
 OO.ui.Tool.static.group = '';
 
 /**
- * Tool title.
- *
- * Title is used as a tooltip when the tool is part of a bar tool group, or a label when the tool
- * is part of a list or menu tool group. If a trigger is associated with an action by the same name
- * as the tool, a description of its keyboard shortcut for the appropriate platform will be
- * appended to the title if the tool is part of a bar tool group.
+ * Tool title text or a function that returns title text. The value of the static property is overridden if the #title config option is used.
  *
  * @abstract
  * @static
  * @inheritable
- * @property {string|Function} Title text or a function that returns text
+ * @property {string|Function}
  */
 OO.ui.Tool.static.title = '';
 
 /**
- * Whether this tool should be displayed with both title and label when used in a bar tool group.
+ * Display both icon and label when the tool is used in a {@link OO.ui.BarToolGroup bar} toolgroup.
  * Normally only the icon is displayed, or only the label if no icon is given.
  *
  * @static
@@ -135,7 +149,10 @@ OO.ui.Tool.static.title = '';
 OO.ui.Tool.static.displayBothIconAndLabel = false;
 
 /**
- * Tool can be automatically added to catch-all groups.
+ * Add tool to catch-all groups automatically.
+ *
+ * A catch-all group, which contains all tools that do not currently belong to a toolgroup,
+ * can be included in a toolgroup using the wildcard selector, an asterisk (*).
  *
  * @static
  * @inheritable
@@ -144,7 +161,11 @@ OO.ui.Tool.static.displayBothIconAndLabel = false;
 OO.ui.Tool.static.autoAddToCatchall = true;
 
 /**
- * Tool can be automatically added to named groups.
+ * Add tool to named groups automatically.
+ *
+ * By default, tools that are configured with a static ‘group’ property are added
+ * to that group and will be selected when the symbolic name of the group is specified (e.g., when
+ * toolgroups include tools by group name).
  *
  * @static
  * @property {boolean}
@@ -154,6 +175,10 @@ OO.ui.Tool.static.autoAddToGroup = true;
 
 /**
  * Check if this tool is compatible with given data.
+ *
+ * This is a stub that can be overriden to provide support for filtering tools based on an
+ * arbitrary piece of information  (e.g., where the cursor is in a document). The implementation
+ * must also call this method so that the compatibility check can be performed.
  *
  * @static
  * @inheritable
@@ -171,6 +196,7 @@ OO.ui.Tool.static.isCompatibleWith = function () {
  *
  * This is an abstract method that must be overridden in a concrete subclass.
  *
+ * @protected
  * @abstract
  */
 OO.ui.Tool.prototype.onUpdateState = function () {
@@ -184,6 +210,7 @@ OO.ui.Tool.prototype.onUpdateState = function () {
  *
  * This is an abstract method that must be overridden in a concrete subclass.
  *
+ * @protected
  * @abstract
  */
 OO.ui.Tool.prototype.onSelect = function () {
@@ -193,18 +220,24 @@ OO.ui.Tool.prototype.onSelect = function () {
 };
 
 /**
- * Check if the button is active.
+ * Check if the tool is active.
  *
- * @return {boolean} Button is active
+ * Tools become active when their #onSelect or #onUpdateState handlers change them to appear pressed
+ * with the #setActive method. Additional CSS is applied to the tool to reflect the active state.
+ *
+ * @return {boolean} Tool is active
  */
 OO.ui.Tool.prototype.isActive = function () {
 	return this.active;
 };
 
 /**
- * Make the button appear active or inactive.
+ * Make the tool appear active or inactive.
  *
- * @param {boolean} state Make button appear active
+ * This method should be called within #onSelect or #onUpdateState event handlers to make the tool
+ * appear pressed or not.
+ *
+ * @param {boolean} state Make tool appear active
  */
 OO.ui.Tool.prototype.setActive = function ( state ) {
 	this.active = !!state;
@@ -216,7 +249,7 @@ OO.ui.Tool.prototype.setActive = function ( state ) {
 };
 
 /**
- * Get the tool title.
+ * Set the tool #title.
  *
  * @param {string|Function} title Title text or a function that returns text
  * @chainable
@@ -228,7 +261,7 @@ OO.ui.Tool.prototype.setTitle = function ( title ) {
 };
 
 /**
- * Get the tool title.
+ * Get the tool #title.
  *
  * @return {string} Title text
  */
@@ -272,6 +305,9 @@ OO.ui.Tool.prototype.updateTitle = function () {
 
 /**
  * Destroy tool.
+ *
+ * Destroying the tool removes all event handlers and the tool’s DOM elements.
+ * Call this method whenever you are done using a tool.
  */
 OO.ui.Tool.prototype.destroy = function () {
 	this.toolbar.disconnect( this );
