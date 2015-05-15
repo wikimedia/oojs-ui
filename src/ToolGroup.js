@@ -1,11 +1,27 @@
 /**
- * Collection of tools.
+ * ToolGroups are collections of {@link OO.ui.Tool tools} that are used in a {@link OO.ui.Toolbar toolbar}.
+ * The type of toolgroup ({@link OO.ui.ListToolGroup list}, {@link OO.ui.BarToolGroup bar}, or {@link OO.ui.MenuToolGroup menu})
+ * to which a tool belongs determines how the tool is arranged and displayed in the toolbar. Toolgroups
+ * themselves are created on demand with a {@link OO.ui.ToolGroupFactory toolgroup factory}.
  *
- * Tools can be specified in the following ways:
+ * Toolgroups can contain individual tools, groups of tools, or all available tools:
  *
- * - A specific tool: `{ name: 'tool-name' }` or `'tool-name'`
- * - All tools in a group: `{ group: 'group-name' }`
- * - All tools: `'*'`
+ * To include an individual tool (or array of individual tools), specify tools by symbolic name:
+ *
+ *      include: [ 'tool-name' ] or [ { name: 'tool-name' }]
+ *
+ * To include a group of tools, specify the group name. (The tool's static ‘group’ config is used to assign the tool to a group.)
+ *
+ *      include: [ { group: 'group-name' } ]
+ *
+ *  To include all tools that are not yet assigned to a toolgroup, use the catch-all selector, an asterisk (*):
+ *
+ *      include: '*'
+ *
+ * See {@link OO.ui.Toolbar toolbars} for a full example. For more information about toolbars in general,
+ * please see the [OOjs UI documentation on MediaWiki][1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Toolbars
  *
  * @abstract
  * @class
@@ -15,10 +31,12 @@
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
- * @cfg {Array|string} [include=[]] List of tools to include
- * @cfg {Array|string} [exclude=[]] List of tools to exclude
- * @cfg {Array|string} [promote=[]] List of tools to promote to the beginning
- * @cfg {Array|string} [demote=[]] List of tools to demote to the end
+ * @cfg {Array|string} [include=[]] List of tools to include in the toolgroup.
+ * @cfg {Array|string} [exclude=[]] List of tools to exclude from the toolgroup.
+ * @cfg {Array|string} [promote=[]] List of tools to promote to the beginning of the toolgroup.
+ * @cfg {Array|string} [demote=[]] List of tools to demote to the end of the toolgroup.
+ *  This setting is particularly useful when tools have been added to the toolgroup
+ *  en masse (e.g., via the catch-all selector).
  */
 OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	// Allow passing positional parameters inside the config object
@@ -95,6 +113,11 @@ OO.ui.ToolGroup.static.titleTooltips = false;
 /**
  * Show acceleration labels in tooltips.
  *
+ * Note: The OOjs UI library does not include an accelerator system, but does contain
+ * a hook for one. To use an accelerator system, subclass the {@link OO.ui.Toolbar toolbar} and
+ * override the {@link OO.ui.Toolbar#getToolAccelerator getToolAccelerator} method, which is
+ * meant to return a label that describes the accelerator keys for a given tool (e.g., 'Ctrl + M').
+ *
  * @static
  * @inheritable
  * @property {boolean}
@@ -141,6 +164,7 @@ OO.ui.ToolGroup.prototype.updateDisabled = function () {
 /**
  * Handle mouse down and key down events.
  *
+ * @protected
  * @param {jQuery.Event} e Mouse down or key down event
  */
 OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
@@ -161,6 +185,7 @@ OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
 /**
  * Handle captured mouse up and key up events.
  *
+ * @protected
  * @param {Event} e Mouse up or key up event
  */
 OO.ui.ToolGroup.prototype.onCapturedMouseKeyUp = function ( e ) {
@@ -174,6 +199,7 @@ OO.ui.ToolGroup.prototype.onCapturedMouseKeyUp = function ( e ) {
 /**
  * Handle mouse up and key up events.
  *
+ * @protected
  * @param {jQuery.Event} e Mouse up or key up event
  */
 OO.ui.ToolGroup.prototype.onMouseKeyUp = function ( e ) {
@@ -194,6 +220,7 @@ OO.ui.ToolGroup.prototype.onMouseKeyUp = function ( e ) {
 /**
  * Handle mouse over and focus events.
  *
+ * @protected
  * @param {jQuery.Event} e Mouse over or focus event
  */
 OO.ui.ToolGroup.prototype.onMouseOverFocus = function ( e ) {
@@ -207,6 +234,7 @@ OO.ui.ToolGroup.prototype.onMouseOverFocus = function ( e ) {
 /**
  * Handle mouse out and blur events.
  *
+ * @protected
  * @param {jQuery.Event} e Mouse out or blur event
  */
 OO.ui.ToolGroup.prototype.onMouseOutBlur = function ( e ) {
@@ -246,6 +274,7 @@ OO.ui.ToolGroup.prototype.getTargetTool = function ( e ) {
  * - a tool being added that may be included
  * - a tool already included being overridden
  *
+ * @protected
  * @param {string} name Symbolic name of tool
  */
 OO.ui.ToolGroup.prototype.onToolFactoryRegister = function () {
@@ -253,9 +282,9 @@ OO.ui.ToolGroup.prototype.onToolFactoryRegister = function () {
 };
 
 /**
- * Get the toolbar this group is in.
+ * Get the toolbar that contains the toolgroup.
  *
- * @return {OO.ui.Toolbar} Toolbar of group
+ * @return {OO.ui.Toolbar} Toolbar that contains the toolgroup
  */
 OO.ui.ToolGroup.prototype.getToolbar = function () {
 	return this.toolbar;
@@ -322,7 +351,7 @@ OO.ui.ToolGroup.prototype.populate = function () {
 };
 
 /**
- * Destroy tool group.
+ * Destroy toolgroup.
  */
 OO.ui.ToolGroup.prototype.destroy = function () {
 	var name;
