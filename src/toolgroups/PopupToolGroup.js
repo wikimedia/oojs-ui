@@ -1,5 +1,7 @@
 /**
- * Popup list of tools with an icon and optional label.
+ * PopupToolGroup is an abstract base class used by both {@link OO.ui.MenuToolGroup MenuToolGroup}
+ * and {@link OO.ui.ListToolGroup ListToolGroup} to provide a popup--an overlaid menu or list of tools with an
+ * optional icon and label. This class can be used for other base classes that also use this functionality.
  *
  * @abstract
  * @class
@@ -14,7 +16,7 @@
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
- * @cfg {string} [header] Text to display at the top of the pop-up
+ * @cfg {string} [header] Text to display at the top of the popup
  */
 OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Allow passing positional parameters inside the config object
@@ -99,6 +101,7 @@ OO.ui.PopupToolGroup.prototype.setDisabled = function () {
  *
  * The event is actually generated from a mouseup/keyup, so it is not a normal blur event object.
  *
+ * @protected
  * @param {jQuery.Event} e Mouse up or key up event
  */
 OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
@@ -125,6 +128,7 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyUp = function ( e ) {
 /**
  * Handle mouse up and key up events.
  *
+ * @protected
  * @param {jQuery.Event} e Mouse up or key up event
  */
 OO.ui.PopupToolGroup.prototype.onHandleMouseKeyUp = function ( e ) {
@@ -139,6 +143,7 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyUp = function ( e ) {
 /**
  * Handle mouse down and key down events.
  *
+ * @protected
  * @param {jQuery.Event} e Mouse down or key down event
  */
 OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
@@ -152,9 +157,10 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
 };
 
 /**
- * Switch into active mode.
+ * Switch into 'active' mode.
  *
- * When active, mouseup events anywhere in the document will trigger deactivation.
+ * When active, the popup is visible. A mouseup event anywhere in the document will trigger
+ * deactivation.
  */
 OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 	value = !!value;
