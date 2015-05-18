@@ -1,9 +1,77 @@
 /**
- * Drop down list layout of tools as labeled icon buttons.
+ * ListToolGroups are one of three types of {@link OO.ui.ToolGroup toolgroups} that are used to
+ * create {@link OO.ui.Toolbar toolbars} (the other types of groups are {@link OO.ui.MenuToolGroup MenuToolGroup}
+ * and {@link OO.ui.BarToolGroup BarToolGroup}). The {@link OO.ui.Tool tools} in a ListToolGroup are displayed
+ * by label in a dropdown menu. The title of the tool is used as the label text. The menu itself can be configured
+ * with a label, icon, indicator, header, and title.
  *
- * This layout allows some tools to be collapsible, controlled by a "More" / "Fewer" option at the
- * bottom of the main list. These are not automatically positioned at the bottom of the list; you
- * may want to use the 'promote' and 'demote' configuration options to achieve this.
+ * ListToolGroups can be configured to be expanded and collapsed. Collapsed lists will have a ‘More’ option that
+ * users can select to see the full list of tools. If a collapsed toolgroup is expanded, a ‘Fewer’ option permits
+ * users to collapse the list again.
+ *
+ * ListToolGroups are created by a {@link OO.ui.ToolGroupFactory toolgroup factory} when the toolbar is set up. The factory
+ * requires the ListToolGroup's symbolic name, 'list', which is specified along with the other configurations. For more
+ * information about how to add tools to a ListToolGroup, please see {@link OO.ui.ToolGroup toolgroup}.
+ *
+ *     @example
+ *     // Example of a ListToolGroup
+ *     var toolFactory = new OO.ui.ToolFactory();
+ *     var toolGroupFactory = new OO.ui.ToolGroupFactory();
+ *     var toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
+ *
+ *     // Configure and register two tools
+ *     function SettingsTool() {
+ *         SettingsTool.super.apply( this, arguments );
+ *     }
+ *     OO.inheritClass( SettingsTool, OO.ui.Tool );
+ *     SettingsTool.static.name = 'settings';
+ *     SettingsTool.static.icon = 'settings';
+ *     SettingsTool.static.title = 'Change settings';
+ *     SettingsTool.prototype.onSelect = function () {
+ *         this.setActive( false );
+ *     };
+ *     toolFactory.register( SettingsTool );
+ *     // Register two more tools, nothing interesting here
+ *     function StuffTool() {
+ *         StuffTool.super.apply( this, arguments );
+ *     }
+ *     OO.inheritClass( StuffTool, OO.ui.Tool );
+ *     StuffTool.static.name = 'stuff';
+ *     StuffTool.static.icon = 'ellipsis';
+ *     StuffTool.static.title = 'Change the world';
+ *     StuffTool.prototype.onSelect = function () {
+ *         this.setActive( false );
+ *     };
+ *     toolFactory.register( StuffTool );
+ *     toolbar.setup( [
+ *         {
+ *             // Configurations for list toolgroup.
+ *             type: 'list',
+ *             label: 'ListToolGroup',
+ *             indicator: 'down',
+ *             icon: 'picture',
+ *             title: 'This is the title, displayed when user moves the mouse over the list toolgroup',
+ *             header: 'This is the header',
+ *             include: [ 'settings', 'stuff' ],
+ *             allowCollapse: ['stuff']
+ *         }
+ *     ] );
+ *
+ *     // Create some UI around the toolbar and place it in the document
+ *     var frame = new OO.ui.PanelLayout( {
+ *         expanded: false,
+ *         framed: true
+ *     } );
+ *     frame.$element.append(
+ *         toolbar.$element
+ *     );
+ *     $( 'body' ).append( frame.$element );
+ *     // Build the toolbar. This must be done after the toolbar has been appended to the document.
+ *     toolbar.initialize();
+ *
+ * For more information about toolbars in general, please see the [OOjs UI documentation on MediaWiki][1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Toolbars
  *
  * @class
  * @extends OO.ui.PopupToolGroup
@@ -11,11 +79,16 @@
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
- * @cfg {Array} [allowCollapse] List of tools that can be collapsed. Remaining tools will be always
- *  shown.
- * @cfg {Array} [forceExpand] List of tools that *may not* be collapsed. All remaining tools will be
- *  allowed to be collapsed.
- * @cfg {boolean} [expanded=false] Whether the collapsible tools are expanded by default
+ * @cfg {Array} [allowCollapse] Allow the specified tools to be collapsed. By default, collapsible tools
+ *  will only be displayed if users click the ‘More’ option displayed at the bottom of the list. If
+ *  the list is expanded, a ‘Fewer’ option permits users to collapse the list again. Any tools that
+ *  are included in the toolgroup, but are not designated as collapsible, will always be displayed.
+ *  To open a collapsible list in its expanded state, set #expanded to 'true'.
+ * @cfg {Array} [forceExpand] Expand the specified tools. All other tools will be designated as collapsible.
+ *  Unless #expanded is set to true, the collapsible tools will be collapsed when the list is first opened.
+ * @cfg {boolean} [expanded=false] Expand collapsible tools. This config is only relevant if tools have
+ *  been designated as collapsible. When expanded is set to true, all tools in the group will be displayed
+ *  when the list is first opened. Users can collapse the list with a ‘Fewer’ option at the bottom.
  */
 OO.ui.ListToolGroup = function OoUiListToolGroup( toolbar, config ) {
 	// Allow passing positional parameters inside the config object
