@@ -25,7 +25,8 @@ class TextInputWidget extends InputWidget {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param string $config['type'] HTML tag `type` attribute (default: 'text')
+	 * @param string $config['type'] HTML tag `type` attribute: 'text', 'password', 'search', 'email'
+	 *   or 'url'. Ignored if `multiline` is true. (default: 'text')
 	 * @param string $config['placeholder'] Placeholder text
 	 * @param boolean $config['autofocus'] Ask the browser to focus this widget, using the 'autofocus'
 	 *   HTML attribute (default: false)
@@ -37,6 +38,7 @@ class TextInputWidget extends InputWidget {
 	public function __construct( array $config = array() ) {
 		// Config initialization
 		$config = array_merge( array(
+			'type' => 'text',
 			'readOnly' => false,
 			'autofocus' => false,
 			'required' => false,
@@ -101,7 +103,9 @@ class TextInputWidget extends InputWidget {
 		if ( isset( $config['multiline'] ) && $config['multiline'] ) {
 			return new Tag( 'textarea' );
 		} else {
-			$type = isset( $config['type'] ) ? $config['type'] : 'text';
+			$type = in_array( $config['type'], array( 'text', 'password', 'search', 'email', 'url' ) ) ?
+				$config['type'] :
+				'text';
 			$input = new Tag( 'input' );
 			$input->setAttributes( array( 'type' => $type ) );
 			return $input;

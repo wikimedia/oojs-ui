@@ -60,8 +60,11 @@ class ButtonInputWidget extends InputWidget {
 	}
 
 	protected function getInputElement( $config ) {
+		$type = in_array( $config['type'], array( 'button', 'submit', 'reset' ) ) ?
+			$config['type'] :
+			'button';
 		$input = new Tag( $config['useInputTag'] ? 'input' : 'button' );
-		$input->setAttributes( array( 'type' => $config['type'] ) );
+		$input->setAttributes( array( 'type' => $type ) );
 		return $input;
 	}
 
