@@ -109,6 +109,7 @@ OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
 	var selectedLabel;
 
 	if ( !item ) {
+		this.setLabel( null );
 		return;
 	}
 
