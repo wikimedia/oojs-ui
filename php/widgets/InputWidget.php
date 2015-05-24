@@ -9,6 +9,10 @@ namespace OOUI;
  */
 class InputWidget extends Widget {
 
+	/* Static properties */
+
+	public static $supportsSimpleLabel = true;
+
 	/* Properties */
 
 	/**

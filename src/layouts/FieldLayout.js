@@ -36,7 +36,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		fieldWidget = config.fieldWidget;
 	}
 
-	var hasInputWidget = fieldWidget instanceof OO.ui.InputWidget;
+	var hasInputWidget = fieldWidget.constructor.static.supportsSimpleLabel;
 
 	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );

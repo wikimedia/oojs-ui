@@ -52,6 +52,10 @@ OO.inheritClass( OO.ui.InputWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.InputWidget, OO.ui.FlaggedElement );
 OO.mixinClass( OO.ui.InputWidget, OO.ui.TabIndexedElement );
 
+/* Static Properties */
+
+OO.ui.InputWidget.static.supportsSimpleLabel = true;
+
 /* Events */
 
 /**
