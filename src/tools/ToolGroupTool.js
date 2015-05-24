@@ -1,6 +1,31 @@
 /**
- * Tool that has a tool group inside. This is a bad workaround for the lack of proper hierarchical
- * menus in toolbars (T74159).
+ * A ToolGroupTool is a special sort of tool that can contain other {@link OO.ui.Tool tools}
+ * and {@link OO.ui.ToolGroup toolgroups}. The ToolGroupTool was specifically designed to be used
+ * inside a {@link OO.ui.BarToolGroup bar} toolgroup to provide access to additional tools from
+ * the bar item. Included tools will be displayed in a dropdown {@link OO.ui.ListToolGroup list}
+ * when the ToolGroupTool is selected.
+ *
+ *     // Example: ToolGroupTool with two nested tools, 'setting1' and 'setting2', defined elsewhere.
+ *
+ *     function SettingsTool() {
+ *         SettingsTool.super.apply( this, arguments );
+ *     };
+ *     OO.inheritClass( SettingsTool, OO.ui.ToolGroupTool );
+ *     SettingsTool.static.name = 'settings';
+ *     SettingsTool.static.title = 'Change settings';
+ *     SettingsTool.static.groupConfig = {
+ *         icon: 'settings',
+ *         label: 'ToolGroupTool',
+ *         include: [  'setting1', 'setting2'  ]
+ *     };
+ *     toolFactory.register( SettingsTool );
+ *
+ * For more information, please see the [OOjs UI documentation on MediaWiki][1].
+ *
+ * Please note that this implementation is subject to change per [T74159] [2].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Toolbars#ToolGroupTool
+ * [2]: https://phabricator.wikimedia.org/T74159
  *
  * @abstract
  * @class
@@ -40,7 +65,11 @@ OO.inheritClass( OO.ui.ToolGroupTool, OO.ui.Tool );
 /* Static Properties */
 
 /**
- * Tool group configuration. See OO.ui.Toolbar#setup for the accepted values.
+ * Toolgroup configuration.
+ *
+ * The toolgroup configuration consists of the tools to include, as well as an icon and label
+ * to use for the bar item. Tools can be included by symbolic name, group, or with the
+ * wildcard selector. Please see {@link OO.ui.ToolGroup toolgroup} for more information.
  *
  * @property {Object.<string,Array>}
  */
@@ -78,10 +107,10 @@ OO.ui.ToolGroupTool.prototype.onUpdateState = function () {
 };
 
 /**
- * Build a OO.ui.ToolGroup from the configuration.
+ * Build a {@link OO.ui.ToolGroup toolgroup} from the specified configuration.
  *
- * @param {Object.<string,Array>} group Tool group configuration. See OO.ui.Toolbar#setup for the
- *   accepted values.
+ * @param {Object.<string,Array>} group Toolgroup configuration. Please see {@link OO.ui.ToolGroup toolgroup} for
+ *  more information.
  * @return {OO.ui.ListToolGroup}
  */
 OO.ui.ToolGroupTool.prototype.createGroup = function ( group ) {
