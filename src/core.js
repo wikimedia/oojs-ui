@@ -216,7 +216,13 @@ OO.ui.infuse = function ( idOrNode ) {
 		// Label for process dialog retry action button, visible when describing only recoverable errors
 		'ooui-dialog-process-retry': 'Try again',
 		// Label for process dialog retry action button, visible when describing only warnings
-		'ooui-dialog-process-continue': 'Continue'
+		'ooui-dialog-process-continue': 'Continue',
+		// Default placeholder for file selection widgets
+		'ooui-selectfile-not-supported': 'File selection is not supported',
+		// Default placeholder for file selection widgets
+		'ooui-selectfile-placeholder': 'No file is selected',
+		// Semicolon separator
+		'ooui-semicolon-separator': '; '
 	};
 
 	/**

@@ -817,6 +817,41 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileWidget( {} ),
+					{
+						label: 'SelectFileWidget\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileWidget( { accept: [ 'image/png', 'image/jpeg' ] } ),
+					{
+						label: 'SelectFileWidget (accept PNG and JPEG)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileWidget( {
+						icon: 'tag',
+						indicator: 'required'
+					} ),
+					{
+						label: 'SelectFileWidget (icon, indicator)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileWidget( {
+						icon: 'tag',
+						indicator: 'required',
+						disabled: true
+					} ),
+					{
+						label: 'SelectFileWidget (disabled)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.DropdownWidget( {
 						label: 'Select one',
 						menu: {

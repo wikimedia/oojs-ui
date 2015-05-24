@@ -72,6 +72,7 @@
 				"src/widgets/PopupButtonWidget.js",
 				"src/widgets/ToggleButtonWidget.js",
 			"src/widgets/DropdownWidget.js",
+			"src/widgets/SelectFileWidget.js",
 			"src/widgets/IconWidget.js",
 			"src/widgets/IndicatorWidget.js",
 			"src/widgets/InputWidget.js",
