@@ -100,6 +100,7 @@
 					"src/widgets/TextInputMenuSelectWidget.js",
 				"src/widgets/OutlineSelectWidget.js",
 				"src/widgets/TabSelectWidget.js",
+			"src/widgets/NumberInputWidget.js",
 			"src/widgets/ToggleSwitchWidget.js",
 
 			"src/outro.js.txt"
