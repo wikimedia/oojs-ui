@@ -31,6 +31,21 @@ OO.ui.Keys = {
 };
 
 /**
+ * @property {Number}
+ */
+OO.ui.elementId = 0;
+
+/**
+ * Generate a unique ID for element
+ *
+ * @return {String} [id]
+ */
+OO.ui.generateElementId = function () {
+	OO.ui.elementId += 1;
+	return 'oojsui-' + OO.ui.elementId;
+};
+
+/**
  * Check if an element is focusable.
  * Inspired from :focusable in jQueryUI v1.11.4 - 2015-04-14
  *
