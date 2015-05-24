@@ -21,6 +21,9 @@ OO.ui.RadioOptionWidget = function OoUiRadioOptionWidget( config ) {
 	// Parent constructor
 	OO.ui.RadioOptionWidget.super.call( this, config );
 
+	// Events
+	this.radio.$input.on( 'focus', this.onInputFocus.bind( this ) );
+
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-radioOptionWidget' )
@@ -42,6 +45,15 @@ OO.ui.RadioOptionWidget.static.pressable = false;
 OO.ui.RadioOptionWidget.static.tagName = 'label';
 
 /* Methods */
+
+/**
+ * @param {jQuery.Event} e Focus event
+ * @private
+ */
+OO.ui.RadioOptionWidget.prototype.onInputFocus = function () {
+	this.radio.$input.blur();
+	this.$element.parent().focus();
+};
 
 /**
  * @inheritdoc
