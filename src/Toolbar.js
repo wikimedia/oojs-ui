@@ -1,9 +1,21 @@
 /**
- * Collection of tool groups.
+ * Toolbars are complex interface components that permit users to easily access a variety
+ * of {@link OO.ui.Tool tools} (e.g., formatting commands) and actions, which are additional commands that are
+ * part of the toolbar, but not configured as tools.
  *
- * The following is a minimal example using several tools and tool groups.
+ * Individual tools are customized and then registered with a {@link OO.ui.ToolFactory tool factory}, which creates
+ * the tools on demand. Each tool has a symbolic name (used when registering the tool), a title (e.g., ‘Insert
+ * picture’), and an icon.
+ *
+ * Individual tools are organized in {@link OO.ui.ToolGroup toolgroups}, which can be {@link OO.ui.MenuToolGroup menus}
+ * of tools, {@link OO.ui.ListToolGroup lists} of tools, or a single {@link OO.ui.BarToolGroup bar} of tools.
+ * The arrangement and order of the toolgroups is customized when the toolbar is set up. Tools can be presented in
+ * any order, but each can only appear once in the toolbar.
+ *
+ * The following is an example of a basic toolbar.
  *
  *     @example
+ *     // Example of a toolbar
  *     // Create the toolbar
  *     var toolFactory = new OO.ui.ToolFactory();
  *     var toolGroupFactory = new OO.ui.ToolGroupFactory();
@@ -116,7 +128,7 @@
  *     // document.
  *     toolbar.initialize();
  *
- * The following example extends the previous one to illustrate 'menu' tool groups and the usage of
+ * The following example extends the previous one to illustrate 'menu' toolgroups and the usage of
  * 'updateState' event.
  *
  *     @example
@@ -256,10 +268,12 @@
  *
  * @constructor
  * @param {OO.ui.ToolFactory} toolFactory Factory for creating tools
- * @param {OO.ui.ToolGroupFactory} toolGroupFactory Factory for creating tool groups
+ * @param {OO.ui.ToolGroupFactory} toolGroupFactory Factory for creating toolgroups
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [actions] Add an actions section opposite to the tools
- * @cfg {boolean} [shadow] Add a shadow below the toolbar
+ * @cfg {boolean} [actions] Add an actions section to the toolbar. Actions are commands that are included
+ *  in the toolbar, but are not configured as tools. By default, actions are displayed on the right side of
+ *  the toolbar.
+ * @cfg {boolean} [shadow] Add a shadow below the toolbar.
  */
 OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	// Allow passing positional parameters inside the config object
@@ -326,9 +340,9 @@ OO.ui.Toolbar.prototype.getToolFactory = function () {
 };
 
 /**
- * Get the tool group factory.
+ * Get the toolgroup factory.
  *
- * @return {OO.Factory} Tool group factory
+ * @return {OO.Factory} Toolgroup factory
  */
 OO.ui.Toolbar.prototype.getToolGroupFactory = function () {
 	return this.toolGroupFactory;
@@ -337,6 +351,7 @@ OO.ui.Toolbar.prototype.getToolGroupFactory = function () {
 /**
  * Handles mouse down events.
  *
+ * @private
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
@@ -372,19 +387,18 @@ OO.ui.Toolbar.prototype.initialize = function () {
 };
 
 /**
- * Setup toolbar.
+ * Set up the toolbar.
  *
- * Tools can be specified in the following ways:
+ * The toolbar is set up with a list of toolgroup configurations that specify the type of
+ * toolgroup ({@link OO.ui.BarToolGroup bar}, {@link OO.ui.MenuToolGroup menu}, or {@link OO.ui.ListToolGroup list})
+ * to add and which tools to include, exclude, promote, or demote within that toolgroup. Please
+ * see {@link OO.ui.ToolGroup toolgroups} for more information about including tools in toolgroups.
  *
- * - A specific tool: `{ name: 'tool-name' }` or `'tool-name'`
- * - All tools in a group: `{ group: 'group-name' }`
- * - All tools: `'*'` - Using this will make the group a list with a "More" label by default
- *
- * @param {Object.<string,Array>} groups List of tool group configurations
- * @param {Array|string} [groups.include] Tools to include
- * @param {Array|string} [groups.exclude] Tools to exclude
- * @param {Array|string} [groups.promote] Tools to promote to the beginning
- * @param {Array|string} [groups.demote] Tools to demote to the end
+ * @param {Object.<string,Array>} groups List of toolgroup configurations
+ * @param {Array|string} [groups.include] Tools to include in the toolgroup
+ * @param {Array|string} [groups.exclude] Tools to exclude from the toolgroup
+ * @param {Array|string} [groups.promote] Tools to promote to the beginning of the toolgroup
+ * @param {Array|string} [groups.demote] Tools to demote to the end of the toolgroup
  */
 OO.ui.Toolbar.prototype.setup = function ( groups ) {
 	var i, len, type, group,
@@ -416,7 +430,7 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 };
 
 /**
- * Remove all tools and groups from the toolbar.
+ * Remove all tools and toolgroups from the toolbar.
  */
 OO.ui.Toolbar.prototype.reset = function () {
 	var i, len;
@@ -430,9 +444,10 @@ OO.ui.Toolbar.prototype.reset = function () {
 };
 
 /**
- * Destroys toolbar, removing event handlers and DOM elements.
+ * Destroy the toolbar.
  *
- * Call this whenever you are done using a toolbar.
+ * Destroying the toolbar removes all event handlers and DOM elements that constitute the toolbar. Call
+ * this method whenever you are done using a toolbar.
  */
 OO.ui.Toolbar.prototype.destroy = function () {
 	$( this.getElementWindow() ).off( 'resize', this.onWindowResizeHandler );
@@ -441,7 +456,9 @@ OO.ui.Toolbar.prototype.destroy = function () {
 };
 
 /**
- * Check if tool has not been used yet.
+ * Check if the tool is available.
+ *
+ * Available tools are ones that have not yet been added to the toolbar.
  *
  * @param {string} name Symbolic name of tool
  * @return {boolean} Tool is available
@@ -471,7 +488,9 @@ OO.ui.Toolbar.prototype.releaseTool = function ( tool ) {
 /**
  * Get accelerator label for tool.
  *
- * This is a stub that should be overridden to provide access to accelerator information.
+ * The OOjs UI library does not contain an accelerator system, but this is the hook for one. To
+ * use an accelerator system, subclass the toolbar and override this method, which is meant to return a label
+ * that describes the accelerator keys for the tool passed (by symbolic name) to the method.
  *
  * @param {string} name Symbolic name of tool
  * @return {string|undefined} Tool accelerator label if available
