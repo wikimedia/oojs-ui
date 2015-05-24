@@ -57,8 +57,14 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	this.onMouseUpHandler = this.onMouseUp.bind( this );
 	this.onMouseMoveHandler = this.onMouseMove.bind( this );
 	this.onKeyDownHandler = this.onKeyDown.bind( this );
+	this.onKeyPressHandler = this.onKeyPress.bind( this );
+	this.keyPressBuffer = '';
+	this.keyPressBufferTimer = null;
 
 	// Events
+	this.connect( this, {
+		toggle: 'onToggle'
+	} );
 	this.$element.on( {
 		mousedown: this.onMouseDown.bind( this ),
 		mouseover: this.onMouseOver.bind( this ),
@@ -81,6 +87,11 @@ OO.inheritClass( OO.ui.SelectWidget, OO.ui.Widget );
 // Need to mixin base class as well
 OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupElement );
 OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
+
+/* Static */
+OO.ui.SelectWidget.static.passAllFilter = function () {
+	return true;
+};
 
 /* Events */
 
@@ -271,11 +282,13 @@ OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
 				break;
 			case OO.ui.Keys.UP:
 			case OO.ui.Keys.LEFT:
+				this.clearKeyPressBuffer();
 				nextItem = this.getRelativeSelectableItem( currentItem, -1 );
 				handled = true;
 				break;
 			case OO.ui.Keys.DOWN:
 			case OO.ui.Keys.RIGHT:
+				this.clearKeyPressBuffer();
 				nextItem = this.getRelativeSelectableItem( currentItem, 1 );
 				handled = true;
 				break;
@@ -285,6 +298,7 @@ OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
 					currentItem.setHighlighted( false );
 				}
 				this.unbindKeyDownListener();
+				this.unbindKeyPressListener();
 				// Don't prevent tabbing away / defocusing
 				handled = false;
 				break;
@@ -323,6 +337,134 @@ OO.ui.SelectWidget.prototype.bindKeyDownListener = function () {
  */
 OO.ui.SelectWidget.prototype.unbindKeyDownListener = function () {
 	this.getElementWindow().removeEventListener( 'keydown', this.onKeyDownHandler, true );
+};
+
+/**
+ * Clear the key-press buffer
+ *
+ * @protected
+ */
+OO.ui.SelectWidget.prototype.clearKeyPressBuffer = function () {
+	if ( this.keyPressBufferTimer ) {
+		clearTimeout( this.keyPressBufferTimer );
+		this.keyPressBufferTimer = null;
+	}
+	this.keyPressBuffer = '';
+};
+
+/**
+ * Handle key press events.
+ *
+ * @protected
+ * @param {jQuery.Event} e Key press event
+ */
+OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
+	var c, filter, item;
+
+	if ( !e.charCode ) {
+		if ( e.keyCode === OO.ui.Keys.BACKSPACE && this.keyPressBuffer !== '' ) {
+			this.keyPressBuffer = this.keyPressBuffer.substr( 0, this.keyPressBuffer.length - 1 );
+			return false;
+		}
+		return;
+	}
+	if ( String.fromCodePoint ) {
+		c = String.fromCodePoint( e.charCode );
+	} else {
+		c = String.fromCharCode( e.charCode );
+	}
+
+	if ( this.keyPressBufferTimer ) {
+		clearTimeout( this.keyPressBufferTimer );
+	}
+	this.keyPressBufferTimer = setTimeout( this.clearKeyPressBuffer.bind( this ), 1500 );
+
+	item = this.getHighlightedItem() || this.getSelectedItem();
+
+	if ( this.keyPressBuffer === c ) {
+		// Common (if weird) special case: typing "xxxx" will cycle through all
+		// the items beginning with "x".
+		if ( item ) {
+			item = this.getRelativeSelectableItem( item, 1 );
+		}
+	} else {
+		this.keyPressBuffer += c;
+	}
+
+	filter = this.getItemMatcher( this.keyPressBuffer );
+	if ( !item || !filter( item ) ) {
+		item = this.getRelativeSelectableItem( item, 1, filter );
+	}
+	if ( item ) {
+		if ( item.constructor.static.highlightable ) {
+			this.highlightItem( item );
+		} else {
+			this.chooseItem( item );
+		}
+		item.scrollElementIntoView();
+	}
+
+	return false;
+};
+
+/**
+ * Get a matcher for the specific string
+ *
+ * @protected
+ * @param {string} s String to match against items
+ * @return {Function} function ( OO.ui.OptionItem ) => boolean
+ */
+OO.ui.SelectWidget.prototype.getItemMatcher = function ( s ) {
+	var re;
+
+	if ( s.normalize ) {
+		s = s.normalize();
+	}
+	re = new RegExp( '^\s*' + s.replace( /([\\{}()|.?*+\-\^$\[\]])/g, '\\$1' ).replace( /\s+/g, '\\s+' ), 'i' );
+	return function ( item ) {
+		var l = item.getLabel();
+		if ( typeof l !== 'string' ) {
+			l = item.$label.text();
+		}
+		if ( l.normalize ) {
+			l = l.normalize();
+		}
+		return re.test( l );
+	};
+};
+
+/**
+ * Bind key press listener.
+ *
+ * @protected
+ */
+OO.ui.SelectWidget.prototype.bindKeyPressListener = function () {
+	this.getElementWindow().addEventListener( 'keypress', this.onKeyPressHandler, true );
+};
+
+/**
+ * Unbind key down listener.
+ *
+ * If you override this, be sure to call this.clearKeyPressBuffer() from your
+ * implementation.
+ *
+ * @protected
+ */
+OO.ui.SelectWidget.prototype.unbindKeyPressListener = function () {
+	this.getElementWindow().removeEventListener( 'keypress', this.onKeyPressHandler, true );
+	this.clearKeyPressBuffer();
+};
+
+/**
+ * Visibility change handler
+ *
+ * @protected
+ * @param {boolean} visible
+ */
+OO.ui.SelectWidget.prototype.onToggle = function ( visible ) {
+	if ( !visible ) {
+		this.clearKeyPressBuffer();
+	}
 };
 
 /**
@@ -515,12 +657,18 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
  *
  * @param {OO.ui.OptionWidget|null} item Item to describe the start position, or `null` to start at the beginning of the array.
  * @param {number} direction Direction to move in: -1 to move backward, 1 to move forward
+ * @param {Function} filter Only consider items for which this function returns
+ *  true. Function takes an OO.ui.OptionWidget and returns a boolean.
  * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the select
  */
-OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direction ) {
+OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direction, filter ) {
 	var currentIndex, nextIndex, i,
 		increase = direction > 0 ? 1 : -1,
 		len = this.items.length;
+
+	if ( !$.isFunction( filter ) ) {
+		filter = OO.ui.SelectWidget.static.passAllFilter;
+	}
 
 	if ( item instanceof OO.ui.OptionWidget ) {
 		currentIndex = $.inArray( item, this.items );
@@ -533,7 +681,7 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 
 	for ( i = 0; i < len; i++ ) {
 		item = this.items[ nextIndex ];
-		if ( item instanceof OO.ui.OptionWidget && item.isSelectable() ) {
+		if ( item instanceof OO.ui.OptionWidget && item.isSelectable() && filter( item ) ) {
 			return item;
 		}
 		nextIndex = ( nextIndex + increase + len ) % len;

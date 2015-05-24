@@ -140,6 +140,26 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
 };
 
 /**
+ * @inheritdoc
+ */
+OO.ui.MenuSelectWidget.prototype.bindKeyPressListener = function () {
+	if ( !this.$input ) {
+		OO.ui.MenuSelectWidget.super.prototype.bindKeyPressListener.call( this );
+	}
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.MenuSelectWidget.prototype.unbindKeyPressListener = function () {
+	if ( this.$input ) {
+		this.clearKeyPressBuffer();
+	} else {
+		OO.ui.MenuSelectWidget.super.prototype.unbindKeyPressListener.call( this );
+	}
+};
+
+/**
  * Choose an item.
  *
  * When a user chooses an item, the menu is closed.
@@ -226,6 +246,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 	if ( change ) {
 		if ( visible ) {
 			this.bindKeyDownListener();
+			this.bindKeyPressListener();
 
 			if ( this.newItems && this.newItems.length ) {
 				for ( i = 0, len = this.newItems.length; i < len; i++ ) {
@@ -243,6 +264,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			}
 		} else {
 			this.unbindKeyDownListener();
+			this.unbindKeyPressListener();
 			this.getElementDocument().removeEventListener(
 				'mousedown', this.onDocumentMouseDownHandler, true
 			);
