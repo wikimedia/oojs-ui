@@ -69,13 +69,13 @@ OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	// Define drop effect
 	dataTransfer.dropEffect = 'none';
 	dataTransfer.effectAllowed = 'move';
+	// Support: Firefox
 	// We must set up a dataTransfer data property or Firefox seems to
 	// ignore the fact the element is draggable.
 	try {
 		dataTransfer.setData( 'application-x/OOjs-UI-draggable', this.getIndex() );
 	} catch ( err ) {
-		// The above is only for firefox. No need to set a catch clause
-		// if it fails, move on.
+		// The above is only for Firefox. Move on if it fails.
 	}
 	// Add dragging class
 	this.$element.addClass( 'oo-ui-draggableElement-dragging' );

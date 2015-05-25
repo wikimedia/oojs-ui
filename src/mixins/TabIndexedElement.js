@@ -108,7 +108,8 @@ OO.ui.mixin.TabIndexedElement.prototype.updateTabIndex = function () {
 			// Do not index over disabled elements
 			this.$tabIndexed.attr( {
 				tabindex: this.isDisabled() ? -1 : this.tabIndex,
-				// ChromeVox and NVDA do not seem to inherit this from parent elements
+				// Support: ChromeVox and NVDA
+				// These do not seem to inherit aria-disabled from parent elements
 				'aria-disabled': this.isDisabled().toString()
 			} );
 		} else {
