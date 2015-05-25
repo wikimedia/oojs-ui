@@ -143,7 +143,9 @@ OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
  * @param {jQuery.Event} e Key press event
  */
 OO.ui.DropdownWidget.prototype.onKeyPress = function ( e ) {
-	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
+	if ( !this.isDisabled() &&
+		( ( e.which === OO.ui.Keys.SPACE && !this.menu.isVisible() ) || e.which === OO.ui.Keys.ENTER )
+	) {
 		this.menu.toggle();
 		return false;
 	}
