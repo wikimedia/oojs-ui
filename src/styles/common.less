@@ -71,10 +71,10 @@
 	background: mix(@start, @stop, 50%);
 	filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='%d', endColorstr='%d')", @start, @stop));
 	background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0%, @start), color-stop(100%, @stop));
-	background-image: -webkit-linear-gradient(top, @start 0%, @stop 100%);
-	background-image: -moz-linear-gradient(top, @start 0%, @stop 100%);
-	background-image: -o-linear-gradient(top, @start 0%, @stop 100%);
-	background-image: linear-gradient(top, @start 0%, @stop 100%);
+	background-image: -webkit-linear-gradient(      top, @start 0%, @stop 100%);
+	background-image:    -moz-linear-gradient(      top, @start 0%, @stop 100%);
+	background-image:      -o-linear-gradient(      top, @start 0%, @stop 100%);
+	background-image:         linear-gradient(to bottom, @start 0%, @stop 100%);
 }
 
 .oo-ui-unselectable() {
