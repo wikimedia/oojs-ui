@@ -45,7 +45,7 @@ OO.ui.TabIndexedElement = function OoUiTabIndexedElement( config ) {
 	this.tabIndex = null;
 
 	// Events
-	this.connect( this, { disable: 'onDisable' } );
+	this.connect( this, { disable: 'onTabIndexedElementDisable' } );
 
 	// Initialization
 	this.setTabIndex( config.tabIndex );
@@ -124,7 +124,7 @@ OO.ui.TabIndexedElement.prototype.updateTabIndex = function () {
  * @private
  * @param {boolean} disabled Element is disabled
  */
-OO.ui.TabIndexedElement.prototype.onDisable = function () {
+OO.ui.TabIndexedElement.prototype.onTabIndexedElementDisable = function () {
 	this.updateTabIndex();
 };
 
