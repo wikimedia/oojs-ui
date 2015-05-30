@@ -364,7 +364,7 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 
 /**
  * @inheritdoc
- * @private
+ * @protected
  */
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
 	return config.multiline ? $( '<textarea>' ) : $( '<input type="' + config.type + '" />' );

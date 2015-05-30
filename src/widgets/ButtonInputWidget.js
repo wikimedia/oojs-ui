@@ -69,7 +69,7 @@ OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.TitledElement );
 
 /**
  * @inheritdoc
- * @private
+ * @protected
  */
 OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
 	var html = '<' + ( config.useInputTag ? 'input' : 'button' ) + ' type="' + config.type + '">';

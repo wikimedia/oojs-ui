@@ -70,7 +70,7 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.TabIndexedElement );
  * Subclasses of OO.ui.InputWidget use the `config` parameter to produce different elements in
  * different circumstances. The element must have a `value` property (like form elements).
  *
- * @private
+ * @protected
  * @param {Object} config Configuration options
  * @return {jQuery} Input element
  */

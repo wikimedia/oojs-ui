@@ -59,7 +59,7 @@ OO.inheritClass( OO.ui.CheckboxInputWidget, OO.ui.InputWidget );
 
 /**
  * @inheritdoc
- * @private
+ * @protected
  */
 OO.ui.CheckboxInputWidget.prototype.getInputElement = function () {
 	return $( '<input type="checkbox" />' );
