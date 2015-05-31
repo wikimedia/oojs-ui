@@ -74,7 +74,7 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 		enter: this.emit.bind( this, 'enter' )
 	} );
 	this.input.$input.on( {
-		keypress: this.onKeyPress.bind( this ),
+		keydown: this.onKeyDown.bind( this ),
 		'wheel mousewheel DOMMouseScroll': this.onWheel.bind( this )
 	} );
 	this.plusButton.connect( this, {
@@ -310,15 +310,15 @@ OO.ui.NumberInputWidget.prototype.onWheel = function ( event ) {
 };
 
 /**
- * Handle key press events.
+ * Handle key down events.
  *
  *
  * @private
- * @param {jQuery.Event} e Key press event
+ * @param {jQuery.Event} e Key down event
  */
-OO.ui.NumberInputWidget.prototype.onKeyPress = function ( e ) {
+OO.ui.NumberInputWidget.prototype.onKeyDown = function ( e ) {
 	if ( !this.isDisabled() ) {
-		switch ( e.keyCode ) {
+		switch ( e.which ) {
 			case OO.ui.Keys.UP:
 				this.adjustValue( this.step );
 				return false;
