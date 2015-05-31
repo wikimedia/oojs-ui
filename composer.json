@@ -9,7 +9,8 @@
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "0.8.*",
 		"mediawiki/mediawiki-codesniffer": "0.1.0",
-		"squizlabs/php_codesniffer": "2.1.*"
+		"squizlabs/php_codesniffer": "2.1.*",
+		"phpunit/phpunit": "~4.5"
 	},
 	"autoload": {
 		"classmap": ["php/"]
@@ -17,7 +18,8 @@
 	"scripts": {
 		"test": [
 			"parallel-lint . --exclude vendor",
-			"phpcs $PHPCS_ARGS --standard=vendor/mediawiki/mediawiki-codesniffer/MediaWiki --ignore=vendor --extensions=php,php5,inc -p ."
+			"phpcs $PHPCS_ARGS --standard=vendor/mediawiki/mediawiki-codesniffer/MediaWiki --ignore=vendor --extensions=php,php5,inc -p .",
+			"phpunit $PHPUNIT_ARGS"
 		]
 	}
 }
