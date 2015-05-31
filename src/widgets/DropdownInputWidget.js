@@ -4,13 +4,16 @@
  * of a hidden HTML `input` tag. Please see the [OOjs UI documentation on MediaWiki][1] for
  * more information about input widgets.
  *
+ * A DropdownInputWidget always has a value (one of the options is always selected), unless there
+ * are no options. If no `value` configuration option is provided, the first option is selected.
+ * If you need a state representing no value (no option being selected), use a DropdownWidget.
+ *
  *     @example
  *     // Example: A DropdownInputWidget with three options
  *     var dropDown = new OO.ui.DropdownInputWidget( {
- *         label: 'Dropdown menu: Select a menu option',
  *         options: [
- *             { data: 'a', label: 'First' } ,
- *             { data: 'b', label: 'Second'} ,
+ *             { data: 'a', label: 'First' },
+ *             { data: 'b', label: 'Second'},
  *             { data: 'c', label: 'Third' }
  *         ]
  *     } );
