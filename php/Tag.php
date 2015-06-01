@@ -299,20 +299,23 @@ class Tag {
 					'bitcoin', 'ftp', 'ftps', 'geo', 'git', 'gopher', 'http', 'https', 'irc', 'ircs',
 					'magnet', 'mailto', 'mms', 'news', 'nntp', 'redis', 'sftp', 'sip', 'sips', 'sms', 'ssh',
 					'svn', 'tel', 'telnet', 'urn', 'worldwind', 'xmpp',
+					'(protocol-relative)', '(relative)',
 				);
 
 				// Protocol-relative URLs are handled really badly by parse_url()
 				if ( substr( $value, 0, 2 ) === '//' ) {
-					$url = "http:$value";
+					$scheme = '(protocol-relative)';
 				} else {
-					$url = $value;
+					// Must suppress warnings when the value is not a valid URL. parse_url() returns false then.
+					// @codingStandardsIgnoreStart
+					$scheme = @parse_url( $value, PHP_URL_SCHEME );
+					// @codingStandardsIgnoreEnd
+					if ( !$scheme && substr( $value, 0, 1 ) === '/' ) {
+						$scheme = '(relative)';
+					}
 				}
-				// Must suppress warnings when the value is not a valid URL. parse_url() returns false then.
-				// @codingStandardsIgnoreStart
-				$scheme = @parse_url( $url, PHP_URL_SCHEME );
-				// @codingStandardsIgnoreEnd
 
-				if ( !( $scheme === null || in_array( strtolower( $scheme ), $protocolWhitelist ) ) ) {
+				if ( !in_array( strtolower( $scheme ), $protocolWhitelist ) ) {
 					throw new Exception( "Potentially unsafe '$key' attribute value. " .
 						"Scheme: '$scheme'; value: '$value'." );
 				}

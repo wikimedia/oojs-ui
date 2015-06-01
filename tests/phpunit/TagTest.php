@@ -5,6 +5,16 @@ namespace OOUI\Tests;
 use PHPUnit_Framework_TestCase;
 use OOUI\Tag;
 
+/**
+ * Work around a peculiarity of PHP 5.3 syntax.
+ *
+ * @param mixed $item
+ * @return mixed The very same $item
+ */
+function id( $item ) {
+	return $item;
+}
+
 class TagTest extends PHPUnit_Framework_TestCase {
 
 	/**
@@ -80,12 +90,37 @@ class TagTest extends PHPUnit_Framework_TestCase {
 
 	public static function provideToString() {
 		$tests = array();
-		$tag = new Tag();
-		$tag->setAttributes( array( 'foobar@invalidkey' => 'blah' ) );
-		$tests[] = array( $tag, '', 'Exception' );
-		$tag2 = new Tag();
-		$tag2->setAttributes( array( 'href' => 'javascript:evil();' ) );
-		$tests[] = array( $tag2, '', 'Exception' );
+		$tests[] = array(
+			id( new Tag() )->setAttributes( array( 'foobar@invalidkey' => 'blah' ) ),
+			'',
+			'Exception'
+		);
+		$tests[] = array(
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => 'javascript:evil();' ) ),
+			'',
+			'Exception'
+		);
+		$tests[] = array(
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => 'vague' ) ),
+			'',
+			'Exception'
+		);
+		$tests[] = array(
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => 'http://example.com/' ) ),
+			"<a href='http://example.com/'></a>"
+		);
+		$tests[] = array(
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '//example.com/' ) ),
+			"<a href='//example.com/'></a>"
+		);
+		$tests[] = array(
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '/' ) ),
+			"<a href='/'></a>"
+		);
+		$tests[] = array(
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '/relative' ) ),
+			"<a href='/relative'></a>"
+		);
 		return $tests;
 	}
 }
