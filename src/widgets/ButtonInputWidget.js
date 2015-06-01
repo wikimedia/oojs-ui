@@ -72,8 +72,10 @@ OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.TitledElement );
  * @protected
  */
 OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
-	var html = '<' + ( config.useInputTag ? 'input' : 'button' ) + ' type="' + config.type + '">';
-	return $( html );
+	var type = [ 'button', 'submit', 'reset' ].indexOf( config.type ) !== -1 ?
+		config.type :
+		'button';
+	return $( '<' + ( config.useInputTag ? 'input' : 'button' ) + ' type="' + type + '">' );
 };
 
 /**

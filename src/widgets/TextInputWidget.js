@@ -26,7 +26,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [type='text'] The value of the HTML `type` attribute
+ * @cfg {string} [type='text'] The value of the HTML `type` attribute: 'text', 'password', 'search',
+ *  'email' or 'url'. Ignored if `multiline` is true.
  * @cfg {string} [placeholder] Placeholder text
  * @cfg {boolean} [autofocus=false] Use an HTML `autofocus` attribute to
  *  instruct the browser to focus this widget.
@@ -367,7 +368,10 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
  * @protected
  */
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
-	return config.multiline ? $( '<textarea>' ) : $( '<input type="' + config.type + '" />' );
+	var type = [ 'text', 'password', 'search', 'email', 'url' ].indexOf( config.type ) !== -1 ?
+		config.type :
+		'text';
+	return config.multiline ? $( '<textarea>' ) : $( '<input type="' + type + '" />' );
 };
 
 /**

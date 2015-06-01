@@ -31,8 +31,8 @@ else
 	# values to test for names
 	sensible_values = {
 		'href' => ['http://example.com/'],
-		['TextInputWidget', 'type'] => %w[text password],
-		['ButtonInputWidget', 'type'] => %w[button input],
+		['TextInputWidget', 'type'] => %w[text password foo],
+		['ButtonInputWidget', 'type'] => %w[button submit foo],
 		['FieldLayout', 'help'] => true, # different PHP and JS implementations
 		['FieldsetLayout', 'help'] => true, # different PHP and JS implementations
 		'type' => %w[text button],
