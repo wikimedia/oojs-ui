@@ -35,7 +35,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>OOjs UI Widget Demo</title>
-	<link rel="stylesheet" href="../dist/<?php echo $styleFileName; ?>" title="theme">
+	<link rel="stylesheet" href="../dist/<?php echo $styleFileName; ?>">
 	<link rel="stylesheet" href="styles/demo<?php echo $directionSuffix; ?>.css">
 </head>
 <body class="oo-ui-<?php echo $direction; ?>">
@@ -46,15 +46,11 @@
 					'infusable' => true,
 					'items' => array(
 						new OOUI\ButtonWidget( array(
-							'id' => 'theme-mediawiki',
 							'label' => 'MediaWiki',
-							'data' => 'mediawiki',
 							'href' => '?' . http_build_query( array_merge( $query, array( 'theme' => 'mediawiki' ) ) ),
 						) ),
 						new OOUI\ButtonWidget( array(
-							'id' => 'theme-apex',
 							'label' => 'Apex',
-							'data' => 'apex',
 							'href' => '?' . http_build_query( array_merge( $query, array( 'theme' => 'apex' ) ) ),
 						) ),
 					)
@@ -86,6 +82,20 @@
 						new OOUI\ButtonWidget( array(
 							'label' => 'RTL',
 							'href' => '?' . http_build_query( array_merge( $query, array( 'direction' => 'rtl' ) ) ),
+						) ),
+					)
+				) );
+				echo new OOUI\ButtonGroupWidget( array(
+					'infusable' => true,
+					'id' => 'oo-ui-demo-menu-infuse',
+					'items' => array(
+						new OOUI\ButtonWidget( array(
+							'label' => 'JS',
+							'href' => ".#widgets-$theme-$graphic-$direction",
+						) ),
+						new OOUI\ButtonWidget( array(
+							'label' => 'PHP',
+							'href' => '?' . http_build_query( $query ),
 						) ),
 					)
 				) );
@@ -823,8 +833,7 @@
 	<script src="../node_modules/jquery/dist/jquery.js"></script>
 	<script src="../node_modules/oojs/dist/oojs.jquery.js"></script>
 	<script src="../dist/oojs-ui.js"></script>
-	<script src="../dist/oojs-ui-apex.js"></script>
-	<script src="../dist/oojs-ui-mediawiki.js"></script>
+	<script src="../dist/oojs-ui-<?php echo $theme; ?>.js"></script>
 	<script src="./infusion.js"></script>
 </body>
 </html>
