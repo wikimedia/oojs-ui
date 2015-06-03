@@ -31,7 +31,7 @@ class FieldLayout extends Layout {
 	 */
 	protected $fieldWidget;
 
-	private $field, $body, $help;
+	protected $field, $body, $help;
 
 	/**
 	 * @param Widget $fieldWidget Field widget
