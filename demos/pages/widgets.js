@@ -1366,7 +1366,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.ActionFieldLayout(
-					new OO.ui.TextInputWidget( {} ),
+					new OO.ui.TextInputWidget(),
 					new OO.ui.ButtonWidget( {
 						label: 'Button'
 					} ),
@@ -1376,7 +1376,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.ActionFieldLayout(
-					new OO.ui.TextInputWidget( {} ),
+					new OO.ui.TextInputWidget(),
 					new OO.ui.ButtonWidget( {
 						label: 'Button'
 					} ),
@@ -1386,7 +1386,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.ActionFieldLayout(
-					new OO.ui.TextInputWidget( {} ),
+					new OO.ui.TextInputWidget(),
 					new OO.ui.ButtonWidget( {
 						label: 'Button'
 					} ),
@@ -1396,7 +1396,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.ActionFieldLayout(
-					new OO.ui.TextInputWidget( {} ),
+					new OO.ui.TextInputWidget(),
 					new OO.ui.ButtonWidget( {
 						label: 'Button'
 					} ),
@@ -1406,7 +1406,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.ActionFieldLayout(
-					new OO.ui.TextInputWidget( {} ),
+					new OO.ui.TextInputWidget(),
 					new OO.ui.ButtonWidget( {
 						label: 'Button'
 					} ),
@@ -1418,7 +1418,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.ActionFieldLayout(
-					new OO.ui.TextInputWidget( {} ),
+					new OO.ui.TextInputWidget(),
 					new OO.ui.ButtonWidget( {
 						label: 'Button'
 					} ),
