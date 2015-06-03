@@ -4,6 +4,9 @@
  * an interface for adding, removing and selecting options.
  * Please see the [OOjs UI documentation on MediaWiki][1] for more information.
  *
+ * If you want to use this within a HTML form, such as a OO.ui.FormLayout, use
+ * OO.ui.RadioSelectInputWidget instead.
+ *
  *     @example
  *     // A RadioSelectWidget with RadioOptions.
  *     var option1 = new OO.ui.RadioOptionWidget( {

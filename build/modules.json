@@ -80,6 +80,7 @@
 				"src/widgets/CheckboxInputWidget.js",
 				"src/widgets/DropdownInputWidget.js",
 				"src/widgets/RadioInputWidget.js",
+				"src/widgets/RadioSelectInputWidget.js",
 				"src/widgets/TextInputWidget.js",
 			"src/widgets/ComboBoxWidget.js",
 			"src/widgets/LabelWidget.js",
