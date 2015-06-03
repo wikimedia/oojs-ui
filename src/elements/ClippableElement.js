@@ -168,7 +168,7 @@ OO.ui.ClippableElement.prototype.clip = function () {
 		ccHeight = $container.innerHeight() - buffer,
 		ccWidth = $container.innerWidth() - buffer,
 		cWidth = this.$clippable.outerWidth() + buffer,
-		scrollTop = this.$clippableScroller.scrollTop(),
+		scrollTop = this.$clippableScroller[0] === this.$clippableWindow[0] ? this.$clippableScroller.scrollTop() : 0,
 		scrollLeft = this.$clippableScroller.scrollLeft(),
 		desiredWidth = cOffset.left < 0 ?
 			cWidth + cOffset.left :
