@@ -170,6 +170,121 @@
 	}
 }
 
+.theme-oo-ui-selectFileWidget () {
+	margin: 0.25em 0;
+	width: 100%;
+	max-width: 50em;
+
+	.oo-ui-inline-spacing(0.5em);
+
+	&-handle {
+		height: 2.5em;
+		border: 1px solid #ccc;
+		border-radius: 0.1em;
+		padding: 0 1em;
+
+		> .oo-ui-indicatorElement-indicator {
+			right: 0;
+		}
+
+		> .oo-ui-iconElement-icon {
+			left: 0.25em;
+		}
+
+		.oo-ui-selectFileWidget-label {
+			line-height: 2.5em;
+			margin: 0;
+			display: inline-block;
+			overflow: hidden;
+			width: 100%;
+			white-space: nowrap;
+			.oo-ui-box-sizing( border-box );
+			text-overflow: ellipsis;
+		}
+
+		.oo-ui-selectFileWidget-clearButton {
+			top: 0;
+			width: @icon-size;
+			height: @icon-size;
+			margin: 0.3em;
+		}
+
+		> .oo-ui-indicatorElement-indicator {
+			top: 0;
+			width: @indicator-size;
+			height: @indicator-size;
+			margin: 0.775em;
+		}
+
+		> .oo-ui-iconElement-icon {
+			top: 0;
+			width: @icon-size;
+			height: @icon-size;
+			margin: 0.3em;
+		}
+	}
+
+	&:hover .oo-ui-selectFileWidget-handle {
+		border-color: #aaa;
+	}
+
+	&.oo-ui-widget-disabled {
+		.oo-ui-selectFileWidget-handle {
+			color: #ccc;
+			text-shadow: 0 1px 1px #fff;
+			border-color: #ddd;
+			background-color: #f3f3f3;
+
+			> .oo-ui-iconElement-icon,
+			> .oo-ui-indicatorElement-indicator {
+				opacity: 0.2;
+			}
+		}
+	}
+
+	&-empty {
+		.oo-ui-selectFileWidget-label {
+			color: #ccc;
+		}
+	}
+
+	&.oo-ui-iconElement .oo-ui-selectFileWidget-handle {
+		padding-left: 3em;
+	}
+
+	// With close, no indicator:
+	& .oo-ui-selectFileWidget-handle {
+		padding-right: 3em;
+
+		.oo-ui-selectFileWidget-clearButton {
+			right: 0;
+		}
+	}
+
+	// With close, with indicator:
+	&.oo-ui-indicatorElement .oo-ui-selectFileWidget-handle {
+		padding-right: 5em;
+
+		.oo-ui-selectFileWidget-clearButton {
+			right: 2em;
+		}
+	}
+
+	// No close, no indicator:
+	&-empty, &-notsupported {
+		.oo-ui-selectFileWidget-handle {
+			padding-right: 1em;
+		}
+	}
+
+	// No close, with indicator:
+	&-empty.oo-ui-indicatorElement, &-notsupported.oo-ui-indicatorElement {
+		.oo-ui-selectFileWidget-handle {
+			padding-right: 2em;
+		}
+	}
+}
+
 .theme-oo-ui-inputWidget () {
 	.oo-ui-inline-spacing(0.5em);
 }

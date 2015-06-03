@@ -1,0 +1,63 @@
+@import '../common';
+
+.oo-ui-selectFileWidget {
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+
+	&-handle {
+		width: 100%;
+		display: inline-block;
+		cursor: pointer;
+		overflow: hidden;
+
+		.oo-ui-unselectable();
+		.oo-ui-box-sizing(border-box);
+
+		> .oo-ui-indicatorElement-indicator,
+		> .oo-ui-iconElement-icon,
+		> .oo-ui-selectFileWidget-clearButton {
+			position: absolute;
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+
+		> input[type="file"] {
+			position: absolute;
+			margin: 0;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			z-index: 1;
+			cursor: pointer;
+		}
+
+		> .oo-ui-selectFileWidget-clearButton {
+			z-index: 2;
+		}
+	}
+
+	&.oo-ui-widget-disabled,
+	&-notsupported {
+		.oo-ui-selectFileWidget-handle {
+			cursor: default;
+
+			> input[type="file"] {
+				display: none;
+			}
+		}
+	}
+
+	&-empty,
+	&-notsupported {
+		.oo-ui-selectFileWidget-clearButton {
+			display: none;
+		}
+	}
+
+	.theme-oo-ui-selectFileWidget();
+}
