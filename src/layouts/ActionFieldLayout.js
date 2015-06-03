@@ -43,10 +43,6 @@
  * @constructor
  * @param {OO.ui.Widget} fieldWidget Field widget
  * @param {OO.ui.ButtonWidget} buttonWidget Button widget
- * @param {Object} [config] Configuration options
- * @cfg {string} [align='left'] Alignment of the label: 'left', 'right', 'top' or 'inline'
- * @cfg {string} [help] Help text. When help text is specified, a help icon will appear in the
- *  upper-right corner of the rendered field.
  */
 OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWidget, config ) {
 	// Allow passing positional parameters inside the config object
@@ -56,23 +52,24 @@ OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWid
 		buttonWidget = config.buttonWidget;
 	}
 
-	// Configuration initialization
-	config = $.extend( { align: 'left' }, config );
-
 	// Parent constructor
 	OO.ui.ActionFieldLayout.super.call( this, fieldWidget, config );
 
 	// Properties
-	this.fieldWidget = fieldWidget;
 	this.buttonWidget = buttonWidget;
-	this.$button = $( '<div>' )
+	this.$button = $( '<div>' );
+	this.$input = $( '<div>' );
+
+	// Initialization
+	this.$element
+		.addClass( 'oo-ui-actionFieldLayout' );
+	this.$button
 		.addClass( 'oo-ui-actionFieldLayout-button' )
 		.append( this.buttonWidget.$element );
-	this.$input = $( '<div>' )
+	this.$input
 		.addClass( 'oo-ui-actionFieldLayout-input' )
 		.append( this.fieldWidget.$element );
 	this.$field
-		.addClass( 'oo-ui-actionFieldLayout' )
 		.append( this.$input, this.$button );
 };
 
