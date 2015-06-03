@@ -310,7 +310,7 @@ class Tag {
 					// @codingStandardsIgnoreStart
 					$scheme = @parse_url( $value, PHP_URL_SCHEME );
 					// @codingStandardsIgnoreEnd
-					if ( !$scheme && substr( $value, 0, 1 ) === '/' ) {
+					if ( $scheme === null || ( !$scheme && substr( $value, 0, 1 ) === '/' ) ) {
 						$scheme = '(relative)';
 					}
 				}

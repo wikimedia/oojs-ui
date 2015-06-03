@@ -101,9 +101,8 @@ class TagTest extends PHPUnit_Framework_TestCase {
 			'Exception'
 		);
 		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => 'vague' ) ),
-			'',
-			'Exception'
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => 'relative.html' ) ),
+			"<a href='relative.html'></a>"
 		);
 		$tests[] = array(
 			id( new Tag( 'a' ) )->setAttributes( array( 'href' => 'http://example.com/' ) ),
@@ -116,6 +115,18 @@ class TagTest extends PHPUnit_Framework_TestCase {
 		$tests[] = array(
 			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '/' ) ),
 			"<a href='/'></a>"
+		);
+		$tests[] = array(
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '..' ) ),
+			"<a href='..'></a>"
+		);
+		$tests[] = array(
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '?foo=bar' ) ),
+			"<a href='?foo=bar'></a>"
+		);
+		$tests[] = array(
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '#top' ) ),
+			"<a href='#top'></a>"
 		);
 		$tests[] = array(
 			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '/relative' ) ),
