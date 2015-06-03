@@ -1429,7 +1429,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 	$.each( fieldsets, function ( i, fieldsetLayout ) {
 		$.each( fieldsetLayout.getItems(), function ( j, fieldLayout ) {
 			fieldLayout.$element.append(
-				demo.buildConsole( fieldLayout.fieldWidget, 'widget' )
+				demo.buildConsole( fieldLayout, 'layout', 'widget' )
 			);
 		} );
 	} );
