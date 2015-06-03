@@ -47,7 +47,7 @@ class FieldLayout extends Layout {
 			$fieldWidget = $config['fieldWidget'];
 		}
 
-		$hasInputWidget = $fieldWidget instanceof InputWidget;
+		$hasInputWidget = $fieldWidget::$supportsSimpleLabel;
 
 		// Config initialization
 		$config = array_merge( array( 'align' => 'left' ), $config );

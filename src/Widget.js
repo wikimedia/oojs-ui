@@ -37,6 +37,19 @@ OO.ui.Widget = function OoUiWidget( config ) {
 OO.inheritClass( OO.ui.Widget, OO.ui.Element );
 OO.mixinClass( OO.ui.Widget, OO.EventEmitter );
 
+/* Static Properties */
+
+/**
+ * Whether this widget will behave reasonably when wrapped in a HTML `<label>`. If this is true,
+ * wrappers such as OO.ui.FieldLayout may use a `<label>` instead of implementing own label click
+ * handling.
+ *
+ * @static
+ * @inheritable
+ * @property {boolean}
+ */
+OO.ui.Widget.static.supportsSimpleLabel = false;
+
 /* Events */
 
 /**

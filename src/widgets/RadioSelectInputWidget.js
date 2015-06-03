@@ -51,6 +51,10 @@ OO.ui.RadioSelectInputWidget = function OoUiRadioSelectInputWidget( config ) {
 
 OO.inheritClass( OO.ui.RadioSelectInputWidget, OO.ui.InputWidget );
 
+/* Static Properties */
+
+OO.ui.InputWidget.static.supportsSimpleLabel = false;
+
 /* Methods */
 
 /**
