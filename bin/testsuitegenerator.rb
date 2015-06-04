@@ -34,6 +34,7 @@ else
 		['TextInputWidget', 'type'] => %w[text password foo],
 		['ButtonInputWidget', 'type'] => %w[button submit foo],
 		['FieldLayout', 'help'] => true, # different PHP and JS implementations
+		['ActionFieldLayout', 'help'] => true, # different PHP and JS implementations
 		['FieldsetLayout', 'help'] => true, # different PHP and JS implementations
 		'type' => %w[text button],
 		'method' => %w[GET POST],

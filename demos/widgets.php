@@ -788,6 +788,69 @@
 									"in, duo ex inimicus perpetua complectitur, mel periculis similique at.\xE2\x80\x8E",
 								'align' => 'top'
 							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'ActionFieldLayout aligned left',
+								'align' => 'left'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'ActionFieldLayout aligned inline',
+								'align' => 'inline'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'ActionFieldLayout aligned right',
+								'align' => 'right'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'ActionFieldLayout aligned top',
+								'align' => 'top'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'ActionFieldLayout aligned top with help',
+								'help' => 'I am an additional, helpful information. Lorem ipsum dolor sit amet, cibo pri ' .
+									"in, duo ex inimicus perpetua complectitur, mel periculis similique at.\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' =>
+									new OOUI\HtmlSnippet( '<i>ActionFieldLayout aligned top with rich text label</i>' ),
+								'align' => 'top'
+							)
 						)
 					)
 				) ) );
