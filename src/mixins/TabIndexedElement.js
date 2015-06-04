@@ -36,7 +36,7 @@
  *  order (e.g., 1 for the first focusable element). Use 0 to use the default navigation order; use -1
  *  to remove the element from the tab-navigation flow.
  */
-OO.ui.TabIndexedElement = function OoUiTabIndexedElement( config ) {
+OO.ui.mixin.TabIndexedElement = function OoUiMixinTabIndexedElement( config ) {
 	// Configuration initialization
 	config = $.extend( { tabIndex: 0 }, config );
 
@@ -54,7 +54,7 @@ OO.ui.TabIndexedElement = function OoUiTabIndexedElement( config ) {
 
 /* Setup */
 
-OO.initClass( OO.ui.TabIndexedElement );
+OO.initClass( OO.ui.mixin.TabIndexedElement );
 
 /* Methods */
 
@@ -68,7 +68,7 @@ OO.initClass( OO.ui.TabIndexedElement );
  * @param {jQuery} $tabIndexed Element that should use the tabindex functionality
  * @chainable
  */
-OO.ui.TabIndexedElement.prototype.setTabIndexedElement = function ( $tabIndexed ) {
+OO.ui.mixin.TabIndexedElement.prototype.setTabIndexedElement = function ( $tabIndexed ) {
 	var tabIndex = this.tabIndex;
 	// Remove attributes from old $tabIndexed
 	this.setTabIndex( null );
@@ -84,7 +84,7 @@ OO.ui.TabIndexedElement.prototype.setTabIndexedElement = function ( $tabIndexed 
  * @param {number|null} tabIndex Tabindex value, or `null` for no tabindex
  * @chainable
  */
-OO.ui.TabIndexedElement.prototype.setTabIndex = function ( tabIndex ) {
+OO.ui.mixin.TabIndexedElement.prototype.setTabIndex = function ( tabIndex ) {
 	tabIndex = typeof tabIndex === 'number' ? tabIndex : null;
 
 	if ( this.tabIndex !== tabIndex ) {
@@ -102,7 +102,7 @@ OO.ui.TabIndexedElement.prototype.setTabIndex = function ( tabIndex ) {
  * @private
  * @chainable
  */
-OO.ui.TabIndexedElement.prototype.updateTabIndex = function () {
+OO.ui.mixin.TabIndexedElement.prototype.updateTabIndex = function () {
 	if ( this.$tabIndexed ) {
 		if ( this.tabIndex !== null ) {
 			// Do not index over disabled elements
@@ -124,7 +124,7 @@ OO.ui.TabIndexedElement.prototype.updateTabIndex = function () {
  * @private
  * @param {boolean} disabled Element is disabled
  */
-OO.ui.TabIndexedElement.prototype.onTabIndexedElementDisable = function () {
+OO.ui.mixin.TabIndexedElement.prototype.onTabIndexedElementDisable = function () {
 	this.updateTabIndex();
 };
 
@@ -133,6 +133,6 @@ OO.ui.TabIndexedElement.prototype.onTabIndexedElementDisable = function () {
  *
  * @return {number|null} Tabindex value
  */
-OO.ui.TabIndexedElement.prototype.getTabIndex = function () {
+OO.ui.mixin.TabIndexedElement.prototype.getTabIndex = function () {
 	return this.tabIndex;
 };

@@ -18,7 +18,7 @@
  *
  * @class
  * @extends OO.ui.ButtonWidget
- * @mixins OO.ui.PopupElement
+ * @mixins OO.ui.mixin.PopupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -28,7 +28,7 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 	OO.ui.PopupButtonWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.PopupElement.call( this, config );
+	OO.ui.mixin.PopupElement.call( this, config );
 
 	// Events
 	this.connect( this, { click: 'onAction' } );
@@ -43,7 +43,7 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.PopupButtonWidget, OO.ui.ButtonWidget );
-OO.mixinClass( OO.ui.PopupButtonWidget, OO.ui.PopupElement );
+OO.mixinClass( OO.ui.PopupButtonWidget, OO.ui.mixin.PopupElement );
 
 /* Methods */
 

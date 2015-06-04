@@ -19,7 +19,7 @@
  * @cfg {boolean} [autoFitLabel=true] Fit the label to the width of the parent element.
  *  The label will be truncated to fit if necessary.
  */
-OO.ui.LabelElement = function OoUiLabelElement( config ) {
+OO.ui.mixin.LabelElement = function OoUiMixinLabelElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -35,7 +35,7 @@ OO.ui.LabelElement = function OoUiLabelElement( config ) {
 
 /* Setup */
 
-OO.initClass( OO.ui.LabelElement );
+OO.initClass( OO.ui.mixin.LabelElement );
 
 /* Events */
 
@@ -55,7 +55,7 @@ OO.initClass( OO.ui.LabelElement );
  * @inheritable
  * @property {string|Function|null}
  */
-OO.ui.LabelElement.static.label = null;
+OO.ui.mixin.LabelElement.static.label = null;
 
 /* Methods */
 
@@ -66,7 +66,7 @@ OO.ui.LabelElement.static.label = null;
  *
  * @param {jQuery} $label Element to use as label
  */
-OO.ui.LabelElement.prototype.setLabelElement = function ( $label ) {
+OO.ui.mixin.LabelElement.prototype.setLabelElement = function ( $label ) {
 	if ( this.$label ) {
 		this.$label.removeClass( 'oo-ui-labelElement-label' ).empty();
 	}
@@ -85,7 +85,7 @@ OO.ui.LabelElement.prototype.setLabelElement = function ( $label ) {
  *  text; or null for no label
  * @chainable
  */
-OO.ui.LabelElement.prototype.setLabel = function ( label ) {
+OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
 	label = typeof label === 'function' ? OO.ui.resolveMsg( label ) : label;
 	label = ( ( typeof label === 'string' && label.length ) || label instanceof jQuery || label instanceof OO.ui.HtmlSnippet ) ? label : null;
 
@@ -108,7 +108,7 @@ OO.ui.LabelElement.prototype.setLabel = function ( label ) {
  * @return {jQuery|string|Function|null} Label nodes; text; a function that returns nodes or
  *  text; or null for no label
  */
-OO.ui.LabelElement.prototype.getLabel = function () {
+OO.ui.mixin.LabelElement.prototype.getLabel = function () {
 	return this.label;
 };
 
@@ -117,7 +117,7 @@ OO.ui.LabelElement.prototype.getLabel = function () {
  *
  * @chainable
  */
-OO.ui.LabelElement.prototype.fitLabel = function () {
+OO.ui.mixin.LabelElement.prototype.fitLabel = function () {
 	if ( this.$label && this.$label.autoEllipsis && this.autoFitLabel ) {
 		this.$label.autoEllipsis( { hasSpan: false, tooltip: true } );
 	}
@@ -134,7 +134,7 @@ OO.ui.LabelElement.prototype.fitLabel = function () {
  * @param {jQuery|string|Function|null} label Label nodes; text; a function that returns nodes or
  *  text; or null for no label
  */
-OO.ui.LabelElement.prototype.setLabelContent = function ( label ) {
+OO.ui.mixin.LabelElement.prototype.setLabelContent = function ( label ) {
 	if ( typeof label === 'string' ) {
 		if ( label.match( /^\s*$/ ) ) {
 			// Convert whitespace only string to a single non-breaking space

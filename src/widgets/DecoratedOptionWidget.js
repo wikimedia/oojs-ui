@@ -1,6 +1,6 @@
 /**
  * DecoratedOptionWidgets are {@link OO.ui.OptionWidget options} that can be configured
- * with an {@link OO.ui.IconElement icon} and/or {@link OO.ui.IndicatorElement indicator}.
+ * with an {@link OO.ui.mixin.IconElement icon} and/or {@link OO.ui.mixin.IndicatorElement indicator}.
  * This class is used with OO.ui.SelectWidget to create a selection of mutually exclusive
  * options. For more information about options and selects, please see the
  * [OOjs UI documentation on MediaWiki][1].
@@ -27,8 +27,8 @@
  *
  * @class
  * @extends OO.ui.OptionWidget
- * @mixins OO.ui.IconElement
- * @mixins OO.ui.IndicatorElement
+ * @mixins OO.ui.mixin.IconElement
+ * @mixins OO.ui.mixin.IndicatorElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -38,8 +38,8 @@ OO.ui.DecoratedOptionWidget = function OoUiDecoratedOptionWidget( config ) {
 	OO.ui.DecoratedOptionWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.IconElement.call( this, config );
-	OO.ui.IndicatorElement.call( this, config );
+	OO.ui.mixin.IconElement.call( this, config );
+	OO.ui.mixin.IndicatorElement.call( this, config );
 
 	// Initialization
 	this.$element
@@ -51,5 +51,5 @@ OO.ui.DecoratedOptionWidget = function OoUiDecoratedOptionWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.DecoratedOptionWidget, OO.ui.OptionWidget );
-OO.mixinClass( OO.ui.OptionWidget, OO.ui.IconElement );
-OO.mixinClass( OO.ui.OptionWidget, OO.ui.IndicatorElement );
+OO.mixinClass( OO.ui.DecoratedOptionWidget, OO.ui.mixin.IconElement );
+OO.mixinClass( OO.ui.DecoratedOptionWidget, OO.ui.mixin.IndicatorElement );

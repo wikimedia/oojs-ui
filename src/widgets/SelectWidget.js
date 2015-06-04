@@ -32,7 +32,7 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.GroupElement
+ * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -49,7 +49,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	OO.ui.SelectWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.GroupWidget.call( this, $.extend( {}, config, { $group: this.$element } ) );
+	OO.ui.mixin.GroupWidget.call( this, $.extend( {}, config, { $group: this.$element } ) );
 
 	// Properties
 	this.pressed = false;
@@ -85,8 +85,8 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 OO.inheritClass( OO.ui.SelectWidget, OO.ui.Widget );
 
 // Need to mixin base class as well
-OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupElement );
-OO.mixinClass( OO.ui.SelectWidget, OO.ui.GroupWidget );
+OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupElement );
+OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupWidget );
 
 /* Static */
 OO.ui.SelectWidget.static.passAllFilter = function () {
@@ -719,7 +719,7 @@ OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
  */
 OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
 	// Mixin method
-	OO.ui.GroupWidget.prototype.addItems.call( this, items, index );
+	OO.ui.mixin.GroupWidget.prototype.addItems.call( this, items, index );
 
 	// Always provide an index, even if it was omitted
 	this.emit( 'add', items, index === undefined ? this.items.length - items.length - 1 : index );
@@ -748,7 +748,7 @@ OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
 	}
 
 	// Mixin method
-	OO.ui.GroupWidget.prototype.removeItems.call( this, items );
+	OO.ui.mixin.GroupWidget.prototype.removeItems.call( this, items );
 
 	this.emit( 'remove', items );
 
@@ -767,7 +767,7 @@ OO.ui.SelectWidget.prototype.clearItems = function () {
 	var items = this.items.slice();
 
 	// Mixin method
-	OO.ui.GroupWidget.prototype.clearItems.call( this );
+	OO.ui.mixin.GroupWidget.prototype.clearItems.call( this );
 
 	// Clear selection
 	this.selectItem( null );

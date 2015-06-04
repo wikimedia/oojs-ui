@@ -27,7 +27,7 @@
  *  or a function that returns title text. The indicator title is displayed when users move
  *  the mouse over the indicator.
  */
-OO.ui.IndicatorElement = function OoUiIndicatorElement( config ) {
+OO.ui.mixin.IndicatorElement = function OoUiMixinIndicatorElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -44,7 +44,7 @@ OO.ui.IndicatorElement = function OoUiIndicatorElement( config ) {
 
 /* Setup */
 
-OO.initClass( OO.ui.IndicatorElement );
+OO.initClass( OO.ui.mixin.IndicatorElement );
 
 /* Static Properties */
 
@@ -56,7 +56,7 @@ OO.initClass( OO.ui.IndicatorElement );
  * @inheritable
  * @property {string|null}
  */
-OO.ui.IndicatorElement.static.indicator = null;
+OO.ui.mixin.IndicatorElement.static.indicator = null;
 
 /**
  * A text string used as the indicator title, a function that returns title text, or `null`
@@ -66,7 +66,7 @@ OO.ui.IndicatorElement.static.indicator = null;
  * @inheritable
  * @property {string|Function|null}
  */
-OO.ui.IndicatorElement.static.indicatorTitle = null;
+OO.ui.mixin.IndicatorElement.static.indicatorTitle = null;
 
 /* Methods */
 
@@ -77,7 +77,7 @@ OO.ui.IndicatorElement.static.indicatorTitle = null;
  *
  * @param {jQuery} $indicator Element to use as indicator
  */
-OO.ui.IndicatorElement.prototype.setIndicatorElement = function ( $indicator ) {
+OO.ui.mixin.IndicatorElement.prototype.setIndicatorElement = function ( $indicator ) {
 	if ( this.$indicator ) {
 		this.$indicator
 			.removeClass( 'oo-ui-indicatorElement-indicator oo-ui-indicator-' + this.indicator )
@@ -98,7 +98,7 @@ OO.ui.IndicatorElement.prototype.setIndicatorElement = function ( $indicator ) {
  * @param {string|null} indicator Symbolic name of indicator, or `null` for no indicator
  * @chainable
  */
-OO.ui.IndicatorElement.prototype.setIndicator = function ( indicator ) {
+OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
 	indicator = typeof indicator === 'string' && indicator.length ? indicator.trim() : null;
 
 	if ( this.indicator !== indicator ) {
@@ -128,7 +128,7 @@ OO.ui.IndicatorElement.prototype.setIndicator = function ( indicator ) {
  *   `null` for no indicator title
  * @chainable
  */
-OO.ui.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle ) {
+OO.ui.mixin.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle ) {
 	indicatorTitle = typeof indicatorTitle === 'function' ||
 		( typeof indicatorTitle === 'string' && indicatorTitle.length ) ?
 			OO.ui.resolveMsg( indicatorTitle ) : null;
@@ -152,7 +152,7 @@ OO.ui.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle )
  *
  * @return {string} Symbolic name of indicator
  */
-OO.ui.IndicatorElement.prototype.getIndicator = function () {
+OO.ui.mixin.IndicatorElement.prototype.getIndicator = function () {
 	return this.indicator;
 };
 
@@ -163,6 +163,6 @@ OO.ui.IndicatorElement.prototype.getIndicator = function () {
  *
  * @return {string} Indicator title text
  */
-OO.ui.IndicatorElement.prototype.getIndicatorTitle = function () {
+OO.ui.mixin.IndicatorElement.prototype.getIndicatorTitle = function () {
 	return this.indicatorTitle;
 };

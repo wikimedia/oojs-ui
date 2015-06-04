@@ -264,7 +264,7 @@
  * @class
  * @extends OO.ui.Element
  * @mixins OO.EventEmitter
- * @mixins OO.ui.GroupElement
+ * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {OO.ui.ToolFactory} toolFactory Factory for creating tools
@@ -291,7 +291,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );
-	OO.ui.GroupElement.call( this, config );
+	OO.ui.mixin.GroupElement.call( this, config );
 
 	// Properties
 	this.toolFactory = toolFactory;
@@ -326,7 +326,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 
 OO.inheritClass( OO.ui.Toolbar, OO.ui.Element );
 OO.mixinClass( OO.ui.Toolbar, OO.EventEmitter );
-OO.mixinClass( OO.ui.Toolbar, OO.ui.GroupElement );
+OO.mixinClass( OO.ui.Toolbar, OO.ui.mixin.GroupElement );
 
 /* Methods */
 

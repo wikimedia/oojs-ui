@@ -2,7 +2,8 @@
  * Element that can be automatically clipped to visible boundaries.
  *
  * Whenever the element's natural height changes, you have to call
- * #clip to make sure it's still clipping correctly.
+ * {@link OO.ui.mixin.ClippableElement#clip} to make sure it's still
+ * clipping correctly.
  *
  * @abstract
  * @class
@@ -11,7 +12,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$clippable] Nodes to clip, assigned to #$clippable, omit to use #$element
  */
-OO.ui.ClippableElement = function OoUiClippableElement( config ) {
+OO.ui.mixin.ClippableElement = function OoUiMixinClippableElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -41,7 +42,7 @@ OO.ui.ClippableElement = function OoUiClippableElement( config ) {
  *
  * @param {jQuery} $clippable Element to make clippable
  */
-OO.ui.ClippableElement.prototype.setClippableElement = function ( $clippable ) {
+OO.ui.mixin.ClippableElement.prototype.setClippableElement = function ( $clippable ) {
 	if ( this.$clippable ) {
 		this.$clippable.removeClass( 'oo-ui-clippableElement-clippable' );
 		this.$clippable.css( { width: '', height: '', overflowX: '', overflowY: '' } );
@@ -60,7 +61,7 @@ OO.ui.ClippableElement.prototype.setClippableElement = function ( $clippable ) {
  * @param {boolean} [clipping] Enable clipping, omit to toggle
  * @chainable
  */
-OO.ui.ClippableElement.prototype.toggleClipping = function ( clipping ) {
+OO.ui.mixin.ClippableElement.prototype.toggleClipping = function ( clipping ) {
 	clipping = clipping === undefined ? !this.clipping : !!clipping;
 
 	if ( this.clipping !== clipping ) {
@@ -97,7 +98,7 @@ OO.ui.ClippableElement.prototype.toggleClipping = function ( clipping ) {
  *
  * @return {boolean} Element will be clipped to the visible area
  */
-OO.ui.ClippableElement.prototype.isClipping = function () {
+OO.ui.mixin.ClippableElement.prototype.isClipping = function () {
 	return this.clipping;
 };
 
@@ -106,7 +107,7 @@ OO.ui.ClippableElement.prototype.isClipping = function () {
  *
  * @return {boolean} Part of the element is being clipped
  */
-OO.ui.ClippableElement.prototype.isClipped = function () {
+OO.ui.mixin.ClippableElement.prototype.isClipped = function () {
 	return this.clippedHorizontally || this.clippedVertically;
 };
 
@@ -115,7 +116,7 @@ OO.ui.ClippableElement.prototype.isClipped = function () {
  *
  * @return {boolean} Part of the element is being clipped
  */
-OO.ui.ClippableElement.prototype.isClippedHorizontally = function () {
+OO.ui.mixin.ClippableElement.prototype.isClippedHorizontally = function () {
 	return this.clippedHorizontally;
 };
 
@@ -124,7 +125,7 @@ OO.ui.ClippableElement.prototype.isClippedHorizontally = function () {
  *
  * @return {boolean} Part of the element is being clipped
  */
-OO.ui.ClippableElement.prototype.isClippedVertically = function () {
+OO.ui.mixin.ClippableElement.prototype.isClippedVertically = function () {
 	return this.clippedVertically;
 };
 
@@ -134,7 +135,7 @@ OO.ui.ClippableElement.prototype.isClippedVertically = function () {
  * @param {number|string} [width] Width as a number of pixels or CSS string with unit suffix
  * @param {number|string} [height] Height as a number of pixels or CSS string with unit suffix
  */
-OO.ui.ClippableElement.prototype.setIdealSize = function ( width, height ) {
+OO.ui.mixin.ClippableElement.prototype.setIdealSize = function ( width, height ) {
 	this.idealWidth = width;
 	this.idealHeight = height;
 
@@ -154,7 +155,7 @@ OO.ui.ClippableElement.prototype.setIdealSize = function ( width, height ) {
  *
  * @chainable
  */
-OO.ui.ClippableElement.prototype.clip = function () {
+OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	if ( !this.clipping ) {
 		// this.$clippableContainer and this.$clippableWindow are null, so the below will fail
 		return this;

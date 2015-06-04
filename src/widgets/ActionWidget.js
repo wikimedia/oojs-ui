@@ -11,7 +11,7 @@
  *
  * @class
  * @extends OO.ui.ButtonWidget
- * @mixins OO.ui.PendingElement
+ * @mixins OO.ui.mixin.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -29,7 +29,7 @@ OO.ui.ActionWidget = function OoUiActionWidget( config ) {
 	OO.ui.ActionWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.PendingElement.call( this, config );
+	OO.ui.mixin.PendingElement.call( this, config );
 
 	// Properties
 	this.action = config.action || '';
@@ -44,7 +44,7 @@ OO.ui.ActionWidget = function OoUiActionWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ActionWidget, OO.ui.ButtonWidget );
-OO.mixinClass( OO.ui.ActionWidget, OO.ui.PendingElement );
+OO.mixinClass( OO.ui.ActionWidget, OO.ui.mixin.PendingElement );
 
 /* Events */
 
@@ -116,7 +116,7 @@ OO.ui.ActionWidget.prototype.propagateResize = function () {
  */
 OO.ui.ActionWidget.prototype.setIcon = function () {
 	// Mixin method
-	OO.ui.IconElement.prototype.setIcon.apply( this, arguments );
+	OO.ui.mixin.IconElement.prototype.setIcon.apply( this, arguments );
 	this.propagateResize();
 
 	return this;
@@ -127,7 +127,7 @@ OO.ui.ActionWidget.prototype.setIcon = function () {
  */
 OO.ui.ActionWidget.prototype.setLabel = function () {
 	// Mixin method
-	OO.ui.LabelElement.prototype.setLabel.apply( this, arguments );
+	OO.ui.mixin.LabelElement.prototype.setLabel.apply( this, arguments );
 	this.propagateResize();
 
 	return this;
@@ -138,7 +138,7 @@ OO.ui.ActionWidget.prototype.setLabel = function () {
  */
 OO.ui.ActionWidget.prototype.setFlags = function () {
 	// Mixin method
-	OO.ui.FlaggedElement.prototype.setFlags.apply( this, arguments );
+	OO.ui.mixin.FlaggedElement.prototype.setFlags.apply( this, arguments );
 	this.propagateResize();
 
 	return this;
@@ -149,7 +149,7 @@ OO.ui.ActionWidget.prototype.setFlags = function () {
  */
 OO.ui.ActionWidget.prototype.clearFlags = function () {
 	// Mixin method
-	OO.ui.FlaggedElement.prototype.clearFlags.apply( this, arguments );
+	OO.ui.mixin.FlaggedElement.prototype.clearFlags.apply( this, arguments );
 	this.propagateResize();
 
 	return this;

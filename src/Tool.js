@@ -14,9 +14,9 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.IconElement
- * @mixins OO.ui.FlaggedElement
- * @mixins OO.ui.TabIndexedElement
+ * @mixins OO.ui.mixin.IconElement
+ * @mixins OO.ui.mixin.FlaggedElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {OO.ui.ToolGroup} toolGroup
@@ -55,9 +55,9 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	this.title = null;
 
 	// Mixin constructors
-	OO.ui.IconElement.call( this, config );
-	OO.ui.FlaggedElement.call( this, config );
-	OO.ui.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$link } ) );
+	OO.ui.mixin.IconElement.call( this, config );
+	OO.ui.mixin.FlaggedElement.call( this, config );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$link } ) );
 
 	// Events
 	this.toolbar.connect( this, { updateState: 'onUpdateState' } );
@@ -90,9 +90,9 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.Tool, OO.ui.Widget );
-OO.mixinClass( OO.ui.Tool, OO.ui.IconElement );
-OO.mixinClass( OO.ui.Tool, OO.ui.FlaggedElement );
-OO.mixinClass( OO.ui.Tool, OO.ui.TabIndexedElement );
+OO.mixinClass( OO.ui.Tool, OO.ui.mixin.IconElement );
+OO.mixinClass( OO.ui.Tool, OO.ui.mixin.FlaggedElement );
+OO.mixinClass( OO.ui.Tool, OO.ui.mixin.TabIndexedElement );
 
 /* Static Properties */
 

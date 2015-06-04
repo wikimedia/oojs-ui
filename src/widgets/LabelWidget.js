@@ -30,7 +30,7 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.LabelElement
+ * @mixins OO.ui.mixin.LabelElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -45,8 +45,8 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 	OO.ui.LabelWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.LabelElement.call( this, $.extend( {}, config, { $label: this.$element } ) );
-	OO.ui.TitledElement.call( this, config );
+	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, { $label: this.$element } ) );
+	OO.ui.mixin.TitledElement.call( this, config );
 
 	// Properties
 	this.input = config.input;
@@ -63,8 +63,8 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.LabelWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.LabelWidget, OO.ui.LabelElement );
-OO.mixinClass( OO.ui.LabelWidget, OO.ui.TitledElement );
+OO.mixinClass( OO.ui.LabelWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.LabelWidget, OO.ui.mixin.TitledElement );
 
 /* Static Properties */
 

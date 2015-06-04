@@ -55,7 +55,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$pending] Element to mark as pending, defaults to this.$element
  */
-OO.ui.PendingElement = function OoUiPendingElement( config ) {
+OO.ui.mixin.PendingElement = function OoUiMixinPendingElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -69,7 +69,7 @@ OO.ui.PendingElement = function OoUiPendingElement( config ) {
 
 /* Setup */
 
-OO.initClass( OO.ui.PendingElement );
+OO.initClass( OO.ui.mixin.PendingElement );
 
 /* Methods */
 
@@ -78,7 +78,7 @@ OO.initClass( OO.ui.PendingElement );
  *
  * @param {jQuery} $pending The element to set to pending.
  */
-OO.ui.PendingElement.prototype.setPendingElement = function ( $pending ) {
+OO.ui.mixin.PendingElement.prototype.setPendingElement = function ( $pending ) {
 	if ( this.$pending ) {
 		this.$pending.removeClass( 'oo-ui-pendingElement-pending' );
 	}
@@ -94,7 +94,7 @@ OO.ui.PendingElement.prototype.setPendingElement = function ( $pending ) {
  *
  * @return {boolean} Element is pending
  */
-OO.ui.PendingElement.prototype.isPending = function () {
+OO.ui.mixin.PendingElement.prototype.isPending = function () {
 	return !!this.pending;
 };
 
@@ -104,7 +104,7 @@ OO.ui.PendingElement.prototype.isPending = function () {
  *
  * @chainable
  */
-OO.ui.PendingElement.prototype.pushPending = function () {
+OO.ui.mixin.PendingElement.prototype.pushPending = function () {
 	if ( this.pending === 0 ) {
 		this.$pending.addClass( 'oo-ui-pendingElement-pending' );
 		this.updateThemeClasses();
@@ -120,7 +120,7 @@ OO.ui.PendingElement.prototype.pushPending = function () {
  *
  * @chainable
  */
-OO.ui.PendingElement.prototype.popPending = function () {
+OO.ui.mixin.PendingElement.prototype.popPending = function () {
 	if ( this.pending === 1 ) {
 		this.$pending.removeClass( 'oo-ui-pendingElement-pending' );
 		this.updateThemeClasses();

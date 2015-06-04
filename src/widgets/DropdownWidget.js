@@ -36,11 +36,11 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.IconElement
- * @mixins OO.ui.IndicatorElement
- * @mixins OO.ui.LabelElement
- * @mixins OO.ui.TitledElement
- * @mixins OO.ui.TabIndexedElement
+ * @mixins OO.ui.mixin.IconElement
+ * @mixins OO.ui.mixin.IndicatorElement
+ * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.TitledElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -57,11 +57,11 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	this.$handle = this.$( '<span>' );
 
 	// Mixin constructors
-	OO.ui.IconElement.call( this, config );
-	OO.ui.IndicatorElement.call( this, config );
-	OO.ui.LabelElement.call( this, config );
-	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$label } ) );
-	OO.ui.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
+	OO.ui.mixin.IconElement.call( this, config );
+	OO.ui.mixin.IndicatorElement.call( this, config );
+	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$label } ) );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
 
 	// Properties
 	this.menu = new OO.ui.MenuSelectWidget( $.extend( { widget: this }, config.menu ) );
@@ -85,11 +85,11 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.DropdownWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.DropdownWidget, OO.ui.IconElement );
-OO.mixinClass( OO.ui.DropdownWidget, OO.ui.IndicatorElement );
-OO.mixinClass( OO.ui.DropdownWidget, OO.ui.LabelElement );
-OO.mixinClass( OO.ui.DropdownWidget, OO.ui.TitledElement );
-OO.mixinClass( OO.ui.DropdownWidget, OO.ui.TabIndexedElement );
+OO.mixinClass( OO.ui.DropdownWidget, OO.ui.mixin.IconElement );
+OO.mixinClass( OO.ui.DropdownWidget, OO.ui.mixin.IndicatorElement );
+OO.mixinClass( OO.ui.DropdownWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.DropdownWidget, OO.ui.mixin.TitledElement );
+OO.mixinClass( OO.ui.DropdownWidget, OO.ui.mixin.TabIndexedElement );
 
 /* Methods */
 

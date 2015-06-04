@@ -2,7 +2,7 @@
  * MenuSelectWidget is a {@link OO.ui.SelectWidget select widget} that contains options and
  * is used together with OO.ui.MenuOptionWidget. It is designed be used as part of another widget.
  * See {@link OO.ui.DropdownWidget DropdownWidget}, {@link OO.ui.ComboBoxWidget ComboBoxWidget},
- * and {@link OO.ui.LookupElement LookupElement} for examples of widgets that contain menus.
+ * and {@link OO.ui.mixin.LookupElement LookupElement} for examples of widgets that contain menus.
  * MenuSelectWidgets themselves are not instantiated directly, rather subclassed
  * and customized to be opened, closed, and displayed as needed.
  *
@@ -21,13 +21,13 @@
  *
  * @class
  * @extends OO.ui.SelectWidget
- * @mixins OO.ui.ClippableElement
+ * @mixins OO.ui.mixin.ClippableElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {OO.ui.TextInputWidget} [input] Text input used to implement option highlighting for menu items that match
  *  the text the user types. This config is used by {@link OO.ui.ComboBoxWidget ComboBoxWidget}
- *  and {@link OO.ui.LookupElement LookupElement}
+ *  and {@link OO.ui.mixin.LookupElement LookupElement}
  * @cfg {OO.ui.Widget} [widget] Widget associated with the menu’s active state. If the user clicks the mouse
  *  anywhere on the page outside of this widget, the menu is hidden.
  * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu.
@@ -40,7 +40,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	OO.ui.MenuSelectWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
+	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
 
 	// Properties
 	this.newItems = null;
@@ -64,7 +64,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.MenuSelectWidget, OO.ui.SelectWidget );
-OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.ClippableElement );
+OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.mixin.ClippableElement );
 
 /* Methods */
 

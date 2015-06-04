@@ -9,8 +9,8 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.FlaggedElement
- * @mixins OO.ui.TabIndexedElement
+ * @mixins OO.ui.mixin.FlaggedElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -32,8 +32,8 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	this.inputFilter = config.inputFilter;
 
 	// Mixin constructors
-	OO.ui.FlaggedElement.call( this, config );
-	OO.ui.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$input } ) );
+	OO.ui.mixin.FlaggedElement.call( this, config );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$input } ) );
 
 	// Events
 	this.$input.on( 'keydown mouseup cut paste change input select', this.onEdit.bind( this ) );
@@ -49,8 +49,8 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.InputWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.InputWidget, OO.ui.FlaggedElement );
-OO.mixinClass( OO.ui.InputWidget, OO.ui.TabIndexedElement );
+OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.FlaggedElement );
+OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.TabIndexedElement );
 
 /* Static Properties */
 

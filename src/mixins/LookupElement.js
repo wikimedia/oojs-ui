@@ -22,7 +22,7 @@
  * @cfg {boolean} [allowSuggestionsWhenEmpty=false] Request and display a lookup menu when the text input is empty.
  *  By default, the lookup menu is not generated and displayed until the user begins to type.
  */
-OO.ui.LookupElement = function OoUiLookupElement( config ) {
+OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -68,7 +68,7 @@ OO.ui.LookupElement = function OoUiLookupElement( config ) {
  * @protected
  * @param {jQuery.Event} e Input focus event
  */
-OO.ui.LookupElement.prototype.onLookupInputFocus = function () {
+OO.ui.mixin.LookupElement.prototype.onLookupInputFocus = function () {
 	this.lookupInputFocused = true;
 	this.populateLookupMenu();
 };
@@ -79,7 +79,7 @@ OO.ui.LookupElement.prototype.onLookupInputFocus = function () {
  * @protected
  * @param {jQuery.Event} e Input blur event
  */
-OO.ui.LookupElement.prototype.onLookupInputBlur = function () {
+OO.ui.mixin.LookupElement.prototype.onLookupInputBlur = function () {
 	this.closeLookupMenu();
 	this.lookupInputFocused = false;
 };
@@ -90,7 +90,7 @@ OO.ui.LookupElement.prototype.onLookupInputBlur = function () {
  * @protected
  * @param {jQuery.Event} e Input mouse down event
  */
-OO.ui.LookupElement.prototype.onLookupInputMouseDown = function () {
+OO.ui.mixin.LookupElement.prototype.onLookupInputMouseDown = function () {
 	// Only open the menu if the input was already focused.
 	// This way we allow the user to open the menu again after closing it with Esc
 	// by clicking in the input. Opening (and populating) the menu when initially
@@ -106,7 +106,7 @@ OO.ui.LookupElement.prototype.onLookupInputMouseDown = function () {
  * @protected
  * @param {string} value New input value
  */
-OO.ui.LookupElement.prototype.onLookupInputChange = function () {
+OO.ui.mixin.LookupElement.prototype.onLookupInputChange = function () {
 	if ( this.lookupInputFocused ) {
 		this.populateLookupMenu();
 	}
@@ -118,7 +118,7 @@ OO.ui.LookupElement.prototype.onLookupInputChange = function () {
  * @protected
  * @param {boolean} visible Whether the lookup menu is now visible.
  */
-OO.ui.LookupElement.prototype.onLookupMenuToggle = function ( visible ) {
+OO.ui.mixin.LookupElement.prototype.onLookupMenuToggle = function ( visible ) {
 	if ( !visible ) {
 		// When the menu is hidden, abort any active request and clear the menu.
 		// This has to be done here in addition to closeLookupMenu(), because
@@ -134,7 +134,7 @@ OO.ui.LookupElement.prototype.onLookupMenuToggle = function ( visible ) {
  * @protected
  * @param {OO.ui.MenuOptionWidget} item Selected item
  */
-OO.ui.LookupElement.prototype.onLookupMenuItemChoose = function ( item ) {
+OO.ui.mixin.LookupElement.prototype.onLookupMenuItemChoose = function ( item ) {
 	this.setValue( item.getData() );
 };
 
@@ -144,7 +144,7 @@ OO.ui.LookupElement.prototype.onLookupMenuItemChoose = function ( item ) {
  * @private
  * @return {OO.ui.TextInputMenuSelectWidget}
  */
-OO.ui.LookupElement.prototype.getLookupMenu = function () {
+OO.ui.mixin.LookupElement.prototype.getLookupMenu = function () {
 	return this.lookupMenu;
 };
 
@@ -155,7 +155,7 @@ OO.ui.LookupElement.prototype.getLookupMenu = function () {
  *
  * @param {boolean} disabled Disable lookups
  */
-OO.ui.LookupElement.prototype.setLookupsDisabled = function ( disabled ) {
+OO.ui.mixin.LookupElement.prototype.setLookupsDisabled = function ( disabled ) {
 	this.lookupsDisabled = !!disabled;
 };
 
@@ -165,7 +165,7 @@ OO.ui.LookupElement.prototype.setLookupsDisabled = function ( disabled ) {
  * @private
  * @chainable
  */
-OO.ui.LookupElement.prototype.openLookupMenu = function () {
+OO.ui.mixin.LookupElement.prototype.openLookupMenu = function () {
 	if ( !this.lookupMenu.isEmpty() ) {
 		this.lookupMenu.toggle( true );
 	}
@@ -178,7 +178,7 @@ OO.ui.LookupElement.prototype.openLookupMenu = function () {
  * @private
  * @chainable
  */
-OO.ui.LookupElement.prototype.closeLookupMenu = function () {
+OO.ui.mixin.LookupElement.prototype.closeLookupMenu = function () {
 	this.lookupMenu.toggle( false );
 	this.abortLookupRequest();
 	this.lookupMenu.clearItems();
@@ -194,7 +194,7 @@ OO.ui.LookupElement.prototype.closeLookupMenu = function () {
  * @private
  * @chainable
  */
-OO.ui.LookupElement.prototype.populateLookupMenu = function () {
+OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
 	var widget = this,
 		value = this.getValue();
 
@@ -233,7 +233,7 @@ OO.ui.LookupElement.prototype.populateLookupMenu = function () {
  * @private
  * @chainable
  */
-OO.ui.LookupElement.prototype.initializeLookupMenuSelection = function () {
+OO.ui.mixin.LookupElement.prototype.initializeLookupMenuSelection = function () {
 	if ( !this.lookupMenu.getSelectedItem() ) {
 		this.lookupMenu.highlightItem( this.lookupMenu.getFirstSelectableItem() );
 	}
@@ -247,7 +247,7 @@ OO.ui.LookupElement.prototype.initializeLookupMenuSelection = function () {
  *   the done event. If the request was aborted to make way for a subsequent request, this promise
  *   will not be rejected: it will remain pending forever.
  */
-OO.ui.LookupElement.prototype.getLookupMenuItems = function () {
+OO.ui.mixin.LookupElement.prototype.getLookupMenuItems = function () {
 	var widget = this,
 		value = this.getValue(),
 		deferred = $.Deferred(),
@@ -298,7 +298,7 @@ OO.ui.LookupElement.prototype.getLookupMenuItems = function () {
  *
  * @private
  */
-OO.ui.LookupElement.prototype.abortLookupRequest = function () {
+OO.ui.mixin.LookupElement.prototype.abortLookupRequest = function () {
 	var oldRequest = this.lookupRequest;
 	if ( oldRequest ) {
 		// First unset this.lookupRequest to the fail handler will notice
@@ -316,7 +316,7 @@ OO.ui.LookupElement.prototype.abortLookupRequest = function () {
  * @abstract
  * @return {jQuery.Promise} jQuery AJAX object, or promise object with an .abort() method
  */
-OO.ui.LookupElement.prototype.getLookupRequest = function () {
+OO.ui.mixin.LookupElement.prototype.getLookupRequest = function () {
 	// Stub, implemented in subclass
 	return null;
 };
@@ -332,7 +332,7 @@ OO.ui.LookupElement.prototype.getLookupRequest = function () {
  * @param {Mixed} response Response from server
  * @return {Mixed} Cached result data
  */
-OO.ui.LookupElement.prototype.getLookupCacheDataFromResponse = function () {
+OO.ui.mixin.LookupElement.prototype.getLookupCacheDataFromResponse = function () {
 	// Stub, implemented in subclass
 	return [];
 };
@@ -346,7 +346,7 @@ OO.ui.LookupElement.prototype.getLookupCacheDataFromResponse = function () {
  * @param {Mixed} data Cached result data, usually an array
  * @return {OO.ui.MenuOptionWidget[]} Menu items
  */
-OO.ui.LookupElement.prototype.getLookupMenuOptionsFromData = function () {
+OO.ui.mixin.LookupElement.prototype.getLookupMenuOptionsFromData = function () {
 	// Stub, implemented in subclass
 	return [];
 };

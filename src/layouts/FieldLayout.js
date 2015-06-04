@@ -20,7 +20,7 @@
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Layouts/Fields_and_Fieldsets
  * @class
  * @extends OO.ui.Layout
- * @mixins OO.ui.LabelElement
+ * @mixins OO.ui.mixin.LabelElement
  *
  * @constructor
  * @param {OO.ui.Widget} fieldWidget Field widget
@@ -45,7 +45,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	OO.ui.FieldLayout.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.LabelElement.call( this, config );
+	OO.ui.mixin.LabelElement.call( this, config );
 
 	// Properties
 	this.fieldWidget = fieldWidget;
@@ -91,7 +91,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.FieldLayout, OO.ui.Layout );
-OO.mixinClass( OO.ui.FieldLayout, OO.ui.LabelElement );
+OO.mixinClass( OO.ui.FieldLayout, OO.ui.mixin.LabelElement );
 
 /* Methods */
 

@@ -1,11 +1,11 @@
 /**
  * DraggableGroupElement is a mixin class used to create a group element to
  * contain draggable elements, which are items that can be clicked and dragged by a mouse.
- * The class is used with OO.ui.DraggableElement.
+ * The class is used with OO.ui.mixin.DraggableElement.
  *
  * @abstract
  * @class
- * @mixins OO.ui.GroupElement
+ * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -14,12 +14,12 @@
  *  or in several rows should use horizontal orientation. The vertical orientation should only be
  *  used when the items are displayed in a single column. Defaults to 'vertical'
  */
-OO.ui.DraggableGroupElement = function OoUiDraggableGroupElement( config ) {
+OO.ui.mixin.DraggableGroupElement = function OoUiMixinDraggableGroupElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.GroupElement.call( this, config );
+	OO.ui.mixin.GroupElement.call( this, config );
 
 	// Properties
 	this.orientation = config.orientation || 'vertical';
@@ -58,7 +58,7 @@ OO.ui.DraggableGroupElement = function OoUiDraggableGroupElement( config ) {
 };
 
 /* Setup */
-OO.mixinClass( OO.ui.DraggableGroupElement, OO.ui.GroupElement );
+OO.mixinClass( OO.ui.mixin.DraggableGroupElement, OO.ui.mixin.GroupElement );
 
 /* Events */
 
@@ -66,7 +66,7 @@ OO.mixinClass( OO.ui.DraggableGroupElement, OO.ui.GroupElement );
  * A 'reorder' event is emitted when the order of items in the group changes.
  *
  * @event reorder
- * @param {OO.ui.DraggableElement} item Reordered item
+ * @param {OO.ui.mixin.DraggableElement} item Reordered item
  * @param {number} [newIndex] New index for the item
  */
 
@@ -76,9 +76,9 @@ OO.mixinClass( OO.ui.DraggableGroupElement, OO.ui.GroupElement );
  * Respond to item drag start event
  *
  * @private
- * @param {OO.ui.DraggableElement} item Dragged item
+ * @param {OO.ui.mixin.DraggableElement} item Dragged item
  */
-OO.ui.DraggableGroupElement.prototype.onItemDragStart = function ( item ) {
+OO.ui.mixin.DraggableGroupElement.prototype.onItemDragStart = function ( item ) {
 	var i, len;
 
 	// Map the index of each object
@@ -107,7 +107,7 @@ OO.ui.DraggableGroupElement.prototype.onItemDragStart = function ( item ) {
  *
  * @private
  */
-OO.ui.DraggableGroupElement.prototype.onItemDragEnd = function () {
+OO.ui.mixin.DraggableGroupElement.prototype.onItemDragEnd = function () {
 	this.unsetDragItem();
 	return false;
 };
@@ -116,10 +116,10 @@ OO.ui.DraggableGroupElement.prototype.onItemDragEnd = function () {
  * Handle drop event and switch the order of the items accordingly
  *
  * @private
- * @param {OO.ui.DraggableElement} item Dropped item
+ * @param {OO.ui.mixin.DraggableElement} item Dropped item
  * @fires reorder
  */
-OO.ui.DraggableGroupElement.prototype.onItemDrop = function ( item ) {
+OO.ui.mixin.DraggableGroupElement.prototype.onItemDrop = function ( item ) {
 	var toIndex = item.getIndex();
 	// Check if the dropped item is from the current group
 	// TODO: Figure out a way to configure a list of legally droppable
@@ -143,7 +143,7 @@ OO.ui.DraggableGroupElement.prototype.onItemDrop = function ( item ) {
  *
  * @private
  */
-OO.ui.DraggableGroupElement.prototype.onDragLeave = function () {
+OO.ui.mixin.DraggableGroupElement.prototype.onDragLeave = function () {
 	// This means the item was dragged outside the widget
 	this.$placeholder
 		.css( 'left', 0 )
@@ -156,7 +156,7 @@ OO.ui.DraggableGroupElement.prototype.onDragLeave = function () {
  * @private
  * @param {jQuery.Event} event Event details
  */
-OO.ui.DraggableGroupElement.prototype.onDragOver = function ( e ) {
+OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 	var dragOverObj, $optionWidget, itemOffset, itemMidpoint, itemBoundingRect,
 		itemSize, cssOutput, dragPosition, itemIndex, itemPosition,
 		clientX = e.originalEvent.clientX,
@@ -226,16 +226,16 @@ OO.ui.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 /**
  * Set a dragged item
  *
- * @param {OO.ui.DraggableElement} item Dragged item
+ * @param {OO.ui.mixin.DraggableElement} item Dragged item
  */
-OO.ui.DraggableGroupElement.prototype.setDragItem = function ( item ) {
+OO.ui.mixin.DraggableGroupElement.prototype.setDragItem = function ( item ) {
 	this.dragItem = item;
 };
 
 /**
  * Unset the current dragged item
  */
-OO.ui.DraggableGroupElement.prototype.unsetDragItem = function () {
+OO.ui.mixin.DraggableGroupElement.prototype.unsetDragItem = function () {
 	this.dragItem = null;
 	this.itemDragOver = null;
 	this.$placeholder.addClass( 'oo-ui-element-hidden' );
@@ -245,9 +245,9 @@ OO.ui.DraggableGroupElement.prototype.unsetDragItem = function () {
 /**
  * Get the item that is currently being dragged.
  *
- * @return {OO.ui.DraggableElement|null} The currently dragged item, or `null` if no item is being dragged
+ * @return {OO.ui.mixin.DraggableElement|null} The currently dragged item, or `null` if no item is being dragged
  */
-OO.ui.DraggableGroupElement.prototype.getDragItem = function () {
+OO.ui.mixin.DraggableGroupElement.prototype.getDragItem = function () {
 	return this.dragItem;
 };
 
@@ -256,6 +256,6 @@ OO.ui.DraggableGroupElement.prototype.getDragItem = function () {
  *
  * @return {Boolean} Item is being dragged
  */
-OO.ui.DraggableGroupElement.prototype.isDragging = function () {
+OO.ui.mixin.DraggableGroupElement.prototype.isDragging = function () {
 	return this.getDragItem() !== null;
 };

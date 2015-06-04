@@ -36,7 +36,7 @@
  * @cfg {string|Function} [iconTitle] A text string used as the icon title, or a function that returns title
  *  text. The icon title is displayed when users move the mouse over the icon.
  */
-OO.ui.IconElement = function OoUiIconElement( config ) {
+OO.ui.mixin.IconElement = function OoUiMixinIconElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -53,7 +53,7 @@ OO.ui.IconElement = function OoUiIconElement( config ) {
 
 /* Setup */
 
-OO.initClass( OO.ui.IconElement );
+OO.initClass( OO.ui.mixin.IconElement );
 
 /* Static Properties */
 
@@ -72,7 +72,7 @@ OO.initClass( OO.ui.IconElement );
  * @inheritable
  * @property {Object|string}
  */
-OO.ui.IconElement.static.icon = null;
+OO.ui.mixin.IconElement.static.icon = null;
 
 /**
  * The icon title, displayed when users move the mouse over the icon. The value can be text, a
@@ -84,7 +84,7 @@ OO.ui.IconElement.static.icon = null;
  * @inheritable
  * @property {string|Function|null}
  */
-OO.ui.IconElement.static.iconTitle = null;
+OO.ui.mixin.IconElement.static.iconTitle = null;
 
 /* Methods */
 
@@ -96,7 +96,7 @@ OO.ui.IconElement.static.iconTitle = null;
  *
  * @param {jQuery} $icon Element to use as icon
  */
-OO.ui.IconElement.prototype.setIconElement = function ( $icon ) {
+OO.ui.mixin.IconElement.prototype.setIconElement = function ( $icon ) {
 	if ( this.$icon ) {
 		this.$icon
 			.removeClass( 'oo-ui-iconElement-icon oo-ui-icon-' + this.icon )
@@ -120,7 +120,7 @@ OO.ui.IconElement.prototype.setIconElement = function ( $icon ) {
  *  by language code, or `null` to remove the icon.
  * @chainable
  */
-OO.ui.IconElement.prototype.setIcon = function ( icon ) {
+OO.ui.mixin.IconElement.prototype.setIcon = function ( icon ) {
 	icon = OO.isPlainObject( icon ) ? OO.ui.getLocalValue( icon, null, 'default' ) : icon;
 	icon = typeof icon === 'string' && icon.trim().length ? icon.trim() : null;
 
@@ -149,7 +149,7 @@ OO.ui.IconElement.prototype.setIcon = function ( icon ) {
  *  a function that returns title text, or `null` for no title.
  * @chainable
  */
-OO.ui.IconElement.prototype.setIconTitle = function ( iconTitle ) {
+OO.ui.mixin.IconElement.prototype.setIconTitle = function ( iconTitle ) {
 	iconTitle = typeof iconTitle === 'function' ||
 		( typeof iconTitle === 'string' && iconTitle.length ) ?
 			OO.ui.resolveMsg( iconTitle ) : null;
@@ -173,7 +173,7 @@ OO.ui.IconElement.prototype.setIconTitle = function ( iconTitle ) {
  *
  * @return {string} Icon name
  */
-OO.ui.IconElement.prototype.getIcon = function () {
+OO.ui.mixin.IconElement.prototype.getIcon = function () {
 	return this.icon;
 };
 
@@ -182,6 +182,6 @@ OO.ui.IconElement.prototype.getIcon = function () {
  *
  * @return {string} Icon title text
  */
-OO.ui.IconElement.prototype.getIconTitle = function () {
+OO.ui.mixin.IconElement.prototype.getIconTitle = function () {
 	return this.iconTitle;
 };

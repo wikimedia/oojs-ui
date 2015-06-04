@@ -24,7 +24,7 @@
  *
  * @class
  * @extends OO.ui.PanelLayout
- * @mixins OO.ui.GroupElement
+ * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -39,7 +39,7 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	OO.ui.StackLayout.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.GroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
+	OO.ui.mixin.GroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
 
 	// Properties
 	this.currentItem = null;
@@ -58,7 +58,7 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.StackLayout, OO.ui.PanelLayout );
-OO.mixinClass( OO.ui.StackLayout, OO.ui.GroupElement );
+OO.mixinClass( OO.ui.StackLayout, OO.ui.mixin.GroupElement );
 
 /* Events */
 
@@ -114,7 +114,7 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
 	this.updateHiddenState( items, this.currentItem );
 
 	// Mixin method
-	OO.ui.GroupElement.prototype.addItems.call( this, items, index );
+	OO.ui.mixin.GroupElement.prototype.addItems.call( this, items, index );
 
 	if ( !this.currentItem && items.length ) {
 		this.setItem( items[ 0 ] );
@@ -135,7 +135,7 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
  */
 OO.ui.StackLayout.prototype.removeItems = function ( items ) {
 	// Mixin method
-	OO.ui.GroupElement.prototype.removeItems.call( this, items );
+	OO.ui.mixin.GroupElement.prototype.removeItems.call( this, items );
 
 	if ( $.inArray( this.currentItem, items ) !== -1 ) {
 		if ( this.items.length ) {
@@ -159,7 +159,7 @@ OO.ui.StackLayout.prototype.removeItems = function ( items ) {
  */
 OO.ui.StackLayout.prototype.clearItems = function () {
 	this.unsetCurrentItem();
-	OO.ui.GroupElement.prototype.clearItems.call( this );
+	OO.ui.mixin.GroupElement.prototype.clearItems.call( this );
 
 	return this;
 };

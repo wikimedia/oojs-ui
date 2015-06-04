@@ -35,7 +35,7 @@
  * @abstract
  * @class
  * @extends OO.ui.Window
- * @mixins OO.ui.PendingElement
+ * @mixins OO.ui.mixin.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -45,7 +45,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 	OO.ui.Dialog.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.PendingElement.call( this );
+	OO.ui.mixin.PendingElement.call( this );
 
 	// Properties
 	this.actions = new OO.ui.ActionSet();
@@ -69,7 +69,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.Dialog, OO.ui.Window );
-OO.mixinClass( OO.ui.Dialog, OO.ui.PendingElement );
+OO.mixinClass( OO.ui.Dialog, OO.ui.mixin.PendingElement );
 
 /* Static Properties */
 
@@ -91,7 +91,7 @@ OO.ui.Dialog.static.name = '';
 /**
  * The dialog title.
  *
- * The title can be specified as a plaintext string, a {@link OO.ui.LabelElement Label} node, or a function
+ * The title can be specified as a plaintext string, a {@link OO.ui.mixin.LabelElement Label} node, or a function
  * that will produce a Label node or string. The title can also be specified with data passed to the
  * constructor (see #getSetupProcess). In this case, the static value will be overriden.
  *

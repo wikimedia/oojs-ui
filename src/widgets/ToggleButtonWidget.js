@@ -1,9 +1,9 @@
 /**
  * ToggleButtons are buttons that have a state (‘on’ or ‘off’) that is represented by a
  * Boolean value. Like other {@link OO.ui.ButtonWidget buttons}, toggle buttons can be
- * configured with {@link OO.ui.IconElement icons}, {@link OO.ui.IndicatorElement indicators},
- * {@link OO.ui.TitledElement titles}, {@link OO.ui.FlaggedElement styling flags},
- * and {@link OO.ui.LabelElement labels}. Please see
+ * configured with {@link OO.ui.mixin.IconElement icons}, {@link OO.ui.mixin.IndicatorElement indicators},
+ * {@link OO.ui.mixin.TitledElement titles}, {@link OO.ui.mixin.FlaggedElement styling flags},
+ * and {@link OO.ui.mixin.LabelElement labels}. Please see
  * the [OOjs UI documentation][1] on MediaWiki for more information.
  *
  *     @example
@@ -22,13 +22,13 @@
  *
  * @class
  * @extends OO.ui.ToggleWidget
- * @mixins OO.ui.ButtonElement
- * @mixins OO.ui.IconElement
- * @mixins OO.ui.IndicatorElement
- * @mixins OO.ui.LabelElement
- * @mixins OO.ui.TitledElement
- * @mixins OO.ui.FlaggedElement
- * @mixins OO.ui.TabIndexedElement
+ * @mixins OO.ui.mixin.ButtonElement
+ * @mixins OO.ui.mixin.IconElement
+ * @mixins OO.ui.mixin.IndicatorElement
+ * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.TitledElement
+ * @mixins OO.ui.mixin.FlaggedElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -43,13 +43,13 @@ OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
 	OO.ui.ToggleButtonWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.ButtonElement.call( this, config );
-	OO.ui.IconElement.call( this, config );
-	OO.ui.IndicatorElement.call( this, config );
-	OO.ui.LabelElement.call( this, config );
-	OO.ui.TitledElement.call( this, $.extend( {}, config, { $titled: this.$button } ) );
-	OO.ui.FlaggedElement.call( this, config );
-	OO.ui.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$button } ) );
+	OO.ui.mixin.ButtonElement.call( this, config );
+	OO.ui.mixin.IconElement.call( this, config );
+	OO.ui.mixin.IndicatorElement.call( this, config );
+	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$button } ) );
+	OO.ui.mixin.FlaggedElement.call( this, config );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$button } ) );
 
 	// Events
 	this.connect( this, { click: 'onAction' } );
@@ -64,13 +64,13 @@ OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ToggleButtonWidget, OO.ui.ToggleWidget );
-OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.ButtonElement );
-OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.IconElement );
-OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.IndicatorElement );
-OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.LabelElement );
-OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.TitledElement );
-OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.FlaggedElement );
-OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.TabIndexedElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.mixin.ButtonElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.mixin.IconElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.mixin.IndicatorElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.mixin.TitledElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.mixin.FlaggedElement );
+OO.mixinClass( OO.ui.ToggleButtonWidget, OO.ui.mixin.TabIndexedElement );
 
 /* Methods */
 
@@ -109,6 +109,6 @@ OO.ui.ToggleButtonWidget.prototype.setButtonElement = function ( $button ) {
 	if ( this.$button ) {
 		this.$button.removeAttr( 'aria-pressed' );
 	}
-	OO.ui.ButtonElement.prototype.setButtonElement.call( this, $button );
+	OO.ui.mixin.ButtonElement.prototype.setButtonElement.call( this, $button );
 	this.$button.attr( 'aria-pressed', this.value.toString() );
 };

@@ -12,7 +12,7 @@
  * @cfg {Object} [popup] Configuration to pass to popup
  * @cfg {boolean} [popup.autoClose=true] Popup auto-closes when it loses focus
  */
-OO.ui.PopupElement = function OoUiPopupElement( config ) {
+OO.ui.mixin.PopupElement = function OoUiMixinPopupElement( config ) {
 	// Configuration initialization
 	config = config || {};
 
@@ -31,6 +31,6 @@ OO.ui.PopupElement = function OoUiPopupElement( config ) {
  *
  * @return {OO.ui.PopupWidget} Popup widget
  */
-OO.ui.PopupElement.prototype.getPopup = function () {
+OO.ui.mixin.PopupElement.prototype.getPopup = function () {
 	return this.popup;
 };
