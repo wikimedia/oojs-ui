@@ -55,7 +55,7 @@
 		"name": "Upstream",
 		"groups": [
 			{
-				"name": "OOJS",
+				"name": "OOjs",
 				"classes": ["OO", "OO.EventEmitter", "OO.Factory", "OO.Registry"]
 			},
 			{
