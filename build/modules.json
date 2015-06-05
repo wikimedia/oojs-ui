@@ -111,7 +111,6 @@
 			"src/widgets/NumberInputWidget.js",
 			"src/widgets/ToggleSwitchWidget.js",
 
-			"src/mixins/aliases.js",
 			"src/outro.js.txt"
 		]
 	},
