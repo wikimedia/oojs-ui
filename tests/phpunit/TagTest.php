@@ -11,7 +11,9 @@ use OOUI\Tag;
  * @param mixed $item
  * @return mixed The very same $item
  */
+// @codingStandardsIgnoreStart
 function id( $item ) {
+	// @codingStandardsIgnoreEnd
 	return $item;
 }
 
@@ -81,7 +83,7 @@ class TagTest extends PHPUnit_Framework_TestCase {
 	 * @covers Tag::toString
 	 * @dataProvider provideToString
 	 */
-	public function testToString( Tag $tag, $expected, $exception = false) {
+	public function testToString( Tag $tag, $expected, $exception = false ) {
 		if ( $exception ) {
 			$this->setExpectedException( $exception );
 		}

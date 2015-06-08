@@ -8,8 +8,7 @@
 	},
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "0.8.*",
-		"mediawiki/mediawiki-codesniffer": "0.1.0",
-		"squizlabs/php_codesniffer": "2.1.*",
+		"mediawiki/mediawiki-codesniffer": "0.2.0",
 		"phpunit/phpunit": "~4.5"
 	},
 	"autoload": {
