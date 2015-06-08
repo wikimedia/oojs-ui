@@ -41,7 +41,7 @@ class Element extends Tag {
 	/**
 	 * Mixins.
 	 *
-	 * @var array List mixed in objects.
+	 * @var ElementMixin[] List mixed in objects.
 	 */
 	protected $mixins = array();
 
