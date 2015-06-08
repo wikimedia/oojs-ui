@@ -5,6 +5,7 @@
 .theme-oo-ui-buttonElement () {
 	> .oo-ui-buttonElement-button {
 		font-weight: bold;
+		text-decoration: none;
 	}
 
 	&.oo-ui-iconElement > .oo-ui-buttonElement-button {
@@ -17,7 +18,6 @@
 		> .oo-ui-indicatorElement-indicator {
 			width: @indicator-size;
 			height: @indicator-size;
-			margin: @indicator-size / 2;
 		}
 	}
 
@@ -98,10 +98,19 @@
 	}
 
 	&-framed {
+		&.oo-ui-iconElement.oo-ui-labelElement, &.oo-ui-iconElement.oo-ui-indicatorElement {
+			> .oo-ui-buttonElement-button{
+				padding-left: 2.4em;
+			}
+		}
+
 		> .oo-ui-buttonElement-button {
 			margin: 0.1em 0;
-			padding: 0.2em 0.8em;
+			padding: 0.5em 1em;
+			min-height: 1.2em;
+			min-width: 1em;
 			border-radius: @border-radius;
+			position: relative;
 
 			&:hover,
 			&:focus {
@@ -118,31 +127,39 @@
 		// Support <input/> from ButtonInputWidget
 		> input.oo-ui-buttonElement-button,
 		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-			line-height: @icon-size;
+			line-height: 1.2em;
+			display: inline-block; // For vertical alignment
 		}
 
 		&.oo-ui-iconElement {
 			> .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-				margin-left: -0.5em;
-				margin-right: -0.5em;
+				position: absolute;
+				top: 0.2em;
+				// This centers the icon in icon-only buttons
+				left: 1.5em - @icon-size/2;
 			}
 
-			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-				margin-right: 0.3em;
+			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+				margin-left: 0.3em;
 			}
 		}
 
 		&.oo-ui-indicatorElement {
 			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-				/* -0.5 - 0.475 */
-				margin-left: -0.005em;
-				margin-right: -0.005em;
+				display: inline-block; // For vertical alignment
 			}
 
 			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
 			&.oo-ui-iconElement:not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
 				margin-left: @indicator-size / 2;
 				margin-right: -0.275em;
+			}
+
+			&.oo-ui-labelElement {
+				> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+					position: relative;
+					left: 0.2em;
+				}
 			}
 		}
 
