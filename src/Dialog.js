@@ -259,11 +259,16 @@ OO.ui.Dialog.prototype.initialize = function () {
 	// Parent method
 	OO.ui.Dialog.super.prototype.initialize.call( this );
 
+	var titleId = OO.ui.generateElementId();
+
 	// Properties
-	this.title = new OO.ui.LabelWidget();
+	this.title = new OO.ui.LabelWidget( {
+		id: titleId
+	} );
 
 	// Initialization
 	this.$content.addClass( 'oo-ui-dialog-content' );
+	this.$element.attr( 'aria-labelledby', titleId );
 	this.setPendingElement( this.$head );
 };
 
