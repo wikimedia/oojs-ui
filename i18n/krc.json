@@ -15,5 +15,6 @@
 	"ooui-dialog-process-error": "Не эсе да табсыз кетди",
 	"ooui-dialog-process-dismiss": "Джаб",
 	"ooui-dialog-process-retry": "Энтда сынаб кёр",
-	"ooui-dialog-process-continue": "Бардыр"
+	"ooui-dialog-process-continue": "Бардыр",
+	"ooui-selectfile-placeholder": "Бир файл да сайланмагъанды"
 }
