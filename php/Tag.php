@@ -307,9 +307,9 @@ class Tag {
 					$scheme = '(protocol-relative)';
 				} else {
 					// Must suppress warnings when the value is not a valid URL. parse_url() returns false then.
-					// @codingStandardsIgnoreStart
-					$scheme = @parse_url( $value, PHP_URL_SCHEME );
-					// @codingStandardsIgnoreEnd
+					\MediaWiki\suppressWarnings();
+					$scheme = parse_url( $value, PHP_URL_SCHEME );
+					\MediaWiki\restoreWarnings();
 					if ( $scheme === null || ( !$scheme && substr( $value, 0, 1 ) === '/' ) ) {
 						$scheme = '(relative)';
 					}
