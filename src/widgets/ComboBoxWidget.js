@@ -129,6 +129,14 @@ OO.ui.ComboBoxWidget.prototype.getMenu = function () {
 };
 
 /**
+ * Get the combobox's text input widget.
+ * @return {OO.ui.TextInputWidget} Text input widget
+ */
+OO.ui.ComboBoxWidget.prototype.getInput = function () {
+	return this.input;
+};
+
+/**
  * Handle input change events.
  *
  * @private
