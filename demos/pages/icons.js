@@ -88,6 +88,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'flag',
 				'flagUndo',
 				'lock',
+				'ongoingConversation',
 				'star',
 				'trash',
 				'trashUndo',
