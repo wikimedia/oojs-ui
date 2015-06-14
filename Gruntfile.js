@@ -4,6 +4,7 @@
 
 /*jshint node:true */
 module.exports = function ( grunt ) {
+	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat-sourcemaps' );
@@ -294,6 +295,12 @@ module.exports = function ( grunt ) {
 		banana: {
 			all: 'i18n/'
 		},
+		jsonlint: {
+			all: [
+				'**/*.json',
+				'!node_modules/**'
+			]
+		},
 
 		// Test
 		exec: {
@@ -394,7 +401,7 @@ module.exports = function ( grunt ) {
 		'build-i18n'
 	] );
 
-	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'lint', 'pre-test', 'git-build', 'karma:main', 'karma:other' ] );
 
 	grunt.registerTask( 'default', 'test' );
