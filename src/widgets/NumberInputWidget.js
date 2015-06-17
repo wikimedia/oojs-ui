@@ -303,7 +303,8 @@ OO.ui.NumberInputWidget.prototype.onWheel = function ( event ) {
 	}
 
 	if ( delta ) {
-		this.adjustValue( Math.sign( delta ) * this.step );
+		delta = delta < 0 ? -1 : 1;
+		this.adjustValue( delta * this.step );
 	}
 
 	return false;
