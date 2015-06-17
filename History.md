@@ -1,5 +1,17 @@
 # OOjs UI Release History
 
+## v0.11.5 / 2015-06-16
+* ButtonInputWidget: Render frameless button correctly (Bartosz Dziewoński)
+* ComboBoxWidget: Add a getter method for text inputs (Mr. Stradivarius)
+* FieldsetLayout: Make rule for disabled label color more precise (Bartosz Dziewoński)
+* MenuSelectWidget: Explain what the widget config option is for (Roan Kattouw)
+* RadioSelectInputWidget: Unbreak form submission in JS version (Bartosz Dziewoński)
+
+* MediaWiki theme: Add destructive variant to check icon (Matthew Flaschen)
+* MediaWiki, Apex themes: Add ongoingConversation icon (Matthew Flaschen)
+
+* build: Configure jsonlint (Kunal Mehta)
+
 ## v0.11.4 / 2015-06-09
 * [DEPRECATING CHANGE] Introduce oo.ui.mixin namespace for mixins, and put them src/mixins (C. Scott Ananian)
 
