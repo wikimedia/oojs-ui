@@ -50,11 +50,20 @@
 			}
 		}
 
+		// Support <input/> from ButtonInputWidget
+		> input.oo-ui-buttonElement-button {
+			padding-left: 0.25em;
+			padding-right: 0.25em;
+			color: #333;
+		}
+
 		&.oo-ui-widget-enabled {
+			> input.oo-ui-buttonElement-button,
 			> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 				color: @text;
 			}
 
+			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 				color: @pressed-text;
 			}

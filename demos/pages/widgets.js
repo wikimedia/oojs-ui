@@ -1081,6 +1081,29 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						align: 'top',
 						label: 'ButtonInputWidget (using <input/>)\u200E'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonInputWidget( {
+						framed: false,
+						label: 'Submit the form',
+						type: 'submit'
+					} ),
+					{
+						align: 'top',
+						label: 'ButtonInputWidget (frameless)\u200E'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonInputWidget( {
+						framed: false,
+						label: 'Submit the form',
+						type: 'submit',
+						useInputTag: true
+					} ),
+					{
+						align: 'top',
+						label: 'ButtonInputWidget (frameless, using <input/>)\u200E'
+					}
 				)
 			]
 		} ),
