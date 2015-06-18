@@ -420,7 +420,7 @@ OO.ui.SelectWidget.prototype.getItemMatcher = function ( s ) {
 	if ( s.normalize ) {
 		s = s.normalize();
 	}
-	re = new RegExp( '^\s*' + s.replace( /([\\{}()|.?*+\-\^$\[\]])/g, '\\$1' ).replace( /\s+/g, '\\s+' ), 'i' );
+	re = new RegExp( '^\\s*' + s.replace( /([\\{}()|.?*+\-\^$\[\]])/g, '\\$1' ).replace( /\s+/g, '\\s+' ), 'i' );
 	return function ( item ) {
 		var l = item.getLabel();
 		if ( typeof l !== 'string' ) {
