@@ -7,12 +7,14 @@
 		"php": ">=5.3.3"
 	},
 	"require-dev": {
-		"jakub-onderka/php-parallel-lint": "0.8.*",
-		"mediawiki/mediawiki-codesniffer": "0.2.0",
+		"jakub-onderka/php-parallel-lint": "0.9",
+		"mediawiki/mediawiki-codesniffer": "0.3.0",
 		"phpunit/phpunit": "~4.5"
 	},
 	"autoload": {
-		"classmap": ["php/"]
+		"classmap": [
+			"php/"
+		]
 	},
 	"scripts": {
 		"test": [
@@ -22,4 +24,3 @@
 		]
 	}
 }
-
