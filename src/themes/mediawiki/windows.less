@@ -169,9 +169,19 @@
 				}
 
 				&.oo-ui-buttonElement-framed {
-					margin: 0.75em 0 0.75em 0.75em;
+					margin: 0.75em;
 					.oo-ui-buttonElement-button {
 						padding: 0 1em;
+						vertical-align: middle;
+						/* Adjust for border so text aligns with title */
+						margin: -1px;
+					}
+				}
+
+				&.oo-ui-buttonElement-frameless {
+					margin: 0;
+					.oo-ui-buttonElement-button {
+						padding: 0.75em 1em;
 						vertical-align: middle;
 					}
 				}
@@ -187,14 +197,6 @@
 
 				&:active {
 					background-color: rgba(0,0,0,0.1);
-				}
-
-				&.oo-ui-buttonElement-framed {
-					margin: 0.75em;
-					.oo-ui-buttonElement-button {
-						/* Adjust for border so text aligns with title */
-						margin: -1px;
-					}
 				}
 
 				&.oo-ui-flaggedElement {
@@ -231,6 +233,14 @@
 							background-color: rgba(212,83,83,0.1);
 						}
 					}
+				}
+			}
+		}
+
+		&-other {
+			.oo-ui-actionWidget {
+				&.oo-ui-buttonElement {
+					margin-right: 0;
 				}
 			}
 		}

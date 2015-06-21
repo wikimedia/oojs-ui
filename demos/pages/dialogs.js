@@ -39,7 +39,8 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	ProcessDialog.static.title = 'Process dialog';
 	ProcessDialog.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+		{ action: 'cancel', label: 'Cancel', flags: 'safe' },
+		{ action: 'other', label: 'Other', flags: 'other' }
 	];
 	ProcessDialog.prototype.initialize = function () {
 		ProcessDialog.super.prototype.initialize.apply( this, arguments );
@@ -59,6 +60,15 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	ProcessDialog.prototype.getBodyHeight = function () {
 		return this.content.$element.outerHeight( true );
 	};
+
+	function FramelessProcessDialog( config ) {
+		FramelessProcessDialog.super.call( this, config );
+	}
+	OO.inheritClass( FramelessProcessDialog, ProcessDialog );
+	FramelessProcessDialog.static.actions = OO.copy( FramelessProcessDialog.static.actions );
+	FramelessProcessDialog.static.actions.forEach( function ( action ) {
+		action.framed = false;
+	} );
 
 	function SearchWidgetDialog( config ) {
 		SearchWidgetDialog.super.call( this, config );
@@ -446,6 +456,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		{
 			name: 'Process dialog (medium)',
 			dialogClass: ProcessDialog,
+			config: {
+				size: 'medium'
+			}
+		},
+		{
+			name: 'Process dialog (frameless buttons)',
+			dialogClass: FramelessProcessDialog,
 			config: {
 				size: 'medium'
 			}
