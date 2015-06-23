@@ -1,5 +1,18 @@
 # OOjs UI Release History
 
+## v0.11.6 / 2015-06-23
+* NumberInputWidget: Don't use `Math.sign()` (Brad Jorsch)
+* SelectWidget: Fix invalid escape sequence '`\s`' (Roan Kattouw)
+
+* DropdownWidget: Add white background in MediaWiki theme (Prateek Saxena)
+* SelectFileWidget: Add white background in MediaWiki theme (Prateek Saxena)
+* MediaWiki theme: Add constructive variants for star and unStar icons (Roan Kattouw)
+* MediaWiki theme: Add invert variant to all icons (Roan Kattouw)
+* MediaWiki theme: Add progressive variant to ongoingConversation icon (Stephane Bisson)
+
+* Use `.parent` instead of `.super` (Stephane Bisson)
+* build: Updating development dependencies (Kunal Mehta)
+
 ## v0.11.5 / 2015-06-16
 * ButtonInputWidget: Render frameless button correctly (Bartosz Dziewoński)
 * ComboBoxWidget: Add a getter method for text inputs (Mr. Stradivarius)
