@@ -38,7 +38,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ButtonWidget.super.call( this, config );
+	OO.ui.ButtonWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ButtonElement.call( this, config );

@@ -31,7 +31,7 @@ OO.ui.IndicatorWidget = function OoUiIndicatorWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.IndicatorWidget.super.call( this, config );
+	OO.ui.IndicatorWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.IndicatorElement.call( this, $.extend( {}, config, { $indicator: this.$element } ) );

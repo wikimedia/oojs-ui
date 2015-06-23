@@ -44,7 +44,7 @@ OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.CheckboxInputWidget.super.call( this, config );
+	OO.ui.CheckboxInputWidget.parent.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-checkboxInputWidget' );

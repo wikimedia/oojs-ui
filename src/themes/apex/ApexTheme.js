@@ -6,7 +6,7 @@
  */
 OO.ui.ApexTheme = function OoUiApexTheme() {
 	// Parent constructor
-	OO.ui.ApexTheme.super.call( this );
+	OO.ui.ApexTheme.parent.call( this );
 };
 
 /* Setup */

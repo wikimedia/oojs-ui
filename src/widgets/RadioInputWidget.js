@@ -44,7 +44,7 @@ OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.RadioInputWidget.super.call( this, config );
+	OO.ui.RadioInputWidget.parent.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-radioInputWidget' );

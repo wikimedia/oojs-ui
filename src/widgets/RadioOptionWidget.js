@@ -19,7 +19,7 @@ OO.ui.RadioOptionWidget = function OoUiRadioOptionWidget( config ) {
 	this.radio = new OO.ui.RadioInputWidget( { value: config.data, tabIndex: -1 } );
 
 	// Parent constructor
-	OO.ui.RadioOptionWidget.super.call( this, config );
+	OO.ui.RadioOptionWidget.parent.call( this, config );
 
 	// Events
 	this.radio.$input.on( 'focus', this.onInputFocus.bind( this ) );
@@ -59,7 +59,7 @@ OO.ui.RadioOptionWidget.prototype.onInputFocus = function () {
  * @inheritdoc
  */
 OO.ui.RadioOptionWidget.prototype.setSelected = function ( state ) {
-	OO.ui.RadioOptionWidget.super.prototype.setSelected.call( this, state );
+	OO.ui.RadioOptionWidget.parent.prototype.setSelected.call( this, state );
 
 	this.radio.setSelected( state );
 
@@ -70,7 +70,7 @@ OO.ui.RadioOptionWidget.prototype.setSelected = function ( state ) {
  * @inheritdoc
  */
 OO.ui.RadioOptionWidget.prototype.setDisabled = function ( disabled ) {
-	OO.ui.RadioOptionWidget.super.prototype.setDisabled.call( this, disabled );
+	OO.ui.RadioOptionWidget.parent.prototype.setDisabled.call( this, disabled );
 
 	this.radio.setDisabled( this.isDisabled() );
 

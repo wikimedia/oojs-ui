@@ -38,7 +38,7 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	this.dropdownWidget = new OO.ui.DropdownWidget();
 
 	// Parent constructor
-	OO.ui.DropdownInputWidget.super.call( this, config );
+	OO.ui.DropdownInputWidget.parent.call( this, config );
 
 	// Events
 	this.dropdownWidget.getMenu().connect( this, { select: 'onMenuSelect' } );
@@ -79,7 +79,7 @@ OO.ui.DropdownInputWidget.prototype.onMenuSelect = function ( item ) {
  */
 OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
 	this.dropdownWidget.getMenu().selectItemByData( value );
-	OO.ui.DropdownInputWidget.super.prototype.setValue.call( this, value );
+	OO.ui.DropdownInputWidget.parent.prototype.setValue.call( this, value );
 	return this;
 };
 
@@ -88,7 +88,7 @@ OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
  */
 OO.ui.DropdownInputWidget.prototype.setDisabled = function ( state ) {
 	this.dropdownWidget.setDisabled( state );
-	OO.ui.DropdownInputWidget.super.prototype.setDisabled.call( this, state );
+	OO.ui.DropdownInputWidget.parent.prototype.setDisabled.call( this, state );
 	return this;
 };
 

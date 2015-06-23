@@ -18,7 +18,7 @@ OO.ui.OutlineOptionWidget = function OoUiOutlineOptionWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.OutlineOptionWidget.super.call( this, config );
+	OO.ui.OutlineOptionWidget.parent.call( this, config );
 
 	// Properties
 	this.level = 0;

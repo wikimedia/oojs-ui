@@ -46,7 +46,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.SelectWidget.super.call( this, config );
+	OO.ui.SelectWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.GroupWidget.call( this, $.extend( {}, config, { $group: this.$element } ) );

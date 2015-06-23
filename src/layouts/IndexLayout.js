@@ -11,7 +11,7 @@
  *     // Example of a IndexLayout that contains two CardLayouts.
  *
  *     function CardOneLayout( name, config ) {
- *         CardOneLayout.super.call( this, name, config );
+ *         CardOneLayout.parent.call( this, name, config );
  *         this.$element.append( '<p>First card</p>' );
  *     }
  *     OO.inheritClass( CardOneLayout, OO.ui.CardLayout );
@@ -20,7 +20,7 @@
  *     };
  *
  *     function CardTwoLayout( name, config ) {
- *         CardTwoLayout.super.call( this, name, config );
+ *         CardTwoLayout.parent.call( this, name, config );
  *         this.$element.append( '<p>Second card</p>' );
  *     }
  *     OO.inheritClass( CardTwoLayout, OO.ui.CardLayout );
@@ -49,7 +49,7 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	config = $.extend( {}, config, { menuPosition: 'top' } );
 
 	// Parent constructor
-	OO.ui.IndexLayout.super.call( this, config );
+	OO.ui.IndexLayout.parent.call( this, config );
 
 	// Properties
 	this.currentCardName = null;

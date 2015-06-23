@@ -21,7 +21,7 @@
  *
  *     // Create a class inheriting from OO.ui.Tool
  *     function PictureTool() {
- *         PictureTool.super.apply( this, arguments );
+ *         PictureTool.parent.apply( this, arguments );
  *     }
  *     OO.inheritClass( PictureTool, OO.ui.Tool );
  *     // Each tool must have a 'name' (used as an internal identifier, see later) and at least one
@@ -103,7 +103,7 @@ OO.ui.BarToolGroup = function OoUiBarToolGroup( toolbar, config ) {
 	}
 
 	// Parent constructor
-	OO.ui.BarToolGroup.super.call( this, toolbar, config );
+	OO.ui.BarToolGroup.parent.call( this, toolbar, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-barToolGroup' );

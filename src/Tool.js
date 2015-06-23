@@ -43,7 +43,7 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Tool.super.call( this, config );
+	OO.ui.Tool.parent.call( this, config );
 
 	// Properties
 	this.toolGroup = toolGroup;

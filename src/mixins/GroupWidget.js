@@ -13,7 +13,7 @@
  */
 OO.ui.mixin.GroupWidget = function OoUiMixinGroupWidget( config ) {
 	// Parent constructor
-	OO.ui.mixin.GroupWidget.super.call( this, config );
+	OO.ui.mixin.GroupWidget.parent.call( this, config );
 };
 
 /* Setup */

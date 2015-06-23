@@ -10,7 +10,7 @@
  *
  *     @example
  *     function MessageDialog( config ) {
- *         MessageDialog.super.call( this, config );
+ *         MessageDialog.parent.call( this, config );
  *     }
  *     OO.inheritClass( MessageDialog, OO.ui.MessageDialog );
  *
@@ -20,7 +20,7 @@
  *     ];
  *
  *     MessageDialog.prototype.initialize = function () {
- *         MessageDialog.super.prototype.initialize.apply( this, arguments );
+ *         MessageDialog.parent.prototype.initialize.apply( this, arguments );
  *         this.content = new OO.ui.PanelLayout( { $: this.$, padded: true } );
  *         this.content.$element.append( '<p>Click the \'Done\' action widget to see its pending state. Note that action widgets can be marked pending in message dialogs but not process dialogs.</p>' );
  *         this.$body.append( this.content.$element );
@@ -38,7 +38,7 @@
  *                 dialog.getActions().get({actions: 'save'})[0].popPending();
  *             } );
  *         }
- *         return MessageDialog.super.prototype.getActionProcess.call( this, action );
+ *         return MessageDialog.parent.prototype.getActionProcess.call( this, action );
  *     };
  *
  *     var windowManager = new OO.ui.WindowManager();

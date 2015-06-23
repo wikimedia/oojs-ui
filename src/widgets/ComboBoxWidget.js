@@ -61,7 +61,7 @@ OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ComboBoxWidget.super.call( this, config );
+	OO.ui.ComboBoxWidget.parent.call( this, config );
 
 	// Properties (must be set before TabIndexedElement constructor call)
 	this.$indicator = this.$( '<span>' );
@@ -225,7 +225,7 @@ OO.ui.ComboBoxWidget.prototype.onMenuItemsChange = function () {
  */
 OO.ui.ComboBoxWidget.prototype.setDisabled = function ( disabled ) {
 	// Parent method
-	OO.ui.ComboBoxWidget.super.prototype.setDisabled.call( this, disabled );
+	OO.ui.ComboBoxWidget.parent.prototype.setDisabled.call( this, disabled );
 
 	if ( this.input ) {
 		this.input.setDisabled( this.isDisabled() );

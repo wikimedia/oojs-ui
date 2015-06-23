@@ -31,7 +31,7 @@
  */
 OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	// Parent constructor
-	OO.ui.ToggleSwitchWidget.super.call( this, config );
+	OO.ui.ToggleSwitchWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.TabIndexedElement.call( this, config );

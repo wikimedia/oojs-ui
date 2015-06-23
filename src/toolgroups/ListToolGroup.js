@@ -21,7 +21,7 @@
  *
  *     // Configure and register two tools
  *     function SettingsTool() {
- *         SettingsTool.super.apply( this, arguments );
+ *         SettingsTool.parent.apply( this, arguments );
  *     }
  *     OO.inheritClass( SettingsTool, OO.ui.Tool );
  *     SettingsTool.static.name = 'settings';
@@ -33,7 +33,7 @@
  *     toolFactory.register( SettingsTool );
  *     // Register two more tools, nothing interesting here
  *     function StuffTool() {
- *         StuffTool.super.apply( this, arguments );
+ *         StuffTool.parent.apply( this, arguments );
  *     }
  *     OO.inheritClass( StuffTool, OO.ui.Tool );
  *     StuffTool.static.name = 'stuff';
@@ -107,7 +107,7 @@ OO.ui.ListToolGroup = function OoUiListToolGroup( toolbar, config ) {
 	this.collapsibleTools = [];
 
 	// Parent constructor
-	OO.ui.ListToolGroup.super.call( this, toolbar, config );
+	OO.ui.ListToolGroup.parent.call( this, toolbar, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-listToolGroup' );
@@ -129,7 +129,7 @@ OO.ui.ListToolGroup.static.name = 'list';
 OO.ui.ListToolGroup.prototype.populate = function () {
 	var i, len, allowCollapse = [];
 
-	OO.ui.ListToolGroup.super.prototype.populate.call( this );
+	OO.ui.ListToolGroup.parent.prototype.populate.call( this );
 
 	// Update the list of collapsible tools
 	if ( this.allowCollapse !== undefined ) {
@@ -155,7 +155,7 @@ OO.ui.ListToolGroup.prototype.populate = function () {
 OO.ui.ListToolGroup.prototype.getExpandCollapseTool = function () {
 	if ( this.expandCollapseTool === undefined ) {
 		var ExpandCollapseTool = function () {
-			ExpandCollapseTool.super.apply( this, arguments );
+			ExpandCollapseTool.parent.apply( this, arguments );
 		};
 
 		OO.inheritClass( ExpandCollapseTool, OO.ui.Tool );
@@ -187,9 +187,9 @@ OO.ui.ListToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	) {
 		// HACK: Prevent the popup list from being hidden. Skip the PopupToolGroup implementation (which
 		// hides the popup list when a tool is selected) and call ToolGroup's implementation directly.
-		return OO.ui.ListToolGroup.super.super.prototype.onMouseKeyUp.call( this, e );
+		return OO.ui.ListToolGroup.parent.parent.prototype.onMouseKeyUp.call( this, e );
 	} else {
-		return OO.ui.ListToolGroup.super.prototype.onMouseKeyUp.call( this, e );
+		return OO.ui.ListToolGroup.parent.prototype.onMouseKeyUp.call( this, e );
 	}
 };
 

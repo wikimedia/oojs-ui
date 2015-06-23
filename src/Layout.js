@@ -18,7 +18,7 @@ OO.ui.Layout = function OoUiLayout( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Layout.super.call( this, config );
+	OO.ui.Layout.parent.call( this, config );
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );

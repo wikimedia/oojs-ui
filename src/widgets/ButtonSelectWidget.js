@@ -41,7 +41,7 @@
  */
 OO.ui.ButtonSelectWidget = function OoUiButtonSelectWidget( config ) {
 	// Parent constructor
-	OO.ui.ButtonSelectWidget.super.call( this, config );
+	OO.ui.ButtonSelectWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.TabIndexedElement.call( this, config );

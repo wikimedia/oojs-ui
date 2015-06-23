@@ -29,7 +29,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.PopupToolGroup.super.call( this, toolbar, config );
+	OO.ui.PopupToolGroup.parent.call( this, toolbar, config );
 
 	// Properties
 	this.active = false;
@@ -89,7 +89,7 @@ OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.TabIndexedElement );
  */
 OO.ui.PopupToolGroup.prototype.setDisabled = function () {
 	// Parent method
-	OO.ui.PopupToolGroup.super.prototype.setDisabled.apply( this, arguments );
+	OO.ui.PopupToolGroup.parent.prototype.setDisabled.apply( this, arguments );
 
 	if ( this.isDisabled() && this.isElementAttached() ) {
 		this.setActive( false );
@@ -122,7 +122,7 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	) {
 		this.setActive( false );
 	}
-	return OO.ui.PopupToolGroup.super.prototype.onMouseKeyUp.call( this, e );
+	return OO.ui.PopupToolGroup.parent.prototype.onMouseKeyUp.call( this, e );
 };
 
 /**

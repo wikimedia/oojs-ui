@@ -32,7 +32,7 @@ OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	}, config );
 
 	// Parent constructor
-	OO.ui.PanelLayout.super.call( this, config );
+	OO.ui.PanelLayout.parent.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-panelLayout' );

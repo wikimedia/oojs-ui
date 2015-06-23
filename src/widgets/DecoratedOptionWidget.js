@@ -35,7 +35,7 @@
  */
 OO.ui.DecoratedOptionWidget = function OoUiDecoratedOptionWidget( config ) {
 	// Parent constructor
-	OO.ui.DecoratedOptionWidget.super.call( this, config );
+	OO.ui.DecoratedOptionWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );

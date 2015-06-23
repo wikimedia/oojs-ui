@@ -19,7 +19,7 @@ OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.OptionWidget.super.call( this, config );
+	OO.ui.OptionWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ItemWidget.call( this );

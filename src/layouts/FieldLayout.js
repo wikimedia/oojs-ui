@@ -42,7 +42,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	config = $.extend( { align: 'left' }, config );
 
 	// Parent constructor
-	OO.ui.FieldLayout.super.call( this, config );
+	OO.ui.FieldLayout.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.LabelElement.call( this, config );

@@ -51,7 +51,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	config = $.extend( { indicator: 'down' }, config );
 
 	// Parent constructor
-	OO.ui.DropdownWidget.super.call( this, config );
+	OO.ui.DropdownWidget.parent.call( this, config );
 
 	// Properties (must be set before TabIndexedElement constructor call)
 	this.$handle = this.$( '<span>' );

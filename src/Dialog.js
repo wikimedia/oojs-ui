@@ -8,11 +8,11 @@
  *     @example
  *     // A simple dialog window.
  *     function MyDialog( config ) {
- *         MyDialog.super.call( this, config );
+ *         MyDialog.parent.call( this, config );
  *     }
  *     OO.inheritClass( MyDialog, OO.ui.Dialog );
  *     MyDialog.prototype.initialize = function () {
- *         MyDialog.super.prototype.initialize.call( this );
+ *         MyDialog.parent.prototype.initialize.call( this );
  *         this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
  *         this.content.$element.append( '<p>A simple dialog window. Press \'Esc\' to close.</p>' );
  *         this.$body.append( this.content.$element );
@@ -42,7 +42,7 @@
  */
 OO.ui.Dialog = function OoUiDialog( config ) {
 	// Parent constructor
-	OO.ui.Dialog.super.call( this, config );
+	OO.ui.Dialog.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.PendingElement.call( this );
@@ -220,7 +220,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
 
 	// Parent method
-	return OO.ui.Dialog.super.prototype.getSetupProcess.call( this, data )
+	return OO.ui.Dialog.parent.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			var config = this.constructor.static,
 				actions = data.actions !== undefined ? data.actions : config.actions;
@@ -241,7 +241,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
  */
 OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
 	// Parent method
-	return OO.ui.Dialog.super.prototype.getTeardownProcess.call( this, data )
+	return OO.ui.Dialog.parent.prototype.getTeardownProcess.call( this, data )
 		.first( function () {
 			if ( this.constructor.static.escapable ) {
 				this.$document.off( 'keydown', this.onDocumentKeyDownHandler );
@@ -257,7 +257,7 @@ OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
  */
 OO.ui.Dialog.prototype.initialize = function () {
 	// Parent method
-	OO.ui.Dialog.super.prototype.initialize.call( this );
+	OO.ui.Dialog.parent.prototype.initialize.call( this );
 
 	var titleId = OO.ui.generateElementId();
 

@@ -65,7 +65,7 @@ OO.ui.FormLayout = function OoUiFormLayout( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.FormLayout.super.call( this, config );
+	OO.ui.FormLayout.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );

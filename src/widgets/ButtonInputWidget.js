@@ -40,7 +40,7 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	this.useInputTag = config.useInputTag;
 
 	// Parent constructor
-	OO.ui.ButtonInputWidget.super.call( this, config );
+	OO.ui.ButtonInputWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ButtonElement.call( this, $.extend( {}, config, { $button: this.$input } ) );
@@ -117,7 +117,7 @@ OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
  */
 OO.ui.ButtonInputWidget.prototype.setValue = function ( value ) {
 	if ( !this.useInputTag ) {
-		OO.ui.ButtonInputWidget.super.prototype.setValue.call( this, value );
+		OO.ui.ButtonInputWidget.parent.prototype.setValue.call( this, value );
 	}
 	return this;
 };

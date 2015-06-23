@@ -26,7 +26,7 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 	config = $.extend( { icon: 'add' }, config );
 
 	// Parent constructor
-	OO.ui.OutlineControlsWidget.super.call( this, config );
+	OO.ui.OutlineControlsWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, config );

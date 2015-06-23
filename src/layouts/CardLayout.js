@@ -25,7 +25,7 @@ OO.ui.CardLayout = function OoUiCardLayout( name, config ) {
 	config = $.extend( { scrollable: true }, config );
 
 	// Parent constructor
-	OO.ui.CardLayout.super.call( this, config );
+	OO.ui.CardLayout.parent.call( this, config );
 
 	// Properties
 	this.name = name;

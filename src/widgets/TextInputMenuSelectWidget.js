@@ -23,7 +23,7 @@ OO.ui.TextInputMenuSelectWidget = function OoUiTextInputMenuSelectWidget( inputW
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.TextInputMenuSelectWidget.super.call( this, config );
+	OO.ui.TextInputMenuSelectWidget.parent.call( this, config );
 
 	// Properties
 	this.inputWidget = inputWidget;
@@ -66,7 +66,7 @@ OO.ui.TextInputMenuSelectWidget.prototype.toggle = function ( visible ) {
 	}
 
 	// Parent method
-	OO.ui.TextInputMenuSelectWidget.super.prototype.toggle.call( this, visible );
+	OO.ui.TextInputMenuSelectWidget.parent.prototype.toggle.call( this, visible );
 
 	if ( change ) {
 		if ( this.isVisible() ) {

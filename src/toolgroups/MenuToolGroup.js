@@ -22,7 +22,7 @@
  *     // Define the tools that we're going to place in our toolbar
  *
  *     function SettingsTool() {
- *         SettingsTool.super.apply( this, arguments );
+ *         SettingsTool.parent.apply( this, arguments );
  *         this.reallyActive = false;
  *     }
  *     OO.inheritClass( SettingsTool, OO.ui.Tool );
@@ -42,7 +42,7 @@
  *     toolFactory.register( SettingsTool );
  *
  *     function StuffTool() {
- *         StuffTool.super.apply( this, arguments );
+ *         StuffTool.parent.apply( this, arguments );
  *         this.reallyActive = false;
  *     }
  *     OO.inheritClass( StuffTool, OO.ui.Tool );
@@ -116,7 +116,7 @@ OO.ui.MenuToolGroup = function OoUiMenuToolGroup( toolbar, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.MenuToolGroup.super.call( this, toolbar, config );
+	OO.ui.MenuToolGroup.parent.call( this, toolbar, config );
 
 	// Events
 	this.toolbar.connect( this, { updateState: 'onUpdateState' } );

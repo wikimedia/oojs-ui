@@ -38,7 +38,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	}, config );
 
 	// Parent constructor
-	OO.ui.SelectFileWidget.super.call( this, config );
+	OO.ui.SelectFileWidget.parent.call( this, config );
 
 	// Properties (must be set before TabIndexedElement constructor call)
 	this.$handle = $( '<span>' );
@@ -375,7 +375,7 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
  * @inheritdoc
  */
 OO.ui.SelectFileWidget.prototype.setDisabled = function ( state ) {
-	OO.ui.SelectFileWidget.super.prototype.setDisabled.call( this, state );
+	OO.ui.SelectFileWidget.parent.prototype.setDisabled.call( this, state );
 	if ( this.clearButton ) {
 		this.clearButton.setDisabled( state );
 	}

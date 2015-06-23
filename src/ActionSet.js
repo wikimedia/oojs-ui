@@ -13,7 +13,7 @@
  *     @example
  *     // Example: An action set used in a process dialog
  *     function MyProcessDialog( config ) {
- *         MyProcessDialog.super.call( this, config );
+ *         MyProcessDialog.parent.call( this, config );
  *     }
  *     OO.inheritClass( MyProcessDialog, OO.ui.ProcessDialog );
  *     MyProcessDialog.static.title = 'An action set in a process dialog';
@@ -26,7 +26,7 @@
  *     ];
  *
  *     MyProcessDialog.prototype.initialize = function () {
- *         MyProcessDialog.super.prototype.initialize.apply( this, arguments );
+ *         MyProcessDialog.parent.prototype.initialize.apply( this, arguments );
  *         this.panel1 = new OO.ui.PanelLayout( { padded: true, expanded: false } );
  *         this.panel1.$element.append( '<p>This dialog uses an action set (continue, help, cancel, back) configured with modes. This is edit mode. Click \'help\' to see help mode.</p>' );
  *         this.panel2 = new OO.ui.PanelLayout( { padded: true, expanded: false } );
@@ -37,7 +37,7 @@
  *         this.$body.append( this.stackLayout.$element );
  *     };
  *     MyProcessDialog.prototype.getSetupProcess = function ( data ) {
- *         return MyProcessDialog.super.prototype.getSetupProcess.call( this, data )
+ *         return MyProcessDialog.parent.prototype.getSetupProcess.call( this, data )
  *             .next( function () {
  *                 this.actions.setMode( 'edit' );
  *             }, this );
@@ -55,7 +55,7 @@
  *                 dialog.close();
  *             } );
  *         }
- *         return MyProcessDialog.super.prototype.getActionProcess.call( this, action );
+ *         return MyProcessDialog.parent.prototype.getActionProcess.call( this, action );
  *     };
  *     MyProcessDialog.prototype.getBodyHeight = function () {
  *         return this.panel1.$element.outerHeight( true );

@@ -52,7 +52,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.PopupWidget.super.call( this, config );
+	OO.ui.PopupWidget.parent.call( this, config );
 
 	// Properties (must be set before ClippableElement constructor call)
 	this.$body = $( '<div>' );
@@ -238,7 +238,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 	var change = show !== this.isVisible();
 
 	// Parent method
-	OO.ui.PopupWidget.super.prototype.toggle.call( this, show );
+	OO.ui.PopupWidget.parent.prototype.toggle.call( this, show );
 
 	if ( change ) {
 		if ( show ) {

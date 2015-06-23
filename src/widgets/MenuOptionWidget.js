@@ -16,7 +16,7 @@ OO.ui.MenuOptionWidget = function OoUiMenuOptionWidget( config ) {
 	config = $.extend( { icon: 'check' }, config );
 
 	// Parent constructor
-	OO.ui.MenuOptionWidget.super.call( this, config );
+	OO.ui.MenuOptionWidget.parent.call( this, config );
 
 	// Initialization
 	this.$element

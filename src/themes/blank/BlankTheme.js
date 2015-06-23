@@ -6,7 +6,7 @@
  */
 OO.ui.BlankTheme = function OoUiBlankTheme() {
 	// Parent constructor
-	OO.ui.BlankTheme.super.call( this );
+	OO.ui.BlankTheme.parent.call( this );
 };
 
 /* Setup */
@@ -20,7 +20,7 @@ OO.inheritClass( OO.ui.BlankTheme, OO.ui.Theme );
  */
 OO.ui.BlankTheme.prototype.getElementClasses = function ( element ) {
 	// Parent method
-	var classes = OO.ui.BlankTheme.super.prototype.getElementClasses.call( this, element );
+	var classes = OO.ui.BlankTheme.parent.prototype.getElementClasses.call( this, element );
 
 	// Add classes to classes.on or classes.off
 

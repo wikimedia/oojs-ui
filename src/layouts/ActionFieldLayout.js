@@ -53,7 +53,7 @@ OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWid
 	}
 
 	// Parent constructor
-	OO.ui.ActionFieldLayout.super.call( this, fieldWidget, config );
+	OO.ui.ActionFieldLayout.parent.call( this, fieldWidget, config );
 
 	// Properties
 	this.buttonWidget = buttonWidget;

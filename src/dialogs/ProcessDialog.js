@@ -16,7 +16,7 @@
  *     @example
  *     // Example: Creating and opening a process dialog window.
  *     function MyProcessDialog( config ) {
- *         MyProcessDialog.super.call( this, config );
+ *         MyProcessDialog.parent.call( this, config );
  *     }
  *     OO.inheritClass( MyProcessDialog, OO.ui.ProcessDialog );
  *
@@ -27,7 +27,7 @@
  *     ];
  *
  *     MyProcessDialog.prototype.initialize = function () {
- *         MyProcessDialog.super.prototype.initialize.apply( this, arguments );
+ *         MyProcessDialog.parent.prototype.initialize.apply( this, arguments );
  *         this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
  *         this.content.$element.append( '<p>This is a process dialog window. The header contains the title and two buttons: \'Cancel\' (a safe action) on the left and \'Done\' (a primary action)  on the right.</p>' );
  *         this.$body.append( this.content.$element );
@@ -39,7 +39,7 @@
  *                 dialog.close( { action: action } );
  *             } );
  *         }
- *         return MyProcessDialog.super.prototype.getActionProcess.call( this, action );
+ *         return MyProcessDialog.parent.prototype.getActionProcess.call( this, action );
  *     };
  *
  *     var windowManager = new OO.ui.WindowManager();
@@ -60,7 +60,7 @@
  */
 OO.ui.ProcessDialog = function OoUiProcessDialog( config ) {
 	// Parent constructor
-	OO.ui.ProcessDialog.super.call( this, config );
+	OO.ui.ProcessDialog.parent.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-processDialog' );
@@ -102,7 +102,7 @@ OO.ui.ProcessDialog.prototype.onActionResize = function ( action ) {
 	if ( this.actions.isSpecial( action ) ) {
 		this.fitLabel();
 	}
-	return OO.ui.ProcessDialog.super.prototype.onActionResize.call( this, action );
+	return OO.ui.ProcessDialog.parent.prototype.onActionResize.call( this, action );
 };
 
 /**
@@ -110,7 +110,7 @@ OO.ui.ProcessDialog.prototype.onActionResize = function ( action ) {
  */
 OO.ui.ProcessDialog.prototype.initialize = function () {
 	// Parent method
-	OO.ui.ProcessDialog.super.prototype.initialize.call( this );
+	OO.ui.ProcessDialog.parent.prototype.initialize.call( this );
 
 	// Properties
 	this.$navigation = $( '<div>' );
@@ -173,7 +173,7 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
 	var i, len, other, special, others;
 
 	// Parent method
-	OO.ui.ProcessDialog.super.prototype.attachActions.call( this );
+	OO.ui.ProcessDialog.parent.prototype.attachActions.call( this );
 
 	special = this.actions.getSpecial();
 	others = this.actions.getOthers();
@@ -197,7 +197,7 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
  */
 OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
 	var process = this;
-	return OO.ui.ProcessDialog.super.prototype.executeAction.call( this, action )
+	return OO.ui.ProcessDialog.parent.prototype.executeAction.call( this, action )
 		.fail( function ( errors ) {
 			process.showErrors( errors || [] );
 		} );
@@ -308,7 +308,7 @@ OO.ui.ProcessDialog.prototype.hideErrors = function () {
  */
 OO.ui.ProcessDialog.prototype.getTeardownProcess = function ( data ) {
 	// Parent method
-	return OO.ui.ProcessDialog.super.prototype.getTeardownProcess.call( this, data )
+	return OO.ui.ProcessDialog.parent.prototype.getTeardownProcess.call( this, data )
 		.first( function () {
 			// Make sure to hide errors
 			this.hideErrors();

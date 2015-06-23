@@ -45,7 +45,7 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.FieldsetLayout.super.call( this, config );
+	OO.ui.FieldsetLayout.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );

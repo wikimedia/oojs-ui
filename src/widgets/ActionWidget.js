@@ -26,7 +26,7 @@ OO.ui.ActionWidget = function OoUiActionWidget( config ) {
 	config = $.extend( { framed: false }, config );
 
 	// Parent constructor
-	OO.ui.ActionWidget.super.call( this, config );
+	OO.ui.ActionWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.PendingElement.call( this, config );
@@ -163,7 +163,7 @@ OO.ui.ActionWidget.prototype.clearFlags = function () {
  */
 OO.ui.ActionWidget.prototype.toggle = function () {
 	// Parent method
-	OO.ui.ActionWidget.super.prototype.toggle.apply( this, arguments );
+	OO.ui.ActionWidget.parent.prototype.toggle.apply( this, arguments );
 	this.propagateResize();
 
 	return this;

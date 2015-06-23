@@ -16,7 +16,7 @@ OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ToggleWidget.super.call( this, config );
+	OO.ui.ToggleWidget.parent.call( this, config );
 
 	// Properties
 	this.value = null;

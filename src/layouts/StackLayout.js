@@ -36,7 +36,7 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	config = $.extend( { scrollable: true }, config );
 
 	// Parent constructor
-	OO.ui.StackLayout.super.call( this, config );
+	OO.ui.StackLayout.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );

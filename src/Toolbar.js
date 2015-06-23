@@ -28,7 +28,7 @@
  *
  *     // Create a class inheriting from OO.ui.Tool
  *     function PictureTool() {
- *         PictureTool.super.apply( this, arguments );
+ *         PictureTool.parent.apply( this, arguments );
  *     }
  *     OO.inheritClass( PictureTool, OO.ui.Tool );
  *     // Each tool must have a 'name' (used as an internal identifier, see later) and at least one
@@ -47,7 +47,7 @@
  *
  *     // Register two more tools, nothing interesting here
  *     function SettingsTool() {
- *         SettingsTool.super.apply( this, arguments );
+ *         SettingsTool.parent.apply( this, arguments );
  *     }
  *     OO.inheritClass( SettingsTool, OO.ui.Tool );
  *     SettingsTool.static.name = 'settings';
@@ -61,7 +61,7 @@
  *
  *     // Register two more tools, nothing interesting here
  *     function StuffTool() {
- *         StuffTool.super.apply( this, arguments );
+ *         StuffTool.parent.apply( this, arguments );
  *     }
  *     OO.inheritClass( StuffTool, OO.ui.Tool );
  *     StuffTool.static.name = 'stuff';
@@ -144,7 +144,7 @@
  *
  *     // Create a class inheriting from OO.ui.Tool
  *     function PictureTool() {
- *         PictureTool.super.apply( this, arguments );
+ *         PictureTool.parent.apply( this, arguments );
  *     }
  *     OO.inheritClass( PictureTool, OO.ui.Tool );
  *     // Each tool must have a 'name' (used as an internal identifier, see later) and at least one
@@ -168,7 +168,7 @@
  *
  *     // Register two more tools, nothing interesting here
  *     function SettingsTool() {
- *         SettingsTool.super.apply( this, arguments );
+ *         SettingsTool.parent.apply( this, arguments );
  *         this.reallyActive = false;
  *     }
  *     OO.inheritClass( SettingsTool, OO.ui.Tool );
@@ -189,7 +189,7 @@
  *
  *     // Register two more tools, nothing interesting here
  *     function StuffTool() {
- *         StuffTool.super.apply( this, arguments );
+ *         StuffTool.parent.apply( this, arguments );
  *         this.reallyActive = false;
  *     }
  *     OO.inheritClass( StuffTool, OO.ui.Tool );
@@ -287,7 +287,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.Toolbar.super.call( this, config );
+	OO.ui.Toolbar.parent.call( this, config );
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );

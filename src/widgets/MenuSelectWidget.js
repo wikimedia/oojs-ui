@@ -39,7 +39,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.MenuSelectWidget.super.call( this, config );
+	OO.ui.MenuSelectWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
@@ -97,7 +97,7 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
 			case OO.ui.Keys.RIGHT:
 				// Do nothing if a text field is associated, arrow keys will be handled natively
 				if ( !this.$input ) {
-					OO.ui.MenuSelectWidget.super.prototype.onKeyDown.call( this, e );
+					OO.ui.MenuSelectWidget.parent.prototype.onKeyDown.call( this, e );
 				}
 				break;
 			case OO.ui.Keys.ESCAPE:
@@ -113,7 +113,7 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
 				}
 				break;
 			default:
-				OO.ui.MenuSelectWidget.super.prototype.onKeyDown.call( this, e );
+				OO.ui.MenuSelectWidget.parent.prototype.onKeyDown.call( this, e );
 				return;
 		}
 	}
@@ -126,7 +126,7 @@ OO.ui.MenuSelectWidget.prototype.bindKeyDownListener = function () {
 	if ( this.$input ) {
 		this.$input.on( 'keydown', this.onKeyDownHandler );
 	} else {
-		OO.ui.MenuSelectWidget.super.prototype.bindKeyDownListener.call( this );
+		OO.ui.MenuSelectWidget.parent.prototype.bindKeyDownListener.call( this );
 	}
 };
 
@@ -137,7 +137,7 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
 	if ( this.$input ) {
 		this.$input.off( 'keydown', this.onKeyDownHandler );
 	} else {
-		OO.ui.MenuSelectWidget.super.prototype.unbindKeyDownListener.call( this );
+		OO.ui.MenuSelectWidget.parent.prototype.unbindKeyDownListener.call( this );
 	}
 };
 
@@ -146,7 +146,7 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
  */
 OO.ui.MenuSelectWidget.prototype.bindKeyPressListener = function () {
 	if ( !this.$input ) {
-		OO.ui.MenuSelectWidget.super.prototype.bindKeyPressListener.call( this );
+		OO.ui.MenuSelectWidget.parent.prototype.bindKeyPressListener.call( this );
 	}
 };
 
@@ -157,7 +157,7 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyPressListener = function () {
 	if ( this.$input ) {
 		this.clearKeyPressBuffer();
 	} else {
-		OO.ui.MenuSelectWidget.super.prototype.unbindKeyPressListener.call( this );
+		OO.ui.MenuSelectWidget.parent.prototype.unbindKeyPressListener.call( this );
 	}
 };
 
@@ -172,7 +172,7 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyPressListener = function () {
  * @chainable
  */
 OO.ui.MenuSelectWidget.prototype.chooseItem = function ( item ) {
-	OO.ui.MenuSelectWidget.super.prototype.chooseItem.call( this, item );
+	OO.ui.MenuSelectWidget.parent.prototype.chooseItem.call( this, item );
 	this.toggle( false );
 	return this;
 };
@@ -184,7 +184,7 @@ OO.ui.MenuSelectWidget.prototype.addItems = function ( items, index ) {
 	var i, len, item;
 
 	// Parent method
-	OO.ui.MenuSelectWidget.super.prototype.addItems.call( this, items, index );
+	OO.ui.MenuSelectWidget.parent.prototype.addItems.call( this, items, index );
 
 	// Auto-initialize
 	if ( !this.newItems ) {
@@ -212,7 +212,7 @@ OO.ui.MenuSelectWidget.prototype.addItems = function ( items, index ) {
  */
 OO.ui.MenuSelectWidget.prototype.removeItems = function ( items ) {
 	// Parent method
-	OO.ui.MenuSelectWidget.super.prototype.removeItems.call( this, items );
+	OO.ui.MenuSelectWidget.parent.prototype.removeItems.call( this, items );
 
 	// Reevaluate clipping
 	this.clip();
@@ -225,7 +225,7 @@ OO.ui.MenuSelectWidget.prototype.removeItems = function ( items ) {
  */
 OO.ui.MenuSelectWidget.prototype.clearItems = function () {
 	// Parent method
-	OO.ui.MenuSelectWidget.super.prototype.clearItems.call( this );
+	OO.ui.MenuSelectWidget.parent.prototype.clearItems.call( this );
 
 	// Reevaluate clipping
 	this.clip();
@@ -243,7 +243,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 		change = visible !== this.isVisible();
 
 	// Parent method
-	OO.ui.MenuSelectWidget.super.prototype.toggle.call( this, visible );
+	OO.ui.MenuSelectWidget.parent.prototype.toggle.call( this, visible );
 
 	if ( change ) {
 		if ( visible ) {

@@ -11,7 +11,7 @@
  *     // Example of a BookletLayout that contains two PageLayouts.
  *
  *     function PageOneLayout( name, config ) {
- *         PageOneLayout.super.call( this, name, config );
+ *         PageOneLayout.parent.call( this, name, config );
  *         this.$element.append( '<p>First page</p><p>(This booklet has an outline, displayed on the left)</p>' );
  *     }
  *     OO.inheritClass( PageOneLayout, OO.ui.PageLayout );
@@ -20,7 +20,7 @@
  *     };
  *
  *     function PageTwoLayout( name, config ) {
- *         PageTwoLayout.super.call( this, name, config );
+ *         PageTwoLayout.parent.call( this, name, config );
  *         this.$element.append( '<p>Second page</p>' );
  *     }
  *     OO.inheritClass( PageTwoLayout, OO.ui.PageLayout );
@@ -53,7 +53,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.BookletLayout.super.call( this, config );
+	OO.ui.BookletLayout.parent.call( this, config );
 
 	// Properties
 	this.currentPageName = null;

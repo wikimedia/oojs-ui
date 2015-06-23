@@ -6,7 +6,7 @@
  */
 OO.ui.MediaWikiTheme = function OoUiMediaWikiTheme() {
 	// Parent constructor
-	OO.ui.MediaWikiTheme.super.call( this );
+	OO.ui.MediaWikiTheme.parent.call( this );
 };
 
 /* Setup */
@@ -29,7 +29,7 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 			destructive: false
 		},
 		// Parent method
-		classes = OO.ui.MediaWikiTheme.super.prototype.getElementClasses.call( this, element ),
+		classes = OO.ui.MediaWikiTheme.parent.prototype.getElementClasses.call( this, element ),
 		isFramed;
 
 	if ( element.supports( [ 'hasFlag' ] ) ) {

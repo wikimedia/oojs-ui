@@ -40,7 +40,7 @@
  */
 OO.ui.RadioSelectWidget = function OoUiRadioSelectWidget( config ) {
 	// Parent constructor
-	OO.ui.RadioSelectWidget.super.call( this, config );
+	OO.ui.RadioSelectWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.TabIndexedElement.call( this, config );

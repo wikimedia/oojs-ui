@@ -24,7 +24,7 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.InputWidget.super.call( this, config );
+	OO.ui.InputWidget.parent.call( this, config );
 
 	// Properties
 	this.$input = this.getInputElement( config );
@@ -183,7 +183,7 @@ OO.ui.InputWidget.prototype.simulateLabelClick = function () {
  * @inheritdoc
  */
 OO.ui.InputWidget.prototype.setDisabled = function ( state ) {
-	OO.ui.InputWidget.super.prototype.setDisabled.call( this, state );
+	OO.ui.InputWidget.parent.prototype.setDisabled.call( this, state );
 	if ( this.$input ) {
 		this.$input.prop( 'disabled', this.isDisabled() );
 	}

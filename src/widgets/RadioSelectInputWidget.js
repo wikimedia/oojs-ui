@@ -34,7 +34,7 @@ OO.ui.RadioSelectInputWidget = function OoUiRadioSelectInputWidget( config ) {
 	this.radioSelectWidget = new OO.ui.RadioSelectWidget();
 
 	// Parent constructor
-	OO.ui.RadioSelectInputWidget.super.call( this, config );
+	OO.ui.RadioSelectInputWidget.parent.call( this, config );
 
 	// Events
 	this.radioSelectWidget.connect( this, { select: 'onMenuSelect' } );
@@ -79,7 +79,7 @@ OO.ui.RadioSelectInputWidget.prototype.onMenuSelect = function ( item ) {
  */
 OO.ui.RadioSelectInputWidget.prototype.setValue = function ( value ) {
 	this.radioSelectWidget.selectItemByData( value );
-	OO.ui.RadioSelectInputWidget.super.prototype.setValue.call( this, value );
+	OO.ui.RadioSelectInputWidget.parent.prototype.setValue.call( this, value );
 	return this;
 };
 
@@ -88,7 +88,7 @@ OO.ui.RadioSelectInputWidget.prototype.setValue = function ( value ) {
  */
 OO.ui.RadioSelectInputWidget.prototype.setDisabled = function ( state ) {
 	this.radioSelectWidget.setDisabled( state );
-	OO.ui.RadioSelectInputWidget.super.prototype.setDisabled.call( this, state );
+	OO.ui.RadioSelectInputWidget.parent.prototype.setDisabled.call( this, state );
 	return this;
 };
 
