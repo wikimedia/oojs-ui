@@ -247,7 +247,8 @@ class Element extends Tag {
 		};
 		array_walk_recursive( $config, $replaceElements );
 		// Set '_' last to ensure that subclasses can't accidentally step on it.
-		$config['_'] = preg_replace( '/^OOUI\\\\/', '', get_class( $this ) );
+		// Strip all namespaces from the class name
+		$config['_'] = end( explode( '\\', get_class( $this ) ) );
 		return $config;
 	}
 
