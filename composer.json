@@ -16,6 +16,12 @@
 			"php/"
 		]
 	},
+	"autoload-dev": {
+		"classmap": [
+			"tests/phpunit/TestCase.php",
+			"tests/phpunit/DummyWidget.php"
+		]
+	},
 	"scripts": {
 		"test": [
 			"parallel-lint . --exclude vendor",
