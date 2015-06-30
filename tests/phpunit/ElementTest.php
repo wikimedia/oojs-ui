@@ -14,7 +14,7 @@ class ElementTest extends TestCase {
 			),
 			array(
 				new \FooBarBaz\MockWidget( array( 'infusable' => true ) ),
-				'"_":"FooBarBaz\\\\MockWidget"'
+				'"_":"MockWidget"'
 			),
 		);
 	}
