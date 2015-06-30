@@ -15,7 +15,7 @@ class Theme {
 
 	/* Static Methods */
 
-	public static function setSingleton( Theme $theme ) {
+	public static function setSingleton( Theme $theme = null ) {
 		self::$singleton = $theme;
 	}
 
