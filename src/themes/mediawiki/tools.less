@@ -24,14 +24,21 @@
 	}
 
 	&-actions {
-		> .oo-ui-buttonElement {
+		> .oo-ui-buttonElement-framed,
+		> .oo-ui-buttonElement-framed:last-child {
 			margin-top: 0.25em;
 			margin-bottom: 0.25em;
+			margin-right: 0.5em;
 		}
 
-		> .oo-ui-toolbar,
-		> .oo-ui-buttonElement:last-child {
-			margin-right: 0.5em;
+		> .oo-ui-buttonElement-frameless.oo-ui-labelElement {
+			margin: 0;
+			> .oo-ui-buttonElement-button {
+				padding: 1.0546875em 0.3125em;
+				> .oo-ui-labelElement-label {
+					margin: 0 1em;
+				}
+			}
 		}
 	}
 }
