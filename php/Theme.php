@@ -7,7 +7,7 @@ namespace OOUI;
  *
  * @abstract
  */
-class Theme {
+abstract class Theme {
 
 	/* Members */
 
