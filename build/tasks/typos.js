@@ -33,13 +33,13 @@ module.exports = function ( grunt ) {
 
 		if ( typosData.caseSensitive.length ) {
 			typosCSRegExp = new RegExp(
-				'(' + typosData.caseSensitive.map( patternMap ).join( '|' )  + ')', 'g'
+				'(' + typosData.caseSensitive.map( patternMap ).join( '|' ) + ')', 'g'
 			);
 		}
 
 		if ( typosData.caseInsensitive.length ) {
 			typosCIRegExp = new RegExp(
-				'(' + typosData.caseInsensitive.map( patternMap ).join( '|' )  + ')', 'gi'
+				'(' + typosData.caseInsensitive.map( patternMap ).join( '|' ) + ')', 'gi'
 			);
 		}
 
