@@ -15,10 +15,17 @@ abstract class Theme {
 
 	/* Static Methods */
 
+	/**
+	 * @param Theme|null $theme
+	 */
 	public static function setSingleton( Theme $theme = null ) {
 		self::$singleton = $theme;
 	}
 
+	/**
+	 * @return Theme
+	 * @throws Exception
+	 */
 	public static function singleton() {
 		if ( !self::$singleton ) {
 			throw new Exception( __METHOD__ . ' was called with no singleton theme set.' );
