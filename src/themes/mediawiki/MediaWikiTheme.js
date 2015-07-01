@@ -34,7 +34,10 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 
 	if ( element.supports( [ 'hasFlag' ] ) ) {
 		isFramed = element.supports( [ 'isFramed' ] ) && element.isFramed();
-		if ( isFramed && ( element.isDisabled() || element.hasFlag( 'primary' ) ) ) {
+		if (
+			( isFramed && ( element.isDisabled() || element.hasFlag( 'primary' ) ) ) ||
+			( !isFramed && element.hasFlag( 'primary' ) )
+		) {
 			variants.invert = true;
 		} else {
 			variants.progressive = element.hasFlag( 'progressive' );

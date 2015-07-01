@@ -1,5 +1,5 @@
 OO.ui.Demo.static.pages.toolbars = function ( demo ) {
-	var i, toolGroups, saveButton, actionButton, actionButtonDisabled, PopupTool, ToolGroupTool,
+	var i, toolGroups, saveButton, deleteButton, actionButton, actionButtonDisabled, PopupTool, ToolGroupTool,
 		$demo = demo.$element,
 		$containers = $(),
 		toolFactories = [],
@@ -217,14 +217,15 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 		}
 	] );
 
-	saveButton = new OO.ui.ButtonWidget( { label: 'Save', flags: [ 'progressive', 'primary' ] } );
+	saveButton = new OO.ui.ButtonWidget( { label: 'Save', framed: false, flags: [ 'progressive', 'primary' ] } );
+	deleteButton = new OO.ui.ButtonWidget( { label: 'Delete', framed: false, flags: [ 'destructive' ] } );
 	actionButton = new OO.ui.ButtonWidget( { label: 'Action' } );
 	actionButtonDisabled = new OO.ui.ButtonWidget( { label: 'Disabled', disabled: true } );
 	toolbars[ 1 ].$actions
 		.append( actionButton.$element, actionButtonDisabled.$element );
 
 	toolbars[ 3 ].$actions
-		.append( toolbars[ 2 ].$element, saveButton.$element );
+		.append( toolbars[ 2 ].$element, deleteButton.$element, saveButton.$element );
 
 	for ( i = 0; i < toolbars.length; i++ ) {
 		toolbars[ i ].emit( 'updateState' );
