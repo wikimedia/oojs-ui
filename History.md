@@ -1,5 +1,19 @@
 # OOjs UI Release History
 
+## v0.11.7 / 2015-07-01
+* Element.php: Strip all namespaces from infused PHP widgets (Kunal Mehta)
+* OptionWidget: Explicitly set aria-selected to 'false' on init (Bartosz Dziewoński)
+
+* MediaWiki theme: Add support for frameless primary buttons (Ed Sanders)
+* MediaWiki theme: Align and center the advanced icon (Roan Kattouw)
+* MediaWiki, Apex themes: Fix styling for frameless process dialog actions (Ed Sanders)
+
+* Element.php: Add test case to verify class name in infused widgets (Kunal Mehta)
+* Element.php: Only variables may be passed by reference (Kunal Mehta)
+* Theme.php: Actually make abstract in PHP (Kunal Mehta)
+* Theme.php: Add missing doc comments (Kunal Mehta)
+* documentation: Use bold in comments instead of h4 (Ed Sanders)
+
 ## v0.11.6 / 2015-06-23
 * NumberInputWidget: Don't use `Math.sign()` (Brad Jorsch)
 * SelectWidget: Fix invalid escape sequence '`\s`' (Roan Kattouw)
