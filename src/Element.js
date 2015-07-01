@@ -460,11 +460,12 @@ OO.ui.Element.static.getRootScrollableElement = function ( el ) {
  */
 OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) {
 	var i, val,
-		props = [ 'overflow' ],
+		// props = [ 'overflow' ] doesn't work due to https://bugzilla.mozilla.org/show_bug.cgi?id=889091
+		props = [ 'overflow-x', 'overflow-y' ],
 		$parent = $( el ).parent();
 
 	if ( dimension === 'x' || dimension === 'y' ) {
-		props.push( 'overflow-' + dimension );
+		props = [ 'overflow-' + dimension ];
 	}
 
 	while ( $parent.length ) {
