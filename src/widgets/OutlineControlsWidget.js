@@ -1,7 +1,8 @@
 /**
  * OutlineControlsWidget is a set of controls for an {@link OO.ui.OutlineSelectWidget outline select widget}.
  * Controls include moving items up and down, removing items, and adding different kinds of items.
- * ####Currently, this class is only used by {@link OO.ui.BookletLayout booklet layouts}.####
+ *
+ * **Currently, this class is only used by {@link OO.ui.BookletLayout booklet layouts}.**
  *
  * @class
  * @extends OO.ui.Widget

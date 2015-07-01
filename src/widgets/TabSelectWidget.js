@@ -1,7 +1,7 @@
 /**
  * TabSelectWidget is a list that contains {@link OO.ui.TabOptionWidget tab options}
  *
- * ####Currently, this class is only used by {@link OO.ui.IndexLayout index layouts}.####
+ * **Currently, this class is only used by {@link OO.ui.IndexLayout index layouts}.**
  *
  * @class
  * @extends OO.ui.SelectWidget
