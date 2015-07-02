@@ -3,8 +3,16 @@
 		"authors": [
 			"Audriusa",
 			"Eitvys200",
-			"Mantak111"
+			"Mantak111",
+			"Albertas"
 		]
 	},
-	"ooui-outline-control-remove": "Šalinti elementus"
+	"ooui-outline-control-remove": "Šalinti elementus",
+	"ooui-toolbar-more": "Daugiau",
+	"ooui-toolgroup-expand": "Daugiau",
+	"ooui-toolgroup-collapse": "Mažiau",
+	"ooui-dialog-message-accept": "Gerai",
+	"ooui-dialog-message-reject": "Atšaukti",
+	"ooui-dialog-process-error": "Kažkas nutiko ne taip",
+	"ooui-dialog-process-continue": "Tęsti"
 }
