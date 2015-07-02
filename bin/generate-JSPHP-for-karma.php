@@ -1,18 +1,8 @@
 <?php
 
-// Quick and dirty autoloader to make it possible to run without Composer.
-spl_autoload_register( function ( $class ) {
-	$class = preg_replace( '/^OOUI\\\\/', '', $class );
-	foreach ( array( 'mixins', 'layouts', 'themes', 'widgets', '.' ) as $dir ) {
-		$path = "../php/$dir/$class.php";
-		if ( file_exists( $path ) ) {
-			require_once $path;
-			return;
-		}
-	}
-} );
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$testSuiteJSON = file_get_contents( 'JSPHP-suite.json' );
+$testSuiteJSON = file_get_contents( __DIR__ . '/../tests/JSPHP-suite.json' );
 $testSuite = json_decode( $testSuiteJSON, true );
 $testSuiteOutput = array();
 
@@ -51,4 +41,4 @@ $testSuiteOutputJSON = json_encode( $testSuiteOutput, JSON_PRETTY_PRINT );
 
 echo "var testSuiteConfigs = $testSuiteJSON;\n\n";
 echo "var testSuitePHPOutput = $testSuiteOutputJSON;\n\n";
-echo file_get_contents( 'JSPHP.test.karma.js' );
+echo file_get_contents( __DIR__ . '/../tests/JSPHP.test.karma.js' );
