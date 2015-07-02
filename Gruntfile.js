@@ -308,8 +308,7 @@ module.exports = function ( grunt ) {
 				command: 'ruby bin/testsuitegenerator.rb src php > tests/JSPHP-suite.json'
 			},
 			phpGenerateJSPHPForKarma: {
-				command: 'php ../bin/generate-JSPHP-for-karma.php > JSPHP.test.js',
-				cwd: './tests'
+				command: 'composer update && php bin/generate-JSPHP-for-karma.php > tests/JSPHP.test.js'
 			}
 		},
 		karma: {
