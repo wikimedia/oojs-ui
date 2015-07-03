@@ -8,3 +8,8 @@ tests/JSPHP-suite.json
 tests/JSPHP.test.js
 vendor
 composer.lock
+/demos/composer.json
+/demos/node_modules
+/demos/dist
+/demos/php
+

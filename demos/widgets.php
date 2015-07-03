@@ -1,5 +1,5 @@
 <?php
-	$autoload = '../vendor/autoload.php';
+	$autoload = __DIR__ . '/vendor/autoload.php';
 	if ( !file_exists( $autoload ) ) {
 		echo '<h1>Did you forget to run <code>composer install</code>?</h1>';
 		exit();
@@ -35,7 +35,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>OOjs UI Widget Demo</title>
-	<link rel="stylesheet" href="../dist/<?php echo $styleFileName; ?>">
+	<link rel="stylesheet" href="dist/<?php echo $styleFileName; ?>">
 	<link rel="stylesheet" href="styles/demo<?php echo $directionSuffix; ?>.css">
 </head>
 <body class="oo-ui-<?php echo $direction; ?>">
@@ -916,10 +916,10 @@
 	</div>
 
 	<!-- Demonstrate JavaScript "infusion" of PHP widgets -->
-	<script src="../node_modules/jquery/dist/jquery.js"></script>
-	<script src="../node_modules/oojs/dist/oojs.jquery.js"></script>
-	<script src="../dist/oojs-ui.js"></script>
-	<script src="../dist/oojs-ui-<?php echo $theme; ?>.js"></script>
-	<script src="./infusion.js"></script>
+	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="node_modules/oojs/dist/oojs.jquery.js"></script>
+	<script src="dist/oojs-ui.js"></script>
+	<script src="dist/oojs-ui-<?php echo $theme; ?>.js"></script>
+	<script src="infusion.js"></script>
 </body>
 </html>

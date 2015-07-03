@@ -337,9 +337,9 @@ OO.ui.Demo.prototype.getStylesheetLinks = function () {
 	} );
 
 	// Theme styles
-	urls.push( '../dist/oojs-ui' + fragments.slice( 1 ).join( '' ) + '.css' );
+	urls.push( 'dist/oojs-ui' + fragments.slice( 1 ).join( '' ) + '.css' );
 	for ( i = 0, len = suffixes.length; i < len; i++ ) {
-		urls.push( '../dist/oojs-ui' + fragments[1] + suffixes[i] + fragments.slice( 2 ).join( '' ) + '.css' );
+		urls.push( 'dist/oojs-ui' + fragments[1] + suffixes[i] + fragments.slice( 2 ).join( '' ) + '.css' );
 	}
 
 	// Demo styles
