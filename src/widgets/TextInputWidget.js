@@ -34,9 +34,12 @@
  * @cfg {boolean} [readOnly=false] Prevent changes to the value of the text input.
  * @cfg {number} [maxLength] Maximum number of characters allowed in the input.
  * @cfg {boolean} [multiline=false] Allow multiple lines of text
+ * @cfg {number} [rows] If multiline, number of visible lines in textarea. If used with `autosize`,
+ *  specifies minimum number of rows to display.
  * @cfg {boolean} [autosize=false] Automatically resize the text input to fit its content.
  *  Use the #maxRows config to specify a maximum number of displayed rows.
- * @cfg {boolean} [maxRows=10] Maximum number of rows to display when #autosize is set to true.
+ * @cfg {boolean} [maxRows] Maximum number of rows to display when #autosize is set to true.
+ *  Defaults to the maximum of `10` and `2 * rows`, or `10` if `rows` isn't provided.
  * @cfg {string} [labelPosition='after'] The position of the inline label relative to that of
  *  the value or placeholder text: `'before'` or `'after'`
  * @cfg {boolean} [required=false] Mark the field as required
@@ -51,8 +54,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Configuration initialization
 	config = $.extend( {
 		type: 'text',
-		labelPosition: 'after',
-		maxRows: 10
+		labelPosition: 'after'
 	}, config );
 
 	// Parent constructor
@@ -68,7 +70,8 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.readOnly = false;
 	this.multiline = !!config.multiline;
 	this.autosize = !!config.autosize;
-	this.maxRows = config.maxRows;
+	this.minRows = config.rows !== undefined ? config.rows : '';
+	this.maxRows = config.maxRows || Math.max( 2 * ( this.minRows || 0 ), 10 );
 	this.validate = null;
 
 	// Clone for resizing
@@ -116,6 +119,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 	if ( config.autocomplete === false ) {
 		this.$input.attr( 'autocomplete', 'off' );
+	}
+	if ( this.multiline && config.rows ) {
+		this.$input.attr( 'rows', config.rows );
 	}
 	if ( this.label || config.autosize ) {
 		this.installParentChangeDetector();
@@ -327,7 +333,7 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 	if ( this.multiline && this.autosize && this.$input.val() !== this.valCache ) {
 		this.$clone
 			.val( this.$input.val() )
-			.attr( 'rows', '' )
+			.attr( 'rows', this.minRows )
 			// Set inline height property to 0 to measure scroll height
 			.css( 'height', 0 );
 
