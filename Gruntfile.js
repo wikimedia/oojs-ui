@@ -239,6 +239,12 @@ module.exports = function ( grunt ) {
 				src: '{dist,node_modules/{' + Object.keys( pgk.dependencies ).join( ',' ) + '}}/**/*',
 				dest: 'docs/',
 				expand: true
+			},
+			demos: {
+				// Make sure you update this if dependencies are added
+				src: '{node_modules/{jquery,oojs}/dist/**/*,composer.json,dist/**/*,php/**/*}',
+				dest: 'demos/',
+				expand: true
 			}
 		},
 		colorizeSvg: colorizeSvgFiles,
@@ -309,6 +315,10 @@ module.exports = function ( grunt ) {
 			},
 			phpGenerateJSPHPForKarma: {
 				command: 'composer update && php bin/generate-JSPHP-for-karma.php > tests/JSPHP.test.js'
+			},
+			demos: {
+				command: 'composer update --no-dev',
+				cwd: 'demos'
 			}
 		},
 		karma: {
@@ -402,6 +412,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'lint', 'pre-test', 'git-build', 'karma:main', 'karma:other' ] );
+	grunt.registerTask( 'demos', [ 'copy:demos', 'exec:demos' ] );
 
 	grunt.registerTask( 'default', 'test' );
 };

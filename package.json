@@ -22,7 +22,8 @@
     "predoc": "grunt build",
     "doc": "jsduck",
     "postdoc": "grunt copy:jsduck",
-    "prepublish": "grunt build"
+    "prepublish": "grunt build",
+    "demos": "grunt demos"
   },
   "dependencies": {
     "jquery": "1.11.3",

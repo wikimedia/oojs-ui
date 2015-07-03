@@ -23,6 +23,8 @@ If you don't want to use npm, you can:
 
 1. You can now copy the distribution files from the dist directory into your project.
 
+1. You can see a suite of demos in `/demos` by executing:<br/>`$ npm run-script demos`
+
 
 Versioning
 ----------
