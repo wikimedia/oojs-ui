@@ -217,8 +217,8 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 		}
 	] );
 
-	saveButton = new OO.ui.ButtonWidget( { label: 'Save', framed: false, flags: [ 'progressive', 'primary' ] } );
-	deleteButton = new OO.ui.ButtonWidget( { label: 'Delete', framed: false, flags: [ 'destructive' ] } );
+	saveButton = new OO.ui.ButtonWidget( { label: 'Save', flags: [ 'progressive', 'primary' ] } );
+	deleteButton = new OO.ui.ButtonWidget( { label: 'Delete', flags: [ 'destructive' ] } );
 	actionButton = new OO.ui.ButtonWidget( { label: 'Action' } );
 	actionButtonDisabled = new OO.ui.ButtonWidget( { label: 'Disabled', disabled: true } );
 	toolbars[ 1 ].$actions

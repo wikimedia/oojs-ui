@@ -418,18 +418,6 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						framed: false,
-						flags: [ 'progressive', 'primary' ],
-						icon: 'check',
-						label: 'Primary'
-					} ),
-					{
-						label: 'ButtonWidget (frameless, primary, progressive)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						framed: false,
 						flags: [ 'warning' ],
 						icon: 'alert',
 						label: 'Warning'
