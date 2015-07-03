@@ -276,6 +276,7 @@ module.exports = function ( grunt ) {
 			dev: [
 				'*.js',
 				'{build,demos,src,tests}/**/*.js',
+				'!demos/{dist,node_modules,vendor}/**/*.js',
 				'!tests/JSPHP.test.js'
 			]
 		},
