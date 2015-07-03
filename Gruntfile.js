@@ -245,6 +245,13 @@ module.exports = function ( grunt ) {
 				src: '{node_modules/{jquery,oojs}/dist/**/*,composer.json,dist/**/*,php/**/*}',
 				dest: 'demos/',
 				expand: true
+			},
+			// Copys the necessary vendor/ files for demos without running "composer install"
+			fastcomposerdemos: {
+				// Make sure you update this if PHP dependencies are added
+				src: 'vendor/{autoload.php,composer,mediawiki/at-ease}',
+				dest: 'demos/',
+				expand: true
 			}
 		},
 		colorizeSvg: colorizeSvgFiles,
@@ -408,7 +415,7 @@ module.exports = function ( grunt ) {
 		'concat:js',
 		'colorizeSvg', 'less:distVector', 'concat:css',
 		'copy:imagesCommon', 'copy:imagesApex', 'copy:imagesMediaWiki',
-		'build-i18n'
+		'build-i18n', 'copy:demos', 'copy:fastcomposerdemos'
 	] );
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
