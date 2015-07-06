@@ -405,7 +405,10 @@ module.exports = function ( grunt ) {
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
 	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
-	grunt.registerTask( 'build', [ 'clean:build', 'fileExists', 'typos', 'build-code', 'build-styling', 'build-i18n', 'build-tests', 'clean:tmp' ] );
+	grunt.registerTask( 'build', [
+		'clean:build', 'fileExists', 'typos', 'build-code', 'build-styling', 'build-i18n',
+		'build-tests', 'clean:tmp', 'demos'
+	] );
 
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 
