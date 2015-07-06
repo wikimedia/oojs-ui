@@ -194,6 +194,26 @@ OO.ui.MessageDialog.prototype.getSetupProcess = function ( data ) {
 /**
  * @inheritdoc
  */
+OO.ui.MessageDialog.prototype.getReadyProcess = function ( data ) {
+	data = data || {};
+
+	// Parent method
+	return OO.ui.MessageDialog.parent.prototype.getReadyProcess.call( this, data )
+		.next( function () {
+			// Focus the primary action button
+			var actions = this.actions.get();
+			actions = actions.filter( function ( action ) {
+				return action.getFlags().indexOf( 'primary' ) > -1;
+			} );
+			if ( actions.length > 0 ) {
+				actions[0].$button.focus();
+			}
+		}, this );
+};
+
+/**
+ * @inheritdoc
+ */
 OO.ui.MessageDialog.prototype.getBodyHeight = function () {
 	var bodyHeight, oldOverflow,
 		$scrollable = this.container.$element;
@@ -270,6 +290,7 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
 
 	special = this.actions.getSpecial();
 	others = this.actions.getOthers();
+
 	if ( special.safe ) {
 		this.$actions.append( special.safe.$element );
 		special.safe.toggleFramed( false );
