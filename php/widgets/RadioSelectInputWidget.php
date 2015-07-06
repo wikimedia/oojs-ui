@@ -71,19 +71,20 @@ class RadioSelectInputWidget extends InputWidget {
 		// Need a unique name, otherwise more than one radio will be selectable
 		$name = $this->name ?: 'oo-ui-radioSelectInputWidget' . mt_rand();
 		foreach ( $options as $opt ) {
+			$optValue = $this->cleanUpValue( $opt['data'] );
 			$field = new FieldLayout(
 				new RadioInputWidget( array(
 					'name' => $name,
-					'value' => $opt['data'],
+					'value' => $optValue,
 					'disabled' => $this->isDisabled(),
 				) ),
 				array(
-					'label' => isset( $opt['label'] ) ? $opt['label'] : $opt['data'],
+					'label' => isset( $opt['label'] ) ? $opt['label'] : $optValue,
 					'align' => 'inline',
 				)
 			);
 
-			if ( $value === $opt['data'] ) {
+			if ( $value === $optValue ) {
 				$isValueAvailable = true;
 			}
 
