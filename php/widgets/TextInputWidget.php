@@ -34,6 +34,8 @@ class TextInputWidget extends InputWidget {
 	 * @param number $config['maxLength'] Maximum allowed number of characters to input
 	 * @param boolean $config['multiline'] Allow multiple lines of text (default: false)
 	 * @param boolean $config['required'] Mark the field as required (default: false)
+	 * @param boolean $config['autocomplete'] If the field should support autocomplete
+	 *   or not (default: true)
 	 */
 	public function __construct( array $config = array() ) {
 		// Config initialization
@@ -42,6 +44,7 @@ class TextInputWidget extends InputWidget {
 			'readOnly' => false,
 			'autofocus' => false,
 			'required' => false,
+			'autocomplete' => true,
 		), $config );
 
 		// Parent constructor
@@ -70,6 +73,9 @@ class TextInputWidget extends InputWidget {
 		}
 		if ( $config['required'] ) {
 			$this->input->setAttributes( array( 'required' => 'required', 'aria-required' => 'true' ) );
+		}
+		if ( !$config['autocomplete'] ) {
+			$this->input->setAttributes( array( 'autocomplete' => 'off' ) );
 		}
 	}
 
@@ -149,6 +155,10 @@ class TextInputWidget extends InputWidget {
 		$ariarequired = $this->input->getAttribute( 'aria-required' );
 		if ( ( $required !== null ) || ( $ariarequired !== null ) ) {
 			$config['required'] = true;
+		}
+		$autocomplete = $this->input->getAttribute( 'autocomplete' );
+		if ( $autocomplete !== null ) {
+			$config['autocomplete'] = false;
 		}
 		return parent::getConfig( $config );
 	}
