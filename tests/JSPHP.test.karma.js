@@ -40,7 +40,7 @@ QUnit.module( 'JSPHP' );
 				infused = OO.ui.infuse( $fromPhp[ 0 ] );
 				infused.debouncedUpdateThemeClasses();
 
-				assert.equalDomElement( instance.$element[ 0 ], infused.$element[ 0 ], testName + ' (infuse)' );
+				assert.equalDomElement( instance.$element[ 0 ], infused.$element[ 0 ], testName + ' (infuse)', true );
 				instance.$element.add( infused.$element ).detach();
 			}
 		} );
