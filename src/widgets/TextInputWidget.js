@@ -40,6 +40,7 @@
  * @cfg {string} [labelPosition='after'] The position of the inline label relative to that of
  *  the value or placeholder text: `'before'` or `'after'`
  * @cfg {boolean} [required=false] Mark the field as required
+ * @cfg {boolean} [autocomplete=true] Should the browser support autocomplete for this field
  * @cfg {RegExp|Function|string} [validate] Validation pattern: when string, a symbolic name of a
  *  pattern defined by the class: 'non-empty' (the value cannot be an empty string) or 'integer'
  *  (the value must contain only numbers); when RegExp, a regular expression that must match the
@@ -112,6 +113,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	if ( config.required ) {
 		this.$input.attr( 'required', 'required' );
 		this.$input.attr( 'aria-required', 'true' );
+	}
+	if ( config.autocomplete === false ) {
+		this.$input.attr( 'autocomplete', 'off' );
 	}
 	if ( this.label || config.autosize ) {
 		this.installParentChangeDetector();
