@@ -78,6 +78,7 @@ OO.ui.RadioSelectInputWidget.prototype.onMenuSelect = function ( item ) {
  * @inheritdoc
  */
 OO.ui.RadioSelectInputWidget.prototype.setValue = function ( value ) {
+	value = this.cleanUpValue( value );
 	this.radioSelectWidget.selectItemByData( value );
 	OO.ui.RadioSelectInputWidget.parent.prototype.setValue.call( this, value );
 	return this;
@@ -99,15 +100,18 @@ OO.ui.RadioSelectInputWidget.prototype.setDisabled = function ( state ) {
  * @chainable
  */
 OO.ui.RadioSelectInputWidget.prototype.setOptions = function ( options ) {
-	var value = this.getValue();
+	var
+		value = this.getValue(),
+		widget = this;
 
 	// Rebuild the radioSelect menu
 	this.radioSelectWidget
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
+			var optValue = widget.cleanUpValue( opt.data );
 			return new OO.ui.RadioOptionWidget( {
-				data: opt.data,
-				label: opt.label !== undefined ? opt.label : opt.data
+				data: optValue,
+				label: opt.label !== undefined ? opt.label : optValue
 			} );
 		} ) );
 

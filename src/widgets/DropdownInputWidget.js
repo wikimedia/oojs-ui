@@ -78,6 +78,7 @@ OO.ui.DropdownInputWidget.prototype.onMenuSelect = function ( item ) {
  * @inheritdoc
  */
 OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
+	value = this.cleanUpValue( value );
 	this.dropdownWidget.getMenu().selectItemByData( value );
 	OO.ui.DropdownInputWidget.parent.prototype.setValue.call( this, value );
 	return this;
@@ -99,15 +100,18 @@ OO.ui.DropdownInputWidget.prototype.setDisabled = function ( state ) {
  * @chainable
  */
 OO.ui.DropdownInputWidget.prototype.setOptions = function ( options ) {
-	var value = this.getValue();
+	var
+		value = this.getValue(),
+		widget = this;
 
 	// Rebuild the dropdown menu
 	this.dropdownWidget.getMenu()
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
+			var optValue = widget.cleanUpValue( opt.data );
 			return new OO.ui.MenuOptionWidget( {
-				data: opt.data,
-				label: opt.label !== undefined ? opt.label : opt.data
+				data: optValue,
+				label: opt.label !== undefined ? opt.label : optValue
 			} );
 		} ) );
 
