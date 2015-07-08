@@ -375,7 +375,7 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'pre-test', function () {
+	grunt.registerTask( 'enable-source-maps', function () {
 		// Only create Source maps when doing a git-build for testing and local
 		// development. Distributions for export should not, as the map would
 		// be pointing at "../src".
@@ -407,10 +407,10 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
 	grunt.registerTask( 'build', [
 		'clean:build', 'fileExists', 'typos', 'build-code', 'build-styling', 'build-i18n',
-		'build-tests', 'clean:tmp', 'demos'
+		'clean:tmp', 'demos'
 	] );
 
-	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
+	grunt.registerTask( 'git-build', [ 'enable-source-maps', 'pre-git-build', 'build' ] );
 
 	// Quickly build a no-frills vector-only ltr-only version for development
 	grunt.registerTask( 'quick-build', [
@@ -422,7 +422,7 @@ module.exports = function ( grunt ) {
 	] );
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
-	grunt.registerTask( 'test', [ 'lint', 'pre-test', 'git-build', 'karma:main', 'karma:other' ] );
+	grunt.registerTask( 'test', [ 'lint', 'git-build', 'build-tests', 'karma:main', 'karma:other' ] );
 	grunt.registerTask( 'demos', [ 'copy:demos', 'exec:demos' ] );
 
 	grunt.registerTask( 'default', 'test' );
