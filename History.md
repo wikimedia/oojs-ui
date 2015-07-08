@@ -1,13 +1,36 @@
 # OOjs UI Release History
 
+## v0.11.8 / 2015-07-07
+### Features
+* DropdownInputWidget, RadioSelectInputWidget: Consistently call #cleanUpValue (Bartosz Dziewoński)
+* TextInputWidget: Allow setting the HTML autocomplete attribute (Florian)
+* TextInputWidget: Support 'rows' option when in multiline mode (Kunal Mehta)
+* Make scroll into view work in scrollable divs in Firefox (Roan Kattouw)
+
+### Styles
+* MediaWiki theme: Remove support for frameless primary buttons (Bartosz Dziewoński)
+
+### Code
+* Use at-ease instead of PHP's @ (Kunal Mehta)
+* Use composer's autoloader in exec:phpGenerateJSPHPForKarma (Kunal Mehta)
+* build: Don't lint demos/{dist,node_modules,vendor} (Kunal Mehta)
+* build: Build demos as part of `grunt build` too (Kunal Mehta)
+* build: Build demos as part of `grunt quick-build` (Kunal Mehta)
+* build: Only build test files (`build-tests` task) when going to run tests (Bartosz Dziewoński)
+* demos: Make self-contained in demos/ directory (Kunal Mehta)
+* tests: Provide better output when running infusion test under Karma (Bartosz Dziewoński)
+
 ## v0.11.7 / 2015-07-01
+### Features
 * Element.php: Strip all namespaces from infused PHP widgets (Kunal Mehta)
 * OptionWidget: Explicitly set aria-selected to 'false' on init (Bartosz Dziewoński)
 
+### Styles
 * MediaWiki theme: Add support for frameless primary buttons (Ed Sanders)
 * MediaWiki theme: Align and center the advanced icon (Roan Kattouw)
 * MediaWiki, Apex themes: Fix styling for frameless process dialog actions (Ed Sanders)
 
+### Code
 * Element.php: Add test case to verify class name in infused widgets (Kunal Mehta)
 * Element.php: Only variables may be passed by reference (Kunal Mehta)
 * Theme.php: Actually make abstract in PHP (Kunal Mehta)
@@ -15,79 +38,89 @@
 * documentation: Use bold in comments instead of h4 (Ed Sanders)
 
 ## v0.11.6 / 2015-06-23
+### Features
 * NumberInputWidget: Don't use `Math.sign()` (Brad Jorsch)
 * SelectWidget: Fix invalid escape sequence '`\s`' (Roan Kattouw)
 
+### Styles
 * DropdownWidget: Add white background in MediaWiki theme (Prateek Saxena)
 * SelectFileWidget: Add white background in MediaWiki theme (Prateek Saxena)
 * MediaWiki theme: Add constructive variants for star and unStar icons (Roan Kattouw)
 * MediaWiki theme: Add invert variant to all icons (Roan Kattouw)
 * MediaWiki theme: Add progressive variant to ongoingConversation icon (Stephane Bisson)
 
+### Code
 * Use `.parent` instead of `.super` (Stephane Bisson)
 * build: Updating development dependencies (Kunal Mehta)
 
 ## v0.11.5 / 2015-06-16
+### Features
 * ButtonInputWidget: Render frameless button correctly (Bartosz Dziewoński)
 * ComboBoxWidget: Add a getter method for text inputs (Mr. Stradivarius)
 * FieldsetLayout: Make rule for disabled label color more precise (Bartosz Dziewoński)
 * MenuSelectWidget: Explain what the widget config option is for (Roan Kattouw)
 * RadioSelectInputWidget: Unbreak form submission in JS version (Bartosz Dziewoński)
 
+### Styles
 * MediaWiki theme: Add destructive variant to check icon (Matthew Flaschen)
 * MediaWiki, Apex themes: Add ongoingConversation icon (Matthew Flaschen)
 
+### Code
 * build: Configure jsonlint (Kunal Mehta)
 
 ## v0.11.4 / 2015-06-09
+### Deprecations
 * [DEPRECATING CHANGE] Introduce oo.ui.mixin namespace for mixins, and put them src/mixins (C. Scott Ananian)
 
+### Features
 * ActionFieldLayout: Add PHP version (Bartosz Dziewoński)
-* ActionFieldLayout: Dead code removal and cleanup (Bartosz Dziewoński)
-* BarToolGroup: Add description and example (Kirsten Menger-Anderson)
-* ButtonInputWidget and TextInputWidget: Document and enforce allowed types (Bartosz Dziewoński)
 * ButtonWidget: Fix not having tabindex updated when enabled/disabled (Brad Jorsch)
 * ClippableElement: Fix behavior of clippables in nested scrollables (Bartosz Dziewoński)
 * ClippableElement: Fix behavior of long clippables (Bartosz Dziewoński)
 * Dialog: Label in aria terms (Prateek Saxena)
-* DropdownInputWidget: Tweak documentation (Bartosz Dziewoński)
 * DropdownWidget: Adjust height to other widgets (Bartosz Dziewoński)
 * DropdownWidget: Blank widget when no item is selected (Brad Jorsch)
 * Element#reconsiderScrollbars: Preserve scroll position (Bartosz Dziewoński)
 * GroupElement: pass correct event name to disconnect() from aggregate() (Roan Kattouw)
-* InputWidget#getInputElement: Mark as `@protected`, not `@private` (Bartosz Dziewoński)
-* ListToolGroup: Add description and example (Kirsten Menger-Anderson)
-* MenuToolGroup: Add description, example and mark private method (Kirsten Menger-Anderson)
-* MessageDialog: Remove unintentional action button margin (Bartosz Dziewoński)
 * NumberInputWidget: Create, for numeric input (Brad Jorsch)
 * NumberInputWidget: Use keydown, not keypress (Brad Jorsch)
-* PendingElement: Add description (Kirsten Menger-Anderson)
-* PopupTool: Add description and example (Kirsten Menger-Anderson)
-* PopupToolGroup: Add description and mark protected methods (Kirsten Menger-Anderson)
 * ProcessDialog: Don't center the title label if there's not enough space (Bartosz Dziewoński)
 * RadioOptionWidget: Control focus more strictly (Bartosz Dziewoński)
 * RadioSelectInputWidget: Create (Bartosz Dziewoński)
 * SelectFileWidget: Create (Brad Jorsch)
 * SelectWidget: Listen to keypresses and jump to matching items (Brad Jorsch)
 * TextInputWidget: Adjust height to other widgets (Bartosz Dziewoński)
-* Tool: Add description (Kirsten Menger-Anderson)
-* ToolFactory: Add description (Kirsten Menger-Anderson)
-* ToolGroup: Add description and mark protected methods (Kirsten Menger-Anderson)
-* ToolGroupFactory: Add description (Kirsten Menger-Anderson)
-* ToolGroupTool: Add description and example (Kirsten Menger-Anderson)
-* Toolbar: Add description (Kirsten Menger-Anderson)
 * Widget: Add `#supportsSimpleLabel` static property to control <label> usage (Bartosz Dziewoński)
 * Window: Clear margins for actions in horizontal/vertical groups (Ed Sanders)
-* `OOUI\Element::mixins`: Improve doc comment (Kunal Mehta)
-* `OOUI\Tag`: Add basic phpunit tests (Kunal Mehta)
 * `OOUI\Tag`: Avoid 'Potentially unsafe "href" attribute value' exceptions for relative URLs (Bartosz Dziewoński)
 
+### Styles
+* MessageDialog: Remove unintentional action button margin (Bartosz Dziewoński)
 * styles: Change gradient mixin syntax to W3C standards' syntax (Volker E)
 * styles: Remove obsolete "-ms-linear-gradient" declaration (Volker E)
 * Apex theme: Use matching 'lock' and 'unLock' icons (Bartosz Dziewoński)
 * MediaWiki and Apex themes: Force background color of <select> to white (Ed Sanders)
 * MediaWiki and Apex themes: Re-crush SVG files (James D. Forrester)
 
+### Code
+* ActionFieldLayout: Dead code removal and cleanup (Bartosz Dziewoński)
+* BarToolGroup: Add description and example (Kirsten Menger-Anderson)
+* ButtonInputWidget and TextInputWidget: Document and enforce allowed types (Bartosz Dziewoński)
+* DropdownInputWidget: Tweak documentation (Bartosz Dziewoński)
+* InputWidget#getInputElement: Mark as `@protected`, not `@private` (Bartosz Dziewoński)
+* ListToolGroup: Add description and example (Kirsten Menger-Anderson)
+* MenuToolGroup: Add description, example and mark private method (Kirsten Menger-Anderson)
+* PendingElement: Add description (Kirsten Menger-Anderson)
+* PopupTool: Add description and example (Kirsten Menger-Anderson)
+* PopupToolGroup: Add description and mark protected methods (Kirsten Menger-Anderson)
+* Tool: Add description (Kirsten Menger-Anderson)
+* ToolFactory: Add description (Kirsten Menger-Anderson)
+* ToolGroup: Add description and mark protected methods (Kirsten Menger-Anderson)
+* ToolGroupFactory: Add description (Kirsten Menger-Anderson)
+* ToolGroupTool: Add description and example (Kirsten Menger-Anderson)
+* Toolbar: Add description (Kirsten Menger-Anderson)
+* `OOUI\Element::mixins`: Improve doc comment (Kunal Mehta)
+* `OOUI\Tag`: Add basic phpunit tests (Kunal Mehta)
 * build: Update MediaWiki codesniffer to 0.2.0 (Kunal Mehta)
 * build: Updating development dependencies (James D. Forrester)
 * demo: Add 'layout' variable to the consoles (Bartosz Dziewoński)
@@ -97,10 +130,13 @@
 * test: Use -p option to phpcs instead of -v (Kunal Mehta)
 
 ## v0.11.3 / 2015-05-12
+### Features
 * BarToolGroup: Don't use "pointer" cursor for disabled tools in enabled toolgroups (Bartosz Dziewoński)
 * Tool: Support icon+label in bar tool groups (Bartosz Dziewoński)
 * ToolGroupTool: Correct opacity of disabled nested tool group handle (Bartosz Dziewoński)
 * ToolGroupTool: Synchronize inner ToolGroup disabledness state (Bartosz Dziewoński)
+
+### Styles
 * MediaWiki theme: Add a powerful default text color for tools (Trevor Parscal)
 * MediaWiki theme: Adjust quotes icon to match other icons (nirzar)
 * MediaWiki theme: Give names to some more toolbar colours (Bartosz Dziewoński)
@@ -111,33 +147,36 @@
 * MediaWiki theme: Update button specification (nirzar)
 
 ## v0.11.2 / 2015-05-11
+### Features
 * Don't select lookup items on initialize (Ed Sanders)
 * ListToolGroup, MenuToolGroup: Set accelTooltips = false (Bartosz Dziewoński)
 * PopupWidget: Add setAlignment (Moriel Schottlender)
-* SelectWidget: Mark as @abstract, which it is (Bartosz Dziewoński)
 * Simplify default action prevention in buttons and forms (Bartosz Dziewoński)
-* TabOptionWidget: Fix disabled styles to not react to hover/select (Ed Sanders)
 * TextInputWidget: Allow override of #setValidityFlag (Ed Sanders)
 * TextInputWidget: Use aria-required along with the required attribute (Prateek Saxena)
+
+### Styles
+* TabOptionWidget: Fix disabled styles to not react to hover/select (Ed Sanders)
 * Toolbar: Fix shadow styling (Bartosz Dziewoński)
-* Toolbar: Move some tweaks from demo to actual implementation (Bartosz Dziewoński)
 * Toolbar: Remove some useless code from the example (Bartosz Dziewoński)
 * Toolbar: Rework example and add 'menu' tool group example (Bartosz Dziewoński)
 * MediaWiki theme: Change highlight color for selected menu option (nirzar)
 * MediaWiki theme: Polish the toolbar design (nirzar)
 * MediaWiki theme: Remove accidentally duplicated styles for SelectWidget (Bartosz Dziewoński)
 
+### Code
+* SelectWidget: Mark as @abstract, which it is (Bartosz Dziewoński)
+* Toolbar: Move some tweaks from demo to actual implementation (Bartosz Dziewoński)
+
 ## v0.11.1 / 2015-05-04
+### Features
 * Add IndexLayout (Trevor Parscal)
-* CardLayout: Fix typo (Kirsten Menger-Anderson)
-* LabelElement: Document that label config option can take an HtmlSnippet (Roan Kattouw)
-* PopupButtonWidget: Update align config in example (Kirsten Menger-Anderson)
-* Remove GridLayout remnants (Bartosz Dziewoński)
 * SelectWidget: Add #selectItemByData method (Moriel Schottlender)
-* TabOptionWidget: Change link to card layout (Kirsten Menger-Anderson)
 * TextInputWidget: Annotate input validation with aria-invalid (Prateek Saxena)
 * TextInputWidget: Don't set 'invalid' flag on first focus, even if invalid (Bartosz Dziewoński)
 * TextInputWidget: Support 'required' config option in PHP (Bartosz Dziewoński)
+
+### Styles
 * MediaWiki theme: Add 'destructive' variant to block icon (Moriel Schottlender)
 * MediaWiki theme: Better vertical alignment of 'search' icon (Ed Sanders)
 * MediaWiki theme: Tweak 'search' icon size (Ed Sanders)
@@ -146,19 +185,33 @@
 * MediaWiki theme: radio/checkbox: Use variable for transition time and easing function (Prateek Saxena)
 * MediaWiki, Apex themes: Switch icons: clear → cancel, closeInput → clear (Bartosz Dziewoński)
 * MediaWiki, Apex themes: Switch over 'magnifyingGlass' icon to be 'search' (James D. Forrester)
+
+### Code
+* CardLayout: Fix typo (Kirsten Menger-Anderson)
+* LabelElement: Document that label config option can take an HtmlSnippet (Roan Kattouw)
+* PopupButtonWidget: Update align config in example (Kirsten Menger-Anderson)
+* Remove GridLayout remnants (Bartosz Dziewoński)
+* TabOptionWidget: Change link to card layout (Kirsten Menger-Anderson)
 * build: Add clean:doc task (Bartosz Dziewoński)
 * build: Bump grunt-jscs to latest version (James D. Forrester)
 * core: Add OO.ui.debounce() utility (Roan Kattouw)
 * demo: Add icons with variants to icons demo (Bartosz Dziewoński)
 
 ## v0.11.0 / 2015-04-29
+### Breaking changes
 * [BREAKING CHANGE] Do not set font-size: 0.8em anywhere in the library (Bartosz Dziewoński)
 
+### Deprecations
 * [DEPRECATING CHANGE] Create rtl-ready alignments in PopupWidget (Moriel Schottlender)
 
+### Features
 * MediaWiki theme: Adding variants to several icons (Moriel Schottlender)
 * TextInputWidget: Allow functions to be passed as 'validate' config option (Bartosz Dziewoński)
+
+### Styles
 * TextInputWidget: Styles for 'invalid' flag (Bartosz Dziewoński)
+
+### Code
 * Update OOjs to v1.1.7 (James D. Forrester)
 * Update jQuery from v1.11.1 to v1.11.3 (James D. Forrester)
 * build: Use jquery and oojs from npm instead of embedded lib (Timo Tijhof)
