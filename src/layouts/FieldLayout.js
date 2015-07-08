@@ -26,7 +26,7 @@
  * @param {OO.ui.Widget} fieldWidget Field widget
  * @param {Object} [config] Configuration options
  * @cfg {string} [align='left'] Alignment of the label: 'left', 'right', 'top' or 'inline'
- * @cfg {string} [help] Help text. When help text is specified, a help icon will appear
+ * @cfg {string|OO.ui.HtmlSnippet} [help] Help text. When help text is specified, a help icon will appear
  *  in the upper-right corner of the rendered field.
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
@@ -36,7 +36,8 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		fieldWidget = config.fieldWidget;
 	}
 
-	var hasInputWidget = fieldWidget.constructor.static.supportsSimpleLabel;
+	var hasInputWidget = fieldWidget.constructor.static.supportsSimpleLabel,
+		div;
 
 	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );
@@ -59,10 +60,14 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 			icon: 'info'
 		} );
 
+		div = $( '<div>' );
+		if ( config.help instanceof OO.ui.HtmlSnippet ) {
+			div.html( config.help.toString() );
+		} else {
+			div.text( config.help );
+		}
 		this.popupButtonWidget.getPopup().$body.append(
-			$( '<div>' )
-				.text( config.help )
-				.addClass( 'oo-ui-fieldLayout-help-content' )
+			div.addClass( 'oo-ui-fieldLayout-help-content' )
 		);
 		this.$help = this.popupButtonWidget.$element;
 	} else {

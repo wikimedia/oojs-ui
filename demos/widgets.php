@@ -800,6 +800,16 @@
 								'align' => 'top'
 							)
 						),
+						new OOUI\FieldLayout(
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'FieldLayout with HTML help',
+								'help' => new OOUI\HtmlSnippet( '<b>Bold text</b> is helpful!' ),
+								'align' => 'top'
+							)
+						),
 						new OOUI\ActionFieldLayout(
 							new OOUI\TextInputWidget(),
 							new OOUI\ButtonWidget( array(
