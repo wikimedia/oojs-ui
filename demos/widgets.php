@@ -619,6 +619,17 @@
 							)
 						),
 						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'multiline' => true,
+								'rows' => 15,
+								'value' => "Multiline\nMultiline"
+							) ),
+							array(
+								'label' => "TextInputWidget (multiline, rows=15)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
 							new OOUI\DropdownInputWidget( array(
 								'options' => array(
 									array(
