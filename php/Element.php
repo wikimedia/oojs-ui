@@ -247,10 +247,16 @@ class Element extends Tag {
 		};
 		array_walk_recursive( $config, $replaceElements );
 		// Set '_' last to ensure that subclasses can't accidentally step on it.
-		// Strip all namespaces from the class name
-		$exploded = explode( '\\', get_class( $this ) );
-		$config['_'] = end( $exploded );
+		$config['_'] = $this->getJavaScriptClassName();
 		return $config;
+	}
+
+	/**
+	 * The class name of the JavaScript version of this widget
+	 * @return string
+	 */
+	protected function getJavaScriptClassName() {
+		return str_replace( 'OOUI\\', 'OO.ui.', get_class( $this ) );
 	}
 
 	protected function getGeneratedAttributes() {
