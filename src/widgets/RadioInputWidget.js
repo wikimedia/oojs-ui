@@ -47,7 +47,10 @@ OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 	OO.ui.RadioInputWidget.parent.call( this, config );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-radioInputWidget' );
+	this.$element
+		.addClass( 'oo-ui-radioInputWidget' )
+		// Required for pretty styling in MediaWiki theme
+		.append( $( '<span>' ) );
 	this.setSelected( config.selected !== undefined ? config.selected : false );
 };
 
