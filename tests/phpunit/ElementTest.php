@@ -10,11 +10,11 @@ class ElementTest extends TestCase {
 		return array(
 			array(
 				new Widget( array( 'infusable' => true ) ),
-				'"_":"Widget"'
+				'"_":"OO.ui.Widget"'
 			),
 			array(
 				new \FooBarBaz\MockWidget( array( 'infusable' => true ) ),
-				'"_":"MockWidget"'
+				'"_":"foo.bar.baz.MockWidget"'
 			),
 		);
 	}
