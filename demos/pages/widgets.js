@@ -1411,6 +1411,16 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						align: 'top'
 					}
 				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						label: 'Button'
+					} ),
+					{
+						label: 'FieldLayout with HTML help',
+						help: new OO.ui.HtmlSnippet( '<b>Bold text</b> is helpful!' ),
+						align: 'top'
+					}
+				),
 				new OO.ui.ActionFieldLayout(
 					new OO.ui.TextInputWidget(),
 					new OO.ui.ButtonWidget( {

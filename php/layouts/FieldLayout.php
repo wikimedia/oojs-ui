@@ -31,14 +31,19 @@ class FieldLayout extends Layout {
 	 */
 	protected $fieldWidget;
 
-	protected $field, $body, $help;
+	/**
+	 * @var ButtonWidget|string
+	 */
+	protected $help;
+
+	protected $field, $body;
 
 	/**
 	 * @param Widget $fieldWidget Field widget
 	 * @param array $config Configuration options
 	 * @param string $config['align'] Alignment mode, either 'left', 'right', 'top' or 'inline'
 	 *   (default: 'left')
-	 * @param string $config['help'] Explanatory text shown as a '?' icon.
+	 * @param string|HtmlSnippet $config['help'] Explanatory text shown as a '?' icon.
 	 */
 	public function __construct( $fieldWidget, array $config = array() ) {
 		// Allow passing positional parameters inside the config array
