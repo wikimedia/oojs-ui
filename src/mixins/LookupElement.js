@@ -350,3 +350,25 @@ OO.ui.mixin.LookupElement.prototype.getLookupMenuOptionsFromData = function () {
 	// Stub, implemented in subclass
 	return [];
 };
+
+/**
+ * Set the read-only state of the widget.
+ *
+ * This will also disable/enable the lookups functionality.
+ *
+ * @param {boolean} readOnly Make input read-only
+ * @chainable
+ */
+OO.ui.mixin.LookupElement.prototype.setReadOnly = function ( readOnly ) {
+	// Parent method
+	// Note: Calling #setReadOnly this way assumes this is mixed into an OO.ui.TextInputWidget
+	OO.ui.TextInputWidget.prototype.setReadOnly.call( this, readOnly );
+
+	this.setLookupsDisabled( readOnly );
+	// During construction, #setReadOnly is called before the OO.ui.mixin.LookupElement constructor
+	if ( readOnly && this.lookupMenu ) {
+		this.closeLookupMenu();
+	}
+
+	return this;
+};
