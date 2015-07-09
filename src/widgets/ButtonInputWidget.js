@@ -65,6 +65,14 @@ OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.TitledElement );
 
+/* Static Properties */
+
+/**
+ * Disable generating `<label>` elements for buttons. One would very rarely need additional label
+ * for a button, and it's already a big clickable target, and it causes unexpected rendering.
+ */
+OO.ui.ButtonInputWidget.static.supportsSimpleLabel = false;
+
 /* Methods */
 
 /**

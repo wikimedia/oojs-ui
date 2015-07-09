@@ -6,6 +6,15 @@ namespace OOUI;
  * A button that is an input widget. Intended to be used within a FormLayout.
  */
 class ButtonInputWidget extends InputWidget {
+
+	/* Static properties */
+
+	/**
+	 * Disable generating `<label>` elements for buttons. One would very rarely need additional label
+	 * for a button, and it's already a big clickable target, and it causes unexpected rendering.
+	 */
+	public static $supportsSimpleLabel = false;
+
 	/* Properties */
 
 	/**
