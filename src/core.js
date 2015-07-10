@@ -304,4 +304,32 @@ OO.ui.infuse = function ( idOrNode ) {
 		return msg;
 	};
 
+	/**
+	 * @param {string} url
+	 * @return {boolean}
+	 */
+	OO.ui.isSafeUrl = function ( url ) {
+		var protocol,
+			// Keep in sync with php/Tag.php
+			whitelist = [
+				'bitcoin:', 'ftp:', 'ftps:', 'geo:', 'git:', 'gopher:', 'http:', 'https:', 'irc:', 'ircs:',
+				'magnet:', 'mailto:', 'mms:', 'news:', 'nntp:', 'redis:', 'sftp:', 'sip:', 'sips:', 'sms:', 'ssh:',
+				'svn:', 'tel:', 'telnet:', 'urn:', 'worldwind:', 'xmpp:'
+			];
+
+		if ( url.indexOf( ':' ) === -1 ) {
+			// No protocol, safe
+			return true;
+		}
+
+		protocol = url.split( ':', 1 )[0] + ':';
+		if ( !protocol.match( /^([A-za-z0-9\+\.\-])+:/ ) ) {
+			// Not a valid protocol, safe
+			return true;
+		}
+
+		// Safe if in the whitelist
+		return $.inArray( protocol, whitelist ) !== -1;
+	};
+
 } )();
