@@ -15,6 +15,18 @@ QUnit.module( 'Element', {
 	}
 } );
 
+QUnit.test( 'static.infuse', 2, function ( assert ) {
+	function infuse( data ) {
+		return OO.ui.Element.static.infuse(
+			$( '<div>' ).attr( 'data-ooui', JSON.stringify( data ) )
+		);
+	}
+	assert.ok( infuse( { _: 'OO.ui.TextInputWidget' } ) );
+	assert.throws( function () {
+		infuse( { _: 'Array' } );
+	}, Error );
+} );
+
 QUnit.test( 'static.getDocument', 10, function ( assert ) {
 	var frameDoc, frameEl, frameDiv,
 		el = this.fixture,

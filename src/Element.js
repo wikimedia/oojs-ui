@@ -121,7 +121,7 @@ OO.ui.Element.static.infuse = function ( idOrNode ) {
  */
 OO.ui.Element.static.unsafeInfuse = function ( idOrNode, top ) {
 	// look for a cached result of a previous infusion.
-	var id, $elem, data, cls, parts, obj;
+	var id, $elem, data, cls, parts, parent, obj;
 	if ( typeof idOrNode === 'string' ) {
 		id = idOrNode;
 		$elem = $( document.getElementById( id ) );
@@ -166,6 +166,23 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, top ) {
 			throw new Error( 'Unknown widget type: id: ' + id + ', class: ' + data._ );
 		}
 	}
+
+	// Verify that we're creating an OO.ui.Element instance
+	parent = cls.parent;
+
+	while ( parent !== undefined ) {
+		if ( parent === OO.ui.Element ) {
+			// Safe
+			break;
+		}
+
+		parent = parent.parent;
+	}
+
+	if ( parent !== OO.ui.Element ) {
+		throw new Error( 'Unknown widget type: id: ' + id + ', class: ' + data._ );
+	}
+
 	$elem.data( 'ooui-infused', true ); // prevent loops
 	data.id = id; // implicit
 	data = OO.copy( data, null, function deserialize( value ) {
