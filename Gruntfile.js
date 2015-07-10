@@ -368,7 +368,8 @@ module.exports = function ( grunt ) {
 			files: [
 				'<%= jshint.dev %>',
 				'<%= csslint.all %>',
-				'{demos,src}/**/*.less',
+				'src/**/*.less',
+				'php/**/*.php',
 				'.{csslintrc,jscsrc,jshintignore,jshintrc}'
 			],
 			tasks: 'quick-build'
