@@ -47,7 +47,10 @@ OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 	OO.ui.CheckboxInputWidget.parent.call( this, config );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-checkboxInputWidget' );
+	this.$element
+		.addClass( 'oo-ui-checkboxInputWidget' )
+		// Required for pretty styling in MediaWiki theme
+		.append( $( '<span>' ) );
 	this.setSelected( config.selected !== undefined ? config.selected : false );
 };
 

@@ -42,7 +42,9 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	this.$input
 		.attr( 'name', config.name )
 		.prop( 'disabled', this.isDisabled() );
-	this.$element.addClass( 'oo-ui-inputWidget' ).append( this.$input, $( '<span>' ) );
+	this.$element
+		.addClass( 'oo-ui-inputWidget' )
+		.append( this.$input );
 	this.setValue( config.value );
 };
 
