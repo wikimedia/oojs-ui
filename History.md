@@ -1,5 +1,35 @@
 # OOjs UI Release History
 
+## v0.12.0 / 2015-07-13
+### Breaking changes
+* [BREAKING CHANGE] SearchWidget: Remove deprecated event re-emission (Ed Sanders)
+
+### Features
+* Allow infusion of widgets in other namespaces (Kunal Mehta)
+* Only allow construction of classes that extend OO.ui.Element in infusion (Kunal Mehta)
+* ButtonInputWidget: Disable generating `<label>` elements (Bartosz Dziewoński)
+* FieldLayout: Support HTML help messages through HtmlSnippet (Kunal Mehta)
+* RadioSelectWidget: Improve accessibility (Bartosz Dziewoński)
+* SelectWidget: Call #chooseItem instead of #selectItem when enter is pressed (Ed Sanders)
+
+### Styles
+* MediaWiki, Apex themes: Add a 'notice' icon, same as the 'alert' indicator (James D. Forrester)
+* MediaWiki, Apex themes: Re-crush with svgo 0.5.3 (James D. Forrester)
+* PopupWidget: Use child selectors to apply rules correctly (Ed Sanders)
+* TextInputWidget: Use 'text' cursor for icon/indicator rather than 'pointer' (Bartosz Dziewoński)
+* Set Scots to use bold-b and italic-i (baud/italeec) (Ed Sanders)
+
+### Code
+* ClippableElement: Fix horizontal clipping in nested scrollable elements (Roan Kattouw)
+* ClippableElement: Only call reconsiderScrollbars() if we actually *stopped* clipping (Roan Kattouw)
+* Follow-up 3ddb3603: unbreak nesting of autosizing or labeled TextInputWidgets (Roan Kattouw)
+* InputWidget: Add additional `<span/>` only for subclasses that need it (Bartosz Dziewoński)
+* LookupElement: Disallow editing of readOnly TextInputWidgets (Bartosz Dziewoński)
+* History: Re-write into new B/D/F/S/C format and clean up (James D. Forrester)
+* build: Don't run phpcs over demos/php (Kunal Mehta)
+* build: Update development dependencies (James D. Forrester)
+* build: Update watch rules (Kunal Mehta)
+
 ## v0.11.8 / 2015-07-07
 ### Features
 * DropdownInputWidget, RadioSelectInputWidget: Consistently call `#cleanUpValue` (Bartosz Dziewoński)
