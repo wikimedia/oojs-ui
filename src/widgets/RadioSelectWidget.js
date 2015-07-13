@@ -52,7 +52,9 @@ OO.ui.RadioSelectWidget = function OoUiRadioSelectWidget( config ) {
 	} );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-radioSelectWidget' );
+	this.$element
+		.addClass( 'oo-ui-radioSelectWidget' )
+		.attr( 'role', 'radiogroup' );
 };
 
 /* Setup */

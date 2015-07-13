@@ -25,8 +25,13 @@ OO.ui.RadioOptionWidget = function OoUiRadioOptionWidget( config ) {
 	this.radio.$input.on( 'focus', this.onInputFocus.bind( this ) );
 
 	// Initialization
+	// Remove implicit role, we're handling it ourselves
+	this.radio.$input.attr( 'role', 'presentation' );
 	this.$element
 		.addClass( 'oo-ui-radioOptionWidget' )
+		.attr( 'role', 'radio' )
+		.attr( 'aria-checked', 'false' )
+		.removeAttr( 'aria-selected' )
 		.prepend( this.radio.$element );
 };
 
@@ -62,6 +67,9 @@ OO.ui.RadioOptionWidget.prototype.setSelected = function ( state ) {
 	OO.ui.RadioOptionWidget.parent.prototype.setSelected.call( this, state );
 
 	this.radio.setSelected( state );
+	this.$element
+		.attr( 'aria-checked', state.toString() )
+		.removeAttr( 'aria-selected' );
 
 	return this;
 };
