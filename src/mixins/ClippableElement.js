@@ -192,7 +192,7 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	}
 
 	// If we stopped clipping in at least one of the dimensions
-	if ( !clipWidth || !clipHeight ) {
+	if ( ( this.clippedHorizontally && !clipWidth ) || ( this.clippedVertically && !clipHeight ) ) {
 		OO.ui.Element.static.reconsiderScrollbars( this.$clippable[ 0 ] );
 	}
 
