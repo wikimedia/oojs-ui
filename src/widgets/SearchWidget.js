@@ -40,10 +40,6 @@ OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
 		change: 'onQueryChange',
 		enter: 'onQueryEnter'
 	} );
-	this.results.connect( this, {
-		highlight: 'onResultsHighlight',
-		select: 'onResultsSelect'
-	} );
 	this.query.$input.on( 'keydown', this.onQueryKeydown.bind( this ) );
 
 	// Initialization
@@ -61,28 +57,6 @@ OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.SearchWidget, OO.ui.Widget );
-
-/* Events */
-
-/**
- * A 'highlight' event is emitted when an item is highlighted. The highlight indicates which
- * item will be selected. When a user mouses over a menu item, it is highlighted. If a search
- * string is typed into the query field instead, the first menu item that matches the query
- * will be highlighted.
-
- * @event highlight
- * @deprecated Connect straight to getResults() events instead
- * @param {Object|null} item Item data or null if no item is highlighted
- */
-
-/**
- * A 'select' event is emitted when an item is selected. A menu item is selected when it is clicked,
- * or when a user types a search query, a menu result is highlighted, and the user presses enter.
- *
- * @event select
- * @deprecated Connect straight to getResults() events instead
- * @param {Object|null} item Item data or null if no item is selected
- */
 
 /* Methods */
 
@@ -131,30 +105,6 @@ OO.ui.SearchWidget.prototype.onQueryChange = function () {
 OO.ui.SearchWidget.prototype.onQueryEnter = function () {
 	// Reset
 	this.results.selectItem( this.results.getHighlightedItem() );
-};
-
-/**
- * Handle select widget highlight events.
- *
- * @private
- * @deprecated Connect straight to getResults() events instead
- * @param {OO.ui.OptionWidget} item Highlighted item
- * @fires highlight
- */
-OO.ui.SearchWidget.prototype.onResultsHighlight = function ( item ) {
-	this.emit( 'highlight', item ? item.getData() : null );
-};
-
-/**
- * Handle select widget select events.
- *
- * @private
- * @deprecated Connect straight to getResults() events instead
- * @param {OO.ui.OptionWidget} item Selected item
- * @fires select
- */
-OO.ui.SearchWidget.prototype.onResultsSelect = function ( item ) {
-	this.emit( 'select', item ? item.getData() : null );
 };
 
 /**
