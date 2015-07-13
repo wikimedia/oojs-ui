@@ -311,7 +311,7 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
 		};
 
 		// Create a fake parent and observe it
-		fakeParentNode = $( '<div>' ).append( this.$element )[0];
+		fakeParentNode = $( '<div>' ).append( topmostNode )[0];
 		mutationObserver.observe( fakeParentNode, { childList: true } );
 	} else {
 		// Using the DOMNodeInsertedIntoDocument event is much nicer and less magical, and works for
