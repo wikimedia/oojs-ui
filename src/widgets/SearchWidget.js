@@ -97,14 +97,14 @@ OO.ui.SearchWidget.prototype.onQueryChange = function () {
 /**
  * Handle select widget enter key events.
  *
- * Selects highlighted item.
+ * Chooses highlighted item.
  *
  * @private
  * @param {string} value New value
  */
 OO.ui.SearchWidget.prototype.onQueryEnter = function () {
 	// Reset
-	this.results.selectItem( this.results.getHighlightedItem() );
+	this.results.chooseItem( this.results.getHighlightedItem() );
 };
 
 /**
