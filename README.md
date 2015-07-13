@@ -61,7 +61,13 @@ $ npm install && composer update && npm test
 # the commit is merged.
 
 # Update release notes
-# Copy the resulting list into a new section on History.md
+# Copy the resulting list into a new section at the top of History.md and edit
+# into five sub-sections, in order:
+# * Breaking changes
+# * Deprecations
+# * Features
+# * Styles
+# * Code
 $ git log --format='* %s (%aN)' --no-merges --reverse v$(node -e 'console.log(require("./package.json").version);')...HEAD | grep -v "Localisation updates from" | sort
 $ edit History.md
 
