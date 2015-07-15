@@ -63,7 +63,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
-	OO.ui.mixin.PendingElement.call( this, config );
+	OO.ui.mixin.PendingElement.call( this, $.extend( {}, config, { $pending: this.$input } ) );
 	OO.ui.mixin.LabelElement.call( this, config );
 
 	// Properties

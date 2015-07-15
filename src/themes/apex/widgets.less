@@ -344,6 +344,10 @@
 		box-shadow: 0 0 0 white, inset 0 0.1em 0.2em #ddd;
 		border-radius: 0.25em;
 		.oo-ui-transition(border-color 200ms, box-shadow 200ms);
+
+		&.oo-ui-pendingElement-pending {
+			background-color: transparent;
+		}
 	}
 
 	&-decorated {
@@ -393,14 +397,6 @@
 		.oo-ui-labelElement-label {
 			color: #ddd;
 			text-shadow: 0 1px 1px #fff;
-		}
-	}
-
-	&.oo-ui-pendingElement-pending {
-		input,
-		textarea {
-			background-color: transparent;
-			.oo-ui-background-image('@{oo-ui-default-image-path}/textures/pending.gif');
 		}
 	}
 
