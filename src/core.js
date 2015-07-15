@@ -70,11 +70,12 @@ OO.ui.isFocusableElement = function ( $element ) {
 			!$element.parents().addBack().filter( function () {
 				return $.css( this, 'visibility' ) === 'hidden';
 			} ).length
-		);
+		),
+		isTabOk = isNaN( $element.attr( 'tabindex' ) ) || +$element.attr( 'tabindex' ) >= 0;
 
 	return (
 		( isInElementGroup ? !node.disabled : isOtherElement ) &&
-		isVisible
+		isVisible && isTabOk
 	);
 };
 

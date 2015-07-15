@@ -391,7 +391,7 @@ OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
 		this.keyPressBuffer += c;
 	}
 
-	filter = this.getItemMatcher( this.keyPressBuffer );
+	filter = this.getItemMatcher( this.keyPressBuffer, false );
 	if ( !item || !filter( item ) ) {
 		item = this.getRelativeSelectableItem( item, 1, filter );
 	}
@@ -412,15 +412,21 @@ OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
  *
  * @protected
  * @param {string} s String to match against items
+ * @param {boolean} [exact=false] Only accept exact matches
  * @return {Function} function ( OO.ui.OptionItem ) => boolean
  */
-OO.ui.SelectWidget.prototype.getItemMatcher = function ( s ) {
+OO.ui.SelectWidget.prototype.getItemMatcher = function ( s, exact ) {
 	var re;
 
 	if ( s.normalize ) {
 		s = s.normalize();
 	}
-	re = new RegExp( '^\\s*' + s.replace( /([\\{}()|.?*+\-\^$\[\]])/g, '\\$1' ).replace( /\s+/g, '\\s+' ), 'i' );
+	s = exact ? s.trim() : s.replace( /^\s+/, '' );
+	re = '^\\s*' + s.replace( /([\\{}()|.?*+\-\^$\[\]])/g, '\\$1' ).replace( /\s+/g, '\\s+' );
+	if ( exact ) {
+		re += '\\s*$';
+	}
+	re = new RegExp( re, 'i' );
 	return function ( item ) {
 		var l = item.getLabel();
 		if ( typeof l !== 'string' ) {
@@ -555,6 +561,62 @@ OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
 	}
 
 	return this;
+};
+
+/**
+ * Fetch an item by its label.
+ *
+ * @param {string} label Label of the item to select.
+ * @param {boolean} [prefix=false] Allow a prefix match, if only a single item matches
+ * @return {OO.ui.Element|null} Item with equivalent label, `null` if none exists
+ */
+OO.ui.SelectWidget.prototype.getItemFromLabel = function ( label, prefix ) {
+	var i, item, found,
+		len = this.items.length,
+		filter = this.getItemMatcher( label, true );
+
+	for ( i = 0; i < len; i++ ) {
+		item = this.items[i];
+		if ( item instanceof OO.ui.OptionWidget && item.isSelectable() && filter( item ) ) {
+			return item;
+		}
+	}
+
+	if ( prefix ) {
+		found = null;
+		filter = this.getItemMatcher( label, false );
+		for ( i = 0; i < len; i++ ) {
+			item = this.items[i];
+			if ( item instanceof OO.ui.OptionWidget && item.isSelectable() && filter( item ) ) {
+				if ( found ) {
+					return null;
+				}
+				found = item;
+			}
+		}
+		if ( found ) {
+			return found;
+		}
+	}
+
+	return null;
+};
+
+/**
+ * Programmatically select an option by its label. If the item does not exist,
+ * all options will be deselected.
+ *
+ * @param {string} [label] Label of the item to select.
+ * @param {boolean} [prefix=false] Allow a prefix match, if only a single item matches
+ * @fires select
+ * @chainable
+ */
+OO.ui.SelectWidget.prototype.selectItemByLabel = function ( label, prefix ) {
+	var itemFromLabel = this.getItemFromLabel( label, !!prefix );
+	if ( label === undefined || !itemFromLabel ) {
+		return this.selectItem();
+	}
+	return this.selectItem( itemFromLabel );
 };
 
 /**

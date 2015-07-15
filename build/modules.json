@@ -73,6 +73,8 @@
 				"src/widgets/ActionWidget.js",
 				"src/widgets/PopupButtonWidget.js",
 				"src/widgets/ToggleButtonWidget.js",
+			"src/widgets/CapsuleMultiSelectWidget.js",
+			"src/widgets/CapsuleItemWidget.js",
 			"src/widgets/DropdownWidget.js",
 			"src/widgets/SelectFileWidget.js",
 			"src/widgets/IconWidget.js",

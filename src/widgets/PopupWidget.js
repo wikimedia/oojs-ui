@@ -81,6 +81,10 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 
 	// Events
 	this.closeButton.connect( this, { click: 'onCloseButtonClick' } );
+	this.$element.on( 'focusout', this.onFocusOut.bind( this ) );
+	if ( this.$autoCloseIgnore ) {
+		this.$autoCloseIgnore.on( 'focusout', this.onFocusOut.bind( this ) );
+	}
 
 	// Initialization
 	this.toggleAnchor( config.anchor === undefined || config.anchor );
@@ -120,6 +124,26 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.ClippableElement );
 
 /* Methods */
+
+/**
+ * Handles focus out events.
+ *
+ * @private
+ * @param {Event} e Focus out event
+ */
+OO.ui.PopupWidget.prototype.onFocusOut = function () {
+	var widget = this;
+
+	setTimeout( function () {
+		if (
+			widget.isVisible() &&
+			!OO.ui.contains( widget.$element, document.activeElement, true ) &&
+			( !widget.$autoCloseIgnore || !widget.$autoCloseIgnore.has( document.activeElement ).length )
+		) {
+			widget.toggle( false );
+		}
+	} );
+};
 
 /**
  * Handles mouse down events.
