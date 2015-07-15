@@ -20,6 +20,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-file-exists' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
+	grunt.loadNpmTasks( 'grunt-tyops' );
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadTasks( 'build/tasks' );
@@ -109,7 +110,7 @@ module.exports = function ( grunt ) {
 		fileExists: {
 			src: requiredFiles
 		},
-		typos: {
+		tyops: {
 			options: {
 				typos: 'build/typos.json'
 			},
@@ -407,7 +408,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
 	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
 	grunt.registerTask( 'build', [
-		'clean:build', 'fileExists', 'typos', 'build-code', 'build-styling', 'build-i18n',
+		'clean:build', 'fileExists', 'tyops', 'build-code', 'build-styling', 'build-i18n',
 		'clean:tmp', 'demos'
 	] );
 
@@ -415,7 +416,7 @@ module.exports = function ( grunt ) {
 
 	// Quickly build a no-frills vector-only ltr-only version for development
 	grunt.registerTask( 'quick-build', [
-		'pre-git-build', 'clean:build', 'fileExists', 'typos',
+		'pre-git-build', 'clean:build', 'fileExists', 'tyops',
 		'concat:js',
 		'colorizeSvg', 'less:distVector', 'concat:css',
 		'copy:imagesCommon', 'copy:imagesApex', 'copy:imagesMediaWiki',
