@@ -189,6 +189,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 		},
 		indicators = [
 			'alert',
+			'clear',
 			'down',
 			'next',
 			'previous',
