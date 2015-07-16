@@ -103,6 +103,7 @@ module.exports = function ( grunt ) {
 		// Build
 		clean: {
 			build: 'dist/*',
+			demos: 'demos/{composer.json,composer.lock,node_modules,dist,php,vendor}',
 			doc: 'docs/*',
 			tmp: 'dist/tmp'
 		},
@@ -424,7 +425,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'lint', 'git-build', 'build-tests', 'karma:main', 'karma:other' ] );
-	grunt.registerTask( 'demos', [ 'copy:demos', 'exec:demos' ] );
+	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
 
 	grunt.registerTask( 'default', 'test' );
 };
