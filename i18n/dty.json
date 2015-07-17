@@ -13,5 +13,6 @@
 	"ooui-dialog-message-accept": "हुन्छ",
 	"ooui-dialog-message-reject": "रद्द",
 	"ooui-dialog-process-dismiss": "खारेज गद्दे",
-	"ooui-dialog-process-retry": "दोसरया प्रयास गर"
+	"ooui-dialog-process-retry": "दोसरया प्रयास गर",
+	"ooui-dialog-process-continue": "जारी राख्या"
 }
