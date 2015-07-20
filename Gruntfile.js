@@ -105,6 +105,7 @@ module.exports = function ( grunt ) {
 		clean: {
 			build: 'dist/*',
 			demos: 'demos/{composer.json,composer.lock,node_modules,dist,php,vendor}',
+			tests: 'tests/{JSPHP-suite.json,JSPHP.test.js}',
 			doc: 'docs/*',
 			tmp: 'dist/tmp'
 		},
