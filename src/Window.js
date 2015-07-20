@@ -271,7 +271,7 @@ OO.ui.Window.prototype.getBodyHeight = function () {
  * @return {string} Directionality: `'ltr'` or `'rtl'`
  */
 OO.ui.Window.prototype.getDir = function () {
-	return this.dir;
+	return OO.ui.Element.static.getDir( this.$content ) || 'ltr';
 };
 
 /**
@@ -466,7 +466,6 @@ OO.ui.Window.prototype.initialize = function () {
 	this.$head = $( '<div>' );
 	this.$body = $( '<div>' );
 	this.$foot = $( '<div>' );
-	this.dir = OO.ui.Element.static.getDir( this.$content ) || 'ltr';
 	this.$document = $( this.getElementDocument() );
 
 	// Events
