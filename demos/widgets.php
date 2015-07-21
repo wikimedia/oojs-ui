@@ -573,11 +573,10 @@
 						),
 						new OOUI\FieldLayout(
 							new OOUI\TextInputWidget( array(
-								'indicator' => 'required',
 								'required' => true
 							) ),
 							array(
-								'label' => "TextInputWidget (indicator, required)\xE2\x80\x8E",
+								'label' => "TextInputWidget (required)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),

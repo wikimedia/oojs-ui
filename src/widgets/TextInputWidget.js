@@ -47,7 +47,7 @@
  *  Defaults to the maximum of `10` and `2 * rows`, or `10` if `rows` isn't provided.
  * @cfg {string} [labelPosition='after'] The position of the inline label relative to that of
  *  the value or placeholder text: `'before'` or `'after'`
- * @cfg {boolean} [required=false] Mark the field as required
+ * @cfg {boolean} [required=false] Mark the field as required. Implies `indicator: 'required'`.
  * @cfg {boolean} [autocomplete=true] Should the browser support autocomplete for this field
  * @cfg {RegExp|Function|string} [validate] Validation pattern: when string, a symbolic name of a
  *  pattern defined by the class: 'non-empty' (the value cannot be an empty string) or 'integer'
@@ -66,6 +66,11 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 			config.icon = 'search';
 		}
 		// indicator: 'clear' is set dynamically later, depending on value
+	}
+	if ( config.required ) {
+		if ( config.indicator === undefined ) {
+			config.indicator = 'required';
+		}
 	}
 
 	// Parent constructor
