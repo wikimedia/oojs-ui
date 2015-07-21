@@ -11,12 +11,7 @@
     "type": "git",
     "url": "https://git.wikimedia.org/git/oojs/ui.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://oojs.mit-license.org"
-    }
-  ],
+  "license": "MIT",
   "scripts": {
     "test": "grunt test",
     "predoc": "grunt build",
