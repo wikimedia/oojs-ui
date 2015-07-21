@@ -50,7 +50,7 @@ OO.ui.MessageDialog = function OoUiMessageDialog( config ) {
 	this.$element.addClass( 'oo-ui-messageDialog' );
 };
 
-/* Inheritance */
+/* Setup */
 
 OO.inheritClass( OO.ui.MessageDialog, OO.ui.Dialog );
 

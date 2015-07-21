@@ -110,7 +110,7 @@ OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.PendingElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.TabIndexedElement );
 
-/* Static properties */
+/* Static Properties */
 
 /**
  * Check if this widget is supported

@@ -7,7 +7,7 @@ namespace OOUI;
  */
 class ButtonInputWidget extends InputWidget {
 
-	/* Static properties */
+	/* Static Properties */
 
 	/**
 	 * Disable generating `<label>` elements for buttons. One would very rarely need additional label

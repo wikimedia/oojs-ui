@@ -9,7 +9,7 @@ namespace OOUI;
  */
 class Element extends Tag {
 
-	/* Static properties */
+	/* Static Properties */
 
 	/**
 	 * HTML tag name.
@@ -29,7 +29,7 @@ class Element extends Tag {
 	 */
 	public static $defaultDir = 'ltr';
 
-	/* Members */
+	/* Properties */
 
 	/**
 	 * Element data.

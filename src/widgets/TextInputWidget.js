@@ -136,7 +136,7 @@ OO.mixinClass( OO.ui.TextInputWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.mixin.PendingElement );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.mixin.LabelElement );
 
-/* Static properties */
+/* Static Properties */
 
 OO.ui.TextInputWidget.static.validationPatterns = {
 	'non-empty': /.+/,

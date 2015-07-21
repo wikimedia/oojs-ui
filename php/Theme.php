@@ -9,7 +9,7 @@ namespace OOUI;
  */
 abstract class Theme {
 
-	/* Members */
+	/* Properties */
 
 	private static $singleton;
 

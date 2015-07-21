@@ -5,7 +5,7 @@ var infuseButton;
 
 // Helper function to get high resolution profiling data, where available.
 function now() {
-	/* global performance */
+	/*global performance */
 	return ( typeof performance !== 'undefined' ) ? performance.now() :
 		Date.now ? Date.now() : new Date().getTime();
 }
