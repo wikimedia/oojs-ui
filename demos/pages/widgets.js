@@ -805,6 +805,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( { type: 'search' } ),
+					{
+						label: 'TextInputWidget (type=search)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
 						value: 'Readonly',
 						readOnly: true
