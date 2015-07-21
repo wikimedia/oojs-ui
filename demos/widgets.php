@@ -589,6 +589,13 @@
 							)
 						),
 						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array( 'type' => 'search' ) ),
+							array(
+								'label' => "TextInputWidget (type=search)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
 							new OOUI\TextInputWidget( array(
 								'value' => 'Readonly',
 								'readOnly' => true

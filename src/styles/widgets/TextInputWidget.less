@@ -14,6 +14,28 @@
 		.oo-ui-box-sizing(border-box);
 	}
 
+	// Remove default styling for <input type=search />, especially the built-in "clear" button
+	input[type="search"] {
+		// Safari
+		-webkit-appearance: none;
+
+		// Internet Explorer
+		&::-ms-clear {
+			display: none;
+		}
+		&::-ms-reveal {
+			display: none;
+		}
+
+		// Chrome
+		&::-webkit-search-decoration,
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration {
+			display: none;
+		}
+	}
+
 	> .oo-ui-iconElement-icon,
 	> .oo-ui-indicatorElement-indicator,
 	> .oo-ui-labelElement-label {
@@ -35,6 +57,12 @@
 		> .oo-ui-iconElement-icon,
 		> .oo-ui-indicatorElement-indicator {
 			cursor: text;
+		}
+	}
+
+	&.oo-ui-widget-enabled.oo-ui-textInputWidget-type-search {
+		> .oo-ui-indicatorElement-indicator {
+			cursor: pointer;
 		}
 	}
 
