@@ -45,7 +45,8 @@ class TextInputWidget extends InputWidget {
 	 * @param number $config['maxLength'] Maximum allowed number of characters to input
 	 * @param boolean $config['multiline'] Allow multiple lines of text (default: false)
 	 * @param int $config['rows'] If multiline, number of visible lines in textarea
-	 * @param boolean $config['required'] Mark the field as required (default: false)
+	 * @param boolean $config['required'] Mark the field as required.
+	 *   Implies `indicator: 'required'`. (default: false)
 	 * @param boolean $config['autocomplete'] If the field should support autocomplete
 	 *   or not (default: true)
 	 */
@@ -61,6 +62,11 @@ class TextInputWidget extends InputWidget {
 		if ( $config['type'] === 'search' ) {
 			if ( !array_key_exists( 'icon', $config ) ) {
 				$config['icon'] = 'search';
+			}
+		}
+		if ( $config['required'] ) {
+			if ( !array_key_exists( 'indicator', $config ) ) {
+				$config['indicator'] = 'required';
 			}
 		}
 
