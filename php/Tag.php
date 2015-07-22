@@ -4,7 +4,7 @@ namespace OOUI;
 
 class Tag {
 
-	/* Members */
+	/* Properties */
 
 	/**
 	 * Tag name for this instance.

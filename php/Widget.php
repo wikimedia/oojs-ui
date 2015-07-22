@@ -9,7 +9,7 @@ namespace OOUI;
  */
 class Widget extends Element {
 
-	/* Static properties */
+	/* Static Properties */
 
 	/**
 	 * Whether this widget will behave reasonably when wrapped in a HTML `<label>`. If this is true,
