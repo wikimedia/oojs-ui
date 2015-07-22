@@ -26,7 +26,7 @@ module.exports = function ( grunt ) {
 	grunt.loadTasks( 'build/tasks' );
 
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
-		pgk = grunt.file.readJSON( 'package.json' ),
+		pkg = grunt.file.readJSON( 'package.json' ),
 		lessFiles = {
 			raster: {},
 			vector: {},
@@ -99,7 +99,7 @@ module.exports = function ( grunt ) {
 	}
 
 	grunt.initConfig( {
-		pkg: pgk,
+		pkg: pkg,
 
 		// Build
 		clean: {
@@ -239,7 +239,7 @@ module.exports = function ( grunt ) {
 			},
 			jsduck: {
 				// Don't publish devDependencies
-				src: '{dist,node_modules/{' + Object.keys( pgk.dependencies ).join( ',' ) + '}}/**/*',
+				src: '{dist,node_modules/{' + Object.keys( pkg.dependencies ).join( ',' ) + '}}/**/*',
 				dest: 'docs/',
 				expand: true
 			},
@@ -396,7 +396,7 @@ module.exports = function ( grunt ) {
 				return;
 			}
 			grunt.config.set( 'pkg.version', grunt.config( 'pkg.version' ) + '-pre (' + stout.slice( 0, 10 ) + ')' );
-			grunt.verbose.writeln( 'Added git HEAD to pgk.version' );
+			grunt.verbose.writeln( 'Added git HEAD to pkg.version' );
 			done();
 		} );
 	} );
