@@ -1,5 +1,27 @@
 # OOjs UI Release History
 
+## v0.12.1 / 2015-07-22
+
+### Features
+* PendingElement: Make this actually useful (Roan Kattouw)
+* TextInputWidget: Handle required: true better (Bartosz Dziewoński)
+* TextInputWidget: Handle type: 'search' better (Bartosz Dziewoński)
+
+### Styles
+* PanelLayout: Add some vertical margin when 'padded' and 'framed' (Bartosz Dziewoński)
+* MediaWiki, Apex themes: Add 'clear' indicator (Bartosz Dziewoński)
+* MediaWiki theme: Align colour of toolbar and dropdown buttons (Prateek Saxena)
+
+### Code
+* Window: Compute directionality only when needed (Roan Kattouw)
+* Standardise some common comments (Bartosz Dziewoński)
+* build: Add clean:demos task (Bartosz Dziewoński)
+* build: Add clean:tests task (Bartosz Dziewoński)
+* build: Have copyright header reference "OOjs UI" team (Kunal Mehta)
+* build: Use new grunt-tyops package rather than local original (James D. Forrester)
+* Gruntfile: Fix 'pgk' to 'pkg' and add to typos list (James D. Forrester)
+* package.json: Use proper SPDX license notation (Derk-Jan Hartman)
+
 ## v0.12.0 / 2015-07-13
 ### Breaking changes
 * [BREAKING CHANGE] SearchWidget: Remove deprecated event re-emission (Ed Sanders)
