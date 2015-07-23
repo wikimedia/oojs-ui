@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "jquery": "1.11.3",
-    "oojs": "1.1.7"
+    "oojs": "1.1.8"
   },
   "devDependencies": {
     "grunt": "0.4.5",
