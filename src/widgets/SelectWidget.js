@@ -32,7 +32,7 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.GroupElement
+ * @mixins OO.ui.mixin.GroupWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
