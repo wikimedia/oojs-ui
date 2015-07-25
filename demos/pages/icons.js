@@ -178,7 +178,15 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'stripeSummary',
 				'stripeToC',
 				'viewCompact',
-				'viewDetails',
+				'viewDetails'
+			],
+			accessibility: [
+				'bright',
+				'halfBright',
+				'notBright',
+				'moon',
+				'largerText',
+				'smallerText',
 				'visionSimulator'
 			],
 			wikimedia: [
