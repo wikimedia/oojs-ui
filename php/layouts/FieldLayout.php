@@ -32,17 +32,34 @@ class FieldLayout extends Layout {
 	protected $fieldWidget;
 
 	/**
+	 * Error messages.
+	 *
+	 * @var array
+	 */
+	protected $errors;
+
+	/**
+	 * Notice messages.
+	 *
+	 * @var array
+	 */
+	protected $notices;
+
+	/**
 	 * @var ButtonWidget|string
 	 */
 	protected $help;
 
-	protected $field, $body;
+	protected $field, $body, $messages;
 
 	/**
 	 * @param Widget $fieldWidget Field widget
 	 * @param array $config Configuration options
 	 * @param string $config['align'] Alignment mode, either 'left', 'right', 'top' or 'inline'
 	 *   (default: 'left')
+	 * @param array $config['errors'] Error messages about the widget, as strings or HtmlSnippet
+	 *   instances.
+	 * @param array $config['notices'] Notices about the widget, as strings or HtmlSnippet instances.
 	 * @param string|HtmlSnippet $config['help'] Explanatory text shown as a '?' icon.
 	 */
 	public function __construct( $fieldWidget, array $config = array() ) {
@@ -62,7 +79,10 @@ class FieldLayout extends Layout {
 
 		// Properties
 		$this->fieldWidget = $fieldWidget;
+		$this->errors = isset( $config['errors'] ) ? $config['errors'] : array();
+		$this->notices = isset( $config['notices'] ) ? $config['notices'] : array();
 		$this->field = new Tag( 'div' );
+		$this->messages = new Tag( 'ul' );
 		$this->body = new Tag( $hasInputWidget ? 'label' : 'div' );
 		if ( isset( $config['help'] ) ) {
 			$this->help = new ButtonWidget( array(
@@ -82,13 +102,45 @@ class FieldLayout extends Layout {
 		$this
 			->addClasses( array( 'oo-ui-fieldLayout' ) )
 			->appendContent( $this->help, $this->body );
+		if ( count( $this->errors ) || count( $this->notices ) ) {
+			$this->appendContent( $this->messages );
+		}
 		$this->body->addClasses( array( 'oo-ui-fieldLayout-body' ) );
+		$this->messages->addClasses( array( 'oo-ui-fieldLayout-messages' ) );
 		$this->field
 			->addClasses( array( 'oo-ui-fieldLayout-field' ) )
 			->toggleClasses( array( 'oo-ui-fieldLayout-disable' ), $this->fieldWidget->isDisabled() )
 			->appendContent( $this->fieldWidget );
 
+		foreach ( $this->notices as $text ) {
+			$this->messages->appendContent( $this->makeMessage( 'notice', $text ) );
+		}
+		foreach ( $this->errors as $text ) {
+			$this->messages->appendContent( $this->makeMessage( 'error', $text ) );
+		}
+
 		$this->setAlignment( $config['align'] );
+	}
+
+	/**
+	 * @param string $kind 'error' or 'notice'
+	 * @param string|HtmlSnippet $text
+	 * @return Tag
+	 */
+	private function makeMessage( $kind, $text ) {
+		$listItem = new Tag( 'li' );
+		if ( $kind === 'error' ) {
+			$icon = new IconWidget( array( 'icon' => 'alert', 'flags' => array( 'warning' ) ) );
+		} elseif ( $kind === 'notice' ) {
+			$icon = new IconWidget( array( 'icon' => 'info' ) );
+		} else {
+			$icon = null;
+		}
+		$message = new LabelWidget( array( 'label' => $text ) );
+		$listItem
+			->appendContent( $icon, $message )
+			->addClasses( array( "oo-ui-fieldLayout-messages-$kind" ) );
+		return $listItem;
 	}
 
 	/**
@@ -137,6 +189,8 @@ class FieldLayout extends Layout {
 	public function getConfig( &$config ) {
 		$config['fieldWidget'] = $this->fieldWidget;
 		$config['align'] = $this->align;
+		$config['errors'] = $this->errors;
+		$config['notices'] = $this->notices;
 		if ( $this->help !== '' ) {
 			$config['help'] = $this->help->getTitle();
 		}

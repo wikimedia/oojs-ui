@@ -26,8 +26,13 @@
  * @param {OO.ui.Widget} fieldWidget Field widget
  * @param {Object} [config] Configuration options
  * @cfg {string} [align='left'] Alignment of the label: 'left', 'right', 'top' or 'inline'
- * @cfg {string|OO.ui.HtmlSnippet} [help] Help text. When help text is specified, a help icon will appear
- *  in the upper-right corner of the rendered field.
+ * @cfg {Array} [errors] Error messages about the widget, which will be displayed below the widget.
+ *  The array may contain strings or OO.ui.HtmlSnippet instances.
+ * @cfg {Array} [notices] Notices about the widget, which will be displayed below the widget.
+ *  The array may contain strings or OO.ui.HtmlSnippet instances.
+ * @cfg {string|OO.ui.HtmlSnippet} [help] Help text. When help text is specified, a "help" icon will appear
+ *  in the upper-right corner of the rendered field; clicking it will display the text in a popup.
+ *  For important messages, you are advised to use `notices`, as they are always shown.
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Allow passing positional parameters inside the config object
@@ -37,7 +42,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	}
 
 	var hasInputWidget = fieldWidget.constructor.static.supportsSimpleLabel,
-		div;
+		div, i;
 
 	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );
@@ -50,7 +55,10 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 
 	// Properties
 	this.fieldWidget = fieldWidget;
+	this.errors = config.errors || [];
+	this.notices = config.notices || [];
 	this.$field = $( '<div>' );
+	this.$messages = $( '<ul>' );
 	this.$body = $( '<' + ( hasInputWidget ? 'label' : 'div' ) + '>' );
 	this.align = null;
 	if ( config.help ) {
@@ -84,11 +92,22 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.$element
 		.addClass( 'oo-ui-fieldLayout' )
 		.append( this.$help, this.$body );
+	if ( this.errors.length || this.notices.length ) {
+		this.$element.append( this.$messages );
+	}
 	this.$body.addClass( 'oo-ui-fieldLayout-body' );
+	this.$messages.addClass( 'oo-ui-fieldLayout-messages' );
 	this.$field
 		.addClass( 'oo-ui-fieldLayout-field' )
 		.toggleClass( 'oo-ui-fieldLayout-disable', this.fieldWidget.isDisabled() )
 		.append( this.fieldWidget.$element );
+
+	for ( i = 0; i < this.notices.length; i++ ) {
+		this.$messages.append( this.makeMessage( 'notice', this.notices[i] ) );
+	}
+	for ( i = 0; i < this.errors.length; i++ ) {
+		this.$messages.append( this.makeMessage( 'error', this.errors[i] ) );
+	}
 
 	this.setAlignment( config.align );
 };
@@ -128,6 +147,28 @@ OO.ui.FieldLayout.prototype.onLabelClick = function () {
  */
 OO.ui.FieldLayout.prototype.getField = function () {
 	return this.fieldWidget;
+};
+
+/**
+ * @param {string} kind 'error' or 'notice'
+ * @param {string|OO.ui.HtmlSnippet} text
+ * @return {jQuery}
+ */
+OO.ui.FieldLayout.prototype.makeMessage = function ( kind, text ) {
+	var $listItem, $icon, message;
+	$listItem = $( '<li>' );
+	if ( kind === 'error' ) {
+		$icon = new OO.ui.IconWidget( { icon: 'alert', flags: [ 'warning' ] } ).$element;
+	} else if ( kind === 'notice' ) {
+		$icon = new OO.ui.IconWidget( { icon: 'info' } ).$element;
+	} else {
+		$icon = '';
+	}
+	message = new OO.ui.LabelWidget( { label: text } );
+	$listItem
+		.append( $icon, message.$element )
+		.addClass( 'oo-ui-fieldLayout-messages-' + kind );
+	return $listItem;
 };
 
 /**

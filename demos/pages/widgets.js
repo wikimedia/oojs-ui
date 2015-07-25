@@ -1488,6 +1488,37 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						label: $( '<i>' ).text( 'ActionFieldLayout aligned top with rich text label' ),
 						align: 'top'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						value: ''
+					} ),
+					{
+						label: 'FieldLayout with notice',
+						notices: [ 'Please input a number.' ],
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						value: 'Foo'
+					} ),
+					{
+						label: 'FieldLayout with error message',
+						errors: [ 'The value must be a number.' ],
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						value: 'Foo'
+					} ),
+					{
+						label: 'FieldLayout with notice and error message',
+						notices: [ 'Please input a number.' ],
+						errors: [ 'The value must be a number.' ],
+						align: 'top'
+					}
 				)
 			]
 		} ),

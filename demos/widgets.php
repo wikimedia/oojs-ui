@@ -878,7 +878,38 @@
 									new OOUI\HtmlSnippet( '<i>ActionFieldLayout aligned top with rich text label</i>' ),
 								'align' => 'top'
 							)
-						)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'value' => ''
+							) ),
+							array(
+								'label' => 'FieldLayout with notice',
+								'notices' => array( 'Please input a number.' ),
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'value' => 'Foo'
+							) ),
+							array(
+								'label' => 'FieldLayout with error message',
+								'errors' => array( 'The value must be a number.' ),
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'value' => 'Foo'
+							) ),
+							array(
+								'label' => 'FieldLayout with notice and error message',
+								'notices' => array( 'Please input a number.' ),
+								'errors' => array( 'The value must be a number.' ),
+								'align' => 'top'
+							)
+						),
 					)
 				) ) );
 

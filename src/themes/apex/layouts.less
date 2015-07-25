@@ -70,6 +70,33 @@
 	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
 		color: #ccc;
 	}
+
+	&-messages {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		margin-top: 0.25em;
+		margin-left: 0.25em;
+
+		> li {
+			margin: 0;
+			padding: 0;
+		}
+
+		.oo-ui-iconWidget {
+			display: none;
+		}
+
+		.oo-ui-fieldLayout-messages-error {
+			color: @destructive;
+		}
+
+		.oo-ui-labelWidget {
+			padding: 0;
+			line-height: 1.875em;
+			vertical-align: middle;
+		}
+	}
 }
 
 .theme-oo-ui-actionFieldLayout () {}
