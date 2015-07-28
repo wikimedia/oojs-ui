@@ -651,7 +651,8 @@
 										'label' => 'Third'
 									)
 								),
-								'value' => 'b'
+								'value' => 'b',
+								'title' => 'Select an item'
 							) ),
 							array(
 								'label' => 'DropdownInputWidget',
@@ -813,6 +814,16 @@
 							array(
 								'label' => 'FieldLayout with HTML help',
 								'help' => new OOUI\HtmlSnippet( '<b>Bold text</b> is helpful!' ),
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'FieldLayout with title',
+								'title' => 'Field title text',
 								'align' => 'top'
 							)
 						),

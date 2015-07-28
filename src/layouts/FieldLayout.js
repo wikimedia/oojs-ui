@@ -21,6 +21,7 @@
  * @class
  * @extends OO.ui.Layout
  * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {OO.ui.Widget} fieldWidget Field widget
@@ -47,6 +48,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 
 	// Mixin constructors
 	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$label } ) );
 
 	// Properties
 	this.fieldWidget = fieldWidget;
@@ -97,6 +99,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 
 OO.inheritClass( OO.ui.FieldLayout, OO.ui.Layout );
 OO.mixinClass( OO.ui.FieldLayout, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.FieldLayout, OO.ui.mixin.TitledElement );
 
 /* Methods */
 

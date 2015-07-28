@@ -23,6 +23,10 @@ class DropdownInputWidget extends InputWidget {
 		// Parent constructor
 		parent::__construct( $config );
 
+		// Mixins
+		$this->mixin( new TitledElement( $this,
+			array_merge( $config, array( 'titled' => $this->input ) ) ) );
+
 		// Initialization
 		$this->setOptions( isset( $config['options'] ) ? $config['options'] : array() );
 		$this->addClasses( array( 'oo-ui-dropdownInputWidget' ) );
