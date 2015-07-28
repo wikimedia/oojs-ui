@@ -1,5 +1,15 @@
 # OOjs UI Release History
 
+## v0.12.2 / 2015-07-28
+
+### Styles
+* Dialog: Increase z-index of .oo-ui-dialog to 1000+ (Prateek Saxena)
+* MediaWiki theme: Create new 'accessibility' icon pack (Violetto)
+
+### Code
+* SelectWidget: Fix @mixins documentation (Roan Kattouw)
+* Update OOjs to v1.1.8 (James D. Forrester)
+
 ## v0.12.1 / 2015-07-22
 
 ### Features
