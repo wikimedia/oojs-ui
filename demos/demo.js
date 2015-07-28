@@ -124,6 +124,7 @@ OO.ui.Demo.static.themes = {
 			'-icons-location',
 			'-icons-user',
 			'-icons-layout',
+			'-icons-accessibility',
 			'-icons-wikimedia'
 		],
 		theme: OO.ui.MediaWikiTheme

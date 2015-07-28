@@ -172,6 +172,11 @@
 			"src/themes/mediawiki/core.less"
 		]
 	},
+	"oojs-ui-mediawiki-icons-accessibility": {
+		"styles": [
+			"src/themes/mediawiki/icons-accessibility.json"
+		]
+	},
 	"oojs-ui-mediawiki-icons-movement": {
 		"styles": [
 			"src/themes/mediawiki/icons-movement.json"
