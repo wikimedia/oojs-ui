@@ -1014,73 +1014,89 @@
 }
 
 .theme-oo-ui-toggleSwitchWidget () {
-	@travelDistance: 2em;
+	@travelDistance: 1.5em;
 	height: 2em;
 	width: @travelDistance + 2em;
 	border-radius: 1em;
-	border: 1px #ddd solid;
+	border: 1px #555 solid;
+	background: #fff;
+	.oo-ui-transition(background-color @quick-ease);
 
 	.oo-ui-inline-spacing(0.5em);
 
 	&-grip {
-		top: 0.25em;
-		left: 0.25em;
-		width: 1.5em;
-		height: 1.5em;
+		top: 0.5em;
+		left: 0.5em;
+		width: 1em;
+		height: 1em;
 		margin-top: -1px;
 		border-radius: 1em;
-		border: 1px #ddd solid;
-		background-color: #f7f7f7;
+		background: #555;
 
 		.oo-ui-transition(left @quick-ease, margin-left @quick-ease);
 	}
 
 	&-glow {
-		border-radius: 1em;
-		background-color: #f7f7f7;
-
-		.oo-ui-transition(background-color @quick-ease);
+		// We don't need this for any effects, we have the background on parent element
+		display: none;
 	}
 
 	&.oo-ui-toggleWidget-on {
 		.oo-ui-toggleSwitchWidget-grip {
-			left: @travelDistance + 0.25em;
+			left: @travelDistance + 0.5em;
 			margin-left: -2px;
 		}
 	}
 
 	&.oo-ui-toggleWidget-off {
-		.oo-ui-toggleSwitchWidget-glow {
-			display: block;
-		}
 		.oo-ui-toggleSwitchWidget-grip {
-			left: 0.25em;
+			left: 0.5em;
 			margin-left: 0;
 		}
 	}
 
 	&.oo-ui-widget-enabled {
-		border: 1px #ccc solid;
+		&.oo-ui-toggleWidget-on {
+			background: @progressive;
+			border-color: @progressive;
+
+			.oo-ui-toggleSwitchWidget-grip {
+				background: #fff;
+			}
+		}
+
+		&:focus {
+			outline: none;
+			border-color: @progressive;
+
+			&.oo-ui-toggleWidget-on {
+				border-color: #fff;
+				box-shadow: 0 0 0 1px @progressive;
+			}
+		}
 
 		&:hover {
-			border-color: #aaa;
+			border-color: @progressive-hover;
+			box-shadow: 0 0 0 1px @progressive-hover;
+
+			&.oo-ui-toggleWidget-on {
+				border-color: @progressive-hover;
+				background: @progressive-hover;
+				border-color: @progressive-hover;
+
+				.oo-ui-toggleSwitchWidget-grip {
+					background: #fff;
+				}
+			}
 		}
+	}
+
+	&.oo-ui-widget-disabled {
+		background: @disabled-background;
+		border-color: @disabled-background;
 
 		.oo-ui-toggleSwitchWidget-grip {
-			background-color: #fff;
-			border-color: #aaa;
-		}
-
-		&.oo-ui-toggleWidget-on {
-			.oo-ui-toggleSwitchWidget-glow {
-				background-color: @pressed-color;
-			}
-		}
-
-		&.oo-ui-toggleWidget-off {
-			.oo-ui-toggleSwitchWidget-glow {
-				background-color: #fff;
-			}
+			background: @disabled-framed-text;
 		}
 	}
 }
