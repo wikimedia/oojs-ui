@@ -31,20 +31,20 @@ QUnit.module( 'JSPHP' );
 
 				$( 'body' ).append( instance.$element, $fromPhp );
 
-				// Updating theme classes is normally debounced, we need to do it immediately
-				instance.debouncedUpdateThemeClasses();
-
 				testName = JSON.stringify( test.config );
 				assert.equalDomElement( instance.$element[ 0 ], $fromPhp[ 0 ], testName, true );
 
 				infused = OO.ui.infuse( $fromPhp[ 0 ] );
-				infused.debouncedUpdateThemeClasses();
 
 				assert.equalDomElement( instance.$element[ 0 ], infused.$element[ 0 ], testName + ' (infuse)', true );
 				instance.$element.add( infused.$element ).detach();
 			}
 		} );
 	}
+
+	// Updating theme classes is normally debounced, we need to do it immediately
+	// if we want the tests to be synchronous
+	OO.ui.Element.prototype.updateThemeClasses = OO.ui.Element.prototype.debouncedUpdateThemeClasses;
 
 	/*global testSuiteConfigs, testSuitePHPOutput */
 	for ( klassName in testSuiteConfigs ) {

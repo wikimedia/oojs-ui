@@ -100,7 +100,8 @@ OO.ui.mixin.FlaggedElement.prototype.setFlaggedElement = function ( $flagged ) {
  * @return {boolean} The flag is set
  */
 OO.ui.mixin.FlaggedElement.prototype.hasFlag = function ( flag ) {
-	return flag in this.flags;
+	// This may be called before the constructor, thus before this.flags is set
+	return this.flags && ( flag in this.flags );
 };
 
 /**
@@ -109,7 +110,8 @@ OO.ui.mixin.FlaggedElement.prototype.hasFlag = function ( flag ) {
  * @return {string[]} Flag names
  */
 OO.ui.mixin.FlaggedElement.prototype.getFlags = function () {
-	return Object.keys( this.flags );
+	// This may be called before the constructor, thus before this.flags is set
+	return Object.keys( this.flags || {} );
 };
 
 /**
