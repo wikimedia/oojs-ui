@@ -141,7 +141,9 @@ else
 		end
 	end
 
+	$stderr.puts "Generated #{tests.length} test cases."
 	tests = tests.group_by{|t| t[:class] }
 
+	$stderr.puts tests.map{|class_name, class_tests| "* #{class_name}: #{class_tests.length}" }
 	puts JSON.pretty_generate tests
 end
