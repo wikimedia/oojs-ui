@@ -15,12 +15,18 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Enabled: false
 
+# Maybe I'll rewrite the code one day. This is not a Ruby project, this just has to work.
+Style/GlobalVars:
+  Enabled: false
+
 # I like my Unicode, thankyouverymuch.
 Style/AsciiComments:
   Enabled: false
 
 # Opinions differ.
 Style/Blocks:
+  Enabled: false
+Style/NegatedIf:
   Enabled: false
 Style/Tab:
   Enabled: false
