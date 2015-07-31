@@ -73,6 +73,11 @@ OO.ui.FormLayout = function OoUiFormLayout( config ) {
 	// Events
 	this.$element.on( 'submit', this.onFormSubmit.bind( this ) );
 
+	// Make sure the action is safe
+	if ( config.action !== undefined && !OO.ui.isSafeUrl( config.action ) ) {
+		throw new Error( 'Potentially unsafe action provided: ' + config.action );
+	}
+
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-formLayout' )

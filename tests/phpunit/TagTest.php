@@ -90,6 +90,9 @@ class TagTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( $expected, $tag->toString() );
 	}
 
+	/**
+	 * @note: Keep URL protocol whitelist tests in sync with core.test.js
+	 */
 	public static function provideToString() {
 		$tests = array();
 		$tests[] = array(
@@ -133,6 +136,10 @@ class TagTest extends PHPUnit_Framework_TestCase {
 		$tests[] = array(
 			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '/relative' ) ),
 			"<a href='/relative'></a>"
+		);
+		$tests[] = array(
+			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '/wiki/Extra:Colon' ) ),
+			"<a href='/wiki/Extra:Colon'></a>"
 		);
 		return $tests;
 	}

@@ -296,6 +296,7 @@ class Tag {
 				// reasons to ever use 'javascript:' URLs anyway.
 				$protocolWhitelist = array(
 					// Sourced from MediaWiki's $wgUrlProtocols
+					// Keep in sync with OO.ui.isSafeUrl
 					'bitcoin', 'ftp', 'ftps', 'geo', 'git', 'gopher', 'http', 'https', 'irc', 'ircs',
 					'magnet', 'mailto', 'mms', 'news', 'nntp', 'redis', 'sftp', 'sip', 'sips', 'sms', 'ssh',
 					'svn', 'tel', 'telnet', 'urn', 'worldwind', 'xmpp',
