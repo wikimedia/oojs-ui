@@ -1041,7 +1041,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 								label: 'Third'
 							}
 						],
-						value: 'b'
+						value: 'b',
+						title: 'Select an item'
 					} ),
 					{
 						label: 'DropdownInputWidget',
@@ -1424,6 +1425,16 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					{
 						label: 'FieldLayout with HTML help',
 						help: new OO.ui.HtmlSnippet( '<b>Bold text</b> is helpful!' ),
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						label: 'Button'
+					} ),
+					{
+						label: 'FieldLayout with title',
+						title: 'Field title text',
 						align: 'top'
 					}
 				),

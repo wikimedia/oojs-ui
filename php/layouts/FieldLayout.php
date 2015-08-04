@@ -97,6 +97,8 @@ class FieldLayout extends Layout {
 
 		// Mixins
 		$this->mixin( new LabelElement( $this, $config ) );
+		$this->mixin( new TitledElement( $this,
+			array_merge( $config, array( 'titled' => $this->label ) ) ) );
 
 		// Initialization
 		$this
