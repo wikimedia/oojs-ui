@@ -1,0 +1,16 @@
+.css* export-ignore
+.git* export-ignore
+.js* export-ignore
+.npmignore export-ignore
+.rubocop.yml export-ignore
+.travis.yml export-ignore
+build export-ignore
+composer.json export-ignore
+doc export-ignore
+Doxyfile export-ignore
+Gruntfile.js export-ignore
+jsduck* export-ignore
+phpcs.xml export-ignore
+phpunit.xml.dist export-ignore
+src export-ignore
+tests export-ignore
