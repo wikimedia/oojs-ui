@@ -53,6 +53,7 @@
 				"src/layouts/CardLayout.js",
 				"src/layouts/PageLayout.js",
 				"src/layouts/StackLayout.js",
+			"src/layouts/HorizontalLayout.js",
 
 			"src/toolgroups/BarToolGroup.js",
 			"src/toolgroups/PopupToolGroup.js",
