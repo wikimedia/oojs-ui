@@ -16,14 +16,17 @@
  */
 OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( config ) {
 	// Configuration initialization
-	config = $.extend( { tabIndex: -1 }, config );
+	config = config || {};
 
 	// Parent constructor
 	OO.ui.ButtonOptionWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ButtonElement.call( this, config );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$button } ) );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, {
+		$tabIndexed: this.$button,
+		tabIndex: -1
+	} ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonOptionWidget' );
