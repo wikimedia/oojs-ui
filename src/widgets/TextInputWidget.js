@@ -509,6 +509,7 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
  * This method returns a promise that resolves with a boolean `true` if the current value is
  * considered valid according to the supplied {@link #validate validation pattern}.
  *
+ * @deprecated
  * @return {jQuery.Promise} A promise that resolves to a boolean `true` if the value is valid.
  */
 OO.ui.TextInputWidget.prototype.isValid = function () {
@@ -521,6 +522,50 @@ OO.ui.TextInputWidget.prototype.isValid = function () {
 		}
 	} else {
 		return $.Deferred().resolve( !!this.getValue().match( this.validate ) ).promise();
+	}
+};
+
+/**
+ * Get the validity of current value.
+ *
+ * This method returns a promise that resolves if the value is valid and rejects if
+ * it isn't. Uses the {@link #validate validation pattern}  to check for validity.
+ *
+ * @return {jQuery.Promise} A promise that resolves if the value is valid, rejects if not.
+ */
+OO.ui.TextInputWidget.prototype.getValidity = function () {
+	var result, promise;
+
+	function rejectOrResolve( valid ) {
+		if ( valid ) {
+			return $.Deferred().resolve().promise();
+		} else {
+			return $.Deferred().reject().promise();
+		}
+	}
+
+	if ( this.validate instanceof Function ) {
+		result = this.validate( this.getValue() );
+
+		if ( $.isFunction( result.promise ) ) {
+			promise = $.Deferred();
+
+			result.then( function ( valid ) {
+				if ( valid ) {
+					promise.resolve();
+				} else {
+					promise.reject();
+				}
+			}, function () {
+				promise.reject();
+			} );
+
+			return promise.promise();
+		} else {
+			return rejectOrResolve( result );
+		}
+	} else {
+		return rejectOrResolve( this.getValue().match( this.validate ) );
 	}
 };
 
