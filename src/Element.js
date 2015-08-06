@@ -131,16 +131,16 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 		$elem = $( idOrNode );
 		id = $elem.attr( 'id' );
 	}
-	data = $elem.data( 'ooui-infused' );
+	if ( !$elem.length ) {
+		throw new Error( 'Widget not found: ' + id );
+	}
+	data = $elem.data( 'ooui-infused' ) || $elem[0].oouiInfused;
 	if ( data ) {
 		// cached!
 		if ( data === true ) {
 			throw new Error( 'Circular dependency! ' + id );
 		}
 		return data;
-	}
-	if ( !$elem.length ) {
-		throw new Error( 'Widget not found: ' + id );
 	}
 	data = $elem.attr( 'data-ooui' );
 	if ( !data ) {
@@ -208,6 +208,10 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	// now replace old DOM with this new DOM.
 	if ( top ) {
 		$elem.replaceWith( obj.$element );
+		// This element is now gone from the DOM, but if anyone is holding a reference to it,
+		// let's allow them to OO.ui.infuse() it and do what they expect (T105828).
+		// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
+		$elem[0].oouiInfused = obj;
 		top.resolve();
 	}
 	obj.$element.data( 'ooui-infused', obj );
