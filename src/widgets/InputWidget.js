@@ -40,6 +40,7 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 
 	// Initialization
 	this.$input
+		.addClass( 'oo-ui-inputWidget-input' )
 		.attr( 'name', config.name )
 		.prop( 'disabled', this.isDisabled() );
 	this.$element
@@ -210,4 +211,30 @@ OO.ui.InputWidget.prototype.focus = function () {
 OO.ui.InputWidget.prototype.blur = function () {
 	this.$input[ 0 ].blur();
 	return this;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.InputWidget.prototype.gatherPreInfuseState = function ( node ) {
+	var
+		state = OO.ui.InputWidget.parent.prototype.gatherPreInfuseState.call( this, node ),
+		$input = state.$input || $( node ).find( '.oo-ui-inputWidget-input' );
+	state.value = $input.val();
+	// Might be better in TabIndexedElement, but it's awkward to do there because mixins are awkward
+	state.focus = $input.is( ':focus' );
+	return state;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.InputWidget.prototype.restorePreInfuseState = function ( state ) {
+	OO.ui.InputWidget.parent.prototype.restorePreInfuseState.call( this, state );
+	if ( state.value !== undefined && state.value !== this.getValue() ) {
+		this.setValue( state.value );
+	}
+	if ( state.focus ) {
+		this.focus();
+	}
 };

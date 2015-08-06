@@ -95,3 +95,25 @@ OO.ui.RadioInputWidget.prototype.setSelected = function ( state ) {
 OO.ui.RadioInputWidget.prototype.isSelected = function () {
 	return this.$input.prop( 'checked' );
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.RadioInputWidget.prototype.gatherPreInfuseState = function ( node ) {
+	var
+		state = OO.ui.RadioInputWidget.parent.prototype.gatherPreInfuseState.call( this, node ),
+		$input = $( node ).find( '.oo-ui-inputWidget-input' );
+	state.$input = $input; // shortcut for performance, used in InputWidget
+	state.checked = $input.prop( 'checked' );
+	return state;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.RadioInputWidget.prototype.restorePreInfuseState = function ( state ) {
+	OO.ui.RadioInputWidget.parent.prototype.restorePreInfuseState.call( this, state );
+	if ( state.checked !== undefined && state.checked !== this.isSelected() ) {
+		this.setSelected( state.checked );
+	}
+};

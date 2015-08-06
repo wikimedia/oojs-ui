@@ -111,3 +111,25 @@ OO.ui.CheckboxInputWidget.prototype.isSelected = function () {
 	}
 	return this.selected;
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.CheckboxInputWidget.prototype.gatherPreInfuseState = function ( node ) {
+	var
+		state = OO.ui.CheckboxInputWidget.parent.prototype.gatherPreInfuseState.call( this, node ),
+		$input = $( node ).find( '.oo-ui-inputWidget-input' );
+	state.$input = $input; // shortcut for performance, used in InputWidget
+	state.checked = $input.prop( 'checked' );
+	return state;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.CheckboxInputWidget.prototype.restorePreInfuseState = function ( state ) {
+	OO.ui.CheckboxInputWidget.parent.prototype.restorePreInfuseState.call( this, state );
+	if ( state.checked !== undefined && state.checked !== this.isSelected() ) {
+		this.setSelected( state.checked );
+	}
+};

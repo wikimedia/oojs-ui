@@ -610,3 +610,27 @@ OO.ui.TextInputWidget.prototype.positionLabel = function () {
 
 	return this;
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.TextInputWidget.prototype.gatherPreInfuseState = function ( node ) {
+	var
+		state = OO.ui.TextInputWidget.parent.prototype.gatherPreInfuseState.call( this, node ),
+		$input = $( node ).find( '.oo-ui-inputWidget-input' );
+	state.$input = $input; // shortcut for performance, used in InputWidget
+	if ( this.multiline ) {
+		state.scrollTop = $input.scrollTop();
+	}
+	return state;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.TextInputWidget.prototype.restorePreInfuseState = function ( state ) {
+	OO.ui.TextInputWidget.parent.prototype.restorePreInfuseState.call( this, state );
+	if ( state.scrollTop !== undefined ) {
+		this.$input.scrollTop( state.scrollTop );
+	}
+};
