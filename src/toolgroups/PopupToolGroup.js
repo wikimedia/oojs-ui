@@ -163,6 +163,7 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
  * deactivation.
  */
 OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
+	var containerWidth, containerLeft;
 	value = !!value;
 	if ( this.active !== value ) {
 		this.active = value;
@@ -170,6 +171,7 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 			this.getElementDocument().addEventListener( 'mouseup', this.onBlurHandler, true );
 			this.getElementDocument().addEventListener( 'keyup', this.onBlurHandler, true );
 
+			this.$clippable.css( 'left', '' );
 			// Try anchoring the popup to the left first
 			this.$element.addClass( 'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left' );
 			this.toggleClipping( true );
@@ -180,6 +182,19 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 					.removeClass( 'oo-ui-popupToolGroup-left' )
 					.addClass( 'oo-ui-popupToolGroup-right' );
 				this.toggleClipping( true );
+			}
+			if ( this.isClippedHorizontally() ) {
+				// Anchoring to the right also caused the popup to clip, so just make it fill the container
+				containerWidth = this.$clippableContainer.width();
+				containerLeft = this.$clippableContainer.offset().left;
+
+				this.toggleClipping( false );
+				this.$element.removeClass( 'oo-ui-popupToolGroup-right' );
+
+				this.$clippable.css( {
+					left: -( this.$element.offset().left - containerLeft ),
+					width: containerWidth
+				} );
 			}
 		} else {
 			this.getElementDocument().removeEventListener( 'mouseup', this.onBlurHandler, true );
