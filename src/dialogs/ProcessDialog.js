@@ -62,6 +62,9 @@ OO.ui.ProcessDialog = function OoUiProcessDialog( config ) {
 	// Parent constructor
 	OO.ui.ProcessDialog.parent.call( this, config );
 
+	// Properties
+	this.fitOnOpen = false;
+
 	// Initialization
 	this.$element.addClass( 'oo-ui-processDialog' );
 };
@@ -204,21 +207,47 @@ OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
 };
 
 /**
+ * @inheritdoc
+ */
+OO.ui.ProcessDialog.prototype.setDimensions = function () {
+	// Parent method
+	OO.ui.ProcessDialog.parent.prototype.setDimensions.apply( this, arguments );
+
+	this.fitLabel();
+};
+
+/**
  * Fit label between actions.
  *
  * @private
  * @chainable
  */
 OO.ui.ProcessDialog.prototype.fitLabel = function () {
-	var safeWidth, primaryWidth, biggerWidth, labelWidth, navigationWidth, leftWidth, rightWidth;
+	var safeWidth, primaryWidth, biggerWidth, labelWidth, navigationWidth, leftWidth, rightWidth,
+		size = this.getSizeProperties();
+
+	if ( typeof size.width !== 'number' ) {
+		if ( this.isOpened() ) {
+			navigationWidth = this.$head.width() - 20;
+		} else if ( this.isOpening() ) {
+			if ( !this.fitOnOpen ) {
+				// Size is relative and the dialog isn't open yet, so wait.
+				this.manager.opening.done( this.fitLabel.bind( this ) );
+				this.fitOnOpen = true;
+			}
+			return;
+		} else {
+			return;
+		}
+	} else {
+		navigationWidth = size.width - 20;
+	}
 
 	safeWidth = this.$safeActions.is( ':visible' ) ? this.$safeActions.width() : 0;
 	primaryWidth = this.$primaryActions.is( ':visible' ) ? this.$primaryActions.width() : 0;
 	biggerWidth = Math.max( safeWidth, primaryWidth );
 
 	labelWidth = this.title.$element.width();
-	// Is there a better way to calculate this?
-	navigationWidth = OO.ui.WindowManager.static.sizes[ this.getSize() ].width - 20;
 
 	if ( 2 * biggerWidth + labelWidth < navigationWidth ) {
 		// We have enough space to center the label
@@ -312,5 +341,6 @@ OO.ui.ProcessDialog.prototype.getTeardownProcess = function ( data ) {
 		.first( function () {
 			// Make sure to hide errors
 			this.hideErrors();
+			this.fitOnOpen = false;
 		}, this );
 };

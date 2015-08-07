@@ -561,20 +561,11 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 		return;
 	}
 
-	var viewport = OO.ui.Element.static.getDimensions( win.getElementWindow() ),
-		sizes = this.constructor.static.sizes,
-		size = win.getSize();
+	var isFullscreen = win.getSize() === 'full';
 
-	if ( !sizes[ size ] ) {
-		size = this.constructor.static.defaultSize;
-	}
-	if ( size !== 'full' && viewport.rect.right - viewport.rect.left < sizes[ size ].width ) {
-		size = 'full';
-	}
-
-	this.$element.toggleClass( 'oo-ui-windowManager-fullscreen', size === 'full' );
-	this.$element.toggleClass( 'oo-ui-windowManager-floating', size !== 'full' );
-	win.setDimensions( sizes[ size ] );
+	this.$element.toggleClass( 'oo-ui-windowManager-fullscreen', isFullscreen );
+	this.$element.toggleClass( 'oo-ui-windowManager-floating', !isFullscreen );
+	win.setDimensions( win.getSizeProperties() );
 
 	this.emit( 'resize', win );
 

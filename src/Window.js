@@ -185,7 +185,27 @@ OO.ui.Window.prototype.getManager = function () {
  * @return {string} Symbolic name of the size: `small`, `medium`, `large`, `larger`, `full`
  */
 OO.ui.Window.prototype.getSize = function () {
-	return this.size;
+	var viewport = OO.ui.Element.static.getDimensions( this.getElementWindow() ),
+		sizes = this.manager.constructor.static.sizes,
+		size = this.size;
+
+	if ( !sizes[ size ] ) {
+		size = this.manager.constructor.static.defaultSize;
+	}
+	if ( size !== 'full' && viewport.rect.right - viewport.rect.left < sizes[ size ].width ) {
+		size = 'full';
+	}
+
+	return size;
+};
+
+/**
+ * Get the size properties associated with the current window size
+ *
+ * @return {Object} Size properties
+ */
+OO.ui.Window.prototype.getSizeProperties = function () {
+	return this.manager.constructor.static.sizes[ this.getSize() ];
 };
 
 /**
