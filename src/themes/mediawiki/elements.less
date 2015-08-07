@@ -70,15 +70,15 @@
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mediawiki-frameless-button-colored(@progressive, @progressive-selected);
+					.mediawiki-frameless-button-colored(@progressive, @progressive-hover, @progressive-selected);
 				}
 
 				&-constructive {
-					.mediawiki-frameless-button-colored(@constructive, @constructive-selected);
+					.mediawiki-frameless-button-colored(@constructive, @constructive-hover, @constructive-selected);
 				}
 
 				&-destructive {
-					.mediawiki-frameless-button-colored(@destructive, @destructive-selected);
+					.mediawiki-frameless-button-colored(@destructive, @destructive-hover, @destructive-selected);
 				}
 			}
 		}
@@ -205,17 +205,17 @@
 	}
 }
 
-.mediawiki-frameless-button-colored( @neutral, @pressed ) {
+.mediawiki-frameless-button-colored( @neutral, @hover, @pressed ) {
 	> .oo-ui-buttonElement-button {
 		&:hover,
 		&:focus {
 			> .oo-ui-labelElement-label {
-				color: @neutral;
+				color: @hover;
 			}
 		}
 
 		> .oo-ui-labelElement-label {
-			color: #777777;
+			color: @neutral;
 		}
 	}
 
