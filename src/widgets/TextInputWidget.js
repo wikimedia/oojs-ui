@@ -499,7 +499,11 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
 	if ( isValid !== undefined ) {
 		setFlag( isValid );
 	} else {
-		this.isValid().done( setFlag );
+		this.getValidity().then( function () {
+			setFlag( true );
+		}, function () {
+			setFlag( false );
+		} );
 	}
 };
 
