@@ -39,6 +39,14 @@ class Element extends Tag {
 	protected $data = null;
 
 	/**
+	 * CSS classes explicitly configured for this element (as opposed to #$classes, which contains all
+	 * classes for this element).
+	 *
+	 * @var string[]
+	 */
+	protected $ownClasses = array();
+
+	/**
 	 * Mixins.
 	 *
 	 * @var ElementMixin[] List mixed in objects.
@@ -69,7 +77,8 @@ class Element extends Tag {
 			$this->setData( $config['data'] );
 		}
 		if ( isset( $config['classes'] ) && is_array( $config['classes'] ) ) {
-			$this->addClasses( $config['classes'] );
+			$this->ownClasses = $config['classes'];
+			$this->addClasses( $this->ownClasses );
 		}
 		if ( isset( $config['id'] ) ) {
 			$this->setAttributes( array( 'id' => $config['id'] ) );
@@ -219,6 +228,9 @@ class Element extends Tag {
 		}
 		if ( $this->data !== null ) {
 			$config['data'] = $this->data;
+		}
+		if ( $this->ownClasses !== array() ) {
+			$config['classes'] = $this->ownClasses;
 		}
 		return $config;
 	}
