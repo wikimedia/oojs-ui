@@ -27,7 +27,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 
 	function createTool( toolbar, group, name, icon, title, init, onSelect, displayBothIconAndLabel ) {
 		var Tool = function () {
-			Tool.super.apply( this, arguments );
+			Tool.parent.apply( this, arguments );
 			this.toggled = false;
 			if ( init ) {
 				init.call( this );
@@ -65,7 +65,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 
 	function createDisabledToolGroup( parent, name ) {
 		var DisabledToolGroup = function () {
-			DisabledToolGroup.super.apply( this, arguments );
+			DisabledToolGroup.parent.apply( this, arguments );
 			this.setDisabled( true );
 		};
 

@@ -12,7 +12,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		config = config || {};
 
 		// Parent constructor
-		DragDropGroupWidget.super.call( this, config );
+		DragDropGroupWidget.parent.call( this, config );
 
 		// Mixin constructors
 		OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
@@ -42,7 +42,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		config = config || {};
 
 		// Parent constructor
-		DragDropItemWidget.super.call( this, config );
+		DragDropItemWidget.parent.call( this, config );
 
 		// Mixin constructors
 		OO.ui.mixin.DraggableElement.call( this, config );

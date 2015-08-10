@@ -6,7 +6,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		windowManager = new OO.ui.WindowManager();
 
 	function SimpleDialog( config ) {
-		SimpleDialog.super.call( this, config );
+		SimpleDialog.parent.call( this, config );
 	}
 	OO.inheritClass( SimpleDialog, OO.ui.Dialog );
 	SimpleDialog.static.title = 'Simple dialog';
@@ -14,7 +14,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		var closeButton,
 			dialog = this;
 
-		SimpleDialog.super.prototype.initialize.apply( this, arguments );
+		SimpleDialog.parent.prototype.initialize.apply( this, arguments );
 		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 		this.content.$element.append( '<p>Dialog content</p>' );
 
@@ -33,7 +33,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	};
 
 	function ProcessDialog( config ) {
-		ProcessDialog.super.call( this, config );
+		ProcessDialog.parent.call( this, config );
 	}
 	OO.inheritClass( ProcessDialog, OO.ui.ProcessDialog );
 	ProcessDialog.static.title = 'Process dialog';
@@ -43,7 +43,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		{ action: 'other', label: 'Other', flags: 'other' }
 	];
 	ProcessDialog.prototype.initialize = function () {
-		ProcessDialog.super.prototype.initialize.apply( this, arguments );
+		ProcessDialog.parent.prototype.initialize.apply( this, arguments );
 		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 		this.content.$element.append( '<p>Dialog content</p>' );
 		this.$body.append( this.content.$element );
@@ -55,14 +55,14 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				dialog.close( { action: action } );
 			} );
 		}
-		return ProcessDialog.super.prototype.getActionProcess.call( this, action );
+		return ProcessDialog.parent.prototype.getActionProcess.call( this, action );
 	};
 	ProcessDialog.prototype.getBodyHeight = function () {
 		return this.content.$element.outerHeight( true );
 	};
 
 	function FramelessProcessDialog( config ) {
-		FramelessProcessDialog.super.call( this, config );
+		FramelessProcessDialog.parent.call( this, config );
 	}
 	OO.inheritClass( FramelessProcessDialog, ProcessDialog );
 	FramelessProcessDialog.static.actions = OO.copy( FramelessProcessDialog.static.actions );
@@ -71,13 +71,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	} );
 
 	function SearchWidgetDialog( config ) {
-		SearchWidgetDialog.super.call( this, config );
+		SearchWidgetDialog.parent.call( this, config );
 		this.broken = false;
 	}
 	OO.inheritClass( SearchWidgetDialog, OO.ui.ProcessDialog );
 	SearchWidgetDialog.static.title = 'Search widget dialog';
 	SearchWidgetDialog.prototype.initialize = function () {
-		SearchWidgetDialog.super.prototype.initialize.apply( this, arguments );
+		SearchWidgetDialog.parent.prototype.initialize.apply( this, arguments );
 		var i,
 			items = [],
 			searchWidget = new OO.ui.SearchWidget();
@@ -102,7 +102,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	};
 
 	function BrokenDialog( config ) {
-		BrokenDialog.super.call( this, config );
+		BrokenDialog.parent.call( this, config );
 		this.broken = false;
 	}
 	OO.inheritClass( BrokenDialog, OO.ui.ProcessDialog );
@@ -116,7 +116,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return 250;
 	};
 	BrokenDialog.prototype.initialize = function () {
-		BrokenDialog.super.prototype.initialize.apply( this, arguments );
+		BrokenDialog.parent.prototype.initialize.apply( this, arguments );
 		this.content = new OO.ui.PanelLayout( { padded: true } );
 		this.fieldset = new OO.ui.FieldsetLayout( {
 			label: 'Dialog with error handling', icon: 'alert'
@@ -130,13 +130,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		this.$body.append( this.content.$element );
 	};
 	BrokenDialog.prototype.getSetupProcess = function ( data ) {
-		return BrokenDialog.super.prototype.getSetupProcess.call( this, data )
+		return BrokenDialog.parent.prototype.getSetupProcess.call( this, data )
 			.next( function () {
 				this.broken = true;
 			}, this );
 	};
 	BrokenDialog.prototype.getActionProcess = function ( action ) {
-		return BrokenDialog.super.prototype.getActionProcess.call( this, action )
+		return BrokenDialog.parent.prototype.getActionProcess.call( this, action )
 			.next( function () {
 				return 1000;
 			}, this )
@@ -157,7 +157,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 					// Return a promise to remaing pending while closing
 					return closing;
 				}
-				return BrokenDialog.super.prototype.getActionProcess.call( this, action );
+				return BrokenDialog.parent.prototype.getActionProcess.call( this, action );
 			}, this );
 	};
 
@@ -170,7 +170,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	}
 	OO.inheritClass( SamplePage, OO.ui.PageLayout );
 	SamplePage.prototype.setupOutlineItem = function ( outlineItem ) {
-		SamplePage.super.prototype.setupOutlineItem.call( this, outlineItem );
+		SamplePage.parent.prototype.setupOutlineItem.call( this, outlineItem );
 		this.outlineItem
 			.setMovable( true )
 			.setRemovable( true )
@@ -179,7 +179,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	};
 
 	function BookletDialog( config ) {
-		BookletDialog.super.call( this, config );
+		BookletDialog.parent.call( this, config );
 	}
 	OO.inheritClass( BookletDialog, OO.ui.ProcessDialog );
 	BookletDialog.static.title = 'Booklet dialog';
@@ -191,7 +191,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return 250;
 	};
 	BookletDialog.prototype.initialize = function () {
-		BookletDialog.super.prototype.initialize.apply( this, arguments );
+		BookletDialog.parent.prototype.initialize.apply( this, arguments );
 
 		var dialog = this;
 
@@ -242,14 +242,14 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				this.close( { action: action } );
 			}, this );
 		}
-		return BookletDialog.super.prototype.getActionProcess.call( this, action );
+		return BookletDialog.parent.prototype.getActionProcess.call( this, action );
 	};
 	BookletDialog.prototype.onBookletLayoutSet = function ( page ) {
 		page.$element.append( this.navigationField.$element );
 	};
 
 	function OutlinedBookletDialog( config ) {
-		OutlinedBookletDialog.super.call( this, config );
+		OutlinedBookletDialog.parent.call( this, config );
 	}
 	OO.inheritClass( OutlinedBookletDialog, OO.ui.ProcessDialog );
 	OutlinedBookletDialog.static.title = 'Booklet dialog';
@@ -261,7 +261,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return 250;
 	};
 	OutlinedBookletDialog.prototype.initialize = function () {
-		OutlinedBookletDialog.super.prototype.initialize.apply( this, arguments );
+		OutlinedBookletDialog.parent.prototype.initialize.apply( this, arguments );
 		this.bookletLayout = new OO.ui.BookletLayout( {
 			outlined: true
 		} );
@@ -283,13 +283,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				this.close( { action: action } );
 			}, this );
 		}
-		return OutlinedBookletDialog.super.prototype.getActionProcess.call( this, action );
+		return OutlinedBookletDialog.parent.prototype.getActionProcess.call( this, action );
 	};
 	OutlinedBookletDialog.prototype.onBookletLayoutSet = function ( page ) {
 		this.setSize( page.getName() );
 	};
 	OutlinedBookletDialog.prototype.getSetupProcess = function ( data ) {
-		return OutlinedBookletDialog.super.prototype.getSetupProcess.call( this, data )
+		return OutlinedBookletDialog.parent.prototype.getSetupProcess.call( this, data )
 			.next( function () {
 				this.bookletLayout.setPage( this.getSize() );
 			}, this );
@@ -303,12 +303,12 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	}
 	OO.inheritClass( SampleCard, OO.ui.CardLayout );
 	SampleCard.prototype.setupTabItem = function ( tabItem ) {
-		SampleCard.super.prototype.setupTabItem.call( this, tabItem );
+		SampleCard.parent.prototype.setupTabItem.call( this, tabItem );
 		this.tabItem.setLabel( this.label );
 	};
 
 	function IndexedDialog( config ) {
-		IndexedDialog.super.call( this, config );
+		IndexedDialog.parent.call( this, config );
 	}
 	OO.inheritClass( IndexedDialog, OO.ui.ProcessDialog );
 	IndexedDialog.static.title = 'Index dialog';
@@ -320,7 +320,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return 250;
 	};
 	IndexedDialog.prototype.initialize = function () {
-		IndexedDialog.super.prototype.initialize.apply( this, arguments );
+		IndexedDialog.parent.prototype.initialize.apply( this, arguments );
 		this.indexLayout = new OO.ui.IndexLayout();
 		this.cards = [
 			new SampleCard( 'first', { label: 'One' } ),
@@ -340,11 +340,11 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				this.close( { action: action } );
 			}, this );
 		}
-		return IndexedDialog.super.prototype.getActionProcess.call( this, action );
+		return IndexedDialog.parent.prototype.getActionProcess.call( this, action );
 	};
 
 	function MenuDialog( config ) {
-		MenuDialog.super.call( this, config );
+		MenuDialog.parent.call( this, config );
 	}
 	OO.inheritClass( MenuDialog, OO.ui.ProcessDialog );
 	MenuDialog.static.title = 'Menu dialog';
@@ -356,7 +356,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return 350;
 	};
 	MenuDialog.prototype.initialize = function () {
-		MenuDialog.super.prototype.initialize.apply( this, arguments );
+		MenuDialog.parent.prototype.initialize.apply( this, arguments );
 		var menuLayout = new OO.ui.MenuLayout(),
 			positionField = new OO.ui.FieldLayout(
 				new OO.ui.ButtonSelectWidget( {
@@ -416,7 +416,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				this.close( { action: action } );
 			}, this );
 		}
-		return MenuDialog.super.prototype.getActionProcess.call( this, action );
+		return MenuDialog.parent.prototype.getActionProcess.call( this, action );
 	};
 
 	config = [

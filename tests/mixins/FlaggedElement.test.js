@@ -2,7 +2,7 @@
 	QUnit.module( 'FlaggedElement' );
 
 	function TestElement( config ) {
-		TestElement.super.call( this, config );
+		TestElement.parent.call( this, config );
 		OO.ui.mixin.FlaggedElement.call( this, config );
 	}
 	OO.inheritClass( TestElement, OO.ui.Widget );

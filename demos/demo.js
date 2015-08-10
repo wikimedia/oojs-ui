@@ -6,7 +6,7 @@
  */
 OO.ui.Demo = function OoUiDemo() {
 	// Parent
-	OO.ui.Demo.super.call( this );
+	OO.ui.Demo.parent.call( this );
 
 	// Normalization
 	this.normalizeHash();
