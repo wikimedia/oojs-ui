@@ -1010,6 +1010,7 @@
 
 	<!-- Demonstrate JavaScript "infusion" of PHP widgets -->
 	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="node_modules/es5-shim/es5-shim.js"></script>
 	<script src="node_modules/oojs/dist/oojs.jquery.js"></script>
 	<script src="dist/oojs-ui.js"></script>
 	<script src="dist/oojs-ui-<?php echo $theme; ?>.js"></script>

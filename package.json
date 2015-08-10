@@ -21,6 +21,7 @@
     "demos": "grunt demos"
   },
   "dependencies": {
+    "es5-shim": "4.1.10",
     "jquery": "1.11.3",
     "oojs": "1.1.9"
   },
