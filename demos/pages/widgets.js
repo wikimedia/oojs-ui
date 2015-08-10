@@ -1,5 +1,6 @@
 OO.ui.Demo.static.pages.widgets = function ( demo ) {
 	var styles, states, buttonStyleShowcaseWidget, fieldsets,
+		capsuleWithPopup, capsulePopupWidget,
 		$demo = demo.$element;
 
 	/**
@@ -112,6 +113,24 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 
 		return items;
 	};
+
+	capsulePopupWidget = new OO.ui.NumberInputWidget( {
+		isInteger: true
+	} );
+	capsulePopupWidget.connect( capsulePopupWidget, {
+		enter: function () {
+			if ( !isNaN( this.getNumericValue() ) ) {
+				capsuleWithPopup.addItemsFromData( [ this.getNumericValue() ] );
+				this.setValue( '' );
+			}
+			return false;
+		}
+	} );
+	capsulePopupWidget.$element.css( 'vertical-align', 'middle' );
+	capsuleWithPopup = new OO.ui.CapsuleMultiSelectWidget( {
+		allowArbitrary: true,
+		popup: { $content: capsulePopupWidget.$element }
+	} );
 
 	styles = [
 		{},
@@ -1066,6 +1085,89 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ComboBoxWidget(),
 					{
 						label: 'ComboBoxWidget (empty)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.CapsuleMultiSelectWidget( {
+						menu: {
+							items: [
+								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
+								new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jkl', label: 'Label for jkl' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jjj', label: 'Label for jjj' } ),
+								new OO.ui.MenuOptionWidget( { data: 'zxc', label: 'Label for zxc' } ),
+								new OO.ui.MenuOptionWidget( { data: 'vbn', label: 'Label for vbn' } )
+							]
+						}
+					} ),
+					{
+						label: 'CapsuleMultiSelectWidget',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.CapsuleMultiSelectWidget( {
+						allowArbitrary: true,
+						icon: 'tag',
+						indicator: 'required',
+						menu: {
+							items: [
+								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
+								new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jkl', label: 'Label for jkl' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jjj', label: 'Label for jjj' } ),
+								new OO.ui.MenuOptionWidget( { data: 'zxc', label: 'Label for zxc' } ),
+								new OO.ui.MenuOptionWidget( { data: 'vbn', label: 'Label for vbn' } )
+							]
+						}
+					} ),
+					{
+						label: 'CapsuleMultiSelectWidget (icon, indicator, arbitrary values allowed)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.CapsuleMultiSelectWidget( {
+						disabled: true,
+						icon: 'tag',
+						indicator: 'required',
+						values: [ 'jkl', 'zxc' ],
+						menu: {
+							items: [
+								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
+								new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jkl', label: 'Label for jkl' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jjj', label: 'Label for jjj' } ),
+								new OO.ui.MenuOptionWidget( { data: 'zxc', label: 'Label for zxc' } ),
+								new OO.ui.MenuOptionWidget( { data: 'vbn', label: 'Label for vbn' } )
+							]
+						}
+					} ),
+					{
+						label: 'CapsuleMultiSelectWidget (disabled)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.CapsuleMultiSelectWidget( {
+						menu: {
+							items: [
+								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
+								new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jkl', label: 'Label for jkl' } )
+							]
+						}
+					} ).addItemsFromData( [ 'abc', 'asd' ] ),
+					{
+						label: 'CapsuleMultiSelectWidget (initially selected)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					capsuleWithPopup,
+					{
+						label: 'CapsuleMultiSelectWidget with NumberInputWidget popup\u200E',
 						align: 'top'
 					}
 				),

@@ -28,11 +28,14 @@
  * @cfg {OO.ui.TextInputWidget} [input] Text input used to implement option highlighting for menu items that match
  *  the text the user types. This config is used by {@link OO.ui.ComboBoxWidget ComboBoxWidget}
  *  and {@link OO.ui.mixin.LookupElement LookupElement}
+ * @cfg {jQuery} [$input] Text input used to implement option highlighting for menu items that match
+ *  the text the user types. This config is used by {@link OO.ui.CapsuleMultiSelectWidget CapsuleMultiSelectWidget}
  * @cfg {OO.ui.Widget} [widget] Widget associated with the menu's active state. If the user clicks the mouse
  *  anywhere on the page outside of this widget, the menu is hidden. For example, if there is a button
  *  that toggles the menu's visibility on click, the menu will be hidden then re-shown when the user clicks
  *  that button, unless the button (or its parent widget) is passed in here.
  * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu.
+ * @cfg {boolean} [filterFromInput=false] Filter the displayed options from the input
  */
 OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	// Configuration initialization
@@ -47,9 +50,11 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	// Properties
 	this.newItems = null;
 	this.autoHide = config.autoHide === undefined || !!config.autoHide;
-	this.$input = config.input ? config.input.$input : null;
+	this.filterFromInput = !!config.filterFromInput;
+	this.$input = config.$input ? config.$input : config.input ? config.input.$input : null;
 	this.$widget = config.widget ? config.widget.$element : null;
 	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
+	this.onInputKeyPressHandler = OO.ui.debounce( this.updateItemVisibility.bind( this ), 100 );
 
 	// Initialization
 	this.$element
@@ -120,6 +125,27 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
 };
 
 /**
+ * Update menu item visibility after input key press
+ * @protected
+ */
+OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
+	var i, item,
+		len = this.items.length,
+		showAll = !this.isVisible(),
+		filter = showAll ? null : this.getItemMatcher( this.$input.val() );
+
+	for ( i = 0; i < len; i++ ) {
+		item = this.items[i];
+		if ( item instanceof OO.ui.OptionWidget ) {
+			item.toggle( showAll || filter( item ) );
+		}
+	}
+
+	// Reevaluate clipping
+	this.clip();
+};
+
+/**
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.bindKeyDownListener = function () {
@@ -145,7 +171,11 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.bindKeyPressListener = function () {
-	if ( !this.$input ) {
+	if ( this.$input ) {
+		if ( this.filterFromInput ) {
+			this.$input.on( 'keypress', this.onInputKeyPressHandler );
+		}
+	} else {
 		OO.ui.MenuSelectWidget.parent.prototype.bindKeyPressListener.call( this );
 	}
 };
@@ -155,7 +185,10 @@ OO.ui.MenuSelectWidget.prototype.bindKeyPressListener = function () {
  */
 OO.ui.MenuSelectWidget.prototype.unbindKeyPressListener = function () {
 	if ( this.$input ) {
-		this.clearKeyPressBuffer();
+		if ( this.filterFromInput ) {
+			this.$input.off( 'keypress', this.onInputKeyPressHandler );
+			this.updateItemVisibility();
+		}
 	} else {
 		OO.ui.MenuSelectWidget.parent.prototype.unbindKeyPressListener.call( this );
 	}

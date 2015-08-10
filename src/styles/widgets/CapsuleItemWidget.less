@@ -1,0 +1,24 @@
+@import '../common';
+
+.oo-ui-capsuleItemWidget {
+	position: relative;
+	display: inline-block;
+	cursor: default;
+	white-space: nowrap;
+
+	& > .oo-ui-iconElement-icon {
+		cursor: pointer;
+	}
+
+	&.oo-ui-widget-disabled > .oo-ui-iconElement-icon {
+		cursor: default;
+	}
+
+	&.oo-ui-labelElement .oo-ui-labelElement-label {
+		display: block;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	.theme-oo-ui-capsuleItemWidget();
+}
