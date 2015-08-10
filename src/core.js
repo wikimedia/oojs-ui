@@ -185,6 +185,38 @@ OO.ui.debounce = function ( func, wait, immediate ) {
 };
 
 /**
+ * Proxy for `node.addEventListener( eventName, handler, true )`, if the browser supports it.
+ * Otherwise falls back to non-capturing event listeners.
+ *
+ * @param {HTMLElement} node
+ * @param {string} eventName
+ * @param {Function} handler
+ */
+OO.ui.addCaptureEventListener = function ( node, eventName, handler ) {
+	if ( node.addEventListener ) {
+		node.addEventListener( eventName, handler, true );
+	} else {
+		node.attachEvent( 'on' + eventName, handler );
+	}
+};
+
+/**
+ * Proxy for `node.removeEventListener( eventName, handler, true )`, if the browser supports it.
+ * Otherwise falls back to non-capturing event listeners.
+ *
+ * @param {HTMLElement} node
+ * @param {string} eventName
+ * @param {Function} handler
+ */
+OO.ui.removeCaptureEventListener = function ( node, eventName, handler ) {
+	if ( node.addEventListener ) {
+		node.removeEventListener( eventName, handler, true );
+	} else {
+		node.detachEvent( 'on' + eventName, handler );
+	}
+};
+
+/**
  * Reconstitute a JavaScript object corresponding to a widget created by
  * the PHP implementation.
  *

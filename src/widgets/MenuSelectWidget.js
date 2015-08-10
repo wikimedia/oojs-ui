@@ -293,16 +293,12 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 
 			// Auto-hide
 			if ( this.autoHide ) {
-				this.getElementDocument().addEventListener(
-					'mousedown', this.onDocumentMouseDownHandler, true
-				);
+				OO.ui.addCaptureEventListener( this.getElementDocument(), 'mousedown', this.onDocumentMouseDownHandler );
 			}
 		} else {
 			this.unbindKeyDownListener();
 			this.unbindKeyPressListener();
-			this.getElementDocument().removeEventListener(
-				'mousedown', this.onDocumentMouseDownHandler, true
-			);
+			OO.ui.removeCaptureEventListener( this.getElementDocument(), 'mousedown', this.onDocumentMouseDownHandler );
 			this.toggleClipping( false );
 		}
 	}
