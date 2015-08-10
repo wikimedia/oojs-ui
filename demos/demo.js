@@ -12,7 +12,6 @@ OO.ui.Demo = function OoUiDemo() {
 	this.normalizeHash();
 
 	// Properties
-	this.stylesheetLinks = this.getStylesheetLinks();
 	this.mode = this.getCurrentMode();
 	this.$menu = $( '<div>' );
 	this.pageDropdown = new OO.ui.DropdownWidget( {
@@ -77,7 +76,7 @@ OO.ui.Demo = function OoUiDemo() {
 	$( 'body' ).addClass( 'oo-ui-' + this.mode.direction );
 	// Correctly apply direction to the <html> tags as well
 	$( 'html' ).attr( 'dir', this.mode.direction );
-	$( 'head' ).append( this.stylesheetLinks );
+	this.stylesheetLinks = this.addStylesheetLinks( $( 'head' ) );
 	OO.ui.theme = new ( this.constructor.static.themes[ this.mode.theme ].theme )();
 };
 
@@ -219,8 +218,8 @@ OO.ui.Demo.static.defaultDirection = 'ltr';
  */
 OO.ui.Demo.prototype.initialize = function () {
 	var demo = this,
-		promises = $( this.stylesheetLinks ).map( function () {
-			return $( this ).data( 'load-promise' );
+		promises = this.stylesheetLinks.map( function ( el ) {
+			return $( el ).data( 'load-promise' );
 		} );
 	$.when.apply( $, promises )
 		.done( function () {
@@ -321,11 +320,12 @@ OO.ui.Demo.prototype.getCurrentMode = function () {
 };
 
 /**
- * Get link elements for the current mode.
+ * Get and insert link elements for the current mode.
  *
+ * @param {jQuery} $where Node to insert the links into
  * @return {HTMLElement[]} List of link elements
  */
-OO.ui.Demo.prototype.getStylesheetLinks = function () {
+OO.ui.Demo.prototype.addStylesheetLinks = function ( $where ) {
 	var i, len, links, fragments,
 		factors = this.getFactors(),
 		theme = this.getCurrentFactorValues()[ 1 ],
@@ -357,6 +357,8 @@ OO.ui.Demo.prototype.getStylesheetLinks = function () {
 			load: deferred.resolve,
 			error: deferred.reject
 		} );
+		// Insert into DOM before setting 'href' for IE 8 compatibility
+		$where.append( $link );
 		link.rel = 'stylesheet';
 		link.href = url;
 		return link;
