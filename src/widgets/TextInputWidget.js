@@ -608,9 +608,7 @@ OO.ui.TextInputWidget.prototype.updatePosition = function () {
 		.toggleClass( 'oo-ui-textInputWidget-labelPosition-after', !!this.label && after )
 		.toggleClass( 'oo-ui-textInputWidget-labelPosition-before', !!this.label && !after );
 
-	if ( this.label ) {
-		this.positionLabel();
-	}
+	this.positionLabel();
 
 	return this;
 };
