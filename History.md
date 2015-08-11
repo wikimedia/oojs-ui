@@ -1,5 +1,44 @@
 # OOjs UI Release History
 
+## v0.12.3 / 2015-08-11
+### Deprecations
+* [DEPRECATING CHANGE] TextInputWidget: Add getValidity function, deprecate isValid (Prateek Saxena)
+
+### Features
+* Add OO.ui.isSafeUrl() to make sure url targets are safe client-side (Kunal Mehta)
+* CapsuleMultiSelectWidget: Introduce (Brad Jorsch)
+* FieldLayout: Allow displaying errors or notices next to fields (Bartosz Dziewoński)
+* HorizontalLayout: Introduce (Bartosz Dziewoński)
+* If ProcessDialog#fitLabel is called before dialog is open, defer (Ed Sanders)
+* Mixin TitledElement into DropdownInputWidget and FieldLayout (Florian)
+* Preserve dynamic state of widgets when infusing (Bartosz Dziewoński)
+* TextInputWidget: Don't forget to positionLabel() after it's been unset (Bartosz Dziewoński)
+
+### Styles
+* FieldLayout: Kill 'list-style-image' too for messages list (Bartosz Dziewoński)
+* PopupToolGroup: Handle popup position on very narrow screens (Ed Sanders)
+* ToggleSwitchWidget: Update according to spec (Prateek Saxena)
+* MediaWiki, Apex themes: Fix height of frameless toolbar button (Ed Sanders)
+* Apex theme: Correct disabled iconed button tool's text colour (Ed Sanders)
+* Revert "Dialog: Increase z-index of .oo-ui-dialog to 1000+" (Ed Sanders)
+
+### Code
+* ButtonOptionWidget: Make it more difficult to set an inappropriate 'tabIndex' (Bartosz Dziewoński)
+* TextInputWidget: Update doc'ed requirements for validate function (Prateek Saxena)
+* TextInputWidget: Use getValidity in setValidityFlag (Prateek Saxena)
+* Element: DWIM when repeatedly infusing the same node (Bartosz Dziewoński)
+* Element: Preserve 'classes' config option through infusion (Bartosz Dziewoński)
+* demo: Make compatible with IE 8 (Bartosz Dziewoński)
+* build: Exclude irrelevant files from Composer PHP package (Timo Tijhof)
+* build: Move phpcs config from composer.json to phpcs.xml (Timo Tijhof)
+* build: Output doxygen to "doc" for consistency with other PHP libraries (Kunal Mehta)
+* build: Switch svg2png to personal build which fixes long lines (James D. Forrester)
+* demos, tests: Use `.parent` instead of `.super` (Bartosz Dziewoński)
+* docparser: Add rudimentary error handling (Bartosz Dziewoński)
+* doxygen: Use default directory for HTML_OUTPUT (Kunal Mehta)
+* tests: Twist the time in comparison tests in a different manner (Bartosz Dziewoński)
+* testsuitegenerator: Output the number of generated test cases (Bartosz Dziewoński)
+
 ## v0.12.2 / 2015-07-28
 
 ### Styles
