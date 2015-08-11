@@ -57,6 +57,7 @@ class InputWidget extends Widget {
 		$this
 			->addClasses( array( 'oo-ui-inputWidget' ) )
 			->appendContent( $this->input );
+		$this->input->addClasses( array( 'oo-ui-inputWidget-input' ) );
 		$this->setValue( isset( $config['value'] ) ? $config['value'] : null );
 	}
 
