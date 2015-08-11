@@ -4,7 +4,6 @@ PROJECT_NAME           = OOjs UI
 PROJECT_BRIEF          = Object-Oriented JavaScript – User Interface
 
 OUTPUT_DIRECTORY       = doc
-HTML_OUTPUT            = php
 
 JAVADOC_AUTOBRIEF      = YES
 QT_AUTOBRIEF           = YES
