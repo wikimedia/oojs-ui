@@ -269,6 +269,8 @@ OO.ui.infuse = function ( idOrNode ) {
 		'ooui-selectfile-not-supported': 'File selection is not supported',
 		// Default placeholder for file selection widgets
 		'ooui-selectfile-placeholder': 'No file is selected',
+		// Default placeholder for file selection widgets when using drag drop UI
+		'ooui-selectfile-dragdrop-placeholder': 'Drop file here (or click to browse)',
 		// Semicolon separator
 		'ooui-semicolon-separator': '; '
 	};

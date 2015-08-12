@@ -25,16 +25,21 @@
  * @cfg {string} [placeholder] Text to display when no file is selected.
  * @cfg {string} [notsupported] Text to display when file support is missing in the browser.
  * @cfg {boolean} [droppable=true] Whether to accept files by drag and drop.
+ * @cfg {boolean} [dragDropUI=false] Whether to render the drag and drop UI.
  */
 OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
-	var dragHandler;
+	var dragHandler,
+		placeholderMsg = ( config && config.dragDropUI ) ?
+			'ooui-selectfile-dragdrop-placeholder' :
+			'ooui-selectfile-placeholder';
 
 	// Configuration initialization
 	config = $.extend( {
 		accept: null,
-		placeholder: OO.ui.msg( 'ooui-selectfile-placeholder' ),
+		placeholder: OO.ui.msg( placeholderMsg ),
 		notsupported: OO.ui.msg( 'ooui-selectfile-not-supported' ),
-		droppable: true
+		droppable: true,
+		dragDropUI: false
 	}, config );
 
 	// Parent constructor
@@ -51,6 +56,8 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
 
 	// Properties
+	this.active = false;
+	this.dragDropUI = config.dragDropUI;
 	this.isSupported = this.constructor.static.isSupported();
 	this.currentFile = null;
 	if ( Array.isArray( config.accept ) ) {
@@ -97,7 +104,15 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 		.addClass( 'oo-ui-selectFileWidget' )
 		.append( this.$handle );
 	if ( config.droppable ) {
-		this.$element.addClass( 'oo-ui-selectFileWidget-droppable' );
+		if ( config.dragDropUI ) {
+			this.$element.addClass( 'oo-ui-selectFileWidget-dragdrop-ui' );
+			this.$element.on( {
+				mouseover: this.onMouseOver.bind( this ),
+				mouseleave: this.onMouseLeave.bind( this )
+			} );
+		} else {
+			this.$element.addClass( 'oo-ui-selectFileWidget-droppable' );
+		}
 	}
 };
 
@@ -305,6 +320,7 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 
 	if ( this.isDisabled() || !this.isSupported ) {
 		this.$element.removeClass( 'oo-ui-selectFileWidget-canDrop' );
+		this.setActive( false );
 		dt.dropEffect = 'none';
 		return false;
 	}
@@ -322,8 +338,10 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 	}
 	if ( file ) {
 		this.$element.addClass( 'oo-ui-selectFileWidget-canDrop' );
+		this.setActive( true );
 	} else {
 		this.$element.removeClass( 'oo-ui-selectFileWidget-canDrop' );
+		this.setActive( false );
 		dt.dropEffect = 'none';
 	}
 
@@ -338,6 +356,7 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
  */
 OO.ui.SelectFileWidget.prototype.onDragLeave = function () {
 	this.$element.removeClass( 'oo-ui-selectFileWidget-canDrop' );
+	this.setActive( false );
 };
 
 /**
@@ -353,6 +372,7 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 	e.preventDefault();
 	e.stopPropagation();
 	this.$element.removeClass( 'oo-ui-selectFileWidget-canDrop' );
+	this.setActive( false );
 
 	if ( this.isDisabled() || !this.isSupported ) {
 		return false;
@@ -372,12 +392,46 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 };
 
 /**
+ * Handle mouse over events.
+ *
+ * @private
+ * @param {jQuery.Event} e Mouse over event
+ */
+OO.ui.SelectFileWidget.prototype.onMouseOver = function () {
+	this.setActive( true );
+};
+
+/**
+ * Handle mouse leave events.
+ *
+ * @private
+ * @param {jQuery.Event} e Mouse over event
+ */
+OO.ui.SelectFileWidget.prototype.onMouseLeave = function () {
+	this.setActive( false );
+};
+
+/**
  * @inheritdoc
  */
 OO.ui.SelectFileWidget.prototype.setDisabled = function ( state ) {
 	OO.ui.SelectFileWidget.parent.prototype.setDisabled.call( this, state );
 	if ( this.clearButton ) {
 		this.clearButton.setDisabled( state );
+	}
+	return this;
+};
+
+/**
+ * Set 'active' (hover) state, only matters for widgets with `dragDropUI: true`.
+ *
+ * @param {boolean} value Whether widget is active
+ * @chainable
+ */
+OO.ui.SelectFileWidget.prototype.setActive = function ( value ) {
+	if ( this.dragDropUI ) {
+		this.active = value;
+		this.updateThemeClasses();
 	}
 	return this;
 };

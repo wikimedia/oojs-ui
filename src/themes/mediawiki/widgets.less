@@ -279,6 +279,34 @@
 			padding-right: 2em;
 		}
 	}
+
+	&.oo-ui-selectFileWidget-dragdrop-ui &-handle {
+		height: 3.5em;
+		border: 2px dashed @text;
+		border-radius: 0em;
+		padding: 0.5em 1em;
+		background: #fff;
+		text-align: center;
+		vertical-align: middle;
+
+		.oo-ui-iconElement-icon {
+			margin: 0.6em 0;
+		}
+
+		.oo-ui-selectFileWidget-label {
+			color: #000;
+		}
+	}
+
+	&.oo-ui-selectFileWidget-dragdrop-ui &-handle:hover,
+	&.oo-ui-selectFileWidget-dragdrop-ui.oo-ui-selectFileWidget-canDrop &-handle {
+			background-color: @progressive-hover;
+			border-color: #fff;
+
+			.oo-ui-labelElement-label {
+				color: #fff;
+			}
+	}
 }
 
 .theme-oo-ui-inputWidget () {
