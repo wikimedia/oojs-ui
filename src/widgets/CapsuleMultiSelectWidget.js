@@ -106,6 +106,10 @@ OO.ui.CapsuleMultiSelectWidget = function OoUiCapsuleMultiSelectWidget( config )
 		$tabFocus.on( {
 			focus: this.onFocusForPopup.bind( this )
 		} );
+		this.popup.$element.on( 'focusout', this.onPopupFocusOut.bind( this ) );
+		if ( this.popup.$autoCloseIgnore ) {
+			this.popup.$autoCloseIgnore.on( 'focusout', this.onPopupFocusOut.bind( this ) );
+		}
 		this.popup.connect( this, {
 			toggle: function ( visible ) {
 				$tabFocus.toggle( !visible );
@@ -388,6 +392,26 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onFocusForPopup = function () {
 			.first()
 			.focus();
 	}
+};
+
+/**
+ * Handles popup focus out events.
+ *
+ * @private
+ * @param {Event} e Focus out event
+ */
+OO.ui.CapsuleMultiSelectWidget.prototype.onPopupFocusOut = function () {
+	var widget = this.popup;
+
+	setTimeout( function () {
+		if (
+			widget.isVisible() &&
+			!OO.ui.contains( widget.$element[0], document.activeElement, true ) &&
+			( !widget.$autoCloseIgnore || !widget.$autoCloseIgnore.has( document.activeElement ).length )
+		) {
+			widget.toggle( false );
+		}
+	} );
 };
 
 /**
