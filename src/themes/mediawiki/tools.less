@@ -2,8 +2,10 @@
 
 @oo-ui-toolbar-normal: #fff;
 @oo-ui-toolbar-normal-hover: #eee;
-@oo-ui-toolbar-active: #e5e5e5;
-@oo-ui-toolbar-active-hover: #eee;
+@oo-ui-toolbar-active-bar-text: @color-progressive;
+@oo-ui-toolbar-active: @color-progressive-fade;
+@oo-ui-toolbar-active-hover: @color-progressive-fade-hover;
+@oo-ui-toolbar-pressed: #e7e7e7;
 
 .theme-oo-ui-toolbar () {
 	&-bar {
@@ -14,8 +16,8 @@
 		color: @color-default;
 
 		.oo-ui-toolbar-bar {
-			border: 0;
-			background: none;
+			border-bottom: 0;
+			background-color: transparent;
 			box-shadow: none;
 		}
 	}
@@ -39,7 +41,15 @@
 	}
 }
 
-.theme-oo-ui-tool () {}
+.theme-oo-ui-tool () {
+	&.oo-ui-widget-enabled {
+		.oo-ui-transition( background-color @transition-ease-quick );
+
+		.oo-ui-tool-link .oo-ui-tool-title {
+			.oo-ui-transition( color @transition-ease-quick );
+		}
+	}
+}
 
 .theme-oo-ui-popupTool () {
 	.oo-ui-popupWidget {
@@ -105,34 +115,34 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
-		> .oo-ui-tool-link .oo-ui-tool-title {
-			color: @color-default;
-		}
+	&.oo-ui-widget-enabled {
+		> .oo-ui-toolGroup-tools > .oo-ui-tool {
+			&.oo-ui-widget-enabled {
+				&:hover {
+					background-color: @oo-ui-toolbar-normal-hover;
+				}
 
-		&.oo-ui-widget-enabled {
-			&:hover {
-				background-color: @oo-ui-toolbar-normal-hover;
+				&:active {
+					background-color: @oo-ui-toolbar-pressed;
+				}
+
+				> .oo-ui-tool-link .oo-ui-tool-title {
+					color: @color-default;
+					.oo-ui-transition( color @transition-ease-quick );
+				}
 			}
 
-			&.oo-ui-tool-active {
+			&.oo-ui-widget-enabled.oo-ui-tool-active {
 				background-color: @oo-ui-toolbar-active;
 				box-shadow: inset 0 0.07em 0.07em 0 rgba( 0, 0, 0, 0.07 );
 
 				&:hover {
 					background-color: @oo-ui-toolbar-active-hover;
 				}
-				&:active {
-					background-color: @oo-ui-toolbar-active;
+
+				> .oo-ui-tool-link .oo-ui-tool-title {
+					color: @oo-ui-toolbar-active-bar-text;
 				}
-			}
-
-			> .oo-ui-tool-link .oo-ui-iconElement-icon {
-				opacity: 0.7;
-			}
-
-			&:hover > .oo-ui-tool-link .oo-ui-iconElement-icon {
-				opacity: 0.9;
 			}
 		}
 	}
@@ -202,6 +212,12 @@
 		}
 	}
 
+	&-header {
+		line-height: 2.6;
+		margin: 0 0.6em;
+		font-weight: bold;
+	}
+
 	&-handle {
 		padding: 0.3125em;
 		height: 2.5em;
@@ -233,28 +249,6 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled &-handle {
-		&:hover {
-			background-color: @oo-ui-toolbar-normal-hover;
-		}
-		&:active {
-			background-color: @oo-ui-toolbar-active;
-		}
-	}
-
-	&-header {
-		line-height: 2.6;
-		margin: 0 0.6em;
-		font-weight: bold;
-	}
-
-	&-active.oo-ui-widget-enabled {
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-		box-shadow: inset 0 0.07em 0.07em 0 rgba( 0, 0, 0, 0.07 );
-		background-color: @oo-ui-toolbar-normal-hover;
-	}
-
 	.oo-ui-toolGroup-tools {
 		top: 3.125em;
 		margin: 0 -1px;
@@ -274,18 +268,45 @@
 			min-width: 1.875em;
 		}
 
+		.oo-ui-tool-title,
+		.oo-ui-tool-accel {
+			line-height: 2;
+		}
+
 		.oo-ui-tool-title {
 			padding-left: 0.5em;
 			color: @color-default;
 		}
 
-		.oo-ui-tool-accel,
-		.oo-ui-tool-title {
-			line-height: 2;
-		}
-
 		.oo-ui-tool-accel {
 			color: #888;
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-transition(
+			background-color @transition-ease-quick,
+			box-shadow @transition-ease-quick
+		);
+
+		&.oo-ui-popupToolGroup-active {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			box-shadow: inset 0 0.07em 0.07em 0 rgba( 0, 0, 0, 0.07 );
+			background-color: @oo-ui-toolbar-normal-hover;
+
+			.oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
+				color: @color-progressive;
+			}
+		}
+
+		&-handle {
+			&:hover {
+				background-color: @oo-ui-toolbar-normal-hover;
+			}
+			&:active {
+				background-color: @oo-ui-toolbar-active;
+			}
 		}
 	}
 }
@@ -304,8 +325,15 @@
 
 		&-active {
 			&.oo-ui-widget-enabled {
-				box-shadow: inset 0 0.07em 0.07em 0 rgba( 0, 0, 0, 0.07 );
 				background-color: @oo-ui-toolbar-active;
+
+				&:first-child {
+					box-shadow: inset 0 0.07em 0.07em 0 rgba( 0, 0, 0, 0.07 );
+				}
+
+				.oo-ui-tool-link .oo-ui-tool-title {
+					color: @oo-ui-toolbar-active-bar-text;
+				}
 
 				&:hover {
 					background-color: @oo-ui-toolbar-active-hover;
@@ -344,16 +372,21 @@
 		}
 
 		&-active .oo-ui-tool-link .oo-ui-iconElement-icon {
-			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/check' );
+			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/check-progressive' );
 			background-size: contain;
 			background-position: center center;
 			background-repeat: no-repeat;
+
 		}
 
 		&.oo-ui-widget-enabled {
 			&:hover {
-				background-color: @oo-ui-toolbar-normal-hover;
+				background-color: @oo-ui-toolbar-active-hover;
 			}
+		}
+
+		&-name-menuTool.oo-ui-tool-active {
+			background-color: @oo-ui-toolbar-active;
 		}
 	}
 

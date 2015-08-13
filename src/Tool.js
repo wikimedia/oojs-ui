@@ -247,8 +247,10 @@ OO.ui.Tool.prototype.setActive = function ( state ) {
 	this.active = !!state;
 	if ( this.active ) {
 		this.$element.addClass( 'oo-ui-tool-active' );
+		this.setFlags( 'progressive' );
 	} else {
 		this.$element.removeClass( 'oo-ui-tool-active' );
+		this.clearFlags();
 	}
 };
 

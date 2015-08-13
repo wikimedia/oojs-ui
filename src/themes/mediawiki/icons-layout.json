@@ -8,7 +8,8 @@
 			"global": true
 		},
 		"progressive": {
-			"color": "#347bff"
+			"color": "#347bff",
+			"global": true
 		},
 		"constructive": {
 			"color": "#347bff"

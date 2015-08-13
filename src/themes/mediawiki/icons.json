@@ -8,7 +8,8 @@
 			"global": true
 		},
 		"progressive": {
-			"color": "#347bff"
+			"color": "#347bff",
+			"global": true
 		},
 		"constructive": {
 			"color": "#347bff"
@@ -68,7 +69,7 @@
 			"rtl": "images/icons/search-rtl.svg"
 		} },
 		"settings": { "file": "images/icons/settings.svg" },
-		"tag": { "file": "images/icons/tag.svg", "variants": [ "destructive", "warning", "constructive", "progressive" ] },
+		"tag": { "file": "images/icons/tag.svg", "variants": [ "destructive", "warning", "constructive" ] },
 		"undo": { "file": {
 			"ltr": "images/icons/arched-arrow-rtl.svg",
 			"rtl": "images/icons/arched-arrow-ltr.svg"
