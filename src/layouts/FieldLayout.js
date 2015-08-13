@@ -34,12 +34,19 @@
  * @cfg {string|OO.ui.HtmlSnippet} [help] Help text. When help text is specified, a "help" icon will appear
  *  in the upper-right corner of the rendered field; clicking it will display the text in a popup.
  *  For important messages, you are advised to use `notices`, as they are always shown.
+ *
+ * @throws {Error} An error is thrown if no widget is specified
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Allow passing positional parameters inside the config object
 	if ( OO.isPlainObject( fieldWidget ) && config === undefined ) {
 		config = fieldWidget;
 		fieldWidget = config.fieldWidget;
+	}
+
+	// Make sure we have required constructor arguments
+	if ( fieldWidget === undefined ) {
+		throw new Error( 'Widget not found' );
 	}
 
 	var hasInputWidget = fieldWidget.constructor.static.supportsSimpleLabel,
