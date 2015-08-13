@@ -1,5 +1,13 @@
 # OOjs UI Release History
 
+## v0.12.4 / 2015-08-13
+### Styles
+* CapsuleMultiSelectWidget: Style tweaks (Ed Sanders)
+
+### Code
+* MenuSelectWidget: Call #updateItemVisibility in more cases (Bartosz Dziewoński)
+* PopupWidget: Remove 'focusout' handling again, limit to CapsuleMultiSelectWidget (Bartosz Dziewoński)
+
 ## v0.12.3 / 2015-08-11
 ### Deprecations
 * [DEPRECATING CHANGE] TextInputWidget: Add getValidity function, deprecate isValid (Prateek Saxena)
