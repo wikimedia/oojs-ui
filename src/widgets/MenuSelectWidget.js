@@ -54,7 +54,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.$input = config.$input ? config.$input : config.input ? config.input.$input : null;
 	this.$widget = config.widget ? config.widget.$element : null;
 	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
-	this.onInputKeyPressHandler = OO.ui.debounce( this.updateItemVisibility.bind( this ), 100 );
+	this.onInputEditHandler = OO.ui.debounce( this.updateItemVisibility.bind( this ), 100 );
 
 	// Initialization
 	this.$element
@@ -125,7 +125,7 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
 };
 
 /**
- * Update menu item visibility after input key press
+ * Update menu item visibility after input changes.
  * @protected
  */
 OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
@@ -173,7 +173,7 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
 OO.ui.MenuSelectWidget.prototype.bindKeyPressListener = function () {
 	if ( this.$input ) {
 		if ( this.filterFromInput ) {
-			this.$input.on( 'keypress', this.onInputKeyPressHandler );
+			this.$input.on( 'keydown mouseup cut paste change input select', this.onInputEditHandler );
 		}
 	} else {
 		OO.ui.MenuSelectWidget.parent.prototype.bindKeyPressListener.call( this );
@@ -186,7 +186,7 @@ OO.ui.MenuSelectWidget.prototype.bindKeyPressListener = function () {
 OO.ui.MenuSelectWidget.prototype.unbindKeyPressListener = function () {
 	if ( this.$input ) {
 		if ( this.filterFromInput ) {
-			this.$input.off( 'keypress', this.onInputKeyPressHandler );
+			this.$input.off( 'keydown mouseup cut paste change input select', this.onInputEditHandler );
 			this.updateItemVisibility();
 		}
 	} else {
