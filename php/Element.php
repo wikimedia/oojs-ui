@@ -130,7 +130,7 @@ class Element extends Tag {
 	 * @return Tag|null Target property or null if not found
 	 */
 	public function __get( $name ) {
-		// Search mixins for methods
+		// Search mixins for the property
 		foreach ( $this->mixins as $mixin ) {
 			if ( isset( $mixin::$targetPropertyName ) && $mixin::$targetPropertyName === $name ) {
 				return $mixin->target;
@@ -139,6 +139,22 @@ class Element extends Tag {
 		// Fail normally
 		trigger_error( 'Undefined property: ' . $name, E_USER_NOTICE );
 		return null;
+	}
+
+	/**
+	 * Check for existence of a mixed-in target property.
+	 *
+	 * @param string $name Property name
+	 * @return bool Whether property exists
+	 */
+	public function __isset( $name ) {
+		// Search mixins for the property
+		foreach ( $this->mixins as $mixin ) {
+			if ( isset( $mixin::$targetPropertyName ) && $mixin::$targetPropertyName === $name ) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

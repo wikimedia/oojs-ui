@@ -40,9 +40,17 @@ OO.ui.Theme.prototype.getElementClasses = function ( /* element */ ) {
  * @return {Object.<string,string[]>} Categorized class names with `on` and `off` lists
  */
 OO.ui.Theme.prototype.updateElementClasses = function ( element ) {
-	var classes = this.getElementClasses( element );
+	var $elements = $( [] ),
+		classes = this.getElementClasses( element );
 
-	element.$element
+	if ( element.$icon ) {
+		$elements = $elements.add( element.$icon );
+	}
+	if ( element.$indicator ) {
+		$elements = $elements.add( element.$indicator );
+	}
+
+	$elements
 		.removeClass( classes.off.join( ' ' ) )
 		.addClass( classes.on.join( ' ' ) );
 };

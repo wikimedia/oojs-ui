@@ -90,6 +90,8 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicatorElement = function ( $indicat
 	if ( this.indicatorTitle !== null ) {
 		this.$indicator.attr( 'title', this.indicatorTitle );
 	}
+
+	this.updateThemeClasses();
 };
 
 /**
