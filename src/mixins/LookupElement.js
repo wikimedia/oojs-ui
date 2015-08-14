@@ -1,5 +1,5 @@
 /**
- * LookupElement is a mixin that creates a {@link OO.ui.TextInputMenuSelectWidget menu} of suggested values for
+ * LookupElement is a mixin that creates a {@link OO.ui.FloatingMenuSelectWidget menu} of suggested values for
  * a {@link OO.ui.TextInputWidget text input widget}. Suggested values are based on the characters the user types
  * into the text input field and, in general, the menu is only displayed when the user types. If a suggested value is chosen
  * from the lookup menu, that value becomes the value of the input field.
@@ -28,10 +28,10 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 
 	// Properties
 	this.$overlay = config.$overlay || this.$element;
-	this.lookupMenu = new OO.ui.TextInputMenuSelectWidget( this, {
+	this.lookupMenu = new OO.ui.FloatingMenuSelectWidget( {
 		widget: this,
 		input: this,
-		$container: config.$container
+		$container: config.$container || this.$element
 	} );
 
 	this.allowSuggestionsWhenEmpty = config.allowSuggestionsWhenEmpty || false;
@@ -142,7 +142,7 @@ OO.ui.mixin.LookupElement.prototype.onLookupMenuItemChoose = function ( item ) {
  * Get lookup menu.
  *
  * @private
- * @return {OO.ui.TextInputMenuSelectWidget}
+ * @return {OO.ui.FloatingMenuSelectWidget}
  */
 OO.ui.mixin.LookupElement.prototype.getLookupMenu = function () {
 	return this.lookupMenu;

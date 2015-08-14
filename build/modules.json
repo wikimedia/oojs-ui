@@ -103,7 +103,7 @@
 				"src/widgets/ButtonSelectWidget.js",
 				"src/widgets/RadioSelectWidget.js",
 				"src/widgets/MenuSelectWidget.js",
-					"src/widgets/TextInputMenuSelectWidget.js",
+					"src/widgets/FloatingMenuSelectWidget.js",
 				"src/widgets/OutlineSelectWidget.js",
 				"src/widgets/TabSelectWidget.js",
 			"src/widgets/NumberInputWidget.js",
