@@ -50,7 +50,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Object} [menu] Configuration options to pass to the {@link OO.ui.MenuSelectWidget menu select widget}.
+ * @cfg {Object} [menu] Configuration options to pass to the {@link OO.ui.FloatingMenuSelectWidget menu select widget}.
  * @cfg {Object} [input] Configuration options to pass to the {@link OO.ui.TextInputWidget text input widget}.
  * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful in cases where
  *  the expanded menu is larger than its containing `<div>`. The specified overlay layer is usually on top of the
@@ -83,10 +83,11 @@ OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 		role: 'combobox',
 		'aria-autocomplete': 'list'
 	} );
-	this.menu = new OO.ui.TextInputMenuSelectWidget( this.input, $.extend(
+	this.menu = new OO.ui.FloatingMenuSelectWidget( $.extend(
 		{
 			widget: this,
 			input: this.input,
+			$container: this.input.$element,
 			disabled: this.isDisabled()
 		},
 		config.menu
@@ -122,7 +123,7 @@ OO.mixinClass( OO.ui.ComboBoxWidget, OO.ui.mixin.TabIndexedElement );
 
 /**
  * Get the combobox's menu.
- * @return {OO.ui.TextInputMenuSelectWidget} Menu widget
+ * @return {OO.ui.FloatingMenuSelectWidget} Menu widget
  */
 OO.ui.ComboBoxWidget.prototype.getMenu = function () {
 	return this.menu;

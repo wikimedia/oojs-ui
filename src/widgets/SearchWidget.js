@@ -1,6 +1,6 @@
 /**
  * SearchWidgets combine a {@link OO.ui.TextInputWidget text input field}, where users can type a search query,
- * and a {@link OO.ui.TextInputMenuSelectWidget menu} of search results, which is displayed beneath the query
+ * and a menu of search results, which is displayed beneath the query
  * field. Unlike {@link OO.ui.mixin.LookupElement lookup menus}, search result menus are always visible to the user.
  * Users can choose an item from the menu or type a query into the text field to search for a matching result item.
  * In general, search widgets are used inside a separate {@link OO.ui.Dialog dialog} window.
