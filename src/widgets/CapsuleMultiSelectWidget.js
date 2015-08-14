@@ -91,10 +91,11 @@ OO.ui.CapsuleMultiSelectWidget = function OoUiCapsuleMultiSelectWidget( config )
 	// Properties
 	this.allowArbitrary = !!config.allowArbitrary;
 	this.$overlay = config.$overlay || this.$element;
-	this.menu = new OO.ui.MenuSelectWidget( $.extend(
+	this.menu = new OO.ui.FloatingMenuSelectWidget( $.extend(
 		{
 			widget: this,
 			$input: this.$input,
+			$container: this.$element,
 			filterFromInput: true,
 			disabled: this.isDisabled()
 		},
