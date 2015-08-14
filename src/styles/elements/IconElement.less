@@ -1,9 +1,12 @@
 @import '../common';
 
 .oo-ui-iconElement {
-	background-size: contain;
-	background-position: center center;
-	background-repeat: no-repeat;
+	.oo-ui-iconElement-icon,
+	&.oo-ui-iconElement-icon {
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
 
 	.theme-oo-ui-iconElement();
 }
