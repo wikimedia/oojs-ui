@@ -12,7 +12,6 @@
  * @cfg {jQuery} [$button] The button element created by the class.
  *  If this configuration is omitted, the button element will use a generated `<a>`.
  * @cfg {boolean} [framed=true] Render the button with a frame
- * @cfg {string} [accessKey] Button's access key
  */
 OO.ui.mixin.ButtonElement = function OoUiMixinButtonElement( config ) {
 	// Configuration initialization
@@ -21,7 +20,6 @@ OO.ui.mixin.ButtonElement = function OoUiMixinButtonElement( config ) {
 	// Properties
 	this.$button = null;
 	this.framed = null;
-	this.accessKey = null;
 	this.active = false;
 	this.onMouseUpHandler = this.onMouseUp.bind( this );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
@@ -33,7 +31,6 @@ OO.ui.mixin.ButtonElement = function OoUiMixinButtonElement( config ) {
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonElement' );
 	this.toggleFramed( config.framed === undefined || config.framed );
-	this.setAccessKey( config.accessKey );
 	this.setButtonElement( config.$button || $( '<a>' ) );
 };
 
@@ -91,7 +88,7 @@ OO.ui.mixin.ButtonElement.prototype.setButtonElement = function ( $button ) {
 
 	this.$button = $button
 		.addClass( 'oo-ui-buttonElement-button' )
-		.attr( { role: 'button', accesskey: this.accessKey } )
+		.attr( { role: 'button' } )
 		.on( {
 			mousedown: this.onMouseDownHandler,
 			keydown: this.onKeyDownHandler,
@@ -219,29 +216,6 @@ OO.ui.mixin.ButtonElement.prototype.toggleFramed = function ( framed ) {
 			.toggleClass( 'oo-ui-buttonElement-frameless', !framed )
 			.toggleClass( 'oo-ui-buttonElement-framed', framed );
 		this.updateThemeClasses();
-	}
-
-	return this;
-};
-
-/**
- * Set the button's access key.
- *
- * @param {string} accessKey Button's access key, use empty string to remove
- * @chainable
- */
-OO.ui.mixin.ButtonElement.prototype.setAccessKey = function ( accessKey ) {
-	accessKey = typeof accessKey === 'string' && accessKey.length ? accessKey : null;
-
-	if ( this.accessKey !== accessKey ) {
-		if ( this.$button ) {
-			if ( accessKey !== null ) {
-				this.$button.attr( 'accesskey', accessKey );
-			} else {
-				this.$button.removeAttr( 'accesskey' );
-			}
-		}
-		this.accessKey = accessKey;
 	}
 
 	return this;

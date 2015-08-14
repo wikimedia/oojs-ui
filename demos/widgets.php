@@ -406,6 +406,16 @@
 								'label' => "ButtonWidget (frameless, constructive, disabled)\xE2\x80\x8E",
 								'align' => 'top'
 							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\ButtonWidget( array(
+								'label' => 'AccessKeyed',
+								'accessKey' => 'k',
+							) ),
+							array(
+								'label' => "ButtonWidget (with accesskey k)\xE2\x80\x8E",
+								'align' => 'top'
+							)
 						)
 					)
 				) ) );
