@@ -897,6 +897,26 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						value: 'Title attribute',
+						title: 'Title attribute with more information about me.'
+					} ),
+					{
+						label: 'TextInputWidget (with title)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						value: 'Accesskey A',
+						accessKey: 'a'
+					} ),
+					{
+						label: 'TextInputWidget (with Accesskey)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {} ),
 					{
 						label: 'SelectFileWidget\u200E',

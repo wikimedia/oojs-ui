@@ -602,6 +602,26 @@
 						),
 						new OOUI\FieldLayout(
 							new OOUI\TextInputWidget( array(
+								'value' => 'Accesskey A',
+								'accessKey' => 'a'
+							) ),
+							array(
+								'label' => "TextInputWidget (with Accesskey)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'value' => 'Title attribute',
+								'title' => 'Title attribute with more information about me.'
+							) ),
+							array(
+								'label' => "TextInputWidget (with title)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
 								'multiline' => true,
 								'value' => "Multiline\nMultiline"
 							) ),

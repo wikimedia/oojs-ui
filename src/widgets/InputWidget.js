@@ -11,11 +11,14 @@
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.FlaggedElement
  * @mixins OO.ui.mixin.TabIndexedElement
+ * @mixins OO.ui.mixin.TitledElement
+ * @mixins OO.ui.mixin.AccessKeyedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {string} [name=''] The value of the input’s HTML `name` attribute.
  * @cfg {string} [value=''] The value of the input.
+ * @cfg {string} [accessKey=''] The access key of the input.
  * @cfg {Function} [inputFilter] The name of an input filter function. Input filters modify the value of an input
  *  before it is accepted.
  */
@@ -34,6 +37,8 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	// Mixin constructors
 	OO.ui.mixin.FlaggedElement.call( this, config );
 	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$input } ) );
+	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$input } ) );
+	OO.ui.mixin.AccessKeyedElement.call( this, $.extend( {}, config, { $accessKeyed: this.$input } ) );
 
 	// Events
 	this.$input.on( 'keydown mouseup cut paste change input select', this.onEdit.bind( this ) );
@@ -47,6 +52,7 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 		.addClass( 'oo-ui-inputWidget' )
 		.append( this.$input );
 	this.setValue( config.value );
+	this.setAccessKey( config.accessKey );
 };
 
 /* Setup */
@@ -54,6 +60,8 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 OO.inheritClass( OO.ui.InputWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.FlaggedElement );
 OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.TabIndexedElement );
+OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.TitledElement );
+OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.AccessKeyedElement );
 
 /* Static Properties */
 
@@ -144,6 +152,30 @@ OO.ui.InputWidget.prototype.setValue = function ( value ) {
 		this.value = value;
 		this.emit( 'change', this.value );
 	}
+	return this;
+};
+
+/**
+ * Set the input's access key.
+ * FIXME: This is the same code as in OO.ui.mixin.ButtonElement, maybe find a better place for it?
+ *
+ * @param {string} accessKey Input's access key, use empty string to remove
+ * @chainable
+ */
+OO.ui.InputWidget.prototype.setAccessKey = function ( accessKey ) {
+	accessKey = typeof accessKey === 'string' && accessKey.length ? accessKey : null;
+
+	if ( this.accessKey !== accessKey ) {
+		if ( this.$input ) {
+			if ( accessKey !== null ) {
+				this.$input.attr( 'accesskey', accessKey );
+			} else {
+				this.$input.removeAttr( 'accesskey' );
+			}
+		}
+		this.accessKey = accessKey;
+	}
+
 	return this;
 };
 

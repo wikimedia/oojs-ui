@@ -46,6 +46,10 @@ class InputWidget extends Widget {
 			array_merge( $config, array( 'flagged' => $this ) ) ) );
 		$this->mixin( new TabIndexedElement( $this,
 			array_merge( $config, array( 'tabIndexed' => $this->input ) ) ) );
+		$this->mixin( new TitledElement( $this,
+			array_merge( $config, array( 'titled' => $this->input ) ) ) );
+		$this->mixin( new AccessKeyedElement( $this,
+			array_merge( $config, array( 'accessKeyed' => $this->input ) ) ) );
 
 		// Initialization
 		if ( isset( $config['name'] ) ) {
