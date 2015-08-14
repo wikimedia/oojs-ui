@@ -44,7 +44,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Object} [menu] Configuration options to pass to menu widget
+ * @cfg {Object} [menu] Configuration options to pass to {@link OO.ui.FloatingMenuSelectWidget menu select widget}
+ * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful in cases where
+ *  the expanded menu is larger than its containing `<div>`. The specified overlay layer is usually on top of the
+ *  containing `<div>` and has a larger area. By default, the menu uses relative positioning.
  */
 OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	// Configuration initialization
@@ -55,6 +58,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 
 	// Properties (must be set before TabIndexedElement constructor call)
 	this.$handle = this.$( '<span>' );
+	this.$overlay = config.$overlay || this.$element;
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
@@ -64,7 +68,10 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
 
 	// Properties
-	this.menu = new OO.ui.MenuSelectWidget( $.extend( { widget: this }, config.menu ) );
+	this.menu = new OO.ui.FloatingMenuSelectWidget( $.extend( {
+		widget: this,
+		$container: this.$element
+	}, config.menu ) );
 
 	// Events
 	this.$handle.on( {
@@ -79,7 +86,8 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 		.append( this.$icon, this.$label, this.$indicator );
 	this.$element
 		.addClass( 'oo-ui-dropdownWidget' )
-		.append( this.$handle, this.menu.$element );
+		.append( this.$handle );
+	this.$overlay.append( this.menu.$element );
 };
 
 /* Setup */
