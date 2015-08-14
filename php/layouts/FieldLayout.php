@@ -61,12 +61,18 @@ class FieldLayout extends Layout {
 	 *   instances.
 	 * @param array $config['notices'] Notices about the widget, as strings or HtmlSnippet instances.
 	 * @param string|HtmlSnippet $config['help'] Explanatory text shown as a '?' icon.
+	 * @throws Exception An exception is thrown if no widget is specified
 	 */
 	public function __construct( $fieldWidget, array $config = array() ) {
 		// Allow passing positional parameters inside the config array
 		if ( is_array( $fieldWidget ) && isset( $fieldWidget['fieldWidget'] ) ) {
 			$config = $fieldWidget;
 			$fieldWidget = $config['fieldWidget'];
+		}
+
+		// Make sure we have required constructor arguments
+		if ( $fieldWidget === null ) {
+			throw new Exception( 'Widget not found' );
 		}
 
 		$hasInputWidget = $fieldWidget::$supportsSimpleLabel;
