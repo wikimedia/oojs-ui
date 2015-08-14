@@ -162,11 +162,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	};
 
 	function SamplePage( name, config ) {
-		config = $.extend( { label: 'Sample page', icon: 'Sample icon' }, config );
+		config = $.extend( { label: 'Sample page' }, config );
 		OO.ui.PageLayout.call( this, name, config );
 		this.label = config.label;
 		this.icon = config.icon;
-		this.$element.text( this.label );
+		if ( this.$element.is( ':empty' ) ) {
+			this.$element.text( this.label );
+		}
 	}
 	OO.inheritClass( SamplePage, OO.ui.PageLayout );
 	SamplePage.prototype.setupOutlineItem = function ( outlineItem ) {
@@ -419,6 +421,141 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return MenuDialog.parent.prototype.getActionProcess.call( this, action );
 	};
 
+	function ExampleLookupTextInputWidget( config ) {
+		config = config || {};
+		this.items = config.items || [];
+		OO.ui.TextInputWidget.call( this, config );
+		OO.ui.mixin.LookupElement.call( this, config );
+	}
+	OO.inheritClass( ExampleLookupTextInputWidget, OO.ui.TextInputWidget );
+	OO.mixinClass( ExampleLookupTextInputWidget, OO.ui.mixin.LookupElement );
+	ExampleLookupTextInputWidget.prototype.getLookupRequest = function () {
+		return $.Deferred().resolve( [] ).promise( { abort: function () {} } );
+	};
+	ExampleLookupTextInputWidget.prototype.getLookupCacheDataFromResponse = function () {
+		return [];
+	};
+	ExampleLookupTextInputWidget.prototype.getLookupMenuOptionsFromData = function () {
+		return this.items;
+	};
+
+	function DialogWithDropdowns( config ) {
+		DialogWithDropdowns.parent.call( this, config );
+	}
+	OO.inheritClass( DialogWithDropdowns, OO.ui.ProcessDialog );
+	DialogWithDropdowns.static.title = 'Dialog with dropdowns';
+	DialogWithDropdowns.static.actions = [
+		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
+		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+	];
+	DialogWithDropdowns.prototype.getBodyHeight = function () {
+		return 250;
+	};
+	DialogWithDropdowns.prototype.initialize = function () {
+		DialogWithDropdowns.parent.prototype.initialize.apply( this, arguments );
+		this.bookletLayout = new OO.ui.BookletLayout( {
+			outlined: true
+		} );
+		this.pages = [
+			new SamplePage( 'info', {
+				label: 'Information',
+				icon: 'info',
+				content: [
+					'This is a test of various kinds of dropdown menus and their $overlay config option. ',
+					'Entries without any icon use a correctly set $overlay and their menus should be able to extend outside of this small dialog. ',
+					'Entries with the ', new OO.ui.IconWidget( { icon: 'alert' } ), ' icon do not, and their menus should be clipped to the dialog\'s boundaries.'
+				]
+			} ),
+			new SamplePage( 'dropdown', {
+				label: 'DropdownWidget',
+				content: [ new OO.ui.DropdownWidget( {
+					$overlay: this.$overlay,
+					menu: {
+						items: this.makeItems()
+					}
+				} ) ]
+			} ),
+			new SamplePage( 'dropdown2', {
+				label: 'DropdownWidget',
+				icon: 'alert',
+				content: [ new OO.ui.DropdownWidget( {
+					menu: {
+						items: this.makeItems()
+					}
+				} ) ]
+			} ),
+			new SamplePage( 'combobox', {
+				label: 'ComboBoxWidget',
+				content: [ new OO.ui.ComboBoxWidget( {
+					$overlay: this.$overlay,
+					menu: {
+						items: this.makeItems()
+					}
+				} ) ]
+			} ),
+			new SamplePage( 'combobox2', {
+				label: 'ComboBoxWidget',
+				icon: 'alert',
+				content: [ new OO.ui.ComboBoxWidget( {
+					menu: {
+						items: this.makeItems()
+					}
+				} ) ]
+			} ),
+			new SamplePage( 'lookup', {
+				label: 'LookupElement',
+				content: [ new ExampleLookupTextInputWidget( {
+					$overlay: this.$overlay,
+					items: this.makeItems()
+				} ) ]
+			} ),
+			new SamplePage( 'lookup2', {
+				label: 'LookupElement',
+				icon: 'alert',
+				content: [ new ExampleLookupTextInputWidget( {
+					items: this.makeItems()
+				} ) ]
+			} ),
+			new SamplePage( 'capsule', {
+				label: 'CapsuleMultiSelectWidget',
+				content: [ new OO.ui.CapsuleMultiSelectWidget( {
+					$overlay: this.$overlay,
+					menu: {
+						items: this.makeItems()
+					}
+				} ) ]
+			} ),
+			new SamplePage( 'capsule2', {
+				label: 'CapsuleMultiSelectWidget',
+				icon: 'alert',
+				content: [ new OO.ui.CapsuleMultiSelectWidget( {
+					menu: {
+						items: this.makeItems()
+					}
+				} ) ]
+			} )
+		];
+		this.bookletLayout.addPages( this.pages );
+		this.$body.append( this.bookletLayout.$element );
+	};
+	DialogWithDropdowns.prototype.makeItems = function () {
+		return [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ].map( function ( val ) {
+			return new OO.ui.MenuOptionWidget( {
+				data: val,
+				label: String( val )
+			} );
+		} );
+	};
+
+	DialogWithDropdowns.prototype.getActionProcess = function ( action ) {
+		if ( action ) {
+			return new OO.ui.Process( function () {
+				this.close( { action: action } );
+			}, this );
+		}
+		return DialogWithDropdowns.parent.prototype.getActionProcess.call( this, action );
+	};
+
 	config = [
 		{
 			name: 'Simple dialog (small)',
@@ -514,6 +651,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			dialogClass: MenuDialog,
 			config: {
 				size: 'medium'
+			}
+		},
+		{
+			name: 'Dialog with dropdowns',
+			dialogClass: DialogWithDropdowns,
+			config: {
+				size: 'large'
 			}
 		},
 		{
