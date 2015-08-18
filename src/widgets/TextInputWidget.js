@@ -53,7 +53,7 @@
  *  pattern defined by the class: 'non-empty' (the value cannot be an empty string) or 'integer'
  *  (the value must contain only numbers); when RegExp, a regular expression that must match the
  *  value for it to be considered valid; when Function, a function receiving the value as parameter
- *  that must return true, or promise that resolves, for it to be considered valid.
+ *  that must return true, or promise resolving to true, for it to be considered valid.
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Configuration initialization
