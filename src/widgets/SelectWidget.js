@@ -161,15 +161,15 @@ OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
 		if ( item && item.isSelectable() ) {
 			this.pressItem( item );
 			this.selecting = item;
-			this.getElementDocument().addEventListener(
+			OO.ui.addCaptureEventListener(
+				this.getElementDocument(),
 				'mouseup',
-				this.onMouseUpHandler,
-				true
+				this.onMouseUpHandler
 			);
-			this.getElementDocument().addEventListener(
+			OO.ui.addCaptureEventListener(
+				this.getElementDocument(),
 				'mousemove',
-				this.onMouseMoveHandler,
-				true
+				this.onMouseMoveHandler
 			);
 		}
 	}
@@ -198,16 +198,10 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 		this.selecting = null;
 	}
 
-	this.getElementDocument().removeEventListener(
-		'mouseup',
-		this.onMouseUpHandler,
-		true
-	);
-	this.getElementDocument().removeEventListener(
-		'mousemove',
-		this.onMouseMoveHandler,
-		true
-	);
+	OO.ui.removeCaptureEventListener( this.getElementDocument(), 'mouseup',
+		this.onMouseUpHandler );
+	OO.ui.removeCaptureEventListener( this.getElementDocument(), 'mousemove',
+		this.onMouseMoveHandler );
 
 	return false;
 };
@@ -327,7 +321,7 @@ OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
  * @protected
  */
 OO.ui.SelectWidget.prototype.bindKeyDownListener = function () {
-	this.getElementWindow().addEventListener( 'keydown', this.onKeyDownHandler, true );
+	OO.ui.addCaptureEventListener( this.getElementWindow(), 'keydown', this.onKeyDownHandler );
 };
 
 /**
@@ -336,7 +330,7 @@ OO.ui.SelectWidget.prototype.bindKeyDownListener = function () {
  * @protected
  */
 OO.ui.SelectWidget.prototype.unbindKeyDownListener = function () {
-	this.getElementWindow().removeEventListener( 'keydown', this.onKeyDownHandler, true );
+	OO.ui.removeCaptureEventListener( this.getElementWindow(), 'keydown', this.onKeyDownHandler );
 };
 
 /**
@@ -445,7 +439,7 @@ OO.ui.SelectWidget.prototype.getItemMatcher = function ( s, exact ) {
  * @protected
  */
 OO.ui.SelectWidget.prototype.bindKeyPressListener = function () {
-	this.getElementWindow().addEventListener( 'keypress', this.onKeyPressHandler, true );
+	OO.ui.addCaptureEventListener( this.getElementWindow(), 'keypress', this.onKeyPressHandler );
 };
 
 /**
@@ -457,7 +451,7 @@ OO.ui.SelectWidget.prototype.bindKeyPressListener = function () {
  * @protected
  */
 OO.ui.SelectWidget.prototype.unbindKeyPressListener = function () {
-	this.getElementWindow().removeEventListener( 'keypress', this.onKeyPressHandler, true );
+	OO.ui.removeCaptureEventListener( this.getElementWindow(), 'keypress', this.onKeyPressHandler );
 	this.clearKeyPressBuffer();
 };
 
