@@ -1,5 +1,27 @@
 # OOjs UI Release History
 
+## v0.12.5 / 2015-08-18
+### Features
+* CapsuleMultiSelectWidget: Unbreak $overlay config option (Bartosz Dziewoński)
+* FloatingMenuSelectWidget: Introduce, based on TextInputMenuSelectWidget (Bartosz Dziewoński)
+* FieldLayout: Throw an error if no widget is provided (Prateek Saxena)
+* MessageDialog: Focus primary action button when the dialog opens (Prateek Saxena)
+
+### Styles
+* DropdownWidget: Remove additional vertical margin, for consistency (Bartosz Dziewoński)
+* FieldLayout: Correct rendering of multiline messages in MediaWiki theme (Bartosz Dziewoński)
+* Move base icon/indicator styles out of themes (Roan Kattouw)
+* MediaWiki theme: Correct styling of nested buttons (Bartosz Dziewoński)
+
+### Code
+* DropdownWidget: Add $overlay config option (Bartosz Dziewoński)
+* IconElement, IndicatorElement: Apply base styles to the right selector (Bartosz Dziewoński)
+* Add background-repeat: no-repeat; to default icon/indicator styles (Roan Kattouw)
+* Remove redundant background rules for icons/indicators (Roan Kattouw)
+* Revert "TextInputWidget: Update doc'ed requirements for validate function" (Prtksxna)
+* Don't directly use #addEventListener for compatibility with IE 8 (Bartosz Dziewoński)
+* demos: Add a demo of the $overlay config option of various widgets (Bartosz Dziewoński)
+
 ## v0.12.4 / 2015-08-13
 ### Styles
 * CapsuleMultiSelectWidget: Style tweaks (Ed Sanders)
