@@ -463,6 +463,23 @@ OO.ui.TextInputWidget.prototype.select = function () {
 };
 
 /**
+ * Focus the input and move the cursor to the end.
+ */
+OO.ui.TextInputWidget.prototype.moveCursorToEnd = function () {
+	var textRange,
+		element = this.$input[0];
+	this.focus();
+	if ( element.selectionStart !== undefined ) {
+		element.selectionStart = element.selectionEnd = element.value.length;
+	} else if ( element.createTextRange ) {
+		// IE 8 and below
+		textRange = element.createTextRange();
+		textRange.collapse( false );
+		textRange.select();
+	}
+};
+
+/**
  * Set the validation pattern.
  *
  * The validation pattern is either a regular expression, a function, or the symbolic name of a
