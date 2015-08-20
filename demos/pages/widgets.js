@@ -484,6 +484,16 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						label: 'ButtonWidget (frameless, indicator)\u200E',
 						align: 'top'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						label: 'AccessKeyed',
+						accessKey: 'k'
+					} ),
+					{
+						label: 'ButtonWidget (with accesskey k)\u200E',
+						align: 'top'
+					}
 				)
 			]
 		} ),
