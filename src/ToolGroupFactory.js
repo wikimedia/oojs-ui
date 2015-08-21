@@ -17,11 +17,11 @@
  * @constructor
  */
 OO.ui.ToolGroupFactory = function OoUiToolGroupFactory() {
+	var i, l, defaultClasses;
 	// Parent constructor
 	OO.Factory.call( this );
 
-	var i, l,
-		defaultClasses = this.constructor.static.getDefaultClasses();
+	defaultClasses = this.constructor.static.getDefaultClasses();
 
 	// Register default toolgroups
 	for ( i = 0, l = defaultClasses.length; i < l; i++ ) {

@@ -186,35 +186,41 @@ OO.ui.mixin.ClippableElement.prototype.setIdealSize = function ( width, height )
  * @chainable
  */
 OO.ui.mixin.ClippableElement.prototype.clip = function () {
+	var $container, extraHeight, extraWidth, ccOffset,
+		$scrollableContainer, scOffset, scHeight, scWidth,
+		ccWidth, scrollerIsWindow, scrollTop, scrollLeft,
+		desiredWidth, desiredHeight, allotedWidth, allotedHeight,
+		naturalWidth, naturalHeight, clipWidth, clipHeight,
+		buffer = 7; // Chosen by fair dice roll
+
 	if ( !this.clipping ) {
 		// this.$clippableScrollableContainer and this.$clippableWindow are null, so the below will fail
 		return this;
 	}
 
-	var buffer = 7, // Chosen by fair dice roll
-		$container = this.$clippableContainer || this.$clippable,
-		extraHeight = $container.outerHeight() - this.$clippable.outerHeight(),
-		extraWidth = $container.outerWidth() - this.$clippable.outerWidth(),
-		ccOffset = $container.offset(),
-		$scrollableContainer = this.$clippableScrollableContainer.is( 'html, body' ) ?
-			this.$clippableWindow : this.$clippableScrollableContainer,
-		scOffset = $scrollableContainer.offset() || { top: 0, left: 0 },
-		scHeight = $scrollableContainer.innerHeight() - buffer,
-		scWidth = $scrollableContainer.innerWidth() - buffer,
-		ccWidth = $container.outerWidth() + buffer,
-		scrollerIsWindow = this.$clippableScroller[ 0 ] === this.$clippableWindow[ 0 ],
-		scrollTop = scrollerIsWindow ? this.$clippableScroller.scrollTop() : 0,
-		scrollLeft = scrollerIsWindow ? this.$clippableScroller.scrollLeft() : 0,
-		desiredWidth = ccOffset.left < 0 ?
-			ccWidth + ccOffset.left :
-			( scOffset.left + scrollLeft + scWidth ) - ccOffset.left,
-		desiredHeight = ( scOffset.top + scrollTop + scHeight ) - ccOffset.top,
-		allotedWidth = desiredWidth - extraWidth,
-		allotedHeight = desiredHeight - extraHeight,
-		naturalWidth = this.$clippable.prop( 'scrollWidth' ),
-		naturalHeight = this.$clippable.prop( 'scrollHeight' ),
-		clipWidth = allotedWidth < naturalWidth,
-		clipHeight = allotedHeight < naturalHeight;
+	$container = this.$clippableContainer || this.$clippable;
+	extraHeight = $container.outerHeight() - this.$clippable.outerHeight();
+	extraWidth = $container.outerWidth() - this.$clippable.outerWidth();
+	ccOffset = $container.offset();
+	$scrollableContainer = this.$clippableScrollableContainer.is( 'html, body' ) ?
+		this.$clippableWindow : this.$clippableScrollableContainer;
+	scOffset = $scrollableContainer.offset() || { top: 0, left: 0 };
+	scHeight = $scrollableContainer.innerHeight() - buffer;
+	scWidth = $scrollableContainer.innerWidth() - buffer;
+	ccWidth = $container.outerWidth() + buffer;
+	scrollerIsWindow = this.$clippableScroller[ 0 ] === this.$clippableWindow[ 0 ];
+	scrollTop = scrollerIsWindow ? this.$clippableScroller.scrollTop() : 0;
+	scrollLeft = scrollerIsWindow ? this.$clippableScroller.scrollLeft() : 0;
+	desiredWidth = ccOffset.left < 0 ?
+		ccWidth + ccOffset.left :
+		( scOffset.left + scrollLeft + scWidth ) - ccOffset.left;
+	desiredHeight = ( scOffset.top + scrollTop + scHeight ) - ccOffset.top;
+	allotedWidth = desiredWidth - extraWidth;
+	allotedHeight = desiredHeight - extraHeight;
+	naturalWidth = this.$clippable.prop( 'scrollWidth' );
+	naturalHeight = this.$clippable.prop( 'scrollHeight' );
+	clipWidth = allotedWidth < naturalWidth;
+	clipHeight = allotedHeight < naturalHeight;
 
 	if ( clipWidth ) {
 		this.$clippable.css( { overflowX: 'scroll', width: Math.max( 0, allotedWidth ) } );

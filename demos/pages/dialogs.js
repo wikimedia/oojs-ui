@@ -77,10 +77,10 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	OO.inheritClass( SearchWidgetDialog, OO.ui.ProcessDialog );
 	SearchWidgetDialog.static.title = 'Search widget dialog';
 	SearchWidgetDialog.prototype.initialize = function () {
+		var i, items, searchWidget;
 		SearchWidgetDialog.parent.prototype.initialize.apply( this, arguments );
-		var i,
-			items = [],
-			searchWidget = new OO.ui.SearchWidget();
+		items = [];
+		searchWidget = new OO.ui.SearchWidget();
 		for ( i = 1; i <= 20; i++ ) {
 			items.push( new OO.ui.OptionWidget( { data: i, label: 'Item ' + i } ) );
 		}
@@ -193,9 +193,10 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return 250;
 	};
 	BookletDialog.prototype.initialize = function () {
+		var dialog;
 		BookletDialog.parent.prototype.initialize.apply( this, arguments );
 
-		var dialog = this;
+		dialog = this;
 
 		function changePage( direction ) {
 			var pageIndex = dialog.pages.indexOf( dialog.bookletLayout.getCurrentPage() );
@@ -358,47 +359,49 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return 350;
 	};
 	MenuDialog.prototype.initialize = function () {
+		var menuLayout, positionField, showField, menuPanel, contentPanel;
 		MenuDialog.parent.prototype.initialize.apply( this, arguments );
-		var menuLayout = new OO.ui.MenuLayout(),
-			positionField = new OO.ui.FieldLayout(
-				new OO.ui.ButtonSelectWidget( {
-					items: [
-						new OO.ui.ButtonOptionWidget( {
-							data: 'before',
-							label: 'Before'
-						} ),
-						new OO.ui.ButtonOptionWidget( {
-							data: 'after',
-							label: 'After'
-						} ),
-						new OO.ui.ButtonOptionWidget( {
-							data: 'top',
-							label: 'Top'
-						} ),
-						new OO.ui.ButtonOptionWidget( {
-							data: 'bottom',
-							label: 'Bottom'
-						} )
-					]
-				} ).on( 'select', function ( item ) {
-					menuLayout.setMenuPosition( item.getData() );
-				} ),
-				{
-					label: 'Menu position',
-					align: 'top'
-				}
-			),
-			showField = new OO.ui.FieldLayout(
-				new OO.ui.ToggleSwitchWidget( { value: true } ).on( 'change', function ( value ) {
-					menuLayout.toggleMenu( value );
-				} ),
-				{
-					label: 'Show menu',
-					align: 'top'
-				}
-			),
-			menuPanel = new OO.ui.PanelLayout( { padded: true, expanded: true, scrollable: true } ),
-			contentPanel = new OO.ui.PanelLayout( { padded: true, expanded: true, scrollable: true } );
+
+		menuLayout = new OO.ui.MenuLayout();
+		positionField = new OO.ui.FieldLayout(
+			new OO.ui.ButtonSelectWidget( {
+				items: [
+					new OO.ui.ButtonOptionWidget( {
+						data: 'before',
+						label: 'Before'
+					} ),
+					new OO.ui.ButtonOptionWidget( {
+						data: 'after',
+						label: 'After'
+					} ),
+					new OO.ui.ButtonOptionWidget( {
+						data: 'top',
+						label: 'Top'
+					} ),
+					new OO.ui.ButtonOptionWidget( {
+						data: 'bottom',
+						label: 'Bottom'
+					} )
+				]
+			} ).on( 'select', function ( item ) {
+				menuLayout.setMenuPosition( item.getData() );
+			} ),
+			{
+				label: 'Menu position',
+				align: 'top'
+			}
+		);
+		showField = new OO.ui.FieldLayout(
+			new OO.ui.ToggleSwitchWidget( { value: true } ).on( 'change', function ( value ) {
+				menuLayout.toggleMenu( value );
+			} ),
+			{
+				label: 'Show menu',
+				align: 'top'
+			}
+		);
+		menuPanel = new OO.ui.PanelLayout( { padded: true, expanded: true, scrollable: true } );
+		contentPanel = new OO.ui.PanelLayout( { padded: true, expanded: true, scrollable: true } );
 
 		menuLayout.$menu.append(
 			menuPanel.$element.append( 'Menu panel' )

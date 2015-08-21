@@ -534,8 +534,10 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
  * @return {jQuery.Promise} A promise that resolves to a boolean `true` if the value is valid.
  */
 OO.ui.TextInputWidget.prototype.isValid = function () {
+	var result;
+
 	if ( this.validate instanceof Function ) {
-		var result = this.validate( this.getValue() );
+		result = this.validate( this.getValue() );
 		if ( $.isFunction( result.promise ) ) {
 			return result.promise();
 		} else {
@@ -651,6 +653,7 @@ OO.ui.TextInputWidget.prototype.updateSearchIndicator = function () {
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.positionLabel = function () {
+	var after, rtl, property;
 	// Clear old values
 	this.$input
 		// Clear old values if present
@@ -666,9 +669,9 @@ OO.ui.TextInputWidget.prototype.positionLabel = function () {
 		return;
 	}
 
-	var after = this.labelPosition === 'after',
-		rtl = this.$element.css( 'direction' ) === 'rtl',
-		property = after === rtl ? 'padding-left' : 'padding-right';
+	after = this.labelPosition === 'after';
+	rtl = this.$element.css( 'direction' ) === 'rtl';
+	property = after === rtl ? 'padding-left' : 'padding-right';
 
 	this.$input.css( property, this.$label.outerWidth( true ) );
 

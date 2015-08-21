@@ -155,20 +155,6 @@ module.exports = function ( grunt ) {
 	 */
 	Image.prototype.generate = function ( destination ) {
 		// TODO Make configurable
-		function getDeclarations( primary ) {
-			// If 'primary' is not a SVG file, 'fallback' and 'primary' are intentionally the same
-			var fallback = primary.replace( /\.svg$/, '.png' );
-			return '.oo-ui-background-image-svg2(' +
-				'\'' + ( cssPrependPath || '' ) + primary + '\', ' +
-				'\'' + ( cssPrependPath || '' ) + fallback + '\'' +
-				')';
-		}
-		function variantizeFileName( fileName, variantName ) {
-			if ( variantName ) {
-				return fileName.replace( /\.(\w+)$/, '-' + variantName + '.$1' );
-			}
-			return fileName;
-		}
 
 		var selector, declarations, direction, lang, langSelector,
 			deferred = Q.defer(),
@@ -191,6 +177,22 @@ module.exports = function ( grunt ) {
 			files = {},
 			uncolorizableImages = [],
 			unknownVariants = [];
+
+		function getDeclarations( primary ) {
+			// If 'primary' is not a SVG file, 'fallback' and 'primary' are intentionally the same
+			var fallback = primary.replace( /\.svg$/, '.png' );
+			return '.oo-ui-background-image-svg2(' +
+				'\'' + ( cssPrependPath || '' ) + primary + '\', ' +
+				'\'' + ( cssPrependPath || '' ) + fallback + '\'' +
+				')';
+		}
+
+		function variantizeFileName( fileName, variantName ) {
+			if ( variantName ) {
+				return fileName.replace( /\.(\w+)$/, '-' + variantName + '.$1' );
+			}
+			return fileName;
+		}
 
 		// Expand shorthands:
 		// { "en,de,fr": "foo.svg" } → { "en": "foo.svg", "de": "foo.svg", "fr": "foo.svg" }

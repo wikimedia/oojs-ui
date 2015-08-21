@@ -153,8 +153,9 @@ OO.ui.ListToolGroup.prototype.populate = function () {
 };
 
 OO.ui.ListToolGroup.prototype.getExpandCollapseTool = function () {
+	var ExpandCollapseTool;
 	if ( this.expandCollapseTool === undefined ) {
-		var ExpandCollapseTool = function () {
+		ExpandCollapseTool = function () {
 			ExpandCollapseTool.parent.apply( this, arguments );
 		};
 

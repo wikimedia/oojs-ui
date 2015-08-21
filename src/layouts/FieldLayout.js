@@ -38,6 +38,8 @@
  * @throws {Error} An error is thrown if no widget is specified
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
+	var hasInputWidget, div, i;
+
 	// Allow passing positional parameters inside the config object
 	if ( OO.isPlainObject( fieldWidget ) && config === undefined ) {
 		config = fieldWidget;
@@ -49,8 +51,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		throw new Error( 'Widget not found' );
 	}
 
-	var hasInputWidget = fieldWidget.constructor.static.supportsSimpleLabel,
-		div, i;
+	hasInputWidget = fieldWidget.constructor.static.supportsSimpleLabel;
 
 	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );

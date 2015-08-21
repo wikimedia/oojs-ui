@@ -270,10 +270,10 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
-	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
+	var i, len, change;
 
-	var i, len,
-		change = visible !== this.isVisible();
+	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
+	change = visible !== this.isVisible();
 
 	// Parent method
 	OO.ui.MenuSelectWidget.parent.prototype.toggle.call( this, visible );

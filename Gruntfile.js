@@ -4,6 +4,19 @@
 
 /*jshint node:true */
 module.exports = function ( grunt ) {
+	var modules = grunt.file.readJSON( 'build/modules.json' ),
+		pkg = grunt.file.readJSON( 'package.json' ),
+		lessFiles = {
+			raster: {},
+			vector: {},
+			mixed: {}
+		},
+		colorizeSvgFiles = {},
+		requiredFiles = modules[ 'oojs-ui' ].scripts.slice(),
+		concatCssFiles = {},
+		rtlFiles = {},
+		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
+
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
@@ -24,19 +37,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadTasks( 'build/tasks' );
-
-	var modules = grunt.file.readJSON( 'build/modules.json' ),
-		pkg = grunt.file.readJSON( 'package.json' ),
-		lessFiles = {
-			raster: {},
-			vector: {},
-			mixed: {}
-		},
-		colorizeSvgFiles = {},
-		requiredFiles = modules[ 'oojs-ui' ].scripts.slice(),
-		concatCssFiles = {},
-		rtlFiles = {},
-		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
 	( function () {
 		var distFile, target, module, moduleStyleFiles;

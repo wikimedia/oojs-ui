@@ -233,9 +233,10 @@ OO.ui.PopupWidget.prototype.hasAnchor = function () {
  * @inheritdoc
  */
 OO.ui.PopupWidget.prototype.toggle = function ( show ) {
+	var change;
 	show = show === undefined ? !this.isVisible() : !!show;
 
-	var change = show !== this.isVisible();
+	change = show !== this.isVisible();
 
 	// Parent method
 	OO.ui.PopupWidget.parent.prototype.toggle.call( this, show );

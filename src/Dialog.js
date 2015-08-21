@@ -256,10 +256,12 @@ OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
  * @inheritdoc
  */
 OO.ui.Dialog.prototype.initialize = function () {
+	var titleId;
+
 	// Parent method
 	OO.ui.Dialog.parent.prototype.initialize.call( this );
 
-	var titleId = OO.ui.generateElementId();
+	titleId = OO.ui.generateElementId();
 
 	// Properties
 	this.title = new OO.ui.LabelWidget( {

@@ -65,9 +65,10 @@ OO.ui.FloatingMenuSelectWidget.prototype.onWindowResize = function () {
  * @inheritdoc
  */
 OO.ui.FloatingMenuSelectWidget.prototype.toggle = function ( visible ) {
+	var change;
 	visible = visible === undefined ? !this.isVisible() : !!visible;
 
-	var change = visible !== this.isVisible();
+	change = visible !== this.isVisible();
 
 	if ( change && visible ) {
 		// Make sure the width is set before the parent method runs.

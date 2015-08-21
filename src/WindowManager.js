@@ -556,12 +556,14 @@ OO.ui.WindowManager.prototype.clearWindows = function () {
  * @chainable
  */
 OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
+	var isFullscreen;
+
 	// Bypass for non-current, and thus invisible, windows
 	if ( win !== this.currentWindow ) {
 		return;
 	}
 
-	var isFullscreen = win.getSize() === 'full';
+	isFullscreen = win.getSize() === 'full';
 
 	this.$element.toggleClass( 'oo-ui-windowManager-fullscreen', isFullscreen );
 	this.$element.toggleClass( 'oo-ui-windowManager-floating', !isFullscreen );
@@ -580,13 +582,13 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
  * @chainable
  */
 OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
-	on = on === undefined ? !!this.globalEvents : !!on;
-
 	var scrollWidth, bodyMargin,
 		$body = $( this.getElementDocument().body ),
 		// We could have multiple window managers open so only modify
 		// the body css at the bottom of the stack
 		stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0 ;
+
+	on = on === undefined ? !!this.globalEvents : !!on;
 
 	if ( on ) {
 		if ( !this.globalEvents ) {

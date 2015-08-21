@@ -542,16 +542,18 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
  * @param {Function} [config.complete] Function to call when scrolling completes
  */
 OO.ui.Element.static.scrollIntoView = function ( el, config ) {
+	var rel, anim, callback, sc, $sc, eld, scd, $win;
+
 	// Configuration initialization
 	config = config || {};
 
-	var rel, anim = {},
-		callback = typeof config.complete === 'function' && config.complete,
-		sc = this.getClosestScrollableContainer( el, config.direction ),
-		$sc = $( sc ),
-		eld = this.getDimensions( el ),
-		scd = this.getDimensions( sc ),
-		$win = $( this.getWindow( el ) );
+	anim = {};
+	callback = typeof config.complete === 'function' && config.complete;
+	sc = this.getClosestScrollableContainer( el, config.direction );
+	$sc = $( sc );
+	eld = this.getDimensions( el );
+	scd = this.getDimensions( sc );
+	$win = $( this.getWindow( el ) );
 
 	// Compute the distances between the edges of el and the edges of the scroll viewport
 	if ( $sc.is( 'html, body' ) ) {
