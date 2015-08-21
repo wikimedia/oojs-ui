@@ -314,7 +314,7 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
 		}
 
 		// Find topmost node in the tree
-		topmostNode = this.$element[0];
+		topmostNode = this.$element[ 0 ];
 		while ( topmostNode.parentNode ) {
 			topmostNode = topmostNode.parentNode;
 		}
@@ -348,7 +348,7 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
 		};
 
 		// Create a fake parent and observe it
-		fakeParentNode = $( '<div>' ).append( topmostNode )[0];
+		fakeParentNode = $( '<div>' ).append( topmostNode )[ 0 ];
 		mutationObserver.observe( fakeParentNode, { childList: true } );
 	} else {
 		// Using the DOMNodeInsertedIntoDocument event is much nicer and less magical, and works for
@@ -467,7 +467,7 @@ OO.ui.TextInputWidget.prototype.select = function () {
  */
 OO.ui.TextInputWidget.prototype.moveCursorToEnd = function () {
 	var textRange,
-		element = this.$input[0];
+		element = this.$input[ 0 ];
 	this.focus();
 	if ( element.selectionStart !== undefined ) {
 		element.selectionStart = element.selectionEnd = element.value.length;

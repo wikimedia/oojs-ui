@@ -299,14 +299,14 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 	}
 	this.$errorItems = $( items );
 	if ( recoverable ) {
-		abilities[this.currentAction] = true;
+		abilities[ this.currentAction ] = true;
 		// Copy the flags from the first matching action
 		actions = this.actions.get( { actions: this.currentAction } );
 		if ( actions.length ) {
-			this.retryButton.clearFlags().setFlags( actions[0].getFlags() );
+			this.retryButton.clearFlags().setFlags( actions[ 0 ].getFlags() );
 		}
 	} else {
-		abilities[this.currentAction] = false;
+		abilities[ this.currentAction ] = false;
 		this.actions.setAbilities( abilities );
 	}
 	if ( warning ) {

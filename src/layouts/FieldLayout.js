@@ -112,10 +112,10 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		.append( this.fieldWidget.$element );
 
 	for ( i = 0; i < this.notices.length; i++ ) {
-		this.$messages.append( this.makeMessage( 'notice', this.notices[i] ) );
+		this.$messages.append( this.makeMessage( 'notice', this.notices[ i ] ) );
 	}
 	for ( i = 0; i < this.errors.length; i++ ) {
-		this.$messages.append( this.makeMessage( 'error', this.errors[i] ) );
+		this.$messages.append( this.makeMessage( 'error', this.errors[ i ] ) );
 	}
 
 	this.setAlignment( config.align );

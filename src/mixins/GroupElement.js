@@ -144,7 +144,7 @@ OO.ui.mixin.GroupElement.prototype.aggregate = function ( events ) {
 				item = this.items[ i ];
 				if ( item.connect && item.disconnect ) {
 					remove = {};
-					remove[ itemEvent ] = [ 'emit', this.aggregateItemEvents[itemEvent], item ];
+					remove[ itemEvent ] = [ 'emit', this.aggregateItemEvents[ itemEvent ], item ];
 					item.disconnect( this, remove );
 				}
 			}

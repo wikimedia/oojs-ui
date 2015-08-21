@@ -53,7 +53,7 @@ OO.ui.generateElementId = function () {
  * @return {boolean}
  */
 OO.ui.isFocusableElement = function ( $element ) {
-	var node = $element[0],
+	var node = $element[ 0 ],
 		nodeName = node.nodeName.toLowerCase(),
 		// Check if the element have tabindex set
 		isInElementGroup = /^(input|select|textarea|button|object)$/.test( nodeName ),
@@ -357,7 +357,7 @@ OO.ui.infuse = function ( idOrNode ) {
 			return true;
 		}
 
-		protocol = url.split( ':', 1 )[0] + ':';
+		protocol = url.split( ':', 1 )[ 0 ] + ':';
 		if ( !protocol.match( /^([A-za-z0-9\+\.\-])+:/ ) ) {
 			// Not a valid protocol, safe
 			return true;
