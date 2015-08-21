@@ -5,12 +5,21 @@
  * {@link OO.ui.mixin.ClippableElement#clip} to make sure it's still
  * clipping correctly.
  *
+ * The dimensions of #$clippableContainer will be compared to the boundaries of the
+ * nearest scrollable container. If #$clippableContainer is too tall and/or too wide,
+ * then #$clippable will be given a fixed reduced height and/or width and will be made
+ * scrollable. By default, #$clippable and #$clippableContainer are the same element,
+ * but you can build a static footer by setting #$clippableContainer to an element that contains
+ * #$clippable and the footer.
+ *
  * @abstract
  * @class
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$clippable] Nodes to clip, assigned to #$clippable, omit to use #$element
+ * @cfg {jQuery} [$clippable] Node to clip, assigned to #$clippable, omit to use #$element
+ * @cfg {jQuery} [$clippableContainer] Node to keep visible, assigned to #$clippableContainer,
+ *   omit to use #$clippable
  */
 OO.ui.mixin.ClippableElement = function OoUiMixinClippableElement( config ) {
 	// Configuration initialization
@@ -18,18 +27,22 @@ OO.ui.mixin.ClippableElement = function OoUiMixinClippableElement( config ) {
 
 	// Properties
 	this.$clippable = null;
+	this.$clippableContainer = null;
 	this.clipping = false;
 	this.clippedHorizontally = false;
 	this.clippedVertically = false;
-	this.$clippableContainer = null;
+	this.$clippableScrollableContainer = null;
 	this.$clippableScroller = null;
 	this.$clippableWindow = null;
 	this.idealWidth = null;
 	this.idealHeight = null;
-	this.onClippableContainerScrollHandler = this.clip.bind( this );
+	this.onClippableScrollHandler = this.clip.bind( this );
 	this.onClippableWindowResizeHandler = this.clip.bind( this );
 
 	// Initialization
+	if ( config.$clippableContainer ) {
+		this.setClippableContainer( config.$clippableContainer );
+	}
 	this.setClippableElement( config.$clippable || this.$element );
 };
 
@@ -54,6 +67,23 @@ OO.ui.mixin.ClippableElement.prototype.setClippableElement = function ( $clippab
 };
 
 /**
+ * Set clippable container.
+ *
+ * This is the container that will be measured when deciding whether to clip. When clipping,
+ * #$clippable will be resized in order to keep the clippable container fully visible.
+ *
+ * If the clippable container is unset, #$clippable will be used.
+ *
+ * @param {jQuery|null} $clippableContainer Container to keep visible, or null to unset
+ */
+OO.ui.mixin.ClippableElement.prototype.setClippableContainer = function ( $clippableContainer ) {
+	this.$clippableContainer = $clippableContainer;
+	if ( this.$clippable ) {
+		this.clip();
+	}
+};
+
+/**
  * Toggle clipping.
  *
  * Do not turn clipping on until after the element is attached to the DOM and visible.
@@ -67,13 +97,13 @@ OO.ui.mixin.ClippableElement.prototype.toggleClipping = function ( clipping ) {
 	if ( this.clipping !== clipping ) {
 		this.clipping = clipping;
 		if ( clipping ) {
-			this.$clippableContainer = $( this.getClosestScrollableElementContainer() );
+			this.$clippableScrollableContainer = $( this.getClosestScrollableElementContainer() );
 			// If the clippable container is the root, we have to listen to scroll events and check
 			// jQuery.scrollTop on the window because of browser inconsistencies
-			this.$clippableScroller = this.$clippableContainer.is( 'html, body' ) ?
-				$( OO.ui.Element.static.getWindow( this.$clippableContainer ) ) :
-				this.$clippableContainer;
-			this.$clippableScroller.on( 'scroll', this.onClippableContainerScrollHandler );
+			this.$clippableScroller = this.$clippableScrollableContainer.is( 'html, body' ) ?
+				$( OO.ui.Element.static.getWindow( this.$clippableScrollableContainer ) ) :
+				this.$clippableScrollableContainer;
+			this.$clippableScroller.on( 'scroll', this.onClippableScrollHandler );
 			this.$clippableWindow = $( this.getElementWindow() )
 				.on( 'resize', this.onClippableWindowResizeHandler );
 			// Initial clip after visible
@@ -82,8 +112,8 @@ OO.ui.mixin.ClippableElement.prototype.toggleClipping = function ( clipping ) {
 			this.$clippable.css( { width: '', height: '', overflowX: '', overflowY: '' } );
 			OO.ui.Element.static.reconsiderScrollbars( this.$clippable[ 0 ] );
 
-			this.$clippableContainer = null;
-			this.$clippableScroller.off( 'scroll', this.onClippableContainerScrollHandler );
+			this.$clippableScrollableContainer = null;
+			this.$clippableScroller.off( 'scroll', this.onClippableScrollHandler );
 			this.$clippableScroller = null;
 			this.$clippableWindow.off( 'resize', this.onClippableWindowResizeHandler );
 			this.$clippableWindow = null;
@@ -157,39 +187,44 @@ OO.ui.mixin.ClippableElement.prototype.setIdealSize = function ( width, height )
  */
 OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	if ( !this.clipping ) {
-		// this.$clippableContainer and this.$clippableWindow are null, so the below will fail
+		// this.$clippableScrollableContainer and this.$clippableWindow are null, so the below will fail
 		return this;
 	}
 
 	var buffer = 7, // Chosen by fair dice roll
-		cOffset = this.$clippable.offset(),
-		$container = this.$clippableContainer.is( 'html, body' ) ?
-			this.$clippableWindow : this.$clippableContainer,
-		ccOffset = $container.offset() || { top: 0, left: 0 },
-		ccHeight = $container.innerHeight() - buffer,
-		ccWidth = $container.innerWidth() - buffer,
-		cWidth = this.$clippable.outerWidth() + buffer,
+		$container = this.$clippableContainer || this.$clippable,
+		extraHeight = $container.outerHeight() - this.$clippable.outerHeight(),
+		extraWidth = $container.outerWidth() - this.$clippable.outerWidth(),
+		ccOffset = $container.offset(),
+		$scrollableContainer = this.$clippableScrollableContainer.is( 'html, body' ) ?
+			this.$clippableWindow : this.$clippableScrollableContainer,
+		scOffset = $scrollableContainer.offset() || { top: 0, left: 0 },
+		scHeight = $scrollableContainer.innerHeight() - buffer,
+		scWidth = $scrollableContainer.innerWidth() - buffer,
+		ccWidth = $container.outerWidth() + buffer,
 		scrollerIsWindow = this.$clippableScroller[0] === this.$clippableWindow[0],
 		scrollTop = scrollerIsWindow ? this.$clippableScroller.scrollTop() : 0,
 		scrollLeft = scrollerIsWindow ? this.$clippableScroller.scrollLeft() : 0,
-		desiredWidth = cOffset.left < 0 ?
-			cWidth + cOffset.left :
-			( ccOffset.left + scrollLeft + ccWidth ) - cOffset.left,
-		desiredHeight = ( ccOffset.top + scrollTop + ccHeight ) - cOffset.top,
+		desiredWidth = ccOffset.left < 0 ?
+			ccWidth + ccOffset.left :
+			( scOffset.left + scrollLeft + scWidth ) - ccOffset.left,
+		desiredHeight = ( scOffset.top + scrollTop + scHeight ) - ccOffset.top,
+		allotedWidth = desiredWidth - extraWidth,
+		allotedHeight = desiredHeight - extraHeight,
 		naturalWidth = this.$clippable.prop( 'scrollWidth' ),
 		naturalHeight = this.$clippable.prop( 'scrollHeight' ),
-		clipWidth = desiredWidth < naturalWidth,
-		clipHeight = desiredHeight < naturalHeight;
+		clipWidth = allotedWidth < naturalWidth,
+		clipHeight = allotedHeight < naturalHeight;
 
 	if ( clipWidth ) {
-		this.$clippable.css( { overflowX: 'scroll', width: desiredWidth } );
+		this.$clippable.css( { overflowX: 'scroll', width: Math.max( 0, allotedWidth ) } );
 	} else {
-		this.$clippable.css( { width: this.idealWidth || '', overflowX: '' } );
+		this.$clippable.css( { width: this.idealWidth ? this.idealWidth - extraWidth : '', overflowX: '' } );
 	}
 	if ( clipHeight ) {
-		this.$clippable.css( { overflowY: 'scroll', height: desiredHeight } );
+		this.$clippable.css( { overflowY: 'scroll', height: Math.max( 0, allotedHeight ) } );
 	} else {
-		this.$clippable.css( { height: this.idealHeight || '', overflowY: '' } );
+		this.$clippable.css( { height: this.idealHeight ? this.idealHeight - extraHeight : '', overflowY: '' } );
 	}
 
 	// If we stopped clipping in at least one of the dimensions
