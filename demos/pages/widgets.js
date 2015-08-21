@@ -952,6 +952,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileWidget( { dragDropUI: true } ),
+					{
+						label: 'SelectFileWidget (drag drop UI)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.DropdownWidget( {
 						label: 'Select one',
 						menu: {
