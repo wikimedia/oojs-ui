@@ -16,7 +16,7 @@
 		'raster' => '.raster',
 	);
 	$graphic = ( isset( $_GET['graphic'] ) && isset( $graphicSuffixMap[ $_GET['graphic'] ] ) )
-		? $_GET['graphic'] : 'vector';
+		? $_GET['graphic'] : 'mixed';
 	$graphicSuffix = $graphicSuffixMap[ $graphic ];
 
 	$direction = ( isset( $_GET['direction'] ) && $_GET['direction'] === 'rtl' ) ? 'rtl' : 'ltr';

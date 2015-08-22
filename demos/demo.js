@@ -199,7 +199,7 @@ OO.ui.Demo.static.defaultTheme = 'mediawiki';
  * @static
  * @property {string}
  */
-OO.ui.Demo.static.defaultGraphics = 'vector';
+OO.ui.Demo.static.defaultGraphics = 'mixed';
 
 /**
  * Default page.
