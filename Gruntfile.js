@@ -401,6 +401,10 @@ module.exports = function ( grunt ) {
 		} );
 	} );
 
+	grunt.registerTask( 'note-quick-build', function () {
+		grunt.log.warn( 'You have built a no-frills, SVG-only, LTR-only version for development; some things will be broken.' );
+	} );
+
 	grunt.registerTask( 'build-code', [ 'concat:js', 'uglify' ] );
 	grunt.registerTask( 'build-styling', [
 		'colorizeSvg', 'less', 'cssjanus',
@@ -420,9 +424,10 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'quick-build', [
 		'pre-git-build', 'clean:build', 'fileExists', 'tyops',
 		'concat:js',
-		'colorizeSvg', 'less:distVector', 'concat:css',
+		'colorizeSvg', 'less:distMixed', 'concat:css',
 		'copy:imagesCommon', 'copy:imagesApex', 'copy:imagesMediaWiki',
-		'build-i18n', 'copy:demos', 'copy:fastcomposerdemos'
+		'build-i18n', 'copy:demos', 'copy:fastcomposerdemos',
+		'note-quick-build'
 	] );
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
