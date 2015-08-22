@@ -570,7 +570,7 @@ OO.ui.SelectWidget.prototype.getItemFromLabel = function ( label, prefix ) {
 		filter = this.getItemMatcher( label, true );
 
 	for ( i = 0; i < len; i++ ) {
-		item = this.items[i];
+		item = this.items[ i ];
 		if ( item instanceof OO.ui.OptionWidget && item.isSelectable() && filter( item ) ) {
 			return item;
 		}
@@ -580,7 +580,7 @@ OO.ui.SelectWidget.prototype.getItemFromLabel = function ( label, prefix ) {
 		found = null;
 		filter = this.getItemMatcher( label, false );
 		for ( i = 0; i < len; i++ ) {
-			item = this.items[i];
+			item = this.items[ i ];
 			if ( item instanceof OO.ui.OptionWidget && item.isSelectable() && filter( item ) ) {
 				if ( found ) {
 					return null;

@@ -135,7 +135,7 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 		filter = showAll ? null : this.getItemMatcher( this.$input.val() );
 
 	for ( i = 0; i < len; i++ ) {
-		item = this.items[i];
+		item = this.items[ i ];
 		if ( item instanceof OO.ui.OptionWidget ) {
 			item.toggle( showAll || filter( item ) );
 		}

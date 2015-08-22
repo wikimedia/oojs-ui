@@ -134,7 +134,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	if ( !$elem.length ) {
 		throw new Error( 'Widget not found: ' + id );
 	}
-	data = $elem.data( 'ooui-infused' ) || $elem[0].oouiInfused;
+	data = $elem.data( 'ooui-infused' ) || $elem[ 0 ].oouiInfused;
 	if ( data ) {
 		// cached!
 		if ( data === true ) {
@@ -211,7 +211,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 		// This element is now gone from the DOM, but if anyone is holding a reference to it,
 		// let's allow them to OO.ui.infuse() it and do what they expect (T105828).
 		// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
-		$elem[0].oouiInfused = obj;
+		$elem[ 0 ].oouiInfused = obj;
 		top.resolve();
 	}
 	obj.$element.data( 'ooui-infused', obj );

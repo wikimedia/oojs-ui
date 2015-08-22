@@ -215,8 +215,8 @@ OO.ui.CapsuleMultiSelectWidget.prototype.setItemsFromData = function ( datas ) {
 
 		item = null;
 		for ( j = 0; j < items.length; j++ ) {
-			if ( items[j].data === data && items[j].label === label ) {
-				item = items[j];
+			if ( items[ j ].data === data && items[ j ].label === label ) {
+				item = items[ j ];
 				items.splice( j, 1 );
 				break;
 			}
@@ -303,7 +303,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.addItems = function ( items ) {
 	} else {
 		same = true;
 		for ( i = 0, l = oldItems.length; same && i < l; i++ ) {
-			same = same && this.items[i] === oldItems[i];
+			same = same && this.items[ i ] === oldItems[ i ];
 		}
 	}
 	if ( !same ) {
@@ -327,7 +327,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.removeItems = function ( items ) {
 	} else {
 		same = true;
 		for ( i = 0, l = oldItems.length; same && i < l; i++ ) {
-			same = same && this.items[i] === oldItems[i];
+			same = same && this.items[ i ] === oldItems[ i ];
 		}
 	}
 	if ( !same ) {
@@ -407,7 +407,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onPopupFocusOut = function () {
 	setTimeout( function () {
 		if (
 			widget.isVisible() &&
-			!OO.ui.contains( widget.$element[0], document.activeElement, true ) &&
+			!OO.ui.contains( widget.$element[ 0 ], document.activeElement, true ) &&
 			( !widget.$autoCloseIgnore || !widget.$autoCloseIgnore.has( document.activeElement ).length )
 		) {
 			widget.toggle( false );
@@ -554,7 +554,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.setDisabled = function ( disabled ) {
 
 	if ( this.items ) {
 		for ( i = 0, len = this.items.length; i < len; i++ ) {
-			this.items[i].updateDisabled();
+			this.items[ i ].updateDisabled();
 		}
 	}
 

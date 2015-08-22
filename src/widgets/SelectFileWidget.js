@@ -137,7 +137,7 @@ OO.ui.SelectFileWidget.static.isSupported = function () {
 	var $input;
 	if ( OO.ui.SelectFileWidget.static.isSupportedCache === null ) {
 		$input = $( '<input type="file">' );
-		OO.ui.SelectFileWidget.static.isSupportedCache = $input[0].files !== undefined;
+		OO.ui.SelectFileWidget.static.isSupportedCache = $input[ 0 ].files !== undefined;
 	}
 	return OO.ui.SelectFileWidget.static.isSupportedCache;
 };
@@ -246,7 +246,7 @@ OO.ui.SelectFileWidget.prototype.isFileAcceptable = function ( file ) {
 
 	mime = file.type;
 	for ( i = 0; i < this.accept.length; i++ ) {
-		mimeTest = this.accept[i];
+		mimeTest = this.accept[ i ];
 		if ( mimeTest === mime ) {
 			return true;
 		} else if ( mimeTest.substr( -2 ) === '/*' ) {
@@ -269,8 +269,8 @@ OO.ui.SelectFileWidget.prototype.isFileAcceptable = function ( file ) {
 OO.ui.SelectFileWidget.prototype.onFileSelected = function ( e ) {
 	var file = null;
 
-	if ( e.target.files && e.target.files[0] ) {
-		file = e.target.files[0];
+	if ( e.target.files && e.target.files[ 0 ] ) {
+		file = e.target.files[ 0 ];
 		if ( !this.isFileAcceptable( file ) ) {
 			file = null;
 		}
@@ -325,8 +325,8 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 		return false;
 	}
 
-	if ( dt && dt.files && dt.files[0] ) {
-		file = dt.files[0];
+	if ( dt && dt.files && dt.files[ 0 ] ) {
+		file = dt.files[ 0 ];
 		if ( !this.isFileAcceptable( file ) ) {
 			file = null;
 		}
@@ -378,8 +378,8 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 		return false;
 	}
 
-	if ( dt && dt.files && dt.files[0] ) {
-		file = dt.files[0];
+	if ( dt && dt.files && dt.files[ 0 ] ) {
+		file = dt.files[ 0 ];
 		if ( !this.isFileAcceptable( file ) ) {
 			file = null;
 		}

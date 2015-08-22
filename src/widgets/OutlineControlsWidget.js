@@ -103,8 +103,8 @@ OO.ui.OutlineControlsWidget.prototype.setAbilities = function ( abilities ) {
 	var ability;
 
 	for ( ability in this.abilities ) {
-		if ( abilities[ability] !== undefined ) {
-			this.abilities[ability] = !!abilities[ability];
+		if ( abilities[ ability ] !== undefined ) {
+			this.abilities[ ability ] = !!abilities[ ability ];
 		}
 	}
 
