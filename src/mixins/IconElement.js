@@ -109,6 +109,8 @@ OO.ui.mixin.IconElement.prototype.setIconElement = function ( $icon ) {
 	if ( this.iconTitle !== null ) {
 		this.$icon.attr( 'title', this.iconTitle );
 	}
+
+	this.updateThemeClasses();
 };
 
 /**
