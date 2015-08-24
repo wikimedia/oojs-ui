@@ -38,6 +38,7 @@
  *  [3]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Popups#containerExample
  * @cfg {number} [containerPadding=10] Padding between the popup and its container, specified as a number of pixels.
  * @cfg {jQuery} [$content] Content to append to the popup's body
+ * @cfg {jQuery} [$footer] Content to append to the popup's footer
  * @cfg {boolean} [autoClose=false] Automatically close the popup when it loses focus.
  * @cfg {jQuery} [$autoCloseIgnore] Elements that will not close the popup when clicked.
  *  This config option is only relevant if #autoClose is set to `true`. See the [OOjs UI docs on MediaWiki][2]
@@ -56,14 +57,18 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 
 	// Properties (must be set before ClippableElement constructor call)
 	this.$body = $( '<div>' );
+	this.$popup = $( '<div>' );
 
 	// Mixin constructors
 	OO.ui.mixin.LabelElement.call( this, config );
-	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$body } ) );
+	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, {
+		$clippable: this.$body,
+		$clippableContainer: this.$popup
+	} ) );
 
 	// Properties
-	this.$popup = $( '<div>' );
 	this.$head = $( '<div>' );
+	this.$footer = $( '<div>' );
 	this.$anchor = $( '<div>' );
 	// If undefined, will be computed lazily in updateDimensions()
 	this.$container = config.$container;
@@ -89,18 +94,25 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.$head
 		.addClass( 'oo-ui-popupWidget-head' )
 		.append( this.$label, this.closeButton.$element );
+	this.$footer.addClass( 'oo-ui-popupWidget-footer' );
 	if ( !config.head ) {
 		this.$head.addClass( 'oo-ui-element-hidden' );
 	}
+	if ( !config.$footer ) {
+		this.$footer.addClass( 'oo-ui-element-hidden' );
+	}
 	this.$popup
 		.addClass( 'oo-ui-popupWidget-popup' )
-		.append( this.$head, this.$body );
+		.append( this.$head, this.$body, this.$footer );
 	this.$element
 		.addClass( 'oo-ui-popupWidget' )
 		.append( this.$popup, this.$anchor );
 	// Move content, which was added to #$element by OO.ui.Widget, to the body
 	if ( config.$content instanceof jQuery ) {
 		this.$body.append( config.$content );
+	}
+	if ( config.$footer instanceof jQuery ) {
+		this.$footer.append( config.$footer );
 	}
 	if ( config.padded ) {
 		this.$body.addClass( 'oo-ui-popupWidget-body-padded' );
