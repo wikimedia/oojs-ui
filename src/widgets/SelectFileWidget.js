@@ -330,7 +330,7 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 		if ( !this.isFileAcceptable( file ) ) {
 			file = null;
 		}
-	} else if ( dt && dt.types && $.inArray( 'Files', dt.types ) ) {
+	} else if ( dt && dt.types && $.inArray( 'Files', dt.types ) !== -1 ) {
 		// We know we have files so set 'file' to something truthy, we just
 		// can't know any details about them.
 		// * https://bugzilla.mozilla.org/show_bug.cgi?id=640534
