@@ -230,7 +230,7 @@ OO.ui.IndexLayout.prototype.onTabSelectWidgetSelect = function ( item ) {
 OO.ui.IndexLayout.prototype.getClosestCard = function ( card ) {
 	var next, prev, level,
 		cards = this.stackLayout.getItems(),
-		index = $.inArray( card, cards );
+		index = cards.indexOf( card );
 
 	if ( index !== -1 ) {
 		next = cards[ index + 1 ];
@@ -315,7 +315,7 @@ OO.ui.IndexLayout.prototype.addCards = function ( cards, index ) {
 
 		if ( Object.prototype.hasOwnProperty.call( this.cards, name ) ) {
 			// Correct the insertion index
-			currentIndex = $.inArray( this.cards[ name ], stackLayoutCards );
+			currentIndex = stackLayoutCards.indexOf( this.cards[ name ] );
 			if ( currentIndex !== -1 && currentIndex + 1 < index ) {
 				index--;
 			}

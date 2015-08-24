@@ -364,7 +364,7 @@ OO.ui.infuse = function ( idOrNode ) {
 		}
 
 		// Safe if in the whitelist
-		return $.inArray( protocol, whitelist ) !== -1;
+		return whitelist.indexOf( protocol ) !== -1;
 	};
 
 } )();

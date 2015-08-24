@@ -297,7 +297,7 @@ OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
 OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
 	var next, prev, level,
 		pages = this.stackLayout.getItems(),
-		index = $.inArray( page, pages );
+		index = pages.indexOf( page );
 
 	if ( index !== -1 ) {
 		next = pages[ index + 1 ];
@@ -397,7 +397,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 
 		if ( Object.prototype.hasOwnProperty.call( this.pages, name ) ) {
 			// Correct the insertion index
-			currentIndex = $.inArray( this.pages[ name ], stackLayoutPages );
+			currentIndex = stackLayoutPages.indexOf( this.pages[ name ] );
 			if ( currentIndex !== -1 && currentIndex + 1 < index ) {
 				index--;
 			}
