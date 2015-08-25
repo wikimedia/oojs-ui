@@ -10,6 +10,7 @@
  * @extends OO.ui.DecoratedOptionWidget
  * @mixins OO.ui.mixin.ButtonElement
  * @mixins OO.ui.mixin.TabIndexedElement
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -23,6 +24,7 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( config ) {
 
 	// Mixin constructors
 	OO.ui.mixin.ButtonElement.call( this, config );
+	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$button } ) );
 	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, {
 		$tabIndexed: this.$button,
 		tabIndex: -1
@@ -38,6 +40,7 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( config ) {
 
 OO.inheritClass( OO.ui.ButtonOptionWidget, OO.ui.DecoratedOptionWidget );
 OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.ButtonElement );
+OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.TitledElement );
 OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.TabIndexedElement );
 
 /* Static Properties */
