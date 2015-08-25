@@ -51,7 +51,7 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 	this.actions = new OO.ui.ActionSet();
 	this.attachedActions = [];
 	this.currentAction = null;
-	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
+	this.onDialogKeyDownHandler = this.onDialogKeyDown.bind( this );
 
 	// Events
 	this.actions.connect( this, {
@@ -134,7 +134,7 @@ OO.ui.Dialog.static.escapable = true;
  * @private
  * @param {jQuery.Event} e Key down event
  */
-OO.ui.Dialog.prototype.onDocumentKeyDown = function ( e ) {
+OO.ui.Dialog.prototype.onDialogKeyDown = function ( e ) {
 	if ( e.which === OO.ui.Keys.ESCAPE ) {
 		this.close();
 		e.preventDefault();
@@ -231,7 +231,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 			this.actions.add( this.getActionWidgets( actions ) );
 
 			if ( this.constructor.static.escapable ) {
-				this.$document.on( 'keydown', this.onDocumentKeyDownHandler );
+				this.$element.on( 'keydown', this.onDialogKeyDownHandler );
 			}
 		}, this );
 };
@@ -244,7 +244,7 @@ OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
 	return OO.ui.Dialog.parent.prototype.getTeardownProcess.call( this, data )
 		.first( function () {
 			if ( this.constructor.static.escapable ) {
-				this.$document.off( 'keydown', this.onDocumentKeyDownHandler );
+				this.$element.off( 'keydown', this.onDialogKeyDownHandler );
 			}
 
 			this.actions.clear();
