@@ -137,7 +137,7 @@ OO.ui.StackLayout.prototype.removeItems = function ( items ) {
 	// Mixin method
 	OO.ui.mixin.GroupElement.prototype.removeItems.call( this, items );
 
-	if ( $.inArray( this.currentItem, items ) !== -1 ) {
+	if ( items.indexOf( this.currentItem ) !== -1 ) {
 		if ( this.items.length ) {
 			this.setItem( this.items[ 0 ] );
 		} else {
@@ -177,7 +177,7 @@ OO.ui.StackLayout.prototype.setItem = function ( item ) {
 	if ( item !== this.currentItem ) {
 		this.updateHiddenState( this.items, item );
 
-		if ( $.inArray( item, this.items ) !== -1 ) {
+		if ( this.items.indexOf( item ) !== -1 ) {
 			this.currentItem = item;
 			this.emit( 'set', item );
 		} else {

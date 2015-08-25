@@ -187,7 +187,7 @@ OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
 		item = items[ i ];
 
 		// Check if item exists then remove it first, effectively "moving" it
-		currentIndex = $.inArray( item, this.items );
+		currentIndex = this.items.indexOf( item );
 		if ( currentIndex >= 0 ) {
 			this.removeItems( [ item ] );
 			// Adjust index to compensate for removal
@@ -236,7 +236,7 @@ OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
 	// Remove specific items
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[ i ];
-		index = $.inArray( item, this.items );
+		index = this.items.indexOf( item );
 		if ( index !== -1 ) {
 			if (
 				item.connect && item.disconnect &&

@@ -40,8 +40,8 @@ OO.ui.mixin.DraggableGroupElement = function OoUiMixinDraggableGroupElement( con
 		itemDragEnd: 'onItemDragEnd'
 	} );
 	this.$element.on( {
-		dragover: $.proxy( this.onDragOver, this ),
-		dragleave: $.proxy( this.onDragLeave, this )
+		dragover: this.onDragOver.bind( this ),
+		dragleave: this.onDragLeave.bind( this )
 	} );
 
 	// Initialize

@@ -727,7 +727,7 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 	}
 
 	if ( item instanceof OO.ui.OptionWidget ) {
-		currentIndex = $.inArray( item, this.items );
+		currentIndex = this.items.indexOf( item );
 		nextIndex = ( currentIndex + increase + len ) % len;
 	} else {
 		// If no item is selected and moving forward, start at the beginning.
