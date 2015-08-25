@@ -1,5 +1,42 @@
 # OOjs UI Release History
 
+## v0.12.6 / 2015-08-25
+### Features
+* AccessKeyedElement: Introduce (Florian)
+* ButtonOptionWidget: Mixin TitledElement (Bartosz Dziewoński)
+* ClippableElement: Allow $clippableContainer to be different from $clippable (Roan Kattouw)
+* Dialog: Listen for Escape key on $element, not document (Roan Kattouw)
+* InputWidget: Add TitledElement and AccessKeyedElement mixins (Florian)
+* PopupWidget: Make it possible to add static footers (Moriel Schottlender)
+* SelectFileWidget: Add drag drop UI as a config (Prateek Saxena)
+* TextInputWidget: Add moveCursorToEnd() (Roan Kattouw)
+
+### Styles
+* MenuToolGroup: Add some missing styles for tools' 'check' icons (Bartosz Dziewoński)
+* PopupWidget: don't apply header styles to footer (Roan Kattouw)
+* SelectFileWidget: Mute the drag and drop design (Ed Sanders)
+* Add colour to neutral state of MW frameless buttons (Ed Sanders)
+* Editing-advanced icon pack: Add 'calendar' (Bartosz Dziewoński)
+
+### Code
+* DropdownInputWidget: Allow users to pass config options to DropdownWidget (Alex Monk)
+* Theme: Add theme classes to $icon and $indicator only (Bartosz Dziewoński)
+* Use OO.ui.debounce() for Element#updateThemeClasses (Roan Kattouw)
+* Document browser-specific code with support comments (Timo Tijhof)
+* Update OOjs to v1.1.9 (James D. Forrester)
+* Fix file permissions (Southparkfan)
+* Fix inArray test in drag handler (Ed Sanders)
+* Prefer ES5 over jQuery methods (Bartosz Dziewoński)
+* build: Enable jscs rule 'requireSpacesInsideBrackets' and make pass (James D. Forrester)
+* build: Enable jscs rule 'requireVarDeclFirst' and make pass (James D. Forrester)
+* build: Make `quick-build` build the 'mixed' distribution (James D. Forrester)
+* build: Update jscs devDependency from 1.8.0 to 2.1.0 (James D. Forrester)
+* build: Update various devDependencies to latest (James D. Forrester)
+* core: Remove spurious "[description]" placeholder from documentation (Timo Tijhof)
+* demos, tests: Use es5-shim for IE8 compatibility (Bartosz Dziewoński)
+* phpcs.xml: Ignore JS demo files in the PHP distribution (James D. Forrester)
+* testsuitegenerator: Do not generate nonsensical tests for 'maxLength' (Bartosz Dziewoński)
+
 ## v0.12.5 / 2015-08-18
 ### Features
 * CapsuleMultiSelectWidget: Unbreak $overlay config option (Bartosz Dziewoński)
