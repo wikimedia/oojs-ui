@@ -128,6 +128,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'alignCentre',
 				'alignLeft',
 				'alignRight',
+				'calendar',
 				'find',
 				'insert',
 				'layout',
