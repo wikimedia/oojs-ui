@@ -234,24 +234,23 @@ OO.ui.SelectFileWidget.prototype.addInput = function () {
  * Determine if we should accept this file
  *
  * @private
- * @param {File} file
+ * @param {string} File MIME type
  * @return {boolean}
  */
-OO.ui.SelectFileWidget.prototype.isFileAcceptable = function ( file ) {
-	var i, mime, mimeTest;
+OO.ui.SelectFileWidget.prototype.isAllowedType = function ( mimeType ) {
+	var i, mimeTest;
 
-	if ( !this.accept || file.type === '' ) {
+	if ( !this.accept || !mimeType ) {
 		return true;
 	}
 
-	mime = file.type;
 	for ( i = 0; i < this.accept.length; i++ ) {
 		mimeTest = this.accept[ i ];
-		if ( mimeTest === mime ) {
+		if ( mimeTest === mimeType ) {
 			return true;
 		} else if ( mimeTest.substr( -2 ) === '/*' ) {
 			mimeTest = mimeTest.substr( 0, mimeTest.length - 1 );
-			if ( mime.substr( 0, mimeTest.length ) === mimeTest ) {
+			if ( mimeType.substr( 0, mimeTest.length ) === mimeTest ) {
 				return true;
 			}
 		}
@@ -267,13 +266,10 @@ OO.ui.SelectFileWidget.prototype.isFileAcceptable = function ( file ) {
  * @param {jQuery.Event} e
  */
 OO.ui.SelectFileWidget.prototype.onFileSelected = function ( e ) {
-	var file = null;
+	var file = OO.getProp( e.target, 'files', 0 ) || null;
 
-	if ( e.target.files && e.target.files[ 0 ] ) {
-		file = e.target.files[ 0 ];
-		if ( !this.isFileAcceptable( file ) ) {
-			file = null;
-		}
+	if ( file && !this.isAllowedType( file.type ) ) {
+		file = null;
 	}
 
 	this.setValue( file );
@@ -312,7 +308,7 @@ OO.ui.SelectFileWidget.prototype.onKeyPress = function ( e ) {
  * @param {jQuery.Event} e Drag event
  */
 OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
-	var file,
+	var itemOrFile,
 		droppableFile = false,
 		dt = e.originalEvent.dataTransfer;
 
@@ -326,9 +322,11 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 		return false;
 	}
 
-	file = OO.getProp( dt, 'files', 0 );
-	if ( file ) {
-		if ( this.isFileAcceptable( file ) ) {
+	// DataTransferItem and File both have a type property, but in Chrome files
+	// have no information at this point.
+	itemOrFile = OO.getProp( dt, 'items', 0 ) || OO.getProp( dt, 'files', 0 );
+	if ( itemOrFile ) {
+		if ( this.isAllowedType( itemOrFile.type ) ) {
 			droppableFile = true;
 		}
 	// dt.types is Array-like, but not an Array
@@ -378,11 +376,9 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 		return false;
 	}
 
-	if ( dt && dt.files && dt.files[ 0 ] ) {
-		file = dt.files[ 0 ];
-		if ( !this.isFileAcceptable( file ) ) {
-			file = null;
-		}
+	file = OO.getProp( dt, 'files', 0 );
+	if ( file && !this.isAllowedType( file.type ) ) {
+		file = null;
 	}
 	if ( file ) {
 		this.setValue( file );
