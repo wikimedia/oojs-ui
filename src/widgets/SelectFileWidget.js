@@ -312,7 +312,8 @@ OO.ui.SelectFileWidget.prototype.onKeyPress = function ( e ) {
  * @param {jQuery.Event} e Drag event
  */
 OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
-	var file = null,
+	var file,
+		droppableFile = false,
 		dt = e.originalEvent.dataTransfer;
 
 	e.preventDefault();
@@ -325,23 +326,22 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 		return false;
 	}
 
-	if ( dt && dt.files && dt.files[ 0 ] ) {
-		file = dt.files[ 0 ];
-		if ( !this.isFileAcceptable( file ) ) {
-			file = null;
-		}
-	} else if ( dt && dt.types && dt.types.indexOf( 'Files' ) !== -1 ) {
-		// We know we have files so set 'file' to something truthy, we just
-		// can't know any details about them.
-		// * https://bugzilla.mozilla.org/show_bug.cgi?id=640534
-		file = 'Files exist, but details are unknown';
-	}
+	file = OO.getProp( dt, 'files', 0 );
 	if ( file ) {
-		this.$element.addClass( 'oo-ui-selectFileWidget-canDrop' );
-		this.setActive( true );
-	} else {
-		this.$element.removeClass( 'oo-ui-selectFileWidget-canDrop' );
-		this.setActive( false );
+		if ( this.isFileAcceptable( file ) ) {
+			droppableFile = true;
+		}
+	// dt.types is Array-like, but not an Array
+	} else if ( Array.prototype.indexOf.call( OO.getProp( dt, 'types' ) || [], 'Files' ) !== -1 ) {
+		// File information is not available at this point for security so just assume
+		// it is acceptable for now.
+		// https://bugzilla.mozilla.org/show_bug.cgi?id=640534
+		droppableFile = true;
+	}
+
+	this.$element.toggleClass( 'oo-ui-selectFileWidget-canDrop', droppableFile );
+	this.setActive( droppableFile );
+	if ( !droppableFile ) {
 		dt.dropEffect = 'none';
 	}
 
