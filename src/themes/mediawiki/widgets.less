@@ -298,9 +298,12 @@
 		}
 	}
 
-	&.oo-ui-selectFileWidget-dragdrop-ui &-handle:hover,
-	&.oo-ui-selectFileWidget-dragdrop-ui.oo-ui-selectFileWidget-canDrop &-handle {
+	&.oo-ui-selectFileWidget-dragdrop-ui &-handle:hover {
 		background-color: #eee;
+	}
+
+	&.oo-ui-selectFileWidget-dragdrop-ui.oo-ui-selectFileWidget-canDrop &-handle {
+		background: @progressive-fade;
 	}
 }
 
