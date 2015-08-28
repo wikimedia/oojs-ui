@@ -114,6 +114,15 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		return items;
 	};
 
+	function UnsupportedSelectFileWidget() {
+		// Parent constructor
+		UnsupportedSelectFileWidget.parent.apply( this, arguments );
+	}
+	OO.inheritClass( UnsupportedSelectFileWidget, OO.ui.SelectFileWidget );
+	UnsupportedSelectFileWidget.static.isSupported = function () {
+		return false;
+	};
+
 	capsulePopupWidget = new OO.ui.NumberInputWidget( {
 		isInteger: true
 	} );
@@ -952,9 +961,35 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( { dragDropUI: true } ),
+					new UnsupportedSelectFileWidget(),
 					{
-						label: 'SelectFileWidget (drag drop UI)\u200E',
+						label: 'SelectFileWidget (no browser support)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileWidget( { showDropTarget: true } ),
+					{
+						label: 'SelectFileWidget (with drop target)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileWidget( {
+						showDropTarget: true,
+						disabled: true
+					} ),
+					{
+						label: 'SelectFileWidget (with drop target, disabled)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new UnsupportedSelectFileWidget( {
+						showDropTarget: true
+					} ),
+					{
+						label: 'SelectFileWidget (with drop target, no browser support)\u200E',
 						align: 'top'
 					}
 				),
