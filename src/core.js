@@ -265,12 +265,14 @@ OO.ui.infuse = function ( idOrNode ) {
 		'ooui-dialog-process-retry': 'Try again',
 		// Label for process dialog retry action button, visible when describing only warnings
 		'ooui-dialog-process-continue': 'Continue',
-		// Default placeholder for file selection widgets
+		// Label for the file selection widget's select file button
+		'ooui-selectfile-button-select': 'Select a file',
+		// Label for the file selection widget if file selection is not supported
 		'ooui-selectfile-not-supported': 'File selection is not supported',
-		// Default placeholder for file selection widgets
+		// Label for the file selection widget when no file is currently selected
 		'ooui-selectfile-placeholder': 'No file is selected',
-		// Default placeholder for file selection widgets when using drag drop UI
-		'ooui-selectfile-dragdrop-placeholder': 'Drop file here (or click to browse)',
+		// Label for the file selection widget's drop target
+		'ooui-selectfile-dragdrop-placeholder': 'Drop file here',
 		// Semicolon separator
 		'ooui-semicolon-separator': '; '
 	};

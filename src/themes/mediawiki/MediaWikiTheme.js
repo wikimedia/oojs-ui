@@ -47,12 +47,6 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 		}
 	}
 
-	if ( element instanceof OO.ui.SelectFileWidget ) {
-		if ( !element.isDisabled() && element.active ) {
-			variants.invert = true;
-		}
-	}
-
 	for ( variant in variants ) {
 		classes[ variants[ variant ] ? 'on' : 'off' ].push( 'oo-ui-image-' + variant );
 	}

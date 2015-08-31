@@ -17,7 +17,6 @@
  * @mixins OO.ui.mixin.IndicatorElement
  * @mixins OO.ui.mixin.PendingElement
  * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -25,39 +24,40 @@
  * @cfg {string} [placeholder] Text to display when no file is selected.
  * @cfg {string} [notsupported] Text to display when file support is missing in the browser.
  * @cfg {boolean} [droppable=true] Whether to accept files by drag and drop.
- * @cfg {boolean} [dragDropUI=false] Whether to render the drag and drop UI.
+ * @cfg {boolean} [showDropTarget=false] Whether to show a drop target. Requires droppable to be true.
+ * @cfg {boolean} [dragDropUI=false] Deprecated alias for showDropTarget
  */
 OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
-	var dragHandler,
-		placeholderMsg = ( config && config.dragDropUI ) ?
-			'ooui-selectfile-dragdrop-placeholder' :
-			'ooui-selectfile-placeholder';
+	var dragHandler;
+
+	// TODO: Remove in next release
+	if ( config && config.dragDropUI ) {
+		config.showDropTarget = true;
+	}
 
 	// Configuration initialization
 	config = $.extend( {
 		accept: null,
-		placeholder: OO.ui.msg( placeholderMsg ),
+		placeholder: OO.ui.msg( 'ooui-selectfile-placeholder' ),
 		notsupported: OO.ui.msg( 'ooui-selectfile-not-supported' ),
 		droppable: true,
-		dragDropUI: false
+		showDropTarget: false
 	}, config );
 
 	// Parent constructor
 	OO.ui.SelectFileWidget.parent.call( this, config );
 
-	// Properties (must be set before TabIndexedElement constructor call)
-	this.$handle = $( '<span>' );
-
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
-	OO.ui.mixin.PendingElement.call( this, $.extend( {}, config, { $pending: this.$handle } ) );
+	OO.ui.mixin.PendingElement.call( this, $.extend( {}, config, { $pending: this.$info } ) );
 	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, { autoFitLabel: true } ) );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
 
 	// Properties
-	this.active = false;
-	this.dragDropUI = config.dragDropUI;
+	this.$info = $( '<span>' );
+
+	// Properties
+	this.showDropTarget = config.showDropTarget;
 	this.isSupported = this.constructor.static.isSupported();
 	this.currentFile = null;
 	if ( Array.isArray( config.accept ) ) {
@@ -69,6 +69,12 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	this.notsupported = config.notsupported;
 	this.onFileSelectedHandler = this.onFileSelected.bind( this );
 
+	this.selectButton = new OO.ui.ButtonWidget( {
+		classes: [ 'oo-ui-selectFileWidget-selectButton' ],
+		label: 'Select a file',
+		disabled: this.disabled || !this.isSupported
+	} );
+
 	this.clearButton = new OO.ui.ButtonWidget( {
 		classes: [ 'oo-ui-selectFileWidget-clearButton' ],
 		framed: false,
@@ -77,7 +83,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	} );
 
 	// Events
-	this.$handle.on( {
+	this.selectButton.$button.on( {
 		keypress: this.onKeyPress.bind( this )
 	} );
 	this.clearButton.connect( this, {
@@ -85,7 +91,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	} );
 	if ( config.droppable ) {
 		dragHandler = this.onDragEnterOrOver.bind( this );
-		this.$handle.on( {
+		this.$element.on( {
 			dragenter: dragHandler,
 			dragover: dragHandler,
 			dragleave: this.onDragLeave.bind( this ),
@@ -97,22 +103,20 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	this.addInput();
 	this.updateUI();
 	this.$label.addClass( 'oo-ui-selectFileWidget-label' );
-	this.$handle
-		.addClass( 'oo-ui-selectFileWidget-handle' )
+	this.$info
+		.addClass( 'oo-ui-selectFileWidget-info' )
 		.append( this.$icon, this.$label, this.clearButton.$element, this.$indicator );
 	this.$element
 		.addClass( 'oo-ui-selectFileWidget' )
-		.append( this.$handle );
-	if ( config.droppable ) {
-		if ( config.dragDropUI ) {
-			this.$element.addClass( 'oo-ui-selectFileWidget-dragdrop-ui' );
-			this.$element.on( {
-				mouseover: this.onMouseOver.bind( this ),
-				mouseleave: this.onMouseLeave.bind( this )
+		.append( this.$info, this.selectButton.$element );
+	if ( config.droppable && config.showDropTarget ) {
+		this.$dropTarget = $( '<div>' )
+			.addClass( 'oo-ui-selectFileWidget-dropTarget' )
+			.text( OO.ui.msg( 'ooui-selectfile-dragdrop-placeholder' ) )
+			.on( {
+				click: this.onDropTargetClick.bind( this )
 			} );
-		} else {
-			this.$element.addClass( 'oo-ui-selectFileWidget-droppable' );
-		}
+		this.$element.prepend( this.$dropTarget );
 	}
 };
 
@@ -123,7 +127,6 @@ OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.PendingElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.LabelElement );
-OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.TabIndexedElement );
 
 /* Static Properties */
 
@@ -188,14 +191,17 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 		this.$element.addClass( 'oo-ui-selectFileWidget-notsupported' );
 		this.$element.removeClass( 'oo-ui-selectFileWidget-empty' );
 		this.setLabel( this.notsupported );
-	} else if ( this.currentFile ) {
-		this.$element.removeClass( 'oo-ui-selectFileWidget-empty' );
-		this.setLabel( this.currentFile.name +
-			( this.currentFile.type !== '' ? OO.ui.msg( 'ooui-semicolon-separator' ) + this.currentFile.type : '' )
-		);
 	} else {
-		this.$element.addClass( 'oo-ui-selectFileWidget-empty' );
-		this.setLabel( this.placeholder );
+		this.$element.addClass( 'oo-ui-selectFileWidget-supported' );
+		if ( this.currentFile ) {
+			this.$element.removeClass( 'oo-ui-selectFileWidget-empty' );
+			this.setLabel( this.currentFile.name +
+				( this.currentFile.type !== '' ? OO.ui.msg( 'ooui-semicolon-separator' ) + this.currentFile.type : '' )
+			);
+		} else {
+			this.$element.addClass( 'oo-ui-selectFileWidget-empty' );
+			this.setLabel( this.placeholder );
+		}
 	}
 
 	if ( this.$input ) {
@@ -204,7 +210,7 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 };
 
 /**
- * Add the input to the handle
+ * Add the input to the widget
  *
  * @private
  */
@@ -227,7 +233,7 @@ OO.ui.SelectFileWidget.prototype.addInput = function () {
 	if ( this.accept ) {
 		this.$input.attr( 'accept', this.accept.join( ', ' ) );
 	}
-	this.$handle.append( this.$input );
+	this.selectButton.$button.append( this.$input );
 };
 
 /**
@@ -302,6 +308,19 @@ OO.ui.SelectFileWidget.prototype.onKeyPress = function ( e ) {
 };
 
 /**
+ * Handle drop target click events.
+ *
+ * @private
+ * @param {jQuery.Event} e Key press event
+ */
+OO.ui.SelectFileWidget.prototype.onDropTargetClick = function () {
+	if ( this.isSupported && !this.isDisabled() && this.$input ) {
+		this.$input.click();
+		return false;
+	}
+};
+
+/**
  * Handle drag enter and over events
  *
  * @private
@@ -317,7 +336,6 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 
 	if ( this.isDisabled() || !this.isSupported ) {
 		this.$element.removeClass( 'oo-ui-selectFileWidget-canDrop' );
-		this.setActive( false );
 		dt.dropEffect = 'none';
 		return false;
 	}
@@ -338,7 +356,6 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 	}
 
 	this.$element.toggleClass( 'oo-ui-selectFileWidget-canDrop', droppableFile );
-	this.setActive( droppableFile );
 	if ( !droppableFile ) {
 		dt.dropEffect = 'none';
 	}
@@ -354,7 +371,6 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
  */
 OO.ui.SelectFileWidget.prototype.onDragLeave = function () {
 	this.$element.removeClass( 'oo-ui-selectFileWidget-canDrop' );
-	this.setActive( false );
 };
 
 /**
@@ -370,7 +386,6 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 	e.preventDefault();
 	e.stopPropagation();
 	this.$element.removeClass( 'oo-ui-selectFileWidget-canDrop' );
-	this.setActive( false );
 
 	if ( this.isDisabled() || !this.isSupported ) {
 		return false;
@@ -388,46 +403,15 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 };
 
 /**
- * Handle mouse over events.
- *
- * @private
- * @param {jQuery.Event} e Mouse over event
- */
-OO.ui.SelectFileWidget.prototype.onMouseOver = function () {
-	this.setActive( true );
-};
-
-/**
- * Handle mouse leave events.
- *
- * @private
- * @param {jQuery.Event} e Mouse over event
- */
-OO.ui.SelectFileWidget.prototype.onMouseLeave = function () {
-	this.setActive( false );
-};
-
-/**
  * @inheritdoc
  */
-OO.ui.SelectFileWidget.prototype.setDisabled = function ( state ) {
-	OO.ui.SelectFileWidget.parent.prototype.setDisabled.call( this, state );
-	if ( this.clearButton ) {
-		this.clearButton.setDisabled( state );
+OO.ui.SelectFileWidget.prototype.setDisabled = function ( disabled ) {
+	OO.ui.SelectFileWidget.parent.prototype.setDisabled.call( this, disabled );
+	if ( this.selectButton ) {
+		this.selectButton.setDisabled( disabled );
 	}
-	return this;
-};
-
-/**
- * Set 'active' (hover) state, only matters for widgets with `dragDropUI: true`.
- *
- * @param {boolean} value Whether widget is active
- * @chainable
- */
-OO.ui.SelectFileWidget.prototype.setActive = function ( value ) {
-	if ( this.dragDropUI ) {
-		this.active = value;
-		this.updateThemeClasses();
+	if ( this.clearButton ) {
+		this.clearButton.setDisabled( disabled );
 	}
 	return this;
 };
