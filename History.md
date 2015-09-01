@@ -1,5 +1,25 @@
 # OOjs UI Release History
 
+## v0.12.7 / 2015-09-01
+### Deprecations
+* [DEPRECATING CHANGE] SelectFileWidget: Re-design to use a clearly clickable button (Ed Sanders)
+
+### Styles
+* FieldLayout: Don't add `margin-bottom` when in a HorizontalLayout (Florian)
+* SelectFileWidget: Use gray for hover and `@progressive-fade` for drop active (Prateek Saxena)
+* Apex, MediaWiki themes: Fix scale of external link icon (Ed Sanders)
+* Apex, MediaWiki themes: Re-crush all SVG files with SVGO (James D. Forrester)
+* Apex, MediaWiki themes: Reduce size of 'close' icon by 1px (Ed Sanders)
+* Apex, MediaWiki themes: Remove Inkscape-ism from SVG files (James D. Forrester)
+* Apex, MediaWiki themes: Standardise XML prolog for SVG files (Bartosz Dziewoński)
+* MediaWiki theme: Fix viewBox of arrow indicators (Ed Sanders)
+* MediaWiki theme: Fix viewBox of several icons (James D. Forrester)
+
+### Code
+* LookupElement: Really disallow editing of `readOnly` TextInputWidgets (Bartosz Dziewoński)
+* SelectFileWidget: Fix drop and drop hover exception in Firefox (Ed Sanders)
+* SelectFileWidget: Improve type checking (Ed Sanders)
+
 ## v0.12.6 / 2015-08-25
 ### Features
 * AccessKeyedElement: Introduce (Florian)
