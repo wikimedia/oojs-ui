@@ -198,7 +198,7 @@ OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
 	var widget = this,
 		value = this.getValue();
 
-	if ( this.lookupsDisabled ) {
+	if ( this.lookupsDisabled || this.isReadOnly() ) {
 		return;
 	}
 
@@ -364,9 +364,8 @@ OO.ui.mixin.LookupElement.prototype.setReadOnly = function ( readOnly ) {
 	// Note: Calling #setReadOnly this way assumes this is mixed into an OO.ui.TextInputWidget
 	OO.ui.TextInputWidget.prototype.setReadOnly.call( this, readOnly );
 
-	this.setLookupsDisabled( readOnly );
 	// During construction, #setReadOnly is called before the OO.ui.mixin.LookupElement constructor
-	if ( readOnly && this.lookupMenu ) {
+	if ( this.isReadOnly() && this.lookupMenu ) {
 		this.closeLookupMenu();
 	}
 
