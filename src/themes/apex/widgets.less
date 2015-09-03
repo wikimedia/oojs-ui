@@ -369,7 +369,7 @@
 		border: 1px solid #ccc;
 		box-shadow: 0 0 0 white, inset 0 0.1em 0.2em #ddd;
 		border-radius: 0.25em;
-		.oo-ui-transition(border-color 200ms, box-shadow 200ms);
+		.oo-ui-transition(border-color 200ms ease-in-out, box-shadow 200ms ease-in-out);
 
 		&.oo-ui-pendingElement-pending {
 			background-color: transparent;
@@ -1084,7 +1084,7 @@
 	&-bar {
 		height: 1em;
 		border-right: 1px solid #ccc;
-		.oo-ui-transition(width 200ms, margin-left 200ms);
+		.oo-ui-transition(width 200ms linear, margin-left 200ms linear);
 		.oo-ui-vertical-gradient(@progressive-gradient-start, @progressive-gradient-end);
 	}
 	&-indeterminate {
