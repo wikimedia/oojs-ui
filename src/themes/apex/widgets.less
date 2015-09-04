@@ -369,7 +369,7 @@
 		border: 1px solid #ccc;
 		box-shadow: 0 0 0 white, inset 0 0.1em 0.2em #ddd;
 		border-radius: 0.25em;
-		.oo-ui-transition(border-color 200ms ease, box-shadow 200ms ease);
+		.oo-ui-transition(border-color @medium-ease, box-shadow @medium-ease);
 
 		&.oo-ui-pendingElement-pending {
 			background-color: transparent;
@@ -895,7 +895,7 @@
 	}
 
 	&-transitioning .oo-ui-popupWidget-popup {
-		.oo-ui-transition(width 100ms ease, height 100ms ease, left 100ms ease);
+		.oo-ui-transition(width @quick-ease, height @quick-ease, left @quick-ease);
 	}
 
 	&-head {
@@ -1032,7 +1032,7 @@
 		box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.1);
 		border: 1px #c9c9c9 solid;
 
-		.oo-ui-transition(left 200ms ease, margin-left 200ms ease);
+		.oo-ui-transition(left @medium-ease, margin-left @medium-ease);
 		.oo-ui-vertical-gradient(#fff, #ddd);
 	}
 
@@ -1047,7 +1047,7 @@
 		border-radius: 1em;
 		box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.07);
 
-		.oo-ui-transition(opacity 200ms ease);
+		.oo-ui-transition(opacity @medium-ease);
 		.oo-ui-vertical-gradient(#b0d9ee, #eaf4fa);
 	}
 
@@ -1082,7 +1082,7 @@
 	&-bar {
 		height: 1em;
 		border-right: 1px solid #ccc;
-		.oo-ui-transition(width 200ms linear, margin-left 200ms linear);
+		.oo-ui-transition(width @medium-ease, margin-left @medium-ease);
 		.oo-ui-vertical-gradient(@progressive-gradient-start, @progressive-gradient-end);
 	}
 	&-indeterminate {
