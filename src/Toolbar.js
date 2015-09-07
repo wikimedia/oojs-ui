@@ -380,10 +380,12 @@ OO.ui.Toolbar.prototype.onWindowResize = function () {
  * This must be called after it is attached to a visible document and before doing anything else.
  */
 OO.ui.Toolbar.prototype.initialize = function () {
-	this.initialized = true;
-	this.narrowThreshold = this.$group.width() + this.$actions.width();
-	$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
-	this.onWindowResize();
+	if ( !this.initialized ) {
+		this.initialized = true;
+		this.narrowThreshold = this.$group.width() + this.$actions.width();
+		$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
+		this.onWindowResize();
+	}
 };
 
 /**
