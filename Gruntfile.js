@@ -310,6 +310,9 @@ module.exports = function ( grunt ) {
 
 		// Lint – i18n
 		banana: {
+			options: {
+				disallowDuplicateTranslations: false
+			},
 			all: 'i18n/'
 		},
 		jsonlint: {
