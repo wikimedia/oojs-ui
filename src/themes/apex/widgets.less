@@ -181,7 +181,6 @@
 		height: 2.4em;
 		border: 1px solid rgba(0,0,0,0.1);
 		border-radius: 0.25em;
-		padding: 0 0.5em;
 
 		> .oo-ui-indicatorElement-indicator {
 			right: 0;
@@ -195,10 +194,11 @@
 			line-height: 2.3em;
 			margin: 0;
 			overflow: hidden;
-			width: 100%;
 			white-space: nowrap;
 			.oo-ui-box-sizing( border-box );
 			text-overflow: ellipsis;
+			left: 0.5em;
+			right: 0.5em;
 		}
 
 		.oo-ui-selectFileWidget-clearButton {
@@ -244,12 +244,16 @@
 	}
 
 	&.oo-ui-iconElement .oo-ui-selectFileWidget-info {
-		padding-left: 3em;
+		.oo-ui-selectFileWidget-label {
+			left: 2.75em;
+		}
 	}
 
 	// With close, no indicator:
 	& .oo-ui-selectFileWidget-info {
-		padding-right: 3em;
+		.oo-ui-selectFileWidget-label {
+			right: 3em;
+		}
 
 		.oo-ui-selectFileWidget-clearButton {
 			right: 0;
@@ -258,7 +262,9 @@
 
 	// With close, with indicator:
 	&.oo-ui-indicatorElement .oo-ui-selectFileWidget-info {
-		padding-right: 5em;
+		.oo-ui-selectFileWidget-label {
+			right: 5em;
+		}
 
 		.oo-ui-selectFileWidget-clearButton {
 			right: 2em;
@@ -268,14 +274,18 @@
 	// No close, no indicator:
 	&-empty, &-notsupported {
 		.oo-ui-selectFileWidget-info {
-			padding-right: 1em;
+			.oo-ui-selectFileWidget-label {
+				right: 1em;
+			}
 		}
 	}
 
 	// No close, with indicator:
 	&-empty.oo-ui-indicatorElement, &-notsupported.oo-ui-indicatorElement {
 		.oo-ui-selectFileWidget-info {
-			padding-right: 2em;
+			.oo-ui-selectFileWidget-label {
+				right: 2em;
+			}
 		}
 	}
 
