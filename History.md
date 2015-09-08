@@ -1,5 +1,19 @@
 # OOjs UI Release History
 
+## v0.12.8 / 2015-09-08
+### Styles
+* SelectFileWidget: Overflow and ellipsis for label (Ed Sanders)
+* Apex theme: Move transition timing to common variables (Prateek Saxena)
+* MediaWiki theme: Move window transition to `@medium-ease` variable (Prateek Saxena)
+* MediaWiki theme: Add missing `width` and `height` attributes to icons (Ed Sanders)
+* Clean up CSS values in .oo-ui-transition calls (Timo Tijhof)
+* Use 'ease' instead of 'ease-in-out' for CSS transitions (Timo Tijhof)
+
+### Code
+* Toolbar: Prevent double initialization (Roan Kattouw)
+* build: Bump grunt-contrib-jshint from 0.11.2 to 0.11.3 to fix upstream issue (James D. Forrester)
+* build: Upgrade grunt-banana-checker to v0.3.0 (James D. Forrester)
+
 ## v0.12.7 / 2015-09-01
 ### Deprecations
 * [DEPRECATING CHANGE] SelectFileWidget: Re-design to use a clearly clickable button (Ed Sanders)
