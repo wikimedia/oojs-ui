@@ -33,7 +33,7 @@
 		> .oo-ui-buttonElement-button {
 			> .oo-ui-iconElement-icon {
 				/* Don't animate opacities for now, causes wiggling in Chrome (bug 63020) */
-				/*.oo-ui-transition(opacity 200ms ease);*/
+				/*.oo-ui-transition(opacity @medium-ease);*/
 			}
 
 			&:hover,
@@ -103,7 +103,7 @@
 			border-radius: 0.3em;
 			text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 			border: 1px #c9c9c9 solid;
-			.oo-ui-transition(border-color 100ms ease);
+			.oo-ui-transition(border-color @quick-ease);
 			.oo-ui-vertical-gradient(#fff, #ddd);
 
 			&:hover,
