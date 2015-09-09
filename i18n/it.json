@@ -13,14 +13,15 @@
 			"Raoli",
 			"Una giornata uggiosa '94",
 			"Ontsed",
-			"Alexmar983"
+			"Alexmar983",
+			"Nemo bis"
 		]
 	},
 	"ooui-outline-control-move-down": "Sposta in basso",
 	"ooui-outline-control-move-up": "Sposta in alto",
 	"ooui-outline-control-remove": "Rimuovi elemento",
 	"ooui-toolbar-more": "Altro",
-	"ooui-toolgroup-expand": "Più",
+	"ooui-toolgroup-expand": "Altro",
 	"ooui-toolgroup-collapse": "Meno",
 	"ooui-dialog-message-accept": "OK",
 	"ooui-dialog-message-reject": "Annulla",
