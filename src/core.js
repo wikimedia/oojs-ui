@@ -101,6 +101,34 @@ OO.ui.isFocusableElement = function ( $element ) {
 };
 
 /**
+ * Find a focusable child
+ *
+ * @param {jQuery} $container Container to search in
+ * @param {boolean} [backwards] Search backwards
+ * @return {jQuery} Focusable child, an empty jQuery object if none found
+ */
+OO.ui.findFocusable = function ( $container, backwards ) {
+	var $focusable = $( [] ),
+		// $focusableCandidates is a superset of things that
+		// could get matched by isFocusableElement
+		$focusableCandidates = $container
+			.find( 'input, select, textarea, button, object, a, area, [contenteditable], [tabindex]' );
+
+	if ( backwards ) {
+		$focusableCandidates = Array.prototype.reverse.call( $focusableCandidates );
+	}
+
+	$focusableCandidates.each( function () {
+		var $this = $( this );
+		if ( OO.ui.isFocusableElement( $this ) ) {
+			$focusable = $this;
+			return false;
+		}
+	} );
+	return $focusable;
+};
+
+/**
  * Get the user's language and any fallback languages.
  *
  * These language codes are used to localize user interface elements in the user's language.

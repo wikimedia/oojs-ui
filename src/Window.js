@@ -60,6 +60,10 @@ OO.ui.Window = function OoUiWindow( config ) {
 	this.$overlay = $( '<div>' );
 	this.$content = $( '<div>' );
 
+	this.$focusTrapBefore = $( '<div>' ).prop( 'tabIndex', 0 );
+	this.$focusTrapAfter = $( '<div>' ).prop( 'tabIndex', 0 );
+	this.$focusTraps = this.$focusTrapBefore.add( this.$focusTrapAfter );
+
 	// Initialization
 	this.$overlay.addClass( 'oo-ui-window-overlay' );
 	this.$content
@@ -67,7 +71,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 		.attr( 'tabindex', 0 );
 	this.$frame
 		.addClass( 'oo-ui-window-frame' )
-		.append( this.$content );
+		.append( this.$focusTrapBefore, this.$content, this.$focusTrapAfter );
 
 	this.$element
 		.addClass( 'oo-ui-window' )
@@ -501,6 +505,21 @@ OO.ui.Window.prototype.initialize = function () {
 };
 
 /**
+ * Called when someone tries to focus the hidden element at the end of the dialog.
+ * Sends focus back to the start of the dialog.
+ *
+ * @param {jQuery.Event} event Focus event
+ */
+OO.ui.Window.prototype.onFocusTrapFocused = function ( event ) {
+	if ( this.$focusTrapBefore.is( event.target ) ) {
+		OO.ui.findFocusable( this.$content, true ).focus();
+	} else {
+		// this.$content is the part of the focus cycle, and is the first focusable element
+		this.$content.focus();
+	}
+};
+
+/**
  * Open the window.
  *
  * This method is a wrapper around a call to the window manager’s {@link OO.ui.WindowManager#openWindow openWindow}
@@ -559,6 +578,9 @@ OO.ui.Window.prototype.setup = function ( data ) {
 		deferred = $.Deferred();
 
 	this.toggle( true );
+
+	this.focusTrapHandler = OO.ui.bind( this.onFocusTrapFocused, this );
+	this.$focusTraps.on( 'focus', this.focusTrapHandler );
 
 	this.getSetupProcess( data ).execute().done( function () {
 		// Force redraw by asking the browser to measure the elements' widths
@@ -642,6 +664,7 @@ OO.ui.Window.prototype.teardown = function ( data ) {
 			// Force redraw by asking the browser to measure the elements' widths
 			win.$element.removeClass( 'oo-ui-window-active oo-ui-window-setup' ).width();
 			win.$content.removeClass( 'oo-ui-window-content-setup' ).width();
+			win.$focusTraps.off( 'focus', win.focusTrapHandler );
 			win.toggle( false );
 		} );
 };
