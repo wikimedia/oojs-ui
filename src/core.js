@@ -53,30 +53,51 @@ OO.ui.generateElementId = function () {
  * @return {boolean}
  */
 OO.ui.isFocusableElement = function ( $element ) {
-	var node = $element[ 0 ],
-		nodeName = node.nodeName.toLowerCase(),
-		// Check if the element have tabindex set
-		isInElementGroup = /^(input|select|textarea|button|object)$/.test( nodeName ),
-		// Check if the element is a link with href or if it has tabindex
-		isOtherElement = (
-			( nodeName === 'a' && node.href ) ||
-			!isNaN( $element.attr( 'tabindex' ) )
-		),
-		// Check if the element is visible
-		isVisible = (
-			// This is quicker than calling $element.is( ':visible' )
-			$.expr.filters.visible( node ) &&
-			// Check that all parents are visible
-			!$element.parents().addBack().filter( function () {
-				return $.css( this, 'visibility' ) === 'hidden';
-			} ).length
-		),
-		isTabOk = isNaN( $element.attr( 'tabindex' ) ) || +$element.attr( 'tabindex' ) >= 0;
+	var nodeName,
+		element = $element[ 0 ];
 
-	return (
-		( isInElementGroup ? !node.disabled : isOtherElement ) &&
-		isVisible && isTabOk
-	);
+	// Anything disabled is not focusable
+	if ( element.disabled ) {
+		return false;
+	}
+
+	// Check if the element is visible
+	if ( !(
+		// This is quicker than calling $element.is( ':visible' )
+		$.expr.filters.visible( element ) &&
+		// Check that all parents are visible
+		!$element.parents().addBack().filter( function () {
+			return $.css( this, 'visibility' ) === 'hidden';
+		} ).length
+	) ) {
+		return false;
+	}
+
+	// Check if the element is ContentEditable, which is the string 'true'
+	if ( element.contentEditable === 'true' ) {
+		return true;
+	}
+
+	// Anything with a non-negative numeric tabIndex is focusable.
+	// Use .prop to avoid browser bugs
+	if ( $element.prop( 'tabIndex' ) >= 0 ) {
+		return true;
+	}
+
+	// Some element types are naturally focusable
+	// (indexOf is much faster than regex in Chrome and about the
+	// same in FF: https://jsperf.com/regex-vs-indexof-array2)
+	nodeName = element.nodeName.toLowerCase();
+	if ( [ 'input', 'select', 'textarea', 'button', 'object' ].indexOf( nodeName ) !== -1 ) {
+		return true;
+	}
+
+	// Links and areas are focusable if they have an href
+	if ( ( nodeName === 'a' || nodeName === 'area' ) && $element.attr( 'href' ) !== undefined ) {
+		return true;
+	}
+
+	return false;
 };
 
 /**
