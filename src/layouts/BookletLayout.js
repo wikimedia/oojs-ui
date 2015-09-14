@@ -228,7 +228,6 @@ OO.ui.BookletLayout.prototype.focusFirstFocusable = function () {
 		// and check if they are focusable
 		items[ i ].$element
 			.find( 'input, select, textarea, button, object' )
-			/* jshint loopfunc:true */
 			.each( checkAndFocus );
 	}
 };
