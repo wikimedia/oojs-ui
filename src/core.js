@@ -293,9 +293,7 @@ OO.ui.infuse = function ( idOrNode ) {
 		// Label for the file selection widget when no file is currently selected
 		'ooui-selectfile-placeholder': 'No file is selected',
 		// Label for the file selection widget's drop target
-		'ooui-selectfile-dragdrop-placeholder': 'Drop file here',
-		// Semicolon separator
-		'ooui-semicolon-separator': '; '
+		'ooui-selectfile-dragdrop-placeholder': 'Drop file here'
 	};
 
 	/**

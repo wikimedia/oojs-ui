@@ -187,6 +187,7 @@ OO.ui.SelectFileWidget.prototype.setValue = function ( file ) {
  * @protected
  */
 OO.ui.SelectFileWidget.prototype.updateUI = function () {
+	var $label;
 	if ( !this.isSupported ) {
 		this.$element.addClass( 'oo-ui-selectFileWidget-notsupported' );
 		this.$element.removeClass( 'oo-ui-selectFileWidget-empty' );
@@ -195,9 +196,13 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 		this.$element.addClass( 'oo-ui-selectFileWidget-supported' );
 		if ( this.currentFile ) {
 			this.$element.removeClass( 'oo-ui-selectFileWidget-empty' );
-			this.setLabel( this.currentFile.name +
-				( this.currentFile.type !== '' ? OO.ui.msg( 'ooui-semicolon-separator' ) + this.currentFile.type : '' )
-			);
+			$label = $( document.createTextNode( this.currentFile.name ) );
+			if ( this.currentFile.type !== '' ) {
+				$label = $label
+					.add( document.createTextNode( ' ' ) )
+					.add( $( '<span>' ).addClass( 'oo-ui-selectFileWidget-fileType' ).text( this.currentFile.type ) );
+			}
+			this.setLabel( $label );
 		} else {
 			this.$element.addClass( 'oo-ui-selectFileWidget-empty' );
 			this.setLabel( this.placeholder );

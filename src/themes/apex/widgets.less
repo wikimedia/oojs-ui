@@ -190,7 +190,7 @@
 			left: 0.25em;
 		}
 
-		.oo-ui-selectFileWidget-label {
+		> .oo-ui-selectFileWidget-label {
 			line-height: 2.3em;
 			margin: 0;
 			overflow: hidden;
@@ -199,9 +199,13 @@
 			text-overflow: ellipsis;
 			left: 0.5em;
 			right: 0.5em;
+
+			> .oo-ui-selectFileWidget-fileType {
+				color: #888;
+			}
 		}
 
-		.oo-ui-selectFileWidget-clearButton {
+		> .oo-ui-selectFileWidget-clearButton {
 			top: 0;
 			width: @icon-size;
 			height: @icon-size;
