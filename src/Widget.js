@@ -55,7 +55,8 @@ OO.ui.Widget.static.supportsSimpleLabel = false;
 /**
  * @event disable
  *
- * A 'disable' event is emitted when a widget is disabled.
+ * A 'disable' event is emitted when the disabled state of the widget changes
+ * (i.e. on disable **and** enable).
  *
  * @param {boolean} disabled Widget is disabled
  */
