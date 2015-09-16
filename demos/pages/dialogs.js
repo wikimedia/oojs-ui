@@ -446,7 +446,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		DialogWithDropdowns.parent.call( this, config );
 	}
 	OO.inheritClass( DialogWithDropdowns, OO.ui.ProcessDialog );
-	DialogWithDropdowns.static.title = 'Dialog with dropdowns';
+	DialogWithDropdowns.static.title = 'Dialog with dropdowns ($overlay test)';
 	DialogWithDropdowns.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
 		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
@@ -455,6 +455,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return 250;
 	};
 	DialogWithDropdowns.prototype.initialize = function () {
+		var $spacer = $( '<div>' ).height( 150 );
 		DialogWithDropdowns.parent.prototype.initialize.apply( this, arguments );
 		this.bookletLayout = new OO.ui.BookletLayout( {
 			outlined: true
@@ -466,76 +467,77 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				content: [
 					'This is a test of various kinds of dropdown menus and their $overlay config option. ',
 					'Entries without any icon use a correctly set $overlay and their menus should be able to extend outside of this small dialog. ',
-					'Entries with the ', new OO.ui.IconWidget( { icon: 'alert' } ), ' icon do not, and their menus should be clipped to the dialog\'s boundaries.'
+					'Entries with the ', new OO.ui.IconWidget( { icon: 'alert' } ), ' icon do not, and their menus should be clipped to the dialog\'s boundaries. ',
+					'All dropdown menus should stick to the widget proper, even when scrolling while the menu is open.'
 				]
 			} ),
 			new SamplePage( 'dropdown', {
 				label: 'DropdownWidget',
-				content: [ new OO.ui.DropdownWidget( {
+				content: [ $spacer.clone(), new OO.ui.DropdownWidget( {
 					$overlay: this.$overlay,
 					menu: {
 						items: this.makeItems()
 					}
-				} ) ]
+				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'dropdown2', {
 				label: 'DropdownWidget',
 				icon: 'alert',
-				content: [ new OO.ui.DropdownWidget( {
+				content: [ $spacer.clone(), new OO.ui.DropdownWidget( {
 					menu: {
 						items: this.makeItems()
 					}
-				} ) ]
+				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'combobox', {
 				label: 'ComboBoxWidget',
-				content: [ new OO.ui.ComboBoxWidget( {
+				content: [ $spacer.clone(), new OO.ui.ComboBoxWidget( {
 					$overlay: this.$overlay,
 					menu: {
 						items: this.makeItems()
 					}
-				} ) ]
+				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'combobox2', {
 				label: 'ComboBoxWidget',
 				icon: 'alert',
-				content: [ new OO.ui.ComboBoxWidget( {
+				content: [ $spacer.clone(), new OO.ui.ComboBoxWidget( {
 					menu: {
 						items: this.makeItems()
 					}
-				} ) ]
+				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'lookup', {
 				label: 'LookupElement',
-				content: [ new ExampleLookupTextInputWidget( {
+				content: [ $spacer.clone(), new ExampleLookupTextInputWidget( {
 					$overlay: this.$overlay,
 					items: this.makeItems()
-				} ) ]
+				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'lookup2', {
 				label: 'LookupElement',
 				icon: 'alert',
-				content: [ new ExampleLookupTextInputWidget( {
+				content: [ $spacer.clone(), new ExampleLookupTextInputWidget( {
 					items: this.makeItems()
-				} ) ]
+				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'capsule', {
 				label: 'CapsuleMultiSelectWidget',
-				content: [ new OO.ui.CapsuleMultiSelectWidget( {
+				content: [ $spacer.clone(), new OO.ui.CapsuleMultiSelectWidget( {
 					$overlay: this.$overlay,
 					menu: {
 						items: this.makeItems()
 					}
-				} ) ]
+				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'capsule2', {
 				label: 'CapsuleMultiSelectWidget',
 				icon: 'alert',
-				content: [ new OO.ui.CapsuleMultiSelectWidget( {
+				content: [ $spacer.clone(), new OO.ui.CapsuleMultiSelectWidget( {
 					menu: {
 						items: this.makeItems()
 					}
-				} ) ]
+				} ), $spacer.clone() ]
 			} )
 		];
 		this.bookletLayout.addPages( this.pages );
@@ -657,7 +659,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			}
 		},
 		{
-			name: 'Dialog with dropdowns',
+			name: 'Dialog with dropdowns ($overlay test)',
 			dialogClass: DialogWithDropdowns,
 			config: {
 				size: 'large'
