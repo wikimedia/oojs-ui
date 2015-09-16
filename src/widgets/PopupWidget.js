@@ -20,6 +20,7 @@
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.ClippableElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
