@@ -11,6 +11,7 @@
  *
  * @class
  * @extends OO.ui.MenuSelectWidget
+ * @mixins OO.ui.mixin.FloatableElement
  *
  * @constructor
  * @param {OO.ui.Widget} [inputWidget] Widget to provide the menu for.
@@ -31,11 +32,12 @@ OO.ui.FloatingMenuSelectWidget = function OoUiFloatingMenuSelectWidget( inputWid
 	// Parent constructor
 	OO.ui.FloatingMenuSelectWidget.parent.call( this, config );
 
-	// Properties
+	// Properties (must be set before mixin constructors)
 	this.inputWidget = inputWidget; // For backwards compatibility
 	this.$container = config.$container || this.inputWidget.$element;
-	this.onWindowResizeHandler = this.onWindowResize.bind( this );
-	this.onContainerParentScrollHandler = this.onContainerParentScroll.bind( this );
+
+	// Mixins constructors
+	OO.ui.mixin.FloatableElement.call( this, $.extend( {}, config, { $floatableContainer: this.$container } ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-floatingMenuSelectWidget' );
@@ -46,6 +48,7 @@ OO.ui.FloatingMenuSelectWidget = function OoUiFloatingMenuSelectWidget( inputWid
 /* Setup */
 
 OO.inheritClass( OO.ui.FloatingMenuSelectWidget, OO.ui.MenuSelectWidget );
+OO.mixinClass( OO.ui.FloatingMenuSelectWidget, OO.ui.mixin.FloatableElement );
 
 // For backwards compatibility
 OO.ui.TextInputMenuSelectWidget = OO.ui.FloatingMenuSelectWidget;
@@ -53,90 +56,25 @@ OO.ui.TextInputMenuSelectWidget = OO.ui.FloatingMenuSelectWidget;
 /* Methods */
 
 /**
- * Handle window resize event.
- *
- * @private
- * @param {jQuery.Event} e Window resize event
- */
-OO.ui.FloatingMenuSelectWidget.prototype.onWindowResize = function () {
-	this.position();
-};
-
-/**
- * Handle closest scrollable ancestor of $container resize event.
- *
- * @private
- * @param {jQuery.Event} e Scroll event
- */
-OO.ui.FloatingMenuSelectWidget.prototype.onContainerParentScroll = function () {
-	this.position();
-};
-
-/**
  * @inheritdoc
  */
 OO.ui.FloatingMenuSelectWidget.prototype.toggle = function ( visible ) {
-	var change, closestScrollableOfContainer, closestScrollableOfThis;
+	var change;
 	visible = visible === undefined ? !this.isVisible() : !!visible;
-
 	change = visible !== this.isVisible();
 
 	if ( change && visible ) {
 		// Make sure the width is set before the parent method runs.
-		// After this we have to call this.position(); again to actually
-		// position ourselves correctly.
-		this.position();
+		this.setIdealSize( this.$container.width() );
 	}
 
 	// Parent method
+	// This will call this.clip(), which is nonsensical since we're not positioned yet...
 	OO.ui.FloatingMenuSelectWidget.parent.prototype.toggle.call( this, visible );
 
 	if ( change ) {
-		if ( this.isVisible() ) {
-			this.position();
-			$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
-		} else {
-			$( this.getElementWindow() ).off( 'resize', this.onWindowResizeHandler );
-		}
-
-		closestScrollableOfContainer = OO.ui.Element.static.getClosestScrollableContainer( this.$container[ 0 ] );
-		closestScrollableOfThis = OO.ui.Element.static.getClosestScrollableContainer( this.$element[ 0 ] );
-		if ( closestScrollableOfContainer !== closestScrollableOfThis ) {
-			// If the clippable container is the root, we have to listen to scroll events and check
-			// jQuery.scrollTop on the window because of browser inconsistencies
-			if ( $( closestScrollableOfContainer ).is( 'html, body' ) ) {
-				closestScrollableOfContainer = OO.ui.Element.static.getWindow( closestScrollableOfContainer );
-			}
-
-			if ( this.isVisible() ) {
-				$( closestScrollableOfContainer ).on( 'scroll', this.onContainerParentScrollHandler );
-			} else {
-				$( closestScrollableOfContainer ).off( 'scroll', this.onContainerParentScrollHandler );
-			}
-		}
+		this.togglePositioning( this.isVisible() );
 	}
-
-	return this;
-};
-
-/**
- * Position the menu.
- *
- * @private
- * @chainable
- */
-OO.ui.FloatingMenuSelectWidget.prototype.position = function () {
-	var $container = this.$container,
-		pos = OO.ui.Element.static.getRelativePosition( $container, this.$element.offsetParent() );
-
-	// Position under input
-	pos.top += $container.height();
-	this.$element.css( pos );
-
-	// Set width
-	this.setIdealSize( $container.width() );
-	// We updated the position, so re-evaluate the clipping state
-	this.clip();
 
 	return this;
 };
