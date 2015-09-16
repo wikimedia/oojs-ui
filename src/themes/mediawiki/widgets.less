@@ -147,6 +147,10 @@
 			text-shadow: 0 1px 1px #fff;
 			border-color: #ddd;
 			background-color: #f3f3f3;
+
+			&:focus {
+				outline: 0;
+			}
 		}
 		.oo-ui-indicatorElement-indicator {
 			opacity: 0.2;
@@ -1278,6 +1282,7 @@
 	&.oo-ui-widget-disabled {
 		background: @disabled-background;
 		border-color: @disabled-background;
+		outline: 0;
 
 		.oo-ui-toggleSwitchWidget-grip {
 			background: @disabled-framed-text;

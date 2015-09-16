@@ -162,6 +162,10 @@
 		}
 
 		&.oo-ui-widget-disabled > .oo-ui-tool-link {
+			&:focus {
+				outline: 0;
+			}
+
 			.oo-ui-tool-title {
 				color: #ccc;
 			}
@@ -179,7 +183,15 @@
 	}
 
 	&.oo-ui-widget-disabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
+		&:focus {
+			outline: 0;
+		}
+		
 		> .oo-ui-tool-link {
+			&:focus {
+				outline: 0;
+			}
+
 			.oo-ui-tool-title {
 				color: #ccc;
 			}
