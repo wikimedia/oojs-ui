@@ -37,7 +37,7 @@
 			}
 
 			.oo-ui-indicatorElement-indicator {
-				margin-right: 0em;
+				margin-right: 0;
 			}
 		}
 
@@ -85,6 +85,10 @@
 
 		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
 			color: @disabled-text;
+
+			&:focus {
+				box-shadow: none;
+			}
 
 			> .oo-ui-iconElement-icon,
 			> .oo-ui-indicatorElement-indicator {
