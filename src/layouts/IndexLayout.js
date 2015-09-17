@@ -156,7 +156,7 @@ OO.ui.IndexLayout.prototype.onStackLayoutSet = function ( card ) {
  * @param {number} [itemIndex] A specific item to focus on
  */
 OO.ui.IndexLayout.prototype.focus = function ( itemIndex ) {
-	var $input, card,
+	var card,
 		items = this.stackLayout.getItems();
 
 	if ( itemIndex !== undefined && items[ itemIndex ] ) {
@@ -174,10 +174,7 @@ OO.ui.IndexLayout.prototype.focus = function ( itemIndex ) {
 	}
 	// Only change the focus if is not already in the current card
 	if ( !card.$element.find( ':focus' ).length ) {
-		$input = card.$element.find( ':input:first' );
-		if ( $input.length ) {
-			$input[ 0 ].focus();
-		}
+		OO.ui.findFocusable( card.$element ).focus();
 	}
 };
 
@@ -186,27 +183,7 @@ OO.ui.IndexLayout.prototype.focus = function ( itemIndex ) {
  * on it.
  */
 OO.ui.IndexLayout.prototype.focusFirstFocusable = function () {
-	var i, len,
-		found = false,
-		items = this.stackLayout.getItems(),
-		checkAndFocus = function () {
-			if ( OO.ui.isFocusableElement( $( this ) ) ) {
-				$( this ).focus();
-				found = true;
-				return false;
-			}
-		};
-
-	for ( i = 0, len = items.length; i < len; i++ ) {
-		if ( found ) {
-			break;
-		}
-		// Find all potentially focusable elements in the item
-		// and check if they are focusable
-		items[ i ].$element
-			.find( 'input, select, textarea, button, object' )
-			.each( checkAndFocus );
-	}
+	OO.ui.findFocusable( this.stackLayout.$element ).focus();
 };
 
 /**
@@ -410,7 +387,8 @@ OO.ui.IndexLayout.prototype.clearCards = function () {
 OO.ui.IndexLayout.prototype.setCard = function ( name ) {
 	var selectedItem,
 		$focused,
-		card = this.cards[ name ];
+		card = this.cards[ name ],
+		previousCard = this.currentCardName && this.cards[ this.currentCardName ];
 
 	if ( name !== this.currentCardName ) {
 		selectedItem = this.tabSelectWidget.getSelectedItem();
@@ -418,21 +396,34 @@ OO.ui.IndexLayout.prototype.setCard = function ( name ) {
 			this.tabSelectWidget.selectItemByData( name );
 		}
 		if ( card ) {
-			if ( this.currentCardName && this.cards[ this.currentCardName ] ) {
-				this.cards[ this.currentCardName ].setActive( false );
-				// Blur anything focused if the next card doesn't have anything focusable - this
-				// is not needed if the next card has something focusable because once it is focused
-				// this blur happens automatically
-				if ( this.autoFocus && !card.$element.find( ':input' ).length ) {
-					$focused = this.cards[ this.currentCardName ].$element.find( ':focus' );
+			if ( previousCard ) {
+				previousCard.setActive( false );
+				// Blur anything focused if the next card doesn't have anything focusable.
+				// This is not needed if the next card has something focusable (because once it is focused
+				// this blur happens automatically). If the layout is non-continuous, this check is
+				// meaningless because the next card is not visible yet and thus can't hold focus.
+				if (
+					this.autoFocus &&
+					this.stackLayout.continuous &&
+					OO.ui.findFocusable( card.$element ).length !== 0
+				) {
+					$focused = previousCard.$element.find( ':focus' );
 					if ( $focused.length ) {
 						$focused[ 0 ].blur();
 					}
 				}
 			}
 			this.currentCardName = name;
-			this.stackLayout.setItem( card );
 			card.setActive( true );
+			this.stackLayout.setItem( card );
+			if ( !this.stackLayout.continuous && previousCard ) {
+				// This should not be necessary, since any inputs on the previous card should have been
+				// blurred when it was hidden, but browsers are not very consistent about this.
+				$focused = previousCard.$element.find( ':focus' );
+				if ( $focused.length ) {
+					$focused[ 0 ].blur();
+				}
+			}
 			this.emit( 'set', card );
 		}
 	}
