@@ -14,7 +14,8 @@
 			"Una giornata uggiosa '94",
 			"Ontsed",
 			"Alexmar983",
-			"Nemo bis"
+			"Nemo bis",
+			"Jdforrester"
 		]
 	},
 	"ooui-outline-control-move-down": "Sposta in basso",
@@ -31,5 +32,6 @@
 	"ooui-dialog-process-continue": "Continua",
 	"ooui-selectfile-button-select": "Seleziona un file",
 	"ooui-selectfile-not-supported": "La selezione del file non è supportata",
-	"ooui-selectfile-placeholder": "Nessun file è selezionato"
+	"ooui-selectfile-placeholder": "Nessun file è selezionato",
+	"ooui-selectfile-dragdrop-placeholder": "Posiziona i files qui"
 }
