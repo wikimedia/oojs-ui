@@ -35,6 +35,7 @@ OO.ui.FloatingMenuSelectWidget = function OoUiFloatingMenuSelectWidget( inputWid
 	this.inputWidget = inputWidget; // For backwards compatibility
 	this.$container = config.$container || this.inputWidget.$element;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
+	this.onContainerParentScrollHandler = this.onContainerParentScroll.bind( this );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-floatingMenuSelectWidget' );
@@ -62,10 +63,20 @@ OO.ui.FloatingMenuSelectWidget.prototype.onWindowResize = function () {
 };
 
 /**
+ * Handle closest scrollable ancestor of $container resize event.
+ *
+ * @private
+ * @param {jQuery.Event} e Scroll event
+ */
+OO.ui.FloatingMenuSelectWidget.prototype.onContainerParentScroll = function () {
+	this.position();
+};
+
+/**
  * @inheritdoc
  */
 OO.ui.FloatingMenuSelectWidget.prototype.toggle = function ( visible ) {
-	var change;
+	var change, closestScrollableOfContainer, closestScrollableOfThis;
 	visible = visible === undefined ? !this.isVisible() : !!visible;
 
 	change = visible !== this.isVisible();
@@ -86,6 +97,22 @@ OO.ui.FloatingMenuSelectWidget.prototype.toggle = function ( visible ) {
 			$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
 		} else {
 			$( this.getElementWindow() ).off( 'resize', this.onWindowResizeHandler );
+		}
+
+		closestScrollableOfContainer = OO.ui.Element.static.getClosestScrollableContainer( this.$container[ 0 ] );
+		closestScrollableOfThis = OO.ui.Element.static.getClosestScrollableContainer( this.$element[ 0 ] );
+		if ( closestScrollableOfContainer !== closestScrollableOfThis ) {
+			// If the clippable container is the root, we have to listen to scroll events and check
+			// jQuery.scrollTop on the window because of browser inconsistencies
+			if ( $( closestScrollableOfContainer ).is( 'html, body' ) ) {
+				closestScrollableOfContainer = OO.ui.Element.static.getWindow( closestScrollableOfContainer );
+			}
+
+			if ( this.isVisible() ) {
+				$( closestScrollableOfContainer ).on( 'scroll', this.onContainerParentScrollHandler );
+			} else {
+				$( closestScrollableOfContainer ).off( 'scroll', this.onContainerParentScrollHandler );
+			}
 		}
 	}
 
