@@ -151,34 +151,20 @@
 		&-primary,
 		&-other {
 			.oo-ui-actionWidget {
-				.oo-ui-buttonElement-button {
-					min-width: @icon-size;
-					min-height: @icon-size;
-				}
-
-				.oo-ui-labelElement-label {
-					line-height: @icon-size;
-				}
-
-				&.oo-ui-iconElement .oo-ui-iconElement-icon {
-					margin-top: -0.125em;
-				}
-
 				&.oo-ui-buttonElement-framed {
-					margin: 0.75em;
-					.oo-ui-buttonElement-button {
-						padding: 0 1em;
-						vertical-align: middle;
-						/* Adjust for border so text aligns with title */
-						margin: -1px;
-					}
+					margin: 0.5em;
 				}
 
 				&.oo-ui-buttonElement-frameless {
 					margin: 0;
+
 					.oo-ui-buttonElement-button {
 						padding: 0.75em 1em;
 						vertical-align: middle;
+					}
+
+					.oo-ui-labelElement-label {
+						line-height: @icon-size;
 					}
 				}
 			}
@@ -186,7 +172,7 @@
 
 		&-safe,
 		&-primary {
-			.oo-ui-actionWidget {
+			.oo-ui-actionWidget.oo-ui-buttonElement-frameless {
 				&:hover {
 					background-color: rgba(0,0,0,0.05);
 				}
