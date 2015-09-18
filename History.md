@@ -1,5 +1,9 @@
 # OOjs UI Release History
 
+## v0.12.8-atease / 2015-09-18
+### Code
+* build: Update version requirement for mediawiki/at-ease: 1.0.0 → 1.1.0 (Ori Livneh)
+
 ## v0.12.8 / 2015-09-08
 ### Styles
 * SelectFileWidget: Overflow and ellipsis for label (Ed Sanders)
