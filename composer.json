@@ -4,7 +4,7 @@
 	"homepage": "https://www.mediawiki.org/wiki/OOjs_UI",
 	"license": "MIT",
 	"require": {
-		"mediawiki/at-ease": "1.0.0",
+		"mediawiki/at-ease": "1.1.0",
 		"php": ">=5.3.3"
 	},
 	"require-dev": {
