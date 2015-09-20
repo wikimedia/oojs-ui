@@ -16,20 +16,13 @@
  *     }
  *     OO.inheritClass( CardOneLayout, OO.ui.CardLayout );
  *     CardOneLayout.prototype.setupTabItem = function () {
- *         this.tabItem.setLabel( 'Card One' );
- *     };
- *
- *     function CardTwoLayout( name, config ) {
- *         CardTwoLayout.parent.call( this, name, config );
- *         this.$element.append( '<p>Second card</p>' );
- *     }
- *     OO.inheritClass( CardTwoLayout, OO.ui.CardLayout );
- *     CardTwoLayout.prototype.setupTabItem = function () {
- *         this.tabItem.setLabel( 'Card Two' );
+ *         this.tabItem.setLabel( 'Card one' );
  *     };
  *
  *     var card1 = new CardOneLayout( 'one' ),
- *         card2 = new CardTwoLayout( 'two' );
+ *         card2 = new CardLayout( 'two', { label: 'Card two' } );
+ *
+ *     card2.$element.append( '<p>Second card</p>' );
  *
  *     var index = new OO.ui.IndexLayout();
  *
