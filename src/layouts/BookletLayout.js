@@ -179,7 +179,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
  * @param {number} [itemIndex] A specific item to focus on
  */
 OO.ui.BookletLayout.prototype.focus = function ( itemIndex ) {
-	var $input, page,
+	var page,
 		items = this.stackLayout.getItems();
 
 	if ( itemIndex !== undefined && items[ itemIndex ] ) {
@@ -197,10 +197,7 @@ OO.ui.BookletLayout.prototype.focus = function ( itemIndex ) {
 	}
 	// Only change the focus if is not already in the current page
 	if ( !page.$element.find( ':focus' ).length ) {
-		$input = page.$element.find( ':input:first' );
-		if ( $input.length ) {
-			$input[ 0 ].focus();
-		}
+		OO.ui.findFocusable( page.$element ).focus();
 	}
 };
 
@@ -209,27 +206,7 @@ OO.ui.BookletLayout.prototype.focus = function ( itemIndex ) {
  * on it.
  */
 OO.ui.BookletLayout.prototype.focusFirstFocusable = function () {
-	var i, len,
-		found = false,
-		items = this.stackLayout.getItems(),
-		checkAndFocus = function () {
-			if ( OO.ui.isFocusableElement( $( this ) ) ) {
-				$( this ).focus();
-				found = true;
-				return false;
-			}
-		};
-
-	for ( i = 0, len = items.length; i < len; i++ ) {
-		if ( found ) {
-			break;
-		}
-		// Find all potentially focusable elements in the item
-		// and check if they are focusable
-		items[ i ].$element
-			.find( 'input, select, textarea, button, object' )
-			.each( checkAndFocus );
-	}
+	OO.ui.findFocusable( this.stackLayout.$element ).focus();
 };
 
 /**
@@ -497,7 +474,8 @@ OO.ui.BookletLayout.prototype.clearPages = function () {
 OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 	var selectedItem,
 		$focused,
-		page = this.pages[ name ];
+		page = this.pages[ name ],
+		previousPage = this.currentPageName && this.pages[ this.currentPageName ];
 
 	if ( name !== this.currentPageName ) {
 		if ( this.outlined ) {
@@ -507,21 +485,34 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 			}
 		}
 		if ( page ) {
-			if ( this.currentPageName && this.pages[ this.currentPageName ] ) {
-				this.pages[ this.currentPageName ].setActive( false );
-				// Blur anything focused if the next page doesn't have anything focusable - this
-				// is not needed if the next page has something focusable because once it is focused
-				// this blur happens automatically
-				if ( this.autoFocus && !page.$element.find( ':input' ).length ) {
-					$focused = this.pages[ this.currentPageName ].$element.find( ':focus' );
+			if ( previousPage ) {
+				previousPage.setActive( false );
+				// Blur anything focused if the next page doesn't have anything focusable.
+				// This is not needed if the next page has something focusable (because once it is focused
+				// this blur happens automatically). If the layout is non-continuous, this check is
+				// meaningless because the next page is not visible yet and thus can't hold focus.
+				if (
+					this.autoFocus &&
+					this.stackLayout.continuous &&
+					OO.ui.findFocusable( page.$element ).length !== 0
+				) {
+					$focused = previousPage.$element.find( ':focus' );
 					if ( $focused.length ) {
 						$focused[ 0 ].blur();
 					}
 				}
 			}
 			this.currentPageName = name;
-			this.stackLayout.setItem( page );
 			page.setActive( true );
+			this.stackLayout.setItem( page );
+			if ( !this.stackLayout.continuous && previousPage ) {
+				// This should not be necessary, since any inputs on the previous page should have been
+				// blurred when it was hidden, but browsers are not very consistent about this.
+				$focused = previousPage.$element.find( ':focus' );
+				if ( $focused.length ) {
+					$focused[ 0 ].blur();
+				}
+			}
 			this.emit( 'set', page );
 		}
 	}
