@@ -13,6 +13,7 @@
  * @constructor
  * @param {string} name Unique symbolic name of card
  * @param {Object} [config] Configuration options
+ * @cfg {jQuery|string|Function|OO.ui.HtmlSnippet} [label] Label for card's tab
  */
 OO.ui.CardLayout = function OoUiCardLayout( name, config ) {
 	// Allow passing positional parameters inside the config object
@@ -29,6 +30,7 @@ OO.ui.CardLayout = function OoUiCardLayout( name, config ) {
 
 	// Properties
 	this.name = name;
+	this.label = config.label;
 	this.tabItem = null;
 	this.active = false;
 
@@ -114,6 +116,9 @@ OO.ui.CardLayout.prototype.setTabItem = function ( tabItem ) {
  * @chainable
  */
 OO.ui.CardLayout.prototype.setupTabItem = function () {
+	if ( this.label ) {
+		this.tabItem.setLabel( this.label );
+	}
 	return this;
 };
 

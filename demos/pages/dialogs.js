@@ -299,16 +299,10 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	};
 
 	function SampleCard( name, config ) {
-		config = $.extend( { label: 'Sample card' }, config );
 		OO.ui.CardLayout.call( this, name, config );
-		this.label = config.label;
 		this.$element.text( this.label );
 	}
 	OO.inheritClass( SampleCard, OO.ui.CardLayout );
-	SampleCard.prototype.setupTabItem = function ( tabItem ) {
-		SampleCard.parent.prototype.setupTabItem.call( this, tabItem );
-		this.tabItem.setLabel( this.label );
-	};
 
 	function IndexedDialog( config ) {
 		IndexedDialog.parent.call( this, config );
