@@ -185,8 +185,8 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 			}
 			if ( this.isClippedHorizontally() ) {
 				// Anchoring to the right also caused the popup to clip, so just make it fill the container
-				containerWidth = this.$clippableContainer.width();
-				containerLeft = this.$clippableContainer.offset().left;
+				containerWidth = this.$clippableScrollableContainer.width();
+				containerLeft = this.$clippableScrollableContainer.offset().left;
 
 				this.toggleClipping( false );
 				this.$element.removeClass( 'oo-ui-popupToolGroup-right' );
