@@ -35,6 +35,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [continuous=false] Show all cards, one after another
+ * @cfg {boolean} [expanded=true] Expand the content panel to fill the entire parent element.
  * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new card is displayed.
  */
 OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
@@ -48,7 +49,10 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	this.currentCardName = null;
 	this.cards = {};
 	this.ignoreFocus = false;
-	this.stackLayout = new OO.ui.StackLayout( { continuous: !!config.continuous } );
+	this.stackLayout = new OO.ui.StackLayout( {
+		continuous: !!config.continuous,
+		expanded: config.expanded
+	} );
 	this.$content.append( this.stackLayout.$element );
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 
