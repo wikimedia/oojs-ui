@@ -35,7 +35,6 @@ OO.ui.CapsuleItemWidget = function OoUiCapsuleItemWidget( config ) {
 		keydown: this.onCloseKeyDown.bind( this ),
 		click: this.onCloseClick.bind( this )
 	} );
-	this.$element.on( 'click', false );
 
 	// Initialization
 	this.$element
