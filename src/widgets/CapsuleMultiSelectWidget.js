@@ -183,6 +183,18 @@ OO.mixinClass( OO.ui.CapsuleMultiSelectWidget, OO.ui.mixin.IconElement );
 /* Methods */
 
 /**
+ * Construct a OO.ui.CapsuleItemWidget (or a subclass thereof) from given label and data.
+ *
+ * @protected
+ * @param {Mixed} data Custom data of any type.
+ * @param {string} label The label text.
+ * @return {OO.ui.CapsuleItemWidget}
+ */
+OO.ui.CapsuleMultiSelectWidget.prototype.createItemWidget = function ( data, label ) {
+	return new OO.ui.CapsuleItemWidget( { data: data, label: label } );
+};
+
+/**
  * Get the data of the items in the capsule
  * @return {Mixed[]}
  */
@@ -222,7 +234,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.setItemsFromData = function ( datas ) {
 			}
 		}
 		if ( !item ) {
-			item = new OO.ui.CapsuleItemWidget( { data: data, label: label } );
+			item = widget.createItemWidget( data, label );
 		}
 		widget.addItems( [ item ], i );
 	} );
@@ -251,9 +263,9 @@ OO.ui.CapsuleMultiSelectWidget.prototype.addItemsFromData = function ( datas ) {
 		if ( !widget.getItemFromData( data ) ) {
 			item = menu.getItemFromData( data );
 			if ( item ) {
-				items.push( new OO.ui.CapsuleItemWidget( { data: data, label: item.label } ) );
+				items.push( widget.createItemWidget( data, item.label ) );
 			} else if ( widget.allowArbitrary ) {
-				items.push( new OO.ui.CapsuleItemWidget( { data: data, label: String( data ) } ) );
+				items.push( widget.createItemWidget( data, String( data ) ) );
 			}
 		}
 	} );
