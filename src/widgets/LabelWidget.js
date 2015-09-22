@@ -27,7 +27,6 @@
  *     ] );
  *     $( 'body' ).append( fieldset.$element );
  *
- *
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.LabelElement
