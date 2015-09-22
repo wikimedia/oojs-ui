@@ -196,12 +196,11 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 		this.$element.addClass( 'oo-ui-selectFileWidget-supported' );
 		if ( this.currentFile ) {
 			this.$element.removeClass( 'oo-ui-selectFileWidget-empty' );
-			$label = $( document.createTextNode( this.currentFile.name ) );
+			$label = $( [] );
 			if ( this.currentFile.type !== '' ) {
-				$label = $label
-					.add( document.createTextNode( ' ' ) )
-					.add( $( '<span>' ).addClass( 'oo-ui-selectFileWidget-fileType' ).text( this.currentFile.type ) );
+				$label = $label.add( $( '<span>' ).addClass( 'oo-ui-selectFileWidget-fileType' ).text( this.currentFile.type ) );
 			}
+			$label = $label.add( $( '<span>' ).text( this.currentFile.name ) );
 			this.setLabel( $label );
 		} else {
 			this.$element.addClass( 'oo-ui-selectFileWidget-empty' );
