@@ -313,7 +313,6 @@ OO.ui.NumberInputWidget.prototype.onWheel = function ( event ) {
 /**
  * Handle key down events.
  *
- *
  * @private
  * @param {jQuery.Event} e Key down event
  */

@@ -159,7 +159,6 @@ OO.ui.ComboBoxWidget.prototype.onInputChange = function ( value ) {
 /**
  * Handle mouse click events.
  *
- *
  * @private
  * @param {jQuery.Event} e Mouse click event
  */
@@ -173,7 +172,6 @@ OO.ui.ComboBoxWidget.prototype.onClick = function ( e ) {
 
 /**
  * Handle key press events.
- *
  *
  * @private
  * @param {jQuery.Event} e Key press event

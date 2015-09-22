@@ -29,7 +29,6 @@
  *     } );
  *     $( 'body' ).append( myDropdown.$element );
  *
- *
  * @class
  * @extends OO.ui.DecoratedOptionWidget
  *

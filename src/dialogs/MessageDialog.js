@@ -132,7 +132,6 @@ OO.ui.MessageDialog.prototype.onResize = function () {
 /**
  * Toggle action layout between vertical and horizontal.
  *
- *
  * @private
  * @param {boolean} [value] Layout actions vertically, omit to toggle
  * @chainable

@@ -112,7 +112,6 @@ OO.ui.OutlineControlsWidget.prototype.setAbilities = function ( abilities ) {
 };
 
 /**
- *
  * @private
  * Handle outline change events.
  */
