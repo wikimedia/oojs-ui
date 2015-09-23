@@ -192,7 +192,7 @@
 		}
 
 		> .oo-ui-iconElement-icon {
-			left: 0.25em;
+			left: 0em;
 		}
 
 		> .oo-ui-selectFileWidget-label {
@@ -202,8 +202,8 @@
 			white-space: nowrap;
 			.oo-ui-box-sizing( border-box );
 			text-overflow: ellipsis;
-			left: 1em;
-			right: 1em;
+			left: 0.5em;
+			right: 0.5em;
 
 			> .oo-ui-selectFileWidget-fileType {
 				color: #888;
@@ -213,22 +213,24 @@
 		> .oo-ui-selectFileWidget-clearButton {
 			top: 0;
 			width: @icon-size;
-			height: @icon-size;
-			margin: 0.3em;
+			margin-right: 0;
+			.oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+				height: 2.3em;
+			}
 		}
 
 		> .oo-ui-indicatorElement-indicator {
 			top: 0;
 			width: @indicator-size;
-			height: @indicator-size;
-			margin: 0.775em;
+			height: 2.3em;
+			margin-right: 0.775em;
 		}
 
 		> .oo-ui-iconElement-icon {
 			top: 0;
 			width: @icon-size;
-			height: @icon-size;
-			margin: 0.3em;
+			height: 2.3em;
+			margin-left: 0.5em;
 		}
 	}
 
@@ -254,14 +256,14 @@
 
 	&.oo-ui-iconElement .oo-ui-selectFileWidget-info {
 		.oo-ui-selectFileWidget-label {
-			left: 2.75em;
+			left: @icon-size + 1em;
 		}
 	}
 
 	// With close, no indicator:
 	& .oo-ui-selectFileWidget-info {
 		.oo-ui-selectFileWidget-label {
-			right: 3em;
+			right: @icon-size + 0.5em;
 		}
 
 		.oo-ui-selectFileWidget-clearButton {
@@ -272,11 +274,11 @@
 	// With close, with indicator:
 	&.oo-ui-indicatorElement .oo-ui-selectFileWidget-info {
 		.oo-ui-selectFileWidget-label {
-			right: 5em;
+			right: @indicator-size + 1.55em - 0.4em + @icon-size + 0.5em;
 		}
 
 		.oo-ui-selectFileWidget-clearButton {
-			right: 2em;
+			right: @indicator-size + 1.55em - 0.4em;
 		}
 	}
 
@@ -284,7 +286,7 @@
 	&-empty, &-notsupported {
 		.oo-ui-selectFileWidget-info {
 			.oo-ui-selectFileWidget-label {
-				right: 1em;
+				right: 0.5em;
 			}
 		}
 	}
@@ -628,13 +630,13 @@
 	&.oo-ui-iconElement {
 		input,
 		textarea {
-			padding-left: 2.75em;
+			padding-left: @icon-size + 1em;
 		}
 
 		.oo-ui-iconElement-icon {
-			left: 0.4em;
+			left: 0;
 			width: @icon-size;
-			margin-left: 0.1em;
+			margin-left: 0.5em;
 			height: 100%;
 			background-position: right center;
 		}
@@ -643,7 +645,7 @@
 	&.oo-ui-indicatorElement {
 		input,
 		textarea {
-			padding-right: @icon-size;
+			padding-right: @indicator-size + 1.55em;
 		}
 
 		.oo-ui-indicatorElement-indicator {
@@ -661,13 +663,13 @@
 
 	&-labelPosition-after {
 		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
-			margin-right: 2em;
+			margin-right: @indicator-size + 1.55em - 0.4em;
 		}
 	}
 
 	&-labelPosition-before {
 		&.oo-ui-iconElement > .oo-ui-labelElement-label {
-			margin-left: 2.5em;
+			margin-right: @icon-size + 1em - 0.4em;
 		}
 	}
 }
