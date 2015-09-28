@@ -106,8 +106,10 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 			// Initial position after visible
 			this.position();
 		} else {
-			this.$floatableWindow.off( 'resize', this.onFloatableWindowResizeHandler );
-			this.$floatableWindow = null;
+			if ( this.$floatableWindow ) {
+				this.$floatableWindow.off( 'resize', this.onFloatableWindowResizeHandler );
+				this.$floatableWindow = null;
+			}
 
 			if ( this.$floatableClosestScrollable ) {
 				this.$floatableClosestScrollable.off( 'scroll', this.onFloatableScrollHandler );
