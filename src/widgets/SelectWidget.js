@@ -699,8 +699,10 @@ OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
  * @chainable
  */
 OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
-	this.selectItem( item );
-	this.emit( 'choose', item );
+	if ( item ) {
+		this.selectItem( item );
+		this.emit( 'choose', item );
+	}
 
 	return this;
 };

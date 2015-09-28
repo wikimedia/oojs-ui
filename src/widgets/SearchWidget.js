@@ -103,8 +103,10 @@ OO.ui.SearchWidget.prototype.onQueryChange = function () {
  * @param {string} value New value
  */
 OO.ui.SearchWidget.prototype.onQueryEnter = function () {
-	// Reset
-	this.results.chooseItem( this.results.getHighlightedItem() );
+	var highlightedItem = this.results.getHighlightedItem();
+	if ( highlightedItem ) {
+		this.results.chooseItem( highlightedItem );
+	}
 };
 
 /**
