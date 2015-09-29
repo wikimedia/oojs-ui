@@ -1,7 +1,17 @@
 # OOjs UI Release History
 
-## v0.12.9 / 2015-09-22
+## v0.12.10 / 2015-09-29
+### Styles
+* Fix icon/indicator padding on TextInputWidget/SelectFileWidget (Ed Sanders)
 
+### Code
+* CapsuleItemWidget: Remove 'click' event preventing (Bartosz Dziewoński)
+* FloatableElement: Don't try unbinding events before we bind them (Bartosz Dziewoński)
+* SelectWidget: Ensure 'choose' never emits null (Ed Sanders)
+* Remove old textInputWidget-decorated classes (Ed Sanders)
+* build: Upgrade MediaWiki-Codesniffer to 0.4.0 (Kunal Mehta)
+
+## v0.12.9 / 2015-09-22
 ### Features
 * BookletLayout, IndexLayout: Make autoFocus and focussing more reliable (Bartosz Dziewoński)
 * CapsuleMultiSelectWidget: Allow using CapsuleItemWidget subclasses (Bartosz Dziewoński)
