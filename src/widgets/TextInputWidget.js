@@ -140,6 +140,18 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 	if ( config.autocomplete === false ) {
 		this.$input.attr( 'autocomplete', 'off' );
+		// Turning off autocompletion also disables "form caching" when the user navigates to a
+		// different page and then clicks "Back". Re-enable it when leaving. Borrowed from jQuery UI.
+		$( window ).on( {
+			beforeunload: function () {
+				this.$input.removeAttr( 'autocomplete' );
+			}.bind( this ),
+			pageshow: function () {
+				// Browsers don't seem to actually fire this event on "Back", they instead just reload the
+				// whole page... it shouldn't hurt, though.
+				this.$input.attr( 'autocomplete', 'off' );
+			}.bind( this )
+		} );
 	}
 	if ( this.multiline && config.rows ) {
 		this.$input.attr( 'rows', config.rows );
