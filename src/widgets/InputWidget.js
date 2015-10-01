@@ -75,13 +75,21 @@ OO.ui.InputWidget.static.supportsSimpleLabel = true;
 /**
  * @inheritdoc
  */
+OO.ui.InputWidget.static.reusePreInfuseDOM = function ( node, config ) {
+	config = OO.ui.InputWidget.parent.static.reusePreInfuseDOM( node, config );
+	// Reusing $input lets browsers preserve inputted values across page reloads (T114134)
+	config.$input = $( node ).find( '.oo-ui-inputWidget-input' );
+	return config;
+};
+
+/**
+ * @inheritdoc
+ */
 OO.ui.InputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var
-		state = OO.ui.InputWidget.parent.static.gatherPreInfuseState( node, config ),
-		$input = state.$input || $( node ).find( '.oo-ui-inputWidget-input' );
-	state.value = $input.val();
+	var state = OO.ui.InputWidget.parent.static.gatherPreInfuseState( node, config );
+	state.value = config.$input.val();
 	// Might be better in TabIndexedElement, but it's awkward to do there because mixins are awkward
-	state.focus = $input.is( ':focus' );
+	state.focus = config.$input.is( ':focus' );
 	return state;
 };
 
@@ -107,8 +115,9 @@ OO.ui.InputWidget.static.gatherPreInfuseState = function ( node, config ) {
  * @param {Object} config Configuration options
  * @return {jQuery} Input element
  */
-OO.ui.InputWidget.prototype.getInputElement = function () {
-	return $( '<input>' );
+OO.ui.InputWidget.prototype.getInputElement = function ( config ) {
+	// See #reusePreInfuseDOM about config.$input
+	return config.$input || $( '<input>' );
 };
 
 /**

@@ -80,9 +80,12 @@ OO.ui.ButtonInputWidget.static.supportsSimpleLabel = false;
  * @protected
  */
 OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
-	var type = [ 'button', 'submit', 'reset' ].indexOf( config.type ) !== -1 ?
-		config.type :
-		'button';
+	var type;
+	// See InputWidget#reusePreInfuseDOM about config.$input
+	if ( config.$input ) {
+		return config.$input.empty();
+	}
+	type = [ 'button', 'submit', 'reset' ].indexOf( config.type ) !== -1 ? config.type : 'button';
 	return $( '<' + ( config.useInputTag ? 'input' : 'button' ) + ' type="' + type + '">' );
 };
 

@@ -64,11 +64,8 @@ OO.inheritClass( OO.ui.RadioInputWidget, OO.ui.InputWidget );
  * @inheritdoc
  */
 OO.ui.RadioInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var
-		state = OO.ui.RadioInputWidget.parent.static.gatherPreInfuseState( node, config ),
-		$input = $( node ).find( '.oo-ui-inputWidget-input' );
-	state.$input = $input; // shortcut for performance, used in InputWidget
-	state.checked = $input.prop( 'checked' );
+	var state = OO.ui.RadioInputWidget.parent.static.gatherPreInfuseState( node, config );
+	state.checked = config.$input.prop( 'checked' );
 	return state;
 };
 
