@@ -169,9 +169,9 @@ OO.ui.IndexLayout.prototype.focus = function ( itemIndex ) {
 	if ( !card ) {
 		return;
 	}
-	// Only change the focus if is not already in the current card
-	if ( !card.$element.find( ':focus' ).length ) {
-		OO.ui.findFocusable( card.$element ).focus();
+	// Only change the focus if is not already in the current page
+	if ( !OO.ui.contains( card.$element[ 0 ], this.getElementDocument().activeElement, true ) ) {
+		card.focus();
 	}
 };
 

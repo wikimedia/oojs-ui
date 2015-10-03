@@ -53,3 +53,14 @@ OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.PanelLayout, OO.ui.Layout );
+
+/* Methods */
+
+/**
+ * Focus the panel layout
+ *
+ * The default implementation just focuses the first focusable element in the panel
+ */
+OO.ui.PanelLayout.prototype.focus = function () {
+	OO.ui.findFocusable( this.$element ).focus();
+};
