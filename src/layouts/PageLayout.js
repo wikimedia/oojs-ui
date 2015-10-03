@@ -136,3 +136,12 @@ OO.ui.PageLayout.prototype.setActive = function ( active ) {
 		this.emit( 'active', this.active );
 	}
 };
+
+/**
+ * Focus the page layout
+ *
+ * The default implementation just focuses the first focusable element in the page
+ */
+OO.ui.PageLayout.prototype.focus = function () {
+	OO.ui.findFocusable( this.$element ).focus();
+};
