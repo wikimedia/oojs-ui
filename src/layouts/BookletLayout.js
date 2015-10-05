@@ -196,8 +196,8 @@ OO.ui.BookletLayout.prototype.focus = function ( itemIndex ) {
 		return;
 	}
 	// Only change the focus if is not already in the current page
-	if ( !page.$element.find( ':focus' ).length ) {
-		OO.ui.findFocusable( page.$element ).focus();
+	if ( !OO.ui.contains( page.$element[ 0 ], this.getElementDocument().activeElement, true ) ) {
+		page.focus();
 	}
 };
 
