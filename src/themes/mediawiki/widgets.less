@@ -1204,7 +1204,7 @@
 	height: 2em;
 	width: @travelDistance + 2em;
 	border-radius: 1em;
-	border: @neutral-button-border;
+	border: 1px #555 solid;
 	background: #fff;
 	.oo-ui-transition(background-color @quick-ease);
 
@@ -1217,7 +1217,7 @@
 		height: 1em;
 		margin-top: -1px;
 		border-radius: 1em;
-		background: @text;
+		background: #555;
 
 		.oo-ui-transition(left @quick-ease, margin-left @quick-ease);
 	}
@@ -1242,24 +1242,37 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		&:focus {
-			outline: none;
-		}
-
-		&:hover {
-			background-color: darken(@background,8%);
-		}
-
-		&:active {
-			background-color: darken(@background,15%);
-			border-color: darken(@background,15%);
-		}
-
 		&.oo-ui-toggleWidget-on {
-			background-color: @active;
+			background: @progressive;
+			border-color: @progressive;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background: #fff;
+			}
+		}
+
+		&:focus {
+			outline: none;
+			border-color: @progressive;
+
+			&.oo-ui-toggleWidget-on {
+				border-color: #fff;
+				box-shadow: 0 0 0 1px @progressive;
+			}
+		}
+
+		&:hover {
+			border-color: @progressive-hover;
+			box-shadow: 0 0 0 1px @progressive-hover;
+
+			&.oo-ui-toggleWidget-on {
+				border-color: @progressive-hover;
+				background: @progressive-hover;
+				border-color: @progressive-hover;
+
+				.oo-ui-toggleSwitchWidget-grip {
+					background: #fff;
+				}
 			}
 		}
 	}
