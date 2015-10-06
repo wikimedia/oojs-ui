@@ -1,5 +1,16 @@
 # OOjs UI Release History
 
+## v0.12.11 / 2015-10-06
+### Styles
+* MediaWiki theme: Make shadows translucent black instead of light grey (Ed Sanders)
+* MediaWiki theme: Make PHP DropdownInputWidget look closer to JS version (Bartosz Dziewoński)
+
+### Code
+* Follow-up I4acbe69420: BookletLayout: Fix focus of page switching (Ed Sanders)
+* IndexLayout: Fix focus of panel switching (Ed Sanders)
+* TextInputWidget: Remove 'autocomplete' attribute on page navigation (Bartosz Dziewoński)
+* build: Bump es5-shim and various devDependencies to master (James D. Forrester)
+
 ## v0.12.10 / 2015-09-29
 ### Styles
 * Fix icon/indicator padding on TextInputWidget/SelectFileWidget (Ed Sanders)
