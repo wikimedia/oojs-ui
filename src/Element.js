@@ -17,7 +17,8 @@
  * @cfg {Array} [content] An array of content elements to append (after #text).
  *  Strings will be html-escaped; use an OO.ui.HtmlSnippet to append raw HTML.
  *  Instances of OO.ui.Element will have their $element appended.
- * @cfg {jQuery} [$content] Content elements to append (after #text)
+ * @cfg {jQuery} [$content] Content elements to append (after #text).
+ * @cfg {jQuery} [$element] Wrapper element. Defaults to a new element with #getTagName.
  * @cfg {Mixed} [data] Custom data of any type or combination of types (e.g., string, number, array, object).
  *  Data can also be specified with the #setData method.
  */
