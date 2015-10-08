@@ -370,54 +370,78 @@
 		max-width: none;
 
 		& + span {
-			.oo-ui-transition(background-size @medium-ease-out-back);
 			.oo-ui-box-sizing( border-box );
 			position: absolute;
 			left: 0;
-			border-radius: @border-radius;
 			width: @input-size;
 			height: @input-size;
-			background-color: white;
-			border: 1px solid @input-border-color;
-			.oo-ui-background-image-svg('@{oo-ui-default-image-path}/icons/check-constructive');
-			.oo-ui-background-image-safari('@{oo-ui-default-image-path}/icons/check-constructive');
+			background-color: @background;
+			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/check-invert' );
+			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/check-invert' );
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-origin: border-box;
 			background-size: 0 0;
+			border: @border-width-small solid @input-border-color;
+			border-radius: @border-radius;
+			box-shadow: inset 0 0 0 1px transparent;
+			cursor: pointer;
+			.oo-ui-transition(
+				background-color @medium-ease-out-back,
+				background-size @medium-ease-out-back,
+				border-color @medium-ease-out-back,
+				box-shadow @medium-ease-out-back
+			);
 		}
-
-		&:checked + span  {
-			background-size: 100% 100%;
+		&:hover + span,
+		&:focus:hover + span {
+			border-color: @progressive;
+			box-shadow: inset 0 0 0 1px @progressive;
 		}
-
-		&:active + span {
-			background-color: @input-active-color;
-			border-color: @input-active-color;
-		}
-
 		&:focus + span {
-			border-width: @input-focus-border-width;
+			border-width: @border-width-small;
+		}
+		&:active + span {
+			background-color: @progressive;
+			border-color: @progressive;
 		}
 
-		&:focus:hover + span,
-		&:hover + span {
-			border-bottom-width: @input-hover-border-bottom-width;
+		&:checked {
+			& + span {
+				background-color: @progressive;
+				background-size: 90% 90%;
+				border-color: @progressive;
+			}
+			&:hover + span,
+			&:focus:hover + span {
+				background-color: @progressive-hover;
+				border-color: @progressive-hover;
+				border-width: @border-width-small;
+			}
+			&:focus + span {
+				background-color: @progressive;
+				border-color: @progressive;
+				box-shadow: inset 0 0 0 1px @background;
+			}
+			&:active + span {
+				background-color: @progressive-selected;
+				border-color: @progressive-selected;
+			}
 		}
 
 		&:disabled {
 			cursor: default;
+			& + span {
+				background-color: @input-disabled-color;
+				border-color: @input-disabled-color;
+				cursor: default;
+			}
+			&:hover + span {
+				background-color: @input-disabled-color;
+				border-color: @input-disabled-color;
+			}
 		}
 
-		&:disabled + span {
-			background-color: @input-disabled-color;
-			border-color: @input-disabled-color;
-		}
-
-		&:disabled:checked + span {
-			.oo-ui-background-image-svg('@{oo-ui-default-image-path}/icons/check-invert');
-			.oo-ui-background-image-safari('@{oo-ui-default-image-path}/icons/check-invert');
-		}
 	}
 }
 
