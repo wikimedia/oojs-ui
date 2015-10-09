@@ -1540,8 +1540,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							head: true,
 							label: 'More information',
-							$content: $( '<p>Extra information here.</p><ul><li>Item one</li><li>Item two</li><li>Item three</li><li>Item four</li></ul><p>Even more information here whihc might well be clipped off the visible area.</p>' ),
-							$footer: $( '<p>And maybe a footer whilst we\'re act it?</p>' ),
+							$content: $( '<p>Extra information here.</p><ul><li>Item one</li><li>Item two</li><li>Item three</li><li>Item four</li></ul><p>Even more information here which might well be clipped off the visible area.</p>' ),
+							$footer: $( '<p>And maybe a footer whilst we\'re at it?</p>' ),
 							padded: true,
 							align: 'forwards'
 						}
