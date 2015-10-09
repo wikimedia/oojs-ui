@@ -387,6 +387,9 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onInputFocus = function () {
  * @param {jQuery.Event} event
  */
 OO.ui.CapsuleMultiSelectWidget.prototype.onInputBlur = function () {
+	if ( this.allowArbitrary && this.$input.val().trim() !== '' ) {
+		this.addItemsFromData( [ this.$input.val() ] );
+	}
 	this.clearInput();
 };
 
