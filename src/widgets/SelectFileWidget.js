@@ -182,6 +182,18 @@ OO.ui.SelectFileWidget.prototype.setValue = function ( file ) {
 };
 
 /**
+ * Focus the widget.
+ *
+ * Focusses the select file button.
+ *
+ * @chainable
+ */
+OO.ui.SelectFileWidget.prototype.focus = function () {
+	this.selectButton.$button[ 0 ].focus();
+	return this;
+};
+
+/**
  * Update the user interface when a file is selected or unselected
  *
  * @protected
