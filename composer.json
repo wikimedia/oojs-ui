@@ -7,6 +7,40 @@
 		"mediawiki/at-ease": "1.1.0",
 		"php": ">=5.3.3"
 	},
+	"authors": [
+		{
+			"name": "Bartosz Dziewoński",
+			"email": "matma.rex@gmail.com"
+		},
+		{
+			"name": "Ed Sanders",
+			"email": "esanders@wikimedia.org"
+		},
+		{
+			"name": "James D. Forrester",
+			"email": "jforrester@wikimedia.org"
+		},
+		{
+			"name": "Kirsten Menger-Anderson",
+			"email": "kmenger@wikimedia.org"
+		},
+		{
+			"name": "Rob Moen",
+			"email": "rmoen@wikimedia.org"
+		},
+		{
+			"name": "Roan Kattouw",
+			"email": "roan@wikimedia.org"
+		},
+		{
+			"name": "Timo Tijhof",
+			"email": "timo@wikimedia.org"
+		},
+		{
+			"name": "Trevor Parscal",
+			"email": "trevor@wikimedia.org"
+		}
+	],
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "0.9",
 		"mediawiki/mediawiki-codesniffer": "0.4.0",
