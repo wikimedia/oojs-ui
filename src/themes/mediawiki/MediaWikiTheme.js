@@ -20,7 +20,7 @@ OO.inheritClass( OO.ui.MediaWikiTheme, OO.ui.Theme );
  */
 OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 	// Parent method
-	var variant,
+	var variant, isFramed, isActive,
 		variants = {
 			warning: false,
 			invert: false,
@@ -29,13 +29,13 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 			destructive: false
 		},
 		// Parent method
-		classes = OO.ui.MediaWikiTheme.parent.prototype.getElementClasses.call( this, element ),
-		isFramed;
+		classes = OO.ui.MediaWikiTheme.parent.prototype.getElementClasses.call( this, element );
 
 	if ( element.supports( [ 'hasFlag' ] ) ) {
 		isFramed = element.supports( [ 'isFramed' ] ) && element.isFramed();
+		isActive = element.supports( [ 'isActive' ] ) && element.isActive();
 		if (
-			( isFramed && ( element.isDisabled() || element.hasFlag( 'primary' ) ) ) ||
+			( isFramed && ( isActive || element.isDisabled() || element.hasFlag( 'primary' ) ) ) ||
 			( !isFramed && element.hasFlag( 'primary' ) )
 		) {
 			variants.invert = true;

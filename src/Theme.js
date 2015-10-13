@@ -27,7 +27,7 @@ OO.initClass( OO.ui.Theme );
  * @param {OO.ui.Element} element Element for which to get classes
  * @return {Object.<string,string[]>} Categorized class names with `on` and `off` lists
  */
-OO.ui.Theme.prototype.getElementClasses = function ( /* element */ ) {
+OO.ui.Theme.prototype.getElementClasses = function () {
 	return { on: [], off: [] };
 };
 
