@@ -1,5 +1,23 @@
 # OOjs UI Release History
 
+## v0.12.12 / 2015-10-13
+### Features
+* CapsuleMultiSelectWidget: When 'allowArbitrary' is true, don't require 'Enter' to confirm (Bartosz Dziewoński)
+* SelectFileWidget: Add a focus method (Ed Sanders)
+
+### Styles
+* CapsuleMultiSelectWidget: Set 'background-color' rather than 'background' (Bartosz Dziewoński)
+* DropdownWidget: Fix vertical alignment of handle's text (Volker E)
+* MediaWiki theme: Get transitions on ButtonWidget's `:hover` states in sync (Volker E)
+* MediaWiki theme: Unbreak checkbox/radio 'cursor: pointer' (Bartosz Dziewoński)
+* MediaWiki theme: Use inverted icon for 'active' buttons (Ed Sanders)
+
+### Code
+* ButtonElement: Actually use 'active' property and add getter (Ed Sanders)
+* Element: Document $element config option (Thalia)
+* composer.json: Add author names & e-mails (Alangi Derick)
+* demo: Correct some typos (Bartosz Dziewoński)
+
 ## v0.12.11 / 2015-10-06
 ### Styles
 * MediaWiki theme: Make shadows translucent black instead of light grey (Ed Sanders)
