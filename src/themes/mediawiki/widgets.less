@@ -356,6 +356,7 @@
 		// Render "on top of" the span, so that it's still clickable
 		z-index: 1;
 		position: relative;
+		cursor: pointer;
 
 		// Having margin would offset the input from where the span is absolutely positioned,
 		// making only the overlap region receive events
@@ -369,7 +370,6 @@
 		max-width: none;
 
 		& + span {
-			cursor: pointer;
 			.oo-ui-transition(background-size @medium-ease-out-back);
 			.oo-ui-box-sizing( border-box );
 			position: absolute;
@@ -469,6 +469,7 @@
 		// Render "on top of" the span, so that it's still clickable
 		z-index: 1;
 		position: relative;
+		cursor: pointer;
 
 		// Having margin would offset the input from where the span is absolutely positioned,
 		// making only the overlap region receive events
@@ -482,7 +483,6 @@
 		max-width: none;
 
 		& + span {
-			cursor: pointer;
 			.oo-ui-transition(background-size @medium-ease-out-back);
 			.oo-ui-box-sizing(border-box);
 			position: absolute;
