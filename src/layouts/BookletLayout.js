@@ -83,6 +83,8 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.stackLayout.connect( this, { set: 'onStackLayoutSet' } );
 	if ( this.outlined ) {
 		this.outlineSelectWidget.connect( this, { select: 'onOutlineSelectWidgetSelect' } );
+		this.scrolling = false;
+		this.stackLayout.connect( this, { visibleItemChange: 'onStackLayoutVisibleItemChange' } );
 	}
 	if ( this.autoFocus ) {
 		// Event 'focus' does not bubble, but 'focusin' does
@@ -155,6 +157,22 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
 };
 
 /**
+ * Handle visibleItemChange events from the stackLayout
+ *
+ * The next visible page is set as the current page by selecting it
+ * in the outline
+ *
+ * @param {OO.ui.PageLayout} page The next visible page in the layout
+ */
+OO.ui.BookletLayout.prototype.onStackLayoutVisibleItemChange = function ( page ) {
+	// Set a flag to so that the resulting call to #onStackLayoutSet doesn't
+	// try and scroll the item into view again.
+	this.scrolling = true;
+	this.outlineSelectWidget.selectItemByData( page.getName() );
+	this.scrolling = false;
+};
+
+/**
  * Handle stack layout set events.
  *
  * @private
@@ -162,7 +180,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
  */
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
 	var layout = this;
-	if ( page ) {
+	if ( !this.scrolling && page ) {
 		page.scrollElementIntoView( { complete: function () {
 			if ( layout.autoFocus ) {
 				layout.focus();

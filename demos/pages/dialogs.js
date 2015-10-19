@@ -163,7 +163,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 
 	function SamplePage( name, config ) {
 		config = $.extend( { label: 'Sample page' }, config );
-		OO.ui.PageLayout.call( this, name, config );
+		SamplePage.parent.apply( this, arguments );
 		this.label = config.label;
 		this.icon = config.icon;
 		if ( this.$element.is( ':empty' ) ) {
@@ -255,7 +255,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		OutlinedBookletDialog.parent.call( this, config );
 	}
 	OO.inheritClass( OutlinedBookletDialog, OO.ui.ProcessDialog );
-	OutlinedBookletDialog.static.title = 'Booklet dialog';
+	OutlinedBookletDialog.static.title = 'Outlined booklet dialog';
 	OutlinedBookletDialog.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
 		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
@@ -295,6 +295,65 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return OutlinedBookletDialog.parent.prototype.getSetupProcess.call( this, data )
 			.next( function () {
 				this.bookletLayout.setPage( this.getSize() );
+			}, this );
+	};
+
+	function ContinuousOutlinedBookletDialog( config ) {
+		ContinuousOutlinedBookletDialog.parent.call( this, config );
+	}
+	OO.inheritClass( ContinuousOutlinedBookletDialog, OO.ui.ProcessDialog );
+	ContinuousOutlinedBookletDialog.static.title = 'Continuous outlined booklet dialog';
+	ContinuousOutlinedBookletDialog.static.actions = [
+		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
+		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+	];
+	ContinuousOutlinedBookletDialog.prototype.getBodyHeight = function () {
+		return 250;
+	};
+	ContinuousOutlinedBookletDialog.prototype.initialize = function () {
+		var lipsum;
+		ContinuousOutlinedBookletDialog.parent.prototype.initialize.apply( this, arguments );
+		this.bookletLayout = new OO.ui.BookletLayout( {
+			outlined: true,
+			continuous: true
+		} );
+		lipsum = [
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend justo nec erat tempus, quis aliquet augue aliquam. Sed rutrum odio in tellus pharetra, ut mollis est fermentum. ' +
+				'Sed egestas dolor libero, a aliquet sem finibus eu. Morbi dolor nisl, pulvinar vitae maximus sed, lacinia eu ipsum. Fusce rutrum placerat massa, vel vehicula nisi viverra nec. ' +
+				'Nam at turpis vel nisi efficitur tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi aliquam pulvinar fermentum. Maecenas rutrum accumsan lorem ac sagittis. ' +
+				'Praesent id nunc gravida, iaculis odio eu, maximus ligula. Praesent ut tellus mollis, pharetra orci vitae, interdum lacus. Nulla sodales lacus eget libero pellentesque tempor.',
+			'Ut a metus elementum, eleifend velit et, malesuada enim.',
+			'Aenean sem eros, rutrum vitae pulvinar at, vulputate id quam. Quisque tincidunt, ligula pulvinar consequat tempor, tellus erat lobortis nisl, non euismod diam nisl ut libero. Etiam mollis, ' +
+				'risus a tincidunt efficitur, ipsum justo ullamcorper sem, id gravida dui lacus quis turpis. In consectetur tincidunt elit in mollis. Sed nec ultricies turpis, at dictum risus. Curabitur ipsum diam, ' +
+				'aliquet sit amet ante eu, congue cursus magna. Donec at lectus in nulla ornare faucibus. Vestibulum mattis massa eu convallis convallis. Sed tristique ut quam non eleifend. Nunc aliquam, nisi non ' +
+				'posuere dictum, est nunc mollis nisl.',
+			'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce laoreet mi mi, nec tempor erat posuere malesuada. Nam dignissim at nisl ac aliquet. In fermentum ' +
+				'mauris et tellus fermentum rutrum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam hendrerit diam mauris, id rutrum justo malesuada nec. Duis ',
+			'Ut fringilla enim nec augue rutrum, nec vestibulum orci sollicitudin. Donec eget ex tincidunt augue ullamcorper efficitur at sed odio. Praesent ac interdum elit. Suspendisse blandit feugiat pulvinar. '
+		];
+		this.pages = [
+			new SamplePage( 'page1', { label: 'Page 1', icon: 'window', content: [ $( '<h3>' ).text( 'Page 1' ), lipsum[ 0 ] ] } ),
+			new SamplePage( 'page2', { label: 'Page 2', icon: 'window', content: [ $( '<h3>' ).text( 'Page 2' ), lipsum[ 1 ] ] } ),
+			new SamplePage( 'page3', { label: 'Page 3', icon: 'window', content: [ $( '<h3>' ).text( 'Page 3' ), lipsum[ 2 ] ] } ),
+			new SamplePage( 'page4', { label: 'Page 4', icon: 'window', content: [ $( '<h3>' ).text( 'Page 4' ), lipsum[ 3 ] ] } ),
+			new SamplePage( 'page5', { label: 'Page 5', icon: 'window', content: [ $( '<h3>' ).text( 'Page 5' ), lipsum[ 4 ] ] } )
+		];
+
+		this.bookletLayout.addPages( this.pages );
+		this.$body.append( this.bookletLayout.$element );
+	};
+	ContinuousOutlinedBookletDialog.prototype.getActionProcess = function ( action ) {
+		if ( action ) {
+			return new OO.ui.Process( function () {
+				this.close( { action: action } );
+			}, this );
+		}
+		return ContinuousOutlinedBookletDialog.parent.prototype.getActionProcess.call( this, action );
+	};
+	ContinuousOutlinedBookletDialog.prototype.getSetupProcess = function ( data ) {
+		return ContinuousOutlinedBookletDialog.parent.prototype.getSetupProcess.call( this, data )
+			.next( function () {
+				this.bookletLayout.setPage( 'page1' );
 			}, this );
 	};
 
@@ -634,6 +693,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		{
 			name: 'Outlined booklet dialog',
 			dialogClass: OutlinedBookletDialog,
+			config: {
+				size: 'medium'
+			}
+		},
+		{
+			name: 'Continuous outlined booklet dialog',
+			dialogClass: ContinuousOutlinedBookletDialog,
 			config: {
 				size: 'medium'
 			}
