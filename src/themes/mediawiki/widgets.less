@@ -1209,23 +1209,37 @@
 	@travelDistance: 1.5em;
 	height: 2em;
 	width: @travelDistance + 2em;
+	border: 1px solid @input-border-color;
 	border-radius: 1em;
-	border: 1px #555 solid;
-	background: #fff;
-	.oo-ui-transition(background-color @quick-ease);
-
-	.oo-ui-inline-spacing(0.5em);
+	background-color: @background;
+	.oo-ui-inline-spacing( 0.5em );
+	.oo-ui-transition(
+		background-color @quick-ease,
+		border-color @quick-ease
+	);
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		border: 1px solid transparent;
+		border-radius: 1em;
+		z-index: 1;
+	}
 
 	&-grip {
-		top: 0.5em;
-		left: 0.5em;
-		width: 1em;
-		height: 1em;
-		margin-top: -1px;
-		border-radius: 1em;
-		background: #555;
-
-		.oo-ui-transition(left @quick-ease, margin-left @quick-ease);
+		top: 0.35em;
+		width: 1.2em;
+		height: 1.2em;
+		border-radius: 1.2em;
+		background-color: @text;
+		.oo-ui-transition(
+			left @quick-ease,
+			margin-left @quick-ease
+		);
 	}
 
 	&-glow {
@@ -1235,14 +1249,14 @@
 
 	&.oo-ui-toggleWidget-on {
 		.oo-ui-toggleSwitchWidget-grip {
-			left: @travelDistance + 0.5em;
+			left: @travelDistance + 0.4em;
 			margin-left: -2px;
 		}
 	}
 
 	&.oo-ui-toggleWidget-off {
 		.oo-ui-toggleSwitchWidget-grip {
-			left: 0.5em;
+			left: 0.4em;
 			margin-left: 0;
 		}
 	}
@@ -1253,32 +1267,38 @@
 			border-color: @progressive;
 
 			.oo-ui-toggleSwitchWidget-grip {
-				background: #fff;
+				background: @background;
+				box-shadow: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
 			}
 		}
-
-		&:focus {
-			outline: none;
-			border-color: @progressive;
-
-			&.oo-ui-toggleWidget-on {
-				border-color: #fff;
-				box-shadow: 0 0 0 1px @progressive;
-			}
-		}
-
 		&:hover {
 			border-color: @progressive-hover;
-			box-shadow: 0 0 0 1px @progressive-hover;
 
 			&.oo-ui-toggleWidget-on {
-				border-color: @progressive-hover;
 				background: @progressive-hover;
 				border-color: @progressive-hover;
+			}
+		}
+		&:focus {
+			border-color: @progressive;
+			outline: none;
 
-				.oo-ui-toggleSwitchWidget-grip {
-					background: #fff;
+			&.oo-ui-toggleWidget-on {
+				border-color: @progressive;
+
+				&:before {
+					border-color: #fff;
 				}
+			}
+		}
+		&:active,
+		&:active:hover {
+			background-color: @progressive;
+			border-color: @progressive;
+
+			.oo-ui-toggleSwitchWidget-grip {
+				background: @background;
+				box-shadow: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
 			}
 		}
 	}
