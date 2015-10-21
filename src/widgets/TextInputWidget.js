@@ -90,6 +90,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.minRows = config.rows !== undefined ? config.rows : '';
 	this.maxRows = config.maxRows || Math.max( 2 * ( this.minRows || 0 ), 10 );
 	this.validate = null;
+	this.styleHeight = null;
 
 	// Clone for resizing
 	if ( this.autosize ) {
@@ -184,6 +185,12 @@ OO.ui.TextInputWidget.static.validationPatterns = {
  * Not emitted if the input is multiline.
  *
  * @event enter
+ */
+
+/**
+ * A `resize` event is emitted when autosize is set and the widget resizes
+ *
+ * @event resize
  */
 
 /* Methods */
@@ -375,9 +382,10 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
  * This only affects #multiline inputs that are {@link #autosize autosized}.
  *
  * @chainable
+ * @fires resize
  */
 OO.ui.TextInputWidget.prototype.adjustSize = function () {
-	var scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError, idealHeight;
+	var scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError, idealHeight, newHeight;
 
 	if ( this.multiline && this.autosize && this.$input.val() !== this.valCache ) {
 		this.$clone
@@ -412,11 +420,12 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 		this.$clone.addClass( 'oo-ui-element-hidden' );
 
 		// Only apply inline height when expansion beyond natural height is needed
-		if ( idealHeight > innerHeight ) {
-			// Use the difference between the inner and outer height as a buffer
-			this.$input.css( 'height', idealHeight + ( outerHeight - innerHeight ) );
-		} else {
-			this.$input.css( 'height', '' );
+		// Use the difference between the inner and outer height as a buffer
+		newHeight = idealHeight > innerHeight ? idealHeight + ( outerHeight - innerHeight ) : '';
+		if ( newHeight !== this.styleHeight ) {
+			this.$input.css( 'height', newHeight );
+			this.styleHeight = newHeight;
+			this.emit( 'resize' );
 		}
 	}
 	return this;
