@@ -58,6 +58,20 @@ OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 
 OO.inheritClass( OO.ui.CheckboxInputWidget, OO.ui.InputWidget );
 
+/* Static Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.CheckboxInputWidget.static.gatherPreInfuseState = function ( node, config ) {
+	var
+		state = OO.ui.CheckboxInputWidget.parent.static.gatherPreInfuseState( node, config ),
+		$input = $( node ).find( '.oo-ui-inputWidget-input' );
+	state.$input = $input; // shortcut for performance, used in InputWidget
+	state.checked = $input.prop( 'checked' );
+	return state;
+};
+
 /* Methods */
 
 /**
@@ -110,18 +124,6 @@ OO.ui.CheckboxInputWidget.prototype.isSelected = function () {
 		this.setSelected( selected );
 	}
 	return this.selected;
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.CheckboxInputWidget.prototype.gatherPreInfuseState = function ( node ) {
-	var
-		state = OO.ui.CheckboxInputWidget.parent.prototype.gatherPreInfuseState.call( this, node ),
-		$input = $( node ).find( '.oo-ui-inputWidget-input' );
-	state.$input = $input; // shortcut for performance, used in InputWidget
-	state.checked = $input.prop( 'checked' );
-	return state;
 };
 
 /**

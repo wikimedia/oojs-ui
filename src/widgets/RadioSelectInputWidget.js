@@ -54,6 +54,17 @@ OO.inheritClass( OO.ui.RadioSelectInputWidget, OO.ui.InputWidget );
 
 OO.ui.RadioSelectInputWidget.static.supportsSimpleLabel = false;
 
+/* Static Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.RadioSelectInputWidget.static.gatherPreInfuseState = function ( node, config ) {
+	var state = OO.ui.RadioSelectInputWidget.parent.static.gatherPreInfuseState( node, config );
+	state.value = $( node ).find( '.oo-ui-radioInputWidget .oo-ui-inputWidget-input:checked' ).val();
+	return state;
+};
+
 /* Methods */
 
 /**
@@ -127,13 +138,4 @@ OO.ui.RadioSelectInputWidget.prototype.setOptions = function ( options ) {
 	}
 
 	return this;
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.RadioSelectInputWidget.prototype.gatherPreInfuseState = function ( node ) {
-	var state = OO.ui.RadioSelectInputWidget.parent.prototype.gatherPreInfuseState.call( this, node );
-	state.value = $( node ).find( '.oo-ui-radioInputWidget .oo-ui-inputWidget-input:checked' ).val();
-	return state;
 };

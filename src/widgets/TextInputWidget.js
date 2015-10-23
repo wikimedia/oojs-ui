@@ -177,6 +177,22 @@ OO.ui.TextInputWidget.static.validationPatterns = {
 	integer: /^\d+$/
 };
 
+/* Static Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.TextInputWidget.static.gatherPreInfuseState = function ( node, config ) {
+	var
+		state = OO.ui.TextInputWidget.parent.static.gatherPreInfuseState( node, config ),
+		$input = $( node ).find( '.oo-ui-inputWidget-input' );
+	state.$input = $input; // shortcut for performance, used in InputWidget
+	if ( config.multiline ) {
+		state.scrollTop = $input.scrollTop();
+	}
+	return state;
+};
+
 /* Events */
 
 /**
@@ -697,20 +713,6 @@ OO.ui.TextInputWidget.prototype.positionLabel = function () {
 	this.$input.css( property, this.$label.outerWidth( true ) );
 
 	return this;
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.TextInputWidget.prototype.gatherPreInfuseState = function ( node ) {
-	var
-		state = OO.ui.TextInputWidget.parent.prototype.gatherPreInfuseState.call( this, node ),
-		$input = $( node ).find( '.oo-ui-inputWidget-input' );
-	state.$input = $input; // shortcut for performance, used in InputWidget
-	if ( this.multiline ) {
-		state.scrollTop = $input.scrollTop();
-	}
-	return state;
 };
 
 /**

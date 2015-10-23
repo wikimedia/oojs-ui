@@ -67,6 +67,21 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.AccessKeyedElement );
 
 OO.ui.InputWidget.static.supportsSimpleLabel = true;
 
+/* Static Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.InputWidget.static.gatherPreInfuseState = function ( node, config ) {
+	var
+		state = OO.ui.InputWidget.parent.static.gatherPreInfuseState( node, config ),
+		$input = state.$input || $( node ).find( '.oo-ui-inputWidget-input' );
+	state.value = $input.val();
+	// Might be better in TabIndexedElement, but it's awkward to do there because mixins are awkward
+	state.focus = $input.is( ':focus' );
+	return state;
+};
+
 /* Events */
 
 /**
@@ -243,19 +258,6 @@ OO.ui.InputWidget.prototype.focus = function () {
 OO.ui.InputWidget.prototype.blur = function () {
 	this.$input[ 0 ].blur();
 	return this;
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.InputWidget.prototype.gatherPreInfuseState = function ( node ) {
-	var
-		state = OO.ui.InputWidget.parent.prototype.gatherPreInfuseState.call( this, node ),
-		$input = state.$input || $( node ).find( '.oo-ui-inputWidget-input' );
-	state.value = $input.val();
-	// Might be better in TabIndexedElement, but it's awkward to do there because mixins are awkward
-	state.focus = $input.is( ':focus' );
-	return state;
 };
 
 /**
