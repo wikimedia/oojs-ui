@@ -58,6 +58,20 @@ OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 
 OO.inheritClass( OO.ui.RadioInputWidget, OO.ui.InputWidget );
 
+/* Static Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.RadioInputWidget.static.gatherPreInfuseState = function ( node, config ) {
+	var
+		state = OO.ui.RadioInputWidget.parent.static.gatherPreInfuseState( node, config ),
+		$input = $( node ).find( '.oo-ui-inputWidget-input' );
+	state.$input = $input; // shortcut for performance, used in InputWidget
+	state.checked = $input.prop( 'checked' );
+	return state;
+};
+
 /* Methods */
 
 /**
@@ -94,18 +108,6 @@ OO.ui.RadioInputWidget.prototype.setSelected = function ( state ) {
  */
 OO.ui.RadioInputWidget.prototype.isSelected = function () {
 	return this.$input.prop( 'checked' );
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.RadioInputWidget.prototype.gatherPreInfuseState = function ( node ) {
-	var
-		state = OO.ui.RadioInputWidget.parent.prototype.gatherPreInfuseState.call( this, node ),
-		$input = $( node ).find( '.oo-ui-inputWidget-input' );
-	state.$input = $input; // shortcut for performance, used in InputWidget
-	state.checked = $input.prop( 'checked' );
-	return state;
 };
 
 /**
