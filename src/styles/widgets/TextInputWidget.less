@@ -14,6 +14,11 @@
 		.oo-ui-box-sizing(border-box);
 	}
 
+	// IE8-11 defaults overflow to 'scroll'. Modern browsers use 'auto'
+	textarea {
+		overflow: auto;
+	}
+
 	// Remove default styling for <input type=search />, especially the built-in "clear" button
 	input[type="search"] {
 		// Safari
