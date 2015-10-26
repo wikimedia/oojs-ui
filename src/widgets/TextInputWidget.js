@@ -490,30 +490,74 @@ OO.ui.TextInputWidget.prototype.isAutosizing = function () {
 };
 
 /**
- * Select the entire text of the input.
+ * Focus the input and select a specified range within the text.
  *
+ * @param {number} from Select from offset
+ * @param {number} [to] Select to offset, defaults to from
  * @chainable
  */
-OO.ui.TextInputWidget.prototype.select = function () {
-	this.$input.select();
+OO.ui.TextInputWidget.prototype.selectRange = function ( from, to ) {
+	var textRange, isBackwards, start, end,
+		element = this.$input[ 0 ];
+
+	to = to || from;
+
+	isBackwards = to < from;
+	start = isBackwards ? to : from;
+	end = isBackwards ? from : to;
+
+	this.focus();
+
+	if ( element.setSelectionRange ) {
+		element.setSelectionRange( start, end, isBackwards ? 'backward' : 'forward' );
+	} else if ( element.createTextRange ) {
+		// IE 8 and below
+		textRange = element.createTextRange();
+		textRange.collapse( true );
+		textRange.moveStart( 'character', start );
+		textRange.moveEnd( 'character', end - start );
+		textRange.select();
+	}
 	return this;
 };
 
 /**
+ * Get the length of the text input value.
+ *
+ * This could differ from the length of #getValue if the
+ * value gets filtered
+ *
+ * @return {number} Input length
+ */
+OO.ui.TextInputWidget.prototype.getInputLength = function () {
+	return this.$input[ 0 ].value.length;
+};
+
+/**
+ * Focus the input and select the entire text.
+ *
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.select = function () {
+	return this.selectRange( 0, this.getInputLength() );
+};
+
+/**
+ * Focus the input and move the cursor to the start.
+ *
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.moveCursorToStart = function () {
+	return this.selectRange( 0 );
+};
+
+/**
  * Focus the input and move the cursor to the end.
+ *
+ * @chainable
  */
 OO.ui.TextInputWidget.prototype.moveCursorToEnd = function () {
-	var textRange,
-		element = this.$input[ 0 ];
-	this.focus();
-	if ( element.selectionStart !== undefined ) {
-		element.selectionStart = element.selectionEnd = element.value.length;
-	} else if ( element.createTextRange ) {
-		// IE 8 and below
-		textRange = element.createTextRange();
-		textRange.collapse( false );
-		textRange.select();
-	}
+	return this.selectRange( this.getInputLength() );
 };
 
 /**
