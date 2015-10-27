@@ -18,7 +18,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {string} [name=''] The value of the input’s HTML `name` attribute.
  * @cfg {string} [value=''] The value of the input.
- * @cfg {string} [accessKey=''] The access key of the input.
+ * @cfg {string} [dir] The directionality of the input (ltr/rtl).
  * @cfg {Function} [inputFilter] The name of an input filter function. Input filters modify the value of an input
  *  before it is accepted.
  */
@@ -53,6 +53,9 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 		.append( this.$input );
 	this.setValue( config.value );
 	this.setAccessKey( config.accessKey );
+	if ( config.dir ) {
+		this.setDir( config.dir );
+	}
 };
 
 /* Setup */

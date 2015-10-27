@@ -39,7 +39,8 @@
 				readOnly: 'readonly',
 				checked: 'checked',
 				disabled: 'disabled',
-				tabIndex: 'tabindex'
+				tabIndex: 'tabindex',
+				dir: 'dir'
 			};
 
 		if ( includeHtml && element.nodeType === Node.ELEMENT_NODE ) {
