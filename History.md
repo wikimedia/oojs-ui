@@ -1,5 +1,29 @@
 # OOjs UI Release History
 
+## v0.13.0 / 2015-10-27
+### Breaking changes
+* [BREAKING CHANGE] Remove aliases for OO.ui.mixins, deprecated in 0.11.4 (C. Scott Ananian)
+* [BREAKING CHANGE] Turn Element#gatherPreInfuseState into a static method (Bartosz Dziewoński)
+
+### Features
+* Update outline widget when current item is scrolled out of view (Ed Sanders)
+* TextInputWidget: Emit 'resize' events (Ed Sanders)
+* TextInputWidget: Fix scrollbars in `<textarea>`s in IE8-11 (Ed Sanders)
+* TextInputWidget: Improve selection API (Ed Sanders)
+
+### Styles
+* MediaWiki theme: Adjust ToggleSwitchWidget to match M61 design (Volker E)
+* Follow-up I54f1e3c92: Fix placement of cursors on checkbox/radio widgets (Volker E)
+* Follow-up I598e7b25a: Apply MenuToolGroup missing styles fix to Apex theme (Ed Sanders)
+
+### Code
+* Consistently use '`//`' rather than '`/* */`' for Less comments (Bartosz Dziewoński)
+* Remove obsolete Opera<12.1 vendor prefixes (Volker E)
+* Remove unnecessary IE10beta vendor-prefixes from OOjs UI (Volker E)
+* build: Switch back to upstream version of grunt-contrib-concat (Timo Tijhof)
+* build: Updating development dependencies (Kunal Mehta)
+* build: Use my Gmail address for attribution (Timo Tijhof)
+
 ## v0.12.12 / 2015-10-13
 ### Features
 * CapsuleMultiSelectWidget: When 'allowArbitrary' is true, don't require 'Enter' to confirm (Bartosz Dziewoński)
