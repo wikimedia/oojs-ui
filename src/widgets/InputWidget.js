@@ -140,13 +140,26 @@ OO.ui.InputWidget.prototype.getValue = function () {
 };
 
 /**
- * Set the direction of the input, either RTL (right-to-left) or LTR (left-to-right).
+ * Set the directionality of the input, either RTL (right-to-left) or LTR (left-to-right).
  *
- * @param {boolean} isRTL
- * Direction is right-to-left
+ * @deprecated since v0.13.1, use #setDir directly
+ * @param {boolean} isRTL Directionality is right-to-left
+ * @chainable
  */
 OO.ui.InputWidget.prototype.setRTL = function ( isRTL ) {
-	this.$input.prop( 'dir', isRTL ? 'rtl' : 'ltr' );
+	this.setDir( isRTL ? 'rtl' : 'ltr' );
+	return this;
+};
+
+/**
+ * Set the directionality of the input.
+ *
+ * @param {string} dir Text directionality: 'ltr', 'rtl' or 'auto'
+ * @chainable
+ */
+OO.ui.InputWidget.prototype.setDir = function ( dir ) {
+	this.$input.prop( 'dir', dir );
+	return this;
 };
 
 /**

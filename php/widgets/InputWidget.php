@@ -85,18 +85,26 @@ class InputWidget extends Widget {
 	}
 
 	/**
-	 * Sets the direction of the current input, either RTL or LTR
+	 * Set the directionality of the input, either RTL (right-to-left) or LTR (left-to-right).
 	 *
-	 * @param boolean $isRTL
+	 * @deprecated since v0.13.1, use #setDir directly
+	 * @param boolean $isRTL Directionality is right-to-left
+	 * @chainable
 	 */
 	public function setRTL( $isRTL ) {
-		if ( $isRTL ) {
-			$this->input->removeClasses( array( 'oo-ui-ltr' ) );
-			$this->input->addClasses( array( 'oo-ui-rtl' ) );
-		} else {
-			$this->input->removeClasses( array( 'oo-ui-rtl' ) );
-			$this->input->addClasses( array( 'oo-ui-ltr' ) );
-		}
+		$this->setDir( $isRTL ? 'rtl' : 'ltr' );
+		return $this;
+	}
+
+	/**
+	 * Set the directionality of the input.
+	 *
+	 * @param string $dir Text directionality: 'ltr', 'rtl' or 'auto'
+	 * @chainable
+	 */
+	public function setDir( $dir ) {
+		$this->input->setAttributes( array( 'dir' => $dir ) );
+		return $this;
 	}
 
 	/**
