@@ -882,6 +882,20 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
+						multiline: true,
+						autosize: true,
+						icon: 'tag',
+						indicator: 'required',
+						label: 'Inline label',
+						value: 'Autosize\nAutosize\nAutosize\nAutosize'
+					} ),
+					{
+						label: 'TextInputWidget (autosize, icon, indicator, label)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
 						icon: 'tag',
 						indicator: 'alert',
 						value: 'Text input with label',

@@ -642,6 +642,18 @@
 							)
 						),
 						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'multiline' => true,
+								'value' => "Multiline\nMultiline",
+								'icon' => 'tag',
+								'indicator' => 'required'
+							) ),
+							array(
+								'label' => "TextInputWidget (multiline, icon, indicator)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
 							new OOUI\DropdownInputWidget( array(
 								'options' => array(
 									array(
