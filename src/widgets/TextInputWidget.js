@@ -91,6 +91,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.maxRows = config.maxRows || Math.max( 2 * ( this.minRows || 0 ), 10 );
 	this.validate = null;
 	this.styleHeight = null;
+	this.scrollWidth = null;
 
 	// Clone for resizing
 	if ( this.autosize ) {
@@ -398,47 +399,67 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
  * @fires resize
  */
 OO.ui.TextInputWidget.prototype.adjustSize = function () {
-	var scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError, idealHeight, newHeight;
+	var scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError,
+		idealHeight, newHeight, scrollWidth, property;
 
-	if ( this.multiline && this.autosize && this.$input.val() !== this.valCache ) {
-		this.$clone
-			.val( this.$input.val() )
-			.attr( 'rows', this.minRows )
-			// Set inline height property to 0 to measure scroll height
-			.css( 'height', 0 );
+	if ( this.multiline && this.$input.val() !== this.valCache ) {
+		if ( this.autosize ) {
+			this.$clone
+				.val( this.$input.val() )
+				.attr( 'rows', this.minRows )
+				// Set inline height property to 0 to measure scroll height
+				.css( 'height', 0 );
 
-		this.$clone.removeClass( 'oo-ui-element-hidden' );
+			this.$clone.removeClass( 'oo-ui-element-hidden' );
 
-		this.valCache = this.$input.val();
+			this.valCache = this.$input.val();
 
-		scrollHeight = this.$clone[ 0 ].scrollHeight;
+			scrollHeight = this.$clone[ 0 ].scrollHeight;
 
-		// Remove inline height property to measure natural heights
-		this.$clone.css( 'height', '' );
-		innerHeight = this.$clone.innerHeight();
-		outerHeight = this.$clone.outerHeight();
+			// Remove inline height property to measure natural heights
+			this.$clone.css( 'height', '' );
+			innerHeight = this.$clone.innerHeight();
+			outerHeight = this.$clone.outerHeight();
 
-		// Measure max rows height
-		this.$clone
-			.attr( 'rows', this.maxRows )
-			.css( 'height', 'auto' )
-			.val( '' );
-		maxInnerHeight = this.$clone.innerHeight();
+			// Measure max rows height
+			this.$clone
+				.attr( 'rows', this.maxRows )
+				.css( 'height', 'auto' )
+				.val( '' );
+			maxInnerHeight = this.$clone.innerHeight();
 
-		// Difference between reported innerHeight and scrollHeight with no scrollbars present
-		// Equals 1 on Blink-based browsers and 0 everywhere else
-		measurementError = maxInnerHeight - this.$clone[ 0 ].scrollHeight;
-		idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
+			// Difference between reported innerHeight and scrollHeight with no scrollbars present
+			// Equals 1 on Blink-based browsers and 0 everywhere else
+			measurementError = maxInnerHeight - this.$clone[ 0 ].scrollHeight;
+			idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
 
-		this.$clone.addClass( 'oo-ui-element-hidden' );
+			this.$clone.addClass( 'oo-ui-element-hidden' );
 
-		// Only apply inline height when expansion beyond natural height is needed
-		// Use the difference between the inner and outer height as a buffer
-		newHeight = idealHeight > innerHeight ? idealHeight + ( outerHeight - innerHeight ) : '';
-		if ( newHeight !== this.styleHeight ) {
-			this.$input.css( 'height', newHeight );
-			this.styleHeight = newHeight;
-			this.emit( 'resize' );
+			// Only apply inline height when expansion beyond natural height is needed
+			// Use the difference between the inner and outer height as a buffer
+			newHeight = idealHeight > innerHeight ? idealHeight + ( outerHeight - innerHeight ) : '';
+			if ( newHeight !== this.styleHeight ) {
+				this.$input.css( 'height', newHeight );
+				this.styleHeight = newHeight;
+				this.emit( 'resize' );
+			}
+		}
+		scrollWidth = this.$input[ 0 ].offsetWidth - this.$input[ 0 ].clientWidth;
+		if ( scrollWidth !== this.scrollWidth ) {
+			property = this.$element.css( 'direction' ) === 'rtl' ? 'left' : 'right';
+			// Reset
+			this.$label.css( { right: '', left: '' } );
+			this.$indicator.css( { right: '', left: '' } );
+
+			if ( scrollWidth ) {
+				this.$indicator.css( property, scrollWidth );
+				if ( this.labelPosition === 'after' ) {
+					this.$label.css( property, scrollWidth );
+				}
+			}
+
+			this.scrollWidth = scrollWidth;
+			this.positionLabel();
 		}
 	}
 	return this;
@@ -705,6 +726,9 @@ OO.ui.TextInputWidget.prototype.updatePosition = function () {
 		.toggleClass( 'oo-ui-textInputWidget-labelPosition-after', !!this.label && after )
 		.toggleClass( 'oo-ui-textInputWidget-labelPosition-before', !!this.label && !after );
 
+	this.valCache = null;
+	this.scrollWidth = null;
+	this.adjustSize();
 	this.positionLabel();
 
 	return this;
@@ -751,7 +775,7 @@ OO.ui.TextInputWidget.prototype.positionLabel = function () {
 	rtl = this.$element.css( 'direction' ) === 'rtl';
 	property = after === rtl ? 'padding-left' : 'padding-right';
 
-	this.$input.css( property, this.$label.outerWidth( true ) );
+	this.$input.css( property, this.$label.outerWidth( true ) + ( after ? this.scrollWidth : 0 ) );
 
 	return this;
 };
