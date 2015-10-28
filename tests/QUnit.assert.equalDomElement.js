@@ -23,7 +23,7 @@
 	 * @return {Object} Summary of element.
 	 */
 	function getDomElementSummary( element, includeHtml ) {
-		var i, name,
+		var i, name, attribute, property,
 			summary = {
 				type: element.nodeName.toLowerCase(),
 				// $( '<div><textarea>Foo</textarea></div>' )[0].textContent === 'Foo', which breaks
@@ -31,6 +31,15 @@
 				// text: element.textContent,
 				attributes: {},
 				children: []
+			},
+			// This is used to gather certain properties and pretend they are attributes.
+			// Take note of casing differences.
+			propertyAttributes = {
+				value: 'value',
+				readOnly: 'readonly',
+				checked: 'checked',
+				disabled: 'disabled',
+				tabIndex: 'tabindex'
 			};
 
 		if ( includeHtml && element.nodeType === Node.ELEMENT_NODE ) {
@@ -52,22 +61,11 @@
 			summary.attributes.class = summary.attributes.class.split( ' ' ).sort().join( ' ' );
 		}
 
-		// Gather certain properties and pretend they are attributes.
-		// Take note of casing differences.
-		if ( element.value !== undefined ) {
-			summary.attributes.value = element.value;
-		}
-		if ( element.readOnly !== undefined ) {
-			summary.attributes.readonly = element.readOnly;
-		}
-		if ( element.checked !== undefined ) {
-			summary.attributes.checked = element.checked;
-		}
-		if ( element.disabled !== undefined ) {
-			summary.attributes.disabled = element.disabled;
-		}
-		if ( element.tabIndex !== undefined ) {
-			summary.attributes.tabindex = element.tabIndex;
+		for ( property in propertyAttributes ) {
+			attribute = propertyAttributes[ property ];
+			if ( element[ property ] !== undefined ) {
+				summary.attributes[ attribute ] = element[ property ];
+			}
 		}
 
 		// Summarize children
