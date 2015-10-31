@@ -38,7 +38,7 @@
  * @throws {Error} An error is thrown if no widget is specified
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
-	var hasInputWidget, div, i;
+	var hasInputWidget, div;
 
 	// Allow passing positional parameters inside the config object
 	if ( OO.isPlainObject( fieldWidget ) && config === undefined ) {
@@ -65,8 +65,8 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 
 	// Properties
 	this.fieldWidget = fieldWidget;
-	this.errors = config.errors || [];
-	this.notices = config.notices || [];
+	this.errors = [];
+	this.notices = [];
 	this.$field = $( '<div>' );
 	this.$messages = $( '<ul>' );
 	this.$body = $( '<' + ( hasInputWidget ? 'label' : 'div' ) + '>' );
@@ -102,9 +102,6 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.$element
 		.addClass( 'oo-ui-fieldLayout' )
 		.append( this.$help, this.$body );
-	if ( this.errors.length || this.notices.length ) {
-		this.$element.append( this.$messages );
-	}
 	this.$body.addClass( 'oo-ui-fieldLayout-body' );
 	this.$messages.addClass( 'oo-ui-fieldLayout-messages' );
 	this.$field
@@ -112,13 +109,8 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		.toggleClass( 'oo-ui-fieldLayout-disable', this.fieldWidget.isDisabled() )
 		.append( this.fieldWidget.$element );
 
-	for ( i = 0; i < this.notices.length; i++ ) {
-		this.$messages.append( this.makeMessage( 'notice', this.notices[ i ] ) );
-	}
-	for ( i = 0; i < this.errors.length; i++ ) {
-		this.$messages.append( this.makeMessage( 'error', this.errors[ i ] ) );
-	}
-
+	this.setErrors( config.errors || [] );
+	this.setNotices( config.notices || [] );
 	this.setAlignment( config.align );
 };
 
@@ -214,4 +206,54 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 	}
 
 	return this;
+};
+
+/**
+ * Set the list of error messages.
+ *
+ * @param {Array} errors Error messages about the widget, which will be displayed below the widget.
+ *  The array may contain strings or OO.ui.HtmlSnippet instances.
+ * @chainable
+ */
+OO.ui.FieldLayout.prototype.setErrors = function ( errors ) {
+	this.errors = errors.slice();
+	this.updateMessages();
+	return this;
+};
+
+/**
+ * Set the list of notice messages.
+ *
+ * @param {Array} notices Notices about the widget, which will be displayed below the widget.
+ *  The array may contain strings or OO.ui.HtmlSnippet instances.
+ * @chainable
+ */
+OO.ui.FieldLayout.prototype.setNotices = function ( notices ) {
+	this.notices = notices.slice();
+	this.updateMessages();
+	return this;
+};
+
+/**
+ * Update the rendering of error and notice messages.
+ *
+ * @private
+ */
+OO.ui.FieldLayout.prototype.updateMessages = function () {
+	var i;
+	this.$messages.empty();
+
+	if ( this.errors.length || this.notices.length ) {
+		this.$body.after( this.$messages );
+	} else {
+		this.$messages.remove();
+		return;
+	}
+
+	for ( i = 0; i < this.notices.length; i++ ) {
+		this.$messages.append( this.makeMessage( 'notice', this.notices[ i ] ) );
+	}
+	for ( i = 0; i < this.errors.length; i++ ) {
+		this.$messages.append( this.makeMessage( 'error', this.errors[ i ] ) );
+	}
 };
