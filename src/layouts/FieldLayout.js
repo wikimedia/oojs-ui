@@ -161,6 +161,7 @@ OO.ui.FieldLayout.prototype.getField = function () {
 };
 
 /**
+ * @protected
  * @param {string} kind 'error' or 'notice'
  * @param {string|OO.ui.HtmlSnippet} text
  * @return {jQuery}
