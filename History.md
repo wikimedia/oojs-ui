@@ -401,7 +401,7 @@
 * styles: Change gradient mixin syntax to W3C standards' syntax (Volker E)
 * styles: Remove obsolete "-ms-linear-gradient" declaration (Volker E)
 * Apex theme: Use matching 'lock' and 'unLock' icons (Bartosz Dziewoński)
-* MediaWiki and Apex themes: Force background color of <select> to white (Ed Sanders)
+* MediaWiki and Apex themes: Force background color of `<select>` to white (Ed Sanders)
 * MediaWiki and Apex themes: Re-crush SVG files (James D. Forrester)
 
 ### Code
