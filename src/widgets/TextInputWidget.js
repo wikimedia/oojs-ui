@@ -183,12 +183,9 @@ OO.ui.TextInputWidget.static.validationPatterns = {
  * @inheritdoc
  */
 OO.ui.TextInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var
-		state = OO.ui.TextInputWidget.parent.static.gatherPreInfuseState( node, config ),
-		$input = $( node ).find( '.oo-ui-inputWidget-input' );
-	state.$input = $input; // shortcut for performance, used in InputWidget
+	var state = OO.ui.TextInputWidget.parent.static.gatherPreInfuseState( node, config );
 	if ( config.multiline ) {
-		state.scrollTop = $input.scrollTop();
+		state.scrollTop = config.$input.scrollTop();
 	}
 	return state;
 };

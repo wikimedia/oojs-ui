@@ -64,11 +64,8 @@ OO.inheritClass( OO.ui.CheckboxInputWidget, OO.ui.InputWidget );
  * @inheritdoc
  */
 OO.ui.CheckboxInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var
-		state = OO.ui.CheckboxInputWidget.parent.static.gatherPreInfuseState( node, config ),
-		$input = $( node ).find( '.oo-ui-inputWidget-input' );
-	state.$input = $input; // shortcut for performance, used in InputWidget
-	state.checked = $input.prop( 'checked' );
+	var state = OO.ui.CheckboxInputWidget.parent.static.gatherPreInfuseState( node, config );
+	state.checked = config.$input.prop( 'checked' );
 	return state;
 };
 

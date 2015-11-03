@@ -201,17 +201,25 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 			}
 		}
 	} );
+	// allow widgets to reuse parts of the DOM
+	data = cls.static.reusePreInfuseDOM( $elem[ 0 ], data );
 	// pick up dynamic state, like focus, value of form inputs, scroll position, etc.
-	state = cls.static.gatherPreInfuseState( $elem, data );
+	state = cls.static.gatherPreInfuseState( $elem[ 0 ], data );
+	// rebuild widget
 	// jscs:disable requireCapitalizedConstructors
-	obj = new cls( data ); // rebuild widget
+	obj = new cls( data );
+	// jscs:enable requireCapitalizedConstructors
 	// now replace old DOM with this new DOM.
 	if ( top ) {
-		$elem.replaceWith( obj.$element );
-		// This element is now gone from the DOM, but if anyone is holding a reference to it,
-		// let's allow them to OO.ui.infuse() it and do what they expect (T105828).
-		// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
-		$elem[ 0 ].oouiInfused = obj;
+		// An efficient constructor might be able to reuse the entire DOM tree of the original element,
+		// so only mutate the DOM if we need to.
+		if ( $elem[ 0 ] !== obj.$element[ 0 ] ) {
+			$elem.replaceWith( obj.$element );
+			// This element is now gone from the DOM, but if anyone is holding a reference to it,
+			// let's allow them to OO.ui.infuse() it and do what they expect (T105828).
+			// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
+			$elem[ 0 ].oouiInfused = obj;
+		}
 		top.resolve();
 	}
 	obj.$element.data( 'ooui-infused', obj );
@@ -220,6 +228,22 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	// restore dynamic state after the new element is inserted into DOM
 	domPromise.done( obj.restorePreInfuseState.bind( obj, state ) );
 	return obj;
+};
+
+/**
+ * Pick out parts of `node`'s DOM to be reused when infusing a widget.
+ *
+ * This method **must not** make any changes to the DOM, only find interesting pieces and add them
+ * to `config` (which should then be returned). Actual DOM juggling should then be done by the
+ * constructor, which will be given the enhanced config.
+ *
+ * @protected
+ * @param {HTMLElement} node
+ * @param {Object} config
+ * @return {Object}
+ */
+OO.ui.Element.static.reusePreInfuseDOM = function ( node, config ) {
+	return config;
 };
 
 /**

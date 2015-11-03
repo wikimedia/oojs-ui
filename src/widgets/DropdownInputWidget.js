@@ -66,7 +66,11 @@ OO.mixinClass( OO.ui.DropdownInputWidget, OO.ui.mixin.TitledElement );
  * @inheritdoc
  * @protected
  */
-OO.ui.DropdownInputWidget.prototype.getInputElement = function () {
+OO.ui.DropdownInputWidget.prototype.getInputElement = function ( config ) {
+	// See InputWidget#reusePreInfuseDOM about config.$input
+	if ( config.$input ) {
+		return config.$input.addClass( 'oo-ui-element-hidden' );
+	}
 	return $( '<input type="hidden">' );
 };
 
