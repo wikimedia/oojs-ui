@@ -1,5 +1,23 @@
 # OOjs UI Release History
 
+## v0.13.1 / 2015-11-03
+### Deprecations
+* [DEPRECATING CHANGE] InputWidget: Replace `#setRTL` with `#setDir` (Ed Sanders)
+
+### Features
+* Allow widgets to re-use parts of the DOM when infusing; use for InputWidget's `$input` (Bartosz Dziewoński)
+* FieldLayout: Allow setting errors and notices dynamically (Bartosz Dziewoński)
+* InputWidget: Add '`dir`' to config (Ed Sanders)
+
+### Styles
+* TextInputWidget: Account for scroll bar width when positioning indicators/labels (Ed Sanders)
+* TextInputWidget: Ensure icon+indicator+label are top aligned in multi-line mode (Ed Sanders)
+
+### Code
+* FieldLayout: Mark `#makeMessage` as `@protected` (Bartosz Dziewoński)
+* History.md: wrap `<select>` tag in backticks (Ricordisamoa)
+* tests: Refactor property->attribute copying (Ed Sanders)
+
 ## v0.13.0 / 2015-10-27
 ### Breaking changes
 * [BREAKING CHANGE] Remove aliases for OO.ui.mixins, deprecated in 0.11.4 (C. Scott Ananian)
@@ -392,7 +410,7 @@
 * SelectFileWidget: Create (Brad Jorsch)
 * SelectWidget: Listen to keypresses and jump to matching items (Brad Jorsch)
 * TextInputWidget: Adjust height to other widgets (Bartosz Dziewoński)
-* Widget: Add `#supportsSimpleLabel` static property to control <label> usage (Bartosz Dziewoński)
+* Widget: Add `#supportsSimpleLabel` static property to control `<label>` usage (Bartosz Dziewoński)
 * Window: Clear margins for actions in horizontal/vertical groups (Ed Sanders)
 * `OOUI\Tag`: Avoid 'Potentially unsafe "href" attribute value' exceptions for relative URLs (Bartosz Dziewoński)
 
@@ -984,7 +1002,7 @@
 * demo: Add button style showcase from PHP demo (Bartosz Dziewoński)
 * demo: Reorder widgets into somewhat logical groupings (Bartosz Dziewoński)
 * demo: Stop inline consoles from generating white space (Bartosz Dziewoński)
-* demo: Use properties instead of attributes for <link> (Timo Tijhof)
+* demo: Use properties instead of attributes for `<link>` (Timo Tijhof)
 * PHP demo: Add Vector/Raster and MediaWiki/Apex controls (Bartosz Dziewoński)
 * PHP demo: Just echo the autoload error message, don't trigger_error() (Bartosz Dziewoński)
 * PHP demo: Resynchronize with JS demo (Bartosz Dziewoński)
@@ -1154,11 +1172,11 @@
 * MediaWiki theme: checkbox: Fix states according to spec (Prateek Saxena)
 
 ### Code
-* Account for <html> rather than <body> being the scrollable root in Chrome (Bartosz Dziewoński)
+* Account for `<html>` rather than `<body>` being the scrollable root in Chrome (Bartosz Dziewoński)
 * ClippableElement: 7 is a better number than 10 (Bartosz Dziewoński)
 * Don't set line-height of unset button labels (Bartosz Dziewoński)
 * FieldLayout: Synchronise PHP with JS (Bartosz Dziewoński)
-* FieldLayout: Use <label> for this.$body, not this.$element (Bartosz Dziewoński)
+* FieldLayout: Use `<label>` for this.$body, not this.$element (Bartosz Dziewoński)
 * Fix primary button description text (Niklas Laxström)
 * GridLayout: Don't round to 1% (Bartosz Dziewoński)
 * Kill the escape keydown event after handling a window close (Ed Sanders)
