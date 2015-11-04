@@ -130,7 +130,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'alignRight',
 				'calendar',
 				'find',
-				'insert',
 				'layout',
 				'newline',
 				'noWikiText',
