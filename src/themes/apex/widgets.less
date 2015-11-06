@@ -4,7 +4,7 @@
 
 .theme-oo-ui-outlineControlsWidget () {
 	height: 3em;
-	background-color: #fff;
+	background-color: @background-color-main;
 
 	&-items,
 	&-movers {
@@ -104,6 +104,7 @@
 .theme-oo-ui-dropdownWidget () {
 	width: 100%;
 	max-width: 50em;
+	background-color: @background-color-main;
 
 	.oo-ui-inline-spacing(0.5em);
 
@@ -183,6 +184,7 @@
 
 	&-info {
 		height: 2.4em;
+		background-color: @background-color-main;
 		border: 1px solid rgba(0,0,0,0.1);
 		border-radius: 0.25em;
 
@@ -301,10 +303,10 @@
 
 	&-dropTarget {
 		line-height: 3.5em;
+		background-color: @background-color-main;
 		border: 1px dashed #aaa;
 		padding: 0.5em 1em;
 		margin-bottom: 0.5em;
-		background: #fff;
 		text-align: center;
 		vertical-align: middle;
 	}
@@ -340,7 +342,7 @@
 	max-width: 50em;
 
 	select {
-		background: #fff;
+		background-color: @background-color-main;
 		height: 2.5em;
 		padding: 0.5em;
 		font-size: inherit;
@@ -384,7 +386,7 @@
 		line-height: 1.275em;
 		font-size: inherit;
 		font-family: inherit;
-		background-color: #fff;
+		background-color: @background-color-main;
 		color: black;
 		border: 1px solid #ccc;
 		box-shadow: 0 0 0 white, inset 0 0.1em 0.2em #ddd;
@@ -506,7 +508,7 @@
 	max-width: 50em;
 
 	&-handle {
-		background-color: #fff;
+		background-color: @background-color-main;
 		cursor: text;
 		min-height: 2.4em;
 
@@ -842,7 +844,7 @@
 		}
 
 		&:active {
-			background-color: #fff;
+			background-color: @background-color-main;
 			border-color: #ddd;
 		}
 	}
@@ -850,16 +852,16 @@
 	.oo-ui-selectWidget-pressed &.oo-ui-optionWidget-selected,
 	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected,
 	&.oo-ui-optionWidget-selected:hover {
-		background-color: #fff;
+		background-color: @background-color-main;
 		border-color: #ddd;
 	}
 }
 
 .theme-oo-ui-popupWidget () {
 	&-popup {
+		background-color: @background-color-main;
 		border: 1px solid #ccc;
 		border-radius: 0.25em;
-		background-color: #fff;
 		box-shadow: 0 0.15em 0.5em 0 rgba(0, 0, 0, 0.2);
 	}
 
@@ -966,7 +968,7 @@
 }
 
 .theme-oo-ui-menuSelectWidget () {
-	background: #fff;
+	background-color: @background-color-main;
 	margin-top: -1px;
 	border: 1px solid #ccc;
 	border-radius: 0 0 0.25em 0.25em;
@@ -1077,6 +1079,7 @@
 
 .theme-oo-ui-progressBarWidget () {
 	max-width: 50em;
+	background-color: @background-color-main;
 	border: 1px solid #ccc;
 	border-radius: 0.25em;
 	overflow: hidden;

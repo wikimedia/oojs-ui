@@ -4,7 +4,7 @@
 
 .theme-oo-ui-outlineControlsWidget () {
 	height: 3em;
-	background-color: #fff;
+	background-color: @background;
 
 	&-items,
 	&-movers {
@@ -100,7 +100,7 @@
 .theme-oo-ui-dropdownWidget () {
 	width: 100%;
 	max-width: 50em;
-	background: #fff;
+	background-color: @background;
 
 	.oo-ui-inline-spacing(0.5em);
 
@@ -186,6 +186,7 @@
 
 	&-info {
 		height: 2.4em;
+		background-color: @background;
 		border: 1px solid #ccc;
 		border-radius: 0.1em;
 
@@ -194,7 +195,7 @@
 		}
 
 		> .oo-ui-iconElement-icon {
-			left: 0em;
+			left: 0;
 		}
 
 		> .oo-ui-selectFileWidget-label {
@@ -304,10 +305,10 @@
 
 	&-dropTarget {
 		line-height: 3.5em;
+		background-color: @background;
 		border: 1px dashed #ccc;
 		padding: 0.5em 1em;
 		margin-bottom: 0.5em;
-		background: #fff;
 		text-align: center;
 		vertical-align: middle;
 	}
@@ -427,7 +428,7 @@
 	max-width: 50em;
 
 	select {
-		background: #fff;
+		background-color: @background;
 		height: 2.275em;
 		font-size: inherit;
 		font-family: inherit;
@@ -561,7 +562,7 @@
 		margin: 0;
 		font-size: inherit;
 		font-family: inherit;
-		background-color: #fff;
+		background-color: @background;
 		color: black;
 		border: solid 1px #ccc;
 		box-shadow: inset 0 0 0 0 @progressive;
@@ -700,7 +701,7 @@
 	max-width: 50em;
 
 	&-handle {
-		background-color: #fff;
+		background-color: @background;
 		cursor: text;
 		min-height: 2.4em;
 
@@ -1047,16 +1048,16 @@
 	.oo-ui-selectWidget-pressed &.oo-ui-optionWidget-selected,
 	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected,
 	&.oo-ui-optionWidget-selected:hover {
-		background-color: #fff;
+		background-color: @background;
         color: #333;
 	}
 }
 
 .theme-oo-ui-popupWidget () {
 	&-popup {
+		background-color: @background;
 		border: 1px solid #aaa;
 		border-radius: 0.2em;
-		background-color: #fff;
 		box-shadow: @box-shadow-popup;
 	}
 
@@ -1161,7 +1162,7 @@
 .theme-oo-ui-radioSelectWidget () {}
 
 .theme-oo-ui-menuSelectWidget () {
-	background: #fff;
+	background-color: @background;
 	margin-top: -1px;
 	border: 1px solid #aaa;
 	border-radius: 0 0 0.2em 0.2em;
@@ -1313,6 +1314,7 @@
 
 .theme-oo-ui-progressBarWidget () {
 	max-width: 50em;
+	background-color: @background;
 	border: 1px solid #ccc;
 	border-radius: 0.1em;
 	overflow: hidden;
