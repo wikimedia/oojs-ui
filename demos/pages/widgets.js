@@ -56,11 +56,11 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 	 * @extends OO.ui.TextInputWidget
 	 * @mixins OO.ui.mixin.LookupElement
 	 */
-	function NumberLookupTextInputWidget() {
+	function NumberLookupTextInputWidget( config ) {
 		// Parent constructor
 		OO.ui.TextInputWidget.call( this, { validate: 'integer' } );
 		// Mixin constructors
-		OO.ui.mixin.LookupElement.call( this );
+		OO.ui.mixin.LookupElement.call( this, config );
 	}
 	OO.inheritClass( NumberLookupTextInputWidget, OO.ui.TextInputWidget );
 	OO.mixinClass( NumberLookupTextInputWidget, OO.ui.mixin.LookupElement );
@@ -1584,6 +1584,15 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new NumberLookupTextInputWidget(),
 					{
 						label: 'LookupElement (try inputting an integer)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new NumberLookupTextInputWidget( {
+						highlightFirst: false
+					} ),
+					{
+						label: 'LookupElement without highlighting 1st term (try inputting an integer)\u200E',
 						align: 'top'
 					}
 				),
