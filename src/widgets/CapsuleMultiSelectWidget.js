@@ -1,5 +1,5 @@
 /**
- * CapsuleMultiSelectWidgets are something like a {@link OO.ui.ComboBoxWidget combo box widget}
+ * CapsuleMultiSelectWidgets are something like a {@link OO.ui.ComboBoxInputWidget combo box widget}
  * that allows for selecting multiple values.
  *
  * For more information about menus and options, please see the [OOjs UI documentation on MediaWiki][1].

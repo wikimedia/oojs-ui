@@ -1,5 +1,5 @@
 /**
- * ComboBoxWidgets combine a {@link OO.ui.TextInputWidget text input} (where a value
+ * ComboBoxInputWidgets combine a {@link OO.ui.TextInputWidget text input} (where a value
  * can be entered manually) and a {@link OO.ui.MenuSelectWidget menu of options} (from which
  * a value can be chosen instead). Users can choose options from the combo box in one of two ways:
  *
@@ -8,13 +8,15 @@
  * - by choosing a value from the menu. The value of the chosen option will then appear in the text
  *   input field.
  *
+ * This widget can be used inside a HTML form, such as a OO.ui.FormLayout.
+ *
  * For more information about menus and options, please see the [OOjs UI documentation on MediaWiki][1].
  *
  *     @example
- *     // Example: A ComboBoxWidget.
- *     var comboBox = new OO.ui.ComboBoxWidget( {
- *         label: 'ComboBoxWidget',
- *         input: { value: 'Option One' },
+ *     // Example: A ComboBoxInputWidget.
+ *     var comboBox = new OO.ui.ComboBoxInputWidget( {
+ *         label: 'ComboBoxInputWidget',
+ *         value: 'Option 1',
  *         menu: {
  *             items: [
  *                 new OO.ui.MenuOptionWidget( {
@@ -45,60 +47,46 @@
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options#Menu_selects_and_options
  *
  * @class
- * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.TabIndexedElement
+ * @extends OO.ui.TextInputWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {Object} [menu] Configuration options to pass to the {@link OO.ui.FloatingMenuSelectWidget menu select widget}.
- * @cfg {Object} [input] Configuration options to pass to the {@link OO.ui.TextInputWidget text input widget}.
  * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful in cases where
  *  the expanded menu is larger than its containing `<div>`. The specified overlay layer is usually on top of the
  *  containing `<div>` and has a larger area. By default, the menu uses relative positioning.
  */
-OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
+OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	// Configuration initialization
-	config = config || {};
+	config = $.extend( {
+		indicator: 'down'
+	}, config );
+	// For backwards-compatibility with ComboBoxWidget config
+	$.extend( config, config.input );
 
 	// Parent constructor
-	OO.ui.ComboBoxWidget.parent.call( this, config );
-
-	// Properties (must be set before TabIndexedElement constructor call)
-	this.$indicator = this.$( '<span>' );
-
-	// Mixin constructors
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$indicator } ) );
+	OO.ui.ComboBoxInputWidget.parent.call( this, config );
 
 	// Properties
 	this.$overlay = config.$overlay || this.$element;
-	this.input = new OO.ui.TextInputWidget( $.extend(
-		{
-			indicator: 'down',
-			$indicator: this.$indicator,
-			disabled: this.isDisabled()
-		},
-		config.input
-	) );
-	this.input.$input.eq( 0 ).attr( {
-		role: 'combobox',
-		'aria-autocomplete': 'list'
-	} );
 	this.menu = new OO.ui.FloatingMenuSelectWidget( $.extend(
 		{
 			widget: this,
-			input: this.input,
-			$container: this.input.$element,
+			input: this,
+			$container: this.$element,
 			disabled: this.isDisabled()
 		},
 		config.menu
 	) );
+	// For backwards-compatibility with ComboBoxWidget
+	this.input = this;
 
 	// Events
 	this.$indicator.on( {
-		click: this.onClick.bind( this ),
-		keypress: this.onKeyPress.bind( this )
+		click: this.onIndicatorClick.bind( this ),
+		keypress: this.onIndicatorKeyPress.bind( this )
 	} );
-	this.input.connect( this, {
+	this.connect( this, {
 		change: 'onInputChange',
 		enter: 'onInputEnter'
 	} );
@@ -109,15 +97,19 @@ OO.ui.ComboBoxWidget = function OoUiComboBoxWidget( config ) {
 	} );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-comboBoxWidget' ).append( this.input.$element );
+	this.$input.attr( {
+		role: 'combobox',
+		'aria-autocomplete': 'list'
+	} );
+	// Extra class for backwards-compatibility with ComboBoxWidget
+	this.$element.addClass( 'oo-ui-comboBoxInputWidget oo-ui-comboBoxWidget' );
 	this.$overlay.append( this.menu.$element );
 	this.onMenuItemsChange();
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.ComboBoxWidget, OO.ui.Widget );
-OO.mixinClass( OO.ui.ComboBoxWidget, OO.ui.mixin.TabIndexedElement );
+OO.inheritClass( OO.ui.ComboBoxInputWidget, OO.ui.TextInputWidget );
 
 /* Methods */
 
@@ -125,7 +117,7 @@ OO.mixinClass( OO.ui.ComboBoxWidget, OO.ui.mixin.TabIndexedElement );
  * Get the combobox's menu.
  * @return {OO.ui.FloatingMenuSelectWidget} Menu widget
  */
-OO.ui.ComboBoxWidget.prototype.getMenu = function () {
+OO.ui.ComboBoxInputWidget.prototype.getMenu = function () {
 	return this.menu;
 };
 
@@ -133,8 +125,8 @@ OO.ui.ComboBoxWidget.prototype.getMenu = function () {
  * Get the combobox's text input widget.
  * @return {OO.ui.TextInputWidget} Text input widget
  */
-OO.ui.ComboBoxWidget.prototype.getInput = function () {
-	return this.input;
+OO.ui.ComboBoxInputWidget.prototype.getInput = function () {
+	return this;
 };
 
 /**
@@ -143,7 +135,7 @@ OO.ui.ComboBoxWidget.prototype.getInput = function () {
  * @private
  * @param {string} value New value
  */
-OO.ui.ComboBoxWidget.prototype.onInputChange = function ( value ) {
+OO.ui.ComboBoxInputWidget.prototype.onInputChange = function ( value ) {
 	var match = this.menu.getItemFromData( value );
 
 	this.menu.selectItem( match );
@@ -162,10 +154,10 @@ OO.ui.ComboBoxWidget.prototype.onInputChange = function ( value ) {
  * @private
  * @param {jQuery.Event} e Mouse click event
  */
-OO.ui.ComboBoxWidget.prototype.onClick = function ( e ) {
+OO.ui.ComboBoxInputWidget.prototype.onIndicatorClick = function ( e ) {
 	if ( !this.isDisabled() && e.which === 1 ) {
 		this.menu.toggle();
-		this.input.$input[ 0 ].focus();
+		this.$input[ 0 ].focus();
 	}
 	return false;
 };
@@ -176,10 +168,10 @@ OO.ui.ComboBoxWidget.prototype.onClick = function ( e ) {
  * @private
  * @param {jQuery.Event} e Key press event
  */
-OO.ui.ComboBoxWidget.prototype.onKeyPress = function ( e ) {
+OO.ui.ComboBoxInputWidget.prototype.onIndicatorKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
 		this.menu.toggle();
-		this.input.$input[ 0 ].focus();
+		this.$input[ 0 ].focus();
 		return false;
 	}
 };
@@ -189,7 +181,7 @@ OO.ui.ComboBoxWidget.prototype.onKeyPress = function ( e ) {
  *
  * @private
  */
-OO.ui.ComboBoxWidget.prototype.onInputEnter = function () {
+OO.ui.ComboBoxInputWidget.prototype.onInputEnter = function () {
 	if ( !this.isDisabled() ) {
 		this.menu.toggle( false );
 	}
@@ -201,8 +193,8 @@ OO.ui.ComboBoxWidget.prototype.onInputEnter = function () {
  * @private
  * @param {OO.ui.OptionWidget} item Chosen item
  */
-OO.ui.ComboBoxWidget.prototype.onMenuChoose = function ( item ) {
-	this.input.setValue( item.getData() );
+OO.ui.ComboBoxInputWidget.prototype.onMenuChoose = function ( item ) {
+	this.setValue( item.getData() );
 };
 
 /**
@@ -210,28 +202,31 @@ OO.ui.ComboBoxWidget.prototype.onMenuChoose = function ( item ) {
  *
  * @private
  */
-OO.ui.ComboBoxWidget.prototype.onMenuItemsChange = function () {
-	var match = this.menu.getItemFromData( this.input.getValue() );
+OO.ui.ComboBoxInputWidget.prototype.onMenuItemsChange = function () {
+	var match = this.menu.getItemFromData( this.getValue() );
 	this.menu.selectItem( match );
 	if ( this.menu.getHighlightedItem() ) {
 		this.menu.highlightItem( match );
 	}
-	this.$element.toggleClass( 'oo-ui-comboBoxWidget-empty', this.menu.isEmpty() );
+	this.$element.toggleClass( 'oo-ui-comboBoxInputWidget-empty', this.menu.isEmpty() );
 };
 
 /**
  * @inheritdoc
  */
-OO.ui.ComboBoxWidget.prototype.setDisabled = function ( disabled ) {
+OO.ui.ComboBoxInputWidget.prototype.setDisabled = function ( disabled ) {
 	// Parent method
-	OO.ui.ComboBoxWidget.parent.prototype.setDisabled.call( this, disabled );
+	OO.ui.ComboBoxInputWidget.parent.prototype.setDisabled.call( this, disabled );
 
-	if ( this.input ) {
-		this.input.setDisabled( this.isDisabled() );
-	}
 	if ( this.menu ) {
 		this.menu.setDisabled( this.isDisabled() );
 	}
 
 	return this;
 };
+
+/**
+ * @class
+ * @deprecated Use OO.ui.ComboBoxInputWidget instead.
+ */
+OO.ui.ComboBoxWidget = OO.ui.ComboBoxInputWidget;

@@ -88,7 +88,7 @@
 				"src/widgets/RadioInputWidget.js",
 				"src/widgets/RadioSelectInputWidget.js",
 				"src/widgets/TextInputWidget.js",
-			"src/widgets/ComboBoxWidget.js",
+			"src/widgets/ComboBoxInputWidget.js",
 			"src/widgets/LabelWidget.js",
 			"src/widgets/OptionWidget.js",
 				"src/widgets/DecoratedOptionWidget.js",
