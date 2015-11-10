@@ -1133,7 +1133,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.ComboBoxWidget( {
+					new OO.ui.ComboBoxInputWidget( {
 						menu: {
 							items: [
 								new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
@@ -1145,12 +1145,12 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'ComboBoxWidget',
+						label: 'ComboBoxInputWidget',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.ComboBoxWidget( {
+					new OO.ui.ComboBoxInputWidget( {
 						disabled: true,
 						menu: {
 							items: [
@@ -1163,14 +1163,14 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'ComboBoxWidget (disabled)\u200E',
+						label: 'ComboBoxInputWidget (disabled)\u200E',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.ComboBoxWidget(),
+					new OO.ui.ComboBoxInputWidget(),
 					{
-						label: 'ComboBoxWidget (empty)\u200E',
+						label: 'ComboBoxInputWidget (empty)\u200E',
 						align: 'top'
 					}
 				),

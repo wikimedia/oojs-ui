@@ -1,7 +1,7 @@
 /**
  * MenuSelectWidget is a {@link OO.ui.SelectWidget select widget} that contains options and
  * is used together with OO.ui.MenuOptionWidget. It is designed be used as part of another widget.
- * See {@link OO.ui.DropdownWidget DropdownWidget}, {@link OO.ui.ComboBoxWidget ComboBoxWidget},
+ * See {@link OO.ui.DropdownWidget DropdownWidget}, {@link OO.ui.ComboBoxInputWidget ComboBoxInputWidget},
  * and {@link OO.ui.mixin.LookupElement LookupElement} for examples of widgets that contain menus.
  * MenuSelectWidgets themselves are not instantiated directly, rather subclassed
  * and customized to be opened, closed, and displayed as needed.
@@ -26,7 +26,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {OO.ui.TextInputWidget} [input] Text input used to implement option highlighting for menu items that match
- *  the text the user types. This config is used by {@link OO.ui.ComboBoxWidget ComboBoxWidget}
+ *  the text the user types. This config is used by {@link OO.ui.ComboBoxInputWidget ComboBoxInputWidget}
  *  and {@link OO.ui.mixin.LookupElement LookupElement}
  * @cfg {jQuery} [$input] Text input used to implement option highlighting for menu items that match
  *  the text the user types. This config is used by {@link OO.ui.CapsuleMultiSelectWidget CapsuleMultiSelectWidget}

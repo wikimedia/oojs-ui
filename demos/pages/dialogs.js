@@ -543,8 +543,8 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'combobox', {
-				label: 'ComboBoxWidget',
-				content: [ $spacer.clone(), new OO.ui.ComboBoxWidget( {
+				label: 'ComboBoxInputWidget',
+				content: [ $spacer.clone(), new OO.ui.ComboBoxInputWidget( {
 					$overlay: this.$overlay,
 					menu: {
 						items: this.makeItems()
@@ -552,9 +552,9 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'combobox2', {
-				label: 'ComboBoxWidget',
+				label: 'ComboBoxInputWidget',
 				icon: 'alert',
-				content: [ $spacer.clone(), new OO.ui.ComboBoxWidget( {
+				content: [ $spacer.clone(), new OO.ui.ComboBoxInputWidget( {
 					menu: {
 						items: this.makeItems()
 					}

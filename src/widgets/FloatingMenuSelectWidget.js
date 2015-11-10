@@ -7,7 +7,7 @@
  * The menu's position is automatically calculated and maintained when the menu
  * is toggled or the window is resized.
  *
- * See OO.ui.ComboBoxWidget for an example of a widget that uses this class.
+ * See OO.ui.ComboBoxInputWidget for an example of a widget that uses this class.
  *
  * @class
  * @extends OO.ui.MenuSelectWidget
