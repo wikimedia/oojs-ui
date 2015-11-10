@@ -1,5 +1,24 @@
 # OOjs UI Release History
 
+## v0.13.2 / 2015-11-10
+### Deprecations
+* [DEPRECATING CHANGE] ComboBoxWidget: Refactor into ComboBoxInputWidget (Bartosz Dziewoński)
+* [DEPRECATING CHANGE] MediaWiki, Apex themes: Unify add/insert icons (Ed Sanders)
+
+### Features
+* ComboBoxInputWidget: Implement PHP version (Bartosz Dziewoński)
+* LookupElement: Make auto-highlighting the first term configurable (Florian)
+
+### Styles
+* Add some missing white backgrounds and use variables when possible (Bartosz Dziewoński)
+* MediaWiki theme: Make the menu icon identical to Apex's (Ed Sanders)
+* MediaWiki theme: Specify 'line-height' for DropdownWidget's handle (Bartosz Dziewoński)
+* WikiText icon: Make slightly narrower (Ed Sanders)
+
+### Code
+* Apex theme: Remove dead styles for ComboBoxWidget (Bartosz Dziewoński)
+* build: Make copy:fastcomposerdemos work again (Bartosz Dziewoński)
+
 ## v0.13.1 / 2015-11-03
 ### Deprecations
 * [DEPRECATING CHANGE] InputWidget: Replace `#setRTL` with `#setDir` (Ed Sanders)
