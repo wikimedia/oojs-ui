@@ -21,10 +21,12 @@
  * @cfg {jQuery} [$container=this.$element] The container element. The lookup menu is rendered beneath the specified element.
  * @cfg {boolean} [allowSuggestionsWhenEmpty=false] Request and display a lookup menu when the text input is empty.
  *  By default, the lookup menu is not generated and displayed until the user begins to type.
+ * @cfg {boolean} [highlightFirst=true] Whether the first lookup result should be highlighted (so, that the user can
+ *  take it over into the input with simply pressing return) automatically or not.
  */
 OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	// Configuration initialization
-	config = config || {};
+	config = $.extend( { highlightFirst: true }, config );
 
 	// Properties
 	this.$overlay = config.$overlay || this.$element;
@@ -41,6 +43,7 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	this.lookupRequest = null;
 	this.lookupsDisabled = false;
 	this.lookupInputFocused = false;
+	this.lookupHighlightFirstItem = config.highlightFirst;
 
 	// Events
 	this.$input.on( {
@@ -228,13 +231,13 @@ OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
 };
 
 /**
- * Highlight the first selectable item in the menu.
+ * Highlight the first selectable item in the menu, if configured.
  *
  * @private
  * @chainable
  */
 OO.ui.mixin.LookupElement.prototype.initializeLookupMenuSelection = function () {
-	if ( !this.lookupMenu.getSelectedItem() ) {
+	if ( this.lookupHighlightFirstItem && !this.lookupMenu.getSelectedItem() ) {
 		this.lookupMenu.highlightItem( this.lookupMenu.getFirstSelectableItem() );
 	}
 };
