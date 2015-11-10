@@ -14,11 +14,12 @@ else
 	tests = []
 	classes = php.select{|c| class_names.include? c[:name] }
 
+	untestable_classes = %w[DropdownInputWidget ComboBoxInputWidget RadioSelectInputWidget]
 	testable_classes = classes
 		.reject{|c| c[:abstract] } # can't test abstract classes
 		.reject{|c| !c[:parent] || c[:parent] == 'ElementMixin' || c[:parent] == 'Theme' } # can't test abstract
 		.reject{|c| %w[Element Widget Layout Theme].include? c[:name] } # no toplevel
-		.reject{|c| %w[DropdownInputWidget RadioSelectInputWidget].include? c[:name] } # different PHP and JS implementations
+		.reject{|c| untestable_classes.include? c[:name] } # different PHP and JS implementations
 
 	# values to test for each type
 	expandos = {

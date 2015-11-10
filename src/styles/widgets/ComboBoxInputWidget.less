@@ -15,5 +15,24 @@
 		}
 	}
 
+	&-php {
+		// Hide the Chrome dropdown arrow for PHP widget, but keep its functionality.
+		// It lines up with our own indicator almost perfectly this way.
+		input::-webkit-calendar-picker-indicator {
+			opacity: 0 !important;
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 2.5em;
+			width: 2.5em;
+			padding: 0;
+		}
+
+		// Make clicks fall-through to native Chrome dropdown arrow
+		> .oo-ui-indicatorElement-indicator {
+			pointer-events: none;
+		}
+	}
+
 	.theme-oo-ui-comboBoxInputWidget();
 }

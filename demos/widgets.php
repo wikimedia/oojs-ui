@@ -678,6 +678,44 @@
 							)
 						),
 						new OOUI\FieldLayout(
+							new OOUI\ComboBoxInputWidget( array(
+								'options' => array(
+									array( 'data' => 'asd', 'label' => 'Label for asd' ),
+									array( 'data' => 'fgh', 'label' => 'Label for fgh' ),
+									array( 'data' => 'jkl', 'label' => 'Label for jkl' ),
+									array( 'data' => 'zxc', 'label' => 'Label for zxc' ),
+									array( 'data' => 'vbn', 'label' => 'Label for vbn' ),
+								)
+							) ),
+							array(
+								'label' => 'ComboBoxInputWidget',
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\ComboBoxInputWidget( array(
+								'disabled' => true,
+								'options' => array(
+									array( 'data' => 'asd', 'label' => 'Label for asd' ),
+									array( 'data' => 'fgh', 'label' => 'Label for fgh' ),
+									array( 'data' => 'jkl', 'label' => 'Label for jkl' ),
+									array( 'data' => 'zxc', 'label' => 'Label for zxc' ),
+									array( 'data' => 'vbn', 'label' => 'Label for vbn' ),
+								)
+							) ),
+							array(
+								'label' => "ComboBoxInputWidget (disabled)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\ComboBoxInputWidget(),
+							array(
+								'label' => "ComboBoxInputWidget (empty)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
 							new OOUI\ButtonInputWidget( array(
 								'label' => 'Submit the form',
 								'type' => 'submit'

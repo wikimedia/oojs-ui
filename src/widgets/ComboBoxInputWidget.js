@@ -51,6 +51,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: … }`
  * @cfg {Object} [menu] Configuration options to pass to the {@link OO.ui.FloatingMenuSelectWidget menu select widget}.
  * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful in cases where
  *  the expanded menu is larger than its containing `<div>`. The specified overlay layer is usually on top of the
@@ -101,6 +102,10 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 		role: 'combobox',
 		'aria-autocomplete': 'list'
 	} );
+	// Do not override options set via config.menu.items
+	if ( config.options !== undefined ) {
+		this.setOptions( config.options );
+	}
 	// Extra class for backwards-compatibility with ComboBoxWidget
 	this.$element.addClass( 'oo-ui-comboBoxInputWidget oo-ui-comboBoxWidget' );
 	this.$overlay.append( this.menu.$element );
@@ -221,6 +226,25 @@ OO.ui.ComboBoxInputWidget.prototype.setDisabled = function ( disabled ) {
 	if ( this.menu ) {
 		this.menu.setDisabled( this.isDisabled() );
 	}
+
+	return this;
+};
+
+/**
+ * Set the options available for this input.
+ *
+ * @param {Object[]} options Array of menu options in the format `{ data: …, label: … }`
+ * @chainable
+ */
+OO.ui.ComboBoxInputWidget.prototype.setOptions = function ( options ) {
+	this.getMenu()
+		.clearItems()
+		.addItems( options.map( function ( opt ) {
+			return new OO.ui.MenuOptionWidget( {
+				data: opt.data,
+				label: opt.label !== undefined ? opt.label : opt.data
+			} );
+		} ) );
 
 	return this;
 };
