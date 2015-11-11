@@ -21,6 +21,7 @@
 			"src/ToolGroupFactory.js",
 			"src/Theme.js",
 
+			"src/mixins/RequestManager.js",
 			"src/mixins/TabIndexedElement.js",
 			"src/mixins/ButtonElement.js",
 			"src/mixins/GroupElement.js",
