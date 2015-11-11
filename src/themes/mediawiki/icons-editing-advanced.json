@@ -19,7 +19,6 @@
 			"ltr": "images/icons/find-ltr.svg",
 			"rtl": "images/icons/find-rtl.svg"
 		} },
-		"insert": { "file": "images/icons/add.svg" },
 		"language": { "file": {
 			"ltr": "images/icons/language-ltr.svg",
 			"rtl": "images/icons/language-rtl.svg"
