@@ -136,7 +136,8 @@ OO.ui.Demo.static.themes = {
 			'-icons-editing-core',
 			'-icons-editing-styling',
 			'-icons-editing-list',
-			'-icons-editing-advanced'
+			'-icons-editing-advanced',
+			'-icons-media'
 		],
 		theme: OO.ui.ApexTheme
 	}

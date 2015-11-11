@@ -49,7 +49,7 @@
  *             type: 'list',
  *             label: 'ListToolGroup',
  *             indicator: 'down',
- *             icon: 'picture',
+ *             icon: 'image',
  *             title: 'This is the title, displayed when user moves the mouse over the list toolgroup',
  *             header: 'This is the header',
  *             include: [ 'settings', 'stuff' ],

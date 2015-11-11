@@ -20,23 +20,23 @@
  *     // Define the tools that we're going to place in our toolbar
  *
  *     // Create a class inheriting from OO.ui.Tool
- *     function PictureTool() {
- *         PictureTool.parent.apply( this, arguments );
+ *     function ImageTool() {
+ *         ImageTool.parent.apply( this, arguments );
  *     }
- *     OO.inheritClass( PictureTool, OO.ui.Tool );
+ *     OO.inheritClass( ImageTool, OO.ui.Tool );
  *     // Each tool must have a 'name' (used as an internal identifier, see later) and at least one
  *     // of 'icon' and 'title' (displayed icon and text).
- *     PictureTool.static.name = 'picture';
- *     PictureTool.static.icon = 'picture';
- *     PictureTool.static.title = 'Insert picture';
+ *     ImageTool.static.name = 'image';
+ *     ImageTool.static.icon = 'image';
+ *     ImageTool.static.title = 'Insert image';
  *     // Defines the action that will happen when this tool is selected (clicked).
- *     PictureTool.prototype.onSelect = function () {
- *         $area.text( 'Picture tool clicked!' );
+ *     ImageTool.prototype.onSelect = function () {
+ *         $area.text( 'Image tool clicked!' );
  *         // Never display this tool as "active" (selected).
  *         this.setActive( false );
  *     };
  *     // Make this tool available in our toolFactory and thus our toolbar
- *     toolFactory.register( PictureTool );
+ *     toolFactory.register( ImageTool );
  *
  *     // This is a PopupTool. Rather than having a custom 'onSelect' action, it will display a
  *     // little popup window (a PopupWidget).
@@ -60,7 +60,7 @@
  *         {
  *             // 'bar' tool groups display tools by icon only
  *             type: 'bar',
- *             include: [ 'picture', 'help' ]
+ *             include: [ 'image', 'help' ]
  *         }
  *     ] );
  *

@@ -5,7 +5,7 @@
  *
  * Individual tools are customized and then registered with a {@link OO.ui.ToolFactory tool factory}, which creates
  * the tools on demand. Each tool has a symbolic name (used when registering the tool), a title (e.g., ‘Insert
- * picture’), and an icon.
+ * image’), and an icon.
  *
  * Individual tools are organized in {@link OO.ui.ToolGroup toolgroups}, which can be {@link OO.ui.MenuToolGroup menus}
  * of tools, {@link OO.ui.ListToolGroup lists} of tools, or a single {@link OO.ui.BarToolGroup bar} of tools.
@@ -27,23 +27,23 @@
  *     // Define the tools that we're going to place in our toolbar
  *
  *     // Create a class inheriting from OO.ui.Tool
- *     function PictureTool() {
- *         PictureTool.parent.apply( this, arguments );
+ *     function ImageTool() {
+ *         ImageTool.parent.apply( this, arguments );
  *     }
- *     OO.inheritClass( PictureTool, OO.ui.Tool );
+ *     OO.inheritClass( ImageTool, OO.ui.Tool );
  *     // Each tool must have a 'name' (used as an internal identifier, see later) and at least one
  *     // of 'icon' and 'title' (displayed icon and text).
- *     PictureTool.static.name = 'picture';
- *     PictureTool.static.icon = 'picture';
- *     PictureTool.static.title = 'Insert picture';
+ *     ImageTool.static.name = 'image';
+ *     ImageTool.static.icon = 'image';
+ *     ImageTool.static.title = 'Insert image';
  *     // Defines the action that will happen when this tool is selected (clicked).
- *     PictureTool.prototype.onSelect = function () {
- *         $area.text( 'Picture tool clicked!' );
+ *     ImageTool.prototype.onSelect = function () {
+ *         $area.text( 'Image tool clicked!' );
  *         // Never display this tool as "active" (selected).
  *         this.setActive( false );
  *     };
  *     // Make this tool available in our toolFactory and thus our toolbar
- *     toolFactory.register( PictureTool );
+ *     toolFactory.register( ImageTool );
  *
  *     // Register two more tools, nothing interesting here
  *     function SettingsTool() {
@@ -95,7 +95,7 @@
  *         {
  *             // 'bar' tool groups display tools' icons only, side-by-side.
  *             type: 'bar',
- *             include: [ 'picture', 'help' ]
+ *             include: [ 'image', 'help' ]
  *         },
  *         {
  *             // 'list' tool groups display both the titles and icons, in a dropdown list.
@@ -143,28 +143,28 @@
  *     // Define the tools that we're going to place in our toolbar
  *
  *     // Create a class inheriting from OO.ui.Tool
- *     function PictureTool() {
- *         PictureTool.parent.apply( this, arguments );
+ *     function ImageTool() {
+ *         ImageTool.parent.apply( this, arguments );
  *     }
- *     OO.inheritClass( PictureTool, OO.ui.Tool );
+ *     OO.inheritClass( ImageTool, OO.ui.Tool );
  *     // Each tool must have a 'name' (used as an internal identifier, see later) and at least one
  *     // of 'icon' and 'title' (displayed icon and text).
- *     PictureTool.static.name = 'picture';
- *     PictureTool.static.icon = 'picture';
- *     PictureTool.static.title = 'Insert picture';
+ *     ImageTool.static.name = 'image';
+ *     ImageTool.static.icon = 'image';
+ *     ImageTool.static.title = 'Insert image';
  *     // Defines the action that will happen when this tool is selected (clicked).
- *     PictureTool.prototype.onSelect = function () {
- *         $area.text( 'Picture tool clicked!' );
+ *     ImageTool.prototype.onSelect = function () {
+ *         $area.text( 'Image tool clicked!' );
  *         // Never display this tool as "active" (selected).
  *         this.setActive( false );
  *     };
  *     // The toolbar can be synchronized with the state of some external stuff, like a text
  *     // editor's editing area, highlighting the tools (e.g. a 'bold' tool would be shown as active
  *     // when the text cursor was inside bolded text). Here we simply disable this feature.
- *     PictureTool.prototype.onUpdateState = function () {
+ *     ImageTool.prototype.onUpdateState = function () {
  *     };
  *     // Make this tool available in our toolFactory and thus our toolbar
- *     toolFactory.register( PictureTool );
+ *     toolFactory.register( ImageTool );
  *
  *     // Register two more tools, nothing interesting here
  *     function SettingsTool() {
@@ -230,7 +230,7 @@
  *         {
  *             // 'bar' tool groups display tools' icons only, side-by-side.
  *             type: 'bar',
- *             include: [ 'picture', 'help' ]
+ *             include: [ 'image', 'help' ]
  *         },
  *         {
  *             // 'menu' tool groups display both the titles and icons, in a dropdown menu.

@@ -160,6 +160,11 @@
 			"src/themes/apex/icons-editing-advanced.json"
 		]
 	},
+	"oojs-ui-apex-icons-media": {
+		"styles": [
+			"src/themes/apex/icons-media.json"
+		]
+	},
 	"oojs-ui-mediawiki": {
 		"scripts": [
 			"src/themes/mediawiki/MediaWikiTheme.js"

@@ -49,7 +49,7 @@ else
 		'autofocus' => true, # usually makes no sense in JS
 		'tabIndex' => [-1, 0, 100],
 		'maxLength' => [100],
-		'icon' => ['picture'],
+		'icon' => ['image'],
 		'indicator' => ['down'],
 		'flags' => %w[constructive],
 		'label' => expandos['string'] + ['', ' '],
