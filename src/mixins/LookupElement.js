@@ -28,6 +28,9 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	// Configuration initialization
 	config = $.extend( { highlightFirst: true }, config );
 
+	// Mixin constructors
+	OO.ui.mixin.RequestManager.call( this, config );
+
 	// Properties
 	this.$overlay = config.$overlay || this.$element;
 	this.lookupMenu = new OO.ui.FloatingMenuSelectWidget( {
@@ -38,9 +41,6 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 
 	this.allowSuggestionsWhenEmpty = config.allowSuggestionsWhenEmpty || false;
 
-	this.lookupCache = {};
-	this.lookupQuery = null;
-	this.lookupRequest = null;
 	this.lookupsDisabled = false;
 	this.lookupInputFocused = false;
 	this.lookupHighlightFirstItem = config.highlightFirst;
@@ -62,6 +62,10 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	this.lookupMenu.$element.addClass( 'oo-ui-lookupElement-menu' );
 	this.$overlay.append( this.lookupMenu.$element );
 };
+
+/* Setup */
+
+OO.mixinClass( OO.ui.mixin.LookupElement, OO.ui.mixin.RequestManager );
 
 /* Methods */
 
@@ -251,49 +255,9 @@ OO.ui.mixin.LookupElement.prototype.initializeLookupMenuSelection = function () 
  *   will not be rejected: it will remain pending forever.
  */
 OO.ui.mixin.LookupElement.prototype.getLookupMenuItems = function () {
-	var widget = this,
-		value = this.getValue(),
-		deferred = $.Deferred(),
-		ourRequest;
-
-	this.abortLookupRequest();
-	if ( Object.prototype.hasOwnProperty.call( this.lookupCache, value ) ) {
-		deferred.resolve( this.getLookupMenuOptionsFromData( this.lookupCache[ value ] ) );
-	} else {
-		this.pushPending();
-		this.lookupQuery = value;
-		ourRequest = this.lookupRequest = this.getLookupRequest();
-		ourRequest
-			.always( function () {
-				// We need to pop pending even if this is an old request, otherwise
-				// the widget will remain pending forever.
-				// TODO: this assumes that an aborted request will fail or succeed soon after
-				// being aborted, or at least eventually. It would be nice if we could popPending()
-				// at abort time, but only if we knew that we hadn't already called popPending()
-				// for that request.
-				widget.popPending();
-			} )
-			.done( function ( response ) {
-				// If this is an old request (and aborting it somehow caused it to still succeed),
-				// ignore its success completely
-				if ( ourRequest === widget.lookupRequest ) {
-					widget.lookupQuery = null;
-					widget.lookupRequest = null;
-					widget.lookupCache[ value ] = widget.getLookupCacheDataFromResponse( response );
-					deferred.resolve( widget.getLookupMenuOptionsFromData( widget.lookupCache[ value ] ) );
-				}
-			} )
-			.fail( function () {
-				// If this is an old request (or a request failing because it's being aborted),
-				// ignore its failure completely
-				if ( ourRequest === widget.lookupRequest ) {
-					widget.lookupQuery = null;
-					widget.lookupRequest = null;
-					deferred.reject();
-				}
-			} );
-	}
-	return deferred.promise();
+	return this.getRequestData().then( function ( data ) {
+		return this.getLookupMenuOptionsFromData( data );
+	}.bind( this ) );
 };
 
 /**
@@ -302,27 +266,18 @@ OO.ui.mixin.LookupElement.prototype.getLookupMenuItems = function () {
  * @private
  */
 OO.ui.mixin.LookupElement.prototype.abortLookupRequest = function () {
-	var oldRequest = this.lookupRequest;
-	if ( oldRequest ) {
-		// First unset this.lookupRequest to the fail handler will notice
-		// that the request is no longer current
-		this.lookupRequest = null;
-		this.lookupQuery = null;
-		oldRequest.abort();
-	}
+	this.abortRequest();
 };
 
 /**
  * Get a new request object of the current lookup query value.
  *
  * @protected
+ * @method
  * @abstract
  * @return {jQuery.Promise} jQuery AJAX object, or promise object with an .abort() method
  */
-OO.ui.mixin.LookupElement.prototype.getLookupRequest = function () {
-	// Stub, implemented in subclass
-	return null;
-};
+OO.ui.mixin.LookupElement.prototype.getLookupRequest = null;
 
 /**
  * Pre-process data returned by the request from #getLookupRequest.
@@ -331,28 +286,24 @@ OO.ui.mixin.LookupElement.prototype.getLookupRequest = function () {
  * will use the cache rather than doing API requests.
  *
  * @protected
+ * @method
  * @abstract
  * @param {Mixed} response Response from server
  * @return {Mixed} Cached result data
  */
-OO.ui.mixin.LookupElement.prototype.getLookupCacheDataFromResponse = function () {
-	// Stub, implemented in subclass
-	return [];
-};
+OO.ui.mixin.LookupElement.prototype.getLookupCacheDataFromResponse = null;
 
 /**
  * Get a list of menu option widgets from the (possibly cached) data returned by
  * #getLookupCacheDataFromResponse.
  *
  * @protected
+ * @method
  * @abstract
  * @param {Mixed} data Cached result data, usually an array
  * @return {OO.ui.MenuOptionWidget[]} Menu items
  */
-OO.ui.mixin.LookupElement.prototype.getLookupMenuOptionsFromData = function () {
-	// Stub, implemented in subclass
-	return [];
-};
+OO.ui.mixin.LookupElement.prototype.getLookupMenuOptionsFromData = null;
 
 /**
  * Set the read-only state of the widget.
@@ -373,4 +324,25 @@ OO.ui.mixin.LookupElement.prototype.setReadOnly = function ( readOnly ) {
 	}
 
 	return this;
+};
+
+/**
+ * @inheritdoc OO.ui.mixin.RequestManager
+ */
+OO.ui.mixin.LookupElement.prototype.getRequestQuery = function () {
+	return this.getValue();
+};
+
+/**
+ * @inheritdoc OO.ui.mixin.RequestManager
+ */
+OO.ui.mixin.LookupElement.prototype.getRequest = function () {
+	return this.getLookupRequest();
+};
+
+/**
+ * @inheritdoc OO.ui.mixin.RequestManager
+ */
+OO.ui.mixin.LookupElement.prototype.getRequestCacheDataFromResponse = function ( response ) {
+	return this.getLookupCacheDataFromResponse( response );
 };
