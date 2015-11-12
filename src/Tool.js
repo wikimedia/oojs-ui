@@ -196,28 +196,22 @@ OO.ui.Tool.static.isCompatibleWith = function () {
  *
  * This is an abstract method that must be overridden in a concrete subclass.
  *
+ * @method
  * @protected
  * @abstract
  */
-OO.ui.Tool.prototype.onUpdateState = function () {
-	throw new Error(
-		'OO.ui.Tool.onUpdateState not implemented in this subclass:' + this.constructor
-	);
-};
+OO.ui.Tool.prototype.onUpdateState = null;
 
 /**
  * Handle the tool being selected.
  *
  * This is an abstract method that must be overridden in a concrete subclass.
  *
+ * @method
  * @protected
  * @abstract
  */
-OO.ui.Tool.prototype.onSelect = function () {
-	throw new Error(
-		'OO.ui.Tool.onSelect not implemented in this subclass:' + this.constructor
-	);
-};
+OO.ui.Tool.prototype.onSelect = null;
 
 /**
  * Check if the tool is active.

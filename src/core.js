@@ -336,7 +336,6 @@ OO.ui.infuse = function ( idOrNode ) {
 	 * Alternative implementations of OO.ui.msg may use any substitution system they like, as long as
 	 * they support unnamed, ordered message parameters.
 	 *
-	 * @abstract
 	 * @param {string} key Message key
 	 * @param {Mixed...} [params] Message parameters
 	 * @return {string} Translated message with parameters substituted
