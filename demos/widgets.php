@@ -169,14 +169,19 @@
 					),
 				);
 				$buttonStyleShowcaseWidget = new OOUI\Widget();
+				$table = new OOUI\Tag( 'table' );
 				foreach ( $styles as $style ) {
+					$tableRow = new OOUI\Tag( 'tr' );
 					foreach ( $states as $state ) {
-						$buttonStyleShowcaseWidget->appendContent(
+						$tableCell = new OOUI\Tag( 'td' );
+						$tableCell->appendContent(
 							new OOUI\ButtonWidget( array_merge( $style, $state, array( 'infusable' => true ) ) )
 						);
+						$tableRow->appendContent( $tableCell );
 					}
-					$buttonStyleShowcaseWidget->appendContent( new OOUI\HtmlSnippet( '<br />' ) );
+					$table->appendContent( $tableRow );
 				}
+				$buttonStyleShowcaseWidget->appendContent( $table );
 
 				$demoContainer->appendContent( new OOUI\FieldsetLayout( array(
 					'infusable' => true,

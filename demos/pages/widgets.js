@@ -1,5 +1,5 @@
 OO.ui.Demo.static.pages.widgets = function ( demo ) {
-	var styles, states, buttonStyleShowcaseWidget, fieldsets,
+	var styles, states, buttonStyleShowcaseWidget, $table, fieldsets,
 		capsuleWithPopup, capsulePopupWidget,
 		$demo = demo.$element;
 
@@ -201,14 +201,19 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		}
 	];
 	buttonStyleShowcaseWidget = new OO.ui.Widget();
+	$table = $( '<table>' );
 	$.each( styles, function ( i, style ) {
+		var $tableRow = $( '<tr>' );
 		$.each( states, function ( j, state ) {
-			buttonStyleShowcaseWidget.$element.append(
+			var $tableCell = $( '<td>' );
+			$tableCell.append(
 				new OO.ui.ButtonWidget( $.extend( {}, style, state ) ).$element
 			);
+			$tableRow.append( $tableCell );
 		} );
-		buttonStyleShowcaseWidget.$element.append( $( '<br>' ) );
+		$table.append( $tableRow );
 	} );
+	buttonStyleShowcaseWidget.$element.append( $table );
 
 	fieldsets = [
 		new OO.ui.FieldsetLayout( {
