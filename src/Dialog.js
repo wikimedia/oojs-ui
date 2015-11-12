@@ -192,7 +192,6 @@ OO.ui.Dialog.prototype.getActions = function () {
  * accept steps to the process the parent method provides using the {@link OO.ui.Process#first 'first'}
  * and {@link OO.ui.Process#next 'next'} methods of OO.ui.Process.
  *
- * @abstract
  * @param {string} [action] Symbolic name of action
  * @return {OO.ui.Process} Action process
  */

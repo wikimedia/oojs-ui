@@ -312,7 +312,6 @@ OO.ui.Window.prototype.getDir = function () {
  * To add window content that persists between openings, you may wish to use the #initialize method
  * instead.
  *
- * @abstract
  * @param {Object} [data] Window opening data
  * @return {OO.ui.Process} Setup process
  */
@@ -331,7 +330,6 @@ OO.ui.Window.prototype.getSetupProcess = function () {
  * provides using the {@link OO.ui.Process#first first} and {@link OO.ui.Process#next next}
  * methods of OO.ui.Process.
  *
- * @abstract
  * @param {Object} [data] Window opening data
  * @return {OO.ui.Process} Ready process
  */
@@ -350,7 +348,6 @@ OO.ui.Window.prototype.getReadyProcess = function () {
  * using the {@link OO.ui.Process#first first} and {@link OO.ui.Process#next next} methods
  * of OO.ui.Process.
  *
- * @abstract
  * @param {Object} [data] Window closing data
  * @return {OO.ui.Process} Hold process
  */
@@ -369,7 +366,6 @@ OO.ui.Window.prototype.getHoldProcess = function () {
  * using the {@link OO.ui.Process#first first} and {@link OO.ui.Process#next next} methods
  * of OO.ui.Process.
  *
- * @abstract
  * @param {Object} [data] Window closing data
  * @return {OO.ui.Process} Teardown process
  */
