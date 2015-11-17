@@ -516,7 +516,7 @@ OO.ui.TextInputWidget.prototype.isAutosizing = function () {
  */
 OO.ui.TextInputWidget.prototype.selectRange = function ( from, to ) {
 	var textRange, isBackwards, start, end,
-		element = this.$input[ 0 ];
+		input = this.$input[ 0 ];
 
 	to = to || from;
 
@@ -526,17 +526,34 @@ OO.ui.TextInputWidget.prototype.selectRange = function ( from, to ) {
 
 	this.focus();
 
-	if ( element.setSelectionRange ) {
-		element.setSelectionRange( start, end, isBackwards ? 'backward' : 'forward' );
-	} else if ( element.createTextRange ) {
+	if ( input.setSelectionRange ) {
+		input.setSelectionRange( start, end, isBackwards ? 'backward' : 'forward' );
+	} else if ( input.createTextRange ) {
 		// IE 8 and below
-		textRange = element.createTextRange();
+		textRange = input.createTextRange();
 		textRange.collapse( true );
 		textRange.moveStart( 'character', start );
 		textRange.moveEnd( 'character', end - start );
 		textRange.select();
 	}
 	return this;
+};
+
+/**
+ * Get an object describing the current selection range in a directional manner
+ *
+ * @return {Object} Object containing 'from' and 'to' offsets
+ */
+OO.ui.TextInputWidget.prototype.getRange = function () {
+	var input = this.$input[ 0 ],
+		start = input.selectionStart,
+		end = input.selectionEnd,
+		isBackwards = input.selectionDirection === 'backward';
+
+	return {
+		from: isBackwards ? end : start,
+		to: isBackwards ? start : end
+	};
 };
 
 /**
