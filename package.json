@@ -23,7 +23,7 @@
   "dependencies": {
     "es5-shim": "4.1.14",
     "jquery": "1.11.3",
-    "oojs": "1.1.9"
+    "oojs": "1.1.10"
   },
   "devDependencies": {
     "grunt": "0.4.5",

@@ -56,7 +56,7 @@
 		"groups": [
 			{
 				"name": "OOjs",
-				"classes": ["OO", "OO.EventEmitter", "OO.Factory", "OO.Registry"]
+				"classes": ["OO", "OO.EventEmitter", "OO.Factory", "OO.Registry", "OO.EmitterList", "OO.SortedEmitterList"]
 			},
 			{
 				"name": "jQuery",
