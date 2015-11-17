@@ -570,22 +570,18 @@ OO.ui.Window.prototype.close = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is setup
  */
 OO.ui.Window.prototype.setup = function ( data ) {
-	var win = this,
-		deferred = $.Deferred();
+	var win = this;
 
 	this.toggle( true );
 
 	this.focusTrapHandler = OO.ui.bind( this.onFocusTrapFocused, this );
 	this.$focusTraps.on( 'focus', this.focusTrapHandler );
 
-	this.getSetupProcess( data ).execute().done( function () {
+	return this.getSetupProcess( data ).execute().then( function () {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.addClass( 'oo-ui-window-active oo-ui-window-setup' ).width();
 		win.$content.addClass( 'oo-ui-window-content-setup' ).width();
-		deferred.resolve();
 	} );
-
-	return deferred.promise();
 };
 
 /**
@@ -598,18 +594,14 @@ OO.ui.Window.prototype.setup = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is ready
  */
 OO.ui.Window.prototype.ready = function ( data ) {
-	var win = this,
-		deferred = $.Deferred();
+	var win = this;
 
 	this.$content.focus();
-	this.getReadyProcess( data ).execute().done( function () {
+	return this.getReadyProcess( data ).execute().then( function () {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.addClass( 'oo-ui-window-ready' ).width();
 		win.$content.addClass( 'oo-ui-window-content-ready' ).width();
-		deferred.resolve();
 	} );
-
-	return deferred.promise();
 };
 
 /**
@@ -622,10 +614,9 @@ OO.ui.Window.prototype.ready = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is held
  */
 OO.ui.Window.prototype.hold = function ( data ) {
-	var win = this,
-		deferred = $.Deferred();
+	var win = this;
 
-	this.getHoldProcess( data ).execute().done( function () {
+	return this.getHoldProcess( data ).execute().then( function () {
 		// Get the focused element within the window's content
 		var $focus = win.$content.find( OO.ui.Element.static.getDocument( win.$content ).activeElement );
 
@@ -637,10 +628,7 @@ OO.ui.Window.prototype.hold = function ( data ) {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.removeClass( 'oo-ui-window-ready' ).width();
 		win.$content.removeClass( 'oo-ui-window-content-ready' ).width();
-		deferred.resolve();
 	} );
-
-	return deferred.promise();
 };
 
 /**
@@ -655,12 +643,11 @@ OO.ui.Window.prototype.hold = function ( data ) {
 OO.ui.Window.prototype.teardown = function ( data ) {
 	var win = this;
 
-	return this.getTeardownProcess( data ).execute()
-		.done( function () {
-			// Force redraw by asking the browser to measure the elements' widths
-			win.$element.removeClass( 'oo-ui-window-active oo-ui-window-setup' ).width();
-			win.$content.removeClass( 'oo-ui-window-content-setup' ).width();
-			win.$focusTraps.off( 'focus', win.focusTrapHandler );
-			win.toggle( false );
-		} );
+	return this.getTeardownProcess( data ).execute().then( function () {
+		// Force redraw by asking the browser to measure the elements' widths
+		win.$element.removeClass( 'oo-ui-window-active oo-ui-window-setup' ).width();
+		win.$content.removeClass( 'oo-ui-window-content-setup' ).width();
+		win.$focusTraps.off( 'focus', win.focusTrapHandler );
+		win.toggle( false );
+	} );
 };
