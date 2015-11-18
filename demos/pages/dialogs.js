@@ -32,6 +32,40 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return this.content.$element.outerHeight( true );
 	};
 
+	function DelayedReadyProcessDialog( config ) {
+		DelayedReadyProcessDialog.parent.call( this, config );
+	}
+	OO.inheritClass( DelayedReadyProcessDialog, SimpleDialog );
+	DelayedReadyProcessDialog.prototype.getReadyProcess = function () {
+		return DelayedReadyProcessDialog.parent.prototype.getReadyProcess.call( this ).next( function () {
+			var deferred = $.Deferred();
+			setTimeout( function () {
+				deferred.resolve();
+			}, 2000 );
+			return deferred.promise();
+		} );
+	};
+
+	function FailedReadyProcessDialog( config ) {
+		FailedReadyProcessDialog.parent.call( this, config );
+	}
+	OO.inheritClass( FailedReadyProcessDialog, SimpleDialog );
+	FailedReadyProcessDialog.prototype.getReadyProcess = function () {
+		return FailedReadyProcessDialog.parent.prototype.getReadyProcess.call( this ).next( function () {
+			return $.Deferred().reject().promise();
+		} );
+	};
+
+	function FailedSetupProcessDialog( config ) {
+		FailedSetupProcessDialog.parent.call( this, config );
+	}
+	OO.inheritClass( FailedSetupProcessDialog, SimpleDialog );
+	FailedSetupProcessDialog.prototype.getSetupProcess = function () {
+		return FailedSetupProcessDialog.parent.prototype.getSetupProcess.call( this ).next( function () {
+			return $.Deferred().reject().promise();
+		} );
+	};
+
 	function ProcessDialog( config ) {
 		ProcessDialog.parent.call( this, config );
 	}
@@ -646,6 +680,27 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			name: 'Simple dialog (full)',
 			config: {
 				size: 'full'
+			}
+		},
+		{
+			name: 'Simple dialog (delayed ready process)',
+			dialogClass: DelayedReadyProcessDialog,
+			config: {
+				size: 'large'
+			}
+		},
+		{
+			name: 'Simple dialog (failed ready process)',
+			dialogClass: FailedReadyProcessDialog,
+			config: {
+				size: 'large'
+			}
+		},
+		{
+			name: 'Simple dialog (failed setup process)',
+			dialogClass: FailedSetupProcessDialog,
+			config: {
+				size: 'large'
 			}
 		},
 		{

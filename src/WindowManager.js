@@ -382,8 +382,18 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 							manager.opening = null;
 							manager.opened = $.Deferred();
 							opening.resolve( manager.opened.promise(), data );
+						}, function () {
+							manager.opening = null;
+							manager.opened = $.Deferred();
+							opening.reject();
+							manager.closeWindow( win );
 						} );
 					}, manager.getReadyDelay() );
+				}, function () {
+					manager.opening = null;
+					manager.opened = $.Deferred();
+					opening.reject();
+					manager.closeWindow( win );
 				} );
 			}, manager.getSetupDelay() );
 		} );
@@ -434,7 +444,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		// If the window is currently opening, close it when it's done
 		this.preparingToClose = $.when( this.opening );
 		// Ensure handlers get called after preparingToClose is set
-		this.preparingToClose.done( function () {
+		this.preparingToClose.always( function () {
 			manager.closing = closing;
 			manager.preparingToClose = null;
 			manager.emit( 'closing', win, closing, data );
