@@ -1,5 +1,25 @@
 # OOjs UI Release History
 
+## v0.13.3 / 2015-11-17
+### Deprecations
+* [DEPRECATING CHANGE] Duplicate icons: Unify 'picture' and 'image' (Ed Sanders)
+
+### Features
+* RequestManager: Introduce a mixin for widgets that need to do API calls (David Lynch)
+* TextInputWidget: Add getRange method (Ed Sanders)
+* WindowManager: Allow getSetup/ReadyProcess to reject (Ed Sanders)
+* WindowManager: Fade in overlay after 'setup' not 'ready' (Ed Sanders)
+
+### Styles
+* MediaWiki, Apex themes: Remove small 0.1em vertical margin from buttons (Bartosz Dziewoński)
+* MediaWiki theme: Add destructive variant to the 'cancel' icon (James D. Forrester)
+* MediaWiki theme: Reduce whitespace between FieldLayouts (Bartosz Dziewoński)
+
+### Code
+* TitledElement: Behave like its docs say it should (David Lynch)
+* Use null for abstract methods and correct documentation (Ed Sanders)
+* demo: Make button style showcase a table (Bartosz Dziewoński)
+
 ## v0.13.2 / 2015-11-10
 ### Deprecations
 * [DEPRECATING CHANGE] ComboBoxWidget: Refactor into ComboBoxInputWidget (Bartosz Dziewoński)
