@@ -596,6 +596,21 @@ OO.ui.TextInputWidget.prototype.moveCursorToEnd = function () {
 };
 
 /**
+ * Focus the input and move the cursor to the end.
+ *
+ * @param {String} content Content to be inserted
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.insertContent = function ( content ) {
+	var range = this.getRange(),
+		value = this.getValue();
+
+	this.setValue( value.slice( 0, range.from ) + content + value.slice( range.to ) );
+	this.selectRange( range.from + content.length );
+	return this;
+};
+
+/**
  * Set the validation pattern.
  *
  * The validation pattern is either a regular expression, a function, or the symbolic name of a
