@@ -602,11 +602,37 @@ OO.ui.TextInputWidget.prototype.moveCursorToEnd = function () {
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.insertContent = function ( content ) {
-	var range = this.getRange(),
+	var start, end,
+		range = this.getRange(),
 		value = this.getValue();
 
-	this.setValue( value.slice( 0, range.from ) + content + value.slice( range.to ) );
-	this.selectRange( range.from + content.length );
+	start = Math.min( range.from, range.to );
+	end = Math.max( range.from, range.to );
+
+	this.setValue( value.slice( 0, start ) + content + value.slice( end ) );
+	this.selectRange( start + content.length );
+	return this;
+};
+
+/**
+ * Insert new content either side of a selection.
+ *
+ * @param {string} pre Content to be inserted before the selection
+ * @param {string} post Content to be inserted after the selection
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.encapsulateContent = function ( pre, post ) {
+	var start, end,
+		range = this.getRange(),
+		offset = pre.length;
+
+	start = Math.min( range.from, range.to );
+	end = Math.max( range.from, range.to );
+
+	this.selectRange( start ).insertContent( pre );
+	this.selectRange( offset + end ).insertContent( post );
+
+	this.selectRange( offset + start, offset + end );
 	return this;
 };
 
