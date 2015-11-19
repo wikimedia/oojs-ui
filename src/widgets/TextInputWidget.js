@@ -596,9 +596,9 @@ OO.ui.TextInputWidget.prototype.moveCursorToEnd = function () {
 };
 
 /**
- * Focus the input and move the cursor to the end.
+ * Insert new content into the input.
  *
- * @param {String} content Content to be inserted
+ * @param {string} content Content to be inserted
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.insertContent = function ( content ) {
