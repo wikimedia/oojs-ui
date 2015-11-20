@@ -9,8 +9,8 @@ namespace OOUI;
 class ComboBoxInputWidget extends TextInputWidget {
 
 	/**
-	 * HTML `<option>` tags for this widget.
-	 * @var Tag[]
+	 * HTML `<option>` tags for this widget, as Tags.
+	 * @var array
 	 */
 	protected $options = array();
 

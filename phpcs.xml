@@ -4,6 +4,7 @@
 	<file>.</file>
 	<arg name="encoding" value="UTF-8"/>
 	<arg name="extensions" value="php"/>
+	<exclude-pattern>build</exclude-pattern>
 	<exclude-pattern>coverage</exclude-pattern>
 	<exclude-pattern>vendor</exclude-pattern>
 	<exclude-pattern>demos/pages</exclude-pattern>

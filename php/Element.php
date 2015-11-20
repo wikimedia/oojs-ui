@@ -39,17 +39,17 @@ class Element extends Tag {
 	protected $data = null;
 
 	/**
-	 * CSS classes explicitly configured for this element (as opposed to #$classes, which contains all
-	 * classes for this element).
+	 * Strings of the CSS classes explicitly configured for this element (as opposed to #$classes,
+	 * which contains all classes for this element).
 	 *
-	 * @var string[]
+	 * @var array
 	 */
 	protected $ownClasses = array();
 
 	/**
-	 * Mixins.
+	 * ElementMixins.
 	 *
-	 * @var ElementMixin[] List mixed in objects.
+	 * @var array List mixed in objects.
 	 */
 	protected $mixins = array();
 

@@ -62,6 +62,9 @@
 			"parallel-lint . --exclude vendor",
 			"phpcs -p",
 			"phpunit $PHPUNIT_ARGS"
+		],
+		"doc": [
+			"doxygen"
 		]
 	}
 }
