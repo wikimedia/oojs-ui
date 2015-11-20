@@ -14,7 +14,7 @@ class FlaggedElement extends ElementMixin {
 	/**
 	 * Flags.
 	 *
-	 * @var string
+	 * @var string[]
 	 */
 	protected $flags = array();
 
