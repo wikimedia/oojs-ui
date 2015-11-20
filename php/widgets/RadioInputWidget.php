@@ -33,6 +33,7 @@ class RadioInputWidget extends InputWidget {
 	 * Set selection state of this radio button.
 	 *
 	 * @param boolean $state Whether the button is selected
+	 * @return $this
 	 */
 	public function setSelected( $state ) {
 		// RadioInputWidget doesn't track its state.

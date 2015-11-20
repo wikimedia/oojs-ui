@@ -42,7 +42,7 @@ class CheckboxInputWidget extends InputWidget {
 	 * Set selection state of this checkbox.
 	 *
 	 * @param boolean $state Whether the checkbox is selected
-	 * @chainable
+	 * @return $this
 	 */
 	public function setSelected( $state ) {
 		$this->selected = (bool)$state;

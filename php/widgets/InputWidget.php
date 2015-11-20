@@ -93,7 +93,7 @@ class InputWidget extends Widget {
 	 *
 	 * @deprecated since v0.13.1, use #setDir directly
 	 * @param boolean $isRTL Directionality is right-to-left
-	 * @chainable
+	 * @return $this
 	 */
 	public function setRTL( $isRTL ) {
 		$this->setDir( $isRTL ? 'rtl' : 'ltr' );
@@ -104,7 +104,7 @@ class InputWidget extends Widget {
 	 * Set the directionality of the input.
 	 *
 	 * @param string $dir Text directionality: 'ltr', 'rtl' or 'auto'
-	 * @chainable
+	 * @return $this
 	 */
 	public function setDir( $dir ) {
 		$this->input->setAttributes( array( 'dir' => $dir ) );
@@ -115,7 +115,7 @@ class InputWidget extends Widget {
 	 * Set the value of the input.
 	 *
 	 * @param string $value New value
-	 * @chainable
+	 * @return $this
 	 */
 	public function setValue( $value ) {
 		$this->value = $this->cleanUpValue( $value );

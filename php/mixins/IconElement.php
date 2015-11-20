@@ -42,7 +42,7 @@ class IconElement extends ElementMixin {
 	 * Set icon name.
 	 *
 	 * @param string|null $icon Symbolic icon name
-	 * @chainable
+	 * @return $this
 	 */
 	public function setIcon( $icon = null ) {
 		if ( $this->icon !== null ) {

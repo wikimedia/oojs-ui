@@ -61,7 +61,7 @@ class Widget extends Element {
 	 * This should probably change the widgets' appearance and prevent it from being used.
 	 *
 	 * @param boolean $disabled Disable widget
-	 * @chainable
+	 * @return $this
 	 */
 	public function setDisabled( $disabled ) {
 		$this->disabled = !!$disabled;

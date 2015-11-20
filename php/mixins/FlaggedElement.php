@@ -57,7 +57,7 @@ class FlaggedElement extends ElementMixin {
 	/**
 	 * Clear all flags.
 	 *
-	 * @chainable
+	 * @return $this
 	 */
 	public function clearFlags() {
 		$remove = array();
@@ -78,7 +78,7 @@ class FlaggedElement extends ElementMixin {
 	 *
 	 * @param string|array $flags One or more flags to add, or an array keyed by flag name
 	 *   containing boolean set/remove instructions.
-	 * @chainable
+	 * @return $this
 	 */
 	public function setFlags( $flags ) {
 		$add = array();

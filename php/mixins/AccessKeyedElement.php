@@ -41,7 +41,7 @@ class AccessKeyedElement extends ElementMixin {
 	 * Set access key.
 	 *
 	 * @param string $accessKey Tag's access key, use empty string to remove
-	 * @chainable
+	 * @return $this
 	 */
 	public function setAccessKey( $accessKey ) {
 		$accessKey = is_string( $accessKey ) && strlen( $accessKey ) ? $accessKey : null;

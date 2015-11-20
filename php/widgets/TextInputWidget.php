@@ -120,7 +120,7 @@ class TextInputWidget extends InputWidget {
 	 * prevent it from being used.
 	 *
 	 * @param boolean $state Make input read-only
-	 * @chainable
+	 * @return $this
 	 */
 	public function setReadOnly( $state ) {
 		$this->readOnly = (bool)$state;

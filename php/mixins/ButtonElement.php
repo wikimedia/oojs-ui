@@ -43,7 +43,7 @@ class ButtonElement extends ElementMixin {
 	 * Toggle frame.
 	 *
 	 * @param boolean $framed Make button framed, omit to toggle
-	 * @chainable
+	 * @return $this
 	 */
 	public function toggleFramed( $framed = null ) {
 		$this->framed = $framed !== null ? !!$framed : !$this->framed;

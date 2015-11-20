@@ -83,7 +83,7 @@ class ButtonInputWidget extends InputWidget {
 	 * Overridden to support setting the 'value' of `<input/>` elements.
 	 *
 	 * @param string|null $label Label text
-	 * @chainable
+	 * @return $this
 	 */
 	public function setLabel( $label ) {
 		$this->labelElementMixin->setLabel( $label );
@@ -103,7 +103,7 @@ class ButtonInputWidget extends InputWidget {
 	 * Overridden to disable for `<input/>` elements, which have value identical to the label.
 	 *
 	 * @param string $value New value
-	 * @chainable
+	 * @return $this
 	 */
 	public function setValue( $value ) {
 		if ( !$this->useInputTag ) {

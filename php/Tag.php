@@ -73,7 +73,7 @@ class Tag {
 	 * Add CSS classes.
 	 *
 	 * @param array $classes List of classes to add
-	 * @chainable
+	 * @return $this
 	 */
 	public function addClasses( array $classes ) {
 		$this->classes = array_merge( $this->classes, $classes );
@@ -84,7 +84,7 @@ class Tag {
 	 * Remove CSS classes.
 	 *
 	 * @param array $classes List of classes to remove
-	 * @chainable
+	 * @return $this
 	 */
 	public function removeClasses( array $classes ) {
 		$this->classes = array_diff( $this->classes, $classes );
@@ -96,7 +96,7 @@ class Tag {
 	 *
 	 * @param array $classes List of classes to add
 	 * @param boolean $toggle Add classes
-	 * @chainable
+	 * @return $this
 	 */
 	public function toggleClasses( array $classes, $toggle = null ) {
 		if ( $toggle === null ) {
@@ -126,7 +126,7 @@ class Tag {
 	 * Add HTML attributes.
 	 *
 	 * @param array $attributes List of attribute key/value pairs to add
-	 * @chainable
+	 * @return $this
 	 */
 	public function setAttributes( array $attributes ) {
 		foreach ( $attributes as $key => $value ) {
@@ -139,7 +139,7 @@ class Tag {
 	 * Set value of input element ('value' attribute for most, element content for textarea).
 	 *
 	 * @param string $value Value to set
-	 * @chainable
+	 * @return $this
 	 */
 	public function setValue( $value ) {
 		if ( strtolower( $this->tag ) === 'textarea' ) {
@@ -155,7 +155,7 @@ class Tag {
 	 * Remove HTML attributes.
 	 *
 	 * @param array $keys List of attribute keys to remove
-	 * @chainable
+	 * @return $this
 	 */
 	public function removeAttributes( array $keys ) {
 		foreach ( $keys as $key ) {
@@ -171,7 +171,7 @@ class Tag {
 	 *
 	 * @param string|Tag|HtmlSnippet $content Content to append. Strings will be HTML-escaped
 	 *   for output, use a HtmlSnippet instance to prevent that.
-	 * @chainable
+	 * @return $this
 	 */
 	public function appendContent( /* $content... */ ) {
 		$contents = func_get_args();
@@ -186,7 +186,7 @@ class Tag {
 	 *
 	 * @param string|Tag|HtmlSnippet $content Content to prepend. Strings will be HTML-escaped
 	 *   for output, use a HtmlSnippet instance to prevent that.
-	 * @chainable
+	 * @return $this
 	 */
 	public function prependContent( /* $content... */ ) {
 		$contents = func_get_args();
@@ -197,7 +197,7 @@ class Tag {
 	/**
 	 * Remove all content.
 	 *
-	 * @chainable
+	 * @return $this
 	 */
 	public function clearContent() {
 		$this->content = array();
@@ -217,7 +217,7 @@ class Tag {
 	 * Set group element is in.
 	 *
 	 * @param GroupElement|null $group Group element, null if none
-	 * @chainable
+	 * @return $this
 	 */
 	public function setElementGroup( $group ) {
 		$this->elementGroup = $group;
@@ -228,7 +228,7 @@ class Tag {
 	 * Enable widget for client-side infusion.
 	 *
 	 * @param boolean $infusable True to allow tag/element/widget to be referenced client-side.
-	 * @chainable
+	 * @return $this
 	 */
 	public function setInfusable( $infusable ) {
 		$this->infusable = $infusable;
@@ -248,7 +248,7 @@ class Tag {
 	/**
 	 * Ensure that this given Tag is infusable and has a unique `id`
 	 * attribute.
-	 * @chainable
+	 * @return $this
 	 */
 	public function ensureInfusableId() {
 		$this->setInfusable( true );
@@ -279,8 +279,8 @@ class Tag {
 
 	/**
 	 * Render element into HTML.
-	 *
 	 * @return string HTML serialization
+	 * @throws Exception
 	 */
 	public function toString() {
 		$attributes = '';

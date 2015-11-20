@@ -164,7 +164,7 @@ class FieldLayout extends Layout {
 	 * Set the field alignment mode.
 	 *
 	 * @param string $value Alignment mode, either 'left', 'right', 'top' or 'inline'
-	 * @chainable
+	 * @return $this
 	 */
 	protected function setAlignment( $value ) {
 		if ( $value !== $this->align ) {
