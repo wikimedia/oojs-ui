@@ -762,14 +762,6 @@ OO.ui.TextInputWidget.prototype.setLabelPosition = function ( labelPosition ) {
 };
 
 /**
- * Deprecated alias of #setLabelPosition
- *
- * @deprecated Use setLabelPosition instead.
- */
-OO.ui.TextInputWidget.prototype.setPosition =
-	OO.ui.TextInputWidget.prototype.setLabelPosition;
-
-/**
  * Update the position of the inline label.
  *
  * This method is called by #setLabelPosition, and can also be called on its own if
