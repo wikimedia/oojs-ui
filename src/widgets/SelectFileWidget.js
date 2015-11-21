@@ -71,7 +71,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 
 	this.selectButton = new OO.ui.ButtonWidget( {
 		classes: [ 'oo-ui-selectFileWidget-selectButton' ],
-		label: 'Select a file',
+		label: OO.ui.msg( 'ooui-selectfile-button-select' ),
 		disabled: this.disabled || !this.isSupported
 	} );
 
