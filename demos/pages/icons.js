@@ -22,7 +22,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'notice',
 				'previous',
 				'redo',
-				'remove',
 				'search',
 				'settings',
 				'tag',
