@@ -219,10 +219,6 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 			this.setLabel( this.placeholder );
 		}
 	}
-
-	if ( this.$input ) {
-		this.$input.attr( 'title', this.getLabel() );
-	}
 };
 
 /**
@@ -243,8 +239,7 @@ OO.ui.SelectFileWidget.prototype.addInput = function () {
 	this.$input = $( '<input type="file">' );
 	this.$input.on( 'change', this.onFileSelectedHandler );
 	this.$input.attr( {
-		tabindex: -1,
-		title: this.getLabel()
+		tabindex: -1
 	} );
 	if ( this.accept ) {
 		this.$input.attr( 'accept', this.accept.join( ', ' ) );
