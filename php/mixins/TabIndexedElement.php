@@ -36,7 +36,7 @@ class TabIndexedElement extends ElementMixin {
 	 * Set tab index value.
 	 *
 	 * @param number|null $tabIndex Tab index value or null for no tab index
-	 * @chainable
+	 * @return $this
 	 */
 	public function setTabIndex( $tabIndex ) {
 		$tabIndex = is_numeric( $tabIndex ) ? $tabIndex : null;
@@ -53,7 +53,7 @@ class TabIndexedElement extends ElementMixin {
 	 * Update the tabIndex attribute, in case of changes to tabIndex or disabled
 	 * state.
 	 *
-	 * @chainable
+	 * @return $this
 	 */
 	public function updateTabIndex() {
 		$disabled = $this->element->isDisabled();

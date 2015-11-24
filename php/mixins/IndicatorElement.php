@@ -44,7 +44,7 @@ class IndicatorElement extends ElementMixin {
 	 * Set indicator name.
 	 *
 	 * @param string|null $indicator Symbolic name of indicator to use or null for no indicator
-	 * @chainable
+	 * @return $this
 	 */
 	public function setIndicator( $indicator = null ) {
 		if ( $this->indicator !== null ) {

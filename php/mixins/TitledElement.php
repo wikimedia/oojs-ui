@@ -41,7 +41,7 @@ class TitledElement extends ElementMixin {
 	 * Set title.
 	 *
 	 * @param string|null $title Title text or null for no title
-	 * @chainable
+	 * @return $this
 	 */
 	public function setTitle( $title ) {
 		if ( $this->title !== $title ) {

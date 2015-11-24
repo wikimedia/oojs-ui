@@ -95,6 +95,7 @@ class ButtonWidget extends Widget {
 	 * Set hyperlink location.
 	 *
 	 * @param string|null $href Hyperlink location, null to remove
+	 * @return $this
 	 */
 	public function setHref( $href ) {
 		$this->href = is_string( $href ) ? $href : null;
@@ -108,7 +109,7 @@ class ButtonWidget extends Widget {
 	 * Update the href attribute, in case of changes to href or disabled
 	 * state.
 	 *
-	 * @chainable
+	 * @return $this
 	 */
 	public function updateHref() {
 		if ( $this->href !== null && !$this->isDisabled() ) {
@@ -123,6 +124,7 @@ class ButtonWidget extends Widget {
 	 * Set hyperlink target.
 	 *
 	 * @param string|null $target Hyperlink target, null to remove
+	 * @return $this
 	 */
 	public function setTarget( $target ) {
 		$this->target = is_string( $target ) ? $target : null;
@@ -140,6 +142,7 @@ class ButtonWidget extends Widget {
 	 * Set search engine traversal hint.
 	 *
 	 * @param boolean $noFollow True if search engines should avoid traversing this hyperlink
+	 * @return $this
 	 */
 	public function setNoFollow( $noFollow ) {
 		$this->noFollow = is_bool( $noFollow ) ? $noFollow : true;

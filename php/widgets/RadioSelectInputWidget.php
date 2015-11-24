@@ -59,7 +59,7 @@ class RadioSelectInputWidget extends InputWidget {
 	 *
 	 * @param array[] $options Array of menu options in the format
 	 *   `array( 'data' => …, 'label' => … )`
-	 * @chainable
+	 * @return $this
 	 */
 	public function setOptions( $options ) {
 		$value = $this->getValue();

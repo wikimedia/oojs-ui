@@ -40,7 +40,7 @@ class LabelElement extends ElementMixin {
 	 * be converted to a single `&nbsp;`.
 	 *
 	 * @param string|HtmlSnippet|null $label Label text
-	 * @chainable
+	 * @return $this
 	 */
 	public function setLabel( $label ) {
 		$this->label = $label;

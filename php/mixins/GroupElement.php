@@ -52,7 +52,7 @@ class GroupElement extends ElementMixin {
 	 *
 	 * @param Element[] $items Items
 	 * @param number $index Index to insert items at
-	 * @chainable
+	 * @return $this
 	 */
 	public function addItems( array $items, $index = null ) {
 		foreach ( $items as $item ) {
@@ -86,7 +86,7 @@ class GroupElement extends ElementMixin {
 	 * Remove items.
 	 *
 	 * @param Element[] $items Items to remove
-	 * @chainable
+	 * @return $this
 	 */
 	public function removeItems( $items ) {
 		foreach ( $items as $item ) {
@@ -109,7 +109,7 @@ class GroupElement extends ElementMixin {
 	 *
 	 * Items will be detached, not removed, so they can be used later.
 	 *
-	 * @chainable
+	 * @return $this
 	 */
 	public function clearItems() {
 		foreach ( $this->items as $item ) {

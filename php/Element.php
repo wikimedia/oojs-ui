@@ -181,7 +181,7 @@ class Element extends Tag {
 	 * Set element data.
 	 *
 	 * @param mixed $data Element data
-	 * @chainable
+	 * @return $this
 	 */
 	public function setData( $data ) {
 		$this->data = $data;
