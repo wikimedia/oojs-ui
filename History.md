@@ -1,5 +1,31 @@
 # OOjs UI Release History
 
+## v0.14.0 / 2015-11-24
+### Breaking changes
+* [BREAKING CHANGE] Depend on OOjs v1.1.10, up from v1.1.9 (James D. Forrester)
+* [BREAKING CHANGE] TextInputWidget: Remove old deprecated alias #setPosition (Ed Sanders)
+
+### Deprecations
+* [DEPRECATING CHANGE] De-duplicate 'trash' and 'remove' icons (James D. Forrester)
+
+### Features
+* TextInputWidget: Add insertContent method (Thalia Chan)
+* TextInputWidget: Add encapsulateContent method to insert new content around a selection (Thalia Chan)
+
+### Styles
+* Apex theme: Provide the 'interactions' icon pack (James D. Forrester)
+* MediaWiki theme: Make dialog and panel box-shadows outset rather than inset (Ed Sanders)
+
+### Code
+* FlaggedElement.php: Fix type hint (Reedy)
+* SelectFileWidget: Remove sometimes-incorrect 'title' on the <input> (Bartosz Dziewoński)
+* SelectFileWidget: Use i18n string for button label (Ed Sanders)
+* TextInputWidget: Fix documentation of insertContent method (Thalia Chan)
+* \*.php: Replace `@chainable` jsduck-ism with `@return` $this (Reedy)
+* .gitattributes: Ignore both `/doc` and `/docs` directories (James D. Forrester)
+* AUTHORS: Update for the past few months' work (James D. Forrester)
+* build: Added Rakefile (Željko Filipin)
+
 ## v0.13.3 / 2015-11-17
 ### Deprecations
 * [DEPRECATING CHANGE] Duplicate icons: Unify 'picture' and 'image' (Ed Sanders)
