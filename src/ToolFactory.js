@@ -25,10 +25,10 @@ OO.inheritClass( OO.ui.ToolFactory, OO.Factory );
 /**
  * Get tools from the factory
  *
- * @param {Array} include Included tools
- * @param {Array} exclude Excluded tools
- * @param {Array} promote Promoted tools
- * @param {Array} demote Demoted tools
+ * @param {Array|string} [include] Included tools, see #extract for format
+ * @param {Array|string} [exclude] Excluded tools, see #extract for format
+ * @param {Array|string} [promote] Promoted tools, see #extract for format
+ * @param {Array|string} [demote] Demoted tools, see #extract for format
  * @return {string[]} List of tools
  */
 OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, demote ) {
@@ -56,17 +56,24 @@ OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, dem
 /**
  * Get a flat list of names from a list of names or groups.
  *
- * Tools can be specified in the following ways:
+ * Normally, `collection` is an array of tool specifications. Tools can be specified in the
+ * following ways:
  *
- * - A specific tool: `{ name: 'tool-name' }` or `'tool-name'`
- * - All tools in a group: `{ group: 'group-name' }`
- * - All tools: `'*'`
+ * - To include an individual tool, use the symbolic name: `{ name: 'tool-name' }` or `'tool-name'`.
+ * - To include all tools in a group, use the group name: `{ group: 'group-name' }`. (To assign the
+ *   tool to a group, use OO.ui.Tool.static.group.)
+ *
+ * Alternatively, to include all tools that are not yet assigned to any other toolgroup, use the
+ * catch-all selector `'*'`.
+ *
+ * If `used` is passed, tool names that appear as properties in this object will be considered
+ * already assigned, and will not be returned even if specified otherwise. The tool names extracted
+ * by this function call will be added as new properties in the object.
  *
  * @private
- * @param {Array|string} collection List of tools
- * @param {Object} [used] Object with names that should be skipped as properties; extracted
- *  names will be added as properties
- * @return {string[]} List of extracted names
+ * @param {Array|string} collection List of tools, see above
+ * @param {Object} [used] Object containing information about used tools, see above
+ * @return {string[]} List of extracted tool names
  */
 OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {
 	var i, len, item, name, tool,

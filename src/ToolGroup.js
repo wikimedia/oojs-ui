@@ -4,19 +4,9 @@
  * to which a tool belongs determines how the tool is arranged and displayed in the toolbar. Toolgroups
  * themselves are created on demand with a {@link OO.ui.ToolGroupFactory toolgroup factory}.
  *
- * Toolgroups can contain individual tools, groups of tools, or all available tools:
- *
- * To include an individual tool (or array of individual tools), specify tools by symbolic name:
- *
- *      include: [ 'tool-name' ] or [ { name: 'tool-name' }]
- *
- * To include a group of tools, specify the group name. (The tool's static ‘group’ config is used to assign the tool to a group.)
- *
- *      include: [ { group: 'group-name' } ]
- *
- *  To include all tools that are not yet assigned to a toolgroup, use the catch-all selector, an asterisk (*):
- *
- *      include: '*'
+ * Toolgroups can contain individual tools, groups of tools, or all available tools, as specified
+ * using the `include` config option. See OO.ui.ToolFactory#extract on documentation of the format.
+ * The options `exclude`, `promote`, and `demote` support the same formats.
  *
  * See {@link OO.ui.Toolbar toolbars} for a full example. For more information about toolbars in general,
  * please see the [OOjs UI documentation on MediaWiki][1].
@@ -31,10 +21,10 @@
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
- * @cfg {Array|string} [include=[]] List of tools to include in the toolgroup.
- * @cfg {Array|string} [exclude=[]] List of tools to exclude from the toolgroup.
- * @cfg {Array|string} [promote=[]] List of tools to promote to the beginning of the toolgroup.
- * @cfg {Array|string} [demote=[]] List of tools to demote to the end of the toolgroup.
+ * @cfg {Array|string} [include] List of tools to include in the toolgroup, see above.
+ * @cfg {Array|string} [exclude] List of tools to exclude from the toolgroup, see above.
+ * @cfg {Array|string} [promote] List of tools to promote to the beginning of the toolgroup, see above.
+ * @cfg {Array|string} [demote] List of tools to demote to the end of the toolgroup, see above.
  *  This setting is particularly useful when tools have been added to the toolgroup
  *  en masse (e.g., via the catch-all selector).
  */
