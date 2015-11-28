@@ -7,8 +7,7 @@
  * the menu label is empty. The menu can be configured with an indicator, icon, title, and/or header.
  *
  * MenuToolGroups are created by a {@link OO.ui.ToolGroupFactory tool group factory} when the toolbar
- * is set up. Note that all tools must define an {@link OO.ui.Tool#onUpdateState onUpdateState} method if
- * a MenuToolGroup is used.
+ * is set up.
  *
  *     @example
  *     // Example of a MenuToolGroup
@@ -37,8 +36,7 @@
  *         // To update the menu label
  *         this.toolbar.emit( 'updateState' );
  *     };
- *     SettingsTool.prototype.onUpdateState = function () {
- *     };
+ *     SettingsTool.prototype.onUpdateState = function () {};
  *     toolFactory.register( SettingsTool );
  *
  *     function StuffTool() {
@@ -57,8 +55,7 @@
  *         // To update the menu label
  *         this.toolbar.emit( 'updateState' );
  *     };
- *     StuffTool.prototype.onUpdateState = function () {
- *     };
+ *     StuffTool.prototype.onUpdateState = function () {};
  *     toolFactory.register( StuffTool );
  *
  *     // Finally define which tools and in what order appear in the toolbar. Each tool may only be

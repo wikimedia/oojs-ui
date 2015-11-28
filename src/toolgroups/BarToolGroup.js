@@ -35,6 +35,7 @@
  *         // Never display this tool as "active" (selected).
  *         this.setActive( false );
  *     };
+ *     ImageTool.prototype.onUpdateState = function () {};
  *     // Make this tool available in our toolFactory and thus our toolbar
  *     toolFactory.register( ImageTool );
  *
