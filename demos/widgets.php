@@ -788,8 +788,8 @@
 					'items' => array(
 						new OOUI\FieldLayout(
 							new OOUI\IconWidget( array(
-								'icon' => 'image',
-								'title' => 'Image icon'
+								'icon' => 'search',
+								'title' => 'Search icon'
 							) ),
 							array(
 								'label' => "IconWidget (normal)\xE2\x80\x8E",
@@ -809,8 +809,8 @@
 						),
 						new OOUI\FieldLayout(
 							new OOUI\IconWidget( array(
-								'icon' => 'image',
-								'title' => 'Image icon',
+								'icon' => 'search',
+								'title' => 'Search icon',
 								'disabled' => true
 							) ),
 							array(
