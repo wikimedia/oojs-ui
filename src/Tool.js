@@ -4,6 +4,11 @@
  * out when the tool is selected. Tools must also be registered with a {@link OO.ui.ToolFactory tool factory},
  * which creates the tools on demand.
  *
+ * Every Tool subclass must implement two methods:
+ *
+ * - {@link #onUpdateState}
+ * - {@link #onSelect}
+ *
  * Tools are added to toolgroups ({@link OO.ui.ListToolGroup ListToolGroup},
  * {@link OO.ui.BarToolGroup BarToolGroup}, or {@link OO.ui.MenuToolGroup MenuToolGroup}), which determine how
  * the tool is displayed in the toolbar. See {@link OO.ui.Toolbar toolbars} for an example.
@@ -192,7 +197,11 @@ OO.ui.Tool.static.isCompatibleWith = function () {
 /* Methods */
 
 /**
- * Handle the toolbar state being updated.
+ * Handle the toolbar state being updated. This method is called when the
+ * {@link OO.ui.Toolbar#event-updateState 'updateState' event} is emitted on the
+ * {@link OO.ui.Toolbar Toolbar} that uses this tool, and should set the state of this tool
+ * depending on application state (usually by calling #setDisabled to enable or disable the tool,
+ * or #setActive to mark is as currently in-use or not).
  *
  * This is an abstract method that must be overridden in a concrete subclass.
  *
@@ -203,7 +212,8 @@ OO.ui.Tool.static.isCompatibleWith = function () {
 OO.ui.Tool.prototype.onUpdateState = null;
 
 /**
- * Handle the tool being selected.
+ * Handle the tool being selected. This method is called when the user triggers this tool,
+ * usually by clicking on its label/icon.
  *
  * This is an abstract method that must be overridden in a concrete subclass.
  *

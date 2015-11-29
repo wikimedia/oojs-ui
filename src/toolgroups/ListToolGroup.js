@@ -30,6 +30,7 @@
  *     SettingsTool.prototype.onSelect = function () {
  *         this.setActive( false );
  *     };
+ *     SettingsTool.prototype.onUpdateState = function () {};
  *     toolFactory.register( SettingsTool );
  *     // Register two more tools, nothing interesting here
  *     function StuffTool() {
@@ -42,6 +43,7 @@
  *     StuffTool.prototype.onSelect = function () {
  *         this.setActive( false );
  *     };
+ *     StuffTool.prototype.onUpdateState = function () {};
  *     toolFactory.register( StuffTool );
  *     toolbar.setup( [
  *         {

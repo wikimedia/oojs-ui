@@ -12,6 +12,13 @@
  * The arrangement and order of the toolgroups is customized when the toolbar is set up. Tools can be presented in
  * any order, but each can only appear once in the toolbar.
  *
+ * The toolbar can be synchronized with the state of the external "application", like a text
+ * editor's editing area, marking tools as active/inactive (e.g. a 'bold' tool would be shown as
+ * active when the text cursor was inside bolded text) or enabled/disabled (e.g. a table caption
+ * tool would be disabled while the user is not editing a table). A state change is signalled by
+ * emitting the {@link #event-updateState 'updateState' event}, which calls Tools'
+ * {@link OO.ui.Tool#onUpdateState onUpdateState method}.
+ *
  * The following is an example of a basic toolbar.
  *
  *     @example
@@ -42,6 +49,7 @@
  *         // Never display this tool as "active" (selected).
  *         this.setActive( false );
  *     };
+ *     ImageTool.prototype.onUpdateState = function () {};
  *     // Make this tool available in our toolFactory and thus our toolbar
  *     toolFactory.register( ImageTool );
  *
@@ -57,6 +65,7 @@
  *         $area.text( 'Settings tool clicked!' );
  *         this.setActive( false );
  *     };
+ *     SettingsTool.prototype.onUpdateState = function () {};
  *     toolFactory.register( SettingsTool );
  *
  *     // Register two more tools, nothing interesting here
@@ -71,6 +80,7 @@
  *         $area.text( 'More stuff tool clicked!' );
  *         this.setActive( false );
  *     };
+ *     StuffTool.prototype.onUpdateState = function () {};
  *     toolFactory.register( StuffTool );
  *
  *     // This is a PopupTool. Rather than having a custom 'onSelect' action, it will display a
@@ -127,9 +137,10 @@
  *     // Here is where the toolbar is actually built. This must be done after inserting it into the
  *     // document.
  *     toolbar.initialize();
+ *     toolbar.emit( 'updateState' );
  *
  * The following example extends the previous one to illustrate 'menu' toolgroups and the usage of
- * 'updateState' event.
+ * {@link #event-updateState 'updateState' event}.
  *
  *     @example
  *     // Create the toolbar
@@ -158,11 +169,7 @@
  *         // Never display this tool as "active" (selected).
  *         this.setActive( false );
  *     };
- *     // The toolbar can be synchronized with the state of some external stuff, like a text
- *     // editor's editing area, highlighting the tools (e.g. a 'bold' tool would be shown as active
- *     // when the text cursor was inside bolded text). Here we simply disable this feature.
- *     ImageTool.prototype.onUpdateState = function () {
- *     };
+ *     ImageTool.prototype.onUpdateState = function () {};
  *     // Make this tool available in our toolFactory and thus our toolbar
  *     toolFactory.register( ImageTool );
  *
@@ -183,8 +190,7 @@
  *         // To update the menu label
  *         this.toolbar.emit( 'updateState' );
  *     };
- *     SettingsTool.prototype.onUpdateState = function () {
- *     };
+ *     SettingsTool.prototype.onUpdateState = function () {};
  *     toolFactory.register( SettingsTool );
  *
  *     // Register two more tools, nothing interesting here
@@ -204,8 +210,7 @@
  *         // To update the menu label
  *         this.toolbar.emit( 'updateState' );
  *     };
- *     StuffTool.prototype.onUpdateState = function () {
- *     };
+ *     StuffTool.prototype.onUpdateState = function () {};
  *     toolFactory.register( StuffTool );
  *
  *     // This is a PopupTool. Rather than having a custom 'onSelect' action, it will display a
@@ -327,6 +332,18 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 OO.inheritClass( OO.ui.Toolbar, OO.ui.Element );
 OO.mixinClass( OO.ui.Toolbar, OO.EventEmitter );
 OO.mixinClass( OO.ui.Toolbar, OO.ui.mixin.GroupElement );
+
+/* Events */
+
+/**
+ * @event updateState
+ *
+ * An 'updateState' event must be emitted on the Toolbar (by calling `toolbar.emit( 'updateState' )`)
+ * every time the state of the application using the toolbar changes, and an update to the state of
+ * tools is required.
+ *
+ * @param {Mixed...} data Application-defined parameters
+ */
 
 /* Methods */
 
