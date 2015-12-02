@@ -324,6 +324,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.addItems = function ( items ) {
 	}
 	if ( !same ) {
 		this.emit( 'change', this.getItemsData() );
+		this.menu.position();
 	}
 
 	return this;
@@ -348,6 +349,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.removeItems = function ( items ) {
 	}
 	if ( !same ) {
 		this.emit( 'change', this.getItemsData() );
+		this.menu.position();
 	}
 
 	return this;
@@ -360,6 +362,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.clearItems = function () {
 	if ( this.items.length ) {
 		OO.ui.mixin.GroupElement.prototype.clearItems.call( this );
 		this.emit( 'change', this.getItemsData() );
+		this.menu.position();
 	}
 	return this;
 };
@@ -537,6 +540,8 @@ OO.ui.CapsuleMultiSelectWidget.prototype.updateInputSize = function () {
 			bestWidth = this.$content.innerWidth() - 10;
 		}
 		this.$input.width( Math.floor( bestWidth ) );
+
+		this.menu.position();
 	}
 };
 
