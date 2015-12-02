@@ -89,6 +89,7 @@ OO.ui.CapsuleMultiSelectWidget = function OoUiCapsuleMultiSelectWidget( config )
 	OO.ui.mixin.IconElement.call( this, config );
 
 	// Properties
+	this.$content = $( '<div>' );
 	this.allowArbitrary = !!config.allowArbitrary;
 	this.$overlay = config.$overlay || this.$element;
 	this.menu = new OO.ui.FloatingMenuSelectWidget( $.extend(
@@ -120,7 +121,8 @@ OO.ui.CapsuleMultiSelectWidget = function OoUiCapsuleMultiSelectWidget( config )
 		this.$input.on( {
 			focus: this.onInputFocus.bind( this ),
 			blur: this.onInputBlur.bind( this ),
-			'propertychange change click mouseup keydown keyup input cut paste select': this.onInputChange.bind( this ),
+			'propertychange change click mouseup keydown keyup input cut paste select focus':
+				OO.ui.debounce( this.updateInputSize.bind( this ) ),
 			keydown: this.onKeyDown.bind( this ),
 			keypress: this.onKeyPress.bind( this )
 		} );
@@ -131,7 +133,7 @@ OO.ui.CapsuleMultiSelectWidget = function OoUiCapsuleMultiSelectWidget( config )
 		remove: 'onMenuItemsChange'
 	} );
 	this.$handle.on( {
-		click: this.onClick.bind( this )
+		mousedown: this.onMouseDown.bind( this )
 	} );
 
 	// Initialization
@@ -141,21 +143,23 @@ OO.ui.CapsuleMultiSelectWidget = function OoUiCapsuleMultiSelectWidget( config )
 			role: 'combobox',
 			'aria-autocomplete': 'list'
 		} );
-		this.$input.width( '1em' );
+		this.updateInputSize();
 	}
 	if ( config.data ) {
 		this.setItemsFromData( config.data );
 	}
+	this.$content.addClass( 'oo-ui-capsuleMultiSelectWidget-content' )
+		.append( this.$group );
 	this.$group.addClass( 'oo-ui-capsuleMultiSelectWidget-group' );
 	this.$handle.addClass( 'oo-ui-capsuleMultiSelectWidget-handle' )
-		.append( this.$indicator, this.$icon, this.$group );
+		.append( this.$indicator, this.$icon, this.$content );
 	this.$element.addClass( 'oo-ui-capsuleMultiSelectWidget' )
 		.append( this.$handle );
 	if ( this.popup ) {
-		this.$handle.append( $tabFocus );
+		this.$content.append( $tabFocus );
 		this.$overlay.append( this.popup.$element );
 	} else {
-		this.$handle.append( this.$input );
+		this.$content.append( this.$input );
 		this.$overlay.append( this.menu.$element );
 	}
 	this.onMenuItemsChange();
@@ -431,15 +435,17 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onPopupFocusOut = function () {
 };
 
 /**
- * Handle mouse click events.
+ * Handle mouse down events.
  *
  * @private
- * @param {jQuery.Event} e Mouse click event
+ * @param {jQuery.Event} e Mouse down event
  */
-OO.ui.CapsuleMultiSelectWidget.prototype.onClick = function ( e ) {
+OO.ui.CapsuleMultiSelectWidget.prototype.onMouseDown = function ( e ) {
 	if ( e.which === 1 ) {
 		this.focus();
 		return false;
+	} else {
+		this.updateInputSize();
 	}
 };
 
@@ -473,7 +479,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onKeyPress = function ( e ) {
 			}
 
 			// Make sure the input gets resized.
-			setTimeout( this.onInputChange.bind( this ), 0 );
+			setTimeout( this.updateInputSize.bind( this ), 0 );
 		}
 	}
 };
@@ -497,14 +503,40 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onKeyDown = function ( e ) {
 };
 
 /**
- * Handle input change events.
+ * Update the dimensions of the text input field to encompass all available area.
  *
  * @private
  * @param {jQuery.Event} e Event of some sort
  */
-OO.ui.CapsuleMultiSelectWidget.prototype.onInputChange = function () {
+OO.ui.CapsuleMultiSelectWidget.prototype.updateInputSize = function () {
+	var $lastItem, direction, contentWidth, currentWidth, bestWidth;
 	if ( !this.isDisabled() ) {
-		this.$input.width( this.$input.val().length + 'em' );
+		this.$input.css( 'width', '1em' );
+		$lastItem = this.$group.children().last();
+		direction = OO.ui.Element.static.getDir( this.$handle );
+		contentWidth = this.$input[ 0 ].scrollWidth;
+		currentWidth = this.$input.width();
+
+		if ( contentWidth < currentWidth ) {
+			// All is fine, don't perform expensive calculations
+			return;
+		}
+
+		if ( !$lastItem.length ) {
+			bestWidth = this.$content.innerWidth();
+		} else {
+			bestWidth = direction === 'ltr' ?
+				this.$content.innerWidth() - $lastItem.position().left - $lastItem.outerWidth() :
+				$lastItem.position().left;
+		}
+		// Some safety margin for sanity, because I *really* don't feel like finding out where the few
+		// pixels this is off by are coming from.
+		bestWidth -= 10;
+		if ( contentWidth > bestWidth ) {
+			// This will result in the input getting shifted to the next line
+			bestWidth = this.$content.innerWidth() - 10;
+		}
+		this.$input.width( Math.floor( bestWidth ) );
 	}
 };
 
@@ -538,7 +570,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onMenuItemsChange = function () {
 OO.ui.CapsuleMultiSelectWidget.prototype.clearInput = function () {
 	if ( this.$input ) {
 		this.$input.val( '' );
-		this.$input.width( '1em' );
+		this.updateInputSize();
 	}
 	if ( this.popup ) {
 		this.popup.toggle( false );
@@ -591,6 +623,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.focus = function () {
 				.first()
 				.focus();
 		} else {
+			this.updateInputSize();
 			this.menu.toggle( true );
 			this.$input.focus();
 		}
