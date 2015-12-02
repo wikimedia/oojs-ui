@@ -707,15 +707,11 @@
 
 		.oo-ui-inline-spacing(0.5em);
 
-		padding: 0.25em 0;
+		padding: 0.15em 0.25em;
 		border: 1px solid #ccc;
 		border-radius: 0.1em;
 
 		.oo-ui-box-sizing(border-box);
-
-		.oo-ui-capsuleMultiSelectWidget-group {
-			margin: 0 0.2em;
-		}
 
 		> .oo-ui-indicatorElement-indicator,
 		> .oo-ui-iconElement-icon {
@@ -728,6 +724,7 @@
 			border: none;
 			line-height: 1.675em;
 			margin: 0;
+			margin-left: 0.2em;
 			padding: 0;
 			font-size: inherit;
 			font-family: inherit;
@@ -743,7 +740,7 @@
 	}
 
 	&.oo-ui-indicatorElement &-handle {
-		padding-right: @indicator-size;
+		padding-right: @indicator-size + 2 * 0.775em;
 
 		> .oo-ui-indicatorElement-indicator {
 			right: 0;
@@ -755,7 +752,7 @@
 	}
 
 	&.oo-ui-iconElement &-handle {
-		padding-left: @icon-size;
+		padding-left: @icon-size + 2 * 0.3em;
 
 		> .oo-ui-iconElement-icon {
 			left: 0;
@@ -794,7 +791,7 @@
 	.oo-ui-box-sizing(border-box);
 	vertical-align: middle;
 	padding: 0 0.4em;
-	margin: 0 0.1em;
+	margin: 0.1em;
 	height: 1.7em;
 	line-height: 1.7em;
 
