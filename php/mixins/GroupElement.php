@@ -9,9 +9,9 @@ namespace OOUI;
  */
 class GroupElement extends ElementMixin {
 	/**
-	 * List of items in the group.
+	 * List of items in the group as Elements.
 	 *
-	 * @var Element[]
+	 * @var array
 	 */
 	protected $items = array();
 

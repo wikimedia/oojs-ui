@@ -19,7 +19,9 @@ class RadioSelectInputWidget extends InputWidget {
 	protected $name = null;
 
 	/**
-	 * @var FieldLayout[]
+	 * Layouts for this input, as FieldLayouts.
+	 *
+	 * @var array
 	 */
 	protected $fields = array();
 

@@ -1,5 +1,6 @@
 /coverage
 /dist/*
+/doc
 /docs
 node_modules
 npm-debug.log
@@ -12,4 +13,3 @@ composer.lock
 /demos/node_modules
 /demos/dist
 /demos/php
-

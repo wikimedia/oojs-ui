@@ -9,8 +9,8 @@ namespace OOUI;
 class DropdownInputWidget extends InputWidget {
 
 	/**
-	 * HTML `<option>` tags for this widget.
-	 * @var Tag[]
+	 * HTML `<option>` tags for this widget, as Tags.
+	 * @var array
 	 */
 	protected $options = array();
 

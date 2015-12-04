@@ -8,9 +8,14 @@ OUTPUT_DIRECTORY       = doc
 JAVADOC_AUTOBRIEF      = YES
 QT_AUTOBRIEF           = YES
 
-WARN_NO_PARAMDOC       = YES
+QUIET                  = YES
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = NO
+WARN_IF_DOC_ERROR      = NO
+WARN_NO_PARAMDOC       = NO
 
 INPUT                  = README.md php/
+INPUT_FILTER           = build/doxygen-filter.php
 FILE_PATTERNS          = *.php
 RECURSIVE              = YES
 # Requires doxygen 1.8.3+
