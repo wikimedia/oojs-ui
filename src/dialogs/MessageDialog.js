@@ -86,6 +86,7 @@ OO.ui.MessageDialog.static.title = null;
  */
 OO.ui.MessageDialog.static.message = null;
 
+// Note that OO.ui.alert() and OO.ui.confirm() rely on these.
 OO.ui.MessageDialog.static.actions = [
 	{ action: 'accept', label: OO.ui.deferMsg( 'ooui-dialog-message-accept' ), flags: 'primary' },
 	{ action: 'reject', label: OO.ui.deferMsg( 'ooui-dialog-message-reject' ), flags: 'safe' }
