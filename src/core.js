@@ -355,64 +355,63 @@ OO.ui.infuse = function ( idOrNode ) {
 		}
 		return message;
 	};
-
-	/**
-	 * Package a message and arguments for deferred resolution.
-	 *
-	 * Use this when you are statically specifying a message and the message may not yet be present.
-	 *
-	 * @param {string} key Message key
-	 * @param {Mixed...} [params] Message parameters
-	 * @return {Function} Function that returns the resolved message when executed
-	 */
-	OO.ui.deferMsg = function () {
-		var args = arguments;
-		return function () {
-			return OO.ui.msg.apply( OO.ui, args );
-		};
-	};
-
-	/**
-	 * Resolve a message.
-	 *
-	 * If the message is a function it will be executed, otherwise it will pass through directly.
-	 *
-	 * @param {Function|string} msg Deferred message, or message text
-	 * @return {string} Resolved message
-	 */
-	OO.ui.resolveMsg = function ( msg ) {
-		if ( $.isFunction( msg ) ) {
-			return msg();
-		}
-		return msg;
-	};
-
-	/**
-	 * @param {string} url
-	 * @return {boolean}
-	 */
-	OO.ui.isSafeUrl = function ( url ) {
-		var protocol,
-			// Keep in sync with php/Tag.php
-			whitelist = [
-				'bitcoin:', 'ftp:', 'ftps:', 'geo:', 'git:', 'gopher:', 'http:', 'https:', 'irc:', 'ircs:',
-				'magnet:', 'mailto:', 'mms:', 'news:', 'nntp:', 'redis:', 'sftp:', 'sip:', 'sips:', 'sms:', 'ssh:',
-				'svn:', 'tel:', 'telnet:', 'urn:', 'worldwind:', 'xmpp:'
-			];
-
-		if ( url.indexOf( ':' ) === -1 ) {
-			// No protocol, safe
-			return true;
-		}
-
-		protocol = url.split( ':', 1 )[ 0 ] + ':';
-		if ( !protocol.match( /^([A-za-z0-9\+\.\-])+:/ ) ) {
-			// Not a valid protocol, safe
-			return true;
-		}
-
-		// Safe if in the whitelist
-		return whitelist.indexOf( protocol ) !== -1;
-	};
-
 } )();
+
+/**
+ * Package a message and arguments for deferred resolution.
+ *
+ * Use this when you are statically specifying a message and the message may not yet be present.
+ *
+ * @param {string} key Message key
+ * @param {Mixed...} [params] Message parameters
+ * @return {Function} Function that returns the resolved message when executed
+ */
+OO.ui.deferMsg = function () {
+	var args = arguments;
+	return function () {
+		return OO.ui.msg.apply( OO.ui, args );
+	};
+};
+
+/**
+ * Resolve a message.
+ *
+ * If the message is a function it will be executed, otherwise it will pass through directly.
+ *
+ * @param {Function|string} msg Deferred message, or message text
+ * @return {string} Resolved message
+ */
+OO.ui.resolveMsg = function ( msg ) {
+	if ( $.isFunction( msg ) ) {
+		return msg();
+	}
+	return msg;
+};
+
+/**
+ * @param {string} url
+ * @return {boolean}
+ */
+OO.ui.isSafeUrl = function ( url ) {
+	var protocol,
+		// Keep in sync with php/Tag.php
+		whitelist = [
+			'bitcoin:', 'ftp:', 'ftps:', 'geo:', 'git:', 'gopher:', 'http:', 'https:', 'irc:', 'ircs:',
+			'magnet:', 'mailto:', 'mms:', 'news:', 'nntp:', 'redis:', 'sftp:', 'sip:', 'sips:', 'sms:', 'ssh:',
+			'svn:', 'tel:', 'telnet:', 'urn:', 'worldwind:', 'xmpp:'
+		];
+
+	if ( url.indexOf( ':' ) === -1 ) {
+		// No protocol, safe
+		return true;
+	}
+
+	protocol = url.split( ':', 1 )[ 0 ] + ':';
+	if ( !protocol.match( /^([A-za-z0-9\+\.\-])+:/ ) ) {
+		// Not a valid protocol, safe
+		return true;
+	}
+
+	// Safe if in the whitelist
+	return whitelist.indexOf( protocol ) !== -1;
+};
