@@ -20,24 +20,24 @@
  *     // Define the tools that we're going to place in our toolbar
  *
  *     // Create a class inheriting from OO.ui.Tool
- *     function ImageTool() {
- *         ImageTool.parent.apply( this, arguments );
+ *     function SearchTool() {
+ *         SearchTool.parent.apply( this, arguments );
  *     }
- *     OO.inheritClass( ImageTool, OO.ui.Tool );
+ *     OO.inheritClass( SearchTool, OO.ui.Tool );
  *     // Each tool must have a 'name' (used as an internal identifier, see later) and at least one
  *     // of 'icon' and 'title' (displayed icon and text).
- *     ImageTool.static.name = 'image';
- *     ImageTool.static.icon = 'image';
- *     ImageTool.static.title = 'Insert image';
+ *     SearchTool.static.name = 'search';
+ *     SearchTool.static.icon = 'search';
+ *     SearchTool.static.title = 'Search...';
  *     // Defines the action that will happen when this tool is selected (clicked).
- *     ImageTool.prototype.onSelect = function () {
- *         $area.text( 'Image tool clicked!' );
+ *     SearchTool.prototype.onSelect = function () {
+ *         $area.text( 'Search tool clicked!' );
  *         // Never display this tool as "active" (selected).
  *         this.setActive( false );
  *     };
- *     ImageTool.prototype.onUpdateState = function () {};
+ *     SearchTool.prototype.onUpdateState = function () {};
  *     // Make this tool available in our toolFactory and thus our toolbar
- *     toolFactory.register( ImageTool );
+ *     toolFactory.register( SearchTool );
  *
  *     // This is a PopupTool. Rather than having a custom 'onSelect' action, it will display a
  *     // little popup window (a PopupWidget).
@@ -61,7 +61,7 @@
  *         {
  *             // 'bar' tool groups display tools by icon only
  *             type: 'bar',
- *             include: [ 'image', 'help' ]
+ *             include: [ 'search', 'help' ]
  *         }
  *     ] );
  *

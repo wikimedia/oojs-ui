@@ -38,7 +38,7 @@
  *     }
  *     OO.inheritClass( StuffTool, OO.ui.Tool );
  *     StuffTool.static.name = 'stuff';
- *     StuffTool.static.icon = 'ellipsis';
+ *     StuffTool.static.icon = 'search';
  *     StuffTool.static.title = 'Change the world';
  *     StuffTool.prototype.onSelect = function () {
  *         this.setActive( false );
@@ -51,7 +51,7 @@
  *             type: 'list',
  *             label: 'ListToolGroup',
  *             indicator: 'down',
- *             icon: 'image',
+ *             icon: 'ellipsis',
  *             title: 'This is the title, displayed when user moves the mouse over the list toolgroup',
  *             header: 'This is the header',
  *             include: [ 'settings', 'stuff' ],

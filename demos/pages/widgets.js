@@ -1405,8 +1405,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			items: [
 				new OO.ui.FieldLayout(
 					new OO.ui.IconWidget( {
-						icon: 'image',
-						title: 'Image icon'
+						icon: 'search',
+						title: 'Search icon'
 					} ),
 					{
 						label: 'IconWidget (normal)\u200E',
@@ -1426,8 +1426,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.IconWidget( {
-						icon: 'image',
-						title: 'Image icon',
+						icon: 'search',
+						title: 'Search icon',
 						disabled: true
 					} ),
 					{
