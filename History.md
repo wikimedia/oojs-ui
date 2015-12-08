@@ -1,5 +1,27 @@
 # OOjs UI Release History
 
+## v0.14.1 / 2015-12-08
+
+### Features
+* Implement OO.ui.alert() and OO.ui.confirm() (Bartosz Dziewoński)
+
+### Styles
+* CapsuleMultiSelectWidget: Interface tweaks (Bartosz Dziewoński)
+* CapsuleMultiSelectWidget: Make the text field span all available area (Bartosz Dziewoński)
+* CapsuleMultiSelectWidget: Update menu position when typing (Bartosz Dziewoński)
+* HorizontalLayout: Synchronise behaviour between themes (Bartosz Dziewoński)
+* Apex theme: Enlarge 'search' icon (Bartosz Dziewoński)
+* MediaWiki theme: Correct text color in MessageDialog, TabOptionWidget (Volker E)
+
+### Code
+* Tool*: Consolidate and cross-link some documentation (Bartosz Dziewoński)
+* Tool*: Expand, correct docs for #onUpdateState and the related event (Bartosz Dziewoński)
+* core.js: Extract a large chunk of the file incorrectly in a closure (Bartosz Dziewoński)
+* Apex, MediaWiki themes: Standardize XML structure for various 'search' images (Bartosz Dziewoński)
+* MediaWiki theme: Add missing theme mixin placeholder (no-op) (Bartosz Dziewoński)
+* build: Test PHP documentation with Doxygen via composer and make pass (James D. Forrester)
+* demo: Quit using the 'image' icon in documentation examples (Bartosz Dziewoński)
+
 ## v0.14.0 / 2015-11-24
 ### Breaking changes
 * [BREAKING CHANGE] Depend on OOjs v1.1.10, up from v1.1.9 (James D. Forrester)
