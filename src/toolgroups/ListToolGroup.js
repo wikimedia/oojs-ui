@@ -186,7 +186,7 @@ OO.ui.ListToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	// Do not close the popup when the user wants to show more/fewer tools
 	if (
 		$( e.target ).closest( '.oo-ui-tool-name-more-fewer' ).length &&
-		( e.which === 1 || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
 	) {
 		// HACK: Prevent the popup list from being hidden. Skip the PopupToolGroup implementation (which
 		// hides the popup list when a tool is selected) and call ToolGroup's implementation directly.

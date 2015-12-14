@@ -31,6 +31,17 @@ OO.ui.Keys = {
 };
 
 /**
+ * Constants for MouseEvent.which
+ *
+ * @property {Object}
+ */
+OO.ui.MouseButtons = {
+	LEFT: 1,
+	MIDDLE: 2,
+	RIGHT: 3
+};
+
+/**
  * @property {Number}
  */
 OO.ui.elementId = 0;

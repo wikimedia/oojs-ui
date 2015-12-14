@@ -104,7 +104,7 @@ OO.ui.mixin.ButtonElement.prototype.setButtonElement = function ( $button ) {
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.mixin.ButtonElement.prototype.onMouseDown = function ( e ) {
-	if ( this.isDisabled() || e.which !== 1 ) {
+	if ( this.isDisabled() || e.which !== OO.ui.MouseButtons.LEFT ) {
 		return;
 	}
 	this.$element.addClass( 'oo-ui-buttonElement-pressed' );
@@ -124,7 +124,7 @@ OO.ui.mixin.ButtonElement.prototype.onMouseDown = function ( e ) {
  * @param {jQuery.Event} e Mouse up event
  */
 OO.ui.mixin.ButtonElement.prototype.onMouseUp = function ( e ) {
-	if ( this.isDisabled() || e.which !== 1 ) {
+	if ( this.isDisabled() || e.which !== OO.ui.MouseButtons.LEFT ) {
 		return;
 	}
 	this.$element.removeClass( 'oo-ui-buttonElement-pressed' );
@@ -140,7 +140,7 @@ OO.ui.mixin.ButtonElement.prototype.onMouseUp = function ( e ) {
  * @fires click
  */
 OO.ui.mixin.ButtonElement.prototype.onClick = function ( e ) {
-	if ( !this.isDisabled() && e.which === 1 ) {
+	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
 		if ( this.emit( 'click' ) ) {
 			return false;
 		}

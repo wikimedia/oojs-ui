@@ -444,7 +444,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onPopupFocusOut = function () {
  * @param {jQuery.Event} e Mouse down event
  */
 OO.ui.CapsuleMultiSelectWidget.prototype.onMouseDown = function ( e ) {
-	if ( e.which === 1 ) {
+	if ( e.which === OO.ui.MouseButtons.LEFT ) {
 		this.focus();
 		return false;
 	} else {

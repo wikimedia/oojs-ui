@@ -160,7 +160,7 @@ OO.ui.ToolGroup.prototype.updateDisabled = function () {
 OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
 	if (
 		!this.isDisabled() &&
-		( e.which === 1 || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
 	) {
 		this.pressed = this.getTargetTool( e );
 		if ( this.pressed ) {
@@ -197,7 +197,7 @@ OO.ui.ToolGroup.prototype.onMouseKeyUp = function ( e ) {
 
 	if (
 		!this.isDisabled() && this.pressed && this.pressed === tool &&
-		( e.which === 1 || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
 	) {
 		this.pressed.onSelect();
 		this.pressed = null;
