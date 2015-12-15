@@ -145,7 +145,7 @@ OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
-	if ( !this.isDisabled() && e.which === 1 ) {
+	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
 		this.menu.toggle();
 	}
 	return false;

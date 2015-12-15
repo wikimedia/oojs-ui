@@ -72,7 +72,7 @@ OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.mixin.TabIndexedElement );
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.ToggleSwitchWidget.prototype.onClick = function ( e ) {
-	if ( !this.isDisabled() && e.which === 1 ) {
+	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
 		this.setValue( !this.value );
 	}
 	return false;

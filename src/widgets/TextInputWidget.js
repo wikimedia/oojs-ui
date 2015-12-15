@@ -217,7 +217,7 @@ OO.ui.TextInputWidget.static.gatherPreInfuseState = function ( node, config ) {
  * @fires icon
  */
 OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
-	if ( e.which === 1 ) {
+	if ( e.which === OO.ui.MouseButtons.LEFT ) {
 		this.$input[ 0 ].focus();
 		return false;
 	}
@@ -231,7 +231,7 @@ OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
  * @fires indicator
  */
 OO.ui.TextInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
-	if ( e.which === 1 ) {
+	if ( e.which === OO.ui.MouseButtons.LEFT ) {
 		if ( this.type === 'search' ) {
 			// Clear the text field
 			this.setValue( '' );

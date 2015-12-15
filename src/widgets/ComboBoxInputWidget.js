@@ -160,7 +160,7 @@ OO.ui.ComboBoxInputWidget.prototype.onInputChange = function ( value ) {
  * @param {jQuery.Event} e Mouse click event
  */
 OO.ui.ComboBoxInputWidget.prototype.onIndicatorClick = function ( e ) {
-	if ( !this.isDisabled() && e.which === 1 ) {
+	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
 		this.menu.toggle();
 		this.$input[ 0 ].focus();
 	}

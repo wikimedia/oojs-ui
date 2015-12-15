@@ -155,7 +155,7 @@ OO.ui.SelectWidget.static.passAllFilter = function () {
 OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
 	var item;
 
-	if ( !this.isDisabled() && e.which === 1 ) {
+	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
 		this.togglePressed( true );
 		item = this.getTargetItem( e );
 		if ( item && item.isSelectable() ) {
@@ -192,7 +192,7 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 			this.selecting = item;
 		}
 	}
-	if ( !this.isDisabled() && e.which === 1 && this.selecting ) {
+	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT && this.selecting ) {
 		this.pressItem( null );
 		this.chooseItem( this.selecting );
 		this.selecting = null;

@@ -118,7 +118,7 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	// Only close toolgroup when a tool was actually selected
 	if (
 		!this.isDisabled() && this.pressed && this.pressed === this.getTargetTool( e ) &&
-		( e.which === 1 || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
 	) {
 		this.setActive( false );
 	}
@@ -134,7 +134,7 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyUp = function ( e ) {
 OO.ui.PopupToolGroup.prototype.onHandleMouseKeyUp = function ( e ) {
 	if (
 		!this.isDisabled() &&
-		( e.which === 1 || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
 	) {
 		return false;
 	}
@@ -149,7 +149,7 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyUp = function ( e ) {
 OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
 	if (
 		!this.isDisabled() &&
-		( e.which === 1 || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
 	) {
 		this.setActive( !this.active );
 		return false;
