@@ -9,26 +9,26 @@
 @select: #d8e6fe;
 
 @progressive: #347bff;
-@progressive-hover: #2962CC;
-@progressive-selected: #1F4999;
-@progressive-fade: rgba(52,123,255,0.1);
+@progressive-hover: #2962cc;
+@progressive-selected: #1f4999;
+@progressive-fade: rgba( 52, 123, 255, 0.1 );
 
 @constructive: #00af89;
 @constructive-hover: #008064;
 @constructive-selected: #005946;
-@constructive-fade: rgba(0,171,137,0.1);
+@constructive-fade: rgba( 0, 171, 137, 0.1 );
 
 @destructive: #d11d13;
-@destructive-hover: #8C130D;
-@destructive-selected: #73100A;
-@destructive-fade: rgba(209,29,19,0.1);
+@destructive-hover: #8c130d;
+@destructive-selected: #73100a;
+@destructive-fade: rgba( 209, 29, 19, 0.1 );
 
 @text: #555;
-@pressed-text: #444444;
+@pressed-text: #444;
 @pressed-color: #d0d0d0; // Used for borders and backgrounds
-@disabled-text: #cccccc;
-@disabled-framed-text: #ffffff;
-@disabled-background: #dddddd;
+@disabled-text: #ccc;
+@disabled-framed-text: #fff;
+@disabled-background: #ddd;
 
 @neutral-button-border: 1px solid #cdcdcd;
 
@@ -42,18 +42,18 @@
 @input-size: 1.6em;
 @border-radius: 2px;
 
-@box-shadow-dialog: 0 0.15em 0 0 rgba(0, 0, 0, 0.15);
+@box-shadow-dialog: 0 0.15em 0 0 rgba( 0, 0, 0, 0.15 );
 @box-shadow-menu: @box-shadow-dialog;
 @box-shadow-popup: @box-shadow-dialog;
 
-@icon-size: unit(24 / 16 / 0.8, em);
-@indicator-size: unit(12 / 16 / 0.8, em);
+@icon-size: unit( 24 / 16 / 0.8, em );
+@indicator-size: unit( 12 / 16 / 0.8, em );
 
 // Theme animation variables
 @quick-ease: 100ms ease;
 @medium-ease: 250ms ease;
-@medium-ease-out-back: 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-@medium-ease-out-sine: 200ms cubic-bezier(0.39, 0.575, 0.565, 1);
+@medium-ease-out-back: 200ms cubic-bezier( 0.175, 0.885, 0.32, 1.275 );
+@medium-ease-out-sine: 200ms cubic-bezier( 0.39, 0.575, 0.565, 1 );
 
 // Theme mixins
 
@@ -70,5 +70,5 @@
 // * Upstream bug report: https://bugs.webkit.org/show_bug.cgi?id=141789
 .oo-ui-background-image-safari( @url-without-extension ) when ( @oo-ui-distribution = vector ) {
 	@svg: '@{url-without-extension}.svg';
-	background-image: -webkit-linear-gradient(transparent, transparent), e('/* @embed */') url(@svg);
+	background-image: -webkit-linear-gradient( transparent, transparent ), e( '/* @embed */' ) url( @svg );
 }
