@@ -317,9 +317,7 @@ OO.ui.Element.static.getDocument = function ( obj ) {
  */
 OO.ui.Element.static.getWindow = function ( obj ) {
 	var doc = this.getDocument( obj );
-	// Support: IE 8
-	// Standard Document.defaultView is IE9+
-	return doc.parentWindow || doc.defaultView;
+	return doc.defaultView;
 };
 
 /**
@@ -434,14 +432,8 @@ OO.ui.Element.static.getRelativePosition = function ( $element, $anchor ) {
  */
 OO.ui.Element.static.getBorders = function ( el ) {
 	var doc = el.ownerDocument,
-		// Support: IE 8
-		// Standard Document.defaultView is IE9+
-		win = doc.parentWindow || doc.defaultView,
-		style = win && win.getComputedStyle ?
-			win.getComputedStyle( el, null ) :
-			// Support: IE 8
-			// Standard getComputedStyle() is IE9+
-			el.currentStyle,
+		win = doc.defaultView,
+		style = win.getComputedStyle( el, null ),
 		$el = $( el ),
 		top = parseFloat( style ? style.borderTopWidth : $el.css( 'borderTopWidth' ) ) || 0,
 		left = parseFloat( style ? style.borderLeftWidth : $el.css( 'borderLeftWidth' ) ) || 0,
@@ -466,9 +458,7 @@ OO.ui.Element.static.getBorders = function ( el ) {
 OO.ui.Element.static.getDimensions = function ( el ) {
 	var $el, $win,
 		doc = el.ownerDocument || el.document,
-		// Support: IE 8
-		// Standard Document.defaultView is IE9+
-		win = doc.parentWindow || doc.defaultView;
+		win = doc.defaultView;
 
 	if ( win === el || el === doc.documentElement ) {
 		$win = $( win );
