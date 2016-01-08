@@ -515,7 +515,7 @@ OO.ui.TextInputWidget.prototype.isAutosizing = function () {
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.selectRange = function ( from, to ) {
-	var textRange, isBackwards, start, end,
+	var isBackwards, start, end,
 		input = this.$input[ 0 ];
 
 	to = to || from;
@@ -526,16 +526,7 @@ OO.ui.TextInputWidget.prototype.selectRange = function ( from, to ) {
 
 	this.focus();
 
-	if ( input.setSelectionRange ) {
-		input.setSelectionRange( start, end, isBackwards ? 'backward' : 'forward' );
-	} else if ( input.createTextRange ) {
-		// IE 8 and below
-		textRange = input.createTextRange();
-		textRange.collapse( true );
-		textRange.moveStart( 'character', start );
-		textRange.moveEnd( 'character', end - start );
-		textRange.select();
-	}
+	input.setSelectionRange( start, end, isBackwards ? 'backward' : 'forward' );
 	return this;
 };
 
