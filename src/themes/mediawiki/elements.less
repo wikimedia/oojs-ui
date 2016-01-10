@@ -84,7 +84,7 @@
 		}
 
 		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
-			color: @disabled-text;
+			color: @color-disabled;
 
 			&:focus {
 				box-shadow: none;
@@ -92,7 +92,7 @@
 
 			> .oo-ui-iconElement-icon,
 			> .oo-ui-indicatorElement-indicator {
-				opacity: 0.2;
+				opacity: @opacity-disabled;
 			}
 		}
 	}
@@ -164,9 +164,9 @@
 		}
 
 		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
-			color: @disabled-framed-text;
-			background: @disabled-background;
-			border: 1px solid @disabled-background;
+			background: @background-color-disabled;
+			color: @color-disabled-framed;
+			border: 1px solid @border-color-disabled;
 		}
 
 		&.oo-ui-widget-enabled {
