@@ -96,7 +96,7 @@ OO.ui.OutlineOptionWidget.prototype.setMovable = function ( movable ) {
  *
  * Removability is used by {@link OO.ui.OutlineControlsWidget outline controls}.
  *
- * @param {boolean} movable Item is removable
+ * @param {boolean} removable Item is removable
  * @chainable
  */
 OO.ui.OutlineOptionWidget.prototype.setRemovable = function ( removable ) {
