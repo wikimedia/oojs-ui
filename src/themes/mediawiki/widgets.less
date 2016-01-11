@@ -372,7 +372,7 @@
 		max-width: none;
 
 		& + span {
-			.oo-ui-transition(background-size @medium-ease-out-back);
+			.oo-ui-transition( background-size @transition-ease-out-back-medium );
 			.oo-ui-box-sizing( border-box );
 			position: absolute;
 			left: 0;
@@ -488,7 +488,7 @@
 		max-width: none;
 
 		& + span {
-			.oo-ui-transition(background-size @medium-ease-out-back);
+			.oo-ui-transition( background-size @transition-ease-out-back-medium );
 			.oo-ui-box-sizing(border-box);
 			position: absolute;
 			left: 0;
@@ -561,7 +561,7 @@
 		border: solid 1px #ccc;
 		box-shadow: inset 0 0 0 0 @progressive;
 		border-radius: 0.1em;
-		.oo-ui-transition(box-shadow @quick-ease);
+		.oo-ui-transition( box-shadow @transition-ease-quick );
 		.oo-ui-box-sizing(border-box);
 
 		&.oo-ui-pendingElement-pending {
@@ -573,8 +573,8 @@
 		input,
 		textarea {
 			.oo-ui-transition(
-				border @medium-ease-out-sine,
-				box-shadow @medium-ease-out-sine
+				border @transition-ease-out-sine-medium,
+				box-shadow @transition-ease-out-sine-medium
 			);
 		}
 
@@ -1084,7 +1084,11 @@
 	}
 
 	&-transitioning .oo-ui-popupWidget-popup {
-		.oo-ui-transition(width @quick-ease, height @quick-ease, left @quick-ease);
+		.oo-ui-transition(
+			width @transition-ease-quick,
+			height @transition-ease-quick,
+			left @transition-ease-quick
+		);
 	}
 
 	&-head {
@@ -1199,8 +1203,8 @@
 	background-color: @background;
 	.oo-ui-inline-spacing( 0.5em );
 	.oo-ui-transition(
-		background-color @quick-ease,
-		border-color @quick-ease
+		background-color @transition-ease-quick,
+		border-color @transition-ease-quick
 	);
 	&:before {
 		content: '';
@@ -1222,8 +1226,8 @@
 		border-radius: 1.2em;
 		background-color: @text;
 		.oo-ui-transition(
-			left @quick-ease,
-			margin-left @quick-ease
+			left @transition-ease-quick,
+			margin-left @transition-ease-quick
 		);
 	}
 
