@@ -790,7 +790,7 @@
 
 	background-color: #eee;
 	border: 1px solid #ccc;
-	color: @text;
+	color: @color-default;
 	border-radius: 0.1em;
 
 	&.oo-ui-indicatorElement {
@@ -842,7 +842,7 @@
 	.oo-ui-selectWidget-pressed &-pressed,
 	.oo-ui-selectWidget-pressed &-pressed&-highlighted,
 	.oo-ui-selectWidget-pressed &-pressed&-highlighted&-selected {
-		background-color: @pressed-color;
+		background-color: @background-color-pressed;
 	}
 
 	&.oo-ui-widget-disabled {
@@ -983,7 +983,7 @@
 	}
 
 	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected {
-		background-color: @pressed-color;
+		background-color: @background-color-pressed;
 		text-shadow: 0 1px 1px #fff;
 	}
 
@@ -1012,7 +1012,7 @@
 	border-bottom: none;
 	border-top-left-radius: @border-radius;
 	border-top-right-radius: @border-radius;
-	color: @text;
+	color: @color-default;
 	font-weight: bold;
 
 	&.oo-ui-widget-enabled {
@@ -1223,7 +1223,7 @@
 		width: 1.2em;
 		height: 1.2em;
 		border-radius: 1.2em;
-		background-color: @text;
+		background-color: #555;
 		.oo-ui-transition(
 			left @transition-ease-quick,
 			margin-left @transition-ease-quick
