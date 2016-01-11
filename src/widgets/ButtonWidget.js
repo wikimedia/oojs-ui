@@ -141,11 +141,8 @@ OO.ui.ButtonWidget.prototype.getNoFollow = function () {
  */
 OO.ui.ButtonWidget.prototype.setHref = function ( href ) {
 	href = typeof href === 'string' ? href : null;
-	if ( href !== null ) {
-		if ( !OO.ui.isSafeUrl( href ) ) {
-			throw new Error( 'Potentially unsafe href provided: ' + href );
-		}
-
+	if ( href !== null && !OO.ui.isSafeUrl( href ) ) {
+		href = './' + href;
 	}
 
 	if ( href !== this.href ) {

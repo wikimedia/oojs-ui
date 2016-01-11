@@ -79,68 +79,31 @@ class TagTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @todo incomplete
-	 * @covers Tag::toString
-	 * @dataProvider provideToString
+	 * @covers Tag::isSafeUrl
+	 * @dataProvider provideIsSafeUrl
 	 */
-	public function testToString( Tag $tag, $expected, $exception = false ) {
-		if ( $exception ) {
-			$this->setExpectedException( $exception );
-		}
-		$this->assertEquals( $expected, $tag->toString() );
+	public function testIsSafeUrl( $url, $expected ) {
+		$this->assertEquals( $expected, Tag::isSafeUrl( $url ) );
 	}
 
 	/**
-	 * @note: Keep URL protocol whitelist tests in sync with core.test.js
+	 * @note: Keep tests in sync with core.test.js
 	 */
-	public static function provideToString() {
-		$tests = array();
-		$tests[] = array(
-			id( new Tag() )->setAttributes( array( 'foobar@invalidkey' => 'blah' ) ),
-			'',
-			'Exception'
+	public static function provideIsSafeUrl() {
+		return array(
+			array( 'javascript:evil();', false ),
+			array( 'foo:bar', false ),
+			array( 'relative.html', false ),
+			array( '', true ),
+			array( 'http://example.com/', true ),
+			array( '//example.com/', true ),
+			array( '/', true ),
+			array( '..', false ),
+			array( '?foo=bar', true ),
+			array( '#top', true ),
+			array( '/relative', true ),
+			array( './relative', true ),
+			array( '/wiki/Extra:Colon', true ),
 		);
-		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => 'javascript:evil();' ) ),
-			'',
-			'Exception'
-		);
-		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => 'relative.html' ) ),
-			"<a href='relative.html'></a>"
-		);
-		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => 'http://example.com/' ) ),
-			"<a href='http://example.com/'></a>"
-		);
-		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '//example.com/' ) ),
-			"<a href='//example.com/'></a>"
-		);
-		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '/' ) ),
-			"<a href='/'></a>"
-		);
-		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '..' ) ),
-			"<a href='..'></a>"
-		);
-		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '?foo=bar' ) ),
-			"<a href='?foo=bar'></a>"
-		);
-		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '#top' ) ),
-			"<a href='#top'></a>"
-		);
-		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '/relative' ) ),
-			"<a href='/relative'></a>"
-		);
-		$tests[] = array(
-			id( new Tag( 'a' ) )->setAttributes( array( 'href' => '/wiki/Extra:Colon' ) ),
-			"<a href='/wiki/Extra:Colon'></a>"
-		);
-		return $tests;
 	}
 }

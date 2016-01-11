@@ -396,27 +396,38 @@ OO.ui.resolveMsg = function ( msg ) {
  * @return {boolean}
  */
 OO.ui.isSafeUrl = function ( url ) {
-	var protocol,
-		// Keep in sync with php/Tag.php
-		whitelist = [
-			'bitcoin:', 'ftp:', 'ftps:', 'geo:', 'git:', 'gopher:', 'http:', 'https:', 'irc:', 'ircs:',
-			'magnet:', 'mailto:', 'mms:', 'news:', 'nntp:', 'redis:', 'sftp:', 'sip:', 'sips:', 'sms:', 'ssh:',
-			'svn:', 'tel:', 'telnet:', 'urn:', 'worldwind:', 'xmpp:'
-		];
+	// Keep this function in sync with php/Tag.php
+	var i, protocolWhitelist;
 
-	if ( url.indexOf( ':' ) === -1 ) {
-		// No protocol, safe
+	function stringStartsWith( haystack, needle ) {
+		return haystack.substr( 0, needle.length ) === needle;
+	}
+
+	protocolWhitelist = [
+		'bitcoin', 'ftp', 'ftps', 'geo', 'git', 'gopher', 'http', 'https', 'irc', 'ircs',
+		'magnet', 'mailto', 'mms', 'news', 'nntp', 'redis', 'sftp', 'sip', 'sips', 'sms', 'ssh',
+		'svn', 'tel', 'telnet', 'urn', 'worldwind', 'xmpp'
+	];
+
+	if ( url === '' ) {
 		return true;
 	}
 
-	protocol = url.split( ':', 1 )[ 0 ] + ':';
-	if ( !protocol.match( /^([A-za-z0-9\+\.\-])+:/ ) ) {
-		// Not a valid protocol, safe
+	for ( i = 0; i < protocolWhitelist.length; i++ ) {
+		if ( stringStartsWith( url, protocolWhitelist[ i ] + ':' ) ) {
+			return true;
+		}
+	}
+
+	// This matches '//' too
+	if ( stringStartsWith( url, '/' ) || stringStartsWith( url, './' ) ) {
+		return true;
+	}
+	if ( stringStartsWith( url, '?' ) || stringStartsWith( url, '#' ) ) {
 		return true;
 	}
 
-	// Safe if in the whitelist
-	return whitelist.indexOf( protocol ) !== -1;
+	return false;
 };
 
 /**
