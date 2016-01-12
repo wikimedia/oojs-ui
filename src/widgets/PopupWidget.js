@@ -157,7 +157,7 @@ OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
  */
 OO.ui.PopupWidget.prototype.bindMouseDownListener = function () {
 	// Capture clicks outside popup
-	OO.ui.addCaptureEventListener( this.getElementWindow(), 'mousedown', this.onMouseDownHandler );
+	this.getElementWindow().addEventListener( 'mousedown', this.onMouseDownHandler, true );
 };
 
 /**
@@ -177,7 +177,7 @@ OO.ui.PopupWidget.prototype.onCloseButtonClick = function () {
  * @private
  */
 OO.ui.PopupWidget.prototype.unbindMouseDownListener = function () {
-	OO.ui.removeCaptureEventListener( this.getElementWindow(), 'mousedown', this.onMouseDownHandler );
+	this.getElementWindow().removeEventListener( 'mousedown', this.onMouseDownHandler, true );
 };
 
 /**
@@ -203,7 +203,7 @@ OO.ui.PopupWidget.prototype.onDocumentKeyDown = function ( e ) {
  * @private
  */
 OO.ui.PopupWidget.prototype.bindKeyDownListener = function () {
-	OO.ui.addCaptureEventListener( this.getElementWindow(), 'keydown', this.onDocumentKeyDownHandler );
+	this.getElementWindow().addEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
 };
 
 /**
@@ -212,7 +212,7 @@ OO.ui.PopupWidget.prototype.bindKeyDownListener = function () {
  * @private
  */
 OO.ui.PopupWidget.prototype.unbindKeyDownListener = function () {
-	OO.ui.removeCaptureEventListener( this.getElementWindow(), 'keydown', this.onDocumentKeyDownHandler );
+	this.getElementWindow().removeEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
 };
 
 /**

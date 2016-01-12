@@ -168,8 +168,8 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 	if ( this.active !== value ) {
 		this.active = value;
 		if ( value ) {
-			OO.ui.addCaptureEventListener( this.getElementDocument(), 'mouseup', this.onBlurHandler );
-			OO.ui.addCaptureEventListener( this.getElementDocument(), 'keyup', this.onBlurHandler );
+			this.getElementDocument().addEventListener( 'mouseup', this.onBlurHandler, true );
+			this.getElementDocument().addEventListener( 'keyup', this.onBlurHandler, true );
 
 			this.$clippable.css( 'left', '' );
 			// Try anchoring the popup to the left first
@@ -197,8 +197,8 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 				} );
 			}
 		} else {
-			OO.ui.removeCaptureEventListener( this.getElementDocument(), 'mouseup', this.onBlurHandler );
-			OO.ui.removeCaptureEventListener( this.getElementDocument(), 'keyup', this.onBlurHandler );
+			this.getElementDocument().removeEventListener( 'mouseup', this.onBlurHandler, true );
+			this.getElementDocument().removeEventListener( 'keyup', this.onBlurHandler, true );
 			this.$element.removeClass(
 				'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left  oo-ui-popupToolGroup-right'
 			);
