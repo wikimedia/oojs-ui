@@ -93,7 +93,7 @@ OO.ui.Dialog.static.name = '';
  *
  * The title can be specified as a plaintext string, a {@link OO.ui.mixin.LabelElement Label} node, or a function
  * that will produce a Label node or string. The title can also be specified with data passed to the
- * constructor (see #getSetupProcess). In this case, the static value will be overriden.
+ * constructor (see #getSetupProcess). In this case, the static value will be overridden.
  *
  * @abstract
  * @static
@@ -106,7 +106,7 @@ OO.ui.Dialog.static.title = '';
  * An array of configured {@link OO.ui.ActionWidget action widgets}.
  *
  * Actions can also be specified with data passed to the constructor (see #getSetupProcess). In this case, the static
- * value will be overriden.
+ * value will be overridden.
  *
  * [2]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs#Action_sets
  *

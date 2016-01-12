@@ -181,7 +181,7 @@ OO.ui.Tool.static.autoAddToGroup = true;
 /**
  * Check if this tool is compatible with given data.
  *
- * This is a stub that can be overriden to provide support for filtering tools based on an
+ * This is a stub that can be overridden to provide support for filtering tools based on an
  * arbitrary piece of information  (e.g., where the cursor is in a document). The implementation
  * must also call this method so that the compatibility check can be performed.
  *
