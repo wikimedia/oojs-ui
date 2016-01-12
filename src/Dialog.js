@@ -136,7 +136,7 @@ OO.ui.Dialog.static.escapable = true;
  */
 OO.ui.Dialog.prototype.onDialogKeyDown = function ( e ) {
 	if ( e.which === OO.ui.Keys.ESCAPE ) {
-		this.close();
+		this.executeAction( '' );
 		e.preventDefault();
 		e.stopPropagation();
 	}
