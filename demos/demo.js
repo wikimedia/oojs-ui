@@ -133,6 +133,7 @@ OO.ui.Demo.static.themes = {
 		fileSuffix: '-apex',
 		additionalSuffixes: [
 			'-icons-movement',
+			'-icons-content',
 			'-icons-interactions',
 			'-icons-moderation',
 			'-icons-editing-core',
