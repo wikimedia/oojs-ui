@@ -1,5 +1,43 @@
 # OOjs UI Release History
 
+## v0.15.0 / 2016-01-12
+
+### Breaking changes
+* [BREAKING CHANGE] Drop Internet Explorer 8 support from JavaScript code (Ricordisamoa)
+* [BREAKING CHANGE] Delete deprecated aliases 'picture' and 'insert' (Ed Sanders)
+
+### Deprecations
+* [DEPRECATING CHANGE] Create single icon for language/translation (Ed Sanders)
+* [DEPRECATING CHANGE] Move 'redirect' icon to 'articleRedirect' and cleanup (Ed Sanders)
+* [DEPRECATING CHANGE] core: Deprecate add/removeCaptureEventListener (Bartosz Dziewoński)
+
+### Features
+* Send escape key cancel events through action handler (Alex Monk)
+
+### Styles
+* MediaWiki theme: Align variable values & properties to CSS/Less guidelines (Volker E)
+* MediaWiki theme: Align `@neutral-button-border` to CSS/Less guidelines (Volker E)
+* MediaWiki theme: Align `transition` variables with coding guidelines (Volker E)
+* MediaWiki theme: Change color value to Less variable (Volker E)
+* MediaWiki theme: Clarify `@active` variable by renaming it (Volker E)
+* MediaWiki theme: Clarify `@background` var by renaming it (Volker E)
+* MediaWiki theme: Clarify `@select` variable by renaming it (Volker E)
+* MediaWiki theme: Clarify `@text` variable by renaming it (Volker E)
+* MediaWiki theme: Consolidate stray `margin` and `padding` properties (Volker E)
+* MediaWiki theme: Remove unnecessary `@-ms-keyframes` vendor rule (Volker E)
+* MediaWiki theme: Replace fixed `invalid` color value with variable (Volker E)
+* MediaWiki theme: Unify `border` property values (Volker E)
+* MediaWiki theme: Unify `border-radius` values (Volker E)
+* MediaWiki theme: Unify `-disabled` variables usage (Volker E)
+
+### Code
+* core: Add constants for MouseEvent.which button codes (Ed Sanders)
+* demo: Remove IE 8 support (Bartosz Dziewoński)
+* build: Fix typos ("overridden") (Ed Sanders)
+* build: Bump file copyright notices for 2016 (James D. Forrester)
+* build: Update most devDependencies to latest (James D. Forrester)
+* build: Updating development dependencies (Kunal Mehta)
+
 ## v0.14.1 / 2015-12-08
 
 ### Features
