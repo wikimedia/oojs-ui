@@ -170,13 +170,13 @@
 		}
 
 		&.oo-ui-widget-enabled {
-			> .oo-ui-buttonElement-button {
+			& > .oo-ui-buttonElement-button {
 				color: @color-default;
-				background-color: @background;
+				background-color: @background-color-default;
 				border: @border-button-neutral;
 
 				&:hover {
-					background-color: darken(@background,8%);
+					background-color: darken( @background-color-default, 8% );
 				}
 
 				&:focus {
@@ -186,8 +186,8 @@
 
 			& > .oo-ui-buttonElement-button:active,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-				background-color: darken(@background,15%);
-				border-color: darken(@background,15%);
+				background-color: darken( @background-color-default, 15% );
+				border-color: darken( @background-color-default, 15% );
 				box-shadow: none;
 			}
 
@@ -281,7 +281,7 @@
 
 .mediawiki-framed-primary-button-colored( @neutral, @hover, @pressed ) {
 	> .oo-ui-buttonElement-button {
-		color: @background;
+		color: @color-default-light;
 		background-color: @neutral;
 		border-color: @neutral;
 
@@ -291,7 +291,7 @@
 		}
 
 		&:focus {
-			box-shadow: inset 0 0 0 1px @background;
+			box-shadow: @box-shadow-light-inset;
 			border-color: @neutral;
 		}
 	}
@@ -299,7 +299,7 @@
 	&.oo-ui-widget-enabled {
 		> .oo-ui-buttonElement-button:active,
 		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-			color: @background;
+			color: @color-default-light;
 			background-color: @pressed;
 			border-color: @pressed;
 			box-shadow: none;

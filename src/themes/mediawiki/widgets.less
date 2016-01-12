@@ -4,7 +4,7 @@
 
 .theme-oo-ui-outlineControlsWidget () {
 	height: 3em;
-	background-color: @background;
+	background-color: @background-color-default;
 
 	&-items,
 	&-movers {
@@ -100,7 +100,7 @@
 .theme-oo-ui-dropdownWidget () {
 	width: 100%;
 	max-width: 50em;
-	background-color: @background;
+	background-color: @background-color-default;
 
 	.oo-ui-inline-spacing(0.5em);
 
@@ -186,7 +186,7 @@
 
 	&-info {
 		height: 2.4em;
-		background-color: @background;
+		background-color: @background-color-default;
 		border: 1px solid #ccc;
 		border-radius: @border-radius-default;
 
@@ -305,7 +305,7 @@
 
 	&-dropTarget {
 		line-height: 3.5em;
-		background-color: @background;
+		background-color: @background-color-default;
 		border: 1px dashed #ccc;
 		padding: 0.5em 1em;
 		margin-bottom: 0.5em;
@@ -428,7 +428,7 @@
 	max-width: 50em;
 
 	select {
-		background-color: @background;
+		background-color: @background-color-default;
 		height: 2.275em;
 		font-size: inherit;
 		font-family: inherit;
@@ -556,7 +556,7 @@
 		margin: 0;
 		font-size: inherit;
 		font-family: inherit;
-		background-color: @background;
+		background-color: @background-color-default;
 		color: black;
 		border: 1px solid #ccc;
 		box-shadow: inset 0 0 0 0 @progressive;
@@ -694,7 +694,7 @@
 	max-width: 50em;
 
 	&-handle {
-		background-color: @background;
+		background-color: @background-color-default;
 		cursor: text;
 		min-height: 2.4em;
 
@@ -1034,14 +1034,14 @@
 	.oo-ui-selectWidget-pressed &.oo-ui-optionWidget-selected,
 	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected,
 	&.oo-ui-optionWidget-selected:hover {
-		background-color: @background;
+		background-color: @background-color-default;
         color: #333;
 	}
 }
 
 .theme-oo-ui-popupWidget () {
 	&-popup {
-		background-color: @background;
+		background-color: @background-color-default;
 		border: 1px solid #aaa;
 		border-radius: @border-radius-default;
 		box-shadow: @box-shadow-popup;
@@ -1152,7 +1152,7 @@
 .theme-oo-ui-radioSelectWidget () {}
 
 .theme-oo-ui-menuSelectWidget () {
-	background-color: @background;
+	background-color: @background-color-default;
 	margin-top: -1px;
 	border: 1px solid #aaa;
 	border-radius: 0 0 @border-radius-default @border-radius-default;
@@ -1197,7 +1197,7 @@
 	width: @travelDistance + 2em;
 	border: 1px solid @input-border-color;
 	border-radius: 1em;
-	background-color: @background;
+	background-color: @background-color-default;
 	.oo-ui-inline-spacing( 0.5em );
 	.oo-ui-transition(
 		background-color @transition-ease-quick,
@@ -1249,11 +1249,11 @@
 
 	&.oo-ui-widget-enabled {
 		&.oo-ui-toggleWidget-on {
-			background: @progressive;
+			background-color: @progressive;
 			border-color: @progressive;
 
 			.oo-ui-toggleSwitchWidget-grip {
-				background: @background;
+				background-color: @background-color-default;
 				box-shadow: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
 			}
 		}
@@ -1261,7 +1261,7 @@
 			border-color: @progressive-hover;
 
 			&.oo-ui-toggleWidget-on {
-				background: @progressive-hover;
+				background-color: @progressive-hover;
 				border-color: @progressive-hover;
 			}
 		}
@@ -1283,7 +1283,7 @@
 			border-color: @progressive;
 
 			.oo-ui-toggleSwitchWidget-grip {
-				background: @background;
+				background-color: @background-color-default;
 				box-shadow: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
 			}
 		}
@@ -1302,7 +1302,7 @@
 
 .theme-oo-ui-progressBarWidget () {
 	max-width: 50em;
-	background-color: @background;
+	background-color: @background-color-default;
 	border: 1px solid #ccc;
 	border-radius: @border-radius-default;
 	overflow: hidden;
