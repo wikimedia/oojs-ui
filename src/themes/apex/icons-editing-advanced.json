@@ -14,6 +14,10 @@
 			"rtl": "images/icons/find-rtl.svg"
 		} },
 		"insert": { "file": "images/icons/add.svg" },
+		"language": { "file": {
+			"ltr": "images/icons/language-ltr.svg",
+			"rtl": "images/icons/language-rtl.svg"
+		} },
 		"layout": { "file": {
 			"ltr": "images/icons/layout-ltr.svg",
 			"rtl": "images/icons/layout-rtl.svg"
@@ -71,8 +75,8 @@
 			"rtl": "images/icons/templateAdd-rtl.svg"
 		} },
 		"translation": { "file": {
-			"ltr": "images/icons/translation-ltr.svg",
-			"rtl": "images/icons/translation-rtl.svg"
+			"ltr": "images/icons/language-ltr.svg",
+			"rtl": "images/icons/language-rtl.svg"
 		} },
 		"wikiText": { "file": "images/icons/wikiText.svg" }
 	}

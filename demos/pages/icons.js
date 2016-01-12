@@ -111,7 +111,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'italic',
 				'strikethrough',
 				'underline',
-				'textLanguage',
 				'textDirLTR',
 				'textDirRTL',
 				'textStyle'
@@ -128,6 +127,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'alignRight',
 				'calendar',
 				'find',
+				'language',
 				'layout',
 				'newline',
 				'noWikiText',
@@ -147,7 +147,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'tableCaption',
 				'tableMergeCells',
 				'templateAdd',
-				'translation',
 				'wikiText'
 			],
 			media: [
