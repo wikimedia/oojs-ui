@@ -3,11 +3,19 @@
 
 // Theme variables
 
+@oo-ui-default-image-path: 'themes/mediawiki/images';
+
 @background-color-default: #fff;
 @background-color-active: #999;
-
 @background-color-selected: #d8e6fe;
+@background-color-pressed: #d0d0d0;
 
+@color-default: #555;
+@color-default-pressed: #444;
+@color-default-light: #fff;
+@color-emphasized: #000;
+
+// Primary, Secondary and 'Destructive' Colors
 @progressive: #347bff;
 @progressive-hover: #2962cc;
 @progressive-selected: #1f4999;
@@ -23,11 +31,7 @@
 @destructive-selected: #73100a;
 @destructive-fade: rgba( 209, 29, 19, 0.1 );
 
-@color-default: #555;
-@color-default-pressed: #444;
-@background-color-pressed: #d0d0d0;
-@color-default-light: #fff;
-
+// Disabled Widgets
 @background-color-disabled: #f3f3f3;
 @background-color-filled-disabled: #ddd;
 @color-disabled: #ccc;
@@ -35,11 +39,10 @@
 @border-color-disabled: #ddd;
 @opacity-disabled: 0.2;
 
+// Invalid Widget (validation error feedback)
 @color-invalid: #f00;
 
 @border-button-neutral: 1px solid #cdcdcd;
-
-@oo-ui-default-image-path: 'themes/mediawiki/images';
 
 @input-border-color: #777;
 @input-active-color: #ccc;
@@ -60,7 +63,7 @@
 @text-shadow-default: 0 1px 1px #fff; // 'coined' effect
 @text-shadow-disabled: @text-shadow-default;
 
-// Theme transition variables
+// Transition variables
 @transition-ease-quick: 100ms ease;
 @transition-ease-medium: 250ms ease;
 @transition-ease-out-back-medium: 200ms cubic-bezier( 0.175, 0.885, 0.32, 1.275 );
