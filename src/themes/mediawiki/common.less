@@ -27,10 +27,11 @@
 @color-default-pressed: #444;
 @background-color-pressed: #d0d0d0;
 
-@background-color-disabled: #ddd;
+@background-color-disabled: #f3f3f3;
+@background-color-filled-disabled: #ddd;
 @color-disabled: #ccc;
 @color-disabled-framed: #fff;
-@border-color-disabled: @background-color-disabled;
+@border-color-disabled: #ddd;
 @opacity-disabled: 0.2;
 
 @color-invalid: #f00;
@@ -40,8 +41,7 @@
 @oo-ui-default-image-path: 'themes/mediawiki/images';
 
 @input-border-color: #777;
-@input-active-color: #ddd;
-@input-disabled-color: #eee;
+@input-active-color: #ccc;
 @input-hover-border-bottom-width: 3px;
 @input-focus-border-width: 2px;
 @input-size: 1.6em;
@@ -54,6 +54,9 @@
 
 @icon-size: unit( 24 / 16 / 0.8, em );
 @indicator-size: unit( 12 / 16 / 0.8, em );
+
+@text-shadow-default: 0 1px 1px #fff; // 'coined' effect
+@text-shadow-disabled: @text-shadow-default;
 
 // Theme transition variables
 @transition-ease-quick: 100ms ease;
