@@ -136,6 +136,11 @@
 			"src/themes/apex/icons-movement.json"
 		]
 	},
+	"oojs-ui-apex-icons-content": {
+		"styles": [
+			"src/themes/apex/icons-content.json"
+		]
+	},
 	"oojs-ui-apex-icons-interactions": {
 		"styles": [
 			"src/themes/apex/icons-interactions.json"

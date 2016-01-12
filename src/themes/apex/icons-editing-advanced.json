@@ -22,10 +22,6 @@
 			"ltr": "images/icons/newline-ltr.svg",
 			"rtl": "images/icons/newline-rtl.svg"
 		} },
-		"redirect": { "file": {
-			"ltr": "images/icons/redirect-ltr.svg",
-			"rtl": "images/icons/redirect-rtl.svg"
-		} },
 		"noWikiText": { "file": {
 			"ltr": "images/icons/noWikiText-ltr.svg",
 			"rtl": "images/icons/noWikiText-rtl.svg"
@@ -47,8 +43,8 @@
 			"rtl": "images/icons/quotesAdd-rtl.svg"
 		} },
 		"redirect": { "file": {
-			"ltr": "images/icons/redirect-ltr.svg",
-			"rtl": "images/icons/redirect-rtl.svg"
+			"ltr": "images/icons/articleRedirect-ltr.svg",
+			"rtl": "images/icons/articleRedirect-rtl.svg"
 		} },
 		"searchCaseSensitive": { "file": "images/icons/case-sensitive.svg" },
 		"searchRegularExpression": { "file": "images/icons/regular-expression.svg" },
