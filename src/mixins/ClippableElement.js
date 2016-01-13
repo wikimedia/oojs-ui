@@ -215,8 +215,8 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		ccWidth + ccOffset.left :
 		( scOffset.left + scrollLeft + scWidth ) - ccOffset.left;
 	desiredHeight = ( scOffset.top + scrollTop + scHeight ) - ccOffset.top;
-	allotedWidth = desiredWidth - extraWidth;
-	allotedHeight = desiredHeight - extraHeight;
+	allotedWidth = Math.ceil( desiredWidth - extraWidth );
+	allotedHeight = Math.ceil( desiredHeight - extraHeight );
 	naturalWidth = this.$clippable.prop( 'scrollWidth' );
 	naturalHeight = this.$clippable.prop( 'scrollHeight' );
 	clipWidth = allotedWidth < naturalWidth;
