@@ -8,16 +8,16 @@
 			"global": true
 		},
 		"progressive": {
-			"color": "#347bff"
+			"color": "#165c91"
 		},
 		"constructive": {
-			"color": "#347bff"
+			"color": "#165c91"
 		},
 		"constructive-deprecated": {
 			"color": "#00af89"
 		},
 		"destructive": {
-			"color": "#d11d13"
+			"color": "#ab1f1d"
 		},
 		"warning": {
 			"color": "#ff5d00"
