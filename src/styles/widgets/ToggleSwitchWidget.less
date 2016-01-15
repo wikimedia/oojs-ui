@@ -5,20 +5,17 @@
 	display: inline-block;
 	vertical-align: middle;
 	overflow: hidden;
-	cursor: pointer;
+	.oo-ui-box-sizing( border-box );
+	.oo-ui-transform( translateZ( 0 ) );
 
-	.oo-ui-box-sizing(border-box);
-	.oo-ui-transform(translateZ(0px));
-
-	&.oo-ui-widget-disabled {
-		cursor: default;
+	&.oo-ui-widget-enabled {
+		cursor: pointer;
 	}
 
 	&-grip {
 		position: absolute;
 		display: block;
-
-		.oo-ui-box-sizing(border-box);
+		.oo-ui-box-sizing( border-box );
 	}
 
 	.oo-ui-toggleSwitchWidget-glow {

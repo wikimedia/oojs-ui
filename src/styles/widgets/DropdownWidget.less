@@ -7,7 +7,6 @@
 	&-handle {
 		width: 100%;
 		display: inline-block;
-		cursor: pointer;
 
 		.oo-ui-unselectable();
 		.oo-ui-box-sizing(border-box);
@@ -23,8 +22,8 @@
 		width: 100%;
 	}
 
-	&.oo-ui-widget-disabled .oo-ui-dropdownWidget-handle {
-		cursor: default;
+	&.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle {
+		cursor: pointer;
 	}
 
 	.theme-oo-ui-dropdownWidget();
