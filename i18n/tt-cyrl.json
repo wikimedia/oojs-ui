@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ajdar"
+			"Ajdar",
+			"Ильнар"
 		]
 	},
 	"ooui-outline-control-move-down": "Элементны аска күчерү",
-	"ooui-outline-control-move-up": "Элементны өскә күчерү"
+	"ooui-outline-control-move-up": "Элементны өскә күчерү",
+	"ooui-selectfile-button-select": "Файлны сайлагыз",
+	"ooui-selectfile-placeholder": "Файл сайланмаган"
 }
