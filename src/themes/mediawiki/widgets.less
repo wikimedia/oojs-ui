@@ -604,6 +604,9 @@
 				box-shadow @transition-ease-out-sine-medium
 			);
 
+			&:hover {
+				border-color: @border-color-default-hover;
+			}
 			&:focus {
 				outline: 0;
 				border-color: @color-progressive;
@@ -614,6 +617,9 @@
 				color: #777;
 				text-shadow: @text-shadow-default;
 
+				&:hover {
+					border-color: #ccc;
+				}
 				&:focus {
 					border-color: #ccc;
 					box-shadow: inset 0 0 0 0.1em #ccc;
@@ -646,6 +652,9 @@
 			textarea {
 				border-color: @color-invalid;
 
+				&:hover {
+					border-color: @color-invalid;
+				}
 				&:focus {
 					border-color: @color-invalid;
 					box-shadow: inset 0 0 0 0.1em @color-invalid;
