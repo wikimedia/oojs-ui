@@ -58,11 +58,21 @@
 		> .oo-ui-indicatorElement-indicator {
 			cursor: text;
 		}
+
+		&.oo-ui-textInputWidget-type-search {
+			> .oo-ui-indicatorElement-indicator {
+				cursor: pointer;
+			}
+		}
 	}
 
-	&.oo-ui-widget-enabled.oo-ui-textInputWidget-type-search {
-		> .oo-ui-indicatorElement-indicator {
-			cursor: pointer;
+	&.oo-ui-widget-disabled {
+		input,
+		textarea {
+			.oo-ui-unselectable();
+		}
+		& .oo-ui-labelElement-label {
+			.oo-ui-unselectable();
 		}
 	}
 

@@ -940,6 +940,16 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
+						value: 'Disabled',
+						disabled: true
+					} ),
+					{
+						label: 'TextInputWidget (disabled)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
 						multiline: true,
 						value: 'Multiline\nMultiline'
 					} ),
