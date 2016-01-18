@@ -62,6 +62,11 @@
 		> .oo-ui-selectFileWidget-clearButton {
 			position: absolute;
 		}
+
+		.oo-ui-widget-disabled & {
+			cursor: default;
+			.oo-ui-unselectable();
+		}
 	}
 
 	.oo-ui-selectFileWidget-clearButton {
@@ -163,6 +168,10 @@
 
 	&-empty.oo-ui-widget-disabled,
 	&-notsupported {
+		.oo-ui-selectFileWidget-dropTarget {
+			.oo-ui-unselectable();
+		}
+
 		.oo-ui-selectFileWidget-dropTarget,
 		.oo-ui-selectFileWidget-dropTarget .oo-ui-buttonElement-button {
 			cursor: no-drop;
