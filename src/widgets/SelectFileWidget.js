@@ -26,6 +26,8 @@
  * @cfg {boolean} [droppable=true] Whether to accept files by drag and drop.
  * @cfg {boolean} [showDropTarget=false] Whether to show a drop target. Requires droppable to be true.
  * @cfg {boolean} [dragDropUI=false] Deprecated alias for showDropTarget
+ * @cfg {Number} [thumbnailSizeLimit=20] File size limit in MiB above which to not try and show a
+ *  preview (for performance)
  */
 OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	var dragHandler;
@@ -41,7 +43,8 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 		placeholder: OO.ui.msg( 'ooui-selectfile-placeholder' ),
 		notsupported: OO.ui.msg( 'ooui-selectfile-not-supported' ),
 		droppable: true,
-		showDropTarget: false
+		showDropTarget: false,
+		thumbnailSizeLimit: 20
 	}, config );
 
 	// Parent constructor
@@ -55,9 +58,8 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 
 	// Properties
 	this.$info = $( '<span>' );
-
-	// Properties
 	this.showDropTarget = config.showDropTarget;
+	this.thumbnailSizeLimit = config.thumbnailSizeLimit;
 	this.isSupported = this.constructor.static.isSupported();
 	this.currentFile = null;
 	if ( Array.isArray( config.accept ) ) {
@@ -78,7 +80,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	this.clearButton = new OO.ui.ButtonWidget( {
 		classes: [ 'oo-ui-selectFileWidget-clearButton' ],
 		framed: false,
-		icon: 'remove',
+		icon: 'close',
 		disabled: this.disabled
 	} );
 
@@ -101,23 +103,35 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 
 	// Initialization
 	this.addInput();
-	this.updateUI();
 	this.$label.addClass( 'oo-ui-selectFileWidget-label' );
 	this.$info
 		.addClass( 'oo-ui-selectFileWidget-info' )
 		.append( this.$icon, this.$label, this.clearButton.$element, this.$indicator );
-	this.$element
-		.addClass( 'oo-ui-selectFileWidget' )
-		.append( this.$info, this.selectButton.$element );
+
 	if ( config.droppable && config.showDropTarget ) {
+		this.selectButton.setIcon( 'upload' );
+		this.$thumbnail = $( '<div>' ).addClass( 'oo-ui-selectFileWidget-thumbnail' );
+		this.setPendingElement( this.$thumbnail );
 		this.$dropTarget = $( '<div>' )
 			.addClass( 'oo-ui-selectFileWidget-dropTarget' )
-			.text( OO.ui.msg( 'ooui-selectfile-dragdrop-placeholder' ) )
 			.on( {
 				click: this.onDropTargetClick.bind( this )
-			} );
-		this.$element.prepend( this.$dropTarget );
+			} )
+			.append(
+				this.$thumbnail,
+				this.$info,
+				this.selectButton.$element,
+				$( '<span>' )
+					.addClass( 'oo-ui-selectFileWidget-dropLabel' )
+					.text( OO.ui.msg( 'ooui-selectfile-dragdrop-placeholder' ) )
+			);
+		this.$element.append( this.$dropTarget );
+	} else {
+		this.$element
+			.addClass( 'oo-ui-selectFileWidget' )
+			.append( this.$info, this.selectButton.$element );
 	}
+	this.updateUI();
 };
 
 /* Setup */
@@ -222,11 +236,75 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 				);
 			}
 			this.setLabel( $label );
+
+			if ( this.showDropTarget ) {
+				this.pushPending();
+				this.loadAndGetImageUrl().done( function ( url ) {
+					this.$thumbnail.css( 'background-image', 'url( ' + url + ' )' );
+				}.bind( this ) ).fail( function () {
+					this.$thumbnail.append(
+						new OO.ui.IconWidget( {
+							icon: 'attachment',
+							classes: [ 'oo-ui-selectFileWidget-noThumbnail-icon' ]
+						} ).$element
+					);
+				}.bind( this ) ).always( function () {
+					this.popPending();
+				}.bind( this ) );
+				this.$dropTarget.off( 'click' );
+			}
 		} else {
+			if ( this.showDropTarget ) {
+				this.$dropTarget.off( 'click' );
+				this.$dropTarget.on( {
+					click: this.onDropTargetClick.bind( this )
+				} );
+				this.$thumbnail
+					.empty()
+					.css( 'background-image', '' );
+			}
 			this.$element.addClass( 'oo-ui-selectFileWidget-empty' );
 			this.setLabel( this.placeholder );
 		}
 	}
+};
+
+/**
+ * Get the URL of the image if the selected file is one
+ *
+ * @return {jQuery.Promise} Promise resolves with the image URL
+ */
+OO.ui.SelectFileWidget.prototype.loadAndGetImageUrl = function () {
+	var deferred = $.Deferred(),
+		file = this.currentFile,
+		reader = new FileReader();
+
+	if (
+		file &&
+		( OO.getProp( file, 'type' ) || '' ).indexOf( 'image/' ) === 0 &&
+		file.size < this.thumbnailSizeLimit * 1024 * 1024
+	) {
+		reader.onload = function ( event ) {
+			var img = document.createElement( 'img' );
+			img.addEventListener( 'load', function () {
+				if (
+					img.naturalWidth === 0 ||
+					img.naturalHeight === 0 ||
+					img.complete === false
+				) {
+					deferred.reject();
+				} else {
+					deferred.resolve( event.target.result );
+				}
+			} );
+			img.src = event.target.result;
+		};
+		reader.readAsDataURL( file );
+	} else {
+		deferred.reject();
+	}
+
+	return deferred.promise();
 };
 
 /**
@@ -246,6 +324,11 @@ OO.ui.SelectFileWidget.prototype.addInput = function () {
 
 	this.$input = $( '<input type="file">' );
 	this.$input.on( 'change', this.onFileSelectedHandler );
+	this.$input.on( 'click', function ( e ) {
+		// Prevents dropTarget to get clicked which calls
+		// a click on this input
+		e.stopPropagation();
+	} );
 	this.$input.attr( {
 		tabindex: -1
 	} );
