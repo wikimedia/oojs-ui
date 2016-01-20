@@ -209,10 +209,18 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 		if ( this.currentFile ) {
 			this.$element.removeClass( 'oo-ui-selectFileWidget-empty' );
 			$label = $( [] );
+			$label = $label.add(
+				$( '<span>' )
+					.addClass( 'oo-ui-selectFileWidget-fileName' )
+					.text( this.currentFile.name )
+			);
 			if ( this.currentFile.type !== '' ) {
-				$label = $label.add( $( '<span>' ).addClass( 'oo-ui-selectFileWidget-fileType' ).text( this.currentFile.type ) );
+				$label = $label.add(
+					$( '<span>' )
+						.addClass( 'oo-ui-selectFileWidget-fileType' )
+						.text( this.currentFile.type )
+				);
 			}
-			$label = $label.add( $( '<span>' ).text( this.currentFile.name ) );
 			this.setLabel( $label );
 		} else {
 			this.$element.addClass( 'oo-ui-selectFileWidget-empty' );
