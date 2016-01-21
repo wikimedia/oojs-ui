@@ -25,17 +25,11 @@
  * @cfg {string} [notsupported] Text to display when file support is missing in the browser.
  * @cfg {boolean} [droppable=true] Whether to accept files by drag and drop.
  * @cfg {boolean} [showDropTarget=false] Whether to show a drop target. Requires droppable to be true.
- * @cfg {boolean} [dragDropUI=false] Deprecated alias for showDropTarget
  * @cfg {Number} [thumbnailSizeLimit=20] File size limit in MiB above which to not try and show a
  *  preview (for performance)
  */
 OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	var dragHandler;
-
-	// TODO: Remove in next release
-	if ( config && config.dragDropUI ) {
-		config.showDropTarget = true;
-	}
 
 	// Configuration initialization
 	config = $.extend( {
