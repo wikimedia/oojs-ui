@@ -705,7 +705,7 @@ OO.ui.TextInputWidget.prototype.isValid = function () {
  * @return {jQuery.Promise} A promise that resolves if the value is valid, rejects if not.
  */
 OO.ui.TextInputWidget.prototype.getValidity = function () {
-	var result, promise;
+	var result;
 
 	function rejectOrResolve( valid ) {
 		if ( valid ) {
@@ -717,21 +717,10 @@ OO.ui.TextInputWidget.prototype.getValidity = function () {
 
 	if ( this.validate instanceof Function ) {
 		result = this.validate( this.getValue() );
-
 		if ( result && $.isFunction( result.promise ) ) {
-			promise = $.Deferred();
-
-			result.then( function ( valid ) {
-				if ( valid ) {
-					promise.resolve();
-				} else {
-					promise.reject();
-				}
-			}, function () {
-				promise.reject();
+			return result.promise().then( function ( valid ) {
+				return rejectOrResolve( valid );
 			} );
-
-			return promise.promise();
 		} else {
 			return rejectOrResolve( result );
 		}
