@@ -686,7 +686,7 @@ OO.ui.TextInputWidget.prototype.isValid = function () {
 
 	if ( this.validate instanceof Function ) {
 		result = this.validate( this.getValue() );
-		if ( $.isFunction( result.promise ) ) {
+		if ( result && $.isFunction( result.promise ) ) {
 			return result.promise();
 		} else {
 			return $.Deferred().resolve( !!result ).promise();
@@ -718,7 +718,7 @@ OO.ui.TextInputWidget.prototype.getValidity = function () {
 	if ( this.validate instanceof Function ) {
 		result = this.validate( this.getValue() );
 
-		if ( $.isFunction( result.promise ) ) {
+		if ( result && $.isFunction( result.promise ) ) {
 			promise = $.Deferred();
 
 			result.then( function ( valid ) {
