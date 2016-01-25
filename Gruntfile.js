@@ -405,10 +405,10 @@ module.exports = function ( grunt ) {
 		grunt.log.warn( 'You have built a no-frills, SVG-only, LTR-only version for development; some things will be broken.' );
 	} );
 
-	grunt.registerTask( 'build-code', [ 'concat:js', 'uglify' ] );
+	grunt.registerTask( 'build-code', [ 'concat:js' ] );
 	grunt.registerTask( 'build-styling', [
 		'colorizeSvg', 'less', 'cssjanus',
-		'concat:css', 'concat:demoCss', 'csscomb', 'cssmin',
+		'concat:css', 'concat:demoCss', 'csscomb',
 		'copy:imagesCommon', 'copy:imagesApex', 'copy:imagesMediaWiki', 'svg2png'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
@@ -429,6 +429,9 @@ module.exports = function ( grunt ) {
 		'build-i18n', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
 	] );
+
+	// Completely useless stuff that we pretend to support
+	grunt.registerTask( 'minify', [ 'uglify', 'cssmin' ] );
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'lint', 'git-build', 'build-tests', 'karma:main', 'karma:other' ] );
