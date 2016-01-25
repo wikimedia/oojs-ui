@@ -5,7 +5,6 @@
 @oo-ui-toolbar-active: #e5e5e5;
 @oo-ui-toolbar-active-hover: #eee;
 @oo-ui-toolbar-pressed: #e7e7e7;
-@oo-ui-toolbar-bar-text: #555;
 
 .theme-oo-ui-toolbar () {
 	&-bar {
@@ -13,7 +12,7 @@
 		background-color: @oo-ui-toolbar-normal;
 		box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.1 );
 		font-weight: 500;
-		color: @oo-ui-toolbar-bar-text;
+		color: @color-default;
 
 		.oo-ui-toolbar-bar {
 			border: 0;
@@ -120,7 +119,7 @@
 		}
 
 		> a.oo-ui-tool-link .oo-ui-tool-title {
-			color: @oo-ui-toolbar-bar-text;
+			color: @color-default;
 		}
 
 		&.oo-ui-tool-active {
@@ -300,7 +299,7 @@
 
 		.oo-ui-tool-title {
 			padding-left: 0.5em;
-			color: @oo-ui-toolbar-bar-text;
+			color: @color-default;
 		}
 
 		.oo-ui-tool-accel,
