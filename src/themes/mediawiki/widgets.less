@@ -343,7 +343,7 @@
 
 .theme-oo-ui-checkboxInputWidget () {
 	position: relative;
-	line-height: @input-size;
+	line-height: @size-input-binary;
 	// Prevent the fake span from jumping to the next line of text
 	white-space: nowrap;
 
@@ -366,8 +366,8 @@
 		margin: 0;
 
 		// Ensure the invisible input takes up the required width
-		width: @input-size;
-		height: @input-size;
+		width: @size-input-binary;
+		height: @size-input-binary;
 
 		// Needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
 		max-width: none;
@@ -378,10 +378,10 @@
 			position: absolute;
 			left: 0;
 			border-radius: @border-radius-default;
-			width: @input-size;
-			height: @input-size;
+			width: @size-input-binary;
+			height: @size-input-binary;
 			background-color: white;
-			border: 1px solid @input-border-color;
+			border: @border-input-binary;
 			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/check-constructive' );
 			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/check-constructive' );
 			background-repeat: no-repeat;
@@ -395,17 +395,17 @@
 		}
 
 		&:active + span {
-			background-color: @input-active-color;
-			border-color: @input-active-color;
+			background-color: @background-color-input-binary-active;
+			border-color: @border-color-input-binary-active;
 		}
 
 		&:focus + span {
-			border-width: @input-focus-border-width;
+			border-width: @border-width-input-binary-focus;
 		}
 
 		&:focus:hover + span,
 		&:hover + span {
-			border-bottom-width: @input-hover-border-bottom-width;
+			border-bottom-width: @border-bottom-width-input-binary-hover;
 		}
 
 		&:disabled {
@@ -459,7 +459,7 @@
 
 .theme-oo-ui-radioInputWidget () {
 	position: relative;
-	line-height: @input-size;
+	line-height: @size-input-binary;
 	// Prevent the fake span from jumping to the next line of text
 	white-space: nowrap;
 
@@ -482,8 +482,8 @@
 		margin: 0;
 
 		// Ensure the invisible input takes up the required width
-		width: @input-size;
-		height: @input-size;
+		width: @size-input-binary;
+		height: @size-input-binary;
 
 		// Needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
 		max-width: none;
@@ -494,10 +494,10 @@
 			position: absolute;
 			left: 0;
 			border-radius: 100%;
-			width: @input-size;
-			height: @input-size;
+			width: @size-input-binary;
+			height: @size-input-binary;
 			background: white;
-			border: 1px solid @input-border-color;
+			border: @border-input-binary;
 			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/circle-constructive' );
 			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/circle-constructive' );
 			background-repeat: no-repeat;
@@ -511,17 +511,17 @@
 		}
 
 		&:active + span {
-			background-color: @input-active-color;
-			border-color: @input-active-color;
+			background-color: @background-color-input-binary-active;
+			border-color: @border-color-input-binary-active;
 		}
 
 		&:focus + span {
-			border-width: @input-focus-border-width;
+			border-width: @border-width-input-binary-focus;
 		}
 
 		&:focus:hover + span,
 		&:hover + span {
-			border-bottom-width: @input-hover-border-bottom-width;
+			border-bottom-width: @border-bottom-width-input-binary-hover;
 		}
 
 		&:disabled {
@@ -1193,7 +1193,7 @@
 	@travelDistance: 1.5em;
 	height: 2em;
 	width: @travelDistance + 2em;
-	border: 1px solid @input-border-color;
+	border: @border-input-binary;
 	border-radius: 1em;
 	background-color: @background-color-default;
 	.oo-ui-inline-spacing( 0.5em );
