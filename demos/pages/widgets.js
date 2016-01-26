@@ -1480,7 +1480,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						label: new OO.ui.HtmlSnippet( '<b>Fancy</b> <i>text</i> <u>formatting</u>!' )
 					} ),
 					{
-						label: 'LabelWidget (with html)\u200E',
+						label: 'LabelWidget (with HTML)\u200E',
 						align: 'top'
 					}
 				),
@@ -1757,7 +1757,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			action: 'widgets.php',
 			items: [
 				new OO.ui.FieldsetLayout( {
-					label: 'Form layout',
+					label: 'Form layout (compounded example)',
 					items: [
 						new OO.ui.FieldLayout(
 							new OO.ui.TextInputWidget( {
@@ -1776,6 +1776,73 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 							{
 								label: 'Password',
 								align: 'top'
+							}
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.ButtonSelectWidget( {
+								items: [
+									new OO.ui.ButtonOptionWidget( {
+										label: 'One'
+									} ),
+									new OO.ui.ButtonOptionWidget( {
+										label: 'Two'
+									} ),
+									new OO.ui.ButtonOptionWidget( {
+										indicator: 'required',
+										label: 'Three'
+									} )
+								]
+							} ),
+							{
+								label: 'Select one of multiple ButtonSelectWidget Buttons',
+								align: 'top'
+							}
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.SelectFileWidget( {} ),
+							{
+								label: 'Select a file with SelectFileWidget\u200E',
+								align: 'top'
+							}
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.CapsuleMultiSelectWidget( {
+								menu: {
+									items: [
+										new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Abc Label' } ),
+										new OO.ui.MenuOptionWidget( { data: 'def', label: 'Def Label' } ),
+										new OO.ui.MenuOptionWidget( { data: 'ghi', label: 'Ghi Label' } )
+									]
+								}
+							} ).addItemsFromData( [ 'abc', 'def' ] ),
+							{
+								label: 'Select from multiple CapsuleMultiSelectWidget items\u200E',
+								align: 'top'
+							}
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.RadioSelectWidget( {
+								items: [
+									new OO.ui.RadioOptionWidget( {
+										data: 'mouse',
+										label: 'Mouse'
+									} ),
+									new OO.ui.RadioOptionWidget( {
+										data: 'elephant',
+										label: 'Elephant'
+									} )
+								]
+							} ),
+							{
+								align: 'top',
+								label: 'Toggle the RadioSelectWidget'
+							}
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.ToggleSwitchWidget( { value: true } ),
+							{
+								label: 'Switch the ToggleSwitchWidget (checked)',
+								align: 'right'
 							}
 						),
 						new OO.ui.FieldLayout(
@@ -1800,6 +1867,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 								label: null,
 								align: 'top'
 							}
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.ButtonWidget( {
+								framed: false,
+								flags: [ 'constructive' ],
+								label: 'Constructive feedback'
+							} )
 						)
 					]
 				} )
