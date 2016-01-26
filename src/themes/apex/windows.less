@@ -290,8 +290,6 @@
 		.oo-ui-transition(opacity @medium-ease);
 
 		> .oo-ui-window-frame {
-			top: 1em;
-			bottom: 1em;
 			background-color: #fff;
 
 			opacity: 0;
@@ -314,6 +312,8 @@
 	}
 
 	&-modal&-floating > .oo-ui-dialog > .oo-ui-window-frame {
+		top: 1em;
+		bottom: 1em;
 		border: 1px solid #ccc;
 		border-radius: 0.5em;
 		box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
