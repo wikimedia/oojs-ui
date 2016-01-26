@@ -1,5 +1,45 @@
 # OOjs UI Release History
 
+## v0.15.1 / 2016-01-26
+
+### Features
+* Really filter out unsafe URLs, but don't throw silly exceptions (Bartosz Dziewoński)
+* ClippableElement: Try to prevent unnecessary scrollbars (Bartosz Dziewoński)
+* Dialog: Don't set `overflow:hidden;` on `.oo-ui-window-body` elements (Alex Monk)
+* TextInputWidget: Don't fail if 'validate' function returns null (Bartosz Dziewoński)
+
+### Styles
+* WindowManager: Only apply `top: 1em; bottom: 1em;` to non-fullscreen windows (Bartosz Dziewoński)
+* Align mixin whitespace to CSS/Less coding guidelines (Volker E)
+* Enable `cursor: pointer` just on enabled widgets (Volker E)
+* Apex, MediaWiki themes: Fix size of templateAdd icon (Ed Sanders)
+* Apex, MediaWiki themes: Quotes icon fixes (Ed Sanders)
+* Apex, MediaWiki themes: Re-crush SVGs, removing useless ID values and empty groups (James D. Forrester)
+* Apex theme: Fix FieldLayout padding in inline mode (Ed Sanders)
+* Apex theme: NumberInputWidget: Fix width of +/- buttons (Ed Sanders)
+* MediaWiki theme: Add invert variant to 'accessibility' icon pack icons (Bartosz Dziewoński)
+* MediaWiki theme: Align `@input-*` vars to coding guidelines (Volker E)
+* MediaWiki theme: Align `rgba()` values to CSS/Less guidelines (Volker E)
+* MediaWiki theme: Align size variables to CSS/Less guidelines (Volker E)
+* MediaWiki theme: Consolidate emphasized color values into variable (Volker E)
+* MediaWiki theme: Establish new `@border-default` variable (Volker E)
+* MediaWiki theme: Make icon variants actually work for all icons (Bartosz Dziewoński)
+* MediaWiki theme: Make transition of text input fields smoother (Volker E)
+* MediaWiki theme: Merge `@oo-ui-toolbar-bar-text` & `@color-default` vars (Volker E)
+* MediaWiki theme: Replace fixed & consolidate disabled values with vars (Volker E)
+* MediaWiki theme: Update avatar icon (Pau Giner)
+
+### Code
+* NumberInputWidget: Replace `box-sizing` property with mixin as anywhere else (Volker E)
+* SelectFileWidget: Order name and type spans in the order they are shown (Prateek Saxena)
+* TextInputWidget: Simplify `#getValidity` (Bartosz Dziewoński)
+* README: Add a 'Contributing' section (James D. Forrester)
+* build: Don't generate .min.js and .min.css files by default (Bartosz Dziewoński)
+* build: Only build one graphics distribution (mixed/vector/raster), not all (Bartosz Dziewoński)
+* build: Update jakub-onderka/php-parallel-lint to 0.9.2 (Paladox)
+* build: Update mediawiki/mediawiki-codesniffer to 0.5.1 (Paladox)
+* demo: Extend compounded form in widget.js demo (Volker E)
+
 ## v0.15.0 / 2016-01-12
 
 ### Breaking changes
