@@ -31,11 +31,6 @@ OO.ui.Demo = function OoUiDemo() {
 		new OO.ui.ButtonOptionWidget( { data: 'mediawiki', label: 'MediaWiki' } ),
 		new OO.ui.ButtonOptionWidget( { data: 'apex', label: 'Apex' } )
 	] );
-	this.graphicsSelect = new OO.ui.ButtonSelectWidget().addItems( [
-		new OO.ui.ButtonOptionWidget( { data: 'mixed', label: 'Mixed' } ),
-		new OO.ui.ButtonOptionWidget( { data: 'vector', label: 'Vector' } ),
-		new OO.ui.ButtonOptionWidget( { data: 'raster', label: 'Raster' } )
-	] );
 	this.directionSelect = new OO.ui.ButtonSelectWidget().addItems( [
 		new OO.ui.ButtonOptionWidget( { data: 'ltr', label: 'LTR' } ),
 		new OO.ui.ButtonOptionWidget( { data: 'rtl', label: 'RTL' } )
@@ -46,7 +41,6 @@ OO.ui.Demo = function OoUiDemo() {
 			label: 'PHP',
 			href: 'widgets.php' +
 				'?theme=' + this.mode.theme +
-				'&graphic=' + this.mode.graphics +
 				'&direction=' + this.mode.direction
 		} )
 	] );
@@ -54,20 +48,17 @@ OO.ui.Demo = function OoUiDemo() {
 	// Events
 	this.pageMenu.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.themeSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
-	this.graphicsSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.directionSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 
 	// Initialization
 	this.pageMenu.selectItemByData( this.mode.page );
 	this.themeSelect.selectItemByData( this.mode.theme );
-	this.graphicsSelect.selectItemByData( this.mode.graphics );
 	this.directionSelect.selectItemByData( this.mode.direction );
 	this.$menu
 		.addClass( 'oo-ui-demo-menu' )
 		.append(
 			this.pageDropdown.$element,
 			this.themeSelect.$element,
-			this.graphicsSelect.$element,
 			this.directionSelect.$element,
 			this.jsPhpSelect.$element
 		);
@@ -147,21 +138,6 @@ OO.ui.Demo.static.themes = {
 };
 
 /**
- * Available graphics formats.
- *
- * List of graphics format descriptions, each containing a `fileSuffix` property used for linking
- * to the correct stylesheet file.
- *
- * @static
- * @property {Object.<string,Object>}
- */
-OO.ui.Demo.static.graphics = {
-	mixed: { fileSuffix: '' },
-	vector: { fileSuffix: '.vector' },
-	raster: { fileSuffix: '.raster' }
-};
-
-/**
  * Available text directions.
  *
  * List of text direction descriptions, each containing a `fileSuffix` property used for linking to
@@ -203,16 +179,6 @@ OO.ui.Demo.static.defaultTheme = 'mediawiki';
  * @static
  * @property {string}
  */
-OO.ui.Demo.static.defaultGraphics = 'mixed';
-
-/**
- * Default page.
- *
- * Set by one of the page scripts in the `pages` directory.
- *
- * @static
- * @property {string}
- */
 OO.ui.Demo.static.defaultDirection = 'ltr';
 
 /* Methods */
@@ -242,10 +208,9 @@ OO.ui.Demo.prototype.initialize = function () {
 OO.ui.Demo.prototype.onModeChange = function () {
 	var page = this.pageMenu.getSelectedItem().getData(),
 		theme = this.themeSelect.getSelectedItem().getData(),
-		direction = this.directionSelect.getSelectedItem().getData(),
-		graphics = this.graphicsSelect.getSelectedItem().getData();
+		direction = this.directionSelect.getSelectedItem().getData();
 
-	location.hash = '#' + [ page, theme, graphics, direction ].join( '-' );
+	location.hash = '#' + [ page, theme, direction ].join( '-' );
 };
 
 /**
@@ -254,14 +219,14 @@ OO.ui.Demo.prototype.onModeChange = function () {
  * Factors are a mapping between symbolic names used in the URL hash and internal information used
  * to act on those symbolic names.
  *
- * Factor lists are in URL order: page, theme, graphics, direction. Page contains the symbolic
+ * Factor lists are in URL order: page, theme, direction. Page contains the symbolic
  * page name, others contain file suffixes.
  *
  * @return {Object[]} List of mode factors, keyed by symbolic name
  */
 OO.ui.Demo.prototype.getFactors = function () {
 	var key,
-		factors = [ {}, {}, {}, {} ];
+		factors = [ {}, {}, {} ];
 
 	for ( key in this.constructor.static.pages ) {
 		factors[ 0 ][ key ] = key;
@@ -269,11 +234,8 @@ OO.ui.Demo.prototype.getFactors = function () {
 	for ( key in this.constructor.static.themes ) {
 		factors[ 1 ][ key ] = this.constructor.static.themes[ key ].fileSuffix;
 	}
-	for ( key in this.constructor.static.graphics ) {
-		factors[ 2 ][ key ] = this.constructor.static.graphics[ key ].fileSuffix;
-	}
 	for ( key in this.constructor.static.directions ) {
-		factors[ 3 ][ key ] = this.constructor.static.directions[ key ].fileSuffix;
+		factors[ 2 ][ key ] = this.constructor.static.directions[ key ].fileSuffix;
 	}
 
 	return factors;
@@ -282,7 +244,7 @@ OO.ui.Demo.prototype.getFactors = function () {
 /**
  * Get a list of default factors.
  *
- * Factor defaults are in URL order: page, theme, graphics, direction. Each contains a symbolic
+ * Factor defaults are in URL order: page, theme, direction. Each contains a symbolic
  * factor name which should be used as a fallback when the URL hash is missing or invalid.
  *
  * @return {Object[]} List of default factors
@@ -291,7 +253,6 @@ OO.ui.Demo.prototype.getDefaultFactorValues = function () {
 	return [
 		this.constructor.static.defaultPage,
 		this.constructor.static.defaultTheme,
-		this.constructor.static.defaultGraphics,
 		this.constructor.static.defaultDirection
 	];
 };
@@ -299,7 +260,7 @@ OO.ui.Demo.prototype.getDefaultFactorValues = function () {
 /**
  * Parse the current URL hash into factor values.
  *
- * @return {string[]} Factor values in URL order: page, theme, graphics, direction
+ * @return {string[]} Factor values in URL order: page, theme, direction
  */
 OO.ui.Demo.prototype.getCurrentFactorValues = function () {
 	return location.hash.slice( 1 ).split( '-' );
@@ -318,8 +279,7 @@ OO.ui.Demo.prototype.getCurrentMode = function () {
 	return {
 		page: factorValues[ 0 ],
 		theme: factorValues[ 1 ],
-		graphics: factorValues[ 2 ],
-		direction: factorValues[ 3 ]
+		direction: factorValues[ 2 ]
 	};
 };
 
@@ -343,11 +303,11 @@ OO.ui.Demo.prototype.getStylesheetLinks = function () {
 	// Theme styles
 	urls.push( 'dist/oojs-ui' + fragments.slice( 1 ).join( '' ) + '.css' );
 	for ( i = 0, len = suffixes.length; i < len; i++ ) {
-		urls.push( 'dist/oojs-ui' + fragments[ 1 ] + suffixes[ i ] + fragments.slice( 2 ).join( '' ) + '.css' );
+		urls.push( 'dist/oojs-ui' + fragments[ 1 ] + suffixes[ i ] + '.css' );
 	}
 
 	// Demo styles
-	urls.push( 'styles/demo' + fragments[ 3 ] + '.css' );
+	urls.push( 'styles/demo' + fragments[ 2 ] + '.css' );
 
 	// Add link tags
 	links = urls.map( function ( url ) {
