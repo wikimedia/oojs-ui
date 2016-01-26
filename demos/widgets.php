@@ -10,25 +10,15 @@
 	$themeClass = 'OOUI\\' . ( $theme === 'apex' ? 'Apex' : 'MediaWiki' ) . 'Theme';
 	OOUI\Theme::setSingleton( new $themeClass() );
 
-	$graphicSuffixMap = array(
-		'mixed' => '',
-		'vector' => '.vector',
-		'raster' => '.raster',
-	);
-	$graphic = ( isset( $_GET['graphic'] ) && isset( $graphicSuffixMap[ $_GET['graphic'] ] ) )
-		? $_GET['graphic'] : 'mixed';
-	$graphicSuffix = $graphicSuffixMap[ $graphic ];
-
 	$direction = ( isset( $_GET['direction'] ) && $_GET['direction'] === 'rtl' ) ? 'rtl' : 'ltr';
 	$directionSuffix = $direction === 'rtl' ? '.rtl' : '';
 	OOUI\Element::setDefaultDir( $direction );
 
 	$query = array(
 		'theme' => $theme,
-		'graphic' => $graphic,
 		'direction' => $direction,
 	);
-	$styleFileName = "oojs-ui-$theme$graphicSuffix$directionSuffix.css";
+	$styleFileName = "oojs-ui-$theme$directionSuffix.css";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -59,23 +49,6 @@
 					'infusable' => true,
 					'items' => array(
 						new OOUI\ButtonWidget( array(
-							'label' => 'Mixed',
-							'href' => '?' . http_build_query( array_merge( $query, array( 'graphic' => 'mixed' ) ) ),
-						) ),
-						new OOUI\ButtonWidget( array(
-							'label' => 'Vector',
-							'href' => '?' . http_build_query( array_merge( $query, array( 'graphic' => 'vector' ) ) ),
-						) ),
-						new OOUI\ButtonWidget( array(
-							'label' => 'Raster',
-							'href' => '?' . http_build_query( array_merge( $query, array( 'graphic' => 'raster' ) ) ),
-						) ),
-					)
-				) );
-				echo new OOUI\ButtonGroupWidget( array(
-					'infusable' => true,
-					'items' => array(
-						new OOUI\ButtonWidget( array(
 							'label' => 'LTR',
 							'href' => '?' . http_build_query( array_merge( $query, array( 'direction' => 'ltr' ) ) ),
 						) ),
@@ -91,7 +64,7 @@
 					'items' => array(
 						new OOUI\ButtonWidget( array(
 							'label' => 'JS',
-							'href' => ".#widgets-$theme-$graphic-$direction",
+							'href' => ".#widgets-$theme-$direction",
 						) ),
 						new OOUI\ButtonWidget( array(
 							'label' => 'PHP',
