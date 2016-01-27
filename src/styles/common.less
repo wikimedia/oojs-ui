@@ -68,7 +68,12 @@
 	background-image: -webkit-linear-gradient(       top, @start 0, @stop 100% );
 	background-image:    -moz-linear-gradient(       top, @start 0, @stop 100% );
 	background-image:         linear-gradient( to bottom, @start 0, @stop 100% );
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient( startColorstr='@{start}', endColorstr='@{stop}' )";
+	// Maximize tolerance of color values input.
+	// Also expand shorthands like `#abc` to `#ffaabbcc`, as IE's proprietary gradient filter doesn't
+	// accept them.
+	@start-ie: argb( rgba( red( @start ), green( @start ), blue( @start ), alpha( @start ) ) );
+	@stop-ie: argb( rgba( red( @stop ), green( @stop ), blue( @stop ), alpha( @stop ) ) );
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient( startColorstr='@{start-ie}', endColorstr='@{stop-ie}' )";
 }
 
 .oo-ui-unselectable() {
