@@ -65,8 +65,6 @@ OO.ui.Demo = function OoUiDemo() {
 	this.$element
 		.addClass( 'oo-ui-demo' )
 		.append( this.$menu );
-	$( 'body' ).addClass( 'oo-ui-' + this.mode.direction );
-	// Correctly apply direction to the <html> tags as well
 	$( 'html' ).attr( 'dir', this.mode.direction );
 	$( 'head' ).append( this.stylesheetLinks );
 	OO.ui.theme = new ( this.constructor.static.themes[ this.mode.theme ].theme )();
