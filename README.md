@@ -26,6 +26,22 @@ If you don't want to use npm, you can:
 1. You can see a suite of demos in `/demos` by executing:<br/>`$ npm run-script demos`
 
 
+Loading the library
+-------------------
+
+While the distribution directory is chock-full of files, you will normally only need to load three:
+
+* `oojs-ui.js` containing the full library
+* `oojs-ui-apex.css` or `oojs-ui-mediawiki.css` containing theme-specific styles
+* `oojs-ui-apex.js` or `oojs-ui-mediawiki.js` containing theme-specific code
+
+You can load additional icons packs from files named `oojs-ui-apex-icons-*.css` or `oojs-ui-mediawiki-icons-*.css`.
+
+The remaining files make it possible to load only parts of the whole library.
+
+Furthermore, every CSS file has a right-to-left (RTL) version available, to be used on pages using right-to-left languages.
+
+
 Versioning
 ----------
 
