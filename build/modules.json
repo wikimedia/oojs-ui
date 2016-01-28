@@ -44,6 +44,7 @@
 
 			"src/dialogs/MessageDialog.js",
 			"src/dialogs/ProcessDialog.js",
+			"src/windows.js",
 
 			"src/layouts/FieldLayout.js",
 			"src/layouts/ActionFieldLayout.js",
