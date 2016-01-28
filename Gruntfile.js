@@ -8,7 +8,7 @@ module.exports = function ( grunt ) {
 		pkg = grunt.file.readJSON( 'package.json' ),
 		lessFiles = {},
 		colorizeSvgFiles = {},
-		requiredFiles = modules[ 'oojs-ui' ].scripts.slice(),
+		requiredFiles = [],
 		concatCssFiles = {},
 		rtlFiles = {},
 		lessTarget = grunt.option( 'graphics' ) || 'mixed',
@@ -34,6 +34,14 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadTasks( 'build/tasks' );
+
+	( function () {
+		var module;
+		for ( module in modules ) {
+			requiredFiles.push.apply( requiredFiles, modules[ module ].scripts || [] );
+			requiredFiles.push.apply( requiredFiles, modules[ module ].styles || [] );
+		}
+	}() );
 
 	( function () {
 		var distFile, module, moduleStyleFiles;
@@ -74,7 +82,6 @@ module.exports = function ( grunt ) {
 		for ( module in modules ) {
 			if ( modules[ module ].styles ) {
 				moduleStyleFiles = modules[ module ].styles;
-				requiredFiles.push.apply( requiredFiles, moduleStyleFiles );
 
 				distFile = 'dist/' + module + '.css';
 
