@@ -1,4 +1,5 @@
 {
+	# The JavaScript library.
 	"oojs-ui": {
 		"scripts": [
 			"src/intro.js.txt",
@@ -116,6 +117,13 @@
 			"src/outro.js.txt"
 		]
 	},
+
+	# All styles, built per-theme, and theme-specific scripts.
+	#
+	# '{Theme}' expands to proper theme name: 'Apex' or 'MediaWiki'.
+	# '{theme}' expands to lowercase theme name: 'apex' or 'mediawiki'.
+	#
+	# The .json files are first compiled to .less using the colorize-svg script.
 	"oojs-ui-{theme}": {
 		"scripts": [
 			"src/themes/{theme}/{Theme}Theme.js"
@@ -132,6 +140,8 @@
 			"src/themes/{theme}/core.less"
 		]
 	},
+
+	# Additional icon packs. Some exist for all themes, some are MediaWiki-specific.
 	"oojs-ui-mediawiki-icons-accessibility": {
 		"styles": [
 			"src/themes/mediawiki/icons-accessibility.json"

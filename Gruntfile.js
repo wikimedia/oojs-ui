@@ -4,7 +4,7 @@
 
 /*jshint node:true */
 module.exports = function ( grunt ) {
-	var modules = grunt.file.readJSON( 'build/modules.json' ),
+	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
 			apex: 'Apex',
