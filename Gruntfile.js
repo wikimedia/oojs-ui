@@ -189,7 +189,6 @@ module.exports = function ( grunt ) {
 		less: {
 			raster: {
 				options: {
-					report: 'gzip',
 					modifyVars: {
 						'oo-ui-distribution': 'raster',
 						'oo-ui-default-image-ext': 'png'
@@ -199,7 +198,6 @@ module.exports = function ( grunt ) {
 			},
 			vector: {
 				options: {
-					report: 'gzip',
 					modifyVars: {
 						'oo-ui-distribution': 'vector',
 						'oo-ui-default-image-ext': 'svg'
@@ -209,7 +207,6 @@ module.exports = function ( grunt ) {
 			},
 			mixed: {
 				options: {
-					report: 'gzip',
 					modifyVars: {
 						'oo-ui-distribution': 'mixed',
 						'oo-ui-default-image-ext': 'png'
