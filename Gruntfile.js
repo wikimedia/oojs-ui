@@ -189,7 +189,6 @@ module.exports = function ( grunt ) {
 		less: {
 			raster: {
 				options: {
-					ieCompat: true,
 					report: 'gzip',
 					modifyVars: {
 						'oo-ui-distribution': 'raster',
@@ -200,7 +199,6 @@ module.exports = function ( grunt ) {
 			},
 			vector: {
 				options: {
-					ieCompat: false,
 					report: 'gzip',
 					modifyVars: {
 						'oo-ui-distribution': 'vector',
@@ -211,7 +209,6 @@ module.exports = function ( grunt ) {
 			},
 			mixed: {
 				options: {
-					ieCompat: false,
 					report: 'gzip',
 					modifyVars: {
 						'oo-ui-distribution': 'mixed',
