@@ -35,6 +35,7 @@ class ComboBoxInputWidget extends TextInputWidget {
 		// Initialization
 		$this->datalist = new Tag( 'datalist' );
 		$this->datalist->ensureInfusableId();
+		$this->datalist->setInfusable( false );
 		$this->input->setAttributes( array( 'list' => $this->datalist->getAttribute( 'id' ) ) );
 
 		$this->setOptions( isset( $config['options'] ) ? $config['options'] : array() );
