@@ -6,6 +6,10 @@
 module.exports = function ( grunt ) {
 	var modules = grunt.file.readJSON( 'build/modules.json' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
+		themes = {
+			apex: 'Apex',
+			mediawiki: 'MediaWiki'
+		},
 		lessFiles = {},
 		colorizeSvgFiles = {},
 		requiredFiles = [],
@@ -34,6 +38,27 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadTasks( 'build/tasks' );
+
+	( function () {
+		var module, theme;
+		function themify( str ) {
+			return str.replace( /\{theme\}/g, theme ).replace( /\{Theme\}/g, themes[ theme ] );
+		}
+		for ( module in modules ) {
+			if ( module.indexOf( '{theme}' ) !== -1 || module.indexOf( '{Theme}' ) !== -1 ) {
+				for ( theme in themes ) {
+					modules[ themify( module ) ] = {};
+					if ( modules[ module ].scripts ) {
+						modules[ themify( module ) ].scripts = modules[ module ].scripts.map( themify );
+					}
+					if ( modules[ module ].styles ) {
+						modules[ themify( module ) ].styles = modules[ module ].styles.map( themify );
+					}
+				}
+				delete modules[ module ];
+			}
+		}
+	}() );
 
 	( function () {
 		var module;
