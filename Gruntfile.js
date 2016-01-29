@@ -15,7 +15,6 @@ module.exports = function ( grunt ) {
 		requiredFiles = [],
 		concatCssFiles = {},
 		rtlFiles = {},
-		lessTarget = grunt.option( 'graphics' ) || 'mixed',
 		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
@@ -187,31 +186,14 @@ module.exports = function ( grunt ) {
 
 		// Build – Styling
 		less: {
-			raster: {
-				options: {
-					modifyVars: {
-						'oo-ui-distribution': 'raster',
-						'oo-ui-default-image-ext': 'png'
-					}
-				},
-				files: lessFiles
+			options: {
+				modifyVars: {
+					// Changed dynamically by 'set-graphics' task
+					'oo-ui-distribution': 'mixed',
+					'oo-ui-default-image-ext': 'png'
+				}
 			},
-			vector: {
-				options: {
-					modifyVars: {
-						'oo-ui-distribution': 'vector',
-						'oo-ui-default-image-ext': 'svg'
-					}
-				},
-				files: lessFiles
-			},
-			mixed: {
-				options: {
-					modifyVars: {
-						'oo-ui-distribution': 'mixed',
-						'oo-ui-default-image-ext': 'png'
-					}
-				},
+			all: {
 				files: lessFiles
 			}
 		},
@@ -280,6 +262,7 @@ module.exports = function ( grunt ) {
 		},
 		colorizeSvg: colorizeSvgFiles,
 		svg2png: {
+			// This task gets dynamically disabled by 'set-graphics', if not needed
 			dist: {
 				src: 'dist/{images,themes}/**/*.svg'
 			}
@@ -408,6 +391,22 @@ module.exports = function ( grunt ) {
 		grunt.config.set( 'concat.js.options.sourceMapStyle', 'link' );
 	} );
 
+	grunt.registerTask( 'set-graphics', function ( graphics ) {
+		graphics = graphics || grunt.option( 'graphics' ) || 'mixed';
+		grunt.config.set(
+			'less.options.modifyVars.oo-ui-distribution',
+			graphics
+		);
+		grunt.config.set(
+			'less.options.modifyVars.oo-ui-default-image-ext',
+			graphics === 'vector' ? 'svg' : 'png'
+		);
+		if ( graphics === 'vector' ) {
+			grunt.task.renameTask( 'svg2png', 'svg2png-off' );
+			grunt.registerTask( 'svg2png', function () {} );
+		}
+	} );
+
 	grunt.registerTask( 'pre-git-build', function () {
 		var done = this.async();
 		require( 'child_process' ).exec( 'git rev-parse HEAD', function ( err, stout, stderr ) {
@@ -428,10 +427,11 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'build-code', [ 'concat:js' ] );
 	grunt.registerTask( 'build-styling', [
-		'colorizeSvg', 'less:' + lessTarget, 'cssjanus',
+		'colorizeSvg', 'set-graphics', 'less', 'cssjanus',
 		'concat:css', 'concat:demoCss', 'csscomb',
-		'copy:imagesCommon', 'copy:imagesApex', 'copy:imagesMediaWiki'
-	].concat( lessTarget === 'vector' ? [] : [ 'svg2png' ] ) );
+		'copy:imagesCommon', 'copy:imagesApex', 'copy:imagesMediaWiki',
+		'svg2png'
+	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
 	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
 	grunt.registerTask( 'build', [
@@ -445,7 +445,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'quick-build', [
 		'pre-git-build', 'clean:build', 'fileExists', 'tyops',
 		'concat:js',
-		'colorizeSvg', 'less:vector', 'concat:css',
+		'colorizeSvg', 'set-graphics:vector', 'less', 'concat:css',
 		'copy:imagesCommon', 'copy:imagesApex', 'copy:imagesMediaWiki',
 		'build-i18n', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
