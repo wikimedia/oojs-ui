@@ -138,14 +138,6 @@ module.exports = function ( grunt ) {
 			].map( themify );
 			concatOmnibus[ rtlPath( themify( 'dist/oojs-ui-{theme}.css' ) ) ] =
 				concatOmnibus[ themify( 'dist/oojs-ui-{theme}.css' ) ].map( rtlPath );
-			concatOmnibus[ themify( 'dist/oojs-ui-{theme}-noimages.css' ) ] = [
-				'dist/oojs-ui-core-{theme}.css',
-				'dist/oojs-ui-widgets-{theme}.css',
-				'dist/oojs-ui-toolbars-{theme}.css',
-				'dist/oojs-ui-windows-{theme}.css'
-			].map( themify );
-			concatOmnibus[ rtlPath( themify( 'dist/oojs-ui-{theme}-noimages.css' ) ) ] =
-				concatOmnibus[ themify( 'dist/oojs-ui-{theme}-noimages.css' ) ].map( rtlPath );
 		}
 
 	}() );
