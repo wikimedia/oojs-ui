@@ -2,7 +2,6 @@
 	# The JavaScript library.
 	"oojs-ui": {
 		"scripts": [
-			"src/intro.js.txt",
 			"src/core.js",
 			"src/mixin.js",
 
@@ -112,9 +111,7 @@
 				"src/widgets/OutlineSelectWidget.js",
 				"src/widgets/TabSelectWidget.js",
 			"src/widgets/NumberInputWidget.js",
-			"src/widgets/ToggleSwitchWidget.js",
-
-			"src/outro.js.txt"
+			"src/widgets/ToggleSwitchWidget.js"
 		]
 	},
 
