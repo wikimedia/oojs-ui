@@ -14,6 +14,7 @@ module.exports = function ( grunt ) {
 		colorizeSvgFiles = {},
 		requiredFiles = [],
 		concatCssFiles = {},
+		concatJsFiles = {},
 		rtlFiles = {},
 		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
@@ -39,7 +40,8 @@ module.exports = function ( grunt ) {
 	grunt.loadTasks( 'build/tasks' );
 
 	( function () {
-		var module, theme;
+		var distFile, module, theme, moduleStyleFiles;
+
 		function themify( str ) {
 			return str.replace( /\{theme\}/g, theme ).replace( /\{Theme\}/g, themes[ theme ] );
 		}
@@ -57,18 +59,12 @@ module.exports = function ( grunt ) {
 				delete modules[ module ];
 			}
 		}
-	}() );
 
-	( function () {
-		var module;
 		for ( module in modules ) {
 			requiredFiles.push.apply( requiredFiles, modules[ module ].scripts || [] );
 			requiredFiles.push.apply( requiredFiles, modules[ module ].styles || [] );
 		}
-	}() );
 
-	( function () {
-		var distFile, module, moduleStyleFiles;
 		function rtlPath( fileName ) {
 			return fileName.replace( /\.(\w+)$/, '.rtl.$1' );
 		}
@@ -112,6 +108,12 @@ module.exports = function ( grunt ) {
 				concatCssFiles[ distFile ] = moduleStyleFiles.map( processFile );
 				concatCssFiles[ rtlPath( distFile ) ] = concatCssFiles[ distFile ].map( rtlPath );
 			}
+			if ( modules[ module ].scripts ) {
+				distFile = 'dist/' + module + '.js';
+				concatJsFiles[ distFile ] = modules[ module ].scripts.slice();
+				concatJsFiles[ distFile ].unshift( 'src/intro.js.txt' );
+				concatJsFiles[ distFile ].push( 'src/outro.js.txt' );
+			}
 		}
 	}() );
 
@@ -149,11 +151,7 @@ module.exports = function ( grunt ) {
 				banner: grunt.file.read( 'build/banner.txt' )
 			},
 			js: {
-				files: {
-					'dist/oojs-ui.js': modules[ 'oojs-ui' ].scripts,
-					'dist/oojs-ui-apex.js': modules[ 'oojs-ui-apex' ].scripts,
-					'dist/oojs-ui-mediawiki.js': modules[ 'oojs-ui-mediawiki' ].scripts
-				}
+				files: concatJsFiles
 			},
 			css: {
 				files: concatCssFiles
