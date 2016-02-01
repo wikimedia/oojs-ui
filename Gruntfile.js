@@ -267,6 +267,11 @@ module.exports = function ( grunt ) {
 				src: 'dist/{images,themes}/**/*.svg'
 			}
 		},
+		'svg2png-off': {
+			dist: {
+				src: []
+			}
+		},
 		cssmin: {
 			options: {
 				keepSpecialComments: 0,
