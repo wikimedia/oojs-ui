@@ -1,120 +1,149 @@
 # NOTE: We're trying to stick to just the JSON-with-comments subset of YAML in this file.
 
 {
-	# The JavaScript library.
-	"oojs-ui": {
+	# The core JavaScript library. This contains the widgets you're most likely to need in your
+	# interfaces, including everything required to infuse any PHP widgets.
+	"oojs-ui-core": {
 		"scripts": [
+			# Core of the core. The basic building block of Element, facilities to connect PHP and JS
+			# widgets (infuse), some abstract classes, a bunch of convenience methods.
 			"src/core.js",
 			"src/mixin.js",
-
-			"src/mixins/PendingElement.js",
-
-			"src/ActionSet.js",
 			"src/Element.js",
-				"src/Layout.js",
-				"src/Widget.js",
-				"src/Window.js",
-					"src/Dialog.js",
-				"src/WindowManager.js",
-			"src/Error.js",
 			"src/HtmlSnippet.js",
-			"src/Process.js",
-			"src/ToolFactory.js",
-			"src/ToolGroupFactory.js",
+			"src/Layout.js",
+			"src/Widget.js",
 			"src/Theme.js",
 
-			"src/mixins/RequestManager.js",
+			# Basic element mixins. These should be the same classes that are supported in OOjs UI PHP.
 			"src/mixins/TabIndexedElement.js",
 			"src/mixins/ButtonElement.js",
 			"src/mixins/GroupElement.js",
-			"src/mixins/DraggableElement.js",
-			"src/mixins/DraggableGroupElement.js",
 			"src/mixins/IconElement.js",
 			"src/mixins/IndicatorElement.js",
 			"src/mixins/LabelElement.js",
-			"src/mixins/LookupElement.js",
-			"src/mixins/PopupElement.js",
 			"src/mixins/FlaggedElement.js",
 			"src/mixins/TitledElement.js",
-			"src/mixins/ClippableElement.js",
-			"src/mixins/FloatableElement.js",
 			"src/mixins/AccessKeyedElement.js",
 
-			"src/Tool.js",
-			"src/Toolbar.js",
-			"src/ToolGroup.js",
+			# The basic widgets and layouts. These should be the same classes that are supported in OOjs
+			# UI PHP. (Continued below, as some dependencies below depend on these.)
+			"src/widgets/ButtonWidget.js",
+			"src/widgets/ButtonGroupWidget.js",
+			"src/widgets/IconWidget.js",
+			"src/widgets/IndicatorWidget.js",
+			"src/widgets/LabelWidget.js",
 
-			"src/dialogs/MessageDialog.js",
-			"src/dialogs/ProcessDialog.js",
-			"src/windows.js",
+			# The JavaScript-specific dependencies of the basic widgets. It's sad how many there are :(
+			# TextInputWidget
+			"src/mixins/PendingElement.js",
+			# FieldLayout, FieldsetLayout
+			"src/mixins/ClippableElement.js",
+			"src/widgets/PopupWidget.js",
+			"src/mixins/PopupElement.js",
+			"src/widgets/PopupButtonWidget.js",
+			# DropdownInputWidget, RadioSelectInputWidget
+			"src/mixins/GroupWidget.js",
+			"src/mixins/ItemWidget.js",
+			"src/widgets/OptionWidget.js",
+			"src/widgets/SelectWidget.js",
+			"src/widgets/DecoratedOptionWidget.js",
+			# DropdownInputWidget
+			"src/widgets/MenuOptionWidget.js",
+			"src/widgets/MenuSectionOptionWidget.js",
+			"src/widgets/MenuSelectWidget.js",
+			"src/widgets/DropdownWidget.js",
+			# RadioSelectInputWidget
+			"src/widgets/RadioOptionWidget.js",
+			"src/widgets/RadioSelectWidget.js",
+			# ComboBoxInputWidget
+			"src/mixins/FloatableElement.js",
+			"src/widgets/FloatingMenuSelectWidget.js",
 
+			# The basic widgets and layouts, continued.
+			"src/widgets/InputWidget.js",
+			"src/widgets/ButtonInputWidget.js",
+			"src/widgets/CheckboxInputWidget.js",
+			"src/widgets/DropdownInputWidget.js",
+			"src/widgets/RadioInputWidget.js",
+			"src/widgets/RadioSelectInputWidget.js",
+			"src/widgets/TextInputWidget.js",
+			"src/widgets/ComboBoxInputWidget.js",
 			"src/layouts/FieldLayout.js",
 			"src/layouts/ActionFieldLayout.js",
 			"src/layouts/FieldsetLayout.js",
 			"src/layouts/FormLayout.js",
-			"src/layouts/MenuLayout.js",
-				"src/layouts/BookletLayout.js",
-				"src/layouts/IndexLayout.js",
 			"src/layouts/PanelLayout.js",
-				"src/layouts/CardLayout.js",
-				"src/layouts/PageLayout.js",
-				"src/layouts/StackLayout.js",
-			"src/layouts/HorizontalLayout.js",
+			"src/layouts/HorizontalLayout.js"
+		]
+	},
+	# Additional widgets and layouts module. These have no equivalent in OOjs UI PHP.
+	"oojs-ui-widgets": {
+		"scripts": [
+			"src/mixins/DraggableElement.js",
+			"src/mixins/DraggableGroupElement.js",
 
+			"src/mixins/RequestManager.js",
+			"src/mixins/LookupElement.js",
+
+			"src/layouts/CardLayout.js",
+			"src/layouts/PageLayout.js",
+			"src/layouts/StackLayout.js",
+			"src/layouts/MenuLayout.js",
+			"src/layouts/BookletLayout.js",
+			"src/layouts/IndexLayout.js",
+
+			"src/widgets/ToggleWidget.js",
+			"src/widgets/ToggleButtonWidget.js",
+			"src/widgets/ToggleSwitchWidget.js",
+
+			"src/widgets/OutlineControlsWidget.js",
+			"src/widgets/OutlineOptionWidget.js",
+			"src/widgets/OutlineSelectWidget.js",
+			"src/widgets/ButtonOptionWidget.js",
+			"src/widgets/ButtonSelectWidget.js",
+			"src/widgets/TabOptionWidget.js",
+			"src/widgets/TabSelectWidget.js",
+
+			"src/widgets/CapsuleItemWidget.js",
+			"src/widgets/CapsuleMultiSelectWidget.js",
+
+			"src/widgets/SelectFileWidget.js",
+			"src/widgets/ProgressBarWidget.js",
+			"src/widgets/SearchWidget.js",
+			"src/widgets/NumberInputWidget.js"
+		],
+	},
+	# Toolbar and tools module.
+	"oojs-ui-toolbars": {
+		"scripts": [
+			"src/Toolbar.js",
+			"src/Tool.js",
+			"src/ToolGroup.js",
+			"src/ToolFactory.js",
+			"src/ToolGroupFactory.js",
+			"src/tools/PopupTool.js",
+			"src/tools/ToolGroupTool.js",
 			"src/toolgroups/BarToolGroup.js",
 			"src/toolgroups/PopupToolGroup.js",
 			"src/toolgroups/ListToolGroup.js",
-			"src/toolgroups/MenuToolGroup.js",
-
-			"src/tools/PopupTool.js",
-			"src/tools/ToolGroupTool.js",
-
-			"src/mixins/GroupWidget.js",
-			"src/mixins/ItemWidget.js",
-			"src/widgets/OutlineControlsWidget.js",
-			"src/widgets/ToggleWidget.js",
-
-			"src/widgets/ButtonGroupWidget.js",
-			"src/widgets/ButtonWidget.js",
-				"src/widgets/ActionWidget.js",
-				"src/widgets/PopupButtonWidget.js",
-				"src/widgets/ToggleButtonWidget.js",
-			"src/widgets/CapsuleMultiSelectWidget.js",
-			"src/widgets/CapsuleItemWidget.js",
-			"src/widgets/DropdownWidget.js",
-			"src/widgets/SelectFileWidget.js",
-			"src/widgets/IconWidget.js",
-			"src/widgets/IndicatorWidget.js",
-			"src/widgets/InputWidget.js",
-				"src/widgets/ButtonInputWidget.js",
-				"src/widgets/CheckboxInputWidget.js",
-				"src/widgets/DropdownInputWidget.js",
-				"src/widgets/RadioInputWidget.js",
-				"src/widgets/RadioSelectInputWidget.js",
-				"src/widgets/TextInputWidget.js",
-			"src/widgets/ComboBoxInputWidget.js",
-			"src/widgets/LabelWidget.js",
-			"src/widgets/OptionWidget.js",
-				"src/widgets/DecoratedOptionWidget.js",
-					"src/widgets/ButtonOptionWidget.js",
-					"src/widgets/RadioOptionWidget.js",
-					"src/widgets/MenuOptionWidget.js",
-					"src/widgets/MenuSectionOptionWidget.js",
-					"src/widgets/OutlineOptionWidget.js",
-					"src/widgets/TabOptionWidget.js",
-			"src/widgets/PopupWidget.js",
-			"src/widgets/ProgressBarWidget.js",
-			"src/widgets/SearchWidget.js",
-			"src/widgets/SelectWidget.js",
-				"src/widgets/ButtonSelectWidget.js",
-				"src/widgets/RadioSelectWidget.js",
-				"src/widgets/MenuSelectWidget.js",
-					"src/widgets/FloatingMenuSelectWidget.js",
-				"src/widgets/OutlineSelectWidget.js",
-				"src/widgets/TabSelectWidget.js",
-			"src/widgets/NumberInputWidget.js",
-			"src/widgets/ToggleSwitchWidget.js"
-		]
+			"src/toolgroups/MenuToolGroup.js"
+		],
+	},
+	# Windows and dialogs module.
+	"oojs-ui-windows": {
+		"scripts": [
+			"src/widgets/ActionWidget.js",
+			"src/ActionSet.js",
+			"src/Error.js",
+			"src/Process.js",
+			"src/WindowManager.js",
+			"src/Window.js",
+			"src/Dialog.js",
+			"src/dialogs/MessageDialog.js",
+			"src/dialogs/ProcessDialog.js",
+			"src/windows.js"
+		],
 	},
 
 	# All styles, built per-theme, and theme-specific scripts.
@@ -126,25 +155,42 @@
 	"oojs-ui-{theme}": {
 		"scripts": [
 			"src/themes/{theme}/{Theme}Theme.js"
-		],
+		]
+	},
+	"oojs-ui-core-{theme}": {
 		"styles": [
-			"src/themes/{theme}/core.less",
+			"src/styles/core.less"
+		]
+	},
+	"oojs-ui-widgets-{theme}": {
+		"styles": [
+			"src/styles/widgets.less"
+		]
+	},
+	"oojs-ui-toolbars-{theme}": {
+		"styles": [
+			"src/styles/toolbars.less"
+		]
+	},
+	"oojs-ui-windows-{theme}": {
+		"styles": [
+			"src/styles/windows.less"
+		]
+	},
+	"oojs-ui-images-{theme}": {
+		"styles": [
 			"src/themes/{theme}/icons.json",
 			"src/themes/{theme}/indicators.json",
 			"src/themes/{theme}/textures.json"
 		]
 	},
-	"oojs-ui-{theme}-noimages": {
-		"styles": [
-			"src/themes/{theme}/core.less"
-		]
-	},
 
-	# Additional icon packs. Some exist for all themes, some are MediaWiki-specific.
+	# Additional icon packs. Some exist for all themes, some are MediaWiki-theme-specific.
 	"oojs-ui-mediawiki-icons-accessibility": {
 		"styles": [
 			"src/themes/mediawiki/icons-accessibility.json"
-		]
+		],
+		"theme": "mediawiki"
 	},
 	"oojs-ui-{theme}-icons-movement": {
 		"styles": [
@@ -159,7 +205,8 @@
 	"oojs-ui-mediawiki-icons-alerts": {
 		"styles": [
 			"src/themes/mediawiki/icons-alerts.json"
-		]
+		],
+		"theme": "mediawiki"
 	},
 	"oojs-ui-{theme}-icons-interactions": {
 		"styles": [
@@ -199,21 +246,25 @@
 	"oojs-ui-mediawiki-icons-location": {
 		"styles": [
 			"src/themes/mediawiki/icons-location.json"
-		]
+		],
+		"theme": "mediawiki"
 	},
 	"oojs-ui-mediawiki-icons-user": {
 		"styles": [
 			"src/themes/mediawiki/icons-user.json"
-		]
+		],
+		"theme": "mediawiki"
 	},
 	"oojs-ui-mediawiki-icons-layout": {
 		"styles": [
 			"src/themes/mediawiki/icons-layout.json"
-		]
+		],
+		"theme": "mediawiki"
 	},
 	"oojs-ui-mediawiki-icons-wikimedia": {
 		"styles": [
 			"src/themes/mediawiki/icons-wikimedia.json"
-		]
+		],
+		"theme": "mediawiki"
 	}
 }

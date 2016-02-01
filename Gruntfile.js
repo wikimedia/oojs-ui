@@ -10,11 +10,15 @@ module.exports = function ( grunt ) {
 			apex: 'Apex',
 			mediawiki: 'MediaWiki'
 		},
-		lessFiles = {},
+		lessFiles = {
+			apex: {},
+			mediawiki: {}
+		},
 		colorizeSvgFiles = {},
 		requiredFiles = [],
 		concatCssFiles = {},
 		concatJsFiles = {},
+		concatOmnibus = {},
 		rtlFiles = {},
 		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
@@ -49,6 +53,7 @@ module.exports = function ( grunt ) {
 			if ( module.indexOf( '{theme}' ) !== -1 || module.indexOf( '{Theme}' ) !== -1 ) {
 				for ( theme in themes ) {
 					modules[ themify( module ) ] = {};
+					modules[ themify( module ) ].theme = theme;
 					if ( modules[ module ].scripts ) {
 						modules[ themify( module ) ].scripts = modules[ module ].scripts.map( themify );
 					}
@@ -71,11 +76,10 @@ module.exports = function ( grunt ) {
 		// Generate all task targets required to process given file into a pair of CSS files (for LTR
 		// and RTL), and return file name of LTR file.
 		function processFile( fileName ) {
-			var lessFileName, cssFileName, theme, path;
+			var lessFileName, cssFileName, path;
 			path = require( 'path' );
 			if ( path.extname( fileName ) === '.json' ) {
 				lessFileName = fileName.replace( /\.json$/, '.less' ).replace( /^src/, 'dist/tmp' );
-				theme = path.basename( path.dirname( fileName ) );
 
 				colorizeSvgFiles[ fileName.replace( /.+\/(\w+)\/([\w-]+)\.(?:json|less)$/, '$1-$2' ) ] = {
 					options: grunt.file.readJSON( fileName ),
@@ -89,12 +93,12 @@ module.exports = function ( grunt ) {
 					}
 				};
 
-				cssFileName = fileName.replace( /\.json$/, '.css' ).replace( /^src/, 'dist/tmp' );
-				lessFiles[ cssFileName ] = [ lessFileName ];
-				lessFiles[ rtlPath( cssFileName ) ] = [ rtlPath( lessFileName ) ];
+				cssFileName = fileName.replace( /\.json$/, '.css' ).replace( /^src/, 'dist/tmp/' + theme );
+				lessFiles[ theme ][ cssFileName ] = [ lessFileName ];
+				lessFiles[ theme ][ rtlPath( cssFileName ) ] = [ rtlPath( lessFileName ) ];
 			} else {
-				cssFileName = fileName.replace( /\.less$/, '.css' ).replace( /^src/, 'dist/tmp' );
-				lessFiles[ cssFileName ] = [ fileName ];
+				cssFileName = fileName.replace( /\.less$/, '.css' ).replace( /^src/, 'dist/tmp/' + theme );
+				lessFiles[ theme ][ cssFileName ] = [ fileName ];
 				rtlFiles[ rtlPath( cssFileName ) ] = cssFileName;
 			}
 			return cssFileName;
@@ -102,6 +106,7 @@ module.exports = function ( grunt ) {
 		for ( module in modules ) {
 			if ( modules[ module ].styles ) {
 				moduleStyleFiles = modules[ module ].styles;
+				theme = modules[ module ].theme;
 
 				distFile = 'dist/' + module + '.css';
 
@@ -115,6 +120,34 @@ module.exports = function ( grunt ) {
 				concatJsFiles[ distFile ].push( 'src/outro.js.txt' );
 			}
 		}
+
+		// Composite files
+		concatOmnibus[ 'dist/oojs-ui.js' ] = [
+			'dist/oojs-ui-core.js',
+			'dist/oojs-ui-widgets.js',
+			'dist/oojs-ui-toolbars.js',
+			'dist/oojs-ui-windows.js'
+		];
+		for ( theme in themes ) {
+			concatOmnibus[ themify( 'dist/oojs-ui-{theme}.css' ) ] = [
+				'dist/oojs-ui-core-{theme}.css',
+				'dist/oojs-ui-widgets-{theme}.css',
+				'dist/oojs-ui-toolbars-{theme}.css',
+				'dist/oojs-ui-windows-{theme}.css',
+				'dist/oojs-ui-images-{theme}.css'
+			].map( themify );
+			concatOmnibus[ rtlPath( themify( 'dist/oojs-ui-{theme}.css' ) ) ] =
+				concatOmnibus[ themify( 'dist/oojs-ui-{theme}.css' ) ].map( rtlPath );
+			concatOmnibus[ themify( 'dist/oojs-ui-{theme}-noimages.css' ) ] = [
+				'dist/oojs-ui-core-{theme}.css',
+				'dist/oojs-ui-widgets-{theme}.css',
+				'dist/oojs-ui-toolbars-{theme}.css',
+				'dist/oojs-ui-windows-{theme}.css'
+			].map( themify );
+			concatOmnibus[ rtlPath( themify( 'dist/oojs-ui-{theme}-noimages.css' ) ) ] =
+				concatOmnibus[ themify( 'dist/oojs-ui-{theme}-noimages.css' ) ].map( rtlPath );
+		}
+
 	}() );
 
 	function strip( str ) {
@@ -157,6 +190,12 @@ module.exports = function ( grunt ) {
 			css: {
 				files: concatCssFiles
 			},
+			omnibus: {
+				options: {
+					banner: ''
+				},
+				files: concatOmnibus
+			},
 			demoCss: {
 				options: {
 					banner: '/** This file is generated automatically. Do not modify it. */\n\n'
@@ -192,8 +231,17 @@ module.exports = function ( grunt ) {
 					'oo-ui-default-image-ext': 'png'
 				}
 			},
-			all: {
-				files: lessFiles
+			apex: {
+				options: {
+					paths: [ '.', 'src/themes/apex' ]
+				},
+				files: lessFiles.apex
+			},
+			mediawiki: {
+				options: {
+					paths: [ '.', 'src/themes/mediawiki' ]
+				},
+				files: lessFiles.mediawiki
 			}
 		},
 		cssjanus: {
@@ -440,6 +488,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
 	grunt.registerTask( 'build', [
 		'clean:build', 'fileExists', 'tyops', 'build-code', 'build-styling', 'build-i18n',
+		'concat:omnibus',
 		'clean:tmp', 'demos'
 	] );
 
@@ -451,7 +500,7 @@ module.exports = function ( grunt ) {
 		'concat:js',
 		'colorizeSvg', 'set-graphics:vector', 'less', 'concat:css',
 		'copy:imagesCommon', 'copy:imagesApex', 'copy:imagesMediaWiki',
-		'build-i18n', 'copy:demos', 'copy:fastcomposerdemos',
+		'build-i18n', 'concat:omnibus', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
 	] );
 
