@@ -144,6 +144,7 @@ module.exports = function ( grunt ) {
 			options: {
 				typos: 'build/typos.json'
 			},
+			build: 'build/modules.yaml',
 			src: '{src,php}/**/*.{js,json,less,css}'
 		},
 		concat: {

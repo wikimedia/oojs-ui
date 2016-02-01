@@ -1,3 +1,5 @@
+# NOTE: We're trying to stick to just the JSON-with-comments subset of YAML in this file.
+
 {
 	# The JavaScript library.
 	"oojs-ui": {
