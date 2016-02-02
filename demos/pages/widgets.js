@@ -1223,7 +1223,6 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						disabled: true,
 						icon: 'tag',
 						indicator: 'required',
-						values: [ 'jkl', 'zxc' ],
 						menu: {
 							items: [
 								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
