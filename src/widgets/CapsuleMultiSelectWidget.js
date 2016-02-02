@@ -42,6 +42,8 @@
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.TabIndexedElement
  * @mixins OO.ui.mixin.GroupElement
+ * @uses OO.ui.CapsuleItemWidget
+ * @uses OO.ui.FloatingMenuSelectWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
