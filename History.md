@@ -1,7 +1,34 @@
 # OOjs UI Release History
 
-## v0.15.1 / 2016-01-26
+## v0.15.2 / 2016-02-02
+### Features
+* DropdownWidget: Prevent label from overflowing the handle (Bartosz Dziewoński)
 
+### Styles
+* Ensure gradient filter rendering on IE 8&9 (Bartosz Dziewoński)
+* Remove unused CSS classes .oo-ui-ltr and .oo-ui-rtl (Bartosz Dziewoński)
+* Update `.oo-ui-vertical-gradient` mixin to modern times (Volker E)
+
+### Code
+* Unify SVG icon color values to CSS/Less coding standards (Volker E)
+* ComboBoxInputWidget: Don't make the 'datalist' infusable (Bartosz Dziewoński)
+* Move OO.ui.alert and OO.ui.confirm methods to separate file (Bartosz Dziewoński)
+* README: Add "Loading the library" wherein we apologise for the mess that is the dist/ directory (Bartosz Dziewoński)
+* build: Actually check that all required files are not missing (Bartosz Dziewoński)
+* build: Add intro.js.txt and outro.js.txt to all distribution JS files (Bartosz Dziewoński)
+* build: De-duplicate per-theme modules lists (Bartosz Dziewoński)
+* build: Only define one 'less' task, not one per-distribution (Bartosz Dziewoński)
+* build: Remove unused 'ieCompat' options from 'less' (Bartosz Dziewoński)
+* build: Remove unused 'report' options from 'less' (Bartosz Dziewoński)
+* build: Small modules.yaml tweaks (Bartosz Dziewoński)
+* build: Split the library into four parts (Bartosz Dziewoński)
+* build: Switch modules.json to YAML to document some of the weird stuff we've put in there (Bartosz Dziewoński)
+* build: Unbreak `grunt build --graphics=vector` (Bartosz Dziewoński)
+* build: Update phpunit/phpunit to 4.8 (Paladox)
+* docparser: Parse '@class Foo' annotations, not just '@class' (Bartosz Dziewoński)
+
+
+## v0.15.1 / 2016-01-26
 ### Features
 * Really filter out unsafe URLs, but don't throw silly exceptions (Bartosz Dziewoński)
 * ClippableElement: Try to prevent unnecessary scrollbars (Bartosz Dziewoński)
@@ -41,7 +68,6 @@
 * demo: Extend compounded form in widget.js demo (Volker E)
 
 ## v0.15.0 / 2016-01-12
-
 ### Breaking changes
 * [BREAKING CHANGE] Drop Internet Explorer 8 support from JavaScript code (Ricordisamoa)
 * [BREAKING CHANGE] Delete deprecated aliases 'picture' and 'insert' (Ed Sanders)
