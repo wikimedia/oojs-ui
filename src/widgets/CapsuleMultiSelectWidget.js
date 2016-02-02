@@ -48,12 +48,13 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [allowArbitrary=false] Allow data items to be added even if not present in the menu.
- * @cfg {Object} [menu] Configuration options to pass to the {@link OO.ui.MenuSelectWidget menu select widget}.
+ * @cfg {Object} [menu] (required) Configuration options to pass to the
+ *  {@link OO.ui.MenuSelectWidget menu select widget}.
  * @cfg {Object} [popup] Configuration options to pass to the {@link OO.ui.PopupWidget popup widget}.
  *  If specified, this popup will be shown instead of the menu (but the menu
  *  will still be used for item labels and allowArbitrary=false). The widgets
- *  in the popup should use this.addItemsFromData() or this.addItems() as necessary.
- * @cfg {jQuery} [$overlay] Render the menu or popup into a separate layer.
+ *  in the popup should use {@link #addItemsFromData} or {@link #addItems} as necessary.
+ * @cfg {jQuery} [$overlay=this.$element] Render the menu or popup into a separate layer.
  *  This configuration is useful in cases where the expanded menu is larger than
  *  its containing `<div>`. The specified overlay layer is usually on top of
  *  the containing `<div>` and has a larger area. By default, the menu uses
