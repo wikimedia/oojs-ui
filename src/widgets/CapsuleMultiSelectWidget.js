@@ -63,11 +63,14 @@
 OO.ui.CapsuleMultiSelectWidget = function OoUiCapsuleMultiSelectWidget( config ) {
 	var $tabFocus;
 
-	// Configuration initialization
-	config = config || {};
-
 	// Parent constructor
 	OO.ui.CapsuleMultiSelectWidget.parent.call( this, config );
+
+	// Configuration initialization
+	config = $.extend( {
+		allowArbitrary: false,
+		$overlay: this.$element
+	}, config );
 
 	// Properties (must be set before mixin constructor calls)
 	this.$input = config.popup ? null : $( '<input>' );
@@ -93,8 +96,8 @@ OO.ui.CapsuleMultiSelectWidget = function OoUiCapsuleMultiSelectWidget( config )
 
 	// Properties
 	this.$content = $( '<div>' );
-	this.allowArbitrary = !!config.allowArbitrary;
-	this.$overlay = config.$overlay || this.$element;
+	this.allowArbitrary = config.allowArbitrary;
+	this.$overlay = config.$overlay;
 	this.menu = new OO.ui.FloatingMenuSelectWidget( $.extend(
 		{
 			widget: this,
