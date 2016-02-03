@@ -18,7 +18,8 @@
 		'theme' => $theme,
 		'direction' => $direction,
 	);
-	$styleFileName = "oojs-ui-$theme$directionSuffix.css";
+	$styleFileName = "oojs-ui-core-$theme$directionSuffix.css";
+	$styleFileNameImages = "oojs-ui-images-$theme$directionSuffix.css";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -26,6 +27,7 @@
 	<meta charset="UTF-8">
 	<title>OOjs UI Widget Demo</title>
 	<link rel="stylesheet" href="dist/<?php echo $styleFileName; ?>">
+	<link rel="stylesheet" href="dist/<?php echo $styleFileNameImages; ?>">
 	<link rel="stylesheet" href="styles/demo<?php echo $directionSuffix; ?>.css">
 </head>
 <body class="oo-ui-<?php echo $direction; ?>">
@@ -1040,7 +1042,7 @@
 	<script src="node_modules/jquery/dist/jquery.js"></script>
 	<script src="node_modules/es5-shim/es5-shim.js"></script>
 	<script src="node_modules/oojs/dist/oojs.jquery.js"></script>
-	<script src="dist/oojs-ui.js"></script>
+	<script src="dist/oojs-ui-core.js"></script>
 	<script src="dist/oojs-ui-<?php echo $theme; ?>.js"></script>
 	<script src="infusion.js"></script>
 </body>
