@@ -1328,22 +1328,22 @@
 	&.oo-ui-widget-disabled {
 		opacity: 0.6;
 	}
-}
 
-.oo-ui-progressBarWidget-slide-frames () {
-	from {
-		margin-left: -40%;
+	.oo-ui-progressBarWidget-slide-frames () {
+		from {
+			margin-left: -40%;
+		}
+		to {
+			margin-left: 100%;
+		}
 	}
-	to {
-		margin-left: 100%;
+	@-webkit-keyframes oo-ui-progressBarWidget-slide {
+		.oo-ui-progressBarWidget-slide-frames
 	}
-}
-@-webkit-keyframes oo-ui-progressBarWidget-slide {
-	.oo-ui-progressBarWidget-slide-frames
-}
-@-moz-keyframes oo-ui-progressBarWidget-slide {
-	.oo-ui-progressBarWidget-slide-frames
-}
-@keyframes oo-ui-progressBarWidget-slide {
-	.oo-ui-progressBarWidget-slide-frames
+	@-moz-keyframes oo-ui-progressBarWidget-slide {
+		.oo-ui-progressBarWidget-slide-frames
+	}
+	@keyframes oo-ui-progressBarWidget-slide {
+		.oo-ui-progressBarWidget-slide-frames
+	}
 }
