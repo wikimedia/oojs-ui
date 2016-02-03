@@ -167,7 +167,7 @@ def parse_file filename
 				ignore = true
 			when 'inheritable', 'deprecated', 'singleton', 'throws',
 				 'chainable', 'fires', 'localdoc', 'inheritdoc', 'member',
-				 'see'
+				 'see', 'uses'
 				# skip
 			else
 				bad_input filename, comment_line
