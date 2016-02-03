@@ -7,6 +7,7 @@
  * @mixins OO.ui.mixin.ItemWidget
  * @mixins OO.ui.mixin.LabelElement
  * @mixins OO.ui.mixin.FlaggedElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -22,11 +23,13 @@ OO.ui.CapsuleItemWidget = function OoUiCapsuleItemWidget( config ) {
 	OO.ui.mixin.ItemWidget.call( this );
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
+	OO.ui.mixin.TabIndexedElement.call( this, config );
 
 	// Events
 	this.closeButton = new OO.ui.ButtonWidget( {
 		framed: false,
-		indicator: 'clear'
+		indicator: 'clear',
+		tabIndex: -1
 	} ).on( 'click', this.onCloseClick.bind( this ) );
 
 	this.on( 'disable', function ( disabled ) {
@@ -35,7 +38,10 @@ OO.ui.CapsuleItemWidget = function OoUiCapsuleItemWidget( config ) {
 
 	// Initialization
 	this.$element
-		.on( 'click', this.onClick.bind( this ) )
+		.on( {
+			click: this.onClick.bind( this ),
+			keydown: this.onKeyDown.bind( this )
+		} )
 		.addClass( 'oo-ui-capsuleItemWidget' )
 		.append( this.$label, this.closeButton.$element );
 };
@@ -46,6 +52,7 @@ OO.inheritClass( OO.ui.CapsuleItemWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.CapsuleItemWidget, OO.ui.mixin.ItemWidget );
 OO.mixinClass( OO.ui.CapsuleItemWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.CapsuleItemWidget, OO.ui.mixin.FlaggedElement );
+OO.mixinClass( OO.ui.CapsuleItemWidget, OO.ui.mixin.TabIndexedElement );
 
 /* Methods */
 
@@ -69,5 +76,21 @@ OO.ui.CapsuleItemWidget.prototype.onClick = function () {
 
 	if ( !this.isDisabled() && element && $.isFunction( element.editItem ) ) {
 		element.editItem( this );
+	}
+};
+
+/**
+ * Handle keyDown event for the entire capsule
+ */
+OO.ui.CapsuleItemWidget.prototype.onKeyDown = function ( e ) {
+	var element = this.getElementGroup();
+
+	if ( e.keyCode === OO.ui.Keys.BACKSPACE || e.keyCode === OO.ui.Keys.DELETE ) {
+		element.removeItems( [ this ] );
+		element.focus();
+		return false;
+	} else if ( e.keyCode === OO.ui.Keys.ENTER ) {
+		element.editItem( this );
+		return false;
 	}
 };

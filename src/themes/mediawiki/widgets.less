@@ -794,6 +794,11 @@
 	color: @color-default;
 	border-radius: @border-radius-default;
 
+	&:focus {
+		outline: none;
+		border-color: @progressive;
+	}
+
 	&.oo-ui-indicatorElement {
 		> .oo-ui-labelElement-label {
 			padding-right: @size-indicator + 0.4em;

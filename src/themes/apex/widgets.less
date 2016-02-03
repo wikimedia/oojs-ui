@@ -608,6 +608,11 @@
 	color: #555;
 	border-radius: 0.25em;
 
+	&:focus {
+		outline: none;
+		border-color: @progressive;
+	}
+
 	&.oo-ui-indicatorElement {
 		> .oo-ui-labelElement-label {
 			padding-right: @indicator-size + 0.4em;
