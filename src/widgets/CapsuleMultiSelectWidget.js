@@ -403,6 +403,56 @@ OO.ui.CapsuleMultiSelectWidget.prototype.clearItems = function () {
 };
 
 /**
+ * Given an item, returns the item after it. If its the last item,
+ * returns `this.$input`. If no item is passed, returns the very first
+ * item.
+ *
+ * @param {OO.ui.CapsuleItemWidget} [item]
+ * @return {OO.ui.CapsuleItemWidget|jQuery|boolean}
+ */
+OO.ui.CapsuleMultiSelectWidget.prototype.getNextItem = function ( item ) {
+	var itemIndex;
+
+	if ( item === undefined ) {
+		return this.items[ 0 ];
+	}
+
+	itemIndex = this.items.indexOf( item );
+	if ( itemIndex < 0 ) { // Item not in list
+		return false;
+	} else if ( itemIndex === this.items.length - 1 ) { // Last item
+		return this.$input;
+	} else {
+		return this.items[ itemIndex + 1 ];
+	}
+};
+
+/**
+ * Given an item, returns the item before it. If its the first item,
+ * returns `this.$input`. If no item is passed, returns the very last
+ * item.
+ *
+ * @param {OO.ui.CapsuleItemWidget} [item]
+ * @return {OO.ui.CapsuleItemWidget|jQuery|boolean}
+ */
+OO.ui.CapsuleMultiSelectWidget.prototype.getPreviousItem = function ( item ) {
+	var itemIndex;
+
+	if ( item === undefined ) {
+		return this.items[ this.items.length - 1 ];
+	}
+
+	itemIndex = this.items.indexOf( item );
+	if ( itemIndex < 0 ) { // Item not in list
+		return false;
+	} else if ( itemIndex === 0 ) { // First item
+		return this.$input;
+	} else {
+		return this.items[ itemIndex - 1 ];
+	}
+};
+
+/**
  * Get the capsule widget's menu.
  * @return {OO.ui.MenuSelectWidget} Menu widget
  */
@@ -520,19 +570,23 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onKeyPress = function ( e ) {
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.CapsuleMultiSelectWidget.prototype.onKeyDown = function ( e ) {
-	if ( !this.isDisabled() ) {
+	if (
+		!this.isDisabled() &&
+		this.$input.val() === '' &&
+		this.items.length
+	) {
 		// 'keypress' event is not triggered for Backspace
-		if (
-			e.keyCode === OO.ui.Keys.BACKSPACE &&
-			this.$input.val() === '' &&
-			this.items.length
-		) {
+		if ( e.keyCode === OO.ui.Keys.BACKSPACE ) {
 			if ( e.metaKey || e.ctrlKey ) {
 				this.removeItems( this.items.slice( -1 ) );
 			} else {
 				this.editItem( this.items[ this.items.length - 1 ] );
 			}
 			return false;
+		} else if ( e.keyCode === OO.ui.Keys.LEFT ) {
+			this.getPreviousItem().focus();
+		} else if ( e.keyCode === OO.ui.Keys.RIGHT ) {
+			this.getNextItem().focus();
 		}
 	}
 };

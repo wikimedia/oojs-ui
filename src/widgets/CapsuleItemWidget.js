@@ -92,5 +92,16 @@ OO.ui.CapsuleItemWidget.prototype.onKeyDown = function ( e ) {
 	} else if ( e.keyCode === OO.ui.Keys.ENTER ) {
 		element.editItem( this );
 		return false;
+	} else if ( e.keyCode === OO.ui.Keys.LEFT ) {
+		element.getPreviousItem( this ).focus();
+	} else if ( e.keyCode === OO.ui.Keys.RIGHT ) {
+		element.getNextItem( this ).focus();
 	}
+};
+
+/**
+ * Focuses the capsule
+ */
+OO.ui.CapsuleItemWidget.prototype.focus = function () {
+	this.$element.focus();
 };
