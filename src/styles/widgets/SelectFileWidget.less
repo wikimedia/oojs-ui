@@ -76,16 +76,90 @@
 
 	&-dropTarget {
 		cursor: default;
+		height: 5.5em;
+		text-align: left;
+		padding: 0;
+
+		.oo-ui-selectFileWidget-dropLabel,
+		.oo-ui-selectFileWidget-selectButton {
+			display: none;
+		}
+
+		.oo-ui-selectFileWidget-thumbnail {
+			height: 5.5em;
+			width: 5.5em;
+			position: absolute;
+			background-size: cover;
+			background-position: center center;
+
+			&.oo-ui-pendingElement-pending {
+				background-size: auto;
+			}
+
+			> .oo-ui-selectFileWidget-noThumbnail-icon {
+				opacity: 0.4;
+				background-color: #ccc;
+				height: 5.5em;
+				width: 5.5em;
+			}
+		}
+
+		.oo-ui-selectFileWidget-info {
+			border: none;
+			background: none;
+			display: block;
+			height: 100%;
+			width: auto;
+			margin-left: 5.5em;
+
+			> .oo-ui-selectFileWidget-label {
+				position: relative;
+
+				> .oo-ui-selectFileWidget-fileName {
+					display: block;
+					float: none;
+				}
+
+				> .oo-ui-selectFileWidget-fileType {
+					display: block;
+					float: none;
+				}
+			}
+
+			> .oo-ui-selectFileWidget-clearButton {
+				position: absolute;
+				right: 0.5em;
+			}
+		}
 	}
 
-	&-supported.oo-ui-widget-enabled {
-		.oo-ui-selectFileWidget-dropTarget {
-			cursor: pointer;
+	&-empty .oo-ui-selectFileWidget-dropTarget {
+		text-align: center;
+
+		.oo-ui-selectFileWidget-dropLabel {
+			display: block
+		}
+
+		.oo-ui-selectFileWidget-thumbnail,
+		.oo-ui-selectFileWidget-info {
+			display: none;
+		}
+
+		.oo-ui-selectFileWidget-selectButton {
+			display: block;
+			margin: 0.7em;
 		}
 	}
 
 	&-empty,
 	&-notsupported {
+		.oo-ui-selectFileWidget-dropTarget {
+			text-align: center;
+
+			.oo-ui-selectFileWidget-info {
+				margin: 0;
+			}
+		}
 		.oo-ui-selectFileWidget-clearButton {
 			display: none;
 		}

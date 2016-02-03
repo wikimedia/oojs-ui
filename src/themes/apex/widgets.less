@@ -301,24 +301,13 @@
 		}
 	}
 
-	&-dropTarget {
-		line-height: 3.5em;
-		background-color: @background-color-main;
-		border: 1px dashed #aaa;
-		padding: 0.5em 1em;
-		margin-bottom: 0.5em;
-		text-align: center;
-		vertical-align: middle;
-	}
-
 	&-supported.oo-ui-widget-enabled {
-		.oo-ui-selectFileWidget-dropTarget:hover,
-		&.oo-ui-selectFileWidget-canDrop oo-ui-selectFileWidget-dropTarget {
+		&.oo-ui-selectFileWidget-canDrop .oo-ui-selectFileWidget-dropTarget {
 			background-color: #e1f3ff;
 		}
 	}
 
-	&.oo-ui-widget-disabled,
+	&-empty.oo-ui-widget-disabled,
 	&-notsupported {
 		.oo-ui-selectFileWidget-dropTarget {
 			color: #ccc;
@@ -326,6 +315,18 @@
 			border-color: #ddd;
 			background-color: #f3f3f3;
 		}
+	}
+
+	&-dropTarget {
+		background-color: @background-color-main;
+		border: 1px solid #aaa;
+		margin-bottom: 0.5em;
+		vertical-align: middle;
+		border-radius: 0.25em;
+	}
+
+	&-empty .oo-ui-selectFileWidget-dropTarget {
+		border-style: dashed;
 	}
 }
 

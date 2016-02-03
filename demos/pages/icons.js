@@ -126,6 +126,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'alignCentre',
 				'alignLeft',
 				'alignRight',
+				'attachment',
 				'calendar',
 				'find',
 				'language',
