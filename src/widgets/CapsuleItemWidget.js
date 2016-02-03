@@ -35,6 +35,7 @@ OO.ui.CapsuleItemWidget = function OoUiCapsuleItemWidget( config ) {
 
 	// Initialization
 	this.$element
+		.on( 'click', this.onClick.bind( this ) )
 		.addClass( 'oo-ui-capsuleItemWidget' )
 		.append( this.$label, this.closeButton.$element );
 };
@@ -57,5 +58,16 @@ OO.ui.CapsuleItemWidget.prototype.onCloseClick = function () {
 	if ( element && $.isFunction( element.removeItems ) ) {
 		element.removeItems( [ this ] );
 		element.focus();
+	}
+};
+
+/**
+ * Handle click event for the entire capsule
+ */
+OO.ui.CapsuleItemWidget.prototype.onClick = function () {
+	var element = this.getElementGroup();
+
+	if ( !this.isDisabled() && element && $.isFunction( element.editItem ) ) {
+		element.editItem( this );
 	}
 };

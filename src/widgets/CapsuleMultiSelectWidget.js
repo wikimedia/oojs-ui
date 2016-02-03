@@ -288,6 +288,23 @@ OO.ui.CapsuleMultiSelectWidget.prototype.addItemsFromData = function ( datas ) {
 };
 
 /**
+ * Add items to the capsule by providing a label
+ * @param {string} label
+ * @return {boolean} Whether the item was added or not
+ */
+OO.ui.CapsuleMultiSelectWidget.prototype.addItemFromLabel = function ( label ) {
+	var item = this.menu.getItemFromLabel( label, true );
+	if ( item ) {
+		this.addItemsFromData( [ item.data ] );
+		return true;
+	} else if ( this.allowArbitrary && this.$input.val().trim() !== '' ) {
+		this.addItemsFromData( [ label ] );
+		return true;
+	}
+	return false;
+};
+
+/**
  * Remove items by data
  * @chainable
  * @param {Mixed[]} datas
@@ -412,9 +429,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onInputFocus = function () {
  * @param {jQuery.Event} event
  */
 OO.ui.CapsuleMultiSelectWidget.prototype.onInputBlur = function () {
-	if ( this.allowArbitrary && this.$input.val().trim() !== '' ) {
-		this.addItemsFromData( [ this.$input.val() ] );
-	}
+	this.addItemFromLabel( this.$input.val() );
 	this.clearInput();
 };
 
@@ -477,8 +492,6 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onMouseDown = function ( e ) {
  * @param {jQuery.Event} e Key press event
  */
 OO.ui.CapsuleMultiSelectWidget.prototype.onKeyPress = function ( e ) {
-	var item;
-
 	if ( !this.isDisabled() ) {
 		if ( e.which === OO.ui.Keys.ESCAPE ) {
 			this.clearInput();
@@ -488,12 +501,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onKeyPress = function ( e ) {
 		if ( !this.popup ) {
 			this.menu.toggle( true );
 			if ( e.which === OO.ui.Keys.ENTER ) {
-				item = this.menu.getItemFromLabel( this.$input.val(), true );
-				if ( item ) {
-					this.addItemsFromData( [ item.data ] );
-					this.clearInput();
-				} else if ( this.allowArbitrary && this.$input.val().trim() !== '' ) {
-					this.addItemsFromData( [ this.$input.val() ] );
+				if ( this.addItemFromLabel( this.$input.val() ) ) {
 					this.clearInput();
 				}
 				return false;
@@ -514,8 +522,14 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onKeyPress = function ( e ) {
 OO.ui.CapsuleMultiSelectWidget.prototype.onKeyDown = function ( e ) {
 	if ( !this.isDisabled() ) {
 		// 'keypress' event is not triggered for Backspace
-		if ( e.keyCode === OO.ui.Keys.BACKSPACE && this.$input.val() === '' ) {
-			if ( this.items.length ) {
+		if (
+			e.keyCode === OO.ui.Keys.BACKSPACE &&
+			this.$input.val() === '' &&
+			this.items.length
+		) {
+			if ( e.metaKey || e.ctrlKey ) {
+				this.removeItems( this.items.slice( -1 ) );
+			} else {
 				this.editItem( this.items[ this.items.length - 1 ] );
 			}
 			return false;
