@@ -270,9 +270,9 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 };
 
 /**
- * Get the URL of the image if the selected file is one
+ * If the selected file is an image, get its URL and load it.
  *
- * @return {jQuery.Promise} Promise resolves with the image URL
+ * @return {jQuery.Promise} Promise resolves with the image URL after it has loaded
  */
 OO.ui.SelectFileWidget.prototype.loadAndGetImageUrl = function () {
 	var deferred = $.Deferred(),
