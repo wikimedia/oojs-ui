@@ -1138,6 +1138,55 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.DropdownInputWidget( {
+						options: [
+							{ data: 'sq', label: 'Albanian' },
+							{ data: 'frp', label: 'Arpitan' },
+							{ data: 'ba', label: 'Bashkir' },
+							{ data: 'pt-br', label: 'Brazilian Portuguese' },
+							{ data: 'tzm', label: 'Central Atlas Tamazight' },
+							{ data: 'zh', label: 'Chinese' },
+							{ data: 'co', label: 'Corsican' },
+							{ data: 'del', label: 'Delaware' },
+							{ data: 'eml', label: 'Emiliano-Romagnolo' },
+							{ data: 'en', label: 'English' },
+							{ data: 'fi', label: 'Finnish' },
+							{ data: 'aln', label: 'Gheg Albanian' },
+							{ data: 'he', label: 'Hebrew' },
+							{ data: 'ilo', label: 'Iloko' },
+							{ data: 'kbd', label: 'Kabardian' },
+							{ data: 'csb', label: 'Kashubian' },
+							{ data: 'avk', label: 'Kotava' },
+							{ data: 'lez', label: 'Lezghian' },
+							{ data: 'nds-nl', label: 'Low Saxon' },
+							{ data: 'ml', label: 'Malayalam' },
+							{ data: 'dum', label: 'Middle Dutch' },
+							{ data: 'ary', label: 'Moroccan Arabic' },
+							{ data: 'pih', label: 'Norfuk / Pitkern' },
+							{ data: 'ny', label: 'Nyanja' },
+							{ data: 'ang', label: 'Old English' },
+							{ data: 'non', label: 'Old Norse' },
+							{ data: 'pau', label: 'Palauan' },
+							{ data: 'pdt', label: 'Plautdietsch' },
+							{ data: 'ru', label: 'Russian' },
+							{ data: 'stq', label: 'Saterland Frisian' },
+							{ data: 'ii', label: 'Sichuan Yi' },
+							{ data: 'bcc', label: 'Southern Balochi' },
+							{ data: 'shi', label: 'Tachelhit' },
+							{ data: 'th', label: 'Thai' },
+							{ data: 'tr', label: 'Turkish' },
+							{ data: 'fiu-vro', label: 'Võro' },
+							{ data: 'vls', label: 'West Flemish' },
+							{ data: 'zea', label: 'Zeelandic' }
+						],
+						value: 'en'
+					} ),
+					{
+						label: 'DropdownInputWidget (long)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.ComboBoxInputWidget( {
 						menu: {
 							items: [
