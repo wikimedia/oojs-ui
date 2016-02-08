@@ -60,6 +60,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	this.onKeyPressHandler = this.onKeyPress.bind( this );
 	this.keyPressBuffer = '';
 	this.keyPressBufferTimer = null;
+	this.blockMouseOverEvents = 0;
 
 	// Events
 	this.connect( this, {
@@ -222,7 +223,9 @@ OO.ui.SelectWidget.prototype.onMouseMove = function ( e ) {
  */
 OO.ui.SelectWidget.prototype.onMouseOver = function ( e ) {
 	var item;
-
+	if ( this.blockMouseOverEvents ) {
+		return;
+	}
 	if ( !this.isDisabled() ) {
 		item = this.getTargetItem( e );
 		this.highlightItem( item && item.isHighlightable() ? item : null );
@@ -293,7 +296,7 @@ OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
 			} else {
 				this.chooseItem( nextItem );
 			}
-			nextItem.scrollElementIntoView();
+			this.scrollItemIntoView( nextItem );
 		}
 
 		if ( handled ) {
@@ -319,6 +322,23 @@ OO.ui.SelectWidget.prototype.bindKeyDownListener = function () {
  */
 OO.ui.SelectWidget.prototype.unbindKeyDownListener = function () {
 	this.getElementWindow().removeEventListener( 'keydown', this.onKeyDownHandler, true );
+};
+
+/**
+ * Scroll item into view, preventing spurious mouse highlight actions from happening.
+ *
+ * @return {OO.ui.OptionWidget} Item to scroll into view
+ */
+OO.ui.SelectWidget.prototype.scrollItemIntoView = function ( item ) {
+	var widget = this;
+	// Chromium's Blink engine will generate spurious 'mouseover' events during programmatic scrolling
+	// and around 100-150 ms after it is finished.
+	this.blockMouseOverEvents++;
+	item.scrollElementIntoView().done( function () {
+		setTimeout( function () {
+			widget.blockMouseOverEvents--;
+		}, 200 );
+	} );
 };
 
 /**
@@ -383,7 +403,7 @@ OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
 		} else {
 			this.chooseItem( item );
 		}
-		item.scrollElementIntoView();
+		this.scrollItemIntoView( item );
 	}
 
 	e.preventDefault();
