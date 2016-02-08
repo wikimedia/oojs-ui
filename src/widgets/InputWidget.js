@@ -52,7 +52,6 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 		.addClass( 'oo-ui-inputWidget' )
 		.append( this.$input );
 	this.setValue( config.value );
-	this.setAccessKey( config.accessKey );
 	if ( config.dir ) {
 		this.setDir( config.dir );
 	}
@@ -192,30 +191,6 @@ OO.ui.InputWidget.prototype.setValue = function ( value ) {
 		this.value = value;
 		this.emit( 'change', this.value );
 	}
-	return this;
-};
-
-/**
- * Set the input's access key.
- * FIXME: This is the same code as in OO.ui.mixin.ButtonElement, maybe find a better place for it?
- *
- * @param {string} accessKey Input's access key, use empty string to remove
- * @chainable
- */
-OO.ui.InputWidget.prototype.setAccessKey = function ( accessKey ) {
-	accessKey = typeof accessKey === 'string' && accessKey.length ? accessKey : null;
-
-	if ( this.accessKey !== accessKey ) {
-		if ( this.$input ) {
-			if ( accessKey !== null ) {
-				this.$input.attr( 'accesskey', accessKey );
-			} else {
-				this.$input.removeAttr( 'accesskey' );
-			}
-		}
-		this.accessKey = accessKey;
-	}
-
 	return this;
 };
 
