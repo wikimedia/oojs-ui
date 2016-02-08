@@ -621,7 +621,7 @@ OO.ui.Element.static.scrollIntoView = function ( el, config ) {
 		}
 	}
 	if ( !$.isEmptyObject( anim ) ) {
-		$sc.stop( true ).animate( anim, config.duration || 'fast' );
+		$sc.stop( true ).animate( anim, config.duration === undefined ? 'fast' : config.duration );
 		if ( callback ) {
 			$sc.queue( function ( next ) {
 				callback();

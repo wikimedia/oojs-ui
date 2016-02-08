@@ -291,6 +291,10 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			}
 			this.toggleClipping( true );
 
+			if ( this.getSelectedItem() ) {
+				this.getSelectedItem().scrollElementIntoView( { duration: 0 } );
+			}
+
 			// Auto-hide
 			if ( this.autoHide ) {
 				this.getElementDocument().addEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
