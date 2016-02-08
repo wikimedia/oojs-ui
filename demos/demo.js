@@ -189,9 +189,21 @@ OO.ui.Demo.prototype.initialize = function () {
 		promises = this.stylesheetLinks.map( function ( el ) {
 			return $( el ).data( 'load-promise' );
 		} );
+
+	// Helper function to get high resolution profiling data, where available.
+	function now() {
+		/*global performance */
+		return ( typeof performance !== 'undefined' ) ? performance.now() :
+			Date.now ? Date.now() : new Date().getTime();
+	}
+
 	$.when.apply( $, promises )
 		.done( function () {
+			var start, end;
+			start = now();
 			demo.constructor.static.pages[ demo.mode.page ]( demo );
+			end = now();
+			window.console.log( 'Took ' + ( end - start ) + ' ms to build demo page.' );
 		} )
 		.fail( function () {
 			demo.$element.append( $( '<p>' ).text( 'Demo styles failed to load.' ) );
