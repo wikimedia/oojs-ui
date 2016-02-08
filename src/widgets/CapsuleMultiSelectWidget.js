@@ -337,6 +337,18 @@ OO.ui.CapsuleMultiSelectWidget.prototype.addItems = function ( items ) {
 };
 
 /**
+ * Removes the item from the list and copies its label to `this.$input`.
+ *
+ * @param {Object} item
+ */
+OO.ui.CapsuleMultiSelectWidget.prototype.editItem = function ( item ) {
+	this.$input.val( item.label );
+	this.updateInputSize();
+	this.focus();
+	this.removeItems( [ item ] );
+};
+
+/**
  * @inheritdoc
  */
 OO.ui.CapsuleMultiSelectWidget.prototype.removeItems = function ( items ) {
@@ -504,7 +516,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onKeyDown = function ( e ) {
 		// 'keypress' event is not triggered for Backspace
 		if ( e.keyCode === OO.ui.Keys.BACKSPACE && this.$input.val() === '' ) {
 			if ( this.items.length ) {
-				this.removeItems( this.items.slice( -1 ) );
+				this.editItem( this.items[ this.items.length - 1 ] );
 			}
 			return false;
 		}
