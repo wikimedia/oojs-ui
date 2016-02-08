@@ -102,7 +102,7 @@ OO.ui.PopupToolGroup.prototype.setDisabled = function () {
  * The event is actually generated from a mouseup/keyup, so it is not a normal blur event object.
  *
  * @protected
- * @param {jQuery.Event} e Mouse up or key up event
+ * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
 OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
 	// Only deactivate when clicking outside the dropdown element

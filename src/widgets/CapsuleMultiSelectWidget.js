@@ -454,7 +454,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onFocusForPopup = function () {
  * Handles popup focus out events.
  *
  * @private
- * @param {Event} e Focus out event
+ * @param {jQuery.Event} e Focus out event
  */
 OO.ui.CapsuleMultiSelectWidget.prototype.onPopupFocusOut = function () {
 	var widget = this.popup;

@@ -121,7 +121,7 @@ OO.ui.mixin.ButtonElement.prototype.onMouseDown = function ( e ) {
  * Handles mouse up events.
  *
  * @protected
- * @param {jQuery.Event} e Mouse up event
+ * @param {MouseEvent} e Mouse up event
  */
 OO.ui.mixin.ButtonElement.prototype.onMouseUp = function ( e ) {
 	if ( this.isDisabled() || e.which !== OO.ui.MouseButtons.LEFT ) {
@@ -167,7 +167,7 @@ OO.ui.mixin.ButtonElement.prototype.onKeyDown = function ( e ) {
  * Handles key up events.
  *
  * @protected
- * @param {jQuery.Event} e Key up event
+ * @param {KeyboardEvent} e Key up event
  */
 OO.ui.mixin.ButtonElement.prototype.onKeyUp = function ( e ) {
 	if ( this.isDisabled() || ( e.which !== OO.ui.Keys.SPACE && e.which !== OO.ui.Keys.ENTER ) ) {

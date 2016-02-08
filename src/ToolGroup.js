@@ -176,7 +176,7 @@ OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
  * Handle captured mouse up and key up events.
  *
  * @protected
- * @param {Event} e Mouse up or key up event
+ * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
 OO.ui.ToolGroup.prototype.onCapturedMouseKeyUp = function ( e ) {
 	this.getElementDocument().removeEventListener( 'mouseup', this.onCapturedMouseKeyUpHandler, true );
@@ -190,7 +190,7 @@ OO.ui.ToolGroup.prototype.onCapturedMouseKeyUp = function ( e ) {
  * Handle mouse up and key up events.
  *
  * @protected
- * @param {jQuery.Event} e Mouse up or key up event
+ * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
 OO.ui.ToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	var tool = this.getTargetTool( e );
@@ -201,7 +201,8 @@ OO.ui.ToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	) {
 		this.pressed.onSelect();
 		this.pressed = null;
-		return false;
+		e.preventDefault();
+		e.stopPropagation();
 	}
 
 	this.pressed = null;

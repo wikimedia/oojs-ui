@@ -172,7 +172,7 @@ OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
  * Handle mouse up events.
  *
  * @private
- * @param {jQuery.Event} e Mouse up event
+ * @param {MouseEvent} e Mouse up event
  */
 OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 	var item;
@@ -200,7 +200,7 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
  * Handle mouse move events.
  *
  * @private
- * @param {jQuery.Event} e Mouse move event
+ * @param {MouseEvent} e Mouse move event
  */
 OO.ui.SelectWidget.prototype.onMouseMove = function ( e ) {
 	var item;
@@ -212,7 +212,6 @@ OO.ui.SelectWidget.prototype.onMouseMove = function ( e ) {
 			this.selecting = item;
 		}
 	}
-	return false;
 };
 
 /**
@@ -248,7 +247,7 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
  * Handle key down events.
  *
  * @protected
- * @param {jQuery.Event} e Key down event
+ * @param {KeyboardEvent} e Key down event
  */
 OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
 	var nextItem,
@@ -298,7 +297,6 @@ OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
 		}
 
 		if ( handled ) {
-			// Can't just return false, because e is not always a jQuery event
 			e.preventDefault();
 			e.stopPropagation();
 		}
