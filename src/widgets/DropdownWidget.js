@@ -80,7 +80,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	// Events
 	this.$handle.on( {
 		click: this.onClick.bind( this ),
-		keypress: this.onKeyPress.bind( this )
+		keydown: this.onKeyDown.bind( this )
 	} );
 	this.menu.connect( this, { select: 'onMenuSelect' } );
 
@@ -152,14 +152,25 @@ OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
 };
 
 /**
- * Handle key press events.
+ * Handle key down events.
  *
  * @private
- * @param {jQuery.Event} e Key press event
+ * @param {jQuery.Event} e Key down event
  */
-OO.ui.DropdownWidget.prototype.onKeyPress = function ( e ) {
-	if ( !this.isDisabled() &&
-		( ( e.which === OO.ui.Keys.SPACE && !this.menu.isVisible() ) || e.which === OO.ui.Keys.ENTER )
+OO.ui.DropdownWidget.prototype.onKeyDown = function ( e ) {
+	if (
+		!this.isDisabled() &&
+		(
+			e.which === OO.ui.Keys.ENTER ||
+			(
+				!this.menu.isVisible() &&
+				(
+					e.which === OO.ui.Keys.SPACE ||
+					e.which === OO.ui.Keys.UP ||
+					e.which === OO.ui.Keys.DOWN
+				)
+			)
+		)
 	) {
 		this.menu.toggle();
 		return false;
