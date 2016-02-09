@@ -70,15 +70,16 @@
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-frameless-button-colored( @progressive, @progressive-hover, @progressive-active );
+					.mw-frameless-button-colored( @color-progressive, @color-progressive-hover, @color-progressive-active );
 				}
 
+				// Deprecated in 0.16.1, see T110555
 				&-constructive {
-					.mw-frameless-button-colored( @constructive, @constructive-hover, @constructive-active );
+					.mw-frameless-button-colored( @color-progressive, @color-progressive-hover, @color-progressive-active );
 				}
 
 				&-destructive {
-					.mw-frameless-button-colored( @destructive, @destructive-hover, @destructive-active );
+					.mw-frameless-button-colored( @color-destructive, @color-destructive-hover, @color-destructive-active );
 				}
 			}
 		}
@@ -199,28 +200,30 @@
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-framed-button-colored( @progressive, @progressive-fade, @progressive-active );
+					.mw-framed-button-colored( @color-progressive, @color-progressive-fade, @color-progressive-active );
 				}
 
+				// Deprecated in 0.16.1
 				&-constructive {
-					.mw-framed-button-colored( @constructive, @constructive-fade, @constructive-active );
+					.mw-framed-button-colored( @color-progressive, @color-progressive-fade, @color-progressive-active );
 				}
 
 				&-destructive {
-					.mw-framed-button-colored( @destructive, @destructive-fade, @destructive-active );
+					.mw-framed-button-colored( @color-destructive, @color-destructive-fade, @color-destructive-active );
 				}
 			}
 			&.oo-ui-flaggedElement-primary.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-framed-primary-button-colored( @progressive, @progressive-hover, @progressive-active );
+					.mw-framed-primary-button-colored( @color-progressive, @color-progressive-hover, @color-progressive-active );
 				}
 
+				// Deprecated in 0.16.1
 				&-constructive {
-					.mw-framed-primary-button-colored( @constructive, @constructive-hover, @constructive-active );
+					.mw-framed-primary-button-colored( @color-progressive, @color-progressive-hover, @color-progressive-active );
 				}
 
 				&-destructive {
-					.mw-framed-primary-button-colored( @destructive, @destructive-hover, @destructive-active );
+					.mw-framed-primary-button-colored( @color-destructive, @color-destructive-hover, @color-destructive-active );
 				}
 			}
 		}
