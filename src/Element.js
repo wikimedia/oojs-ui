@@ -123,7 +123,7 @@ OO.ui.Element.static.infuse = function ( idOrNode ) {
  */
 OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	// look for a cached result of a previous infusion.
-	var id, $elem, data, cls, parts, parent, obj, top, state;
+	var id, $elem, data, cls, parts, parent, obj, top, state, infusedChildren;
 	if ( typeof idOrNode === 'string' ) {
 		id = idOrNode;
 		$elem = $( document.getElementById( id ) );
@@ -134,11 +134,27 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	if ( !$elem.length ) {
 		throw new Error( 'Widget not found: ' + id );
 	}
-	data = $elem.data( 'ooui-infused' ) || $elem[ 0 ].oouiInfused;
+	if ( $elem[ 0 ].oouiInfused ) {
+		$elem = $elem[ 0 ].oouiInfused;
+	}
+	data = $elem.data( 'ooui-infused' );
 	if ( data ) {
 		// cached!
 		if ( data === true ) {
 			throw new Error( 'Circular dependency! ' + id );
+		}
+		if ( domPromise ) {
+			// pick up dynamic state, like focus, value of form inputs, scroll position, etc.
+			state = data.gatherPreInfuseState( $elem );
+			// restore dynamic state after the new element is re-inserted into DOM under infused parent
+			domPromise.done( data.restorePreInfuseState.bind( data, state ) );
+			infusedChildren = $elem.data( 'ooui-infused-children' );
+			if ( infusedChildren && infusedChildren.length ) {
+				infusedChildren.forEach( function ( data ) {
+					var state = data.gatherPreInfuseState( $elem );
+					domPromise.done( data.restorePreInfuseState.bind( data, state ) );
+				} );
+			}
 		}
 		return data;
 	}
@@ -191,10 +207,17 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	}
 	$elem.data( 'ooui-infused', true ); // prevent loops
 	data.id = id; // implicit
+	infusedChildren = [];
 	data = OO.copy( data, null, function deserialize( value ) {
+		var infused;
 		if ( OO.isPlainObject( value ) ) {
 			if ( value.tag ) {
-				return OO.ui.Element.static.unsafeInfuse( value.tag, domPromise );
+				infused = OO.ui.Element.static.unsafeInfuse( value.tag, domPromise );
+				infusedChildren.push( infused );
+				// Flatten the structure
+				infusedChildren.push.apply( infusedChildren, infused.$element.data( 'ooui-infused-children' ) || [] );
+				infused.$element.removeData( 'ooui-infused-children' );
+				return infused;
 			}
 			if ( value.html ) {
 				return new OO.ui.HtmlSnippet( value.html );
@@ -218,11 +241,12 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 			// This element is now gone from the DOM, but if anyone is holding a reference to it,
 			// let's allow them to OO.ui.infuse() it and do what they expect (T105828).
 			// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
-			$elem[ 0 ].oouiInfused = obj;
+			$elem[ 0 ].oouiInfused = obj.$element;
 		}
 		top.resolve();
 	}
 	obj.$element.data( 'ooui-infused', obj );
+	obj.$element.data( 'ooui-infused-children', infusedChildren );
 	// set the 'data-ooui' attribute so we can identify infused widgets
 	obj.$element.attr( 'data-ooui', '' );
 	// restore dynamic state after the new element is inserted into DOM
