@@ -658,6 +658,55 @@
 							)
 						),
 						new OOUI\FieldLayout(
+							new OOUI\DropdownInputWidget( array(
+								'options' => array(
+									array( 'data' => 'sq', 'label' => 'Albanian' ),
+									array( 'data' => 'frp', 'label' => 'Arpitan' ),
+									array( 'data' => 'ba', 'label' => 'Bashkir' ),
+									array( 'data' => 'pt-br', 'label' => 'Brazilian Portuguese' ),
+									array( 'data' => 'tzm', 'label' => 'Central Atlas Tamazight' ),
+									array( 'data' => 'zh', 'label' => 'Chinese' ),
+									array( 'data' => 'co', 'label' => 'Corsican' ),
+									array( 'data' => 'del', 'label' => 'Delaware' ),
+									array( 'data' => 'eml', 'label' => 'Emiliano-Romagnolo' ),
+									array( 'data' => 'en', 'label' => 'English' ),
+									array( 'data' => 'fi', 'label' => 'Finnish' ),
+									array( 'data' => 'aln', 'label' => 'Gheg Albanian' ),
+									array( 'data' => 'he', 'label' => 'Hebrew' ),
+									array( 'data' => 'ilo', 'label' => 'Iloko' ),
+									array( 'data' => 'kbd', 'label' => 'Kabardian' ),
+									array( 'data' => 'csb', 'label' => 'Kashubian' ),
+									array( 'data' => 'avk', 'label' => 'Kotava' ),
+									array( 'data' => 'lez', 'label' => 'Lezghian' ),
+									array( 'data' => 'nds-nl', 'label' => 'Low Saxon' ),
+									array( 'data' => 'ml', 'label' => 'Malayalam' ),
+									array( 'data' => 'dum', 'label' => 'Middle Dutch' ),
+									array( 'data' => 'ary', 'label' => 'Moroccan Arabic' ),
+									array( 'data' => 'pih', 'label' => 'Norfuk / Pitkern' ),
+									array( 'data' => 'ny', 'label' => 'Nyanja' ),
+									array( 'data' => 'ang', 'label' => 'Old English' ),
+									array( 'data' => 'non', 'label' => 'Old Norse' ),
+									array( 'data' => 'pau', 'label' => 'Palauan' ),
+									array( 'data' => 'pdt', 'label' => 'Plautdietsch' ),
+									array( 'data' => 'ru', 'label' => 'Russian' ),
+									array( 'data' => 'stq', 'label' => 'Saterland Frisian' ),
+									array( 'data' => 'ii', 'label' => 'Sichuan Yi' ),
+									array( 'data' => 'bcc', 'label' => 'Southern Balochi' ),
+									array( 'data' => 'shi', 'label' => 'Tachelhit' ),
+									array( 'data' => 'th', 'label' => 'Thai' ),
+									array( 'data' => 'tr', 'label' => 'Turkish' ),
+									array( 'data' => 'fiu-vro', 'label' => 'Võro' ),
+									array( 'data' => 'vls', 'label' => 'West Flemish' ),
+									array( 'data' => 'zea', 'label' => 'Zeelandic' ),
+								),
+								'value' => 'en',
+							) ),
+							array(
+								'label' => "DropdownInputWidget (long)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
 							new OOUI\ComboBoxInputWidget( array(
 								'options' => array(
 									array( 'data' => 'asd', 'label' => 'Label for asd' ),
