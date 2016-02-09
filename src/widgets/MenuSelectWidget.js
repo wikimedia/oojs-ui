@@ -79,7 +79,7 @@ OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.mixin.ClippableElement );
  * Handles document mouse down events.
  *
  * @protected
- * @param {jQuery.Event} e Key down event
+ * @param {MouseEvent} e Mouse down event
  */
 OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
 	if (
