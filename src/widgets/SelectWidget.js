@@ -340,7 +340,7 @@ OO.ui.SelectWidget.prototype.clearKeyPressBuffer = function () {
  * Handle key press events.
  *
  * @protected
- * @param {jQuery.Event} e Key press event
+ * @param {KeyboardEvent} e Key press event
  */
 OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
 	var c, filter, item;
@@ -388,7 +388,8 @@ OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
 		item.scrollElementIntoView();
 	}
 
-	return false;
+	e.preventDefault();
+	e.stopPropagation();
 };
 
 /**
