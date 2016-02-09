@@ -1,5 +1,38 @@
 # OOjs UI Release History
 
+## v0.15.3 / 2016-02-09
+### Features
+* CapsuleItemWidget: Let user tab through items, edit and delete them (Prateek Saxena)
+* CapsuleMultiSelectWidget: Edit instead of remove on backspace (Prateek Saxena)
+* CapsuleWidgets: Edit on click and remove on Ctrl+Backspace (Prateek Saxena)
+* CapsuleWidgets: Toggle through capsules and the input with arrow keys (Prateek Saxena)
+* DropdownWidget: Open menu on up and down arrow keys (Prateek Saxena)
+* MenuSelectWidget: Ensure currently selected element is visible when menu opens (Bartosz Dziewoński)
+* SelectFileWidget: Show thumbnail when dropTarget is shown (Prateek Saxena)
+* Really preserve dynamic state of widgets when infusing (Bartosz Dziewoński)
+
+### Styles
+* MediaWiki, Apex themes: Replace 'language' icon with tweaked version (Mun May Tee)
+
+### Code
+* CapsuleItemWidget: Use Button instead of an Indicator (Prateek Saxena)
+* CapsuleMultiSelectWidget: Extend config instead of when setting property (Prateek Saxena)
+* InputWidget: Remove the 'setAccessKey' method (Prateek Saxena)
+* SelectWidget: Really prevent default action during type-to-select (Bartosz Dziewoński)
+* Put '@keyframes' rules inside a mixin to avoid duplicating them (Bartosz Dziewoński)
+* Apex theme: Remove unnecessary '@keyframes' prefixing (Bartosz Dziewoński)
+* Mediawiki theme: Align button mixins/states to CSS guidelines/standard (Volker E)
+* Correct code using plain DOM events documented as jQuery events (Bartosz Dziewoński)
+* demo: Add a long DropdownInputWidget demo (Bartosz Dziewoński)
+* demo: In PHP demo, load oojs-ui-core only instead of whole oojs-ui (Bartosz Dziewoński)
+* demo: Measure time needed to construct the demo (Bartosz Dziewoński)
+* demo: widgets: OO.ui.CapsuleMultiSelectWidget: Remove non-existent 'values' config (Prateek Saxena)
+* docparser: Recognize and ignore '@uses' (Bartosz Dziewoński)
+* docs: OO.ui.CapsuleMultiSelectWidget: Config options (Prateek Saxena)
+* docs: OO.ui.CapsuleMultiSelectWidget: Link to the widget it uses (Prateek Saxena)
+* docs: OO.ui.SelectFileWidget: Minor language change (Prateek Saxena)
+
+
 ## v0.15.2 / 2016-02-02
 ### Features
 * DropdownWidget: Prevent label from overflowing the handle (Bartosz Dziewoński)
