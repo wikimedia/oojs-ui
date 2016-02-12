@@ -592,62 +592,62 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
  * @static
  * @param {HTMLElement} el Element to scroll into view
  * @param {Object} [config] Configuration options
- * @param {string} [config.duration] jQuery animation duration value
+ * @param {string} [config.duration='fast'] jQuery animation duration value
  * @param {string} [config.direction] Scroll in only one direction, e.g. 'x' or 'y', omit
  *  to scroll in both directions
  * @param {Function} [config.complete] Function to call when scrolling completes
  */
 OO.ui.Element.static.scrollIntoView = function ( el, config ) {
-	var rel, anim, callback, sc, $sc, eld, scd, $win;
+	var position, animations, callback, container, $container, elementDimensions, containerDimensions, $window;
 
 	// Configuration initialization
 	config = config || {};
 
-	anim = {};
+	animations = {};
 	callback = typeof config.complete === 'function' && config.complete;
-	sc = this.getClosestScrollableContainer( el, config.direction );
-	$sc = $( sc );
-	eld = this.getDimensions( el );
-	scd = this.getDimensions( sc );
-	$win = $( this.getWindow( el ) );
+	container = this.getClosestScrollableContainer( el, config.direction );
+	$container = $( container );
+	elementDimensions = this.getDimensions( el );
+	containerDimensions = this.getDimensions( container );
+	$window = $( this.getWindow( el ) );
 
-	// Compute the distances between the edges of el and the edges of the scroll viewport
-	if ( $sc.is( 'html, body' ) ) {
+	// Compute the element's position relative to the container
+	if ( $container.is( 'html, body' ) ) {
 		// If the scrollable container is the root, this is easy
-		rel = {
-			top: eld.rect.top,
-			bottom: $win.innerHeight() - eld.rect.bottom,
-			left: eld.rect.left,
-			right: $win.innerWidth() - eld.rect.right
+		position = {
+			top: elementDimensions.rect.top,
+			bottom: $window.innerHeight() - elementDimensions.rect.bottom,
+			left: elementDimensions.rect.left,
+			right: $window.innerWidth() - elementDimensions.rect.right
 		};
 	} else {
-		// Otherwise, we have to subtract el's coordinates from sc's coordinates
-		rel = {
-			top: eld.rect.top - ( scd.rect.top + scd.borders.top ),
-			bottom: scd.rect.bottom - scd.borders.bottom - scd.scrollbar.bottom - eld.rect.bottom,
-			left: eld.rect.left - ( scd.rect.left + scd.borders.left ),
-			right: scd.rect.right - scd.borders.right - scd.scrollbar.right - eld.rect.right
+		// Otherwise, we have to subtract el's coordinates from container's coordinates
+		position = {
+			top: elementDimensions.rect.top - ( containerDimensions.rect.top + containerDimensions.borders.top ),
+			bottom: containerDimensions.rect.bottom - containerDimensions.borders.bottom - containerDimensions.scrollbar.bottom - elementDimensions.rect.bottom,
+			left: elementDimensions.rect.left - ( containerDimensions.rect.left + containerDimensions.borders.left ),
+			right: containerDimensions.rect.right - containerDimensions.borders.right - containerDimensions.scrollbar.right - elementDimensions.rect.right
 		};
 	}
 
 	if ( !config.direction || config.direction === 'y' ) {
-		if ( rel.top < 0 ) {
-			anim.scrollTop = scd.scroll.top + rel.top;
-		} else if ( rel.top > 0 && rel.bottom < 0 ) {
-			anim.scrollTop = scd.scroll.top + Math.min( rel.top, -rel.bottom );
+		if ( position.top < 0 ) {
+			animations.scrollTop = containerDimensions.scroll.top + position.top;
+		} else if ( position.top > 0 && position.bottom < 0 ) {
+			animations.scrollTop = containerDimensions.scroll.top + Math.min( position.top, -position.bottom );
 		}
 	}
 	if ( !config.direction || config.direction === 'x' ) {
-		if ( rel.left < 0 ) {
-			anim.scrollLeft = scd.scroll.left + rel.left;
-		} else if ( rel.left > 0 && rel.right < 0 ) {
-			anim.scrollLeft = scd.scroll.left + Math.min( rel.left, -rel.right );
+		if ( position.left < 0 ) {
+			animations.scrollLeft = containerDimensions.scroll.left + position.left;
+		} else if ( position.left > 0 && position.right < 0 ) {
+			animations.scrollLeft = containerDimensions.scroll.left + Math.min( position.left, -position.right );
 		}
 	}
-	if ( !$.isEmptyObject( anim ) ) {
-		$sc.stop( true ).animate( anim, config.duration === undefined ? 'fast' : config.duration );
+	if ( !$.isEmptyObject( animations ) ) {
+		$container.stop( true ).animate( animations, config.duration === undefined ? 'fast' : config.duration );
 		if ( callback ) {
-			$sc.queue( function ( next ) {
+			$container.queue( function ( next ) {
 				callback();
 				next();
 			} );
