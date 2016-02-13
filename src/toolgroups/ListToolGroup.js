@@ -154,6 +154,11 @@ OO.ui.ListToolGroup.prototype.populate = function () {
 	this.updateCollapsibleState();
 };
 
+/**
+ * Get the expand/collapse tool for this group
+ *
+ * @return {OO.ui.Tool} Expand collapse tool
+ */
 OO.ui.ListToolGroup.prototype.getExpandCollapseTool = function () {
 	var ExpandCollapseTool;
 	if ( this.expandCollapseTool === undefined ) {

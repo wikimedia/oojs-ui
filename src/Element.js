@@ -828,6 +828,8 @@ OO.ui.Element.prototype.getElementWindow = function () {
 
 /**
  * Get closest scrollable container.
+ *
+ * @return {HTMLElement} Closest scrollable container
  */
 OO.ui.Element.prototype.getClosestScrollableElementContainer = function () {
 	return OO.ui.Element.static.getClosestScrollableContainer( this.$element[ 0 ] );
@@ -857,6 +859,7 @@ OO.ui.Element.prototype.setElementGroup = function ( group ) {
  * Scroll element into view.
  *
  * @param {Object} [config] Configuration options
+ * @return {jQuery.Promise} Promise which resolves when the scroll is complete
  */
 OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
 	return OO.ui.Element.static.scrollIntoView( this.$element[ 0 ], config );
