@@ -659,8 +659,8 @@ OO.ui.Element.static.scrollIntoView = function ( el, config ) {
 	} else {
 		if ( callback ) {
 			callback();
-			deferred.resolve();
 		}
+		deferred.resolve();
 	}
 	return deferred.promise();
 };
