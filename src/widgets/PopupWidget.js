@@ -45,9 +45,9 @@
  *  This config option is only relevant if #autoClose is set to `true`. See the [OOjs UI docs on MediaWiki][2]
  *  for an example.
  *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Popups#autocloseExample
- * @cfg {boolean} [head] Show a popup header that contains a #label (if specified) and close
+ * @cfg {boolean} [head=false] Show a popup header that contains a #label (if specified) and close
  *  button.
- * @cfg {boolean} [padded] Add padding to the popup's body
+ * @cfg {boolean} [padded=false] Add padding to the popup's body
  */
 OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	// Configuration initialization
@@ -109,6 +109,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 		.addClass( 'oo-ui-popupWidget' )
 		.append( this.$popup, this.$anchor );
 	// Move content, which was added to #$element by OO.ui.Widget, to the body
+	// FIXME This is gross, we should use '$body' or something for the config
 	if ( config.$content instanceof jQuery ) {
 		this.$body.append( config.$content );
 	}
