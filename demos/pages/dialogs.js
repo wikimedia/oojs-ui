@@ -539,7 +539,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
 	];
 	DialogWithDropdowns.prototype.getBodyHeight = function () {
-		return 250;
+		return 300;
 	};
 	DialogWithDropdowns.prototype.initialize = function () {
 		var $spacer = $( '<div>' ).height( 150 );
