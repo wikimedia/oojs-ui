@@ -806,34 +806,17 @@
 		border-color: @progressive;
 	}
 
-	&.oo-ui-indicatorElement {
-		> .oo-ui-labelElement-label {
-			padding-right: @size-indicator + 0.4em;
-		}
-
-		> .oo-ui-indicatorElement-indicator {
-			position: absolute;
-			right: 0.4em;
-			top: 0;
-			width: @size-indicator;
-			height: 100%;
-			background-repeat: no-repeat;
-		}
-
-		> .oo-ui-indicator-clear {
-			cursor: pointer;
-		}
-	}
-
 	&.oo-ui-widget-disabled {
 		color: @color-disabled;
 		text-shadow: @text-shadow-disabled;
 		border-color: @border-color-disabled;
 		background-color: @background-color-disabled;
+	}
 
-		> .oo-ui-indicatorElement-indicator {
-			opacity: @opacity-disabled;
-		}
+	> .oo-ui-buttonElement {
+		float: right;
+		margin-top: -0.2em;
+		margin-left: 0.4em;
 	}
 }
 
