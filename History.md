@@ -1,5 +1,24 @@
 # OOjs UI Release History
 
+## v0.15.4 / 2016-02-16
+### Deprecations
+* [DEPRECATING CHANGE] Element#scrollIntoView: Replace callback with promise (Ed Sanders)
+
+### Features
+* SelectWidget: Prevent mouse highlighting while typing-to-select (Bartosz Dziewoński)
+
+### Styles
+* PHP DropdownInputWidget: Match height of <option> to JS MenuOptionWidget (Bartosz Dziewoński)
+
+### Code
+* DraggableElement: Remove 'HACK' comment, this isn't a hack (Bartosz Dziewoński)
+* Element: Expand variable names in scrollIntoView (Ed Sanders)
+* Element, ListToolGroup: Add some missing documentation (Ed Sanders)
+* Element#scrollIntoView: Make the promise version actually work (Bartosz Dziewoński)
+* PopupWidget: Only build head and footer if we're going to use it (Bartosz Dziewoński)
+* PopupWidget: Tweak some comments (Bartosz Dziewoński)
+* styles: Remove initial value `ease` from `transition` (Volker E)
+
 ## v0.15.3 / 2016-02-09
 ### Features
 * CapsuleItemWidget: Let user tab through items, edit and delete them (Prateek Saxena)
