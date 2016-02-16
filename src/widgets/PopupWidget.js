@@ -68,8 +68,6 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	} ) );
 
 	// Properties
-	this.$head = $( '<div>' );
-	this.$footer = $( '<div>' );
 	this.$anchor = $( '<div>' );
 	// If undefined, will be computed lazily in updateDimensions()
 	this.$container = config.$container;
@@ -81,30 +79,16 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.width = config.width !== undefined ? config.width : 320;
 	this.height = config.height !== undefined ? config.height : null;
 	this.setAlignment( config.align );
-	this.closeButton = new OO.ui.ButtonWidget( { framed: false, icon: 'close' } );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
 	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
-
-	// Events
-	this.closeButton.connect( this, { click: 'onCloseButtonClick' } );
 
 	// Initialization
 	this.toggleAnchor( config.anchor === undefined || config.anchor );
 	this.$body.addClass( 'oo-ui-popupWidget-body' );
 	this.$anchor.addClass( 'oo-ui-popupWidget-anchor' );
-	this.$head
-		.addClass( 'oo-ui-popupWidget-head' )
-		.append( this.$label, this.closeButton.$element );
-	this.$footer.addClass( 'oo-ui-popupWidget-footer' );
-	if ( !config.head ) {
-		this.$head.addClass( 'oo-ui-element-hidden' );
-	}
-	if ( !config.$footer ) {
-		this.$footer.addClass( 'oo-ui-element-hidden' );
-	}
 	this.$popup
 		.addClass( 'oo-ui-popupWidget-popup' )
-		.append( this.$head, this.$body, this.$footer );
+		.append( this.$body );
 	this.$element
 		.addClass( 'oo-ui-popupWidget' )
 		.append( this.$popup, this.$anchor );
@@ -113,11 +97,25 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	if ( config.$content instanceof jQuery ) {
 		this.$body.append( config.$content );
 	}
-	if ( config.$footer instanceof jQuery ) {
-		this.$footer.append( config.$footer );
-	}
+
 	if ( config.padded ) {
 		this.$body.addClass( 'oo-ui-popupWidget-body-padded' );
+	}
+
+	if ( config.head ) {
+		this.closeButton = new OO.ui.ButtonWidget( { framed: false, icon: 'close' } );
+		this.closeButton.connect( this, { click: 'onCloseButtonClick' } );
+		this.$head = $( '<div>' )
+			.addClass( 'oo-ui-popupWidget-head' )
+			.append( this.$label, this.closeButton.$element );
+		this.$popup.prepend( this.$head );
+	}
+
+	if ( config.$footer ) {
+		this.$footer = $( '<div>' )
+			.addClass( 'oo-ui-popupWidget-footer' )
+			.append( config.$footer );
+		this.$popup.append( this.$footer );
 	}
 
 	// Initially hidden - using #toggle may cause errors if subclasses override toggle with methods
