@@ -239,8 +239,10 @@ OO.ui.debounce = function ( func, wait, immediate ) {
 		if ( immediate && !timeout ) {
 			func.apply( context, args );
 		}
-		clearTimeout( timeout );
-		timeout = setTimeout( later, wait );
+		if ( !timeout || wait ) {
+			clearTimeout( timeout );
+			timeout = setTimeout( later, wait );
+		}
 	};
 };
 
