@@ -737,7 +737,11 @@ OO.ui.TextInputWidget.prototype.getValidity = function () {
  */
 OO.ui.TextInputWidget.prototype.setLabelPosition = function ( labelPosition ) {
 	this.labelPosition = labelPosition;
-	this.updatePosition();
+	if ( this.label ) {
+		// If there is no label and we only change the position, #updatePosition is a no-op,
+		// but it takes really a lot of work to do nothing.
+		this.updatePosition();
+	}
 	return this;
 };
 
