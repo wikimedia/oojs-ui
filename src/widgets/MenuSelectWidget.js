@@ -48,7 +48,6 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
 
 	// Properties
-	this.newItems = null;
 	this.autoHide = config.autoHide === undefined || !!config.autoHide;
 	this.filterFromInput = !!config.filterFromInput;
 	this.$input = config.$input ? config.$input : config.input ? config.input.$input : null;
@@ -214,25 +213,8 @@ OO.ui.MenuSelectWidget.prototype.chooseItem = function ( item ) {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.addItems = function ( items, index ) {
-	var i, len, item;
-
 	// Parent method
 	OO.ui.MenuSelectWidget.parent.prototype.addItems.call( this, items, index );
-
-	// Auto-initialize
-	if ( !this.newItems ) {
-		this.newItems = [];
-	}
-
-	for ( i = 0, len = items.length; i < len; i++ ) {
-		item = items[ i ];
-		if ( this.isVisible() ) {
-			// Defer fitting label until item has been attached
-			item.fitLabel();
-		} else {
-			this.newItems.push( item );
-		}
-	}
 
 	// Reevaluate clipping
 	this.clip();
@@ -270,7 +252,7 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
-	var i, len, change;
+	var change;
 
 	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
 	change = visible !== this.isVisible();
@@ -283,12 +265,6 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.bindKeyDownListener();
 			this.bindKeyPressListener();
 
-			if ( this.newItems && this.newItems.length ) {
-				for ( i = 0, len = this.newItems.length; i < len; i++ ) {
-					this.newItems[ i ].fitLabel();
-				}
-				this.newItems = null;
-			}
 			this.toggleClipping( true );
 
 			if ( this.getSelectedItem() ) {

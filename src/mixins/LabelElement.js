@@ -16,8 +16,6 @@
  *  as a plaintext string, a jQuery selection of elements, or a function that will produce a string
  *  in the future. See the [OOjs UI documentation on MediaWiki] [2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Icons,_Indicators,_and_Labels#Labels
- * @cfg {boolean} [autoFitLabel=true] Fit the label to the width of the parent element.
- *  The label will be truncated to fit if necessary.
  */
 OO.ui.mixin.LabelElement = function OoUiMixinLabelElement( config ) {
 	// Configuration initialization
@@ -26,7 +24,6 @@ OO.ui.mixin.LabelElement = function OoUiMixinLabelElement( config ) {
 	// Properties
 	this.$label = null;
 	this.label = null;
-	this.autoFitLabel = config.autoFitLabel === undefined || !!config.autoFitLabel;
 
 	// Initialization
 	this.setLabel( config.label || this.constructor.static.label );
@@ -116,12 +113,9 @@ OO.ui.mixin.LabelElement.prototype.getLabel = function () {
  * Fit the label.
  *
  * @chainable
+ * @deprecated
  */
 OO.ui.mixin.LabelElement.prototype.fitLabel = function () {
-	if ( this.$label && this.$label.autoEllipsis && this.autoFitLabel ) {
-		this.$label.autoEllipsis( { hasSpan: false, tooltip: true } );
-	}
-
 	return this;
 };
 

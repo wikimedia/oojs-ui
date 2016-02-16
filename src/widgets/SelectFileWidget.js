@@ -54,7 +54,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.PendingElement.call( this, $.extend( {}, config, { $pending: this.$info } ) );
-	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, { autoFitLabel: true } ) );
+	OO.ui.mixin.LabelElement.call( this, config );
 
 	// Properties
 	this.$info = $( '<span>' );
