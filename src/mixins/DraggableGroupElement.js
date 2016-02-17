@@ -26,6 +26,7 @@ OO.ui.mixin.DraggableGroupElement = function OoUiMixinDraggableGroupElement( con
 	this.dragItem = null;
 	this.itemDragOver = null;
 	this.itemKeys = {};
+	this.dir = null;
 	this.sideInsertion = '';
 	this.hideTimeout = null;
 
@@ -88,6 +89,9 @@ OO.ui.mixin.DraggableGroupElement.prototype.onItemDragStart = function ( item ) 
 	}
 
 	if ( this.orientation === 'horizontal' ) {
+		// Calculate and cache directionality on drag start - it's a little
+		// expensive and it shouldn't change while dragging.
+		this.dir = this.$element.css( 'direction' );
 		// Set the height of the indicator
 		this.$placeholder.css( {
 			height: item.$element.outerHeight(),
@@ -214,7 +218,7 @@ OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 		}
 		// Store whether we are before or after an item to rearrange
 		// For horizontal layout, we need to account for RTL, as this is flipped
-		if (  this.orientation === 'horizontal' && this.$element.css( 'direction' ) === 'rtl' ) {
+		if ( this.orientation === 'horizontal' && this.dir === 'rtl' ) {
 			this.sideInsertion = dragPosition < itemMidpoint ? 'after' : 'before';
 		} else {
 			this.sideInsertion = dragPosition < itemMidpoint ? 'before' : 'after';
