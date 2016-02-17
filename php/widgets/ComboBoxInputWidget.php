@@ -55,9 +55,9 @@ class ComboBoxInputWidget extends TextInputWidget {
 
 		$this->datalist->clearContent();
 		foreach ( $options as $opt ) {
-			$option = new Tag( 'option' );
-			$option->setAttributes( [ 'value' => $opt['data'] ] );
-			$option->appendContent( isset( $opt['label'] ) ? $opt['label'] : $opt['data'] );
+			$option = ( new Tag( 'option' ) )
+				->setAttributes( [ 'value' => $opt['data'] ] )
+				->appendContent( isset( $opt['label'] ) ? $opt['label'] : $opt['data'] );
 
 			$this->options[] = $option;
 			$this->datalist->appendContent( $option );

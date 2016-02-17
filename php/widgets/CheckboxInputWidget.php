@@ -33,9 +33,7 @@ class CheckboxInputWidget extends InputWidget {
 	}
 
 	protected function getInputElement( $config ) {
-		$input = new Tag( 'input' );
-		$input->setAttributes( [ 'type' => 'checkbox' ] );
-		return $input;
+		return ( new Tag( 'input' ) )->setAttributes( [ 'type' => 'checkbox' ] );
 	}
 
 	/**
