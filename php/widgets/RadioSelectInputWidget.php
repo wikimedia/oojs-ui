@@ -23,14 +23,14 @@ class RadioSelectInputWidget extends InputWidget {
 	 *
 	 * @var array
 	 */
-	protected $fields = array();
+	protected $fields = [];
 
 	/**
 	 * @param array $config Configuration options
 	 * @param array[] $config['options'] Array of menu options in the format
 	 *   `array( 'data' => …, 'label' => … )`
 	 */
-	public function __construct( array $config = array() ) {
+	public function __construct( array $config = [] ) {
 		// Parent constructor
 		parent::__construct( $config );
 
@@ -39,8 +39,8 @@ class RadioSelectInputWidget extends InputWidget {
 		}
 
 		// Initialization
-		$this->setOptions( isset( $config['options'] ) ? $config['options'] : array() );
-		$this->addClasses( array( 'oo-ui-radioSelectInputWidget' ) );
+		$this->setOptions( isset( $config['options'] ) ? $config['options'] : [] );
+		$this->addClasses( [ 'oo-ui-radioSelectInputWidget' ] );
 	}
 
 	protected function getInputElement( $config ) {
@@ -66,7 +66,7 @@ class RadioSelectInputWidget extends InputWidget {
 	public function setOptions( $options ) {
 		$value = $this->getValue();
 		$isValueAvailable = false;
-		$this->fields = array();
+		$this->fields = [];
 
 		// Rebuild the radio buttons
 		$this->clearContent();
@@ -75,15 +75,15 @@ class RadioSelectInputWidget extends InputWidget {
 		foreach ( $options as $opt ) {
 			$optValue = $this->cleanUpValue( $opt['data'] );
 			$field = new FieldLayout(
-				new RadioInputWidget( array(
+				new RadioInputWidget( [
 					'name' => $name,
 					'value' => $optValue,
 					'disabled' => $this->isDisabled(),
-				) ),
-				array(
+				] ),
+				[
 					'label' => isset( $opt['label'] ) ? $opt['label'] : $optValue,
 					'align' => 'inline',
-				)
+				]
 			);
 
 			if ( $value === $optValue ) {
@@ -117,11 +117,11 @@ class RadioSelectInputWidget extends InputWidget {
 	}
 
 	public function getConfig( &$config ) {
-		$o = array();
+		$o = [];
 		foreach ( $this->fields as $field ) {
 			$label = $field->getLabel();
 			$data = $field->getField()->getValue();
-			$o[] = array( 'data' => $data, 'label' => $label );
+			$o[] = [ 'data' => $data, 'label' => $label ];
 		}
 		$config['options'] = $o;
 		return parent::getConfig( $config );

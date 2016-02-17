@@ -44,7 +44,7 @@ abstract class Theme {
 	 * @return array Categorized class names with `on` and `off` lists
 	 */
 	public function getElementClasses( Element $element ) {
-		return array( 'on' => array(), 'off' => array() );
+		return [ 'on' => [], 'off' => [] ];
 	}
 
 	/**

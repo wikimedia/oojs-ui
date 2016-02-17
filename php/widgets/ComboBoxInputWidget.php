@@ -12,34 +12,34 @@ class ComboBoxInputWidget extends TextInputWidget {
 	 * HTML `<option>` tags for this widget, as Tags.
 	 * @var array
 	 */
-	protected $options = array();
+	protected $options = [];
 
 	/**
 	 * @param array $config Configuration options
 	 * @param array[] $config['options'] Array of menu options in the format
 	 *   `array( 'data' => …, 'label' => … )`
 	 */
-	public function __construct( array $config = array() ) {
+	public function __construct( array $config = [] ) {
 		// Config initialization
-		$config = array_merge( array(
+		$config = array_merge( [
 			'indicator' => 'down',
-		), $config );
+		], $config );
 
 		// Parent constructor
 		parent::__construct( $config );
 
 		// Mixins
 		$this->mixin( new TitledElement( $this,
-			array_merge( $config, array( 'titled' => $this->input ) ) ) );
+			array_merge( $config, [ 'titled' => $this->input ] ) ) );
 
 		// Initialization
 		$this->datalist = new Tag( 'datalist' );
 		$this->datalist->ensureInfusableId();
 		$this->datalist->setInfusable( false );
-		$this->input->setAttributes( array( 'list' => $this->datalist->getAttribute( 'id' ) ) );
+		$this->input->setAttributes( [ 'list' => $this->datalist->getAttribute( 'id' ) ] );
 
-		$this->setOptions( isset( $config['options'] ) ? $config['options'] : array() );
-		$this->addClasses( array( 'oo-ui-comboBoxInputWidget', 'oo-ui-comboBoxInputWidget-php' ) );
+		$this->setOptions( isset( $config['options'] ) ? $config['options'] : [] );
+		$this->addClasses( [ 'oo-ui-comboBoxInputWidget', 'oo-ui-comboBoxInputWidget-php' ] );
 		$this->appendContent( $this->datalist );
 	}
 
@@ -51,12 +51,12 @@ class ComboBoxInputWidget extends TextInputWidget {
 	 * @return $this
 	 */
 	public function setOptions( $options ) {
-		$this->options = array();
+		$this->options = [];
 
 		$this->datalist->clearContent();
 		foreach ( $options as $opt ) {
 			$option = new Tag( 'option' );
-			$option->setAttributes( array( 'value' => $opt['data'] ) );
+			$option->setAttributes( [ 'value' => $opt['data'] ] );
 			$option->appendContent( isset( $opt['label'] ) ? $opt['label'] : $opt['data'] );
 
 			$this->options[] = $option;
@@ -67,11 +67,11 @@ class ComboBoxInputWidget extends TextInputWidget {
 	}
 
 	public function getConfig( &$config ) {
-		$o = array();
+		$o = [];
 		foreach ( $this->options as $option ) {
 			$label = $option->content[0];
 			$data = $option->getAttribute( 'value' );
-			$o[] = array( 'data' => $data, 'label' => $label );
+			$o[] = [ 'data' => $data, 'label' => $label ];
 		}
 		$config['options'] = $o;
 		return parent::getConfig( $config );

@@ -36,9 +36,9 @@ class ButtonInputWidget extends InputWidget {
 	 *   label, and it won't be possible to set a value (which will internally become identical to the
 	 *   label). (default: false)
 	 */
-	public function __construct( array $config = array() ) {
+	public function __construct( array $config = [] ) {
 		// Configuration initialization
-		$config = array_merge( array( 'type' => 'button', 'useInputTag' => false ), $config );
+		$config = array_merge( [ 'type' => 'button', 'useInputTag' => false ], $config );
 
 		// Properties (must be set before parent constructor, which calls setValue())
 		$this->useInputTag = $config['useInputTag'];
@@ -48,13 +48,13 @@ class ButtonInputWidget extends InputWidget {
 
 		// Mixins
 		$this->mixin( new ButtonElement( $this,
-			array_merge( $config, array( 'button' => $this->input ) ) ) );
+			array_merge( $config, [ 'button' => $this->input ] ) ) );
 		$this->mixin( new IconElement( $this, $config ) );
 		$this->mixin( new IndicatorElement( $this, $config ) );
 		// HACK: We need to have access to the mixin to override the setLabel() method
 		$this->mixin( $this->labelElementMixin = new LabelElement( $this, $config ) );
 		$this->mixin( new TitledElement( $this,
-			array_merge( $config, array( 'titled' => $this->input ) ) ) );
+			array_merge( $config, [ 'titled' => $this->input ] ) ) );
 
 		// Initialization
 		if ( !$config['useInputTag'] ) {
@@ -65,15 +65,15 @@ class ButtonInputWidget extends InputWidget {
 		// how we implement mixins. Switching to traits will fix that.
 		$this->setLabel( isset( $config['label'] ) ? $config['label'] : null );
 
-		$this->addClasses( array( 'oo-ui-buttonInputWidget' ) );
+		$this->addClasses( [ 'oo-ui-buttonInputWidget' ] );
 	}
 
 	protected function getInputElement( $config ) {
-		$type = in_array( $config['type'], array( 'button', 'submit', 'reset' ) ) ?
+		$type = in_array( $config['type'], [ 'button', 'submit', 'reset' ] ) ?
 			$config['type'] :
 			'button';
 		$input = new Tag( $config['useInputTag'] ? 'input' : 'button' );
-		$input->setAttributes( array( 'type' => $type ) );
+		$input->setAttributes( [ 'type' => $type ] );
 		return $input;
 	}
 

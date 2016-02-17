@@ -13,7 +13,7 @@ class GroupElement extends ElementMixin {
 	 *
 	 * @var array
 	 */
-	protected $items = array();
+	protected $items = [];
 
 	public static $targetPropertyName = 'group';
 
@@ -21,7 +21,7 @@ class GroupElement extends ElementMixin {
 	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 */
-	public function __construct( Element $element, array $config = array() ) {
+	public function __construct( Element $element, array $config = [] ) {
 		// Parent constructor
 		$target = isset( $config['group'] ) ? $config['group'] : new Tag( 'div' );
 		parent::__construct( $element, $target, $config );
@@ -59,7 +59,7 @@ class GroupElement extends ElementMixin {
 			// Check if item exists then remove it first, effectively "moving" it
 			$currentIndex = array_search( $item, $this->items );
 			if ( $currentIndex !== false ) {
-				$this->removeItems( array( $item ) );
+				$this->removeItems( [ $item ] );
 				// Adjust index to compensate for removal
 				if ( $currentIndex < $index ) {
 					$index--;
@@ -77,7 +77,7 @@ class GroupElement extends ElementMixin {
 
 		// Update actual target element contents to reflect our list
 		$this->target->clearContent();
-		call_user_func_array( array( $this->target, 'appendContent' ), $this->items );
+		call_user_func_array( [ $this->target, 'appendContent' ], $this->items );
 
 		return $this;
 	}
@@ -99,7 +99,7 @@ class GroupElement extends ElementMixin {
 
 		// Update actual target element contents to reflect our list
 		$this->target->clearContent();
-		call_user_func_array( array( $this->target, 'appendContent' ), $this->items );
+		call_user_func_array( [ $this->target, 'appendContent' ], $this->items );
 
 		return $this;
 	}
@@ -116,7 +116,7 @@ class GroupElement extends ElementMixin {
 			$item->setElementGroup( null );
 		}
 
-		$this->items = array();
+		$this->items = [];
 		$this->target->clearContent();
 
 		return $this;

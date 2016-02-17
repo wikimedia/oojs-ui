@@ -60,7 +60,7 @@
 				}
 			}
 			// Keep synchronized with bin/generate-JSPHP-for-karma.php
-			$themes = array( 'ApexTheme', 'MediaWikiTheme' );
+			$themes = [ 'ApexTheme', 'MediaWikiTheme' ];
 			foreach ( $themes as $theme ) {
 				OOUI\Theme::setSingleton( new_OOUI( $theme ) );
 				foreach ( $testSuite as $className => $tests ) {

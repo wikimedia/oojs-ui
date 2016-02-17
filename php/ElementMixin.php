@@ -36,7 +36,7 @@ class ElementMixin {
 	 * @param Tag $tag Tag being targeted
 	 * @param array $config Configuration options
 	 */
-	public function __construct( Element $element, Tag $target, array $config = array() ) {
+	public function __construct( Element $element, Tag $target, array $config = [] ) {
 		$this->element = $element;
 		$this->target = $target;
 	}

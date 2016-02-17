@@ -7,19 +7,19 @@ class MediaWikiTheme extends Theme {
 	/* Methods */
 
 	public function getElementClasses( Element $element ) {
-		$variants = array(
+		$variants = [
 			'warning' => false,
 			'invert' => false,
 			'progressive' => false,
 			'constructive' => false,
 			'destructive' => false
-		);
+		];
 
 		// Parent method
 		$classes = parent::getElementClasses( $element );
 
-		if ( $element->supports( array( 'hasFlag' ) ) ) {
-			$isFramed = $element->supports( array( 'isFramed' ) ) && $element->isFramed();
+		if ( $element->supports( [ 'hasFlag' ] ) ) {
+			$isFramed = $element->supports( [ 'isFramed' ] ) && $element->isFramed();
 			if ( $isFramed && ( $element->isDisabled() || $element->hasFlag( 'primary' ) ) ) {
 				$variants['invert'] = true;
 			} else {

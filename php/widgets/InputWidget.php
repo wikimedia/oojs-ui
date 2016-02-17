@@ -35,7 +35,7 @@ class InputWidget extends Widget {
 	 * @param string $config['value'] Input value (default: '')
 	 * @param string $config['dir'] The directionality of the input (ltr/rtl)
 	 */
-	public function __construct( array $config = array() ) {
+	public function __construct( array $config = [] ) {
 		// Parent constructor
 		parent::__construct( $config );
 
@@ -44,25 +44,25 @@ class InputWidget extends Widget {
 
 		// Mixins
 		$this->mixin( new FlaggedElement( $this,
-			array_merge( $config, array( 'flagged' => $this ) ) ) );
+			array_merge( $config, [ 'flagged' => $this ] ) ) );
 		$this->mixin( new TabIndexedElement( $this,
-			array_merge( $config, array( 'tabIndexed' => $this->input ) ) ) );
+			array_merge( $config, [ 'tabIndexed' => $this->input ] ) ) );
 		$this->mixin( new TitledElement( $this,
-			array_merge( $config, array( 'titled' => $this->input ) ) ) );
+			array_merge( $config, [ 'titled' => $this->input ] ) ) );
 		$this->mixin( new AccessKeyedElement( $this,
-			array_merge( $config, array( 'accessKeyed' => $this->input ) ) ) );
+			array_merge( $config, [ 'accessKeyed' => $this->input ] ) ) );
 
 		// Initialization
 		if ( isset( $config['name'] ) ) {
-			$this->input->setAttributes( array( 'name' => $config['name'] ) );
+			$this->input->setAttributes( [ 'name' => $config['name'] ] );
 		}
 		if ( $this->isDisabled() ) {
-			$this->input->setAttributes( array( 'disabled' => 'disabled' ) );
+			$this->input->setAttributes( [ 'disabled' => 'disabled' ] );
 		}
 		$this
-			->addClasses( array( 'oo-ui-inputWidget' ) )
+			->addClasses( [ 'oo-ui-inputWidget' ] )
 			->appendContent( $this->input );
-		$this->input->addClasses( array( 'oo-ui-inputWidget-input' ) );
+		$this->input->addClasses( [ 'oo-ui-inputWidget-input' ] );
 		$this->setValue( isset( $config['value'] ) ? $config['value'] : null );
 		if ( isset( $config['dir'] ) ) {
 			$this->setDir( $config['dir'] );
@@ -107,7 +107,7 @@ class InputWidget extends Widget {
 	 * @return $this
 	 */
 	public function setDir( $dir ) {
-		$this->input->setAttributes( array( 'dir' => $dir ) );
+		$this->input->setAttributes( [ 'dir' => $dir ] );
 		return $this;
 	}
 
@@ -143,9 +143,9 @@ class InputWidget extends Widget {
 		parent::setDisabled( $state );
 		if ( isset( $this->input ) ) {
 			if ( $this->isDisabled() ) {
-				$this->input->setAttributes( array( 'disabled' => 'disabled' ) );
+				$this->input->setAttributes( [ 'disabled' => 'disabled' ] );
 			} else {
-				$this->input->removeAttributes( array( 'disabled' ) );
+				$this->input->removeAttributes( [ 'disabled' ] );
 			}
 		}
 		return $this;

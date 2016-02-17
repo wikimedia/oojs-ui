@@ -25,18 +25,18 @@ class ButtonElement extends ElementMixin {
 	 * @param array $config Configuration options
 	 * @param boolean $config['framed'] Render button with a frame (default: true)
 	 */
-	public function __construct( Element $element, array $config = array() ) {
+	public function __construct( Element $element, array $config = [] ) {
 		// Parent constructor
 		$target = isset( $config['button'] ) ? $config['button'] : new Tag( 'a' );
 		parent::__construct( $element, $target, $config );
 
 		// Initialization
-		$this->element->addClasses( array( 'oo-ui-buttonElement' ) );
-		$this->target->addClasses( array( 'oo-ui-buttonElement-button' ) );
+		$this->element->addClasses( [ 'oo-ui-buttonElement' ] );
+		$this->target->addClasses( [ 'oo-ui-buttonElement-button' ] );
 		$this->toggleFramed( isset( $config['framed'] ) ? $config['framed'] : true );
-		$this->target->setAttributes( array(
+		$this->target->setAttributes( [
 			'role' => 'button',
-		) );
+		] );
 	}
 
 	/**
@@ -47,8 +47,8 @@ class ButtonElement extends ElementMixin {
 	 */
 	public function toggleFramed( $framed = null ) {
 		$this->framed = $framed !== null ? !!$framed : !$this->framed;
-		$this->element->toggleClasses( array( 'oo-ui-buttonElement-framed' ), $this->framed );
-		$this->element->toggleClasses( array( 'oo-ui-buttonElement-frameless' ), !$this->framed );
+		$this->element->toggleClasses( [ 'oo-ui-buttonElement-framed' ], $this->framed );
+		$this->element->toggleClasses( [ 'oo-ui-buttonElement-frameless' ], !$this->framed );
 	}
 
 	/**

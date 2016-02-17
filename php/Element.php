@@ -44,14 +44,14 @@ class Element extends Tag {
 	 *
 	 * @var array
 	 */
-	protected $ownClasses = array();
+	protected $ownClasses = [];
 
 	/**
 	 * ElementMixins.
 	 *
 	 * @var array List mixed in objects.
 	 */
-	protected $mixins = array();
+	protected $mixins = [];
 
 	/* Methods */
 
@@ -65,7 +65,7 @@ class Element extends Tag {
 	 *   HtmlSnippet instance to prevent that.
 	 * @param mixed $config['data'] Element data
 	 */
-	public function __construct( array $config = array() ) {
+	public function __construct( array $config = [] ) {
 		// Parent constructor
 		parent::__construct( $this->getTagName() );
 
@@ -81,7 +81,7 @@ class Element extends Tag {
 			$this->addClasses( $this->ownClasses );
 		}
 		if ( isset( $config['id'] ) ) {
-			$this->setAttributes( array( 'id' => $config['id'] ) );
+			$this->setAttributes( [ 'id' => $config['id'] ] );
 		}
 		if ( isset( $config['text'] ) ) {
 			// JS compatibility
@@ -107,7 +107,7 @@ class Element extends Tag {
 		// Search mixins for methods
 		foreach ( $this->mixins as $mixin ) {
 			if ( method_exists( $mixin, $method ) ) {
-				return call_user_func_array( array( $mixin, $method ), $arguments );
+				return call_user_func_array( [ $mixin, $method ], $arguments );
 			}
 		}
 		// Fail normally
@@ -245,7 +245,7 @@ class Element extends Tag {
 		if ( $this->data !== null ) {
 			$config['data'] = $this->data;
 		}
-		if ( $this->ownClasses !== array() ) {
+		if ( $this->ownClasses !== [] ) {
 			$config['classes'] = $this->ownClasses;
 		}
 		return $config;
@@ -261,16 +261,16 @@ class Element extends Tag {
 	 */
 	private function getSerializedConfig() {
 		// Ensure that '_' comes first in the output.
-		$config = array( '_' => true );
+		$config = [ '_' => true ];
 		$config = $this->getConfig( $config );
 		// Post-process config array to turn Tag references into ID references
 		// and HtmlSnippet references into a { html: 'string' } JSON form.
 		$replaceElements = function( &$item ) {
 			if ( $item instanceof Tag ) {
 				$item->ensureInfusableId();
-				$item = array( 'tag' => $item->getAttribute( 'id' ) );
+				$item = [ 'tag' => $item->getAttribute( 'id' ) ];
 			} elseif ( $item instanceof HtmlSnippet ) {
-				$item = array( 'html' => (string) $item );
+				$item = [ 'html' => (string) $item ];
 			}
 		};
 		array_walk_recursive( $config, $replaceElements );
