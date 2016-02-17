@@ -16,17 +16,17 @@ class IndicatorWidget extends Widget {
 	/**
 	 * @param array $config Configuration options
 	 */
-	public function __construct( array $config = array() ) {
+	public function __construct( array $config = [] ) {
 		// Parent constructor
 		parent::__construct( $config );
 
 		// Mixins
 		$this->mixin( new IndicatorElement( $this,
-			array_merge( $config, array( 'indicatorElement' => $this ) ) ) );
+			array_merge( $config, [ 'indicatorElement' => $this ] ) ) );
 		$this->mixin( new TitledElement( $this,
-			array_merge( $config, array( 'titled' => $this ) ) ) );
+			array_merge( $config, [ 'titled' => $this ] ) ) );
 
 		// Initialization
-		$this->addClasses( array( 'oo-ui-indicatorWidget' ) );
+		$this->addClasses( [ 'oo-ui-indicatorWidget' ] );
 	}
 }

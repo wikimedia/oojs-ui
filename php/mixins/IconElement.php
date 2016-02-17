@@ -27,14 +27,14 @@ class IconElement extends ElementMixin {
 	 * @param array $config Configuration options
 	 * @param string $config['icon'] Symbolic icon name
 	 */
-	public function __construct( Element $element, array $config = array() ) {
+	public function __construct( Element $element, array $config = [] ) {
 		// Parent constructor
 		// FIXME 'iconElement' is a very stupid way to call '$icon'
 		$target = isset( $config['iconElement'] ) ? $config['iconElement'] : new Tag( 'span' );
 		parent::__construct( $element, $target, $config );
 
 		// Initialization
-		$this->target->addClasses( array( 'oo-ui-iconElement-icon' ) );
+		$this->target->addClasses( [ 'oo-ui-iconElement-icon' ] );
 		$this->setIcon( isset( $config['icon'] ) ? $config['icon'] : null );
 	}
 
@@ -46,14 +46,14 @@ class IconElement extends ElementMixin {
 	 */
 	public function setIcon( $icon = null ) {
 		if ( $this->icon !== null ) {
-			$this->target->removeClasses( array( 'oo-ui-icon-' . $this->icon ) );
+			$this->target->removeClasses( [ 'oo-ui-icon-' . $this->icon ] );
 		}
 		if ( $icon !== null ) {
-			$this->target->addClasses( array( 'oo-ui-icon-' . $icon ) );
+			$this->target->addClasses( [ 'oo-ui-icon-' . $icon ] );
 		}
 
 		$this->icon = $icon;
-		$this->element->toggleClasses( array( 'oo-ui-iconElement' ), (bool)$this->icon );
+		$this->element->toggleClasses( [ 'oo-ui-iconElement' ], (bool)$this->icon );
 
 		return $this;
 	}

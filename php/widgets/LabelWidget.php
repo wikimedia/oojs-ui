@@ -24,19 +24,19 @@ class LabelWidget extends Widget {
 	 * @param array $config Configuration options
 	 * @param InputWidget $config['input'] Input widget this label is for
 	 */
-	public function __construct( array $config = array() ) {
+	public function __construct( array $config = [] ) {
 		// Parent constructor
 		parent::__construct( $config );
 
 		// Mixins
 		$this->mixin( new LabelElement( $this,
-			array_merge( $config, array( 'labelElement' => $this ) ) ) );
+			array_merge( $config, [ 'labelElement' => $this ] ) ) );
 
 		// Properties
 		$this->input = isset( $config['input'] ) ? $config['input'] : null;
 
 		// Initialization
-		$this->addClasses( array( 'oo-ui-labelWidget' ) );
+		$this->addClasses( [ 'oo-ui-labelWidget' ] );
 	}
 
 	public function getConfig( &$config ) {

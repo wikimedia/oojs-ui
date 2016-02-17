@@ -7,16 +7,16 @@ use OOUI\Widget;
 class ElementTest extends TestCase {
 
 	public static function provideGetSerializedConfig() {
-		return array(
-			array(
-				new Widget( array( 'infusable' => true ) ),
+		return [
+			[
+				new Widget( [ 'infusable' => true ] ),
 				'"_":"OO.ui.Widget"'
-			),
-			array(
-				new \FooBarBaz\MockWidget( array( 'infusable' => true ) ),
+			],
+			[
+				new \FooBarBaz\MockWidget( [ 'infusable' => true ] ),
 				'"_":"foo.bar.baz.MockWidget"'
-			),
-		);
+			],
+		];
 	}
 
 	/**

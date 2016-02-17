@@ -18,21 +18,21 @@ class Tag {
 	 *
 	 * @var array HTML attributes
 	 */
-	protected $attributes = array();
+	protected $attributes = [];
 
 	/**
 	 * Classes.
 	 *
 	 * @var array CSS classes
 	 */
-	protected $classes = array();
+	protected $classes = [];
 
 	/**
 	 * Content.
 	 *
 	 * @var array Content text and elements
 	 */
-	protected $content = array();
+	protected $content = [];
 
 	/**
 	 * Group.
@@ -146,7 +146,7 @@ class Tag {
 			$this->clearContent();
 			$this->appendContent( $value );
 		} else {
-			$this->setAttributes( array( 'value' => $value ) );
+			$this->setAttributes( [ 'value' => $value ] );
 		}
 		return $this;
 	}
@@ -200,7 +200,7 @@ class Tag {
 	 * @return $this
 	 */
 	public function clearContent() {
-		$this->content = array();
+		$this->content = [];
 		return $this;
 	}
 
@@ -253,7 +253,7 @@ class Tag {
 	public function ensureInfusableId() {
 		$this->setInfusable( true );
 		if ( $this->getAttribute( 'id' ) === null ) {
-			$this->setAttributes( array( 'id' => "ooui-" . ( self::$id_cnt++ ) ) );
+			$this->setAttributes( [ 'id' => "ooui-" . ( self::$id_cnt++ ) ] );
 		}
 		return $this;
 	}
@@ -272,7 +272,7 @@ class Tag {
 		}
 		if ( $this->infusable ) {
 			// Indicate that this is "just" a tag (not a widget)
-			$attributesArray['data-ooui'] = json_encode( array( '_' => 'Tag' ) );
+			$attributesArray['data-ooui'] = json_encode( [ '_' => 'Tag' ] );
 		}
 		return $attributesArray;
 	}
@@ -312,12 +312,12 @@ class Tag {
 	 */
 	public static function isSafeUrl( $url ) {
 		// Keep this function in sync with OO.ui.isSafeUrl
-		$protocolWhitelist = array(
+		$protocolWhitelist = [
 			// Sourced from MediaWiki's $wgUrlProtocols
 			'bitcoin', 'ftp', 'ftps', 'geo', 'git', 'gopher', 'http', 'https', 'irc', 'ircs',
 			'magnet', 'mailto', 'mms', 'news', 'nntp', 'redis', 'sftp', 'sip', 'sips', 'sms', 'ssh',
 			'svn', 'tel', 'telnet', 'urn', 'worldwind', 'xmpp',
-		);
+		];
 
 		if ( $url === '' ) {
 			return true;

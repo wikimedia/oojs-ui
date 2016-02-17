@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"mediawiki/at-ease": "1.1.0",
-		"php": ">=5.3.3"
+		"php": ">=5.5.9"
 	},
 	"authors": [
 		{
@@ -51,7 +51,7 @@
 	],
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "0.9.2",
-		"mediawiki/mediawiki-codesniffer": "0.5.1",
+		"mediawiki/mediawiki-codesniffer": "0.6.0",
 		"phpunit/phpunit": "4.8.21"
 	},
 	"autoload": {
@@ -70,6 +70,9 @@
 			"parallel-lint . --exclude vendor",
 			"phpcs -p -s",
 			"phpunit $PHPUNIT_ARGS"
+		],
+		"fix": [
+			"phpcbf"
 		],
 		"doc": [
 			"doxygen"

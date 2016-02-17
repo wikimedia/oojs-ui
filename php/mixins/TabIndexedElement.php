@@ -23,7 +23,7 @@ class TabIndexedElement extends ElementMixin {
 	 * @param number|null $config['tabIndex'] Tab index value. Use 0 to use default ordering, use -1 to
 	 *   prevent tab focusing, use null to suppress the `tabindex` attribute. (default: 0)
 	 */
-	public function __construct( Element $element, array $config = array() ) {
+	public function __construct( Element $element, array $config = [] ) {
 		// Parent constructor
 		$target = isset( $config['tabIndexed'] ) ? $config['tabIndexed'] : $element;
 		parent::__construct( $element, $target, $config );
@@ -58,14 +58,14 @@ class TabIndexedElement extends ElementMixin {
 	public function updateTabIndex() {
 		$disabled = $this->element->isDisabled();
 		if ( $this->tabIndex !== null ) {
-			$this->target->setAttributes( array(
+			$this->target->setAttributes( [
 				// Do not index over disabled elements
 				'tabindex' => $disabled ? -1 : $this->tabIndex,
 				// ChromeVox and NVDA do not seem to inherit this from parent elements
 				'aria-disabled' => ( $disabled ? 'true' : 'false' )
-			) );
+			] );
 		} else {
-			$this->target->removeAttributes( array( 'tabindex', 'aria-disabled' ) );
+			$this->target->removeAttributes( [ 'tabindex', 'aria-disabled' ] );
 		}
 		return $this;
 	}
