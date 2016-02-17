@@ -64,9 +64,9 @@ class DropdownInputWidget extends InputWidget {
 		$this->input->clearContent();
 		foreach ( $options as $opt ) {
 			$optValue = $this->cleanUpValue( $opt['data'] );
-			$option = new Tag( 'option' );
-			$option->setAttributes( [ 'value' => $optValue ] );
-			$option->appendContent( isset( $opt['label'] ) ? $opt['label'] : $optValue );
+			$option = ( new Tag( 'option' ) )
+				->setAttributes( [ 'value' => $optValue ] )
+				->appendContent( isset( $opt['label'] ) ? $opt['label'] : $optValue );
 
 			if ( $value === $optValue ) {
 				$isValueAvailable = true;

@@ -5,18 +5,6 @@ namespace OOUI\Tests;
 use PHPUnit_Framework_TestCase;
 use OOUI\Tag;
 
-/**
- * Work around a peculiarity of PHP 5.3 syntax.
- *
- * @param mixed $item
- * @return mixed The very same $item
- */
-// @codingStandardsIgnoreStart
-function id( $item ) {
-	// @codingStandardsIgnoreEnd
-	return $item;
-}
-
 class TagTest extends PHPUnit_Framework_TestCase {
 
 	/**
@@ -33,8 +21,7 @@ class TagTest extends PHPUnit_Framework_TestCase {
 	 * @covers Tag::hasClass
 	 */
 	public function testClasses() {
-		$tag = new Tag();
-		$tag->addClasses( [ 'class1', 'class2' ] );
+		$tag = ( new Tag() )->addClasses( [ 'class1', 'class2' ] );
 		$this->assertTrue( $tag->hasClass( 'class1' ) );
 		$this->assertTrue( $tag->hasClass( 'class2' ) );
 		$tag->removeClasses( [ 'class1' ] );
@@ -48,8 +35,7 @@ class TagTest extends PHPUnit_Framework_TestCase {
 	 * @covers Tag::removeAttributes
 	 */
 	public function testAttributes() {
-		$tag = new Tag();
-		$tag->setAttributes( [
+		$tag = ( new Tag() )->setAttributes( [
 			'attr1' => 'foo',
 			'attr2' => 'bar',
 		] );
@@ -65,10 +51,9 @@ class TagTest extends PHPUnit_Framework_TestCase {
 	 * @covers Tag::ensureInfusableId
 	 */
 	public function testEnsureInfusableId() {
-		$tag = new Tag();
+		$tag = ( new Tag() )->setAttributes( [ 'id' => 'foobar' ] );
 		$tag2 = new Tag();
 		$tag3 = new Tag();
-		$tag->setAttributes( [ 'id' => 'foobar' ] );
 		$tag->ensureInfusableId();
 		$tag2->ensureInfusableId();
 		$tag3->ensureInfusableId();

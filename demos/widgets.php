@@ -434,15 +434,15 @@
 				# (recursively) made infusable.  We protect the FieldLayout
 				# by wrapping it with a new <div> Tag, so that it won't get
 				# rebuilt during infusion.
-				$wrappedFieldLayout = new OOUI\Tag( 'div' );
-				$wrappedFieldLayout->appendContent(
+				$wrappedFieldLayout = ( new OOUI\Tag( 'div' ) )
+					->appendContent(
 						new OOUI\FieldLayout(
 							$buttonStyleShowcaseWidget,
 							[
 								'align' => 'top'
 							]
 						)
-				);
+					);
 				$demoContainer->appendContent( new OOUI\FieldsetLayout( [
 					'infusable' => true,
 					'label' => 'Button style showcase',

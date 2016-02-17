@@ -24,9 +24,7 @@ class RadioInputWidget extends InputWidget {
 	}
 
 	protected function getInputElement( $config ) {
-		$input = new Tag( 'input' );
-		$input->setAttributes( [ 'type' => 'radio' ] );
-		return $input;
+		return ( new Tag( 'input' ) )->setAttributes( [ 'type' => 'radio' ] );
 	}
 
 	/**
