@@ -65,7 +65,8 @@ OO.ui.mixin.DraggableElement.static.cancelButtonMouseDownEvents = false;
  * @fires dragstart
  */
 OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
-	var dataTransfer = e.originalEvent.dataTransfer;
+	var element = this,
+		dataTransfer = e.originalEvent.dataTransfer;
 	// Define drop effect
 	dataTransfer.dropEffect = 'none';
 	dataTransfer.effectAllowed = 'move';
@@ -77,8 +78,10 @@ OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	} catch ( err ) {
 		// The above is only for Firefox. Move on if it fails.
 	}
-	// Add dragging class
-	this.$element.addClass( 'oo-ui-draggableElement-dragging' );
+	// Add dragging class after the browser has rendered the clone
+	setTimeout( function () {
+		element.$element.addClass( 'oo-ui-draggableElement-dragging' );
+	} );
 	// Emit event
 	this.emit( 'dragstart', this );
 	return true;
