@@ -1,6 +1,7 @@
 OO.ui.Demo.static.pages.widgets = function ( demo ) {
-	var styles, states, buttonStyleShowcaseWidget, $table, fieldsets,
+	var i, styles, states, buttonStyleShowcaseWidget, $table, fieldsets,
 		capsuleWithPopup, capsulePopupWidget,
+		horizontalDragItems = [],
 		$demo = demo.$element;
 
 	/**
@@ -47,9 +48,19 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		// Mixin constructors
 		OO.ui.mixin.DraggableElement.call( this, config );
 	}
+
 	/* Setup */
 	OO.inheritClass( DragDropItemWidget, OO.ui.OptionWidget );
 	OO.mixinClass( DragDropItemWidget, OO.ui.mixin.DraggableElement );
+
+	for ( i = 0; i <= 12; i++ ) {
+		horizontalDragItems.push(
+			new DragDropItemWidget( {
+				data: 'item' + i,
+				label: 'Inline item ' + i
+			} )
+		);
+	}
 
 	/**
 	 * Demo for LookupElement.
@@ -1412,24 +1423,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new DragDropGroupWidget( {
 						orientation: 'horizontal',
-						items: [
-							new DragDropItemWidget( {
-								data: 'item1',
-								label: 'Item 1'
-							} ),
-							new DragDropItemWidget( {
-								data: 'item2',
-								label: 'Item 2'
-							} ),
-							new DragDropItemWidget( {
-								data: 'item3',
-								label: 'Item 3'
-							} ),
-							new DragDropItemWidget( {
-								data: 'item4',
-								label: 'Item 4'
-							} )
-						]
+						items: horizontalDragItems
 					} ),
 					{
 						label: 'DraggableGroupWidget (horizontal)\u200E',
