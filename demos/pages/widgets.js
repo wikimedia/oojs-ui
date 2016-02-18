@@ -727,6 +727,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.NumberInputWidget( { disabled: true } ),
+					{
+						label: 'NumberInputWidget (disabled)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.NumberInputWidget( { min: 1, max: 5, isInteger: true } ),
 					{
 						label: 'NumberInputWidget (1–5, ints only)',
