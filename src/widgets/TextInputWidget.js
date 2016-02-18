@@ -472,7 +472,7 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
 	return config.multiline ?
 		$( '<textarea>' ) :
-		$( '<input type="' + this.getSaneType( config ) + '" />' );
+		$( '<input>' ).attr( 'type', this.getSaneType( config ) );
 };
 
 /**

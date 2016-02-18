@@ -72,7 +72,7 @@ OO.ui.RadioSelectInputWidget.static.gatherPreInfuseState = function ( node, conf
  * @protected
  */
 OO.ui.RadioSelectInputWidget.prototype.getInputElement = function () {
-	return $( '<input type="hidden">' );
+	return $( '<input>' ).attr( 'type', 'hidden' );
 };
 
 /**

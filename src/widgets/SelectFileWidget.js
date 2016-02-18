@@ -147,7 +147,7 @@ OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.LabelElement );
 OO.ui.SelectFileWidget.static.isSupported = function () {
 	var $input;
 	if ( OO.ui.SelectFileWidget.static.isSupportedCache === null ) {
-		$input = $( '<input type="file">' );
+		$input = $( '<input>' ).attr( 'type', 'file' );
 		OO.ui.SelectFileWidget.static.isSupportedCache = $input[ 0 ].files !== undefined;
 	}
 	return OO.ui.SelectFileWidget.static.isSupportedCache;
@@ -316,7 +316,7 @@ OO.ui.SelectFileWidget.prototype.addInput = function () {
 		return;
 	}
 
-	this.$input = $( '<input type="file">' );
+	this.$input = $( '<input>' ).attr( 'type', 'file' );
 	this.$input.on( 'change', this.onFileSelectedHandler );
 	this.$input.on( 'click', function ( e ) {
 		// Prevents dropTarget to get clicked which calls

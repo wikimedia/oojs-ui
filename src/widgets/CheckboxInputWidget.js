@@ -76,7 +76,7 @@ OO.ui.CheckboxInputWidget.static.gatherPreInfuseState = function ( node, config 
  * @protected
  */
 OO.ui.CheckboxInputWidget.prototype.getInputElement = function () {
-	return $( '<input type="checkbox" />' );
+	return $( '<input>' ).attr( 'type', 'checkbox' );
 };
 
 /**

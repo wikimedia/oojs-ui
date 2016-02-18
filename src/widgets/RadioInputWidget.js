@@ -76,7 +76,7 @@ OO.ui.RadioInputWidget.static.gatherPreInfuseState = function ( node, config ) {
  * @protected
  */
 OO.ui.RadioInputWidget.prototype.getInputElement = function () {
-	return $( '<input type="radio" />' );
+	return $( '<input>' ).attr( 'type', 'radio' );
 };
 
 /**

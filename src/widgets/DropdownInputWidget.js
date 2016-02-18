@@ -71,7 +71,7 @@ OO.ui.DropdownInputWidget.prototype.getInputElement = function ( config ) {
 	if ( config.$input ) {
 		return config.$input.addClass( 'oo-ui-element-hidden' );
 	}
-	return $( '<input type="hidden">' );
+	return $( '<input>' ).attr( 'type', 'hidden' );
 };
 
 /**
