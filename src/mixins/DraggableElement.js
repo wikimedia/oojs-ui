@@ -78,9 +78,13 @@ OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	} catch ( err ) {
 		// The above is only for Firefox. Move on if it fails.
 	}
-	// Add dragging class after the browser has rendered the clone
+	// Briefly add a 'clone' class to style the browser's native drag image
+	this.$element.addClass( 'oo-ui-draggableElement-clone' );
+	// Add placeholder class after the browser has rendered the clone
 	setTimeout( function () {
-		element.$element.addClass( 'oo-ui-draggableElement-dragging' );
+		element.$element
+			.removeClass( 'oo-ui-draggableElement-clone' )
+			.addClass( 'oo-ui-draggableElement-placeholder' );
 	} );
 	// Emit event
 	this.emit( 'dragstart', this );
@@ -94,7 +98,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
  * @fires dragend
  */
 OO.ui.mixin.DraggableElement.prototype.onDragEnd = function () {
-	this.$element.removeClass( 'oo-ui-draggableElement-dragging' );
+	this.$element.removeClass( 'oo-ui-draggableElement-placeholder' );
 	this.emit( 'dragend' );
 };
 
