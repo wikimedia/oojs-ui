@@ -170,7 +170,9 @@ OO.ui.mixin.DraggableGroupElement.prototype.onDragLeave = function () {
  */
 OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 	var dragOverObj, $optionWidget, itemOffset, itemMidpoint, itemBoundingRect,
-		itemSize, cssOutput, dragPosition, itemIndex, itemPosition,
+		itemSize, cssOutput, dragPosition, overIndex, itemPosition,
+		targetIndex = null,
+		dragItemIndex = this.getDragItem().getIndex(),
 		clientX = e.originalEvent.clientX,
 		clientY = e.originalEvent.clientY;
 
@@ -183,13 +185,13 @@ OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 		itemOffset = $optionWidget.offset();
 		itemBoundingRect = $optionWidget[ 0 ].getBoundingClientRect();
 		itemPosition = $optionWidget.position();
-		itemIndex = $optionWidget.data( 'index' );
+		overIndex = $optionWidget.data( 'index' );
 	}
 
 	if (
 		itemOffset &&
 		this.isDragging() &&
-		itemIndex !== this.getDragItem().getIndex()
+		overIndex !== dragItemIndex
 	) {
 		if ( this.orientation === 'horizontal' ) {
 			// Calculate where the mouse is relative to the item width
@@ -223,6 +225,10 @@ OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 		} else {
 			this.sideInsertion = dragPosition < itemMidpoint ? 'before' : 'after';
 		}
+		targetIndex = overIndex + ( this.sideInsertion === 'after' ? 1 : 0 );
+	}
+	// Check we have a targetIndex and it isn't immediately to the left or right of the current item
+	if ( targetIndex !== null && targetIndex !== dragItemIndex && targetIndex !== dragItemIndex + 1 ) {
 		// Add drop indicator between objects
 		this.$placeholder
 			.css( cssOutput )
