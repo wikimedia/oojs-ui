@@ -1,15 +1,19 @@
 @import '../common';
 
 .oo-ui-draggableElement {
-	cursor: -webkit-grab -moz-grab, url(images/grab.cur), move;
+	&-handle {
+		cursor: move;
+		cursor: url( images/grab.cur );
+		cursor: -webkit-grab;
+		cursor: -moz-grab;
+		cursor: grab;
+	}
 
 	&-placeholder {
-		cursor: -webkit-grabbing -moz-grabbing, url(images/grabbing.cur), move;
 		opacity: 0.2;
 	}
 
-	// In order to style horizontally, we must override OO.ui.OptionWidget's display rule that is
-	// currently set to be 'block'.
+	// Horizontal items should be inline-block be default
 	.oo-ui-draggableGroupElement-horizontal &.oo-ui-optionWidget {
 		display: inline-block;
 	}

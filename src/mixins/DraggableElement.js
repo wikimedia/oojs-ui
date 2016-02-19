@@ -8,21 +8,31 @@
  * @class
  *
  * @constructor
+ * @param {Object} [config] Configuration options
+ * @cfg {jQuery} [$handle] The part of the element which can be used for dragging, defaults to the whole element
  */
-OO.ui.mixin.DraggableElement = function OoUiMixinDraggableElement() {
+OO.ui.mixin.DraggableElement = function OoUiMixinDraggableElement( config ) {
+	config = config || {};
+
 	// Properties
 	this.index = null;
+	this.$handle = config.$handle || this.$element;
+	this.wasHandleUsed = null;
 
 	// Initialize and events
-	this.$element
+	this.$element.addClass( 'oo-ui-draggableElement' )
+		// We make the entire element draggable, not just the handle, so that
+		// the whole element appears to move. wasHandleUsed prevents drags from
+		// starting outside the handle
 		.attr( 'draggable', true )
-		.addClass( 'oo-ui-draggableElement' )
 		.on( {
+			mousedown: this.onDragMouseDown.bind( this ),
 			dragstart: this.onDragStart.bind( this ),
 			dragover: this.onDragOver.bind( this ),
 			dragend: this.onDragEnd.bind( this ),
 			drop: this.onDrop.bind( this )
 		} );
+	this.$handle.addClass( 'oo-ui-draggableElement-handle' );
 };
 
 OO.initClass( OO.ui.mixin.DraggableElement );
@@ -58,6 +68,20 @@ OO.ui.mixin.DraggableElement.static.cancelButtonMouseDownEvents = false;
 /* Methods */
 
 /**
+ * Respond to mousedown event.
+ *
+ * @private
+ * @param {jQuery.Event} event jQuery event
+ */
+OO.ui.mixin.DraggableElement.prototype.onDragMouseDown = function ( e ) {
+	this.wasHandleUsed =
+		// Optimization: if the handle is the whole element this is always true
+		this.$handle[ 0 ] === this.$element[ 0 ] ||
+		// Check the mousedown occurred inside the handle
+		OO.ui.contains( this.$handle[ 0 ], e.target, true );
+};
+
+/**
  * Respond to dragstart event.
  *
  * @private
@@ -67,6 +91,11 @@ OO.ui.mixin.DraggableElement.static.cancelButtonMouseDownEvents = false;
 OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	var element = this,
 		dataTransfer = e.originalEvent.dataTransfer;
+
+	if ( !this.wasHandleUsed ) {
+		return false;
+	}
+
 	// Define drop effect
 	dataTransfer.dropEffect = 'none';
 	dataTransfer.effectAllowed = 'move';
