@@ -57,7 +57,7 @@ For more information on SemVer, please visit http://semver.org/.
 Issue tracker
 -------------
 
-Found a bug or missing feature? Please report it in the [issue tracker](https://phabricator.wikimedia.org/maniphest/task/create/?projects=PHID-PROJ-dgmoevjqeqlerleqzzx5)!
+Found a bug or missing feature? Please report it in the [issue tracker](https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?projects=PHID-PROJ-dgmoevjqeqlerleqzzx5)!
 
 
 Contributing
@@ -67,7 +67,7 @@ We are always delighted when people contribute patches. We recommend a few thing
 
 * You will need a [wikitech account](https://wikitech.wikimedia.org/w/index.php?title=Special:UserLogin&returnto=Help%3AGetting+Started&type=signup) which you can use to login to [gerrit](https://gerrit.wikimedia.org/), our code review system.
 * You will need a [Wikimedia account](https://www.mediawiki.org/w/index.php?title=Special:UserLogin&type=signup), which you can [use to login to Phabricator](https://www.mediawiki.org/w/index.php?title=Special:UserLogin&returnto=Special%3AOAuth%2Fauthorize&returntoquery=oauth_token%3D2fa60627878b83173e0196040b983326%26oauth_consumer_key%3D038ec949b263dc807b0079fd88538f37).
-* You should [create a Phabricator ticket](https://phabricator.wikimedia.org/maniphest/task/create/?projects=PHID-PROJ-dgmoevjqeqlerleqzzx5) describing the issue you wish to change.
+* You should [create a Phabricator ticket](https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?projects=PHID-PROJ-dgmoevjqeqlerleqzzx5) describing the issue you wish to change.
 * We automatically lint and style-check changes to JavaScript, PHP, CSS, Ruby and JSON files. You can test these yourself with `npm test` and `composer test` locally before pushing changes. SVG files should be squashed in advance of committing with [SVGO](https://github.com/svg/svgo) using `svgo --pretty --disable=removeXMLProcInst --disable=cleanupIDs <filename>`.
 * To submit your patch, follow [the "getting started" quick-guide](https://www.mediawiki.org/wiki/Gerrit/Getting_started). You should expect to get code review within a day or two.
 * A new version of the library is cut and released most weeks on Tuesdays.
