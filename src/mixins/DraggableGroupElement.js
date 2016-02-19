@@ -115,6 +115,7 @@ OO.ui.mixin.DraggableGroupElement.prototype.onItemDropOrDragEnd = function () {
 	// TODO: Figure out a way to configure a list of legally droppable
 	// elements even if they are not yet in the list
 	if ( this.targetIndex !== null ) {
+		this.reorder( this.getDragItem(), this.targetIndex );
 		this.emit( 'reorder', this.getDragItem(), this.targetIndex );
 		this.updateIndexes();
 		this.targetIndex = null;
@@ -207,6 +208,16 @@ OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 	}
 	// Prevent default
 	e.preventDefault();
+};
+
+/**
+ * Reorder the items in the group
+ *
+ * @param {OO.ui.mixin.DraggableElement} item Reordered item
+ * @param {number} newIndex New index
+ */
+OO.ui.mixin.DraggableGroupElement.prototype.reorder = function ( item, newIndex ) {
+	this.addItems( [ item ], newIndex );
 };
 
 /**
