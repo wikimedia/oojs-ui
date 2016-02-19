@@ -27,6 +27,7 @@ OO.ui.mixin.DraggableGroupElement = function OoUiMixinDraggableGroupElement( con
 	this.itemDragOver = null;
 	this.itemKeys = {};
 	this.sideInsertion = '';
+	this.hideTimeout = null;
 
 	// Events
 	this.aggregate( {
@@ -144,10 +145,17 @@ OO.ui.mixin.DraggableGroupElement.prototype.onItemDrop = function ( item ) {
  * @private
  */
 OO.ui.mixin.DraggableGroupElement.prototype.onDragLeave = function () {
-	// This means the item was dragged outside the widget
-	this.$placeholder
-		.css( 'left', 0 )
-		.addClass( 'oo-ui-element-hidden' );
+	var element = this;
+	clearTimeout( this.hideTimeout );
+	// Sometimes the browser will fire dragleave/dragover events in
+	// near succession (<100ms) when moving between elements. Debounce
+	// the hiding of the placeholder to reduce flickering.
+	this.hideTimeout = setTimeout( function () {
+		// This means the item was dragged outside the widget
+		element.$placeholder
+			.css( 'left', 0 )
+			.addClass( 'oo-ui-element-hidden' );
+	}, 100 );
 };
 
 /**
@@ -161,6 +169,8 @@ OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 		itemSize, cssOutput, dragPosition, itemIndex, itemPosition,
 		clientX = e.originalEvent.clientX,
 		clientY = e.originalEvent.clientY;
+
+	clearTimeout( this.hideTimeout );
 
 	// Get the OptionWidget item we are dragging over
 	dragOverObj = this.getElementDocument().elementFromPoint( clientX, clientY );
