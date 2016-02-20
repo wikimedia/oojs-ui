@@ -8,6 +8,7 @@
 		[ "visiblit(ies|y)", "visibilit$1" ],
 		[ "movablilties", "movabilities" ],
 		[ "inpsect(ors?|ion)", "inspect$1" ],
+		[ "itme", "item" ],
 		[ "\bteh\b", "the" ],
 		[ "intialization", "initialization" ],
 		[ "durring", "during" ],
