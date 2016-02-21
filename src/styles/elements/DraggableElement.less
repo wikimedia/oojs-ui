@@ -1,7 +1,7 @@
 @import '../common';
 
 .oo-ui-draggableElement {
-	&-handle {
+	&-handle.oo-ui-widget-enabled {
 		cursor: move;
 		cursor: url( images/grab.cur );
 		cursor: -webkit-grab;
@@ -11,6 +11,13 @@
 
 	&-placeholder {
 		opacity: 0.2;
+	}
+	&.oo-ui-widget-enabled:active {
+		cursor: move;
+		cursor: url( images/grabbing.cur );
+		cursor: -webkit-grabbing;
+		cursor: -moz-grabbing;
+		cursor: grabbing;
 	}
 
 	// Horizontal items should be inline-block be default
