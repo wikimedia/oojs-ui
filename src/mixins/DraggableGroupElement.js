@@ -26,7 +26,6 @@ OO.ui.mixin.DraggableGroupElement = function OoUiMixinDraggableGroupElement( con
 	this.dragItem = null;
 	this.itemKeys = {};
 	this.dir = null;
-	this.targetIndex = null;
 	this.itemsOrder = null;
 
 	// Events
@@ -112,13 +111,18 @@ OO.ui.mixin.DraggableGroupElement.prototype.updateIndexes = function () {
  * @param {OO.ui.mixin.DraggableElement} item Dropped item
  */
 OO.ui.mixin.DraggableGroupElement.prototype.onItemDropOrDragEnd = function () {
+	var targetIndex, originalIndex,
+		item = this.getDragItem();
+
 	// TODO: Figure out a way to configure a list of legally droppable
 	// elements even if they are not yet in the list
-	if ( this.targetIndex !== null ) {
-		this.reorder( this.getDragItem(), this.targetIndex );
-		this.emit( 'reorder', this.getDragItem(), this.targetIndex );
+	if ( item ) {
+		originalIndex = this.items.indexOf( item );
+		// If the item has moved forward, add one to the index to account for the left shift
+		targetIndex = item.getIndex() + ( item.getIndex() > originalIndex ? 1 : 0 );
+		this.reorder( this.getDragItem(), targetIndex );
+		this.emit( 'reorder', this.getDragItem(), targetIndex );
 		this.updateIndexes();
-		this.targetIndex = null;
 	}
 	this.unsetDragItem();
 	// Return false to prevent propogation
@@ -194,13 +198,13 @@ OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 		}
 	}
 	if ( targetIndex !== null ) {
-		this.targetIndex = targetIndex;
 		if ( targetIndex > 0 ) {
 			this.$group.children().eq( targetIndex - 1 ).after( item.$element );
 		} else {
 			this.$group.prepend( item.$element );
 		}
-		this.itemsOrder.splice( targetIndex, 0,
+		// Move item in itemsOrder array. Needs to account for left shift if the item is moved forward.
+		this.itemsOrder.splice( targetIndex - ( targetIndex > dragItemIndex ? 1 : 0 ), 0,
 			this.itemsOrder.splice( dragItemIndex, 1 )[ 0 ]
 		);
 		this.updateIndexes();

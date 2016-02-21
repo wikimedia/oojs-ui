@@ -43,7 +43,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 	OO.inheritClass( DraggableItemWidget, OO.ui.DecoratedOptionWidget );
 	OO.mixinClass( DraggableItemWidget, OO.ui.mixin.DraggableElement );
 
-	for ( i = 1; i <= 12; i++ ) {
+	for ( i = 0; i <= 12; i++ ) {
 		horizontalDragItems.push(
 			new DraggableItemWidget( {
 				data: 'item' + i,
