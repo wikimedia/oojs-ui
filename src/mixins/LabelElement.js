@@ -54,6 +54,33 @@ OO.initClass( OO.ui.mixin.LabelElement );
  */
 OO.ui.mixin.LabelElement.static.label = null;
 
+/* Static methods */
+
+/**
+ * Highlight the first occurrence of the query in the given text
+ *
+ * @param {string} text Text
+ * @param {string} query Query to find
+ * @return {jQuery} Text with the first match of the query
+ *  sub-string wrapped in highlighted span
+ */
+OO.ui.mixin.LabelElement.static.highlightQuery = function ( text, query ) {
+	var $result = $( '<span>' ),
+		offset = text.toLowerCase().indexOf( query.toLowerCase() );
+
+	if ( !query.length || offset === -1 ) {
+		return $result.text( text );
+	}
+	$result.append(
+		document.createTextNode( text.slice( 0, offset ) ),
+		$( '<span>' )
+			.addClass( 'oo-ui-labelElement-label-highlight' )
+			.text( text.slice( offset, offset + query.length ) ),
+		document.createTextNode( text.slice( offset + query.length ) )
+	);
+	return $result.contents();
+};
+
 /* Methods */
 
 /**
@@ -97,6 +124,17 @@ OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
 	}
 
 	return this;
+};
+
+/**
+ * Set the label as plain text with a highlighted query
+ *
+ * @param {string} text Text label to set
+ * @param {string} query Substring of text to highlight
+ * @chainable
+ */
+OO.ui.mixin.LabelElement.prototype.setHighlightedQuery = function ( text, query ) {
+	return this.setLabel( this.constructor.static.highlightQuery( text, query ) );
 };
 
 /**
