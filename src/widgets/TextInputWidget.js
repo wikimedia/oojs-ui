@@ -678,7 +678,7 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
  * This method returns a promise that resolves with a boolean `true` if the current value is
  * considered valid according to the supplied {@link #validate validation pattern}.
  *
- * @deprecated
+ * @deprecated since v0.12.3
  * @return {jQuery.Promise} A promise that resolves to a boolean `true` if the value is valid.
  */
 OO.ui.TextInputWidget.prototype.isValid = function () {

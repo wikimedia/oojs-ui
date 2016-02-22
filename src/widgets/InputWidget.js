@@ -153,7 +153,7 @@ OO.ui.InputWidget.prototype.getValue = function () {
 /**
  * Set the directionality of the input, either RTL (right-to-left) or LTR (left-to-right).
  *
- * @deprecated since v0.13.1, use #setDir directly
+ * @deprecated since v0.13.1; use #setDir directly
  * @param {boolean} isRTL Directionality is right-to-left
  * @chainable
  */

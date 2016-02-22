@@ -151,7 +151,7 @@ OO.ui.mixin.LabelElement.prototype.getLabel = function () {
  * Fit the label.
  *
  * @chainable
- * @deprecated
+ * @deprecated since 0.16.0
  */
 OO.ui.mixin.LabelElement.prototype.fitLabel = function () {
 	return this;

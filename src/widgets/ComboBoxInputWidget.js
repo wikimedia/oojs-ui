@@ -251,6 +251,6 @@ OO.ui.ComboBoxInputWidget.prototype.setOptions = function ( options ) {
 
 /**
  * @class
- * @deprecated Use OO.ui.ComboBoxInputWidget instead.
+ * @deprecated since 0.13.2; use OO.ui.ComboBoxInputWidget instead
  */
 OO.ui.ComboBoxWidget = OO.ui.ComboBoxInputWidget;

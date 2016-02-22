@@ -252,7 +252,7 @@ OO.ui.debounce = function ( func, wait, immediate ) {
  * @param {HTMLElement} node
  * @param {string} eventName
  * @param {Function} handler
- * @deprecated
+ * @deprecated since 0.15.0
  */
 OO.ui.addCaptureEventListener = function ( node, eventName, handler ) {
 	node.addEventListener( eventName, handler, true );
@@ -264,7 +264,7 @@ OO.ui.addCaptureEventListener = function ( node, eventName, handler ) {
  * @param {HTMLElement} node
  * @param {string} eventName
  * @param {Function} handler
- * @deprecated
+ * @deprecated since 0.15.0
  */
 OO.ui.removeCaptureEventListener = function ( node, eventName, handler ) {
 	node.removeEventListener( eventName, handler, true );

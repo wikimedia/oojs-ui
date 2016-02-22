@@ -1,5 +1,42 @@
 # OOjs UI Release History
 
+## v0.16.0 / 2016-02-22
+### Breaking changes
+* [BREAKING CHANGE] DraggableGroupElement: Add default implementation of reorder (Ed Sanders)
+* [BREAKING CHANGE] Remove 'noimages' distribution (Bartosz Dziewoński)
+* [BREAKING CHANGE] Require PHP 5.5.9+; drop old array syntax (James D. Forrester)
+* [BREAKING CHANGE] SelectFileWidget: Remove deprecated config 'dragDropUI' (Prateek Saxena)
+
+### Deprecations
+* [DEPRECATING CHANGE] MenuOptionsWidgets: Drop jQuery autoEllipsis support (Bartosz Dziewoński)
+
+### Features
+* core#debounce: If an immediate timeout is already waiting, don't re-set it (Bartosz Dziewoński)
+* LabelElement: Bring in highlightQuery method from VE (Ed Sanders)
+* DraggableElement: Defer adding of -dragging class so it isn't applied to copy (Ed Sanders)
+* DraggableElement: Introduce $handle config option (Ed Sanders)
+* DraggableGroupElement: Live reorder list while dragging (Ed Sanders)
+* DraggableGroupElement: Only show meaningful drop positions (Ed Sanders)
+
+### Styles
+* CapsuleItemWidget: Tweak styles for the "remove" button (Bartosz Dziewoński)
+* MenuSelectWidget: Bring some sanity styling when inside different widgets (Bartosz Dziewoński)
+* NumberInputWidget: Apex: Round the correct corners in the disabled state (Prateek Saxena)
+* styles: Use block rather than inline-block to avoid line height issues (Bartosz Dziewoński)
+* MediaWiki theme: Restore non-broken version of eye.svg (Bartosz Dziewoński)
+
+### Code
+* Avoid parsing HTML when creating <input> nodes (Bartosz Dziewoński)
+* tests: Actually run core test suite in standalone mode (Bartosz Dziewoński)
+* Compress PNGs with zopflipng (Ori Livneh)
+* DraggableGroupElement: Cache directionality (Ed Sanders)
+* DraggableGroupElement: Fix offset calculation (Ed Sanders)
+* DraggableGroupElement: Reduce flicker when dragging (Ed Sanders)
+* TextInputWidget: Don't call #updatePosition if there's no label to position (Bartosz Dziewoński)
+* PHP: Take advantage of PHP 5.5 understanding ( new Foo )->foo (Bartosz Dziewoński)
+* README: Update Phabricator URL broken by upgrade (James D. Forrester)
+* build: Bump grunt-svg2png to a newer (still personal) version; lots faster (James D. Forrester)
+
 ## v0.15.4 / 2016-02-16
 ### Deprecations
 * [DEPRECATING CHANGE] Element#scrollIntoView: Replace callback with promise (Ed Sanders)
