@@ -1,4 +1,11 @@
 <?php
+	if ( version_compare( PHP_VERSION, '5.5.9', '<=' ) ) {
+		echo '<p>Sorry, the PHP demo requires PHP 5.5.9+, which is not yet available on this server. ' .
+			'Please see <a href="https://phabricator.wikimedia.org/T127504">T127504</a> ' .
+			'for more details.</p>';
+		exit;
+	}
+
 	$autoload = __DIR__ . '/vendor/autoload.php';
 	if ( !file_exists( $autoload ) ) {
 		echo '<h1>Did you forget to run <code>composer install</code>?</h1>';
