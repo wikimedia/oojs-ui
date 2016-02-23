@@ -3,6 +3,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		capsuleWithPopup, capsulePopupWidget,
 		horizontalDragItems = [],
 		verticalDragItems = [],
+		verticalHandledDragItems = [],
 		$demo = demo.$element;
 
 	/**
@@ -45,6 +46,26 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 	OO.inheritClass( DraggableItemWidget, OO.ui.DecoratedOptionWidget );
 	OO.mixinClass( DraggableItemWidget, OO.ui.mixin.DraggableElement );
 
+	/**
+	 * Drag/drop items with custom handle
+	 *
+	 * @param {Object} [config] Configuration options
+	 */
+	function DraggableHandledItemWidget( config ) {
+		// Configuration initialization
+		config = config || {};
+
+		// Parent constructor
+		DraggableHandledItemWidget.parent.call( this, config );
+
+		// Mixin constructors
+		OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$icon }, config ) );
+	}
+
+	/* Setup */
+	OO.inheritClass( DraggableHandledItemWidget, OO.ui.DecoratedOptionWidget );
+	OO.mixinClass( DraggableHandledItemWidget, OO.ui.mixin.DraggableElement );
+
 	for ( i = 0; i <= 12; i++ ) {
 		horizontalDragItems.push(
 			new DraggableItemWidget( {
@@ -58,6 +79,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new DraggableItemWidget( {
 					data: 'item' + i,
 					icon: 'tag',
+					label: 'Item ' + i
+				} )
+			);
+			verticalHandledDragItems.push(
+				new DraggableHandledItemWidget( {
+					data: 'item' + i,
+					icon: 'menu',
 					label: 'Item ' + i
 				} )
 			);
@@ -1440,6 +1468,15 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'DraggableGroupWidget (vertical)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new DraggableGroupWidget( {
+						items: verticalHandledDragItems
+					} ),
+					{
+						label: 'DraggableGroupWidget with handles (vertical)\u200E',
 						align: 'top'
 					}
 				)
