@@ -22,7 +22,6 @@ module.exports = function ( grunt ) {
 		rtlFiles = {},
 		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
-	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
@@ -34,13 +33,15 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-csscomb' );
+	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-exec' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
-	grunt.loadNpmTasks( 'grunt-cssjanus' );
+	grunt.loadNpmTasks( 'grunt-image' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
-	grunt.loadNpmTasks( 'grunt-tyops' );
+	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-svg2png' );
+	grunt.loadNpmTasks( 'grunt-tyops' );
 	grunt.loadTasks( 'build/tasks' );
 
 	( function () {
@@ -311,6 +312,19 @@ module.exports = function ( grunt ) {
 				src: []
 			}
 		},
+		image: {
+			dist: {
+				options: {
+					zopflipng: true,
+					pngout: true,
+					optipng: true,
+					advpng: true,
+					pngcrush: true
+				},
+				expand: true,
+				src: 'dist/**/*.png'
+			}
+		},
 		cssmin: {
 			options: {
 				keepSpecialComments: 0,
@@ -496,8 +510,9 @@ module.exports = function ( grunt ) {
 		'note-quick-build'
 	] );
 
-	// Completely useless stuff that we pretend to support
-	grunt.registerTask( 'minify', [ 'uglify', 'cssmin' ] );
+	// Minification tasks for the npm publish step
+	grunt.registerTask( 'minify', [ 'uglify', 'image', 'cssmin' ] );
+	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'lint', 'git-build', 'build-tests', 'karma:main', 'karma:other' ] );
