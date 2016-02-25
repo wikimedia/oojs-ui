@@ -120,8 +120,10 @@ OO.ui.mixin.DraggableGroupElement.prototype.onItemDropOrDragEnd = function () {
 		originalIndex = this.items.indexOf( item );
 		// If the item has moved forward, add one to the index to account for the left shift
 		targetIndex = item.getIndex() + ( item.getIndex() > originalIndex ? 1 : 0 );
-		this.reorder( this.getDragItem(), targetIndex );
-		this.emit( 'reorder', this.getDragItem(), targetIndex );
+		if ( targetIndex !== originalIndex ) {
+			this.reorder( this.getDragItem(), targetIndex );
+			this.emit( 'reorder', this.getDragItem(), targetIndex );
+		}
 		this.updateIndexes();
 	}
 	this.unsetDragItem();
