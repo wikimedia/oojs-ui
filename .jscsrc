@@ -8,7 +8,10 @@
 			}
 		},
 		"checkParamNames": true,
+		"requireParamTypes": true,
+		"checkReturnTypes": true,
 		"requireReturnTypes": true,
+		"checkRedundantAccess": true,
 		"requireNewlineAfterDescription": true
 	}
 }
