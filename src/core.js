@@ -42,14 +42,14 @@ OO.ui.MouseButtons = {
 };
 
 /**
- * @property {Number}
+ * @property {number}
  */
 OO.ui.elementId = 0;
 
 /**
  * Generate a unique ID for element
  *
- * @return {String} [id]
+ * @return {string} [id]
  */
 OO.ui.generateElementId = function () {
 	OO.ui.elementId += 1;
@@ -342,7 +342,7 @@ OO.ui.infuse = function ( idOrNode ) {
 	 * they support unnamed, ordered message parameters.
 	 *
 	 * @param {string} key Message key
-	 * @param {Mixed...} [params] Message parameters
+	 * @param {...Mixed} [params] Message parameters
 	 * @return {string} Translated message with parameters substituted
 	 */
 	OO.ui.msg = function ( key ) {
@@ -368,7 +368,7 @@ OO.ui.infuse = function ( idOrNode ) {
  * Use this when you are statically specifying a message and the message may not yet be present.
  *
  * @param {string} key Message key
- * @param {Mixed...} [params] Message parameters
+ * @param {...Mixed} [params] Message parameters
  * @return {Function} Function that returns the resolved message when executed
  */
 OO.ui.deferMsg = function () {

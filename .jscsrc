@@ -11,6 +11,7 @@
 		"requireParamTypes": true,
 		"checkReturnTypes": true,
 		"requireReturnTypes": true,
+		"checkTypes": "strictNativeCase",
 		"checkRedundantAccess": true,
 		"requireNewlineAfterDescription": true
 	}

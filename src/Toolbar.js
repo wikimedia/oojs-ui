@@ -342,7 +342,7 @@ OO.mixinClass( OO.ui.Toolbar, OO.ui.mixin.GroupElement );
  * every time the state of the application using the toolbar changes, and an update to the state of
  * tools is required.
  *
- * @param {Mixed...} data Application-defined parameters
+ * @param {...Mixed} data Application-defined parameters
  */
 
 /* Methods */
