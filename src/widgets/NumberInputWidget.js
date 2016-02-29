@@ -7,7 +7,9 @@
  *     // Example: A NumberInputWidget.
  *     var numberInput = new OO.ui.NumberInputWidget( {
  *         label: 'NumberInputWidget',
- *         input: { value: 5, min: 1, max: 10 }
+ *         input: { value: 5 },
+ *         min: 1,
+ *         max: 10
  *     } );
  *     $( 'body' ).append( numberInput.$element );
  *
