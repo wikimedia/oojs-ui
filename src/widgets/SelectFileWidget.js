@@ -336,7 +336,7 @@ OO.ui.SelectFileWidget.prototype.addInput = function () {
  * Determine if we should accept this file
  *
  * @private
- * @param {string} File MIME type
+ * @param {string} mimeType File MIME type
  * @return {boolean}
  */
 OO.ui.SelectFileWidget.prototype.isAllowedType = function ( mimeType ) {

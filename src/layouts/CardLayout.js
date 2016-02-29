@@ -129,7 +129,7 @@ OO.ui.CardLayout.prototype.setupTabItem = function () {
  * CSS is applied to the tab item to reflect the card's active state. Outside of the index
  * context, setting the active state on a card does nothing.
  *
- * @param {boolean} value Card is active
+ * @param {boolean} active Card is active
  * @fires active
  */
 OO.ui.CardLayout.prototype.setActive = function ( active ) {

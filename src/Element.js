@@ -740,7 +740,7 @@ OO.ui.Element.prototype.getData = function () {
 /**
  * Set element data.
  *
- * @param {Mixed} Element data
+ * @param {Mixed} data Element data
  * @chainable
  */
 OO.ui.Element.prototype.setData = function ( data ) {

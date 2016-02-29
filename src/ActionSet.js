@@ -340,7 +340,7 @@ OO.ui.ActionSet.prototype.setAbilities = function ( actions ) {
  * When making changes to multiple actions, use this method instead of iterating over the actions
  * manually to defer emitting a #change event until after all actions have been changed.
  *
- * @param {Object|null} actions Filters to use to determine which actions to iterate over; see #get
+ * @param {Object|null} filter Filters to use to determine which actions to iterate over; see #get
  * @param {Function} callback Callback to run for each action; callback is invoked with three
  *   arguments: the action, the action's index, the list of actions being iterated over
  * @chainable

@@ -493,7 +493,7 @@ module.exports = function ( grunt ) {
 	 * @class
 	 *
 	 * @constructor
-	 * @param {Object} list List of variant configurations keyed by name
+	 * @param {Object} data List of variant configurations keyed by name
 	 */
 	function VariantList( data ) {
 		var key;

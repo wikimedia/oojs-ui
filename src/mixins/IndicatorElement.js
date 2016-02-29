@@ -126,7 +126,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
  *
  * The title is displayed when a user moves the mouse over the indicator.
  *
- * @param {string|Function|null} indicator Indicator title text, a function that returns text, or
+ * @param {string|Function|null} indicatorTitle Indicator title text, a function that returns text, or
  *   `null` for no indicator title
  * @chainable
  */

@@ -60,7 +60,7 @@ OO.ui.generateElementId = function () {
  * Check if an element is focusable.
  * Inspired from :focusable in jQueryUI v1.11.4 - 2015-04-14
  *
- * @param {jQuery} element Element to test
+ * @param {jQuery} $element Element to test
  * @return {boolean}
  */
 OO.ui.isFocusableElement = function ( $element ) {

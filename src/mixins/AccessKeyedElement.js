@@ -76,7 +76,7 @@ OO.ui.mixin.AccessKeyedElement.prototype.setAccessKeyedElement = function ( $acc
 /**
  * Set accesskey.
  *
- * @param {string|Function|null} accesskey Key, a function that returns a key, or `null` for no accesskey
+ * @param {string|Function|null} accessKey Key, a function that returns a key, or `null` for no accesskey
  * @chainable
  */
 OO.ui.mixin.AccessKeyedElement.prototype.setAccessKey = function ( accessKey ) {

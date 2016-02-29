@@ -71,7 +71,7 @@ OO.ui.mixin.DraggableElement.static.cancelButtonMouseDownEvents = false;
  * Respond to mousedown event.
  *
  * @private
- * @param {jQuery.Event} event jQuery event
+ * @param {jQuery.Event} e jQuery event
  */
 OO.ui.mixin.DraggableElement.prototype.onDragMouseDown = function ( e ) {
 	this.wasHandleUsed =
@@ -85,7 +85,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragMouseDown = function ( e ) {
  * Respond to dragstart event.
  *
  * @private
- * @param {jQuery.Event} event jQuery event
+ * @param {jQuery.Event} e jQuery event
  * @fires dragstart
  */
 OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
@@ -135,7 +135,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragEnd = function () {
  * Handle drop event.
  *
  * @private
- * @param {jQuery.Event} event jQuery event
+ * @param {jQuery.Event} e jQuery event
  * @fires drop
  */
 OO.ui.mixin.DraggableElement.prototype.onDrop = function ( e ) {
@@ -158,7 +158,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragOver = function ( e ) {
  * Store it in the DOM so we can access from the widget drag event
  *
  * @private
- * @param {number} Item index
+ * @param {number} index Item index
  */
 OO.ui.mixin.DraggableElement.prototype.setIndex = function ( index ) {
 	if ( this.index !== index ) {

@@ -135,7 +135,7 @@ OO.ui.mixin.DraggableGroupElement.prototype.onItemDropOrDragEnd = function () {
  * Respond to dragover event
  *
  * @private
- * @param {jQuery.Event} event Dragover event
+ * @param {jQuery.Event} e Dragover event
  * @fires reorder
  */
 OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
