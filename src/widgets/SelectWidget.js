@@ -327,7 +327,7 @@ OO.ui.SelectWidget.prototype.unbindKeyDownListener = function () {
 /**
  * Scroll item into view, preventing spurious mouse highlight actions from happening.
  *
- * @return {OO.ui.OptionWidget} Item to scroll into view
+ * @param {OO.ui.OptionWidget} item Item to scroll into view
  */
 OO.ui.SelectWidget.prototype.scrollItemIntoView = function ( item ) {
 	var widget = this;
