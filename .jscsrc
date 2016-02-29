@@ -7,6 +7,7 @@
 				"note:": "some"
 			}
 		},
-		"checkParamNames": true
+		"checkParamNames": true,
+		"requireReturnTypes": true
 	}
 }

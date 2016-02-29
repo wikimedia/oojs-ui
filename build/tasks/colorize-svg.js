@@ -80,7 +80,7 @@ module.exports = function ( grunt ) {
 	/**
 	 * Get image list.
 	 *
-	 * @return ImageList Image list
+	 * @return {ImageList} Image list
 	 */
 	Source.prototype.getImageList = function () {
 		return new ImageList(
