@@ -150,6 +150,7 @@ OO.ui.IndexLayout.prototype.onStackLayoutSet = function ( card ) {
  *
  * If no card is selected, the first selectable card will be selected.
  * If the focus is already in an element on the current card, nothing will happen.
+ *
  * @param {number} [itemIndex] A specific item to focus on
  */
 OO.ui.IndexLayout.prototype.focus = function ( itemIndex ) {

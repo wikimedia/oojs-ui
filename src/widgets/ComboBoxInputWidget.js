@@ -120,6 +120,7 @@ OO.inheritClass( OO.ui.ComboBoxInputWidget, OO.ui.TextInputWidget );
 
 /**
  * Get the combobox's menu.
+ *
  * @return {OO.ui.FloatingMenuSelectWidget} Menu widget
  */
 OO.ui.ComboBoxInputWidget.prototype.getMenu = function () {
@@ -128,6 +129,7 @@ OO.ui.ComboBoxInputWidget.prototype.getMenu = function () {
 
 /**
  * Get the combobox's text input widget.
+ *
  * @return {OO.ui.TextInputWidget} Text input widget
  */
 OO.ui.ComboBoxInputWidget.prototype.getInput = function () {

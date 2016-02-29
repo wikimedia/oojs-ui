@@ -123,6 +123,7 @@ OO.inheritClass( OO.ui.NumberInputWidget, OO.ui.Widget );
 
 /**
  * Set whether only integers are allowed
+ *
  * @param {boolean} flag
  */
 OO.ui.NumberInputWidget.prototype.setIsInteger = function ( flag ) {
@@ -132,6 +133,7 @@ OO.ui.NumberInputWidget.prototype.setIsInteger = function ( flag ) {
 
 /**
  * Get whether only integers are allowed
+ *
  * @return {boolean} Flag value
  */
 OO.ui.NumberInputWidget.prototype.getIsInteger = function () {
@@ -140,6 +142,7 @@ OO.ui.NumberInputWidget.prototype.getIsInteger = function () {
 
 /**
  * Set the range of allowed values
+ *
  * @param {number} min Minimum allowed value
  * @param {number} max Maximum allowed value
  */
@@ -154,6 +157,7 @@ OO.ui.NumberInputWidget.prototype.setRange = function ( min, max ) {
 
 /**
  * Get the current range
+ *
  * @return {number[]} Minimum and maximum values
  */
 OO.ui.NumberInputWidget.prototype.getRange = function () {
@@ -162,6 +166,7 @@ OO.ui.NumberInputWidget.prototype.getRange = function () {
 
 /**
  * Set the stepping deltas
+ *
  * @param {number} step Normal step
  * @param {number|null} pageStep Page step. If null, 10 * step will be used.
  */
@@ -180,6 +185,7 @@ OO.ui.NumberInputWidget.prototype.setStep = function ( step, pageStep ) {
 
 /**
  * Get the current stepping values
+ *
  * @return {number[]} Step and page step
  */
 OO.ui.NumberInputWidget.prototype.getStep = function () {
@@ -188,6 +194,7 @@ OO.ui.NumberInputWidget.prototype.getStep = function () {
 
 /**
  * Get the current value of the widget
+ *
  * @return {string}
  */
 OO.ui.NumberInputWidget.prototype.getValue = function () {
@@ -196,6 +203,7 @@ OO.ui.NumberInputWidget.prototype.getValue = function () {
 
 /**
  * Get the current value of the widget as a number
+ *
  * @return {number} May be NaN, or an invalid number
  */
 OO.ui.NumberInputWidget.prototype.getNumericValue = function () {
@@ -204,6 +212,7 @@ OO.ui.NumberInputWidget.prototype.getNumericValue = function () {
 
 /**
  * Set the value of the widget
+ *
  * @param {string} value Invalid values are allowed
  */
 OO.ui.NumberInputWidget.prototype.setValue = function ( value ) {
@@ -212,6 +221,7 @@ OO.ui.NumberInputWidget.prototype.setValue = function ( value ) {
 
 /**
  * Adjust the value of the widget
+ *
  * @param {number} delta Adjustment amount
  */
 OO.ui.NumberInputWidget.prototype.adjustValue = function ( delta ) {
@@ -239,6 +249,7 @@ OO.ui.NumberInputWidget.prototype.adjustValue = function ( delta ) {
 
 /**
  * Validate input
+ *
  * @private
  * @param {string} value Field value
  * @return {boolean}

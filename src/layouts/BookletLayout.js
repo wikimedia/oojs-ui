@@ -194,6 +194,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
  *
  * If no page is selected, the first selectable page will be selected.
  * If the focus is already in an element on the current page, nothing will happen.
+ *
  * @param {number} [itemIndex] A specific item to focus on
  */
 OO.ui.BookletLayout.prototype.focus = function ( itemIndex ) {

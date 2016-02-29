@@ -386,6 +386,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 
 /**
  * Set popup alignment
+ *
  * @param {string} align Alignment of the popup, `center`, `force-left`, `force-right`,
  *  `backwards` or `forwards`.
  */
@@ -400,6 +401,7 @@ OO.ui.PopupWidget.prototype.setAlignment = function ( align ) {
 
 /**
  * Get popup alignment
+ *
  * @return {string} align Alignment of the popup, `center`, `force-left`, `force-right`,
  *  `backwards` or `forwards`.
  */

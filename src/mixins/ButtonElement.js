@@ -4,6 +4,7 @@
  * See the [OOjs UI documentation on MediaWiki] [1] for examples.
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Buttons_and_Switches#Buttons
+ *
  * @abstract
  * @class
  *

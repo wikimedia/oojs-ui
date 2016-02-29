@@ -7,6 +7,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 
 	/**
 	 * Draggable group widget containing drag/drop items
+	 *
 	 * @param {Object} [config] Configuration options
 	 */
 	function DraggableGroupWidget( config ) {
@@ -26,6 +27,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 
 	/**
 	 * Drag/drop items
+	 *
 	 * @param {Object} [config] Configuration options
 	 */
 	function DraggableItemWidget( config ) {
@@ -64,6 +66,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 
 	/**
 	 * Demo for LookupElement.
+	 *
 	 * @extends OO.ui.TextInputWidget
 	 * @mixins OO.ui.mixin.LookupElement
 	 */

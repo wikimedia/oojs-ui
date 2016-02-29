@@ -114,6 +114,7 @@ OO.ui.Element.static.infuse = function ( idOrNode ) {
 /**
  * Implementation helper for `infuse`; skips the type check and has an
  * extra property so that only the top-level invocation touches the DOM.
+ *
  * @private
  * @param {string|HTMLElement|jQuery} idOrNode
  * @param {jQuery.Promise|boolean} domPromise A promise that will be resolved
@@ -801,6 +802,7 @@ OO.ui.Element.prototype.getTagName = function () {
 
 /**
  * Check if the element is attached to the DOM
+ *
  * @return {boolean} The element is attached to the DOM
  */
 OO.ui.Element.prototype.isElementAttached = function () {

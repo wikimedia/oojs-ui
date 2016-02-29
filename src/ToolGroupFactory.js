@@ -12,6 +12,7 @@
  * For more information about toolbars in general, please see the [OOjs UI documentation on MediaWiki][1].
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Toolbars
+ *
  * @class
  * @extends OO.Factory
  * @constructor

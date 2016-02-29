@@ -125,6 +125,7 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
 
 /**
  * Update menu item visibility after input changes.
+ *
  * @protected
  */
 OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
@@ -200,6 +201,7 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyPressListener = function () {
  *
  * Note that ‘choose’ should never be modified programmatically. A user can choose an option with the keyboard
  * or mouse and it becomes selected. To select an item programmatically, use the #selectItem method.
+ *
  * @param {OO.ui.OptionWidget} item Item to choose
  * @chainable
  */

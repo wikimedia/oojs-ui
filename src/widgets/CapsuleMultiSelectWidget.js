@@ -206,6 +206,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.createItemWidget = function ( data, lab
 
 /**
  * Get the data of the items in the capsule
+ *
  * @return {Mixed[]}
  */
 OO.ui.CapsuleMultiSelectWidget.prototype.getItemsData = function () {
@@ -214,6 +215,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.getItemsData = function () {
 
 /**
  * Set the items in the capsule by providing data
+ *
  * @chainable
  * @param {Mixed[]} datas
  * @return {OO.ui.CapsuleMultiSelectWidget}
@@ -258,6 +260,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.setItemsFromData = function ( datas ) {
 
 /**
  * Add items to the capsule by providing their data
+ *
  * @chainable
  * @param {Mixed[]} datas
  * @return {OO.ui.CapsuleMultiSelectWidget}
@@ -289,6 +292,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.addItemsFromData = function ( datas ) {
 
 /**
  * Add items to the capsule by providing a label
+ *
  * @param {string} label
  * @return {boolean} Whether the item was added or not
  */
@@ -306,6 +310,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.addItemFromLabel = function ( label ) {
 
 /**
  * Remove items by data
+ *
  * @chainable
  * @param {Mixed[]} datas
  * @return {OO.ui.CapsuleMultiSelectWidget}
@@ -454,6 +459,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.getPreviousItem = function ( item ) {
 
 /**
  * Get the capsule widget's menu.
+ *
  * @return {OO.ui.MenuSelectWidget} Menu widget
  */
 OO.ui.CapsuleMultiSelectWidget.prototype.getMenu = function () {
@@ -656,6 +662,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.onMenuItemsChange = function () {
 
 /**
  * Clear the input field
+ *
  * @private
  */
 OO.ui.CapsuleMultiSelectWidget.prototype.clearInput = function () {
@@ -701,6 +708,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.setDisabled = function ( disabled ) {
 
 /**
  * Focus the widget
+ *
  * @chainable
  * @return {OO.ui.CapsuleMultiSelectWidget}
  */

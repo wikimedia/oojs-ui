@@ -18,6 +18,7 @@
  * Please see the [OOjs UI documentation on MediaWiki] [1] for examples and more information.
  *
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Layouts/Fields_and_Fieldsets
+ *
  * @class
  * @extends OO.ui.Layout
  * @mixins OO.ui.mixin.LabelElement
