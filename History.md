@@ -1,5 +1,27 @@
 # OOjs UI Release History
 
+## v0.16.1 / 2016-03-01
+### Features
+
+### Styles
+* CapsuleItemWidget: Revert regression on "remove" button in Firefox (Volker E)
+
+### Code
+* ActionFieldLayout: Add max-width: 50em; (Florian)
+* DraggableGroupElement: Don't emit reorder event when action is a no-op (Ed Sanders)
+* Element: Fix #gatherPreInfuseState called incorrectly, causing TypeErrors (Thiemo Mättig)
+* NumberInputWidget: fix example (Ricordisamoa)
+* SelectWidget: fix incorrect `@return` that should be `@param` (Ricordisamoa)
+* build: Compress PNGs with Zopfli etc. after they are built (James D. Forrester)
+* build: Enable all passing jscs jsDoc rules (Ricordisamoa)
+* build: Enable jscs jsDoc rule 'checkAnnotations' and make pass (Ricordisamoa)
+* build: Enable jscs jsDoc rule 'checkParamNames' and make pass (Ricordisamoa)
+* build: Enable jscs jsDoc rule 'checkTypes' and make pass (Ricordisamoa)
+* build: Enable jscs jsDoc rule 'requireNewlineAfterDescription' and make pass (Ricordisamoa)
+* build: Enable jscs jsDoc rule 'requireReturnTypes' and make pass (Ricordisamoa)
+* demos: Display a nicer error message on old PHP versions (Kunal Mehta)
+
+
 ## v0.16.0 / 2016-02-22
 ### Breaking changes
 * [BREAKING CHANGE] DraggableGroupElement: Add default implementation of reorder (Ed Sanders)

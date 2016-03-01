@@ -83,7 +83,7 @@ $ git remote update
 $ git checkout -B release -t origin/master
 
 # Ensure tests pass
-$ npm install && composer update && npm test
+$ npm install && composer update && npm test && composer test
 
 # Avoid using "npm version patch" because that creates
 # both a commit and a tag, and we shouldn't tag until after
