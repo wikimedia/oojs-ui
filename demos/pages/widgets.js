@@ -161,16 +161,10 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			flags: [ 'progressive' ]
 		},
 		{
-			flags: [ 'constructive' ]
-		},
-		{
 			flags: [ 'destructive' ]
 		},
 		{
 			flags: [ 'primary', 'progressive' ]
-		},
-		{
-			flags: [ 'primary', 'constructive' ]
 		},
 		{
 			flags: [ 'primary', 'destructive' ]
@@ -256,7 +250,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						flags: [ 'constructive' ]
 					} ),
 					{
-						label: 'ButtonWidget (constructive)\u200E',
+						label: 'ButtonWidget (constructive, deprecated)\u200E',
 						align: 'top'
 					}
 				),
@@ -286,7 +280,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						flags: [ 'primary', 'constructive' ]
 					} ),
 					{
-						label: 'ButtonWidget (primary, constructive)\u200E',
+						label: 'ButtonWidget (primary, constructive, deprecated)\u200E',
 						align: 'top'
 					}
 				),
@@ -312,24 +306,24 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
-						label: 'Constructive',
-						flags: [ 'constructive' ],
+						label: 'Progressive',
+						flags: [ 'progressive' ],
 						disabled: true
 					} ),
 					{
-						label: 'ButtonWidget (constructive, disabled)\u200E',
+						label: 'ButtonWidget (progressive, disabled)\u200E',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
-						label: 'Constructive',
+						label: 'Progressive',
 						icon: 'tag',
-						flags: [ 'constructive' ],
+						flags: [ 'progressive' ],
 						disabled: true
 					} ),
 					{
-						label: 'ButtonWidget (constructive, icon, disabled)\u200E',
+						label: 'ButtonWidget (progressive, icon, disabled)\u200E',
 						align: 'top'
 					}
 				),
@@ -368,10 +362,10 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonWidget( {
 						label: 'Indicator',
 						indicator: 'down',
-						flags: [ 'constructive' ]
+						flags: [ 'progressive' ]
 					} ),
 					{
-						label: 'ButtonWidget (indicator, constructive)\u200E',
+						label: 'ButtonWidget (indicator, progressive)\u200E',
 						align: 'top'
 					}
 				),

@@ -301,7 +301,7 @@
 
 	&-supported.oo-ui-widget-enabled {
 		&.oo-ui-selectFileWidget-canDrop .oo-ui-selectFileWidget-dropTarget {
-			background: @progressive-fade;
+			background-color: @color-progressive-fade;
 		}
 	}
 
@@ -381,8 +381,8 @@
 			height: @size-input-binary;
 			background-color: white;
 			border: @border-input-binary;
-			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/check-constructive' );
-			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/check-constructive' );
+			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/check-constructive-deprecated' );
+			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/check-constructive-deprecated' );
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-origin: border-box;
@@ -504,8 +504,8 @@
 			height: @size-input-binary;
 			background: white;
 			border: @border-input-binary;
-			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/circle-constructive' );
-			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/circle-constructive' );
+			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/circle-constructive-deprecated' );
+			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/circle-constructive-deprecated' );
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-origin: border-box;
@@ -587,8 +587,8 @@
 		input:focus,
 		textarea:focus {
 			outline: none;
-			border-color: @progressive;
-			box-shadow: inset 0 0 0 0.1em @progressive;
+			border-color: @color-progressive;
+			box-shadow: inset 0 0 0 0.1em @color-progressive;
 		}
 
 		input[readonly],
@@ -794,7 +794,7 @@
 
 	&:focus {
 		outline: none;
-		border-color: @progressive;
+		border-color: @color-progressive;
 	}
 
 	&.oo-ui-widget-disabled {
@@ -1236,8 +1236,8 @@
 
 	&.oo-ui-widget-enabled {
 		&.oo-ui-toggleWidget-on {
-			background-color: @progressive;
-			border-color: @progressive;
+			background-color: @color-progressive;
+			border-color: @color-progressive;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-default;
@@ -1245,19 +1245,19 @@
 			}
 		}
 		&:hover {
-			border-color: @progressive-hover;
+			border-color: @color-progressive-hover;
 
 			&.oo-ui-toggleWidget-on {
-				background-color: @progressive-hover;
-				border-color: @progressive-hover;
+				background-color: @color-progressive-hover;
+				border-color: @color-progressive-hover;
 			}
 		}
 		&:focus {
-			border-color: @progressive;
+			border-color: @color-progressive;
 			outline: none;
 
 			&.oo-ui-toggleWidget-on {
-				border-color: @progressive;
+				border-color: @color-progressive;
 
 				&:before {
 					border-color: #fff;
@@ -1266,8 +1266,8 @@
 		}
 		&:active,
 		&:active:hover {
-			background-color: @progressive;
-			border-color: @progressive;
+			background-color: @color-progressive;
+			border-color: @color-progressive;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-default;

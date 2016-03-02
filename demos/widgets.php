@@ -192,7 +192,7 @@
 								'flags' => [ 'constructive' ]
 							] ),
 							[
-								'label' => "ButtonWidget (constructive)\xE2\x80\x8E",
+								'label' => "ButtonWidget (constructive, deprecated)\xE2\x80\x8E",
 								'align' => 'top'
 							]
 						),
@@ -222,7 +222,7 @@
 								'flags' => [ 'primary', 'constructive' ]
 							] ),
 							[
-								'label' => "ButtonWidget (primary, constructive)\xE2\x80\x8E",
+								'label' => "ButtonWidget (primary, constructive, deprecated)\xE2\x80\x8E",
 								'align' => 'top'
 							]
 						),
@@ -248,24 +248,24 @@
 						),
 						new OOUI\FieldLayout(
 							new OOUI\ButtonWidget( [
-								'label' => 'Constructive',
-								'flags' => [ 'constructive' ],
+								'label' => 'Progressive',
+								'flags' => [ 'progressive' ],
 								'disabled' => true
 							] ),
 							[
-								'label' => "ButtonWidget (constructive, disabled)\xE2\x80\x8E",
+								'label' => "ButtonWidget (progressive, disabled)\xE2\x80\x8E",
 								'align' => 'top'
 							]
 						),
 						new OOUI\FieldLayout(
 							new OOUI\ButtonWidget( [
-								'label' => 'Constructive',
+								'label' => 'Progressive',
 								'icon' => 'tag',
-								'flags' => [ 'constructive' ],
+								'flags' => [ 'progressive' ],
 								'disabled' => true
 							] ),
 							[
-								'label' => "ButtonWidget (constructive, icon, disabled)\xE2\x80\x8E",
+								'label' => "ButtonWidget (progressive, icon, disabled)\xE2\x80\x8E",
 								'align' => 'top'
 							]
 						),
@@ -304,10 +304,10 @@
 							new OOUI\ButtonWidget( [
 								'label' => 'Indicator',
 								'indicator' => 'down',
-								'flags' => [ 'constructive' ]
+								'flags' => [ 'progressive' ]
 							] ),
 							[
-								'label' => "ButtonWidget (indicator, constructive)\xE2\x80\x8E",
+								'label' => "ButtonWidget (indicator, progressive)\xE2\x80\x8E",
 								'align' => 'top'
 							]
 						),

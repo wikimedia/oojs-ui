@@ -12,21 +12,16 @@
 @color-default-light: #fff;
 @color-emphasized: #000;
 
-// Primary, Secondary and 'Destructive' Colors
-@progressive: #347bff;
-@progressive-hover: #2962cc;
-@progressive-active: #1f4999;
-@progressive-fade: rgba( 52, 123, 255, 0.1 );
+// Primary 'Progressive' and 'Destructive' Colors
+@color-progressive: #347bff;
+@color-progressive-hover: #2962cc;
+@color-progressive-active: #1f4999;
+@color-progressive-fade:  fade( @color-progressive, 10% ); // outputs: `rgba( 52, 123, 255, 0.1 )`
 
-@constructive: #00af89;
-@constructive-hover: #008064;
-@constructive-active: #005946;
-@constructive-fade: rgba( 0, 171, 137, 0.1 );
-
-@destructive: #d11d13;
-@destructive-hover: #8c130d;
-@destructive-active: #73100a;
-@destructive-fade: rgba( 209, 29, 19, 0.1 );
+@color-destructive: #d11d13;
+@color-destructive-hover: #8c130d;
+@color-destructive-active: #73100a;
+@color-destructive-fade: fade( @color-destructive, 10% ); // outputs: `rgba( 209, 29, 19, 0.1 )`;
 
 // Disabled Widgets
 @background-color-disabled: #f3f3f3;
@@ -84,3 +79,9 @@
 	@svg: '@{url-without-extension}.svg';
 	background-image: -webkit-linear-gradient( transparent, transparent ), e( '/* @embed */' ) url( @svg );
 }
+
+// Deprecated in 0.16.1, see T110555
+@color-constructive: #00af89;
+@color-constructive-hover: #008064;
+@color-constructive-active: #005946;
+@color-constructive-fade: fade( @color-constructive, 10% ); // outputs: `rgba( 0, 171, 137, 0.1 )`;
