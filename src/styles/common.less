@@ -55,7 +55,7 @@
 .oo-ui-transform( @string ) {
 	-webkit-transform: @string;
 	-moz-transform: @string;
-	-ms-transform: @string; //IE9 only
+	-ms-transform: @string; // IE9 only
 	transform: @string;
 }
 
@@ -64,6 +64,11 @@
 	-moz-box-sizing: @type;
 	box-sizing: @type;
 }
+
+// `.oo-ui-box-shadow()` in contrast to `.oo-ui-box-sizing` unprefixed only
+// for circumventing performance issues and due to failing gracefully in
+// Safari 3.1-5.0, iOS 3.2-4.3, Android 2.1-3.0
+// @see https://phabricator.wikimedia.org/T125925
 
 .oo-ui-vertical-gradient( @start: #eee, @stop: #fff ) {
 	background-color: average( @start, @stop );
