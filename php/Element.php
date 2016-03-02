@@ -330,4 +330,40 @@ class Element extends Tag {
 	public static function setDefaultDir( $dir ) {
 		self::$defaultDir = $dir === 'rtl' ? 'rtl' : 'ltr';
 	}
+
+	/**
+	 * A helper method to massage an array of HTML attributes into a format that is more likely to
+	 * work with an OOjs UI PHP element, camel-casing attribute names and setting values of boolean
+	 * ones to true. Intended as a convenience to be used when refactoring legacy systems using HTML
+	 * to use OOjs UI.
+	 *
+	 * @param array $attrs HTML attributes, e.g. `[ 'disabled' => '', 'accesskey' => 'k' ]`
+	 * @return array OOjs UI PHP element config, e.g. `[ 'disabled' => true, 'accessKey' => 'k' ]`
+	 */
+	public static function configFromHtmlAttributes( array $attrs ) {
+		$booleanAttrs = [
+			'disabled' => true,
+			'required' => true,
+			'autofocus' => true,
+			'multiple' => true,
+			'readonly' => true,
+		];
+		$attributeToConfig = [
+			'maxlength' => 'maxLength',
+			'readonly' => 'readOnly',
+			'tabindex' => 'tabIndex',
+			'accesskey' => 'accessKey',
+		];
+		$config = [];
+		foreach ( $attrs as $key => $value ) {
+			if ( isset( $booleanAttrs[$key] ) && $value !== false && $value !== null ) {
+				$value = true;
+			}
+			if ( isset( $attributeToConfig[$key] ) ) {
+				$key = $attributeToConfig[$key];
+			}
+			$config[$key] = $value;
+		}
+		return $config;
+	}
 }

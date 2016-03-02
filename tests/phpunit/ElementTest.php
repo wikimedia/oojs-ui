@@ -2,6 +2,7 @@
 
 namespace OOUI\Tests;
 
+use OOUI\Element;
 use OOUI\Widget;
 
 class ElementTest extends TestCase {
@@ -25,6 +26,39 @@ class ElementTest extends TestCase {
 	 */
 	public function testGetSerializedConfig( $widget, $expected ) {
 		$this->assertContains( $expected, (string)$widget );
+	}
+
+	public static function provideConfigFromHtmlAttributes() {
+		return [
+			[
+				[ 'disabled' => '', 'accesskey' => 'k' ],
+				[ 'disabled' => true, 'accessKey' => 'k' ]
+			],
+			[
+				[ 'disabled' => 'disabled' ],
+				[ 'disabled' => true ]
+			],
+			[
+				[ 'disabled' => false ],
+				[ 'disabled' => false ]
+			],
+			[
+				[ 'readonly' => '' ],
+				[ 'readOnly' => true ]
+			],
+			[
+				[ 'value' => 'Foo' ],
+				[ 'value' => 'Foo' ]
+			],
+		];
+	}
+
+	/**
+	 * @covers Element::configFromHtmlAttributes
+	 * @dataProvider provideConfigFromHtmlAttributes
+	 */
+	public function testConfigFromHtmlAttributes( $attrs, $expected ) {
+		$this->assertEquals( $expected, Element::configFromHtmlAttributes( $attrs ) );
 	}
 }
 
