@@ -2,7 +2,7 @@
 
 .oo-ui-textInputWidget {
 	position: relative;
-	// Necessary for proper alignment when used with display: inline-block
+	// Necessary for proper alignment when used with `display: inline-block`
 	vertical-align: middle;
 	.oo-ui-box-sizing( border-box );
 
@@ -14,25 +14,23 @@
 		.oo-ui-box-sizing( border-box );
 	}
 
-	// IE8-11 defaults overflow to 'scroll'. Modern browsers use 'auto'
+	// IE 8-11 defaults `overflow` to `scroll`. Modern browsers use `auto`
 	textarea {
 		overflow: auto;
 	}
 
-	// Remove default styling for <input type=search />, especially the built-in "clear" button
+	// Normalize styling for `<input type=search />` and
+	// remove proprietary vendor UI extensions
 	input[type="search"] {
-		// Safari
-		-webkit-appearance: none;
+		// Safari 5, Chrome
+		-webkit-appearance: texfield;
 
-		// Internet Explorer
+		// IE 10-11
 		&::-ms-clear {
 			display: none;
 		}
-		&::-ms-reveal {
-			display: none;
-		}
 
-		// Chrome
+		// Chrome, `::-webkit-search-results-*` only when `results` attr set
 		&::-webkit-search-decoration,
 		&::-webkit-search-cancel-button,
 		&::-webkit-search-results-button,
