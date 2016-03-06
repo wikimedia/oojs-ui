@@ -33,6 +33,7 @@
 			"ltr": "images/icons/layout-ltr.svg",
 			"rtl": "images/icons/layout-rtl.svg"
 		} },
+		"markup": { "file": "images/icons/markup.svg" },
 		"newline": { "file": {
 			"ltr": "images/icons/newline-ltr.svg",
 			"rtl": "images/icons/newline-rtl.svg"

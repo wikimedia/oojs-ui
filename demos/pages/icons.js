@@ -131,6 +131,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'find',
 				'language',
 				'layout',
+				'markup',
 				'newline',
 				'noWikiText',
 				'outline',
