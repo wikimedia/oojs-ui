@@ -526,7 +526,16 @@ OO.ui.TextInputWidget.prototype.selectRange = function ( from, to ) {
 
 	this.focus();
 
-	input.setSelectionRange( start, end, isBackwards ? 'backward' : 'forward' );
+	try {
+		input.setSelectionRange( start, end, isBackwards ? 'backward' : 'forward' );
+	} catch ( e ) {
+		// IE throws an exception if you call setSelectionRange on a unattached DOM node.
+		// Rather than expensively check if the input is attached every time, just check
+		// if it was the cause of an error being thrown. If not, rethrow the error.
+		if ( this.getElementDocument().body.contains( input ) ) {
+			throw e;
+		}
+	}
 	return this;
 };
 
