@@ -190,6 +190,13 @@ OO.mixinClass( OO.ui.CapsuleMultiSelectWidget, OO.ui.mixin.IconElement );
  * @param {Mixed[]} datas Data of the now-selected items
  */
 
+/**
+ * @event resize
+ *
+ * A resize event is emitted when the widget's dimensions change to accomodate newly added items or
+ * current user input.
+ */
+
 /* Methods */
 
 /**
@@ -352,7 +359,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.addItems = function ( items ) {
 	}
 	if ( !same ) {
 		this.emit( 'change', this.getItemsData() );
-		this.menu.position();
+		this.updateIfHeightChanged();
 	}
 
 	return this;
@@ -389,7 +396,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.removeItems = function ( items ) {
 	}
 	if ( !same ) {
 		this.emit( 'change', this.getItemsData() );
-		this.menu.position();
+		this.updateIfHeightChanged();
 	}
 
 	return this;
@@ -402,7 +409,7 @@ OO.ui.CapsuleMultiSelectWidget.prototype.clearItems = function () {
 	if ( this.items.length ) {
 		OO.ui.mixin.GroupElement.prototype.clearItems.call( this );
 		this.emit( 'change', this.getItemsData() );
-		this.menu.position();
+		this.updateIfHeightChanged();
 	}
 	return this;
 };
@@ -632,8 +639,21 @@ OO.ui.CapsuleMultiSelectWidget.prototype.updateInputSize = function () {
 			bestWidth = this.$content.innerWidth() - 10;
 		}
 		this.$input.width( Math.floor( bestWidth ) );
+		this.updateIfHeightChanged();
+	}
+};
 
+/**
+ * Determine if widget height changed, and if so, update menu position and emit 'resize' event.
+ *
+ * @private
+ */
+OO.ui.CapsuleMultiSelectWidget.prototype.updateIfHeightChanged = function () {
+	var height = this.$element.height();
+	if ( height !== this.height ) {
+		this.height = height;
 		this.menu.position();
+		this.emit( 'resize' );
 	}
 };
 
