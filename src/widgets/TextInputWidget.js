@@ -428,8 +428,8 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
 				.val( '' );
 			maxInnerHeight = this.$clone.innerHeight();
 
-			// Difference between reported innerHeight and scrollHeight with no scrollbars present
-			// Equals 1 on Blink-based browsers and 0 everywhere else
+			// Difference between reported innerHeight and scrollHeight with no scrollbars present.
+			// This is sometimes non-zero on Blink-based browsers, depending on zoom level.
 			measurementError = maxInnerHeight - this.$clone[ 0 ].scrollHeight;
 			idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
 
