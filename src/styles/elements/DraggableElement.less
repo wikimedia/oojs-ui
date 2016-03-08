@@ -1,7 +1,10 @@
 @import '../common';
 
 .oo-ui-draggableElement {
-	&-handle.oo-ui-widget-enabled {
+	&-handle,
+	// HACK: Widgets will often specify a cursor with higher specificity, so override those here as
+	// they are a common use case of this mixin.
+	&-handle.oo-ui-widget {
 		cursor: move;
 		cursor: url( images/grab.cur );
 		cursor: -webkit-grab;
@@ -9,10 +12,7 @@
 		cursor: grab;
 	}
 
-	&-placeholder {
-		opacity: 0.2;
-	}
-	&.oo-ui-widget-enabled:active {
+	&-handle:active {
 		cursor: move;
 		cursor: url( images/grabbing.cur );
 		cursor: -webkit-grabbing;
@@ -20,8 +20,17 @@
 		cursor: grabbing;
 	}
 
-	// Horizontal items should be inline-block be default
-	.oo-ui-draggableGroupElement-horizontal &.oo-ui-optionWidget {
+	&-handle.oo-ui-widget-disabled,
+	.oo-ui-widget-disabled &-handle {
+		cursor: default;
+	}
+
+	&-placeholder {
+		opacity: 0.2;
+	}
+
+	// Horizontal items should be inline-block by default
+	.oo-ui-draggableGroupElement-horizontal & {
 		display: inline-block;
 	}
 
