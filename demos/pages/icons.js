@@ -9,7 +9,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'check',
 				'circle',
 				'close',
-				'code',
 				'collapse',
 				'comment',
 				'ellipsis',
@@ -21,11 +20,9 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'next',
 				'notice',
 				'previous',
-				'redo',
 				'search',
 				'settings',
 				'tag',
-				'undo',
 				'window'
 			],
 			movement: [
@@ -101,7 +98,9 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'editUndo',
 				'link',
 				'linkExternal',
-				'linkSecure'
+				'linkSecure',
+				'redo',
+				'undo'
 			],
 			'editing-styling': [
 				'bigger',
@@ -128,6 +127,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'alignRight',
 				'attachment',
 				'calendar',
+				'code',
 				'find',
 				'language',
 				'layout',
