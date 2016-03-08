@@ -1,8 +1,30 @@
 # OOjs UI Release History
 
-## v0.16.1 / 2016-03-01
-### Features
+## v0.16.2 / 2016-03-08
+### Deprecations
+* [DEPRECATING CHANGE] MediaWiki theme: Scrap `constructive` flag (Volker E)
+* [DEPRECATING CHANGE] Move some editing icons from core to editing-* (James D. Forrester)
 
+### Features
+* Dialog: trigger the primary action with ctrl-enter (David Lynch)
+* TextInputWidget: Allow type="date" (Geoffrey Mon)
+
+### Styles
+* Apex, MediaWiki themes: Add markup '<>' icon in editing-advanced (Ed Sanders)
+* Apex, MediaWiki themes: Drop padding from buttons in MessageDialogs (James D. Forrester)
+* editing-styling pack: Have uk fallback to use ru bold and italic icons (Paladox)
+* styles: Remove superflous pseudo-class and unitize comments (Volker E)
+
+### Code
+* CapsuleMultiSelectWidget: Emit 'resize' when widget height changes (Bartosz Dziewoński)
+* TextInputWidget: Prevent uncaught errors when using #selectRange in IE (Ed Sanders)
+* TextInputWidget: Update comment about Blink height miscalculation (Bartosz Dziewoński)
+* Follow-up I0667fbc: Fix draggable element CSS (Ed Sanders)
+* Add Element::configFromHtmlAttributes() helper method (Bartosz Dziewoński)
+* Clean-up duplicate properties across widgets (Volker E)
+* docs: Clarify the lack of `.oo-ui-box-shadow()` mixin (Volker E)
+
+## v0.16.1 / 2016-03-01
 ### Styles
 * CapsuleItemWidget: Revert regression on "remove" button in Firefox (Volker E)
 
