@@ -35,8 +35,7 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 		isFramed = element.supports( [ 'isFramed' ] ) && element.isFramed();
 		isActive = element.supports( [ 'isActive' ] ) && element.isActive();
 		if (
-			( isFramed && ( isActive || element.isDisabled() || element.hasFlag( 'primary' ) ) ) ||
-			( !isFramed && element.hasFlag( 'primary' ) )
+			( isFramed && ( isActive || element.isDisabled() || element.hasFlag( 'primary' ) ) )
 		) {
 			variants.invert = true;
 		} else {
