@@ -51,7 +51,7 @@ else
 		'maxLength' => [100],
 		'icon' => ['image'],
 		'indicator' => ['down'],
-		'flags' => %w[constructive],
+		'flags' => %w[constructive primary],
 		'label' => expandos['string'] + ['', ' '],
 		# these are defined by Element and would bloat the tests
 		'classes' => true,
