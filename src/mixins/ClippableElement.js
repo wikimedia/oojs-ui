@@ -215,6 +215,9 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		ccWidth + ccOffset.left :
 		( scOffset.left + scrollLeft + scWidth ) - ccOffset.left;
 	desiredHeight = ( scOffset.top + scrollTop + scHeight ) - ccOffset.top;
+	// It should never be desirable to exceed the dimensions of the browser viewport... right?
+	desiredWidth = Math.min( desiredWidth, document.documentElement.clientWidth );
+	desiredHeight = Math.min( desiredHeight, document.documentElement.clientHeight );
 	allotedWidth = Math.ceil( desiredWidth - extraWidth );
 	allotedHeight = Math.ceil( desiredHeight - extraHeight );
 	naturalWidth = this.$clippable.prop( 'scrollWidth' );
