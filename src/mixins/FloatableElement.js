@@ -86,22 +86,19 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 
 		closestScrollableOfContainer = OO.ui.Element.static.getClosestScrollableContainer( this.$floatableContainer[ 0 ] );
 		closestScrollableOfFloatable = OO.ui.Element.static.getClosestScrollableContainer( this.$floatable[ 0 ] );
-		if ( closestScrollableOfContainer !== closestScrollableOfFloatable ) {
-			// If the scrollable is the root, we have to listen to scroll events
-			// on the window because of browser inconsistencies (or do we? someone should verify this)
-			if ( $( closestScrollableOfContainer ).is( 'html, body' ) ) {
-				closestScrollableOfContainer = OO.ui.Element.static.getWindow( closestScrollableOfContainer );
-			}
+		this.needsCustomPosition = closestScrollableOfContainer !== closestScrollableOfFloatable;
+		// If the scrollable is the root, we have to listen to scroll events
+		// on the window because of browser inconsistencies.
+		if ( $( closestScrollableOfContainer ).is( 'html, body' ) ) {
+			closestScrollableOfContainer = OO.ui.Element.static.getWindow( closestScrollableOfContainer );
 		}
 
 		if ( positioning ) {
 			this.$floatableWindow = $( this.getElementWindow() );
 			this.$floatableWindow.on( 'resize', this.onFloatableWindowResizeHandler );
 
-			if ( closestScrollableOfContainer !== closestScrollableOfFloatable ) {
-				this.$floatableClosestScrollable = $( closestScrollableOfContainer );
-				this.$floatableClosestScrollable.on( 'scroll', this.onFloatableScrollHandler );
-			}
+			this.$floatableClosestScrollable = $( closestScrollableOfContainer );
+			this.$floatableClosestScrollable.on( 'scroll', this.onFloatableScrollHandler );
 
 			// Initial position after visible
 			this.position();
@@ -124,6 +121,50 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 };
 
 /**
+ * Check whether the bottom edge of the given element is within the viewport of the given container.
+ *
+ * @private
+ * @param {jQuery} $element
+ * @param {jQuery} $container
+ * @return {boolean}
+ */
+OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element, $container ) {
+	var elemRect, contRect,
+		topEdgeInBounds = false,
+		leftEdgeInBounds = false,
+		bottomEdgeInBounds = false,
+		rightEdgeInBounds = false;
+
+	elemRect = $element[ 0 ].getBoundingClientRect();
+	if ( $container[ 0 ] === window ) {
+		contRect = {
+			top: 0,
+			left: 0,
+			right: document.documentElement.clientWidth,
+			bottom: document.documentElement.clientHeight
+		};
+	} else {
+		contRect = $container[ 0 ].getBoundingClientRect();
+	}
+
+	if ( elemRect.top >= contRect.top && elemRect.top <= contRect.bottom ) {
+		topEdgeInBounds = true;
+	}
+	if ( elemRect.left >= contRect.left && elemRect.left <= contRect.right ) {
+		leftEdgeInBounds = true;
+	}
+	if ( elemRect.bottom >= contRect.top && elemRect.bottom <= contRect.bottom ) {
+		bottomEdgeInBounds = true;
+	}
+	if ( elemRect.right >= contRect.left && elemRect.right <= contRect.right ) {
+		rightEdgeInBounds = true;
+	}
+
+	// We only care that any part of the bottom edge is visible
+	return bottomEdgeInBounds && ( leftEdgeInBounds || rightEdgeInBounds );
+};
+
+/**
  * Position the floatable below its container.
  *
  * This should only be done when both of them are attached to the DOM and visible.
@@ -135,6 +176,17 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 
 	if ( !this.positioning ) {
 		return this;
+	}
+
+	if ( !this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable ) ) {
+		this.$floatable.addClass( 'oo-ui-floatableElement-hidden' );
+		return;
+	} else {
+		this.$floatable.removeClass( 'oo-ui-floatableElement-hidden' );
+	}
+
+	if ( !this.needsCustomPosition ) {
+		return;
 	}
 
 	pos = OO.ui.Element.static.getRelativePosition( this.$floatableContainer, this.$floatable.offsetParent() );
