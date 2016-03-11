@@ -542,7 +542,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return 300;
 	};
 	DialogWithDropdowns.prototype.initialize = function () {
-		var $spacer = $( '<div>' ).height( 150 );
+		var $spacer = $( '<div>' ).height( 350 );
 		DialogWithDropdowns.parent.prototype.initialize.apply( this, arguments );
 		this.bookletLayout = new OO.ui.BookletLayout( {
 			outlined: true
@@ -627,6 +627,9 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				} ), $spacer.clone() ]
 			} )
 		];
+		this.bookletLayout.on( 'set', function ( page ) {
+			page.$element[ 0 ].scrollTop = 300;
+		} );
 		this.bookletLayout.addPages( this.pages );
 		this.$body.append( this.bookletLayout.$element );
 	};
