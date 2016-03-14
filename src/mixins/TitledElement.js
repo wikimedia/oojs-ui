@@ -32,7 +32,7 @@ OO.ui.mixin.TitledElement = function OoUiMixinTitledElement( config ) {
 	this.title = null;
 
 	// Initialization
-	this.setTitle( config.title || this.constructor.static.title );
+	this.setTitle( config.title !== undefined ? config.title : this.constructor.static.title );
 	this.setTitledElement( config.$titled || this.$element );
 };
 
