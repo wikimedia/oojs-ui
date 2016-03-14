@@ -26,7 +26,7 @@ else
 		'null' => [nil],
 		'number' => [0, -1, 300],
 		'boolean' => [true, false],
-		'string' => ['Foo bar', '<b>HTML?</b>'],
+		'string' => ['Foo bar', '<b>HTML?</b>', '', ' '],
 	}
 
 	# values to test for names
@@ -52,7 +52,6 @@ else
 		'icon' => ['image'],
 		'indicator' => ['down'],
 		'flags' => %w[constructive primary],
-		'label' => expandos['string'] + ['', ' '],
 		# these are defined by Element and would bloat the tests
 		'classes' => true,
 		'id' => true,
