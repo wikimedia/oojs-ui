@@ -43,7 +43,7 @@ class LabelElement extends ElementMixin {
 	 * @return $this
 	 */
 	public function setLabel( $label ) {
-		$this->label = $label;
+		$this->label = (string)$label ? $label : null;
 
 		$this->target->clearContent();
 		if ( $this->label !== null ) {

@@ -111,9 +111,7 @@ OO.ui.mixin.LabelElement.prototype.setLabelElement = function ( $label ) {
  */
 OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
 	label = typeof label === 'function' ? OO.ui.resolveMsg( label ) : label;
-	label = ( ( typeof label === 'string' && label.length ) || label instanceof jQuery || label instanceof OO.ui.HtmlSnippet ) ? label : null;
-
-	this.$element.toggleClass( 'oo-ui-labelElement', !!label );
+	label = ( ( typeof label === 'string' || label instanceof jQuery ) && label.length ) || ( label instanceof OO.ui.HtmlSnippet && label.toString().length ) ? label : null;
 
 	if ( this.label !== label ) {
 		if ( this.$label ) {
@@ -122,6 +120,8 @@ OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
 		this.label = label;
 		this.emit( 'labelChange' );
 	}
+
+	this.$element.toggleClass( 'oo-ui-labelElement', !!this.label );
 
 	return this;
 };
