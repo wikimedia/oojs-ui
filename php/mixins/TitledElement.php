@@ -44,6 +44,8 @@ class TitledElement extends ElementMixin {
 	 * @return $this
 	 */
 	public function setTitle( $title ) {
+		$title = $title !== '' ? $title : null;
+
 		if ( $this->title !== $title ) {
 			$this->title = $title;
 			if ( $title !== null ) {
