@@ -26,6 +26,7 @@
  * @cfg {number} [max=Infinity] Maximum allowed value
  * @cfg {number} [step=1] Delta when using the buttons or up/down arrow keys
  * @cfg {number|null} [pageStep] Delta when using the page-up/page-down keys. Defaults to 10 times #step.
+ * @cfg {boolean} [showButtons=true] Whether to show the plus and minus buttons.
  */
 OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 	// Configuration initialization
@@ -34,7 +35,8 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 		min: -Infinity,
 		max: Infinity,
 		step: 1,
-		pageStep: null
+		pageStep: null,
+		showButtons: true
 	}, config );
 
 	// Parent constructor
@@ -47,28 +49,30 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 		},
 		config.input
 	) );
-	this.minusButton = new OO.ui.ButtonWidget( $.extend(
-		{
-			disabled: this.isDisabled(),
-			tabIndex: -1
-		},
-		config.minusButton,
-		{
-			classes: [ 'oo-ui-numberInputWidget-minusButton' ],
-			label: '−'
-		}
-	) );
-	this.plusButton = new OO.ui.ButtonWidget( $.extend(
-		{
-			disabled: this.isDisabled(),
-			tabIndex: -1
-		},
-		config.plusButton,
-		{
-			classes: [ 'oo-ui-numberInputWidget-plusButton' ],
-			label: '+'
-		}
-	) );
+	if ( config.showButtons ) {
+		this.minusButton = new OO.ui.ButtonWidget( $.extend(
+			{
+				disabled: this.isDisabled(),
+				tabIndex: -1
+			},
+			config.minusButton,
+			{
+				classes: [ 'oo-ui-numberInputWidget-minusButton' ],
+				label: '−'
+			}
+		) );
+		this.plusButton = new OO.ui.ButtonWidget( $.extend(
+			{
+				disabled: this.isDisabled(),
+				tabIndex: -1
+			},
+			config.plusButton,
+			{
+				classes: [ 'oo-ui-numberInputWidget-plusButton' ],
+				label: '+'
+			}
+		) );
+	}
 
 	// Events
 	this.input.connect( this, {
@@ -79,12 +83,14 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 		keydown: this.onKeyDown.bind( this ),
 		'wheel mousewheel DOMMouseScroll': this.onWheel.bind( this )
 	} );
-	this.plusButton.connect( this, {
-		click: [ 'onButtonClick', +1 ]
-	} );
-	this.minusButton.connect( this, {
-		click: [ 'onButtonClick', -1 ]
-	} );
+	if ( config.showButtons ) {
+		this.plusButton.connect( this, {
+			click: [ 'onButtonClick', +1 ]
+		} );
+		this.minusButton.connect( this, {
+			click: [ 'onButtonClick', -1 ]
+		} );
+	}
 
 	// Initialization
 	this.setIsInteger( !!config.isInteger );
@@ -92,11 +98,12 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 	this.setStep( config.step, config.pageStep );
 
 	this.$field = $( '<div>' ).addClass( 'oo-ui-numberInputWidget-field' )
-		.append(
-			this.minusButton.$element,
-			this.input.$element,
-			this.plusButton.$element
-		);
+		.append( this.input.$element );
+	if ( config.showButtons ) {
+		this.$field
+			.prepend( this.minusButton.$element )
+			.append( this.plusButton.$element );
+	}
 	this.$element.addClass( 'oo-ui-numberInputWidget' ).append( this.$field );
 	this.input.setValidation( this.validateNumber.bind( this ) );
 };
