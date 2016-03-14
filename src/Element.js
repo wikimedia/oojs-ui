@@ -220,7 +220,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 				infused.$element.removeData( 'ooui-infused-children' );
 				return infused;
 			}
-			if ( value.html ) {
+			if ( value.html !== undefined ) {
 				return new OO.ui.HtmlSnippet( value.html );
 			}
 		}
