@@ -56,7 +56,9 @@
 				// @codingStandardsIgnoreEnd
 				if ( is_string( $value ) && substr( $value, 0, 13 ) === '_placeholder_' ) {
 					$value = json_decode( substr( $value, 13 ), true );
-					array_walk_recursive( $value['config'], 'unstub' );
+					if ( isset( $value['config'] ) && is_array( $value['config'] ) ) {
+						array_walk_recursive( $value['config'], 'unstub' );
+					}
 					$value = new_OOUI( $value['class'], $value['config'] );
 				}
 			}
