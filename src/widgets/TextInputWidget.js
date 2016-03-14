@@ -127,7 +127,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		.append( this.$icon, this.$indicator );
 	this.setReadOnly( !!config.readOnly );
 	this.updateSearchIndicator();
-	if ( config.placeholder ) {
+	if ( config.placeholder !== undefined ) {
 		this.$input.attr( 'placeholder', config.placeholder );
 	}
 	if ( config.maxLength !== undefined ) {
