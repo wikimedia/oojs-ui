@@ -85,15 +85,16 @@ class ButtonInputWidget extends InputWidget {
 	 * @return $this
 	 */
 	public function setLabel( $label ) {
-		$this->labelElementMixin->setLabel( $label );
-
 		if ( $this->useInputTag ) {
 			// Discard non-plaintext labels
-			$label = is_string( $label ) ? $label : '';
+			if ( !is_string( $label ) ) {
+				$label = '';
+			}
+
 			$this->input->setValue( $label );
 		}
 
-		return $this;
+		return $this->labelElementMixin->setLabel( $label );
 	}
 
 	/**

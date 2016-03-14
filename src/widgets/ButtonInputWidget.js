@@ -100,22 +100,20 @@ OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
  * @chainable
  */
 OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
-	OO.ui.mixin.LabelElement.prototype.setLabel.call( this, label );
+	if ( typeof label === 'function' ) {
+		label = OO.ui.resolveMsg( label );
+	}
 
 	if ( this.useInputTag ) {
-		if ( typeof label === 'function' ) {
-			label = OO.ui.resolveMsg( label );
-		}
-		if ( label instanceof jQuery ) {
-			label = label.text();
-		}
-		if ( !label ) {
+		// Discard non-plaintext labels
+		if ( typeof label !== 'string' ) {
 			label = '';
 		}
+
 		this.$input.val( label );
 	}
 
-	return this;
+	return OO.ui.mixin.LabelElement.prototype.setLabel.call( this, label );
 };
 
 /**
