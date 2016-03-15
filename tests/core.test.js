@@ -94,60 +94,86 @@ QUnit.test( 'isFocusableElement', 10, function ( assert ) {
 	}
 } );
 
-QUnit.asyncTest( 'debounce', 4, function ( assert ) {
-	var
-		cases,
-		funCalled,
-		setTimeoutCalled,
-		casesDone = 0,
+QUnit.test( 'debounce', 4, function ( assert ) {
+	var f,
+		log = [],
+		testTimer = new OO.ui.TestTimer(),
+		setTimeoutReal = window.setTimeout,
+		clearTimeoutReal = window.clearTimeout;
+	window.setTimeout = testTimer.setTimeout.bind( testTimer );
+	window.clearTimeout = testTimer.clearTimeout.bind( testTimer );
+	try {
+		f = OO.ui.debounce( log.push.bind( log ), 50 );
+		f( 1 );
+		testTimer.runPending( 20 );
+		log.push( 'a' );
+		f( 2 );
+		testTimer.runPending( 20 );
+		log.push( 'b' );
+		f( 3 );
+		testTimer.runPending( 20 );
+		log.push( 'c' );
+		f( 4 );
+		testTimer.runPending( 20 );
+		log.push( 'd' );
+		testTimer.runPending( 20 );
+		log.push( 'e' );
+		testTimer.runPending( 20 );
+		log.push( 'f' );
+		testTimer.runPending( 20 );
+		assert.deepEqual( log, [ 'a', 'b', 'c', 'd', 'e', 4, 'f' ], 'debounce 50 ms' );
 
-		realSetTimeout = window.setTimeout,
-		ourSetTimeout = function () {
-			setTimeoutCalled++;
-			return realSetTimeout.apply( window, arguments );
-		},
-		fun = function () {
-			funCalled++;
-		},
-		maybeFinishTest = function () {
-			if ( casesDone === 2 ) {
-				QUnit.start();
-			} else {
-				cases[ casesDone ]();
-				casesDone++;
-			}
-		};
+		log = [];
+		f = OO.ui.debounce( log.push.bind( log ), 50, true );
+		f( 1 );
+		testTimer.runPending( 20 );
+		log.push( 'a' );
+		f( 2 );
+		testTimer.runPending( 20 );
+		log.push( 'b' );
+		f( 3 );
+		testTimer.runPending( 20 );
+		log.push( 'c' );
+		f( 4 );
+		testTimer.runPending( 20 );
+		log.push( 'd' );
+		testTimer.runPending( 20 );
+		log.push( 'e' );
+		testTimer.runPending( 20 );
+		log.push( 'f' );
+		testTimer.runPending( 20 );
+		assert.deepEqual( log, [ 1, 'a', 'b', 'c', 'd', 'e', 'f' ], 'debounce 50 ms immediate' );
 
-	cases = [
-		function () {
-			var fun50 = OO.ui.debounce( fun, 50 );
-			funCalled = 0;
-			setTimeoutCalled = 0;
-			window.setTimeout = ourSetTimeout;
-			fun50();
-			fun50();
-			window.setTimeout = realSetTimeout;
-			setTimeout( function () {
-				assert.strictEqual( setTimeoutCalled, 2, 'wait=50: setTimeout was called twice' );
-				assert.strictEqual( funCalled, 1, 'wait=50: debounced function was executed once' );
-				maybeFinishTest();
-			}, 100 );
-		},
-		function () {
-			var fun0 = OO.ui.debounce( fun );
-			funCalled = 0;
-			setTimeoutCalled = 0;
-			window.setTimeout = ourSetTimeout;
-			fun0();
-			fun0();
-			window.setTimeout = realSetTimeout;
-			setTimeout( function () {
-				assert.strictEqual( setTimeoutCalled, 1, 'wait=0: setTimeout was called once' );
-				assert.strictEqual( funCalled, 1, 'wait=0: debounced function was executed once' );
-				maybeFinishTest();
-			}, 100 );
-		}
-	];
+		log = [];
+		f = OO.ui.debounce( log.push.bind( log ), 0 );
+		f( 1 );
+		log.push( 'a' );
+		f( 2 );
+		log.push( 'b' );
+		testTimer.runPending();
+		f( 3 );
+		log.push( 'c' );
+		testTimer.runPending();
+		log.push( 'd' );
+		assert.deepEqual( log, [ 'a', 'b', 1, 'c', 3, 'd' ], 'debounce 0 ms' );
+		testTimer.runPending();
 
-	maybeFinishTest();
+		log = [];
+		f = OO.ui.debounce( log.push.bind( log ), 0, true );
+		f( 1 );
+		log.push( 'a' );
+		f( 2 );
+		log.push( 'b' );
+		testTimer.runPending();
+		f( 3 );
+		log.push( 'c' );
+		testTimer.runPending();
+		log.push( 'd' );
+		assert.deepEqual( log, [ 1, 'a', 'b', 3, 'c', 'd' ], 'debounce 0 ms immediate' );
+		testTimer.runPending();
+
+	} finally {
+		window.setTimeout = setTimeoutReal;
+		window.clearTimeout = clearTimeoutReal;
+	}
 } );

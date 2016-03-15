@@ -404,6 +404,7 @@ module.exports = function ( grunt ) {
 					'dist/oojs-ui-apex.js',
 					'dist/oojs-ui-mediawiki.js',
 					'tests/QUnit.assert.equalDomElement.js',
+					'tests/TestTimer.js',
 					'tests/**/*.test.js'
 				],
 				reporters: [ 'dots' ],
