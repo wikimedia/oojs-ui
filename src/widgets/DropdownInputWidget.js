@@ -36,6 +36,11 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	// Configuration initialization
 	config = config || {};
 
+	// See InputWidget#reusePreInfuseDOM about config.$input
+	if ( config.$input ) {
+		config.$input.addClass( 'oo-ui-element-hidden' );
+	}
+
 	// Properties (must be done before parent constructor which calls #setDisabled)
 	this.dropdownWidget = new OO.ui.DropdownWidget( config.dropdown );
 
@@ -66,11 +71,7 @@ OO.mixinClass( OO.ui.DropdownInputWidget, OO.ui.mixin.TitledElement );
  * @inheritdoc
  * @protected
  */
-OO.ui.DropdownInputWidget.prototype.getInputElement = function ( config ) {
-	// See InputWidget#reusePreInfuseDOM about config.$input
-	if ( config.$input ) {
-		return config.$input.addClass( 'oo-ui-element-hidden' );
-	}
+OO.ui.DropdownInputWidget.prototype.getInputElement = function () {
 	return $( '<input>' ).attr( 'type', 'hidden' );
 };
 

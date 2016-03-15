@@ -30,7 +30,8 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	OO.ui.InputWidget.parent.call( this, config );
 
 	// Properties
-	this.$input = this.getInputElement( config );
+	// See #reusePreInfuseDOM about config.$input
+	this.$input = config.$input || this.getInputElement( config );
 	this.value = '';
 	this.inputFilter = config.inputFilter;
 
@@ -114,9 +115,8 @@ OO.ui.InputWidget.static.gatherPreInfuseState = function ( node, config ) {
  * @param {Object} config Configuration options
  * @return {jQuery} Input element
  */
-OO.ui.InputWidget.prototype.getInputElement = function ( config ) {
-	// See #reusePreInfuseDOM about config.$input
-	return config.$input || $( '<input>' );
+OO.ui.InputWidget.prototype.getInputElement = function () {
+	return $( '<input>' );
 };
 
 /**

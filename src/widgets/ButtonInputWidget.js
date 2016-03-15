@@ -36,6 +36,11 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	// Configuration initialization
 	config = $.extend( { type: 'button', useInputTag: false }, config );
 
+	// See InputWidget#reusePreInfuseDOM about config.$input
+	if ( config.$input ) {
+		config.$input.empty();
+	}
+
 	// Properties (must be set before parent constructor, which calls #setValue)
 	this.useInputTag = config.useInputTag;
 
@@ -81,10 +86,6 @@ OO.ui.ButtonInputWidget.static.supportsSimpleLabel = false;
  */
 OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
 	var type;
-	// See InputWidget#reusePreInfuseDOM about config.$input
-	if ( config.$input ) {
-		return config.$input.empty();
-	}
 	type = [ 'button', 'submit', 'reset' ].indexOf( config.type ) !== -1 ? config.type : 'button';
 	return $( '<' + ( config.useInputTag ? 'input' : 'button' ) + ' type="' + type + '">' );
 };
