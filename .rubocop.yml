@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 AllCops:
   Include:
     - 'bin/*.rb'
@@ -24,8 +26,6 @@ Style/AsciiComments:
   Enabled: false
 
 # Opinions differ.
-Style/Blocks:
-  Enabled: false
 Style/NegatedIf:
   Enabled: false
 Style/Tab:
@@ -61,10 +61,12 @@ Style/SpaceInsideParens:
   Enabled: false
 Style/SpaceInsideBlockBraces:
   Enabled: false
-Style/TrailingComma:
+Style/TrailingCommaInLiteral:
+  Enabled: false
+Style/TrailingCommaInArguments:
   Enabled: false
 Style/WordArray:
-  MinSize: 2
+  MinSize: 3
 
 # RuboCop bug causes false positives.
 Style/CommentIndentation:
