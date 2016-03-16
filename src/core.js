@@ -247,6 +247,58 @@ OO.ui.debounce = function ( func, wait, immediate ) {
 };
 
 /**
+ * Returns a function, that, when invoked, will only be triggered at most once
+ * during a given window of time. If called again during that window, it will
+ * wait until the window ends and then trigger itself again.
+ *
+ * As it's not knowable to the caller whether the function will actually run
+ * when the wrapper is called, return values from the function are entirely
+ * discarded.
+ *
+ * @param {Function} func
+ * @param {number} wait
+ * @return {Function}
+ */
+OO.ui.throttle = function ( func, wait ) {
+	var context, args, timeout,
+		previous = 0,
+		run = function () {
+			timeout = null;
+			previous = OO.ui.now();
+			func.apply( context, args );
+		};
+	return function () {
+		// Check how long it's been since the last time the function was
+		// called, and whether it's more or less than the requested throttle
+		// period. If it's less, run the function immediately. If it's more,
+		// set a timeout for the remaining time -- but don't replace an
+		// existing timeout, since that'd indefinitely prolong the wait.
+		var remaining = wait - ( OO.ui.now() - previous );
+		context = this;
+		args = arguments;
+		if ( remaining <= 0 ) {
+			// Note: unless wait was ridiculously large, this means we'll
+			// automatically run the first time the function was called in a
+			// given period. (If you provide a wait period larger than the
+			// current Unix timestamp, you *deserve* unexpected behavior.)
+			clearTimeout( timeout );
+			run();
+		} else if ( !timeout ) {
+			timeout = setTimeout( run, remaining );
+		}
+	};
+};
+
+/**
+ * A (possibly faster) way to get the current timestamp as an integer
+ *
+ * @return {number} Current timestamp
+ */
+OO.ui.now = Date.now || function () {
+	return new Date().getTime();
+};
+
+/**
  * Proxy for `node.addEventListener( eventName, handler, true )`.
  *
  * @param {HTMLElement} node
