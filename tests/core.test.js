@@ -96,47 +96,19 @@ QUnit.test( 'isFocusableElement', 10, function ( assert ) {
 
 QUnit.asyncTest( 'debounce', 4, function ( assert ) {
 	var
+		cases,
+		funCalled,
+		setTimeoutCalled,
+		casesDone = 0,
+
 		realSetTimeout = window.setTimeout,
 		ourSetTimeout = function () {
 			setTimeoutCalled++;
 			return realSetTimeout.apply( window, arguments );
 		},
-		funCalled,
-		setTimeoutCalled,
 		fun = function () {
 			funCalled++;
 		},
-		cases = [
-			function () {
-				var fun50 = OO.ui.debounce( fun, 50 );
-				funCalled = 0;
-				setTimeoutCalled = 0;
-				window.setTimeout = ourSetTimeout;
-				fun50();
-				fun50();
-				window.setTimeout = realSetTimeout;
-				setTimeout( function () {
-					assert.strictEqual( setTimeoutCalled, 2, 'wait=50: setTimeout was called twice' );
-					assert.strictEqual( funCalled, 1, 'wait=50: debounced function was executed once' );
-					maybeFinishTest();
-				}, 100 );
-			},
-			function () {
-				var fun0 = OO.ui.debounce( fun );
-				funCalled = 0;
-				setTimeoutCalled = 0;
-				window.setTimeout = ourSetTimeout;
-				fun0();
-				fun0();
-				window.setTimeout = realSetTimeout;
-				setTimeout( function () {
-					assert.strictEqual( setTimeoutCalled, 1, 'wait=0: setTimeout was called once' );
-					assert.strictEqual( funCalled, 1, 'wait=0: debounced function was executed once' );
-					maybeFinishTest();
-				}, 100 );
-			}
-		],
-		casesDone = 0,
 		maybeFinishTest = function () {
 			if ( casesDone === 2 ) {
 				QUnit.start();
@@ -145,6 +117,37 @@ QUnit.asyncTest( 'debounce', 4, function ( assert ) {
 				casesDone++;
 			}
 		};
+
+	cases = [
+		function () {
+			var fun50 = OO.ui.debounce( fun, 50 );
+			funCalled = 0;
+			setTimeoutCalled = 0;
+			window.setTimeout = ourSetTimeout;
+			fun50();
+			fun50();
+			window.setTimeout = realSetTimeout;
+			setTimeout( function () {
+				assert.strictEqual( setTimeoutCalled, 2, 'wait=50: setTimeout was called twice' );
+				assert.strictEqual( funCalled, 1, 'wait=50: debounced function was executed once' );
+				maybeFinishTest();
+			}, 100 );
+		},
+		function () {
+			var fun0 = OO.ui.debounce( fun );
+			funCalled = 0;
+			setTimeoutCalled = 0;
+			window.setTimeout = ourSetTimeout;
+			fun0();
+			fun0();
+			window.setTimeout = realSetTimeout;
+			setTimeout( function () {
+				assert.strictEqual( setTimeoutCalled, 1, 'wait=0: setTimeout was called once' );
+				assert.strictEqual( funCalled, 1, 'wait=0: debounced function was executed once' );
+				maybeFinishTest();
+			}, 100 );
+		}
+	];
 
 	maybeFinishTest();
 } );
