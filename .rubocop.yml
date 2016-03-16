@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   Include:
     - 'bin/*.rb'
@@ -26,6 +24,10 @@ Style/AsciiComments:
   Enabled: false
 
 # Opinions differ.
+Style/BlockDelimiters:
+  Enabled: false
+Style/ConditionalAssignment:
+  Enabled: false
 Style/NegatedIf:
   Enabled: false
 Style/Tab:
@@ -37,6 +39,8 @@ Style/IndentHash:
 Style/IndentationWidth:
   Enabled: false
 Style/MultilineOperationIndentation:
+  Enabled: false
+Style/MultilineMethodCallIndentation:
   Enabled: false
 Style/IfUnlessModifier:
   Enabled: false
@@ -68,6 +72,8 @@ Style/TrailingCommaInArguments:
 Style/WordArray:
   MinSize: 3
 
-# RuboCop bug causes false positives.
+# RuboCop bugs cause false positives (it just hates tabs with passion).
 Style/CommentIndentation:
+  Enabled: false
+Style/IndentAssignment:
   Enabled: false

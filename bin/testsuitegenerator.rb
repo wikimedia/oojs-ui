@@ -137,7 +137,7 @@ else
 					values.map{|v| config_option.dup.merge(value: v) } + [nil]
 				end
 			}
-			!expanded.empty? ? expanded[0].product(*expanded[1..-1]) : []
+			expanded.empty? ? [] : expanded[0].product(*expanded[1..-1])
 		}.inject(:concat).map(&:compact).uniq
 
 		# really require the required ones
