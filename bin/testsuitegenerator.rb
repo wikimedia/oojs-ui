@@ -113,7 +113,7 @@ else
 		required_config = klass[:methods][0][:params] || []
 
 		# generate every possible configuration of configuration option sets
-		maxlength = [config.length, klass[:name] == 'ButtonWidget' ? 3 : 2].min
+		maxlength = [config.length, 2].min
 		config_combinations = (0..maxlength).map{|l| config.combination(l).to_a }.inject(:+)
 		# for each set, generate all possible values to use based on option's type
 		config_combinations = config_combinations.map{|config_comb|
