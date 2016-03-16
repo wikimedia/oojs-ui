@@ -1,5 +1,31 @@
 # OOjs UI Release History
 
+## v0.16.3 / 2016-03-16
+### Features
+* core: Add `#throttle` to complement `#debounce` (David Lynch)
+* ClippableElement: Never exceed the dimensions of the browser viewport (Bartosz Dziewoński)
+* FloatableElement: Hide if the anchor element is outside viewport (Bartosz Dziewoński)
+
+### Styles
+* Apex, MediaWiki themes: Fix vertical alignment of close icon (Ed Sanders)
+* MediaWiki theme: Disabled ButtonElement icon should not be colored (Bartosz Dziewoński)
+
+### Code
+* ButtonInputWidget: Actually disallow non-plaintext labels in 'useInputTag' mode (Bartosz Dziewoński)
+* Element: Preserve `OOUI\HtmlSnippet( '' )` when infusing (Bartosz Dziewoński)
+* InputWidget: Actually reuse parts of the DOM when infusing (Bartosz Dziewoński)
+* MediaWiki theme: Remove broken remnant of d6b05bc0 (Bartosz Dziewoński)
+* TextInputWidget: Treat empty placeholder the same in PHP and JS (Bartosz Dziewoński)
+* TitledElement: Treat empty title the same in PHP and JS (Bartosz Dziewoński)
+* build: Bump devDependencies to latest (James D. Forrester)
+* build: Bump devDependencies to latest (Paladox)
+* build: Update grunt-svg2png to commit 2fe1dad07eaec4b655263f8b487a672df4b668b4 (Paladox)
+* demo: Expand the dialog $overlay demo for testing scrolling things off-screen (Bartosz Dziewoński)
+* tests: Emulated setTimeout for unit testing (David Chan)
+* testsuitegenerator: Always test empty values for 'string' type, not just for 'label' (Bartosz Dziewoński)
+* testsuitegenerator: Change values tested for 'flags' config options (Bartosz Dziewoński)
+* testsuitegenerator: Test 'HtmlSnippet' type (mostly for labels) (Bartosz Dziewoński)
+
 ## v0.16.2 / 2016-03-08
 ### Deprecations
 * [DEPRECATING CHANGE] MediaWiki theme: Scrap `constructive` flag (Volker E)
