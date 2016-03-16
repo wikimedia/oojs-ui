@@ -189,10 +189,16 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			flags: [ 'progressive' ]
 		},
 		{
+			flags: [ 'constructive' ]
+		},
+		{
 			flags: [ 'destructive' ]
 		},
 		{
 			flags: [ 'primary', 'progressive' ]
+		},
+		{
+			flags: [ 'primary', 'constructive' ]
 		},
 		{
 			flags: [ 'primary', 'destructive' ]
@@ -278,7 +284,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						flags: [ 'constructive' ]
 					} ),
 					{
-						label: 'ButtonWidget (constructive, deprecated)\u200E',
+						label: 'ButtonWidget (constructive, deprecated in MediaWiki theme)\u200E',
 						align: 'top'
 					}
 				),
@@ -308,7 +314,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						flags: [ 'primary', 'constructive' ]
 					} ),
 					{
-						label: 'ButtonWidget (primary, constructive, deprecated)\u200E',
+						label: 'ButtonWidget (primary, constructive, deprecated in MediaWiki theme)\u200E',
 						align: 'top'
 					}
 				),
