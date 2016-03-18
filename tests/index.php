@@ -33,6 +33,7 @@
 	<script src="../dist/oojs-ui.js"></script>
 	<script src="../dist/oojs-ui-apex.js"></script>
 	<script src="../dist/oojs-ui-mediawiki.js"></script>
+	<script src="./TestTimer.js"></script>
 	<!-- Test suites -->
 	<script src="./core.test.js"></script>
 	<script src="./Element.test.js"></script>
