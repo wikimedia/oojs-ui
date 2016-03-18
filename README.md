@@ -111,6 +111,6 @@ $ git review
 $ git remote update
 $ git checkout origin/master
 $ git tag "vX.X.X"
-$ git push --tags
+$ npm run publish-build && git push --tags
 $ npm publish
 </pre>

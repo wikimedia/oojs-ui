@@ -17,7 +17,7 @@
     "predoc": "grunt build",
     "doc": "jsduck",
     "postdoc": "grunt copy:jsduck",
-    "prepublish": "grunt publish-build",
+    "publish-build": "grunt publish-build",
     "demos": "grunt demos"
   },
   "dependencies": {
