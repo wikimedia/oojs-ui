@@ -99,12 +99,13 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 
 	this.$field = $( '<div>' ).addClass( 'oo-ui-numberInputWidget-field' )
 		.append( this.input.$element );
+	this.$element.addClass( 'oo-ui-numberInputWidget' ).append( this.$field );
 	if ( config.showButtons ) {
 		this.$field
 			.prepend( this.minusButton.$element )
 			.append( this.plusButton.$element );
+		this.$element.addClass( 'oo-ui-numberInputWidget-buttoned' );
 	}
-	this.$element.addClass( 'oo-ui-numberInputWidget' ).append( this.$field );
 	this.input.setValidation( this.validateNumber.bind( this ) );
 };
 

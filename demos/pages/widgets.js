@@ -790,6 +790,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.NumberInputWidget( { showButtons: false } ),
+					{
+						label: 'NumberInputWidget (no buttons)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.ToggleSwitchWidget(),
 					{
 						label: 'ToggleSwitchWidget',
