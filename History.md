@@ -1,5 +1,23 @@
 # OOjs UI Release History
 
+## v0.16.4 / 2016-03-22
+### Features
+* NumberInputWidget: Optionally don't show the increment buttons (Thalia Chan)
+
+### Styles
+* NumberInputWidget: Fix rounded corners when showButtons=false (Ed Sanders)
+
+### Code
+* core: Add tests for throttle (David Lynch)
+* Tag: Allow appendContent and prependContent to accept an array (Moriel Schottlender)
+* LabelElement: Cast label to string before check if it is empty (Florian)
+* README.md: Add note about needing composer, clean up more generally (James D. Forrester)
+* build: Bump grunt-karma to 0.12.2 (Paladox)
+* build: Drop the 'npm prepublish' task which runs pre-install as well (James D. Forrester)
+* demos: Restore constructive widgets (James D. Forrester)
+* rubocop: Re-run todos, upgrade to newer rule names (James D. Forrester)
+* rubocop: Review todos (Bartosz Dziewoński)
+
 ## v0.16.3 / 2016-03-16
 ### Features
 * core: Add `#throttle` to complement `#debounce` (David Lynch)
