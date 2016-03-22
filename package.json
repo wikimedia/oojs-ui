@@ -46,7 +46,7 @@
     "grunt-jsonlint": "1.0.7",
     "grunt-karma": "0.12.2",
     "grunt-promise-q": "0.1.1",
-    "grunt-svg2png": "git://github.com/jdforrester/grunt-svg2png.git#2fe1dad07eaec4b655263f8b487a672df4b668b4",
+    "grunt-svg2png": "git://github.com/jdforrester/grunt-svg2png.git#375ca1924784aecef8097718a84bd3c3315ca569",
     "grunt-tyops": "0.1.0",
     "grunt": "0.4.5",
     "karma-chrome-launcher": "0.2.2",
