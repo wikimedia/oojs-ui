@@ -77,7 +77,7 @@ class GroupElement extends ElementMixin {
 
 		// Update actual target element contents to reflect our list
 		$this->target->clearContent();
-		call_user_func_array( [ $this->target, 'appendContent' ], $this->items );
+		$this->target->appendContent( $this->items );
 
 		return $this;
 	}
@@ -99,7 +99,7 @@ class GroupElement extends ElementMixin {
 
 		// Update actual target element contents to reflect our list
 		$this->target->clearContent();
-		call_user_func_array( [ $this->target, 'appendContent' ], $this->items );
+		$this->target->appendContent( $this->items );
 
 		return $this;
 	}

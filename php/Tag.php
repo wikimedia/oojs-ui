@@ -167,7 +167,14 @@ class Tag {
 	/**
 	 * Add content to the end.
 	 *
-	 * Accepts variadic arguments (the $content argument can be repeated any number of times).
+	 * Accepts either variadic arguments (the $content argument can be repeated any number of times)
+	 * or an array of arguments.
+	 *
+	 * For example, these uses are valid:
+	 * * $tag->appendContent( [ $element1, $element2 ] );
+	 * * $tag->appendContent( $element1, $element2 );
+	 * This, however, is not acceptable
+	 * * $tag->appendContent( [ $element1, $element2 ], $element3 );
 	 *
 	 * @param string|Tag|HtmlSnippet $content Content to append. Strings will be HTML-escaped
 	 *   for output, use a HtmlSnippet instance to prevent that.
@@ -175,14 +182,25 @@ class Tag {
 	 */
 	public function appendContent( /* $content... */ ) {
 		$contents = func_get_args();
-		$this->content = array_merge( $this->content, $contents );
+		if ( is_array( $contents[ 0 ] ) ) {
+			$this->content = array_merge( $this->content, $contents[ 0 ] );
+		} else {
+			$this->content = array_merge( $this->content, $contents );
+		}
 		return $this;
 	}
 
 	/**
 	 * Add content to the beginning.
 	 *
-	 * Accepts variadic arguments (the $content argument can be repeated any number of times).
+	 * Accepts either variadic arguments (the $content argument can be repeated any number of times)
+	 * or an array of arguments.
+	 *
+	 * For example, these uses are valid:
+	 * * $tag->prependContent( [ $element1, $element2 ] );
+	 * * $tag->prependContent( $element1, $element2 );
+	 * This, however, is not acceptable
+	 * * $tag->prependContent( [ $element1, $element2 ], $element3 );
 	 *
 	 * @param string|Tag|HtmlSnippet $content Content to prepend. Strings will be HTML-escaped
 	 *   for output, use a HtmlSnippet instance to prevent that.
@@ -190,7 +208,11 @@ class Tag {
 	 */
 	public function prependContent( /* $content... */ ) {
 		$contents = func_get_args();
-		array_splice( $this->content, 0, 0, $contents );
+		if ( is_array( $contents[ 0 ] ) ) {
+			array_splice( $this->content, 0, 0, $contents[ 0 ] );
+		} else {
+			array_splice( $this->content, 0, 0, $contents );
+		}
 		return $this;
 	}
 
