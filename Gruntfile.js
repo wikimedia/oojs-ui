@@ -411,7 +411,8 @@ module.exports = function ( grunt ) {
 				singleRun: true,
 				browserDisconnectTimeout: 5000,
 				browserDisconnectTolerance: 2,
-				autoWatch: false
+				autoWatch: false,
+				browserNoActivityTimeout: 60 * 1000
 			},
 			main: {
 				browsers: [ 'Chrome' ],
