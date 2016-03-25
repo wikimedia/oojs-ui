@@ -18,7 +18,7 @@
     "doc": "jsduck",
     "postdoc": "grunt copy:jsduck",
     "publish-build": "grunt publish-build",
-    "demos": "grunt demos"
+    "demos": "grunt publish-build && grunt demos"
   },
   "dependencies": {
     "es5-shim": "4.1.14",
