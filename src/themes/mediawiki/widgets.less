@@ -376,17 +376,17 @@
 			.oo-ui-box-sizing( border-box );
 			position: absolute;
 			left: 0;
-			border-radius: @border-radius-default;
 			width: @size-input-binary;
 			height: @size-input-binary;
-			background-color: white;
-			border: @border-input-binary;
+			background-color: @background-color-default;
 			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/check-constructive-deprecated' );
 			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/check-constructive-deprecated' );
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-origin: border-box;
 			background-size: 0 0;
+			border: @border-input-binary;
+			border-radius: @border-radius-default;
 		}
 
 		&:checked + span  {
@@ -499,17 +499,17 @@
 			.oo-ui-box-sizing( border-box );
 			position: absolute;
 			left: 0;
-			border-radius: 100%;
 			width: @size-input-binary;
 			height: @size-input-binary;
-			background: white;
-			border: @border-input-binary;
+			background-color: @background-color-default;
 			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/circle-constructive-deprecated' );
 			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/circle-constructive-deprecated' );
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-origin: border-box;
 			background-size: 0 0;
+			border: @border-input-binary;
+			border-radius: 100%;
 		}
 
 		&:checked + span  {
