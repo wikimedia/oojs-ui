@@ -195,16 +195,16 @@
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-framed-button-colored( @color-progressive, @color-progressive-fade, @color-progressive-active );
+					.mw-framed-button-colored( @color-progressive, @color-progressive-fade, @color-progressive-active, @border-color-progressive-active );
 				}
 
 				// Deprecated in 0.16.1
 				&-constructive {
-					.mw-framed-button-colored( @color-progressive, @color-progressive-fade, @color-progressive-active );
+					.mw-framed-button-colored( @color-progressive, @color-progressive-fade, @color-progressive-active, @border-color-progressive-active );
 				}
 
 				&-destructive {
-					.mw-framed-button-colored( @color-destructive, @color-destructive-fade, @color-destructive-active );
+					.mw-framed-button-colored( @color-destructive, @color-destructive-fade, @color-destructive-active, @border-color-destructive-active );
 				}
 			}
 			&.oo-ui-flaggedElement-primary.oo-ui-flaggedElement {
@@ -248,13 +248,13 @@
 	}
 }
 
-.mw-framed-button-colored( @link, @hover, @active ) {
+.mw-framed-button-colored( @link, @hover, @active, @border-color-active ) {
 	> .oo-ui-buttonElement-button {
 		color: @link;
 
 		&:hover {
 			background-color: @hover;
-			border-color: fade( @active, 50% );
+			border-color: @border-color-active;
 		}
 
 		&:focus {

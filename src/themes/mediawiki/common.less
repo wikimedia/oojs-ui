@@ -16,12 +16,12 @@
 @color-progressive: #347bff;
 @color-progressive-hover: #2962cc;
 @color-progressive-active: #1f4999;
-@color-progressive-fade:  fade( @color-progressive, 10% ); // outputs: `rgba( 52, 123, 255, 0.1 )`
+@color-progressive-fade: #ebf2ff; // equivalents rgba output in `fade( @color-progressive, 10% )`
 
 @color-destructive: #d11d13;
 @color-destructive-hover: #8c130d;
 @color-destructive-active: #73100a;
-@color-destructive-fade: fade( @color-destructive, 10% ); // outputs: `rgba( 209, 29, 19, 0.1 )`;
+@color-destructive-fade: #fbe8e7; // equivalents `fade( @color-destructive, 10% )`
 
 // Disabled Widgets
 @background-color-disabled: #f3f3f3;
@@ -39,6 +39,9 @@
 
 @border-default: 1px solid #ccc;
 @border-radius-default: 2px;
+
+@border-color-progressive-active: #859dcc; // equivalents `fade( @color-progressive-active, 50% )`
+@border-color-destructive-active: #b77c79; // equivalents `fade( @color-destructive-active, 50% )`
 
 @box-shadow-dialog: 0 0.15em 0 0 rgba( 0, 0, 0, 0.15 );
 @box-shadow-menu: @box-shadow-dialog;
@@ -84,4 +87,4 @@
 @color-constructive: #00af89;
 @color-constructive-hover: #008064;
 @color-constructive-active: #005946;
-@color-constructive-fade: fade( @color-constructive, 10% ); // outputs: `rgba( 0, 171, 137, 0.1 )`;
+@color-constructive-fade: #e6f7f3; // equivalents `fade( @color-constructive, 10% )`
