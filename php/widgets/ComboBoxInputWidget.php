@@ -7,7 +7,6 @@ namespace OOUI;
  * OO.ui.FormLayout.
  */
 class ComboBoxInputWidget extends TextInputWidget {
-
 	/**
 	 * HTML `<option>` tags for this widget, as Tags.
 	 * @var array
@@ -27,10 +26,6 @@ class ComboBoxInputWidget extends TextInputWidget {
 
 		// Parent constructor
 		parent::__construct( $config );
-
-		// Mixins
-		$this->mixin( new TitledElement( $this,
-			array_merge( $config, [ 'titled' => $this->input ] ) ) );
 
 		// Initialization
 		$this->datalist = new Tag( 'datalist' );

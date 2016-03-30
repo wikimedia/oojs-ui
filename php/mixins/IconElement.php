@@ -12,7 +12,7 @@ namespace OOUI;
  *
  * @abstract
  */
-class IconElement extends ElementMixin {
+trait IconElement {
 	/**
 	 * Symbolic icon name.
 	 *
@@ -20,22 +20,28 @@ class IconElement extends ElementMixin {
 	 */
 	protected $iconName = null;
 
-	public static $targetPropertyName = 'icon';
+	/**
+	 * @var Tag
+	 */
+	protected $icon;
 
 	/**
-	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param string $config['icon'] Symbolic icon name
 	 */
-	public function __construct( Element $element, array $config = [] ) {
-		// Parent constructor
+	public function initializeIconElement( array $config = [] ) {
 		// FIXME 'iconElement' is a very stupid way to call '$icon'
-		$target = isset( $config['iconElement'] ) ? $config['iconElement'] : new Tag( 'span' );
-		parent::__construct( $element, $target, $config );
+		$this->icon = isset( $config['iconElement'] ) ? $config['iconElement'] : new Tag( 'span' );
 
 		// Initialization
-		$this->target->addClasses( [ 'oo-ui-iconElement-icon' ] );
+		$this->icon->addClasses( [ 'oo-ui-iconElement-icon' ] );
 		$this->setIcon( isset( $config['icon'] ) ? $config['icon'] : null );
+
+		$this->registerConfigCallback( function( &$config ) {
+			if ( $this->iconName !== null ) {
+				$config['icon'] = $this->iconName;
+			}
+		} );
 	}
 
 	/**
@@ -46,14 +52,14 @@ class IconElement extends ElementMixin {
 	 */
 	public function setIcon( $icon = null ) {
 		if ( $this->iconName !== null ) {
-			$this->target->removeClasses( [ 'oo-ui-icon-' . $this->iconName ] );
+			$this->icon->removeClasses( [ 'oo-ui-icon-' . $this->iconName ] );
 		}
 		if ( $icon !== null ) {
-			$this->target->addClasses( [ 'oo-ui-icon-' . $icon ] );
+			$this->icon->addClasses( [ 'oo-ui-icon-' . $icon ] );
 		}
 
 		$this->iconName = $icon;
-		$this->element->toggleClasses( [ 'oo-ui-iconElement' ], (bool)$this->iconName );
+		$this->toggleClasses( [ 'oo-ui-iconElement' ], (bool)$this->iconName );
 
 		return $this;
 	}
@@ -67,10 +73,13 @@ class IconElement extends ElementMixin {
 		return $this->iconName;
 	}
 
-	public function getConfig( &$config ) {
-		if ( $this->iconName !== null ) {
-			$config['icon'] = $this->iconName;
-		}
-		return parent::getConfig( $config );
+	/**
+	 * Do not use outside of Theme::updateElementClasses
+	 *
+	 * @protected
+	 * @return Tag
+	 */
+	public function getIconElement() {
+		return $this->icon;
 	}
 }

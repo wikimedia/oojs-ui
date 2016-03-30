@@ -7,6 +7,8 @@ namespace OOUI;
  * items), with small margins between them.
  */
 class HorizontalLayout extends Layout {
+	use GroupElement;
+
 	/**
 	 * @param array $config Configuration options
 	 * @param Widget[]|Layout[] $config['items'] Widgets or other layouts to add to the layout.
@@ -15,8 +17,8 @@ class HorizontalLayout extends Layout {
 		// Parent constructor
 		parent::__construct( $config );
 
-		// Mixins
-		$this->mixin( new GroupElement( $this, array_merge( $config, [ 'group' => $this ] ) ) );
+		// Traits
+		$this->initializeGroupElement( array_merge( $config, [ 'group' => $this ] ) );
 
 		// Initialization
 		$this->addClasses( [ 'oo-ui-horizontalLayout' ] );

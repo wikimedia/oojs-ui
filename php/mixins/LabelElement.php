@@ -7,7 +7,7 @@ namespace OOUI;
  *
  * @abstract
  */
-class LabelElement extends ElementMixin {
+trait LabelElement {
 	/**
 	 * Label value.
 	 *
@@ -15,22 +15,29 @@ class LabelElement extends ElementMixin {
 	 */
 	protected $labelValue = null;
 
-	public static $targetPropertyName = 'label';
+	/**
+	 * @var Tag
+	 */
+	protected $label;
 
 	/**
-	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param string|HtmlSnippet $config['label'] Label text
 	 */
-	public function __construct( Element $element, array $config = [] ) {
+	public function initializeLabelElement( array $config = [] ) {
 		// Parent constructor
 		// FIXME 'labelElement' is a very stupid way to call '$label'
-		$target = isset( $config['labelElement'] ) ? $config['labelElement'] : new Tag( 'span' );
-		parent::__construct( $element, $target, $config );
+		$this->label = isset( $config['labelElement'] ) ? $config['labelElement'] : new Tag( 'span' );
 
 		// Initialization
-		$this->target->addClasses( [ 'oo-ui-labelElement-label' ] );
+		$this->label->addClasses( [ 'oo-ui-labelElement-label' ] );
 		$this->setLabel( isset( $config['label'] ) ? $config['label'] : null );
+
+		$this->registerConfigCallback( function( &$config ) {
+			if ( $this->labelValue !== null ) {
+				$config['label'] = $this->labelValue;
+			}
+		} );
 	}
 
 	/**
@@ -45,18 +52,18 @@ class LabelElement extends ElementMixin {
 	public function setLabel( $label ) {
 		$this->labelValue = (string)$label ? $label : null;
 
-		$this->target->clearContent();
+		$this->label->clearContent();
 		if ( $this->labelValue !== null ) {
 			if ( is_string( $this->labelValue ) && $this->labelValue !== ''
 				&& trim( $this->labelValue ) === ''
 			) {
-				$this->target->appendContent( new HtmlSnippet( '&nbsp;' ) );
+				$this->label->appendContent( new HtmlSnippet( '&nbsp;' ) );
 			} else {
-				$this->target->appendContent( $label );
+				$this->label->appendContent( $label );
 			}
 		}
 
-		$this->element->toggleClasses( [ 'oo-ui-labelElement' ], !!$this->labelValue );
+		$this->toggleClasses( [ 'oo-ui-labelElement' ], !!$this->labelValue );
 
 		return $this;
 	}
@@ -68,12 +75,5 @@ class LabelElement extends ElementMixin {
 	 */
 	public function getLabel() {
 		return $this->labelValue;
-	}
-
-	public function getConfig( &$config ) {
-		if ( $this->labelValue !== null ) {
-			$config['label'] = $this->labelValue;
-		}
-		return parent::getConfig( $config );
 	}
 }

@@ -50,7 +50,6 @@ def smart_compare_process val, type
 		val = val.dup
 		val[:mixins].delete 'OO.EventEmitter' # JS only
 		val[:mixins].delete 'PendingElement' # JS only
-		val.delete :parent if val[:parent] == 'ElementMixin' # PHP only
 		val.delete :methods
 		val.delete :properties
 		val.delete :events

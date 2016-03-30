@@ -6,6 +6,12 @@ namespace OOUI;
  * A button that is an input widget. Intended to be used within a FormLayout.
  */
 class ButtonInputWidget extends InputWidget {
+	use ButtonElement;
+	use IconElement;
+	use IndicatorElement;
+	use LabelElement {
+		LabelElement::setLabel as setLabelElementLabel;
+	}
 
 	/* Static Properties */
 
@@ -23,8 +29,6 @@ class ButtonInputWidget extends InputWidget {
 	 * @var boolean
 	 */
 	protected $useInputTag;
-
-	private $labelElementMixin;
 
 	/**
 	 * @param array $config Configuration options
@@ -46,24 +50,19 @@ class ButtonInputWidget extends InputWidget {
 		// Parent constructor
 		parent::__construct( $config );
 
-		// Mixins
-		$this->mixin( new ButtonElement( $this,
-			array_merge( $config, [ 'button' => $this->input ] ) ) );
-		$this->mixin( new IconElement( $this, $config ) );
-		$this->mixin( new IndicatorElement( $this, $config ) );
-		// HACK: We need to have access to the mixin to override the setLabel() method
-		$this->mixin( $this->labelElementMixin = new LabelElement( $this, $config ) );
-		$this->mixin( new TitledElement( $this,
-			array_merge( $config, [ 'titled' => $this->input ] ) ) );
+		// Traits
+		$this->initializeButtonElement(
+			array_merge( $config, [ 'button' => $this->input ] ) );
+		$this->initializeIconElement( $config );
+		$this->initializeIndicatorElement( $config );
+		$this->initializeLabelElement( $config );
+		$this->initializeTitledElement(
+			array_merge( $config, [ 'titled' => $this->input ] ) );
 
 		// Initialization
 		if ( !$config['useInputTag'] ) {
 			$this->input->appendContent( $this->icon, $this->label, $this->indicator );
 		}
-
-		// HACK: This is done in LabelElement mixin, but doesn't call our overridden method because of
-		// how we implement mixins. Switching to traits will fix that.
-		$this->setLabel( isset( $config['label'] ) ? $config['label'] : null );
 
 		$this->addClasses( [ 'oo-ui-buttonInputWidget' ] );
 	}
@@ -94,7 +93,7 @@ class ButtonInputWidget extends InputWidget {
 			$this->input->setValue( $label );
 		}
 
-		return $this->labelElementMixin->setLabel( $label );
+		return $this->setLabelElementLabel( $label );
 	}
 
 	/**

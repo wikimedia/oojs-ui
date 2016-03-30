@@ -11,7 +11,8 @@ namespace OOUI;
  *
  * @abstract
  */
-class AccessKeyedElement extends ElementMixin {
+trait AccessKeyedElement {
+
 	/**
 	 * Accesskey
 	 *
@@ -19,22 +20,28 @@ class AccessKeyedElement extends ElementMixin {
 	 */
 	protected $accessKey = null;
 
-	public static $targetPropertyName = 'accessKeyed';
+	/**
+	 * @var Tag
+	 */
+	protected $accessKeyed;
 
 	/**
-	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param string $config['accessKey'] AccessKey. If not provided, no accesskey will be added
 	 */
-	public function __construct( Element $element, array $config = [] ) {
+	public function initializeAccessKeyedElement( array $config = [] ) {
 		// Parent constructor
-		$target = isset( $config['accessKeyed'] ) ? $config['accessKeyed'] : $element;
-		parent::__construct( $element, $target, $config );
+		$this->accessKeyed = isset( $config['accessKeyed'] ) ? $config['accessKeyed'] : $element;
 
 		// Initialization
 		$this->setAccessKey(
 			isset( $config['accessKey'] ) ? $config['accessKey'] : null
 		);
+		$this->registerConfigCallback( function( &$config ) {
+			if ( $this->accessKey !== null ) {
+				$config['accessKey'] = $this->accessKey;
+			}
+		} );
 	}
 
 	/**
@@ -48,9 +55,9 @@ class AccessKeyedElement extends ElementMixin {
 
 		if ( $this->accessKey !== $accessKey ) {
 			if ( $accessKey !== null ) {
-				$this->target->setAttributes( [ 'accesskey' => $accessKey ] );
+				$this->accessKeyed->setAttributes( [ 'accesskey' => $accessKey ] );
 			} else {
-				$this->target->removeAttributes( [ 'accesskey' ] );
+				$this->accessKeyed->removeAttributes( [ 'accesskey' ] );
 			}
 			$this->accessKey = $accessKey;
 		}
@@ -65,12 +72,5 @@ class AccessKeyedElement extends ElementMixin {
 	 */
 	public function getAccessKey() {
 		return $this->accessKey;
-	}
-
-	public function getConfig( &$config ) {
-		if ( $this->accessKey !== null ) {
-			$config['accessKey'] = $this->accessKey;
-		}
-		return parent::getConfig( $config );
 	}
 }

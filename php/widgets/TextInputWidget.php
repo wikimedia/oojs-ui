@@ -6,6 +6,8 @@ namespace OOUI;
  * Input widget with a text field.
  */
 class TextInputWidget extends InputWidget {
+	use IconElement;
+	use IndicatorElement;
 
 	/* Properties */
 
@@ -77,9 +79,9 @@ class TextInputWidget extends InputWidget {
 		$this->type = $this->getSaneType( $config );
 		$this->multiline = isset( $config['multiline'] ) ? (bool)$config['multiline'] : false;
 
-		// Mixins
-		$this->mixin( new IconElement( $this, $config ) );
-		$this->mixin( new IndicatorElement( $this, $config ) );
+		// Traits
+		$this->initializeIconElement( $config );
+		$this->initializeIndicatorElement( $config );
 
 		// Initialization
 		$this

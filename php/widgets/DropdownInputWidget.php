@@ -7,7 +7,6 @@ namespace OOUI;
  * OO.ui.FormLayout.
  */
 class DropdownInputWidget extends InputWidget {
-
 	/**
 	 * HTML `<option>` tags for this widget, as Tags.
 	 * @var array
@@ -22,10 +21,6 @@ class DropdownInputWidget extends InputWidget {
 	public function __construct( array $config = [] ) {
 		// Parent constructor
 		parent::__construct( $config );
-
-		// Mixins
-		$this->mixin( new TitledElement( $this,
-			array_merge( $config, [ 'titled' => $this->input ] ) ) );
 
 		// Initialization
 		$this->setOptions( isset( $config['options'] ) ? $config['options'] : [] );

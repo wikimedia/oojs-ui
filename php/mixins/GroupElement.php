@@ -7,24 +7,30 @@ namespace OOUI;
  *
  * @abstract
  */
-class GroupElement extends ElementMixin {
+trait GroupElement {
 	/**
 	 * List of items in the group as Elements.
 	 *
-	 * @var array
+	 * @var Element[]
 	 */
 	protected $items = [];
+
+	/**
+	 * @var Tag
+	 */
+	protected $group;
 
 	public static $targetPropertyName = 'group';
 
 	/**
-	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 */
-	public function __construct( Element $element, array $config = [] ) {
-		// Parent constructor
-		$target = isset( $config['group'] ) ? $config['group'] : new Tag( 'div' );
-		parent::__construct( $element, $target, $config );
+	public function initializeGroupElement( array $config = [] ) {
+		$this->group = isset( $config['group'] ) ? $config['group'] : new Tag( 'div' );
+
+		$this->registerConfigCallback( function( &$config ) {
+			$config['items'] = $this->items;
+		} );
 	}
 
 	/**
@@ -76,8 +82,8 @@ class GroupElement extends ElementMixin {
 		}
 
 		// Update actual target element contents to reflect our list
-		$this->target->clearContent();
-		$this->target->appendContent( $this->items );
+		$this->group->clearContent();
+		$this->group->appendContent( $this->items );
 
 		return $this;
 	}
@@ -98,8 +104,8 @@ class GroupElement extends ElementMixin {
 		}
 
 		// Update actual target element contents to reflect our list
-		$this->target->clearContent();
-		$this->target->appendContent( $this->items );
+		$this->group->clearContent();
+		$this->group->appendContent( $this->items );
 
 		return $this;
 	}
@@ -117,13 +123,8 @@ class GroupElement extends ElementMixin {
 		}
 
 		$this->items = [];
-		$this->target->clearContent();
+		$this->group->clearContent();
 
 		return $this;
-	}
-
-	public function getConfig( &$config ) {
-		$config['items'] = $this->items;
-		return parent::getConfig( $config );
 	}
 }

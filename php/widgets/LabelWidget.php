@@ -6,6 +6,7 @@ namespace OOUI;
  * Label widget.
  */
 class LabelWidget extends Widget {
+	use LabelElement;
 
 	/* Static Properties */
 
@@ -28,9 +29,9 @@ class LabelWidget extends Widget {
 		// Parent constructor
 		parent::__construct( $config );
 
-		// Mixins
-		$this->mixin( new LabelElement( $this,
-			array_merge( $config, [ 'labelElement' => $this ] ) ) );
+		// Traits
+		$this->initializeLabelElement(
+			array_merge( $config, [ 'labelElement' => $this ] ) );
 
 		// Properties
 		$this->input = isset( $config['input'] ) ? $config['input'] : null;

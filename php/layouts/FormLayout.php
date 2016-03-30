@@ -6,6 +6,7 @@ namespace OOUI;
  * Layout with an HTML form.
  */
 class FormLayout extends Layout {
+	use GroupElement;
 
 	/* Static Properties */
 
@@ -22,8 +23,8 @@ class FormLayout extends Layout {
 		// Parent constructor
 		parent::__construct( $config );
 
-		// Mixins
-		$this->mixin( new GroupElement( $this, array_merge( $config, [ 'group' => $this ] ) ) );
+		// Traits
+		$this->initializeGroupElement( array_merge( $config, [ 'group' => $this ] ) );
 
 		// Initialization
 		$attributeWhitelist = [ 'method', 'action', 'enctype' ];

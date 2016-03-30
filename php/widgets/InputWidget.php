@@ -8,6 +8,10 @@ namespace OOUI;
  * @abstract
  */
 class InputWidget extends Widget {
+	use FlaggedElement;
+	use TabIndexedElement;
+	use TitledElement;
+	use AccessKeyedElement;
 
 	/* Static Properties */
 
@@ -42,15 +46,14 @@ class InputWidget extends Widget {
 		// Properties
 		$this->input = $this->getInputElement( $config );
 
-		// Mixins
-		$this->mixin( new FlaggedElement( $this,
-			array_merge( $config, [ 'flagged' => $this ] ) ) );
-		$this->mixin( new TabIndexedElement( $this,
-			array_merge( $config, [ 'tabIndexed' => $this->input ] ) ) );
-		$this->mixin( new TitledElement( $this,
-			array_merge( $config, [ 'titled' => $this->input ] ) ) );
-		$this->mixin( new AccessKeyedElement( $this,
-			array_merge( $config, [ 'accessKeyed' => $this->input ] ) ) );
+		// Traits
+		$this->initializeFlaggedElement( array_merge( $config, [ 'flagged' => $this ] ) );
+		$this->initializeTabIndexedElement(
+			array_merge( $config, [ 'tabIndexed' => $this->input ] ) );
+		$this->initializeTitledElement(
+			array_merge( $config, [ 'titled' => $this->input ] ) );
+		$this->initializeAccessKeyedElement(
+			array_merge( $config, [ 'accessKeyed' => $this->input ] ) );
 
 		// Initialization
 		if ( isset( $config['name'] ) ) {

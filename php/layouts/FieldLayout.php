@@ -16,6 +16,8 @@ namespace OOUI;
  *    checkboxes or radio buttons
  */
 class FieldLayout extends Layout {
+	use LabelElement;
+	use TitledElement;
 
 	/**
 	 * Alignment.
@@ -101,10 +103,10 @@ class FieldLayout extends Layout {
 			$this->help = '';
 		}
 
-		// Mixins
-		$this->mixin( new LabelElement( $this, $config ) );
-		$this->mixin( new TitledElement( $this,
-			array_merge( $config, [ 'titled' => $this->label ] ) ) );
+		// Traits
+		$this->initializeLabelElement( $config );
+		$this->initializeTitledElement(
+			array_merge( $config, [ 'titled' => $this->label ] ) );
 
 		// Initialization
 		$this

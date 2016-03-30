@@ -10,7 +10,7 @@ namespace OOUI;
  *
  * @abstract
  */
-class FlaggedElement extends ElementMixin {
+trait FlaggedElement {
 	/**
 	 * Flags.
 	 *
@@ -18,21 +18,28 @@ class FlaggedElement extends ElementMixin {
 	 */
 	protected $flags = [];
 
-	public static $targetPropertyName = 'flagged';
+	/**
+	 * @var Element
+	 */
+	protected $flagged;
 
 	/**
-	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param string|string[] $config['flags'] Flags describing importance and functionality, e.g.
 	 *   'primary', 'safe', 'progressive', 'destructive' or 'constructive'
 	 */
-	public function __construct( Element $element, array $config = [] ) {
-		// Parent constructor
-		$target = isset( $config['flagged'] ) ? $config['flagged'] : $element;
-		parent::__construct( $element, $target, $config );
+	public function initializeFlaggedElement( array $config = [] ) {
+		$this->flagged = isset( $config['flagged'] ) ? $config['flagged'] : $this;
 
 		// Initialization
 		$this->setFlags( isset( $config['flags'] ) ? $config['flags'] : null );
+
+		$this->registerConfigCallback( function( &$config ) {
+			if ( !empty( $this->flags ) ) {
+				$config['flags'] = $this->getFlags();
+			}
+		} );
+
 	}
 
 	/**
@@ -67,7 +74,7 @@ class FlaggedElement extends ElementMixin {
 			$remove[] = $classPrefix . $flag;
 		}
 
-		$this->target->removeClasses( $remove );
+		$this->flagged->removeClasses( $remove );
 		$this->flags = [];
 
 		return $this;
@@ -117,17 +124,10 @@ class FlaggedElement extends ElementMixin {
 			}
 		}
 
-		$this->target
+		$this->flagged
 			->addClasses( $add )
 			->removeClasses( $remove );
 
 		return $this;
-	}
-
-	public function getConfig( &$config ) {
-		if ( !empty( $this->flags ) ) {
-			$config['flags'] = $this->getFlags();
-		}
-		return parent::getConfig( $config );
 	}
 }

@@ -12,7 +12,7 @@ namespace OOUI;
  *
  * @abstract
  */
-class IndicatorElement extends ElementMixin {
+trait IndicatorElement {
 	/**
 	 * Symbolic indicator name
 	 *
@@ -20,24 +20,30 @@ class IndicatorElement extends ElementMixin {
 	 */
 	protected $indicatorName = null;
 
-	public static $targetPropertyName = 'indicator';
+	/**
+	 * @var Tag
+	 */
+	protected $indicator;
 
 	/**
-	 * @param Element $element Element being mixed into
 	 * @param array $config Configuration options
 	 * @param string $config['indicator'] Symbolic indicator name
 	 */
-	public function __construct( Element $element, array $config = [] ) {
-		// Parent constructor
+	public function initializeIndicatorElement( array $config = [] ) {
 		// FIXME 'indicatorElement' is a very stupid way to call '$indicator'
-		$target = isset( $config['indicatorElement'] )
+		$this->indicator = isset( $config['indicatorElement'] )
 			? $config['indicatorElement']
 			: new Tag( 'span' );
-		parent::__construct( $element, $target, $config );
 
 		// Initialization
-		$this->target->addClasses( [ 'oo-ui-indicatorElement-indicator' ] );
+		$this->indicator->addClasses( [ 'oo-ui-indicatorElement-indicator' ] );
 		$this->setIndicator( isset( $config['indicator'] ) ? $config['indicator'] : null );
+
+		$this->registerConfigCallback( function( &$config ) {
+			if ( $this->indicatorName !== null ) {
+				$config['indicator'] = $this->indicatorName;
+			}
+		} );
 	}
 
 	/**
@@ -48,14 +54,14 @@ class IndicatorElement extends ElementMixin {
 	 */
 	public function setIndicator( $indicator = null ) {
 		if ( $this->indicatorName !== null ) {
-			$this->target->removeClasses( [ 'oo-ui-indicator-' . $this->indicatorName ] );
+			$this->indicator->removeClasses( [ 'oo-ui-indicator-' . $this->indicatorName ] );
 		}
 		if ( $indicator !== null ) {
-			$this->target->addClasses( [ 'oo-ui-indicator-' . $indicator ] );
+			$this->indicator->addClasses( [ 'oo-ui-indicator-' . $indicator ] );
 		}
 
 		$this->indicatorName = $indicator;
-		$this->element->toggleClasses( [ 'oo-ui-indicatorElement' ], (bool)$this->indicatorName );
+		$this->toggleClasses( [ 'oo-ui-indicatorElement' ], (bool)$this->indicatorName );
 
 		return $this;
 	}
@@ -69,10 +75,13 @@ class IndicatorElement extends ElementMixin {
 		return $this->indicatorName;
 	}
 
-	public function getConfig( &$config ) {
-		if ( $this->indicatorName !== null ) {
-			$config['indicator'] = $this->indicatorName;
-		}
-		return parent::getConfig( $config );
+	/**
+	 * Do not use outside of Theme::updateElementClasses
+	 *
+	 * @protected
+	 * @return Tag
+	 */
+	public function getIndicatorElement() {
+		return $this->indicator;
 	}
 }

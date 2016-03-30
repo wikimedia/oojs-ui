@@ -6,6 +6,14 @@ namespace OOUI;
  * Generic widget for buttons.
  */
 class ButtonWidget extends Widget {
+	use ButtonElement;
+	use IconElement;
+	use IndicatorElement;
+	use LabelElement;
+	use TitledElement;
+	use FlaggedElement;
+	use TabIndexedElement;
+	use AccessKeyedElement;
 
 	/**
 	 * Hyperlink to visit when clicked.
@@ -40,18 +48,18 @@ class ButtonWidget extends Widget {
 		// Parent constructor
 		parent::__construct( $config );
 
-		// Mixins
-		$this->mixin( new ButtonElement( $this, $config ) );
-		$this->mixin( new IconElement( $this, $config ) );
-		$this->mixin( new IndicatorElement( $this, $config ) );
-		$this->mixin( new LabelElement( $this, $config ) );
-		$this->mixin( new TitledElement( $this,
-			array_merge( $config, [ 'titled' => $this->button ] ) ) );
-		$this->mixin( new FlaggedElement( $this, $config ) );
-		$this->mixin( new TabIndexedElement( $this,
-			array_merge( $config, [ 'tabIndexed' => $this->button ] ) ) );
-		$this->mixin( new AccessKeyedElement( $this,
-			array_merge( $config, [ 'accessKeyed' => $this->button ] ) ) );
+		// Traits
+		$this->initializeButtonElement( $config );
+		$this->initializeIconElement( $config );
+		$this->initializeIndicatorElement( $config );
+		$this->initializeLabelElement( $config );
+		$this->initializeTitledElement(
+			array_merge( $config, [ 'titled' => $this->button ] ) );
+		$this->initializeFlaggedElement( $config );
+		$this->initializeTabIndexedElement(
+			array_merge( $config, [ 'tabIndexed' => $this->button ] ) );
+		$this->initializeAccessKeyedElement(
+			array_merge( $config, [ 'accessKeyed' => $this->button ] ) );
 
 		// Initialization
 		$this->button->appendContent( $this->icon, $this->label, $this->indicator );

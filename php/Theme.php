@@ -57,14 +57,15 @@ abstract class Theme {
 	 */
 	public function updateElementClasses( Element $element ) {
 		$classes = $this->getElementClasses( $element );
+		$traits = class_uses( $element );
 
-		if ( isset( $element->icon ) ) {
-			$element->icon
+		if ( in_array( IconElement::class, $traits ) ) {
+			$element->getIconElement()
 				->removeClasses( $classes['off'] )
 				->addClasses( $classes['on'] );
 		}
-		if ( isset( $element->indicator ) ) {
-			$element->indicator
+		if ( in_array( IndicatorElement::class, $traits ) ) {
+			$element->getIndicatorElement()
 				->removeClasses( $classes['off'] )
 				->addClasses( $classes['on'] );
 		}

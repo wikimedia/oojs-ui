@@ -8,6 +8,8 @@ namespace OOUI;
  * Use together with ButtonWidget.
  */
 class ButtonGroupWidget extends Widget {
+	use GroupElement;
+
 	/**
 	 * @param array $config Configuration options
 	 * @param ButtonWidget[] $config['items'] Buttons to add
@@ -16,8 +18,8 @@ class ButtonGroupWidget extends Widget {
 		// Parent constructor
 		parent::__construct( $config );
 
-		// Mixins
-		$this->mixin( new GroupElement( $this, array_merge( $config, [ 'group' => $this ] ) ) );
+		// Traits
+		$this->initializeGroupElement( array_merge( $config, [ 'group' => $this ] ) );
 
 		// Initialization
 		$this->addClasses( [ 'oo-ui-buttonGroupWidget' ] );
