@@ -18,7 +18,7 @@ class IndicatorElement extends ElementMixin {
 	 *
 	 * @var string|null
 	 */
-	protected $indicator = null;
+	protected $indicatorName = null;
 
 	public static $targetPropertyName = 'indicator';
 
@@ -47,15 +47,15 @@ class IndicatorElement extends ElementMixin {
 	 * @return $this
 	 */
 	public function setIndicator( $indicator = null ) {
-		if ( $this->indicator !== null ) {
-			$this->target->removeClasses( [ 'oo-ui-indicator-' . $this->indicator ] );
+		if ( $this->indicatorName !== null ) {
+			$this->target->removeClasses( [ 'oo-ui-indicator-' . $this->indicatorName ] );
 		}
 		if ( $indicator !== null ) {
 			$this->target->addClasses( [ 'oo-ui-indicator-' . $indicator ] );
 		}
 
-		$this->indicator = $indicator;
-		$this->element->toggleClasses( [ 'oo-ui-indicatorElement' ], (bool)$this->indicator );
+		$this->indicatorName = $indicator;
+		$this->element->toggleClasses( [ 'oo-ui-indicatorElement' ], (bool)$this->indicatorName );
 
 		return $this;
 	}
@@ -66,12 +66,12 @@ class IndicatorElement extends ElementMixin {
 	 * @return string Symbolic name of indicator
 	 */
 	public function getIndicator() {
-		return $this->indicator;
+		return $this->indicatorName;
 	}
 
 	public function getConfig( &$config ) {
-		if ( $this->indicator !== null ) {
-			$config['indicator'] = $this->indicator;
+		if ( $this->indicatorName !== null ) {
+			$config['indicator'] = $this->indicatorName;
 		}
 		return parent::getConfig( $config );
 	}
