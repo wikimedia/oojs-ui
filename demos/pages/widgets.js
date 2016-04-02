@@ -116,16 +116,14 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			deferred = $.Deferred(),
 			delay = 500 + Math.floor( Math.random() * 500 );
 
-		this.isValid().done( function ( valid ) {
-			if ( valid ) {
-				// Resolve with results after a faked delay
-				setTimeout( function () {
-					deferred.resolve( [ value * 1, value * 2, value * 3, value * 4, value * 5 ] );
-				}, delay );
-			} else {
-				// No results when the input contains invalid content
-				deferred.resolve( [] );
-			}
+		this.getValidity().then( function () {
+			// Resolve with results after a faked delay
+			setTimeout( function () {
+				deferred.resolve( [ value * 1, value * 2, value * 3, value * 4, value * 5 ] );
+			}, delay );
+		}, function () {
+			// No results when the input contains invalid content
+			deferred.resolve( [] );
 		} );
 
 		return deferred.promise( { abort: function () {} } );
