@@ -60,7 +60,8 @@
 OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	// Configuration initialization
 	config = $.extend( {
-		indicator: 'down'
+		indicator: 'down',
+		autocomplete: false
 	}, config );
 	// For backwards-compatibility with ComboBoxWidget config
 	$.extend( config, config.input );
