@@ -57,7 +57,7 @@ class GroupElement extends ElementMixin {
 	public function addItems( array $items, $index = null ) {
 		foreach ( $items as $item ) {
 			// Check if item exists then remove it first, effectively "moving" it
-			$currentIndex = array_search( $item, $this->items );
+			$currentIndex = array_search( $item, $this->items, true );
 			if ( $currentIndex !== false ) {
 				$this->removeItems( [ $item ] );
 				// Adjust index to compensate for removal
@@ -90,7 +90,7 @@ class GroupElement extends ElementMixin {
 	 */
 	public function removeItems( $items ) {
 		foreach ( $items as $item ) {
-			$index = array_search( $item, $this->items );
+			$index = array_search( $item, $this->items, true );
 			if ( $index !== false ) {
 				$item->setElementGroup( null );
 				array_splice( $this->items, $index, 1 );
