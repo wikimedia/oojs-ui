@@ -745,30 +745,6 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
 };
 
 /**
- * Check if a value is valid.
- *
- * This method returns a promise that resolves with a boolean `true` if the current value is
- * considered valid according to the supplied {@link #validate validation pattern}.
- *
- * @deprecated since v0.12.3
- * @return {jQuery.Promise} A promise that resolves to a boolean `true` if the value is valid.
- */
-OO.ui.TextInputWidget.prototype.isValid = function () {
-	var result;
-
-	if ( this.validate instanceof Function ) {
-		result = this.validate( this.getValue() );
-		if ( result && $.isFunction( result.promise ) ) {
-			return result.promise();
-		} else {
-			return $.Deferred().resolve( !!result ).promise();
-		}
-	} else {
-		return $.Deferred().resolve( !!this.getValue().match( this.validate ) ).promise();
-	}
-};
-
-/**
  * Get the validity of current value.
  *
  * This method returns a promise that resolves if the value is valid and rejects if
