@@ -38,6 +38,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 			],
 			content: [
 				'article',
+				'articles',
 				'articleCheck',
 				'articleSearch',
 				'articleRedirect',
