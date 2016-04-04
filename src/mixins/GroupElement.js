@@ -27,6 +27,16 @@ OO.ui.mixin.GroupElement = function OoUiMixinGroupElement( config ) {
 	this.setGroupElement( config.$group || $( '<div>' ) );
 };
 
+/* Events */
+
+/**
+ * @event change
+ *
+ * A change event is emitted when the set of selected items changes.
+ *
+ * @param {OO.ui.Element[]} items Items currently in the group
+ */
+
 /* Methods */
 
 /**
@@ -218,6 +228,7 @@ OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
 		this.items.splice.apply( this.items, [ index, 0 ].concat( items ) );
 	}
 
+	this.emit( 'change', this.getItems() );
 	return this;
 };
 
@@ -254,6 +265,7 @@ OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
 		}
 	}
 
+	this.emit( 'change', this.getItems() );
 	return this;
 };
 
@@ -285,6 +297,7 @@ OO.ui.mixin.GroupElement.prototype.clearItems = function () {
 		item.$element.detach();
 	}
 
+	this.emit( 'change', this.getItems() );
 	this.items = [];
 	return this;
 };
