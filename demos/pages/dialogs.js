@@ -95,6 +95,39 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return this.content.$element.outerHeight( true );
 	};
 
+	function LongProcessDialog( config ) {
+		ProcessDialog.parent.call( this, config );
+	}
+	OO.inheritClass( LongProcessDialog, OO.ui.ProcessDialog );
+	LongProcessDialog.static.title = 'Process dialog';
+	LongProcessDialog.static.actions = [
+		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
+		{ action: 'cancel', label: 'Cancel', flags: 'safe' },
+		{ action: 'other', label: 'Other', flags: 'other' }
+	];
+	LongProcessDialog.prototype.initialize = function () {
+		var i;
+
+		LongProcessDialog.parent.prototype.initialize.apply( this, arguments );
+		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
+		for ( i = 0; i < 100; i++ ) {
+			this.content.$element.append( '<p>Dialog content</p>' );
+		}
+		this.$body.append( this.content.$element );
+	};
+	LongProcessDialog.prototype.getActionProcess = function ( action ) {
+		var dialog = this;
+		if ( action ) {
+			return new OO.ui.Process( function () {
+				dialog.close( { action: action } );
+			} );
+		}
+		return LongProcessDialog.parent.prototype.getActionProcess.call( this, action );
+	};
+	LongProcessDialog.prototype.getBodyHeight = function () {
+		return this.content.$element.outerHeight( true );
+	};
+
 	function FramelessProcessDialog( config ) {
 		FramelessProcessDialog.parent.call( this, config );
 	}
@@ -709,6 +742,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		{
 			name: 'Process dialog (medium)',
 			dialogClass: ProcessDialog,
+			config: {
+				size: 'medium'
+			}
+		},
+		{
+			name: 'Process dialog (medium, long)',
+			dialogClass: LongProcessDialog,
 			config: {
 				size: 'medium'
 			}
