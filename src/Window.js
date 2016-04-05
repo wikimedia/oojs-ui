@@ -432,9 +432,9 @@ OO.ui.Window.prototype.updateSize = function () {
  * @param {string|number} [dim.width] Width
  * @param {string|number} [dim.minWidth] Minimum width
  * @param {string|number} [dim.maxWidth] Maximum width
- * @param {string|number} [dim.width] Height, omit to set based on height of contents
- * @param {string|number} [dim.minWidth] Minimum height
- * @param {string|number} [dim.maxWidth] Maximum height
+ * @param {string|number} [dim.height] Height, omit to set based on height of contents
+ * @param {string|number} [dim.minHeight] Minimum height
+ * @param {string|number} [dim.maxHeight] Maximum height
  * @chainable
  */
 OO.ui.Window.prototype.setDimensions = function ( dim ) {
