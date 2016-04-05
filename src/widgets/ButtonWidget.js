@@ -83,31 +83,14 @@ OO.mixinClass( OO.ui.ButtonWidget, OO.ui.mixin.FlaggedElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.mixin.TabIndexedElement );
 OO.mixinClass( OO.ui.ButtonWidget, OO.ui.mixin.AccessKeyedElement );
 
+/* Static Properties */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ButtonWidget.static.cancelButtonMouseDownEvents = false;
+
 /* Methods */
-
-/**
- * @inheritdoc
- */
-OO.ui.ButtonWidget.prototype.onMouseDown = function ( e ) {
-	if ( !this.isDisabled() ) {
-		// Remove the tab-index while the button is down to prevent the button from stealing focus
-		this.$button.removeAttr( 'tabindex' );
-	}
-
-	return OO.ui.mixin.ButtonElement.prototype.onMouseDown.call( this, e );
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.ButtonWidget.prototype.onMouseUp = function ( e ) {
-	if ( !this.isDisabled() ) {
-		// Restore the tab-index after the button is up to restore the button's accessibility
-		this.$button.attr( 'tabindex', this.tabIndex );
-	}
-
-	return OO.ui.mixin.ButtonElement.prototype.onMouseUp.call( this, e );
-};
 
 /**
  * Get hyperlink location.
