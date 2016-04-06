@@ -65,6 +65,16 @@ OO.ui.RadioSelectInputWidget.static.gatherPreInfuseState = function ( node, conf
 	return state;
 };
 
+/**
+ * @inheritdoc
+ */
+OO.ui.RadioSelectInputWidget.static.reusePreInfuseDOM = function ( node, config ) {
+	config = OO.ui.RadioSelectInputWidget.parent.static.reusePreInfuseDOM( node, config );
+	// Cannot reuse the `<input type=radio>` set
+	delete config.$input;
+	return config;
+};
+
 /* Methods */
 
 /**

@@ -87,9 +87,11 @@ OO.ui.InputWidget.static.reusePreInfuseDOM = function ( node, config ) {
  */
 OO.ui.InputWidget.static.gatherPreInfuseState = function ( node, config ) {
 	var state = OO.ui.InputWidget.parent.static.gatherPreInfuseState( node, config );
-	state.value = config.$input.val();
-	// Might be better in TabIndexedElement, but it's awkward to do there because mixins are awkward
-	state.focus = config.$input.is( ':focus' );
+	if ( config.$input && config.$input.length ) {
+		state.value = config.$input.val();
+		// Might be better in TabIndexedElement, but it's awkward to do there because mixins are awkward
+		state.focus = config.$input.is( ':focus' );
+	}
 	return state;
 };
 
