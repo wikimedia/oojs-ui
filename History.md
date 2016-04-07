@@ -1,5 +1,29 @@
 # OOjs UI Release History
 
+## v0.16.5 / 2016-04-07
+### Styles
+* Prevent modal windows from exceeding available height on Firefox (Bartosz Dziewoński)
+* Apex, MediaWiki themes: Add "articles" icon (Marc A. Pelletier)
+* DropdownInputWidget: Give un-infused widget cursor:pointer (Ed Sanders)
+* RadioSelectInputWidget: Match PHP styling to JS (Bartosz Dziewoński)
+
+### Code
+* ComboBoxInputWidget: Disable autocomplete by default (James D. Forrester)
+* GroupElement: Add change event (Prateek Saxena)
+* GroupElement.php: Use strict mode in array_search (James D. Forrester)
+* styles: Lower specifity of CSS type attribute selectors (Volker E)
+* styles: Minor cleanup and unification of values and comments (Volker E)
+* styles: Remove unnecessary `resize` property from `select` (Volker E)
+* MediaWiki theme: Exchange `rgba()` with hex CSS colors to support IE 8 (Volker E)
+* MediaWiki theme: Replace fixed CSS property values with variables (Volker E)
+* RadioSelectInputWidget: Don't try to reuse DOM when infusing (Bartosz Dziewoński)
+* TextInputWidget: Use getValidity in demos (Ricordisamoa)
+* Window: Correct documentation (Bartosz Dziewoński)
+* build: Add browserNoActivityTimeout to karma (Paladox)
+* build: For grunt-svg2png use a tag instead of git hash (Paladox)
+* build: Update demos script to also run grunt publish-build (Paladox)
+* build: Use a version of grunt-svg2png without a rate-limited CDN (Paladox)
+
 ## v0.16.4 / 2016-03-22
 ### Features
 * NumberInputWidget: Optionally don't show the increment buttons (Thalia Chan)
