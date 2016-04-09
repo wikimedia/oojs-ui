@@ -66,13 +66,14 @@
 	&.oo-ui-buttonElement-frameless > .oo-ui-popupWidget {
 		// Compensate for icon being inset
 		/* @noflip */
-		left: 1em;
+		left: @icon-size / 2;
 	}
 
 	&.oo-ui-buttonElement-framed > .oo-ui-popupWidget {
 		// Compensate for icon being inset
+		// Button has padding-left: 0.8em;, icon has margin-left: -0.5em;
 		/* @noflip */
-		left: 1.25em;
+		left: @icon-size / 2 + 0.8em - 0.5em;
 	}
 }
 
