@@ -72,29 +72,19 @@
 		display: block;
 	}
 
-	> .oo-ui-iconElement-icon {
+	> .oo-ui-iconElement-icon,
+	&-labelPosition-before > .oo-ui-labelElement-label {
 		left: 0;
 	}
 
-	> .oo-ui-indicatorElement-indicator {
+	> .oo-ui-indicatorElement-indicator,
+	&-labelPosition-after > .oo-ui-labelElement-label {
 		right: 0;
 	}
 
 	> .oo-ui-labelElement-label {
 		position: absolute;
 		top: 0;
-	}
-
-	&-labelPosition-after {
-		> .oo-ui-labelElement-label {
-			right: 0
-		}
-	}
-
-	&-labelPosition-before {
-		> .oo-ui-labelElement-label {
-			left: 0
-		}
 	}
 
 	.theme-oo-ui-textInputWidget();
