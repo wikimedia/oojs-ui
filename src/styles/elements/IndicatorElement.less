@@ -6,7 +6,11 @@
 		background-size: contain;
 		background-position: center center;
 		background-repeat: no-repeat;
+		// Support: IE11, Edge 12+ (T94494), Firefox 31.5 (T93636)
+		min-width: @size-indicator-min;
 		width: @size-indicator;
+		// Support: IE11, Edge 12+ (T94494), Firefox 31.5 (T93636)
+		min-height: @size-indicator-min;
 		height: @size-indicator;
 	}
 

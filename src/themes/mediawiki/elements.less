@@ -8,12 +8,14 @@
 		text-decoration: none;
 	}
 
-	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-		margin-left: 0;
-	}
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button {
+		> .oo-ui-iconElement-icon {
+			margin-left: 0;
+		}
 
-	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-		margin-left: @size-indicator / 2;
+		> .oo-ui-indicatorElement-indicator {
+			margin-left: @size-indicator / 2;
+		}
 	}
 
 	&-frameless {
