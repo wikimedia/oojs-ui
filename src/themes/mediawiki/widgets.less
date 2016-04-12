@@ -80,8 +80,6 @@
 
 .theme-oo-ui-iconWidget () {
 	line-height: 2.5em;
-	width: @size-icon;
-	height: @size-icon;
 
 	&.oo-ui-widget-disabled {
 		opacity: @opacity-disabled;
@@ -90,8 +88,6 @@
 
 .theme-oo-ui-indicatorWidget () {
 	line-height: 2.5em;
-	width: @size-indicator;
-	height: @size-indicator;
 	margin: @size-indicator / 2;
 
 	&.oo-ui-widget-disabled {
@@ -127,15 +123,11 @@
 
 		.oo-ui-indicatorElement-indicator {
 			top: 0;
-			width: @size-indicator;
-			height: @size-indicator;
 			margin: 0.775em;
 		}
 
 		.oo-ui-iconElement-icon {
 			top: 0;
-			width: @size-icon;
-			height: @size-icon;
 			margin: 0.3em;
 		}
 	}
@@ -190,7 +182,6 @@
 		> .oo-ui-iconElement-icon {
 			left: 0;
 			top: 0;
-			width: @size-icon;
 			height: 2.3em;
 			margin-left: 0.5em;
 		}
@@ -213,7 +204,6 @@
 		> .oo-ui-indicatorElement-indicator {
 			top: 0;
 			right: 0;
-			width: @size-indicator;
 			height: 2.3em;
 			margin-right: 0.775em;
 		}
@@ -647,10 +637,9 @@
 
 		.oo-ui-iconElement-icon {
 			left: 0;
-			width: @size-icon;
+			height: 100%;
 			max-height: 2.375em;
 			margin-left: 0.5em;
-			height: 100%;
 			background-position: right center;
 		}
 	}
@@ -662,10 +651,9 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			width: @size-indicator;
+			height: 100%;
 			max-height: 2.375em;
 			margin: 0 0.775em;
-			height: 100%;
 		}
 	}
 
@@ -720,8 +708,6 @@
 		> .oo-ui-indicatorElement-indicator,
 		> .oo-ui-iconElement-icon {
 			position: absolute;
-			background-position: center center;
-			background-repeat: no-repeat;
 		}
 
 		> .oo-ui-capsuleMultiSelectWidget-content > input {
@@ -748,8 +734,6 @@
 		> .oo-ui-indicatorElement-indicator {
 			right: 0;
 			top: 0;
-			width: @size-indicator;
-			height: @size-indicator;
 			margin: 0.775em;
 		}
 	}
@@ -760,8 +744,6 @@
 		> .oo-ui-iconElement-icon {
 			left: 0;
 			top: 0;
-			width: @size-icon;
-			height: @size-icon;
 			margin: 0.3em;
 		}
 	}
@@ -852,12 +834,10 @@
 	}
 
 	&.oo-ui-iconElement .oo-ui-iconElement-icon {
-		width: @size-icon;
 		left: 0.5em;
 	}
 
 	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		width: @size-indicator;
 		right: 0.5em;
 	}
 
@@ -889,6 +869,14 @@
 		.oo-ui-indicatorElement-indicator {
 			opacity: 1;
 		}
+	}
+
+	&.oo-ui-iconElement .oo-ui-iconElement-icon {
+		height: @size-icon;
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		height: @size-indicator;
 	}
 }
 
