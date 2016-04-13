@@ -177,11 +177,15 @@ OO.ui.mixin.ClippableElement.prototype.setIdealSize = function ( width, height )
 };
 
 /**
- * Clip element to visible boundaries and allow scrolling when needed. Call this method when
- * the element's natural height changes.
+ * Clip element to visible boundaries and allow scrolling when needed. You should call this method
+ * when the element's natural height changes.
  *
  * Element will be clipped the bottom or right of the element is within 10px of the edge of, or
  * overlapped by, the visible area of the nearest scrollable container.
+ *
+ * Because calling clip() when the natural height changes isn't always possible, we also set
+ * max-height when the element isn't being clipped. This means that if the element tries to grow
+ * beyond the edge, something reasonable will happen before clip() is called.
  *
  * @chainable
  */
@@ -226,14 +230,30 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	clipHeight = allotedHeight < naturalHeight;
 
 	if ( clipWidth ) {
-		this.$clippable.css( { overflowX: 'scroll', width: Math.max( 0, allotedWidth ) } );
+		this.$clippable.css( {
+			overflowX: 'scroll',
+			width: Math.max( 0, allotedWidth ),
+			maxWidth: ''
+		} );
 	} else {
-		this.$clippable.css( { width: this.idealWidth ? this.idealWidth - extraWidth : '', overflowX: '' } );
+		this.$clippable.css( {
+			overflowX: '',
+			width: this.idealWidth ? this.idealWidth - extraWidth : '',
+			maxWidth: Math.max( 0, allotedWidth )
+		} );
 	}
 	if ( clipHeight ) {
-		this.$clippable.css( { overflowY: 'scroll', height: Math.max( 0, allotedHeight ) } );
+		this.$clippable.css( {
+			overflowY: 'scroll',
+			height: Math.max( 0, allotedHeight ),
+			maxHeight: ''
+		} );
 	} else {
-		this.$clippable.css( { height: this.idealHeight ? this.idealHeight - extraHeight : '', overflowY: '' } );
+		this.$clippable.css( {
+			overflowY: '',
+			height: this.idealHeight ? this.idealHeight - extraHeight : '',
+			maxHeight: Math.max( 0, allotedHeight )
+		} );
 	}
 
 	// If we stopped clipping in at least one of the dimensions
