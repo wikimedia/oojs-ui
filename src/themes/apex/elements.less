@@ -15,18 +15,18 @@
 
 	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button {
 		> .oo-ui-indicatorElement-indicator {
-			width: @indicator-size;
-			height: @indicator-size;
-			margin: @indicator-size / 2;
+			width: @size-indicator;
+			height: @size-indicator;
+			margin: @size-indicator / 2;
 		}
 	}
 
 	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-		margin-left: @indicator-size / 2;
+		margin-left: @size-indicator / 2;
 	}
 	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-		width: @icon-size;
-		height: @icon-size;
+		width: @size-icon;
+		height: @size-icon;
 	}
 
 	&-frameless {
@@ -115,7 +115,7 @@
 		// Support <input/> from ButtonInputWidget
 		> input.oo-ui-buttonElement-button,
 		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-			line-height: @icon-size;
+			line-height: @size-icon;
 		}
 
 		&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
@@ -146,7 +146,7 @@
 
 			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
 			&.oo-ui-iconElement:not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-				margin-left: @indicator-size / 2;
+				margin-left: @size-indicator / 2;
 				margin-right: -0.275em;
 			}
 		}
