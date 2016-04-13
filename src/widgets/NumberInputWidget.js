@@ -300,35 +300,37 @@ OO.ui.NumberInputWidget.prototype.onButtonClick = function ( dir ) {
 OO.ui.NumberInputWidget.prototype.onWheel = function ( event ) {
 	var delta = 0;
 
-	// Standard 'wheel' event
-	if ( event.originalEvent.deltaMode !== undefined ) {
-		this.sawWheelEvent = true;
-	}
-	if ( event.originalEvent.deltaY ) {
-		delta = -event.originalEvent.deltaY;
-	} else if ( event.originalEvent.deltaX ) {
-		delta = event.originalEvent.deltaX;
-	}
-
-	// Non-standard events
-	if ( !this.sawWheelEvent ) {
-		if ( event.originalEvent.wheelDeltaX ) {
-			delta = -event.originalEvent.wheelDeltaX;
-		} else if ( event.originalEvent.wheelDeltaY ) {
-			delta = event.originalEvent.wheelDeltaY;
-		} else if ( event.originalEvent.wheelDelta ) {
-			delta = event.originalEvent.wheelDelta;
-		} else if ( event.originalEvent.detail ) {
-			delta = -event.originalEvent.detail;
+	if ( !this.isDisabled() ) {
+		// Standard 'wheel' event
+		if ( event.originalEvent.deltaMode !== undefined ) {
+			this.sawWheelEvent = true;
 		}
-	}
+		if ( event.originalEvent.deltaY ) {
+			delta = -event.originalEvent.deltaY;
+		} else if ( event.originalEvent.deltaX ) {
+			delta = event.originalEvent.deltaX;
+		}
 
-	if ( delta ) {
-		delta = delta < 0 ? -1 : 1;
-		this.adjustValue( delta * this.step );
-	}
+		// Non-standard events
+		if ( !this.sawWheelEvent ) {
+			if ( event.originalEvent.wheelDeltaX ) {
+				delta = -event.originalEvent.wheelDeltaX;
+			} else if ( event.originalEvent.wheelDeltaY ) {
+				delta = event.originalEvent.wheelDeltaY;
+			} else if ( event.originalEvent.wheelDelta ) {
+				delta = event.originalEvent.wheelDelta;
+			} else if ( event.originalEvent.detail ) {
+				delta = -event.originalEvent.detail;
+			}
+		}
 
-	return false;
+		if ( delta ) {
+			delta = delta < 0 ? -1 : 1;
+			this.adjustValue( delta * this.step );
+		}
+
+		return false;
+	}
 };
 
 /**
