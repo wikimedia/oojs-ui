@@ -568,6 +568,13 @@
 							]
 						),
 						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( [ 'type' => 'number' ] ),
+							[
+								'label' => "TextInputWidget (type=number)\xE2\x80\x8E",
+								'align' => 'top'
+							]
+						),
+						new OOUI\FieldLayout(
 							new OOUI\TextInputWidget( [
 								'value' => 'Readonly',
 								'readOnly' => true
