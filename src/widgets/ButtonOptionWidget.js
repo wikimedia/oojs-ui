@@ -7,8 +7,10 @@
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options#Button_selects_and_options
  *
  * @class
- * @extends OO.ui.DecoratedOptionWidget
+ * @extends OO.ui.OptionWidget
  * @mixins OO.ui.mixin.ButtonElement
+ * @mixins OO.ui.mixin.IconElement
+ * @mixins OO.ui.mixin.IndicatorElement
  * @mixins OO.ui.mixin.TabIndexedElement
  * @mixins OO.ui.mixin.TitledElement
  *
@@ -24,6 +26,8 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( config ) {
 
 	// Mixin constructors
 	OO.ui.mixin.ButtonElement.call( this, config );
+	OO.ui.mixin.IconElement.call( this, config );
+	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$button } ) );
 	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, {
 		$tabIndexed: this.$button,
@@ -32,14 +36,16 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonOptionWidget' );
-	this.$button.append( this.$element.contents() );
+	this.$button.append( this.$icon, this.$label, this.$indicator );
 	this.$element.append( this.$button );
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.ButtonOptionWidget, OO.ui.DecoratedOptionWidget );
+OO.inheritClass( OO.ui.ButtonOptionWidget, OO.ui.OptionWidget );
 OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.ButtonElement );
+OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.IconElement );
+OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.TitledElement );
 OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.TabIndexedElement );
 
