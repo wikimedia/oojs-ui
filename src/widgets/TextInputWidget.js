@@ -27,7 +27,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {string} [type='text'] The value of the HTML `type` attribute: 'text', 'password', 'search',
- *  'email', 'url' or 'date'. Ignored if `multiline` is true.
+ *  'email', 'url', 'date' or 'number'. Ignored if `multiline` is true.
  *
  *  Some values of `type` result in additional behaviors:
  *
@@ -483,9 +483,16 @@ OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
  * @private
  */
 OO.ui.TextInputWidget.prototype.getSaneType = function ( config ) {
-	var type = [ 'text', 'password', 'search', 'email', 'url', 'date' ].indexOf( config.type ) !== -1 ?
-		config.type :
-		'text';
+	var allowedTypes = [
+			'text',
+			'password',
+			'search',
+			'email',
+			'url',
+			'date',
+			'number'
+		],
+		type = allowedTypes.indexOf( config.type ) !== -1 ? config.type : 'text';
 	return config.multiline ? 'multiline' : type;
 };
 

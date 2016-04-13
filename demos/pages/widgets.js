@@ -886,6 +886,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( { type: 'number' } ),
+					{
+						label: 'TextInputWidget (type=number)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
 						value: 'Readonly',
 						readOnly: true
