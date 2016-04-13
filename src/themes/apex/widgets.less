@@ -66,14 +66,14 @@
 	&.oo-ui-buttonElement-frameless > .oo-ui-popupWidget {
 		// Compensate for icon being inset
 		/* @noflip */
-		left: @icon-size / 2;
+		left: @size-icon / 2;
 	}
 
 	&.oo-ui-buttonElement-framed > .oo-ui-popupWidget {
 		// Compensate for icon being inset
 		// Button has padding-left: 0.8em;, icon has margin-left: -0.5em;
 		/* @noflip */
-		left: @icon-size / 2 + 0.8em - 0.5em;
+		left: @size-icon / 2 + 0.8em - 0.5em;
 	}
 }
 
@@ -83,8 +83,8 @@
 
 .theme-oo-ui-iconWidget () {
 	line-height: 2.5em;
-	height: @icon-size;
-	width: @icon-size;
+	height: @size-icon;
+	width: @size-icon;
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
@@ -93,9 +93,9 @@
 
 .theme-oo-ui-indicatorWidget () {
 	line-height: 2.5em;
-	height: @indicator-size;
-	width: @indicator-size;
-	margin: @indicator-size / 2;
+	height: @size-indicator;
+	width: @size-indicator;
+	margin: @size-indicator / 2;
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
@@ -133,15 +133,15 @@
 
 		.oo-ui-indicatorElement-indicator {
 			top: 0;
-			width: @indicator-size;
-			height: @indicator-size;
+			width: @size-indicator;
+			height: @size-indicator;
 			margin: 0.775em;
 		}
 
 		.oo-ui-iconElement-icon {
 			top: 0;
-			width: @icon-size;
-			height: @icon-size;
+			width: @size-icon;
+			height: @size-icon;
 			margin: 0.3em;
 		}
 	}
@@ -214,7 +214,7 @@
 
 		> .oo-ui-selectFileWidget-clearButton {
 			top: 0;
-			width: @icon-size;
+			width: @size-icon;
 			margin-right: 0;
 			.oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
 				height: 2.3em;
@@ -223,14 +223,14 @@
 
 		> .oo-ui-indicatorElement-indicator {
 			top: 0;
-			width: @indicator-size;
+			width: @size-indicator;
 			height: 2.3em;
 			margin-right: 0.775em;
 		}
 
 		> .oo-ui-iconElement-icon {
 			top: 0;
-			width: @icon-size;
+			width: @size-icon;
 			height: 2.3em;
 			margin-left: 0.3em;
 		}
@@ -258,14 +258,14 @@
 
 	&.oo-ui-iconElement .oo-ui-selectFileWidget-info {
 		.oo-ui-selectFileWidget-label {
-			left: @icon-size + 0.6em;
+			left: @size-icon + 0.6em;
 		}
 	}
 
 	// With close, no indicator:
 	& .oo-ui-selectFileWidget-info {
 		.oo-ui-selectFileWidget-label {
-			right: @icon-size + 0.3em;
+			right: @size-icon + 0.3em;
 		}
 
 		.oo-ui-selectFileWidget-clearButton {
@@ -276,11 +276,11 @@
 	// With close, with indicator:
 	&.oo-ui-indicatorElement .oo-ui-selectFileWidget-info {
 		.oo-ui-selectFileWidget-label {
-			right: @indicator-size + 1.55em - 0.4em + @icon-size + 0.3em;
+			right: @size-indicator + 1.55em - 0.4em + @size-icon + 0.3em;
 		}
 
 		.oo-ui-selectFileWidget-clearButton {
-			right: @indicator-size + 1.55em - 0.4em;
+			right: @size-indicator + 1.55em - 0.4em;
 		}
 	}
 
@@ -449,11 +449,11 @@
 	&.oo-ui-iconElement {
 		input,
 		textarea {
-			padding-left: @icon-size + 0.6em;
+			padding-left: @size-icon + 0.6em;
 		}
 
 		.oo-ui-iconElement-icon {
-			width: @icon-size;
+			width: @size-icon;
 			max-height: 2.375em;
 			margin-left: 0.3em;
 		}
@@ -462,11 +462,11 @@
 	&.oo-ui-indicatorElement {
 		input,
 		textarea {
-			padding-right: @indicator-size + 1.55em;
+			padding-right: @size-indicator + 1.55em;
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			width: @indicator-size;
+			width: @size-indicator;
 			max-height: 2.375em;
 			margin-right: 0.775em;
 		}
@@ -480,13 +480,13 @@
 
 	&-labelPosition-after {
 		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
-			margin-right: @indicator-size + 1.55em - 0.4em;
+			margin-right: @size-indicator + 1.55em - 0.4em;
 		}
 	}
 
 	&-labelPosition-before {
 		&.oo-ui-iconElement > .oo-ui-labelElement-label {
-			margin-left: @icon-size + 0.6em - 0.4em;
+			margin-left: @size-icon + 0.6em - 0.4em;
 		}
 	}
 }
@@ -552,25 +552,25 @@
 	}
 
 	&.oo-ui-indicatorElement &-handle {
-		padding-right: @indicator-size + 2 * 0.775em;
+		padding-right: @size-indicator + 2 * 0.775em;
 
 		> .oo-ui-indicatorElement-indicator {
 			right: 0;
 			top: 0;
-			width: @indicator-size;
-			height: @indicator-size;
+			width: @size-indicator;
+			height: @size-indicator;
 			margin: 0.775em;
 		}
 	}
 
 	&.oo-ui-iconElement &-handle {
-		padding-left: @icon-size + 2 * 0.3em;
+		padding-left: @size-icon + 2 * 0.3em;
 
 		> .oo-ui-iconElement-icon {
 			left: 0;
 			top: 0;
-			width: @icon-size;
-			height: @icon-size;
+			width: @size-icon;
+			height: @size-icon;
 			margin: 0.3em;
 		}
 	}
@@ -669,12 +669,12 @@
 	}
 
 	&.oo-ui-iconElement .oo-ui-iconElement-icon {
-		width: @icon-size;
+		width: @size-icon;
 		left: 0.5em;
 	}
 
 	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		width: @indicator-size;
+		width: @size-indicator;
 		right: 0.5em;
 	}
 
@@ -691,7 +691,7 @@
 	background-color: transparent;
 
 	.oo-ui-buttonElement-button {
-		height: @icon-size;
+		height: @size-icon;
 	}
 
 	&.oo-ui-iconElement .oo-ui-iconElement-icon {
