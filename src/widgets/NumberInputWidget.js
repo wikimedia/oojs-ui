@@ -45,7 +45,8 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 	// Properties
 	this.input = new OO.ui.TextInputWidget( $.extend(
 		{
-			disabled: this.isDisabled()
+			disabled: this.isDisabled(),
+			type: 'number'
 		},
 		config.input
 	) );
