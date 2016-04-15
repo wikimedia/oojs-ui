@@ -940,13 +940,6 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( { type: 'search' } ),
-					{
-						label: 'TextInputWidget (type=search)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( { type: 'number' } ),
 					{
 						label: 'TextInputWidget (type=number)\u200E',
@@ -960,6 +953,34 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'TextInputWidget (readonly)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( { type: 'search' } ),
+					{
+						label: 'TextInputWidget (type=search)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SearchInputWidget(),
+					{
+						label: 'SearchInputWidget\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SearchInputWidget( { disabled: true } ),
+					{
+						label: 'SearchInputWidget (disabled)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SearchInputWidget( { disabled: true, value: 'test' } ),
+					{
+						label: 'SearchInputWidget (disabled, filled)\u200E',
 						align: 'top'
 					}
 				),

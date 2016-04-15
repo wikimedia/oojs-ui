@@ -61,7 +61,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		type: 'text',
 		labelPosition: 'after'
 	}, config );
+
 	if ( config.type === 'search' ) {
+		OO.ui.warnDeprecation( 'TextInputWidget: config.type=\'search\' is deprecated. Use the SearchInputWidget instead. See T148471 for details.' );
 		if ( config.icon === undefined ) {
 			config.icon = 'search';
 		}
