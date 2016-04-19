@@ -39,8 +39,9 @@ OO.ui.Demo = function OoUiDemo() {
 		new OO.ui.ButtonWidget( { label: 'JS' } ).setActive( true ),
 		new OO.ui.ButtonWidget( {
 			label: 'PHP',
-			href: 'widgets.php' +
-				'?theme=' + this.mode.theme +
+			href: 'demos.php' +
+				'?page=widgets' +
+				'&theme=' + this.mode.theme +
 				'&direction=' + this.mode.direction
 		} )
 	] );
