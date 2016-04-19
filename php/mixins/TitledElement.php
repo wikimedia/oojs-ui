@@ -32,8 +32,7 @@ class TitledElement extends ElementMixin {
 
 		// Initialization
 		$this->setTitle(
-			isset( $config['title'] ) ? $config['title'] :
-			( isset( $element::$title ) ? $element::$title : null )
+			isset( $config['title'] ) ? $config['title'] : null
 		);
 	}
 
