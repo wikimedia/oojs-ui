@@ -135,6 +135,11 @@ class TextInputWidget extends InputWidget {
 	protected function getInputElement( $config ) {
 		if ( isset( $config['multiline'] ) && $config['multiline'] ) {
 			return new Tag( 'textarea' );
+		} elseif ( $this->getSaneType( $config ) === 'number' ) {
+			return ( new Tag( 'input' ) )->setAttributes( [
+				'step' => 'any',
+				'type' => 'number',
+			] );
 		} else {
 			return ( new Tag( 'input' ) )->setAttributes( [ 'type' => $this->getSaneType( $config ) ] );
 		}

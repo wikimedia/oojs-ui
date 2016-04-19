@@ -468,9 +468,15 @@ OO.ui.TextInputWidget.prototype.adjustSize = function () {
  * @protected
  */
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
-	return config.multiline ?
-		$( '<textarea>' ) :
-		$( '<input>' ).attr( 'type', this.getSaneType( config ) );
+	if ( config.multiline ) {
+		return $( '<textarea>' );
+	} else if ( this.getSaneType( config ) === 'number' ) {
+		return $( '<input>' )
+			.attr( 'step', 'any' )
+			.attr( 'type', 'number' );
+	} else {
+		return $( '<input>' ).attr( 'type', this.getSaneType( config ) );
+	}
 };
 
 /**
