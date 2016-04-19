@@ -18,7 +18,7 @@ class IconElement extends ElementMixin {
 	 *
 	 * @var string
 	 */
-	protected $icon = null;
+	protected $iconName = null;
 
 	public static $targetPropertyName = 'icon';
 
@@ -45,15 +45,15 @@ class IconElement extends ElementMixin {
 	 * @return $this
 	 */
 	public function setIcon( $icon = null ) {
-		if ( $this->icon !== null ) {
-			$this->target->removeClasses( [ 'oo-ui-icon-' . $this->icon ] );
+		if ( $this->iconName !== null ) {
+			$this->target->removeClasses( [ 'oo-ui-icon-' . $this->iconName ] );
 		}
 		if ( $icon !== null ) {
 			$this->target->addClasses( [ 'oo-ui-icon-' . $icon ] );
 		}
 
-		$this->icon = $icon;
-		$this->element->toggleClasses( [ 'oo-ui-iconElement' ], (bool)$this->icon );
+		$this->iconName = $icon;
+		$this->element->toggleClasses( [ 'oo-ui-iconElement' ], (bool)$this->iconName );
 
 		return $this;
 	}
@@ -64,12 +64,12 @@ class IconElement extends ElementMixin {
 	 * @return string Icon name
 	 */
 	public function getIcon() {
-		return $this->icon;
+		return $this->iconName;
 	}
 
 	public function getConfig( &$config ) {
-		if ( $this->icon !== null ) {
-			$config['icon'] = $this->icon;
+		if ( $this->iconName !== null ) {
+			$config['icon'] = $this->iconName;
 		}
 		return parent::getConfig( $config );
 	}
