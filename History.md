@@ -1,5 +1,33 @@
 # OOjs UI Release History
 
+## v0.16.6 / 2016-04-19
+### Features
+* ButtonOptionWidget: Inherit OptionWidget, not DecoratedOptionWidget (Bartosz Dziewoński)
+* ClippableElement: Gracefully handle failure to call clip() after natural height change (Roan Kattouw)
+* NumberInputWidget: Disable onWheel action unless the widget has focus (Bartosz Dziewoński)
+* NumberInputWidget: Disable onWheel action when the widget is disabled (Prateek Saxena)
+* NumberInputWidget: Use input type="number" (Prateek Saxena)
+* TextInputWidget: Allow type="number" (Prateek Saxena)
+* TextInputWidget: Set step to 'any' if the type is set to 'number' (Prateek Saxena)
+* styles: Give icons, indicators `min-width/-height` for cross-browser support (Volker E)
+
+### Styles
+* Apex, MediaWiki themes: Properly center PopupButtonWidget anchors (Roan Kattouw)
+* MediaWiki theme: Use disabled color variable for disabled label (Volker E)
+* styles: Use transparent rather than white in icons (Bartosz Dziewoński)
+
+### Code
+* SelectFileWidget: Merge identical CSS rules (Volker E)
+* SelectFileWidget: Simplify CSS selector specificity (Volker E)
+* TextInputWidget: Clarify comment about affected browsers (Volker E)
+* TextInputWidget: Consolidate selectors with the same property rules (Volker E)
+* TextInputWidget: Stop claiming to fire non existent events in the documentation (Prateek Saxena)
+* styles: Centralise the width/height properties of icons and indicators (Volker E)
+* Apex theme: Change variable names to match MediaWiki theme (Bartosz Dziewoński)
+* README: Update with new build process (Matthew Flaschen)
+* typo: texfield -> textfield (Derk-Jan Hartman)
+
+
 ## v0.16.5 / 2016-04-07
 ### Styles
 * Prevent modal windows from exceeding available height on Firefox (Bartosz Dziewoński)
@@ -24,6 +52,7 @@
 * build: Update demos script to also run grunt publish-build (Paladox)
 * build: Use a version of grunt-svg2png without a rate-limited CDN (Paladox)
 
+
 ## v0.16.4 / 2016-03-22
 ### Features
 * NumberInputWidget: Optionally don't show the increment buttons (Thalia Chan)
@@ -41,6 +70,7 @@
 * demos: Restore constructive widgets (James D. Forrester)
 * rubocop: Re-run todos, upgrade to newer rule names (James D. Forrester)
 * rubocop: Review todos (Bartosz Dziewoński)
+
 
 ## v0.16.3 / 2016-03-16
 ### Features
@@ -68,6 +98,7 @@
 * testsuitegenerator: Change values tested for 'flags' config options (Bartosz Dziewoński)
 * testsuitegenerator: Test 'HtmlSnippet' type (mostly for labels) (Bartosz Dziewoński)
 
+
 ## v0.16.2 / 2016-03-08
 ### Deprecations
 * [DEPRECATING CHANGE] MediaWiki theme: Scrap `constructive` flag (Volker E)
@@ -91,6 +122,7 @@
 * Add Element::configFromHtmlAttributes() helper method (Bartosz Dziewoński)
 * Clean-up duplicate properties across widgets (Volker E)
 * docs: Clarify the lack of `.oo-ui-box-shadow()` mixin (Volker E)
+
 
 ## v0.16.1 / 2016-03-01
 ### Styles
