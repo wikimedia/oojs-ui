@@ -13,7 +13,7 @@ class LabelElement extends ElementMixin {
 	 *
 	 * @var string|HtmlSnippet|null
 	 */
-	protected $label = null;
+	protected $labelValue = null;
 
 	public static $targetPropertyName = 'label';
 
@@ -43,18 +43,20 @@ class LabelElement extends ElementMixin {
 	 * @return $this
 	 */
 	public function setLabel( $label ) {
-		$this->label = (string)$label ? $label : null;
+		$this->labelValue = (string)$label ? $label : null;
 
 		$this->target->clearContent();
-		if ( $this->label !== null ) {
-			if ( is_string( $this->label ) && $this->label !== '' && trim( $this->label ) === '' ) {
+		if ( $this->labelValue !== null ) {
+			if ( is_string( $this->labelValue ) && $this->labelValue !== ''
+				&& trim( $this->labelValue ) === ''
+			) {
 				$this->target->appendContent( new HtmlSnippet( '&nbsp;' ) );
 			} else {
 				$this->target->appendContent( $label );
 			}
 		}
 
-		$this->element->toggleClasses( [ 'oo-ui-labelElement' ], !!$this->label );
+		$this->element->toggleClasses( [ 'oo-ui-labelElement' ], !!$this->labelValue );
 
 		return $this;
 	}
@@ -65,12 +67,12 @@ class LabelElement extends ElementMixin {
 	 * @return string|HtmlSnippet|null Label text
 	 */
 	public function getLabel() {
-		return $this->label;
+		return $this->labelValue;
 	}
 
 	public function getConfig( &$config ) {
-		if ( $this->label !== null ) {
-			$config['label'] = $this->label;
+		if ( $this->labelValue !== null ) {
+			$config['label'] = $this->labelValue;
 		}
 		return parent::getConfig( $config );
 	}
