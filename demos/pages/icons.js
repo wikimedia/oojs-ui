@@ -153,6 +153,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'wikiText'
 			],
 			media: [
+				'fullScreen',
 				'image',
 				'imageAdd',
 				'imageLock',
