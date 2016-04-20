@@ -30,6 +30,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {boolean} [active=false] Whether button should be shown as active
  * @cfg {string} [href] Hyperlink to visit when the button is clicked.
  * @cfg {string} [target] The frame or window in which to open the hyperlink.
  * @cfg {boolean} [noFollow] Search engine traversal hint (default: true)
@@ -64,6 +65,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	this.$element
 		.addClass( 'oo-ui-buttonWidget' )
 		.append( this.$button );
+	this.setActive( config.active );
 	this.setHref( config.href );
 	this.setTarget( config.target );
 	this.setNoFollow( config.noFollow );
@@ -219,3 +221,11 @@ OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {
 
 	return this;
 };
+
+// Override method visibility hints from ButtonElement
+/**
+ * @method setActive
+ */
+/**
+ * @method isActive
+ */
