@@ -1854,7 +1854,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		} ),
 		new OO.ui.FormLayout( {
 			method: 'GET',
-			action: 'widgets.php',
+			action: 'demos.php',
 			items: [
 				new OO.ui.FieldsetLayout( {
 					label: 'Form layout (compounded example)',
