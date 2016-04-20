@@ -61,6 +61,7 @@ trait ButtonElement {
 		$this->framed = $framed !== null ? !!$framed : !$this->framed;
 		$this->toggleClasses( [ 'oo-ui-buttonElement-framed' ], $this->framed );
 		$this->toggleClasses( [ 'oo-ui-buttonElement-frameless' ], !$this->framed );
+		return $this;
 	}
 
 	/**
