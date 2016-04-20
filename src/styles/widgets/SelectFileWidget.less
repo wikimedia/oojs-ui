@@ -77,7 +77,6 @@
 	&-dropTarget {
 		cursor: default;
 		height: 5.5em;
-		text-align: left;
 		padding: 0;
 
 		.oo-ui-selectFileWidget-dropLabel,
@@ -130,7 +129,6 @@
 	}
 
 	&-empty .oo-ui-selectFileWidget-dropTarget {
-		text-align: center;
 
 		.oo-ui-selectFileWidget-dropLabel {
 			display: block;
@@ -158,6 +156,14 @@
 		}
 		.oo-ui-selectFileWidget-clearButton {
 			display: none;
+		}
+	}
+
+	&-empty.oo-ui-widget-disabled,
+	&-notsupported {
+		.oo-ui-selectFileWidget-dropTarget,
+		.oo-ui-selectFileWidget-dropTarget .oo-ui-buttonElement-button {
+			cursor: no-drop;
 		}
 	}
 
