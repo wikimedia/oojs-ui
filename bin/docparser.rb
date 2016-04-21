@@ -32,7 +32,6 @@ def parse_file filename
 	# ewwww
 	# some docblocks are missing and we really need them
 	text = text.sub(/(?<!\*\/\n)^(class|trait)/, "/**\n*/\n\\1")
-	# text = text.sub('public static $targetPropertyName', "/**\n*/\npublic static $targetPropertyName")
 
 	# find all documentation blocks, together with the following line (unless it contains another docblock)
 	docblocks = text.scan(/\/\*\*[\s\S]+?\*\/\n[ \t]*(?:(?=\/\*\*)|.*)/)
