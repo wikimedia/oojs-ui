@@ -273,6 +273,7 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 
 		menuTools: [
 			[ 'menuTool', 'image', 'Basic tool' ],
+			[ 'iconlessMenuTool', null, 'Tool without an icon' ],
 			[ 'disabledMenuTool', 'image', 'Basic tool disabled', setDisabled ]
 		],
 
