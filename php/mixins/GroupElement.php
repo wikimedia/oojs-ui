@@ -20,8 +20,6 @@ trait GroupElement {
 	 */
 	protected $group;
 
-	public static $targetPropertyName = 'group';
-
 	/**
 	 * @param array $config Configuration options
 	 */
