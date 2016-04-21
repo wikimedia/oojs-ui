@@ -187,14 +187,16 @@
 		}
 
 		> .oo-ui-selectFileWidget-label {
+			.oo-ui-box-sizing( border-box );
+			display: block;
 			line-height: 2.3em;
 			margin: 0;
 			overflow: hidden;
 			white-space: nowrap;
-			.oo-ui-box-sizing( border-box );
 			text-overflow: ellipsis;
-			left: 0.5em;
-			right: 0.5em;
+			left: 0;
+			right: 0;
+			padding-left: 0.5em;
 
 			> .oo-ui-selectFileWidget-fileType {
 				color: #888;
@@ -222,10 +224,11 @@
 
 	&.oo-ui-widget-disabled {
 		.oo-ui-selectFileWidget-info {
+			background-color: @background-color-disabled;
 			color: @color-disabled;
 			text-shadow: @text-shadow-disabled;
 			border-color: @border-color-disabled;
-			background-color: @background-color-disabled;
+			cursor: default;
 
 			> .oo-ui-iconElement-icon,
 			> .oo-ui-indicatorElement-indicator {
@@ -261,6 +264,7 @@
 	&.oo-ui-indicatorElement .oo-ui-selectFileWidget-info {
 		.oo-ui-selectFileWidget-label {
 			right: @size-indicator + 1.55em - 0.4em + @size-icon + 0.5em;
+			padding-left: 0;
 		}
 
 		.oo-ui-selectFileWidget-clearButton {
@@ -284,6 +288,7 @@
 		.oo-ui-selectFileWidget-info {
 			.oo-ui-selectFileWidget-label {
 				right: 2em;
+				padding-left: 0;
 			}
 		}
 	}
