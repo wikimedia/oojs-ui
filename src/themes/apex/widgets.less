@@ -717,6 +717,12 @@
 	font-size: 1.1em;
 	padding: 0.75em;
 
+	.oo-ui-iconElement-icon {
+		// Undoes the parent change, because the theme's icons expect to be
+		// 24px, and don't scale incredibly well.
+		font-size: 90.90909%;
+	}
+
 	&.oo-ui-indicatorElement .oo-ui-labelElement-label {
 		padding-right: 1.5em;
 	}
