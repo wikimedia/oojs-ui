@@ -1,5 +1,30 @@
 # OOjs UI Release History
 
+## v0.17.0 / 2016-04-26
+### Breaking changes
+* [BREAKING CHANGE] PHP: Use traits instead of custom mixin system (Kunal Mehta)
+* [BREAKING CHANGE] TitledElement.php: Remove $element::$title fallback (Kunal Mehta)
+
+### Styles
+* MenuToolGroup: Correct display of checkmarks (Bartosz Dziewoński)
+* OutlineOptionWidget: Correct the size of the icons (David Lynch)
+* OutlineOptionWidget: Don't apply italics to "placeholder" status (James D. Forrester)
+* SelectFileWidget: Fix UI glitches on over-long filenames (Volker E)
+* TabOptionWidget: Disabled OptionWidget should receive default cursor (Volker E)
+* styles: Add fullScreen icon to media group (Ed Sanders)
+
+### Code
+* ButtonElement.php: Fix toggleFramed() to actually be chainable (Bartosz Dziewoński)
+* GroupElement::$targetPropertyName: Remove, no longer needed (Kunal Mehta)
+* IconElement.php: Rename protected "icon" property (Kunal Mehta)
+* IndicatorElement.php: Rename protected "indicator" property (Kunal Mehta)
+* LabelElement.php: Rename protected "label" property (Kunal Mehta)
+* build: Update grunt-svg2png to v0.2.7-wmf.1 (Paladox)
+* demos: Split off demos.php from widgets.php (Bartosz Dziewoński)
+* docparser: Remove commented-out line of code (Bartosz Dziewoński)
+* styles: Factor out `max-width-input-default` variable (Volker E)
+
+
 ## v0.16.6 / 2016-04-19
 ### Features
 * ButtonOptionWidget: Inherit OptionWidget, not DecoratedOptionWidget (Bartosz Dziewoński)
