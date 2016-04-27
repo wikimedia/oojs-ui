@@ -538,16 +538,6 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						label: 'ButtonWidget (frameless, indicator)\u200E',
 						align: 'top'
 					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						label: 'AccessKeyed',
-						accessKey: 'k'
-					} ),
-					{
-						label: 'ButtonWidget (with accesskey k)\u200E',
-						align: 'top'
-					}
 				)
 			]
 		} ),
@@ -996,16 +986,6 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( {
-						value: 'Accesskey A',
-						accessKey: 'a'
-					} ),
-					{
-						label: 'TextInputWidget (with Accesskey)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {} ),
 					{
 						label: 'SelectFileWidget\u200E',
@@ -1429,6 +1409,76 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					{
 						align: 'top',
 						label: 'ButtonInputWidget (frameless, using <input/>)\u200E'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						label: 'Accesskey: I',
+						accessKey: 'i'
+					} ),
+					{
+						label: 'ButtonWidget (with accesskey)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonSelectWidget( {
+						items: [
+							new OO.ui.ButtonOptionWidget( {
+								data: 'a',
+								label: 'Accesskey: J',
+								accessKey: 'j'
+							} ),
+							new OO.ui.ButtonOptionWidget( {
+								data: 'b',
+								label: 'Accesskey: K',
+								accessKey: 'k'
+							} ),
+							new OO.ui.ButtonOptionWidget( {
+								data: 'c',
+								label: 'Accesskey: L',
+								accessKey: 'l'
+							} )
+						]
+					} ),
+					{
+						label: 'ButtonSelectWidget (with accesskeys)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.RadioSelectWidget( {
+						items: [
+							new OO.ui.RadioOptionWidget( {
+								data: 'a',
+								label: 'Accesskey: M',
+								accessKey: 'm'
+							} ),
+							new OO.ui.RadioOptionWidget( {
+								data: 'b',
+								label: 'Accesskey: N',
+								accessKey: 'n'
+							} ),
+							new OO.ui.RadioOptionWidget( {
+								data: 'c',
+								label: 'Accesskey: O',
+								accessKey: 'o'
+							} )
+						]
+					} ),
+					{
+						align: 'top',
+						label: 'RadioSelectWidget (with accesskeys)\u200E'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						value: 'Accesskey: P',
+						accessKey: 'p'
+					} ),
+					{
+						label: 'TextInputWidget (with accesskey)\u200E',
+						align: 'top'
 					}
 				)
 			]

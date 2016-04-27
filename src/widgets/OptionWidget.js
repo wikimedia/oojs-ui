@@ -10,6 +10,7 @@
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.LabelElement
  * @mixins OO.ui.mixin.FlaggedElement
+ * @mixins OO.ui.mixin.AccessKeyedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -25,6 +26,7 @@ OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 	OO.ui.mixin.ItemWidget.call( this );
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
+	OO.ui.mixin.AccessKeyedElement.call( this, config );
 
 	// Properties
 	this.selected = false;
@@ -34,6 +36,8 @@ OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 	// Initialization
 	this.$element
 		.data( 'oo-ui-optionWidget', this )
+		// Allow programmatic focussing (and by accesskey), but not tabbing
+		.attr( 'tabindex', '-1' )
 		.attr( 'role', 'option' )
 		.attr( 'aria-selected', 'false' )
 		.addClass( 'oo-ui-optionWidget' )
@@ -46,6 +50,7 @@ OO.inheritClass( OO.ui.OptionWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.ItemWidget );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.FlaggedElement );
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.AccessKeyedElement );
 
 /* Static Properties */
 
