@@ -1097,6 +1097,18 @@
 
 	.oo-ui-inline-spacing( 0.5em );
 
+	&:focus {
+		outline: 0;
+
+		.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
+			.oo-ui-buttonElement-button {
+				border-color: @color-progressive-focus;
+				box-shadow: inset 0 0 0 1px @color-progressive-focus;
+				z-index: 2;
+			}
+		}
+	}
+
 	.oo-ui-buttonOptionWidget {
 		.oo-ui-buttonElement-button {
 			border-radius: 0;
@@ -1116,7 +1128,17 @@
 	}
 }
 
-.theme-oo-ui-radioSelectWidget () {}
+.theme-oo-ui-radioSelectWidget () {
+	&:focus {
+		outline: 0;
+
+		.oo-ui-radioOptionWidget.oo-ui-optionWidget-selected {
+			.oo-ui-radioInputWidget [type="radio"] + span {
+				border-width: @border-width-input-binary-focus;
+			}
+		}
+	}
+}
 
 .theme-oo-ui-menuSelectWidget () {
 	background-color: @background-color-default;

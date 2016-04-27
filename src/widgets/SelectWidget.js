@@ -67,6 +67,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 		toggle: 'onToggle'
 	} );
 	this.$element.on( {
+		focus: this.onFocus.bind( this ),
 		mousedown: this.onMouseDown.bind( this ),
 		mouseover: this.onMouseOver.bind( this ),
 		mouseleave: this.onMouseLeave.bind( this )
@@ -146,6 +147,19 @@ OO.ui.SelectWidget.static.passAllFilter = function () {
  */
 
 /* Methods */
+
+/**
+ * Handle focus events
+ *
+ * @private
+ * @param {jQuery.Event} event
+ */
+OO.ui.SelectWidget.prototype.onFocus = function () {
+	// The styles for focus state depend on one of the items being selected.
+	if ( !this.getSelectedItem() ) {
+		this.selectItem( this.getFirstSelectableItem() );
+	}
+};
 
 /**
  * Handle mouse down events.
