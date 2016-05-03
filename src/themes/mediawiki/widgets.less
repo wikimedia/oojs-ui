@@ -780,14 +780,14 @@
 	max-width: 100%;
 	.oo-ui-box-sizing( border-box );
 	vertical-align: middle;
-	padding: 0 0.4em;
-	margin: 0.1em;
 	height: 1.7em;
 	line-height: 1.7em;
 	background-color: #eee;
-	border: @border-default;
 	color: @color-default;
+	margin: 0.1em;
+	border: @border-default;
 	border-radius: @border-radius-default;
+	padding: 0 0.4em;
 
 	&:focus {
 		outline: 0;
@@ -795,15 +795,40 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		color: @color-disabled;
-		text-shadow: @text-shadow-disabled;
-		border-color: @border-color-disabled;
 		background-color: @background-color-disabled;
+		color: @color-disabled;
+		border-color: @border-color-disabled;
+		text-shadow: @text-shadow-disabled;
 	}
 
-	> .oo-ui-buttonElement {
-		margin-top: -1.4em;
-		padding-left: 0.3em;
+	// Clear button
+	& > .oo-ui-buttonElement {
+		display: none;
+	}
+
+	&.oo-ui-widget-enabled {
+		padding-right: @size-indicator + 0.6em;
+
+		> .oo-ui-buttonElement {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
+		& .oo-ui-buttonElement-button {
+			display: block;
+			width: @size-indicator + 0.6em; // Padding on each side of the indicator
+			height: 100%; // Firefox height calculation fix
+
+			& .oo-ui-indicator-clear {
+				position: absolute;
+				top: 0;
+				right: 0.3em;
+				bottom: 0;
+				height: auto;
+			}
+		}
 	}
 }
 
