@@ -1,5 +1,16 @@
 # OOjs UI Release History
 
+## v0.17.1 / 2016-05-03
+### Styles
+* CapsuleMultiSelectWidget: Fix cross-browser inconsistencies and improve UX (Volker E)
+* SelectFileWidget: Add `no-drop` cursor where it belongs (Volker E)
+* MediaWiki theme: Align focus state of capsuleItemWidget with other widgets (Volker E)
+* MediaWiki theme: Custom `:focus` state for SelectWidgets (Bartosz Dziewoński)
+* MediaWiki theme: Standardize `:focus` states of ButtonWidgets (Volker E)
+
+### Code
+* DraggableGroupElement: Simplify and improve drag logic (Ed Sanders)
+
 ## v0.17.0 / 2016-04-26
 ### Breaking changes
 * [BREAKING CHANGE] PHP: Use traits instead of custom mixin system (Kunal Mehta)
