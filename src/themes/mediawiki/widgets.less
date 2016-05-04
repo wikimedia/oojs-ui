@@ -587,23 +587,21 @@
 				border @transition-ease-out-sine-medium,
 				box-shadow @transition-ease-out-sine-medium
 			);
-		}
-
-		input:focus,
-		textarea:focus {
-			outline: 0;
-			border-color: @color-progressive;
-			box-shadow: @box-shadow-focus-default;
-		}
-
-		input[readonly],
-		textarea[readonly] {
-			color: #777;
-			text-shadow: @text-shadow-default;
 
 			&:focus {
-				border-color: #ccc;
-				box-shadow: inset 0 0 0 0.1em #ccc;
+				outline: 0;
+				border-color: @color-progressive;
+				box-shadow: @box-shadow-focus-default;
+			}
+
+			&[readonly] {
+				color: #777;
+				text-shadow: @text-shadow-default;
+
+				&:focus {
+					border-color: #ccc;
+					box-shadow: inset 0 0 0 0.1em #ccc;
+				}
 			}
 		}
 
