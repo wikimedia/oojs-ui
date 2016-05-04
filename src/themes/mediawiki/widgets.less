@@ -582,7 +582,7 @@
 	&.oo-ui-widget-enabled {
 		input,
 		textarea {
-			box-shadow: inset 0 0 0 0.1em @background-color-default;
+			box-shadow: inset 0 0 0 0.1em @background-color-default; // necessary for smooth transition
 			.oo-ui-transition(
 				border @transition-ease-out-sine-medium,
 				box-shadow @transition-ease-out-sine-medium
@@ -593,7 +593,7 @@
 		textarea:focus {
 			outline: 0;
 			border-color: @color-progressive;
-			box-shadow: inset 0 0 0 0.1em @color-progressive;
+			box-shadow: @box-shadow-focus-default;
 		}
 
 		input[readonly],
@@ -1134,7 +1134,7 @@
 		.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
 			.oo-ui-buttonElement-button {
 				border-color: @color-progressive-focus;
-				box-shadow: inset 0 0 0 1px @color-progressive-focus;
+				box-shadow: @box-shadow-focus-default;
 				z-index: 2;
 			}
 		}
@@ -1288,6 +1288,7 @@
 		}
 		&:focus {
 			border-color: @color-progressive;
+			box-shadow: @box-shadow-focus-default;
 			outline: 0;
 
 			&.oo-ui-toggleWidget-on {

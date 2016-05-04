@@ -24,10 +24,6 @@
 
 	&-frameless {
 		> .oo-ui-buttonElement-button {
-			&:focus {
-				box-shadow: inset 0 0 0 1px @color-progressive-focus, 0 0 0 1px @color-progressive-focus;
-			}
-
 			.oo-ui-indicatorElement-indicator {
 				margin-right: 0;
 			}
@@ -50,6 +46,12 @@
 		}
 
 		&.oo-ui-widget-enabled {
+			> .oo-ui-buttonElement-button {
+				&:focus {
+					box-shadow: @box-shadow-focus-default, 0 0 0 1px @color-progressive-focus;
+				}
+			}
+
 			> input.oo-ui-buttonElement-button,
 			> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 				color: @color-default;
@@ -78,10 +80,6 @@
 
 		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
 			color: @color-disabled;
-
-			&:focus {
-				box-shadow: none;
-			}
 
 			> .oo-ui-iconElement-icon,
 			> .oo-ui-indicatorElement-indicator {
@@ -164,7 +162,7 @@
 
 				&:focus {
 					border-color: @color-progressive-focus;
-					box-shadow: inset 0 0 0 1px @color-progressive-focus;
+					box-shadow: @box-shadow-focus-default;
 				}
 			}
 
