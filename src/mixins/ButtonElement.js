@@ -225,10 +225,13 @@ OO.ui.mixin.ButtonElement.prototype.toggleFramed = function ( framed ) {
 /**
  * Set the button's active state.
  *
- * The active state occurs when a {@link OO.ui.ButtonOptionWidget ButtonOptionWidget} or
- * a {@link OO.ui.ToggleButtonWidget ToggleButtonWidget} is pressed. This method does nothing
- * for other button types.
+ * The active state can be set on:
  *
+ *  - {@link OO.ui.ButtonOptionWidget ButtonOptionWidget} when it is selected
+ *  - {@link OO.ui.ToggleButtonWidget ToggleButtonWidget} when it is toggle on
+ *  - {@link OO.ui.ButtonWidget ButtonWidget} when clicking the button would only refresh the page
+ *
+ * @protected
  * @param {boolean} value Make button active
  * @chainable
  */
@@ -241,6 +244,7 @@ OO.ui.mixin.ButtonElement.prototype.setActive = function ( value ) {
 /**
  * Check if the button is active
  *
+ * @protected
  * @return {boolean} The button is active
  */
 OO.ui.mixin.ButtonElement.prototype.isActive = function () {
