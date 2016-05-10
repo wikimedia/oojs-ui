@@ -1,5 +1,18 @@
 # OOjs UI Release History
 
+## v0.17.2 / 2016-05-10
+### Features
+* ButtonWidget: Implement, document and demonstrate the 'active' config option (Bartosz Dziewoński)
+
+### Styles
+* ToggleSwitchWidget: Align focus state with other widgets (Volker E)
+* MediaWiki theme: Remove `border-radius` from disabled numberInputWidget buttons (Volker E)
+
+### Code
+* TextInputWidget: Remove proprietary `<input results>` attribute styles (Volker E)
+* MediaWiki theme: Align `input` & `textarea` coding style to Less way (Volker E)
+
+
 ## v0.17.1 / 2016-05-03
 ### Styles
 * CapsuleMultiSelectWidget: Fix cross-browser inconsistencies and improve UX (Volker E)
@@ -10,6 +23,7 @@
 
 ### Code
 * DraggableGroupElement: Simplify and improve drag logic (Ed Sanders)
+
 
 ## v0.17.0 / 2016-04-26
 ### Breaking changes
