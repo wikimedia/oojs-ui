@@ -131,10 +131,6 @@
 
 	&-empty .oo-ui-selectFileWidget-dropTarget {
 
-		.oo-ui-selectFileWidget-dropLabel {
-			display: block;
-		}
-
 		.oo-ui-selectFileWidget-thumbnail,
 		.oo-ui-selectFileWidget-info {
 			display: none;
@@ -157,6 +153,12 @@
 		}
 		.oo-ui-selectFileWidget-clearButton {
 			display: none;
+		}
+	}
+
+	&-empty.oo-ui-widget-enabled {
+		.oo-ui-selectFileWidget-dropLabel {
+			display: block;
 		}
 	}
 
