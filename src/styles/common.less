@@ -12,7 +12,7 @@
 // Mixins
 
 .oo-ui-background-image( @url ) {
-	background-image: e( '/* @embed */' ) url(~'@{url}');
+	background-image: e( '/* @embed */' ) url( ~'@{url}' ); // stylelint-disable-line function-url-quotes
 }
 
 .oo-ui-background-image-svg2( @svg, @fallback ) when ( @oo-ui-distribution = mixed ) {
@@ -39,14 +39,14 @@
 }
 
 .oo-ui-animation( @value1, @value2: X, ... ) {
-	@value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+	@value: ~`"@{arguments}".replace( /[\[\]]|\,\sX/g, '' )`; // stylelint-disable-line function-comma-space-after, function-whitespace-after
 	-webkit-animation: @value;
 	-moz-animation: @value;
 	animation: @value;
 }
 
 .oo-ui-transition( @value1, @value2: X, ... ) {
-	@value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+	@value: ~`"@{arguments}".replace( /[\[\]]|\,\sX/g, '' )`; // stylelint-disable-line function-comma-space-after, function-whitespace-after
 	-webkit-transition: @value;
 	-moz-transition: @value;
 	transition: @value;
@@ -73,9 +73,9 @@
 .oo-ui-vertical-gradient( @start: #eee, @stop: #fff ) {
 	background-color: average( @start, @stop );
 	background-image: -webkit-gradient( linear, right top, right bottom, color-stop( 0, @start ), color-stop( 100%, @stop ) );
-	background-image: -webkit-linear-gradient(       top, @start 0, @stop 100% );
-	background-image:    -moz-linear-gradient(       top, @start 0, @stop 100% );
-	background-image:         linear-gradient( to bottom, @start 0, @stop 100% );
+	background-image: -webkit-linear-gradient( top, @start 0, @stop 100% );
+	background-image: -moz-linear-gradient( top, @start 0, @stop 100% );
+	background-image: linear-gradient( to bottom, @start 0, @stop 100% );
 	// Maximize tolerance of color values input.
 	// Also expand shorthands like `#abc` to `#ffaabbcc`, as IE's proprietary gradient filter doesn't
 	// accept them.
