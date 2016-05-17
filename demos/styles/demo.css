@@ -97,7 +97,7 @@ body {
 }
 
 /* Console */
-
+/* stylelint-disable selector-pseudo-element-colon-notation */
 .oo-ui-demo-console {
 	clear: both;
 	position: relative;
@@ -241,3 +241,4 @@ body {
 	background: #eee;
 	color: #333;
 }
+/* stylelint-enable selector-pseudo-element-colon-notation */

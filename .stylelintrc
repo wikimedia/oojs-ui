@@ -42,6 +42,17 @@
 		"function-url-quotes": [ "none" ],
 		"function-whitespace-after": [ "always" ],
 
+		"selector-combinator-space-after": [ "always" ],
+		"selector-combinator-space-before": [ "always" ],
+		"selector-no-vendor-prefix": true,
+		"selector-root-no-composition": true,
+		"selector-pseudo-element-colon-notation": [ "single" ],
+
+		"selector-list-comma-newline-after": [ "always" ],
+		"selector-list-comma-newline-before": [ "never-multi-line" ],
+		"selector-list-comma-space-after": [ "always-single-line" ],
+		"selector-list-comma-space-before": [ "never" ],
+
 		"string-no-newline": true,
 
 		"value-list-comma-newline-after": [ "never-multi-line" ],

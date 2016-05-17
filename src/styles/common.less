@@ -15,23 +15,23 @@
 	background-image: e( '/* @embed */' ) url( ~'@{url}' ); // stylelint-disable-line function-url-quotes
 }
 
-.oo-ui-background-image-svg2( @svg, @fallback ) when ( @oo-ui-distribution = mixed ) {
+.oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @oo-ui-distribution = mixed ) {
 	background-image: url( @fallback );
 	background-image: -webkit-linear-gradient( transparent, transparent ), e( '/* @embed */' ) url( @svg );
 	background-image: linear-gradient( transparent, transparent ), e( '/* @embed */' ) url( @svg );
 	background-image: -o-linear-gradient( transparent, transparent ), url( @fallback );
 }
-.oo-ui-background-image-svg2( @svg, @fallback ) when ( @oo-ui-distribution = vector ) {
+.oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @oo-ui-distribution = vector ) {
 	.oo-ui-background-image( @svg );
 }
-.oo-ui-background-image-svg2( @svg, @fallback ) when ( @oo-ui-distribution = raster ) {
+.oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @oo-ui-distribution = raster ) {
 	.oo-ui-background-image( @fallback );
 }
 
 .oo-ui-background-image-svg( @url-without-extension ) {
 	@svg: '@{url-without-extension}.svg';
 	@fallback: '@{url-without-extension}.@{oo-ui-default-image-ext}';
-	.oo-ui-background-image-svg2( @svg, @fallback );
+	.oo-ui-background-image-svg-internal( @svg, @fallback );
 }
 
 .oo-ui-force-webkit-gpu() {

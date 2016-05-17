@@ -181,7 +181,7 @@ module.exports = function ( grunt ) {
 		function getDeclarations( primary ) {
 			// If 'primary' is not a SVG file, 'fallback' and 'primary' are intentionally the same
 			var fallback = primary.replace( /\.svg$/, '.png' );
-			return '.oo-ui-background-image-svg2(' +
+			return '.oo-ui-background-image-svg-internal(' +
 				'\'' + ( cssPrependPath || '' ) + primary + '\', ' +
 				'\'' + ( cssPrependPath || '' ) + fallback + '\'' +
 				')';
