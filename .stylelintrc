@@ -5,11 +5,26 @@
 		"color-named": [ "never" ],
 		"color-no-invalid-hex": true,
 
+		"block-closing-brace-newline-after": [ "always" ],
+		"block-closing-brace-newline-before": [ "always-multi-line" ],
+		"block-closing-brace-space-before": [ "always-single-line" ],
+		"block-opening-brace-newline-after": [ "always-multi-line" ],
+		"block-opening-brace-space-after": [ "always-single-line" ],
+		"block-opening-brace-space-before": [ "always" ],
+
 		"declaration-bang-space-after": [ "never" ],
 		"declaration-bang-space-before": [ "always" ],
 
 		"declaration-block-no-duplicate-properties": [ true, { ignore: [ "consecutive-duplicates" ] } ],
 		"declaration-block-no-shorthand-property-overrides": true,
+
+		"declaration-block-semicolon-newline-after": [ "always" ],
+		"declaration-block-semicolon-newline-before": [ "never-multi-line" ],
+		"declaration-block-semicolon-space-after": [ "always-single-line" ],
+		"declaration-block-semicolon-space-before": [ "never" ],
+
+		"declaration-block-single-line-max-declarations": 1,
+		"declaration-block-trailing-semicolon": [ "always" ],
 
 		"declaration-colon-space-after": [ "always" ],
 		"declaration-colon-space-before": [ "never" ],
