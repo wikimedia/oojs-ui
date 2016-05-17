@@ -26,7 +26,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
-	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
@@ -40,6 +39,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-jscs' );
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-karma' );
+	grunt.loadNpmTasks( 'grunt-stylelint' );
 	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadNpmTasks( 'grunt-tyops' );
 	grunt.loadTasks( 'build/tasks' );
@@ -360,12 +360,13 @@ module.exports = function ( grunt ) {
 		},
 
 		// Lint – Styling
-		csslint: {
+		stylelint: {
 			options: {
-				csslintrc: '.csslintrc'
+				syntax: 'less'
 			},
-			all: [
+			src: [
 				'{demos,src}/**/*.css',
+				'{demos,src}/**/*.less',
 				'!demos/dist/**'
 			]
 		},
@@ -434,10 +435,10 @@ module.exports = function ( grunt ) {
 		watch: {
 			files: [
 				'<%= jshint.dev %>',
-				'<%= csslint.all %>',
+				'<%= stylelint.all %>',
 				'src/**/*.less',
 				'php/**/*.php',
-				'.{csslintrc,jscsrc,jshintignore,jshintrc}'
+				'.{stylelintrc,jscsrc,jshintignore,jshintrc}'
 			],
 			tasks: 'quick-build'
 		}
@@ -516,7 +517,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'minify', [ 'uglify', 'image', 'cssmin' ] );
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
-	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'jshint', 'jscs',  'stylelint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'lint', 'git-build', 'build-tests', 'karma:main', 'karma:other' ] );
 	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
 

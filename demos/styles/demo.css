@@ -184,7 +184,7 @@ body {
 }
 
 .oo-ui-demo-console-log-line-error {
-	color: red;
+	color: #f00;
 }
 
 .oo-ui-demo-console-label {
@@ -209,7 +209,7 @@ body {
 	width: 20px;
 	text-align: center;
 	content: '→';
-	color: blue;
+	color: #00f;
 }
 
 .oo-ui-demo-console-input {
