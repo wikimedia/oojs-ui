@@ -26,7 +26,7 @@ body {
 	box-sizing: border-box;
 }
 
-@media (max-width: 750px) {
+@media ( max-width: 750px ) {
 	.oo-ui-demo-menu {
 		margin-bottom: 1em;
 	}
@@ -35,7 +35,7 @@ body {
 	}
 }
 
-@media (min-width: 751px) {
+@media ( min-width: 751px ) {
 	.oo-ui-demo-menu {
 		margin-bottom: 2em;
 	}
