@@ -642,8 +642,8 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'capsule', {
-				label: 'CapsuleMultiSelectWidget',
-				content: [ $spacer.clone(), new OO.ui.CapsuleMultiSelectWidget( {
+				label: 'CapsuleMultiselectWidget',
+				content: [ $spacer.clone(), new OO.ui.CapsuleMultiselectWidget( {
 					$overlay: this.$overlay,
 					menu: {
 						items: this.makeItems()
@@ -651,9 +651,9 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'capsule2', {
-				label: 'CapsuleMultiSelectWidget',
+				label: 'CapsuleMultiselectWidget',
 				icon: 'alert',
-				content: [ $spacer.clone(), new OO.ui.CapsuleMultiSelectWidget( {
+				content: [ $spacer.clone(), new OO.ui.CapsuleMultiselectWidget( {
 					menu: {
 						items: this.makeItems()
 					}

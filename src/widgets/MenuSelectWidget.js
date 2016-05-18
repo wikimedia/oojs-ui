@@ -29,7 +29,7 @@
  *  the text the user types. This config is used by {@link OO.ui.ComboBoxInputWidget ComboBoxInputWidget}
  *  and {@link OO.ui.mixin.LookupElement LookupElement}
  * @cfg {jQuery} [$input] Text input used to implement option highlighting for menu items that match
- *  the text the user types. This config is used by {@link OO.ui.CapsuleMultiSelectWidget CapsuleMultiSelectWidget}
+ *  the text the user types. This config is used by {@link OO.ui.CapsuleMultiselectWidget CapsuleMultiselectWidget}
  * @cfg {OO.ui.Widget} [widget] Widget associated with the menu's active state. If the user clicks the mouse
  *  anywhere on the page outside of this widget, the menu is hidden. For example, if there is a button
  *  that toggles the menu's visibility on click, the menu will be hidden then re-shown when the user clicks

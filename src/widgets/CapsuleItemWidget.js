@@ -1,6 +1,6 @@
 /**
- * CapsuleItemWidgets are used within a {@link OO.ui.CapsuleMultiSelectWidget
- * CapsuleMultiSelectWidget} to display the selected items.
+ * CapsuleItemWidgets are used within a {@link OO.ui.CapsuleMultiselectWidget
+ * CapsuleMultiselectWidget} to display the selected items.
  *
  * @class
  * @extends OO.ui.Widget

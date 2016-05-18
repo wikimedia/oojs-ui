@@ -106,7 +106,7 @@
 			"src/widgets/TabSelectWidget.js",
 
 			"src/widgets/CapsuleItemWidget.js",
-			"src/widgets/CapsuleMultiSelectWidget.js",
+			"src/widgets/CapsuleMultiselectWidget.js",
 
 			"src/widgets/SelectFileWidget.js",
 			"src/widgets/ProgressBarWidget.js",
