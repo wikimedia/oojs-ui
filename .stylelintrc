@@ -1,5 +1,8 @@
 {
 	"rules": {
+		"at-rule-name-case": "lower",
+		"at-rule-name-space-after": "always-single-line",
+
 		"color-hex-case": [ "lower" ],
 		"color-hex-length": [ "short" ],
 		"color-named": [ "never" ],
