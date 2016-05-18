@@ -506,10 +506,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.onFocusForPopup = function () {
 	if ( !this.isDisabled() ) {
 		this.popup.setSize( this.$handle.width() );
 		this.popup.toggle( true );
-		this.popup.$element.find( '*' )
-			.filter( function () { return OO.ui.isFocusableElement( $( this ), true ); } )
-			.first()
-			.focus();
+		OO.ui.findFocusable( this.popup.$element ).focus();
 	}
 };
 
@@ -737,10 +734,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.focus = function () {
 		if ( this.popup ) {
 			this.popup.setSize( this.$handle.width() );
 			this.popup.toggle( true );
-			this.popup.$element.find( '*' )
-				.filter( function () { return OO.ui.isFocusableElement( $( this ), true ); } )
-				.first()
-				.focus();
+			OO.ui.findFocusable( this.popup.$element ).focus();
 		} else {
 			this.updateInputSize();
 			this.menu.toggle( true );
