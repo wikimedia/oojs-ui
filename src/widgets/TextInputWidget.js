@@ -488,16 +488,15 @@ OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
  */
 OO.ui.TextInputWidget.prototype.getSaneType = function ( config ) {
 	var allowedTypes = [
-			'text',
-			'password',
-			'search',
-			'email',
-			'url',
-			'date',
-			'number'
-		],
-		type = allowedTypes.indexOf( config.type ) !== -1 ? config.type : 'text';
-	return config.multiline ? 'multiline' : type;
+		'text',
+		'password',
+		'search',
+		'email',
+		'url',
+		'date',
+		'number'
+	];
+	return allowedTypes.indexOf( config.type ) !== -1 ? config.type : 'text';
 };
 
 /**
