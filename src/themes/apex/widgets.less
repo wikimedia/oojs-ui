@@ -325,6 +325,12 @@
 
 .theme-oo-ui-checkboxInputWidget () {}
 
+.theme-oo-ui-checkboxMultiselectInputWidget () {
+	.oo-ui-fieldLayout {
+		margin-bottom: 0;
+	}
+}
+
 .theme-oo-ui-dropdownInputWidget () {
 	width: 100%;
 	max-width: @max-width-input-default;
@@ -1065,5 +1071,31 @@
 	}
 	@keyframes oo-ui-progressBarWidget-slide {
 		.oo-ui-progressBarWidget-slide-frames;
+	}
+}
+
+.theme-oo-ui-multiselectWidget () {}
+
+.theme-oo-ui-multioptionWidget () {
+	.oo-ui-labelElement-label {
+		line-height: 1.5em;
+	}
+
+	&.oo-ui-widget-disabled {
+		color: #ccc;
+	}
+}
+
+.theme-oo-ui-checkboxMultiselectWidget () {}
+
+.theme-oo-ui-checkboxMultioptionWidget () {
+	padding: 0;
+
+	&.oo-ui-labelElement .oo-ui-labelElement-label {
+		padding-left: 0.5em;
+	}
+
+	.oo-ui-checkboxInputWidget {
+		margin-right: 0;
 	}
 }

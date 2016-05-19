@@ -56,6 +56,11 @@
 			# RadioSelectInputWidget
 			"src/widgets/RadioOptionWidget.js",
 			"src/widgets/RadioSelectWidget.js",
+			# CheckboxMultiselectInputWidget
+			"src/widgets/MultioptionWidget.js",
+			"src/widgets/MultiselectWidget.js",
+			"src/widgets/CheckboxMultioptionWidget.js",
+			"src/widgets/CheckboxMultiselectWidget.js",
 			# ComboBoxInputWidget
 			"src/mixins/FloatableElement.js",
 			"src/widgets/FloatingMenuSelectWidget.js",
@@ -67,6 +72,7 @@
 			"src/widgets/DropdownInputWidget.js",
 			"src/widgets/RadioInputWidget.js",
 			"src/widgets/RadioSelectInputWidget.js",
+			"src/widgets/CheckboxMultiselectInputWidget.js",
 			"src/widgets/TextInputWidget.js",
 			"src/widgets/ComboBoxInputWidget.js",
 			"src/layouts/FieldLayout.js",

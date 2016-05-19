@@ -32,6 +32,8 @@ Style/NegatedIf:
   Enabled: false
 Style/Tab:
   Enabled: false
+Style/AlignArray:
+  Enabled: false
 Style/IndentArray:
   Enabled: false
 Style/IndentHash:

@@ -727,6 +727,29 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.CheckboxMultiselectWidget( {
+						items: [
+							new OO.ui.CheckboxMultioptionWidget( {
+								data: 'cat',
+								label: 'Cat'
+							} ),
+							new OO.ui.CheckboxMultioptionWidget( {
+								data: 'dog',
+								label: 'Dog'
+							} ),
+							new OO.ui.CheckboxMultioptionWidget( {
+								data: 'goldfish',
+								label: 'Goldfish',
+								disabled: true
+							} )
+						]
+					} ),
+					{
+						align: 'top',
+						label: 'CheckboxMultiselectWidget'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.RadioSelectInputWidget( {
 						value: 'dog',
 						options: [
@@ -747,6 +770,29 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					{
 						align: 'top',
 						label: 'RadioSelectInputWidget'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.CheckboxMultiselectInputWidget( {
+						value: [ 'dog', 'cat' ],
+						options: [
+							{
+								data: 'cat',
+								label: 'Cat'
+							},
+							{
+								data: 'dog',
+								label: 'Dog'
+							},
+							{
+								data: 'goldfish',
+								label: 'Goldfish'
+							}
+						]
+					} ),
+					{
+						align: 'top',
+						label: 'CheckboxMultiselectInputWidget'
 					}
 				),
 				new OO.ui.FieldLayout(
