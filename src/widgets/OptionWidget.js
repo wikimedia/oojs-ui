@@ -8,6 +8,7 @@
  *
  * @class
  * @extends OO.ui.Widget
+ * @mixins OO.ui.mixin.ItemWidget
  * @mixins OO.ui.mixin.LabelElement
  * @mixins OO.ui.mixin.FlaggedElement
  *

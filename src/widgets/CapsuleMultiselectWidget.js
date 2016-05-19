@@ -40,8 +40,11 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.TabIndexedElement
  * @mixins OO.ui.mixin.GroupElement
+ * @mixins OO.ui.mixin.PopupElement
+ * @mixins OO.ui.mixin.TabIndexedElement
+ * @mixins OO.ui.mixin.IndicatorElement
+ * @mixins OO.ui.mixin.IconElement
  * @uses OO.ui.CapsuleItemWidget
  * @uses OO.ui.FloatingMenuSelectWidget
  *
