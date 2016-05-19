@@ -220,7 +220,9 @@ OO.ui.CapsuleMultiselectWidget.prototype.createItemWidget = function ( data, lab
  * @return {Mixed[]}
  */
 OO.ui.CapsuleMultiselectWidget.prototype.getItemsData = function () {
-	return $.map( this.getItems(), function ( e ) { return e.data; } );
+	return this.getItems().map( function ( item ) {
+		return item.data;
+	} );
 };
 
 /**
