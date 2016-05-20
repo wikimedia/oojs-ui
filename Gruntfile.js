@@ -364,7 +364,7 @@ module.exports = function ( grunt ) {
 			options: {
 				syntax: 'less'
 			},
-			src: [
+			dev: [
 				'{demos,src}/**/*.css',
 				'{demos,src}/**/*.less',
 				'!demos/dist/**'
@@ -435,7 +435,7 @@ module.exports = function ( grunt ) {
 		watch: {
 			files: [
 				'<%= jshint.dev %>',
-				'<%= stylelint.all %>',
+				'<%= stylelint.dev %>',
 				'src/**/*.less',
 				'php/**/*.php',
 				'.{stylelintrc,jscsrc,jshintignore,jshintrc}'
