@@ -1,15 +1,15 @@
 {
 	"extends": "stylelint-config-wikimedia",
 	"rules": {
-		"at-rule-empty-line-before": false,
-		"block-closing-brace-space-after": false,
-		"block-no-empty": false,
-		"block-no-single-line": false,
-		"declaration-no-important": false,
+		"at-rule-empty-line-before": null,
+		"block-closing-brace-space-after": null,
+		"block-no-empty": null,
+		"block-no-single-line": null,
+		"declaration-no-important": null,
 		"font-family-name-quotes": [ "double-where-recommended" ],
-		"no-descending-specificity": false,
+		"no-descending-specificity": null,
 		"selector-pseudo-element-colon-notation": [ "single" ],
 		"string-no-newline": true,
-		"string-quotes": false
+		"string-quotes": null
 	}
 }
