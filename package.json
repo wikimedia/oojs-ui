@@ -21,7 +21,7 @@
     "demos": "grunt publish-build && grunt demos"
   },
   "dependencies": {
-    "es5-shim": "4.1.14",
+    "es5-shim": "4.5.8",
     "jquery": "1.11.3",
     "oojs": "1.1.10"
   },
