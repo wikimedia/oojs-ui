@@ -738,7 +738,7 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
  *
  * @param {OO.ui.OptionWidget|null} item Item to describe the start position, or `null` to start at the beginning of the array.
  * @param {number} direction Direction to move in: -1 to move backward, 1 to move forward
- * @param {Function} filter Only consider items for which this function returns
+ * @param {Function} [filter] Only consider items for which this function returns
  *  true. Function takes an OO.ui.OptionWidget and returns a boolean.
  * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the select
  */
@@ -777,16 +777,7 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
  * @return {OO.ui.OptionWidget|null} Item, `null` if there aren't any selectable items
  */
 OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
-	var i, len, item;
-
-	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		item = this.items[ i ];
-		if ( item instanceof OO.ui.OptionWidget && item.isSelectable() ) {
-			return item;
-		}
-	}
-
-	return null;
+	return this.getRelativeSelectableItem( null, 1 );
 };
 
 /**
