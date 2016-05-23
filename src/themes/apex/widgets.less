@@ -164,7 +164,7 @@
 
 	&-selectButton {
 		> .oo-ui-buttonElement-button {
-			margin-left: 0.5em;
+			border-radius: 0 @border-radius-default @border-radius-default 0;
 		}
 	}
 
@@ -172,7 +172,8 @@
 		height: 2.4em;
 		background-color: @background-color-main;
 		border: 1px solid rgba( 0, 0, 0, 0.1 );
-		border-radius: 0.25em;
+		border-radius: @border-radius-default 0 0 @border-radius-default;
+		border-width: 1px 0 1px 1px;
 
 		> .oo-ui-indicatorElement-indicator {
 			top: 0;
@@ -302,10 +303,16 @@
 		border: 1px solid #aaa;
 		margin-bottom: 0.5em;
 		vertical-align: middle;
-		border-radius: 0.25em;
+		border-radius: @border-radius-default;
+
+		.oo-ui-selectFileWidget-selectButton {
+			> .oo-ui-buttonElement-button {
+				border-radius: @border-radius-default;
+			}
+		}
 	}
 
-	&-empty .oo-ui-selectFileWidget-dropTarget {
+	&-empty &-dropTarget {
 		border-style: dashed;
 	}
 }

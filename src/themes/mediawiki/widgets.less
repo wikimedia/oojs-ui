@@ -161,12 +161,11 @@
 .theme-oo-ui-selectFileWidget () {
 	width: 100%;
 	max-width: @max-width-input-default;
-
 	.oo-ui-inline-spacing( 0.5em );
 
 	&-selectButton {
 		> .oo-ui-buttonElement-button {
-			margin-left: 0.5em;
+			border-radius: 0 @border-radius-default @border-radius-default 0;
 		}
 	}
 
@@ -174,7 +173,8 @@
 		height: 2.4em;
 		background-color: @background-color-default;
 		border: @border-default;
-		border-radius: @border-radius-default;
+		border-radius: @border-radius-default 0 0 @border-radius-default;
+		border-width: 1px 0 1px 1px;
 
 		> .oo-ui-iconElement-icon {
 			left: 0;
@@ -317,14 +317,20 @@
 		vertical-align: middle;
 		overflow: hidden;
 		border-radius: @border-radius-default;
+
+		.oo-ui-selectFileWidget-selectButton {
+			> .oo-ui-buttonElement-button {
+				border-radius: @border-radius-default;
+			}
+		}
 	}
 
-	&-empty .oo-ui-selectFileWidget-dropTarget {
+	&-empty &-dropTarget {
 		background-color: #eee;
 		border-style: dashed;
 	}
 
-	.oo-ui-widget-disabled .oo-ui-selectFileWidget-dropLabel {
+	.oo-ui-widget-disabled &-dropLabel {
 		display: none;
 	}
 }
