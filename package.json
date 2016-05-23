@@ -56,6 +56,6 @@
     "karma-qunit": "0.1.9",
     "q": "1.4.1",
     "qunitjs": "1.22.0",
-    "stylelint-config-wikimedia": "^0.1.0"
+    "stylelint-config-wikimedia": "0.2.0"
   }
 }
