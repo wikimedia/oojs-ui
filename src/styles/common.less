@@ -39,14 +39,14 @@
 }
 
 .oo-ui-animation( @value1, @value2: X, ... ) {
-	@value: ~`"@{arguments}".replace( /[\[\]]|\,\sX/g, '' )`; // stylelint-disable-line function-comma-space-after, function-whitespace-after
+	@value: ~`"@{arguments}".replace( /[\[\]]|\,\sX/g, '' )`; // stylelint-disable-line function-comma-space-after, function-whitespace-after, string-quotes
 	-webkit-animation: @value;
 	-moz-animation: @value;
 	animation: @value;
 }
 
 .oo-ui-transition( @value1, @value2: X, ... ) {
-	@value: ~`"@{arguments}".replace( /[\[\]]|\,\sX/g, '' )`; // stylelint-disable-line function-comma-space-after, function-whitespace-after
+	@value: ~`"@{arguments}".replace( /[\[\]]|\,\sX/g, '' )`; // stylelint-disable-line function-comma-space-after, function-whitespace-after, string-quotes
 	-webkit-transition: @value;
 	-moz-transition: @value;
 	transition: @value;
@@ -81,7 +81,7 @@
 	// accept them.
 	@start-ie: argb( rgba( red( @start ), green( @start ), blue( @start ), alpha( @start ) ) );
 	@stop-ie: argb( rgba( red( @stop ), green( @stop ), blue( @stop ), alpha( @stop ) ) );
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient( startColorstr='@{start-ie}', endColorstr='@{stop-ie}' )";
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient( startColorstr='@{start-ie}', endColorstr='@{stop-ie}' )"; // stylelint-disable-line string-quotes
 }
 
 .oo-ui-unselectable() {
