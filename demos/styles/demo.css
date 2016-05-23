@@ -82,7 +82,7 @@ body {
 
 .oo-ui-demo-icons .oo-ui-fieldLayout .oo-ui-buttonElement-button .oo-ui-labelElement-label {
 	text-transform: capitalize;
-	display: inline !important;
+	display: inline;
 }
 
 .oo-ui-demo-icons .oo-ui-fieldLayout .oo-ui-buttonElement-button:hover {

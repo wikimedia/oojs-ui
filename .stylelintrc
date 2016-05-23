@@ -5,7 +5,6 @@
 		"block-closing-brace-space-after": null,
 		"block-no-empty": null,
 		"block-no-single-line": null,
-		"declaration-no-important": null,
 		"no-descending-specificity": null
 	}
 }
