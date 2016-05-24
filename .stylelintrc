@@ -8,7 +8,6 @@
 		"declaration-no-important": null,
 		"font-family-name-quotes": [ "double-where-recommended" ],
 		"no-descending-specificity": null,
-		"selector-pseudo-element-colon-notation": [ "single" ],
 		"string-no-newline": true,
 		"string-quotes": null
 	}
