@@ -67,7 +67,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 		toggle: 'onToggle'
 	} );
 	this.$element.on( {
-		focus: this.onFocus.bind( this ),
+		focusin: this.onFocus.bind( this ),
 		mousedown: this.onMouseDown.bind( this ),
 		mouseover: this.onMouseOver.bind( this ),
 		mouseleave: this.onMouseLeave.bind( this )
@@ -154,10 +154,18 @@ OO.ui.SelectWidget.static.passAllFilter = function () {
  * @private
  * @param {jQuery.Event} event
  */
-OO.ui.SelectWidget.prototype.onFocus = function () {
-	// The styles for focus state depend on one of the items being selected.
-	if ( !this.getSelectedItem() ) {
-		this.selectItem( this.getFirstSelectableItem() );
+OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
+	if ( event.target === this.$element[ 0 ] ) {
+		// This widget was focussed, e.g. by the user tabbing to it.
+		// The styles for focus state depend on one of the items being selected.
+		if ( !this.getSelectedItem() ) {
+			this.selectItem( this.getFirstSelectableItem() );
+		}
+	} else {
+		// One of the options got focussed (and the event bubbled up here).
+		// They can't be tabbed to, but they can be activated using accesskeys.
+		this.selectItem( this.getTargetItem( event ) );
+		this.$element.focus();
 	}
 };
 

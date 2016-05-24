@@ -21,9 +21,6 @@ OO.ui.RadioOptionWidget = function OoUiRadioOptionWidget( config ) {
 	// Parent constructor
 	OO.ui.RadioOptionWidget.parent.call( this, config );
 
-	// Events
-	this.radio.$input.on( 'focus', this.onInputFocus.bind( this ) );
-
 	// Initialization
 	// Remove implicit role, we're handling it ourselves
 	this.radio.$input.attr( 'role', 'presentation' );
@@ -50,15 +47,6 @@ OO.ui.RadioOptionWidget.static.pressable = false;
 OO.ui.RadioOptionWidget.static.tagName = 'label';
 
 /* Methods */
-
-/**
- * @param {jQuery.Event} e Focus event
- * @private
- */
-OO.ui.RadioOptionWidget.prototype.onInputFocus = function () {
-	this.radio.$input.blur();
-	this.$element.parent().focus();
-};
 
 /**
  * @inheritdoc
