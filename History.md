@@ -1,5 +1,39 @@
 # OOjs UI Release History
 
+## v0.17.3 / 2016-05-24
+### Deprecations
+* [DEPRECATING CHANGE] CapsuleMultiSelectWidget: Rename to CapsuleMultiselectWidget (Bartosz Dziewoński)
+
+### Features
+* SelectWidget/OptionWidget: Implement selecting by accesskey (Bartosz Dziewoński)
+* TextInputWidget: Stop returning 'multiline' from 'getSaneType' (Prateek Saxena)
+
+### Styles
+* SelectFileWidget: Improve consistency to other widgets (Volker E)
+* MediaWiki theme: Align styles of normal and not-supported SelectFileWidgets (Volker E)
+
+### Code
+* CapsuleMultiselectWidget: Prefer Array#map to jQuery.map (Bartosz Dziewoński)
+* CapsuleMultiselectWidget: Use OO.ui.findFocusable() (Bartosz Dziewoński)
+* dependencies: Update es5-shim to v4.5.8 (James D. Forrester)
+* build: Bump grunt-stylelint to v0.3.0 (James D. Forrester)
+* build: Bump various devDependencies to latest (James D. Forrester)
+* build: Fix watch path for css (Ed Sanders)
+* build: Remove grunt-cli (Ed Sanders)
+* build: Upgrade stylelint-config-wikimedia to 0.2.0 and make pass (James D. Forrester)
+* build: Use stylelint instead of csslint (Volker E)
+* docs: Add some missing @mixins documentation (Bartosz Dziewoński)
+* stylelint: Add `@` whitespace and name case rules (Volker E)
+* stylelint: Add `@media` whitespace rules (Volker E)
+* stylelint: Add block formatting rules (Volker E)
+* stylelint: Add font rules (Volker E)
+* stylelint: Add no duplicate property rule (Volker E)
+* stylelint: Add selector whitespace (Volker E)
+* stylelint: Add whitespace rules (Volker E)
+* stylelint: Change to use central Wikimedia configuration (Volker E)
+* stylelint: Use null instead of false to disable rules (Ed Sanders)
+
+
 ## v0.17.2 / 2016-05-10
 ### Features
 * ButtonWidget: Implement, document and demonstrate the 'active' config option (Bartosz Dziewoński)
