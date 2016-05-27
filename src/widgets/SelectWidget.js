@@ -90,11 +90,6 @@ OO.inheritClass( OO.ui.SelectWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupElement );
 OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupWidget );
 
-/* Static */
-OO.ui.SelectWidget.static.passAllFilter = function () {
-	return true;
-};
-
 /* Events */
 
 /**
@@ -755,10 +750,6 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 		increase = direction > 0 ? 1 : -1,
 		len = this.items.length;
 
-	if ( !$.isFunction( filter ) ) {
-		filter = OO.ui.SelectWidget.static.passAllFilter;
-	}
-
 	if ( item instanceof OO.ui.OptionWidget ) {
 		currentIndex = this.items.indexOf( item );
 		nextIndex = ( currentIndex + increase + len ) % len;
@@ -770,7 +761,10 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 
 	for ( i = 0; i < len; i++ ) {
 		item = this.items[ nextIndex ];
-		if ( item instanceof OO.ui.OptionWidget && item.isSelectable() && filter( item ) ) {
+		if (
+			item instanceof OO.ui.OptionWidget && item.isSelectable() &&
+			( !filter || filter( item ) )
+		) {
 			return item;
 		}
 		nextIndex = ( nextIndex + increase + len ) % len;
