@@ -14,6 +14,7 @@
  *
  * @class
  * @abstract
+ * @mixins OO.ui.mixin.RequestManager
  *
  * @constructor
  * @param {Object} [config] Configuration options
