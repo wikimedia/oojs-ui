@@ -6,19 +6,19 @@
  * @private
  * @abstract
  * @class
- * @extends OO.ui.mixin.GroupElement
+ * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
  */
 OO.ui.mixin.GroupWidget = function OoUiMixinGroupWidget( config ) {
-	// Parent constructor
-	OO.ui.mixin.GroupWidget.parent.call( this, config );
+	// Mixin constructors
+	OO.ui.mixin.GroupElement.call( this, config );
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.mixin.GroupWidget, OO.ui.mixin.GroupElement );
+OO.mixinClass( OO.ui.mixin.GroupWidget, OO.ui.mixin.GroupElement );
 
 /* Methods */
 
