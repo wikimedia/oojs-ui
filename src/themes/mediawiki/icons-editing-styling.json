@@ -61,14 +61,14 @@
 		"strikethrough": { "file": {
 			"default": "images/icons/strikethrough-a.svg",
 			"lang": {
-				"en": "images/icons/strikethrough-s.svg",
+				"en,en-ca,en-gb": "images/icons/strikethrough-s.svg",
 				"fi": "images/icons/strikethrough-y.svg"
 			}
 		} },
 		"underline": { "file": {
 			"default": "images/icons/underline-a.svg",
 			"lang": {
-				"en": "images/icons/underline-u.svg"
+				"en,en-ca,en-gb": "images/icons/underline-u.svg"
 			}
 		} },
 		"textLanguage": { "file": {
