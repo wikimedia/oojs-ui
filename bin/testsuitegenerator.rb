@@ -14,7 +14,8 @@ else
 	tests = []
 	classes = php.select{|c| class_names.include? c[:name] }
 
-	untestable_classes = %w[DropdownInputWidget ComboBoxInputWidget RadioSelectInputWidget]
+	untestable_classes = %w[DropdownInputWidget ComboBoxInputWidget
+		RadioSelectInputWidget CheckboxMultiselectInputWidget]
 	testable_classes = classes
 		.reject{|c| c[:abstract] } # can't test abstract classes
 		.reject{|c| !c[:parent] || c[:trait] || c[:parent] == 'Theme' } # can't test abstract

@@ -424,6 +424,20 @@
 	}
 }
 
+.theme-oo-ui-checkboxMultiselectInputWidget () {
+	.oo-ui-fieldLayout {
+		margin-bottom: 0;
+
+		.oo-ui-fieldLayout-body {
+			padding: 0.25em 0;
+
+			.oo-ui-labelElement-label {
+				line-height: 1.5em;
+			}
+		}
+	}
+}
+
 .theme-oo-ui-dropdownInputWidget () {
 	width: 100%;
 	max-width: @max-width-input-default;
@@ -1367,5 +1381,31 @@
 	}
 	@keyframes oo-ui-progressBarWidget-slide {
 		.oo-ui-progressBarWidget-slide-frames;
+	}
+}
+
+.theme-oo-ui-multiselectWidget () {}
+
+.theme-oo-ui-multioptionWidget () {
+	.oo-ui-labelElement-label {
+		line-height: 1.5em;
+	}
+
+	&.oo-ui-widget-disabled {
+		color: @color-disabled;
+	}
+}
+
+.theme-oo-ui-checkboxMultiselectWidget () {}
+
+.theme-oo-ui-checkboxMultioptionWidget () {
+	padding: 0.25em 0;
+
+	&.oo-ui-labelElement .oo-ui-labelElement-label {
+		padding: 0.25em 0.25em 0.25em 1em;
+	}
+
+	.oo-ui-checkboxInputWidget {
+		margin-right: 0;
 	}
 }

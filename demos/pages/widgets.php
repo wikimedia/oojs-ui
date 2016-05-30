@@ -451,6 +451,29 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
+			new OOUI\CheckboxMultiselectInputWidget( [
+				'value' => [ 'dog', 'cat' ],
+				'options' => [
+					[
+						'data' => 'cat',
+						'label' => 'Cat'
+					],
+					[
+						'data' => 'dog',
+						'label' => 'Dog'
+					],
+					[
+						'data' => 'goldfish',
+						'label' => 'Goldfish'
+					],
+				]
+			] ),
+			[
+				'align' => 'top',
+				'label' => 'CheckboxMultiselectInputWidget',
+			]
+		),
+		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget( [ 'value' => 'Text input' ] ),
 			[
 				'label' => "TextInputWidget\xE2\x80\x8E",
