@@ -147,16 +147,28 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupWidget );
  * @param {jQuery.Event} event
  */
 OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
+	var item;
 	if ( event.target === this.$element[ 0 ] ) {
 		// This widget was focussed, e.g. by the user tabbing to it.
 		// The styles for focus state depend on one of the items being selected.
 		if ( !this.getSelectedItem() ) {
-			this.selectItem( this.getFirstSelectableItem() );
+			item = this.getFirstSelectableItem();
 		}
 	} else {
 		// One of the options got focussed (and the event bubbled up here).
 		// They can't be tabbed to, but they can be activated using accesskeys.
-		this.selectItem( this.getTargetItem( event ) );
+		item = this.getTargetItem( event );
+	}
+
+	if ( item ) {
+		if ( item.constructor.static.highlightable ) {
+			this.highlightItem( item );
+		} else {
+			this.selectItem( item );
+		}
+	}
+
+	if ( event.target !== this.$element[ 0 ] ) {
 		this.$element.focus();
 	}
 };
