@@ -10,6 +10,13 @@
 
 	.oo-ui-tool-link {
 		text-decoration: none;
+		cursor: pointer;
+	}
+
+	&.oo-ui-widget-disabled .oo-ui-tool-link,
+	.oo-ui-widget-disabled > .oo-ui-tool-link {
+		outline: 0;
+		cursor: default;
 	}
 
 	.theme-oo-ui-toolGroup();
