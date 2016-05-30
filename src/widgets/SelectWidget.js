@@ -412,7 +412,7 @@ OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
 		item = this.getRelativeSelectableItem( item, 1, filter );
 	}
 	if ( item ) {
-		if ( item.constructor.static.highlightable ) {
+		if ( this.isVisible() && item.constructor.static.highlightable ) {
 			this.highlightItem( item );
 		} else {
 			this.chooseItem( item );
