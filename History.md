@@ -1,5 +1,26 @@
 # OOjs UI Release History
 
+## v0.17.4 / 2016-05-31
+### Features
+* DropdownWidget: Handle type-to-search when menu is not expanded (Bartosz Dziewoński)
+* Implement MultiselectWidget, CheckboxMultiselectWidget and CheckboxMultiselectInputWidget (Bartosz Dziewoński)
+* SelectWidget: Improve focus behaviour (Bartosz Dziewoński)
+
+### Styles
+* icons: Use B/I/S/U icons for British and Candian English variants (Ed Sanders)
+* MediaWiki theme: Provide an adjacent disabled ButtonGroup/SelectWidget button border (Volker E)
+* MediaWiki theme: Make iconed and non-iconed buttons have the same height (Roan Kattouw)
+
+### Code
+* ButtonElement: Remove unnecessary inheritance duplication of `display` (Volker E)
+* GroupWidget: Mix in GroupElement, rather than inherit from it (Bartosz Dziewoński)
+* LookupElement: Add missing `@mixins` documentation (Bartosz Dziewoński)
+* SelectWidget: Implement `#getFirstSelectableItem` in terms of `#getRelativeSelectableItem` (Bartosz Dziewoński)
+* SelectWidget: Optimize `#getRelativeSelectableItem` without filter (Bartosz Dziewoński)
+* styles: Remove unnecessary CSS rules on disabled buttons (Volker E)
+* styles: Simplify disabled `.oo-ui-tool-link` rules (Volker E)
+
+
 ## v0.17.3 / 2016-05-24
 ### Deprecations
 * [DEPRECATING CHANGE] CapsuleMultiSelectWidget: Rename to CapsuleMultiselectWidget (Bartosz Dziewoński)
