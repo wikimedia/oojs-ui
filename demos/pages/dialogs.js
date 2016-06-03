@@ -434,7 +434,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		IndexedDialog.parent.call( this, config );
 	}
 	OO.inheritClass( IndexedDialog, OO.ui.ProcessDialog );
-	IndexedDialog.static.title = 'Index dialog';
+	IndexedDialog.static.title = 'Indexed dialog';
 	IndexedDialog.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
 		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
@@ -789,21 +789,21 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			}
 		},
 		{
-			name: 'Outlined booklet dialog',
+			name: 'Outlined booklet dialog (aside navigation)',
 			dialogClass: OutlinedBookletDialog,
 			config: {
 				size: 'medium'
 			}
 		},
 		{
-			name: 'Continuous outlined booklet dialog',
+			name: 'Continuous outlined booklet dialog (aside navigation)',
 			dialogClass: ContinuousOutlinedBookletDialog,
 			config: {
 				size: 'medium'
 			}
 		},
 		{
-			name: 'Indexed dialog',
+			name: 'Indexed dialog (tab navigation)',
 			dialogClass: IndexedDialog,
 			config: {
 				size: 'medium'
