@@ -1279,7 +1279,6 @@
 		min-height: @size-toggleswitch-grip-min;
 		height: 1.2em;
 		border-radius: 1.2em;
-		background-color: #555;
 		.oo-ui-transition(
 			left @transition-ease-quick,
 			margin-left @transition-ease-quick
@@ -1306,21 +1305,26 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		&.oo-ui-toggleWidget-on {
-			background-color: @color-progressive;
+		.oo-ui-toggleSwitchWidget-grip {
+			border: @border-input-binary;
+		}
+
+		&:hover {
+			border-color: @color-progressive-hover;
+
+			.oo-ui-toggleSwitchWidget-grip {
+				border-color: @color-progressive-hover;
+			}
+		}
+		&:active,
+		&:active:hover {
+			background-color: @background-color-input-binary-active;
 			border-color: @color-progressive;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-default;
-				box-shadow: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
-			}
-		}
-		&:hover {
-			border-color: @color-progressive-hover;
-
-			&.oo-ui-toggleWidget-on {
-				background-color: @color-progressive-hover;
-				border-color: @color-progressive-hover;
+				border-color: @background-color-default;
+				box-shadow: @box-shadow-input-binary;
 			}
 		}
 		&:focus {
@@ -1328,22 +1332,36 @@
 			box-shadow: @box-shadow-focus-default;
 			outline: 0;
 
-			&.oo-ui-toggleWidget-on {
+			.oo-ui-toggleSwitchWidget-grip {
 				border-color: @color-progressive;
-
-				&:before {
-					border-color: @border-color-focus-inset;
-				}
 			}
 		}
-		&:active,
-		&:active:hover {
+
+		&.oo-ui-toggleWidget-on {
 			background-color: @color-progressive;
 			border-color: @color-progressive;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-default;
-				box-shadow: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
+				border-color: @background-color-default;
+				box-shadow: @box-shadow-input-binary;
+			}
+
+			&:hover {
+				background-color: @color-progressive-hover;
+				border-color: @color-progressive-hover;
+			}
+			&:active,
+			&:active:hover {
+				background-color: @color-progressive-active;
+				border-color: @color-progressive-active;
+			}
+			&:focus {
+				border-color: @color-progressive;
+
+				&:before {
+					border-color: #fff;
+				}
 			}
 		}
 	}
