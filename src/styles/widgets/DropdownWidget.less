@@ -10,7 +10,7 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-
+		cursor: default;
 		.oo-ui-unselectable();
 		.oo-ui-box-sizing( border-box );
 
@@ -20,13 +20,13 @@
 		}
 	}
 
-	> .oo-ui-menuSelectWidget {
-		z-index: 1;
-		width: 100%;
+	&.oo-ui-widget-enabled &-handle {
+		cursor: pointer;
 	}
 
-	&.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle {
-		cursor: pointer;
+	& > .oo-ui-menuSelectWidget {
+		z-index: 1;
+		width: 100%;
 	}
 
 	.theme-oo-ui-dropdownWidget();
