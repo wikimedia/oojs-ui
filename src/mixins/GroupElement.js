@@ -190,7 +190,7 @@ OO.ui.mixin.GroupElement.prototype.aggregate = function ( events ) {
  * @chainable
  */
 OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
-	var i, len, item, event, events, currentIndex,
+	var i, len, item, itemEvent, events, currentIndex,
 		itemElements = [];
 
 	for ( i = 0, len = items.length; i < len; i++ ) {
@@ -208,8 +208,8 @@ OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
 		// Add the item
 		if ( item.connect && item.disconnect && !$.isEmptyObject( this.aggregateItemEvents ) ) {
 			events = {};
-			for ( event in this.aggregateItemEvents ) {
-				events[ event ] = [ 'emit', this.aggregateItemEvents[ event ], item ];
+			for ( itemEvent in this.aggregateItemEvents ) {
+				events[ itemEvent ] = [ 'emit', this.aggregateItemEvents[ itemEvent ], item ];
 			}
 			item.connect( this, events );
 		}
@@ -242,22 +242,19 @@ OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
  * @chainable
  */
 OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
-	var i, len, item, index, remove, itemEvent;
+	var i, len, item, index, events, itemEvent;
 
 	// Remove specific items
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		item = items[ i ];
 		index = this.items.indexOf( item );
 		if ( index !== -1 ) {
-			if (
-				item.connect && item.disconnect &&
-				!$.isEmptyObject( this.aggregateItemEvents )
-			) {
-				remove = {};
-				if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {
-					remove[ itemEvent ] = [ 'emit', this.aggregateItemEvents[ itemEvent ], item ];
+			if ( item.connect && item.disconnect && !$.isEmptyObject( this.aggregateItemEvents ) ) {
+				events = {};
+				for ( itemEvent in this.aggregateItemEvents ) {
+					events[ itemEvent ] = [ 'emit', this.aggregateItemEvents[ itemEvent ], item ];
 				}
-				item.disconnect( this, remove );
+				item.disconnect( this, events );
 			}
 			item.setElementGroup( null );
 			this.items.splice( index, 1 );

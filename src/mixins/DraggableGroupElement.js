@@ -181,18 +181,22 @@ OO.ui.mixin.DraggableGroupElement.prototype.reorder = function ( item, newIndex 
  * @param {OO.ui.mixin.DraggableElement} item Dragged item
  */
 OO.ui.mixin.DraggableGroupElement.prototype.setDragItem = function ( item ) {
-	this.dragItem = item;
-	this.$element.on( 'dragover', this.onDragOver.bind( this ) );
-	this.$element.addClass( 'oo-ui-draggableGroupElement-dragging' );
+	if ( this.dragItem !== item ) {
+		this.dragItem = item;
+		this.$element.on( 'dragover', this.onDragOver.bind( this ) );
+		this.$element.addClass( 'oo-ui-draggableGroupElement-dragging' );
+	}
 };
 
 /**
  * Unset the current dragged item
  */
 OO.ui.mixin.DraggableGroupElement.prototype.unsetDragItem = function () {
-	this.dragItem = null;
-	this.$element.off( 'dragover' );
-	this.$element.removeClass( 'oo-ui-draggableGroupElement-dragging' );
+	if ( this.dragItem ) {
+		this.dragItem = null;
+		this.$element.off( 'dragover' );
+		this.$element.removeClass( 'oo-ui-draggableGroupElement-dragging' );
+	}
 };
 
 /**
