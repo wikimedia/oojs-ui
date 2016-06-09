@@ -137,11 +137,13 @@ OO.ui.IndexLayout.prototype.onStackLayoutFocus = function ( e ) {
 OO.ui.IndexLayout.prototype.onStackLayoutSet = function ( card ) {
 	var layout = this;
 	if ( card ) {
-		card.scrollElementIntoView( { complete: function () {
-			if ( layout.autoFocus ) {
-				layout.focus();
+		card.scrollElementIntoView( {
+			complete: function () {
+				if ( layout.autoFocus ) {
+					layout.focus();
+				}
 			}
-		} } );
+		} );
 	}
 };
 

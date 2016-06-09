@@ -6,7 +6,7 @@
 		"block-no-empty": null,
 		"block-no-single-line": null,
 		"declaration-no-important": null,
-		"font-family-name-quotes": [ "double-where-recommended" ],
+		"font-family-name-quotes": [ "always-where-recommended" ],
 		"no-descending-specificity": null,
 		"string-no-newline": true,
 		"string-quotes": null
