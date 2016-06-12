@@ -1242,13 +1242,16 @@
 		content: "";
 		display: block;
 		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
+		top: 1px;
+		left: 1px;
+		bottom: 1px;
+		right: 1px;
 		border: 1px solid transparent;
 		border-radius: 1em;
 		z-index: 1;
+		.oo-ui-transition(
+			border-color @transition-ease-quick
+		);
 	}
 
 	&-grip {
@@ -1270,17 +1273,17 @@
 		display: none;
 	}
 
-	&.oo-ui-toggleWidget-on {
-		.oo-ui-toggleSwitchWidget-grip {
-			left: @travelDistance + 0.4em;
-			margin-left: -2px;
-		}
-	}
-
 	&.oo-ui-toggleWidget-off {
 		.oo-ui-toggleSwitchWidget-grip {
 			left: 0.4em;
 			margin-left: 0;
+		}
+	}
+
+	&.oo-ui-toggleWidget-on {
+		.oo-ui-toggleSwitchWidget-grip {
+			left: @travelDistance + 0.4em;
+			margin-left: -2px;
 		}
 	}
 
@@ -1311,7 +1314,7 @@
 				border-color: @color-progressive;
 
 				&:before {
-					border-color: #fff;
+					border-color: @border-color-focus-inset;
 				}
 			}
 		}
