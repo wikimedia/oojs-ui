@@ -582,7 +582,6 @@
 	input,
 	textarea {
 		padding: 0.5em;
-		line-height: 1.275em;
 		margin: 0;
 		font-size: inherit;
 		font-family: inherit;
@@ -590,7 +589,10 @@
 		color: @color-emphasized;
 		border: @border-default;
 		border-radius: @border-radius-default;
-		.oo-ui-box-sizing( border-box );
+	}
+
+	textarea {
+		line-height: 1.275em;
 	}
 
 	.oo-ui-pendingElement-pending {
