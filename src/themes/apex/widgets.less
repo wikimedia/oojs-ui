@@ -970,13 +970,18 @@
 	border-radius: 1em;
 	box-shadow: 0 0 0 #fff, inset 0 0.1em 0.2em #ddd;
 	border: 1px solid #ccc;
-
 	.oo-ui-inline-spacing(0.5em);
-
 	.oo-ui-vertical-gradient(#ddd, #fff);
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.5;
+	}
+
+	&.oo-ui-widget-enabled {
+		&:hover,
+		&:hover .oo-ui-toggleSwitchWidget-grip {
+			border-color: #aaa;
+		}
 	}
 
 	&-grip {
@@ -989,23 +994,31 @@
 		box-shadow: 0 0.1em 0.25em rgba( 0, 0, 0, 0.1 );
 		border: 1px #c9c9c9 solid;
 
-		.oo-ui-transition(left @medium-ease, margin-left @medium-ease);
-		.oo-ui-vertical-gradient(#fff, #ddd);
+		.oo-ui-transition( left @medium-ease, margin-left @medium-ease );
+		.oo-ui-vertical-gradient( #fff, #ddd );
 	}
 
-	&.oo-ui-widget-enabled {
-		&:hover,
-		&:hover .oo-ui-toggleSwitchWidget-grip {
-			border-color: #aaa;
-		}
-	}
-
-	.oo-ui-toggleSwitchWidget-glow {
+	&-glow {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
 		border-radius: 1em;
 		box-shadow: inset 0 1px 4px 0 rgba( 0, 0, 0, 0.07 );
+		.oo-ui-transition( opacity @medium-ease );
+		.oo-ui-vertical-gradient( #b0d9ee, #eaf4fa );
+		.oo-ui-unselectable();
+	}
 
-		.oo-ui-transition(opacity @medium-ease);
-		.oo-ui-vertical-gradient(#b0d9ee, #eaf4fa);
+	.oo-ui-toggleWidget-off & {
+		&-glow {
+			opacity: 0;
+		}
+		&-grip {
+			left: 0.25em;
+			margin-left: 0;
+		}
 	}
 
 	.oo-ui-toggleWidget-on & {
@@ -1015,17 +1028,6 @@
 		&-grip {
 			left: @travelDistance + 0.25em;
 			margin-left: -2px;
-		}
-	}
-
-	.oo-ui-toggleWidget-off & {
-		&-glow {
-			display: block;
-			opacity: 0;
-		}
-		&-grip {
-			left: 0.25em;
-			margin-left: 0;
 		}
 	}
 }
