@@ -5,12 +5,13 @@
 }
 
 .theme-oo-ui-dialog () {
-	&-content > .oo-ui-window-body {
-		outline: 1px solid #aaa;
-	}
 }
 
 .theme-oo-ui-messageDialog () {
+	&-content > .oo-ui-window-foot {
+		outline: 1px solid #aaa;
+	}
+
 	&-title,
 	&-message {
 		display: block;
@@ -63,12 +64,12 @@
 		}
 
 		.oo-ui-actionWidget {
-			height: 3.4em;
+			min-height: 3.4em;
 			.oo-ui-inline-spacing( 0 );
 
 			&.oo-ui-labelElement .oo-ui-labelElement-label {
 				text-align: center;
-				line-height: 3.4em;
+				line-height: 3.4;
 			}
 
 			&:hover {
