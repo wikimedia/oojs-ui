@@ -19,7 +19,19 @@
 		resize: none;
 	}
 
-	// Normalize styling for `<input type=search>` and
+	// Normalize styling of `<input type=number>` by removing
+	// proprietary vendor UI extensions
+	[type="number"] {
+		-moz-appearance: textfield;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+
+	// Normalize styling of `<input type=search>` and
 	// remove proprietary vendor UI extensions
 	[type="search"] {
 		// Safari 5, Chrome
