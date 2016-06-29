@@ -1,4 +1,21 @@
 # OOjs UI Release History
+## v0.17.5 / 2016-06-19
+### Styles
+* Dropdown,SelectFileWidget: Improve user experience on disabled widgets (Volker E)
+* MediaWiki theme: Fix ToggleSwitchWidget's grip circle shape (Volker E)
+* MediaWiki theme: Fix focus states of ActionWidget's buttons (Volker E)
+* MediaWiki theme: Improve focus states of primary buttons & ToggleSwitchWidget (Volker E)
+
+### Code
+* DraggableGroupWidget: Remove unnecessary `cursor` property (Volker E)
+* GroupElement#removeItems: Fix to actually unbind events (Ed Sanders)
+* ProcessDialog: Change DOM ordering of actions (David Lynch)
+* MediaWiki theme: Remove `line-height` from TextInputWidget `input` (Volker E)
+* MediaWiki theme: Remove obsolete `color` property, which never gets applied (Volker E)
+* build: Bump devDependencies to latest and make pass (James D. Forrester)
+* composer: Exclude copied demo PHP from phpcs test (James D. Forrester)
+* demos: Add descriptive hints on navigation types to dialog names (Volker E)
+
 
 ## v0.17.4 / 2016-05-31
 ### Features
