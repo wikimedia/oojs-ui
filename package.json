@@ -9,7 +9,7 @@
   "homepage": "https://www.mediawiki.org/wiki/OOjs UI",
   "repository": {
     "type": "git",
-    "url": "https://git.wikimedia.org/git/oojs/ui.git"
+    "url": "https://phabricator.wikimedia.org/diffusion/GOJU/oojs-ui.git"
   },
   "license": "MIT",
   "scripts": {
