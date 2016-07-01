@@ -625,6 +625,26 @@
 			}
 		}
 
+		// Normalize placeholder styling, see T139034
+		// Firefox 4-18
+		:-moz-placeholder { // stylelint-disable-line
+			color: @color-placeholder;
+			opacity: 1;
+		}
+		// Firefox 19-
+		::-moz-placeholder { // stylelint-disable-line
+			color: @color-placeholder;
+			opacity: 1;
+		}
+		// Internet Explorer 10-11
+		:-ms-input-placeholder { // stylelint-disable-line
+			color: @color-placeholder;
+		}
+		// WebKit, Blink, Edge
+		::-webkit-input-placeholder { // stylelint-disable-line
+			color: @color-placeholder;
+		}
+
 		&.oo-ui-flaggedElement-invalid {
 			input,
 			textarea {
