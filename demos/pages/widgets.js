@@ -566,6 +566,24 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.ButtonGroupWidget( {
+						items: [
+							new OO.ui.ButtonWidget( {
+								label: 'One',
+								flags: [ 'destructive' ]
+							} ),
+							new OO.ui.ButtonWidget( {
+								label: 'Two',
+								flags: [ 'progressive' ]
+							} )
+						]
+					} ),
+					{
+						label: 'ButtonGroupWidget (feat. destructive and progressive ButtonWidget)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.ButtonSelectWidget( {
 						items: [
 							new OO.ui.ButtonOptionWidget( {
