@@ -1431,7 +1431,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						align: 'top',
-						label: 'ButtonInputWidget (using <input/>)\u200E'
+						label: 'ButtonInputWidget (using <input>)\u200E'
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -1454,7 +1454,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						align: 'top',
-						label: 'ButtonInputWidget (frameless, using <input/>)\u200E'
+						label: 'ButtonInputWidget (frameless, using <input>)\u200E'
 					}
 				),
 				new OO.ui.FieldLayout(

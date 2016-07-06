@@ -719,7 +719,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'align' => 'top',
-				'label' => "ButtonInputWidget (using <input/>)\xE2\x80\x8E"
+				'label' => "ButtonInputWidget (using <input>)\xE2\x80\x8E"
 			]
 		)
 	]

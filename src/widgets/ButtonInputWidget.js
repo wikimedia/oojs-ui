@@ -2,7 +2,7 @@
  * ButtonInputWidget is used to submit HTML forms and is intended to be used within
  * a OO.ui.FormLayout. If you do not need the button to work with HTML forms, you probably
  * want to use OO.ui.ButtonWidget instead. Button input widgets can be rendered as either an
- * HTML `<button/>` (the default) or an HTML `<input/>` tags. See the
+ * HTML `<button>` (the default) or an HTML `<input>` tags. See the
  * [OOjs UI documentation on MediaWiki] [1] for more information.
  *
  *     @example
@@ -27,8 +27,8 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {string} [type='button'] The value of the HTML `'type'` attribute: 'button', 'submit' or 'reset'.
- * @cfg {boolean} [useInputTag=false] Use an `<input/>` tag instead of a `<button/>` tag, the default.
- *  Widgets configured to be an `<input/>` do not support {@link #icon icons} and {@link #indicator indicators},
+ * @cfg {boolean} [useInputTag=false] Use an `<input>` tag instead of a `<button>` tag, the default.
+ *  Widgets configured to be an `<input>` do not support {@link #icon icons} and {@link #indicator indicators},
  *  non-plaintext {@link #label labels}, or {@link #value values}. In general, useInputTag should only
  *  be set to `true` when there’s need to support IE 6 in a form with multiple buttons.
  */
@@ -93,7 +93,7 @@ OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
 /**
  * Set label value.
  *
- * If #useInputTag is `true`, the label is set as the `value` of the `<input/>` tag.
+ * If #useInputTag is `true`, the label is set as the `value` of the `<input>` tag.
  *
  * @param {jQuery|string|Function|null} label Label nodes, text, a function that returns nodes or
  *  text, or `null` for no label
@@ -119,7 +119,7 @@ OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
 /**
  * Set the value of the input.
  *
- * This method is disabled for button inputs configured as {@link #useInputTag <input/> tags}, as
+ * This method is disabled for button inputs configured as {@link #useInputTag <input> tags}, as
  * they do not support {@link #value values}.
  *
  * @param {string} value New value
