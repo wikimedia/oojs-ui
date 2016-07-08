@@ -117,6 +117,7 @@ OO.ui.MenuLayout.prototype.toggleMenu = function ( showMenu ) {
 		this.$element
 			.toggleClass( 'oo-ui-menuLayout-showMenu', this.showMenu )
 			.toggleClass( 'oo-ui-menuLayout-hideMenu', !this.showMenu );
+		this.$menu.attr( 'aria-hidden', this.showMenu ? 'false' : 'true' );
 	}
 
 	return this;
