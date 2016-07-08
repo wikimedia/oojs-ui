@@ -35,6 +35,7 @@
 		"speechBubbles": { "file": {
 			"ltr": "images/icons/speechBubbles-ltr.svg",
 			"rtl": "images/icons/speechBubbles-rtl.svg"
-		} }
+		} },
+		"tray": { "file": "images/icons/tray.svg" }
 	}
 }
