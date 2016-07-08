@@ -230,11 +230,10 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 	return OO.ui.Dialog.parent.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			var config = this.constructor.static,
-				actions = data.actions !== undefined ? data.actions : config.actions;
+				actions = data.actions !== undefined ? data.actions : config.actions,
+				title = data.title !== undefined ? data.title : config.title;
 
-			this.title.setLabel(
-				data.title !== undefined ? data.title : this.constructor.static.title
-			);
+			this.title.setLabel( title ).setTitle( title );
 			this.actions.add( this.getActionWidgets( actions ) );
 
 			this.$element.on( 'keydown', this.onDialogKeyDownHandler );
