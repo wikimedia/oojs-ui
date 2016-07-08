@@ -30,6 +30,7 @@
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
