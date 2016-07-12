@@ -13,6 +13,15 @@ OO.ui.ApexTheme = function OoUiApexTheme() {
 
 OO.inheritClass( OO.ui.ApexTheme, OO.ui.Theme );
 
+/* Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ApexTheme.prototype.getDialogTransitionDuration = function () {
+	return 250;
+};
+
 /* Instantiation */
 
 OO.ui.theme = new OO.ui.ApexTheme();

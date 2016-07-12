@@ -54,3 +54,15 @@ OO.ui.Theme.prototype.updateElementClasses = function ( element ) {
 		.removeClass( classes.off.join( ' ' ) )
 		.addClass( classes.on.join( ' ' ) );
 };
+
+/**
+ * Get the transition duration in milliseconds for dialogs opening/closing
+ *
+ * The dialog should be fully rendered this many milliseconds after the
+ * ready process has executed.
+ *
+ * @return {number} Transition duration in milliseconds
+ */
+OO.ui.Theme.prototype.getDialogTransitionDuration = function () {
+	return 0;
+};

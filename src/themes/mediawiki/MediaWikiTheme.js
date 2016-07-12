@@ -58,6 +58,13 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 	return classes;
 };
 
+/**
+ * @inheritdoc
+ */
+OO.ui.MediaWikiTheme.prototype.getDialogTransitionDuration = function () {
+	return 250;
+};
+
 /* Instantiation */
 
 OO.ui.theme = new OO.ui.MediaWikiTheme();
