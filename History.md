@@ -1,4 +1,31 @@
 # OOjs UI Release History
+## v0.17.6 / 2016-07-12
+### Features
+* CapsuleMultiselectWidget: Allow ignoring user input for 'allowArbitrary' widgets (Bartosz Dziewoński)
+* Dialog: Set the 'title' attribute on the title LabelWidget (Prateek Saxena)
+* ToolFactory: Allow '\*' as an item in a toolgroup include list (Ed Sanders)
+* Window: make the focus trap smarter (David Lynch)
+
+### Styles
+* Add aria-hidden to several Layouts (David Lynch)
+* Add dialog transition duration to theme JS file (Ed Sanders)
+* ButtonGroupWidget: Fix border on button's CSS states (Volker E)
+* MediaWiki theme: Normalize [placeholder] appearance x-browser and ensure a11y (Volker E)
+* MediaWiki theme: Unify ButtonWidget focus `border-radius` values (Volker E)
+* styles: Set `line-height` to unitless values to follow best practice (Volker E)
+* icons: Give "Stop" a filled background, aligned with others in the pack (Volker E)
+* icons: Unify cross-out lines direction to top-left/bottom-right (Volker E)
+
+### Code
+* README: Replace git.wikimedia.org URL with Phabricator one (Paladox)
+* build: Bump stylelint devDependencies to latest (James D. Forrester)
+* build: Update karma and karma-coverage to latest (Paladox)
+* demo: Dialogs: Removing title from SimpleDialog as it'll never show (Prateek Saxena)
+* docs: Remove self-closing tag syntax in comments and demos (Volker E)
+* docs: LabelWidget: Add TitledElement mixin (Prateek Saxena)
+* package: Replace git.wikimedia.org url with diffusion url (Paladox)
+
+
 ## v0.17.5 / 2016-06-19
 ### Styles
 * Dropdown,SelectFileWidget: Improve user experience on disabled widgets (Volker E)
