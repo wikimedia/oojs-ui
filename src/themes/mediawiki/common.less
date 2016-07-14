@@ -31,7 +31,6 @@
 @background-color-filled-disabled: #ddd;
 @color-disabled: #ccc;
 @color-disabled-framed: #fff;
-@border-color-disabled: #ddd;
 @opacity-disabled: 0.2;
 
 // Invalid Widget (validation error feedback)
@@ -46,16 +45,25 @@
 @size-indicator: unit( 12 / 16 / 0.8, em );
 @size-toggleswitch-grip-min: 16px;
 
-@border-default: 1px solid #ccc;
-@border-radius-default: 2px;
+@border-default: @border-width-default solid @border-color-default;
+@border-disabled: @border-width-default solid @border-color-disabled;
+@border-dialog: @border-width-default solid @border-color-dialog;
+@border-menu: @border-dialog;
 
+@border-color-default: #ccc;
+@border-color-disabled: #ddd;
+@border-color-disabled-framed: @color-disabled-framed;
 @border-color-progressive-active: #859dcc; // equivalents `fade( @color-progressive-active, 50% )`
 @border-color-destructive-active: #b77c79; // equivalents `fade( @color-destructive-active, 50% )`
 @border-color-focus-inset: @color-default-light;
+@border-color-dialog: #aaa;
+
+@border-radius-default: 2px;
+
+@border-width-default: 1px;
 
 @box-shadow-dialog: 0 0.15em 0 0 rgba( 0, 0, 0, 0.15 );
 @box-shadow-menu: @box-shadow-dialog;
-@box-shadow-popup: @box-shadow-dialog;
 @box-shadow-focus-default: inset 0 0 0 1px @color-progressive;
 @box-shadow-focus-inset: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-default-light;
 
@@ -72,7 +80,7 @@
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
 @background-color-input-binary-active: #ccc;
 @size-input-binary: 1.6em;
-@border-input-binary: 1px solid #777;
+@border-input-binary: @border-width-default solid #777;
 @border-color-input-binary-active: @background-color-input-binary-active;
 @border-bottom-width-input-binary-hover: 3px;
 @border-width-input-binary-focus: 2px;

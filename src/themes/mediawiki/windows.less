@@ -43,7 +43,7 @@
 	&-actions {
 		&-horizontal {
 			.oo-ui-actionWidget {
-				border-right: 1px solid #e5e5e5;
+				border-right: @border-default;
 				margin: 0;
 
 				&:last-child {
@@ -54,7 +54,7 @@
 
 		&-vertical {
 			.oo-ui-actionWidget {
-				border-bottom: 1px solid #e5e5e5;
+				border-bottom: @border-default;
 				margin: 0;
 
 				&:last-child {
@@ -294,7 +294,7 @@
 		bottom: 1em;
 		max-height: 100%;
 		max-height: e( 'calc(100% - 2em)' );
-		border: 1px solid #aaa;
+		border: @border-dialog;
 		border-radius: @border-radius-default;
 		box-shadow: @box-shadow-dialog;
 	}
