@@ -106,8 +106,8 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 		this.selectButton.setIcon( 'upload' );
 		this.$thumbnail = $( '<div>' ).addClass( 'oo-ui-selectFileWidget-thumbnail' );
 		this.setPendingElement( this.$thumbnail );
-		this.$dropTarget = $( '<div>' )
-			.addClass( 'oo-ui-selectFileWidget-dropTarget' )
+		this.$element
+			.addClass( 'oo-ui-selectFileWidget-dropTarget oo-ui-selectFileWidget' )
 			.on( {
 				click: this.onDropTargetClick.bind( this )
 			} )
@@ -119,7 +119,6 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 					.addClass( 'oo-ui-selectFileWidget-dropLabel' )
 					.text( OO.ui.msg( 'ooui-selectfile-dragdrop-placeholder' ) )
 			);
-		this.$element.append( this.$dropTarget );
 	} else {
 		this.$element
 			.addClass( 'oo-ui-selectFileWidget' )
@@ -245,12 +244,12 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 				}.bind( this ) ).always( function () {
 					this.popPending();
 				}.bind( this ) );
-				this.$dropTarget.off( 'click' );
+				this.$element.off( 'click' );
 			}
 		} else {
 			if ( this.showDropTarget ) {
-				this.$dropTarget.off( 'click' );
-				this.$dropTarget.on( {
+				this.$element.off( 'click' );
+				this.$element.on( {
 					click: this.onDropTargetClick.bind( this )
 				} );
 				this.$thumbnail

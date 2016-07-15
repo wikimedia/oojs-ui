@@ -287,14 +287,14 @@
 	}
 
 	&-supported.oo-ui-widget-enabled {
-		&.oo-ui-selectFileWidget-canDrop .oo-ui-selectFileWidget-dropTarget {
+		&.oo-ui-selectFileWidget-canDrop.oo-ui-selectFileWidget-dropTarget {
 			background-color: @color-progressive-fade;
 		}
 	}
 
 	&-empty.oo-ui-widget-disabled,
 	&-notsupported {
-		.oo-ui-selectFileWidget-dropTarget {
+		&.oo-ui-selectFileWidget-dropTarget {
 			border-color: @border-color-disabled;
 			background-color: @background-color-disabled;
 
@@ -306,7 +306,7 @@
 		}
 	}
 
-	&-dropTarget {
+	&.oo-ui-selectFileWidget-dropTarget {
 		background-color: @background-color-default;
 		border: 1px solid #ccc;
 		margin-bottom: 0.5em;
@@ -321,7 +321,7 @@
 		}
 	}
 
-	&-empty &-dropTarget {
+	&-empty.oo-ui-selectFileWidget-dropTarget {
 		background-color: #eee;
 		border-style: dashed;
 	}

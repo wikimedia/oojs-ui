@@ -73,7 +73,7 @@
 		z-index: 2;
 	}
 
-	&-dropTarget {
+	&.oo-ui-selectFileWidget-dropTarget {
 		cursor: default;
 		height: 5.5em;
 		padding: 0;
@@ -133,7 +133,7 @@
 		}
 	}
 
-	&-empty .oo-ui-selectFileWidget-dropTarget {
+	&-empty.oo-ui-selectFileWidget-dropTarget {
 
 		.oo-ui-selectFileWidget-thumbnail,
 		.oo-ui-selectFileWidget-info {
@@ -148,7 +148,7 @@
 
 	&-empty,
 	&-notsupported {
-		.oo-ui-selectFileWidget-dropTarget {
+		&.oo-ui-selectFileWidget-dropTarget {
 			text-align: center;
 
 			.oo-ui-selectFileWidget-info {
@@ -168,12 +168,12 @@
 
 	&-empty.oo-ui-widget-disabled,
 	&-notsupported {
-		.oo-ui-selectFileWidget-dropTarget {
+		&.oo-ui-selectFileWidget-dropTarget {
 			.oo-ui-unselectable();
 		}
 
-		.oo-ui-selectFileWidget-dropTarget,
-		.oo-ui-selectFileWidget-dropTarget .oo-ui-buttonElement-button {
+		&.oo-ui-selectFileWidget-dropTarget,
+		&.oo-ui-selectFileWidget-dropTarget .oo-ui-buttonElement-button {
 			cursor: no-drop;
 		}
 	}
