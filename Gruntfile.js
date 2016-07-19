@@ -519,7 +519,11 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
 	grunt.registerTask( 'lint', [ 'jshint', 'jscs',  'stylelint', 'jsonlint', 'banana' ] );
-	grunt.registerTask( 'test', [ 'lint', 'git-build', 'build-tests', 'karma:main', 'karma:other' ] );
+
+	// Run this before opening "tests/index.php"
+	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );
+
+	grunt.registerTask( 'test', [ 'prep-test', 'karma:main', 'karma:other' ] );
 	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
 
 	grunt.registerTask( 'default', 'test' );
