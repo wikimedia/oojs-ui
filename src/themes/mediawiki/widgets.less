@@ -308,7 +308,7 @@
 
 	&-dropTarget {
 		background-color: @background-color-default;
-		border: 1px solid #ccc;
+		border: @border-default;
 		margin-bottom: 0.5em;
 		vertical-align: middle;
 		overflow: hidden;
@@ -460,7 +460,7 @@
 	&.oo-ui-widget-enabled {
 		select:hover,
 		select:focus {
-			border-color: #aaa;
+			border-color: @border-color-dialog;
 			outline: 0;
 		}
 	}
@@ -1073,9 +1073,9 @@
 .theme-oo-ui-popupWidget () {
 	&-popup {
 		background-color: @background-color-default;
-		border: 1px solid #aaa;
+		border: @border-menu;
 		border-radius: @border-radius-default;
-		box-shadow: @box-shadow-popup;
+		box-shadow: @box-shadow-menu;
 	}
 
 	@anchor-size: 9px;
@@ -1106,7 +1106,7 @@
 		.oo-ui-popupWidget-anchor:after {
 			bottom: -@anchor-size - 1px;
 			left: -@anchor-size + 1px;
-			border-bottom-color: #fff;
+			border-bottom-color: @border-color-disabled-framed;
 			border-width: @anchor-size;
 		}
 	}
@@ -1206,7 +1206,7 @@
 .theme-oo-ui-menuSelectWidget () {
 	background-color: @background-color-default;
 	margin-top: -1px;
-	border: 1px solid #aaa;
+	border: @border-menu;
 	border-radius: 0 0 @border-radius-default @border-radius-default;
 	box-shadow: @box-shadow-menu;
 }
