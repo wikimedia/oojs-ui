@@ -753,16 +753,11 @@
 	max-width: @max-width-input-default;
 
 	&-handle {
-		background-color: @background-color-default;
-		cursor: text;
 		min-height: 2.4em;
-
 		.oo-ui-inline-spacing( 0.5em );
-
 		padding: 0.15em 0.25em;
 		border: @border-default;
 		border-radius: @border-radius-default;
-
 		.oo-ui-box-sizing( border-box );
 
 		> .oo-ui-indicatorElement-indicator,
@@ -780,11 +775,11 @@
 			background-color: transparent;
 			color: @color-emphasized;
 			vertical-align: middle;
-		}
 
-		> .oo-ui-capsuleMultiselectWidget-content > input:focus {
-			// Chrome
-			outline: 0;
+			&:focus {
+				// Chrome
+				outline: 0;
+			}
 		}
 	}
 
@@ -808,8 +803,15 @@
 		}
 	}
 
-	&:hover &-handle {
-		border-color: #aaa;
+	&.oo-ui-widget-enabled &-handle {
+		background-color: @background-color-default;
+		cursor: text;
+		.oo-ui-transition(
+			border-color @transition-ease-quick
+		);
+	}
+	&.oo-ui-widget-enabled:hover &-handle {
+		border-color: @border-color-default-hover;
 	}
 
 	&.oo-ui-widget-disabled &-handle {
@@ -817,7 +819,6 @@
 		text-shadow: @text-shadow-disabled;
 		border-color: @border-color-disabled;
 		background-color: @background-color-disabled;
-		cursor: default;
 
 		> .oo-ui-iconElement-icon,
 		> .oo-ui-indicatorElement-indicator {
