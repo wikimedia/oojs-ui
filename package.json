@@ -45,7 +45,7 @@
     "grunt-jsonlint": "1.1.0",
     "grunt-karma": "2.0.0",
     "grunt-promise-q": "git://github.com/jdforrester/grunt-promise-q.git#v0.1.1-wmf.1",
-    "grunt-stylelint": "0.5.0",
+    "grunt-stylelint": "0.6.0",
     "grunt-svg2png": "git://github.com/jdforrester/grunt-svg2png.git#v0.2.7-wmf.1",
     "grunt-tyops": "0.1.0",
     "karma": "1.1.1",
@@ -55,6 +55,6 @@
     "karma-qunit": "1.1.0",
     "q": "1.4.1",
     "qunitjs": "1.22.0",
-    "stylelint-config-wikimedia": "0.2.3"
+    "stylelint-config-wikimedia": "0.3.0"
   }
 }
