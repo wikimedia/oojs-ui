@@ -349,7 +349,7 @@
 	}
 
 	// `<input type=checkbox>` element is visually replaced by `span` that follows
-	[type="checkbox"] {
+	[type='checkbox'] {
 		// Use opacity so that VoiceOver can still identify it
 		opacity: 0;
 		// Render "on top of" the span, so that it's still clickable
@@ -486,7 +486,7 @@
 	}
 
 	// `<input type=radio>` element is visually replaced by `span` that follows
-	[type="radio"] {
+	[type='radio'] {
 		// Use opacity so that VoiceOver can still identify it
 		opacity: 0;
 		// Render "on top of" the span, so that it's still clickable
@@ -1087,7 +1087,7 @@
 
 		.oo-ui-popupWidget-anchor:before,
 		.oo-ui-popupWidget-anchor:after {
-			content: "";
+			content: '';
 			position: absolute;
 			width: 0;
 			height: 0;
@@ -1196,7 +1196,7 @@
 		outline: 0;
 
 		.oo-ui-radioOptionWidget.oo-ui-optionWidget-selected {
-			.oo-ui-radioInputWidget [type="radio"] + span {
+			.oo-ui-radioInputWidget [type='radio'] + span {
 				border-width: @border-width-input-binary-focus;
 			}
 		}
@@ -1257,7 +1257,7 @@
 	);
 
 	&:before {
-		content: "";
+		content: '';
 		display: block;
 		position: absolute;
 		top: 1px;
