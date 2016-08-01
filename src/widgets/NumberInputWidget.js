@@ -54,24 +54,20 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 		this.minusButton = new OO.ui.ButtonWidget( $.extend(
 			{
 				disabled: this.isDisabled(),
-				tabIndex: -1
-			},
-			config.minusButton,
-			{
+				tabIndex: -1,
 				classes: [ 'oo-ui-numberInputWidget-minusButton' ],
 				label: '−'
-			}
+			},
+			config.minusButton
 		) );
 		this.plusButton = new OO.ui.ButtonWidget( $.extend(
 			{
 				disabled: this.isDisabled(),
-				tabIndex: -1
-			},
-			config.plusButton,
-			{
+				tabIndex: -1,
 				classes: [ 'oo-ui-numberInputWidget-plusButton' ],
 				label: '+'
-			}
+			},
+			config.plusButton
 		) );
 	}
 
