@@ -596,7 +596,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 		$body = $( this.getElementDocument().body ),
 		// We could have multiple window managers open so only modify
 		// the body css at the bottom of the stack
-		stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0 ;
+		stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0;
 
 	on = on === undefined ? !!this.globalEvents : !!on;
 

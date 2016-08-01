@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * ActionSets manage the behavior of the {@link OO.ui.ActionWidget action widgets} that comprise them.
  * Actions can be made available for specific contexts (modes) and circumstances
@@ -98,6 +99,7 @@ OO.ui.ActionSet = function OoUiActionSet( config ) {
 	this.changing = false;
 	this.changed = false;
 };
+/* eslint-enable no-unused-vars */
 
 /* Setup */
 

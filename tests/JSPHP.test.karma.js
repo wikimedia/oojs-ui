@@ -46,7 +46,7 @@ QUnit.module( 'JSPHP' );
 	// if we want the tests to be synchronous
 	OO.ui.Element.prototype.updateThemeClasses = OO.ui.Element.prototype.debouncedUpdateThemeClasses;
 
-	/*global testSuiteConfigs, testSuitePHPOutput */
+	/* global testSuiteConfigs, testSuitePHPOutput */
 	for ( klassName in testSuiteConfigs ) {
 		for ( theme in themes ) {
 			makeTest(
