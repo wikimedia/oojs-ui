@@ -1,4 +1,32 @@
 # OOjs UI Release History
+## v0.17.7 / 2016-08-03
+### Styles
+* MediaWiki theme: Apply `border-color` on `:hover` to textInputWidgets (Volker E)
+* MediaWiki theme: Decrease `margin`/`padding` on `legend` replacement (Volker E)
+* MediaWiki theme: Decrease distance between label and Checkbox*-/Radio*Widget (Volker E)
+* MediaWiki theme: Improve UX on ToggleSwitchWidget (Volker E)
+* icons: Fix vertical alignment of 'bell' by moving up 1px (Ed Sanders)
+* icons: Provide a 'tray' icon in alerts pack (James D. Forrester)
+* icons: Provide the alerts pack for Apex theme too (James D. Forrester)
+
+### Code
+* CheckboxMultiselectWidget: Rewrite Shift-clicking code (Bartosz Dziewoński)
+* NumberInputWidget: Merge object literals being passed as config for buttons (Prateek Saxena)
+* SelectFileWidget: Reduce div soup when 'showDropTarget' is enabled (Prateek Saxena)
+* styles: Replace unprefixed `box-sizing` property with mixin (Volker E)
+* MediaWiki theme: Disable vendor UI extensions on every `type=number` input (Volker E)
+* MediaWiki theme: Remove unnecessary toolGroup selector (Volker E)
+* MediaWiki theme: Replace `border` property values with Less variables (Volker E)
+* MediaWiki theme: Replace static `color` value with Less variable (Volker E)
+* build: Add 'prep-test' task to be run before running tests in the browser (Prateek Saxena)
+* build: Align to stylelint-config-wikimedia for `!important` (James D. Forrester)
+* build: Align to stylelint-config-wikimedia for string quotes (James D. Forrester)
+* build: Bump stylelint-related devDependencies to latest (James D. Forrester)
+* build: Downgrade grunt-jscs to 2.8.0 to avoid cst bug (James D. Forrester)
+* doc: Correct some code comments in PHP mixins (Bartosz Dziewoński)
+* standalone tests: Correct error message (Bartosz Dziewoński)
+
+
 ## v0.17.6 / 2016-07-12
 ### Features
 * CapsuleMultiselectWidget: Allow ignoring user input for 'allowArbitrary' widgets (Bartosz Dziewoński)
