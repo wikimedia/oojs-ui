@@ -124,6 +124,7 @@ OO.ui.Demo.static.themes = {
 		additionalSuffixes: [
 			'-icons-movement',
 			'-icons-content',
+			'-icons-alerts',
 			'-icons-interactions',
 			'-icons-moderation',
 			'-icons-editing-core',
