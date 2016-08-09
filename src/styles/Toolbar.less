@@ -8,12 +8,10 @@
 		position: relative;
 	}
 
-	&-actions {
-		float: right;
-
-		.oo-ui-toolbar {
-			display: inline-block;
-		}
+	&-tools,
+	&-actions,
+	&-shadow {
+		.oo-ui-unselectable();
 	}
 
 	&-tools {
@@ -30,14 +28,16 @@
 		}
 	}
 
-	&-tools,
-	&-actions,
-	&-shadow {
-		.oo-ui-unselectable();
-	}
+	&-actions {
+		float: right;
 
-	&-actions .oo-ui-popupWidget {
-		.oo-ui-selectable();
+		.oo-ui-toolbar {
+			display: inline-block;
+		}
+
+		.oo-ui-popupWidget {
+			.oo-ui-selectable();
+		}
 	}
 
 	&-shadow {
