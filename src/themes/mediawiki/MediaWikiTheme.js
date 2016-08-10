@@ -34,9 +34,7 @@ OO.ui.MediaWikiTheme.prototype.getElementClasses = function ( element ) {
 	if ( element.supports( [ 'hasFlag' ] ) ) {
 		isFramed = element.supports( [ 'isFramed' ] ) && element.isFramed();
 		isActive = element.supports( [ 'isActive' ] ) && element.isActive();
-		if (
-			( isFramed && ( isActive || element.isDisabled() || element.hasFlag( 'primary' ) ) )
-		) {
+		if ( isFramed && ( isActive || element.isDisabled() || element.hasFlag( 'primary' ) ) ) {
 			// Button with a dark background, use white icon
 			variants.invert = true;
 		} else if ( !isFramed && element.isDisabled() ) {

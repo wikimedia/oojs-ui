@@ -20,7 +20,8 @@ class MediaWikiTheme extends Theme {
 
 		if ( $element->supports( [ 'hasFlag' ] ) ) {
 			$isFramed = $element->supports( [ 'isFramed' ] ) && $element->isFramed();
-			if ( $isFramed && ( $element->isDisabled() || $element->hasFlag( 'primary' ) ) ) {
+			$isActive = $element->supports( [ 'isActive' ] ) && $element->isActive();
+			if ( $isFramed && ( $isActive || $element->isDisabled() || $element->hasFlag( 'primary' ) ) ) {
 				// Button with a dark background, use white icon
 				$variants['invert'] = true;
 			} elseif ( !$isFramed && $element->isDisabled() ) {

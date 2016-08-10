@@ -47,7 +47,7 @@ class ButtonWidget extends Widget {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param string $config['active'] Whether button should be shown as active (default: false)
+	 * @param boolean $config['active'] Whether button should be shown as active (default: false)
 	 * @param string $config['href'] Hyperlink to visit when clicked
 	 * @param string $config['target'] Target to open hyperlink in
 	 * @param boolean $config['noFollow'] Search engine traversal hint (default: true)

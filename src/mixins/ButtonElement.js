@@ -238,6 +238,7 @@ OO.ui.mixin.ButtonElement.prototype.toggleFramed = function ( framed ) {
 OO.ui.mixin.ButtonElement.prototype.setActive = function ( value ) {
 	this.active = !!value;
 	this.$element.toggleClass( 'oo-ui-buttonElement-active', this.active );
+	this.updateThemeClasses();
 	return this;
 };
 
