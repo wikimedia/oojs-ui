@@ -179,12 +179,17 @@
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 				background-color: darken( @background-color-default, 15% );
 				border-color: darken( @background-color-default, 15% );
-				box-shadow: none;
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
 				background-color: @background-color-active;
 				color: @color-default-light;
+				border-color: @border-color-buttonelement-active;
+				z-index: 3;
+
+				&:focus {
+					border-color: @color-progressive-focus;
+				}
 			}
 
 			&.oo-ui-flaggedElement {
