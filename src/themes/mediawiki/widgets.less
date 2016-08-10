@@ -50,6 +50,15 @@
 			border-top-right-radius: @border-radius-default;
 		}
 	}
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-buttonElement {
+			.oo-ui-buttonElement-button:focus {
+				border-color: @border-color-default-focus;
+				z-index: 3;
+			}
+		}
+	}
 }
 
 .theme-oo-ui-buttonWidget () {
@@ -1180,14 +1189,6 @@
 
 	&:focus {
 		outline: 0;
-
-		.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
-			.oo-ui-buttonElement-button {
-				border-color: @color-progressive-focus;
-				box-shadow: @box-shadow-focus-default;
-				z-index: 2;
-			}
-		}
 	}
 
 	.oo-ui-buttonOptionWidget {
@@ -1205,6 +1206,18 @@
 		&:last-child .oo-ui-buttonElement-button {
 			border-bottom-right-radius: @border-radius-default;
 			border-top-right-radius: @border-radius-default;
+		}
+
+	}
+
+	&.oo-ui-widget-enabled {
+		&:focus {
+			.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
+				.oo-ui-buttonElement-button {
+					border-color: @border-color-default-focus;
+					box-shadow: @box-shadow-focus-default;
+				}
+			}
 		}
 	}
 }
