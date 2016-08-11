@@ -63,6 +63,7 @@ else
 		'icon' => ['image'],
 		'indicator' => ['down'],
 		'flags' => %w[constructive primary],
+		'progress' => [0, 50, 100, false],
 		# these are defined by Element and would bloat the tests
 		'classes' => true,
 		'id' => true,
