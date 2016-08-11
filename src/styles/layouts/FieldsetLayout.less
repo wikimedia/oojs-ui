@@ -2,6 +2,14 @@
 
 .oo-ui-fieldsetLayout {
 	position: relative;
+	min-width: 0; // Prevent overflowing content in WebKit/Blink (responsive layouts)
+	margin: 0;
+	border: 0;
+	padding: 0.01px 0 0 0; // Prevent WebKit/Safari from collapsing `margin`s
+
+	body:not( :-moz-handler-blocked ) & {
+		display: table-cell; // Prevent overflowing content in Firefox (responsive layouts)
+	}
 
 	&.oo-ui-iconElement > .oo-ui-iconElement-icon {
 		display: block;
@@ -9,7 +17,12 @@
 	}
 
 	&.oo-ui-labelElement > .oo-ui-labelElement-label {
-		display: inline-block;
+		color: inherit; // Correct the color inheritance from `fieldset` elements in IE
+		display: table; // Correct the text wrapping in Edge and IE
+		box-sizing: border-box; // Correct the text wrapping in Edge and IE
+		max-width: 100%; // Correct the text wrapping in Edge and IE
+		padding: 0;
+		white-space: normal; // Correct the text wrapping in Edge and IE
 	}
 
 	> .oo-ui-fieldsetLayout-help {
