@@ -34,8 +34,10 @@ else
 	# values to test for each type
 	expandos = {
 		'null' => [nil],
-		'number' => [0, -1, 300],
-		'boolean' => [true, false],
+		'int' => [0, -1, 300], # PHP code
+		'number' => [0, -1, 300], # JS code
+		'bool' => [true, false], # PHP code
+		'boolean' => [true, false], # JS code
 		'string' => ['Foo bar', '<b>HTML?</b>', '', ' '],
 		'HtmlSnippet' => ['Foo bar', '<b>HTML?</b>', ''].map(&make_htmlsnippet_placeholder),
 	}
