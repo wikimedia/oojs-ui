@@ -108,7 +108,8 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Events
 	this.$input.on( {
 		keypress: this.onKeyPress.bind( this ),
-		blur: this.onBlur.bind( this )
+		blur: this.onBlur.bind( this ),
+		focus: this.onFocus.bind( this )
 	} );
 	this.$input.one( {
 		focus: this.onElementAttach.bind( this )
@@ -120,6 +121,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		change: 'onChange',
 		disable: 'onDisable'
 	} );
+	this.on( 'change', OO.ui.debounce( this.onDebouncedChange.bind( this ), 300 ) );
 
 	// Initialization
 	this.$element
@@ -263,6 +265,16 @@ OO.ui.TextInputWidget.prototype.onBlur = function () {
 };
 
 /**
+ * Handle focus events.
+ *
+ * @private
+ * @param {jQuery.Event} e Focus event
+ */
+OO.ui.TextInputWidget.prototype.onFocus = function () {
+	this.setValidityFlag( true );
+};
+
+/**
  * Handle element attach events.
  *
  * @private
@@ -283,8 +295,17 @@ OO.ui.TextInputWidget.prototype.onElementAttach = function () {
  */
 OO.ui.TextInputWidget.prototype.onChange = function () {
 	this.updateSearchIndicator();
-	this.setValidityFlag();
 	this.adjustSize();
+};
+
+/**
+ * Handle debounced change events.
+ *
+ * @param {string} value
+ * @private
+ */
+OO.ui.TextInputWidget.prototype.onDebouncedChange = function () {
+	this.setValidityFlag();
 };
 
 /**
