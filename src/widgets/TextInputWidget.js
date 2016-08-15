@@ -121,7 +121,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		change: 'onChange',
 		disable: 'onDisable'
 	} );
-	this.on( 'change', OO.ui.debounce( this.onDebouncedChange.bind( this ), 300 ) );
+	this.on( 'change', OO.ui.debounce( this.onDebouncedChange.bind( this ), 250 ) );
 
 	// Initialization
 	this.$element
