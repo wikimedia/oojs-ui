@@ -92,5 +92,5 @@ OO.ui.ProgressBarWidget.prototype.setProgress = function ( progress ) {
 		this.$bar.css( 'width', '' );
 		this.$element.removeAttr( 'aria-valuenow' );
 	}
-	this.$element.toggleClass( 'oo-ui-progressBarWidget-indeterminate', !progress );
+	this.$element.toggleClass( 'oo-ui-progressBarWidget-indeterminate', progress === false );
 };
