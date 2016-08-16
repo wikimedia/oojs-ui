@@ -1253,8 +1253,9 @@
 
 .theme-oo-ui-toggleSwitchWidget () {
 	@travelDistance: 1.5em;
-	height: 2em;
 	width: @travelDistance + 2em;
+	min-height: @min-height-toggleswitch;
+	height: 2em;
 	border: @border-input-binary;
 	border-radius: 1em;
 	background-color: @background-color-default;
@@ -1281,12 +1282,12 @@
 	}
 
 	&-grip {
-		top: 0.35em;
+		top: 0.3125em;
 		min-width: @size-toggleswitch-grip-min;
-		width: 1.2em;
+		width: 1.25em;
 		min-height: @size-toggleswitch-grip-min;
-		height: 1.2em;
-		border-radius: 1.2em;
+		height: 1.25em;
+		border-radius: 1.25em;
 		.oo-ui-transition(
 			left @transition-ease-quick,
 			margin-left @transition-ease-quick
