@@ -1,4 +1,28 @@
 # OOjs UI Release History
+## v0.17.8 / 2016-08-16
+### Features
+* ProgressBarWidget: Do not make zero progress indeterminate (Leszek Manicki)
+* ProgressBarWidget: Add PHP version (Leszek Manicki)
+* TextInputWidget: Show state as valid (no matter the case) on focus (Prateek Saxena)
+
+### Styles
+* ButtonElement: Fix 'active' state icon variants in MediaWiki theme (Bartosz Dziewoński)
+* FieldLayout: Use saner line-height for errors/notices (Bartosz Dziewoński)
+* SelectFileWidget: Improve thumbnail appearance (Volker E)
+* styles: Inherit specific `font` properties, not all (Volker E)
+* MediaWiki theme: Clear border on selected framed buttons (Volker E)
+* MediaWiki theme: Fix ButtonWidget (frameless, indicator) `:focus` appearance (Volker E)
+* MediaWiki theme: Fix ToggleSwitchWidget's sub-pixel rounding errors (Volker E)
+
+
+### Code
+* MediaWiki theme: Improve CapsuleMultiselectWidget Less code and behaviour (Volker E)
+* MediaWiki theme: Improve DropdownWidget Less code and behaviour (Volker E)
+* MediaWiki theme: Removing never applied styles on BarToolGroup (Volker E)
+* MediaWiki theme: Simplify ToolGroup selectors (Volker E)
+* testsuitegenerator: Specify sensible values to test for 'progress' (Bartosz Dziewoński)
+
+
 ## v0.17.7 / 2016-08-03
 ### Styles
 * MediaWiki theme: Apply `border-color` on `:hover` to textInputWidgets (Volker E)
