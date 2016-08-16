@@ -981,6 +981,24 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'align' => 'top'
 			]
 		),
+		new OOUI\FieldLayout(
+			new OOUI\ProgressBarWidget( [
+				'progress' => 33
+			] ),
+			[
+				'label' => 'Progress bar',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ProgressBarWidget( [
+				'progress' => false
+			] ),
+			[
+				'label' => 'Progress bar (indeterminate)',
+				'align' => 'top'
+			]
+		),
 	]
 ] ) );
 

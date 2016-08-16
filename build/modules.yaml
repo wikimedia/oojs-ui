@@ -64,6 +64,8 @@
 			# ComboBoxInputWidget
 			"src/mixins/FloatableElement.js",
 			"src/widgets/FloatingMenuSelectWidget.js",
+			# ProgressBarWidget
+			"src/widgets/ProgressBarWidget.js",
 
 			# The basic widgets and layouts, continued.
 			"src/widgets/InputWidget.js",
@@ -115,7 +117,6 @@
 			"src/widgets/CapsuleMultiselectWidget.js",
 
 			"src/widgets/SelectFileWidget.js",
-			"src/widgets/ProgressBarWidget.js",
 			"src/widgets/SearchWidget.js",
 			"src/widgets/NumberInputWidget.js"
 		],
