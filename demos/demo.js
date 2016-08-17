@@ -381,7 +381,6 @@ OO.ui.Demo.prototype.buildConsole = function ( item, layout, widget ) {
 
 	function exec( str ) {
 		var func, ret;
-		/* jshint evil:true */
 		if ( str.indexOf( 'return' ) !== 0 ) {
 			str = 'return ' + str;
 		}

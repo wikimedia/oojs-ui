@@ -2,7 +2,6 @@
  * Grunt file
  */
 
-/* jshint node:true */
 module.exports = function ( grunt ) {
 	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
@@ -27,7 +26,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
@@ -36,7 +34,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-exec' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
 	grunt.loadNpmTasks( 'grunt-image' );
-	grunt.loadNpmTasks( 'grunt-jscs' );
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
@@ -350,23 +347,6 @@ module.exports = function ( grunt ) {
 				'!tests/JSPHP.test.js'
 			]
 		},
-		jshint: {
-			options: {
-				jshintrc: true
-			},
-			dev: [
-				'*.js',
-				'{build,demos,src,tests}/**/*.js',
-				'!demos/{dist,node_modules,vendor}/**/*.js',
-				'!tests/JSPHP.test.js'
-			]
-		},
-		jscs: {
-			dev: [
-				'<%= jshint.dev %>',
-				'!demos/dist/**'
-			]
-		},
 
 		// Lint – Styling
 		stylelint: {
@@ -445,13 +425,12 @@ module.exports = function ( grunt ) {
 		// Development
 		watch: {
 			files: [
-				'<%= jshint.dev %>',
 				'<%= eslint.dev %>',
 				'<%= stylelint.dev %>',
 				'<%= jsonlint.all %>',
 				'src/**/*.less',
 				'php/**/*.php',
-				'.{stylelintrc,jscsrc,jshintignore,jshintrc,eslintrc.json}'
+				'.{stylelintrc,eslintrc.json}'
 			],
 			tasks: 'quick-build'
 		}
@@ -530,7 +509,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'minify', [ 'uglify', 'image', 'cssmin' ] );
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
-	grunt.registerTask( 'lint', [ 'eslint', 'jshint', 'jscs',  'stylelint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
 
 	// Run this before opening "tests/index.php"
 	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );

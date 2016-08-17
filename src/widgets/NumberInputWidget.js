@@ -265,13 +265,11 @@ OO.ui.NumberInputWidget.prototype.validateNumber = function ( value ) {
 		return false;
 	}
 
-	/* jshint bitwise: false */
 	/* eslint-disable no-bitwise */
 	if ( this.isInteger && ( n | 0 ) !== n ) {
 		return false;
 	}
 	/* eslint-enable no-bitwise */
-	/* jshint bitwise: true */
 
 	if ( n < this.min || n > this.max ) {
 		return false;

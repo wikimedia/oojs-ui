@@ -230,9 +230,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	// pick up dynamic state, like focus, value of form inputs, scroll position, etc.
 	state = cls.static.gatherPreInfuseState( $elem[ 0 ], data );
 	// rebuild widget
-	// jscs:disable requireCapitalizedConstructors
 	obj = new cls( data );
-	// jscs:enable requireCapitalizedConstructors
 	// now replace old DOM with this new DOM.
 	if ( top ) {
 		// An efficient constructor might be able to reuse the entire DOM tree of the original element,

@@ -4,7 +4,6 @@ QUnit.module( 'core' );
  * @note: Keep tests in sync with phpunit/TagTest.php
  */
 QUnit.test( 'isSafeUrl', 13, function ( assert ) {
-	/* jshint scripturl:true */
 	assert.notOk( OO.ui.isSafeUrl( 'javascript:evil();' ) );
 	assert.notOk( OO.ui.isSafeUrl( 'foo:bar' ) );
 	assert.notOk( OO.ui.isSafeUrl( 'relative.html' ) );
