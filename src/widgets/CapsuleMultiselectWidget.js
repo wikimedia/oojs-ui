@@ -138,6 +138,7 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 	}
 	this.menu.connect( this, {
 		choose: 'onMenuChoose',
+		toggle: 'onMenuToggle',
 		add: 'onMenuItemsChange',
 		remove: 'onMenuItemsChange'
 	} );
@@ -681,6 +682,16 @@ OO.ui.CapsuleMultiselectWidget.prototype.onMenuChoose = function ( item ) {
 		this.addItemsFromData( [ item.getData() ] );
 		this.clearInput();
 	}
+};
+
+/**
+ * Handle menu toggle events.
+ *
+ * @private
+ * @param {boolean} isVisible Menu toggle event
+ */
+OO.ui.CapsuleMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
+	this.$element.toggleClass( 'oo-ui-capsuleMultiselectWidget-open', isVisible );
 };
 
 /**
