@@ -13,3 +13,4 @@ composer.lock
 /demos/node_modules
 /demos/dist
 /demos/php
+.idea
