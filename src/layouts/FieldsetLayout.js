@@ -49,7 +49,7 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
-	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, { $label: $( '<legend>' ) } ) );
 	OO.ui.mixin.GroupElement.call( this, config );
 
 	if ( config.help ) {
@@ -72,7 +72,7 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-fieldsetLayout' )
-		.prepend( this.$help, this.$icon, this.$label, this.$group );
+		.prepend( this.$label, this.$help, this.$icon, this.$group );
 	if ( Array.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}
@@ -84,3 +84,7 @@ OO.inheritClass( OO.ui.FieldsetLayout, OO.ui.Layout );
 OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.mixin.GroupElement );
+
+/* Static Properties */
+
+OO.ui.FieldsetLayout.static.tagName = 'fieldset';
