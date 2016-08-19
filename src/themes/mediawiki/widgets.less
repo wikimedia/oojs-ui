@@ -403,7 +403,7 @@
 		}
 
 		&:disabled + span {
-			background-color: @background-color-filled-disabled;
+			background-color: @background-color-disabled-filled;
 			border-color: @border-color-disabled;
 		}
 
@@ -540,7 +540,7 @@
 		}
 
 		&:disabled + span {
-			background-color: @background-color-filled-disabled;
+			background-color: @background-color-disabled-filled;
 			border-color: @border-color-disabled;
 		}
 
@@ -1110,7 +1110,7 @@
 		.oo-ui-popupWidget-anchor:after {
 			bottom: -@anchor-size - 1px;
 			left: -@anchor-size + 1px;
-			border-bottom-color: @border-color-disabled-framed;
+			border-bottom-color: @border-color-disabled-filled;
 			border-width: @anchor-size;
 		}
 	}
@@ -1376,12 +1376,17 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		background-color: @background-color-filled-disabled;
+		background-color: @background-color-disabled-filled;
 		border-color: @border-color-disabled;
 		outline: 0; // Chrome when element has `tabindex` attribute
 
-		.oo-ui-toggleSwitchWidget-grip {
-			background-color: @color-disabled-framed;
+		&.oo-ui-toggleWidget-off .oo-ui-toggleSwitchWidget-grip {
+			border: @border-disabled-filled;
+			box-shadow: @box-shadow-disabled-filled;
+		}
+
+		&.oo-ui-toggleWidget-on .oo-ui-toggleSwitchWidget-grip {
+			background-color: @background-color-default;
 		}
 	}
 }
@@ -1406,7 +1411,7 @@
 			.oo-ui-animation( oo-ui-progressBarWidget-slide 2s infinite linear );
 			width: 40%;
 			margin-left: -10%;
-			border-left-width: 1px;
+			border-left-width: @border-width-default;
 		}
 	}
 	&.oo-ui-widget-disabled {

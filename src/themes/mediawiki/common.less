@@ -29,9 +29,9 @@
 
 // Disabled Widgets
 @background-color-disabled: #f3f3f3;
-@background-color-filled-disabled: #ddd;
+@background-color-disabled-filled: #ddd;
 @color-disabled: #ccc;
-@color-disabled-framed: #fff;
+@color-disabled-filled: #fff;
 @opacity-disabled: 0.2;
 
 // Invalid Widget (validation error feedback)
@@ -49,6 +49,7 @@
 
 @border-default: @border-width-default solid @border-color-default;
 @border-disabled: @border-width-default solid @border-color-disabled;
+@border-disabled-filled: @border-width-default solid @border-color-disabled-filled;
 @border-dialog: @border-width-default solid @border-color-dialog;
 @border-menu: @border-dialog;
 
@@ -56,7 +57,7 @@
 @border-color-default-hover: #aaa;
 @border-color-default-focus: @color-progressive-focus;
 @border-color-disabled: #ddd;
-@border-color-disabled-framed: @color-disabled-framed;
+@border-color-disabled-filled: @color-disabled-filled;
 @border-color-progressive-active: #859dcc; // equivalents `fade( @color-progressive-active, 50% )`
 @border-color-destructive-active: #b77c79; // equivalents `fade( @color-destructive-active, 50% )`
 @border-color-focus-inset: @color-default-light;
@@ -71,6 +72,7 @@
 @box-shadow-menu: @box-shadow-dialog;
 @box-shadow-focus-default: inset 0 0 0 1px @color-progressive;
 @box-shadow-focus-inset: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-default-light;
+@box-shadow-disabled-filled: inset 0 0 0 1px @color-disabled-filled;
 
 @line-height-default: 1.4;
 
