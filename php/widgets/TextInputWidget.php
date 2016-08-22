@@ -103,7 +103,7 @@ class TextInputWidget extends InputWidget {
 		if ( !$config['autocomplete'] ) {
 			$this->input->setAttributes( [ 'autocomplete' => 'off' ] );
 		}
-		if ( $this->multiline && isset( $config['rows'] ) ) {
+		if ( $this->multiline && isset( $config['rows'] ) && $config['rows'] ) {
 			$this->input->setAttributes( [ 'rows' => $config['rows'] ] );
 		}
 	}
