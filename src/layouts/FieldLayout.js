@@ -102,12 +102,12 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-fieldLayout' )
+		.toggleClass( 'oo-ui-fieldLayout-disabled', this.fieldWidget.isDisabled() )
 		.append( this.$help, this.$body );
 	this.$body.addClass( 'oo-ui-fieldLayout-body' );
 	this.$messages.addClass( 'oo-ui-fieldLayout-messages' );
 	this.$field
 		.addClass( 'oo-ui-fieldLayout-field' )
-		.toggleClass( 'oo-ui-fieldLayout-disable', this.fieldWidget.isDisabled() )
 		.append( this.fieldWidget.$element );
 
 	this.setErrors( config.errors || [] );
