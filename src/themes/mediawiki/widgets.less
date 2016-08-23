@@ -730,14 +730,22 @@
 }
 
 .theme-oo-ui-comboBoxInputWidget () {
-	width: 100%;
-	max-width: @max-width-input-default;
-
-	.oo-ui-inline-spacing( 0.5em );
+	// inherits from `inputWidget` & `textInputWidget`
 
 	input,
 	textarea {
 		height: 2.35em;
+	}
+
+	&.oo-ui-widget-enabled:hover {
+		input,
+		textarea {
+			border-color: @border-color-default-hover;
+
+			&:focus {
+				border-color: @border-color-default-focus;
+			}
+		}
 	}
 }
 
