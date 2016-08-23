@@ -221,13 +221,6 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 					.addClass( 'oo-ui-selectFileWidget-fileName' )
 					.text( this.currentFile.name )
 			);
-			if ( this.currentFile.type !== '' ) {
-				$label = $label.add(
-					$( '<span>' )
-						.addClass( 'oo-ui-selectFileWidget-fileType' )
-						.text( this.currentFile.type )
-				);
-			}
 			this.setLabel( $label );
 
 			if ( this.showDropTarget ) {
