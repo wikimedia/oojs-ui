@@ -85,7 +85,10 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 		keypress: this.menu.onKeyPressHandler,
 		blur: this.menu.clearKeyPressBuffer.bind( this.menu )
 	} );
-	this.menu.connect( this, { select: 'onMenuSelect' } );
+	this.menu.connect( this, {
+		select: 'onMenuSelect',
+		toggle: 'onMenuToggle'
+	} );
 
 	// Initialization
 	this.$handle
@@ -139,6 +142,16 @@ OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
 	}
 
 	this.setLabel( selectedLabel );
+};
+
+/**
+ * Handle menu toggle events.
+ *
+ * @private
+ * @param {boolean} isVisible Menu toggle event
+ */
+OO.ui.DropdownWidget.prototype.onMenuToggle = function ( isVisible ) {
+	this.$element.toggleClass( 'oo-ui-dropdownWidget-open', isVisible );
 };
 
 /**
