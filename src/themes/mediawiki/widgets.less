@@ -271,7 +271,7 @@
 
 	&-supported.oo-ui-widget-enabled {
 		&.oo-ui-selectFileWidget-canDrop.oo-ui-selectFileWidget-dropTarget {
-			background-color: @color-progressive-fade;
+			background-color: @background-color-progressive;
 		}
 	}
 
@@ -902,23 +902,15 @@
 .theme-oo-ui-labelWidget () {}
 
 .theme-oo-ui-optionWidget () {
-	padding: 0.25em 0.5em;
 	border: 0;
-
-	&-highlighted {
-		background-color: #eee;
-	}
+	padding: 0.25em 0.5em;
 
 	.oo-ui-labelElement-label {
 		line-height: 1.5;
 	}
 
-	.oo-ui-selectWidget-depressed &-selected,
-	.oo-ui-selectWidget-pressed &-pressed,
-	.oo-ui-selectWidget-pressed &-pressed&-highlighted,
-	.oo-ui-selectWidget-pressed &-pressed&-highlighted&-selected {
-		background-color: @background-color-pressed;
-	}
+	// Don't add `highlighted` or `selected` modifications here
+	// as it inherits to various visually opposite widgets.
 
 	&.oo-ui-widget-disabled {
 		color: @color-disabled;
@@ -981,22 +973,28 @@
 
 .theme-oo-ui-menuOptionWidget () {
 	padding: 0.5em 1em;
+	.oo-ui-transition(
+		background-color @transition-ease-quick,
+		color @transition-ease-quick
+	);
 
 	&.oo-ui-optionWidget {
+		&-highlighted {
+			background-color: @background-color-default-hover;
+			color: @color-emphasized;
+		}
 		&-selected {
-			background-color: @background-color-selected;
-			color: rgba( 0, 0, 0, 0.8 );
+			background-color: @background-color-progressive;
+			color: @color-progressive;
 
 			.oo-ui-iconElement-icon {
 				display: none;
 			}
 		}
-		&-highlighted {
-			background-color: #eee;
-			color: @color-emphasized;
-		}
-		&-selected&-highlighted {
-			background-color: @background-color-selected;
+		&-selected&-highlighted,
+		&-pressed&-highlighted {
+			background-color: @background-color-progressive-hover;
+			color: @color-progressive;
 		}
 	}
 }
@@ -1009,6 +1007,25 @@
 .theme-oo-ui-outlineOptionWidget () {
 	font-size: 1.1em;
 	padding: 0.75em;
+	.oo-ui-transition(
+		background-color @transition-ease-quick,
+		color @transition-ease-quick
+	);
+
+	&.oo-ui-optionWidget-highlighted {
+		background-color: @background-color-default-hover;
+		color: @color-emphasized;
+	}
+
+	&.oo-ui-optionWidget-selected {
+		background-color: @background-color-progressive;
+		color: @color-progressive;
+	}
+
+	&.oo-ui-optionWidget-pressed {
+		background-color: @background-color-progressive-hover;
+		color: @color-progressive;
+	}
 
 	.oo-ui-iconElement-icon {
 		// Undoes the parent change, because the theme's icons expect to be
@@ -1045,11 +1062,6 @@
 		.oo-ui-iconElement-icon {
 			left: 4em;
 		}
-	}
-
-	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected {
-		background-color: @background-color-pressed;
-		text-shadow: @text-shadow-default;
 	}
 
 	&.oo-ui-flaggedElement-important {

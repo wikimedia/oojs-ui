@@ -36,7 +36,7 @@ OO.inheritClass( OO.ui.OutlineOptionWidget, OO.ui.DecoratedOptionWidget );
 
 /* Static Properties */
 
-OO.ui.OutlineOptionWidget.static.highlightable = false;
+OO.ui.OutlineOptionWidget.static.highlightable = true;
 
 OO.ui.OutlineOptionWidget.static.scrollIntoViewOnSelect = true;
 
@@ -78,6 +78,22 @@ OO.ui.OutlineOptionWidget.prototype.getLevel = function () {
 };
 
 /**
+ * @inheritdoc
+ */
+OO.ui.OutlineOptionWidget.prototype.setPressed = function ( state ) {
+	OO.ui.OutlineOptionWidget.parent.prototype.setPressed.call( this, state );
+	if ( this.constructor.static.pressable ) {
+		this.pressed = !!state;
+		if ( this.pressed ) {
+			this.setFlags( 'progressive' );
+		} else if ( !this.selected ) {
+			this.clearFlags();
+		}
+	}
+	return this;
+};
+
+/**
  * Set movability.
  *
  * Movability is used by {@link OO.ui.OutlineControlsWidget outline controls}.
@@ -102,6 +118,22 @@ OO.ui.OutlineOptionWidget.prototype.setMovable = function ( movable ) {
 OO.ui.OutlineOptionWidget.prototype.setRemovable = function ( removable ) {
 	this.removable = !!removable;
 	this.updateThemeClasses();
+	return this;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.OutlineOptionWidget.prototype.setSelected = function ( state ) {
+	OO.ui.OutlineOptionWidget.parent.prototype.setSelected.call( this, state );
+	if ( this.constructor.static.selectable ) {
+		this.selected = !!state;
+		if ( this.selected ) {
+			this.setFlags( 'progressive' );
+		} else {
+			this.clearFlags();
+		}
+	}
 	return this;
 };
 

@@ -3,9 +3,8 @@
 @oo-ui-default-image-path: 'themes/mediawiki/images';
 
 @background-color-default: #fff;
+@background-color-default-hover: #eee;
 @background-color-active: #999;
-@background-color-selected: #d8e6fe;
-@background-color-pressed: #d0d0d0;
 
 @color-default: #555;
 @color-default-pressed: #444;
@@ -14,18 +13,18 @@
 @color-placeholder: #595959; // aligns to WCAG 2.0 level AAA 7:1 contrast ratio
 
 // Primary 'Progressive' and 'Destructive' Colors
+@background-color-progressive: #ebf2ff; // equals rgba output in `fade( @color-progressive, 10% )`
+@background-color-progressive-hover: rgba( 41, 98, 204, 0.1 );
 @color-progressive: #347bff;
 @color-progressive-hover: #2962cc;
 @color-progressive-active: #1f4999;
 @color-progressive-focus: @color-progressive;
-@color-progressive-fade: #ebf2ff; // equals rgba output in `fade( @color-progressive, 10% )`
-@color-progressive-fade-hover: rgba( 41, 98, 204, 0.1 );
 
+@background-color-destructive: #fbe8e7; // equals `fade( @color-destructive, 10% )`
 @color-destructive: #d11d13;
 @color-destructive-hover: #8c130d;
 @color-destructive-active: #73100a;
 @color-destructive-focus: @color-destructive;
-@color-destructive-fade: #fbe8e7; // equals `fade( @color-destructive, 10% )`
 
 // Disabled Widgets
 @background-color-disabled: #f3f3f3;
@@ -37,11 +36,11 @@
 // Invalid Widget (validation error feedback)
 @color-invalid: #f00;
 
-// Toolbar & Tools
+// Toolbar, Tools & Menus
 @background-color-toolbar: @background-color-default;
-@background-color-tool-hover: #eee;
-@background-color-tool-active: @color-progressive-fade;
-@background-color-tool-active-hover: @color-progressive-fade-hover;
+@background-color-tool-hover: @background-color-default-hover;
+@background-color-tool-active: @background-color-progressive;
+@background-color-tool-active-hover: @background-color-progressive-hover;
 @color-tool-active: @color-progressive;
 
 // Box Sizes
