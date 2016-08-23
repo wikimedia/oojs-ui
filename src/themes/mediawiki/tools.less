@@ -22,7 +22,6 @@
 			> .oo-ui-buttonElement-button {
 				border: 0;
 				border-radius: 0;
-				margin: 0;
 				padding: 0 0.3125em;
 
 				> .oo-ui-labelElement-label {
@@ -52,36 +51,31 @@
 }
 
 .theme-oo-ui-toolGroupTool () {
-	> .oo-ui-popupToolGroup {
-		border: 0;
-		border-radius: 0;
-		margin: 0;
-	}
-
 	> .oo-ui-toolGroup {
 		border-right: 0;
 	}
 
-	> .oo-ui-popupToolGroup > .oo-ui-popupToolGroup-handle {
-		height: 2.5em;
-		padding: 0.3125em;
-
-		.oo-ui-iconElement-icon {
+	> .oo-ui-popupToolGroup {
+		> .oo-ui-popupToolGroup-handle {
 			height: 2.5em;
-			width: 1.875em;
-		}
-	}
+			padding: 0.3125em;
 
-	> .oo-ui-popupToolGroup.oo-ui-labelElement > .oo-ui-popupToolGroup-handle {
-		.oo-ui-labelElement-label {
-			line-height: 2.1;
+			.oo-ui-iconElement-icon {
+				height: 2.5em;
+				width: 1.875em;
+			}
+		}
+
+		&.oo-ui-labelElement > .oo-ui-popupToolGroup-handle {
+			.oo-ui-labelElement-label {
+				line-height: 2.1;
+			}
 		}
 	}
 }
 
 .theme-oo-ui-toolGroup () {
 	border-right: @border-default;
-	border-radius: 0;
 
 	.oo-ui-toolbar-narrow & {
 		+ .oo-ui-toolGroup {
@@ -279,8 +273,6 @@
 		);
 
 		&.oo-ui-popupToolGroup-active {
-			border-bottom-left-radius: 0;
-			border-bottom-right-radius: 0;
 			box-shadow: inset 0 0.07em 0.07em 0 rgba( 0, 0, 0, 0.07 );
 			background-color: @background-color-tool-hover;
 
