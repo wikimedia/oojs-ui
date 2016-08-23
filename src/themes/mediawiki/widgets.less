@@ -137,12 +137,19 @@
 		.oo-ui-dropdownWidget-handle {
 			background-color: @background-color-default;
 			.oo-ui-transition(
-				border-color @transition-ease-quick
+				border-color @transition-ease-quick,
+				box-shadow @transition-ease-quick
 			);
-		}
 
-		&:hover .oo-ui-dropdownWidget-handle {
-			border-color: @border-color-default-hover;
+			&:hover {
+				border-color: @border-color-default-hover;
+			}
+
+			&:focus {
+				border-color: @border-color-default-focus;
+				outline: 0;
+				box-shadow: @box-shadow-focus-default;
+			}
 		}
 	}
 
@@ -594,7 +601,7 @@
 		textarea {
 			box-shadow: inset 0 0 0 0.1em @background-color-default; // necessary for smooth transition
 			.oo-ui-transition(
-				border @transition-ease-out-sine-medium,
+				border-color @transition-ease-out-sine-medium,
 				box-shadow @transition-ease-out-sine-medium
 			);
 
@@ -793,11 +800,17 @@
 		background-color: @background-color-default;
 		cursor: text;
 		.oo-ui-transition(
-			border-color @transition-ease-quick
+			border-color @transition-ease-out-sine-medium,
+			box-shadow @transition-ease-out-sine-medium
 		);
 	}
 	&.oo-ui-widget-enabled:hover &-handle {
 		border-color: @border-color-default-hover;
+	}
+	&.oo-ui-widget-enabled.oo-ui-capsuleMultiselectWidget-open &-handle {
+		border-color: @border-color-default-focus;
+		outline: 0;
+		box-shadow: @box-shadow-focus-default;
 	}
 
 	&.oo-ui-widget-disabled &-handle {
