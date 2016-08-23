@@ -1,16 +1,9 @@
 @import 'common';
 
-@oo-ui-toolbar-normal: #fff;
-@oo-ui-toolbar-normal-hover: #eee;
-@oo-ui-toolbar-active-bar-text: @color-progressive;
-@oo-ui-toolbar-active: @color-progressive-fade;
-@oo-ui-toolbar-active-hover: @color-progressive-fade-hover;
-@oo-ui-toolbar-pressed: #e7e7e7;
-
 .theme-oo-ui-toolbar () {
 	&-bar {
 		border-bottom: @border-default;
-		background-color: @oo-ui-toolbar-normal;
+		background-color: @background-color-toolbar;
 		box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.1 );
 		font-weight: 500;
 		color: @color-default;
@@ -119,11 +112,7 @@
 		> .oo-ui-toolGroup-tools > .oo-ui-tool {
 			&.oo-ui-widget-enabled {
 				&:hover {
-					background-color: @oo-ui-toolbar-normal-hover;
-				}
-
-				&:active {
-					background-color: @oo-ui-toolbar-pressed;
+					background-color: @background-color-tool-hover;
 				}
 
 				> .oo-ui-tool-link .oo-ui-tool-title {
@@ -133,15 +122,15 @@
 			}
 
 			&.oo-ui-widget-enabled.oo-ui-tool-active {
-				background-color: @oo-ui-toolbar-active;
+				background-color: @background-color-tool-active;
 				box-shadow: inset 0 0.07em 0.07em 0 rgba( 0, 0, 0, 0.07 );
 
 				&:hover {
-					background-color: @oo-ui-toolbar-active-hover;
+					background-color: @background-color-tool-active-hover;
 				}
 
 				> .oo-ui-tool-link .oo-ui-tool-title {
-					color: @oo-ui-toolbar-active-bar-text;
+					color: @color-tool-active;
 				}
 			}
 		}
@@ -253,7 +242,7 @@
 		top: 3.125em;
 		margin: 0 -1px;
 		border: @border-default;
-		background-color: @oo-ui-toolbar-normal;
+		background-color: @background-color-toolbar;
 		box-shadow: 0 2px 3px rgba( 0, 0, 0, 0.2 );
 		min-width: 16em;
 	}
@@ -293,7 +282,7 @@
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
 			box-shadow: inset 0 0.07em 0.07em 0 rgba( 0, 0, 0, 0.07 );
-			background-color: @oo-ui-toolbar-normal-hover;
+			background-color: @background-color-tool-hover;
 
 			.oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
 				color: @color-progressive;
@@ -302,10 +291,10 @@
 
 		&-handle {
 			&:hover {
-				background-color: @oo-ui-toolbar-normal-hover;
+				background-color: @background-color-tool-hover;
 			}
 			&:active {
-				background-color: @oo-ui-toolbar-active;
+				background-color: @background-color-tool-active;
 			}
 		}
 	}
@@ -315,7 +304,7 @@
 	.oo-ui-tool {
 		&.oo-ui-widget-enabled {
 			&:hover {
-				background-color: @oo-ui-toolbar-normal-hover;
+				background-color: @background-color-tool-hover;
 
 				.oo-ui-tool-link .oo-ui-iconElement-icon {
 					opacity: 0.9;
@@ -325,18 +314,18 @@
 
 		&-active {
 			&.oo-ui-widget-enabled {
-				background-color: @oo-ui-toolbar-active;
+				background-color: @background-color-tool-active;
 
 				&:first-child {
 					box-shadow: inset 0 0.07em 0.07em 0 rgba( 0, 0, 0, 0.07 );
 				}
 
-				.oo-ui-tool-link .oo-ui-tool-title {
-					color: @oo-ui-toolbar-active-bar-text;
+				&:hover {
+					background-color: @background-color-tool-active-hover;
 				}
 
-				&:hover {
-					background-color: @oo-ui-toolbar-active-hover;
+				.oo-ui-tool-link .oo-ui-tool-title {
+					color: @color-tool-active;
 				}
 			}
 		}
@@ -376,17 +365,16 @@
 			background-size: contain;
 			background-position: center center;
 			background-repeat: no-repeat;
-
 		}
 
 		&.oo-ui-widget-enabled {
 			&:hover {
-				background-color: @oo-ui-toolbar-active-hover;
+				background-color: @background-color-tool-active-hover;
 			}
 		}
 
 		&-name-menuTool.oo-ui-tool-active {
-			background-color: @oo-ui-toolbar-active;
+			background-color: @background-color-tool-active;
 		}
 	}
 

@@ -18,14 +18,14 @@
 @color-progressive-hover: #2962cc;
 @color-progressive-active: #1f4999;
 @color-progressive-focus: @color-progressive;
-@color-progressive-fade: #ebf2ff; // equivalents rgba output in `fade( @color-progressive, 10% )`
+@color-progressive-fade: #ebf2ff; // equals rgba output in `fade( @color-progressive, 10% )`
 @color-progressive-fade-hover: rgba( 41, 98, 204, 0.1 );
 
 @color-destructive: #d11d13;
 @color-destructive-hover: #8c130d;
 @color-destructive-active: #73100a;
 @color-destructive-focus: @color-destructive;
-@color-destructive-fade: #fbe8e7; // equivalents `fade( @color-destructive, 10% )`
+@color-destructive-fade: #fbe8e7; // equals `fade( @color-destructive, 10% )`
 
 // Disabled Widgets
 @background-color-disabled: #f3f3f3;
@@ -37,8 +37,15 @@
 // Invalid Widget (validation error feedback)
 @color-invalid: #f00;
 
+// Toolbar & Tools
+@background-color-toolbar: @background-color-default;
+@background-color-tool-hover: #eee;
+@background-color-tool-active: @color-progressive-fade;
+@background-color-tool-active-hover: @color-progressive-fade-hover;
+@color-tool-active: @color-progressive;
+
 // Box Sizes
-@min-height-toggleswitch: 26px; // equivalents `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
+@min-height-toggleswitch: 26px; // equals `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
 @max-width-input-default: 50em;
 
 @size-icon-min: 24px;
@@ -58,8 +65,8 @@
 @border-color-default-focus: @color-progressive-focus;
 @border-color-disabled: #ddd;
 @border-color-disabled-filled: @color-disabled-filled;
-@border-color-progressive-active: #859dcc; // equivalents `fade( @color-progressive-active, 50% )`
-@border-color-destructive-active: #b77c79; // equivalents `fade( @color-destructive-active, 50% )`
+@border-color-progressive-active: #859dcc; // equals `fade( @color-progressive-active, 50% )`
+@border-color-destructive-active: #b77c79; // equals `fade( @color-destructive-active, 50% )`
 @border-color-focus-inset: @color-default-light;
 @border-color-dialog: #aaa;
 @border-color-buttonelement-active: @background-color-active;
@@ -118,4 +125,4 @@
 @color-constructive: #00af89;
 @color-constructive-hover: #008064;
 @color-constructive-active: #005946;
-@color-constructive-fade: #e6f7f3; // equivalents `fade( @color-constructive, 10% )`
+@color-constructive-fade: #e6f7f3; // equals `fade( @color-constructive, 10% )`
