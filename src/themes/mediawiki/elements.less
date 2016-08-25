@@ -60,7 +60,7 @@
 
 			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-				color: @color-default-pressed;
+				color: @color-default-active;
 			}
 
 			&.oo-ui-flaggedElement {
@@ -238,10 +238,12 @@
 			}
 		}
 
-		& > .oo-ui-buttonElement-button:active > .oo-ui-labelElement-label,
-		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-			color: @active;
-			box-shadow: none;
+		& > .oo-ui-buttonElement-button:active,
+		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+			& > .oo-ui-labelElement-label {
+				color: @active;
+				box-shadow: none;
+			}
 		}
 	}
 }
