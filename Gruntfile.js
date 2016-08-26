@@ -2,7 +2,7 @@
  * Grunt file
  */
 
-/*jshint node:true */
+/* jshint node:true */
 module.exports = function ( grunt ) {
 	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
@@ -42,6 +42,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadNpmTasks( 'grunt-tyops' );
+	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadTasks( 'build/tasks' );
 
 	( function () {
@@ -341,6 +342,14 @@ module.exports = function ( grunt ) {
 		},
 
 		// Lint – Code
+		eslint: {
+			dev: [
+				'*.js',
+				'{build,demos,src,tests}/**/*.js',
+				'!demos/{dist,node_modules,vendor}/**/*.js',
+				'!tests/JSPHP.test.js'
+			]
+		},
 		jshint: {
 			options: {
 				jshintrc: true
@@ -378,6 +387,7 @@ module.exports = function ( grunt ) {
 		},
 		jsonlint: {
 			all: [
+				'*.json',
 				'**/*.json',
 				'!node_modules/**'
 			]
@@ -436,10 +446,12 @@ module.exports = function ( grunt ) {
 		watch: {
 			files: [
 				'<%= jshint.dev %>',
+				'<%= eslint.dev %>',
 				'<%= stylelint.dev %>',
+				'<%= jsonlint.all %>',
 				'src/**/*.less',
 				'php/**/*.php',
-				'.{stylelintrc,jscsrc,jshintignore,jshintrc}'
+				'.{stylelintrc,jscsrc,jshintignore,jshintrc,eslintrc.json}'
 			],
 			tasks: 'quick-build'
 		}
@@ -518,7 +530,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'minify', [ 'uglify', 'image', 'cssmin' ] );
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
-	grunt.registerTask( 'lint', [ 'jshint', 'jscs',  'stylelint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'jshint', 'jscs',  'stylelint', 'jsonlint', 'banana' ] );
 
 	// Run this before opening "tests/index.php"
 	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );

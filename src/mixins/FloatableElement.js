@@ -130,7 +130,6 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
  */
 OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element, $container ) {
 	var elemRect, contRect,
-		topEdgeInBounds = false,
 		leftEdgeInBounds = false,
 		bottomEdgeInBounds = false,
 		rightEdgeInBounds = false;
@@ -147,9 +146,8 @@ OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element
 		contRect = $container[ 0 ].getBoundingClientRect();
 	}
 
-	if ( elemRect.top >= contRect.top && elemRect.top <= contRect.bottom ) {
-		topEdgeInBounds = true;
-	}
+	// For completeness, if we still cared about topEdgeInBounds, that'd be:
+	// elemRect.top >= contRect.top && elemRect.top <= contRect.bottom
 	if ( elemRect.left >= contRect.left && elemRect.left <= contRect.right ) {
 		leftEdgeInBounds = true;
 	}

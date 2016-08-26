@@ -5,8 +5,7 @@
  * An option to do it may be added in the future.
  */
 
-/*jshint node:true */
-
+/* jshint node:true */
 var Q = require( 'q' ),
 	path = require( 'path' ),
 	asyncTask = require( 'grunt-promise-q' );

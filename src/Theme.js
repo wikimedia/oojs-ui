@@ -5,12 +5,8 @@
  * @class
  *
  * @constructor
- * @param {Object} [config] Configuration options
  */
-OO.ui.Theme = function OoUiTheme( config ) {
-	// Configuration initialization
-	config = config || {};
-};
+OO.ui.Theme = function OoUiTheme() {};
 
 /* Setup */
 
