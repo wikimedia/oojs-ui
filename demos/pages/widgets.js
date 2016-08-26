@@ -891,6 +891,13 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.ToggleButtonWidget( { icon: 'next', value: true } ),
+					{
+						label: 'ToggleButtonWidget (icon only, initially active)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( { value: 'Text input' } ),
 					{
 						label: 'TextInputWidget\u200E',

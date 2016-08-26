@@ -21,7 +21,7 @@ OO.ui.mixin.ButtonElement = function OoUiMixinButtonElement( config ) {
 	// Properties
 	this.$button = null;
 	this.framed = null;
-	this.active = false;
+	this.active = config.active !== undefined && config.active;
 	this.onMouseUpHandler = this.onMouseUp.bind( this );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
 	this.onKeyDownHandler = this.onKeyDown.bind( this );
