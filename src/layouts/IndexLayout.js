@@ -20,7 +20,7 @@
  *     };
  *
  *     var card1 = new CardOneLayout( 'one' ),
- *         card2 = new CardLayout( 'two', { label: 'Card two' } );
+ *         card2 = new OO.ui.CardLayout( 'two', { label: 'Card two' } );
  *
  *     card2.$element.append( '<p>Second card</p>' );
  *
