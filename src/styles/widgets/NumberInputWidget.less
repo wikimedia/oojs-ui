@@ -8,24 +8,17 @@
 		display: table;
 		table-layout: fixed;
 		width: 100%;
-	}
 
-	&-field > .oo-ui-buttonWidget,
-	&-field > .oo-ui-textInputWidget {
-		display: table-cell;
-		vertical-align: middle;
-	}
+		> .oo-ui-buttonWidget,
+		> .oo-ui-textInputWidget {
+			display: table-cell;
+		}
 
-	&-field > .oo-ui-textInputWidget {
-		width: 100%;
-	}
-
-	&-field > .oo-ui-buttonWidget {
-		white-space: nowrap;
-	}
-
-	&-field > .oo-ui-buttonWidget > .oo-ui-buttonElement-button {
-		.oo-ui-box-sizing( border-box );
+		> .oo-ui-buttonWidget {
+			> .oo-ui-buttonElement-button {
+				.oo-ui-box-sizing( border-box );
+			}
+		}
 	}
 
 	.theme-oo-ui-numberInputWidget();
