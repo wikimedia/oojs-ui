@@ -4,21 +4,21 @@
 	display: inline-block;
 	position: relative;
 
+	&-buttoned {
+		.oo-ui-buttonWidget,
+		.oo-ui-textInputWidget {
+			display: table-cell;
+		}
+
+		.oo-ui-buttonElement-button {
+			.oo-ui-box-sizing( border-box );
+		}
+	}
+
 	&-field {
 		display: table;
 		table-layout: fixed;
 		width: 100%;
-
-		> .oo-ui-buttonWidget,
-		> .oo-ui-textInputWidget {
-			display: table-cell;
-		}
-
-		> .oo-ui-buttonWidget {
-			> .oo-ui-buttonElement-button {
-				.oo-ui-box-sizing( border-box );
-			}
-		}
 	}
 
 	.theme-oo-ui-numberInputWidget();
