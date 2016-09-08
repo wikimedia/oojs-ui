@@ -27,7 +27,7 @@ class MediaWikiTheme extends Theme {
 			} elseif ( !$isFramed && $element->isDisabled() ) {
 				// Frameless disabled button, always use black icon regardless of flags
 				$variants['invert'] = false;
-			} else {
+			} elseif ( !$element->isDisabled() ) {
 				// Any other kind of button, use the right colored icon if available
 				$variants['progressive'] = $element->hasFlag( 'progressive' );
 				$variants['constructive'] = $element->hasFlag( 'constructive' );

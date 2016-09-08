@@ -2,7 +2,7 @@
 
 .theme-oo-ui-toolbar () {
 	&-bar {
-		border-bottom: @border-default;
+		border-bottom: @border-toolbar;
 		background-color: @background-color-toolbar;
 		box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.1 );
 		font-weight: 500;
@@ -79,7 +79,7 @@
 }
 
 .theme-oo-ui-toolGroup () {
-	border-right: @border-default;
+	border-right: @border-toolbar;
 
 	.oo-ui-toolbar-actions & {
 		border-right: 0;
@@ -147,7 +147,7 @@
 			}
 
 			.oo-ui-iconElement-icon {
-				opacity: @opacity-disabled;
+				opacity: @opacity-disabled-tool;
 			}
 		}
 	}
@@ -341,7 +341,7 @@
 	&.oo-ui-widget-disabled .oo-ui-indicatorElement-indicator,
 	&.oo-ui-widget-disabled .oo-ui-iconElement-icon,
 	.oo-ui-tool.oo-ui-widget-disabled .oo-ui-iconElement-icon {
-		opacity: @opacity-disabled;
+		opacity: @opacity-disabled-tool;
 	}
 }
 
@@ -387,6 +387,6 @@
 	&.oo-ui-widget-disabled .oo-ui-indicatorElement-indicator,
 	&.oo-ui-widget-disabled .oo-ui-iconElement-icon,
 	.oo-ui-tool.oo-ui-widget-disabled .oo-ui-iconElement-icon {
-		opacity: @opacity-disabled;
+		opacity: @opacity-disabled-tool;
 	}
 }

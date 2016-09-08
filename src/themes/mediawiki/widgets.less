@@ -135,21 +135,47 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-dropdownWidget-handle {
-			background-color: @background-color-default;
-			color: @color-default;
+			background-color: @background-color-framed;
+			color: @color-default; //FIXME
 			.oo-ui-transition(
+				background-color @transition-ease-quick,
 				border-color @transition-ease-quick,
 				box-shadow @transition-ease-quick
 			);
 
 			&:hover {
+				background-color: @background-color-framed-hover;
 				border-color: @border-color-default-hover;
+
+				.oo-ui-iconElement-icon,
+				.oo-ui-indicatorElement-indicator {
+					opacity: @opacity-icon-default-hover;
+				}
 			}
 
 			&:focus {
 				border-color: @border-color-default-focus;
 				outline: 0;
 				box-shadow: @box-shadow-focus-default;
+			}
+
+			.oo-ui-iconElement-icon,
+			.oo-ui-indicatorElement-indicator {
+				opacity: @opacity-icon-default;
+				.oo-ui-transition(
+					opacity @transition-ease-quick
+				);
+			}
+		}
+
+		&.oo-ui-dropdownWidget-open {
+			.oo-ui-dropdownWidget-handle {
+				background-color: @background-color-framed-hover;
+
+				.oo-ui-iconElement-icon,
+				.oo-ui-indicatorElement-indicator {
+					opacity: @opacity-icon-default-selected;
+				}
 			}
 		}
 	}
@@ -166,7 +192,7 @@
 			}
 		}
 		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-disabled;
+			opacity: @opacity-disabled-indicator;
 		}
 	}
 
@@ -601,7 +627,7 @@
 			);
 
 			&:hover {
-				border-color: @border-color-default-hover;
+				border-color: @border-color-input-hover;
 			}
 			&:focus {
 				outline: 0;
@@ -662,10 +688,10 @@
 	&.oo-ui-widget-disabled {
 		input,
 		textarea {
+			background-color: @background-color-disabled;
 			color: @color-disabled;
 			text-shadow: @text-shadow-disabled;
 			border-color: @border-color-disabled;
-			background-color: @background-color-disabled;
 		}
 		.oo-ui-iconElement-icon,
 		.oo-ui-indicatorElement-indicator {
@@ -742,6 +768,12 @@
 			}
 		}
 	}
+
+	&.oo-ui-widget-disabled {
+		.oo-ui-indicatorElement-indicator {
+			opacity: @opacity-disabled-indicator;
+		}
+	}
 }
 
 .theme-oo-ui-capsuleMultiselectWidget () {
@@ -755,6 +787,10 @@
 		border: @border-default;
 		border-radius: @border-radius-default;
 		.oo-ui-box-sizing( border-box );
+
+		&:hover {
+			border-color: @border-color-input-hover;
+		}
 
 		> .oo-ui-indicatorElement-indicator,
 		> .oo-ui-iconElement-icon {
@@ -835,9 +871,12 @@
 		border-color: @border-color-disabled;
 		background-color: @background-color-disabled;
 
-		> .oo-ui-iconElement-icon,
-		> .oo-ui-indicatorElement-indicator {
+		> .oo-ui-iconElement-icon {
 			opacity: @opacity-disabled;
+		}
+
+		> .oo-ui-indicatorElement-indicator {
+			opacity: @opacity-disabled-indicator;
 		}
 	}
 }
@@ -912,6 +951,10 @@
 
 	// Don't add `highlighted` or `selected` modifications here
 	// as it inherits to various visually opposite widgets.
+
+	&-selected .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+		opacity: @opacity-icon-default-selected;
+	}
 
 	&.oo-ui-widget-disabled {
 		color: @color-disabled;
@@ -1233,7 +1276,7 @@
 			.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
 				.oo-ui-buttonElement-button {
 					border-color: @border-color-default-focus;
-					box-shadow: @box-shadow-focus-default;
+					box-shadow: @box-shadow-focus-inset;
 				}
 			}
 		}
@@ -1294,16 +1337,16 @@
 
 .theme-oo-ui-toggleSwitchWidget () {
 	@travelDistance: 1.5em;
+	background-color: @background-color-framed;
 	width: @travelDistance + 2em;
 	min-height: @min-height-toggleswitch;
 	height: 2em;
 	border: @border-input-binary;
 	border-radius: 1em;
-	background-color: @background-color-default;
 	.oo-ui-inline-spacing( 0.5em );
 	.oo-ui-transition(
-		background-color @transition-ease-quick,
-		border-color @transition-ease-quick
+		background-color @transition-ease-medium,
+		border-color @transition-ease-medium
 	);
 
 	&:before {
@@ -1318,7 +1361,7 @@
 		border-radius: 1em;
 		z-index: 1;
 		.oo-ui-transition(
-			border-color @transition-ease-quick
+			border-color @transition-ease-medium
 		);
 	}
 
@@ -1330,6 +1373,7 @@
 		height: 1.25em;
 		border-radius: 1.25em;
 		.oo-ui-transition(
+			background-color @transition-ease-medium,
 			left @transition-ease-quick,
 			margin-left @transition-ease-quick
 		);
@@ -1356,20 +1400,23 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-toggleSwitchWidget-grip {
+			background-color: @background-color-framed;
 			border: @border-input-binary;
 		}
 
 		&:hover {
+			background-color: @background-color-framed-hover;
 			border-color: @color-progressive-hover;
 
 			.oo-ui-toggleSwitchWidget-grip {
+				background-color: @background-color-framed-hover;
 				border-color: @color-progressive-hover;
 			}
 		}
 		&:active,
 		&:active:hover {
-			background-color: @background-color-input-binary-active;
-			border-color: @color-progressive;
+			background-color: @color-progressive-active-hover;
+			border-color: @color-progressive-active;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-default;
@@ -1388,8 +1435,8 @@
 		}
 
 		&.oo-ui-toggleWidget-on {
-			background-color: @color-progressive;
-			border-color: @color-progressive;
+			background-color: @color-progressive-active;
+			border-color: @color-progressive-active;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-default;
@@ -1398,8 +1445,8 @@
 			}
 
 			&:hover {
-				background-color: @color-progressive-hover;
-				border-color: @color-progressive-hover;
+				background-color: @color-progressive-active-hover;
+				border-color: @color-progressive-active-hover;
 			}
 			&:active,
 			&:active:hover {
@@ -1410,7 +1457,7 @@
 				border-color: @color-progressive;
 
 				&:before {
-					border-color: #fff;
+					border-color: @color-default-light;
 				}
 			}
 		}
