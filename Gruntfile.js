@@ -347,6 +347,13 @@ module.exports = function ( grunt ) {
 				'!tests/JSPHP.test.js'
 			]
 		},
+		jsonlint: {
+			all: [
+				'*.json',
+				'{build,demos,src,tests,i18n}/**/*.json',
+				'!demos/{dist,node_modules,vendor}/**/*.json'
+			]
+		},
 
 		// Lint – Styling
 		stylelint: {
@@ -364,13 +371,6 @@ module.exports = function ( grunt ) {
 		// Lint – i18n
 		banana: {
 			all: 'i18n/'
-		},
-		jsonlint: {
-			all: [
-				'*.json',
-				'**/*.json',
-				'!node_modules/**'
-			]
 		},
 
 		// Test
