@@ -262,7 +262,7 @@
 				}
 
 				&-destructive {
-					.mw-framed-button-colored( @color-destructive, @background-color-destructive, @color-destructive-active, @border-color-destructive-active, @color-destructive-focus );
+					.mw-framed-button-colored( @color-destructive, @background-color-framed-hover, @color-destructive-active, @border-color-destructive-active, @color-destructive-focus );
 				}
 			}
 
@@ -329,15 +329,12 @@
 		}
 
 		> .oo-ui-buttonElement-button:active,
-		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-			background-color: lighten( @active, 60% ); // FIXME
+		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button,
+		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+			background-color: lighten( @active, 60% );
 			color: @active;
 			border-color: @active;
 			box-shadow: none;
-		}
-
-		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-			color: @color-default-light;
 		}
 
 		> .oo-ui-buttonElement-button:focus {
@@ -361,16 +358,12 @@
 		}
 
 		> .oo-ui-buttonElement-button:active,
-		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button,
+		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
 			color: @color-default-light;
 			background-color: @active;
 			border-color: @active;
 			box-shadow: none;
-		}
-
-		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-			background-color: @background-color-default-active;
-			color: @color-default-light;
 		}
 
 		> .oo-ui-buttonElement-button:focus {
