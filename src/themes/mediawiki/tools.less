@@ -30,6 +30,10 @@
 				}
 			}
 		}
+
+		> .oo-ui-toolbar:not( :last-child ) {
+			border-right: @border-default;
+		}
 	}
 }
 
@@ -76,6 +80,11 @@
 
 .theme-oo-ui-toolGroup () {
 	border-right: @border-default;
+
+	.oo-ui-toolbar-actions & {
+		border-right: 0;
+		border-left: @border-default;
+	}
 
 	.oo-ui-toolbar-narrow & {
 		+ .oo-ui-toolGroup {
