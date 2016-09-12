@@ -14,9 +14,6 @@
 		"constructive": {
 			"color": "#36c"
 		},
-		"constructive-deprecated": {
-			"color": "#00af89"
-		},
 		"destructive": {
 			"color": "#c33"
 		},
@@ -29,7 +26,7 @@
 		"advanced": { "file": "images/icons/advanced.svg" },
 		"alert": { "file": "images/icons/alert.svg", "variants": [ "warning" ] },
 		"cancel": { "file": "images/icons/cancel.svg", "variants": [ "destructive" ] },
-		"check": { "file": "images/icons/check.svg", "variants": [ "constructive-deprecated", "constructive", "progressive", "destructive" ] },
+		"check": { "file": "images/icons/check.svg", "variants": [ "constructive", "progressive", "destructive" ] },
 		"circle": { "file": "images/icons/circle.svg", "variants": [ "constructive", "progressive" ] },
 		"close": { "file": {
 			"ltr": "images/icons/close-ltr.svg",
