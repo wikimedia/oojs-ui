@@ -30,7 +30,7 @@
 		"alert": { "file": "images/icons/alert.svg", "variants": [ "warning" ] },
 		"cancel": { "file": "images/icons/cancel.svg", "variants": [ "destructive" ] },
 		"check": { "file": "images/icons/check.svg", "variants": [ "constructive-deprecated", "constructive", "progressive", "destructive" ] },
-		"circle": { "file": "images/icons/circle.svg", "variants": [ "constructive-deprecated", "constructive", "progressive" ] },
+		"circle": { "file": "images/icons/circle.svg", "variants": [ "constructive", "progressive" ] },
 		"close": { "file": {
 			"ltr": "images/icons/close-ltr.svg",
 			"rtl": "images/icons/close-rtl.svg"

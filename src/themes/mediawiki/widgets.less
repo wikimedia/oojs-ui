@@ -509,72 +509,118 @@
 
 	// `<input type=radio>` element is visually replaced by `span` that follows
 	[type='radio'] {
+		position: relative;
+		// Needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
+		max-width: none;
+		// Ensure the invisible input takes up the required width
+		width: @size-input-binary;
+		height: @size-input-binary;
+		// Having margin would offset the input from where the span is absolutely positioned,
+		// making only the overlap region receive events
+		margin: 0;
 		// Use opacity so that VoiceOver can still identify it
 		opacity: 0;
 		// Render "on top of" the span, so that it's still clickable
 		z-index: 1;
-		position: relative;
-		cursor: pointer;
-
-		// Having margin would offset the input from where the span is absolutely positioned,
-		// making only the overlap region receive events
-		margin: 0;
-
-		// Ensure the invisible input takes up the required width
-		width: @size-input-binary;
-		height: @size-input-binary;
-
-		// Needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
-		max-width: none;
 
 		& + span {
-			.oo-ui-transition( background-size @transition-ease-out-back-medium );
-			.oo-ui-box-sizing( border-box );
+			background-color: @background-color-default;
 			position: absolute;
 			left: 0;
+			.oo-ui-box-sizing( border-box );
 			width: @size-input-binary;
 			height: @size-input-binary;
-			background-color: @background-color-default;
-			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/circle-constructive-deprecated' );
-			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/circle-constructive-deprecated' );
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-origin: border-box;
-			background-size: 0 0;
-			border: @border-input-binary;
+			border: @border-default;
 			border-radius: 100%;
+
+			// Needed for `:focus` state's inner white circle
+			&:before {
+				content: ' ';
+				position: absolute;
+				top: -4px; // `px` unit due to pixel rounding error when using `@size-input-binary / 4`
+				left: -4px;
+				right: -4px;
+				bottom: -4px;
+				border: 1px solid transparent;
+				border-radius: 100%;
+			}
 		}
 
-		&:checked + span {
-			background-size: 100% 100%;
-		}
+		&:checked {
+			& + span {
+				border-width: @size-input-binary / 4;
+			}
 
-		&:active + span {
-			background-color: @background-color-input-binary-active;
-			border-color: @border-color-input-binary-active;
-		}
-
-		&:focus + span {
-			border-width: @border-width-input-binary-focus;
-		}
-
-		&:focus:hover + span,
-		&:hover + span {
-			border-bottom-width: @border-bottom-width-input-binary-hover;
+			&:hover + span,
+			&:focus:hover + span {
+				border-width: @size-input-binary / 4;
+			}
 		}
 
 		&:disabled {
-			cursor: default;
+			& + span {
+				background-color: @background-color-disabled-filled;
+				border-color: @border-color-disabled;
+			}
+
+			&:checked + span {
+				background-color: @background-color-default;
+			}
+		}
+	}
+
+	&.oo-ui-widget-enabled [type='radio'] {
+		cursor: pointer;
+
+		& + span {
+			cursor: pointer;
+			.oo-ui-transition(
+				background-color @transition-ease-quick,
+				border-color @transition-ease-quick,
+				border-width @transition-ease-quick
+			);
 		}
 
-		&:disabled + span {
-			background-color: @background-color-disabled-filled;
-			border-color: @border-color-disabled;
+		&:hover + span {
+			border-color: @color-progressive;
 		}
 
-		&:disabled:checked + span {
-			.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/circle-invert' );
-			.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/circle-invert' );
+		&:active + span {
+			background-color: @color-progressive-active;
+			border-color: @color-progressive-active;
+		}
+
+		&:checked {
+			& + span {
+				border-color: @color-progressive;
+			}
+
+			&:hover + span {
+				border-color: @color-progressive-hover;
+			}
+
+			&:hover:focus + span {
+				border-color: @color-progressive-hover;
+				box-shadow: inset 0 0 0 1px @color-progressive-hover;
+			}
+
+			&:active + span,
+			&:active:focus + span {
+				border-color: @color-progressive-active;
+				box-shadow: inset 0 0 0 1px @color-progressive-active;
+			}
+
+			&:focus + span {
+				box-shadow: @box-shadow-focus-default;
+
+				&:before {
+					border-color: @background-color-default;
+					top: -3px;
+					right: -3px;
+					bottom: -3px;
+					left: -3px;
+				}
+			}
 		}
 	}
 }
@@ -1287,10 +1333,8 @@
 	&:focus {
 		outline: 0;
 
-		.oo-ui-radioOptionWidget.oo-ui-optionWidget-selected {
-			.oo-ui-radioInputWidget [type='radio'] + span {
-				border-width: @border-width-input-binary-focus;
-			}
+		[type='radio']:checked + span:before {
+			border-color: @background-color-default;
 		}
 	}
 }
