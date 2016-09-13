@@ -11,7 +11,7 @@
 @color-default-active: #000;
 @color-default-light: #fff;
 @color-emphasized: @color-default-active;
-@color-placeholder: #54595d; // aligns to WCAG 2.0 level AAA 7:1 contrast ratio
+@color-placeholder: #54595d; // aligns to WCAG 2.0 level AAA at 7.09:1 contrast ratio on `#fff`
 
 // Primary 'Progressive' and 'Destructive' Colors
 @background-color-progressive: #eaf3ff; // equals rgba output in `fade( @color-progressive, 10% )`
@@ -25,15 +25,15 @@
 @background-color-destructive: #fbe8e7; // equals `fade( @color-destructive, 10% )`
 @color-destructive: #c33; // equals HSB 0°/75%/80%
 @color-destructive-hover: #e53939; // equals HSB 0°/75%/90%
-@color-destructive-active: #873636; //#b22d2d; // equals -10% brightness in HSB color space
+@color-destructive-active: #873636; // equals -10% brightness in HSB color space
 @color-destructive-focus: @color-destructive;
 
 // Disabled Widgets
 @background-color-disabled: #eaecf0;
 @background-color-disabled-filled: #c8ccd1;
-@color-disabled: #7d8389;
+@color-disabled: #72777d; // equals HSB 210°/9%/49%, aligns to WCAG 2.0 level AA at 4.52:1 contrast ratio
 @color-disabled-filled: @color-default-light;
-@opacity-disabled: 0.53; // `0.53` equals `#7b7b7b` on background-color `#fff`
+@opacity-disabled: 0.51; // `0.51` equals `#7d7d7d` on background-color `#fff`, HSB 0°/0%/49%
 @opacity-disabled-filled: 1;
 @opacity-disabled-indicator: 0.15; // equals `#c7c8cc` on background-color `#fff`
 @opacity-disabled-tool: 0.3;
@@ -71,7 +71,7 @@
 
 @border-color-default: #9aa0a7;
 @border-color-default-hover: #a2a9b1;
-@border-color-default-active: #7d8389;
+@border-color-default-active: #72777d;
 @border-color-default-focus: @color-progressive-focus;
 @border-color-disabled: #c8ccd1;
 @border-color-disabled-filled: @color-disabled-filled;
@@ -112,6 +112,8 @@
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
 @background-color-input-binary-active: @color-progressive;
 @size-input-binary: 1.6em;
+@border-input-binary: @border-width-default solid @border-color-input-binary;
+@border-color-input-binary: @border-color-default-active;
 @border-color-input-binary-active: @color-progressive-active;
 @box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
 @padding-input-binary-label: 0.25em 0.25em 0.25em 0.5em;

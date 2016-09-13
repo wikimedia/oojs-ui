@@ -397,7 +397,7 @@
 			left: 0;
 			width: @size-input-binary;
 			height: @size-input-binary;
-			border: @border-default;
+			border: @border-input-binary;
 			border-radius: @border-radius-default;
 		}
 
@@ -441,7 +441,7 @@
 
 		&:active + span {
 			background-color: @color-progressive-active;
-			border-color: @color-progressive-active;
+			border-color: @border-color-input-binary-active;
 		}
 
 		&:focus + span {
@@ -452,7 +452,7 @@
 		&:checked {
 			& + span {
 				background-color: @color-progressive-active;
-				border-color: @color-progressive-active;
+				border-color: @border-color-input-binary-active;
 			}
 
 			&:hover + span,
@@ -464,7 +464,7 @@
 			&:active + span,
 			&:active:hover + span {
 				background-color: @color-progressive-active;
-				border-color: @color-progressive-active;
+				border-color: @border-color-input-binary-active;
 			}
 
 			&:focus + span {
@@ -564,7 +564,7 @@
 			.oo-ui-box-sizing( border-box );
 			width: @size-input-binary;
 			height: @size-input-binary;
-			border: @border-default;
+			border: @border-input-binary;
 			border-radius: 100%;
 
 			// Needed for `:focus` state's inner white circle
@@ -575,7 +575,7 @@
 				left: -4px;
 				right: -4px;
 				bottom: -4px;
-				border: 1px solid transparent;
+				border: @border-width-default solid transparent;
 				border-radius: 100%;
 			}
 		}
@@ -1419,7 +1419,7 @@
 	width: @travelDistance + 2em;
 	min-height: @min-height-toggleswitch;
 	height: 2em;
-	border: @border-default;
+	border: @border-input-binary;
 	border-radius: 1em;
 	.oo-ui-inline-spacing( 0.5em );
 	.oo-ui-transition(
@@ -1479,7 +1479,7 @@
 	&.oo-ui-widget-enabled {
 		.oo-ui-toggleSwitchWidget-grip {
 			background-color: @background-color-framed;
-			border: @border-default;
+			border: @border-input-binary;
 		}
 
 		&:hover {
