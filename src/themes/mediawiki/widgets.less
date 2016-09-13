@@ -1392,8 +1392,20 @@
 .theme-oo-ui-numberInputWidget () {
 	max-width: @max-width-input-default;
 
-	&-field > .oo-ui-buttonWidget {
-		width: 2.5em;
+	&-buttoned {
+		.oo-ui-buttonWidget {
+			width: 2.5em;
+		}
+
+		.oo-ui-buttonElement-button {
+			display: block;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.oo-ui-textInputWidget input {
+			border-radius: 0;
+		}
 	}
 
 	&-minusButton.oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
@@ -1406,10 +1418,6 @@
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 		border-left-width: 0;
-	}
-
-	&-buttoned .oo-ui-textInputWidget input {
-		border-radius: 0;
 	}
 }
 
