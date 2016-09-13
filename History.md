@@ -1,4 +1,51 @@
 # OOjs UI Release History
+## v0.17.9 / 2016-09-13
+### Features
+* DropdownWidget: Add CSS class to widgets with open dropdown menus (Volker E)
+* SelectFileWidget: Remove MIME type information (Volker E)
+* TextInputWidget: Make disabled fields' inner labels unselectable (Volker E)
+
+### Styles
+* ActionToolGroup: Show left border, instead of right (Ed Sanders)
+* ButtonElement: Centralize styling properties (Volker E)
+* ButtonOptionWidget: Make active state carry default cursor (Volker E)
+* Radio- and CheckboxInputWidget: Fix visual disabled state on labels (Volker E)
+* ToggleButtonWidget: Use inverted variant when initially active (Leszek Manicki)
+
+* MediaWiki theme: Adjust CheckboxInputWidget to match M30 design (Volker E)
+* MediaWiki theme: Adjust RadioInputWidget to match M29 design (Volker E)
+* MediaWiki theme: Align Dropdown- & CapsuleMultiSelectWidget `:focus` state (Volker E)
+* MediaWiki theme: Align disabled text contrast to WCAG compliance (Volker E)
+* MediaWiki theme: Enhance button styles and align them to new color palette (Volker E)
+* MediaWiki theme: Fix ButtonElement-active on flagged & primary buttons (Volker E)
+* MediaWiki theme: Fix `:hover` state of ComboBoxInputWidget (Volker E)
+* MediaWiki theme: Fix regression on `border` of active (selected) buttons (Volker E)
+* MediaWiki theme: Improve appearance of CapsuleMultiselectWidget with child (Volker E)
+* MediaWiki theme: Make ToggleSwitchWidget's disabled state follow enabled (Volker E)
+* MediaWiki theme: Make colors' contrast compliant to WCAG 2.0 level AA (Volker E)
+* MediaWiki theme: Toolbar: Use progressive colors for active and active-hover (Prateek Saxena)
+* MediaWiki theme: Unify `-pressed` and `-emphasized` color var (Volker E)
+* MediaWiki theme: Unify different widgets' selected menu state (Volker E)
+* MediaWiki theme: Use a solid border for disabled SelectFile drop target (Volker E)
+
+### Code
+* FieldsetLayout: Make use of `<fieldset>` and `<legend>` tags (Volker E)
+* NumberInputWidget: Clean-up Less code & remove style properties (Volker E)
+* NumberInputWidget: Simplify CSS selectors & fix button text alignment (Volker E)
+* TextInputWidget: Treat `rows: 0` the same in PHP and in JS (Bartosz Dziewoński)
+* Toolbar: Simplify and concatenate selectors (Volker E)
+* MediaWiki theme: Align tools' variables to common vars naming convention (Volker E)
+* MediaWiki theme: Clean-up unnecessary properties in ToolGroup (Volker E)
+* build: Align csscomb configuration with CSS coding conventions (Volker E)
+* build: Introduce eslint to replace jshint and jscs (James D. Forrester)
+* build: Limit the file list of jsonlint (Ed Sanders)
+* build: Remove jshint and jscs, now done in eslint (James D. Forrester)
+* docs: IndexLayout: Fix ReferenceError in code sample (Prateek Saxena)
+* git: Add .idea directory to .gitignore (Florian)
+* testsuitegenerator: Also support 'int' and 'bool' (Bartosz Dziewoński)
+* testsuitegenerator: Simplify code generating all possible config options (Bartosz Dziewoński)
+
+
 ## v0.17.8 / 2016-08-16
 ### Features
 * ProgressBarWidget: Do not make zero progress indeterminate (Leszek Manicki)
