@@ -242,12 +242,17 @@
 		.oo-ui-box-sizing( border-box );
 		display: block;
 		right: @size-icon + 0.5em; // With close, no indicator
-		line-height: 2.3;
 		margin: 0;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
 		padding-left: 0.5em;
+		line-height: 2.3;
+		white-space: nowrap;
+	}
+
+	// Addressing overflowing (long) filenames
+	&-fileName {
+		display: block;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	&-clearButton {
