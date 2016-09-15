@@ -27,8 +27,11 @@
 	display: inline-block;
 	white-space: nowrap;
 	border-radius: @border-radius-default;
-
 	.oo-ui-inline-spacing( 0.5em );
+	// Create a stacking context, so that we can use `z-index` below without leaking out
+	z-index: 0;
+	position: relative;
+
 	.oo-ui-buttonElement {
 		.oo-ui-inline-spacing( 0 );
 	}
@@ -51,11 +54,25 @@
 		}
 	}
 
+	// Give hovered/focussed/active buttons higher `z-index`, so that borders display right.
+	// Identical to .theme-oo-ui-buttonSelectWidget, except for the `:focus` selector.
 	&.oo-ui-widget-enabled {
 		.oo-ui-buttonElement {
-			.oo-ui-buttonElement-button:focus {
-				border-color: @border-color-default-focus;
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
+				z-index: 1;
+			}
+
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+				z-index: 2;
+			}
+
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
 				z-index: 3;
+			}
+
+			&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+				z-index: -1;
 			}
 		}
 	}
@@ -1327,6 +1344,9 @@
 .theme-oo-ui-buttonSelectWidget () {
 	border-radius: @border-radius-default;
 	.oo-ui-inline-spacing( 0.5em );
+	// Create a stacking context, so that we can use `z-index` below without leaking out
+	z-index: 0;
+	position: relative;
 
 	&:focus {
 		outline: 0;
@@ -1358,6 +1378,23 @@
 					border-color: @border-color-default-focus;
 					box-shadow: @box-shadow-focus-inset;
 				}
+			}
+		}
+
+		// Give hovered/focussed/active buttons higher `z-index`, so that borders display right.
+		// Identical to .theme-oo-ui-buttonGroupWidget, except we don't need `:focus` selector.
+		.oo-ui-buttonElement {
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
+				z-index: 1;
+			}
+
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+				z-index: 3;
+			}
+
+			&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+				z-index: -1;
 			}
 		}
 	}
