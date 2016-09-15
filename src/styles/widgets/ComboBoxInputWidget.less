@@ -3,6 +3,12 @@
 .oo-ui-comboBoxInputWidget {
 	display: inline-block;
 
+	&.oo-ui-comboBoxInputWidget-empty {
+		> .oo-ui-indicatorElement-indicator {
+			display: none;
+		}
+	}
+
 	&.oo-ui-widget-enabled {
 		> .oo-ui-indicatorElement-indicator {
 			cursor: pointer;
