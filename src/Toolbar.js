@@ -306,6 +306,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.$bar = $( '<div>' );
 	this.$actions = $( '<div>' );
 	this.initialized = false;
+	this.narrowThreshold = null;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 
 	// Events
@@ -388,8 +389,22 @@ OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
 OO.ui.Toolbar.prototype.onWindowResize = function () {
 	this.$element.toggleClass(
 		'oo-ui-toolbar-narrow',
-		this.$bar.width() <= this.narrowThreshold
+		this.$bar.width() <= this.getNarrowThreshold()
 	);
+};
+
+/**
+ * Get the (lazily-computed) width threshold for applying the oo-ui-toolbar-narrow
+ * class.
+ *
+ * @private
+ * @return {number} Width threshold in pixels
+ */
+OO.ui.Toolbar.prototype.getNarrowThreshold = function () {
+	if ( this.narrowThreshold === null ) {
+		this.narrowThreshold = this.$group.width() + this.$actions.width();
+	}
+	return this.narrowThreshold;
 };
 
 /**
@@ -399,7 +414,6 @@ OO.ui.Toolbar.prototype.onWindowResize = function () {
 OO.ui.Toolbar.prototype.initialize = function () {
 	if ( !this.initialized ) {
 		this.initialized = true;
-		this.narrowThreshold = this.$group.width() + this.$actions.width();
 		$( this.getElementWindow() ).on( 'resize', this.onWindowResizeHandler );
 		this.onWindowResize();
 	}
