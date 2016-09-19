@@ -67,11 +67,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		}
 		// indicator: 'clear' is set dynamically later, depending on value
 	}
-	if ( config.required ) {
-		if ( config.indicator === undefined ) {
-			config.indicator = 'required';
-		}
-	}
 
 	// Parent constructor
 	OO.ui.TextInputWidget.parent.call( this, config );
@@ -85,6 +80,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Properties
 	this.type = this.getSaneType( config );
 	this.readOnly = false;
+	this.required = false;
 	this.multiline = !!config.multiline;
 	this.autosize = !!config.autosize;
 	this.minRows = config.rows !== undefined ? config.rows : '';
@@ -128,6 +124,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		.addClass( 'oo-ui-textInputWidget oo-ui-textInputWidget-type-' + this.type )
 		.append( this.$icon, this.$indicator );
 	this.setReadOnly( !!config.readOnly );
+	this.setRequired( !!config.required );
 	this.updateSearchIndicator();
 	if ( config.placeholder !== undefined ) {
 		this.$input.attr( 'placeholder', config.placeholder );
@@ -137,10 +134,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 	if ( config.autofocus ) {
 		this.$input.attr( 'autofocus', 'autofocus' );
-	}
-	if ( config.required ) {
-		this.$input.attr( 'required', 'required' );
-		this.$input.attr( 'aria-required', 'true' );
 	}
 	if ( config.autocomplete === false ) {
 		this.$input.attr( 'autocomplete', 'off' );
@@ -336,6 +329,42 @@ OO.ui.TextInputWidget.prototype.isReadOnly = function () {
 OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
 	this.readOnly = !!state;
 	this.$input.prop( 'readOnly', this.readOnly );
+	this.updateSearchIndicator();
+	return this;
+};
+
+/**
+ * Check if the input is {@link #required required}.
+ *
+ * @return {boolean}
+ */
+OO.ui.TextInputWidget.prototype.isRequired = function () {
+	return this.required;
+};
+
+/**
+ * Set the {@link #required required} state of the input.
+ *
+ * @param {boolean} state Make input required
+ * @chainable
+ */
+OO.ui.TextInputWidget.prototype.setRequired = function ( state ) {
+	this.required = !!state;
+	if ( this.required ) {
+		this.$input
+			.attr( 'required', 'required' )
+			.attr( 'aria-required', 'true' );
+		if ( this.getIndicator() === null ) {
+			this.setIndicator( 'required' );
+		}
+	} else {
+		this.$input
+			.removeAttr( 'required' )
+			.removeAttr( 'aria-required' );
+		if ( this.getIndicator() === 'required' ) {
+			this.setIndicator( null );
+		}
+	}
 	this.updateSearchIndicator();
 	return this;
 };

@@ -26,6 +26,13 @@ class TextInputWidget extends InputWidget {
 	protected $readOnly = false;
 
 	/**
+	 * Mark as required.
+	 *
+	 * @var boolean
+	 */
+	protected $required = false;
+
+	/**
 	 * Allow multiple lines of text.
 	 *
 	 * @var boolean
@@ -66,11 +73,6 @@ class TextInputWidget extends InputWidget {
 				$config['icon'] = 'search';
 			}
 		}
-		if ( $config['required'] ) {
-			if ( !array_key_exists( 'indicator', $config ) ) {
-				$config['indicator'] = 'required';
-			}
-		}
 
 		// Parent constructor
 		parent::__construct( $config );
@@ -88,6 +90,7 @@ class TextInputWidget extends InputWidget {
 			->addClasses( [ 'oo-ui-textInputWidget', 'oo-ui-textInputWidget-type-' . $this->type ] )
 			->appendContent( $this->icon, $this->indicator );
 		$this->setReadOnly( $config['readOnly'] );
+		$this->setRequired( $config['required'] );
 		if ( isset( $config['placeholder'] ) ) {
 			$this->input->setAttributes( [ 'placeholder' => $config['placeholder'] ] );
 		}
@@ -96,9 +99,6 @@ class TextInputWidget extends InputWidget {
 		}
 		if ( $config['autofocus'] ) {
 			$this->input->setAttributes( [ 'autofocus' => 'autofocus' ] );
-		}
-		if ( $config['required'] ) {
-			$this->input->setAttributes( [ 'required' => 'required', 'aria-required' => 'true' ] );
 		}
 		if ( !$config['autocomplete'] ) {
 			$this->input->setAttributes( [ 'autocomplete' => 'off' ] );
@@ -130,6 +130,37 @@ class TextInputWidget extends InputWidget {
 			$this->input->setAttributes( [ 'readonly' => 'readonly' ] );
 		} else {
 			$this->input->removeAttributes( [ 'readonly' ] );
+		}
+		return $this;
+	}
+
+	/**
+	 * Check if the widget is required.
+	 *
+	 * @return boolean
+	 */
+	public function isRequired() {
+		return $this->required;
+	}
+
+	/**
+	 * Set the required state of the widget.
+	 *
+	 * @param boolean $state Make input required
+	 * @return $this
+	 */
+	public function setRequired( $state ) {
+		$this->required = (bool)$state;
+		if ( $this->required ) {
+			$this->input->setAttributes( [ 'required' => 'required', 'aria-required' => 'true' ] );
+			if ( $this->getIndicator() === null ) {
+				$this->setIndicator( 'required' );
+			}
+		} else {
+			$this->input->removeAttributes( [ 'required', 'aria-required' ] );
+			if ( $this->getIndicator() === 'required' ) {
+				$this->setIndicator( null );
+			}
 		}
 		return $this;
 	}
