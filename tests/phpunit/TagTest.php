@@ -64,6 +64,23 @@ class TagTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * @covers Tag::toString
+	 * @dataProvider provideToString
+	 */
+	public function testToString( $tag, $expected ) {
+		$this->assertEquals( $expected, $tag->toString() );
+	}
+
+	public static function provideToString() {
+		return [
+			[ ( new Tag( 'div' ) ),
+				'<div></div>' ],
+			[ ( new Tag( 'input' ) ),
+				'<input />' ],
+		];
+	}
+
+	/**
 	 * @covers Tag::isSafeUrl
 	 * @dataProvider provideIsSafeUrl
 	 */
