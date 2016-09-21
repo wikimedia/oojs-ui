@@ -112,6 +112,10 @@ class Tag {
 		return $this;
 	}
 
+	public function getTag() {
+		return $this->tag;
+	}
+
 	/**
 	 * Get HTML attribute value.
 	 *
