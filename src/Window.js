@@ -222,17 +222,20 @@ OO.ui.Window.prototype.getSizeProperties = function () {
 OO.ui.Window.prototype.withoutSizeTransitions = function ( callback ) {
 	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements.
 	// Disable transitions first, otherwise we'll get values from when the window was animating.
-	var oldTransition,
-		styleObj = this.$frame[ 0 ].style;
-	oldTransition = styleObj.transition || styleObj.OTransition || styleObj.MsTransition ||
-		styleObj.MozTransition || styleObj.WebkitTransition;
-	styleObj.transition = styleObj.OTransition = styleObj.MsTransition =
-		styleObj.MozTransition = styleObj.WebkitTransition = 'none';
+	// We need to build the transition CSS properties using these specific properties since
+	// Firefox doesn't return anything useful when asked just for 'transition'.
+	var oldTransition = this.$frame.css( 'transition-property' ) + ' ' +
+		this.$frame.css( 'transition-duration' ) + ' ' +
+		this.$frame.css( 'transition-timing-function' ) + ' ' +
+		this.$frame.css( 'transition-delay' );
+
+	this.$frame.css( 'transition', 'none' );
 	callback();
-	// Force reflow to make sure the style changes done inside callback really are not transitioned
+
+	// Force reflow to make sure the style changes done inside callback
+	// really are not transitioned
 	this.$frame.height();
-	styleObj.transition = styleObj.OTransition = styleObj.MsTransition =
-		styleObj.MozTransition = styleObj.WebkitTransition = oldTransition;
+	this.$frame.css( 'transition', oldTransition );
 };
 
 /**
