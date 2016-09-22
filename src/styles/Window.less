@@ -5,9 +5,18 @@
 		.oo-ui-box-sizing( border-box );
 	}
 
-	// Content div takes focus when opened, so hide outline
-	&-content:focus {
-		outline: 0;
+	&-content {
+		// This lets the -content element take focus in Firefox when a child element is clicked
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		// Element takes focus when opened, so hide outline
+		&:focus {
+			outline: 0;
+		}
 	}
 
 	&-head,
