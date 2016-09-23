@@ -1854,8 +1854,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		} ),
 		new OO.ui.FieldsetLayout( {
 			label: 'Field layouts',
-			help: 'I am an additional, helpful information. Lorem ipsum dolor sit amet, cibo pri ' +
-				'in, duo ex inimicus perpetua complectitur, mel periculis similique at.\u200E',
+			icon: 'tag',
+			help: 'This fieldset has an icon and a help popup.\u200E',
 			items: [
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
