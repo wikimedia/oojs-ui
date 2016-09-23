@@ -32,6 +32,7 @@ class FieldsetLayout extends Layout {
 		$this->initializeGroupElement( $config );
 
 		// Initialization
+		$this->group->addClasses( [ 'oo-ui-fieldsetLayout-group' ] );
 		$this
 			->addClasses( [ 'oo-ui-fieldsetLayout' ] )
 			->prependContent( $this->label, $this->icon, $this->group );
