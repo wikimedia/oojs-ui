@@ -853,8 +853,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'infusable' => true,
 	'label' => 'Field layouts',
-	'help' => 'I am an additional, helpful information. Lorem ipsum dolor sit amet, cibo pri ' .
-		"in, duo ex inimicus perpetua complectitur, mel periculis similique at.\xE2\x80\x8E",
+	'icon' => 'tag',
 	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [
