@@ -10,6 +10,11 @@
 		&:focus {
 			border-radius: @border-radius-default;
 			outline: 0;
+
+			// Normalize: Make the inner border transparent in Firefox
+			&::-moz-focus-inner {
+				border-color: transparent;
+			}
 		}
 	}
 
