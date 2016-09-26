@@ -2,6 +2,21 @@
 
 .oo-ui-messageDialog {
 	&-actions {
+		.oo-ui-actionWidget {
+			position: relative;
+			text-align: center;
+
+			.oo-ui-buttonElement-button {
+				display: block;
+			}
+
+			.oo-ui-labelElement-label {
+				position: relative;
+				top: auto;
+				bottom: auto;
+			}
+		}
+
 		&-horizontal {
 			display: table;
 			table-layout: fixed;
@@ -20,23 +35,6 @@
 				display: block;
 				overflow: hidden;
 				text-overflow: ellipsis;
-			}
-		}
-
-		.oo-ui-actionWidget {
-			position: relative;
-			text-align: center;
-
-			.oo-ui-buttonElement-button {
-				display: block;
-			}
-
-			.oo-ui-labelElement-label {
-				position: relative;
-				top: auto;
-				bottom: auto;
-				display: inline;
-				white-space: nowrap;
 			}
 		}
 	}
