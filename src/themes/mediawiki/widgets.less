@@ -863,7 +863,7 @@
 	&.oo-ui-widget-enabled:hover {
 		input,
 		textarea {
-			border-color: @border-color-default-hover;
+			border-color: @border-color-input-hover;
 
 			&:focus {
 				border-color: @border-color-default-focus;
@@ -889,10 +889,6 @@
 		border: @border-default;
 		border-radius: @border-radius-default;
 		.oo-ui-box-sizing( border-box );
-
-		&:hover {
-			border-color: @border-color-input-hover;
-		}
 
 		> .oo-ui-indicatorElement-indicator,
 		> .oo-ui-iconElement-icon {
@@ -959,7 +955,7 @@
 		);
 	}
 	&.oo-ui-widget-enabled:hover &-handle {
-		border-color: @border-color-default-hover;
+		border-color: @border-color-input-hover;
 	}
 	&.oo-ui-widget-enabled.oo-ui-capsuleMultiselectWidget-open &-handle {
 		border-color: @border-color-default-focus;
