@@ -470,10 +470,25 @@
 .theme-oo-ui-comboBoxInputWidget () {
 	width: 100%;
 	max-width: @max-width-input-default;
-	.oo-ui-inline-spacing(0.5em);
+	.oo-ui-inline-spacing( 0.5em );
 
-	&.oo-ui-widget-disabled,
-	&-empty {
+	&-dropdownButton {
+		position: absolute;
+		top: 0;
+		right: 0;
+		visibility: hidden;
+
+		.oo-ui-buttonElement-button {
+			padding: 0;
+
+			.oo-ui-indicatorElement-indicator.oo-ui-indicator-down {
+				visibility: visible;
+				margin: 0.775em;
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled {
 		.oo-ui-textInputWidget.oo-ui-indicatorElement {
 			.oo-ui-indicatorElement-indicator {
 				cursor: default;

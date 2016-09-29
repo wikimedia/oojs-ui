@@ -60,7 +60,6 @@
 OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	// Configuration initialization
 	config = $.extend( {
-		indicator: 'down',
 		autocomplete: false
 	}, config );
 	// For backwards-compatibility with ComboBoxWidget config
@@ -71,6 +70,11 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 
 	// Properties
 	this.$overlay = config.$overlay || this.$element;
+	this.dropdownButton = new OO.ui.ButtonWidget( {
+		classes: [ 'oo-ui-comboBoxInputWidget-dropdownButton' ],
+		indicator: 'down',
+		disabled: this.disabled
+	} );
 	this.menu = new OO.ui.FloatingMenuSelectWidget( $.extend(
 		{
 			widget: this,
@@ -84,13 +88,12 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	this.input = this;
 
 	// Events
-	this.$indicator.on( {
-		click: this.onIndicatorClick.bind( this ),
-		keypress: this.onIndicatorKeyPress.bind( this )
-	} );
 	this.connect( this, {
 		change: 'onInputChange',
 		enter: 'onInputEnter'
+	} );
+	this.dropdownButton.connect( this, {
+		click: 'onDropdownButtonClick'
 	} );
 	this.menu.connect( this, {
 		choose: 'onMenuChoose',
@@ -107,8 +110,13 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	if ( config.options !== undefined ) {
 		this.setOptions( config.options );
 	}
+	this.$field = $( '<div>' )
+		.addClass( 'oo-ui-comboBoxInputWidget-field' )
+		.append( this.$input, this.dropdownButton.$element );
 	// Extra class for backwards-compatibility with ComboBoxWidget
-	this.$element.addClass( 'oo-ui-comboBoxInputWidget oo-ui-comboBoxWidget' );
+	this.$element
+		.addClass( 'oo-ui-comboBoxInputWidget oo-ui-comboBoxWidget' )
+		.append( this.$field );
 	this.$overlay.append( this.menu.$element );
 	this.onMenuItemsChange();
 };
@@ -157,34 +165,6 @@ OO.ui.ComboBoxInputWidget.prototype.onInputChange = function ( value ) {
 };
 
 /**
- * Handle mouse click events.
- *
- * @private
- * @param {jQuery.Event} e Mouse click event
- */
-OO.ui.ComboBoxInputWidget.prototype.onIndicatorClick = function ( e ) {
-	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
-		this.menu.toggle();
-		this.$input[ 0 ].focus();
-	}
-	return false;
-};
-
-/**
- * Handle key press events.
- *
- * @private
- * @param {jQuery.Event} e Key press event
- */
-OO.ui.ComboBoxInputWidget.prototype.onIndicatorKeyPress = function ( e ) {
-	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {
-		this.menu.toggle();
-		this.$input[ 0 ].focus();
-		return false;
-	}
-};
-
-/**
  * Handle input enter events.
  *
  * @private
@@ -193,6 +173,16 @@ OO.ui.ComboBoxInputWidget.prototype.onInputEnter = function () {
 	if ( !this.isDisabled() ) {
 		this.menu.toggle( false );
 	}
+};
+
+/**
+ * Handle button click events.
+ *
+ * @private
+ */
+OO.ui.ComboBoxInputWidget.prototype.onDropdownButtonClick = function () {
+	this.menu.toggle();
+	this.$input[ 0 ].focus();
 };
 
 /**
@@ -226,6 +216,9 @@ OO.ui.ComboBoxInputWidget.prototype.setDisabled = function ( disabled ) {
 	// Parent method
 	OO.ui.ComboBoxInputWidget.parent.prototype.setDisabled.call( this, disabled );
 
+	if ( this.dropdownButton ) {
+		this.dropdownButton.setDisabled( this.isDisabled() );
+	}
 	if ( this.menu ) {
 		this.menu.setDisabled( this.isDisabled() );
 	}

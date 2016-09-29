@@ -858,22 +858,35 @@
 	input,
 	textarea {
 		height: 2.35em;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		border-right-width: 0;
 	}
 
-	&.oo-ui-widget-enabled:hover {
+	&-dropdownButton {
+		width: 2.5em;
+
+		.oo-ui-buttonElement-button {
+			padding: 0.5em;
+		}
+
+		.oo-ui-buttonElement-button,
+		.oo-ui-buttonElement-button:focus {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+
+	&.oo-ui-comboBoxInputWidget-empty {
 		input,
 		textarea {
-			border-color: @border-color-input-hover;
-
-			&:focus {
-				border-color: @border-color-default-focus;
-			}
+			border-right-width: 1px;
 		}
 	}
 
 	&.oo-ui-widget-disabled {
 		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-disabled-indicator;
+			opacity: @opacity-disabled-filled;
 		}
 	}
 }
