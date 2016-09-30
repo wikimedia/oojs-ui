@@ -704,22 +704,46 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\ButtonInputWidget( [
 				'label' => 'Submit the form',
-				'type' => 'submit'
-			] ),
-			[
-				'align' => 'top',
-				'label' => "ButtonInputWidget\xE2\x80\x8E"
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonInputWidget( [
-				'label' => 'Submit the form',
 				'type' => 'submit',
+				'flags' => [ 'primary', 'progressive' ],
 				'useInputTag' => true
 			] ),
 			[
 				'align' => 'top',
 				'label' => "ButtonInputWidget (using <input>)\xE2\x80\x8E"
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonInputWidget( [
+				'label' => 'Another button',
+				'type' => 'button'
+			] ),
+			[
+				'align' => 'top',
+				'label' => "ButtonInputWidget (using <button>)\xE2\x80\x8E"
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonInputWidget( [
+				'framed' => false,
+				'label' => 'Another button',
+				'type' => 'button'
+			] ),
+			[
+				'align' => 'top',
+				'label' => "ButtonInputWidget (frameless)\xE2\x80\x8E"
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonInputWidget( [
+				'framed' => false,
+				'label' => 'Another button',
+				'type' => 'button',
+				'useInputTag' => true
+			] ),
+			[
+				'align' => 'top',
+				'label' => "ButtonInputWidget (frameless, using <input>)\xE2\x80\x8E"
 			]
 		)
 	]
