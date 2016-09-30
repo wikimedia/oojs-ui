@@ -194,8 +194,7 @@ OO.ui.Demo.prototype.initialize = function () {
 
 	// Helper function to get high resolution profiling data, where available.
 	function now() {
-		/* global performance */
-		return ( typeof performance !== 'undefined' ) ? performance.now() :
+		return ( window.performance && performance.now ) ? performance.now() :
 			Date.now ? Date.now() : new Date().getTime();
 	}
 
