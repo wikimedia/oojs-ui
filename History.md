@@ -1,4 +1,9 @@
 # OOjs UI Release History
+## v0.17.10 / 2016-10-03
+### Styles
+* FieldsetLayout: Styling fixes for `<legend>` labels (Bartosz Dziewoński)
+* FieldsetLayout: Work around positioning problems in Firefox (Bartosz Dziewoński)
+
 ## v0.17.9 / 2016-09-13
 ### Features
 * DropdownWidget: Add CSS class to widgets with open dropdown menus (Volker E)

@@ -2,5 +2,5 @@
 host=gerrit.wikimedia.org
 port=29418
 project=oojs/ui.git
-defaultbranch=master
+defaultbranch=v0.17.10
 defaultrebase=0
