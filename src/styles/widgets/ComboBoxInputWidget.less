@@ -2,16 +2,34 @@
 
 .oo-ui-comboBoxInputWidget {
 	display: inline-block;
+	position: relative;
 
-	&.oo-ui-comboBoxInputWidget-empty {
-		> .oo-ui-indicatorElement-indicator {
-			display: none;
+	&-field {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	.oo-ui-inputWidget-input {
+		display: table-cell;
+		vertical-align: middle;
+		position: relative;
+		overflow: hidden;
+	}
+
+	&-dropdownButton {
+		display: table-cell;
+
+		> .oo-ui-buttonElement-button {
+			display: block;
+			.oo-ui-box-sizing( border-box );
+			overflow: hidden;
 		}
 	}
 
-	&.oo-ui-widget-enabled {
-		> .oo-ui-indicatorElement-indicator {
-			cursor: pointer;
+	&.oo-ui-comboBoxInputWidget-empty {
+		.oo-ui-comboBoxInputWidget-dropdownButton {
+			display: none;
 		}
 	}
 
