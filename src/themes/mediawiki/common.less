@@ -58,13 +58,16 @@
 @border-toolbar: @border-width-default solid #c8ccd1;
 
 // Box Sizes
+@min-width-button-default: 40 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `3.125em`≈`40px` at base `font-size: 12.8px` // equals `40px` at base `font-size: 0.8em`
+@min-width-button-combo-widget: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `2.5em`≈`32px` at base `font-size: 12.8px`
+@min-height-button-default: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @min-height-toggleswitch: 26px; // equals `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
 @max-width-default: 50em;
 @max-width-input: @max-width-default;
-@max-height-icon: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `2.5em`≈`32px` at base `font-size: 12.8px`
+@max-height-icon: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @max-height-indicator: @max-height-icon;
 
-@size-default: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `2.5em`≈`32px` at base `font-size: 12.8px`
+@size-default: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @size-anchor: 9px;
 @size-button-default: @size-default;
 @size-icon-min: 24px; // values used for `min-height` are defined in `px`, see T130691
@@ -72,6 +75,8 @@
 @size-icon: 24 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.875em`≈`24px` at base `font-size: 12.8px`
 @size-indicator: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`12px` at base `font-size: 12.8px`
 @size-toggleswitch-grip-min: 16px;
+
+@width-button-combo-widget: @min-width-button-combo-widget;
 
 @border-default: @border-width-default solid @border-color-default;
 @border-disabled: @border-width-default solid @border-color-disabled;

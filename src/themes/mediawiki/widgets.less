@@ -861,11 +861,13 @@
 	}
 
 	&-dropdownButton {
-		width: @size-button-default;
+		width: @width-button-combo-widget;
 
 		.oo-ui-buttonElement-button {
-			min-height: @size-button-default;
-			padding: @padding-widget-default;
+			min-width: @min-width-button-combo-widget;
+			min-height: @min-height-button-default;
+			padding-left: 0;
+			padding-right: 0;
 		}
 
 		.oo-ui-buttonElement-button,
@@ -1447,11 +1449,12 @@
 
 	&-buttoned {
 		.oo-ui-buttonWidget {
-			width: @size-button-default;
+			width: @width-button-combo-widget;
 		}
 
 		.oo-ui-buttonElement-button {
 			display: block;
+			min-width: @min-width-button-combo-widget;
 			min-height: @size-button-default;
 			padding-left: 0;
 			padding-right: 0;
