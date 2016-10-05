@@ -82,13 +82,10 @@ OO.ui.OutlineOptionWidget.prototype.getLevel = function () {
  */
 OO.ui.OutlineOptionWidget.prototype.setPressed = function ( state ) {
 	OO.ui.OutlineOptionWidget.parent.prototype.setPressed.call( this, state );
-	if ( this.constructor.static.pressable ) {
-		this.pressed = !!state;
-		if ( this.pressed ) {
-			this.setFlags( 'progressive' );
-		} else if ( !this.selected ) {
-			this.clearFlags();
-		}
+	if ( this.pressed ) {
+		this.setFlags( 'progressive' );
+	} else if ( !this.selected ) {
+		this.clearFlags();
 	}
 	return this;
 };
@@ -126,13 +123,10 @@ OO.ui.OutlineOptionWidget.prototype.setRemovable = function ( removable ) {
  */
 OO.ui.OutlineOptionWidget.prototype.setSelected = function ( state ) {
 	OO.ui.OutlineOptionWidget.parent.prototype.setSelected.call( this, state );
-	if ( this.constructor.static.selectable ) {
-		this.selected = !!state;
-		if ( this.selected ) {
-			this.setFlags( 'progressive' );
-		} else {
-			this.clearFlags();
-		}
+	if ( this.selected ) {
+		this.setFlags( 'progressive' );
+	} else {
+		this.clearFlags();
 	}
 	return this;
 };
