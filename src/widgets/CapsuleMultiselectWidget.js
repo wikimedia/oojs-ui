@@ -388,9 +388,12 @@ OO.ui.CapsuleMultiselectWidget.prototype.addItems = function ( items ) {
  * @param {Object} item
  */
 OO.ui.CapsuleMultiselectWidget.prototype.editItem = function ( item ) {
+	this.addItemFromLabel( this.$input.val() );
+	this.clearInput();
 	this.$input.val( item.label );
 	this.updateInputSize();
 	this.focus();
+	this.menu.updateItemVisibility(); // Hack, we shouldn't be calling this method directly
 	this.removeItems( [ item ] );
 };
 
