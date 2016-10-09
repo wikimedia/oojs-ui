@@ -753,21 +753,25 @@
 
 		// Normalize placeholder styling, see T139034
 		// Firefox 4-18
-		:-moz-placeholder { // stylelint-disable-line
+		:-moz-placeholder { // stylelint-disable-line selector-no-vendor-prefix
 			color: @color-placeholder;
 			opacity: 1;
 		}
 		// Firefox 19-
-		::-moz-placeholder { // stylelint-disable-line
+		::-moz-placeholder { // stylelint-disable-line selector-no-vendor-prefix
 			color: @color-placeholder;
 			opacity: 1;
 		}
 		// Internet Explorer 10-11
-		:-ms-input-placeholder { // stylelint-disable-line
+		:-ms-input-placeholder { // stylelint-disable-line selector-no-vendor-prefix
 			color: @color-placeholder;
 		}
 		// WebKit, Blink, Edge
-		::-webkit-input-placeholder { // stylelint-disable-line
+		::-webkit-input-placeholder { // stylelint-disable-line selector-no-vendor-prefix
+			color: @color-placeholder;
+		}
+		// W3C Standard Selectors Level 4
+		:placeholder-shown {
 			color: @color-placeholder;
 		}
 
