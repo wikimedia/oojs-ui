@@ -1370,6 +1370,25 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.CapsuleMultiselectWidget( {
+						placeholder: 'Type like a cat...',
+						menu: {
+							items: [
+								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
+								new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jkl', label: 'Label for jkl' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jjj', label: 'Label for jjj' } ),
+								new OO.ui.MenuOptionWidget( { data: 'zxc', label: 'Label for zxc' } ),
+								new OO.ui.MenuOptionWidget( { data: 'vbn', label: 'Label for vbn' } )
+							]
+						}
+					} ),
+					{
+						label: 'CapsuleMultiselectWidget (with placeholder)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.CapsuleMultiselectWidget( {
 						allowArbitrary: true,
 						icon: 'tag',
 						indicator: 'required',

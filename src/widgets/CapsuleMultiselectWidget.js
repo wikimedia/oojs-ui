@@ -50,6 +50,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {string} [placeholder] Placeholder text
  * @cfg {boolean} [allowArbitrary=false] Allow data items to be added even if not present in the menu.
  * @cfg {Object} [menu] (required) Configuration options to pass to the
  *  {@link OO.ui.MenuSelectWidget menu select widget}.
@@ -76,8 +77,11 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 	}, config );
 
 	// Properties (must be set before mixin constructor calls)
-	this.$input = config.popup ? null : $( '<input>' );
 	this.$handle = $( '<div>' );
+	this.$input = config.popup ? null : $( '<input>' );
+	if ( config.placeholder !== undefined && config.placeholder !== '' ) {
+		this.$input.attr( 'placeholder', config.placeholder );
+	}
 
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, config );
@@ -153,7 +157,6 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 			role: 'combobox',
 			'aria-autocomplete': 'list'
 		} );
-		this.updateInputSize();
 	}
 	if ( config.data ) {
 		this.setItemsFromData( config.data );
@@ -172,6 +175,14 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 		this.$content.append( this.$input );
 		this.$overlay.append( this.menu.$element );
 	}
+
+	// Input size needs to be calculated after everything else is rendered
+	setTimeout( function () {
+		if ( this.$input ) {
+			this.updateInputSize();
+		}
+	} );
+
 	this.onMenuItemsChange();
 };
 
@@ -628,26 +639,40 @@ OO.ui.CapsuleMultiselectWidget.prototype.onKeyDown = function ( e ) {
  * @param {jQuery.Event} e Event of some sort
  */
 OO.ui.CapsuleMultiselectWidget.prototype.updateInputSize = function () {
-	var $lastItem, direction, contentWidth, currentWidth, bestWidth;
+	var $lastItem, direction, contentWidth, currentWidth, bestWidth, movedPlaceholder;
 	if ( !this.isDisabled() ) {
 		this.$input.css( 'width', '1em' );
 		$lastItem = this.$group.children().last();
 		direction = OO.ui.Element.static.getDir( this.$handle );
+
+		// Move the placeholder text to value to get true width
+		if ( this.$input.val() === '' ) {
+			this.$input.val( this.$input.attr( 'placeholder' ) );
+			movedPlaceholder = true;
+		}
+
 		contentWidth = this.$input[ 0 ].scrollWidth;
 		currentWidth = this.$input.width();
+
+		// Reset value
+		if ( movedPlaceholder ) {
+			this.$input.val( '' );
+		}
+
 
 		if ( contentWidth < currentWidth ) {
 			// All is fine, don't perform expensive calculations
 			return;
 		}
 
-		if ( !$lastItem.length ) {
+		if ( $lastItem.length === 0 ) {
 			bestWidth = this.$content.innerWidth();
 		} else {
 			bestWidth = direction === 'ltr' ?
 				this.$content.innerWidth() - $lastItem.position().left - $lastItem.outerWidth() :
 				$lastItem.position().left;
 		}
+
 		// Some safety margin for sanity, because I *really* don't feel like finding out where the few
 		// pixels this is off by are coming from.
 		bestWidth -= 10;
