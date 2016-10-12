@@ -127,8 +127,8 @@
 	.oo-ui-inline-spacing( 0.5em );
 
 	&-handle {
-		padding: 0.5em 0;
-		height: 2.275em;
+		padding: @padding-widget-default 0;
+		height: @size-default;
 		line-height: 1.275;
 		border: @border-default;
 		border-radius: @border-radius-default;
@@ -700,7 +700,6 @@
 
 	input,
 	textarea {
-		padding: 0.5em;
 		margin: 0;
 		font-size: inherit;
 		font-family: inherit;
@@ -708,6 +707,11 @@
 		color: @color-emphasized;
 		border: @border-default;
 		border-radius: @border-radius-default;
+		padding: @padding-top-input-text @padding-widget-default @padding-widget-default;
+	}
+
+	input {
+		line-height: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
 	}
 
 	textarea {
@@ -859,17 +863,18 @@
 
 	input,
 	textarea {
-		height: 2.35em;
+		height: @size-default;
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 		border-right-width: 0;
 	}
 
 	&-dropdownButton {
-		width: 2.5em;
+		width: @size-button-default;
 
 		.oo-ui-buttonElement-button {
-			padding: 0.5em;
+			min-height: @size-button-default;
+			padding: @padding-widget-default;
 		}
 
 		.oo-ui-buttonElement-button,
@@ -1447,11 +1452,12 @@
 
 	&-buttoned {
 		.oo-ui-buttonWidget {
-			width: 2.5em;
+			width: @size-button-default;
 		}
 
 		.oo-ui-buttonElement-button {
 			display: block;
+			min-height: @size-button-default;
 			padding-left: 0;
 			padding-right: 0;
 		}
