@@ -12,6 +12,7 @@
 @color-default-light: #fff;
 @color-emphasized: @color-default-active;
 @color-placeholder: #72777d; // equals HSB 210°/9%/49%, aligns to WCAG 2.0 level AA at 4.52:1 contrast ratio
+@color-readonly: #72777d;
 
 // Primary 'Progressive' and 'Destructive' Colors
 @background-color-progressive: #eaf3ff; // equals rgba output in `fade( @color-progressive, 10% )`
@@ -80,6 +81,7 @@
 @border-color-destructive-active: #b77c79; // equals `fade( @color-destructive-active, 50% )`
 @border-color-focus-inset: @color-default-light;
 @border-color-dialog: #a2a9b1;
+@border-color-readonly: #c8ccd1;
 @border-color-input-hover: @border-color-default-active;
 
 @border-radius-default: 2px;
@@ -91,6 +93,7 @@
 @box-shadow-menu: @box-shadow-dialog;
 @box-shadow-focus-default: inset 0 0 0 1px @color-progressive;
 @box-shadow-focus-inset: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-default-light;
+@box-shadow-focus-readonly: inset 0 0 0 1px #c8ccd1;
 @box-shadow-disabled-filled: inset 0 0 0 1px @color-disabled-filled;
 @box-shadow-light-inset: inset 0 0 0 1px @color-default-light;
 

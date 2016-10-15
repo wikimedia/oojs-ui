@@ -738,15 +738,14 @@
 			}
 
 			&[readonly] {
-				color: #777;
-				text-shadow: @text-shadow-default;
+				color: @color-readonly;
 
 				&:hover {
-					border-color: #ccc;
+					border-color: @border-color-readonly;
 				}
 				&:focus {
-					border-color: #ccc;
-					box-shadow: inset 0 0 0 0.1em #ccc;
+					border-color: @border-color-readonly;
+					box-shadow: @box-shadow-focus-readonly;
 				}
 			}
 		}
