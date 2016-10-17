@@ -181,7 +181,7 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 		if ( this.$input ) {
 			this.updateInputSize();
 		}
-	} );
+	}.bind( this ) );
 
 	this.onMenuItemsChange();
 };
@@ -639,26 +639,33 @@ OO.ui.CapsuleMultiselectWidget.prototype.onKeyDown = function ( e ) {
  * @param {jQuery.Event} e Event of some sort
  */
 OO.ui.CapsuleMultiselectWidget.prototype.updateInputSize = function () {
-	var $lastItem, direction, contentWidth, currentWidth, bestWidth, movedPlaceholder;
+	var $lastItem, direction, contentWidth, currentWidth, bestWidth;
 	if ( !this.isDisabled() ) {
 		this.$input.css( 'width', '1em' );
 		$lastItem = this.$group.children().last();
 		direction = OO.ui.Element.static.getDir( this.$handle );
 
-		// Move the placeholder text to value to get true width
-		if ( this.$input.val() === '' ) {
+		// Get the width of the input with the placeholder text as
+		// the value and save it so that we don't keep recalculating
+		if (
+			this.contentWidthWithPlaceholder === undefined &&
+			this.$input.val() === '' &&
+			this.$input.attr( 'placeholder' ) !== undefined
+		) {
 			this.$input.val( this.$input.attr( 'placeholder' ) );
-			movedPlaceholder = true;
-		}
-
-		contentWidth = this.$input[ 0 ].scrollWidth;
-		currentWidth = this.$input.width();
-
-		// Reset value
-		if ( movedPlaceholder ) {
+			this.contentWidthWithPlaceholder = this.$input[ 0 ].scrollWidth;
 			this.$input.val( '' );
+
 		}
 
+		// Always keep the input wide enough for the placeholder text
+		contentWidth = Math.max(
+			this.$input[ 0 ].scrollWidth,
+			// undefined arguments in Math.max lead to NaN
+			( this.contentWidthWithPlaceholder === undefined ) ?
+				0 : this.contentWidthWithPlaceholder
+		);
+		currentWidth = this.$input.width();
 
 		if ( contentWidth < currentWidth ) {
 			// All is fine, don't perform expensive calculations
