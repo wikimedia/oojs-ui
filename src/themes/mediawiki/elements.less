@@ -304,19 +304,17 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled {
-		& > .oo-ui-buttonElement-button:hover {
-			> .oo-ui-labelElement-label {
-				color: @hover;
-			}
+	& > .oo-ui-buttonElement-button:hover {
+		> .oo-ui-labelElement-label {
+			color: @hover;
 		}
+	}
 
-		& > .oo-ui-buttonElement-button:active,
-		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-			& > .oo-ui-labelElement-label {
-				color: @active;
-				box-shadow: none;
-			}
+	& > .oo-ui-buttonElement-button:active,
+	&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+		& > .oo-ui-labelElement-label {
+			color: @active;
+			box-shadow: none;
 		}
 	}
 }
@@ -326,25 +324,24 @@
 		color: @link;
 	}
 
-	&.oo-ui-widget-enabled {
-		> .oo-ui-buttonElement-button:hover {
-			background-color: @hover;
-			border-color: @border-color-active;
-		}
+	> .oo-ui-buttonElement-button:hover {
+		background-color: @hover;
+		border-color: @border-color-active;
+	}
 
-		> .oo-ui-buttonElement-button:active,
-		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button,
-		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-			background-color: lighten( @active, 60% );
-			color: @active;
-			border-color: @active;
-			box-shadow: none;
-		}
+	> .oo-ui-buttonElement-button:active,
+	> .oo-ui-buttonElement-button:active:focus,
+	&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button,
+	&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+		background-color: lighten( @active, 60% );
+		color: @active;
+		border-color: @active;
+		box-shadow: none;
+	}
 
-		> .oo-ui-buttonElement-button:focus {
-			border-color: @focus;
-			box-shadow: inset 0 0 0 1px @focus;
-		}
+	> .oo-ui-buttonElement-button:focus {
+		border-color: @focus;
+		box-shadow: inset 0 0 0 1px @focus;
 	}
 }
 
@@ -355,25 +352,24 @@
 		border-color: @link;
 	}
 
-	&.oo-ui-widget-enabled {
-		> .oo-ui-buttonElement-button:hover {
-			background-color: @hover;
-			border-color: @hover;
-		}
+	> .oo-ui-buttonElement-button:hover {
+		background-color: @hover;
+		border-color: @hover;
+	}
 
-		> .oo-ui-buttonElement-button:active,
-		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button,
-		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-			color: @color-default-light;
-			background-color: @active;
-			border-color: @active;
-			box-shadow: none;
-		}
+	> .oo-ui-buttonElement-button:active,
+	> .oo-ui-buttonElement-button:active:focus,
+	&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button,
+	&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+		color: @color-default-light;
+		background-color: @active;
+		border-color: @active;
+		box-shadow: none;
+	}
 
-		> .oo-ui-buttonElement-button:focus {
-			border-color: @focus;
-			box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-default-light;
-		}
+	> .oo-ui-buttonElement-button:focus {
+		border-color: @focus;
+		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-default-light;
 	}
 }
 

@@ -1470,17 +1470,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonInputWidget( {
 						label: 'Submit the form',
-						type: 'submit'
-					} ),
-					{
-						align: 'top',
-						label: 'ButtonInputWidget'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonInputWidget( {
-						label: 'Submit the form',
 						type: 'submit',
+						flags: [ 'primary', 'progressive' ],
 						useInputTag: true
 					} ),
 					{
@@ -1490,9 +1481,19 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonInputWidget( {
+						label: 'Another button',
+						type: 'button'
+					} ),
+					{
+						align: 'top',
+						label: 'ButtonInputWidget (using <button>)\u200E'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonInputWidget( {
 						framed: false,
-						label: 'Submit the form',
-						type: 'submit'
+						label: 'Another button',
+						type: 'button'
 					} ),
 					{
 						align: 'top',
@@ -1502,8 +1503,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonInputWidget( {
 						framed: false,
-						label: 'Submit the form',
-						type: 'submit',
+						label: 'Another button',
+						type: 'button',
 						useInputTag: true
 					} ),
 					{
