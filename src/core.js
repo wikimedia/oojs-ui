@@ -247,6 +247,17 @@ OO.ui.debounce = function ( func, wait, immediate ) {
 };
 
 /**
+ * Puts a console warning with provided message.
+ *
+ * @param {string} message
+ */
+OO.ui.warnDeprecation = function ( message ) {
+	if ( OO.getProp( 'window', 'console', 'warn' ) !== undefined ) {
+		console.warn( message );
+	}
+};
+
+/**
  * Returns a function, that, when invoked, will only be triggered at most once
  * during a given window of time. If called again during that window, it will
  * wait until the window ends and then trigger itself again.
