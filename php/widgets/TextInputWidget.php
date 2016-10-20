@@ -42,7 +42,7 @@ class TextInputWidget extends InputWidget {
 	/**
 	 * @param array $config Configuration options
 	 * @param string $config['type'] HTML tag `type` attribute: 'text', 'password', 'search', 'email',
-	 *   'url', 'date' or 'number'. Ignored if `multiline` is true. (default: 'text')
+	 *   'url', 'date', 'month' or 'number'. Ignored if `multiline` is true. (default: 'text')
 	 *
 	 *   Some values of `type` result in additional behaviors:
 	 *   - `search`: implies `icon: 'search'` and `indicator: 'clear'`; when clicked, the indicator
@@ -186,6 +186,7 @@ class TextInputWidget extends InputWidget {
 			'email',
 			'url',
 			'date',
+			'month',
 			'number'
 		];
 		return in_array( $config['type'], $allowedTypes ) ? $config['type'] : 'text';
