@@ -252,7 +252,7 @@ OO.ui.debounce = function ( func, wait, immediate ) {
  * @param {string} message
  */
 OO.ui.warnDeprecation = function ( message ) {
-	if ( OO.getProp( 'window', 'console', 'warn' ) !== undefined ) {
+	if ( OO.getProp( window, 'console', 'warn' ) !== undefined ) {
 		console.warn( message );
 	}
 };
