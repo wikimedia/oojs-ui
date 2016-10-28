@@ -71,7 +71,7 @@ OO.ui.mixin.DraggableElement.static.cancelButtonMouseDownEvents = false;
  * Respond to mousedown event.
  *
  * @private
- * @param {jQuery.Event} e jQuery event
+ * @param {jQuery.Event} e Drag event
  */
 OO.ui.mixin.DraggableElement.prototype.onDragMouseDown = function ( e ) {
 	this.wasHandleUsed =
@@ -85,7 +85,8 @@ OO.ui.mixin.DraggableElement.prototype.onDragMouseDown = function ( e ) {
  * Respond to dragstart event.
  *
  * @private
- * @param {jQuery.Event} e jQuery event
+ * @param {jQuery.Event} e Drag event
+ * @return {boolean} False if the event is cancelled
  * @fires dragstart
  */
 OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
@@ -135,7 +136,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragEnd = function () {
  * Handle drop event.
  *
  * @private
- * @param {jQuery.Event} e jQuery event
+ * @param {jQuery.Event} e Drop event
  * @fires drop
  */
 OO.ui.mixin.DraggableElement.prototype.onDrop = function ( e ) {
@@ -147,6 +148,7 @@ OO.ui.mixin.DraggableElement.prototype.onDrop = function ( e ) {
  * In order for drag/drop to work, the dragover event must
  * return false and stop propogation.
  *
+ * @param {jQuery.Event} e Drag event
  * @private
  */
 OO.ui.mixin.DraggableElement.prototype.onDragOver = function ( e ) {

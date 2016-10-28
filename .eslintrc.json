@@ -15,8 +15,6 @@
     "rules": {
         "dot-notation": 0,
 		"valid-jsdoc": 0,
-		"wrap-iife": 0,
-		"spaced-comment": ["error", "always", { "exceptions": ["*", "!"] }],
-		"no-use-before-define": ["error", { "functions": false, "classes": true }]
+		"wrap-iife": 0
     }
 }

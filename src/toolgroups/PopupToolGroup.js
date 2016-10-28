@@ -161,6 +161,8 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
  *
  * When active, the popup is visible. A mouseup event anywhere in the document will trigger
  * deactivation.
+ *
+ * @param {boolean} value The active state to set
  */
 OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 	var containerWidth, containerLeft;

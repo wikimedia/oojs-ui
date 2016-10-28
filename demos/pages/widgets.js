@@ -95,8 +95,12 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 	/**
 	 * Demo for LookupElement.
 	 *
+	 * @class
 	 * @extends OO.ui.TextInputWidget
 	 * @mixins OO.ui.mixin.LookupElement
+	 *
+	 * @constructor
+	 * @param {Object} config Configuration options
 	 */
 	function NumberLookupTextInputWidget( config ) {
 		// Parent constructor

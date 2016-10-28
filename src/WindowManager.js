@@ -192,6 +192,7 @@ OO.ui.WindowManager.prototype.afterWindowResize = function () {
 /**
  * Check if window is opening.
  *
+ * @param {OO.ui.Window} win Window to check
  * @return {boolean} Window is opening
  */
 OO.ui.WindowManager.prototype.isOpening = function ( win ) {
@@ -201,6 +202,7 @@ OO.ui.WindowManager.prototype.isOpening = function ( win ) {
 /**
  * Check if window is closing.
  *
+ * @param {OO.ui.Window} win Window to check
  * @return {boolean} Window is closing
  */
 OO.ui.WindowManager.prototype.isClosing = function ( win ) {
@@ -210,6 +212,7 @@ OO.ui.WindowManager.prototype.isClosing = function ( win ) {
 /**
  * Check if window is opened.
  *
+ * @param {OO.ui.Window} win Window to check
  * @return {boolean} Window is opened
  */
 OO.ui.WindowManager.prototype.isOpened = function ( win ) {
@@ -568,6 +571,7 @@ OO.ui.WindowManager.prototype.clearWindows = function () {
  *
  * Fullscreen mode will be used if the dialog is too wide to fit in the screen.
  *
+ * @param {OO.ui.Window} win Window to update, should be the current window
  * @chainable
  */
 OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {

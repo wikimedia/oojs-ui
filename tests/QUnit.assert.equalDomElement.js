@@ -89,6 +89,10 @@
 	/**
 	 * @method
 	 * @static
+	 * @param {HTMLElement} actual
+	 * @param {HTMLElement} expected
+	 * @param {string} message
+	 * @param {boolean} stringify [description]
 	 */
 	QUnit.assert.equalDomElement = function ( actual, expected, message, stringify ) {
 		var actualSummary = getDomElementSummary( actual ),

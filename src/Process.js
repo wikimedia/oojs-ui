@@ -20,7 +20,6 @@
  *  that must be resolved before proceeding, or a function to execute. See #createStep for more information. see #createStep for more information
  * @param {Object} [context=null] Execution context of the function. The context is ignored if the step is
  *  a number or promise.
- * @return {Object} Step object, with `callback` and `context` properties
  */
 OO.ui.Process = function ( step, context ) {
 	// Properties

@@ -42,6 +42,7 @@
  * @constructor
  * @param {OO.ui.Widget} fieldWidget Field widget
  * @param {OO.ui.ButtonWidget} buttonWidget Button widget
+ * @param {Object} config
  */
 OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWidget, config ) {
 	// Allow passing positional parameters inside the config object

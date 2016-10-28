@@ -81,6 +81,8 @@ OO.ui.CapsuleItemWidget.prototype.onClick = function () {
 
 /**
  * Handle keyDown event for the entire capsule
+ *
+ * @param {jQuery.Event} e Key down event
  */
 OO.ui.CapsuleItemWidget.prototype.onKeyDown = function ( e ) {
 	var element = this.getElementGroup();

@@ -5,6 +5,8 @@
  * An option to do it may be added in the future.
  */
 
+/* eslint-disable no-use-before-define */
+
 var Q = require( 'q' ),
 	path = require( 'path' ),
 	asyncTask = require( 'grunt-promise-q' );
