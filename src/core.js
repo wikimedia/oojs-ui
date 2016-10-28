@@ -253,6 +253,7 @@ OO.ui.debounce = function ( func, wait, immediate ) {
  */
 OO.ui.warnDeprecation = function ( message ) {
 	if ( OO.getProp( window, 'console', 'warn' ) !== undefined ) {
+		// eslint-disable-next-line no-console
 		console.warn( message );
 	}
 };

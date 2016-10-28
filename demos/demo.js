@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * @class
  * @extends {OO.ui.Element}
@@ -68,6 +69,7 @@ OO.ui.Demo = function OoUiDemo() {
 		.append( this.$menu );
 	$( 'html' ).attr( 'dir', this.mode.direction );
 	$( 'head' ).append( this.stylesheetLinks );
+	// eslint-disable-next-line new-cap
 	OO.ui.theme = new ( this.constructor.static.themes[ this.mode.theme ].theme )();
 };
 
@@ -384,6 +386,7 @@ OO.ui.Demo.prototype.buildConsole = function ( item, layout, widget ) {
 			str = 'return ' + str;
 		}
 		try {
+			// eslint-disable-next-line no-new-func
 			func = new Function( layout, widget, 'item', str );
 			ret = { value: func( item, item.fieldWidget, item.fieldWidget ) };
 		} catch ( error ) {

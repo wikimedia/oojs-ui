@@ -230,6 +230,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	// pick up dynamic state, like focus, value of form inputs, scroll position, etc.
 	state = cls.static.gatherPreInfuseState( $elem[ 0 ], data );
 	// rebuild widget
+	// eslint-disable-next-line new-cap
 	obj = new cls( data );
 	// now replace old DOM with this new DOM.
 	if ( top ) {
