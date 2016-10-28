@@ -38,7 +38,7 @@
 	$styleFileNameImages = "oojs-ui-images-$theme$directionSuffix.css";
 ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="<?php echo $direction; ?>">
 <head>
 	<meta charset="UTF-8">
 	<title>OOjs UI Widget Demo</title>
