@@ -24,6 +24,10 @@
 		padding: 0;
 		white-space: normal; // Correct the text wrapping in Edge and IE
 		float: left; // Prevent positioning problems in Firefox, see T146462
+
+		&:empty {
+			display: none;
+		}
 	}
 
 	&-group {
