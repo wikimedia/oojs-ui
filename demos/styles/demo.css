@@ -1,10 +1,10 @@
 body {
+	color: #222;
 	font-size: 0.8em;
 	font-family: sans-serif;
 }
 
 /* Layout */
-
 .oo-ui-demo-menu > .oo-ui-widget {
 	display: inline-block;
 	vertical-align: middle;
@@ -109,7 +109,7 @@ body {
 .oo-ui-demo-console-expanded {
 	width: 100%;
 	background-color: #fff;
-	border-color: #aaa;
+	border-color: #a2a9b1;
 	margin: 0.5em 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -128,25 +128,31 @@ body {
 }
 
 .oo-ui-demo-console-toggle::after {
+	content: '→';
+	background-color: #f8f9fa;
+	color: #222;
 	position: relative;
 	display: inline-block;
 	width: 1.6em;
-	background: #f9f9f9;
-	border-radius: 50%;
+	border-radius: 2px;
 	line-height: 1.6;
-	color: #999;
 	text-align: center;
-	content: '→';
+	-webkit-transition: background-color 100ms, color 100ms, transform 100ms;
+	-moz-transition: background-color 100ms, color 100ms, transform 100ms;
+	transition: background-color 100ms, color 100ms, transform 100ms;
 }
 
 .oo-ui-demo-console-toggle:hover::after,
 .oo-ui-demo-console-expanded .oo-ui-demo-console-toggle::after {
-	background: #eee;
-	color: #333;
+	background: #fff;
+	color: #444;
 }
 
 .oo-ui-demo-console-expanded .oo-ui-demo-console-toggle::after {
-	content: '↑';
+	-webkit-transform: rotate( -90deg );
+	-moz-transform: rotate( -90deg );
+	-ms-transform: rotate( -90deg );
+	transform: rotate( -90deg );
 }
 
 .oo-ui-demo-console-collapsed .oo-ui-demo-console-log,
@@ -156,7 +162,7 @@ body {
 }
 
 .oo-ui-demo-console-log {
-	border: 1px solid #eee;
+	border: 1px solid #a2a9b1;
 	border-width: 0 0 1px 0;
 	max-height: 5em;
 	overflow: auto;
@@ -201,6 +207,8 @@ body {
 }
 
 .oo-ui-demo-console-label::before {
+	content: '→';
+	color: #00f;
 	display: block;
 	position: absolute;
 	top: 0;
@@ -208,8 +216,6 @@ body {
 	bottom: 0;
 	width: 20px;
 	text-align: center;
-	content: '→';
-	color: #00f;
 }
 
 .oo-ui-demo-console-input {
@@ -224,6 +230,8 @@ body {
 }
 
 .oo-ui-demo-console-submit {
+	background: #f8f9fa;
+	color: #222;
 	display: inline-block;
 	width: 20px;
 	line-height: 1.6;
@@ -232,13 +240,11 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	background: #f9f9f9;
-	color: #888;
 	cursor: pointer;
 }
 
 .oo-ui-demo-console-submit:hover {
-	background: #eee;
-	color: #333;
+	background: #fff;
+	color: #444;
 }
 /* stylelint-enable selector-pseudo-element-colon-notation */
