@@ -505,6 +505,9 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 			if ( typeof name !== 'string' ) {
 				throw new Error( 'Cannot add window' );
 			}
+			if ( !name ) {
+				OO.ui.warnDeprecation( 'OO.ui.WindowManager#addWindows: Windows must have a `name` static property defined.' );
+			}
 			list[ name ] = windows[ i ];
 		}
 	} else if ( OO.isPlainObject( windows ) ) {
