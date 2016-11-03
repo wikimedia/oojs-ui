@@ -1,13 +1,4 @@
 <?php
-	// This file should remain syntax-compatible with PHP 5.3, so that we can execute this check.
-	// No short arrays please.
-	if ( version_compare( PHP_VERSION, '5.5.9', '<=' ) ) {
-		echo '<p>Sorry, the PHP demo requires PHP 5.5.9+, which is not yet available on this server. ' .
-			'Please see <a href="https://phabricator.wikimedia.org/T127504">T127504</a> ' .
-			'for more details.</p>';
-		exit;
-	}
-
 	define( 'OOUI_DEMOS', true );
 
 	$autoload = __DIR__ . '/vendor/autoload.php';
@@ -26,14 +17,14 @@
 	OOUI\Element::setDefaultDir( $direction );
 
 	// We will require_once a file by this name later, so this validation is important
-	$ok = array( 'widgets' );
+	$ok = [ 'widgets' ];
 	$page = ( isset( $_GET['page'] ) && in_array( $_GET['page'], $ok ) ) ? $_GET['page'] : 'widgets';
 
-	$query = array(
+	$query = [
 		'theme' => $theme,
 		'direction' => $direction,
 		'page' => $page,
-	);
+	];
 	$styleFileName = "oojs-ui-core-$theme$directionSuffix.css";
 	$styleFileNameImages = "oojs-ui-images-$theme$directionSuffix.css";
 ?>
@@ -50,52 +41,52 @@
 	<div class="oo-ui-demo">
 		<div class="oo-ui-demo-menu">
 			<?php
-				echo new OOUI\ButtonGroupWidget( array(
+				echo new OOUI\ButtonGroupWidget( [
 					'infusable' => true,
-					'items' => array(
-						new OOUI\ButtonWidget( array(
+					'items' => [
+						new OOUI\ButtonWidget( [
 							'label' => 'MediaWiki',
-							'href' => '?' . http_build_query( array_merge( $query, array( 'theme' => 'mediawiki' ) ) ),
+							'href' => '?' . http_build_query( array_merge( $query, [ 'theme' => 'mediawiki' ] ) ),
 							'active' => $query['theme'] === 'mediawiki',
-						) ),
-						new OOUI\ButtonWidget( array(
+						] ),
+						new OOUI\ButtonWidget( [
 							'label' => 'Apex',
-							'href' => '?' . http_build_query( array_merge( $query, array( 'theme' => 'apex' ) ) ),
+							'href' => '?' . http_build_query( array_merge( $query, [ 'theme' => 'apex' ] ) ),
 							'active' => $query['theme'] === 'apex',
-						) ),
-					)
-				) );
-				echo new OOUI\ButtonGroupWidget( array(
+						] ),
+					]
+				] );
+				echo new OOUI\ButtonGroupWidget( [
 					'infusable' => true,
-					'items' => array(
-						new OOUI\ButtonWidget( array(
+					'items' => [
+						new OOUI\ButtonWidget( [
 							'label' => 'LTR',
-							'href' => '?' . http_build_query( array_merge( $query, array( 'direction' => 'ltr' ) ) ),
+							'href' => '?' . http_build_query( array_merge( $query, [ 'direction' => 'ltr' ] ) ),
 							'active' => $query['direction'] === 'ltr',
-						) ),
-						new OOUI\ButtonWidget( array(
+						] ),
+						new OOUI\ButtonWidget( [
 							'label' => 'RTL',
-							'href' => '?' . http_build_query( array_merge( $query, array( 'direction' => 'rtl' ) ) ),
+							'href' => '?' . http_build_query( array_merge( $query, [ 'direction' => 'rtl' ] ) ),
 							'active' => $query['direction'] === 'rtl',
-						) ),
-					)
-				) );
-				echo new OOUI\ButtonGroupWidget( array(
+						] ),
+					]
+				] );
+				echo new OOUI\ButtonGroupWidget( [
 					'infusable' => true,
 					'id' => 'oo-ui-demo-menu-infuse',
-					'items' => array(
-						new OOUI\ButtonWidget( array(
+					'items' => [
+						new OOUI\ButtonWidget( [
 							'label' => 'JS',
 							'href' => ".#$page-$theme-$direction",
 							'active' => false,
-						) ),
-						new OOUI\ButtonWidget( array(
+						] ),
+						new OOUI\ButtonWidget( [
 							'label' => 'PHP',
 							'href' => '?' . http_build_query( $query ),
 							'active' => true,
-						) ),
-					)
-				) );
+						] ),
+					]
+				] );
 			?>
 		</div>
 		<?php

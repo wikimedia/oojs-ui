@@ -8,9 +8,4 @@
 	<exclude-pattern>coverage</exclude-pattern>
 	<exclude-pattern>vendor</exclude-pattern>
 	<exclude-pattern>demos/php</exclude-pattern>
-	<!-- We want demos/demos.php to stay compatible with PHP 5.3 for now, because we do a version
-	     check in it and need it to be able to print an error message -->
-	<rule ref="Generic.Arrays.DisallowLongArraySyntax">
-		<exclude-pattern>demos/demos.php</exclude-pattern>
-	</rule>
 </ruleset>
