@@ -1554,9 +1554,11 @@
 			}
 		}
 		&:active,
-		&:active:hover {
+		&:active:hover,
+		&:active:focus {
 			background-color: @background-color-input-binary-active;
 			border-color: @border-color-input-binary-active;
+			box-shadow: @box-shadow-active;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-default;
