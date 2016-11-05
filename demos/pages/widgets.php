@@ -481,7 +481,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [ 'icon' => 'search' ] ),
+			new OOUI\TextInputWidget( [ 'icon' => 'help' ] ),
 			[
 				'label' => "TextInputWidget (icon)\xE2\x80\x8E",
 				'align' => 'top'

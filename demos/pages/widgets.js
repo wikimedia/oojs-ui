@@ -909,7 +909,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( { icon: 'search' } ),
+					new OO.ui.TextInputWidget( { icon: 'help' } ),
 					{
 						label: 'TextInputWidget (icon)\u200E',
 						align: 'top'
@@ -961,16 +961,19 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( { type: 'search' } ),
+					new OO.ui.TextInputWidget( {
+						value: 'Disabled',
+						disabled: true
+					} ),
 					{
-						label: 'TextInputWidget (type=search)\u200E',
+						label: 'TextInputWidget (disabled)\u200E',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.SearchInputWidget(),
 					{
-						label: 'SearchInputWidget\u200E',
+						label: 'SearchInputWidget (type=search)\u200E',
 						align: 'top'
 					}
 				),
@@ -985,16 +988,6 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.SearchInputWidget( { disabled: true, value: 'test' } ),
 					{
 						label: 'SearchInputWidget (disabled, filled)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( {
-						value: 'Disabled',
-						disabled: true
-					} ),
-					{
-						label: 'TextInputWidget (disabled)\u200E',
 						align: 'top'
 					}
 				),
