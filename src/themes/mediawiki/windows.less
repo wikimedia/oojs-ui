@@ -9,7 +9,7 @@
 
 .theme-oo-ui-messageDialog () {
 	&-content > .oo-ui-window-foot {
-		outline: 1px solid #aaa;
+		outline: @border-dialog; // Using `@border-dialog` var here as `outline` is `border` subsitute
 	}
 
 	&-title,
