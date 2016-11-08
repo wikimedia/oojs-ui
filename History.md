@@ -1,4 +1,79 @@
 # OOjs UI Release History
+## v0.18.0 / 2016-11-08
+### Breaking changes
+* [BREAKING CHANGE] ComboBoxWidget: Remove this deprecated alias for ComboBoxInputWidget (James D. Forrester)
+* [BREAKING CHANGE] core: Remove {add|remove}CaptureEventListener (James D. Forrester)
+* [BREAKING CHANGE] icons: Remove deprecated alias 'photoGallery' (Ed Sanders)
+* [BREAKING CHANGE] InputWidget: Remove deprecated #setRTL function (James D. Forrester)
+* [BREAKING CHANGE] MediaWiki theme: Remove deprecated `constructive` variables (Volker E)
+* [BREAKING CHANGE] TextInputWidget: remove isValid() method, deprecated since v0.12.3 (Ricordisamoa)
+
+### Deprecations
+* [DEPRECATING CHANGE] Break out parts of TextInputWidget into a new SearchInputWidget (Prateek Saxena)
+
+### Features
+* ButtonElement: Add `role="button"` only when needed (Prateek Saxena)
+* ButtonWidget: Remove code to not let the button get focus after clicking (Prateek Saxena)
+* CapsuleMultiselectWidget: Add placeholder option (Prateek Saxena)
+* CapsuleMultiselectWidget: Don't discard current input value when editing an item (Bartosz Dziewoński)
+* ComboBoxInputWidget: Hide dropdown indicator when there is no dropdown (Volker E)
+* TextInputWidget: Add methods #setRequired / #isRequired (Bartosz Dziewoński)
+* TextInputWidget: Allow type="month" (Geoffrey Mon)
+* WindowManager: Add a $returnFocusTo property (Prateek Saxena)
+* Add OO.ui.warnDeprecation method (Prateek Saxena)
+
+### Styles
+* ButtonElement: Normalize `:focus` appearance in Firefox (Volker E)
+* ButtonGroupWidget: Change `cursor` on `.oo-ui-buttonElement-active` (Volker E)
+* CapsuleItemWidget: Make interactivity of label clearer (Volker E)
+* ComboBoxInputWidget: Align to design specification (Volker E)
+* FieldsetLayout: Styling fixes for `<legend>` labels (Bartosz Dziewoński)
+* FieldsetLayout: Work around positioning problems in Firefox (Bartosz Dziewoński)
+* PopupToolGroup: Fix border colour (Ed Sanders)
+* MessageDialog: Improve `-actions` buttons by resetting `border-radius` (Volker E)
+* SelectFileWidget: Don't show action-indicating cursor on empty state (Volker E)
+* MediaWiki theme: Fix border colours in toolbar (Ed Sanders)
+* MediaWiki theme: Address subpixel rendering errors in buttoned widgets (Volker E)
+* MediaWiki theme: Align readonly TextInputWidget to overhauled color palette (Volker E)
+* MediaWiki theme: Fix `:hover` in ComboBoxInput- & CapsuleMultiselectWidget (Volker E)
+* MediaWiki theme: Fix ButtonElement's `:active:focus` state visually (Volker E)
+* MediaWiki theme: Fix FieldsetLayouts' icon position (Volker E)
+* MediaWiki theme: Fix SelectFileWidget's label visibility in IE11 (Volker E)
+* MediaWiki theme: Fix visual glitch CheckboxInputWidget's `:active` state (Volker E)
+* MediaWiki theme: Fix visual glitch on `:active:focus` widgets state (Volker E)
+* MediaWiki theme: Fix wrong colored `box-shadow` on ToggleSwitchWidget (Volker E)
+* MediaWiki theme: Make colors follow color palette (Volker E)
+* MediaWiki theme: Make placeholder follow WCAG 2.0 level AA contrast ratio (Volker E)
+* MediaWiki theme: Replace abandoned color from early palette iteration (Volker E)
+* MediaWiki theme: Use `@color-progressive` for progress bar (Volker E)
+* MediaWiki theme: Use `color-progressive` for switched-on binary inputs (Volker E)
+* icons: Replace bigger/smaller with more obvious forms (Ed Sanders)
+
+### Code
+* CapsuleMultiSelectWidget: Always keep input as wide as placeholder text (Prateek Saxena)
+* CapsuleMultiselectWidget: Fix crash on right-click when no input (Moriel Schottlender)
+* OutlineOptionWidget: Follow-up de9058299f: don't duplicate parent's logic (Roan Kattouw)
+* Toolbar: Defer computation of the narrow threshold (Roan Kattouw)
+* Window: Update `-content` CSS so that child elements can give it focus (Prateek Saxena)
+* Window#withoutSizeTransitions: Build transition property using sub-properties (Prateek Saxena)
+* WindowManager: Warn if .static.name is not defined when adding a window (Bartosz Dziewoński)
+* Tag: Generate valid HTML for self-closing tags (Bartosz Dziewoński)
+* OO.ui.warnDeprecation: Fix how we use getProp (Prateek Saxena)
+* MediaWiki theme: Add W3C Standards Notation for placeholder pseudo class (Volker E)
+* MediaWiki theme: Clarify usage of `@max-width-*` Less variables (Volker E)
+* MediaWiki theme: Refactor z-index inside ButtonSelectWidget/ButtonGroupWidget (Bartosz Dziewoński)
+* demo: Add FieldsetLayout with icon (Bartosz Dziewoński)
+* demo: Align to color palette (Volker E)
+* demo: Fix for IE 9 (Bartosz Dziewoński)
+* demo: Remove deprecated TextInputWidget (type=search) (Volker E)
+* demo: Fix PHP demo directionality (Bartosz Dziewoński)
+* demo: Remove PHP 5.3 compatibility, version check and PHPCS exception (Bartosz Dziewoński)
+* build: Make MediaWiki the default theme in doc live previews (Ed Sanders)
+* build: Remove obsolete csscomb rules (Volker E)
+* build: Remove upstreamed rules and fix documentation (Ed Sanders)
+* build: Update eslint-config-wikimedia to v0.2.0 (Ed Sanders)
+
+
 ## v0.17.9 / 2016-09-13
 ### Features
 * DropdownWidget: Add CSS class to widgets with open dropdown menus (Volker E)
