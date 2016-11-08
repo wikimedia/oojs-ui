@@ -667,22 +667,16 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
  * @param {string} [config.duration='fast'] jQuery animation duration value
  * @param {string} [config.direction] Scroll in only one direction, e.g. 'x' or 'y', omit
  *  to scroll in both directions
- * @param {Function} [config.complete] Function to call when scrolling completes.
- *  Deprecated since 0.15.4, use the return promise instead.
  * @return {jQuery.Promise} Promise which resolves when the scroll is complete
  */
 OO.ui.Element.static.scrollIntoView = function ( el, config ) {
-	var position, animations, callback, container, $container, elementDimensions, containerDimensions, $window,
+	var position, animations, container, $container, elementDimensions, containerDimensions, $window,
 		deferred = $.Deferred();
 
 	// Configuration initialization
 	config = config || {};
 
 	animations = {};
-	callback = typeof config.complete === 'function' && config.complete;
-	if ( callback ) {
-		OO.ui.warnDeprecation( 'Element#scrollIntoView: The `complete` callback config option is deprecated. Use the return promise instead.' );
-	}
 	container = this.getClosestScrollableContainer( el, config.direction );
 	$container = $( container );
 	elementDimensions = this.getDimensions( el );
@@ -725,16 +719,10 @@ OO.ui.Element.static.scrollIntoView = function ( el, config ) {
 	if ( !$.isEmptyObject( animations ) ) {
 		$container.stop( true ).animate( animations, config.duration === undefined ? 'fast' : config.duration );
 		$container.queue( function ( next ) {
-			if ( callback ) {
-				callback();
-			}
 			deferred.resolve();
 			next();
 		} );
 	} else {
-		if ( callback ) {
-			callback();
-		}
 		deferred.resolve();
 	}
 	return deferred.promise();
