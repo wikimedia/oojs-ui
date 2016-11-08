@@ -148,16 +148,6 @@ OO.ui.mixin.LabelElement.prototype.getLabel = function () {
 };
 
 /**
- * Fit the label.
- *
- * @chainable
- * @deprecated since 0.16.0
- */
-OO.ui.mixin.LabelElement.prototype.fitLabel = function () {
-	return this;
-};
-
-/**
  * Set the content of the label.
  *
  * Do not call this method until after the label element has been set by #setLabelElement.
