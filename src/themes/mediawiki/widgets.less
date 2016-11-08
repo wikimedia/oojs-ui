@@ -461,9 +461,11 @@
 			border-color: @color-progressive;
 		}
 
-		&:active + span {
+		&:active + span,
+		&:active:focus + span {
 			background-color: @color-progressive-active;
 			border-color: @border-color-input-binary-active;
+			box-shadow: @box-shadow-active;
 		}
 
 		&:focus + span {
