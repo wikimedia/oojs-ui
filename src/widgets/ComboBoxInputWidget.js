@@ -109,7 +109,9 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	this.$field = $( '<div>' )
 		.addClass( 'oo-ui-comboBoxInputWidget-field' )
 		.append( this.$input, this.dropdownButton.$element );
-	this.$element.append( this.$field );
+	this.$element
+		.addClass( 'oo-ui-comboBoxInputWidget' )
+		.append( this.$field );
 	this.$overlay.append( this.menu.$element );
 	this.onMenuItemsChange();
 };
