@@ -625,7 +625,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.onKeyDown = function ( e ) {
  */
 OO.ui.CapsuleMultiselectWidget.prototype.updateInputSize = function () {
 	var $lastItem, direction, contentWidth, currentWidth, bestWidth;
-	if ( !this.isDisabled() ) {
+	if ( this.$input && !this.isDisabled() ) {
 		this.$input.css( 'width', '1em' );
 		$lastItem = this.$group.children().last();
 		direction = OO.ui.Element.static.getDir( this.$handle );
