@@ -311,30 +311,6 @@ OO.ui.now = Date.now || function () {
 };
 
 /**
- * Proxy for `node.addEventListener( eventName, handler, true )`.
- *
- * @param {HTMLElement} node
- * @param {string} eventName
- * @param {Function} handler
- * @deprecated since 0.15.0
- */
-OO.ui.addCaptureEventListener = function ( node, eventName, handler ) {
-	node.addEventListener( eventName, handler, true );
-};
-
-/**
- * Proxy for `node.removeEventListener( eventName, handler, true )`.
- *
- * @param {HTMLElement} node
- * @param {string} eventName
- * @param {Function} handler
- * @deprecated since 0.15.0
- */
-OO.ui.removeCaptureEventListener = function ( node, eventName, handler ) {
-	node.removeEventListener( eventName, handler, true );
-};
-
-/**
  * Reconstitute a JavaScript object corresponding to a widget created by
  * the PHP implementation.
  *
