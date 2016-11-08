@@ -484,9 +484,11 @@
 			}
 
 			&:active + span,
-			&:active:hover + span {
+			&:active:hover + span,
+			&:active:focus + span {
 				background-color: @background-color-input-binary-active;
 				border-color: @border-color-input-binary-active;
+				box-shadow: @box-shadow-active;
 			}
 
 			&:focus + span {
@@ -663,6 +665,10 @@
 			&:active:focus + span {
 				border-color: @border-color-input-binary-active;
 				box-shadow: inset 0 0 0 1px @border-color-input-binary-active;
+
+				&:before {
+					border-color: @border-color-input-binary-active;
+				}
 			}
 
 			&:focus + span {
