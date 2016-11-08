@@ -164,8 +164,8 @@
 		}
 
 		> .oo-ui-buttonElement-button {
-			padding: 0.5em 1em;
-			min-height: 1.2em;
+			padding: @padding-widget-default 1em;
+			min-height: 1.25em;
 			min-width: 1em;
 			border-radius: @border-radius-default;
 			position: relative;
@@ -174,7 +174,7 @@
 		// Support `<input>` from ButtonInputWidget
 		> input.oo-ui-buttonElement-button,
 		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-			line-height: 1.2;
+			line-height: 1.25; // same as `min-height` in `-button` above
 		}
 
 		&.oo-ui-iconElement {
