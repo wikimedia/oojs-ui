@@ -62,8 +62,6 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	config = $.extend( {
 		autocomplete: false
 	}, config );
-	// For backwards-compatibility with ComboBoxWidget config
-	$.extend( config, config.input );
 
 	// Parent constructor
 	OO.ui.ComboBoxInputWidget.parent.call( this, config );
@@ -84,8 +82,6 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 		},
 		config.menu
 	) );
-	// For backwards-compatibility with ComboBoxWidget
-	this.input = this;
 
 	// Events
 	this.connect( this, {
@@ -113,10 +109,7 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	this.$field = $( '<div>' )
 		.addClass( 'oo-ui-comboBoxInputWidget-field' )
 		.append( this.$input, this.dropdownButton.$element );
-	// Extra class for backwards-compatibility with ComboBoxWidget
-	this.$element
-		.addClass( 'oo-ui-comboBoxInputWidget oo-ui-comboBoxWidget' )
-		.append( this.$field );
+	this.$element.append( this.$field );
 	this.$overlay.append( this.menu.$element );
 	this.onMenuItemsChange();
 };
@@ -244,9 +237,3 @@ OO.ui.ComboBoxInputWidget.prototype.setOptions = function ( options ) {
 
 	return this;
 };
-
-/**
- * @class
- * @deprecated since 0.13.2; use OO.ui.ComboBoxInputWidget instead
- */
-OO.ui.ComboBoxWidget = OO.ui.ComboBoxInputWidget;
