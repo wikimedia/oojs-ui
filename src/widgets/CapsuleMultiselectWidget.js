@@ -553,8 +553,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.onPopupFocusOut = function () {
 	setTimeout( function () {
 		if (
 			widget.isVisible() &&
-			!OO.ui.contains( widget.$element[ 0 ], document.activeElement, true ) &&
-			( !widget.$autoCloseIgnore || !widget.$autoCloseIgnore.has( document.activeElement ).length )
+			!OO.ui.contains( widget.$element.add( widget.$autoCloseIgnore ).get(), document.activeElement, true )
 		) {
 			widget.toggle( false );
 		}

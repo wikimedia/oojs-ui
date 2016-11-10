@@ -142,8 +142,7 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.ClippableElement );
 OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
 	if (
 		this.isVisible() &&
-		!$.contains( this.$element[ 0 ], e.target ) &&
-		( !this.$autoCloseIgnore || !this.$autoCloseIgnore.has( e.target ).length )
+		!OO.ui.contains( this.$element.add( this.$autoCloseIgnore ).get(), e.target, true )
 	) {
 		this.toggle( false );
 	}
