@@ -400,7 +400,7 @@ OO.ui.infuse = function ( idOrNode ) {
 		}
 		return message;
 	};
-} )();
+}() );
 
 /**
  * Package a message and arguments for deferred resolution.

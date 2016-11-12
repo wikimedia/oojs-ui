@@ -52,4 +52,4 @@ QUnit.module( 'JSPHP' );
 		}
 	}
 
-} )();
+}() );

@@ -13,8 +13,7 @@
     },
 
     "rules": {
-        "dot-notation": 0,
-		"valid-jsdoc": 0,
-		"wrap-iife": 0
+        "dot-notation": [ "error", { "allowKeywords": true } ],
+        "valid-jsdoc": 0
     }
 }
