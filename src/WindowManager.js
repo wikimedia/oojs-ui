@@ -336,7 +336,8 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  *
  * @param {OO.ui.Window|string} win Window object or symbolic name of window to open
  * @param {Object} [data] Window opening data
- * @param {jQuery} [data.$returnFocusTo] Element to which the window will return focus when closed.
+ * @param {jQuery|null} [data.$returnFocusTo] Element to which the window will return focus when closed.
+ *  Defaults the current activeElement. If set to null, focus isn't changed on close.
  * @return {jQuery.Promise} An `opening` promise resolved when the window is done opening.
  *  See {@link #event-opening 'opening' event}  for more information about `opening` promises.
  * @fires opening
@@ -468,7 +469,9 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 								manager.toggleGlobalEvents( false );
 								manager.toggleAriaIsolation( false );
 							}
-							manager.$returnFocusTo[ 0 ].focus();
+							if ( manager.$returnFocusTo && manager.$returnFocusTo.length ) {
+								manager.$returnFocusTo[ 0 ].focus();
+							}
 							manager.closing = null;
 							manager.currentWindow = null;
 							closing.resolve( data );
