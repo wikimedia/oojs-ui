@@ -20,7 +20,7 @@ OO.ui.mixin.PopupElement = function OoUiMixinPopupElement( config ) {
 	this.popup = new OO.ui.PopupWidget( $.extend(
 		{ autoClose: true },
 		config.popup,
-		{ $autoCloseIgnore: this.$element }
+		{ $autoCloseIgnore: this.$element.add( config.popup && config.popup.$autoCloseIgnore ) }
 	) );
 };
 
