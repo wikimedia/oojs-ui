@@ -177,10 +177,10 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 	}
 
 	if ( !this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable ) ) {
-		this.$floatable.addClass( 'oo-ui-floatableElement-hidden' );
+		this.$floatable.addClass( 'oo-ui-element-hidden' );
 		return;
 	} else {
-		this.$floatable.removeClass( 'oo-ui-floatableElement-hidden' );
+		this.$floatable.removeClass( 'oo-ui-element-hidden' );
 	}
 
 	if ( !this.needsCustomPosition ) {
