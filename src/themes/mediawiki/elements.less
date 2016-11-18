@@ -109,6 +109,7 @@
 			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button:active {
 				color: @color-default-active;
+				box-shadow: none;
 			}
 
 			&.oo-ui-flaggedElement {
@@ -206,21 +207,21 @@
 		}
 
 		&.oo-ui-widget-disabled {
-			& > .oo-ui-buttonElement-button {
+			> .oo-ui-buttonElement-button {
 				background-color: @background-color-disabled-filled;
 				color: @color-disabled-filled;
 				border: @border-disabled;
 			}
 
 			& + .oo-ui-widget-disabled {
-				& > .oo-ui-buttonElement-button {
+				> .oo-ui-buttonElement-button {
 					border-left-color: @border-color-disabled-filled;
 				}
 			}
 		}
 
 		&.oo-ui-widget-enabled {
-			& > .oo-ui-buttonElement-button {
+			> .oo-ui-buttonElement-button {
 				background-color: @background-color-framed;
 				color: @color-default;
 				border: @border-default;
@@ -237,11 +238,13 @@
 				}
 			}
 
-			& > .oo-ui-buttonElement-button:active,
+			> .oo-ui-buttonElement-button:active,
+			> .oo-ui-buttonElement-button:active:focus,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 				background-color: darken( @background-color-default, 15% );
 				color: @color-default-active;
 				border-color: @border-color-default-active;
+				box-shadow: none;
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
@@ -286,7 +289,7 @@
 					}
 				}
 
-				& > .oo-ui-buttonElement-button {
+				> .oo-ui-buttonElement-button {
 					> .oo-ui-iconElement-icon,
 					> .oo-ui-indicatorElement-indicator {
 						opacity: @opacity-icon-default-selected;
@@ -304,15 +307,16 @@
 		}
 	}
 
-	& > .oo-ui-buttonElement-button:hover {
+	> .oo-ui-buttonElement-button:hover {
 		> .oo-ui-labelElement-label {
 			color: @hover;
 		}
 	}
 
-	& > .oo-ui-buttonElement-button:active,
+	> .oo-ui-buttonElement-button:active,
+	> .oo-ui-buttonElement-button:active:focus,
 	&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-		& > .oo-ui-labelElement-label {
+		> .oo-ui-labelElement-label {
 			color: @active;
 			box-shadow: none;
 		}
