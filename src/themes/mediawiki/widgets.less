@@ -761,29 +761,7 @@
 			}
 		}
 
-		// Normalize placeholder styling, see T139034
-		// Firefox 4-18
-		:-moz-placeholder { // stylelint-disable-line selector-no-vendor-prefix
-			color: @color-placeholder;
-			opacity: 1;
-		}
-		// Firefox 19-
-		::-moz-placeholder { // stylelint-disable-line selector-no-vendor-prefix
-			color: @color-placeholder;
-			opacity: 1;
-		}
-		// Internet Explorer 10-11
-		:-ms-input-placeholder { // stylelint-disable-line selector-no-vendor-prefix
-			color: @color-placeholder;
-		}
-		// WebKit, Blink, Edge
-		::-webkit-input-placeholder { // stylelint-disable-line selector-no-vendor-prefix
-			color: @color-placeholder;
-		}
-		// W3C Standard Selectors Level 4
-		:placeholder-shown {
-			color: @color-placeholder;
-		}
+		.mw-placeholder();
 
 		&.oo-ui-flaggedElement-invalid {
 			input,
@@ -923,20 +901,24 @@
 			position: absolute;
 		}
 
-		> .oo-ui-capsuleMultiselectWidget-content > input {
-			border: 0;
-			line-height: 1.675;
-			margin: 0 0 0 0.2em;
-			padding: 0;
-			font-size: inherit;
-			font-family: inherit;
-			background-color: transparent;
-			color: @color-emphasized;
-			vertical-align: middle;
+		> .oo-ui-capsuleMultiselectWidget-content {
+			.mw-placeholder();
 
-			&:focus {
-				// Chrome
-				outline: 0;
+			> input {
+				border: 0;
+				line-height: 1.675;
+				margin: 0 0 0 0.2em;
+				padding: 0;
+				font-size: inherit;
+				font-family: inherit;
+				background-color: transparent;
+				color: @color-emphasized;
+				vertical-align: middle;
+
+				&:focus {
+					// Chrome
+					outline: 0;
+				}
 			}
 		}
 	}
@@ -1703,5 +1685,31 @@
 
 	.oo-ui-checkboxInputWidget {
 		margin-right: 0;
+	}
+}
+
+.mw-placeholder () {
+	// Normalize placeholder styling, see T139034
+	// Firefox 4-18
+	:-moz-placeholder { // stylelint-disable-line selector-no-vendor-prefix
+		color: @color-placeholder;
+		opacity: 1;
+	}
+	// Firefox 19-
+	::-moz-placeholder { // stylelint-disable-line selector-no-vendor-prefix
+		color: @color-placeholder;
+		opacity: 1;
+	}
+	// Internet Explorer 10-11
+	:-ms-input-placeholder { // stylelint-disable-line selector-no-vendor-prefix
+		color: @color-placeholder;
+	}
+	// WebKit, Blink, Edge
+	::-webkit-input-placeholder { // stylelint-disable-line selector-no-vendor-prefix
+		color: @color-placeholder;
+	}
+	// W3C Standard Selectors Level 4
+	:placeholder-shown {
+		color: @color-placeholder;
 	}
 }
