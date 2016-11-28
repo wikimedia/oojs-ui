@@ -39,8 +39,13 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {OO.ui.FieldLayout[]} [items] An array of fields to add to the fieldset. See OO.ui.FieldLayout for more information about fields.
+ * @cfg {string|OO.ui.HtmlSnippet} [help] Help text. When help text is specified, a "help" icon will appear
+ *  in the upper-right corner of the rendered field; clicking it will display the text in a popup.
+ *  For important messages, you are advised to use `notices`, as they are always shown.
  */
 OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
+	var $div;
+
 	// Configuration initialization
 	config = config || {};
 
@@ -59,10 +64,14 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 			icon: 'info'
 		} );
 
+		$div = $( '<div>' );
+		if ( config.help instanceof OO.ui.HtmlSnippet ) {
+			$div.html( config.help.toString() );
+		} else {
+			$div.text( config.help );
+		}
 		this.popupButtonWidget.getPopup().$body.append(
-			$( '<div>' )
-				.text( config.help )
-				.addClass( 'oo-ui-fieldsetLayout-help-content' )
+			$div.addClass( 'oo-ui-fieldsetLayout-help-content' )
 		);
 		this.$help = this.popupButtonWidget.$element;
 	} else {
