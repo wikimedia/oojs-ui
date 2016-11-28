@@ -302,24 +302,18 @@
 
 .mw-frameless-button-colored( @link, @hover, @active, @focus ) { // following CSS Pseudo Classes
 	> .oo-ui-buttonElement-button {
-		> .oo-ui-labelElement-label {
-			color: @link;
-		}
+		color: @link;
 	}
 
 	> .oo-ui-buttonElement-button:hover {
-		> .oo-ui-labelElement-label {
-			color: @hover;
-		}
+		color: @hover;
 	}
 
 	> .oo-ui-buttonElement-button:active,
 	> .oo-ui-buttonElement-button:active:focus,
 	&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-		> .oo-ui-labelElement-label {
-			color: @active;
-			box-shadow: none;
-		}
+		color: @active;
+		box-shadow: none;
 	}
 }
 
