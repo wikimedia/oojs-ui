@@ -257,16 +257,16 @@
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-framed-button-colored( @color-progressive, @background-color-framed-hover, @color-progressive-active, @border-color-progressive-active, @color-progressive-focus );
+					.mw-framed-button-colored( @color-progressive, @background-color-framed-hover, @border-color-framed-progressive-hover, @color-progressive-active, @color-progressive-focus );
 				}
 
 				// Deprecated in 0.16.1
 				&-constructive {
-					.mw-framed-button-colored( @color-progressive, @background-color-framed-hover, @color-progressive-active, @border-color-progressive-active, @color-progressive-focus );
+					.mw-framed-button-colored( @color-progressive, @background-color-framed-hover, @border-color-framed-progressive-hover, @color-progressive-active, @color-progressive-focus );
 				}
 
 				&-destructive {
-					.mw-framed-button-colored( @color-destructive, @background-color-framed-hover, @color-destructive-active, @border-color-destructive-active, @color-destructive-focus );
+					.mw-framed-button-colored( @color-destructive, @background-color-framed-hover, @border-color-framed-destructive-hover, @color-destructive-active, @color-destructive-focus );
 				}
 			}
 
@@ -319,14 +319,14 @@
 	}
 }
 
-.mw-framed-button-colored( @link, @hover, @active, @border-color-active, @focus ) {
+.mw-framed-button-colored( @link, @hover, @border-color-hover, @active, @focus ) {
 	> .oo-ui-buttonElement-button {
 		color: @link;
 	}
 
 	> .oo-ui-buttonElement-button:hover {
 		background-color: @hover;
-		border-color: @border-color-active;
+		border-color: @border-color-hover;
 	}
 
 	> .oo-ui-buttonElement-button:active,
