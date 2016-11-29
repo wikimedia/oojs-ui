@@ -153,7 +153,7 @@
 	&.oo-ui-widget-enabled {
 		.oo-ui-dropdownWidget-handle {
 			background-color: @background-color-framed;
-			color: @color-default; //FIXME
+			color: @color-default;
 			.oo-ui-transition(
 				background-color @transition-ease-quick,
 				border-color @transition-ease-quick,
@@ -162,12 +162,18 @@
 
 			&:hover {
 				background-color: @background-color-framed-hover;
+				color: @color-default-hover;
 				border-color: @border-color-default-hover;
 
 				.oo-ui-iconElement-icon,
 				.oo-ui-indicatorElement-indicator {
 					opacity: @opacity-icon-default-hover;
 				}
+			}
+
+			&:active {
+				color: @color-default-active;
+				border-color: @border-color-default-active;
 			}
 
 			&:focus {
