@@ -39,7 +39,7 @@
  * @throws {Error} An error is thrown if no widget is specified
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
-	var hasInputWidget, div;
+	var hasInputWidget, $div;
 
 	// Allow passing positional parameters inside the config object
 	if ( OO.isPlainObject( fieldWidget ) && config === undefined ) {
@@ -79,14 +79,14 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 			icon: 'info'
 		} );
 
-		div = $( '<div>' );
+		$div = $( '<div>' );
 		if ( config.help instanceof OO.ui.HtmlSnippet ) {
-			div.html( config.help.toString() );
+			$div.html( config.help.toString() );
 		} else {
-			div.text( config.help );
+			$div.text( config.help );
 		}
 		this.popupButtonWidget.getPopup().$body.append(
-			div.addClass( 'oo-ui-fieldLayout-help-content' )
+			$div.addClass( 'oo-ui-fieldLayout-help-content' )
 		);
 		this.$help = this.popupButtonWidget.$element;
 	} else {
