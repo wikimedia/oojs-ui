@@ -35,46 +35,52 @@
 }
 
 .theme-oo-ui-fieldLayout () {
-	margin-bottom: 1em;
+	// At base `font-size: 12.8px` we just relatively follow M101 design guideline here
+	margin-top: 1.640625em; // `1.5em` in the guideline, we go for `21px`/`1.640625em`
 
-	&:last-child {
-		margin-bottom: 0;
-	}
-
-	&.oo-ui-fieldLayout-align-left,
-	&.oo-ui-fieldLayout-align-right {
-		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
-			padding-top: 0.5em;
-			margin-right: 5%;
-			width: 35%;
-		}
-
-		> .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
-			width: 60%;
-		}
-	}
-
+	&.oo-ui-labelElement,
 	&.oo-ui-fieldLayout-align-inline {
-		margin-bottom: 1.25em;
+		margin-top: 1.171875em; // `1.25em` in the guideline, we go for `15px`/`1.171875em`
+	}
 
-		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
-			padding: @padding-input-binary-label;
+	&,
+	&.oo-ui-labelElement,
+	&.oo-ui-fieldLayout-align-inline {
+		&:first-child {
+			margin-top: 0;
 		}
 	}
 
-	&.oo-ui-fieldLayout-align-top {
-		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
-			padding-top: 0.25em;
-			padding-bottom: 0.5em;
+	&.oo-ui-labelElement {
+		& > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+			padding-bottom: 0.3125em; // equals `4px` at base `font-size: 12.8px`
 		}
-	}
 
-	> .oo-ui-popupButtonWidget {
-		.oo-ui-inline-spacing( 0 );
+		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+			padding: 0.3125em 0.46875em; // equals `4px 6px` at base `font-size: 12.8px`
+			// `6px` is not aligned to M101 design guideline, as checkbox and radios sizes aren't either
+		}
+
+		&.oo-ui-fieldLayout-align-left,
+		&.oo-ui-fieldLayout-align-right {
+			& > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+				width: 35%;
+				margin-right: 5%;
+				padding-top: 0.3125em;
+			}
+
+			> .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
+				width: 60%;
+			}
+		}
 	}
 
 	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
 		color: @color-disabled;
+	}
+
+	> .oo-ui-popupButtonWidget {
+		.oo-ui-inline-spacing( 0 );
 	}
 
 	&-messages {
@@ -90,12 +96,11 @@
 
 		.oo-ui-iconWidget {
 			display: table-cell;
-			border-right: 0.5em solid transparent;
 		}
 
 		.oo-ui-labelWidget {
 			display: table-cell;
-			padding: 0.1em 0;
+			padding: 0.1em 0 0.1em 0.3125em;
 			line-height: 1.5;
 			vertical-align: middle;
 		}
@@ -107,14 +112,13 @@
 }
 
 .theme-oo-ui-fieldsetLayout () {
-
 	+ .oo-ui-fieldsetLayout,
 	+ .oo-ui-formLayout {
 		margin-top: 2em;
 	}
 
 	&.oo-ui-labelElement > .oo-ui-labelElement-label {
-		margin-bottom: 0.5em;
+		margin-bottom: 0.56818em; // equals `8px` due to `font-size: 1.1em` below
 		font-size: 1.1em;
 		font-weight: bold;
 	}
