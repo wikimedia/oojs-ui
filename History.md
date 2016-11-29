@@ -1,4 +1,22 @@
 # OOjs UI Release History
+## v0.18.1 / 2016-11-29
+### Features
+* PopupElement: Allow $autoCloseIgnore to be overridden (Roan Kattouw)
+* WindowManager: Allow $returnFocusTo to be null (Ed Sanders)
+
+### Styles
+* MediaWiki theme: Reduce, align `margin` and `padding` of form elements (Volker E)
+* MediaWiki theme: Replace color function with palette color (Volker E)
+* MediaWiki theme: Standard placeholder colours for CapsuleMultiselectWidget too (Bartosz Dziewoński)
+* MediaWiki theme: Tweak destructive red for background-independent contrast (Volker E)
+
+### Code
+* Field & Fieldset: Make help popup code consistent (Ed Sanders)
+* PopupWidget: Consistently use OO.ui.contains() for auto-closing (Roan Kattouw)
+* build: Bump eslint-config-wikimedia to v0.3.0 and make pass (James D. Forrester)
+* eslint: Re-enable wrap-iife and partially enable dot-notation (Ed Sanders)
+
+
 ## v0.18.0 / 2016-11-08
 ### Breaking changes
 * [BREAKING CHANGE] ComboBoxWidget: Remove this deprecated alias for ComboBoxInputWidget (James D. Forrester)
