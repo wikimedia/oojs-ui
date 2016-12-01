@@ -42,7 +42,7 @@
 @opacity-disabled-tool: 0.3;
 
 // Invalid Widget (validation error feedback)
-@color-invalid: #f00;
+@color-erroneous: @color-destructive;
 
 // "Framed" Widgets (Framed ButtonWidget, ToggleSwitchWidget...)
 @background-color-framed: #f8f9fa;
@@ -87,6 +87,7 @@
 @border-color-progressive-active: #859dcc; // equals `fade( @color-progressive-active, 50% )`
 @border-color-destructive-active: #b77c79; // equals `fade( @color-destructive-active, 50% )`
 @border-color-focus-inset: @color-default-light;
+@border-color-erroneous: @color-erroneous;
 @border-color-readonly: #c8ccd1;
 @border-color-input-hover: @border-color-default-active;
 
@@ -112,6 +113,7 @@
 @box-shadow-progressive-focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-default-light;
 @box-shadow-input-binary-active: inset 0 0 0 1px @color-progressive-active;
 @box-shadow-readonly-focus: inset 0 0 0 1px #c8ccd1;
+@box-shadow-erroneous-focus: inset 0 0 0 1px @color-erroneous;
 @box-shadow-disabled-filled: inset 0 0 0 1px @color-disabled-filled;
 
 @line-height-default: 1.6; // same as Vector
