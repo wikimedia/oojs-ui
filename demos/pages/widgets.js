@@ -2575,6 +2575,18 @@ Demo.static.pages.widgets = function ( demo ) {
 								label: 'Remember me',
 								align: 'inline'
 							}
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.HiddenInputWidget( {
+								name: 'hidden',
+								value: 'hidden value'
+							} )
+						),
+						new OO.ui.FieldLayout(
+							new OO.ui.ButtonInputWidget( {
+								type: 'submit',
+								label: 'Submit form'
+							} )
 						)
 					]
 				} ),
