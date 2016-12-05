@@ -714,22 +714,22 @@
 
 	input,
 	textarea {
-		margin: 0;
 		font-size: inherit;
 		font-family: inherit;
 		background-color: @background-color-default;
 		color: @color-emphasized;
 		border: @border-default;
 		border-radius: @border-radius-default;
-		padding: @padding-top-input-text @padding-widget-default @padding-widget-default;
 	}
 
 	input {
-		line-height: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
+		padding: @padding-top-input-text @padding-widget-default @padding-widget-default;
+		line-height: @line-height-input;
 	}
 
 	textarea {
-		line-height: 1.275;
+		padding: @padding-top-textarea @padding-widget-default @padding-widget-default;
+		line-height: @line-height-default;
 	}
 
 	.oo-ui-pendingElement-pending {
@@ -785,6 +785,51 @@
 		}
 	}
 
+	&.oo-ui-iconElement {
+		input,
+		textarea {
+			padding-left: @padding-left-widget-icon;
+		}
+
+		.oo-ui-iconElement-icon {
+			max-height: @max-height-icon;
+			left: @left-icon;
+		}
+	}
+
+	&.oo-ui-indicatorElement {
+		input,
+		textarea {
+			padding-right: @size-indicator + 1.55em;
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			max-height: @max-height-indicator;
+			right: @right-indicator;
+		}
+	}
+
+	> .oo-ui-labelElement-label {
+		color: @color-subtle;
+		right: @right-label;
+		border: 1px solid transparent; // due to absolute positioning, imitating `input`
+		border-width: 1px 0;
+		padding: @padding-top-input-text 0 @padding-widget-default;
+		line-height: @line-height-input;
+	}
+
+	&-labelPosition-after {
+		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
+			right: @right-indicator-label;
+		}
+	}
+
+	&-labelPosition-before {
+		&.oo-ui-iconElement > .oo-ui-labelElement-label {
+			left: @left-icon-label;
+		}
+	}
+
 	&.oo-ui-widget-disabled {
 		input,
 		textarea {
@@ -800,52 +845,6 @@
 		.oo-ui-labelElement-label {
 			color: @color-disabled;
 			text-shadow: @text-shadow-disabled;
-		}
-	}
-
-	&.oo-ui-iconElement {
-		input,
-		textarea {
-			padding-left: @size-icon + 1em;
-		}
-
-		.oo-ui-iconElement-icon {
-			left: 0;
-			height: 100%;
-			max-height: 2.375em;
-			margin-left: 0.5em;
-			background-position: right center;
-		}
-	}
-
-	&.oo-ui-indicatorElement {
-		input,
-		textarea {
-			padding-right: @size-indicator + 1.55em;
-		}
-
-		.oo-ui-indicatorElement-indicator {
-			height: 100%;
-			max-height: 2.375em;
-			margin: 0 0.775em;
-		}
-	}
-
-	> .oo-ui-labelElement-label {
-		color: @color-subtle;
-		padding: 0.4em;
-		line-height: 1.5;
-	}
-
-	&-labelPosition-after {
-		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
-			margin-right: @size-indicator + 1.55em - 0.4em;
-		}
-	}
-
-	&-labelPosition-before {
-		&.oo-ui-iconElement > .oo-ui-labelElement-label {
-			margin-left: @size-icon + 1em - 0.4em;
 		}
 	}
 }
