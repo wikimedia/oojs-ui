@@ -27,7 +27,7 @@ class FieldsetLayout extends Layout {
 		// Traits
 		$this->initializeIconElement( $config );
 		$this->initializeLabelElement( array_merge( $config, [
-			'labelElement' => new Tag( 'legend' )
+			'labelElement' => new Tag( 'div' )
 		] ) );
 		$this->initializeGroupElement( $config );
 
