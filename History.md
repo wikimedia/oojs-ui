@@ -1,4 +1,15 @@
 # OOjs UI Release History
+## v0.18.2 / 2016-12-06
+### Styles
+* MediaWiki theme: Address sub-pixel rendering issues of RadioInputWidgets (Volker E)
+* MediaWiki theme: Improve `:active:focus` states on ButtonElements (Volker E)
+* MediaWiki theme: Reduce MapPin icons' hole for better recognisability (Volker E)
+
+### Code
+* FieldsetLayout: Temporarily remove use of `<legend>` due to Chrome 55 bug (Bartosz Dziewoński)
+* TextInputWidget/MediaWiki theme: Improve Less code and align labels (Volker E)
+
+
 ## v0.18.1 / 2016-11-29
 ### Features
 * PopupElement: Allow $autoCloseIgnore to be overridden (Roan Kattouw)
