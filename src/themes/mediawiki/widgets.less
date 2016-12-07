@@ -179,7 +179,7 @@
 			&:focus {
 				border-color: @border-color-default-focus;
 				outline: 0;
-				box-shadow: @box-shadow-focus-default;
+				box-shadow: @box-shadow-widget-focus;
 			}
 
 			.oo-ui-iconElement-icon,
@@ -471,12 +471,12 @@
 		&:active:focus + span {
 			background-color: @color-progressive-active;
 			border-color: @border-color-input-binary-active;
-			box-shadow: @box-shadow-active;
+			box-shadow: @box-shadow-input-binary-active;
 		}
 
 		&:focus + span {
 			border-color: @color-progressive;
-			box-shadow: @box-shadow-focus-default;
+			box-shadow: @box-shadow-widget-focus;
 		}
 
 		&:checked {
@@ -496,13 +496,13 @@
 			&:active:focus + span {
 				background-color: @background-color-input-binary-active;
 				border-color: @border-color-input-binary-active;
-				box-shadow: @box-shadow-active;
+				box-shadow: @box-shadow-input-binary-active;
 			}
 
 			&:focus + span {
 				background-color: @background-color-input-binary-on;
 				border-color: @border-color-input-binary-on;
-				box-shadow: @box-shadow-focus-inset;
+				box-shadow: @box-shadow-progressive-focus;
 			}
 		}
 	}
@@ -672,7 +672,7 @@
 			&:active + span,
 			&:active:focus + span {
 				border-color: @border-color-input-binary-active;
-				box-shadow: inset 0 0 0 1px @border-color-input-binary-active;
+				box-shadow: @box-shadow-input-binary-active;
 
 				&:before {
 					border-color: @border-color-input-binary-active;
@@ -680,7 +680,7 @@
 			}
 
 			&:focus + span {
-				box-shadow: @box-shadow-focus-default;
+				box-shadow: @box-shadow-widget-focus;
 
 				&:before {
 					border-color: @background-color-default;
@@ -739,7 +739,7 @@
 	&.oo-ui-widget-enabled {
 		input,
 		textarea {
-			box-shadow: inset 0 0 0 0.1em @background-color-default; // necessary for smooth transition
+			box-shadow: @box-shadow-widget; // necessary for smooth transition
 			.oo-ui-transition(
 				border-color @transition-ease-out-sine-medium,
 				box-shadow @transition-ease-out-sine-medium
@@ -751,7 +751,7 @@
 			&:focus {
 				outline: 0;
 				border-color: @color-progressive;
-				box-shadow: @box-shadow-focus-default;
+				box-shadow: @box-shadow-widget-focus;
 			}
 
 			&[readonly] {
@@ -762,7 +762,7 @@
 				}
 				&:focus {
 					border-color: @border-color-readonly;
-					box-shadow: @box-shadow-focus-readonly;
+					box-shadow: @box-shadow-readonly-focus;
 				}
 			}
 		}
@@ -975,7 +975,7 @@
 	&.oo-ui-widget-enabled.oo-ui-capsuleMultiselectWidget-open &-handle {
 		border-color: @border-color-default-focus;
 		outline: 0;
-		box-shadow: @box-shadow-focus-default;
+		box-shadow: @box-shadow-widget-focus;
 	}
 
 	&.oo-ui-widget-disabled &-handle {
@@ -1011,7 +1011,7 @@
 	&:focus {
 		outline: 0;
 		border-color: @color-progressive;
-		box-shadow: @box-shadow-focus-default;
+		box-shadow: @box-shadow-widget-focus;
 	}
 
 	&.oo-ui-widget-disabled {
@@ -1392,7 +1392,7 @@
 			.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
 				.oo-ui-buttonElement-button {
 					border-color: @border-color-default-focus;
-					box-shadow: @box-shadow-focus-inset;
+					box-shadow: @box-shadow-progressive-focus;
 				}
 			}
 		}
@@ -1558,7 +1558,7 @@
 		&:active:focus {
 			background-color: @background-color-input-binary-active;
 			border-color: @border-color-input-binary-active;
-			box-shadow: @box-shadow-active;
+			box-shadow: @box-shadow-input-binary-active;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-default;
@@ -1568,7 +1568,7 @@
 		}
 		&:focus {
 			border-color: @color-progressive;
-			box-shadow: @box-shadow-focus-default;
+			box-shadow: @box-shadow-widget-focus;
 			outline: 0;
 
 			.oo-ui-toggleSwitchWidget-grip {
