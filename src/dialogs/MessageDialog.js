@@ -239,10 +239,18 @@ OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
 	// Twiddle the overflow property, otherwise an unnecessary scrollbar will be produced.
 	// Need to do it after transition completes (250ms), add 50ms just in case.
 	setTimeout( function () {
-		var oldOverflow = $scrollable[ 0 ].style.overflow;
+		var oldOverflow = $scrollable[ 0 ].style.overflow,
+			activeElement = document.activeElement;
+
 		$scrollable[ 0 ].style.overflow = 'hidden';
 
 		OO.ui.Element.static.reconsiderScrollbars( $scrollable[ 0 ] );
+
+		// Check reconsiderScrollbars didn't destroy our focus, as we
+		// are doing this after the ready process.
+		if ( activeElement && activeElement !== document.activeElement && activeElement.focus ) {
+			activeElement.focus();
+		}
 
 		$scrollable[ 0 ].style.overflow = oldOverflow;
 	}, 300 );
