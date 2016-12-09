@@ -206,9 +206,13 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	extraHeight = $container.outerHeight() - this.$clippable.outerHeight();
 	extraWidth = $container.outerWidth() - this.$clippable.outerWidth();
 	ccOffset = $container.offset();
-	$scrollableContainer = this.$clippableScrollableContainer.is( 'html, body' ) ?
-		this.$clippableWindow : this.$clippableScrollableContainer;
-	scOffset = $scrollableContainer.offset() || { top: 0, left: 0 };
+	if ( this.$clippableScrollableContainer.is( 'html, body' ) ) {
+		$scrollableContainer = this.$clippableWindow;
+		scOffset = { top: 0, left: 0 };
+	} else {
+		$scrollableContainer = this.$clippableScrollableContainer;
+		scOffset = $scrollableContainer.offset();
+	}
 	scHeight = $scrollableContainer.innerHeight() - buffer;
 	scWidth = $scrollableContainer.innerWidth() - buffer;
 	ccWidth = $container.outerWidth() + buffer;
