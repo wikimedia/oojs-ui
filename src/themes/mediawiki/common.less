@@ -114,8 +114,11 @@
 @box-shadow-readonly-focus: inset 0 0 0 1px #c8ccd1;
 @box-shadow-disabled-filled: inset 0 0 0 1px @color-disabled-filled;
 
-@line-height-default: 1.4;
+@line-height-default: 1.6; // same as Vector
+@line-height-message-verbose: 1.4;
+@line-height-form-element: 1.4;
 @line-height-input: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
+@line-height-input-binary-label: 1.5; // Checkboxes, Radios and ToggleSwitchWidget labels need a tad more for increased vertical click area
 
 @text-shadow-default: 0 1px 1px @color-default-light; // 'coined' effect
 @text-shadow-disabled: @text-shadow-default;

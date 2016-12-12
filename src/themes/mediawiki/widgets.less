@@ -344,7 +344,7 @@
 		}
 
 		.oo-ui-selectFileWidget-label {
-			line-height: @line-height-default;
+			line-height: @line-height-form-element;
 			overflow: inherit;
 			white-space: normal;
 		}
@@ -516,7 +516,7 @@
 			padding: 0.25em 0;
 
 			.oo-ui-labelElement-label {
-				line-height: 1.5;
+				line-height: @line-height-input-binary-label;
 			}
 		}
 	}
@@ -702,7 +702,7 @@
 			padding: 0.25em 0;
 
 			.oo-ui-labelElement-label {
-				line-height: 1.5;
+				line-height: @line-height-input-binary-label;
 			}
 		}
 	}
@@ -729,7 +729,7 @@
 
 	textarea {
 		padding: @padding-top-textarea @padding-widget-default @padding-widget-default;
-		line-height: @line-height-default;
+		line-height: @line-height-form-element;
 	}
 
 	.oo-ui-pendingElement-pending {
@@ -1059,7 +1059,7 @@
 	padding: 0.25em 0.5em;
 
 	.oo-ui-labelElement-label {
-		line-height: 1.5;
+		line-height: @line-height-default;
 	}
 
 	// Don't add `highlighted` or `selected` modifications here
@@ -1670,10 +1670,6 @@
 .theme-oo-ui-multiselectWidget () {}
 
 .theme-oo-ui-multioptionWidget () {
-	.oo-ui-labelElement-label {
-		line-height: 1.5;
-	}
-
 	&.oo-ui-widget-disabled {
 		color: @color-disabled;
 	}
