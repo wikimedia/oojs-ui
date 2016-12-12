@@ -83,16 +83,16 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 			],
 			moderation: [
 				'block',
-				'blockUndo',
+				'unBlock',
 				'flag',
-				'flagUndo',
+				'unFlag',
 				'lock',
-				'ongoingConversation',
+				'unLock',
 				'star',
-				'trash',
-				'trashUndo',
 				'unStar',
-				'unLock'
+				'trash',
+				'unTrash',
+				'ongoingConversation'
 			],
 			'editing-core': [
 				'edit',
