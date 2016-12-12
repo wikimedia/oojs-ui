@@ -65,7 +65,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 			],
 			interactions: [
 				'beta',
-				'betaLaunch',
 				'bookmark',
 				'browser',
 				'clear',
@@ -194,6 +193,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 			wikimedia: [
 				'logoCC',
 				'logoWikimediaCommons',
+				'logoWikimediaDiscovery',
 				'logoWikipedia'
 			]
 		},
