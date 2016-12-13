@@ -1,5 +1,5 @@
 OO.ui.Demo.static.pages.dialogs = function ( demo ) {
-	var i, l, name, openButton, DialogClass, config,
+	var i, l, name, openButton, DialogClass, config, configQuick,
 		$demo = demo.$element,
 		fieldset = new OO.ui.FieldsetLayout( { label: 'Dialogs' } ),
 		windows = {},
@@ -683,6 +683,36 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		}
 		return DialogWithDropdowns.parent.prototype.getActionProcess.call( this, action );
 	};
+
+	configQuick = [
+		{
+			name: 'Quick alert',
+			method: 'alert',
+			param: 'Alert message.'
+		},
+		{
+			name: 'Quick confirm',
+			method: 'confirm',
+			param: 'Confirmation message?'
+		},
+		{
+			name: 'Quick prompt',
+			method: 'prompt',
+			param: 'Text prompt:'
+		}
+	];
+
+	for ( i = 0, l = configQuick.length; i < l; i++ ) {
+		openButton = new OO.ui.ButtonWidget( {
+			framed: false,
+			icon: 'window',
+			label: $( '<span dir="ltr"></span>' ).text( configQuick[ i ].name )
+		} );
+		openButton.on(
+			'click', OO.ui.bind( OO.ui, configQuick[ i ].method, configQuick[ i ].param )
+		);
+		fieldset.addItems( [ new OO.ui.FieldLayout( openButton, { align: 'inline' } ) ] );
+	}
 
 	config = [
 		{
