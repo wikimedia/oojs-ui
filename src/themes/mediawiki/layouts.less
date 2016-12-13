@@ -54,6 +54,7 @@
 	&.oo-ui-labelElement {
 		& > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
 			padding-bottom: 0.3125em; // equals `4px` at base `font-size: 12.8px`
+			line-height: @line-height-form-element;
 		}
 
 		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
@@ -101,7 +102,7 @@
 		.oo-ui-labelWidget {
 			display: table-cell;
 			padding: 0.1em 0 0.1em 0.3125em;
-			line-height: 1.5;
+			line-height: @line-height-message-verbose;
 			vertical-align: middle;
 		}
 	}
@@ -121,6 +122,7 @@
 		margin-bottom: 0.56818em; // equals `8px` due to `font-size: 1.1em` below
 		font-size: 1.1em;
 		font-weight: bold;
+		line-height: @line-height-form-element;
 	}
 
 	&.oo-ui-iconElement > .oo-ui-labelElement-label {
