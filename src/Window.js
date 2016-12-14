@@ -343,7 +343,7 @@ OO.ui.Window.prototype.getReadyProcess = function () {
 /**
  * Get the 'hold' process.
  *
- * The hold proccess is used to keep a window from being used in a particular context,
+ * The hold process is used to keep a window from being used in a particular context,
  * based on the `data` argument. This method is called during the closing phase of the window’s
  * lifecycle.
  *
