@@ -863,6 +863,13 @@ OO.ui.Element.prototype.setElementGroup = function ( group ) {
  * @return {jQuery.Promise} Promise which resolves when the scroll is complete
  */
 OO.ui.Element.prototype.scrollElementIntoView = function ( config ) {
+	if (
+		!this.isElementAttached() ||
+		!this.isVisible() ||
+		( this.getElementGroup() && !this.getElementGroup().isVisible() )
+	) {
+		return $.Deferred().resolve();
+	}
 	return OO.ui.Element.static.scrollIntoView( this.$element[ 0 ], config );
 };
 
