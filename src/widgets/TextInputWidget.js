@@ -388,7 +388,7 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
 	if ( MutationObserver ) {
 		// The new way. If only it wasn't so ugly.
 
-		if ( this.$element.closest( 'html' ).length ) {
+		if ( this.isElementAttached() ) {
 			// Widget is attached already, do nothing. This breaks the functionality of this function when
 			// the widget is detached and reattached. Alas, doing this correctly with MutationObserver
 			// would require observation of the whole document, which would hurt performance of other,
@@ -423,7 +423,7 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
 
 		onRemove = function () {
 			// If the node was attached somewhere else, report it
-			if ( widget.$element.closest( 'html' ).length ) {
+			if ( widget.isElementAttached() ) {
 				widget.onElementAttach();
 			}
 			mutationObserver.disconnect();
