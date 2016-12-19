@@ -109,9 +109,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		blur: this.onBlur.bind( this ),
 		focus: this.onFocus.bind( this )
 	} );
-	this.$input.one( {
-		focus: this.onElementAttach.bind( this )
-	} );
 	this.$icon.on( 'mousedown', this.onIconMouseDown.bind( this ) );
 	this.$indicator.on( 'mousedown', this.onIndicatorMouseDown.bind( this ) );
 	this.on( 'labelChange', this.updatePosition.bind( this ) );
@@ -267,6 +264,11 @@ OO.ui.TextInputWidget.prototype.onBlur = function () {
  * @param {jQuery.Event} e Focus event
  */
 OO.ui.TextInputWidget.prototype.onFocus = function () {
+	if ( this.isWaitingToBeAttached ) {
+		// If we've received focus, then we must be attached to the document, and if
+		// isWaitingToBeAttached is still true, that means the handler never fired. Fire it now.
+		this.onElementAttach();
+	}
 	this.setValidityFlag( true );
 };
 
