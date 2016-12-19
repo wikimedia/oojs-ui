@@ -156,6 +156,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		this.$input.attr( 'rows', config.rows );
 	}
 	if ( this.label || config.autosize ) {
+		this.isWaitingToBeAttached = true;
 		this.installParentChangeDetector();
 	}
 };
@@ -276,6 +277,7 @@ OO.ui.TextInputWidget.prototype.onFocus = function () {
  * @param {jQuery.Event} e Element attach event
  */
 OO.ui.TextInputWidget.prototype.onElementAttach = function () {
+	this.isWaitingToBeAttached = false;
 	// Any previously calculated size is now probably invalid if we reattached elsewhere
 	this.valCache = null;
 	this.adjustSize();
@@ -451,6 +453,11 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
 OO.ui.TextInputWidget.prototype.adjustSize = function () {
 	var scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError,
 		idealHeight, newHeight, scrollWidth, property;
+
+	if ( this.isWaitingToBeAttached ) {
+		// #onElementAttach will be called soon, which calls this method
+		return this;
+	}
 
 	if ( this.multiline && this.$input.val() !== this.valCache ) {
 		if ( this.autosize ) {
@@ -838,6 +845,12 @@ OO.ui.TextInputWidget.prototype.updateSearchIndicator = function () {
  */
 OO.ui.TextInputWidget.prototype.positionLabel = function () {
 	var after, rtl, property;
+
+	if ( this.isWaitingToBeAttached ) {
+		// #onElementAttach will be called soon, which calls this method
+		return this;
+	}
+
 	// Clear old values
 	this.$input
 		// Clear old values if present
