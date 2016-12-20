@@ -33,7 +33,6 @@ OO.ui.Element = function OoUiElement( config ) {
 	this.$element = config.$element ||
 		$( document.createElement( this.getTagName() ) );
 	this.elementGroup = null;
-	this.debouncedUpdateThemeClassesHandler = OO.ui.debounce( this.debouncedUpdateThemeClasses );
 
 	// Initialization
 	if ( Array.isArray( config.classes ) ) {
@@ -776,16 +775,7 @@ OO.ui.Element.prototype.supports = function ( methods ) {
  *   guaranteeing that theme updates do not occur within an element's constructor
  */
 OO.ui.Element.prototype.updateThemeClasses = function () {
-	this.debouncedUpdateThemeClassesHandler();
-};
-
-/**
- * @private
- * @localdoc This method is called directly from the QUnit tests instead of #updateThemeClasses, to
- *   make them synchronous.
- */
-OO.ui.Element.prototype.debouncedUpdateThemeClasses = function () {
-	OO.ui.theme.updateElementClasses( this );
+	OO.ui.theme.queueUpdateElementClasses( this );
 };
 
 /**
