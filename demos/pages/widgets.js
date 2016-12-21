@@ -1881,6 +1881,15 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ProgressBarWidget( {
+						disabled: true
+					} ),
+					{
+						label: 'Progress bar (disabled)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ProgressBarWidget( {
 						progress: false
 					} ),
 					{
