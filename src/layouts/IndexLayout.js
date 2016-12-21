@@ -36,7 +36,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [continuous=false] Show all cards, one after another
  * @cfg {boolean} [expanded=true] Expand the content panel to fill the entire parent element.
- * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new card is displayed.
+ * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new card is displayed. Disabled on mobile.
  */
 OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	// Configuration initialization
@@ -139,7 +139,7 @@ OO.ui.IndexLayout.prototype.onStackLayoutSet = function ( card ) {
 	if ( card ) {
 		card.scrollElementIntoView( {
 			complete: function () {
-				if ( layout.autoFocus ) {
+				if ( layout.autoFocus && !OO.ui.isMobile() ) {
 					layout.focus();
 				}
 			}
@@ -404,6 +404,7 @@ OO.ui.IndexLayout.prototype.setCard = function ( name ) {
 				// meaningless because the next card is not visible yet and thus can't hold focus.
 				if (
 					this.autoFocus &&
+					!OO.ui.isMobile() &&
 					this.stackLayout.continuous &&
 					OO.ui.findFocusable( card.$element ).length !== 0
 				) {

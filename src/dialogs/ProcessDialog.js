@@ -164,10 +164,20 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
  * @inheritdoc
  */
 OO.ui.ProcessDialog.prototype.getActionWidgets = function ( actions ) {
-	var i, len, widgets = [];
+	var i, len, config,
+		isMobile = OO.ui.isMobile(),
+		widgets = [];
+
 	for ( i = 0, len = actions.length; i < len; i++ ) {
+		config = $.extend( { framed: !OO.ui.isMobile() }, actions[ i ] );
+		if ( isMobile && ( config.flags === 'back' || config.flags.indexOf( 'back' ) !== -1 ) ) {
+			$.extend( config, {
+				icon: 'previous',
+				label: ''
+			} );
+		}
 		widgets.push(
-			new OO.ui.ActionWidget( $.extend( { framed: true }, actions[ i ] ) )
+			new OO.ui.ActionWidget( config )
 		);
 	}
 	return widgets;

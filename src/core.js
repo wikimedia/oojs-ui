@@ -471,3 +471,19 @@ OO.ui.isSafeUrl = function ( url ) {
 
 	return false;
 };
+
+/**
+ * Check if the user has a 'mobile' device.
+ *
+ * For our purposes this means the user is primarily using an
+ * on-screen keyboard, touch input instead of a mouse and may
+ * have a physically small display.
+ *
+ * It is left up to implementors to decide how to compute this
+ * so the default implementation always returns false.
+ *
+ * @return {boolean} Use is on a mobile device
+ */
+OO.ui.isMobile = function () {
+	return false;
+};
