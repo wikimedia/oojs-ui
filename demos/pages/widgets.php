@@ -463,7 +463,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 					],
 					[
 						'data' => 'dog',
-						'label' => 'Dog'
+						'label' => "Dog (disabled)\xE2\x80\x8E",
+						'disabled' => true
 					],
 					[
 						'data' => 'goldfish',

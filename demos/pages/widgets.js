@@ -833,7 +833,8 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 							},
 							{
 								data: 'dog',
-								label: 'Dog'
+								label: 'Dog (disabled)\u200E',
+								disabled: true
 							},
 							{
 								data: 'goldfish',

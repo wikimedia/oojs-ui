@@ -23,7 +23,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: … }`
+ * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: …, disabled: … }`
  */
 OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidget( config ) {
 	// Configuration initialization
@@ -152,7 +152,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setDisabled = function ( state ) 
 /**
  * Set the options available for this input.
  *
- * @param {Object[]} options Array of menu options in the format `{ data: …, label: … }`
+ * @param {Object[]} options Array of menu options in the format `{ data: …, label: …, disabled: … }`
  * @chainable
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options ) {
@@ -162,12 +162,14 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options )
 	this.checkboxMultiselectWidget
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
-			var optValue, item;
+			var optValue, item, optDisabled;
 			optValue =
 				OO.ui.CheckboxMultiselectInputWidget.parent.prototype.cleanUpValue.call( widget, opt.data );
+			optDisabled = opt.disabled !== undefined ? opt.disabled : false;
 			item = new OO.ui.CheckboxMultioptionWidget( {
 				data: optValue,
-				label: opt.label !== undefined ? opt.label : optValue
+				label: opt.label !== undefined ? opt.label : optValue,
+				disabled: optDisabled
 			} );
 			// Set the 'name' and 'value' for form submission
 			item.checkbox.$input.attr( 'name', widget.inputName );
