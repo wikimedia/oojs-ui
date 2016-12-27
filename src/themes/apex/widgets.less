@@ -1043,14 +1043,14 @@
 	&-bar {
 		height: 1em;
 		border-right: 1px solid #ccc;
-		.oo-ui-transition(width @medium-ease, margin-left @medium-ease);
+		.oo-ui-transition(width @medium-ease);
 		.oo-ui-vertical-gradient(@progressive-gradient-start, @progressive-gradient-end);
 	}
 	&-indeterminate {
 		.oo-ui-progressBarWidget-bar {
 			.oo-ui-animation(oo-ui-progressBarWidget-slide 2s infinite linear);
 			width: 40%;
-			margin-left: -10%;
+			.oo-ui-transform( translate( -25% ) );
 			border-left: 1px solid @progressive-border;
 		}
 	}
@@ -1060,10 +1060,10 @@
 
 	.oo-ui-progressBarWidget-slide-frames () {
 		from {
-			margin-left: -40%;
+			.oo-ui-transform( translate( -100% ) );
 		}
 		to {
-			margin-left: 100%;
+			.oo-ui-transform( translate( 350% ) );
 		}
 	}
 	@-webkit-keyframes oo-ui-progressBarWidget-slide {
