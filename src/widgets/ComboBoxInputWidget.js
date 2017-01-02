@@ -63,6 +63,9 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 		autocomplete: false
 	}, config );
 
+	// ComboBoxInputWidget shouldn't support multiline
+	config.multiline = false;
+
 	// Parent constructor
 	OO.ui.ComboBoxInputWidget.parent.call( this, config );
 
