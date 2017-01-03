@@ -6,7 +6,9 @@
  * @constructor
  */
 OO.ui.Demo = function OoUiDemo() {
-	// Parent
+	var demo = this;
+
+	// Parent constructor
 	OO.ui.Demo.parent.call( this );
 
 	// Normalization
@@ -46,23 +48,30 @@ OO.ui.Demo = function OoUiDemo() {
 				'&direction=' + this.mode.direction
 		} )
 	] );
+	this.platformSelect = new OO.ui.ButtonSelectWidget().addItems( [
+		new OO.ui.ButtonOptionWidget( { data: 'desktop', label: 'Desktop' } ),
+		new OO.ui.ButtonOptionWidget( { data: 'mobile', label: 'Mobile' } )
+	] );
 
 	// Events
 	this.pageMenu.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.themeSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.directionSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
+	this.platformSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 
 	// Initialization
 	this.pageMenu.selectItemByData( this.mode.page );
 	this.themeSelect.selectItemByData( this.mode.theme );
 	this.directionSelect.selectItemByData( this.mode.direction );
+	this.platformSelect.selectItemByData( this.mode.platform );
 	this.$menu
 		.addClass( 'oo-ui-demo-menu' )
 		.append(
 			this.pageDropdown.$element,
 			this.themeSelect.$element,
 			this.directionSelect.$element,
-			this.jsPhpSelect.$element
+			this.jsPhpSelect.$element,
+			this.platformSelect.$element
 		);
 	this.$element
 		.addClass( 'oo-ui-demo' )
@@ -71,6 +80,9 @@ OO.ui.Demo = function OoUiDemo() {
 	$( 'head' ).append( this.stylesheetLinks );
 	// eslint-disable-next-line new-cap
 	OO.ui.theme = new ( this.constructor.static.themes[ this.mode.theme ].theme )();
+	OO.ui.isMobile = function () {
+		return demo.mode.platform === 'mobile';
+	};
 };
 
 /* Setup */
@@ -154,6 +166,14 @@ OO.ui.Demo.static.directions = {
 };
 
 /**
+ * Available platforms.
+ *
+ * @static
+ * @property {string[]}
+ */
+OO.ui.Demo.static.platforms = [ 'desktop', 'mobile' ];
+
+/**
  * Default page.
  *
  * Set by one of the page scripts in the `pages` directory.
@@ -182,6 +202,16 @@ OO.ui.Demo.static.defaultTheme = 'mediawiki';
  * @property {string}
  */
 OO.ui.Demo.static.defaultDirection = 'ltr';
+
+/**
+ * Default platform.
+ *
+ * Set by one of the page scripts in the `pages` directory.
+ *
+ * @static
+ * @property {string}
+ */
+OO.ui.Demo.static.defaultPlatform = 'desktop';
 
 /* Methods */
 
@@ -221,9 +251,10 @@ OO.ui.Demo.prototype.initialize = function () {
 OO.ui.Demo.prototype.onModeChange = function () {
 	var page = this.pageMenu.getSelectedItem().getData(),
 		theme = this.themeSelect.getSelectedItem().getData(),
-		direction = this.directionSelect.getSelectedItem().getData();
+		direction = this.directionSelect.getSelectedItem().getData(),
+		platform = this.platformSelect.getSelectedItem().getData();
 
-	location.hash = '#' + [ page, theme, direction ].join( '-' );
+	location.hash = '#' + [ page, theme, direction, platform ].join( '-' );
 };
 
 /**
@@ -232,14 +263,14 @@ OO.ui.Demo.prototype.onModeChange = function () {
  * Factors are a mapping between symbolic names used in the URL hash and internal information used
  * to act on those symbolic names.
  *
- * Factor lists are in URL order: page, theme, direction. Page contains the symbolic
+ * Factor lists are in URL order: page, theme, direction, platform. Page contains the symbolic
  * page name, others contain file suffixes.
  *
  * @return {Object[]} List of mode factors, keyed by symbolic name
  */
 OO.ui.Demo.prototype.getFactors = function () {
 	var key,
-		factors = [ {}, {}, {} ];
+		factors = [ {}, {}, {}, {} ];
 
 	for ( key in this.constructor.static.pages ) {
 		factors[ 0 ][ key ] = key;
@@ -250,6 +281,9 @@ OO.ui.Demo.prototype.getFactors = function () {
 	for ( key in this.constructor.static.directions ) {
 		factors[ 2 ][ key ] = this.constructor.static.directions[ key ].fileSuffix;
 	}
+	this.constructor.static.platforms.forEach( function ( platform ) {
+		factors[ 3 ][ platform ] = '';
+	} );
 
 	return factors;
 };
@@ -257,7 +291,7 @@ OO.ui.Demo.prototype.getFactors = function () {
 /**
  * Get a list of default factors.
  *
- * Factor defaults are in URL order: page, theme, direction. Each contains a symbolic
+ * Factor defaults are in URL order: page, theme, direction, platform. Each contains a symbolic
  * factor name which should be used as a fallback when the URL hash is missing or invalid.
  *
  * @return {Object[]} List of default factors
@@ -266,7 +300,8 @@ OO.ui.Demo.prototype.getDefaultFactorValues = function () {
 	return [
 		this.constructor.static.defaultPage,
 		this.constructor.static.defaultTheme,
-		this.constructor.static.defaultDirection
+		this.constructor.static.defaultDirection,
+		this.constructor.static.defaultPlatform
 	];
 };
 
@@ -292,7 +327,8 @@ OO.ui.Demo.prototype.getCurrentMode = function () {
 	return {
 		page: factorValues[ 0 ],
 		theme: factorValues[ 1 ],
-		direction: factorValues[ 2 ]
+		direction: factorValues[ 2 ],
+		platform: factorValues[ 3 ]
 	};
 };
 

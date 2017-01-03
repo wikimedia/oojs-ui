@@ -73,7 +73,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	ProcessDialog.static.title = 'Process dialog';
 	ProcessDialog.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' },
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] },
 		{ action: 'other', label: 'Other', flags: 'other' }
 	];
 	ProcessDialog.prototype.initialize = function () {
@@ -102,7 +102,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	LongProcessDialog.static.title = 'Process dialog';
 	LongProcessDialog.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' },
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] },
 		{ action: 'other', label: 'Other', flags: 'other' }
 	];
 	LongProcessDialog.prototype.initialize = function () {
@@ -128,15 +128,6 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return this.content.$element.outerHeight( true );
 	};
 
-	function FramelessProcessDialog( config ) {
-		FramelessProcessDialog.parent.call( this, config );
-	}
-	OO.inheritClass( FramelessProcessDialog, ProcessDialog );
-	FramelessProcessDialog.static.actions = OO.copy( FramelessProcessDialog.static.actions );
-	FramelessProcessDialog.static.actions.forEach( function ( action ) {
-		action.framed = false;
-	} );
-
 	function SearchWidgetDialog( config ) {
 		SearchWidgetDialog.parent.call( this, config );
 		this.broken = false;
@@ -159,7 +150,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return 300;
 	};
 	SearchWidgetDialog.static.actions = [
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
 	];
 	SearchWidgetDialog.prototype.getActionProcess = function ( action ) {
 		var dialog = this;
@@ -177,7 +168,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	BrokenDialog.static.actions = [
 		{ action: 'save', label: 'Save', flags: [ 'primary', 'constructive' ] },
 		{ action: 'delete', label: 'Delete', flags: 'destructive' },
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
 	];
 	BrokenDialog.prototype.getBodyHeight = function () {
 		return 250;
@@ -254,7 +245,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	BookletDialog.static.title = 'Booklet dialog';
 	BookletDialog.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
 	];
 	BookletDialog.prototype.getBodyHeight = function () {
 		return 250;
@@ -325,7 +316,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	OutlinedBookletDialog.static.title = 'Outlined booklet dialog';
 	OutlinedBookletDialog.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
 	];
 	OutlinedBookletDialog.prototype.getBodyHeight = function () {
 		return 250;
@@ -372,7 +363,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	ContinuousOutlinedBookletDialog.static.title = 'Continuous outlined booklet dialog';
 	ContinuousOutlinedBookletDialog.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
 	];
 	ContinuousOutlinedBookletDialog.prototype.getBodyHeight = function () {
 		return 250;
@@ -437,7 +428,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	IndexedDialog.static.title = 'Indexed dialog';
 	IndexedDialog.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
 	];
 	IndexedDialog.prototype.getBodyHeight = function () {
 		return 250;
@@ -473,7 +464,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	MenuDialog.static.title = 'Menu dialog';
 	MenuDialog.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
 	];
 	MenuDialog.prototype.getBodyHeight = function () {
 		return 350;
@@ -569,7 +560,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	DialogWithDropdowns.static.title = 'Dialog with dropdowns ($overlay test)';
 	DialogWithDropdowns.static.actions = [
 		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-		{ action: 'cancel', label: 'Cancel', flags: 'safe' }
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
 	];
 	DialogWithDropdowns.prototype.getBodyHeight = function () {
 		return 300;
@@ -791,13 +782,6 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			}
 		},
 		{
-			name: 'Process dialog (frameless buttons)',
-			dialogClass: FramelessProcessDialog,
-			config: {
-				size: 'medium'
-			}
-		},
-		{
 			name: 'Process dialog (full)',
 			dialogClass: ProcessDialog,
 			config: {
@@ -902,7 +886,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 					{
 						action: 'reject',
 						label: 'Cancel',
-						flags: 'safe'
+						flags: [ 'safe', 'back' ]
 					},
 					{
 						action: 'repeat',
@@ -919,7 +903,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 				title: 'Delete file?',
 				message: 'The file will be irreversably obliterated. Proceed with caution.',
 				actions: [
-					{ action: 'reject', label: 'Cancel', flags: 'safe' },
+					{ action: 'reject', label: 'Cancel', flags: [ 'safe', 'back' ] },
 					{ action: 'reject', label: 'Move file to trash' },
 					{
 						action: 'accept',

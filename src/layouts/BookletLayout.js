@@ -44,7 +44,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [continuous=false] Show all pages, one after another
- * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new page is displayed.
+ * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new page is displayed. Disabled on mobile.
  * @cfg {boolean} [outlined=false] Show the outline. The outline is used to navigate through the pages of the booklet.
  * @cfg {boolean} [editable=false] Show controls for adding, removing and reordering pages
  */
@@ -183,7 +183,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
 	if ( !this.scrolling && page ) {
 		page.scrollElementIntoView( {
 			complete: function () {
-				if ( layout.autoFocus ) {
+				if ( layout.autoFocus && !OO.ui.isMobile() ) {
 					layout.focus();
 				}
 			}
@@ -514,6 +514,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 				// meaningless because the next page is not visible yet and thus can't hold focus.
 				if (
 					this.autoFocus &&
+					!OO.ui.isMobile() &&
 					this.stackLayout.continuous &&
 					OO.ui.findFocusable( page.$element ).length !== 0
 				) {
