@@ -1,4 +1,45 @@
 # OOjs UI Release History
+## v0.18.3 / 2017-01-03
+### Deprecations
+* [DEPRECATING CHANGE] icons: Deprecate the 'beta' and 'ribbonPrize' icons (James D. Forrester)
+* [DEPRECATING CHANGE] icons: Rename '*Undo' to 'un*' (James D. Forrester)
+* [DEPRECATING CHANGE] icons: Rename 'betaLaunch' to 'logoWikimediaDiscovery', move pack (James D. Forrester)
+
+### Features
+* ComboBoxInputWidget: Make it impossible to set `multiline` to true (Prateek Saxena)
+* Introduce `OO.ui.isMobile()` (Ed Sanders)
+* Provide `OO.ui.prompt()` method to complement `confirm()`/`alert()` (Ed Sanders)
+
+### Styles
+* FloatableElement: Replace superfluous class with general one (Volker E)
+* MediaWiki theme: Change custom error border color to `destructive` (Volker E)
+* MediaWiki theme: Change error/invalid color to alias of `destructive` (Volker E)
+* MediaWiki theme: Fix PHP CheckboxMultiselectInputWidget/RadioSelectInputWidget option spacing (Bartosz Dziewoński)
+* MediaWiki theme: Indicate normal, flagged ButtonWidgets' `:hover` clearer (Volker E)
+* MediaWiki theme: Set `line-height` explicitly on legends and labels (Volker E)
+
+### Code
+* BarToolGroup: Remove obsolete CSS selectors (Volker E)
+* ClippableElement: Compatibility with jQuery 3 (Bartosz Dziewoński)
+* Element: Do not try to scroll invisible/unattached elements into view (Bartosz Dziewoński)
+* LabelWidget: Properly hide labels if they are set to null (Ed Sanders)
+* NumberInputWidget: Avoid bitwise tricks when checking for integers (Bartosz Dziewoński)
+* PopupButtonWidget: Remove unnecessary CSS property (Volker E)
+* ProgressBarWidget: Use CSS transforms for indeterminate widget (Bartosz Dziewoński)
+* TextInputWidget: Do nothing in `#adjustSize`/`#positionLabel` if not attached (Bartosz Dziewoński)
+* TextInputWidget: Only call `#onElementAttach` on focus if it wasn't called (Bartosz Dziewoński)
+* TextInputWidget: Use `Element#isElementAttached` (Bartosz Dziewoński)
+* styles: Replace `transform` with dedicated mixin (Volker E)
+* MediaWiki theme: Make `box-shadow` LESS vars follow naming scheme (Volker E)
+* MediaWiki theme: Simplify frameless ButtonWidget selectors (Volker E)
+* performance: Apply webkit GPU hack to scrollable panels (Ed Sanders)
+* demos: Add disabled Progress bar (Volker E)
+* demos: Add examples for `OO.ui.alert()`/`confirm()`/`prompt()` (Bartosz Dziewoński)
+* demos: Avoid using 'required' as a test indicator (Ed Sanders)
+* build: Bump file copyright notices for 2017 (James D. Forrester)
+* docs: Fix small typo (Amir Sarabadani)
+
+
 ## v0.18.2 / 2016-12-06
 ### Styles
 * MediaWiki theme: Address sub-pixel rendering issues of RadioInputWidgets (Volker E)
