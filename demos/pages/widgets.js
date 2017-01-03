@@ -559,7 +559,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 								label: 'Two'
 							} ),
 							new OO.ui.ButtonWidget( {
-								indicator: 'required',
+								indicator: 'alert',
 								label: 'Three'
 							} )
 						]
@@ -601,7 +601,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'd',
-								indicator: 'required',
+								indicator: 'alert',
 								label: 'Three'
 							} )
 						]
@@ -626,7 +626,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'd',
-								indicator: 'required',
+								indicator: 'alert',
 								label: 'Three'
 							} )
 						]
@@ -651,7 +651,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'd',
-								indicator: 'required',
+								indicator: 'alert',
 								label: 'Three'
 							} )
 						]
@@ -1040,7 +1040,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						multiline: true,
 						autosize: true,
 						icon: 'tag',
-						indicator: 'required',
+						indicator: 'alert',
 						label: 'Inline label',
 						value: 'Autosize\nAutosize\nAutosize\nAutosize'
 					} ),
@@ -1057,7 +1057,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						label: 'Inline label'
 					} ),
 					{
-						label: 'TextInputWidget (label)\u200E',
+						label: 'TextInputWidget (icon, indicator, label)\u200E',
 						align: 'top'
 					}
 				),
@@ -1065,7 +1065,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TextInputWidget( {
 						value: 'Disabled',
 						icon: 'tag',
-						indicator: 'required',
+						indicator: 'alert',
 						label: 'Inline label',
 						disabled: true
 					} ),
@@ -1101,7 +1101,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {
 						icon: 'tag',
-						indicator: 'required'
+						indicator: 'alert'
 					} ),
 					{
 						label: 'SelectFileWidget (icon, indicator)\u200E',
@@ -1111,7 +1111,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {
 						icon: 'tag',
-						indicator: 'required',
+						indicator: 'alert',
 						disabled: true
 					} ),
 					{
@@ -1164,7 +1164,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 								new OO.ui.MenuOptionWidget( {
 									data: 'b',
 									label: 'Second',
-									indicator: 'required'
+									indicator: 'alert'
 								} ),
 								new OO.ui.MenuOptionWidget( {
 									data: 'c',
@@ -1199,7 +1199,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 								new OO.ui.MenuOptionWidget( {
 									data: 'b',
 									label: 'Disabled second option',
-									indicator: 'required',
+									indicator: 'alert',
 									disabled: true
 								} ),
 								new OO.ui.MenuOptionWidget( {
@@ -1409,7 +1409,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.CapsuleMultiselectWidget( {
 						allowArbitrary: true,
 						icon: 'tag',
-						indicator: 'required',
+						indicator: 'alert',
 						menu: {
 							items: [
 								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
@@ -1430,7 +1430,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.CapsuleMultiselectWidget( {
 						disabled: true,
 						icon: 'tag',
-						indicator: 'required',
+						indicator: 'alert',
 						menu: {
 							items: [
 								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
@@ -1706,7 +1706,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.IndicatorWidget( {
-						indicator: 'required',
+						indicator: 'alert',
 						title: 'Required indicator'
 					} ),
 					{
@@ -1716,7 +1716,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.IndicatorWidget( {
-						indicator: 'required',
+						indicator: 'alert',
 						title: 'Required indicator',
 						disabled: true
 					} ),
@@ -2066,7 +2066,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 										label: 'Two'
 									} ),
 									new OO.ui.ButtonOptionWidget( {
-										indicator: 'required',
+										indicator: 'alert',
 										label: 'Three'
 									} )
 								]
