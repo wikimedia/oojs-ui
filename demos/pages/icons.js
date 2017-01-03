@@ -64,7 +64,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'tray'
 			],
 			interactions: [
-				'beta',
 				'bookmark',
 				'browser',
 				'clear',
@@ -76,7 +75,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'logOut',
 				'newWindow',
 				'printer',
-				'ribbonPrize',
 				'sun',
 				'watchlist'
 			],
