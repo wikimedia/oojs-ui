@@ -34,8 +34,13 @@
 	.oo-ui-background-image-svg-internal( @svg, @fallback );
 }
 
-.oo-ui-force-webkit-gpu() {
-	-webkit-transform: translate3d( 0, 0, 0 );
+// Only Webkit/Blink: Force element on own GPU composite layer
+// Can be used in order to help establish smooth, jank-free scrolling
+// in connection with CSS animations. Use sparely & wisely!
+// See T154460
+.oo-ui-force-gpu-composite-layer() {
+	-webkit-transform: translateZ( 0 );
+	transform: translateZ( 0 );
 }
 
 .oo-ui-animation( @value1, @value2: X, ... ) {

@@ -599,7 +599,7 @@
 	&.oo-ui-widget-disabled {
 		opacity: 0.5;
 		// Opacity causes 1px measurement errors in Chrome, so force GPU rendering
-		.oo-ui-force-webkit-gpu();
+		.oo-ui-force-gpu-composite-layer();
 		box-shadow: none;
 		color: #333;
 		background: #eee;
