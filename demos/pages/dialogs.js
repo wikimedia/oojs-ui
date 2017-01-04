@@ -632,6 +632,28 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 					items: this.makeItems()
 				} ), $spacer.clone() ]
 			} ),
+			new SamplePage( 'popupbutton', {
+				label: 'PopupButtonWidget',
+				content: [ $spacer.clone(), new OO.ui.PopupButtonWidget( {
+					$overlay: this.$overlay,
+					label: 'Popup button',
+					popup: {
+						padded: true,
+						$content: $( '<p>' ).text( 'Popup contents.' )
+					}
+				} ), $spacer.clone() ]
+			} ),
+			new SamplePage( 'popupbutton2', {
+				label: 'PopupButtonWidget',
+				icon: 'alert',
+				content: [ $spacer.clone(), new OO.ui.PopupButtonWidget( {
+					label: 'Popup button',
+					popup: {
+						padded: true,
+						$content: $( '<p>' ).text( 'Popup contents.' )
+					}
+				} ), $spacer.clone() ]
+			} ),
 			new SamplePage( 'capsule', {
 				label: 'CapsuleMultiselectWidget',
 				content: [ $spacer.clone(), new OO.ui.CapsuleMultiselectWidget( {
@@ -652,7 +674,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			} )
 		];
 		this.bookletLayout.on( 'set', function ( page ) {
-			page.$element[ 0 ].scrollTop = 300;
+			page.$element[ 0 ].scrollTop = 325;
 		} );
 		this.bookletLayout.addPages( this.pages );
 		this.$body.append( this.bookletLayout.$element );
