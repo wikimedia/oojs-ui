@@ -675,6 +675,77 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return DialogWithDropdowns.parent.prototype.getActionProcess.call( this, action );
 	};
 
+	function DialogWithPopupAndDropdown( config ) {
+		DialogWithPopupAndDropdown.parent.call( this, config );
+	}
+	OO.inheritClass( DialogWithPopupAndDropdown, OO.ui.ProcessDialog );
+	DialogWithPopupAndDropdown.static.title = 'Dialog with popup and dropdown (ClippableElement test)';
+	DialogWithPopupAndDropdown.static.actions = [
+		{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
+		{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
+	];
+	DialogWithPopupAndDropdown.prototype.getBodyHeight = function () {
+		return 300;
+	};
+	DialogWithPopupAndDropdown.prototype.initialize = function () {
+		var $spacer = $( '<div>' ).height( 240 );
+		DialogWithPopupAndDropdown.parent.prototype.initialize.apply( this, arguments );
+		this.bookletLayout = new OO.ui.BookletLayout( {
+			outlined: true
+		} );
+		this.pages = [
+			new SamplePage( 'info', {
+				label: 'Information',
+				icon: 'info',
+				content: [
+					'Widgets that don\'t use $overlay get clipped at the bottom of their container. ',
+					'This is a test of two such cases'
+				]
+			} ),
+			new SamplePage( 'dropdownbottom', {
+				label: 'DropdownWidget at bottom',
+				content: [ $spacer.clone(), new OO.ui.DropdownWidget( {
+					menu: {
+						items: this.makeItems()
+					}
+				} ) ]
+			} ),
+			new SamplePage( 'popupbottom', {
+				label: 'Popup at bottom',
+				content: [ $spacer.clone(), new OO.ui.PopupButtonWidget( {
+					icon: 'info',
+					label: 'Popup here',
+					framed: false,
+					popup: {
+						head: true,
+						label: 'More information',
+						$content: $( '<p>Extra information here.</p>' ),
+						padded: true
+					}
+				} ) ]
+			} )
+		];
+		this.bookletLayout.addPages( this.pages );
+		this.$body.append( this.bookletLayout.$element );
+	};
+	DialogWithPopupAndDropdown.prototype.makeItems = function () {
+		return [ 0, 1, 2, 3, 4 ].map( function ( val ) {
+			return new OO.ui.MenuOptionWidget( {
+				data: val,
+				label: String( val )
+			} );
+		} );
+	};
+
+	DialogWithPopupAndDropdown.prototype.getActionProcess = function ( action ) {
+		if ( action ) {
+			return new OO.ui.Process( function () {
+				this.close( { action: action } );
+			}, this );
+		}
+		return DialogWithPopupAndDropdown.parent.prototype.getActionProcess.call( this, action );
+	};
+
 	configQuick = [
 		{
 			name: 'Quick alert',
@@ -840,6 +911,13 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		{
 			name: 'Dialog with dropdowns ($overlay test)',
 			dialogClass: DialogWithDropdowns,
+			config: {
+				size: 'large'
+			}
+		},
+		{
+			name: 'Dialog with popup and dropdown (ClippableElement test)',
+			dialogClass: DialogWithPopupAndDropdown,
 			config: {
 				size: 'large'
 			}
