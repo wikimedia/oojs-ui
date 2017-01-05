@@ -372,14 +372,48 @@ OO.ui.infuse = function ( idOrNode ) {
 	/**
 	 * Get a localized message.
 	 *
-	 * In environments that provide a localization system, this function should be overridden to
-	 * return the message translated in the user's language. The default implementation always returns
-	 * English messages.
-	 *
 	 * After the message key, message parameters may optionally be passed. In the default implementation,
 	 * any occurrences of $1 are replaced with the first parameter, $2 with the second parameter, etc.
 	 * Alternative implementations of OO.ui.msg may use any substitution system they like, as long as
 	 * they support unnamed, ordered message parameters.
+	 *
+	 * In environments that provide a localization system, this function should be overridden to
+	 * return the message translated in the user's language. The default implementation always returns
+	 * English messages. An example of doing this with [jQuery.i18n](https://github.com/wikimedia/jquery.i18n)
+	 * follows.
+	 *
+	 *     @example
+	 *     var i, iLen, button,
+	 *         messagePath = 'oojs-ui/dist/i18n/',
+	 *         languages = [ $.i18n().locale, 'ur', 'en' ],
+	 *         languageMap = {};
+	 *
+	 *     for ( i = 0, iLen = languages.length; i < iLen; i++ ) {
+	 *         languageMap[ languages[ i ] ] = messagePath + languages[ i ].toLowerCase() + '.json';
+	 *     }
+	 *
+	 *     $.i18n().load( languageMap ).done( function() {
+	 *         // Replace the built-in `msg` only once we've loaded the internationalization.
+	 *         // OOjs UI uses `OO.ui.deferMsg` for all initially-loaded messages. So long as
+	 *         // you put off creating any widgets until this promise is complete, no English
+	 *         // will be displayed.
+	 *         OO.ui.msg = $.i18n;
+	 *
+	 *         // A button displaying "OK" in the default locale
+	 *         button = new OO.ui.ButtonWidget( {
+	 *             label: OO.ui.msg( 'ooui-dialog-message-accept' ),
+	 *             icon: 'check'
+	 *         } );
+	 *         $( 'body' ).append( button.$element );
+	 *
+	 *         // A button displaying "OK" in Urdu
+	 *         $.i18n().locale = 'ur';
+	 *         button = new OO.ui.ButtonWidget( {
+	 *             label: OO.ui.msg( 'ooui-dialog-message-accept' ),
+	 *             icon: 'check'
+	 *         } );
+	 *         $( 'body' ).append( button.$element );
+	 *     } );
 	 *
 	 * @param {string} key Message key
 	 * @param {...Mixed} [params] Message parameters
