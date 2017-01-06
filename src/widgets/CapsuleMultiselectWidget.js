@@ -119,7 +119,7 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 	// Events
 	if ( this.popup ) {
 		$tabFocus.on( {
-			focus: this.onFocusForPopup.bind( this )
+			focus: this.focus.bind( this )
 		} );
 		this.popup.$element.on( 'focusout', this.onPopupFocusOut.bind( this ) );
 		if ( this.popup.$autoCloseIgnore ) {
@@ -525,20 +525,6 @@ OO.ui.CapsuleMultiselectWidget.prototype.onInputFocus = function () {
 OO.ui.CapsuleMultiselectWidget.prototype.onInputBlur = function () {
 	this.addItemFromLabel( this.$input.val() );
 	this.clearInput();
-};
-
-/**
- * Handle focus events
- *
- * @private
- * @param {jQuery.Event} event
- */
-OO.ui.CapsuleMultiselectWidget.prototype.onFocusForPopup = function () {
-	if ( !this.isDisabled() ) {
-		this.popup.setSize( this.$handle.width() );
-		this.popup.toggle( true );
-		OO.ui.findFocusable( this.popup.$element ).focus();
-	}
 };
 
 /**
