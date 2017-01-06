@@ -60,7 +60,8 @@ OO.ui.MessageDialog.static.name = 'message';
 
 OO.ui.MessageDialog.static.size = 'small';
 
-OO.ui.MessageDialog.static.verbose = false;
+// @deprecated since v0.18.4 as default; TODO: Remove
+OO.ui.MessageDialog.static.verbose = true;
 
 /**
  * Dialog title.
@@ -168,7 +169,6 @@ OO.ui.MessageDialog.prototype.getActionProcess = function ( action ) {
  * @param {Object} [data] Dialog opening data
  * @param {jQuery|string|Function|null} [data.title] Description of the action being confirmed
  * @param {jQuery|string|Function|null} [data.message] Description of the action's consequence
- * @param {boolean} [data.verbose] Message is verbose and should be styled as a long message
  * @param {Object[]} [data.actions] List of OO.ui.ActionOptionWidget configuration options for each
  *   action item
  */
@@ -184,6 +184,7 @@ OO.ui.MessageDialog.prototype.getSetupProcess = function ( data ) {
 			this.message.setLabel(
 				data.message !== undefined ? data.message : this.constructor.static.message
 			);
+			// @deprecated since v0.18.4 as default; TODO: Remove and make default instead.
 			this.message.$element.toggleClass(
 				'oo-ui-messageDialog-message-verbose',
 				data.verbose !== undefined ? data.verbose : this.constructor.static.verbose

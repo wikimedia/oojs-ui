@@ -39,7 +39,6 @@ OO.ui.getWindowManager = function () {
 OO.ui.alert = function ( text, options ) {
 	return OO.ui.getWindowManager().openWindow( 'messageDialog', $.extend( {
 		message: text,
-		verbose: true,
 		actions: [ OO.ui.MessageDialog.static.actions[ 0 ] ]
 	}, options ) ).then( function ( opened ) {
 		return opened.then( function ( closing ) {
@@ -75,8 +74,7 @@ OO.ui.alert = function ( text, options ) {
  */
 OO.ui.confirm = function ( text, options ) {
 	return OO.ui.getWindowManager().openWindow( 'messageDialog', $.extend( {
-		message: text,
-		verbose: true
+		message: text
 	}, options ) ).then( function ( opened ) {
 		return opened.then( function ( closing ) {
 			return closing.then( function ( data ) {
@@ -121,8 +119,7 @@ OO.ui.prompt = function ( text, options ) {
 	// TODO: This is a little hacky, and could be done by extending MessageDialog instead.
 
 	return manager.openWindow( 'messageDialog', $.extend( {
-		message: textField.$element,
-		verbose: true
+		message: textField.$element
 	}, options ) ).then( function ( opened ) {
 		// After ready
 		textInput.on( 'enter', function () {
