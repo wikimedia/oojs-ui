@@ -87,7 +87,11 @@ class TextInputWidget extends InputWidget {
 
 		// Initialization
 		$this
-			->addClasses( [ 'oo-ui-textInputWidget', 'oo-ui-textInputWidget-type-' . $this->type ] )
+			->addClasses( [
+				'oo-ui-textInputWidget',
+				'oo-ui-textInputWidget-type-' . $this->type,
+				'oo-ui-textInputWidget-php',
+			] )
 			->appendContent( $this->icon, $this->indicator );
 		$this->setReadOnly( $config['readOnly'] );
 		$this->setRequired( $config['required'] );

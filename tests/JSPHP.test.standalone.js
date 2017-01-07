@@ -30,6 +30,8 @@ QUnit.module( 'JSPHP' );
 
 				id = 'JSPHPTestSuite_' + theme + klassName + i;
 				fromPhp = document.getElementById( id ).firstChild;
+				// HACK: This is the only difference between PHP and JS TextInputWidget
+				$( fromPhp ).removeClass( 'oo-ui-textInputWidget-php' );
 				instance.$element.insertBefore( fromPhp );
 
 				testName = JSON.stringify( test.config );

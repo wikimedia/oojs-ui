@@ -28,6 +28,8 @@ QUnit.module( 'JSPHP' );
 
 				instance = new OO.ui[ test.class ]( config );
 				$fromPhp = $( $.parseHTML( output[ i ] ) );
+				// HACK: This is the only difference between PHP and JS TextInputWidget
+				$fromPhp.removeClass( 'oo-ui-textInputWidget-php' );
 
 				$( 'body' ).append( instance.$element, $fromPhp );
 

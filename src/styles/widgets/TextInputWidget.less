@@ -101,5 +101,12 @@
 		}
 	}
 
+	// Make clicks not steal focus from input element in PHP version
+	&-php > .oo-ui-iconElement-icon,
+	&-php > .oo-ui-indicatorElement-indicator,
+	&-php > .oo-ui-labelElement-label {
+		pointer-events: none;
+	}
+
 	.theme-oo-ui-textInputWidget();
 }
