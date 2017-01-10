@@ -588,6 +588,27 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.ButtonGroupWidget( {
+						items: [
+							new OO.ui.ToggleButtonWidget( {
+								icon: 'tag',
+								label: 'One'
+							} ),
+							new OO.ui.ToggleButtonWidget( {
+								label: 'Two'
+							} ),
+							new OO.ui.ToggleButtonWidget( {
+								indicator: 'alert',
+								label: 'Three'
+							} )
+						]
+					} ),
+					{
+						label: 'ButtonGroupWidget with ToggleButtonWidgets',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.ButtonSelectWidget( {
 						items: [
 							new OO.ui.ButtonOptionWidget( {
