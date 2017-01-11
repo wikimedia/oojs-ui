@@ -95,7 +95,9 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 
 	// Initialization
 	if ( fieldWidget.constructor.static.supportsSimpleLabel ) {
-		this.$label.attr( 'for', this.fieldWidget.getInputId() );
+		if ( this.fieldWidget.getInputId() ) {
+			this.$label.attr( 'for', this.fieldWidget.getInputId() );
+		}
 	}
 	this.$element
 		.addClass( 'oo-ui-fieldLayout' )
