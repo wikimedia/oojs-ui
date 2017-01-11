@@ -51,12 +51,10 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 	// Properties
 	this.input = config.input;
 
-	// Events
-	if ( this.input instanceof OO.ui.InputWidget ) {
-		this.$element.on( 'click', this.onClick.bind( this ) );
-	}
-
 	// Initialization
+	if ( this.input instanceof OO.ui.InputWidget ) {
+		this.$element.attr( 'for', this.input.getInputId() );
+	}
 	this.$element.addClass( 'oo-ui-labelWidget' );
 };
 
@@ -72,17 +70,4 @@ OO.mixinClass( OO.ui.LabelWidget, OO.ui.mixin.TitledElement );
  * @static
  * @inheritdoc
  */
-OO.ui.LabelWidget.static.tagName = 'span';
-
-/* Methods */
-
-/**
- * Handles label mouse click events.
- *
- * @private
- * @param {jQuery.Event} e Mouse click event
- */
-OO.ui.LabelWidget.prototype.onClick = function () {
-	this.input.simulateLabelClick();
-	return false;
-};
+OO.ui.LabelWidget.static.tagName = 'label';
