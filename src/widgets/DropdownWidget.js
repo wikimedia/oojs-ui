@@ -3,7 +3,7 @@
  * OO.ui.MenuOptionWidget. The DropdownWidget takes care of opening and displaying the menu so that
  * users can interact with it.
  *
- * If you want to use this within a HTML form, such as a OO.ui.FormLayout, use
+ * If you want to use this within an HTML form, such as a OO.ui.FormLayout, use
  * OO.ui.DropdownInputWidget instead.
  *
  *     @example
