@@ -42,9 +42,9 @@ QUnit.module( 'JSPHP' );
 		} );
 	}
 
-	// Updating theme classes is normally debounced, we need to do it immediately
+	// Updating theme classes is normally debounced, but we need to do it immediately
 	// if we want the tests to be synchronous
-	OO.ui.Element.prototype.updateThemeClasses = OO.ui.Element.prototype.debouncedUpdateThemeClasses;
+	OO.ui.Theme.prototype.queueUpdateElementClasses = OO.ui.Theme.prototype.updateElementClasses;
 
 	for ( klassName in OO.ui.JSPHPTestSuite ) {
 		for ( theme in themes ) {

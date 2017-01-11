@@ -6,7 +6,10 @@
  *
  * @constructor
  */
-OO.ui.Theme = function OoUiTheme() {};
+OO.ui.Theme = function OoUiTheme() {
+	this.elementClassesQueue = [];
+	this.debouncedUpdateQueuedElementClasses = OO.ui.debounce( this.updateQueuedElementClasses );
+};
 
 /* Setup */
 
@@ -48,6 +51,36 @@ OO.ui.Theme.prototype.updateElementClasses = function ( element ) {
 	$elements
 		.removeClass( classes.off.join( ' ' ) )
 		.addClass( classes.on.join( ' ' ) );
+};
+
+/**
+ * @private
+ */
+OO.ui.Theme.prototype.updateQueuedElementClasses = function () {
+	var i;
+	for ( i = 0; i < this.elementClassesQueue.length; i++ ) {
+		this.updateElementClasses( this.elementClassesQueue[ i ] );
+	}
+	// Clear the queue
+	this.elementClassesQueue = [];
+};
+
+/**
+ * Queue #updateElementClasses to be called for this element.
+ *
+ * @localdoc QUnit tests override this method to directly call #queueUpdateElementClasses,
+ *   to make them synchronous.
+ *
+ * @param {OO.ui.Element} element Element for which to update classes
+ */
+OO.ui.Theme.prototype.queueUpdateElementClasses = function ( element ) {
+	// Keep items in the queue unique. Use lastIndexOf to start checking from the end because that's
+	// the most common case (this method is often called repeatedly for the same element).
+	if ( this.elementClassesQueue.lastIndexOf( element ) !== -1 ) {
+		return;
+	}
+	this.elementClassesQueue.push( element );
+	this.debouncedUpdateQueuedElementClasses();
 };
 
 /**
