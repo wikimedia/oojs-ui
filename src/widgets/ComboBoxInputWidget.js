@@ -8,7 +8,7 @@
  * - by choosing a value from the menu. The value of the chosen option will then appear in the text
  *   input field.
  *
- * This widget can be used inside a HTML form, such as a OO.ui.FormLayout.
+ * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
  * For more information about menus and options, please see the [OOjs UI documentation on MediaWiki][1].
  *

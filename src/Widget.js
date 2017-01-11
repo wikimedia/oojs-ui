@@ -40,7 +40,7 @@ OO.mixinClass( OO.ui.Widget, OO.EventEmitter );
 /* Static Properties */
 
 /**
- * Whether this widget will behave reasonably when wrapped in a HTML `<label>`. If this is true,
+ * Whether this widget will behave reasonably when wrapped in an HTML `<label>`. If this is true,
  * wrappers such as OO.ui.FieldLayout may use a `<label>` instead of implementing own label click
  * handling.
  *

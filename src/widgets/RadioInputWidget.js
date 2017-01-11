@@ -4,7 +4,7 @@
  * with {@link OO.ui.RadioOptionWidget radio options} instead of this class. For more information,
  * please see the [OOjs UI documentation on MediaWiki][1].
  *
- * This widget can be used inside a HTML form, such as a OO.ui.FormLayout.
+ * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
  *     @example
  *     // An example of selected, unselected, and disabled radio inputs

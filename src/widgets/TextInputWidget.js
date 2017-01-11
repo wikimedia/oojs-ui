@@ -6,7 +6,7 @@
  * which modifies incoming values rather than validating them.
  * Please see the [OOjs UI documentation on MediaWiki] [1] for more information and examples.
  *
- * This widget can be used inside a HTML form, such as a OO.ui.FormLayout.
+ * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
  *     @example
  *     // Example of a text input widget

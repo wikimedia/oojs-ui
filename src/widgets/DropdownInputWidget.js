@@ -1,6 +1,6 @@
 /**
  * DropdownInputWidget is a {@link OO.ui.DropdownWidget DropdownWidget} intended to be used
- * within a HTML form, such as a OO.ui.FormLayout. The selected value is synchronized with the value
+ * within an HTML form, such as a OO.ui.FormLayout. The selected value is synchronized with the value
  * of a hidden HTML `input` tag. Please see the [OOjs UI documentation on MediaWiki][1] for
  * more information about input widgets.
  *

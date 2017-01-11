@@ -4,7 +4,7 @@
  * CheckboxMultiselectWidget provides an interface for adding, removing and selecting options.
  * Please see the [OOjs UI documentation on MediaWiki][1] for more information.
  *
- * If you want to use this within a HTML form, such as a OO.ui.FormLayout, use
+ * If you want to use this within an HTML form, such as a OO.ui.FormLayout, use
  * OO.ui.CheckboxMultiselectInputWidget instead.
  *
  *     @example
