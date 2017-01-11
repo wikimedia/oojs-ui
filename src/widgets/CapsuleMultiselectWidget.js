@@ -52,6 +52,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {string} [placeholder] Placeholder text
  * @cfg {boolean} [allowArbitrary=false] Allow data items to be added even if not present in the menu.
+ * @cfg {boolean} [allowDuplicates=false] Allow duplicate items to be added.
  * @cfg {Object} [menu] (required) Configuration options to pass to the
  *  {@link OO.ui.MenuSelectWidget menu select widget}.
  * @cfg {Object} [popup] Configuration options to pass to the {@link OO.ui.PopupWidget popup widget}.
@@ -73,6 +74,7 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 	// Configuration initialization
 	config = $.extend( {
 		allowArbitrary: false,
+		allowDuplicates: false,
 		$overlay: this.$element
 	}, config );
 
@@ -104,6 +106,7 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 	// Properties
 	this.$content = $( '<div>' );
 	this.allowArbitrary = config.allowArbitrary;
+	this.allowDuplicates = config.allowDuplicates;
 	this.$overlay = config.$overlay;
 	this.menu = new OO.ui.FloatingMenuSelectWidget( $.extend(
 		{
@@ -303,7 +306,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.addItemsFromData = function ( datas ) {
 	$.each( datas, function ( i, data ) {
 		var item;
 
-		if ( !widget.getItemFromData( data ) ) {
+		if ( !widget.getItemFromData( data ) || widget.allowDuplicates ) {
 			item = menu.getItemFromData( data );
 			if ( item ) {
 				item = widget.createItemWidget( data, item.label );
