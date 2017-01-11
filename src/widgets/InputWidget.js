@@ -232,6 +232,7 @@ OO.ui.InputWidget.prototype.cleanUpValue = function ( value ) {
  * called directly.
  */
 OO.ui.InputWidget.prototype.simulateLabelClick = function () {
+	OO.ui.warnDeprecation( 'InputWidget: simulateLabelClick() is deprecated.' );
 	if ( !this.isDisabled() ) {
 		if ( this.$input.is( ':checkbox, :radio' ) ) {
 			this.$input.click();
