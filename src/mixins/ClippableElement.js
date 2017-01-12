@@ -109,7 +109,14 @@ OO.ui.mixin.ClippableElement.prototype.toggleClipping = function ( clipping ) {
 			// Initial clip after visible
 			this.clip();
 		} else {
-			this.$clippable.css( { width: '', height: '', overflowX: '', overflowY: '' } );
+			this.$clippable.css( {
+				width: '',
+				height: '',
+				maxWidth: '',
+				maxHeight: '',
+				overflowX: '',
+				overflowY: ''
+			} );
 			OO.ui.Element.static.reconsiderScrollbars( this.$clippable[ 0 ] );
 
 			this.$clippableScrollableContainer = null;
