@@ -772,6 +772,15 @@ OO.ui.TextInputWidget.prototype.getValidity = function () {
 		}
 	}
 
+	// Check browser validity and reject if it is invalid
+	if (
+		this.$input[ 0 ].checkValidity !== undefined &&
+		this.$input[ 0 ].checkValidity() === false
+	) {
+		return rejectOrResolve( false );
+	}
+
+	// Run our checks if the browser thinks the field is valid
 	if ( this.validate instanceof Function ) {
 		result = this.validate( this.getValue() );
 		if ( result && $.isFunction( result.promise ) ) {
