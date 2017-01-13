@@ -1629,7 +1629,6 @@
 	overflow: hidden;
 
 	&-bar {
-		background-color: @color-progressive;
 		height: 1em;
 		.oo-ui-transition( width 200ms );
 	}
@@ -1641,8 +1640,15 @@
 			border-left-width: @border-width-default;
 		}
 	}
+	&.oo-ui-widget-enabled {
+		.oo-ui-progressBarWidget-bar {
+			background-color: @color-progressive;
+		}
+	}
 	&.oo-ui-widget-disabled {
-		opacity: 0.6;
+		.oo-ui-progressBarWidget-bar {
+			background-color: @background-color-disabled-filled;
+		}
 	}
 
 	.oo-ui-progressBarWidget-slide-frames () {
