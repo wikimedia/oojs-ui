@@ -52,7 +52,7 @@ class FieldLayout extends Layout {
 	 */
 	protected $help;
 
-	protected $field, $body, $messages;
+	protected $field, $header, $body, $messages;
 
 	/**
 	 * @param Widget $fieldWidget Field widget
@@ -91,6 +91,7 @@ class FieldLayout extends Layout {
 		$this->notices = isset( $config['notices'] ) ? $config['notices'] : [];
 		$this->field = new Tag( 'div' );
 		$this->messages = new Tag( 'ul' );
+		$this->header = new Tag( 'div' );
 		$this->body = new Tag( $hasInputWidget ? 'label' : 'div' );
 		if ( isset( $config['help'] ) ) {
 			$this->help = new ButtonWidget( [
@@ -112,11 +113,12 @@ class FieldLayout extends Layout {
 		$this
 			->addClasses( [ 'oo-ui-fieldLayout' ] )
 			->toggleClasses( [ 'oo-ui-fieldLayout-disable' ], $this->fieldWidget->isDisabled() )
-			->appendContent( $this->help, $this->body );
+			->appendContent( $this->body );
 		if ( count( $this->errors ) || count( $this->notices ) ) {
 			$this->appendContent( $this->messages );
 		}
 		$this->body->addClasses( [ 'oo-ui-fieldLayout-body' ] );
+		$this->header->addClasses( [ 'oo-ui-fieldLayout-header' ] );
 		$this->messages->addClasses( [ 'oo-ui-fieldLayout-messages' ] );
 		$this->field
 			->addClasses( [ 'oo-ui-fieldLayout-field' ] )
@@ -176,10 +178,15 @@ class FieldLayout extends Layout {
 			}
 			// Reorder elements
 			$this->body->clearContent();
-			if ( $value === 'inline' ) {
-				$this->body->appendContent( $this->field, $this->label );
+			if ( $value === 'top' ) {
+				$this->header->appendContent( $this->label, $this->help );
+				$this->body->appendContent( $this->header, $this->field );
+			} elseif ( $value === 'inline' ) {
+				$this->header->appendContent( $this->label, $this->help );
+				$this->body->appendContent( $this->field, $this->header );
 			} else {
-				$this->body->appendContent( $this->label, $this->field );
+				$this->header->appendContent( $this->label );
+				$this->body->appendContent( $this->header, $this->help, $this->field );
 			}
 			// Set classes. The following classes can be used here:
 			// * oo-ui-fieldLayout-align-left

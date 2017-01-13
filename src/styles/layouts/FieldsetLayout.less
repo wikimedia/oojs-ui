@@ -11,12 +11,12 @@
 		display: table-cell; // Prevent overflowing content in Firefox (responsive layouts)
 	}
 
-	&.oo-ui-iconElement > .oo-ui-iconElement-icon {
+	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-iconElement-icon {
 		display: block;
 		position: absolute;
 	}
 
-	&.oo-ui-labelElement > .oo-ui-labelElement-label {
+	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header {
 		color: inherit; // Correct the color inheritance from `fieldset` elements in IE
 		display: inline-table; // Correct the text wrapping in Edge and IE
 		box-sizing: border-box; // Correct the text wrapping in Edge and IE
@@ -25,7 +25,7 @@
 		white-space: normal; // Correct the text wrapping in Edge and IE
 		float: left; // Prevent positioning problems in Firefox, see T146462
 
-		&:empty {
+		> .oo-ui-labelElement-label:empty {
 			display: none;
 		}
 	}
@@ -34,7 +34,7 @@
 		clear: both;
 	}
 
-	> .oo-ui-fieldsetLayout-help {
+	.oo-ui-fieldsetLayout-help {
 		float: right;
 
 		> .oo-ui-popupWidget > .oo-ui-popupWidget-popup {

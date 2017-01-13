@@ -57,6 +57,8 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, { $label: $( '<div>' ) } ) );
 	OO.ui.mixin.GroupElement.call( this, config );
 
+	// Properties
+	this.$header = $( '<div>' );
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
 			classes: [ 'oo-ui-fieldsetLayout-help' ],
@@ -79,10 +81,13 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	}
 
 	// Initialization
+	this.$header
+		.addClass( 'oo-ui-fieldsetLayout-header' )
+		.append( this.$icon, this.$label, this.$help );
 	this.$group.addClass( 'oo-ui-fieldsetLayout-group' );
 	this.$element
 		.addClass( 'oo-ui-fieldsetLayout' )
-		.prepend( this.$label, this.$help, this.$icon, this.$group );
+		.prepend( this.$header, this.$group );
 	if ( Array.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}

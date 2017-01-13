@@ -52,31 +52,45 @@
 	}
 
 	&.oo-ui-labelElement {
-		& > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+		> .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
 			padding-bottom: 0.3125em; // equals `4px` at base `font-size: 12.8px`
-			line-height: @line-height-form-element;
+
+			> .oo-ui-labelElement-label {
+				line-height: @line-height-form-element;
+			}
 		}
 
-		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
-			padding: 0.3125em 0.46875em; // equals `4px 6px` at base `font-size: 12.8px`
-			// `6px` is not aligned to M101 design guideline, as checkbox and radios sizes aren't either
+		&.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header,
+		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body {
+			max-width: @max-width-default;
 		}
 
 		&.oo-ui-fieldLayout-align-left,
 		&.oo-ui-fieldLayout-align-right {
-			& > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
-				width: 35%;
-				margin-right: 5%;
-				padding-top: 0.3125em;
-			}
+			> .oo-ui-fieldLayout-body {
+				> .oo-ui-fieldLayout-header {
+					width: 35%;
+					margin-right: 5%;
 
-			> .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
-				width: 60%;
+					> .oo-ui-labelElement-label {
+						display: block;
+						padding-top: 0.3125em;
+					}
+				}
+
+				> .oo-ui-fieldLayout-field {
+					width: 60%;
+				}
 			}
+		}
+
+		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
+			padding: 0.3125em 0.46875em; // equals `4px 6px` at base `font-size: 12.8px`
+			// `6px` is not aligned to M101 design guideline, as checkbox and radios sizes aren't either
 		}
 	}
 
-	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
 		color: @color-disabled;
 	}
 
@@ -115,29 +129,34 @@
 }
 
 .theme-oo-ui-fieldsetLayout () {
+	.oo-ui-fieldsetLayout-header {
+		width: 50em;
+	}
+
 	+ .oo-ui-fieldsetLayout,
 	+ .oo-ui-formLayout {
 		margin-top: 2em;
 	}
 
-	&.oo-ui-labelElement > .oo-ui-labelElement-label {
+	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
+		display: inline-block;
 		margin-bottom: 0.56818em; // equals `8px` due to `font-size: 1.1em` below
 		font-size: 1.1em;
 		font-weight: bold;
 		line-height: @line-height-form-element;
 	}
 
-	&.oo-ui-iconElement > .oo-ui-labelElement-label {
+	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
 		padding-left: 2em;
 		line-height: 1.8;
 	}
 
-	&.oo-ui-iconElement > .oo-ui-iconElement-icon {
+	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-iconElement-icon {
 		top: 0;
 		left: 0;
 	}
 
-	> .oo-ui-popupButtonWidget {
+	> .oo-ui-fieldsetLayout-header > .oo-ui-popupButtonWidget {
 		.oo-ui-inline-spacing( 0 );
 	}
 }

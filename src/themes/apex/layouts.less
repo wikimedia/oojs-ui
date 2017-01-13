@@ -35,10 +35,14 @@
 
 	&.oo-ui-fieldLayout-align-left,
 	&.oo-ui-fieldLayout-align-right {
-		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
-			padding-top: 0.5em;
+		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
 			margin-right: 5%;
 			width: 35%;
+
+			> .oo-ui-labelElement-label {
+				display: block;
+				padding-top: 0.5em;
+			}
 		}
 
 		> .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
@@ -49,13 +53,18 @@
 	&.oo-ui-fieldLayout-align-inline {
 		margin-bottom: 1.25em;
 
-		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+		& > .oo-ui-fieldLayout-body {
+			max-width: @max-width-default;
+		}
+
+		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
 			padding: 0.25em 0.25em 0.25em 0.5em;
 		}
 	}
 
 	&.oo-ui-fieldLayout-align-top {
-		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
+			max-width: @max-width-default;
 			padding: 0.5em 0;
 		}
 	}
@@ -65,7 +74,7 @@
 		margin-top: 0.25em;
 	}
 
-	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
 		color: #ccc;
 	}
 
@@ -104,30 +113,34 @@
 }
 
 .theme-oo-ui-fieldsetLayout () {
+	.oo-ui-fieldsetLayout-header {
+		width: 50em;
+	}
 
 	+ .oo-ui-fieldsetLayout,
 	+ .oo-ui-formLayout {
 		margin-top: 2em;
 	}
 
-	&.oo-ui-labelElement > .oo-ui-labelElement-label {
+	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
+		display: inline-block;
 		font-size: 1.1em;
 		margin-bottom: 0.5em;
 		padding: 0.25em 0;
 		font-weight: bold;
 	}
 
-	&.oo-ui-iconElement > .oo-ui-labelElement-label {
+	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
 		padding-left: 2em;
 		line-height: 1.8em;
 	}
 
-	&.oo-ui-iconElement > .oo-ui-iconElement-icon {
+	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-iconElement-icon {
 		left: 0;
 		top: 0.25em;
 	}
 
-	> .oo-ui-popupButtonWidget {
+	> .oo-ui-fieldsetLayout-header > .oo-ui-popupButtonWidget {
 		.oo-ui-inline-spacing(0);
 	}
 }
