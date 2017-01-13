@@ -35,6 +35,19 @@
 
 	&.oo-ui-fieldLayout-align-left,
 	&.oo-ui-fieldLayout-align-right {
+		> .oo-ui-fieldLayout-body {
+			> .oo-ui-fieldLayout-help {
+				// Override the default
+				margin-right: 0;
+				// Move into the space of `margin-right` of header
+				margin-left: -@size-icon;
+			}
+
+			> .oo-ui-fieldLayout-field {
+				width: 60%;
+			}
+		}
+
 		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
 			margin-right: 5%;
 			width: 35%;
@@ -43,10 +56,6 @@
 				display: block;
 				padding-top: 0.5em;
 			}
-		}
-
-		> .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
-			width: 60%;
 		}
 	}
 
