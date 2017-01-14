@@ -4,6 +4,9 @@ if ( !defined( 'OOUI_DEMOS' ) ) {
 	exit;
 }
 
+$loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, " .
+	"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\xE2\x80\x8E";
+
 $demoContainer = new OOUI\PanelLayout( [
 	'expanded' => false,
 	'padded' => true,
@@ -885,8 +888,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'label' => 'FieldLayout with help',
-				'help' => 'I am an additional, helpful information. Lorem ipsum dolor sit amet, cibo pri ' .
-					"in, duo ex inimicus perpetua complectitur, mel periculis similique at.\xE2\x80\x8E",
+				'help' => $loremIpsum,
 				'align' => 'top'
 			]
 		),
@@ -910,34 +912,13 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'align' => 'top'
 			]
 		),
-		new OOUI\ActionFieldLayout(
-			new OOUI\TextInputWidget(),
+		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [
 				'label' => 'Button'
 			] ),
 			[
-				'label' => 'ActionFieldLayout aligned left',
-				'align' => 'left'
-			]
-		),
-		new OOUI\ActionFieldLayout(
-			new OOUI\TextInputWidget(),
-			new OOUI\ButtonWidget( [
-				'label' => 'Button'
-			] ),
-			[
-				'label' => 'ActionFieldLayout aligned inline',
-				'align' => 'inline'
-			]
-		),
-		new OOUI\ActionFieldLayout(
-			new OOUI\TextInputWidget(),
-			new OOUI\ButtonWidget( [
-				'label' => 'Button'
-			] ),
-			[
-				'label' => 'ActionFieldLayout aligned right',
-				'align' => 'right'
+				'label' => new OOUI\HtmlSnippet( '<i>FieldLayout with rich text label</i>' ),
+				'align' => 'top'
 			]
 		),
 		new OOUI\ActionFieldLayout(
@@ -950,15 +931,11 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'align' => 'top'
 			]
 		),
-		new OOUI\ActionFieldLayout(
+		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget(),
-			new OOUI\ButtonWidget( [
-				'label' => 'Button'
-			] ),
 			[
-				'label' => 'ActionFieldLayout aligned top with help',
-				'help' => 'I am an additional, helpful information. Lorem ipsum dolor sit amet, cibo pri ' .
-					"in, duo ex inimicus perpetua complectitur, mel periculis similique at.\xE2\x80\x8E",
+				'label' => 'FieldLayout aligned top with help',
+				'help' => $loremIpsum,
 				'align' => 'top'
 			]
 		),
@@ -968,9 +945,96 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'label' => 'Button'
 			] ),
 			[
-				'label' =>
-					new OOUI\HtmlSnippet( '<i>ActionFieldLayout aligned top with rich text label</i>' ),
+				'label' => 'ActionFieldLayout aligned top with help',
+				'help' => $loremIpsum,
 				'align' => 'top'
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned inline',
+				'align' => 'inline',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned inline with help',
+				'help' => $loremIpsum,
+				'align' => 'inline',
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned inline with help',
+				'help' => $loremIpsum,
+				'align' => 'inline',
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned left',
+				'align' => 'left',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned left with help',
+				'help' => $loremIpsum,
+				'align' => 'left',
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned left with help',
+				'help' => $loremIpsum,
+				'align' => 'left',
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned right',
+				'align' => 'right',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned right with help',
+				'help' => $loremIpsum,
+				'align' => 'right',
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned right with help',
+				'help' => $loremIpsum,
+				'align' => 'right',
 			]
 		),
 		new OOUI\FieldLayout(
