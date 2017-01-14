@@ -1,6 +1,7 @@
 OO.ui.Demo.static.pages.widgets = function ( demo ) {
 	var i, styles, states, buttonStyleShowcaseWidget, $table, fieldsets,
 		capsuleWithPopup, capsulePopupWidget,
+		textInputForLabel, labelForTextInput,
 		horizontalDragItems = [],
 		verticalDragItems = [],
 		verticalHandledDragItems = [],
@@ -183,6 +184,12 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 	capsuleWithPopup = new OO.ui.CapsuleMultiselectWidget( {
 		allowArbitrary: true,
 		popup: { $content: capsulePopupWidget.$element }
+	} );
+
+	textInputForLabel = new OO.ui.TextInputWidget( { value: 'Input for label above' } );
+	labelForTextInput = new OO.ui.LabelWidget( {
+		label: 'Label for input below',
+		input: textInputForLabel
 	} );
 
 	styles = [
@@ -1771,6 +1778,20 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'LabelWidget (with HTML)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					labelForTextInput,
+					{
+						label: 'LabelWidget (with an associated input)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					textInputForLabel,
+					{
+						label: 'TextInputWidget (with an associated label)\u200E',
 						align: 'top'
 					}
 				),
