@@ -16,7 +16,7 @@
 	&.oo-ui-fieldLayout-align-left,
 	&.oo-ui-fieldLayout-align-right {
 		> .oo-ui-fieldLayout-body {
-			> .oo-ui-labelElement-label,
+			> .oo-ui-fieldLayout-header,
 			> .oo-ui-fieldLayout-field {
 				display: block;
 				float: left;
@@ -24,25 +24,22 @@
 		}
 	}
 
-	&.oo-ui-fieldLayout-align-right > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+	&.oo-ui-fieldLayout-align-right > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
 		text-align: right;
 	}
 
 	&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body {
 		display: table;
+		width: 100%;
 
-		> .oo-ui-labelElement-label,
+		> .oo-ui-fieldLayout-header,
 		> .oo-ui-fieldLayout-field {
 			display: table-cell;
 			vertical-align: middle;
 		}
 	}
 
-	&.oo-ui-labelElement.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
-		display: inline-block;
-	}
-
-	> .oo-ui-fieldLayout-help {
+	.oo-ui-fieldLayout-help {
 		float: right;
 
 		> .oo-ui-popupWidget > .oo-ui-popupWidget-popup {
@@ -52,6 +49,14 @@
 		.oo-ui-fieldLayout-help-content {
 			padding: 0.5em 0.75em;
 			line-height: 1.5;
+		}
+	}
+
+	&.oo-ui-fieldLayout-align-top {
+		.oo-ui-fieldLayout-help {
+			// HACK: The height of this ButtonWidget extends below the header line (with align: top),
+			// causing the field widget to be narrower than it should be. 0.3em chosen experimentally.
+			margin-top: -0.3em;
 		}
 	}
 

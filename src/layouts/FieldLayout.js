@@ -70,6 +70,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.notices = [];
 	this.$field = $( '<div>' );
 	this.$messages = $( '<ul>' );
+	this.$header = $( '<div>' );
 	this.$body = $( '<' + ( hasInputWidget ? 'label' : 'div' ) + '>' );
 	this.align = null;
 	if ( config.help ) {
@@ -103,8 +104,9 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.$element
 		.addClass( 'oo-ui-fieldLayout' )
 		.toggleClass( 'oo-ui-fieldLayout-disabled', this.fieldWidget.isDisabled() )
-		.append( this.$help, this.$body );
+		.append( this.$body );
 	this.$body.addClass( 'oo-ui-fieldLayout-body' );
+	this.$header.addClass( 'oo-ui-fieldLayout-header' );
 	this.$messages.addClass( 'oo-ui-fieldLayout-messages' );
 	this.$field
 		.addClass( 'oo-ui-fieldLayout-field' )
@@ -190,10 +192,15 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 			value = 'left';
 		}
 		// Reorder elements
-		if ( value === 'inline' ) {
-			this.$body.append( this.$field, this.$label );
+		if ( value === 'top' ) {
+			this.$header.append( this.$label, this.$help );
+			this.$body.append( this.$header, this.$field );
+		} else if ( value === 'inline' ) {
+			this.$header.append( this.$label, this.$help );
+			this.$body.append( this.$field, this.$header );
 		} else {
-			this.$body.append( this.$label, this.$field );
+			this.$header.append( this.$label );
+			this.$body.append( this.$header, this.$help, this.$field );
 		}
 		// Set classes. The following classes can be used here:
 		// * oo-ui-fieldLayout-align-left
