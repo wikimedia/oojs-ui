@@ -45,6 +45,7 @@ else
 	# Values to test for specific config options, when not all values of given type are valid.
 	# Empty array will result in no tests for this config option being generated.
 	sensible_values = {
+		'align' => %w[top inline left],
 		'href' => ['http://example.com/'],
 		['TextInputWidget', 'type'] => %w[text number password foo],
 		['ButtonInputWidget', 'type'] => %w[button submit foo],
