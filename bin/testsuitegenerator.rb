@@ -83,9 +83,12 @@ else
 	end
 
 	expand_types_to_values = lambda do |types|
-		# Widget is not "testable", test a few different subclasses instead
+		# For abstract classes (not "testable"), test a few different subclasses instead
 		if types.delete 'Widget'
 			types.push 'ButtonWidget', 'TextInputWidget'
+		end
+		if types.delete 'InputWidget'
+			types.push 'CheckboxInputWidget', 'TextInputWidget'
 		end
 
 		return types.map{|t|

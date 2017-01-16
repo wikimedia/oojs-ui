@@ -74,7 +74,12 @@
 						array_walk_recursive( $config, 'unstub' );
 						$config['infusable'] = true;
 						$instance = new_OOUI( $test['class'], $config );
-						echo "<div id='JSPHPTestSuite_$theme$className$index'>$instance</div>\n";
+						$output = "$instance";
+						// HACK: OO.ui.infuse() expects to find this element somewhere on the page
+						if ( $instance instanceof OOUI\LabelWidget && isset( $config['input'] ) ) {
+							$output .= $config['input'];
+						}
+						echo "<div id='JSPHPTestSuite_$theme$className$index'>$output</div>\n";
 					}
 				}
 			}

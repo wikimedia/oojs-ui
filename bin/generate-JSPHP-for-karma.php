@@ -34,7 +34,12 @@ foreach ( $themes as $theme ) {
 			array_walk_recursive( $config, 'unstub' );
 			$config['infusable'] = true;
 			$instance = new_OOUI( $test['class'], $config );
-			$testSuiteOutput[$theme][$className][] = "$instance";
+			$output = "$instance";
+			// HACK: OO.ui.infuse() expects to find this element somewhere on the page
+			if ( $instance instanceof OOUI\LabelWidget && isset( $config['input'] ) ) {
+				$output .= $config['input'];
+			}
+			$testSuiteOutput[$theme][$className][] = $output;
 		}
 	}
 }
