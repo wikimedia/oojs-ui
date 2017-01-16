@@ -83,9 +83,13 @@ else
 	end
 
 	expand_types_to_values = lambda do |types|
+		# Widget is not "testable", test a few different subclasses instead
+		if types.delete 'Widget'
+			types.push 'ButtonWidget', 'TextInputWidget'
+		end
+
 		return types.map{|t|
 			as_array = true if t.sub! '[]', ''
-			t = 'ButtonWidget' if t == 'Widget' # Widget is not "testable", use a subclass
 			if expandos[t]
 				# Primitive. Run tests with the provided values.
 				vals = expandos[t]
