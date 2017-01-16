@@ -607,6 +607,9 @@ OO.ui.Element.static.scrollIntoView = function ( el, config ) {
 
 	animations = {};
 	callback = typeof config.complete === 'function' && config.complete;
+	if ( callback ) {
+		OO.ui.warnDeprecation( 'Element#scrollIntoView: The `complete` callback config option is deprecated. Use the return promise instead.' );
+	}
 	container = this.getClosestScrollableContainer( el, config.direction );
 	$container = $( container );
 	elementDimensions = this.getDimensions( el );
