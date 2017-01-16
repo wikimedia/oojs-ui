@@ -51,12 +51,9 @@
 		if ( element.attributes ) {
 			for ( i = 0; i < element.attributes.length; i++ ) {
 				name = element.attributes[ i ].name;
-				if ( name.substr( 0, 5 ) !== 'data-' && name !== 'id' ) {
-					summary.attributes[ name ] = element.attributes[ i ].value;
-				}
+				summary.attributes[ name ] = element.attributes[ i ].value;
 			}
 		}
-
 		// Sort classes
 		if ( summary.attributes.class ) {
 			summary.attributes.class = summary.attributes.class.split( ' ' ).sort().join( ' ' );
@@ -81,6 +78,21 @@
 		if ( summary.type === 'textarea' ) {
 			// summary.text = '';
 			summary.children = [];
+		}
+
+		// Filter out acceptable differences between OOjs UI's PHP widgets and JS widgets
+		// Automatically generated IDs (Tag::ensureInfusableId())
+		if ( summary.attributes.id !== undefined && summary.attributes.id.substr( 0, 5 ) === 'ooui-' ) {
+			delete summary.attributes.id;
+		}
+		// Infusion data
+		if ( summary.attributes[ 'data-ooui' ] !== undefined ) {
+			delete summary.attributes[ 'data-ooui' ];
+		}
+		// Classes for custom styling of PHP widgets
+		if ( summary.attributes.class !== undefined ) {
+			summary.attributes.class =
+				summary.attributes.class.replace( /oo-ui-textInputWidget-php /g, '' );
 		}
 
 		return summary;
