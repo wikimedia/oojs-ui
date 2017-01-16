@@ -43,17 +43,18 @@ OO.ui.MouseButtons = {
 
 /**
  * @property {number}
+ * @private
  */
 OO.ui.elementId = 0;
 
 /**
  * Generate a unique ID for element
  *
- * @return {string} [id]
+ * @return {string} ID
  */
 OO.ui.generateElementId = function () {
-	OO.ui.elementId += 1;
-	return 'oojsui-' + OO.ui.elementId;
+	OO.ui.elementId++;
+	return 'ooui-' + OO.ui.elementId;
 };
 
 /**
