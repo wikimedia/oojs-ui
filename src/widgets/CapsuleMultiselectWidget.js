@@ -795,7 +795,18 @@ OO.ui.CapsuleMultiselectWidget.prototype.focus = function () {
 };
 
 /**
+ * The old name for the CapsuleMultiselectWidget widget, provided for backwards-compatibility.
+ *
  * @class
+ * @extends OO.ui.CapsuleMultiselectWidget
+ *
+ * @constructor
  * @deprecated since 0.17.3; use OO.ui.CapsuleMultiselectWidget instead
  */
-OO.ui.CapsuleMultiSelectWidget = OO.ui.CapsuleMultiselectWidget;
+OO.ui.CapsuleMultiSelectWidget = function OoUiCapsuleMultiSelectWidget() {
+	OO.ui.warnDeprecation( 'CapsuleMultiSelectWidget is deprecated. Use the CapsuleMultiselectWidget instead.' );
+	// Parent constructor
+	OO.ui.TextInputMenuSelectWidget.parent.apply( this, arguments );
+};
+
+OO.inheritClass( OO.ui.CapsuleMultiSelectWidget, OO.ui.CapsuleMultiselectWidget );
