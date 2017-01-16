@@ -154,6 +154,7 @@ OO.ui.mixin.LabelElement.prototype.getLabel = function () {
  * @deprecated since 0.16.0
  */
 OO.ui.mixin.LabelElement.prototype.fitLabel = function () {
+	OO.ui.warnDeprecation( 'LabelElement#fitLabel: This is a deprecated no-op.' );
 	return this;
 };
 
