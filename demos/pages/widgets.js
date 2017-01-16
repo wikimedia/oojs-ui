@@ -2017,7 +2017,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.ActionFieldLayout(
-					new OO.ui.TextInputWidget(),
+					new OO.ui.CheckboxInputWidget( { selected: true } ),
 					new OO.ui.ButtonWidget( {
 						label: 'Button'
 					} ),
@@ -2027,7 +2027,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget(),
+					new OO.ui.CheckboxInputWidget( { selected: true } ),
 					{
 						label: 'FieldLayout aligned inline with help',
 						help: loremIpsum,
@@ -2035,7 +2035,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.ActionFieldLayout(
-					new OO.ui.TextInputWidget(),
+					new OO.ui.CheckboxInputWidget( { selected: true } ),
 					new OO.ui.ButtonWidget( {
 						label: 'Button'
 					} ),

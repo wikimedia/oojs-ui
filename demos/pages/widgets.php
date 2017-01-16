@@ -951,7 +951,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\ActionFieldLayout(
-			new OOUI\TextInputWidget(),
+			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
 			new OOUI\ButtonWidget( [
 				'label' => 'Button'
 			] ),
@@ -961,7 +961,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget(),
+			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
 			[
 				'label' => 'FieldLayout aligned inline with help',
 				'help' => $loremIpsum,
@@ -969,7 +969,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\ActionFieldLayout(
-			new OOUI\TextInputWidget(),
+			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
 			new OOUI\ButtonWidget( [
 				'label' => 'Button'
 			] ),
