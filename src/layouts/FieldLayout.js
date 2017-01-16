@@ -39,8 +39,6 @@
  * @throws {Error} An error is thrown if no widget is specified
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
-	var hasInputWidget;
-
 	// Allow passing positional parameters inside the config object
 	if ( OO.isPlainObject( fieldWidget ) && config === undefined ) {
 		config = fieldWidget;
@@ -52,8 +50,6 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		throw new Error( 'Widget not found' );
 	}
 
-	hasInputWidget = fieldWidget.constructor.static.supportsSimpleLabel;
-
 	// Configuration initialization
 	config = $.extend( { align: 'left' }, config );
 
@@ -61,7 +57,9 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	OO.ui.FieldLayout.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, {
+		$label: $( '<label>' )
+	} ) );
 	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$label } ) );
 
 	// Properties
@@ -71,7 +69,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.$field = $( '<div>' );
 	this.$messages = $( '<ul>' );
 	this.$header = $( '<div>' );
-	this.$body = $( '<' + ( hasInputWidget ? 'label' : 'div' ) + '>' );
+	this.$body = $( '<div>' );
 	this.align = null;
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
@@ -96,8 +94,8 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
 
 	// Initialization
-	if ( hasInputWidget ) {
-		this.$body.attr( 'for', this.fieldWidget.getInputId() );
+	if ( fieldWidget.constructor.static.supportsSimpleLabel ) {
+		this.$label.attr( 'for', this.fieldWidget.getInputId() );
 	}
 	this.$element
 		.addClass( 'oo-ui-fieldLayout' )
