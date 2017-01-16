@@ -32,11 +32,11 @@ QUnit.module( 'JSPHP' );
 				$( 'body' ).append( instance.$element, $fromPhp );
 
 				testName = JSON.stringify( test.config );
-				assert.equalDomElement( instance.$element[ 0 ], $fromPhp[ 0 ], testName, true );
+				assert.equalDomElement( instance.$element[ 0 ], $fromPhp[ 0 ], testName );
 
 				infused = OO.ui.infuse( $fromPhp[ 0 ] );
 
-				assert.equalDomElement( instance.$element[ 0 ], infused.$element[ 0 ], testName + ' (infuse)', true );
+				assert.equalDomElement( instance.$element[ 0 ], infused.$element[ 0 ], testName + ' (infuse)' );
 				instance.$element.add( infused.$element ).detach();
 			}
 		} );
