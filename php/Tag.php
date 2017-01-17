@@ -270,7 +270,18 @@ class Tag {
 		return $this->infusable;
 	}
 
-	private static $id_cnt = 0;
+	private static $elementId = 0;
+
+	/**
+	 * Generate a unique ID for element
+	 *
+	 * @return {string} ID
+	 */
+	public static function generateElementId() {
+		self::$elementId++;
+		return 'ooui-' . self::$elementId;
+	}
+
 	/**
 	 * Ensure that this given Tag is infusable and has a unique `id`
 	 * attribute.
@@ -279,7 +290,7 @@ class Tag {
 	public function ensureInfusableId() {
 		$this->setInfusable( true );
 		if ( $this->getAttribute( 'id' ) === null ) {
-			$this->setAttributes( [ 'id' => "ooui-" . ( self::$id_cnt++ ) ] );
+			$this->setAttributes( [ 'id' => self::generateElementId() ] );
 		}
 		return $this;
 	}

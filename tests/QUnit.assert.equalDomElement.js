@@ -81,7 +81,7 @@
 		}
 
 		// Filter out acceptable differences between OOjs UI's PHP widgets and JS widgets
-		// Automatically generated IDs (Tag::ensureInfusableId())
+		// Automatically generated IDs (Tag::generateElementId(), OO.ui.generateElementId())
 		if ( summary.attributes.id !== undefined && summary.attributes.id.substr( 0, 5 ) === 'ooui-' ) {
 			delete summary.attributes.id;
 		}
