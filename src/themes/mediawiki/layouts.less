@@ -181,12 +181,18 @@
 .theme-oo-ui-panelLayout () {
 	&-padded {
 		padding: 1.25em;
+
+		&.oo-ui-formLayout > .oo-ui-fieldsetLayout {
+			.oo-ui-labelElement-label,
+			.oo-ui-iconElement-icon {
+				margin-top: -0.25em; // Reduce distance for `line-height` and only if element visible
+			}
+		}
 	}
 
 	&-framed {
 		border: @border-dialog;
 		border-radius: @border-radius-default;
-		box-shadow: @box-shadow-dialog;
 	}
 
 	&-padded&-framed {
