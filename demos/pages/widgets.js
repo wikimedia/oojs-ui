@@ -1890,7 +1890,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							$content: $( '<p>Additional options here.</p>' ),
 							padded: true,
-							align: 'left'
+							align: 'forwards'
 						}
 					} ),
 					{
