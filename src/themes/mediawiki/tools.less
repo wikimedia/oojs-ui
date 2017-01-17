@@ -318,7 +318,7 @@
 			width: 0.9375em;
 			height: 100%;
 			margin: 0 0.5em;
-			opacity: 0.3;
+			opacity: @opacity-icon-default;
 
 			.oo-ui-toolbar-narrow & {
 				right: -0.3125em;
@@ -390,7 +390,12 @@
 			}
 		}
 
-		&-handle {
+		> .oo-ui-popupToolGroup-handle {
+			.oo-ui-transition(
+				background-color @transition-ease-quick,
+				box-shadow @transition-ease-quick
+			);
+
 			&:hover {
 				background-color: @background-color-tool-hover;
 			}
