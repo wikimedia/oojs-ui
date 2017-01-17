@@ -1,4 +1,48 @@
 # OOjs UI Release History
+## v0.18.4 / 2017-01-17
+### Deprecations
+* [DEPRECATING CHANGE] MessageDialog: Default 'verbose' option to true (James D. Forrester)
+* Follow-up 1dc6a45: Emit deprecations from Element#scrollIntoView callback (James D. Forrester)
+* Follow-up 4518bcf: Emit deprecation warnings for LabelElement#fitLabel (James D. Forrester)
+* Follow-up 574fd34: Emit deprecations for use of CapsuleMultiSelectWidget (James D. Forrester)
+* Follow-up ea9a4ac: Throw deprecation warnings for TextInputMenuSelectWidget (James D. Forrester)
+* Follow-up f69a2ad: Emit deprecations for old PopupWidget#setAlignment values (James D. Forrester)
+
+### Features
+* CapsuleMultiSelectWidget: Add allowDuplicates option (Brad Jorsch)
+* CapsuleMultiSelectWidget: Remove onFocusForPopup, call focus directly (Roan Kattouw)
+* ClippableElement: Add `min-height` for usability in edge cases (Volker E)
+* TextInputWidget: Disable hiding focus when clicking indicator/label (Volker E)
+
+### Styles
+* ActionFieldLayout: Limit the 'max-width: 50em' to align: top (Bartosz Dziewoński)
+* ButtonGroupWidget: Limit default cursor to active ButtonWidgets (Volker E)
+* FieldLayout, FieldsetLayout: Limit width of label+help to 50em (Bartosz Dziewoński)
+* FieldLayout: Correct styling regressions for align: 'inline' (Bartosz Dziewoński)
+* FieldLayout: Fix positioning of 'help' with align: left/right (Bartosz Dziewoński)
+* MediaWiki theme: Unify box-shadows to one visual appearance (Volker E)
+* PanelLayout: Remove 3D appearance of framed panels and harmonise padding (Volker E)
+* PopupWidget: Change margins to prevent click blocking (Ed Sanders)
+
+### Code
+* ClippableElement: Also clean up `maxWidth`, `maxHeight` when turning clipping off (Bartosz Dziewoński)
+* Element#updateThemeClasses: Batch `setTimeout()` calls (Bartosz Dziewoński)
+* MediaWiki theme: Use variable for disabled ProgressBar (Volker E)
+* PopupWidget#setAlignment: Tweak docs to indicate default parameter value (James D. Forrester)
+* PHP: Add method Tag::generateElementId() to match JS OO.ui.generateElementId() (Bartosz Dziewoński)
+* styles: Improve and clarify GPU composite layer mixin (Volker E)
+* demo: Add a LabelWidget that has a corresponding TextInputWidget (Prateek Saxena)
+* demo: Add lots more FieldLayout demos (Bartosz Dziewoński)
+* demo: Add test for ClippableElements at the bottom of their containers (Prateek Saxena)
+* doc: Use 'an' instead of 'a' before 'HTML' (Prateek Saxena)
+* doc: Include an i18n example in OO.ui.msg documentation (David Lynch)
+* tests: Improve ignoring expected differences in JS/PHP comparison tests (Bartosz Dziewoński)
+* tests: Tweaks to the display of failed tests (Bartosz Dziewoński)
+* testsuitegenerator: Allow testing LabelWidget's 'input' (Bartosz Dziewoński)
+* testsuitegenerator: Specify sensible values to test for 'align' (Bartosz Dziewoński)
+* testsuitegenerator: Test FieldLayout etc. also with TextInputWidget (Bartosz Dziewoński)
+
+
 ## v0.18.3 / 2017-01-03
 ### Deprecations
 * [DEPRECATING CHANGE] icons: Deprecate the 'beta' and 'ribbonPrize' icons (James D. Forrester)
