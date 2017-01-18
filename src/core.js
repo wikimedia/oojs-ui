@@ -54,7 +54,7 @@ OO.ui.elementId = 0;
  */
 OO.ui.generateElementId = function () {
 	OO.ui.elementId++;
-	return 'ooui-' + OO.ui.elementId;
+	return 'oojsui-' + OO.ui.elementId;
 };
 
 /**

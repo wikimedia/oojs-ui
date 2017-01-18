@@ -82,7 +82,7 @@
 
 		// Filter out acceptable differences between OOjs UI's PHP widgets and JS widgets
 		// Automatically generated IDs (Tag::generateElementId(), OO.ui.generateElementId())
-		if ( summary.attributes.id !== undefined && summary.attributes.id.substr( 0, 5 ) === 'ooui-' ) {
+		if ( summary.attributes.id !== undefined && summary.attributes.id.match( /^(ooui-|oojsui-)/ ) ) {
 			delete summary.attributes.id;
 		}
 		// Infusion data
