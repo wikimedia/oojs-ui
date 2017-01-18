@@ -77,7 +77,7 @@ OO.ui.mixin.FloatableElement.prototype.setFloatableContainer = function ( $float
  * @chainable
  */
 OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positioning ) {
-	var closestScrollableOfContainer, closestScrollableOfFloatable;
+	var closestScrollableOfContainer;
 
 	positioning = positioning === undefined ? !this.positioning : !!positioning;
 
@@ -85,8 +85,7 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 		this.positioning = positioning;
 
 		closestScrollableOfContainer = OO.ui.Element.static.getClosestScrollableContainer( this.$floatableContainer[ 0 ] );
-		closestScrollableOfFloatable = OO.ui.Element.static.getClosestScrollableContainer( this.$floatable[ 0 ] );
-		this.needsCustomPosition = closestScrollableOfContainer !== closestScrollableOfFloatable;
+		this.needsCustomPosition = !OO.ui.contains( this.$floatableContainer[ 0 ], this.$floatable[ 0 ] );
 		// If the scrollable is the root, we have to listen to scroll events
 		// on the window because of browser inconsistencies.
 		if ( $( closestScrollableOfContainer ).is( 'html, body' ) ) {
