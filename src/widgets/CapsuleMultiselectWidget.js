@@ -806,7 +806,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.focus = function () {
 OO.ui.CapsuleMultiSelectWidget = function OoUiCapsuleMultiSelectWidget() {
 	OO.ui.warnDeprecation( 'CapsuleMultiSelectWidget is deprecated. Use the CapsuleMultiselectWidget instead.' );
 	// Parent constructor
-	OO.ui.TextInputMenuSelectWidget.parent.apply( this, arguments );
+	OO.ui.CapsuleMultiSelectWidget.parent.apply( this, arguments );
 };
 
 OO.inheritClass( OO.ui.CapsuleMultiSelectWidget, OO.ui.CapsuleMultiselectWidget );
