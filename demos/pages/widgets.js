@@ -1804,7 +1804,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							head: true,
 							label: 'More information',
-							$content: $( '<p>Extra information here.</p>' ),
+							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							align: 'force-left'
 						}
@@ -1821,7 +1821,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							head: true,
 							label: 'More information',
-							$content: $( '<p>Extra information here.</p>' ),
+							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							align: 'force-right'
 						}
@@ -1838,7 +1838,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							head: true,
 							label: 'More information',
-							$content: $( '<p>Extra information here.</p>' ),
+							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							align: 'backwards'
 						}
@@ -1855,7 +1855,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							head: true,
 							label: 'More information',
-							$content: $( '<p>Extra information here.</p>' ),
+							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							align: 'forwards'
 						}
@@ -1872,7 +1872,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							head: true,
 							label: 'More information',
-							$content: $( '<p>Extra information here.</p><ul><li>Item one</li><li>Item two</li><li>Item three</li><li>Item four</li></ul><p>Even more information here which might well be clipped off the visible area.</p>' ),
+							$content: $( '<p>' + loremIpsum + '</p><ul><li>Item one</li><li>Item two</li><li>Item three</li><li>Item four</li></ul><p>Even more text here which might well be clipped off the visible area.</p>' ),
 							$footer: $( '<p>And maybe a footer whilst we\'re at it?</p>' ),
 							padded: true,
 							align: 'forwards'
@@ -1888,7 +1888,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 						icon: 'menu',
 						label: 'Options',
 						popup: {
-							$content: $( '<p>Additional options here.</p>' ),
+							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							align: 'forwards'
 						}

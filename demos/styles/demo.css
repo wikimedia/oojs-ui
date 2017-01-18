@@ -4,6 +4,10 @@ body {
 	font-family: sans-serif;
 }
 
+p {
+	margin: 0.5em 0;
+}
+
 /* Layout */
 .oo-ui-demo-menu > .oo-ui-widget {
 	display: inline-block;
