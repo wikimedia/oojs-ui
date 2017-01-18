@@ -44,8 +44,6 @@
  *  For important messages, you are advised to use `notices`, as they are always shown.
  */
 OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
-	var $div;
-
 	// Configuration initialization
 	config = config || {};
 
@@ -61,20 +59,18 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	this.$header = $( '<div>' );
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
+			popup: {
+				padded: true
+			},
 			classes: [ 'oo-ui-fieldsetLayout-help' ],
 			framed: false,
 			icon: 'info'
 		} );
-
-		$div = $( '<div>' );
 		if ( config.help instanceof OO.ui.HtmlSnippet ) {
-			$div.html( config.help.toString() );
+			this.popupButtonWidget.getPopup().$body.html( config.help.toString() );
 		} else {
-			$div.text( config.help );
+			this.popupButtonWidget.getPopup().$body.text( config.help );
 		}
-		this.popupButtonWidget.getPopup().$body.append(
-			$div.addClass( 'oo-ui-fieldsetLayout-help-content' )
-		);
 		this.$help = this.popupButtonWidget.$element;
 	} else {
 		this.$help = $( [] );

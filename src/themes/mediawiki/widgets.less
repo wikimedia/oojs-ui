@@ -1334,8 +1334,14 @@
 		}
 	}
 
+	&-body {
+		line-height: 1.4;
+	}
+
 	&-body-padded {
-		padding: 0 1em;
+		// Use `margin` rather than `padding` to allow the margin to collapse with
+		// the margin of other elements inside the popup
+		margin: 0.75em 1em;
 	}
 }
 

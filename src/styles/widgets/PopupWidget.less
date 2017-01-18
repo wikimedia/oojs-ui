@@ -42,7 +42,11 @@
 
 	&-body {
 		clear: both;
-		overflow: hidden;
+
+		&.oo-ui-clippableElement-clippable {
+			// Override ClippableElement `min-height`
+			min-height: 1em;
+		}
 	}
 
 	.theme-oo-ui-popupWidget();

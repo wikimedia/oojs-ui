@@ -39,7 +39,7 @@
  * @throws {Error} An error is thrown if no widget is specified
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
-	var hasInputWidget, $div;
+	var hasInputWidget;
 
 	// Allow passing positional parameters inside the config object
 	if ( OO.isPlainObject( fieldWidget ) && config === undefined ) {
@@ -75,20 +75,18 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.align = null;
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
+			popup: {
+				padded: true
+			},
 			classes: [ 'oo-ui-fieldLayout-help' ],
 			framed: false,
 			icon: 'info'
 		} );
-
-		$div = $( '<div>' );
 		if ( config.help instanceof OO.ui.HtmlSnippet ) {
-			$div.html( config.help.toString() );
+			this.popupButtonWidget.getPopup().$body.html( config.help.toString() );
 		} else {
-			$div.text( config.help );
+			this.popupButtonWidget.getPopup().$body.text( config.help );
 		}
-		this.popupButtonWidget.getPopup().$body.append(
-			$div.addClass( 'oo-ui-fieldLayout-help-content' )
-		);
 		this.$help = this.popupButtonWidget.$element;
 	} else {
 		this.$help = $( [] );
