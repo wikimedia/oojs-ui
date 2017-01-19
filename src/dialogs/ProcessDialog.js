@@ -170,7 +170,9 @@ OO.ui.ProcessDialog.prototype.getActionWidgets = function ( actions ) {
 
 	for ( i = 0, len = actions.length; i < len; i++ ) {
 		config = $.extend( { framed: !OO.ui.isMobile() }, actions[ i ] );
-		if ( isMobile && ( config.flags === 'back' || config.flags.indexOf( 'back' ) !== -1 ) ) {
+		if ( isMobile &&
+			( config.flags === 'back' || ( Array.isArray( config.flags ) && config.flags.indexOf( 'back' ) !== -1 ) )
+		) {
 			$.extend( config, {
 				icon: 'previous',
 				label: ''
