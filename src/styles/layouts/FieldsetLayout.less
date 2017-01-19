@@ -20,10 +20,10 @@
 		color: inherit; // Correct the color inheritance from `fieldset` elements in IE
 		display: inline-table; // Correct the text wrapping in Edge and IE
 		box-sizing: border-box; // Correct the text wrapping in Edge and IE
-		max-width: 100%; // Correct the text wrapping in Edge and IE
 		padding: 0;
 		white-space: normal; // Correct the text wrapping in Edge and IE
 		float: left; // Prevent positioning problems in Firefox, see T146462
+		width: 100%; // Take the whole available width, this is needed because of 'float' above
 
 		> .oo-ui-labelElement-label:empty {
 			display: none;
