@@ -56,33 +56,18 @@
 	}
 
 	&.oo-ui-iconElement > .oo-ui-iconElement-icon,
-	&.oo-ui-indicatorElement > .oo-ui-indicatorElement-indicator,
-	> .oo-ui-labelElement-label {
+	&.oo-ui-indicatorElement > .oo-ui-indicatorElement-indicator {
 		display: block;
 		position: absolute;
 		top: 0;
-	}
-
-	&.oo-ui-iconElement > .oo-ui-iconElement-icon,
-	&.oo-ui-indicatorElement > .oo-ui-indicatorElement-indicator {
 		height: 100%;
+
 		.oo-ui-unselectable();
-	}
-
-	> .oo-ui-iconElement-icon,
-	&-labelPosition-before > .oo-ui-labelElement-label {
-		left: 0;
-	}
-
-	> .oo-ui-indicatorElement-indicator,
-	&-labelPosition-after > .oo-ui-labelElement-label {
-		right: 0;
 	}
 
 	&.oo-ui-widget-enabled {
 		> .oo-ui-iconElement-icon,
-		> .oo-ui-indicatorElement-indicator,
-		> .oo-ui-labelElement-label {
+		> .oo-ui-indicatorElement-indicator {
 			cursor: text;
 		}
 
@@ -95,10 +80,31 @@
 
 	&.oo-ui-widget-disabled {
 		input,
-		textarea,
+		textarea {
+			.oo-ui-unselectable();
+		}
 		& .oo-ui-labelElement-label {
 			.oo-ui-unselectable();
 		}
+	}
+
+	&.oo-ui-labelElement > .oo-ui-labelElement-label {
+		display: block;
+	}
+
+	> .oo-ui-iconElement-icon,
+	&-labelPosition-before > .oo-ui-labelElement-label {
+		left: 0;
+	}
+
+	> .oo-ui-indicatorElement-indicator,
+	&-labelPosition-after > .oo-ui-labelElement-label {
+		right: 0;
+	}
+
+	> .oo-ui-labelElement-label {
+		position: absolute;
+		top: 0;
 	}
 
 	// Make clicks not steal focus from input element in PHP version

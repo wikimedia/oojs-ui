@@ -64,8 +64,6 @@
 @min-height-toggleswitch: 26px; // equals `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
 @max-width-default: 50em;
 @max-width-input: @max-width-default;
-@max-height-icon: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@max-height-indicator: @max-height-icon;
 
 @size-default: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @size-anchor: 9px;
@@ -104,13 +102,6 @@
 
 @padding-widget-default: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.547em`≈`7px` at base `font-size: 12.8px`
 @padding-top-input-text: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.625em`≈`8px` at base `font-size: 12.8px`
-@padding-top-textarea: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.625em`≈`8px` at base `font-size: 12.8px`
-@padding-left-widget-icon: @size-icon + ( 10 / @oo-ui-font-size-browser / @oo-ui-font-size-default ); // equals `2.65625em`≈`34px` at base `font-size: 12.8px`
-@left-icon: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.46875em`≈`6px` at base `font-size: 12.8px`;
-@left-icon-label: @padding-left-widget-icon;
-@right-indicator: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@right-indicator-label: ( @right-indicator * 2 ) + @size-indicator;
-@right-label: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 
 @box-shadow-dialog: 0 2px 2px 0 rgba( 0, 0, 0, 0.25 );
 @box-shadow-menu: @box-shadow-dialog;
@@ -126,7 +117,6 @@
 @line-height-default: 1.6; // same as Vector
 @line-height-message-verbose: 1.4;
 @line-height-form-element: 1.4;
-@line-height-input: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
 @line-height-input-binary-label: 1.5; // Checkboxes, Radios and ToggleSwitchWidget labels need a tad more for increased vertical click area
 
 @text-shadow-default: 0 1px 1px @color-default-light; // 'coined' effect
