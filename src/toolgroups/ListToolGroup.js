@@ -50,7 +50,6 @@
  *             // Configurations for list toolgroup.
  *             type: 'list',
  *             label: 'ListToolGroup',
- *             indicator: 'down',
  *             icon: 'ellipsis',
  *             title: 'This is the title, displayed when user moves the mouse over the list toolgroup',
  *             header: 'This is the header',

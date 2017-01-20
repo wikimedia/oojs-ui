@@ -4,12 +4,19 @@
 	&-bar {
 		background-color: @background-color-toolbar;
 		color: @color-default;
-		border-bottom: @border-toolbar;
 		box-shadow: @box-shadow-toolbar;
 		font-weight: 500;
 
+		.oo-ui-toolbar-position-top & {
+			border-bottom: @border-toolbar;
+		}
+
+		.oo-ui-toolbar-position-bottom & {
+			border-top: @border-toolbar;
+		}
+
 		.oo-ui-toolbar-bar {
-			border-bottom: 0;
+			border: 0;
 			background-color: transparent;
 			box-shadow: none;
 		}
@@ -242,12 +249,19 @@
 	}
 
 	.oo-ui-toolGroup-tools {
-		top: 3.125em;
 		margin: 0 -1px;
 		border: @border-toolbar;
 		background-color: @background-color-toolbar;
 		box-shadow: @box-shadow-menu;
 		min-width: 16em;
+
+		.oo-ui-toolbar-position-top & {
+			top: 3.125em;
+		}
+
+		.oo-ui-toolbar-position-bottom & {
+			bottom: 3.125em;
+		}
 	}
 
 	.oo-ui-tool-link {

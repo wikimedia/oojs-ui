@@ -279,6 +279,7 @@
  *  in the toolbar, but are not configured as tools. By default, actions are displayed on the right side of
  *  the toolbar.
  * @cfg {boolean} [shadow] Add a shadow below the toolbar.
+ * @cfg {string} [position='top'] Whether the toolbar is positioned above ('top') or below ('bottom') content.
  */
 OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	// Allow passing positional parameters inside the config object
@@ -303,6 +304,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.toolGroupFactory = toolGroupFactory;
 	this.groups = [];
 	this.tools = {};
+	this.position = config.position || 'top';
 	this.$bar = $( '<div>' );
 	this.$actions = $( '<div>' );
 	this.initialized = false;
@@ -325,7 +327,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	if ( config.shadow ) {
 		this.$bar.append( '<div class="oo-ui-toolbar-shadow"></div>' );
 	}
-	this.$element.addClass( 'oo-ui-toolbar' ).append( this.$bar );
+	this.$element.addClass( 'oo-ui-toolbar oo-ui-toolbar-position-' + this.position ).append( this.$bar );
 };
 
 /* Setup */
