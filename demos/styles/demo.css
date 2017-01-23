@@ -51,29 +51,26 @@ p {
 
 .oo-ui-demo-icons .oo-ui-fieldLayout {
 	display: inline-block;
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-.oo-ui-demo-icons .oo-ui-fieldLayout .oo-ui-labelElement-label {
-	display: none;
-}
-
-.oo-ui-demo-icons .oo-ui-fieldLayout .oo-ui-buttonElement-button {
 	margin: 1em 1em 1em 0;
-	width: 12em;
-	opacity: 0.8;
+	width: 13.75em;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-
-.oo-ui-demo-icons .oo-ui-fieldLayout .oo-ui-buttonElement-button .oo-ui-labelElement-label {
-	text-transform: capitalize;
-	display: inline;
+.oo-ui-demo-icons .oo-ui-fieldLayout:nth-child( 4n ) {
+	margin-right: 0;
 }
 
-.oo-ui-demo-icons .oo-ui-fieldLayout .oo-ui-buttonElement-button:hover {
+.oo-ui-demo-icons .oo-ui-fieldLayout .oo-ui-iconElement,
+.oo-ui-demo-icons .oo-ui-fieldLayout .oo-ui-indicatorElement {
+	opacity: 0.8; /* brings icons/indicators closer to text color */
+}
+
+.oo-ui-demo-icons .oo-ui-fieldLayout:hover .oo-ui-labelElement-label {
+	color: #000;
+}
+.oo-ui-demo-icons .oo-ui-fieldLayout:hover .oo-ui-iconElement,
+.oo-ui-demo-icons .oo-ui-fieldLayout:hover .oo-ui-indicatorElement {
 	opacity: 1;
 }
 
