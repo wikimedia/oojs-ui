@@ -26,13 +26,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [type='text'] The value of the HTML `type` attribute: 'text', 'password', 'search',
+ * @cfg {string} [type='text'] The value of the HTML `type` attribute: 'text', 'password'
  *  'email', 'url' or 'number'. Ignored if `multiline` is true.
- *
- *  Some values of `type` result in additional behaviors:
- *
- *  - `search`: implies `icon: 'search'` and `indicator: 'clear'`; when clicked, the indicator
- *    empties the text field
  * @cfg {string} [placeholder] Placeholder text
  * @cfg {boolean} [autofocus=false] Use an HTML `autofocus` attribute to
  *  instruct the browser to focus this widget.
@@ -61,14 +56,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		type: 'text',
 		labelPosition: 'after'
 	}, config );
-
-	if ( config.type === 'search' ) {
-		OO.ui.warnDeprecation( 'TextInputWidget: config.type=\'search\' is deprecated. Use the SearchInputWidget instead. See T148471 for details.' );
-		if ( config.icon === undefined ) {
-			config.icon = 'search';
-		}
-		// indicator: 'clear' is set dynamically later, depending on value
-	}
 
 	// Parent constructor
 	OO.ui.TextInputWidget.parent.call( this, config );
@@ -113,8 +100,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.$indicator.on( 'mousedown', this.onIndicatorMouseDown.bind( this ) );
 	this.on( 'labelChange', this.updatePosition.bind( this ) );
 	this.connect( this, {
-		change: 'onChange',
-		disable: 'onDisable'
+		change: 'onChange'
 	} );
 	this.on( 'change', OO.ui.debounce( this.onDebouncedChange.bind( this ), 250 ) );
 
@@ -124,7 +110,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		.append( this.$icon, this.$indicator );
 	this.setReadOnly( !!config.readOnly );
 	this.setRequired( !!config.required );
-	this.updateSearchIndicator();
 	if ( config.placeholder !== undefined ) {
 		this.$input.attr( 'placeholder', config.placeholder );
 	}
@@ -225,10 +210,6 @@ OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
  */
 OO.ui.TextInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
 	if ( e.which === OO.ui.MouseButtons.LEFT ) {
-		if ( this.type === 'search' ) {
-			// Clear the text field
-			this.setValue( '' );
-		}
 		this.focus();
 		return false;
 	}
@@ -293,7 +274,6 @@ OO.ui.TextInputWidget.prototype.onElementAttach = function () {
  * @private
  */
 OO.ui.TextInputWidget.prototype.onChange = function () {
-	this.updateSearchIndicator();
 	this.adjustSize();
 };
 
@@ -305,16 +285,6 @@ OO.ui.TextInputWidget.prototype.onChange = function () {
  */
 OO.ui.TextInputWidget.prototype.onDebouncedChange = function () {
 	this.setValidityFlag();
-};
-
-/**
- * Handle disable events.
- *
- * @param {boolean} disabled Element is disabled
- * @private
- */
-OO.ui.TextInputWidget.prototype.onDisable = function () {
-	this.updateSearchIndicator();
 };
 
 /**
@@ -335,7 +305,6 @@ OO.ui.TextInputWidget.prototype.isReadOnly = function () {
 OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
 	this.readOnly = !!state;
 	this.$input.prop( 'readOnly', this.readOnly );
-	this.updateSearchIndicator();
 	return this;
 };
 
@@ -371,7 +340,6 @@ OO.ui.TextInputWidget.prototype.setRequired = function ( state ) {
 			this.setIndicator( null );
 		}
 	}
-	this.updateSearchIndicator();
 	return this;
 };
 
@@ -551,7 +519,6 @@ OO.ui.TextInputWidget.prototype.getSaneType = function ( config ) {
 	var allowedTypes = [
 		'text',
 		'password',
-		'search',
 		'email',
 		'url',
 		'number'
@@ -830,20 +797,6 @@ OO.ui.TextInputWidget.prototype.updatePosition = function () {
 	this.positionLabel();
 
 	return this;
-};
-
-/**
- * Update the 'clear' indicator displayed on type: 'search' text fields, hiding it when the field is
- * already empty or when it's not editable.
- */
-OO.ui.TextInputWidget.prototype.updateSearchIndicator = function () {
-	if ( this.type === 'search' ) {
-		if ( this.getValue() === '' || this.isDisabled() || this.isReadOnly() ) {
-			this.setIndicator( null );
-		} else {
-			this.setIndicator( 'clear' );
-		}
-	}
 };
 
 /**
