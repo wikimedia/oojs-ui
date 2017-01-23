@@ -22,13 +22,23 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {jQuery} [$overlay] Render the popup into a separate layer. This configuration is useful in cases where
+ *  the expanded popup is larger than its containing `<div>`. The specified overlay layer is usually on top of the
+ *  containing `<div>` and has a larger area. By default, the popup uses relative positioning.
  */
 OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 	// Parent constructor
 	OO.ui.PopupButtonWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.PopupElement.call( this, config );
+	OO.ui.mixin.PopupElement.call( this, $.extend( true, {}, config, {
+		popup: {
+			$floatableContainer: this.$element
+		}
+	} ) );
+
+	// Properties
+	this.$overlay = config.$overlay || this.$element;
 
 	// Events
 	this.connect( this, { click: 'onAction' } );
@@ -36,8 +46,12 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-popupButtonWidget' )
-		.attr( 'aria-haspopup', 'true' )
-		.append( this.popup.$element );
+		.attr( 'aria-haspopup', 'true' );
+	this.popup.$element
+		.addClass( 'oo-ui-popupButtonWidget-popup' )
+		.toggleClass( 'oo-ui-popupButtonWidget-framed-popup', this.isFramed() )
+		.toggleClass( 'oo-ui-popupButtonWidget-frameless-popup', !this.isFramed() );
+	this.$overlay.append( this.popup.$element );
 };
 
 /* Setup */

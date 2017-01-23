@@ -37,8 +37,10 @@
 			# The JavaScript-specific dependencies of the basic widgets. It's sad how many there are :(
 			# TextInputWidget
 			"src/mixins/PendingElement.js",
-			# FieldLayout, FieldsetLayout
+			# ComboBoxInputWidget, DropdownWidget, PopupWidget
+			"src/mixins/FloatableElement.js",
 			"src/mixins/ClippableElement.js",
+			# FieldLayout, FieldsetLayout
 			"src/widgets/PopupWidget.js",
 			"src/mixins/PopupElement.js",
 			"src/widgets/PopupButtonWidget.js",
@@ -62,7 +64,6 @@
 			"src/widgets/CheckboxMultioptionWidget.js",
 			"src/widgets/CheckboxMultiselectWidget.js",
 			# ComboBoxInputWidget
-			"src/mixins/FloatableElement.js",
 			"src/widgets/FloatingMenuSelectWidget.js",
 			# ProgressBarWidget
 			"src/widgets/ProgressBarWidget.js",

@@ -21,6 +21,7 @@
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.LabelElement
  * @mixins OO.ui.mixin.ClippableElement
+ * @mixins OO.ui.mixin.FloatableElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -66,6 +67,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 		$clippable: this.$body,
 		$clippableContainer: this.$popup
 	} ) );
+	OO.ui.mixin.FloatableElement.call( this, config );
 
 	// Properties
 	this.$anchor = $( '<div>' );
@@ -130,6 +132,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 OO.inheritClass( OO.ui.PopupWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.ClippableElement );
+OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.FloatableElement );
 
 /* Methods */
 
@@ -253,6 +256,8 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 	OO.ui.PopupWidget.parent.prototype.toggle.call( this, show );
 
 	if ( change ) {
+		this.togglePositioning( show && this.$floatableContainer );
+
 		if ( show ) {
 			if ( this.autoClose ) {
 				this.bindMouseDownListener();

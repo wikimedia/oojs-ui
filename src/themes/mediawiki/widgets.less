@@ -85,18 +85,18 @@
 .theme-oo-ui-actionWidget () {}
 
 .theme-oo-ui-popupButtonWidget () {
-	&.oo-ui-buttonElement-frameless > .oo-ui-popupWidget {
+	.oo-ui-popupWidget&-frameless-popup {
 		// Compensate for icon being inset
 		/* @noflip */
-		left: @size-icon / 2;
+		margin-left: @size-icon / 2;
 	}
 
-	&.oo-ui-buttonElement-framed > .oo-ui-popupWidget {
+	.oo-ui-popupWidget&-framed-popup {
 		// Compensate for icon being inset
 		// elements.less positions the icon with left: 1.5em - @size-icon / 2; , so we need:
 		// @size-icon / 2 + ( 1.5em - @size-icon / 2 ) which is 1.5em.
 		/* @noflip */
-		left: 1.5em;
+		margin-left: 1.5em;
 	}
 }
 
