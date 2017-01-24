@@ -256,7 +256,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 	OO.ui.PopupWidget.parent.prototype.toggle.call( this, show );
 
 	if ( change ) {
-		this.togglePositioning( show && this.$floatableContainer );
+		this.togglePositioning( show && !!this.$floatableContainer );
 
 		if ( show ) {
 			if ( this.autoClose ) {
