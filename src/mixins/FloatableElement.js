@@ -79,6 +79,10 @@ OO.ui.mixin.FloatableElement.prototype.setFloatableContainer = function ( $float
 OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positioning ) {
 	var closestScrollableOfContainer;
 
+	if ( !this.$floatable || !this.$floatableContainer ) {
+		return this;
+	}
+
 	positioning = positioning === undefined ? !this.positioning : !!positioning;
 
 	if ( this.positioning !== positioning ) {
