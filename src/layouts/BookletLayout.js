@@ -181,11 +181,9 @@ OO.ui.BookletLayout.prototype.onStackLayoutVisibleItemChange = function ( page )
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
 	var layout = this;
 	if ( !this.scrolling && page ) {
-		page.scrollElementIntoView( {
-			complete: function () {
-				if ( layout.autoFocus && !OO.ui.isMobile() ) {
-					layout.focus();
-				}
+		page.scrollElementIntoView().done( function () {
+			if ( layout.autoFocus && !OO.ui.isMobile() ) {
+				layout.focus();
 			}
 		} );
 	}
