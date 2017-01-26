@@ -13,5 +13,12 @@
 		opacity: 0;
 	}
 
+	&-invisible {
+		// HACK: MenuSelectWidget probably shouldn't be in the business of hiding itself?
+		// But right now I've better things to do than figure out how CapsuleMultiselectWidget
+		// and the 'filterFromInput' interact...
+		display: none;
+	}
+
 	.theme-oo-ui-menuSelectWidget();
 }
