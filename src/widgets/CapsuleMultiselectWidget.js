@@ -92,7 +92,11 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 			align: 'forwards',
 			anchor: false
 		} );
-		OO.ui.mixin.PopupElement.call( this, config );
+		OO.ui.mixin.PopupElement.call( this, $.extend( true, {}, config, {
+			popup: {
+				$floatableContainer: this.$element
+			}
+		} ) );
 		$tabFocus = $( '<span>' );
 		OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: $tabFocus } ) );
 	} else {
