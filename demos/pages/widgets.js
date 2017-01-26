@@ -182,7 +182,6 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			return false;
 		}
 	} );
-	capsulePopupWidget.$element.css( 'vertical-align', 'middle' );
 	capsuleWithPopup = new OO.ui.CapsuleMultiselectWidget( {
 		allowArbitrary: true,
 		popup: { $content: capsulePopupWidget.$element }
