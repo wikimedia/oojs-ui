@@ -87,6 +87,13 @@
 						] ),
 					]
 				] );
+
+				echo new OOUI\ButtonWidget( [
+					'label' => 'Docs',
+					'icon' => 'journal',
+					'href' => '../php/',
+					'flags' => [ 'progressive' ],
+				] );
 			?>
 		</div>
 		<?php

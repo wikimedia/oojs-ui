@@ -53,6 +53,13 @@ OO.ui.Demo = function OoUiDemo() {
 		new OO.ui.ButtonOptionWidget( { data: 'mobile', label: 'Mobile' } )
 	] );
 
+	this.documentationLink = new OO.ui.ButtonWidget( {
+		label: 'Docs',
+		icon: 'journal',
+		href: '../js/',
+		flags: [ 'progressive' ]
+	} );
+
 	// Events
 	this.pageMenu.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.themeSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
@@ -71,7 +78,8 @@ OO.ui.Demo = function OoUiDemo() {
 			this.themeSelect.$element,
 			this.directionSelect.$element,
 			this.jsPhpSelect.$element,
-			this.platformSelect.$element
+			this.platformSelect.$element,
+			this.documentationLink.$element
 		);
 	this.$element
 		.addClass( 'oo-ui-demo' )
