@@ -182,3 +182,16 @@ OO.ui.OptionWidget.prototype.setPressed = function ( state ) {
 	}
 	return this;
 };
+
+/**
+ * Get text to match search strings against.
+ *
+ * The default implementation returns the label text, but subclasses
+ * can override this to provide more complex behavior.
+ *
+ * @return {string|boolean} String to match search string against
+ */
+OO.ui.OptionWidget.prototype.getMatchText = function () {
+	var label = this.getLabel();
+	return typeof label === 'string' ? label : this.$label.text();
+};
