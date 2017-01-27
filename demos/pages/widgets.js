@@ -1374,6 +1374,27 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.CapsuleMultiselectWidget( {
+						menu: {
+							items: [
+								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
+								new OO.ui.MenuSectionOptionWidget( { label: 'Foo' } ),
+								new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jkl', label: 'Label for jkl' } ),
+								new OO.ui.MenuSectionOptionWidget( { label: 'Bar' } ),
+								new OO.ui.MenuOptionWidget( { data: 'jjj', label: 'Label for jjj' } ),
+								new OO.ui.MenuOptionWidget( { data: 'zxc', label: 'Label for zxc' } ),
+								new OO.ui.MenuSectionOptionWidget( { label: 'Baz' } ),
+								new OO.ui.MenuOptionWidget( { data: 'vbn', label: 'Label for vbn' } )
+							]
+						}
+					} ),
+					{
+						label: 'CapsuleMultiselectWidget (with sections)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new Demo.CapsuleNumberPopupMultiselectWidget(),
 					{
 						label: 'CapsuleMultiselectWidget with NumberInputWidget popup\u200E',
