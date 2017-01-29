@@ -442,7 +442,7 @@ OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
  * @protected
  * @param {string} s String to match against items
  * @param {boolean} [exact=false] Only accept exact matches
- * @return {Function} function ( OO.ui.OptionItem ) => boolean
+ * @return {Function} function ( OO.ui.OptionWidget ) => boolean
  */
 OO.ui.SelectWidget.prototype.getItemMatcher = function ( s, exact ) {
 	var re;
@@ -457,14 +457,11 @@ OO.ui.SelectWidget.prototype.getItemMatcher = function ( s, exact ) {
 	}
 	re = new RegExp( re, 'i' );
 	return function ( item ) {
-		var l = item.getLabel();
-		if ( typeof l !== 'string' ) {
-			l = item.$label.text();
+		var matchText = item.getMatchText();
+		if ( matchText.normalize ) {
+			matchText = matchText.normalize();
 		}
-		if ( l.normalize ) {
-			l = l.normalize();
-		}
-		return re.test( l );
+		return re.test( matchText );
 	};
 };
 
