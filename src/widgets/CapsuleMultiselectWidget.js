@@ -183,6 +183,9 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 		this.$content.append( this.$input );
 		this.$overlay.append( this.menu.$element );
 	}
+	if ( $tabFocus ) {
+		$tabFocus.addClass( 'oo-ui-capsuleMultiselectWidget-focusTrap' );
+	}
 
 	// Input size needs to be calculated after everything else is rendered
 	setTimeout( function () {
