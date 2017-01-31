@@ -553,6 +553,27 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		return this.items;
 	};
 
+	function ExampleCapsuleMultiselectWidget( config ) {
+		this.capsulePopupWidget = new OO.ui.NumberInputWidget( {
+			isInteger: true
+		} );
+		this.capsulePopupWidget.connect( this, {
+			enter: 'onPopupWidgetEnter'
+		} );
+		config = $.extend( {}, config, {
+			allowArbitrary: true,
+			popup: { $content: this.capsulePopupWidget.$element }
+		} );
+		OO.ui.CapsuleMultiselectWidget.call( this, config );
+	}
+	OO.inheritClass( ExampleCapsuleMultiselectWidget, OO.ui.CapsuleMultiselectWidget );
+	ExampleCapsuleMultiselectWidget.prototype.onPopupWidgetEnter = function () {
+		if ( !isNaN( this.capsulePopupWidget.getNumericValue() ) ) {
+			this.addItemsFromData( [ this.capsulePopupWidget.getNumericValue() ] );
+			this.capsulePopupWidget.setValue( '' );
+		}
+	};
+
 	function DialogWithDropdowns( config ) {
 		DialogWithDropdowns.parent.call( this, config );
 	}
@@ -654,8 +675,8 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 					}
 				} ), $spacer.clone() ]
 			} ),
-			new SamplePage( 'capsule', {
-				label: 'CapsuleMultiselectWidget',
+			new SamplePage( 'capsulemenu', {
+				label: 'CapsuleMultiselectWidget (menu)',
 				content: [ $spacer.clone(), new OO.ui.CapsuleMultiselectWidget( {
 					$overlay: this.$overlay,
 					menu: {
@@ -663,14 +684,25 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 					}
 				} ), $spacer.clone() ]
 			} ),
-			new SamplePage( 'capsule2', {
-				label: 'CapsuleMultiselectWidget',
+			new SamplePage( 'capsulemenu2', {
+				label: 'CapsuleMultiselectWidget (menu)',
 				icon: 'alert',
 				content: [ $spacer.clone(), new OO.ui.CapsuleMultiselectWidget( {
 					menu: {
 						items: this.makeItems()
 					}
 				} ), $spacer.clone() ]
+			} ),
+			new SamplePage( 'capsulepopup', {
+				label: 'CapsuleMultiselectWidget (popup)',
+				content: [ $spacer.clone(), new ExampleCapsuleMultiselectWidget( {
+					$overlay: this.$overlay
+				} ), $spacer.clone() ]
+			} ),
+			new SamplePage( 'capsulepopup2', {
+				label: 'CapsuleMultiselectWidget (popup)',
+				icon: 'alert',
+				content: [ $spacer.clone(), new ExampleCapsuleMultiselectWidget(), $spacer.clone() ]
 			} )
 		];
 		this.bookletLayout.on( 'set', function ( page ) {
