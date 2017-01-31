@@ -13,6 +13,12 @@
 		opacity: 0;
 	}
 
+	&.oo-ui-clippableElement-clippable {
+		// Override ClippableElement min-height
+		// Equal to height of one option
+		min-height: 2.6em;
+	}
+
 	&-invisible {
 		// HACK: MenuSelectWidget probably shouldn't be in the business of hiding itself?
 		// But right now I've better things to do than figure out how CapsuleMultiselectWidget
