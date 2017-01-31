@@ -129,7 +129,8 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
  * @protected
  */
 OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
-	var i, item,
+	var i, item, visible,
+		anyVisible = false,
 		len = this.items.length,
 		showAll = !this.isVisible(),
 		filter = showAll ? null : this.getItemMatcher( this.$input.val() );
@@ -137,9 +138,13 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 	for ( i = 0; i < len; i++ ) {
 		item = this.items[ i ];
 		if ( item instanceof OO.ui.OptionWidget ) {
-			item.toggle( showAll || filter( item ) );
+			visible = showAll || filter( item );
+			anyVisible = anyVisible || visible;
+			item.toggle( visible );
 		}
 	}
+
+	this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
 
 	// Reevaluate clipping
 	this.clip();
