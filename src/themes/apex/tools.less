@@ -2,8 +2,15 @@
 
 .theme-oo-ui-toolbar () {
 	&-bar {
-		border-bottom: 1px solid #ccc;
 		.oo-ui-vertical-gradient(#fff, #F1F7FB);
+
+		.oo-ui-toolbar-position-top & {
+			border-bottom: 1px solid #ccc;
+		}
+
+		.oo-ui-toolbar-position-bottom & {
+			border-top: 1px solid #ccc;
+		}
 
 		.oo-ui-toolbar-bar {
 			border: 0;
@@ -293,11 +300,18 @@
 	}
 
 	.oo-ui-toolGroup-tools {
-		top: 2.5em;
 		margin: 0 -1px;
 		border: 1px solid #ccc;
 		background-color: #fff;
 		box-shadow: 0 0.3125em 1.25em rgba( 0, 0, 0, 0.25 );
+
+		.oo-ui-toolbar-position-top & {
+			top: 2.5em;
+		}
+
+		.oo-ui-toolbar-position-bottom & {
+			bottom: 2.5em;
+		}
 	}
 
 	.oo-ui-tool-link {

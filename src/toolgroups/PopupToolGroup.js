@@ -26,7 +26,9 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	}
 
 	// Configuration initialization
-	config = config || {};
+	config = $.extend( {
+		indicator: toolbar.position === 'bottom' ? 'up' : 'down'
+	}, config );
 
 	// Parent constructor
 	OO.ui.PopupToolGroup.parent.call( this, toolbar, config );

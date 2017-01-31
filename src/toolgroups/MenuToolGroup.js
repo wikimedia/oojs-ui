@@ -65,7 +65,6 @@
  *             type: 'menu',
  *             header: 'This is the (optional) header',
  *             title: 'This is the (optional) title',
- *             indicator: 'down',
  *             include: [ 'settings', 'stuff' ]
  *         }
  *     ] );
