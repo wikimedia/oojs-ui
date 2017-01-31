@@ -176,6 +176,7 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 	this.$element.addClass( 'oo-ui-capsuleMultiselectWidget' )
 		.append( this.$handle );
 	if ( this.popup ) {
+		this.popup.$element.addClass( 'oo-ui-capsuleMultiselectWidget-popup' );
 		this.$content.append( $tabFocus );
 		this.$overlay.append( this.popup.$element );
 	} else {
@@ -786,7 +787,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.setDisabled = function ( disabled ) {
 OO.ui.CapsuleMultiselectWidget.prototype.focus = function () {
 	if ( !this.isDisabled() ) {
 		if ( this.popup ) {
-			this.popup.setSize( this.$handle.width() );
+			this.popup.setSize( this.$handle.outerWidth() );
 			this.popup.toggle( true );
 			OO.ui.findFocusable( this.popup.$element ).focus();
 		} else {
