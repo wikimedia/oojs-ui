@@ -140,7 +140,7 @@ OO.ui.Dialog.prototype.onDialogKeyDown = function ( e ) {
 		this.executeAction( '' );
 		e.preventDefault();
 		e.stopPropagation();
-	} else if ( e.which === OO.ui.Keys.ENTER && e.ctrlKey ) {
+	} else if ( e.which === OO.ui.Keys.ENTER && ( e.ctrlKey || e.metaKey ) ) {
 		actions = this.actions.get( { flags: 'primary', visible: true, disabled: false } );
 		if ( actions.length > 0 ) {
 			this.executeAction( actions[ 0 ].getAction() );
