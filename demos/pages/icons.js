@@ -1,5 +1,5 @@
 OO.ui.Demo.static.pages.icons = function ( demo ) {
-	var i, len, iconSet, iconsFieldset, iconButton, selector,
+	var i, len, iconSet, iconsFieldset, iconWidget, selector,
 		icons = {
 			core: [
 				'add',
@@ -206,18 +206,20 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 			'up'
 		],
 		iconsFieldsets = [],
-		iconsButtons = [],
+		iconsWidgets = [],
 		indicatorsFieldset = new OO.ui.FieldsetLayout( { label: 'Indicators' } );
 
 	for ( i = 0, len = indicators.length; i < len; i++ ) {
 		indicatorsFieldset.addItems( [
 			new OO.ui.FieldLayout(
-				new OO.ui.ButtonWidget( {
+				new OO.ui.IndicatorWidget( {
 					indicator: indicators[ i ],
-					framed: false,
-					label: indicators[ i ]
+					title: indicators[ i ]
 				} ),
-				{ align: 'top' }
+				{
+					align: 'inline',
+					label: indicators[ i ]
+				}
 			)
 		] );
 	}
@@ -226,17 +228,16 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 		iconsFieldsets.push( iconsFieldset );
 
 		for ( i = 0, len = icons[ iconSet ].length; i < len; i++ ) {
-			iconButton = new OO.ui.ButtonWidget( {
+			iconWidget = new OO.ui.IconWidget( {
 				icon: icons[ iconSet ][ i ],
-				framed: false,
-				label: icons[ iconSet ][ i ]
+				title: icons[ iconSet ][ i ]
 			} );
-			iconsButtons.push( iconButton );
+			iconsWidgets.push( iconWidget );
 			iconsFieldset.addItems( [
-				new OO.ui.FieldLayout(
-					iconButton,
-					{ align: 'top' }
-				)
+				new OO.ui.FieldLayout( iconWidget, {
+					label: icons[ iconSet ][ i ],
+					align: 'inline'
+				} )
 			] );
 		}
 	}
@@ -280,10 +281,12 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				}
 			} )
 		]
-	} )
+	} );
+
+	selector
 		.on( 'select', function ( selected ) {
-			iconsButtons.forEach( function ( iconButton ) {
-				iconButton.setFlags( selected.getData() );
+			iconsWidgets.forEach( function ( iconWidget ) {
+				iconWidget.setFlags( selected.getData() );
 			} );
 		} )
 		.selectItemByData( {
@@ -302,5 +305,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				selector.$element,
 				indicatorsFieldset.$element,
 				iconsFieldsets.map( function ( item ) { return item.$element[ 0 ]; } )
-			) );
+			)
+	);
 };
