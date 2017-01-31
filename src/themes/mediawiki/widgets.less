@@ -767,6 +767,17 @@
 			}
 		}
 
+		// HACK: Exclude IE/Edge (and Saf<6) from this selector as it
+		// doesn't understand `outline-offset`. All other browsers do. :/
+		@media screen {
+			@media ( min-width: 0 ) {
+				textarea:focus {
+					outline: 1px solid @color-progressive;
+					outline-offset: -2px;
+				}
+			}
+		}
+
 		.mw-placeholder();
 
 		&.oo-ui-flaggedElement-invalid {
