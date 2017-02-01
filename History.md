@@ -1,4 +1,40 @@
 # OOjs UI Release History
+## v0.19.0 / 2017-01-31
+### Breaking changes
+* [BREAKING CHANGE] ButtonWidget: Switch `box-sizing` over to `border-box` (Volker E)
+* [BREAKING CHANGE] LabelElement: Drop no-op fitLabel() method. (James D. Forrester)
+* [BREAKING CHANGE] WindowManager: Error if `.static.name` is not defined when adding a window (Bartosz Dziewoński)
+
+### Features
+* PopupButtonWidget: Add `$overlay` config option (Bartosz Dziewoński)
+* SelectWidget: Allow OptionWidget subclasses to provide custom match text (Roan Kattouw)
+* Toolbar: Support `position:bottom` (Ed Sanders)
+
+### Styles
+* CapsuleMultiselectWidget: Fix focussing when inside BookletLayout with popup (Bartosz Dziewoński)
+* CapsuleMultiselectWidget: Styling tweaks related to popups (Bartosz Dziewoński)
+* MenuSelectWidget: Override ClippableElement's `min-height` (Bartosz Dziewoński)
+* PopupWidgets: Unify paddings and line-height (Bartosz Dziewoński)
+* TextInputWidget/MediaWiki theme: Revert "Improve Less code and align labels" (Bartosz Dziewoński)
+* PanelLayout/Apex theme: Revert regression (Volker E)
+
+### Code
+* CapsuleMultiSelectWidget: Call correct parent constructor (Ricordisamoa)
+* CapsuleMultiselectWidget: Make popup really work with $overlay (Bartosz Dziewoński)
+* FieldsetLayout: Swap 'max-width' and 'width' (Bartosz Dziewoński)
+* FloatableElement: More correctly decide if we need custom position (Bartosz Dziewoński)
+* MenuSelectWidget: Hide menu if all items are hidden (Bartosz Dziewoński)
+* ProcessDialog: Account for `config.flags` being undefined (Ed Sanders)
+* Follow-up 1dc6a45: {Booklet,Index}Layout: Avoid deprecated `config.complete` (Roan Kattouw)
+* Follow-up d21cf8a: unbreak popups with no $floatableContainer (Roan Kattouw)
+* PHP: Avoid unique ID conflicts between PHP and JS code (Bartosz Dziewoński)
+* demo: Failing demo for DropdownWidget with an overlay (Roan Kattouw)
+* demo: Fix vertical spacing in icons demo (Bartosz Dziewoński)
+* demo: Improve layout on mobile and fix various glitches (Volker E)
+* demo: Make the icon page easier to use (Prateek Saxena)
+* demo: Use longer text in PopupWidgets to showcase line wrapping (Bartosz Dziewoński)
+
+
 ## v0.18.4 / 2017-01-17
 ### Deprecations
 * [DEPRECATING CHANGE] MessageDialog: Default 'verbose' option to true (James D. Forrester)
