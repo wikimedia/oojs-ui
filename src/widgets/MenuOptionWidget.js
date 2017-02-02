@@ -30,4 +30,8 @@ OO.inheritClass( OO.ui.MenuOptionWidget, OO.ui.DecoratedOptionWidget );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.MenuOptionWidget.static.scrollIntoViewOnSelect = true;

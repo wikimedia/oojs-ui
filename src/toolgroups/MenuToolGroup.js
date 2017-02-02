@@ -127,6 +127,10 @@ OO.inheritClass( OO.ui.MenuToolGroup, OO.ui.PopupToolGroup );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.MenuToolGroup.static.name = 'menu';
 
 /* Methods */

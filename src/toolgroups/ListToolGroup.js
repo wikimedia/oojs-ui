@@ -120,6 +120,10 @@ OO.inheritClass( OO.ui.ListToolGroup, OO.ui.PopupToolGroup );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.ListToolGroup.static.name = 'list';
 
 /* Methods */

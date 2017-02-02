@@ -98,4 +98,8 @@ OO.mixinClass( OO.ui.FieldsetLayout, OO.ui.mixin.GroupElement );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.FieldsetLayout.static.tagName = 'fieldset';

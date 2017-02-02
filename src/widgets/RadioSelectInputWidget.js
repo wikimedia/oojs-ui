@@ -52,6 +52,10 @@ OO.inheritClass( OO.ui.RadioSelectInputWidget, OO.ui.InputWidget );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.RadioSelectInputWidget.static.supportsSimpleLabel = false;
 
 /* Static Methods */

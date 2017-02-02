@@ -37,6 +37,10 @@ OO.inheritClass( OO.ui.CheckboxMultioptionWidget, OO.ui.MultioptionWidget );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.CheckboxMultioptionWidget.static.tagName = 'label';
 
 /* Methods */

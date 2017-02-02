@@ -49,6 +49,14 @@ OO.inheritClass( OO.ui.MenuSectionOptionWidget, OO.ui.DecoratedOptionWidget );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.MenuSectionOptionWidget.static.selectable = false;
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.MenuSectionOptionWidget.static.highlightable = false;

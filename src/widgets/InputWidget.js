@@ -68,6 +68,10 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.AccessKeyedElement );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.InputWidget.static.supportsSimpleLabel = true;
 
 /* Static Methods */

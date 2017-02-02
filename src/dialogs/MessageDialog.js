@@ -56,11 +56,22 @@ OO.inheritClass( OO.ui.MessageDialog, OO.ui.Dialog );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.MessageDialog.static.name = 'message';
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.MessageDialog.static.size = 'small';
 
-// @deprecated since v0.18.4 as default; TODO: Remove
+/**
+ * @static
+ * @deprecated since v0.18.4 as default; TODO: Remove
+ */
 OO.ui.MessageDialog.static.verbose = true;
 
 /**
@@ -87,8 +98,12 @@ OO.ui.MessageDialog.static.title = null;
  */
 OO.ui.MessageDialog.static.message = null;
 
-// Note that OO.ui.alert() and OO.ui.confirm() rely on these.
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.MessageDialog.static.actions = [
+	// Note that OO.ui.alert() and OO.ui.confirm() rely on these.
 	{ action: 'accept', label: OO.ui.deferMsg( 'ooui-dialog-message-accept' ), flags: 'primary' },
 	{ action: 'reject', label: OO.ui.deferMsg( 'ooui-dialog-message-reject' ), flags: 'safe' }
 ];

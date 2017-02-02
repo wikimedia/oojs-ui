@@ -64,6 +64,10 @@ OO.inheritClass( OO.ui.ProgressBarWidget, OO.ui.Widget );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.ProgressBarWidget.static.tagName = 'div';
 
 /* Methods */

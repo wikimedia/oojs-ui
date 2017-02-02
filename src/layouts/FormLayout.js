@@ -109,6 +109,10 @@ OO.mixinClass( OO.ui.FormLayout, OO.ui.mixin.GroupElement );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.FormLayout.static.tagName = 'form';
 
 /* Methods */

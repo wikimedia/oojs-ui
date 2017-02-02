@@ -36,12 +36,30 @@ OO.inheritClass( OO.ui.OutlineOptionWidget, OO.ui.DecoratedOptionWidget );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.OutlineOptionWidget.static.highlightable = true;
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.OutlineOptionWidget.static.scrollIntoViewOnSelect = true;
 
+/**
+ * @static
+ * @inheritable
+ * @property {string}
+ */
 OO.ui.OutlineOptionWidget.static.levelClass = 'oo-ui-outlineOptionWidget-level-';
 
+/**
+ * @static
+ * @inheritable
+ * @property {number}
+ */
 OO.ui.OutlineOptionWidget.static.levels = 3;
 
 /* Methods */

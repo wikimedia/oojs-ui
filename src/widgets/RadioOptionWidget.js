@@ -38,12 +38,28 @@ OO.inheritClass( OO.ui.RadioOptionWidget, OO.ui.OptionWidget );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.RadioOptionWidget.static.highlightable = false;
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.RadioOptionWidget.static.scrollIntoViewOnSelect = true;
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.RadioOptionWidget.static.pressable = false;
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.RadioOptionWidget.static.tagName = 'label';
 
 /* Methods */

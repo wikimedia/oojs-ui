@@ -123,6 +123,14 @@ OO.ui.ToolGroup.static.accelTooltips = false;
  */
 OO.ui.ToolGroup.static.autoDisable = true;
 
+/**
+ * @abstract
+ * @static
+ * @inheritable
+ * @property {string}
+ */
+OO.ui.ToolGroup.static.name = null;
+
 /* Methods */
 
 /**

@@ -45,9 +45,18 @@ OO.mixinClass( OO.ui.ButtonOptionWidget, OO.ui.mixin.TitledElement );
 
 /* Static Properties */
 
-// Allow button mouse down events to pass through so they can be handled by the parent select widget
+/**
+ * Allow button mouse down events to pass through so they can be handled by the parent select widget
+ *
+ * @static
+ * @inheritdoc
+ */
 OO.ui.ButtonOptionWidget.static.cancelButtonMouseDownEvents = false;
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.ButtonOptionWidget.static.highlightable = false;
 
 /* Methods */

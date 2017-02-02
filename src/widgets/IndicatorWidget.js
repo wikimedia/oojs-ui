@@ -49,4 +49,8 @@ OO.mixinClass( OO.ui.IndicatorWidget, OO.ui.mixin.TitledElement );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.IndicatorWidget.static.tagName = 'span';

@@ -28,4 +28,8 @@ OO.inheritClass( OO.ui.TabOptionWidget, OO.ui.OptionWidget );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.TabOptionWidget.static.highlightable = false;

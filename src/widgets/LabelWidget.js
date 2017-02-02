@@ -68,6 +68,10 @@ OO.mixinClass( OO.ui.LabelWidget, OO.ui.mixin.TitledElement );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.LabelWidget.static.tagName = 'span';
 
 /* Methods */

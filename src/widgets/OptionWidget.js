@@ -55,12 +55,40 @@ OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.AccessKeyedElement );
 
 /* Static Properties */
 
+/**
+ * Whether this option can be selected. See #setSelected.
+ *
+ * @static
+ * @inheritable
+ * @property {boolean}
+ */
 OO.ui.OptionWidget.static.selectable = true;
 
+/**
+ * Whether this option can be highlighted. See #setHighlighted.
+ *
+ * @static
+ * @inheritable
+ * @property {boolean}
+ */
 OO.ui.OptionWidget.static.highlightable = true;
 
+/**
+ * Whether this option can be pressed. See #setPressed.
+ *
+ * @static
+ * @inheritable
+ * @property {boolean}
+ */
 OO.ui.OptionWidget.static.pressable = true;
 
+/**
+ * Whether this option will be scrolled into view when it is selected.
+ *
+ * @static
+ * @inheritable
+ * @property {boolean}
+ */
 OO.ui.OptionWidget.static.scrollIntoViewOnSelect = false;
 
 /* Methods */

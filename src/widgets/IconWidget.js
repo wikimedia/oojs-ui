@@ -51,4 +51,8 @@ OO.mixinClass( OO.ui.IconWidget, OO.ui.mixin.FlaggedElement );
 
 /* Static Properties */
 
+/**
+ * @static
+ * @inheritdoc
+ */
 OO.ui.IconWidget.static.tagName = 'span';

@@ -86,6 +86,7 @@ OO.mixinClass( OO.ui.ButtonWidget, OO.ui.mixin.AccessKeyedElement );
 /* Static Properties */
 
 /**
+ * @static
  * @inheritdoc
  */
 OO.ui.ButtonWidget.static.cancelButtonMouseDownEvents = false;
