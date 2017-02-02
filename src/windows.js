@@ -13,9 +13,7 @@ OO.ui.getWindowManager = function () {
 	if ( !OO.ui.windowManager ) {
 		OO.ui.windowManager = new OO.ui.WindowManager();
 		$( 'body' ).append( OO.ui.windowManager.$element );
-		OO.ui.windowManager.addWindows( {
-			messageDialog: new OO.ui.MessageDialog()
-		} );
+		OO.ui.windowManager.addWindows( [ new OO.ui.MessageDialog() ] );
 	}
 	return OO.ui.windowManager;
 };
@@ -37,7 +35,7 @@ OO.ui.getWindowManager = function () {
  * @return {jQuery.Promise} Promise resolved when the user closes the dialog
  */
 OO.ui.alert = function ( text, options ) {
-	return OO.ui.getWindowManager().openWindow( 'messageDialog', $.extend( {
+	return OO.ui.getWindowManager().openWindow( 'message', $.extend( {
 		message: text,
 		actions: [ OO.ui.MessageDialog.static.actions[ 0 ] ]
 	}, options ) ).then( function ( opened ) {
@@ -73,7 +71,7 @@ OO.ui.alert = function ( text, options ) {
  *  `false`.
  */
 OO.ui.confirm = function ( text, options ) {
-	return OO.ui.getWindowManager().openWindow( 'messageDialog', $.extend( {
+	return OO.ui.getWindowManager().openWindow( 'message', $.extend( {
 		message: text
 	}, options ) ).then( function ( opened ) {
 		return opened.then( function ( closing ) {
@@ -118,7 +116,7 @@ OO.ui.prompt = function ( text, options ) {
 
 	// TODO: This is a little hacky, and could be done by extending MessageDialog instead.
 
-	return manager.openWindow( 'messageDialog', $.extend( {
+	return manager.openWindow( 'message', $.extend( {
 		message: textField.$element
 	}, options ) ).then( function ( opened ) {
 		// After ready
