@@ -20,6 +20,7 @@
  *     }
  *     OO.inheritClass( MyProcessDialog, OO.ui.ProcessDialog );
  *
+ *     MyProcessDialog.static.name = 'myProcessDialog';
  *     MyProcessDialog.static.title = 'Process dialog';
  *     MyProcessDialog.static.actions = [
  *         { action: 'save', label: 'Done', flags: 'primary' },

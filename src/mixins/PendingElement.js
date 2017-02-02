@@ -14,6 +14,7 @@
  *     }
  *     OO.inheritClass( MessageDialog, OO.ui.MessageDialog );
  *
+ *     MessageDialog.static.name = 'myMessageDialog';
  *     MessageDialog.static.actions = [
  *         { action: 'save', label: 'Done', flags: 'primary' },
  *         { label: 'Cancel', flags: 'safe' }

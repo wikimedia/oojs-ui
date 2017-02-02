@@ -11,6 +11,7 @@
  *         MyDialog.parent.call( this, config );
  *     }
  *     OO.inheritClass( MyDialog, OO.ui.Dialog );
+ *     MyDialog.static.name = 'myDialog';
  *     MyDialog.prototype.initialize = function () {
  *         MyDialog.parent.prototype.initialize.call( this );
  *         this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
