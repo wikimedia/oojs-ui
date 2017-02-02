@@ -492,6 +492,41 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
  * See the [OOjs ui documentation on MediaWiki] [2] for examples.
  * [2]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Window_managers
  *
+ * This function can be called in two manners:
+ *
+ * 1. `.addWindows( [ windowA, windowB, ... ] )` (where `windowA`, `windowB` are OO.ui.Window objects)
+ *
+ *    This syntax registers windows under the symbolic names defined in their `.static.name`
+ *    properties. For example, if `windowA.constructor.static.name` is `'nameA'`, calling
+ *    `.openWindow( 'nameA' )` afterwards will open the window `windowA`. This syntax requires the
+ *    static name to be set, otherwise an exception will be thrown.
+ *
+ *    This is the recommended way, as it allows for an easier switch to using a window factory.
+ *
+ * 2. `.addWindows( { nameA: windowA, nameB: windowB, ... } )`
+ *
+ *    This syntax registers windows under the explicitly given symbolic names. In this example,
+ *    calling `.openWindow( 'nameA' )` afterwards will open the window `windowA`, regardless of what
+ *    its `.static.name` is set to. The static name is not required to be set.
+ *
+ *    This should only be used if you need to override the default symbolic names.
+ *
+ * Example:
+ *
+ *     var windowManager = new OO.ui.WindowManager();
+ *     $( 'body' ).append( windowManager.$element );
+ *
+ *     // Add a window under the default name: see OO.ui.MessageDialog.static.name
+ *     windowManager.addWindows( [ new OO.ui.MessageDialog() ] );
+ *     // Add a window under an explicit name
+ *     windowManager.addWindows( { myMessageDialog: new OO.ui.MessageDialog() } );
+ *
+ *     // Open window by default name
+ *     windowManager.openWindow( 'message' );
+ *     // Open window by explicitly given name
+ *     windowManager.openWindow( 'myMessageDialog' );
+ *
+ *
  * @param {Object.<string,OO.ui.Window>|OO.ui.Window[]} windows An array of window objects specified
  *  by reference, symbolic name, or explicitly defined symbolic names.
  * @throws {Error} An error is thrown if a window is added by symbolic name, but has neither an
