@@ -263,15 +263,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				}
 			} ),
 			new OO.ui.ButtonOptionWidget( {
-				label: 'Constructive',
-				flags: [ 'constructive' ],
-				data: {
-					progressive: false,
-					constructive: true,
-					destructive: false
-				}
-			} ),
-			new OO.ui.ButtonOptionWidget( {
 				label: 'Destructive',
 				flags: [ 'destructive' ],
 				data: {
