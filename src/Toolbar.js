@@ -278,7 +278,6 @@
  * @cfg {boolean} [actions] Add an actions section to the toolbar. Actions are commands that are included
  *  in the toolbar, but are not configured as tools. By default, actions are displayed on the right side of
  *  the toolbar.
- * @cfg {boolean} [shadow] Add a shadow below the toolbar.
  * @cfg {string} [position='top'] Whether the toolbar is positioned above ('top') or below ('bottom') content.
  */
 OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
@@ -324,9 +323,6 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.$bar
 		.addClass( 'oo-ui-toolbar-bar' )
 		.append( this.$group, '<div style="clear:both"></div>' );
-	if ( config.shadow ) {
-		this.$bar.append( '<div class="oo-ui-toolbar-shadow"></div>' );
-	}
 	this.$element.addClass( 'oo-ui-toolbar oo-ui-toolbar-position-' + this.position ).append( this.$bar );
 };
 

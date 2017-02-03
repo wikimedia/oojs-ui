@@ -6,15 +6,18 @@
 
 		.oo-ui-toolbar-position-top > & {
 			border-bottom: 1px solid #ccc;
+			box-shadow: 0 2px 2px 0 rgba( 0, 0, 0, 0.1 );
 		}
 
 		.oo-ui-toolbar-position-bottom > & {
 			border-top: 1px solid #ccc;
+			box-shadow: 0 -2px 2px 0 rgba( 0, 0, 0, 0.1 );
 		}
 
 		.oo-ui-toolbar-bar {
 			border: 0;
 			background: none;
+			box-shadow: none;
 		}
 	}
 
@@ -40,14 +43,6 @@
 				}
 			}
 		}
-	}
-
-	&-shadow {
-		.oo-ui-background-image('@{oo-ui-default-image-path}/toolbar-shadow.png');
-		bottom: -9px;
-		height: 9px;
-		opacity: 0.5;
-		.oo-ui-transition(opacity @slow-ease);
 	}
 }
 
