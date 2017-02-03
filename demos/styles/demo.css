@@ -33,7 +33,7 @@ p {
 
 /* Toolbars demo */
 
-.oo-ui-demo-toolbars {
+.oo-ui-demo-container.oo-ui-demo-toolbars {
 	padding: 0;
 	margin-bottom: 2em;
 }
