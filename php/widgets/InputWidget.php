@@ -83,6 +83,25 @@ class InputWidget extends Widget {
 	}
 
 	/**
+	 * Get input element's ID.
+	 *
+	 * If the element already has an ID then that is returned, otherwise unique ID is
+	 * generated, set on the element, and returned.
+	 *
+	 * @return {string} The ID of the element
+	 */
+	public function getInputId() {
+		$id = $this->input->getAttribute( 'id' );
+
+		if ( $id === null ) {
+			$id = Tag::generateElementId();
+			$this->setAttributes( [ 'id' => $id ] );
+		}
+
+		return $id;
+	}
+
+	/**
 	 * Get the value of the input.
 	 *
 	 * @return string Input value

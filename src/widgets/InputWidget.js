@@ -126,6 +126,25 @@ OO.ui.InputWidget.prototype.getInputElement = function () {
 };
 
 /**
+ * Get input element's ID.
+ *
+ * If the element already has an ID then that is returned, otherwise unique ID is
+ * generated, set on the element, and returned.
+ *
+ * @return {string} The ID of the element
+ */
+OO.ui.InputWidget.prototype.getInputId = function () {
+	var id = this.$input.attr( 'id' );
+
+	if ( id === undefined ) {
+		id = OO.ui.generateElementId();
+		this.$input.attr( 'id', id );
+	}
+
+	return id;
+};
+
+/**
  * Handle potentially value-changing events.
  *
  * @private

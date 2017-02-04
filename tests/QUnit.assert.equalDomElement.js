@@ -85,6 +85,9 @@
 		if ( summary.attributes.id !== undefined && summary.attributes.id.match( /^(ooui-|oojsui-)/ ) ) {
 			delete summary.attributes.id;
 		}
+		if ( summary.attributes.for !== undefined && summary.attributes.for.match( /^(ooui-|oojsui-)/ ) ) {
+			delete summary.attributes.for;
+		}
 		// Infusion data
 		if ( summary.attributes[ 'data-ooui' ] !== undefined ) {
 			delete summary.attributes[ 'data-ooui' ];
