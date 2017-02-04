@@ -110,6 +110,9 @@ class FieldLayout extends Layout {
 			array_merge( $config, [ 'titled' => $this->label ] ) );
 
 		// Initialization
+		if ( $hasInputWidget ) {
+			$this->body->setAttributes( [ 'for' => $this->fieldWidget->getInputId() ] );
+		}
 		$this
 			->addClasses( [ 'oo-ui-fieldLayout' ] )
 			->toggleClasses( [ 'oo-ui-fieldLayout-disable' ], $this->fieldWidget->isDisabled() )

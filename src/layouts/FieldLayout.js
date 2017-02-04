@@ -93,12 +93,12 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	}
 
 	// Events
-	if ( hasInputWidget ) {
-		this.$label.on( 'click', this.onLabelClick.bind( this ) );
-	}
 	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
 
 	// Initialization
+	if ( hasInputWidget ) {
+		this.$body.attr( 'for', this.fieldWidget.getInputId() );
+	}
 	this.$element
 		.addClass( 'oo-ui-fieldLayout' )
 		.toggleClass( 'oo-ui-fieldLayout-disabled', this.fieldWidget.isDisabled() )
@@ -131,17 +131,6 @@ OO.mixinClass( OO.ui.FieldLayout, OO.ui.mixin.TitledElement );
  */
 OO.ui.FieldLayout.prototype.onFieldDisable = function ( value ) {
 	this.$element.toggleClass( 'oo-ui-fieldLayout-disabled', value );
-};
-
-/**
- * Handle label mouse click events.
- *
- * @private
- * @param {jQuery.Event} e Mouse click event
- */
-OO.ui.FieldLayout.prototype.onLabelClick = function () {
-	this.fieldWidget.simulateLabelClick();
-	return false;
 };
 
 /**
