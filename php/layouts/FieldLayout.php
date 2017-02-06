@@ -115,7 +115,7 @@ class FieldLayout extends Layout {
 		}
 		$this
 			->addClasses( [ 'oo-ui-fieldLayout' ] )
-			->toggleClasses( [ 'oo-ui-fieldLayout-disable' ], $this->fieldWidget->isDisabled() )
+			->toggleClasses( [ 'oo-ui-fieldLayout-disabled' ], $this->fieldWidget->isDisabled() )
 			->appendContent( $this->body );
 		if ( count( $this->errors ) || count( $this->notices ) ) {
 			$this->appendContent( $this->messages );
