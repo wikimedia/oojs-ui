@@ -4,15 +4,16 @@
 	&-bar {
 		background-color: @background-color-toolbar;
 		color: @color-default;
-		box-shadow: @box-shadow-toolbar;
 		font-weight: 500;
 
 		.oo-ui-toolbar-position-top > & {
 			border-bottom: @border-toolbar;
+			box-shadow: @box-shadow-toolbar-top;
 		}
 
 		.oo-ui-toolbar-position-bottom > & {
 			border-top: @border-toolbar;
+			box-shadow: @box-shadow-toolbar-bottom;
 		}
 
 		.oo-ui-toolbar-bar {
