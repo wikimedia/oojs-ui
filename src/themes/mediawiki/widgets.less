@@ -1309,14 +1309,14 @@
 		.oo-ui-popupWidget-anchor:before {
 			bottom: -@size-anchor - 1px;
 			left: -@size-anchor;
-			border-bottom-color: #888;
+			border-bottom-color: @border-color-default;
 			border-width: @size-anchor + 1px;
 		}
 
 		.oo-ui-popupWidget-anchor:after {
 			bottom: -@size-anchor - 1px;
 			left: -@size-anchor + 1px;
-			border-bottom-color: @border-color-disabled-filled;
+			border-bottom-color: @background-color-default; // Using `@background-color-default` var here as `border*-color` is `background-color` subsitute
 			border-width: @size-anchor;
 		}
 	}
