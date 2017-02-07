@@ -1245,14 +1245,18 @@
 }
 
 .theme-oo-ui-tabOptionWidget () {
-	padding: 0.35em 1em;
+	color: @color-default;
 	margin: 0.5em 0 0 0.75em;
 	border: 1px solid transparent;
 	border-bottom: 0;
 	border-top-left-radius: @border-radius-default;
 	border-top-right-radius: @border-radius-default;
-	color: @color-default;
+	padding: 0.35em 1em;
 	font-weight: bold;
+	.oo-ui-transition(
+		background-color @transition-ease-quick,
+		color @transition-ease-quick
+	);
 
 	&.oo-ui-widget-enabled {
 		&:hover {
@@ -1276,7 +1280,7 @@
 	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected,
 	&.oo-ui-optionWidget-selected:hover {
 		background-color: @background-color-default;
-		color: #333;
+		color: @color-default-active;
 	}
 }
 
@@ -1454,7 +1458,7 @@
 .theme-oo-ui-outlineSelectWidget () {}
 
 .theme-oo-ui-tabSelectWidget () {
-	background-color: #ddd;
+	background-color: @background-color-tabs;
 }
 
 .theme-oo-ui-numberInputWidget () {
