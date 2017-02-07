@@ -254,10 +254,10 @@ module.exports = function ( grunt ) {
 				declarations = getDeclarations( variantizeFileName( file[ direction ], variantName ) );
 				rules[ direction ].push( selector + ' {\n\t' + declarations + '\n}' );
 
-				// TODO: Do this in a safer and more clever way
-				variantSvg = originalSvg[ direction ].replace(
-					/<svg[^>]*>/, '$&<style>* { fill: ' + variant.getColor() + ' }</style>'
-				);
+				// TODO: Do this using proper DOM manipulation, not regexp magic
+				variantSvg = originalSvg[ direction ]
+					.replace( /<svg[^>]*>/, '$&<g fill="' + variant.getColor() + '">' )
+					.replace( /<\/svg>/, '</g>$&' );
 
 				if ( originalSvg[ direction ] === variantSvg ) {
 					uncolorizableImages.push( file[ direction ] );
@@ -279,9 +279,10 @@ module.exports = function ( grunt ) {
 						' {\n\t' + declarations + '\n}'
 					);
 
-					variantSvg = originalSvg[ 'lang-' + lang ].replace(
-						/<svg[^>]*>/, '$&<style>* { fill: ' + variant.getColor() + ' }</style>'
-					);
+					// TODO: Do this using proper DOM manipulation, not regexp magic
+					variantSvg = originalSvg[ 'lang-' + lang ]
+						.replace( /<svg[^>]*>/, '$&<g fill="' + variant.getColor() + '">' )
+						.replace( /<\/svg>/, '</g>$&' );
 
 					if ( originalSvg[ 'lang-' + lang ] === variantSvg ) {
 						uncolorizableImages.push( moreLangs[ lang ] );
