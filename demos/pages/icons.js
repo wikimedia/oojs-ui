@@ -86,6 +86,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'lock',
 				'unLock',
 				'star',
+				'halfStar',
 				'unStar',
 				'trash',
 				'unTrash',
