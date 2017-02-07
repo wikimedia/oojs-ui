@@ -25,8 +25,12 @@
 		'direction' => $direction,
 		'page' => $page,
 	];
+	// E.g. oojs-ui-core-apex.rtl.css
 	$styleFileName = "oojs-ui-core-$theme$directionSuffix.css";
+	// E.g. oojs-ui-images-apex.rtl.css
 	$styleFileNameImages = "oojs-ui-images-$theme$directionSuffix.css";
+	// E.g. oojs-ui-apex-icons-content.rtl.css
+	$styleFileNameExtraIcons = "oojs-ui-$theme-icons-content$directionSuffix.css";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="<?php echo $direction; ?>">
@@ -35,6 +39,7 @@
 	<title>OOjs UI Widget Demo</title>
 	<link rel="stylesheet" href="dist/<?php echo $styleFileName; ?>">
 	<link rel="stylesheet" href="dist/<?php echo $styleFileNameImages; ?>">
+	<link rel="stylesheet" href="dist/<?php echo $styleFileNameExtraIcons; ?>">
 	<link rel="stylesheet" href="styles/demo<?php echo $directionSuffix; ?>.css">
 </head>
 <body class="oo-ui-<?php echo $direction; ?>">
