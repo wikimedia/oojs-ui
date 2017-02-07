@@ -360,7 +360,7 @@ OO.ui.Demo.prototype.getStylesheetLinks = function () {
 	// Theme styles
 	urls.push( 'dist/oojs-ui' + fragments.slice( 1 ).join( '' ) + '.css' );
 	for ( i = 0, len = suffixes.length; i < len; i++ ) {
-		urls.push( 'dist/oojs-ui' + fragments[ 1 ] + suffixes[ i ] + '.css' );
+		urls.push( 'dist/oojs-ui' + fragments[ 1 ] + suffixes[ i ] + fragments[ 2 ] + '.css' );
 	}
 
 	// Demo styles
