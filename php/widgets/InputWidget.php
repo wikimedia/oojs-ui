@@ -95,7 +95,7 @@ class InputWidget extends Widget {
 
 		if ( $id === null ) {
 			$id = Tag::generateElementId();
-			$this->setAttributes( [ 'id' => $id ] );
+			$this->input->setAttributes( [ 'id' => $id ] );
 		}
 
 		return $id;
