@@ -102,16 +102,6 @@ OO.ui.ProcessDialog.prototype.onRetryButtonClick = function () {
 /**
  * @inheritdoc
  */
-OO.ui.ProcessDialog.prototype.onActionResize = function ( action ) {
-	if ( this.actions.isSpecial( action ) ) {
-		this.fitLabel();
-	}
-	return OO.ui.ProcessDialog.parent.prototype.onActionResize.call( this, action );
-};
-
-/**
- * @inheritdoc
- */
 OO.ui.ProcessDialog.prototype.initialize = function () {
 	// Parent method
 	OO.ui.ProcessDialog.parent.prototype.initialize.call( this );

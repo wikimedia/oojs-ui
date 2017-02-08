@@ -57,7 +57,6 @@ OO.ui.Dialog = function OoUiDialog( config ) {
 	// Events
 	this.actions.connect( this, {
 		click: 'onActionClick',
-		resize: 'onActionResize',
 		change: 'onActionsChange'
 	} );
 
@@ -149,16 +148,6 @@ OO.ui.Dialog.prototype.onDialogKeyDown = function ( e ) {
 			e.stopPropagation();
 		}
 	}
-};
-
-/**
- * Handle action resized events.
- *
- * @private
- * @param {OO.ui.ActionWidget} action Action that was resized
- */
-OO.ui.Dialog.prototype.onActionResize = function () {
-	// Override in subclass
 };
 
 /**

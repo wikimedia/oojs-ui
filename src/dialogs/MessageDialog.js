@@ -125,14 +125,6 @@ OO.ui.MessageDialog.prototype.setManager = function ( manager ) {
 };
 
 /**
- * @inheritdoc
- */
-OO.ui.MessageDialog.prototype.onActionResize = function ( action ) {
-	this.fitActions();
-	return OO.ui.MessageDialog.parent.prototype.onActionResize.call( this, action );
-};
-
-/**
  * Handle window resized events.
  *
  * @private
