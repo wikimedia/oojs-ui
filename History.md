@@ -1,4 +1,42 @@
 # OOjs UI Release History
+## v0.19.1 / 2017-02-07
+### Features
+* Dialog: Support meta as well as ctrl for modifier on enter key (David Lynch)
+
+### Styles
+* FieldLayout: Fix styling for disabled widgets in PHP (Bartosz Dziewoński)
+* MediaWiki theme: Align tab navigation to color palette (Volker E)
+* MediaWiki theme: Fix RTL version of largerText icon to be, well, RTL (James D. Forrester)
+* MediaWiki theme: Fix direction of shadow on position:bottom toolbars (Ed Sanders)
+* MediaWiki theme: Use correct `border-color` on PopupWidget anchor (Volker E)
+* Mediawiki theme: Fix focus inset to overlap scrollbars (Volker E)
+* icons: Provide a 'halfStar' vertical split star (codynguyen1116)
+
+### Code
+* CheckboxMultiselectInputWidget: Allow disabling specific options (Huji Lee)
+* DraggableGroupElement: Add mandatory ARIA role (Volker E)
+* FieldLayout: Move `<label>` from `$body` to `$label` (Bartosz Dziewoński)
+* FieldLayout: Remove the need for `simulateLabelClick` (Prateek Saxena)
+* InputWidget: Fix 'id' attribute setting for `<label>` (Bartosz Dziewoński)
+* LabelWidget: Remove the need for `simulateLabelClick` (Prateek Saxena)
+* Toolbar: Make toolbar position selectors more specific (Ed Sanders)
+* WindowManager: Clarify `#addWindows` documentation (Bartosz Dziewoński)
+* Windows: Use the "recommended" `WindowManager#addWindows` usage (Bartosz Dziewoński)
+* Apex theme: Get rid of toolbar-shadow div (only used by Apex) (Ed Sanders)
+* MediaWiki theme: Remove unnecessary `font-weight` property (Volker E)
+* build: Bump various dev dependencies to latest (James D. Forrester)
+* colorize-svg: Colorize using a method compatible with rsvg (Bartosz Dziewoński)
+* demos: Load icons stylesheets with correct directionality (LTR/RTL) (Bartosz Dziewoński)
+* demos: Follow-up a02979ad: Load the icons-content pack in the PHP demo (James D. Forrester)
+* demos: Remove 'Constructive' button from the icons page (Prateek Saxena)
+* demos: Add link to documentation (Prateek Saxena)
+* demos: Fix regression on toolbars demo (Volker E)
+* docs: Add quotes around `PROJECT_NAME` setting (Ricordisamoa)
+* docs: Document for JSDuck various overridden inherited properties (Bartosz Dziewoński)
+* docs: Fix `OO.ui.prompt()` documentation (Bartosz Dziewoński)
+* docs: Set `.static.name` in all dialog examples that need it (Bartosz Dziewoński)
+
+
 ## v0.19.0 / 2017-01-31
 ### Breaking changes
 * [BREAKING CHANGE] ButtonWidget: Switch `box-sizing` over to `border-box` (Volker E)
@@ -28,11 +66,11 @@
 * Follow-up 1dc6a45: {Booklet,Index}Layout: Avoid deprecated `config.complete` (Roan Kattouw)
 * Follow-up d21cf8a: unbreak popups with no $floatableContainer (Roan Kattouw)
 * PHP: Avoid unique ID conflicts between PHP and JS code (Bartosz Dziewoński)
-* demo: Failing demo for DropdownWidget with an overlay (Roan Kattouw)
-* demo: Fix vertical spacing in icons demo (Bartosz Dziewoński)
-* demo: Improve layout on mobile and fix various glitches (Volker E)
-* demo: Make the icon page easier to use (Prateek Saxena)
-* demo: Use longer text in PopupWidgets to showcase line wrapping (Bartosz Dziewoński)
+* demos: Failing demo for DropdownWidget with an overlay (Roan Kattouw)
+* demos: Fix vertical spacing in icons demo (Bartosz Dziewoński)
+* demos: Improve layout on mobile and fix various glitches (Volker E)
+* demos: Make the icon page easier to use (Prateek Saxena)
+* demos: Use longer text in PopupWidgets to showcase line wrapping (Bartosz Dziewoński)
 
 
 ## v0.18.4 / 2017-01-17
@@ -67,11 +105,11 @@
 * PopupWidget#setAlignment: Tweak docs to indicate default parameter value (James D. Forrester)
 * PHP: Add method Tag::generateElementId() to match JS OO.ui.generateElementId() (Bartosz Dziewoński)
 * styles: Improve and clarify GPU composite layer mixin (Volker E)
-* demo: Add a LabelWidget that has a corresponding TextInputWidget (Prateek Saxena)
-* demo: Add lots more FieldLayout demos (Bartosz Dziewoński)
-* demo: Add test for ClippableElements at the bottom of their containers (Prateek Saxena)
-* doc: Use 'an' instead of 'a' before 'HTML' (Prateek Saxena)
-* doc: Include an i18n example in OO.ui.msg documentation (David Lynch)
+* demos: Add a LabelWidget that has a corresponding TextInputWidget (Prateek Saxena)
+* demos: Add lots more FieldLayout demos (Bartosz Dziewoński)
+* demos: Add test for ClippableElements at the bottom of their containers (Prateek Saxena)
+* docs: Use 'an' instead of 'a' before 'HTML' (Prateek Saxena)
+* docs: Include an i18n example in OO.ui.msg documentation (David Lynch)
 * tests: Improve ignoring expected differences in JS/PHP comparison tests (Bartosz Dziewoński)
 * tests: Tweaks to the display of failed tests (Bartosz Dziewoński)
 * testsuitegenerator: Allow testing LabelWidget's 'input' (Bartosz Dziewoński)
