@@ -104,7 +104,10 @@ OO.ui.ActionWidget.prototype.propagateResize = function () {
 		if ( width !== this.width || height !== this.height ) {
 			this.width = width;
 			this.height = height;
-			this.emit( 'resize' );
+			this.emit( 'resizePrivate' );
+			if ( this.emit( 'resize' ) ) {
+				OO.ui.warnDeprecation( 'ActionWidget: resize event is deprecated. See T129162.' );
+			}
 		}
 	}
 
