@@ -206,6 +206,10 @@ OO.mixinClass( OO.ui.CapsuleMultiselectWidget, OO.ui.mixin.TabIndexedElement );
 OO.mixinClass( OO.ui.CapsuleMultiselectWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.CapsuleMultiselectWidget, OO.ui.mixin.IconElement );
 
+/* Static Properties */
+
+OO.ui.CapsuleMultiselectWidget.static.supportsSimpleLabel = true;
+
 /* Events */
 
 /**
@@ -239,6 +243,26 @@ OO.ui.CapsuleMultiselectWidget.prototype.createItemWidget = function ( data, lab
 		return null;
 	}
 	return new OO.ui.CapsuleItemWidget( { data: data, label: label } );
+};
+
+/**
+ * Get the widget's input's id, or generate one, if it has an input.
+ *
+ * @return {string}
+ */
+OO.ui.CapsuleMultiselectWidget.prototype.getInputId = function () {
+	var id;
+	if ( !this.$input ) {
+		return false;
+	}
+
+	id = this.$input.attr( 'id' );
+	if ( id === undefined ) {
+		id = OO.ui.generateElementId();
+		this.$input.attr( 'id', id );
+	}
+
+	return id;
 };
 
 /**

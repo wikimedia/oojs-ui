@@ -53,7 +53,9 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 
 	// Initialization
 	if ( this.input instanceof OO.ui.InputWidget ) {
-		this.$element.attr( 'for', this.input.getInputId() );
+		if ( this.input.getInputId() ) {
+			this.$element.attr( 'for', this.input.getInputId() );
+		}
 	}
 	this.$element.addClass( 'oo-ui-labelWidget' );
 };
