@@ -35,6 +35,7 @@
  *  that toggles the menu's visibility on click, the menu will be hidden then re-shown when the user clicks
  *  that button, unless the button (or its parent widget) is passed in here.
  * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu.
+ * @cfg {boolean} [hideOnChoose=true] Hide the menu when the user chooses an option.
  * @cfg {boolean} [filterFromInput=false] Filter the displayed options from the input
  */
 OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
@@ -49,6 +50,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 
 	// Properties
 	this.autoHide = config.autoHide === undefined || !!config.autoHide;
+	this.hideOnChoose = config.hideOnChoose === undefined || !!config.hideOnChoose;
 	this.filterFromInput = !!config.filterFromInput;
 	this.$input = config.$input ? config.$input : config.input ? config.input.$input : null;
 	this.$widget = config.widget ? config.widget.$element : null;
@@ -202,7 +204,7 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyPressListener = function () {
 /**
  * Choose an item.
  *
- * When a user chooses an item, the menu is closed.
+ * When a user chooses an item, the menu is closed, unless the hideOnChoose config option is set to false.
  *
  * Note that ‘choose’ should never be modified programmatically. A user can choose an option with the keyboard
  * or mouse and it becomes selected. To select an item programmatically, use the #selectItem method.
@@ -212,7 +214,9 @@ OO.ui.MenuSelectWidget.prototype.unbindKeyPressListener = function () {
  */
 OO.ui.MenuSelectWidget.prototype.chooseItem = function ( item ) {
 	OO.ui.MenuSelectWidget.parent.prototype.chooseItem.call( this, item );
-	this.toggle( false );
+	if ( this.hideOnChoose ) {
+		this.toggle( false );
+	}
 	return this;
 };
 
