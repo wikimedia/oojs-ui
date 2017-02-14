@@ -101,9 +101,9 @@ OO.ui.OutlineOptionWidget.prototype.getLevel = function () {
 OO.ui.OutlineOptionWidget.prototype.setPressed = function ( state ) {
 	OO.ui.OutlineOptionWidget.parent.prototype.setPressed.call( this, state );
 	if ( this.pressed ) {
-		this.setFlags( 'progressive' );
+		this.setFlags( { progressive: true } );
 	} else if ( !this.selected ) {
-		this.clearFlags();
+		this.setFlags( { progressive: false } );
 	}
 	return this;
 };
@@ -142,9 +142,9 @@ OO.ui.OutlineOptionWidget.prototype.setRemovable = function ( removable ) {
 OO.ui.OutlineOptionWidget.prototype.setSelected = function ( state ) {
 	OO.ui.OutlineOptionWidget.parent.prototype.setSelected.call( this, state );
 	if ( this.selected ) {
-		this.setFlags( 'progressive' );
+		this.setFlags( { progressive: true } );
 	} else {
-		this.clearFlags();
+		this.setFlags( { progressive: false } );
 	}
 	return this;
 };
