@@ -42,6 +42,7 @@
  * @cfg {string|OO.ui.HtmlSnippet} [help] Help text. When help text is specified, a "help" icon will appear
  *  in the upper-right corner of the rendered field; clicking it will display the text in a popup.
  *  For important messages, you are advised to use `notices`, as they are always shown.
+ * @cfg {jQuery} [$overlay] Passed to OO.ui.PopupButtonWidget for help popup, if `help` is given.
  */
 OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	// Configuration initialization
@@ -59,6 +60,7 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	this.$header = $( '<div>' );
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
+			$overlay: config.$overlay,
 			popup: {
 				padded: true
 			},

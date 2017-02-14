@@ -1,5 +1,7 @@
 OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 	var i, l, name, openButton, DialogClass, config, configQuick,
+		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
+			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
 		$demo = demo.$element,
 		fieldset = new OO.ui.FieldsetLayout( { label: 'Dialogs' } ),
 		windows = {},
@@ -653,6 +655,37 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 					items: this.makeItems()
 				} ), $spacer.clone() ]
 			} ),
+			new SamplePage( 'fieldsetandfield', {
+				label: 'FieldsetLayout and FieldLayout',
+				content: [ $spacer.clone(), new OO.ui.FieldsetLayout( {
+					$overlay: this.$overlay,
+					label: 'Fieldset',
+					help: loremIpsum,
+					items: [
+						new OO.ui.FieldLayout( new OO.ui.CheckboxInputWidget(), {
+							$overlay: this.$overlay,
+							align: 'inline',
+							label: 'Field',
+							help: loremIpsum
+						} )
+					]
+				} ), $spacer.clone() ]
+			} ),
+			new SamplePage( 'fieldsetandfield2', {
+				label: 'FieldsetLayout and FieldLayout',
+				icon: 'alert',
+				content: [ $spacer.clone(), new OO.ui.FieldsetLayout( {
+					label: 'Fieldset',
+					help: loremIpsum,
+					items: [
+						new OO.ui.FieldLayout( new OO.ui.CheckboxInputWidget(), {
+							align: 'inline',
+							label: 'Field',
+							help: loremIpsum
+						} )
+					]
+				} ), $spacer.clone() ]
+			} ),
 			new SamplePage( 'popupbutton', {
 				label: 'PopupButtonWidget',
 				content: [ $spacer.clone(), new OO.ui.PopupButtonWidget( {
@@ -720,8 +753,6 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 		} );
 	};
 	DialogWithDropdowns.prototype.makeContents = function () {
-		var loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
-			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E';
 		return $( '<p>' ).text( loremIpsum );
 	};
 
