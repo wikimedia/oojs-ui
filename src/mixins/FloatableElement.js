@@ -116,7 +116,7 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 				this.$floatableClosestScrollable = null;
 			}
 
-			this.$floatable.css( { left: '', top: '' } );
+			this.$floatable.css( { left: '', right: '', top: '' } );
 		}
 	}
 
@@ -191,9 +191,14 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 	}
 
 	pos = OO.ui.Element.static.getRelativePosition( this.$floatableContainer, this.$floatable.offsetParent() );
-
 	// Position under container
 	pos.top += this.$floatableContainer.height();
+	// In LTR, we position from the left, and pos.left is already set
+	// In RTL, we position from the right instead.
+	if ( this.$floatableContainer.css( 'direction' ) === 'rtl' ) {
+		pos.right = this.$floatable.offsetParent().width() - pos.left - this.$floatableContainer.outerWidth();
+		delete pos.left;
+	}
 	this.$floatable.css( pos );
 
 	// We updated the position, so re-evaluate the clipping state.

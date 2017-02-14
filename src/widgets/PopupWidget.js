@@ -306,14 +306,27 @@ OO.ui.PopupWidget.prototype.setSize = function ( width, height, transition ) {
  */
 OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	var popupOffset, originOffset, containerLeft, containerWidth, containerRight,
-		popupLeft, popupRight, overlapLeft, overlapRight, anchorWidth,
-		align = this.align,
+		popupLeft, popupRight, overlapLeft, overlapRight, anchorWidth, direction,
+		dirFactor, align,
+		alignMap = {
+			ltr: {
+				'force-left': 'backwards',
+				'force-right': 'forwards'
+			},
+			rtl: {
+				'force-left': 'forwards',
+				'force-right': 'backwards'
+			}
+		},
 		widget = this;
 
 	if ( !this.$container ) {
 		// Lazy-initialize $container if not specified in constructor
 		this.$container = $( this.getClosestScrollableElementContainer() );
 	}
+	direction = this.$container.css( 'direction' );
+	dirFactor = direction === 'rtl' ? -1 : 1;
+	align = alignMap[ direction ][ this.align ] || this.align;
 
 	// Set height and width before measuring things, since it might cause our measurements
 	// to change (e.g. due to scrollbars appearing or disappearing)
@@ -322,34 +335,24 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 		height: this.height !== null ? this.height : 'auto'
 	} );
 
-	// If we are in RTL, we need to flip the alignment, unless it is center
-	if ( align === 'forwards' || align === 'backwards' ) {
-		if ( this.$container.css( 'direction' ) === 'rtl' ) {
-			align = ( { forwards: 'force-left', backwards: 'force-right' } )[ this.align ];
-		} else {
-			align = ( { forwards: 'force-right', backwards: 'force-left' } )[ this.align ];
-		}
-
-	}
-
 	// Compute initial popupOffset based on alignment
-	popupOffset = this.width * ( { 'force-left': -1, center: -0.5, 'force-right': 0 } )[ align ];
+	popupOffset = this.width * ( { backwards: -1, center: -0.5, forwards: 0 } )[ align ];
 
 	// Figure out if this will cause the popup to go beyond the edge of the container
 	originOffset = this.$element.offset().left;
 	containerLeft = this.$container.offset().left;
 	containerWidth = this.$container.innerWidth();
 	containerRight = containerLeft + containerWidth;
-	popupLeft = popupOffset - this.containerPadding;
-	popupRight = popupOffset + this.containerPadding + this.width + this.containerPadding;
+	popupLeft = dirFactor * popupOffset - this.containerPadding;
+	popupRight = dirFactor * popupOffset + this.containerPadding + this.width + this.containerPadding;
 	overlapLeft = ( originOffset + popupLeft ) - containerLeft;
 	overlapRight = containerRight - ( originOffset + popupRight );
 
 	// Adjust offset to make the popup not go beyond the edge, if needed
 	if ( overlapRight < 0 ) {
-		popupOffset += overlapRight;
+		popupOffset += dirFactor * overlapRight;
 	} else if ( overlapLeft < 0 ) {
-		popupOffset -= overlapLeft;
+		popupOffset -= dirFactor * overlapLeft;
 	}
 
 	// Adjust offset to avoid anchor being rendered too close to the edge
@@ -370,7 +373,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	}
 
 	// Position body relative to anchor
-	this.$popup.css( 'margin-left', popupOffset );
+	this.$popup.css( direction === 'rtl' ? 'margin-right' : 'margin-left', popupOffset );
 
 	if ( transition ) {
 		// Prevent transitioning after transition is complete
