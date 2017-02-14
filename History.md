@@ -1,4 +1,20 @@
 # OOjs UI Release History
+## v0.19.2 / 2017-02-14
+### Features
+* CapsuleMultiselectWidget: Make labels work (Prateek Saxena)
+* FloatableElement, PopupWidget: Do positioning from the right in RTL (Roan Kattouw)
+* TextInputWidget: getValidity: Check browser validation first (Prateek Saxena)
+
+### Styles
+* icons: Fix vertical alignment of eye icon (Ed Sanders)
+
+### Code
+* core: Do not clear unrelated flags when clearing 'progressive' (Bartosz Dziewoński)
+* ActionWidget: Remove event listening code for widget's 'resize' event (Prateek Saxena)
+* ClippableElement: Order matters (inexplicably) (Bartosz Dziewoński)
+* demos: Use longer text in popup in $overlay demo (Bartosz Dziewoński)
+
+
 ## v0.19.1 / 2017-02-07
 ### Features
 * Dialog: Support meta as well as ctrl for modifier on enter key (David Lynch)
