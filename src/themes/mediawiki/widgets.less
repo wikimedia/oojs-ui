@@ -322,18 +322,12 @@
 		}
 	}
 
-	&-supported.oo-ui-widget-enabled {
-		&.oo-ui-selectFileWidget-canDrop.oo-ui-selectFileWidget-dropTarget {
-			background-color: @background-color-progressive;
-		}
-	}
-
 	&-dropTarget {
 		background-color: @background-color-default;
 		border: @border-default;
+		border-radius: @border-radius-default;
 		vertical-align: middle;
 		overflow: hidden;
-		border-radius: @border-radius-default;
 
 		.oo-ui-selectFileWidget-selectButton {
 			> .oo-ui-buttonElement-button {
@@ -348,9 +342,27 @@
 		}
 	}
 
-	&-empty.oo-ui-widget-enabled.oo-ui-selectFileWidget-dropTarget {
-		background-color: #eee;
-		border-style: dashed;
+	&-empty.oo-ui-widget-enabled {
+		&.oo-ui-selectFileWidget-dropTarget {
+			background-color: @background-color-default;
+			border-style: dashed;
+			.oo-ui-transition(
+				background-color @transition-ease-out-sine-medium,
+				color @transition-ease-out-sine-medium,
+				border-color @transition-ease-out-sine-medium
+			);
+
+			&:hover {
+				border-color: @border-color-input-hover;
+			}
+		}
+	}
+
+	&-supported.oo-ui-widget-enabled {
+		&.oo-ui-selectFileWidget-canDrop.oo-ui-selectFileWidget-dropTarget {
+			background-color: @background-color-progressive;
+			color: @color-progressive-active-hover;
+		}
 	}
 
 	&.oo-ui-widget-disabled,
