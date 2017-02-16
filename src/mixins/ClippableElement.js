@@ -94,6 +94,11 @@ OO.ui.mixin.ClippableElement.prototype.setClippableContainer = function ( $clipp
 OO.ui.mixin.ClippableElement.prototype.toggleClipping = function ( clipping ) {
 	clipping = clipping === undefined ? !this.clipping : !!clipping;
 
+	if ( clipping && !this.warnedUnattached && !this.isElementAttached() ) {
+		OO.ui.warnDeprecation( 'ClippableElement#toggleClipping: Before calling this method, the element must be attached to the DOM.' );
+		this.warnedUnattached = true;
+	}
+
 	if ( this.clipping !== clipping ) {
 		this.clipping = clipping;
 		if ( clipping ) {

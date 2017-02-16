@@ -16,6 +16,8 @@
  * - Down-arrow key: highlight the next menu option
  * - Esc key: hide the menu
  *
+ * Unlike most widgets, MenuSelectWidget is initially hidden and must be shown by calling #toggle.
+ *
  * Please see the [OOjs UI documentation on MediaWiki][1] for more information.
  * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
  *
@@ -256,6 +258,14 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
 };
 
 /**
+ * Toggle visibility of the menu. The menu is initially hidden and must be shown by calling
+ * `.toggle( true )` after its #$element is attached to the DOM.
+ *
+ * Do not show the menu while it is not attached to the DOM. The calculations required to display
+ * it in the right place and with the right dimensions only work correctly while it is attached.
+ * Side-effects may include broken interface and exceptions being thrown. This wasn't always
+ * strictly enforced, so currently it only generates a warning in the browser console.
+ *
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
@@ -263,6 +273,11 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 
 	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
 	change = visible !== this.isVisible();
+
+	if ( visible && !this.warnedUnattached && !this.isElementAttached() ) {
+		OO.ui.warnDeprecation( 'MenuSelectWidget#toggle: Before calling this method, the menu must be attached to the DOM.' );
+		this.warnedUnattached = true;
+	}
 
 	// Parent method
 	OO.ui.MenuSelectWidget.parent.prototype.toggle.call( this, visible );
