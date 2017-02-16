@@ -1314,6 +1314,36 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.DropdownWidget( {
+						label: 'Select one',
+						menu: {
+							items: [
+								new OO.ui.MenuOptionWidget( {
+									data: 'a',
+									label: 'First'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'b',
+									label: 'Second'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'c',
+									label: 'Third'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'd',
+									label: 'Fourth'
+								} )
+							],
+							hideOnChoose: false
+						}
+					} ),
+					{
+						label: 'DropdownWidget (does not close on choose)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.DropdownInputWidget( {
 						options: [
 							{
