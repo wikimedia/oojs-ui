@@ -91,6 +91,64 @@ p {
 	max-width: 10em;
 }
 
+.floatableTest-floatable,
+.floatableTest-container {
+	border: 1px #000 solid;
+}
+
+.floatableTest-floatable {
+	border: 1px #f00 solid;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	pointer-events: none;
+}
+
+.floatableTest-container {
+	position: absolute;
+	text-align: center;
+}
+
+.floatableTest-container .oo-ui-fieldsetLayout {
+	margin-top: 20%;
+	display: inline-block;
+}
+
+.oo-ui-positionSelectWidget table {
+	border-collapse: collapse;
+}
+.oo-ui-positionSelectWidget tr:nth-child(2) td:nth-child(2) {
+	border-top: 1px #000 solid;
+	border-left: 1px #000 solid;
+}
+.oo-ui-positionSelectWidget tr:nth-child(2) td:nth-child(3) {
+	border-top: 1px #000 solid;
+}
+.oo-ui-positionSelectWidget tr:nth-child(2) td:nth-child(4) {
+	border-top: 1px #000 solid;
+	border-right: 1px #000 solid;
+}
+.oo-ui-positionSelectWidget tr:nth-child(3) td:nth-child(2) {
+	border-left: 1px #000 solid;
+}
+.oo-ui-positionSelectWidget tr:nth-child(3) td:nth-child(4) {
+	border-right: 1px #000 solid;
+}
+.oo-ui-positionSelectWidget tr:nth-child(4) td:nth-child(2) {
+	border-bottom: 1px #000 solid;
+	border-left: 1px #000 solid;
+}
+.oo-ui-positionSelectWidget tr:nth-child(4) td:nth-child(3) {
+	border-bottom: 1px #000 solid;
+}
+.oo-ui-positionSelectWidget tr:nth-child(4) td:nth-child(4) {
+	border-bottom: 1px #000 solid;
+	border-right: 1px #000 solid;
+}
+.oo-ui-positionSelectWidget .oo-ui-radioOptionWidget.oo-ui-optionWidget-selected {
+	outline: 1px #f00 solid;
+}
+
 /* Console */
 /* stylelint-disable selector-pseudo-element-colon-notation */
 .demo-console {

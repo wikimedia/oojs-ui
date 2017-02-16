@@ -1,6 +1,6 @@
 /**
- * Element that will stick under a specified container, even when it is inserted elsewhere in the
- * document (for example, in a OO.ui.Window's $overlay).
+ * Element that will stick adjacent to a specified container, even when it is inserted elsewhere
+ * in the document (for example, in an OO.ui.Window's $overlay).
  *
  * The elements's position is automatically calculated and maintained when window is resized or the
  * page is scrolled. If you reposition the container manually, you have to call #position to make
@@ -16,7 +16,19 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$floatable] Node to position, assigned to #$floatable, omit to use #$element
- * @cfg {jQuery} [$floatableContainer] Node to position below
+ * @cfg {jQuery} [$floatableContainer] Node to position adjacent to
+ * @cfg {string} [verticalPosition='below'] Where to position $floatable vertically:
+ *  'below': Directly below $floatableContainer, aligning f's top edge with fC's bottom edge
+ *  'above': Directly above $floatableContainer, aligning f's bottom edge with fC's top edge
+ *  'top': Align the top edge with $floatableContainer's top edge
+ *  'bottom': Align the bottom edge with $floatableContainer's bottom edge
+ *  'center': Vertically align the center with $floatableContainer's center
+ * @cfg {string} [horizontalPosition='start'] Where to position $floatable horizontally:
+ *  'before': Directly before $floatableContainer, aligning f's end edge with fC's start edge
+ *  'after': Directly after $floatableContainer, algining f's start edge with fC's end edge
+ *  'start': Align the start (left in LTR, right in RTL) edge with $floatableContainer's start edge
+ *  'end': Align the end (right in LTR, left in RTL) edge with $floatableContainer's end edge
+ *  'center': Horizontally align the center with $floatableContainer's center
  */
 OO.ui.mixin.FloatableElement = function OoUiMixinFloatableElement( config ) {
 	// Configuration initialization
@@ -33,6 +45,8 @@ OO.ui.mixin.FloatableElement = function OoUiMixinFloatableElement( config ) {
 	// Initialization
 	this.setFloatableContainer( config.$floatableContainer );
 	this.setFloatableElement( config.$floatable || this.$element );
+	this.setVerticalPosition( config.verticalPosition || 'below' );
+	this.setHorizontalPosition( config.horizontalPosition || 'start' );
 };
 
 /* Methods */
@@ -57,12 +71,42 @@ OO.ui.mixin.FloatableElement.prototype.setFloatableElement = function ( $floatab
 /**
  * Set floatable container.
  *
- * The element will be always positioned under the specified container.
+ * The element will be positioned relative to the specified container.
  *
  * @param {jQuery|null} $floatableContainer Container to keep visible, or null to unset
  */
 OO.ui.mixin.FloatableElement.prototype.setFloatableContainer = function ( $floatableContainer ) {
 	this.$floatableContainer = $floatableContainer;
+	if ( this.$floatable ) {
+		this.position();
+	}
+};
+
+/**
+ * Change how the element is positioned vertically.
+ *
+ * @param {string} position 'below', 'above', 'top', 'bottom' or 'center'
+ */
+OO.ui.mixin.FloatableElement.prototype.setVerticalPosition = function ( position ) {
+	if ( [ 'below', 'above', 'top', 'bottom', 'center' ].indexOf( position ) === -1 ) {
+		throw new Error( 'Invalid value for vertical position: ' + position );
+	}
+	this.verticalPosition = position;
+	if ( this.$floatable ) {
+		this.position();
+	}
+};
+
+/**
+ * Change how the element is positioned horizontally.
+ *
+ * @param {string} position 'before', 'after', 'start', 'end' or 'center'
+ */
+OO.ui.mixin.FloatableElement.prototype.setHorizontalPosition = function ( position ) {
+	if ( [ 'before', 'after', 'start', 'end', 'center' ].indexOf( position ) === -1 ) {
+		throw new Error( 'Invalid value for horizontal position: ' + position );
+	}
+	this.horizontalPosition = position;
 	if ( this.$floatable ) {
 		this.position();
 	}
@@ -93,8 +137,12 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 	if ( this.positioning !== positioning ) {
 		this.positioning = positioning;
 
+		this.needsCustomPosition =
+			this.verticalPostion !== 'below' ||
+			this.horizontalPosition !== 'start' ||
+			!OO.ui.contains( this.$floatableContainer[ 0 ], this.$floatable[ 0 ] );
+
 		closestScrollableOfContainer = OO.ui.Element.static.getClosestScrollableContainer( this.$floatableContainer[ 0 ] );
-		this.needsCustomPosition = !OO.ui.contains( this.$floatableContainer[ 0 ], this.$floatable[ 0 ] );
 		// If the scrollable is the root, we have to listen to scroll events
 		// on the window because of browser inconsistencies.
 		if ( $( closestScrollableOfContainer ).is( 'html, body' ) ) {
@@ -137,10 +185,9 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
  * @return {boolean}
  */
 OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element, $container ) {
-	var elemRect, contRect,
-		leftEdgeInBounds = false,
-		bottomEdgeInBounds = false,
-		rightEdgeInBounds = false;
+	var elemRect, contRect, topEdgeInBounds, bottomEdgeInBounds, leftEdgeInBounds, rightEdgeInBounds,
+		startEdgeInBounds, endEdgeInBounds,
+		direction = $element.css( 'direction' );
 
 	elemRect = $element[ 0 ].getBoundingClientRect();
 	if ( $container[ 0 ] === window ) {
@@ -154,20 +201,35 @@ OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element
 		contRect = $container[ 0 ].getBoundingClientRect();
 	}
 
-	// For completeness, if we still cared about topEdgeInBounds, that'd be:
-	// elemRect.top >= contRect.top && elemRect.top <= contRect.bottom
-	if ( elemRect.left >= contRect.left && elemRect.left <= contRect.right ) {
-		leftEdgeInBounds = true;
-	}
-	if ( elemRect.bottom >= contRect.top && elemRect.bottom <= contRect.bottom ) {
-		bottomEdgeInBounds = true;
-	}
-	if ( elemRect.right >= contRect.left && elemRect.right <= contRect.right ) {
-		rightEdgeInBounds = true;
+	topEdgeInBounds = elemRect.top >= contRect.top && elemRect.top <= contRect.bottom;
+	bottomEdgeInBounds = elemRect.bottom >= contRect.top && elemRect.bottom <= contRect.bottom;
+	leftEdgeInBounds = elemRect.left >= contRect.left && elemRect.left <= contRect.right;
+	rightEdgeInBounds = elemRect.right >= contRect.left && elemRect.right <= contRect.right;
+	if ( direction === 'rtl' ) {
+		startEdgeInBounds = rightEdgeInBounds;
+		endEdgeInBounds = leftEdgeInBounds;
+	} else {
+		startEdgeInBounds = leftEdgeInBounds;
+		endEdgeInBounds = rightEdgeInBounds;
 	}
 
-	// We only care that any part of the bottom edge is visible
-	return bottomEdgeInBounds && ( leftEdgeInBounds || rightEdgeInBounds );
+	if ( this.verticalPosition === 'below' && !bottomEdgeInBounds ) {
+		return false;
+	}
+	if ( this.verticalPosition === 'above' && !topEdgeInBounds ) {
+		return false;
+	}
+	if ( this.horizontalPosition === 'before' && !startEdgeInBounds ) {
+		return false;
+	}
+	if ( this.horizontalPosition === 'after' && !endEdgeInBounds ) {
+		return false;
+	}
+
+	// The other positioning values are all about being inside the container,
+	// so in those cases all we care about is that any part of the container is visible.
+	return elemRect.top <= contRect.bottom && elemRect.bottom >= contRect.top &&
+		elemRect.left <= contRect.right && elemRect.right >= contRect.left;
 };
 
 /**
@@ -178,7 +240,9 @@ OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element
  * @chainable
  */
 OO.ui.mixin.FloatableElement.prototype.position = function () {
-	var pos;
+	var containerPos, direction, $offsetParent, isBody, scrollableX, scrollableY,
+		horizScrollbarHeight, vertScrollbarWidth, scrollTop, scrollLeft,
+		newPos = { top: '', left: '', bottom: '', right: '' };
 
 	if ( !this.positioning ) {
 		return this;
@@ -195,16 +259,106 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 		return;
 	}
 
-	pos = OO.ui.Element.static.getRelativePosition( this.$floatableContainer, this.$floatable.offsetParent() );
-	// Position under container
-	pos.top += this.$floatableContainer.height();
-	// In LTR, we position from the left, and pos.left is already set
-	// In RTL, we position from the right instead.
-	if ( this.$floatableContainer.css( 'direction' ) === 'rtl' ) {
-		pos.right = this.$floatable.offsetParent().width() - pos.left - this.$floatableContainer.outerWidth();
-		delete pos.left;
+	direction = this.$floatableContainer.css( 'direction' );
+	$offsetParent = this.$floatable.offsetParent();
+	if ( $offsetParent.is( 'html' ) ) {
+		// The innerHeight/Width and clientHeight/Width calculations don't work well on the
+		// <html> element, but they do work on the <body>
+		$offsetParent = $( $offsetParent[ 0 ].ownerDocument.body );
 	}
-	this.$floatable.css( pos );
+	isBody = $offsetParent.is( 'body' );
+	scrollableX = $offsetParent.css( 'overflow-x' ) === 'scroll' || $offsetParent.css( 'overflow-x' ) === 'auto';
+	scrollableY = $offsetParent.css( 'overflow-y' ) === 'scroll' || $offsetParent.css( 'overflow-y' ) === 'auto';
+
+	vertScrollbarWidth = $offsetParent.innerWidth() - $offsetParent.prop( 'clientWidth' );
+	horizScrollbarHeight = $offsetParent.innerHeight() - $offsetParent.prop( 'clientHeight' );
+	// We don't need to compute and add scrollTop and scrollLeft if the scrollable container is the body,
+	// or if it isn't scrollable
+	scrollTop = scrollableY && !isBody ? $offsetParent.scrollTop() : 0;
+	scrollLeft = scrollableX && !isBody ? OO.ui.Element.static.getScrollLeft( $offsetParent[ 0 ] ) : 0;
+
+	// Avoid passing the <body> to getRelativePosition(), because it won't return what we expect
+	// if the <body> has a margin
+	containerPos = isBody ?
+		this.$floatableContainer.offset() :
+		OO.ui.Element.static.getRelativePosition( this.$floatableContainer, $offsetParent );
+	containerPos.bottom = containerPos.top + this.$floatableContainer.outerHeight();
+	containerPos.right = containerPos.left + this.$floatableContainer.outerWidth();
+	containerPos.start = direction === 'rtl' ? containerPos.right : containerPos.left;
+	containerPos.end = direction === 'rtl' ? containerPos.left : containerPos.right;
+
+	if ( this.verticalPosition === 'below' ) {
+		newPos.top = containerPos.bottom;
+	} else if ( this.verticalPosition === 'above' ) {
+		newPos.bottom = $offsetParent.outerHeight() - containerPos.top;
+	} else if ( this.verticalPosition === 'top' ) {
+		newPos.top = containerPos.top;
+	} else if ( this.verticalPosition === 'bottom' ) {
+		newPos.bottom = $offsetParent.outerHeight() - containerPos.bottom;
+	} else if ( this.verticalPosition === 'center' ) {
+		newPos.top = containerPos.top +
+			( this.$floatableContainer.height() - this.$floatable.height() ) / 2;
+	}
+
+	if ( this.horizontalPosition === 'before' ) {
+		newPos.end = containerPos.start;
+	} else if ( this.horizontalPosition === 'after' ) {
+		newPos.start = containerPos.end;
+	} else if ( this.horizontalPosition === 'start' ) {
+		newPos.start = containerPos.start;
+	} else if ( this.horizontalPosition === 'end' ) {
+		newPos.end = containerPos.end;
+	} else if ( this.horizontalPosition === 'center' ) {
+		newPos.left = containerPos.left +
+			( this.$floatableContainer.width() - this.$floatable.width() ) / 2;
+	}
+
+	if ( newPos.start !== undefined ) {
+		if ( direction === 'rtl' ) {
+			newPos.right = ( isBody ? $( $offsetParent[ 0 ].ownerDocument.documentElement ) : $offsetParent ).outerWidth() - newPos.start;
+		} else {
+			newPos.left = newPos.start;
+		}
+		delete newPos.start;
+	}
+	if ( newPos.end !== undefined ) {
+		if ( direction === 'rtl' ) {
+			newPos.left = newPos.end;
+		} else {
+			newPos.right = ( isBody ? $( $offsetParent[ 0 ].ownerDocument.documentElement ) : $offsetParent ).outerWidth() - newPos.end;
+		}
+		delete newPos.end;
+	}
+
+	// Account for scroll position
+	if ( newPos.top !== '' ) {
+		newPos.top += scrollTop;
+	}
+	if ( newPos.bottom !== '' ) {
+		newPos.bottom -= scrollTop;
+	}
+	if ( newPos.left !== '' ) {
+		newPos.left += scrollLeft;
+	}
+	if ( newPos.right !== '' ) {
+		newPos.right -= scrollLeft;
+	}
+
+	// Account for scrollbar gutter
+	if ( newPos.bottom !== '' ) {
+		newPos.bottom -= horizScrollbarHeight;
+	}
+	if ( direction === 'rtl' ) {
+		if ( newPos.left !== '' ) {
+			newPos.left -= vertScrollbarWidth;
+		}
+	} else {
+		if ( newPos.right !== '' ) {
+			newPos.right -= vertScrollbarWidth;
+		}
+	}
+
+	this.$floatable.css( newPos );
 
 	// We updated the position, so re-evaluate the clipping state.
 	// (ClippableElement does not listen to 'scroll' events on $floatableContainer's parent, and so

@@ -576,6 +576,179 @@ Demo.static.pages.dialogs = function ( demo ) {
 		}
 	};
 
+	function PositionSelectWidget( config ) {
+		var verticalPositions, horizontalPositions, $table,
+			widget = this;
+
+		PositionSelectWidget.parent.call( this, config );
+
+		verticalPositions = [ 'above', 'top', 'center', 'bottom', 'below' ];
+		horizontalPositions = [ 'before', 'start', 'center', 'end', 'after' ];
+
+		$table = $( '<table>' );
+		verticalPositions.forEach( function ( v ) {
+			var $tr = $( '<tr>' );
+			horizontalPositions.forEach( function ( h ) {
+				var $td = $( '<td>' );
+				$td.append( widget.getOption( h, v ).$element );
+				$td.attr( 'title', v + '/' + h );
+				$tr.append( $td );
+			} );
+			$table.append( $tr );
+		} );
+
+		this.$element.append( $table );
+		this.$element.addClass( 'oo-ui-positionSelectWidget' );
+	}
+	OO.inheritClass( PositionSelectWidget, OO.ui.RadioSelectWidget );
+	PositionSelectWidget.prototype.getOption = function ( h, v ) {
+		var option = new OO.ui.RadioOptionWidget( {
+			data: {
+				horizontalPosition: h,
+				verticalPosition: v
+			}
+		} );
+		this.addItems( [ option ] );
+		return option;
+	};
+
+	function FloatableWidget( config ) {
+		// Parent constructor
+		FloatableWidget.parent.call( this, config );
+		// Mixin constructors
+		OO.ui.mixin.FloatableElement.call( this, config );
+		OO.ui.mixin.ClippableElement.call( this, config );
+	}
+	OO.inheritClass( FloatableWidget, OO.ui.Widget );
+	OO.mixinClass( FloatableWidget, OO.ui.mixin.FloatableElement );
+	OO.mixinClass( FloatableWidget, OO.ui.mixin.ClippableElement );
+
+	function FloatableTest( config ) {
+		// Parent constructor
+		FloatableTest.parent.call( this, config );
+		// Properties
+		// Must be equal to dialog width and height
+		this.viewportSize = 500;
+		// Width and height of scrollable area
+		this.outerSize = 1000;
+		// Width and height of scrollable container
+		this.innerSize = 400;
+	}
+	OO.inheritClass( FloatableTest, OO.ui.ProcessDialog );
+	FloatableTest.static.title = 'FloatableElement test';
+	FloatableTest.static.actions = [
+		{ action: '', label: 'Cancel', flags: [ 'safe', 'back' ] },
+		{ action: 'center', label: 'Center view' }
+	];
+	FloatableTest.prototype.getBodyHeight = function () {
+		return this.viewportSize;
+	};
+	FloatableTest.prototype.initialize = function () {
+		FloatableTest.parent.prototype.initialize.apply( this, arguments );
+
+		this.$container = $( '<div>' ).css( { width: this.outerSize, height: this.outerSize } );
+		this.selectWidget = new PositionSelectWidget();
+		this.toggleOverlayWidget = new OO.ui.ToggleSwitchWidget( { value: true } );
+		this.toggleClippingWidget = new OO.ui.ToggleSwitchWidget( { value: false } );
+
+		this.$floatableContainer = $( '<div>' ).css( { width: this.innerSize, height: this.innerSize } );
+		this.floatable = new FloatableWidget( { $floatableContainer: this.$floatableContainer } );
+		this.floatable.toggle( false );
+
+		this.floatable.$element.addClass( 'floatableTest-floatable' );
+		this.$floatableContainer.addClass( 'floatableTest-container' );
+
+		this.selectWidget.connect( this, { select: 'onSelectPosition' } );
+		this.toggleOverlayWidget.connect( this, { change: 'onToggleOverlay' } );
+		this.toggleClippingWidget.connect( this, { change: 'onToggleClipping' } );
+
+		this.fieldset = new OO.ui.FieldsetLayout( {
+			items: [
+				new OO.ui.FieldLayout( this.selectWidget, {
+					align: 'top',
+					label: 'Floatable position'
+				} ),
+				new OO.ui.FieldLayout( this.toggleClippingWidget, {
+					align: 'inline',
+					label: 'Enable clipping'
+				} ),
+				new OO.ui.FieldLayout( this.toggleOverlayWidget, {
+					align: 'inline',
+					label: 'Use overlay'
+				} )
+			]
+		} );
+
+		this.$body.append(
+			this.$container.append(
+				this.$floatableContainer.append( this.fieldset.$element )
+			)
+		);
+		this.$overlay.append( this.floatable.$element );
+	};
+	FloatableTest.prototype.onSelectPosition = function ( option ) {
+		this.floatable.setHorizontalPosition( option.getData().horizontalPosition );
+		this.floatable.setVerticalPosition( option.getData().verticalPosition );
+	};
+	FloatableTest.prototype.onToggleOverlay = function ( useOverlay ) {
+		this.floatable.togglePositioning( false );
+		this.floatable.toggleClipping( false );
+		( useOverlay ? this.$overlay : this.$container ).append( this.floatable.$element );
+		this.floatable.togglePositioning( true );
+		this.floatable.toggleClipping( this.toggleClippingWidget.getValue() );
+	};
+	FloatableTest.prototype.onToggleClipping = function ( useClipping ) {
+		this.floatable.toggleClipping( useClipping );
+	};
+	FloatableTest.prototype.centerView = function () {
+		var offset = ( this.outerSize - this.viewportSize ) / 2;
+		this.$body[ 0 ].scrollTop = offset;
+		// Different browsers count scrollLeft in RTL differently,
+		// see <https://github.com/othree/jquery.rtl-scroll-type>.
+		// This isn't correct for arbitrary offsets, but works for centering.
+		this.$body[ 0 ].scrollLeft = offset;
+		if ( this.$body[ 0 ].scrollLeft === 0 ) {
+			this.$body[ 0 ].scrollLeft = -offset;
+		}
+	};
+	FloatableTest.prototype.getReadyProcess = function () {
+		return new OO.ui.Process( function () {
+			var offset, side;
+			offset = ( this.outerSize - this.innerSize ) / 2;
+			side = this.getDir() === 'rtl' ? 'right' : 'left';
+			this.$floatableContainer.css( 'top', offset );
+			this.$floatableContainer.css( side, offset );
+
+			this.centerView();
+			this.selectWidget.selectItemByData( {
+				horizontalPosition: 'start',
+				verticalPosition: 'below'
+			} );
+
+			// Wait until the opening animation is over
+			setTimeout( function () {
+				this.floatable.toggle( true );
+				this.floatable.togglePositioning( true );
+				this.floatable.toggleClipping( this.toggleClippingWidget.getValue() );
+			}.bind( this ), OO.ui.theme.getDialogTransitionDuration() );
+		}, this );
+	};
+	FloatableTest.prototype.getHoldProcess = function () {
+		return new OO.ui.Process( function () {
+			this.floatable.toggleClipping( false );
+			this.floatable.togglePositioning( false );
+			this.floatable.toggle( false );
+		}, this );
+	};
+	FloatableTest.prototype.getActionProcess = function ( action ) {
+		if ( action === 'center' ) {
+			return new OO.ui.Process( function () {
+				this.centerView();
+			}, this );
+		}
+		return FloatableTest.parent.prototype.getActionProcess.call( this, action );
+	};
+
 	function DialogWithDropdowns( config ) {
 		DialogWithDropdowns.parent.call( this, config );
 	}
@@ -994,6 +1167,13 @@ Demo.static.pages.dialogs = function ( demo ) {
 		{
 			name: 'Menu dialog',
 			dialogClass: MenuDialog,
+			config: {
+				size: 'medium'
+			}
+		},
+		{
+			name: 'FloatableElement test',
+			dialogClass: FloatableTest,
 			config: {
 				size: 'medium'
 			}
