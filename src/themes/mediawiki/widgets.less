@@ -1014,40 +1014,41 @@
 }
 
 .theme-oo-ui-capsuleItemWidget () {
+	.oo-ui-box-sizing( border-box );
 	width: auto;
 	max-width: 100%;
-	.oo-ui-box-sizing( border-box );
-	vertical-align: middle;
 	height: 1.7em;
-	line-height: 1.7;
-	background-color: #eee;
-	color: @color-default;
 	margin: 0.1em;
 	border: @border-default;
 	border-radius: @border-radius-default;
 	padding: 0 0.4em;
-
-	&:focus {
-		outline: 0;
-		border-color: @color-progressive;
-		box-shadow: @box-shadow-widget-focus;
-	}
-
-	&.oo-ui-widget-disabled {
-		background-color: @background-color-disabled;
-		color: @color-disabled;
-		border-color: @border-color-disabled;
-		text-shadow: @text-shadow-disabled;
-	}
-
-	// Clear button
-	> .oo-ui-buttonElement {
-		display: none;
-	}
+	line-height: 1.7;
+	vertical-align: middle;
 
 	&.oo-ui-widget-enabled {
+		background-color: @background-color-framed;
+		color: @color-default;
 		padding-right: @size-indicator + 0.6em;
+		.oo-ui-transition(
+			background-color @transition-ease-quick,
+			color @transition-ease-quick,
+			border-color @transition-ease-quick,
+			box-shadow @transition-ease-quick
+		);
 
+		&:hover {
+			background-color: @background-color-framed-hover;
+			color: @color-default-hover;
+			border-color: @border-color-default-hover;
+		}
+
+		&:focus {
+			border-color: @border-color-default-focus;
+			box-shadow: @box-shadow-widget-focus;
+			outline: 0;
+		}
+
+		// Clear button
 		> .oo-ui-buttonElement {
 			display: block;
 			position: absolute;
@@ -1057,7 +1058,7 @@
 		}
 		& .oo-ui-buttonElement-button {
 			display: block;
-			width: @size-indicator + 0.6em; // Padding on each side of the indicator
+			width: @size-indicator + 0.6em; // equals to `padding` on each side of the indicator
 			height: 100%; // Firefox height calculation fix
 
 			& .oo-ui-indicator-clear {
@@ -1067,6 +1068,18 @@
 				bottom: 0;
 				height: auto;
 			}
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		background-color: @background-color-disabled;
+		color: @color-disabled;
+		border-color: @border-color-disabled;
+		text-shadow: @text-shadow-disabled;
+
+		// Clear button
+		> .oo-ui-buttonElement {
+			display: none;
 		}
 	}
 }
