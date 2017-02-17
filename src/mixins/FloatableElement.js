@@ -85,6 +85,11 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 
 	positioning = positioning === undefined ? !this.positioning : !!positioning;
 
+	if ( positioning && !this.warnedUnattached && !this.isElementAttached() ) {
+		OO.ui.warnDeprecation( 'FloatableElement#togglePositioning: Before calling this method, the element must be attached to the DOM.' );
+		this.warnedUnattached = true;
+	}
+
 	if ( this.positioning !== positioning ) {
 		this.positioning = positioning;
 

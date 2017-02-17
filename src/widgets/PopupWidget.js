@@ -3,6 +3,8 @@
  * By default, each popup has an anchor that points toward its origin.
  * Please see the [OOjs UI documentation on Mediawiki] [1] for more information and examples.
  *
+ * Unlike most widgets, PopupWidget is initially hidden and must be shown by calling #toggle.
+ *
  *     @example
  *     // A popup widget.
  *     var popup = new OO.ui.PopupWidget( {
@@ -244,6 +246,14 @@ OO.ui.PopupWidget.prototype.hasAnchor = function () {
 };
 
 /**
+ * Toggle visibility of the popup. The popup is initially hidden and must be shown by calling
+ * `.toggle( true )` after its #$element is attached to the DOM.
+ *
+ * Do not show the popup while it is not attached to the DOM. The calculations required to display
+ * it in the right place and with the right dimensions only work correctly while it is attached.
+ * Side-effects may include broken interface and exceptions being thrown. This wasn't always
+ * strictly enforced, so currently it only generates a warning in the browser console.
+ *
  * @inheritdoc
  */
 OO.ui.PopupWidget.prototype.toggle = function ( show ) {
@@ -251,6 +261,11 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 	show = show === undefined ? !this.isVisible() : !!show;
 
 	change = show !== this.isVisible();
+
+	if ( show && !this.warnedUnattached && !this.isElementAttached() ) {
+		OO.ui.warnDeprecation( 'PopupWidget#toggle: Before calling this method, the popup must be attached to the DOM.' );
+		this.warnedUnattached = true;
+	}
 
 	// Parent method
 	OO.ui.PopupWidget.parent.prototype.toggle.call( this, show );
