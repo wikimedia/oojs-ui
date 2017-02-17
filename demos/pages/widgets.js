@@ -1175,6 +1175,36 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.DropdownInputWidget( {
 						options: [
+							{
+								optgroup: 'Vowels'
+							},
+							{
+								data: 'a',
+								label: 'A'
+							},
+							{
+								optgroup: 'Consonants'
+							},
+							{
+								data: 'b',
+								label: 'B'
+							},
+							{
+								data: 'c',
+								label: 'C'
+							}
+						],
+						value: 'b',
+						title: 'Select an item'
+					} ),
+					{
+						label: 'DropdownInputWidget (with optgroup)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.DropdownInputWidget( {
+						options: [
 							{ data: 'sq', label: 'Albanian' },
 							{ data: 'frp', label: 'Arpitan' },
 							{ data: 'ba', label: 'Bashkir' },

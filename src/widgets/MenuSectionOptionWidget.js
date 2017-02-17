@@ -40,7 +40,8 @@ OO.ui.MenuSectionOptionWidget = function OoUiMenuSectionOptionWidget( config ) {
 	OO.ui.MenuSectionOptionWidget.parent.call( this, config );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-menuSectionOptionWidget' );
+	this.$element.addClass( 'oo-ui-menuSectionOptionWidget' )
+		.attr( 'role', '' );
 };
 
 /* Setup */
