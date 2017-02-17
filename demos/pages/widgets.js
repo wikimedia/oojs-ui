@@ -1256,6 +1256,38 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.DropdownWidget( {
 						label: 'Select one',
+						menu: {
+							items: [
+								new OO.ui.MenuSectionOptionWidget( {
+									label: 'Dogs'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'corgi',
+									label: 'Welsh Corgi',
+									indicator: 'required'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'poodle',
+									label: 'Standard Poodle'
+								} ),
+								new OO.ui.MenuSectionOptionWidget( {
+									label: 'Cats'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'lion',
+									label: 'Lion'
+								} )
+							]
+						}
+					} ),
+					{
+						label: 'DropdownWidget (with MenuSectionOptionWidget)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.DropdownWidget( {
+						label: 'Select one',
 						disabled: true,
 						menu: {
 							items: [
