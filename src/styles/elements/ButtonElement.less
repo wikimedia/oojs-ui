@@ -26,9 +26,10 @@
 	}
 
 	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
-	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon,
-	&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-		display: inline-block; // For vertical alignment
+	&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label,
+	&-frameless.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+		// Vertical align text
+		display: inline-block;
 		vertical-align: middle;
 	}
 

@@ -111,21 +111,19 @@
 			border-color: rgba( 0, 0, 0, 0.2 );
 		}
 
-		.oo-ui-indicatorElement-indicator {
-			top: 0;
-			right: 0;
-			margin: 0.775em;
-		}
-
 		.oo-ui-iconElement-icon {
-			top: 0;
 			left: 0.25em;
-			margin: 0.3em;
+			margin: 0 0.3em;
 		}
 
 		.oo-ui-labelElement-label {
 			line-height: 2.5em;
 			margin: 0 0.5em;
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			right: 0;
+			margin: 0 0.775em;
 		}
 	}
 
@@ -173,16 +171,12 @@
 		border-width: 1px 0 1px 1px;
 
 		> .oo-ui-iconElement-icon {
-			top: 0;
 			left: 0;
-			height: 2.3em;
 			margin-left: 0.3em;
 		}
 
 		> .oo-ui-indicatorElement-indicator {
-			top: 0;
 			right: 0;
-			height: 2.3em;
 			margin-right: 0.775em;
 		}
 	}
@@ -517,11 +511,6 @@
 
 		.oo-ui-box-sizing(border-box);
 
-		> .oo-ui-indicatorElement-indicator,
-		> .oo-ui-iconElement-icon {
-			position: absolute;
-		}
-
 		> .oo-ui-capsuleMultiselectWidget-content {
 			> input {
 				border: 0;
@@ -545,23 +534,21 @@
 		}
 	}
 
-	&.oo-ui-indicatorElement &-handle {
-		padding-right: @size-indicator + 2 * 0.775em;
-
-		> .oo-ui-indicatorElement-indicator {
-			right: 0;
-			top: 0;
-			margin: 0.775em;
-		}
-	}
-
 	&.oo-ui-iconElement &-handle {
 		padding-left: @size-icon + 2 * 0.3em;
 
 		> .oo-ui-iconElement-icon {
 			left: 0;
-			top: 0;
-			margin: 0.3em;
+			margin: 0 0.3em;
+		}
+	}
+
+	&.oo-ui-indicatorElement &-handle {
+		padding-right: @size-indicator + 2 * 0.775em;
+
+		> .oo-ui-indicatorElement-indicator {
+			right: 0;
+			margin: 0 0.775em;
 		}
 	}
 

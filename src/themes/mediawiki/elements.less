@@ -19,10 +19,6 @@
 	}
 
 	&.oo-ui-iconElement > .oo-ui-buttonElement-button {
-		> .oo-ui-iconElement-icon {
-			margin-left: 0;
-		}
-
 		> .oo-ui-indicatorElement-indicator {
 			margin-right: 0.25em;
 			margin-left: @size-indicator / 2;
@@ -190,9 +186,11 @@
 
 		&.oo-ui-iconElement {
 			> .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+				display: block;
 				position: absolute;
-				top: 0.2em;
-				// This centers the icon in icon-only buttons
+				top: 0;
+				height: 100%;
+				// Horizontally center the icon in icon-only buttons
 				left: 1.5em - @size-icon / 2;
 			}
 
