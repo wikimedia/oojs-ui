@@ -184,12 +184,10 @@ OO.ui.Demo.static.platforms = [ 'desktop', 'mobile' ];
 /**
  * Default page.
  *
- * Set by one of the page scripts in the `pages` directory.
- *
  * @static
- * @property {string|null}
+ * @property {string}
  */
-OO.ui.Demo.static.defaultPage = null;
+OO.ui.Demo.static.defaultPage = 'widgets';
 
 /**
  * Default page.

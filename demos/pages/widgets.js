@@ -2373,5 +2373,3 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			)
 	);
 };
-
-OO.ui.Demo.static.defaultPage = 'widgets';
