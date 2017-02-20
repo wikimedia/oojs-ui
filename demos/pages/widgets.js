@@ -1,5 +1,5 @@
 OO.ui.Demo.static.pages.widgets = function ( demo ) {
-	var i, styles, states, buttonStyleShowcaseWidget, $table, fieldsets,
+	var i, styles, states, buttonStyleShowcaseWidget, fieldsets,
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
 		capsuleWithPopup, capsulePopupWidget,
@@ -253,19 +253,16 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		}
 	];
 	buttonStyleShowcaseWidget = new OO.ui.Widget();
-	$table = $( '<table>' );
+	buttonStyleShowcaseWidget.$element.addClass( 'oo-ui-demoButtonStyleShowcaseWidget' );
 	$.each( styles, function ( i, style ) {
-		var $tableRow = $( '<tr>' );
+		var $buttonRow = $( '<div>' );
 		$.each( states, function ( j, state ) {
-			var $tableCell = $( '<td>' );
-			$tableCell.append(
+			$buttonRow.append(
 				new OO.ui.ButtonWidget( $.extend( {}, style, state ) ).$element
 			);
-			$tableRow.append( $tableCell );
 		} );
-		$table.append( $tableRow );
+		buttonStyleShowcaseWidget.$element.append( $buttonRow );
 	} );
-	buttonStyleShowcaseWidget.$element.append( $table );
 
 	fieldsets = [
 		new OO.ui.FieldsetLayout( {

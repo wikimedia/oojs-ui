@@ -74,19 +74,16 @@ $states = [
 	],
 ];
 $buttonStyleShowcaseWidget = new OOUI\Widget();
-$table = new OOUI\Tag( 'table' );
+$buttonStyleShowcaseWidget->addClasses( [ 'oo-ui-demoButtonStyleShowcaseWidget' ] );
 foreach ( $styles as $style ) {
-	$tableRow = new OOUI\Tag( 'tr' );
+	$buttonRow = new OOUI\Tag( 'div' );
 	foreach ( $states as $state ) {
-		$tableCell = new OOUI\Tag( 'td' );
-		$tableCell->appendContent(
+		$buttonRow->appendContent(
 			new OOUI\ButtonWidget( array_merge( $style, $state, [ 'infusable' => true ] ) )
 		);
-		$tableRow->appendContent( $tableCell );
 	}
-	$table->appendContent( $tableRow );
+	$buttonStyleShowcaseWidget->appendContent( $buttonRow );
 }
-$buttonStyleShowcaseWidget->appendContent( $table );
 
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'infusable' => true,

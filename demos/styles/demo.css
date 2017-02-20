@@ -76,6 +76,10 @@ p {
 
 /* Widgets demo */
 
+.oo-ui-demoButtonStyleShowcaseWidget > div {
+	margin-bottom: 0.5em;
+}
+
 .oo-ui-horizontalLayout > .oo-ui-textInputWidget,
 .oo-ui-horizontalLayout > .oo-ui-dropdownInputWidget {
 	max-width: 10em;
@@ -278,6 +282,11 @@ FieldLayout left & right aligned */
 
 	.oo-ui-demo-console-toggle {
 		margin-right: -2em;
+	}
+
+	/* Widgets */
+	.oo-ui-demoButtonStyleShowcaseWidget .oo-ui-buttonWidget {
+		margin-bottom: 0.5em;
 	}
 }
 
