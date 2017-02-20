@@ -1,5 +1,6 @@
 body {
 	color: #222;
+	margin: 1em;
 	font-size: 0.8em;
 	font-family: sans-serif;
 }
@@ -14,10 +15,15 @@ p {
 	margin: 0 auto;
 }
 
+.oo-ui-demo-menu {
+	margin-bottom: 1em;
+}
+
 .oo-ui-demo-menu > .oo-ui-widget {
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: 1em;
+	margin-bottom: 1em;
 }
 
 .oo-ui-demo-menu .oo-ui-demo-pageDropdown {
@@ -268,16 +274,18 @@ FieldLayout left & right aligned */
 		font-size: 1em;
 	}
 
-	.oo-ui-demo-menu {
-		margin-bottom: 1em;
-	}
-
 	.oo-ui-demo-menu > .oo-ui-widget {
 		margin-bottom: 1em;
 	}
 
 	.oo-ui-demo-container {
-		padding: 1em 2.5em 1em 1em;
+		border-radius: 0;
+		border-width: 1px 0 0;
+		padding: 1.5em 2.5em 1em 0;
+	}
+
+	.oo-ui-demo-container.oo-ui-demo-toolbars {
+		border-width: 1px;
 	}
 
 	.oo-ui-demo-console-toggle {
@@ -291,10 +299,6 @@ FieldLayout left & right aligned */
 }
 
 @media ( min-width: 751px ) {
-	.oo-ui-demo-menu {
-		margin-bottom: 2em;
-	}
-
 	.oo-ui-demo-container {
 		padding: 2em;
 	}
