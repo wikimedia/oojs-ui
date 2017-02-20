@@ -82,10 +82,6 @@ p {
 
 /* Widgets demo */
 
-.demo-buttonStyleShowcaseWidget .oo-ui-buttonWidget {
-	margin-bottom: 0.5em;
-}
-
 .oo-ui-horizontalLayout > .oo-ui-textInputWidget,
 .oo-ui-horizontalLayout > .oo-ui-dropdownInputWidget {
 	max-width: 10em;

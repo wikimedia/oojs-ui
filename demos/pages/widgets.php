@@ -14,77 +14,6 @@ $demoContainer = new OOUI\PanelLayout( [
 ] );
 $demoContainer->addClasses( [ 'demo-container' ] );
 
-$styles = [
-	[],
-	[
-		'flags' => [ 'progressive' ],
-	],
-	[
-		'flags' => [ 'constructive' ],
-	],
-	[
-		'flags' => [ 'destructive' ],
-	],
-	[
-		'flags' => [ 'primary', 'progressive' ],
-	],
-	[
-		'flags' => [ 'primary', 'constructive' ],
-	],
-	[
-		'flags' => [ 'primary', 'destructive' ],
-	],
-];
-$states = [
-	[
-		'label' => 'Button',
-	],
-	[
-		'label' => 'Button',
-		'icon' => 'tag',
-	],
-	[
-		'label' => 'Button',
-		'icon' => 'tag',
-		'indicator' => 'down',
-	],
-	[
-		'icon' => 'tag',
-		'title' => "Title text",
-	],
-	[
-		'indicator' => 'down',
-	],
-	[
-		'icon' => 'tag',
-		'indicator' => 'down',
-	],
-	[
-		'label' => 'Button',
-		'disabled' => true,
-	],
-	[
-		'icon' => 'tag',
-		'title' => "Title text",
-		'disabled' => true,
-	],
-	[
-		'indicator' => 'down',
-		'disabled' => true,
-	],
-];
-$buttonStyleShowcaseWidget = new OOUI\Widget();
-$buttonStyleShowcaseWidget->addClasses( [ 'demo-buttonStyleShowcaseWidget' ] );
-foreach ( $styles as $style ) {
-	$buttonRow = new OOUI\Tag( 'div' );
-	foreach ( $states as $state ) {
-		$buttonRow->appendContent(
-			new OOUI\ButtonWidget( array_merge( $style, $state, [ 'infusable' => true ] ) )
-		);
-	}
-	$buttonStyleShowcaseWidget->appendContent( $buttonRow );
-}
-
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'infusable' => true,
 	'label' => 'Simple buttons',
@@ -353,27 +282,17 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		)
 	]
 ] ) );
-# Note that $buttonStyleShowcaseWidget is not infusable,
-# because the contents would not be preserved -- we assume
-# that widgets will manage their own contents by default,
-# but here we've manually appended content to the widget.
-# If we embed it in an infusable FieldsetLayout, it will be
-# (recursively) made infusable.  We protect the FieldLayout
-# by wrapping it with a new <div> Tag, so that it won't get
-# rebuilt during infusion.
-$wrappedFieldLayout = ( new OOUI\Tag( 'div' ) )
-	->appendContent(
-		new OOUI\FieldLayout(
-			$buttonStyleShowcaseWidget,
-			[
-				'align' => 'top'
-			]
-		)
-	);
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'infusable' => true,
 	'label' => 'Button style showcase',
-	'items' => [ $wrappedFieldLayout ],
+	'items' => [
+		new OOUI\FieldLayout(
+			new Demo\ButtonStyleShowcaseWidget(),
+			[
+				'align' => 'top',
+			]
+		)
+	],
 ] ) );
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'infusable' => true,
