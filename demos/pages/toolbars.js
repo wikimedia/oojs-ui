@@ -1,4 +1,4 @@
-OO.ui.Demo.static.pages.toolbars = function ( demo ) {
+Demo.static.pages.toolbars = function ( demo ) {
 	var i, toolGroups, saveButton, deleteButton, actionButton, actionButtonDisabled, PopupTool, ToolGroupTool,
 		setDisabled = function () { this.setDisabled( true ); },
 		$demo = demo.$element,
@@ -382,17 +382,17 @@ OO.ui.Demo.static.pages.toolbars = function ( demo ) {
 				expanded: false,
 				framed: true
 			} ).$element
-				.addClass( 'oo-ui-demo-container oo-ui-demo-toolbars' )
+				.addClass( 'demo-container demo-toolbars' )
 		);
 
 		$containers.last().append( toolbars[ i ].$element );
 	}
 	$containers.append( '' );
 	$demo.append(
-		$containers.eq( 0 ).append( '<div class="oo-ui-demo-toolbars-contents">Toolbar</div>' ),
-		$containers.eq( 1 ).append( '<div class="oo-ui-demo-toolbars-contents">Toolbar with action buttons</div>' ),
-		$containers.eq( 2 ).append( '<div class="oo-ui-demo-toolbars-contents">Word processor toolbar</div>' ),
-		$containers.eq( 3 ).prepend( '<div class="oo-ui-demo-toolbars-contents">Position bottom</div>' )
+		$containers.eq( 0 ).append( '<div class="demo-toolbars-contents">Toolbar</div>' ),
+		$containers.eq( 1 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons</div>' ),
+		$containers.eq( 2 ).append( '<div class="demo-toolbars-contents">Word processor toolbar</div>' ),
+		$containers.eq( 3 ).prepend( '<div class="demo-toolbars-contents">Position bottom</div>' )
 	);
 	for ( i = 0; i < toolbars.length; i++ ) {
 		toolbars[ i ].initialize();

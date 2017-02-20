@@ -5,11 +5,11 @@
  *
  * @constructor
  */
-OO.ui.Demo = function OoUiDemo() {
+window.Demo = function Demo() {
 	var demo = this;
 
 	// Parent constructor
-	OO.ui.Demo.parent.call( this );
+	Demo.parent.call( this );
 
 	// Normalization
 	this.normalizeHash();
@@ -27,7 +27,7 @@ OO.ui.Demo = function OoUiDemo() {
 				new OO.ui.MenuOptionWidget( { data: 'widgets', label: 'Widgets' } )
 			]
 		},
-		classes: [ 'oo-ui-demo-pageDropdown' ]
+		classes: [ 'demo-pageDropdown' ]
 	} );
 	this.pageMenu = this.pageDropdown.getMenu();
 	this.themeSelect = new OO.ui.ButtonSelectWidget().addItems( [
@@ -72,7 +72,7 @@ OO.ui.Demo = function OoUiDemo() {
 	this.directionSelect.selectItemByData( this.mode.direction );
 	this.platformSelect.selectItemByData( this.mode.platform );
 	this.$menu
-		.addClass( 'oo-ui-demo-menu' )
+		.addClass( 'demo-menu' )
 		.append(
 			this.pageDropdown.$element,
 			this.themeSelect.$element,
@@ -82,7 +82,7 @@ OO.ui.Demo = function OoUiDemo() {
 			this.documentationLink.$element
 		);
 	this.$element
-		.addClass( 'oo-ui-demo' )
+		.addClass( 'demo' )
 		.append( this.$menu );
 	$( 'html' ).attr( 'dir', this.mode.direction );
 	$( 'head' ).append( this.stylesheetLinks );
@@ -95,7 +95,7 @@ OO.ui.Demo = function OoUiDemo() {
 
 /* Setup */
 
-OO.inheritClass( OO.ui.Demo, OO.ui.Element );
+OO.inheritClass( Demo, OO.ui.Element );
 
 /* Static Properties */
 
@@ -108,7 +108,7 @@ OO.inheritClass( OO.ui.Demo, OO.ui.Element );
  * @property {Object.<string,Function>} pages List of functions that render a page, keyed by
  *   symbolic page name
  */
-OO.ui.Demo.static.pages = {};
+Demo.static.pages = {};
 
 /**
  * Available themes.
@@ -119,7 +119,7 @@ OO.ui.Demo.static.pages = {};
  * @static
  * @property {Object.<string,Object>}
  */
-OO.ui.Demo.static.themes = {
+Demo.static.themes = {
 	mediawiki: {
 		fileSuffix: '-mediawiki',
 		additionalSuffixes: [
@@ -168,7 +168,7 @@ OO.ui.Demo.static.themes = {
  * @static
  * @property {Object.<string,Object>}
  */
-OO.ui.Demo.static.directions = {
+Demo.static.directions = {
 	ltr: { fileSuffix: '' },
 	rtl: { fileSuffix: '.rtl' }
 };
@@ -179,7 +179,7 @@ OO.ui.Demo.static.directions = {
  * @static
  * @property {string[]}
  */
-OO.ui.Demo.static.platforms = [ 'desktop', 'mobile' ];
+Demo.static.platforms = [ 'desktop', 'mobile' ];
 
 /**
  * Default page.
@@ -187,17 +187,7 @@ OO.ui.Demo.static.platforms = [ 'desktop', 'mobile' ];
  * @static
  * @property {string}
  */
-OO.ui.Demo.static.defaultPage = 'widgets';
-
-/**
- * Default page.
- *
- * Set by one of the page scripts in the `pages` directory.
- *
- * @static
- * @property {string}
- */
-OO.ui.Demo.static.defaultTheme = 'mediawiki';
+Demo.static.defaultPage = 'widgets';
 
 /**
  * Default page.
@@ -207,7 +197,17 @@ OO.ui.Demo.static.defaultTheme = 'mediawiki';
  * @static
  * @property {string}
  */
-OO.ui.Demo.static.defaultDirection = 'ltr';
+Demo.static.defaultTheme = 'mediawiki';
+
+/**
+ * Default page.
+ *
+ * Set by one of the page scripts in the `pages` directory.
+ *
+ * @static
+ * @property {string}
+ */
+Demo.static.defaultDirection = 'ltr';
 
 /**
  * Default platform.
@@ -217,14 +217,14 @@ OO.ui.Demo.static.defaultDirection = 'ltr';
  * @static
  * @property {string}
  */
-OO.ui.Demo.static.defaultPlatform = 'desktop';
+Demo.static.defaultPlatform = 'desktop';
 
 /* Methods */
 
 /**
  * Load the demo page. Must be called after $element is attached.
  */
-OO.ui.Demo.prototype.initialize = function () {
+Demo.prototype.initialize = function () {
 	var demo = this,
 		promises = this.stylesheetLinks.map( function ( el ) {
 			return $( el ).data( 'load-promise' );
@@ -254,7 +254,7 @@ OO.ui.Demo.prototype.initialize = function () {
  *
  * Will load a new page.
  */
-OO.ui.Demo.prototype.onModeChange = function () {
+Demo.prototype.onModeChange = function () {
 	var page = this.pageMenu.getSelectedItem().getData(),
 		theme = this.themeSelect.getSelectedItem().getData(),
 		direction = this.directionSelect.getSelectedItem().getData(),
@@ -274,7 +274,7 @@ OO.ui.Demo.prototype.onModeChange = function () {
  *
  * @return {Object[]} List of mode factors, keyed by symbolic name
  */
-OO.ui.Demo.prototype.getFactors = function () {
+Demo.prototype.getFactors = function () {
 	var key,
 		factors = [ {}, {}, {}, {} ];
 
@@ -302,7 +302,7 @@ OO.ui.Demo.prototype.getFactors = function () {
  *
  * @return {Object[]} List of default factors
  */
-OO.ui.Demo.prototype.getDefaultFactorValues = function () {
+Demo.prototype.getDefaultFactorValues = function () {
 	return [
 		this.constructor.static.defaultPage,
 		this.constructor.static.defaultTheme,
@@ -316,7 +316,7 @@ OO.ui.Demo.prototype.getDefaultFactorValues = function () {
  *
  * @return {string[]} Factor values in URL order: page, theme, direction
  */
-OO.ui.Demo.prototype.getCurrentFactorValues = function () {
+Demo.prototype.getCurrentFactorValues = function () {
 	return location.hash.slice( 1 ).split( '-' );
 };
 
@@ -327,7 +327,7 @@ OO.ui.Demo.prototype.getCurrentFactorValues = function () {
  *
  * @return {Object} List of factor values keyed by factor name
  */
-OO.ui.Demo.prototype.getCurrentMode = function () {
+Demo.prototype.getCurrentMode = function () {
 	var factorValues = this.getCurrentFactorValues();
 
 	return {
@@ -343,7 +343,7 @@ OO.ui.Demo.prototype.getCurrentMode = function () {
  *
  * @return {HTMLElement[]} List of link elements
  */
-OO.ui.Demo.prototype.getStylesheetLinks = function () {
+Demo.prototype.getStylesheetLinks = function () {
 	var i, len, links, fragments,
 		factors = this.getFactors(),
 		theme = this.getCurrentFactorValues()[ 1 ],
@@ -386,7 +386,7 @@ OO.ui.Demo.prototype.getStylesheetLinks = function () {
 /**
  * Normalize the URL hash.
  */
-OO.ui.Demo.prototype.normalizeHash = function () {
+Demo.prototype.normalizeHash = function () {
 	var i, len, factorValues,
 		modes = [],
 		factors = this.getFactors(),
@@ -404,7 +404,7 @@ OO.ui.Demo.prototype.normalizeHash = function () {
 /**
  * Destroy demo.
  */
-OO.ui.Demo.prototype.destroy = function () {
+Demo.prototype.destroy = function () {
 	$( 'body' ).removeClass( 'oo-ui-ltr oo-ui-rtl' );
 	$( this.stylesheetLinks ).remove();
 	this.$element.remove();
@@ -418,7 +418,7 @@ OO.ui.Demo.prototype.destroy = function () {
  * @param {string} widget Variable name for layout's field widget
  * @return {jQuery} Console interface element
  */
-OO.ui.Demo.prototype.buildConsole = function ( item, layout, widget ) {
+Demo.prototype.buildConsole = function ( item, layout, widget ) {
 	var $toggle, $log, $label, $input, $submit, $console, $form,
 		console = window.console;
 
@@ -455,15 +455,15 @@ OO.ui.Demo.prototype.buildConsole = function ( item, layout, widget ) {
 
 		$log.append(
 			$( '<div>' )
-				.addClass( 'oo-ui-demo-console-log-line oo-ui-demo-console-log-line-input' )
+				.addClass( 'demo-console-log-line demo-console-log-line-input' )
 				.text( val ),
 			$( '<div>' )
-				.addClass( 'oo-ui-demo-console-log-line oo-ui-demo-console-log-line-return' )
+				.addClass( 'demo-console-log-line demo-console-log-line-return' )
 				.text( logval || result.value )
 		);
 
 		if ( result.error ) {
-			$log.append( $( '<div>' ).addClass( 'oo-ui-demo-console-log-line oo-ui-demo-console-log-line-error' ).text( result.error ) );
+			$log.append( $( '<div>' ).addClass( 'demo-console-log-line demo-console-log-line-error' ).text( result.error ) );
 		}
 
 		if ( console && console.log ) {
@@ -482,11 +482,11 @@ OO.ui.Demo.prototype.buildConsole = function ( item, layout, widget ) {
 	}
 
 	$toggle = $( '<span>' )
-		.addClass( 'oo-ui-demo-console-toggle' )
+		.addClass( 'demo-console-toggle' )
 		.attr( 'title', 'Toggle console' )
 		.on( 'click', function ( e ) {
 			e.preventDefault();
-			$console.toggleClass( 'oo-ui-demo-console-collapsed oo-ui-demo-console-expanded' );
+			$console.toggleClass( 'demo-console-collapsed demo-console-expanded' );
 			if ( $input.is( ':visible' ) ) {
 				$input[ 0 ].focus();
 				if ( console && console.log ) {
@@ -499,17 +499,17 @@ OO.ui.Demo.prototype.buildConsole = function ( item, layout, widget ) {
 		} );
 
 	$log = $( '<div>' )
-		.addClass( 'oo-ui-demo-console-log' );
+		.addClass( 'demo-console-log' );
 
 	$label = $( '<label>' )
-		.addClass( 'oo-ui-demo-console-label' );
+		.addClass( 'demo-console-label' );
 
 	$input = $( '<input>' )
-		.addClass( 'oo-ui-demo-console-input' )
+		.addClass( 'demo-console-input' )
 		.prop( 'placeholder', '... (predefined: ' + layout + ', ' + widget + ')' );
 
 	$submit = $( '<div>' )
-		.addClass( 'oo-ui-demo-console-submit' )
+		.addClass( 'demo-console-submit' )
 		.text( '↵' )
 		.on( 'click', submit );
 
@@ -519,7 +519,7 @@ OO.ui.Demo.prototype.buildConsole = function ( item, layout, widget ) {
 	} );
 
 	$console = $( '<div>' )
-		.addClass( 'oo-ui-demo-console oo-ui-demo-console-collapsed' )
+		.addClass( 'demo-console demo-console-collapsed' )
 		.append(
 			$toggle,
 			$log,

@@ -12,7 +12,7 @@ $demoContainer = new OOUI\PanelLayout( [
 	'padded' => true,
 	'framed' => true,
 ] );
-$demoContainer->addClasses( [ 'oo-ui-demo-container' ] );
+$demoContainer->addClasses( [ 'demo-container' ] );
 
 $styles = [
 	[],
@@ -74,7 +74,7 @@ $states = [
 	],
 ];
 $buttonStyleShowcaseWidget = new OOUI\Widget();
-$buttonStyleShowcaseWidget->addClasses( [ 'oo-ui-demo-buttonStyleShowcaseWidget' ] );
+$buttonStyleShowcaseWidget->addClasses( [ 'demo-buttonStyleShowcaseWidget' ] );
 foreach ( $styles as $style ) {
 	$buttonRow = new OOUI\Tag( 'div' );
 	foreach ( $states as $state ) {

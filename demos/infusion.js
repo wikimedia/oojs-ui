@@ -29,5 +29,5 @@ function infuseAll() {
 infuseButton = new OO.ui.ButtonWidget( { label: 'Infuse' } )
 	.on( 'click', infuseAll );
 
-OO.ui.ButtonGroupWidget.static.infuse( 'oo-ui-demo-menu-infuse' )
+OO.ui.ButtonGroupWidget.static.infuse( 'demo-menu-infuse' )
 	.addItems( [ infuseButton ] );

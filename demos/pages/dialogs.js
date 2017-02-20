@@ -1,4 +1,4 @@
-OO.ui.Demo.static.pages.dialogs = function ( demo ) {
+Demo.static.pages.dialogs = function ( demo ) {
 	var i, l, name, openButton, DialogClass, config, configQuick,
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
@@ -1108,7 +1108,7 @@ OO.ui.Demo.static.pages.dialogs = function ( demo ) {
 			expanded: false,
 			framed: true
 		} ).$element
-			.addClass( 'oo-ui-demo-container' )
+			.addClass( 'demo-container' )
 			.append( fieldset.$element ),
 		windowManager.$element
 	);

@@ -43,8 +43,8 @@
 	<link rel="stylesheet" href="styles/demo<?php echo $directionSuffix; ?>.css">
 </head>
 <body class="oo-ui-<?php echo $direction; ?>">
-	<div class="oo-ui-demo">
-		<div class="oo-ui-demo-menu">
+	<div class="demo">
+		<div class="demo-menu">
 			<?php
 				echo new OOUI\ButtonGroupWidget( [
 					'infusable' => true,
@@ -78,7 +78,7 @@
 				] );
 				echo new OOUI\ButtonGroupWidget( [
 					'infusable' => true,
-					'id' => 'oo-ui-demo-menu-infuse',
+					'id' => 'demo-menu-infuse',
 					'items' => [
 						new OOUI\ButtonWidget( [
 							'label' => 'JS',

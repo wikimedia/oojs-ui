@@ -1,4 +1,4 @@
-OO.ui.Demo.static.pages.widgets = function ( demo ) {
+Demo.static.pages.widgets = function ( demo ) {
 	var i, styles, states, buttonStyleShowcaseWidget, fieldsets,
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
@@ -253,7 +253,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		}
 	];
 	buttonStyleShowcaseWidget = new OO.ui.Widget();
-	buttonStyleShowcaseWidget.$element.addClass( 'oo-ui-demo-buttonStyleShowcaseWidget' );
+	buttonStyleShowcaseWidget.$element.addClass( 'demo-buttonStyleShowcaseWidget' );
 	$.each( styles, function ( i, style ) {
 		var $buttonRow = $( '<div>' );
 		$.each( states, function ( j, state ) {
@@ -2367,7 +2367,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 			expanded: false,
 			framed: true
 		} ).$element
-			.addClass( 'oo-ui-demo-container' )
+			.addClass( 'demo-container' )
 			.append(
 				$( fieldsets.map( function ( fieldset ) { return fieldset.$element[ 0 ]; } ) )
 			)

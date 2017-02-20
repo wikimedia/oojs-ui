@@ -1,4 +1,4 @@
-OO.ui.Demo.static.pages.icons = function ( demo ) {
+Demo.static.pages.icons = function ( demo ) {
 	var i, len, iconSet, iconsFieldset, iconWidget, selector,
 		icons = {
 			core: [
@@ -292,7 +292,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 			expanded: false,
 			framed: true
 		} ).$element
-			.addClass( 'oo-ui-demo-container oo-ui-demo-icons' )
+			.addClass( 'demo-container demo-icons' )
 			.append(
 				selector.$element,
 				indicatorsFieldset.$element,
