@@ -99,6 +99,11 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	if ( fieldWidget.constructor.static.supportsSimpleLabel ) {
 		if ( this.fieldWidget.getInputId() ) {
 			this.$label.attr( 'for', this.fieldWidget.getInputId() );
+		} else {
+			this.$label.on( 'click', function () {
+				this.fieldWidget.focus();
+				return false;
+			}.bind( this ) );
 		}
 	}
 	this.$element
