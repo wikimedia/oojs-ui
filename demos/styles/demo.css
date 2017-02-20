@@ -82,7 +82,7 @@ p {
 
 /* Widgets demo */
 
-.oo-ui-demoButtonStyleShowcaseWidget > div {
+.oo-ui-demo-buttonStyleShowcaseWidget .oo-ui-buttonWidget {
 	margin-bottom: 0.5em;
 }
 
@@ -290,11 +290,6 @@ FieldLayout left & right aligned */
 
 	.oo-ui-demo-console-toggle {
 		margin-right: -2em;
-	}
-
-	/* Widgets */
-	.oo-ui-demoButtonStyleShowcaseWidget .oo-ui-buttonWidget {
-		margin-bottom: 0.5em;
 	}
 }
 

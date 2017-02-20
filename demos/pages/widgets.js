@@ -253,7 +253,7 @@ OO.ui.Demo.static.pages.widgets = function ( demo ) {
 		}
 	];
 	buttonStyleShowcaseWidget = new OO.ui.Widget();
-	buttonStyleShowcaseWidget.$element.addClass( 'oo-ui-demoButtonStyleShowcaseWidget' );
+	buttonStyleShowcaseWidget.$element.addClass( 'oo-ui-demo-buttonStyleShowcaseWidget' );
 	$.each( styles, function ( i, style ) {
 		var $buttonRow = $( '<div>' );
 		$.each( states, function ( j, state ) {

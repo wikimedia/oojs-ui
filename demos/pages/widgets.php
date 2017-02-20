@@ -74,7 +74,7 @@ $states = [
 	],
 ];
 $buttonStyleShowcaseWidget = new OOUI\Widget();
-$buttonStyleShowcaseWidget->addClasses( [ 'oo-ui-demoButtonStyleShowcaseWidget' ] );
+$buttonStyleShowcaseWidget->addClasses( [ 'oo-ui-demo-buttonStyleShowcaseWidget' ] );
 foreach ( $styles as $style ) {
 	$buttonRow = new OOUI\Tag( 'div' );
 	foreach ( $states as $state ) {
