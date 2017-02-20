@@ -36,7 +36,9 @@ OO.ui.TabPanelLayout = function OoUiTabPanelLayout( name, config ) {
 	this.active = false;
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-tabPanelLayout' );
+	this.$element
+		.addClass( 'oo-ui-tabPanelLayout' )
+		.attr( 'role', 'tabpanel' );
 };
 
 /* Setup */
@@ -118,6 +120,10 @@ OO.ui.TabPanelLayout.prototype.setTabItem = function ( tabItem ) {
  * @chainable
  */
 OO.ui.TabPanelLayout.prototype.setupTabItem = function () {
+	this.$element.attr( 'aria-labelledby', this.tabItem.getElementId() );
+
+	this.tabItem.$element.attr( 'aria-controls', this.getElementId() );
+
 	if ( this.label ) {
 		this.tabItem.setLabel( this.label );
 	}

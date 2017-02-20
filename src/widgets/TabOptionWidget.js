@@ -19,7 +19,9 @@ OO.ui.TabOptionWidget = function OoUiTabOptionWidget( config ) {
 	OO.ui.TabOptionWidget.parent.call( this, config );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-tabOptionWidget' );
+	this.$element
+		.addClass( 'oo-ui-tabOptionWidget' )
+		.attr( 'role', 'tab' );
 };
 
 /* Setup */
