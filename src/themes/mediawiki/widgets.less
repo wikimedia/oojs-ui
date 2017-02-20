@@ -775,6 +775,8 @@
 					box-shadow: @box-shadow-readonly-focus;
 				}
 			}
+
+			.mw-placeholder();
 		}
 
 		// HACK: Exclude IE/Edge (and Saf<6) from this selector as it
@@ -787,8 +789,6 @@
 				}
 			}
 		}
-
-		.mw-placeholder();
 
 		&.oo-ui-flaggedElement-invalid {
 			input,
@@ -931,8 +931,6 @@
 		}
 
 		> .oo-ui-capsuleMultiselectWidget-content {
-			.mw-placeholder();
-
 			> input {
 				border: 0;
 				line-height: 1.675;
@@ -943,6 +941,8 @@
 				background-color: transparent;
 				color: @color-emphasized;
 				vertical-align: middle;
+
+				.mw-placeholder();
 
 				&:focus {
 					// Chrome
@@ -1737,26 +1737,10 @@
 
 .mw-placeholder () {
 	// Normalize placeholder styling, see T139034
-	// Firefox 4-18
-	:-moz-placeholder { // stylelint-disable-line selector-no-vendor-prefix
+	/* stylelint-disable indentation */
+	.oo-ui-placeholder( {
 		color: @color-placeholder;
 		opacity: 1;
-	}
-	// Firefox 19-
-	::-moz-placeholder { // stylelint-disable-line selector-no-vendor-prefix
-		color: @color-placeholder;
-		opacity: 1;
-	}
-	// Internet Explorer 10-11
-	:-ms-input-placeholder { // stylelint-disable-line selector-no-vendor-prefix
-		color: @color-placeholder;
-	}
-	// WebKit, Blink, Edge
-	::-webkit-input-placeholder { // stylelint-disable-line selector-no-vendor-prefix
-		color: @color-placeholder;
-	}
-	// W3C Standard Selectors Level 4
-	:placeholder-shown {
-		color: @color-placeholder;
-	}
+	} );
+	/* stylelint-enable indentation */
 }

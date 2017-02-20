@@ -111,3 +111,28 @@
 		margin-right: @cancelled-spacing;
 	}
 }
+
+/* stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown */
+.oo-ui-placeholder( @rules ) {
+	// WebKit, Blink, Edge
+	&::-webkit-input-placeholder {
+		@rules();
+	}
+	// Internet Explorer 10-11
+	&:-ms-input-placeholder {
+		@rules();
+	}
+	// Firefox 19-
+	&::-moz-placeholder {
+		@rules();
+	}
+	// Firefox 4-18
+	&:-moz-placeholder {
+		@rules();
+	}
+	// W3C Standard Selectors Level 4
+	&::placeholder {
+		@rules();
+	}
+}
+/* stylelint-enable selector-no-vendor-prefix, at-rule-no-unknown */
