@@ -1,4 +1,27 @@
 # OOjs UI Release History
+## v0.19.3 / 2017-02-21
+### Features
+* FieldLayout, FieldsetLayout: Add support for `$overlay` for help popups (Bartosz Dziewoński)
+* MenuSelectWidget: Add config option to not close on choose (Roan Kattouw)
+
+### Styles
+* MediaWiki theme: Make CapsuleItemWidget behave similar to other widgets (Volker E)
+* MediaWiki theme: SelectFileWidget drop target aligned to UX patterns (Volker E)
+
+### Code
+* BookletLayout: Remove unnecessary overrides (Bartosz Dziewoński)
+* Element#getClosestScrollableContainer: Update code comment (Bartosz Dziewoński)
+* FieldLayout, LabelWidget: If input has no ID, focus on element on label click (Prateek Saxena)
+* PopupWidget (and similar): Document why it is unwise to show unattached widgets, and emit warnings (Bartosz Dziewoński)
+* build: Bump stylelint and make pass (James D. Forrester)
+* demos: Add DropdownWidget (with MenuSectionOptionWidget) (Prateek Saxena)
+* demos: Further improve responsive layout (Volker E)
+* demos: Minor tweaks for button style showcase code (Bartosz Dziewoński)
+* demos: Rename OO.ui.Demo to just Demo (Bartosz Dziewoński)
+* demos: Replace `table` in button style showcase with responsive layout (Volker E)
+* demos: Set the default page in demo.js (Bartosz Dziewoński)
+
+
 ## v0.19.2 / 2017-02-14
 ### Features
 * CapsuleMultiselectWidget: Make labels work (Prateek Saxena)
