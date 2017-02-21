@@ -561,7 +561,8 @@ OO.ui.Element.static.getRootScrollableElement = function ( el ) {
  */
 OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) {
 	var i, val,
-		// props = [ 'overflow' ] doesn't work due to https://bugzilla.mozilla.org/show_bug.cgi?id=889091
+		// Browsers do not correctly return the computed value of 'overflow' when 'overflow-x' and
+		// 'overflow-y' have different values, so we need to check the separate properties.
 		props = [ 'overflow-x', 'overflow-y' ],
 		$parent = $( el ).parent();
 
@@ -576,6 +577,11 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
 		i = props.length;
 		while ( i-- ) {
 			val = $parent.css( props[ i ] );
+			// We assume that elements with 'overflow' (in any direction) set to 'hidden' will never be
+			// scrolled in that direction, but they can actually be scrolled programatically. The user can
+			// unintentionally perform a scroll in such case even if the application doesn't scroll
+			// programatically, e.g. when jumping to an anchor, or when using built-in find functionality.
+			// This could cause funny issues...
 			if ( val === 'auto' || val === 'scroll' ) {
 				return $parent[ 0 ];
 			}
