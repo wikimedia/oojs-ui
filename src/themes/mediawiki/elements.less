@@ -165,11 +165,21 @@
 		}
 
 		> .oo-ui-buttonElement-button {
-			padding: @padding-widget-default 1em;
-			min-height: @min-height-button-default;
-			min-width: @min-width-button-default;
-			border-radius: @border-radius-default;
 			position: relative;
+			min-height: @min-height-button-default;
+			border-radius: @border-radius-default;
+			padding: @padding-widget-default 1em;
+		}
+
+		&.oo-ui-iconElement > .oo-ui-buttonElement-button {
+			min-width: @min-width-button-default;
+		}
+
+		// Support: IE9
+		// Indirectly please IE9 as it doesn't like `min-width` on all kinds of buttons (T158728)
+		&.oo-ui-labelElement > .oo-ui-buttonElement-button,
+		&.oo-ui-indicatorElement > .oo-ui-buttonElement-button {
+			min-width: 0;
 		}
 
 		// Support `<input>` from ButtonInputWidget
