@@ -517,6 +517,70 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 };
 
 /**
+ * Get the number of pixels that an element's content is scrolled to the left.
+ *
+ * Adapted from <https://github.com/othree/jquery.rtl-scroll-type>.
+ * Original code copyright 2012 Wei-Ko Kao, licensed under the MIT License.
+ *
+ * This function smooths out browser inconsistencies (nicely described in the README at
+ * <https://github.com/othree/jquery.rtl-scroll-type>) and produces a result consistent
+ * with Firefox's 'scrollLeft', which seems the sanest.
+ *
+ * @static
+ * @method
+ * @param {HTMLElement} el Element to measure
+ * @return {number} Scroll position from the left.
+ *  If the element's direction is LTR, this is a positive number between `0` (initial scroll position)
+ *  and `el.scrollWidth - el.clientWidth` (furthest possible scroll position).
+ *  If the element's direction is RTL, this is a negative number between `0` (initial scroll position)
+ *  and `-el.scrollWidth + el.clientWidth` (furthest possible scroll position).
+ */
+OO.ui.Element.static.getScrollLeft = ( function () {
+	var rtlScrollType = null;
+
+	function test() {
+		var $definer = $( '<div dir="rtl" style="font-size: 14px; width: 1px; height: 1px; position: absolute; top: -1000px; overflow: scroll">A</div>' ),
+			definer = $definer[ 0 ];
+
+		$definer.appendTo( 'body' );
+		if ( definer.scrollLeft > 0 ) {
+			// Safari, Chrome
+			rtlScrollType = 'default';
+		} else {
+			definer.scrollLeft = 1;
+			if ( definer.scrollLeft === 0 ) {
+				// Firefox, old Opera
+				rtlScrollType = 'negative';
+			} else {
+				// Internet Explorer, Edge
+				rtlScrollType = 'reverse';
+			}
+		}
+		$definer.remove();
+	}
+
+	return function getScrollLeft( el ) {
+		var
+			scrollLeft = el.scrollLeft,
+			direction = $( el ).css( 'direction' );
+
+		if ( rtlScrollType === null ) {
+			test();
+		}
+
+		if ( direction === 'rtl' ) {
+			if ( rtlScrollType === 'reverse' ) {
+				scrollLeft = -scrollLeft;
+			} else if ( rtlScrollType === 'default' ) {
+				scrollLeft = scrollLeft - el.scrollWidth + el.clientWidth;
+			}
+		}
+
+		return scrollLeft;
+	};
+}() );
+
+/**
  * Get scrollable object parent
  *
  * documentElement can't be used to get or set the scrollTop
