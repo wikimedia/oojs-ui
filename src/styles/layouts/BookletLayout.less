@@ -3,7 +3,8 @@
 .oo-ui-bookletLayout {
 	&-stackLayout {
 		&.oo-ui-stackLayout-continuous > .oo-ui-panelLayout-scrollable {
-			overflow-y: hidden;
+			// Override from PanelLayout; only the StackLayout must be scrollable
+			overflow: hidden;
 		}
 
 		> .oo-ui-panelLayout {
@@ -19,7 +20,7 @@
 			left: 0;
 			right: 0;
 			bottom: 3em;
-			overflow-y: auto;
+			overflow: auto;
 		}
 
 		> .oo-ui-outlineControlsWidget {
