@@ -1,5 +1,5 @@
 Demo.static.pages.widgets = function ( demo ) {
-	var i, styles, states, buttonStyleShowcaseWidget, fieldsets,
+	var i, fieldsets,
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
 		capsuleWithPopup, capsulePopupWidget,
@@ -191,77 +191,6 @@ Demo.static.pages.widgets = function ( demo ) {
 	labelForTextInput = new OO.ui.LabelWidget( {
 		label: 'Label for input below',
 		input: textInputForLabel
-	} );
-
-	styles = [
-		{},
-		{
-			flags: [ 'progressive' ]
-		},
-		{
-			flags: [ 'constructive' ]
-		},
-		{
-			flags: [ 'destructive' ]
-		},
-		{
-			flags: [ 'primary', 'progressive' ]
-		},
-		{
-			flags: [ 'primary', 'constructive' ]
-		},
-		{
-			flags: [ 'primary', 'destructive' ]
-		}
-	];
-	states = [
-		{
-			label: 'Button'
-		},
-		{
-			label: 'Button',
-			icon: 'tag'
-		},
-		{
-			label: 'Button',
-			icon: 'tag',
-			indicator: 'down'
-		},
-		{
-			icon: 'tag',
-			title: 'Title text'
-		},
-		{
-			indicator: 'down'
-		},
-		{
-			icon: 'tag',
-			indicator: 'down'
-		},
-		{
-			label: 'Button',
-			disabled: true
-		},
-		{
-			icon: 'tag',
-			title: 'Title text',
-			disabled: true
-		},
-		{
-			indicator: 'down',
-			disabled: true
-		}
-	];
-	buttonStyleShowcaseWidget = new OO.ui.Widget();
-	buttonStyleShowcaseWidget.$element.addClass( 'demo-buttonStyleShowcaseWidget' );
-	$.each( styles, function ( i, style ) {
-		var $buttonRow = $( '<div>' );
-		$.each( states, function ( j, state ) {
-			$buttonRow.append(
-				new OO.ui.ButtonWidget( $.extend( {}, style, state ) ).$element
-			);
-		} );
-		buttonStyleShowcaseWidget.$element.append( $buttonRow );
 	} );
 
 	fieldsets = [
@@ -693,7 +622,7 @@ Demo.static.pages.widgets = function ( demo ) {
 			label: 'Button style showcase',
 			items: [
 				new OO.ui.FieldLayout(
-					buttonStyleShowcaseWidget,
+					new Demo.ButtonStyleShowcaseWidget(),
 					{
 						align: 'top'
 					}
