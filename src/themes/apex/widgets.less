@@ -382,6 +382,8 @@
 		&.oo-ui-pendingElement-pending {
 			background-color: transparent;
 		}
+
+		.apex-placeholder();
 	}
 
 	&.oo-ui-widget-enabled {
@@ -520,23 +522,26 @@
 			position: absolute;
 		}
 
-		> .oo-ui-capsuleMultiselectWidget-content > input {
-			border: 0;
-			line-height: 1.675em;
-			margin: 0;
-			margin-left: 0.2em;
-			padding: 0;
-			font-size: inherit;
-			font-family: inherit;
-			background-color: transparent;
-			color: #000;
-			vertical-align: middle;
-		}
+		> .oo-ui-capsuleMultiselectWidget-content {
+			> input {
+				border: 0;
+				line-height: 1.675em;
+				margin: 0;
+				margin-left: 0.2em;
+				padding: 0;
+				font-size: inherit;
+				font-family: inherit;
+				background-color: transparent;
+				color: #000;
+				vertical-align: middle;
 
-		> .oo-ui-capsuleMultiselectWidget-content > input:focus {
-			// For Chrome
-			outline: 0;
+				.apex-placeholder();
 
+				&:focus {
+					// For Chrome
+					outline: 0;
+				}
+			}
 		}
 	}
 
@@ -1115,4 +1120,14 @@
 	.oo-ui-checkboxInputWidget {
 		margin-right: 0;
 	}
+}
+
+.apex-placeholder () {
+	// Normalize placeholder styling, see T139034
+	/* stylelint-disable indentation */
+	.oo-ui-placeholder( {
+		color: @color-placeholder;
+		opacity: 1;
+	} );
+	/* stylelint-enable indentation */
 }
