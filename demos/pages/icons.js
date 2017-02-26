@@ -139,6 +139,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'quotes',
 				'quotesAdd',
 				'searchCaseSensitive',
+				'searchDiacritics',
 				'searchRegularExpression',
 				'specialCharacter',
 				'table',
