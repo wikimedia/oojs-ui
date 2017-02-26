@@ -2,7 +2,6 @@ Demo.static.pages.widgets = function ( demo ) {
 	var i, fieldsets,
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
-		capsuleWithPopup, capsulePopupWidget,
 		textInputForLabel, labelForTextInput,
 		horizontalDragItems = [],
 		verticalDragItems = [],
@@ -169,23 +168,6 @@ Demo.static.pages.widgets = function ( demo ) {
 	UnsupportedSelectFileWidget.static.isSupported = function () {
 		return false;
 	};
-
-	capsulePopupWidget = new OO.ui.NumberInputWidget( {
-		isInteger: true
-	} );
-	capsulePopupWidget.connect( capsulePopupWidget, {
-		enter: function () {
-			if ( !isNaN( this.getNumericValue() ) ) {
-				capsuleWithPopup.addItemsFromData( [ this.getNumericValue() ] );
-				this.setValue( '' );
-			}
-			return false;
-		}
-	} );
-	capsuleWithPopup = new OO.ui.CapsuleMultiselectWidget( {
-		allowArbitrary: true,
-		popup: { $content: capsulePopupWidget.$element }
-	} );
 
 	textInputForLabel = new OO.ui.TextInputWidget( { value: 'Input for label above' } );
 	labelForTextInput = new OO.ui.LabelWidget( {
@@ -1527,7 +1509,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					capsuleWithPopup,
+					new Demo.CapsuleNumberPopupMultiselectWidget(),
 					{
 						label: 'CapsuleMultiselectWidget with NumberInputWidget popup\u200E',
 						align: 'top'
