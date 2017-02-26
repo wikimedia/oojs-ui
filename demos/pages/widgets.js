@@ -8,69 +8,9 @@ Demo.static.pages.widgets = function ( demo ) {
 		verticalHandledDragItems = [],
 		$demo = demo.$element;
 
-	/**
-	 * Draggable group widget containing drag/drop items
-	 *
-	 * @param {Object} [config] Configuration options
-	 */
-	function DraggableGroupWidget( config ) {
-		// Configuration initialization
-		config = config || {};
-
-		// Parent constructor
-		DraggableGroupWidget.parent.call( this, config );
-
-		// Mixin constructors
-		OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
-	}
-
-	/* Setup */
-	OO.inheritClass( DraggableGroupWidget, OO.ui.Widget );
-	OO.mixinClass( DraggableGroupWidget, OO.ui.mixin.DraggableGroupElement );
-
-	/**
-	 * Drag/drop items
-	 *
-	 * @param {Object} [config] Configuration options
-	 */
-	function DraggableItemWidget( config ) {
-		// Configuration initialization
-		config = config || {};
-
-		// Parent constructor
-		DraggableItemWidget.parent.call( this, config );
-
-		// Mixin constructors
-		OO.ui.mixin.DraggableElement.call( this, config );
-	}
-
-	/* Setup */
-	OO.inheritClass( DraggableItemWidget, OO.ui.DecoratedOptionWidget );
-	OO.mixinClass( DraggableItemWidget, OO.ui.mixin.DraggableElement );
-
-	/**
-	 * Drag/drop items with custom handle
-	 *
-	 * @param {Object} [config] Configuration options
-	 */
-	function DraggableHandledItemWidget( config ) {
-		// Configuration initialization
-		config = config || {};
-
-		// Parent constructor
-		DraggableHandledItemWidget.parent.call( this, config );
-
-		// Mixin constructors
-		OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$icon }, config ) );
-	}
-
-	/* Setup */
-	OO.inheritClass( DraggableHandledItemWidget, OO.ui.DecoratedOptionWidget );
-	OO.mixinClass( DraggableHandledItemWidget, OO.ui.mixin.DraggableElement );
-
 	for ( i = 0; i <= 12; i++ ) {
 		horizontalDragItems.push(
-			new DraggableItemWidget( {
+			new Demo.DraggableItemWidget( {
 				data: 'item' + i,
 				icon: 'tag',
 				label: 'Inline item ' + i
@@ -78,14 +18,14 @@ Demo.static.pages.widgets = function ( demo ) {
 		);
 		if ( i <= 6 ) {
 			verticalDragItems.push(
-				new DraggableItemWidget( {
+				new Demo.DraggableItemWidget( {
 					data: 'item' + i,
 					icon: 'tag',
 					label: 'Item ' + i
 				} )
 			);
 			verticalHandledDragItems.push(
-				new DraggableHandledItemWidget( {
+				new Demo.DraggableHandledItemWidget( {
 					data: 'item' + i,
 					icon: 'menu',
 					label: 'Item ' + i
@@ -93,81 +33,6 @@ Demo.static.pages.widgets = function ( demo ) {
 			);
 		}
 	}
-
-	/**
-	 * Demo for LookupElement.
-	 *
-	 * @class
-	 * @extends OO.ui.TextInputWidget
-	 * @mixins OO.ui.mixin.LookupElement
-	 *
-	 * @constructor
-	 * @param {Object} config Configuration options
-	 */
-	function NumberLookupTextInputWidget( config ) {
-		// Parent constructor
-		OO.ui.TextInputWidget.call( this, { validate: 'integer' } );
-		// Mixin constructors
-		OO.ui.mixin.LookupElement.call( this, config );
-	}
-	OO.inheritClass( NumberLookupTextInputWidget, OO.ui.TextInputWidget );
-	OO.mixinClass( NumberLookupTextInputWidget, OO.ui.mixin.LookupElement );
-
-	/**
-	 * @inheritdoc
-	 */
-	NumberLookupTextInputWidget.prototype.getLookupRequest = function () {
-		var
-			value = this.getValue(),
-			deferred = $.Deferred(),
-			delay = 500 + Math.floor( Math.random() * 500 );
-
-		this.getValidity().then( function () {
-			// Resolve with results after a faked delay
-			setTimeout( function () {
-				deferred.resolve( [ value * 1, value * 2, value * 3, value * 4, value * 5 ] );
-			}, delay );
-		}, function () {
-			// No results when the input contains invalid content
-			deferred.resolve( [] );
-		} );
-
-		return deferred.promise( { abort: function () {} } );
-	};
-
-	/**
-	 * @inheritdoc
-	 */
-	NumberLookupTextInputWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
-		return response || [];
-	};
-
-	/**
-	 * @inheritdoc
-	 */
-	NumberLookupTextInputWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
-		var
-			items = [],
-			i, number;
-		for ( i = 0; i < data.length; i++ ) {
-			number = String( data[ i ] );
-			items.push( new OO.ui.MenuOptionWidget( {
-				data: number,
-				label: number
-			} ) );
-		}
-
-		return items;
-	};
-
-	function UnsupportedSelectFileWidget() {
-		// Parent constructor
-		UnsupportedSelectFileWidget.parent.apply( this, arguments );
-	}
-	OO.inheritClass( UnsupportedSelectFileWidget, OO.ui.SelectFileWidget );
-	UnsupportedSelectFileWidget.static.isSupported = function () {
-		return false;
-	};
 
 	textInputForLabel = new OO.ui.TextInputWidget( { value: 'Input for label above' } );
 	labelForTextInput = new OO.ui.LabelWidget( {
@@ -1058,7 +923,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new UnsupportedSelectFileWidget(),
+					new Demo.UnsupportedSelectFileWidget(),
 					{
 						label: 'SelectFileWidget (no browser support)\u200E',
 						align: 'top'
@@ -1082,7 +947,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new UnsupportedSelectFileWidget( {
+					new Demo.UnsupportedSelectFileWidget( {
 						showDropTarget: true
 					} ),
 					{
@@ -1670,7 +1535,7 @@ Demo.static.pages.widgets = function ( demo ) {
 			label: 'Draggable',
 			items: [
 				new OO.ui.FieldLayout(
-					new DraggableGroupWidget( {
+					new Demo.DraggableGroupWidget( {
 						orientation: 'horizontal',
 						items: horizontalDragItems
 					} ),
@@ -1680,7 +1545,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new DraggableGroupWidget( {
+					new Demo.DraggableGroupWidget( {
 						items: verticalDragItems
 					} ),
 					{
@@ -1689,7 +1554,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new DraggableGroupWidget( {
+					new Demo.DraggableGroupWidget( {
 						items: verticalHandledDragItems
 					} ),
 					{
@@ -1899,14 +1764,14 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new NumberLookupTextInputWidget(),
+					new Demo.NumberLookupTextInputWidget(),
 					{
 						label: 'LookupElement (try inputting an integer)\u200E',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new NumberLookupTextInputWidget( {
+					new Demo.NumberLookupTextInputWidget( {
 						highlightFirst: false
 					} ),
 					{
