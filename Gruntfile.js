@@ -514,8 +514,17 @@ module.exports = function ( grunt ) {
 	// Run this before opening "tests/index.php"
 	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );
 
-	grunt.registerTask( 'test', [ 'prep-test', 'karma:main', 'karma:other' ] );
+	grunt.registerTask( '_test', [ 'prep-test', 'karma:main', 'karma:other' ] );
+	grunt.registerTask( '_ci', [ '_test', 'minify' ] );
 	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
+
+	/* eslint-disable no-process-env */
+	if ( process.env.JENKINS_HOME ) {
+		grunt.registerTask( 'test', '_ci' );
+	} else {
+		grunt.registerTask( 'test', '_test' );
+	}
+	/* eslint-enable no-process-env */
 
 	grunt.registerTask( 'default', 'test' );
 };
