@@ -385,7 +385,13 @@
 
 .theme-oo-ui-flaggedElement () {}
 
-.theme-oo-ui-draggableElement () {}
+.theme-oo-ui-draggableElement () {
+	&-handle:focus {
+		border-radius: @border-radius-default;
+		box-shadow: @box-shadow-widget-focus, 0 0 0 1px @color-progressive;
+		outline: 0;
+	}
+}
 
 .theme-oo-ui-groupElement () {}
 
