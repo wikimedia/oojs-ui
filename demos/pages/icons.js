@@ -68,6 +68,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'browser',
 				'clear',
 				'clock',
+				'feedback',
 				'funnel',
 				'heart',
 				'key',
