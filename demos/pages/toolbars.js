@@ -122,6 +122,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	ToolGroupTool.static.name = 'toolGroupTool';
 	ToolGroupTool.static.group = 'barTools';
 	ToolGroupTool.static.groupConfig = {
+		label: 'More',
 		include: [ { group: 'moreListTools' } ]
 	};
 
