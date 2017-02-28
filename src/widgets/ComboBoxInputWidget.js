@@ -8,6 +8,10 @@
  * - by choosing a value from the menu. The value of the chosen option will then appear in the text
  *   input field.
  *
+ * After the user chooses an option, its `data` will be used as a new value for the widget.
+ * A `label` also can be specified for each option: if given, it will be shown instead of the
+ * `data` in the dropdown menu.
+ *
  * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
  * For more information about menus and options, please see the [OOjs UI documentation on MediaWiki][1].
@@ -15,32 +19,33 @@
  *     @example
  *     // Example: A ComboBoxInputWidget.
  *     var comboBox = new OO.ui.ComboBoxInputWidget( {
- *         label: 'ComboBoxInputWidget',
  *         value: 'Option 1',
- *         menu: {
- *             items: [
- *                 new OO.ui.MenuOptionWidget( {
- *                     data: 'Option 1',
- *                     label: 'Option One'
- *                 } ),
- *                 new OO.ui.MenuOptionWidget( {
- *                     data: 'Option 2',
- *                     label: 'Option Two'
- *                 } ),
- *                 new OO.ui.MenuOptionWidget( {
- *                     data: 'Option 3',
- *                     label: 'Option Three'
- *                 } ),
- *                 new OO.ui.MenuOptionWidget( {
- *                     data: 'Option 4',
- *                     label: 'Option Four'
- *                 } ),
- *                 new OO.ui.MenuOptionWidget( {
- *                     data: 'Option 5',
- *                     label: 'Option Five'
- *                 } )
- *             ]
- *         }
+ *         options: [
+ *             { data: 'Option 1' },
+ *             { data: 'Option 2' },
+ *             { data: 'Option 3' }
+ *         ]
+ *     } );
+ *     $( 'body' ).append( comboBox.$element );
+ *
+ *     @example
+ *     // Example: A ComboBoxInputWidget with additional option labels.
+ *     var comboBox = new OO.ui.ComboBoxInputWidget( {
+ *         value: 'Option 1',
+ *         options: [
+ *             {
+ *                 data: 'Option 1',
+ *                 label: 'Option One'
+ *             },
+ *             {
+ *                 data: 'Option 2',
+ *                 label: 'Option Two'
+ *             },
+ *             {
+ *                 data: 'Option 3',
+ *                 label: 'Option Three'
+ *             }
+ *         ]
  *     } );
  *     $( 'body' ).append( comboBox.$element );
  *
