@@ -24,7 +24,8 @@ class DropdownInputWidget extends InputWidget {
 
 		// Initialization
 		$this->setOptions( isset( $config['options'] ) ? $config['options'] : [] );
-		$this->addClasses( [ 'oo-ui-dropdownInputWidget' ] );
+		$this->addClasses( [ 'oo-ui-dropdownInputWidget', 'oo-ui-dropdownInputWidget-php' ] );
+		$this->input->addClasses( [ 'oo-ui-indicator-down' ] );
 	}
 
 	protected function getInputElement( $config ) {

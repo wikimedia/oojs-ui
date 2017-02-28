@@ -530,15 +530,23 @@
 	width: 100%;
 	max-width: @max-width-input;
 
+	&-php {
+		border-right: @border-default;
+		border-radius: @border-radius-default;
+		overflow-x: hidden;
+	}
+
 	select {
-		background-color: @background-color-default;
-		height: 2.275em;
-		font-size: inherit;
-		font-family: inherit;
+		// Remove user agent styles
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
 		.oo-ui-box-sizing( border-box );
 		border: @border-default;
 		border-radius: @border-radius-default;
-		padding-left: 1em;
+		padding: 0.5em 1em;
+		font-size: inherit;
+		font-family: inherit;
 		vertical-align: middle;
 	}
 
@@ -550,17 +558,54 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		select:hover,
-		select:focus {
-			outline: 0;
+		select {
+			background-color: @background-color-framed;
+			background-position: -9999em 0;
+			background-repeat: no-repeat;
+			color: @color-default;
+			.oo-ui-transition(
+				background-color @transition-ease-quick,
+				border-color @transition-ease-quick,
+				box-shadow @transition-ease-quick
+			);
+
+			&:hover {
+				background-color: @background-color-framed-hover;
+				color: @color-default-hover;
+				border-color: @border-color-default-hover;
+			}
+
+			&:active {
+				color: @color-default-active;
+				border-color: @border-color-default-active;
+			}
+
+			&:focus {
+				border-color: @border-color-default-focus;
+				outline: 0;
+				box-shadow: @box-shadow-widget-focus;
+			}
+
+			// Support IE 10-11: Hide the default arrow
+			&::-ms-expand {
+				display: none;
+			}
+
+			// Support: Everything besides IE 6-8
+			&:not( [no-ie] ) {
+				background-position: right 1.75em center;
+				width: e( 'calc( 100% + 1em )' );
+				height: @size-default;
+				padding: 0 0 0 1em;
+			}
 		}
 	}
 
 	&.oo-ui-widget-disabled {
 		select {
+			background-color: @background-color-disabled;
 			color: @color-disabled;
 			border-color: @border-color-disabled;
-			background-color: @background-color-disabled;
 		}
 	}
 }
