@@ -57,8 +57,8 @@ OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWid
 
 	// Properties
 	this.buttonWidget = buttonWidget;
-	this.$button = $( '<div>' );
-	this.$input = $( '<div>' );
+	this.$button = $( '<span>' );
+	this.$input = this.isFieldInline() ? $( '<span>' ) : $( '<div>' );
 
 	// Initialization
 	this.$element

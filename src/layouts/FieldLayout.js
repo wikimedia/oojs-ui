@@ -67,9 +67,9 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.fieldWidget = fieldWidget;
 	this.errors = [];
 	this.notices = [];
-	this.$field = $( '<div>' );
+	this.$field = this.isFieldInline() ? $( '<span>' ) : $( '<div>' );
 	this.$messages = $( '<ul>' );
-	this.$header = $( '<div>' );
+	this.$header = $( '<span>' );
 	this.$body = $( '<div>' );
 	this.align = null;
 	if ( config.help ) {
@@ -150,6 +150,17 @@ OO.ui.FieldLayout.prototype.getField = function () {
 };
 
 /**
+ * Return `true` if the given field widget can be used with `'inline'` alignment (see
+ * #setAlignment). Return `false` if it can't or if this can't be determined.
+ *
+ * @return {boolean}
+ */
+OO.ui.FieldLayout.prototype.isFieldInline = function () {
+	// This is very simplistic, but should be good enough.
+	return this.getField().$element.prop( 'tagName' ).toLowerCase() === 'span';
+};
+
+/**
  * @protected
  * @param {string} kind 'error' or 'notice'
  * @param {string|OO.ui.HtmlSnippet} text
@@ -184,6 +195,10 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 		// Default to 'left'
 		if ( [ 'left', 'right', 'top', 'inline' ].indexOf( value ) === -1 ) {
 			value = 'left';
+		}
+		// Validate
+		if ( value === 'inline' && !this.isFieldInline() ) {
+			value = 'top';
 		}
 		// Reorder elements
 		if ( value === 'top' ) {

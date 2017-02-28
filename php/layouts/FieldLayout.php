@@ -87,9 +87,9 @@ class FieldLayout extends Layout {
 		$this->fieldWidget = $fieldWidget;
 		$this->errors = isset( $config['errors'] ) ? $config['errors'] : [];
 		$this->notices = isset( $config['notices'] ) ? $config['notices'] : [];
-		$this->field = new Tag( 'div' );
+		$this->field = $this->isFieldInline() ? new Tag( 'span' ) : new Tag( 'div' );
 		$this->messages = new Tag( 'ul' );
-		$this->header = new Tag( 'div' );
+		$this->header = new Tag( 'span' );
 		$this->body = new Tag( 'div' );
 		if ( isset( $config['help'] ) ) {
 			$this->help = new ButtonWidget( [
@@ -168,6 +168,18 @@ class FieldLayout extends Layout {
 	}
 
 	/**
+	 * Return `true` if the given field widget can be used with `'inline'` alignment (see
+	 * setAlignment()). Return `false` if it can't or if this can't be determined.
+	 *
+	 * @return bool
+	 */
+	public function isFieldInline() {
+		// This is very simplistic, but should be good enough. It's important to avoid false positives,
+		// as that will cause the generated HTML to be invalid and go all out of whack when parsed.
+		return strtolower( $this->getField()->getTag() ) === 'span';
+	}
+
+	/**
 	 * Set the field alignment mode.
 	 *
 	 * @param string $value Alignment mode, either 'left', 'right', 'top' or 'inline'
@@ -178,6 +190,10 @@ class FieldLayout extends Layout {
 			// Default to 'left'
 			if ( !in_array( $value, [ 'left', 'right', 'top', 'inline' ] ) ) {
 				$value = 'left';
+			}
+			// Validate
+			if ( $value === 'inline' && !$this->isFieldInline() ) {
+				$value = 'top';
 			}
 			// Reorder elements
 			$this->body->clearContent();
