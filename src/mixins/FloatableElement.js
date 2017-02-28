@@ -94,9 +94,11 @@ OO.ui.mixin.FloatableElement.prototype.setVerticalPosition = function ( position
 	if ( [ 'below', 'above', 'top', 'bottom', 'center' ].indexOf( position ) === -1 ) {
 		throw new Error( 'Invalid value for vertical position: ' + position );
 	}
-	this.verticalPosition = position;
-	if ( this.$floatable ) {
-		this.position();
+	if ( this.verticalPosition !== position ) {
+		this.verticalPosition = position;
+		if ( this.$floatable ) {
+			this.position();
+		}
 	}
 };
 
@@ -109,9 +111,11 @@ OO.ui.mixin.FloatableElement.prototype.setHorizontalPosition = function ( positi
 	if ( [ 'before', 'after', 'start', 'end', 'center' ].indexOf( position ) === -1 ) {
 		throw new Error( 'Invalid value for horizontal position: ' + position );
 	}
-	this.horizontalPosition = position;
-	if ( this.$floatable ) {
-		this.position();
+	if ( this.horizontalPosition !== position ) {
+		this.horizontalPosition = position;
+		if ( this.$floatable ) {
+			this.position();
+		}
 	}
 };
 
@@ -243,27 +247,49 @@ OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element
  * @chainable
  */
 OO.ui.mixin.FloatableElement.prototype.position = function () {
-	var containerPos, direction, $offsetParent, isBody, scrollableX, scrollableY,
-		horizScrollbarHeight, vertScrollbarWidth, scrollTop, scrollLeft,
-		newPos = { top: '', left: '', bottom: '', right: '' };
-
 	if ( !this.positioning ) {
 		return this;
 	}
 
 	if ( this.hideWhenOutOfView && !this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable ) ) {
 		this.$floatable.addClass( 'oo-ui-element-hidden' );
-		return;
+		return this;
 	} else {
 		this.$floatable.removeClass( 'oo-ui-element-hidden' );
 	}
 
 	if ( !this.needsCustomPosition ) {
-		return;
+		return this;
 	}
 
-	direction = this.$floatableContainer.css( 'direction' );
-	$offsetParent = this.$floatable.offsetParent();
+	this.$floatable.css( this.computePosition() );
+
+	// We updated the position, so re-evaluate the clipping state.
+	// (ClippableElement does not listen to 'scroll' events on $floatableContainer's parent, and so
+	// will not notice the need to update itself.)
+	// TODO: This is terrible, we shouldn't need to know about ClippableElement at all here. Why does
+	// it not listen to the right events in the right places?
+	if ( this.clip ) {
+		this.clip();
+	}
+
+	return this;
+};
+
+/**
+ * Compute how #$floatable should be positioned based on the position of #$floatableContainer
+ * and the positioning settings. This is a helper for #position that shouldn't be called directly,
+ * but may be overridden by subclasses if they want to change or add to the positioning logic.
+ *
+ * @return {Object} New position to apply with .css(). Keys are 'top', 'left', 'bottom' and 'right'.
+ */
+OO.ui.mixin.FloatableElement.prototype.computePosition = function () {
+	var isBody, scrollableX, scrollableY, containerPos,
+		horizScrollbarHeight, vertScrollbarWidth, scrollTop, scrollLeft,
+		newPos = { top: '', left: '', bottom: '', right: '' },
+		direction = this.$floatableContainer.css( 'direction' ),
+		$offsetParent = this.$floatable.offsetParent();
+
 	if ( $offsetParent.is( 'html' ) ) {
 		// The innerHeight/Width and clientHeight/Width calculations don't work well on the
 		// <html> element, but they do work on the <body>
@@ -361,16 +387,5 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 		}
 	}
 
-	this.$floatable.css( newPos );
-
-	// We updated the position, so re-evaluate the clipping state.
-	// (ClippableElement does not listen to 'scroll' events on $floatableContainer's parent, and so
-	// will not notice the need to update itself.)
-	// TODO: This is terrible, we shouldn't need to know about ClippableElement at all here. Why does
-	// it not listen to the right events in the right places?
-	if ( this.clip ) {
-		this.clip();
-	}
-
-	return this;
+	return newPos;
 };

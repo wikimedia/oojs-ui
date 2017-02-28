@@ -85,12 +85,12 @@
 .theme-oo-ui-actionWidget () {}
 
 .theme-oo-ui-popupButtonWidget () {
-	.oo-ui-popupWidget&-frameless-popup {
+	.oo-ui-popupWidget&-frameless-popup .oo-ui-popupWidget-anchor {
 		// Compensate for icon being inset
 		margin-left: @size-icon / 2;
 	}
 
-	.oo-ui-popupWidget&-framed-popup {
+	.oo-ui-popupWidget&-framed-popup .oo-ui-popupWidget-anchor {
 		// Compensate for icon being inset
 		// elements.less positions the icon with left: 1.5em - @size-icon / 2; , so we need:
 		// @size-icon / 2 + ( 1.5em - @size-icon / 2 ) which is 1.5em.

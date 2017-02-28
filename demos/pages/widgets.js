@@ -1748,6 +1748,23 @@ Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							head: true,
 							label: 'More information',
+							$content: $( '<p>' ).text( loremIpsum ),
+							padded: true,
+							align: 'center'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (frameless, with popup head align: center)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'info',
+						framed: false,
+						popup: {
+							head: true,
+							label: 'More information',
 							$content: $( '<p>' + loremIpsum + '</p><ul><li>Item one</li><li>Item two</li><li>Item three</li><li>Item four</li></ul><p>Even more text here which might well be clipped off the visible area.</p>' ),
 							$footer: $( '<p>And maybe a footer whilst we\'re at it?</p>' ),
 							padded: true,
@@ -1770,7 +1787,37 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (framed, no popup head)\u200E',
+						label: 'PopupButtonWidget (framed, no popup head, align: forwards)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'menu',
+						label: 'Options',
+						popup: {
+							$content: $( '<p>' ).text( loremIpsum ),
+							padded: true,
+							align: 'backwards'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (framed, no popup head, align: backwards)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'menu',
+						label: 'Options',
+						popup: {
+							$content: $( '<p>' ).text( loremIpsum ),
+							padded: true,
+							align: 'center'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (framed, no popup head, align: center)\u200E',
 						align: 'top'
 					}
 				),
