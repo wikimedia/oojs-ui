@@ -967,7 +967,7 @@
 	&-handle {
 		min-height: 2.4em;
 		.oo-ui-inline-spacing( 0.5em );
-		padding: 0.15em 0.25em;
+		padding: 0.625em;
 		border: @border-default;
 		border-radius: @border-radius-default;
 		.oo-ui-box-sizing( border-box );
@@ -1057,18 +1057,18 @@
 	.oo-ui-box-sizing( border-box );
 	width: auto;
 	max-width: 100%;
-	height: 1.7em;
-	margin: 0.1em;
+	height: 2.3em;
+	margin: 0 0.625em 0 0;
 	border: @border-default;
 	border-radius: @border-radius-default;
-	padding: 0 0.4em;
+	padding: 0.313em;
 	line-height: 1.7;
 	vertical-align: middle;
 
 	&.oo-ui-widget-enabled {
 		background-color: @background-color-framed;
 		color: @color-default;
-		padding-right: @size-indicator + 0.6em;
+		padding-right: @size-icon + 0.6em;
 		.oo-ui-transition(
 			background-color @transition-ease-quick,
 			color @transition-ease-quick,
@@ -1098,10 +1098,10 @@
 		}
 		& .oo-ui-buttonElement-button {
 			display: block;
-			width: @size-indicator + 0.6em; // equals to `padding` on each side of the indicator
+			width: @size-icon + 0.6em; // equals to `padding` on each side of the indicator
 			height: 100%; // Firefox height calculation fix
 
-			& .oo-ui-indicator-clear {
+			& .oo-ui-icon-close {
 				position: absolute;
 				top: 0;
 				right: 0.3em;
