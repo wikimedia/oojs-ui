@@ -58,6 +58,14 @@ OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 
 OO.inheritClass( OO.ui.CheckboxInputWidget, OO.ui.InputWidget );
 
+/* Static Properties */
+
+/**
+ * @static
+ * @inheritdoc
+ */
+OO.ui.CheckboxInputWidget.static.tagName = 'span';
+
 /* Static Methods */
 
 /**
