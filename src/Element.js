@@ -528,7 +528,7 @@ OO.ui.Element.static.getDimensions = function ( el ) {
  *
  * @static
  * @method
- * @param {HTMLElement} el Element to measure
+ * @param {HTMLElement|Window} el Element to measure
  * @return {number} Scroll position from the left.
  *  If the element's direction is LTR, this is a positive number between `0` (initial scroll position)
  *  and `el.scrollWidth - el.clientWidth` (furthest possible scroll position).
@@ -560,15 +560,18 @@ OO.ui.Element.static.getScrollLeft = ( function () {
 	}
 
 	return function getScrollLeft( el ) {
-		var
-			scrollLeft = el.scrollLeft,
-			direction = $( el ).css( 'direction' );
-
-		if ( rtlScrollType === null ) {
-			test();
-		}
+		var isRoot = el.window === el ||
+				el === el.ownerDocument.body ||
+				el === el.ownerDocument.documentElement,
+			scrollLeft = isRoot ? $( window ).scrollLeft() : el.scrollLeft,
+			// All browsers use the correct scroll type ('negative') on the root, so don't
+			// do any fixups when looking at the root element
+			direction = isRoot ? 'ltr' : $( el ).css( 'direction' );
 
 		if ( direction === 'rtl' ) {
+			if ( rtlScrollType === null ) {
+				test();
+			}
 			if ( rtlScrollType === 'reverse' ) {
 				scrollLeft = -scrollLeft;
 			} else if ( rtlScrollType === 'default' ) {
