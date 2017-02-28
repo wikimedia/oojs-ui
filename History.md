@@ -1,4 +1,35 @@
 # OOjs UI Release History
+## v0.19.4 / 2017-02-28
+### Features
+* Add `OO.ui.Element.static.getScrollLeft` (Bartosz Dziewoński)
+* FloatableElement: Support positioning relative to all edges (Roan Kattouw)
+
+### Styles
+* MediaWiki theme: Align DraggableElement focus with standard appearance (Volker E)
+* MediaWiki theme: Align appearance of PHP DropdownInputWidget to JS (Volker E)
+* MediaWiki theme: Fix TextInputWidget inline label misalignment (Volker E)
+* MediaWiki theme: Fix ToolGroupTool's label alignment (Volker E)
+* MediaWiki theme: Fix button layout in ButtonGroup-/SelectWidgets in IE 9 (Volker E)
+* MediaWiki theme: Fix styling for FieldLayout inside HorizontalLayout (Bartosz Dziewoński)
+* styles: Improve vertical alignment of elements' & widgets' icons (Ed Sanders/Volker E)
+* icons: Add 'feedback' icon, in interactions pack (Roan Kattouw)
+* icons: Add 'searchDiacritic' icon, in editing-advanced pack (Ed Sanders)
+
+### Code
+* Make generic placeholder pseudo-class browser-prefix mixin (Ed Sanders)
+* BookletLayout: When continuous, properly make the inner PageLayouts non-scrollable (Bartosz Dziewoński)
+* Element: Fix `scrollLeft()` for body/html/window (Roan Kattouw)
+* OutlineOptionWidget: Remove unused and misplaced values (Volker E)
+* PopupWidget: Remove `left: 0;` breaking floatable popups (Roan Kattouw)
+* MediaWiki theme: Remove obsolete ComboBoxInputWidget selectors (Volker E)
+* README: Encourage direct release in the instructions (James D. Forrester)
+* build: Test the 'minify' task in CI (James D. Forrester)
+* demos: Add 'label' to ToolGroupTool example (Bartosz Dziewoński)
+* demos: Extract ButtonStyleShowcaseWidget from the demo code (Bartosz Dziewoński)
+* demos: Extract CapsuleNumberPopupMultiselectWidget from the demo code (Bartosz Dziewoński)
+* demos: Extract remaining widgets from widgets.js (Bartosz Dziewoński)
+
+
 ## v0.19.3 / 2017-02-21
 ### Features
 * FieldLayout, FieldsetLayout: Add support for `$overlay` for help popups (Bartosz Dziewoński)
