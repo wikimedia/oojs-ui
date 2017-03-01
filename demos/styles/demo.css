@@ -153,6 +153,8 @@ p {
 	border: 1px solid transparent;
 	margin-bottom: -2px;
 	line-height: 1.4;
+	/* @noflip */
+	direction: ltr;
 }
 
 .demo-console-expanded {
@@ -212,6 +214,7 @@ p {
 	display: none;
 }
 
+/* @noflip */
 .demo-console-log {
 	border: 1px solid #a2a9b1;
 	border-width: 0 0 1px 0;
@@ -219,6 +222,7 @@ p {
 	overflow: auto;
 }
 
+/* @noflip */
 .demo-console-log-line {
 	position: relative;
 	padding-left: 20px;
@@ -229,6 +233,7 @@ p {
 	color: #54595d;
 }
 
+/* @noflip */
 .demo-console-log-line-input::before {
 	display: block;
 	position: absolute;
@@ -244,6 +249,7 @@ p {
 	color: #d33;
 }
 
+/* @noflip */
 .demo-console-label {
 	position: relative;
 	display: inline-block;
@@ -257,6 +263,7 @@ p {
 	box-sizing: border-box;
 }
 
+/* @noflip */
 .demo-console-label::before {
 	content: '→';
 	color: #00f;
