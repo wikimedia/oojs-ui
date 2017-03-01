@@ -31,11 +31,7 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 	OO.ui.PopupButtonWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.PopupElement.call( this, $.extend( true, {}, config, {
-		popup: {
-			$floatableContainer: this.$element
-		}
-	} ) );
+	OO.ui.mixin.PopupElement.call( this, config );
 
 	// Properties
 	this.$overlay = config.$overlay || this.$element;
