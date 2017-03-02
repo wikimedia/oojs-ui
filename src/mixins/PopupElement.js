@@ -18,9 +18,14 @@ OO.ui.mixin.PopupElement = function OoUiMixinPopupElement( config ) {
 
 	// Properties
 	this.popup = new OO.ui.PopupWidget( $.extend(
-		{ autoClose: true },
+		{
+			autoClose: true,
+			$floatableContainer: this.$element
+		},
 		config.popup,
-		{ $autoCloseIgnore: this.$element.add( config.popup && config.popup.$autoCloseIgnore ) }
+		{
+			$autoCloseIgnore: this.$element.add( config.popup && config.popup.$autoCloseIgnore )
+		}
 	) );
 };
 
