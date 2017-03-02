@@ -537,45 +537,6 @@ Demo.static.pages.dialogs = function ( demo ) {
 		return MenuDialog.parent.prototype.getActionProcess.call( this, action );
 	};
 
-	function ExampleLookupTextInputWidget( config ) {
-		config = config || {};
-		this.items = config.items || [];
-		OO.ui.TextInputWidget.call( this, config );
-		OO.ui.mixin.LookupElement.call( this, config );
-	}
-	OO.inheritClass( ExampleLookupTextInputWidget, OO.ui.TextInputWidget );
-	OO.mixinClass( ExampleLookupTextInputWidget, OO.ui.mixin.LookupElement );
-	ExampleLookupTextInputWidget.prototype.getLookupRequest = function () {
-		return $.Deferred().resolve( [] ).promise( { abort: function () {} } );
-	};
-	ExampleLookupTextInputWidget.prototype.getLookupCacheDataFromResponse = function () {
-		return [];
-	};
-	ExampleLookupTextInputWidget.prototype.getLookupMenuOptionsFromData = function () {
-		return this.items;
-	};
-
-	function ExampleCapsuleMultiselectWidget( config ) {
-		this.capsulePopupWidget = new OO.ui.NumberInputWidget( {
-			isInteger: true
-		} );
-		this.capsulePopupWidget.connect( this, {
-			enter: 'onPopupWidgetEnter'
-		} );
-		config = $.extend( {}, config, {
-			allowArbitrary: true,
-			popup: { $content: this.capsulePopupWidget.$element }
-		} );
-		OO.ui.CapsuleMultiselectWidget.call( this, config );
-	}
-	OO.inheritClass( ExampleCapsuleMultiselectWidget, OO.ui.CapsuleMultiselectWidget );
-	ExampleCapsuleMultiselectWidget.prototype.onPopupWidgetEnter = function () {
-		if ( !isNaN( this.capsulePopupWidget.getNumericValue() ) ) {
-			this.addItemsFromData( [ this.capsulePopupWidget.getNumericValue() ] );
-			this.capsulePopupWidget.setValue( '' );
-		}
-	};
-
 	function PositionSelectWidget( config ) {
 		var verticalPositions, horizontalPositions, $table,
 			widget = this;
@@ -816,17 +777,14 @@ Demo.static.pages.dialogs = function ( demo ) {
 			} ),
 			new SamplePage( 'lookup', {
 				label: 'LookupElement',
-				content: [ $spacer.clone(), new ExampleLookupTextInputWidget( {
-					$overlay: this.$overlay,
-					items: this.makeItems()
+				content: [ $spacer.clone(), new Demo.NumberLookupTextInputWidget( {
+					$overlay: this.$overlay
 				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'lookup2', {
 				label: 'LookupElement',
 				icon: 'alert',
-				content: [ $spacer.clone(), new ExampleLookupTextInputWidget( {
-					items: this.makeItems()
-				} ), $spacer.clone() ]
+				content: [ $spacer.clone(), new Demo.NumberLookupTextInputWidget(), $spacer.clone() ]
 			} ),
 			new SamplePage( 'fieldsetandfield', {
 				label: 'FieldsetLayout and FieldLayout',
@@ -901,14 +859,14 @@ Demo.static.pages.dialogs = function ( demo ) {
 			} ),
 			new SamplePage( 'capsulepopup', {
 				label: 'CapsuleMultiselectWidget (popup)',
-				content: [ $spacer.clone(), new ExampleCapsuleMultiselectWidget( {
+				content: [ $spacer.clone(), new Demo.CapsuleNumberPopupMultiselectWidget( {
 					$overlay: this.$overlay
 				} ), $spacer.clone() ]
 			} ),
 			new SamplePage( 'capsulepopup2', {
 				label: 'CapsuleMultiselectWidget (popup)',
 				icon: 'alert',
-				content: [ $spacer.clone(), new ExampleCapsuleMultiselectWidget(), $spacer.clone() ]
+				content: [ $spacer.clone(), new Demo.CapsuleNumberPopupMultiselectWidget(), $spacer.clone() ]
 			} )
 		];
 		this.bookletLayout.on( 'set', function ( page ) {
