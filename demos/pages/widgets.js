@@ -1223,15 +1223,13 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ComboBoxInputWidget( {
-						menu: {
-							items: [
-								new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
-								new OO.ui.MenuOptionWidget( { data: 'fgh', label: 'Label for fgh' } ),
-								new OO.ui.MenuOptionWidget( { data: 'jkl', label: 'Label for jkl' } ),
-								new OO.ui.MenuOptionWidget( { data: 'zxc', label: 'Label for zxc' } ),
-								new OO.ui.MenuOptionWidget( { data: 'vbn', label: 'Label for vbn' } )
-							]
-						}
+						options: [
+							{ data: 'asd', label: 'Label for asd' },
+							{ data: 'fgh', label: 'Label for fgh' },
+							{ data: 'jkl', label: 'Label for jkl' },
+							{ data: 'zxc', label: 'Label for zxc' },
+							{ data: 'vbn', label: 'Label for vbn' }
+						]
 					} ),
 					{
 						label: 'ComboBoxInputWidget',
@@ -1240,16 +1238,29 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ComboBoxInputWidget( {
+						options: [
+							{ data: 'Option 1' },
+							{ data: 'Option 2' },
+							{ data: 'Option 3' },
+							{ data: 'Option 4' },
+							{ data: 'Option 5' }
+						]
+					} ),
+					{
+						label: 'ComboBoxInputWidget (no labels given)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ComboBoxInputWidget( {
 						disabled: true,
-						menu: {
-							items: [
-								new OO.ui.MenuOptionWidget( { data: 'asd', label: 'Label for asd' } ),
-								new OO.ui.MenuOptionWidget( { data: 'fgh', label: 'Label for fgh' } ),
-								new OO.ui.MenuOptionWidget( { data: 'jkl', label: 'Label for jkl' } ),
-								new OO.ui.MenuOptionWidget( { data: 'zxc', label: 'Label for zxc' } ),
-								new OO.ui.MenuOptionWidget( { data: 'vbn', label: 'Label for vbn' } )
-							]
-						}
+						options: [
+							{ data: 'asd', label: 'Label for asd' },
+							{ data: 'fgh', label: 'Label for fgh' },
+							{ data: 'jkl', label: 'Label for jkl' },
+							{ data: 'zxc', label: 'Label for zxc' },
+							{ data: 'vbn', label: 'Label for vbn' }
+						]
 					} ),
 					{
 						label: 'ComboBoxInputWidget (disabled)\u200E',
