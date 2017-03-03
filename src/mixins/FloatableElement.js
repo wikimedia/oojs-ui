@@ -29,6 +29,8 @@
  *  'start': Align the start (left in LTR, right in RTL) edge with $floatableContainer's start edge
  *  'end': Align the end (right in LTR, left in RTL) edge with $floatableContainer's end edge
  *  'center': Horizontally align the center with $floatableContainer's center
+ * @cfg {boolean} [hideWhenOutOfView=true] Whether to hide the floatable element if the container
+ *  is out of view
  */
 OO.ui.mixin.FloatableElement = function OoUiMixinFloatableElement( config ) {
 	// Configuration initialization
@@ -47,6 +49,7 @@ OO.ui.mixin.FloatableElement = function OoUiMixinFloatableElement( config ) {
 	this.setFloatableElement( config.$floatable || this.$element );
 	this.setVerticalPosition( config.verticalPosition || 'below' );
 	this.setHorizontalPosition( config.horizontalPosition || 'start' );
+	this.hideWhenOutOfView = config.hideWhenOutOfView === undefined ? true : !!config.hideWhenOutOfView;
 };
 
 /* Methods */
@@ -248,7 +251,7 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 		return this;
 	}
 
-	if ( !this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable ) ) {
+	if ( this.hideWhenOutOfView && !this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable ) ) {
 		this.$floatable.addClass( 'oo-ui-element-hidden' );
 		return;
 	} else {
