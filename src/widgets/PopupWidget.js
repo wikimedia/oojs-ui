@@ -30,13 +30,24 @@
  * @cfg {number} [width=320] Width of popup in pixels
  * @cfg {number} [height] Height of popup in pixels. Omit to use the automatic height.
  * @cfg {boolean} [anchor=true] Show anchor pointing to origin of popup
- * @cfg {string} [align='center'] Alignment of the popup: `center`, `force-left`, `force-right`, `backwards` or `forwards`.
- *  If the popup is forced-left the popup body is leaning towards the left. For force-right alignment, the body of the
- *  popup is leaning towards the right of the screen.
- *  Using 'backwards' is a logical direction which will result in the popup leaning towards the beginning of the sentence
- *  in the given language, which means it will flip to the correct positioning in right-to-left languages.
- *  Using 'forward' will also result in a logical alignment where the body of the popup leans towards the end of the
- *  sentence in the given language.
+ * @cfg {string} [position='below'] Where to position the popup relative to $floatableContainer
+ *  'above': Put popup above $floatableContainer; anchor points down to the start edge of $floatableContainer
+ *  'below': Put popup below $floatableContainer; anchor points up to the start edge of $floatableContainer
+ *  'before': Put popup to the left (LTR) / right (RTL) of $floatableContainer; anchor points
+ *            endwards (right/left) to the vertical center of $floatableContainer
+ *  'after': Put popup to the right (LTR) / left (RTL) of $floatableContainer; anchor points
+ *            startwards (left/right) to the vertical center of $floatableContainer
+ * @cfg {string} [align='center'] How to align the popup to $floatableContainer
+ *  'forwards': If position is above/below, move the popup as far endwards (right in LTR, left in RTL)
+ *              as possible while still keeping the anchor within the popup;
+ *              if position is before/after, move the popup as far downwards as possible.
+ *  'backwards': If position is above/below, move the popup as far startwards (left in LTR, right in RTL)
+ *               as possible while still keeping the anchor within the popup;
+ *               if position in before/after, move the popup as far upwards as possible.
+ *  'center': Horizontally (if position is above/below) or vertically (before/after) align the center
+ *            of the popup with the center of $floatableContainer.
+ * 'force-left': Alias for 'forwards' in LTR and 'backwards' in RTL
+ * 'force-right': Alias for 'backwards' in RTL and 'forwards' in LTR
  * @cfg {jQuery} [$container] Constrain the popup to the boundaries of the specified container.
  *  See the [OOjs UI docs on MediaWiki][3] for an example.
  *  [3]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Popups#containerExample
@@ -79,15 +90,16 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.autoClose = !!config.autoClose;
 	this.$autoCloseIgnore = config.$autoCloseIgnore;
 	this.transitionTimeout = null;
-	this.anchor = null;
+	this.anchored = false;
 	this.width = config.width !== undefined ? config.width : 320;
 	this.height = config.height !== undefined ? config.height : null;
-	this.setAlignment( config.align );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
 	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
 
 	// Initialization
 	this.toggleAnchor( config.anchor === undefined || config.anchor );
+	this.setAlignment( config.align || 'center' );
+	this.setPosition( config.position || 'below' );
 	this.$body.addClass( 'oo-ui-popupWidget-body' );
 	this.$anchor.addClass( 'oo-ui-popupWidget-anchor' );
 	this.$popup
@@ -235,6 +247,21 @@ OO.ui.PopupWidget.prototype.toggleAnchor = function ( show ) {
 		this.anchored = show;
 	}
 };
+/**
+ * Change which edge the anchor appears on.
+ *
+ * @param {string} edge 'top', 'bottom', 'start' or 'end'
+ */
+OO.ui.PopupWidget.prototype.setAnchorEdge = function ( edge ) {
+	if ( [ 'top', 'bottom', 'start', 'end' ].indexOf( edge ) === -1 ) {
+		throw new Error( 'Invalid value for edge: ' + edge );
+	}
+	if ( this.anchorEdge !== null ) {
+		this.$element.removeClass( 'oo-ui-popupWidget-anchored-' + this.anchorEdge );
+	}
+	this.anchorEdge = edge;
+	this.$element.addClass( 'oo-ui-popupWidget-anchored-' + edge );
+};
 
 /**
  * Check if the anchor is visible.
@@ -242,7 +269,7 @@ OO.ui.PopupWidget.prototype.toggleAnchor = function ( show ) {
  * @return {boolean} Anchor is visible
  */
 OO.ui.PopupWidget.prototype.hasAnchor = function () {
-	return this.anchor;
+	return this.anchored;
 };
 
 /**
@@ -350,9 +377,11 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
  * @inheritdoc
  */
 OO.ui.PopupWidget.prototype.computePosition = function () {
-	var direction, start, end, align, anchorWidth, anchorOffset, anchorMargin, parentPosition,
-		positionProp, positionAdjustment, floatablePos, offsetParentPos, containerPos,
+	var direction, align, vertical, start, end, near, far, sizeProp, popupSize, anchorSize, anchorPos,
+		anchorOffset, anchorMargin, parentPosition, positionProp, positionAdjustment, floatablePos,
+		offsetParentPos, containerPos,
 		popupPos = {},
+		anchorCss = { left: '', right: '', top: '', bottom: '' },
 		alignMap = {
 			ltr: {
 				'force-left': 'backwards',
@@ -363,10 +392,21 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 				'force-right': 'backwards'
 			}
 		},
+		anchorEdgeMap = {
+			above: 'bottom',
+			below: 'top',
+			before: 'end',
+			after: 'start'
+		},
 		hPosMap = {
 			forwards: 'start',
 			center: 'center',
 			backwards: 'before'
+		},
+		vPosMap = {
+			forwards: 'top',
+			center: 'center',
+			backwards: 'bottom'
 		};
 
 	if ( !this.$container ) {
@@ -374,9 +414,6 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 		this.$container = $( this.getClosestScrollableElementContainer() );
 	}
 	direction = this.$container.css( 'direction' );
-	align = alignMap[ direction ][ this.align ] || this.align;
-	start = direction === 'rtl' ? 'right' : 'left';
-	end = direction === 'rtl' ? 'left' : 'right';
 
 	// Set height and width before we do anything else, since it might cause our measurements
 	// to change (e.g. due to scrollbars appearing or disappearing), and it also affects centering
@@ -385,70 +422,85 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 		height: this.height !== null ? this.height : 'auto'
 	} );
 
-	// Let FloatableElement position us according to the requested alignment
-	this.horizontalPosition = hPosMap[ align ];
+	align = alignMap[ direction ][ this.align ] || this.align;
+	// If the popup is positioned before or after, then the anchor positioning is vertical, otherwise horizontal
+	vertical = this.popupPosition === 'before' || this.popupPosition === 'after';
+	start = vertical ? 'top' : ( direction === 'rtl' ? 'right' : 'left' );
+	end = vertical ? 'bottom' : ( direction === 'rtl' ? 'left' : 'right' );
+	near = vertical ? 'top' : 'left';
+	far = vertical ? 'bottom' : 'right';
+	sizeProp = vertical ? 'Height' : 'Width';
+	popupSize = vertical ? ( this.height || this.$popup.height() ) : this.width;
+
+	this.setAnchorEdge( anchorEdgeMap[ this.popupPosition ] );
+	this.horizontalPosition = vertical ? this.popupPosition : hPosMap[ align ];
+	this.verticalPosition = vertical ? vPosMap[ align ] : this.popupPosition;
+
 	// Parent method
 	parentPosition = OO.ui.mixin.FloatableElement.prototype.computePosition.call( this );
-	// Find out whether FloatableElement used left or right for positioning, and adjust that value
-	positionProp = parentPosition.left !== '' ? 'left' : 'right';
+	// Find out which property FloatableElement used for positioning, and adjust that value
+	positionProp = vertical ?
+		( parentPosition.top !== '' ? 'top' : 'bottom' ) :
+		( parentPosition.left !== '' ? 'left' : 'right' );
 
-	// Figure out where the left and right edges of the popup and $floatableContainer are
+	// Figure out where the near and far edges of the popup and $floatableContainer are
 	floatablePos = this.$floatableContainer.offset();
-	floatablePos.right = floatablePos.left + this.$floatableContainer.outerWidth();
+	floatablePos[ far ] = floatablePos[ near ] + this.$floatableContainer[ 'outer' + sizeProp ]();
 	// Measure where the offsetParent is and compute our position based on that and parentPosition
 	offsetParentPos = this.$element.offsetParent().offset();
-	if ( parentPosition.top !== '' ) {
-		popupPos.top = offsetParentPos.top + parentPosition.top;
+
+	if ( positionProp === near ) {
+		popupPos[ near ] = offsetParentPos[ near ] + parentPosition[ near ];
+		popupPos[ far ] = popupPos[ near ] + popupSize;
 	} else {
-		popupPos.top = offsetParentPos.top + this.$element.offsetParent().innerHeight() - popupPos.bottom - this.$popup.outerHeight();
-	}
-	if ( positionProp === 'left' ) {
-		popupPos.left = offsetParentPos.left + parentPosition.left;
-		popupPos.right = popupPos.left + this.width;
-	} else {
-		popupPos.right = offsetParentPos.left + this.$element.offsetParent().innerWidth() - parentPosition.right;
-		popupPos.left = popupPos.right - this.width;
+		popupPos[ far ] = offsetParentPos[ near ] +
+			this.$element.offsetParent()[ 'inner' + sizeProp ]() - parentPosition[ far ];
+		popupPos[ near ] = popupPos[ far ] - popupSize;
 	}
 
 	// Position the anchor (which is positioned relative to the popup) to point to $floatableContainer
-	anchorOffset = ( direction === 'rtl' ? -1 : 1 ) * ( floatablePos[ start ] - popupPos[ start ] );
+	// For popups above/below, we point to the start edge; for popups before/after, we point to the center
+	anchorPos = vertical ? ( floatablePos[ start ] + floatablePos[ end ] ) / 2 : floatablePos[ start ];
+	anchorOffset = ( start === far ? -1 : 1 ) * ( anchorPos - popupPos[ start ] );
 
-	// If the anchor is less than 2*anchorWidth from either edge, move the popup to make more space
-	anchorWidth = this.$anchor[ 0 ].scrollWidth;
+	// If the anchor is less than 2*anchorSize from either edge, move the popup to make more space
+	// this.$anchor.width()/height() returns 0 because of the CSS trickery we use, so use scrollWidth/Height
+	anchorSize = this.$anchor[ 0 ][ 'scroll' + sizeProp ];
 	anchorMargin = parseFloat( this.$anchor.css( 'margin-' + start ) );
-	if ( anchorOffset + anchorMargin < 2 * anchorWidth ) {
+	if ( anchorOffset + anchorMargin < 2 * anchorSize ) {
 		// Not enough space for the anchor on the start side; pull the popup startwards
 		positionAdjustment = ( positionProp === start ? -1 : 1 ) *
-			( 2 * anchorWidth - ( anchorOffset + anchorMargin ) );
-	} else if ( anchorOffset + anchorMargin > this.width - 2 * anchorWidth ) {
+			( 2 * anchorSize - ( anchorOffset + anchorMargin ) );
+	} else if ( anchorOffset + anchorMargin > popupSize - 2 * anchorSize ) {
 		// Not enough space for the anchor on the end side; pull the popup endwards
 		positionAdjustment = ( positionProp === end ? -1 : 1 ) *
-			( anchorOffset + anchorMargin - ( this.width - 2 * anchorWidth ) );
+			( anchorOffset + anchorMargin - ( popupSize - 2 * anchorSize ) );
 	} else {
 		positionAdjustment = 0;
 	}
 
 	// Check if the popup will go beyond the edge of this.$container
 	containerPos = this.$container.offset();
-	containerPos.right = containerPos.left + this.$container.innerWidth();
+	containerPos[ far ] = containerPos[ near ] + this.$container[ 'inner' + sizeProp ]();
 	// Take into account how much the popup will move because of the adjustments we're going to make
-	popupPos.left += ( positionProp === 'left' ? 1 : -1 ) * positionAdjustment;
-	popupPos.right += ( positionProp === 'left' ? 1 : -1 ) * positionAdjustment;
-	if ( containerPos.left + this.containerPadding > popupPos.left ) {
-		// Popup goes beyond the left edge, move it to the right
-		positionAdjustment += ( positionProp === 'left' ? 1 : -1 ) *
-			( containerPos.left + this.containerPadding - popupPos.left );
-	} else if ( containerPos.right - this.containerPadding < popupPos.right ) {
-		// Popup goes beyond the right edge, move it to the left
-		positionAdjustment += ( positionProp === 'right' ? 1 : -1 ) *
-			( popupPos.right - ( containerPos.right - this.containerPadding ) );
+	popupPos[ near ] += ( positionProp === near ? 1 : -1 ) * positionAdjustment;
+	popupPos[ far ] += ( positionProp === near ? 1 : -1 ) * positionAdjustment;
+	if ( containerPos[ near ] + this.containerPadding > popupPos[ near ] ) {
+		// Popup goes beyond the near (left/top) edge, move it to the right/bottom
+		positionAdjustment += ( positionProp === near ? 1 : -1 ) *
+			( containerPos[ near ] + this.containerPadding - popupPos[ near ] );
+	} else if ( containerPos[ far ] - this.containerPadding < popupPos[ far ] ) {
+		// Popup goes beyond the far (right/bottom) edge, move it to the left/top
+		positionAdjustment += ( positionProp === far ? 1 : -1 ) *
+			( popupPos[ far ] - ( containerPos[ far ] - this.containerPadding ) );
 	}
 
 	// Adjust anchorOffset for positionAdjustment
 	anchorOffset += ( positionProp === start ? -1 : 1 ) * positionAdjustment;
 
 	// Position the anchor
-	this.$anchor.css( start, anchorOffset );
+	anchorCss[ start ] = anchorOffset;
+	this.$anchor.css( anchorCss );
 	// Move the popup if needed
 	parentPosition[ positionProp ] += positionAdjustment;
 
@@ -474,14 +526,37 @@ OO.ui.PopupWidget.prototype.setAlignment = function ( align ) {
 	} else {
 		this.align = 'center';
 	}
+	this.position();
 };
 
 /**
  * Get popup alignment
  *
- * @return {string} align Alignment of the popup, `center`, `force-left`, `force-right`,
+ * @return {string} Alignment of the popup, `center`, `force-left`, `force-right`,
  *  `backwards` or `forwards`.
  */
 OO.ui.PopupWidget.prototype.getAlignment = function () {
 	return this.align;
+};
+
+/**
+ * Change the positioning of the popup.
+ *
+ * @param {string} position 'above', 'below', 'before' or 'after'
+ */
+OO.ui.PopupWidget.prototype.setPosition = function ( position ) {
+	if ( [ 'above', 'below', 'before', 'after' ].indexOf( position ) === -1 ) {
+		position = 'below';
+	}
+	this.popupPosition = position;
+	this.position();
+};
+
+/**
+ * Get popup positioning.
+ *
+ * @return {string} 'above', 'below', 'before' or 'after'
+ */
+OO.ui.PopupWidget.prototype.getPosition = function () {
+	return this.popupPosition;
 };

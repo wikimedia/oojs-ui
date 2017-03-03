@@ -130,6 +130,34 @@ Demo.DialogWithDropdowns.prototype.initialize = function () {
 				}
 			} ), $spacer.clone() ]
 		} ),
+		new Demo.SamplePage( 'popupbuttonhoriz', {
+			label: 'PopupButtonWidget (horizontal)',
+			content: [ $spacer.clone(), new OO.ui.PopupButtonWidget( {
+				$overlay: this.$overlay,
+				label: 'Popup button',
+				popup: {
+					position: 'after',
+					height: 200,
+					width: 200,
+					padded: true,
+					$content: this.makeContents()
+				}
+			} ), $spacer.clone() ]
+		} ),
+		new Demo.SamplePage( 'popupbuttonhoriz2', {
+			label: 'PopupButtonWidget (horizontal)',
+			icon: 'alert',
+			content: [ $spacer.clone(), new OO.ui.PopupButtonWidget( {
+				label: 'Popup button',
+				popup: {
+					position: 'after',
+					height: 200,
+					width: 200,
+					padded: true,
+					$content: this.makeContents()
+				}
+			} ), $spacer.clone() ]
+		} ),
 		new Demo.SamplePage( 'capsulemenu', {
 			label: 'CapsuleMultiselectWidget (menu)',
 			content: [ $spacer.clone(), new OO.ui.CapsuleMultiselectWidget( {

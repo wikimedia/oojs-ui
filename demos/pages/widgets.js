@@ -1822,6 +1822,54 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'menu',
+						label: 'Options',
+						popup: {
+							$content: $( '<p>' ).text( loremIpsum ),
+							padded: true,
+							align: 'center',
+							position: 'above'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (framed, no popup head, position: above)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'menu',
+						label: 'Options',
+						popup: {
+							$content: $( '<p>' ).text( loremIpsum ),
+							padded: true,
+							align: 'center',
+							position: 'before'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (framed, no popup head, position: before)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'menu',
+						label: 'Options',
+						popup: {
+							$content: $( '<p>' ).text( loremIpsum ),
+							padded: true,
+							align: 'center',
+							position: 'after'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (framed, no popup head, position: after)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new Demo.NumberLookupTextInputWidget(),
 					{
 						label: 'LookupElement (try inputting an integer)\u200E',

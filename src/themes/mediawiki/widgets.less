@@ -85,16 +85,26 @@
 .theme-oo-ui-actionWidget () {}
 
 .theme-oo-ui-popupButtonWidget () {
-	.oo-ui-popupWidget&-frameless-popup .oo-ui-popupWidget-anchor {
-		// Compensate for icon being inset
-		margin-left: @size-icon / 2;
+	&-frameless-popup {
+		&.oo-ui-popupWidget-anchored-top,
+		&.oo-ui-popupWidget-anchored-bottom {
+			.oo-ui-popupWidget-anchor {
+				// Compensate for icon being inset
+				margin-left: @size-icon / 2;
+			}
+		}
 	}
 
-	.oo-ui-popupWidget&-framed-popup .oo-ui-popupWidget-anchor {
-		// Compensate for icon being inset
-		// elements.less positions the icon with left: 1.5em - @size-icon / 2; , so we need:
-		// @size-icon / 2 + ( 1.5em - @size-icon / 2 ) which is 1.5em.
-		margin-left: 1.5em;
+	&-framed-popup {
+		&.oo-ui-popupWidget-anchored-top,
+		&.oo-ui-popupWidget-anchored-bottom {
+			.oo-ui-popupWidget-anchor {
+				// Compensate for icon being inset
+				// elements.less positions the icon with left: 1.5em - @size-icon / 2; , so we need:
+				// @size-icon / 2 + ( 1.5em - @size-icon / 2 ) which is 1.5em.
+				margin-left: 1.5em;
+			}
+		}
 	}
 }
 
@@ -1332,36 +1342,91 @@
 		box-shadow: @box-shadow-menu;
 	}
 
-	&-anchored {
+	&-anchored-top {
 		margin-top: @size-anchor;
 
 		.oo-ui-popupWidget-anchor {
 			top: -@size-anchor;
-		}
 
-		.oo-ui-popupWidget-anchor:before,
-		.oo-ui-popupWidget-anchor:after {
-			content: '';
-			position: absolute;
-			width: 0;
-			height: 0;
-			border-style: solid;
-			border-color: transparent;
-			border-top: 0;
-		}
+			&:before {
+				bottom: -@size-anchor - 1px;
+				left: -@size-anchor;
+				border-bottom-color: @border-color-default;
+				border-width: @size-anchor + 1px;
+			}
 
-		.oo-ui-popupWidget-anchor:before {
-			bottom: -@size-anchor - 1px;
+			&:after {
+				bottom: -@size-anchor - 1px;
+				left: -@size-anchor + 1px;
+				border-bottom-color: @background-color-default; // Using `@background-color-default` var here as `border*-color` is `background-color` subsitute
+				border-width: @size-anchor;
+			}
+		}
+	}
+
+	&-anchored-bottom {
+		margin-bottom: @size-anchor;
+
+		.oo-ui-popupWidget-anchor {
+			bottom: -@size-anchor;
+
+			&:before {
+				top: -@size-anchor - 1px;
+				left: -@size-anchor;
+				border-top-color: @border-color-default;
+				border-width: @size-anchor + 1px;
+			}
+
+			&:after {
+				top: -@size-anchor - 1px;
+				left: -@size-anchor + 1px;
+				border-top-color: @background-color-default; // Using `@background-color-default` var here as `border*-color` is `background-color` subsitute
+				border-width: @size-anchor;
+			}
+		}
+	}
+
+	&-anchored-start {
+		margin-left: @size-anchor;
+
+		.oo-ui-popupWidget-anchor {
 			left: -@size-anchor;
-			border-bottom-color: @border-color-default;
-			border-width: @size-anchor + 1px;
-		}
 
-		.oo-ui-popupWidget-anchor:after {
-			bottom: -@size-anchor - 1px;
-			left: -@size-anchor + 1px;
-			border-bottom-color: @background-color-default; // Using `@background-color-default` var here as `border*-color` is `background-color` subsitute
-			border-width: @size-anchor;
+			&:before {
+				right: -@size-anchor - 1px;
+				top: -@size-anchor;
+				border-right-color: @border-color-default;
+				border-width: @size-anchor + 1px;
+			}
+
+			&:after {
+				right: -@size-anchor - 1px;
+				top: -@size-anchor + 1px;
+				border-right-color: @background-color-default;  // Using `@background-color-default` var here as `border*-color` is `background-color` subsitute
+				border-width: @size-anchor;
+			}
+		}
+	}
+
+	&-anchored-end {
+		margin-right: @size-anchor;
+
+		.oo-ui-popupWidget-anchor {
+			right: -@size-anchor;
+
+			&:before {
+				left: -@size-anchor - 1px;
+				top: -@size-anchor;
+				border-left-color: @border-color-default;
+				border-width: @size-anchor + 1px;
+			}
+
+			&:after {
+				left: -@size-anchor - 1px;
+				top: -@size-anchor + 1px;
+				border-left-color: @background-color-default;  // Using `@background-color-default` var here as `border*-color` is `background-color` subsitute
+				border-width: @size-anchor;
+			}
 		}
 	}
 

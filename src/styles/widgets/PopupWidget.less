@@ -18,8 +18,65 @@
 		.oo-ui-popupWidget-anchor {
 			display: block;
 			position: absolute;
-			/* `top` property is to be set in theme's selector due to specific `@size-anchor` values */
 			background-repeat: no-repeat;
+
+			&:before,
+			&:after {
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-color: transparent;
+			}
+		}
+
+		&-top {
+			.oo-ui-popupWidget-anchor {
+				left: 0;
+				/* `top` property is to be set in theme's selector due to specific `@size-anchor` values */
+
+				&:before,
+				&:after {
+					border-top: 0;
+				}
+			}
+		}
+
+		&-bottom {
+			.oo-ui-popupWidget-anchor {
+				left: 0;
+				/* `bottom` property is to be set in theme's selector due to specific `@size-anchor` values */
+
+				&:before,
+				&:after {
+					border-bottom: 0;
+				}
+			}
+		}
+
+		&-start {
+			.oo-ui-popupWidget-anchor {
+				top: 0;
+				/* `left` property is to be set in theme's selector due to specific `@size-anchor` values */
+
+				&:before,
+				&:after {
+					border-left: 0;
+				}
+			}
+		}
+
+		&-end {
+			.oo-ui-popupWidget-anchor {
+				top: 0;
+
+				/* `right` property is to be set in theme's selector due to specific `@size-anchor` values */
+				&:before,
+				&:after {
+					border-right: 0;
+				}
+			}
 		}
 	}
 
