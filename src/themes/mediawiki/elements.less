@@ -164,7 +164,7 @@
 			position: relative;
 			min-height: @min-height-button-default;
 			border-radius: @border-radius-default;
-			padding: @padding-widget-default 1em;
+			padding: @padding-input-top 1em @padding-widget-default;
 		}
 
 		&.oo-ui-iconElement > .oo-ui-buttonElement-button {
@@ -178,10 +178,16 @@
 			min-width: 0;
 		}
 
+		// Support Safari, reset `line-height` to bare minimum in order to normalize
+		// it in the next rule across browsers.
 		// Support `<input>` from ButtonInputWidget
 		> input.oo-ui-buttonElement-button,
+		&.oo-ui-labelElement > .oo-ui-buttonElement-button {
+			line-height: 1;
+		}
+
 		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-			line-height: 1.25; // same as `min-height` in `-button` above
+			line-height: 1.172; // equals `15px`
 		}
 
 		&.oo-ui-iconElement {
