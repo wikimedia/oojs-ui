@@ -254,6 +254,13 @@ Demo.static.pages.dialogs = function ( demo ) {
 					}
 				},
 				{
+					name: 'PopupButtonWidget test',
+					dialogClass: Demo.PopupButtonWidgetTest,
+					config: {
+						size: 'large'
+					}
+				},
+				{
 					name: 'Dialog with popup and dropdown (ClippableElement test)',
 					dialogClass: Demo.DialogWithPopupAndDropdown,
 					config: {
