@@ -2,7 +2,6 @@ Demo.static.pages.icons = function ( demo ) {
 	var i, len, iconSet, iconsFieldset, iconWidget, selector,
 		icons = {
 			core: [
-				'add',
 				'advanced',
 				'alert',
 				'cancel',
@@ -64,6 +63,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'tray'
 			],
 			interactions: [
+				'add',
 				'bookmark',
 				'browser',
 				'clear',
