@@ -683,26 +683,6 @@
 }
 
 .theme-oo-ui-popupButtonWidget () {
-	&-frameless-popup {
-		&.oo-ui-popupWidget-anchored-top,
-		&.oo-ui-popupWidget-anchored-bottom {
-			.oo-ui-popupWidget-anchor {
-				// Compensate for icon being inset
-				margin-left: @size-icon / 2;
-			}
-		}
-	}
-
-	&-framed-popup {
-		&.oo-ui-popupWidget-anchored-top,
-		&.oo-ui-popupWidget-anchored-bottom {
-			.oo-ui-popupWidget-anchor {
-				// Compensate for icon being inset
-				// Button has padding-left: 0.8em;, icon has margin-left: -0.5em;
-				margin-left: @size-icon / 2 + 0.8em - 0.5em;
-			}
-		}
-	}
 }
 
 .theme-oo-ui-progressBarWidget () {

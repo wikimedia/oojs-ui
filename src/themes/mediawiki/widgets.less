@@ -1043,27 +1043,6 @@
 }
 
 .theme-oo-ui-popupButtonWidget () {
-	&-frameless-popup {
-		&.oo-ui-popupWidget-anchored-top,
-		&.oo-ui-popupWidget-anchored-bottom {
-			.oo-ui-popupWidget-anchor {
-				// Compensate for icon being inset
-				margin-left: @size-icon / 2;
-			}
-		}
-	}
-
-	&-framed-popup {
-		&.oo-ui-popupWidget-anchored-top,
-		&.oo-ui-popupWidget-anchored-bottom {
-			.oo-ui-popupWidget-anchor {
-				// Compensate for icon being inset
-				// elements.less positions the icon with left: 1.5em - @size-icon / 2; , so we need:
-				// @size-icon / 2 + ( 1.5em - @size-icon / 2 ) which is 1.5em.
-				margin-left: 1.5em;
-			}
-		}
-	}
 }
 
 .theme-oo-ui-progressBarWidget () {
