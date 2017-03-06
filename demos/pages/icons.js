@@ -109,6 +109,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'subscript',
 				'superscript',
 				'bold',
+				'highlight',
 				'italic',
 				'strikethrough',
 				'underline',
