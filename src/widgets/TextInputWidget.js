@@ -43,7 +43,7 @@
  *  specifies minimum number of rows to display.
  * @cfg {boolean} [autosize=false] Automatically resize the text input to fit its content.
  *  Use the #maxRows config to specify a maximum number of displayed rows.
- * @cfg {boolean} [maxRows] Maximum number of rows to display when #autosize is set to true.
+ * @cfg {number} [maxRows] Maximum number of rows to display when #autosize is set to true.
  *  Defaults to the maximum of `10` and `2 * rows`, or `10` if `rows` isn't provided.
  * @cfg {string} [labelPosition='after'] The position of the inline label relative to that of
  *  the value or placeholder text: `'before'` or `'after'`
