@@ -47,6 +47,7 @@ OO.ui.PopupTool = function OoUiPopupTool( toolGroup, config ) {
 	OO.ui.mixin.PopupElement.call( this, config );
 
 	// Initialization
+	this.popup.setPosition( toolGroup.getToolbar().position === 'bottom' ? 'above' : 'below' );
 	this.$element
 		.addClass( 'oo-ui-popupTool' )
 		.append( this.popup.$element );
