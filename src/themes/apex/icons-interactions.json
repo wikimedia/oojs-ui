@@ -8,6 +8,7 @@
 		}
 	},
 	"images": {
+		"add": { "file": "images/icons/add.svg" },
 		"beta": { "file": "images/icons/beta.svg", "deprecated": "Deprecated since v0.18.3, don't use." },
 		"betaLaunch": { "file": "images/icons/logo-wikimediaDiscovery.svg", "deprecated": "Moved since v0.18.3, use 'logoWikimediaDiscovery' from the 'Wikimedia' pack instead." },
 		"bookmark": { "file": {
