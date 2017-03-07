@@ -32,11 +32,11 @@ Demo.ContinuousOutlinedBookletDialog.prototype.initialize = function () {
 		'Ut fringilla enim nec augue rutrum, nec vestibulum orci sollicitudin. Donec eget ex tincidunt augue ullamcorper efficitur at sed odio. Praesent ac interdum elit. Suspendisse blandit feugiat pulvinar. '
 	];
 	this.pages = [
-		new Demo.SamplePage( 'page1', { label: 'Page 1', icon: 'window', content: [ $( '<h3>' ).text( 'Page 1' ), lipsum[ 0 ] ] } ),
-		new Demo.SamplePage( 'page2', { label: 'Page 2', icon: 'window', content: [ $( '<h3>' ).text( 'Page 2' ), lipsum[ 1 ] ] } ),
-		new Demo.SamplePage( 'page3', { label: 'Page 3', icon: 'window', content: [ $( '<h3>' ).text( 'Page 3' ), lipsum[ 2 ] ] } ),
-		new Demo.SamplePage( 'page4', { label: 'Page 4', icon: 'window', content: [ $( '<h3>' ).text( 'Page 4' ), lipsum[ 3 ] ] } ),
-		new Demo.SamplePage( 'page5', { label: 'Page 5', icon: 'window', content: [ $( '<h3>' ).text( 'Page 5' ), lipsum[ 4 ] ] } )
+		new Demo.SamplePage( 'page1', { label: 'Level 0', icon: 'window', level: 0, content: [ $( '<h3>' ).text( 'Page 1' ), lipsum[ 0 ] ] } ),
+		new Demo.SamplePage( 'page2', { label: 'Level 1', icon: 'window', level: 1, content: [ $( '<h3>' ).text( 'Page 2' ), lipsum[ 1 ] ] } ),
+		new Demo.SamplePage( 'page3', { label: 'Level 2', icon: 'window', level: 2, content: [ $( '<h3>' ).text( 'Page 3' ), lipsum[ 2 ] ] } ),
+		new Demo.SamplePage( 'page4', { label: 'Level 1', icon: 'window', level: 1, content: [ $( '<h3>' ).text( 'Page 4' ), lipsum[ 3 ] ] } ),
+		new Demo.SamplePage( 'page5', { label: 'Level 2', icon: 'window', level: 2, content: [ $( '<h3>' ).text( 'Page 5' ), lipsum[ 4 ] ] } )
 	];
 
 	this.bookletLayout.addPages( this.pages );

@@ -2,6 +2,7 @@ Demo.SamplePage = function DemoSamplePage( name, config ) {
 	config = $.extend( { label: 'Sample page' }, config );
 	Demo.SamplePage.parent.apply( this, arguments );
 	this.label = config.label;
+	this.level = config.level;
 	this.icon = config.icon;
 	if ( this.$element.is( ':empty' ) ) {
 		this.$element.text( this.label );
@@ -14,5 +15,6 @@ Demo.SamplePage.prototype.setupOutlineItem = function ( outlineItem ) {
 		.setMovable( true )
 		.setRemovable( true )
 		.setIcon( this.icon )
+		.setLevel( this.level )
 		.setLabel( this.label );
 };
