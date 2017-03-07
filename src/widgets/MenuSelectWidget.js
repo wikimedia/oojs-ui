@@ -133,19 +133,33 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
  * @protected
  */
 OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
-	var i, item, visible,
+	var i, item, visible, section, sectionEmpty,
 		anyVisible = false,
 		len = this.items.length,
 		showAll = !this.isVisible(),
 		filter = showAll ? null : this.getItemMatcher( this.$input.val() );
 
+	// Hide non-matching options, and also hide section headers if all options
+	// in their section are hidden.
 	for ( i = 0; i < len; i++ ) {
 		item = this.items[ i ];
-		if ( item instanceof OO.ui.OptionWidget ) {
+		if ( item instanceof OO.ui.MenuSectionOptionWidget ) {
+			if ( section ) {
+				// If the previous section was empty, hide its header
+				section.toggle( showAll || !sectionEmpty );
+			}
+			section = item;
+			sectionEmpty = true;
+		} else if ( item instanceof OO.ui.OptionWidget ) {
 			visible = showAll || filter( item );
 			anyVisible = anyVisible || visible;
+			sectionEmpty = sectionEmpty && !visible;
 			item.toggle( visible );
 		}
+	}
+	// Process the final section
+	if ( section ) {
+		section.toggle( showAll || !sectionEmpty );
 	}
 
 	this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
