@@ -718,6 +718,9 @@ OO.ui.CapsuleMultiselectWidget.prototype.updateIfHeightChanged = function () {
 	if ( height !== this.height ) {
 		this.height = height;
 		this.menu.position();
+		if ( this.popup ) {
+			this.popup.updateDimensions();
+		}
 		this.emit( 'resize' );
 	}
 };
