@@ -67,7 +67,7 @@
 	},
 	"scripts": {
 		"test": [
-			"parallel-lint . --exclude vendor",
+			"parallel-lint . --exclude vendor --exclude demos/vendor",
 			"phpcs -p -s",
 			"phpunit $PHPUNIT_ARGS"
 		],
