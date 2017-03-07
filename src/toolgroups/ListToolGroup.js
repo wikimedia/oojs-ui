@@ -214,4 +214,7 @@ OO.ui.ListToolGroup.prototype.updateCollapsibleState = function () {
 	for ( i = 0, len = this.collapsibleTools.length; i < len; i++ ) {
 		this.collapsibleTools[ i ].toggle( this.expanded );
 	}
+
+	// Re-evaluate clipping, because our height has changed
+	this.clip();
 };
