@@ -68,7 +68,7 @@
 			"rtl": "images/icons/printer-rtl.svg"
 		} },
 		"ribbonPrize": { "file": "images/icons/ribbonPrize.svg", "deprecated": "Deprecated since v0.18.3, don't use." },
-		"substract": { "file": "images/icons/substract.svg" },
+		"subtract": { "file": "images/icons/subtract.svg" },
 		"sun": { "file": {
 			"ltr": "images/icons/sun-ltr.svg",
 			"rtl": "images/icons/sun-rtl.svg"

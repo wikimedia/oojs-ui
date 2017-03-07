@@ -76,7 +76,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'logOut',
 				'newWindow',
 				'printer',
-				'substract',
+				'subtract',
 				'sun',
 				'watchlist'
 			],
