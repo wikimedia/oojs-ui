@@ -1,4 +1,39 @@
 # OOjs UI Release History
+## v0.19.5 / 2017-03-07
+### Deprecations
+* [DEPRECATING CHANGE] icons: Move 'add' from core to 'interactions' pack (James D. Forrester)
+
+### Features
+* FloatableElement: Add config for `hideWhenOutOfView` (Moriel Schottlender)
+
+### Styles
+* MediaWiki theme: Add visual feedback on focussed Outlined Booklet Dialog (Volker E)
+* OutlinedBookletDialog: Bring visual order into levels (Volker E)
+* icons: Add 'highlight' to 'editing-styling' pack (Moriel Schottlender)
+* icons: Add 'substract' icon, in interactions pack (Volker E)
+* icons: Fix vertical alignment of 'journal' (Volker E)
+* icons: Remove 'teardrop' from MediaWiki theme 'close' icon (Volker E)
+
+### Code
+* CapsuleMultiselectWidget: Update popup position if height changed (Prateek Saxena)
+* ComboBoxInputWidget: Improve documentation example (Bartosz Dziewoński)
+* ListToolGroup: Re-clip when expanding/collapsing (Roan Kattouw)
+* MenuSelectWidget#filterFromInput: Clear MenuSectionOptionWidgets if empty (Roan Kattouw)
+* PopupElement: Set `$floatableContainer` to `this.$element` by default (Roan Kattouw)
+* PopupTool: For bottom toolbars, make the popup go up, like toolgroups (Bartosz Dziewoński)
+* PopupWidget: Make popups able to actually pop *up*, as well as sideways (Roan Kattouw)
+* PopupWidget: Position anchor relative to popup, not popup relative to anchor (Roan Kattouw)
+* TextInputWidget: Fix documentation for 'maxRows' type (Bartosz Dziewoński)
+* Use `options` in ComboBoxInputWidget demo (Moriel Schottlender)
+* Follow-up 442ffe73, 7f21350d, 9dfa5dd5: Mention in icon definitions they're deprecated (James D. Forrester)
+* demos: Make demo consoles LTR, even in the RTL demo (Roan Kattouw)
+* demos: Add demo/test for PopupWidget/PopupButtonWidget placements (Bartosz Dziewoński)
+* demos: Add sections to dialogs demo (Bartosz Dziewoński)
+* demos: Extract widgets, dialogs and layouts from dialogs.js (Bartosz Dziewoński)
+* demos: Reuse some widgets in the dialogs demo (Bartosz Dziewoński)
+* styles: Replace stylelint block with inline comments everywhere (Volker E)
+
+
 ## v0.19.4 / 2017-02-28
 ### Features
 * Add `OO.ui.Element.static.getScrollLeft` (Bartosz Dziewoński)
