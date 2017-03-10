@@ -1164,11 +1164,19 @@ Demo.static.pages.widgets = function ( demo ) {
 								label: 'Third'
 							}
 						],
-						value: 'b',
-						title: 'Select an item'
+						value: 'b'
 					} ),
 					{
 						label: 'DropdownInputWidget',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.DropdownInputWidget( {
+						disabled: true
+					} ),
+					{
+						label: 'DropdownInputWidget (disabled)',
 						align: 'top'
 					}
 				),
@@ -1194,8 +1202,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								label: 'C'
 							}
 						],
-						value: 'b',
-						title: 'Select an item'
+						value: 'b'
 					} ),
 					{
 						label: 'DropdownInputWidget (with optgroup)',
