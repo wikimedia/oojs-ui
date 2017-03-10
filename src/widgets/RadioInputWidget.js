@@ -58,6 +58,14 @@ OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 
 OO.inheritClass( OO.ui.RadioInputWidget, OO.ui.InputWidget );
 
+/* Static Properties */
+
+/**
+ * @static
+ * @inheritdoc
+ */
+OO.ui.RadioInputWidget.static.tagName = 'span';
+
 /* Static Methods */
 
 /**

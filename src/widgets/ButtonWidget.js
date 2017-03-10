@@ -91,6 +91,12 @@ OO.mixinClass( OO.ui.ButtonWidget, OO.ui.mixin.AccessKeyedElement );
  */
 OO.ui.ButtonWidget.static.cancelButtonMouseDownEvents = false;
 
+/**
+ * @static
+ * @inheritdoc
+ */
+OO.ui.ButtonWidget.static.tagName = 'span';
+
 /* Methods */
 
 /**

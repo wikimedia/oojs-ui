@@ -81,6 +81,12 @@ OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.TitledElement );
  */
 OO.ui.ButtonInputWidget.static.supportsSimpleLabel = false;
 
+/**
+ * @static
+ * @inheritdoc
+ */
+OO.ui.ButtonInputWidget.static.tagName = 'span';
+
 /* Methods */
 
 /**

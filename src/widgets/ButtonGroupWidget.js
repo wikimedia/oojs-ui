@@ -51,3 +51,11 @@ OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 
 OO.inheritClass( OO.ui.ButtonGroupWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.ButtonGroupWidget, OO.ui.mixin.GroupElement );
+
+/* Static Properties */
+
+/**
+ * @static
+ * @inheritdoc
+ */
+OO.ui.ButtonGroupWidget.static.tagName = 'span';
