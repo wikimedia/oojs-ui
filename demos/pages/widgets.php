@@ -526,11 +526,19 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 						'label' => 'Third'
 					]
 				],
-				'value' => 'b',
-				'title' => 'Select an item'
+				'value' => 'b'
 			] ),
 			[
 				'label' => 'DropdownInputWidget',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\DropdownInputWidget( [
+				'disabled' => true
+			] ),
+			[
+				'label' => 'DropdownInputWidget (disabled)',
 				'align' => 'top'
 			]
 		),
@@ -556,8 +564,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 						'label' => 'C'
 					]
 				],
-				'value' => 'b',
-				'title' => 'Select an item'
+				'value' => 'b'
 			] ),
 			[
 				'label' => 'DropdownInputWidget (with optgroup)',
