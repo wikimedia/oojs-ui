@@ -376,9 +376,13 @@ OO.ui.ActionSet.prototype.add = function ( actions ) {
 		action = actions[ i ];
 		action.connect( this, {
 			click: [ 'emit', 'click', action ],
-			resize: [ 'emit', 'resize', action ],
 			toggle: [ 'onActionChange' ]
 		} );
+		action.on( 'resizePrivate', function ( action ) {
+			if ( this.emit( 'resize', action ) ) {
+				OO.ui.warnDeprecation( 'ActionSet: resize event is deprecated. See T129162.' );
+			}
+		}, [ action ], this );
 		this.list.push( action );
 	}
 	this.organized = false;
