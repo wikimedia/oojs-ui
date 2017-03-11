@@ -558,6 +558,20 @@
 		font-size: inherit;
 		font-family: inherit;
 		vertical-align: middle;
+
+		// Support IE 10-11: Hide the default arrow
+		&::-ms-expand {
+			display: none;
+		}
+
+		// Add custom dropdown arrow
+		// Support: Everything besides IE 6-8
+		&:not( [no-ie] ) {
+			background-position: right 1.75em center;
+			width: e( 'calc( 100% + 1em )' );
+			height: @size-default;
+			padding: 0 0 0 1em;
+		}
 	}
 
 	option {
@@ -592,19 +606,6 @@
 				border-color: @border-color-default-focus;
 				outline: 0;
 				box-shadow: @box-shadow-widget-focus;
-			}
-
-			// Support IE 10-11: Hide the default arrow
-			&::-ms-expand {
-				display: none;
-			}
-
-			// Support: Everything besides IE 6-8
-			&:not( [no-ie] ) {
-				background-position: right 1.75em center;
-				width: e( 'calc( 100% + 1em )' );
-				height: @size-default;
-				padding: 0 0 0 1em;
 			}
 		}
 	}
