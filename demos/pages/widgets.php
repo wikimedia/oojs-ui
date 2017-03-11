@@ -537,6 +537,36 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\DropdownInputWidget( [
 				'options' => [
+					[
+						'optgroup' => 'Vowels'
+					],
+					[
+						'data' => 'a',
+						'label' => 'A'
+					],
+					[
+						'optgroup' => 'Consonants'
+					],
+					[
+						'data' => 'b',
+						'label' => 'B'
+					],
+					[
+						'data' => 'c',
+						'label' => 'C'
+					]
+				],
+				'value' => 'b',
+				'title' => 'Select an item'
+			] ),
+			[
+				'label' => 'DropdownInputWidget (with optgroup)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\DropdownInputWidget( [
+				'options' => [
 					[ 'data' => 'sq', 'label' => 'Albanian' ],
 					[ 'data' => 'frp', 'label' => 'Arpitan' ],
 					[ 'data' => 'ba', 'label' => 'Bashkir' ],

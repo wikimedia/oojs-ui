@@ -120,10 +120,17 @@ OO.ui.DropdownInputWidget.prototype.setOptions = function ( options ) {
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
 			var optValue = widget.cleanUpValue( opt.data );
-			return new OO.ui.MenuOptionWidget( {
-				data: optValue,
-				label: opt.label !== undefined ? opt.label : optValue
-			} );
+
+			if ( opt.optgroup === undefined ) {
+				return new OO.ui.MenuOptionWidget( {
+					data: optValue,
+					label: opt.label !== undefined ? opt.label : optValue
+				} );
+			} else {
+				return new OO.ui.MenuSectionOptionWidget( {
+					label: opt.optgroup
+				} );
+			}
 		} ) );
 
 	// Restore the previous value, or reset to something sensible
