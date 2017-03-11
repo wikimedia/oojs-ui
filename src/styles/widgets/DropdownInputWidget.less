@@ -12,6 +12,10 @@
 	}
 
 	select {
+		// Hide the `background-image` from `.oo-ui-indicator-down` –
+		// themes can override `background-position` to display it.
+		background-position: -9999em 0;
+		background-repeat: no-repeat;
 		width: 100%;
 		cursor: pointer;
 		.oo-ui-box-sizing( border-box );
