@@ -364,7 +364,25 @@ Demo.static.pages.widgets = function ( demo ) {
 						]
 					} ),
 					{
-						label: 'ButtonGroupWidget (feat. destructive and progressive ButtonWidget)',
+						label: 'ButtonGroupWidget (destructive and progressive ButtonWidget)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonGroupWidget( {
+						items: [
+							new OO.ui.ButtonWidget( {
+								icon: 'tag',
+								flags: [ 'destructive' ]
+							} ),
+							new OO.ui.ButtonWidget( {
+								label: 'Two',
+								flags: [ 'progressive' ]
+							} )
+						]
+					} ),
+					{
+						label: 'ButtonGroupWidget (destructive icon and progressive text)\u200E',
 						align: 'top'
 					}
 				),
