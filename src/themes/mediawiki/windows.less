@@ -64,7 +64,7 @@
 		}
 
 		.oo-ui-actionWidget {
-			min-height: 3.4em;
+			min-height: @size-dialog-bar-top;
 			.oo-ui-inline-spacing( 0 );
 
 			.oo-ui-buttonElement-button {
@@ -72,7 +72,7 @@
 			}
 
 			&.oo-ui-labelElement .oo-ui-labelElement-label {
-				line-height: 3.4;
+				line-height: @size-dialog-bar-top;
 				text-align: center;
 			}
 
@@ -118,31 +118,29 @@
 .theme-oo-ui-processDialog () {
 	&-content {
 		.oo-ui-window-head {
-			height: 3.4em;
+			height: @size-dialog-bar-top;
 		}
 
 		.oo-ui-window-body {
-			top: 3.4em;
+			top: @size-dialog-bar-top;
 			outline: 1px solid rgba( 0, 0, 0, 0.2 );
 		}
 	}
 
 	&-navigation {
 		position: relative;
-		height: 3.4em;
-		padding: 0 1em;
+		height: @size-dialog-bar-top;
 	}
 
 	&-location {
-		padding: 0.75em 0;
-		height: @size-icon;
+		height: @size-dialog-bar-top;
 		cursor: default;
 		text-align: center;
 	}
 
 	&-title {
 		font-weight: bold;
-		line-height: @size-icon;
+		line-height: @size-dialog-bar-top;
 	}
 
 	&-actions {
@@ -151,12 +149,10 @@
 		&-other {
 			.oo-ui-actionWidget {
 				&.oo-ui-buttonElement-framed {
-					margin: 0.5em;
+					margin: @margin-dialog-bar-button-framed;
 				}
 
 				&.oo-ui-buttonElement-frameless {
-					margin: 0;
-
 					.oo-ui-buttonElement-button {
 						padding: 0.75em 1em;
 						vertical-align: middle;
