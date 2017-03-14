@@ -929,6 +929,15 @@
 		border-right-width: 0;
 	}
 
+	// Undo setting properties above when there is no button:
+	// if the menu is empty, or if this is the PHP version
+	&.oo-ui-comboBoxInputWidget-empty input,
+	&-php input {
+		border-top-right-radius: @border-radius-default;
+		border-bottom-right-radius: @border-radius-default;
+		border-right-width: @border-width-default;
+	}
+
 	&-dropdownButton {
 		width: @width-button-combo-widget;
 
@@ -943,12 +952,6 @@
 		.oo-ui-buttonElement-button:focus {
 			border-top-left-radius: 0;
 			border-bottom-left-radius: 0;
-		}
-	}
-
-	&.oo-ui-comboBoxInputWidget-empty {
-		input {
-			border-right-width: 1px;
 		}
 	}
 
