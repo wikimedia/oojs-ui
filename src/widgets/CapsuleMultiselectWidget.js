@@ -418,7 +418,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.addItems = function ( items ) {
 	}
 	if ( !same ) {
 		this.emit( 'change', this.getItemsData() );
-		this.updateIfHeightChanged();
+		this.updateInputSize();
 	}
 
 	return this;
@@ -458,7 +458,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.removeItems = function ( items ) {
 	}
 	if ( !same ) {
 		this.emit( 'change', this.getItemsData() );
-		this.updateIfHeightChanged();
+		this.updateInputSize();
 	}
 
 	return this;
@@ -471,7 +471,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.clearItems = function () {
 	if ( this.items.length ) {
 		OO.ui.mixin.GroupElement.prototype.clearItems.call( this );
 		this.emit( 'change', this.getItemsData() );
-		this.updateIfHeightChanged();
+		this.updateInputSize();
 	}
 	return this;
 };
@@ -684,6 +684,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.updateInputSize = function () {
 		currentWidth = this.$input.width();
 
 		if ( contentWidth < currentWidth ) {
+			this.updateIfHeightChanged();
 			// All is fine, don't perform expensive calculations
 			return;
 		}
@@ -704,6 +705,8 @@ OO.ui.CapsuleMultiselectWidget.prototype.updateInputSize = function () {
 			bestWidth = this.$content.innerWidth() - 10;
 		}
 		this.$input.width( Math.floor( bestWidth ) );
+		this.updateIfHeightChanged();
+	} else {
 		this.updateIfHeightChanged();
 	}
 };
