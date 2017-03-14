@@ -527,7 +527,7 @@
 		margin-top: 0;
 
 		.oo-ui-fieldLayout-body {
-			padding: 0.25em 0;
+			padding: @padding-vertical-label 0;
 
 			.oo-ui-labelElement-label {
 				line-height: @line-height-input-binary-label;
@@ -757,7 +757,7 @@
 		margin-top: 0;
 
 		.oo-ui-fieldLayout-body {
-			padding: 0.25em 0;
+			padding: @padding-vertical-label 0;
 
 			.oo-ui-labelElement-label {
 				line-height: @line-height-input-binary-label;
@@ -1127,7 +1127,6 @@
 
 .theme-oo-ui-optionWidget () {
 	border: 0;
-	padding: 0.25em 0.5em;
 
 	.oo-ui-labelElement-label {
 		line-height: @line-height-default;
@@ -1181,17 +1180,10 @@
 }
 
 .theme-oo-ui-radioOptionWidget () {
-	padding: 0.25em 0;
-	background-color: transparent;
-
-	&.oo-ui-optionWidget-selected,
-	&.oo-ui-optionWidget-pressed,
-	&.oo-ui-optionWidget-highlighted {
-		background-color: transparent;
-	}
+	padding: @padding-vertical-label 0;
 
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
-		padding: @padding-input-binary-label;
+		padding-left: @padding-start-input-binary-label;
 	}
 
 	.oo-ui-radioInputWidget {
@@ -1818,10 +1810,10 @@
 .theme-oo-ui-checkboxMultiselectWidget () {}
 
 .theme-oo-ui-checkboxMultioptionWidget () {
-	padding: 0.25em 0;
+	padding: @padding-vertical-label 0;
 
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
-		padding: @padding-input-binary-label;
+		padding-left: @padding-start-input-binary-label;
 	}
 
 	.oo-ui-checkboxInputWidget {
