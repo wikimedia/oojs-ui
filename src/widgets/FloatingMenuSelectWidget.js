@@ -75,20 +75,3 @@ OO.ui.FloatingMenuSelectWidget.prototype.toggle = function ( visible ) {
 
 	return this;
 };
-
-/*
- * The old name for the FloatingMenuSelectWidget widget, provided for backwards-compatibility.
- *
- * @class
- * @extends OO.ui.FloatingMenuSelectWidget
- *
- * @constructor
- * @deprecated since v0.12.5.
- */
-OO.ui.TextInputMenuSelectWidget = function OoUiTextInputMenuSelectWidget() {
-	OO.ui.warnDeprecation( 'TextInputMenuSelectWidget is deprecated. Use the FloatingMenuSelectWidget instead.' );
-	// Parent constructor
-	OO.ui.TextInputMenuSelectWidget.parent.apply( this, arguments );
-};
-
-OO.inheritClass( OO.ui.TextInputMenuSelectWidget, OO.ui.FloatingMenuSelectWidget );
