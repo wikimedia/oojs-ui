@@ -267,9 +267,10 @@
 		.oo-ui-box-sizing( border-box );
 		display: block;
 		right: @size-icon + 0.5em; // With close, no indicator
-		margin: 0;
-		padding-left: 0.5em;
-		line-height: 2.3;
+		padding-top: @padding-top-input;
+		padding-left: @padding-widget-default;
+		padding-bottom: @padding-widget-default;
+		line-height: 1.172em;
 		white-space: nowrap;
 	}
 
@@ -281,14 +282,14 @@
 	}
 
 	&-clearButton {
-		top: 0;
+		top: -1px; // Addresses `border-width`
 		right: 0; // With close, no indicator
 		min-width: @size-icon-min;
 		width: @size-icon;
 		margin-right: 0;
 
 		.oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-			height: 2.3em;
+			height: @size-default;
 		}
 	}
 
@@ -383,9 +384,12 @@
 			border-color: @border-color-disabled;
 			text-shadow: @text-shadow-disabled;
 
-			> .oo-ui-iconElement-icon,
-			> .oo-ui-indicatorElement-indicator {
+			> .oo-ui-iconElement-icon {
 				opacity: @opacity-disabled;
+			}
+
+			> .oo-ui-indicatorElement-indicator {
+				opacity: @opacity-disabled-indicator;
 			}
 		}
 	}
@@ -779,7 +783,7 @@
 		color: @color-emphasized;
 		border: @border-default;
 		border-radius: @border-radius-default;
-		padding: @padding-input-top @padding-widget-default @padding-widget-default;
+		padding: @padding-top-input @padding-widget-default @padding-widget-default;
 	}
 
 	input {
@@ -902,7 +906,7 @@
 	> .oo-ui-labelElement-label {
 		color: @color-subtle;
 		margin-top: 1px; // making up for `border` on `input`
-		padding: @padding-input-top @padding-widget-default @padding-widget-default; // same as `input` above
+		padding: @padding-top-input @padding-widget-default @padding-widget-default; // same as `input` above
 		line-height: 1.172em;
 	}
 
