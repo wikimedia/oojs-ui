@@ -880,7 +880,7 @@
 
 		.oo-ui-iconElement-icon {
 			left: 0;
-			max-height: 2.375em;
+			max-height: @size-default; // Use `@size-default` as `max-height` for multiline TextInputWidgets
 			margin-left: 0.5em;
 			background-position: right center;
 		}
@@ -894,7 +894,7 @@
 
 		.oo-ui-indicatorElement-indicator {
 			height: 100%;
-			max-height: 2.375em;
+			max-height: @size-default;
 			margin: 0 0.775em;
 		}
 	}
