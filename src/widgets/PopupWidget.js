@@ -514,12 +514,6 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
  *  `backwards` or `forwards`.
  */
 OO.ui.PopupWidget.prototype.setAlignment = function ( align ) {
-	// Transform values deprecated since v0.11.0
-	if ( align === 'left' || align === 'right' ) {
-		OO.ui.warnDeprecation( 'PopupWidget#setAlignment parameter value `' + align + '` is deprecated. Use `force-right` or `force-left` instead.' );
-		align = { left: 'force-right', right: 'force-left' }[ align ];
-	}
-
 	// Validate alignment
 	if ( [ 'force-left', 'force-right', 'backwards', 'forwards', 'center' ].indexOf( align ) > -1 ) {
 		this.align = align;
