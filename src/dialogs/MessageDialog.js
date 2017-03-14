@@ -69,12 +69,6 @@ OO.ui.MessageDialog.static.name = 'message';
 OO.ui.MessageDialog.static.size = 'small';
 
 /**
- * @static
- * @deprecated since v0.18.4 as default; TODO: Remove
- */
-OO.ui.MessageDialog.static.verbose = true;
-
-/**
  * Dialog title.
  *
  * The title of a confirmation dialog describes what a progressive action will do. The
@@ -190,11 +184,6 @@ OO.ui.MessageDialog.prototype.getSetupProcess = function ( data ) {
 			);
 			this.message.setLabel(
 				data.message !== undefined ? data.message : this.constructor.static.message
-			);
-			// @deprecated since v0.18.4 as default; TODO: Remove and make default instead.
-			this.message.$element.toggleClass(
-				'oo-ui-messageDialog-message-verbose',
-				data.verbose !== undefined ? data.verbose : this.constructor.static.verbose
 			);
 		}, this );
 };
