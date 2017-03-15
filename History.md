@@ -1,4 +1,51 @@
 # OOjs UI Release History
+## v0.20.0 / 2017-03-15
+### Breaking changes
+* [BREAKING CHANGE] Element#scrollIntoView: Drop `complete` config option (James D. Forrester)
+* [BREAKING CHANGE] Element#scrollIntoView: Remove deprecated `complete` config parameter (James D. Forrester)
+* [BREAKING CHANGE] LabelElement: Remove deprecated `fitLabel` function (James D. Forrester)
+* [BREAKING CHANGE] MessageDialog: Drop the deprecated '`verbose`' flag (James D. Forrester)
+* [BREAKING CHANGE] PopupWidget#setAlignment: Remove backwards-compatibility (James D. Forrester)
+* [BREAKING CHANGE] Remove CapsuleMultiSelectWidget (James D. Forrester)
+* [BREAKING CHANGE] Remove TextInputMenuSelectWidget (James D. Forrester)
+* [BREAKING CHANGE] TextInputWidget: Remove `type=date`/`month` support (Geoffrey Mon)
+* [BREAKING CHANGE] icons: Drop '…Undo' icons, deprecated in 0.18.3 (James D. Forrester)
+* [BREAKING CHANGE] icons: Drop 'beta' and 'ribbonPrize', deprecated in 0.18.3 (James D. Forrester)
+* [BREAKING CHANGE] icons: Drop 'betaLaunch', deprecated in 0.18.3 (James D. Forrester)
+* [BREAKING CHANGE] icons: Drop status flags from Wikimedia (logos) icon pack (Volker E)
+
+### Deprecations
+* [DEPRECATING CHANGE] ActionWidget/Set: Warn for methods using the `resize` event (Prateek Saxena)
+
+### Features
+* Use `<span>` rather than `<div>` for inline-ish widgets (Bartosz Dziewoński)
+* CapsuleMultiselectWidget: Call `updateInputSize` when adding, removing items (Prateek Saxena)
+* DropdownInputWidget: Add support for `optgroup` (Prateek Saxena)
+* FieldLayout: Use `<span>` rather than `<div>` when possible (Bartosz Dziewoński)
+
+### Styles
+* DropdownInputWidget: Tweak PHP widget's disabled styling (Bartosz Dziewoński)
+* NumberInputWidget: Set input to 100% height (Volker E)
+* MediaWiki theme: Add unit to `line-height` for Chrome (Volker E)
+* MediaWiki theme: Align “framed” ButtonWidgets cross-browser (Volker E)
+* MediaWiki theme: Ensure theme color in disabled TextInputWidget on Safari (Volker E)
+* MediaWiki theme: Ensure vertical alignment of dialog top bar items (Volker E)
+* MediaWiki theme: Fix TextInputWidget's IconElement `max-height` (Volker E)
+* MediaWiki theme: Fix appearance of ComboBoxInputWidget PHP (Volker E)
+* MediaWiki theme: Use color palette color for dialog top bar (Volker E)
+* MediaWiki theme: Vertically align label in SelectFileWidget (Volker E)
+
+### Code
+* DropdownInputWidget: Remove accidental patterned background in PHP (Bartosz Dziewoński)
+* MediaWiki theme: Align WindowManager to CSS Coding Guidelines (Volker E)
+* MediaWiki theme: Indicators shouldn't provide global `progressive` flag (Volker E)
+* MediaWiki theme: Simplify Radio- & Checkbox…optionWidget label rules (Volker E)
+* build: Bump various devDependencies to master (James D. Forrester)
+* build: Exclude demos/vendor from composer test too (James D. Forrester)
+* demos: Add ButtonGroupWidget (icon and text) demo (Volker E)
+* demos: Add disabled DropdownInputWidget demo (Bartosz Dziewoński)
+
+
 ## v0.19.5 / 2017-03-07
 ### Deprecations
 * [DEPRECATING CHANGE] icons: Move 'add' from core to 'interactions' pack (James D. Forrester)
