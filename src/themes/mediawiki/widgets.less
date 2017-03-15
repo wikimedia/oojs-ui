@@ -858,6 +858,8 @@
 		input,
 		textarea {
 			background-color: @background-color-disabled;
+			// Support: Safari
+			-webkit-text-fill-color: @color-disabled;
 			color: @color-disabled;
 			text-shadow: @text-shadow-disabled;
 			border-color: @border-color-disabled;
