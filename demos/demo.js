@@ -153,7 +153,8 @@ Demo.static.themes = {
 			'-icons-editing-styling',
 			'-icons-editing-list',
 			'-icons-editing-advanced',
-			'-icons-media'
+			'-icons-media',
+			'-icons-layout'
 		],
 		theme: OO.ui.ApexTheme
 	}

@@ -264,11 +264,10 @@
 		],
 		"theme": "mediawiki"
 	},
-	"oojs-ui-mediawiki-icons-layout": {
+	"oojs-ui-{theme}-icons-layout": {
 		"styles": [
-			"src/themes/mediawiki/icons-layout.json"
-		],
-		"theme": "mediawiki"
+			"src/themes/{theme}/icons-layout.json"
+		]
 	},
 	"oojs-ui-mediawiki-icons-wikimedia": {
 		"styles": [
