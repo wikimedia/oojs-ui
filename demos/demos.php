@@ -9,8 +9,13 @@
 	require_once $autoload;
 	require_once 'classes/ButtonStyleShowcaseWidget.php';
 
-	$theme = ( isset( $_GET['theme'] ) && $_GET['theme'] === 'apex' ) ? 'apex' : 'mediawiki';
-	$themeClass = 'OOUI\\' . ( $theme === 'apex' ? 'Apex' : 'MediaWiki' ) . 'Theme';
+	$themes = [
+		'mediawiki' => 'MediaWiki',
+		'apex' => 'Apex',
+	];
+	$theme = ( isset( $_GET['theme'] ) && isset( $themes[ $_GET['theme'] ] ) )
+		? $_GET['theme'] : 'mediawiki';
+	$themeClass = 'OOUI\\' . $themes[ $theme ] . 'Theme';
 	OOUI\Theme::setSingleton( new $themeClass() );
 
 	$direction = ( isset( $_GET['direction'] ) && $_GET['direction'] === 'rtl' ) ? 'rtl' : 'ltr';
@@ -18,8 +23,9 @@
 	OOUI\Element::setDefaultDir( $direction );
 
 	// We will require_once a file by this name later, so this validation is important
-	$ok = [ 'widgets' ];
-	$page = ( isset( $_GET['page'] ) && in_array( $_GET['page'], $ok ) ) ? $_GET['page'] : 'widgets';
+	$pages = [ 'widgets' ];
+	$page = ( isset( $_GET['page'] ) && in_array( $_GET['page'], $pages ) )
+		? $_GET['page'] : 'widgets';
 
 	$query = [
 		'theme' => $theme,
@@ -50,18 +56,13 @@
 			<?php
 				echo new OOUI\ButtonGroupWidget( [
 					'infusable' => true,
-					'items' => [
-						new OOUI\ButtonWidget( [
-							'label' => 'MediaWiki',
-							'href' => '?' . http_build_query( array_merge( $query, [ 'theme' => 'mediawiki' ] ) ),
-							'active' => $query['theme'] === 'mediawiki',
-						] ),
-						new OOUI\ButtonWidget( [
-							'label' => 'Apex',
-							'href' => '?' . http_build_query( array_merge( $query, [ 'theme' => 'apex' ] ) ),
-							'active' => $query['theme'] === 'apex',
-						] ),
-					]
+					'items' => array_map( function ( $theme, $themeLabel ) use ( $query ) {
+						return new OOUI\ButtonWidget( [
+							'label' => $themeLabel,
+							'href' => '?' . http_build_query( array_merge( $query, [ 'theme' => $theme ] ) ),
+							'active' => $query['theme'] === $theme,
+						] );
+					}, array_keys( $themes ), array_values( $themes ) ),
 				] );
 				echo new OOUI\ButtonGroupWidget( [
 					'infusable' => true,

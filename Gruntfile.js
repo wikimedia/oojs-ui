@@ -6,13 +6,11 @@ module.exports = function ( grunt ) {
 	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
-			apex: 'Apex',
-			mediawiki: 'MediaWiki'
+			mediawiki: 'MediaWiki',
+			apex: 'Apex'
 		},
-		lessFiles = {
-			apex: {},
-			mediawiki: {}
-		},
+		lessFiles = {},
+		lessTargets = {},
 		colorizeSvgFiles = {},
 		requiredFiles = [],
 		concatCssFiles = {},
@@ -43,21 +41,40 @@ module.exports = function ( grunt ) {
 	grunt.loadTasks( 'build/tasks' );
 
 	( function () {
-		var distFile, module, theme, moduleStyleFiles;
+		var distFile, module, moduleDef, theme, moduleStyleFiles;
+
+		for ( theme in themes ) {
+			lessFiles[ theme ] = {};
+		}
 
 		function themify( str ) {
 			return str.replace( /\{theme\}/g, theme ).replace( /\{Theme\}/g, themes[ theme ] );
 		}
+		function exists( file ) {
+			// Only pass one argument, otherwise grunt.file.exists() will try to join them
+			return grunt.file.exists( file );
+		}
 		for ( module in modules ) {
 			if ( module.indexOf( '{theme}' ) !== -1 || module.indexOf( '{Theme}' ) !== -1 ) {
 				for ( theme in themes ) {
-					modules[ themify( module ) ] = {};
-					modules[ themify( module ) ].theme = theme;
+					moduleDef = {};
+					moduleDef.theme = theme;
 					if ( modules[ module ].scripts ) {
-						modules[ themify( module ) ].scripts = modules[ module ].scripts.map( themify );
+						moduleDef.scripts = modules[ module ].scripts
+							.map( themify )
+							.filter( exists );
 					}
 					if ( modules[ module ].styles ) {
-						modules[ themify( module ) ].styles = modules[ module ].styles.map( themify );
+						moduleDef.styles = modules[ module ].styles
+							.map( themify )
+							.filter( exists );
+					}
+
+					if (
+						( moduleDef.scripts && moduleDef.scripts.length ) ||
+						( moduleDef.styles && moduleDef.styles.length )
+					) {
+						modules[ themify( module ) ] = moduleDef;
 					}
 				}
 				delete modules[ module ];
@@ -118,6 +135,25 @@ module.exports = function ( grunt ) {
 				concatJsFiles[ distFile ].unshift( 'src/intro.js.txt' );
 				concatJsFiles[ distFile ].push( 'src/outro.js.txt' );
 			}
+		}
+
+		// Define 'less' task targets - we need a target for each theme because of different import paths
+		lessTargets = {
+			options: {
+				modifyVars: {
+					// Changed dynamically by 'set-graphics' task
+					'oo-ui-distribution': 'mixed',
+					'oo-ui-default-image-ext': 'png'
+				}
+			}
+		};
+		for ( theme in lessFiles ) {
+			lessTargets[ theme ] = {
+				options: {
+					paths: [ '.', 'src/themes/' + theme ]
+				},
+				files: lessFiles[ theme ]
+			};
 		}
 
 		// Composite files
@@ -214,27 +250,7 @@ module.exports = function ( grunt ) {
 		},
 
 		// Build – Styling
-		less: {
-			options: {
-				modifyVars: {
-					// Changed dynamically by 'set-graphics' task
-					'oo-ui-distribution': 'mixed',
-					'oo-ui-default-image-ext': 'png'
-				}
-			},
-			apex: {
-				options: {
-					paths: [ '.', 'src/themes/apex' ]
-				},
-				files: lessFiles.apex
-			},
-			mediawiki: {
-				options: {
-					paths: [ '.', 'src/themes/mediawiki' ]
-				},
-				files: lessFiles.mediawiki
-			}
-		},
+		less: lessTargets,
 		cssjanus: {
 			options: {
 				generateExactDuplicates: true
@@ -261,17 +277,11 @@ module.exports = function ( grunt ) {
 				expand: true,
 				flatten: true
 			},
-			imagesApex: {
-				src: 'src/themes/apex/images/**/*.{png,gif}',
-				dest: 'dist/themes/apex/images/',
+			imagesThemes: {
+				src: 'src/themes/*/images/**/*.{png,gif}',
+				dest: 'dist/',
 				expand: true,
-				rename: strip( 'src/themes/apex/images/' )
-			},
-			imagesMediaWiki: {
-				src: 'src/themes/mediawiki/images/**/*.{png,gif}',
-				dest: 'dist/themes/mediawiki/images/',
-				expand: true,
-				rename: strip( 'src/themes/mediawiki/images/' )
+				rename: strip( 'src/' )
 			},
 			i18n: {
 				src: 'i18n/*.json',
@@ -482,7 +492,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build-styling', [
 		'colorizeSvg', 'set-graphics', 'less', 'cssjanus',
 		'concat:css', 'concat:demoCss', 'csscomb',
-		'copy:imagesCommon', 'copy:imagesApex', 'copy:imagesMediaWiki',
+		'copy:imagesCommon', 'copy:imagesThemes',
 		'svg2png'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
@@ -500,7 +510,7 @@ module.exports = function ( grunt ) {
 		'pre-git-build', 'clean:build', 'fileExists', 'tyops',
 		'concat:js',
 		'colorizeSvg', 'set-graphics:vector', 'less', 'concat:css',
-		'copy:imagesCommon', 'copy:imagesApex', 'copy:imagesMediaWiki',
+		'copy:imagesCommon', 'copy:imagesThemes',
 		'build-i18n', 'concat:omnibus', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
 	] );
