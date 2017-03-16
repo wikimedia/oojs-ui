@@ -211,9 +211,9 @@
 			"src/themes/{theme}/icons-content.json"
 		]
 	},
-	"oojs-ui-{theme}-icons-alerts": {
+	"oojs-ui-mediawiki-icons-alerts": {
 		"styles": [
-			"src/themes/{theme}/icons-alerts.json"
+			"src/themes/mediawiki/icons-alerts.json"
 		],
 		"theme": "mediawiki"
 	},
