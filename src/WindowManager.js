@@ -375,7 +375,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
 				manager.toggleGlobalEvents( true );
 				manager.toggleAriaIsolation( true );
 			}
-			manager.$returnFocusTo = data.$returnFocusTo || $( document.activeElement );
+			manager.$returnFocusTo = data.$returnFocusTo !== undefined ? data.$returnFocusTo : $( document.activeElement );
 			manager.currentWindow = win;
 			manager.opening = opening;
 			manager.preparingToOpen = null;
