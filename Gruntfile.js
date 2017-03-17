@@ -6,7 +6,7 @@ module.exports = function ( grunt ) {
 	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
-			mediawiki: 'MediaWiki',
+			mediawiki: 'MediaWiki', // Do not change this line or you'll break `grunt add-theme`
 			apex: 'Apex'
 		},
 		lessFiles = {},
@@ -38,6 +38,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadNpmTasks( 'grunt-tyops' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
+	grunt.loadNpmTasks( 'grunt-string-replace' );
 	grunt.loadTasks( 'build/tasks' );
 
 	( function () {
@@ -184,6 +185,13 @@ module.exports = function ( grunt ) {
 		return function ( dest, src ) {
 			return path.join( dest, src.replace( str, '' ) );
 		};
+	}
+
+	if ( !grunt.option( 'template' ) ) {
+		grunt.option( 'template', 'MISSING' );
+	}
+	if ( !grunt.option( 'name' ) ) {
+		grunt.option( 'name', 'MISSING' );
 	}
 
 	grunt.initConfig( {
@@ -447,6 +455,88 @@ module.exports = function ( grunt ) {
 				'.{stylelintrc,eslintrc.json}'
 			],
 			tasks: 'quick-build'
+		},
+
+		// Adding new theme
+		'string-replace': {
+			newTheme: {
+				files: [
+					{
+						expand: true,
+						src: 'src/themes/<%= grunt.option( "template" ).toLowerCase() %>/**/*.{less,json,svg,gif}',
+						dest: 'src/themes/<%= grunt.option( "name" ).toLowerCase() %>/',
+						rename: strip( 'src/themes/' + grunt.option( 'template' ).toLowerCase() + '/' )
+					},
+					{
+						src: 'src/themes/<%= grunt.option( "template" ).toLowerCase() %>/<%= grunt.option( "template" ) %>Theme.js',
+						dest: 'src/themes/<%= grunt.option( "name" ).toLowerCase() %>/<%= grunt.option( "name" ) %>Theme.js'
+					},
+					{
+						src: 'php/themes/<%= grunt.option( "template" ) %>Theme.php',
+						dest: 'php/themes/<%= grunt.option( "name" ) %>Theme.php'
+					}
+				],
+				options: {
+					replacements: [
+						{
+							pattern: new RegExp( '\\b' + grunt.option( 'template' ) + '\\b', 'g' ),
+							replacement: grunt.option( 'name' )
+						},
+						{
+							pattern: new RegExp( '\\b' + grunt.option( 'template' ) + 'Theme\\b', 'g' ),
+							replacement: grunt.option( 'name' ) + 'Theme'
+						},
+						{
+							pattern: new RegExp( '\\b' + grunt.option( 'template' ).toLowerCase() + '\\b', 'g' ),
+							replacement: grunt.option( 'name' ).toLowerCase()
+						}
+					]
+				}
+			},
+			updateGruntfile: {
+				files: {
+					'Gruntfile.js': 'Gruntfile.js'
+				},
+				options: {
+					replacements: [ {
+						pattern: /\t\t\tmediawiki: 'MediaWiki',/,
+						replacement: '\t\t\t<%= grunt.option( "name" ).toLowerCase() %>: \'<%= grunt.option( "name" ) %>\',\n$&'
+					} ]
+				}
+			},
+			updateDemoIndex: {
+				files: {
+					'demos/index.html': 'demos/index.html'
+				},
+				options: {
+					replacements: [ {
+						pattern: /(\t*)<script src="dist\/oojs-ui-mediawiki.js"><\/script>/,
+						replacement: '$1<script src="dist/oojs-ui-<%= grunt.option( "name" ).toLowerCase() %>.js"></script>\n$&'
+					} ]
+				}
+			},
+			updateDemoJs: {
+				files: {
+					'demos/demo.js': 'demos/demo.js'
+				},
+				options: {
+					replacements: [ {
+						pattern: /(\t*)mediawiki: 'MediaWiki',/,
+						replacement: '$1<%= grunt.option( "name" ).toLowerCase() %>: \'<%= grunt.option( "name" ) %>\',\n$&'
+					} ]
+				}
+			},
+			updateDemoPhp: {
+				files: {
+					'demos/demos.php': 'demos/demos.php'
+				},
+				options: {
+					replacements: [ {
+						pattern: /(\t*)'mediawiki' => 'MediaWiki',/,
+						replacement: '$1\'<%= grunt.option( "name" ).toLowerCase() %>\' => \'<%= grunt.option( "name" ) %>\',\n$&'
+					} ]
+				}
+			}
 		}
 	} );
 
@@ -531,6 +621,16 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( '_test', [ 'prep-test', 'karma:main', 'karma:other' ] );
 	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos' ] );
 	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
+
+	grunt.registerTask( 'add-theme-check', function () {
+		if ( grunt.option( 'template' ) === 'MISSING' ) {
+			grunt.fatal( '`grunt add-theme` requires a --template=Foo option.' );
+		}
+		if ( grunt.option( 'name' ) === 'MISSING' ) {
+			grunt.fatal( '`grunt add-theme` requires a --name=Foo option.' );
+		}
+	} );
+	grunt.registerTask( 'add-theme', [ 'add-theme-check', 'string-replace' ] );
 
 	/* eslint-disable no-process-env */
 	if ( process.env.JENKINS_HOME ) {

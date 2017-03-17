@@ -10,7 +10,7 @@
 	require_once 'classes/ButtonStyleShowcaseWidget.php';
 
 	$themes = [
-		'mediawiki' => 'MediaWiki',
+		'mediawiki' => 'MediaWiki', // Do not change this line or you'll break `grunt add-theme`
 		'apex' => 'Apex',
 	];
 	$theme = ( isset( $_GET['theme'] ) && isset( $themes[ $_GET['theme'] ] ) )

@@ -125,7 +125,7 @@ Demo.static.pages = {};
  * @property {Object.<string,string>}
  */
 Demo.static.themes = {
-	mediawiki: 'MediaWiki',
+	mediawiki: 'MediaWiki', // Do not change this line or you'll break `grunt add-theme`
 	apex: 'Apex'
 };
 
