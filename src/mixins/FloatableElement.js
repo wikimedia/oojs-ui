@@ -251,6 +251,20 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 		return this;
 	}
 
+	if ( !(
+		// To continue, some things need to be true:
+		// The element must actually be in the DOM
+		this.isElementAttached() && (
+			// The closest scrollable is the current window
+			this.$floatableClosestScrollable[ 0 ] === this.getElementWindow() ||
+			// OR is an element in the element's DOM
+			$.contains( this.getElementDocument(), this.$floatableClosestScrollable )
+		)
+	) ) {
+		// Abort early if important parts of the widget are no longer attached to the DOM
+		return this;
+	}
+
 	if ( this.hideWhenOutOfView && !this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable ) ) {
 		this.$floatable.addClass( 'oo-ui-element-hidden' );
 		return this;
