@@ -76,7 +76,7 @@ OO.ui.isFocusableElement = function ( $element ) {
 	// Check if the element is visible
 	if ( !(
 		// This is quicker than calling $element.is( ':visible' )
-		$.expr.filters.visible( element ) &&
+		$.expr.pseudos.visible( element ) &&
 		// Check that all parents are visible
 		!$element.parents().addBack().filter( function () {
 			return $.css( this, 'visibility' ) === 'hidden';
