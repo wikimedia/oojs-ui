@@ -327,7 +327,7 @@ OO.ui.Element.static.getDocument = function ( obj ) {
 		// Window
 		obj.document ||
 		// HTMLDocument
-		( obj.nodeType === 9 && obj ) ||
+		( obj.nodeType === Node.DOCUMENT_NODE && obj ) ||
 		null;
 };
 
@@ -356,7 +356,7 @@ OO.ui.Element.static.getDir = function ( obj ) {
 	if ( obj instanceof jQuery ) {
 		obj = obj[ 0 ];
 	}
-	isDoc = obj.nodeType === 9;
+	isDoc = obj.nodeType === Node.DOCUMENT_NODE;
 	isWin = obj.document !== undefined;
 	if ( isDoc || isWin ) {
 		if ( isWin ) {
