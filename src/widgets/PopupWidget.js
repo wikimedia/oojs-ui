@@ -136,6 +136,14 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.ClippableElement );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.FloatableElement );
 
+/* Events */
+
+/**
+ * @event ready
+ *
+ * The popup is ready: it is visible and has been positioned and clipped.
+ */
+
 /* Methods */
 
 /**
@@ -254,6 +262,7 @@ OO.ui.PopupWidget.prototype.hasAnchor = function () {
  * Side-effects may include broken interface and exceptions being thrown. This wasn't always
  * strictly enforced, so currently it only generates a warning in the browser console.
  *
+ * @fires ready
  * @inheritdoc
  */
 OO.ui.PopupWidget.prototype.toggle = function ( show ) {
@@ -280,6 +289,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 			}
 			this.updateDimensions();
 			this.toggleClipping( true );
+			this.emit( 'ready' );
 		} else {
 			this.toggleClipping( false );
 			if ( this.autoClose ) {
