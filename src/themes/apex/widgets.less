@@ -874,6 +874,12 @@
 		}
 	}
 
+	&-notsupported {
+		.oo-ui-selectFileWidget-label {
+			padding: 1em;
+		}
+	}
+
 	&-dropTarget {
 		background-color: @background-color-main;
 		border: 1px solid #aaa;
@@ -890,6 +896,15 @@
 			line-height: @line-height-default;
 			overflow: inherit;
 			white-space: normal;
+		}
+
+		.oo-ui-selectFileWidget-fileName {
+			padding-top: 0.5em;
+			padding-right: @size-icon + 0.5em;
+		}
+
+		.oo-ui-selectFileWidget-clearButton {
+			right: 0.5em;
 		}
 	}
 

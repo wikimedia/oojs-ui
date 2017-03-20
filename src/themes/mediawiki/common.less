@@ -62,7 +62,7 @@
 
 // Box Sizes
 @min-width-button-default: 40 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `3.125em`≈`40px` at base `font-size: 12.8px`
-@min-width-button-combo-widget: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `2.5em`≈`32px` at base `font-size: 12.8px`
+@min-width-button-combo-widget: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `2.5em`≈`32px`
 @min-height-button-default: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @min-height-toggleswitch: 26px; // equals `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
 @max-width-default: 50em;
@@ -73,16 +73,16 @@
 @size-button-default: @size-default;
 @size-icon-min: 24px; // values used for `min-height` are defined in `px`, see T130691
 @size-indicator-min: 12px;
-@size-icon: 24 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.875em`≈`24px` at base `font-size: 12.8px`
-@size-indicator: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`12px` at base `font-size: 12.8px`
+@size-icon: 24 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.875em`≈`24px`
+@size-indicator: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`12px`
 @size-toggleswitch-grip-min: 16px;
-@size-dialog-bar-top: 44 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `3.4375em`≈`44px` at base `font-size: 12.8px`
+@size-dialog-bar-top: 44 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `3.4375em`≈`44px`
 
 @width-button-combo-widget: @min-width-button-combo-widget;
 
 @height-icon-element: 100%;
 
-@margin-dialog-bar-button-framed: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.46875em`≈`6px` at base `font-size: 12.8px`
+@margin-dialog-bar-button-framed: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.46875em`≈`6px`
 
 @border-default: @border-width-default solid @border-color-default;
 @border-disabled: @border-width-default solid @border-color-disabled;
@@ -110,9 +110,15 @@
 @border-width-default: 1px;
 @border-width-medium: 2px;
 
-@padding-widget-default: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.547em`≈`7px` at base `font-size: 12.8px`
-@padding-vertical-label: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.3125em`≈`4px` at base `font-size: 12.8px`
-@padding-top-input: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.625em`≈`8px` at base `font-size: 12.8px`
+@padding-default: @padding-top-default @padding-horizontal-default @padding-bottom-default;
+@padding-input-text: @padding-top-default @padding-horizontal-input-text @padding-bottom-default;
+@padding-horizontal-default: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`12px`
+@padding-horizontal-input-text: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
+@padding-vertical-label: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.3125em`≈`4px`
+@padding-top-default: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.625em`≈`8px`
+@padding-bottom-default: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.547em`≈`7px`
+@padding-start-input-text-icon: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // As long as we have whitespace in icon canvas, we need reduced `padding-left`.
+@padding-start-input-text-icon-label: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 
 @box-shadow-dialog: 0 2px 2px 0 rgba( 0, 0, 0, 0.25 );
 @box-shadow-menu: @box-shadow-dialog;
@@ -127,9 +133,12 @@
 @box-shadow-disabled-filled: inset 0 0 0 1px @color-disabled-filled;
 
 @line-height-default: 1.6; // same as Vector
+@line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
 @line-height-message: 1.4;
 @line-height-form-element: 1.4;
 @line-height-input-binary-label: 1.5; // Checkboxes, Radios and ToggleSwitchWidget labels need a tad more for increased vertical click area
+@line-height-widget-multiline: 1.275;
+@line-height-widget-singleline: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
 
 @text-shadow-default: 0 1px 1px @color-default-light; // 'coined' effect
 @text-shadow-disabled: @text-shadow-default;
@@ -148,12 +157,12 @@
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
 @background-color-input-binary-active: @color-progressive-active;
 @background-color-input-binary-on: @color-progressive;
-@size-input-binary: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.5625em`≈`20px` at base `font-size: 12.8px`
+@size-input-binary: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.5625em`≈`20px`
 @border-input-binary: @border-width-default solid @border-color-input-binary;
 @border-color-input-binary: @border-color-default-active;
 @border-color-input-binary-active: @color-progressive-active;
 @border-color-input-binary-on: @color-progressive;
-@padding-start-input-binary-label: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.46875em`≈`6px` at base `font-size: 12.8px`
+@padding-start-input-binary-label: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.46875em`≈`6px`
 @box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
 
 // Theme mixins
