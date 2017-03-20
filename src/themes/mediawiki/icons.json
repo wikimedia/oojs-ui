@@ -59,7 +59,7 @@
 			},
 			"deprecated": "Moved since v0.16.2, use from the 'editing-core' pack instead."
 		},
-		"remove": { "file": "images/icons/trash.svg", "variants": [ "destructive" ] },
+		"remove": { "file": "images/icons/trash.svg", "variants": [ "destructive" ], "deprecated": "Replaced since v0.14.0, use 'trash' from the 'moderation' pack instead." },
 		"search": { "file": {
 			"ltr": "images/icons/search-ltr.svg",
 			"rtl": "images/icons/search-rtl.svg"
