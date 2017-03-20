@@ -29,7 +29,7 @@
 		"check": { "file": "images/icons/check.svg", "variants": [ "constructive", "progressive", "destructive" ] },
 		"circle": { "file": "images/icons/circle.svg", "variants": [ "constructive", "progressive" ] },
 		"close": { "file": "images/icons/close.svg" },
-		"code": { "file": "images/icons/code.svg" },
+		"code": { "file": "images/icons/code.svg", "deprecated": "Moved since v0.16.2, use from the 'editing-advanced' pack instead." },
 		"collapse": { "file": "images/icons/collapse.svg" },
 		"comment": { "file": "images/icons/comment.svg" },
 		"ellipsis": { "file": "images/icons/ellipsis.svg" },
@@ -56,7 +56,9 @@
 		"redo": { "file": {
 			"ltr": "images/icons/arched-arrow-ltr.svg",
 			"rtl": "images/icons/arched-arrow-rtl.svg"
-		} },
+			},
+			"deprecated": "Moved since v0.16.2, use from the 'editing-core' pack instead."
+		},
 		"remove": { "file": "images/icons/trash.svg", "variants": [ "destructive" ] },
 		"search": { "file": {
 			"ltr": "images/icons/search-ltr.svg",
@@ -67,7 +69,9 @@
 		"undo": { "file": {
 			"ltr": "images/icons/arched-arrow-rtl.svg",
 			"rtl": "images/icons/arched-arrow-ltr.svg"
-		} },
+			},
+			"deprecated": "Moved since v0.16.2, use from the 'editing-core' pack instead."
+		},
 		"window": { "file": "images/icons/window.svg" }
 	}
 }
