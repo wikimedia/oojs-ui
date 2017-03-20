@@ -15,6 +15,12 @@
 		white-space: nowrap;
 		.oo-ui-unselectable();
 
+		// Support Firefox: Normalize by making inner border transparent & by removing padding
+		&::-moz-focus-inner {
+			border-color: transparent;
+			padding: 0;
+		}
+
 		> .oo-ui-iconElement-icon,
 		> .oo-ui-indicatorElement-indicator {
 			display: none;
