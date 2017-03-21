@@ -211,11 +211,10 @@
 			"src/themes/{theme}/icons-content.json"
 		]
 	},
-	"oojs-ui-mediawiki-icons-alerts": {
+	"oojs-ui-{theme}-icons-alerts": {
 		"styles": [
-			"src/themes/mediawiki/icons-alerts.json"
-		],
-		"theme": "mediawiki"
+			"src/themes/{theme}/icons-alerts.json"
+		]
 	},
 	"oojs-ui-{theme}-icons-interactions": {
 		"styles": [
