@@ -400,14 +400,18 @@ module.exports = function ( grunt ) {
 			options: {
 				frameworks: [ 'qunit' ],
 				files: [
+					'tests/QUnit.assert.equalDomElement.js',
 					'node_modules/jquery/dist/jquery.js',
 					'node_modules/oojs/dist/oojs.jquery.js',
 					'dist/oojs-ui.js',
 					'dist/oojs-ui-apex.js',
 					'dist/oojs-ui-mediawiki.js',
-					'tests/QUnit.assert.equalDomElement.js',
 					'tests/TestTimer.js',
-					'tests/**/*.test.js'
+					'tests/core.test.js',
+					'tests/Element.test.js',
+					'tests/Process.test.js',
+					'tests/mixins/FlaggedElement.test.js',
+					'tests/JSPHP.test.js'
 				],
 				reporters: [ 'dots' ],
 				singleRun: true,
