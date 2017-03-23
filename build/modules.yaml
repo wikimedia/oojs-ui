@@ -117,6 +117,10 @@
 
 			"src/widgets/CapsuleItemWidget.js",
 			"src/widgets/CapsuleMultiselectWidget.js",
+			"src/widgets/TagItemWidget.js",
+			"src/widgets/TagMultiselectWidget.js",
+			"src/widgets/PopupTagMultiselectWidget.js",
+			"src/widgets/MenuTagMultiselectWidget.js",
 
 			"src/widgets/SelectFileWidget.js",
 			"src/widgets/SearchWidget.js",

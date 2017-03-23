@@ -1330,6 +1330,89 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.TagMultiselectWidget( {
+						placeholder: 'Add tags',
+						allowArbitrary: true
+					} ),
+					{
+						label: 'TagMultiselectWidget (allowArbitrary, inline input, placeholder)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TagMultiselectWidget( {
+						placeholder: 'Add tags',
+						allowArbitrary: true,
+						disabled: true
+					} ),
+					{
+						label: 'TagMultiselectWidget (disabled, inline input, placeholder)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TagMultiselectWidget( {
+						allowArbitrary: false,
+						allowDisplayInvalidTags: true,
+						allowedValues: [ 'foo', 'bar', 'baz' ]
+					} ),
+					{
+						label: 'TagMultiselectWidget (inline input, allowed values: [ \'foo\', \'bar\', \'baz\' ], allowDisplayInvalidTags)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TagMultiselectWidget( {
+						placeholder: 'Add tags',
+						allowArbitrary: true,
+						inputPosition: 'outline'
+					} ),
+					{
+						label: 'TagMultiselectWidget (allowArbitrary, outline input, placeholder)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupTagMultiselectWidget( {
+						allowArbitrary: true,
+						icon: 'tag',
+						indicator: 'alert'
+					} ),
+					{
+						label: 'PopupTagMultiselectWidget (icon, indicator, allowArbitrary)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MenuTagMultiselectWidget( {
+						allowArbitrary: false,
+						options: [
+							{ data: 'abc', label: 'Label for abc' },
+							{ data: 'asd', label: 'Label for asd' },
+							{ data: 'jkl', label: 'Label for jkl' }
+						]
+					} ),
+					{
+						label: 'MenuTagMultiselectWidget (allowArbitrary:false)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MenuTagMultiselectWidget( {
+						inputPosition: 'outline',
+						allowArbitrary: false,
+						options: [
+							{ data: 'abc', label: 'Label for abc' },
+							{ data: 'asd', label: 'Label for asd' },
+							{ data: 'jkl', label: 'Label for jkl' }
+						]
+					} ),
+					{
+						label: 'MenuTagMultiselectWidget (inputPosition:outline, allowArbitrary:false)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.CapsuleMultiselectWidget( {
 						menu: {
 							items: [
