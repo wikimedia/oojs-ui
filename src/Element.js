@@ -584,17 +584,18 @@ OO.ui.Element.static.getScrollLeft = ( function () {
 }() );
 
 /**
- * Get scrollable object parent
+ * Get the root scrollable element of given element's document.
  *
- * documentElement can't be used to get or set the scrollTop
- * property on Blink. Changing and testing its value lets us
- * use 'body' or 'documentElement' based on what is working.
+ * On Blink-based browsers (Chrome etc.), `document.documentElement` can't be used to get or set
+ * the scrollTop property; instead we have to use `document.body`. Changing and testing the value
+ * lets us use 'body' or 'documentElement' based on what is working.
  *
  * https://code.google.com/p/chromium/issues/detail?id=303131
  *
  * @static
- * @param {HTMLElement} el Element to find scrollable parent for
- * @return {HTMLElement} Scrollable parent
+ * @param {HTMLElement} el Element to find root scrollable parent for
+ * @return {HTMLElement} Scrollable parent, `document.body` or `document.documentElement`
+ *     depending on browser
  */
 OO.ui.Element.static.getRootScrollableElement = function ( el ) {
 	var scrollTop, body;
@@ -618,8 +619,8 @@ OO.ui.Element.static.getRootScrollableElement = function ( el ) {
 /**
  * Get closest scrollable container.
  *
- * Traverses up until either a scrollable element or the root is reached, in which case the window
- * will be returned.
+ * Traverses up until either a scrollable element or the root is reached, in which case the root
+ * scrollable element will be returned (see #getRootScrollableElement).
  *
  * @static
  * @param {HTMLElement} el Element to find scrollable container for
@@ -635,6 +636,12 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
 
 	if ( dimension === 'x' || dimension === 'y' ) {
 		props = [ 'overflow-' + dimension ];
+	}
+
+	// Special case for the document root (which doesn't really have any scrollable container, since
+	// it is the ultimate scrollable container, but this is probably saner than null or exception)
+	if ( $( el ).is( 'html, body' ) ) {
+		return this.getRootScrollableElement( el );
 	}
 
 	while ( $parent.length ) {
@@ -655,7 +662,8 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
 		}
 		$parent = $parent.parent();
 	}
-	return this.getDocument( el ).body;
+	// The element is unattached... return something mostly sane
+	return this.getRootScrollableElement( el );
 };
 
 /**
