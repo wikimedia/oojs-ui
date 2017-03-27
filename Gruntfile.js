@@ -529,7 +529,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );
 
 	grunt.registerTask( '_test', [ 'prep-test', 'karma:main', 'karma:other' ] );
-	grunt.registerTask( '_ci', [ '_test', 'minify' ] );
+	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos' ] );
 	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
 
 	/* eslint-disable no-process-env */
