@@ -1,7 +1,6 @@
 @import '../common';
 
 .oo-ui-draggableElement {
-	&-handle:not( .oo-ui-draggableElement-undraggable ),
 	// HACK: Widgets will often specify a cursor with higher specificity, so override those here as
 	// they are a common use case of this mixin.
 	&-handle:not( .oo-ui-draggableElement-undraggable ).oo-ui-widget {
