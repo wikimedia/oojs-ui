@@ -1287,18 +1287,19 @@
 
 .theme-oo-ui-searchWidget () {
 	&-query {
-		height: 4em;
-		padding: 0 1em;
-		border-bottom: @border-default;
+		height: @height-search;
+		padding: 0 @padding-search; // needs to be `padding` for `border`/`box-shadow` below
+		border-bottom: @border-toolbar;
+		box-shadow: @box-shadow-toolbar-top;
 
 		.oo-ui-textInputWidget {
-			margin: 0.75em 0;
+			margin: @margin-search 0;
 		}
 	}
 
 	&-results {
-		top: 4em;
-		padding: 1em;
+		top: @height-search;
+		padding: @padding-search;
 		line-height: 0;
 	}
 }
@@ -1849,6 +1850,9 @@
 
 		.oo-ui-iconElement-icon {
 			left: @padding-start-input-text-icon;
+		}
+
+		textarea + .oo-ui-iconElement-icon {
 			max-height: @size-default; // Use `@size-default` as `max-height` for multiline TextInputWidgets
 		}
 	}
