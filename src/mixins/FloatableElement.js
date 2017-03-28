@@ -258,7 +258,7 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 			// The closest scrollable is the current window
 			this.$floatableClosestScrollable[ 0 ] === this.getElementWindow() ||
 			// OR is an element in the element's DOM
-			$.contains( this.getElementDocument(), this.$floatableClosestScrollable )
+			$.contains( this.getElementDocument(), this.$floatableClosestScrollable[ 0 ] )
 		)
 	) ) {
 		// Abort early if important parts of the widget are no longer attached to the DOM
