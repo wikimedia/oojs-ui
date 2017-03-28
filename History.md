@@ -1,4 +1,39 @@
 # OOjs UI Release History
+## v0.20.1 / 2017-03-28
+### Deprecations
+* [DEPRECATING CHANGE] icons: Deprecate and/or move all the core icons (James D. Forrester)
+* [DEPRECATING CHANGE] icons: Rename 'wikitrail' to 'mapTrail' (Volker E)
+* Follow-up b12205ac: Add deprecation notices to icons moved in v0.16.2 (James D. Forrester)
+* Follow-up da8d99af: Add deprecation notice to icon moved in v0.14.0 (James D. Forrester)
+
+### Features
+* DraggableGroupElement: Make draggable conditional (Moriel Schottlender)
+* build: Implement `grunt add-theme` task to ease theme creation (Bartosz Dziewoński)
+
+### Styles
+* ButtonElement: Normalize appearance in Firefox (Volker E)
+* Blank theme: Fix up the 'blank' theme (Bartosz Dziewoński)
+* MediaWiki theme: Position PopupToolGroup indicator similar to other widgets (Volker E)
+
+### Code
+* Element: Add special case for document root in getClosestScrollableContainer (Bartosz Dziewoński)
+* FloatableElement: Abort positioning if no longer attached (David Lynch)
+* GroupElement: Transform to be an OO.EmitterList mixin (Moriel Schottlender)
+* MenuOptionWidget: Remove inherited, duplicated property (Volker E)
+* OO.ui.isFocusableElement: Update for jQuery 3 deprecations (Bartosz Dziewoński)
+* PopupWidget: Add 'ready' event when the popup is ready (Moriel Schottlender)
+* Use Node.DOCUMENT_NODE rather than magic number (Bartosz Dziewoński)
+* Follow-up 4bc67351c5: Unbreak FloatableElement positioning (Roan Kattouw)
+* Follow-up Iaa7dffc13: *Actually* allow `$returnFocusTo` to be `null` (Ed Sanders)
+* themes: Reorder Less rules alphabetically (Volker E)
+* MediaWiki theme: Remove obsolete ButtonOptionWidget styles (Volker E)
+* MediaWiki theme: Remove unnecessary OptionWiget `border` property (Volker E)
+* build: Add a new jenkins script (Prateek Saxena)
+* build: Bump grunt-cssjanus to master (Volker E)
+* build: Match file order between tests/index and karma (Timo Tijhof)
+* build/demos: Generalize demos and build so that it's easier to add new themes (Bartosz Dziewoński)
+
+
 ## v0.20.0 / 2017-03-15
 ### Breaking changes
 * [BREAKING CHANGE] Element#scrollIntoView: Drop `complete` config option (James D. Forrester)
