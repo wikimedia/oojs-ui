@@ -164,7 +164,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'map',
 				'mapPin',
 				'mapPinAdd',
-				'wikitrail'
+				'mapTrail'
 			],
 			user: [
 				'userActive',
