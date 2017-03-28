@@ -10,6 +10,9 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$handle] The part of the element which can be used for dragging, defaults to the whole element
+ * @cfg {boolean} [draggable] The items are draggable. This can change with #toggleDraggable
+ *  but the draggable state should be called from the DraggableGroupElement, which updates
+ *  the whole group
  */
 OO.ui.mixin.DraggableElement = function OoUiMixinDraggableElement( config ) {
 	config = config || {};
@@ -18,6 +21,7 @@ OO.ui.mixin.DraggableElement = function OoUiMixinDraggableElement( config ) {
 	this.index = null;
 	this.$handle = config.$handle || this.$element;
 	this.wasHandleUsed = null;
+	this.draggable = config.draggable === undefined ? true : !!config.draggable;
 
 	// Initialize and events
 	this.$element.addClass( 'oo-ui-draggableElement' )
@@ -68,12 +72,42 @@ OO.ui.mixin.DraggableElement.static.cancelButtonMouseDownEvents = false;
 /* Methods */
 
 /**
+ * Change the draggable state of this widget.
+ * This allows users to temporarily halt the dragging operations.
+ *
+ * @param {boolean} isDraggable Widget supports draggable operations
+ * @fires draggable
+ */
+OO.ui.mixin.DraggableElement.prototype.toggleDraggable = function ( isDraggable ) {
+	isDraggable = isDraggable !== undefined ? !!isDraggable : !this.draggable;
+
+	if ( this.draggable !== isDraggable ) {
+		this.draggable = isDraggable;
+
+		this.$element.toggleClass( 'oo-ui-draggableElement-undraggable', !this.draggable );
+	}
+};
+
+/**
+ * Check the draggable state of this widget
+ *
+ * @return {boolean} Widget supports draggable operations
+ */
+OO.ui.mixin.DraggableElement.prototype.isDraggable = function () {
+	return this.draggable;
+};
+
+/**
  * Respond to mousedown event.
  *
  * @private
  * @param {jQuery.Event} e Drag event
  */
 OO.ui.mixin.DraggableElement.prototype.onDragMouseDown = function ( e ) {
+	if ( !this.isDraggable() ) {
+		return;
+	}
+
 	this.wasHandleUsed =
 		// Optimization: if the handle is the whole element this is always true
 		this.$handle[ 0 ] === this.$element[ 0 ] ||
@@ -93,7 +127,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	var element = this,
 		dataTransfer = e.originalEvent.dataTransfer;
 
-	if ( !this.wasHandleUsed ) {
+	if ( !this.wasHandleUsed || !this.isDraggable() ) {
 		return false;
 	}
 

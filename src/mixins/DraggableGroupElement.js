@@ -13,6 +13,7 @@
  *  should match the layout of the items. Items displayed in a single row
  *  or in several rows should use horizontal orientation. The vertical orientation should only be
  *  used when the items are displayed in a single column. Defaults to 'vertical'
+ * @cfg {boolean} [draggable] The items are draggable. This can change with #toggleDraggable
  */
 OO.ui.mixin.DraggableGroupElement = function OoUiMixinDraggableGroupElement( config ) {
 	// Configuration initialization
@@ -27,6 +28,7 @@ OO.ui.mixin.DraggableGroupElement = function OoUiMixinDraggableGroupElement( con
 	this.itemKeys = {};
 	this.dir = null;
 	this.itemsOrder = null;
+	this.draggable = config.draggable === undefined ? true : !!config.draggable;
 
 	// Events
 	this.aggregate( {
@@ -65,14 +67,53 @@ OO.mixinClass( OO.ui.mixin.DraggableGroupElement, OO.ui.mixin.GroupElement );
  */
 
 /**
- * And item has been dropped at a new position.
+ * An item has been dropped at a new position.
  *
  * @event reorder
  * @param {OO.ui.mixin.DraggableElement} item Reordered item
  * @param {number} [newIndex] New index for the item
  */
 
+/**
+ * Draggable state of this widget has changed.
+ *
+ * @event draggable
+ * @param {boolean} [draggable] Widget is draggable
+ */
+
 /* Methods */
+
+/**
+ * Change the draggable state of this widget.
+ * This allows users to temporarily halt the dragging operations.
+ *
+ * @param {boolean} isDraggable Widget supports draggable operations
+ * @fires draggable
+ */
+OO.ui.mixin.DraggableGroupElement.prototype.toggleDraggable = function ( isDraggable ) {
+	isDraggable = isDraggable !== undefined ? !!isDraggable : !this.draggable;
+
+	if ( this.draggable !== isDraggable ) {
+		this.draggable = isDraggable;
+
+		// Tell the items their draggable state changed
+		this.getItems().forEach( function ( item ) {
+			item.toggleDraggable( this.draggable );
+		}.bind( this ) );
+
+		// Emit event
+		this.emit( 'draggable', this.draggable );
+	}
+};
+
+/**
+ * Check the draggable state of this widget
+ *
+ * @return {boolean} Widget supports draggable operations
+ */
+OO.ui.mixin.DraggableGroupElement.prototype.isDraggable = function () {
+	return this.draggable;
+};
 
 /**
  * Respond to item drag start event
@@ -81,6 +122,9 @@ OO.mixinClass( OO.ui.mixin.DraggableGroupElement, OO.ui.mixin.GroupElement );
  * @param {OO.ui.mixin.DraggableElement} item Dragged item
  */
 OO.ui.mixin.DraggableGroupElement.prototype.onItemDragStart = function ( item ) {
+	if ( !this.isDraggable() ) {
+		return;
+	}
 	// Make a shallow copy of this.items so we can re-order it during previews
 	// without affecting the original array.
 	this.itemsOrder = this.items.slice();
