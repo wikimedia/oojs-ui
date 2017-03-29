@@ -402,6 +402,9 @@ module.exports = function ( grunt ) {
 			demos: {
 				command: 'composer update --no-dev',
 				cwd: 'demos'
+			},
+			composer: {
+				command: 'composer update --ansi --no-progress --prefer-dist --profile -v && composer --ansi test'
 			}
 		},
 		karma: {
@@ -619,7 +622,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );
 
 	grunt.registerTask( '_test', [ 'prep-test', 'karma:main', 'karma:other' ] );
-	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos' ] );
+	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos', 'exec:composer' ] );
 	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
 
 	grunt.registerTask( 'add-theme-check', function () {
