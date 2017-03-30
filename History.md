@@ -1,4 +1,14 @@
 # OOjs UI Release History
+## v0.20.2 / 2017-03-30
+### Styles
+* DraggableElement: Fix regression on selectors (Volker E)
+
+### Code
+* GroupElement: Fix insertion bugs (Bartosz Dziewoński)
+* icons: Drop unused 'invert' variant from Apex 'icons-interactions' pack (Bartosz Dziewoński)
+* build: Add exec:composer and add it to _ci (Prateek Saxena)
+
+
 ## v0.20.1 / 2017-03-28
 ### Deprecations
 * [DEPRECATING CHANGE] icons: Deprecate and/or move all the core icons (James D. Forrester)
