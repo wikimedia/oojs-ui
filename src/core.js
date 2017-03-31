@@ -59,10 +59,10 @@ OO.ui.generateElementId = function () {
 
 /**
  * Check if an element is focusable.
- * Inspired from :focusable in jQueryUI v1.11.4 - 2015-04-14
+ * Inspired by :focusable in jQueryUI v1.11.4 - 2015-04-14
  *
  * @param {jQuery} $element Element to test
- * @return {boolean}
+ * @return {boolean} Element is focusable
  */
 OO.ui.isFocusableElement = function ( $element ) {
 	var nodeName,
@@ -117,7 +117,7 @@ OO.ui.isFocusableElement = function ( $element ) {
  *
  * @param {jQuery} $container Container to search in
  * @param {boolean} [backwards] Search backwards
- * @return {jQuery} Focusable child, an empty jQuery object if none found
+ * @return {jQuery} Focusable child, or an empty jQuery object if none found
  */
 OO.ui.findFocusable = function ( $container, backwards ) {
 	var $focusable = $( [] ),
@@ -221,10 +221,10 @@ OO.ui.contains = function ( containers, contained, matchContainers ) {
  *
  * Ported from: http://underscorejs.org/underscore.js
  *
- * @param {Function} func
- * @param {number} wait
- * @param {boolean} immediate
- * @return {Function}
+ * @param {Function} func Function to debounce
+ * @param {number} [wait=0] Wait period in milliseconds
+ * @param {boolean} [immediate] Trigger on leading edge
+ * @return {Function} Debounced function
  */
 OO.ui.debounce = function ( func, wait, immediate ) {
 	var timeout;
@@ -250,7 +250,7 @@ OO.ui.debounce = function ( func, wait, immediate ) {
 /**
  * Puts a console warning with provided message.
  *
- * @param {string} message
+ * @param {string} message Message
  */
 OO.ui.warnDeprecation = function ( message ) {
 	if ( OO.getProp( window, 'console', 'warn' ) !== undefined ) {
@@ -268,9 +268,9 @@ OO.ui.warnDeprecation = function ( message ) {
  * when the wrapper is called, return values from the function are entirely
  * discarded.
  *
- * @param {Function} func
- * @param {number} wait
- * @return {Function}
+ * @param {Function} func Function to throttle
+ * @param {number} wait Throttle window length, in milliseconds
+ * @return {Function} Throttled function
  */
 OO.ui.throttle = function ( func, wait ) {
 	var context, args, timeout,
@@ -305,7 +305,7 @@ OO.ui.throttle = function ( func, wait ) {
 /**
  * A (possibly faster) way to get the current timestamp as an integer
  *
- * @return {number} Current timestamp
+ * @return {number} Current timestamp, in milliseconds since the Unix epoch
  */
 OO.ui.now = Date.now || function () {
 	return new Date().getTime();
