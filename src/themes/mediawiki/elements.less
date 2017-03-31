@@ -4,18 +4,68 @@
 
 .theme-oo-ui-buttonElement () {
 	> .oo-ui-buttonElement-button {
+		position: relative;
 		font-weight: bold;
 		text-decoration: none;
 
 		&:focus {
-			border-radius: @border-radius-default;
 			outline: 0;
+		}
+
+		> .oo-ui-iconElement-icon,
+		> .oo-ui-indicatorElement-indicator {
+			position: absolute;
+			top: 0;
+			height: 100%;
 		}
 	}
 
-	&.oo-ui-iconElement > .oo-ui-buttonElement-button {
-		> .oo-ui-indicatorElement-indicator {
-			margin-left: @size-indicator / 2;
+	&.oo-ui-iconElement {
+		> .oo-ui-buttonElement-button {
+			> .oo-ui-iconElement-icon {
+				display: block;
+			}
+		}
+	}
+
+	&.oo-ui-labelElement > .oo-ui-buttonElement-button,
+	// Support `<input>` from ButtonInputWidget
+	> input.oo-ui-buttonElement-button {
+		line-height: @line-height-reset;
+	}
+
+	&.oo-ui-labelElement {
+		> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			line-height: @line-height-widget-singleline;
+		}
+
+		&.oo-ui-iconElement {
+			> .oo-ui-buttonElement-button {
+				padding-left: @padding-start-icon-only;
+			}
+		}
+
+		&.oo-ui-indicatorElement {
+			> .oo-ui-buttonElement-button {
+				padding-right: @padding-start-indicator-plus;
+			}
+		}
+	}
+
+	&.oo-ui-indicatorElement {
+		// Indicator (-only)
+		> .oo-ui-buttonElement-button {
+			> .oo-ui-indicatorElement-indicator {
+				display: block;
+			}
+		}
+
+		// Indicator and label/icon
+		&.oo-ui-labelElement,
+		&.oo-ui-iconElement {
+			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+				right: @padding-horizontal-default;
+			}
 		}
 	}
 
@@ -64,24 +114,34 @@
 
 	&-frameless {
 		> .oo-ui-buttonElement-button {
-			.oo-ui-indicatorElement-indicator {
-				margin-right: 0;
+			border-radius: @border-radius-frameless;
+		}
+
+		&.oo-ui-iconElement {
+			// Icon (-only) framed
+			> .oo-ui-buttonElement-button {
+				min-width: @size-icon;
+				min-height: @size-icon;
+
+				> .oo-ui-iconElement-icon {
+					left: 0;
+				}
 			}
 		}
 
 		&.oo-ui-labelElement {
 			> .oo-ui-buttonElement-button {
-				> .oo-ui-labelElement-label {
-					margin-left: 0.25em;
-					margin-right: 0.25em;
-				}
+				margin-left: -@border-width-default; // Address `border` below
+				border: @border-frameless;
+				padding: @padding-frameless;
 			}
 		}
 
-		// Support `<input>` from ButtonInputWidget
-		> input.oo-ui-buttonElement-button {
-			padding-left: 0.25em;
-			padding-right: 0.25em;
+		&.oo-ui-indicatorElement {
+			> .oo-ui-buttonElement-button {
+				min-width: @size-indicator;
+				min-height: @size-indicator;
+			}
 		}
 
 		&.oo-ui-widget-enabled {
@@ -92,7 +152,7 @@
 					color: @color-default-hover;
 				}
 				&:focus {
-					box-shadow: @box-shadow-widget-focus, 0 0 0 1px @color-progressive-focus;
+					box-shadow: @box-shadow-frameless-focus;
 				}
 			}
 
@@ -147,57 +207,50 @@
 	}
 
 	&-framed {
-		&.oo-ui-iconElement.oo-ui-labelElement,
-		&.oo-ui-iconElement.oo-ui-indicatorElement {
-			> .oo-ui-buttonElement-button {
-				padding-left: @padding-start-input-text-icon-label;
-			}
-		}
-
 		> .oo-ui-buttonElement-button {
-			position: relative;
 			min-height: @min-height-button-default;
 			border-radius: @border-radius-default;
 			padding: @padding-default;
 		}
 
-		&.oo-ui-iconElement > .oo-ui-buttonElement-button {
-			min-width: @min-width-button-default;
-		}
-
-		// Support: IE9
-		// Indirectly please IE9 as it doesn't like `min-width` on all kinds of buttons (T158728)
-		&.oo-ui-labelElement > .oo-ui-buttonElement-button,
-		&.oo-ui-indicatorElement > .oo-ui-buttonElement-button {
-			min-width: 0;
-		}
-
-		// Support `<input>` from ButtonInputWidget
-		> input.oo-ui-buttonElement-button,
-		&.oo-ui-labelElement > .oo-ui-buttonElement-button {
-			line-height: @line-height-reset;
-		}
-
-		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-			line-height: @line-height-widget-singleline;
-		}
-
 		&.oo-ui-iconElement {
-			> .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-				display: block;
-				position: absolute;
-				top: 0;
-				height: 100%;
-				// Horizontally center the icon in icon-only buttons
-				left: @padding-start-input-text-icon;
+			// Icon (-only) framed
+			> .oo-ui-buttonElement-button {
+				padding-left: @padding-start-icon-only;
+
+				> .oo-ui-iconElement-icon {
+					left: @start-framed-icon-only;
+				}
+			}
+
+			// Icon and label/indicator framed
+			&.oo-ui-labelElement,
+			&.oo-ui-indicatorElement {
+				> .oo-ui-buttonElement-button {
+					padding-left: @padding-start-input-text-icon-label;
+
+					> .oo-ui-iconElement-icon {
+						left: @padding-start-input-text-icon;
+					}
+				}
 			}
 		}
 
 		&.oo-ui-indicatorElement {
-			&.oo-ui-labelElement {
-				> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-					position: relative;
-					left: 0.275em;
+			// Indicator (-only) framed
+			> .oo-ui-buttonElement-button {
+				padding-right: @padding-start-indicator-only;
+
+				> .oo-ui-indicatorElement-indicator {
+					right: @start-framed-indicator-only;
+				}
+			}
+
+			// Indicator and label/icon framed
+			&.oo-ui-labelElement,
+			&.oo-ui-iconElement {
+				> .oo-ui-buttonElement-button {
+					padding-right: @padding-start-indicator-plus;
 				}
 			}
 		}
