@@ -1,5 +1,5 @@
 Demo.static.pages.toolbars = function ( demo ) {
-	var i, toolGroups, saveButton, deleteButton, actionButton, actionButtonDisabled, PopupTool, ToolGroupTool,
+	var i, toolGroups, saveButton, deleteButton, actionButton, actionGroup, actionButtonDisabled, PopupTool, ToolGroupTool,
 		setDisabled = function () { this.setDisabled( true ); },
 		$demo = demo.$element,
 		$containers = $(),
@@ -12,7 +12,9 @@ Demo.static.pages.toolbars = function ( demo ) {
 			{},
 			{ actions: true },
 			{ position: 'bottom' },
-			{ actions: true, position: 'bottom' }
+			{ actions: true, position: 'bottom' },
+			{},
+			{ actions: true }
 		];
 
 	// Show some random accelerator keys that don't actually work
@@ -26,7 +28,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		}[ name ];
 	}
 
-	for ( i = 0; i <= 5; i++ ) {
+	for ( i = 0; i <= 7; i++ ) {
 		toolFactories.push( new OO.ui.ToolFactory() );
 		toolGroupFactories.push( new OO.ui.ToolGroupFactory() );
 		toolbars.push( new OO.ui.Toolbar( toolFactories[ i ], toolGroupFactories[ i ], configs[ i ] ) );
@@ -268,6 +270,27 @@ Demo.static.pages.toolbars = function ( demo ) {
 			include: [ { group: 'autoDisableListTools' }, { group: 'unusedStuff' } ]
 		}
 	] );
+	// Action toolbar for toolbars[7]
+	toolbars[ 6 ].setup( [
+		{
+			type: 'list',
+			indicator: 'down',
+			include: [ { group: 'listTools' } ]
+		}
+	] );
+	// Toolbar with action buttons, in a buttongroup
+	toolbars[ 7 ].setup( [
+		{
+			type: 'menu',
+			icon: 'image',
+			include: [ { group: 'menuTools' } ]
+		},
+		{
+			type: 'disabledMenu',
+			icon: 'image',
+			include: [ { group: 'disabledMenuTools' } ]
+		}
+	] );
 
 	actionButton = new OO.ui.ButtonWidget( { label: 'Action' } );
 	actionButtonDisabled = new OO.ui.ButtonWidget( { label: 'Disabled', disabled: true } );
@@ -278,6 +301,12 @@ Demo.static.pages.toolbars = function ( demo ) {
 		saveButton = new OO.ui.ButtonWidget( { label: 'Save', flags: [ 'progressive', 'primary' ] } );
 		toolbars[ i ].$actions.append( toolbars[ i - 1 ].$element, deleteButton.$element, saveButton.$element );
 	}
+
+	saveButton = new OO.ui.ButtonWidget( { label: 'Save', flags: [ 'progressive', 'primary' ] } );
+	actionGroup = new OO.ui.ButtonGroupWidget( {
+		items: [ saveButton, toolbars[ 6 ].items[ 0 ] ]
+	} );
+	toolbars[ 7 ].$actions.append( actionGroup.$element );
 
 	for ( i = 0; i < toolbars.length; i++ ) {
 		toolbars[ i ].emit( 'updateState' );
@@ -360,6 +389,9 @@ Demo.static.pages.toolbars = function ( demo ) {
 	createToolGroup( 0, 'autoDisableListTools' );
 	createToolGroup( 1, 'menuTools' );
 	createToolGroup( 1, 'disabledMenuTools' );
+	createToolGroup( 6, 'listTools' );
+	createToolGroup( 7, 'menuTools' );
+	createToolGroup( 7, 'disabledMenuTools' );
 	for ( i = 3; i <= 5; i += 2 ) {
 		createToolGroup( i - 1, 'listTools' );
 		createToolGroup( i, 'history' );
@@ -374,7 +406,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	}
 
 	for ( i = 0; i < toolbars.length; i++ ) {
-		if ( i === 2 || i === 4 ) {
+		if ( i === 2 || i === 4 || i === 6 ) {
 			// Action toolbars
 			continue;
 		}
@@ -393,7 +425,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 		$containers.eq( 0 ).append( '<div class="demo-toolbars-contents">Toolbar</div>' ),
 		$containers.eq( 1 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons</div>' ),
 		$containers.eq( 2 ).append( '<div class="demo-toolbars-contents">Word processor toolbar</div>' ),
-		$containers.eq( 3 ).prepend( '<div class="demo-toolbars-contents">Position bottom</div>' )
+		$containers.eq( 3 ).prepend( '<div class="demo-toolbars-contents">Position bottom</div>' ),
+		$containers.eq( 4 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons in a group</div>' )
 	);
 	for ( i = 0; i < toolbars.length; i++ ) {
 		toolbars[ i ].initialize();

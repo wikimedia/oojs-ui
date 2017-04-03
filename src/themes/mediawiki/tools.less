@@ -23,7 +23,10 @@
 	}
 
 	&-actions {
-		> .oo-ui-buttonElement.oo-ui-labelElement {
+		> .oo-ui-buttonElement.oo-ui-labelElement,
+		> .oo-ui-buttonElement.oo-ui-indicatorElement,
+		> .oo-ui-buttonGroupWidget > .oo-ui-buttonElement.oo-ui-labelElement,
+		> .oo-ui-buttonGroupWidget > .oo-ui-buttonElement.oo-ui-indicatorElement {
 			margin: 0;
 
 			> .oo-ui-buttonElement-button {
@@ -35,6 +38,15 @@
 					margin: 0 1em;
 					line-height: 3.125em; // 40/12.8
 				}
+			}
+		}
+
+		> .oo-ui-buttonGroupWidget > .oo-ui-buttonElement.oo-ui-indicatorElement:not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button {
+			> .oo-ui-labelElement-label {
+				margin: 0;
+			}
+			> .oo-ui-indicatorElement-indicator {
+				margin: 0 0.3125em;
 			}
 		}
 
