@@ -1310,15 +1310,17 @@
 		background-color: @background-color-default;
 		border: @border-default;
 		border-radius: @border-radius-default 0 0 @border-radius-default;
-		border-width: 1px 0 1px 1px;
+		border-right-width: 0;
 
 		> .oo-ui-iconElement-icon {
 			left: @padding-start-input-text-icon;
-			margin-left: -1px; // Address extra `border-left` pixel above
+			min-height: 2.4em;
+			margin-left: -@border-width-default; // Address extra `border-left` pixel above
 		}
 
 		> .oo-ui-indicatorElement-indicator {
 			right: @padding-horizontal-default;
+			min-height: 2.4em;
 		}
 	}
 
