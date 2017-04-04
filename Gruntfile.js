@@ -304,7 +304,7 @@ module.exports = function ( grunt ) {
 			},
 			demos: {
 				// Make sure you update this if dependencies are added
-				src: '{node_modules/{jquery,oojs}/dist/**/*,node_modules/es5-shim/*.js,composer.json,dist/**/*,php/**/*}',
+				src: '{node_modules/{jquery,oojs}/dist/**/*,composer.json,dist/**/*,php/**/*}',
 				dest: 'demos/',
 				expand: true
 			},
