@@ -30,6 +30,8 @@ OO.ui.getWindowManager = function () {
  *         console.log( 'User closed the dialog.' );
  *     } );
  *
+ *     OO.ui.alert( 'Something larger happened!', { size: 'large' } );
+ *
  * @param {jQuery|string} text Message text to display
  * @param {Object} [options] Additional options, see OO.ui.MessageDialog#getSetupProcess
  * @return {jQuery.Promise} Promise resolved when the user closes the dialog

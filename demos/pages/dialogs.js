@@ -15,6 +15,12 @@ Demo.static.pages.dialogs = function ( demo ) {
 					param: 'Alert message.'
 				},
 				{
+					name: 'Larger alert',
+					method: 'alert',
+					param: 'Alert message.',
+					data: { size: 'larger' }
+				},
+				{
 					name: 'Quick confirm',
 					method: 'confirm',
 					param: 'Confirmation message?'
@@ -288,7 +294,12 @@ Demo.static.pages.dialogs = function ( demo ) {
 
 			if ( examples[ i ].method ) {
 				openButton.on(
-					'click', OO.ui.bind( OO.ui, examples[ i ].method, examples[ i ].param )
+					'click', OO.ui.bind(
+						OO.ui,
+						examples[ i ].method,
+						examples[ i ].param,
+						examples[ i ].data
+					)
 				);
 			} else {
 				name = 'window_' + j + '_' + i;
