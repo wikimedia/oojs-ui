@@ -37,6 +37,7 @@
 			propertyAttributes = {
 				value: 'value',
 				readOnly: 'readonly',
+				required: 'required',
 				checked: 'checked',
 				disabled: 'disabled',
 				tabIndex: 'tabindex',

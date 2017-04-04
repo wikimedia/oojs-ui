@@ -358,14 +358,14 @@ OO.ui.TextInputWidget.prototype.setRequired = function ( state ) {
 	this.required = !!state;
 	if ( this.required ) {
 		this.$input
-			.attr( 'required', 'required' )
+			.prop( 'required', true )
 			.attr( 'aria-required', 'true' );
 		if ( this.getIndicator() === null ) {
 			this.setIndicator( 'required' );
 		}
 	} else {
 		this.$input
-			.removeAttr( 'required' )
+			.prop( 'required', false )
 			.removeAttr( 'aria-required' );
 		if ( this.getIndicator() === 'required' ) {
 			this.setIndicator( null );
