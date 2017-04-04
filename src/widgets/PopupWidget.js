@@ -31,8 +31,10 @@
  * @cfg {number} [height] Height of popup in pixels. Omit to use the automatic height.
  * @cfg {boolean} [anchor=true] Show anchor pointing to origin of popup
  * @cfg {string} [position='below'] Where to position the popup relative to $floatableContainer
- *  'above': Put popup above $floatableContainer; anchor points down to the start edge of $floatableContainer
- *  'below': Put popup below $floatableContainer; anchor points up to the start edge of $floatableContainer
+ *  'above': Put popup above $floatableContainer; anchor points down to the horizontal center
+ *           of $floatableContainer
+ *  'below': Put popup below $floatableContainer; anchor points up to the horizontal center
+ *           of $floatableContainer
  *  'before': Put popup to the left (LTR) / right (RTL) of $floatableContainer; anchor points
  *            endwards (right/left) to the vertical center of $floatableContainer
  *  'after': Put popup to the right (LTR) / left (RTL) of $floatableContainer; anchor points
@@ -469,8 +471,7 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	}
 
 	// Position the anchor (which is positioned relative to the popup) to point to $floatableContainer
-	// For popups above/below, we point to the start edge; for popups before/after, we point to the center
-	anchorPos = vertical ? ( floatablePos[ start ] + floatablePos[ end ] ) / 2 : floatablePos[ start ];
+	anchorPos = ( floatablePos[ start ] + floatablePos[ end ] ) / 2;
 	anchorOffset = ( start === far ? -1 : 1 ) * ( anchorPos - popupPos[ start ] );
 
 	// If the anchor is less than 2*anchorSize from either edge, move the popup to make more space
