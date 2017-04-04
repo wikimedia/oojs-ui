@@ -198,3 +198,78 @@
 	@svg: '@{url-without-extension}.svg';
 	background-image: -webkit-linear-gradient( transparent, transparent ), e( '/* @embed */' ) url( @svg );
 }
+
+.mw-frameless-button-colored( @child, @link, @hover, @active, @focus ) { // following CSS Pseudo Classes
+	> .@{child} {
+		color: @link;
+	}
+
+	> @{child}:hover {
+		color: @hover;
+	}
+
+	> @{child}:active,
+	> @{child}:active:focus,
+	&.oo-ui-buttonElement-pressed > @{child} {
+		color: @active;
+		box-shadow: none;
+	}
+}
+
+.mw-framed-button-colored( @child, @link, @hover, @border-color-hover, @active, @focus ) {
+	> @{child} {
+		color: @link;
+	}
+
+	> @{child}:hover {
+		background-color: @hover;
+		border-color: @border-color-hover;
+	}
+
+	> @{child}:active,
+	> @{child}:active:focus,
+	&.oo-ui-buttonElement-pressed > @{child},
+	&.oo-ui-buttonElement-active > @{child},
+	&.oo-ui-popupToolGroup-active > @{child} {
+		background-color: lighten( @active, 60% );
+		color: @active;
+		border-color: @active;
+		box-shadow: none;
+	}
+
+	> @{child}:focus {
+		border-color: @focus;
+		box-shadow: inset 0 0 0 1px @focus;
+		outline: 0;
+	}
+}
+
+.mw-framed-primary-button-colored( @child, @link, @hover, @active, @focus ) {
+	> @{child} {
+		color: @color-default-light;
+		background-color: @link;
+		border-color: @link;
+	}
+
+	> @{child}:hover {
+		background-color: @hover;
+		border-color: @hover;
+	}
+
+	> @{child}:active,
+	> @{child}:active:focus,
+	&.oo-ui-buttonElement-pressed > @{child},
+	&.oo-ui-buttonElement-active > @{child},
+	&.oo-ui-popupToolGroup-active > @{child} {
+		color: @color-default-light;
+		background-color: @active;
+		border-color: @active;
+		box-shadow: none;
+	}
+
+	> @{child}:focus {
+		border-color: @focus;
+		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-default-light;
+		outline: 0;
+	}
+}

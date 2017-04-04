@@ -311,6 +311,10 @@
 				margin-right: 1.75em;
 			}
 		}
+
+		&:not( .oo-ui-indicatorElement ) .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
+			margin: 0 0.5em;
+		}
 	}
 
 	&-header {
@@ -348,6 +352,11 @@
 				left: 0;
 			}
 		}
+	}
+
+	&:not( .oo-ui-labelElement ):not( .oo-ui-iconElement ) .oo-ui-indicatorElement-indicator {
+		// Override earlier fading of the indicator if it's the only thing in the button
+		opacity: 1;
 	}
 
 	.oo-ui-toolGroup-tools {
@@ -413,6 +422,21 @@
 			&:active {
 				background-color: @background-color-tool-active;
 			}
+		}
+	}
+
+	&.oo-ui-flaggedElement {
+		&-progressive {
+			.mw-framed-primary-button-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @color-progressive-hover, @color-progressive-active, @color-progressive-focus );
+		}
+
+		// Deprecated in 0.16.1, see T110555
+		&-constructive {
+			.mw-framed-primary-button-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @color-progressive-hover, @color-progressive-active, @color-progressive-focus );
+		}
+
+		&-destructive {
+			.mw-framed-primary-button-colored( ~'.oo-ui-popupToolGroup-handle', @color-destructive, @color-destructive-hover, @color-destructive-active, @color-destructive-focus );
 		}
 	}
 }

@@ -384,6 +384,72 @@
 		}
 	}
 
+	&.oo-ui-flaggedElement {
+		&-progressive {
+			> .oo-ui-popupToolGroup-handle {
+				border: 1px solid @progressive-border;
+				.oo-ui-vertical-gradient( @progressive-gradient-start, @progressive-gradient-end );
+
+				&:hover,
+				&:focus {
+					border-color: @progressive-border-selected;
+				}
+			}
+
+			&.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:active,
+			&.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
+				border: 1px solid @progressive-border;
+				.oo-ui-vertical-gradient( @progressive-gradient-end, @progressive-gradient-start );
+			}
+		}
+
+		&-constructive {
+			> .oo-ui-popupToolGroup-handle {
+				border: 1px solid @constructive-border;
+				.oo-ui-vertical-gradient( @constructive-gradient-start, @constructive-gradient-end );
+
+				&:hover,
+				&:focus {
+					border-color: @constructive-border-selected;
+				}
+			}
+
+			&.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:active,
+			&.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
+				border: 1px solid @constructive-border;
+				.oo-ui-vertical-gradient( @constructive-gradient-end, @constructive-gradient-start );
+			}
+		}
+
+		&-destructive > .oo-ui-popupToolGroup-handle {
+			color: @destructive;
+		}
+	}
+
+	.oo-ui-buttonGroupWidget & {
+		margin-left: 0;
+
+		> .oo-ui-popupToolGroup-handle {
+			height: 2.3em;
+			border-radius: 0;
+			margin-left: -2px;
+		}
+
+		&:first-child > .oo-ui-popupToolGroup-handle {
+			border-bottom-left-radius: 0.3em;
+			border-top-left-radius: 0.3em;
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0.5em;
+			& > .oo-ui-popupToolGroup-handle {
+				border-bottom-right-radius: 0.3em;
+				border-top-right-radius: 0.3em;
+			}
+		}
+	}
+
 	&-handle {
 		.oo-ui-indicatorElement-indicator {
 			width: 0.9375em;
