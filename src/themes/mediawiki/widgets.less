@@ -220,7 +220,6 @@
 				background-color: transparent;
 				color: @color-emphasized;
 				vertical-align: middle;
-
 				.mw-placeholder();
 
 				&:focus {
@@ -232,20 +231,18 @@
 	}
 
 	&.oo-ui-iconElement &-handle {
-		padding-left: @size-icon + 2 * 0.3em;
+		padding-left: @padding-start-input-text-icon-label;
 
 		> .oo-ui-iconElement-icon {
-			left: 0;
-			margin: 0 0.3em;
+			left: @padding-start-input-text-icon;
 		}
 	}
 
 	&.oo-ui-indicatorElement &-handle {
-		padding-right: @size-indicator + 2 * 0.775em;
+		padding-right: @size-indicator + 2 * @padding-horizontal-default;
 
 		> .oo-ui-indicatorElement-indicator {
-			right: 0;
-			margin: 0 0.775em;
+			right: @padding-horizontal-default; // Use `@padding…` as `right` value
 		}
 	}
 
@@ -513,25 +510,30 @@
 	.oo-ui-inline-spacing( 0.5em );
 
 	&-handle {
-		padding: @padding-widget-default 0;
-		height: @size-default;
-		line-height: 1.275;
 		border: @border-default;
 		border-radius: @border-radius-default;
-
-		.oo-ui-indicatorElement-indicator {
-			right: 0;
-			margin: 0 0.775em;
-		}
+		padding: @padding-default;
+		line-height: @line-height-reset;
 
 		.oo-ui-iconElement-icon {
-			left: 0.25em;
-			margin: 0 0.3em;
+			left: @padding-start-input-text-icon;
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			right: @padding-horizontal-default;
 		}
 
 		.oo-ui-labelElement-label {
-			margin: 0 1em;
+			line-height: @line-height-widget-singleline;
 		}
+	}
+
+	&.oo-ui-iconElement .oo-ui-dropdownWidget-handle {
+		padding-left: @padding-start-input-text-icon-label;
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-dropdownWidget-handle .oo-ui-labelElement-label {
+		margin-right: @size-indicator + 2 * @padding-horizontal-default;
 	}
 
 	&.oo-ui-widget-enabled {
@@ -602,14 +604,6 @@
 			opacity: @opacity-disabled-indicator;
 		}
 	}
-
-	&.oo-ui-iconElement .oo-ui-dropdownWidget-handle .oo-ui-labelElement-label {
-		margin-left: 3em;
-	}
-
-	&.oo-ui-indicatorElement .oo-ui-dropdownWidget-handle .oo-ui-labelElement-label {
-		margin-right: 2em;
-	}
 }
 
 .theme-oo-ui-dropdownInputWidget () {
@@ -630,7 +624,7 @@
 		.oo-ui-box-sizing( border-box );
 		border: @border-default;
 		border-radius: @border-radius-default;
-		padding: 0.5em 1em;
+		padding: @padding-default;
 		font-size: inherit;
 		font-family: inherit;
 		vertical-align: middle;
@@ -646,7 +640,7 @@
 			background-position: right 1.75em center;
 			width: e( 'calc( 100% + 1em )' );
 			height: @size-default;
-			padding: 0 0 0 1em;
+			padding: 0 0 0 @padding-horizontal-default;
 		}
 	}
 
@@ -1295,20 +1289,18 @@
 	}
 
 	&-info {
-		height: 2.4em;
 		background-color: @background-color-default;
 		border: @border-default;
 		border-radius: @border-radius-default 0 0 @border-radius-default;
 		border-width: 1px 0 1px 1px;
 
 		> .oo-ui-iconElement-icon {
-			left: 0;
-			margin-left: 0.5em;
+			left: @padding-start-input-text-icon;
+			margin-left: -1px; // Address extra `border-left` pixel above
 		}
 
 		> .oo-ui-indicatorElement-indicator {
-			right: 0;
-			margin-right: 0.775em;
+			right: @padding-horizontal-default;
 		}
 	}
 
@@ -1316,10 +1308,10 @@
 		.oo-ui-box-sizing( border-box );
 		display: block;
 		right: @size-icon + 0.5em; // With close, no indicator
-		padding-top: @padding-top-input;
-		padding-left: @padding-widget-default;
-		padding-bottom: @padding-widget-default;
-		line-height: 1.172em;
+		padding-top: @padding-top-default;
+		padding-left: @padding-horizontal-input-text;
+		padding-bottom: @padding-bottom-default;
+		line-height: @line-height-widget-singleline;
 		white-space: nowrap;
 	}
 
@@ -1331,8 +1323,8 @@
 	}
 
 	&-clearButton {
-		top: -1px; // Addresses `border-width`
-		right: 0; // With close, no indicator
+		top: -1px; // Address `border-width`
+		right: @padding-start-input-text-icon; // With close, no indicator
 		min-width: @size-icon-min;
 		width: @size-icon;
 		margin-right: 0;
@@ -1350,14 +1342,14 @@
 
 	&.oo-ui-iconElement {
 		.oo-ui-selectFileWidget-label {
-			left: @size-icon + 1em;
+			left: @padding-start-input-text-icon-label;
 		}
 	}
 
 	// With close, with indicator:
 	&.oo-ui-indicatorElement {
 		.oo-ui-selectFileWidget-label {
-			right: @size-indicator + 1.55em - 0.4em + @size-icon + 0.5em;
+			right: @size-icon + @size-indicator + @padding-horizontal-default;
 			padding-left: 0;
 		}
 
@@ -1393,6 +1385,14 @@
 			line-height: @line-height-form-element;
 			overflow: inherit;
 			white-space: normal;
+		}
+
+		.oo-ui-selectFileWidget-fileName {
+			padding-right: @padding-start-input-text-icon-label;
+		}
+
+		.oo-ui-selectFileWidget-clearButton {
+			top: 0; // Reset from SelectFileWidget without drop target
 		}
 	}
 
@@ -1440,6 +1440,12 @@
 			> .oo-ui-indicatorElement-indicator {
 				opacity: @opacity-disabled-indicator;
 			}
+		}
+	}
+
+	&-notsupported.oo-ui-selectFileWidget-dropTarget {
+		.oo-ui-selectFileWidget-label {
+			padding: 1em @padding-horizontal-default;
 		}
 	}
 
@@ -1505,15 +1511,15 @@
 		color: @color-emphasized;
 		border: @border-default;
 		border-radius: @border-radius-default;
-		padding: @padding-top-input @padding-widget-default @padding-widget-default;
+		padding: @padding-input-text;
 	}
 
 	input {
-		line-height: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
+		line-height: @line-height-widget-singleline;
 	}
 
 	textarea {
-		line-height: 1.275;
+		line-height: @line-height-widget-multiline;
 	}
 
 	.oo-ui-pendingElement-pending {
@@ -1603,46 +1609,43 @@
 	&.oo-ui-iconElement {
 		input,
 		textarea {
-			padding-left: @size-icon + 1em;
+			padding-left: @padding-start-input-text-icon-label;
 		}
 
 		.oo-ui-iconElement-icon {
-			left: 0;
+			left: @padding-start-input-text-icon;
 			max-height: @size-default; // Use `@size-default` as `max-height` for multiline TextInputWidgets
-			margin-left: 0.5em;
-			background-position: right center;
 		}
 	}
 
 	&.oo-ui-indicatorElement {
 		input,
 		textarea {
-			padding-right: @size-indicator + 1.55em;
+			padding-right: @size-indicator + 2 * @padding-horizontal-input-text;
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			height: 100%;
 			max-height: @size-default;
-			margin: 0 0.775em;
+			margin-right: @padding-horizontal-default;
 		}
 	}
 
 	> .oo-ui-labelElement-label {
 		color: @color-subtle;
-		margin-top: 1px; // making up for `border` on `input`
-		padding: @padding-top-input @padding-widget-default @padding-widget-default; // same as `input` above
-		line-height: 1.172em;
+		margin-top: 1px; // Address `border` on `input`
+		padding: @padding-top-default 0 @padding-bottom-default @padding-horizontal-input-text;
+		line-height: @line-height-widget-singleline;
 	}
 
 	&-labelPosition-after {
 		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
-			margin-right: @size-indicator + 1.55em - 0.4em;
+			margin-right: @size-indicator + @padding-horizontal-default + @padding-horizontal-input-text;
 		}
 	}
 
 	&-labelPosition-before {
 		&.oo-ui-iconElement > .oo-ui-labelElement-label {
-			margin-left: @size-icon + 1em - 0.4em;
+			padding-left: @padding-start-input-text-icon-label;
 		}
 	}
 }
