@@ -480,7 +480,8 @@
 }
 
 .theme-oo-ui-decoratedOptionWidget () {
-	padding: 0.5em 2em 0.5em 3em;
+	padding: @padding-menu;
+	line-height: @line-height-reset;
 
 	&.oo-ui-iconElement .oo-ui-iconElement-icon,
 	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
@@ -488,12 +489,20 @@
 		height: 100%;
 	}
 
-	&.oo-ui-iconElement .oo-ui-iconElement-icon {
-		left: 0.5em;
+	&.oo-ui-iconElement {
+		padding-left: @padding-start-input-text-icon-label;
+
+		.oo-ui-iconElement-icon {
+			left: @padding-start-input-text-icon;
+		}
+	}
+
+	.oo-ui-labelElement-label {
+		line-height: @line-height-widget-singleline;
 	}
 
 	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		right: 0.5em;
+		right: @padding-horizontal-default;
 	}
 
 	&.oo-ui-widget-disabled {
@@ -502,6 +511,10 @@
 			opacity: @opacity-disabled;
 		}
 	}
+}
+
+.theme-oo-ui-draggableElement{
+	padding: @padding-menu-large;
 }
 
 .theme-oo-ui-dropdownWidget () {
@@ -648,7 +661,7 @@
 		font-size: inherit;
 		font-family: inherit;
 		height: 1.5em;
-		padding: 0.5em 1em;
+		padding: @padding-bottom-menu @padding-horizontal-default; // `@padding-bottom-menu` used as vertical `padding` here as we don't have a lot of layout leverage on `option`
 	}
 
 	&.oo-ui-widget-enabled {
@@ -715,7 +728,6 @@
 .theme-oo-ui-labelWidget () {}
 
 .theme-oo-ui-menuOptionWidget () {
-	padding: 0.5em 1em;
 	.oo-ui-transition(
 		background-color @transition-ease-quick,
 		color @transition-ease-quick
@@ -740,11 +752,17 @@
 			color: @color-progressive;
 		}
 	}
+
+	// Reset from DecoratedOptionWidget. FIXME: Remove after T87835 is fixed
+	&.oo-ui-iconElement {
+		padding-left: @padding-horizontal-default;
+	}
 }
 
 .theme-oo-ui-menuSectionOptionWidget () {
 	color: @color-subtle;
-	padding: 0.33em 0.75em;
+	padding: @padding-top-menu @padding-horizontal-default @padding-vertical-label;
+	font-weight: bold;
 }
 
 .theme-oo-ui-menuSelectWidget () {
@@ -834,8 +852,7 @@
 }
 
 .theme-oo-ui-outlineOptionWidget () {
-	font-size: 1.1em;
-	padding: 0.75em;
+	padding: @padding-menu-large;
 	.oo-ui-transition(
 		background-color @transition-ease-quick,
 		color @transition-ease-quick
@@ -856,12 +873,6 @@
 		color: @color-progressive;
 	}
 
-	.oo-ui-iconElement-icon {
-		// Undoes the parent change, because the theme's icons expect to be
-		// 24px, and don't scale incredibly well.
-		font-size: 90.90909%;
-	}
-
 	&.oo-ui-indicatorElement {
 		.oo-ui-labelElement-label {
 			padding-right: 1.5em;
@@ -872,8 +883,8 @@
 		}
 	}
 
-	&-level-0.oo-ui-iconElement {
-		padding-left: 2.571em; // equals ≈`36px` at base `font-size: 14px`, see `outlineOptionWidget` rule above
+	.oo-ui-labelElement-label {
+		font-size: 1.1em;
 	}
 
 	&-level-1 {
