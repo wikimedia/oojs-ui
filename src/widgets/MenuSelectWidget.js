@@ -39,6 +39,7 @@
  * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu.
  * @cfg {boolean} [hideOnChoose=true] Hide the menu when the user chooses an option.
  * @cfg {boolean} [filterFromInput=false] Filter the displayed options from the input
+ * @cfg {boolean} [highlightOnFilter] Highlight the first result when filtering
  */
 OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	// Configuration initialization
@@ -58,6 +59,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.$widget = config.widget ? config.widget.$element : null;
 	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
 	this.onInputEditHandler = OO.ui.debounce( this.updateItemVisibility.bind( this ), 100 );
+	this.highlightOnFilter = !!config.highlightOnFilter;
 
 	// Initialization
 	this.$element
@@ -134,6 +136,7 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
  */
 OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 	var i, item, visible, section, sectionEmpty,
+		firstItemFound = false,
 		anyVisible = false,
 		len = this.items.length,
 		showAll = !this.isVisible(),
@@ -155,6 +158,11 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 			anyVisible = anyVisible || visible;
 			sectionEmpty = sectionEmpty && !visible;
 			item.toggle( visible );
+			if ( this.highlightOnFilter && visible && !firstItemFound ) {
+				// Highlight the first item in the list
+				this.highlightItem( item );
+				firstItemFound = true;
+			}
 		}
 	}
 	// Process the final section
