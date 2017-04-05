@@ -22,9 +22,8 @@
     "jenkins": "npm test && jsduck && npm run postdoc"
   },
   "dependencies": {
-    "es5-shim": "4.5.8",
     "jquery": "1.11.3",
-    "oojs": "1.1.10"
+    "oojs": "2.0.0"
   },
   "devDependencies": {
     "eslint-config-wikimedia": "0.3.0",
