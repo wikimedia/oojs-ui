@@ -530,6 +530,7 @@
 	.oo-ui-inline-spacing( 0.5em );
 
 	&-handle {
+		min-height: @size-default; // Address label-less widgets
 		border: @border-default;
 		border-radius: @border-radius-default;
 		padding: @padding-default;
@@ -552,8 +553,8 @@
 		padding-left: @padding-start-input-text-icon-label;
 	}
 
-	&.oo-ui-indicatorElement .oo-ui-dropdownWidget-handle .oo-ui-labelElement-label {
-		margin-right: @size-indicator + 2 * @padding-horizontal-default;
+	&.oo-ui-indicatorElement .oo-ui-dropdownWidget-handle {
+		padding-right: @size-indicator + @padding-horizontal-default;
 	}
 
 	&.oo-ui-widget-enabled {
