@@ -19,11 +19,14 @@ class ComboBoxInputWidget extends TextInputWidget {
 	 *   `[ 'data' => …, 'label' => … ]`
 	 */
 	public function __construct( array $config = [] ) {
+		// ComboBoxInputWidget shouldn't support `multiline`
+		$config['multiline'] = false;
 
 		// Parent constructor
 		parent::__construct( $config );
 
 		// Initialization
+		$this->forceAutocomplete = isset( $config['autocomplete'] ) ? $config['autocomplete'] : false;
 		$this->downIndicator = new IndicatorWidget( [ 'indicator' => 'down' ] );
 		$this->datalist = new Tag( 'datalist' );
 		$this->datalist->setAttributes( [ 'id' => Tag::generateElementId() ] );
@@ -65,6 +68,12 @@ class ComboBoxInputWidget extends TextInputWidget {
 			$o[] = [ 'data' => $data, 'label' => $label ];
 		}
 		$config['options'] = $o;
+		// JS ComboBoxInputWidget has `autocomplete: false` in the defaults. Make sure
+		// explicitly passing `autocomplete: true` overrides that. Doing so doesn't make
+		// much sense, this is just to make the tests happy.
+		if ( $this->forceAutocomplete ) {
+			$config['autocomplete'] = true;
+		}
 		return parent::getConfig( $config );
 	}
 }
