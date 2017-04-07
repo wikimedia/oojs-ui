@@ -162,10 +162,10 @@ def parse_file filename
 				data[:static] = true
 			when 'abstract'
 				data[:abstract] = true
-			when 'ignore'
+			when 'ignore', 'inheritdoc'
 				ignore = true
 			when 'inheritable', 'deprecated', 'singleton', 'throws',
-				 'chainable', 'fires', 'localdoc', 'inheritdoc', 'member',
+				 'chainable', 'fires', 'localdoc', 'member',
 				 'see', 'uses'
 				# skip
 			else

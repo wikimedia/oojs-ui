@@ -215,7 +215,9 @@ OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {
 // Override method visibility hints from ButtonElement
 /**
  * @method setActive
+ * @inheritdoc
  */
 /**
  * @method isActive
+ * @inheritdoc
  */
