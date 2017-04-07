@@ -21,6 +21,14 @@ def cleanup_class_name class_name
 	class_name.sub(/OO\.ui\./, '').sub(/mixin\./, '')
 end
 
+def extract_default_from_description item
+	m = item[:description].match(/\(default: (.+?)\)\s*?$/)
+	return if !m
+	# modify `item` in-place
+	item[:default] = m[1]
+	item[:description] = m.pre_match
+end
+
 def parse_file filename
 	if filename !~ /\.(php|js)$/
 		return nil
@@ -74,7 +82,11 @@ def parse_file filename
 
 			m = comment_line.match(/^@(\w+)[ \t]*(.*)/)
 			if !m
+				# this is a continuation of previous item's description
 				previous_item[:description] << comment_line + "\n"
+				if filetype == :php
+					extract_default_from_description(previous_item)
+				end
 				next
 			end
 
@@ -129,6 +141,9 @@ def parse_file filename
 					else
 						data[:params] << {name: name, type: cleanup_class_name(type), description: description || ''}
 						previous_item = data[:params][-1]
+					end
+					if filetype == :php
+						extract_default_from_description(previous_item)
 					end
 				end
 			when 'cfg' # JS only

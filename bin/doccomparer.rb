@@ -58,14 +58,10 @@ def smart_compare_process val, type
 			val[:params].delete 'element' # PHP only
 		end
 		val[:config].each_pair{|_k, v|
-			default = v.delete :default
-			v[:description] << " (default: #{default})" if default
 			v[:description] = sanitize_description v[:description]
 			v[:type] = sanitize_description v[:type]
 		}
 		val[:params].each_pair{|_k, v|
-			default = v.delete :default
-			v[:description] << " (default: #{default})" if default
 			v[:description] = sanitize_description v[:description]
 			v[:type] = sanitize_description v[:type]
 		}
