@@ -4,7 +4,7 @@
 
 .theme-oo-ui-buttonElement () {
 	> .oo-ui-buttonElement-button {
-		color: #333;
+		color: @color-default;
 	}
 
 	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
@@ -39,7 +39,7 @@
 			}
 
 			> .oo-ui-labelElement-label {
-				color: #333;
+				color: @color-default;
 			}
 		}
 
@@ -54,7 +54,7 @@
 		// Support <input> from ButtonInputWidget
 		> input.oo-ui-buttonElement-button {
 			padding-left: 0.25em;
-			color: #333;
+			color: @color-default;
 
 			&:hover,
 			&:focus {
@@ -197,7 +197,7 @@
 				// Opacity causes 1px measurement errors in Chrome, so force GPU rendering
 				.oo-ui-force-gpu-composite-layer();
 				box-shadow: none;
-				color: #333;
+				color: @color-default;
 				background: #eee;
 				border-color: #ccc;
 
