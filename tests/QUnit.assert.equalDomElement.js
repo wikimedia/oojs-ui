@@ -95,8 +95,19 @@
 		}
 		// Classes for custom styling of PHP widgets
 		if ( summary.attributes.class !== undefined ) {
+			// Ignore the extra class on PHP TextInputWidget
 			summary.attributes.class =
 				summary.attributes.class.replace( /oo-ui-textInputWidget-php /g, '' );
+
+			// Fake out infused PHP DropdownInputWidget's $input
+			if ( summary.attributes.class.match( /oo-ui-element-hidden.*oo-ui-inputWidget-input/ ) ) {
+				summary.children = [];
+				summary.attributes.class = 'oo-ui-inputWidget-input';
+				summary.type = 'input';
+				summary.attributes.type = 'hidden';
+				summary.attributes.readonly = false;
+				summary.attributes.checked = false;
+			}
 		}
 
 		return summary;

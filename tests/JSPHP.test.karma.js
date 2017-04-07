@@ -17,8 +17,8 @@ QUnit.module( 'JSPHP' );
 		}
 	}
 
-	function makeTest( theme, klassName, tests, output ) {
-		QUnit.test( theme + ': ' + klassName, tests.length * 2, function ( assert ) {
+	function makeTest( theme, klassName, infuseOnly, tests, output ) {
+		QUnit.test( theme + ': ' + klassName, tests.length * ( infuseOnly ? 1 : 2 ), function ( assert ) {
 			var test, config, instance, infused, $fromPhp, i, testName;
 			OO.ui.theme = themes[ theme ];
 			for ( i = 0; i < tests.length; i++ ) {
@@ -32,7 +32,9 @@ QUnit.module( 'JSPHP' );
 				$( 'body' ).append( instance.$element, $fromPhp );
 
 				testName = JSON.stringify( test.config );
-				assert.equalDomElement( instance.$element[ 0 ], $fromPhp[ 0 ], testName );
+				if ( !infuseOnly ) {
+					assert.equalDomElement( instance.$element[ 0 ], $fromPhp[ 0 ], testName );
+				}
 
 				infused = OO.ui.infuse( $fromPhp[ 0 ] );
 
@@ -52,7 +54,8 @@ QUnit.module( 'JSPHP' );
 			makeTest(
 				theme,
 				klassName,
-				testSuiteConfigs[ klassName ],
+				testSuiteConfigs[ klassName ].infuseonly,
+				testSuiteConfigs[ klassName ].tests,
 				testSuitePHPOutput[ theme ][ klassName ]
 			);
 		}

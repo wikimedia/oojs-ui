@@ -68,7 +68,7 @@
 			foreach ( $themes as $theme ) {
 				OOUI\Theme::setSingleton( new_OOUI( $theme ) );
 				foreach ( $testSuite as $className => $tests ) {
-					foreach ( $tests as $index => $test ) {
+					foreach ( $tests['tests'] as $index => $test ) {
 						// Unstub placeholders
 						$config = $test['config'];
 						array_walk_recursive( $config, 'unstub' );

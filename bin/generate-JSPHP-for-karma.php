@@ -28,7 +28,7 @@ $themes = [ 'ApexTheme', 'MediaWikiTheme' ];
 foreach ( $themes as $theme ) {
 	OOUI\Theme::setSingleton( new_OOUI( $theme ) );
 	foreach ( $testSuite as $className => $tests ) {
-		foreach ( $tests as $test ) {
+		foreach ( $tests['tests'] as $test ) {
 			// Unstub placeholders
 			$config = $test['config'];
 			array_walk_recursive( $config, 'unstub' );
