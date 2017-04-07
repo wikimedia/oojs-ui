@@ -22,6 +22,17 @@
 		}
 	}
 
+	&-narrow .oo-ui-toolbar-bar:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 3.125em;
+		left: 0;
+		width: 100%;
+		height: 0;
+		border-bottom: @border-toolbar;
+	}
+
 	&-actions {
 		> .oo-ui-buttonElement.oo-ui-labelElement,
 		> .oo-ui-buttonElement.oo-ui-indicatorElement,
