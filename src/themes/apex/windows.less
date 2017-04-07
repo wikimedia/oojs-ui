@@ -281,14 +281,14 @@
 		background-color: rgba( 255, 255, 255, 0.5 );
 		opacity: 0;
 
-		.oo-ui-transition(opacity @medium-ease);
+		.oo-ui-transition( opacity @medium-ease );
 
 		> .oo-ui-window-frame {
 			background-color: #fff;
 
 			opacity: 0;
-			.oo-ui-transform(scale(0.5));
-			.oo-ui-transition(all @medium-ease);
+			.oo-ui-transform( scale( 0.5 ) );
+			.oo-ui-transition( all @medium-ease );
 		}
 
 		&.oo-ui-window-setup {
@@ -300,7 +300,7 @@
 			> .oo-ui-window-frame {
 				// Fade frame
 				opacity: 1;
-				.oo-ui-transform(scale(1));
+				.oo-ui-transform( scale( 1 ) );
 			}
 		}
 	}
@@ -309,7 +309,7 @@
 		top: 1em;
 		bottom: 1em;
 		max-height: 100%;
-		max-height: e( 'calc(100% - 2em)' );
+		max-height: e( 'calc( 100% - 2em )' );
 		border: 1px solid #ccc;
 		border-radius: 0.5em;
 		box-shadow: 0 0.2em 1em rgba( 0, 0, 0, 0.3 );
