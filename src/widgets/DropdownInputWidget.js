@@ -89,8 +89,12 @@ OO.ui.DropdownInputWidget.prototype.onMenuSelect = function ( item ) {
  * @inheritdoc
  */
 OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
+	var selected;
 	value = this.cleanUpValue( value );
 	this.dropdownWidget.getMenu().selectItemByData( value );
+	// Only allow setting values that are actually present in the dropdown
+	selected = this.dropdownWidget.getMenu().getSelectedItem();
+	value = selected ? selected.getData() : '';
 	OO.ui.DropdownInputWidget.parent.prototype.setValue.call( this, value );
 	return this;
 };
