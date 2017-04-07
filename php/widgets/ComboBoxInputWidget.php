@@ -19,22 +19,19 @@ class ComboBoxInputWidget extends TextInputWidget {
 	 *   `[ 'data' => …, 'label' => … ]`
 	 */
 	public function __construct( array $config = [] ) {
-		// Config initialization
-		$config = array_merge( [
-			'indicator' => 'down',
-		], $config );
 
 		// Parent constructor
 		parent::__construct( $config );
 
 		// Initialization
+		$this->downIndicator = new IndicatorWidget( [ 'indicator' => 'down' ] );
 		$this->datalist = new Tag( 'datalist' );
 		$this->datalist->setAttributes( [ 'id' => Tag::generateElementId() ] );
 		$this->input->setAttributes( [ 'list' => $this->datalist->getAttribute( 'id' ) ] );
 
 		$this->setOptions( isset( $config['options'] ) ? $config['options'] : [] );
 		$this->addClasses( [ 'oo-ui-comboBoxInputWidget', 'oo-ui-comboBoxInputWidget-php' ] );
-		$this->appendContent( $this->datalist );
+		$this->appendContent( $this->downIndicator, $this->datalist );
 	}
 
 	/**
