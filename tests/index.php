@@ -46,7 +46,7 @@
 	<div id="JSPHPTestSuite" style="display: none;">
 		<?php
 			// @codingStandardsIgnoreStart
-			function new_OOUI( $class, $config = array() ) {
+			function new_OOUI( $class, $config = [] ) {
 				// @codingStandardsIgnoreEnd
 				$class = "OOUI\\" . $class;
 				return new $class( $config );

@@ -16,7 +16,7 @@ class ComboBoxInputWidget extends TextInputWidget {
 	/**
 	 * @param array $config Configuration options
 	 * @param array[] $config['options'] Array of menu options in the format
-	 *   `array( 'data' => …, 'label' => … )`
+	 *   `[ 'data' => …, 'label' => … ]`
 	 */
 	public function __construct( array $config = [] ) {
 		// Config initialization
@@ -41,7 +41,7 @@ class ComboBoxInputWidget extends TextInputWidget {
 	 * Set the options available for this input.
 	 *
 	 * @param array[] $options Array of menu options in the format
-	 *   `array( 'data' => …, 'label' => … )`
+	 *   `[ 'data' => …, 'label' => … ]`
 	 * @return $this
 	 */
 	public function setOptions( $options ) {

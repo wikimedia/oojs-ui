@@ -16,7 +16,7 @@ class DropdownInputWidget extends InputWidget {
 	/**
 	 * @param array $config Configuration options
 	 * @param array[] $config['options'] Array of menu options in the format
-	 *   `array( 'data' => …, 'label' => … )`
+	 *   `[ 'data' => …, 'label' => … ]`
 	 */
 	public function __construct( array $config = [] ) {
 		// Parent constructor
@@ -48,7 +48,7 @@ class DropdownInputWidget extends InputWidget {
 	 * Set the options available for this input.
 	 *
 	 * @param array[] $options Array of menu options in the format
-	 *   `array( 'data' => …, 'label' => … )`
+	 *   `[ 'data' => …, 'label' => … ]`
 	 * @return $this
 	 */
 	public function setOptions( $options ) {

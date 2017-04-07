@@ -7,7 +7,7 @@ $testSuite = json_decode( $testSuiteJSON, true );
 $testSuiteOutput = [];
 
 // @codingStandardsIgnoreStart
-function new_OOUI( $class, $config = array() ) {
+function new_OOUI( $class, $config = [] ) {
 	// @codingStandardsIgnoreEnd
 	$class = "OOUI\\" . $class;
 	return new $class( $config );

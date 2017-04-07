@@ -33,7 +33,6 @@ def sanitize_description text
 	cleanup_class_name(text)
 		.gsub('null and undefined', 'null')
 		.gsub('undefined and null', 'null')
-		.gsub('array()', '[]')
 		.gsub('jQuery|string|Function', 'string')
 		.gsub('jQuery', 'Tag')
 		.gsub('string|Function', 'string')

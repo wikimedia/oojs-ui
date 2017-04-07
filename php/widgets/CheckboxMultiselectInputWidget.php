@@ -35,7 +35,7 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 	/**
 	 * @param array $config Configuration options
 	 * @param array[] $config['options'] Array of menu options in the format
-	 *   `array( 'data' => …, 'label' => …, 'disabled' => … )`
+	 *   `[ 'data' => …, 'label' => …, 'disabled' => … ]`
 	 */
 	public function __construct( array $config = [] ) {
 		// Parent constructor
@@ -102,7 +102,7 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 	 * Set the options available for this input.
 	 *
 	 * @param array[] $options Array of menu options in the format
-	 *   `array( 'data' => …, 'label' => …, 'disabled' => … )`
+	 *   `[ 'data' => …, 'label' => …, 'disabled' => … ]`
 	 * @return $this
 	 */
 	public function setOptions( $options ) {
