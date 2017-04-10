@@ -133,14 +133,6 @@ OO.ui.ActionSet.static.specialFlags = [ 'safe', 'primary' ];
  */
 
 /**
- * @event resize
- *
- * A 'resize' event is emitted when an action widget is resized.
- *
- * @param {OO.ui.ActionWidget} action Action that was resized
- */
-
-/**
  * @event add
  *
  * An 'add' event is emitted when actions are {@link #method-add added} to the action set.
@@ -378,11 +370,6 @@ OO.ui.ActionSet.prototype.add = function ( actions ) {
 			click: [ 'emit', 'click', action ],
 			toggle: [ 'onActionChange' ]
 		} );
-		action.on( 'resizePrivate', function ( action ) {
-			if ( this.emit( 'resize', action ) ) {
-				OO.ui.warnDeprecation( 'ActionSet: resize event is deprecated. See T129162.' );
-			}
-		}, [ action ], this );
 		this.list.push( action );
 	}
 	this.organized = false;
