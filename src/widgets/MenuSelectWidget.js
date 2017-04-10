@@ -37,6 +37,7 @@
  *  that toggles the menu's visibility on click, the menu will be hidden then re-shown when the user clicks
  *  that button, unless the button (or its parent widget) is passed in here.
  * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu.
+ * @cfg {jQuery} [$autoCloseIgnore] If these elements are clicked, don't auto-hide the menu.
  * @cfg {boolean} [hideOnChoose=true] Hide the menu when the user chooses an option.
  * @cfg {boolean} [filterFromInput=false] Filter the displayed options from the input
  * @cfg {boolean} [highlightOnFilter] Highlight the first result when filtering
@@ -57,6 +58,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.filterFromInput = !!config.filterFromInput;
 	this.$input = config.$input ? config.$input : config.input ? config.input.$input : null;
 	this.$widget = config.widget ? config.widget.$element : null;
+	this.$autoCloseIgnore = config.$autoCloseIgnore || $( [] );
 	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
 	this.onInputEditHandler = OO.ui.debounce( this.updateItemVisibility.bind( this ), 100 );
 	this.highlightOnFilter = !!config.highlightOnFilter;
@@ -88,8 +90,12 @@ OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.mixin.ClippableElement );
  */
 OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
 	if (
-		!OO.ui.contains( this.$element[ 0 ], e.target, true ) &&
-		( !this.$widget || !OO.ui.contains( this.$widget[ 0 ], e.target, true ) )
+		this.isVisible() &&
+		!OO.ui.contains(
+				this.$element.add( this.$widget ).add( this.$autoCloseIgnore ).get(),
+				e.target,
+				true
+		)
 	) {
 		this.toggle( false );
 	}
