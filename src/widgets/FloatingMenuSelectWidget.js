@@ -18,6 +18,7 @@
  *   Deprecated, omit this parameter and specify `$container` instead.
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$container=inputWidget.$element] Element to render menu under
+ * @cfg {number} [width] Width of the menu
  */
 OO.ui.FloatingMenuSelectWidget = function OoUiFloatingMenuSelectWidget( inputWidget, config ) {
 	// Allow 'inputWidget' parameter and config for backwards compatibility
@@ -28,6 +29,8 @@ OO.ui.FloatingMenuSelectWidget = function OoUiFloatingMenuSelectWidget( inputWid
 
 	// Configuration initialization
 	config = config || {};
+
+	this.width = config.width;
 
 	// Parent constructor
 	OO.ui.FloatingMenuSelectWidget.parent.call( this, config );
@@ -62,7 +65,7 @@ OO.ui.FloatingMenuSelectWidget.prototype.toggle = function ( visible ) {
 
 	if ( change && visible ) {
 		// Make sure the width is set before the parent method runs.
-		this.setIdealSize( this.$container.width() );
+		this.setIdealSize( this.width || this.$container.width() );
 	}
 
 	// Parent method
