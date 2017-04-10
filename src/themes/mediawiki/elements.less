@@ -423,7 +423,9 @@
 .theme-oo-ui-clippableElement () {}
 
 .theme-oo-ui-draggableElement () {
-	&-handle:focus {
+	padding: @padding-menu-large;
+
+	&-handle.oo-ui-widget-enabled:focus {
 		border-radius: @border-radius-default;
 		box-shadow: @box-shadow-widget-focus, 0 0 0 1px @color-progressive;
 		outline: 0;
