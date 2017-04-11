@@ -225,7 +225,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.getMenu = function () {
  * @inheritdoc
  */
 OO.ui.MenuTagMultiselectWidget.prototype.isAllowedData = function ( data ) {
-	return OO.ui.MenuTagMultiselectWidget.parent.prototype.isAllowedData.call( this, data ) ||
+	return OO.ui.MenuTagMultiselectWidget.parent.prototype.isAllowedData.call( this, data ) &&
 		!!this.menu.getItemFromData( data );
 };
 
