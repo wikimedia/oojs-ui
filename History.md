@@ -1,4 +1,49 @@
 # OOjs UI Release History
+## v0.21.0 / 2017-04-11
+### Breaking changes
+* [BREAKING CHANGE] ActionWidget: Remove resize event (IvanFon)
+* [BREAKING CHANGE] dependencies: Drop support for ES3 browsers via es5-shim (James D. Forrester)
+
+### Features
+* Create a TagMultiselectWidget (Moriel Schottlender)
+* FloatingMenuSelectWidget: Add `width` config option (Moriel Schottlender)
+* MenuSelectWidget: Add `config.$autoCloseIgnore` (Roan Kattouw)
+
+### Styles
+* PopupWidget: Center the anchor for vertical (above/below) popups too (Bartosz Dziewoński)
+* MediaWiki theme: Add separator when toolbar items break on narrow (Volker E)
+* MediaWiki theme: Fix IE < 11 icon/indicator position in SelectFileWidget (Volker E)
+* MediaWiki theme: Fix overflow ellipsis on small DropdownWidget sizes (Volker E)
+* MediaWiki theme: Fix selector regression on DraggableElement (Volker E)
+* MediaWiki theme: Fix Toolbars containing ButtonGroups (David Lynch)
+* MediaWiki theme: Replace arrows with chevrons and increase contrast (Volker E)
+* MediaWiki theme: Unify `padding` across widgets and variablize (Volker E)
+* MediaWiki theme: Unify `padding` on ButtonElement (Volker E)
+* MediaWiki theme: Unify `padding` on DecoratedOptionWidget and descendants (Volker E)
+* Follow-up eceb6f20: MediaWiki theme: Remove unused indicator flags (Volker E)
+
+### Code
+* Remove remnants of PHP-5.3-style `array()` literals (Bartosz Dziewoński)
+* ClippableElement: Fix progressive width loss bug (Roan Kattouw)
+* ComboBoxInputWidget: Fix minor JS/PHP differences (Bartosz Dziewoński)
+* ComboBoxInputWidget: Redo the 'down' indicator in PHP (Bartosz Dziewoński)
+* DraggableElement: Only apply focus when widget is not disabled (Moriel Schottlender)
+* DraggableElement: Toggle style on `$handle`, not `$element` (Andrew Green)
+* DropdownInputWidget: Only allow setting values actually in the dropdown (Bartosz Dziewoński)
+* MenuSelectWidget: Highlight the first result when searching (Moriel Schottlender)
+* MessageDialog: Accept proposed size dialog on `getSetupProcess` (Ebrahim Byagowi)
+* TextInputWidget: Reduce unnecessary duplicated CSS output (Volker E)
+* TextInputWidget: Use `.prop()` rather than `.attr()` for 'required' (Bartosz Dziewoński)
+* Apex theme: Align coding style to conventions (Volker E)
+* Apex theme: Simplify color usage through Less variables (Volker E)
+* demos: Remove scaling restrictions (Volker E)
+* docparser: Improve trait/mixin handling (Bartosz Dziewoński)
+* docparser: Properly handle default values in PHP (Bartosz Dziewoński)
+* docs: Add detail to documentation of core.js utilities (Ed Sanders)
+* docs: Minor documentation tweaks (Bartosz Dziewoński)
+* tests: Comparison tests for infusing previously untestable classes (Bartosz Dziewoński)
+
+
 ## v0.20.2 / 2017-03-30
 ### Styles
 * DraggableElement: Fix regression on selectors (Volker E)
