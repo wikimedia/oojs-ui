@@ -172,7 +172,7 @@ OO.ui.mixin.ClippableElement.prototype.isClippedVertically = function () {
 };
 
 /**
- * Set the ideal size. These are the dimensions the element will have when it's not being clipped.
+ * Set the ideal size. These are the dimensions #$clippable will have when it's not being clipped.
  *
  * @param {number|string} [width] Width as a number of pixels or CSS string with unit suffix
  * @param {number|string} [height] Height as a number of pixels or CSS string with unit suffix
@@ -257,7 +257,7 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	} else {
 		this.$clippable.css( {
 			overflowX: '',
-			width: this.idealWidth ? this.idealWidth - extraWidth : '',
+			width: this.idealWidth || '',
 			maxWidth: Math.max( 0, allotedWidth )
 		} );
 	}
@@ -273,7 +273,7 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	} else {
 		this.$clippable.css( {
 			overflowY: '',
-			height: this.idealHeight ? this.idealHeight - extraHeight : '',
+			height: this.idealHeight || '',
 			maxHeight: Math.max( 0, allotedHeight )
 		} );
 	}
