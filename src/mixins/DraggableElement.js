@@ -84,7 +84,7 @@ OO.ui.mixin.DraggableElement.prototype.toggleDraggable = function ( isDraggable 
 	if ( this.draggable !== isDraggable ) {
 		this.draggable = isDraggable;
 
-		this.$element.toggleClass( 'oo-ui-draggableElement-undraggable', !this.draggable );
+		this.$handle.toggleClass( 'oo-ui-draggableElement-undraggable', !this.draggable );
 	}
 };
 
