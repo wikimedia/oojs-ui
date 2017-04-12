@@ -53,9 +53,18 @@ OO.ui.FloatingMenuSelectWidget = function OoUiFloatingMenuSelectWidget( inputWid
 OO.inheritClass( OO.ui.FloatingMenuSelectWidget, OO.ui.MenuSelectWidget );
 OO.mixinClass( OO.ui.FloatingMenuSelectWidget, OO.ui.mixin.FloatableElement );
 
+/* Events */
+
+/**
+ * @event ready
+ *
+ * The menu is ready: it is visible and has been positioned and clipped.
+ */
+
 /* Methods */
 
 /**
+ * @fires ready
  * @inheritdoc
  */
 OO.ui.FloatingMenuSelectWidget.prototype.toggle = function ( visible ) {
@@ -74,6 +83,9 @@ OO.ui.FloatingMenuSelectWidget.prototype.toggle = function ( visible ) {
 
 	if ( change ) {
 		this.togglePositioning( this.isVisible() );
+		if ( visible ) {
+			this.emit( 'ready' );
+		}
 	}
 
 	return this;
