@@ -163,7 +163,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 		throw new Error( 'No infusion data found: ' + id );
 	}
 	try {
-		data = $.parseJSON( data );
+		data = JSON.parse( data );
 	} catch ( _ ) {
 		data = null;
 	}
