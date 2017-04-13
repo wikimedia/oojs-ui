@@ -31,6 +31,9 @@
  * @constructor
  * @param {Object} config Configuration object
  * @cfg {Object} [input] Configuration options for the input widget
+ * @cfg {OO.ui.InputWidget} [inputWidget] An optional input widget. If given, it will
+ *  replace the input widget used in the TagMultiselectWidget. If not given,
+ *  TagMultiselectWidget creates its own.
  * @cfg {boolean} [inputPosition='inline'] Position of the input. Options are:
  * 	- inline: The input is invisible, but exists inside the tag list, so
  * 		the user types into the tag groups to add tags.
@@ -124,10 +127,14 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 		.append( this.$handle );
 
 	if ( this.hasInput ) {
-		this.input = new OO.ui.TextInputWidget( $.extend( {
-			placeholder: config.placeholder,
-			classes: [ 'oo-ui-tagMultiselectWidget-input' ]
-		}, config.input ) );
+		if ( config.inputWidget ) {
+			this.input = config.inputWidget;
+		} else {
+			this.input = new OO.ui.TextInputWidget( $.extend( {
+				placeholder: config.placeholder,
+				classes: [ 'oo-ui-tagMultiselectWidget-input' ]
+			}, config.input ) );
+		}
 		this.input.setDisabled( this.isDisabled() );
 
 		inputEvents = {
