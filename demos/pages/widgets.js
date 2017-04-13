@@ -1373,6 +1373,17 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.TagMultiselectWidget( {
+						allowArbitrary: true,
+						inputPosition: 'outline',
+						inputWidget: new OO.ui.SearchInputWidget()
+					} ),
+					{
+						label: 'TagMultiselectWidget (inputwidget: OO.ui.SearchInputWidget, outline input)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.PopupTagMultiselectWidget( {
 						allowArbitrary: true,
 						icon: 'tag',
