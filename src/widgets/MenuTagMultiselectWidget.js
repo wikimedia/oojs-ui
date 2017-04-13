@@ -222,11 +222,15 @@ OO.ui.MenuTagMultiselectWidget.prototype.getMenu = function () {
 };
 
 /**
- * @inheritdoc
+ * Get the allowed values list
+ *
+ * @return {string[]} Allowed data values
  */
-OO.ui.MenuTagMultiselectWidget.prototype.isAllowedData = function ( data ) {
-	return OO.ui.MenuTagMultiselectWidget.parent.prototype.isAllowedData.call( this, data ) &&
-		!!this.menu.getItemFromData( data );
+OO.ui.MenuTagMultiselectWidget.prototype.getAllowedValues = function () {
+	var menuDatas = this.menu.getItems().map( function ( menuItem ) {
+		return menuItem.getData();
+	} );
+	return this.allowedValues.concat( menuDatas );
 };
 
 /**

@@ -473,11 +473,9 @@ OO.ui.TagMultiselectWidget.prototype.isDuplicateData = function ( data ) {
  * Check whether a given value is allowed to be added
  *
  * @param {string|Object} data Requested value
- * @return {boolean} Value exists in the allowed values list
+ * @return {boolean} Value is allowed
  */
 OO.ui.TagMultiselectWidget.prototype.isAllowedData = function ( data ) {
-	var hash = OO.getHash( data );
-
 	if ( this.allowArbitrary ) {
 		return true;
 	}
@@ -492,7 +490,7 @@ OO.ui.TagMultiselectWidget.prototype.isAllowedData = function ( data ) {
 	// Check with allowed values
 	if (
 		this.getAllowedValues().some( function ( value ) {
-			return hash === OO.getHash( value );
+			return data === value;
 		} )
 	) {
 		return true;

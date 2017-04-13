@@ -43,6 +43,50 @@
 		);
 	} );
 
+	QUnit.test( 'isAllowedData', 5, function ( assert ) {
+		var widget;
+
+		widget = new OO.ui.TagMultiselectWidget( {
+			allowArbitrary: true
+		} );
+		assert.ok(
+			widget.isAllowedData( '123foobar' ),
+			'isAllowedData: allowArbitrary:true, random options are valid'
+		);
+
+		widget = new OO.ui.TagMultiselectWidget( {
+			allowArbitrary: false,
+			allowedValues: [ 'foo', 'bar' ]
+		} );
+
+		assert.ok(
+			!widget.isAllowedData( '123foobar' ),
+			'isAllowedData: allowArbitrary:false, data not in allowedValues is invalid'
+		);
+		assert.ok(
+			widget.isAllowedData( 'foo' ),
+			'isAllowedData: allowArbitrary:false, data in allowedValues valid'
+		);
+
+		widget.addTag( 'foo' );
+		assert.ok(
+			!widget.isAllowedData( 'foo' ),
+			'isAllowedData: allowDuplicates:false, duplicate values are invalid even if they are in allowedValues'
+		);
+
+		widget = new OO.ui.TagMultiselectWidget( {
+			allowArbitrary: false,
+			allowedValues: [ 'foo', 'bar' ],
+			allowDuplicates: true
+		} );
+
+		widget.addTag( 'foo' );
+		assert.ok(
+			widget.isAllowedData( 'foo' ),
+			'isAllowedData: allowDuplicates:true allows duplicate values'
+		);
+	} );
+
 	QUnit.test( 'addTag', 7, function ( assert ) {
 		var widget,
 			getItemDatas = function ( items ) {
@@ -195,9 +239,8 @@
 			'Getting the next item from the first item.'
 		);
 
-		assert.equalDomElement(
-			widget.getNextItem( items[ items.length - 1 ] )[ 0 ],
-			widget.input.$input[ 0 ],
+		assert.ok(
+			widget.getNextItem( items[ items.length - 1 ] ) === widget.input,
 			'Getting the next item from the last item, returns the input.$input element (if inputPosition:inline or inputPosition:outline)'
 		);
 
@@ -219,9 +262,8 @@
 		widget.setValue( [ 'foo', 'bar', 'baz' ] );
 		items = widget.getItems();
 
-		assert.equalDomElement(
-			widget.getPreviousItem( items[ 0 ] )[ 0 ],
-			widget.input.$input[ 0 ],
+		assert.ok(
+			widget.getPreviousItem( items[ 0 ] ) === widget.input,
 			'Getting the previous item from the first item returns the input.$input element (if inputPosition:inline or inputPosition:outline)'
 		);
 		assert.strictEqual(
