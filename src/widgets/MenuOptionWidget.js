@@ -12,9 +12,6 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.MenuOptionWidget = function OoUiMenuOptionWidget( config ) {
-	// Configuration initialization
-	config = $.extend( { icon: 'check' }, config );
-
 	// Parent constructor
 	OO.ui.MenuOptionWidget.parent.call( this, config );
 

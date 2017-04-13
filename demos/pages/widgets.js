@@ -996,8 +996,9 @@ Demo.static.pages.widgets = function ( demo ) {
 									label: 'The fourth option has a long label'
 								} ),
 								new OO.ui.MenuOptionWidget( {
+									icon: 'feedback',
 									data: 'd',
-									label: 'Fifth'
+									label: 'The fifth option has an icon'
 								} )
 							]
 						}

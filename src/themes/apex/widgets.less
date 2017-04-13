@@ -407,6 +407,21 @@
 	&.oo-ui-optionWidget {
 		&-selected {
 			background-color: transparent;
+
+			// Hack to show 'check' icon in Apex, see T87835
+			.oo-ui-iconElement-icon {
+				.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/check' );
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: block;
+				left: 0.5em;
+				top: 0;
+				min-width: @size-icon-min;
+				width: 1.875em;
+				min-height: @size-icon-min;
+				height: 100%;
+			}
 		}
 		&-highlighted,
 		&-highlighted.oo-ui-optionWidget-selected {
