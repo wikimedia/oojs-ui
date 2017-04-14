@@ -6,7 +6,7 @@ QUnit.test( 'next', 1, function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
-	process
+	return process
 		.next( function () {
 			result.push( 0 );
 		} )
@@ -16,16 +16,17 @@ QUnit.test( 'next', 1, function ( assert ) {
 		.next( function () {
 			result.push( 2 );
 		} )
-		.execute();
-
-	assert.deepEqual( result, [ 0, 1, 2 ], 'Steps can be added at the end' );
+		.execute()
+		.then( function () {
+			assert.deepEqual( result, [ 0, 1, 2 ], 'Steps can be added at the end' );
+		} );
 } );
 
 QUnit.test( 'first', 1, function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
-	process
+	return process
 		.first( function () {
 			result.push( 0 );
 		} )
@@ -35,17 +36,17 @@ QUnit.test( 'first', 1, function ( assert ) {
 		.first( function () {
 			result.push( 2 );
 		} )
-		.execute();
-
-	assert.deepEqual( result, [ 2, 1, 0 ], 'Steps can be added at the beginning' );
+		.execute()
+		.then( function () {
+			assert.deepEqual( result, [ 2, 1, 0 ], 'Steps can be added at the beginning' );
+		} );
 } );
 
-QUnit.asyncTest( 'execute (async)', 1, function ( assert ) {
-	// Async
+QUnit.test( 'execute (async)', 1, function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
-	process
+	return process
 		.next( function () {
 			var deferred = $.Deferred();
 
@@ -68,23 +69,22 @@ QUnit.asyncTest( 'execute (async)', 1, function ( assert ) {
 		} )
 		.next( function () {
 			result.push( 2 );
+		} )
+		.execute()
+		.then( function () {
+			assert.deepEqual(
+				result,
+				[ 0, 1, 2 ],
+				'Synchronous and asynchronous steps are executed in the correct order'
+			);
 		} );
-
-	process.execute().done( function () {
-		assert.deepEqual(
-			result,
-			[ 0, 1, 2 ],
-			'Synchronous and asynchronous steps are executed in the correct order'
-		);
-		QUnit.start();
-	} );
 } );
 
-QUnit.asyncTest( 'execute (return false)', 1, function ( assert ) {
+QUnit.test( 'execute (return false)', 1, function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
-	process
+	return process
 		.next( function () {
 			var deferred = $.Deferred();
 
@@ -102,23 +102,23 @@ QUnit.asyncTest( 'execute (return false)', 1, function ( assert ) {
 		.next( function () {
 			// Should never be run because previous step is rejected
 			result.push( 2 );
+		} )
+		.execute()
+		.then( null, function () {
+			assert.deepEqual(
+				result,
+				[ 0, 1 ],
+				'Process is stopped when a step returns false'
+			);
+			return $.Deferred().resolve();
 		} );
-
-	process.execute().fail( function () {
-		assert.deepEqual(
-			result,
-			[ 0, 1 ],
-			'Process is stopped when a step returns false'
-		);
-		QUnit.start();
-	} );
 } );
 
-QUnit.asyncTest( 'execute (async reject)', 1, function ( assert ) {
+QUnit.test( 'execute (async reject)', 1, function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
-	process
+	return process
 		.next( function () {
 			result.push( 0 );
 		} )
@@ -135,19 +135,19 @@ QUnit.asyncTest( 'execute (async reject)', 1, function ( assert ) {
 		.next( function () {
 			// Should never be run because previous step is rejected
 			result.push( 2 );
+		} )
+		.execute()
+		.then( null, function () {
+			assert.deepEqual(
+				result,
+				[ 0, 1 ],
+				'Process is stopped when a step returns a promise that is then rejected'
+			);
+			return $.Deferred().resolve();
 		} );
-
-	process.execute().fail( function () {
-		assert.deepEqual(
-			result,
-			[ 0, 1 ],
-			'Process is stopped when a step returns a promise that is then rejected'
-		);
-		QUnit.start();
-	} );
 } );
 
-QUnit.asyncTest( 'execute (wait)', 1, function ( assert ) {
+QUnit.test( 'execute (wait)', 1, function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
@@ -168,12 +168,13 @@ QUnit.asyncTest( 'execute (wait)', 1, function ( assert ) {
 		result.push( 'yield' );
 	} );
 
-	process.execute().done( function () {
-		assert.deepEqual(
-			result,
-			[ 'before', 'A', 'yield', 'B' ],
-			'Process is stopped when a step returns a promise that is then rejected'
-		);
-		QUnit.start();
-	} );
+	return process
+		.execute()
+		.then( function () {
+			assert.deepEqual(
+				result,
+				[ 'before', 'A', 'yield', 'B' ],
+				'Process is stopped when a step returns a promise that is then rejected'
+			);
+		} );
 } );
