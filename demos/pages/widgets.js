@@ -188,12 +188,32 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
+						icon: 'help',
+						title: 'Icon only, framed'
+					} ),
+					{
+						label: 'ButtonWidget (icon only)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						indicator: 'alert',
+						title: 'Indicator only, framed'
+					} ),
+					{
+						label: 'ButtonWidget (indicator only)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
 						framed: false,
 						icon: 'help',
 						title: 'Icon only'
 					} ),
 					{
-						label: 'ButtonWidget (icon only)\u200E',
+						label: 'ButtonWidget (frameless, icon only)\u200E',
 						align: 'top'
 					}
 				),
@@ -204,27 +224,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						title: 'Indicator only'
 					} ),
 					{
-						label: 'ButtonWidget (indicator only)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						icon: 'help',
-						title: 'Icon only, framed'
-					} ),
-					{
-						label: 'ButtonWidget (icon only, framed)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						indicator: 'alert',
-						title: 'Indicator only, framed'
-					} ),
-					{
-						label: 'ButtonWidget (indicator only, framed)\u200E',
+						label: 'ButtonWidget (frameless, indicator only)\u200E',
 						align: 'top'
 					}
 				),
@@ -284,6 +284,17 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'ButtonWidget (frameless, constructive)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						framed: false,
+						flags: [ 'destructive' ],
+						label: 'Cancel'
+					} ),
+					{
+						label: 'ButtonWidget (frameless, label-only, destructive)\u200E',
 						align: 'top'
 					}
 				),
@@ -2368,14 +2379,42 @@ Demo.static.pages.widgets = function ( demo ) {
 								label: 'Remember me',
 								align: 'inline'
 							}
+						)
+					]
+				} ),
+				new OO.ui.FieldsetLayout( {
+					label: null,
+					items: [
+						new OO.ui.FieldLayout(
+							new OO.ui.TextInputWidget(),
+							{
+								label: 'Summary',
+								align: 'top'
+							}
 						),
 						new OO.ui.FieldLayout(
-							new OO.ui.ButtonInputWidget( {
-								name: 'login',
-								label: 'Log in',
-								type: 'submit',
-								flags: [ 'primary', 'progressive' ],
-								icon: 'check'
+							new OO.ui.Widget( {
+								content: [ new OO.ui.HorizontalLayout( {
+									items: [
+										new OO.ui.ButtonInputWidget( {
+											name: 'login',
+											label: 'Log in',
+											type: 'submit',
+											flags: [ 'primary', 'progressive' ],
+											icon: 'userAvatar'
+										} ),
+										new OO.ui.ButtonWidget( {
+											framed: false,
+											flags: [ 'destructive' ],
+											label: 'Cancel'
+										} ),
+										new OO.ui.ButtonWidget( {
+											framed: false,
+											icon: 'tag',
+											label: 'Random icon button'
+										} )
+									]
+								} ) ]
 							} ),
 							{
 								label: null,
