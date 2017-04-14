@@ -65,13 +65,8 @@
 		}
 
 		.oo-ui-actionWidget {
-			height: 3.4em;
+			min-height: 3.4em;
 			.oo-ui-inline-spacing(0);
-
-			&.oo-ui-labelElement .oo-ui-labelElement-label {
-				text-align: center;
-				line-height: 3.4em;
-			}
 
 			&:hover {
 				background-color: rgba( 0, 0, 0, 0.05 );
@@ -79,6 +74,15 @@
 
 			&:active {
 				background-color: rgba( 0, 0, 0, 0.1 );
+			}
+
+			.oo-ui-buttonElement-button {
+				padding: 0; // reset frameless ButtonElement
+			}
+
+			&.oo-ui-labelElement .oo-ui-labelElement-label {
+				text-align: center;
+				line-height: 3.4em;
 			}
 
 			&.oo-ui-flaggedElement {

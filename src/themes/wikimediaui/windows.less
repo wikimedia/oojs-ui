@@ -62,9 +62,12 @@
 			min-height: @size-dialog-bar-top;
 			.oo-ui-inline-spacing( 0 );
 
-			// Reset frameless ButtonWidget
-			.oo-ui-buttonElement-button {
+			// Reset Frameless ButtonWidgets
+			&:first-child {
 				margin-left: 0;
+			}
+
+			.oo-ui-buttonElement-button {
 				border: 0;
 				border-radius: 0;
 				padding: 0;
@@ -76,8 +79,6 @@
 			}
 
 			&.oo-ui-widget-enabled {
-				//.oo-ui-transition( background-color @transition-ease-quick );
-
 				.oo-ui-buttonElement-button {
 					&:hover {
 						background-color: @background-color-framed; // Invert button color logic without defining var (yet)

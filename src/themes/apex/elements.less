@@ -5,34 +5,49 @@
 .theme-oo-ui-buttonElement () {
 	> .oo-ui-buttonElement-button {
 		color: @color-default;
+		border-radius: @border-radius-button;
+
+		&:focus {
+			outline: 0;
+		}
 	}
 
 	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
 		margin-left: 0;
 	}
 
-	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-		margin: @size-indicator / 2;
+	// Support `<input>` from ButtonInputWidget
+	> input.oo-ui-buttonElement-button,
+	&.oo-ui-labelElement .oo-ui-labelElement-label {
+		line-height: @size-icon;
 	}
 
-	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-		margin-left: @size-indicator / 2;
+	&.oo-ui-iconElement {
+		.oo-ui-iconElement-icon {
+			margin-left: 0;
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			margin-left: @size-indicator / 2;
+		}
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		margin: @size-indicator / 2;
 	}
 
 	&-frameless {
 		> .oo-ui-buttonElement-button {
-			> .oo-ui-iconElement-icon {
-				// Don't animate opacities for now, causes wiggling in Chrome (bug 63020)
-				// .oo-ui-transition( opacity @medium-ease );
-			}
+			// Don't animate `.oo-ui-iconElement-icon` `opacity` for now,
+			// causes wiggling in Chrome (bug 63020)
+			// `.oo-ui-transition( opacity @medium-ease );`
 
 			&:hover,
 			&:focus {
-				outline: 0;
-
 				> .oo-ui-iconElement-icon {
 					opacity: 1;
 				}
+
 				> .oo-ui-labelElement-label {
 					color: #000;
 				}
@@ -43,15 +58,35 @@
 			}
 		}
 
-		&.oo-ui-labelElement {
+		&.oo-ui-labelElement,
+		&.oo-ui-iconElement {
+			&:first-child {
+				margin-left: @start-frameless; // Address `padding-left/-right` below
+			}
+
 			> .oo-ui-buttonElement-button {
+				padding: @padding-frameless;
+
 				> .oo-ui-labelElement-label {
+					color: @color-default;
 					margin-left: 0.25em;
+				}
+			}
+
+			&.oo-ui-indicatorElement { // Workaround for label/icon & indicator combinations
+				> .oo-ui-buttonElement-button {
+					padding: @padding-frameless;
 				}
 			}
 		}
 
-		// Support <input> from ButtonInputWidget
+		&.oo-ui-indicatorElement {
+			> .oo-ui-buttonElement-button {
+				padding: 0;
+			}
+		}
+
+		// Support `<input>` from ButtonInputWidget
 		> input.oo-ui-buttonElement-button {
 			padding-left: 0.25em;
 			color: @color-default;
@@ -80,6 +115,7 @@
 			> .oo-ui-iconElement-icon {
 				opacity: 0.2;
 			}
+
 			> .oo-ui-labelElement-label {
 				color: #ccc;
 			}
@@ -88,8 +124,7 @@
 
 	&-framed {
 		> .oo-ui-buttonElement-button {
-			padding: 0.2em 0.8em;
-			border-radius: 0.3em;
+			padding: @padding-default;
 			text-shadow: 0 1px 1px rgba( 255, 255, 255, 0.5 );
 			border: 1px #c9c9c9 solid;
 			.oo-ui-transition( border-color @quick-ease );
@@ -98,8 +133,6 @@
 			&:hover,
 			&:focus {
 				border-color: #aaa;
-				outline: 0;
-
 			}
 		}
 
@@ -149,7 +182,7 @@
 			&-progressive {
 				> .oo-ui-buttonElement-button {
 					border: 1px solid @progressive-border;
-					.oo-ui-vertical-gradient(@progressive-gradient-start, @progressive-gradient-end);
+					.oo-ui-vertical-gradient( @progressive-gradient-start, @progressive-gradient-end );
 
 					&:hover,
 					&:focus {
