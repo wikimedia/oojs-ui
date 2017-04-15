@@ -1311,14 +1311,16 @@
 		border-right-width: 0;
 
 		> .oo-ui-iconElement-icon {
+			top: -@border-width-default; // Address `border-top` of parent element
 			left: @padding-start-input-text-icon;
-			min-height: 2.4em;
+			min-height: @min-height-widget-default;
 			margin-left: -@border-width-default; // Address extra `border-left` pixel above
 		}
 
 		> .oo-ui-indicatorElement-indicator {
+			top: -@border-width-default; // Address `border-top` of parent element
 			right: @padding-horizontal-default;
-			min-height: 2.4em;
+			min-height: @min-height-widget-default;
 		}
 	}
 
