@@ -1,8 +1,8 @@
 body {
 	color: #222;
 	margin: 1em;
-	font-size: 0.8em;
 	font-family: sans-serif;
+	font-size: 0.8em;
 }
 
 p {
@@ -35,56 +35,6 @@ p {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-}
-
-/* Toolbars demo */
-
-.demo-container.demo-toolbars {
-	padding: 0;
-	margin-bottom: 2em;
-}
-
-.demo-toolbars-contents {
-	padding: 2em;
-	min-height: 100px;
-}
-
-/* Icons demo */
-
-.demo-icons .oo-ui-buttonSelectWidget {
-	margin-bottom: 2em;
-}
-
-.demo-icons .oo-ui-fieldLayout {
-	display: inline-block;
-	margin: 1em 1em 1em 0;
-	width: 13.75em;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-.demo-icons .oo-ui-fieldLayout:nth-child( 4n ) {
-	margin-right: 0;
-}
-
-.demo-icons .oo-ui-fieldLayout .oo-ui-iconElement,
-.demo-icons .oo-ui-fieldLayout .oo-ui-indicatorElement {
-	opacity: 0.8; /* brings icons/indicators closer to text color */
-}
-
-.demo-icons .oo-ui-fieldLayout:hover .oo-ui-labelElement-label {
-	color: #000;
-}
-.demo-icons .oo-ui-fieldLayout:hover .oo-ui-iconElement,
-.demo-icons .oo-ui-fieldLayout:hover .oo-ui-indicatorElement {
-	opacity: 1;
-}
-
-/* Widgets demo */
-
-.oo-ui-horizontalLayout > .oo-ui-textInputWidget,
-.oo-ui-horizontalLayout > .oo-ui-dropdownInputWidget {
-	max-width: 10em;
 }
 
 /* Console */
@@ -252,6 +202,56 @@ p {
 	color: #444;
 }
 
+/* Toolbars demo */
+
+.demo-container.demo-toolbars {
+	padding: 0;
+	margin-bottom: 2em;
+}
+
+.demo-toolbars-contents {
+	padding: 2em;
+	min-height: 100px;
+}
+
+/* Icons demo */
+
+.demo-icons .oo-ui-buttonSelectWidget {
+	margin-bottom: 2em;
+}
+
+.demo-icons .oo-ui-fieldLayout {
+	display: inline-block;
+	margin: 1em 1em 1em 0;
+	width: 13.75em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.demo-icons .oo-ui-fieldLayout:nth-child( 4n ) {
+	margin-right: 0;
+}
+
+.demo-icons .oo-ui-fieldLayout .oo-ui-iconElement,
+.demo-icons .oo-ui-fieldLayout .oo-ui-indicatorElement {
+	opacity: 0.8; /* brings icons/indicators closer to text color */
+}
+
+.demo-icons .oo-ui-fieldLayout:hover .oo-ui-labelElement-label {
+	color: #000;
+}
+.demo-icons .oo-ui-fieldLayout:hover .oo-ui-iconElement,
+.demo-icons .oo-ui-fieldLayout:hover .oo-ui-indicatorElement {
+	opacity: 1;
+}
+
+/* Widgets demo */
+
+.oo-ui-horizontalLayout > .oo-ui-textInputWidget,
+.oo-ui-horizontalLayout > .oo-ui-dropdownInputWidget {
+	max-width: 10em;
+}
+
 /* Special cases: ActionFieldLayout top aligned,
 FieldLayout left & right aligned */
 .oo-ui-fieldLayout-align-left,
@@ -269,6 +269,13 @@ FieldLayout left & right aligned */
 	content: ' ';
 	clear: both;
 	display: block;
+}
+
+/* Special case: FieldsetLayout with "Summary" */
+.oo-ui-formLayout .oo-ui-fieldsetLayout:last-child {
+	background-color: #eaecf0;
+	border: 1px solid #c8ccd1;
+	padding: 1em 1em 1.5em 1em;
 }
 
 /* Media Queries */

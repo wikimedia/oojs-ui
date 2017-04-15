@@ -167,7 +167,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'title' => 'Icon only'
 			] ),
 			[
-				'label' => "ButtonWidget (icon only)\xE2\x80\x8E",
+				'label' => "ButtonWidget (frameless, icon only)\xE2\x80\x8E",
 				'align' => 'top'
 			]
 		),
@@ -215,6 +215,17 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'label' => "ButtonWidget (frameless, constructive)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'framed' => false,
+				'flags' => [ 'destructive' ],
+				'label' => 'Cancel'
+			] ),
+			[
+				'label' => "ButtonWidget (frameless, label-only, destructive)\xE2\x80\x8E",
 				'align' => 'top'
 			]
 		),
@@ -1080,13 +1091,43 @@ $demoContainer->appendContent( new OOUI\FormLayout( [
 						'align' => 'inline',
 					]
 				),
+			]
+		] ),
+		new OOUI\FieldsetLayout( [
+			'label' => null,
+			'items' => [
 				new OOUI\FieldLayout(
-					new OOUI\ButtonInputWidget( [
-						'name' => 'login',
-						'label' => 'Log in',
-						'type' => 'submit',
-						'flags' => [ 'primary', 'progressive' ],
-						'icon' => 'check',
+					new OOUI\TextInputWidget( [
+						'name' => 'summary',
+					] ),
+					[
+						'label' => 'Summary',
+						'align' => 'top',
+					]
+				),
+				new OOUI\FieldLayout(
+					new OOUI\Widget( [
+						'content' => new OOUI\HorizontalLayout( [
+							'items' => [
+								new OOUI\ButtonInputWidget( [
+									'name' => 'login',
+									'label' => 'Log in',
+									'type' => 'submit',
+									'flags' => [ 'primary', 'progressive' ],
+									'icon' => 'userAvatar',
+								] ),
+								new OOUI\ButtonInputWidget( [
+									'framed' => false,
+									'flags' => [ 'destructive' ],
+									'label' => 'Cancel',
+								] ),
+								new OOUI\ButtonInputWidget( [
+									'framed' => false,
+									'icon' => 'tag',
+									'label' => 'Random icon button',
+								] ),
+							]
+						] ),
 					] ),
 					[
 						'label' => null,
@@ -1094,7 +1135,7 @@ $demoContainer->appendContent( new OOUI\FormLayout( [
 					]
 				),
 			]
-		] )
+		] ),
 	]
 ] ) );
 
