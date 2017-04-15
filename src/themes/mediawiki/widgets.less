@@ -513,8 +513,12 @@
 		line-height: @line-height-widget-singleline;
 	}
 
-	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		right: @padding-horizontal-default;
+	&.oo-ui-indicatorElement {
+		padding-right: @size-indicator + @padding-horizontal-default;
+
+		.oo-ui-indicatorElement-indicator {
+			right: @padding-horizontal-default;
+		}
 	}
 
 	&.oo-ui-widget-disabled {
@@ -756,11 +760,6 @@
 			background-color: @background-color-progressive-hover;
 			color: @color-progressive;
 		}
-	}
-
-	// Reset from DecoratedOptionWidget. FIXME: Remove after T87835 is fixed
-	&.oo-ui-iconElement {
-		padding-left: @padding-horizontal-default;
 	}
 }
 
