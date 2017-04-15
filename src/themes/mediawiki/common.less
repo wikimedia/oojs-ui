@@ -61,19 +61,20 @@
 @border-toolbar: @border-width-default solid #c8ccd1;
 
 // Box Sizes
+// `@*size` variables are used for `*width` & `*height` properties
+@size-default: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `2.5em`≈`32px`
+
+@min-size-icon: 24px; // values used for `min-height` are defined in `px`, see T130691
+@min-size-indicator: 12px;
 @min-width-button-default: 40 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `3.125em`≈`40px` at base `font-size: 12.8px`
-@min-width-button-combo-widget: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `2.5em`≈`32px`
+@min-width-button-combo-widget: @size-default;
 @min-height-widget-default: @size-default;
 @min-height-toggleswitch: 26px; // equals `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
 @max-width-default: 50em;
 @max-width-input: @max-width-default;
 
-// `@size-*` variables are used for `width` & `height` properties
-@size-default: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @size-anchor: 9px;
 @size-button-default: @size-default;
-@size-icon-min: 24px; // values used for `min-height` are defined in `px`, see T130691
-@size-indicator-min: 12px;
 @size-icon: 24 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.875em`≈`24px`
 @size-indicator: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`12px`
 @size-toggleswitch-grip-min: 16px;
