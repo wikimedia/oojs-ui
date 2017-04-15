@@ -10,6 +10,7 @@
  * @mixins OO.ui.mixin.IndicatorElement
  * @mixins OO.ui.mixin.LabelElement
  * @mixins OO.ui.mixin.TitledElement
+ * @mixins OO.ui.mixin.FlaggedElement
  * @mixins OO.ui.mixin.ClippableElement
  * @mixins OO.ui.mixin.TabIndexedElement
  *
@@ -27,7 +28,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 
 	// Configuration initialization
 	config = $.extend( {
-		indicator: toolbar.position === 'bottom' ? 'up' : 'down'
+		indicator: config.indicator === undefined ? ( toolbar.position === 'bottom' ? 'up' : 'down' ) : config.indicator
 	}, config );
 
 	// Parent constructor
@@ -44,6 +45,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.TitledElement.call( this, config );
+	OO.ui.mixin.FlaggedElement.call( this, config );
 	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
 	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
 
@@ -58,6 +60,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Initialization
 	this.$handle
 		.addClass( 'oo-ui-popupToolGroup-handle' )
+		.attr( 'role', 'button' )
 		.append( this.$icon, this.$label, this.$indicator );
 	// If the pop-up should have a header, add it to the top of the toolGroup.
 	// Note: If this feature is useful for other widgets, we could abstract it into an
@@ -81,6 +84,7 @@ OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.TitledElement );
+OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.FlaggedElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.ClippableElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.TabIndexedElement );
 

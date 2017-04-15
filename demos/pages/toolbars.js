@@ -275,6 +275,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		{
 			type: 'list',
 			indicator: 'down',
+			flags: [ 'primary', 'progressive' ],
 			include: [ { group: 'listTools' } ]
 		}
 	] );
