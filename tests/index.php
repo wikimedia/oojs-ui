@@ -39,6 +39,7 @@
 	<script src="./Process.test.js"></script>
 	<script src="./mixins/FlaggedElement.test.js"></script>
 	<script src="./widgets/TagMultiselectWidget.test.js"></script>
+	<script src="./widgets/MenuTagMultiselectWidget.test.js"></script>
 	<!-- JS/PHP comparison tests -->
 	<script>OO.ui.JSPHPTestSuite = <?php echo $testSuiteJSON; ?></script>
 	<script src="./JSPHP.test.standalone.js"></script>
