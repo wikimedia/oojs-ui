@@ -211,14 +211,16 @@
 
 	&-framed {
 		> .oo-ui-buttonElement-button {
-			min-height: @min-height-widget-default;
 			border-radius: @border-radius-default;
-			padding: @padding-default;
+			padding-left: @padding-horizontal-default;
+			padding-right: @padding-horizontal-default;
 		}
 
 		&.oo-ui-iconElement {
 			// Icon (-only) framed
 			> .oo-ui-buttonElement-button {
+				padding-top: @padding-top-icon-indicator;
+				padding-bottom: 0;
 				padding-left: @padding-start-icon-only;
 
 				> .oo-ui-iconElement-icon {
@@ -242,7 +244,9 @@
 		&.oo-ui-indicatorElement {
 			// Indicator (-only) framed
 			> .oo-ui-buttonElement-button {
+				padding-top: @padding-top-icon-indicator;
 				padding-right: @padding-start-indicator-only;
+				padding-bottom: 0;
 
 				> .oo-ui-indicatorElement-indicator {
 					right: @start-framed-indicator-only;
@@ -255,6 +259,13 @@
 				> .oo-ui-buttonElement-button {
 					padding-right: @padding-start-indicator-plus;
 				}
+			}
+		}
+
+		&.oo-ui-labelElement {
+			> .oo-ui-buttonElement-button {
+				padding-top: @padding-top-default;
+				padding-bottom: @padding-bottom-default;
 			}
 		}
 
