@@ -17,25 +17,32 @@
 	z-index: 0;
 	position: relative;
 
+	// Overrides both, ButtonWidget & ToggleButtonWidget
 	.oo-ui-buttonElement {
 		.oo-ui-inline-spacing( 0 );
 	}
 
 	.oo-ui-buttonElement-framed {
 		.oo-ui-buttonElement-button {
+			margin-left: -@border-width-default;
 			border-radius: 0;
-			margin-left: -1px;
 		}
 
 		&:first-child .oo-ui-buttonElement-button {
+			margin-left: 0;
 			border-bottom-left-radius: @border-radius-default;
 			border-top-left-radius: @border-radius-default;
-			margin-left: 0;
 		}
 
 		&:last-child .oo-ui-buttonElement-button {
 			border-bottom-right-radius: @border-radius-default;
 			border-top-right-radius: @border-radius-default;
+		}
+
+		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
+			> .oo-ui-buttonElement-button {
+				border-left-color: @border-color-disabled-filled;
+			}
 		}
 	}
 
@@ -80,14 +87,14 @@
 
 	.oo-ui-buttonOptionWidget {
 		.oo-ui-buttonElement-button {
-			border-radius: 0;
 			margin-left: -@border-width-default;
+			border-radius: 0;
 		}
 
 		&:first-child .oo-ui-buttonElement-button {
+			margin-left: 0;
 			border-bottom-left-radius: @border-radius-default;
 			border-top-left-radius: @border-radius-default;
-			margin-left: 0;
 		}
 
 		&:last-child .oo-ui-buttonElement-button {
@@ -98,6 +105,12 @@
 		&.oo-ui-iconElement .oo-ui-iconElement-icon,
 		&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
 			position: absolute; // FIXME: Remove from ButtonOptionWidget after cleaning up when T161177 is resolved
+		}
+
+		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
+			> .oo-ui-buttonElement-button {
+				border-left-color: @border-color-disabled-filled;
+			}
 		}
 	}
 
