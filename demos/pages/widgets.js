@@ -1380,7 +1380,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						inputPosition: 'outline'
 					} ),
 					{
-						label: 'TagMultiselectWidget (allowArbitrary, outline input, placeholder)',
+						label: 'TagMultiselectWidget (allowArbitrary, inputPosition:outline, placeholder)',
 						align: 'top'
 					}
 				),
@@ -1391,7 +1391,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						inputWidget: new OO.ui.SearchInputWidget()
 					} ),
 					{
-						label: 'TagMultiselectWidget (inputwidget: OO.ui.SearchInputWidget, outline input)',
+						label: 'TagMultiselectWidget (inputwidget: OO.ui.SearchInputWidget, inputPosition:outline)',
 						align: 'top'
 					}
 				),

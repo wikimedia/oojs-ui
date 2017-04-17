@@ -123,7 +123,6 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	// Initialize
 	this.$element
 		.addClass( 'oo-ui-tagMultiselectWidget' )
-		.addClass( 'oo-ui-tagMultiselectWidget-inputPosition-' + this.inputPosition )
 		.append( this.$handle );
 
 	if ( this.hasInput ) {
@@ -153,8 +152,11 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 			// in the case the widget is outline so it can
 			// stretch all the way if the widet is wide
 			this.input.$element.css( 'max-width', 'inherit' );
-			this.$element.append( this.input.$element );
+			this.$element
+				.addClass( 'oo-ui-tagMultiselectWidget-outlined' )
+				.append( this.input.$element );
 		} else {
+			this.$element.addClass( 'oo-ui-tagMultiselectWidget-inlined' );
 			// HACK: When the widget is using 'inline' input, the
 			// behavior needs to only use the $input itself
 			// so we style and size it accordingly (otherwise

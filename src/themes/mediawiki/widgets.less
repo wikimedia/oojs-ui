@@ -1672,7 +1672,6 @@
 	&.oo-ui-widget-enabled {
 		.oo-ui-tagMultiselectWidget-handle {
 			background-color: @background-color-default;
-			cursor: text;
 			.oo-ui-transition(
 				border-color @transition-ease-out-sine-medium,
 				box-shadow @transition-ease-out-sine-medium
@@ -1687,6 +1686,24 @@
 			border-color: @border-color-default-focus;
 			outline: 0;
 			box-shadow: @box-shadow-widget-focus;
+		}
+
+		&.oo-ui-tagMultiselectWidget-outlined {
+			.oo-ui-tagMultiselectWidget-handle {
+				background-color: @background-color-readonly;
+				border-bottom: 0;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+
+				.oo-ui-tagItemWidget.oo-ui-widget-enabled {
+					background-color: @background-color-default;
+				}
+			}
+
+			.oo-ui-inputWidget-input {
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+			}
 		}
 	}
 
