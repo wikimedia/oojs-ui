@@ -95,7 +95,6 @@
 @border-disabled-filled: @border-width-default solid @border-color-disabled-filled;
 @border-dialog: @border-default;
 @border-dialog-bar: @border-width-default solid @border-color-dialog-bar;
-@border-frameless: @border-width-default solid @color-default-light;
 @border-menu: @border-default;
 
 @border-color-default: #a2a9b1;
@@ -106,6 +105,9 @@
 @border-color-disabled-filled: @color-disabled-filled;
 @border-color-framed-progressive-hover: @color-progressive-hover;
 @border-color-framed-destructive-hover: @color-destructive-hover;
+@border-color-frameless: transparent;
+@border-color-frameless-fallback: @color-default-light; // Support IE 6: `transparent` is not rendered correctly
+
 @border-color-focus-inset: @color-default-light;
 @border-color-erroneous: @color-erroneous;
 @border-color-readonly: #c8ccd1;
@@ -114,6 +116,8 @@
 
 @border-radius-default: 2px;
 @border-radius-frameless: 1px; // Together with `@box-shadow-frameless` it results in well rounded border
+
+@border-style-default: solid;
 
 @border-width-default: 1px;
 @border-width-medium: 2px;

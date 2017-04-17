@@ -132,7 +132,10 @@
 		&.oo-ui-labelElement {
 			> .oo-ui-buttonElement-button {
 				margin-left: -@border-width-default; // Address `border` below
-				border: @border-frameless;
+				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
+				border-color: @border-color-frameless;
+				border-style: @border-style-default;
+				border-width: @border-width-default;
 				padding: @padding-frameless;
 			}
 		}
