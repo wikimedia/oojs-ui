@@ -6,6 +6,7 @@
 
 @background-color-default: #fff;
 @background-color-default-hover: #eaecf0;
+@background-color-readonly: #f8f9fa;
 
 @color-default: #222;
 @color-default-hover: #444;
@@ -13,7 +14,6 @@
 @color-default-light: #fff;
 @color-emphasized: @color-default-active;
 @color-placeholder: #72777d; // equals HSB 210°/9%/49%, aligns to WCAG 2.0 level AA at 4.52:1 contrast ratio
-@color-readonly: #72777d;
 @color-subtle: #72777d;
 
 // Primary 'Progressive' and 'Destructive' Colors
@@ -145,12 +145,11 @@
 @box-shadow-menu: @box-shadow-dialog;
 @box-shadow-toolbar-top: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.1 );
-@box-shadow-widget: inset 0 0 0 1px @background-color-default;
+@box-shadow-widget: inset 0 0 0 1px transparent;
 @box-shadow-widget-focus: inset 0 0 0 1px @color-progressive;
 @box-shadow-progressive-focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-default-light;
 @box-shadow-frameless-focus: 0 0 0 2px @color-progressive;
 @box-shadow-input-binary-active: inset 0 0 0 1px @color-progressive-active;
-@box-shadow-readonly-focus: inset 0 0 0 1px #c8ccd1;
 @box-shadow-erroneous-focus: inset 0 0 0 1px @color-erroneous;
 @box-shadow-disabled-filled: inset 0 0 0 1px @color-disabled-filled;
 

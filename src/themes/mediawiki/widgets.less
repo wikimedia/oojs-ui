@@ -1748,19 +1748,18 @@
 			}
 			&:focus {
 				outline: 0;
-				border-color: @color-progressive;
+				border-color: @border-color-default-focus;
 				box-shadow: @box-shadow-widget-focus;
 			}
 
 			&[readonly] {
-				color: @color-readonly;
+				background-color: @background-color-readonly;
 
 				&:hover {
 					border-color: @border-color-readonly;
 				}
 				&:focus {
-					border-color: @border-color-readonly;
-					box-shadow: @box-shadow-readonly-focus;
+					border-color: @border-color-default-focus;
 				}
 			}
 
