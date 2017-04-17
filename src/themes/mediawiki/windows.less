@@ -62,8 +62,12 @@
 			min-height: @size-dialog-bar-top;
 			.oo-ui-inline-spacing( 0 );
 
+			// Reset frameless ButtonWidget
 			.oo-ui-buttonElement-button {
+				margin-left: 0;
+				border: 0;
 				border-radius: 0;
+				padding: 0;
 			}
 
 			&.oo-ui-labelElement .oo-ui-labelElement-label {
@@ -71,38 +75,52 @@
 				text-align: center;
 			}
 
-			&:hover {
-				background-color: rgba( 0, 0, 0, 0.05 );
-			}
+			&.oo-ui-widget-enabled {
+				//.oo-ui-transition( background-color @transition-ease-quick );
 
-			&:active {
-				background-color: rgba( 0, 0, 0, 0.1 );
-			}
-
-			&.oo-ui-flaggedElement {
-				&-progressive,
-				// Deprecated in v0.16.1
-				&-constructive {
+				.oo-ui-buttonElement-button {
 					&:hover {
-						background-color: rgba( 8, 126, 204, 0.05 );
+						background-color: @background-color-framed; // Invert button color logic without defining var (yet)
 					}
 
 					&:active {
-						background-color: rgba( 8, 126, 204, 0.1 );
+						background-color: @background-color-framed-active;
 					}
 
-					.oo-ui-labelElement-label {
-						font-weight: bold;
+					&:focus {
+						box-shadow: @box-shadow-action-focus;
 					}
 				}
 
-				&-destructive {
-					&:hover {
-						background-color: rgba( 212, 83, 83, 0.05 );
+				&.oo-ui-flaggedElement {
+					&-progressive,
+					// Deprecated in v0.16.1
+					&-constructive {
+						.oo-ui-buttonElement-button {
+							&:hover {
+								background-color: @background-color-progressive; // Context-specific color var “misuse”
+							}
+
+							&:active {
+								background-color: rgba( 8, 126, 204, 0.1 );
+							}
+						}
+
+						.oo-ui-labelElement-label {
+							font-weight: bold;
+						}
 					}
 
-					&:active {
-						background-color: rgba( 212, 83, 83, 0.1 );
+					&-destructive {
+						.oo-ui-buttonElement-button {
+							&:hover {
+								background-color: @background-color-destructive;
+							}
+
+							&:active {
+								background-color: rgba( 212, 83, 83, 0.1 );
+							}
+						}
 					}
 				}
 			}
