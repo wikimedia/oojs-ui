@@ -1,7 +1,7 @@
 ( function () {
 	QUnit.module( 'TagMultiselectWidget' );
 
-	QUnit.test( 'Input positioning', 8, function ( assert ) {
+	QUnit.test( 'Input positioning', function ( assert ) {
 		var widget;
 
 		widget = new OO.ui.TagMultiselectWidget();
@@ -10,7 +10,7 @@
 			'Basic widget (inputPosition:inline) has an input'
 		);
 		assert.ok(
-			widget.$element.hasClass( 'oo-ui-tagMultiselectWidget-inputPosition-inline' ),
+			widget.$element.hasClass( 'oo-ui-tagMultiselectWidget-inlined' ),
 			'Basic widget (inputPosition:inline) has an inline input class'
 		);
 		assert.ok(
@@ -24,7 +24,7 @@
 			'Widget with inputPosition:outline has an input'
 		);
 		assert.ok(
-			widget.$element.hasClass( 'oo-ui-tagMultiselectWidget-inputPosition-outline' ),
+			widget.$element.hasClass( 'oo-ui-tagMultiselectWidget-outlined' ),
 			'Widget with inputPosition:outline has the correct class'
 		);
 		assert.ok(
@@ -37,13 +37,9 @@
 			widget.$element.find( 'input' ).length === 0,
 			'Widget with inputPosition:none does not have an input'
 		);
-		assert.ok(
-			widget.$element.hasClass( 'oo-ui-tagMultiselectWidget-inputPosition-none' ),
-			'Widget with inputPosition:none has the correct class'
-		);
 	} );
 
-	QUnit.test( 'isAllowedData', 5, function ( assert ) {
+	QUnit.test( 'isAllowedData', function ( assert ) {
 		var widget;
 
 		widget = new OO.ui.TagMultiselectWidget( {
@@ -87,7 +83,7 @@
 		);
 	} );
 
-	QUnit.test( 'addTag', 7, function ( assert ) {
+	QUnit.test( 'addTag', function ( assert ) {
 		var widget,
 			getItemDatas = function ( items ) {
 				return items.map( function ( item ) { return item.getData(); } );
@@ -138,7 +134,7 @@
 		);
 	} );
 
-	QUnit.test( 'setValue', 8, function ( assert ) {
+	QUnit.test( 'setValue', function ( assert ) {
 		var widget,
 			getItemDatas = function ( items ) {
 				return items.map( function ( item ) { return item.getData(); } );
@@ -206,7 +202,7 @@
 		);
 	} );
 
-	QUnit.test( 'getValue', 2, function ( assert ) {
+	QUnit.test( 'getValue', function ( assert ) {
 		var widget;
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
@@ -226,7 +222,7 @@
 		);
 	} );
 
-	QUnit.test( 'getNextItem', 3, function ( assert ) {
+	QUnit.test( 'getNextItem', function ( assert ) {
 		var items, widget;
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
@@ -255,7 +251,7 @@
 		);
 	} );
 
-	QUnit.test( 'getPreviousItem', 3, function ( assert ) {
+	QUnit.test( 'getPreviousItem', function ( assert ) {
 		var items, widget;
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );

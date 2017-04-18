@@ -414,7 +414,8 @@ module.exports = function ( grunt ) {
 					'tests/core.test.js',
 					'tests/Element.test.js',
 					'tests/Process.test.js',
-					'tests/mixins/FlaggedElement.test.js',
+					'tests/mixins/*.test.js',
+					'tests/widgets/*.test.js',
 					'tests/JSPHP.test.js'
 				],
 				reporters: [ 'dots' ],
