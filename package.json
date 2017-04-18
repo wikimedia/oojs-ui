@@ -36,7 +36,6 @@
     "grunt-contrib-less": "1.4.1",
     "grunt-contrib-uglify": "2.2.0",
     "grunt-contrib-watch": "1.0.0",
-    "grunt-csscomb": "git://github.com/jdforrester/grunt-csscomb.git#v3.1.0-wmf.1",
     "grunt-cssjanus": "0.4.0",
     "grunt-eslint": "19.0.0",
     "grunt-exec": "1.0.1",

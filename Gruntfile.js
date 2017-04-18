@@ -27,7 +27,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
-	grunt.loadNpmTasks( 'grunt-csscomb' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-exec' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
@@ -270,12 +269,6 @@ module.exports = function ( grunt ) {
 				files: {
 					'demos/styles/demo.rtl.css': 'demos/styles/demo.css'
 				}
-			}
-		},
-		csscomb: {
-			dist: {
-				expand: true,
-				src: 'dist/*.css'
 			}
 		},
 		copy: {
@@ -588,7 +581,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build-code', [ 'concat:js' ] );
 	grunt.registerTask( 'build-styling', [
 		'colorizeSvg', 'set-graphics', 'less', 'cssjanus',
-		'concat:css', 'concat:demoCss', 'csscomb',
+		'concat:css', 'concat:demoCss',
 		'copy:imagesCommon', 'copy:imagesThemes',
 		'svg2png'
 	] );
