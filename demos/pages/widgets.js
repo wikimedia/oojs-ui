@@ -2052,6 +2052,21 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'menu',
+						label: 'Options',
+						popup: {
+							$content: $( '<p>' ).text( loremIpsum ),
+							padded: true,
+							anchor: false
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (no anchor)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new Demo.NumberLookupTextInputWidget(),
 					{
 						label: 'LookupElement (try inputting an integer)\u200E',
