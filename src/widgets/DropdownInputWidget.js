@@ -58,6 +58,7 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	this.$element
 		.addClass( 'oo-ui-dropdownInputWidget' )
 		.append( this.dropdownWidget.$element );
+	this.setTabIndexedElement( null );
 };
 
 /* Setup */
