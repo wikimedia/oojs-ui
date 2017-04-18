@@ -1,4 +1,32 @@
 # OOjs UI Release History
+## v0.21.1 / 2017-04-18
+### Styles
+* PopupWidget: Do not leave space for anchor if there's no anchor (Bartosz Dziewoński)
+* MediaWiki theme: Ensure WCAG level AA contrast on unsupported SelectFileWidget (Volker E)
+* MediaWiki theme: Fit icon/indicator & label in DecoratedOptionWidget (Volker E)
+* MediaWiki theme: Fix standalone, disabled sibling ButtonWidgets (Volker E)
+* MediaWiki theme: Fix white `border-color` of frameless buttons (Volker E)
+* MediaWiki theme: Make readonly TextInputWidget appearance clearer (Volker E)
+* MediaWiki theme: TagMultiselectWidget outlined UI improvements (Volker E)
+* MenuOptionWidget: Remove theme-independent 'check' icon (Prateek Saxena)
+
+### Code
+* environment: Upgrade jQuery from 1.11.3 to 3.2.1 (James D. Forrester)
+* DropdownInput-/RadioSelectInputWidget: Remove unnecessary ARIA attributes (Volker E)
+* Element: Use `JSON.parse` rather than the deprecated `$.parseJSON` (James D. Forrester)
+* Fix typo in frameless button mixin (David Lynch)
+* FloatingMenuSelectWidget: Add 'ready' event after menu is clipped (Moriel Schottlender)
+* MediaWiki theme: Clarify `@min-height-widget-default` usage (Volker E)
+* PopupToolGroup: Mixin flaggable (David Lynch)
+* TagMultiselectWidget: Allow preset InputWidget (Moriel Schottlender)
+* TagMultiselectWidget: Redo data validation for Tag* and Menu* (Moriel Schottlender)
+* themes: Align `@size-*-min` variable to naming scheme and rename (Volker E)
+* build: Drop the csscomb task (James D. Forrester)
+* docs: Fix numbering in Quick start (Kartik Mistry)
+* demos: Polish demo labels, styles and add frameless button tests (Volker E)
+* tests: Update OO.ui.Process tests for jQuery 3 compatibility (Bartosz Dziewoński)
+
+
 ## v0.21.0 / 2017-04-11
 ### Breaking changes
 * [BREAKING CHANGE] ActionWidget: Remove resize event (IvanFon)
