@@ -251,8 +251,10 @@ OO.ui.PopupWidget.prototype.toggleAnchor = function ( show ) {
 	if ( this.anchored !== show ) {
 		if ( show ) {
 			this.$element.addClass( 'oo-ui-popupWidget-anchored' );
+			this.$element.addClass( 'oo-ui-popupWidget-anchored-' + this.anchorEdge );
 		} else {
 			this.$element.removeClass( 'oo-ui-popupWidget-anchored' );
+			this.$element.removeClass( 'oo-ui-popupWidget-anchored-' + this.anchorEdge );
 		}
 		this.anchored = show;
 	}
@@ -270,7 +272,9 @@ OO.ui.PopupWidget.prototype.setAnchorEdge = function ( edge ) {
 		this.$element.removeClass( 'oo-ui-popupWidget-anchored-' + this.anchorEdge );
 	}
 	this.anchorEdge = edge;
-	this.$element.addClass( 'oo-ui-popupWidget-anchored-' + edge );
+	if ( this.anchored ) {
+		this.$element.addClass( 'oo-ui-popupWidget-anchored-' + edge );
+	}
 };
 
 /**
