@@ -1452,13 +1452,7 @@
 	}
 
 	&.oo-ui-widget-disabled,
-	&-empty.oo-ui-widget-disabled,
-	&-notsupported {
-		&.oo-ui-selectFileWidget-dropTarget {
-			background-color: @background-color-disabled;
-			border-color: @border-color-disabled;
-		}
-
+	&-empty.oo-ui-widget-disabled {
 		.oo-ui-selectFileWidget-info {
 			background-color: @background-color-disabled;
 			color: @color-disabled;
@@ -1473,11 +1467,27 @@
 				opacity: @opacity-disabled-indicator;
 			}
 		}
+
+		&.oo-ui-selectFileWidget-dropTarget {
+			background-color: @background-color-disabled;
+			border-color: @border-color-disabled;
+		}
 	}
 
-	&-notsupported.oo-ui-selectFileWidget-dropTarget {
-		.oo-ui-selectFileWidget-label {
-			padding: 1em @padding-horizontal-default;
+	&-notsupported {
+		.oo-ui-selectFileWidget-info {
+			background-color: @background-color-disabled;
+			color: @color-default;
+			border-color: @border-color-disabled;
+		}
+
+		&.oo-ui-selectFileWidget-dropTarget {
+			background-color: @background-color-disabled;
+			border-color: @border-color-disabled;
+
+			.oo-ui-selectFileWidget-label {
+				padding: 1em @padding-horizontal-default;
+			}
 		}
 	}
 
