@@ -65,6 +65,9 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuSelectWidget' );
+	if ( config.widget ) {
+		this.setFocusOwner( config.widget.$tabIndexed );
+	}
 
 	// Initially hidden - using #toggle may cause errors if subclasses override toggle with methods
 	// that reference properties not initialized at that time of parent class construction
@@ -320,6 +323,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.toggleClipping( true );
 
 			if ( this.getSelectedItem() ) {
+				this.$focusOwner.attr( 'aria-activedescendant', this.getSelectedItem().getElementId() );
 				this.getSelectedItem().scrollElementIntoView( { duration: 0 } );
 			}
 
@@ -328,6 +332,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 				this.getElementDocument().addEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
 			}
 		} else {
+			this.$focusOwner.removeAttr( 'aria-activedescendant' );
 			this.unbindKeyDownListener();
 			this.unbindKeyPressListener();
 			this.getElementDocument().removeEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );

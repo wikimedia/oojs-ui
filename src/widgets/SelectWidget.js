@@ -77,6 +77,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	this.$element
 		.addClass( 'oo-ui-selectWidget oo-ui-selectWidget-depressed' )
 		.attr( 'role', 'listbox' );
+	this.setFocusOwner( this.$element );
 	if ( Array.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}
@@ -169,7 +170,7 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
 	}
 
 	if ( event.target !== this.$element[ 0 ] ) {
-		this.$element.focus();
+		this.$focusOwner.focus();
 	}
 };
 
@@ -583,6 +584,11 @@ OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
 		}
 	}
 	if ( changed ) {
+		if ( item ) {
+			this.$focusOwner.attr( 'aria-activedescendant', item.getElementId() );
+		} else {
+			this.$focusOwner.removeAttr( 'aria-activedescendant' );
+		}
 		this.emit( 'highlight', item );
 	}
 
@@ -681,6 +687,13 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 		}
 	}
 	if ( changed ) {
+		if ( item && !item.constructor.static.highlightable ) {
+			if ( item ) {
+				this.$focusOwner.attr( 'aria-activedescendant', item.getElementId() );
+			} else {
+				this.$focusOwner.removeAttr( 'aria-activedescendant' );
+			}
+		}
 		this.emit( 'select', item );
 	}
 
@@ -855,4 +868,16 @@ OO.ui.SelectWidget.prototype.clearItems = function () {
 	this.emit( 'remove', items );
 
 	return this;
+};
+
+/**
+ * Set the DOM element which has focus while the user is interacting with this SelectWidget.
+ *
+ * Currently this is just used to set `aria-activedescendant` on it.
+ *
+ * @protected
+ * @param {jQuery} $focusOwner
+ */
+OO.ui.SelectWidget.prototype.setFocusOwner = function ( $focusOwner ) {
+	this.$focusOwner = $focusOwner;
 };
