@@ -16,9 +16,7 @@ OO.ui.MenuOptionWidget = function OoUiMenuOptionWidget( config ) {
 	OO.ui.MenuOptionWidget.parent.call( this, config );
 
 	// Initialization
-	this.$element
-		.attr( 'role', 'menuitem' )
-		.addClass( 'oo-ui-menuOptionWidget' );
+	this.$element.addClass( 'oo-ui-menuOptionWidget' );
 };
 
 /* Setup */

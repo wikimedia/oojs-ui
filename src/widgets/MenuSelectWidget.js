@@ -64,9 +64,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.highlightOnFilter = !!config.highlightOnFilter;
 
 	// Initialization
-	this.$element
-		.addClass( 'oo-ui-menuSelectWidget' )
-		.attr( 'role', 'menu' );
+	this.$element.addClass( 'oo-ui-menuSelectWidget' );
 
 	// Initially hidden - using #toggle may cause errors if subclasses override toggle with methods
 	// that reference properties not initialized at that time of parent class construction
