@@ -95,6 +95,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 		.addClass( 'oo-ui-dropdownWidget-handle' )
 		.attr( {
 			role: 'combobox',
+			'aria-owns': this.menu.getElementId(),
 			'aria-autocomplete': 'list'
 		} )
 		.append( this.$icon, this.$label, this.$indicator );

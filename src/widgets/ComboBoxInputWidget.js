@@ -113,6 +113,7 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	// Initialization
 	this.$input.attr( {
 		role: 'combobox',
+		'aria-owns': this.menu.getElementId(),
 		'aria-autocomplete': 'list'
 	} );
 	// Do not override options set via config.menu.items
