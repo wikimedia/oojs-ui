@@ -1388,10 +1388,10 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TagMultiselectWidget( {
 						allowArbitrary: true,
 						inputPosition: 'outline',
-						inputWidget: new OO.ui.SearchInputWidget()
+						inputWidget: new OO.ui.NumberInputWidget()
 					} ),
 					{
-						label: 'TagMultiselectWidget (inputwidget: OO.ui.SearchInputWidget, inputPosition:outline)',
+						label: 'TagMultiselectWidget (inputwidget: OO.ui.NumberInputWidget, inputPosition:outline)',
 						align: 'top'
 					}
 				),

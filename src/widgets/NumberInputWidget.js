@@ -14,14 +14,13 @@
  *     $( 'body' ).append( numberInput.$element );
  *
  * @class
- * @extends OO.ui.Widget
+ * @extends OO.ui.TextInputWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Object} [input] Configuration options to pass to the {@link OO.ui.TextInputWidget text input widget}.
  * @cfg {Object} [minusButton] Configuration options to pass to the {@link OO.ui.ButtonWidget decrementing button widget}.
  * @cfg {Object} [plusButton] Configuration options to pass to the {@link OO.ui.ButtonWidget incrementing button widget}.
- * @cfg {boolean} [isInteger=false] Whether the field accepts only integer values.
+ * @cfg {boolean} [allowInteger=false] Whether the field accepts only integer values.
  * @cfg {number} [min=-Infinity] Minimum allowed value
  * @cfg {number} [max=Infinity] Maximum allowed value
  * @cfg {number} [step=1] Delta when using the buttons or up/down arrow keys
@@ -29,6 +28,9 @@
  * @cfg {boolean} [showButtons=true] Whether to show the plus and minus buttons.
  */
 OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
+	var $field = $( '<div>' )
+		.addClass( 'oo-ui-numberInputWidget-field' );
+
 	// Configuration initialization
 	config = $.extend( {
 		isInteger: false,
@@ -39,17 +41,15 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 		showButtons: true
 	}, config );
 
-	// Parent constructor
-	OO.ui.NumberInputWidget.parent.call( this, config );
+	// For backward compatibility
+	$.extend( config, config.input );
+	this.input = this;
 
-	// Properties
-	this.input = new OO.ui.TextInputWidget( $.extend(
-		{
-			disabled: this.isDisabled(),
-			type: 'number'
-		},
-		config.input
-	) );
+	// Parent constructor
+	OO.ui.NumberInputWidget.parent.call( this, $.extend( config, {
+		type: 'number'
+	} ) );
+
 	if ( config.showButtons ) {
 		this.minusButton = new OO.ui.ButtonWidget( $.extend(
 			{
@@ -72,11 +72,7 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 	}
 
 	// Events
-	this.input.connect( this, {
-		change: this.emit.bind( this, 'change' ),
-		enter: this.emit.bind( this, 'enter' )
-	} );
-	this.input.$input.on( {
+	this.$input.on( {
 		keydown: this.onKeyDown.bind( this ),
 		'wheel mousewheel DOMMouseScroll': this.onWheel.bind( this )
 	} );
@@ -89,40 +85,31 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 		} );
 	}
 
-	// Initialization
-	this.setIsInteger( !!config.isInteger );
-	this.setRange( config.min, config.max );
-	this.setStep( config.step, config.pageStep );
-
-	this.$field = $( '<div>' ).addClass( 'oo-ui-numberInputWidget-field' )
-		.append( this.input.$element );
-	this.$element.addClass( 'oo-ui-numberInputWidget' ).append( this.$field );
+	// Build the field
+	$field.append( this.$input );
 	if ( config.showButtons ) {
-		this.$field
+		$field
 			.prepend( this.minusButton.$element )
 			.append( this.plusButton.$element );
-		this.$element.addClass( 'oo-ui-numberInputWidget-buttoned' );
 	}
-	this.input.setValidation( this.validateNumber.bind( this ) );
+
+	// Initialization
+	this.setAllowInteger( config.isInteger || config.allowInteger );
+	this.setRange( config.min, config.max );
+	this.setStep( config.step, config.pageStep );
+	// Set the validation method after we set isInteger and range
+	// so that it doesn't immediately call setValidityFlag
+	this.setValidation( this.validateNumber.bind( this ) );
+
+	this.$element
+		.addClass( 'oo-ui-numberInputWidget' )
+		.toggleClass( 'oo-ui-numberInputWidget-buttoned', config.showButtons )
+		.append( $field );
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.NumberInputWidget, OO.ui.Widget );
-
-/* Events */
-
-/**
- * A `change` event is emitted when the value of the input changes.
- *
- * @event change
- */
-
-/**
- * An `enter` event is emitted when the user presses 'enter' inside the text box.
- *
- * @event enter
- */
+OO.inheritClass( OO.ui.NumberInputWidget, OO.ui.TextInputWidget );
 
 /* Methods */
 
@@ -131,19 +118,23 @@ OO.inheritClass( OO.ui.NumberInputWidget, OO.ui.Widget );
  *
  * @param {boolean} flag
  */
-OO.ui.NumberInputWidget.prototype.setIsInteger = function ( flag ) {
+OO.ui.NumberInputWidget.prototype.setAllowInteger = function ( flag ) {
 	this.isInteger = !!flag;
-	this.input.setValidityFlag();
+	this.setValidityFlag();
 };
+// Backward compatibility
+OO.ui.NumberInputWidget.prototype.setIsInteger = OO.ui.NumberInputWidget.prototype.setAllowInteger;
 
 /**
  * Get whether only integers are allowed
  *
  * @return {boolean} Flag value
  */
-OO.ui.NumberInputWidget.prototype.getIsInteger = function () {
+OO.ui.NumberInputWidget.prototype.getAllowInteger = function () {
 	return this.isInteger;
 };
+// Backward compatibility
+OO.ui.NumberInputWidget.prototype.getIsInteger = OO.ui.NumberInputWidget.prototype.getAllowInteger;
 
 /**
  * Set the range of allowed values
@@ -157,7 +148,7 @@ OO.ui.NumberInputWidget.prototype.setRange = function ( min, max ) {
 	}
 	this.min = min;
 	this.max = max;
-	this.input.setValidityFlag();
+	this.setValidityFlag();
 };
 
 /**
@@ -198,30 +189,12 @@ OO.ui.NumberInputWidget.prototype.getStep = function () {
 };
 
 /**
- * Get the current value of the widget
- *
- * @return {string}
- */
-OO.ui.NumberInputWidget.prototype.getValue = function () {
-	return this.input.getValue();
-};
-
-/**
  * Get the current value of the widget as a number
  *
  * @return {number} May be NaN, or an invalid number
  */
 OO.ui.NumberInputWidget.prototype.getNumericValue = function () {
-	return +this.input.getValue();
-};
-
-/**
- * Set the value of the widget
- *
- * @param {string} value Invalid values are allowed
- */
-OO.ui.NumberInputWidget.prototype.setValue = function ( value ) {
-	this.input.setValue( value );
+	return +this.getValue();
 };
 
 /**
@@ -251,7 +224,6 @@ OO.ui.NumberInputWidget.prototype.adjustValue = function ( delta ) {
 		this.setValue( n );
 	}
 };
-
 /**
  * Validate input
  *
@@ -261,6 +233,10 @@ OO.ui.NumberInputWidget.prototype.adjustValue = function ( delta ) {
  */
 OO.ui.NumberInputWidget.prototype.validateNumber = function ( value ) {
 	var n = +value;
+	if ( value === '' ) {
+		return !this.isRequired();
+	}
+
 	if ( isNaN( n ) || !isFinite( n ) ) {
 		return false;
 	}
@@ -295,7 +271,7 @@ OO.ui.NumberInputWidget.prototype.onButtonClick = function ( dir ) {
 OO.ui.NumberInputWidget.prototype.onWheel = function ( event ) {
 	var delta = 0;
 
-	if ( !this.isDisabled() && this.input.$input.is( ':focus' ) ) {
+	if ( !this.isDisabled() && this.$input.is( ':focus' ) ) {
 		// Standard 'wheel' event
 		if ( event.originalEvent.deltaMode !== undefined ) {
 			this.sawWheelEvent = true;
@@ -360,9 +336,6 @@ OO.ui.NumberInputWidget.prototype.setDisabled = function ( disabled ) {
 	// Parent method
 	OO.ui.NumberInputWidget.parent.prototype.setDisabled.call( this, disabled );
 
-	if ( this.input ) {
-		this.input.setDisabled( this.isDisabled() );
-	}
 	if ( this.minusButton ) {
 		this.minusButton.setDisabled( this.isDisabled() );
 	}

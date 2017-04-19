@@ -814,7 +814,7 @@
 			padding-right: 0;
 		}
 
-		.oo-ui-textInputWidget input {
+		.oo-ui-inputWidget-input {
 			border-radius: 0;
 		}
 	}
@@ -1830,11 +1830,13 @@
 			text-shadow: @text-shadow-disabled;
 			border-color: @border-color-disabled;
 		}
+
 		.oo-ui-iconElement-icon,
 		.oo-ui-indicatorElement-indicator {
 			opacity: @opacity-disabled;
 		}
-		.oo-ui-labelElement-label {
+
+		> .oo-ui-labelElement-label {
 			color: @color-disabled;
 			text-shadow: @text-shadow-disabled;
 		}
