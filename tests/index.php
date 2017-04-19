@@ -26,7 +26,10 @@
 	<script src="../node_modules/jquery/dist/jquery.js"></script>
 	<script src="../node_modules/oojs/dist/oojs.jquery.js"></script>
 	<!-- Source code -->
-	<script src="../dist/oojs-ui.js"></script>
+	<script src="../dist/oojs-ui-core.js"></script>
+	<script src="../dist/oojs-ui-widgets.js"></script>
+	<script src="../dist/oojs-ui-windows.js"></script>
+	<script src="../dist/oojs-ui-toolbars.js"></script>
 	<script src="../dist/oojs-ui-apex.js"></script>
 	<script src="../dist/oojs-ui-mediawiki.js"></script>
 	<script src="./TestTimer.js"></script>
