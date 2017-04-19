@@ -248,21 +248,15 @@ OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
  * @inheritdoc
  */
 OO.ui.Dialog.prototype.initialize = function () {
-	var titleId;
-
 	// Parent method
 	OO.ui.Dialog.parent.prototype.initialize.call( this );
 
-	titleId = OO.ui.generateElementId();
-
 	// Properties
-	this.title = new OO.ui.LabelWidget( {
-		id: titleId
-	} );
+	this.title = new OO.ui.LabelWidget();
 
 	// Initialization
 	this.$content.addClass( 'oo-ui-dialog-content' );
-	this.$element.attr( 'aria-labelledby', titleId );
+	this.$element.attr( 'aria-labelledby', this.title.getElementId() );
 	this.setPendingElement( this.$head );
 };
 
