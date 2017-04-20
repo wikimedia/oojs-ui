@@ -3,7 +3,7 @@ QUnit.module( 'core' );
 /**
  * @note: Keep tests in sync with phpunit/TagTest.php
  */
-QUnit.test( 'isSafeUrl', 13, function ( assert ) {
+QUnit.test( 'isSafeUrl', function ( assert ) {
 	// eslint-disable-next-line no-script-url
 	assert.notOk( OO.ui.isSafeUrl( 'javascript:evil();' ) );
 	assert.notOk( OO.ui.isSafeUrl( 'foo:bar' ) );
@@ -20,7 +20,7 @@ QUnit.test( 'isSafeUrl', 13, function ( assert ) {
 	assert.ok( OO.ui.isSafeUrl( '/wiki/Extra:Colon' ) );
 } );
 
-QUnit.test( 'isFocusableElement', 10, function ( assert ) {
+QUnit.test( 'isFocusableElement', function ( assert ) {
 	var i, $html, result,
 		cases = [
 			{
@@ -94,7 +94,7 @@ QUnit.test( 'isFocusableElement', 10, function ( assert ) {
 	}
 } );
 
-QUnit.test( 'debounce', 4, function ( assert ) {
+QUnit.test( 'debounce', function ( assert ) {
 	var f,
 		log = [],
 		testTimer = new OO.ui.TestTimer(),
@@ -178,7 +178,7 @@ QUnit.test( 'debounce', 4, function ( assert ) {
 	}
 } );
 
-QUnit.test( 'throttle', 2, function ( assert ) {
+QUnit.test( 'throttle', function ( assert ) {
 	var f,
 		log = [],
 		testTimer = new OO.ui.TestTimer(),

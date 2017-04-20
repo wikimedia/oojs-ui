@@ -15,7 +15,7 @@ QUnit.module( 'Element', {
 	}
 } );
 
-QUnit.test( 'static.infuse', 2, function ( assert ) {
+QUnit.test( 'static.infuse', function ( assert ) {
 	function infuse( data ) {
 		return OO.ui.Element.static.infuse(
 			$( '<div>' ).attr( 'data-ooui', JSON.stringify( data ) )
@@ -27,7 +27,7 @@ QUnit.test( 'static.infuse', 2, function ( assert ) {
 	}, Error );
 } );
 
-QUnit.test( 'static.getDocument', 10, function ( assert ) {
+QUnit.test( 'static.getDocument', function ( assert ) {
 	var frameDoc, frameEl, frameDiv,
 		el = this.fixture,
 		div = document.createElement( 'div' ),
@@ -55,7 +55,7 @@ QUnit.test( 'static.getDocument', 10, function ( assert ) {
 	assert.strictEqual( OO.ui.Element.static.getDocument( {} ), null, 'Invalid' );
 } );
 
-QUnit.test( 'getElementDocument', 1, function ( assert ) {
+QUnit.test( 'getElementDocument', function ( assert ) {
 	var el, doc;
 
 	doc = document;

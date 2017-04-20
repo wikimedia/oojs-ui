@@ -2,7 +2,7 @@ QUnit.module( 'OO.ui.Process' );
 
 /* Tests */
 
-QUnit.test( 'next', 1, function ( assert ) {
+QUnit.test( 'next', function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
@@ -22,7 +22,7 @@ QUnit.test( 'next', 1, function ( assert ) {
 		} );
 } );
 
-QUnit.test( 'first', 1, function ( assert ) {
+QUnit.test( 'first', function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
@@ -42,7 +42,7 @@ QUnit.test( 'first', 1, function ( assert ) {
 		} );
 } );
 
-QUnit.test( 'execute (async)', 1, function ( assert ) {
+QUnit.test( 'execute (async)', function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
@@ -80,7 +80,7 @@ QUnit.test( 'execute (async)', 1, function ( assert ) {
 		} );
 } );
 
-QUnit.test( 'execute (return false)', 1, function ( assert ) {
+QUnit.test( 'execute (return false)', function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
@@ -114,7 +114,7 @@ QUnit.test( 'execute (return false)', 1, function ( assert ) {
 		} );
 } );
 
-QUnit.test( 'execute (async reject)', 1, function ( assert ) {
+QUnit.test( 'execute (async reject)', function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
@@ -147,7 +147,7 @@ QUnit.test( 'execute (async reject)', 1, function ( assert ) {
 		} );
 } );
 
-QUnit.test( 'execute (wait)', 1, function ( assert ) {
+QUnit.test( 'execute (wait)', function ( assert ) {
 	var process = new OO.ui.Process(),
 		result = [];
 
