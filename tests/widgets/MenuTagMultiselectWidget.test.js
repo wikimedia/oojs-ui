@@ -1,7 +1,7 @@
 ( function () {
 	QUnit.module( 'MenuTagMultiselectWidget' );
 
-	QUnit.test( 'isAllowedData', 4, function ( assert ) {
+	QUnit.test( 'isAllowedData', function ( assert ) {
 		var widget;
 
 		widget = new OO.ui.MenuTagMultiselectWidget( {

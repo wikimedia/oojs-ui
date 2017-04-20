@@ -8,7 +8,7 @@
 	OO.inheritClass( TestElement, OO.ui.Widget );
 	OO.mixinClass( TestElement, OO.ui.mixin.FlaggedElement );
 
-	QUnit.test( 'constructor', 2, function ( assert ) {
+	QUnit.test( 'constructor', function ( assert ) {
 		var element;
 
 		element = new TestElement();
@@ -20,7 +20,7 @@
 		assert.deepEqual( element.getFlags(), [ 'foo' ], 'Config option "flags"' );
 	} );
 
-	QUnit.test( 'getFlags', 2, function ( assert ) {
+	QUnit.test( 'getFlags', function ( assert ) {
 		var element = new TestElement();
 
 		element.setFlags( 'foo' );
@@ -30,7 +30,7 @@
 		assert.deepEqual( element.getFlags(), [], 'Flag was removed' );
 	} );
 
-	QUnit.test( 'hasFlag', 3, function ( assert ) {
+	QUnit.test( 'hasFlag', function ( assert ) {
 		var element = new TestElement();
 		assert.deepEqual( element.hasFlag( 'foo' ), false, 'Flag absent by default' );
 
@@ -41,14 +41,14 @@
 		assert.deepEqual( element.hasFlag( 'foo' ), false, 'Flag was removed' );
 	} );
 
-	QUnit.test( 'clearFlags', 1, function ( assert ) {
+	QUnit.test( 'clearFlags', function ( assert ) {
 		var element = new TestElement();
 		element.setFlags( 'foo' );
 		element.clearFlags();
 		assert.deepEqual( element.hasFlag( 'foo' ), false, 'Flag was removed' );
 	} );
 
-	QUnit.test( 'setFlags', 5, function ( assert ) {
+	QUnit.test( 'setFlags', function ( assert ) {
 		var element = new TestElement();
 		element.setFlags( 'foo' );
 		assert.deepEqual( element.hasFlag( 'foo' ), true, 'string' );
