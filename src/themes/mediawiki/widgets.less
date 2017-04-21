@@ -1552,18 +1552,6 @@
 	line-height: 1.7;
 	vertical-align: middle;
 
-	&.oo-ui-flaggedElement-invalid {
-		border-color: @border-color-erroneous;
-
-		&:hover {
-			border-color: @border-color-erroneous;
-		}
-		&:focus {
-			border-color: @border-color-erroneous;
-			box-shadow: @box-shadow-erroneous-focus;
-		}
-	}
-
 	&.oo-ui-widget-enabled {
 		background-color: @background-color-framed;
 		color: @color-default;
@@ -1585,6 +1573,19 @@
 			border-color: @border-color-default-focus;
 			box-shadow: @box-shadow-widget-focus;
 			outline: 0;
+		}
+
+		&.oo-ui-flaggedElement-invalid {
+			border-color: @border-color-erroneous;
+
+			&:hover {
+				border-color: @border-color-erroneous;
+			}
+
+			&:focus {
+				border-color: @border-color-erroneous;
+				box-shadow: @box-shadow-erroneous-focus;
+			}
 		}
 
 		// Clear button
@@ -1704,10 +1705,10 @@
 				border-bottom: 0;
 				border-bottom-left-radius: 0;
 				border-bottom-right-radius: 0;
+			}
 
-				.oo-ui-tagItemWidget.oo-ui-widget-enabled {
-					background-color: @background-color-default;
-				}
+			.oo-ui-tagItemWidget.oo-ui-widget-enabled {
+				background-color: @background-color-default;
 			}
 
 			.oo-ui-inputWidget-input {
