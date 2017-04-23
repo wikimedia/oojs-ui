@@ -1498,17 +1498,28 @@
 
 .theme-oo-ui-tabOptionWidget () {
 	color: @color-default;
-	margin: 0.5em 0 0 0.75em;
-	border: 1px solid transparent;
-	border-bottom: 0;
+	margin: @margin-taboption 0 0 @margin-taboption;
+	border-color: transparent;
+	border-style: @border-style-default;
+	border-width: @border-width-default @border-width-default 0 @border-width-default;
 	border-top-left-radius: @border-radius-default;
 	border-top-right-radius: @border-radius-default;
-	padding: 0.35em 1em;
+	padding: @padding-taboption;
 	font-weight: bold;
+	line-height: @line-height-reset;
 	.oo-ui-transition(
 		background-color @transition-ease-quick,
 		color @transition-ease-quick
 	);
+
+	&.oo-ui-optionWidget-selected {
+		background-color: @background-color-default;
+		color: @color-default-active;
+	}
+
+	.oo-ui-labelElement-label {
+		line-height: @line-height-widget-singleline;
+	}
 
 	&.oo-ui-widget-enabled {
 		&:hover {
@@ -1518,21 +1529,10 @@
 		&:active {
 			background-color: rgba( 255, 255, 255, 0.8 );
 		}
-	}
 
-	&.oo-ui-indicatorElement .oo-ui-labelElement-label {
-		padding-right: 1.5em;
-	}
-
-	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		opacity: 0.5;
-	}
-
-	.oo-ui-selectWidget-pressed &.oo-ui-optionWidget-selected,
-	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected,
-	&.oo-ui-optionWidget-selected:hover {
-		background-color: @background-color-default;
-		color: @color-default-active;
+		&.oo-ui-optionWidget-selected:hover {
+			background-color: @background-color-default;
+		}
 	}
 }
 
