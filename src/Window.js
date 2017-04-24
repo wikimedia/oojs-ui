@@ -57,6 +57,26 @@ OO.ui.Window = function OoUiWindow( config ) {
 	this.manager = null;
 	this.size = config.size || this.constructor.static.size;
 	this.$frame = $( '<div>' );
+	/**
+	 * Overlay element to use for the `$overlay` configuration option of widgets that support it.
+	 * Things put inside of it are overlaid on top of the window and are not bound to its dimensions.
+	 * See <https://www.mediawiki.org/wiki/OOjs_UI/Concepts#Overlays>.
+	 *
+	 *     MyDialog.prototype.initialize = function () {
+	 *       ...
+	 *       var popupButton = new OO.ui.PopupButtonWidget( {
+	 *         $overlay: this.$overlay,
+	 *         label: 'Popup button',
+	 *         popup: {
+	 *           $content: $( '<p>Popup contents.</p><p>Popup contents.</p><p>Popup contents.</p>' ),
+	 *           padded: true
+	 *         }
+	 *       } );
+	 *       ...
+	 *     };
+	 *
+	 * @property {jQuery}
+	 */
 	this.$overlay = $( '<div>' );
 	this.$content = $( '<div>' );
 

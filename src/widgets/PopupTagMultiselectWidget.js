@@ -26,7 +26,8 @@
  * @mixins OO.ui.mixin.PopupElement
  *
  * @param {Object} config Configuration object
- * @cfg {jQuery} [$overlay] An overlay for the popup
+ * @cfg {jQuery} [$overlay] An overlay for the popup.
+ *  See <https://www.mediawiki.org/wiki/OOjs_UI/Concepts#Overlays>.
  * @cfg {Object} [popup] Configuration options for the popup
  * @cfg {OO.ui.InputWidget} [popupInput] An input widget inside the popup that will be
  *  focused when the popup is opened and will be used as replacement for the
