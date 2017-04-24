@@ -1620,11 +1620,21 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
+						label: 'Accesskey: H',
+						accessKey: 'h'
+					} ),
+					{
+						label: 'ButtonWidget (with accesskey)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonInputWidget( {
 						label: 'Accesskey: I',
 						accessKey: 'i'
 					} ),
 					{
-						label: 'ButtonWidget (with accesskey)\u200E',
+						label: 'ButtonInputWidget (with accesskey)\u200E',
 						align: 'top'
 					}
 				),
@@ -1679,9 +1689,36 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.DropdownWidget( {
+						menu: {
+							items: [
+								new OO.ui.MenuOptionWidget( {
+									data: 'a',
+									label: 'Accesskey: P',
+									accessKey: 'p'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'b',
+									label: 'Accesskey: Q',
+									accessKey: 'q'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'c',
+									label: 'Accesskey: R',
+									accessKey: 'r'
+								} )
+							]
+						}
+					} ),
+					{
+						align: 'top',
+						label: 'DropdownWidget (with accesskeys)\u200E'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
-						value: 'Accesskey: P',
-						accessKey: 'p'
+						value: 'Accesskey: S',
+						accessKey: 's'
 					} ),
 					{
 						label: 'TextInputWidget (with accesskey)\u200E',
