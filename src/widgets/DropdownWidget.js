@@ -52,6 +52,7 @@
  * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful in cases where
  *  the expanded menu is larger than its containing `<div>`. The specified overlay layer is usually on top of the
  *  containing `<div>` and has a larger area. By default, the menu uses relative positioning.
+ *  See <https://www.mediawiki.org/wiki/OOjs_UI/Concepts#Overlays>.
  */
 OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	// Configuration initialization

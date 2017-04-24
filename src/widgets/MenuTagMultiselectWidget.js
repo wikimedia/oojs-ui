@@ -25,7 +25,8 @@
  * @constructor
  * @param {Object} [config] Configuration object
  * @cfg {Object} [menu] Configuration object for the menu widget
- * @cfg {jQuery} [$overlay] An overlay for the menu
+ * @cfg {jQuery} [$overlay] An overlay for the menu.
+ *  See <https://www.mediawiki.org/wiki/OOjs_UI/Concepts#Overlays>.
  * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: … }`
  */
 OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config ) {

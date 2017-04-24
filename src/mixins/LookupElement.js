@@ -18,7 +18,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$overlay] Overlay for the lookup menu; defaults to relative positioning
+ * @cfg {jQuery} [$overlay] Overlay for the lookup menu; defaults to relative positioning.
+ *  See <https://www.mediawiki.org/wiki/OOjs_UI/Concepts#Overlays>.
  * @cfg {jQuery} [$container=this.$element] The container element. The lookup menu is rendered beneath the specified element.
  * @cfg {boolean} [allowSuggestionsWhenEmpty=false] Request and display a lookup menu when the text input is empty.
  *  By default, the lookup menu is not generated and displayed until the user begins to type.
