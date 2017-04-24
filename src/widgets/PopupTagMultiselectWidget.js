@@ -80,6 +80,7 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 	}
 
 	// Events
+	this.on( 'resize', this.popup.updateDimensions.bind( this.popup ) );
 	this.popup.connect( this, { toggle: 'onPopupToggle' } );
 	this.$tabIndexed
 		.on( 'focus', this.focus.bind( this ) );
