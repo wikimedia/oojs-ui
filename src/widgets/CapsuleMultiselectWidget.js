@@ -159,6 +159,7 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 		this.$input.prop( 'disabled', this.isDisabled() );
 		this.$input.attr( {
 			role: 'combobox',
+			'aria-owns': this.menu.getElementId(),
 			'aria-autocomplete': 'list'
 		} );
 	}
