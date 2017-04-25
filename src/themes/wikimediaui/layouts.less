@@ -53,7 +53,7 @@
 
 	&.oo-ui-labelElement {
 		> .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
-			padding-bottom: 0.3125em; // equals `4px` at base `font-size: 12.8px`
+			padding-bottom: @padding-vertical-label;
 
 			> .oo-ui-labelElement-label {
 				line-height: @line-height-form-element;
@@ -74,14 +74,14 @@
 
 					> .oo-ui-labelElement-label {
 						display: block;
-						padding-top: 0.3125em;
+						padding-top: @padding-vertical-label;
 					}
 				}
 
 				> .oo-ui-fieldLayout-help {
 					// Override the default
 					margin-right: 0;
-					// Move into the space of 'margin-right' of header
+					// Move into the space of `margin-right` of header
 					margin-left: -@size-icon;
 				}
 
@@ -92,18 +92,35 @@
 		}
 
 		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
-			padding: 0.3125em 0.46875em; // equals `4px 6px` at base `font-size: 12.8px`
-			// `6px` is not aligned to M101 design guideline, as checkbox and radios sizes aren't either
-			padding-right: 0;
+			padding: 0.3125em 0 0.3125em 0.46875em; // equals `4px 6px` at base `font-size: 12.8px`
+			// `6px` is not aligned to M101 design guideline, as checkbox and radio sizes aren't either
 		}
 	}
 
-	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
-		color: @color-disabled;
+	.oo-ui-fieldLayout-help { // Assuming that this is a PopupButtonWidget
+		.oo-ui-inline-spacing( 0 );
+
+		.oo-ui-buttonElement-button {
+			padding-top: @size-fieldlayout-help-icon;
+			padding-left: @size-fieldlayout-help-icon;
+
+			.oo-ui-iconElement-icon {
+				left: 0; // Reset Frameless ButtonWidget
+			}
+		}
 	}
 
-	> .oo-ui-popupButtonWidget {
-		.oo-ui-inline-spacing( 0 );
+	&.oo-ui-fieldLayout-align-top,
+	&.oo-ui-fieldLayout-align-inline {
+		.oo-ui-fieldLayout-help {
+			// HACK: This PopupButtonWidget's height extends below the header line (with align: top),
+			// causing the field widget to be narrower than it should be.
+			margin-top: @margin-top-fieldlayout-help;
+
+			&:last-child {
+				margin-right: -@padding-horizontal-frameless;
+			}
+		}
 	}
 
 	&-messages {
@@ -127,6 +144,10 @@
 			line-height: @line-height-message;
 			vertical-align: middle;
 		}
+	}
+
+	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
+		color: @color-disabled;
 	}
 }
 
@@ -164,8 +185,25 @@
 		left: 0;
 	}
 
-	> .oo-ui-fieldsetLayout-header > .oo-ui-popupButtonWidget {
+	.oo-ui-fieldsetLayout-help { // Assuming that this is a PopupButtonWidget
 		.oo-ui-inline-spacing( 0 );
+		// HACK: This PopupButtonWidget's `height` extends below the header's baseline (with align: top),
+		// causing the field widget to be narrower than it should be.
+		margin-top: @margin-top-fieldsetlayout-help;
+		margin-right: -@padding-horizontal-frameless;
+
+		&:last-child {
+			margin-right: -@padding-horizontal-frameless;
+		}
+
+		.oo-ui-buttonElement-button {
+			padding-top: @size-fieldlayout-help-icon;
+			padding-left: @size-fieldlayout-help-icon;
+
+			.oo-ui-iconElement-icon {
+				left: 0; // reset Frameless ButtonWidget
+			}
+		}
 	}
 }
 

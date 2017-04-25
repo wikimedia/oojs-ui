@@ -60,14 +60,5 @@
 		}
 	}
 
-	&.oo-ui-fieldLayout-align-top,
-	&.oo-ui-fieldLayout-align-inline {
-		.oo-ui-fieldLayout-help {
-			// HACK: The height of this ButtonWidget extends below the header line (with align: top),
-			// causing the field widget to be narrower than it should be. 0.3em chosen experimentally.
-			margin-top: -0.3em;
-		}
-	}
-
 	.theme-oo-ui-fieldLayout();
 }
