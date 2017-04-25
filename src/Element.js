@@ -28,6 +28,7 @@ OO.ui.Element = function OoUiElement( config ) {
 
 	// Properties
 	this.$ = $;
+	this.elementId = null;
 	this.visible = true;
 	this.data = config.data;
 	this.$element = config.$element ||
@@ -39,7 +40,7 @@ OO.ui.Element = function OoUiElement( config ) {
 		this.$element.addClass( config.classes.join( ' ' ) );
 	}
 	if ( config.id ) {
-		this.$element.attr( 'id', config.id );
+		this.setElementId( config.id );
 	}
 	if ( config.text ) {
 		this.$element.text( config.text );
@@ -817,6 +818,31 @@ OO.ui.Element.prototype.getData = function () {
 OO.ui.Element.prototype.setData = function ( data ) {
 	this.data = data;
 	return this;
+};
+
+/**
+ * Set the element has an 'id' attribute.
+ *
+ * @param {string} id
+ * @chainable
+ */
+OO.ui.Element.prototype.setElementId = function ( id ) {
+	this.elementId = id;
+	this.$element.attr( 'id', id );
+	return this;
+};
+
+/**
+ * Ensure that the element has an 'id' attribute, setting it to an unique value if it's missing,
+ * and return its value.
+ *
+ * @return {string}
+ */
+OO.ui.Element.prototype.getElementId = function () {
+	if ( this.elementId === null ) {
+		this.setElementId( OO.ui.generateElementId() );
+	}
+	return this.elementId;
 };
 
 /**
