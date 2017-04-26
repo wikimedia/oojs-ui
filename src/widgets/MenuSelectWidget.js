@@ -24,6 +24,7 @@
  * @class
  * @extends OO.ui.SelectWidget
  * @mixins OO.ui.mixin.ClippableElement
+ * @mixins OO.ui.mixin.FloatableElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -41,6 +42,7 @@
  * @cfg {boolean} [hideOnChoose=true] Hide the menu when the user chooses an option.
  * @cfg {boolean} [filterFromInput=false] Filter the displayed options from the input
  * @cfg {boolean} [highlightOnFilter] Highlight the first result when filtering
+ * @cfg {number} [width] Width of the menu
  */
 OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	// Configuration initialization
@@ -51,6 +53,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 
 	// Mixin constructors
 	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
+	OO.ui.mixin.FloatableElement.call( this, config );
 
 	// Properties
 	this.autoHide = config.autoHide === undefined || !!config.autoHide;
@@ -62,6 +65,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
 	this.onInputEditHandler = OO.ui.debounce( this.updateItemVisibility.bind( this ), 100 );
 	this.highlightOnFilter = !!config.highlightOnFilter;
+	this.width = config.width;
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuSelectWidget' );
@@ -80,6 +84,15 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 
 OO.inheritClass( OO.ui.MenuSelectWidget, OO.ui.SelectWidget );
 OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.mixin.ClippableElement );
+OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.mixin.FloatableElement );
+
+/* Events */
+
+/**
+ * @event ready
+ *
+ * The menu is ready: it is visible and has been positioned and clipped.
+ */
 
 /* Methods */
 
@@ -307,6 +320,7 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
  * Side-effects may include broken interface and exceptions being thrown. This wasn't always
  * strictly enforced, so currently it only generates a warning in the browser console.
  *
+ * @fires ready
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
@@ -320,6 +334,10 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 		this.warnedUnattached = true;
 	}
 
+	if ( change && visible && ( this.width || this.$floatableContainer ) ) {
+		this.setIdealSize( this.width || this.$floatableContainer.width() );
+	}
+
 	// Parent method
 	OO.ui.MenuSelectWidget.parent.prototype.toggle.call( this, visible );
 
@@ -328,6 +346,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.bindKeyDownListener();
 			this.bindKeyPressListener();
 
+			this.togglePositioning( !!this.$floatableContainer );
 			this.toggleClipping( true );
 
 			if ( this.getSelectedItem() ) {
@@ -339,11 +358,14 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			if ( this.autoHide ) {
 				this.getElementDocument().addEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
 			}
+
+			this.emit( 'ready' );
 		} else {
 			this.$focusOwner.removeAttr( 'aria-activedescendant' );
 			this.unbindKeyDownListener();
 			this.unbindKeyPressListener();
 			this.getElementDocument().removeEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
+			this.togglePositioning( false );
 			this.toggleClipping( false );
 		}
 	}

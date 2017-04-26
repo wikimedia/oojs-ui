@@ -46,7 +46,7 @@
  * @mixins OO.ui.mixin.IndicatorElement
  * @mixins OO.ui.mixin.IconElement
  * @uses OO.ui.CapsuleItemWidget
- * @uses OO.ui.FloatingMenuSelectWidget
+ * @uses OO.ui.MenuSelectWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -109,11 +109,11 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 	this.allowArbitrary = config.allowArbitrary;
 	this.allowDuplicates = config.allowDuplicates;
 	this.$overlay = config.$overlay;
-	this.menu = new OO.ui.FloatingMenuSelectWidget( $.extend(
+	this.menu = new OO.ui.MenuSelectWidget( $.extend(
 		{
 			widget: this,
 			$input: this.$input,
-			$container: this.$element,
+			$floatableContainer: this.$element,
 			filterFromInput: true,
 			disabled: this.isDisabled()
 		},

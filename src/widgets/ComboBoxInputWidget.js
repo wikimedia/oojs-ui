@@ -57,7 +57,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: … }`
- * @cfg {Object} [menu] Configuration options to pass to the {@link OO.ui.FloatingMenuSelectWidget menu select widget}.
+ * @cfg {Object} [menu] Configuration options to pass to the {@link OO.ui.MenuSelectWidget menu select widget}.
  * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful in cases where
  *  the expanded menu is larger than its containing `<div>`. The specified overlay layer is usually on top of the
  *  containing `<div>` and has a larger area. By default, the menu uses relative positioning.
@@ -87,11 +87,11 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 		indicator: 'down',
 		disabled: this.disabled
 	} );
-	this.menu = new OO.ui.FloatingMenuSelectWidget( $.extend(
+	this.menu = new OO.ui.MenuSelectWidget( $.extend(
 		{
 			widget: this,
 			input: this,
-			$container: this.$element,
+			$floatableContainer: this.$element,
 			disabled: this.isDisabled()
 		},
 		config.menu
@@ -140,7 +140,7 @@ OO.inheritClass( OO.ui.ComboBoxInputWidget, OO.ui.TextInputWidget );
 /**
  * Get the combobox's menu.
  *
- * @return {OO.ui.FloatingMenuSelectWidget} Menu widget
+ * @return {OO.ui.MenuSelectWidget} Menu widget
  */
 OO.ui.ComboBoxInputWidget.prototype.getMenu = function () {
 	return this.menu;

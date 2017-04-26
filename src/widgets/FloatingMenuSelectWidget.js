@@ -1,26 +1,22 @@
 /**
- * FloatingMenuSelectWidget is a menu that will stick under a specified
- * container, even when it is inserted elsewhere in the document (for example,
- * in a OO.ui.Window's $overlay). This is sometimes necessary to prevent the
- * menu from being clipped too aggresively.
- *
- * The menu's position is automatically calculated and maintained when the menu
- * is toggled or the window is resized.
- *
- * See OO.ui.ComboBoxInputWidget for an example of a widget that uses this class.
+ * FloatingMenuSelectWidget was a menu that would stick under a specified
+ * container, even when it is inserted elsewhere in the document.
+ * This functionality is now included in MenuSelectWidget, and FloatingMenuSelectWidget
+ * is preserved for backwards-compatibility.
  *
  * @class
  * @extends OO.ui.MenuSelectWidget
- * @mixins OO.ui.mixin.FloatableElement
+ * @deprecated since v0.21.3, use MenuSelectWidget instead.
  *
  * @constructor
  * @param {OO.ui.Widget} [inputWidget] Widget to provide the menu for.
  *   Deprecated, omit this parameter and specify `$container` instead.
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$container=inputWidget.$element] Element to render menu under
- * @cfg {number} [width] Width of the menu
  */
 OO.ui.FloatingMenuSelectWidget = function OoUiFloatingMenuSelectWidget( inputWidget, config ) {
+	OO.ui.warnDeprecation( 'FloatingMenuSelectWidget is deprecated. Use the MenuSelectWidget instead.' );
+
 	// Allow 'inputWidget' parameter and config for backwards compatibility
 	if ( OO.isPlainObject( inputWidget ) && config === undefined ) {
 		config = inputWidget;
@@ -30,17 +26,12 @@ OO.ui.FloatingMenuSelectWidget = function OoUiFloatingMenuSelectWidget( inputWid
 	// Configuration initialization
 	config = config || {};
 
-	this.width = config.width;
-
-	// Parent constructor
-	OO.ui.FloatingMenuSelectWidget.parent.call( this, config );
-
-	// Properties (must be set before mixin constructors)
+	// Properties
 	this.inputWidget = inputWidget; // For backwards compatibility
 	this.$container = config.$container || this.inputWidget.$element;
 
-	// Mixins constructors
-	OO.ui.mixin.FloatableElement.call( this, $.extend( {}, config, { $floatableContainer: this.$container } ) );
+	// Parent constructor
+	OO.ui.FloatingMenuSelectWidget.parent.call( this, $.extend( {}, config, { $floatableContainer: this.$container } ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-floatingMenuSelectWidget' );
@@ -51,42 +42,3 @@ OO.ui.FloatingMenuSelectWidget = function OoUiFloatingMenuSelectWidget( inputWid
 /* Setup */
 
 OO.inheritClass( OO.ui.FloatingMenuSelectWidget, OO.ui.MenuSelectWidget );
-OO.mixinClass( OO.ui.FloatingMenuSelectWidget, OO.ui.mixin.FloatableElement );
-
-/* Events */
-
-/**
- * @event ready
- *
- * The menu is ready: it is visible and has been positioned and clipped.
- */
-
-/* Methods */
-
-/**
- * @fires ready
- * @inheritdoc
- */
-OO.ui.FloatingMenuSelectWidget.prototype.toggle = function ( visible ) {
-	var change;
-	visible = visible === undefined ? !this.isVisible() : !!visible;
-	change = visible !== this.isVisible();
-
-	if ( change && visible ) {
-		// Make sure the width is set before the parent method runs.
-		this.setIdealSize( this.width || this.$container.width() );
-	}
-
-	// Parent method
-	// This will call this.clip(), which is nonsensical since we're not positioned yet...
-	OO.ui.FloatingMenuSelectWidget.parent.prototype.toggle.call( this, visible );
-
-	if ( change ) {
-		this.togglePositioning( this.isVisible() );
-		if ( visible ) {
-			this.emit( 'ready' );
-		}
-	}
-
-	return this;
-};

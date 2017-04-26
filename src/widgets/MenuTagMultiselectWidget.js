@@ -44,7 +44,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		filterFromInput: !!this.hasInput,
 		$autoCloseIgnore: this.hasInput ?
 			this.input.$element.add( this.$overlay ) : this.$overlay,
-		$container: this.hasInput && this.inputPosition === 'outline' ?
+		$floatableContainer: this.hasInput && this.inputPosition === 'outline' ?
 			this.input.$element : this.$element,
 		$overlay: this.$overlay,
 		disabled: this.isDisabled()
@@ -182,7 +182,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.getMenuVisibleItems = function () {
  * @return {OO.ui.MenuSelectWidget} Menu widget
  */
 OO.ui.MenuTagMultiselectWidget.prototype.createMenuWidget = function ( menuConfig ) {
-	return new OO.ui.FloatingMenuSelectWidget( menuConfig );
+	return new OO.ui.MenuSelectWidget( menuConfig );
 };
 
 /**
