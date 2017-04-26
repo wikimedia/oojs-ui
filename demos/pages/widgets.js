@@ -1306,6 +1306,44 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ComboBoxInputWidget( {
 						options: [
+							{ data: 'asd', label: 'A Label for asd' },
+							{ data: 'fgh', label: 'A Label for fgh' },
+							{ data: 'jkl', label: 'A Label for jkl' },
+							{ data: 'zxc', label: 'A Label for zxc' },
+							{ data: 'vbn', label: 'A Label for vbn' },
+							{ data: 'asd', label: 'B Label for asd' },
+							{ data: 'fgh', label: 'B Label for fgh' },
+							{ data: 'jkl', label: 'B Label for jkl' },
+							{ data: 'zxc', label: 'B Label for zxc' },
+							{ data: 'vbn', label: 'B Label for vbn' },
+							{ data: 'asd', label: 'C Label for asd' },
+							{ data: 'fgh', label: 'C Label for fgh' },
+							{ data: 'jkl', label: 'C Label for jkl' },
+							{ data: 'zxc', label: 'C Label for zxc' },
+							{ data: 'vbn', label: 'C Label for vbn' },
+							{ data: 'asd', label: 'D Label for asd' },
+							{ data: 'fgh', label: 'D Label for fgh' },
+							{ data: 'jkl', label: 'D Label for jkl' },
+							{ data: 'zxc', label: 'D Label for zxc' },
+							{ data: 'vbn', label: 'D Label for vbn' },
+							{ data: 'asd', label: 'E Label for asd' },
+							{ data: 'fgh', label: 'E Label for fgh' },
+							{ data: 'jkl', label: 'E Label for jkl' },
+							{ data: 'zxc', label: 'E Label for zxc' },
+							{ data: 'vbn', label: 'E Label for vbn' }
+						],
+						menu: {
+							filterFromInput: true
+						}
+					} ),
+					{
+						label: 'ComboBoxInputWidget (filtering on input)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ComboBoxInputWidget( {
+						options: [
 							{ data: 'Option 1' },
 							{ data: 'Option 2' },
 							{ data: 'Option 3' },

@@ -147,7 +147,9 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 		anyVisible = false,
 		len = this.items.length,
 		showAll = !this.isVisible(),
-		filter = showAll ? null : this.getItemMatcher( this.$input.val() );
+		filter = showAll ? null : this.getItemMatcher( this.$input.val() ),
+		exactFilter = this.getItemMatcher( this.$input.val(), true ),
+		exactMatch = false;
 
 	// Hide non-matching options, and also hide section headers if all options
 	// in their section are hidden.
@@ -162,6 +164,7 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 			sectionEmpty = true;
 		} else if ( item instanceof OO.ui.OptionWidget ) {
 			visible = showAll || filter( item );
+			exactMatch = exactMatch || exactFilter( item );
 			anyVisible = anyVisible || visible;
 			sectionEmpty = sectionEmpty && !visible;
 			item.toggle( visible );
@@ -175,6 +178,10 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 	// Process the final section
 	if ( section ) {
 		section.toggle( showAll || !sectionEmpty );
+	}
+
+	if ( anyVisible && this.items.length && !exactMatch ) {
+		this.scrollItemIntoView( this.items[ 0 ] );
 	}
 
 	this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
@@ -212,6 +219,7 @@ OO.ui.MenuSelectWidget.prototype.bindKeyPressListener = function () {
 	if ( this.$input ) {
 		if ( this.filterFromInput ) {
 			this.$input.on( 'keydown mouseup cut paste change input select', this.onInputEditHandler );
+			this.updateItemVisibility();
 		}
 	} else {
 		OO.ui.MenuSelectWidget.parent.prototype.bindKeyPressListener.call( this );
