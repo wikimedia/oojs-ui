@@ -22,9 +22,6 @@
 	<link rel="stylesheet" href="../node_modules/qunitjs/qunit/qunit.css">
 	<script src="../node_modules/qunitjs/qunit/qunit.js"></script>
 	<script src="./QUnit.assert.equalDomElement.js"></script>
-	<script>
-		QUnit.config.requireExpects = true;
-	</script>
 	<!-- Dependencies -->
 	<script src="../node_modules/jquery/dist/jquery.js"></script>
 	<script src="../node_modules/oojs/dist/oojs.jquery.js"></script>
