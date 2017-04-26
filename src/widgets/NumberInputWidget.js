@@ -33,7 +33,7 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 
 	// Configuration initialization
 	config = $.extend( {
-		isInteger: false,
+		allowInteger: false,
 		min: -Infinity,
 		max: Infinity,
 		step: 1,
@@ -94,10 +94,10 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 	}
 
 	// Initialization
-	this.setAllowInteger( config.isInteger || config.allowInteger );
+	this.setAllowInteger( config.allowInteger || config.isInteger );
 	this.setRange( config.min, config.max );
 	this.setStep( config.step, config.pageStep );
-	// Set the validation method after we set isInteger and range
+	// Set the validation method after we set allowInteger and range
 	// so that it doesn't immediately call setValidityFlag
 	this.setValidation( this.validateNumber.bind( this ) );
 
@@ -119,7 +119,7 @@ OO.inheritClass( OO.ui.NumberInputWidget, OO.ui.TextInputWidget );
  * @param {boolean} flag
  */
 OO.ui.NumberInputWidget.prototype.setAllowInteger = function ( flag ) {
-	this.isInteger = !!flag;
+	this.allowInteger = !!flag;
 	this.setValidityFlag();
 };
 // Backward compatibility
@@ -131,7 +131,7 @@ OO.ui.NumberInputWidget.prototype.setIsInteger = OO.ui.NumberInputWidget.prototy
  * @return {boolean} Flag value
  */
 OO.ui.NumberInputWidget.prototype.getAllowInteger = function () {
-	return this.isInteger;
+	return this.allowInteger;
 };
 // Backward compatibility
 OO.ui.NumberInputWidget.prototype.getIsInteger = OO.ui.NumberInputWidget.prototype.getAllowInteger;
@@ -215,7 +215,7 @@ OO.ui.NumberInputWidget.prototype.adjustValue = function ( delta ) {
 	} else {
 		n = v + delta;
 		n = Math.max( Math.min( n, this.max ), this.min );
-		if ( this.isInteger ) {
+		if ( this.allowInteger ) {
 			n = Math.round( n );
 		}
 	}
@@ -241,7 +241,7 @@ OO.ui.NumberInputWidget.prototype.validateNumber = function ( value ) {
 		return false;
 	}
 
-	if ( this.isInteger && Math.floor( n ) !== n ) {
+	if ( this.allowInteger && Math.floor( n ) !== n ) {
 		return false;
 	}
 
