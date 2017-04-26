@@ -201,6 +201,7 @@ module.exports = function ( grunt ) {
 			build: 'dist/*',
 			demos: 'demos/{composer.json,composer.lock,node_modules,dist,php,vendor}',
 			tests: 'tests/{JSPHP-suite.json,JSPHP.test.js}',
+			coverage: 'coverage/*',
 			doc: 'docs/*',
 			tmp: 'dist/tmp'
 		},
@@ -219,6 +220,9 @@ module.exports = function ( grunt ) {
 				banner: grunt.file.read( 'build/banner.txt' )
 			},
 			js: {
+				options: {
+					sourceMap: true
+				},
 				files: concatJsFiles
 			},
 			css: {
@@ -407,7 +411,10 @@ module.exports = function ( grunt ) {
 					'tests/QUnit.assert.equalDomElement.js',
 					'node_modules/jquery/dist/jquery.js',
 					'node_modules/oojs/dist/oojs.jquery.js',
-					'dist/oojs-ui.js',
+					'dist/oojs-ui-core.js',
+					'dist/oojs-ui-widgets.js',
+					'dist/oojs-ui-windows.js',
+					'dist/oojs-ui-toolbars.js',
 					'dist/oojs-ui-apex.js',
 					'dist/oojs-ui-mediawiki.js',
 					'tests/TestTimer.js',
@@ -430,11 +437,14 @@ module.exports = function ( grunt ) {
 				preprocessors: {
 					'dist/*.js': [ 'coverage' ]
 				},
-				reporters: [ 'dots', 'coverage' ],
-				coverageReporter: { reporters: [
-					{ type: 'html', dir: 'coverage/' },
-					{ type: 'text-summary', dir: 'coverage/' }
-				] }
+				reporters: [ 'dots', 'coverage', 'karma-remap-istanbul' ],
+				coverageReporter: { type: 'in-memory' },
+				remapIstanbulReporter: {
+					reports: {
+						'text-summary': null,
+						html: 'coverage/'
+					}
+				}
 			},
 			other: {
 				browsers: [ 'Firefox' ]
@@ -615,7 +625,7 @@ module.exports = function ( grunt ) {
 	// Run this before opening "tests/index.php"
 	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );
 
-	grunt.registerTask( '_test', [ 'prep-test', 'karma:main', 'karma:other' ] );
+	grunt.registerTask( '_test', [ 'prep-test', 'clean:coverage', 'karma:main', 'karma:other' ] );
 	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos', 'exec:composer' ] );
 	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
 
