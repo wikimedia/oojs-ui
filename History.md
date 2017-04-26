@@ -1,4 +1,30 @@
 # OOjs UI Release History
+## v0.21.2 / 2017-04-25
+### Features
+* Element: New method `#getElementId` (Bartosz Dziewoński)
+* NumberInputWidget: Remake as an actual TextInputWidget child (Moriel Schottlender)
+
+### Styles
+* ProgressBarWidget: Switch to `box-sizing: border-box` (Volker E)
+* TabOptionWidget: Cleanup & align paddings/position to dialog environment (Volker E)
+* MediaWiki theme: Decrease selector specificity and fix invalid appearance (Volker E)
+* MediaWiki theme: Fix IE 7 oversized buttons (Volker E)
+* MediaWiki theme: Improve SearchWidget design (Volker E)
+
+### Code
+* Do not use `role=menu`/`menuitem` for MenuSelectWidget/MenuOptionWidget (Bartosz Dziewoński)
+* PopupTagMultiselectWidget: Update popup position on resize (Prateek Saxena)
+* ProcessDialog: Display error messages on top of footer action buttons (Bartosz Dziewoński)
+* SelectWidget/MenuSelectWidget: Maintain `aria-activedescendant` attribute on focus owner (Bartosz Dziewoński)
+* Set ARIA `role=combobox` on DropdownWidget and LookupElement too (Bartosz Dziewoński)
+* Set `aria-owns` for everything with a dropdown list (ARIA `role=combobox`) (Bartosz Dziewoński)
+* Follow-up d22d23311: Don't reference OO.ui.ToolGroup blindly (James D. Forrester)
+* build: Bump grunt-stylelint, bring in stylelint explicitly (James D. Forrester)
+* demos: Add some more examples with 'accessKey' (Bartosz Dziewoński)
+* docs: Document Window#$overlay property (Bartosz Dziewoński)
+* tests: Drop unnecessary hints to qunit about the number of tests (James D. Forrester)
+
+
 ## v0.21.1 / 2017-04-18
 ### Styles
 * PopupWidget: Do not leave space for anchor if there's no anchor (Bartosz Dziewoński)
