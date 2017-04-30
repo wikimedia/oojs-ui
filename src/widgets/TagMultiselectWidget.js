@@ -292,12 +292,16 @@ OO.ui.TagMultiselectWidget.prototype.onInputKeyDown = function ( e ) {
 /**
  * Respond to input focus event
  */
-OO.ui.TagMultiselectWidget.prototype.onInputFocus = function () {};
+OO.ui.TagMultiselectWidget.prototype.onInputFocus = function () {
+	this.$element.addClass( 'oo-ui-tagMultiselectWidget-focus' );
+};
 
 /**
  * Respond to input blur event
  */
-OO.ui.TagMultiselectWidget.prototype.onInputBlur = function () {};
+OO.ui.TagMultiselectWidget.prototype.onInputBlur = function () {
+	this.$element.removeClass( 'oo-ui-tagMultiselectWidget-focus' );
+};
 
 /**
  * Perform an action after the enter key on the input
