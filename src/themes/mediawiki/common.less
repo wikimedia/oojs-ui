@@ -84,15 +84,20 @@
 @start-framed-icon-only: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.547em`≈`7px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-default`
 @start-framed-indicator-only: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.09375em`≈`14px`; `@size-indicator + 2 * @border-width-default`
 @start-framed-square-indicator-only: 9 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.703125em`≈`9px`
+@start-tagmultiselect-input: 5 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.390625em`≈`5px`; `@padding-horizontal-tagitem` + `@border-width-default`
+@end-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.3125em`≈`4px`
 
 @width-button-combo-widget: @min-width-button-combo-widget;
 
 @height-icon-element: 100%;
 @height-search: 56 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `4.375em`≈`56px`; `height: 32px` + 2 * `margin: 12px`
+@height-tagitem: 22 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.71875em`≈`22px`;
 
-@margin-dialog-bar-button-framed: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.46875em`≈`6px`
+@margin-dialog-bar-button-framed: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @margin-search: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @margin-taboption: @margin-dialog-bar-button-framed;
+@margin-top-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
+@margin-top-tagmultiselect-input: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 
 @border-default: @border-width-default solid @border-color-default;
 @border-disabled: @border-width-default solid @border-color-disabled;
@@ -136,7 +141,8 @@
 @padding-horizontal-default: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`12px`
 @padding-horizontal-input-text: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @padding-horizontal-taboption: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`13px`; @padding-horizontal-default = @border-width-default
-@padding-vertical-label: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.3125em`≈`4px`
+@padding-horizontal-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
+@padding-vertical-label: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @padding-top-default: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.625em`≈`8px`
 @padding-top-icon-indicator: 30 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @padding-top-menu: 9 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
@@ -169,6 +175,7 @@
 @line-height-input-binary-label: 1.5; // Checkboxes, Radios and ToggleSwitchWidget labels need a tad more for increased vertical click area
 @line-height-widget-multiline: 1.275;
 @line-height-widget-singleline: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
+@line-height-tagmultiselect-input: 1.563em; // equals `20px` at base `font-size: 12.8px`
 
 @text-shadow-default: 0 1px 1px @color-default-light; // 'coined' effect
 @text-shadow-disabled: @text-shadow-default;
