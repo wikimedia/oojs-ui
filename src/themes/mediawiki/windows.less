@@ -166,9 +166,37 @@
 				}
 
 				&.oo-ui-buttonElement-frameless {
-					.oo-ui-buttonElement-button {
-						padding: 0.75em 1em;
-						vertical-align: middle;
+					&.oo-ui-iconElement {
+						&:first-child {
+							margin-left: 0;
+						}
+
+						> .oo-ui-buttonElement-button {
+							padding-left: @size-icon + 1em;
+							// Use min-height as height includes borders
+							padding-top: 0;
+							min-height: @size-dialog-bar-top;
+
+							> .oo-ui-iconElement-icon {
+								left: 0.5em;
+							}
+						}
+					}
+
+					&.oo-ui-labelElement {
+						&:first-child {
+							margin-left: 0;
+						}
+
+						> .oo-ui-buttonElement-button {
+							padding: 0.75em 1em;
+						}
+
+						&.oo-ui-iconElement {
+							> .oo-ui-buttonElement-button {
+								padding-left: @size-icon + 0.75em;
+							}
+						}
 					}
 
 					.oo-ui-labelElement-label {
