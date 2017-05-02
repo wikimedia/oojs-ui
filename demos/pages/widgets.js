@@ -648,7 +648,7 @@ Demo.static.pages.widgets = function ( demo ) {
 		} ),
 		new OO.ui.FieldsetLayout( {
 			id: 'demo-section-inputs',
-			label: 'Inputs: TextInput, TextInput (multiline), SearchInput, NumberInput',
+			label: 'Inputs: TextInput, TextInput, MultilineTextInput, SearchInput, NumberInput',
 			items: [
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( { value: 'Text input' } ),
@@ -723,52 +723,47 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( {
-						multiline: true,
+					new OO.ui.MultilineTextInputWidget( {
 						value: 'Multiline\nMultiline'
 					} ),
 					{
-						label: 'TextInputWidget (multiline)\u200E',
+						label: 'MultilineTextInputWidget\u200E',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( {
-						multiline: true,
+					new OO.ui.MultilineTextInputWidget( {
 						rows: 15,
 						value: 'Multiline\nMultiline'
 					} ),
 					{
-						label: 'TextInputWidget (multiline, rows=15)\u200E',
+						label: 'MultilineTextInputWidget (rows=15)\u200E',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( {
-						multiline: true,
+					new OO.ui.MultilineTextInputWidget( {
 						autosize: true,
 						value: 'Autosize\nAutosize\nAutosize\nAutosize'
 					} ),
 					{
-						label: 'TextInputWidget (autosize)\u200E',
+						label: 'MultilineTextInputWidget (autosize)\u200E',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( {
-						multiline: true,
+					new OO.ui.MultilineTextInputWidget( {
 						rows: 10,
 						autosize: true,
 						value: 'Autosize\nAutosize\nAutosize\nAutosize'
 					} ),
 					{
-						label: 'TextInputWidget (autosize, rows=10)\u200E',
+						label: 'MultilineTextInputWidget (autosize, rows=10)\u200E',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( {
-						multiline: true,
+					new OO.ui.MultilineTextInputWidget( {
 						autosize: true,
 						icon: 'tag',
 						indicator: 'alert',
@@ -776,7 +771,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						value: 'Autosize\nAutosize\nAutosize\nAutosize'
 					} ),
 					{
-						label: 'TextInputWidget (autosize, icon, indicator, label)\u200E',
+						label: 'MultilineTextInputWidget (autosize, icon, indicator, label)\u200E',
 						align: 'top'
 					}
 				),

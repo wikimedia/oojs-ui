@@ -65,14 +65,6 @@ OO.ui.SearchInputWidget.prototype.updateSearchIndicator = function () {
 };
 
 /**
- * @inheritdoc
- */
-OO.ui.SearchInputWidget.prototype.onChange = function () {
-	OO.ui.SearchInputWidget.parent.prototype.onChange.call( this );
-	this.updateSearchIndicator();
-};
-
-/**
  * Handle disable events.
  *
  * @param {boolean} disabled Element is disabled
