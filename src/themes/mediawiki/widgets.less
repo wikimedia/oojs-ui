@@ -102,11 +102,6 @@
 			border-top-right-radius: @border-radius-default;
 		}
 
-		&.oo-ui-iconElement .oo-ui-iconElement-icon,
-		&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-			position: absolute; // FIXME: Remove from ButtonOptionWidget after cleaning up when T161177 is resolved
-		}
-
 		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
 			> .oo-ui-buttonElement-button {
 				border-left-color: @border-color-disabled-filled;
@@ -484,10 +479,10 @@
 			min-width: @min-width-button-combo-widget;
 			min-height: @min-height-widget-default;
 			padding-left: 0;
+		}
 
-			> .oo-ui-indicatorElement-indicator {
-				right: @start-framed-square-indicator-only;
-			}
+		.oo-ui-indicatorElement-indicator {
+			right: @start-framed-square-indicator-only;
 		}
 
 		.oo-ui-buttonElement-button,
@@ -845,7 +840,7 @@
 	// Don't add `highlighted` or `selected` modifications here
 	// as it inherits to various visually opposite widgets.
 
-	&-selected .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+	&-selected .oo-ui-iconElement-icon {
 		opacity: @opacity-icon-default-selected;
 	}
 
@@ -1367,7 +1362,7 @@
 		width: @size-icon;
 		margin-right: 0;
 
-		.oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+		.oo-ui-iconElement-icon {
 			height: @size-default;
 		}
 	}

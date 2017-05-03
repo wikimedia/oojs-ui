@@ -11,21 +11,14 @@
 		&:focus {
 			outline: 0;
 		}
-
-		> .oo-ui-iconElement-icon,
-		> .oo-ui-indicatorElement-indicator {
-			position: absolute;
-			top: 0;
-			height: 100%;
-		}
 	}
 
-	&.oo-ui-iconElement {
-		> .oo-ui-buttonElement-button {
-			> .oo-ui-iconElement-icon {
-				display: block;
-			}
-		}
+	&.oo-ui-iconElement .oo-ui-iconElement-icon,
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		display: block;
+		position: absolute;
+		top: 0;
+		height: 100%;
 	}
 
 	&.oo-ui-labelElement > .oo-ui-buttonElement-button,
@@ -35,7 +28,7 @@
 	}
 
 	&.oo-ui-labelElement {
-		> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+		.oo-ui-labelElement-label {
 			line-height: @line-height-widget-singleline;
 		}
 
@@ -53,17 +46,10 @@
 	}
 
 	&.oo-ui-indicatorElement {
-		// Indicator (-only)
-		> .oo-ui-buttonElement-button {
-			> .oo-ui-indicatorElement-indicator {
-				display: block;
-			}
-		}
-
 		// Indicator and label/icon
 		&.oo-ui-labelElement,
 		&.oo-ui-iconElement {
-			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+			.oo-ui-indicatorElement-indicator {
 				right: @padding-horizontal-default;
 			}
 		}
@@ -78,18 +64,6 @@
 				box-shadow @transition-ease-quick
 			);
 
-			> .oo-ui-iconElement-icon,
-			> .oo-ui-indicatorElement-indicator {
-				opacity: @opacity-icon-default;
-				.oo-ui-transition(
-					opacity @transition-ease-quick
-				);
-
-				&.oo-ui-image-invert {
-					opacity: @opacity-icon-default-selected;
-				}
-			}
-
 			&:hover {
 				> .oo-ui-iconElement-icon,
 				> .oo-ui-indicatorElement-indicator {
@@ -102,12 +76,22 @@
 			}
 		}
 
+		.oo-ui-iconElement-icon,
+		.oo-ui-indicatorElement-indicator {
+			opacity: @opacity-icon-default;
+			.oo-ui-transition(
+				opacity @transition-ease-quick
+			);
+
+			&.oo-ui-image-invert {
+				opacity: @opacity-icon-default-selected;
+			}
+		}
+
 		&.oo-ui-buttonElement-pressed {
-			> .oo-ui-buttonElement-button {
-				> .oo-ui-iconElement-icon,
-				> .oo-ui-indicatorElement-indicator {
-					opacity: @opacity-icon-default-selected;
-				}
+			.oo-ui-iconElement-icon,
+			.oo-ui-indicatorElement-indicator {
+				opacity: @opacity-icon-default-selected;
 			}
 		}
 	}
@@ -122,10 +106,10 @@
 			> .oo-ui-buttonElement-button {
 				min-width: @size-icon;
 				min-height: @size-icon;
+			}
 
-				> .oo-ui-iconElement-icon {
-					left: 0;
-				}
+			.oo-ui-iconElement-icon {
+				left: 0;
 			}
 		}
 
@@ -181,11 +165,9 @@
 			}
 
 			&[class*='oo-ui-flaggedElement'] {
-				> .oo-ui-buttonElement-button {
-					> .oo-ui-iconElement-icon,
-					> .oo-ui-indicatorElement-indicator {
-						opacity: @opacity-icon-default-selected;
-					}
+				.oo-ui-iconElement-icon,
+				.oo-ui-indicatorElement-indicator {
+					opacity: @opacity-icon-default-selected;
 				}
 
 				> .oo-ui-buttonElement-button:hover {
@@ -200,11 +182,11 @@
 		&.oo-ui-widget-disabled {
 			> .oo-ui-buttonElement-button {
 				color: @color-disabled;
+			}
 
-				> .oo-ui-iconElement-icon,
-				> .oo-ui-indicatorElement-indicator {
-					opacity: @opacity-disabled;
-				}
+			.oo-ui-iconElement-icon,
+			.oo-ui-indicatorElement-indicator {
+				opacity: @opacity-disabled;
 			}
 		}
 	}
@@ -222,10 +204,10 @@
 				padding-top: @padding-top-icon-indicator;
 				padding-bottom: 0;
 				padding-left: @padding-start-icon-only;
+			}
 
-				> .oo-ui-iconElement-icon {
-					left: @start-framed-icon-only;
-				}
+			.oo-ui-iconElement-icon {
+				left: @start-framed-icon-only;
 			}
 
 			// Icon and label/indicator framed
@@ -233,10 +215,10 @@
 			&.oo-ui-indicatorElement {
 				> .oo-ui-buttonElement-button {
 					padding-left: @padding-start-input-text-icon-label;
+				}
 
-					> .oo-ui-iconElement-icon {
-						left: @padding-start-input-text-icon;
-					}
+				.oo-ui-iconElement-icon {
+					left: @padding-start-input-text-icon;
 				}
 			}
 		}
@@ -247,10 +229,10 @@
 				padding-top: @padding-top-icon-indicator;
 				padding-right: @padding-start-indicator-only;
 				padding-bottom: 0;
+			}
 
-				> .oo-ui-indicatorElement-indicator {
-					right: @start-framed-indicator-only;
-				}
+			.oo-ui-indicatorElement-indicator {
+				right: @start-framed-indicator-only;
 			}
 
 			// Indicator and label/icon framed
@@ -346,11 +328,9 @@
 					}
 				}
 
-				> .oo-ui-buttonElement-button {
-					> .oo-ui-iconElement-icon,
-					> .oo-ui-indicatorElement-indicator {
-						opacity: @opacity-icon-default-selected;
-					}
+				.oo-ui-iconElement-icon,
+				.oo-ui-indicatorElement-indicator {
+					opacity: @opacity-icon-default-selected;
 				}
 			}
 		}

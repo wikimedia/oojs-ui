@@ -20,20 +20,20 @@
 			border-color: transparent;
 			padding: 0;
 		}
+	}
 
-		> .oo-ui-iconElement-icon,
-		> .oo-ui-indicatorElement-indicator {
-			display: none;
-		}
+	.oo-ui-iconElement-icon,
+	.oo-ui-indicatorElement-indicator {
+		display: none;
 	}
 
 	&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
 		cursor: default;
 	}
 
-	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
-	&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label,
-	&-frameless.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator,
+	&.oo-ui-labelElement .oo-ui-labelElement-label,
+	&-frameless.oo-ui-iconElement .oo-ui-iconElement-icon {
 		// Vertical align text
 		display: inline-block;
 		vertical-align: middle;
