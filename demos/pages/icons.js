@@ -77,6 +77,8 @@ Demo.static.pages.icons = function ( demo ) {
 			moderation: [
 				'block',
 				'unBlock',
+				'clip',
+				'unClip',
 				'flag',
 				'unFlag',
 				'lock',
@@ -86,6 +88,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'unStar',
 				'trash',
 				'unTrash',
+				'pushPin',
 				'ongoingConversation'
 			],
 			'editing-core': [
