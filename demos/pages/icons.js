@@ -12,10 +12,6 @@ Demo.static.pages.icons = function ( demo ) {
 				'last',
 				'expand',
 				'collapse',
-				'caretLast',
-				'caretNext',
-				'caretDown',
-				'caretUp',
 				'move'
 			],
 			content: [
