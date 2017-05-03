@@ -54,6 +54,16 @@
 			"rtl": "images/icons/move-ltr.svg"
 			}
 		},
+		"last": { "file": {
+			"ltr": "images/icons/move-end-ltr.svg",
+			"rtl": "images/icons/move-end-rtl.svg"
+			}
+		},
+		"first": { "file": {
+			"ltr": "images/icons/move-end-rtl.svg",
+			"rtl": "images/icons/move-end-ltr.svg"
+			}
+		},
 		"upTriangle": { "file": "images/icons/upTriangle.svg" }
 	}
 }
