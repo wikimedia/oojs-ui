@@ -28,7 +28,7 @@ OO.ui.FloatingMenuSelectWidget = function OoUiFloatingMenuSelectWidget( inputWid
 
 	// Properties
 	this.inputWidget = inputWidget; // For backwards compatibility
-	this.$container = config.$container || this.inputWidget.$element;
+	this.$container = config.$floatableContainer || config.$container || this.inputWidget.$element;
 
 	// Parent constructor
 	OO.ui.FloatingMenuSelectWidget.parent.call( this, $.extend( {}, config, { $floatableContainer: this.$container } ) );
