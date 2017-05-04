@@ -7,15 +7,15 @@
 		color: @color-default;
 	}
 
-	&.oo-ui-iconElement .oo-ui-iconElement-icon {
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
 		margin-left: 0;
 	}
 
-	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
 		margin: @size-indicator / 2;
 	}
 
-	&.oo-ui-iconElement .oo-ui-indicatorElement-indicator {
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
 		margin-left: @size-indicator / 2;
 	}
 
@@ -37,12 +37,17 @@
 					color: #000;
 				}
 			}
+
+			> .oo-ui-labelElement-label {
+				color: @color-default;
+			}
 		}
 
 		&.oo-ui-labelElement {
-			.oo-ui-labelElement-label {
-				color: @color-default;
-				margin-left: 0.25em;
+			> .oo-ui-buttonElement-button {
+				> .oo-ui-labelElement-label {
+					margin-left: 0.25em;
+				}
 			}
 		}
 
@@ -58,24 +63,24 @@
 		}
 
 		&.oo-ui-flaggedElement {
-			&-progressive .oo-ui-labelElement-label {
+			&-progressive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 				color: @progressive;
 			}
 
-			&-constructive .oo-ui-labelElement-label {
+			&-constructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 				color: @constructive;
 			}
 
-			&-destructive .oo-ui-labelElement-label {
+			&-destructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 				color: @destructive;
 			}
 		}
 
-		&.oo-ui-widget-disabled {
-			.oo-ui-iconElement-icon {
+		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+			> .oo-ui-iconElement-icon {
 				opacity: 0.2;
 			}
-			.oo-ui-labelElement-label {
+			> .oo-ui-labelElement-label {
 				color: #ccc;
 			}
 		}
@@ -100,7 +105,7 @@
 
 		// Support <input> from ButtonInputWidget
 		> input.oo-ui-buttonElement-button,
-		&.oo-ui-labelElement .oo-ui-labelElement-label {
+		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 			line-height: @size-icon;
 		}
 
@@ -114,7 +119,7 @@
 		}
 
 		&.oo-ui-iconElement {
-			.oo-ui-iconElement-icon {
+			> .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
 				margin-left: -0.5em;
 				margin-right: -0.5em;
 				// Vertical align text
@@ -122,19 +127,19 @@
 				vertical-align: middle;
 			}
 
-			&.oo-ui-labelElement .oo-ui-iconElement-icon {
+			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
 				margin-right: 0.3em;
 			}
 		}
 
 		&.oo-ui-indicatorElement {
-			.oo-ui-indicatorElement-indicator {
+			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
 				margin-left: -0.005em;
 				margin-right: -0.005em;
 			}
 
-			&.oo-ui-labelElement .oo-ui-indicatorElement-indicator,
-			&.oo-ui-iconElement:not( .oo-ui-labelElement ) .oo-ui-indicatorElement-indicator {
+			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
+			&.oo-ui-iconElement:not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
 				margin-left: @size-indicator / 2;
 				margin-right: -0.275em;
 			}
