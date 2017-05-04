@@ -168,6 +168,8 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 			// having only the $input attached to the DOM
 			this.$content.append( this.input.$input );
 		}
+	} else {
+		this.$content.append( $tabFocus );
 	}
 
 	this.setTabIndexedElement(
