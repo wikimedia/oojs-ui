@@ -90,3 +90,12 @@ OO.ui.ToggleSwitchWidget.prototype.onKeyPress = function ( e ) {
 		return false;
 	}
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ToggleSwitchWidget.prototype.setValue = function ( value ) {
+	OO.ui.ToggleSwitchWidget.parent.prototype.setValue.call( this, value );
+	this.$element.attr( 'aria-checked', this.value.toString() );
+	return this;
+};
