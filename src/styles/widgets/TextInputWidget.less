@@ -13,9 +13,8 @@
 		.oo-ui-box-sizing( border-box );
 	}
 
-	// IE 8-11 defaults `overflow` to `scroll`. Modern browsers use `auto`
 	textarea {
-		overflow: auto;
+		overflow: auto; // Support: IE 8-11 defaults `overflow` to `scroll`. Modern browsers use `auto`
 		resize: none;
 	}
 
@@ -34,15 +33,14 @@
 	// Normalize styling of `<input type=search>` and
 	// remove proprietary vendor UI extensions
 	[type='search'] {
-		// Safari 5, Chrome
-		-webkit-appearance: textfield;
+		-webkit-appearance: none; // Support: Safari/iOS `none` needed, Chrome would accept `textfield` as well
 
-		// IE 10-11, Edge 12+
+		// Support: IE 10-11, Edge 12+
 		&::-ms-clear {
 			display: none;
 		}
 
-		// Safari, Chrome (Blink)
+		// Support: Safari, Chrome (Blink)
 		&::-webkit-search-decoration,
 		&::-webkit-search-cancel-button {
 			display: none;

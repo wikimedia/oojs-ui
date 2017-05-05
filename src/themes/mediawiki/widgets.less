@@ -659,7 +659,6 @@
 		// Remove user agent styles
 		-webkit-appearance: none;
 		-moz-appearance: none;
-		appearance: none;
 		.oo-ui-box-sizing( border-box );
 		border: @border-default;
 		border-radius: @border-radius-default;
@@ -1748,6 +1747,7 @@
 
 	input,
 	textarea {
+		-webkit-appearance: none; // Support: Safari/iOS
 		margin: 0;
 		font-size: inherit;
 		font-family: inherit;
