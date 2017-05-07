@@ -69,6 +69,7 @@
 @min-size-indicator: 12px;
 @min-width-button-default: 40 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `3.125em`≈`40px` at base `font-size: 12.8px`
 @min-width-button-combo-widget: @size-default;
+@min-width-icon-numberinput: 20px;
 @min-height-widget-default: @size-default;
 @min-height-toggleswitch: 26px; // equals `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
 @max-width-default: 50em;
@@ -77,11 +78,13 @@
 @size-anchor: 9px;
 @size-button-default: @size-default;
 @size-icon: 24 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.875em`≈`24px`
+@size-icon-numberinput: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.5625em`≈`20px`
 @size-indicator: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`12px`
 @size-toggleswitch-grip-min: 16px;
 @size-dialog-bar-top: 44 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `3.4375em`≈`44px`
 
 @start-framed-icon-only: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.547em`≈`7px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-default`
+@start-framed-icon-only-numberinput: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.46875em`≈`6px`
 @start-framed-indicator-only: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.09375em`≈`14px`; `@size-indicator + 2 * @border-width-default`
 @start-framed-square-indicator-only: 9 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.703125em`≈`9px`
 @start-tagmultiselect-input: 5 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.390625em`≈`5px`; `@padding-horizontal-tagitem` + `@border-width-default`
@@ -195,12 +198,12 @@
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
 @background-color-input-binary-active: @color-progressive-active;
 @background-color-input-binary-on: @color-progressive;
-@size-input-binary: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.5625em`≈`20px`
+@size-input-binary: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @border-input-binary: @border-width-default solid @border-color-input-binary;
 @border-color-input-binary: @border-color-default-active;
 @border-color-input-binary-active: @color-progressive-active;
 @border-color-input-binary-on: @color-progressive;
-@padding-start-input-binary-label: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.46875em`≈`6px`
+@padding-start-input-binary-label: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
 
 // Theme mixins

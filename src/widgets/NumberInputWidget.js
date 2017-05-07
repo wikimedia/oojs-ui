@@ -56,7 +56,7 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 				disabled: this.isDisabled(),
 				tabIndex: -1,
 				classes: [ 'oo-ui-numberInputWidget-minusButton' ],
-				label: '−'
+				icon: 'subtract'
 			},
 			config.minusButton
 		) );
@@ -65,7 +65,7 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 				disabled: this.isDisabled(),
 				tabIndex: -1,
 				classes: [ 'oo-ui-numberInputWidget-plusButton' ],
-				label: '+'
+				icon: 'add'
 			},
 			config.plusButton
 		) );

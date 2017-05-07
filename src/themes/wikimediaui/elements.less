@@ -214,6 +214,8 @@
 
 	&-framed {
 		> .oo-ui-buttonElement-button {
+			border-style: @border-style-default;
+			border-width: @border-width-default;
 			border-radius: @border-radius-default;
 			padding-left: @padding-horizontal-default;
 			padding-right: @padding-horizontal-default;
@@ -276,7 +278,7 @@
 			> .oo-ui-buttonElement-button {
 				background-color: @background-color-disabled-filled;
 				color: @color-disabled-filled;
-				border: @border-disabled;
+				border-color: @border-color-disabled;
 			}
 		}
 
@@ -284,7 +286,7 @@
 			> .oo-ui-buttonElement-button {
 				background-color: @background-color-framed;
 				color: @color-default;
-				border: @border-default;
+				border-color: @border-color-default;
 
 				&:hover {
 					background-color: @background-color-framed-hover;

@@ -815,14 +815,20 @@
 	&-buttoned {
 		.oo-ui-buttonWidget {
 			width: @width-button-combo-widget;
-		}
 
-		.oo-ui-buttonElement-button {
-			display: block;
-			min-width: @min-width-button-combo-widget;
-			min-height: @min-height-widget-default;
-			padding-left: 0;
-			padding-right: 0;
+			.oo-ui-buttonElement-button {
+				display: block;
+				min-width: @min-width-button-combo-widget;
+				min-height: @min-height-widget-default;
+				padding-left: 0;
+				padding-right: 0;
+
+				.oo-ui-iconElement-icon {
+					left: @start-framed-icon-only-numberinput;
+					min-width: @min-width-icon-numberinput;
+					width: @size-icon-numberinput;
+				}
+			}
 		}
 
 		.oo-ui-inputWidget-input {
@@ -830,16 +836,22 @@
 		}
 	}
 
-	&-minusButton.oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
+	&-minusButton > .oo-ui-buttonElement-button {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 		border-right-width: 0;
 	}
 
-	&-plusButton.oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
+	&-plusButton > .oo-ui-buttonElement-button {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 		border-left-width: 0;
+	}
+
+	&.oo-ui-widget-disabled {
+		&.oo-ui-numberInputWidget-buttoned .oo-ui-iconElement-icon {
+			opacity: 1;
+		}
 	}
 }
 
