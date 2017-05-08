@@ -326,7 +326,7 @@ OO.ui.TagMultiselectWidget.prototype.doInputEnter = function () {
  * a meta key like 'ctrl'
  * @return {boolean} Whether to prevent defaults
  */
-OO.ui.TagMultiselectWidget.prototype.doInputBackspace = function () {
+OO.ui.TagMultiselectWidget.prototype.doInputBackspace = function ( e, withMetaKey ) {
 	var items, item;
 
 	if (
@@ -337,8 +337,12 @@ OO.ui.TagMultiselectWidget.prototype.doInputBackspace = function () {
 		// Delete the last item
 		items = this.getItems();
 		item = items[ items.length - 1 ];
-		this.input.setValue( item.getData() );
 		this.removeItems( [ item ] );
+		// If Ctrl/Cmd was pressed, delete item entirely.
+		// Otherwise put it into the text field for editing.
+		if ( !withMetaKey ) {
+			this.input.setValue( item.getData() );
+		}
 
 		return false;
 	}
