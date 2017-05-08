@@ -66,6 +66,11 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		.append( this.menu.$element );
 	this.$element
 		.addClass( 'oo-ui-menuTagMultiselectWidget' );
+	// TagMultiselectWidget already does this, but it doesn't work right because this.menu is not yet
+	// set up while the parent constructor runs, and #getAllowedValues rejects everything.
+	if ( config.selected ) {
+		this.setValue( config.selected );
+	}
 };
 
 /* Initialization */
@@ -228,9 +233,13 @@ OO.ui.MenuTagMultiselectWidget.prototype.getMenu = function () {
  * @return {string[]} Allowed data values
  */
 OO.ui.MenuTagMultiselectWidget.prototype.getAllowedValues = function () {
-	var menuDatas = this.menu.getItems().map( function ( menuItem ) {
-		return menuItem.getData();
-	} );
+	var menuDatas = [];
+	if ( this.menu ) {
+		// If the parent constructor is calling us, we're not ready yet, this.menu is not set up.
+		menuDatas = this.menu.getItems().map( function ( menuItem ) {
+			return menuItem.getData();
+		} );
+	}
 	return this.allowedValues.concat( menuDatas );
 };
 
