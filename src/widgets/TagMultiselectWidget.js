@@ -604,7 +604,9 @@ OO.ui.TagMultiselectWidget.prototype.addTag = function ( data, label ) {
 		newItemWidget = this.createTagItemWidget( data, label );
 		newItemWidget.toggleValid( isValid );
 		this.addItems( [ newItemWidget ] );
+		return true;
 	}
+	return false;
 };
 
 /**
