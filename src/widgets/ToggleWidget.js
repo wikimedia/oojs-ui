@@ -52,7 +52,7 @@ OO.ui.ToggleWidget.prototype.getValue = function () {
 };
 
 /**
- * Set the state of the toggle: `true` for 'on', `false' for 'off'.
+ * Set the state of the toggle: `true` for 'on', `false` for 'off'.
  *
  * @param {boolean} value The state of the toggle
  * @fires change
@@ -65,7 +65,6 @@ OO.ui.ToggleWidget.prototype.setValue = function ( value ) {
 		this.emit( 'change', value );
 		this.$element.toggleClass( 'oo-ui-toggleWidget-on', value );
 		this.$element.toggleClass( 'oo-ui-toggleWidget-off', !value );
-		this.$element.attr( 'aria-checked', value.toString() );
 	}
 	return this;
 };
