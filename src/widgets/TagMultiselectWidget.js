@@ -491,15 +491,15 @@ OO.ui.TagMultiselectWidget.prototype.isDuplicateData = function ( data ) {
  * @return {boolean} Value is allowed
  */
 OO.ui.TagMultiselectWidget.prototype.isAllowedData = function ( data ) {
-	if ( this.allowArbitrary ) {
-		return true;
-	}
-
 	if (
 		!this.allowDuplicates &&
 		this.isDuplicateData( data )
 	) {
 		return false;
+	}
+
+	if ( this.allowArbitrary ) {
+		return true;
 	}
 
 	// Check with allowed values
