@@ -41,7 +41,7 @@ OO.ui.MenuSectionOptionWidget = function OoUiMenuSectionOptionWidget( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuSectionOptionWidget' )
-		.attr( 'role', '' );
+		.removeAttr( 'role aria-selected' );
 };
 
 /* Setup */
