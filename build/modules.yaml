@@ -96,7 +96,7 @@
 			"src/mixins/RequestManager.js",
 			"src/mixins/LookupElement.js",
 
-			"src/layouts/CardLayout.js",
+			"src/layouts/TabPanelLayout.js",
 			"src/layouts/PageLayout.js",
 			"src/layouts/StackLayout.js",
 			"src/layouts/MenuLayout.js",
