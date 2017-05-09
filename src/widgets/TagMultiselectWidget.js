@@ -365,7 +365,7 @@ OO.ui.TagMultiselectWidget.prototype.doInputEscape = function () {
  *  a meta key like 'ctrl'
  * @return {boolean} Whether to prevent defaults
  */
-OO.ui.TagMultiselectWidget.prototype.doInputArrow = function ( direction ) {
+OO.ui.TagMultiselectWidget.prototype.doInputArrow = function ( e, direction ) {
 	if (
 		this.inputPosition === 'inline' &&
 		!this.isEmpty()
