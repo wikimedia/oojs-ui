@@ -348,7 +348,6 @@ OO.ui.TagMultiselectWidget.prototype.doInputBackspace = function () {
  * Perform an action after the escape key on the input
  *
  * @param {jQuery.Event} e Event data
- * @return {boolean} Whether to prevent defaults
  */
 OO.ui.TagMultiselectWidget.prototype.doInputEscape = function () {
 	this.clearInput();
@@ -363,7 +362,6 @@ OO.ui.TagMultiselectWidget.prototype.doInputEscape = function () {
  * @param {string} direction Direction of the movement; forwards or backwards
  * @param {boolean} [withMetaKey] Whether this key was pressed with
  *  a meta key like 'ctrl'
- * @return {boolean} Whether to prevent defaults
  */
 OO.ui.TagMultiselectWidget.prototype.doInputArrow = function ( e, direction ) {
 	if (
@@ -382,6 +380,8 @@ OO.ui.TagMultiselectWidget.prototype.doInputArrow = function ( e, direction ) {
 
 /**
  * Respond to item select event
+ *
+ * @param {OO.ui.TagItemWidget} item Selected item
  */
 OO.ui.TagMultiselectWidget.prototype.onTagSelect = function ( item ) {
 	if ( this.hasInput && this.allowEditTags ) {
@@ -561,7 +561,7 @@ OO.ui.TagMultiselectWidget.prototype.getValue = function () {
 /**
  * Set the value of this widget by datas.
  *
- * @param {string|string[]|Object|Object[]} value An object representing the data
+ * @param {string|string[]|Object|Object[]} valueObject An object representing the data
  *  and label of the value. If the widget allows arbitrary values,
  *  the items will be added as-is. Otherwise, the data value will
  *  be checked against allowedValues.
