@@ -51,7 +51,6 @@ Demo.static.pages.icons = function ( demo ) {
 			interactions: [
 				'add',
 				'advanced',
-				'bookmark',
 				'browser',
 				'cancel',
 				'check',
