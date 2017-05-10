@@ -151,7 +151,7 @@ OO.ui.TabPanelLayout.prototype.setActive = function ( active ) {
  * @extends OO.ui.TabPanelLayout
  *
  * @constructor
- * @deprecated since v0.22.0
+ * @deprecated since v0.21.3
  */
 OO.ui.CardLayout = function OoUiCardLayout() {
 	OO.ui.warnDeprecation( 'CardLayout has been renamed to TabPanel layout. Use that instead. See T155152' );

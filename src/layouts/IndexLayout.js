@@ -262,7 +262,7 @@ OO.ui.IndexLayout.prototype.getClosestTabPanel = function ( tabPanel ) {
  *
  * @param {OO.ui.TabPanelLayout} tabPanel Tab panel to use as a reference point
  * @return {OO.ui.TabPanelLayout|null} Tab panel closest to the specified
- * @deprecated since v0.22.0, use `getClosestTabPanel` instead
+ * @deprecated since v0.21.3, use `getClosestTabPanel` instead
  */
 OO.ui.IndexLayout.prototype.getClosestCard = function ( tabPanel ) {
 	OO.ui.warnDeprecation( 'IndexLayout\'s getClosestCard method is deprecated. Use getClosestTabPanel instead. See T155152' );
@@ -293,7 +293,7 @@ OO.ui.IndexLayout.prototype.getTabPanel = function ( name ) {
  *
  * @param {string} name Symbolic name of tab panel
  * @return {OO.ui.TabPanelLayout|undefined} Tab panel, if found
- * @deprecated since v0.22.0, use `getTabPanel` instead
+ * @deprecated since v0.21.3, use `getTabPanel` instead
  */
 OO.ui.IndexLayout.prototype.getCard = function ( name ) {
 	OO.ui.warnDeprecation( 'IndexLayout\'s getCard method is deprecated. Use getTabPanel instead. See T155152' );
@@ -314,7 +314,7 @@ OO.ui.IndexLayout.prototype.getCurrentTabPanel = function () {
  * Get the current tab panel.
  *
  * @return {OO.ui.TabPanelLayout|undefined} Current tab panel, if found
- * @deprecated since v0.22.0, use `getCurrentTabPanel` instead
+ * @deprecated since v0.21.3, use `getCurrentTabPanel` instead
  */
 OO.ui.IndexLayout.prototype.getCurrentCard = function () {
 	OO.ui.warnDeprecation( 'IndexLayout\'s getCurrentCard method is deprecated. Use getCurrentTabPanel instead. See T155152' );
@@ -334,7 +334,7 @@ OO.ui.IndexLayout.prototype.getCurrentTabPanelName = function () {
  * Get the symbolic name of the current tab panel.
  *
  * @return {string|null} Symbolic name of the current tab panel
- * @deprecated since v0.22.0, use `getCurrentTabPanelName` instead
+ * @deprecated since v0.21.3, use `getCurrentTabPanelName` instead
  */
 OO.ui.IndexLayout.prototype.getCurrentCardName = function () {
 	OO.ui.warnDeprecation( 'IndexLayout\'s getCurrentCardName method is deprecated. Use getCurrentTabPanelName instead. See T155152' );
@@ -406,7 +406,7 @@ OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
  * @param {number} index Index of the insertion point
  * @fires add
  * @chainable
- * @deprecated since v0.22.0, use `addTabPanels` instead
+ * @deprecated since v0.21.3, use `addTabPanels` instead
  */
 OO.ui.IndexLayout.prototype.addCards = function ( tabPanels, index ) {
 	OO.ui.warnDeprecation( 'IndexLayout\'s addCards method is deprecated. Use addTabPanels instead. See T155152' );
@@ -451,7 +451,7 @@ OO.ui.IndexLayout.prototype.removeTabPanels = function ( tabPanels ) {
  * @param {OO.ui.TabPanelLayout[]} tabPanels An array of tab panels to remove
  * @fires remove
  * @chainable
- * @deprecated since v0.22.0, use `removeTabPanels` instead
+ * @deprecated since v0.21.3, use `removeTabPanels` instead
  */
 OO.ui.IndexLayout.prototype.removeCards = function ( tabPanels ) {
 	OO.ui.warnDeprecation( 'IndexLayout\'s removeCards method is deprecated. Use removeTabPanels instead. See T155152.' );
@@ -490,7 +490,7 @@ OO.ui.IndexLayout.prototype.clearTabPanels = function () {
  *
  * @fires remove
  * @chainable
- * @deprecated since v0.22.0, use `clearTabPanels` instead
+ * @deprecated since v0.21.3, use `clearTabPanels` instead
  */
 OO.ui.IndexLayout.prototype.clearCards = function () {
 	OO.ui.warnDeprecation( 'IndexLayout\'s clearCards method is deprecated. Use clearTabPanels instead. See T155152.' );
@@ -554,7 +554,7 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
  *
  * @fires set
  * @param {string} name Symbolic name of tab panel
- * @deprecated since v0.22.0, use `setTabPanel` instead
+ * @deprecated since v0.21.3, use `setTabPanel` instead
  */
 OO.ui.IndexLayout.prototype.setCard = function ( name ) {
 	OO.ui.warnDeprecation( 'IndexLayout\'s setCard method is deprecated. Use setTabPanel instead. See T155152.' );
@@ -578,7 +578,7 @@ OO.ui.IndexLayout.prototype.selectFirstSelectableTabPanel = function () {
  * Select the first selectable tab panel.
  *
  * @chainable
- * @deprecated since v0.22.0, use `selectFirstSelectableTabPanel` instead
+ * @deprecated since v0.21.3, use `selectFirstSelectableTabPanel` instead
  */
 OO.ui.IndexLayout.prototype.selectFirstSelectableCard = function () {
 	OO.ui.warnDeprecation( 'IndexLayout\'s selectFirstSelectableCard method is deprecated. Use selectFirestSelectableTabPanel instead. See T155152.' );
