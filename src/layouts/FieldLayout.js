@@ -97,7 +97,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
 
 	// Initialization
-	if ( fieldWidget.constructor.static.supportsSimpleLabel && this.fieldWidget.getInputId() ) {
+	if ( this.fieldWidget.getInputId() ) {
 		this.$label.attr( 'for', this.fieldWidget.getInputId() );
 	} else {
 		this.$label.on( 'click', function () {

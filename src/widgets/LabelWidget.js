@@ -53,7 +53,7 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 
 	// Initialization
 	if ( this.input ) {
-		if ( this.input instanceof OO.ui.InputWidget && this.input.getInputId() ) {
+		if ( this.input.getInputId() ) {
 			this.$element.attr( 'for', this.input.getInputId() );
 		} else {
 			this.$label.on( 'click', function () {

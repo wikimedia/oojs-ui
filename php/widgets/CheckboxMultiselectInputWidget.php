@@ -7,10 +7,6 @@ namespace OOUI;
  */
 class CheckboxMultiselectInputWidget extends InputWidget {
 
-	/* Static Properties */
-
-	public static $supportsSimpleLabel = false;
-
 	/* Properties */
 
 	/**

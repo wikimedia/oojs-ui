@@ -7,10 +7,6 @@ namespace OOUI;
  */
 class RadioSelectInputWidget extends InputWidget {
 
-	/* Static Properties */
-
-	public static $supportsSimpleLabel = false;
-
 	/* Properties */
 
 	/**

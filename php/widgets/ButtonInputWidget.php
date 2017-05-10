@@ -15,12 +15,6 @@ class ButtonInputWidget extends InputWidget {
 
 	/* Static Properties */
 
-	/**
-	 * Disable generating `<label>` elements for buttons. One would very rarely need additional label
-	 * for a button, and it's already a big clickable target, and it causes unexpected rendering.
-	 */
-	public static $supportsSimpleLabel = false;
-
 	public static $tagName = 'span';
 
 	/* Properties */
@@ -111,6 +105,12 @@ class ButtonInputWidget extends InputWidget {
 			parent::setValue( $value );
 		}
 		return $this;
+	}
+
+	public function getInputId() {
+		// Disable generating `<label>` elements for buttons. One would very rarely need additional label
+		// for a button, and it's already a big clickable target, and it causes unexpected rendering.
+		return null;
 	}
 
 	public function getConfig( &$config ) {

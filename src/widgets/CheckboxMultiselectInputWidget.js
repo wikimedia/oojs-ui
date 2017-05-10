@@ -53,14 +53,6 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 
 OO.inheritClass( OO.ui.CheckboxMultiselectInputWidget, OO.ui.InputWidget );
 
-/* Static Properties */
-
-/**
- * @static
- * @inheritdoc
- */
-OO.ui.CheckboxMultiselectInputWidget.static.supportsSimpleLabel = false;
-
 /* Static Methods */
 
 /**
