@@ -151,3 +151,10 @@ OO.ui.CheckboxMultiselectWidget.prototype.focus = function () {
 	}
 	return this;
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.CheckboxMultiselectWidget.prototype.simulateLabelClick = function () {
+	this.focus();
+};

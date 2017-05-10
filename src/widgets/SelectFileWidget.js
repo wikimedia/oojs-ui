@@ -211,6 +211,13 @@ OO.ui.SelectFileWidget.prototype.blur = function () {
 };
 
 /**
+ * @inheritdoc
+ */
+OO.ui.SelectFileWidget.prototype.simulateLabelClick = function () {
+	this.focus();
+};
+
+/**
  * Update the user interface when a file is selected or unselected
  *
  * @protected

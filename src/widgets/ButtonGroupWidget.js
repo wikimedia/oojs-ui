@@ -75,3 +75,10 @@ OO.ui.ButtonGroupWidget.prototype.focus = function () {
 	}
 	return this;
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ButtonGroupWidget.prototype.simulateLabelClick = function () {
+	this.focus();
+};

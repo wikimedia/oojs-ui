@@ -99,3 +99,13 @@ OO.ui.ToggleSwitchWidget.prototype.setValue = function ( value ) {
 	this.$element.attr( 'aria-checked', this.value.toString() );
 	return this;
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ToggleSwitchWidget.prototype.simulateLabelClick = function () {
+	if ( !this.isDisabled() ) {
+		this.setValue( !this.value );
+	}
+	this.focus();
+};
