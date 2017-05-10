@@ -131,6 +131,7 @@ OO.ui.TagItemWidget.prototype.remove = function () {
  *
  * @fires navigate
  * @fires remove
+ * @param {jQuery.Event} e Key down event
  * @return {boolean|undefined} false to stop the operation
  */
 OO.ui.TagItemWidget.prototype.onKeyDown = function ( e ) {
