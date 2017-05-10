@@ -1,4 +1,38 @@
 # OOjs UI Release History
+## v0.21.3 / 2017-05-09
+### Deprecations
+* [DEPRECATING CHANGE] Merge functionality of FloatingMenuSelectWidget into MenuSelectWidget (Bartosz Dziewoński)
+* [DEPRECATING CHANGE] Rename CardLayout to TabPanelLayout (Prateek Saxena)
+* [DEPRECATING CHANGE] icons: Deprecate 'bookmark' icon (Volker E)
+* [DEPRECATING CHANGE] icons: Merge 'caret' into regular movement icons (James D. Forrester)
+
+### Styles
+* OptionWidget: Use parent selector for icon/indicator/label styles (Roan Kattouw)
+* Apex theme: Follow same FieldLayout `margin` logic as MediaWiki theme (Volker E)
+* MediaWiki theme: Bring styling to design spec in Safari/iOS (Volker E)
+* MediaWiki theme: Fix ButtonInputWidget appearance in Saf/iOS (Volker E)
+* MediaWiki theme: Fix `padding` for frameless buttons in ProcessDialogs (Ed Sanders)
+* MediaWiki theme: Provide focus indicator to TagMultiselectWidget (Volker E)
+* MediaWiki theme: Unify and harmonize `padding`/position of Tag*Widgets (Volker E)
+
+### Code
+* Fix some errors flagged by ESLint's 'valid-jsdoc' option (Bartosz Dziewoński)
+* NumberInputWidget: Followup db801c55f0 – clean up backward compat vars (Moriel Schottlender)
+* MenuSectionOptionWidget: Remove unsupported ARIA attribute (Volker E)
+* MenuSelectWidget: Scroll to the top if filtering and no exact match (David Lynch)
+* MenuSelectWidgets: Don't unconditionally hide all descendant inputs (Roan Kattouw)
+* TagMultiselectWidget: Actually use the focus trapping element (Bartosz Dziewoński)
+* TagMultiselectWidget: Fix `#addTag` return value to match docs (Bartosz Dziewoński)
+* TagMultiselectWidget: Fix keyboard navigation between items (Bartosz Dziewoński)
+* ToggleButtonWidget: Remove misleading `aria-checked` attribute (Volker E)
+* Unbreak FloatingMenuSelectWidget when `$container` is not given (Bartosz Dziewoński)
+* build: Fix invalid ecmaVersion setting (Timo Tijhof)
+* build: Use source maps in coverage report (James D. Forrester)
+* icons: Add first/last to complement previous/next in movement pack (Ed Sanders)
+* icons: Provide 'clip', 'unClip', and 'pushPin' in moderation (James D. Forrester)
+* tests: Do not set `QUnit.config.requireExpects = true` (Bartosz Dziewoński)
+
+
 ## v0.21.2 / 2017-04-25
 ### Features
 * Element: New method `#getElementId` (Bartosz Dziewoński)
