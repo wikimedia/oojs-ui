@@ -205,7 +205,7 @@ OO.ui.MessageDialog.prototype.getReadyProcess = function ( data ) {
 				return action.getFlags().indexOf( 'primary' ) > -1;
 			} );
 			if ( actions.length > 0 ) {
-				actions[ 0 ].$button.focus();
+				actions[ 0 ].focus();
 			}
 		}, this );
 };
