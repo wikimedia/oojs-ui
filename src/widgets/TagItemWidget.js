@@ -168,15 +168,6 @@ OO.ui.TagItemWidget.prototype.onKeyDown = function ( e ) {
 };
 
 /**
- * Focuses the capsule
- */
-OO.ui.TagItemWidget.prototype.focus = function () {
-	if ( !this.isDisabled() ) {
-		this.$element.focus();
-	}
-};
-
-/**
  * Select this item
  *
  * @fires select

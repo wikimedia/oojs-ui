@@ -233,15 +233,3 @@ OO.ui.MenuTagMultiselectWidget.prototype.getAllowedValues = function () {
 	} );
 	return this.allowedValues.concat( menuDatas );
 };
-
-/**
- * @inheritdoc
- */
-OO.ui.MenuTagMultiselectWidget.prototype.focus = function () {
-	// Parent method
-	OO.ui.MenuTagMultiselectWidget.parent.prototype.focus.call( this );
-
-	if ( !this.isDisabled() ) {
-		this.menu.toggle( true );
-	}
-};

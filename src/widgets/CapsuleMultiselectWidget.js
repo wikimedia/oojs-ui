@@ -545,6 +545,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.getMenu = function () {
  */
 OO.ui.CapsuleMultiselectWidget.prototype.onInputFocus = function () {
 	if ( !this.isDisabled() ) {
+		this.updateInputSize();
 		this.menu.toggle( true );
 	}
 };
@@ -813,7 +814,6 @@ OO.ui.CapsuleMultiselectWidget.prototype.setDisabled = function ( disabled ) {
  * Focus the widget
  *
  * @chainable
- * @return {OO.ui.CapsuleMultiselectWidget}
  */
 OO.ui.CapsuleMultiselectWidget.prototype.focus = function () {
 	if ( !this.isDisabled() ) {
@@ -822,9 +822,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.focus = function () {
 			this.popup.toggle( true );
 			OO.ui.findFocusable( this.popup.$element ).focus();
 		} else {
-			this.updateInputSize();
-			this.menu.toggle( true );
-			this.$input.focus();
+			OO.ui.mixin.TabIndexedElement.prototype.focus.call( this );
 		}
 	}
 	return this;

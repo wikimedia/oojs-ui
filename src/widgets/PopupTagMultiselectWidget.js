@@ -84,7 +84,7 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 	this.on( 'resize', this.popup.updateDimensions.bind( this.popup ) );
 	this.popup.connect( this, { toggle: 'onPopupToggle' } );
 	this.$tabIndexed
-		.on( 'focus', this.focus.bind( this ) );
+		.on( 'focus', this.onFocus.bind( this ) );
 
 	// Initialize
 	this.$element
@@ -100,17 +100,11 @@ OO.mixinClass( OO.ui.PopupTagMultiselectWidget, OO.ui.mixin.PopupElement );
 /* Methods */
 
 /**
- * @inheritdoc
+ * Focus event handler.
+ *
+ * @private
  */
-OO.ui.PopupTagMultiselectWidget.prototype.focus = function () {
-	// Since the parent deals with input focus, only
-	// call the parent method if our input isn't in the
-	// popup
-	if ( !this.popupInput ) {
-		// Parent method
-		OO.ui.PopupTagMultiselectWidget.parent.prototype.focus.call( this );
-	}
-
+OO.ui.PopupTagMultiselectWidget.prototype.onFocus = function () {
 	this.popup.toggle( true );
 };
 
