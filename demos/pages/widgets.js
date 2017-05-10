@@ -2,7 +2,7 @@ Demo.static.pages.widgets = function ( demo ) {
 	var i, fieldsets,
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
-		textInputForLabel, labelForTextInput,
+		textInputForLabel, labelForTextInput, radioSelectInputForLabel, labelForRadioSelectInput,
 		horizontalDragItems = [],
 		verticalDragItems = [],
 		verticalHandledDragItems = [],
@@ -36,8 +36,25 @@ Demo.static.pages.widgets = function ( demo ) {
 
 	textInputForLabel = new OO.ui.TextInputWidget( { value: 'Input for label above' } );
 	labelForTextInput = new OO.ui.LabelWidget( {
-		label: 'Label for input below',
+		label: 'Label for TextInputWidget below',
 		input: textInputForLabel
+	} );
+
+	radioSelectInputForLabel = new OO.ui.RadioSelectInputWidget( {
+		options: [
+			{
+				data: 'a',
+				label: 'Input for label above'
+			},
+			{
+				data: 'b',
+				label: 'Input for label above'
+			}
+		]
+	} );
+	labelForRadioSelectInput = new OO.ui.LabelWidget( {
+		label: 'Label for RadioSelectInputWidget below',
+		input: radioSelectInputForLabel
 	} );
 
 	fieldsets = [
@@ -1919,7 +1936,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					labelForTextInput,
 					{
-						label: 'LabelWidget (with an associated input)\u200E',
+						label: 'LabelWidget (with an associated TextInputWidget)\u200E',
 						align: 'top'
 					}
 				),
@@ -1927,6 +1944,20 @@ Demo.static.pages.widgets = function ( demo ) {
 					textInputForLabel,
 					{
 						label: 'TextInputWidget (with an associated label)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					labelForRadioSelectInput,
+					{
+						label: 'LabelWidget (with an associated RadioSelectInputWidget)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					radioSelectInputForLabel,
+					{
+						label: 'RadioSelectInputWidget (with an associated label)\u200E',
 						align: 'top'
 					}
 				),
