@@ -45,7 +45,7 @@ class RadioSelectInputWidget extends InputWidget {
 
 	protected function getInputElement( $config ) {
 		// Actually unused
-		return new Tag( 'div' );
+		return new Tag( 'unused' );
 	}
 
 	public function setValue( $value ) {

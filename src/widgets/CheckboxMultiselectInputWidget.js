@@ -91,7 +91,7 @@ OO.ui.CheckboxMultiselectInputWidget.static.reusePreInfuseDOM = function ( node,
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.getInputElement = function () {
 	// Actually unused
-	return $( '<div>' );
+	return $( '<unused>' );
 };
 
 /**
