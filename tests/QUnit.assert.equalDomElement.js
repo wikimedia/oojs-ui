@@ -12,6 +12,26 @@
 ( function ( QUnit ) {
 
 	/**
+	 * Given an object, return a similar object whose internal key order is sorted alphabetically.
+	 *
+	 * @param {Object} obj
+	 * @return {Object}
+	 */
+	function sortObject( obj ) {
+		var i,
+			keys = Object.keys( obj ),
+			sortedObj = {};
+
+		keys = keys.sort();
+
+		for ( i = 0; i < keys.length; i++ ) {
+			sortedObj[ keys[ i ] ] = obj[ keys[ i ] ];
+		}
+
+		return sortedObj;
+	}
+
+	/**
 	 * Build a summary of an HTML element.
 	 *
 	 * Summaries include node name, text, attributes and recursive summaries of children.
@@ -119,6 +139,9 @@
 				summary.attributes.checked = false;
 			}
 		}
+
+		// Order the object keys, for less noisy diffs if there are differences
+		summary.attributes = sortObject( summary.attributes );
 
 		return summary;
 	}
