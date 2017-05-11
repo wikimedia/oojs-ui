@@ -50,7 +50,6 @@
 	// Identical to .theme-oo-ui-buttonSelectWidget, except for the `:focus` selector.
 	&.oo-ui-widget-enabled {
 		.oo-ui-buttonElement {
-			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
 			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
 				z-index: 1;
 			}
@@ -65,6 +64,14 @@
 
 			&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
 				z-index: -1;
+			}
+
+			&.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on {
+				> .oo-ui-buttonElement-button,
+				> .oo-ui-buttonElement-button:active {
+					border-left-color: @border-color-default;
+					z-index: 3;
+				}
 			}
 		}
 	}
