@@ -294,6 +294,7 @@ Demo.static.pages.icons = function ( demo ) {
 			framed: true
 		} ).$element
 			.addClass( 'demo-container demo-icons' )
+			.attr( 'role', 'main' )
 			.append(
 				selector.$element,
 				indicatorsFieldset.$element,
