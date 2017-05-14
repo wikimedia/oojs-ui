@@ -26,7 +26,7 @@
  *
  *     var index = new OO.ui.IndexLayout();
  *
- *     index.addTabPanelss ( [ tabPanel1, tabPanel2 ] );
+ *     index.addTabPanels ( [ tabPanel1, tabPanel2 ] );
  *     $( 'body' ).append( index.$element );
  *
  * @class
