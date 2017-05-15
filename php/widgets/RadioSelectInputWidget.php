@@ -71,7 +71,8 @@ class RadioSelectInputWidget extends InputWidget {
 		// Rebuild the radio buttons
 		$this->clearContent();
 		// Need a unique name, otherwise more than one radio will be selectable
-		$name = $this->name ?: 'oo-ui-radioSelectInputWidget' . mt_rand();
+		// Note: This is not going in the ID attribute, not that it matters
+		$name = $this->name ?: Tag::generateElementId();
 		foreach ( $options as $opt ) {
 			$optValue = $this->cleanUpValue( $opt['data'] );
 			$field = new FieldLayout(
