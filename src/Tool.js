@@ -83,10 +83,8 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 		.attr( 'role', 'button' );
 	this.$element
 		.data( 'oo-ui-tool', this )
-		.addClass(
-			'oo-ui-tool ' + 'oo-ui-tool-name-' +
-			this.constructor.static.name.replace( /^([^\/]+)\/([^\/]+).*$/, '$1-$2' )
-		)
+		.addClass( 'oo-ui-tool' )
+		.addClass( 'oo-ui-tool-name-' + this.constructor.static.name.replace( /^([^\/]+)\/([^\/]+).*$/, '$1-$2' ) )
 		.toggleClass( 'oo-ui-tool-with-label', this.constructor.static.displayBothIconAndLabel )
 		.append( this.$link );
 	this.setTitle( config.title || this.constructor.static.title );
