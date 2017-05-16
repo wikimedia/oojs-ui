@@ -1,4 +1,31 @@
 # OOjs UI Release History
+## v0.21.4 / 2017-05-16
+### Features
+* Allow more widgets to be focussed programatically (Bartosz Dziewoński)
+* Generalize `.getInputId()` for all widgets (Bartosz Dziewoński)
+* Use `.focus()` method when possible instead of looking inside widgets (Bartosz Dziewoński)
+* TagMultiselectWidget: Fix `Ctrl`+`Backspace` to delete last item (Bartosz Dziewoński)
+* TagMultiselectWidget: Fix order of checks for `allowArbitrary`/`allowDuplicates` (Bartosz Dziewoński)
+
+### Styles
+* MediaWiki theme: Separate two active ToggleButton siblings visually (Volker E)
+
+### Code
+* LabelWidget: Fix label click handling (Bartosz Dziewoński)
+* RadioSelectInputWidget: When generating a unique 'name', don't make it random (Bartosz Dziewoński)
+* Use glaringly wrong tags for elements that are supposed to be unused (Bartosz Dziewoński)
+* README: Clarify and simplify descriptions (Volker E)
+* build: Upgrade eslint-config-wikimedia from 0.3.0 to 0.4.0 and make pass (James D. Forrester)
+* demos: Add ARIA roles (Volker E)
+* demos: Clean up the window manager when destroying the dialogs demo (Bartosz Dziewoński)
+* demos: Preserve scroll position when changing non-page options (Bartosz Dziewoński)
+* demos: Rename deprecated Card to current TabPanel (Volker E)
+* demos: Tame buggy mobile browser behaviour on `position: fixed` (Volker E)
+* demos: Turn the menu into a fixed header (Bartosz Dziewoński)
+* docs: Fix `OO.ui.IndexLayout` example (Volker E)
+* tests: Order the `attributes` object keys, for less noisy diffs (Bartosz Dziewoński)
+
+
 ## v0.21.3 / 2017-05-09
 ### Deprecations
 * [DEPRECATING CHANGE] Merge functionality of FloatingMenuSelectWidget into MenuSelectWidget (Bartosz Dziewoński)
