@@ -325,4 +325,8 @@ Demo.static.pages.dialogs = function ( demo ) {
 			.append( $fieldsets ),
 		windowManager.$element
 	);
+
+	demo.once( 'destroy', function () {
+		windowManager.destroy();
+	} );
 };
