@@ -11,6 +11,9 @@ window.Demo = function Demo() {
 	// Parent constructor
 	Demo.parent.call( this );
 
+	// Mixin constructors
+	OO.EventEmitter.call( this );
+
 	// Normalization
 	this.normalizeHash();
 
@@ -102,6 +105,7 @@ window.Demo = function Demo() {
 /* Setup */
 
 OO.inheritClass( Demo, OO.ui.Element );
+OO.mixinClass( Demo, OO.EventEmitter );
 
 /* Static Properties */
 
@@ -420,6 +424,7 @@ Demo.prototype.destroy = function () {
 	$( 'body' ).removeClass( 'oo-ui-ltr oo-ui-rtl' );
 	$( this.stylesheetLinks ).remove();
 	this.$element.remove();
+	this.emit( 'destroy' );
 };
 
 /**
