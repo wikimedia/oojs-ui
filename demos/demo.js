@@ -78,6 +78,7 @@ window.Demo = function Demo() {
 	this.platformSelect.selectItemByData( this.mode.platform );
 	this.$menu
 		.addClass( 'demo-menu' )
+		.attr( 'role', 'navigation' )
 		.append(
 			this.pageDropdown.$element,
 			this.themeSelect.$element,

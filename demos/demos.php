@@ -52,7 +52,7 @@
 </head>
 <body class="oo-ui-<?php echo $direction; ?>">
 	<div class="demo">
-		<div class="demo-menu">
+		<div class="demo-menu" role="navigation">
 			<?php
 				echo new OOUI\ButtonGroupWidget( [
 					'infusable' => true,

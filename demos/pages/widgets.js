@@ -2550,6 +2550,7 @@ Demo.static.pages.widgets = function ( demo ) {
 			framed: true
 		} ).$element
 			.addClass( 'demo-container' )
+			.attr( 'role', 'main' )
 			.append(
 				$( fieldsets.map( function ( fieldset ) { return fieldset.$element[ 0 ]; } ) )
 			)
