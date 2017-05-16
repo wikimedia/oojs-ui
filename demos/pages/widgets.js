@@ -2603,9 +2603,18 @@ Demo.static.pages.widgets = function ( demo ) {
 	];
 
 	$.each( fieldsets, function ( i, fieldsetLayout ) {
+		var showLayoutCode = false;
+
+		if (
+			fieldsetLayout instanceof OO.ui.FormLayout ||
+			fieldsetLayout.getLabel() === 'Field layouts'
+		) {
+			showLayoutCode = true;
+		}
+
 		$.each( fieldsetLayout.getItems(), function ( j, fieldLayout ) {
 			fieldLayout.$element.append(
-				demo.buildConsole( fieldLayout, 'layout', 'widget' )
+				demo.buildConsole( fieldLayout, 'layout', 'widget', showLayoutCode )
 			);
 		} );
 	} );

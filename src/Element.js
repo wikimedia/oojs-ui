@@ -23,6 +23,7 @@
  *  Data can also be specified with the #setData method.
  */
 OO.ui.Element = function OoUiElement( config ) {
+	this.initialConfig = config;
 	// Configuration initialization
 	config = config || {};
 

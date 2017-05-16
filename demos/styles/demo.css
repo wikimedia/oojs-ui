@@ -116,6 +116,7 @@ p {
 	transform: rotate( -90deg );
 }
 
+.demo-console-collapsed .demo-sample-code,
 .demo-console-collapsed .demo-console-log,
 .demo-console-collapsed .demo-console-label,
 .demo-console-collapsed .demo-console-submit {
@@ -216,6 +217,12 @@ p {
 .demo-console-submit:hover {
 	background: #fff;
 	color: #444;
+}
+
+.demo-sample-code {
+	/* Need to override Prism (syntax highlighter) styles */
+	background-color: #eaecf0;
+	margin: 0 !important; /* stylelint-disable-line declaration-no-important */
 }
 
 /* Toolbars demo */

@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* globals Prism */
 /**
  * @class
  * @extends {OO.ui.Element}
@@ -436,8 +437,8 @@ Demo.prototype.destroy = function () {
  * @param {string} widget Variable name for layout's field widget
  * @return {jQuery} Console interface element
  */
-Demo.prototype.buildConsole = function ( item, layout, widget ) {
-	var $toggle, $log, $label, $input, $submit, $console, $form,
+Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) {
+	var $toggle, $log, $label, $input, $submit, $console, $form, $pre, $code,
 		console = window.console;
 
 	function exec( str ) {
@@ -499,10 +500,106 @@ Demo.prototype.buildConsole = function ( item, layout, widget ) {
 		$log.prop( 'scrollTop', $log.prop( 'scrollHeight' ) );
 	}
 
+	function getCode( item ) {
+		var config, isDemoWidget, constructorName, defaultConfig, url, params, out,
+			replaceKeyword = 'replace-',
+			replaceLater = [];
+
+		// If no item was passed we shouldn't show a code block
+		if ( item === undefined ) {
+			return false;
+		}
+
+		isDemoWidget = item.constructor.name.indexOf( 'Demo' ) === 0;
+		config = item.initialConfig;
+		constructorName = ( isDemoWidget ? 'Demo.' : 'OO.ui.' ) + item.constructor.name.slice( 4 );
+
+		// Prevent the default config from being part of the code
+		if ( item instanceof OO.ui.ActionFieldLayout ) {
+			defaultConfig = ( new item.constructor( new OO.ui.TextInputWidget(), new OO.ui.ButtonWidget() ) ).initialConfig;
+		} else if ( item instanceof OO.ui.FieldLayout ) {
+			defaultConfig = ( new item.constructor( new OO.ui.ButtonWidget() ) ).initialConfig;
+		} else {
+			defaultConfig = ( new item.constructor() ).initialConfig;
+		}
+		Object.keys( defaultConfig ).forEach( function ( key ) {
+			if ( config[ key ] === defaultConfig[ key ] ) {
+				delete config[ key ];
+			} else if (
+				typeof config[ key ] === 'object' && typeof defaultConfig[ key ] === 'object' &&
+				OO.compare( config[ key ], defaultConfig[ key ] )
+			) {
+				delete config[ key ];
+			}
+		} );
+
+		config = JSON.stringify( config, function ( k, v ) {
+			if ( v instanceof OO.ui.Element || v instanceof OO.ui.HtmlSnippet || v instanceof jQuery || v instanceof Function ) {
+				replaceLater.push( v );
+				return replaceKeyword + ( replaceLater.length - 1 ).toString();
+			}
+			return v;
+		}, '\t' );
+
+		// We replace later, because running getCode in place will treat the new code
+		// as a string and won't do proper indentation either
+		replaceLater.forEach( function ( obj, i ) {
+			config = config.replace(
+				// Match any number of spaces (for indentation) followed by our placeholder
+				new RegExp( '([ ]+)"' + replaceKeyword + i + '"' ),
+				function ( all, indent ) {
+					var code;
+					if ( obj instanceof Function ) {
+						code = obj.toString();
+					} else if ( obj instanceof jQuery ) {
+						if ( $.contains( item.$element[ 0 ], obj[ 0 ] ) ) {
+							// If this element appears inside the generated widget,
+							// assume this was something like `$label: $( '<p>Text</p>' )`
+							code = '$( \"' + obj.prop( 'outerHTML' ).replace( /'/g, '\\\'' ) + '\" )';
+						} else {
+							// Otherwise assume this was something like `$overlay: $( '#overlay' )`
+							code = '$( \"#' + obj.attr( 'id' ) + '\" )';
+						}
+					} else if ( obj instanceof OO.ui.HtmlSnippet ) {
+						code = 'new OO.ui.HtmlSnippet( "' + obj.toString() + '" )';
+					} else {
+						code = getCode( obj );
+					}
+					// Re-add the indent at the beginning, and after every newline
+					return indent + code.replace( /\n/g, '\n' + indent );
+				}
+			);
+		} );
+
+		// The generated code needs to include different arguments, based on the object type
+		if ( item instanceof OO.ui.ActionFieldLayout ) {
+			params = getCode( item.fieldWidget ) + ', ' + getCode( item.buttonWidget );
+		} else if ( item instanceof OO.ui.FieldLayout ) {
+			params = getCode( item.fieldWidget );
+		} else {
+			params = '';
+		}
+		if ( config !== '{}' ) {
+			params += ( params ? ', ' : '' ) + config;
+		}
+		out = 'new ' + constructorName + '(' + ( params ? ' ' : '' ) + params + ( params ? ' ' : '' ) + ')';
+
+		// The code generated for Demo widgets cannot be copied and used
+		if ( item.constructor.name.indexOf( 'Demo' ) === 0 ) {
+			url =
+				'https://phabricator.wikimedia.org/diffusion/GOJU/browse/master/demos/classes/' +
+				item.constructor.name.slice( 4 ) + '.js';
+			out = '// See source code:\n// ' + url + '\n' + out;
+		}
+
+		return out;
+	}
+
 	$toggle = $( '<span>' )
 		.addClass( 'demo-console-toggle' )
 		.attr( 'title', 'Toggle console' )
 		.on( 'click', function ( e ) {
+			var code;
 			e.preventDefault();
 			$console.toggleClass( 'demo-console-collapsed demo-console-expanded' );
 			if ( $input.is( ':visible' ) ) {
@@ -512,6 +609,19 @@ Demo.prototype.buildConsole = function ( item, layout, widget ) {
 					window[ widget ] = item.fieldWidget;
 					console.log( '[demo]', 'Globals ' + layout + ', ' + widget + ' have been set' );
 					console.log( '[demo]', item );
+
+					if ( showLayoutCode === true ) {
+						code = getCode( item );
+					} else {
+						code = getCode( item.fieldWidget );
+					}
+
+					if ( code ) {
+						$code.text( code );
+						Prism.highlightElement( $code[ 0 ] );
+					} else {
+						$code.remove();
+					}
 				}
 			}
 		} );
@@ -536,6 +646,12 @@ Demo.prototype.buildConsole = function ( item, layout, widget ) {
 		submit();
 	} );
 
+	$code = $( '<code>' ).addClass( 'language-javascript' );
+
+	$pre = $( '<pre>' )
+		.addClass( 'demo-sample-code' )
+		.append( $code );
+
 	$console = $( '<div>' )
 		.addClass( 'demo-console demo-console-collapsed' )
 		.append(
@@ -546,7 +662,8 @@ Demo.prototype.buildConsole = function ( item, layout, widget ) {
 					$input
 				),
 				$submit
-			)
+			),
+			$pre
 		);
 
 	return $console;

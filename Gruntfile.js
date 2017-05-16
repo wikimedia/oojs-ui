@@ -302,7 +302,7 @@ module.exports = function ( grunt ) {
 			},
 			demos: {
 				// Make sure you update this if dependencies are added
-				src: '{node_modules/{jquery,oojs}/dist/**/*,composer.json,dist/**/*,php/**/*}',
+				src: '{node_modules/{jquery,oojs}/dist/**/*,composer.json,dist/**/*,php/**/*,node_modules/prismjs/**/*}',
 				dest: 'demos/',
 				expand: true
 			},
