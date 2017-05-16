@@ -9,16 +9,6 @@ namespace OOUI;
  */
 class Widget extends Element {
 
-	/* Static Properties */
-
-	/**
-	 * Whether this widget will behave reasonably when wrapped in a HTML `<label>`. If this is true,
-	 * wrappers such as FieldLayout may use a `<label>`.
-	 *
-	 * @var boolean
-	 */
-	public static $supportsSimpleLabel = false;
-
 	/* Properties */
 
 	/**
@@ -70,6 +60,16 @@ class Widget extends Element {
 		$this->setAttributes( [ 'aria-disabled' => $this->disabled ? 'true' : 'false' ] );
 
 		return $this;
+	}
+
+	/**
+	 * Get an ID of a labelable node which is part of this widget, if any, to be used for
+	 * `<label for>` value.
+	 *
+	 * @return {string|null} The ID of the labelable node
+	 */
+	public function getInputId() {
+		return null;
 	}
 
 	public function getConfig( &$config ) {

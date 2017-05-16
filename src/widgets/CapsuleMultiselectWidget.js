@@ -204,10 +204,6 @@ OO.mixinClass( OO.ui.CapsuleMultiselectWidget, OO.ui.mixin.TabIndexedElement );
 OO.mixinClass( OO.ui.CapsuleMultiselectWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.CapsuleMultiselectWidget, OO.ui.mixin.IconElement );
 
-/* Static Properties */
-
-OO.ui.CapsuleMultiselectWidget.static.supportsSimpleLabel = true;
-
 /* Events */
 
 /**
@@ -244,23 +240,13 @@ OO.ui.CapsuleMultiselectWidget.prototype.createItemWidget = function ( data, lab
 };
 
 /**
- * Get the widget's input's id, or generate one, if it has an input.
- *
- * @return {string}
+ * @inheritdoc
  */
 OO.ui.CapsuleMultiselectWidget.prototype.getInputId = function () {
-	var id;
 	if ( !this.$input ) {
-		return false;
+		return null;
 	}
-
-	id = this.$input.attr( 'id' );
-	if ( id === undefined ) {
-		id = OO.ui.generateElementId();
-		this.$input.attr( 'id', id );
-	}
-
-	return id;
+	return OO.ui.mixin.TabIndexedElement.prototype.getInputId.call( this );
 };
 
 /**

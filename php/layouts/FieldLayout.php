@@ -110,7 +110,7 @@ class FieldLayout extends Layout {
 			array_merge( $config, [ 'titled' => $this->label ] ) );
 
 		// Initialization
-		if ( $fieldWidget::$supportsSimpleLabel ) {
+		if ( $this->fieldWidget->getInputId() ) {
 			$this->label->setAttributes( [ 'for' => $this->fieldWidget->getInputId() ] );
 		}
 		$this

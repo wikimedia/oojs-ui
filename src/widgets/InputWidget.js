@@ -66,14 +66,6 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.TabIndexedElement );
 OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.TitledElement );
 OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.AccessKeyedElement );
 
-/* Static Properties */
-
-/**
- * @static
- * @inheritdoc
- */
-OO.ui.InputWidget.static.supportsSimpleLabel = true;
-
 /* Static Methods */
 
 /**
@@ -123,25 +115,6 @@ OO.ui.InputWidget.static.gatherPreInfuseState = function ( node, config ) {
  */
 OO.ui.InputWidget.prototype.getInputElement = function () {
 	return $( '<input>' );
-};
-
-/**
- * Get input element's ID.
- *
- * If the element already has an ID then that is returned, otherwise unique ID is
- * generated, set on the element, and returned.
- *
- * @return {string} The ID of the element
- */
-OO.ui.InputWidget.prototype.getInputId = function () {
-	var id = this.$input.attr( 'id' );
-
-	if ( id === undefined ) {
-		id = OO.ui.generateElementId();
-		this.$input.attr( 'id', id );
-	}
-
-	return id;
 };
 
 /**

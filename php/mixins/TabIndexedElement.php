@@ -86,4 +86,48 @@ trait TabIndexedElement {
 	public function getTabIndex() {
 		return $this->tabIndex;
 	}
+
+	/**
+	 * Get an ID of a focusable element of this widget, if any, to be used for `<label for>` value.
+	 *
+	 * If the element already has an ID then that is returned, otherwise unique ID is
+	 * generated, set on the element, and returned.
+	 *
+	 * @return {string|null} The ID of the focusable element
+	 */
+	public function getInputId() {
+		$id = $this->tabIndexed->getAttribute( 'id' );
+
+		if ( !$this->isLabelableNode( $this->tabIndexed ) ) {
+			return null;
+		}
+
+		if ( $id === null ) {
+			$id = Tag::generateElementId();
+			$this->tabIndexed->setAttributes( [ 'id' => $id ] );
+		}
+
+		return $id;
+	}
+
+	/**
+	 * Whether the node is 'labelable' according to the HTML spec
+	 * (i.e., whether it can be interacted with through a `<label for="…">`).
+	 * See: <https://html.spec.whatwg.org/multipage/forms.html#category-label>.
+	 *
+	 * @param Tag $tag
+	 * @return boolean
+	 */
+	private function isLabelableNode( Tag $tag ) {
+		$labelableTags = [ 'button', 'meter', 'output', 'progress', 'select', 'textarea' ];
+		$tagName = strtolower( $tag->getTag() );
+
+		if ( $tagName === 'input' && $tag->getAttribute( 'type' ) !== 'hidden' ) {
+			return true;
+		}
+		if ( in_array( $tagName, $labelableTags, true ) ) {
+			return true;
+		}
+		return false;
+	}
 }
