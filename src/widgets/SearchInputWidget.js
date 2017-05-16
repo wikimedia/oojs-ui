@@ -46,7 +46,7 @@ OO.ui.SearchInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
 	if ( e.which === OO.ui.MouseButtons.LEFT ) {
 		// Clear the text field
 		this.setValue( '' );
-		this.$input[ 0 ].focus();
+		this.focus();
 		return false;
 	}
 };

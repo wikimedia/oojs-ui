@@ -192,7 +192,7 @@ OO.ui.ComboBoxInputWidget.prototype.onInputEnter = function () {
  */
 OO.ui.ComboBoxInputWidget.prototype.onDropdownButtonClick = function () {
 	this.menu.toggle();
-	this.$input[ 0 ].focus();
+	this.focus();
 };
 
 /**

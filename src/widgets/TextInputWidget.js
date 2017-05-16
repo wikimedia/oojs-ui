@@ -212,7 +212,7 @@ OO.ui.TextInputWidget.static.gatherPreInfuseState = function ( node, config ) {
  */
 OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
 	if ( e.which === OO.ui.MouseButtons.LEFT ) {
-		this.$input[ 0 ].focus();
+		this.focus();
 		return false;
 	}
 };
@@ -229,7 +229,7 @@ OO.ui.TextInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
 			// Clear the text field
 			this.setValue( '' );
 		}
-		this.$input[ 0 ].focus();
+		this.focus();
 		return false;
 	}
 };
