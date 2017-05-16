@@ -233,6 +233,8 @@ Demo.static.defaultPlatform = 'desktop';
 
 /**
  * Load the demo page. Must be called after $element is attached.
+ *
+ * @return {jQuery.Promise} Resolved when demo is initialized
  */
 Demo.prototype.initialize = function () {
 	var demo = this,
@@ -246,7 +248,7 @@ Demo.prototype.initialize = function () {
 			Date.now ? Date.now() : new Date().getTime();
 	}
 
-	$.when.apply( $, promises )
+	return $.when.apply( $, promises )
 		.done( function () {
 			var start, end;
 			start = now();
