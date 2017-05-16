@@ -255,26 +255,6 @@ OO.ui.InputWidget.prototype.setDisabled = function ( state ) {
 };
 
 /**
- * Focus the input.
- *
- * @chainable
- */
-OO.ui.InputWidget.prototype.focus = function () {
-	this.$input[ 0 ].focus();
-	return this;
-};
-
-/**
- * Blur the input.
- *
- * @chainable
- */
-OO.ui.InputWidget.prototype.blur = function () {
-	this.$input[ 0 ].blur();
-	return this;
-};
-
-/**
  * @inheritdoc
  */
 OO.ui.InputWidget.prototype.restorePreInfuseState = function ( state ) {

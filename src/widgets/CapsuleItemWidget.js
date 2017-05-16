@@ -100,10 +100,3 @@ OO.ui.CapsuleItemWidget.prototype.onKeyDown = function ( e ) {
 		element.getNextItem( this ).focus();
 	}
 };
-
-/**
- * Focuses the capsule
- */
-OO.ui.CapsuleItemWidget.prototype.focus = function () {
-	this.$element.focus();
-};

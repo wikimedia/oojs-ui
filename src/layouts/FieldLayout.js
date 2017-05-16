@@ -97,15 +97,13 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
 
 	// Initialization
-	if ( fieldWidget.constructor.static.supportsSimpleLabel ) {
-		if ( this.fieldWidget.getInputId() ) {
-			this.$label.attr( 'for', this.fieldWidget.getInputId() );
-		} else {
-			this.$label.on( 'click', function () {
-				this.fieldWidget.focus();
-				return false;
-			}.bind( this ) );
-		}
+	if ( fieldWidget.constructor.static.supportsSimpleLabel && this.fieldWidget.getInputId() ) {
+		this.$label.attr( 'for', this.fieldWidget.getInputId() );
+	} else {
+		this.$label.on( 'click', function () {
+			this.fieldWidget.focus();
+			return false;
+		}.bind( this ) );
 	}
 	this.$element
 		.addClass( 'oo-ui-fieldLayout' )

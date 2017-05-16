@@ -156,7 +156,7 @@ OO.ui.DropdownInputWidget.prototype.setOptions = function ( options ) {
  * @inheritdoc
  */
 OO.ui.DropdownInputWidget.prototype.focus = function () {
-	this.dropdownWidget.getMenu().toggle( true );
+	this.dropdownWidget.focus();
 	return this;
 };
 
@@ -164,6 +164,6 @@ OO.ui.DropdownInputWidget.prototype.focus = function () {
  * @inheritdoc
  */
 OO.ui.DropdownInputWidget.prototype.blur = function () {
-	this.dropdownWidget.getMenu().toggle( false );
+	this.dropdownWidget.blur();
 	return this;
 };

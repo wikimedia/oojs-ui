@@ -539,15 +539,6 @@ OO.ui.TagMultiselectWidget.prototype.addAllowedValue = function ( value ) {
 };
 
 /**
- * Focus the widget
- */
-OO.ui.TagMultiselectWidget.prototype.focus = function () {
-	if ( this.hasInput ) {
-		this.input.focus();
-	}
-};
-
-/**
  * Get the datas of the currently selected items
  *
  * @return {string[]|Object[]} Datas of currently selected items

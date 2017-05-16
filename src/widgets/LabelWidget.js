@@ -52,8 +52,8 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 	this.input = config.input;
 
 	// Initialization
-	if ( this.input instanceof OO.ui.InputWidget ) {
-		if ( this.input.getInputId() ) {
+	if ( this.input ) {
+		if ( this.input instanceof OO.ui.InputWidget && this.input.getInputId() ) {
 			this.$element.attr( 'for', this.input.getInputId() );
 		} else {
 			this.$label.on( 'click', function () {

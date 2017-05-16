@@ -137,3 +137,25 @@ OO.ui.mixin.TabIndexedElement.prototype.onTabIndexedElementDisable = function ()
 OO.ui.mixin.TabIndexedElement.prototype.getTabIndex = function () {
 	return this.tabIndex;
 };
+
+/**
+ * Focus this element.
+ *
+ * @chainable
+ */
+OO.ui.mixin.TabIndexedElement.prototype.focus = function () {
+	if ( !this.isDisabled() ) {
+		this.$tabIndexed.focus();
+	}
+	return this;
+};
+
+/**
+ * Blur this element.
+ *
+ * @chainable
+ */
+OO.ui.mixin.TabIndexedElement.prototype.blur = function () {
+	this.$tabIndexed.blur();
+	return this;
+};

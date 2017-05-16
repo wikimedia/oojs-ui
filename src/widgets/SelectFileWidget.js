@@ -196,7 +196,17 @@ OO.ui.SelectFileWidget.prototype.setValue = function ( file ) {
  * @chainable
  */
 OO.ui.SelectFileWidget.prototype.focus = function () {
-	this.selectButton.$button[ 0 ].focus();
+	this.selectButton.focus();
+	return this;
+};
+
+/**
+ * Blur the widget.
+ *
+ * @chainable
+ */
+OO.ui.SelectFileWidget.prototype.blur = function () {
+	this.selectButton.blur();
 	return this;
 };
 

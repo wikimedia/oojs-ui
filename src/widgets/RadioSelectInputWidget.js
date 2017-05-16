@@ -154,3 +154,19 @@ OO.ui.RadioSelectInputWidget.prototype.setOptions = function ( options ) {
 
 	return this;
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.RadioSelectInputWidget.prototype.focus = function () {
+	this.radioSelectWidget.focus();
+	return this;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.RadioSelectInputWidget.prototype.blur = function () {
+	this.radioSelectWidget.blur();
+	return this;
+};
