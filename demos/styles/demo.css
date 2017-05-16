@@ -16,16 +16,18 @@ p {
 }
 
 .demo-menu {
+	background-color: #fff;
 	position: fixed;
 	top: 0;
 	z-index: 1;
 	width: 62.5em;
 	padding-top: 1em;
-	background: #fff;
 	/* To better hide Apex's large drop shadows */
 	margin-left: -1em;
 	padding-left: 1em;
 	padding-right: 1em;
+	/* Support: Android < 5, iOS < 8 to tame their buggy behaviour */
+	-webkit-backface-visibility: hidden;
 }
 
 .demo-menu > .oo-ui-widget {
