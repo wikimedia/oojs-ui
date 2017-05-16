@@ -31,7 +31,7 @@
 	<script src="../dist/oojs-ui-windows.js"></script>
 	<script src="../dist/oojs-ui-toolbars.js"></script>
 	<script src="../dist/oojs-ui-apex.js"></script>
-	<script src="../dist/oojs-ui-mediawiki.js"></script>
+	<script src="../dist/oojs-ui-wikimediaui.js"></script>
 	<script src="./TestTimer.js"></script>
 	<!-- Test suites -->
 	<script src="./core.test.js"></script>
@@ -66,7 +66,7 @@
 				}
 			}
 			// Keep synchronized with bin/generate-JSPHP-for-karma.php
-			$themes = [ 'ApexTheme', 'MediaWikiTheme' ];
+			$themes = [ 'ApexTheme', 'WikimediaUITheme' ];
 			foreach ( $themes as $theme ) {
 				OOUI\Theme::setSingleton( new_OOUI( $theme ) );
 				foreach ( $testSuite as $className => $tests ) {

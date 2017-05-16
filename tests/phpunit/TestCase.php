@@ -2,7 +2,7 @@
 
 namespace OOUI\Tests;
 
-use OOUI\MediaWikiTheme;
+use OOUI\WikimediaUITheme;
 use PHPUnit_Framework_TestCase;
 use OOUI\Theme;
 
@@ -12,7 +12,7 @@ class TestCase extends PHPUnit_Framework_TestCase {
 	 * @return Theme
 	 */
 	protected function getTheme() {
-		return new MediaWikiTheme();
+		return new WikimediaUITheme();
 	}
 
 	public function setUp() {

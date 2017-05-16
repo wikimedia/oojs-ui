@@ -161,8 +161,8 @@
 
 	# All styles, built per-theme, and theme-specific scripts.
 	#
-	# '{Theme}' expands to proper theme name: 'Apex' or 'MediaWiki'.
-	# '{theme}' expands to lowercase theme name: 'apex' or 'mediawiki'.
+	# '{Theme}' expands to proper theme name: 'Apex' or 'WikimediaUI'.
+	# '{theme}' expands to lowercase theme name: 'apex' or 'wikimediaui'.
 	#
 	# The .json files are first compiled to .less using the colorize-svg script.
 	"oojs-ui-{theme}": {
@@ -198,12 +198,18 @@
 		]
 	},
 
-	# Additional icon packs. Some exist for all themes, some are MediaWiki-theme-specific.
+	# Additional icon packs. Some exist for all themes, some are WikimediaUI-theme-specific.
+	"oojs-ui-wikimediaui-icons-accessibility": {
+		"styles": [
+			"src/themes/wikimediaui/icons-accessibility.json"
+		],
+		"theme": "wikimediaui"
+	},
 	"oojs-ui-mediawiki-icons-accessibility": {
 		"styles": [
-			"src/themes/mediawiki/icons-accessibility.json"
+			"src/themes/wikimediaui/icons-accessibility.json"
 		],
-		"theme": "mediawiki"
+		"theme": "wikimediaui"
 	},
 	"oojs-ui-{theme}-icons-movement": {
 		"styles": [
@@ -255,11 +261,17 @@
 			"src/themes/{theme}/icons-media.json"
 		]
 	},
+	"oojs-ui-wikimediaui-icons-location": {
+		"styles": [
+			"src/themes/wikimediaui/icons-location.json"
+		],
+		"theme": "wikimediaui"
+	},
 	"oojs-ui-mediawiki-icons-location": {
 		"styles": [
-			"src/themes/mediawiki/icons-location.json"
+			"src/themes/wikimediaui/icons-location.json"
 		],
-		"theme": "mediawiki"
+		"theme": "wikimediaui"
 	},
 	"oojs-ui-{theme}-icons-user": {
 		"styles": [
@@ -271,10 +283,16 @@
 			"src/themes/{theme}/icons-layout.json"
 		]
 	},
+	"oojs-ui-wikimediaui-icons-wikimedia": {
+		"styles": [
+			"src/themes/wikimediaui/icons-wikimedia.json"
+		],
+		"theme": "wikimediaui"
+	},
 	"oojs-ui-mediawiki-icons-wikimedia": {
 		"styles": [
-			"src/themes/mediawiki/icons-wikimedia.json"
+			"src/themes/wikimediaui/icons-wikimedia.json"
 		],
-		"theme": "mediawiki"
+		"theme": "wikimediaui"
 	}
 }

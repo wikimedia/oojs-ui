@@ -35,9 +35,9 @@ Loading the library
 
 While the distribution directory is chock-full of files, you will normally only need to load three:
 
-* `oojs-ui.js`, containing the full library
-* One of `oojs-ui-mediawiki.css` or `oojs-ui-apex.css`, containing theme-specific styles
-* One of `oojs-ui-mediawiki.js` or  `oojs-ui-apex.js`, containing theme-specific code
+* `oojs-ui.js`, containing the full library;
+* One of `oojs-ui-wikimediaui.css` or `oojs-ui-apex.css`, containing theme-specific styles; and
+* One of `oojs-ui-wikimediaui.js` or  `oojs-ui-apex.js`, containing theme-specific code
 
 You can load additional icon packs from files named `oojs-ui-mediawiki-icons-*.css` or  `oojs-ui-apex-icons-*.css`.
 

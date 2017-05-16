@@ -5,7 +5,7 @@ QUnit.module( 'JSPHP' );
 	var theme, klassName,
 		themes = {
 			ApexTheme: new OO.ui.ApexTheme(),
-			MediaWikiTheme: new OO.ui.MediaWikiTheme()
+			WikimediaUITheme: new OO.ui.WikimediaUITheme()
 		};
 
 	function unstub( value ) {

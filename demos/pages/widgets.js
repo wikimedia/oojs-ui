@@ -85,7 +85,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						flags: [ 'constructive' ]
 					} ),
 					{
-						label: 'ButtonWidget (constructive, deprecated in MediaWiki theme)\u200E',
+						label: 'ButtonWidget (constructive, deprecated in WikimediaUI theme)\u200E',
 						align: 'top'
 					}
 				),
@@ -115,7 +115,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						flags: [ 'primary', 'constructive' ]
 					} ),
 					{
-						label: 'ButtonWidget (primary, constructive, deprecated in MediaWiki theme)\u200E',
+						label: 'ButtonWidget (primary, constructive, deprecated in WikimediaUI theme)\u200E',
 						align: 'top'
 					}
 				),

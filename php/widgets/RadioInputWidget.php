@@ -22,7 +22,7 @@ class RadioInputWidget extends InputWidget {
 
 		// Initialization
 		$this->addClasses( [ 'oo-ui-radioInputWidget' ] );
-		// Required for pretty styling in MediaWiki theme
+		// Required for pretty styling in WikimediaUI theme
 		$this->appendContent( new Tag( 'span' ) );
 		$this->setSelected( isset( $config['selected'] ) ? $config['selected'] : false );
 	}

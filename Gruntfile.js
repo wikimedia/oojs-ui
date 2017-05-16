@@ -6,7 +6,8 @@ module.exports = function ( grunt ) {
 	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
-			mediawiki: 'MediaWiki', // Do not change this line or you'll break `grunt add-theme`
+			wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
+			mediawiki: 'MediaWiki', // Backwards-compatibility wrapper
 			apex: 'Apex'
 		},
 		lessFiles = {},
@@ -416,7 +417,7 @@ module.exports = function ( grunt ) {
 					'dist/oojs-ui-windows.js',
 					'dist/oojs-ui-toolbars.js',
 					'dist/oojs-ui-apex.js',
-					'dist/oojs-ui-mediawiki.js',
+					'dist/oojs-ui-wikimediaui.js',
 					'tests/TestTimer.js',
 					'tests/core.test.js',
 					'tests/Element.test.js',
@@ -506,7 +507,7 @@ module.exports = function ( grunt ) {
 				},
 				options: {
 					replacements: [ {
-						pattern: /\t\t\tmediawiki: 'MediaWiki',/,
+						pattern: /\t\t\twikimediaui: 'WikimediaUI',/,
 						replacement: '\t\t\t<%= grunt.option( "name" ).toLowerCase() %>: \'<%= grunt.option( "name" ) %>\',\n$&'
 					} ]
 				}
@@ -517,7 +518,7 @@ module.exports = function ( grunt ) {
 				},
 				options: {
 					replacements: [ {
-						pattern: /(\t*)<script src="dist\/oojs-ui-mediawiki.js"><\/script>/,
+						pattern: /(\t*)<script src="dist\/oojs-ui-wikimediaui.js"><\/script>/,
 						replacement: '$1<script src="dist/oojs-ui-<%= grunt.option( "name" ).toLowerCase() %>.js"></script>\n$&'
 					} ]
 				}
@@ -528,7 +529,7 @@ module.exports = function ( grunt ) {
 				},
 				options: {
 					replacements: [ {
-						pattern: /(\t*)mediawiki: 'MediaWiki',/,
+						pattern: /(\t*)wikimediaui: 'WikimediaUI',/,
 						replacement: '$1<%= grunt.option( "name" ).toLowerCase() %>: \'<%= grunt.option( "name" ) %>\',\n$&'
 					} ]
 				}
@@ -539,7 +540,7 @@ module.exports = function ( grunt ) {
 				},
 				options: {
 					replacements: [ {
-						pattern: /(\t*)'mediawiki' => 'MediaWiki',/,
+						pattern: /(\t*)'wikimediaui' => 'WikimediaUI',/,
 						replacement: '$1\'<%= grunt.option( "name" ).toLowerCase() %>\' => \'<%= grunt.option( "name" ) %>\',\n$&'
 					} ]
 				}

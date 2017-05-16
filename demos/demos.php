@@ -10,11 +10,11 @@
 	require_once 'classes/ButtonStyleShowcaseWidget.php';
 
 	$themes = [
-		'mediawiki' => 'MediaWiki', // Do not change this line or you'll break `grunt add-theme`
+		'wikimediaui' => 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 		'apex' => 'Apex',
 	];
 	$theme = ( isset( $_GET['theme'] ) && isset( $themes[ $_GET['theme'] ] ) )
-		? $_GET['theme'] : 'mediawiki';
+		? $_GET['theme'] : 'wikimediaui';
 	$themeClass = 'OOUI\\' . $themes[ $theme ] . 'Theme';
 	OOUI\Theme::setSingleton( new $themeClass() );
 

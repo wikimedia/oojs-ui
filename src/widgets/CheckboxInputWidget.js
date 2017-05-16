@@ -49,7 +49,7 @@ OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-checkboxInputWidget' )
-		// Required for pretty styling in MediaWiki theme
+		// Required for pretty styling in WikimediaUI theme
 		.append( $( '<span>' ) );
 	this.setSelected( config.selected !== undefined ? config.selected : false );
 };

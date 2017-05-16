@@ -21,6 +21,7 @@ else
 	testable_classes = classes
 		.reject{|c| c[:abstract] } # can't test abstract classes
 		.reject{|c| !c[:parent] || c[:trait] || c[:parent] == 'Theme' } # can't test abstract
+		.reject{|c| c[:name] == 'MediaWikiTheme' } # can't test abstract
 		.reject{|c| %w[Element Widget Layout Theme].include? c[:name] } # no toplevel
 
 	make_class_instance_placeholder = lambda do |klass, config|

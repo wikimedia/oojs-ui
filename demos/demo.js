@@ -130,7 +130,7 @@ Demo.static.pages = {};
  * @property {Object.<string,string>}
  */
 Demo.static.themes = {
-	mediawiki: 'MediaWiki', // Do not change this line or you'll break `grunt add-theme`
+	wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 	apex: 'Apex'
 };
 
@@ -141,7 +141,7 @@ Demo.static.themes = {
  * @property {Object.<string,string[]>
  */
 Demo.static.additionalThemeImagesSuffixes = {
-	mediawiki: [
+	wikimediaui: [
 		'-icons-movement',
 		'-icons-content',
 		'-icons-alerts',
@@ -212,7 +212,7 @@ Demo.static.defaultPage = 'widgets';
  * @static
  * @property {string}
  */
-Demo.static.defaultTheme = 'mediawiki';
+Demo.static.defaultTheme = 'wikimediaui';
 
 /**
  * Default page.
