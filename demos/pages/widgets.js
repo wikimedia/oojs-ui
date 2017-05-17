@@ -6,6 +6,7 @@ Demo.static.pages.widgets = function ( demo ) {
 		horizontalDragItems = [],
 		verticalDragItems = [],
 		verticalHandledDragItems = [],
+		$overlay = $( '<div>' ).addClass( 'demo-overlay' ).attr( 'id', 'demo-overlay' ),
 		$demo = demo.$element;
 
 	for ( i = 0; i <= 12; i++ ) {
@@ -1138,7 +1139,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.DropdownWidget( {
 						label: 'Select one',
-						$overlay: $( '<div>' ).appendTo( 'body' ).css( { position: 'absolute', top: 0, left: 0 } ),
+						$overlay: $overlay,
 						menu: {
 							items: [
 								new OO.ui.MenuOptionWidget( {
@@ -2586,4 +2587,10 @@ Demo.static.pages.widgets = function ( demo ) {
 				$( fieldsets.map( function ( fieldset ) { return fieldset.$element[ 0 ]; } ) )
 			)
 	);
+
+	$overlay.appendTo( 'body' );
+
+	demo.once( 'destroy', function () {
+		$overlay.remove();
+	} );
 };
