@@ -99,6 +99,7 @@
 @margin-button-close: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @margin-top-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @margin-top-tagmultiselect-input: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
+@margin-bottom-fieldset-header: 8 / @oo-ui-font-size-browser / ( @oo-ui-font-size-default * @font-size-fieldset-header );
 
 @border-default: @border-width-default solid @border-color-default;
 @border-disabled: @border-width-default solid @border-color-disabled;
@@ -152,6 +153,7 @@
 @padding-start-input-text-icon: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // As long as we have whitespace in icon canvas, we need reduced `padding-left`.
 @padding-start-icon: @size-icon;
 @padding-start-icon-only: 26 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `2.03125em`≈`26px`; @min-width-button-default - @padding-horizontal-default - 2 * @border-width-default;
+@padding-start-fieldset-header-iconized: 26 / @oo-ui-font-size-browser / ( @oo-ui-font-size-default * @font-size-fieldset-header );
 @padding-start-indicator-only: @padding-start-icon-only;
 @padding-start-indicator-plus: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @padding-start-input-text-icon-label: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
@@ -169,9 +171,12 @@
 @box-shadow-erroneous-focus: inset 0 0 0 1px @color-erroneous;
 @box-shadow-disabled-filled: inset 0 0 0 1px @color-disabled-filled;
 
+@font-size-fieldset-header: 1.15em; // equals `16.1px` at base `font-size: 12.8px`. Todo: Not able to get unified `16px` due to T
+
 @line-height-default: 1.6; // same as Vector
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
 @line-height-message: 1.4;
+@line-height-fieldset-header-iconized: 24 / @oo-ui-font-size-browser / ( @oo-ui-font-size-default * @font-size-fieldset-header );
 @line-height-form-element: 1.4;
 @line-height-input-binary-label: 1.5; // Checkboxes, Radios and ToggleSwitchWidget labels need a tad more for increased vertical click area
 @line-height-widget-multiline: 1.275;
