@@ -105,7 +105,8 @@ else
 				vals = expandos[t]
 			elsif testable_classes.find{|c| c[:name] == t }
 				# OOUI object. Test suite will instantiate one and run the test with it.
-				params = find_class.call(t)[:methods][0][:params] || []
+				constructor = find_class.call(t)[:methods].find{|m| m[:name] == '#constructor' }
+				params = constructor ? (constructor[:params] || []) : []
 				config = params.map{|config_option|
 					types = config_option[:type].split '|'
 					values = expand_types_to_values.call(types)
@@ -145,9 +146,10 @@ else
 		}
 
 		config_sources = find_config_sources.call(class_name)
-			.map{|c| find_class.call(c)[:methods][0] }
-		config = config_sources.map{|c| c[:config] }.compact.inject(:+)
-		required_config = klass[:methods][0][:params] || []
+			.map{|c| find_class.call(c)[:methods].find{|m| m[:name] == '#constructor' } }
+		config = config_sources.compact.map{|c| c[:config] }.compact.inject([], :+)
+		constructor = klass[:methods].find{|m| m[:name] == '#constructor' }
+		required_config = constructor ? (constructor[:params] || []) : []
 
 		# generate every possible configuration of configuration option sets
 		maxlength = [config.length, 2].min
