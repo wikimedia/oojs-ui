@@ -1,6 +1,7 @@
 body {
 	color: #222;
-	margin: 1em;
+	margin: 0 1em;
+	padding: 0;
 	font-family: sans-serif;
 	font-size: 0.8em;
 }
@@ -16,18 +17,10 @@ p {
 }
 
 .demo-menu {
-	background-color: #fff;
-	position: fixed;
-	top: 0;
-	z-index: 1;
-	width: 62.5em;
-	padding-top: 1em;
-	/* To better hide Apex's large drop shadows */
-	margin-left: -1em;
-	padding-left: 1em;
-	padding-right: 1em;
-	/* Support: Android < 5, iOS < 8 to tame their buggy behaviour */
-	-webkit-backface-visibility: hidden;
+	min-width: 320px; /* Let's not pretend it works on anything lower then that */
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .demo-menu > .oo-ui-widget {
@@ -46,11 +39,6 @@ p {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-}
-
-/* This needs extra specificity to beat PanelLayout styles */
-.oo-ui-panelLayout.demo-container {
-	margin-top: 5em;
 }
 
 /* Console */
@@ -307,8 +295,32 @@ FieldLayout left & right aligned */
 	padding: 1em 1em 1.5em 1em;
 }
 
+/*
+ * Support: iOS 9.2, Android 4.4.4, Op Mobile 37, Chrome/Android 57, Fx/Android 52, UC Browser 11.4, Baidu 7.12
+ * Workaround for weak ancient mobile browser support of `fixed` positioning
+ */
+@supports ( position: fixed ) {
+	.demo-menu {
+		background-color: #fff;
+		position: fixed;
+		top: 0;
+		border-bottom: 1px solid #a2a9b1;
+		padding-top: 1em;
+		box-shadow: 0 4px 4px -4px rgba( 0, 0, 0, 0.25 );
+		z-index: 99;
+	}
+
+	/* This needs extra specificity to beat PanelLayout styles */
+	.demo-container.oo-ui-panelLayout {
+		/* Apex overrides. WikimediaUI wins for now in the demo framing in this browser subset */
+		border-color: #a2a9b1;
+		border-radius: 2px;
+		box-shadow: none;
+	}
+}
+
 /* Media Queries */
-@media ( max-width: 750px ) {
+@media ( min-width: 320px ) {
 	body {
 		font-size: 1em;
 	}
@@ -330,12 +342,74 @@ FieldLayout left & right aligned */
 	.demo-console-toggle {
 		margin-right: -2em;
 	}
-}
 
-@media ( min-width: 751px ) {
-	.demo-container {
-		padding: 2em;
+	@supports ( position: fixed ) {
+		.demo-menu {
+			min-height: 11.4em;
+			left: 1em;
+			right: 1em;
+		}
+
+		/* Hide “Docs“ Button on very small screens */
+		.demo-menu > .demo-button-docs {
+			display: none;
+		}
+
+		/* This needs extra specificity to beat PanelLayout styles */
+		.demo-container.oo-ui-panelLayout {
+			margin-top: 11.4em;
+		}
 	}
 }
 
+@media ( min-width: 568px ) {
+	@supports ( position: fixed ) {
+		.demo-menu {
+			min-height: 7.5em;
+		}
+
+		.demo-menu > .demo-button-docs {
+			display: inline-block;
+		}
+
+		.demo-container.oo-ui-panelLayout {
+			margin-top: 7.5em;
+		}
+	}
+}
+
+@media ( min-width: 768px ) {
+	.demo-console-toggle {
+		margin-right: 0;
+	}
+}
+
+@media ( min-width: 960px ) {
+	body {
+		font-size: 0.8em;
+	}
+
+	.demo-container {
+		border-radius: 2px;
+		border-width: 1px;
+		padding: 2em;
+	}
+
+	.demo-menu {
+		width: 62.5em;
+		white-space: nowrap;
+	}
+
+	@supports ( position: fixed ) {
+		.demo-menu {
+			min-height: 4.5em;
+			left: auto;
+			right: auto;
+		}
+
+		.demo-container.oo-ui-panelLayout {
+			margin-top: 4.5em;
+		}
+	}
+}
 /* stylelint-enable selector-pseudo-element-colon-notation */
