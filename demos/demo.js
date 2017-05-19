@@ -169,6 +169,7 @@ Demo.static.additionalThemeImagesSuffixes = {
 		'-icons-editing-list',
 		'-icons-editing-advanced',
 		'-icons-media',
+		'-icons-user',
 		'-icons-layout'
 	]
 };

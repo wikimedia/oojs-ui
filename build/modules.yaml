@@ -261,11 +261,10 @@
 		],
 		"theme": "mediawiki"
 	},
-	"oojs-ui-mediawiki-icons-user": {
+	"oojs-ui-{theme}-icons-user": {
 		"styles": [
-			"src/themes/mediawiki/icons-user.json"
-		],
-		"theme": "mediawiki"
+			"src/themes/{theme}/icons-user.json"
+		]
 	},
 	"oojs-ui-{theme}-icons-layout": {
 		"styles": [
