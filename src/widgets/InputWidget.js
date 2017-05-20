@@ -19,6 +19,7 @@
  * @cfg {string} [name=''] The value of the input’s HTML `name` attribute.
  * @cfg {string} [value=''] The value of the input.
  * @cfg {string} [dir] The directionality of the input (ltr/rtl).
+ * @cfg {string} [inputId] The value of the input’s HTML `id` attribute.
  * @cfg {Function} [inputFilter] The name of an input filter function. Input filters modify the value of an input
  *  before it is accepted.
  */
@@ -55,6 +56,9 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	this.setValue( config.value );
 	if ( config.dir ) {
 		this.setDir( config.dir );
+	}
+	if ( config.inputId !== undefined ) {
+		this.setInputId( config.inputId );
 	}
 };
 
@@ -224,6 +228,17 @@ OO.ui.InputWidget.prototype.setDisabled = function ( state ) {
 	if ( this.$input ) {
 		this.$input.prop( 'disabled', this.isDisabled() );
 	}
+	return this;
+};
+
+/**
+ * Set the 'id' attribute of the `<input>` element.
+ *
+ * @param {string} id
+ * @chainable
+ */
+OO.ui.InputWidget.prototype.setInputId = function ( id ) {
+	this.$input.attr( 'id', id );
 	return this;
 };
 
