@@ -7,7 +7,6 @@ module.exports = function ( grunt ) {
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
 			wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
-			mediawiki: 'MediaWiki', // Backwards-compatibility wrapper
 			apex: 'Apex'
 		},
 		lessFiles = {},
