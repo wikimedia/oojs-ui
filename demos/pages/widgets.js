@@ -901,6 +901,27 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
+						value: 'Text input with label',
+						label: 'Inline label'
+					} ),
+					{
+						label: 'TextInputWidget (label)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						value: 'Text input with label',
+						label: 'Inline label',
+						labelPosition: 'before'
+					} ),
+					{
+						label: 'TextInputWidget (label[position=before])\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
 						icon: 'tag',
 						indicator: 'alert',
 						value: 'Text input with label',
@@ -908,6 +929,19 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'TextInputWidget (icon, indicator, label)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget( {
+						icon: 'tag',
+						indicator: 'alert',
+						value: 'Text input with label',
+						label: 'Inline label',
+						labelPosition: 'before'
+					} ),
+					{
+						label: 'TextInputWidget (icon, indicator, label[position=before])\u200E',
 						align: 'top'
 					}
 				),
