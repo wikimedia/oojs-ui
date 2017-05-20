@@ -28,6 +28,9 @@
  *  See <https://www.mediawiki.org/wiki/OOjs_UI/Concepts#Overlays>.
  */
 OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
+	// Configuration initialization
+	config = config || {};
+
 	// Parent constructor
 	OO.ui.PopupButtonWidget.parent.call( this, config );
 
