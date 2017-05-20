@@ -1879,23 +1879,27 @@
 		}
 	}
 
+	> .oo-ui-labelElement-label {
+		color: @color-subtle;
+		margin-top: @border-width-default; // Address `border` on `input`
+		padding: @padding-top-default @padding-horizontal-default @padding-bottom-default @padding-horizontal-input-text;
+		line-height: @line-height-widget-singleline;
+	}
+
 	&.oo-ui-indicatorElement {
 		input,
 		textarea {
 			padding-right: @size-indicator + 2 * @padding-horizontal-input-text;
 		}
 
+		&.oo-ui-textInputWidget-labelPosition-after > .oo-ui-labelElement-label {
+			padding-right: 0;
+		}
+
 		.oo-ui-indicatorElement-indicator {
 			max-height: @size-default;
 			margin-right: @padding-horizontal-default;
 		}
-	}
-
-	> .oo-ui-labelElement-label {
-		color: @color-subtle;
-		margin-top: 1px; // Address `border` on `input`
-		padding: @padding-top-default 0 @padding-bottom-default @padding-horizontal-input-text;
-		line-height: @line-height-widget-singleline;
 	}
 
 	&-labelPosition-after {
