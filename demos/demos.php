@@ -44,6 +44,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>OOjs UI Widget Demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="dist/<?php echo $styleFileName; ?>">
 	<link rel="stylesheet" href="dist/<?php echo $styleFileNameImages; ?>">
 	<link rel="stylesheet" href="dist/<?php echo $styleFileNameExtraIcons; ?>">
