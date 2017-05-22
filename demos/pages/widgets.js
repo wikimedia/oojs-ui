@@ -2234,6 +2234,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ProgressBarWidget( {
+						progress: 50,
 						disabled: true
 					} ),
 					{
