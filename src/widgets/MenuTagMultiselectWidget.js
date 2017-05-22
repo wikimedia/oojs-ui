@@ -142,6 +142,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
  */
 OO.ui.MenuTagMultiselectWidget.prototype.addTagFromInput = function () {
 	var inputValue = this.input.getValue(),
+		validated = false,
 		highlightedItem = this.menu.getHighlightedItem(),
 		item = this.menu.getItemFromData( inputValue );
 
@@ -150,14 +151,19 @@ OO.ui.MenuTagMultiselectWidget.prototype.addTagFromInput = function () {
 
 	// Look for a highlighted item first
 	if ( highlightedItem ) {
-		this.addTag( highlightedItem.getData(), highlightedItem.getLabel() );
+		validated = this.addTag( highlightedItem.getData(), highlightedItem.getLabel() );
 	} else if ( item ) {
 		// Look for the element that fits the data
-		this.addTag( item.getData(), item.getLabel() );
+		validated = this.addTag( item.getData(), item.getLabel() );
 	} else {
 		// Otherwise, add the tag - the method will only add if the
 		// tag is valid or if invalid tags are allowed
-		this.addTag( inputValue );
+		validated = this.addTag( inputValue );
+	}
+
+	if ( validated ) {
+		this.clearInput();
+		this.focus();
 	}
 };
 
