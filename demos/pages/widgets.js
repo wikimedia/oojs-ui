@@ -1498,6 +1498,33 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.MenuTagMultiselectWidget( {
+						selected: [
+							{ data: 'foo', label: 'Label for foo' },
+							{ data: 'bar', label: 'Label for bar' }
+						],
+						options: [
+							{ data: 'foo', label: 'Label for foo' },
+							{ data: 'bar', label: 'Label for bar' },
+							{ data: 'baz', label: 'Label for baz' }
+						]
+					} ),
+					{
+						label: 'MenuTagMultiselectWidget (initially selected, preset options)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MenuTagMultiselectWidget( {
+						selected: [ 'foo', 'bar' ],
+						allowArbitrary: true
+					} ),
+					{
+						label: 'MenuTagMultiselectWidget (initially selected, allowArbitrary)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MenuTagMultiselectWidget( {
 						allowArbitrary: false,
 						options: [
 							{ data: 'abc', label: 'Label for abc' },
