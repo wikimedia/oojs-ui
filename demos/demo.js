@@ -545,12 +545,13 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 		// as a string and won't do proper indentation either
 		replaceLater.forEach( function ( obj, i ) {
 			config = config.replace(
-				// Match any number of spaces (for indentation) followed by our placeholder
-				new RegExp( '([ ]+)"' + replaceKeyword + i + '"' ),
-				function ( all, indent ) {
+				// Match any number of tabs (for indentation) and optional object key, followed by our placeholder
+				new RegExp( '(\t*)("[^"]+?": |)"' + replaceKeyword + i + '"' ),
+				function ( all, indent, objectKey ) {
 					var code;
 					if ( obj instanceof Function ) {
-						code = obj.toString();
+						// Get function's source code, with extraneous indentation removed
+						code = obj.toString().replace( /^\t\t\t\t\t\t/gm, '' );
 					} else if ( obj instanceof jQuery ) {
 						if ( $.contains( item.$element[ 0 ], obj[ 0 ] ) ) {
 							// If this element appears inside the generated widget,
@@ -566,7 +567,7 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 						code = getCode( obj );
 					}
 					// Re-add the indent at the beginning, and after every newline
-					return indent + code.replace( /\n/g, '\n' + indent );
+					return indent + objectKey + code.replace( /\n/g, '\n' + indent );
 				}
 			);
 		} );
