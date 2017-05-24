@@ -40,4 +40,37 @@
 			'Data from allowed values is allowed'
 		);
 	} );
+
+	QUnit.test( 'selected', function ( assert ) {
+		var widget;
+
+		widget = new OO.ui.MenuTagMultiselectWidget( {
+			options: [
+				{ data: 'foo', label: 'Foo' },
+				{ data: 'bar', label: 'Bar' },
+				{ data: 'baz', label: 'Baz' }
+			],
+			selected: [
+				{ data: 'foo', label: 'Foo' },
+				{ data: 'bar', label: 'Bar' }
+			]
+		} );
+
+		assert.deepEqual(
+			widget.getValue(),
+			[ 'foo', 'bar' ],
+			'`selected` config option is respected with preset options'
+		);
+
+		widget = new OO.ui.MenuTagMultiselectWidget( {
+			allowArbitrary: true,
+			selected: [ 'foo', 'bar' ]
+		} );
+
+		assert.deepEqual(
+			widget.getValue(),
+			[ 'foo', 'bar' ],
+			'`selected` config option is respected with arbitrary options'
+		);
+	} );
 }() );
