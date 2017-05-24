@@ -239,7 +239,8 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
 		} else if ( this.isOpening() ) {
 			if ( !this.fitOnOpen ) {
 				// Size is relative and the dialog isn't open yet, so wait.
-				this.manager.opening.done( this.fitLabel.bind( this ) );
+				// FIXME: This should ideally be handled by setup somehow.
+				this.manager.lifecycle.opened.done( this.fitLabel.bind( this ) );
 				this.fitOnOpen = true;
 			}
 			return;

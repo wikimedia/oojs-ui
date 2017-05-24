@@ -150,6 +150,7 @@
 			"src/ActionSet.js",
 			"src/Error.js",
 			"src/Process.js",
+			"src/WindowInstance.js",
 			"src/WindowManager.js",
 			"src/Window.js",
 			"src/Dialog.js",
