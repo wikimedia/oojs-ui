@@ -285,7 +285,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonWidget( {
 						framed: false,
 						flags: [ 'destructive' ],
-						icon: 'remove',
+						icon: 'trash',
 						label: 'Destructive'
 					} ),
 					{
@@ -1926,7 +1926,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.IconWidget( {
-						icon: 'remove',
+						icon: 'trash',
 						flags: 'destructive',
 						title: 'Remove icon'
 					} ),
