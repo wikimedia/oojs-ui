@@ -192,7 +192,6 @@
 	},
 	"oojs-ui-images-{theme}": {
 		"styles": [
-			"src/themes/{theme}/icons.json",
 			"src/themes/{theme}/indicators.json",
 			"src/themes/{theme}/textures.json"
 		]
