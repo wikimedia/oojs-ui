@@ -186,7 +186,6 @@ class TextInputWidget extends InputWidget {
 		$allowedTypes = [
 			'text',
 			'password',
-			'search',
 			'email',
 			'url',
 			'number'
