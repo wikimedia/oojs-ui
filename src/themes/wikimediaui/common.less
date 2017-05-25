@@ -88,6 +88,8 @@
 @start-framed-icon-only-numberinput: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.46875em`≈`6px`
 @start-framed-indicator-only: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.09375em`≈`14px`; `@size-indicator + 2 * @border-width-default`
 @start-framed-square-indicator-only: 9 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.703125em`≈`9px`
+@start-frameless: -@start-frameless-icon;
+@start-frameless-icon: 3 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @start-tagmultiselect-input: 5 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.390625em`≈`5px`; `@padding-horizontal-tagitem` + `@border-width-default`
 @end-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.3125em`≈`4px`
 
@@ -132,20 +134,21 @@
 @border-color-dialog-bar: #c8ccd1;
 
 @border-radius-default: 2px;
-@border-radius-frameless: 1px; // Together with `@box-shadow-frameless` it results in well rounded border
+@border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator-focus` it results in well rounded border
 
 @border-style-default: solid;
 
 @border-width-default: 1px;
 
 @padding-default: @padding-top-default @padding-horizontal-default @padding-bottom-default;
-@padding-frameless: @padding-vertical-label 0;
+@padding-frameless: @padding-top-default @padding-horizontal-frameless @padding-bottom-default @padding-horizontal-frameless;
 @padding-input-text: @padding-top-default @padding-horizontal-input-text @padding-bottom-default;
 @padding-menu: @padding-top-menu @padding-horizontal-default @padding-bottom-menu;
 @padding-menu-large: ( @padding-top-menu * 1.5 ) @padding-horizontal-default ( @padding-bottom-menu * 1.5 );
 @padding-search: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.625em`≈`16px`
 @padding-taboption: @padding-top-default @padding-horizontal-taboption @padding-bottom-default;
 @padding-horizontal-default: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`12px`
+@padding-horizontal-frameless: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.3125em`≈`4px`
 @padding-horizontal-input-text: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @padding-horizontal-frameless: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @padding-horizontal-taboption: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`13px`; @padding-horizontal-default = @border-width-default
@@ -162,6 +165,7 @@
 @padding-start-fieldset-header-iconized: 26 / @oo-ui-font-size-browser / ( @oo-ui-font-size-default * @font-size-fieldset-header );
 @padding-start-indicator-only: @padding-start-icon-only;
 @padding-start-indicator-plus: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
+@padding-start-frameless-icon-only: 30 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 @padding-start-input-text-icon-label: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
 
 @box-shadow-dialog: 0 2px 2px 0 rgba( 0, 0, 0, 0.25 );
@@ -171,7 +175,7 @@
 @box-shadow-widget: inset 0 0 0 1px transparent;
 @box-shadow-widget-focus: inset 0 0 0 1px @color-progressive;
 @box-shadow-progressive-focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-default-light;
-@box-shadow-frameless-focus: 0 0 0 2px @color-progressive;
+@box-shadow-frameless-indicator-focus: 0 0 0 2px @color-progressive;
 @box-shadow-action-focus: @box-shadow-widget-focus, 0 0 0 1px @color-progressive;
 @box-shadow-input-binary-active: inset 0 0 0 1px @color-progressive-active;
 @box-shadow-erroneous-focus: inset 0 0 0 1px @color-erroneous;

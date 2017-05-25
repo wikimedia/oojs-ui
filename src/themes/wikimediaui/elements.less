@@ -5,6 +5,7 @@
 .theme-oo-ui-buttonElement () {
 	> .oo-ui-buttonElement-button {
 		position: relative;
+		border-radius: @border-radius-default;
 		font-weight: bold;
 		text-decoration: none;
 
@@ -40,12 +41,6 @@
 
 		> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 			line-height: @line-height-widget-singleline;
-		}
-
-		&.oo-ui-iconElement {
-			> .oo-ui-buttonElement-button {
-				padding-left: @padding-start-icon-only;
-			}
 		}
 
 		&.oo-ui-indicatorElement {
@@ -116,25 +111,44 @@
 	}
 
 	&-frameless {
-		> .oo-ui-buttonElement-button {
-			border-radius: @border-radius-frameless;
-		}
-
+		// Icon (-only) frameless
 		&.oo-ui-iconElement {
-			// Icon (-only) framed
+			&:first-child {
+				margin-left: @start-frameless; // Address `left` on `.oo-ui-iconElement-icon` below with negative value
+			}
+
 			> .oo-ui-buttonElement-button {
 				min-width: @size-icon;
 				min-height: @size-icon;
+				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
+				border-color: @border-color-frameless;
+				border-style: @border-style-default;
+				border-width: @border-width-default;
+				padding-top: @padding-top-icon-indicator; // Support IE 7: Acts as `min-width`
+				padding-left: @padding-start-frameless-icon-only;
 
 				> .oo-ui-iconElement-icon {
-					left: 0;
+					left: @start-frameless-icon;
 				}
 			}
 		}
 
 		&.oo-ui-labelElement {
+			&:first-child {
+				margin-left: -@padding-horizontal-frameless; // Address `padding-left/-right` below
+			}
+
+			&.oo-ui-iconElement {
+				&:first-child {
+					margin-left: @start-frameless;
+				}
+
+				> .oo-ui-buttonElement-button {
+					padding-left: @padding-start-frameless-icon-only;
+				}
+			}
+
 			> .oo-ui-buttonElement-button {
-				margin-left: -@border-width-default; // Address `border` below
 				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
 				border-color: @border-color-frameless;
 				border-style: @border-style-default;
@@ -145,8 +159,8 @@
 
 		&.oo-ui-indicatorElement {
 			> .oo-ui-buttonElement-button {
-				min-width: @size-indicator;
-				min-height: @size-indicator;
+				min-width: @min-size-indicator;
+				min-height: @min-size-indicator;
 			}
 		}
 
@@ -157,14 +171,41 @@
 				&:hover {
 					color: @color-default-hover;
 				}
-				&:focus {
-					box-shadow: @box-shadow-frameless-focus;
+			}
+
+			&.oo-ui-iconElement,
+			&.oo-ui-labelElement {
+				> .oo-ui-buttonElement-button:focus {
+					border-color: @border-color-default-focus;
+					box-shadow: @box-shadow-widget-focus;
+
+					&:active {
+						border-color: @border-color-frameless-fallback;
+						border-color: @border-color-frameless;
+						box-shadow: none;
+					}
+				}
+			}
+
+			&.oo-ui-indicatorElement:not( .oo-ui-iconElement ):not( .oo-ui-labelElement ) { // IE 9+ only on non-critical design properties
+				> .oo-ui-buttonElement-button {
+					border-radius: @border-radius-frameless-indicator;
+
+					&:focus {
+						box-shadow: @box-shadow-frameless-indicator-focus;
+
+						&:active {
+							box-shadow: none;
+						}
+					}
 				}
 			}
 
 			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
-			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button:active {
+			& > .oo-ui-buttonElement-button:active {
 				color: @color-default-active;
+				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
+				border-color: @border-color-frameless;
 				box-shadow: none;
 			}
 

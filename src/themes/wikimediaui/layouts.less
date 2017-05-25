@@ -155,6 +155,10 @@
 	&.oo-ui-fieldLayout-align-top {
 		max-width: @max-width-default;
 	}
+
+	.oo-ui-actionFieldLayout-button .oo-ui-buttonElement-frameless {
+		margin-left: @padding-horizontal-frameless; // Address frameless negative margin focus hack
+	}
 }
 
 .theme-oo-ui-fieldsetLayout () {

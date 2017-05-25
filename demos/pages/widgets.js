@@ -2608,6 +2608,11 @@ Demo.static.pages.widgets = function ( demo ) {
 											framed: false,
 											icon: 'tag',
 											label: 'Random icon button'
+										} ),
+										new OO.ui.ButtonWidget( {
+											framed: false,
+											icon: 'help',
+											title: 'Icon only'
 										} )
 									]
 								} ) ]
