@@ -417,7 +417,7 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 		hPosMap = {
 			forwards: 'start',
 			center: 'center',
-			backwards: 'before'
+			backwards: this.anchored ? 'before' : 'end'
 		},
 		vPosMap = {
 			forwards: 'top',
@@ -474,22 +474,26 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 		popupPos[ near ] = popupPos[ far ] - popupSize;
 	}
 
-	// Position the anchor (which is positioned relative to the popup) to point to $floatableContainer
-	anchorPos = ( floatablePos[ start ] + floatablePos[ end ] ) / 2;
-	anchorOffset = ( start === far ? -1 : 1 ) * ( anchorPos - popupPos[ start ] );
+	if ( this.anchored ) {
+		// Position the anchor (which is positioned relative to the popup) to point to $floatableContainer
+		anchorPos = ( floatablePos[ start ] + floatablePos[ end ] ) / 2;
+		anchorOffset = ( start === far ? -1 : 1 ) * ( anchorPos - popupPos[ start ] );
 
-	// If the anchor is less than 2*anchorSize from either edge, move the popup to make more space
-	// this.$anchor.width()/height() returns 0 because of the CSS trickery we use, so use scrollWidth/Height
-	anchorSize = this.$anchor[ 0 ][ 'scroll' + sizeProp ];
-	anchorMargin = parseFloat( this.$anchor.css( 'margin-' + start ) );
-	if ( anchorOffset + anchorMargin < 2 * anchorSize ) {
-		// Not enough space for the anchor on the start side; pull the popup startwards
-		positionAdjustment = ( positionProp === start ? -1 : 1 ) *
-			( 2 * anchorSize - ( anchorOffset + anchorMargin ) );
-	} else if ( anchorOffset + anchorMargin > popupSize - 2 * anchorSize ) {
-		// Not enough space for the anchor on the end side; pull the popup endwards
-		positionAdjustment = ( positionProp === end ? -1 : 1 ) *
-			( anchorOffset + anchorMargin - ( popupSize - 2 * anchorSize ) );
+		// If the anchor is less than 2*anchorSize from either edge, move the popup to make more space
+		// this.$anchor.width()/height() returns 0 because of the CSS trickery we use, so use scrollWidth/Height
+		anchorSize = this.$anchor[ 0 ][ 'scroll' + sizeProp ];
+		anchorMargin = parseFloat( this.$anchor.css( 'margin-' + start ) );
+		if ( anchorOffset + anchorMargin < 2 * anchorSize ) {
+			// Not enough space for the anchor on the start side; pull the popup startwards
+			positionAdjustment = ( positionProp === start ? -1 : 1 ) *
+				( 2 * anchorSize - ( anchorOffset + anchorMargin ) );
+		} else if ( anchorOffset + anchorMargin > popupSize - 2 * anchorSize ) {
+			// Not enough space for the anchor on the end side; pull the popup endwards
+			positionAdjustment = ( positionProp === end ? -1 : 1 ) *
+				( anchorOffset + anchorMargin - ( popupSize - 2 * anchorSize ) );
+		} else {
+			positionAdjustment = 0;
+		}
 	} else {
 		positionAdjustment = 0;
 	}
@@ -510,12 +514,15 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 			( popupPos[ far ] - ( containerPos[ far ] - this.containerPadding ) );
 	}
 
-	// Adjust anchorOffset for positionAdjustment
-	anchorOffset += ( positionProp === start ? -1 : 1 ) * positionAdjustment;
+	if ( this.anchored ) {
+		// Adjust anchorOffset for positionAdjustment
+		anchorOffset += ( positionProp === start ? -1 : 1 ) * positionAdjustment;
 
-	// Position the anchor
-	anchorCss[ start ] = anchorOffset;
-	this.$anchor.css( anchorCss );
+		// Position the anchor
+		anchorCss[ start ] = anchorOffset;
+		this.$anchor.css( anchorCss );
+	}
+
 	// Move the popup if needed
 	parentPosition[ positionProp ] += positionAdjustment;
 

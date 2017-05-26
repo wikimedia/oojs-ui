@@ -2226,11 +2226,44 @@ Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
-							anchor: false
+							anchor: false,
+							align: 'center'
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (no anchor)\u200E',
+						label: 'PopupButtonWidget (no anchor, align: center)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'menu',
+						label: 'Options',
+						popup: {
+							$content: $( '<p>' ).text( loremIpsum ),
+							padded: true,
+							anchor: false,
+							align: 'forwards'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (no anchor, align: forwards)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.PopupButtonWidget( {
+						icon: 'menu',
+						label: 'Options',
+						popup: {
+							$content: $( '<p>' ).text( loremIpsum ),
+							padded: true,
+							anchor: false,
+							align: 'backwards'
+						}
+					} ),
+					{
+						label: 'PopupButtonWidget (no anchor, align: backwards)\u200E',
 						align: 'top'
 					}
 				),
