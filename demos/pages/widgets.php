@@ -1157,6 +1157,18 @@ $demoContainer->appendContent( new OOUI\FormLayout( [
 						'align' => 'inline',
 					]
 				),
+				new OOUI\FieldLayout(
+					new OOUI\HiddenInputWidget( [
+						'name' => 'hidden',
+						'value' => 'hidden value',
+					] )
+				),
+				new OOUI\FieldLayout(
+					new OOUI\ButtonInputWidget( [
+						'type' => 'submit',
+						'label' => 'Submit form',
+					] )
+				),
 			]
 		] ),
 		new OOUI\FieldsetLayout( [

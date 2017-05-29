@@ -70,6 +70,7 @@
 
 			# The basic widgets and layouts, continued.
 			"src/widgets/InputWidget.js",
+			"src/widgets/HiddenInputWidget.js",
 			"src/widgets/ButtonInputWidget.js",
 			"src/widgets/CheckboxInputWidget.js",
 			"src/widgets/DropdownInputWidget.js",
