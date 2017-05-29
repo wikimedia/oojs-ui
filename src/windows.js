@@ -40,12 +40,8 @@ OO.ui.alert = function ( text, options ) {
 	return OO.ui.getWindowManager().openWindow( 'message', $.extend( {
 		message: text,
 		actions: [ OO.ui.MessageDialog.static.actions[ 0 ] ]
-	}, options ) ).then( function ( opened ) {
-		return opened.then( function ( closing ) {
-			return closing.then( function () {
-				return $.Deferred().resolve();
-			} );
-		} );
+	}, options ) ).closed.then( function () {
+		return undefined;
 	} );
 };
 
@@ -75,12 +71,8 @@ OO.ui.alert = function ( text, options ) {
 OO.ui.confirm = function ( text, options ) {
 	return OO.ui.getWindowManager().openWindow( 'message', $.extend( {
 		message: text
-	}, options ) ).then( function ( opened ) {
-		return opened.then( function ( closing ) {
-			return closing.then( function ( data ) {
-				return $.Deferred().resolve( !!( data && data.action === 'accept' ) );
-			} );
-		} );
+	}, options ) ).closed.then( function ( data ) {
+		return !!( data && data.action === 'accept' );
 	} );
 };
 
@@ -109,27 +101,27 @@ OO.ui.confirm = function ( text, options ) {
  *  resolve to `null`.
  */
 OO.ui.prompt = function ( text, options ) {
-	var manager = OO.ui.getWindowManager(),
+	var instance,
+		manager = OO.ui.getWindowManager(),
 		textInput = new OO.ui.TextInputWidget( ( options && options.textInput ) || {} ),
 		textField = new OO.ui.FieldLayout( textInput, {
 			align: 'top',
 			label: text
 		} );
 
-	// TODO: This is a little hacky, and could be done by extending MessageDialog instead.
-
-	return manager.openWindow( 'message', $.extend( {
+	instance = manager.openWindow( 'message', $.extend( {
 		message: textField.$element
-	}, options ) ).then( function ( opened ) {
-		// After ready
+	}, options ) );
+
+	// TODO: This is a little hacky, and could be done by extending MessageDialog instead.
+	instance.opened.then( function () {
 		textInput.on( 'enter', function () {
 			manager.getCurrentWindow().close( { action: 'accept' } );
 		} );
 		textInput.focus();
-		return opened.then( function ( closing ) {
-			return closing.then( function ( data ) {
-				return $.Deferred().resolve( data && data.action === 'accept' ? textInput.getValue() : null );
-			} );
-		} );
+	} );
+
+	return instance.closed.then( function ( data ) {
+		return data && data.action === 'accept' ? textInput.getValue() : null;
 	} );
 };

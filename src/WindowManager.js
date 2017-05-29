@@ -358,7 +358,13 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 
 	// Turn lifecycle into a Thenable for backwards-compatibility with
 	// the deprecated nested-promise behaviour (T163510).
-	lifecycle.then = compatOpening.then;
+	lifecycle.then = function () {
+		OO.ui.warnDeprecation(
+			'Using the return value of openWindow as a promise is deprecated. ' +
+			'Use .openWindow( ... ).opening.then( ... ) instead.'
+		);
+		return compatOpening.then.apply( this, arguments );
+	};
 
 	// Argument handling
 	if ( typeof win === 'string' ) {
@@ -459,7 +465,13 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 
 	// Turn lifecycle into a Thenable for backwards-compatibility with
 	// the deprecated nested-promise behaviour (T163510).
-	lifecycle.then = compatClosing.then;
+	lifecycle.then = function () {
+		OO.ui.warnDeprecation(
+			'Using the return value of closeWindow as a promise is deprecated. ' +
+			'Use .closeWindow( ... ).closing.then( ... ) instead.'
+		);
+		return compatClosing.then.apply( this, arguments );
+	};
 
 	// Error handling
 	if ( !win ) {
