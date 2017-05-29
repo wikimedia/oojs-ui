@@ -175,3 +175,11 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options )
 
 	return this;
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.CheckboxMultiselectInputWidget.prototype.focus = function () {
+	this.checkboxMultiselectWidget.focus();
+	return this;
+};

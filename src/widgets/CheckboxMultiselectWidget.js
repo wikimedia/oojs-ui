@@ -135,3 +135,19 @@ OO.ui.CheckboxMultiselectWidget.prototype.onClick = function ( e ) {
 		this.$lastClicked = $nowClicked;
 	}
 };
+
+/**
+ * Focus the widget
+ *
+ * @chainable
+ */
+OO.ui.CheckboxMultiselectWidget.prototype.focus = function () {
+	var item;
+	if ( !this.isDisabled() ) {
+		item = this.getRelativeFocusableItem( null, 1 );
+		if ( item ) {
+			item.focus();
+		}
+	}
+	return this;
+};

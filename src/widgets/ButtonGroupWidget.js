@@ -59,3 +59,19 @@ OO.mixinClass( OO.ui.ButtonGroupWidget, OO.ui.mixin.GroupElement );
  * @inheritdoc
  */
 OO.ui.ButtonGroupWidget.static.tagName = 'span';
+
+/* Methods */
+
+/**
+ * Focus the widget
+ *
+ * @chainable
+ */
+OO.ui.ButtonGroupWidget.prototype.focus = function () {
+	if ( !this.isDisabled() ) {
+		if ( this.items[ 0 ] ) {
+			this.items[ 0 ].focus();
+		}
+	}
+	return this;
+};
