@@ -11,6 +11,7 @@
 					"OO.ui.Toolbar",
 					"OO.ui.Window",
 					"OO.ui.Dialog",
+					"OO.ui.WindowInstance",
 					"OO.ui.WindowManager",
 					"OO.ui.Process",
 					"OO.ui.Error",

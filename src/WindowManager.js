@@ -12,13 +12,11 @@
  * {@link OO.ui.Window#open open} method is used, and the window manager begins to open the window.
  *
  * - an `opening` event is emitted with an `opening` promise
- * - the #getSetupDelay method is called and the returned value is used to time a pause in execution before
- *   the window’s {@link OO.ui.Window#getSetupProcess getSetupProcess} method is called on the
- *   window and its result executed
+ * - the #getSetupDelay method is called and the returned value is used to time a pause in execution before the
+ *   window’s {@link OO.ui.Window#method-setup setup} method is called which executes OO.ui.Window#getSetupProcess.
  * - a `setup` progress notification is emitted from the `opening` promise
- * - the #getReadyDelay method is called the returned value is used to time a pause in execution before
- *   the window’s {@link OO.ui.Window#getReadyProcess getReadyProcess} method is called on the
- *   window and its result executed
+ * - the #getReadyDelay method is called the returned value is used to time a pause in execution before the
+ *   window’s {@link OO.ui.Window#method-ready ready} method is called which executes OO.ui.Window#getReadyProcess.
  * - a `ready` progress notification is emitted from the `opening` promise
  * - the `opening` promise is resolved with an `opened` promise
  *
@@ -68,9 +66,9 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	this.factory = config.factory;
 	this.modal = config.modal === undefined || !!config.modal;
 	this.windows = {};
-	this.opening = null;
-	this.opened = null;
-	this.closing = null;
+	// Deprecated placeholder promise given to compatOpening in openWindow()
+	// that is resolved in closeWindow().
+	this.compatOpened = null;
 	this.preparingToOpen = null;
 	this.preparingToClose = null;
 	this.currentWindow = null;
@@ -99,9 +97,9 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
  *
  * @event opening
  * @param {OO.ui.Window} win Window that's being opened
- * @param {jQuery.Promise} opening An `opening` promise resolved with a value when the window is opened successfully.
- *  When the `opening` promise is resolved, the first argument of the value is an 'opened' promise, the second argument
- *  is the opening data. The `opening` promise emits `setup` and `ready` notifications when those processes are complete.
+ * @param {jQuery.Promise} opened A promise resolved with a value when the window is opened successfully.
+ *  This promise also emits `setup` and `ready` notifications. When this promise is resolved, the first
+ *  argument of the value is an 'closed' promise, the second argument is the opening data.
  * @param {Object} data Window opening data
  */
 
@@ -110,10 +108,9 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
  *
  * @event closing
  * @param {OO.ui.Window} win Window that's being closed
- * @param {jQuery.Promise} closing A `closing` promise is resolved with a value when the window
- *  is closed successfully. The promise emits `hold` and `teardown` notifications when those
- *  processes are complete. When the `closing` promise is resolved, the first argument of its value
- *  is the closing data.
+ * @param {jQuery.Promise} closed A promise resolved with a value when the window is closed successfully.
+ *  This promise also emits `hold` and `teardown` notifications. When this promise is resolved, the first
+ *  argument of its value is the closing data.
  * @param {Object} data Window closing data
  */
 
@@ -196,7 +193,8 @@ OO.ui.WindowManager.prototype.afterWindowResize = function () {
  * @return {boolean} Window is opening
  */
 OO.ui.WindowManager.prototype.isOpening = function ( win ) {
-	return win === this.currentWindow && !!this.opening && this.opening.state() === 'pending';
+	return win === this.currentWindow && !!this.lifecycle &&
+		this.lifecycle.opened.state() === 'pending';
 };
 
 /**
@@ -206,7 +204,9 @@ OO.ui.WindowManager.prototype.isOpening = function ( win ) {
  * @return {boolean} Window is closing
  */
 OO.ui.WindowManager.prototype.isClosing = function ( win ) {
-	return win === this.currentWindow && !!this.closing && this.closing.state() === 'pending';
+	return win === this.currentWindow && !!this.lifecycle &&
+		this.lifecycle.closing.state() === 'ready' &&
+		this.lifecycle.closed.state() === 'pending';
 };
 
 /**
@@ -216,7 +216,9 @@ OO.ui.WindowManager.prototype.isClosing = function ( win ) {
  * @return {boolean} Window is opened
  */
 OO.ui.WindowManager.prototype.isOpened = function ( win ) {
-	return win === this.currentWindow && !!this.opened && this.opened.state() === 'pending';
+	return win === this.currentWindow && !!this.lifecycle &&
+		this.lifecycle.opened.state() === 'ready' &&
+		this.lifecycle.closing.state() === 'pending';
 };
 
 /**
@@ -338,76 +340,98 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  * @param {Object} [data] Window opening data
  * @param {jQuery|null} [data.$returnFocusTo] Element to which the window will return focus when closed.
  *  Defaults the current activeElement. If set to null, focus isn't changed on close.
- * @return {jQuery.Promise} An `opening` promise resolved when the window is done opening.
- *  See {@link #event-opening 'opening' event}  for more information about `opening` promises.
+ * @return {OO.ui.WindowInstance|jQuery.Promise} A lifecycle object representing this particular
+ *  opening of the window. For backwards-compatibility, then object is also a Thenable that is resolved
+ *  when the window is done opening, with nested promise for when closing starts. This behaviour
+ *  is deprecated and is not compatible with jQuery 3 (T163510).
  * @fires opening
  */
-OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
-	var manager = this,
-		opening = $.Deferred();
+OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, compatOpening ) {
+	var manager = this;
 	data = data || {};
+
+	// Internal parameter 'lifecycle' allows this method to always return
+	// a lifecycle even if the window still needs to be created
+	// asynchronously when 'win' is a string.
+	lifecycle = lifecycle || new OO.ui.WindowInstance();
+	compatOpening = compatOpening || $.Deferred();
+
+	// Turn lifecycle into a Thenable for backwards-compatibility with
+	// the deprecated nested-promise behaviour (T163510).
+	lifecycle.then = compatOpening.then;
 
 	// Argument handling
 	if ( typeof win === 'string' ) {
-		return this.getWindow( win ).then( function ( win ) {
-			return manager.openWindow( win, data );
-		} );
+		this.getWindow( win ).then(
+			function ( win ) {
+				manager.openWindow( win, data, lifecycle, compatOpening );
+			},
+			function ( err ) {
+				lifecycle.opening.reject( err );
+			}
+		);
+		return lifecycle;
 	}
 
 	// Error handling
 	if ( !this.hasWindow( win ) ) {
-		opening.reject( new OO.ui.Error(
+		compatOpening.reject( new OO.ui.Error(
 			'Cannot open window: window is not attached to manager'
 		) );
-	} else if ( this.preparingToOpen || this.opening || this.opened ) {
-		opening.reject( new OO.ui.Error(
+		lifecycle.state.opening.reject( new OO.ui.Error(
+			'Cannot open window: window is not attached to manager'
+		) );
+		return lifecycle;
+	}
+	if ( this.preparingToOpen || ( this.lifecycle && this.lifecycle.closing.state() !== 'ready' ) ) {
+		compatOpening.reject( new OO.ui.Error(
 			'Cannot open window: another window is opening or open'
 		) );
+		lifecycle.state.opening.reject( new OO.ui.Error(
+			'Cannot open window: another window is opening or open'
+		) );
+		return lifecycle;
 	}
 
-	// Window opening
-	if ( opening.state() !== 'rejected' ) {
-		// If a window is currently closing, wait for it to complete
-		this.preparingToOpen = $.when( this.closing );
-		// Ensure handlers get called after preparingToOpen is set
-		this.preparingToOpen.done( function () {
-			if ( manager.modal ) {
-				manager.toggleGlobalEvents( true );
-				manager.toggleAriaIsolation( true );
-			}
-			manager.$returnFocusTo = data.$returnFocusTo !== undefined ? data.$returnFocusTo : $( document.activeElement );
-			manager.currentWindow = win;
-			manager.opening = opening;
-			manager.preparingToOpen = null;
-			manager.emit( 'opening', win, opening, data );
-			setTimeout( function () {
-				win.setup( data ).then( function () {
-					manager.updateWindowSize( win );
-					manager.opening.notify( { state: 'setup' } );
-					setTimeout( function () {
-						win.ready( data ).then( function () {
-							manager.opening.notify( { state: 'ready' } );
-							manager.opening = null;
-							manager.opened = $.Deferred();
-							opening.resolve( manager.opened.promise(), data );
-						}, function () {
-							manager.opening = null;
-							manager.opened = $.Deferred();
-							opening.reject();
-							manager.closeWindow( win );
-						} );
-					}, manager.getReadyDelay() );
-				}, function () {
-					manager.opening = null;
-					manager.opened = $.Deferred();
-					opening.reject();
-					manager.closeWindow( win );
-				} );
-			}, manager.getSetupDelay() );
-		} );
-	}
+	// If a window is currently closing, wait for it to complete
+	this.preparingToOpen = $.when( this.lifecycle && this.lifecycle.closed );
+	// Ensure handlers get called after preparingToOpen is set
+	this.preparingToOpen.done( function () {
+		if ( manager.modal ) {
+			manager.toggleGlobalEvents( true );
+			manager.toggleAriaIsolation( true );
+		}
+		manager.$returnFocusTo = data.$returnFocusTo !== undefined ? data.$returnFocusTo : $( document.activeElement );
+		manager.currentWindow = win;
+		manager.lifecycle = lifecycle;
+		manager.preparingToOpen = null;
+		manager.emit( 'opening', win, compatOpening, data );
+		lifecycle.state.opening.resolve( data );
+		setTimeout( function () {
+			manager.compatOpened = $.Deferred();
+			win.setup( data ).then( function () {
+				manager.updateWindowSize( win );
+				compatOpening.notify( { state: 'setup' } );
+				setTimeout( function () {
+					win.ready( data ).then( function () {
+						compatOpening.notify( { state: 'ready' } );
+						lifecycle.state.opened.resolve( data );
+						compatOpening.resolve( manager.compatOpened.promise(), data );
+					}, function () {
+						lifecycle.state.opened.reject();
+						compatOpening.reject();
+						manager.closeWindow( win );
+					} );
+				}, manager.getReadyDelay() );
+			}, function () {
+				lifecycle.state.opened.reject();
+				compatOpening.reject();
+				manager.closeWindow( win );
+			} );
+		}, manager.getSetupDelay() );
+	} );
 
-	return opening.promise();
+	return lifecycle;
 };
 
 /**
@@ -415,15 +439,16 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data ) {
  *
  * @param {OO.ui.Window|string} win Window object or symbolic name of window to close
  * @param {Object} [data] Window closing data
- * @return {jQuery.Promise} A `closing` promise resolved when the window is done closing.
- *  See {@link #event-closing 'closing' event} for more information about closing promises.
- * @throws {Error} An error is thrown if the window is not managed by the window manager.
+ * @return {OO.ui.WindowInstance|jQuery.Promise} A lifecycle object representing this particular
+ *  opening of the window. For backwards-compatibility, the object is also a Thenable that is resolved
+ *  when the window is done closing (T163510).
  * @fires closing
  */
 OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 	var manager = this,
-		closing = $.Deferred(),
-		opened;
+		compatClosing = $.Deferred(),
+		lifecycle = this.lifecycle,
+		compatOpened;
 
 	// Argument handling
 	if ( typeof win === 'string' ) {
@@ -432,57 +457,73 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		win = null;
 	}
 
+	// Turn lifecycle into a Thenable for backwards-compatibility with
+	// the deprecated nested-promise behaviour (T163510).
+	lifecycle.then = compatClosing.then;
+
 	// Error handling
 	if ( !win ) {
-		closing.reject( new OO.ui.Error(
+		compatClosing.reject( new OO.ui.Error(
 			'Cannot close window: window is not attached to manager'
 		) );
-	} else if ( win !== this.currentWindow ) {
-		closing.reject( new OO.ui.Error(
+		lifecycle.state.closing.reject( new OO.ui.Error(
+			'Cannot close window: window is not attached to manager'
+		) );
+		return lifecycle;
+	}
+	if ( win !== this.currentWindow ) {
+		compatClosing.reject( new OO.ui.Error(
 			'Cannot close window: window already closed with different data'
 		) );
-	} else if ( this.preparingToClose || this.closing ) {
-		closing.reject( new OO.ui.Error(
+		lifecycle.state.closing.reject( new OO.ui.Error(
+			'Cannot close window: window already closed with different data'
+		) );
+		return lifecycle;
+	}
+	if ( this.preparingToClose || this.closing ) {
+		compatClosing.reject( new OO.ui.Error(
 			'Cannot close window: window already closing with different data'
 		) );
+		lifecycle.state.closing.reject( new OO.ui.Error(
+			'Cannot close window: window already closing with different data'
+		) );
+		return lifecycle;
 	}
 
-	// Window closing
-	if ( closing.state() !== 'rejected' ) {
-		// If the window is currently opening, close it when it's done
-		this.preparingToClose = $.when( this.opening );
-		// Ensure handlers get called after preparingToClose is set
-		this.preparingToClose.always( function () {
-			manager.closing = closing;
-			manager.preparingToClose = null;
-			manager.emit( 'closing', win, closing, data );
-			opened = manager.opened;
-			manager.opened = null;
-			opened.resolve( closing.promise(), data );
-			setTimeout( function () {
-				win.hold( data ).then( function () {
-					closing.notify( { state: 'hold' } );
-					setTimeout( function () {
-						win.teardown( data ).then( function () {
-							closing.notify( { state: 'teardown' } );
-							if ( manager.modal ) {
-								manager.toggleGlobalEvents( false );
-								manager.toggleAriaIsolation( false );
-							}
-							if ( manager.$returnFocusTo && manager.$returnFocusTo.length ) {
-								manager.$returnFocusTo[ 0 ].focus();
-							}
-							manager.closing = null;
-							manager.currentWindow = null;
-							closing.resolve( data );
-						} );
-					}, manager.getTeardownDelay() );
-				} );
-			}, manager.getHoldDelay() );
-		} );
-	}
+	// If the window is currently opening, close it when it's done
+	this.preparingToClose = $.when( this.lifecycle.opened );
+	// Ensure handlers get called after preparingToClose is set
+	this.preparingToClose.always( function () {
+		manager.preparingToClose = null;
+		manager.emit( 'closing', win, compatClosing, data );
+		lifecycle.state.closing.resolve( data );
+		compatOpened = manager.compatOpened;
+		manager.compatOpened = null;
+		compatOpened.resolve( compatClosing.promise(), data );
+		setTimeout( function () {
+			win.hold( data ).then( function () {
+				compatClosing.notify( { state: 'hold' } );
+				setTimeout( function () {
+					win.teardown( data ).then( function () {
+						compatClosing.notify( { state: 'teardown' } );
+						if ( manager.modal ) {
+							manager.toggleGlobalEvents( false );
+							manager.toggleAriaIsolation( false );
+						}
+						if ( manager.$returnFocusTo && manager.$returnFocusTo.length ) {
+							manager.$returnFocusTo[ 0 ].focus();
+						}
+						manager.currentWindow = null;
+						manager.lifecycle = null;
+						lifecycle.state.closed.resolve( data );
+						compatClosing.resolve( data );
+					} );
+				}, manager.getTeardownDelay() );
+			} );
+		}, manager.getHoldDelay() );
+	} );
 
-	return closing.promise();
+	return lifecycle;
 };
 
 /**

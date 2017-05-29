@@ -17,6 +17,7 @@
     "predoc": "grunt build",
     "doc": "jsduck",
     "postdoc": "grunt copy:jsduck",
+    "quickdoc": "grunt quick-build && jsduck && grunt copy:jsduck",
     "publish-build": "grunt publish-build",
     "demos": "grunt publish-build && grunt demos",
     "jenkins": "npm test && jsduck && npm run postdoc"
