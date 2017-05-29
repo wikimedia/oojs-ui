@@ -12,11 +12,13 @@ $demoContainer = new OOUI\PanelLayout( [
 	'padded' => true,
 	'framed' => true,
 ] );
+
 $demoContainer->addClasses( [ 'demo-container' ] );
 
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-buttons',
 	'infusable' => true,
-	'label' => 'Simple buttons',
+	'label' => 'Buttons',
 	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [ 'label' => 'Normal' ] ),
@@ -254,9 +256,79 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'align' => 'top'
 			]
 		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonInputWidget( [
+				'label' => 'Submit the form',
+				'type' => 'submit',
+				'flags' => [ 'primary', 'progressive' ],
+				'useInputTag' => true
+			] ),
+			[
+				'align' => 'top',
+				'label' => "ButtonInputWidget (using <input>)\xE2\x80\x8E"
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonInputWidget( [
+				'label' => 'Another button',
+				'type' => 'button'
+			] ),
+			[
+				'align' => 'top',
+				'label' => "ButtonInputWidget (using <button>)\xE2\x80\x8E"
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonInputWidget( [
+				'framed' => false,
+				'label' => 'Another button',
+				'type' => 'button'
+			] ),
+			[
+				'align' => 'top',
+				'label' => "ButtonInputWidget (frameless)\xE2\x80\x8E"
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonInputWidget( [
+				'framed' => false,
+				'label' => 'Another button',
+				'type' => 'button',
+				'useInputTag' => true
+			] ),
+			[
+				'align' => 'top',
+				'label' => "ButtonInputWidget (frameless, using <input>)\xE2\x80\x8E"
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Accesskey: H',
+				'accessKey' => 'h'
+			] ),
+			[
+				'label' => "ButtonWidget (with accesskey)\xE2\x80\x8E",
+				'align' => 'top',
+				'help' => new OOUI\HtmlSnippet( 'Notice: Using `accesskey` might '  .
+					'<a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank">' .
+					'negatively impact screen readers</a>!' )
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonInputWidget( [
+				'label' => 'Accesskey: I',
+				'accessKey' => 'i'
+			] ),
+			[
+				'label' => "ButtonInputWidget (with accesskey)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		)
 	]
 ] ) );
+
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-button-sets',
 	'infusable' => true,
 	'label' => 'Button sets',
 	'items' => [
@@ -283,7 +355,9 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		)
 	]
 ] ) );
+
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-button-showcase',
 	'infusable' => true,
 	'label' => 'Button style showcase',
 	'items' => [
@@ -293,11 +367,134 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'align' => 'top',
 			]
 		)
-	],
+	]
 ] ) );
+
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-inputs',
 	'infusable' => true,
-	'label' => 'Form widgets',
+	'label' => 'TextInput',
+	'items' => [
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [ 'value' => 'Text input' ] ),
+			[
+				'label' => "TextInputWidget\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [ 'icon' => 'help' ] ),
+			[
+				'label' => "TextInputWidget (icon)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'required' => true
+			] ),
+			[
+				'label' => "TextInputWidget (required)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [ 'placeholder' => 'Placeholder' ] ),
+			[
+				'label' => "TextInputWidget (placeholder)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'value' => 'Title attribute',
+				'title' => 'Title attribute with more information about me.'
+			] ),
+			[
+				'label' => "TextInputWidget (with title)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [ 'type' => 'search' ] ),
+			[
+				'label' => "TextInputWidget (type=search)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'value' => 'Accesskey: S',
+				'accessKey' => 's'
+			] ),
+			[
+				'label' => "TextInputWidget (with accesskey)\xE2\x80\x8E",
+				'align' => 'top',
+				'help' => new OOUI\HtmlSnippet( 'Notice: Using `accesskey` might '  .
+					'<a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank">' .
+					'negatively impact screen readers</a>!' )
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'value' => 'Readonly',
+				'readOnly' => true
+			] ),
+			[
+				'label' => "TextInputWidget (readonly)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'value' => 'Disabled',
+				'disabled' => true
+			] ),
+			[
+				'label' => "TextInputWidget (disabled)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'multiline' => true,
+				'value' => "Multiline\nMultiline"
+			] ),
+			[
+				'label' => "TextInputWidget (multiline)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'multiline' => true,
+				'rows' => 15,
+				'value' => "Multiline\nMultiline"
+			] ),
+			[
+				'label' => "TextInputWidget (multiline, rows=15)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'multiline' => true,
+				'value' => "Multiline\nMultiline",
+				'icon' => 'tag',
+				'indicator' => 'required'
+			] ),
+			[
+				'label' => "TextInputWidget (multiline, icon, indicator)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		)
+	]
+] ) );
+
+$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-inputs-binary',
+	'infusable' => true,
+	'label' => 'Checkbox & Radio',
 	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\CheckboxInputWidget( [
@@ -393,114 +590,15 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'align' => 'top',
 				'label' => 'CheckboxMultiselectInputWidget',
 			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [ 'value' => 'Text input' ] ),
-			[
-				'label' => "TextInputWidget\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [ 'icon' => 'help' ] ),
-			[
-				'label' => "TextInputWidget (icon)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'required' => true
-			] ),
-			[
-				'label' => "TextInputWidget (required)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [ 'placeholder' => 'Placeholder' ] ),
-			[
-				'label' => "TextInputWidget (placeholder)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [ 'type' => 'search' ] ),
-			[
-				'label' => "TextInputWidget (type=search)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [ 'type' => 'number' ] ),
-			[
-				'label' => "TextInputWidget (type=number)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'value' => 'Readonly',
-				'readOnly' => true
-			] ),
-			[
-				'label' => "TextInputWidget (readonly)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'value' => 'Disabled',
-				'disabled' => true
-			] ),
-			[
-				'label' => "TextInputWidget (disabled)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'value' => 'Title attribute',
-				'title' => 'Title attribute with more information about me.'
-			] ),
-			[
-				'label' => "TextInputWidget (with title)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'multiline' => true,
-				'value' => "Multiline\nMultiline"
-			] ),
-			[
-				'label' => "TextInputWidget (multiline)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'multiline' => true,
-				'rows' => 15,
-				'value' => "Multiline\nMultiline"
-			] ),
-			[
-				'label' => "TextInputWidget (multiline, rows=15)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'multiline' => true,
-				'value' => "Multiline\nMultiline",
-				'icon' => 'tag',
-				'indicator' => 'required'
-			] ),
-			[
-				'label' => "TextInputWidget (multiline, icon, indicator)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
+		)
+	]
+] ) );
+
+$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-dropdown',
+	'infusable' => true,
+	'label' => 'Dropdown',
+	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\DropdownInputWidget( [
 				'options' => [
@@ -610,7 +708,15 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'label' => "DropdownInputWidget (long)\xE2\x80\x8E",
 				'align' => 'top'
 			]
-		),
+		)
+	]
+] ) );
+
+$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-comboBox',
+	'infusable' => true,
+	'label' => 'ComboBox',
+	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\ComboBoxInputWidget( [
 				'options' => [
@@ -648,124 +754,48 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'label' => "ComboBoxInputWidget (empty)\xE2\x80\x8E",
 				'align' => 'top'
 			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonInputWidget( [
-				'label' => 'Submit the form',
-				'type' => 'submit',
-				'flags' => [ 'primary', 'progressive' ],
-				'useInputTag' => true
-			] ),
-			[
-				'align' => 'top',
-				'label' => "ButtonInputWidget (using <input>)\xE2\x80\x8E"
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonInputWidget( [
-				'label' => 'Another button',
-				'type' => 'button'
-			] ),
-			[
-				'align' => 'top',
-				'label' => "ButtonInputWidget (using <button>)\xE2\x80\x8E"
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonInputWidget( [
-				'framed' => false,
-				'label' => 'Another button',
-				'type' => 'button'
-			] ),
-			[
-				'align' => 'top',
-				'label' => "ButtonInputWidget (frameless)\xE2\x80\x8E"
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonInputWidget( [
-				'framed' => false,
-				'label' => 'Another button',
-				'type' => 'button',
-				'useInputTag' => true
-			] ),
-			[
-				'align' => 'top',
-				'label' => "ButtonInputWidget (frameless, using <input>)\xE2\x80\x8E"
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonWidget( [
-				'label' => 'Accesskey: H',
-				'accessKey' => 'h'
-			] ),
-			[
-				'label' => "ButtonWidget (with accesskey)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonInputWidget( [
-				'label' => 'Accesskey: I',
-				'accessKey' => 'i'
-			] ),
-			[
-				'label' => "ButtonInputWidget (with accesskey)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'value' => 'Accesskey: S',
-				'accessKey' => 's'
-			] ),
-			[
-				'label' => "TextInputWidget (with accesskey)\xE2\x80\x8E",
-				'align' => 'top'
-			]
 		)
 	]
 ] ) );
-// We can't make the outer FieldsetLayout infusable, because the Widget in its FieldLayout
-// is added with 'content', which is not preserved after infusion. But we need the Widget
-// to wrap the HorizontalLayout. Need to think about this at some point.
+
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
-	'infusable' => false,
-	'label' => 'HorizontalLayout',
+	'id' => 'demo-section-progressBar',
+	'infusable' => true,
+	'label' => 'Progress bar',
 	'items' => [
 		new OOUI\FieldLayout(
-			new OOUI\Widget( [
-				'content' => new OOUI\HorizontalLayout( [
-					'infusable' => true,
-					'items' => [
-						new OOUI\ButtonWidget( [ 'label' => 'Button' ] ),
-						new OOUI\ButtonGroupWidget( [ 'items' => [
-							new OOUI\ButtonWidget( [ 'label' => 'A' ] ),
-							new OOUI\ButtonWidget( [ 'label' => 'B' ] )
-						] ] ),
-						new OOUI\ButtonInputWidget( [ 'label' => 'ButtonInput' ] ),
-						new OOUI\TextInputWidget( [ 'value' => 'TextInput' ] ),
-						new OOUI\DropdownInputWidget( [ 'options' => [
-							[
-								'label' => 'DropdownInput',
-								'data' => null
-							]
-						] ] ),
-						new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
-						new OOUI\RadioInputWidget( [ 'selected' => true ] ),
-						new OOUI\LabelWidget( [ 'label' => 'Label' ] )
-					],
-				] ),
+			new OOUI\ProgressBarWidget( [
+				'progress' => 33
 			] ),
 			[
-				'label' => 'Multiple widgets shown as a single line, ' .
-					'as used in compact forms or in parts of a bigger widget.',
+				'label' => 'Progress bar',
 				'align' => 'top'
 			]
 		),
-	],
+		new OOUI\FieldLayout(
+			new OOUI\ProgressBarWidget( [
+				'disabled' => true,
+				'progress' => 50
+			] ),
+			[
+				'label' => 'Progress bar (disabled)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ProgressBarWidget( [
+				'progress' => false
+			] ),
+			[
+				'label' => 'Progress bar (indeterminate)',
+				'align' => 'top'
+			]
+		),
+	]
 ] ) );
+
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-others',
 	'infusable' => true,
 	'label' => 'Other widgets',
 	'items' => [
@@ -852,7 +882,9 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		)
 	]
 ] ) );
+
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-fieldLayouts',
 	'infusable' => true,
 	'label' => 'Field layouts',
 	'icon' => 'tag',
@@ -1042,26 +1074,49 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'errors' => [ 'The value must be a number.' ],
 				'align' => 'top'
 			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ProgressBarWidget( [
-				'progress' => 33
-			] ),
-			[
-				'label' => 'Progress bar',
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ProgressBarWidget( [
-				'progress' => false
-			] ),
-			[
-				'label' => 'Progress bar (indeterminate)',
-				'align' => 'top'
-			]
-		),
+		)
 	]
+] ) );
+
+// We can't make the outer FieldsetLayout infusable, because the Widget in its FieldLayout
+// is added with 'content', which is not preserved after infusion. But we need the Widget
+// to wrap the HorizontalLayout. Need to think about this at some point.
+$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-horizontalLayout',
+	'infusable' => false,
+	'label' => 'HorizontalLayout',
+	'items' => [
+		new OOUI\FieldLayout(
+			new OOUI\Widget( [
+				'content' => new OOUI\HorizontalLayout( [
+					'infusable' => true,
+					'items' => [
+						new OOUI\ButtonWidget( [ 'label' => 'Button' ] ),
+						new OOUI\ButtonGroupWidget( [ 'items' => [
+							new OOUI\ButtonWidget( [ 'label' => 'A' ] ),
+							new OOUI\ButtonWidget( [ 'label' => 'B' ] )
+						] ] ),
+						new OOUI\ButtonInputWidget( [ 'label' => 'ButtonInput' ] ),
+						new OOUI\TextInputWidget( [ 'value' => 'TextInput' ] ),
+						new OOUI\DropdownInputWidget( [ 'options' => [
+							[
+								'label' => 'DropdownInput',
+								'data' => null
+							]
+						] ] ),
+						new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
+						new OOUI\RadioInputWidget( [ 'selected' => true ] ),
+						new OOUI\LabelWidget( [ 'label' => 'Label' ] )
+					],
+				] ),
+			] ),
+			[
+				'label' => 'Multiple widgets shown as a single line, ' .
+					'as used in compact forms or in parts of a bigger widget.',
+				'align' => 'top'
+			]
+		),
+	],
 ] ) );
 
 $demoContainer->appendContent( new OOUI\FormLayout( [
@@ -1070,6 +1125,7 @@ $demoContainer->appendContent( new OOUI\FormLayout( [
 	'action' => 'demos.php',
 	'items' => [
 		new OOUI\FieldsetLayout( [
+			'id' => 'demo-section-formLayout',
 			'label' => 'Form layout',
 			'items' => [
 				new OOUI\FieldLayout(
