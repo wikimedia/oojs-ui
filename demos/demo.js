@@ -64,6 +64,7 @@ window.Demo = function Demo() {
 
 	this.documentationLink = new OO.ui.ButtonWidget( {
 		label: 'Docs',
+		classes: [ 'demo-button-docs' ],
 		icon: 'journal',
 		href: '../js/',
 		flags: [ 'progressive' ]
