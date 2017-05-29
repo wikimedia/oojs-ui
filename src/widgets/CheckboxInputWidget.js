@@ -134,6 +134,16 @@ OO.ui.CheckboxInputWidget.prototype.isSelected = function () {
 /**
  * @inheritdoc
  */
+OO.ui.CheckboxInputWidget.prototype.simulateLabelClick = function () {
+	if ( !this.isDisabled() ) {
+		this.$input.click();
+	}
+	this.focus();
+};
+
+/**
+ * @inheritdoc
+ */
 OO.ui.CheckboxInputWidget.prototype.restorePreInfuseState = function ( state ) {
 	OO.ui.CheckboxInputWidget.parent.prototype.restorePreInfuseState.call( this, state );
 	if ( state.checked !== undefined && state.checked !== this.isSelected() ) {

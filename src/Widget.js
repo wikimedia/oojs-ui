@@ -106,8 +106,25 @@ OO.ui.Widget.prototype.updateDisabled = function () {
  * Get an ID of a labelable node which is part of this widget, if any, to be used for `<label for>`
  * value.
  *
+ * If this function returns null, the widget should have a meaningful #simulateLabelClick method
+ * instead.
+ *
  * @return {string|null} The ID of the labelable element
  */
 OO.ui.Widget.prototype.getInputId = function () {
 	return null;
+};
+
+/**
+ * Simulate the behavior of clicking on a label (a HTML `<label>` element) bound to this input.
+ * HTML only allows `<label>` to act on specific "labelable" elements; complex widgets might need to
+ * override this method to provide intuitive, accessible behavior.
+ *
+ * By default, this does nothing. OO.ui.mixin.TabIndexedElement overrides it for focusable widgets.
+ * Individual widgets may override it too.
+ *
+ * This method is called by OO.ui.LabelWidget and OO.ui.FieldLayout. It should not be called
+ * directly.
+ */
+OO.ui.Widget.prototype.simulateLabelClick = function () {
 };

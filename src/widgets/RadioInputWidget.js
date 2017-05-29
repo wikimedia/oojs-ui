@@ -118,6 +118,16 @@ OO.ui.RadioInputWidget.prototype.isSelected = function () {
 /**
  * @inheritdoc
  */
+OO.ui.RadioInputWidget.prototype.simulateLabelClick = function () {
+	if ( !this.isDisabled() ) {
+		this.$input.click();
+	}
+	this.focus();
+};
+
+/**
+ * @inheritdoc
+ */
 OO.ui.RadioInputWidget.prototype.restorePreInfuseState = function ( state ) {
 	OO.ui.RadioInputWidget.parent.prototype.restorePreInfuseState.call( this, state );
 	if ( state.checked !== undefined && state.checked !== this.isSelected() ) {

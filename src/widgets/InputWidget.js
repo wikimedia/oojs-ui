@@ -204,23 +204,6 @@ OO.ui.InputWidget.prototype.cleanUpValue = function ( value ) {
 };
 
 /**
- * Simulate the behavior of clicking on a label bound to this input. This method is only called by
- * {@link OO.ui.LabelWidget LabelWidget} and {@link OO.ui.FieldLayout FieldLayout}. It should not be
- * called directly.
- */
-OO.ui.InputWidget.prototype.simulateLabelClick = function () {
-	OO.ui.warnDeprecation( 'InputWidget: simulateLabelClick() is deprecated.' );
-	if ( !this.isDisabled() ) {
-		if ( this.$input.is( ':checkbox, :radio' ) ) {
-			this.$input.click();
-		}
-		if ( this.$input.is( ':input' ) ) {
-			this.$input[ 0 ].focus();
-		}
-	}
-};
-
-/**
  * @inheritdoc
  */
 OO.ui.InputWidget.prototype.setDisabled = function ( state ) {

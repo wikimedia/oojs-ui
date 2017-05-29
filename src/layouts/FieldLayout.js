@@ -101,7 +101,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		this.$label.attr( 'for', this.fieldWidget.getInputId() );
 	} else {
 		this.$label.on( 'click', function () {
-			this.fieldWidget.focus();
+			this.fieldWidget.simulateLabelClick();
 			return false;
 		}.bind( this ) );
 	}

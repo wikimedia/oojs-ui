@@ -209,3 +209,10 @@ OO.ui.mixin.TabIndexedElement.prototype.blur = function () {
 	this.$tabIndexed.blur();
 	return this;
 };
+
+/**
+ * @inheritdoc OO.ui.Widget
+ */
+OO.ui.mixin.TabIndexedElement.prototype.simulateLabelClick = function () {
+	this.focus();
+};
