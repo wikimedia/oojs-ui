@@ -165,7 +165,7 @@
 	&.oo-ui-widget-enabled {
 		background-color: @background-color-framed;
 		color: @color-default;
-		padding-right: @size-indicator + 0.6em;
+		padding-right: @padding-end-tagitem-close;
 		.oo-ui-transition(
 			background-color @transition-ease-quick,
 			color @transition-ease-quick,
@@ -191,19 +191,25 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			bottom: 0;
 		}
 		& .oo-ui-buttonElement-button {
-			display: block;
-			width: @size-indicator + 0.6em; // equals to `padding` on each side of the indicator
-			height: 100%; // Firefox height calculation fix
+			// frameless reset
+			min-width: 0;
+			min-height: 0;
+			border: 0;
+			padding-top: @size-icon-tagitem-close;
+			padding-left: @size-icon-tagitem-close;
 
-			& .oo-ui-indicator-clear {
-				position: absolute;
-				top: 0;
-				right: 0.3em;
-				bottom: 0;
-				height: auto;
+			.oo-ui-icon-close {
+				left: 0;
+				min-width: @min-size-tagitem-close;
+				min-height: @min-size-tagitem-close;
+				width: @size-icon-tagitem-close;
+			}
+
+			.oo-ui-labelElement-label,
+			.oo-ui-indicatorElement-indicator {
+				display: none;
 			}
 		}
 	}
@@ -1567,7 +1573,7 @@
 	&.oo-ui-widget-enabled {
 		background-color: @background-color-framed;
 		color: @color-default;
-		padding-right: @size-indicator + 0.6em;
+		padding-right: @padding-end-tagitem-close;
 		.oo-ui-transition(
 			background-color @transition-ease-quick,
 			color @transition-ease-quick,
@@ -1606,20 +1612,25 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			bottom: 0;
 		}
-
 		& .oo-ui-buttonElement-button {
-			display: block;
-			width: @size-indicator + 0.6em; // equals to `padding` on each side of the indicator
-			height: 100%; // Support: Firefox height calculation fix
+			// frameless reset
+			min-width: 0;
+			min-height: 0;
+			border: 0;
+			padding-top: @size-icon-tagitem-close;
+			padding-left: @size-icon-tagitem-close;
 
-			& .oo-ui-indicator-clear {
-				position: absolute;
-				top: 0;
-				right: 0.3em;
-				bottom: 0;
-				height: auto;
+			.oo-ui-icon-close {
+				left: 0;
+				min-width: @min-size-tagitem-close;
+				min-height: @min-size-tagitem-close;
+				width: @size-icon-tagitem-close;
+			}
+
+			.oo-ui-labelElement-label,
+			.oo-ui-indicatorElement-indicator {
+				display: none;
 			}
 		}
 	}

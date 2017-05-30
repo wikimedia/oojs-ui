@@ -28,7 +28,7 @@ OO.ui.CapsuleItemWidget = function OoUiCapsuleItemWidget( config ) {
 	// Events
 	this.closeButton = new OO.ui.ButtonWidget( {
 		framed: false,
-		indicator: 'clear',
+		icon: 'close',
 		tabIndex: -1
 	} ).on( 'click', this.onCloseClick.bind( this ) );
 
