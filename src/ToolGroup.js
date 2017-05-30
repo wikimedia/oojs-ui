@@ -175,8 +175,8 @@ OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
 			this.pressed.setActive( true );
 			this.getElementDocument().addEventListener( 'mouseup', this.onCapturedMouseKeyUpHandler, true );
 			this.getElementDocument().addEventListener( 'keyup', this.onCapturedMouseKeyUpHandler, true );
+			return false;
 		}
-		return false;
 	}
 };
 
