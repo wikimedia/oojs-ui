@@ -306,7 +306,15 @@ module.exports = function ( grunt ) {
 				dest: 'demos/',
 				expand: true
 			},
-			// Copys the necessary vendor/ files for demos without running "composer install"
+			dist: {
+				src: [
+					'AUTHORS.txt',
+					'LICENSE-MIT',
+					'README.md'
+				],
+				dest: 'dist/'
+			},
+			// Copies the necessary vendor/ files for demos without running "composer install"
 			fastcomposerdemos: {
 				// Make sure you update this if PHP dependencies are added
 				src: 'vendor/{autoload.php,composer/**,mediawiki/at-ease/**}',
@@ -603,6 +611,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build', [
 		'clean:build', 'fileExists', 'tyops', 'build-code', 'build-styling', 'build-i18n',
 		'concat:omnibus',
+		'copy:dist',
 		'clean:tmp', 'demos'
 	] );
 
