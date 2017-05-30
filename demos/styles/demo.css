@@ -17,7 +17,7 @@ p {
 }
 
 .demo-menu {
-	min-width: 320px; /* Let's not pretend it works on anything lower then that */
+	min-width: 320px; /* Let's not pretend it works on anything lower than that */
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -307,7 +307,7 @@ FieldLayout left & right aligned */
 		border-bottom: 1px solid #a2a9b1;
 		padding-top: 1em;
 		box-shadow: 0 4px 4px -4px rgba( 0, 0, 0, 0.25 );
-		z-index: 99;
+		z-index: 5;
 	}
 
 	/* This needs extra specificity to beat PanelLayout styles */
@@ -316,6 +316,11 @@ FieldLayout left & right aligned */
 		border-color: #a2a9b1;
 		border-radius: 2px;
 		box-shadow: none;
+	}
+
+	.oo-ui-windowManager-modal > .oo-ui-dialog,
+	.oo-ui-processDialog-errors {
+		z-index: 6;
 	}
 }
 
