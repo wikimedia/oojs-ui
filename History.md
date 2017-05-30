@@ -1,4 +1,61 @@
 # OOjs UI Release History
+## v0.22.0 / 2017-05-30
+### Breaking changes
+* [BREAKING CHANGE] TextInputWidget: Remove search related methods (Prateek Saxena)
+* [BREAKING CHANGE] icons: Drop the core icon pack (James D. Forrester)
+* [BREAKING CHANGE] icons: Remove unused 'bookmark' icon (Volker E.)
+
+### Deprecations
+* [DEPRECATING CHANGE] Rename the 'MediaWiki' theme to 'WikimediaUI' (James D. Forrester)
+* [DEPRECATING CHANGE] WindowManager: Deprecate using `openWindow`/`closeWindow` returns as promises (Bartosz Dziewoński)
+
+### Features
+* Add HiddenInputWidget to generate hidden input (Victor Barbu)
+* InputWidget: Introduce `#setInputId` and `inputId` config option (Bartosz Dziewoński)
+* MenuTagMultiselectWidget: Clear text field after adding an item from it (Bartosz Dziewoński)
+* MenuTagMultiselectWidget: Handle the 'selected' config option (Bartosz Dziewoński)
+* NumberInputWidget: Use icons instead of labels (Volker E.)
+* PopupButtonWidget: Handle empty configuration (Bartosz Dziewoński)
+* PopupWidget: Position close button in head absolutely (David Lynch)
+* PopupWidget: Sensibly position anchor-less popups (Roan Kattouw)
+* WindowManager: Add `WindowInstance` - a Promise-based lifecycle object (Timo Tijhof)
+* WindowManager: Handle errors better in `#closeWindow` (Bartosz Dziewoński)
+
+* Allow *even more* widgets to be focussed programatically (Bartosz Dziewoński)
+* Only cancel mouse down event if tool in toolgroup clicked on (Ed Sanders)
+* Re-introduce `.simulateLabelClick()` as a separate method from .focus() (Bartosz Dziewoński)
+
+### Styles
+* themes: Field*Layout help position perfectly aligned (Volker E.)
+* themes: Improve frameless button in size and behaviour (Volker E.)
+* themes: Increase FieldsetLayout header's `font-size` (Volker E.)
+* Apex theme: Ensure vertical centering of ButtonElement's icon (Volker E.)
+* Apex theme: Make OptionWidget icon override more specific (Moriel Schottlender)
+* Apex theme: Start Apex's 'user' icon pack, with just 'userAvatar' for now (Ed Sanders)
+* WikimediaUI theme: Align `@background-color-destructive` to WikimediaUI Base (Volker E.)
+* WikimediaUI theme: Align ButtonInputWidget's `line-height` to ButtonWidget (Volker E.)
+* WikimediaUI theme: Align inline label's position (Volker E.)
+* WikimediaUI theme: Ensure icon aligns in dropdown menu (Volker E.)
+* WikimediaUI theme: Remove incorrect comments (Volker E.)
+
+### Code
+* MenuTagMultiselectWidget: Add test for 'selected' config option (Bartosz Dziewoński)
+* windows: Add tests for OO.ui.alert/confirm/prompt (Timo Tijhof)
+* AUTHORS: Update for the past two years' work (James D. Forrester)
+* build: Add the README/AUTHORS/LICENCE files to dist (James D. Forrester)
+* demos: Add TextInputWidget examples with inline labels but no indicators (Ed Sanders)
+* demos: Add viewport meta tag to PHP demo too (Volker E.)
+* demos: Avoid inline CSS for the overlay (Bartosz Dziewoński)
+* demos: Fix code generation for more complicated cases (Bartosz Dziewoński)
+* demos: Fix up a couple of minor things in demo widgets (Bartosz Dziewoński)
+* demos: Fix `z-index` with fixed demo header (Volker E.)
+* demos: Increase and strengthen responsive support (Volker E.)
+* demos: Indicate widgets clearer by sections (Volker E.)
+* demos: Make disabled progress bar in demo determinate (Ed Sanders)
+* demos: Show code that can be used to create the widget (Prateek Saxena)
+* testsuitegenerator: Handle classes with no constructor (Bartosz Dziewoński)
+
+
 ## v0.21.4 / 2017-05-16
 ### Features
 * Allow more widgets to be focussed programatically (Bartosz Dziewoński)
