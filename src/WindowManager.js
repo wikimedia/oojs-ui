@@ -445,7 +445,8 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
  * @fires closing
  */
 OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
-	var manager = this,
+	var error,
+		manager = this,
 		compatClosing = $.Deferred(),
 		lifecycle = this.lifecycle,
 		compatOpened;
@@ -457,36 +458,33 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		win = null;
 	}
 
+	// Error handling
+	if ( !lifecycle ) {
+		error = 'Cannot close window: no window is currently open';
+	} else if ( !win ) {
+		error = 'Cannot close window: window is not attached to manager';
+	} else if ( win !== this.currentWindow ) {
+		error = 'Cannot close window: window already closed with different data';
+	} else if ( this.preparingToClose || this.closing ) {
+		error = 'Cannot close window: window already closing with different data';
+	}
+
+	if ( error ) {
+		// This function was called for the wrong window and we don't want to mess with the current
+		// window's state.
+		lifecycle = new OO.ui.WindowInstance();
+		// Pretend the window has been opened, so that we can pretend to fail to close it.
+		lifecycle.state.opening.resolve( {} );
+		lifecycle.state.opened.resolve( {} );
+	}
+
 	// Turn lifecycle into a Thenable for backwards-compatibility with
 	// the deprecated nested-promise behaviour (T163510).
 	lifecycle.then = compatClosing.then;
 
-	// Error handling
-	if ( !win ) {
-		compatClosing.reject( new OO.ui.Error(
-			'Cannot close window: window is not attached to manager'
-		) );
-		lifecycle.state.closing.reject( new OO.ui.Error(
-			'Cannot close window: window is not attached to manager'
-		) );
-		return lifecycle;
-	}
-	if ( win !== this.currentWindow ) {
-		compatClosing.reject( new OO.ui.Error(
-			'Cannot close window: window already closed with different data'
-		) );
-		lifecycle.state.closing.reject( new OO.ui.Error(
-			'Cannot close window: window already closed with different data'
-		) );
-		return lifecycle;
-	}
-	if ( this.preparingToClose || this.closing ) {
-		compatClosing.reject( new OO.ui.Error(
-			'Cannot close window: window already closing with different data'
-		) );
-		lifecycle.state.closing.reject( new OO.ui.Error(
-			'Cannot close window: window already closing with different data'
-		) );
+	if ( error ) {
+		compatClosing.reject( new OO.ui.Error( error ) );
+		lifecycle.state.closing.reject( new OO.ui.Error( error ) );
 		return lifecycle;
 	}
 
