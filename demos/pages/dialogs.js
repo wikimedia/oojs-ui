@@ -328,5 +328,6 @@ Demo.static.pages.dialogs = function ( demo ) {
 
 	demo.once( 'destroy', function () {
 		windowManager.destroy();
+		OO.ui.getWindowManager().closeWindow( OO.ui.getWindowManager().getCurrentWindow() );
 	} );
 };
