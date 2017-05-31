@@ -358,13 +358,16 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 
 	// Turn lifecycle into a Thenable for backwards-compatibility with
 	// the deprecated nested-promise behaviour (T163510).
-	lifecycle.then = function () {
-		OO.ui.warnDeprecation(
-			'Using the return value of openWindow as a promise is deprecated. ' +
-			'Use .openWindow( ... ).opening.then( ... ) instead.'
-		);
-		return compatOpening.then.apply( this, arguments );
-	};
+	[ 'state', 'always', 'catch', 'pipe', 'then', 'promise', 'progress', 'done', 'fail' ]
+		.forEach( function ( method ) {
+			lifecycle[ method ] = function () {
+				OO.ui.warnDeprecation(
+					'Using the return value of openWindow as a promise is deprecated. ' +
+					'Use .openWindow( ... ).opening.' + method + '( ... ) instead.'
+				);
+				return compatOpening[ method ].apply( this, arguments );
+			};
+		} );
 
 	// Argument handling
 	if ( typeof win === 'string' ) {
@@ -384,7 +387,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 		compatOpening.reject( new OO.ui.Error(
 			'Cannot open window: window is not attached to manager'
 		) );
-		lifecycle.state.opening.reject( new OO.ui.Error(
+		lifecycle.deferreds.opening.reject( new OO.ui.Error(
 			'Cannot open window: window is not attached to manager'
 		) );
 		return lifecycle;
@@ -393,7 +396,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 		compatOpening.reject( new OO.ui.Error(
 			'Cannot open window: another window is opening or open'
 		) );
-		lifecycle.state.opening.reject( new OO.ui.Error(
+		lifecycle.deferreds.opening.reject( new OO.ui.Error(
 			'Cannot open window: another window is opening or open'
 		) );
 		return lifecycle;
@@ -412,7 +415,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 		manager.lifecycle = lifecycle;
 		manager.preparingToOpen = null;
 		manager.emit( 'opening', win, compatOpening, data );
-		lifecycle.state.opening.resolve( data );
+		lifecycle.deferreds.opening.resolve( data );
 		setTimeout( function () {
 			manager.compatOpened = $.Deferred();
 			win.setup( data ).then( function () {
@@ -421,16 +424,16 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 				setTimeout( function () {
 					win.ready( data ).then( function () {
 						compatOpening.notify( { state: 'ready' } );
-						lifecycle.state.opened.resolve( data );
+						lifecycle.deferreds.opened.resolve( data );
 						compatOpening.resolve( manager.compatOpened.promise(), data );
 					}, function () {
-						lifecycle.state.opened.reject();
+						lifecycle.deferreds.opened.reject();
 						compatOpening.reject();
 						manager.closeWindow( win );
 					} );
 				}, manager.getReadyDelay() );
 			}, function () {
-				lifecycle.state.opened.reject();
+				lifecycle.deferreds.opened.reject();
 				compatOpening.reject();
 				manager.closeWindow( win );
 			} );
@@ -480,23 +483,26 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		// window's state.
 		lifecycle = new OO.ui.WindowInstance();
 		// Pretend the window has been opened, so that we can pretend to fail to close it.
-		lifecycle.state.opening.resolve( {} );
-		lifecycle.state.opened.resolve( {} );
+		lifecycle.deferreds.opening.resolve( {} );
+		lifecycle.deferreds.opened.resolve( {} );
 	}
 
 	// Turn lifecycle into a Thenable for backwards-compatibility with
 	// the deprecated nested-promise behaviour (T163510).
-	lifecycle.then = function () {
-		OO.ui.warnDeprecation(
-			'Using the return value of closeWindow as a promise is deprecated. ' +
-			'Use .closeWindow( ... ).closing.then( ... ) instead.'
-		);
-		return compatClosing.then.apply( this, arguments );
-	};
+	[ 'state', 'always', 'catch', 'pipe', 'then', 'promise', 'progress', 'done', 'fail' ]
+		.forEach( function ( method ) {
+			lifecycle[ method ] = function () {
+				OO.ui.warnDeprecation(
+					'Using the return value of closeWindow as a promise is deprecated. ' +
+					'Use .closeWindow( ... ).closing.' + method + '( ... ) instead.'
+				);
+				return compatClosing[ method ].apply( this, arguments );
+			};
+		} );
 
 	if ( error ) {
 		compatClosing.reject( new OO.ui.Error( error ) );
-		lifecycle.state.closing.reject( new OO.ui.Error( error ) );
+		lifecycle.deferreds.closing.reject( new OO.ui.Error( error ) );
 		return lifecycle;
 	}
 
@@ -506,7 +512,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 	this.preparingToClose.always( function () {
 		manager.preparingToClose = null;
 		manager.emit( 'closing', win, compatClosing, data );
-		lifecycle.state.closing.resolve( data );
+		lifecycle.deferreds.closing.resolve( data );
 		compatOpened = manager.compatOpened;
 		manager.compatOpened = null;
 		compatOpened.resolve( compatClosing.promise(), data );
@@ -525,7 +531,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 						}
 						manager.currentWindow = null;
 						manager.lifecycle = null;
-						lifecycle.state.closed.resolve( data );
+						lifecycle.deferreds.closed.resolve( data );
 						compatClosing.resolve( data );
 					} );
 				}, manager.getTeardownDelay() );

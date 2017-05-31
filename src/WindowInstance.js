@@ -14,7 +14,7 @@
  * @constructor
  */
 OO.ui.WindowInstance = function OOuiWindowInstance() {
-	var state = {
+	var deferreds = {
 		opening: $.Deferred(),
 		opened: $.Deferred(),
 		closing: $.Deferred(),
@@ -25,7 +25,7 @@ OO.ui.WindowInstance = function OOuiWindowInstance() {
 	 * @private
 	 * @property {Object}
 	 */
-	this.state = state;
+	this.deferreds = deferreds;
 
 	// Set these up as chained promises so that rejecting of
 	// an earlier stage automatically rejects the subsequent
@@ -34,24 +34,24 @@ OO.ui.WindowInstance = function OOuiWindowInstance() {
 	/**
 	 * @property {jQuery.Promise}
 	 */
-	this.opening = state.opening.promise();
+	this.opening = deferreds.opening.promise();
 	/**
 	 * @property {jQuery.Promise}
 	 */
 	this.opened = this.opening.then( function () {
-		return state.opened;
+		return deferreds.opened;
 	} );
 	/**
 	 * @property {jQuery.Promise}
 	 */
 	this.closing = this.opened.then( function () {
-		return state.closing;
+		return deferreds.closing;
 	} );
 	/**
 	 * @property {jQuery.Promise}
 	 */
 	this.closed = this.closing.then( function () {
-		return state.closed;
+		return deferreds.closed;
 	} );
 };
 
