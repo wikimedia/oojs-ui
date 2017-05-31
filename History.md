@@ -1,9 +1,23 @@
 # OOjs UI Release History
+## v0.22.1 / 2017-05-31
+### Code
+* WindowManager: Do not use return value of `#closeWindow` as promise (Bartosz Dziewoński)
+* WindowManager: Fix check for a window already closing (Bartosz Dziewoński)
+* WindowManager: Fix error handling for `#openWindow` with string argument (Bartosz Dziewoński)
+* WindowManager: Fix important typo in deprecation warning (Bartosz Dziewoński)
+* WindowManager: Fix incorrect checks for promise state (Bartosz Dziewoński)
+* WindowManager: Provide other `jQuery.Promise` methods on the b/c promise too (Bartosz Dziewoński)
+* demos: Clarify code comment (Bartosz Dziewoński)
+* demos: Clean up the global window manager too when destroying (Bartosz Dziewoński)
+* demos: Load icon packs in the PHP demo (Bartosz Dziewoński)
+* demos: Replace abandoned icon name 'remove' to current one 'trash' (Volker E.)
+
 ## v0.22.0 / 2017-05-30
 ### Breaking changes
 * [BREAKING CHANGE] TextInputWidget: Remove search related methods (Prateek Saxena)
 * [BREAKING CHANGE] icons: Drop the core icon pack (James D. Forrester)
 * [BREAKING CHANGE] icons: Remove unused 'bookmark' icon (Volker E.)
+* [BREAKING CHANGE] Depend on OOjs v2.1.0, up from v2.0.0 (James D. Forrester)
 
 ### Deprecations
 * [DEPRECATING CHANGE] Rename the 'MediaWiki' theme to 'WikimediaUI' (James D. Forrester)
