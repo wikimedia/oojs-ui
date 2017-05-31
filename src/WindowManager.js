@@ -642,7 +642,7 @@ OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
 			throw new Error( 'Cannot remove window' );
 		}
 		cleanupWindow = cleanup.bind( null, name, win );
-		promises.push( this.closeWindow( name ).then( cleanupWindow, cleanupWindow ) );
+		promises.push( this.closeWindow( name ).closed.then( cleanupWindow, cleanupWindow ) );
 	}
 
 	return $.when.apply( $, promises );
