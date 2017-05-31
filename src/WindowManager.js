@@ -376,7 +376,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 				manager.openWindow( win, data, lifecycle, compatOpening );
 			},
 			function ( err ) {
-				lifecycle.opening.reject( err );
+				lifecycle.deferreds.opening.reject( err );
 			}
 		);
 		return lifecycle;
