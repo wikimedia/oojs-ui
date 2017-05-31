@@ -205,7 +205,7 @@ OO.ui.WindowManager.prototype.isOpening = function ( win ) {
  */
 OO.ui.WindowManager.prototype.isClosing = function ( win ) {
 	return win === this.currentWindow && !!this.lifecycle &&
-		this.lifecycle.closing.state() === 'ready' &&
+		this.lifecycle.closing.state() === 'resolved' &&
 		this.lifecycle.closed.state() === 'pending';
 };
 
@@ -217,7 +217,7 @@ OO.ui.WindowManager.prototype.isClosing = function ( win ) {
  */
 OO.ui.WindowManager.prototype.isOpened = function ( win ) {
 	return win === this.currentWindow && !!this.lifecycle &&
-		this.lifecycle.opened.state() === 'ready' &&
+		this.lifecycle.opened.state() === 'resolved' &&
 		this.lifecycle.closing.state() === 'pending';
 };
 
@@ -389,7 +389,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 		) );
 		return lifecycle;
 	}
-	if ( this.preparingToOpen || ( this.lifecycle && this.lifecycle.closing.state() !== 'ready' ) ) {
+	if ( this.preparingToOpen || ( this.lifecycle && this.lifecycle.closing.state() !== 'resolved' ) ) {
 		compatOpening.reject( new OO.ui.Error(
 			'Cannot open window: another window is opening or open'
 		) );
