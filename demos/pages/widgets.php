@@ -200,7 +200,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			new OOUI\ButtonWidget( [
 				'framed' => false,
 				'flags' => [ 'destructive' ],
-				'icon' => 'remove',
+				'icon' => 'trash',
 				'label' => 'Destructive'
 			] ),
 			[
@@ -811,7 +811,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		),
 		new OOUI\FieldLayout(
 			new OOUI\IconWidget( [
-				'icon' => 'remove',
+				'icon' => 'trash',
 				'flags' => 'destructive',
 				'title' => 'Remove icon'
 			] ),
