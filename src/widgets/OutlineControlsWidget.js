@@ -48,7 +48,7 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 	} );
 	this.removeButton = new OO.ui.ButtonWidget( {
 		framed: false,
-		icon: 'remove',
+		icon: 'trash',
 		title: OO.ui.msg( 'ooui-outline-control-remove' )
 	} );
 	this.abilities = { move: true, remove: true };

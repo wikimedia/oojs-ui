@@ -10,7 +10,7 @@
  *     // A button widget
  *     var button = new OO.ui.ButtonWidget( {
  *         label: 'Button with Icon',
- *         icon: 'remove',
+ *         icon: 'trash',
  *         iconTitle: 'Remove'
  *     } );
  *     $( 'body' ).append( button.$element );
