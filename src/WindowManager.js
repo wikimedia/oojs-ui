@@ -494,7 +494,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 			lifecycle[ method ] = function () {
 				OO.ui.warnDeprecation(
 					'Using the return value of closeWindow as a promise is deprecated. ' +
-					'Use .closeWindow( ... ).closing.' + method + '( ... ) instead.'
+					'Use .closeWindow( ... ).closed.' + method + '( ... ) instead.'
 				);
 				return compatClosing[ method ].apply( this, arguments );
 			};
