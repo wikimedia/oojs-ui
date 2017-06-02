@@ -592,6 +592,9 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 				'https://phabricator.wikimedia.org/diffusion/GOJU/browse/master/demos/classes/' +
 				item.constructor.name.slice( 4 ) + '.js';
 			out = '// See source code:\n// ' + url + '\n' + out;
+		} else {
+			url = 'https://doc.wikimedia.org/oojs-ui/master/js/#!/api/' + constructorName;
+			out = '// See documentation at: \n// [' + url + '](' + url + ')\n' + out;
 		}
 
 		return out;
