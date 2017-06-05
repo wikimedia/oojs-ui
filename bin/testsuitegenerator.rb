@@ -57,7 +57,7 @@ else
 		'method' => %w[GET POST],
 		'target' => ['_blank'],
 		'accessKey' => ['k'],
-		'tabIndex' => [-1, 0, 100],
+		'tabIndex' => [-1, 0, 100, '42'],
 		'maxLength' => [100],
 		'icon' => ['image'],
 		'indicator' => ['down'],

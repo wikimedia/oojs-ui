@@ -22,8 +22,8 @@ trait TabIndexedElement {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param number|null $config['tabIndex'] Tab index value. Use 0 to use default ordering, use -1 to
-	 *   prevent tab focusing, use null to suppress the `tabindex` attribute. (default: 0)
+	 * @param string|number|null $config['tabIndex'] Tab index value. Use 0 to use default ordering,
+	 *   use -1 to prevent tab focusing, use null to suppress the `tabindex` attribute. (default: 0)
 	 */
 	public function initializeTabIndexedElement( array $config = [] ) {
 		// Properties
@@ -43,11 +43,11 @@ trait TabIndexedElement {
 	/**
 	 * Set tab index value.
 	 *
-	 * @param number|null $tabIndex Tab index value or null for no tab index
+	 * @param string|number|null $tabIndex Tab index value or null for no tab index
 	 * @return $this
 	 */
 	public function setTabIndex( $tabIndex ) {
-		$tabIndex = is_numeric( $tabIndex ) ? $tabIndex : null;
+		$tabIndex = preg_match( '/^-?\d+$/', $tabIndex ) ? (int)$tabIndex : null;
 
 		if ( $this->tabIndex !== $tabIndex ) {
 			$this->tabIndex = $tabIndex;
