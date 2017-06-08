@@ -65,43 +65,47 @@ p {
 
 .demo-console-toggle {
 	float: right;
-	margin-top: -2em;
+	margin-top: -2.5em;
 	cursor: pointer;
-	-webkit-transition: background-color 100ms, color 100ms, transform 100ms;
-	-moz-transition: background-color 100ms, color 100ms, transform 100ms;
-	transition: background-color 100ms, color 100ms, transform 100ms;
+	-webkit-transition: background-color 100ms, color 100ms;
+	-moz-transition: background-color 100ms, color 100ms;
+	transition: background-color 100ms, color 100ms;
 }
 
 .demo-console-expanded .demo-console-toggle {
-	margin-top: -2.5em;
+	margin-top: -3em;
 }
 
 .demo-console-toggle::after {
-	content: '→';
-	background-color: #f8f9fa;
-	color: #222;
+	content: '↓';
+	color: #36c;
 	position: relative;
 	display: inline-block;
-	width: 1.6em;
+	margin-right: -1.2em;
+	padding: 0.703125em 0.9375em 0.625em; /* equals frameless button */
 	border-radius: 2px;
-	line-height: 1.6;
+	line-height: 1.172em;
+	font-weight: bold;
 	text-align: center;
-	-webkit-transition: background-color 100ms, color 100ms, transform 100ms;
-	-moz-transition: background-color 100ms, color 100ms, transform 100ms;
-	transition: background-color 100ms, color 100ms, transform 100ms;
+	-webkit-transition: color 100ms;
+	-moz-transition: color 100ms;
+	transition: color 100ms;
 }
 
-.demo-console-toggle:hover::after,
-.demo-console-expanded .demo-console-toggle::after {
-	background: #fff;
-	color: #444;
+.demo-console-toggle:hover::after {
+	color: #447ff5;
 }
 
 .demo-console-expanded .demo-console-toggle::after {
-	-webkit-transform: rotate( -90deg );
-	-moz-transform: rotate( -90deg );
-	-ms-transform: rotate( -90deg );
-	transform: rotate( -90deg );
+	content: '↑';
+}
+
+.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-toggle::after {
+	content: 'Show code ↓';
+}
+
+.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-expanded .demo-console-toggle::after {
+	content: 'Hide code ↑';
 }
 
 .demo-console-collapsed .demo-sample-code,
@@ -344,8 +348,24 @@ FieldLayout left & right aligned */
 		border-width: 1px;
 	}
 
+	.demo-console-expanded {
+		width: calc( 100% + 2.5em ); /* equals `100%` + `padding` of `.demo-container` above */
+	}
+
 	.demo-console-toggle {
-		margin-right: -2em;
+		margin-right: -2.5em;
+	}
+
+	.demo-console-expanded .demo-console-toggle {
+		margin-right: 0;
+	}
+
+	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-toggle {
+		margin-top: 0;
+	}
+
+	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-expanded .demo-console-toggle {
+		margin-top: -0.5em;
 	}
 
 	@supports ( position: fixed ) {
@@ -380,14 +400,14 @@ FieldLayout left & right aligned */
 		.demo-container.oo-ui-panelLayout {
 			margin-top: 7.5em;
 		}
+
+		.demo-console-expanded .demo-console-toggle {
+			margin-right: 0.5em;
+		}
 	}
 }
 
-@media ( min-width: 768px ) {
-	.demo-console-toggle {
-		margin-right: 0;
-	}
-}
+/* @media ( min-width: 768px ) {} */
 
 @media ( min-width: 960px ) {
 	body {
@@ -403,6 +423,23 @@ FieldLayout left & right aligned */
 	.demo-menu {
 		width: 62.5em;
 		white-space: nowrap;
+	}
+
+	.demo-console-expanded {
+		width: 100%;
+	}
+
+	.demo-console-toggle,
+	.demo-console-expanded .demo-console-toggle {
+		margin-right: 0;
+	}
+
+	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-toggle {
+		margin-top: -2.5em;
+	}
+
+	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-expanded .demo-console-toggle {
+		margin-top: -3em;
 	}
 
 	@supports ( position: fixed ) {
