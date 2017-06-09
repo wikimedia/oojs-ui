@@ -314,6 +314,13 @@ module.exports = function ( grunt ) {
 				],
 				dest: 'dist/'
 			},
+			wikimediaui: {
+				flatten: true,
+				src: [
+					'node_modules/wikimedia-ui-base/wikimedia-ui-base.less'
+				],
+				dest: 'dist/wikimedia-ui-base.less'
+			},
 			// Copies the necessary vendor/ files for demos without running "composer install"
 			fastcomposerdemos: {
 				// Make sure you update this if PHP dependencies are added
@@ -612,6 +619,7 @@ module.exports = function ( grunt ) {
 		'clean:build', 'fileExists', 'tyops', 'build-code', 'build-styling', 'build-i18n',
 		'concat:omnibus',
 		'copy:dist',
+		'copy:wikimediaui',
 		'clean:tmp', 'demos'
 	] );
 
