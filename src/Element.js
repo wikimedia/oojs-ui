@@ -607,7 +607,9 @@ OO.ui.Element.static.getRootScrollableElement = function ( el ) {
 		scrollTop = body.scrollTop;
 		body.scrollTop = 1;
 
-		if ( body.scrollTop === 1 ) {
+		// In some browsers (observed in Chrome 56 on Linux Mint 18.1),
+		// body.scrollTop doesn't become exactly 1, but a fractional value like 0.76
+		if ( Math.round( body.scrollTop ) === 1 ) {
 			body.scrollTop = scrollTop;
 			OO.ui.scrollableElement = 'body';
 		} else {
