@@ -79,6 +79,7 @@
 			"src/widgets/CheckboxMultiselectInputWidget.js",
 			"src/widgets/TextInputWidget.js",
 			"src/widgets/SearchInputWidget.js",
+			"src/widgets/MultilineTextInputWidget.js",
 			"src/widgets/ComboBoxInputWidget.js",
 			"src/layouts/FieldLayout.js",
 			"src/layouts/ActionFieldLayout.js",
