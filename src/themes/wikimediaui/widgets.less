@@ -1071,26 +1071,31 @@
 	}
 
 	&-head {
-		height: 2.5em;
-
-		> .oo-ui-buttonWidget {
-			top: @margin-button-close;
-			right: @margin-button-close;
+		> .oo-ui-labelElement-label {
+			margin: @padding-top-menu @padding-start-input-text-icon-label @padding-bottom-menu @padding-horizontal-base;
+			line-height: @line-height-widget-singleline;
 		}
 
-		> .oo-ui-labelElement-label {
-			margin: 0.75em @padding-start-input-text-icon-label 0.75em 1em;
+		> .oo-ui-buttonWidget {
+			// `top: 0;` not needed as default value
+			right: 0;
 		}
 	}
 
 	&-body {
-		line-height: 1.4;
+		line-height: @line-height-message;
+
+		&-padded {
+			margin: @padding-top-menu @padding-horizontal-base @padding-bottom-menu;// Use `margin` rather than `padding` to enable margin to collapse
+
+			:first-child {
+				margin-top: 0;
+			}
+		}
 	}
 
-	&-body-padded {
-		// Use `margin` rather than `padding` to allow the margin to collapse with
-		// the margin of other elements inside the popup
-		margin: 0.75em 1em;
+	&-footer {
+		margin: @padding-top-menu @padding-horizontal-base @padding-bottom-menu;
 	}
 }
 
