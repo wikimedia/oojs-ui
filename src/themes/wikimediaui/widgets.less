@@ -1191,13 +1191,10 @@
 		}
 
 		&:checked {
-			& + span {
-				border-width: @size-input-binary / 4;
-			}
-
+			& + span,
 			&:hover + span,
 			&:focus:hover + span {
-				border-width: @size-input-binary / 4;
+				border-width: @border-width-radio-on;
 			}
 		}
 
@@ -1239,13 +1236,9 @@
 				border-color: @border-color-input-binary-on;
 			}
 
-			&:hover + span {
-				border-color: @color-progressive-hover;
-			}
-
+			&:hover + span,
 			&:hover:focus + span {
 				border-color: @color-progressive-hover;
-				box-shadow: inset 0 0 0 1px @color-progressive-hover;
 			}
 
 			&:active + span,
@@ -1259,14 +1252,8 @@
 			}
 
 			&:focus + span {
-				box-shadow: @box-shadow-widget-focus;
-
 				&:before {
 					border-color: @background-color-default;
-					top: -3px;
-					right: -3px;
-					bottom: -3px;
-					left: -3px;
 				}
 			}
 		}
