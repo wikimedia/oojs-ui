@@ -28,7 +28,7 @@ Demo.static.pages.widgets = function ( demo ) {
 			verticalHandledDragItems.push(
 				new Demo.DraggableHandledItemWidget( {
 					data: 'item' + i,
-					icon: 'menu',
+					icon: 'draggable',
 					label: 'Item ' + i
 				} )
 			);
