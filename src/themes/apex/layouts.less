@@ -29,10 +29,6 @@
 .theme-oo-ui-fieldLayout () {
 	margin-top: 1em;
 
-	&:first-child {
-		margin-top: 0;
-	}
-
 	&.oo-ui-fieldLayout-align-left,
 	&.oo-ui-fieldLayout-align-right {
 		> .oo-ui-fieldLayout-body {
@@ -69,6 +65,10 @@
 		&.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
 			padding: 0.25em 0 0.25em 0.5em;
 		}
+	}
+
+	&:first-child {
+		margin-top: 0;
 	}
 
 	&.oo-ui-fieldLayout-align-top {
