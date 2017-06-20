@@ -31,14 +31,14 @@
 	&-message {
 		font-size: 1.1em;
 		line-height: @line-height-message;
-		color: @color-default;
+		color: @color-base;
 		text-align: left;
 	}
 
 	&-actions {
 		&-horizontal {
 			.oo-ui-actionWidget {
-				border-right: @border-default;
+				border-right: @border-base;
 				margin: 0;
 
 				&:last-child {
@@ -49,7 +49,7 @@
 
 		&-vertical {
 			.oo-ui-actionWidget {
-				border-bottom: @border-default;
+				border-bottom: @border-base;
 				margin: 0;
 
 				&:last-child {
@@ -281,9 +281,9 @@
 		text-align: left;
 		margin: 1em;
 		padding: 1em;
-		border: @border-width-default solid @border-color-erroneous;
+		border: @border-width-base solid @border-color-erroneous;
 		background-color: #fff7f7;
-		border-radius: @border-radius-default;
+		border-radius: @border-radius-base;
 	}
 }
 
@@ -294,7 +294,7 @@
 		.oo-ui-transition( opacity @transition-ease-medium );
 
 		> .oo-ui-window-frame {
-			background-color: @background-color-default;
+			background-color: @background-color-base;
 			opacity: 0;
 			.oo-ui-transform( scale( 0.5 ) );
 			.oo-ui-transition( all @transition-ease-medium );
@@ -320,7 +320,7 @@
 		max-height: 100%;
 		max-height: e( 'calc( 100% - 2em )' );
 		border: @border-dialog;
-		border-radius: @border-radius-default;
+		border-radius: @border-radius-base;
 		box-shadow: @box-shadow-dialog;
 	}
 }

@@ -5,7 +5,7 @@
 .theme-oo-ui-buttonElement () {
 	> .oo-ui-buttonElement-button {
 		position: relative;
-		border-radius: @border-radius-default;
+		border-radius: @border-radius-base;
 		font-weight: bold;
 		text-decoration: none;
 
@@ -63,7 +63,7 @@
 		&.oo-ui-labelElement,
 		&.oo-ui-iconElement {
 			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-				right: @padding-horizontal-default;
+				right: @padding-horizontal-base;
 			}
 		}
 	}
@@ -79,23 +79,23 @@
 
 			> .oo-ui-iconElement-icon,
 			> .oo-ui-indicatorElement-indicator {
-				opacity: @opacity-icon-default;
+				opacity: @opacity-icon-base;
 				.oo-ui-transition(
 					opacity @transition-ease-quick
 				);
 
 				&.oo-ui-image-invert {
-					opacity: @opacity-icon-default-selected;
+					opacity: @opacity-icon-base-selected;
 				}
 			}
 
 			&:hover {
 				> .oo-ui-iconElement-icon,
 				> .oo-ui-indicatorElement-indicator {
-					opacity: @opacity-icon-default-hover;
+					opacity: @opacity-icon-base-hover;
 
 					&.oo-ui-image-invert {
-						opacity: @opacity-icon-default-selected;
+						opacity: @opacity-icon-base-selected;
 					}
 				}
 			}
@@ -105,7 +105,7 @@
 			> .oo-ui-buttonElement-button {
 				> .oo-ui-iconElement-icon,
 				> .oo-ui-indicatorElement-indicator {
-					opacity: @opacity-icon-default-selected;
+					opacity: @opacity-icon-base-selected;
 				}
 			}
 		}
@@ -123,8 +123,8 @@
 				min-height: @size-icon;
 				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
 				border-color: @border-color-frameless;
-				border-style: @border-style-default;
-				border-width: @border-width-default;
+				border-style: @border-style-base;
+				border-width: @border-width-base;
 				padding-top: @padding-top-icon-indicator; // Support IE 7: Acts as `min-width`
 				padding-left: @padding-start-frameless-icon-only;
 
@@ -152,8 +152,8 @@
 			> .oo-ui-buttonElement-button {
 				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
 				border-color: @border-color-frameless;
-				border-style: @border-style-default;
-				border-width: @border-width-default;
+				border-style: @border-style-base;
+				border-width: @border-width-base;
 				padding: @padding-frameless;
 			}
 		}
@@ -167,17 +167,17 @@
 
 		&.oo-ui-widget-enabled {
 			> .oo-ui-buttonElement-button {
-				color: @color-default;
+				color: @color-base;
 
 				&:hover {
-					color: @color-default-hover;
+					color: @color-base-hover;
 				}
 			}
 
 			&.oo-ui-iconElement,
 			&.oo-ui-labelElement {
 				> .oo-ui-buttonElement-button:focus {
-					border-color: @border-color-default-focus;
+					border-color: @border-color-base-focus;
 					box-shadow: @box-shadow-widget-focus;
 
 					&:active {
@@ -204,7 +204,7 @@
 
 			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
 			& > .oo-ui-buttonElement-button:active {
-				color: @color-default-active;
+				color: @color-base-active;
 				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
 				border-color: @border-color-frameless;
 				box-shadow: none;
@@ -229,14 +229,14 @@
 				> .oo-ui-buttonElement-button {
 					> .oo-ui-iconElement-icon,
 					> .oo-ui-indicatorElement-indicator {
-						opacity: @opacity-icon-default-selected;
+						opacity: @opacity-icon-base-selected;
 					}
 				}
 
 				> .oo-ui-buttonElement-button:hover {
 					> .oo-ui-iconElement-icon,
 					> .oo-ui-indicatorElement-indicator {
-						opacity: @opacity-icon-default-hover;
+						opacity: @opacity-icon-base-hover;
 					}
 				}
 			}
@@ -256,11 +256,11 @@
 
 	&-framed {
 		> .oo-ui-buttonElement-button {
-			border-style: @border-style-default;
-			border-width: @border-width-default;
-			border-radius: @border-radius-default;
-			padding-left: @padding-horizontal-default;
-			padding-right: @padding-horizontal-default;
+			border-style: @border-style-base;
+			border-width: @border-width-base;
+			border-radius: @border-radius-base;
+			padding-left: @padding-horizontal-base;
+			padding-right: @padding-horizontal-base;
 		}
 
 		&.oo-ui-iconElement {
@@ -311,8 +311,8 @@
 
 		&.oo-ui-labelElement {
 			> .oo-ui-buttonElement-button {
-				padding-top: @padding-top-default;
-				padding-bottom: @padding-bottom-default;
+				padding-top: @padding-top-base;
+				padding-bottom: @padding-bottom-base;
 			}
 		}
 
@@ -327,17 +327,17 @@
 		&.oo-ui-widget-enabled {
 			> .oo-ui-buttonElement-button {
 				background-color: @background-color-framed;
-				color: @color-default;
-				border-color: @border-color-default;
+				color: @color-base;
+				border-color: @border-color-base;
 
 				&:hover {
 					background-color: @background-color-framed-hover;
-					color: @color-default-hover;
-					border-color: @border-color-default-hover;
+					color: @color-base-hover;
+					border-color: @border-color-base-hover;
 				}
 
 				&:focus {
-					border-color: @border-color-default-focus;
+					border-color: @border-color-base-focus;
 					box-shadow: @box-shadow-widget-focus;
 				}
 			}
@@ -346,14 +346,14 @@
 			> .oo-ui-buttonElement-button:active:focus,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 				background-color: @background-color-framed-active;
-				color: @color-default-active;
-				border-color: @border-color-default-active;
+				color: @color-base-active;
+				border-color: @border-color-base-active;
 				box-shadow: none;
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
 				background-color: @color-progressive-active;
-				color: @color-default-light;
+				color: @color-base-light;
 				border-color: @border-color-input-binary-active;
 
 				&:focus {
@@ -396,7 +396,7 @@
 				> .oo-ui-buttonElement-button {
 					> .oo-ui-iconElement-icon,
 					> .oo-ui-indicatorElement-indicator {
-						opacity: @opacity-icon-default-selected;
+						opacity: @opacity-icon-base-selected;
 					}
 				}
 			}
