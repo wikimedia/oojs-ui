@@ -2740,6 +2740,7 @@ Demo.static.pages.widgets = function ( demo ) {
 
 		$.each( fieldsetLayout.getItems(), function ( j, fieldLayout ) {
 			fieldLayout.$element.append(
+				demo.buildLinkExample( fieldLayout, fieldsetLayout instanceof OO.ui.FormLayout ? fieldLayout : fieldsetLayout ),
 				demo.buildConsole( fieldLayout, 'layout', 'widget', showLayoutCode )
 			);
 		} );

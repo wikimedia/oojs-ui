@@ -52,21 +52,27 @@
 	<script src="pages/toolbars.js"></script>
 	<script>
 		$( function () {
-			var demo;
+			var demo, lastQuery = location.search;
 
 			function setup() {
 				var
 					prevPage = demo ? demo.mode.page : null,
 					scrollPos = $( window ).scrollTop();
 				if ( demo ) {
+					if ( lastQuery === location.search ) {
+						return false;
+					}
 					demo.destroy();
 				}
+				lastQuery = location.search;
 				demo = new Demo();
 				$( 'body' ).append( demo.$element );
 				demo.initialize().done( function () {
-					if ( prevPage === demo.mode.page ) {
+					if ( prevPage === demo.mode.page && scrollPos ) {
 						// Restore scroll position from before we destroyed the demo
 						$( window ).scrollTop( scrollPos );
+					} else {
+						Demo.static.scrollToFragment();
 					}
 				} );
 			}
@@ -74,6 +80,7 @@
 			setup();
 
 			$( window ).on( 'popstate', setup );
+			$( window ).on( 'hashchange', Demo.static.scrollToFragment );
 		} )
 	</script>
 </body>
