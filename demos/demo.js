@@ -16,7 +16,7 @@ window.Demo = function Demo() {
 	OO.EventEmitter.call( this );
 
 	// Normalization
-	this.normalizeHash();
+	this.normalizeQuery();
 
 	// Properties
 	this.stylesheetLinks = this.getStylesheetLinks();
@@ -51,10 +51,7 @@ window.Demo = function Demo() {
 		new OO.ui.ButtonWidget( { label: 'JS' } ).setActive( true ),
 		new OO.ui.ButtonWidget( {
 			label: 'PHP',
-			href: 'demos.php' +
-				'?page=widgets' +
-				'&theme=' + this.mode.theme +
-				'&direction=' + this.mode.direction
+			href: 'demos.php' + this.getUrlQuery( this.getCurrentFactorValues() )
 		} )
 	] );
 	this.platformSelect = new OO.ui.ButtonSelectWidget().addItems( [
@@ -279,13 +276,29 @@ Demo.prototype.onModeChange = function () {
 		direction = this.directionSelect.getSelectedItem().getData(),
 		platform = this.platformSelect.getSelectedItem().getData();
 
-	location.hash = '#' + [ page, theme, direction, platform ].join( '-' );
+	history.pushState( null, document.title, this.getUrlQuery( [ page, theme, direction, platform ] ) );
+	$( window ).triggerHandler( 'popstate' );
+};
+
+/**
+ * Get URL query for given factors describing the demo's mode.
+ *
+ * @param {string[]} factors Factors, as returned e.g. by #getCurrentFactorValues
+ * @return {string} URL query part, starting with '?'
+ */
+Demo.prototype.getUrlQuery = function ( factors ) {
+	return '?page=' + factors[ 0 ] +
+		'&theme=' + factors[ 1 ] +
+		'&direction=' + factors[ 2 ] +
+		'&platform=' + factors[ 3 ] +
+		// Preserve current URL 'fragment' part
+		location.hash;
 };
 
 /**
  * Get a list of mode factors.
  *
- * Factors are a mapping between symbolic names used in the URL hash and internal information used
+ * Factors are a mapping between symbolic names used in the URL query and internal information used
  * to act on those symbolic names.
  *
  * Factor lists are in URL order: page, theme, direction, platform. Page contains the symbolic
@@ -317,7 +330,7 @@ Demo.prototype.getFactors = function () {
  * Get a list of default factors.
  *
  * Factor defaults are in URL order: page, theme, direction, platform. Each contains a symbolic
- * factor name which should be used as a fallback when the URL hash is missing or invalid.
+ * factor name which should be used as a fallback when the URL query is missing or invalid.
  *
  * @return {Object[]} List of default factors
  */
@@ -331,18 +344,29 @@ Demo.prototype.getDefaultFactorValues = function () {
 };
 
 /**
- * Parse the current URL hash into factor values.
+ * Parse the current URL query into factor values.
  *
- * @return {string[]} Factor values in URL order: page, theme, direction
+ * @return {string[]} Factor values in URL order: page, theme, direction, platform
  */
 Demo.prototype.getCurrentFactorValues = function () {
-	return location.hash.slice( 1 ).split( '-' );
+	var i, parts, index,
+		factors = this.getDefaultFactorValues(),
+		order = [ 'page', 'theme', 'direction', 'platform' ],
+		query = location.search.slice( 1 ).split( '&' );
+	for ( i = 0; i < query.length; i++ ) {
+		parts = query[ i ].split( '=', 2 );
+		index = order.indexOf( parts[ 0 ] );
+		if ( index !== -1 ) {
+			factors[ index ] = decodeURIComponent( parts[ 1 ] );
+		}
+	}
+	return factors;
 };
 
 /**
  * Get the current mode.
  *
- * Generated from parsed URL hash values.
+ * Generated from parsed URL query values.
  *
  * @return {Object} List of factor values keyed by factor name
  */
@@ -403,21 +427,43 @@ Demo.prototype.getStylesheetLinks = function () {
 };
 
 /**
- * Normalize the URL hash.
+ * Normalize the URL query.
  */
-Demo.prototype.normalizeHash = function () {
-	var i, len, factorValues,
+Demo.prototype.normalizeQuery = function () {
+	var i, len, factorValues, match, valid, factorValue,
 		modes = [],
 		factors = this.getFactors(),
 		defaults = this.getDefaultFactorValues();
 
 	factorValues = this.getCurrentFactorValues();
 	for ( i = 0, len = factors.length; i < len; i++ ) {
-		modes[ i ] = factors[ i ][ factorValues[ i ] ] !== undefined ? factorValues[ i ] : defaults[ i ];
+		factorValue = factorValues[ i ];
+		modes[ i ] = factors[ i ][ factorValue ] !== undefined ? factorValue : defaults[ i ];
 	}
 
-	// Update hash
-	location.hash = modes.join( '-' );
+	// Backwards-compatibility with old URLs that used the 'fragment' part to link to demo sections:
+	// if a fragment is specified and it describes valid factors, turn the URL into the new style.
+	match = location.hash.match( /^#(\w+)-(\w+)-(\w+)-(\w+)$/ );
+	if ( match ) {
+		factorValues = [];
+		valid = true;
+		for ( i = 0, len = factors.length; i < len; i++ ) {
+			factorValue = match[ i + 1 ];
+			if ( factors[ i ][ factorValue ] !== undefined ) {
+				factorValues[ i ] = factorValue;
+			} else {
+				valid = false;
+				break;
+			}
+		}
+		if ( valid ) {
+			location.hash = '';
+			modes = factorValues;
+		}
+	}
+
+	// Update query
+	history.replaceState( null, document.title, this.getUrlQuery( modes ) );
 };
 
 /**
