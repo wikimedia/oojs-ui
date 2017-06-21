@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/* globals Prism */
+/* globals Prism, javascriptStringify */
 /**
  * @class
  * @extends {OO.ui.Element}
@@ -534,12 +534,12 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 			}
 		} );
 
-		config = JSON.stringify( config, function ( k, v ) {
+		config = javascriptStringify( config, function ( v, indent, stringify ) {
 			if ( v instanceof OO.ui.Element || v instanceof OO.ui.HtmlSnippet || v instanceof jQuery || v instanceof Function ) {
 				replaceLater.push( v );
 				return replaceKeyword + ( replaceLater.length - 1 ).toString();
 			}
-			return v;
+			return stringify( v );
 		}, '\t' );
 
 		// We replace later, because running getCode in place will treat the new code
@@ -547,23 +547,23 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 		replaceLater.forEach( function ( obj, i ) {
 			config = config.replace(
 				// Match any number of tabs (for indentation) and optional object key, followed by our placeholder
-				new RegExp( '(\t*)("[^"]+?": |)"' + replaceKeyword + i + '"' ),
+				new RegExp( '(\t*)("[^"]+?": |)' + replaceKeyword + i ),
 				function ( all, indent, objectKey ) {
 					var code;
 					if ( obj instanceof Function ) {
 						// Get function's source code, with extraneous indentation removed
-						code = obj.toString().replace( /^\t\t\t\t\t\t/gm, '' );
+						code = obj.toString().replace( /^\t\t\t\t\t/gm, '' );
 					} else if ( obj instanceof jQuery ) {
 						if ( $.contains( item.$element[ 0 ], obj[ 0 ] ) ) {
 							// If this element appears inside the generated widget,
 							// assume this was something like `$label: $( '<p>Text</p>' )`
-							code = '$( \"' + obj.prop( 'outerHTML' ).replace( /'/g, '\\\'' ) + '\" )';
+							code = '$( ' + javascriptStringify( obj.prop( 'outerHTML' ) ) + ' )';
 						} else {
 							// Otherwise assume this was something like `$overlay: $( '#overlay' )`
-							code = '$( \"#' + obj.attr( 'id' ) + '\" )';
+							code = '$( ' + javascriptStringify( '#' + obj.attr( 'id' ) ) + ' )';
 						}
 					} else if ( obj instanceof OO.ui.HtmlSnippet ) {
-						code = 'new OO.ui.HtmlSnippet( "' + obj.toString() + '" )';
+						code = 'new OO.ui.HtmlSnippet( ' + javascriptStringify( obj.toString() ) + ' )';
 					} else {
 						code = getCode( obj );
 					}
