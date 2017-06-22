@@ -501,17 +501,23 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 		$log.prop( 'scrollTop', $log.prop( 'scrollHeight' ) );
 	}
 
-	function getCode( item ) {
-		var config, isDemoWidget, constructorName, defaultConfig, url, params, out;
+	function getCode( item, toplevel ) {
+		var config, defaultConfig, url, params, out, i,
+			items = [],
+			demoLinks = [],
+			docLinks = [];
+
+		function getConstructorName( item ) {
+			var isDemoWidget = item.constructor.name.indexOf( 'Demo' ) === 0;
+			return ( isDemoWidget ? 'Demo.' : 'OO.ui.' ) + item.constructor.name.slice( 4 );
+		}
 
 		// If no item was passed we shouldn't show a code block
 		if ( item === undefined ) {
 			return false;
 		}
 
-		isDemoWidget = item.constructor.name.indexOf( 'Demo' ) === 0;
 		config = item.initialConfig;
-		constructorName = ( isDemoWidget ? 'Demo.' : 'OO.ui.' ) + item.constructor.name.slice( 4 );
 
 		// Prevent the default config from being part of the code
 		if ( item instanceof OO.ui.ActionFieldLayout ) {
@@ -555,30 +561,48 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 		}, '\t' );
 
 		// The generated code needs to include different arguments, based on the object type
+		items.push( item );
 		if ( item instanceof OO.ui.ActionFieldLayout ) {
 			params = getCode( item.fieldWidget ) + ', ' + getCode( item.buttonWidget );
+			items.push( item.fieldWidget );
+			items.push( item.buttonWidget );
 		} else if ( item instanceof OO.ui.FieldLayout ) {
 			params = getCode( item.fieldWidget );
+			items.push( item.fieldWidget );
 		} else {
 			params = '';
 		}
 		if ( config !== '{}' ) {
 			params += ( params ? ', ' : '' ) + config;
 		}
-		out = 'new ' + constructorName + '(' + ( params ? ' ' : '' ) + params + ( params ? ' ' : '' ) + ')';
+		out = 'new ' + getConstructorName( item ) + '(' +
+			( params ? ' ' : '' ) + params + ( params ? ' ' : '' ) +
+			')';
 
-		// The code generated for Demo widgets cannot be copied and used
-		if ( item.constructor.name.indexOf( 'Demo' ) === 0 ) {
-			url =
-				'https://phabricator.wikimedia.org/diffusion/GOJU/browse/master/demos/classes/' +
-				item.constructor.name.slice( 4 ) + '.js';
-			out = '// See source code:\n// ' + url + '\n' + out;
-		} else {
-			url = 'https://doc.wikimedia.org/oojs-ui/master/js/#!/api/' + constructorName;
-			out = '// See documentation at: \n// [' + url + '](' + url + ')\n' + out;
+		if ( toplevel ) {
+			for ( i = 0; i < items.length; i++ ) {
+				item = items[ i ];
+				// The code generated for Demo widgets cannot be copied and used
+				if ( item.constructor.name.indexOf( 'Demo' ) === 0 ) {
+					url =
+						'https://phabricator.wikimedia.org/diffusion/GOJU/browse/master/demos/classes/' +
+						item.constructor.name.slice( 4 ) + '.js';
+					demoLinks.push( url );
+				} else {
+					url = 'https://doc.wikimedia.org/oojs-ui/master/js/#!/api/' + getConstructorName( item );
+					url = '[' + url + '](' + url + ')';
+					docLinks.push( url );
+				}
+			}
 		}
 
-		return out;
+		return (
+			( docLinks.length ? '// See documentation at: \n// ' : '' ) +
+			docLinks.join( '\n// ' ) + ( docLinks.length ? '\n' : '' ) +
+			( demoLinks.length ? '// See source code:\n// ' : '' ) +
+			demoLinks.join( '\n// ' ) + ( demoLinks.length ? '\n' : '' ) +
+			out
+		);
 	}
 
 	$toggle = $( '<span>' )
@@ -597,9 +621,9 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 					console.log( '[demo]', item );
 
 					if ( showLayoutCode === true ) {
-						code = getCode( item );
+						code = getCode( item, true );
 					} else {
-						code = getCode( item.fieldWidget );
+						code = getCode( item.fieldWidget, true );
 					}
 
 					if ( code ) {
