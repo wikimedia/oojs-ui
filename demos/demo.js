@@ -502,9 +502,7 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 	}
 
 	function getCode( item ) {
-		var config, isDemoWidget, constructorName, defaultConfig, url, params, out,
-			replaceKeyword = 'replace-',
-			replaceLater = [];
+		var config, isDemoWidget, constructorName, defaultConfig, url, params, out;
 
 		// If no item was passed we shouldn't show a code block
 		if ( item === undefined ) {
@@ -534,44 +532,27 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 			}
 		} );
 
-		config = javascriptStringify( config, function ( v, indent, stringify ) {
-			if ( v instanceof OO.ui.Element || v instanceof OO.ui.HtmlSnippet || v instanceof jQuery || v instanceof Function ) {
-				replaceLater.push( v );
-				return replaceKeyword + ( replaceLater.length - 1 ).toString();
-			}
-			return stringify( v );
-		}, '\t' );
-
-		// We replace later, because running getCode in place will treat the new code
-		// as a string and won't do proper indentation either
-		replaceLater.forEach( function ( obj, i ) {
-			config = config.replace(
-				// Match any number of tabs (for indentation) and optional object key, followed by our placeholder
-				new RegExp( '(\t*)("[^"]+?": |)' + replaceKeyword + i ),
-				function ( all, indent, objectKey ) {
-					var code;
-					if ( obj instanceof Function ) {
-						// Get function's source code, with extraneous indentation removed
-						code = obj.toString().replace( /^\t\t\t\t\t/gm, '' );
-					} else if ( obj instanceof jQuery ) {
-						if ( $.contains( item.$element[ 0 ], obj[ 0 ] ) ) {
-							// If this element appears inside the generated widget,
-							// assume this was something like `$label: $( '<p>Text</p>' )`
-							code = '$( ' + javascriptStringify( obj.prop( 'outerHTML' ) ) + ' )';
-						} else {
-							// Otherwise assume this was something like `$overlay: $( '#overlay' )`
-							code = '$( ' + javascriptStringify( '#' + obj.attr( 'id' ) ) + ' )';
-						}
-					} else if ( obj instanceof OO.ui.HtmlSnippet ) {
-						code = 'new OO.ui.HtmlSnippet( ' + javascriptStringify( obj.toString() ) + ' )';
-					} else {
-						code = getCode( obj );
-					}
-					// Re-add the indent at the beginning, and after every newline
-					return indent + objectKey + code.replace( /\n/g, '\n' + indent );
+		config = javascriptStringify( config, function ( obj, indent, stringify ) {
+			if ( obj instanceof Function ) {
+				// Get function's source code, with extraneous indentation removed
+				return obj.toString().replace( /^\t\t\t\t\t\t/gm, '' );
+			} else if ( obj instanceof jQuery ) {
+				if ( $.contains( item.$element[ 0 ], obj[ 0 ] ) ) {
+					// If this element appears inside the generated widget,
+					// assume this was something like `$label: $( '<p>Text</p>' )`
+					return '$( ' + javascriptStringify( obj.prop( 'outerHTML' ) ) + ' )';
+				} else {
+					// Otherwise assume this was something like `$overlay: $( '#overlay' )`
+					return '$( ' + javascriptStringify( '#' + obj.attr( 'id' ) ) + ' )';
 				}
-			);
-		} );
+			} else if ( obj instanceof OO.ui.HtmlSnippet ) {
+				return 'new OO.ui.HtmlSnippet( ' + javascriptStringify( obj.toString() ) + ' )';
+			} else if ( obj instanceof OO.ui.Element ) {
+				return getCode( obj );
+			} else {
+				return stringify( obj );
+			}
+		}, '\t' );
 
 		// The generated code needs to include different arguments, based on the object type
 		if ( item instanceof OO.ui.ActionFieldLayout ) {
