@@ -69,7 +69,7 @@ OO.ui.mixin.TitledElement.prototype.setTitledElement = function ( $titled ) {
 
 	this.$titled = $titled;
 	if ( this.title ) {
-		this.$titled.attr( 'title', this.title );
+		this.updateTitle();
 	}
 };
 
@@ -84,16 +84,32 @@ OO.ui.mixin.TitledElement.prototype.setTitle = function ( title ) {
 	title = ( typeof title === 'string' && title.length ) ? title : null;
 
 	if ( this.title !== title ) {
-		if ( this.$titled ) {
-			if ( title !== null ) {
-				this.$titled.attr( 'title', title );
-			} else {
-				this.$titled.removeAttr( 'title' );
-			}
-		}
 		this.title = title;
+		this.updateTitle();
 	}
 
+	return this;
+};
+
+/**
+ * Update the title attribute, in case of changes to title or accessKey.
+ *
+ * @protected
+ * @chainable
+ */
+OO.ui.mixin.TitledElement.prototype.updateTitle = function () {
+	var title = this.getTitle();
+	if ( this.$titled ) {
+		if ( title !== null ) {
+			// Only if this is an AccessKeyedElement
+			if ( this.formatTitleWithAccessKey ) {
+				title = this.formatTitleWithAccessKey( title );
+			}
+			this.$titled.attr( 'title', title );
+		} else {
+			this.$titled.removeAttr( 'title' );
+		}
+	}
 	return this;
 };
 

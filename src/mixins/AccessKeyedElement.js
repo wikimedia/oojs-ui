@@ -91,6 +91,11 @@ OO.ui.mixin.AccessKeyedElement.prototype.setAccessKey = function ( accessKey ) {
 			}
 		}
 		this.accessKey = accessKey;
+
+		// Only if this is a TitledElement
+		if ( this.updateTitle ) {
+			this.updateTitle();
+		}
 	}
 
 	return this;
@@ -103,4 +108,25 @@ OO.ui.mixin.AccessKeyedElement.prototype.setAccessKey = function ( accessKey ) {
  */
 OO.ui.mixin.AccessKeyedElement.prototype.getAccessKey = function () {
 	return this.accessKey;
+};
+
+/**
+ * Add information about the access key to the element's tooltip label.
+ *
+ * @protected
+ * @param {string} title Tooltip label for `title` attribute
+ * @return {string}
+ */
+OO.ui.mixin.AccessKeyedElement.prototype.formatTitleWithAccessKey = function ( title ) {
+	var accessKey;
+	// Use jquery.accessKeyLabel if available to show modifiers, otherwise just display the single key
+	if ( $.fn.updateTooltipAccessKeys && $.fn.updateTooltipAccessKeys.getAccessKeyLabel ) {
+		accessKey = $.fn.updateTooltipAccessKeys.getAccessKeyLabel( this.$accessKeyed[ 0 ] );
+	} else {
+		accessKey = this.getAccessKey();
+	}
+	if ( accessKey ) {
+		title += ' [' + accessKey + ']';
+	}
+	return title;
 };
