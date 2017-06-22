@@ -527,6 +527,17 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
+			new OOUI\CheckboxInputWidget( [
+				'selected' => true,
+				'accessKey' => 't'
+			] ),
+			[
+				'align' => 'inline',
+				'label' => "CheckboxInputWidget (with accesskey T and title)\xE2\x80\x8E",
+				'title' => 'Access key is added to the title.',
+			]
+		),
+		new OOUI\FieldLayout(
 			new OOUI\RadioInputWidget( [
 				'name' => 'oojs-ui-radio-demo'
 			] ),

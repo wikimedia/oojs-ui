@@ -81,11 +81,12 @@ trait AccessKeyedElement {
 
 	/**
 	 * Add information about the access key to the element's tooltip label.
+	 * (This is only public for hacky usage in FieldLayout.)
 	 *
 	 * @param string $title Tooltip label for `title` attribute
 	 * @return string
 	 */
-	protected function formatTitleWithAccessKey( $title ) {
+	public function formatTitleWithAccessKey( $title ) {
 		$accessKey = $this->getAccessKey();
 		if ( $accessKey ) {
 			$title .= " [$accessKey]";

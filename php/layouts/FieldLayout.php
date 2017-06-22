@@ -135,6 +135,8 @@ class FieldLayout extends Layout {
 		}
 
 		$this->setAlignment( $config['align'] );
+		// Call this again to take into account the widget's accessKey
+		$this->updateTitle();
 	}
 
 	/**
@@ -221,6 +223,20 @@ class FieldLayout extends Layout {
 		}
 
 		return $this;
+	}
+
+	/**
+	 * Include information about the widget's accessKey in our title. TitledElement calls this method.
+	 * (This is a bit of a hack.)
+	 *
+	 * @param string $title Tooltip label for 'title' attribute
+	 * @return string
+	 */
+	protected function formatTitleWithAccessKey( $title ) {
+		if ( $this->fieldWidget && method_exists( $this->fieldWidget, 'formatTitleWithAccessKey' ) ) {
+			return $this->fieldWidget->formatTitleWithAccessKey( $title );
+		}
+		return $title;
 	}
 
 	public function getConfig( &$config ) {

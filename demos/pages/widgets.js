@@ -984,6 +984,17 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.CheckboxInputWidget( {
+						selected: true,
+						accessKey: 't'
+					} ),
+					{
+						align: 'inline',
+						label: 'CheckboxInputWidget (with accesskey T and title)\u200E',
+						title: 'Access key is added to the title.'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.RadioInputWidget( {
 						name: 'oojs-ui-radio-demo'
 					} ),

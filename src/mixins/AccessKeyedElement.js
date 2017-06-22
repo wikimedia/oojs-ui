@@ -112,8 +112,8 @@ OO.ui.mixin.AccessKeyedElement.prototype.getAccessKey = function () {
 
 /**
  * Add information about the access key to the element's tooltip label.
+ * (This is only public for hacky usage in FieldLayout.)
  *
- * @protected
  * @param {string} title Tooltip label for `title` attribute
  * @return {string}
  */
