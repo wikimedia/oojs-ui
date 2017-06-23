@@ -150,54 +150,58 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
 };
 
 /**
- * Update menu item visibility after input changes.
+ * Update menu item visibility and clipping after input changes (if filterFromInput is enabled)
+ * or after items were added/removed (always).
  *
  * @protected
  */
 OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
-	var i, item, visible, section, sectionEmpty,
+	var i, item, visible, section, sectionEmpty, filter, exactFilter,
 		firstItemFound = false,
 		anyVisible = false,
 		len = this.items.length,
 		showAll = !this.isVisible(),
-		filter = showAll ? null : this.getItemMatcher( this.$input.val() ),
-		exactFilter = this.getItemMatcher( this.$input.val(), true ),
 		exactMatch = false;
 
-	// Hide non-matching options, and also hide section headers if all options
-	// in their section are hidden.
-	for ( i = 0; i < len; i++ ) {
-		item = this.items[ i ];
-		if ( item instanceof OO.ui.MenuSectionOptionWidget ) {
-			if ( section ) {
-				// If the previous section was empty, hide its header
-				section.toggle( showAll || !sectionEmpty );
-			}
-			section = item;
-			sectionEmpty = true;
-		} else if ( item instanceof OO.ui.OptionWidget ) {
-			visible = showAll || filter( item );
-			exactMatch = exactMatch || exactFilter( item );
-			anyVisible = anyVisible || visible;
-			sectionEmpty = sectionEmpty && !visible;
-			item.toggle( visible );
-			if ( this.highlightOnFilter && visible && !firstItemFound ) {
-				// Highlight the first item in the list
-				this.highlightItem( item );
-				firstItemFound = true;
+	if ( this.$input && this.filterFromInput ) {
+		filter = showAll ? null : this.getItemMatcher( this.$input.val() );
+		exactFilter = this.getItemMatcher( this.$input.val(), true );
+
+		// Hide non-matching options, and also hide section headers if all options
+		// in their section are hidden.
+		for ( i = 0; i < len; i++ ) {
+			item = this.items[ i ];
+			if ( item instanceof OO.ui.MenuSectionOptionWidget ) {
+				if ( section ) {
+					// If the previous section was empty, hide its header
+					section.toggle( showAll || !sectionEmpty );
+				}
+				section = item;
+				sectionEmpty = true;
+			} else if ( item instanceof OO.ui.OptionWidget ) {
+				visible = showAll || filter( item );
+				exactMatch = exactMatch || exactFilter( item );
+				anyVisible = anyVisible || visible;
+				sectionEmpty = sectionEmpty && !visible;
+				item.toggle( visible );
+				if ( this.highlightOnFilter && visible && !firstItemFound ) {
+					// Highlight the first item in the list
+					this.highlightItem( item );
+					firstItemFound = true;
+				}
 			}
 		}
-	}
-	// Process the final section
-	if ( section ) {
-		section.toggle( showAll || !sectionEmpty );
-	}
+		// Process the final section
+		if ( section ) {
+			section.toggle( showAll || !sectionEmpty );
+		}
 
-	if ( anyVisible && this.items.length && !exactMatch ) {
-		this.scrollItemIntoView( this.items[ 0 ] );
-	}
+		if ( anyVisible && this.items.length && !exactMatch ) {
+			this.scrollItemIntoView( this.items[ 0 ] );
+		}
 
-	this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
+		this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
+	}
 
 	// Reevaluate clipping
 	this.clip();
@@ -279,8 +283,7 @@ OO.ui.MenuSelectWidget.prototype.addItems = function ( items, index ) {
 	// Parent method
 	OO.ui.MenuSelectWidget.parent.prototype.addItems.call( this, items, index );
 
-	// Reevaluate clipping
-	this.clip();
+	this.updateItemVisibility();
 
 	return this;
 };
@@ -292,8 +295,7 @@ OO.ui.MenuSelectWidget.prototype.removeItems = function ( items ) {
 	// Parent method
 	OO.ui.MenuSelectWidget.parent.prototype.removeItems.call( this, items );
 
-	// Reevaluate clipping
-	this.clip();
+	this.updateItemVisibility();
 
 	return this;
 };
@@ -305,8 +307,7 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
 	// Parent method
 	OO.ui.MenuSelectWidget.parent.prototype.clearItems.call( this );
 
-	// Reevaluate clipping
-	this.clip();
+	this.updateItemVisibility();
 
 	return this;
 };
