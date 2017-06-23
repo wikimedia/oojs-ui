@@ -274,10 +274,19 @@ OO.ui.BookletLayout.prototype.isOutlineVisible = function () {
  * @chainable
  */
 OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
+	var booklet = this;
+
 	if ( this.outlined ) {
 		show = show === undefined ? !this.outlineVisible : !!show;
 		this.outlineVisible = show;
 		this.toggleMenu( show );
+		if ( show && this.editable ) {
+			// HACK: When the sidebar stops animating, kill dumb scrollbars (T161798). Only necessary when
+			// outline controls are present, The delay matches transition on `.oo-ui-menuLayout-menu`.
+			setTimeout( function () {
+				OO.ui.Element.static.reconsiderScrollbars( booklet.outlinePanel.$element[ 0 ] );
+			}, 200 );
+		}
 	}
 
 	return this;
