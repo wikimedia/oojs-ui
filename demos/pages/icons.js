@@ -12,7 +12,8 @@ Demo.static.pages.icons = function ( demo ) {
 				'last',
 				'expand',
 				'collapse',
-				'move'
+				'move',
+				'draggable'
 			],
 			content: [
 				'article',
@@ -175,7 +176,6 @@ Demo.static.pages.icons = function ( demo ) {
 			layout: [
 				'menu',
 				'stripeFlow',
-				'stripeSideMenu',
 				'stripeSummary',
 				'stripeToC',
 				'viewCompact',
