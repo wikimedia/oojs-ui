@@ -73,6 +73,7 @@ def parse_file filename
 
 		js_class_constructor = false
 		js_class_constructor_desc = ''
+		php_trait_constructor = false
 		ignore = false
 
 		comment, code_line = d.split '*/'
@@ -223,6 +224,7 @@ def parse_file filename
 				data[:static] = true if static
 				data[:parent] = cleanup_class_name(parent) if parent
 				data[:name] ||= cleanup_class_name(name)
+				php_trait_constructor = true if kind == :method && data[:name] == 'initialize' + current_class[:name]
 			end
 		end
 
@@ -237,7 +239,8 @@ def parse_file filename
 		end
 
 		# standardize
-		if data[:name] == '__construct' || js_class_constructor
+		# (also handle fake constructors for traits)
+		if data[:name] == '__construct' || js_class_constructor || php_trait_constructor
 			data[:name] = '#constructor'
 		end
 
