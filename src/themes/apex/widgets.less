@@ -516,20 +516,20 @@
 }
 
 .theme-oo-ui-outlineControlsWidget () {
-	height: 3em;
 	background-color: @background-color-main;
 
 	&-items,
 	&-movers {
-		height: 2em;
-		margin: 0.5em 0.5em 0.5em 0;
-		padding: 0;
+		> .oo-ui-buttonWidget {
+			height: 2.5em;
+			width: 2.5em;
+			// There's a lot of weird specific margins with weird specific selectors
+			margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+		}
 	}
 
 	> .oo-ui-iconElement-icon {
-		width: 1.5em;
-		height: 2em;
-		margin: 0.5em 0 0.5em 0.5em;
+		height: 2.5em;
 		opacity: 0.2;
 	}
 }
