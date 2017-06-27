@@ -28,9 +28,9 @@
 		? $_GET['page'] : 'widgets';
 
 	$query = [
+		'page' => $page,
 		'theme' => $theme,
 		'direction' => $direction,
-		'page' => $page,
 	];
 
 	$additionalThemeImagesSuffixes = [
@@ -123,7 +123,7 @@
 					'items' => [
 						new OOUI\ButtonWidget( [
 							'label' => 'JS',
-							'href' => ".#$page-$theme-$direction",
+							'href' => '.?' . http_build_query( $query ),
 							'active' => false,
 						] ),
 						new OOUI\ButtonWidget( [
