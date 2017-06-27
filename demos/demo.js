@@ -233,6 +233,19 @@ Demo.static.defaultDirection = 'ltr';
  */
 Demo.static.defaultPlatform = 'desktop';
 
+/* Static Methods */
+
+/**
+ * Scroll to current fragment identifier. We have to do this manually because of the fixed header.
+ */
+Demo.static.scrollToFragment = function () {
+	var elem = document.getElementById( location.hash.slice( 1 ) );
+	if ( elem ) {
+		// The additional '10' is just because it looks nicer.
+		$( window ).scrollTop( $( elem ).offset().top - $( '.demo-menu' ).outerHeight() - 10 );
+	}
+};
+
 /* Methods */
 
 /**
@@ -723,4 +736,42 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 		);
 
 	return $console;
+};
+
+/**
+ * Build a link to this example.
+ *
+ * @param {OO.ui.Layout} item
+ * @param {OO.ui.FieldsetLayout} parentItem
+ * @return {jQuery} Link interface element
+ */
+Demo.prototype.buildLinkExample = function ( item, parentItem ) {
+	var $linkExample, label, fragment;
+
+	if ( item.$label.text() === '' ) {
+		item = parentItem;
+	}
+	fragment = item.elementId;
+	if ( !fragment ) {
+		label = item.$label.text();
+		fragment = label.replace( /[^\w]+/g, '-' ).replace( /^-|-$/g, '' );
+		item.setElementId( fragment );
+	}
+
+	$linkExample = $( '<a>' )
+		.addClass( 'demo-link-example' )
+		.attr( 'title', 'Link to this example' )
+		.attr( 'href', '#' + fragment )
+		.on( 'click', function ( e ) {
+			// We have to handle this manually in order to call .scrollToFragment() even if it's the same
+			// fragment. Normally, the browser will scroll but not fire a 'hashchange' event in this
+			// situation, and the scroll position will be off because of our fixed header.
+			if ( e.which === OO.ui.MouseButtons.LEFT ) {
+				location.hash = $( this ).attr( 'href' );
+				Demo.static.scrollToFragment();
+				e.preventDefault();
+			}
+		} );
+
+	return $linkExample;
 };
