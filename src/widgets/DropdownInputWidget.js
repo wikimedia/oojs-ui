@@ -55,6 +55,9 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 
 	// Initialization
 	this.setOptions( config.options || [] );
+	// Set the value again, after we did setOptions(). The call from parent doesn't work because the
+	// widget has no valid options when it happens.
+	this.setValue( config.value );
 	this.$element
 		.addClass( 'oo-ui-dropdownInputWidget' )
 		.append( this.dropdownWidget.$element );
@@ -80,10 +83,10 @@ OO.ui.DropdownInputWidget.prototype.getInputElement = function () {
  * Handles menu select events.
  *
  * @private
- * @param {OO.ui.MenuOptionWidget} item Selected menu item
+ * @param {OO.ui.MenuOptionWidget|null} item Selected menu item
  */
 OO.ui.DropdownInputWidget.prototype.onMenuSelect = function ( item ) {
-	this.setValue( item.getData() );
+	this.setValue( item ? item.getData() : '' );
 };
 
 /**
@@ -92,9 +95,10 @@ OO.ui.DropdownInputWidget.prototype.onMenuSelect = function ( item ) {
 OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
 	var selected;
 	value = this.cleanUpValue( value );
-	this.dropdownWidget.getMenu().selectItemByData( value );
 	// Only allow setting values that are actually present in the dropdown
-	selected = this.dropdownWidget.getMenu().getSelectedItem();
+	selected = this.dropdownWidget.getMenu().getItemFromData( value ) ||
+		this.dropdownWidget.getMenu().getFirstSelectableItem();
+	this.dropdownWidget.getMenu().selectItem( selected );
 	value = selected ? selected.getData() : '';
 	OO.ui.DropdownInputWidget.parent.prototype.setValue.call( this, value );
 	return this;
