@@ -2,7 +2,7 @@
 /* globals Prism, javascriptStringify */
 /**
  * @class
- * @extends {OO.ui.Element}
+ * @extends OO.ui.Element
  *
  * @constructor
  */
