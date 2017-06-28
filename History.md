@@ -1,4 +1,43 @@
 # OOjs UI Release History
+## v0.22.2 / 2017-06-28
+### Deprecations
+* [DEPRECATING CHANGE] TextInputWidget: Move multi-line support out (Prateek Saxena)
+* [DEPRECATING CHANGE] icons: Move and rename 'stripeSideMenu' to 'draggable' (Volker E.)
+
+### Features
+* DropdownInputWidget: Unbreak setting 'value' via config options (Bartosz Dziewoński)
+* Element: Work around browsers that set fractional scrollTop values (Roan Kattouw)
+
+### Styles
+* BookletLayout: Workaround for horizontal scrollbars on menu when editable (Bartosz Dziewoński)
+* icons: Let's stop referring to removed icons, hmm? (James D. Forrester)
+* Rewrite all styling for "outline controls" (Bartosz Dziewoński)
+* Apex theme: Align appearance of tags' close icon to WikimediaUI theme (Volker E.)
+* Apex theme: Fix HorizontalLayout containing FieldLayouts (Bartosz Dziewoński)
+* WikimediaUI theme: Remove default DraggableElement styling (Ed Sanders)
+* WikimediaUI theme: Use icon instead of indicator in Tag-/CapsuleItemWidget (Volker E.)
+* WikimediaUI: Strengthen Radio*Widget's `:checked` state (Volker E.)
+
+### Code
+* MenuSelectWidget: Fix item hiding when menu contents change (Roan Kattouw)
+* MultilineTextInputWidget: Fix autosizing (Bartosz Dziewoński)
+* PopupWidget: Replace CSS with Less comments for smaller dist (Volker E.)
+* SearchInputWidget: Fix ability to clear the input (Bartosz Dziewoński)
+* TabIndexedElement: Fix validation and make consistent in PHP and JS (Bartosz Dziewoński)
+* Use javascript-stringify instead of JSON.stringify (Ed Sanders)
+* Apex theme: Fix order of selectors for :first-child FieldLayout (Bartosz Dziewoński)
+* demos: Add links to documentation from code examples (Prateek Saxena)
+* demos: Allow linking to specific widgets (Bartosz Dziewoński)
+* demos: Indicate code toggle clearer (Volker E.)
+* demos: Pull out all links to docs/sources to the top of the code (Bartosz Dziewoński)
+* demos: Simplify code generation, now that we use javascript-stringify (Bartosz Dziewoński)
+* demos: Use URL 'query' part for linking to demo sections rather than URL 'fragment' (Bartosz Dziewoński)
+* docs: Fix some typos in documentation (Bartosz Dziewoński)
+* docparser: Fix handling for fake trait constructors (Bartosz Dziewoński)
+* docparser: Make matching '(default: ...)' case-insensitive (Bartosz Dziewoński)
+* docparser: Tighter check for 'use' statements in PHP (Bartosz Dziewoński)
+
+
 ## v0.22.1 / 2017-05-31
 ### Code
 * WindowManager: Do not use return value of `#closeWindow` as promise (Bartosz Dziewoński)
