@@ -35,9 +35,18 @@ OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config )
 			.addClass( 'oo-ui-element-hidden' );
 	}
 
+	// Events
+	this.connect( this, {
+		change: 'onChange'
+	} );
+
 	// Initialization
 	if ( this.multiline && config.rows ) {
 		this.$input.attr( 'rows', config.rows );
+	}
+	if ( this.autosize ) {
+		this.isWaitingToBeAttached = true;
+		this.installParentChangeDetector();
 	}
 };
 
