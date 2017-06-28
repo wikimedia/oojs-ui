@@ -22,7 +22,7 @@ def cleanup_class_name class_name
 end
 
 def extract_default_from_description item
-	m = item[:description].match(/\(default: (.+?)\)\s*?$/)
+	m = item[:description].match(/\(default: (.+?)\)\s*?$/i)
 	return if !m
 	# modify `item` in-place
 	item[:default] = m[1]
