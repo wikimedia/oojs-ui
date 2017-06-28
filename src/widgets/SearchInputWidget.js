@@ -17,6 +17,11 @@ OO.ui.SearchInputWidget = function OoUiSearchInputWidget( config ) {
 	// Parent constructor
 	OO.ui.SearchInputWidget.parent.call( this, config );
 
+	// Events
+	this.connect( this, {
+		change: 'onChange'
+	} );
+
 	// Initialization
 	this.$element.addClass( 'oo-ui-textInputWidget-type-search' );
 	this.updateSearchIndicator();
@@ -62,6 +67,15 @@ OO.ui.SearchInputWidget.prototype.updateSearchIndicator = function () {
 	} else {
 		this.setIndicator( 'clear' );
 	}
+};
+
+/**
+ * Handle change events.
+ *
+ * @private
+ */
+OO.ui.SearchInputWidget.prototype.onChange = function () {
+	this.updateSearchIndicator();
 };
 
 /**
