@@ -31,7 +31,7 @@ OO.ui.TagItemWidget = function OoUiTagItemWidget( config ) {
 
 	this.closeButton = new OO.ui.ButtonWidget( {
 		framed: false,
-		indicator: 'clear',
+		icon: 'close',
 		tabIndex: -1
 	} );
 	this.closeButton.setDisabled( this.isDisabled() );
