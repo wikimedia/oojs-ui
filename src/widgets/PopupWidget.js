@@ -576,3 +576,18 @@ OO.ui.PopupWidget.prototype.setPosition = function ( position ) {
 OO.ui.PopupWidget.prototype.getPosition = function () {
 	return this.popupPosition;
 };
+
+/**
+ * Get an ID of the body element, this can be used as the
+ * `aria-describedby` attribute for an input field.
+ *
+ * @return {string} The ID of the body element
+ */
+OO.ui.PopupWidget.prototype.getBodyId = function () {
+	var id = this.$body.attr( 'id' );
+	if ( id === undefined ) {
+		id = OO.ui.generateElementId();
+		this.$body.attr( 'id', id );
+	}
+	return id;
+};
