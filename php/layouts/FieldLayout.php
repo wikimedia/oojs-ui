@@ -146,6 +146,7 @@ class FieldLayout extends Layout {
 		$listItem = new Tag( 'li' );
 		if ( $kind === 'error' ) {
 			$icon = new IconWidget( [ 'icon' => 'alert', 'flags' => [ 'warning' ] ] );
+			$listItem->setAttributes( [ 'role' => 'alert' ] );
 		} elseif ( $kind === 'notice' ) {
 			$icon = new IconWidget( [ 'icon' => 'info' ] );
 		} else {

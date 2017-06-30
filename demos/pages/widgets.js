@@ -3,6 +3,7 @@ Demo.static.pages.widgets = function ( demo ) {
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
 		textInputForLabel, labelForTextInput, radioSelectInputForLabel, labelForRadioSelectInput,
+		inputForValidation, fieldLayoutForValidation,
 		horizontalDragItems = [],
 		verticalDragItems = [],
 		verticalHandledDragItems = [],
@@ -56,6 +57,28 @@ Demo.static.pages.widgets = function ( demo ) {
 	labelForRadioSelectInput = new OO.ui.LabelWidget( {
 		label: 'Label for RadioSelectInputWidget below',
 		input: radioSelectInputForLabel
+	} );
+
+	inputForValidation = new OO.ui.TextInputWidget( {
+		validate: function ( value ) {
+			return value.length % 2 === 0;
+		}
+	} );
+
+	fieldLayoutForValidation = new OO.ui.FieldLayout( inputForValidation, {
+		align: 'top',
+		label: 'FieldLayout aligned top with validation errors',
+		help: 'Enter only even number of characters'
+	} );
+
+	inputForValidation.$input.on( 'blur', function () {
+		inputForValidation.getValidity().then( function () {
+			fieldLayoutForValidation.setErrors( [] );
+		}, function () {
+			fieldLayoutForValidation.setErrors( [
+				'Please enter an even number of characters'
+			] );
+		} );
 	} );
 
 	fieldsets = [
@@ -2515,7 +2538,8 @@ Demo.static.pages.widgets = function ( demo ) {
 						errors: [ 'The value must be a number.' ],
 						align: 'top'
 					}
-				)
+				),
+				fieldLayoutForValidation
 			]
 		} ),
 		new OO.ui.FieldsetLayout( {
