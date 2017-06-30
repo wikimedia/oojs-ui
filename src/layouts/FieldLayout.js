@@ -97,6 +97,18 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
 
 	// Initialization
+	if ( config.help ) {
+		// Set the 'aria-describedby' attribute on the fieldWidget
+		// Preference given to an input or a button
+		(
+			this.fieldWidget.$input ||
+			this.fieldWidget.$button ||
+			this.fieldWidget.$element
+		).attr(
+			'aria-describedby',
+			this.popupButtonWidget.getPopup().getBodyId()
+		);
+	}
 	if ( this.fieldWidget.getInputId() ) {
 		this.$label.attr( 'for', this.fieldWidget.getInputId() );
 	} else {
