@@ -41,7 +41,7 @@
 
 		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
 			> .oo-ui-buttonElement-button {
-				border-left-color: @border-color-disabled-filled;
+				border-left-color: @border-color-filled--disabled;
 			}
 		}
 	}
@@ -116,7 +116,7 @@
 
 		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
 			> .oo-ui-buttonElement-button {
-				border-left-color: @border-color-disabled-filled;
+				border-left-color: @border-color-filled--disabled;
 			}
 		}
 	}
@@ -215,10 +215,10 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		background-color: @background-color-disabled;
-		color: @color-disabled;
-		border-color: @border-color-disabled;
-		text-shadow: @text-shadow-disabled;
+		background-color: @background-color-base--disabled;
+		color: @color-base--disabled;
+		border-color: @border-color-base--disabled;
+		text-shadow: @text-shadow-base--disabled;
 
 		// Clear button
 		> .oo-ui-buttonElement {
@@ -307,17 +307,17 @@
 	}
 
 	&.oo-ui-widget-disabled &-handle {
-		color: @color-disabled;
-		text-shadow: @text-shadow-disabled;
-		border-color: @border-color-disabled;
-		background-color: @background-color-disabled;
+		color: @color-base--disabled;
+		text-shadow: @text-shadow-base--disabled;
+		border-color: @border-color-base--disabled;
+		background-color: @background-color-base--disabled;
 
 		> .oo-ui-iconElement-icon {
-			opacity: @opacity-disabled;
+			opacity: @opacity--disabled;
 		}
 
 		> .oo-ui-indicatorElement-indicator {
-			opacity: @opacity-disabled-indicator;
+			opacity: @opacity-indicator--disabled;
 		}
 	}
 }
@@ -374,12 +374,12 @@
 
 		&:disabled {
 			& + span {
-				background-color: @background-color-disabled-filled;
-				border-color: @border-color-disabled;
+				background-color: @background-color-filled--disabled;
+				border-color: @border-color-base--disabled;
 			}
 			&:hover + span {
-				background-color: @background-color-disabled-filled;
-				border-color: @border-color-disabled;
+				background-color: @background-color-filled--disabled;
+				border-color: @border-color-base--disabled;
 			}
 		}
 	}
@@ -517,7 +517,7 @@
 
 	&.oo-ui-widget-disabled {
 		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-disabled-filled;
+			opacity: @opacity-filled--disabled;
 		}
 	}
 }
@@ -555,7 +555,7 @@
 	&.oo-ui-widget-disabled {
 		.oo-ui-iconElement-icon,
 		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-disabled;
+			opacity: @opacity--disabled;
 		}
 	}
 }
@@ -648,17 +648,17 @@
 
 	&.oo-ui-widget-disabled {
 		.oo-ui-dropdownWidget-handle {
-			color: @color-disabled;
-			text-shadow: @text-shadow-disabled;
-			border-color: @border-color-disabled;
-			background-color: @background-color-disabled;
+			color: @color-base--disabled;
+			text-shadow: @text-shadow-base--disabled;
+			border-color: @border-color-base--disabled;
+			background-color: @background-color-base--disabled;
 
 			&:focus {
 				outline: 0;
 			}
 		}
 		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-disabled-indicator;
+			opacity: @opacity-indicator--disabled;
 		}
 	}
 }
@@ -738,9 +738,9 @@
 
 	&.oo-ui-widget-disabled {
 		select {
-			background-color: @background-color-disabled;
-			color: @color-disabled;
-			border-color: @border-color-disabled;
+			background-color: @background-color-base--disabled;
+			color: @color-base--disabled;
+			border-color: @border-color-base--disabled;
 		}
 	}
 }
@@ -751,7 +751,7 @@
 	line-height: 2.5;
 
 	&.oo-ui-widget-disabled {
-		opacity: @opacity-disabled;
+		opacity: @opacity--disabled;
 	}
 }
 
@@ -760,7 +760,7 @@
 	margin: @size-indicator / 2;
 
 	&.oo-ui-widget-disabled {
-		opacity: @opacity-disabled;
+		opacity: @opacity--disabled;
 	}
 }
 
@@ -809,7 +809,7 @@
 
 .theme-oo-ui-multioptionWidget () {
 	&.oo-ui-widget-disabled {
-		color: @color-disabled;
+		color: @color-base--disabled;
 	}
 }
 
@@ -874,7 +874,7 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		color: @color-disabled;
+		color: @color-base--disabled;
 	}
 }
 
@@ -1123,7 +1123,7 @@
 	}
 	&.oo-ui-widget-disabled {
 		.oo-ui-progressBarWidget-bar {
-			background-color: @background-color-disabled-filled;
+			background-color: @background-color-filled--disabled;
 		}
 	}
 
@@ -1206,8 +1206,8 @@
 
 		&:disabled {
 			& + span {
-				background-color: @background-color-disabled-filled;
-				border-color: @border-color-disabled;
+				background-color: @background-color-filled--disabled;
+				border-color: @border-color-base--disabled;
 			}
 
 			&:checked + span {
@@ -1386,7 +1386,7 @@
 
 	&-empty {
 		.oo-ui-selectFileWidget-label {
-			color: @color-disabled;
+			color: @color-base--disabled;
 		}
 	}
 
@@ -1472,36 +1472,36 @@
 	&.oo-ui-widget-disabled,
 	&-empty.oo-ui-widget-disabled {
 		.oo-ui-selectFileWidget-info {
-			background-color: @background-color-disabled;
-			color: @color-disabled;
-			border-color: @border-color-disabled;
-			text-shadow: @text-shadow-disabled;
+			background-color: @background-color-base--disabled;
+			color: @color-base--disabled;
+			border-color: @border-color-base--disabled;
+			text-shadow: @text-shadow-base--disabled;
 
 			> .oo-ui-iconElement-icon {
-				opacity: @opacity-disabled;
+				opacity: @opacity--disabled;
 			}
 
 			> .oo-ui-indicatorElement-indicator {
-				opacity: @opacity-disabled-indicator;
+				opacity: @opacity-indicator--disabled;
 			}
 		}
 
 		&.oo-ui-selectFileWidget-dropTarget {
-			background-color: @background-color-disabled;
-			border-color: @border-color-disabled;
+			background-color: @background-color-base--disabled;
+			border-color: @border-color-base--disabled;
 		}
 	}
 
 	&-notsupported {
 		.oo-ui-selectFileWidget-info {
-			background-color: @background-color-disabled;
+			background-color: @background-color-base--disabled;
 			color: @color-base;
-			border-color: @border-color-disabled;
+			border-color: @border-color-base--disabled;
 		}
 
 		&.oo-ui-selectFileWidget-dropTarget {
-			background-color: @background-color-disabled;
-			border-color: @border-color-disabled;
+			background-color: @background-color-base--disabled;
+			border-color: @border-color-base--disabled;
 
 			.oo-ui-selectFileWidget-label {
 				padding: 1em @padding-horizontal-base;
@@ -1636,10 +1636,10 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		background-color: @background-color-disabled;
-		color: @color-disabled;
-		border-color: @border-color-disabled;
-		text-shadow: @text-shadow-disabled;
+		background-color: @background-color-base--disabled;
+		color: @color-base--disabled;
+		border-color: @border-color-base--disabled;
+		text-shadow: @text-shadow-base--disabled;
 
 		&:focus {
 			outline: 0;
@@ -1749,17 +1749,17 @@
 	}
 
 	&.oo-ui-widget-disabled &-handle {
-		color: @color-disabled;
-		text-shadow: @text-shadow-disabled;
-		border-color: @border-color-disabled;
-		background-color: @background-color-disabled;
+		color: @color-base--disabled;
+		text-shadow: @text-shadow-base--disabled;
+		border-color: @border-color-base--disabled;
+		background-color: @background-color-base--disabled;
 
 		> .oo-ui-iconElement-icon {
-			opacity: @opacity-disabled;
+			opacity: @opacity--disabled;
 		}
 
 		> .oo-ui-indicatorElement-indicator {
-			opacity: @opacity-disabled-indicator;
+			opacity: @opacity-indicator--disabled;
 		}
 	}
 }
@@ -1855,22 +1855,22 @@
 	&.oo-ui-widget-disabled {
 		input,
 		textarea {
-			background-color: @background-color-disabled;
+			background-color: @background-color-base--disabled;
 			// Support: Safari
-			-webkit-text-fill-color: @color-disabled;
-			color: @color-disabled;
-			text-shadow: @text-shadow-disabled;
-			border-color: @border-color-disabled;
+			-webkit-text-fill-color: @color-base--disabled;
+			color: @color-base--disabled;
+			text-shadow: @text-shadow-base--disabled;
+			border-color: @border-color-base--disabled;
 		}
 
 		.oo-ui-iconElement-icon,
 		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-disabled;
+			opacity: @opacity--disabled;
 		}
 
 		> .oo-ui-labelElement-label {
-			color: @color-disabled;
-			text-shadow: @text-shadow-disabled;
+			color: @color-base--disabled;
+			text-shadow: @text-shadow-base--disabled;
 		}
 	}
 
@@ -2062,13 +2062,13 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		background-color: @background-color-disabled-filled;
-		border-color: @border-color-disabled;
+		background-color: @background-color-filled--disabled;
+		border-color: @border-color-base--disabled;
 		outline: 0; // Chrome when element has `tabindex` attribute
 
 		&.oo-ui-toggleWidget-off .oo-ui-toggleSwitchWidget-grip {
-			border: @border-disabled-filled;
-			box-shadow: @box-shadow-disabled-filled;
+			border: @border-filled--disabled;
+			box-shadow: @box-shadow-filled--disabled;
 		}
 
 		&.oo-ui-toggleWidget-on .oo-ui-toggleSwitchWidget-grip {
