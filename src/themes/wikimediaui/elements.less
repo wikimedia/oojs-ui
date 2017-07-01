@@ -170,15 +170,15 @@
 				color: @color-base;
 
 				&:hover {
-					color: @color-base-hover;
+					color: @color-base--hover;
 				}
 			}
 
 			&.oo-ui-iconElement,
 			&.oo-ui-labelElement {
 				> .oo-ui-buttonElement-button:focus {
-					border-color: @border-color-base-focus;
-					box-shadow: @box-shadow-widget-focus;
+					border-color: @border-color-base--focus;
+					box-shadow: @box-shadow-widget--focus;
 
 					&:active {
 						border-color: @border-color-frameless-fallback;
@@ -193,7 +193,7 @@
 					border-radius: @border-radius-frameless-indicator;
 
 					&:focus {
-						box-shadow: @box-shadow-frameless-indicator-focus;
+						box-shadow: @box-shadow-frameless-indicator--focus;
 
 						&:active {
 							box-shadow: none;
@@ -204,7 +204,7 @@
 
 			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
 			& > .oo-ui-buttonElement-button:active {
-				color: @color-base-active;
+				color: @color-base--active;
 				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
 				border-color: @border-color-frameless;
 				box-shadow: none;
@@ -212,16 +212,16 @@
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button',  @color-progressive, @color-progressive-hover, @color-progressive-active, @color-progressive-focus );
+					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button',  @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 				}
 
 				// Deprecated in 0.16.1, see T110555
 				&-constructive {
-					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive-hover, @color-progressive-active, @color-progressive-focus );
+					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 				}
 
 				&-destructive {
-					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive, @color-destructive-hover, @color-destructive-active, @color-destructive-focus );
+					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive, @color-destructive--hover, @color-destructive--active, @color-destructive--focus );
 				}
 			}
 
@@ -331,65 +331,65 @@
 				border-color: @border-color-base;
 
 				&:hover {
-					background-color: @background-color-framed-hover;
-					color: @color-base-hover;
-					border-color: @border-color-base-hover;
+					background-color: @background-color-framed--hover;
+					color: @color-base--hover;
+					border-color: @border-color-base--hover;
 				}
 
 				&:focus {
-					border-color: @border-color-base-focus;
-					box-shadow: @box-shadow-widget-focus;
+					border-color: @border-color-base--focus;
+					box-shadow: @box-shadow-widget--focus;
 				}
 			}
 
 			> .oo-ui-buttonElement-button:active,
 			> .oo-ui-buttonElement-button:active:focus,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-				background-color: @background-color-framed-active;
-				color: @color-base-active;
-				border-color: @border-color-base-active;
+				background-color: @background-color-framed--active;
+				color: @color-base--active;
+				border-color: @border-color-base--active;
 				box-shadow: none;
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-				background-color: @color-progressive-active;
+				background-color: @color-progressive--active;
 				color: @color-base-light;
-				border-color: @border-color-input-binary-active;
+				border-color: @border-color-input-binary--active;
 
 				&:focus {
-					border-color: @color-progressive-focus;
-					box-shadow: @box-shadow-progressive-focus;
+					border-color: @color-progressive--focus;
+					box-shadow: @box-shadow-progressive--focus;
 				}
 			}
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-framed-hover, @border-color-framed-progressive-hover, @color-progressive-active, @color-progressive-focus );
+					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-framed--hover, @border-color-framed-progressive--hover, @color-progressive--active, @color-progressive--focus );
 				}
 
 				// Deprecated in 0.16.1
 				&-constructive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-framed-hover, @border-color-framed-progressive-hover, @color-progressive-active, @color-progressive-focus );
+					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-framed--hover, @border-color-framed-progressive--hover, @color-progressive--active, @color-progressive--focus );
 				}
 
 				&-destructive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive-non-primary, @background-color-framed-hover, @border-color-framed-destructive-hover, @color-destructive-active, @color-destructive-focus );
+					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive-non-primary, @background-color-framed--hover, @border-color-framed-destructive--hover, @color-destructive--active, @color-destructive--focus );
 				}
 			}
 
 			&.oo-ui-flaggedElement-primary {
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive-hover, @color-progressive-active, @color-progressive-focus );
+						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 					}
 
 					// Deprecated in 0.16.1
 					&-constructive {
-						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive-hover, @color-progressive-active, @color-progressive-focus );
+						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 					}
 
 					&-destructive {
-						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive, @color-destructive-hover, @color-destructive-active, @color-destructive-focus );
+						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive, @color-destructive--hover, @color-destructive--active, @color-destructive--focus );
 					}
 				}
 

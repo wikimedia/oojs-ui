@@ -5,32 +5,32 @@
 @oo-ui-font-size-base: 0.8em; // equals `12.8px` at browser default of `16px`
 
 @background-color-base: #fff;
-@background-color-base-hover: #eaecf0;
+@background-color-base--hover: #eaecf0;
 @background-color-readonly: #f8f9fa;
 
 @color-base: #222;
-@color-base-hover: #444;
-@color-base-active: #000;
+@color-base--hover: #444;
+@color-base--active: #000;
 @color-base-light: #fff;
-@color-emphasized: @color-base-active;
+@color-emphasized: @color-base--active;
 @color-placeholder: #72777d; // equals HSB 210°/9%/49%, aligns to WCAG 2.0 level AA at 4.52:1 contrast ratio
 @color-subtle: #72777d;
 
 // Primary 'Progressive' and 'Destructive' Colors
 @background-color-progressive: #eaf3ff;
-@background-color-progressive-hover: rgba( 41, 98, 204, 0.1 );
+@background-color-progressive--hover: rgba( 41, 98, 204, 0.1 );
 @color-progressive: #36c; // equals HSB 220°/75%/80%
-@color-progressive-hover: #447ff5; // equals HSB 220°/72%/96%
-@color-progressive-active: #2a4b8d; // equals HSB 220°/70%/55%
-@color-progressive-active-hover: @color-progressive;
-@color-progressive-focus: @color-progressive;
+@color-progressive--hover: #447ff5; // equals HSB 220°/72%/96%
+@color-progressive--active: #2a4b8d; // equals HSB 220°/70%/55%
+@color-progressive--active-hover: @color-progressive;
+@color-progressive--focus: @color-progressive;
 
 @background-color-destructive: #fee7e6;
 @color-destructive: #d33; // equals HSB 360°/77%/87%
+@color-destructive--hover: #ff4242; // equals HSB 360°/74%/100%
+@color-destructive--active: #b32424; // equals HSB 360°/80%/70%
+@color-destructive--focus: @color-destructive;
 @color-destructive-non-primary: #d73333; // Exemption for non-primary buttons, foremost used in VE, lightened up R50 to align to AA contrast ratio
-@color-destructive-hover: #ff4242; // equals HSB 360°/74%/100%
-@color-destructive-active: #b32424; // equals HSB 360°/80%/70%
-@color-destructive-focus: @color-destructive;
 
 // Disabled Widgets
 @background-color-disabled: #eaecf0;
@@ -47,18 +47,18 @@
 
 // "Framed" Widgets (Framed ButtonWidget, ToggleSwitchWidget...)
 @background-color-framed: #f8f9fa;
-@background-color-framed-hover: @background-color-base; // equals `lighten( #f8f9fa, 10% )`, although `2%` is already resulting in `#fff`
-@background-color-framed-active: #c8ccd1;
+@background-color-framed--hover: @background-color-base; // equals `lighten( #f8f9fa, 10% )`, although `2%` is already resulting in `#fff`
+@background-color-framed--active: #c8ccd1;
 
 // Tabbed Navigation
 @background-color-tabs: #eaecf0;
 
 // Toolbar, Tools & Menus
 @background-color-toolbar: @background-color-base;
-@background-color-tool-hover: @background-color-base-hover;
-@background-color-tool-active: @background-color-progressive;
-@background-color-tool-active-hover: @background-color-progressive-hover;
-@color-tool-active: @color-progressive;
+@background-color-tool--hover: @background-color-base--hover;
+@background-color-tool--active: @background-color-progressive;
+@background-color-tool--active-hover: @background-color-progressive--hover;
+@color-tool--active: @color-progressive;
 @border-toolbar: @border-width-base solid #c8ccd1;
 
 // Box Sizes
@@ -119,24 +119,24 @@
 @border-menu: @border-base;
 
 @border-color-base: #a2a9b1;
-@border-color-base-hover: #a2a9b1;
-@border-color-base-active: #72777d;
-@border-color-base-focus: @color-progressive-focus;
+@border-color-base--hover: #a2a9b1;
+@border-color-base--active: #72777d;
+@border-color-base--focus: @color-progressive--focus;
 @border-color-disabled: #c8ccd1;
 @border-color-disabled-filled: @color-disabled-filled;
-@border-color-framed-progressive-hover: @color-progressive-hover;
-@border-color-framed-destructive-hover: @color-destructive-hover;
+@border-color-framed-progressive--hover: @color-progressive--hover;
+@border-color-framed-destructive--hover: @color-destructive--hover;
 @border-color-frameless: transparent;
 @border-color-frameless-fallback: @color-base-light; // Support IE 6: `transparent` is not rendered correctly
 
 @border-color-focus-inset: @color-base-light;
 @border-color-erroneous: @color-erroneous;
 @border-color-readonly: #c8ccd1;
-@border-color-input-hover: @border-color-base-active;
+@border-color-input--hover: @border-color-base--active;
 @border-color-dialog-bar: #c8ccd1;
 
 @border-radius-base: 2px;
-@border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator-focus` it results in well rounded border
+@border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
 
 @border-style-base: solid;
 
@@ -177,12 +177,12 @@
 @box-shadow-toolbar-top: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-widget: inset 0 0 0 1px transparent;
-@box-shadow-widget-focus: inset 0 0 0 1px @color-progressive;
-@box-shadow-progressive-focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-base-light;
-@box-shadow-frameless-indicator-focus: 0 0 0 2px @color-progressive;
-@box-shadow-action-focus: @box-shadow-widget-focus, 0 0 0 1px @color-progressive;
-@box-shadow-input-binary-active: inset 0 0 0 1px @color-progressive-active;
-@box-shadow-erroneous-focus: inset 0 0 0 1px @color-erroneous;
+@box-shadow-widget--focus: inset 0 0 0 1px @color-progressive;
+@box-shadow-progressive--focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-base-light;
+@box-shadow-frameless-indicator--focus: 0 0 0 2px @color-progressive;
+@box-shadow-action--focus: @box-shadow-widget--focus, 0 0 0 1px @color-progressive;
+@box-shadow-input-binary--active: inset 0 0 0 1px @color-progressive--active;
+@box-shadow-erroneous--focus: inset 0 0 0 1px @color-erroneous;
 @box-shadow-disabled-filled: inset 0 0 0 1px @color-disabled-filled;
 
 @font-size-fieldset-header: 1.15em; // equals `16.1px` at base `font-size: 12.8px`. Todo: Not able to get unified `16px` due to T
@@ -212,12 +212,12 @@
 @transition-ease-out-sine-medium: 200ms cubic-bezier( 0.39, 0.575, 0.565, 1 );
 
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
-@background-color-input-binary-active: @color-progressive-active;
+@background-color-input-binary--active: @color-progressive--active;
 @background-color-input-binary-on: @color-progressive;
 @size-input-binary: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @border-input-binary: @border-width-base solid @border-color-input-binary;
-@border-color-input-binary: @border-color-base-active;
-@border-color-input-binary-active: @color-progressive-active;
+@border-color-input-binary: @border-color-base--active;
+@border-color-input-binary--active: @color-progressive--active;
 @border-color-input-binary-on: @color-progressive;
 @padding-start-input-binary-label: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
@@ -258,14 +258,14 @@
 	}
 }
 
-.mw-framed-button-colored( @child, @link, @hover, @border-color-hover, @active, @focus ) {
+.mw-framed-button-colored( @child, @link, @hover, @border-color--hover, @active, @focus ) {
 	> @{child} {
 		color: @link;
 	}
 
 	> @{child}:hover {
 		background-color: @hover;
-		border-color: @border-color-hover;
+		border-color: @border-color--hover;
 	}
 
 	> @{child}:active,
