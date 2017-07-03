@@ -82,6 +82,7 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-windowManager' )
+		.attr( 'aria-hidden', true )
 		.toggleClass( 'oo-ui-windowManager-modal', this.modal );
 };
 
@@ -748,20 +749,33 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
  * @chainable
  */
 OO.ui.WindowManager.prototype.toggleAriaIsolation = function ( isolate ) {
+	var $topLevelElement;
 	isolate = isolate === undefined ? !this.$ariaHidden : !!isolate;
 
 	if ( isolate ) {
 		if ( !this.$ariaHidden ) {
+			// Find the top level element containing the window manager or the
+			// window manager's element itself in case its a direct child of body
+			$topLevelElement = this.$element.parentsUntil( 'body' ).last();
+			$topLevelElement = $topLevelElement.length === 0 ? this.$element : $topLevelElement;
+
+			// In case previously set by another window manager
+			this.$element.removeAttr( 'aria-hidden' );
+
 			// Hide everything other than the window manager from screen readers
 			this.$ariaHidden = $( 'body' )
 				.children()
-				.not( this.$element.parentsUntil( 'body' ).last() )
-				.attr( 'aria-hidden', '' );
+				.not( 'script' )
+				.not( $topLevelElement )
+				.attr( 'aria-hidden', true );
 		}
 	} else if ( this.$ariaHidden ) {
 		// Restore screen reader visibility
 		this.$ariaHidden.removeAttr( 'aria-hidden' );
 		this.$ariaHidden = null;
+
+		// and hide the window manager
+		this.$element.attr( 'aria-hidden', true );
 	}
 
 	return this;
