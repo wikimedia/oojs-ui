@@ -158,6 +158,10 @@ OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
  */
 OO.ui.DropdownWidget.prototype.onMenuToggle = function ( isVisible ) {
 	this.$element.toggleClass( 'oo-ui-dropdownWidget-open', isVisible );
+	this.$handle.attr(
+		'aria-expanded',
+		this.$element.hasClass( 'oo-ui-dropdownWidget-open' ).toString()
+	);
 };
 
 /**
