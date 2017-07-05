@@ -11,7 +11,7 @@
 @color-base: #222;
 @color-base--hover: #444;
 @color-base--active: #000;
-@color-base-light: #fff;
+@color-base--inverted: #fff;
 @color-emphasized: @color-base--active;
 @color-placeholder: #72777d; // equals HSB 210°/9%/49%, aligns to WCAG 2.0 level AA at 4.52:1 contrast ratio
 @color-subtle: #72777d;
@@ -36,7 +36,7 @@
 @background-color-base--disabled: #eaecf0;
 @background-color-filled--disabled: #c8ccd1;
 @color-base--disabled: #72777d;
-@color-filled--disabled: @color-base-light;
+@color-filled--disabled: @color-base--inverted;
 @opacity--disabled: 0.51; // `0.51` equals `#7d7d7d` on background-color `#fff`, HSB 0°/0%/49%
 @opacity-filled--disabled: 1;
 @opacity-indicator--disabled: 0.15; // equals `#c7c8cc` on background-color `#fff`
@@ -127,9 +127,9 @@
 @border-color-framed-progressive--hover: @color-progressive--hover;
 @border-color-framed-destructive--hover: @color-destructive--hover;
 @border-color-frameless: transparent;
-@border-color-frameless-fallback: @color-base-light; // Support IE 6: `transparent` is not rendered correctly
+@border-color-frameless-fallback: @color-base--inverted; // Support IE 6: `transparent` is not rendered correctly
 
-@border-color-focus-inset: @color-base-light;
+@border-color-focus-inset: @color-base--inverted;
 @border-color-erroneous: @color-erroneous;
 @border-color-base--read-only: #c8ccd1;
 @border-color-input--hover: @border-color-base--active;
@@ -178,7 +178,7 @@
 @box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-widget: inset 0 0 0 1px transparent;
 @box-shadow-widget--focus: inset 0 0 0 1px @color-progressive;
-@box-shadow-progressive--focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-base-light;
+@box-shadow-progressive--focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-base--inverted;
 @box-shadow-frameless-indicator--focus: 0 0 0 2px @color-progressive;
 @box-shadow-action--focus: @box-shadow-widget--focus, 0 0 0 1px @color-progressive;
 @box-shadow-input-binary--active: inset 0 0 0 1px @color-progressive--active;
@@ -197,7 +197,7 @@
 @line-height-widget-singleline: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
 @line-height-tagmultiselect-input: 1.563em; // equals `20px` at base `font-size: 12.8px`
 
-@text-shadow-base: 0 1px 1px @color-base-light; // 'coined' effect
+@text-shadow-base: 0 1px 1px @color-base--inverted; // 'coined' effect
 @text-shadow-base--disabled: @text-shadow-base;
 
 @opacity-icon-base: 0.87; // equals `#222` on background-color `#fff`
@@ -288,7 +288,7 @@
 
 .mw-framed-primary-button-colored( @child, @link, @hover, @active, @focus ) {
 	> @{child} {
-		color: @color-base-light;
+		color: @color-base--inverted;
 		background-color: @link;
 		border-color: @link;
 	}
@@ -303,7 +303,7 @@
 	&.oo-ui-buttonElement-pressed > @{child},
 	&.oo-ui-buttonElement-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
-		color: @color-base-light;
+		color: @color-base--inverted;
 		background-color: @active;
 		border-color: @active;
 		box-shadow: none;
@@ -311,7 +311,7 @@
 
 	> @{child}:focus {
 		border-color: @focus;
-		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base-light;
+		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base--inverted;
 		outline: 0;
 	}
 }
