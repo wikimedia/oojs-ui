@@ -35,12 +35,11 @@ trait FlaggedElement {
 		// Initialization
 		$this->setFlags( isset( $config['flags'] ) ? $config['flags'] : null );
 
-		$this->registerConfigCallback( function( &$config ) {
+		$this->registerConfigCallback( function ( &$config ) {
 			if ( !empty( $this->flags ) ) {
 				$config['flags'] = $this->getFlags();
 			}
 		} );
-
 	}
 
 	/**

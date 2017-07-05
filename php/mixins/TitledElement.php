@@ -36,12 +36,11 @@ trait TitledElement {
 			isset( $config['title'] ) ? $config['title'] : null
 		);
 
-		$this->registerConfigCallback( function( &$config ) {
+		$this->registerConfigCallback( function ( &$config ) {
 			if ( $this->title !== null ) {
 				$config['title'] = $this->title;
 			}
 		} );
-
 	}
 
 	/**

@@ -37,7 +37,7 @@ trait AccessKeyedElement {
 		$this->setAccessKey(
 			isset( $config['accessKey'] ) ? $config['accessKey'] : null
 		);
-		$this->registerConfigCallback( function( &$config ) {
+		$this->registerConfigCallback( function ( &$config ) {
 			if ( $this->accessKey !== null ) {
 				$config['accessKey'] = $this->accessKey;
 			}

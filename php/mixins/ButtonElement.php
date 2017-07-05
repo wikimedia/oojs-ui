@@ -48,7 +48,7 @@ trait ButtonElement {
 			] );
 		}
 
-		$this->registerConfigCallback( function( &$config ) {
+		$this->registerConfigCallback( function ( &$config ) {
 			if ( $this->framed !== true ) {
 				$config['framed'] = $this->framed;
 			}

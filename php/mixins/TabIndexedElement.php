@@ -32,12 +32,11 @@ trait TabIndexedElement {
 		// Initialization
 		$this->setTabIndex( isset( $config['tabIndex'] ) ? $config['tabIndex'] : 0 );
 
-		$this->registerConfigCallback( function( &$config ) {
+		$this->registerConfigCallback( function ( &$config ) {
 			if ( $this->tabIndex !== 0 ) {
 				$config['tabIndex'] = $this->tabIndex;
 			}
 		} );
-
 	}
 
 	/**
