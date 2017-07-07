@@ -15,7 +15,7 @@ class HiddenInputWidget extends Widget {
 	/**
 	 * DataWidget constructor.
 	 *
-	 * @param array $config
+	 * @param array $config Configuration options
 	 * @param string $config['value'] The data the input contains. (default: '')
 	 * @param string $config['name'] The name of the hidden input. (default: '')
 	 */

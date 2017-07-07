@@ -9,10 +9,12 @@
 	require_once $autoload;
 	require_once 'classes/ButtonStyleShowcaseWidget.php';
 
+	// @codingStandardsIgnoreStart MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment
 	$themes = [
 		'wikimediaui' => 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 		'apex' => 'Apex',
 	];
+	// @codingStandardsIgnoreEnd MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment
 	$theme = ( isset( $_GET['theme'] ) && isset( $themes[ $_GET['theme'] ] ) )
 		? $_GET['theme'] : 'wikimediaui';
 	$themeClass = 'OOUI\\' . $themes[ $theme ] . 'Theme';

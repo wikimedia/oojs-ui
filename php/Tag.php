@@ -62,7 +62,7 @@ class Tag {
 	/**
 	 * Check for CSS class.
 	 *
-	 * @param string $name CSS class name
+	 * @param string $class CSS class name
 	 * @return boolean
 	 */
 	public function hasClass( $class ) {

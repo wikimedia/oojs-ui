@@ -145,7 +145,7 @@ class InputWidget extends Widget {
 	/**
 	 * Set the 'id' attribute of the `<input>` element.
 	 *
-	 * @param string $id
+	 * @param string $id The ID of the input element
 	 * @return $this
 	 */
 	public function setInputId( $id ) {
