@@ -61,4 +61,3 @@ class ElementTest extends TestCase {
 		$this->assertEquals( $expected, Element::configFromHtmlAttributes( $attrs ) );
 	}
 }
-
