@@ -323,6 +323,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.$bar
 		.addClass( 'oo-ui-toolbar-bar' )
 		.append( this.$group, '<div style="clear:both"></div>' );
+	// Possible classes: oo-ui-toolbar-position-top, oo-ui-toolbar-position-bottom
 	this.$element.addClass( 'oo-ui-toolbar oo-ui-toolbar-position-' + this.position ).append( this.$bar );
 };
 
