@@ -86,7 +86,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 
 	// Properties
 	this.$anchor = $( '<div>' );
-	// If undefined, will be computed lazily in updateDimensions()
+	// If undefined, will be computed lazily in computePosition()
 	this.$container = config.$container;
 	this.containerPadding = config.containerPadding !== undefined ? config.containerPadding : 10;
 	this.autoClose = !!config.autoClose;
