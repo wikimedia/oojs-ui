@@ -194,7 +194,7 @@ OO.ui.WindowManager.prototype.afterWindowResize = function () {
  */
 OO.ui.WindowManager.prototype.isOpening = function ( win ) {
 	return win === this.currentWindow && !!this.lifecycle &&
-		this.lifecycle.opened.state() === 'pending';
+		this.lifecycle.isOpening();
 };
 
 /**
@@ -205,8 +205,7 @@ OO.ui.WindowManager.prototype.isOpening = function ( win ) {
  */
 OO.ui.WindowManager.prototype.isClosing = function ( win ) {
 	return win === this.currentWindow && !!this.lifecycle &&
-		this.lifecycle.closing.state() === 'resolved' &&
-		this.lifecycle.closed.state() === 'pending';
+		this.lifecycle.isClosing();
 };
 
 /**
@@ -217,8 +216,7 @@ OO.ui.WindowManager.prototype.isClosing = function ( win ) {
  */
 OO.ui.WindowManager.prototype.isOpened = function ( win ) {
 	return win === this.currentWindow && !!this.lifecycle &&
-		this.lifecycle.opened.state() === 'resolved' &&
-		this.lifecycle.closing.state() === 'pending';
+		this.lifecycle.isOpened();
 };
 
 /**
@@ -347,7 +345,8 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  * @fires opening
  */
 OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, compatOpening ) {
-	var manager = this;
+	var error,
+		manager = this;
 	data = data || {};
 
 	// Internal parameter 'lifecycle' allows this method to always return
@@ -384,21 +383,16 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 
 	// Error handling
 	if ( !this.hasWindow( win ) ) {
-		compatOpening.reject( new OO.ui.Error(
-			'Cannot open window: window is not attached to manager'
-		) );
-		lifecycle.deferreds.opening.reject( new OO.ui.Error(
-			'Cannot open window: window is not attached to manager'
-		) );
-		return lifecycle;
+		error = 'Cannot open window: window is not attached to manager';
+	} else if ( this.lifecycle && this.lifecycle.isOpened() ) {
+		error = 'Cannot open window: another window is open';
+	} else if ( this.preparingToOpen || ( this.lifecycle && this.lifecycle.isOpening() ) ) {
+		error = 'Cannot open window: another window is opening';
 	}
-	if ( this.preparingToOpen || ( this.lifecycle && this.lifecycle.closing.state() !== 'resolved' ) ) {
-		compatOpening.reject( new OO.ui.Error(
-			'Cannot open window: another window is opening or open'
-		) );
-		lifecycle.deferreds.opening.reject( new OO.ui.Error(
-			'Cannot open window: another window is opening or open'
-		) );
+
+	if ( error ) {
+		compatOpening.reject( new OO.ui.Error( error ) );
+		lifecycle.deferreds.opening.reject( new OO.ui.Error( error ) );
 		return lifecycle;
 	}
 
@@ -472,9 +466,9 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		error = 'Cannot close window: no window is currently open';
 	} else if ( !win ) {
 		error = 'Cannot close window: window is not attached to manager';
-	} else if ( win !== this.currentWindow ) {
+	} else if ( win !== this.currentWindow || this.lifecycle.isClosed() ) {
 		error = 'Cannot close window: window already closed with different data';
-	} else if ( this.preparingToClose || lifecycle.deferreds.closing.state() === 'resolved' ) {
+	} else if ( this.preparingToClose || this.lifecycle.isClosing() ) {
 		error = 'Cannot close window: window already closing with different data';
 	}
 

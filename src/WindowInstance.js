@@ -58,3 +58,41 @@ OO.ui.WindowInstance = function OOuiWindowInstance() {
 /* Setup */
 
 OO.initClass( OO.ui.WindowInstance );
+
+/**
+ * Check if window is opening.
+ *
+ * @return {boolean} Window is opening
+ */
+OO.ui.WindowInstance.prototype.isOpening = function () {
+	return this.deferreds.opened.state() === 'pending';
+};
+
+/**
+ * Check if window is opened.
+ *
+ * @return {boolean} Window is opened
+ */
+OO.ui.WindowInstance.prototype.isOpened = function () {
+	return this.deferreds.opened.state() === 'resolved' &&
+		this.deferreds.closing.state() === 'pending';
+};
+
+/**
+ * Check if window is closing.
+ *
+ * @return {boolean} Window is closing
+ */
+OO.ui.WindowInstance.prototype.isClosing = function () {
+	return this.deferreds.closing.state() === 'resolved' &&
+		this.deferreds.closed.state() === 'pending';
+};
+
+/**
+ * Check if window is closed.
+ *
+ * @return {boolean} Window is closed
+ */
+OO.ui.WindowInstance.prototype.isClosed = function () {
+	return this.deferreds.closed.state() === 'resolved';
+};
