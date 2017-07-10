@@ -474,7 +474,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		error = 'Cannot close window: window is not attached to manager';
 	} else if ( win !== this.currentWindow ) {
 		error = 'Cannot close window: window already closed with different data';
-	} else if ( this.preparingToClose || lifecycle.closing.state() === 'resolved' ) {
+	} else if ( this.preparingToClose || lifecycle.deferreds.closing.state() === 'resolved' ) {
 		error = 'Cannot close window: window already closing with different data';
 	}
 
