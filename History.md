@@ -1,4 +1,37 @@
 # OOjs UI Release History
+## v0.22.3 / 2017-07-11
+### Features
+* Tag-/CapsuleMultiselectWidget: Avoid visual focusTrap feedback (Volker E.)
+* WindowManager: Avoid inconsistent state due to asynchronous promise resolution (Bartosz Dziewoński)
+* WindowManager: fix closing promise state check (David Lynch)
+
+### Styles
+* icons: Align ongoingConversation to grid (Ed Sanders)
+* icons: Replace the puzzle icon, using the one from VisualEditor (James D. Forrester)
+* icons: Vertically center mapPin icon (Volker E.)
+* Apex theme: Add 'article' icon, copied from WikimediaUI (Moriel Schottlender)
+
+### Code
+* DropdownWidget, MenuSelectWidget: Set `aria-expanded` attribute (Prateek Saxena)
+* FieldLayout: Add `role='alert'` for error messages (Prateek Saxena)
+* FieldLayout: Set `aria-describedby` on the fieldWidget (Prateek Saxena)
+* PopupWidget: Update function name in a comment (Bartosz Dziewoński)
+* TagMultiselectWidget: Skip `updateInputSize()` for invisible inputs (Roan Kattouw)
+* Toolbar: Add comment for greppability of dynamic CSS classes (Bartosz Dziewoński)
+* themes: Align read-only variable names to pseudo-class selector scheme (Volker E.)
+* themes: Align variable names to WikimediaUI Base scheme (Volker E.)
+* WikimediaUI theme: Align `@opacity-icon*` variable names to WikimediaUI Base (Volker E.)
+* WikimediaUI theme: Align checked variable names to pseudo-class scheme (Volker E.)
+* WikimediaUI theme: Align disabled variable names to pseudo-class scheme (Volker E.)
+* WikimediaUI theme: Align variable pseudo classes names to WikimediaUI Base (Volker E.)
+* WikimediaUI theme: Replace `@color-base-light` with `@color-base--inverted` (Volker E.)
+* WikimediaUI theme: Variablize PopupWidget values (Volker E.)
+* WikimediaUI theme: Pull in the upstream WikimediaUI package (James D. Forrester)
+* build: Updating mediawiki/mediawiki-codesniffer to 0.10.0 (Kunal Mehta)
+* phpcs: Enable more rules, or document why they are disabled (Bartosz Dziewoński)
+* testsuitegenerator: Blacklist deprecated `multiline` config option (Bartosz Dziewoński)
+
+
 ## v0.22.2 / 2017-06-28
 ### Deprecations
 * [DEPRECATING CHANGE] TextInputWidget: Move multi-line support out (Prateek Saxena)
