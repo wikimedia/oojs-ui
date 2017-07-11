@@ -125,8 +125,8 @@
 		&:focus {
 			.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
 				.oo-ui-buttonElement-button {
-					border-color: @border-color-base-focus;
-					box-shadow: @box-shadow-progressive-focus;
+					border-color: @border-color-base--focus;
+					box-shadow: @box-shadow-progressive--focus;
 				}
 			}
 		}
@@ -174,14 +174,14 @@
 		);
 
 		&:hover {
-			background-color: @background-color-framed-hover;
-			color: @color-base-hover;
-			border-color: @border-color-base-hover;
+			background-color: @background-color-framed--hover;
+			color: @color-base--hover;
+			border-color: @border-color-base--hover;
 		}
 
 		&:focus {
-			border-color: @border-color-base-focus;
-			box-shadow: @box-shadow-widget-focus;
+			border-color: @border-color-base--focus;
+			box-shadow: @box-shadow-widget--focus;
 			outline: 0;
 		}
 
@@ -298,12 +298,12 @@
 		);
 	}
 	&.oo-ui-widget-enabled:hover &-handle {
-		border-color: @border-color-input-hover;
+		border-color: @border-color-input--hover;
 	}
 	&.oo-ui-widget-enabled.oo-ui-capsuleMultiselectWidget-open &-handle {
-		border-color: @border-color-base-focus;
+		border-color: @border-color-base--focus;
 		outline: 0;
-		box-shadow: @box-shadow-widget-focus;
+		box-shadow: @box-shadow-widget--focus;
 	}
 
 	&.oo-ui-widget-disabled &-handle {
@@ -404,14 +404,14 @@
 
 		&:active + span,
 		&:active:focus + span {
-			background-color: @color-progressive-active;
-			border-color: @border-color-input-binary-active;
-			box-shadow: @box-shadow-input-binary-active;
+			background-color: @color-progressive--active;
+			border-color: @border-color-input-binary--active;
+			box-shadow: @box-shadow-input-binary--active;
 		}
 
 		&:focus + span {
 			border-color: @color-progressive;
-			box-shadow: @box-shadow-widget-focus;
+			box-shadow: @box-shadow-widget--focus;
 		}
 
 		&:checked {
@@ -422,22 +422,22 @@
 
 			&:hover + span,
 			&:focus:hover + span {
-				background-color: @color-progressive-hover;
-				border-color: @color-progressive-hover;
+				background-color: @color-progressive--hover;
+				border-color: @color-progressive--hover;
 			}
 
 			&:active + span,
 			&:active:hover + span,
 			&:active:focus + span {
-				background-color: @background-color-input-binary-active;
-				border-color: @border-color-input-binary-active;
-				box-shadow: @box-shadow-input-binary-active;
+				background-color: @background-color-input-binary--active;
+				border-color: @border-color-input-binary--active;
+				box-shadow: @box-shadow-input-binary--active;
 			}
 
 			&:focus + span {
 				background-color: @background-color-input-binary-on;
 				border-color: @border-color-input-binary-on;
-				box-shadow: @box-shadow-progressive-focus;
+				box-shadow: @box-shadow-progressive--focus;
 			}
 		}
 	}
@@ -604,9 +604,9 @@
 			);
 
 			&:hover {
-				background-color: @background-color-framed-hover;
-				color: @color-base-hover;
-				border-color: @border-color-base-hover;
+				background-color: @background-color-framed--hover;
+				color: @color-base--hover;
+				border-color: @border-color-base--hover;
 
 				.oo-ui-iconElement-icon,
 				.oo-ui-indicatorElement-indicator {
@@ -615,14 +615,14 @@
 			}
 
 			&:active {
-				color: @color-base-active;
-				border-color: @border-color-base-active;
+				color: @color-base--active;
+				border-color: @border-color-base--active;
 			}
 
 			&:focus {
-				border-color: @border-color-base-focus;
+				border-color: @border-color-base--focus;
 				outline: 0;
-				box-shadow: @box-shadow-widget-focus;
+				box-shadow: @box-shadow-widget--focus;
 			}
 
 			.oo-ui-iconElement-icon,
@@ -636,7 +636,7 @@
 
 		&.oo-ui-dropdownWidget-open {
 			.oo-ui-dropdownWidget-handle {
-				background-color: @background-color-framed-hover;
+				background-color: @background-color-framed--hover;
 
 				.oo-ui-iconElement-icon,
 				.oo-ui-indicatorElement-indicator {
@@ -718,20 +718,20 @@
 			);
 
 			&:hover {
-				background-color: @background-color-framed-hover;
-				color: @color-base-hover;
-				border-color: @border-color-base-hover;
+				background-color: @background-color-framed--hover;
+				color: @color-base--hover;
+				border-color: @border-color-base--hover;
 			}
 
 			&:active {
-				color: @color-base-active;
-				border-color: @border-color-base-active;
+				color: @color-base--active;
+				border-color: @border-color-base--active;
 			}
 
 			&:focus {
-				border-color: @border-color-base-focus;
+				border-color: @border-color-base--focus;
 				outline: 0;
-				box-shadow: @box-shadow-widget-focus;
+				box-shadow: @box-shadow-widget--focus;
 			}
 		}
 	}
@@ -778,7 +778,7 @@
 
 	&.oo-ui-optionWidget {
 		&-highlighted {
-			background-color: @background-color-base-hover;
+			background-color: @background-color-base--hover;
 			color: @color-emphasized;
 		}
 		&-selected {
@@ -787,7 +787,7 @@
 		}
 		&-selected&-highlighted,
 		&-pressed&-highlighted {
-			background-color: @background-color-progressive-hover;
+			background-color: @background-color-progressive--hover;
 			color: @color-progressive;
 		}
 	}
@@ -905,7 +905,7 @@
 	);
 
 	&.oo-ui-optionWidget-highlighted {
-		background-color: @background-color-base-hover;
+		background-color: @background-color-base--hover;
 		color: @color-emphasized;
 	}
 
@@ -915,7 +915,7 @@
 	}
 
 	&.oo-ui-optionWidget-pressed {
-		background-color: @background-color-progressive-hover;
+		background-color: @background-color-progressive--hover;
 		color: @color-progressive;
 	}
 
@@ -1233,8 +1233,8 @@
 		}
 
 		&:active + span {
-			background-color: @background-color-input-binary-active;
-			border-color: @border-color-input-binary-active;
+			background-color: @background-color-input-binary--active;
+			border-color: @border-color-input-binary--active;
 		}
 
 		&:checked {
@@ -1244,16 +1244,16 @@
 
 			&:hover + span,
 			&:hover:focus + span {
-				border-color: @color-progressive-hover;
+				border-color: @color-progressive--hover;
 			}
 
 			&:active + span,
 			&:active:focus + span {
-				border-color: @border-color-input-binary-active;
-				box-shadow: @box-shadow-input-binary-active;
+				border-color: @border-color-input-binary--active;
+				box-shadow: @box-shadow-input-binary--active;
 
 				&:before {
-					border-color: @border-color-input-binary-active;
+					border-color: @border-color-input-binary--active;
 				}
 			}
 
@@ -1457,7 +1457,7 @@
 			);
 
 			&:hover {
-				border-color: @border-color-input-hover;
+				border-color: @border-color-input--hover;
 			}
 		}
 	}
@@ -1465,7 +1465,7 @@
 	&-supported.oo-ui-widget-enabled {
 		&.oo-ui-selectFileWidget-canDrop.oo-ui-selectFileWidget-dropTarget {
 			background-color: @background-color-progressive;
-			color: @color-progressive-active-hover;
+			color: @color-progressive--active-hover;
 		}
 	}
 
@@ -1532,7 +1532,7 @@
 
 	&.oo-ui-optionWidget-selected {
 		background-color: @background-color-base;
-		color: @color-base-active;
+		color: @color-base--active;
 	}
 
 	.oo-ui-labelElement-label {
@@ -1582,14 +1582,14 @@
 		);
 
 		&:hover {
-			background-color: @background-color-framed-hover;
-			color: @color-base-hover;
-			border-color: @border-color-base-hover;
+			background-color: @background-color-framed--hover;
+			color: @color-base--hover;
+			border-color: @border-color-base--hover;
 		}
 
 		&:focus {
-			border-color: @border-color-base-focus;
-			box-shadow: @box-shadow-widget-focus;
+			border-color: @border-color-base--focus;
+			box-shadow: @box-shadow-widget--focus;
 			outline: 0;
 		}
 
@@ -1602,7 +1602,7 @@
 
 			&:focus {
 				border-color: @border-color-erroneous;
-				box-shadow: @box-shadow-erroneous-focus;
+				box-shadow: @box-shadow-erroneous--focus;
 			}
 		}
 
@@ -1719,13 +1719,13 @@
 
 		&.oo-ui-tagMultiselectWidget-inlined {
 			&:hover .oo-ui-tagMultiselectWidget-handle {
-				border-color: @border-color-input-hover;
+				border-color: @border-color-input--hover;
 			}
 
 			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
-				border-color: @border-color-base-focus;
+				border-color: @border-color-base--focus;
 				outline: 0;
-				box-shadow: @box-shadow-widget-focus;
+				box-shadow: @box-shadow-widget--focus;
 			}
 		}
 
@@ -1803,12 +1803,12 @@
 			);
 
 			&:hover {
-				border-color: @border-color-input-hover;
+				border-color: @border-color-input--hover;
 			}
 			&:focus {
 				outline: 0;
-				border-color: @border-color-base-focus;
-				box-shadow: @box-shadow-widget-focus;
+				border-color: @border-color-base--focus;
+				box-shadow: @box-shadow-widget--focus;
 			}
 
 			&[readonly] {
@@ -1818,7 +1818,7 @@
 					border-color: @border-color-readonly;
 				}
 				&:focus {
-					border-color: @border-color-base-focus;
+					border-color: @border-color-base--focus;
 				}
 			}
 
@@ -1846,7 +1846,7 @@
 				}
 				&:focus {
 					border-color: @border-color-erroneous;
-					box-shadow: @box-shadow-erroneous-focus;
+					box-shadow: @box-shadow-erroneous--focus;
 				}
 			}
 		}
@@ -2001,20 +2001,20 @@
 		}
 
 		&:hover {
-			background-color: @background-color-framed-hover;
-			border-color: @color-progressive-hover;
+			background-color: @background-color-framed--hover;
+			border-color: @color-progressive--hover;
 
 			.oo-ui-toggleSwitchWidget-grip {
-				background-color: @background-color-framed-hover;
-				border-color: @color-progressive-hover;
+				background-color: @background-color-framed--hover;
+				border-color: @color-progressive--hover;
 			}
 		}
 		&:active,
 		&:active:hover,
 		&:active:focus {
-			background-color: @background-color-input-binary-active;
-			border-color: @border-color-input-binary-active;
-			box-shadow: @box-shadow-input-binary-active;
+			background-color: @background-color-input-binary--active;
+			border-color: @border-color-input-binary--active;
+			box-shadow: @box-shadow-input-binary--active;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-base;
@@ -2024,7 +2024,7 @@
 		}
 		&:focus {
 			border-color: @color-progressive;
-			box-shadow: @box-shadow-widget-focus;
+			box-shadow: @box-shadow-widget--focus;
 			outline: 0;
 
 			.oo-ui-toggleSwitchWidget-grip {
@@ -2043,13 +2043,13 @@
 			}
 
 			&:hover {
-				background-color: @color-progressive-hover;
-				border-color: @color-progressive-hover;
+				background-color: @color-progressive--hover;
+				border-color: @color-progressive--hover;
 			}
 			&:active,
 			&:active:hover {
-				background-color: @background-color-input-binary-active;
-				border-color: @border-color-input-binary-active;
+				background-color: @background-color-input-binary--active;
+				border-color: @border-color-input-binary--active;
 			}
 			&:focus {
 				border-color: @border-color-input-binary-on;
