@@ -4,7 +4,7 @@
 
 .theme-oo-ui-buttonElement () {
 	> .oo-ui-buttonElement-button {
-		color: @color-default;
+		color: @color-base;
 		border-radius: @border-radius-button;
 
 		&:focus {
@@ -51,7 +51,7 @@
 			}
 
 			> .oo-ui-labelElement-label {
-				color: @color-default;
+				color: @color-base;
 			}
 		}
 
@@ -65,7 +65,7 @@
 				padding: @padding-frameless;
 
 				> .oo-ui-labelElement-label {
-					color: @color-default;
+					color: @color-base;
 					margin-left: 0.25em;
 				}
 			}
@@ -86,7 +86,7 @@
 		// Support `<input>` from ButtonInputWidget
 		> input.oo-ui-buttonElement-button {
 			padding-left: 0.25em;
-			color: @color-default;
+			color: @color-base;
 
 			&:hover,
 			&:focus {
@@ -121,7 +121,7 @@
 
 	&-framed {
 		> .oo-ui-buttonElement-button {
-			padding: @padding-default;
+			padding: @padding-base;
 			text-shadow: 0 1px 1px rgba( 255, 255, 255, 0.5 );
 			border: 1px #c9c9c9 solid;
 			.oo-ui-transition( border-color @quick-ease );
@@ -227,7 +227,7 @@
 				// Opacity causes 1px measurement errors in Chrome, so force GPU rendering
 				.oo-ui-force-gpu-composite-layer();
 				box-shadow: none;
-				color: @color-default;
+				color: @color-base;
 				background: #eee;
 				border-color: #ccc;
 

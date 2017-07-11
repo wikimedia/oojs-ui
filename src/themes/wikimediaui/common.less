@@ -2,17 +2,17 @@
 
 @oo-ui-default-image-path: 'themes/wikimediaui/images';
 @oo-ui-font-size-browser: 16; // assumed browser default of `16px`
-@oo-ui-font-size-default: 0.8em; // equals `12.8px` at browser default of `16px`
+@oo-ui-font-size-base: 0.8em; // equals `12.8px` at browser default of `16px`
 
-@background-color-default: #fff;
-@background-color-default-hover: #eaecf0;
+@background-color-base: #fff;
+@background-color-base-hover: #eaecf0;
 @background-color-readonly: #f8f9fa;
 
-@color-default: #222;
-@color-default-hover: #444;
-@color-default-active: #000;
-@color-default-light: #fff;
-@color-emphasized: @color-default-active;
+@color-base: #222;
+@color-base-hover: #444;
+@color-base-active: #000;
+@color-base-light: #fff;
+@color-emphasized: @color-base-active;
 @color-placeholder: #72777d; // equals HSB 210°/9%/49%, aligns to WCAG 2.0 level AA at 4.52:1 contrast ratio
 @color-subtle: #72777d;
 
@@ -36,7 +36,7 @@
 @background-color-disabled: #eaecf0;
 @background-color-disabled-filled: #c8ccd1;
 @color-disabled: #72777d;
-@color-disabled-filled: @color-default-light;
+@color-disabled-filled: @color-base-light;
 @opacity-disabled: 0.51; // `0.51` equals `#7d7d7d` on background-color `#fff`, HSB 0°/0%/49%
 @opacity-disabled-filled: 1;
 @opacity-disabled-indicator: 0.15; // equals `#c7c8cc` on background-color `#fff`
@@ -47,130 +47,130 @@
 
 // "Framed" Widgets (Framed ButtonWidget, ToggleSwitchWidget...)
 @background-color-framed: #f8f9fa;
-@background-color-framed-hover: @background-color-default; // equals `lighten( #f8f9fa, 10% )`, although `2%` is already resulting in `#fff`
+@background-color-framed-hover: @background-color-base; // equals `lighten( #f8f9fa, 10% )`, although `2%` is already resulting in `#fff`
 @background-color-framed-active: #c8ccd1;
 
 // Tabbed Navigation
 @background-color-tabs: #eaecf0;
 
 // Toolbar, Tools & Menus
-@background-color-toolbar: @background-color-default;
-@background-color-tool-hover: @background-color-default-hover;
+@background-color-toolbar: @background-color-base;
+@background-color-tool-hover: @background-color-base-hover;
 @background-color-tool-active: @background-color-progressive;
 @background-color-tool-active-hover: @background-color-progressive-hover;
 @color-tool-active: @color-progressive;
-@border-toolbar: @border-width-default solid #c8ccd1;
+@border-toolbar: @border-width-base solid #c8ccd1;
 
 // Box Sizes
 // `@*size` variables are used for `*width` & `*height` properties
-@size-default: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `2.5em`≈`32px`
+@size-base: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `2.5em`≈`32px`
 
 @min-size-icon: 24px; // values used for `min-height` are defined in `px`, see T130691
 @min-size-indicator: 12px;
 @min-size-tagitem-close: 20px;
-@min-width-button-default: 40 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `3.125em`≈`40px` at base `font-size: 12.8px`
-@min-width-button-combo-widget: @size-default;
+@min-width-button-base: 40 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `3.125em`≈`40px` at base `font-size: 12.8px`
+@min-width-button-combo-widget: @size-base;
 @min-width-icon-numberinput: 20px;
-@min-height-widget-default: @size-default;
+@min-height-widget-base: @size-base;
 @min-height-toggleswitch: 26px; // equals `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
-@max-width-default: 50em;
-@max-width-input: @max-width-default;
+@max-width-base: 50em;
+@max-width-input: @max-width-base;
 
 @size-anchor: 9px;
-@size-button-default: @size-default;
-@size-icon: 24 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.875em`≈`24px`
-@size-icon-numberinput: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.5625em`≈`20px`
-@size-icon-tagitem-close: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@size-indicator: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`12px`
+@size-button-base: @size-base;
+@size-icon: 24 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.875em`≈`24px`
+@size-icon-numberinput: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.5625em`≈`20px`
+@size-icon-tagitem-close: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@size-indicator: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.9375em`≈`12px`
 @size-toggleswitch-grip-min: 16px;
-@size-dialog-bar-top: 44 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `3.4375em`≈`44px`
-@size-fieldlayout-help-icon: 22 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
+@size-dialog-bar-top: 44 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `3.4375em`≈`44px`
+@size-fieldlayout-help-icon: 22 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 
-@start-framed-icon-only: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.547em`≈`7px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-default`
-@start-framed-icon-only-numberinput: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.46875em`≈`6px`
-@start-framed-indicator-only: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.09375em`≈`14px`; `@size-indicator + 2 * @border-width-default`
-@start-framed-square-indicator-only: 9 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.703125em`≈`9px`
+@start-framed-icon-only: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.547em`≈`7px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
+@start-framed-icon-only-numberinput: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.46875em`≈`6px`
+@start-framed-indicator-only: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.09375em`≈`14px`; `@size-indicator + 2 * @border-width-base`
+@start-framed-square-indicator-only: 9 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.703125em`≈`9px`
 @start-frameless: -@start-frameless-icon;
-@start-frameless-icon: 3 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@start-tagmultiselect-input: 5 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.390625em`≈`5px`; `@padding-horizontal-tagitem` + `@border-width-default`
-@end-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.3125em`≈`4px`
+@start-frameless-icon: 3 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@start-tagmultiselect-input: 5 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.390625em`≈`5px`; `@padding-horizontal-tagitem` + `@border-width-base`
+@end-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.3125em`≈`4px`
 
 @width-button-combo-widget: @min-width-button-combo-widget;
 
 @height-icon-element: 100%;
-@height-search: 56 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `4.375em`≈`56px`; `height: 32px` + 2 * `margin: 12px`
-@height-tagitem: 22 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.71875em`≈`22px`;
+@height-search: 56 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `4.375em`≈`56px`; `height: 32px` + 2 * `margin: 12px`
+@height-tagitem: 22 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.71875em`≈`22px`;
 
-@margin-dialog-bar-button-framed: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@margin-search: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
+@margin-dialog-bar-button-framed: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@margin-search: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @margin-taboption: @margin-dialog-bar-button-framed;
-@margin-button-close: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@margin-top-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@margin-top-tagmultiselect-input: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@margin-top-fieldlayout-help: -( 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default );
-@margin-top-fieldsetlayout-help: -( 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default ) / 2;
-@margin-bottom-fieldset-header: 8 / @oo-ui-font-size-browser / ( @oo-ui-font-size-default * @font-size-fieldset-header );
+@margin-button-close: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@margin-top-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@margin-top-tagmultiselect-input: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@margin-top-fieldlayout-help: -( 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base );
+@margin-top-fieldsetlayout-help: -( 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base ) / 2;
+@margin-bottom-fieldset-header: 8 / @oo-ui-font-size-browser / ( @oo-ui-font-size-base * @font-size-fieldset-header );
 
-@border-default: @border-width-default solid @border-color-default;
-@border-disabled: @border-width-default solid @border-color-disabled;
-@border-disabled-filled: @border-width-default solid @border-color-disabled-filled;
-@border-dialog: @border-default;
-@border-dialog-bar: @border-width-default solid @border-color-dialog-bar;
-@border-menu: @border-default;
+@border-base: @border-width-base solid @border-color-base;
+@border-disabled: @border-width-base solid @border-color-disabled;
+@border-disabled-filled: @border-width-base solid @border-color-disabled-filled;
+@border-dialog: @border-base;
+@border-dialog-bar: @border-width-base solid @border-color-dialog-bar;
+@border-menu: @border-base;
 
-@border-color-default: #a2a9b1;
-@border-color-default-hover: #a2a9b1;
-@border-color-default-active: #72777d;
-@border-color-default-focus: @color-progressive-focus;
+@border-color-base: #a2a9b1;
+@border-color-base-hover: #a2a9b1;
+@border-color-base-active: #72777d;
+@border-color-base-focus: @color-progressive-focus;
 @border-color-disabled: #c8ccd1;
 @border-color-disabled-filled: @color-disabled-filled;
 @border-color-framed-progressive-hover: @color-progressive-hover;
 @border-color-framed-destructive-hover: @color-destructive-hover;
 @border-color-frameless: transparent;
-@border-color-frameless-fallback: @color-default-light; // Support IE 6: `transparent` is not rendered correctly
+@border-color-frameless-fallback: @color-base-light; // Support IE 6: `transparent` is not rendered correctly
 
-@border-color-focus-inset: @color-default-light;
+@border-color-focus-inset: @color-base-light;
 @border-color-erroneous: @color-erroneous;
 @border-color-readonly: #c8ccd1;
-@border-color-input-hover: @border-color-default-active;
+@border-color-input-hover: @border-color-base-active;
 @border-color-dialog-bar: #c8ccd1;
 
-@border-radius-default: 2px;
+@border-radius-base: 2px;
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator-focus` it results in well rounded border
 
-@border-style-default: solid;
+@border-style-base: solid;
 
-@border-width-default: 1px;
+@border-width-base: 1px;
 
-@padding-default: @padding-top-default @padding-horizontal-default @padding-bottom-default;
-@padding-frameless: @padding-top-default @padding-horizontal-frameless @padding-bottom-default @padding-horizontal-frameless;
-@padding-input-text: @padding-top-default @padding-horizontal-input-text @padding-bottom-default;
-@padding-menu: @padding-top-menu @padding-horizontal-default @padding-bottom-menu;
-@padding-menu-large: ( @padding-top-menu * 1.5 ) @padding-horizontal-default ( @padding-bottom-menu * 1.5 );
-@padding-search: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.625em`≈`16px`
-@padding-taboption: @padding-top-default @padding-horizontal-taboption @padding-bottom-default;
-@padding-horizontal-default: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`12px`
-@padding-horizontal-frameless: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.3125em`≈`4px`
-@padding-horizontal-input-text: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-horizontal-frameless: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-horizontal-taboption: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.9375em`≈`13px`; @padding-horizontal-default = @border-width-default
-@padding-horizontal-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-vertical-label: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-top-default: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.625em`≈`8px`
-@padding-top-icon-indicator: 30 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-top-menu: 9 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-bottom-default: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `0.547em`≈`7px`
-@padding-bottom-menu: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-start-input-text-icon: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // As long as we have whitespace in icon canvas, we need reduced `padding-left`.
+@padding-base: @padding-top-base @padding-horizontal-base @padding-bottom-base;
+@padding-frameless: @padding-top-base @padding-horizontal-frameless @padding-bottom-base @padding-horizontal-frameless;
+@padding-input-text: @padding-top-base @padding-horizontal-input-text @padding-bottom-base;
+@padding-menu: @padding-top-menu @padding-horizontal-base @padding-bottom-menu;
+@padding-menu-large: ( @padding-top-menu * 1.5 ) @padding-horizontal-base ( @padding-bottom-menu * 1.5 );
+@padding-search: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.625em`≈`16px`
+@padding-taboption: @padding-top-base @padding-horizontal-taboption @padding-bottom-base;
+@padding-horizontal-base: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.9375em`≈`12px`
+@padding-horizontal-frameless: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.3125em`≈`4px`
+@padding-horizontal-input-text: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-horizontal-frameless: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-horizontal-taboption: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.9375em`≈`13px`; @padding-horizontal-base = @border-width-base
+@padding-horizontal-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-vertical-label: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-top-base: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.625em`≈`8px`
+@padding-top-icon-indicator: 30 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-top-menu: 9 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-bottom-base: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.547em`≈`7px`
+@padding-bottom-menu: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-start-input-text-icon: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // As long as we have whitespace in icon canvas, we need reduced `padding-left`.
 @padding-start-icon: @size-icon;
-@padding-start-icon-only: 26 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `2.03125em`≈`26px`; @min-width-button-default - @padding-horizontal-default - 2 * @border-width-default;
-@padding-start-fieldset-header-iconized: 26 / @oo-ui-font-size-browser / ( @oo-ui-font-size-default * @font-size-fieldset-header );
+@padding-start-icon-only: 26 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `2.03125em`≈`26px`; @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base;
+@padding-start-fieldset-header-iconized: 26 / @oo-ui-font-size-browser / ( @oo-ui-font-size-base * @font-size-fieldset-header );
 @padding-start-indicator-only: @padding-start-icon-only;
-@padding-start-indicator-plus: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-start-frameless-icon-only: 30 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-start-input-text-icon-label: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-start-menu-icon-label: 38 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@padding-end-tagitem-close: 21 / @oo-ui-font-size-browser / @oo-ui-font-size-default; // equals `1.640625em`≈`21px`;
+@padding-start-indicator-plus: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-start-frameless-icon-only: 30 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-start-input-text-icon-label: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-start-menu-icon-label: 38 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-end-tagitem-close: 21 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.640625em`≈`21px`;
 
 @box-shadow-dialog: 0 2px 2px 0 rgba( 0, 0, 0, 0.25 );
 @box-shadow-menu: @box-shadow-dialog;
@@ -178,7 +178,7 @@
 @box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-widget: inset 0 0 0 1px transparent;
 @box-shadow-widget-focus: inset 0 0 0 1px @color-progressive;
-@box-shadow-progressive-focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-default-light;
+@box-shadow-progressive-focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-base-light;
 @box-shadow-frameless-indicator-focus: 0 0 0 2px @color-progressive;
 @box-shadow-action-focus: @box-shadow-widget-focus, 0 0 0 1px @color-progressive;
 @box-shadow-input-binary-active: inset 0 0 0 1px @color-progressive-active;
@@ -187,22 +187,22 @@
 
 @font-size-fieldset-header: 1.15em; // equals `16.1px` at base `font-size: 12.8px`. Todo: Not able to get unified `16px` due to T
 
-@line-height-default: 1.6; // same as Vector
+@line-height-base: 1.6; // same as Vector
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
 @line-height-message: 1.4;
-@line-height-fieldset-header-iconized: 24 / @oo-ui-font-size-browser / ( @oo-ui-font-size-default * @font-size-fieldset-header );
+@line-height-fieldset-header-iconized: 24 / @oo-ui-font-size-browser / ( @oo-ui-font-size-base * @font-size-fieldset-header );
 @line-height-form-element: 1.4;
 @line-height-input-binary-label: 1.5; // Checkboxes, Radios and ToggleSwitchWidget labels need a tad more for increased vertical click area
 @line-height-widget-multiline: 1.275;
 @line-height-widget-singleline: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
 @line-height-tagmultiselect-input: 1.563em; // equals `20px` at base `font-size: 12.8px`
 
-@text-shadow-default: 0 1px 1px @color-default-light; // 'coined' effect
-@text-shadow-disabled: @text-shadow-default;
+@text-shadow-base: 0 1px 1px @color-base-light; // 'coined' effect
+@text-shadow-disabled: @text-shadow-base;
 
-@opacity-icon-default: 0.87; // equals `#222` on background-color `#fff`
-@opacity-icon-default-hover: 0.73; // equals `#454545` on background-color `#fff`, closest to `#444`
-@opacity-icon-default-selected: 1;
+@opacity-icon-base: 0.87; // equals `#222` on background-color `#fff`
+@opacity-icon-base-hover: 0.73; // equals `#454545` on background-color `#fff`, closest to `#444`
+@opacity-icon-base-selected: 1;
 
 // Transition variables
 // Some of these values are duplicated in OO.ui.WikimediaUITheme
@@ -214,14 +214,14 @@
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
 @background-color-input-binary-active: @color-progressive-active;
 @background-color-input-binary-on: @color-progressive;
-@size-input-binary: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
-@border-input-binary: @border-width-default solid @border-color-input-binary;
-@border-color-input-binary: @border-color-default-active;
+@size-input-binary: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@border-input-binary: @border-width-base solid @border-color-input-binary;
+@border-color-input-binary: @border-color-base-active;
 @border-color-input-binary-active: @color-progressive-active;
 @border-color-input-binary-on: @color-progressive;
-@padding-start-input-binary-label: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
+@padding-start-input-binary-label: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
-@border-width-radio-on: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-default;
+@border-width-radio-on: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 
 // Theme mixins
 
@@ -288,7 +288,7 @@
 
 .mw-framed-primary-button-colored( @child, @link, @hover, @active, @focus ) {
 	> @{child} {
-		color: @color-default-light;
+		color: @color-base-light;
 		background-color: @link;
 		border-color: @link;
 	}
@@ -303,7 +303,7 @@
 	&.oo-ui-buttonElement-pressed > @{child},
 	&.oo-ui-buttonElement-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
-		color: @color-default-light;
+		color: @color-base-light;
 		background-color: @active;
 		border-color: @active;
 		box-shadow: none;
@@ -311,7 +311,7 @@
 
 	> @{child}:focus {
 		border-color: @focus;
-		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-default-light;
+		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base-light;
 		outline: 0;
 	}
 }

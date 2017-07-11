@@ -11,7 +11,7 @@
 .theme-oo-ui-buttonGroupWidget () {
 	display: inline-block;
 	white-space: nowrap;
-	border-radius: @border-radius-default;
+	border-radius: @border-radius-base;
 	.oo-ui-inline-spacing( 0.5em );
 	// Create a stacking context, so that we can use `z-index` below without leaking out
 	z-index: 0;
@@ -24,19 +24,19 @@
 
 	.oo-ui-buttonElement-framed {
 		.oo-ui-buttonElement-button {
-			margin-left: -@border-width-default;
+			margin-left: -@border-width-base;
 			border-radius: 0;
 		}
 
 		&:first-child .oo-ui-buttonElement-button {
 			margin-left: 0;
-			border-bottom-left-radius: @border-radius-default;
-			border-top-left-radius: @border-radius-default;
+			border-bottom-left-radius: @border-radius-base;
+			border-top-left-radius: @border-radius-base;
 		}
 
 		&:last-child .oo-ui-buttonElement-button {
-			border-bottom-right-radius: @border-radius-default;
-			border-top-right-radius: @border-radius-default;
+			border-bottom-right-radius: @border-radius-base;
+			border-top-right-radius: @border-radius-base;
 		}
 
 		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
@@ -69,7 +69,7 @@
 			&.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on {
 				> .oo-ui-buttonElement-button,
 				> .oo-ui-buttonElement-button:active {
-					border-left-color: @border-color-default;
+					border-left-color: @border-color-base;
 					z-index: 3;
 				}
 			}
@@ -82,7 +82,7 @@
 .theme-oo-ui-buttonOptionWidget () {}
 
 .theme-oo-ui-buttonSelectWidget () {
-	border-radius: @border-radius-default;
+	border-radius: @border-radius-base;
 	.oo-ui-inline-spacing( 0.5em );
 	// Create a stacking context, so that we can use `z-index` below without leaking out
 	z-index: 0;
@@ -94,19 +94,19 @@
 
 	.oo-ui-buttonOptionWidget {
 		.oo-ui-buttonElement-button {
-			margin-left: -@border-width-default;
+			margin-left: -@border-width-base;
 			border-radius: 0;
 		}
 
 		&:first-child .oo-ui-buttonElement-button {
 			margin-left: 0;
-			border-bottom-left-radius: @border-radius-default;
-			border-top-left-radius: @border-radius-default;
+			border-bottom-left-radius: @border-radius-base;
+			border-top-left-radius: @border-radius-base;
 		}
 
 		&:last-child .oo-ui-buttonElement-button {
-			border-bottom-right-radius: @border-radius-default;
-			border-top-right-radius: @border-radius-default;
+			border-bottom-right-radius: @border-radius-base;
+			border-top-right-radius: @border-radius-base;
 		}
 
 		&.oo-ui-iconElement .oo-ui-iconElement-icon,
@@ -125,7 +125,7 @@
 		&:focus {
 			.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
 				.oo-ui-buttonElement-button {
-					border-color: @border-color-default-focus;
+					border-color: @border-color-base-focus;
 					box-shadow: @box-shadow-progressive-focus;
 				}
 			}
@@ -156,15 +156,15 @@
 	max-width: 100%;
 	height: @height-tagitem;
 	margin: @margin-top-tagitem @end-tagitem 0 0;
-	border: @border-default;
-	border-radius: @border-radius-default;
+	border: @border-base;
+	border-radius: @border-radius-base;
 	padding: 0 @padding-horizontal-tagitem;
 	line-height: @height-tagitem;
 	vertical-align: middle;
 
 	&.oo-ui-widget-enabled {
 		background-color: @background-color-framed;
-		color: @color-default;
+		color: @color-base;
 		padding-right: @padding-end-tagitem-close;
 		.oo-ui-transition(
 			background-color @transition-ease-quick,
@@ -175,12 +175,12 @@
 
 		&:hover {
 			background-color: @background-color-framed-hover;
-			color: @color-default-hover;
-			border-color: @border-color-default-hover;
+			color: @color-base-hover;
+			border-color: @border-color-base-hover;
 		}
 
 		&:focus {
-			border-color: @border-color-default-focus;
+			border-color: @border-color-base-focus;
 			box-shadow: @box-shadow-widget-focus;
 			outline: 0;
 		}
@@ -233,10 +233,10 @@
 
 	&-handle {
 		.oo-ui-box-sizing( border-box );
-		min-height: @min-height-widget-default;
+		min-height: @min-height-widget-base;
 		.oo-ui-inline-spacing( 0.5em );
-		border: @border-default;
-		border-radius: @border-radius-default;
+		border: @border-base;
+		border-radius: @border-radius-base;
 		padding: 0 @padding-horizontal-input-text @padding-vertical-label;
 		line-height: @line-height-reset;
 
@@ -274,15 +274,15 @@
 	}
 
 	&.oo-ui-indicatorElement &-handle {
-		padding-right: @size-indicator + 2 * @padding-horizontal-default;
+		padding-right: @size-indicator + 2 * @padding-horizontal-base;
 
 		> .oo-ui-indicatorElement-indicator {
-			right: @padding-horizontal-default; // Use `@padding…` as `right` value
+			right: @padding-horizontal-base; // Use `@padding…` as `right` value
 		}
 	}
 
 	&-popup {
-		margin-top: -@border-width-default;
+		margin-top: -@border-width-base;
 
 		> .oo-ui-popupWidget-popup {
 			border: 0;
@@ -290,7 +290,7 @@
 	}
 
 	&.oo-ui-widget-enabled &-handle {
-		background-color: @background-color-default;
+		background-color: @background-color-base;
 		cursor: text;
 		.oo-ui-transition(
 			border-color @transition-ease-out-sine-medium,
@@ -301,7 +301,7 @@
 		border-color: @border-color-input-hover;
 	}
 	&.oo-ui-widget-enabled.oo-ui-capsuleMultiselectWidget-open &-handle {
-		border-color: @border-color-default-focus;
+		border-color: @border-color-base-focus;
 		outline: 0;
 		box-shadow: @box-shadow-widget-focus;
 	}
@@ -350,7 +350,7 @@
 		z-index: 1;
 
 		& + span {
-			background-color: @background-color-default;
+			background-color: @background-color-base;
 			background-origin: border-box;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -361,7 +361,7 @@
 			width: @size-input-binary;
 			height: @size-input-binary;
 			border: @border-input-binary;
-			border-radius: @border-radius-default;
+			border-radius: @border-radius-base;
 		}
 
 		&:checked {
@@ -475,7 +475,7 @@
 	// inherits from `inputWidget` & `textInputWidget`
 
 	input {
-		height: @size-default;
+		height: @size-base;
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 		border-right-width: 0;
@@ -485,9 +485,9 @@
 	// if the menu is empty, or if this is the PHP version
 	&.oo-ui-comboBoxInputWidget-empty input,
 	&-php input {
-		border-top-right-radius: @border-radius-default;
-		border-bottom-right-radius: @border-radius-default;
-		border-right-width: @border-width-default;
+		border-top-right-radius: @border-radius-base;
+		border-bottom-right-radius: @border-radius-base;
+		border-right-width: @border-width-base;
 	}
 
 	&-dropdownButton.oo-ui-indicatorElement {
@@ -495,7 +495,7 @@
 
 		.oo-ui-buttonElement-button {
 			min-width: @min-width-button-combo-widget;
-			min-height: @min-height-widget-default;
+			min-height: @min-height-widget-base;
 			padding-left: 0;
 
 			> .oo-ui-indicatorElement-indicator {
@@ -511,7 +511,7 @@
 	}
 
 	&-php .oo-ui-indicatorWidget {
-		right: @padding-horizontal-default;
+		right: @padding-horizontal-base;
 		margin: 0;
 	}
 
@@ -536,7 +536,7 @@
 		padding-left: @padding-start-menu-icon-label;
 
 		.oo-ui-iconElement-icon {
-			left: @padding-horizontal-default;
+			left: @padding-horizontal-base;
 		}
 	}
 
@@ -548,7 +548,7 @@
 		padding-right: @padding-start-indicator-plus;
 
 		.oo-ui-indicatorElement-indicator {
-			right: @padding-horizontal-default;
+			right: @padding-horizontal-base;
 		}
 	}
 
@@ -566,10 +566,10 @@
 	.oo-ui-inline-spacing( 0.5em );
 
 	&-handle {
-		min-height: @min-height-widget-default; // Address label-less widgets
-		border: @border-default;
-		border-radius: @border-radius-default;
-		padding: @padding-default;
+		min-height: @min-height-widget-base; // Address label-less widgets
+		border: @border-base;
+		border-radius: @border-radius-base;
+		padding: @padding-base;
 		line-height: @line-height-reset;
 
 		.oo-ui-iconElement-icon {
@@ -577,7 +577,7 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			right: @padding-horizontal-default;
+			right: @padding-horizontal-base;
 		}
 
 		.oo-ui-labelElement-label {
@@ -590,13 +590,13 @@
 	}
 
 	&.oo-ui-indicatorElement .oo-ui-dropdownWidget-handle {
-		padding-right: @size-indicator + @padding-horizontal-default;
+		padding-right: @size-indicator + @padding-horizontal-base;
 	}
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-dropdownWidget-handle {
 			background-color: @background-color-framed;
-			color: @color-default;
+			color: @color-base;
 			.oo-ui-transition(
 				background-color @transition-ease-quick,
 				border-color @transition-ease-quick,
@@ -605,29 +605,29 @@
 
 			&:hover {
 				background-color: @background-color-framed-hover;
-				color: @color-default-hover;
-				border-color: @border-color-default-hover;
+				color: @color-base-hover;
+				border-color: @border-color-base-hover;
 
 				.oo-ui-iconElement-icon,
 				.oo-ui-indicatorElement-indicator {
-					opacity: @opacity-icon-default-hover;
+					opacity: @opacity-icon-base-hover;
 				}
 			}
 
 			&:active {
-				color: @color-default-active;
-				border-color: @border-color-default-active;
+				color: @color-base-active;
+				border-color: @border-color-base-active;
 			}
 
 			&:focus {
-				border-color: @border-color-default-focus;
+				border-color: @border-color-base-focus;
 				outline: 0;
 				box-shadow: @box-shadow-widget-focus;
 			}
 
 			.oo-ui-iconElement-icon,
 			.oo-ui-indicatorElement-indicator {
-				opacity: @opacity-icon-default;
+				opacity: @opacity-icon-base;
 				.oo-ui-transition(
 					opacity @transition-ease-quick
 				);
@@ -640,7 +640,7 @@
 
 				.oo-ui-iconElement-icon,
 				.oo-ui-indicatorElement-indicator {
-					opacity: @opacity-icon-default-selected;
+					opacity: @opacity-icon-base-selected;
 				}
 			}
 		}
@@ -668,8 +668,8 @@
 	max-width: @max-width-input;
 
 	&-php {
-		border-right: @border-default;
-		border-radius: @border-radius-default;
+		border-right: @border-base;
+		border-radius: @border-radius-base;
 		overflow-x: hidden;
 	}
 
@@ -678,9 +678,9 @@
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		.oo-ui-box-sizing( border-box );
-		border: @border-default;
-		border-radius: @border-radius-default;
-		padding: @padding-default;
+		border: @border-base;
+		border-radius: @border-radius-base;
+		padding: @padding-base;
 		font-size: inherit;
 		font-family: inherit;
 		vertical-align: middle;
@@ -695,8 +695,8 @@
 		&:not( [no-ie] ) {
 			background-position: right 1.75em center;
 			width: e( 'calc( 100% + 1em )' );
-			height: @size-default;
-			padding: 0 0 0 @padding-horizontal-default;
+			height: @size-base;
+			padding: 0 0 0 @padding-horizontal-base;
 		}
 	}
 
@@ -704,13 +704,13 @@
 		font-size: inherit;
 		font-family: inherit;
 		height: 1.5em;
-		padding: @padding-bottom-menu @padding-horizontal-default; // `@padding-bottom-menu` used as vertical `padding` here as we don't have a lot of layout leverage on `option`
+		padding: @padding-bottom-menu @padding-horizontal-base; // `@padding-bottom-menu` used as vertical `padding` here as we don't have a lot of layout leverage on `option`
 	}
 
 	&.oo-ui-widget-enabled {
 		select {
 			background-color: @background-color-framed;
-			color: @color-default;
+			color: @color-base;
 			.oo-ui-transition(
 				background-color @transition-ease-quick,
 				border-color @transition-ease-quick,
@@ -719,17 +719,17 @@
 
 			&:hover {
 				background-color: @background-color-framed-hover;
-				color: @color-default-hover;
-				border-color: @border-color-default-hover;
+				color: @color-base-hover;
+				border-color: @border-color-base-hover;
 			}
 
 			&:active {
-				color: @color-default-active;
-				border-color: @border-color-default-active;
+				color: @color-base-active;
+				border-color: @border-color-base-active;
 			}
 
 			&:focus {
-				border-color: @border-color-default-focus;
+				border-color: @border-color-base-focus;
 				outline: 0;
 				box-shadow: @box-shadow-widget-focus;
 			}
@@ -778,7 +778,7 @@
 
 	&.oo-ui-optionWidget {
 		&-highlighted {
-			background-color: @background-color-default-hover;
+			background-color: @background-color-base-hover;
 			color: @color-emphasized;
 		}
 		&-selected {
@@ -795,15 +795,15 @@
 
 .theme-oo-ui-menuSectionOptionWidget () {
 	color: @color-subtle;
-	padding: @padding-top-menu @padding-horizontal-default @padding-vertical-label;
+	padding: @padding-top-menu @padding-horizontal-base @padding-vertical-label;
 	font-weight: bold;
 }
 
 .theme-oo-ui-menuSelectWidget () {
-	background-color: @background-color-default;
+	background-color: @background-color-base;
 	margin-top: -1px;
 	border: @border-menu;
-	border-radius: 0 0 @border-radius-default @border-radius-default;
+	border-radius: 0 0 @border-radius-base @border-radius-base;
 	box-shadow: @box-shadow-menu;
 }
 
@@ -825,7 +825,7 @@
 			.oo-ui-buttonElement-button {
 				display: block;
 				min-width: @min-width-button-combo-widget;
-				min-height: @min-height-widget-default;
+				min-height: @min-height-widget-base;
 				padding-left: 0;
 				padding-right: 0;
 
@@ -863,14 +863,14 @@
 
 .theme-oo-ui-optionWidget () {
 	.oo-ui-labelElement-label {
-		line-height: @line-height-default;
+		line-height: @line-height-base;
 	}
 
 	// Don't add `highlighted` or `selected` modifications here
 	// as it inherits to various visually opposite widgets.
 
 	&-selected .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-		opacity: @opacity-icon-default-selected;
+		opacity: @opacity-icon-base-selected;
 	}
 
 	&.oo-ui-widget-disabled {
@@ -879,20 +879,20 @@
 }
 
 .theme-oo-ui-outlineControlsWidget () {
-	background-color: @background-color-default;
+	background-color: @background-color-base;
 
 	&-items,
 	&-movers {
 		> .oo-ui-buttonWidget {
-			height: @size-default;
-			width: @size-default;
+			height: @size-base;
+			width: @size-base;
 			// There's a lot of weird specific margins with weird specific selectors
 			margin: 0 !important; /* stylelint-disable-line declaration-no-important */
 		}
 	}
 
 	> .oo-ui-iconElement-icon {
-		height: @size-default;
+		height: @size-base;
 		opacity: 0.2;
 	}
 }
@@ -905,7 +905,7 @@
 	);
 
 	&.oo-ui-optionWidget-highlighted {
-		background-color: @background-color-default-hover;
+		background-color: @background-color-base-hover;
 		color: @color-emphasized;
 	}
 
@@ -968,9 +968,9 @@
 
 .theme-oo-ui-popupWidget () {
 	&-popup {
-		background-color: @background-color-default;
+		background-color: @background-color-base;
 		border: @border-menu;
-		border-radius: @border-radius-default;
+		border-radius: @border-radius-base;
 		box-shadow: @box-shadow-menu;
 	}
 
@@ -983,14 +983,14 @@
 			&:before {
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor;
-				border-bottom-color: @border-color-default;
+				border-bottom-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 			}
 
 			&:after {
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor + 1px;
-				border-bottom-color: @background-color-default; // Using `@background-color-default` var here as `border*-color` is `background-color` subsitute
+				border-bottom-color: @background-color-base; // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
 				border-width: @size-anchor;
 			}
 		}
@@ -1005,14 +1005,14 @@
 			&:before {
 				top: -@size-anchor - 1px;
 				left: -@size-anchor;
-				border-top-color: @border-color-default;
+				border-top-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 			}
 
 			&:after {
 				top: -@size-anchor - 1px;
 				left: -@size-anchor + 1px;
-				border-top-color: @background-color-default; // Using `@background-color-default` var here as `border*-color` is `background-color` subsitute
+				border-top-color: @background-color-base; // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
 				border-width: @size-anchor;
 			}
 		}
@@ -1027,14 +1027,14 @@
 			&:before {
 				right: -@size-anchor - 1px;
 				top: -@size-anchor;
-				border-right-color: @border-color-default;
+				border-right-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 			}
 
 			&:after {
 				right: -@size-anchor - 1px;
 				top: -@size-anchor + 1px;
-				border-right-color: @background-color-default;  // Using `@background-color-default` var here as `border*-color` is `background-color` subsitute
+				border-right-color: @background-color-base;  // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
 				border-width: @size-anchor;
 			}
 		}
@@ -1049,14 +1049,14 @@
 			&:before {
 				left: -@size-anchor - 1px;
 				top: -@size-anchor;
-				border-left-color: @border-color-default;
+				border-left-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 			}
 
 			&:after {
 				left: -@size-anchor - 1px;
 				top: -@size-anchor + 1px;
-				border-left-color: @background-color-default;  // Using `@background-color-default` var here as `border*-color` is `background-color` subsitute
+				border-left-color: @background-color-base;  // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
 				border-width: @size-anchor;
 			}
 		}
@@ -1098,10 +1098,10 @@
 }
 
 .theme-oo-ui-progressBarWidget () {
-	max-width: @max-width-default;
-	background-color: @background-color-default;
-	border: @border-default;
-	border-radius: @border-radius-default;
+	max-width: @max-width-base;
+	background-color: @background-color-base;
+	border: @border-base;
+	border-radius: @border-radius-base;
 	overflow: hidden;
 
 	&-bar {
@@ -1113,7 +1113,7 @@
 			.oo-ui-animation( oo-ui-progressBarWidget-slide 2s infinite linear );
 			width: 40%;
 			.oo-ui-transform( translate( -25% ) );
-			border-left-width: @border-width-default;
+			border-left-width: @border-width-base;
 		}
 	}
 	&.oo-ui-widget-enabled {
@@ -1174,7 +1174,7 @@
 		z-index: 1;
 
 		& + span {
-			background-color: @background-color-default;
+			background-color: @background-color-base;
 			position: absolute;
 			left: 0;
 			.oo-ui-box-sizing( border-box );
@@ -1191,7 +1191,7 @@
 				left: -4px;
 				right: -4px;
 				bottom: -4px;
-				border: @border-width-default solid transparent;
+				border: @border-width-base solid transparent;
 				border-radius: 100%;
 			}
 		}
@@ -1211,7 +1211,7 @@
 			}
 
 			&:checked + span {
-				background-color: @background-color-default;
+				background-color: @background-color-base;
 			}
 		}
 	}
@@ -1259,7 +1259,7 @@
 
 			&:focus + span {
 				&:before {
-					border-color: @background-color-default;
+					border-color: @background-color-base;
 				}
 			}
 		}
@@ -1283,7 +1283,7 @@
 		outline: 0;
 
 		[type='radio']:checked + span:before {
-			border-color: @background-color-default;
+			border-color: @background-color-base;
 		}
 	}
 }
@@ -1330,27 +1330,27 @@
 
 	&-selectButton {
 		> .oo-ui-buttonElement-button {
-			border-radius: 0 @border-radius-default @border-radius-default 0;
+			border-radius: 0 @border-radius-base @border-radius-base 0;
 		}
 	}
 
 	&-info {
-		background-color: @background-color-default;
-		border: @border-default;
-		border-radius: @border-radius-default 0 0 @border-radius-default;
+		background-color: @background-color-base;
+		border: @border-base;
+		border-radius: @border-radius-base 0 0 @border-radius-base;
 		border-right-width: 0;
 
 		> .oo-ui-iconElement-icon {
-			top: -@border-width-default; // Address `border-top` of parent element
+			top: -@border-width-base; // Address `border-top` of parent element
 			left: @padding-start-input-text-icon;
-			min-height: @min-height-widget-default;
-			margin-left: -@border-width-default; // Address extra `border-left` pixel above
+			min-height: @min-height-widget-base;
+			margin-left: -@border-width-base; // Address extra `border-left` pixel above
 		}
 
 		> .oo-ui-indicatorElement-indicator {
-			top: -@border-width-default; // Address `border-top` of parent element
-			right: @padding-horizontal-default;
-			min-height: @min-height-widget-default;
+			top: -@border-width-base; // Address `border-top` of parent element
+			right: @padding-horizontal-base;
+			min-height: @min-height-widget-base;
 		}
 	}
 
@@ -1358,9 +1358,9 @@
 		.oo-ui-box-sizing( border-box );
 		display: block;
 		right: @size-icon + 0.5em; // With close, no indicator
-		padding-top: @padding-top-default;
+		padding-top: @padding-top-base;
 		padding-left: @padding-horizontal-input-text;
-		padding-bottom: @padding-bottom-default;
+		padding-bottom: @padding-bottom-base;
 		line-height: @line-height-widget-singleline;
 		white-space: nowrap;
 	}
@@ -1380,7 +1380,7 @@
 		margin-right: 0;
 
 		.oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-			height: @size-default;
+			height: @size-base;
 		}
 	}
 
@@ -1399,7 +1399,7 @@
 	// With close, with indicator:
 	&.oo-ui-indicatorElement {
 		.oo-ui-selectFileWidget-label {
-			right: @size-icon + @size-indicator + @padding-horizontal-default;
+			right: @size-icon + @size-indicator + @padding-horizontal-base;
 			padding-left: 0;
 		}
 
@@ -1419,15 +1419,15 @@
 	}
 
 	&-dropTarget {
-		background-color: @background-color-default;
-		border: @border-default;
-		border-radius: @border-radius-default;
+		background-color: @background-color-base;
+		border: @border-base;
+		border-radius: @border-radius-base;
 		vertical-align: middle;
 		overflow: hidden;
 
 		.oo-ui-selectFileWidget-selectButton {
 			> .oo-ui-buttonElement-button {
-				border-radius: @border-radius-default;
+				border-radius: @border-radius-base;
 			}
 		}
 
@@ -1448,7 +1448,7 @@
 
 	&-empty.oo-ui-widget-enabled {
 		&.oo-ui-selectFileWidget-dropTarget {
-			background-color: @background-color-default;
+			background-color: @background-color-base;
 			border-style: dashed;
 			.oo-ui-transition(
 				background-color @transition-ease-out-sine-medium,
@@ -1495,7 +1495,7 @@
 	&-notsupported {
 		.oo-ui-selectFileWidget-info {
 			background-color: @background-color-disabled;
-			color: @color-default;
+			color: @color-base;
 			border-color: @border-color-disabled;
 		}
 
@@ -1504,7 +1504,7 @@
 			border-color: @border-color-disabled;
 
 			.oo-ui-selectFileWidget-label {
-				padding: 1em @padding-horizontal-default;
+				padding: 1em @padding-horizontal-base;
 			}
 		}
 	}
@@ -1515,13 +1515,13 @@
 }
 
 .theme-oo-ui-tabOptionWidget () {
-	color: @color-default;
+	color: @color-base;
 	margin: @margin-taboption 0 0 @margin-taboption;
 	border-color: transparent;
-	border-style: @border-style-default;
-	border-width: @border-width-default @border-width-default 0 @border-width-default;
-	border-top-left-radius: @border-radius-default;
-	border-top-right-radius: @border-radius-default;
+	border-style: @border-style-base;
+	border-width: @border-width-base @border-width-base 0 @border-width-base;
+	border-top-left-radius: @border-radius-base;
+	border-top-right-radius: @border-radius-base;
 	padding: @padding-taboption;
 	font-weight: bold;
 	line-height: @line-height-reset;
@@ -1531,8 +1531,8 @@
 	);
 
 	&.oo-ui-optionWidget-selected {
-		background-color: @background-color-default;
-		color: @color-default-active;
+		background-color: @background-color-base;
+		color: @color-base-active;
 	}
 
 	.oo-ui-labelElement-label {
@@ -1549,7 +1549,7 @@
 		}
 
 		&.oo-ui-optionWidget-selected:hover {
-			background-color: @background-color-default;
+			background-color: @background-color-base;
 		}
 	}
 }
@@ -1564,15 +1564,15 @@
 	max-width: 100%;
 	height: @height-tagitem;
 	margin: @margin-top-tagitem @end-tagitem 0 0;
-	border: @border-default;
-	border-radius: @border-radius-default;
+	border: @border-base;
+	border-radius: @border-radius-base;
 	padding: 0 @padding-horizontal-tagitem;
 	line-height: @height-tagitem;
 	vertical-align: middle;
 
 	&.oo-ui-widget-enabled {
 		background-color: @background-color-framed;
-		color: @color-default;
+		color: @color-base;
 		padding-right: @padding-end-tagitem-close;
 		.oo-ui-transition(
 			background-color @transition-ease-quick,
@@ -1583,12 +1583,12 @@
 
 		&:hover {
 			background-color: @background-color-framed-hover;
-			color: @color-default-hover;
-			border-color: @border-color-default-hover;
+			color: @color-base-hover;
+			border-color: @border-color-base-hover;
 		}
 
 		&:focus {
-			border-color: @border-color-default-focus;
+			border-color: @border-color-base-focus;
 			box-shadow: @box-shadow-widget-focus;
 			outline: 0;
 		}
@@ -1658,10 +1658,10 @@
 
 	&-handle {
 		.oo-ui-box-sizing( border-box );
-		min-height: @min-height-widget-default;
+		min-height: @min-height-widget-base;
 		.oo-ui-inline-spacing( 0.5em );
-		border: @border-default;
-		border-radius: @border-radius-default;
+		border: @border-base;
+		border-radius: @border-radius-base;
 		padding: 0 @padding-horizontal-input-text @padding-vertical-label;
 		line-height: @line-height-reset;
 
@@ -1710,7 +1710,7 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-tagMultiselectWidget-handle {
-			background-color: @background-color-default;
+			background-color: @background-color-base;
 			.oo-ui-transition(
 				border-color @transition-ease-out-sine-medium,
 				box-shadow @transition-ease-out-sine-medium
@@ -1723,7 +1723,7 @@
 			}
 
 			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
-				border-color: @border-color-default-focus;
+				border-color: @border-color-base-focus;
 				outline: 0;
 				box-shadow: @box-shadow-widget-focus;
 			}
@@ -1738,7 +1738,7 @@
 			}
 
 			.oo-ui-tagItemWidget.oo-ui-widget-enabled {
-				background-color: @background-color-default;
+				background-color: @background-color-base;
 			}
 
 			.oo-ui-inputWidget-input {
@@ -1774,10 +1774,10 @@
 		margin: 0;
 		font-size: inherit;
 		font-family: inherit;
-		background-color: @background-color-default;
+		background-color: @background-color-base;
 		color: @color-emphasized;
-		border: @border-default;
-		border-radius: @border-radius-default;
+		border: @border-base;
+		border-radius: @border-radius-base;
 		padding: @padding-input-text;
 	}
 
@@ -1807,7 +1807,7 @@
 			}
 			&:focus {
 				outline: 0;
-				border-color: @border-color-default-focus;
+				border-color: @border-color-base-focus;
 				box-shadow: @box-shadow-widget-focus;
 			}
 
@@ -1818,7 +1818,7 @@
 					border-color: @border-color-readonly;
 				}
 				&:focus {
-					border-color: @border-color-default-focus;
+					border-color: @border-color-base-focus;
 				}
 			}
 
@@ -1885,14 +1885,14 @@
 		}
 
 		textarea + .oo-ui-iconElement-icon {
-			max-height: @size-default; // Use `@size-default` as `max-height` for multiline TextInputWidgets
+			max-height: @size-base; // Use `@size-base` as `max-height` for multiline TextInputWidgets
 		}
 	}
 
 	> .oo-ui-labelElement-label {
 		color: @color-subtle;
-		margin-top: @border-width-default; // Address `border` on `input`
-		padding: @padding-top-default @padding-horizontal-default @padding-bottom-default @padding-horizontal-input-text;
+		margin-top: @border-width-base; // Address `border` on `input`
+		padding: @padding-top-base @padding-horizontal-base @padding-bottom-base @padding-horizontal-input-text;
 		line-height: @line-height-widget-singleline;
 	}
 
@@ -1907,14 +1907,14 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			max-height: @size-default;
-			margin-right: @padding-horizontal-default;
+			max-height: @size-base;
+			margin-right: @padding-horizontal-base;
 		}
 	}
 
 	&-labelPosition-after {
 		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
-			margin-right: @size-indicator + @padding-horizontal-default + @padding-horizontal-input-text;
+			margin-right: @size-indicator + @padding-horizontal-base + @padding-horizontal-input-text;
 		}
 	}
 
@@ -2017,8 +2017,8 @@
 			box-shadow: @box-shadow-input-binary-active;
 
 			.oo-ui-toggleSwitchWidget-grip {
-				background-color: @background-color-default;
-				border-color: @background-color-default;
+				background-color: @background-color-base;
+				border-color: @background-color-base;
 				box-shadow: @box-shadow-input-binary;
 			}
 		}
@@ -2037,8 +2037,8 @@
 			border-color: @border-color-input-binary-on;
 
 			.oo-ui-toggleSwitchWidget-grip {
-				background-color: @background-color-default;
-				border-color: @background-color-default;
+				background-color: @background-color-base;
+				border-color: @background-color-base;
 				box-shadow: @box-shadow-input-binary;
 			}
 
@@ -2055,7 +2055,7 @@
 				border-color: @border-color-input-binary-on;
 
 				&:before {
-					border-color: @color-default-light;
+					border-color: @color-base-light;
 				}
 			}
 		}
@@ -2072,7 +2072,7 @@
 		}
 
 		&.oo-ui-toggleWidget-on .oo-ui-toggleSwitchWidget-grip {
-			background-color: @background-color-default;
+			background-color: @background-color-base;
 		}
 	}
 }
