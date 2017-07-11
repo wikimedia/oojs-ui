@@ -69,6 +69,8 @@ else
 			[ { 'data' => 'a' }, { 'data' => 'b' } ],
 			[ { 'data' => 'a', 'label' => 'A' }, { 'data' => 'b', 'label' => 'B' } ],
 		],
+		# deprecated, makes test logs spammy
+		'multiline' => [],
 		# usually makes no sense in JS
 		'autofocus' => [],
 		# too simple to test?
