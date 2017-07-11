@@ -49,34 +49,6 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	this.currentTabPanelName = null;
 	this.tabPanels = {};
 
-	Object.defineProperty( this, 'currentCardName', {
-		// TODO: read documentation
-		configurable: true,
-		enumerable: true,
-		get: function () {
-			OO.ui.warnDeprecation( 'IndexLayout\'s currentCardName property is deprecated. Use currentTabPanelName instead. See T155152.' );
-			return this.currentTabPanelName;
-		},
-		set: function ( value ) {
-			OO.ui.warnDeprecation( 'IndexLayout\'s currentCardName property is deprecated. Use currentTabPanelName instead. See T155152.' );
-			this.currentTabPanelName = value;
-		}
-	} );
-
-	Object.defineProperty( this, 'cards', {
-		// TODO: read documentation
-		configurable: true,
-		enumerable: true,
-		get: function () {
-			OO.ui.warnDeprecation( 'IndexLayout\'s cards property is deprecated. Use tabPanels instead. See T155152.' );
-			return this.tabPanels;
-		},
-		set: function ( value ) {
-			OO.ui.warnDeprecation( 'IndexLayout\'s cards property is deprecated. Use tabPanels instead. See T155152.' );
-			this.tabPanels = value;
-		}
-	} );
-
 	this.ignoreFocus = false;
 	this.stackLayout = new OO.ui.StackLayout( {
 		continuous: !!config.continuous,
@@ -258,18 +230,6 @@ OO.ui.IndexLayout.prototype.getClosestTabPanel = function ( tabPanel ) {
 };
 
 /**
- * Get the tab panel closest to the specified tab panel.
- *
- * @param {OO.ui.TabPanelLayout} tabPanel Tab panel to use as a reference point
- * @return {OO.ui.TabPanelLayout|null} Tab panel closest to the specified
- * @deprecated since v0.21.3, use `getClosestTabPanel` instead
- */
-OO.ui.IndexLayout.prototype.getClosestCard = function ( tabPanel ) {
-	OO.ui.warnDeprecation( 'IndexLayout\'s getClosestCard method is deprecated. Use getClosestTabPanel instead. See T155152.' );
-	return this.getClosestTabPanel( tabPanel );
-};
-
-/**
  * Get the tabs widget.
  *
  * @return {OO.ui.TabSelectWidget} Tabs widget
@@ -289,18 +249,6 @@ OO.ui.IndexLayout.prototype.getTabPanel = function ( name ) {
 };
 
 /**
- * Get a tab panel by its symbolic name.
- *
- * @param {string} name Symbolic name of tab panel
- * @return {OO.ui.TabPanelLayout|undefined} Tab panel, if found
- * @deprecated since v0.21.3, use `getTabPanel` instead
- */
-OO.ui.IndexLayout.prototype.getCard = function ( name ) {
-	OO.ui.warnDeprecation( 'IndexLayout\'s getCard method is deprecated. Use getTabPanel instead. See T155152.' );
-	return this.getTabPanel( name );
-};
-
-/**
  * Get the current tab panel.
  *
  * @return {OO.ui.TabPanelLayout|undefined} Current tab panel, if found
@@ -311,34 +259,12 @@ OO.ui.IndexLayout.prototype.getCurrentTabPanel = function () {
 };
 
 /**
- * Get the current tab panel.
- *
- * @return {OO.ui.TabPanelLayout|undefined} Current tab panel, if found
- * @deprecated since v0.21.3, use `getCurrentTabPanel` instead
- */
-OO.ui.IndexLayout.prototype.getCurrentCard = function () {
-	OO.ui.warnDeprecation( 'IndexLayout\'s getCurrentCard method is deprecated. Use getCurrentTabPanel instead. See T155152.' );
-	return this.getCurrentTabPanel();
-};
-
-/**
  * Get the symbolic name of the current tab panel.
  *
  * @return {string|null} Symbolic name of the current tab panel
  */
 OO.ui.IndexLayout.prototype.getCurrentTabPanelName = function () {
 	return this.currentTabPanelName;
-};
-
-/**
- * Get the symbolic name of the current tab panel.
- *
- * @return {string|null} Symbolic name of the current tab panel
- * @deprecated since v0.21.3, use `getCurrentTabPanelName` instead
- */
-OO.ui.IndexLayout.prototype.getCurrentCardName = function () {
-	OO.ui.warnDeprecation( 'IndexLayout\'s getCurrentCardName method is deprecated. Use getCurrentTabPanelName instead. See T155152.' );
-	return this.getCurrentTabPanelName();
 };
 
 /**
@@ -397,23 +323,6 @@ OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
 };
 
 /**
- * Add tab panels to the index layout
- *
- * When tab panels are added with the same names as existing tab panels, the existing tab panels
- * will be automatically removed before the new tab panels are added.
- *
- * @param {OO.ui.TabPanelLayout[]} tabPanels Tab panels to add
- * @param {number} index Index of the insertion point
- * @fires add
- * @chainable
- * @deprecated since v0.21.3, use `addTabPanels` instead
- */
-OO.ui.IndexLayout.prototype.addCards = function ( tabPanels, index ) {
-	OO.ui.warnDeprecation( 'IndexLayout\'s addCards method is deprecated. Use addTabPanels instead. See T155152.' );
-	return this.addTabPanels( tabPanels, index );
-};
-
-/**
  * Remove the specified tab panels from the index layout.
  *
  * To remove all tab panels from the index, you may wish to use the #clearTabPanels method instead.
@@ -444,21 +353,6 @@ OO.ui.IndexLayout.prototype.removeTabPanels = function ( tabPanels ) {
 };
 
 /**
- * Remove the specified tab panels from the index layout.
- *
- * To remove all tab panels from the index, you may wish to use the #clearTabPanels method instead.
- *
- * @param {OO.ui.TabPanelLayout[]} tabPanels An array of tab panels to remove
- * @fires remove
- * @chainable
- * @deprecated since v0.21.3, use `removeTabPanels` instead
- */
-OO.ui.IndexLayout.prototype.removeCards = function ( tabPanels ) {
-	OO.ui.warnDeprecation( 'IndexLayout\'s removeCards method is deprecated. Use removeTabPanels instead. See T155152.' );
-	return this.removeTabPanels( tabPanels );
-};
-
-/**
  * Clear all tab panels from the index layout.
  *
  * To remove only a subset of tab panels from the index, use the #removeTabPanels method.
@@ -481,20 +375,6 @@ OO.ui.IndexLayout.prototype.clearTabPanels = function () {
 	this.emit( 'remove', tabPanels );
 
 	return this;
-};
-
-/**
- * Clear all tab panels from the index layout.
- *
- * To remove only a subset of tab panels from the index, use the #removeTabPanels method.
- *
- * @fires remove
- * @chainable
- * @deprecated since v0.21.3, use `clearTabPanels` instead
- */
-OO.ui.IndexLayout.prototype.clearCards = function () {
-	OO.ui.warnDeprecation( 'IndexLayout\'s clearCards method is deprecated. Use clearTabPanels instead. See T155152.' );
-	return this.clearTabPanels();
 };
 
 /**
@@ -550,18 +430,6 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
 };
 
 /**
- * Set the current tab panel by symbolic name.
- *
- * @fires set
- * @param {string} name Symbolic name of tab panel
- * @deprecated since v0.21.3, use `setTabPanel` instead
- */
-OO.ui.IndexLayout.prototype.setCard = function ( name ) {
-	OO.ui.warnDeprecation( 'IndexLayout\'s setCard method is deprecated. Use setTabPanel instead. See T155152.' );
-	return this.setTabPanel( name );
-};
-
-/**
  * Select the first selectable tab panel.
  *
  * @chainable
@@ -572,15 +440,4 @@ OO.ui.IndexLayout.prototype.selectFirstSelectableTabPanel = function () {
 	}
 
 	return this;
-};
-
-/**
- * Select the first selectable tab panel.
- *
- * @chainable
- * @deprecated since v0.21.3, use `selectFirstSelectableTabPanel` instead
- */
-OO.ui.IndexLayout.prototype.selectFirstSelectableCard = function () {
-	OO.ui.warnDeprecation( 'IndexLayout\'s selectFirstSelectableCard method is deprecated. Use selectFirestSelectableTabPanel instead. See T155152.' );
-	return this.selectFirstSelectableTabPanel();
 };

@@ -143,20 +143,3 @@ OO.ui.TabPanelLayout.prototype.setActive = function ( active ) {
 		this.emit( 'active', this.active );
 	}
 };
-
-/**
- * The deprecated name for the TabPanelLayout, provided for backwards-compatibility.
- *
- * @class
- * @extends OO.ui.TabPanelLayout
- *
- * @constructor
- * @deprecated since v0.21.3
- */
-OO.ui.CardLayout = function OoUiCardLayout() {
-	OO.ui.warnDeprecation( 'CardLayout has been renamed to TabPanel layout. Use that instead. See T155152.' );
-	// Parent constructor
-	OO.ui.CardLayout.parent.apply( this, arguments );
-};
-
-OO.inheritClass( OO.ui.CardLayout, OO.ui.TabPanelLayout );
