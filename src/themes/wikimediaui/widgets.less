@@ -416,8 +416,8 @@
 
 		&:checked {
 			& + span {
-				background-color: @background-color-input-binary-on;
-				border-color: @border-color-input-binary-on;
+				background-color: @background-color-input-binary--checked;
+				border-color: @border-color-input-binary--checked;
 			}
 
 			&:hover + span,
@@ -435,8 +435,8 @@
 			}
 
 			&:focus + span {
-				background-color: @background-color-input-binary-on;
-				border-color: @border-color-input-binary-on;
+				background-color: @background-color-input-binary--checked;
+				border-color: @border-color-input-binary--checked;
 				box-shadow: @box-shadow-progressive--focus;
 			}
 		}
@@ -1200,7 +1200,7 @@
 			& + span,
 			&:hover + span,
 			&:focus:hover + span {
-				border-width: @border-width-radio-on;
+				border-width: @border-width-radio--checked;
 			}
 		}
 
@@ -1239,7 +1239,7 @@
 
 		&:checked {
 			& + span {
-				border-color: @border-color-input-binary-on;
+				border-color: @border-color-input-binary--checked;
 			}
 
 			&:hover + span,
@@ -2033,8 +2033,8 @@
 		}
 
 		&.oo-ui-toggleWidget-on {
-			background-color: @background-color-input-binary-on;
-			border-color: @border-color-input-binary-on;
+			background-color: @background-color-input-binary--checked;
+			border-color: @border-color-input-binary--checked;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-base;
@@ -2052,7 +2052,7 @@
 				border-color: @border-color-input-binary--active;
 			}
 			&:focus {
-				border-color: @border-color-input-binary-on;
+				border-color: @border-color-input-binary--checked;
 
 				&:before {
 					border-color: @color-base-light;
