@@ -350,6 +350,8 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.togglePositioning( !!this.$floatableContainer );
 			this.toggleClipping( true );
 
+			this.$focusOwner.attr( 'aria-expanded', 'true' );
+
 			if ( this.getSelectedItem() ) {
 				this.$focusOwner.attr( 'aria-activedescendant', this.getSelectedItem().getElementId() );
 				this.getSelectedItem().scrollElementIntoView( { duration: 0 } );
@@ -365,6 +367,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.$focusOwner.removeAttr( 'aria-activedescendant' );
 			this.unbindKeyDownListener();
 			this.unbindKeyPressListener();
+			this.$focusOwner.attr( 'aria-expanded', 'false' );
 			this.getElementDocument().removeEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
 			this.togglePositioning( false );
 			this.toggleClipping( false );
