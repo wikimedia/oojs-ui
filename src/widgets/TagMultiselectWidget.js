@@ -696,6 +696,12 @@ OO.ui.TagMultiselectWidget.prototype.getPreviousItem = function ( item ) {
 OO.ui.TagMultiselectWidget.prototype.updateInputSize = function () {
 	var $lastItem, direction, contentWidth, currentWidth, bestWidth;
 	if ( this.inputPosition === 'inline' && !this.isDisabled() ) {
+		if ( this.input.$input[ 0 ].scrollWidth === 0 ) {
+			// Input appears to be attached but not visible.
+			// Don't attempt to adjust its size, because our measurements
+			// are going to fail anyway.
+			return;
+		}
 		this.input.$input.css( 'width', '1em' );
 		$lastItem = this.$group.children().last();
 		direction = OO.ui.Element.static.getDir( this.$handle );
