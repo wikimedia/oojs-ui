@@ -33,14 +33,14 @@
 @color-destructive-non-primary: #d73333; // Exemption for non-primary buttons, foremost used in VE, lightened up R50 to align to AA contrast ratio
 
 // Disabled Widgets
-@background-color-disabled: #eaecf0;
-@background-color-disabled-filled: #c8ccd1;
-@color-disabled: #72777d;
-@color-disabled-filled: @color-base-light;
-@opacity-disabled: 0.51; // `0.51` equals `#7d7d7d` on background-color `#fff`, HSB 0°/0%/49%
-@opacity-disabled-filled: 1;
-@opacity-disabled-indicator: 0.15; // equals `#c7c8cc` on background-color `#fff`
-@opacity-disabled-tool: 0.3;
+@background-color-base--disabled: #eaecf0;
+@background-color-filled--disabled: #c8ccd1;
+@color-base--disabled: #72777d;
+@color-filled--disabled: @color-base-light;
+@opacity--disabled: 0.51; // `0.51` equals `#7d7d7d` on background-color `#fff`, HSB 0°/0%/49%
+@opacity-filled--disabled: 1;
+@opacity-indicator--disabled: 0.15; // equals `#c7c8cc` on background-color `#fff`
+@opacity-tool--disabled: 0.3;
 
 // Invalid Widget (validation error feedback)
 @color-erroneous: @color-destructive;
@@ -112,8 +112,8 @@
 @margin-bottom-fieldset-header: 8 / @oo-ui-font-size-browser / ( @oo-ui-font-size-base * @font-size-fieldset-header );
 
 @border-base: @border-width-base solid @border-color-base;
-@border-disabled: @border-width-base solid @border-color-disabled;
-@border-disabled-filled: @border-width-base solid @border-color-disabled-filled;
+@border-base--disabled: @border-width-base solid @border-color-base--disabled;
+@border-filled--disabled: @border-width-base solid @border-color-filled--disabled;
 @border-dialog: @border-base;
 @border-dialog-bar: @border-width-base solid @border-color-dialog-bar;
 @border-menu: @border-base;
@@ -122,8 +122,8 @@
 @border-color-base--hover: #a2a9b1;
 @border-color-base--active: #72777d;
 @border-color-base--focus: @color-progressive--focus;
-@border-color-disabled: #c8ccd1;
-@border-color-disabled-filled: @color-disabled-filled;
+@border-color-base--disabled: #c8ccd1;
+@border-color-filled--disabled: @color-filled--disabled;
 @border-color-framed-progressive--hover: @color-progressive--hover;
 @border-color-framed-destructive--hover: @color-destructive--hover;
 @border-color-frameless: transparent;
@@ -183,7 +183,7 @@
 @box-shadow-action--focus: @box-shadow-widget--focus, 0 0 0 1px @color-progressive;
 @box-shadow-input-binary--active: inset 0 0 0 1px @color-progressive--active;
 @box-shadow-erroneous--focus: inset 0 0 0 1px @color-erroneous;
-@box-shadow-disabled-filled: inset 0 0 0 1px @color-disabled-filled;
+@box-shadow-filled--disabled: inset 0 0 0 1px @color-filled--disabled;
 
 @font-size-fieldset-header: 1.15em; // equals `16.1px` at base `font-size: 12.8px`. Todo: Not able to get unified `16px` due to T
 
@@ -198,7 +198,7 @@
 @line-height-tagmultiselect-input: 1.563em; // equals `20px` at base `font-size: 12.8px`
 
 @text-shadow-base: 0 1px 1px @color-base-light; // 'coined' effect
-@text-shadow-disabled: @text-shadow-base;
+@text-shadow-base--disabled: @text-shadow-base;
 
 @opacity-icon-base: 0.87; // equals `#222` on background-color `#fff`
 @opacity-icon-base-hover: 0.73; // equals `#454545` on background-color `#fff`, closest to `#444`
