@@ -4,16 +4,14 @@
 @oo-ui-font-size-browser: 16; // assumed browser default of `16px`
 @oo-ui-font-size-base: 0.8em; // equals `12.8px` at browser default of `16px`
 
-@background-color-base: #fff;
+// Pull in the main set of variables from the shared UI base; reaching into node_modules like this
+// to avoid a symlink that Windows users won't like.
+@import '../../../node_modules/wikimedia-ui-base/wikimedia-ui-base.less';
+
 @background-color-base--hover: #eaecf0;
 @background-color-base--read-only: #f8f9fa;
 
-@color-base: #222;
-@color-base--hover: #444;
-@color-base--active: #000;
-@color-base--inverted: #fff;
 @color-emphasized: @color-base--active;
-@color-placeholder: #72777d; // equals HSB 210°/9%/49%, aligns to WCAG 2.0 level AA at 4.52:1 contrast ratio
 @color-subtle: #72777d;
 
 // Primary 'Progressive' and 'Destructive' Colors
@@ -25,33 +23,15 @@
 @color-progressive--active-hover: @color-progressive;
 @color-progressive--focus: @color-progressive;
 
-@background-color-destructive: #fee7e6;
-@color-destructive: #d33; // equals HSB 360°/77%/87%
-@color-destructive--hover: #ff4242; // equals HSB 360°/74%/100%
-@color-destructive--active: #b32424; // equals HSB 360°/80%/70%
-@color-destructive--focus: @color-destructive;
 @color-destructive-non-primary: #d73333; // Exemption for non-primary buttons, foremost used in VE, lightened up R50 to align to AA contrast ratio
 
 // Disabled Widgets
 @background-color-base--disabled: #eaecf0;
 @background-color-filled--disabled: #c8ccd1;
-@color-base--disabled: #72777d;
-@color-filled--disabled: @color-base--inverted;
 @opacity--disabled: 0.51; // `0.51` equals `#7d7d7d` on background-color `#fff`, HSB 0°/0%/49%
 @opacity-filled--disabled: 1;
 @opacity-indicator--disabled: 0.15; // equals `#c7c8cc` on background-color `#fff`
 @opacity-tool--disabled: 0.3;
-
-// Invalid Widget (validation error feedback)
-@color-erroneous: @color-destructive;
-
-// "Framed" Widgets (Framed ButtonWidget, ToggleSwitchWidget...)
-@background-color-framed: #f8f9fa;
-@background-color-framed--hover: @background-color-base; // equals `lighten( #f8f9fa, 10% )`, although `2%` is already resulting in `#fff`
-@background-color-framed--active: #c8ccd1;
-
-// Tabbed Navigation
-@background-color-tabs: #eaecf0;
 
 // Toolbar, Tools & Menus
 @background-color-toolbar: @background-color-base;
@@ -111,19 +91,11 @@
 @margin-top-fieldsetlayout-help: -( 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base ) / 2;
 @margin-bottom-fieldset-header: 8 / @oo-ui-font-size-browser / ( @oo-ui-font-size-base * @font-size-fieldset-header );
 
-@border-base: @border-width-base solid @border-color-base;
 @border-base--disabled: @border-width-base solid @border-color-base--disabled;
 @border-filled--disabled: @border-width-base solid @border-color-filled--disabled;
-@border-dialog: @border-base;
 @border-dialog-bar: @border-width-base solid @border-color-dialog-bar;
-@border-menu: @border-base;
 
-@border-color-base: #a2a9b1;
-@border-color-base--hover: #a2a9b1;
-@border-color-base--active: #72777d;
 @border-color-base--focus: @color-progressive--focus;
-@border-color-base--disabled: #c8ccd1;
-@border-color-filled--disabled: @color-filled--disabled;
 @border-color-framed-progressive--hover: @color-progressive--hover;
 @border-color-framed-destructive--hover: @color-destructive--hover;
 @border-color-frameless: transparent;
@@ -135,12 +107,9 @@
 @border-color-input--hover: @border-color-base--active;
 @border-color-dialog-bar: #c8ccd1;
 
-@border-radius-base: 2px;
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
 
 @border-style-base: solid;
-
-@border-width-base: 1px;
 
 @padding-base: @padding-top-base @padding-horizontal-base @padding-bottom-base;
 @padding-frameless: @padding-top-base @padding-horizontal-frameless @padding-bottom-base @padding-horizontal-frameless;
@@ -187,7 +156,6 @@
 
 @font-size-fieldset-header: 1.15em; // equals `16.1px` at base `font-size: 12.8px`. Todo: Not able to get unified `16px` due to T
 
-@line-height-base: 1.6; // same as Vector
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
 @line-height-message: 1.4;
 @line-height-fieldset-header-iconized: 24 / @oo-ui-font-size-browser / ( @oo-ui-font-size-base * @font-size-fieldset-header );
@@ -196,9 +164,6 @@
 @line-height-widget-multiline: 1.275;
 @line-height-widget-singleline: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
 @line-height-tagmultiselect-input: 1.563em; // equals `20px` at base `font-size: 12.8px`
-
-@text-shadow-base: 0 1px 1px @color-base--inverted; // 'coined' effect
-@text-shadow-base--disabled: @text-shadow-base;
 
 @opacity-icon-base: 0.87; // equals `#222` on background-color `#fff`
 @opacity-icon-base--hover: 0.73; // equals `#454545` on background-color `#fff`, closest to `#444`
