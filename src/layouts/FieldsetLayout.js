@@ -54,11 +54,11 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
-	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, { $label: $( '<div>' ) } ) );
+	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.GroupElement.call( this, config );
 
 	// Properties
-	this.$header = $( '<div>' );
+	this.$header = $( '<legend>' );
 	if ( config.help ) {
 		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
 			$overlay: config.$overlay,
