@@ -662,25 +662,24 @@ OO.ui.TextInputWidget.prototype.updatePosition = function () {
  * @chainable
  */
 OO.ui.TextInputWidget.prototype.positionLabel = function () {
-	var after, rtl, property;
+	var after, rtl, property, newCss;
 
 	if ( this.isWaitingToBeAttached ) {
 		// #onElementAttach will be called soon, which calls this method
 		return this;
 	}
 
-	// Clear old values
-	this.$input
-		// Clear old values if present
-		.css( {
-			'padding-right': '',
-			'padding-left': ''
-		} );
+	newCss = {
+		'padding-right': '',
+		'padding-left': ''
+	};
 
 	if ( this.label ) {
 		this.$element.append( this.$label );
 	} else {
 		this.$label.detach();
+		// Clear old values if present
+		this.$input.css( newCss );
 		return;
 	}
 
@@ -688,7 +687,9 @@ OO.ui.TextInputWidget.prototype.positionLabel = function () {
 	rtl = this.$element.css( 'direction' ) === 'rtl';
 	property = after === rtl ? 'padding-left' : 'padding-right';
 
-	this.$input.css( property, this.$label.outerWidth( true ) + ( after ? this.scrollWidth : 0 ) );
+	newCss[ property ] = this.$label.outerWidth( true ) + ( after ? this.scrollWidth : 0 );
+	// We have to clear the padding on the other side, in case the element direction changed
+	this.$input.css( newCss );
 
 	return this;
 };
