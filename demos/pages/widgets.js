@@ -869,6 +869,29 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new Demo.DynamicLabelTextInputWidget( {
+						getLabelText: function ( value ) {
+							return String( value.length );
+						}
+					} ),
+					{
+						label: 'TextInputWidget (with dynamic label – length)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new Demo.DynamicLabelTextInputWidget( {
+						maxLength: 300,
+						getLabelText: function ( value ) {
+							return String( 300 - value.length );
+						}
+					} ),
+					{
+						label: 'TextInputWidget (with dynamic label – remaining length)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.SearchInputWidget(),
 					{
 						label: 'SearchInputWidget (type=search)\u200E',
