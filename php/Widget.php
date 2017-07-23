@@ -66,7 +66,7 @@ class Widget extends Element {
 	 * Get an ID of a labelable node which is part of this widget, if any, to be used for
 	 * `<label for>` value.
 	 *
-	 * @return {string|null} The ID of the labelable node
+	 * @return string|null The ID of the labelable node
 	 */
 	public function getInputId() {
 		return null;

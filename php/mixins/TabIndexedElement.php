@@ -92,7 +92,7 @@ trait TabIndexedElement {
 	 * If the element already has an ID then that is returned, otherwise unique ID is
 	 * generated, set on the element, and returned.
 	 *
-	 * @return {string|null} The ID of the focusable element
+	 * @return string|null The ID of the focusable element
 	 */
 	public function getInputId() {
 		$id = $this->tabIndexed->getAttribute( 'id' );

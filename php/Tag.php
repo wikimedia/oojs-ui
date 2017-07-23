@@ -275,7 +275,7 @@ class Tag {
 	/**
 	 * Generate a unique ID for element
 	 *
-	 * @return {string} ID
+	 * @return string ID
 	 */
 	public static function generateElementId() {
 		self::$elementId++;
