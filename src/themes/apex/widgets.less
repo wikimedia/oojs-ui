@@ -18,6 +18,10 @@
 	border-radius: @border-radius-button;
 
 	.oo-ui-inline-spacing(0.5em);
+	// Create a stacking context, so that we can use `z-index` below without leaking out
+	z-index: 0;
+	position: relative;
+
 	.oo-ui-buttonElement {
 		.oo-ui-inline-spacing(0);
 	}
@@ -39,6 +43,36 @@
 			border-top-right-radius: @border-radius-button;
 		}
 	}
+
+	// Give hovered/focussed/active buttons higher `z-index`, so that borders display right.
+	// Identical to .theme-oo-ui-buttonSelectWidget, except for the `:focus` selector.
+	&.oo-ui-widget-enabled {
+		.oo-ui-buttonElement {
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
+				z-index: 1;
+			}
+
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+				z-index: 2;
+			}
+
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+				z-index: 3;
+			}
+
+			&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+				z-index: -1;
+			}
+
+			&.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on {
+				> .oo-ui-buttonElement-button,
+				> .oo-ui-buttonElement-button:active {
+					//border-left-color: @border-color-base;
+					z-index: 3;
+				}
+			}
+		}
+	}
 }
 
 .theme-oo-ui-buttonInputWidget () {}
@@ -56,8 +90,14 @@
 
 .theme-oo-ui-buttonSelectWidget () {
 	border-radius: @border-radius-button;
-
 	.oo-ui-inline-spacing(0.5em);
+	// Create a stacking context, so that we can use `z-index` below without leaking out
+	z-index: 0;
+	position: relative;
+
+	&:focus {
+		outline: 0;
+	}
 
 	.oo-ui-buttonOptionWidget {
 		.oo-ui-buttonElement-button {
@@ -74,6 +114,34 @@
 		&:last-child .oo-ui-buttonElement-button {
 			border-bottom-right-radius: @border-radius-button;
 			border-top-right-radius: @border-radius-button;
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		&:focus {
+			.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
+				.oo-ui-buttonElement-button {
+					border-color: @border-color-base--focus;
+					box-shadow: @box-shadow-widget--focus;
+				}
+			}
+		}
+
+		// Give hovered/focussed/active buttons higher `z-index`, so that borders display right.
+		// Identical to .theme-oo-ui-buttonGroupWidget, except we don't need `:focus` selector.
+		.oo-ui-buttonElement {
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
+				z-index: 1;
+			}
+
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+				z-index: 3;
+			}
+
+			&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+				z-index: -1;
+			}
 		}
 	}
 }
