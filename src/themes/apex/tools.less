@@ -60,13 +60,13 @@
 
 	// Like .oo-ui-tool in barToolGroup
 	&:first-child > .oo-ui-popupToolGroup {
-		border-top-left-radius: 0.3125em;
-		border-bottom-left-radius: 0.3125em;
+		border-top-left-radius: @border-radius-button;
+		border-bottom-left-radius: @border-radius-button;
 	}
 
 	&:last-child > .oo-ui-popupToolGroup {
-		border-top-right-radius: 0.3125em;
-		border-bottom-right-radius: 0.3125em;
+		border-top-right-radius: @border-radius-button;
+		border-bottom-right-radius: @border-radius-button;
 	}
 
 	// Like .oo-ui-tool-link in barToolGroup
@@ -89,7 +89,7 @@
 
 .theme-oo-ui-toolGroup () {
 	margin: 0.375em;
-	border-radius: 0.3125em;
+	border-radius: @border-radius-button;
 	border: 1px solid transparent;
 	.oo-ui-transition( border-color @medium-ease );
 
@@ -116,14 +116,14 @@
 		border: 1px solid transparent;
 
 		&:first-child {
-			border-top-left-radius: 0.3125em;
-			border-bottom-left-radius: 0.3125em;
+			border-top-left-radius: @border-radius-button;
+			border-bottom-left-radius: @border-radius-button;
 		}
 
 		&:last-child {
 			margin-right: -1px;
-			border-top-right-radius: 0.3125em;
-			border-bottom-right-radius: 0.3125em;
+			border-top-right-radius: @border-radius-button;
+			border-bottom-right-radius: @border-radius-button;
 		}
 
 		> .oo-ui-tool-link {
@@ -436,16 +436,16 @@
 		}
 
 		&:first-child > .oo-ui-popupToolGroup-handle {
-			border-bottom-left-radius: 0.3em;
-			border-top-left-radius: 0.3em;
+			border-bottom-left-radius: @border-radius-button;
+			border-top-left-radius: @border-radius-button;
 			margin-left: 0;
 		}
 
 		&:last-child {
 			margin-right: 0.5em;
 			& > .oo-ui-popupToolGroup-handle {
-				border-bottom-right-radius: 0.3em;
-				border-top-right-radius: 0.3em;
+				border-bottom-right-radius: @border-radius-button;
+				border-top-right-radius: @border-radius-button;
 			}
 		}
 	}
