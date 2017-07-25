@@ -81,6 +81,13 @@ class TextInputWidget extends InputWidget {
 		$this->type = $this->getSaneType( $config );
 		$this->multiline = isset( $config['multiline'] ) ? (bool)$config['multiline'] : false;
 
+		if ( $this->multiline && !( $this instanceof MultilineTextInputWidget ) ) {
+			Element::warnDeprecation(
+				'The TextInputWidget "multiline" option is deprecated as of OOjs UI v0.22.2. ' .
+				'Use MultilineTextInputWidget instead.'
+			);
+		}
+
 		// Traits
 		$this->initializeIconElement( $config );
 		$this->initializeIndicatorElement( $config );
