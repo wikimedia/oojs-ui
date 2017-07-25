@@ -179,12 +179,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	parts = data._.split( '.' );
 	cls = OO.getProp.apply( OO, [ window ].concat( parts ) );
 	if ( cls === undefined ) {
-		// The PHP output might be old and not including the "OO.ui" prefix
-		// TODO: Remove this back-compat after next major release
-		cls = OO.getProp.apply( OO, [ OO.ui ].concat( parts ) );
-		if ( cls === undefined ) {
-			throw new Error( 'Unknown widget type: id: ' + id + ', class: ' + data._ );
-		}
+		throw new Error( 'Unknown widget type: id: ' + id + ', class: ' + data._ );
 	}
 
 	// Verify that we're creating an OO.ui.Element instance
