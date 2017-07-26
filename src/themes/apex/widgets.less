@@ -323,7 +323,7 @@
 
 	&-php .oo-ui-indicatorWidget {
 		right: 0;
-		max-height: 2.375em;
+		max-height: 2.5em;
 		margin: 0;
 		margin-right: 0.775em;
 	}
@@ -1225,7 +1225,6 @@
 	input,
 	textarea {
 		padding: @padding-top-textinput 0.5em @padding-bottom-textinput 0.5em;
-		line-height: 1.275em;
 		font-size: inherit;
 		font-family: inherit;
 		background-color: @background-color-main;
@@ -1240,6 +1239,14 @@
 		}
 
 		.apex-placeholder();
+	}
+
+	input {
+		line-height: @line-height-widget-singleline;
+	}
+
+	textarea {
+		line-height: @line-height-widget-multiline;
 	}
 
 	&.oo-ui-widget-enabled {
@@ -1289,7 +1296,7 @@
 		}
 
 		.oo-ui-iconElement-icon {
-			max-height: 2.375em;
+			max-height: 2.5em;
 			margin-left: 0.3em;
 		}
 	}
@@ -1301,14 +1308,15 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			max-height: 2.375em;
+			max-height: 2.5em;
 			margin-right: 0.775em;
 		}
 	}
 
 	> .oo-ui-labelElement-label {
-		padding: 0.4em;
-		line-height: 1.5em;
+		top: 1px; // equals `border-width`
+		padding: @padding-top-textinput 0.4em @padding-bottom-textinput 0.4em;
+		line-height: @line-height-widget-singleline;
 		color: @color-subtle;
 	}
 
