@@ -95,6 +95,36 @@
 			}
 		}
 
+		&.oo-ui-widget-enabled {
+			&.oo-ui-iconElement,
+			&.oo-ui-labelElement {
+				> .oo-ui-buttonElement-button:focus {
+					border-color: @border-color-base--focus;
+					box-shadow: @box-shadow-widget--focus;
+
+					&:active {
+						border-color: @border-color-frameless--fallback;
+						border-color: @border-color-frameless;
+						box-shadow: none;
+					}
+				}
+			}
+
+			&.oo-ui-indicatorElement:not( .oo-ui-iconElement ):not( .oo-ui-labelElement ) { // IE 9+ only on non-critical design properties
+				> .oo-ui-buttonElement-button {
+					border-radius: @border-radius-button;
+
+					&:focus {
+						box-shadow: @box-shadow-widget--focus;
+
+						&:active {
+							box-shadow: none;
+						}
+					}
+				}
+			}
+		}
+
 		&.oo-ui-flaggedElement {
 			&-progressive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 				color: @progressive;

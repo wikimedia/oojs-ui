@@ -5,6 +5,7 @@
 
 @color-base: #333;
 @color-base--read-only: #767676;
+@color-base--inverted: #fff;
 @color-placeholder: #767676; // aligns to WCAG 2.0 level AA at 4.54:1 contrast ratio
 @color-subtle: #767676;
 
@@ -40,6 +41,8 @@
 @start-frameless: -@padding-horizontal-frameless;
 
 @border-color-base--focus: #ace;
+@border-color-frameless: transparent;
+@border-color-frameless--fallback: @color-base--inverted; // Support IE 6: `transparent` is not rendered correctly
 
 @border-radius-base: 0.25em;
 @border-radius-button: 4px;
