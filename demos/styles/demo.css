@@ -137,6 +137,7 @@ p {
 	content: 'Hide code ↑';
 }
 
+.demo-link-example:focus,
 .oo-ui-fieldLayout:hover > .demo-link-example {
 	opacity: 1;
 }
