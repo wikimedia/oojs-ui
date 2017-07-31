@@ -251,7 +251,7 @@
 				.apex-placeholder();
 
 				&:focus {
-					// For Chrome
+					// Support: Chrome
 					outline: 0;
 				}
 			}
@@ -276,8 +276,14 @@
 		}
 	}
 
-	&:hover &-handle {
+	&.oo-ui-widget-enabled:hover &-handle {
 		border-color: rgba( 0, 0, 0, 0.2 );
+	}
+
+	&.oo-ui-widget-enabled.oo-ui-capsuleMultiselectWidget-open &-handle {
+		border-color: @border-color-base--focus;
+		outline: 0;
+		box-shadow: @box-shadow-widget--focus;
 	}
 
 	&.oo-ui-widget-disabled &-handle {
@@ -1169,8 +1175,7 @@
 				.apex-placeholder();
 
 				&:focus {
-					// For Chrome
-					outline: 0;
+					outline: 0; // Support: Chrome
 				}
 			}
 		}
@@ -1194,8 +1199,18 @@
 		}
 	}
 
-	&:hover &-handle {
-		border-color: rgba( 0, 0, 0, 0.2 );
+	&.oo-ui-widget-enabled {
+		&.oo-ui-tagMultiselectWidget-inlined {
+			&:hover &-handle {
+				border-color: rgba( 0, 0, 0, 0.2 );
+			}
+
+			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
+				border-color: @border-color-base--focus;
+				outline: 0;
+				box-shadow: @box-shadow-widget--focus;
+			}
+		}
 	}
 
 	&.oo-ui-widget-disabled &-handle {
