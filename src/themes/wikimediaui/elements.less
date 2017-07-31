@@ -122,7 +122,7 @@
 			> .oo-ui-buttonElement-button {
 				min-width: @size-icon;
 				min-height: @size-icon;
-				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
+				border-color: @border-color-frameless--fallback; // Support IE 6: `transparent` is not rendered correctly
 				border-color: @border-color-frameless;
 				border-style: @border-style-base;
 				border-width: @border-width-base;
@@ -151,7 +151,7 @@
 			}
 
 			> .oo-ui-buttonElement-button {
-				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
+				border-color: @border-color-frameless--fallback; // Support IE 6: `transparent` is not rendered correctly
 				border-color: @border-color-frameless;
 				border-style: @border-style-base;
 				border-width: @border-width-base;
@@ -183,7 +183,7 @@
 					box-shadow: @box-shadow-widget--focus;
 
 					&:active {
-						border-color: @border-color-frameless-fallback;
+						border-color: @border-color-frameless--fallback;
 						border-color: @border-color-frameless;
 						box-shadow: none;
 					}
@@ -207,7 +207,7 @@
 			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
 			& > .oo-ui-buttonElement-button:active {
 				color: @color-base--active;
-				border-color: @border-color-frameless-fallback; // Support IE 6: `transparent` is not rendered correctly
+				border-color: @border-color-frameless--fallback; // Support IE 6: `transparent` is not rendered correctly
 				border-color: @border-color-frameless;
 				box-shadow: none;
 			}
