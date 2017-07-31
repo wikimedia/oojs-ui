@@ -1358,6 +1358,15 @@
 		&:hover .oo-ui-toggleSwitchWidget-grip {
 			border-color: #aaa;
 		}
+		&:focus {
+			outline: 0;
+			border-color: @border-color-base--focus;
+			box-shadow: @box-shadow-widget--focus;
+
+			.oo-ui-toggleSwitchWidget-grip {
+				border-color: @border-color-base--focus;
+			}
+		}
 	}
 
 	&-grip {
