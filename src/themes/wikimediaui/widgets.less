@@ -328,7 +328,7 @@
 	line-height: @size-input-binary;
 	// Prevent the fake span from jumping to the next line of text
 	white-space: nowrap;
-	// Workaround for a weird Firefox rendering issue (T171022)
+	// Support: Firefox weird rendering issue needs this workaround (T171022)
 	display: inline-block;
 
 	* {
@@ -339,7 +339,7 @@
 	// `<input type=checkbox>` element is visually replaced by `span` that follows
 	[type='checkbox'] {
 		position: relative;
-		// Needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
+		// Support: Firefox mobile to override user-agent stylesheet (T73750)
 		max-width: none;
 		// Ensure the invisible input takes up the required width
 		width: @size-input-binary;
@@ -1159,7 +1159,7 @@
 	line-height: @size-input-binary;
 	// Prevent the fake span from jumping to the next line of text
 	white-space: nowrap;
-	// Workaround for a weird Firefox rendering issue (T171022)
+	// Support: Firefox weird rendering issue needs this workaround (T171022)
 	display: inline-block;
 
 	* {
@@ -1170,7 +1170,7 @@
 	// `<input type=radio>` element is visually replaced by `span` that follows
 	[type='radio'] {
 		position: relative;
-		// Needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
+		// Support: Firefox mobile to override user-agent stylesheet (T73750)
 		max-width: none;
 		// Ensure the invisible input takes up the required width
 		width: @size-input-binary;
