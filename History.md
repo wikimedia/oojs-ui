@@ -1,4 +1,40 @@
 # OOjs UI Release History
+## v0.22.4 / 2017-08-01
+### Features
+* CheckboxMultiselectInputWidget: setValue when CheckboxMultiselect changes (Prateek Saxena)
+* FieldLayout: Show widget's accesskey in our title (Bartosz Dziewoński)
+* TextInputWidget: When positioning label, don't clear padding if we will set it again (Bartosz Dziewoński)
+* TitledElement: When an AccessKeyedElement, show access key in the title (Bartosz Dziewoński)
+
+### Styles
+* icons: Vertically align 'play' & 'stop' icons (Volker E.)
+* Apex theme: Add focus styles to Tag-/CapsuleMultiselectWidget (Volker E.)
+* Apex theme: Add focus styles to frameless buttons (Volker E.)
+* Apex theme: Add play icon (copied from WikimediaUI theme) (Roan Kattouw)
+* Apex theme: Align ButtonGroup-/ButtonSelectWidget focus logic to WikimediaUI (Volker E.)
+* Apex theme: Align Dropdown*Widget's focus state with other widgets (Volker E.)
+* Apex theme: Align TextInputWidget focus to variablized way (Volker E.)
+* Apex theme: Align ToggleSwitchWidget focus style to other widgets (Volker E.)
+* Apex theme: Improve alignment of TextInputWidget and its elements (Volker E.)
+* Apex theme: Introduce framed button focus indication (Volker E.)
+* Apex theme: Replace and unify `border-radius` with variables (Volker E.)
+* WikimediaUI theme: Set ButtonElement's height per default (Volker E.)
+* WikimediaUI theme: Work around a Firefox rendering bug for checkboxes and radios (Bartosz Dziewoński)
+
+### Code
+* DraggableGroupElement: Remove ARIA roles & attributes (Volker E.)
+* FieldsetLayout: Use `<legend>` now that Chrome 55 bug is less important (James D. Forrester)
+* Apex theme: Align remaining values to coding convention (Volker E.)
+* WikimediaUI theme: Align `*-fallback` var with notation elsewhere (Volker E.)
+* WikimediaUI theme: Code comment hygiene (Volker E.)
+* WikimediaUI theme: Directly use the Less values rather than via copy-paste (James D. Forrester)
+* demos: Add examples of TextInputWidget with dynamic label (Bartosz Dziewoński)
+* demos: Demo.DraggableItemWidget should not inherit from OO.ui.OptionWidget (Bartosz Dziewoński)
+* demos: Show example link on `:focus` (Volker E.)
+* doc: Fix some PHPDoc `@return` tags (Ricordisamoa)
+* build: Add a script to print the dependency tree of everything (Bartosz Dziewoński)
+
+
 ## v0.22.3 / 2017-07-11
 ### Features
 * Tag-/CapsuleMultiselectWidget: Avoid visual focusTrap feedback (Volker E.)
