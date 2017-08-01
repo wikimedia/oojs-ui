@@ -131,6 +131,8 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.setErrors( config.errors || [] );
 	this.setNotices( config.notices || [] );
 	this.setAlignment( config.align );
+	// Call this again to take into account the widget's accessKey
+	this.updateTitle();
 };
 
 /* Setup */
@@ -286,4 +288,19 @@ OO.ui.FieldLayout.prototype.updateMessages = function () {
 	for ( i = 0; i < this.errors.length; i++ ) {
 		this.$messages.append( this.makeMessage( 'error', this.errors[ i ] ) );
 	}
+};
+
+/**
+ * Include information about the widget's accessKey in our title. TitledElement calls this method.
+ * (This is a bit of a hack.)
+ *
+ * @protected
+ * @param {string} title Tooltip label for 'title' attribute
+ * @return {string}
+ */
+OO.ui.FieldLayout.prototype.formatTitleWithAccessKey = function ( title ) {
+	if ( this.fieldWidget && this.fieldWidget.formatTitleWithAccessKey ) {
+		return this.fieldWidget.formatTitleWithAccessKey( title );
+	}
+	return title;
 };
