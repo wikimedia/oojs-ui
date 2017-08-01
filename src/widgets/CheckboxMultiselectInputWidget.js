@@ -47,6 +47,11 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 	this.setOptions( config.options || [] );
 	// Have to repeat this from parent, as we need options to be set up for this to make sense
 	this.setValue( config.value );
+
+	// setValue when checkboxMultiselectWidget changes
+	this.checkboxMultiselectWidget.on( 'change', function () {
+		this.setValue( this.checkboxMultiselectWidget.getSelectedItemsData() );
+	}.bind( this ) );
 };
 
 /* Setup */
