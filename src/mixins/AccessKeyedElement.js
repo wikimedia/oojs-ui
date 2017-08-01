@@ -35,6 +35,12 @@ OO.ui.mixin.AccessKeyedElement = function OoUiMixinAccessKeyedElement( config ) 
 	// Initialization
 	this.setAccessKey( config.accessKey || null );
 	this.setAccessKeyedElement( config.$accessKeyed || this.$element );
+
+	// If this is also a TitledElement and it initialized before we did, we may have
+	// to update the title with the access key
+	if ( this.updateTitle ) {
+		this.updateTitle();
+	}
 };
 
 /* Setup */
@@ -119,6 +125,11 @@ OO.ui.mixin.AccessKeyedElement.prototype.getAccessKey = function () {
  */
 OO.ui.mixin.AccessKeyedElement.prototype.formatTitleWithAccessKey = function ( title ) {
 	var accessKey;
+
+	if ( !this.$accessKeyed ) {
+		// Not initialized yet; the constructor will call updateTitle() which will rerun this function
+		return title;
+	}
 	// Use jquery.accessKeyLabel if available to show modifiers, otherwise just display the single key
 	if ( $.fn.updateTooltipAccessKeys && $.fn.updateTooltipAccessKeys.getAccessKeyLabel ) {
 		accessKey = $.fn.updateTooltipAccessKeys.getAccessKeyLabel( this.$accessKeyed[ 0 ] );
