@@ -328,6 +328,8 @@
 	line-height: @size-input-binary;
 	// Prevent the fake span from jumping to the next line of text
 	white-space: nowrap;
+	// Workaround for a weird Firefox rendering issue (T171022)
+	display: inline-block;
 
 	* {
 		font: inherit;
@@ -1157,6 +1159,8 @@
 	line-height: @size-input-binary;
 	// Prevent the fake span from jumping to the next line of text
 	white-space: nowrap;
+	// Workaround for a weird Firefox rendering issue (T171022)
+	display: inline-block;
 
 	* {
 		font: inherit;
