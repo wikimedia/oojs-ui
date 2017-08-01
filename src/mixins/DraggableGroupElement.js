@@ -48,7 +48,6 @@ OO.ui.mixin.DraggableGroupElement = function OoUiMixinDraggableGroupElement( con
 	}
 	this.$element
 		.addClass( 'oo-ui-draggableGroupElement' )
-		.attr( 'role', 'listbox' )
 		.append( this.$status )
 		.toggleClass( 'oo-ui-draggableGroupElement-horizontal', this.orientation === 'horizontal' );
 };
