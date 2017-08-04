@@ -18,8 +18,11 @@ QUnit.module( 'JSPHP' );
 	}
 
 	function makeTest( theme, klassName, infuseOnly, tests ) {
-		QUnit.test( theme + ': ' + klassName, tests.length * ( infuseOnly ? 1 : 2 ), function ( assert ) {
+		QUnit.test( theme + ': ' + klassName, function ( assert ) {
 			var test, config, instance, infused, id, fromPhp, i, testName;
+
+			assert.expect( tests.length * ( infuseOnly ? 1 : 2 ) );
+
 			OO.ui.theme = themes[ theme ];
 			for ( i = 0; i < tests.length; i++ ) {
 				test = tests[ i ];

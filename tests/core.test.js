@@ -85,7 +85,7 @@ QUnit.test( 'isFocusableElement', function ( assert ) {
 			}
 		];
 
-	QUnit.expect( cases.length );
+	assert.expect( cases.length );
 	for ( i = 0; i < cases.length; i++ ) {
 		$html = $( cases[ i ].html ).appendTo( 'body' );
 		result = OO.ui.isFocusableElement( cases[ i ].selector ? $html.find( cases[ i ].selector ) : $html );

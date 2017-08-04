@@ -1,7 +1,7 @@
 ( function () {
 	QUnit.module( 'NumberInputWidget' );
 
-	QUnit.test( 'validate number', 7, function ( assert ) {
+	QUnit.test( 'validate number', function ( assert ) {
 		var widget = new OO.ui.NumberInputWidget( {
 			allowInteger: true,
 			min: -10,
@@ -9,6 +9,8 @@
 			step: 1,
 			required: false
 		} );
+
+		assert.expect( 7 );
 
 		assert.ok(
 			widget.validateNumber( 0 ),
@@ -44,7 +46,7 @@
 		);
 	} );
 
-	QUnit.test( 'adjust value', 4, function ( assert ) {
+	QUnit.test( 'adjust value', function ( assert ) {
 		var widget = new OO.ui.NumberInputWidget( {
 			allowInteger: false,
 			min: -10,
@@ -52,6 +54,8 @@
 			step: 1,
 			required: false
 		} );
+
+		assert.expect( 4 );
 
 		widget.adjustValue( 1 );
 		assert.equal(

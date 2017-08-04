@@ -162,9 +162,12 @@
 		actualSummaryHtml = JSON.stringify( actualSummaryHtml, null, 2 );
 		expectedSummaryHtml = JSON.stringify( expectedSummaryHtml, null, 2 );
 
-		QUnit.push(
-			QUnit.equiv( actualSummary, expectedSummary ), actualSummaryHtml, expectedSummaryHtml, message
-		);
+		this.pushResult( {
+			result: QUnit.equiv( actualSummary, expectedSummary ),
+			actual: actualSummaryHtml,
+			expected: expectedSummaryHtml,
+			message: message
+		} );
 	};
 
 }( QUnit ) );

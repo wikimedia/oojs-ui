@@ -1,5 +1,5 @@
 QUnit.module( 'Element', {
-	setup: function () {
+	beforeEach: function () {
 		this.fixture = document.createElement( 'div' );
 		document.body.appendChild( this.fixture );
 
@@ -9,7 +9,7 @@ QUnit.module( 'Element', {
 			return ( frame.contentWindow && frame.contentWindow.document ) || frame.contentDocument;
 		};
 	},
-	teardown: function () {
+	afterEach: function () {
 		this.fixture.parentNode.removeChild( this.fixture );
 		this.fixture = null;
 	}
