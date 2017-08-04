@@ -452,7 +452,7 @@ OO.ui.SelectWidget.prototype.getItemMatcher = function ( s, exact ) {
 		s = s.normalize();
 	}
 	s = exact ? s.trim() : s.replace( /^\s+/, '' );
-	re = '^\\s*' + s.replace( /([\\{}()|.?*+\-\^$\[\]])/g, '\\$1' ).replace( /\s+/g, '\\s+' );
+	re = '^\\s*' + s.replace( /([\\{}()|.?*+\-^$[\]])/g, '\\$1' ).replace( /\s+/g, '\\s+' );
 	if ( exact ) {
 		re += '\\s*$';
 	}

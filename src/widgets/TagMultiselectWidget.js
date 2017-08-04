@@ -79,7 +79,8 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 			true : !!config.allowReordering
 	);
 
-	this.inputPosition = this.constructor.static.allowedInputPositions.indexOf( config.inputPosition ) > -1 ?
+	this.inputPosition =
+		this.constructor.static.allowedInputPositions.indexOf( config.inputPosition ) > -1 ?
 			config.inputPosition : 'inline';
 	this.allowEditTags = config.allowEditTags === undefined ? true : !!config.allowEditTags;
 	this.allowArbitrary = !!config.allowArbitrary;

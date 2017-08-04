@@ -152,8 +152,8 @@ OO.ui.mixin.IconElement.prototype.setIcon = function ( icon ) {
  * @chainable
  */
 OO.ui.mixin.IconElement.prototype.setIconTitle = function ( iconTitle ) {
-	iconTitle = typeof iconTitle === 'function' ||
-		( typeof iconTitle === 'string' && iconTitle.length ) ?
+	iconTitle =
+		( typeof iconTitle === 'function' || ( typeof iconTitle === 'string' && iconTitle.length ) ) ?
 			OO.ui.resolveMsg( iconTitle ) : null;
 
 	if ( this.iconTitle !== iconTitle ) {

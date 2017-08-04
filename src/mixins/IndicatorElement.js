@@ -131,8 +131,8 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
  * @chainable
  */
 OO.ui.mixin.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle ) {
-	indicatorTitle = typeof indicatorTitle === 'function' ||
-		( typeof indicatorTitle === 'string' && indicatorTitle.length ) ?
+	indicatorTitle =
+		( typeof indicatorTitle === 'function' || ( typeof indicatorTitle === 'string' && indicatorTitle.length ) ) ?
 			OO.ui.resolveMsg( indicatorTitle ) : null;
 
 	if ( this.indicatorTitle !== indicatorTitle ) {
