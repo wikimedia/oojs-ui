@@ -54,11 +54,11 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 		configurable: true,
 		enumerable: true,
 		get: function () {
-			OO.ui.warnDeprecation( 'IndexLayout\'s currentCardName property is deprecated. Use currentTabPanelName instead. See T155152' );
+			OO.ui.warnDeprecation( 'IndexLayout\'s currentCardName property is deprecated. Use currentTabPanelName instead. See T155152.' );
 			return this.currentTabPanelName;
 		},
 		set: function ( value ) {
-			OO.ui.warnDeprecation( 'IndexLayout\'s currentCardName property is deprecated. Use currentTabPanelName instead. See T155152' );
+			OO.ui.warnDeprecation( 'IndexLayout\'s currentCardName property is deprecated. Use currentTabPanelName instead. See T155152.' );
 			this.currentTabPanelName = value;
 		}
 	} );
@@ -68,11 +68,11 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 		configurable: true,
 		enumerable: true,
 		get: function () {
-			OO.ui.warnDeprecation( 'IndexLayout\'s cards property is deprecated. Use tabPanels instead. See T155152' );
+			OO.ui.warnDeprecation( 'IndexLayout\'s cards property is deprecated. Use tabPanels instead. See T155152.' );
 			return this.tabPanels;
 		},
 		set: function ( value ) {
-			OO.ui.warnDeprecation( 'IndexLayout\'s cards property is deprecated. Use tabPanels instead. See T155152' );
+			OO.ui.warnDeprecation( 'IndexLayout\'s cards property is deprecated. Use tabPanels instead. See T155152.' );
 			this.tabPanels = value;
 		}
 	} );
@@ -265,7 +265,7 @@ OO.ui.IndexLayout.prototype.getClosestTabPanel = function ( tabPanel ) {
  * @deprecated since v0.21.3, use `getClosestTabPanel` instead
  */
 OO.ui.IndexLayout.prototype.getClosestCard = function ( tabPanel ) {
-	OO.ui.warnDeprecation( 'IndexLayout\'s getClosestCard method is deprecated. Use getClosestTabPanel instead. See T155152' );
+	OO.ui.warnDeprecation( 'IndexLayout\'s getClosestCard method is deprecated. Use getClosestTabPanel instead. See T155152.' );
 	return this.getClosestTabPanel( tabPanel );
 };
 
@@ -296,7 +296,7 @@ OO.ui.IndexLayout.prototype.getTabPanel = function ( name ) {
  * @deprecated since v0.21.3, use `getTabPanel` instead
  */
 OO.ui.IndexLayout.prototype.getCard = function ( name ) {
-	OO.ui.warnDeprecation( 'IndexLayout\'s getCard method is deprecated. Use getTabPanel instead. See T155152' );
+	OO.ui.warnDeprecation( 'IndexLayout\'s getCard method is deprecated. Use getTabPanel instead. See T155152.' );
 	return this.getTabPanel( name );
 };
 
@@ -317,7 +317,7 @@ OO.ui.IndexLayout.prototype.getCurrentTabPanel = function () {
  * @deprecated since v0.21.3, use `getCurrentTabPanel` instead
  */
 OO.ui.IndexLayout.prototype.getCurrentCard = function () {
-	OO.ui.warnDeprecation( 'IndexLayout\'s getCurrentCard method is deprecated. Use getCurrentTabPanel instead. See T155152' );
+	OO.ui.warnDeprecation( 'IndexLayout\'s getCurrentCard method is deprecated. Use getCurrentTabPanel instead. See T155152.' );
 	return this.getCurrentTabPanel();
 };
 
@@ -337,7 +337,7 @@ OO.ui.IndexLayout.prototype.getCurrentTabPanelName = function () {
  * @deprecated since v0.21.3, use `getCurrentTabPanelName` instead
  */
 OO.ui.IndexLayout.prototype.getCurrentCardName = function () {
-	OO.ui.warnDeprecation( 'IndexLayout\'s getCurrentCardName method is deprecated. Use getCurrentTabPanelName instead. See T155152' );
+	OO.ui.warnDeprecation( 'IndexLayout\'s getCurrentCardName method is deprecated. Use getCurrentTabPanelName instead. See T155152.' );
 	return this.getCurrentTabPanelName();
 };
 
@@ -409,7 +409,7 @@ OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
  * @deprecated since v0.21.3, use `addTabPanels` instead
  */
 OO.ui.IndexLayout.prototype.addCards = function ( tabPanels, index ) {
-	OO.ui.warnDeprecation( 'IndexLayout\'s addCards method is deprecated. Use addTabPanels instead. See T155152' );
+	OO.ui.warnDeprecation( 'IndexLayout\'s addCards method is deprecated. Use addTabPanels instead. See T155152.' );
 	return this.addTabPanels( tabPanels, index );
 };
 

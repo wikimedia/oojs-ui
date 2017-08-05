@@ -77,7 +77,7 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.AccessKeyedElement );
  */
 OO.ui.InputWidget.static.reusePreInfuseDOM = function ( node, config ) {
 	config = OO.ui.InputWidget.parent.static.reusePreInfuseDOM( node, config );
-	// Reusing $input lets browsers preserve inputted values across page reloads (T114134)
+	// Reusing `$input` lets browsers preserve inputted values across page reloads, see T114134.
 	config.$input = $( node ).find( '.oo-ui-inputWidget-input' );
 	return config;
 };

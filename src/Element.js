@@ -103,7 +103,7 @@ OO.ui.Element.static.tagName = 'div';
 OO.ui.Element.static.infuse = function ( idOrNode ) {
 	var obj = OO.ui.Element.static.unsafeInfuse( idOrNode, false );
 	// Verify that the type matches up.
-	// FIXME: uncomment after T89721 is fixed (see T90929)
+	// FIXME: uncomment after T89721 is fixed, see T90929.
 	/*
 	if ( !( obj instanceof this['class'] ) ) {
 		throw new Error( 'Infusion type mismatch!' );
@@ -240,7 +240,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 		if ( $elem[ 0 ] !== obj.$element[ 0 ] ) {
 			$elem.replaceWith( obj.$element );
 			// This element is now gone from the DOM, but if anyone is holding a reference to it,
-			// let's allow them to OO.ui.infuse() it and do what they expect (T105828).
+			// let's allow them to OO.ui.infuse() it and do what they expect, see T105828.
 			// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
 			$elem[ 0 ].oouiInfused = obj.$element;
 		}
