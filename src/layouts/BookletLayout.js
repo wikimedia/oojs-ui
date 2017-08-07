@@ -281,8 +281,8 @@ OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
 		this.outlineVisible = show;
 		this.toggleMenu( show );
 		if ( show && this.editable ) {
-			// HACK: When the sidebar stops animating, kill dumb scrollbars (T161798). Only necessary when
-			// outline controls are present, The delay matches transition on `.oo-ui-menuLayout-menu`.
+			// HACK: Kill dumb scrollbars when the sidebar stops animating, see T161798. Only necessary when
+			// outline controls are present, delay matches transition on `.oo-ui-menuLayout-menu`.
 			setTimeout( function () {
 				OO.ui.Element.static.reconsiderScrollbars( booklet.outlinePanel.$element[ 0 ] );
 			}, 200 );

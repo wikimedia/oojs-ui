@@ -341,7 +341,7 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  * @return {OO.ui.WindowInstance|jQuery.Promise} A lifecycle object representing this particular
  *  opening of the window. For backwards-compatibility, then object is also a Thenable that is resolved
  *  when the window is done opening, with nested promise for when closing starts. This behaviour
- *  is deprecated and is not compatible with jQuery 3 (T163510).
+ *  is deprecated and is not compatible with jQuery 3. See T163510.
  * @fires opening
  */
 OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, compatOpening ) {
@@ -356,7 +356,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 	compatOpening = compatOpening || $.Deferred();
 
 	// Turn lifecycle into a Thenable for backwards-compatibility with
-	// the deprecated nested-promise behaviour (T163510).
+	// the deprecated nested-promise behaviour, see T163510.
 	[ 'state', 'always', 'catch', 'pipe', 'then', 'promise', 'progress', 'done', 'fail' ]
 		.forEach( function ( method ) {
 			lifecycle[ method ] = function () {
@@ -444,7 +444,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
  * @param {Object} [data] Window closing data
  * @return {OO.ui.WindowInstance|jQuery.Promise} A lifecycle object representing this particular
  *  opening of the window. For backwards-compatibility, the object is also a Thenable that is resolved
- *  when the window is done closing (T163510).
+ *  when the window is done closing, see T163510.
  * @fires closing
  */
 OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
@@ -482,7 +482,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 	}
 
 	// Turn lifecycle into a Thenable for backwards-compatibility with
-	// the deprecated nested-promise behaviour (T163510).
+	// the deprecated nested-promise behaviour, see T163510.
 	[ 'state', 'always', 'catch', 'pipe', 'then', 'promise', 'progress', 'done', 'fail' ]
 		.forEach( function ( method ) {
 			lifecycle[ method ] = function () {
