@@ -21,14 +21,10 @@ OO.ui.mixin.DraggableElement = function OoUiMixinDraggableElement( config ) {
 	this.index = null;
 	this.$handle = config.$handle || this.$element;
 	this.wasHandleUsed = null;
-	this.draggable = config.draggable === undefined ? true : !!config.draggable;
 
 	// Initialize and events
-	this.$element.addClass( 'oo-ui-draggableElement' )
-		// We make the entire element draggable, not just the handle, so that
-		// the whole element appears to move. wasHandleUsed prevents drags from
-		// starting outside the handle
-		.attr( 'draggable', true )
+	this.$element
+		.addClass( 'oo-ui-draggableElement' )
 		.on( {
 			mousedown: this.onDragMouseDown.bind( this ),
 			dragstart: this.onDragStart.bind( this ),
@@ -37,6 +33,7 @@ OO.ui.mixin.DraggableElement = function OoUiMixinDraggableElement( config ) {
 			drop: this.onDrop.bind( this )
 		} );
 	this.$handle.addClass( 'oo-ui-draggableElement-handle' );
+	this.toggleDraggable( config.draggable === undefined ? true : !!config.draggable );
 };
 
 OO.initClass( OO.ui.mixin.DraggableElement );
@@ -85,6 +82,11 @@ OO.ui.mixin.DraggableElement.prototype.toggleDraggable = function ( isDraggable 
 		this.draggable = isDraggable;
 
 		this.$handle.toggleClass( 'oo-ui-draggableElement-undraggable', !this.draggable );
+
+		// We make the entire element draggable, not just the handle, so that
+		// the whole element appears to move. wasHandleUsed prevents drags from
+		// starting outside the handle
+		this.$element.prop( 'draggable', this.draggable );
 	}
 };
 
