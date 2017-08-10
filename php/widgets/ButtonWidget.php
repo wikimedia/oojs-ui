@@ -108,7 +108,7 @@ class ButtonWidget extends Widget {
 	/**
 	 * Get search engine traversal hint.
 	 *
-	 * @return boolean Whether search engines should avoid traversing this hyperlink
+	 * @return bool Whether search engines should avoid traversing this hyperlink
 	 */
 	public function getNoFollow() {
 		return $this->noFollow;
@@ -196,7 +196,7 @@ class ButtonWidget extends Widget {
 	/**
 	 * Check if button is active.
 	 *
-	 * @return boolean Button is active
+	 * @return bool Button is active
 	 */
 	public function isActive() {
 		return $this->active;

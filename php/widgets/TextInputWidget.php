@@ -115,7 +115,7 @@ class TextInputWidget extends InputWidget {
 	/**
 	 * Check if the widget is read-only.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isReadOnly() {
 		return $this->readOnly;
@@ -141,7 +141,7 @@ class TextInputWidget extends InputWidget {
 	/**
 	 * Check if the widget is required.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isRequired() {
 		return $this->required;
@@ -196,7 +196,7 @@ class TextInputWidget extends InputWidget {
 	/**
 	 * Check if input supports multiple lines.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isMultiline() {
 		return (bool)$this->multiline;

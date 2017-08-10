@@ -71,7 +71,7 @@ trait ButtonElement {
 	/**
 	 * Check if button has a frame.
 	 *
-	 * @return boolean Button is framed
+	 * @return bool Button is framed
 	 */
 	public function isFramed() {
 		return $this->framed;

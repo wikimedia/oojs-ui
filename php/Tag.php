@@ -63,7 +63,7 @@ class Tag {
 	 * Check for CSS class.
 	 *
 	 * @param string $class CSS class name
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasClass( $class ) {
 		return in_array( $class, $this->classes );
@@ -264,7 +264,7 @@ class Tag {
 	/**
 	 * Get client-side infusability.
 	 *
-	 * @return boolean If this tag/element/widget can be referenced client-side.
+	 * @return bool If this tag/element/widget can be referenced client-side.
 	 */
 	public function isInfusable() {
 		return $this->infusable;
@@ -345,7 +345,7 @@ class Tag {
 	 * distinguish them from malformed absolute ones (again, very lax rules for parsing protocols).
 	 *
 	 * @param string $url URL
-	 * @return boolean [description]
+	 * @return bool [description]
 	 */
 	public static function isSafeUrl( $url ) {
 		// Keep this function in sync with OO.ui.isSafeUrl

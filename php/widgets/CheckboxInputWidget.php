@@ -59,7 +59,7 @@ class CheckboxInputWidget extends InputWidget {
 	/**
 	 * Check if this checkbox is selected.
 	 *
-	 * @return boolean Checkbox is selected
+	 * @return bool Checkbox is selected
 	 */
 	public function isSelected() {
 		return $this->selected;

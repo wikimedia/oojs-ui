@@ -50,7 +50,7 @@ class RadioInputWidget extends InputWidget {
 	/**
 	 * Check if this radio button is selected.
 	 *
-	 * @return boolean Radio is selected
+	 * @return bool Radio is selected
 	 */
 	public function isSelected() {
 		return $this->input->getAttribute( 'checked' ) === 'checked';

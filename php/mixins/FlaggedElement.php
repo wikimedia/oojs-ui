@@ -46,7 +46,7 @@ trait FlaggedElement {
 	 * Check if a flag is set.
 	 *
 	 * @param string $flag Name of flag
-	 * @return boolean Has flag
+	 * @return bool Has flag
 	 */
 	public function hasFlag( $flag ) {
 		return isset( $this->flags[$flag] );

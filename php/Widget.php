@@ -39,7 +39,7 @@ class Widget extends Element {
 	/**
 	 * Check if the widget is disabled.
 	 *
-	 * @return boolean Button is disabled
+	 * @return bool Button is disabled
 	 */
 	public function isDisabled() {
 		return $this->disabled;

@@ -125,7 +125,7 @@ class Element extends Tag {
 	 * Check if element supports one or more methods.
 	 *
 	 * @param string|string[] $methods Method or list of methods to check
-	 * @return boolean All methods are supported
+	 * @return bool All methods are supported
 	 */
 	public function supports( $methods ) {
 		$support = 0;
