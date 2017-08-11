@@ -22,7 +22,7 @@ class Widget extends Element {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param boolean $config['disabled'] Disable (default: false)
+	 * @param bool $config['disabled'] Disable (default: false)
 	 */
 	public function __construct( array $config = [] ) {
 		// Initialize config
@@ -50,7 +50,7 @@ class Widget extends Element {
 	 *
 	 * This should probably change the widgets' appearance and prevent it from being used.
 	 *
-	 * @param boolean $disabled Disable widget
+	 * @param bool $disabled Disable widget
 	 * @return $this
 	 */
 	public function setDisabled( $disabled ) {

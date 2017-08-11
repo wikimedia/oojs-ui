@@ -13,7 +13,7 @@ class RadioInputWidget extends InputWidget {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param boolean $config['selected'] Whether the radio button is initially selected
+	 * @param bool $config['selected'] Whether the radio button is initially selected
 	 *   (default: false)
 	 */
 	public function __construct( array $config = [] ) {
@@ -34,7 +34,7 @@ class RadioInputWidget extends InputWidget {
 	/**
 	 * Set selection state of this radio button.
 	 *
-	 * @param boolean $state Whether the button is selected
+	 * @param bool $state Whether the button is selected
 	 * @return $this
 	 */
 	public function setSelected( $state ) {

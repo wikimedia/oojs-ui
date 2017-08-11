@@ -95,7 +95,7 @@ class Tag {
 	 * Toggle CSS classes.
 	 *
 	 * @param array $classes List of classes to add
-	 * @param boolean $toggle Add classes
+	 * @param bool $toggle Add classes
 	 * @return $this
 	 */
 	public function toggleClasses( array $classes, $toggle = null ) {
@@ -253,7 +253,7 @@ class Tag {
 	/**
 	 * Enable widget for client-side infusion.
 	 *
-	 * @param boolean $infusable True to allow tag/element/widget to be referenced client-side.
+	 * @param bool $infusable True to allow tag/element/widget to be referenced client-side.
 	 * @return $this
 	 */
 	public function setInfusable( $infusable ) {
