@@ -106,9 +106,9 @@ OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
 	if (
 		this.isVisible() &&
 		!OO.ui.contains(
-				this.$element.add( this.$widget ).add( this.$autoCloseIgnore ).get(),
-				e.target,
-				true
+			this.$element.add( this.$widget ).add( this.$autoCloseIgnore ).get(),
+			e.target,
+			true
 		)
 	) {
 		this.toggle( false );
