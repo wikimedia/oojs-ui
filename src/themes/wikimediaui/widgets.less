@@ -400,21 +400,20 @@
 			);
 		}
 
-		&:hover + span,
-		&:focus:hover + span {
-			border-color: @color-progressive;
-		}
-
-		&:active + span,
-		&:active:focus + span {
-			background-color: @color-progressive--active;
-			border-color: @border-color-input-binary--active;
-			box-shadow: @box-shadow-input-binary--active;
-		}
-
+		// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
 		&:focus + span {
 			border-color: @color-progressive;
 			box-shadow: @box-shadow-widget--focus;
+		}
+
+		&:hover + span {
+			border-color: @color-progressive;
+		}
+
+		&:active + span {
+			background-color: @color-progressive--active;
+			border-color: @border-color-input-binary--active;
+			box-shadow: @box-shadow-input-binary--active;
 		}
 
 		&:checked {
@@ -423,24 +422,21 @@
 				border-color: @border-color-input-binary--checked;
 			}
 
-			&:hover + span,
-			&:focus:hover + span {
-				background-color: @color-progressive--hover;
-				border-color: @color-progressive--hover;
-			}
-
-			&:active + span,
-			&:active:hover + span,
-			&:active:focus + span {
-				background-color: @background-color-input-binary--active;
-				border-color: @border-color-input-binary--active;
-				box-shadow: @box-shadow-input-binary--active;
-			}
-
 			&:focus + span {
 				background-color: @background-color-input-binary--checked;
 				border-color: @border-color-input-binary--checked;
 				box-shadow: @box-shadow-progressive--focus;
+			}
+
+			&:hover + span {
+				background-color: @color-progressive--hover;
+				border-color: @color-progressive--hover;
+			}
+
+			&:active + span {
+				background-color: @background-color-input-binary--active;
+				border-color: @border-color-input-binary--active;
+				box-shadow: @box-shadow-input-binary--active;
 			}
 		}
 	}
@@ -1252,24 +1248,23 @@
 				border-color: @border-color-input-binary--checked;
 			}
 
-			&:hover + span,
-			&:hover:focus + span {
+			// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
+			&:focus + span {
+				&:before {
+					border-color: @background-color-base;
+				}
+			}
+
+			&:hover + span {
 				border-color: @color-progressive--hover;
 			}
 
-			&:active + span,
-			&:active:focus + span {
+			&:active + span {
 				border-color: @border-color-input-binary--active;
 				box-shadow: @box-shadow-input-binary--active;
 
 				&:before {
 					border-color: @border-color-input-binary--active;
-				}
-			}
-
-			&:focus + span {
-				&:before {
-					border-color: @background-color-base;
 				}
 			}
 		}
