@@ -29,7 +29,8 @@ OO.ui.CapsuleItemWidget = function OoUiCapsuleItemWidget( config ) {
 	this.closeButton = new OO.ui.ButtonWidget( {
 		framed: false,
 		icon: 'close',
-		tabIndex: -1
+		tabIndex: -1,
+		title: OO.ui.msg( 'ooui-item-remove' )
 	} ).on( 'click', this.onCloseClick.bind( this ) );
 
 	this.on( 'disable', function ( disabled ) {

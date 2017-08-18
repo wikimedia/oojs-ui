@@ -348,6 +348,8 @@ OO.ui.infuse = function ( idOrNode ) {
 		'ooui-toolgroup-expand': 'More',
 		// Label for the fake tool that collapses the full list of tools in a toolbar group
 		'ooui-toolgroup-collapse': 'Fewer',
+		// Default label for the tooltip for the button that removes a tag item
+		'ooui-item-remove': 'Remove',
 		// Default label for the accept button of a confirmation dialog
 		'ooui-dialog-message-accept': 'OK',
 		// Default label for the reject button of a confirmation dialog
