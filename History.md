@@ -1,4 +1,24 @@
 # OOjs UI Release History
+## v0.22.5 / 2017-08-22
+### Features
+* Add `title` attribute to the 'remove' button in TagItemWidget (Moriel Schottlender)
+
+### Styles
+* WikimediaUI theme: Fix regression on disabled border (Volker E.)
+
+### Code
+* Align vars to WikimediaUI Base and remove them as OOjs UI vars (Volker E.)
+* DraggableElement: Make toggling draggability consistent (Bartosz Dziewoński)
+* Follow-up 022f532: Don't crash if TitledElement initializes before AccessKeyedElement (Roan Kattouw)
+* WikimediaUI theme: Make checkbox/radio code leaner (Volker E.)
+* WikimediaUI theme: Remove unnecessary selector in CheckboxInputWidget (Volker E.)
+* doc: Align code comment references to Phabricator tasks (Volker E.)
+* build: Upgrade devDependencies to latest and make pass (James D. Forrester)
+* build: Update mediawiki-codesniffer to v0.10.1 and fix issues (WMDE-Fisch)
+* build: Update mediawiki-codesniffer to v0.11.0 and fix issues (WMDE-Fisch)
+* tests: Prepare for qunit 2.x (James D. Forrester)
+
+
 ## v0.22.4 / 2017-08-01
 ### Features
 * CheckboxMultiselectInputWidget: setValue when CheckboxMultiselect changes (Prateek Saxena)
