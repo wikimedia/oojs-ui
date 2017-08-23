@@ -63,8 +63,6 @@
 			"src/widgets/MultiselectWidget.js",
 			"src/widgets/CheckboxMultioptionWidget.js",
 			"src/widgets/CheckboxMultiselectWidget.js",
-			# ComboBoxInputWidget
-			"src/widgets/FloatingMenuSelectWidget.js",
 			# ProgressBarWidget
 			"src/widgets/ProgressBarWidget.js",
 
