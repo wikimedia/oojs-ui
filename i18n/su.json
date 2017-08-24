@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kandar"
+			"Kandar",
+			"Uchup19"
 		]
 	},
 	"ooui-outline-control-move-down": "Pindahkeun ka handap",
@@ -10,6 +11,7 @@
 	"ooui-toolbar-more": "Lobaan",
 	"ooui-toolgroup-expand": "Lobaan",
 	"ooui-toolgroup-collapse": "Saeutikan",
+	"ooui-item-remove": "Pupus",
 	"ooui-dialog-message-accept": "Heug",
 	"ooui-dialog-message-reject": "Bolay",
 	"ooui-dialog-process-error": "Aya nu teu bener",
