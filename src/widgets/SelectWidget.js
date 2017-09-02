@@ -508,7 +508,11 @@ OO.ui.SelectWidget.prototype.onToggle = function ( visible ) {
  * @return {OO.ui.OptionWidget|null} Outline item widget, `null` if none was found
  */
 OO.ui.SelectWidget.prototype.findTargetItem = function ( e ) {
-	return $( e.target ).closest( '.oo-ui-optionWidget' ).data( 'oo-ui-optionWidget' ) || null;
+	var $option = $( e.target ).closest( '.oo-ui-optionWidget' );
+	if ( !$option.closest( '.oo-ui-selectWidget' ).is( this.$element ) ) {
+		return null;
+	}
+	return $option.data( 'oo-ui-optionWidget' ) || null;
 };
 
 /**
