@@ -125,7 +125,7 @@ OO.ui.Element.static.infuse = function ( idOrNode ) {
  */
 OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	// look for a cached result of a previous infusion.
-	var id, $elem, data, cls, parts, parent, obj, top, state, infusedChildren;
+	var id, $elem, error, data, cls, parts, parent, obj, top, state, infusedChildren;
 	if ( typeof idOrNode === 'string' ) {
 		id = idOrNode;
 		$elem = $( document.getElementById( id ) );
@@ -134,7 +134,14 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 		id = $elem.attr( 'id' );
 	}
 	if ( !$elem.length ) {
-		throw new Error( 'Widget not found: ' + id );
+		if ( typeof idOrNode === 'string' ) {
+			error = 'Widget not found: ' + idOrNode;
+		} else if ( idOrNode && idOrNode.selector ) {
+			error = 'Widget not found: ' + idOrNode.selector;
+		} else {
+			error = 'Widget not found';
+		}
+		throw new Error( error );
 	}
 	if ( $elem[ 0 ].oouiInfused ) {
 		$elem = $elem[ 0 ].oouiInfused;
