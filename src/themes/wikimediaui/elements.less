@@ -126,8 +126,8 @@
 				border-color: @border-color-frameless;
 				border-style: @border-style-base;
 				border-width: @border-width-base;
-				padding-top: @padding-top-icon-indicator; // Support IE 7: Acts as `min-width`
-				padding-left: @padding-start-frameless-icon-only;
+				padding-top: @padding-top-icon-indicator; // Support IE 7: Acts as `min-height`, see T93290
+				padding-left: @padding-start-frameless-icon-only; // Support IE 7: Acts as `min-width`
 
 				> .oo-ui-iconElement-icon {
 					left: @start-frameless-icon;
@@ -144,10 +144,6 @@
 				&:first-child {
 					margin-left: @start-frameless;
 				}
-
-				> .oo-ui-buttonElement-button {
-					padding-left: @padding-start-frameless-icon-only;
-				}
 			}
 
 			> .oo-ui-buttonElement-button {
@@ -157,6 +153,10 @@
 				border-width: @border-width-base;
 				padding: @padding-frameless;
 			}
+
+			&.oo-ui-iconElement > .oo-ui-buttonElement-button {
+				padding-left: @padding-start-frameless-icon-plus;
+			}
 		}
 
 		&.oo-ui-indicatorElement {
@@ -164,6 +164,20 @@
 				min-width: @min-size-indicator;
 				min-height: @min-size-indicator;
 				padding-top: 0;
+			}
+
+			&.oo-ui-iconElement > .oo-ui-buttonElement-button { // Reset with specificity from above, see T174968
+				padding-left: @padding-start-frameless-icon-plus + ( 2 * @padding-horizontal-base );
+				padding-top: @padding-top-icon-indicator;
+			}
+
+			&.oo-ui-labelElement > .oo-ui-buttonElement-button { // Reset with specificity from above, see T174167
+				padding-left: @padding-horizontal-frameless;
+				padding-top: @padding-top-base;
+			}
+
+			&.oo-ui-iconElement.oo-ui-labelElement > .oo-ui-buttonElement-button {
+				padding-left: @padding-start-frameless-icon-plus;
 			}
 		}
 
