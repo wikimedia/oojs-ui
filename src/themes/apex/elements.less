@@ -64,16 +64,20 @@
 
 			> .oo-ui-buttonElement-button {
 				padding: @padding-frameless;
-
-				> .oo-ui-labelElement-label {
-					color: @color-base;
-					margin-left: 0.25em;
-				}
 			}
 
 			&.oo-ui-indicatorElement { // Workaround for label/icon & indicator combinations
 				> .oo-ui-buttonElement-button {
 					padding: @padding-frameless;
+				}
+			}
+		}
+
+		&.oo-ui-labelElement {
+			> .oo-ui-buttonElement-button {
+				> .oo-ui-labelElement-label {
+					color: @color-base;
+					margin-left: 0.25em;
 				}
 			}
 		}
