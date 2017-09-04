@@ -62,7 +62,7 @@
 	"autoload-dev": {
 		"classmap": [
 			"tests/phpunit/TestCase.php",
-			"tests/phpunit/DummyWidget.php"
+			"tests/phpunit/MockWidget.php"
 		]
 	},
 	"scripts": {
