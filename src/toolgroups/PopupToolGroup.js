@@ -123,7 +123,7 @@ OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
 OO.ui.PopupToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	// Only close toolgroup when a tool was actually selected
 	if (
-		!this.isDisabled() && this.pressed && this.pressed === this.getTargetTool( e ) &&
+		!this.isDisabled() && this.pressed && this.pressed === this.findTargetTool( e ) &&
 		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
 	) {
 		this.setActive( false );
