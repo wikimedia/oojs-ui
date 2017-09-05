@@ -1,4 +1,37 @@
 # OOjs UI Release History
+## v0.23.0 / 2017-09-05
+### Breaking changes
+* [BREAKING CHANGE] Remove CardLayout and references in IndexLayout (Volker E.)
+* [BREAKING CHANGE] Remove FloatingMenuSelectWidget (Volker E.)
+* [BREAKING CHANGE] Remove back-compat `OO.ui` prefix assumption in infusion code (Prateek Saxena)
+* [BREAKING CHANGE] icons: Remove 'caret' icons, deprecated in v0.21.3 (James D. Forrester)
+* [BREAKING CHANGE] icons: Remove 'wikitrail' icon, renamed in v0.20.1 (James D. Forrester)
+
+### Deprecations
+* [DEPRECATING CHANGE] BookletLayout: Rename `getClosestPage()` to `findClosestPage()` (Prateek Saxena)
+* [DEPRECATING CHANGE] icons: Flag unused 'sun' icon as to be removed (James D. Forrester)
+* [DEPRECATING CHANGE] icons: Move 'eye'/'eyeClosed' to 'accessibility' (Volker E.)
+* [DEPRECATING CHANGE] icons: Move 'signature' to 'editing-advanced' (Volker E.)
+
+### Features
+* Element: Improve error message when the widget being infused is missing (Bartosz Dziewoński)
+
+### Styles
+* Apex theme: Only apply `margin` to label if visible (Ed Sanders)
+* WikimediaUI theme: Fix frameless indicator combination buttons' appearance (Volker E.)
+* ButtonInputWidget: Fix Safari-specific intrinsic `margin` (Volker E.)
+
+### Code
+* Ensure only options belonging to the SelectWidget can be clicked (Ed Sanders)
+* SelectFileWidget: Rename `getTargetItem()` to `findTargetItem()` (Prateek Saxena)
+* Toolgroup: Rename `getTargetTool()` to `findTargetTool()` (Prateek Saxena)
+* WikimediaUI theme: Simplify `transition` code and remove obsolete (Volker E.)
+* build: Add 'accessibility' icon pack in Apex to build module definition (Volker E.)
+* build: Update eslint-config-wikimedia 0.4->0.5 (Ed Sanders)
+* build: Updating mediawiki/mediawiki-codesniffer to 0.12.0 (libraryupgrader)
+* tests: Make MockWidget filename match class name (Kunal Mehta)
+
+
 ## v0.22.5 / 2017-08-22
 ### Features
 * Add `title` attribute to the 'remove' button in TagItemWidget (Moriel Schottlender)
