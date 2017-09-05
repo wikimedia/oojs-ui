@@ -158,7 +158,7 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
 	} else {
 		// One of the options got focussed (and the event bubbled up here).
 		// They can't be tabbed to, but they can be activated using accesskeys.
-		item = this.getTargetItem( event );
+		item = this.findTargetItem( event );
 	}
 
 	if ( item ) {
@@ -185,7 +185,7 @@ OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
 
 	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
 		this.togglePressed( true );
-		item = this.getTargetItem( e );
+		item = this.findTargetItem( e );
 		if ( item && item.isSelectable() ) {
 			this.pressItem( item );
 			this.selecting = item;
@@ -207,7 +207,7 @@ OO.ui.SelectWidget.prototype.onMouseUp = function ( e ) {
 
 	this.togglePressed( false );
 	if ( !this.selecting ) {
-		item = this.getTargetItem( e );
+		item = this.findTargetItem( e );
 		if ( item && item.isSelectable() ) {
 			this.selecting = item;
 		}
@@ -234,7 +234,7 @@ OO.ui.SelectWidget.prototype.onMouseMove = function ( e ) {
 	var item;
 
 	if ( !this.isDisabled() && this.pressed ) {
-		item = this.getTargetItem( e );
+		item = this.findTargetItem( e );
 		if ( item && item !== this.selecting && item.isSelectable() ) {
 			this.pressItem( item );
 			this.selecting = item;
@@ -254,7 +254,7 @@ OO.ui.SelectWidget.prototype.onMouseOver = function ( e ) {
 		return;
 	}
 	if ( !this.isDisabled() ) {
-		item = this.getTargetItem( e );
+		item = this.findTargetItem( e );
 		this.highlightItem( item && item.isHighlightable() ? item : null );
 	}
 	return false;
@@ -507,7 +507,7 @@ OO.ui.SelectWidget.prototype.onToggle = function ( visible ) {
  * @param {jQuery.Event} e
  * @return {OO.ui.OptionWidget|null} Outline item widget, `null` if none was found
  */
-OO.ui.SelectWidget.prototype.getTargetItem = function ( e ) {
+OO.ui.SelectWidget.prototype.findTargetItem = function ( e ) {
 	return $( e.target ).closest( '.oo-ui-optionWidget' ).data( 'oo-ui-optionWidget' ) || null;
 };
 
