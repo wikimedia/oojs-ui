@@ -293,12 +293,12 @@ OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
 };
 
 /**
- * Get the page closest to the specified page.
+ * Find the page closest to the specified page.
  *
  * @param {OO.ui.PageLayout} page Page to use as a reference point
  * @return {OO.ui.PageLayout|null} Page closest to the specified page
  */
-OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
+OO.ui.BookletLayout.prototype.findClosestPage = function ( page ) {
 	var next, prev, level,
 		pages = this.stackLayout.getItems(),
 		index = pages.indexOf( page );
@@ -324,6 +324,18 @@ OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
 		}
 	}
 	return prev || next || null;
+};
+
+/**
+ * Get the page closest to the specified page.
+ *
+ * @deprecated 0.22.6 Use {@link OO.ui.BookletLayout#findClosestPage} instead.
+ * @param {OO.ui.PageLayout} page Page to use as a reference point
+ * @return {OO.ui.PageLayout|null} Page closest to the specified page
+ */
+OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
+	OO.ui.warnDeprecation( 'BookletLayout#getClosestPage: Deprecated function. Use findClosestPage instead. See T76630.' );
+	return this.findClosestPage( page );
 };
 
 /**
