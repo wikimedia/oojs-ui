@@ -395,7 +395,30 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'Labeled'
 					} ),
 					{
-						label: 'ButtonWidget (frameless, indicator)\u200E',
+						label: 'ButtonWidget (frameless, icon & label & indicator)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						framed: false,
+						indicator: 'down',
+						label: 'Labeled'
+					} ),
+					{
+						label: 'ButtonWidget (frameless, label & indicator)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						framed: false,
+						icon: 'tag',
+						indicator: 'down',
+						title: 'Icon & indicator'
+					} ),
+					{
+						label: 'ButtonWidget (frameless, icon & indicator)\u200E',
 						align: 'top'
 					}
 				),
