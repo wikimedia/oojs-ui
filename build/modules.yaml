@@ -199,17 +199,10 @@
 	},
 
 	# Additional icon packs. Some exist for all themes, some are WikimediaUI-theme-specific.
-	"oojs-ui-wikimediaui-icons-accessibility": {
+	"oojs-ui-{theme}-icons-accessibility": {
 		"styles": [
-			"src/themes/wikimediaui/icons-accessibility.json"
-		],
-		"theme": "wikimediaui"
-	},
-	"oojs-ui-mediawiki-icons-accessibility": {
-		"styles": [
-			"src/themes/wikimediaui/icons-accessibility.json"
-		],
-		"theme": "wikimediaui"
+			"src/themes/{theme}/icons-accessibility.json"
+		]
 	},
 	"oojs-ui-{theme}-icons-movement": {
 		"styles": [
