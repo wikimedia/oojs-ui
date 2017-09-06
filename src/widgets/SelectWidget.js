@@ -768,7 +768,7 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
 };
 
 /**
- * Get an option by its position relative to the specified item (or to the start of the option array,
+ * Find an option by its position relative to the specified item (or to the start of the option array,
  * if item is `null`). The direction in which to search through the option array is specified with a
  * number: -1 for reverse (the default) or 1 for forward. The method will return an option, or
  * `null` if there are no options in the array.
@@ -779,7 +779,7 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
  *  true. Function takes an OO.ui.OptionWidget and returns a boolean.
  * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the select
  */
-OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direction, filter ) {
+OO.ui.SelectWidget.prototype.findRelativeSelectableItem = function ( item, direction, filter ) {
 	var currentIndex, nextIndex, i,
 		increase = direction > 0 ? 1 : -1,
 		len = this.items.length;
@@ -804,6 +804,24 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 		nextIndex = ( nextIndex + increase + len ) % len;
 	}
 	return null;
+};
+
+/**
+ * Get an option by its position relative to the specified item (or to the start of the option array,
+ * if item is `null`). The direction in which to search through the option array is specified with a
+ * number: -1 for reverse (the default) or 1 for forward. The method will return an option, or
+ * `null` if there are no options in the array.
+ *
+ * @deprecated 0.23.1 Use {@link #findRelativeSelectableItem} instead
+ * @param {OO.ui.OptionWidget|null} item Item to describe the start position, or `null` to start at the beginning of the array.
+ * @param {number} direction Direction to move in: -1 to move backward, 1 to move forward
+ * @param {Function} [filter] Only consider items for which this function returns
+ *  true. Function takes an OO.ui.OptionWidget and returns a boolean.
+ * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the select
+ */
+OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direction, filter ) {
+	OO.ui.warnDeprecation( 'SelectWidget#getRelativeSelectableItem: Deprecated function. Use findRelativeSelectableItem instead. See T76630.' );
+	return this.findRelativeSelectableItem( item, direction, filter );
 };
 
 /**
