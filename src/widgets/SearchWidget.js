@@ -75,7 +75,7 @@ OO.ui.SearchWidget.prototype.onQueryKeydown = function ( e ) {
 		if ( !highlightedItem ) {
 			highlightedItem = this.results.getSelectedItem();
 		}
-		nextItem = this.results.getRelativeSelectableItem( highlightedItem, dir );
+		nextItem = this.results.findRelativeSelectableItem( highlightedItem, dir );
 		this.results.highlightItem( nextItem );
 		nextItem.scrollElementIntoView();
 	}

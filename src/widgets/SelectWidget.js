@@ -296,13 +296,13 @@ OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
 			case OO.ui.Keys.UP:
 			case OO.ui.Keys.LEFT:
 				this.clearKeyPressBuffer();
-				nextItem = this.getRelativeSelectableItem( currentItem, -1 );
+				nextItem = this.findRelativeSelectableItem( currentItem, -1 );
 				handled = true;
 				break;
 			case OO.ui.Keys.DOWN:
 			case OO.ui.Keys.RIGHT:
 				this.clearKeyPressBuffer();
-				nextItem = this.getRelativeSelectableItem( currentItem, 1 );
+				nextItem = this.findRelativeSelectableItem( currentItem, 1 );
 				handled = true;
 				break;
 			case OO.ui.Keys.ESCAPE:
@@ -414,7 +414,7 @@ OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
 		// Common (if weird) special case: typing "xxxx" will cycle through all
 		// the items beginning with "x".
 		if ( item ) {
-			item = this.getRelativeSelectableItem( item, 1 );
+			item = this.findRelativeSelectableItem( item, 1 );
 		}
 	} else {
 		this.keyPressBuffer += c;
@@ -422,7 +422,7 @@ OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
 
 	filter = this.getItemMatcher( this.keyPressBuffer, false );
 	if ( !item || !filter( item ) ) {
-		item = this.getRelativeSelectableItem( item, 1, filter );
+		item = this.findRelativeSelectableItem( item, 1, filter );
 	}
 	if ( item ) {
 		if ( this.isVisible() && item.constructor.static.highlightable ) {
@@ -831,7 +831,7 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
  * @return {OO.ui.OptionWidget|null} Item, `null` if there aren't any selectable items
  */
 OO.ui.SelectWidget.prototype.findFirstSelectableItem = function () {
-	return this.getRelativeSelectableItem( null, 1 );
+	return this.findRelativeSelectableItem( null, 1 );
 };
 
 /**
