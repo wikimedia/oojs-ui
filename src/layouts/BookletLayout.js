@@ -329,7 +329,7 @@ OO.ui.BookletLayout.prototype.findClosestPage = function ( page ) {
 /**
  * Get the page closest to the specified page.
  *
- * @deprecated 0.22.6 Use {@link OO.ui.BookletLayout#findClosestPage} instead.
+ * @deprecated 0.23.0 Use {@link OO.ui.BookletLayout#findClosestPage} instead.
  * @param {OO.ui.PageLayout} page Page to use as a reference point
  * @return {OO.ui.PageLayout|null} Page closest to the specified page
  */
