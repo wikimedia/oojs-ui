@@ -566,7 +566,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
  */
 OO.ui.BookletLayout.prototype.selectFirstSelectablePage = function () {
 	if ( !this.outlineSelectWidget.getSelectedItem() ) {
-		this.outlineSelectWidget.selectItem( this.outlineSelectWidget.getFirstSelectableItem() );
+		this.outlineSelectWidget.selectItem( this.outlineSelectWidget.findFirstSelectableItem() );
 	}
 
 	return this;

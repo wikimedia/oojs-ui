@@ -436,7 +436,7 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
  */
 OO.ui.IndexLayout.prototype.selectFirstSelectableTabPanel = function () {
 	if ( !this.tabSelectWidget.getSelectedItem() ) {
-		this.tabSelectWidget.selectItem( this.tabSelectWidget.getFirstSelectableItem() );
+		this.tabSelectWidget.selectItem( this.tabSelectWidget.findFirstSelectableItem() );
 	}
 
 	return this;

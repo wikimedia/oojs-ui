@@ -249,7 +249,7 @@ OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
  */
 OO.ui.mixin.LookupElement.prototype.initializeLookupMenuSelection = function () {
 	if ( this.lookupHighlightFirstItem && !this.lookupMenu.getSelectedItem() ) {
-		this.lookupMenu.highlightItem( this.lookupMenu.getFirstSelectableItem() );
+		this.lookupMenu.highlightItem( this.lookupMenu.findFirstSelectableItem() );
 	}
 };
 

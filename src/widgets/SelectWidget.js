@@ -153,7 +153,7 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
 		// This widget was focussed, e.g. by the user tabbing to it.
 		// The styles for focus state depend on one of the items being selected.
 		if ( !this.getSelectedItem() ) {
-			item = this.getFirstSelectableItem();
+			item = this.findFirstSelectableItem();
 		}
 	} else {
 		// One of the options got focussed (and the event bubbled up here).

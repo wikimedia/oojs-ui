@@ -97,7 +97,7 @@ OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
 	value = this.cleanUpValue( value );
 	// Only allow setting values that are actually present in the dropdown
 	selected = this.dropdownWidget.getMenu().getItemFromData( value ) ||
-		this.dropdownWidget.getMenu().getFirstSelectableItem();
+		this.dropdownWidget.getMenu().findFirstSelectableItem();
 	this.dropdownWidget.getMenu().selectItem( selected );
 	value = selected ? selected.getData() : '';
 	OO.ui.DropdownInputWidget.parent.prototype.setValue.call( this, value );
