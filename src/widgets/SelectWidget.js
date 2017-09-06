@@ -796,13 +796,25 @@ OO.ui.SelectWidget.prototype.getRelativeSelectableItem = function ( item, direct
 };
 
 /**
- * Get the next selectable item or `null` if there are no selectable items.
+ * Find the next selectable item or `null` if there are no selectable items.
  * Disabled options and menu-section markers and breaks are not selectable.
  *
  * @return {OO.ui.OptionWidget|null} Item, `null` if there aren't any selectable items
  */
-OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
+OO.ui.SelectWidget.prototype.findFirstSelectableItem = function () {
 	return this.getRelativeSelectableItem( null, 1 );
+};
+
+/**
+ * Get the next selectable item or `null` if there are no selectable items.
+ * Disabled options and menu-section markers and breaks are not selectable.
+ *
+ * @deprecated 0.23.1 Use {@link OO.ui.SelectWidget#findFirstSelectableItem} instead.
+ * @return {OO.ui.OptionWidget|null} Item, `null` if there aren't any selectable items
+ */
+OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
+	OO.ui.warnDeprecation( 'SelectWidget#getFirstSelectableItem: Deprecated function. Use findFirstSelectableItem instead. See T76630.' );
+	return this.findFirstSelectableItem();
 };
 
 /**
