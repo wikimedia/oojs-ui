@@ -532,11 +532,11 @@ OO.ui.SelectWidget.prototype.getSelectedItem = function () {
 };
 
 /**
- * Get highlighted item.
+ * Find highlighted item.
  *
  * @return {OO.ui.OptionWidget|null} Highlighted item, `null` if no item is highlighted
  */
-OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
+OO.ui.SelectWidget.prototype.findHighlightedItem = function () {
 	var i, len;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
@@ -545,6 +545,17 @@ OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
 		}
 	}
 	return null;
+};
+
+/**
+ * Get highlighted item.
+ *
+ * @deprecated 0.23.1 Use {@link #findHighlightedItem} instead.
+ * @return {OO.ui.OptionWidget|null} Highlighted item, `null` if no item is highlighted
+ */
+OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
+	OO.ui.warnDeprecation( 'SelectWidget#getHighlightedItem: Deprecated function. Use findHighlightedItem instead. See T76630.' );
+	return this.findHighlightedItem();
 };
 
 /**
