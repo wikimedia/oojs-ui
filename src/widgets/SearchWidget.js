@@ -71,7 +71,7 @@ OO.ui.SearchWidget.prototype.onQueryKeydown = function ( e ) {
 		dir = e.which === OO.ui.Keys.DOWN ? 1 : ( e.which === OO.ui.Keys.UP ? -1 : 0 );
 
 	if ( dir ) {
-		highlightedItem = this.results.getHighlightedItem();
+		highlightedItem = this.results.findHighlightedItem();
 		if ( !highlightedItem ) {
 			highlightedItem = this.results.getSelectedItem();
 		}
@@ -103,7 +103,7 @@ OO.ui.SearchWidget.prototype.onQueryChange = function () {
  * @param {string} value New value
  */
 OO.ui.SearchWidget.prototype.onQueryEnter = function () {
-	var highlightedItem = this.results.getHighlightedItem();
+	var highlightedItem = this.results.findHighlightedItem();
 	if ( highlightedItem ) {
 		this.results.chooseItem( highlightedItem );
 	}

@@ -282,7 +282,7 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
 OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
 	var nextItem,
 		handled = false,
-		currentItem = this.getHighlightedItem() || this.getSelectedItem();
+		currentItem = this.findHighlightedItem() || this.getSelectedItem();
 
 	if ( !this.isDisabled() && this.isVisible() ) {
 		switch ( e.keyCode ) {
@@ -408,7 +408,7 @@ OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
 	}
 	this.keyPressBufferTimer = setTimeout( this.clearKeyPressBuffer.bind( this ), 1500 );
 
-	item = this.getHighlightedItem() || this.getSelectedItem();
+	item = this.findHighlightedItem() || this.getSelectedItem();
 
 	if ( this.keyPressBuffer === c ) {
 		// Common (if weird) special case: typing "xxxx" will cycle through all

@@ -165,7 +165,7 @@ OO.ui.ComboBoxInputWidget.prototype.onInputChange = function ( value ) {
 	var match = this.menu.getItemFromData( value );
 
 	this.menu.selectItem( match );
-	if ( this.menu.getHighlightedItem() ) {
+	if ( this.menu.findHighlightedItem() ) {
 		this.menu.highlightItem( match );
 	}
 
@@ -213,7 +213,7 @@ OO.ui.ComboBoxInputWidget.prototype.onMenuChoose = function ( item ) {
 OO.ui.ComboBoxInputWidget.prototype.onMenuItemsChange = function () {
 	var match = this.menu.getItemFromData( this.getValue() );
 	this.menu.selectItem( match );
-	if ( this.menu.getHighlightedItem() ) {
+	if ( this.menu.findHighlightedItem() ) {
 		this.menu.highlightItem( match );
 	}
 	this.$element.toggleClass( 'oo-ui-comboBoxInputWidget-empty', this.menu.isEmpty() );
