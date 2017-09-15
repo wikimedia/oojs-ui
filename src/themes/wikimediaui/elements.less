@@ -227,12 +227,8 @@
 			}
 
 			&.oo-ui-flaggedElement {
-				&-progressive {
-					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button',  @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
-				}
-
-				// Deprecated in 0.16.1, see T110555
-				&-constructive {
+				&-progressive,
+				&-constructive { // `constructive` got deprecated in 0.16.1, see T110555
 					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 				}
 
@@ -379,12 +375,8 @@
 			}
 
 			&.oo-ui-flaggedElement {
-				&-progressive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-framed--hover, @border-color-framed-progressive--hover, @color-progressive--active, @color-progressive--focus );
-				}
-
-				// Deprecated in 0.16.1
-				&-constructive {
+				&-progressive,
+				&-constructive { // `constructive` got deprecated in 0.16.1
 					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-framed--hover, @border-color-framed-progressive--hover, @color-progressive--active, @color-progressive--focus );
 				}
 
@@ -395,12 +387,8 @@
 
 			&.oo-ui-flaggedElement-primary {
 				&.oo-ui-flaggedElement {
-					&-progressive {
-						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
-					}
-
-					// Deprecated in 0.16.1
-					&-constructive {
+					&-progressive,
+					&-constructive { // `constructive` got deprecated in 0.16.1
 						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 					}
 

@@ -426,12 +426,8 @@
 	}
 
 	&.oo-ui-flaggedElement {
-		&-progressive {
-			.mw-framed-primary-button-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
-		}
-
-		// Deprecated in 0.16.1, see T110555
-		&-constructive {
+		&-progressive,
+		&-constructive { // `constructive` got deprecated in 0.16.1, see T110555
 			.mw-framed-primary-button-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 		}
 
