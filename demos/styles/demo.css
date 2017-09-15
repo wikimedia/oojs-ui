@@ -254,8 +254,8 @@ p {
 /* Toolbars demo */
 
 .demo-container.demo-toolbars {
+	margin-top: 4em;
 	padding: 0;
-	margin-bottom: 2em;
 }
 
 .demo-toolbars-contents {
@@ -420,8 +420,13 @@ FieldLayout left & right aligned */
 		}
 
 		/* This needs extra specificity to beat PanelLayout styles */
-		.demo-container.oo-ui-panelLayout {
+		.demo-menu + .demo-container.oo-ui-panelLayout {
 			margin-top: 11.4em;
+		}
+
+		/* Avoid `box-shadow` from menu lurkin into toolbar demo, +1.2em to be harmonious with menu */
+		.demo-menu + .demo-container.oo-ui-panelLayout.demo-toolbars {
+			margin-top: 12.6em;
 		}
 	}
 }
@@ -436,8 +441,12 @@ FieldLayout left & right aligned */
 			display: inline-block;
 		}
 
-		.demo-container.oo-ui-panelLayout {
+		.demo-menu + .demo-container.oo-ui-panelLayout {
 			margin-top: 7.5em;
+		}
+
+		.demo-menu + .demo-container.oo-ui-panelLayout.demo-toolbars {
+			margin-top: 8.7em;
 		}
 
 		.demo-console-expanded .demo-console-toggle {
@@ -490,8 +499,12 @@ FieldLayout left & right aligned */
 			right: auto;
 		}
 
-		.demo-container.oo-ui-panelLayout {
+		.demo-menu + .demo-container.oo-ui-panelLayout {
 			margin-top: 4.5em;
+		}
+
+		.demo-menu + .demo-container.oo-ui-panelLayout.demo-toolbars {
+			margin-top: 5.7em;
 		}
 	}
 }
