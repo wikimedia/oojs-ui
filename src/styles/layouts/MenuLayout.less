@@ -1,15 +1,35 @@
 @import '../common';
 
 .oo-ui-menuLayout {
-	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
 
+	&-expanded,
+	&-expanded .oo-ui-menuLayout-menu,
+	&-expanded .oo-ui-menuLayout-content {
+		position: absolute;
+	}
+
+	&-static {
+		.oo-ui-clearfix();
+
+		&.oo-ui-menuLayout-after {
+			.oo-ui-menuLayout-menu {
+				float: right;
+			}
+		}
+
+		&.oo-ui-menuLayout-before {
+			.oo-ui-menuLayout-menu {
+				float: left;
+			}
+		}
+	}
+
 	&-menu,
 	&-content {
-		position: absolute;
 		.oo-ui-transition( all 200ms ease );
 	}
 

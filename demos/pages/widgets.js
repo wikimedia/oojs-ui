@@ -2645,6 +2645,73 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
+		new OO.ui.FieldsetLayout( {
+			id: 'demo-section-other-layouts',
+			label: 'Other layouts',
+			items: [
+				new OO.ui.FieldLayout(
+					new OO.ui.Widget( {
+						content: [
+							new OO.ui.BookletLayout( {
+								expanded: false,
+								outlined: true
+							} ).addPages( [
+								new Demo.SamplePage( 'first', {
+									expanded: false,
+									label: 'One'
+								} ),
+								new Demo.SamplePage( 'second', {
+									expanded: false,
+									label: 'Two'
+								} ),
+								new Demo.SamplePage( 'third', {
+									expanded: false,
+									label: 'Three'
+								} ),
+								new Demo.SamplePage( 'fourth', {
+									expanded: false,
+									label: 'Four'
+								} )
+							] )
+						]
+					} ),
+					{
+						label: 'Outlined BookletLayout',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.Widget( {
+						content: [
+							new OO.ui.IndexLayout( {
+								expanded: false
+							} ).addTabPanels( [
+								new Demo.SampleTabPanel( 'first', {
+									expanded: false,
+									label: 'One'
+								} ),
+								new Demo.SampleTabPanel( 'second', {
+									expanded: false,
+									label: 'Two'
+								} ),
+								new Demo.SampleTabPanel( 'third', {
+									expanded: false,
+									label: 'Three'
+								} ),
+								new Demo.SampleTabPanel( 'fourth', {
+									expanded: false,
+									label: 'Four'
+								} )
+							] )
+						]
+					} ),
+					{
+						label: 'IndexLayout',
+						align: 'top'
+					}
+				)
+			]
+		} ),
 		new OO.ui.FormLayout( {
 			method: 'GET',
 			action: 'demos.php',
