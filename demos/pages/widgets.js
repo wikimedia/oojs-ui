@@ -1059,7 +1059,7 @@ Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.RadioOptionWidget( {
 								data: 'goldfish',
-								label: 'Goldfish',
+								label: 'Goldfish. By the way, this is a very long label. ' + loremIpsum,
 								disabled: true
 							} )
 						]
@@ -1082,7 +1082,7 @@ Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.CheckboxMultioptionWidget( {
 								data: 'goldfish',
-								label: 'Goldfish',
+								label: 'Goldfish. By the way, this is a very long label. ' + loremIpsum,
 								disabled: true
 							} )
 						]
