@@ -71,8 +71,19 @@
 	&.oo-ui-widget-enabled {
 		.oo-ui-transition( background-color @transition-ease-quick );
 
-		.oo-ui-tool-link .oo-ui-tool-title {
+		.oo-ui-iconElement-icon {
+			opacity: @opacity-icon-base;
+			.oo-ui-transition( opacity @transition-ease-quick );
+		}
+
+		.oo-ui-tool-title {
 			.oo-ui-transition( color @transition-ease-quick );
+		}
+
+		&:hover {
+			.oo-ui-iconElement-icon {
+				opacity: @opacity-base;
+			}
 		}
 	}
 
@@ -88,6 +99,8 @@
 	> .oo-ui-toolGroup {
 		border-right: 0;
 	}
+
+	// `.oo-ui-iconElement-icon`s are exclusive to `.oo-ui-popupToolGroup` below
 
 	> .oo-ui-popupToolGroup {
 		> .oo-ui-popupToolGroup-handle {
@@ -115,7 +128,8 @@
 
 	&.oo-ui-widget-disabled .oo-ui-indicatorElement-indicator,
 	&.oo-ui-widget-disabled .oo-ui-iconElement-icon {
-		opacity: @opacity-tool--disabled;
+		// `!important` necessary until T106914 is resolved
+		opacity: @opacity-tool--disabled !important; // stylelint-disable-line declaration-no-important
 	}
 }
 
@@ -171,10 +185,6 @@
 			.oo-ui-tool-title {
 				color: @color-base--disabled;
 			}
-
-			.oo-ui-iconElement-icon {
-				opacity: @opacity-tool--disabled;
-			}
 		}
 	}
 }
@@ -185,10 +195,6 @@
 			&:hover {
 				background-color: @background-color-tool--hover;
 				color: @color-tool--hover;
-
-				.oo-ui-tool-link .oo-ui-iconElement-icon {
-					opacity: @opacity-base;
-				}
 			}
 		}
 
@@ -328,7 +334,6 @@
 			width: 0.9375em;
 			height: 100%;
 			margin: 0 0.5em;
-			opacity: @opacity-icon-base;
 
 			.oo-ui-toolbar-narrow & {
 				right: -0.3125em;
@@ -341,7 +346,6 @@
 			margin: 0.25em;
 			top: 0;
 			left: 0.3125em;
-			opacity: 0.7;
 
 			.oo-ui-toolbar-narrow & {
 				left: 0;
@@ -351,7 +355,7 @@
 
 	&:not( .oo-ui-labelElement ):not( .oo-ui-iconElement ) .oo-ui-indicatorElement-indicator {
 		// Override earlier fading of the indicator if it's the only thing in the button
-		opacity: 1;
+		opacity: @opacity-base;
 	}
 
 	.oo-ui-toolGroup-tools {
@@ -406,11 +410,28 @@
 				box-shadow @transition-ease-quick
 			);
 
+			// We don't generalize this further, as only PopupToolGroup carries them,
+			// all other ToolGroups own Tools, which come with their own icon rules
+			.oo-ui-iconElement-icon,
+			.oo-ui-indicatorElement-indicator {
+				opacity: @opacity-icon-base;
+				.oo-ui-transition( opacity @transition-ease-quick );
+			}
+
 			&:hover {
 				background-color: @background-color-tool--hover;
 			}
+
 			&:active {
 				background-color: @background-color-tool--active;
+			}
+
+			&:hover,
+			&:active {
+				.oo-ui-iconElement-icon,
+				.oo-ui-indicatorElement-indicator {
+					opacity: @opacity-icon-base--selected;
+				}
 			}
 		}
 	}
