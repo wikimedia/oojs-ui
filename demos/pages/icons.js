@@ -67,8 +67,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'printer',
 				'search',
 				'settings',
-				'subtract',
-				'watchlist'
+				'subtract'
 			],
 			moderation: [
 				'block',
