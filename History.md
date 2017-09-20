@@ -1,4 +1,29 @@
 # OOjs UI Release History
+## v0.23.1 / 2017-09-19
+### Deprecations
+* [DEPRECATING CHANGE] SelectWidget: Rename `getFirstSelectableItem` to `findFirstSelectableItem` (Prateek Saxena)
+* [DEPRECATING CHANGE] SelectWidget: Rename `getHighlightedItem` to `findHighlightedItem` (Prateek Saxena)
+* [DEPRECATING CHANGE] SelectWidget: Rename `getRelativeSelectableItem` to `findRelativeSelectableItem` (Prateek Saxena)
+* [DEPRECATING CHANGE] icons: Flag unused 'watchlist' icon as to be removed (Volker E.)
+
+### Styles
+* RadioOptionWidget, CheckboxMultioptionWidget: Support very long labels (Bartosz Dziewoński)
+* WikimediaUI theme: Harmonize toolbar icon/indicator opacity (Volker E.)
+* WikimediaUI theme: Improve ListToolGroup's color and opacity handling (Volker E.)
+* WikimediaUI theme: Simplify disabled tool opacity rules (Volker E.)
+
+### Code
+* BookletLayout#getClosestPage: Fix version number of deprecation (Prateek Saxena)
+* HtmlSnippet: Throw exception if given non-string content (Bartosz Dziewoński)
+* Use `findFirstSelectableItem` instead of `getFirstSelectableItem` (Prateek Saxena)
+* Use `findHighlightedItem` instead of `getHighlightedItem` (Prateek Saxena)
+* Use `findRelativeSelectableItem` instead of `getRelativeSelectableItem` (Prateek Saxena)
+* WikimediaUI theme: Concatenate constructive & progressive selectors (Volker E.)
+* WikimediaUI theme: Remove unnecessary properties (Volker E.)
+* demos: Add examples of FieldLayout with very long labels (Bartosz Dziewoński)
+* demos: Avoid menu's `box-shadow` from lurkin into toolbar (Volker E.)
+
+
 ## v0.23.0 / 2017-09-05
 ### Breaking changes
 * [BREAKING CHANGE] Remove CardLayout and references in IndexLayout (Volker E.)
