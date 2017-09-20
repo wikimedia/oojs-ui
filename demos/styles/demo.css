@@ -280,18 +280,18 @@ p {
 .demo-icons .oo-ui-fieldLayout:nth-child( 4n ) {
 	margin-right: 0;
 }
-
-.demo-icons .oo-ui-fieldLayout .oo-ui-iconElement,
+/* stylelint-disable indentation */
+.demo-icons .oo-ui-fieldLayout .oo-ui-iconElement:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ),
 .demo-icons .oo-ui-fieldLayout .oo-ui-indicatorElement {
-	opacity: 0.8; /* brings icons/indicators closer to text color */
+	opacity: 0.87; /* brings icons/indicators closer to text color */
 }
-
+/* stylelint-enable indentation */
 .demo-icons .oo-ui-fieldLayout:hover .oo-ui-labelElement-label {
 	color: #000;
 }
 .demo-icons .oo-ui-fieldLayout:hover .oo-ui-iconElement,
 .demo-icons .oo-ui-fieldLayout:hover .oo-ui-indicatorElement {
-	opacity: 1;
+	opacity: 1 !important; /* stylelint-disable-line declaration-no-important */
 }
 
 /* Widgets demo */
