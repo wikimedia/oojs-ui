@@ -25,7 +25,6 @@
 // Disabled Widgets
 @background-color-base--disabled: #eaecf0;
 @background-color-filled--disabled: #c8ccd1;
-@opacity--disabled: 0.51; // `0.51` equals `#7d7d7d` on background-color `#fff`, HSB 0°/0%/49%
 @opacity-filled--disabled: 1;
 @opacity-indicator--disabled: 0.15; // equals `#c7c8cc` on background-color `#fff`
 @opacity-tool--disabled: 0.34; // equals `#a9a9a9` on background-color `#fff`
@@ -140,8 +139,6 @@
 @padding-start-menu-icon-label: 38 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @padding-end-tagitem-close: 21 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.640625em`≈`21px`;
 
-@box-shadow-dialog: 0 2px 2px 0 rgba( 0, 0, 0, 0.25 );
-@box-shadow-menu: @box-shadow-dialog;
 @box-shadow-toolbar-top: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-widget: inset 0 0 0 1px transparent;
@@ -151,7 +148,6 @@
 @box-shadow-action--focus: @box-shadow-widget--focus, 0 0 0 1px @color-progressive;
 @box-shadow-input-binary--active: inset 0 0 0 1px @color-progressive--active;
 @box-shadow-erroneous--focus: inset 0 0 0 1px @color-erroneous;
-@box-shadow-filled--disabled: inset 0 0 0 1px @color-filled--disabled;
 
 @font-size-fieldset-header: 1.15em; // equals `16.1px` at base `font-size: 12.8px`. Todo: Not able to get unified `16px` due to T
 
@@ -163,10 +159,6 @@
 @line-height-widget-multiline: 1.275;
 @line-height-widget-singleline: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
 @line-height-tagmultiselect-input: 1.563em; // equals `20px` at base `font-size: 12.8px`
-
-@opacity-icon-base: 0.87; // equals `#222` on background-color `#fff`
-@opacity-icon-base--hover: 0.73; // equals `#454545` on background-color `#fff`, closest to `#444`
-@opacity-icon-base--selected: 1;
 
 // Transition variables
 // Some of these values are duplicated in OO.ui.WikimediaUITheme
