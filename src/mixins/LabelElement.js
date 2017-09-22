@@ -61,12 +61,25 @@ OO.ui.mixin.LabelElement.static.label = null;
  *
  * @param {string} text Text
  * @param {string} query Query to find
+ * @param {Function} [compare] Optional string comparator, e.g. Intl.Collator().compare
  * @return {jQuery} Text with the first match of the query
  *  sub-string wrapped in highlighted span
  */
-OO.ui.mixin.LabelElement.static.highlightQuery = function ( text, query ) {
-	var $result = $( '<span>' ),
+OO.ui.mixin.LabelElement.static.highlightQuery = function ( text, query, compare ) {
+	var i, offset, tLen, qLen,
+		$result = $( '<span>' );
+
+	if ( compare ) {
+		tLen = text.length;
+		qLen = query.length;
+		for ( i = 0; offset === undefined && i <= tLen - qLen; i++ ) {
+			if ( compare( query, text.slice( i, i + qLen ) ) === 0 ) {
+				offset = i;
+			}
+		}
+	} else {
 		offset = text.toLowerCase().indexOf( query.toLowerCase() );
+	}
 
 	if ( !query.length || offset === -1 ) {
 		return $result.text( text );
@@ -131,10 +144,11 @@ OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
  *
  * @param {string} text Text label to set
  * @param {string} query Substring of text to highlight
+ * @param {Function} [compare] Optional string comparator, e.g. Intl.Collator().compare
  * @chainable
  */
-OO.ui.mixin.LabelElement.prototype.setHighlightedQuery = function ( text, query ) {
-	return this.setLabel( this.constructor.static.highlightQuery( text, query ) );
+OO.ui.mixin.LabelElement.prototype.setHighlightedQuery = function ( text, query, compare ) {
+	return this.setLabel( this.constructor.static.highlightQuery( text, query, compare ) );
 };
 
 /**
