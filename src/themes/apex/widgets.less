@@ -149,7 +149,7 @@
 .theme-oo-ui-checkboxInputWidget () {}
 
 .theme-oo-ui-checkboxMultioptionWidget () {
-	padding: 0;
+	padding: @padding-vertical-label 0;
 
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
 		padding-left: 0.5em;
@@ -165,6 +165,10 @@
 .theme-oo-ui-checkboxMultiselectInputWidget () {
 	.oo-ui-fieldLayout {
 		margin-bottom: 0;
+
+		.oo-ui-fieldLayout-body {
+			padding: @padding-vertical-label 0;
+		}
 	}
 }
 
@@ -590,7 +594,6 @@
 }
 
 .theme-oo-ui-optionWidget () {
-	padding: 0.25em 0.5em;
 	border: 0;
 
 	&-highlighted {
@@ -865,12 +868,9 @@
 .theme-oo-ui-radioInputWidget () {}
 
 .theme-oo-ui-radioOptionWidget () {
-	padding: 0;
-	background-color: transparent;
+	padding: @padding-vertical-label 0;
 
-	&.oo-ui-optionWidget-selected,
-	&.oo-ui-optionWidget-pressed,
-	&.oo-ui-optionWidget-highlighted {
+	&.oo-ui-optionWidget-selected {
 		background-color: transparent;
 	}
 
@@ -888,6 +888,10 @@
 .theme-oo-ui-radioSelectInputWidget () {
 	.oo-ui-fieldLayout {
 		margin-bottom: 0;
+
+		.oo-ui-fieldLayout-body {
+			padding: @padding-vertical-label 0;
+		}
 	}
 }
 
