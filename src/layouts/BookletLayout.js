@@ -59,7 +59,10 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.currentPageName = null;
 	this.pages = {};
 	this.ignoreFocus = false;
-	this.stackLayout = new OO.ui.StackLayout( { continuous: !!config.continuous } );
+	this.stackLayout = new OO.ui.StackLayout( {
+		continuous: !!config.continuous,
+		expanded: this.expanded
+	} );
 	this.$content.append( this.stackLayout.$element );
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 	this.outlineVisible = false;
@@ -68,7 +71,10 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 		this.editable = !!config.editable;
 		this.outlineControlsWidget = null;
 		this.outlineSelectWidget = new OO.ui.OutlineSelectWidget();
-		this.outlinePanel = new OO.ui.PanelLayout( { scrollable: true } );
+		this.outlinePanel = new OO.ui.PanelLayout( {
+			expanded: this.expanded,
+			scrollable: true
+		} );
 		this.$menu.append( this.outlinePanel.$element );
 		this.outlineVisible = true;
 		if ( this.editable ) {

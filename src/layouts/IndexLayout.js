@@ -35,7 +35,6 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [continuous=false] Show all tab panels, one after another
- * @cfg {boolean} [expanded=true] Expand the content panel to fill the entire parent element.
  * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new tab panel is displayed. Disabled on mobile.
  */
 OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
@@ -52,13 +51,15 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	this.ignoreFocus = false;
 	this.stackLayout = new OO.ui.StackLayout( {
 		continuous: !!config.continuous,
-		expanded: config.expanded
+		expanded: this.expanded
 	} );
 	this.$content.append( this.stackLayout.$element );
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 
 	this.tabSelectWidget = new OO.ui.TabSelectWidget();
-	this.tabPanel = new OO.ui.PanelLayout();
+	this.tabPanel = new OO.ui.PanelLayout( {
+		expanded: this.expanded
+	} );
 	this.$menu.append( this.tabPanel.$element );
 
 	this.toggleMenu( true );

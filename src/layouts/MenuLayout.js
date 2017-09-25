@@ -60,12 +60,14 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {boolean} [expanded=true] Expand the layout to fill the entire parent element.
  * @cfg {boolean} [showMenu=true] Show menu
  * @cfg {string} [menuPosition='before'] Position of menu: `top`, `after`, `bottom` or `before`
  */
 OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	// Configuration initialization
 	config = $.extend( {
+		expanded: true,
 		showMenu: true,
 		menuPosition: 'before'
 	}, config );
@@ -73,6 +75,7 @@ OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	// Parent constructor
 	OO.ui.MenuLayout.parent.call( this, config );
 
+	this.expanded = !!config.expanded;
 	/**
 	 * Menu DOM node
 	 *
@@ -91,8 +94,12 @@ OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 		.addClass( 'oo-ui-menuLayout-menu' );
 	this.$content.addClass( 'oo-ui-menuLayout-content' );
 	this.$element
-		.addClass( 'oo-ui-menuLayout' )
-		.append( this.$content, this.$menu );
+		.addClass( 'oo-ui-menuLayout' );
+	if ( config.expanded ) {
+		this.$element.addClass( 'oo-ui-menuLayout-expanded' );
+	} else {
+		this.$element.addClass( 'oo-ui-menuLayout-static' );
+	}
 	this.setMenuPosition( config.menuPosition );
 	this.toggleMenu( config.showMenu );
 };
@@ -142,6 +149,11 @@ OO.ui.MenuLayout.prototype.isMenuVisible = function () {
 OO.ui.MenuLayout.prototype.setMenuPosition = function ( position ) {
 	this.$element.removeClass( 'oo-ui-menuLayout-' + this.menuPosition );
 	this.menuPosition = position;
+	if ( this.menuPosition !== 'bottom' ) {
+		this.$element.append( this.$menu, this.$content );
+	} else {
+		this.$element.append( this.$content, this.$menu );
+	}
 	this.$element.addClass( 'oo-ui-menuLayout-' + position );
 
 	return this;
