@@ -13,17 +13,15 @@
 	}
 
 	&-static {
-		.oo-ui-clearfix();
-
-		&.oo-ui-menuLayout-after {
-			.oo-ui-menuLayout-menu {
-				float: right;
-			}
-		}
-
+		&.oo-ui-menuLayout-after,
 		&.oo-ui-menuLayout-before {
-			.oo-ui-menuLayout-menu {
-				float: left;
+			display: table;
+			width: 100%;
+
+			.oo-ui-menuLayout-menu,
+			.oo-ui-menuLayout-content {
+				display: table-cell;
+				vertical-align: top;
 			}
 		}
 	}

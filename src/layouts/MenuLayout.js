@@ -149,7 +149,7 @@ OO.ui.MenuLayout.prototype.isMenuVisible = function () {
 OO.ui.MenuLayout.prototype.setMenuPosition = function ( position ) {
 	this.$element.removeClass( 'oo-ui-menuLayout-' + this.menuPosition );
 	this.menuPosition = position;
-	if ( this.menuPosition !== 'bottom' ) {
+	if ( this.menuPosition === 'top' || this.menuPosition === 'before' ) {
 		this.$element.append( this.$menu, this.$content );
 	} else {
 		this.$element.append( this.$content, this.$menu );

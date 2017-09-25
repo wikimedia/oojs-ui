@@ -2680,27 +2680,46 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.Widget( {
 						content: [
-							new OO.ui.BookletLayout( {
+							new OO.ui.PanelLayout( {
 								expanded: false,
-								outlined: true
-							} ).addPages( [
-								new Demo.SamplePage( 'first', {
-									expanded: false,
-									label: 'One'
-								} ),
-								new Demo.SamplePage( 'second', {
-									expanded: false,
-									label: 'Two'
-								} ),
-								new Demo.SamplePage( 'third', {
-									expanded: false,
-									label: 'Three'
-								} ),
-								new Demo.SamplePage( 'fourth', {
-									expanded: false,
-									label: 'Four'
-								} )
-							] )
+								framed: true,
+								content: [
+									new OO.ui.BookletLayout( {
+										expanded: false,
+										outlined: true
+									} ).addPages( [
+										new Demo.SamplePage( 'first', {
+											expanded: false,
+											label: 'One'
+										} ),
+										new Demo.SamplePage( 'second', {
+											expanded: false,
+											label: 'Two'
+										} ),
+										new Demo.SamplePage( 'third', {
+											expanded: false,
+											label: 'Three'
+										} ),
+										new Demo.SamplePage( 'fourth', {
+											expanded: false,
+											label: 'Four'
+										} ),
+										new Demo.SamplePage( 'long', {
+											expanded: false,
+											label: 'Long',
+											content: [
+												$( '<p>' ).text( loremIpsum ),
+												$( '<p>' ).text( loremIpsum ),
+												$( '<p>' ).text( loremIpsum ),
+												$( '<p>' ).text( loremIpsum ),
+												$( '<p>' ).text( loremIpsum ),
+												$( '<p>' ).text( loremIpsum ),
+												$( '<p>' ).text( loremIpsum )
+											]
+										} )
+									] )
+								]
+							} )
 						]
 					} ),
 					{
@@ -2711,26 +2730,41 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.Widget( {
 						content: [
-							new OO.ui.IndexLayout( {
-								expanded: false
-							} ).addTabPanels( [
-								new Demo.SampleTabPanel( 'first', {
-									expanded: false,
-									label: 'One'
-								} ),
-								new Demo.SampleTabPanel( 'second', {
-									expanded: false,
-									label: 'Two'
-								} ),
-								new Demo.SampleTabPanel( 'third', {
-									expanded: false,
-									label: 'Three'
-								} ),
-								new Demo.SampleTabPanel( 'fourth', {
-									expanded: false,
-									label: 'Four'
-								} )
-							] )
+							new OO.ui.PanelLayout( {
+								expanded: false,
+								framed: true,
+								content: [
+									new OO.ui.IndexLayout( {
+										expanded: false
+									} ).addTabPanels( [
+										new Demo.SampleTabPanel( 'first', {
+											expanded: false,
+											label: 'One'
+										} ),
+										new Demo.SampleTabPanel( 'second', {
+											expanded: false,
+											label: 'Two'
+										} ),
+										new Demo.SampleTabPanel( 'third', {
+											expanded: false,
+											label: 'Three'
+										} ),
+										new Demo.SampleTabPanel( 'fourth', {
+											expanded: false,
+											label: 'Four'
+										} ),
+										new Demo.SampleTabPanel( 'long', {
+											expanded: false,
+											label: 'Long',
+											content: [
+												$( '<p>' ).text( loremIpsum ),
+												$( '<p>' ).text( loremIpsum ),
+												$( '<p>' ).text( loremIpsum )
+											]
+										} )
+									] )
+								]
+							} )
 						]
 					} ),
 					{
