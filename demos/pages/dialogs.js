@@ -170,7 +170,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 							{
 								action: 'repeat',
 								label: 'Try again',
-								flags: [ 'primary', 'constructive' ]
+								flags: [ 'primary', 'progressive' ]
 							}
 						]
 					}

@@ -39,16 +39,6 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		),
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [
-				'label' => 'Constructive',
-				'flags' => [ 'constructive' ]
-			] ),
-			[
-				'label' => "ButtonWidget (constructive, deprecated)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonWidget( [
 				'label' => 'Destructive',
 				'flags' => [ 'destructive' ]
 			] ),
@@ -64,16 +54,6 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'label' => "ButtonWidget (primary, progressive)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonWidget( [
-				'label' => 'Primary constructive',
-				'flags' => [ 'primary', 'constructive' ]
-			] ),
-			[
-				'label' => "ButtonWidget (primary, constructive, deprecated)\xE2\x80\x8E",
 				'align' => 'top'
 			]
 		),
@@ -211,18 +191,6 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [
 				'framed' => false,
-				'flags' => [ 'constructive' ],
-				'icon' => 'add',
-				'label' => 'Constructive'
-			] ),
-			[
-				'label' => "ButtonWidget (frameless, constructive)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonWidget( [
-				'framed' => false,
 				'flags' => [ 'destructive' ],
 				'label' => 'Cancel'
 			] ),
@@ -240,19 +208,6 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'label' => "ButtonWidget (frameless, disabled)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonWidget( [
-				'framed' => false,
-				'flags' => [ 'constructive' ],
-				'icon' => 'tag',
-				'label' => 'Constructive',
-				'disabled' => true
-			] ),
-			[
-				'label' => "ButtonWidget (frameless, constructive, disabled)\xE2\x80\x8E",
 				'align' => 'top'
 			]
 		),

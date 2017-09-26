@@ -9,25 +9,21 @@
  *
  * - **progressive**:  Progressive styling is applied to convey that the widget will move the user forward in a process.
  * - **destructive**: Destructive styling is applied to convey that the widget will remove something.
- * - **constructive**: Constructive styling is applied to convey that the widget will create something.
+ * - **constructive**: Constructive styling is deprecated since v0.23.2 and equivalent to progressive.
  *
  * The flags affect the appearance of the buttons:
  *
  *     @example
  *     // FlaggedElement is mixed into ButtonWidget to provide styling flags
  *     var button1 = new OO.ui.ButtonWidget( {
- *         label: 'Constructive',
- *         flags: 'constructive'
+ *         label: 'Progressive',
+ *         flags: 'progressive'
  *     } );
  *     var button2 = new OO.ui.ButtonWidget( {
  *         label: 'Destructive',
  *         flags: 'destructive'
  *     } );
- *     var button3 = new OO.ui.ButtonWidget( {
- *         label: 'Progressive',
- *         flags: 'progressive'
- *     } );
- *     $( 'body' ).append( button1.$element, button2.$element, button3.$element );
+ *     $( 'body' ).append( button1.$element, button2.$element );
  *
  * {@link OO.ui.ActionWidget ActionWidgets}, which are a special kind of button that execute an action, use these flags: **primary** and **safe**.
  * Please see the [OOjs UI documentation on MediaWiki] [1] for more information.
@@ -39,7 +35,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string|string[]} [flags] The name or names of the flags (e.g., 'constructive' or 'primary') to apply.
+ * @cfg {string|string[]} [flags] The name or names of the flags (e.g., 'progressive' or 'primary') to apply.
  *  Please see the [OOjs UI documentation on MediaWiki] [2] for more information about available flags.
  *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Elements/Flagged
  * @cfg {jQuery} [$flagged] The flagged element. By default,

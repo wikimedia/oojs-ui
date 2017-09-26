@@ -105,16 +105,6 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
-						label: 'Constructive',
-						flags: [ 'constructive' ]
-					} ),
-					{
-						label: 'ButtonWidget (constructive, deprecated in WikimediaUI theme)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
 						label: 'Destructive',
 						flags: [ 'destructive' ]
 					} ),
@@ -130,16 +120,6 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'ButtonWidget (primary, progressive)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						label: 'Primary constructive',
-						flags: [ 'primary', 'constructive' ]
-					} ),
-					{
-						label: 'ButtonWidget (primary, constructive, deprecated in WikimediaUI theme)\u200E',
 						align: 'top'
 					}
 				),
@@ -342,18 +322,6 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						framed: false,
-						flags: [ 'constructive' ],
-						icon: 'add',
-						label: 'Constructive'
-					} ),
-					{
-						label: 'ButtonWidget (frameless, constructive)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						framed: false,
 						flags: [ 'destructive' ],
 						label: 'Cancel'
 					} ),
@@ -371,19 +339,6 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'ButtonWidget (frameless, disabled)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						framed: false,
-						flags: [ 'constructive' ],
-						icon: 'tag',
-						label: 'Constructive',
-						disabled: true
-					} ),
-					{
-						label: 'ButtonWidget (frameless, constructive, disabled)\u200E',
 						align: 'top'
 					}
 				),
@@ -2935,13 +2890,6 @@ Demo.static.pages.widgets = function ( demo ) {
 								label: null,
 								align: 'top'
 							}
-						),
-						new OO.ui.FieldLayout(
-							new OO.ui.ButtonWidget( {
-								framed: false,
-								flags: [ 'constructive' ],
-								label: 'Constructive feedback'
-							} )
 						)
 					]
 				} )

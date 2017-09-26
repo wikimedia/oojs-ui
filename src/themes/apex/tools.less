@@ -385,6 +385,7 @@
 	}
 
 	&.oo-ui-flaggedElement {
+		&-constructive, // Deprecated since v0.23.2
 		&-progressive {
 			> .oo-ui-popupToolGroup-handle {
 				border: 1px solid @progressive-border;
@@ -400,24 +401,6 @@
 			&.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
 				border: 1px solid @progressive-border;
 				.oo-ui-vertical-gradient( @progressive-gradient-end, @progressive-gradient-start );
-			}
-		}
-
-		&-constructive {
-			> .oo-ui-popupToolGroup-handle {
-				border: 1px solid @constructive-border;
-				.oo-ui-vertical-gradient( @constructive-gradient-start, @constructive-gradient-end );
-
-				&:hover,
-				&:focus {
-					border-color: @constructive-border-selected;
-				}
-			}
-
-			&.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:active,
-			&.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
-				border: 1px solid @constructive-border;
-				.oo-ui-vertical-gradient( @constructive-gradient-end, @constructive-gradient-start );
 			}
 		}
 

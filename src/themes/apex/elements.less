@@ -130,12 +130,9 @@
 		}
 
 		&.oo-ui-flaggedElement {
+			&-constructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label, // Deprecated since v0.23.2
 			&-progressive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 				color: @progressive;
-			}
-
-			&-constructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-				color: @constructive;
 			}
 
 			&-destructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
@@ -220,6 +217,7 @@
 		}
 
 		&.oo-ui-flaggedElement {
+			&-constructive, // Deprecated since v0.23.2
 			&-progressive {
 				> .oo-ui-buttonElement-button {
 					border: 1px solid @progressive-border;
@@ -235,24 +233,6 @@
 				&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 					border: 1px solid @progressive-border;
 					.oo-ui-vertical-gradient( @progressive-gradient-end, @progressive-gradient-start );
-				}
-			}
-
-			&-constructive {
-				> .oo-ui-buttonElement-button {
-					border: 1px solid @constructive-border;
-					.oo-ui-vertical-gradient( @constructive-gradient-start, @constructive-gradient-end );
-
-					&:hover {
-						border-color: @constructive-border-selected;
-					}
-				}
-
-				&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-				&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
-				&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-					border: 1px solid @constructive-border;
-					.oo-ui-vertical-gradient( @constructive-gradient-end, @constructive-gradient-start );
 				}
 			}
 

@@ -61,7 +61,7 @@ else
 		'maxLength' => [100],
 		'icon' => ['image'],
 		'indicator' => ['down'],
-		'flags' => %w[constructive primary],
+		'flags' => %w[progressive primary],
 		'progress' => [0, 50, 100, false],
 		'options' => [
 			[],
