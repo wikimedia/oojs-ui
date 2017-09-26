@@ -26,8 +26,7 @@ trait FlaggedElement {
 	/**
 	 * @param array $config Configuration options
 	 * @param string|string[] $config['flags'] Flags describing importance and functionality, e.g.
-	 *   'primary', 'safe', 'progressive', or 'destructive'. The former 'constructive' value was
-	 *    deprecated since v0.23.2 and will be removed. It is equivalent to 'progressive' for now.
+	 *   'primary', 'safe', 'progressive', or 'destructive'.
 	 */
 	public function initializeFlaggedElement( array $config = [] ) {
 		// Properties

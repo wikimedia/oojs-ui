@@ -9,7 +9,6 @@
  *
  * - **progressive**:  Progressive styling is applied to convey that the widget will move the user forward in a process.
  * - **destructive**: Destructive styling is applied to convey that the widget will remove something.
- * - **constructive**: Constructive styling is deprecated since v0.23.2 and equivalent to progressive.
  *
  * The flags affect the appearance of the buttons:
  *

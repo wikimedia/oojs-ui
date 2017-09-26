@@ -25,7 +25,6 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 			warning: false,
 			invert: false,
 			progressive: false,
-			constructive: false,
 			destructive: false
 		},
 		// Parent method
@@ -48,7 +47,6 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 		} else if ( !element.isDisabled() ) {
 			// Any other kind of button, use the right colored icon / indicator if available
 			variants.progressive = element.hasFlag( 'progressive' );
-			variants.constructive = element.hasFlag( 'constructive' );
 			variants.destructive = element.hasFlag( 'destructive' );
 			variants.warning = element.hasFlag( 'warning' );
 		}
