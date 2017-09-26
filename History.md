@@ -1,4 +1,24 @@
 # OOjs UI Release History
+## v0.23.2 / 2017-09-26
+### Deprecations
+* [DEPRECATING CHANGE]: Apex theme: Begin killing `constructive` flag (James D. Forrester)
+
+### Features
+* LabelElement#highlightQuery: Support locale comparison (Ed Sanders)
+* MenuLayout, BookletLayout, IndexLayout: Support `expanded: false` (Bartosz Dziewoński)
+* WindowManager: Set `aria-hidden` by default and change toggleAriaIsolation behavior (Prateek Saxena)
+
+### Code
+* MenuLayout: Rewrite support for `expanded: false` (Bartosz Dziewoński)
+* TextInputWidget: Reduce CSS output by enhancing unselectable behaviour (Volker E.)
+* themes: Align DropdownWidget `&-handle` selectors for code hygiene (Volker E.)
+* Apex theme: Simplify Radio- & Checkbox*optionWidget label rules (Volker E.)
+* Remove duplicated `outline` property (Volker E.)
+* Remove LESS vars covered by WikimediaUI Base (Volker E.)
+* demos: Expand long dialog title to actually test things (James D. Forrester)
+* demos: Restrict `opacity` to non-flagged icons only (Volker E.)
+
+
 ## v0.23.1 / 2017-09-19
 ### Deprecations
 * [DEPRECATING CHANGE] SelectWidget: Rename `getFirstSelectableItem` to `findFirstSelectableItem` (Prateek Saxena)
