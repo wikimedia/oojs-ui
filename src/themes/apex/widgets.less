@@ -408,22 +408,18 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled {
-		.oo-ui-dropdownWidget-handle {
-			&:focus {
-				border-color: @border-color-base--focus;
-				box-shadow: @box-shadow-widget--focus;
-			}
+	&.oo-ui-widget-enabled &-handle {
+		&:focus {
+			border-color: @border-color-base--focus;
+			box-shadow: @box-shadow-widget--focus;
 		}
 	}
 
-	&.oo-ui-widget-disabled {
-		.oo-ui-dropdownWidget-handle {
-			color: #ccc;
-			text-shadow: 0 1px 1px #fff;
-			border-color: #ddd;
-			background-color: #f3f3f3;
-		}
+	&.oo-ui-widget-disabled &-handle {
+		color: #ccc;
+		text-shadow: 0 1px 1px #fff;
+		border-color: #ddd;
+		background-color: #f3f3f3;
 
 		.oo-ui-indicatorElement-indicator {
 			opacity: 0.2;
