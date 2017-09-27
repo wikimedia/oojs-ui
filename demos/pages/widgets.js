@@ -146,17 +146,6 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						label: 'Progressive',
-						flags: [ 'progressive' ],
-						disabled: true
-					} ),
-					{
-						label: 'ButtonWidget (progressive, disabled)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						label: 'Progressive',
 						icon: 'tag',
 						flags: [ 'progressive' ],
 						disabled: true
@@ -217,17 +206,6 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'ButtonWidget (with accesskey)\u200E',
 						align: 'top',
 						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank">negatively impact screen readers</a>!' )
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonInputWidget( {
-						title: 'Accesskey is added to the title.',
-						label: 'Access key: H',
-						accessKey: 'h'
-					} ),
-					{
-						label: 'ButtonInputWidget (with accesskey and title)\u200E',
-						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -401,11 +379,12 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonInputWidget( {
-						label: 'Access key: I',
-						accessKey: 'i'
+						title: 'Accesskey is added to the title.',
+						label: 'Access key: H',
+						accessKey: 'h'
 					} ),
 					{
-						label: 'ButtonInputWidget (with accesskey)\u200E',
+						label: 'ButtonInputWidget (with accesskey & title)\u200E',
 						align: 'top',
 						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank">negatively impact screen readers</a>!' )
 					}
@@ -418,7 +397,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						align: 'top',
-						label: 'ButtonInputWidget (frameless)\u200E'
+						label: 'ButtonInputWidget (frameless, using <button>)\u200E'
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -624,18 +603,18 @@ Demo.static.pages.widgets = function ( demo ) {
 						items: [
 							new OO.ui.ButtonOptionWidget( {
 								data: 'a',
+								label: 'Access key: I',
+								accessKey: 'i'
+							} ),
+							new OO.ui.ButtonOptionWidget( {
+								data: 'b',
 								label: 'Access key: J',
 								accessKey: 'j'
 							} ),
 							new OO.ui.ButtonOptionWidget( {
-								data: 'b',
+								data: 'c',
 								label: 'Access key: K',
 								accessKey: 'k'
-							} ),
-							new OO.ui.ButtonOptionWidget( {
-								data: 'c',
-								label: 'Access key: L',
-								accessKey: 'l'
 							} )
 						]
 					} ),

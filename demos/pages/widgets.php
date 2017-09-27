@@ -80,17 +80,6 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [
 				'label' => 'Progressive',
-				'flags' => [ 'progressive' ],
-				'disabled' => true
-			] ),
-			[
-				'label' => "ButtonWidget (progressive, disabled)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonWidget( [
-				'label' => 'Progressive',
 				'icon' => 'tag',
 				'flags' => [ 'progressive' ],
 				'disabled' => true
@@ -278,16 +267,6 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			[
 				'label' => "ButtonInputWidget (with accesskey and title)\xE2\x80\x8E",
 				'align' => 'top',
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonInputWidget( [
-				'label' => 'Access key: I',
-				'accessKey' => 'i'
-			] ),
-			[
-				'label' => "ButtonInputWidget (with accesskey)\xE2\x80\x8E",
-				'align' => 'top'
 			]
 		)
 	]
