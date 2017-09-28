@@ -156,9 +156,16 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
 			item = this.findFirstSelectableItem();
 		}
 	} else {
-		// One of the options got focussed (and the event bubbled up here).
-		// They can't be tabbed to, but they can be activated using accesskeys.
-		item = this.findTargetItem( event );
+		if ( event.target.tabIndex === -1 ) {
+			// One of the options got focussed (and the event bubbled up here).
+			// They can't be tabbed to, but they can be activated using accesskeys.
+			// OptionWidgets and focusable UI elements inside them have tabindex="-1" set.
+			item = this.findTargetItem( event );
+		} else {
+			// There is something actually user-focusable in one of the labels of the options, and the
+			// user focussed it (e.g. by tabbing to it). Do nothing (especially, don't change the focus).
+			return;
+		}
 	}
 
 	if ( item ) {

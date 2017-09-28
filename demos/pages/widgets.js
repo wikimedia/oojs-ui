@@ -1118,6 +1118,53 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'ToggleSwitchWidget (disabled, checked)\u200E',
 						align: 'top'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.RadioSelectWidget( {
+						items: [
+							new OO.ui.RadioOptionWidget( {
+								data: 'a',
+								label: $( $.parseHTML( 'Option A (<a href="https://example.com/a">details</a>)' ) )
+							} ),
+							new OO.ui.RadioOptionWidget( {
+								data: 'b',
+								label: $( $.parseHTML( 'Option B (<a href="https://example.com/b">details</a>)' ) )
+							} ),
+							new OO.ui.RadioOptionWidget( {
+								data: 'c',
+								label: $( $.parseHTML( 'Option C (<a href="https://example.com/c">details</a>)' ) )
+							} )
+						]
+					} ),
+					{
+						label: 'RadioSelectWidget with links in the labels',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.RadioSelectWidget( {
+						items: [
+							new OO.ui.RadioOptionWidget( {
+								data: 'foo',
+								label: 'Foo'
+							} ),
+							new OO.ui.RadioOptionWidget( {
+								data: 'bar',
+								label: 'Bar'
+							} ),
+							new OO.ui.RadioOptionWidget( {
+								data: '',
+								label: $( [
+									document.createTextNode( 'Other: ' ),
+									new OO.ui.TextInputWidget().$element[ 0 ]
+								] )
+							} )
+						]
+					} ),
+					{
+						label: 'RadioSelectWidget with text input in a label',
+						align: 'top'
+					}
 				)
 			]
 		} ),
