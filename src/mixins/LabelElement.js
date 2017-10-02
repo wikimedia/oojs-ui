@@ -83,15 +83,16 @@ OO.ui.mixin.LabelElement.static.highlightQuery = function ( text, query, compare
 	}
 
 	if ( !query.length || offset === -1 ) {
-		return $result.text( text );
+		$result.text( text );
+	} else {
+		$result.append(
+			document.createTextNode( text.slice( 0, offset ) ),
+			$( '<span>' )
+				.addClass( 'oo-ui-labelElement-label-highlight' )
+				.text( text.slice( offset, offset + query.length ) ),
+			document.createTextNode( text.slice( offset + query.length ) )
+		);
 	}
-	$result.append(
-		document.createTextNode( text.slice( 0, offset ) ),
-		$( '<span>' )
-			.addClass( 'oo-ui-labelElement-label-highlight' )
-			.text( text.slice( offset, offset + query.length ) ),
-		document.createTextNode( text.slice( offset + query.length ) )
-	);
 	return $result.contents();
 };
 
