@@ -62,6 +62,7 @@
 @size-toggleswitch-grip-min: 16px;
 @size-dialog-bar-top: 44 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `3.4375em`≈`44px`
 @size-fieldlayout-help-icon: 22 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@size-tool: 40 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `3.125em`≈`40px`
 
 @start-framed-icon-only: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.547em`≈`7px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
 @start-framed-icon-only-numberinput: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.46875em`≈`6px`
@@ -70,6 +71,8 @@
 @start-frameless: -@start-frameless-icon;
 @start-frameless-icon: 3 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @start-tagmultiselect-input: 5 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.390625em`≈`5px`; `@padding-horizontal-tagitem` + `@border-width-base`
+@start-tool-icon-indicator: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@start-toolbar-narrow-tool-icon: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @end-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.3125em`≈`4px`
 
 @width-button-combo-widget: @min-width-button-combo-widget;
@@ -114,19 +117,23 @@
 @padding-input-text: @padding-top-base @padding-horizontal-input-text @padding-bottom-base;
 @padding-menu: @padding-top-menu @padding-horizontal-base @padding-bottom-menu;
 @padding-menu-large: ( @padding-top-menu * 1.5 ) @padding-horizontal-base ( @padding-bottom-menu * 1.5 );
-@padding-search: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.625em`≈`16px`
+@padding-search: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.25em`≈`16px`
 @padding-taboption: @padding-top-base @padding-horizontal-taboption @padding-bottom-base;
 @padding-horizontal-base: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.9375em`≈`12px`
 @padding-horizontal-frameless: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.3125em`≈`4px`
 @padding-horizontal-input-text: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @padding-horizontal-taboption: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.9375em`≈`13px`; @padding-horizontal-base = @border-width-base
 @padding-horizontal-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-horizontal-toolbar-action-buttons: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // aligned relatively to `@padding-horizontal-base` but for toolbar button height
 @padding-vertical-label: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @padding-top-base: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.625em`≈`8px`
 @padding-top-icon-indicator: 30 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @padding-top-menu: 9 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-top-tool: 40 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-top-tool-label: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @padding-bottom-base: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.547em`≈`7px`
 @padding-bottom-menu: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-bottom-tool-label: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @padding-start-input-text-icon: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // As long as we have whitespace in icon canvas, we need reduced `padding-left`.
 @padding-start-icon: @size-icon;
 @padding-start-icon-only: 26 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `2.03125em`≈`26px`; @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base;
@@ -137,7 +144,11 @@
 @padding-start-frameless-icon-plus: @padding-start-frameless-icon-only;
 @padding-start-input-text-icon-label: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 @padding-start-menu-icon-label: 38 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-start-tool: 38 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-start-tool-icon-only: 40 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // Provide slightly more space than `@padding-start-input-text-icon-label` as we want to provide minimal touch action size
 @padding-end-tagitem-close: 21 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.640625em`≈`21px`;
+@padding-end-toolgroup-label-indicator: 28 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-end-toolgroup-indicator: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
 
 @box-shadow-toolbar-top: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.1 );
