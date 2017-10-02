@@ -34,35 +34,32 @@
 	}
 
 	&-actions {
-		> .oo-ui-buttonElement.oo-ui-labelElement,
-		> .oo-ui-buttonElement.oo-ui-indicatorElement,
-		> .oo-ui-buttonGroupWidget > .oo-ui-buttonElement.oo-ui-labelElement,
-		> .oo-ui-buttonGroupWidget > .oo-ui-buttonElement.oo-ui-indicatorElement {
-			margin: 0;
+		.oo-ui-buttonElement {
+			margin-right: 0;
 
 			> .oo-ui-buttonElement-button {
 				border: 0;
 				border-radius: 0;
-				padding: 0 @padding-horizontal-toolbar-action-buttons;
-
-				> .oo-ui-labelElement-label {
-					line-height: @size-tool;
-				}
+				padding-top: @padding-top-tool;
+				padding-left: @padding-horizontal-toolbar-action-buttons;
+				padding-right: @padding-horizontal-toolbar-action-buttons;
 
 				.oo-ui-toolbar-narrow & {
 					padding-left: @padding-horizontal-base;
 					padding-right: @padding-horizontal-base;
 				}
 			}
+
+			&.oo-ui-labelElement {
+				> .oo-ui-buttonElement-button {
+					padding-top: @padding-top-tool-label;
+					padding-bottom: @padding-bottom-tool-label;
+				}
+			}
 		}
 
-		> .oo-ui-buttonGroupWidget > .oo-ui-buttonElement.oo-ui-indicatorElement:not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button {
-			> .oo-ui-labelElement-label {
-				margin: 0;
-			}
-			> .oo-ui-indicatorElement-indicator {
-				margin: 0 0.3125em;
-			}
+		> .oo-ui-buttonGroupWidget > .oo-ui-buttonElement > .oo-ui-buttonElement-button {
+			border-radius: 0;
 		}
 
 		> .oo-ui-toolbar:not( :last-child ) {
