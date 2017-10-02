@@ -171,6 +171,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolbars[ 1 ].setup( [
 		{
 			type: 'menu',
+			header: 'Popup-/MenuToolGroup header',
 			icon: 'image',
 			include: [ { group: 'menuTools' } ]
 		},
