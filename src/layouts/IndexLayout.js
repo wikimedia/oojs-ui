@@ -137,13 +137,13 @@ OO.ui.IndexLayout.prototype.onStackLayoutFocus = function ( e ) {
  * @param {OO.ui.PanelLayout|null} tabPanel The tab panel that is now the current panel
  */
 OO.ui.IndexLayout.prototype.onStackLayoutSet = function ( tabPanel ) {
-	var layout = this;
-	if ( tabPanel ) {
-		tabPanel.scrollElementIntoView().done( function () {
-			if ( layout.autoFocus && !OO.ui.isMobile() ) {
-				layout.focus();
-			}
-		} );
+	// If everything is unselected, do nothing
+	if ( !tabPanel ) {
+		return;
+	}
+	// Focus the first element on the newly selected panel
+	if ( this.autoFocus && !OO.ui.isMobile() ) {
+		this.focus();
 	}
 };
 

@@ -185,12 +185,21 @@ OO.ui.BookletLayout.prototype.onStackLayoutVisibleItemChange = function ( page )
  * @param {OO.ui.PanelLayout|null} page The page panel that is now the current panel
  */
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
-	var layout = this;
-	if ( !this.scrolling && page ) {
-		page.scrollElementIntoView().done( function () {
-			if ( layout.autoFocus && !OO.ui.isMobile() ) {
-				layout.focus();
-			}
+	var promise, layout = this;
+	// If everything is unselected, do nothing
+	if ( !page ) {
+		return;
+	}
+	// For continuous BookletLayouts, scroll the selected page into view first
+	if ( this.stackLayout.continuous && !this.scrolling ) {
+		promise = page.scrollElementIntoView();
+	} else {
+		promise = $.Deferred().resolve();
+	}
+	// Focus the first element on the newly selected panel
+	if ( this.autoFocus && !OO.ui.isMobile() ) {
+		promise.done( function () {
+			layout.focus();
 		} );
 	}
 };
