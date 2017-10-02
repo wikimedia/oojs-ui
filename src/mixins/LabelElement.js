@@ -66,13 +66,14 @@ OO.ui.mixin.LabelElement.static.label = null;
  *  sub-string wrapped in highlighted span
  */
 OO.ui.mixin.LabelElement.static.highlightQuery = function ( text, query, compare ) {
-	var i, offset, tLen, qLen,
+	var i, tLen, qLen,
+		offset = -1,
 		$result = $( '<span>' );
 
 	if ( compare ) {
 		tLen = text.length;
 		qLen = query.length;
-		for ( i = 0; offset === undefined && i <= tLen - qLen; i++ ) {
+		for ( i = 0; offset === -1 && i <= tLen - qLen; i++ ) {
 			if ( compare( query, text.slice( i, i + qLen ) ) === 0 ) {
 				offset = i;
 			}
