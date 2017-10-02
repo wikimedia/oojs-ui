@@ -332,9 +332,10 @@
 	}
 
 	&-header {
-		line-height: 2.6;
-		margin: 0 0.6em;
+		color: @color-base--subtle;
+		padding: 0 @padding-horizontal-base;
 		font-weight: bold;
+		line-height: @size-base; // Doesn't work with `padding` in header, due to clippable logic
 	}
 
 	.oo-ui-toolGroup-tools {
