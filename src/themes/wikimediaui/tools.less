@@ -157,7 +157,7 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		> .oo-ui-toolGroup-tools > .oo-ui-tool {
+		> .oo-ui-toolGroup-tools > .oo-ui-tool:not( .oo-ui-toolGroupTool ) {
 			&.oo-ui-widget-enabled {
 				&:hover {
 					background-color: @background-color-tool--hover;
@@ -169,7 +169,7 @@
 				}
 			}
 
-			&.oo-ui-widget-enabled.oo-ui-tool-active {
+			&.oo-ui-tool-active {
 				background-color: @background-color-tool--active;
 
 				&:hover {
@@ -382,14 +382,6 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		&.oo-ui-popupToolGroup-active {
-			background-color: @background-color-tool--hover;
-
-			.oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
-				color: @color-progressive;
-			}
-		}
-
 		> .oo-ui-popupToolGroup-handle {
 			.oo-ui-transition(
 				background-color @transition-ease-quick,
@@ -422,14 +414,19 @@
 		}
 	}
 
-	&.oo-ui-flaggedElement {
-		&-progressive,
-		&-constructive { // `constructive` got deprecated in 0.16.1, see T110555
-			.mw-framed-primary-button-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
+	&.oo-ui-popupToolGroup-active {
+		> .oo-ui-popupToolGroup-handle {
+			background-color: @background-color-tool--active;
+			color: @color-tool--active;
+
+			&:hover {
+				background-color: @background-color-tool--active-hover;
+				color: @color-tool--active;
+			}
 		}
 
-		&-destructive {
-			.mw-framed-primary-button-colored( ~'.oo-ui-popupToolGroup-handle', @color-destructive, @color-destructive--hover, @color-destructive--active, @color-destructive--focus );
+		.oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
+			color: @color-tool--active;
 		}
 	}
 }
