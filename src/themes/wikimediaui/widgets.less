@@ -1,6 +1,11 @@
 @import 'common';
 
-.theme-oo-ui-widget () {}
+.theme-oo-ui-widget () {
+	&.oo-ui-iconElement .oo-ui-iconElement-icon,
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		display: block;
+	}
+}
 
 .theme-oo-ui-actionWidget () {}
 
@@ -108,11 +113,6 @@
 		&:last-child .oo-ui-buttonElement-button {
 			border-bottom-right-radius: @border-radius-base;
 			border-top-right-radius: @border-radius-base;
-		}
-
-		&.oo-ui-iconElement .oo-ui-iconElement-icon,
-		&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-			position: absolute; // FIXME: Remove from ButtonOptionWidget after cleaning up when T161177 is resolved
 		}
 
 		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
@@ -521,12 +521,6 @@
 	padding: @padding-menu;
 	line-height: @line-height-reset;
 
-	&.oo-ui-iconElement .oo-ui-iconElement-icon,
-	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		top: 0;
-		height: 100%;
-	}
-
 	&.oo-ui-iconElement {
 		padding-left: @padding-start-menu-icon-label;
 
@@ -738,6 +732,13 @@
 .theme-oo-ui-iconWidget () {
 	line-height: 2.5;
 
+	&.oo-ui-iconElement.oo-ui-iconElement-icon {
+		display: inline-block;
+		position: static;
+		top: auto;
+		height: @size-icon;
+	}
+
 	&.oo-ui-widget-disabled {
 		opacity: @opacity-base--disabled;
 	}
@@ -746,6 +747,13 @@
 .theme-oo-ui-indicatorWidget () {
 	line-height: 2.5;
 	margin: @size-indicator / 2;
+
+	&.oo-ui-indicatorElement.oo-ui-indicatorElement-indicator {
+		display: inline-block;
+		position: static;
+		top: auto;
+		height: @size-indicator;
+	}
 
 	&.oo-ui-widget-disabled {
 		opacity: @opacity-base--disabled;
@@ -1335,6 +1343,7 @@
 		border-right-width: 0;
 
 		> .oo-ui-iconElement-icon {
+			display: none;
 			top: -@border-width-base; // Address `border-top` of parent element
 			left: @padding-start-input-text-icon;
 			min-height: @min-height-widget-base;
@@ -1342,6 +1351,7 @@
 		}
 
 		> .oo-ui-indicatorElement-indicator {
+			display: none;
 			top: -@border-width-base; // Address `border-top` of parent element
 			right: @padding-horizontal-base;
 			min-height: @min-height-widget-base;
