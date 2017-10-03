@@ -378,6 +378,11 @@
 		.oo-ui-tool-accel {
 			color: @color-base--subtle;
 			line-height: @line-height-widget-singleline;
+
+			&:not( :empty ) {
+				// Push away from tool's title
+				padding-left: @padding-horizontal-base * 1.5;
+			}
 		}
 	}
 
