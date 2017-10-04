@@ -507,6 +507,12 @@
 
 		.oo-ui-tool-accel {
 			color: @color-base--subtle;
+
+			&:not( :empty ) {
+				// Push away from tool's title
+				padding-left: 3em;
+			}
 		}
+
 	}
 }
