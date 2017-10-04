@@ -120,6 +120,12 @@
 				opacity: @opacity-base;
 			}
 		}
+
+		&[class*='oo-ui-flaggedElement'] {
+			.oo-ui-iconElement-icon {
+				opacity: @opacity-base;
+			}
+		}
 	}
 
 	&.oo-ui-widget-disabled .oo-ui-iconElement-icon {
@@ -388,14 +394,6 @@
 				box-shadow @transition-ease-quick
 			);
 
-			// We don't generalize this further, as only PopupToolGroup carries them,
-			// all other ToolGroups own Tools, which come with their own icon rules
-			.oo-ui-iconElement-icon,
-			.oo-ui-indicatorElement-indicator {
-				opacity: @opacity-icon-base;
-				.oo-ui-transition( opacity @transition-ease-quick );
-			}
-
 			&:hover {
 				background-color: @background-color-tool--hover;
 			}
@@ -404,10 +402,27 @@
 				background-color: @background-color-tool--active;
 			}
 
+			// We don't generalize this further, as only PopupToolGroup carries them,
+			// all other ToolGroups own Tools, which come with their own icon rules
+			.oo-ui-iconElement-icon,
+			.oo-ui-indicatorElement-indicator {
+				opacity: @opacity-icon-base;
+				.oo-ui-transition( opacity @transition-ease-quick );
+			}
+
 			&:hover,
 			&:active {
 				.oo-ui-iconElement-icon,
 				.oo-ui-indicatorElement-indicator {
+					opacity: @opacity-icon-base--selected;
+				}
+			}
+		}
+
+		&[class*='oo-ui-flaggedElement'] > .oo-ui-popupToolGroup-handle {
+			&,
+			&:hover {
+				.oo-ui-iconElement-icon {
 					opacity: @opacity-icon-base--selected;
 				}
 			}
