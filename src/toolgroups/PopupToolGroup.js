@@ -182,6 +182,7 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 			this.$clippable.css( 'left', '' );
 			// Try anchoring the popup to the left first
 			this.$element.addClass( 'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left' );
+			this.setFlags( { progressive: true } );
 			this.toggleClipping( true );
 			if ( this.isClippedHorizontally() ) {
 				// Anchoring to the left caused the popup to clip, so anchor it to the right instead
@@ -210,6 +211,7 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 			this.$element.removeClass(
 				'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left  oo-ui-popupToolGroup-right'
 			);
+			this.setFlags( { progressive: false } );
 			this.toggleClipping( false );
 		}
 	}
