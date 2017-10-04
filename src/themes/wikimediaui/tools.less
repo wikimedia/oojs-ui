@@ -296,6 +296,8 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
+			// HACK: Magic number for cross-browser positioning closer to label baseline
+			background-position: center 52%;
 			right: @start-tool-icon-indicator;
 
 			.oo-ui-toolbar-narrow & {
