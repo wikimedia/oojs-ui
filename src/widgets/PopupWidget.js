@@ -463,7 +463,9 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	floatablePos = this.$floatableContainer.offset();
 	floatablePos[ far ] = floatablePos[ near ] + this.$floatableContainer[ 'outer' + sizeProp ]();
 	// Measure where the offsetParent is and compute our position based on that and parentPosition
-	offsetParentPos = this.$element.offsetParent().offset();
+	offsetParentPos = this.$element.offsetParent()[ 0 ] === document.documentElement ?
+		{ top: 0, left: 0 } :
+		this.$element.offsetParent().offset();
 
 	if ( positionProp === near ) {
 		popupPos[ near ] = offsetParentPos[ near ] + parentPosition[ near ];
@@ -499,7 +501,9 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	}
 
 	// Check if the popup will go beyond the edge of this.$container
-	containerPos = this.$container.offset();
+	containerPos = this.$container[ 0 ] === document.documentElement ?
+		{ top: 0, left: 0 } :
+		this.$container.offset();
 	containerPos[ far ] = containerPos[ near ] + this.$container[ 'inner' + sizeProp ]();
 	// Take into account how much the popup will move because of the adjustments we're going to make
 	popupPos[ near ] += ( positionProp === near ? 1 : -1 ) * positionAdjustment;
