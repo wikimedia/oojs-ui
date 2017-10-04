@@ -1,4 +1,25 @@
 # OOjs UI Release History
+## v0.23.3 / 2017-10-03
+### Styles
+* PopupToolGroup: Move accelerator keys `padding` to themes (Volker E.)
+* WikimediaUI theme: Align PopupToolGroup header styles (Volker E.)
+* WikimediaUI theme: Fix border on narrow bottom toolbars (Volker E.)
+* WikimediaUI theme: Fix flagged elements' icon `opacity` (Volker E.)
+* WikimediaUI theme: Improve PopupToolGroup's indicator vertical alignment (Volker E.)
+* WikimediaUI theme: Make toolbar active element highlights visually equal (Volker E.)
+* WikimediaUI theme: Remove `box-shadow` not in design (Volker E.)
+* WikimediaUI theme: Replace BookletLayout menu `border-color` (Volker E.)
+* WikimediaUI theme: Unify positioning and sizing of tools, toolgroups and menus (Volker E.)
+* WindowManager: Remove `overflow: hidden` to enhance styling flexibility (Volker E.)
+
+### Code
+* Follow-up I576f3175: highlightQuery: Handle case when query is not found (Ed Sanders)
+* IndexLayout, BookletLayout: Don't scroll panels if not scrollable (Bartosz Dziewoński)
+* LabelElement: Add tests for setHighlightedQuery (Ed Sanders)
+* SelectWidget: Allow focussing things inside OptionWidget labels (Bartosz Dziewoński)
+* WikimediaUI theme: Simplify action toolbar buttons selectors (Volker E.)
+* demos: Remove unnecessary button demo widgets (Volker E.)
+
 ## v0.23.2 / 2017-09-26
 ### Deprecations
 * [DEPRECATING CHANGE]: Apex theme: Begin killing `constructive` flag (James D. Forrester)
