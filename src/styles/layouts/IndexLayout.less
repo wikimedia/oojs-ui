@@ -2,11 +2,20 @@
 
 .oo-ui-indexLayout {
 	> .oo-ui-menuLayout-menu {
-		height: 3em;
+		height: auto;
 	}
 
-	> .oo-ui-menuLayout-content {
-		top: 3em;
+	&.oo-ui-menuLayout-expanded {
+		> .oo-ui-menuLayout-menu {
+			height: 3em;
+			// Because the height is hardcoded, we have to disallow wrapping of the tabs,
+			// as they would overlap the content. They'll scroll horizontally instead.
+			white-space: nowrap;
+		}
+
+		> .oo-ui-menuLayout-content {
+			top: 3em;
+		}
 	}
 
 	.theme-oo-ui-indexLayout();

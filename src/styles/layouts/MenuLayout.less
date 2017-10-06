@@ -12,6 +12,12 @@
 		position: absolute;
 	}
 
+	// If anything overflows out of the menu, display it on top of the content,
+	// as it's probably some important interactive widget.
+	&-expanded .oo-ui-menuLayout-menu {
+		z-index: 1;
+	}
+
 	&-static {
 		&.oo-ui-menuLayout-after,
 		&.oo-ui-menuLayout-before {
