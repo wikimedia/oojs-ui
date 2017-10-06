@@ -401,12 +401,21 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
+			new OOUI\MultilineTextInputWidget( [
+				'value' => "Multiline\nMultiline"
+			] ),
+			[
+				'label' => "MultilineTextInputWidget \xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget( [
 				'multiline' => true,
 				'value' => "Multiline\nMultiline"
 			] ),
 			[
-				'label' => "TextInputWidget (multiline)\xE2\x80\x8E",
+				'label' => "TextInputWidget (multiline; deprecated)\xE2\x80\x8E",
 				'align' => 'top'
 			]
 		),
