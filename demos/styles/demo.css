@@ -108,7 +108,7 @@ p {
 	transition: color 100ms;
 }
 
-.demo-link-example::after,
+.demo-link-example:hover::after,
 .demo-console-toggle:hover::after {
 	color: #447ff5;
 }
