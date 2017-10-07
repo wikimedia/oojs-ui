@@ -58,6 +58,8 @@
 		$( function () {
 			var demo, lastQuery = location.search;
 
+			OO.ui.isDemo = true;
+
 			function setup() {
 				var
 					prevPage = demo ? demo.mode.page : null,
