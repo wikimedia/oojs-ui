@@ -454,14 +454,10 @@
 
 .theme-oo-ui-checkboxMultiselectInputWidget () {
 	.oo-ui-fieldLayout {
-		margin-top: 0;
+		margin-top: @padding-vertical-label; // `@padding-vertical-label` used as `margin-top` here
 
-		.oo-ui-fieldLayout-body {
-			padding: @padding-vertical-label 0;
-
-			.oo-ui-labelElement-label {
-				line-height: @line-height-input-binary-label;
-			}
+		.oo-ui-fieldLayout-body .oo-ui-labelElement-label {
+			line-height: @line-height-input-binary-label;
 		}
 	}
 }
@@ -1292,14 +1288,10 @@
 
 .theme-oo-ui-radioSelectInputWidget () {
 	.oo-ui-fieldLayout {
-		margin-top: 0;
+		margin-top: @padding-vertical-label; // `@padding-vertical-label` used as `margin-top` here
 
-		.oo-ui-fieldLayout-body {
-			padding: @padding-vertical-label 0;
-
-			.oo-ui-labelElement-label {
-				line-height: @line-height-input-binary-label;
-			}
+		.oo-ui-fieldLayout-body .oo-ui-labelElement-label {
+			line-height: @line-height-input-binary-label;
 		}
 	}
 }
