@@ -10,10 +10,6 @@ OO.ui.SearchInputWidget = function OoUiSearchInputWidget( config ) {
 		icon: 'search'
 	}, config );
 
-	// Set type to text so that TextInputWidget doesn't
-	// get stuck in an infinite loop.
-	config.type = 'text';
-
 	// Parent constructor
 	OO.ui.SearchInputWidget.parent.call( this, config );
 
@@ -23,7 +19,6 @@ OO.ui.SearchInputWidget = function OoUiSearchInputWidget( config ) {
 	} );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-textInputWidget-type-search' );
 	this.updateSearchIndicator();
 	this.connect( this, {
 		disable: 'onDisable'
@@ -40,8 +35,8 @@ OO.inheritClass( OO.ui.SearchInputWidget, OO.ui.TextInputWidget );
  * @inheritdoc
  * @protected
  */
-OO.ui.SearchInputWidget.prototype.getInputElement = function () {
-	return $( '<input>' ).attr( 'type', 'search' );
+OO.ui.SearchInputWidget.prototype.getSaneType = function () {
+	return 'search';
 };
 
 /**

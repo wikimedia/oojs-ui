@@ -388,7 +388,7 @@ OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
  *
  * @param {Object} config Configuration options
  * @return {string|null}
- * @private
+ * @protected
  */
 OO.ui.TextInputWidget.prototype.getSaneType = function ( config ) {
 	var allowedTypes = [
