@@ -131,6 +131,8 @@
 			padding: 0.3125em;
 
 			.oo-ui-iconElement-icon {
+				display: inline-block;
+				vertical-align: top;
 				height: 1.875em;
 				width: 1.875em;
 			}
@@ -434,11 +436,16 @@
 	}
 
 	&-handle {
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			position: absolute;
+			top: 0;
+		}
+
 		.oo-ui-indicatorElement-indicator {
 			width: 0.9375em;
 			height: 0.9375em;
 			margin: 0.78125em;
-			top: 0;
 			right: 0;
 
 			.oo-ui-toolbar-narrow & {
@@ -449,7 +456,6 @@
 			width: 1.875em;
 			height: 1.875em;
 			margin: 0.3125em;
-			top: 0;
 			left: 0.3125em;
 
 			.oo-ui-toolbar-narrow & {
@@ -491,9 +497,11 @@
 		padding: 0.3125em 0 0.3125em 0.3125em;
 
 		.oo-ui-iconElement-icon {
-			height: 1.875em;
-			width: 1.875em;
+			display: table-cell;
 			min-width: 1.875em;
+			width: 1.875em;
+			height: 1.875em;
+			vertical-align: middle;
 		}
 
 		.oo-ui-tool-title {

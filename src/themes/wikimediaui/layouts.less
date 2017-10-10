@@ -1,6 +1,10 @@
 @import 'common';
 
-.theme-oo-ui-layout () {}
+.theme-oo-ui-layout () {
+	&.oo-ui-iconElement .oo-ui-iconElement-icon {
+		display: block;
+	}
+}
 
 .theme-oo-ui-bookletLayout () {
 	&-stackLayout {
@@ -138,8 +142,11 @@
 			display: table;
 		}
 
-		.oo-ui-iconWidget {
+		.oo-ui-iconElement.oo-ui-iconElement-icon {
 			display: table-cell;
+			position: static;
+			top: auto;
+			height: @size-icon;
 		}
 
 		.oo-ui-labelWidget {
@@ -148,6 +155,10 @@
 			line-height: @line-height-message;
 			vertical-align: middle;
 		}
+	}
+
+	&.oo-ui-fieldLayout-messages.oo-ui-iconElement .oo-ui-iconElement-icon {
+		display: table-cell;
 	}
 
 	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
@@ -168,6 +179,10 @@
 .theme-oo-ui-fieldsetLayout () {
 	.oo-ui-fieldsetLayout-header {
 		max-width: 50em;
+
+		.oo-ui-iconElement-icon {
+			height: @size-icon;
+		}
 	}
 
 	+ .oo-ui-fieldsetLayout,
@@ -186,11 +201,6 @@
 	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
 		padding-left: @padding-start-fieldset-header-iconized;
 		line-height: @line-height-fieldset-header-iconized;
-	}
-
-	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-iconElement-icon {
-		top: 0;
-		left: 0;
 	}
 
 	.oo-ui-fieldsetLayout-help { // Assuming that this is a PopupButtonWidget

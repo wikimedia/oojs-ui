@@ -19,12 +19,15 @@
 		line-height: @size-icon;
 	}
 
-	&.oo-ui-iconElement {
-		.oo-ui-iconElement-icon {
-			height: 100%;
-			margin-left: 0;
-		}
+	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
+	&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label,
+	&-frameless.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+		// Vertical align text
+		display: inline-block;
+		vertical-align: middle;
+	}
 
+	&.oo-ui-iconElement {
 		.oo-ui-indicatorElement-indicator {
 			margin-left: @size-indicator / 2;
 		}
@@ -278,6 +281,9 @@
 .theme-oo-ui-iconElement () {
 	.oo-ui-iconElement-icon,
 	&.oo-ui-iconElement-icon {
+		position: static;
+		top: auto;
+		height: @size-icon;
 		opacity: 0.8;
 	}
 }
@@ -285,6 +291,9 @@
 .theme-oo-ui-indicatorElement () {
 	.oo-ui-indicatorElement-indicator,
 	&.oo-ui-indicatorElement-indicator {
+		position: static;
+		top: auto;
+		height: @size-indicator;
 		opacity: 0.8;
 	}
 }
