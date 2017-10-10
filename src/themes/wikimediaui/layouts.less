@@ -1,10 +1,6 @@
 @import 'common';
 
-.theme-oo-ui-layout () {
-	&.oo-ui-iconElement .oo-ui-iconElement-icon {
-		display: block;
-	}
-}
+.theme-oo-ui-layout () {}
 
 .theme-oo-ui-bookletLayout () {
 	&-stackLayout {
@@ -183,6 +179,10 @@
 		.oo-ui-iconElement-icon {
 			height: @size-icon;
 		}
+	}
+
+	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header .oo-ui-iconElement-icon {
+		display: block;
 	}
 
 	+ .oo-ui-fieldsetLayout,
