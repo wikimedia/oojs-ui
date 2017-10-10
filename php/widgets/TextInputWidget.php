@@ -189,7 +189,7 @@ class TextInputWidget extends InputWidget {
 		}
 	}
 
-	private function getSaneType( $config ) {
+	protected function getSaneType( $config ) {
 		$allowedTypes = [
 			'text',
 			'password',
