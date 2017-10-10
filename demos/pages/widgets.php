@@ -368,6 +368,13 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
+			new OOUI\SearchInputWidget(),
+			[
+				'label' => "SearchInputWidget",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget( [
 				'value' => 'Access key: S',
 				'accessKey' => 's'
