@@ -87,6 +87,12 @@ class TextInputWidget extends InputWidget {
 				'Use MultilineTextInputWidget instead.'
 			);
 		}
+		if ( $config['type'] === 'search' && !( $this instanceof SearchInputWidget ) ) {
+			Element::warnDeprecation(
+				'The TextInputWidget "type" => "search" is deprecated as of OOjs UI v0.22.2. ' .
+				'Use SearchInputWidget instead.'
+			);
+		}
 
 		// Traits
 		$this->initializeIconElement( $config );

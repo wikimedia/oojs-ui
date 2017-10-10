@@ -81,6 +81,11 @@ else
 		['FieldLayout', 'help'] => [],
 		['ActionFieldLayout', 'help'] => [],
 		['FieldsetLayout', 'help'] => [],
+		# the dynamic 'clear' indicator in JS messes everything up
+		['SearchInputWidget', 'value'] => [],
+		['SearchInputWidget', 'indicator'] => [],
+		['SearchInputWidget', 'required'] => [],
+		['SearchInputWidget', 'disabled'] => [],
 		# these are defined by Element and would bloat the tests
 		'classes' => [],
 		'id' => [],
