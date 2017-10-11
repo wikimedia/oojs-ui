@@ -40,7 +40,7 @@
     "grunt-contrib-watch": "1.0.0",
     "grunt-cssjanus": "0.4.0",
     "grunt-eslint": "20.0.0",
-    "grunt-exec": "3.0.0",
+    "grunt-exec": "1.0.1",
     "grunt-file-exists": "0.1.4",
     "grunt-image": "1.5.2",
     "grunt-jsonlint": "1.1.0",
