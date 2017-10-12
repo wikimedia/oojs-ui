@@ -6,8 +6,6 @@ namespace OOUI;
  * Input widget with a text field.
  */
 class SearchInputWidget extends TextInputWidget {
-	use IconElement;
-	use IndicatorElement;
 
 	public function __construct( array $config = [] ) {
 		// Config initialization

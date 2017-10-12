@@ -6,8 +6,6 @@ namespace OOUI;
  * Input widget with a text field.
  */
 class MultilineTextInputWidget extends TextInputWidget {
-	use IconElement;
-	use IndicatorElement;
 
 	/**
 	 * Allow multiple lines of text.
