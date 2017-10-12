@@ -1,4 +1,26 @@
 # OOjs UI Release History
+## v0.23.4 / 2017-10-11
+### Styles
+* IndexLayout: Handle long lists of tabs (Bartosz Dziewoński)
+* icons: Provide a 'reload' icon in the 'interactions' pack (Ed Sanders)
+* Apex theme: Fix PopupToolGroup active box size (Volker E.)
+* Apex theme: Fix SelectFileWidget (no browser support)‎ `padding` (Volker E.)
+* Generalize icon and indicator positioning & visibility (Volker E.)
+* WikimediaUI theme: Reduce Checkbox*- & RadioSelectInputWidget vertical space (Volker E.)
+* WikimediaUI theme: Reduce FieldLayout `margin-top` slightly (Volker E.)
+* WikimediaUI theme: Streamlining icon/indicator visibility (Volker E.)
+
+### Code
+* Only store initialConfig in demo mode (Ed Sanders)
+* SearchInputWidget: Prevent extra `oo-ui-textInputWidget-type-text` class (Bartosz Dziewoński)
+* TextInputWidget: Use child selector for icons/indicators/labels (Ed Sanders)
+* Do not call `.offset()` on `$( 'html' )` (Bartosz Dziewoński)
+* PHP: Implement MultilineTextInputWidget, deprecate multiline option (Prateek Saxena)
+* PHP: Implement SearchInputWidget, deprecate search option (Bartosz Dziewoński)
+* build: Downgrade 'grunt-exec' to 1.0.1 (Bartosz Dziewoński)
+* demos: Adding missing `:hover` (Volker E.)
+
+
 ## v0.23.3 / 2017-10-03
 ### Styles
 * PopupToolGroup: Move accelerator keys `padding` to themes (Volker E.)
@@ -19,6 +41,7 @@
 * SelectWidget: Allow focussing things inside OptionWidget labels (Bartosz Dziewoński)
 * WikimediaUI theme: Simplify action toolbar buttons selectors (Volker E.)
 * demos: Remove unnecessary button demo widgets (Volker E.)
+
 
 ## v0.23.2 / 2017-09-26
 ### Deprecations
