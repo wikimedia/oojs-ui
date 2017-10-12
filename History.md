@@ -1,4 +1,10 @@
 # OOjs UI Release History
+## v0.23.5 / 2017-10-12
+### Code
+* PHP MultilineTextInputWidget, SearchInputWidget: Remove duplicate `use` statements (Bartosz Dziewoński)
+* PHP Theme: Fix check for IconElement/IndicatorElement for inherited traits (Bartosz Dziewoński)
+
+
 ## v0.23.4 / 2017-10-11
 ### Styles
 * IndexLayout: Handle long lists of tabs (Bartosz Dziewoński)
@@ -487,7 +493,7 @@
 ### Code
 * GroupElement: Fix insertion bugs (Bartosz Dziewoński)
 * icons: Drop unused 'invert' variant from Apex 'icons-interactions' pack (Bartosz Dziewoński)
-* build: Add exec:composer and add it to _ci (Prateek Saxena)
+* build: Add exec:composer and add it to `_ci` (Prateek Saxena)
 
 
 ## v0.20.1 / 2017-03-28
