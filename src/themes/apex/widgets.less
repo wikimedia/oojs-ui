@@ -1,11 +1,6 @@
 @import 'common';
 
-.theme-oo-ui-widget () {
-	&.oo-ui-iconElement .oo-ui-iconElement-icon,
-	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		display: block;
-	}
-}
+.theme-oo-ui-widget () {}
 
 .theme-oo-ui-actionWidget () {
 	&.oo-ui-pendingElement-pending {
@@ -1372,15 +1367,8 @@
 		}
 	}
 
-	> .oo-ui-iconElement-icon,
-	> .oo-ui-indicatorElement-indicator,
-	> .oo-ui-labelElement-label {
-		display: none;
-	}
-
 	&.oo-ui-iconElement > .oo-ui-iconElement-icon,
 	&.oo-ui-indicatorElement > .oo-ui-indicatorElement-indicator {
-		display: block;
 		position: absolute;
 		top: 0;
 		height: 100%;
@@ -1411,6 +1399,7 @@
 	}
 
 	> .oo-ui-labelElement-label {
+		display: none;
 		top: 1px; // equals `border-width`
 		padding: @padding-top-textinput 0.4em @padding-bottom-textinput 0.4em;
 		line-height: @line-height-widget-singleline;
