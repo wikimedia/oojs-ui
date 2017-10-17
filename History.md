@@ -1,4 +1,21 @@
 # OOjs UI Release History
+## v0.24.0 / 2017-10-17
+### Breaking changes
+* [BREAKING CHANGE] Drop 'MediaWiki' backwards-compatibility theme (James D. Forrester)
+* [BREAKING CHANGE] icons: Drop 'stripeSideMenu', renamed in v0.22.2 (James D. Forrester)
+* [BREAKING CHANGE] icons: Remove 'eye'/'eyeClosed' icons, deprecated in v0.23.0 (Volker E.)
+* [BREAKING CHANGE] icons: Remove 'signature' icon, deprecated in v0.23.0 (Volker E.)
+* [BREAKING CHANGE] icons: Remove 'sun', deprecated in v0.23.0 (James D. Forrester)
+
+### Styles
+* themes: Unify icon/indicator visibility (Volker E.)
+* WikimediaUI theme: Ensure hover feedback on TextInputWidget & descendants (Volker E.)
+
+### Code
+* Fix `.oo-ui-selectable()` mixin to actually undo `.oo-ui-unselectable()` (Bartosz Dziewoński)
+* WikimediaUI theme: Fix selector in PopupWidget styles (Bartosz Dziewoński)
+
+
 ## v0.23.5 / 2017-10-12
 ### Code
 * PHP MultilineTextInputWidget, SearchInputWidget: Remove duplicate `use` statements (Bartosz Dziewoński)
