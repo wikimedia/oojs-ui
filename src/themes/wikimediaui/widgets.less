@@ -1793,9 +1793,8 @@
 				box-shadow @transition-ease-out-sine-medium
 			);
 
-			&:hover {
-				border-color: @border-color-input--hover;
-			}
+			.mw-placeholder();
+
 			&:focus {
 				outline: 0;
 				border-color: @border-color-base--focus;
@@ -1804,16 +1803,14 @@
 
 			&[readonly] {
 				background-color: @background-color-base--read-only;
-
-				&:hover {
-					border-color: @border-color-base--read-only;
-				}
-				&:focus {
-					border-color: @border-color-base--focus;
-				}
 			}
+		}
 
-			.mw-placeholder();
+		&:hover {
+			input,
+			textarea {
+				border-color: @border-color-input--hover;
+			}
 		}
 
 		// HACK: Exclude IE/Edge (and Saf<6) from this selector as it
