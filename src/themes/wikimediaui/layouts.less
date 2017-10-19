@@ -96,13 +96,8 @@
 		}
 
 		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
-			padding: 0.3125em 0; // equals `4px` at base `font-size: 12.8px`
-
-			// padding-left set here to avoid an unclickable gap between the widget and the label (T178456)
-			> .oo-ui-labelElement-label {
-				padding-left: 0.46875em; // equals `6px` at base `font-size: 12.8px`
-				// `6px` is not aligned to M101 design guideline, as checkbox and radio sizes aren't either
-			}
+			padding: 0.3125em 0 0.3125em 0.46875em; // equals `4px 6px` at base `font-size: 12.8px`
+			// `6px` is not aligned to M101 design guideline, as checkbox and radio sizes aren't either
 		}
 	}
 
