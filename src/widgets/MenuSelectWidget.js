@@ -325,7 +325,7 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
-	var change;
+	var change, belowHeight, aboveHeight;
 
 	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
 	change = visible !== this.isVisible();
@@ -335,8 +335,15 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 		this.warnedUnattached = true;
 	}
 
-	if ( change && visible && ( this.width || this.$floatableContainer ) ) {
-		this.setIdealSize( this.width || this.$floatableContainer.width() );
+	if ( change ) {
+		if ( visible && ( this.width || this.$floatableContainer ) ) {
+			this.setIdealSize( this.width || this.$floatableContainer.width() );
+		}
+		if ( visible ) {
+			// Reset position before showing the popup again. It's possible we no longer need to flip
+			// (e.g. if the user scrolled).
+			this.setVerticalPosition( 'below' );
+		}
 	}
 
 	// Parent method
@@ -349,6 +356,22 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 
 			this.togglePositioning( !!this.$floatableContainer );
 			this.toggleClipping( true );
+
+			if ( this.isClippedVertically() ) {
+				// If opening the menu downwards causes it to be clipped, flip it to open upwards instead
+				belowHeight = this.$element.height();
+				this.setVerticalPosition( 'above' );
+				if ( this.isClippedVertically() ) {
+					// If opening upwards also causes it to be clipped, flip it to open in whichever direction
+					// we have more space
+					aboveHeight = this.$element.height();
+					if ( aboveHeight < belowHeight ) {
+						this.setVerticalPosition( 'below' );
+					}
+				}
+			}
+			// Note that we do not flip the menu's opening direction if the clipping changes
+			// later (e.g. after the user scrolls), that seems like it would be annoying
 
 			this.$focusOwner.attr( 'aria-expanded', 'true' );
 
