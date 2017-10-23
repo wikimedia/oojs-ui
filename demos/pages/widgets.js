@@ -1259,7 +1259,8 @@ Demo.static.pages.widgets = function ( demo ) {
 								} ),
 								new OO.ui.MenuOptionWidget( {
 									data: 'poodle',
-									label: 'Standard Poodle'
+									label: 'Standard Poodle',
+									icon: 'star'
 								} ),
 								new OO.ui.MenuSectionOptionWidget( {
 									label: 'Cats'
@@ -1928,7 +1929,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'CapsuleMultiselectWidget (with sections)',
+						label: 'CapsuleMultiselectWidget (sectioned by MenuSectionOptionWidget)',
 						align: 'top'
 					}
 				),
