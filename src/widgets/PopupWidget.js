@@ -454,7 +454,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 OO.ui.PopupWidget.prototype.computePosition = function () {
 	var direction, align, vertical, start, end, near, far, sizeProp, popupSize, anchorSize, anchorPos,
 		anchorOffset, anchorMargin, parentPosition, positionProp, positionAdjustment, floatablePos,
-		offsetParentPos, containerPos, popupPosition,
+		offsetParentPos, containerPos, popupPosition, viewportSpacing,
 		popupPos = {},
 		anchorCss = { left: '', right: '', top: '', bottom: '' },
 		popupPositionOppositeMap = {
@@ -575,6 +575,11 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 		{ top: 0, left: 0 } :
 		this.$container.offset();
 	containerPos[ far ] = containerPos[ near ] + this.$container[ 'inner' + sizeProp ]();
+	if ( this.$container[ 0 ] === document.documentElement ) {
+		viewportSpacing = OO.ui.getViewportSpacing();
+		containerPos[ near ] += viewportSpacing[ near ];
+		containerPos[ far ] -= viewportSpacing[ far ];
+	}
 	// Take into account how much the popup will move because of the adjustments we're going to make
 	popupPos[ near ] += ( positionProp === near ? 1 : -1 ) * positionAdjustment;
 	popupPos[ far ] += ( positionProp === near ? 1 : -1 ) * positionAdjustment;

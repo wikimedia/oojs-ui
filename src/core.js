@@ -524,3 +524,20 @@ OO.ui.isSafeUrl = function ( url ) {
 OO.ui.isMobile = function () {
 	return false;
 };
+
+/**
+ * Get the additional spacing that should be taken into account when displaying elements that are
+ * clipped to the viewport, e.g. dropdown menus and popups. This is meant to be overridden to avoid
+ * such menus overlapping any fixed headers/toolbars/navigation used by the site.
+ *
+ * @return {Object} Object with the properties 'top', 'right', 'bottom', 'left', each representing
+ *     the extra spacing from that edge of viewport (in pixels)
+ */
+OO.ui.getViewportSpacing = function () {
+	return {
+		top: 0,
+		right: 0,
+		bottom: 0,
+		left: 0
+	};
+};
