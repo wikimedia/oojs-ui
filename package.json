@@ -42,7 +42,7 @@
     "grunt-eslint": "20.1.0",
     "grunt-exec": "3.0.0",
     "grunt-file-exists": "0.1.4",
-    "grunt-image": "1.5.2",
+    "grunt-image": "4.0.0",
     "grunt-jsonlint": "1.1.0",
     "grunt-karma": "2.0.0",
     "grunt-promise-q": "git://github.com/jdforrester/grunt-promise-q.git#v0.1.1-wmf.1",
