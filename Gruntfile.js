@@ -458,6 +458,7 @@ module.exports = function ( grunt ) {
 				remapIstanbulReporter: {
 					reports: {
 						'text-summary': null,
+						clover: 'coverage/clover.xml',
 						html: 'coverage/'
 					}
 				}
