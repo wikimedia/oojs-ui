@@ -46,18 +46,6 @@ The remaining files make it possible to load only parts of the whole library.
 Furthermore, every CSS file has a right-to-left (RTL) version available, to be used on pages using right-to-left languages if your environment doesn't automatically flip them as needed.
 
 
-Versioning
-----------
-
-We use the Semantic Versioning guidelines as much as possible.
-
-Releases will be numbered in the following format:
-
-`<major>.<minor>.<patch>`
-
-For more information on SemVer, please visit http://semver.org/.
-
-
 Issue tracker
 -------------
 
@@ -75,6 +63,16 @@ We are always delighted when people contribute patches. We recommend a few thing
 * We automatically lint and style-check changes to JavaScript, PHP, CSS, Ruby and JSON files. You can test these yourself with `npm test` and `composer test` locally before pushing changes. SVG files should be squashed in advance of committing with [SVGO](https://github.com/svg/svgo) using `svgo --pretty --disable=removeXMLProcInst --disable=cleanupIDs <filename>`.
 * To submit your patch, follow [the "getting started" quick-guide](https://www.mediawiki.org/wiki/Gerrit/Getting_started). You should expect to get code review within a day or two.
 * A new version of the library is cut and released most weeks on Tuesdays.
+
+
+Versioning
+----------
+
+We use the [Semantic Versioning guidelines](http://semver.org/).
+
+Releases will be numbered in the following format:
+
+`<major>.<minor>.<patch>`
 
 
 Release
