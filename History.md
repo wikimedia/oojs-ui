@@ -1,4 +1,25 @@
 # OOjs UI Release History
+## v0.24.1 / 2017-10-31
+### Features
+* DropdownWidget: Allow pressing Space to close the widget, as well as open (Bartosz Dziewoński)
+
+### Styles
+* WikimediaUI theme: Visually improve MenuSectionOptionWidget MenuOptions (Volker E.)
+
+### Code
+* ComboBoxInputWidget: Add `.oo-ui-comboBoxInputWidget-open` class to widget (Volker E.)
+* Generate clover.xml with code coverage results (Kunal Mehta)
+* WikimediaUI theme: Use child selectors for styling toolbar action buttons (Bartosz Dziewoński)
+* README: Simplify and move “Versioning” section (Volker E.)
+* README: Simplify “Contributing” section slightly and add LESS lint hint (Volker E.)
+* build: Bump stylelint devDependencies (James D. Forrester)
+* build: Bump various devDependencies to latest (James D. Forrester)
+* build: Downgrade 'grunt-exec' to 1.0.1 (again) (Bartosz Dziewoński)
+* build: Update grunt-image to version 4.0.0 (Ed Sanders)
+* build: Update mediawiki/mediawiki-codesniffer to 14.1.0 (libraryupgrader)
+* icons: Unify SVG markup (Volker E.)
+
+
 ## v0.24.0 / 2017-10-17
 ### Breaking changes
 * [BREAKING CHANGE] Drop 'MediaWiki' backwards-compatibility theme (James D. Forrester)
