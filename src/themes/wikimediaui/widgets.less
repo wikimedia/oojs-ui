@@ -501,6 +501,16 @@
 		margin: 0;
 	}
 
+	&-open &-dropdownButton {
+		> .oo-ui-buttonElement-button {
+			background-color: @background-color-framed--hover;
+
+			.oo-ui-indicatorElement-indicator {
+				opacity: @opacity-icon-base--selected;
+			}
+		}
+	}
+
 	&.oo-ui-widget-disabled {
 		.oo-ui-indicatorElement-indicator {
 			opacity: @opacity-filled--disabled;

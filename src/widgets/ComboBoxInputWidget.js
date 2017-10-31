@@ -108,7 +108,8 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	this.menu.connect( this, {
 		choose: 'onMenuChoose',
 		add: 'onMenuItemsChange',
-		remove: 'onMenuItemsChange'
+		remove: 'onMenuItemsChange',
+		toggle: 'onMenuToggle'
 	} );
 
 	// Initialization
@@ -217,6 +218,16 @@ OO.ui.ComboBoxInputWidget.prototype.onMenuItemsChange = function () {
 		this.menu.highlightItem( match );
 	}
 	this.$element.toggleClass( 'oo-ui-comboBoxInputWidget-empty', this.menu.isEmpty() );
+};
+
+/**
+ * Handle menu toggle events.
+ *
+ * @private
+ * @param {boolean} isVisible Menu toggle event
+ */
+OO.ui.ComboBoxInputWidget.prototype.onMenuToggle = function ( isVisible ) {
+	this.$element.toggleClass( 'oo-ui-comboBoxInputWidget-open', isVisible );
 };
 
 /**
