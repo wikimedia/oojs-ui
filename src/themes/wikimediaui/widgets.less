@@ -332,7 +332,7 @@
 	}
 
 	// `<input type=checkbox>` element is visually replaced by `span` that follows
-	[type='checkbox'] {
+	[ type='checkbox' ] {
 		position: relative;
 		// Support: Firefox mobile to override user-agent stylesheet, see T73750
 		max-width: none;
@@ -378,7 +378,7 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled [type='checkbox'] {
+	&.oo-ui-widget-enabled [ type='checkbox' ] {
 		cursor: pointer;
 
 		& + span {
@@ -667,7 +667,7 @@
 
 		// Add custom dropdown arrow
 		// Support: Everything besides IE 6-8
-		&:not( [no-ie] ) {
+		&:not( [ no-ie ] ) {
 			background-position: right 1.75em center;
 			width: e( 'calc( 100% + 1em )' );
 			height: @size-base;
@@ -1164,7 +1164,7 @@
 	}
 
 	// `<input type=radio>` element is visually replaced by `span` that follows
-	[type='radio'] {
+	[ type='radio' ] {
 		position: relative;
 		// Support: Firefox mobile to override user-agent stylesheet, see T73750
 		max-width: none;
@@ -1222,7 +1222,7 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled [type='radio'] {
+	&.oo-ui-widget-enabled [ type='radio' ] {
 		cursor: pointer;
 
 		& + span {
@@ -1287,7 +1287,7 @@
 	&:focus {
 		outline: 0;
 
-		[type='radio']:checked + span:before {
+		[ type='radio' ]:checked + span:before {
 			border-color: @background-color-base;
 		}
 	}
@@ -1813,7 +1813,7 @@
 				box-shadow: @box-shadow-widget--focus;
 			}
 
-			&[readonly] {
+			&[ readonly ] {
 				background-color: @background-color-base--read-only;
 			}
 		}
