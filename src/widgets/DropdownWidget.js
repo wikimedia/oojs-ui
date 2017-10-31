@@ -189,9 +189,14 @@ OO.ui.DropdownWidget.prototype.onKeyDown = function ( e ) {
 		(
 			e.which === OO.ui.Keys.ENTER ||
 			(
+				e.which === OO.ui.Keys.SPACE &&
+				// Avoid conflicts with type-to-search, see SelectWidget#onKeyPress.
+				// Space only closes the menu is the user is not typing to search.
+				this.menu.keyPressBuffer === ''
+			) ||
+			(
 				!this.menu.isVisible() &&
 				(
-					e.which === OO.ui.Keys.SPACE ||
 					e.which === OO.ui.Keys.UP ||
 					e.which === OO.ui.Keys.DOWN
 				)
