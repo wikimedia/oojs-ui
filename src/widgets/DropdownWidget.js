@@ -154,7 +154,7 @@ OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
  * Handle menu toggle events.
  *
  * @private
- * @param {boolean} isVisible Menu toggle event
+ * @param {boolean} isVisible Open state of the menu
  */
 OO.ui.DropdownWidget.prototype.onMenuToggle = function ( isVisible ) {
 	this.$element.toggleClass( 'oo-ui-dropdownWidget-open', isVisible );

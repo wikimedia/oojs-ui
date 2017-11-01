@@ -734,7 +734,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.onMenuChoose = function ( item ) {
  * Handle menu toggle events.
  *
  * @private
- * @param {boolean} isVisible Menu toggle event
+ * @param {boolean} isVisible Open state of the menu
  */
 OO.ui.CapsuleMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
 	this.$element.toggleClass( 'oo-ui-capsuleMultiselectWidget-open', isVisible );

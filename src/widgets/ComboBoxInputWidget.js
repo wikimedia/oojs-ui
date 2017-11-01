@@ -224,7 +224,7 @@ OO.ui.ComboBoxInputWidget.prototype.onMenuItemsChange = function () {
  * Handle menu toggle events.
  *
  * @private
- * @param {boolean} isVisible Menu toggle event
+ * @param {boolean} isVisible Open state of the menu
  */
 OO.ui.ComboBoxInputWidget.prototype.onMenuToggle = function ( isVisible ) {
 	this.$element.toggleClass( 'oo-ui-comboBoxInputWidget-open', isVisible );
