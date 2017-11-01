@@ -80,38 +80,40 @@ Release
 
 Release process:
 <pre lang="bash">
-$ cd path/to/oojs-ui/
-$ git remote update
-$ git checkout -B release -t origin/master
 
-# Ensure tests pass
-$ npm install && composer update && npm test && composer test
+    $ cd path/to/oojs-ui/
+    $ git remote update
+    $ git checkout -B release -t origin/master
 
-# Avoid using "npm version patch" because that creates
-# both a commit and a tag, and we shouldn't tag until after
-# the commit is merged.
+    # Ensure tests pass
+    $ npm install && composer update && npm test && composer test
 
-# Update release notes
-# Copy the resulting list into a new section at the top of History.md and edit
-# into five sub-sections, in order:
-# * Breaking changes
-# * Deprecations
-# * Features
-# * Styles
-# * Code
-$ git log --format='* %s (%aN)' --no-merges --reverse v$(node -e 'console.log(require("./package.json").version);')...HEAD | grep -v "Localisation updates from" | sort
-$ edit History.md
+    # Avoid using "npm version patch" because that creates
+    # both a commit and a tag, and we shouldn't tag until after
+    # the commit is merged.
 
-# Update the version number
-$ edit package.json
+    # Update release notes
+    # Copy the resulting list into a new section at the top of History.md and edit
+    # into five sub-sections, in order:
+    # * Breaking changes
+    # * Deprecations
+    # * Features
+    # * Styles
+    # * Code
+    $ git log --format='* %s (%aN)' --no-merges --reverse v$(node -e 'console.log(require("./package.json").version);')...HEAD | grep -v "Localisation updates from" | sort
+    $ edit History.md
 
-$ git add -p
-$ git commit -m "Tag vX.X.X"
-$ git review
+    # Update the version number
+    $ edit package.json
 
-# After merging:
-$ git remote update
-$ git checkout origin/master
-$ git tag "vX.X.X"
-$ npm run publish-build && git push --tags && npm publish
+    $ git add -p
+    $ git commit -m "Tag vX.X.X"
+    $ git review
+
+    # After merging:
+    $ git remote update
+    $ git checkout origin/master
+    $ git tag "vX.X.X"
+    $ npm run publish-build && git push --tags && npm publish
+
 </pre>
