@@ -118,7 +118,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'outdent'
 			],
 			'editing-advanced': [
-				'alignCentre',
+				'alignCenter',
 				'alignLeft',
 				'alignRight',
 				'attachment',
