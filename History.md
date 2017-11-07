@@ -1,4 +1,16 @@
 # OOjs UI Release History
+## v0.24.2 / 2017-11-07
+### Deprecations
+* [DEPRECATING CHANGE] Use en-US spelling for icon names for consistency (Ed Sanders)
+
+### Code
+* README: Consistently refer to OOUI as library (Volker E.)
+* README: Fix Doxygen rendering (Volker E.)
+* README: Simplify “Quick start” and “Contributing” section (Volker E.)
+* demos: Correct and simplify SimpleWidget styles (Bartosz Dziewoński)
+* docs: onMenuToggle: `isVisible` is the state of the menu (Prateek Saxena)
+
+
 ## v0.24.1 / 2017-10-31
 ### Features
 * DropdownWidget: Allow pressing Space to close the widget, as well as open (Bartosz Dziewoński)
