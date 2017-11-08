@@ -9,7 +9,7 @@
  * <http://virtualtee.blogspot.co.uk/2012/03/tip-for-using-doxygen-for-php-code.html>
  *
  * Taken from
- * <http://git.wikimedia.org/blob/mediawiki%2Fcore.git/master/maintenance%2Fmwdoc-filter.php>
+ * <https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/mwdoc-filter.php>
  *
  * Improved to resolve various bugs and better MediaWiki PHPDoc conventions:
  *
