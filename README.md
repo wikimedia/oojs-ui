@@ -78,6 +78,16 @@ We use [Gerrit](https://gerrit.wikimedia.org/) for code review, and [Phabricator
 
 A new version of the library is released most weeks on Tuesdays.
 
+Community
+---------
+
+Get updates, ask questions and join the discussion with maintainers and contributors:
+
+* Join the Wikimedia Developers mailing list, [wikitech-l](https://lists.wikimedia.org/mailman/listinfo/wikitech-l).
+* Chat with the maintainers on `#wikimedia-dev` on `irc.freenode.net`.
+* Ask questions on [StackOverflow](https://stackoverflow.com/tags/oojs-ui/info).
+* Watchlist the [documentation](https://www.mediawiki.org/wiki/OOjs_UI) on MediaWiki to stay updated.
+
 
 Versioning
 ----------
