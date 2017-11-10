@@ -3,7 +3,16 @@
 OOjs UI
 =================
 
-OOjs UI is a modern JavaScript UI library. It provides common widgets, layouts, dialogs and icons that are ready to use, as well as many useful and convenient classes for constructing custom user interfaces. It is the standard user-interface library in Wikimedia Foundation Web products, having been originally created for use by [VisualEditor](https://www.mediawiki.org/wiki/VisualEditor), which uses it for its entire user interface.
+OOjs UI is a component-based JavaScript UI library. Key features:
+
+* Common widgets, layouts, and dialogs
+* Classes, elements, and mixins to create custom interfaces
+* Internationalization and localization, like right-to-left (RTL) languages support
+* Theme-ability
+* Built-in icons
+* Accessibility features
+
+It is the standard library for Web products at the Wikimedia Foundation, having been originally created for use by [VisualEditor](https://www.mediawiki.org/wiki/VisualEditor).
 
 
 Quick start
