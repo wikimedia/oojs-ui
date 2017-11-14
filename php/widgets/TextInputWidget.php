@@ -58,6 +58,8 @@ class TextInputWidget extends InputWidget {
 	 *   Implies `indicator: 'required'`. (default: false)
 	 * @param bool $config['autocomplete'] If the field should support autocomplete
 	 *   or not (default: true)
+	 * @param bool $config['spellcheck'] If the field should support spellcheck
+	 *   or not (default: browser-dependent)
 	 */
 	public function __construct( array $config = [] ) {
 		// Config initialization
@@ -119,6 +121,9 @@ class TextInputWidget extends InputWidget {
 		}
 		if ( !$config['autocomplete'] ) {
 			$this->input->setAttributes( [ 'autocomplete' => 'off' ] );
+		}
+		if ( isset( $config['spellcheck'] ) ) {
+			$this->input->setAttributes( [ 'spellcheck' => $config['spellcheck'] ? 'true' : 'false' ] );
 		}
 		if ( $this->multiline && isset( $config['rows'] ) && $config['rows'] ) {
 			$this->input->setAttributes( [ 'rows' => $config['rows'] ] );

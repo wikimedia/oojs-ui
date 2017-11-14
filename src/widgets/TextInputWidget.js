@@ -37,6 +37,8 @@
  *  the value or placeholder text: `'before'` or `'after'`
  * @cfg {boolean} [required=false] Mark the field as required. Implies `indicator: 'required'`.
  * @cfg {boolean} [autocomplete=true] Should the browser support autocomplete for this field
+ * @cfg {boolean} [spellcheck] Should the browser support spellcheck for this field (`undefined` means
+ *  leaving it up to the browser).
  * @cfg {RegExp|Function|string} [validate] Validation pattern: when string, a symbolic name of a
  *  pattern defined by the class: 'non-empty' (the value cannot be an empty string) or 'integer'
  *  (the value must contain only numbers); when RegExp, a regular expression that must match the
@@ -115,6 +117,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 				this.$input.attr( 'autocomplete', 'off' );
 			}.bind( this )
 		} );
+	}
+	if ( config.spellcheck !== undefined ) {
+		this.$input.attr( 'spellcheck', config.spellcheck ? 'true' : 'false' );
 	}
 	if ( this.label ) {
 		this.isWaitingToBeAttached = true;
