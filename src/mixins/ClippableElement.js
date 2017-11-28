@@ -189,6 +189,50 @@ OO.ui.mixin.ClippableElement.prototype.setIdealSize = function ( width, height )
 };
 
 /**
+ * Return the side of the clippable on which it is "anchored" (aligned to something else).
+ * ClippableElement will clip the opposite side when reducing element's width.
+ *
+ * Classes that mix in ClippableElement should override this to return 'right' if their
+ * clippable is absolutely positioned and using 'right: Npx' (and not using 'left').
+ * If your class also mixes in FloatableElement, this is handled automatically.
+ *
+ * (This can't be guessed from the actual CSS because the computed values for 'left'/'right' are
+ * always in pixels, even if they were unset or set to 'auto'.)
+ *
+ * When in doubt, 'left' (or 'right' in RTL) is a sane fallback.
+ *
+ * @return {string} 'left' or 'right'
+ */
+OO.ui.mixin.ClippableElement.prototype.getHorizontalAnchorEdge = function () {
+	if ( this.computePosition && this.computePosition().right !== '' ) {
+		return 'right';
+	}
+	return 'left';
+};
+
+/**
+ * Return the side of the clippable on which it is "anchored" (aligned to something else).
+ * ClippableElement will clip the opposite side when reducing element's width.
+ *
+ * Classes that mix in ClippableElement should override this to return 'bottom' if their
+ * clippable is absolutely positioned and using 'bottom: Npx' (and not using 'top').
+ * If your class also mixes in FloatableElement, this is handled automatically.
+ *
+ * (This can't be guessed from the actual CSS because the computed values for 'left'/'right' are
+ * always in pixels, even if they were unset or set to 'auto'.)
+ *
+ * When in doubt, 'top' is a sane fallback.
+ *
+ * @return {string} 'top' or 'bottom'
+ */
+OO.ui.mixin.ClippableElement.prototype.getVerticalAnchorEdge = function () {
+	if ( this.computePosition && this.computePosition().bottom !== '' ) {
+		return 'bottom';
+	}
+	return 'top';
+};
+
+/**
  * Clip element to visible boundaries and allow scrolling when needed. You should call this method
  * when the element's natural height changes.
  *
@@ -202,39 +246,89 @@ OO.ui.mixin.ClippableElement.prototype.setIdealSize = function ( width, height )
  * @chainable
  */
 OO.ui.mixin.ClippableElement.prototype.clip = function () {
-	var $container, extraHeight, extraWidth, ccOffset,
-		$scrollableContainer, scOffset, scHeight, scWidth,
-		ccWidth, scrollerIsWindow, scrollTop, scrollLeft,
+	var extraHeight, extraWidth,
 		desiredWidth, desiredHeight, allotedWidth, allotedHeight,
 		naturalWidth, naturalHeight, clipWidth, clipHeight,
-		buffer = 7; // Chosen by fair dice roll
+		$item, itemRect, $viewport, viewportRect, availableRect,
+		direction, vertScrollbarWidth, horizScrollbarHeight,
+		// Extra tolerance so that the sloppy code below doesn't result in results that are off
+		// by one or two pixels. (And also so that we have space to display drop shadows.)
+		// Chosen by fair dice roll.
+		buffer = 7;
 
 	if ( !this.clipping ) {
 		// this.$clippableScrollableContainer and this.$clippableWindow are null, so the below will fail
 		return this;
 	}
 
-	$container = this.$clippableContainer || this.$clippable;
-	extraHeight = $container.outerHeight() - this.$clippable.outerHeight();
-	extraWidth = $container.outerWidth() - this.$clippable.outerWidth();
-	ccOffset = $container.offset();
-	if ( this.$clippableScrollableContainer.is( 'html, body' ) ) {
-		$scrollableContainer = this.$clippableWindow;
-		scOffset = { top: 0, left: 0 };
-	} else {
-		$scrollableContainer = this.$clippableScrollableContainer;
-		scOffset = $scrollableContainer.offset();
+	function rectIntersection( a, b ) {
+		var out = {};
+		out.top = Math.max( a.top, b.top );
+		out.left = Math.max( a.left, b.left );
+		out.bottom = Math.min( a.bottom, b.bottom );
+		out.right = Math.min( a.right, b.right );
+		return out;
 	}
-	scHeight = $scrollableContainer.innerHeight() - buffer;
-	scWidth = $scrollableContainer.innerWidth() - buffer;
-	ccWidth = $container.outerWidth() + buffer;
-	scrollerIsWindow = this.$clippableScroller[ 0 ] === this.$clippableWindow[ 0 ];
-	scrollTop = scrollerIsWindow ? this.$clippableScroller.scrollTop() : 0;
-	scrollLeft = scrollerIsWindow ? this.$clippableScroller.scrollLeft() : 0;
-	desiredWidth = ccOffset.left < 0 ?
-		ccWidth + ccOffset.left :
-		( scOffset.left + scrollLeft + scWidth ) - ccOffset.left;
-	desiredHeight = ( scOffset.top + scrollTop + scHeight ) - ccOffset.top;
+
+	if ( this.$clippableScrollableContainer.is( 'html, body' ) ) {
+		$viewport = $( this.$clippableScrollableContainer[ 0 ].ownerDocument.body );
+		// Dimensions of the browser window, rather than the element!
+		viewportRect = {
+			top: 0,
+			left: 0,
+			right: document.documentElement.clientWidth,
+			bottom: document.documentElement.clientHeight
+		};
+	} else {
+		$viewport = this.$clippableScrollableContainer;
+		viewportRect = $viewport[ 0 ].getBoundingClientRect();
+		// Convert into a plain object
+		viewportRect = $.extend( {}, viewportRect );
+	}
+
+	// Account for scrollbar gutter
+	direction = $viewport.css( 'direction' );
+	vertScrollbarWidth = $viewport.innerWidth() - $viewport.prop( 'clientWidth' );
+	horizScrollbarHeight = $viewport.innerHeight() - $viewport.prop( 'clientHeight' );
+	viewportRect.bottom -= horizScrollbarHeight;
+	if ( direction === 'rtl' ) {
+		viewportRect.left += vertScrollbarWidth;
+	} else {
+		viewportRect.right -= vertScrollbarWidth;
+	}
+
+	// Add arbitrary tolerance
+	viewportRect.top += buffer;
+	viewportRect.left += buffer;
+	viewportRect.right -= buffer;
+	viewportRect.bottom -= buffer;
+
+	$item = this.$clippableContainer || this.$clippable;
+
+	extraHeight = $item.outerHeight() - this.$clippable.outerHeight();
+	extraWidth = $item.outerWidth() - this.$clippable.outerWidth();
+
+	itemRect = $item[ 0 ].getBoundingClientRect();
+	// Convert into a plain object
+	itemRect = $.extend( {}, itemRect );
+
+	// Item might already be clipped, so we can't just use its dimensions (in case we might need to
+	// make it larger than before). Extend the rectangle to the maximum size we are allowed to take.
+	if ( this.getHorizontalAnchorEdge() === 'right' ) {
+		itemRect.left = viewportRect.left;
+	} else {
+		itemRect.right = viewportRect.right;
+	}
+	if ( this.getVerticalAnchorEdge() === 'bottom' ) {
+		itemRect.top = viewportRect.top;
+	} else {
+		itemRect.bottom = viewportRect.bottom;
+	}
+
+	availableRect = rectIntersection( viewportRect, itemRect );
+
+	desiredWidth = Math.max( 0, availableRect.right - availableRect.left );
+	desiredHeight = Math.max( 0, availableRect.bottom - availableRect.top );
 	// It should never be desirable to exceed the dimensions of the browser viewport... right?
 	desiredWidth = Math.min( desiredWidth, document.documentElement.clientWidth );
 	desiredHeight = Math.min( desiredHeight, document.documentElement.clientHeight );
