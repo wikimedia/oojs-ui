@@ -40,10 +40,10 @@
 	 * @private
 	 * @param {HTMLElement} element Element to summarize
 	 * @param {boolean} [includeHtml=false] Include an HTML summary for element nodes
-	 * @return {Object} Summary of element.
+	 * @return {Object|null} Summary of element.
 	 */
 	function getDomElementSummary( element, includeHtml ) {
-		var i, name, attribute, property,
+		var i, name, attribute, property, childSummary,
 			summary = {
 				type: element.nodeName.toLowerCase(),
 				// $( '<div><textarea>Foo</textarea></div>' )[0].textContent === 'Foo', which breaks
@@ -60,6 +60,7 @@
 				readOnly: 'readonly',
 				required: 'required',
 				checked: 'checked',
+				selected: 'selected',
 				disabled: 'disabled',
 				tabIndex: 'tabindex',
 				dir: 'dir'
@@ -88,10 +89,21 @@
 			}
 		}
 
+		// Ignore the nested DropdownWidget when comparing PHP and JS DropdownInputWidget
+		if (
+			summary.attributes.class &&
+			summary.attributes.class.match( /oo-ui-dropdownWidget/ )
+		) {
+			return null;
+		}
+
 		// Summarize children
 		if ( element.childNodes ) {
 			for ( i = 0; i < element.childNodes.length; i++ ) {
-				summary.children.push( getDomElementSummary( element.childNodes[ i ], false ) );
+				childSummary = getDomElementSummary( element.childNodes[ i ], false );
+				if ( childSummary ) {
+					summary.children.push( childSummary );
+				}
 			}
 		}
 
@@ -125,19 +137,17 @@
 		}
 		// Classes for custom styling of PHP widgets
 		if ( summary.attributes.class !== undefined ) {
-			// Ignore the extra class on PHP TextInputWidget
+			// Ignore the extra classes on PHP widgets
 			summary.attributes.class =
 				summary.attributes.class.replace( /oo-ui-textInputWidget-php /g, '' );
-
-			// Fake out infused PHP DropdownInputWidget's $input
-			if ( summary.attributes.class.match( /oo-ui-element-hidden.*oo-ui-inputWidget-input/ ) ) {
-				summary.children = [];
-				summary.attributes.class = 'oo-ui-inputWidget-input';
-				summary.type = 'input';
-				summary.attributes.type = 'hidden';
-				summary.attributes.readonly = false;
-				summary.attributes.checked = false;
-			}
+			summary.attributes.class =
+				summary.attributes.class.replace( /oo-ui-dropdownInputWidget-php /g, '' );
+		}
+		// Extra stuff on PHP DropdownInputWidget's $input
+		if ( summary.type === 'select' ) {
+			summary.attributes.class = 'oo-ui-inputWidget-input';
+			delete summary.attributes.tabindex;
+			delete summary.attributes[ 'aria-disabled' ];
 		}
 
 		// Order the object keys, for less noisy diffs if there are differences

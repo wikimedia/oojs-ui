@@ -35,11 +35,6 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	// Configuration initialization
 	config = config || {};
 
-	// See InputWidget#reusePreInfuseDOM about config.$input
-	if ( config.$input ) {
-		config.$input.addClass( 'oo-ui-element-hidden' );
-	}
-
 	// Properties (must be done before parent constructor which calls #setDisabled)
 	this.dropdownWidget = new OO.ui.DropdownWidget( config.dropdown );
 
@@ -71,7 +66,7 @@ OO.inheritClass( OO.ui.DropdownInputWidget, OO.ui.InputWidget );
  * @protected
  */
 OO.ui.DropdownInputWidget.prototype.getInputElement = function () {
-	return $( '<input>' ).attr( 'type', 'hidden' );
+	return $( '<select>' );
 };
 
 /**
@@ -116,26 +111,44 @@ OO.ui.DropdownInputWidget.prototype.setDisabled = function ( state ) {
  */
 OO.ui.DropdownInputWidget.prototype.setOptions = function ( options ) {
 	var
+		optionWidgets = [],
 		value = this.getValue(),
+		$optionsContainer = this.$input,
 		widget = this;
 
-	// Rebuild the dropdown menu
-	this.dropdownWidget.getMenu()
-		.clearItems()
-		.addItems( options.map( function ( opt ) {
-			var optValue = widget.cleanUpValue( opt.data );
+	this.dropdownWidget.getMenu().clearItems();
+	this.$input.empty();
 
-			if ( opt.optgroup === undefined ) {
-				return new OO.ui.MenuOptionWidget( {
-					data: optValue,
-					label: opt.label !== undefined ? opt.label : optValue
-				} );
-			} else {
-				return new OO.ui.MenuSectionOptionWidget( {
-					label: opt.optgroup
-				} );
-			}
-		} ) );
+	// Rebuild the dropdown menu: our visible one and the hidden `<select>`
+	options.forEach( function ( opt ) {
+		var optValue, $optionNode, optionWidget;
+
+		if ( opt.optgroup === undefined ) {
+			optValue = widget.cleanUpValue( opt.data );
+
+			$optionNode = $( '<option>' )
+				.attr( 'value', optValue )
+				.text( opt.label !== undefined ? opt.label : optValue );
+			optionWidget = new OO.ui.MenuOptionWidget( {
+				data: optValue,
+				label: opt.label !== undefined ? opt.label : optValue
+			} );
+
+			$optionsContainer.append( $optionNode );
+			optionWidgets.push( optionWidget );
+		} else {
+			$optionNode = $( '<optgroup>' )
+				.attr( 'label', opt.optgroup );
+			optionWidget = new OO.ui.MenuSectionOptionWidget( {
+				label: opt.optgroup
+			} );
+
+			widget.$input.append( $optionNode );
+			$optionsContainer = $optionNode;
+			optionWidgets.push( optionWidget );
+		}
+	} );
+	this.dropdownWidget.getMenu().addItems( optionWidgets );
 
 	// Restore the previous value, or reset to something sensible
 	if ( this.dropdownWidget.getMenu().getItemFromData( value ) ) {
