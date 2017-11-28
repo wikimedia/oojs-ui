@@ -193,17 +193,22 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
  */
 OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element, $container ) {
 	var elemRect, contRect, topEdgeInBounds, bottomEdgeInBounds, leftEdgeInBounds, rightEdgeInBounds,
-		startEdgeInBounds, endEdgeInBounds,
+		startEdgeInBounds, endEdgeInBounds, viewportSpacing,
 		direction = $element.css( 'direction' );
 
 	elemRect = $element[ 0 ].getBoundingClientRect();
 	if ( $container[ 0 ] === window ) {
+		viewportSpacing = OO.ui.getViewportSpacing();
 		contRect = {
 			top: 0,
 			left: 0,
 			right: document.documentElement.clientWidth,
 			bottom: document.documentElement.clientHeight
 		};
+		contRect.top += viewportSpacing.top;
+		contRect.left += viewportSpacing.left;
+		contRect.right -= viewportSpacing.right;
+		contRect.bottom -= viewportSpacing.bottom;
 	} else {
 		contRect = $container[ 0 ].getBoundingClientRect();
 	}

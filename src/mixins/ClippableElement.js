@@ -246,7 +246,7 @@ OO.ui.mixin.ClippableElement.prototype.getVerticalAnchorEdge = function () {
  * @chainable
  */
 OO.ui.mixin.ClippableElement.prototype.clip = function () {
-	var extraHeight, extraWidth,
+	var extraHeight, extraWidth, viewportSpacing,
 		desiredWidth, desiredHeight, allotedWidth, allotedHeight,
 		naturalWidth, naturalHeight, clipWidth, clipHeight,
 		$item, itemRect, $viewport, viewportRect, availableRect,
@@ -270,6 +270,8 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		return out;
 	}
 
+	viewportSpacing = OO.ui.getViewportSpacing();
+
 	if ( this.$clippableScrollableContainer.is( 'html, body' ) ) {
 		$viewport = $( this.$clippableScrollableContainer[ 0 ].ownerDocument.body );
 		// Dimensions of the browser window, rather than the element!
@@ -279,6 +281,10 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 			right: document.documentElement.clientWidth,
 			bottom: document.documentElement.clientHeight
 		};
+		viewportRect.top += viewportSpacing.top;
+		viewportRect.left += viewportSpacing.left;
+		viewportRect.right -= viewportSpacing.right;
+		viewportRect.bottom -= viewportSpacing.bottom;
 	} else {
 		$viewport = this.$clippableScrollableContainer;
 		viewportRect = $viewport[ 0 ].getBoundingClientRect();
@@ -330,8 +336,10 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	desiredWidth = Math.max( 0, availableRect.right - availableRect.left );
 	desiredHeight = Math.max( 0, availableRect.bottom - availableRect.top );
 	// It should never be desirable to exceed the dimensions of the browser viewport... right?
-	desiredWidth = Math.min( desiredWidth, document.documentElement.clientWidth );
-	desiredHeight = Math.min( desiredHeight, document.documentElement.clientHeight );
+	desiredWidth = Math.min( desiredWidth,
+		document.documentElement.clientWidth - viewportSpacing.left - viewportSpacing.right );
+	desiredHeight = Math.min( desiredHeight,
+		document.documentElement.clientHeight - viewportSpacing.top - viewportSpacing.right );
 	allotedWidth = Math.ceil( desiredWidth - extraWidth );
 	allotedHeight = Math.ceil( desiredHeight - extraHeight );
 	naturalWidth = this.$clippable.prop( 'scrollWidth' );

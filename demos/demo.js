@@ -29,7 +29,10 @@ window.Demo = function Demo() {
 				new OO.ui.MenuOptionWidget( { data: 'icons', label: 'Icons' } ),
 				new OO.ui.MenuOptionWidget( { data: 'toolbars', label: 'Toolbars' } ),
 				new OO.ui.MenuOptionWidget( { data: 'widgets', label: 'Widgets' } )
-			]
+			],
+			// Funny effect... This dropdown is considered to always be "out of viewport"
+			// due to the getViewportSpacing() override below. Don't let it disappear.
+			hideWhenOutOfView: false
 		},
 		classes: [ 'demo-pageDropdown' ]
 	} );
@@ -98,6 +101,15 @@ window.Demo = function Demo() {
 	OO.ui.theme = new OO.ui[ this.constructor.static.themes[ this.mode.theme ] + 'Theme' ]();
 	OO.ui.isMobile = function () {
 		return demo.mode.platform === 'mobile';
+	};
+	OO.ui.getViewportSpacing = function () {
+		return {
+			// Contents of dialogs are shown on top of the fixed menu
+			top: demo.mode.page === 'dialogs' ? 0 : demo.$menu.outerHeight(),
+			right: 0,
+			bottom: 0,
+			left: 0
+		};
 	};
 };
 
