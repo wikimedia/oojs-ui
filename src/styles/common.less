@@ -18,7 +18,6 @@
 .oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @oo-ui-distribution = mixed ) {
 	background-image: url( @fallback );
 	background-image: linear-gradient( transparent, transparent ), e( '/* @embed */' ) url( @svg );
-	background-image: -o-linear-gradient( transparent, transparent ), url( @fallback );
 }
 .oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @oo-ui-distribution = vector ) {
 	.oo-ui-background-image( @svg );
