@@ -1,4 +1,30 @@
 # OOjs UI Release History
+## v0.24.3 / 2017-11-28
+### Features
+* Allow adding virtual viewport spacing (Bartosz Dziewoński)
+* ClippableElement: Allow clipping with top or left edge (Bartosz Dziewoński)
+* DropdownInputWidget: Generate a hidden `<select>` in JS (Bartosz Dziewoński)
+* FieldsetLayout: Hide header when there is no icon or label (Bartosz Dziewoński)
+* MenuSelectWidget, PopupWidget: Automatically change popup direction if there is no space (Bartosz Dziewoński)
+* PopupToolGroup: Set clipping edges to fix clipping edge (heh) cases (Bartosz Dziewoński)
+* TextInputWidget: support spellcheck attribute (David Lynch)
+
+### Styles
+* themes: Fix PHP ComboboxInputWidget indicator position (Volker E.)
+* WikimediaUI theme: Restore `:hover:focus` border color on TextInputWidgets (Volker E.)
+* oo-ui-background-image: Drop `-o-linear-gradient` fallback (James D. Forrester)
+* oo-ui-background-image: Drop `-webkit-linear-gradient` fallback (James D. Forrester)
+
+### Code
+* PHP DropdownInputWidget: Workaround for Firefox 57 ignoring attr selector with whitespace (Volker E.)
+* DraggableGroupElement: Don't try to access non-existent property (Bartosz Dziewoński)
+* DropdownInputWidget: Remove duplicate TitledElement mixin (Bartosz Dziewoński)
+* README: Add "Community" section (Prateek Saxena)
+* README: Re-arrange intro section (Prateek Saxena)
+* build: Bump wikimedia-ui-base (Volker E.)
+* git.wikimedia.org -> phab (Zach)
+
+
 ## v0.24.2 / 2017-11-07
 ### Deprecations
 * [DEPRECATING CHANGE] Use en-US spelling for icon names for consistency (Ed Sanders)
