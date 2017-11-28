@@ -497,7 +497,13 @@
 		}
 	}
 
-	&-php .oo-ui-indicatorWidget {
+	// IndicatorWidget is child element,
+	// therefor in need of higher specificity
+	&-php .oo-ui-indicatorWidget.oo-ui-indicatorElement.oo-ui-indicatorElement-indicator {
+		display: block;
+		position: absolute;
+		top: 0;
+		height: 100%;
 		right: @padding-horizontal-base;
 		margin: 0;
 	}
