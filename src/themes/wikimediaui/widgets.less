@@ -1830,10 +1830,16 @@
 			}
 		}
 
+		// Set on widget parent to also enable `:hover` on child elmeents
 		&:hover {
 			input,
 			textarea {
 				border-color: @border-color-input--hover;
+
+				// Applying `border-color` again to show right focus color
+				&:focus {
+					border-color: @border-color-base--focus;
+				}
 			}
 		}
 
