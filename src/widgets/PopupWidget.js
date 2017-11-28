@@ -50,6 +50,9 @@
  *            of the popup with the center of $floatableContainer.
  * 'force-left': Alias for 'forwards' in LTR and 'backwards' in RTL
  * 'force-right': Alias for 'backwards' in RTL and 'forwards' in LTR
+ * @cfg {boolean} [autoFlip=true] Whether to automatically switch the popup's position between
+ *  'above' and 'below', or between 'before' and 'after', if there is not enough space in the
+ *  desired direction to display the popup without clipping
  * @cfg {jQuery} [$container] Constrain the popup to the boundaries of the specified container.
  *  See the [OOjs UI docs on MediaWiki][3] for an example.
  *  [3]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Popups#containerExample
@@ -102,6 +105,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.toggleAnchor( config.anchor === undefined || config.anchor );
 	this.setAlignment( config.align || 'center' );
 	this.setPosition( config.position || 'below' );
+	this.setAutoFlip( config.autoFlip === undefined || config.autoFlip );
 	this.$body.addClass( 'oo-ui-popupWidget-body' );
 	this.$anchor.addClass( 'oo-ui-popupWidget-anchor' );
 	this.$popup
@@ -259,6 +263,7 @@ OO.ui.PopupWidget.prototype.toggleAnchor = function ( show ) {
 		this.anchored = show;
 	}
 };
+
 /**
  * Change which edge the anchor appears on.
  *
@@ -299,7 +304,7 @@ OO.ui.PopupWidget.prototype.hasAnchor = function () {
  * @inheritdoc
  */
 OO.ui.PopupWidget.prototype.toggle = function ( show ) {
-	var change;
+	var change, normalHeight, oppositeHeight, normalWidth, oppositeWidth;
 	show = show === undefined ? !this.isVisible() : !!show;
 
 	change = show !== this.isVisible();
@@ -311,6 +316,12 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 	if ( show && !this.$floatableContainer && this.isElementAttached() ) {
 		// Fall back to the parent node if the floatableContainer is not set
 		this.setFloatableContainer( this.$element.parent() );
+	}
+
+	if ( change && show && this.autoFlip ) {
+		// Reset auto-flipping before showing the popup again. It's possible we no longer need to flip
+		// (e.g. if the user scrolled).
+		this.isAutoFlipped = false;
 	}
 
 	// Parent method
@@ -326,6 +337,54 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 			}
 			this.updateDimensions();
 			this.toggleClipping( true );
+
+			if ( this.autoFlip ) {
+				if ( this.popupPosition === 'above' || this.popupPosition === 'below' ) {
+					if ( this.isClippedVertically() ) {
+						// If opening the popup in the normal direction causes it to be clipped, open
+						// in the opposite one instead
+						normalHeight = this.$element.height();
+						this.isAutoFlipped = !this.isAutoFlipped;
+						this.position();
+						if ( this.isClippedVertically() ) {
+							// If that also causes it to be clipped, open in whichever direction
+							// we have more space
+							oppositeHeight = this.$element.height();
+							if ( oppositeHeight < normalHeight ) {
+								this.isAutoFlipped = !this.isAutoFlipped;
+								this.position();
+							}
+						}
+					}
+				}
+				if ( this.popupPosition === 'before' || this.popupPosition === 'after' ) {
+					if ( this.isClippedHorizontally() ) {
+						// If opening the popup in the normal direction causes it to be clipped, open
+						// in the opposite one instead
+						normalWidth = this.$element.width();
+						this.isAutoFlipped = !this.isAutoFlipped;
+						// Due to T180173 horizontally clipped PopupWidgets have messed up dimensions,
+						// which causes positioning to be off. Toggle clipping back and fort to work around.
+						this.toggleClipping( false );
+						this.position();
+						this.toggleClipping( true );
+						if ( this.isClippedHorizontally() ) {
+							// If that also causes it to be clipped, open in whichever direction
+							// we have more space
+							oppositeWidth = this.$element.width();
+							if ( oppositeWidth < normalWidth ) {
+								this.isAutoFlipped = !this.isAutoFlipped;
+								// Due to T180173 horizontally clipped PopupWidgets have messed up dimensions,
+								// which causes positioning to be off. Toggle clipping back and fort to work around.
+								this.toggleClipping( false );
+								this.position();
+								this.toggleClipping( true );
+							}
+						}
+					}
+				}
+			}
+
 			this.emit( 'ready' );
 		} else {
 			this.toggleClipping( false );
@@ -395,9 +454,15 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 OO.ui.PopupWidget.prototype.computePosition = function () {
 	var direction, align, vertical, start, end, near, far, sizeProp, popupSize, anchorSize, anchorPos,
 		anchorOffset, anchorMargin, parentPosition, positionProp, positionAdjustment, floatablePos,
-		offsetParentPos, containerPos,
+		offsetParentPos, containerPos, popupPosition,
 		popupPos = {},
 		anchorCss = { left: '', right: '', top: '', bottom: '' },
+		popupPositionOppositeMap = {
+			above: 'below',
+			below: 'above',
+			before: 'after',
+			after: 'before'
+		},
 		alignMap = {
 			ltr: {
 				'force-left': 'backwards',
@@ -439,8 +504,13 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	} );
 
 	align = alignMap[ direction ][ this.align ] || this.align;
+	popupPosition = this.popupPosition;
+	if ( this.isAutoFlipped ) {
+		popupPosition = popupPositionOppositeMap[ popupPosition ];
+	}
+
 	// If the popup is positioned before or after, then the anchor positioning is vertical, otherwise horizontal
-	vertical = this.popupPosition === 'before' || this.popupPosition === 'after';
+	vertical = popupPosition === 'before' || popupPosition === 'after';
 	start = vertical ? 'top' : ( direction === 'rtl' ? 'right' : 'left' );
 	end = vertical ? 'bottom' : ( direction === 'rtl' ? 'left' : 'right' );
 	near = vertical ? 'top' : 'left';
@@ -448,9 +518,9 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	sizeProp = vertical ? 'Height' : 'Width';
 	popupSize = vertical ? ( this.height || this.$popup.height() ) : this.width;
 
-	this.setAnchorEdge( anchorEdgeMap[ this.popupPosition ] );
-	this.horizontalPosition = vertical ? this.popupPosition : hPosMap[ align ];
-	this.verticalPosition = vertical ? vPosMap[ align ] : this.popupPosition;
+	this.setAnchorEdge( anchorEdgeMap[ popupPosition ] );
+	this.horizontalPosition = vertical ? popupPosition : hPosMap[ align ];
+	this.verticalPosition = vertical ? vPosMap[ align ] : popupPosition;
 
 	// Parent method
 	parentPosition = OO.ui.mixin.FloatableElement.prototype.computePosition.call( this );
@@ -579,6 +649,21 @@ OO.ui.PopupWidget.prototype.setPosition = function ( position ) {
  */
 OO.ui.PopupWidget.prototype.getPosition = function () {
 	return this.popupPosition;
+};
+
+/**
+ * Set popup auto-flipping.
+ *
+ * @param {boolean} autoFlip Whether to automatically switch the popup's position between
+ *  'above' and 'below', or between 'before' and 'after', if there is not enough space in the
+ *  desired direction to display the popup without clipping
+ */
+OO.ui.PopupWidget.prototype.setAutoFlip = function ( autoFlip ) {
+	autoFlip = !!autoFlip;
+
+	if ( this.autoFlip !== autoFlip ) {
+		this.autoFlip = autoFlip;
+	}
 };
 
 /**
