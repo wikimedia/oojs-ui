@@ -6,6 +6,7 @@ GEM
       ast (~> 2.2)
     powerpack (0.1.1)
     rainbow (2.1.0)
+    rake (12.3.0)
     rubocop (0.38.0)
       parser (>= 2.3.0.6, < 3.0)
       powerpack (~> 0.1)
@@ -19,7 +20,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rake
   rubocop
 
 BUNDLED WITH
-   1.11.2
+   1.16.0
