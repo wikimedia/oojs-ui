@@ -2562,6 +2562,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TextInputWidget(),
 					{
 						label: 'FieldLayout aligned top with very long label. ' + loremIpsum,
+						help: loremIpsum,
 						align: 'top'
 					}
 				),
@@ -2569,6 +2570,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.CheckboxInputWidget( { selected: true } ),
 					{
 						label: 'FieldLayout aligned inline with very long label. ' + loremIpsum,
+						help: loremIpsum,
 						align: 'inline'
 					}
 				),
@@ -2576,6 +2578,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TextInputWidget(),
 					{
 						label: 'FieldLayout aligned left with very long label. ' + loremIpsum,
+						help: loremIpsum,
 						align: 'left'
 					}
 				),
@@ -2583,6 +2586,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TextInputWidget(),
 					{
 						label: 'FieldLayout aligned right with very long label. ' + loremIpsum,
+						help: loremIpsum,
 						align: 'right'
 					}
 				),

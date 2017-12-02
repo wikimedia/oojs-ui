@@ -201,10 +201,10 @@ class FieldLayout extends Layout {
 			// Reorder elements
 			$this->body->clearContent();
 			if ( $value === 'top' ) {
-				$this->header->appendContent( $this->label, $this->help );
+				$this->header->appendContent( $this->help, $this->label );
 				$this->body->appendContent( $this->header, $this->field );
 			} elseif ( $value === 'inline' ) {
-				$this->header->appendContent( $this->label, $this->help );
+				$this->header->appendContent( $this->help, $this->label );
 				$this->body->appendContent( $this->field, $this->header );
 			} else {
 				$this->header->appendContent( $this->label );
