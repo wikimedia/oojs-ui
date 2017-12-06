@@ -284,6 +284,9 @@ p {
 .demo-icons .oo-ui-fieldLayout .oo-ui-iconElement:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ),
 .demo-icons .oo-ui-fieldLayout .oo-ui-indicatorElement {
 	opacity: 0.87; /* brings icons/indicators closer to text color */
+	/* Support Chrome by promoting layer to GPU, see T182257 */
+	-webkit-transform: translateZ( 0 );
+	transform: translateZ( 0 );
 }
 /* stylelint-enable indentation */
 .demo-icons .oo-ui-fieldLayout:hover .oo-ui-labelElement-label {
