@@ -37,7 +37,6 @@ Demo.static.pages.icons = function ( demo ) {
 			alerts: [
 				'alert',
 				'bell',
-				'bellOn',
 				'comment',
 				'message',
 				'notice',
