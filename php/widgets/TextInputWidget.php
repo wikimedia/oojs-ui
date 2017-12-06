@@ -41,12 +41,8 @@ class TextInputWidget extends InputWidget {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param string $config['type'] HTML tag `type` attribute: 'text', 'password', 'search', 'email',
+	 * @param string $config['type'] HTML tag `type` attribute: 'text', 'password', 'email',
 	 *   'url' or 'number'. Ignored if `multiline` is true. (default: 'text')
-	 *
-	 *   Some values of `type` result in additional behaviors:
-	 *   - `search`: implies `icon: 'search'` and `indicator: 'clear'`; when clicked, the indicator
-	 *     empties the text field
 	 * @param string $config['placeholder'] Placeholder text
 	 * @param bool $config['autofocus'] Ask the browser to focus this widget, using the 'autofocus'
 	 *   HTML attribute (default: false)
@@ -70,11 +66,6 @@ class TextInputWidget extends InputWidget {
 			'required' => false,
 			'autocomplete' => true,
 		], $config );
-		if ( $config['type'] === 'search' ) {
-			if ( !array_key_exists( 'icon', $config ) ) {
-				$config['icon'] = 'search';
-			}
-		}
 
 		// Parent constructor
 		parent::__construct( $config );
@@ -87,12 +78,6 @@ class TextInputWidget extends InputWidget {
 			Element::warnDeprecation(
 				'The TextInputWidget "multiline" option is deprecated as of OOjs UI v0.22.2. ' .
 				'Use MultilineTextInputWidget instead.'
-			);
-		}
-		if ( $config['type'] === 'search' && !( $this instanceof SearchInputWidget ) ) {
-			Element::warnDeprecation(
-				'The TextInputWidget "type" => "search" is deprecated as of OOjs UI v0.22.2. ' .
-				'Use SearchInputWidget instead.'
 			);
 		}
 
