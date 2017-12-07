@@ -39,9 +39,15 @@
 
 	&-frameless {
 		> .oo-ui-buttonElement-button {
-			// Don't animate `.oo-ui-iconElement-icon` `opacity` for now,
-			// causes wiggling in Chrome, see T65020
-			// `.oo-ui-transition( opacity @medium-ease );`
+			> .oo-ui-iconElement-icon {
+				.oo-ui-transition( opacity @medium-ease );
+				// Support Webkit/Blink: `opacity` < 1 causes wiggling, see T65020
+				.oo-ui-force-gpu-composite-layer();
+			}
+
+			> .oo-ui-labelElement-label {
+				color: @color-base;
+			}
 
 			&:hover,
 			&:focus {
@@ -52,10 +58,6 @@
 				> .oo-ui-labelElement-label {
 					color: #000;
 				}
-			}
-
-			> .oo-ui-labelElement-label {
-				color: @color-base;
 			}
 		}
 
