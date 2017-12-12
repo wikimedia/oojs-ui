@@ -555,17 +555,6 @@ OO.ui.SelectWidget.prototype.findHighlightedItem = function () {
 };
 
 /**
- * Get highlighted item.
- *
- * @deprecated 0.23.1 Use {@link #findHighlightedItem} instead.
- * @return {OO.ui.OptionWidget|null} Highlighted item, `null` if no item is highlighted
- */
-OO.ui.SelectWidget.prototype.getHighlightedItem = function () {
-	OO.ui.warnDeprecation( 'SelectWidget#getHighlightedItem: Deprecated function. Use findHighlightedItem instead. See T76630.' );
-	return this.findHighlightedItem();
-};
-
-/**
  * Toggle pressed state.
  *
  * Press is a state that occurs when a user mouses down on an item, but
