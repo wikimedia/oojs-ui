@@ -249,7 +249,6 @@ Demo.static.pages.icons = function ( demo ) {
 				flags: [],
 				data: {
 					progressive: false,
-					constructive: false,
 					destructive: false
 				}
 			} ),
@@ -258,7 +257,6 @@ Demo.static.pages.icons = function ( demo ) {
 				flags: [ 'progressive' ],
 				data: {
 					progressive: true,
-					constructive: false,
 					destructive: false
 				}
 			} ),
@@ -267,7 +265,6 @@ Demo.static.pages.icons = function ( demo ) {
 				flags: [ 'destructive' ],
 				data: {
 					progressive: false,
-					constructive: false,
 					destructive: true
 				}
 			} )
@@ -282,7 +279,6 @@ Demo.static.pages.icons = function ( demo ) {
 		} )
 		.selectItemByData( {
 			progressive: false,
-			constructive: false,
 			destructive: false
 		} );
 
