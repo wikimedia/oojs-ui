@@ -813,18 +813,6 @@ OO.ui.SelectWidget.prototype.findFirstSelectableItem = function () {
 };
 
 /**
- * Get the next selectable item or `null` if there are no selectable items.
- * Disabled options and menu-section markers and breaks are not selectable.
- *
- * @deprecated 0.23.1 Use {@link OO.ui.SelectWidget#findFirstSelectableItem} instead.
- * @return {OO.ui.OptionWidget|null} Item, `null` if there aren't any selectable items
- */
-OO.ui.SelectWidget.prototype.getFirstSelectableItem = function () {
-	OO.ui.warnDeprecation( 'SelectWidget#getFirstSelectableItem: Deprecated function. Use findFirstSelectableItem instead. See T76630.' );
-	return this.findFirstSelectableItem();
-};
-
-/**
  * Add an array of options to the select. Optionally, an index number can be used to
  * specify an insertion point.
  *
