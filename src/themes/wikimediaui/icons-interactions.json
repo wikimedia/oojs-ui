@@ -19,25 +19,22 @@
 		}
 	},
 	"images": {
-		"add": { "file": "images/icons/add.svg", "variants": [ "progressive" ] },
+		"add": { "file": "images/icons/add.svg" },
 		"advanced": { "file": "images/icons/advanced.svg" },
 		"browser": { "file": {
 			"ltr": "images/icons/browser-ltr.svg",
 			"rtl": "images/icons/browser-rtl.svg"
 		} },
 		"cancel": { "file": "images/icons/cancel.svg", "variants": [ "destructive" ] },
-		"check": { "file": "images/icons/check.svg", "variants": [ "progressive", "destructive" ] },
+		"check": { "file": "images/icons/check.svg", "variants": [ "destructive" ] },
 		"clear": { "file": "images/icons/clear.svg" },
 		"clock": { "file": "images/icons/clock.svg" },
 		"close": { "file": "images/icons/close.svg" },
 		"ellipsis": { "file": "images/icons/ellipsis.svg" },
-		"feedback": {
-			"file": {
-				"ltr": "images/icons/feedback-ltr.svg",
-				"rtl": "images/icons/feedback-rtl.svg"
-			},
-			"variants": [ "progressive" ]
-		},
+		"feedback": { "file": {
+			"ltr": "images/icons/feedback-ltr.svg",
+			"rtl": "images/icons/feedback-rtl.svg"
+		} },
 		"funnel": { "file": {
 			"ltr": "images/icons/funnel-ltr.svg",
 			"rtl": "images/icons/funnel-rtl.svg"
