@@ -342,18 +342,6 @@ OO.ui.BookletLayout.prototype.findClosestPage = function ( page ) {
 };
 
 /**
- * Get the page closest to the specified page.
- *
- * @deprecated 0.23.0 Use {@link OO.ui.BookletLayout#findClosestPage} instead.
- * @param {OO.ui.PageLayout} page Page to use as a reference point
- * @return {OO.ui.PageLayout|null} Page closest to the specified page
- */
-OO.ui.BookletLayout.prototype.getClosestPage = function ( page ) {
-	OO.ui.warnDeprecation( 'BookletLayout#getClosestPage: Deprecated function. Use findClosestPage instead. See T76630.' );
-	return this.findClosestPage( page );
-};
-
-/**
  * Get the outline widget.
  *
  * If the booklet is not outlined, the method will return `null`.
