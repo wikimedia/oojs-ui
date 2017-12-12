@@ -41,6 +41,7 @@ OO.ui.mixin.FloatableElement = function OoUiMixinFloatableElement( config ) {
 	this.$floatableContainer = null;
 	this.$floatableWindow = null;
 	this.$floatableClosestScrollable = null;
+	this.floatableOutOfView = false;
 	this.onFloatableScrollHandler = this.position.bind( this );
 	this.onFloatableWindowResizeHandler = this.position.bind( this );
 
@@ -245,6 +246,15 @@ OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element
 };
 
 /**
+ * Check if the floatable is hidden to the user because it was offscreen.
+ *
+ * @return {boolean} Floatable is out of view
+ */
+OO.ui.mixin.FloatableElement.prototype.isFloatableOutOfView = function () {
+	return this.floatableOutOfView;
+};
+
+/**
  * Position the floatable below its container.
  *
  * This should only be done when both of them are attached to the DOM and visible.
@@ -270,7 +280,8 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 		return this;
 	}
 
-	if ( this.hideWhenOutOfView && !this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable ) ) {
+	this.floatableOutOfView = this.hideWhenOutOfView && !this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable );
+	if ( this.floatableOutOfView ) {
 		this.$floatable.addClass( 'oo-ui-element-hidden' );
 		return this;
 	} else {
