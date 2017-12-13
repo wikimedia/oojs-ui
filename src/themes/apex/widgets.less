@@ -1336,16 +1336,17 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		input:focus,
-		textarea:focus {
-			outline: 0;
-			border-color: @border-color-base--focus;
-			box-shadow: @box-shadow-widget--focus;
-		}
+		input,
+		textarea {
+			&:focus {
+				outline: 0;
+				border-color: @border-color-base--focus;
+				box-shadow: @box-shadow-widget--focus;
+			}
 
-		input[ readonly ],
-		textarea[ readonly ] {
-			color: @color-base--read-only;
+			&[ readonly ] {
+				background-color: #f3f3f3;
+			}
 		}
 
 		&.oo-ui-flaggedElement-invalid {
