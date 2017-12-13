@@ -523,11 +523,11 @@ OO.ui.SelectWidget.prototype.findTargetItem = function ( e ) {
 };
 
 /**
- * Get selected item.
+ * Find selected item.
  *
  * @return {OO.ui.OptionWidget|null} Selected item, `null` if no item is selected
  */
-OO.ui.SelectWidget.prototype.getSelectedItem = function () {
+OO.ui.SelectWidget.prototype.findSelectedItem = function () {
 	var i, len;
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
@@ -536,6 +536,17 @@ OO.ui.SelectWidget.prototype.getSelectedItem = function () {
 		}
 	}
 	return null;
+};
+
+/**
+ * Get selected item.
+ *
+ * @deprecated 0.25.1 Use {@link #findSelectedItem} instead.
+ * @return {OO.ui.OptionWidget|null} Selected item, `null` if no item is selected
+ */
+OO.ui.SelectWidget.prototype.getSelectedItem = function () {
+	OO.ui.warnDeprecation( 'SelectWidget#getSelectedItem: Deprecated function. Use findSelectedItem instead. See T76630.' );
+	return this.findSelectedItem();
 };
 
 /**
