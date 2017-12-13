@@ -69,7 +69,7 @@
 			"ltr": "images/icons/newspaper-ltr.svg",
 			"rtl": "images/icons/newspaper-rtl.svg"
 		} },
-		"tag": { "file": "images/icons/tag.svg", "variants": [ "destructive", "warning", "progressive" ] },
+		"tag": { "file": "images/icons/tag.svg", "variants": [ "destructive", "warning" ] },
 		"upload": { "file": {
 			"ltr": "images/icons/upload-ltr.svg",
 			"rtl": "images/icons/upload-rtl.svg"
