@@ -62,6 +62,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'help',
 				'key',
 				'keyboard',
+				'lightbulb',
 				'logOut',
 				'newWindow',
 				'printer',
