@@ -1310,6 +1310,36 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.DropdownWidget( {
 						label: 'Select one',
+						$overlay: true,
+						menu: {
+							items: [
+								new OO.ui.MenuOptionWidget( {
+									data: 'a',
+									label: 'First'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'b',
+									label: 'Second'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'c',
+									label: 'Third'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'd',
+									label: 'Fourth'
+								} )
+							]
+						}
+					} ),
+					{
+						label: 'DropdownWidget (using default overlay)\u200E',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.DropdownWidget( {
+						label: 'Select one',
 						$overlay: $overlay,
 						menu: {
 							items: [
@@ -1333,7 +1363,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'DropdownWidget (using overlay)\u200E',
+						label: 'DropdownWidget (using custom overlay)\u200E',
 						align: 'top'
 					}
 				),
@@ -2957,6 +2987,9 @@ Demo.static.pages.widgets = function ( demo ) {
 	$overlay.appendTo( 'body' );
 
 	demo.once( 'destroy', function () {
+		// We are removing all of the widgets from the page, so also remove their "detached"
+		// menus and stuff, otherwise they can remain visible forever.
 		$overlay.remove();
+		OO.ui.$defaultOverlay.empty();
 	} );
 };
