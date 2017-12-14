@@ -38,7 +38,7 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 	OO.ui.mixin.PopupElement.call( this, config );
 
 	// Properties
-	this.$overlay = config.$overlay || this.$element;
+	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 
 	// Events
 	this.connect( this, { click: 'onAction' } );
