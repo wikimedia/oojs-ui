@@ -129,7 +129,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.cleanUpValue = function ( value )
 		singleValue =
 			OO.ui.CheckboxMultiselectInputWidget.parent.prototype.cleanUpValue.call( this, value[ i ] );
 		// Remove options that we don't have here
-		if ( !this.checkboxMultiselectWidget.getItemFromData( singleValue ) ) {
+		if ( !this.checkboxMultiselectWidget.findItemFromData( singleValue ) ) {
 			continue;
 		}
 		cleanValue.push( singleValue );

@@ -33,7 +33,7 @@ Demo.IndexedDialog.prototype.initialize = function () {
 	this.indexLayout.addTabPanels( this.tabPanels );
 	this.$body.append( this.indexLayout.$element );
 
-	this.indexLayout.getTabs().getItemFromData( 'fourth' ).setDisabled( true );
+	this.indexLayout.getTabs().findItemFromData( 'fourth' ).setDisabled( true );
 };
 Demo.IndexedDialog.prototype.getActionProcess = function ( action ) {
 	if ( action ) {

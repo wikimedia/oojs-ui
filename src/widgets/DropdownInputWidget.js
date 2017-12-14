@@ -86,7 +86,7 @@ OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
 	var selected;
 	value = this.cleanUpValue( value );
 	// Only allow setting values that are actually present in the dropdown
-	selected = this.dropdownWidget.getMenu().getItemFromData( value ) ||
+	selected = this.dropdownWidget.getMenu().findItemFromData( value ) ||
 		this.dropdownWidget.getMenu().findFirstSelectableItem();
 	this.dropdownWidget.getMenu().selectItem( selected );
 	value = selected ? selected.getData() : '';
@@ -151,7 +151,7 @@ OO.ui.DropdownInputWidget.prototype.setOptions = function ( options ) {
 	this.dropdownWidget.getMenu().addItems( optionWidgets );
 
 	// Restore the previous value, or reset to something sensible
-	if ( this.dropdownWidget.getMenu().getItemFromData( value ) ) {
+	if ( this.dropdownWidget.getMenu().findItemFromData( value ) ) {
 		// Previous value is still available, ensure consistency with the dropdown
 		this.setValue( value );
 	} else {

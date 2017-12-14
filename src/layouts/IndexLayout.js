@@ -213,16 +213,16 @@ OO.ui.IndexLayout.prototype.getClosestTabPanel = function ( tabPanel ) {
 		next = tabPanels[ index + 1 ];
 		prev = tabPanels[ index - 1 ];
 		// Prefer adjacent tab panels at the same level
-		level = this.tabSelectWidget.getItemFromData( tabPanel.getName() ).getLevel();
+		level = this.tabSelectWidget.findItemFromData( tabPanel.getName() ).getLevel();
 		if (
 			prev &&
-			level === this.tabSelectWidget.getItemFromData( prev.getName() ).getLevel()
+			level === this.tabSelectWidget.findItemFromData( prev.getName() ).getLevel()
 		) {
 			return prev;
 		}
 		if (
 			next &&
-			level === this.tabSelectWidget.getItemFromData( next.getName() ).getLevel()
+			level === this.tabSelectWidget.findItemFromData( next.getName() ).getLevel()
 		) {
 			return next;
 		}
@@ -340,7 +340,7 @@ OO.ui.IndexLayout.prototype.removeTabPanels = function ( tabPanels ) {
 		tabPanel = tabPanels[ i ];
 		name = tabPanel.getName();
 		delete this.tabPanels[ name ];
-		items.push( this.tabSelectWidget.getItemFromData( name ) );
+		items.push( this.tabSelectWidget.findItemFromData( name ) );
 		tabPanel.setTabItem( null );
 	}
 	if ( items.length ) {

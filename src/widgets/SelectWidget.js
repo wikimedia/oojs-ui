@@ -671,7 +671,7 @@ OO.ui.SelectWidget.prototype.selectItemByLabel = function ( label, prefix ) {
  * @chainable
  */
 OO.ui.SelectWidget.prototype.selectItemByData = function ( data ) {
-	var itemFromData = this.getItemFromData( data );
+	var itemFromData = this.findItemFromData( data );
 	if ( data === undefined || !itemFromData ) {
 		return this.selectItem();
 	}

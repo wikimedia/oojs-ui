@@ -274,7 +274,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.setItemsFromData = function ( datas ) {
 
 	$.each( datas, function ( i, data ) {
 		var j, label,
-			item = menu.getItemFromData( data );
+			item = menu.findItemFromData( data );
 
 		if ( item ) {
 			label = item.label;
@@ -322,8 +322,8 @@ OO.ui.CapsuleMultiselectWidget.prototype.addItemsFromData = function ( datas ) {
 	$.each( datas, function ( i, data ) {
 		var item;
 
-		if ( !widget.getItemFromData( data ) || widget.allowDuplicates ) {
-			item = menu.getItemFromData( data );
+		if ( !widget.findItemFromData( data ) || widget.allowDuplicates ) {
+			item = menu.findItemFromData( data );
 			if ( item ) {
 				item = widget.createItemWidget( data, item.label );
 			} else if ( widget.allowArbitrary ) {
@@ -374,7 +374,7 @@ OO.ui.CapsuleMultiselectWidget.prototype.removeItemsFromData = function ( datas 
 		items = [];
 
 	$.each( datas, function ( i, data ) {
-		var item = widget.getItemFromData( data );
+		var item = widget.findItemFromData( data );
 		if ( item ) {
 			items.push( item );
 		}

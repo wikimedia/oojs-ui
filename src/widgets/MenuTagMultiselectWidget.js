@@ -130,7 +130,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
  * @inheritdoc
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
-	var menuItem = this.menu.getItemFromData( tagItem.getData() );
+	var menuItem = this.menu.findItemFromData( tagItem.getData() );
 	// Override the base behavior from TagMultiselectWidget; the base behavior
 	// in TagMultiselectWidget is to remove the tag to edit it in the input,
 	// but in our case, we want to utilize the menu selection behavior, and
@@ -149,7 +149,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.addTagFromInput = function () {
 	var inputValue = this.input.getValue(),
 		validated = false,
 		highlightedItem = this.menu.findHighlightedItem(),
-		item = this.menu.getItemFromData( inputValue );
+		item = this.menu.findItemFromData( inputValue );
 
 	// Override the parent method so we add from the menu
 	// rather than directly from the input
