@@ -341,7 +341,38 @@ module.exports = function ( grunt ) {
 			}
 		},
 		image: {
-			dist: {
+			srcSvgs: {
+				options: {
+					svgo: [
+						'--pretty',
+						'--enable=removeRasterImages',
+						'--enable=sortAttrs',
+						'--disable=cleanupIDs',
+						'--disable=removeDesc',
+						'--disable=removeTitle',
+						'--disable=removeViewBox',
+						'--disable=removeXMLProcInst'
+					]
+				},
+				expand: true,
+				src: 'src/**/*.svg'
+			},
+			distSvgs: {
+				options: {
+					svgo: [
+						'--enable=cleanupIDs',
+						'--enable=removeRasterImages',
+						'--enable=sortAttrs',
+						'--disable=removeDesc',
+						'--disable=removeTitle',
+						'--disable=removeViewBox',
+						'--disable=removeXMLProcInst'
+					]
+				},
+				expand: true,
+				src: 'dist/**/*.svg'
+			},
+			distPngs: {
 				options: {
 					zopflipng: true,
 					pngout: true,
@@ -636,7 +667,7 @@ module.exports = function ( grunt ) {
 	] );
 
 	// Minification tasks for the npm publish step
-	grunt.registerTask( 'minify', [ 'uglify', 'image', 'cssmin' ] );
+	grunt.registerTask( 'minify', [ 'uglify', 'image:distSvgs', 'image:distPngs', 'cssmin' ] );
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
 	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
