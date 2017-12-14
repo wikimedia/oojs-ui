@@ -62,7 +62,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	OO.ui.DropdownWidget.parent.call( this, config );
 
 	// Properties (must be set before TabIndexedElement constructor call)
-	this.$handle = this.$( '<span>' );
+	this.$handle = $( '<span>' );
 	this.$overlay = config.$overlay || this.$element;
 
 	// Mixin constructors
