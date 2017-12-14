@@ -51,6 +51,12 @@ QUnit.module( 'JSPHP' );
 	// if we want the tests to be synchronous
 	OO.ui.Theme.prototype.queueUpdateElementClasses = OO.ui.Theme.prototype.updateElementClasses;
 
+	// Various things end up in the default overlay when infusing, but that's annoying
+	// because we need to compare them, so let's prevent that
+	OO.ui.getDefaultOverlay = function () {
+		return null;
+	};
+
 	for ( klassName in OO.ui.JSPHPTestSuite ) {
 		for ( theme in themes ) {
 			makeTest(

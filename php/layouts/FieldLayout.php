@@ -247,6 +247,7 @@ class FieldLayout extends Layout {
 		if ( $this->help !== '' ) {
 			$config['help'] = $this->help->getTitle();
 		}
+		$config['$overlay'] = true;
 		return parent::getConfig( $config );
 	}
 }
