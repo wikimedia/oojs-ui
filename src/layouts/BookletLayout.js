@@ -323,16 +323,16 @@ OO.ui.BookletLayout.prototype.findClosestPage = function ( page ) {
 		prev = pages[ index - 1 ];
 		// Prefer adjacent pages at the same level
 		if ( this.outlined ) {
-			level = this.outlineSelectWidget.getItemFromData( page.getName() ).getLevel();
+			level = this.outlineSelectWidget.findItemFromData( page.getName() ).getLevel();
 			if (
 				prev &&
-				level === this.outlineSelectWidget.getItemFromData( prev.getName() ).getLevel()
+				level === this.outlineSelectWidget.findItemFromData( prev.getName() ).getLevel()
 			) {
 				return prev;
 			}
 			if (
 				next &&
-				level === this.outlineSelectWidget.getItemFromData( next.getName() ).getLevel()
+				level === this.outlineSelectWidget.findItemFromData( next.getName() ).getLevel()
 			) {
 				return next;
 			}
@@ -467,7 +467,7 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
 		name = page.getName();
 		delete this.pages[ name ];
 		if ( this.outlined ) {
-			items.push( this.outlineSelectWidget.getItemFromData( name ) );
+			items.push( this.outlineSelectWidget.findItemFromData( name ) );
 			page.setOutlineItem( null );
 		}
 	}

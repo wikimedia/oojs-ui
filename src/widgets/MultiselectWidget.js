@@ -106,7 +106,7 @@ OO.ui.MultiselectWidget.prototype.selectItemsByData = function ( datas ) {
 	var items,
 		widget = this;
 	items = datas.map( function ( data ) {
-		return widget.getItemFromData( data );
+		return widget.findItemFromData( data );
 	} );
 	this.selectItems( items );
 	return this;

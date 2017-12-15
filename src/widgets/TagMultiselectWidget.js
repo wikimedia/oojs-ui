@@ -486,7 +486,7 @@ OO.ui.TagMultiselectWidget.prototype.clearInput = function () {
  * @return {boolean} Value is duplicate
  */
 OO.ui.TagMultiselectWidget.prototype.isDuplicateData = function ( data ) {
-	return !!this.getItemFromData( data );
+	return !!this.findItemFromData( data );
 };
 
 /**
@@ -611,7 +611,7 @@ OO.ui.TagMultiselectWidget.prototype.addTag = function ( data, label ) {
  * @param {string|Object} data Tag data
  */
 OO.ui.TagMultiselectWidget.prototype.removeTagByData = function ( data ) {
-	var item = this.getItemFromData( data );
+	var item = this.findItemFromData( data );
 
 	this.removeItems( [ item ] );
 };

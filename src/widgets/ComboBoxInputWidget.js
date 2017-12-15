@@ -163,7 +163,7 @@ OO.ui.ComboBoxInputWidget.prototype.getInput = function () {
  * @param {string} value New value
  */
 OO.ui.ComboBoxInputWidget.prototype.onInputChange = function ( value ) {
-	var match = this.menu.getItemFromData( value );
+	var match = this.menu.findItemFromData( value );
 
 	this.menu.selectItem( match );
 	if ( this.menu.findHighlightedItem() ) {
@@ -212,7 +212,7 @@ OO.ui.ComboBoxInputWidget.prototype.onMenuChoose = function ( item ) {
  * @private
  */
 OO.ui.ComboBoxInputWidget.prototype.onMenuItemsChange = function () {
-	var match = this.menu.getItemFromData( this.getValue() );
+	var match = this.menu.findItemFromData( this.getValue() );
 	this.menu.selectItem( match );
 	if ( this.menu.findHighlightedItem() ) {
 		this.menu.highlightItem( match );
