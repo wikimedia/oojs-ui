@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+	<title>
+		edit history
+	</title>
+	<path d="M3 10a7 7 0 0 1 9.25-6.62l1.53-1.53a9 9 0 0 0-11.63 12.5L.5 16H6v-5.5l-2.38 2.38A7 7 0 0 1 3 10zm15.16-3.78l-1.54 1.53A7 7 0 0 1 10 17v2a9 9 0 0 0 8.16-12.78z"/>
+	<path d="M18.85 3.52a.5.5 0 0 0 0-.71l-1.67-1.66a.5.5 0 0 0-.71 0L8 9.63V12h2.38z"/>
+</svg>

@@ -20,26 +20,30 @@
 	},
 	"images": {
 		"fullScreen": { "file": "images/icons/fullScreen.svg" },
-		"image": { "file": {
-			"ltr": "images/icons/image-ltr.svg",
-			"rtl": "images/icons/image-rtl.svg"
-		} },
-		"imageAdd": { "file": {
-			"ltr": "images/icons/imageAdd-ltr.svg",
-			"rtl": "images/icons/imageAdd-rtl.svg"
-		} },
-		"imageLock": { "file": {
-			"ltr": "images/icons/imageLock-ltr.svg",
-			"rtl": "images/icons/imageLock-rtl.svg"
-		} },
-		"imageGallery": { "file": {
-			"ltr": "images/icons/imageGallery-ltr.svg",
-			"rtl": "images/icons/imageGallery-rtl.svg"
-		} },
-		"play": { "file": {
-			"ltr": "images/icons/play-ltr.svg",
-			"rtl": "images/icons/play-rtl.svg"
-		} },
+		"image": {
+			"file": "images/icons/image.svg"
+		},
+		"imageAdd": {
+			"file": {
+				"ltr": "images/icons/imageAdd-ltr.svg",
+				"rtl": "images/icons/imageAdd-rtl.svg"
+			}
+		},
+		"imageLock": {
+			"file": {
+				"ltr": "images/icons/imageLock-ltr.svg",
+				"rtl": "images/icons/imageLock-rtl.svg"
+			}
+		},
+		"imageGallery": {
+			"file": "images/icons/imageGallery.svg"
+		},
+		"camera": {
+			"file": "images/icons/camera.svg"
+		},
+		"play": {
+			"file": "images/icons/play.svg"
+		},
 		"stop": { "file": "images/icons/stop.svg" }
 	}
 }

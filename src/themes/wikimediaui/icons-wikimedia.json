@@ -13,9 +13,9 @@
 		}
 	},
 	"images": {
-		"logoCC": { "file": "images/icons/logo-cc.svg" },
-		"logoWikimediaCommons": { "file": "images/icons/logo-wikimediaCommons.svg" },
-		"logoWikimediaDiscovery": { "file": "images/icons/logo-wikimediaDiscovery.svg" },
-		"logoWikipedia": { "file": "images/icons/logo-wikipedia.svg" }
+		"logoCC": { "file": "images/icons/logo-CC.svg" },
+		"logoWikimediaCommons": { "file": "images/icons/logo-Wikimedia-Commons.svg" },
+		"logoWikimediaDiscovery": { "file": "images/icons/logo-Wikimedia-Discovery.svg" },
+		"logoWikipedia": { "file": "images/icons/logo-Wikipedia.svg" }
 	}
 }
