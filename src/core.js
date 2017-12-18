@@ -541,3 +541,17 @@ OO.ui.getViewportSpacing = function () {
 		left: 0
 	};
 };
+
+/**
+ * Get the default overlay, which is used by various widgets when they are passed `$overlay: true`.
+ * See <https://www.mediawiki.org/wiki/OOjs_UI/Concepts#Overlays>.
+ *
+ * @return {jQuery} Default overlay node
+ */
+OO.ui.getDefaultOverlay = function () {
+	if ( !OO.ui.$defaultOverlay ) {
+		OO.ui.$defaultOverlay = $( '<div>' ).addClass( 'oo-ui-defaultOverlay' );
+		$( 'body' ).append( OO.ui.$defaultOverlay );
+	}
+	return OO.ui.$defaultOverlay;
+};

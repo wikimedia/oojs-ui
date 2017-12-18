@@ -81,7 +81,7 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	OO.ui.ComboBoxInputWidget.parent.call( this, config );
 
 	// Properties
-	this.$overlay = config.$overlay || this.$element;
+	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 	this.dropdownButton = new OO.ui.ButtonWidget( {
 		classes: [ 'oo-ui-comboBoxInputWidget-dropdownButton' ],
 		indicator: 'down',

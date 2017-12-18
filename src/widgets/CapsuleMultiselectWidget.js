@@ -75,8 +75,7 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 	// Configuration initialization
 	config = $.extend( {
 		allowArbitrary: false,
-		allowDuplicates: false,
-		$overlay: this.$element
+		allowDuplicates: false
 	}, config );
 
 	// Properties (must be set before mixin constructor calls)
@@ -108,7 +107,7 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 	this.$content = $( '<div>' );
 	this.allowArbitrary = config.allowArbitrary;
 	this.allowDuplicates = config.allowDuplicates;
-	this.$overlay = config.$overlay;
+	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 	this.menu = new OO.ui.MenuSelectWidget( $.extend(
 		{
 			widget: this,
