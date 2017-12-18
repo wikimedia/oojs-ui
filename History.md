@@ -975,8 +975,6 @@
 * ButtonGroupWidget: Change `cursor` on `.oo-ui-buttonElement-active` (Volker E)
 * CapsuleItemWidget: Make interactivity of label clearer (Volker E)
 * ComboBoxInputWidget: Align to design specification (Volker E)
-* FieldsetLayout: Styling fixes for `<legend>` labels (Bartosz Dziewoński)
-* FieldsetLayout: Work around positioning problems in Firefox (Bartosz Dziewoński)
 * PopupToolGroup: Fix border colour (Ed Sanders)
 * MessageDialog: Improve `-actions` buttons by resetting `border-radius` (Volker E)
 * SelectFileWidget: Don't show action-indicating cursor on empty state (Volker E)
@@ -1021,6 +1019,10 @@
 * build: Remove upstreamed rules and fix documentation (Ed Sanders)
 * build: Update eslint-config-wikimedia to v0.2.0 (Ed Sanders)
 
+## v0.17.10 / 2016-10-03 (special release)
+### Styles
+* FieldsetLayout: Styling fixes for `<legend>` labels (Bartosz Dziewoński)
+* FieldsetLayout: Work around positioning problems in Firefox (Bartosz Dziewoński)
 
 ## v0.17.9 / 2016-09-13
 ### Features
@@ -1807,9 +1809,8 @@
 * Widget: Fix docs for disable event (Ed Sanders)
 * docs: Remove excess empty lines in comments (Bartosz Dziewoński)
 * docs: Add quotes around PROJECT_BRIEF setting (Timo Tijhof)
-* Update version requirement for mediawiki/at-ease: 1.0.0 → 1.1.0 (Ori Livneh)
 
-## v0.12.8.1 / 2015-09-18 special release
+## v0.12.8.1 / 2015-09-18 (special release)
 ### Code
 * build: Update version requirement for mediawiki/at-ease: 1.0.0 → 1.1.0 (Ori Livneh)
 
