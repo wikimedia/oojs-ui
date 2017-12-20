@@ -1,4 +1,22 @@
 # OOjs UI Release History
+## v0.24.4 / 2017-12-20 special release
+### Deprecations
+* [DEPRECATING CHANGE] icons: Flag unused 'bellOn' icon as to be removed (Volker E.)
+* [DEPRECATING CHANGE] icons: Flag unused 'quotesAdd' & 'redirect' as to be removed (Volker E.)
+
+### Features
+* Introduce `OO.ui.getDefaultOverlay` (Bartosz Dziewoński)
+* Put menus/popups of infused PHP widgets into the default overlay (Bartosz Dziewoński)
+
+### Styles
+* icons: Add 'lightbulb' icon (Prateek Saxena)
+* icons: Add 'stop' icon to Apex theme (Volker E.)
+
+### Code
+* ClippableElement: Fix JS error when Floatable is mixed in but disabled (Roan Kattouw)
+* DropdownWidget: Remove stray use of `this.$()` (Bartosz Dziewoński)
+
+
 ## v0.24.3 / 2017-11-28
 ### Features
 * Allow adding virtual viewport spacing (Bartosz Dziewoński)
