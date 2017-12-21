@@ -136,6 +136,11 @@ OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
 	// but in our case, we want to utilize the menu selection behavior, and
 	// definitely not remove the item.
 
+	// If there is an input that is used for filtering, erase the value so we don't filter
+	if ( this.hasInput && this.menu.filterFromInput ) {
+		this.input.setValue( '' );
+	}
+
 	// Select the menu item
 	this.menu.selectItem( menuItem );
 
