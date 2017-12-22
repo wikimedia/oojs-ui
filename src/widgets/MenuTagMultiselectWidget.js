@@ -43,7 +43,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		$input: this.hasInput ? this.input.$input : null,
 		filterFromInput: !!this.hasInput,
 		$autoCloseIgnore: this.hasInput ?
-			this.input.$element.add( this.$overlay ) : this.$overlay,
+			this.input.$element : $( [] ),
 		$floatableContainer: this.hasInput && this.inputPosition === 'outline' ?
 			this.input.$element : this.$element,
 		$overlay: this.$overlay,
