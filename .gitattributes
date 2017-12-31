@@ -9,6 +9,7 @@ composer.json export-ignore
 doc export-ignore
 docs export-ignore
 Doxyfile export-ignore
+Gemfile* export-ignore
 Gruntfile.js export-ignore
 jsduck* export-ignore
 phpcs.xml export-ignore
