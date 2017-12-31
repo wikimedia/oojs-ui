@@ -12,7 +12,7 @@ Doxyfile export-ignore
 Gemfile* export-ignore
 Gruntfile.js export-ignore
 jsduck* export-ignore
-phpcs.xml export-ignore
+.phpcs.xml export-ignore
 phpunit.xml.dist export-ignore
 src export-ignore
 tests export-ignore
