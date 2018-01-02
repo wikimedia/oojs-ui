@@ -2,8 +2,6 @@
  * MenuTagMultiselectWidget is a {@link OO.ui.TagMultiselectWidget OO.ui.TagMultiselectWidget} intended
  * to use a menu of selectable options.
  *
- * For more information about menus and options, please see the [OOjs UI documentation on MediaWiki][1].
- *
  *     @example
  *     // Example: A basic MenuTagMultiselectWidget.
  *     var widget = new OO.ui.MenuTagMultiselectWidget( {
@@ -16,8 +14,6 @@
  *         selected: [ 'option1', 'option2' ]
  *     } );
  *     $( 'body' ).append( widget.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options#Menu_selects_and_options
  *
  * @class
  * @extends OO.ui.TagMultiselectWidget

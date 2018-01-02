@@ -2,8 +2,6 @@
  * A basic tag multiselect widget, similar in concept to {@link OO.ui.ComboBoxInputWidget combo box widget}
  * that allows the user to add multiple values that are displayed in a tag area.
  *
- * For more information about menus and options, please see the [OOjs UI documentation on MediaWiki][1].
- *
  * This widget is a base widget; see {@link OO.ui.MenuTagMultiselectWidget MenuTagMultiselectWidget} and
  * {@link OO.ui.PopupTagMultiselectWidget PopupTagMultiselectWidget} for the implementations that use
  * a menu and a popup respectively.
@@ -16,8 +14,6 @@
  *         selected: [ 'Option 1' ]
  *     } );
  *     $( 'body' ).append( widget.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options#Menu_selects_and_options
  *
  * @class
  * @extends OO.ui.Widget
