@@ -74,7 +74,7 @@ OO.ui.MultiselectWidget.prototype.findSelectedItems = function () {
 /**
  * Get options that are selected.
  *
- * @deprecated 0.25.1 Use {@link #findSelectedItems} instead.
+ * @deprecated Since v0.25.0; use {@link #findSelectedItems} instead.
  * @return {OO.ui.MultioptionWidget[]} Selected options
  */
 OO.ui.MultiselectWidget.prototype.getSelectedItems = function () {
@@ -96,7 +96,7 @@ OO.ui.MultiselectWidget.prototype.findSelectedItemsData = function () {
 /**
  * Get the data of options that are selected.
  *
- * @deprecated 0.25.1 Use {@link #findSelectedItemsData} instead.
+ * @deprecated Since v0.25.0; use {@link #findSelectedItemsData} instead.
  * @return {Object[]|string[]} Values of selected options
  */
 OO.ui.MultiselectWidget.prototype.getSelectedItemsData = function () {

@@ -87,7 +87,7 @@ OO.ui.mixin.GroupElement.prototype.findItemFromData = function ( data ) {
 /**
  * Get an item by its data.
  *
- * @deprecated 0.25.1 Use {@link #findItemFromData} instead.
+ * @deprecated Since v0.25.0; use {@link #findItemFromData} instead.
  * @param {Object} data Item data to search for
  * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
  */
@@ -122,7 +122,7 @@ OO.ui.mixin.GroupElement.prototype.findItemsFromData = function ( data ) {
 /**
  * Find items by their data.
  *
- * @deprecated 0.25.1 Use {@link #findItemsFromData} instead.
+ * @deprecated Since v0.25.0; use {@link #findItemsFromData} instead.
  * @param {Object} data Item data to search for
  * @return {OO.ui.Element[]} Items with equivalent data
  */
