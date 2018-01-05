@@ -2,7 +2,7 @@ Demo.static.pages.icons = function ( demo ) {
 	var i, len, iconSet, iconsFieldset, iconWidget, selector,
 		icons = {
 			movement: [
-				'arrowLast',
+				'arrowPrevious',
 				'arrowNext',
 				'downTriangle',
 				'upTriangle',
