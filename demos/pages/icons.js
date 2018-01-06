@@ -199,8 +199,6 @@ Demo.static.pages.icons = function ( demo ) {
 			'alert',
 			'clear',
 			'down',
-			'next',
-			'previous',
 			'required',
 			'search',
 			'up'
