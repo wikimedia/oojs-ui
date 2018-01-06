@@ -190,16 +190,12 @@
 		}
 		& .oo-ui-buttonElement-button {
 			// frameless reset
-			min-width: 0;
-			min-height: 0;
 			border: 0;
-			padding-top: @size-icon-tagitem-close;
-			padding-left: @size-icon-tagitem-close;
+			padding-top: @size-button-tagitem-close;
+			padding-left: @size-button-tagitem-close;
 
 			.oo-ui-icon-close {
-				left: 0;
-				min-width: @min-size-tagitem-close;
-				min-height: @min-size-tagitem-close;
+				min-width: @min-width-tagitem-close;
 				width: @size-icon-tagitem-close;
 			}
 
@@ -265,7 +261,7 @@
 		padding-left: @padding-start-input-text-icon-label;
 
 		> .oo-ui-iconElement-icon {
-			left: @padding-start-input-text-icon;
+			left: @padding-horizontal-input-text;
 		}
 	}
 
@@ -367,7 +363,7 @@
 			& + span {
 				.oo-ui-background-image-svg( '@{oo-ui-default-image-path}/icons/check-invert' );
 				.oo-ui-background-image-safari( '@{oo-ui-default-image-path}/icons/check-invert' );
-				background-size: 90% 90%;
+				background-size: @size-icon-checkmark;
 			}
 		}
 
@@ -486,7 +482,7 @@
 			padding-left: 0;
 
 			> .oo-ui-indicatorElement-indicator {
-				right: @start-framed-square-indicator-only;
+				right: @start-framed-indicator-only-button-combo-widget;
 			}
 		}
 
@@ -533,7 +529,7 @@
 		padding-left: @padding-start-menu-icon-label;
 
 		.oo-ui-iconElement-icon {
-			left: @padding-horizontal-base;
+			left: @start-framed-icon-only;
 		}
 	}
 
@@ -570,7 +566,7 @@
 		line-height: @line-height-reset;
 
 		.oo-ui-iconElement-icon {
-			left: @padding-start-input-text-icon;
+			left: @padding-horizontal-base;
 		}
 
 		.oo-ui-indicatorElement-indicator {
@@ -850,14 +846,13 @@
 
 				.oo-ui-iconElement-icon {
 					left: @start-framed-icon-only-numberinput;
-					min-width: @min-width-icon-numberinput;
-					width: @size-icon-numberinput;
 				}
 			}
 		}
 
 		.oo-ui-inputWidget-input {
 			border-radius: 0;
+			max-height: @min-height-widget-base;
 		}
 	}
 
@@ -946,10 +941,6 @@
 		.oo-ui-indicatorElement-indicator {
 			opacity: 0.5;
 		}
-	}
-
-	.oo-ui-labelElement-label {
-		font-size: 1.1em;
 	}
 
 	&-level-1 {
@@ -1364,7 +1355,7 @@
 		> .oo-ui-iconElement-icon {
 			display: none;
 			top: -@border-width-base; // Address `border-top` of parent element
-			left: @padding-start-input-text-icon;
+			left: @padding-horizontal-input-text;
 			min-height: @min-height-widget-base;
 			margin-left: -@border-width-base; // Address extra `border-left` pixel above
 		}
@@ -1397,7 +1388,7 @@
 
 	&-clearButton {
 		top: -1px; // Address `border-width`
-		right: @padding-start-input-text-icon; // With close, no indicator
+		right: @padding-horizontal-input-text; // With close, no indicator
 		min-width: @min-size-icon;
 		width: @size-icon;
 		margin-right: 0;
@@ -1638,16 +1629,12 @@
 		}
 		& .oo-ui-buttonElement-button {
 			// frameless reset
-			min-width: 0;
-			min-height: 0;
 			border: 0;
-			padding-top: @size-icon-tagitem-close;
-			padding-left: @size-icon-tagitem-close;
+			padding-top: @size-button-tagitem-close;
+			padding-left: @size-button-tagitem-close;
 
 			.oo-ui-icon-close {
-				left: 0;
-				min-width: @min-size-tagitem-close;
-				min-height: @min-size-tagitem-close;
+				min-width: @min-width-tagitem-close;
 				width: @size-icon-tagitem-close;
 			}
 
@@ -1907,7 +1894,7 @@
 		}
 
 		> .oo-ui-iconElement-icon {
-			left: @padding-start-input-text-icon;
+			left: @padding-horizontal-input-text;
 		}
 
 		textarea + .oo-ui-iconElement-icon {
@@ -1988,12 +1975,12 @@
 	}
 
 	&-grip {
-		top: 0.3125em;
-		min-width: @size-toggleswitch-grip-min;
-		width: 1.25em;
-		min-height: @size-toggleswitch-grip-min;
-		height: 1.25em;
-		border-radius: 1.25em;
+		top: @start-toggleswitch-grip;
+		min-width: @min-size-toggleswitch-grip;
+		width: @size-toggleswitch-grip;
+		min-height: @min-size-toggleswitch-grip;
+		height: @size-toggleswitch-grip;
+		border-radius: @size-toggleswitch-grip;
 		.oo-ui-transition(
 			background-color @transition-ease-medium,
 			left @transition-ease-quick,
@@ -2008,7 +1995,7 @@
 
 	&.oo-ui-toggleWidget-off {
 		.oo-ui-toggleSwitchWidget-grip {
-			left: 0.4em;
+			left: @start-toggleswitch-grip;
 			margin-left: 0;
 		}
 	}

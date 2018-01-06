@@ -39,7 +39,7 @@
 }
 
 .theme-oo-ui-fieldLayout () {
-	// At base `font-size: 12.8px` we just relatively follow M101 design guideline here
+	// We just relatively follow M101 design guideline here
 	margin-top: 1.25em; // `1.5em` in the guideline, we go for `1.25em`≈`16px`
 
 	&.oo-ui-labelElement,
@@ -86,7 +86,7 @@
 					// Override the default
 					margin-right: 0;
 					// Move into the space of `margin-right` of header
-					margin-left: -@size-icon;
+					margin-left: -1.72em; // ≈ @size-fieldlayout-help-icon + @padding-horizontal-frameless, hardcoded to avoid IE11 rounding problems
 				}
 
 				> .oo-ui-fieldLayout-field {
@@ -109,7 +109,7 @@
 			padding-left: @size-fieldlayout-help-icon;
 
 			.oo-ui-iconElement-icon {
-				left: 0; // Reset Frameless ButtonWidget
+				left: @start-fieldlayout-help-icon; // HACK: Providing correct inner position as long as old info icon is provided, see T177432
 			}
 		}
 	}
@@ -120,7 +120,7 @@
 			// HACK: This PopupButtonWidget's height extends below the header line (with align: top),
 			// causing the field widget to be narrower than it should be.
 			margin-top: @margin-top-fieldlayout-help;
-			margin-right: -@padding-horizontal-frameless;
+			margin-right: @margin-left-fieldlayout-help;
 		}
 	}
 
@@ -204,7 +204,6 @@
 		.oo-ui-inline-spacing( 0 );
 		// HACK: This PopupButtonWidget's `height` extends below the header's baseline (with align: top),
 		// causing the field widget to be narrower than it should be.
-		margin-top: @margin-top-fieldsetlayout-help;
 		margin-right: -@padding-horizontal-frameless;
 
 		&:last-child {
@@ -214,10 +213,6 @@
 		.oo-ui-buttonElement-button {
 			padding-top: @size-fieldlayout-help-icon;
 			padding-left: @size-fieldlayout-help-icon;
-
-			.oo-ui-iconElement-icon {
-				left: 0; // reset Frameless ButtonWidget
-			}
 		}
 	}
 }
