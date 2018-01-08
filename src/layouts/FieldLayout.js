@@ -216,10 +216,10 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 		}
 		// Reorder elements
 		if ( value === 'top' ) {
-			this.$header.append( this.$label, this.$help );
+			this.$header.append( this.$help, this.$label );
 			this.$body.append( this.$header, this.$field );
 		} else if ( value === 'inline' ) {
-			this.$header.append( this.$label, this.$help );
+			this.$header.append( this.$help, this.$label );
 			this.$body.append( this.$field, this.$header );
 		} else {
 			this.$header.append( this.$label );
