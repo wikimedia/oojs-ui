@@ -1,4 +1,56 @@
-# OOjs UI Release History
+# OOUI Release History
+## v0.25.0 / 2018-01-09
+### Breaking changes
+* [BREAKING CHANGE] Drop the `constructive` flag entirely (James D. Forrester)
+* [BREAKING CHANGE] Remove `BookletLayout#getClosestPage` (James D. Forrester)
+* [BREAKING CHANGE] SelectWidget: Remove `getFirstSelectableItem` (Prateek Saxena)
+* [BREAKING CHANGE] SelectWidget: Remove `getHighlightedItem` (Prateek Saxena)
+* [BREAKING CHANGE] SelectWidget: Remove `getRelativeSelectableItem` (Prateek Saxena)
+* [BREAKING CHANGE] icons: Drop 'watchlist', deprecated in v0.23.1 (James D. Forrester)
+
+### Deprecations
+* [DEPRECATING CHANGE] GroupElement: Rename getItem(s)FromData to findItem(s)FromData (Prateek Saxena)
+* [DEPRECATING CHANGE] MultiSelectWidget: Rename getters (Prateek Saxena)
+* [DEPRECATING CHANGE] SelectWidget: Rename `getSelectedItem` to `findSelectedItem` (Prateek Saxena)
+* [DEPRECATING CHANGE] icons: Flag indicators 'previous' & 'next' as to be removed (Volker E.)
+* [DEPRECATING CHANGE] icons: Rename 'arrowLast' to 'arrowPrevious' (James D. Forrester)
+
+### Features
+* MenuTagMultiselectWidget: Erase the input when tag is selected if filtering (Moriel Schottlender)
+
+### Styles
+* Add `margin-bottom` for widgets which are part of OOUI HorizontalLayout (Phantom42)
+* FieldLayout: Improve alignment of multiline labels with 'help' button (Bartosz Dziewoński)
+* WikimediaUI theme: Align 'transparency' icon to WikimedaUI color palette (Volker E.)
+* WikimediaUI theme: Remove obsolete global flag for 'layout' icon pack (Volker E.)
+* WikimediaUI theme: Remove obsolete icon flags (Volker E.)
+* Apex theme: Align readonly TextInputWidget across themes (Volker E.)
+* Apex theme: Apply `opacity` button transition and ensure Chrome support (Volker E.)
+* Apex theme: Remove unused, obsolete 'logo-wikimediaDiscovery' icon (Volker E.)
+* icons: Remove obsolete 'bookmark' icon remainders (Volker E.)
+* icons: Remove obsolete 'watchlist' icon remainders (Volker E.)
+* icons: Shorten 'accessibility' pack invert hex color (Volker E.)
+
+### Code
+* Clarify `.oo-ui-force-gpu-composite-layer()` mixin comment (Volker E.)
+* Fix blurry text on PanelLayout promoted to GPU in Safari (Volker E.)
+* Fix popup direction changing when the "anchor" is partially offscreen (Bartosz Dziewoński)
+* MenuTagMultiselectWidget: Don't use overlay for `$autoCloseIgnore` (Moriel Schottlender)
+* MultilineTextInputWidget: Correct documentation for `config.maxRows` (Roan Kattouw)
+* PHP TextInputWidget: Remove remaining type 'search' specific code (Volker E.)
+* Use findItem(s)FromData instead of getItem(s)FromData (Prateek Saxena)
+* demos: Override OO.ui.getViewportSpacing in infused PHP demo too (Bartosz Dziewoński)
+* demos: Promote icons page IndicatorWidget to GPU layer (Volker E.)
+* docs: Bump copyright year (James D. Forrester)
+* docs: TagMultiselectWidget: Remove wrong link to MediaWiki documentation (Prateek Saxena)
+* build: Update .gitattributes for .phpcs.xml file move (Kunal Mehta)
+* build: Add rake to Gemfile (Antoine Musso)
+* build: Don't include Gemfile* in composer zipballs (Kunal Mehta)
+* build: Update RuboCop Ruby gem (Željko Filipin)
+* build: Updating mediawiki/mediawiki-codesniffer to 15.0.0 (libraryupgrader)
+* build: Use SVGO option of 'grunt-image' for distribution (Volker E.)
+
+
 ## v0.24.4 / 2017-12-20 special release
 ### Deprecations
 * [DEPRECATING CHANGE] icons: Flag unused 'bellOn' icon as to be removed (Volker E.)
@@ -234,7 +286,7 @@
 * Follow-up 022f532: Don't crash if TitledElement initializes before AccessKeyedElement (Roan Kattouw)
 * WikimediaUI theme: Make checkbox/radio code leaner (Volker E.)
 * WikimediaUI theme: Remove unnecessary selector in CheckboxInputWidget (Volker E.)
-* doc: Align code comment references to Phabricator tasks (Volker E.)
+* docs: Align code comment references to Phabricator tasks (Volker E.)
 * build: Upgrade devDependencies to latest and make pass (James D. Forrester)
 * build: Update mediawiki-codesniffer to v0.10.1 and fix issues (WMDE-Fisch)
 * build: Update mediawiki-codesniffer to v0.11.0 and fix issues (WMDE-Fisch)
@@ -273,7 +325,7 @@
 * demos: Add examples of TextInputWidget with dynamic label (Bartosz Dziewoński)
 * demos: Demo.DraggableItemWidget should not inherit from OO.ui.OptionWidget (Bartosz Dziewoński)
 * demos: Show example link on `:focus` (Volker E.)
-* doc: Fix some PHPDoc `@return` tags (Ricordisamoa)
+* docs: Fix some PHPDoc `@return` tags (Ricordisamoa)
 * build: Add a script to print the dependency tree of everything (Bartosz Dziewoński)
 
 
@@ -1137,7 +1189,7 @@
 * build: Align to stylelint-config-wikimedia for string quotes (James D. Forrester)
 * build: Bump stylelint-related devDependencies to latest (James D. Forrester)
 * build: Downgrade grunt-jscs to 2.8.0 to avoid cst bug (James D. Forrester)
-* doc: Correct some code comments in PHP mixins (Bartosz Dziewoński)
+* docs: Correct some code comments in PHP mixins (Bartosz Dziewoński)
 * standalone tests: Correct error message (Bartosz Dziewoński)
 
 
