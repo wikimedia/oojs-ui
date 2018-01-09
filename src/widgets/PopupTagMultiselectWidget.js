@@ -2,8 +2,6 @@
  * PopupTagMultiselectWidget is a {@link OO.ui.TagMultiselectWidget OO.ui.TagMultiselectWidget} intended
  * to use a popup. The popup can be configured to have a default input to insert values into the widget.
  *
- * For more information about menus and options, please see the [OOjs UI documentation on MediaWiki][1].
- *
  *     @example
  *     // Example: A basic PopupTagMultiselectWidget.
  *     var widget = new OO.ui.PopupTagMultiselectWidget();
@@ -18,8 +16,6 @@
  *            }
  *         } );
  *     $( 'body' ).append( widget.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options#Menu_selects_and_options
  *
  * @class
  * @extends OO.ui.TagMultiselectWidget
