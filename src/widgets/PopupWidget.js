@@ -340,13 +340,13 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 
 			if ( this.autoFlip ) {
 				if ( this.popupPosition === 'above' || this.popupPosition === 'below' ) {
-					if ( this.isClippedVertically() ) {
+					if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
 						// If opening the popup in the normal direction causes it to be clipped, open
 						// in the opposite one instead
 						normalHeight = this.$element.height();
 						this.isAutoFlipped = !this.isAutoFlipped;
 						this.position();
-						if ( this.isClippedVertically() ) {
+						if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
 							// If that also causes it to be clipped, open in whichever direction
 							// we have more space
 							oppositeHeight = this.$element.height();
@@ -358,7 +358,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 					}
 				}
 				if ( this.popupPosition === 'before' || this.popupPosition === 'after' ) {
-					if ( this.isClippedHorizontally() ) {
+					if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
 						// If opening the popup in the normal direction causes it to be clipped, open
 						// in the opposite one instead
 						normalWidth = this.$element.width();
@@ -368,7 +368,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 						this.toggleClipping( false );
 						this.position();
 						this.toggleClipping( true );
-						if ( this.isClippedHorizontally() ) {
+						if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
 							// If that also causes it to be clipped, open in whichever direction
 							// we have more space
 							oppositeWidth = this.$element.width();

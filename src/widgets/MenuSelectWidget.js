@@ -357,11 +357,11 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.togglePositioning( !!this.$floatableContainer );
 			this.toggleClipping( true );
 
-			if ( this.isClippedVertically() ) {
+			if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
 				// If opening the menu downwards causes it to be clipped, flip it to open upwards instead
 				belowHeight = this.$element.height();
 				this.setVerticalPosition( 'above' );
-				if ( this.isClippedVertically() ) {
+				if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
 					// If opening upwards also causes it to be clipped, flip it to open in whichever direction
 					// we have more space
 					aboveHeight = this.$element.height();
