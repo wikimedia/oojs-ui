@@ -58,7 +58,6 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 		} else {
 			this.$label.on( 'click', function () {
 				this.input.simulateLabelClick();
-				return false;
 			}.bind( this ) );
 		}
 	}
