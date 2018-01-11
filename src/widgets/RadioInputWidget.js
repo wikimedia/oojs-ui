@@ -2,7 +2,7 @@
  * RadioInputWidget creates a single radio button. Because radio buttons are usually used as a set,
  * in most cases you will want to use a {@link OO.ui.RadioSelectWidget radio select}
  * with {@link OO.ui.RadioOptionWidget radio options} instead of this class. For more information,
- * please see the [OOjs UI documentation on MediaWiki][1].
+ * please see the [OOUI documentation on MediaWiki][1].
  *
  * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
@@ -30,7 +30,7 @@
  *     ] );
  *     $( 'body' ).append( fieldset.$element );
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Inputs
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *
  * @class
  * @extends OO.ui.InputWidget

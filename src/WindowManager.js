@@ -37,9 +37,9 @@
  * - a `teardown` progress notification is emitted from the `closing` promise
  * - the `closing` promise is resolved. The window is now closed
  *
- * See the [OOjs UI documentation on MediaWiki][1] for more information.
+ * See the [OOUI documentation on MediaWiki][1] for more information.
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Window_managers
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Windows/Window_managers
  *
  * @class
  * @extends OO.ui.Element
@@ -287,9 +287,9 @@ OO.ui.WindowManager.prototype.getTeardownDelay = function () {
  * Get a window by its symbolic name.
  *
  * If the window is not yet instantiated and its symbolic name is recognized by a factory, it will be
- * instantiated and added to the window manager automatically. Please see the [OOjs UI documentation on MediaWiki][3]
+ * instantiated and added to the window manager automatically. Please see the [OOUI documentation on MediaWiki][3]
  * for more information about using factories.
- * [3]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Window_managers
+ * [3]: https://www.mediawiki.org/wiki/OOUI/Windows/Window_managers
  *
  * @param {string} name Symbolic name of the window
  * @return {jQuery.Promise} Promise resolved with matching window, or rejected with an OO.ui.Error
@@ -541,8 +541,8 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
  * Add windows to the window manager.
  *
  * Windows can be added by reference, symbolic name, or explicitly defined symbolic names.
- * See the [OOjs ui documentation on MediaWiki] [2] for examples.
- * [2]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Window_managers
+ * See the [OOUI documentation on MediaWiki] [2] for examples.
+ * [2]: https://www.mediawiki.org/wiki/OOUI/Windows/Window_managers
  *
  * This function can be called in two manners:
  *

@@ -76,7 +76,7 @@ class TextInputWidget extends InputWidget {
 
 		if ( $this->multiline && !( $this instanceof MultilineTextInputWidget ) ) {
 			Element::warnDeprecation(
-				'The TextInputWidget "multiline" option is deprecated as of OOjs UI v0.22.2. ' .
+				'The TextInputWidget "multiline" option is deprecated as of OOUI v0.22.2. ' .
 				'Use MultilineTextInputWidget instead.'
 			);
 		}

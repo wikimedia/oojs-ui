@@ -10,9 +10,9 @@
  * If the error is a warning, the error interface will include a 'Dismiss' and a 'Continue' button, which will try the
  * process again.
  *
- * For an example of error interfaces, please see the [OOjs UI documentation on MediaWiki][1].
+ * For an example of error interfaces, please see the [OOUI documentation on MediaWiki][1].
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs#Processes_and_errors
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Windows/Process_Dialogs#Processes_and_errors
  *
  * @class
  *

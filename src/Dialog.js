@@ -3,7 +3,7 @@
  * Unless extended to include controls, the rendered dialog box is a simple window
  * that users can close by hitting the ‘Esc’ key. Dialog windows are used with OO.ui.WindowManager,
  * which opens, closes, and controls the presentation of the window. See the
- * [OOjs UI documentation on MediaWiki] [1] for more information.
+ * [OOUI documentation on MediaWiki] [1] for more information.
  *
  *     @example
  *     // A simple dialog window.
@@ -31,7 +31,7 @@
  *     // Open the window!
  *     windowManager.openWindow( myDialog );
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Dialogs
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Windows/Dialogs
  *
  * @abstract
  * @class
@@ -77,9 +77,9 @@ OO.mixinClass( OO.ui.Dialog, OO.ui.mixin.PendingElement );
  * Symbolic name of dialog.
  *
  * The dialog class must have a symbolic name in order to be registered with OO.Factory.
- * Please see the [OOjs UI documentation on MediaWiki] [3] for more information.
+ * Please see the [OOUI documentation on MediaWiki] [3] for more information.
  *
- * [3]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Window_managers
+ * [3]: https://www.mediawiki.org/wiki/OOUI/Windows/Window_managers
  *
  * @abstract
  * @static
@@ -108,7 +108,7 @@ OO.ui.Dialog.static.title = '';
  * Actions can also be specified with data passed to the constructor (see #getSetupProcess). In this case, the static
  * value will be overridden.
  *
- * [2]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs#Action_sets
+ * [2]: https://www.mediawiki.org/wiki/OOUI/Windows/Process_Dialogs#Action_sets
  *
  * @static
  * @inheritable

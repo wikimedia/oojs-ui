@@ -1,11 +1,11 @@
 /**
- * A SelectWidget is of a generic selection of options. The OOjs UI library contains several types of
+ * A SelectWidget is of a generic selection of options. The OOUI library contains several types of
  * select widgets, including {@link OO.ui.ButtonSelectWidget button selects},
  * {@link OO.ui.RadioSelectWidget radio selects}, and {@link OO.ui.MenuSelectWidget
  * menu selects}.
  *
  * This class should be used together with OO.ui.OptionWidget or OO.ui.DecoratedOptionWidget. For more
- * information, please see the [OOjs UI documentation on MediaWiki][1].
+ * information, please see the [OOUI documentation on MediaWiki][1].
  *
  *     @example
  *     // Example of a select widget with three options
@@ -27,7 +27,7 @@
  *     } );
  *     $( 'body' ).append( select.$element );
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *
  * @abstract
  * @class
@@ -38,8 +38,8 @@
  * @param {Object} [config] Configuration options
  * @cfg {OO.ui.OptionWidget[]} [items] An array of options to add to the select.
  *  Options are created with {@link OO.ui.OptionWidget OptionWidget} classes. See
- *  the [OOjs UI documentation on MediaWiki] [2] for examples.
- *  [2]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
+ *  the [OOUI documentation on MediaWiki] [2] for examples.
+ *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  */
 OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	// Configuration initialization

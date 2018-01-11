@@ -29,9 +29,9 @@
  * methods. Note that each {@link OO.ui.Process process} is executed in series, so asynchronous
  * processing can complete. Always assume window processes are executed asynchronously.
  *
- * For more information, please see the [OOjs UI documentation on MediaWiki] [1].
+ * For more information, please see the [OOUI documentation on MediaWiki] [1].
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Windows
  *
  * @abstract
  * @class
@@ -60,7 +60,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 	/**
 	 * Overlay element to use for the `$overlay` configuration option of widgets that support it.
 	 * Things put inside of it are overlaid on top of the window and are not bound to its dimensions.
-	 * See <https://www.mediawiki.org/wiki/OOjs_UI/Concepts#Overlays>.
+	 * See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
 	 *
 	 *     MyDialog.prototype.initialize = function () {
 	 *       ...

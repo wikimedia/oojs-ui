@@ -20,9 +20,9 @@
  *     toolFactory.register( HelpTool );
  *
  * For an example of a toolbar that contains a popup tool, see {@link OO.ui.Toolbar toolbars}. For more information about
- * toolbars in genreral, please see the [OOjs UI documentation on MediaWiki][1].
+ * toolbars in general, please see the [OOUI documentation on MediaWiki][1].
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Toolbars
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *
  * @abstract
  * @class

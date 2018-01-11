@@ -9,9 +9,9 @@
  * The options `exclude`, `promote`, and `demote` support the same formats.
  *
  * See {@link OO.ui.Toolbar toolbars} for a full example. For more information about toolbars in general,
- * please see the [OOjs UI documentation on MediaWiki][1].
+ * please see the [OOUI documentation on MediaWiki][1].
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Toolbars
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *
  * @abstract
  * @class
@@ -103,7 +103,7 @@ OO.ui.ToolGroup.static.titleTooltips = false;
 /**
  * Show acceleration labels in tooltips.
  *
- * Note: The OOjs UI library does not include an accelerator system, but does contain
+ * Note: The OOUI library does not include an accelerator system, but does contain
  * a hook for one. To use an accelerator system, subclass the {@link OO.ui.Toolbar toolbar} and
  * override the {@link OO.ui.Toolbar#getToolAccelerator getToolAccelerator} method, which is
  * meant to return a label that describes the accelerator keys for a given tool (e.g., 'Ctrl + M').

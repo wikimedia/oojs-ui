@@ -3,7 +3,7 @@
  */
 
 /**
- * Namespace for OOjs UI mixins.
+ * Namespace for OOUI mixins.
  *
  * Mixins are named according to the type of object they are intended to
  * be mixed in to.  For example, OO.ui.mixin.GroupElement is intended to be

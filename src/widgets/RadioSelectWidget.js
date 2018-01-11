@@ -2,7 +2,7 @@
  * RadioSelectWidget is a {@link OO.ui.SelectWidget select widget} that contains radio
  * options and is used together with OO.ui.RadioOptionWidget. The RadioSelectWidget provides
  * an interface for adding, removing and selecting options.
- * Please see the [OOjs UI documentation on MediaWiki][1] for more information.
+ * Please see the [OOUI documentation on MediaWiki][1] for more information.
  *
  * If you want to use this within an HTML form, such as a OO.ui.FormLayout, use
  * OO.ui.RadioSelectInputWidget instead.
@@ -28,7 +28,7 @@
  *
  *     $( 'body' ).append( radioSelect.$element );
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
 
  *
  * @class

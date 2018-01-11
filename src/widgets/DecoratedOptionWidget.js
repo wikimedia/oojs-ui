@@ -3,7 +3,7 @@
  * with an {@link OO.ui.mixin.IconElement icon} and/or {@link OO.ui.mixin.IndicatorElement indicator}.
  * This class is used with OO.ui.SelectWidget to create a selection of mutually exclusive
  * options. For more information about options and selects, please see the
- * [OOjs UI documentation on MediaWiki][1].
+ * [OOUI documentation on MediaWiki][1].
  *
  *     @example
  *     // Decorated options in a select widget
@@ -23,7 +23,7 @@
  *     } );
  *     $( 'body' ).append( select.$element );
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.OptionWidget

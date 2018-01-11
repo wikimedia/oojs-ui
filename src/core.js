@@ -397,7 +397,7 @@ OO.ui.infuse = function ( idOrNode ) {
 	 *
 	 *     $.i18n().load( languageMap ).done( function() {
 	 *         // Replace the built-in `msg` only once we've loaded the internationalization.
-	 *         // OOjs UI uses `OO.ui.deferMsg` for all initially-loaded messages. So long as
+	 *         // OOUI uses `OO.ui.deferMsg` for all initially-loaded messages. So long as
 	 *         // you put off creating any widgets until this promise is complete, no English
 	 *         // will be displayed.
 	 *         OO.ui.msg = $.i18n;
@@ -544,7 +544,7 @@ OO.ui.getViewportSpacing = function () {
 
 /**
  * Get the default overlay, which is used by various widgets when they are passed `$overlay: true`.
- * See <https://www.mediawiki.org/wiki/OOjs_UI/Concepts#Overlays>.
+ * See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  *
  * @return {jQuery} Default overlay node
  */

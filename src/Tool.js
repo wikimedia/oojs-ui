@@ -13,8 +13,8 @@
  * {@link OO.ui.BarToolGroup BarToolGroup}, or {@link OO.ui.MenuToolGroup MenuToolGroup}), which determine how
  * the tool is displayed in the toolbar. See {@link OO.ui.Toolbar toolbars} for an example.
  *
- * For more information, please see the [OOjs UI documentation on MediaWiki][1].
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Toolbars
+ * For more information, please see the [OOUI documentation on MediaWiki][1].
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *
  * @abstract
  * @class

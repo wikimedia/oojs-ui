@@ -520,7 +520,7 @@ OO.ui.Toolbar.prototype.releaseTool = function ( tool ) {
 /**
  * Get accelerator label for tool.
  *
- * The OOjs UI library does not contain an accelerator system, but this is the hook for one. To
+ * The OOUI library does not contain an accelerator system, but this is the hook for one. To
  * use an accelerator system, subclass the toolbar and override this method, which is meant to return a label
  * that describes the accelerator keys for the tool passed (by symbolic name) to the method.
  *

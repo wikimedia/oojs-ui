@@ -9,7 +9,7 @@
  * - Special: Special actions are the first visible actions with special flags, such as 'safe' and 'primary', the default special flags. Additional special flags can be configured in subclasses with the static #specialFlags property.
  * - Other: Other actions include all non-special visible actions.
  *
- * Please see the [OOjs UI documentation on MediaWiki][1] for more information.
+ * See the [OOUI documentation on MediaWiki][1] for more information.
  *
  *     @example
  *     // Example: An action set used in a process dialog
@@ -70,7 +70,7 @@
  *     windowManager.addWindows( [ dialog ] );
  *     windowManager.openWindow( dialog );
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs#Action_sets
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Windows/Process_Dialogs#Action_sets
  *
  * @abstract
  * @class
@@ -111,9 +111,9 @@ OO.mixinClass( OO.ui.ActionSet, OO.EventEmitter );
 /**
  * Symbolic name of the flags used to identify special actions. Special actions are displayed in the
  *  header of a {@link OO.ui.ProcessDialog process dialog}.
- *  See the [OOjs UI documentation on MediaWiki][2] for more information and examples.
+ *  See the [OOUI documentation on MediaWiki][2] for more information and examples.
  *
- *  [2]:https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs
+ *  [2]:https://www.mediawiki.org/wiki/OOUI/Windows/Process_Dialogs
  *
  * @abstract
  * @static

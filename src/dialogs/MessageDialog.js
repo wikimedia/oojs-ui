@@ -15,7 +15,7 @@
  * action (e.g., ‘ok’) and ‘reject,’ the safe action (e.g., ‘cancel’). Both will close the window,
  * passing along the selected action.
  *
- * For more information and examples, please see the [OOjs UI documentation on MediaWiki][1].
+ * For more information and examples, please see the [OOUI documentation on MediaWiki][1].
  *
  *     @example
  *     // Example: Creating and opening a message dialog window.
@@ -31,7 +31,7 @@
  *         message: 'This is the message'
  *     } );
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Message_Dialogs
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Windows/Message_Dialogs
  *
  * @class
  * @extends OO.ui.Dialog

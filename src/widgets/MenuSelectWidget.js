@@ -18,8 +18,8 @@
  *
  * Unlike most widgets, MenuSelectWidget is initially hidden and must be shown by calling #toggle.
  *
- * Please see the [OOjs UI documentation on MediaWiki][1] for more information.
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Selects_and_Options
+ * Please see the [OOUI documentation on MediaWiki][1] for more information.
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.SelectWidget

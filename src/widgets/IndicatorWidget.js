@@ -1,7 +1,7 @@
 /**
  * IndicatorWidgets create indicators, which are small graphics that are generally used to draw
  * attention to the status of an item or to clarify the function of a control. For a list of
- * indicators included in the library, please see the [OOjs UI documentation on MediaWiki][1].
+ * indicators included in the library, please see the [OOUI documentation on MediaWiki][1].
  *
  *     @example
  *     // Example of an indicator widget
@@ -16,7 +16,7 @@
  *     ] );
  *     $( 'body' ).append( fieldset.$element );
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Widgets/Icons,_Indicators,_and_Labels#Indicators
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Indicators
  *
  * @class
  * @extends OO.ui.Widget

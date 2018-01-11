@@ -20,11 +20,11 @@
  *     };
  *     toolFactory.register( SettingsTool );
  *
- * For more information, please see the [OOjs UI documentation on MediaWiki][1].
+ * For more information, please see the [OOUI documentation on MediaWiki][1].
  *
  * Please note that this implementation is subject to change per [T74159] [2].
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Toolbars#ToolGroupTool
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars#ToolGroupTool
  * [2]: https://phabricator.wikimedia.org/T74159
  *
  * @abstract

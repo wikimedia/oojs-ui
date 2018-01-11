@@ -11,7 +11,7 @@
  * a ‘primary’ action on the right (e.g., ‘Done’).
  *
  * Like other windows, the process dialog is managed by a {@link OO.ui.WindowManager window manager}.
- * Please see the [OOjs UI documentation on MediaWiki][1] for more information and examples.
+ * Please see the [OOUI documentation on MediaWiki][1] for more information and examples.
  *
  *     @example
  *     // Example: Creating and opening a process dialog window.
@@ -50,7 +50,7 @@
  *     windowManager.addWindows( [ dialog ] );
  *     windowManager.openWindow( dialog );
  *
- * [1]: https://www.mediawiki.org/wiki/OOjs_UI/Windows/Process_Dialogs
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Windows/Process_Dialogs
  *
  * @abstract
  * @class
