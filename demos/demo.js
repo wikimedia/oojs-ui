@@ -297,10 +297,10 @@ Demo.prototype.initialize = function () {
  * Will load a new page.
  */
 Demo.prototype.onModeChange = function () {
-	var page = this.pageMenu.getSelectedItem().getData(),
-		theme = this.themeSelect.getSelectedItem().getData(),
-		direction = this.directionSelect.getSelectedItem().getData(),
-		platform = this.platformSelect.getSelectedItem().getData();
+	var page = this.pageMenu.findSelectedItem().getData(),
+		theme = this.themeSelect.findSelectedItem().getData(),
+		direction = this.directionSelect.findSelectedItem().getData(),
+		platform = this.platformSelect.findSelectedItem().getData();
 
 	history.pushState( null, document.title, this.getUrlQuery( [ page, theme, direction, platform ] ) );
 	$( window ).triggerHandler( 'popstate' );

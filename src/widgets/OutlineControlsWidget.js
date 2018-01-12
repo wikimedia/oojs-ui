@@ -119,7 +119,7 @@ OO.ui.OutlineControlsWidget.prototype.setAbilities = function ( abilities ) {
 OO.ui.OutlineControlsWidget.prototype.onOutlineChange = function () {
 	var i, len, firstMovable, lastMovable,
 		items = this.outline.getItems(),
-		selectedItem = this.outline.getSelectedItem(),
+		selectedItem = this.outline.findSelectedItem(),
 		movable = this.abilities.move && selectedItem && selectedItem.isMovable(),
 		removable = this.abilities.remove && selectedItem && selectedItem.isRemovable();
 

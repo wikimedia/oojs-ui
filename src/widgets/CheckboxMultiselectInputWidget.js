@@ -50,7 +50,7 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 
 	// setValue when checkboxMultiselectWidget changes
 	this.checkboxMultiselectWidget.on( 'change', function () {
-		this.setValue( this.checkboxMultiselectWidget.getSelectedItemsData() );
+		this.setValue( this.checkboxMultiselectWidget.findSelectedItemsData() );
 	}.bind( this ) );
 };
 

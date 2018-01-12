@@ -522,7 +522,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 
 	if ( name !== this.currentPageName ) {
 		if ( this.outlined ) {
-			selectedItem = this.outlineSelectWidget.getSelectedItem();
+			selectedItem = this.outlineSelectWidget.findSelectedItem();
 			if ( selectedItem && selectedItem.getData() !== name ) {
 				this.outlineSelectWidget.selectItemByData( name );
 			}
@@ -568,7 +568,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
  * @chainable
  */
 OO.ui.BookletLayout.prototype.selectFirstSelectablePage = function () {
-	if ( !this.outlineSelectWidget.getSelectedItem() ) {
+	if ( !this.outlineSelectWidget.findSelectedItem() ) {
 		this.outlineSelectWidget.selectItem( this.outlineSelectWidget.findFirstSelectableItem() );
 	}
 

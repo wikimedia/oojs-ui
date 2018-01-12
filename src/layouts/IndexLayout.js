@@ -391,7 +391,7 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
 		previousTabPanel = this.currentTabPanelName && this.tabPanels[ this.currentTabPanelName ];
 
 	if ( name !== this.currentTabPanelName ) {
-		selectedItem = this.tabSelectWidget.getSelectedItem();
+		selectedItem = this.tabSelectWidget.findSelectedItem();
 		if ( selectedItem && selectedItem.getData() !== name ) {
 			this.tabSelectWidget.selectItemByData( name );
 		}
@@ -436,7 +436,7 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
  * @chainable
  */
 OO.ui.IndexLayout.prototype.selectFirstSelectableTabPanel = function () {
-	if ( !this.tabSelectWidget.getSelectedItem() ) {
+	if ( !this.tabSelectWidget.findSelectedItem() ) {
 		this.tabSelectWidget.selectItem( this.tabSelectWidget.findFirstSelectableItem() );
 	}
 

@@ -248,7 +248,7 @@ OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
  * @chainable
  */
 OO.ui.mixin.LookupElement.prototype.initializeLookupMenuSelection = function () {
-	if ( this.lookupHighlightFirstItem && !this.lookupMenu.getSelectedItem() ) {
+	if ( this.lookupHighlightFirstItem && !this.lookupMenu.findSelectedItem() ) {
 		this.lookupMenu.highlightItem( this.lookupMenu.findFirstSelectableItem() );
 	}
 };

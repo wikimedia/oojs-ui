@@ -119,7 +119,7 @@ OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
-	var currentItem = this.findHighlightedItem() || this.getSelectedItem();
+	var currentItem = this.findHighlightedItem() || this.findSelectedItem();
 
 	if ( !this.isDisabled() && this.isVisible() ) {
 		switch ( e.keyCode ) {
@@ -375,9 +375,9 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 
 			this.$focusOwner.attr( 'aria-expanded', 'true' );
 
-			if ( this.getSelectedItem() ) {
-				this.$focusOwner.attr( 'aria-activedescendant', this.getSelectedItem().getElementId() );
-				this.getSelectedItem().scrollElementIntoView( { duration: 0 } );
+			if ( this.findSelectedItem() ) {
+				this.$focusOwner.attr( 'aria-activedescendant', this.findSelectedItem().getElementId() );
+				this.findSelectedItem().scrollElementIntoView( { duration: 0 } );
 			}
 
 			// Auto-hide

@@ -152,7 +152,7 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
 	if ( event.target === this.$element[ 0 ] ) {
 		// This widget was focussed, e.g. by the user tabbing to it.
 		// The styles for focus state depend on one of the items being selected.
-		if ( !this.getSelectedItem() ) {
+		if ( !this.findSelectedItem() ) {
 			item = this.findFirstSelectableItem();
 		}
 	} else {
@@ -289,7 +289,7 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
 OO.ui.SelectWidget.prototype.onKeyDown = function ( e ) {
 	var nextItem,
 		handled = false,
-		currentItem = this.findHighlightedItem() || this.getSelectedItem();
+		currentItem = this.findHighlightedItem() || this.findSelectedItem();
 
 	if ( !this.isDisabled() && this.isVisible() ) {
 		switch ( e.keyCode ) {
@@ -415,7 +415,7 @@ OO.ui.SelectWidget.prototype.onKeyPress = function ( e ) {
 	}
 	this.keyPressBufferTimer = setTimeout( this.clearKeyPressBuffer.bind( this ), 1500 );
 
-	item = this.findHighlightedItem() || this.getSelectedItem();
+	item = this.findHighlightedItem() || this.findSelectedItem();
 
 	if ( this.keyPressBuffer === c ) {
 		// Common (if weird) special case: typing "xxxx" will cycle through all

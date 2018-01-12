@@ -32,7 +32,7 @@
  *
  *     dropDown.getMenu().selectItemByData( 'b' );
  *
- *     dropDown.getMenu().getSelectedItem().getData(); // returns 'b'
+ *     dropDown.getMenu().findSelectedItem().getData(); // returns 'b'
  *
  * For more information, please see the [OOUI documentation on MediaWiki] [1].
  *
