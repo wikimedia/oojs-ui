@@ -417,35 +417,23 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'multiline' => true,
-				'value' => "Multiline\nMultiline"
-			] ),
-			[
-				'label' => "TextInputWidget (multiline; deprecated)\xE2\x80\x8E",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'multiline' => true,
+			new OOUI\MultilineTextInputWidget( [
 				'rows' => 15,
 				'value' => "Multiline\nMultiline"
 			] ),
 			[
-				'label' => "TextInputWidget (multiline, rows=15)\xE2\x80\x8E",
+				'label' => "MultilineTextInputWidget (rows=15)\xE2\x80\x8E",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'multiline' => true,
+			new OOUI\MultilineTextInputWidget( [
 				'value' => "Multiline\nMultiline",
 				'icon' => 'tag',
 				'indicator' => 'required'
 			] ),
 			[
-				'label' => "TextInputWidget (multiline, icon, indicator)\xE2\x80\x8E",
+				'label' => "MultilineTextInputWidget (icon, indicator)\xE2\x80\x8E",
 				'align' => 'top'
 			]
 		)
