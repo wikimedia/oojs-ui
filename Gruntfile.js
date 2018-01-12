@@ -17,7 +17,7 @@ module.exports = function ( grunt ) {
 		concatJsFiles = {},
 		concatOmnibus = {},
 		rtlFiles = {},
-		minBanner = '/*! OOjs UI v<%= pkg.version %> | http://oojs.mit-license.org */';
+		minBanner = '/*! OOUI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );

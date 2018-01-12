@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="OOjs UI">
+<ruleset name="OOUI">
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<!-- Disabled because "@param string $config['foo']" confuses it -->
 		<exclude name="MediaWiki.Commenting.FunctionComment.ExtraParamComment" />

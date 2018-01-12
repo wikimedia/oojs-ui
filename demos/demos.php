@@ -81,7 +81,7 @@
 <html lang="en" dir="<?php echo $direction; ?>">
 <head>
 	<meta charset="UTF-8">
-	<title>OOjs UI Widget Demo</title>
+	<title>OOUI Widget Demo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		foreach ( $urls as $url ) {

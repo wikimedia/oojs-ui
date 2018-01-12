@@ -18,7 +18,7 @@
 <html lang="en" dir="ltr">
 <head>
 	<meta charset="UTF-8">
-	<title>OOjs UI Test Suite</title>
+	<title>OOUI Test Suite</title>
 	<link rel="stylesheet" href="../node_modules/qunitjs/qunit/qunit.css">
 	<script src="../node_modules/qunitjs/qunit/qunit.js"></script>
 	<script src="./QUnit.assert.equalDomElement.js"></script>

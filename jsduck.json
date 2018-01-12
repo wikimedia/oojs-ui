@@ -1,5 +1,5 @@
 {
-	"--title": "OOjs UI - Documentation",
+	"--title": "OOUI - Documentation",
 	"--output": "docs",
 	"--categories": "./jsduck.categories.json",
 	"--eg-iframe": "./jsduck.eg-iframe.html",

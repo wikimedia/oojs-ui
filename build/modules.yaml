@@ -15,7 +15,7 @@
 			"src/Widget.js",
 			"src/Theme.js",
 
-			# Basic element mixins. These should be the same classes that are supported in OOjs UI PHP.
+			# Basic element mixins. These should be the same classes that are supported in OOUI PHP.
 			"src/mixins/TabIndexedElement.js",
 			"src/mixins/ButtonElement.js",
 			"src/mixins/GroupElement.js",
@@ -26,8 +26,8 @@
 			"src/mixins/TitledElement.js",
 			"src/mixins/AccessKeyedElement.js",
 
-			# The basic widgets and layouts. These should be the same classes that are supported in OOjs
-			# UI PHP. (Continued below, as some dependencies below depend on these.)
+			# The basic widgets and layouts. These should be the same classes that are supported in
+			# OOUI PHP. (Continued below, as some dependencies below depend on these.)
 			"src/widgets/ButtonWidget.js",
 			"src/widgets/ButtonGroupWidget.js",
 			"src/widgets/IconWidget.js",
@@ -87,7 +87,7 @@
 			"src/layouts/HorizontalLayout.js"
 		]
 	},
-	# Additional widgets and layouts module. These have no equivalent in OOjs UI PHP.
+	# Additional widgets and layouts module. These have no equivalent in OOUI PHP.
 	"oojs-ui-widgets": {
 		"scripts": [
 			"src/mixins/DraggableElement.js",

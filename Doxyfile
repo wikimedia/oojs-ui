@@ -1,7 +1,7 @@
 # Configuration file for Doxygen
 
-PROJECT_NAME           = "OOjs UI"
-PROJECT_BRIEF          = "Object-Oriented JavaScript – User Interface"
+PROJECT_NAME           = "OOUI"
+PROJECT_BRIEF          = "Object-Oriented User Interface"
 
 OUTPUT_DIRECTORY       = doc
 
