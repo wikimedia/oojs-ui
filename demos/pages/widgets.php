@@ -430,7 +430,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			new OOUI\MultilineTextInputWidget( [
 				'value' => "Multiline\nMultiline",
 				'icon' => 'tag',
-				'indicator' => 'required'
+				'indicator' => 'alert'
 			] ),
 			[
 				'label' => "MultilineTextInputWidget (icon, indicator)\xE2\x80\x8E",

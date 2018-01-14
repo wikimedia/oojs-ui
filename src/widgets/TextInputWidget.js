@@ -35,7 +35,8 @@
  * @cfg {number} [maxLength] Maximum number of characters allowed in the input.
  * @cfg {string} [labelPosition='after'] The position of the inline label relative to that of
  *  the value or placeholder text: `'before'` or `'after'`
- * @cfg {boolean} [required=false] Mark the field as required. Implies `indicator: 'required'`.
+ * @cfg {boolean} [required=false] Mark the field as required with `true`. Implies `indicator: 'required'`.
+ *  Note that `false` & setting `indicator: 'required' will result in no indicator shown.
  * @cfg {boolean} [autocomplete=true] Should the browser support autocomplete for this field
  * @cfg {boolean} [spellcheck] Should the browser support spellcheck for this field (`undefined` means
  *  leaving it up to the browser).
