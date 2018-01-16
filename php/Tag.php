@@ -279,7 +279,7 @@ class Tag {
 	 */
 	public static function generateElementId() {
 		self::$elementId++;
-		return 'ooui-' . self::$elementId;
+		return 'ooui-php-' . self::$elementId;
 	}
 
 	/**
