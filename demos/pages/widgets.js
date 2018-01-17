@@ -220,7 +220,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
-						indicator: 'alert',
+						indicator: 'clear',
 						title: 'Indicator only, framed'
 					} ),
 					{
@@ -242,7 +242,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						framed: false,
-						indicator: 'alert',
+						indicator: 'clear',
 						title: 'Indicator only'
 					} ),
 					{
@@ -457,7 +457,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								label: 'Two'
 							} ),
 							new OO.ui.ButtonWidget( {
-								indicator: 'alert',
+								indicator: 'clear',
 								label: 'Three'
 							} )
 						]
@@ -514,7 +514,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								label: 'Two'
 							} ),
 							new OO.ui.ToggleButtonWidget( {
-								indicator: 'alert',
+								indicator: 'clear',
 								label: 'Three'
 							} )
 						]
@@ -538,7 +538,7 @@ Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'd',
-								indicator: 'alert',
+								indicator: 'clear',
 								label: 'Three'
 							} )
 						]
@@ -563,7 +563,7 @@ Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'd',
-								indicator: 'alert',
+								indicator: 'clear',
 								label: 'Three'
 							} )
 						]
@@ -588,7 +588,7 @@ Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'd',
-								indicator: 'alert',
+								indicator: 'clear',
 								label: 'Three'
 							} )
 						]
@@ -757,7 +757,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.MultilineTextInputWidget( {
 						autosize: true,
 						icon: 'tag',
-						indicator: 'alert',
+						indicator: 'clear',
 						label: 'Inline label',
 						value: 'Autosize\nAutosize\nAutosize\nAutosize'
 					} ),
@@ -790,7 +790,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
 						icon: 'tag',
-						indicator: 'alert',
+						indicator: 'clear',
 						value: 'Text input with label',
 						label: 'Inline label'
 					} ),
@@ -802,7 +802,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
 						icon: 'tag',
-						indicator: 'alert',
+						indicator: 'clear',
 						value: 'Text input with label',
 						label: 'Inline label',
 						labelPosition: 'before'
@@ -816,7 +816,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TextInputWidget( {
 						value: 'Disabled',
 						icon: 'tag',
-						indicator: 'alert',
+						indicator: 'clear',
 						label: 'Inline label',
 						disabled: true
 					} ),
@@ -1184,7 +1184,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								new OO.ui.MenuOptionWidget( {
 									data: 'b',
 									label: 'Second',
-									indicator: 'alert'
+									indicator: 'clear'
 								} ),
 								new OO.ui.MenuOptionWidget( {
 									data: 'c',
@@ -1220,7 +1220,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								new OO.ui.MenuOptionWidget( {
 									data: 'b',
 									label: 'Disabled second option',
-									indicator: 'alert',
+									indicator: 'clear',
 									disabled: true
 								} ),
 								new OO.ui.MenuOptionWidget( {
@@ -1654,7 +1654,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {
 						icon: 'tag',
-						indicator: 'alert'
+						indicator: 'clear'
 					} ),
 					{
 						label: 'SelectFileWidget (icon, indicator)\u200E',
@@ -1664,7 +1664,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {
 						icon: 'tag',
-						indicator: 'alert',
+						indicator: 'clear',
 						disabled: true
 					} ),
 					{
@@ -1769,7 +1769,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.PopupTagMultiselectWidget( {
 						allowArbitrary: true,
 						icon: 'tag',
-						indicator: 'alert'
+						indicator: 'clear'
 					} ),
 					{
 						label: 'PopupTagMultiselectWidget (icon, indicator, allowArbitrary)',
@@ -1873,7 +1873,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.CapsuleMultiselectWidget( {
 						allowArbitrary: true,
 						icon: 'tag',
-						indicator: 'alert',
+						indicator: 'clear',
 						menu: {
 							items: [
 								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
@@ -1894,7 +1894,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.CapsuleMultiselectWidget( {
 						disabled: true,
 						icon: 'tag',
-						indicator: 'alert',
+						indicator: 'clear',
 						menu: {
 							items: [
 								new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Label for abc' } ),
@@ -2350,7 +2350,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.IndicatorWidget( {
-						indicator: 'alert',
+						indicator: 'clear',
 						title: 'Required indicator'
 					} ),
 					{
@@ -2360,7 +2360,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.IndicatorWidget( {
-						indicator: 'alert',
+						indicator: 'clear',
 						title: 'Required indicator',
 						disabled: true
 					} ),
@@ -2827,7 +2827,7 @@ Demo.static.pages.widgets = function ( demo ) {
 										label: 'Two'
 									} ),
 									new OO.ui.ButtonOptionWidget( {
-										indicator: 'alert',
+										indicator: 'clear',
 										label: 'Three'
 									} )
 								]

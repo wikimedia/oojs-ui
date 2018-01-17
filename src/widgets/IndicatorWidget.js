@@ -1,18 +1,18 @@
 /**
  * IndicatorWidgets create indicators, which are small graphics that are generally used to draw
- * attention to the status of an item or to clarify the function of a control. For a list of
+ * attention to the status of an item or to clarify the function within a control. For a list of
  * indicators included in the library, please see the [OOUI documentation on MediaWiki][1].
  *
  *     @example
  *     // Example of an indicator widget
  *     var indicator1 = new OO.ui.IndicatorWidget( {
- *         indicator: 'alert'
+ *         indicator: 'required'
  *     } );
  *
  *     // Create a fieldset layout to add a label
  *     var fieldset = new OO.ui.FieldsetLayout();
  *     fieldset.addItems( [
- *         new OO.ui.FieldLayout( indicator1, { label: 'An alert indicator:' } )
+ *         new OO.ui.FieldLayout( indicator1, { label: 'A required indicator:' } )
  *     ] );
  *     $( 'body' ).append( fieldset.$element );
  *

@@ -19,7 +19,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$indicator] The indicator element created by the class. If this
  *  configuration is omitted, the indicator element will use a generated `<span>`.
- * @cfg {string} [indicator] Symbolic name of the indicator (e.g., ‘alert’ or  ‘down’).
+ * @cfg {string} [indicator] Symbolic name of the indicator (e.g., ‘clear’ or ‘down’).
  *  See the [OOUI documentation on MediaWiki][2] for a list of indicators included
  *  in the library.
  * [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Indicators
@@ -49,7 +49,7 @@ OO.initClass( OO.ui.mixin.IndicatorElement );
 /* Static Properties */
 
 /**
- * Symbolic name of the indicator (e.g., ‘alert’ or  ‘down’).
+ * Symbolic name of the indicator (e.g., ‘clear’ or  ‘down’).
  * The static property will be overridden if the #indicator configuration is used.
  *
  * @static
@@ -95,7 +95,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicatorElement = function ( $indicat
 };
 
 /**
- * Set the indicator by its symbolic name: ‘alert’, ‘down’, ‘next’, ‘previous’, ‘required’, ‘up’. Use `null` to remove the indicator.
+ * Set the indicator by its symbolic name: ‘clear’, ‘down’, ‘required’, ‘search’, ‘up’. Use `null` to remove the indicator.
  *
  * @param {string|null} indicator Symbolic name of indicator, or `null` for no indicator
  * @chainable
@@ -150,7 +150,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorT
 };
 
 /**
- * Get the symbolic name of the indicator (e.g., ‘alert’ or  ‘down’).
+ * Get the symbolic name of the indicator (e.g., ‘clear’ or  ‘down’).
  *
  * @return {string} Symbolic name of indicator
  */
