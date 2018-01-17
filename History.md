@@ -1,4 +1,16 @@
 # OOUI Release History
+## v0.25.1 / 2018-01-16
+### Code
+* Allow other stuff to handle the event when we call `simulateLabelClick()` (Bartosz Dziewoński)
+* Follow-Up I0f1d9c1f: Update usages of `getSelectedItem` -> `findSelectedItem` (Ed Sanders)
+* PanelLayout: Remove buggy `translateZ` performance hack (Volker E.)
+* PopupToolGroup: Revert "Fix popup direction changing…" (Bartosz Dziewoński)
+* Rename prefixes of unique IDs to not mention "OOjs" (Bartosz Dziewoński)
+* build, demos, docs: Use “OOUI” as unified name (Volker E.)
+* demos: Use MultilineTextInputWidget in PHP demos (Ed Sanders)
+* docs: Clarify `required` true handling with `indicator: 'required'` (Volker E.)
+* docs: Use “OOUI” as unified name in code comments (Volker E.)
+
 ## v0.25.0 / 2018-01-09
 ### Breaking changes
 * [BREAKING CHANGE] Drop the `constructive` flag entirely (James D. Forrester)
