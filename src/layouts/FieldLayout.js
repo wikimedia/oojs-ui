@@ -114,7 +114,6 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	} else {
 		this.$label.on( 'click', function () {
 			this.fieldWidget.simulateLabelClick();
-			return false;
 		}.bind( this ) );
 	}
 	this.$element
