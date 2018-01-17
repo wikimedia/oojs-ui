@@ -251,14 +251,6 @@
 	&-padded&-framed {
 		margin: 1em 0;
 	}
-
-	// Support Safari (Webkit), see T176837:
-	// When promoted to GPU composite layer through
-	// `.oo-ui-force-gpu-composite-layer()` while not applying a `background-color`
-	// results in blurry text
-	&-scrollable {
-		background-color: @background-color-base;
-	}
 }
 
 .theme-oo-ui-tabPanelLayout () {}
