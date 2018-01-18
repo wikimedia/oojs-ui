@@ -4,7 +4,6 @@
 	"homepage": "https://www.mediawiki.org/wiki/OOUI",
 	"license": "MIT",
 	"require": {
-		"mediawiki/at-ease": "1.1.0",
 		"php": ">=5.5.9"
 	},
 	"authors": [
