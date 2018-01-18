@@ -196,7 +196,6 @@ Demo.static.pages.icons = function ( demo ) {
 			]
 		},
 		indicators = [
-			'alert',
 			'clear',
 			'down',
 			'required',
