@@ -7,14 +7,14 @@
 	bottom: 0;
 
 	&-expanded,
-	&-expanded .oo-ui-menuLayout-menu,
-	&-expanded .oo-ui-menuLayout-content {
+	&-expanded > .oo-ui-menuLayout-menu,
+	&-expanded > .oo-ui-menuLayout-content {
 		position: absolute;
 	}
 
 	// If anything overflows out of the menu, display it on top of the content,
 	// as it's probably some important interactive widget.
-	&-expanded .oo-ui-menuLayout-menu {
+	&-expanded > .oo-ui-menuLayout-menu {
 		z-index: 1;
 	}
 
@@ -24,27 +24,27 @@
 			display: table;
 			width: 100%;
 
-			.oo-ui-menuLayout-menu,
-			.oo-ui-menuLayout-content {
+			> .oo-ui-menuLayout-menu,
+			> .oo-ui-menuLayout-content {
 				display: table-cell;
 				vertical-align: top;
 			}
 		}
 	}
 
-	&-menu,
-	&-content {
+	> .oo-ui-menuLayout-menu,
+	> .oo-ui-menuLayout-content {
 		.oo-ui-transition( all 200ms ease );
 	}
 
 	// These are overridden with 'auto' or '0' later
-	&-menu {
+	> .oo-ui-menuLayout-menu {
 		height: 18em;
 		width: 18em;
 	}
 
 	// These are overridden with 'auto' or '0' later
-	&-content {
+	> .oo-ui-menuLayout-content {
 		top: 18em;
 		left: 18em;
 		right: 18em;

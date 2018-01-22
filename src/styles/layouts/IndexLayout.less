@@ -1,19 +1,20 @@
 @import '../common';
 
 .oo-ui-indexLayout {
-	> .oo-ui-menuLayout-menu {
+	/* Use two classes to ensure increased specificity over menuLayout */
+	&.oo-ui-menuLayout > .oo-ui-menuLayout-menu {
 		height: auto;
 	}
 
 	&.oo-ui-menuLayout-expanded {
-		> .oo-ui-menuLayout-menu {
+		&.oo-ui-menuLayout > .oo-ui-menuLayout-menu {
 			height: 3em;
 			// Because the height is hardcoded, we have to disallow wrapping of the tabs,
 			// as they would overlap the content. They'll scroll horizontally instead.
 			white-space: nowrap;
 		}
 
-		> .oo-ui-menuLayout-content {
+		&.oo-ui-menuLayout > .oo-ui-menuLayout-content {
 			top: 3em;
 		}
 	}
