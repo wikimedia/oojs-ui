@@ -388,7 +388,7 @@ OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
 OO.ui.Toolbar.prototype.onWindowResize = function () {
 	this.$element.toggleClass(
 		'oo-ui-toolbar-narrow',
-		this.$bar.width() <= this.getNarrowThreshold()
+		this.$bar[ 0 ].clientWidth <= this.getNarrowThreshold()
 	);
 };
 
@@ -401,7 +401,7 @@ OO.ui.Toolbar.prototype.onWindowResize = function () {
  */
 OO.ui.Toolbar.prototype.getNarrowThreshold = function () {
 	if ( this.narrowThreshold === null ) {
-		this.narrowThreshold = this.$group.width() + this.$actions.width();
+		this.narrowThreshold = this.$group[ 0 ].offsetWidth + this.$actions[ 0 ].offsetWidth;
 	}
 	return this.narrowThreshold;
 };
