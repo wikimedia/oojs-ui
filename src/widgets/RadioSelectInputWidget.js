@@ -138,16 +138,9 @@ OO.ui.RadioSelectInputWidget.prototype.setOptions = function ( options ) {
 			} );
 		} ) );
 
-	// Restore the previous value, or reset to something sensible
-	if ( this.radioSelectWidget.findItemFromData( value ) ) {
-		// Previous value is still available, ensure consistency with the radioSelect
-		this.setValue( value );
-	} else {
-		// No longer valid, reset
-		if ( options.length ) {
-			this.setValue( options[ 0 ].data );
-		}
-	}
+	// Re-set the value to update the visible interface (RadioSelectWidget).
+	// In case the previous value is no longer an available option, select the first valid one.
+	this.setValue( value );
 
 	return this;
 };

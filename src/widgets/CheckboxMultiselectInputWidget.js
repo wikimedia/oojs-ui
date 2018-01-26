@@ -174,7 +174,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options )
 			return item;
 		} ) );
 
-	// Re-set the value, checking the checkboxes as needed.
+	// Re-set the value to update the visible interface (CheckboxMultiselectWidget).
 	// This will also get rid of any stale options that we just removed.
 	this.setValue( this.getValue() );
 

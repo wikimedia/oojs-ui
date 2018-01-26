@@ -150,16 +150,9 @@ OO.ui.DropdownInputWidget.prototype.setOptions = function ( options ) {
 	} );
 	this.dropdownWidget.getMenu().addItems( optionWidgets );
 
-	// Restore the previous value, or reset to something sensible
-	if ( this.dropdownWidget.getMenu().findItemFromData( value ) ) {
-		// Previous value is still available, ensure consistency with the dropdown
-		this.setValue( value );
-	} else {
-		// No longer valid, reset
-		if ( options.length ) {
-			this.setValue( options[ 0 ].data );
-		}
-	}
+	// Re-set the value to update the visible interface (DropdownWidget and <select>).
+	// In case the previous value is no longer an available option, select the first valid one.
+	this.setValue( value );
 
 	return this;
 };
