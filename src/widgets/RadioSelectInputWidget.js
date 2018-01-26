@@ -96,8 +96,13 @@ OO.ui.RadioSelectInputWidget.prototype.onMenuSelect = function ( item ) {
  * @inheritdoc
  */
 OO.ui.RadioSelectInputWidget.prototype.setValue = function ( value ) {
+	var selected;
 	value = this.cleanUpValue( value );
-	this.radioSelectWidget.selectItemByData( value );
+	// Only allow setting values that are actually present in the dropdown
+	selected = this.radioSelectWidget.findItemFromData( value ) ||
+		this.radioSelectWidget.findFirstSelectableItem();
+	this.radioSelectWidget.selectItem( selected );
+	value = selected ? selected.getData() : '';
 	OO.ui.RadioSelectInputWidget.parent.prototype.setValue.call( this, value );
 	return this;
 };
