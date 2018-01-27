@@ -113,6 +113,13 @@ OO.ui.CheckboxInputWidget.prototype.setSelected = function ( state ) {
 		this.$input.prop( 'checked', this.selected );
 		this.emit( 'change', this.selected );
 	}
+	// The first time that the selection state is set (probably while constructing the widget),
+	// remember it in defaultSelected. This property can be later used to check whether
+	// the selection state of the input has been changed since it was created.
+	if ( this.defaultSelected === undefined ) {
+		this.defaultSelected = this.selected;
+		this.$input[ 0 ].defaultChecked = this.defaultSelected;
+	}
 	return this;
 };
 

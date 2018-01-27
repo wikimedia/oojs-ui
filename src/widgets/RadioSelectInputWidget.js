@@ -81,7 +81,9 @@ OO.ui.RadioSelectInputWidget.static.reusePreInfuseDOM = function ( node, config 
  * @protected
  */
 OO.ui.RadioSelectInputWidget.prototype.getInputElement = function () {
-	return $( '<input>' ).attr( 'type', 'hidden' );
+	// Use this instead of <input type="hidden">, because hidden inputs do not have separate
+	// 'value' and 'defaultValue' properties, and InputWidget wants to handle 'defaultValue'.
+	return $( '<input>' ).addClass( 'oo-ui-element-hidden' );
 };
 
 /**

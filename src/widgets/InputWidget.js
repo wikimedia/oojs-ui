@@ -181,6 +181,13 @@ OO.ui.InputWidget.prototype.setValue = function ( value ) {
 		this.value = value;
 		this.emit( 'change', this.value );
 	}
+	// The first time that the value is set (probably while constructing the widget),
+	// remember it in defaultValue. This property can be later used to check whether
+	// the value of the input has been changed since it was created.
+	if ( this.defaultValue === undefined ) {
+		this.defaultValue = this.value;
+		this.$input[ 0 ].defaultValue = this.defaultValue;
+	}
 	return this;
 };
 

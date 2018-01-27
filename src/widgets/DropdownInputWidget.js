@@ -172,6 +172,7 @@ OO.ui.DropdownInputWidget.prototype.setOptionsData = function ( options ) {
 OO.ui.DropdownInputWidget.prototype.updateOptionsInterface = function () {
 	var
 		$optionsContainer = this.$input,
+		defaultValue = this.defaultValue,
 		widget = this;
 
 	this.$input.empty();
@@ -183,6 +184,11 @@ OO.ui.DropdownInputWidget.prototype.updateOptionsInterface = function () {
 			$optionNode = $( '<option>' )
 				.attr( 'value', optionWidget.getData() )
 				.text( optionWidget.getLabel() );
+
+			// Remember original selection state. This property can be later used to check whether
+			// the selection state of the input has been changed since it was created.
+			$optionNode[ 0 ].defaultSelected = ( optionWidget.getData() === defaultValue );
+
 			$optionsContainer.append( $optionNode );
 		} else {
 			$optionNode = $( '<optgroup>' )

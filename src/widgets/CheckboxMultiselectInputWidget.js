@@ -117,6 +117,11 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setValue = function ( value ) {
 	value = this.cleanUpValue( value );
 	this.checkboxMultiselectWidget.selectItemsByData( value );
 	OO.ui.CheckboxMultiselectInputWidget.parent.prototype.setValue.call( this, value );
+	if ( this.optionsDirty ) {
+		// We reached this from the constructor or from #setOptions.
+		// We have to update the <select> element.
+		this.updateOptionsInterface();
+	}
 	return this;
 };
 
@@ -183,6 +188,8 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options )
 OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( options ) {
 	var widget = this;
 
+	this.optionsDirty = true;
+
 	this.checkboxMultiselectWidget
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
@@ -200,6 +207,27 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( optio
 			item.checkbox.setValue( optValue );
 			return item;
 		} ) );
+};
+
+/**
+ * Update the user-visible interface to match the internal list of options and value.
+ *
+ * This method must only be called after the parent constructor.
+ *
+ * @private
+ */
+OO.ui.CheckboxMultiselectInputWidget.prototype.updateOptionsInterface = function () {
+	var defaultValue = this.defaultValue;
+
+	this.checkboxMultiselectWidget.getItems().forEach( function ( item ) {
+		// Remember original selection state. This property can be later used to check whether
+		// the selection state of the input has been changed since it was created.
+		var isDefault = defaultValue.indexOf( item.getData() ) !== -1;
+		item.checkbox.defaultSelected = isDefault;
+		item.checkbox.$input[ 0 ].defaultChecked = isDefault;
+	} );
+
+	this.optionsDirty = false;
 };
 
 /**

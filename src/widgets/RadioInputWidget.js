@@ -103,6 +103,13 @@ OO.ui.RadioInputWidget.prototype.onEdit = function () {
 OO.ui.RadioInputWidget.prototype.setSelected = function ( state ) {
 	// RadioInputWidget doesn't track its state.
 	this.$input.prop( 'checked', state );
+	// The first time that the selection state is set (probably while constructing the widget),
+	// remember it in defaultSelected. This property can be later used to check whether
+	// the selection state of the input has been changed since it was created.
+	if ( this.defaultSelected === undefined ) {
+		this.defaultSelected = state;
+		this.$input[ 0 ].defaultChecked = this.defaultSelected;
+	}
 	return this;
 };
 
