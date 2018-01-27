@@ -38,6 +38,9 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 	// Properties
 	this.inputName = config.name;
 
+	// Events
+	this.checkboxMultiselectWidget.connect( this, { select: 'onCheckboxesSelect' } );
+
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-checkboxMultiselectInputWidget' )
@@ -47,11 +50,6 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 	this.setOptions( config.options || [] );
 	// Have to repeat this from parent, as we need options to be set up for this to make sense
 	this.setValue( config.value );
-
-	// setValue when checkboxMultiselectWidget changes
-	this.checkboxMultiselectWidget.on( 'change', function () {
-		this.setValue( this.checkboxMultiselectWidget.findSelectedItemsData() );
-	}.bind( this ) );
 };
 
 /* Setup */
@@ -89,6 +87,15 @@ OO.ui.CheckboxMultiselectInputWidget.static.reusePreInfuseDOM = function ( node,
 OO.ui.CheckboxMultiselectInputWidget.prototype.getInputElement = function () {
 	// Actually unused
 	return $( '<unused>' );
+};
+
+/**
+ * Handles CheckboxMultiselectWidget select events.
+ *
+ * @private
+ */
+OO.ui.CheckboxMultiselectInputWidget.prototype.onCheckboxesSelect = function () {
+	this.setValue( this.checkboxMultiselectWidget.findSelectedItemsData() );
 };
 
 /**
