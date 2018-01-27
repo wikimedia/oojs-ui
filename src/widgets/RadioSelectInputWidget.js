@@ -32,6 +32,9 @@ OO.ui.RadioSelectInputWidget = function OoUiRadioSelectInputWidget( config ) {
 
 	// Properties (must be done before parent constructor which calls #setDisabled)
 	this.radioSelectWidget = new OO.ui.RadioSelectWidget();
+	// Set up the options before parent constructor, which uses them to validate config.value.
+	// Use this instead of setOptions() because this.$input is not set up yet
+	this.setOptionsData( config.options || [] );
 
 	// Parent constructor
 	OO.ui.RadioSelectInputWidget.parent.call( this, config );
@@ -40,7 +43,6 @@ OO.ui.RadioSelectInputWidget = function OoUiRadioSelectInputWidget( config ) {
 	this.radioSelectWidget.connect( this, { select: 'onMenuSelect' } );
 
 	// Initialization
-	this.setOptions( config.options || [] );
 	this.$element
 		.addClass( 'oo-ui-radioSelectInputWidget' )
 		.append( this.radioSelectWidget.$element );
@@ -123,11 +125,29 @@ OO.ui.RadioSelectInputWidget.prototype.setDisabled = function ( state ) {
  * @chainable
  */
 OO.ui.RadioSelectInputWidget.prototype.setOptions = function ( options ) {
-	var
-		value = this.getValue(),
-		widget = this;
+	var value = this.getValue();
 
-	// Rebuild the radioSelect menu
+	this.setOptionsData( options );
+
+	// Re-set the value to update the visible interface (RadioSelectWidget).
+	// In case the previous value is no longer an available option, select the first valid one.
+	this.setValue( value );
+
+	return this;
+};
+
+/**
+ * Set the internal list of options, used e.g. by setValue() to see which options are allowed.
+ *
+ * This method may be called before the parent constructor, so various properties may not be
+ * intialized yet.
+ *
+ * @param {Object[]} options Array of menu options in the format `{ data: …, label: … }`
+ * @private
+ */
+OO.ui.RadioSelectInputWidget.prototype.setOptionsData = function ( options ) {
+	var widget = this;
+
 	this.radioSelectWidget
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
@@ -137,12 +157,6 @@ OO.ui.RadioSelectInputWidget.prototype.setOptions = function ( options ) {
 				label: opt.label !== undefined ? opt.label : optValue
 			} );
 		} ) );
-
-	// Re-set the value to update the visible interface (RadioSelectWidget).
-	// In case the previous value is no longer an available option, select the first valid one.
-	this.setValue( value );
-
-	return this;
 };
 
 /**

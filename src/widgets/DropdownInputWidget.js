@@ -37,6 +37,9 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 
 	// Properties (must be done before parent constructor which calls #setDisabled)
 	this.dropdownWidget = new OO.ui.DropdownWidget( config.dropdown );
+	// Set up the options before parent constructor, which uses them to validate config.value.
+	// Use this instead of setOptions() because this.$input is not set up yet.
+	this.setOptionsData( config.options || [] );
 
 	// Parent constructor
 	OO.ui.DropdownInputWidget.parent.call( this, config );
@@ -45,10 +48,6 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	this.dropdownWidget.getMenu().connect( this, { select: 'onMenuSelect' } );
 
 	// Initialization
-	this.setOptions( config.options || [] );
-	// Set the value again, after we did setOptions(). The call from parent doesn't work because the
-	// widget has no valid options when it happens.
-	this.setValue( config.value );
 	this.$element
 		.addClass( 'oo-ui-dropdownInputWidget' )
 		.append( this.dropdownWidget.$element );
@@ -91,6 +90,11 @@ OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
 	this.dropdownWidget.getMenu().selectItem( selected );
 	value = selected ? selected.getData() : '';
 	OO.ui.DropdownInputWidget.parent.prototype.setValue.call( this, value );
+	if ( this.optionsDirty ) {
+		// We reached this from the constructor or from #setOptions.
+		// We have to update the <select> element.
+		this.updateOptionsInterface();
+	}
 	return this;
 };
 
@@ -110,51 +114,85 @@ OO.ui.DropdownInputWidget.prototype.setDisabled = function ( state ) {
  * @chainable
  */
 OO.ui.DropdownInputWidget.prototype.setOptions = function ( options ) {
-	var
-		optionWidgets = [],
-		value = this.getValue(),
-		$optionsContainer = this.$input,
-		widget = this;
+	var value = this.getValue();
 
-	this.dropdownWidget.getMenu().clearItems();
-	this.$input.empty();
-
-	// Rebuild the dropdown menu: our visible one and the hidden `<select>`
-	options.forEach( function ( opt ) {
-		var optValue, $optionNode, optionWidget;
-
-		if ( opt.optgroup === undefined ) {
-			optValue = widget.cleanUpValue( opt.data );
-
-			$optionNode = $( '<option>' )
-				.attr( 'value', optValue )
-				.text( opt.label !== undefined ? opt.label : optValue );
-			optionWidget = new OO.ui.MenuOptionWidget( {
-				data: optValue,
-				label: opt.label !== undefined ? opt.label : optValue
-			} );
-
-			$optionsContainer.append( $optionNode );
-			optionWidgets.push( optionWidget );
-		} else {
-			$optionNode = $( '<optgroup>' )
-				.attr( 'label', opt.optgroup );
-			optionWidget = new OO.ui.MenuSectionOptionWidget( {
-				label: opt.optgroup
-			} );
-
-			widget.$input.append( $optionNode );
-			$optionsContainer = $optionNode;
-			optionWidgets.push( optionWidget );
-		}
-	} );
-	this.dropdownWidget.getMenu().addItems( optionWidgets );
+	this.setOptionsData( options );
 
 	// Re-set the value to update the visible interface (DropdownWidget and <select>).
 	// In case the previous value is no longer an available option, select the first valid one.
 	this.setValue( value );
 
 	return this;
+};
+
+/**
+ * Set the internal list of options, used e.g. by setValue() to see which options are allowed.
+ *
+ * This method may be called before the parent constructor, so various properties may not be
+ * intialized yet.
+ *
+ * @param {Object[]} options Array of menu options in the format `{ data: …, label: … }`
+ * @private
+ */
+OO.ui.DropdownInputWidget.prototype.setOptionsData = function ( options ) {
+	var
+		optionWidgets,
+		widget = this;
+
+	this.optionsDirty = true;
+
+	optionWidgets = options.map( function ( opt ) {
+		var optValue, optionWidget;
+
+		if ( opt.optgroup === undefined ) {
+			optValue = widget.cleanUpValue( opt.data );
+			optionWidget = new OO.ui.MenuOptionWidget( {
+				data: optValue,
+				label: opt.label !== undefined ? opt.label : optValue
+			} );
+		} else {
+			optionWidget = new OO.ui.MenuSectionOptionWidget( {
+				label: opt.optgroup
+			} );
+		}
+
+		return optionWidget;
+	} );
+
+	this.dropdownWidget.getMenu().clearItems().addItems( optionWidgets );
+};
+
+/**
+ * Update the user-visible interface to match the internal list of options and value.
+ *
+ * This method must only be called after the parent constructor.
+ *
+ * @private
+ */
+OO.ui.DropdownInputWidget.prototype.updateOptionsInterface = function () {
+	var
+		$optionsContainer = this.$input,
+		widget = this;
+
+	this.$input.empty();
+
+	this.dropdownWidget.getMenu().getItems().forEach( function ( optionWidget ) {
+		var $optionNode;
+
+		if ( !( optionWidget instanceof OO.ui.MenuSectionOptionWidget ) ) {
+			$optionNode = $( '<option>' )
+				.attr( 'value', optionWidget.getData() )
+				.text( optionWidget.getLabel() );
+			$optionsContainer.append( $optionNode );
+		} else {
+			$optionNode = $( '<optgroup>' )
+				.attr( 'label', optionWidget.getLabel() );
+			widget.$input.append( $optionNode );
+			$optionsContainer = $optionNode;
+		}
+	} );
+
+	this.optionsDirty = false;
 };
 
 /**

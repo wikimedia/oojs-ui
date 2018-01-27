@@ -31,6 +31,9 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 
 	// Properties (must be done before parent constructor which calls #setDisabled)
 	this.checkboxMultiselectWidget = new OO.ui.CheckboxMultiselectWidget();
+	// Set up the options before parent constructor, which uses them to validate config.value.
+	// Use this instead of setOptions() because this.$input is not set up yet
+	this.setOptionsData( config.options || [] );
 
 	// Parent constructor
 	OO.ui.CheckboxMultiselectInputWidget.parent.call( this, config );
@@ -47,9 +50,6 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 		.append( this.checkboxMultiselectWidget.$element );
 	// We don't use this.$input, but rather the CheckboxInputWidgets inside each option
 	this.$input.detach();
-	this.setOptions( config.options || [] );
-	// Have to repeat this from parent, as we need options to be set up for this to make sense
-	this.setValue( config.value );
 };
 
 /* Setup */
@@ -160,9 +160,29 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setDisabled = function ( state ) 
  * @chainable
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options ) {
+	var value = this.getValue();
+
+	this.setOptionsData( options );
+
+	// Re-set the value to update the visible interface (CheckboxMultiselectWidget).
+	// This will also get rid of any stale options that we just removed.
+	this.setValue( value );
+
+	return this;
+};
+
+/**
+ * Set the internal list of options, used e.g. by setValue() to see which options are allowed.
+ *
+ * This method may be called before the parent constructor, so various properties may not be
+ * intialized yet.
+ *
+ * @param {Object[]} options Array of menu options in the format `{ data: …, label: … }`
+ * @private
+ */
+OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( options ) {
 	var widget = this;
 
-	// Rebuild the checkboxMultiselectWidget menu
 	this.checkboxMultiselectWidget
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
@@ -180,12 +200,6 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options )
 			item.checkbox.setValue( optValue );
 			return item;
 		} ) );
-
-	// Re-set the value to update the visible interface (CheckboxMultiselectWidget).
-	// This will also get rid of any stale options that we just removed.
-	this.setValue( this.getValue() );
-
-	return this;
 };
 
 /**
