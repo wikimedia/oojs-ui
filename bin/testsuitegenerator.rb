@@ -68,6 +68,7 @@ else
 			[ { 'data' => 'a' }, { 'data' => 'b' } ],
 			[ { 'data' => 'a', 'label' => 'A' }, { 'data' => 'b', 'label' => 'B' } ],
 		],
+		'value' => ['', 'a', 'b', '<b>HTML?</b>'],
 		# deprecated, makes test logs spammy
 		'multiline' => [],
 		# usually makes no sense in JS
