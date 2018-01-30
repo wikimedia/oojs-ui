@@ -16,14 +16,12 @@ QUnit.module( 'Element', {
 } );
 
 QUnit.test( 'static.infuse', function ( assert ) {
-	function infuse( data ) {
-		return OO.ui.Element.static.infuse(
-			$( '<div>' ).attr( 'data-ooui', JSON.stringify( data ) )
-		);
-	}
-	assert.ok( infuse( { _: 'OO.ui.TextInputWidget' } ) );
+	var
+		$textInputWidget = $( $.parseHTML( '<div aria-disabled=\'false\' id=\'ooui-php-1\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div>' ) ),
+		$fakeWidget = $( $.parseHTML( '<div data-ooui=\'{"_":"Array"}\'></div>' ) );
+	assert.ok( OO.ui.Element.static.infuse( $textInputWidget ) );
 	assert.throws( function () {
-		infuse( { _: 'Array' } );
+		OO.ui.Element.static.infuse( $fakeWidget );
 	}, Error );
 } );
 
