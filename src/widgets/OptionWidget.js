@@ -99,7 +99,7 @@ OO.ui.OptionWidget.static.scrollIntoViewOnSelect = false;
  * @return {boolean} Item is selectable
  */
 OO.ui.OptionWidget.prototype.isSelectable = function () {
-	return this.constructor.static.selectable && !this.isDisabled() && this.isVisible();
+	return this.constructor.static.selectable && !this.disabled && this.isVisible();
 };
 
 /**
@@ -110,7 +110,7 @@ OO.ui.OptionWidget.prototype.isSelectable = function () {
  * @return {boolean} Item is highlightable
  */
 OO.ui.OptionWidget.prototype.isHighlightable = function () {
-	return this.constructor.static.highlightable && !this.isDisabled() && this.isVisible();
+	return this.constructor.static.highlightable && !this.disabled && this.isVisible();
 };
 
 /**
@@ -120,7 +120,7 @@ OO.ui.OptionWidget.prototype.isHighlightable = function () {
  * @return {boolean} Item is pressable
  */
 OO.ui.OptionWidget.prototype.isPressable = function () {
-	return this.constructor.static.pressable && !this.isDisabled() && this.isVisible();
+	return this.constructor.static.pressable && !this.disabled && this.isVisible();
 };
 
 /**

@@ -40,6 +40,7 @@
 	<script src="./windows.test.js"></script>
 	<script src="./mixins/FlaggedElement.test.js"></script>
 	<script src="./mixins/LabelElement.test.js"></script>
+	<script src="./widgets/SelectWidget.test.js"></script>
 	<script src="./widgets/TagMultiselectWidget.test.js"></script>
 	<script src="./widgets/MenuTagMultiselectWidget.test.js"></script>
 	<script src="./widgets/NumberInputWidget.test.js"></script>
