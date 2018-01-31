@@ -237,16 +237,16 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	// rebuild widget
 	// eslint-disable-next-line new-cap
 	obj = new cls( data );
+	// If anyone is holding a reference to the old DOM element,
+	// let's allow them to OO.ui.infuse() it and do what they expect, see T105828.
+	// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
+	$elem[ 0 ].oouiInfused = obj.$element;
 	// now replace old DOM with this new DOM.
 	if ( top ) {
 		// An efficient constructor might be able to reuse the entire DOM tree of the original element,
 		// so only mutate the DOM if we need to.
 		if ( $elem[ 0 ] !== obj.$element[ 0 ] ) {
 			$elem.replaceWith( obj.$element );
-			// This element is now gone from the DOM, but if anyone is holding a reference to it,
-			// let's allow them to OO.ui.infuse() it and do what they expect, see T105828.
-			// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
-			$elem[ 0 ].oouiInfused = obj.$element;
 		}
 		top.resolve();
 	}
