@@ -205,10 +205,16 @@ OO.ui.ListToolGroup.prototype.onMouseKeyUp = function ( e ) {
 };
 
 OO.ui.ListToolGroup.prototype.updateCollapsibleState = function () {
-	var i, len;
+	var i, icon, len;
+
+	if ( this.toolbar.position !== 'bottom' ) {
+		icon = this.expanded ? 'collapse' : 'expand';
+	} else {
+		icon = this.expanded ? 'expand' : 'collapse';
+	}
 
 	this.getExpandCollapseTool()
-		.setIcon( this.expanded ? 'collapse' : 'expand' )
+		.setIcon( icon )
 		.setTitle( OO.ui.msg( this.expanded ? 'ooui-toolgroup-collapse' : 'ooui-toolgroup-expand' ) );
 
 	for ( i = 0, len = this.collapsibleTools.length; i < len; i++ ) {
