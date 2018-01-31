@@ -412,7 +412,8 @@ module.exports = function ( grunt ) {
 			all: [
 				'*.json',
 				'{build,demos,src,tests,i18n}/**/*.json',
-				'!demos/{dist,node_modules,vendor}/**/*.json'
+				'!demos/{dist,node_modules,vendor}/**/*.json',
+				'!tests/JSPHP-suite.json'
 			]
 		},
 
