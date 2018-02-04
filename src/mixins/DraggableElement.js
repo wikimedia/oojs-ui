@@ -140,7 +140,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	// We must set up a dataTransfer data property or Firefox seems to
 	// ignore the fact the element is draggable.
 	try {
-		dataTransfer.setData( 'application-x/OOjs-UI-draggable', this.getIndex() );
+		dataTransfer.setData( 'application-x/OOUI-draggable', this.getIndex() );
 	} catch ( err ) {
 		// The above is only for Firefox. Move on if it fails.
 	}
