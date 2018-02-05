@@ -49,7 +49,6 @@ class TextInputWidget extends InputWidget {
 	 * @param bool $config['readOnly'] Prevent changes (default: false)
 	 * @param number $config['maxLength'] Maximum allowed number of characters to input
 	 * @param bool $config['multiline'] Allow multiple lines of text (default: false)
-	 * @param int $config['rows'] If multiline, number of visible lines in textarea
 	 * @param bool $config['required'] Mark the field as required.
 	 *   Implies `indicator: 'required'`. Note that `false` & setting `indicator: 'required'
 	 *   will result in no indicator shown. (default: false)

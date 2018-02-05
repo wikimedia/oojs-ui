@@ -6,7 +6,6 @@
  * @param {Object} [config] Configuration options
  * @cfg {number} [rows] Number of visible lines in textarea. If used with `autosize`,
  *  specifies minimum number of rows to display.
- * @cfg {string} [labelPosition='after'] The position of the inline label relative to that of
  * @cfg {boolean} [autosize=false] Automatically resize the text input to fit its content.
  *  Use the #maxRows config to specify a maximum number of displayed rows.
  * @cfg {number} [maxRows] Maximum number of rows to display when #autosize is set to true.
