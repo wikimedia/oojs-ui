@@ -33,6 +33,10 @@
  *  instruct the browser to focus this widget.
  * @cfg {boolean} [readOnly=false] Prevent changes to the value of the text input.
  * @cfg {number} [maxLength] Maximum number of characters allowed in the input.
+ *
+ *  For unfortunate historical reasons, this counts the number of UTF-16 code units rather than
+ *  Unicode codepoints, which means that codepoints outside the Basic Multilingual Plane (e.g.
+ *  many emojis) count as 2 characters each.
  * @cfg {string} [labelPosition='after'] The position of the inline label relative to that of
  *  the value or placeholder text: `'before'` or `'after'`
  * @cfg {boolean} [required=false] Mark the field as required with `true`. Implies `indicator: 'required'`.

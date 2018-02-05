@@ -48,6 +48,10 @@ class TextInputWidget extends InputWidget {
 	 *   HTML attribute (default: false)
 	 * @param bool $config['readOnly'] Prevent changes (default: false)
 	 * @param number $config['maxLength'] Maximum allowed number of characters to input
+	 *
+	 *   For unfortunate historical reasons, this counts the number of UTF-16 code units rather than
+	 *   Unicode codepoints, which means that codepoints outside the Basic Multilingual Plane (e.g.
+	 *   many emojis) count as 2 characters each.
 	 * @param bool $config['multiline'] Allow multiple lines of text (default: false)
 	 * @param bool $config['required'] Mark the field as required.
 	 *   Implies `indicator: 'required'`. Note that `false` & setting `indicator: 'required'
