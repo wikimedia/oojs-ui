@@ -143,16 +143,6 @@ OO.ui.TextInputWidget.static.validationPatterns = {
 	integer: /^\d+$/
 };
 
-/* Static Methods */
-
-/**
- * @inheritdoc
- */
-OO.ui.TextInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.TextInputWidget.parent.static.gatherPreInfuseState( node, config );
-	return state;
-};
-
 /* Events */
 
 /**
@@ -698,14 +688,4 @@ OO.ui.TextInputWidget.prototype.positionLabel = function () {
 	this.$input.css( newCss );
 
 	return this;
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.TextInputWidget.prototype.restorePreInfuseState = function ( state ) {
-	OO.ui.TextInputWidget.parent.prototype.restorePreInfuseState.call( this, state );
-	if ( state.scrollTop !== undefined ) {
-		this.$input.scrollTop( state.scrollTop );
-	}
 };

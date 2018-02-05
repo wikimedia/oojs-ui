@@ -202,3 +202,13 @@ OO.ui.MultilineTextInputWidget.prototype.isMultiline = function () {
 OO.ui.MultilineTextInputWidget.prototype.isAutosizing = function () {
 	return !!this.autosize;
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.MultilineTextInputWidget.prototype.restorePreInfuseState = function ( state ) {
+	OO.ui.MultilineTextInputWidget.parent.prototype.restorePreInfuseState.call( this, state );
+	if ( state.scrollTop !== undefined ) {
+		this.$input.scrollTop( state.scrollTop );
+	}
+};
