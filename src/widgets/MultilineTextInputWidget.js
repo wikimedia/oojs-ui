@@ -92,13 +92,18 @@ OO.ui.MultilineTextInputWidget.prototype.updatePosition = function () {
 };
 
 /**
- * Override TextInputWidget so it doesn't emit the 'enter' event.
+ * @inheritdoc
  *
- * @private
- * @param {jQuery.Event} e Key press event
+ * Modify to emit 'enter' on Ctrl/Meta+Enter, instead of plain Enter
  */
-OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function () {
-	return;
+OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function ( e ) {
+	if (
+		( e.which === OO.ui.Keys.ENTER && ( e.ctrlKey || e.metaKey ) ) ||
+		// Some platforms emit keycode 10 for ctrl+enter in a textarea
+		e.which === 10
+	) {
+		this.emit( 'enter', e );
+	}
 };
 
 /**
