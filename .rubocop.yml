@@ -32,20 +32,6 @@ Style/ConditionalAssignment:
   Enabled: false
 Style/NegatedIf:
   Enabled: false
-Style/Tab:
-  Enabled: false
-Style/AlignArray:
-  Enabled: false
-Style/IndentArray:
-  Enabled: false
-Style/IndentHash:
-  Enabled: false
-Style/IndentationWidth:
-  Enabled: false
-Style/MultilineOperationIndentation:
-  Enabled: false
-Style/MultilineMethodCallIndentation:
-  Enabled: false
 Style/IfUnlessModifier:
   Enabled: false
   MaxLineLength: 120
@@ -57,18 +43,6 @@ Style/RegexpLiteral:
   Enabled: false
 Style/MethodDefParentheses:
   EnforcedStyle: require_no_parentheses
-Style/SpaceAroundEqualsInParameterDefault:
-  EnforcedStyle: no_space
-Style/SpaceBeforeBlockBraces:
-  EnforcedStyle: no_space
-Style/SpaceInsideBrackets:
-  Enabled: false
-Style/SpaceInsideHashLiteralBraces:
-  Enabled: false
-Style/SpaceInsideParens:
-  Enabled: false
-Style/SpaceInsideBlockBraces:
-  Enabled: false
 Style/TrailingCommaInLiteral:
   Enabled: false
 Style/TrailingCommaInArguments:
@@ -76,8 +50,38 @@ Style/TrailingCommaInArguments:
 Style/WordArray:
   MinSize: 3
 
+Layout/Tab:
+  Enabled: false
+Layout/AlignArray:
+  Enabled: false
+Layout/IndentArray:
+  Enabled: false
+Layout/IndentHash:
+  Enabled: false
+Layout/IndentationWidth:
+  Enabled: false
+Layout/MultilineOperationIndentation:
+  Enabled: false
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+Layout/SpaceBeforeBlockBraces:
+  EnforcedStyle: no_space
+Layout/SpaceInsideBrackets:
+  Enabled: false
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+Layout/SpaceInsideParens:
+  Enabled: false
+Layout/SpaceInsideBlockBraces:
+  Enabled: false
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
 # RuboCop bugs cause false positives (it just hates tabs with passion).
-Style/CommentIndentation:
+Layout/CommentIndentation:
   Enabled: false
-Style/IndentAssignment:
+Layout/IndentAssignment:
   Enabled: false
+
