@@ -1,4 +1,42 @@
 # OOUI Release History
+## v0.25.2 / 2018-02-06
+### Deprecations
+* [DEPRECATING CHANGE] icons: Flag indicator 'alert' as to be removed (Volker E.)
+
+### Features
+* Element: Fix infusion edge case (Bartosz Dziewoński)
+* InputWidget and subclasses: Remember original value when creating the widget (Bartosz Dziewoński)
+* MultilineTextInputWidget: Emit 'enter' for Ctrl+Enter (Ed Sanders)
+* MenuTagMultiselectWidget: Erase the input when a menu option is chosen (Prateek Saxena)
+* OptionWidget: Option is still selectable/highlightable/pressable if its parent is disabled (Bartosz Dziewoński)
+* RadioSelectInputWidget: Prevent exceptions when trying to set unavailable options (Bartosz Dziewoński)
+
+### Styles
+* FieldLayout: Fix help icon negative margin in Apex (Ed Sanders)
+* LabelElement: Switch `box-sizing` to `border-box` (srishakatux)
+* ListToolGroup: Correctly point the collapse/expand icon on bottom toolbars (Volker E.)
+* RadioSelectInputWidget, CheckboxMultiselectInputWidget: Fix spacing between options in PHP (Apex theme) (Bartosz Dziewoński)
+
+### Code
+* Avoid having to call `.setValue()` in some widgets' constructors multiple times (Bartosz Dziewoński)
+* CheckboxMultiselectInputWidget: Turn inline event handler into a method (Bartosz Dziewoński)
+* DraggableElement: Replace 'OOjs-UI' with 'OOUI' for code hygiene (Volker E.)
+* TextInputWidget: Move previously forgotten methods to Multiline (Bartosz Dziewoński)
+* Follow-up b28e99712: Remove `mediawiki/at-ease` dependancy (Sam Reed)
+* Reduce code duplication between `#setValue` and `#setOptions` (Bartosz Dziewoński)
+* Remove duplicate documentation between TextInputWidget and Multiline (Bartosz Dziewoński)
+* TextInputWidget: Document that 'maxLength' counts UTF-16 code units (Bartosz Dziewoński)
+* Toolbars: Replace `$.width` with `clientWidth`/`offsetWidth` (Ed Sanders)
+* Use child selectors for menuLayout (Ed Sanders)
+* build: Don't lint a generated JSON file for validity before it's rebuilt (James D. Forrester)
+* build: Update Rubocop config for deprecations (Bartosz Dziewoński)
+* demos, docs: Replace 'alert' indicator, as it's deprecated (Volker E.)
+* demos: Bring “Word processor toolbar” demos closer to VE (Volker E.)
+* demos: Provide more space at bottom of page (Volker E.)
+* tests: Do not use obviously fake data when testing infusion (Bartosz Dziewoński)
+* testsuitegenerator: Test some 'value' parameters that match 'options' parameters (Bartosz Dziewoński)
+
+
 ## v0.25.1 / 2018-01-16
 ### Code
 * Allow other stuff to handle the event when we call `simulateLabelClick()` (Bartosz Dziewoński)
@@ -10,6 +48,7 @@
 * demos: Use MultilineTextInputWidget in PHP demos (Ed Sanders)
 * docs: Clarify `required` true handling with `indicator: 'required'` (Volker E.)
 * docs: Use “OOUI” as unified name in code comments (Volker E.)
+
 
 ## v0.25.0 / 2018-01-09
 ### Breaking changes
