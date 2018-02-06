@@ -20,6 +20,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration object
+ * @cfg {boolean} [clearInputOnChoose=true] Clear the text input value when a menu option is chosen
  * @cfg {Object} [menu] Configuration object for the menu widget
  * @cfg {jQuery} [$overlay] An overlay for the menu.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
@@ -32,7 +33,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 	OO.ui.MenuTagMultiselectWidget.parent.call( this, config );
 
 	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
-
+	this.clearInputOnChoose = config.clearInputOnChoose === undefined || !!config.clearInputOnChoose;
 	this.menu = this.createMenuWidget( $.extend( {
 		widget: this,
 		input: this.hasInput ? this.input : null,
@@ -108,6 +109,9 @@ OO.ui.MenuTagMultiselectWidget.prototype.onInputChange = function () {
 OO.ui.MenuTagMultiselectWidget.prototype.onMenuChoose = function ( menuItem ) {
 	// Add tag
 	this.addTag( menuItem.getData(), menuItem.getLabel() );
+	if ( this.hasInput && this.clearInputOnChoose ) {
+		this.input.setValue( '' );
+	}
 };
 
 /**
