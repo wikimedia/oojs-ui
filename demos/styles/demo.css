@@ -13,7 +13,7 @@ p {
 /* Layout */
 .demo {
 	max-width: 62.5em;
-	margin: 0 auto;
+	margin: 0 auto 4.5em;
 }
 
 .demo-menu {
