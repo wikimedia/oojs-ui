@@ -132,6 +132,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolFactories[ 3 ].register( ToolGroupTool );
 	toolFactories[ 5 ].register( ToolGroupTool );
 
+	// Toolbars setup, in order of toolbar items appearance
 	// Toolbar
 	toolbars[ 0 ].setup( [
 		{
@@ -179,9 +180,17 @@ Demo.static.pages.toolbars = function ( demo ) {
 			type: 'disabledMenu',
 			icon: 'image',
 			include: [ { group: 'disabledMenuTools' } ]
+		},
+		{
+			type: 'bar',
+			include: [ { group: 'cite' } ]
+		},
+		{
+			type: 'bar',
+			include: [ { group: 'citeDisabled' } ]
 		}
 	] );
-	// Action toolbar for toolbars[3]
+	// Action toolbar for toolbars[ 3 ] below
 	toolbars[ 2 ].setup( [
 		{
 			include: [ { group: 'popupTools' } ]
@@ -190,9 +199,10 @@ Demo.static.pages.toolbars = function ( demo ) {
 			type: 'list',
 			icon: 'menu',
 			indicator: '',
-			include: [ { group: 'listTools' } ]
+			include: [ { group: 'overflowTools' } ]
 		}
 	] );
+	// Word processor toolbar
 	toolbars[ 3 ].setup( [
 		{
 			type: 'bar',
@@ -200,13 +210,12 @@ Demo.static.pages.toolbars = function ( demo ) {
 		},
 		{
 			type: 'menu',
-			include: [ { group: 'menuTools' } ]
+			include: [ { group: 'formatTools' } ]
 		},
 		{
 			type: 'list',
-			icon: 'comment',
-			include: [ { group: 'listTools' } ],
-			allowCollapse: [ 'listTool1', 'listTool6' ]
+			icon: 'textStyle',
+			include: [ { group: 'styleTools' } ]
 		},
 		{
 			type: 'bar',
@@ -222,11 +231,17 @@ Demo.static.pages.toolbars = function ( demo ) {
 		},
 		{
 			type: 'list',
+			icon: 'listBullet',
+			include: [ { group: 'structureTools' } ]
+		},
+		{
+			type: 'list',
 			label: 'Insert',
-			include: [ { group: 'autoDisableListTools' }, { group: 'unusedStuff' } ]
+			include: [ { group: 'insertTools' }, { group: 'autoDisableListTools' }, { group: 'unusedStuff' } ],
+			allowCollapse: [ 'comment', 'hieroglyphs', 'score', 'signature', 'gallery', 'chem', 'math', 'syntaxHighlightDialog', 'graph', 'referencesList' ]
 		}
 	] );
-	// Action toolbar for toolbars[5]
+	// Action toolbar for toolbars[ 5 ] below
 	toolbars[ 4 ].setup( [
 		{
 			include: [ { group: 'popupTools' } ]
@@ -235,9 +250,10 @@ Demo.static.pages.toolbars = function ( demo ) {
 			type: 'list',
 			icon: 'menu',
 			indicator: '',
-			include: [ { group: 'listTools' } ]
+			include: [ { group: 'overflowTools' } ]
 		}
 	] );
+	// Word processor toolbar set to `position: 'bottom'`
 	toolbars[ 5 ].setup( [
 		{
 			type: 'bar',
@@ -245,13 +261,12 @@ Demo.static.pages.toolbars = function ( demo ) {
 		},
 		{
 			type: 'menu',
-			include: [ { group: 'menuTools' } ]
+			include: [ { group: 'formatTools' } ]
 		},
 		{
 			type: 'list',
-			icon: 'comment',
-			include: [ { group: 'listTools' } ],
-			allowCollapse: [ 'listTool1', 'listTool6' ]
+			icon: 'textStyle',
+			include: [ { group: 'styleTools' } ]
 		},
 		{
 			type: 'bar',
@@ -267,8 +282,13 @@ Demo.static.pages.toolbars = function ( demo ) {
 		},
 		{
 			type: 'list',
+			icon: 'listBullet',
+			include: [ { group: 'structureTools' } ]
+		},
+		{
+			type: 'list',
 			label: 'Insert',
-			include: [ { group: 'autoDisableListTools' }, { group: 'unusedStuff' } ]
+			include: [ { group: 'insertTools' }, { group: 'autoDisableListTools' }, { group: 'unusedStuff' } ]
 		}
 	] );
 	// Action toolbar for toolbars[7]
@@ -280,7 +300,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 			include: [ { group: 'listTools' } ]
 		}
 	] );
-	// Toolbar with action buttons, in a buttongroup
+	// Toolbar with action buttons, in a ButtonGroup
 	toolbars[ 7 ].setup( [
 		{
 			type: 'menu',
@@ -314,6 +334,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		toolbars[ i ].emit( 'updateState' );
 	}
 
+	// ToolGroups definition, in alphabetical/disabledAlphabetical order
 	toolGroups = {
 		barTools: [
 			[ 'barTool', 'image', 'Basic tool in bar' ],
@@ -322,6 +343,50 @@ Demo.static.pages.toolbars = function ( demo ) {
 
 		disabledBarTools: [
 			[ 'barToolInDisabled', 'image', 'Basic tool in disabled bar' ]
+		],
+
+		cite: [
+			[ 'citeTool', 'quotes', 'Cite', null, null, true ]
+		],
+
+		citeDisabled: [
+			[ 'citeToolDisabled', 'quotes', 'Cite', setDisabled, null, true ]
+		],
+
+		formatTools: [
+			[ 'paragraph', null, 'Paragraph' ],
+			[ 'heading2', null, 'Heading 2' ],
+			[ 'heading3', null, 'Sub-heading 1' ],
+			[ 'heading4', null, 'Sub-heading 2' ],
+			[ 'heading5', null, 'Sub-heading 3' ],
+			[ 'heading6', null, 'Sub-heading 4' ],
+			[ 'preformatted', null, 'Preformatted' ],
+			[ 'blockquote', null, 'Blockquote' ]
+		],
+
+		history: [
+			[ 'undoTool', 'undo', 'Undo' ],
+			[ 'redoTool', 'redo', 'Redo' ]
+		],
+
+		insertTools: [
+			[ 'media', 'image', 'First basic tool in list' ],
+			[ 'template', 'puzzle', 'Template' ],
+			[ 'table', 'table', 'Table' ],
+			[ 'comment', 'comment', 'Comment' ],
+			[ 'hieroglyphs', 'specialCharacter', 'Hieroglyphs' ],
+			[ 'score', 'specialCharacter', 'Musical notation' ],
+			[ 'signature', 'signature', 'Your signature' ],
+			[ 'gallery', 'imageGallery', 'Gallery' ],
+			[ 'chem', 'specialCharacter', 'Chemical formula' ],
+			[ 'math', 'specialCharacter', 'Math formula' ],
+			[ 'syntaxHighlightDialog', 'markup', 'Code block' ],
+			[ 'graph', 'specialCharacter', 'Graph' ],
+			[ 'referencesList', 'specialCharacter', 'References list' ]
+		],
+
+		link: [
+			[ 'linkTool', 'link', 'Link' ]
 		],
 
 		listTools: [
@@ -335,10 +400,6 @@ Demo.static.pages.toolbars = function ( demo ) {
 			[ 'listTool2', 'code', 'Another basic tool' ],
 			[ 'listTool4', 'image', 'More basic tools' ],
 			[ 'listTool5', 'ellipsis', 'And even more' ]
-		],
-
-		popupTools: [
-			[ 'popupTool' ]
 		],
 
 		disabledListTools: [
@@ -359,51 +420,78 @@ Demo.static.pages.toolbars = function ( demo ) {
 			[ 'menuToolInDisabled', 'image', 'Basic tool' ]
 		],
 
+		overflowTools: [
+			[ 'meta', 'window', 'Options' ],
+			[ 'categories', 'image', 'Categories' ],
+			[ 'settings', 'settings', 'Page settings' ],
+			[ 'advanced', 'advanced', 'Advanced settings' ],
+			[ 'textLanguage', 'language', 'Languages' ],
+			[ 'templatesUsed', 'puzzle', 'Templates used' ],
+			[ 'codeMirror', 'highlight', 'Syntax highlighting', setDisabled ],
+			[ 'changeDirectionality', 'textDirRTL', 'View as right-to-left' ],
+			[ 'find', 'articleSearch', 'Find and replace' ]
+		],
+
+		popupTools: [
+			[ 'popupTool' ]
+		],
+
+		structureTools: [
+			[ 'bullet', 'listBullet', 'Bullet list' ],
+			[ 'number', 'listNumbered', 'Numbered list' ],
+			[ 'outdent', 'outdent', 'Decrease indentation' ],
+			[ 'indent', 'indent', 'Increase indentation' ]
+		],
+
+		styleTools: [
+			[ 'bold', 'bold', 'Bold' ],
+			[ 'italic', 'italic', 'Italic' ],
+			[ 'italic', 'italic', 'Italic' ],
+			[ 'superscript', 'superscript', 'Superscript' ],
+			[ 'subscript', 'subscript', 'Subscript' ],
+			[ 'strikethrough', 'strikethrough', 'Strikethrough' ],
+			[ 'code', 'code', 'Computer Code' ],
+			[ 'underline', 'underline', 'Underline' ],
+			[ 'language', 'language', 'Language' ],
+			[ 'big', 'bigger', 'Big' ],
+			[ 'small', 'smaller', 'Small' ],
+			[ 'clear', 'cancel', 'Clear Styling', setDisabled ]
+		],
+
 		unusedStuff: [
 			[ 'unusedTool', 'help', 'This tool is not explicitly used anywhere' ],
 			[ 'unusedTool1', 'help', 'And neither is this one' ]
-		],
-
-		history: [
-			[ 'undoTool', 'undo', 'Undo' ],
-			[ 'redoTool', 'redo', 'Redo' ]
-		],
-
-		link: [
-			[ 'linkTool', 'link', 'Link' ]
-		],
-
-		cite: [
-			[ 'citeTool', 'citeArticle', 'Cite', null, null, true ]
-		],
-
-		citeDisabled: [
-			[ 'citeToolDisabled', 'citeArticle', 'Cite', setDisabled, null, true ]
 		]
 	};
 
-	createToolGroup( 0, 'unusedStuff' );
+	// ToolGroup creation, in Toolbar numeric and ToolGroup alphabetical order
 	createToolGroup( 0, 'barTools' );
 	createToolGroup( 0, 'disabledBarTools' );
 	createToolGroup( 0, 'listTools' );
 	createToolGroup( 0, 'moreListTools' );
 	createToolGroup( 0, 'disabledListTools' );
 	createToolGroup( 0, 'autoDisableListTools' );
+	createToolGroup( 0, 'unusedStuff' );
+	createToolGroup( 1, 'cite' );
+	createToolGroup( 1, 'citeDisabled' );
 	createToolGroup( 1, 'menuTools' );
 	createToolGroup( 1, 'disabledMenuTools' );
 	createToolGroup( 6, 'listTools' );
 	createToolGroup( 7, 'menuTools' );
 	createToolGroup( 7, 'disabledMenuTools' );
 	for ( i = 3; i <= 5; i += 2 ) {
-		createToolGroup( i - 1, 'listTools' );
+		createToolGroup( i - 1, 'overflowTools' );
+		createToolGroup( i, 'cite' );
+		createToolGroup( i, 'formatTools' );
+		createToolGroup( i, 'insertTools' );
 		createToolGroup( i, 'history' );
 		createToolGroup( i, 'link' );
-		createToolGroup( i, 'cite' );
-		createToolGroup( i, 'citeDisabled' );
-		createToolGroup( i, 'menuTools' );
 		createToolGroup( i, 'listTools' );
 		createToolGroup( i, 'moreListTools' );
 		createToolGroup( i, 'autoDisableListTools' );
+		createToolGroup( i, 'menuTools' );
+		createToolGroup( i, 'structureTools' );
+		createToolGroup( i, 'styleTools' );
 		createToolGroup( i, 'unusedStuff' );
 	}
 
@@ -428,7 +516,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		$containers.eq( 0 ).append( '<div class="demo-toolbars-contents">Toolbar</div>' ),
 		$containers.eq( 1 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons</div>' ),
 		$containers.eq( 2 ).append( '<div class="demo-toolbars-contents">Word processor toolbar</div>' ),
-		$containers.eq( 3 ).prepend( '<div class="demo-toolbars-contents">Position bottom</div>' ),
+		$containers.eq( 3 ).prepend( '<div class="demo-toolbars-contents">Word processor toolbar set to <code>position: &#39;bottom&#39;</code></div>' ),
 		$containers.eq( 4 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons in a group</div>' )
 	);
 	for ( i = 0; i < toolbars.length; i++ ) {
