@@ -3,10 +3,9 @@
 namespace OOUI\Tests;
 
 use OOUI\WikimediaUITheme;
-use PHPUnit_Framework_TestCase;
 use OOUI\Theme;
 
-class TestCase extends PHPUnit_Framework_TestCase {
+class TestCase extends \PHPUnit\Framework\TestCase {
 	/**
 	 * Subclasses can override
 	 * @return Theme
