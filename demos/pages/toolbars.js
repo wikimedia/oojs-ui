@@ -505,19 +505,26 @@ Demo.static.pages.toolbars = function ( demo ) {
 				expanded: false,
 				framed: true
 			} ).$element
-				.addClass( 'demo-container demo-toolbars' )
-				.attr( 'role', 'main' )
+				.addClass( 'demo-toolbar' )
 		);
 
 		$containers.last().append( toolbars[ i ].$element );
 	}
 	$containers.append( '' );
 	$demo.append(
-		$containers.eq( 0 ).append( '<div class="demo-toolbars-contents">Toolbar</div>' ),
-		$containers.eq( 1 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons</div>' ),
-		$containers.eq( 2 ).append( '<div class="demo-toolbars-contents">Word processor toolbar</div>' ),
-		$containers.eq( 3 ).prepend( '<div class="demo-toolbars-contents">Word processor toolbar set to <code>position: &#39;bottom&#39;</code></div>' ),
-		$containers.eq( 4 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons in a group</div>' )
+		new OO.ui.PanelLayout( {
+			expanded: false,
+			framed: false
+		} ).$element
+			.addClass( 'demo-container demo-toolbars' )
+			.attr( 'role', 'main' )
+			.append(
+				$containers.eq( 0 ).append( '<div class="demo-toolbars-contents">Toolbar</div>' ),
+				$containers.eq( 1 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons</div>' ),
+				$containers.eq( 2 ).append( '<div class="demo-toolbars-contents">Word processor toolbar</div>' ),
+				$containers.eq( 3 ).prepend( '<div class="demo-toolbars-contents">Word processor toolbar set to <code>position: &#39;bottom&#39;</code></div>' ),
+				$containers.eq( 4 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons in a group</div>' )
+			)
 	);
 	for ( i = 0; i < toolbars.length; i++ ) {
 		toolbars[ i ].initialize();

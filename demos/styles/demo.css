@@ -254,8 +254,11 @@ p {
 /* Toolbars demo */
 
 .demo-container.demo-toolbars {
-	margin-top: 4em;
 	padding: 0;
+}
+
+.demo-toolbar {
+	margin-top: 4em;
 }
 
 .demo-toolbars-contents {
