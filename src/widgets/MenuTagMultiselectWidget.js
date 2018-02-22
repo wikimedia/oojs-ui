@@ -99,6 +99,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.onInputFocus = function () {
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onInputChange = function () {
 	this.menu.toggle( true );
+	this.initializeMenuSelection();
 };
 
 /**
@@ -123,6 +124,8 @@ OO.ui.MenuTagMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
 	if ( !isVisible ) {
 		this.menu.selectItem( null );
 		this.menu.highlightItem( null );
+	} else {
+		this.initializeMenuSelection();
 	}
 };
 
@@ -145,6 +148,18 @@ OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
 	this.menu.selectItem( menuItem );
 
 	this.focus();
+};
+
+/**
+ * Highlight the first selectable item in the menu, if configured.
+ *
+ * @private
+ * @chainable
+ */
+OO.ui.MenuTagMultiselectWidget.prototype.initializeMenuSelection = function () {
+	if ( !this.menu.findSelectedItem() ) {
+		this.menu.highlightItem( this.menu.findFirstSelectableItem() );
+	}
 };
 
 /**
