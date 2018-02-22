@@ -103,6 +103,13 @@
 	&.oo-ui-widget-enabled {
 		.oo-ui-transition( background-color @transition-ease-quick );
 
+		.oo-ui-tool-link:focus {
+			outline: @border-width-base @border-style-base @border-color-base--focus;
+			box-shadow: @box-shadow-base--focus;
+			// Slightly elevate on focus
+			z-index: 1;
+		}
+
 		.oo-ui-iconElement-icon {
 			opacity: @opacity-icon-base;
 			.oo-ui-transition( opacity @transition-ease-quick );
@@ -359,6 +366,7 @@
 	}
 
 	.oo-ui-tool-link {
+		display: block;
 		// Tool-Links in PopupToolGroups always have a `-title` element
 		padding: @padding-top-tool-label @padding-horizontal-base @padding-bottom-tool-label @padding-start-tool;
 
@@ -407,6 +415,11 @@
 					opacity: @opacity-icon-base--selected;
 				}
 			}
+
+			&:focus {
+				outline: @border-width-base @border-style-base @border-color-base--focus;
+				box-shadow: @box-shadow-base--focus;
+			}
 		}
 
 		&[ class*='oo-ui-flaggedElement' ] > .oo-ui-popupToolGroup-handle {
@@ -433,5 +446,10 @@
 		.oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
 			color: @color-tool--active;
 		}
+	}
+
+	.oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
+		outline: 0;
+		box-shadow: inset 0 0 0 2px #36c;
 	}
 }
