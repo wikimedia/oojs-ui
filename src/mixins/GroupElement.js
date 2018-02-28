@@ -85,18 +85,6 @@ OO.ui.mixin.GroupElement.prototype.findItemFromData = function ( data ) {
 };
 
 /**
- * Get an item by its data.
- *
- * @deprecated Since v0.25.0; use {@link #findItemFromData} instead.
- * @param {Object} data Item data to search for
- * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
- */
-OO.ui.mixin.GroupElement.prototype.getItemFromData = function ( data ) {
-	OO.ui.warnDeprecation( 'GroupElement#getItemFromData. Deprecated function. Use findItemFromData instead. See T76630' );
-	return this.findItemFromData( data );
-};
-
-/**
  * Find items by their data.
  *
  * All items with matching data will be returned. To return only the first match, use the #findItemFromData method instead.
@@ -117,18 +105,6 @@ OO.ui.mixin.GroupElement.prototype.findItemsFromData = function ( data ) {
 	}
 
 	return items;
-};
-
-/**
- * Find items by their data.
- *
- * @deprecated Since v0.25.0; use {@link #findItemsFromData} instead.
- * @param {Object} data Item data to search for
- * @return {OO.ui.Element[]} Items with equivalent data
- */
-OO.ui.mixin.GroupElement.prototype.getItemsFromData = function ( data ) {
-	OO.ui.warnDeprecation( 'GroupElement#getItemsFromData. Deprecated function. Use findItemsFromData instead. See T76630' );
-	return this.findItemsFromData( data );
 };
 
 /**
