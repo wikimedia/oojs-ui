@@ -539,17 +539,6 @@ OO.ui.SelectWidget.prototype.findSelectedItem = function () {
 };
 
 /**
- * Get selected item.
- *
- * @deprecated Since v0.25.0; use {@link #findSelectedItem} instead.
- * @return {OO.ui.OptionWidget|null} Selected item, `null` if no item is selected
- */
-OO.ui.SelectWidget.prototype.getSelectedItem = function () {
-	OO.ui.warnDeprecation( 'SelectWidget#getSelectedItem: Deprecated function. Use findSelectedItem instead. See T76630.' );
-	return this.findSelectedItem();
-};
-
-/**
  * Find highlighted item.
  *
  * @return {OO.ui.OptionWidget|null} Highlighted item, `null` if no item is highlighted
