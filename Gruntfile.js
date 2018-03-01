@@ -441,10 +441,10 @@ module.exports = function ( grunt ) {
 				command: 'ruby bin/testsuitegenerator.rb src php > tests/JSPHP-suite.json'
 			},
 			phpGenerateJSPHPForKarma: {
-				command: 'composer update && php bin/generate-JSPHP-for-karma.php > tests/JSPHP.test.js'
+				command: 'composer update --ansi --no-progress && php bin/generate-JSPHP-for-karma.php > tests/JSPHP.test.js'
 			},
 			demos: {
-				command: 'composer update --no-dev',
+				command: 'composer update --ansi --no-progress --no-dev',
 				cwd: 'demos'
 			},
 			composer: {
