@@ -31,15 +31,14 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 
 	// Properties (must be done before parent constructor which calls #setDisabled)
 	this.checkboxMultiselectWidget = new OO.ui.CheckboxMultiselectWidget();
+	// Must be set before the #setOptionsData call below
+	this.inputName = config.name;
 	// Set up the options before parent constructor, which uses them to validate config.value.
 	// Use this instead of setOptions() because this.$input is not set up yet
 	this.setOptionsData( config.options || [] );
 
 	// Parent constructor
 	OO.ui.CheckboxMultiselectInputWidget.parent.call( this, config );
-
-	// Properties
-	this.inputName = config.name;
 
 	// Events
 	this.checkboxMultiselectWidget.connect( this, { select: 'onCheckboxesSelect' } );
