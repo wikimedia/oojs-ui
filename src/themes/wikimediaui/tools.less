@@ -108,7 +108,7 @@
 
 	&.oo-ui-iconElement .oo-ui-iconElement-icon {
 		display: block;
-		left: @start-tool-icon-indicator;
+		left: @start-tool-icon;
 	}
 
 	.oo-ui-tool-title {
@@ -260,7 +260,7 @@
 	.oo-ui-tool {
 		&-link {
 			.oo-ui-iconElement-icon {
-				left: @start-tool-icon-indicator;
+				left: @start-tool-icon;
 			}
 		}
 
@@ -297,17 +297,13 @@
 		.oo-ui-box-sizing( border-box );
 
 		.oo-ui-iconElement-icon {
-			left: @start-tool-icon-indicator;
-
-			.oo-ui-toolbar-narrow & {
-				//left: @start-toolbar-narrow-tool-icon;
-			}
+			left: @start-tool-icon;
 		}
 
 		.oo-ui-indicatorElement-indicator {
 			// HACK: Magic number for cross-browser positioning closer to label baseline
 			background-position: center 52%;
-			right: @start-tool-icon-indicator;
+			right: @end-tool-indicator;
 
 			.oo-ui-toolbar-narrow & {
 				right: @start-toolbar-narrow-tool-icon;
