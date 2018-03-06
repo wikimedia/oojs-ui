@@ -1,4 +1,29 @@
 # OOUI Release History
+## v0.25.3 / 2018-03-06
+### Features
+* DropdownInputWidget: Extract menu item creation (Gabriel Birke)
+* MenuTagMultiselectWidget: Highlight first item when filtering (Moriel Schottlender)
+* demos: Use individual oojs-ui-* JS files for sourcemap support (Moriel Schottlender)
+
+### Styles
+* WikimediaUI theme: Align action toolbar primary button focus state (Volker E.)
+* WikimediaUI theme: Align toolbar items' focus to widgets elsewhere (Volker E.)
+
+### Code
+* Imply `inline-block` on toolbar item labels (Volker E.)
+* CheckboxMultiselectInputWidget: Fix handling of 'name' config option in JS (Bartosz Dziewoński)
+* TagMultiselectWidget: Only apply `onMouseDown` if not in input (Moriel Schottlender)
+* Gruntfile: Remove reference to long-absent at-ease PHP library (James D. Forrester)
+* build: Add jakub-onderka/php-console-highlighter (Umherirrender)
+* build: Adding MinusX (Kunal Mehta)
+* build: Updating mediawiki/mediawiki-codesniffer to 16.0.1 (libraryupgrader)
+* build: Updating phpunit/phpunit to 4.8.36 || ^6.5 (libraryupgrader)
+* build: pass --ansi --no-progress to composer (Antoine Musso)
+* demos: Add monospace hack for `code` element (Volker E.)
+* demos: Only claim ARIA `main` role on the first toolbar demo (Volker E.)
+* demos: Replace “Save” by “Publish changes” (Volker E.)
+
+
 ## v0.25.2 / 2018-02-06
 ### Deprecations
 * [DEPRECATING CHANGE] icons: Flag indicator 'alert' as to be removed (Volker E.)
