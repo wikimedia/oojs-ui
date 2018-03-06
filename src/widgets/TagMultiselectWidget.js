@@ -220,7 +220,11 @@ OO.ui.TagMultiselectWidget.static.allowedInputPositions = [ 'inline', 'outline',
  * @return {boolean} False to prevent defaults
  */
 OO.ui.TagMultiselectWidget.prototype.onMouseDown = function ( e ) {
-	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
+	if (
+		!this.isDisabled() &&
+		( !this.hasInput || e.target !== this.input.$input[ 0 ] ) &&
+		e.which === OO.ui.MouseButtons.LEFT
+	) {
 		this.focus();
 		return false;
 	}
