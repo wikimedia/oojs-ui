@@ -142,24 +142,49 @@ OO.ui.DropdownInputWidget.prototype.setOptionsData = function ( options ) {
 	this.optionsDirty = true;
 
 	optionWidgets = options.map( function ( opt ) {
-		var optValue, optionWidget;
+		var optValue;
 
-		if ( opt.optgroup === undefined ) {
-			optValue = widget.cleanUpValue( opt.data );
-			optionWidget = new OO.ui.MenuOptionWidget( {
-				data: optValue,
-				label: opt.label !== undefined ? opt.label : optValue
-			} );
-		} else {
-			optionWidget = new OO.ui.MenuSectionOptionWidget( {
-				label: opt.optgroup
-			} );
+		if ( opt.optgroup !== undefined ) {
+			return widget.createMenuSectionOptionWidget( opt.optgroup );
 		}
 
-		return optionWidget;
+		optValue = widget.cleanUpValue( opt.data );
+		return widget.createMenuOptionWidget(
+			optValue,
+			opt.label !== undefined ? opt.label : optValue
+		);
+
 	} );
 
 	this.dropdownWidget.getMenu().clearItems().addItems( optionWidgets );
+};
+
+/**
+ * Create a menu option widget.
+ *
+ * @protected
+ * @param {string} data Item data
+ * @param {string} label Item label
+ * @return {OO.ui.MenuOptionWidget} Option widget
+ */
+OO.ui.DropdownInputWidget.prototype.createMenuOptionWidget = function ( data, label ) {
+	return new OO.ui.MenuOptionWidget( {
+		data: data,
+		label: label
+	} );
+};
+
+/**
+ * Create a menu section option widget.
+ *
+ * @protected
+ * @param {string} label Section item label
+ * @return {OO.ui.MenuSectionOptionWidget} Menu section option widget
+ */
+OO.ui.DropdownInputWidget.prototype.createMenuSectionOptionWidget = function ( label ) {
+	return new OO.ui.MenuSectionOptionWidget( {
+		label: label
+	} );
 };
 
 /**
