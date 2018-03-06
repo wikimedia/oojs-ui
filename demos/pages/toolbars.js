@@ -1,5 +1,5 @@
 Demo.static.pages.toolbars = function ( demo ) {
-	var i, toolGroups, saveButton, deleteButton, actionButton, actionGroup, actionButtonDisabled, PopupTool, ToolGroupTool,
+	var i, toolGroups, actionButton, actionButtonDelete, actionButtonDisabled, actionGroup, publishButton, PopupTool, ToolGroupTool,
 		setDisabled = function () { this.setDisabled( true ); },
 		$demo = demo.$element,
 		$containers = $(),
@@ -319,14 +319,14 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolbars[ 1 ].$actions.append( actionButton.$element, actionButtonDisabled.$element );
 
 	for ( i = 3; i <= 5; i += 2 ) {
-		deleteButton = new OO.ui.ButtonWidget( { label: 'Delete', flags: [ 'destructive' ] } );
-		saveButton = new OO.ui.ButtonWidget( { label: 'Save', flags: [ 'progressive', 'primary' ] } );
-		toolbars[ i ].$actions.append( toolbars[ i - 1 ].$element, deleteButton.$element, saveButton.$element );
+		publishButton = new OO.ui.ButtonWidget( { label: 'Publish changes', flags: [ 'progressive', 'primary' ] } );
+		toolbars[ i ].$actions.append( toolbars[ i - 1 ].$element, publishButton.$element );
 	}
 
-	saveButton = new OO.ui.ButtonWidget( { label: 'Save', flags: [ 'progressive', 'primary' ] } );
+	actionButtonDelete = new OO.ui.ButtonWidget( { label: 'Delete', flags: [ 'destructive' ] } );
+	publishButton = new OO.ui.ButtonWidget( { label: 'Publish changes', flags: [ 'progressive', 'primary' ] } );
 	actionGroup = new OO.ui.ButtonGroupWidget( {
-		items: [ saveButton, toolbars[ 6 ].items[ 0 ] ]
+		items: [ actionButtonDelete, publishButton, toolbars[ 6 ].items[ 0 ] ]
 	} );
 	toolbars[ 7 ].$actions.append( actionGroup.$element );
 
