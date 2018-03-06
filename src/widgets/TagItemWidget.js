@@ -175,6 +175,7 @@ OO.ui.TagItemWidget.prototype.onKeyDown = function ( e ) {
 			e.keyCode === OO.ui.Keys.LEFT ?
 				movement.left : movement.right
 		);
+		return false;
 	}
 };
 
