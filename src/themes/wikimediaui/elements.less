@@ -37,6 +37,11 @@
 		}
 	}
 
+	&.oo-ui-iconElement .oo-ui-iconElement-icon,
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		.oo-ui-force-gpu-composite-layer();
+	}
+
 	&.oo-ui-indicatorElement {
 		// Indicator and label/icon
 		&.oo-ui-labelElement,

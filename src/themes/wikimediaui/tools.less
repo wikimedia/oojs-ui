@@ -128,6 +128,7 @@
 		.oo-ui-iconElement-icon {
 			opacity: @opacity-icon-base;
 			.oo-ui-transition( opacity @transition-ease-quick );
+			.oo-ui-force-gpu-composite-layer();
 		}
 
 		.oo-ui-tool-title {
@@ -416,6 +417,7 @@
 			.oo-ui-indicatorElement-indicator {
 				opacity: @opacity-icon-base;
 				.oo-ui-transition( opacity @transition-ease-quick );
+				.oo-ui-force-gpu-composite-layer();
 			}
 
 			&:hover,
