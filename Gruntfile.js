@@ -669,7 +669,7 @@ module.exports = function ( grunt ) {
 	] );
 
 	// Minification tasks for the npm publish step
-	grunt.registerTask( 'minify', [ 'uglify', 'image:distSvgs', 'image:distPngs', 'cssmin' ] );
+	grunt.registerTask( 'minify', [ 'uglify', 'image:distSvgs', /* 'image:distPngs',*/ 'cssmin' ] );
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
 	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
