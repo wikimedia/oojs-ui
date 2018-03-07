@@ -309,7 +309,8 @@ module.exports = function ( grunt ) {
 				src: [
 					'AUTHORS.txt',
 					'LICENSE-MIT',
-					'README.md'
+					'README.md',
+					'History.md'
 				],
 				dest: 'dist/'
 			},
