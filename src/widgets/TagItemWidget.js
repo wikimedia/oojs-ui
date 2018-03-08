@@ -96,10 +96,18 @@ OO.mixinClass( OO.ui.TagItemWidget, OO.ui.mixin.DraggableElement );
  * Item validity has changed
  */
 
+/**
+ * @event disabled
+ * @param {boolean} isDisabled Item is disabled
+ *
+ * Item disabled state has changed
+ */
+
 /* Methods */
 
 /**
  * @inheritdoc
+ * @fires disabled
  */
 OO.ui.TagItemWidget.prototype.setDisabled = function ( state ) {
 	// Parent method
@@ -108,6 +116,8 @@ OO.ui.TagItemWidget.prototype.setDisabled = function ( state ) {
 	if ( this.closeButton ) {
 		this.closeButton.setDisabled( state );
 	}
+
+	this.emit( 'disabled', this.isDisabled() );
 	return this;
 };
 
@@ -138,7 +148,7 @@ OO.ui.TagItemWidget.prototype.remove = function () {
 OO.ui.TagItemWidget.prototype.onKeyDown = function ( e ) {
 	var movement;
 
-	if ( e.keyCode === OO.ui.Keys.BACKSPACE || e.keyCode === OO.ui.Keys.DELETE ) {
+	if ( !this.isDisabled() && e.keyCode === OO.ui.Keys.BACKSPACE || e.keyCode === OO.ui.Keys.DELETE ) {
 		this.remove();
 		return false;
 	} else if ( e.keyCode === OO.ui.Keys.ENTER ) {

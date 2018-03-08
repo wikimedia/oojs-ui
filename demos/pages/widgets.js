@@ -8,7 +8,15 @@ Demo.static.pages.widgets = function ( demo ) {
 		verticalDragItems = [],
 		verticalHandledDragItems = [],
 		$overlay = $( '<div>' ).addClass( 'demo-overlay' ).attr( 'id', 'demo-overlay' ),
-		$demo = demo.$element;
+		$demo = demo.$element,
+		disabledItemsTagMultiselectWidget = new OO.ui.TagMultiselectWidget( {
+			placeholder: 'Add tags',
+			allowArbitrary: true
+		} );
+
+	disabledItemsTagMultiselectWidget.addTag( 'item1', 'Item 1 (optional)' );
+	disabledItemsTagMultiselectWidget.addTag( 'item2', 'Item 2 (mandatory)' );
+	disabledItemsTagMultiselectWidget.findItemFromData( 'item2' ).setDisabled( true );
 
 	for ( i = 0; i <= 12; i++ ) {
 		horizontalDragItems.push(
@@ -1718,6 +1726,13 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'TagMultiselectWidget (allowArbitrary, inline input, placeholder)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					disabledItemsTagMultiselectWidget,
+					{
+						label: 'TagMultiselectWidget with disabled items',
 						align: 'top'
 					}
 				),
