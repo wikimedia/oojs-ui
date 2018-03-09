@@ -171,6 +171,10 @@ OO.ui.MenuTagMultiselectWidget.prototype.addTagFromInput = function () {
 		highlightedItem = this.menu.findHighlightedItem(),
 		item = this.menu.findItemFromData( inputValue );
 
+	if ( !inputValue ) {
+		return;
+	}
+
 	// Override the parent method so we add from the menu
 	// rather than directly from the input
 
