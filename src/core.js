@@ -519,7 +519,7 @@ OO.ui.isSafeUrl = function ( url ) {
  * It is left up to implementors to decide how to compute this
  * so the default implementation always returns false.
  *
- * @return {boolean} Use is on a mobile device
+ * @return {boolean} User is on a mobile device
  */
 OO.ui.isMobile = function () {
 	return false;
