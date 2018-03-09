@@ -34,6 +34,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
+	grunt.loadNpmTasks( 'grunt-svgmin' );
 	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadNpmTasks( 'grunt-tyops' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
@@ -341,38 +342,59 @@ module.exports = function ( grunt ) {
 				src: []
 			}
 		},
-		image: {
-			srcSvgs: {
-				options: {
-					svgo: [
-						'--pretty',
-						'--enable=removeRasterImages',
-						'--enable=sortAttrs',
-						'--disable=cleanupIDs',
-						'--disable=removeDesc',
-						'--disable=removeTitle',
-						'--disable=removeViewBox',
-						'--disable=removeXMLProcInst'
-					]
+		// SVG Optimization
+		svgmin: {
+			options: {
+				js2svg: {
+					indent: '	',
+					multipass: true,
+					pretty: true
 				},
-				expand: true,
-				src: 'src/**/*.svg'
+				plugins: [ {
+					cleanupIDs: false
+				}, {
+					removeDesc: false
+				}, {
+					removeRasterImages: true
+				}, {
+					removeTitle: false
+				}, {
+					removeViewBox: false
+				}, {
+					removeXMLProcInst: false
+				}, {
+					sortAttrs: true
+				} ]
+			},
+			srcSvgs: {
+				files: [ {
+					expand: true,
+					cwd: 'src',
+					src: [
+						'**/*.svg'
+					],
+					dest: 'src',
+					ext: '.svg'
+				} ]
 			},
 			distSvgs: {
 				options: {
-					svgo: [
-						'--enable=cleanupIDs',
-						'--enable=removeRasterImages',
-						'--enable=sortAttrs',
-						'--disable=removeDesc',
-						'--disable=removeTitle',
-						'--disable=removeViewBox',
-						'--disable=removeXMLProcInst'
-					]
+					js2svg: {
+						pretty: false
+					}
 				},
-				expand: true,
-				src: 'dist/**/*.svg'
-			},
+				files: [ {
+					expand: true,
+					cwd: 'dist',
+					src: [
+						'**/*.svg'
+					],
+					dest: 'dist',
+					ext: '.svg'
+				} ]
+			}
+		},
+		image: {
 			distPngs: {
 				options: {
 					zopflipng: true,
@@ -669,7 +691,7 @@ module.exports = function ( grunt ) {
 	] );
 
 	// Minification tasks for the npm publish step
-	grunt.registerTask( 'minify', [ 'uglify', 'image:distSvgs', /* 'image:distPngs',*/ 'cssmin' ] );
+	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', /* 'image:distPngs',*/ 'cssmin' ] );
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
 	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
