@@ -43,6 +43,32 @@
 				}
 			}
 		}
+
+		> .oo-ui-buttonGroupWidget {
+			> .oo-ui-buttonElement > .oo-ui-buttonElement-button {
+			}
+
+			> .oo-ui-popupToolGroup,
+			> .oo-ui-popupToolGroup > .oo-ui-popupToolGroup-handle {
+				height: 2.34375em;
+			}
+
+			> .oo-ui-popupToolGroup.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive {
+				border: 0;
+
+				> .oo-ui-popupToolGroup-handle {
+					.oo-ui-vertical-gradient( @progressive-gradient-start, @progressive-gradient-end );
+					border: 1px solid @progressive-border;
+
+					&:hover {
+						border-color: @progressive-border-selected;
+					}
+				}
+				&.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
+					.oo-ui-vertical-gradient( @progressive-gradient-end, @progressive-gradient-start );
+				}
+			}
+		}
 	}
 }
 
