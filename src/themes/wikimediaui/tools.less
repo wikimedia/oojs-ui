@@ -73,8 +73,17 @@
 			}
 		}
 
-		> .oo-ui-buttonGroupWidget > .oo-ui-buttonElement > .oo-ui-buttonElement-button {
-			border-radius: 0;
+		> .oo-ui-buttonGroupWidget {
+			> .oo-ui-buttonElement > .oo-ui-buttonElement-button {
+				border-radius: 0;
+				border-width: 0 0 0 1px;
+				padding-top: @padding-top-tool-label;
+				padding-bottom: @padding-bottom-tool-label;
+			}
+
+			> .oo-ui-popupToolGroup.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive {
+				.mw-framed-primary-button-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
+			}
 		}
 
 		> .oo-ui-toolbar:not( :last-child ) {
