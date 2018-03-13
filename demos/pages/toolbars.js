@@ -200,6 +200,11 @@ Demo.static.pages.toolbars = function ( demo ) {
 			icon: 'menu',
 			indicator: '',
 			include: [ { group: 'overflowTools' } ]
+		},
+		{
+			type: 'list',
+			icon: 'edit',
+			include: [ { group: 'editorSwitchTools' } ]
 		}
 	] );
 	// Word processor toolbar
@@ -251,6 +256,11 @@ Demo.static.pages.toolbars = function ( demo ) {
 			icon: 'menu',
 			indicator: '',
 			include: [ { group: 'overflowTools' } ]
+		},
+		{
+			type: 'list',
+			icon: 'edit',
+			include: [ { group: 'editorSwitchTools' } ]
 		}
 	] );
 	// Word processor toolbar set to `position: 'bottom'`
@@ -351,6 +361,11 @@ Demo.static.pages.toolbars = function ( demo ) {
 
 		citeDisabled: [
 			[ 'citeToolDisabled', 'quotes', 'Cite', setDisabled, null, true ]
+		],
+
+		editorSwitchTools: [
+			[ 'visualEditor', 'eye', 'Visual editing' ],
+			[ 'wikitextEditor', 'wikiText', 'Source editing' ]
 		],
 
 		formatTools: [
@@ -481,6 +496,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	createToolGroup( 7, 'disabledMenuTools' );
 	for ( i = 3; i <= 5; i += 2 ) {
 		createToolGroup( i - 1, 'overflowTools' );
+		createToolGroup( i - 1, 'editorSwitchTools' );
 		createToolGroup( i, 'cite' );
 		createToolGroup( i, 'formatTools' );
 		createToolGroup( i, 'insertTools' );
