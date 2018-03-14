@@ -190,6 +190,15 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
 };
 
 /**
+ * Check if the tool group is active.
+ *
+ * @return {boolean} Tool group is active
+ */
+OO.ui.PopupToolGroup.prototype.isActive = function () {
+	return this.active;
+};
+
+/**
  * Switch into 'active' mode.
  *
  * When active, the popup is visible. A mouseup event anywhere in the document will trigger
@@ -209,8 +218,6 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 			this.$clippable.css( 'left', '' );
 			// Try anchoring the popup to the left first
 			this.$element.addClass( 'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left' );
-			this.wasProgressive = this.flags.progressive;
-			this.setFlags( { progressive: true } );
 			this.toggleClipping( true );
 			if ( this.isClippedHorizontally() ) {
 				// Anchoring to the left caused the popup to clip, so anchor it to the right instead
@@ -239,10 +246,10 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 			this.getElementDocument().removeEventListener( 'mouseup', this.onBlurHandler, true );
 			this.getElementDocument().removeEventListener( 'keyup', this.onBlurHandler, true );
 			this.$element.removeClass(
-				'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left  oo-ui-popupToolGroup-right'
+				'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left oo-ui-popupToolGroup-right'
 			);
-			this.setFlags( { progressive: !!this.wasProgressive } );
 			this.toggleClipping( false );
 		}
+		this.updateThemeClasses();
 	}
 };
