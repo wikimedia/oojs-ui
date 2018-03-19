@@ -243,13 +243,8 @@ OO.ui.Tool.prototype.isActive = function () {
  */
 OO.ui.Tool.prototype.setActive = function ( state ) {
 	this.active = !!state;
-	if ( this.active ) {
-		this.$element.addClass( 'oo-ui-tool-active' );
-		this.setFlags( { progressive: true } );
-	} else {
-		this.$element.removeClass( 'oo-ui-tool-active' );
-		this.setFlags( { progressive: false } );
-	}
+	this.$element.toggleClass( 'oo-ui-tool-active', this.active );
+	this.updateThemeClasses();
 };
 
 /**
