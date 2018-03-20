@@ -185,7 +185,7 @@ OO.ui.FieldLayout.prototype.makeMessage = function ( kind, text ) {
 		$icon = new OO.ui.IconWidget( { icon: 'alert', flags: [ 'warning' ] } ).$element;
 		$listItem.attr( 'role', 'alert' );
 	} else if ( kind === 'notice' ) {
-		$icon = new OO.ui.IconWidget( { icon: 'info' } ).$element;
+		$icon = new OO.ui.IconWidget( { icon: 'notice' } ).$element;
 	} else {
 		$icon = '';
 	}
