@@ -97,6 +97,7 @@ window.Demo = function Demo() {
 		.append( this.$menu );
 	$( 'html' ).attr( 'dir', this.mode.direction );
 	$( 'head' ).append( this.stylesheetLinks );
+	$( 'body' ).addClass( 'oo-ui-theme-' + this.mode.theme );
 	// eslint-disable-next-line new-cap
 	OO.ui.theme = new OO.ui[ this.constructor.static.themes[ this.mode.theme ] + 'Theme' ]();
 	OO.ui.isMobile = function () {
@@ -497,6 +498,7 @@ Demo.prototype.normalizeQuery = function () {
  */
 Demo.prototype.destroy = function () {
 	$( 'body' ).removeClass( 'oo-ui-ltr oo-ui-rtl' );
+	$( 'body' ).removeClass( 'oo-ui-theme-' + this.mode.theme );
 	$( this.stylesheetLinks ).remove();
 	this.$element.remove();
 	this.emit( 'destroy' );
