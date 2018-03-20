@@ -27,6 +27,7 @@
 		} },
 		"cancel": { "file": "images/icons/cancel.svg", "variants": [ "destructive" ] },
 		"check": { "file": "images/icons/check.svg", "variants": [ "destructive" ] },
+		"checkAll": { "file": "images/icons/checkAll.svg" },
 		"clear": { "file": "images/icons/clear.svg" },
 		"clock": { "file": "images/icons/clock.svg" },
 		"close": { "file": "images/icons/close.svg" },

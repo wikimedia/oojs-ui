@@ -51,6 +51,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'browser',
 				'cancel',
 				'check',
+				'checkAll',
 				'clear',
 				'clock',
 				'close',
@@ -150,11 +151,14 @@ Demo.static.pages.icons = function ( demo ) {
 			],
 			media: [
 				'fullScreen',
+				'exitFullscreen',
 				'image',
 				'imageAdd',
 				'imageLock',
 				'imageGallery',
+				'imageBroken',
 				'play',
+				'pause',
 				'stop'
 			],
 			location: [
