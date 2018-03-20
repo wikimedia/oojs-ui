@@ -1,4 +1,47 @@
 # OOUI Release History
+## v0.26.0 / 2018-03-20
+### Breaking changes
+* [BREAKING CHANGE] WikimediaUI: Unify available variants across icon packs (Ed Sanders)
+* [BREAKING CHANGE] icons: Remove 'alignCentre', renamed in v0.24.2 (James D. Forrester)
+* [BREAKING CHANGE] icons: Remove 'arrowLast', deprecated since v0.25.0 (James D. Forrester)
+* [BREAKING CHANGE] icons: Remove 'bellOn', deprecated in v0.25.0 (James D. Forrester)
+* [BREAKING CHANGE] icons: Remove 'quotesAdd', deprecated in v0.24.4 (James D. Forrester)
+* [BREAKING CHANGE] icons: Remove 'redirect', renamed in v0.24.4 (James D. Forrester)
+* [BREAKING CHANGE] indicators: Remove 'next' and 'previous', deprecated in v0.25.0 (James D. Forrester)
+
+### Features
+* FieldLayout: Use better icons for warning/error messages (Bartosz Dziewoński)
+* MenuTagMultiselectWidget: Check for empty inputValue in addTagFromInput (Prateek Saxena)
+* TagMultiselectWidget: Handle disabled items (Moriel Schottlender)
+
+### Styles
+* WikimediaUI theme: Add additional 'interactions' & 'media' pack icons (Volker E.)
+* WikimediaUI theme: Align refined WikimediaUI icons in size and position (Volker E.)
+* WikimediaUI theme: Apply `translateZ` hack to full canvas icons (Volker E.)
+* WikimediaUI theme: Fix regression on accelerator key alignment (Volker E.)
+* WikimediaUI theme: Fix toolbar buttonGroup (Ed Sanders)
+* WikimediaUI theme: Harmonize `padding` on FieldLayout messages (Volker E.)
+* WikimediaUI theme: Unify and refine WikimediaUI icons (Volker E.)
+* WikimediaUI theme: Use `14px` base font size & amend positioning/sizing (Volker E.)
+* Apex theme: Fix toolbar buttonGroup (Ed Sanders)
+* Apex theme: Make Apex also use 20px canvas icons (Bartosz Dziewoński)
+
+### Code
+* Use theme rules to define which tools should get blue icons, not flags (Ed Sanders)
+* build: Make the copy task for the WikimediaUI less vars less confusing (James D. Forrester)
+* build: Stop using 'grunt-image' for optimising PNGs, at least for now (James D. Forrester)
+* build: Switch SVG optimization to 'grunt-svgmin' (Volker E.)
+* build: Temporarily disable running unit tests in Firefox due to timeouts (James D. Forrester)
+* build: Update devDependencies to latest (James D. Forrester)
+* build: Updating jakub-onderka/php-parallel-lint to 1.0.0 (libraryupgrader)
+* build: Acknowledge in package.json that grunt-exec 3.0.0 exists, but we don't want it (Bartosz Dziewoński)
+* demos: Include editor switch menu in toolbars menu (Volker E.)
+* demos: Increase base `font-size` to `14px` (Volker E.)
+* demos: Re-enable bigger base size on mobile breakpoint (Volker E.)
+* demos: Use `0.8em` body font size for Apex (Bartosz Dziewoński)
+* dist: Distribute History.md so people can see what's changed (James D. Forrester)
+
+
 ## v0.25.3 / 2018-03-06
 ### Features
 * DropdownInputWidget: Extract menu item creation (Gabriel Birke)
