@@ -99,11 +99,6 @@
 	> .oo-ui-popupToolGroup > .oo-ui-popupToolGroup-handle {
 		height: 1.875em;
 		padding: 0.3125em;
-
-		.oo-ui-iconElement-icon {
-			height: 1.875em;
-			width: 1.875em;
-		}
 	}
 
 	> .oo-ui-popupToolGroup.oo-ui-labelElement > .oo-ui-popupToolGroup-handle {
@@ -159,8 +154,6 @@
 			.oo-ui-iconElement-icon {
 				display: inline-block;
 				vertical-align: top;
-				height: 1.875em;
-				width: 1.875em;
 			}
 
 			.oo-ui-tool-title {
@@ -454,9 +447,7 @@
 			}
 		}
 		.oo-ui-iconElement-icon {
-			width: 1.875em;
-			height: 1.875em;
-			margin: 0.3125em;
+			margin: 0.3125em + @size-icon-outer;
 			left: 0.3125em;
 
 			.oo-ui-toolbar-narrow & {
@@ -498,9 +489,9 @@
 
 		.oo-ui-iconElement-icon {
 			display: table-cell !important; // stylelint-disable declaration-no-important
-			min-width: 1.875em;
-			width: 1.875em;
-			height: 1.875em;
+			min-width: @size-icon-inner;
+			width: @size-icon-inner;
+			height: @size-icon-inner;
 			vertical-align: middle;
 		}
 

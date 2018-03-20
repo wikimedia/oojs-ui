@@ -27,7 +27,9 @@
 @max-width-input-base: @max-width-base;
 
 @size-anchor: 6px;
-@size-icon: unit( 24 / 16 / 0.8, em );
+@size-icon-inner: unit( 20 / 16 / 0.8, em );
+@size-icon-outer: unit( 2 / 16 / 0.8, em );
+@size-icon: @size-icon-inner + 2 * @size-icon-outer; // 24
 @size-icon-numberinput: unit( 20 / 16 / 0.8, em );
 @size-icon-tagitem-close: unit( 20 / 16 / 0.8, em );
 @size-indicator: unit( 12 / 16 / 0.8, em );

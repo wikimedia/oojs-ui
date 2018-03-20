@@ -514,7 +514,8 @@
 		display: inline-block;
 		position: static;
 		top: auto;
-		height: @size-icon;
+		height: @size-icon-inner;
+		margin: @size-icon-outer;
 	}
 
 	&.oo-ui-widget-disabled {
@@ -1012,8 +1013,8 @@
 	&-clearButton {
 		top: 0;
 		right: 0; // With close, no indicator
-		width: @size-icon;
-		margin-right: 0;
+		height: @size-icon-inner;
+		margin: @size-icon-outer;
 
 		.oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
 			height: 2.3em;
@@ -1380,6 +1381,7 @@
 		position: absolute;
 		top: 0;
 		height: 100%;
+		margin: 0 @size-icon-outer;
 	}
 
 	&.oo-ui-iconElement {
@@ -1390,7 +1392,7 @@
 
 		> .oo-ui-iconElement-icon {
 			max-height: 2.5em;
-			margin-left: 0.3em;
+			margin-left: 0.3em + @size-icon-outer;
 		}
 	}
 
