@@ -150,7 +150,7 @@ class FieldLayout extends Layout {
 			$icon = new IconWidget( [ 'icon' => 'alert', 'flags' => [ 'warning' ] ] );
 			$listItem->setAttributes( [ 'role' => 'alert' ] );
 		} elseif ( $kind === 'notice' ) {
-			$icon = new IconWidget( [ 'icon' => 'info' ] );
+			$icon = new IconWidget( [ 'icon' => 'notice' ] );
 		} else {
 			$icon = null;
 		}
