@@ -195,8 +195,8 @@
 
 		&.oo-ui-iconElement {
 			> .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-				margin-left: -0.5em;
-				margin-right: -0.5em;
+				margin-left: -0.5em + @size-icon-outer;
+				margin-right: -0.5em + @size-icon-outer;
 				// Vertical align text
 				display: inline-block;
 				vertical-align: middle;
@@ -283,7 +283,11 @@
 	&.oo-ui-iconElement-icon {
 		position: static;
 		top: auto;
-		height: @size-icon;
+		width: @size-icon-inner;
+		height: @size-icon-inner;
+		min-width: auto;
+		min-height: auto;
+		margin: @size-icon-outer;
 		opacity: 0.8;
 	}
 }
