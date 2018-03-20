@@ -699,7 +699,7 @@ module.exports = function ( grunt ) {
 	// Run this before opening "tests/index.php"
 	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );
 
-	grunt.registerTask( '_test', [ 'prep-test', 'clean:coverage', 'karma:main', 'karma:other' ] );
+	grunt.registerTask( '_test', [ 'prep-test', 'clean:coverage', 'karma:main' /* T190200 , 'karma:other' */ ] );
 	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos', 'exec:composer' ] );
 	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
 
