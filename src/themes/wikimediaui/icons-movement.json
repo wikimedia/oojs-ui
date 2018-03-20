@@ -23,12 +23,6 @@
 			"ltr": "images/icons/arrowNext-ltr.svg",
 			"rtl": "images/icons/arrowNext-rtl.svg"
 		} },
-		"arrowLast": { "file": {
-			"ltr": "images/icons/arrowPrevious-ltr.svg",
-			"rtl": "images/icons/arrowPrevious-rtl.svg"
-		},
-			"deprecated": "Renamed since v0.25.0, use 'arrowPrevious' instead."
-		},
 		"arrowPrevious": { "file": {
 			"ltr": "images/icons/arrowPrevious-ltr.svg",
 			"rtl": "images/icons/arrowPrevious-rtl.svg"
