@@ -126,13 +126,15 @@
 
 	&-messages {
 		list-style: none none;
-		margin: 0.25em 0 0 0.25em;
-		padding: 0;
+		.oo-ui-box-sizing( border-box );
+		max-width: @max-width-base;
+		margin: 0;
+		padding: @padding-vertical-label @padding-horizontal-base;
 
 		> li {
-			margin: 0;
-			padding: 0;
 			display: table;
+			margin: @padding-vertical-label 0 0;
+			padding: 0;
 		}
 
 		.oo-ui-iconElement.oo-ui-iconElement-icon {
@@ -144,14 +146,10 @@
 
 		.oo-ui-labelWidget {
 			display: table-cell;
-			padding: 0.1em 0 0.1em 0.3125em;
+			padding: 1px 0 1px @padding-start-fieldlayout-label;
 			line-height: @line-height-message;
 			vertical-align: middle;
 		}
-	}
-
-	&.oo-ui-fieldLayout-messages.oo-ui-iconElement .oo-ui-iconElement-icon {
-		display: table-cell;
 	}
 
 	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
