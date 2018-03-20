@@ -55,12 +55,6 @@
 			"ltr": "images/icons/quotes-ltr.svg",
 			"rtl": "images/icons/quotes-rtl.svg"
 		} },
-		"quotesAdd": { "file": {
-			"ltr": "images/icons/quotesAdd-ltr.svg",
-			"rtl": "images/icons/quotesAdd-rtl.svg"
-			},
-			"deprecated": "This will be removed in v0.26.0."
-		},
 		"redirect": { "file": {
 			"ltr": "images/icons/articleRedirect-ltr.svg",
 			"rtl": "images/icons/articleRedirect-rtl.svg"
