@@ -21,12 +21,6 @@
 	"images": {
 		"alert": { "file": "images/icons/alert.svg", "variants": [ "warning" ] },
 		"bell": { "file": "images/icons/bell.svg" },
-		"bellOn": { "file": {
-			"ltr": "images/icons/bellOn-ltr.svg",
-			"rtl": "images/icons/bellOn-rtl.svg"
-			},
-			"deprecated": "This will be removed in v0.26.0."
-		},
 		"comment": { "file": {
 			"ltr": "images/icons/speechBubble-ltr.svg",
 			"rtl": "images/icons/speechBubble-rtl.svg"
