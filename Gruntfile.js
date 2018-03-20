@@ -315,7 +315,7 @@ module.exports = function ( grunt ) {
 				],
 				dest: 'dist/'
 			},
-			wikimediaui: {
+			wikimediauibasevars: {
 				flatten: true,
 				src: [
 					'node_modules/wikimedia-ui-base/wikimedia-ui-base.less'
@@ -674,7 +674,7 @@ module.exports = function ( grunt ) {
 		'clean:build', 'fileExists', 'tyops', 'build-code', 'build-styling', 'build-i18n',
 		'concat:omnibus',
 		'copy:dist',
-		'copy:wikimediaui',
+		'copy:wikimediauibasevars',
 		'clean:tmp', 'demos'
 	] );
 
