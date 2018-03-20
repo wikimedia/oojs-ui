@@ -3,7 +3,14 @@ body {
 	margin: 0 1em;
 	padding: 0;
 	font-family: sans-serif;
+}
+
+.oo-ui-theme-wikimediaui {
 	font-size: 0.875em;
+}
+
+.oo-ui-theme-apex {
+	font-size: 0.8em;
 }
 
 code {
@@ -443,8 +450,9 @@ FieldLayout left & right aligned */
 
 /* Media Queries */
 @media ( min-width: 320px ) {
-	body {
-		font-size: 1em;
+	.oo-ui-theme-wikimediaui,
+	.oo-ui-theme-apex {
+		font-size: 0.8em;
 	}
 
 	.demo-menu > .oo-ui-widget {
@@ -534,8 +542,12 @@ FieldLayout left & right aligned */
 /* @media ( min-width: 768px ) {} */
 
 @media ( min-width: 960px ) {
-	body {
+	.oo-ui-theme-wikimediaui {
 		font-size: 0.875em;
+	}
+
+	.oo-ui-theme-apex {
+		font-size: 0.8em;
 	}
 
 	.demo-container {
