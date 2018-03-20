@@ -452,7 +452,7 @@ FieldLayout left & right aligned */
 @media ( min-width: 320px ) {
 	.oo-ui-theme-wikimediaui,
 	.oo-ui-theme-apex {
-		font-size: 0.8em;
+		font-size: 1em;
 	}
 
 	.demo-menu > .oo-ui-widget {
