@@ -20,8 +20,8 @@
 	},
 	"images": {
 		"alignCenter": { "file": "images/icons/alignCenter.svg" },
-		"alignLeft": { "file": "images/icons/alignLeft-ltr.svg" },
-		"alignRight": { "file": "images/icons/alignRight-ltr.svg" },
+		"alignLeft": { "file": "images/icons/alignLeft.svg" },
+		"alignRight": { "file": "images/icons/alignRight.svg" },
 		"attachment": {
 			"file": "images/icons/attachment.svg"
 		},

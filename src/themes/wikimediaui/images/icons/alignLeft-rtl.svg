@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-	<title>
-		align left
-	</title>
-	<path d="M1 15h18v2H1zm0-8h7v2H1zm0 4h7v2H1zm0-8h18v2H1zm18 5v4c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V8c0-.6.4-1 1-1h6c.6 0 1 .4 1 1z"/>
-</svg>
