@@ -17,20 +17,21 @@ module.exports = function ( grunt ) {
 		concatJsFiles = {},
 		concatOmnibus = {},
 		rtlFiles = {},
-		minBanner = '/*! OOUI v<%= pkg.version %> | http://oojs.mit-license.org */';
+		minBanner = '/*! OOUI v<%= pkg.version %> | http://oojs.mit-license.org */',
+		zopfli = require( 'imagemin-zopfli' );
 
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
+	grunt.loadNpmTasks( 'grunt-contrib-imagemin' );
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-exec' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
-	grunt.loadNpmTasks( 'grunt-image' );
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
@@ -394,14 +395,10 @@ module.exports = function ( grunt ) {
 				} ]
 			}
 		},
-		image: {
+		imagemin: {
 			distPngs: {
 				options: {
-					zopflipng: true,
-					pngout: true,
-					optipng: true,
-					advpng: true,
-					pngcrush: true
+					use: [ zopfli() ]
 				},
 				expand: true,
 				src: 'dist/**/*.png'
@@ -691,7 +688,7 @@ module.exports = function ( grunt ) {
 	] );
 
 	// Minification tasks for the npm publish step
-	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', /* 'image:distPngs',*/ 'cssmin' ] );
+	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', 'imagemin:distPngs', 'cssmin' ] );
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
 	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
