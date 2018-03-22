@@ -244,6 +244,10 @@ Demo.static.pages.toolbars = function ( demo ) {
 			label: 'Insert',
 			include: [ { group: 'insertTools' }, { group: 'autoDisableListTools' }, { group: 'unusedStuff' } ],
 			allowCollapse: [ 'comment', 'hieroglyphs', 'score', 'signature', 'gallery', 'chem', 'math', 'syntaxHighlightDialog', 'graph', 'referencesList' ]
+		},
+		{
+			type: 'bar',
+			include: [ { group: 'specialCharacters' } ]
 		}
 	] );
 	// Action toolbar for toolbars[ 5 ] below
@@ -299,6 +303,10 @@ Demo.static.pages.toolbars = function ( demo ) {
 			type: 'list',
 			label: 'Insert',
 			include: [ { group: 'insertTools' }, { group: 'autoDisableListTools' }, { group: 'unusedStuff' } ]
+		},
+		{
+			type: 'bar',
+			include: [ { group: 'specialCharacters' } ]
 		}
 	] );
 	// Action toolbar for toolbars[7]
@@ -447,6 +455,10 @@ Demo.static.pages.toolbars = function ( demo ) {
 			[ 'find', 'articleSearch', 'Find and replace' ]
 		],
 
+		specialCharacters: [
+			[ 'specialCharacter', 'specialCharacter', 'Special character' ]
+		],
+
 		popupTools: [
 			[ 'popupTool' ]
 		],
@@ -487,13 +499,17 @@ Demo.static.pages.toolbars = function ( demo ) {
 	createToolGroup( 0, 'disabledListTools' );
 	createToolGroup( 0, 'autoDisableListTools' );
 	createToolGroup( 0, 'unusedStuff' );
+
 	createToolGroup( 1, 'cite' );
 	createToolGroup( 1, 'citeDisabled' );
 	createToolGroup( 1, 'menuTools' );
 	createToolGroup( 1, 'disabledMenuTools' );
+
 	createToolGroup( 6, 'listTools' );
+
 	createToolGroup( 7, 'menuTools' );
 	createToolGroup( 7, 'disabledMenuTools' );
+
 	for ( i = 3; i <= 5; i += 2 ) {
 		createToolGroup( i - 1, 'overflowTools' );
 		createToolGroup( i - 1, 'editorSwitchTools' );
@@ -506,6 +522,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		createToolGroup( i, 'moreListTools' );
 		createToolGroup( i, 'autoDisableListTools' );
 		createToolGroup( i, 'menuTools' );
+		createToolGroup( i, 'specialCharacters' );
 		createToolGroup( i, 'structureTools' );
 		createToolGroup( i, 'styleTools' );
 		createToolGroup( i, 'unusedStuff' );
