@@ -72,10 +72,10 @@ Demo.static.pages.icons = function ( demo ) {
 				'subtract'
 			],
 			moderation: [
+				'bookmarkOutline',
+				'bookmark',
 				'block',
 				'unBlock',
-				'clip',
-				'unClip',
 				'flag',
 				'unFlag',
 				'lock',
