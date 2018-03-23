@@ -1,5 +1,5 @@
 Demo.static.pages.toolbars = function ( demo ) {
-	var i, toolGroups, actionButton, actionButtonDelete, actionButtonDisabled, actionGroup, publishButton, PopupTool, ToolGroupTool,
+	var i, toolGroups, actionButton, actionButtonDelete, actionButtonDisabled, actionGroup, publishButton, AlertTool, PopupTool, ToolGroupTool,
 		setDisabled = function () { this.setDisabled( true ); },
 		$demo = demo.$element,
 		$containers = $(),
@@ -93,6 +93,26 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolGroupFactories[ 0 ].register( createDisabledToolGroup( OO.ui.BarToolGroup, 'disabledBar' ) );
 	toolGroupFactories[ 0 ].register( createDisabledToolGroup( OO.ui.ListToolGroup, 'disabledList' ) );
 	toolGroupFactories[ 1 ].register( createDisabledToolGroup( OO.ui.MenuToolGroup, 'disabledMenu' ) );
+
+	AlertTool = function ( toolGroup, config ) {
+		// Parent constructor
+		OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
+			padded: true,
+			label: 'Alert head',
+			head: true
+		} }, config ) );
+
+		this.popup.$body.append( '<p>Alert contents</p>' );
+	};
+
+	OO.inheritClass( AlertTool, OO.ui.PopupTool );
+
+	AlertTool.static.name = 'alertTool';
+	AlertTool.static.group = 'popupTools';
+	AlertTool.static.icon = 'alert';
+
+	toolFactories[ 2 ].register( AlertTool );
+	toolFactories[ 4 ].register( AlertTool );
 
 	PopupTool = function ( toolGroup, config ) {
 		// Parent constructor
@@ -254,6 +274,9 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolbars[ 4 ].setup( [
 		{
 			include: [ { group: 'popupTools' } ]
+		},
+		{
+			include: [ { group: 'alertTools' } ]
 		},
 		{
 			type: 'list',
@@ -460,7 +483,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		],
 
 		popupTools: [
-			[ 'popupTool' ]
+			[ 'popupTool', 'alertTool' ]
 		],
 
 		structureTools: [
