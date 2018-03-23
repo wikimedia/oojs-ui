@@ -100,6 +100,10 @@
 		.oo-ui-box-sizing( border-box );
 		padding-top: @padding-top-tool;
 		padding-left: @padding-start-tool-icon-only;
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-start-tool-icon-only - @size-toolbar-narrow-modifier;
+		}
 	}
 
 	&-with-label .oo-ui-tool-link {
@@ -109,6 +113,10 @@
 	&.oo-ui-iconElement .oo-ui-iconElement-icon {
 		display: block;
 		left: @start-tool-icon;
+
+		.oo-ui-toolbar-narrow & {
+			left: @start-tool-icon - ( @size-toolbar-narrow-modifier / 2 );
+		}
 	}
 
 	.oo-ui-tool-title {
@@ -251,10 +259,10 @@
 
 .theme-oo-ui-menuToolGroup () {
 	.oo-ui-popupToolGroup-handle {
-		min-width: 10em;
+		min-width: @min-size-toolbar-popup-toolgroup-handle;
 
 		.oo-ui-toolbar-narrow & {
-			min-width: 8.125em;
+			min-width: @min-size-toolbar-narrow-popup-toolgroup-handle;
 		}
 	}
 
@@ -262,6 +270,10 @@
 		&-link {
 			.oo-ui-iconElement-icon {
 				left: @start-tool-icon;
+
+				.oo-ui-toolbar-narrow & {
+					left: @start-tool-icon - ( @size-toolbar-narrow-modifier / 2 );
+				}
 			}
 		}
 
@@ -290,6 +302,10 @@
 .theme-oo-ui-popupToolGroup () {
 	min-width: @size-tool;
 
+	.oo-ui-toolbar-narrow & {
+		min-width: @size-tool - @size-toolbar-narrow-modifier;
+	}
+
 	&.oo-ui-indicatorElement:not( .oo-ui-labelElement ):not( .oo-ui-iconElement ) {
 		min-width: @padding-end-toolgroup-label-indicator;
 	}
@@ -299,6 +315,10 @@
 
 		.oo-ui-iconElement-icon {
 			left: @start-tool-icon;
+
+			.oo-ui-toolbar-narrow & {
+				left: @start-tool-icon - ( @size-toolbar-narrow-modifier / 2 );
+			}
 		}
 
 		.oo-ui-indicatorElement-indicator {
@@ -319,6 +339,10 @@
 
 	&.oo-ui-iconElement.oo-ui-indicatorElement &-handle {
 		padding-left: @padding-start-tool-icon-only;
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-start-tool-icon-only - @size-toolbar-narrow-modifier;
+		}
 	}
 
 	&.oo-ui-labelElement &-handle {
@@ -327,10 +351,19 @@
 		.oo-ui-labelElement-label {
 			line-height: @line-height-widget-singleline;
 		}
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-horizontal-base - @size-toolbar-narrow-modifier;
+			padding-right: @padding-horizontal-base - @size-toolbar-narrow-modifier;
+		}
 	}
 
 	&.oo-ui-iconElement.oo-ui-labelElement &-handle {
 		padding-left: @padding-start-tool;
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-start-tool - @size-toolbar-narrow-modifier;
+		}
 	}
 
 	&.oo-ui-labelElement.oo-ui-indicatorElement &-handle {
@@ -359,6 +392,10 @@
 		padding: 0 @padding-horizontal-base;
 		font-weight: bold;
 		line-height: @size-base; // Doesn't work with `padding` in header, due to clippable logic
+
+		.oo-ui-toolbar-narrow & {
+			padding: 0 ( @padding-horizontal-base - @size-toolbar-narrow-modifier );
+		}
 	}
 
 	.oo-ui-toolGroup-tools {
@@ -381,6 +418,11 @@
 		// Tool-Links in PopupToolGroups always have a `-title` element
 		padding: @padding-top-tool-label @padding-horizontal-base @padding-bottom-tool-label @padding-start-tool;
 
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-horizontal-base - @size-toolbar-narrow-modifier;
+			padding-right: @padding-start-tool - @size-toolbar-narrow-modifier;
+		}
+
 		.oo-ui-tool-title {
 			color: @color-base;
 		}
@@ -392,6 +434,10 @@
 			&:not( :empty ) {
 				// Push away from tool's title
 				padding-left: @padding-horizontal-base * 1.5;
+
+				.oo-ui-toolbar-narrow & {
+					padding-left: ( @padding-horizontal-base * 1.5 ) - @size-toolbar-narrow-modifier;
+				}
 			}
 		}
 	}
