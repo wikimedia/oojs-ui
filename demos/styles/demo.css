@@ -357,8 +357,8 @@ p {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.demo-icons .oo-ui-fieldLayout:nth-child( 4n ) {
-	margin-right: 0;
+.demo-icons .oo-ui-fieldsetLayout-group {
+	margin-right: -1em;
 }
 /* stylelint-disable indentation */
 .demo-icons .oo-ui-fieldLayout .oo-ui-iconElement:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ),
