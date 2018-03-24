@@ -64,9 +64,11 @@
 			'-icons-editing-list',
 			'-icons-editing-advanced',
 			'-icons-media',
+			'-icons-location',
 			'-icons-user',
 			'-icons-layout',
-			'-icons-accessibility'
+			'-icons-accessibility',
+			'-icons-wikimedia'
 		]
 	];
 	// Stylesheets to load

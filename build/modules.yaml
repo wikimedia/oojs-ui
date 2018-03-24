@@ -254,11 +254,10 @@
 			"src/themes/{theme}/icons-media.json"
 		]
 	},
-	"oojs-ui-wikimediaui-icons-location": {
+	"oojs-ui-{theme}-icons-location": {
 		"styles": [
-			"src/themes/wikimediaui/icons-location.json"
-		],
-		"theme": "wikimediaui"
+			"src/themes/{theme}/icons-location.json"
+		]
 	},
 	"oojs-ui-{theme}-icons-user": {
 		"styles": [
@@ -270,10 +269,9 @@
 			"src/themes/{theme}/icons-layout.json"
 		]
 	},
-	"oojs-ui-wikimediaui-icons-wikimedia": {
+	"oojs-ui-{theme}-icons-wikimedia": {
 		"styles": [
-			"src/themes/wikimediaui/icons-wikimedia.json"
-		],
-		"theme": "wikimediaui"
+			"src/themes/{theme}/icons-wikimedia.json"
+		]
 	}
 }
