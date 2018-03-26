@@ -106,11 +106,6 @@
 
 		.oo-ui-buttonElement-button {
 			padding-top: @size-fieldlayout-help-icon;
-			padding-left: @size-fieldlayout-help-icon;
-
-			.oo-ui-iconElement-icon {
-				left: @start-fieldlayout-help-icon; // HACK: Providing correct inner position as long as old info icon is provided, see T177432
-			}
 		}
 	}
 
@@ -120,7 +115,8 @@
 			// HACK: This PopupButtonWidget's height extends below the header line (with align: top),
 			// causing the field widget to be narrower than it should be.
 			margin-top: @margin-top-fieldlayout-help;
-			margin-right: @margin-left-fieldlayout-help;
+			margin-right: @margin-end-fieldlayout-help;
+			margin-left: 0; // Reset `.oo-ui-buttonElement-frameless.oo-ui-iconElement:first-child`
 		}
 	}
 
@@ -202,15 +198,14 @@
 		.oo-ui-inline-spacing( 0 );
 		// HACK: This PopupButtonWidget's `height` extends below the header's baseline (with align: top),
 		// causing the field widget to be narrower than it should be.
-		margin-right: -@padding-horizontal-frameless;
+		margin-right: @margin-end-fieldlayout-help;
 
 		&:last-child {
-			margin-right: -@padding-horizontal-frameless;
+			margin-right: @margin-end-fieldlayout-help;
 		}
 
 		.oo-ui-buttonElement-button {
 			padding-top: @size-fieldlayout-help-icon;
-			padding-left: @size-fieldlayout-help-icon;
 		}
 	}
 }
