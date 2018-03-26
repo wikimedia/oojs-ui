@@ -91,7 +91,7 @@
 	<link rel="stylesheet" href="styles/demo<?php echo $directionSuffix; ?>.css">
 	<link rel="stylesheet" href="classes/ButtonStyleShowcaseWidget.css">
 </head>
-<body class="oo-ui-<?php echo $direction; ?>">
+<body class="oo-ui-<?php echo $direction; ?> oo-ui-theme-<?php echo $theme ?>">
 	<div class="demo">
 		<div class="demo-menu" role="navigation">
 			<?php
