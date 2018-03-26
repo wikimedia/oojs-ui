@@ -15,7 +15,10 @@
 
 	textarea {
 		overflow: auto; // Support: IE 8-11 defaults `overflow` to `scroll`. Modern browsers use `auto`
-		resize: none;
+
+		&.oo-ui-textInputWidget-autosized {
+			resize: none;
+		}
 	}
 
 	// Normalize styling of `<input type=number>` by removing

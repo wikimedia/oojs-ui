@@ -44,6 +44,7 @@ OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config )
 		this.$input.attr( 'rows', config.rows );
 	}
 	if ( this.autosize ) {
+		this.$input.addClass( 'oo-ui-textInputWidget-autosized' );
 		this.isWaitingToBeAttached = true;
 		this.installParentChangeDetector();
 	}
