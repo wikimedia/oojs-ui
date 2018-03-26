@@ -86,7 +86,7 @@
 					// Override the default
 					margin-right: 0;
 					// Move into the space of `margin-right` of header
-					margin-left: -1.72em; // ≈ @size-fieldlayout-help-icon + @padding-horizontal-frameless, hardcoded to avoid IE11 rounding problems
+					margin-left: round( -@size-button-base, 2 ); // Round to avoid IE11 rounding problems
 				}
 
 				> .oo-ui-fieldLayout-field {
