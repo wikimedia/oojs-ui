@@ -168,9 +168,8 @@ Demo.static.pages.icons = function ( demo ) {
 				'mapTrail'
 			],
 			user: [
-				'userActive',
+				'userAnonymous',
 				'userAvatar',
-				'userInactive',
 				'userTalk'
 			],
 			layout: [
