@@ -5,91 +5,13 @@
  * An option to do it may be added in the future.
  */
 
-/* eslint-disable no-use-before-define */
-
 var Q = require( 'q' ),
 	path = require( 'path' ),
 	asyncTask = require( 'grunt-promise-q' );
 
 module.exports = function ( grunt ) {
 
-	asyncTask.registerMulti(
-		grunt,
-		'colorizeSvg',
-		'Generate colored variants of SVG images',
-		function () {
-			var
-				data = this.data,
-				options = this.options(),
-				source = new Source(
-					data.srcDir,
-					options.images,
-					options.variants,
-					{
-						intro: options.intro,
-						prefix: options.prefix,
-						cssPrependPath: data.cssPrependPath,
-						selectorWithoutVariant: options.selectorWithoutVariant || options.selector,
-						selectorWithVariant: options.selectorWithVariant || options.selector
-					}
-				);
-
-			return source.getImageList().generate(
-				new Destination(
-					data.destDir,
-					data.destLessFile || {
-						ltr: path.join( data.destDir, 'images.less' ),
-						rtl: path.join( data.destDir, 'images.rtl.less' )
-					}
-				)
-			).then( function ( totalFiles ) {
-				grunt.log.writeln( 'Created ' + totalFiles + ' SVG files.' );
-			} );
-		}
-	);
-
 	/* Classes */
-
-	/**
-	 * Image source.
-	 *
-	 * @class
-	 *
-	 * @constructor
-	 * @param {string} path Directory containing source images
-	 * @param {Object} images Lists of image configurations
-	 * @param {Object} [variants] List of variant configurations, keyed by variant name
-	 * @param {Object} [options] Additional options
-	 */
-	function Source( path, images, variants, options ) {
-		this.path = path;
-		this.images = images;
-		this.variants = variants || {};
-		this.options = options || {};
-	}
-
-	/**
-	 * Get the path to source images directory.
-	 *
-	 * @return {string} Path
-	 */
-	Source.prototype.getPath = function () {
-		return this.path;
-	};
-
-	/**
-	 * Get image list.
-	 *
-	 * @return {ImageList} Image list
-	 */
-	Source.prototype.getImageList = function () {
-		return new ImageList(
-			this.path,
-			new VariantList( this.variants ),
-			this.options,
-			this.images
-		);
-	};
 
 	/**
 	 * Destination for images.
@@ -537,5 +459,81 @@ module.exports = function ( grunt ) {
 	VariantList.prototype.getLength = function () {
 		return Object.keys( this.list ).length;
 	};
+
+	/**
+	 * Image source.
+	 *
+	 * @class
+	 *
+	 * @constructor
+	 * @param {string} path Directory containing source images
+	 * @param {Object} images Lists of image configurations
+	 * @param {Object} [variants] List of variant configurations, keyed by variant name
+	 * @param {Object} [options] Additional options
+	 */
+	function Source( path, images, variants, options ) {
+		this.path = path;
+		this.images = images;
+		this.variants = variants || {};
+		this.options = options || {};
+	}
+
+	/**
+	 * Get the path to source images directory.
+	 *
+	 * @return {string} Path
+	 */
+	Source.prototype.getPath = function () {
+		return this.path;
+	};
+
+	/**
+	 * Get image list.
+	 *
+	 * @return {ImageList} Image list
+	 */
+	Source.prototype.getImageList = function () {
+		return new ImageList(
+			this.path,
+			new VariantList( this.variants ),
+			this.options,
+			this.images
+		);
+	};
+
+	asyncTask.registerMulti(
+		grunt,
+		'colorizeSvg',
+		'Generate colored variants of SVG images',
+		function () {
+			var
+				data = this.data,
+				options = this.options(),
+				source = new Source(
+					data.srcDir,
+					options.images,
+					options.variants,
+					{
+						intro: options.intro,
+						prefix: options.prefix,
+						cssPrependPath: data.cssPrependPath,
+						selectorWithoutVariant: options.selectorWithoutVariant || options.selector,
+						selectorWithVariant: options.selectorWithVariant || options.selector
+					}
+				);
+
+			return source.getImageList().generate(
+				new Destination(
+					data.destDir,
+					data.destLessFile || {
+						ltr: path.join( data.destDir, 'images.less' ),
+						rtl: path.join( data.destDir, 'images.rtl.less' )
+					}
+				)
+			).then( function ( totalFiles ) {
+				grunt.log.writeln( 'Created ' + totalFiles + ' SVG files.' );
+			} );
+		}
+	);
 
 };
