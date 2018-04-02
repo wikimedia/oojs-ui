@@ -1,9 +1,9 @@
 // Theme variables
 
-@oo-ui-default-image-path: 'themes/wikimediaui/images';
-@oo-ui-font-size-browser: 16; // assumed browser default of `16px`
-@oo-ui-font-size-base: 0.875em; // equals `14px` at browser default of `16px`
-@oo-ui-unit: em;
+@ooui-default-image-path: 'themes/wikimediaui/images';
+@ooui-font-size-browser: 16; // assumed browser default of `16px`
+@ooui-font-size-base: 0.875em; // equals `14px` at browser default of `16px`
+@ooui-unit: em;
 
 // Pull in the main set of variables from the shared UI base; reaching into node_modules like this
 // to avoid a symlink that Windows users won't like.
@@ -41,14 +41,14 @@
 
 // Box Sizes
 // `@*size` variables are used for `*width` & `*height` properties
-@size-base: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `2.5em`≈`32px`
+@size-base: 32 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.5em`≈`32px`
 
 @min-size-icon: 20px; // values used for `min-height` are defined in `px`, see T130691
 @min-size-indicator: 12px;
 @min-size-toggleswitch-grip: 16px;
 @min-size-toolbar-popup-toolgroup-handle: 140px;
 @min-size-toolbar-narrow-popup-toolgroup-handle: 100px;
-@min-width-button-base: 44 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `3.4375em`≈`44px` at base `font-size: 14px`
+@min-width-button-base: 44 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.4375em`≈`44px` at base `font-size: 14px`
 @min-width-button-combo-widget: 37px;
 @min-width-icon-numberinput: 20px;
 @min-width-tagitem-close: 14px;
@@ -59,47 +59,47 @@
 
 @size-anchor: 9px;
 @size-button-base: @size-base;
-@size-button-tagitem-close: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.5625em`≈`20px`
-@size-icon: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@size-icon-tagitem-close: 14 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.09375em`≈`14px`
-@size-icon-checkmark: 14 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@size-indicator: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.9375em`≈`12px`
-@size-dialog-bar-top: 44 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `3.4375em`≈`44px`
-@size-fieldlayout-help-icon: 22 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@size-toggleswitch-grip: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@size-tool: 42 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `3.125em`≈`40px`
-@size-toolbar-narrow-modifier: 2 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@size-popuptool: 42 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@size-button-tagitem-close: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.5625em`≈`20px`
+@size-icon: 20 / @ooui-font-size-browser / @ooui-font-size-base;
+@size-icon-tagitem-close: 14 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.09375em`≈`14px`
+@size-icon-checkmark: 14 / @ooui-font-size-browser / @ooui-font-size-base;
+@size-indicator: 12 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.9375em`≈`12px`
+@size-dialog-bar-top: 44 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.4375em`≈`44px`
+@size-fieldlayout-help-icon: 22 / @ooui-font-size-browser / @ooui-font-size-base;
+@size-toggleswitch-grip: 16 / @ooui-font-size-browser / @ooui-font-size-base;
+@size-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.125em`≈`40px`
+@size-toolbar-narrow-modifier: 2 / @ooui-font-size-browser / @ooui-font-size-base;
+@size-popuptool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
 
-@start-framed-icon-only: 11 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.859375em`≈`11px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
-@start-framed-icon-only-numberinput: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.546875em`≈`7px`
-@start-framed-indicator-only: 15 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.07142857em`≈`15px`; `@size-indicator + 2 * @border-width-base`
-@start-framed-indicator-only-button-combo-widget: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.85714286em`≈`12px`
-@start-frameless: -( 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base ); // `-( @start-frameless-icon + @border-width-base )`
-@start-frameless-icon: 5 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@start-fieldlayout-help-icon: 3 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.234375em`≈`3px`
-@start-tagmultiselect-input: 5 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.390625em`≈`5px`; `@padding-horizontal-tagitem` + `@border-width-base`
-@start-toggleswitch-grip: 5 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@start-tool-icon: 11 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@start-toolbar-narrow-tool-icon: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@end-tool-indicator: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@end-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.28571429em`≈`4px`
+@start-framed-icon-only: 11 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.859375em`≈`11px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
+@start-framed-icon-only-numberinput: 8 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.546875em`≈`7px`
+@start-framed-indicator-only: 15 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.07142857em`≈`15px`; `@size-indicator + 2 * @border-width-base`
+@start-framed-indicator-only-button-combo-widget: 12 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.85714286em`≈`12px`
+@start-frameless: -( 6 / @ooui-font-size-browser / @ooui-font-size-base ); // `-( @start-frameless-icon + @border-width-base )`
+@start-frameless-icon: 5 / @ooui-font-size-browser / @ooui-font-size-base;
+@start-fieldlayout-help-icon: 3 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.234375em`≈`3px`
+@start-tagmultiselect-input: 5 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.390625em`≈`5px`; `@padding-horizontal-tagitem` + `@border-width-base`
+@start-toggleswitch-grip: 5 / @ooui-font-size-browser / @ooui-font-size-base;
+@start-tool-icon: 11 / @ooui-font-size-browser / @ooui-font-size-base;
+@start-toolbar-narrow-tool-icon: 4 / @ooui-font-size-browser / @ooui-font-size-base;
+@end-tool-indicator: 8 / @ooui-font-size-browser / @ooui-font-size-base;
+@end-tagitem: 4 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.28571429em`≈`4px`
 
-@width-button-combo-widget: 37 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `2.42857143em≈`34px`;
+@width-button-combo-widget: 37 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.42857143em≈`34px`;
 
 @height-icon-element: 100%;
-@height-search: 56 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `4.375em`≈`56px`; `height: 32px` + 2 * `margin: 12px`
-@height-tagitem: 22 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.71875em`≈`22px`;
+@height-search: 56 / @ooui-font-size-browser / @ooui-font-size-base; // equals `4.375em`≈`56px`; `height: 32px` + 2 * `margin: 12px`
+@height-tagitem: 22 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.71875em`≈`22px`;
 
-@margin-dialog-bar-button-framed: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@margin-search: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@margin-dialog-bar-button-framed: 6 / @ooui-font-size-browser / @ooui-font-size-base;
+@margin-search: 12 / @ooui-font-size-browser / @ooui-font-size-base;
 @margin-taboption: @margin-dialog-bar-button-framed;
-@margin-button-close: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@margin-top-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@margin-top-tagmultiselect-input: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@margin-top-fieldlayout-help: -( 2 / @oo-ui-font-size-browser / @oo-ui-font-size-base );
-@margin-bottom-fieldset-header: unit( 8 / @oo-ui-font-size-browser / ( @oo-ui-font-size-base * @font-size-fieldset-header ), @oo-ui-unit );
-@margin-end-fieldlayout-help: -( 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base );
+@margin-button-close: 4 / @ooui-font-size-browser / @ooui-font-size-base;
+@margin-top-tagitem: 4 / @ooui-font-size-browser / @ooui-font-size-base;
+@margin-top-tagmultiselect-input: 6 / @ooui-font-size-browser / @ooui-font-size-base;
+@margin-top-fieldlayout-help: -( 2 / @ooui-font-size-browser / @ooui-font-size-base );
+@margin-bottom-fieldset-header: unit( 8 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ), @ooui-unit );
+@margin-end-fieldlayout-help: -( 8 / @ooui-font-size-browser / @ooui-font-size-base );
 
 @border-base--disabled: @border-width-base solid @border-color-base--disabled;
 @border-filled--disabled: @border-width-base solid @border-color-filled--disabled;
@@ -126,38 +126,38 @@
 @padding-input-text: @padding-top-base @padding-horizontal-input-text @padding-bottom-base;
 @padding-menu: @padding-top-menu @padding-horizontal-base @padding-bottom-menu;
 @padding-menu-large: @padding-top-tool-label @padding-horizontal-base @padding-bottom-tool-label;
-@padding-search: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.25em`≈`16px`
+@padding-search: 16 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.25em`≈`16px`
 @padding-taboption: @padding-top-base @padding-horizontal-taboption @padding-bottom-base;
-@padding-horizontal-base: 12 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.9375em`≈`12px`
-@padding-horizontal-frameless: 2 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.28571429em`≈`4px`
-@padding-horizontal-input-text: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-horizontal-taboption: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.9375em`≈`13px`; @padding-horizontal-base = @border-width-base
-@padding-horizontal-tagitem: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-horizontal-toolbar-action-buttons: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // aligned relatively to `@padding-horizontal-base` but for toolbar button height
-@padding-vertical-label: 4 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-top-base: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.625em`≈`8px`
-@padding-top-icon-indicator: 30 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-top-menu: 9 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-top-tool: 42 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-top-tool-label: 14 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-bottom-base: 7 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `0.547em`≈`7px`
-@padding-bottom-menu: 8 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-bottom-tool-label: 13 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-horizontal-base: 12 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.9375em`≈`12px`
+@padding-horizontal-frameless: 2 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.28571429em`≈`4px`
+@padding-horizontal-input-text: 8 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-horizontal-taboption: 13 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.9375em`≈`13px`; @padding-horizontal-base = @border-width-base
+@padding-horizontal-tagitem: 4 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-horizontal-toolbar-action-buttons: 16 / @ooui-font-size-browser / @ooui-font-size-base; // aligned relatively to `@padding-horizontal-base` but for toolbar button height
+@padding-vertical-label: 4 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-top-base: 8 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.625em`≈`8px`
+@padding-top-icon-indicator: 30 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-top-menu: 9 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-top-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-top-tool-label: 14 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-bottom-base: 7 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.547em`≈`7px`
+@padding-bottom-menu: 8 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-bottom-tool-label: 13 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-icon: @size-icon;
-@padding-start-icon-only: 30 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `2.03125em`≈`26px`; @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base;
-@padding-start-fieldset-header-iconized: unit( 26 / @oo-ui-font-size-browser / ( @oo-ui-font-size-base * @font-size-fieldset-header ), @oo-ui-unit );
+@padding-start-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.03125em`≈`26px`; @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base;
+@padding-start-fieldset-header-iconized: unit( 26 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ), @ooui-unit );
 @padding-start-indicator-only: @padding-start-icon-only;
-@padding-start-indicator-plus: 32 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-start-frameless-icon-only: 30 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-start-indicator-plus: 32 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-start-frameless-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-frameless-icon-plus: @padding-start-frameless-icon-only;
-@padding-start-fieldlayout-label: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-start-input-text-icon-label: 37 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-start-menu-icon-label: 37 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-start-tool: 37 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-start-tool-icon-only: 42 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // Provide slightly more space than `@padding-start-input-text-icon-label` as we want to provide minimal touch action size
-@padding-end-tagitem-close: 21 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.640625em`≈`21px`;
-@padding-end-toolgroup-label-indicator: 26 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
-@padding-end-toolgroup-indicator: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-start-fieldlayout-label: 6 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-start-input-text-icon-label: 37 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-start-menu-icon-label: 37 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-start-tool: 37 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-start-tool-icon-only: 42 / @ooui-font-size-browser / @ooui-font-size-base; // Provide slightly more space than `@padding-start-input-text-icon-label` as we want to provide minimal touch action size
+@padding-end-tagitem-close: 21 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.640625em`≈`21px`;
+@padding-end-toolgroup-label-indicator: 26 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-end-toolgroup-indicator: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 
 @box-shadow-toolbar-top: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.1 );
@@ -171,16 +171,16 @@
 @box-shadow-input-binary--active: inset 0 0 0 1px @color-progressive--active;
 @box-shadow-erroneous--focus: inset 0 0 0 1px @color-erroneous;
 
-@font-size-fieldset-header: 16 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@font-size-fieldset-header: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
 @line-height-message: 1.4;
-@line-height-fieldset-header-iconized: 24 / @oo-ui-font-size-browser / ( @oo-ui-font-size-base * @font-size-fieldset-header );
+@line-height-fieldset-header-iconized: 24 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header );
 @line-height-form-element: 1.4;
 @line-height-input-binary-label: 1.5; // Checkboxes, Radios and ToggleSwitchWidget labels need a tad more for increased vertical click area
 @line-height-widget-multiline: 1.275;
-@line-height-widget-singleline: 15 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `1.172em`≈`15px`; Firefox needs a value, Chrome the unit;
-@line-height-tagmultiselect-input: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-base; // equals `20px` at base `font-size: 14px`
+@line-height-widget-singleline: 15 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.172em`≈`15px`; Firefox needs a value, Chrome the unit;
+@line-height-tagmultiselect-input: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `20px` at base `font-size: 14px`
 
 // Transition variables
 // Some of these values are duplicated in OO.ui.WikimediaUITheme
@@ -191,14 +191,14 @@
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
 @background-color-input-binary--active: @color-progressive--active;
 @background-color-input-binary--checked: @color-progressive;
-@size-input-binary: 20 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@size-input-binary: 20 / @ooui-font-size-browser / @ooui-font-size-base;
 @border-input-binary: @border-width-base solid @border-color-input-binary;
 @border-color-input-binary: @border-color-base--active;
 @border-color-input-binary--active: @color-progressive--active;
 @border-color-input-binary--checked: @color-progressive;
-@padding-start-input-binary-label: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@padding-start-input-binary-label: 6 / @ooui-font-size-browser / @ooui-font-size-base;
 @box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
-@border-width-radio--checked: 6 / @oo-ui-font-size-browser / @oo-ui-font-size-base;
+@border-width-radio--checked: 6 / @ooui-font-size-browser / @ooui-font-size-base;
 
 // Theme mixins
 
@@ -213,7 +213,7 @@
 // * We take the payload size hit of the unnecessary /* @embed */ hint across the board. It should
 //   be mostly mitigated by using gzip compression.
 // * Upstream bug report: https://bugs.webkit.org/show_bug.cgi?id=141789
-.oo-ui-background-image-safari( @url-without-extension ) when ( @oo-ui-distribution = vector ) {
+.oo-ui-background-image-safari( @url-without-extension ) when ( @ooui-distribution = vector ) {
 	@svg: '@{url-without-extension}.svg';
 	background-image: -webkit-linear-gradient( transparent, transparent ), e( '/* @embed */' ) url( @svg );
 }

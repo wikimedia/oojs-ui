@@ -144,8 +144,8 @@ module.exports = function ( grunt ) {
 			options: {
 				modifyVars: {
 					// Changed dynamically by 'set-graphics' task
-					'oo-ui-distribution': 'mixed',
-					'oo-ui-default-image-ext': 'png'
+					'ooui-distribution': 'mixed',
+					'ooui-default-image-ext': 'png'
 				}
 			}
 		};
@@ -627,11 +627,11 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'set-graphics', function ( graphics ) {
 		graphics = graphics || grunt.option( 'graphics' ) || 'mixed';
 		grunt.config.set(
-			'less.options.modifyVars.oo-ui-distribution',
+			'less.options.modifyVars.ooui-distribution',
 			graphics
 		);
 		grunt.config.set(
-			'less.options.modifyVars.oo-ui-default-image-ext',
+			'less.options.modifyVars.ooui-default-image-ext',
 			graphics === 'vector' ? 'svg' : 'png'
 		);
 		if ( graphics === 'vector' ) {
