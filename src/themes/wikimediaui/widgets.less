@@ -1317,7 +1317,7 @@
 .theme-oo-ui-searchWidget () {
 	&-query {
 		height: @height-search;
-		padding: 0 @padding-search; // needs to be `padding` for `border`/`box-shadow` below
+		padding: 0 @padding-panel-dialog; // Need to use `padding` over `margin` for horizontally continuos `border`/`box-shadow` below
 		border-bottom: @border-toolbar;
 		box-shadow: @box-shadow-toolbar-top;
 
@@ -1328,7 +1328,7 @@
 
 	&-results {
 		top: @height-search;
-		padding: @padding-search;
+		padding: @padding-panel-form; // Use smaller `@padding-panel-form` over `@padding-panel-dialog` for image results
 		line-height: 0;
 	}
 }

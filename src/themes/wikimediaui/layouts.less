@@ -5,7 +5,7 @@
 .theme-oo-ui-bookletLayout () {
 	&-stackLayout {
 		> .oo-ui-panelLayout {
-			padding: 1.5em;
+			padding: @padding-panel-dialog;
 		}
 	}
 
@@ -23,7 +23,7 @@
 .theme-oo-ui-indexLayout () {
 	&-stackLayout {
 		> .oo-ui-panelLayout {
-			padding: 1.5em;
+			padding: @padding-panel-dialog;
 		}
 	}
 
@@ -40,11 +40,11 @@
 
 .theme-oo-ui-fieldLayout () {
 	// We just relatively follow M101 design guideline here
-	margin-top: 1.25em; // `1.5em` in the guideline, we go for `1.25em`≈`16px`
+	margin-top: @margin-top-fieldlayout; // `1.5em` in the guideline, we go for `1.1428571em`≈`16px`
 
 	&.oo-ui-labelElement,
 	&.oo-ui-fieldLayout-align-inline {
-		margin-top: 0.9375em; // `1.25em` in the guideline, we go for `0.9375em`≈`12px`
+		margin-top: @margin-top-fieldlayout--labelled; // `1.25em` in the guideline, we go for `0.8571429em`≈`12px`
 	}
 
 	&,
@@ -96,8 +96,8 @@
 		}
 
 		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
-			padding: 0.3125em 0 0.3125em 0.46875em; // equals `4px 6px` at base `font-size: 12.8px`
-			// `6px` is not aligned to M101 design guideline, as checkbox and radio sizes aren't either
+			padding-top: @padding-vertical-label;
+			padding-left: @padding-start-fieldlayout-label; // ≈`6px` is not aligned to M101 design guideline, as checkbox and radio sizes aren't either
 		}
 	}
 
@@ -165,7 +165,7 @@
 
 .theme-oo-ui-fieldsetLayout () {
 	.oo-ui-fieldsetLayout-header {
-		max-width: 50em;
+		max-width: @max-width-base;
 
 		.oo-ui-iconElement-icon {
 			height: @size-icon;
@@ -178,7 +178,7 @@
 
 	+ .oo-ui-fieldsetLayout,
 	+ .oo-ui-formLayout {
-		margin-top: 2em;
+		margin-top: @margin-top-form-fieldset;
 	}
 
 	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
@@ -213,7 +213,7 @@
 .theme-oo-ui-formLayout () {
 	+ .oo-ui-fieldsetLayout,
 	+ .oo-ui-formLayout {
-		margin-top: 2em;
+		margin-top: @margin-top-form-fieldset;
 	}
 }
 
@@ -221,12 +221,12 @@
 
 .theme-oo-ui-panelLayout () {
 	&-padded {
-		padding: 1.25em;
+		padding: @padding-panel-form;
 
 		&.oo-ui-formLayout > .oo-ui-fieldsetLayout {
 			.oo-ui-labelElement-label,
 			.oo-ui-iconElement-icon {
-				margin-top: -0.25em; // Reduce distance for `line-height` and only if element visible
+				margin-top: -( @margin-top-fieldlayout--labelled / 2 ); // Reduce distance for `line-height` and only if element visible
 			}
 		}
 	}
@@ -237,7 +237,7 @@
 	}
 
 	&-padded&-framed {
-		margin: 1em 0;
+		margin: @margin-top-fieldlayout--labelled 0;
 	}
 }
 
