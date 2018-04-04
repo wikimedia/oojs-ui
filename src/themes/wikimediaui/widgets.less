@@ -1387,10 +1387,8 @@
 	}
 
 	&-clearButton {
-		top: -1px; // Address `border-width`
-		right: @padding-horizontal-input-text; // With close, no indicator
-		min-width: @min-size-icon;
-		width: @size-icon;
+		top: -@border-width-base; // Address `border-width`
+		right: 0; // With close, no indicator
 		margin-right: 0;
 
 		.oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
