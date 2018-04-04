@@ -363,7 +363,9 @@
 			& + span {
 				.oo-ui-background-image-svg( '@{ooui-default-image-path}/icons/check-invert' );
 				.oo-ui-background-image-safari( '@{ooui-default-image-path}/icons/check-invert' );
-				background-size: @size-icon-checkmark;
+				// This must have two values to match `background-size: 0 0` above,
+				// otherwise the transition does not work (at least in Chrome).
+				background-size: @size-icon-checkmark @size-icon-checkmark;
 			}
 		}
 
