@@ -46,7 +46,7 @@ OO.ui.RadioSelectInputWidget = function OoUiRadioSelectInputWidget( config ) {
 	this.$element
 		.addClass( 'oo-ui-radioSelectInputWidget' )
 		.append( this.radioSelectWidget.$element );
-	this.setTabIndexedElement( null );
+	this.setTabIndexedElement( this.radioSelectWidget.$tabIndexed );
 };
 
 /* Setup */
