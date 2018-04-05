@@ -17,7 +17,13 @@ class WikimediaUITheme extends Theme {
 		// Parent method
 		$classes = parent::getElementClasses( $element );
 
-		if ( $element->supports( [ 'hasFlag' ] ) ) {
+		if (
+			$element instanceof IconWidget &&
+			$element->hasClass( 'oo-ui-checkboxInputWidget-checkIcon' )
+		) {
+			// Icon on CheckboxInputWidget
+			$variants['invert'] = true;
+		} elseif ( $element->supports( [ 'hasFlag' ] ) ) {
 			$isFramed = $element->supports( [ 'isFramed' ] ) && $element->isFramed();
 			$isActive = $element->supports( [ 'isActive' ] ) && $element->isActive();
 			if ( $isFramed && ( $isActive || $element->isDisabled() || $element->hasFlag( 'primary' ) ) ) {

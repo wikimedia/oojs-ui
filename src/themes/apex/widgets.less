@@ -153,7 +153,12 @@
 	}
 }
 
-.theme-oo-ui-checkboxInputWidget () {}
+.theme-oo-ui-checkboxInputWidget () {
+	// Stupid specific rules to override ridiculous selector in Widget.less
+	.oo-ui-checkboxInputWidget-checkIcon.oo-ui-iconElement-icon {
+		display: none;
+	}
+}
 
 .theme-oo-ui-checkboxMultioptionWidget () {
 	padding: @padding-vertical-label 0;

@@ -30,7 +30,13 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 		// Parent method
 		classes = OO.ui.WikimediaUITheme.parent.prototype.getElementClasses.call( this, element );
 
-	if ( element.supports( [ 'hasFlag' ] ) ) {
+	if (
+		element instanceof OO.ui.IconWidget &&
+		element.$element.hasClass( 'oo-ui-checkboxInputWidget-checkIcon' )
+	) {
+		// Icon on CheckboxInputWidget
+		variants.invert = true;
+	} else if ( element.supports( [ 'hasFlag' ] ) ) {
 		isFramed = element.supports( [ 'isFramed' ] ) && element.isFramed();
 		isActive = element.supports( [ 'isActive' ] ) && element.isActive();
 		isToolOrGroup =

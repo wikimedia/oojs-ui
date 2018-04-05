@@ -46,11 +46,17 @@ OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 	// Parent constructor
 	OO.ui.CheckboxInputWidget.parent.call( this, config );
 
+	// Properties
+	this.checkIcon = new OO.ui.IconWidget( {
+		icon: 'check',
+		classes: [ 'oo-ui-checkboxInputWidget-checkIcon' ]
+	} );
+
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-checkboxInputWidget' )
 		// Required for pretty styling in WikimediaUI theme
-		.append( $( '<span>' ) );
+		.append( this.checkIcon.$element );
 	this.setSelected( config.selected !== undefined ? config.selected : false );
 };
 
