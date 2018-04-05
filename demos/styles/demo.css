@@ -319,13 +319,13 @@ p {
 	font-weight: bold;
 }
 
-.oo-ui-menuToolGroup .oo-ui-tool-name-heading1 .oo-ui-tool-title,
-.oo-ui-menuToolGroup .oo-ui-tool-name-heading2 .oo-ui-tool-title,
-.oo-ui-menuToolGroup .oo-ui-tool-name-heading3 .oo-ui-tool-title,
-.oo-ui-menuToolGroup .oo-ui-tool-name-heading4 .oo-ui-tool-title,
-.oo-ui-menuToolGroup .oo-ui-tool-name-heading5 .oo-ui-tool-title,
-.oo-ui-menuToolGroup .oo-ui-tool-name-heading6 .oo-ui-tool-title {
-	/* FIXME T126030: Use px so padding is not changed by font size */
+.oo-ui-theme-apex .oo-ui-menuToolGroup .oo-ui-tool-name-heading1 .oo-ui-tool-title,
+.oo-ui-theme-apex .oo-ui-menuToolGroup .oo-ui-tool-name-heading2 .oo-ui-tool-title,
+.oo-ui-theme-apex .oo-ui-menuToolGroup .oo-ui-tool-name-heading3 .oo-ui-tool-title,
+.oo-ui-theme-apex .oo-ui-menuToolGroup .oo-ui-tool-name-heading4 .oo-ui-tool-title,
+.oo-ui-theme-apex .oo-ui-menuToolGroup .oo-ui-tool-name-heading5 .oo-ui-tool-title,
+.oo-ui-theme-apex .oo-ui-menuToolGroup .oo-ui-tool-name-heading6 .oo-ui-tool-title {
+	/* Use px so padding is not changed by font size. This is normally 0.5em. */
 	padding-left: 6.4px;
 }
 
@@ -336,7 +336,8 @@ p {
 }
 
 .oo-ui-menuToolGroup .oo-ui-tool-name-blockquote .oo-ui-tool-title {
-	padding-left: 1.5em;
+	/* Indent in addition to padding */
+	text-indent: 1.5em;
 }
 
 .oo-ui-menuToolGroup .oo-ui-tool-name-tableCellHeader .oo-ui-tool-title {
