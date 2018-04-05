@@ -15,8 +15,16 @@ OO.ui.MenuOptionWidget = function OoUiMenuOptionWidget( config ) {
 	// Parent constructor
 	OO.ui.MenuOptionWidget.parent.call( this, config );
 
+	// Properties
+	this.checkIcon = new OO.ui.IconWidget( {
+		icon: 'check',
+		classes: [ 'oo-ui-menuOptionWidget-checkIcon' ]
+	} );
+
 	// Initialization
-	this.$element.addClass( 'oo-ui-menuOptionWidget' );
+	this.$element
+		.prepend( this.checkIcon.$element )
+		.addClass( 'oo-ui-menuOptionWidget' );
 };
 
 /* Setup */

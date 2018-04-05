@@ -780,6 +780,11 @@
 		color @transition-ease-quick
 	);
 
+	// Stupid specific rules to override ridiculous selector in Widget.less
+	&.oo-ui-optionWidget .oo-ui-iconElement-icon.oo-ui-menuOptionWidget-checkIcon {
+		display: none;
+	}
+
 	&.oo-ui-optionWidget {
 		&-highlighted {
 			background-color: @background-color-base--hover;

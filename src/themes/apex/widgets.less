@@ -548,6 +548,11 @@
 }
 
 .theme-oo-ui-menuOptionWidget () {
+	// Stupid specific rules to override ridiculous selector in Widget.less
+	&.oo-ui-optionWidget .oo-ui-iconElement-icon.oo-ui-menuOptionWidget-checkIcon {
+		display: none;
+	}
+
 	&.oo-ui-optionWidget {
 		> .oo-ui-indicatorElement-indicator {
 			display: none;
@@ -557,11 +562,17 @@
 			background-color: transparent;
 
 			// Hack to show 'check' icon in Apex, see T87835
-			> .oo-ui-iconElement-icon {
-				.oo-ui-background-image-svg( '@{ooui-default-image-path}/icons/check' );
-				background-position: center center;
-				background-repeat: no-repeat;
-				background-size: contain;
+
+			// Hide normal icon (if any)
+			&.oo-ui-optionWidget .oo-ui-iconElement-icon {
+				display: none;
+			}
+
+			// Show checkmark
+			// Stupid specific rules to override ridiculous selector in Widget.less
+			// The rules other than `display: block;` are also only necessary because of the mess
+			// with nested IconElements (this gets the styles meant for elements with no icon).
+			&.oo-ui-optionWidget .oo-ui-iconElement-icon.oo-ui-menuOptionWidget-checkIcon {
 				display: block;
 				position: absolute;
 				left: 0.5em;
@@ -572,6 +583,7 @@
 				height: 100%;
 			}
 		}
+
 		&-highlighted,
 		&-highlighted.oo-ui-optionWidget-selected {
 			background-color: #e1f3ff;
