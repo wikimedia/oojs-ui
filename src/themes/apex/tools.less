@@ -313,17 +313,24 @@
 	.oo-ui-tool {
 		padding: 0 1.25em 0 0.3125em;
 
-		&-link {
-			.oo-ui-iconElement-icon {
-				background-image: none;
-			}
+		// Stupid specific rules to override ridiculous selector in Widget.less
+		&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon {
+			opacity: 0;
 		}
 
-		&-active .oo-ui-tool-link .oo-ui-iconElement-icon {
-			.oo-ui-background-image-svg( '@{ooui-default-image-path}/icons/check' );
-			background-size: contain;
-			background-position: center center;
-			background-repeat: no-repeat;
+		&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon.oo-ui-tool-checkIcon {
+			display: none;
+		}
+
+		&-active {
+			&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon {
+				display: none;
+			}
+
+			&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon.oo-ui-tool-checkIcon {
+				display: table-cell;
+				opacity: 1;
+			}
 		}
 
 		&.oo-ui-widget-enabled {
@@ -335,10 +342,6 @@
 		&.oo-ui-widget-disabled {
 			.oo-ui-tool-link .oo-ui-tool-title {
 				color: #ccc;
-			}
-
-			.oo-ui-tool-link .oo-ui-iconElement-icon {
-				opacity: 0.2;
 			}
 		}
 	}
@@ -484,11 +487,12 @@
 		}
 	}
 
-	.oo-ui-tool-link {
+	// Stupid specific rules to override ridiculous selector in Widget.less
+	.oo-ui-tool.oo-ui-widget .oo-ui-tool-link {
 		padding: 0.3125em 0 0.3125em 0.3125em;
 
 		.oo-ui-iconElement-icon {
-			display: table-cell !important; // stylelint-disable declaration-no-important
+			display: table-cell;
 			min-width: @size-icon-inner;
 			width: @size-icon-inner;
 			height: @size-icon-inner;
