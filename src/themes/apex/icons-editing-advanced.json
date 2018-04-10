@@ -56,6 +56,18 @@
 		"tableAddRowBefore": { "file": "../wikimediaui/images/icons/tableAddRowBefore.svg" },
 		"tableCaption": { "file": "../wikimediaui/images/icons/tableCaption.svg" },
 		"tableMergeCells": { "file": "../wikimediaui/images/icons/tableMergeCells.svg" },
+		"tableMoveColumnAfter": {
+			"file": "../wikimediaui/images/icons/tableMoveColumnAfter.svg"
+		},
+		"tableMoveColumnBefore": {
+			"file": "../wikimediaui/images/icons/tableMoveColumnBefore.svg"
+		},
+		"tableMoveRowAfter": {
+			"file": "../wikimediaui/images/icons/tableMoveRowAfter.svg"
+		},
+		"tableMoveRowBefore": {
+			"file": "../wikimediaui/images/icons/tableMoveRowBefore.svg"
+		},
 		"templateAdd": { "file": {
 			"ltr": "../wikimediaui/images/icons/templateAdd-ltr.svg",
 			"rtl": "../wikimediaui/images/icons/templateAdd-rtl.svg"

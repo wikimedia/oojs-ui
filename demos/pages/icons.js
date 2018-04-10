@@ -146,6 +146,10 @@ Demo.static.pages.icons = function ( demo ) {
 				'tableAddRowBefore',
 				'tableCaption',
 				'tableMergeCells',
+				'tableMoveColumnAfter',
+				'tableMoveColumnBefore',
+				'tableMoveRowAfter',
+				'tableMoveRowBefore',
 				'templateAdd',
 				'wikiText'
 			],
