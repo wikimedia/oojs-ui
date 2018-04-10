@@ -49,6 +49,7 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 
 		defaultConfig.popupInput = defaultInput;
 		defaultConfig.popup.$content = defaultInput.$element;
+		defaultConfig.popup.padded = true;
 
 		this.$element.addClass( 'oo-ui-popupTagMultiselectWidget-defaultPopup' );
 	}
