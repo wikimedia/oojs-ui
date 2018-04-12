@@ -84,7 +84,8 @@
 			"src/layouts/FieldsetLayout.js",
 			"src/layouts/FormLayout.js",
 			"src/layouts/PanelLayout.js",
-			"src/layouts/HorizontalLayout.js"
+			"src/layouts/HorizontalLayout.js",
+			"src/widgets/NumberInputWidget.js"
 		]
 	},
 	# Additional widgets and layouts module. These have no equivalent in OOUI PHP.
@@ -123,8 +124,7 @@
 			"src/widgets/MenuTagMultiselectWidget.js",
 
 			"src/widgets/SelectFileWidget.js",
-			"src/widgets/SearchWidget.js",
-			"src/widgets/NumberInputWidget.js"
+			"src/widgets/SearchWidget.js"
 		],
 	},
 	# Toolbar and tools module.
