@@ -182,8 +182,16 @@ OO.ui.WindowManager.prototype.onWindowResize = function () {
  * @param {jQuery.Event} e Window resize event
  */
 OO.ui.WindowManager.prototype.afterWindowResize = function () {
+	var currentFocusedElement = document.activeElement;
 	if ( this.currentWindow ) {
 		this.updateWindowSize( this.currentWindow );
+
+		// Restore focus to the original element if it has changed.
+		// When a layout change is made on resize inputs lose focus
+		// on Android (Chrome and Firefox). See T162127.
+		if ( currentFocusedElement !== document.activeElement ) {
+			currentFocusedElement.focus();
+		}
 	}
 };
 
