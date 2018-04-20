@@ -134,20 +134,25 @@ OO.ui.MenuTagMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
 	var menuItem = this.menu.findItemFromData( tagItem.getData() );
-	// Override the base behavior from TagMultiselectWidget; the base behavior
-	// in TagMultiselectWidget is to remove the tag to edit it in the input,
-	// but in our case, we want to utilize the menu selection behavior, and
-	// definitely not remove the item.
+	if ( !this.allowArbitrary ) {
+		// Override the base behavior from TagMultiselectWidget; the base behavior
+		// in TagMultiselectWidget is to remove the tag to edit it in the input,
+		// but in our case, we want to utilize the menu selection behavior, and
+		// definitely not remove the item.
 
-	// If there is an input that is used for filtering, erase the value so we don't filter
-	if ( this.hasInput && this.menu.filterFromInput ) {
-		this.input.setValue( '' );
+		// If there is an input that is used for filtering, erase the value so we don't filter
+		if ( this.hasInput && this.menu.filterFromInput ) {
+			this.input.setValue( '' );
+		}
+
+		// Select the menu item
+		this.menu.selectItem( menuItem );
+
+		this.focus();
+	} else {
+		// Use the default
+		OO.ui.MenuTagMultiselectWidget.parent.prototype.onTagSelect.call( this, tagItem );
 	}
-
-	// Select the menu item
-	this.menu.selectItem( menuItem );
-
-	this.focus();
 };
 
 /**
