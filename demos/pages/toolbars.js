@@ -7,14 +7,14 @@ Demo.static.pages.toolbars = function ( demo ) {
 		toolGroupFactories = [],
 		toolbars = [],
 		configs = [
-			{},
-			{ actions: true },
+			{ $overlay: true },
+			{ $overlay: true, actions: true },
 			{},
 			{ actions: true },
 			{ position: 'bottom' },
 			{ actions: true, position: 'bottom' },
-			{},
-			{ actions: true }
+			{ $overlay: true },
+			{ $overlay: true, actions: true }
 		];
 
 	// Show some random accelerator keys that don't actually work

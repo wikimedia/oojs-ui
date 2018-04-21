@@ -56,7 +56,7 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	this.onCapturedMouseKeyUpHandler = this.onCapturedMouseKeyUp.bind( this );
 
 	// Events
-	this.$element.on( {
+	this.$group.on( {
 		mousedown: this.onMouseKeyDown.bind( this ),
 		mouseup: this.onMouseKeyUp.bind( this ),
 		keydown: this.onMouseKeyDown.bind( this ),
@@ -68,13 +68,17 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	} );
 	this.toolbar.getToolFactory().connect( this, { register: 'onToolFactoryRegister' } );
 	this.aggregate( { disable: 'itemDisable' } );
-	this.connect( this, { itemDisable: 'updateDisabled' } );
+	this.connect( this, {
+		itemDisable: 'updateDisabled',
+		disable: 'onDisable'
+	} );
 
 	// Initialization
 	this.$group.addClass( 'oo-ui-toolGroup-tools' );
 	this.$element
 		.addClass( 'oo-ui-toolGroup' )
 		.append( this.$group );
+	this.onDisable( this.isDisabled() );
 	this.populate();
 };
 
@@ -157,6 +161,17 @@ OO.ui.ToolGroup.prototype.updateDisabled = function () {
 		this.autoDisabled = allDisabled;
 	}
 	OO.ui.ToolGroup.parent.prototype.updateDisabled.apply( this, arguments );
+};
+
+/**
+ * Handle disable events.
+ *
+ * @protected
+ * @param {boolean} isDisabled
+ */
+OO.ui.ToolGroup.prototype.onDisable = function ( isDisabled ) {
+	this.$group.toggleClass( 'oo-ui-toolGroup-disabled-tools', isDisabled );
+	this.$group.toggleClass( 'oo-ui-toolGroup-enabled-tools', !isDisabled );
 };
 
 /**

@@ -119,6 +119,7 @@ OO.ui.MenuToolGroup = function OoUiMenuToolGroup( toolbar, config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuToolGroup' );
+	this.$group.addClass( 'oo-ui-menuToolGroup-tools' );
 };
 
 /* Setup */

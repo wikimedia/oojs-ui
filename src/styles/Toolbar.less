@@ -15,13 +15,26 @@
 
 	&-tools {
 		display: inline;
+	}
+
+	&-popups {
+		position: absolute;
+	}
+
+	&-tools,
+	&-popups {
 		white-space: nowrap;
 
-		.oo-ui-toolbar-narrow &,
 		// Tools like PopupToolGroup can have a lot of content, which should be wrapped normally
-		.oo-ui-tool {
+		.oo-ui-tool,
+		.oo-ui-popupTool-popup {
 			white-space: normal;
 		}
+	}
+
+	.oo-ui-toolbar-narrow &-tools,
+	.oo-ui-toolbar-narrow&-popups {
+		white-space: normal;
 	}
 
 	&-actions {

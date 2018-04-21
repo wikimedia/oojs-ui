@@ -279,6 +279,8 @@
  *  in the toolbar, but are not configured as tools. By default, actions are displayed on the right side of
  *  the toolbar.
  * @cfg {string} [position='top'] Whether the toolbar is positioned above ('top') or below ('bottom') content.
+ * @cfg {jQuery} [$overlay] An overlay for the popup.
+ *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  */
 OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	// Allow passing positional parameters inside the config object
@@ -306,9 +308,11 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.position = config.position || 'top';
 	this.$bar = $( '<div>' );
 	this.$actions = $( '<div>' );
+	this.$popups = $( '<div>' );
 	this.initialized = false;
 	this.narrowThreshold = null;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
+	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 
 	// Events
 	this.$element
@@ -320,11 +324,13 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	if ( config.actions ) {
 		this.$bar.append( this.$actions.addClass( 'oo-ui-toolbar-actions' ) );
 	}
+	this.$popups.addClass( 'oo-ui-toolbar-popups' );
 	this.$bar
 		.addClass( 'oo-ui-toolbar-bar' )
 		.append( this.$group, '<div style="clear:both"></div>' );
 	// Possible classes: oo-ui-toolbar-position-top, oo-ui-toolbar-position-bottom
 	this.$element.addClass( 'oo-ui-toolbar oo-ui-toolbar-position-' + this.position ).append( this.$bar );
+	this.$overlay.append( this.$popups );
 };
 
 /* Setup */
@@ -386,7 +392,7 @@ OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
  * @param {jQuery.Event} e Window resize event
  */
 OO.ui.Toolbar.prototype.onWindowResize = function () {
-	this.$element.toggleClass(
+	this.$element.add( this.$popups ).toggleClass(
 		'oo-ui-toolbar-narrow',
 		this.$bar[ 0 ].clientWidth <= this.getNarrowThreshold()
 	);

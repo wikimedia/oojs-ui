@@ -19,27 +19,17 @@
 		}
 	}
 
-	.oo-ui-toolGroup-tools {
+	&-tools {
 		display: none;
 		position: absolute;
 		z-index: 4;
 	}
 
-	&-active.oo-ui-widget-enabled {
-		> .oo-ui-toolGroup-tools {
-			display: block;
-		}
+	&-tools&-active-tools {
+		display: block;
 	}
 
-	&-left > .oo-ui-toolGroup-tools {
-		left: 0;
-	}
-
-	&-right > .oo-ui-toolGroup-tools {
-		right: 0;
-	}
-
-	.oo-ui-tool-link {
+	&-tools .oo-ui-tool-link {
 		display: table;
 		width: 100%;
 		vertical-align: middle;

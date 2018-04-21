@@ -99,6 +99,12 @@
 	> .oo-ui-popupToolGroup > .oo-ui-popupToolGroup-handle {
 		height: 1.875em;
 		padding: 0.3125em;
+
+		// Fake the dimensions of a normal PopupToolGroup so that the popup aligns correctly
+		border-color: transparent;
+		border-style: solid;
+		border-width: 1px 0;
+		margin: -1px 0;
 	}
 
 	> .oo-ui-popupToolGroup.oo-ui-labelElement > .oo-ui-popupToolGroup-handle {
@@ -124,7 +130,9 @@
 		&:hover {
 			border-color: rgba( 0, 0, 0, 0.1 );
 		}
+	}
 
+	&-tools.oo-ui-toolGroup-enabled-tools {
 		.oo-ui-tool-link .oo-ui-tool-title {
 			color: #000;
 		}
@@ -132,7 +140,7 @@
 }
 
 .theme-oo-ui-barToolGroup () {
-	> .oo-ui-toolGroup-tools > .oo-ui-tool {
+	&-tools > .oo-ui-tool {
 		margin: -1px 0 -1px -1px;
 		border: 1px solid transparent;
 
@@ -162,7 +170,7 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
+	&-tools.oo-ui-toolGroup-enabled-tools > .oo-ui-tool {
 		&.oo-ui-widget-enabled:hover {
 			border-color: rgba( 0, 0, 0, 0.2 );
 		}
@@ -200,7 +208,7 @@
 		}
 	}
 
-	&.oo-ui-widget-disabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
+	&-tools.oo-ui-toolGroup-disabled-tools > .oo-ui-tool {
 		&:focus {
 			outline: 0;
 		}
@@ -222,7 +230,7 @@
 }
 
 .theme-oo-ui-listToolGroup () {
-	.oo-ui-toolGroup-tools {
+	&-tools {
 		padding: 0.3125em;
 	}
 
@@ -230,7 +238,7 @@
 		border-color: rgba( 0, 0, 0, 0.2 );
 	}
 
-	.oo-ui-tool {
+	&-tools .oo-ui-tool {
 		border: 1px solid transparent;
 		margin: -1px 0;
 		padding: 0 0.625em 0 0;
@@ -296,7 +304,7 @@
 		}
 	}
 
-	.oo-ui-toolGroup-tools {
+	&-tools {
 		padding: 0.3125em 0 0.3125em 0;
 	}
 
@@ -310,7 +318,7 @@
 		border-color: rgba( 0, 0, 0, 0.25 );
 	}
 
-	.oo-ui-tool {
+	&-tools .oo-ui-tool {
 		padding: 0 1.25em 0 0.3125em;
 
 		// Stupid specific rules to override ridiculous selector in Widget.less
@@ -474,23 +482,15 @@
 		box-shadow: inset 0 0.0875em 0.0875em 0 rgba( 0, 0, 0, 0.07 );
 	}
 
-	.oo-ui-toolGroup-tools {
-		margin: 0 -1px;
+	&-tools {
+		margin: -1px;
 		border: 1px solid #ccc;
 		background-color: #fff;
 		box-shadow: 0 0.3125em 1.25em rgba( 0, 0, 0, 0.25 );
-
-		.oo-ui-toolbar-position-top & {
-			top: 2.5em;
-		}
-
-		.oo-ui-toolbar-position-bottom & {
-			bottom: 2.5em;
-		}
 	}
 
 	// Stupid specific rules to override ridiculous selector in Widget.less
-	.oo-ui-tool.oo-ui-widget .oo-ui-tool-link {
+	&-tools .oo-ui-tool.oo-ui-widget .oo-ui-tool-link {
 		padding: 0.3125em 0 0.3125em 0.3125em;
 
 		.oo-ui-iconElement-icon {

@@ -108,6 +108,7 @@ OO.ui.BarToolGroup = function OoUiBarToolGroup( toolbar, config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-barToolGroup' );
+	this.$group.addClass( 'oo-ui-barToolGroup-tools' );
 };
 
 /* Setup */

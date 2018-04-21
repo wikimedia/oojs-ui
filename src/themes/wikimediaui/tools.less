@@ -186,7 +186,7 @@
 }
 
 .theme-oo-ui-barToolGroup () {
-	> .oo-ui-toolGroup-tools > .oo-ui-tool {
+	&-tools > .oo-ui-tool {
 		&.iconElement > .oo-ui-tool-link > .oo-ui-iconElement-icon {
 			display: block; // Need to overwrite theme-independent BarToolGroup here
 		}
@@ -196,35 +196,33 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled {
-		> .oo-ui-toolGroup-tools > .oo-ui-tool:not( .oo-ui-toolGroupTool ) {
-			&.oo-ui-widget-enabled {
-				&:hover {
-					background-color: @background-color-tool--hover;
-				}
-
-				> .oo-ui-tool-link .oo-ui-tool-title {
-					color: @color-base;
-					.oo-ui-transition( color @transition-ease-quick );
-				}
+	&-tools.oo-ui-toolGroup-enabled-tools > .oo-ui-tool:not( .oo-ui-toolGroupTool ) {
+		&.oo-ui-widget-enabled {
+			&:hover {
+				background-color: @background-color-tool--hover;
 			}
 
-			&.oo-ui-tool-active {
-				background-color: @background-color-tool--active;
+			> .oo-ui-tool-link .oo-ui-tool-title {
+				color: @color-base;
+				.oo-ui-transition( color @transition-ease-quick );
+			}
+		}
 
-				&:hover {
-					background-color: @background-color-tool--active-hover;
-				}
+		&.oo-ui-tool-active {
+			background-color: @background-color-tool--active;
 
-				> .oo-ui-tool-link .oo-ui-tool-title {
-					color: @color-tool--active;
-				}
+			&:hover {
+				background-color: @background-color-tool--active-hover;
+			}
+
+			> .oo-ui-tool-link .oo-ui-tool-title {
+				color: @color-tool--active;
 			}
 		}
 	}
 
-	&.oo-ui-widget-enabled .oo-ui-tool.oo-ui-widget-disabled,
-	&.oo-ui-widget-disabled .oo-ui-tool {
+	&-tools.oo-ui-toolGroup-enabled-tools .oo-ui-tool.oo-ui-widget-disabled,
+	&-tools.oo-ui-toolGroup-disabled-tools .oo-ui-tool {
 		> .oo-ui-tool-link {
 			.oo-ui-tool-title {
 				color: @color-base--disabled;
@@ -234,7 +232,7 @@
 }
 
 .theme-oo-ui-listToolGroup () {
-	.oo-ui-tool {
+	&-tools .oo-ui-tool {
 		&.oo-ui-widget-enabled {
 			&:hover {
 				background-color: @background-color-tool--hover;
@@ -258,7 +256,7 @@
 	}
 
 	&.oo-ui-widget-disabled,
-	.oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {
+	&-tools .oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {
 		color: @color-base--disabled;
 	}
 }
@@ -272,7 +270,7 @@
 		}
 	}
 
-	.oo-ui-tool {
+	&-tools .oo-ui-tool {
 		&-link {
 			.oo-ui-iconElement-icon {
 				left: @start-tool-icon;
@@ -295,7 +293,7 @@
 	}
 
 	&.oo-ui-widget-disabled,
-	.oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {
+	&-tools .oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {
 		color: @color-base--disabled;
 	}
 }
@@ -399,23 +397,15 @@
 		}
 	}
 
-	.oo-ui-toolGroup-tools {
+	&-tools {
 		background-color: @background-color-toolbar;
 		min-width: 16em;
 		margin: 0 -@border-width-base;
 		border: @border-toolgroup;
 		box-shadow: @box-shadow-menu;
-
-		.oo-ui-toolbar-position-top & {
-			top: @size-tool;
-		}
-
-		.oo-ui-toolbar-position-bottom & {
-			bottom: @size-tool;
-		}
 	}
 
-	.oo-ui-tool-link {
+	&-tools .oo-ui-tool-link {
 		// Tool-Links in PopupToolGroups always have a `-title` element
 		padding: @padding-top-tool-label @padding-horizontal-base @padding-bottom-tool-label @padding-start-tool;
 
@@ -501,13 +491,13 @@
 				color: @color-tool--active;
 			}
 		}
-
-		.oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
-			color: @color-tool--active;
-		}
 	}
 
-	.oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
+	&-tools .oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
+		color: @color-tool--active;
+	}
+
+	&-tools .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
 		outline: 0;
 		box-shadow: inset 0 0 0 2px #36c;
 	}

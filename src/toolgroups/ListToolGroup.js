@@ -112,6 +112,7 @@ OO.ui.ListToolGroup = function OoUiListToolGroup( toolbar, config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-listToolGroup' );
+	this.$group.addClass( 'oo-ui-listToolGroup-tools' );
 };
 
 /* Setup */

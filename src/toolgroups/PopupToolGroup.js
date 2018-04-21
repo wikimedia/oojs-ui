@@ -12,6 +12,7 @@
  * @mixins OO.ui.mixin.TitledElement
  * @mixins OO.ui.mixin.FlaggedElement
  * @mixins OO.ui.mixin.ClippableElement
+ * @mixins OO.ui.mixin.FloatableElement
  * @mixins OO.ui.mixin.TabIndexedElement
  *
  * @constructor
@@ -47,6 +48,12 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	OO.ui.mixin.TitledElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
 	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
+	OO.ui.mixin.FloatableElement.call( this, $.extend( {}, config, {
+		$floatable: this.$group,
+		$floatableContainer: this.$handle,
+		hideWhenOutOfView: false,
+		verticalPosition: this.toolbar.position === 'bottom' ? 'above' : 'below'
+	} ) );
 	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
 
 	// Events
@@ -75,6 +82,8 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	this.$element
 		.addClass( 'oo-ui-popupToolGroup' )
 		.prepend( this.$handle );
+	this.$group.addClass( 'oo-ui-popupToolGroup-tools' );
+	this.toolbar.$popups.append( this.$group );
 };
 
 /* Setup */
@@ -86,36 +95,10 @@ OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.TitledElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.FlaggedElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.ClippableElement );
+OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.FloatableElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.TabIndexedElement );
 
 /* Methods */
-
-/**
- * @inheritdoc OO.ui.mixin.ClippableElement
- */
-OO.ui.PopupToolGroup.prototype.getHorizontalAnchorEdge = function () {
-	var out;
-	if ( this.$element.hasClass( 'oo-ui-popupToolGroup-right' ) ) {
-		out = 'right';
-	} else {
-		out = 'left';
-	}
-	// Flip for RTL
-	if ( this.$element.css( 'direction' ) === 'rtl' ) {
-		out = ( out === 'left' ) ? 'right' : 'left';
-	}
-	return out;
-};
-
-/**
- * @inheritdoc OO.ui.mixin.ClippableElement
- */
-OO.ui.PopupToolGroup.prototype.getVerticalAnchorEdge = function () {
-	if ( this.toolbar.position === 'bottom' ) {
-		return 'bottom';
-	}
-	return 'top';
-};
 
 /**
  * @inheritdoc
@@ -138,10 +121,15 @@ OO.ui.PopupToolGroup.prototype.setDisabled = function () {
  * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
 OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
+	var $target = $( e.target );
 	// Only deactivate when clicking outside the dropdown element
-	if ( $( e.target ).closest( '.oo-ui-popupToolGroup' )[ 0 ] !== this.$element[ 0 ] ) {
-		this.setActive( false );
+	if ( $target.closest( '.oo-ui-popupToolGroup' )[ 0 ] === this.$element[ 0 ] ) {
+		return;
 	}
+	if ( $target.closest( '.oo-ui-popupToolGroup-tools' )[ 0 ] === this.$group[ 0 ] ) {
+		return;
+	}
+	this.setActive( false );
 };
 
 /**
@@ -216,18 +204,19 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 			this.getElementDocument().addEventListener( 'keyup', this.onBlurHandler, true );
 
 			this.$clippable.css( 'left', '' );
-			// Try anchoring the popup to the left first
-			this.$element.addClass( 'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left' );
+			this.$element.addClass( 'oo-ui-popupToolGroup-active' );
+			this.$group.addClass( 'oo-ui-popupToolGroup-active-tools' );
+			this.togglePositioning( true );
 			this.toggleClipping( true );
-			if ( this.isClippedHorizontally() ) {
+
+			// Try anchoring the popup to the left first
+			this.setHorizontalPosition( 'start' );
+
+			if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
 				// Anchoring to the left caused the popup to clip, so anchor it to the right instead
-				this.toggleClipping( false );
-				this.$element
-					.removeClass( 'oo-ui-popupToolGroup-left' )
-					.addClass( 'oo-ui-popupToolGroup-right' );
-				this.toggleClipping( true );
+				this.setHorizontalPosition( 'end' );
 			}
-			if ( this.isClippedHorizontally() ) {
+			if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
 				// Anchoring to the right also caused the popup to clip, so just make it fill the container
 				containerWidth = this.$clippableScrollableContainer.width();
 				containerLeft = this.$clippableScrollableContainer[ 0 ] === document.documentElement ?
@@ -235,7 +224,7 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 					this.$clippableScrollableContainer.offset().left;
 
 				this.toggleClipping( false );
-				this.$element.removeClass( 'oo-ui-popupToolGroup-right' );
+				this.setHorizontalPosition( 'start' );
 
 				this.$clippable.css( {
 					left: -( this.$element.offset().left - containerLeft ),
@@ -245,9 +234,9 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 		} else {
 			this.getElementDocument().removeEventListener( 'mouseup', this.onBlurHandler, true );
 			this.getElementDocument().removeEventListener( 'keyup', this.onBlurHandler, true );
-			this.$element.removeClass(
-				'oo-ui-popupToolGroup-active oo-ui-popupToolGroup-left oo-ui-popupToolGroup-right'
-			);
+			this.$element.removeClass( 'oo-ui-popupToolGroup-active' );
+			this.$group.removeClass( 'oo-ui-popupToolGroup-active-tools' );
+			this.togglePositioning( false );
 			this.toggleClipping( false );
 		}
 		this.updateThemeClasses();
