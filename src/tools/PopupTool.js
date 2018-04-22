@@ -46,6 +46,9 @@ OO.ui.PopupTool = function OoUiPopupTool( toolGroup, config ) {
 	// Mixin constructors
 	OO.ui.mixin.PopupElement.call( this, config );
 
+	// Events
+	this.popup.connect( this, { toggle: 'onPopupToggle' } );
+
 	// Initialization
 	this.popup.setPosition( toolGroup.getToolbar().position === 'bottom' ? 'above' : 'below' );
 	this.$element
@@ -69,7 +72,6 @@ OO.ui.PopupTool.prototype.onSelect = function () {
 	if ( !this.isDisabled() ) {
 		this.popup.toggle();
 	}
-	this.setActive( false );
 	return false;
 };
 
@@ -79,5 +81,13 @@ OO.ui.PopupTool.prototype.onSelect = function () {
  * @inheritdoc
  */
 OO.ui.PopupTool.prototype.onUpdateState = function () {
-	this.setActive( false );
+};
+
+/**
+ * Handle popup visibility being toggled.
+ *
+ * @param {boolean} isVisible
+ */
+OO.ui.PopupTool.prototype.onPopupToggle = function ( isVisible ) {
+	this.setActive( isVisible );
 };
