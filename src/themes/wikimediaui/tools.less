@@ -87,7 +87,7 @@
 		}
 
 		> .oo-ui-toolbar:not( :last-child ) {
-			border-right: @border-toolbar;
+			border-right: @border-toolgroup;
 		}
 	}
 }
@@ -171,11 +171,11 @@
 
 .theme-oo-ui-toolGroup () {
 	.oo-ui-box-sizing( border-box );
-	border-right: @border-toolbar;
+	border-right: @border-toolgroup;
 
 	.oo-ui-toolbar-actions & {
 		border-right: 0;
-		border-left: @border-toolbar;
+		border-left: @border-toolgroup;
 	}
 
 	&.oo-ui-widget-disabled .oo-ui-indicatorElement-indicator,
@@ -400,11 +400,11 @@
 	}
 
 	.oo-ui-toolGroup-tools {
-		margin: 0 -@border-width-base;
-		border: @border-toolbar;
 		background-color: @background-color-toolbar;
-		box-shadow: @box-shadow-menu;
 		min-width: 16em;
+		margin: 0 -@border-width-base;
+		border: @border-toolgroup;
+		box-shadow: @box-shadow-menu;
 
 		.oo-ui-toolbar-position-top & {
 			top: @size-tool;
