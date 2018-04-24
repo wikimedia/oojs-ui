@@ -1730,6 +1730,16 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.TagMultiselectWidget( {
+						selected: [ loremIpsum ],
+						allowArbitrary: true
+					} ),
+					{
+						label: 'TagMultiselectWidget (very long item)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					disabledItemsTagMultiselectWidget,
 					{
 						label: 'TagMultiselectWidget with disabled items',
