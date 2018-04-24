@@ -351,11 +351,11 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 
 	if ( change ) {
 		if ( visible ) {
-			this.bindKeyDownListener();
-			this.bindKeyPressListener();
-
 			this.togglePositioning( !!this.$floatableContainer );
 			this.toggleClipping( true );
+
+			this.bindKeyDownListener();
+			this.bindKeyPressListener();
 
 			if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
 				// If opening the menu downwards causes it to be clipped, flip it to open upwards instead
