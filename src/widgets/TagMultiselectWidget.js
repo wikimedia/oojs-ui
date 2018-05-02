@@ -106,12 +106,12 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 		remove: 'itemRemove',
 		navigate: 'itemNavigate',
 		select: 'itemSelect',
-		disabled: 'itemDisabled'
+		fixed: 'itemFixed'
 	} );
 	this.connect( this, {
 		itemRemove: 'onTagRemove',
 		itemSelect: 'onTagSelect',
-		itemDisabled: 'onTagDisabled',
+		itemFixed: 'onTagFixed',
 		itemNavigate: 'onTagNavigate',
 		change: 'onChangeTags'
 	} );
@@ -407,7 +407,7 @@ OO.ui.TagMultiselectWidget.prototype.doInputArrow = function ( e, direction ) {
  * @param {OO.ui.TagItemWidget} item Selected item
  */
 OO.ui.TagMultiselectWidget.prototype.onTagSelect = function ( item ) {
-	if ( this.hasInput && this.allowEditTags ) {
+	if ( this.hasInput && this.allowEditTags && !item.isFixed() ) {
 		if ( this.input.getValue() ) {
 			this.addTagFromInput();
 		}
@@ -421,16 +421,21 @@ OO.ui.TagMultiselectWidget.prototype.onTagSelect = function ( item ) {
 };
 
 /**
- * Respond to item disabled state change
+ * Respond to item fixed state change
  *
  * @param {OO.ui.TagItemWidget} item Selected item
- * @param {boolean} isDisabled Item is disabled
  */
-OO.ui.TagMultiselectWidget.prototype.onTagDisabled = function ( item, isDisabled ) {
-	if ( isDisabled ) {
-	// Move item to start if it is disabled
-		this.addItems( item, 0 );
+OO.ui.TagMultiselectWidget.prototype.onTagFixed = function ( item ) {
+	var i,
+		items = this.getItems();
+
+	// Move item to the end of the static items
+	for ( i = 0; i < items.length; i++ ) {
+		if ( items[ i ] !== item && !items[ i ].isFixed() ) {
+			break;
+		}
 	}
+	this.addItems( item, i );
 };
 /**
  * Respond to change event, where items were added, removed, or cleared.
