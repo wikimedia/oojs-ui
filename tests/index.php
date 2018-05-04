@@ -21,6 +21,7 @@
 	<title>OOUI Test Suite</title>
 	<link rel="stylesheet" href="../node_modules/qunit/qunit/qunit.css">
 	<script src="../node_modules/qunit/qunit/qunit.js"></script>
+	<script src="./config.js"></script>
 	<script src="./QUnit.assert.equalDomElement.js"></script>
 	<!-- Dependencies -->
 	<script src="../node_modules/jquery/dist/jquery.js"></script>

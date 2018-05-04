@@ -11,26 +11,6 @@
 ( function ( QUnit ) {
 
 	/**
-	 * Given an object, return a similar object whose internal key order is sorted alphabetically.
-	 *
-	 * @param {Object} obj
-	 * @return {Object}
-	 */
-	function sortObject( obj ) {
-		var i,
-			keys = Object.keys( obj ),
-			sortedObj = {};
-
-		keys = keys.sort();
-
-		for ( i = 0; i < keys.length; i++ ) {
-			sortedObj[ keys[ i ] ] = obj[ keys[ i ] ];
-		}
-
-		return sortedObj;
-	}
-
-	/**
 	 * Build a summary of an HTML element.
 	 *
 	 * Summaries include node name, text, attributes and recursive summaries of children.
@@ -38,10 +18,9 @@
 	 *
 	 * @private
 	 * @param {HTMLElement} element Element to summarize
-	 * @param {boolean} [includeHtml=false] Include an HTML summary for element nodes
 	 * @return {Object|null} Summary of element.
 	 */
-	function getDomElementSummary( element, includeHtml ) {
+	function getDomElementSummary( element ) {
 		var i, name, attribute, property, childSummary,
 			summary = {
 				type: element.nodeName.toLowerCase(),
@@ -64,10 +43,6 @@
 				tabIndex: 'tabindex',
 				dir: 'dir'
 			};
-
-		if ( includeHtml && element.nodeType === Node.ELEMENT_NODE ) {
-			summary.html = element.outerHTML;
-		}
 
 		// Gather attributes
 		if ( element.attributes ) {
@@ -99,7 +74,7 @@
 		// Summarize children
 		if ( element.childNodes ) {
 			for ( i = 0; i < element.childNodes.length; i++ ) {
-				childSummary = getDomElementSummary( element.childNodes[ i ], false );
+				childSummary = getDomElementSummary( element.childNodes[ i ] );
 				if ( childSummary ) {
 					summary.children.push( childSummary );
 				}
@@ -149,9 +124,6 @@
 			delete summary.attributes[ 'aria-disabled' ];
 		}
 
-		// Order the object keys, for less noisy diffs if there are differences
-		summary.attributes = sortObject( summary.attributes );
-
 		return summary;
 	}
 
@@ -164,17 +136,18 @@
 	 */
 	QUnit.assert.equalDomElement = function ( actual, expected, message ) {
 		var actualSummary = getDomElementSummary( actual ),
-			expectedSummary = getDomElementSummary( expected ),
-			actualSummaryHtml = getDomElementSummary( actual, true ),
-			expectedSummaryHtml = getDomElementSummary( expected, true );
-
-		actualSummaryHtml = JSON.stringify( actualSummaryHtml, null, 2 );
-		expectedSummaryHtml = JSON.stringify( expectedSummaryHtml, null, 2 );
+			expectedSummary = getDomElementSummary( expected );
 
 		this.pushResult( {
 			result: QUnit.equiv( actualSummary, expectedSummary ),
-			actual: actualSummaryHtml,
-			expected: expectedSummaryHtml,
+			actual: {
+				html: actual,
+				summary: actualSummary
+			},
+			expected: {
+				html: expected,
+				summary: expectedSummary
+			},
 			message: message
 		} );
 	};

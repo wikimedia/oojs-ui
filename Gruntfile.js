@@ -475,6 +475,7 @@ module.exports = function ( grunt ) {
 			options: {
 				frameworks: [ 'qunit' ],
 				files: [
+					'tests/config.js',
 					'tests/QUnit.assert.equalDomElement.js',
 					'node_modules/jquery/dist/jquery.js',
 					'node_modules/oojs/dist/oojs.jquery.js',
