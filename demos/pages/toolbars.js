@@ -360,12 +360,12 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolbars[ 1 ].$actions.append( actionButton.$element, actionButtonDisabled.$element );
 
 	for ( i = 3; i <= 5; i += 2 ) {
-		publishButton = new OO.ui.ButtonWidget( { label: 'Publish changes', flags: [ 'progressive', 'primary' ] } );
+		publishButton = new OO.ui.ButtonWidget( { label: 'Publish changes…', flags: [ 'progressive', 'primary' ] } );
 		toolbars[ i ].$actions.append( toolbars[ i - 1 ].$element, publishButton.$element );
 	}
 
 	actionButtonDelete = new OO.ui.ButtonWidget( { label: 'Delete', flags: [ 'destructive' ] } );
-	publishButton = new OO.ui.ButtonWidget( { label: 'Publish changes', flags: [ 'progressive', 'primary' ] } );
+	publishButton = new OO.ui.ButtonWidget( { label: 'Publish changes…', flags: [ 'progressive', 'primary' ] } );
 	actionGroup = new OO.ui.ButtonGroupWidget( {
 		items: [ actionButtonDelete, publishButton, toolbars[ 6 ].items[ 0 ] ]
 	} );
