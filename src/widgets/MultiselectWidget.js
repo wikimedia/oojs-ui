@@ -72,17 +72,6 @@ OO.ui.MultiselectWidget.prototype.findSelectedItems = function () {
 };
 
 /**
- * Get options that are selected.
- *
- * @deprecated Since v0.25.0; use {@link #findSelectedItems} instead.
- * @return {OO.ui.MultioptionWidget[]} Selected options
- */
-OO.ui.MultiselectWidget.prototype.getSelectedItems = function () {
-	OO.ui.warnDeprecation( 'MultiselectWidget#getSelectedItems: Deprecated function. Use findSelectedItems instead. See T76630.' );
-	return this.findSelectedItems();
-};
-
-/**
  * Find the data of options that are selected.
  *
  * @return {Object[]|string[]} Values of selected options
@@ -91,17 +80,6 @@ OO.ui.MultiselectWidget.prototype.findSelectedItemsData = function () {
 	return this.findSelectedItems().map( function ( item ) {
 		return item.data;
 	} );
-};
-
-/**
- * Get the data of options that are selected.
- *
- * @deprecated Since v0.25.0; use {@link #findSelectedItemsData} instead.
- * @return {Object[]|string[]} Values of selected options
- */
-OO.ui.MultiselectWidget.prototype.getSelectedItemsData = function () {
-	OO.ui.warnDeprecation( 'MultiselectWidget#getSelectedItemsData: Deprecated function. Use findSelectedItemsData instead. See T76630.' );
-	return this.findSelectedItemsData();
 };
 
 /**
