@@ -60,6 +60,7 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 			},
 			config.minusButton
 		) );
+		this.minusButton.$element.attr( 'aria-hidden', 'true' );
 		this.plusButton = new OO.ui.ButtonWidget( $.extend(
 			{
 				disabled: this.isDisabled(),
@@ -69,6 +70,7 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 			},
 			config.plusButton
 		) );
+		this.plusButton.$element.attr( 'aria-hidden', 'true' );
 	}
 
 	// Events
