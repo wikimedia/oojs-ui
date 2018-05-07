@@ -99,6 +99,9 @@
 				"rtl": "images/icons/newWindow-rtl.svg"
 			}
 		},
+		"pageSettings": {
+			"file": "images/icons/pageSettings.svg"
+		},
 		"printer": {
 			"file": "images/icons/printer.svg"
 		},
@@ -109,7 +112,8 @@
 			"file": "images/icons/search.svg"
 		},
 		"settings": {
-			"file": "images/icons/settings.svg"
+			"file": "images/icons/pageSettings.svg",
+			"deprecated": "Renamed since v0.27.0, use 'pageSettings' instead."
 		},
 		"subtract": {
 			"file": "images/icons/subtract.svg"

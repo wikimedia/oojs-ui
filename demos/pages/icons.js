@@ -61,10 +61,10 @@ Demo.static.pages.icons = function ( demo ) {
 				'lightbulb',
 				'logOut',
 				'newWindow',
+				'pageSettings',
 				'printer',
 				'reload',
 				'search',
-				'settings',
 				'subtract'
 			],
 			moderation: [
