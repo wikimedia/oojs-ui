@@ -67,7 +67,8 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 			},
 			classes: [ 'oo-ui-fieldsetLayout-help' ],
 			framed: false,
-			icon: 'info'
+			icon: 'info',
+			label: OO.ui.msg( 'ooui-field-help' )
 		} );
 		if ( config.help instanceof OO.ui.HtmlSnippet ) {
 			this.popupButtonWidget.getPopup().$body.html( config.help.toString() );
