@@ -181,6 +181,10 @@
 			outline: 0;
 		}
 
+		> .oo-ui-labelElement-label {
+			margin-top: -@border-width-base;
+		}
+
 		// Clear button
 		> .oo-ui-buttonElement {
 			display: block;
@@ -195,6 +199,7 @@
 			padding-left: @size-button-tagitem-close;
 
 			.oo-ui-icon-close {
+				left: @end-tagitem;
 				min-width: @min-width-tagitem-close;
 				width: @size-icon-tagitem-close;
 			}
@@ -1591,10 +1596,6 @@
 
 	&.oo-ui-widget-enabled {
 		color: @color-base;
-		&:not( .oo-ui-tagItemWidget-fixed ) {
-			background-color: @background-color-framed;
-			padding-right: @padding-end-tagitem-close;
-		}
 		.oo-ui-transition(
 			background-color @transition-ease-quick,
 			color @transition-ease-quick,
@@ -1614,6 +1615,11 @@
 			outline: 0;
 		}
 
+		&:not( .oo-ui-tagItemWidget-fixed ) {
+			background-color: @background-color-framed;
+			padding-right: @padding-end-tagitem-close;
+		}
+
 		&.oo-ui-flaggedElement-invalid {
 			border-color: @border-color-erroneous;
 
@@ -1625,6 +1631,10 @@
 				border-color: @border-color-erroneous;
 				box-shadow: @box-shadow-erroneous--focus;
 			}
+		}
+
+		> .oo-ui-labelElement-label {
+			margin-top: -@border-width-base;
 		}
 
 		// Clear button
@@ -1641,6 +1651,7 @@
 			padding-left: @size-button-tagitem-close;
 
 			.oo-ui-icon-close {
+				left: @end-tagitem;
 				min-width: @min-width-tagitem-close;
 				width: @size-icon-tagitem-close;
 			}
