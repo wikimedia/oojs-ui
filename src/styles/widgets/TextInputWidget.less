@@ -81,6 +81,12 @@
 		right: 0;
 	}
 
+	// Support: IE 10-11, Edge 12+
+	// Remove clear buttons that conflict with identically aligned labels
+	&-labelPosition-after.oo-ui-labelElement ::-ms-clear {
+		display: none;
+	}
+
 	> .oo-ui-labelElement-label {
 		position: absolute;
 		top: 0;
