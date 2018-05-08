@@ -171,6 +171,10 @@ OO.ui.Dialog.prototype.onActionsChange = function () {
 	this.detachActions();
 	if ( !this.isClosing() ) {
 		this.attachActions();
+		if ( !this.isOpening() ) {
+			// If the dialog is currently opening, this will be called automatically soon.
+			this.updateSize();
+		}
 	}
 };
 
