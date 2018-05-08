@@ -197,9 +197,6 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
 	if ( special.safe ) {
 		this.$safeActions.append( special.safe.$element );
 	}
-
-	this.fitLabel();
-	this.$body.css( 'bottom', this.$foot.outerHeight( true ) );
 };
 
 /**
@@ -217,10 +214,20 @@ OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
  * @inheritdoc
  */
 OO.ui.ProcessDialog.prototype.setDimensions = function () {
+	var dialog = this;
+
 	// Parent method
 	OO.ui.ProcessDialog.parent.prototype.setDimensions.apply( this, arguments );
 
 	this.fitLabel();
+
+	// If there are many actions, they might be shown on multiple lines. Their layout can change when
+	// resizing the dialog and when changing the actions. Adjust the height of the footer to fit them.
+	dialog.$body.css( 'bottom', dialog.$foot.outerHeight( true ) );
+	// Wait for CSS transition to finish and do it again :(
+	setTimeout( function () {
+		dialog.$body.css( 'bottom', dialog.$foot.outerHeight( true ) );
+	}, 300 );
 };
 
 /**
