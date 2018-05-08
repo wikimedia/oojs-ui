@@ -9,10 +9,18 @@
 		}
 	},
 	"images": {
-		"clear": { "file": "images/indicators/clear.svg" },
-		"up": { "file": "images/indicators/up.svg" },
-		"down": { "file": "images/indicators/down.svg" },
-		"required": { "file": "images/indicators/required.svg" },
+		"clear": {
+			"file": "images/indicators/clear.svg"
+		},
+		"up": {
+			"file": "images/indicators/up.svg"
+		},
+		"down": {
+			"file": "images/indicators/down.svg"
+		},
+		"required": {
+			"file": "images/indicators/required.svg"
+		},
 		"search": {
 			"file": "images/indicators/search.svg"
 		}
