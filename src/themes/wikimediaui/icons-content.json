@@ -47,10 +47,12 @@
 			"file": {
 				"ltr": "images/icons/book-ltr.svg",
 				"rtl": "images/icons/book-rtl.svg"
-			}
+			},
+			"deprecated": "Moved since v0.27.0 to the 'editing-citation' pack."
 		},
 		"citeArticle": {
-			"file": "images/icons/citeArticle.svg"
+			"file": "images/icons/reference.svg",
+			"deprecated": "Moved and renamed since v0.27.0. Use 'reference' from 'editing-citation' pack."
 		},
 		"die": { "file": "images/icons/die.svg" },
 		"download": {
@@ -62,14 +64,20 @@
 		} },
 		"history": { "file": "images/icons/history.svg" },
 		"info": { "file": "images/icons/info.svg" },
-		"journal": { "file": {
-			"ltr": "images/icons/journal-ltr.svg",
-			"rtl": "images/icons/journal-rtl.svg"
-		} },
-		"newspaper": { "file": {
-			"ltr": "images/icons/newspaper-ltr.svg",
-			"rtl": "images/icons/newspaper-rtl.svg"
-		} },
+		"journal": {
+			"file": {
+				"ltr": "images/icons/journal-ltr.svg",
+				"rtl": "images/icons/journal-rtl.svg"
+			},
+			"deprecated": "Moved since v0.27.0 to the 'editing-citation' pack."
+		},
+		"newspaper": {
+			"file": {
+				"ltr": "images/icons/newspaper-ltr.svg",
+				"rtl": "images/icons/newspaper-rtl.svg"
+			},
+			"deprecated": "Moved since v0.27.0 to the 'editing-citation' pack."
+		},
 		"tag": { "file": {
 			"ltr": "images/icons/tag-ltr.svg",
 			"rtl": "images/icons/tag-rtl.svg"
