@@ -249,6 +249,11 @@
 			"src/themes/{theme}/icons-editing-advanced.json"
 		]
 	},
+	"oojs-ui-{theme}-icons-editing-citation": {
+		"styles": [
+			"src/themes/{theme}/icons-editing-citation.json"
+		]
+	},
 	"oojs-ui-{theme}-icons-media": {
 		"styles": [
 			"src/themes/{theme}/icons-media.json"

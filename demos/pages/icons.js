@@ -153,6 +153,15 @@ Demo.static.pages.icons = function ( demo ) {
 				'templateAdd',
 				'wikiText'
 			],
+			'editing-citations': [
+				'book',
+				'journal',
+				'newspaper',
+				'web',
+				'reference',
+				'referenceExisting',
+				'references'
+			],
 			media: [
 				'fullScreen',
 				'exitFullscreen',
