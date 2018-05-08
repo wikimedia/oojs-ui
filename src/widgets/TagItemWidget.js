@@ -13,6 +13,8 @@
  * @constructor
  * @param {Object} [config] Configuration object
  * @cfg {boolean} [valid=true] Item is valid
+ * @cfg {boolean} [fixed] Item is fixed. This means the item is
+ *  always included in the values and cannot be removed.
  */
 OO.ui.TagItemWidget = function OoUiTagItemWidget( config ) {
 	config = config || {};
@@ -28,6 +30,7 @@ OO.ui.TagItemWidget = function OoUiTagItemWidget( config ) {
 	OO.ui.mixin.DraggableElement.call( this, config );
 
 	this.valid = config.valid === undefined ? true : !!config.valid;
+	this.fixed = !!config.fixed;
 
 	this.closeButton = new OO.ui.ButtonWidget( {
 		framed: false,
@@ -97,27 +100,74 @@ OO.mixinClass( OO.ui.TagItemWidget, OO.ui.mixin.DraggableElement );
  */
 
 /**
- * @event disabled
- * @param {boolean} isDisabled Item is disabled
+ * @event fixed
+ * @param {boolean} isFixed Item is fixed
  *
- * Item disabled state has changed
+ * Item fixed state has changed
  */
 
 /* Methods */
 
 /**
+ * Set this item as fixed, meaning it cannot be removed
+ *
+ * @param {string} [state] Item is fixed
+ * @fires fixed
+ */
+OO.ui.TagItemWidget.prototype.setFixed = function ( state ) {
+	state = state === undefined ? !this.fixed : !!state;
+
+	if ( this.fixed !== state ) {
+		this.fixed = state;
+		if ( this.closeButton ) {
+			this.closeButton.toggle( !this.fixed );
+		}
+
+		if ( !this.fixed && this.elementGroup && !this.elementGroup.isDraggable() ) {
+			// Only enable the state of the item if the
+			// entire group is draggable
+			this.toggleDraggable( !this.fixed );
+		}
+		this.$element.toggleClass( 'oo-ui-tagItemWidget-fixed', this.fixed );
+
+		this.emit( 'fixed', this.isFixed() );
+	}
+	return this;
+};
+
+/**
+ * Check whether the item is fixed
+ */
+OO.ui.TagItemWidget.prototype.isFixed = function () {
+	return this.fixed;
+};
+
+/**
  * @inheritdoc
- * @fires disabled
  */
 OO.ui.TagItemWidget.prototype.setDisabled = function ( state ) {
+	if ( state && this.elementGroup && !this.elementGroup.isDisabled() ) {
+		OO.ui.warnDeprecation( 'TagItemWidget#setDisabled: Disabling individual items is deprecated and will result in inconsistent behavior. Use #setFixed instead. See T193571.' );
+	}
 	// Parent method
 	OO.ui.TagItemWidget.parent.prototype.setDisabled.call( this, state );
+	if (
+		!state &&
+		// Verify we have a group, and that the widget is ready
+		this.toggleDraggable && this.elementGroup &&
+		!this.isFixed() &&
+		!this.elementGroup.isDraggable()
+	) {
+		// Only enable the draggable state of the item if the
+		// entire group is draggable to begin with, and if the
+		// item is not fixed
+		this.toggleDraggable( !state );
+	}
 
 	if ( this.closeButton ) {
 		this.closeButton.setDisabled( state );
 	}
 
-	this.emit( 'disabled', this.isDisabled() );
 	return this;
 };
 
@@ -148,7 +198,7 @@ OO.ui.TagItemWidget.prototype.remove = function () {
 OO.ui.TagItemWidget.prototype.onKeyDown = function ( e ) {
 	var movement;
 
-	if ( !this.isDisabled() && e.keyCode === OO.ui.Keys.BACKSPACE || e.keyCode === OO.ui.Keys.DELETE ) {
+	if ( !this.isDisabled() && !this.isFixed() && e.keyCode === OO.ui.Keys.BACKSPACE || e.keyCode === OO.ui.Keys.DELETE ) {
 		this.remove();
 		return false;
 	} else if ( e.keyCode === OO.ui.Keys.ENTER ) {

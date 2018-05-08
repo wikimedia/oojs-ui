@@ -1590,9 +1590,11 @@
 	vertical-align: middle;
 
 	&.oo-ui-widget-enabled {
-		background-color: @background-color-framed;
 		color: @color-base;
-		padding-right: @padding-end-tagitem-close;
+		&:not( .oo-ui-tagItemWidget-fixed ) {
+			background-color: @background-color-framed;
+			padding-right: @padding-end-tagitem-close;
+		}
 		.oo-ui-transition(
 			background-color @transition-ease-quick,
 			color @transition-ease-quick,
