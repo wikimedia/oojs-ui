@@ -45,8 +45,7 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 
 	// Initialization
 	this.$element
-		.addClass( 'oo-ui-popupButtonWidget' )
-		.attr( 'aria-haspopup', 'true' );
+		.addClass( 'oo-ui-popupButtonWidget' );
 	this.popup.$element
 		.addClass( 'oo-ui-popupButtonWidget-popup' )
 		.toggleClass( 'oo-ui-popupButtonWidget-framed-popup', this.isFramed() )
