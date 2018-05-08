@@ -17,7 +17,7 @@ else
 	# classes with different PHP and JS implementations.
 	# we can still compare the PHP-infuse result to JS result, though.
 	infuse_only_classes = %w[ComboBoxInputWidget
-		RadioSelectInputWidget CheckboxMultiselectInputWidget]
+		RadioSelectInputWidget CheckboxMultiselectInputWidget NumberInputWidget]
 	testable_classes = classes
 		.reject{|c| c[:abstract] } # can't test abstract classes
 		.reject{|c| !c[:parent] || c[:trait] || c[:parent] == 'Theme' } # can't test abstract
@@ -50,6 +50,10 @@ else
 		'href' => ['http://example.com/'],
 		['TextInputWidget', 'type'] => %w[text number password foo],
 		['ButtonInputWidget', 'type'] => %w[button submit foo],
+		['NumberInputWidget', 'step'] => %w[1],
+		['NumberInputWidget', 'pageStep'] => %w[1],
+		['NumberInputWidget', 'min'] => %w[1 3],
+		['NumberInputWidget', 'max'] => %w[3 5],
 		['FieldLayout', 'errors'] => expandos['string'].map{|v| [v] }, # treat as string[]
 		['FieldLayout', 'notices'] => expandos['string'].map{|v| [v] }, # treat as string[]
 		'type' => %w[text button],

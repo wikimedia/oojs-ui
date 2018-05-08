@@ -436,6 +436,41 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'label' => "MultilineTextInputWidget (icon, indicator)\xE2\x80\x8E",
 				'align' => 'top'
 			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\NumberInputWidget(),
+			[
+				'label' => "NumberInputWidget\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\NumberInputWidget( [ 'disabled' => true ] ),
+			[
+				'label' => "NumberInputWidget (disabled)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\NumberInputWidget( [ 'min' => 0, 'max' => 5, 'isInteger' => true ] ),
+			[
+				'label' => "NumberInputWidget (1-5, ints only)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\NumberInputWidget( [ 'min' => 0, 'max' => 1, 'step' => 0.1, 'pageStep' => 0.25 ] ),
+			[
+				'label' => "NumberInputWidget (0–1, step by .1, page by .25)\xE2\x80\x8E",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\NumberInputWidget( [ 'showButtons' => false ] ),
+			[
+				'label' => "NumberInputWidget (no buttons)\xE2\x80\x8E",
+				'align' => 'top'
+			]
 		)
 	]
 ] ) );

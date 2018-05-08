@@ -150,6 +150,8 @@ OO.ui.NumberInputWidget.prototype.setRange = function ( min, max ) {
 	}
 	this.min = min;
 	this.max = max;
+	this.$input.attr( 'min', this.min );
+	this.$input.attr( 'max', this.max );
 	this.setValidityFlag();
 };
 
@@ -179,6 +181,7 @@ OO.ui.NumberInputWidget.prototype.setStep = function ( step, pageStep ) {
 	}
 	this.step = step;
 	this.pageStep = pageStep;
+	this.$input.attr( 'step', this.step );
 };
 
 /**
