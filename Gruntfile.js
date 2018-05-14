@@ -223,7 +223,10 @@ module.exports = function ( grunt ) {
 			},
 			js: {
 				options: {
-					sourceMap: true
+					sourceMap: true,
+					sourceMapName: function ( concatFileName ) {
+						return concatFileName + '.map.json';
+					}
 				},
 				files: concatJsFiles
 			},
