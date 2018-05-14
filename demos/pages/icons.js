@@ -149,7 +149,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'templateAdd',
 				'wikiText'
 			],
-			'editing-citations': [
+			'editing-citation': [
 				'book',
 				'journal',
 				'newspaper',
