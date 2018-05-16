@@ -9,10 +9,11 @@
 // to avoid a symlink that Windows users won't like.
 @import '../../../node_modules/wikimedia-ui-base/wikimedia-ui-base.less';
 
+// Background & Text Colors
 @background-color-base--hover: #eaecf0;
 @background-color-base--read-only: #f8f9fa;
+@color-base--deemphasized: #54595d;
 
-// Background & Text Colors
 // Primary 'Progressive' and 'Destructive' Colors
 @background-color-progressive: #eaf3ff;
 @background-color-progressive--hover: rgba( 41, 98, 204, 0.1 );
@@ -176,6 +177,7 @@
 @box-shadow-input-binary--active: inset 0 0 0 1px @color-progressive--active;
 @box-shadow-erroneous--focus: inset 0 0 0 1px @color-erroneous;
 
+@font-size-small: 13 / @ooui-font-size-browser / @ooui-font-size-base;
 @font-size-fieldset-header: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.

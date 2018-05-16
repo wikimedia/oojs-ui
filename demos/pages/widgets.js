@@ -2473,8 +2473,30 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'Button'
 					} ),
 					{
-						label: 'FieldLayout with HTML help',
+						label: 'FieldLayout with inlined help',
+						help: 'This is some inlined help',
+						helpInline: true,
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						label: 'Button'
+					} ),
+					{
+						label: 'FieldLayout with rich text help',
 						help: new OO.ui.HtmlSnippet( '<b>Bold text</b> is helpful!' ),
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						label: 'Button'
+					} ),
+					{
+						label: 'FieldLayout with inlined rich text help',
+						help: new OO.ui.HtmlSnippet( '<b>Strong text</b> is helpful!' ),
+						helpInline: true,
 						align: 'top'
 					}
 				),
@@ -2512,6 +2534,15 @@ Demo.static.pages.widgets = function ( demo ) {
 					{
 						label: 'FieldLayout aligned top with help',
 						help: loremIpsum,
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget(),
+					{
+						label: 'FieldLayout aligned top with inlined help',
+						help: 'This is some inlined help',
+						helpInline: true,
 						align: 'top'
 					}
 				),
@@ -2602,6 +2633,15 @@ Demo.static.pages.widgets = function ( demo ) {
 						align: 'right'
 					}
 				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget(),
+					{
+						label: 'FieldLayout aligned right with inlined help',
+						help: 'This is some inlined help',
+						helpInline: true,
+						align: 'right'
+					}
+				),
 				new OO.ui.ActionFieldLayout(
 					new OO.ui.TextInputWidget(),
 					new OO.ui.ButtonWidget( {
@@ -2616,7 +2656,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget(),
 					{
-						label: 'FieldLayout aligned top with very long label. ' + loremIpsum,
+						label: 'FieldLayout aligned top with a very long label. ' + loremIpsum,
 						help: loremIpsum,
 						align: 'top'
 					}
@@ -2624,7 +2664,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.CheckboxInputWidget( { selected: true } ),
 					{
-						label: 'FieldLayout aligned inline with very long label. ' + loremIpsum,
+						label: 'FieldLayout aligned inline with a very long label. ' + loremIpsum,
 						help: loremIpsum,
 						align: 'inline'
 					}
@@ -2632,7 +2672,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget(),
 					{
-						label: 'FieldLayout aligned left with very long label. ' + loremIpsum,
+						label: 'FieldLayout aligned left with a very long label. ' + loremIpsum,
 						help: loremIpsum,
 						align: 'left'
 					}
@@ -2640,8 +2680,17 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget(),
 					{
-						label: 'FieldLayout aligned right with very long label. ' + loremIpsum,
+						label: 'FieldLayout aligned right with a very long label. ' + loremIpsum,
 						help: loremIpsum,
+						align: 'right'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget(),
+					{
+						label: 'FieldLayout aligned right with a very long label and inline help. ' + loremIpsum,
+						help: 'This is some inlined help',
+						helpInline: true,
 						align: 'right'
 					}
 				),

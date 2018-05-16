@@ -548,7 +548,13 @@
 	.oo-ui-inline-spacing( 0.5em );
 }
 
-.theme-oo-ui-labelWidget () {}
+.theme-oo-ui-labelWidget () {
+	&.oo-ui-inline-help {
+		display: block;
+		color: @color-base--deemphasized;
+		font-size: @font-size-small;
+	}
+}
 
 .theme-oo-ui-menuOptionWidget () {
 	// Stupid specific rules to override ridiculous selector in Widget.less
