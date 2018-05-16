@@ -1546,21 +1546,29 @@
 	border-width: @border-width-base @border-width-base 0 @border-width-base;
 	border-top-left-radius: @border-radius-base;
 	border-top-right-radius: @border-radius-base;
-	padding: @padding-taboption;
+	padding: 0 @padding-horizontal-taboption;
 	font-weight: bold;
 	line-height: @line-height-reset;
 	.oo-ui-transition(
 		background-color @transition-ease-quick,
-		color @transition-ease-quick
+		color @transition-ease-quick,
+		border-color @transition-ease-quick
 	);
 
 	&.oo-ui-optionWidget-selected {
 		background-color: @background-color-base;
 		color: @color-base--active;
+
+		.oo-ui-labelElement-label {
+			border-bottom-color: @background-color-base; // TabOption `background-color` acting as default `border-color`
+		}
 	}
 
 	.oo-ui-labelElement-label {
+		border-bottom: ( 2 * @border-width-base ) @border-style-base transparent;
+		padding: @padding-top-base @padding-horizontal-taboption-label ( @padding-bottom-base - 2 * @size-modifier-border ); // Provide additional `padding` on label itself for special tab focus
 		line-height: @line-height-widget-singleline;
+		.oo-ui-transition( border-color @transition-ease-quick );
 	}
 
 	&.oo-ui-widget-enabled {
@@ -1575,11 +1583,20 @@
 		&.oo-ui-optionWidget-selected:hover {
 			background-color: @background-color-base;
 		}
+
+		.oo-ui-tabSelectWidget.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected .oo-ui-labelElement-label {
+			border-bottom-color: @border-color-base--focus;
+		}
 	}
 }
 
 .theme-oo-ui-tabSelectWidget () {
 	background-color: @background-color-tabs;
+
+	// Keyboard focus is handled in TabOptionWidget above
+	&.oo-ui-widget-enabled:focus {
+		outline: 0;
+	}
 }
 
 .theme-oo-ui-tagItemWidget () {

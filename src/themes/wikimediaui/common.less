@@ -68,8 +68,10 @@
 @size-fieldlayout-help-icon: 22 / @ooui-font-size-browser / @ooui-font-size-base;
 @size-toggleswitch-grip: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 @size-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.125em`≈`40px`
-@size-toolbar-narrow-modifier: 2 / @ooui-font-size-browser / @ooui-font-size-base;
 @size-popuptool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
+
+@size-toolbar-narrow-modifier: 2 / @ooui-font-size-browser / @ooui-font-size-base;
+@size-modifier-border: 1 / @ooui-font-size-browser / @ooui-font-size-base; // Use for size calculations with borders aside of `px` based `@border-width-base`
 
 @start-framed-icon-only: 11 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.859375em`≈`11px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
 @start-framed-icon-only-numberinput: 8 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.546875em`≈`7px`
@@ -133,11 +135,11 @@
 @padding-menu-large: @padding-top-tool-label @padding-horizontal-base @padding-bottom-tool-label;
 @padding-panel-form: 16 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.1428571em`≈`16px`
 @padding-panel-dialog: 20 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-taboption: @padding-top-base @padding-horizontal-taboption @padding-bottom-base;
 @padding-horizontal-base: 12 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.9375em`≈`12px`
 @padding-horizontal-frameless: 2 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.28571429em`≈`4px`
 @padding-horizontal-input-text: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-horizontal-taboption: 13 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.9375em`≈`13px`; @padding-horizontal-base = @border-width-base
+@padding-horizontal-taboption: 8 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-horizontal-taboption-label: 5 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-tagitem: 4 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-toolbar-action-buttons: 16 / @ooui-font-size-browser / @ooui-font-size-base; // aligned relatively to `@padding-horizontal-base` but for toolbar button height
 @padding-vertical-label: 4 / @ooui-font-size-browser / @ooui-font-size-base;
