@@ -96,14 +96,15 @@ OO.ui.Element.static.tagName = 'div';
  *
  * @param {string|HTMLElement|jQuery} idOrNode
  *   A DOM id (if a string) or node for the widget to infuse.
+ * @param {Object} [config] Configuration options
  * @return {OO.ui.Element}
  *   The `OO.ui.Element` corresponding to this (infusable) document node.
  *   For `Tag` objects emitted on the HTML side (used occasionally for content)
  *   the value returned is a newly-created Element wrapping around the existing
  *   DOM node.
  */
-OO.ui.Element.static.infuse = function ( idOrNode ) {
-	var obj = OO.ui.Element.static.unsafeInfuse( idOrNode, false );
+OO.ui.Element.static.infuse = function ( idOrNode, config ) {
+	var obj = OO.ui.Element.static.unsafeInfuse( idOrNode, config, false );
 	// Verify that the type matches up.
 	// FIXME: uncomment after T89721 is fixed, see T90929.
 	/*
@@ -120,12 +121,13 @@ OO.ui.Element.static.infuse = function ( idOrNode ) {
  *
  * @private
  * @param {string|HTMLElement|jQuery} idOrNode
- * @param {jQuery.Promise|boolean} domPromise A promise that will be resolved
+ * @param {Object} [config] Configuration options
+ * @param {jQuery.Promise} [domPromise] A promise that will be resolved
  *     when the top-level widget of this infusion is inserted into DOM,
- *     replacing the original node; or false for top-level invocation.
+ *     replacing the original node; only used internally.
  * @return {OO.ui.Element}
  */
-OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
+OO.ui.Element.static.unsafeInfuse = function ( idOrNode, config, domPromise ) {
 	// look for a cached result of a previous infusion.
 	var id, $elem, error, data, cls, parts, parent, obj, top, state, infusedChildren;
 	if ( typeof idOrNode === 'string' ) {
@@ -183,7 +185,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	}
 	if ( data._ === 'Tag' ) {
 		// Special case: this is a raw Tag; wrap existing node, don't rebuild.
-		return new OO.ui.Element( { $element: $elem } );
+		return new OO.ui.Element( $.extend( {}, config, { $element: $elem } ) );
 	}
 	parts = data._.split( '.' );
 	cls = OO.getProp.apply( OO, [ window ].concat( parts ) );
@@ -207,7 +209,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 		throw new Error( 'Unknown widget type: id: ' + id + ', class: ' + data._ );
 	}
 
-	if ( domPromise === false ) {
+	if ( !domPromise ) {
 		top = $.Deferred();
 		domPromise = top.promise();
 	}
@@ -218,7 +220,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 		var infused;
 		if ( OO.isPlainObject( value ) ) {
 			if ( value.tag ) {
-				infused = OO.ui.Element.static.unsafeInfuse( value.tag, domPromise );
+				infused = OO.ui.Element.static.unsafeInfuse( value.tag, config, domPromise );
 				infusedChildren.push( infused );
 				// Flatten the structure
 				infusedChildren.push.apply( infusedChildren, infused.$element.data( 'ooui-infused-children' ) || [] );
@@ -236,7 +238,7 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, domPromise ) {
 	state = cls.static.gatherPreInfuseState( $elem[ 0 ], data );
 	// rebuild widget
 	// eslint-disable-next-line new-cap
-	obj = new cls( data );
+	obj = new cls( $.extend( {}, config, data ) );
 	// If anyone is holding a reference to the old DOM element,
 	// let's allow them to OO.ui.infuse() it and do what they expect, see T105828.
 	// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.

@@ -319,11 +319,12 @@ OO.ui.now = Date.now || function () {
  *
  * @param {string|HTMLElement|jQuery} idOrNode
  *   A DOM id (if a string) or node for the widget to infuse.
+ * @param {Object} [config] Configuration options
  * @return {OO.ui.Element}
  *   The `OO.ui.Element` corresponding to this (infusable) document node.
  */
-OO.ui.infuse = function ( idOrNode ) {
-	return OO.ui.Element.static.infuse( idOrNode );
+OO.ui.infuse = function ( idOrNode, config ) {
+	return OO.ui.Element.static.infuse( idOrNode, config );
 };
 
 ( function () {

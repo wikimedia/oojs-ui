@@ -84,6 +84,11 @@ QUnit.test( 'static.infuse (infusing already infused nodes)', function ( assert 
 	assert.ok( a instanceof OO.ui.ButtonWidget, 'infuse() returned a ButtonWidget' );
 	assert.ok( b instanceof OO.ui.FieldLayout, 'infuse() returned a FieldLayout' );
 	assert.strictEqual( b.fieldWidget, a, 'Both infuse() calls returned the same widget instance' );
+
+	// Infuse a widget with extra config
+	reset();
+	a = OO.ui.infuse( $( '#button' ), { flags: [ 'extra' ] } );
+	assert.deepEqual( a.getFlags(), [ 'extra' ], 'infuse with extra config' );
 } );
 
 QUnit.test( 'static.getDocument', function ( assert ) {
