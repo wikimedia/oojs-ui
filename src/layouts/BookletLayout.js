@@ -196,8 +196,9 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
 	} else {
 		promise = $.Deferred().resolve();
 	}
-	// Focus the first element on the newly selected panel
-	if ( this.autoFocus && !OO.ui.isMobile() ) {
+	// Focus the first element on the newly selected panel.
+	// Don't focus if the page was set by scrolling.
+	if ( this.autoFocus && !OO.ui.isMobile() && !this.scrolling ) {
 		promise.done( function () {
 			layout.focus();
 		} );
