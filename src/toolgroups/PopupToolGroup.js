@@ -147,6 +147,34 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyUp = function ( e ) {
 };
 
 /**
+ * @inheritdoc
+ */
+OO.ui.PopupToolGroup.prototype.onMouseKeyDown = function ( e ) {
+	var $focused, $firstFocusable, $lastFocusable;
+	// Shift-Tab on the first tool in the group jumps to the handle.
+	// Tab on the last tool in the group jumps to the next group.
+	if ( !this.isDisabled() && e.which === OO.ui.Keys.TAB ) {
+		// (We can't use this.items because ListToolGroup inserts the extra fake expand/collapse tool.)
+		$focused = $( document.activeElement );
+		$firstFocusable = OO.ui.findFocusable( this.$group );
+		if ( $focused[ 0 ] === $firstFocusable[ 0 ] && e.shiftKey ) {
+			this.$handle.focus();
+			return false;
+		}
+		$lastFocusable = OO.ui.findFocusable( this.$group, true );
+		if ( $focused[ 0 ] === $lastFocusable[ 0 ] && !e.shiftKey ) {
+			// Focus this group's handle and let the browser's tab handling happen (no 'return false').
+			// This way we don't have to fiddle with other ToolGroups' business, or worry what to do
+			// if the next group is not a PopupToolGroup or doesn't exist at all.
+			this.$handle.focus();
+			// Close the popup so that we don't move back inside it (if this is the last group).
+			this.setActive( false );
+		}
+	}
+	return OO.ui.PopupToolGroup.parent.prototype.onMouseKeyDown.call( this, e );
+};
+
+/**
  * Handle mouse up and key up events.
  *
  * @protected
@@ -168,12 +196,20 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyUp = function ( e ) {
  * @param {jQuery.Event} e Mouse down or key down event
  */
 OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
-	if (
-		!this.isDisabled() &&
-		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
-	) {
-		this.setActive( !this.active );
-		return false;
+	var $focusable;
+	if ( !this.isDisabled() ) {
+		// Tab on the handle jumps to the first tool in the group (if the popup is open).
+		if ( e.which === OO.ui.Keys.TAB && !e.shiftKey ) {
+			$focusable = OO.ui.findFocusable( this.$group );
+			if ( $focusable.length ) {
+				$focusable.focus();
+				return false;
+			}
+		}
+		if ( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) {
+			this.setActive( !this.active );
+			return false;
+		}
 	}
 };
 
