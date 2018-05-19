@@ -227,7 +227,7 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 				this.setHorizontalPosition( 'start' );
 
 				this.$clippable.css( {
-					left: -( this.$element.offset().left - containerLeft ),
+					'margin-left': -( this.$element.offset().left - containerLeft ),
 					width: containerWidth
 				} );
 			}
