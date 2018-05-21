@@ -1200,7 +1200,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								} ),
 								new OO.ui.MenuOptionWidget( {
 									data: 'c',
-									label: 'The fourth option has a long label'
+									label: 'The fourth option has an overly long label'
 								} ),
 								new OO.ui.MenuOptionWidget( {
 									icon: 'feedback',
@@ -1237,7 +1237,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								} ),
 								new OO.ui.MenuOptionWidget( {
 									data: 'd',
-									label: 'Disabled fourth option with long label',
+									label: 'Disabled fourth option with an overly long label',
 									disabled: true
 								} ),
 								new OO.ui.MenuOptionWidget( {
