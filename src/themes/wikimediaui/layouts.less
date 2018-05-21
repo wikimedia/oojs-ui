@@ -73,8 +73,9 @@
 		&.oo-ui-fieldLayout-align-right {
 			> .oo-ui-fieldLayout-body {
 				> .oo-ui-fieldLayout-header {
-					width: 35%;
-					margin-right: 5%;
+					.oo-ui-box-sizing( border-box );
+					width: 40%;
+					padding-right: @size-base + @start-frameless-icon;
 
 					> .oo-ui-labelElement-label {
 						display: block;
@@ -85,8 +86,7 @@
 				> .oo-ui-fieldLayout-help {
 					// Override the default
 					margin-right: 0;
-					// Move into the space of `margin-right` of header
-					margin-left: round( -@size-button-base, 2 ); // Round to avoid IE11 rounding problems
+					margin-left: -( @size-base + @size-modifier-border );
 				}
 
 				> .oo-ui-fieldLayout-field {
