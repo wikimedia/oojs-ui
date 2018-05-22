@@ -33,7 +33,6 @@ Demo.static.pages.icons = function ( demo ) {
 			alerts: [
 				'alert',
 				'bell',
-				'comment',
 				'message',
 				'notice',
 				'speechBubble',
