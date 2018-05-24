@@ -303,7 +303,6 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	// Properties
 	this.toolFactory = toolFactory;
 	this.toolGroupFactory = toolGroupFactory;
-	this.groups = [];
 	this.tools = {};
 	this.position = config.position || 'top';
 	this.$bar = $( '<div>' );
@@ -433,6 +432,7 @@ OO.ui.Toolbar.prototype.initialize = function () {
  * see {@link OO.ui.ToolGroup toolgroups} for more information about including tools in toolgroups.
  *
  * @param {Object.<string,Array>} groups List of toolgroup configurations
+ * @param {string} [groups.type] Toolgroup type, should exist in the toolgroup factory
  * @param {Array|string} [groups.include] Tools to include in the toolgroup
  * @param {Array|string} [groups.exclude] Tools to exclude from the toolgroup
  * @param {Array|string} [groups.promote] Tools to promote to the beginning of the toolgroup
@@ -473,7 +473,6 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 OO.ui.Toolbar.prototype.reset = function () {
 	var i, len;
 
-	this.groups = [];
 	this.tools = {};
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
 		this.items[ i ].destroy();
