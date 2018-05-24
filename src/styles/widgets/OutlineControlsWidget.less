@@ -1,18 +1,10 @@
 @import '../common';
 
 .oo-ui-outlineControlsWidget {
-	// Without this, in Apex theme the widget sometimes gets a horizontal scrollbar, no idea why.
-	overflow: hidden;
-
 	&-items,
 	&-movers {
 		float: left;
 		.oo-ui-box-sizing( border-box );
-	}
-
-	> .oo-ui-iconElement-icon {
-		float: left;
-		background-position: right center;
 	}
 
 	&-items {

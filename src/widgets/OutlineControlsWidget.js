@@ -7,7 +7,6 @@
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.GroupElement
- * @mixins OO.ui.mixin.IconElement
  *
  * @constructor
  * @param {OO.ui.OutlineSelectWidget} outline Outline to control
@@ -24,14 +23,13 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 	}
 
 	// Configuration initialization
-	config = $.extend( { icon: 'add' }, config );
+	config = config || {};
 
 	// Parent constructor
 	OO.ui.OutlineControlsWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, config );
-	OO.ui.mixin.IconElement.call( this, config );
 
 	// Properties
 	this.outline = outline;
@@ -77,7 +75,6 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 
 OO.inheritClass( OO.ui.OutlineControlsWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.OutlineControlsWidget, OO.ui.mixin.GroupElement );
-OO.mixinClass( OO.ui.OutlineControlsWidget, OO.ui.mixin.IconElement );
 
 /* Events */
 
