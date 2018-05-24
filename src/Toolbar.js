@@ -439,7 +439,7 @@ OO.ui.Toolbar.prototype.initialize = function () {
  * @param {Array|string} [groups.demote] Tools to demote to the end of the toolgroup
  */
 OO.ui.Toolbar.prototype.setup = function ( groups ) {
-	var i, len, type, group,
+	var i, len, type, groupConfig,
 		items = [],
 		defaultType = 'bar';
 
@@ -448,20 +448,20 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 
 	// Build out new groups
 	for ( i = 0, len = groups.length; i < len; i++ ) {
-		group = groups[ i ];
-		if ( group.include === '*' ) {
+		groupConfig = groups[ i ];
+		if ( groupConfig.include === '*' ) {
 			// Apply defaults to catch-all groups
-			if ( group.type === undefined ) {
-				group.type = 'list';
+			if ( groupConfig.type === undefined ) {
+				groupConfig.type = 'list';
 			}
-			if ( group.label === undefined ) {
-				group.label = OO.ui.msg( 'ooui-toolbar-more' );
+			if ( groupConfig.label === undefined ) {
+				groupConfig.label = OO.ui.msg( 'ooui-toolbar-more' );
 			}
 		}
 		// Check type has been registered
-		type = this.getToolGroupFactory().lookup( group.type ) ? group.type : defaultType;
+		type = this.getToolGroupFactory().lookup( groupConfig.type ) ? groupConfig.type : defaultType;
 		items.push(
-			this.getToolGroupFactory().create( type, this, group )
+			this.getToolGroupFactory().create( type, this, groupConfig )
 		);
 	}
 	this.addItems( items );
