@@ -95,7 +95,7 @@ class Tag {
 	 * Toggle CSS classes.
 	 *
 	 * @param array $classes List of classes to add
-	 * @param bool $toggle Add classes
+	 * @param bool|null $toggle Add classes
 	 * @return $this
 	 */
 	public function toggleClasses( array $classes, $toggle = null ) {

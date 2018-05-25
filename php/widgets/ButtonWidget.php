@@ -184,7 +184,7 @@ class ButtonWidget extends Widget {
 	 *
 	 * A button should be marked as active when clicking it would only refresh the page.
 	 *
-	 * @param bool $active Make button active
+	 * @param bool|null $active Make button active
 	 * @return $this
 	 */
 	public function setActive( $active = null ) {
