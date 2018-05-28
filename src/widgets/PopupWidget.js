@@ -27,8 +27,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {number} [width=320] Width of popup in pixels
- * @cfg {number} [height] Height of popup in pixels. Omit to use the automatic height.
+ * @cfg {number|null} [width=320] Width of popup in pixels. Pass `null` to use automatic width.
+ * @cfg {number|null} [height=null] Height of popup in pixels. Pass `null` to use automatic height.
  * @cfg {boolean} [anchor=true] Show anchor pointing to origin of popup
  * @cfg {string} [position='below'] Where to position the popup relative to $floatableContainer
  *  'above': Put popup above $floatableContainer; anchor points down to the horizontal center
@@ -96,12 +96,11 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.$autoCloseIgnore = config.$autoCloseIgnore;
 	this.transitionTimeout = null;
 	this.anchored = false;
-	this.width = config.width !== undefined ? config.width : 320;
-	this.height = config.height !== undefined ? config.height : null;
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
 	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
 
 	// Initialization
+	this.setSize( config.width, config.height );
 	this.toggleAnchor( config.anchor === undefined || config.anchor );
 	this.setAlignment( config.align || 'center' );
 	this.setPosition( config.position || 'below' );
@@ -411,13 +410,13 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
  *
  * Changing the size may also change the popup's position depending on the alignment.
  *
- * @param {number} width Width in pixels
- * @param {number} height Height in pixels
+ * @param {number|null} [width=320] Width in pixels. Pass `null` to use automatic width.
+ * @param {number|null} [height=null] Height in pixels. Pass `null` to use automatic height.
  * @param {boolean} [transition=false] Use a smooth transition
  * @chainable
  */
 OO.ui.PopupWidget.prototype.setSize = function ( width, height, transition ) {
-	this.width = width;
+	this.width = width !== undefined ? width : 320;
 	this.height = height !== undefined ? height : null;
 	if ( this.isVisible() ) {
 		this.updateDimensions( transition );
@@ -507,7 +506,7 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	// Set height and width before we do anything else, since it might cause our measurements
 	// to change (e.g. due to scrollbars appearing or disappearing), and it also affects centering
 	this.$popup.css( {
-		width: this.width,
+		width: this.width !== null ? this.width : 'auto',
 		height: this.height !== null ? this.height : 'auto'
 	} );
 
@@ -524,7 +523,7 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	near = vertical ? 'top' : 'left';
 	far = vertical ? 'bottom' : 'right';
 	sizeProp = vertical ? 'Height' : 'Width';
-	popupSize = vertical ? ( this.height || this.$popup.height() ) : this.width;
+	popupSize = vertical ? ( this.height || this.$popup.height() ) : ( this.width || this.$popup.width() );
 
 	this.setAnchorEdge( anchorEdgeMap[ popupPosition ] );
 	this.horizontalPosition = vertical ? popupPosition : hPosMap[ align ];
