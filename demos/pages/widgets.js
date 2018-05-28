@@ -1808,7 +1808,7 @@ Demo.static.pages.widgets = function ( demo ) {
 							{ data: 'bar', label: 'Label for bar' }
 						],
 						options: [
-							{ data: 'foo', label: 'Label for foo' },
+							{ data: 'foo', label: 'Label for foo', icon: 'tag' },
 							{ data: 'bar', label: 'Label for bar' },
 							{ data: 'baz', label: 'Label for baz' }
 						]
