@@ -552,6 +552,23 @@
 		}
 	}
 
+	&.oo-ui-widget-enabled {
+		&:hover {
+			.oo-ui-iconElement-icon,
+			.oo-ui-indicatorElement-indicator {
+				opacity: @opacity-icon-base--hover;
+			}
+		}
+
+		.oo-ui-iconElement-icon,
+		.oo-ui-indicatorElement-indicator {
+			opacity: @opacity-icon-base;
+			.oo-ui-transition(
+				opacity @transition-ease-quick
+			);
+		}
+	}
+
 	&.oo-ui-widget-disabled {
 		.oo-ui-iconElement-icon,
 		.oo-ui-indicatorElement-indicator {
