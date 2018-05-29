@@ -2,10 +2,9 @@
 
 namespace OOUI\Tests;
 
-use PHPUnit_Framework_TestCase;
 use OOUI\Tag;
 
-class TagTest extends PHPUnit_Framework_TestCase {
+class TagTest extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * @covers Tag::__construct
