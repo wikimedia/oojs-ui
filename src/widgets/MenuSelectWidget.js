@@ -55,6 +55,11 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
 	OO.ui.mixin.FloatableElement.call( this, config );
 
+	// Initial vertical positions other than 'center' will result in
+	// the menu being flipped if there is not enough space in the container.
+	// Store the original position so we know what to reset to.
+	this.originalVerticalPosition = this.verticalPosition;
+
 	// Properties
 	this.autoHide = config.autoHide === undefined || !!config.autoHide;
 	this.hideOnChoose = config.hideOnChoose === undefined || !!config.hideOnChoose;
@@ -93,6 +98,21 @@ OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.mixin.FloatableElement );
  *
  * The menu is ready: it is visible and has been positioned and clipped.
  */
+
+/* Static properties */
+
+/**
+ * Positions to flip to if there isn't room in the container for the
+ * menu in a specific direction.
+ *
+ * @property {Object.<string,string>}
+ */
+OO.ui.MenuSelectWidget.static.flippedPositions = {
+	below: 'above',
+	above: 'below',
+	top: 'bottom',
+	bottom: 'top'
+};
 
 /* Methods */
 
@@ -325,7 +345,7 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
-	var change, belowHeight, aboveHeight;
+	var change, originalHeight, flippedHeight;
 
 	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
 	change = visible !== this.isVisible();
@@ -338,7 +358,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 	if ( change && visible ) {
 		// Reset position before showing the popup again. It's possible we no longer need to flip
 		// (e.g. if the user scrolled).
-		this.setVerticalPosition( 'below' );
+		this.setVerticalPosition( this.originalVerticalPosition );
 	}
 
 	// Parent method
@@ -367,16 +387,21 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.bindKeyDownListener();
 			this.bindKeyPressListener();
 
-			if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
-				// If opening the menu downwards causes it to be clipped, flip it to open upwards instead
-				belowHeight = this.$element.height();
-				this.setVerticalPosition( 'above' );
+			if (
+				( this.isClippedVertically() || this.isFloatableOutOfView() ) &&
+				this.originalVerticalPosition !== 'center'
+			) {
+				// If opening the menu in one direction causes it to be clipped, flip it
+				originalHeight = this.$element.height();
+				this.setVerticalPosition(
+					this.constructor.static.flippedPositions[ this.originalVerticalPosition ]
+				);
 				if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
-					// If opening upwards also causes it to be clipped, flip it to open in whichever direction
+					// If flipping also causes it to be clipped, open in whichever direction
 					// we have more space
-					aboveHeight = this.$element.height();
-					if ( aboveHeight < belowHeight ) {
-						this.setVerticalPosition( 'below' );
+					flippedHeight = this.$element.height();
+					if ( originalHeight > flippedHeight ) {
+						this.setVerticalPosition( this.originalVerticalPosition );
 					}
 				}
 			}
