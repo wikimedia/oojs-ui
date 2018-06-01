@@ -21,6 +21,7 @@
  * @cfg {jQuery} [$overlay] Overlay for the lookup menu; defaults to relative positioning.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  * @cfg {jQuery} [$container=this.$element] The container element. The lookup menu is rendered beneath the specified element.
+ * @cfg {Object} [menu] Configuration options to pass to {@link OO.ui.MenuSelectWidget menu select widget}
  * @cfg {boolean} [allowSuggestionsWhenEmpty=false] Request and display a lookup menu when the text input is empty.
  *  By default, the lookup menu is not generated and displayed until the user begins to type.
  * @cfg {boolean} [highlightFirst=true] Whether the first lookup result should be highlighted (so, that the user can
@@ -35,11 +36,11 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 
 	// Properties
 	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
-	this.lookupMenu = new OO.ui.MenuSelectWidget( {
+	this.lookupMenu = new OO.ui.MenuSelectWidget( $.extend( {
 		widget: this,
 		input: this,
 		$floatableContainer: config.$container || this.$element
-	} );
+	}, config.menu ) );
 
 	this.allowSuggestionsWhenEmpty = config.allowSuggestionsWhenEmpty || false;
 
