@@ -30,6 +30,7 @@ OO.ui.Element = function OoUiElement( config ) {
 	config = config || {};
 
 	// Properties
+	this.$ = $;
 	this.elementId = null;
 	this.visible = true;
 	this.data = config.data;
