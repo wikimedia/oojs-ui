@@ -181,13 +181,11 @@
 @font-size-fieldset-header: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
-@line-height-message: 1.4;
-@line-height-fieldset-header-iconized: 24 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header );
-@line-height-form-element: 1.4;
-@line-height-input-binary-label: 1.5; // Checkboxes, Radios and ToggleSwitchWidget labels need a tad more for increased vertical click area
-@line-height-widget-multiline: 1.275;
+@line-height-message: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `20px` at base `font-size: 14px`
+@line-height-label: 20 / @ooui-font-size-browser / @ooui-font-size-base;
+@line-height-widget-multiline: 1.286; // equals `18px` at base `font-size: 14px;
 @line-height-widget-singleline: 15 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.172em`≈`15px`; Firefox needs a value, Chrome the unit;
-@line-height-tagmultiselect-input: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `20px` at base `font-size: 14px`
+@line-height-tagmultiselect-input: @line-height-label;
 
 // Transition variables
 // Some of these values are duplicated in OO.ui.WikimediaUITheme
