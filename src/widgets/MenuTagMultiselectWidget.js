@@ -7,7 +7,7 @@
  *     var widget = new OO.ui.MenuTagMultiselectWidget( {
  *         inputPosition: 'outline',
  *         options: [
- *            { data: 'option1', label: 'Option 1' },
+ *            { data: 'option1', label: 'Option 1', icon: 'tag' },
  *            { data: 'option2', label: 'Option 2' },
  *            { data: 'option3', label: 'Option 3' },
  *         ],
@@ -233,7 +233,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.createMenuWidget = function ( menuConfi
 OO.ui.MenuTagMultiselectWidget.prototype.addOptions = function ( menuOptions ) {
 	var widget = this,
 		items = menuOptions.map( function ( obj ) {
-			return widget.createMenuOptionWidget( obj.data, obj.label );
+			return widget.createMenuOptionWidget( obj.data, obj.label, obj.icon );
 		} );
 
 	this.menu.addItems( items );
@@ -244,12 +244,14 @@ OO.ui.MenuTagMultiselectWidget.prototype.addOptions = function ( menuOptions ) {
  *
  * @param {string} data Item data
  * @param {string} [label] Item label
+ * @param {string} [icon] Symbolic icon name
  * @return {OO.ui.OptionWidget} Option widget
  */
-OO.ui.MenuTagMultiselectWidget.prototype.createMenuOptionWidget = function ( data, label ) {
+OO.ui.MenuTagMultiselectWidget.prototype.createMenuOptionWidget = function ( data, label, icon ) {
 	return new OO.ui.MenuOptionWidget( {
 		data: data,
-		label: label || data
+		label: label || data,
+		icon: icon
 	} );
 };
 
