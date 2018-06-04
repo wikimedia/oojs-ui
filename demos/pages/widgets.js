@@ -2661,7 +2661,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'FieldLayout with error message',
-						errors: [ 'The value must be a number.' ],
+						errors: [ 'The value must be a number. It is more than necessary. You can\'t go on without putting a number into this input field.' ],
 						align: 'top'
 					}
 				),
