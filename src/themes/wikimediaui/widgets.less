@@ -151,7 +151,7 @@
 	width: auto;
 	max-width: 100%;
 	height: @height-tagitem;
-	margin: @margin-top-tagitem @end-tagitem 0 0;
+	margin: 0 @margin-tagitem @margin-tagitem 0;
 	border: @border-base;
 	border-radius: @border-radius-base;
 	padding: 0 @padding-horizontal-tagitem;
@@ -199,7 +199,7 @@
 			padding-left: @size-button-tagitem-close;
 
 			.oo-ui-icon-close {
-				left: @end-tagitem;
+				left: @margin-tagitem;
 				min-width: @min-width-tagitem-close;
 				width: @size-icon-tagitem-close;
 			}
@@ -227,6 +227,7 @@
 .theme-oo-ui-capsuleMultiselectWidget () {
 	width: 100%;
 	max-width: @max-width-input;
+	vertical-align: top;
 
 	&-handle {
 		.oo-ui-box-sizing( border-box );
@@ -234,7 +235,7 @@
 		.oo-ui-inline-spacing( 0.5em );
 		border: @border-base;
 		border-radius: @border-radius-base;
-		padding: 0 @padding-horizontal-input-text @padding-vertical-label;
+		padding: 0 @padding-horizontal-input-text;
 		line-height: @line-height-reset;
 
 		> .oo-ui-capsuleMultiselectWidget-content {
@@ -242,12 +243,11 @@
 				background-color: transparent;
 				color: @color-base--emphasized;
 				border: 0;
-				margin: @margin-top-tagmultiselect-input 0 0 @start-tagmultiselect-input;
-				padding: 0;
+				padding: @padding-top-base 0 @padding-bottom-base;
 				font-family: inherit;
 				font-size: inherit;
-				line-height: @line-height-tagmultiselect-input;
-				vertical-align: middle;
+				line-height: @line-height-widget-singleline;
+				vertical-align: top;
 
 				.mw-placeholder();
 
@@ -259,6 +259,12 @@
 			.oo-ui-capsuleMultiselectWidget-group:empty + input { // Support: IE 9+ & modern browsers only
 				margin-left: 0;
 			}
+		}
+
+		.oo-ui-capsuleMultiselectWidget-group {
+			display: inline-block;
+			max-width: 100%;
+			margin-top: @margin-tagitem;
 		}
 	}
 
@@ -1615,7 +1621,7 @@
 	width: auto;
 	max-width: 100%;
 	height: @height-tagitem;
-	margin: @margin-top-tagitem @end-tagitem 0 0;
+	margin: 0 @margin-tagitem @margin-tagitem 0;
 	border: @border-base;
 	border-radius: @border-radius-base;
 	padding: 0 @padding-horizontal-tagitem;
@@ -1679,7 +1685,7 @@
 			padding-left: @size-button-tagitem-close;
 
 			.oo-ui-icon-close {
-				left: @end-tagitem;
+				left: @margin-tagitem;
 				min-width: @min-width-tagitem-close;
 				width: @size-icon-tagitem-close;
 			}
@@ -1711,6 +1717,7 @@
 .theme-oo-ui-tagMultiselectWidget () {
 	width: 100%;
 	max-width: @max-width-input;
+	vertical-align: top;
 
 	&-handle {
 		.oo-ui-box-sizing( border-box );
@@ -1718,20 +1725,19 @@
 		.oo-ui-inline-spacing( 0.5em );
 		border: @border-base;
 		border-radius: @border-radius-base;
-		padding: 0 @padding-horizontal-input-text @padding-vertical-label;
+		padding: 0 @padding-horizontal-input-text;
 		line-height: @line-height-reset;
 
 		> .oo-ui-tagMultiselectWidget-content {
 			> input {
 				background-color: transparent;
 				color: @color-base--emphasized;
-				margin: @margin-top-tagmultiselect-input 0 0 @start-tagmultiselect-input;
 				border: 0;
-				padding: 0;
+				padding: @padding-top-base 0 @padding-bottom-base @start-tagmultiselect-input;
 				font-family: inherit;
 				font-size: inherit;
-				line-height: @line-height-tagmultiselect-input;
-				vertical-align: middle;
+				line-height: @line-height-widget-singleline;
+				vertical-align: top;
 
 				.mw-placeholder();
 
@@ -1743,6 +1749,12 @@
 			.oo-ui-tagMultiselectWidget-group:empty + input { // Support: IE 9+ & modern browsers only
 				margin-left: 0;
 			}
+		}
+
+		.oo-ui-tagMultiselectWidget-group {
+			display: inline-block;
+			max-width: 100%;
+			margin-top: @margin-tagitem;
 		}
 	}
 
