@@ -160,8 +160,34 @@
 		max-width: @max-width-base;
 	}
 
-	.oo-ui-actionFieldLayout-button .oo-ui-buttonElement-frameless {
-		margin-left: @padding-horizontal-frameless; // Address frameless negative margin focus hack
+	.oo-ui-actionFieldLayout-input .oo-ui-widget {
+		&:not( .oo-ui-textInputWidget ) {
+			margin-right: @margin-end-actionlayout-input;
+		}
+
+		&.oo-ui-textInputWidget input {
+			border-radius: @border-radius-base 0 0 @border-radius-base;
+
+			&:hover,
+			&:focus {
+				position: relative;
+				z-index: 1;
+			}
+		}
+	}
+
+	.oo-ui-actionFieldLayout-button {
+		.oo-ui-buttonElement-framed {
+			border-radius: 0 @border-radius-base @border-radius-base 0;
+
+			> .oo-ui-buttonElement-button {
+				margin-left: -@border-width-base;
+			}
+		}
+
+		.oo-ui-buttonElement-frameless {
+			margin-left: @padding-horizontal-frameless; // Address frameless negative margin focus hack
+		}
 	}
 }
 

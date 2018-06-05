@@ -131,6 +131,29 @@
 	&.oo-ui-fieldLayout-align-top {
 		max-width: 50em;
 	}
+
+	.oo-ui-actionFieldLayout-input .oo-ui-widget {
+		&:not( .oo-ui-textInputWidget ) input {
+			margin-right: 1em;
+		}
+
+		&.oo-ui-textInputWidget input {
+			border-radius: @border-radius-base 0 0 @border-radius-base;
+
+			&:hover,
+			&:focus {
+				position: relative;
+				z-index: 1;
+			}
+		}
+	}
+
+	.oo-ui-actionFieldLayout-button {
+		.oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
+			border-radius: 0 @border-radius-base @border-radius-base 0;
+			margin-left: -1px;
+		}
+	}
 }
 
 .theme-oo-ui-fieldsetLayout () {
