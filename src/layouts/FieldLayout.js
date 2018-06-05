@@ -14,7 +14,14 @@
  * - **inline**: The label is placed after the field-widget and aligned to the left.
  *   An inline-alignment is best used with checkboxes or radio buttons.
  *
- * Help text is accessed via a help icon that appears in the upper right corner of the rendered field layout.
+ * Help text can either be:
+ *
+ * - accessed via a help icon that appears in the upper right corner of the rendered field layout, or
+ * - shown as a subtle explanation below the label.
+ *
+ * If the help text is brief, or is essential to always espose it, set `helpInline` to `true`. If it
+ * is long or not essential, leave `helpInline` to its default, `false`.
+ *
  * Please see the [OOUI documentation on MediaWiki] [1] for examples and more information.
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Layouts/Fields_and_Fieldsets
@@ -27,15 +34,25 @@
  * @constructor
  * @param {OO.ui.Widget} fieldWidget Field widget
  * @param {Object} [config] Configuration options
- * @cfg {string} [align='left'] Alignment of the label: 'left', 'right', 'top' or 'inline'
- * @cfg {Array} [errors] Error messages about the widget, which will be displayed below the widget.
+ * @cfg {string} [align='left'] Alignment of the label: 'left', 'right', 'top'
+ *  or 'inline'
+ * @cfg {Array} [errors] Error messages about the widget, which will be
+ *  displayed below the widget.
  *  The array may contain strings or OO.ui.HtmlSnippet instances.
- * @cfg {Array} [notices] Notices about the widget, which will be displayed below the widget.
+ * @cfg {Array} [notices] Notices about the widget, which will be displayed
+ *  below the widget.
  *  The array may contain strings or OO.ui.HtmlSnippet instances.
- * @cfg {string|OO.ui.HtmlSnippet} [help] Help text. When help text is specified, a "help" icon will appear
- *  in the upper-right corner of the rendered field; clicking it will display the text in a popup.
- *  For important messages, you are advised to use `notices`, as they are always shown.
- * @cfg {jQuery} [$overlay] Passed to OO.ui.PopupButtonWidget for help popup, if `help` is given.
+ *  These are more visible than `help` messages when `helpInline` is set, and so
+ *  might be good for transient messages.
+ * @cfg {string|OO.ui.HtmlSnippet} [help] Help text. When help text is specified
+ *  and `helpInline` is `false`, a "help" icon will appear in the upper-right
+ *  corner of the rendered field; clicking it will display the text in a popup.
+ *  If `helpInline` is `true`, then a subtle description will be shown after the
+ *  label.
+ * @cfg {boolean} [helpInline=false] Whether or not the help should be inline,
+ *  or shown when the "help" icon is clicked.
+ * @cfg {jQuery} [$overlay] Passed to OO.ui.PopupButtonWidget for help popup, if
+ * `help` is given.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  *
  * @throws {Error} An error is thrown if no widget is specified
@@ -53,7 +70,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	}
 
 	// Configuration initialization
-	config = $.extend( { align: 'left' }, config );
+	config = $.extend( { align: 'left', helpInline: false }, config );
 
 	// Parent constructor
 	OO.ui.FieldLayout.parent.call( this, config );
@@ -73,23 +90,32 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.$header = $( '<span>' );
 	this.$body = $( '<div>' );
 	this.align = null;
+	this.helpInline = config.helpInline;
+
 	if ( config.help ) {
-		this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
-			$overlay: config.$overlay,
-			popup: {
-				padded: true
-			},
-			classes: [ 'oo-ui-fieldLayout-help' ],
-			framed: false,
-			icon: 'info',
-			label: OO.ui.msg( 'ooui-field-help' )
-		} );
-		if ( config.help instanceof OO.ui.HtmlSnippet ) {
-			this.popupButtonWidget.getPopup().$body.html( config.help.toString() );
+		if ( this.helpInline ) {
+			this.$help = new OO.ui.LabelWidget( {
+				label: config.help,
+				classes: [ 'oo-ui-inline-help' ]
+			} ).$element;
 		} else {
-			this.popupButtonWidget.getPopup().$body.text( config.help );
+			this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
+				$overlay: config.$overlay,
+				popup: {
+					padded: true
+				},
+				classes: [ 'oo-ui-fieldLayout-help' ],
+				framed: false,
+				icon: 'info',
+				label: OO.ui.msg( 'ooui-field-help' )
+			} );
+			if ( config.help instanceof OO.ui.HtmlSnippet ) {
+				this.popupButtonWidget.getPopup().$body.html( config.help.toString() );
+			} else {
+				this.popupButtonWidget.getPopup().$body.text( config.help );
+			}
+			this.$help = this.popupButtonWidget.$element;
 		}
-		this.$help = this.popupButtonWidget.$element;
 	} else {
 		this.$help = $( [] );
 	}
@@ -98,7 +124,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
 
 	// Initialization
-	if ( config.help ) {
+	if ( config.help && !config.helpInline ) {
 		// Set the 'aria-describedby' attribute on the fieldWidget
 		// Preference given to an input or a button
 		(
@@ -215,15 +241,26 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 			value = 'top';
 		}
 		// Reorder elements
-		if ( value === 'top' ) {
-			this.$header.append( this.$help, this.$label );
-			this.$body.append( this.$header, this.$field );
-		} else if ( value === 'inline' ) {
-			this.$header.append( this.$help, this.$label );
-			this.$body.append( this.$field, this.$header );
+
+		if ( this.helpInline ) {
+			if ( value === 'inline' ) {
+				this.$header.append( this.$label, this.$help );
+				this.$body.append( this.$field, this.$header );
+			} else {
+				this.$header.append( this.$label, this.$help );
+				this.$body.append( this.$header, this.$field );
+			}
 		} else {
-			this.$header.append( this.$label );
-			this.$body.append( this.$header, this.$help, this.$field );
+			if ( value === 'top' ) {
+				this.$header.append( this.$help, this.$label );
+				this.$body.append( this.$header, this.$field );
+			} else if ( value === 'inline' ) {
+				this.$header.append( this.$help, this.$label );
+				this.$body.append( this.$field, this.$header );
+			} else {
+				this.$header.append( this.$label );
+				this.$body.append( this.$header, this.$help, this.$field );
+			}
 		}
 		// Set classes. The following classes can be used here:
 		// * oo-ui-fieldLayout-align-left
