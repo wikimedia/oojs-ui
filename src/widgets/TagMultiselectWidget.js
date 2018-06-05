@@ -358,7 +358,7 @@ OO.ui.TagMultiselectWidget.prototype.doInputBackspace = function ( e, withMetaKe
 		items = this.getItems();
 		item = items[ items.length - 1 ];
 
-		if ( !item.isDisabled() ) {
+		if ( !item.isDisabled() && !item.isFixed() ) {
 			this.removeItems( [ item ] );
 			// If Ctrl/Cmd was pressed, delete item entirely.
 			// Otherwise put it into the text field for editing.

@@ -182,7 +182,7 @@ OO.ui.TagItemWidget.prototype.setDisabled = function ( state ) {
  * @fires remove
  */
 OO.ui.TagItemWidget.prototype.remove = function () {
-	if ( !this.isDisabled() ) {
+	if ( !this.isDisabled() && !this.isFixed() ) {
 		this.emit( 'remove' );
 	}
 };
