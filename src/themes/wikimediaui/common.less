@@ -52,7 +52,6 @@
 @min-width-button-base: 44 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.4375em`≈`44px` at base `font-size: 14px`
 @min-width-button-combo-widget: 37px;
 @min-width-icon-numberinput: 20px;
-@min-width-tagitem-close: 14px;
 @min-height-widget-base: @size-base;
 @min-height-toggleswitch: 26px; // equals `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
 @max-width-base: 50em;
@@ -62,7 +61,6 @@
 @size-button-base: @size-base;
 @size-button-tagitem-close: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.5625em`≈`20px`
 @size-icon: 20 / @ooui-font-size-browser / @ooui-font-size-base;
-@size-icon-tagitem-close: 14 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.09375em`≈`14px`
 @size-icon-checkmark: 14 / @ooui-font-size-browser / @ooui-font-size-base;
 @size-indicator: 12 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.9375em`≈`12px`
 @size-dialog-bar-top: 44 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.4375em`≈`44px`
@@ -70,6 +68,7 @@
 @size-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.125em`≈`40px`
 @size-popuptool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
 
+@size-tag-group-modifier: -( 2 / @ooui-font-size-browser / @ooui-font-size-base );
 @size-toolbar-narrow-modifier: 2 / @ooui-font-size-browser / @ooui-font-size-base;
 @size-modifier-border: 1 / @ooui-font-size-browser / @ooui-font-size-base; // Use for size calculations with borders aside of `px` based `@border-width-base`
 
@@ -139,7 +138,7 @@
 @padding-horizontal-input-text: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-taboption: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-taboption-label: 5 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-horizontal-tagitem: 4 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-horizontal-tagitem: 6 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-toolbar-action-buttons: 16 / @ooui-font-size-browser / @ooui-font-size-base; // aligned relatively to `@padding-horizontal-base` but for toolbar button height
 @padding-vertical-label: 4 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-base: 8 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.625em`≈`8px`
@@ -162,7 +161,7 @@
 @padding-start-menu-icon-label: 37 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-tool: 37 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-tool-icon-only: 42 / @ooui-font-size-browser / @ooui-font-size-base; // Provide slightly more space than `@padding-start-input-text-icon-label` as we want to provide minimal touch action size
-@padding-end-tagitem-close: 21 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.640625em`≈`21px`;
+@padding-end-tagitem-close: 23 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.640625em`≈`21px`;
 @padding-end-toolgroup-label-indicator: 26 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-end-toolgroup-indicator: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 

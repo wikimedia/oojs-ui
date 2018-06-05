@@ -153,7 +153,7 @@
 	height: @height-tagitem;
 	margin: 0 @margin-tagitem @margin-tagitem 0;
 	border: @border-base;
-	border-radius: @border-radius-base;
+	border-radius: @height-tagitem;
 	padding: 0 @padding-horizontal-tagitem;
 	line-height: @height-tagitem;
 	vertical-align: middle;
@@ -195,13 +195,25 @@
 		& .oo-ui-buttonElement-button {
 			// frameless reset
 			border: 0;
+			border-radius: @height-tagitem;
 			padding-top: @size-button-tagitem-close;
 			padding-left: @size-button-tagitem-close;
+			.oo-ui-transition(
+				background-color @transition-ease-quick
+			);
+
+			&:hover {
+				background-color: @background-color-framed--hover;
+			}
+
+			&:active {
+				background-color: @background-color-framed--active;
+			}
 
 			.oo-ui-icon-close {
 				left: @margin-tagitem;
-				min-width: @min-width-tagitem-close;
-				width: @size-icon-tagitem-close;
+				min-width: @min-size-indicator;
+				width: @size-indicator;
 			}
 
 			.oo-ui-labelElement-label,
@@ -265,6 +277,7 @@
 			display: inline-block;
 			max-width: 100%;
 			margin-top: @margin-tagitem;
+			margin-left: @size-tag-group-modifier;
 		}
 	}
 
@@ -1629,7 +1642,7 @@
 	height: @height-tagitem;
 	margin: 0 @margin-tagitem @margin-tagitem 0;
 	border: @border-base;
-	border-radius: @border-radius-base;
+	border-radius: @height-tagitem;
 	padding: 0 @padding-horizontal-tagitem;
 	line-height: @height-tagitem;
 	vertical-align: middle;
@@ -1687,13 +1700,25 @@
 		& .oo-ui-buttonElement-button {
 			// frameless reset
 			border: 0;
+			border-radius: @height-tagitem;
 			padding-top: @size-button-tagitem-close;
 			padding-left: @size-button-tagitem-close;
+			.oo-ui-transition(
+				background-color @transition-ease-quick
+			);
+
+			&:hover {
+				background-color: @background-color-framed--hover;
+			}
+
+			&:active {
+				background-color: @background-color-framed--active;
+			}
 
 			.oo-ui-icon-close {
 				left: @margin-tagitem;
-				min-width: @min-width-tagitem-close;
-				width: @size-icon-tagitem-close;
+				min-width: @min-size-indicator;
+				width: @size-indicator;
 			}
 
 			.oo-ui-labelElement-label,
@@ -1761,6 +1786,7 @@
 			display: inline-block;
 			max-width: 100%;
 			margin-top: @margin-tagitem;
+			margin-left: @size-tag-group-modifier;
 		}
 	}
 
