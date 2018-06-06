@@ -187,6 +187,13 @@ OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
 OO.ui.PopupWidget.prototype.bindMouseDownListener = function () {
 	// Capture clicks outside popup
 	this.getElementWindow().addEventListener( 'mousedown', this.onMouseDownHandler, true );
+	// We add 'click' event because iOS safari needs to respond to this event.
+	// We can't use 'touchstart' (as is usually the equivalent to 'mousedown') because
+	// then it will trigger when scrolling. While iOS Safari has some reported behavior
+	// of occasionally not emitting 'click' properly, that event seems to be the standard
+	// that it should be emitting, so we add it to this and will operate the event handler
+	// on whichever of these events was triggered first
+	this.getElementDocument().addEventListener( 'click', this.onMouseDownHandler, true );
 };
 
 /**
@@ -207,6 +214,7 @@ OO.ui.PopupWidget.prototype.onCloseButtonClick = function () {
  */
 OO.ui.PopupWidget.prototype.unbindMouseDownListener = function () {
 	this.getElementWindow().removeEventListener( 'mousedown', this.onMouseDownHandler, true );
+	this.getElementDocument().removeEventListener( 'click', this.onMouseDownHandler, true );
 };
 
 /**
