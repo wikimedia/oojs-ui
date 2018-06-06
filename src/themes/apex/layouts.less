@@ -137,14 +137,9 @@
 			margin-right: 1em;
 		}
 
-		&.oo-ui-textInputWidget input {
+		&.oo-ui-textInputWidget > .oo-ui-inputWidget-input {
 			border-radius: @border-radius-base 0 0 @border-radius-base;
-
-			&:hover,
-			&:focus {
-				position: relative;
-				z-index: 1;
-			}
+			position: relative;
 		}
 	}
 
@@ -152,6 +147,24 @@
 		.oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
 			border-radius: 0 @border-radius-base @border-radius-base 0;
 			margin-left: -1px;
+		}
+	}
+
+	// Give hovered/focussed widgets higher `z-index`, so that borders display correctly.
+	.oo-ui-actionFieldLayout-input > .oo-ui-textInputWidget > .oo-ui-inputWidget-input {
+		// Apply these styles to the element itself and all following siblings (e.g. .oo-ui-iconElement-icon)
+		&:hover,
+		&:hover ~ *,
+		&:focus,
+		&:focus ~ * {
+			z-index: 1;
+		}
+	}
+
+	.oo-ui-actionFieldLayout-button > .oo-ui-buttonElement > .oo-ui-buttonElement-button {
+		&:hover,
+		&:focus {
+			z-index: 1;
 		}
 	}
 }
