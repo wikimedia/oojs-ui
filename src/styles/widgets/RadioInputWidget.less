@@ -1,5 +1,9 @@
 @import '../common';
 
 .oo-ui-radioInputWidget {
+	// Use `inline-block` to make it possible to set margins etc. on the widget.
+	// Also, this fixes a weird rendering issue in Firefox, see T171022.
+	display: inline-block;
+
 	.theme-oo-ui-radioInputWidget();
 }
