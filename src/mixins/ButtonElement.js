@@ -22,10 +22,10 @@ OO.ui.mixin.ButtonElement = function OoUiMixinButtonElement( config ) {
 	this.$button = null;
 	this.framed = null;
 	this.active = config.active !== undefined && config.active;
-	this.onMouseUpHandler = this.onMouseUp.bind( this );
+	this.onDocumentMouseUpHandler = this.onDocumentMouseUp.bind( this );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
+	this.onDocumentKeyUpHandler = this.onDocumentKeyUp.bind( this );
 	this.onKeyDownHandler = this.onKeyDown.bind( this );
-	this.onKeyUpHandler = this.onKeyUp.bind( this );
 	this.onClickHandler = this.onClick.bind( this );
 	this.onKeyPressHandler = this.onKeyPress.bind( this );
 
@@ -116,7 +116,7 @@ OO.ui.mixin.ButtonElement.prototype.onMouseDown = function ( e ) {
 	this.$element.addClass( 'oo-ui-buttonElement-pressed' );
 	// Run the mouseup handler no matter where the mouse is when the button is let go, so we can
 	// reliably remove the pressed class
-	this.getElementDocument().addEventListener( 'mouseup', this.onMouseUpHandler, true );
+	this.getElementDocument().addEventListener( 'mouseup', this.onDocumentMouseUpHandler, true );
 	// Prevent change of focus unless specifically configured otherwise
 	if ( this.constructor.static.cancelButtonMouseDownEvents ) {
 		return false;
@@ -124,18 +124,24 @@ OO.ui.mixin.ButtonElement.prototype.onMouseDown = function ( e ) {
 };
 
 /**
- * Handles mouse up events.
+ * Handles document mouse up events.
  *
  * @protected
  * @param {MouseEvent} e Mouse up event
  */
-OO.ui.mixin.ButtonElement.prototype.onMouseUp = function ( e ) {
+OO.ui.mixin.ButtonElement.prototype.onDocumentMouseUp = function ( e ) {
 	if ( this.isDisabled() || e.which !== OO.ui.MouseButtons.LEFT ) {
 		return;
 	}
 	this.$element.removeClass( 'oo-ui-buttonElement-pressed' );
 	// Stop listening for mouseup, since we only needed this once
-	this.getElementDocument().removeEventListener( 'mouseup', this.onMouseUpHandler, true );
+	this.getElementDocument().removeEventListener( 'mouseup', this.onDocumentMouseUpHandler, true );
+};
+
+// Deprecated alias since 0.28.3
+OO.ui.mixin.ButtonElement.prototype.onMouseUp = function () {
+	OO.ui.warnDeprecation( 'onMouseUp is deprecated, use onDocumentMouseUp instead' );
+	this.onDocumentMouseUp.apply( this, arguments );
 };
 
 /**
@@ -166,22 +172,28 @@ OO.ui.mixin.ButtonElement.prototype.onKeyDown = function ( e ) {
 	this.$element.addClass( 'oo-ui-buttonElement-pressed' );
 	// Run the keyup handler no matter where the key is when the button is let go, so we can
 	// reliably remove the pressed class
-	this.getElementDocument().addEventListener( 'keyup', this.onKeyUpHandler, true );
+	this.getElementDocument().addEventListener( 'keyup', this.onDocumentKeyUpHandler, true );
 };
 
 /**
- * Handles key up events.
+ * Handles document key up events.
  *
  * @protected
  * @param {KeyboardEvent} e Key up event
  */
-OO.ui.mixin.ButtonElement.prototype.onKeyUp = function ( e ) {
+OO.ui.mixin.ButtonElement.prototype.onDocumentKeyUp = function ( e ) {
 	if ( this.isDisabled() || ( e.which !== OO.ui.Keys.SPACE && e.which !== OO.ui.Keys.ENTER ) ) {
 		return;
 	}
 	this.$element.removeClass( 'oo-ui-buttonElement-pressed' );
 	// Stop listening for keyup, since we only needed this once
-	this.getElementDocument().removeEventListener( 'keyup', this.onKeyUpHandler, true );
+	this.getElementDocument().removeEventListener( 'keyup', this.onDocumentKeyUpHandler, true );
+};
+
+// Deprecated alias since 0.28.3
+OO.ui.mixin.ButtonElement.prototype.onKeyUp = function () {
+	OO.ui.warnDeprecation( 'onKeyUp is deprecated, use onDocumentKeyUp instead' );
+	this.onDocumentKeyUp.apply( this, arguments );
 };
 
 /**

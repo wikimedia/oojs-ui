@@ -38,7 +38,8 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Properties
 	this.active = false;
 	this.dragging = false;
-	this.onBlurHandler = this.onBlur.bind( this );
+	// Don't conflict with parent method of the same name
+	this.onPopupDocumentMouseKeyUpHandler = this.onPopupDocumentMouseKeyUp.bind( this );
 	this.$handle = $( '<span>' );
 
 	// Mixin constructors
@@ -113,14 +114,12 @@ OO.ui.PopupToolGroup.prototype.setDisabled = function () {
 };
 
 /**
- * Handle focus being lost.
- *
- * The event is actually generated from a mouseup/keyup, so it is not a normal blur event object.
+ * Handle document mouse up and key up events.
  *
  * @protected
  * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
-OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
+OO.ui.PopupToolGroup.prototype.onPopupDocumentMouseKeyUp = function ( e ) {
 	var $target = $( e.target );
 	// Only deactivate when clicking outside the dropdown element
 	if ( $target.closest( '.oo-ui-popupToolGroup' )[ 0 ] === this.$element[ 0 ] ) {
@@ -130,6 +129,12 @@ OO.ui.PopupToolGroup.prototype.onBlur = function ( e ) {
 		return;
 	}
 	this.setActive( false );
+};
+
+// Deprecated alias since 0.28.3
+OO.ui.PopupToolGroup.prototype.onBlur = function () {
+	OO.ui.warnDeprecation( 'onBlur is deprecated, use onPopupDocumentMouseKeyUp instead' );
+	this.onPopupDocumentMouseKeyUp.apply( this, arguments );
 };
 
 /**
@@ -237,8 +242,8 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 	if ( this.active !== value ) {
 		this.active = value;
 		if ( value ) {
-			this.getElementDocument().addEventListener( 'mouseup', this.onBlurHandler, true );
-			this.getElementDocument().addEventListener( 'keyup', this.onBlurHandler, true );
+			this.getElementDocument().addEventListener( 'mouseup', this.onPopupDocumentMouseKeyUpHandler, true );
+			this.getElementDocument().addEventListener( 'keyup', this.onPopupDocumentMouseKeyUpHandler, true );
 
 			this.$clippable.css( 'left', '' );
 			this.$element.addClass( 'oo-ui-popupToolGroup-active' );
@@ -269,8 +274,8 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 				} );
 			}
 		} else {
-			this.getElementDocument().removeEventListener( 'mouseup', this.onBlurHandler, true );
-			this.getElementDocument().removeEventListener( 'keyup', this.onBlurHandler, true );
+			this.getElementDocument().removeEventListener( 'mouseup', this.onPopupDocumentMouseKeyUpHandler, true );
+			this.getElementDocument().removeEventListener( 'keyup', this.onPopupDocumentMouseKeyUpHandler, true );
 			this.$element.removeClass( 'oo-ui-popupToolGroup-active' );
 			this.$group.removeClass( 'oo-ui-popupToolGroup-active-tools' );
 			this.togglePositioning( false );

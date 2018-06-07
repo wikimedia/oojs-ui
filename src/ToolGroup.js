@@ -53,7 +53,7 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	this.exclude = config.exclude || [];
 	this.promote = config.promote || [];
 	this.demote = config.demote || [];
-	this.onCapturedMouseKeyUpHandler = this.onCapturedMouseKeyUp.bind( this );
+	this.onDocumentMouseKeyUpHandler = this.onDocumentMouseKeyUp.bind( this );
 
 	// Events
 	this.$group.on( {
@@ -196,25 +196,31 @@ OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
 		this.pressed = this.findTargetTool( e );
 		if ( this.pressed ) {
 			this.pressed.setActive( true );
-			this.getElementDocument().addEventListener( 'mouseup', this.onCapturedMouseKeyUpHandler, true );
-			this.getElementDocument().addEventListener( 'keyup', this.onCapturedMouseKeyUpHandler, true );
+			this.getElementDocument().addEventListener( 'mouseup', this.onDocumentMouseKeyUpHandler, true );
+			this.getElementDocument().addEventListener( 'keyup', this.onDocumentMouseKeyUpHandler, true );
 			return false;
 		}
 	}
 };
 
 /**
- * Handle captured mouse up and key up events.
+ * Handle document mouse up and key up events.
  *
  * @protected
  * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
-OO.ui.ToolGroup.prototype.onCapturedMouseKeyUp = function ( e ) {
-	this.getElementDocument().removeEventListener( 'mouseup', this.onCapturedMouseKeyUpHandler, true );
-	this.getElementDocument().removeEventListener( 'keyup', this.onCapturedMouseKeyUpHandler, true );
+OO.ui.ToolGroup.prototype.onDocumentMouseKeyUp = function ( e ) {
+	this.getElementDocument().removeEventListener( 'mouseup', this.onDocumentMouseKeyUpHandler, true );
+	this.getElementDocument().removeEventListener( 'keyup', this.onDocumentMouseKeyUpHandler, true );
 	// onMouseKeyUp may be called a second time, depending on where the mouse is when the button is
 	// released, but since `this.pressed` will no longer be true, the second call will be ignored.
 	this.onMouseKeyUp( e );
+};
+
+// Deprecated alias since 0.28.3
+OO.ui.ToolGroup.prototype.onCapturedMouseKeyUp = function () {
+	OO.ui.warnDeprecation( 'onCapturedMouseKeyUp is deprecated, use onDocumentMouseKeyUp instead' );
+	this.onDocumentMouseKeyUp.apply( this, arguments );
 };
 
 /**

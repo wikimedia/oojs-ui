@@ -95,7 +95,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.autoClose = !!config.autoClose;
 	this.transitionTimeout = null;
 	this.anchored = false;
-	this.onMouseDownHandler = this.onMouseDown.bind( this );
+	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
 	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
 
 	// Initialization
@@ -164,12 +164,12 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.FloatableElement );
 /* Methods */
 
 /**
- * Handles mouse down events.
+ * Handles document mouse down events.
  *
  * @private
  * @param {MouseEvent} e Mouse down event
  */
-OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
+OO.ui.PopupWidget.prototype.onDocumentMouseDown = function ( e ) {
 	if (
 		this.isVisible() &&
 		!OO.ui.contains( this.$element.add( this.$autoCloseIgnore ).get(), e.target, true )
@@ -178,21 +178,33 @@ OO.ui.PopupWidget.prototype.onMouseDown = function ( e ) {
 	}
 };
 
+// Deprecated alias since 0.28.3
+OO.ui.PopupWidget.prototype.onMouseDown = function () {
+	OO.ui.warnDeprecation( 'onMouseDown is deprecated, use onDocumentMouseDown instead' );
+	this.onDocumentMouseDown.apply( this, arguments );
+};
+
 /**
- * Bind mouse down listener.
+ * Bind document mouse down listener.
  *
  * @private
  */
-OO.ui.PopupWidget.prototype.bindMouseDownListener = function () {
+OO.ui.PopupWidget.prototype.bindDocumentMouseDownListener = function () {
 	// Capture clicks outside popup
-	this.getElementWindow().addEventListener( 'mousedown', this.onMouseDownHandler, true );
+	this.getElementDocument().addEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
 	// We add 'click' event because iOS safari needs to respond to this event.
 	// We can't use 'touchstart' (as is usually the equivalent to 'mousedown') because
 	// then it will trigger when scrolling. While iOS Safari has some reported behavior
 	// of occasionally not emitting 'click' properly, that event seems to be the standard
 	// that it should be emitting, so we add it to this and will operate the event handler
 	// on whichever of these events was triggered first
-	this.getElementDocument().addEventListener( 'click', this.onMouseDownHandler, true );
+	this.getElementDocument().addEventListener( 'click', this.onDocumentMouseDownHandler, true );
+};
+
+// Deprecated alias since 0.28.3
+OO.ui.PopupWidget.prototype.bindMouseDownListener = function () {
+	OO.ui.warnDeprecation( 'bindMouseDownListener is deprecated, use bindDocumentMouseDownListener instead' );
+	this.bindDocumentMouseDownListener.apply( this, arguments );
 };
 
 /**
@@ -207,17 +219,23 @@ OO.ui.PopupWidget.prototype.onCloseButtonClick = function () {
 };
 
 /**
- * Unbind mouse down listener.
+ * Unbind document mouse down listener.
  *
  * @private
  */
+OO.ui.PopupWidget.prototype.unbindDocumentMouseDownListener = function () {
+	this.getElementDocument().removeEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
+	this.getElementDocument().removeEventListener( 'click', this.onDocumentMouseDownHandler, true );
+};
+
+// Deprecated alias since 0.28.3
 OO.ui.PopupWidget.prototype.unbindMouseDownListener = function () {
-	this.getElementWindow().removeEventListener( 'mousedown', this.onMouseDownHandler, true );
-	this.getElementDocument().removeEventListener( 'click', this.onMouseDownHandler, true );
+	OO.ui.warnDeprecation( 'unbindMouseDownListener is deprecated, use unbindDocumentMouseDownListener instead' );
+	this.unbindDocumentMouseDownListener.apply( this, arguments );
 };
 
 /**
- * Handles key down events.
+ * Handles document key down events.
  *
  * @private
  * @param {KeyboardEvent} e Key down event
@@ -234,21 +252,33 @@ OO.ui.PopupWidget.prototype.onDocumentKeyDown = function ( e ) {
 };
 
 /**
- * Bind key down listener.
+ * Bind document key down listener.
  *
  * @private
  */
+OO.ui.PopupWidget.prototype.bindDocumentKeyDownListener = function () {
+	this.getElementDocument().addEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
+};
+
+// Deprecated alias since 0.28.3
 OO.ui.PopupWidget.prototype.bindKeyDownListener = function () {
-	this.getElementWindow().addEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
+	OO.ui.warnDeprecation( 'bindKeyDownListener is deprecated, use bindDocumentKeyDownListener instead' );
+	this.bindDocumentKeyDownListener.apply( this, arguments );
 };
 
 /**
- * Unbind key down listener.
+ * Unbind document key down listener.
  *
  * @private
  */
+OO.ui.PopupWidget.prototype.unbindDocumentKeyDownListener = function () {
+	this.getElementDocument().removeEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
+};
+
+// Deprecated alias since 0.28.3
 OO.ui.PopupWidget.prototype.unbindKeyDownListener = function () {
-	this.getElementWindow().removeEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
+	OO.ui.warnDeprecation( 'unbindKeyDownListener is deprecated, use unbindDocumentKeyDownListener instead' );
+	this.unbindDocumentKeyDownListener.apply( this, arguments );
 };
 
 /**
@@ -339,8 +369,8 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 
 		if ( show ) {
 			if ( this.autoClose ) {
-				this.bindMouseDownListener();
-				this.bindKeyDownListener();
+				this.bindDocumentMouseDownListener();
+				this.bindDocumentKeyDownListener();
 			}
 			this.updateDimensions();
 			this.toggleClipping( true );
@@ -396,8 +426,8 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 		} else {
 			this.toggleClipping( false );
 			if ( this.autoClose ) {
-				this.unbindMouseDownListener();
-				this.unbindKeyDownListener();
+				this.unbindDocumentMouseDownListener();
+				this.unbindDocumentKeyDownListener();
 			}
 		}
 	}
