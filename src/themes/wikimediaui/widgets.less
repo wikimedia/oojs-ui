@@ -1406,8 +1406,12 @@
 		padding-top: @padding-top-base;
 		padding-left: @padding-horizontal-input-text;
 		padding-bottom: @padding-bottom-base;
-		line-height: @line-height-widget-singleline;
 		white-space: nowrap;
+	}
+
+	// Overwrite `.oo-ui-labelElement .oo-ui-labelElement-label`
+	&.oo-ui-labelElement &-label {
+		line-height: @line-height-widget-singleline;
 	}
 
 	// Addressing overflowing (long) filenames
