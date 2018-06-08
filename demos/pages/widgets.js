@@ -1844,6 +1844,25 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.MenuTagMultiselectWidget( {
+						allowArbitrary: false,
+						menu: {
+							highlightOnFilter: true
+						},
+						options: [
+							{ data: 'abc', label: 'abc item' },
+							{ data: 'asd', label: 'asd item' },
+							{ data: 'jkl', label: 'jkl item' },
+							{ data: 'jkl2', label: 'jkl second item' },
+							{ data: 'jkl3', label: 'jkl third item' }
+						]
+					} ),
+					{
+						label: 'MenuTagMultiselectWidget (allowArbitrary:false, menu:{highlightOnFilter:true})',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MenuTagMultiselectWidget( {
 						inputPosition: 'outline',
 						allowArbitrary: false,
 						options: [
