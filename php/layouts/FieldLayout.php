@@ -201,7 +201,10 @@ class FieldLayout extends Layout {
 			$this->body->clearContent();
 
 			if ( $this->helpInline ) {
-				if ( $value === 'inline' ) {
+				if ( $value === 'top' ) {
+					$this->header->appendContent( $this->label );
+					$this->body->appendContent( $this->header, $this->field, $this->help );
+				} elseif ( $value === 'inline' ) {
 					$this->header->appendContent( $this->label, $this->help );
 					$this->body->appendContent( $this->field, $this->header );
 				} else {

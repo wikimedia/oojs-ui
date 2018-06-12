@@ -214,7 +214,10 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 		// Reorder elements
 
 		if ( this.helpInline ) {
-			if ( value === 'inline' ) {
+			if ( value === 'top' ) {
+				this.$header.append( this.$label );
+				this.$body.append( this.$header, this.$field, this.$help );
+			} else if ( value === 'inline' ) {
 				this.$header.append( this.$label, this.$help );
 				this.$body.append( this.$field, this.$header );
 			} else {

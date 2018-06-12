@@ -2370,7 +2370,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'FieldLayout with inlined help',
-						help: 'This is some inlined help',
+						help: 'This is some inlined help. Assistive (optional) text, that isn\'t needed to understand the widget\'s purpose.',
 						helpInline: true,
 						align: 'top'
 					}
@@ -2391,7 +2391,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'FieldLayout with inlined rich text help',
-						help: new OO.ui.HtmlSnippet( '<b>Strong text</b> is helpful!' ),
+						help: new OO.ui.HtmlSnippet( '<b>Strong text</b> is helpful! It should only contain assistive (optional) text.' ),
 						helpInline: true,
 						align: 'top'
 					}
@@ -2437,7 +2437,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TextInputWidget(),
 					{
 						label: 'FieldLayout aligned top with inlined help',
-						help: 'This is some inlined help',
+						help: 'This is some inlined help. Assistive (optional) text, that isn\'t needed to understand the widget\'s purpose.',
 						helpInline: true,
 						align: 'top'
 					}

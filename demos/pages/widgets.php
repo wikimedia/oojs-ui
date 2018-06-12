@@ -810,7 +810,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'label' => 'FieldLayout with inlined help',
-				'help' => 'This is some inlined help',
+				'help' => 'This is some inlined help. Assistive (optional) text, that isn\'t needed to '
+					. 'understand the widget\'s purpose.',
 				'helpInline' => true,
 				'align' => 'top'
 			]
@@ -831,7 +832,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'label' => 'FieldLayout with inlined rich text help',
-				'help' => new OOUI\HtmlSnippet( '<b>Strong text</b> is helpful!' ),
+				'help' => new OOUI\HtmlSnippet( '<b>Strong text</b> is helpful! It should only contain '
+					. 'assistive (optional) text.' ),
 				'helpInline' => true,
 				'align' => 'top'
 			]
@@ -877,7 +879,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			new OOUI\TextInputWidget(),
 			[
 				'label' => 'FieldLayout aligned top with inlined help',
-				'help' => 'This is some inlined help',
+				'help' => 'This is some inlined help. Assistive (optional) text, that isn\'t needed to '
+					. 'understand the widget\'s purpose.',
 				'helpInline' => true,
 				'align' => 'top'
 			]
