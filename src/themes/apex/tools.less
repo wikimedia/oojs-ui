@@ -321,23 +321,20 @@
 	&-tools .oo-ui-tool {
 		padding: 0 1.25em 0 0.3125em;
 
+		// When not active, hide checkIcon (and show normal configured icon)
 		// Stupid specific rules to override ridiculous selector in Widget.less
-		&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon {
-			opacity: 0;
-		}
-
 		&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon.oo-ui-tool-checkIcon {
 			display: none;
 		}
 
 		&-active {
+			// When active, show checkIcon (and hide normal configured icon)
 			&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon {
 				display: none;
 			}
 
 			&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon.oo-ui-tool-checkIcon {
 				display: table-cell;
-				opacity: 1;
 			}
 		}
 
