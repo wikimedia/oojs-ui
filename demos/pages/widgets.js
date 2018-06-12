@@ -2623,6 +2623,15 @@ Demo.static.pages.widgets = function ( demo ) {
 						align: 'left'
 					}
 				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TextInputWidget(),
+					{
+						label: 'FieldLayout aligned left with inline help',
+						help: 'This is some inlined help',
+						helpInline: true,
+						align: 'left'
+					}
+				),
 				new OO.ui.ActionFieldLayout(
 					new OO.ui.TextInputWidget(),
 					new OO.ui.ButtonWidget( {

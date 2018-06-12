@@ -795,83 +795,281 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'label' => 'Other widgets',
 	'items' => [
 		new OOUI\FieldLayout(
-			new OOUI\IconWidget( [
-				'icon' => 'search',
-				'title' => 'Search icon'
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
 			] ),
 			[
-				'label' => "IconWidget (normal)\xE2\x80\x8E",
+				'label' => 'FieldLayout with help',
+				'help' => $loremIpsum,
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\IconWidget( [
-				'icon' => 'trash',
-				'flags' => 'destructive',
-				'title' => 'Remove icon'
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
 			] ),
 			[
-				'label' => "IconWidget (flagged)\xE2\x80\x8E",
+				'label' => 'FieldLayout with inlined help',
+				'help' => 'This is some inlined help',
+				'helpInline' => true,
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\IconWidget( [
-				'icon' => 'search',
-				'title' => 'Search icon',
-				'disabled' => true
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
 			] ),
 			[
-				'label' => "IconWidget (disabled)\xE2\x80\x8E",
+				'label' => 'FieldLayout with rich text help',
+				'help' => new OOUI\HtmlSnippet( '<b>Bold text</b> is helpful!' ),
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\IndicatorWidget( [
-				'indicator' => 'required',
-				'title' => 'Required indicator'
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
 			] ),
 			[
-				'label' => "IndicatorWidget (normal)\xE2\x80\x8E",
+				'label' => 'FieldLayout with inlined rich text help',
+				'help' => new OOUI\HtmlSnippet( '<b>Strong text</b> is helpful!' ),
+				'helpInline' => true,
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\IndicatorWidget( [
-				'indicator' => 'required',
-				'title' => 'Required indicator',
-				'disabled' => true
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
 			] ),
 			[
-				'label' => "IndicatorWidget (disabled)\xE2\x80\x8E",
+				'label' => 'FieldLayout with title',
+				'title' => 'Field title text',
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\LabelWidget( [
-				'label' => 'Label'
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
 			] ),
 			[
-				'label' => "LabelWidget (normal)\xE2\x80\x8E",
+				'label' => new OOUI\HtmlSnippet( '<i>FieldLayout with rich text label</i>' ),
+				'align' => 'top'
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned top',
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\LabelWidget( [
-				'label' => 'Label',
-				'disabled' => true,
-			] ),
+			new OOUI\TextInputWidget(),
 			[
-				'label' => "LabelWidget (disabled)\xE2\x80\x8E",
+				'label' => 'FieldLayout aligned top with help',
+				'help' => $loremIpsum,
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\LabelWidget( [
-				'label' => new OOUI\HtmlSnippet( '<b>Fancy</b> <i>text</i> <u>formatting</u>!' ),
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned top with inlined help',
+				'help' => 'This is some inlined help',
+				'helpInline' => true,
+				'align' => 'top'
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
 			] ),
 			[
-				'label' => "LabelWidget (with html)\xE2\x80\x8E",
+				'label' => 'ActionFieldLayout aligned top with help',
+				'help' => $loremIpsum,
+				'align' => 'top'
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned inline',
+				'align' => 'inline'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
+			[
+				'label' => 'FieldLayout aligned inline with help',
+				'help' => $loremIpsum,
+				'align' => 'inline'
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned inline with help',
+				'help' => $loremIpsum,
+				'align' => 'inline'
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned left',
+				'align' => 'left'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned left with help',
+				'help' => $loremIpsum,
+				'align' => 'left'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned left with help',
+				'help' => 'This is some inlined help',
+				'helpInline' => true,
+				'align' => 'left'
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned left with help',
+				'help' => $loremIpsum,
+				'align' => 'left'
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned right',
+				'align' => 'right'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned right with help',
+				'help' => $loremIpsum,
+				'align' => 'right'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned right with inlined help',
+				'help' => 'This is some inlined help',
+				'helpInline' => true,
+				'align' => 'right'
+			]
+		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\TextInputWidget(),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned right with help',
+				'help' => $loremIpsum,
+				'align' => 'right'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned top with a very long label. ' . $loremIpsum,
+				'help' => $loremIpsum,
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
+			[
+				'label' => 'FieldLayout aligned inline with a very long label. ' . $loremIpsum,
+				'help' => $loremIpsum,
+				'align' => 'inline'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned left with a very long label. ' . $loremIpsum,
+				'help' => $loremIpsum,
+				'align' => 'left'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned right with a very long label. ' . $loremIpsum,
+				'help' => $loremIpsum,
+				'align' => 'right'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget(),
+			[
+				'label' => 'FieldLayout aligned right with a very long label and inline help. ' . $loremIpsum,
+				'help' => 'This is some inlined help',
+				'helpInline' => true,
+				'align' => 'right'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'value' => ''
+			] ),
+			[
+				'label' => 'FieldLayout with notice',
+				'notices' => [ 'Please input a number.' ],
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'value' => 'Foo'
+			] ),
+			[
+				'label' => 'FieldLayout with error message',
+				'errors' => [
+					'The value must be a number. It is more than necessary. ' .
+					'You can\'t go on without putting a number into this input field.'
+				],
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'value' => 'Foo'
+			] ),
+			[
+				'label' => 'FieldLayout with notice and error message',
+				'notices' => [ 'Please input a number.' ],
+				'errors' => [ 'The value must be a number.' ],
 				'align' => 'top'
 			]
 		)
