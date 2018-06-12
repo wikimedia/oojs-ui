@@ -328,8 +328,7 @@ module.exports = function ( grunt ) {
 			},
 			// Copies the necessary vendor/ files for demos without running "composer install"
 			fastcomposerdemos: {
-				// Make sure you update this if PHP dependencies are added
-				src: 'vendor/{autoload.php,composer/**}',
+				src: 'vendor/**',
 				dest: 'demos/',
 				expand: true
 			}
