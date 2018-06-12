@@ -63,6 +63,8 @@ trait IndicatorElement {
 
 		$this->indicatorName = $indicator;
 		$this->toggleClasses( [ 'oo-ui-indicatorElement' ], (bool)$this->indicatorName );
+		$this->indicator->toggleClasses( [ 'oo-ui-indicatorElement-noIndicator' ],
+			!$this->indicatorName );
 
 		return $this;
 	}

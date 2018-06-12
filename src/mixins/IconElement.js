@@ -105,6 +105,7 @@ OO.ui.mixin.IconElement.prototype.setIconElement = function ( $icon ) {
 
 	this.$icon = $icon
 		.addClass( 'oo-ui-iconElement-icon' )
+		.toggleClass( 'oo-ui-iconElement-noIcon', !this.icon )
 		.toggleClass( 'oo-ui-icon-' + this.icon, !!this.icon );
 	if ( this.iconTitle !== null ) {
 		this.$icon.attr( 'title', this.iconTitle );
@@ -139,6 +140,9 @@ OO.ui.mixin.IconElement.prototype.setIcon = function ( icon ) {
 	}
 
 	this.$element.toggleClass( 'oo-ui-iconElement', !!this.icon );
+	if ( this.$icon ) {
+		this.$icon.toggleClass( 'oo-ui-iconElement-noIcon', !this.icon );
+	}
 	this.updateThemeClasses();
 
 	return this;
