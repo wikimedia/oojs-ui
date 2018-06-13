@@ -368,16 +368,12 @@
 			background-color: @background-color-base;
 			background-size: 0 0;
 			.oo-ui-box-sizing( border-box );
+			position: absolute;
 			left: 0;
 			width: @size-input-binary;
 			height: @size-input-binary;
 			border: @border-input-binary;
 			border-radius: @border-radius-base;
-		}
-
-		// Stupid specific rules to override ridiculous selector in Widget.less
-		& + span.oo-ui-iconWidget.oo-ui-iconElement.oo-ui-iconElement-icon {
-			position: absolute;
 		}
 
 		&:checked {
@@ -509,13 +505,7 @@
 		}
 	}
 
-	// IndicatorWidget is child element,
-	// therefor in need of higher specificity
-	&-php .oo-ui-indicatorWidget.oo-ui-indicatorElement.oo-ui-indicatorElement-indicator {
-		display: block;
-		position: absolute;
-		top: 0;
-		height: 100%;
+	&-php .oo-ui-indicatorWidget {
 		right: @padding-horizontal-base;
 		margin: 0;
 	}
@@ -543,10 +533,10 @@
 
 	&.oo-ui-iconElement {
 		padding-left: @padding-start-menu-icon-label;
+	}
 
-		.oo-ui-iconElement-icon {
-			left: @start-framed-icon-only;
-		}
+	.oo-ui-iconElement-icon {
+		left: @start-framed-icon-only;
 	}
 
 	.oo-ui-labelElement-label {
@@ -555,10 +545,10 @@
 
 	&.oo-ui-indicatorElement {
 		padding-right: @padding-start-indicator-plus;
+	}
 
-		.oo-ui-indicatorElement-indicator {
-			right: @padding-horizontal-base;
-		}
+	.oo-ui-indicatorElement-indicator {
+		right: @padding-horizontal-base;
 	}
 
 	&.oo-ui-widget-enabled {
@@ -770,13 +760,10 @@
 
 .theme-oo-ui-iconWidget () {
 	line-height: 2.5;
-
-	&.oo-ui-iconElement.oo-ui-iconElement-icon {
-		display: inline-block;
-		position: static;
-		top: auto;
-		height: @size-icon;
-	}
+	display: inline-block;
+	position: static;
+	top: auto;
+	height: @size-icon;
 
 	&.oo-ui-widget-disabled {
 		opacity: @opacity-base--disabled;
@@ -786,13 +773,10 @@
 .theme-oo-ui-indicatorWidget () {
 	line-height: 2.5;
 	margin: @size-indicator / 2;
-
-	&.oo-ui-indicatorElement.oo-ui-indicatorElement-indicator {
-		display: inline-block;
-		position: static;
-		top: auto;
-		height: @size-indicator;
-	}
+	display: inline-block;
+	position: static;
+	top: auto;
+	height: @size-indicator;
 
 	&.oo-ui-widget-disabled {
 		opacity: @opacity-base--disabled;
@@ -817,8 +801,7 @@
 		color @transition-ease-quick
 	);
 
-	// Stupid specific rules to override ridiculous selector in Widget.less
-	&.oo-ui-optionWidget .oo-ui-iconElement-icon.oo-ui-menuOptionWidget-checkIcon {
+	&-checkIcon {
 		display: none;
 	}
 
