@@ -123,6 +123,16 @@
 			delete summary.attributes.tabindex;
 			delete summary.attributes[ 'aria-disabled' ];
 		}
+		// Extra stuff on JS FieldLayout's $help
+		if (
+			summary.attributes.class &&
+			summary.attributes.class.match( /oo-ui-fieldLayout-help/ )
+		) {
+			summary.attributes.class = 'oo-ui-fieldLayout-help';
+			summary.children = [];
+		}
+		// Only used by JS FieldLayout
+		delete summary.attributes[ 'aria-describedby' ];
 
 		return summary;
 	}

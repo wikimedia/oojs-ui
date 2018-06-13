@@ -81,10 +81,6 @@ else
 		'action' => [],
 		'enctype' => [],
 		'name' => [],
-		# different PHP and JS implementations
-		['FieldLayout', 'help'] => [],
-		['ActionFieldLayout', 'help'] => [],
-		['FieldsetLayout', 'help'] => [],
 		# the dynamic 'clear' indicator in JS messes everything up
 		['SearchInputWidget', 'value'] => [],
 		['SearchInputWidget', 'indicator'] => [],

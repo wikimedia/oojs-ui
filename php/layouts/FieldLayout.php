@@ -96,7 +96,7 @@ class FieldLayout extends Layout {
 		$this->helpText = isset( $config['help'] ) ? $config['help'] : '';
 		$this->helpInline = $config['helpInline'];
 
-		if ( isset( $config['help'] ) ) {
+		if ( $this->helpText ) {
 			if ( $this->helpInline ) {
 				$this->help = new LabelWidget( [
 					'classes' => [ 'oo-ui-inline-help' ],
@@ -111,7 +111,7 @@ class FieldLayout extends Layout {
 				] );
 			}
 		} else {
-			$this->help = $this->helpText;
+			$this->help = '';
 		}
 
 		// Traits
