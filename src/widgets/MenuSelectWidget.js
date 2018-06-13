@@ -71,6 +71,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.onInputEditHandler = OO.ui.debounce( this.updateItemVisibility.bind( this ), 100 );
 	this.highlightOnFilter = !!config.highlightOnFilter;
 	this.width = config.width;
+	this.filterQuery = '';
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuSelectWidget' );
@@ -176,17 +177,16 @@ OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
  * @protected
  */
 OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
-	var i, item, visible, section, sectionEmpty, filter, exactFilter,
-		firstItemFound = false,
+	var i, item, items, visible, section, sectionEmpty, filter, exactFilter,
 		anyVisible = false,
 		len = this.items.length,
 		showAll = !this.isVisible(),
 		exactMatch = false;
 
-	if ( this.$input && this.filterFromInput ) {
+	if ( this.$input && this.filterFromInput && this.filterQuery !== this.$input.val() ) {
 		filter = showAll ? null : this.getItemMatcher( this.$input.val() );
 		exactFilter = this.getItemMatcher( this.$input.val(), true );
-
+		this.filterQuery = this.$input.val();
 		// Hide non-matching options, and also hide section headers if all options
 		// in their section are hidden.
 		for ( i = 0; i < len; i++ ) {
@@ -204,11 +204,6 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 				anyVisible = anyVisible || visible;
 				sectionEmpty = sectionEmpty && !visible;
 				item.toggle( visible );
-				if ( this.highlightOnFilter && visible && !firstItemFound ) {
-					// Highlight the first item in the list
-					this.highlightItem( item );
-					firstItemFound = true;
-				}
 			}
 		}
 		// Process the final section
@@ -221,6 +216,20 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 		}
 
 		this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
+
+		if ( this.highlightOnFilter ) {
+			// Highlight the first item on the list
+			item = null;
+			items = this.getItems();
+			for ( i = 0; i < items.length; i++ ) {
+				if ( items[ i ].isVisible() ) {
+					item = items[ i ];
+					break;
+				}
+			}
+			this.highlightItem( item );
+		}
+
 	}
 
 	// Reevaluate clipping
