@@ -288,12 +288,15 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
 
 	if ( special.safe ) {
 		this.$actions.append( special.safe.$element );
+		special.safe.toggleFramed( true );
 	}
 	for ( i = 0, len = others.length; i < len; i++ ) {
 		this.$actions.append( others[ i ].$element );
+		others[ i ].toggleFramed( true );
 	}
 	if ( special.primary ) {
 		this.$actions.append( special.primary.$element );
+		special.primary.toggleFramed( true );
 	}
 };
 
@@ -313,7 +316,7 @@ OO.ui.MessageDialog.prototype.fitActions = function () {
 	this.toggleVerticalActionLayout( false );
 	for ( i = 0, len = actions.length; i < len; i++ ) {
 		action = actions[ i ];
-		if ( action.$element.innerWidth() < action.$label.outerWidth( true ) ) {
+		if ( action.$element[ 0 ].scrollWidth > action.$element[ 0 ].clientWidth ) {
 			this.toggleVerticalActionLayout( true );
 			break;
 		}

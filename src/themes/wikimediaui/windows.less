@@ -31,30 +31,8 @@
 	}
 
 	&-actions {
-		&-horizontal {
-			.oo-ui-actionWidget {
-				border-right: @border-base;
-				margin: 0;
-
-				&:last-child {
-					border-right-width: 0;
-				}
-			}
-		}
-
-		&-vertical {
-			.oo-ui-actionWidget {
-				border-bottom: @border-base;
-				margin: 0;
-
-				&:last-child {
-					border-bottom-width: 0;
-				}
-			}
-		}
-
 		.oo-ui-actionWidget {
-			min-height: @size-dialog-bar-top;
+			min-height: @size-dialog-message-bar;
 			.oo-ui-inline-spacing( 0 );
 
 			// Reset Frameless ButtonWidgets
@@ -69,53 +47,65 @@
 			}
 
 			&.oo-ui-labelElement .oo-ui-labelElement-label {
-				line-height: @size-dialog-bar-top;
+				line-height: @size-dialog-message-bar;
 				text-align: center;
 			}
 
 			&.oo-ui-widget-enabled {
-				.oo-ui-buttonElement-button {
-					&:hover {
-						background-color: @background-color-framed; // Invert button color logic without defining var (yet)
-					}
-
-					&:active {
-						background-color: @background-color-framed--active;
-					}
-
-					&:focus {
-						box-shadow: @box-shadow-action--focus;
-					}
-				}
-
 				&.oo-ui-flaggedElement {
 					&-progressive {
 						.oo-ui-buttonElement-button {
-							&:hover {
-								background-color: @background-color-progressive; // Context-specific color var “misuse”
-							}
-
 							&:active {
 								background-color: rgba( 8, 126, 204, 0.1 );
 							}
-						}
-
-						.oo-ui-labelElement-label {
-							font-weight: bold;
 						}
 					}
 
 					&-destructive {
 						.oo-ui-buttonElement-button {
-							&:hover {
-								background-color: @background-color-destructive;
-							}
-
 							&:active {
 								background-color: rgba( 212, 83, 83, 0.1 );
 							}
 						}
 					}
+				}
+			}
+		}
+
+		&-horizontal {
+			.oo-ui-actionWidget {
+				border-right: @border-base;
+				margin: 0;
+
+				&:first-child > .oo-ui-buttonElement-button {
+					border-radius: 0 0 0 @border-radius-base;
+				}
+
+				&:last-child {
+					border-right-width: 0;
+
+					> .oo-ui-buttonElement-button {
+						border-radius: 0 0 @border-radius-base 0;
+					}
+				}
+
+				&:only-child > .oo-ui-buttonElement-button {
+					border-radius: 0 0 @border-radius-base @border-radius-base;
+				}
+			}
+		}
+
+		&-vertical {
+			.oo-ui-actionWidget {
+				border-bottom: @border-base;
+				margin: 0;
+
+				&:last-child {
+					border-bottom-width: 0;
+				}
+
+				&:last-child > .oo-ui-buttonElement-button {
+					border-radius: 0 0 @border-radius-base @border-radius-base;
 				}
 			}
 		}

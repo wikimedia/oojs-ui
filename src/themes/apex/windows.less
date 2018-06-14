@@ -14,7 +14,7 @@
 .theme-oo-ui-messageDialog () {
 	&-content {
 		.oo-ui-window-body {
-			box-shadow: 0 0 0.33em rgba( 0, 0, 0, 0.33 );
+			box-shadow: none;
 		}
 	}
 
@@ -37,72 +37,89 @@
 	}
 
 	&-actions {
+		.oo-ui-actionWidget {
+			min-height: @size-dialog-message-bar;
+			.oo-ui-inline-spacing( 0 );
+
+			&.oo-ui-labelElement .oo-ui-labelElement-label {
+				line-height: @size-dialog-message-bar;
+				text-align: center;
+			}
+
+			&.oo-ui-flaggedElement {
+				&-progressive {
+					.oo-ui-labelElement-label {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+
 		&-horizontal {
 			.oo-ui-actionWidget {
-				border-right: 1px solid #e5e5e5;
 				margin: 0;
 
-				&:last-child {
-					border-right-width: 0;
+				&:first-child > .oo-ui-buttonElement-button {
+					border-left-width: 2px;
+					border-left-color: transparent;
+					border-radius: 0 0 0 @border-radius-base;
+
+					&:hover {
+						border-left-color: #aaa;
+					}
+
+					&:focus {
+						border-left-color: @border-color-base--focus;
+					}
 				}
+
+				&:last-child > .oo-ui-buttonElement-button {
+					border-right-width: 2px;
+					border-right-color: transparent;
+					border-radius: 0 0 @border-radius-base 0;
+
+					&:hover {
+						border-right-color: #aaa;
+					}
+
+					&:focus {
+						border-right-color: @border-color-base--focus;
+					}
+				}
+
+				&:only-child > .oo-ui-buttonElement-button {
+					border-radius: 0 0 @border-radius-base @border-radius-base;
+				}
+			}
+		}
+
+		@supports ( width: calc( 100% + 2px ) ) {
+			&-horizontal {
+				width: calc( ~'100% + 2px' );
+				margin-left: -@border-width-base;
+				margin-right: -@border-width-base;
 			}
 		}
 
 		&-vertical {
 			.oo-ui-actionWidget {
+				margin: -@border-width-base 0 0;
 				border-bottom: 1px solid #e5e5e5;
-				margin: 0;
+
+				&:first-child {
+					margin-top: 0;
+				}
 
 				&:last-child {
 					border-bottom-width: 0;
 				}
-			}
-		}
 
-		.oo-ui-actionWidget {
-			min-height: 3.4em;
-			.oo-ui-inline-spacing( 0 );
-
-			&:hover {
-				background-color: rgba( 0, 0, 0, 0.05 );
-			}
-
-			&:active {
-				background-color: rgba( 0, 0, 0, 0.1 );
-			}
-
-			.oo-ui-buttonElement-button {
-				padding: 0; // reset frameless ButtonElement
-			}
-
-			&.oo-ui-labelElement .oo-ui-labelElement-label {
-				text-align: center;
-				line-height: 3.4em;
-			}
-
-			&.oo-ui-flaggedElement {
-				&-progressive {
-					&:hover {
-						background-color: rgba( 8, 126, 204, 0.05 );
-					}
-
-					&:active {
-						background-color: rgba( 8, 126, 204, 0.1 );
-					}
-
-					.oo-ui-labelElement-label {
-						font-weight: bold;
-					}
+				> .oo-ui-buttonElement-button {
+					border-radius: 0;
 				}
 
-				&-destructive {
-					&:hover {
-						background-color: rgba( 212, 83, 83, 0.05 );
-					}
-
-					&:active {
-						background-color: rgba( 212, 83, 83, 0.1 );
-					}
+				&:last-child > .oo-ui-buttonElement-button {
+					border-radius: 0 0 @border-radius-base @border-radius-base;
 				}
 			}
 		}
@@ -159,6 +176,7 @@
 
 				&.oo-ui-buttonElement-framed {
 					margin: 0.75em;
+
 					.oo-ui-buttonElement-button {
 						padding: 0 1em;
 						vertical-align: middle;
