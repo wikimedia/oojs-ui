@@ -11,7 +11,7 @@
  *     var button = new OO.ui.ButtonWidget( {
  *         label: 'Button with Icon',
  *         icon: 'trash',
- *         iconTitle: 'Remove'
+ *         title: 'Remove'
  *     } );
  *     $( 'body' ).append( button.$element );
  *

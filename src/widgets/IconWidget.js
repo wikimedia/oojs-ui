@@ -7,7 +7,7 @@
  *     // An icon widget with a label
  *     var myIcon = new OO.ui.IconWidget( {
  *         icon: 'help',
- *         iconTitle: 'Help'
+ *         title: 'Help'
  *      } );
  *      // Create a label.
  *      var iconLabel = new OO.ui.LabelWidget( {
