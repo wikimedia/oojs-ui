@@ -61,6 +61,7 @@ trait IconElement {
 
 		$this->iconName = $icon;
 		$this->toggleClasses( [ 'oo-ui-iconElement' ], (bool)$this->iconName );
+		$this->icon->toggleClasses( [ 'oo-ui-iconElement-noIcon' ], !$this->iconName );
 
 		return $this;
 	}

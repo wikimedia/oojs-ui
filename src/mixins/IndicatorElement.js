@@ -86,6 +86,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicatorElement = function ( $indicat
 
 	this.$indicator = $indicator
 		.addClass( 'oo-ui-indicatorElement-indicator' )
+		.toggleClass( 'oo-ui-indicatorElement-noIndicator', !this.indicator )
 		.toggleClass( 'oo-ui-indicator-' + this.indicator, !!this.indicator );
 	if ( this.indicatorTitle !== null ) {
 		this.$indicator.attr( 'title', this.indicatorTitle );
@@ -116,6 +117,9 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
 	}
 
 	this.$element.toggleClass( 'oo-ui-indicatorElement', !!this.indicator );
+	if ( this.$indicator ) {
+		this.$indicator.toggleClass( 'oo-ui-indicatorElement-noIndicator', !this.indicator );
+	}
 	this.updateThemeClasses();
 
 	return this;
