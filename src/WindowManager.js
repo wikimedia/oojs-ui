@@ -267,7 +267,7 @@ OO.ui.WindowManager.prototype.getSetupDelay = function () {
  * @return {number} Milliseconds to wait
  */
 OO.ui.WindowManager.prototype.getReadyDelay = function () {
-	return 0;
+	return this.modal ? OO.ui.theme.getDialogTransitionDuration() : 0;
 };
 
 /**
@@ -290,7 +290,7 @@ OO.ui.WindowManager.prototype.getHoldDelay = function () {
  * @return {number} Milliseconds to wait
  */
 OO.ui.WindowManager.prototype.getTeardownDelay = function () {
-	return this.modal ? 250 : 0;
+	return this.modal ? OO.ui.theme.getDialogTransitionDuration() : 0;
 };
 
 /**
@@ -424,7 +424,6 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 		setTimeout( function () {
 			manager.compatOpened = $.Deferred();
 			win.setup( data ).then( function () {
-				manager.updateWindowSize( win );
 				compatOpening.notify( { state: 'setup' } );
 				setTimeout( function () {
 					win.ready( data ).then( function () {
