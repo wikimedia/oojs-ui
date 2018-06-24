@@ -160,7 +160,7 @@ OO.ui.ProcessDialog.prototype.getActionWidgets = function ( actions ) {
 		widgets = [];
 
 	for ( i = 0, len = actions.length; i < len; i++ ) {
-		config = $.extend( { framed: !OO.ui.isMobile() }, actions[ i ] );
+		config = $.extend( { framed: !isMobile }, actions[ i ] );
 		if ( isMobile &&
 			( config.flags === 'back' || ( Array.isArray( config.flags ) && config.flags.indexOf( 'back' ) !== -1 ) )
 		) {
