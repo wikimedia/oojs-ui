@@ -273,11 +273,33 @@ OO.ui.Dialog.prototype.initialize = function () {
 OO.ui.Dialog.prototype.getActionWidgets = function ( actions ) {
 	var i, len, widgets = [];
 	for ( i = 0, len = actions.length; i < len; i++ ) {
-		widgets.push(
-			new OO.ui.ActionWidget( actions[ i ] )
-		);
+		widgets.push( this.getActionWidget( actions[ i ] ) );
 	}
 	return widgets;
+};
+
+/**
+ * Get action widget from config
+ *
+ * Override this method to change the action widget class used.
+ *
+ * @param {Object} config Action widget config
+ * @return {OO.ui.ActionWidget} Action widget
+ */
+OO.ui.Dialog.prototype.getActionWidget = function ( config ) {
+	return new OO.ui.ActionWidget( this.getActionWidgetConfig( config ) );
+};
+
+/**
+ * Get action widget config
+ *
+ * Override this method to modify the action widget config
+ *
+ * @param {Object} config Initial action widget config
+ * @return {Object} Action widget config
+ */
+OO.ui.Dialog.prototype.getActionWidgetConfig = function ( config ) {
+	return config;
 };
 
 /**

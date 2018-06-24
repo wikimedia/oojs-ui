@@ -154,26 +154,23 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 /**
  * @inheritdoc
  */
-OO.ui.ProcessDialog.prototype.getActionWidgets = function ( actions ) {
-	var i, len, config,
-		isMobile = OO.ui.isMobile(),
-		widgets = [];
+OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
+	var isMobile = OO.ui.isMobile();
 
-	for ( i = 0, len = actions.length; i < len; i++ ) {
-		config = $.extend( { framed: !isMobile }, actions[ i ] );
-		if ( isMobile &&
-			( config.flags === 'back' || ( Array.isArray( config.flags ) && config.flags.indexOf( 'back' ) !== -1 ) )
-		) {
-			$.extend( config, {
-				icon: 'previous',
-				label: ''
-			} );
-		}
-		widgets.push(
-			new OO.ui.ActionWidget( config )
-		);
+	// Default to unframed on mobile
+	config = $.extend( { framed: !isMobile }, config );
+	// Change back buttons to icon only on mobile
+	if (
+		isMobile &&
+		( config.flags === 'back' || ( Array.isArray( config.flags ) && config.flags.indexOf( 'back' ) !== -1 ) )
+	) {
+		$.extend( config, {
+			icon: 'previous',
+			label: ''
+		} );
 	}
-	return widgets;
+
+	return config;
 };
 
 /**

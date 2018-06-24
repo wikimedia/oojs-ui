@@ -269,8 +269,16 @@ OO.ui.MessageDialog.prototype.initialize = function () {
 /**
  * @inheritdoc
  */
+OO.ui.MessageDialog.prototype.getActionWidgetConfig = function ( config ) {
+	// Force unframed
+	return $.extend( {}, config, { framed: false } );
+};
+
+/**
+ * @inheritdoc
+ */
 OO.ui.MessageDialog.prototype.attachActions = function () {
-	var i, len, other, special, others;
+	var i, len, special, others;
 
 	// Parent method
 	OO.ui.MessageDialog.parent.prototype.attachActions.call( this );
@@ -280,18 +288,12 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
 
 	if ( special.safe ) {
 		this.$actions.append( special.safe.$element );
-		special.safe.toggleFramed( false );
 	}
-	if ( others.length ) {
-		for ( i = 0, len = others.length; i < len; i++ ) {
-			other = others[ i ];
-			this.$actions.append( other.$element );
-			other.toggleFramed( false );
-		}
+	for ( i = 0, len = others.length; i < len; i++ ) {
+		this.$actions.append( others[ i ].$element );
 	}
 	if ( special.primary ) {
 		this.$actions.append( special.primary.$element );
-		special.primary.toggleFramed( false );
 	}
 };
 
