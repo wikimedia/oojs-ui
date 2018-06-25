@@ -93,7 +93,6 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.$container = config.$container;
 	this.containerPadding = config.containerPadding !== undefined ? config.containerPadding : 10;
 	this.autoClose = !!config.autoClose;
-	this.$autoCloseIgnore = config.$autoCloseIgnore;
 	this.transitionTimeout = null;
 	this.anchored = false;
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
@@ -105,6 +104,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.setAlignment( config.align || 'center' );
 	this.setPosition( config.position || 'below' );
 	this.setAutoFlip( config.autoFlip === undefined || config.autoFlip );
+	this.setAutoCloseIgnore( config.$autoCloseIgnore );
 	this.$body.addClass( 'oo-ui-popupWidget-body' );
 	this.$anchor.addClass( 'oo-ui-popupWidget-anchor' );
 	this.$popup
@@ -676,6 +676,17 @@ OO.ui.PopupWidget.prototype.setAutoFlip = function ( autoFlip ) {
 	if ( this.autoFlip !== autoFlip ) {
 		this.autoFlip = autoFlip;
 	}
+};
+
+/**
+ * Set which elements will not close the popup when clicked.
+ *
+ * For auto-closing popups, clicks on these elements will not cause the popup to auto-close.
+ *
+ * @param {jQuery} $autoCloseIgnore Elements to ignore for auto-closing
+ */
+OO.ui.PopupWidget.prototype.setAutoCloseIgnore = function ( $autoCloseIgnore ) {
+	this.$autoCloseIgnore = $autoCloseIgnore;
 };
 
 /**
