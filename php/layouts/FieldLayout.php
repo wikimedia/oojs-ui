@@ -96,24 +96,6 @@ class FieldLayout extends Layout {
 		$this->helpText = isset( $config['help'] ) ? $config['help'] : '';
 		$this->helpInline = $config['helpInline'];
 
-		if ( $this->helpText ) {
-			if ( $this->helpInline ) {
-				$this->help = new LabelWidget( [
-					'classes' => [ 'oo-ui-inline-help' ],
-					'label' => $this->helpText,
-				] );
-			} else {
-				$this->help = new ButtonWidget( [
-					'classes' => [ 'oo-ui-fieldLayout-help' ],
-					'framed' => false,
-					'icon' => 'info',
-					'title' => $this->helpText,
-				] );
-			}
-		} else {
-			$this->help = '';
-		}
-
 		// Traits
 		$this->initializeLabelElement( array_merge( $config, [
 			'labelElement' => new Tag( 'label' )
@@ -122,6 +104,7 @@ class FieldLayout extends Layout {
 			array_merge( $config, [ 'titled' => $this->label ] ) );
 
 		// Initialization
+		$this->help = empty( $this->helpText ) ? '' : $this->createHelpElement();
 		if ( $this->fieldWidget->getInputId() ) {
 			$this->label->setAttributes( [ 'for' => $this->fieldWidget->getInputId() ] );
 		}
@@ -271,5 +254,26 @@ class FieldLayout extends Layout {
 		$config['helpInline'] = $this->helpInline;
 		$config['$overlay'] = true;
 		return parent::getConfig( $config );
+	}
+
+	/**
+	 * Creates and returns the help element.
+	 *
+	 * @return  Widget The element that should become `$this->help`.
+	 */
+	private function createHelpElement() {
+		if ( $this->helpInline ) {
+			return new LabelWidget( [
+				'classes' => [ 'oo-ui-inline-help' ],
+				'label' => $this->helpText,
+			] );
+		} else {
+			return new ButtonWidget( [
+				'classes' => [ 'oo-ui-fieldLayout-help' ],
+				'framed' => false,
+				'icon' => 'info',
+				'title' => $this->helpText,
+			] );
+		}
 	}
 }
