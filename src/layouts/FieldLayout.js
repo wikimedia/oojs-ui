@@ -92,50 +92,13 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.align = null;
 	this.helpInline = config.helpInline;
 
-	if ( config.help ) {
-		if ( this.helpInline ) {
-			this.$help = new OO.ui.LabelWidget( {
-				label: config.help,
-				classes: [ 'oo-ui-inline-help' ]
-			} ).$element;
-		} else {
-			this.popupButtonWidget = new OO.ui.PopupButtonWidget( {
-				$overlay: config.$overlay,
-				popup: {
-					padded: true
-				},
-				classes: [ 'oo-ui-fieldLayout-help' ],
-				framed: false,
-				icon: 'info',
-				label: OO.ui.msg( 'ooui-field-help' )
-			} );
-			if ( config.help instanceof OO.ui.HtmlSnippet ) {
-				this.popupButtonWidget.getPopup().$body.html( config.help.toString() );
-			} else {
-				this.popupButtonWidget.getPopup().$body.text( config.help );
-			}
-			this.$help = this.popupButtonWidget.$element;
-		}
-	} else {
-		this.$help = $( [] );
-	}
-
 	// Events
 	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
 
 	// Initialization
-	if ( config.help && !config.helpInline ) {
-		// Set the 'aria-describedby' attribute on the fieldWidget
-		// Preference given to an input or a button
-		(
-			this.fieldWidget.$input ||
-			this.fieldWidget.$button ||
-			this.fieldWidget.$element
-		).attr(
-			'aria-describedby',
-			this.popupButtonWidget.getPopup().getBodyId()
-		);
-	}
+	this.$help = config.help ?
+		this.createHelpElement( config.help, config.$overlay ) :
+		$( [] );
 	if ( this.fieldWidget.getInputId() ) {
 		this.$label.attr( 'for', this.fieldWidget.getInputId() );
 	} else {
@@ -340,4 +303,54 @@ OO.ui.FieldLayout.prototype.formatTitleWithAccessKey = function ( title ) {
 		return this.fieldWidget.formatTitleWithAccessKey( title );
 	}
 	return title;
+};
+
+/**
+ * Creates and returns the help element. Also sets the `aria-describedby`
+ * attribute on the main element of the `fieldWidget`.
+ *
+ * @private
+ * @param {string|OO.ui.HtmlSnippet} [help] Help text.
+ * @param {jQuery} [$overlay] Passed to OO.ui.PopupButtonWidget for help popup.
+ * @return {jQuery} The element that should become `this.$help`.
+ */
+OO.ui.FieldLayout.prototype.createHelpElement = function ( help, $overlay ) {
+	var helpId, helpWidget;
+
+	if ( this.helpInline ) {
+		helpWidget = new OO.ui.LabelWidget( {
+			label: help,
+			classes: [ 'oo-ui-inline-help' ]
+		} );
+
+		helpId = helpWidget.getElementId();
+	} else {
+		helpWidget = new OO.ui.PopupButtonWidget( {
+			$overlay: $overlay,
+			popup: {
+				padded: true
+			},
+			classes: [ 'oo-ui-fieldLayout-help' ],
+			framed: false,
+			icon: 'info',
+			label: OO.ui.msg( 'ooui-field-help' )
+		} );
+		if ( help instanceof OO.ui.HtmlSnippet ) {
+			helpWidget.getPopup().$body.html( help.toString() );
+		} else {
+			helpWidget.getPopup().$body.text( help );
+		}
+
+		helpId = helpWidget.getPopup().getBodyId();
+	}
+
+	// Set the 'aria-describedby' attribute on the fieldWidget
+	// Preference given to an input or a button
+	(
+		this.fieldWidget.$input ||
+		this.fieldWidget.$button ||
+		this.fieldWidget.$element
+	).attr( 'aria-describedby', helpId );
+
+	return helpWidget.$element;
 };
