@@ -448,7 +448,8 @@ module.exports = function ( grunt ) {
 				'{demos,src}/**/*.css',
 				'{demos,src}/**/*.less',
 				'!demos/dist/**',
-				'!demos/styles/demo.rtl.css'
+				'!demos/styles/demo.rtl.css',
+				'!demos/vendor/**'
 			]
 		},
 
