@@ -101,10 +101,18 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		$( [] );
 	if ( this.fieldWidget.getInputId() ) {
 		this.$label.attr( 'for', this.fieldWidget.getInputId() );
+		if ( this.helpInline ) {
+			this.$help.attr( 'for', this.fieldWidget.getInputId() );
+		}
 	} else {
 		this.$label.on( 'click', function () {
 			this.fieldWidget.simulateLabelClick();
 		}.bind( this ) );
+		if ( this.helpInline ) {
+			this.$help.on( 'click', function () {
+				this.fieldWidget.simulateLabelClick();
+			}.bind( this ) );
+		}
 	}
 	this.$element
 		.addClass( 'oo-ui-fieldLayout' )
