@@ -107,6 +107,9 @@ class FieldLayout extends Layout {
 		$this->help = empty( $this->helpText ) ? '' : $this->createHelpElement();
 		if ( $this->fieldWidget->getInputId() ) {
 			$this->label->setAttributes( [ 'for' => $this->fieldWidget->getInputId() ] );
+			if ( !empty( $this->helpText ) && $this->helpInline ) {
+				$this->help->setAttributes( [ 'for' => $this->fieldWidget->getInputId() ] );
+			}
 		}
 		$this
 			->addClasses( [ 'oo-ui-fieldLayout' ] )
