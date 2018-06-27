@@ -164,6 +164,10 @@
 				vertical-align: top;
 			}
 
+			.oo-ui-tool-checkIcon {
+				display: none;
+			}
+
 			.oo-ui-tool-title {
 				line-height: 2.1em; // 0.5em less
 			}
@@ -322,18 +326,17 @@
 		padding: 0 1.25em 0 0.3125em;
 
 		// When not active, hide checkIcon (and show normal configured icon)
-		// Stupid specific rules to override ridiculous selector in Widget.less
-		&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon.oo-ui-tool-checkIcon {
+		> .oo-ui-tool-link > .oo-ui-tool-checkIcon {
 			display: none;
 		}
 
 		&-active {
 			// When active, show checkIcon (and hide normal configured icon)
-			&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon {
+			> .oo-ui-tool-link > .oo-ui-iconElement-icon {
 				display: none;
 			}
 
-			&.oo-ui-widget > .oo-ui-tool-link > .oo-ui-iconElement-icon.oo-ui-tool-checkIcon {
+			> .oo-ui-tool-link > .oo-ui-tool-checkIcon {
 				display: table-cell;
 			}
 		}
@@ -486,8 +489,7 @@
 		box-shadow: 0 0.3125em 1.25em rgba( 0, 0, 0, 0.25 );
 	}
 
-	// Stupid specific rules to override ridiculous selector in Widget.less
-	&-tools .oo-ui-tool.oo-ui-widget .oo-ui-tool-link {
+	&-tools .oo-ui-tool-link {
 		padding: 0.3125em 0 0.3125em 0.3125em;
 
 		.oo-ui-iconElement-icon {
@@ -496,6 +498,10 @@
 			width: @size-icon-inner;
 			height: @size-icon-inner;
 			vertical-align: middle;
+		}
+
+		.oo-ui-tool-checkIcon {
+			display: none;
 		}
 
 		.oo-ui-tool-title {

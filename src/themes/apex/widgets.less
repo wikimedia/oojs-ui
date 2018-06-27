@@ -153,8 +153,7 @@
 }
 
 .theme-oo-ui-checkboxInputWidget () {
-	// Stupid specific rules to override ridiculous selector in Widget.less
-	.oo-ui-checkboxInputWidget-checkIcon.oo-ui-iconElement-icon {
+	&-checkIcon {
 		display: none;
 	}
 }
@@ -349,13 +348,7 @@
 		}
 	}
 
-	// IndicatorWidget is child element,
-	// therefor in need of higher specificity
-	&-php .oo-ui-indicatorWidget.oo-ui-indicatorElement.oo-ui-indicatorElement-indicator {
-		display: block;
-		position: absolute;
-		top: 0;
-		height: 100%;
+	&-php .oo-ui-indicatorWidget {
 		right: 0;
 		max-height: 2.5em;
 		margin: 0;
@@ -375,19 +368,19 @@
 .theme-oo-ui-decoratedOptionWidget () {
 	padding: 0.5em 2em 0.5em 3em;
 
-	&.oo-ui-iconElement .oo-ui-iconElement-icon,
-	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+	.oo-ui-iconElement-icon,
+	.oo-ui-indicatorElement-indicator {
 		position: absolute;
 		top: 0;
 		height: 100%;
 	}
 
-	&.oo-ui-iconElement .oo-ui-iconElement-icon {
+	.oo-ui-iconElement-icon {
 		left: 0.5em;
 		margin: 0;
 	}
 
-	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+	.oo-ui-indicatorElement-indicator {
 		right: 0.5em;
 	}
 
@@ -514,14 +507,11 @@
 
 .theme-oo-ui-iconWidget () {
 	line-height: 2.5em;
-
-	&.oo-ui-iconElement.oo-ui-iconElement-icon {
-		display: inline-block;
-		position: static;
-		top: auto;
-		height: @size-icon-inner;
-		margin: @size-icon-outer;
-	}
+	display: inline-block;
+	position: static;
+	top: auto;
+	height: @size-icon-inner;
+	margin: @size-icon-outer;
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
@@ -531,13 +521,10 @@
 .theme-oo-ui-indicatorWidget () {
 	line-height: 2.5em;
 	margin: @size-indicator / 2;
-
-	&.oo-ui-indicatorElement.oo-ui-indicatorElement-indicator {
-		display: inline-block;
-		position: static;
-		top: auto;
-		height: @size-icon;
-	}
+	display: inline-block;
+	position: static;
+	top: auto;
+	height: @size-icon;
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
@@ -557,8 +544,7 @@
 }
 
 .theme-oo-ui-menuOptionWidget () {
-	// Stupid specific rules to override ridiculous selector in Widget.less
-	&.oo-ui-optionWidget .oo-ui-iconElement-icon.oo-ui-menuOptionWidget-checkIcon {
+	.oo-ui-menuOptionWidget-checkIcon {
 		display: none;
 	}
 
@@ -573,24 +559,13 @@
 			// Hack to show 'check' icon in Apex, see T87835
 
 			// Hide normal icon (if any)
-			&.oo-ui-optionWidget > .oo-ui-iconElement-icon {
+			> .oo-ui-iconElement-icon {
 				display: none;
 			}
 
 			// Show checkmark
-			// Stupid specific rules to override ridiculous selector in Widget.less
-			// The rules other than `display: block;` are also only necessary because of the mess
-			// with nested IconElements (this gets the styles meant for elements with no icon).
-			&.oo-ui-optionWidget .oo-ui-iconElement-icon.oo-ui-menuOptionWidget-checkIcon {
+			.oo-ui-menuOptionWidget-checkIcon {
 				display: block;
-				position: absolute;
-				left: 0.5em;
-				top: 0;
-				min-width: @min-size-icon;
-				width: @size-icon-inner;
-				min-height: @min-size-icon;
-				height: 100%;
-				margin: 0;
 			}
 		}
 
