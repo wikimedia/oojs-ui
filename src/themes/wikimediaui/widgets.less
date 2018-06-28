@@ -306,8 +306,8 @@
 		background-color: @background-color-base;
 		cursor: text;
 		.oo-ui-transition(
-			border-color @transition-ease-out-sine-medium,
-			box-shadow @transition-ease-out-sine-medium
+			border-color @transition-ease-medium,
+			box-shadow @transition-ease-medium
 		);
 	}
 	&.oo-ui-widget-enabled:hover &-handle {
@@ -1480,9 +1480,9 @@
 			background-color: @background-color-base;
 			border-style: dashed;
 			.oo-ui-transition(
-				background-color @transition-ease-out-sine-medium,
-				color @transition-ease-out-sine-medium,
-				border-color @transition-ease-out-sine-medium
+				background-color @transition-ease-medium,
+				color @transition-ease-medium,
+				border-color @transition-ease-medium
 			);
 
 			&:hover {
@@ -1777,8 +1777,8 @@
 		.oo-ui-tagMultiselectWidget-handle {
 			background-color: @background-color-base;
 			.oo-ui-transition(
-				border-color @transition-ease-out-sine-medium,
-				box-shadow @transition-ease-out-sine-medium
+				border-color @transition-ease-medium,
+				box-shadow @transition-ease-medium
 			);
 		}
 
@@ -1863,8 +1863,8 @@
 		textarea {
 			box-shadow: @box-shadow-widget; // necessary for smooth transition
 			.oo-ui-transition(
-				border-color @transition-ease-out-sine-medium,
-				box-shadow @transition-ease-out-sine-medium
+				border-color @transition-ease-medium,
+				box-shadow @transition-ease-medium
 			);
 
 			.mw-placeholder();
