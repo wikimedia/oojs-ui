@@ -11,6 +11,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @deprecated
  */
 OO.ui.CapsuleItemWidget = function OoUiCapsuleItemWidget( config ) {
 	// Configuration initialization

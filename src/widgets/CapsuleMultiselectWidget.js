@@ -65,6 +65,7 @@
  *  the containing `<div>` and has a larger area. By default, the menu uses
  *  relative positioning.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
+ * @deprecated
  */
 OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config ) {
 	var $tabFocus;
@@ -192,6 +193,9 @@ OO.ui.CapsuleMultiselectWidget = function OoUiCapsuleMultiselectWidget( config )
 	}.bind( this ) );
 
 	this.onMenuItemsChange();
+
+	// Deprecation warning
+	OO.ui.warnDeprecation( 'CapsuleMultiselectWidget: Deprecated widget. Use TagMultiselectWidget instead. See T183299.' );
 };
 
 /* Setup */
