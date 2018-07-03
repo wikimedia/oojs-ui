@@ -183,6 +183,7 @@
 }
 
 .theme-oo-ui-capsuleItemWidget () {
+	.oo-ui-vertical-gradient( @background-color-framed-start, @background-color-framed-stop );
 	width: auto;
 	max-width: 100%;
 	.oo-ui-box-sizing( border-box );
@@ -191,7 +192,6 @@
 	margin: 0.1em;
 	height: 1.7em;
 	line-height: 1.7em;
-	.oo-ui-vertical-gradient( #fff, #ddd );
 	border: 1px solid #ccc;
 	color: @color-base;
 	border-radius: @border-radius-base;
@@ -1166,6 +1166,7 @@
 }
 
 .theme-oo-ui-tagItemWidget () {
+	.oo-ui-vertical-gradient( @background-color-framed-start, @background-color-framed-stop );
 	width: auto;
 	max-width: 100%;
 	.oo-ui-box-sizing( border-box );
@@ -1174,7 +1175,6 @@
 	margin: 0.1em;
 	height: 1.7em;
 	line-height: 1.7em;
-	.oo-ui-vertical-gradient( #fff, #ddd );
 	border: 1px solid #ccc;
 	color: @color-base;
 	border-radius: @border-radius-base;
@@ -1438,13 +1438,13 @@
 
 .theme-oo-ui-toggleSwitchWidget () {
 	@travelDistance: 2em;
+	.oo-ui-vertical-gradient( @background-color-framed-start--active, @background-color-framed-stop--active );
 	height: 2em;
 	width: @travelDistance + 2em;
 	border-radius: 1em;
 	box-shadow: 0 0 0 #fff, inset 0 0.1em 0.2em #ddd;
 	border: 1px solid #ccc;
 	.oo-ui-inline-spacing( 0.5em );
-	.oo-ui-vertical-gradient( #ddd, #fff );
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.5;
@@ -1467,6 +1467,7 @@
 	}
 
 	&-grip {
+		.oo-ui-vertical-gradient( @background-color-framed-start, @background-color-framed-stop );
 		top: 0.25em;
 		left: 0.25em;
 		width: 1.5em;
@@ -1477,7 +1478,6 @@
 		border: 1px #c9c9c9 solid;
 
 		.oo-ui-transition( left @medium-ease, margin-left @medium-ease );
-		.oo-ui-vertical-gradient( #fff, #ddd );
 	}
 
 	&-glow {
