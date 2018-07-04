@@ -24,7 +24,9 @@ OO.ui.TabSelectWidget = function OoUiTabSelectWidget( config ) {
 	} );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-tabSelectWidget' );
+	this.$element
+		.addClass( 'oo-ui-tabSelectWidget' )
+		.attr( 'role', 'tablist' );
 };
 
 /* Setup */
