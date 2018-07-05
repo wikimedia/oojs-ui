@@ -25,6 +25,7 @@ class NumberInputWidget extends TextInputWidget {
 	 * @param number $config['showButtons'] Show increment and decrement buttons (default: true)
 	 * @param bool $config['required'] Mark the field as required.
 	 *   Implies `indicator: 'required'`. Note that `false` & setting `indicator: 'required'
+	 * @param-taint $config escapes_html
 	 */
 	public function __construct( array $config = [] ) {
 		// Config initialization

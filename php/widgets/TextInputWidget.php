@@ -60,6 +60,7 @@ class TextInputWidget extends InputWidget {
 	 *   or not (default: true)
 	 * @param bool $config['spellcheck'] If the field should support spellcheck
 	 *   or not (default: browser-dependent)
+	 * @param-taint $config escapes_html
 	 */
 	public function __construct( array $config = [] ) {
 		// Config initialization
