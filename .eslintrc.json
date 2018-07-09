@@ -15,6 +15,7 @@
     "rules": {
         "dot-notation": [ "error", { "allowKeywords": true } ],
         "no-void": 0,
-        "valid-jsdoc": 0
+        "valid-jsdoc": 0,
+        "max-len": 0
     }
 }
