@@ -71,7 +71,6 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.onInputEditHandler = OO.ui.debounce( this.updateItemVisibility.bind( this ), 100 );
 	this.highlightOnFilter = !!config.highlightOnFilter;
 	this.width = config.width;
-	this.filterQuery = '';
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuSelectWidget' );
@@ -183,10 +182,9 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 		showAll = !this.isVisible(),
 		exactMatch = false;
 
-	if ( this.$input && this.filterFromInput && this.filterQuery !== this.$input.val() ) {
+	if ( this.$input && this.filterFromInput ) {
 		filter = showAll ? null : this.getItemMatcher( this.$input.val() );
 		exactFilter = this.getItemMatcher( this.$input.val(), true );
-		this.filterQuery = this.$input.val();
 		// Hide non-matching options, and also hide section headers if all options
 		// in their section are hidden.
 		for ( i = 0; i < len; i++ ) {
