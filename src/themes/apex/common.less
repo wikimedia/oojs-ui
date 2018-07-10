@@ -43,9 +43,15 @@
 
 @start-frameless: -@padding-horizontal-frameless;
 
+@border-base: @border-width-base @border-style-base @border-color-base;
+
+@border-color-base: #ccc;
+@border-color-base--hover: #aaa;
 @border-color-base--focus: #ace;
 @border-color-frameless: transparent;
 @border-color-frameless--fallback: @color-base--inverted; // Support IE 6: `transparent` is not rendered correctly
+// Border Styles
+@border-style-base: solid;
 // Border Widths
 @border-width-base: 1px;
 // Border Radius

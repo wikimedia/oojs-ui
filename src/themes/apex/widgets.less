@@ -192,8 +192,8 @@
 	margin: 0.1em;
 	height: 1.7em;
 	line-height: 1.7em;
-	border: 1px solid #ccc;
 	color: @color-base;
+	border: @border-base;
 	border-radius: @border-radius-base;
 
 	&:focus {
@@ -228,7 +228,7 @@
 		box-shadow: none;
 		color: #333;
 		background: #eee;
-		border-color: #ccc;
+		border-color: @border-color-base;
 	}
 }
 
@@ -238,16 +238,13 @@
 
 	&-handle {
 		background-color: @background-color-main;
-		cursor: text;
-		min-height: 2.4em;
-
-		.oo-ui-inline-spacing( 0.5em );
-
-		padding: 0.15em 0.25em;
-		border: 1px solid rgba( 0, 0, 0, 0.1 );
-		border-radius: @border-radius-base;
-
 		.oo-ui-box-sizing( border-box );
+		min-height: 2.4em;
+		.oo-ui-inline-spacing( 0.5em );
+		border: @border-color-base;
+		border-radius: @border-radius-base;
+		padding: 0.15em 0.25em;
+		cursor: text;
 
 		> .oo-ui-iconElement-icon,
 		> .oo-ui-indicatorElement-indicator {
@@ -298,7 +295,7 @@
 	}
 
 	&.oo-ui-widget-enabled:hover &-handle {
-		border-color: rgba( 0, 0, 0, 0.2 );
+		border-color: @border-color-base--hover;
 	}
 
 	&.oo-ui-widget-enabled.oo-ui-capsuleMultiselectWidget-open &-handle {
@@ -400,11 +397,11 @@
 
 	&-handle {
 		height: 2.5em;
-		border: 1px solid rgba( 0, 0, 0, 0.1 );
+		border: @border-base;
 		border-radius: @border-radius-base;
 
 		&:hover {
-			border-color: rgba( 0, 0, 0, 0.2 );
+			border-color: @border-color-base--hover;
 		}
 
 		&:focus {
@@ -471,7 +468,7 @@
 		padding: 0.5em;
 		font-size: inherit;
 		font-family: inherit;
-		border: 1px solid rgba( 0, 0, 0, 0.1 );
+		border: @border-color-base;
 		border-radius: @border-radius-base;
 	}
 
@@ -485,12 +482,12 @@
 	&.oo-ui-widget-enabled {
 		select {
 			&:hover {
-				border-color: rgba( 0, 0, 0, 0.2 );
+				border-color: @border-color-base--hover;
 			}
 
 			&:focus {
-				outline: 0;
 				border-color: @border-color-base--focus;
+				outline: 0;
 				box-shadow: @box-shadow-widget--focus;
 			}
 		}
@@ -583,9 +580,9 @@
 
 .theme-oo-ui-menuSelectWidget () {
 	background-color: @background-color-main;
-	margin-top: -1px;
-	margin-bottom: -1px;
-	border: 1px solid #ccc;
+	margin-top: -@border-width-base;
+	margin-bottom: -@border-width-base;
+	border: @border-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
 	box-shadow: 0 0.15em 1em 0 rgba( 0, 0, 0, 0.2 );
 }
@@ -734,7 +731,7 @@
 .theme-oo-ui-popupWidget () {
 	&-popup {
 		background-color: @background-color-main;
-		border: 1px solid #ccc;
+		border: @border-base;
 		border-radius: @border-radius-base;
 		box-shadow: 0 0.15em 0.5em 0 rgba( 0, 0, 0, 0.2 );
 	}
@@ -861,13 +858,13 @@
 .theme-oo-ui-progressBarWidget () {
 	max-width: @max-width-input-base;
 	background-color: @background-color-main;
-	border: 1px solid #ccc;
+	border: @border-base;
 	border-radius: @border-radius-base;
 	overflow: hidden;
 
 	&-bar {
 		height: 1em;
-		border-right: 1px solid #ccc;
+		border-right: @border-base;
 		.oo-ui-transition( width @medium-ease );
 		.oo-ui-vertical-gradient( @progressive-gradient-start, @progressive-gradient-end );
 	}
@@ -971,9 +968,9 @@
 	&-info {
 		height: 2.4em;
 		background-color: @background-color-main;
-		border: 1px solid rgba( 0, 0, 0, 0.1 );
+		border: @border-base;
+		border-width: @border-width-base 0 @border-width-base @border-width-base;
 		border-radius: @border-radius-base 0 0 @border-radius-base;
-		border-width: 1px 0 1px 1px;
 
 		> .oo-ui-indicatorElement-indicator,
 		> .oo-ui-iconElement-icon {
@@ -1067,8 +1064,8 @@
 	&-dropTarget {
 		background-color: @background-color-main;
 		border: 1px solid #aaa;
-		vertical-align: middle;
 		border-radius: @border-radius-base;
+		vertical-align: middle;
 
 		.oo-ui-selectFileWidget-selectButton {
 			> .oo-ui-buttonElement-button {
@@ -1123,8 +1120,8 @@
 .theme-oo-ui-tabOptionWidget () {
 	margin: 0.5em 0 0 0.75em;
 	border-color: transparent;
-	border-style: solid;
-	border-width: 1px 1px 0 1px;
+	border-style: @border-style-base;
+	border-width: @border-width-base @border-width-base 0 @border-width-base;
 	border-top-left-radius: @border-radius-taboption;
 	border-top-right-radius: @border-radius-taboption;
 	padding: 0.5em 1em;
@@ -1167,17 +1164,17 @@
 
 .theme-oo-ui-tagItemWidget () {
 	.oo-ui-vertical-gradient( @background-color-framed-start, @background-color-framed-stop );
+	color: @color-base;
 	width: auto;
 	max-width: 100%;
 	.oo-ui-box-sizing( border-box );
-	vertical-align: middle;
-	padding: 0 0.4em;
-	margin: 0.1em;
 	height: 1.7em;
-	line-height: 1.7em;
-	border: 1px solid #ccc;
-	color: @color-base;
+	margin: 0.1em;
+	border: @border-base;
 	border-radius: @border-radius-base;
+	padding: 0 0.4em;
+	line-height: 1.7em;
+	vertical-align: middle;
 
 	&:focus {
 		outline: 0;
@@ -1312,14 +1309,14 @@
 
 	input,
 	textarea {
-		padding: @padding-top-textinput 0.5em @padding-bottom-textinput 0.5em;
-		font-size: inherit;
-		font-family: inherit;
 		background-color: @background-color-main;
 		color: #000;
-		border: 1px solid #ccc;
-		box-shadow: 0 0 0 #fff, inset 0 0.1em 0.2em #ddd;
+		border: @border-base;
 		border-radius: @border-radius-base;
+		padding: @padding-top-textinput 0.5em @padding-bottom-textinput 0.5em;
+		box-shadow: 0 0 0 #fff, inset 0 0.1em 0.2em #ddd;
+		font-size: inherit;
+		font-family: inherit;
 		.oo-ui-transition( border-color @medium-ease, box-shadow @medium-ease );
 
 		&.oo-ui-pendingElement-pending {
@@ -1411,7 +1408,7 @@
 
 	> .oo-ui-labelElement-label {
 		display: none;
-		top: 1px; // equals `border-width`
+		top: @border-width-base; // equals `border-width`
 		padding: @padding-top-textinput 0.4em @padding-bottom-textinput 0.4em;
 		line-height: @line-height-widget-singleline;
 		color: @color-base--subtle;
@@ -1439,12 +1436,12 @@
 .theme-oo-ui-toggleSwitchWidget () {
 	@travelDistance: 2em;
 	.oo-ui-vertical-gradient( @background-color-framed-start--active, @background-color-framed-stop--active );
-	height: 2em;
 	width: @travelDistance + 2em;
+	height: 2em;
+	.oo-ui-inline-spacing( 0.5em );
+	border: @border-width-base;
 	border-radius: 1em;
 	box-shadow: 0 0 0 #fff, inset 0 0.1em 0.2em #ddd;
-	border: 1px solid #ccc;
-	.oo-ui-inline-spacing( 0.5em );
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.5;
@@ -1453,7 +1450,7 @@
 	&.oo-ui-widget-enabled {
 		&:hover,
 		&:hover .oo-ui-toggleSwitchWidget-grip {
-			border-color: #aaa;
+			border-color: @border-color-base--hover;
 		}
 		&:focus {
 			outline: 0;
@@ -1473,9 +1470,9 @@
 		width: 1.5em;
 		height: 1.5em;
 		margin-top: -1px;
+		border: @border-base;
 		border-radius: 1em;
 		box-shadow: 0 0.1em 0.25em rgba( 0, 0, 0, 0.1 );
-		border: 1px #c9c9c9 solid;
 
 		.oo-ui-transition( left @medium-ease, margin-left @medium-ease );
 	}
