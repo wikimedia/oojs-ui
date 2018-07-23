@@ -156,6 +156,19 @@ OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
 };
 
 /**
+ * @inheritdoc
+ */
+OO.ui.MenuTagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
+	// Parent method
+	OO.ui.MenuTagMultiselectWidget.parent.prototype.setDisabled.call( this, isDisabled );
+
+	if ( this.menu ) {
+		// Protect against calling setDisabled() before the menu was initialized
+		this.menu.setDisabled( isDisabled );
+	}
+};
+
+/**
  * Highlight the first selectable item in the menu, if configured.
  *
  * @private

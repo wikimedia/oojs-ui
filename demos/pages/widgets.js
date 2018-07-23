@@ -1875,6 +1875,21 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'MenuTagMultiselectWidget (inputPosition:outline, allowArbitrary:false)',
 						align: 'top'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MenuTagMultiselectWidget( {
+						inputPosition: 'inline',
+						disabled: true,
+						options: [
+							{ data: 'abc', label: 'Label for abc' },
+							{ data: 'asd', label: 'Label for asd' },
+							{ data: 'jkl', label: 'Label for jkl' }
+						]
+					} ),
+					{
+						label: 'MenuTagMultiselectWidget (disabled)',
+						align: 'top'
+					}
 				)
 			]
 		} ),
