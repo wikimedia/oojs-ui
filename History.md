@@ -1837,7 +1837,7 @@
 ### Code
 * ActionFieldLayout: Add max-width: 50em; (Florian)
 * DraggableGroupElement: Don't emit reorder event when action is a no-op (Ed Sanders)
-* Element: Fix #gatherPreInfuseState called incorrectly, causing TypeErrors (Thiemo Mättig)
+* Element: Fix #gatherPreInfuseState called incorrectly, causing TypeErrors (Thiemo Kreuz)
 * NumberInputWidget: fix example (Ricordisamoa)
 * SelectWidget: fix incorrect `@return` that should be `@param` (Ricordisamoa)
 * build: Compress PNGs with Zopfli etc. after they are built (James D. Forrester)
