@@ -29,6 +29,8 @@ OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config )
 	if ( this.autosize ) {
 		this.$clone = this.$input
 			.clone()
+			.removeAttr( 'id' )
+			.removeAttr( 'name' )
 			.insertAfter( this.$input )
 			.attr( 'aria-hidden', 'true' )
 			.addClass( 'oo-ui-element-hidden' );
