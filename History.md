@@ -1,4 +1,15 @@
 # OOUI Release History
+## v0.27.6 / 2018-08-01
+### Styles
+* WikimediaUI theme: Fix styling for focussed multiline text inputs in invalid state (Bartosz Dziewoński)
+* Apex theme: Fix regression on ToggleSwitchWidget `border` (Volker E.)
+* Apex theme: Further unify `border-radius` (Volker E.)
+
+### Code
+* MenuTagMultiselectWidget: Cascade disable state to menu (Moriel Schottlender)
+* MultilineTextInputWidget: Remove 'name' and 'id' from $clone (Prateek Saxena)
+
+
 ## v0.27.5 / 2018-07-11
 ### Deprecations
 * [DEPRECATING CHANGE] CapsuleMultiselectWidget: Deprecate widget (Volker E.)
