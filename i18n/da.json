@@ -10,7 +10,8 @@
 			"Tehnix",
 			"Macofe",
 			"Peter Alberti",
-			"Joedalton"
+			"Joedalton",
+			"Saederup92"
 		]
 	},
 	"ooui-outline-control-move-down": "Flyt ned",
@@ -18,11 +19,13 @@
 	"ooui-toolbar-more": "Mere",
 	"ooui-toolgroup-expand": "Mere",
 	"ooui-toolgroup-collapse": "Færre",
+	"ooui-item-remove": "Fjern",
 	"ooui-dialog-message-accept": "OK",
 	"ooui-dialog-message-reject": "Afbryd",
 	"ooui-dialog-process-error": "Noget gik galt",
 	"ooui-dialog-process-retry": "Prøv igen",
 	"ooui-dialog-process-continue": "Fortsæt",
 	"ooui-selectfile-button-select": "Vælg en fil",
-	"ooui-selectfile-dragdrop-placeholder": "Smid filen her"
+	"ooui-selectfile-dragdrop-placeholder": "Smid filen her",
+	"ooui-field-help": "Hjælp"
 }
