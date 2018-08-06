@@ -304,6 +304,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.toolFactory = toolFactory;
 	this.toolGroupFactory = toolGroupFactory;
 	this.groupsByName = {};
+	this.activeToolGroups = 0;
 	this.tools = {};
 	this.position = config.position || 'top';
 	this.$bar = $( '<div>' );
@@ -349,6 +350,15 @@ OO.mixinClass( OO.ui.Toolbar, OO.ui.mixin.GroupElement );
  * tools is required.
  *
  * @param {...Mixed} data Application-defined parameters
+ */
+
+/**
+ * @event active
+ *
+ * An 'active' event is emitted when the number of active toolgroups increases from 0, or
+ * returns to 0.
+ *
+ * @param {boolean} There are active toolgroups in this toolbar
  */
 
 /* Methods */
@@ -470,8 +480,32 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 			// Groups without name are deprecated
 			OO.ui.warnDeprecation( 'Toolgroups must have a \'name\' property' );
 		}
+		// Currently only PopupToolGroups can be active.
+		if ( toolGroup instanceof OO.ui.PopupToolGroup ) {
+			toolGroup.connect( this, { active: 'onToolGroupActive' } );
+		}
 	}
 	this.addItems( items );
+};
+
+/**
+ * Handle active events from tool groups
+ *
+ * @param {boolean} active Tool group has become active, inactive if false
+ * @fires active
+ */
+OO.ui.Toolbar.prototype.onToolGroupActive = function ( active ) {
+	if ( active ) {
+		this.activeToolGroups++;
+		if ( this.activeToolGroups === 1 ) {
+			this.emit( 'active', true );
+		}
+	} else {
+		this.activeToolGroups--;
+		if ( this.activeToolGroups === 0 ) {
+			this.emit( 'active', false );
+		}
+	}
 };
 
 /**
