@@ -236,6 +236,7 @@ OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
 			} )
 			.fail( function () {
 				widget.lookupMenu.clearItems();
+				widget.lookupMenu.toggle( false );
 			} );
 	}
 
