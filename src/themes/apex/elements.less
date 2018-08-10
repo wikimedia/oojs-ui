@@ -40,7 +40,7 @@
 	&-frameless {
 		> .oo-ui-buttonElement-button {
 			> .oo-ui-iconElement-icon {
-				.oo-ui-transition( opacity @medium-ease );
+				.oo-ui-transition( opacity @transition-ease-medium );
 				// Support Webkit/Blink: `opacity` < 1 causes wiggling, see T65020
 				.oo-ui-force-gpu-composite-layer();
 			}
@@ -161,7 +161,7 @@
 			border: @border-base;
 			padding: @padding-base;
 			text-shadow: 0 1px 1px rgba( 255, 255, 255, 0.5 );
-			.oo-ui-transition( border-color @quick-ease );
+			.oo-ui-transition( border-color @transition-base );
 
 			&:hover {
 				border-color: @border-color-base--hover;
