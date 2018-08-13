@@ -142,6 +142,8 @@ module.exports = function ( grunt ) {
 		// Define 'less' task targets - we need a target for each theme because of different import paths
 		lessTargets = {
 			options: {
+				// Force LESS v3.0.0+ to let us use mixins before we later upgrade to @plugin architecture.
+				javascriptEnabled: true,
 				modifyVars: {
 					// Changed dynamically by 'set-graphics' task
 					'ooui-distribution': 'mixed',
