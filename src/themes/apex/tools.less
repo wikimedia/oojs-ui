@@ -57,15 +57,15 @@
 				border: 0;
 
 				> .oo-ui-popupToolGroup-handle {
-					.oo-ui-vertical-gradient( @progressive-gradient-start, @progressive-gradient-end );
-					border: 1px solid @progressive-border;
+					.oo-ui-vertical-gradient( @background-color-progressive-gradient-light, @background-color-progressive-gradient-dark );
+					border: 1px solid @border-color-progressive;
 
 					&:hover {
-						border-color: @progressive-border-selected;
+						border-color: @border-color-progressive--hover;
 					}
 				}
 				&.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
-					.oo-ui-vertical-gradient( @progressive-gradient-end, @progressive-gradient-start );
+					.oo-ui-vertical-gradient( @background-color-progressive-gradient-dark, @background-color-progressive-gradient-light );
 				}
 			}
 		}

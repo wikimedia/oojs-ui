@@ -197,8 +197,9 @@
 	border-radius: @border-radius-base;
 
 	&:focus {
+		border-color: @border-color-base--focus;
 		outline: 0;
-		border-color: @progressive;
+		box-shadow: @box-shadow-widget--focus;
 	}
 
 	> .oo-ui-buttonElement {
@@ -867,17 +868,17 @@
 	overflow: hidden;
 
 	&-bar {
+		.oo-ui-vertical-gradient( @background-color-progressive-gradient-light, @background-color-progressive-gradient-dark );
 		height: 1em;
 		border-right: @border-base;
 		.oo-ui-transition( width @transition-ease-medium );
-		.oo-ui-vertical-gradient( @progressive-gradient-start, @progressive-gradient-end );
 	}
 	&-indeterminate {
 		.oo-ui-progressBarWidget-bar {
-			.oo-ui-animation( oo-ui-progressBarWidget-slide 2s infinite linear );
 			width: 40%;
+			border-left: 1px solid @border-color-progressive;
+			.oo-ui-animation( oo-ui-progressBarWidget-slide 2s infinite linear );
 			.oo-ui-transform( translate( -25% ) );
-			border-left: 1px solid @progressive-border;
 		}
 	}
 	&.oo-ui-widget-disabled {
@@ -1181,8 +1182,9 @@
 	vertical-align: middle;
 
 	&:focus {
+		border-color: @border-color-base--focus;
 		outline: 0;
-		border-color: @progressive;
+		box-shadow: @box-shadow-widget--focus;
 	}
 
 	> .oo-ui-buttonElement {

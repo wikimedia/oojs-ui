@@ -136,7 +136,7 @@
 
 		&.oo-ui-flaggedElement {
 			&-progressive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-				color: @progressive;
+				color: @color-progressive;
 			}
 
 			&-destructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
@@ -223,19 +223,19 @@
 		&.oo-ui-flaggedElement {
 			&-progressive {
 				> .oo-ui-buttonElement-button {
-					border: 1px solid @progressive-border;
-					.oo-ui-vertical-gradient( @progressive-gradient-start, @progressive-gradient-end );
+					.oo-ui-vertical-gradient( @background-color-progressive-gradient-light, @background-color-progressive-gradient-dark );
+					border: 1px solid @border-color-progressive;
 
 					&:hover {
-						border-color: @progressive-border-selected;
+						border-color: @border-color-progressive--hover;
 					}
 				}
 
 				&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
 				&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
 				&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-					border: 1px solid @progressive-border;
-					.oo-ui-vertical-gradient( @progressive-gradient-end, @progressive-gradient-start );
+					.oo-ui-vertical-gradient( @background-color-progressive-gradient-dark, @background-color-progressive-gradient-light );
+					border: 1px solid @border-color-progressive;
 				}
 			}
 

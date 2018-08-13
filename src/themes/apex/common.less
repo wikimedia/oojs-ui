@@ -7,6 +7,9 @@
 @background-color-framed-stop: #ddd;
 @background-color-framed-start--active: #ddd;
 @background-color-framed-stop--active: #fafafa;
+// Primary 'Progressive' widgets
+@background-color-progressive-gradient-light: #eaf4fa;
+@background-color-progressive-gradient-dark: #b0d9ee;
 
 @color-base: #333;
 @color-base--read-only: #767676;
@@ -15,13 +18,8 @@
 @color-placeholder: #767676; // aligns to WCAG 2.0 level AA at 4.54:1 contrast ratio
 @color-base--subtle: #767676;
 
-@progressive: #087ecc;
+@color-progressive: #087ecc;
 @color-destructive: #d45353;
-
-@progressive-gradient-start: #eaf4fa;
-@progressive-gradient-end: #b0d9ee;
-@progressive-border: #a6cee1;
-@progressive-border-selected: #9dc2d4;
 
 // Box Sizes
 // `@*size` variables are used for `*width` & `*height` properties
@@ -50,6 +48,8 @@
 @border-color-base--focus: #ace;
 @border-color-frameless: transparent;
 @border-color-frameless--fallback: @color-base--inverted; // Support IE 6: `transparent` is not rendered correctly
+@border-color-progressive: #a6cee1;
+@border-color-progressive--hover: #9dc2d4;
 // Border Styles
 @border-style-base: solid;
 // Border Widths
