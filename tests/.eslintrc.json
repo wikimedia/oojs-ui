@@ -1,0 +1,15 @@
+{
+	"extends": [
+		"wikimedia/qunit",
+		"../.eslintrc.json"
+	],
+    "env": {
+        "qunit": true
+	},
+	"rules": {
+		"qunit/require-expect": false,
+		"qunit/no-negated-ok": false,
+		"qunit/no-ok-equality": false,
+		"qunit/no-assert-equal": false
+	}
+}
