@@ -49,7 +49,11 @@ OO.ui.ToolGroupTool = function OoUiToolGroupTool( toolGroup, config ) {
 	this.innerToolGroup = this.createGroup( this.constructor.static.groupConfig );
 
 	// Events
-	this.innerToolGroup.connect( this, { disable: 'onToolGroupDisable' } );
+	this.innerToolGroup.connect( this, {
+		disable: 'onToolGroupDisable',
+		// Re-emit active events from the innerToolGroup on the parent toolGroup
+		active: this.toolGroup.emit.bind( this.toolGroup, 'active' )
+	} );
 
 	// Initialization
 	this.$link.remove();

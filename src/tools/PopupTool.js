@@ -90,4 +90,5 @@ OO.ui.PopupTool.prototype.onUpdateState = function () {
  */
 OO.ui.PopupTool.prototype.onPopupToggle = function ( isVisible ) {
 	this.setActive( isVisible );
+	this.toolGroup.emit( 'active', isVisible );
 };

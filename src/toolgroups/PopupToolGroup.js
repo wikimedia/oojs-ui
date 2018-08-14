@@ -98,16 +98,6 @@ OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.ClippableElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.FloatableElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.TabIndexedElement );
 
-/* Events */
-
-/**
- * @event active
- *
- * An 'active' event is emitted when the popup is shown/hidden.
- *
- * @param {boolean} The popup is visible
- */
-
 /* Methods */
 
 /**
