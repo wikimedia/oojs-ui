@@ -45,8 +45,9 @@
 		widget = new OO.ui.TagMultiselectWidget( {
 			allowArbitrary: true
 		} );
-		assert.ok(
+		assert.strictEqual(
 			widget.isAllowedData( '123foobar' ),
+			true,
 			'isAllowedData: allowArbitrary:true, random options are valid'
 		);
 
@@ -55,18 +56,21 @@
 			allowedValues: [ 'foo', 'bar' ]
 		} );
 
-		assert.ok(
-			!widget.isAllowedData( '123foobar' ),
+		assert.strictEqual(
+			widget.isAllowedData( '123foobar' ),
+			false,
 			'isAllowedData: allowArbitrary:false, data not in allowedValues is invalid'
 		);
-		assert.ok(
+		assert.strictEqual(
 			widget.isAllowedData( 'foo' ),
+			true,
 			'isAllowedData: allowArbitrary:false, data in allowedValues valid'
 		);
 
 		widget.addTag( 'foo' );
-		assert.ok(
-			!widget.isAllowedData( 'foo' ),
+		assert.strictEqual(
+			widget.isAllowedData( 'foo' ),
+			false,
 			'isAllowedData: allowDuplicates:false, duplicate values are invalid even if they are in allowedValues'
 		);
 
@@ -77,8 +81,9 @@
 		} );
 
 		widget.addTag( 'foo' );
-		assert.ok(
+		assert.strictEqual(
 			widget.isAllowedData( 'foo' ),
+			true,
 			'isAllowedData: allowDuplicates:true allows duplicate values'
 		);
 	} );
@@ -97,8 +102,9 @@
 			[ 'foo', 'blip' ],
 			'addTag: allowArbitrary:true Allows adding values outside the allowed list.'
 		);
-		assert.ok(
+		assert.strictEqual(
 			widget.isValid(),
+			true,
 			'addTag: allowArbitrary:true The widget is still valid even with values outside the allowed list.'
 		);
 
@@ -110,8 +116,9 @@
 			[ 'foo' ],
 			'addTag: allowArbitrary:false Prevents adding values outside the allowed list.'
 		);
-		assert.ok(
+		assert.strictEqual(
 			widget.isValid(),
+			true,
 			'addTag: allowArbitrary:false The widget is always valid because non-allowed values are unacceptable.'
 		);
 
@@ -128,8 +135,9 @@
 			[ 'foo' ],
 			'addTag: allowArbitrary:false with allowDisplayInvalidTags:true The value of the widget is only the tags with allowed values.'
 		);
-		assert.ok(
-			!widget.isValid(),
+		assert.strictEqual(
+			widget.isValid(),
+			false,
 			'addTag: allowArbitrary:false with allowDisplayInvalidTags:true The widget is invalid if it has non-allowed values.'
 		);
 	} );

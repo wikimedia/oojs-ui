@@ -7,7 +7,6 @@
         "qunit": true
 	},
 	"rules": {
-		"qunit/no-negated-ok": false,
 		"qunit/no-ok-equality": false,
 		"qunit/no-assert-equal": false
 	}

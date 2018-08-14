@@ -12,18 +12,21 @@
 			]
 		} );
 
-		assert.ok(
+		assert.strictEqual(
 			widget.isAllowedData( 'foo' ),
+			true,
 			'Data in menu items is allowed'
 		);
 
 		widget.addTag( 'foo' );
-		assert.ok(
-			!widget.isAllowedData( 'foo' ),
+		assert.strictEqual(
+			widget.isAllowedData( 'foo' ),
+			false,
 			'Data in menu but also duplicate is not allowed (for allowDuplicates: false)'
 		);
-		assert.ok(
-			!widget.isAllowedData( 'blip' ),
+		assert.strictEqual(
+			widget.isAllowedData( 'blip' ),
+			false,
 			'Data not in menu is not allowed'
 		);
 
@@ -35,8 +38,9 @@
 			],
 			allowedValues: [ 'something', 'else' ]
 		} );
-		assert.ok(
+		assert.strictEqual(
 			widget.isAllowedData( 'something' ),
+			true,
 			'Data from allowed values is allowed'
 		);
 	} );
