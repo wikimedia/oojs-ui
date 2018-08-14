@@ -55,17 +55,17 @@
 	&.oo-ui-widget-enabled {
 		> .oo-ui-buttonElement-button {
 			.oo-ui-transition(
-				background-color @transition-ease-quick,
-				color @transition-ease-quick,
-				border-color @transition-ease-quick,
-				box-shadow @transition-ease-quick
+				background-color @transition-base,
+				color @transition-base,
+				border-color @transition-base,
+				box-shadow @transition-base
 			);
 
 			> .oo-ui-iconElement-icon,
 			> .oo-ui-indicatorElement-indicator {
 				opacity: @opacity-icon-base;
 				.oo-ui-transition(
-					opacity @transition-ease-quick
+					opacity @transition-base
 				);
 
 				&.oo-ui-image-invert {

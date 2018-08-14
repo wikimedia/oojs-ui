@@ -120,7 +120,7 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		.oo-ui-transition( background-color @transition-ease-quick );
+		.oo-ui-transition( background-color @transition-base );
 
 		.oo-ui-tool-link:focus {
 			outline: @border-width-base @border-style-base @border-color-base--focus;
@@ -131,12 +131,12 @@
 
 		.oo-ui-iconElement-icon {
 			opacity: @opacity-icon-base;
-			.oo-ui-transition( opacity @transition-ease-quick );
+			.oo-ui-transition( opacity @transition-base );
 			.oo-ui-force-gpu-composite-layer();
 		}
 
 		.oo-ui-tool-title {
-			.oo-ui-transition( color @transition-ease-quick );
+			.oo-ui-transition( color @transition-base );
 		}
 
 		&:hover {
@@ -200,7 +200,7 @@
 
 			> .oo-ui-tool-link .oo-ui-tool-title {
 				color: @color-base;
-				.oo-ui-transition( color @transition-ease-quick );
+				.oo-ui-transition( color @transition-base );
 			}
 		}
 
@@ -442,8 +442,8 @@
 	&.oo-ui-widget-enabled {
 		> .oo-ui-popupToolGroup-handle {
 			.oo-ui-transition(
-				background-color @transition-ease-quick,
-				box-shadow @transition-ease-quick
+				background-color @transition-base,
+				box-shadow @transition-base
 			);
 
 			&:hover {
@@ -459,7 +459,7 @@
 			.oo-ui-iconElement-icon,
 			.oo-ui-indicatorElement-indicator {
 				opacity: @opacity-icon-base;
-				.oo-ui-transition( opacity @transition-ease-quick );
+				.oo-ui-transition( opacity @transition-base );
 				.oo-ui-force-gpu-composite-layer();
 			}
 
@@ -490,7 +490,7 @@
 		.oo-ui-toolbar-actions & {
 			> .oo-ui-popupToolGroup-handle {
 				border-right: @border-width-base @border-style-base transparent;
-				.oo-ui-transition( border-color @transition-ease-quick );
+				.oo-ui-transition( border-color @transition-base );
 
 				&:hover {
 					border-right-color: @background-color-tool--hover;
