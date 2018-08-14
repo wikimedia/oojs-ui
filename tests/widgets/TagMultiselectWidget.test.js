@@ -5,8 +5,9 @@
 		var widget;
 
 		widget = new OO.ui.TagMultiselectWidget();
-		assert.ok(
-			widget.$element.find( 'input' ).length === 1,
+		assert.strictEqual(
+			widget.$element.find( 'input' ).length,
+			1,
 			'Basic widget (inputPosition:inline) has an input'
 		);
 		assert.ok(
@@ -19,8 +20,9 @@
 		);
 
 		widget = new OO.ui.TagMultiselectWidget( { inputPosition: 'outline' } );
-		assert.ok(
-			widget.$element.find( 'input' ).length === 1,
+		assert.strictEqual(
+			widget.$element.find( 'input' ).length,
+			1,
 			'Widget with inputPosition:outline has an input'
 		);
 		assert.ok(
@@ -33,8 +35,9 @@
 		);
 
 		widget = new OO.ui.TagMultiselectWidget( { inputPosition: 'none' } );
-		assert.ok(
-			widget.$element.find( 'input' ).length === 0,
+		assert.strictEqual(
+			widget.$element.find( 'input' ).length,
+			0,
 			'Widget with inputPosition:none does not have an input'
 		);
 	} );
@@ -243,8 +246,9 @@
 			'Getting the next item from the first item.'
 		);
 
-		assert.ok(
-			widget.getNextItem( items[ items.length - 1 ] ) === widget.input,
+		assert.strictEqual(
+			widget.getNextItem( items[ items.length - 1 ] ),
+			widget.input,
 			'Getting the next item from the last item, returns the input.$input element (if inputPosition:inline or inputPosition:outline)'
 		);
 
@@ -266,8 +270,9 @@
 		widget.setValue( [ 'foo', 'bar', 'baz' ] );
 		items = widget.getItems();
 
-		assert.ok(
-			widget.getPreviousItem( items[ 0 ] ) === widget.input,
+		assert.strictEqual(
+			widget.getPreviousItem( items[ 0 ] ),
+			widget.input,
 			'Getting the previous item from the first item returns the input.$input element (if inputPosition:inline or inputPosition:outline)'
 		);
 		assert.strictEqual(
