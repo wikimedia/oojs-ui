@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "jquery": "3.2.1",
-    "oojs": "2.2.0",
+    "oojs": "2.2.2",
     "wikimedia-ui-base": "0.11.0"
   },
   "devDependencies": {
