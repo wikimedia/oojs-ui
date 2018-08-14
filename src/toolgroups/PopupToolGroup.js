@@ -98,6 +98,16 @@ OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.ClippableElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.FloatableElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.TabIndexedElement );
 
+/* Events */
+
+/**
+ * @event active
+ *
+ * An 'active' event is emitted when the popup is shown/hidden.
+ *
+ * @param {boolean} The popup is visible
+ */
+
 /* Methods */
 
 /**
@@ -229,6 +239,7 @@ OO.ui.PopupToolGroup.prototype.isActive = function () {
  * deactivation.
  *
  * @param {boolean} value The active state to set
+ * @fires active
  */
 OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 	var containerWidth, containerLeft;
@@ -275,6 +286,7 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 			this.togglePositioning( false );
 			this.toggleClipping( false );
 		}
+		this.emit( 'active', this.active );
 		this.updateThemeClasses();
 	}
 };
