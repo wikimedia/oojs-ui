@@ -5,19 +5,19 @@ QUnit.module( 'core' );
  */
 QUnit.test( 'isSafeUrl', function ( assert ) {
 	// eslint-disable-next-line no-script-url
-	assert.notOk( OO.ui.isSafeUrl( 'javascript:evil();' ) );
-	assert.notOk( OO.ui.isSafeUrl( 'foo:bar' ) );
-	assert.notOk( OO.ui.isSafeUrl( 'relative.html' ) );
-	assert.ok( OO.ui.isSafeUrl( '' ) );
-	assert.ok( OO.ui.isSafeUrl( 'http://example.com/' ) );
-	assert.ok( OO.ui.isSafeUrl( '//example.com/' ) );
-	assert.ok( OO.ui.isSafeUrl( '/' ) );
-	assert.notOk( OO.ui.isSafeUrl( '..' ) );
-	assert.ok( OO.ui.isSafeUrl( '?foo=bar' ) );
-	assert.ok( OO.ui.isSafeUrl( '#top' ) );
-	assert.ok( OO.ui.isSafeUrl( '/relative' ) );
-	assert.ok( OO.ui.isSafeUrl( './relative' ) );
-	assert.ok( OO.ui.isSafeUrl( '/wiki/Extra:Colon' ) );
+	assert.strictEqual( OO.ui.isSafeUrl( 'javascript:evil();' ), false );
+	assert.strictEqual( OO.ui.isSafeUrl( 'foo:bar' ), false );
+	assert.strictEqual( OO.ui.isSafeUrl( 'relative.html' ), false );
+	assert.strictEqual( OO.ui.isSafeUrl( '' ), true );
+	assert.strictEqual( OO.ui.isSafeUrl( 'http://example.com/' ), true );
+	assert.strictEqual( OO.ui.isSafeUrl( '//example.com/' ), true );
+	assert.strictEqual( OO.ui.isSafeUrl( '/' ), true );
+	assert.strictEqual( OO.ui.isSafeUrl( '..' ), false );
+	assert.strictEqual( OO.ui.isSafeUrl( '?foo=bar' ), true );
+	assert.strictEqual( OO.ui.isSafeUrl( '#top' ), true );
+	assert.strictEqual( OO.ui.isSafeUrl( '/relative' ), true );
+	assert.strictEqual( OO.ui.isSafeUrl( './relative' ), true );
+	assert.strictEqual( OO.ui.isSafeUrl( '/wiki/Extra:Colon' ), true );
 } );
 
 // eslint-disable-next-line qunit/require-expect

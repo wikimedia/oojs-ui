@@ -10,36 +10,43 @@
 			required: false
 		} );
 
-		assert.ok(
+		assert.strictEqual(
 			widget.validateNumber( 0 ),
+			true,
 			'Zero is valid as an integer.'
 		);
 
-		assert.ok(
+		assert.strictEqual(
 			widget.validateNumber( 5 ),
+			true,
 			'Integer within range is valid.'
 		);
-		assert.ok(
-			!widget.validateNumber( 2.5 ),
+		assert.strictEqual(
+			widget.validateNumber( 2.5 ),
+			false,
 			'Non-integer within range is invalid when allowInteger:true.'
 		);
-		assert.ok(
-			!widget.validateNumber( 11 ),
+		assert.strictEqual(
+			widget.validateNumber( 11 ),
+			false,
 			'Integer larger than the range is invalid.'
 		);
-		assert.ok(
-			!widget.validateNumber( -11 ),
+		assert.strictEqual(
+			widget.validateNumber( -11 ),
+			false,
 			'Integer smaller than the range is invalid.'
 		);
 
-		assert.ok(
+		assert.strictEqual(
 			widget.validateNumber( '' ),
+			true,
 			'Empty value is valid when required:false'
 		);
 
 		widget.setRequired( true );
-		assert.ok(
-			!widget.validateNumber( '' ),
+		assert.strictEqual(
+			widget.validateNumber( '' ),
+			false,
 			'Empty value is invalid when required:true'
 		);
 	} );
