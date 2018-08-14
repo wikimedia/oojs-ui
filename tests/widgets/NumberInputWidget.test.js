@@ -61,16 +61,16 @@
 		} );
 
 		widget.adjustValue( 1 );
-		assert.equal(
+		assert.strictEqual(
 			widget.getValue(),
-			1,
+			'1',
 			'Adjusting value by 1 to an initial value (0) is 1'
 		);
 
 		widget.adjustValue( 0.5 );
-		assert.equal(
+		assert.strictEqual(
 			widget.getValue(),
-			1.5,
+			'1.5',
 			'Adjusting value by 0.5 outputs correct result'
 		);
 
@@ -78,18 +78,18 @@
 		widget.setValue( 1 );
 
 		widget.adjustValue( 0.5 );
-		assert.equal(
+		assert.strictEqual(
 			widget.getValue(),
-			2,
+			'2',
 			'Adjusting value by 0.5 for integer-only, rounds up the increment'
 		);
 
 		widget.setValue( 1 );
 		widget.adjustValue( 1.3 );
 
-		assert.equal(
+		assert.strictEqual(
 			widget.getValue(),
-			2,
+			'2',
 			'Adjusting value by 0.3 for integer-only, rounds down the increment'
 		);
 	} );
