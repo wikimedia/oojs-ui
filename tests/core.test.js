@@ -20,6 +20,7 @@ QUnit.test( 'isSafeUrl', function ( assert ) {
 	assert.ok( OO.ui.isSafeUrl( '/wiki/Extra:Colon' ) );
 } );
 
+// eslint-disable-next-line qunit/require-expect
 QUnit.test( 'isFocusableElement', function ( assert ) {
 	var i, $html, result,
 		cases = [
@@ -84,7 +85,6 @@ QUnit.test( 'isFocusableElement', function ( assert ) {
 				expected: true
 			}
 		];
-
 	assert.expect( cases.length );
 	for ( i = 0; i < cases.length; i++ ) {
 		$html = $( cases[ i ].html ).appendTo( 'body' );
