@@ -6,8 +6,7 @@
     "env": {
         "browser": true,
         "node": true,
-        "jquery": true,
-        "qunit": true
+        "jquery": true
     },
     "globals": {
         "OO": false
