@@ -18,6 +18,7 @@ QUnit.module( 'JSPHP' );
 	}
 
 	function makeTest( theme, klassName, infuseOnly, tests, output ) {
+		// eslint-disable-next-line qunit/require-expect
 		QUnit.test( theme + ': ' + klassName, function ( assert ) {
 			var test, config, instance, infused, $fromPhp, i, testName;
 

@@ -10,8 +10,6 @@
 			required: false
 		} );
 
-		assert.expect( 7 );
-
 		assert.ok(
 			widget.validateNumber( 0 ),
 			'Zero is valid as an integer.'
@@ -54,8 +52,6 @@
 			step: 1,
 			required: false
 		} );
-
-		assert.expect( 4 );
 
 		widget.adjustValue( 1 );
 		assert.equal(
