@@ -95,17 +95,6 @@
 			padding-top: 0;
 			padding-bottom: 0;
 			padding-left: @padding-start-fieldlayout-label; // ≈`6px` is not aligned to M101 design guideline, as checkbox and radio sizes aren't either
-			text-indent: -@padding-start-fieldlayout-label;
-
-			> * {
-				// This property is inherited, we don't want it to apply to the help button
-				text-indent: 0;
-			}
-
-			// Avoid an unclickable gap between the widget and the label (T178456)
-			> .oo-ui-labelElement-label {
-				padding-left: @padding-start-fieldlayout-label;
-			}
 		}
 	}
 
