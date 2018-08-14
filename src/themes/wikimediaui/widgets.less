@@ -163,10 +163,10 @@
 		color: @color-base;
 		padding-right: @padding-end-tagitem-close;
 		.oo-ui-transition(
-			background-color @transition-ease-quick,
-			color @transition-ease-quick,
-			border-color @transition-ease-quick,
-			box-shadow @transition-ease-quick
+			background-color @transition-base,
+			color @transition-base,
+			border-color @transition-base,
+			box-shadow @transition-base
 		);
 
 		&:hover {
@@ -195,7 +195,7 @@
 			padding-top: @size-button-tagitem-close;
 			padding-left: @size-button-tagitem-close;
 			.oo-ui-transition(
-				background-color @transition-ease-quick
+				background-color @transition-base
 			);
 
 			&:hover {
@@ -396,9 +396,9 @@
 		& + span {
 			cursor: pointer;
 			.oo-ui-transition(
-				background-color @transition-ease-quick,
-				border-color @transition-ease-quick,
-				box-shadow @transition-ease-quick
+				background-color @transition-base,
+				border-color @transition-base,
+				box-shadow @transition-base
 			);
 		}
 
@@ -561,7 +561,7 @@
 		.oo-ui-indicatorElement-indicator {
 			opacity: @opacity-icon-base;
 			.oo-ui-transition(
-				opacity @transition-ease-quick
+				opacity @transition-base
 			);
 		}
 	}
@@ -611,9 +611,9 @@
 		background-color: @background-color-framed;
 		color: @color-base;
 		.oo-ui-transition(
-			background-color @transition-ease-quick,
-			border-color @transition-ease-quick,
-			box-shadow @transition-ease-quick
+			background-color @transition-base,
+			border-color @transition-base,
+			box-shadow @transition-base
 		);
 
 		&:hover {
@@ -642,7 +642,7 @@
 		.oo-ui-indicatorElement-indicator {
 			opacity: @opacity-icon-base;
 			.oo-ui-transition(
-				opacity @transition-ease-quick
+				opacity @transition-base
 			);
 		}
 	}
@@ -723,9 +723,9 @@
 			background-color: @background-color-framed;
 			color: @color-base;
 			.oo-ui-transition(
-				background-color @transition-ease-quick,
-				border-color @transition-ease-quick,
-				box-shadow @transition-ease-quick
+				background-color @transition-base,
+				border-color @transition-base,
+				box-shadow @transition-base
 			);
 
 			&:hover {
@@ -795,8 +795,8 @@
 
 .theme-oo-ui-menuOptionWidget () {
 	.oo-ui-transition(
-		background-color @transition-ease-quick,
-		color @transition-ease-quick
+		background-color @transition-base,
+		color @transition-base
 	);
 
 	&-checkIcon {
@@ -930,8 +930,8 @@
 .theme-oo-ui-outlineOptionWidget () {
 	padding: @padding-menu-large;
 	.oo-ui-transition(
-		background-color @transition-ease-quick,
-		color @transition-ease-quick
+		background-color @transition-base,
+		color @transition-base
 	);
 
 	&.oo-ui-optionWidget-highlighted {
@@ -1090,9 +1090,9 @@
 
 	&-transitioning .oo-ui-popupWidget-popup {
 		.oo-ui-transition(
-			width @transition-ease-quick,
-			height @transition-ease-quick,
-			left @transition-ease-quick
+			width @transition-base,
+			height @transition-base,
+			left @transition-base
 		);
 	}
 
@@ -1137,7 +1137,7 @@
 
 	&-bar {
 		height: 1em;
-		.oo-ui-transition( width @transition-ease-quick );
+		.oo-ui-transition( width @transition-base );
 	}
 	&-indeterminate {
 		.oo-ui-progressBarWidget-bar {
@@ -1253,9 +1253,9 @@
 		& + span {
 			cursor: pointer;
 			.oo-ui-transition(
-				background-color @transition-ease-quick,
-				border-color @transition-ease-quick,
-				border-width @transition-ease-quick
+				background-color @transition-base,
+				border-color @transition-base,
+				border-width @transition-base
 			);
 		}
 
@@ -1551,9 +1551,9 @@
 	font-weight: bold;
 	line-height: @line-height-reset;
 	.oo-ui-transition(
-		background-color @transition-ease-quick,
-		color @transition-ease-quick,
-		border-color @transition-ease-quick
+		background-color @transition-base,
+		color @transition-base,
+		border-color @transition-base
 	);
 
 	&.oo-ui-optionWidget-selected {
@@ -1569,7 +1569,7 @@
 		border-bottom: ( 2 * @border-width-base ) @border-style-base transparent;
 		padding: @padding-top-base @padding-horizontal-taboption-label ( @padding-bottom-base - 2 * @size-modifier-border ); // Provide additional `padding` on label itself for special tab focus
 		line-height: @line-height-widget-singleline;
-		.oo-ui-transition( border-color @transition-ease-quick );
+		.oo-ui-transition( border-color @transition-base );
 	}
 
 	&.oo-ui-widget-enabled {
@@ -1615,10 +1615,10 @@
 	&.oo-ui-widget-enabled {
 		color: @color-base;
 		.oo-ui-transition(
-			background-color @transition-ease-quick,
-			color @transition-ease-quick,
-			border-color @transition-ease-quick,
-			box-shadow @transition-ease-quick
+			background-color @transition-base,
+			color @transition-base,
+			border-color @transition-base,
+			box-shadow @transition-base
 		);
 
 		&:hover {
@@ -1665,7 +1665,7 @@
 			padding-top: @size-button-tagitem-close;
 			padding-left: @size-button-tagitem-close;
 			.oo-ui-transition(
-				background-color @transition-ease-quick
+				background-color @transition-base
 			);
 
 			&:hover {
@@ -2038,8 +2038,8 @@
 		border-radius: @size-toggleswitch-grip;
 		.oo-ui-transition(
 			background-color @transition-ease-medium,
-			left @transition-ease-quick,
-			margin-left @transition-ease-quick
+			left @transition-base,
+			margin-left @transition-base
 		);
 	}
 

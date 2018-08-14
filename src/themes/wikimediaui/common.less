@@ -1,4 +1,4 @@
-// Theme variables
+// WikimediaUI theme variables
 
 @ooui-default-image-path: 'themes/wikimediaui/images';
 @ooui-font-size-browser: 16; // assumed browser default of `16px`
@@ -15,30 +15,20 @@
 @color-base--deemphasized: #54595d;
 
 // Primary 'Progressive' and 'Destructive' Colors
-@background-color-progressive: #eaf3ff;
-@background-color-progressive--hover: rgba( 41, 98, 204, 0.1 );
-@color-progressive: #36c; // equals HSB 220°/75%/80%
-@color-progressive--hover: #447ff5; // equals HSB 220°/72%/96%
+@background-color-progressive: @background-color-primary;
+@background-color-progressive--hover: @background-color-primary--hover;
+@color-progressive: @color-primary; // equals HSB 220°/75%/80%
+@color-progressive--hover: @color-primary--hover; // equals HSB 220°/72%/96%
 @color-progressive--active: #2a4b8d; // equals HSB 220°/70%/55%
-@color-progressive--active-hover: @color-progressive;
-@color-progressive--focus: @color-progressive;
+@color-progressive--active-hover: @color-primary;
+@color-progressive--focus: @color-primary--focus;
 
 @color-destructive-non-primary: #d73333; // Exemption for non-primary buttons, foremost used in VE, lightened up R50 to align to AA contrast ratio
 
 // Disabled Widgets
-@background-color-base--disabled: #eaecf0;
-@background-color-filled--disabled: #c8ccd1;
 @opacity-filled--disabled: 1;
 @opacity-indicator--disabled: 0.15; // equals `#c7c8cc` on background-color `#fff`
 @opacity-tool--disabled: 0.34; // equals `#a9a9a9` on background-color `#fff`
-
-// Toolbar, Tools & Menus
-@background-color-toolbar: @background-color-base;
-@background-color-tool--hover: @background-color-base--hover;
-@background-color-tool--active: @background-color-progressive;
-@background-color-tool--active-hover: @background-color-progressive--hover;
-@color-tool--hover: @color-base--emphasized; // Used here in combination with `:hover` background-color turning light grey
-@color-tool--active: @color-progressive;
 
 // Box Sizes
 // `@*size` variables are used for `*width` & `*height` properties
@@ -125,8 +115,6 @@
 
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
 
-@border-style-base: solid;
-
 @padding-base: @padding-top-base @padding-horizontal-base @padding-bottom-base;
 @padding-frameless: @padding-top-base @padding-horizontal-frameless @padding-bottom-base;
 @padding-input-text: @padding-top-base @padding-horizontal-input-text @padding-bottom-base;
@@ -186,13 +174,6 @@
 @line-height-label: 20 / @ooui-font-size-browser / @ooui-font-size-base;
 @line-height-widget-multiline: 1.286; // equals `18px` at base `font-size: 14px;
 @line-height-widget-singleline: 15 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.172em`≈`15px`; Firefox needs a value, Chrome the unit;
-
-// Transition variables
-// Some of these values are duplicated in OO.ui.WikimediaUITheme
-@transition-ease-quick: 100ms; // `ease` is the initial value
-@transition-ease-medium: 250ms;
-// `ease-out` is preferably used on human initiated transitions, for example dialogs
-@transition-ease-out-medium: ease-out 250ms;
 
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
 @background-color-input-binary--active: @color-progressive--active;
