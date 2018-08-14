@@ -1213,7 +1213,7 @@
 * MediaWiki theme: Fix RTL version of largerText icon to be, well, RTL (James D. Forrester)
 * MediaWiki theme: Fix direction of shadow on position:bottom toolbars (Ed Sanders)
 * MediaWiki theme: Use correct `border-color` on PopupWidget anchor (Volker E)
-* Mediawiki theme: Fix focus inset to overlap scrollbars (Volker E)
+* MediaWiki theme: Fix focus inset to overlap scrollbars (Volker E)
 * icons: Provide a 'halfStar' vertical split star (codynguyen1116)
 
 ### Code
@@ -1938,7 +1938,7 @@
 * SelectWidget: Really prevent default action during type-to-select (Bartosz Dziewoński)
 * Put '@keyframes' rules inside a mixin to avoid duplicating them (Bartosz Dziewoński)
 * Apex theme: Remove unnecessary '@keyframes' prefixing (Bartosz Dziewoński)
-* Mediawiki theme: Align button mixins/states to CSS guidelines/standard (Volker E)
+* MediaWiki theme: Align button mixins/states to CSS guidelines/standard (Volker E)
 * Correct code using plain DOM events documented as jQuery events (Bartosz Dziewoński)
 * demo: Add a long DropdownInputWidget demo (Bartosz Dziewoński)
 * demo: In PHP demo, load oojs-ui-core only instead of whole oojs-ui (Bartosz Dziewoński)
