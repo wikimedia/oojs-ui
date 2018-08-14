@@ -480,10 +480,7 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 			// Groups without name are deprecated
 			OO.ui.warnDeprecation( 'Toolgroups must have a \'name\' property' );
 		}
-		// Currently only PopupToolGroups can be active.
-		if ( toolGroup instanceof OO.ui.PopupToolGroup ) {
-			toolGroup.connect( this, { active: 'onToolGroupActive' } );
-		}
+		toolGroup.connect( this, { active: 'onToolGroupActive' } );
 	}
 	this.addItems( items );
 };
