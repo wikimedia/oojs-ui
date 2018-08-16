@@ -507,7 +507,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		overflowTools: [
 			[ 'meta', 'window', 'Options' ],
 			[ 'categories', 'image', 'Categories' ],
-			[ 'settings', 'settings', 'Page settings' ],
+			[ 'settings', 'pageSettings', 'Page settings' ],
 			[ 'advanced', 'advanced', 'Advanced settings' ],
 			[ 'textLanguage', 'language', 'Languages' ],
 			[ 'templatesUsed', 'puzzle', 'Templates used' ],
