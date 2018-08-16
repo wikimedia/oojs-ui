@@ -26,7 +26,7 @@ Tutorials.Toolbar = function ( config ) {
 		label: 'Docs',
 		classes: [ 'tutorials-toolbar-docs' ],
 		icon: 'journal',
-		href: baseUrl + 'oojs-ui/master/js',
+		href: baseUrl + 'js/',
 		flags: [ 'progressive' ]
 	} );
 
