@@ -457,7 +457,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 			[ 'media', 'image', 'First basic tool in list' ],
 			[ 'template', 'puzzle', 'Template' ],
 			[ 'table', 'table', 'Table' ],
-			[ 'comment', 'comment', 'Comment' ],
+			[ 'speechBubble', 'comment', 'Comment' ],
 			[ 'hieroglyphs', 'specialCharacter', 'Hieroglyphs' ],
 			[ 'score', 'specialCharacter', 'Musical notation' ],
 			[ 'signature', 'signature', 'Your signature' ],
