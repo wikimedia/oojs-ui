@@ -459,15 +459,15 @@ Demo.static.pages.toolbars = function ( demo ) {
 			[ 'template', 'puzzle', 'Template' ],
 			[ 'table', 'table', 'Table' ],
 			[ 'comment', 'speechBubble', 'Comment' ],
-			[ 'hieroglyphs', 'specialCharacter', 'Hieroglyphs' ],
-			[ 'score', 'specialCharacter', 'Musical notation' ],
+			[ 'hieroglyphs', null, 'Hieroglyphs' ],
+			[ 'score', null, 'Musical notation' ],
 			[ 'signature', 'signature', 'Your signature' ],
 			[ 'gallery', 'imageGallery', 'Gallery' ],
-			[ 'chem', 'specialCharacter', 'Chemical formula' ],
-			[ 'math', 'specialCharacter', 'Math formula' ],
+			[ 'chem', null, 'Chemical formula' ],
+			[ 'math', null, 'Math formula' ],
 			[ 'syntaxHighlightDialog', 'markup', 'Code block' ],
-			[ 'graph', 'specialCharacter', 'Graph' ],
-			[ 'referencesList', 'specialCharacter', 'References list' ]
+			[ 'graph', null, 'Graph' ],
+			[ 'referencesList', null, 'References list' ]
 		],
 
 		link: [
