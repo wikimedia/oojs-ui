@@ -42,7 +42,6 @@ Demo.static.pages.icons = function ( demo ) {
 			],
 			interactions: [
 				'add',
-				'advanced',
 				'browser',
 				'cancel',
 				'check',
@@ -64,6 +63,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'printer',
 				'reload',
 				'search',
+				'settings',
 				'subtract'
 			],
 			moderation: [
