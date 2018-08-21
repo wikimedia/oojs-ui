@@ -415,6 +415,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 
 	// ToolGroups definition, in alphabetical/disabledAlphabetical order
 	toolGroups = {
+		// Parameters like in createTool() function above (starting with 'name')
 		barTools: [
 			[ 'barTool', 'image', 'Basic tool in bar' ],
 			[ 'disabledBarTool', 'image', 'Basic tool in bar disabled', setDisabled ]
@@ -457,7 +458,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 			[ 'media', 'image', 'First basic tool in list' ],
 			[ 'template', 'puzzle', 'Template' ],
 			[ 'table', 'table', 'Table' ],
-			[ 'speechBubble', 'comment', 'Comment' ],
+			[ 'comment', 'speechBubble', 'Comment' ],
 			[ 'hieroglyphs', 'specialCharacter', 'Hieroglyphs' ],
 			[ 'score', 'specialCharacter', 'Musical notation' ],
 			[ 'signature', 'signature', 'Your signature' ],
