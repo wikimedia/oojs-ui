@@ -14,7 +14,7 @@
  *     SettingsTool.static.name = 'settings';
  *     SettingsTool.static.title = 'Change settings';
  *     SettingsTool.static.groupConfig = {
- *         icon: 'advanced',
+ *         icon: 'settings',
  *         label: 'ToolGroupTool',
  *         include: [  'setting1', 'setting2'  ]
  *     };

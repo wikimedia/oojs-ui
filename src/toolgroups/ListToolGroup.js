@@ -25,7 +25,7 @@
  *     }
  *     OO.inheritClass( SettingsTool, OO.ui.Tool );
  *     SettingsTool.static.name = 'settings';
- *     SettingsTool.static.icon = 'advanced';
+ *     SettingsTool.static.icon = 'settings';
  *     SettingsTool.static.title = 'Change settings';
  *     SettingsTool.prototype.onSelect = function () {
  *         this.setActive( false );
