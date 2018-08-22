@@ -62,7 +62,7 @@
 			"file": {
 				"default": "images/icons/info.svg",
 				"lang": {
-					"ar,fa": "images/icons/lightbulb.svg"
+					"ar": "images/icons/lightbulb.svg"
 				}
 			}
 		},

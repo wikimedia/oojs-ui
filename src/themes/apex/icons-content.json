@@ -45,7 +45,7 @@
 			"file": {
 				"default": "../wikimediaui/images/icons/info.svg",
 				"lang": {
-					"ar,fa": "../wikimediaui/images/icons/lightbulb.svg"
+					"ar": "../wikimediaui/images/icons/lightbulb.svg"
 				}
 			}
 		},
