@@ -553,15 +553,13 @@ OO.ui.Window.prototype.onFocusTrapFocused = function ( event ) {
 /**
  * Open the window.
  *
- * This method is a wrapper around a call to the window manager’s {@link OO.ui.WindowManager#openWindow openWindow}
- * method, which returns a promise resolved when the window is done opening.
+ * This method is a wrapper around a call to the window
+ * manager’s {@link OO.ui.WindowManager#openWindow openWindow} method.
  *
  * To customize the window each time it opens, use #getSetupProcess or #getReadyProcess.
  *
  * @param {Object} [data] Window opening data
- * @return {jQuery.Promise} Promise resolved with a value when the window is opened, or rejected
- *  if the window fails to open. When the promise is resolved successfully, the first argument of the
- *  value is a new promise, which is resolved when the window begins closing.
+ * @return {OO.ui.WindowInstance} See OO.ui.WindowManager#openWindow
  * @throws {Error} An error is thrown if the window is not attached to a window manager
  */
 OO.ui.Window.prototype.open = function ( data ) {
@@ -576,15 +574,14 @@ OO.ui.Window.prototype.open = function ( data ) {
  * Close the window.
  *
  * This method is a wrapper around a call to the window
- * manager’s {@link OO.ui.WindowManager#closeWindow closeWindow} method,
- * which returns a closing promise resolved when the window is done closing.
+ * manager’s {@link OO.ui.WindowManager#closeWindow closeWindow} method.
  *
  * The window's #getHoldProcess and #getTeardownProcess methods are called during the closing
  * phase of the window’s lifecycle and can be used to specify closing behavior each time
  * the window closes.
  *
  * @param {Object} [data] Window closing data
- * @return {jQuery.Promise} Promise resolved when window is closed
+ * @return {OO.ui.WindowInstance} See OO.ui.WindowManager#closeWindow
  * @throws {Error} An error is thrown if the window is not attached to a window manager
  */
 OO.ui.Window.prototype.close = function ( data ) {

@@ -349,7 +349,7 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  * @param {Object} [data] Window opening data
  * @param {jQuery|null} [data.$returnFocusTo] Element to which the window will return focus when closed.
  *  Defaults the current activeElement. If set to null, focus isn't changed on close.
- * @return {OO.ui.WindowInstance|jQuery.Promise} A lifecycle object representing this particular
+ * @return {OO.ui.WindowInstance} A lifecycle object representing this particular
  *  opening of the window. For backwards-compatibility, then object is also a Thenable that is resolved
  *  when the window is done opening, with nested promise for when closing starts. This behaviour
  *  is deprecated and is not compatible with jQuery 3. See T163510.
@@ -452,7 +452,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
  *
  * @param {OO.ui.Window|string} win Window object or symbolic name of window to close
  * @param {Object} [data] Window closing data
- * @return {OO.ui.WindowInstance|jQuery.Promise} A lifecycle object representing this particular
+ * @return {OO.ui.WindowInstance} A lifecycle object representing this particular
  *  opening of the window. For backwards-compatibility, the object is also a Thenable that is resolved
  *  when the window is done closing, see T163510.
  * @fires closing
