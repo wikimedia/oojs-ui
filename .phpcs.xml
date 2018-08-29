@@ -14,10 +14,12 @@
 	<file>.</file>
 	<arg name="encoding" value="UTF-8"/>
 	<arg name="extensions" value="php"/>
-	<exclude-pattern>build</exclude-pattern>
-	<exclude-pattern>coverage</exclude-pattern>
-	<exclude-pattern>vendor</exclude-pattern>
-	<exclude-pattern>demos/php</exclude-pattern>
+	<exclude-pattern>.git/*</exclude-pattern>
+	<exclude-pattern>build/*</exclude-pattern>
+	<exclude-pattern>coverage/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>demos/php/*</exclude-pattern>
 	<!-- Allow superglobals in entry points -->
 	<rule ref="MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals">
 		<exclude-pattern>*/demos/demos.php</exclude-pattern>
