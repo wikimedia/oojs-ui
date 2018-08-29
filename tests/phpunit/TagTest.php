@@ -29,6 +29,48 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
+	 * @covers Tag::appendContent
+	 * @covers Tag::prependContent
+	 * @covers Tag::clearContent
+	 */
+	public function testContent() {
+		$content = new \ReflectionProperty( 'OOUI\Tag', 'content' );
+		$content->setAccessible( true );
+		$tag = ( new Tag() );
+
+		$tag->appendContent( 'a' );
+		$this->assertEquals( [ 'a' ], $content->getValue( $tag ) );
+		$tag->clearContent();
+		$this->assertEquals( [], $content->getValue( $tag ) );
+
+		$tag->appendContent( [ 'a', 'b' ] );
+		$this->assertEquals( [ 'a', 'b' ], $content->getValue( $tag ) );
+		$tag->clearContent();
+
+		$tag->appendContent( 'a', 'b' );
+		$this->assertEquals( [ 'a', 'b' ], $content->getValue( $tag ) );
+		$tag->clearContent();
+
+		$tag->appendContent( 'a' );
+		$tag->appendContent( 'b' );
+		$this->assertEquals( [ 'a', 'b' ], $content->getValue( $tag ) );
+		$tag->clearContent();
+
+		$tag->prependContent( [ 'a', 'b' ] );
+		$this->assertEquals( [ 'a', 'b' ], $content->getValue( $tag ) );
+		$tag->clearContent();
+
+		$tag->prependContent( 'a', 'b' );
+		$this->assertEquals( [ 'a', 'b' ], $content->getValue( $tag ) );
+		$tag->clearContent();
+
+		$tag->prependContent( 'a' );
+		$tag->prependContent( 'b' );
+		$this->assertEquals( [ 'b', 'a' ], $content->getValue( $tag ) );
+		$tag->clearContent();
+	}
+
+	/**
 	 * @covers Tag::setAttributes
 	 * @covers Tag::getAttribute
 	 * @covers Tag::removeAttributes
