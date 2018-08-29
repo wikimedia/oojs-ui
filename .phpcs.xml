@@ -8,8 +8,6 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
 		<!-- Together with the above, false positives in WikimediaUITheme.php and others -->
 		<exclude name="MediaWiki.Commenting.FunctionComment.WrongStyle" />
-		<!-- False positive for variadic arguments syntax in Tag.php -->
-		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 	</rule>
 	<file>.</file>
 	<arg name="encoding" value="UTF-8"/>

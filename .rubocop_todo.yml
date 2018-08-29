@@ -19,7 +19,7 @@ Lint/EmptyWhen:
 # Offense count: 4
 # Configuration parameters: CountComments, ExcludedMethods.
 Metrics/BlockLength:
-  Max: 188
+  Max: 999
 
 # Offense count: 2
 # Configuration parameters: ExpectMatchingDefinition, Regex, IgnoreExecutableScripts, AllowedAcronyms.
