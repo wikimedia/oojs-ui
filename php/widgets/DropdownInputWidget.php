@@ -24,7 +24,7 @@ class DropdownInputWidget extends InputWidget {
 		parent::__construct( $config );
 
 		// Initialization
-		$this->setOptions( isset( $config['options'] ) ? $config['options'] : [] );
+		$this->setOptions( $config['options'] ?? [] );
 		$this->addClasses( [ 'oo-ui-dropdownInputWidget', 'oo-ui-dropdownInputWidget-php' ] );
 		$this->input->addClasses( [ 'oo-ui-indicator-down' ] );
 	}
@@ -65,7 +65,7 @@ class DropdownInputWidget extends InputWidget {
 				$optValue = $this->cleanUpValue( $opt['data'] );
 				$option = ( new Tag( 'option' ) )
 					->setAttributes( [ 'value' => $optValue ] )
-					->appendContent( isset( $opt['label'] ) ? $opt['label'] : $optValue );
+					->appendContent( $opt['label'] ?? $optValue );
 
 				if ( $value === $optValue ) {
 					$isValueAvailable = true;

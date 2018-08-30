@@ -43,9 +43,9 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 		}
 
 		// Initialization
-		$this->setOptions( isset( $config['options'] ) ? $config['options'] : [] );
+		$this->setOptions( $config['options'] ?? [] );
 		// Have to repeat this from parent, as we need options to be set up for this to make sense
-		$this->setValue( isset( $config['value'] ) ? $config['value'] : null );
+		$this->setValue( $config['value'] ?? null );
 		$this->addClasses( [ 'oo-ui-checkboxMultiselectInputWidget' ] );
 	}
 
@@ -110,7 +110,7 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 		$name = $this->name;
 		foreach ( $options as $opt ) {
 			$optValue = parent::cleanUpValue( $opt['data'] );
-			$optDisabled = isset( $opt['disabled'] ) ? $opt['disabled'] : false;
+			$optDisabled = $opt['disabled'] ?? false;
 			$field = new FieldLayout(
 				new CheckboxInputWidget( [
 					'name' => $name,
@@ -118,7 +118,7 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 					'disabled' => $this->isDisabled() || $optDisabled,
 				] ),
 				[
-					'label' => isset( $opt['label'] ) ? $opt['label'] : $optValue,
+					'label' => $opt['label'] ?? $optValue,
 					'align' => 'inline',
 				]
 			);

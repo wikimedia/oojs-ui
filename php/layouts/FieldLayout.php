@@ -88,13 +88,13 @@ class FieldLayout extends Layout {
 
 		// Properties
 		$this->fieldWidget = $fieldWidget;
-		$this->errors = isset( $config['errors'] ) ? $config['errors'] : [];
-		$this->notices = isset( $config['notices'] ) ? $config['notices'] : [];
+		$this->errors = $config['errors'] ?? [];
+		$this->notices = $config['notices'] ?? [];
 		$this->field = $this->isFieldInline() ? new Tag( 'span' ) : new Tag( 'div' );
 		$this->messages = new Tag( 'ul' );
 		$this->header = new Tag( 'span' );
 		$this->body = new Tag( 'div' );
-		$this->helpText = isset( $config['help'] ) ? $config['help'] : '';
+		$this->helpText = $config['help'] ?? '';
 		$this->helpInline = $config['helpInline'];
 
 		// Traits

@@ -40,7 +40,7 @@ class CheckboxInputWidget extends InputWidget {
 		$this->addClasses( [ 'oo-ui-checkboxInputWidget' ] );
 		// Required for pretty styling in WikimediaUI theme
 		$this->appendContent( $this->checkIcon );
-		$this->setSelected( isset( $config['selected'] ) ? $config['selected'] : false );
+		$this->setSelected( $config['selected'] ?? false );
 	}
 
 	protected function getInputElement( $config ) {

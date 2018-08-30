@@ -82,10 +82,10 @@ class ButtonWidget extends Widget {
 			->addClasses( [ 'oo-ui-buttonWidget' ] )
 			->appendContent( $this->button );
 
-		$this->setActive( isset( $config['active'] ) ? $config['active'] : false );
-		$this->setHref( isset( $config['href'] ) ? $config['href'] : null );
-		$this->setTarget( isset( $config['target'] ) ? $config['target'] : null );
-		$this->setNoFollow( isset( $config['noFollow'] ) ? $config['noFollow'] : true );
+		$this->setActive( $config['active'] ?? false );
+		$this->setHref( $config['href'] ?? null );
+		$this->setTarget( $config['target'] ?? null );
+		$this->setNoFollow( $config['noFollow'] ?? true );
 	}
 
 	/**

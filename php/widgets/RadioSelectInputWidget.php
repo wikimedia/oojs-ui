@@ -36,7 +36,7 @@ class RadioSelectInputWidget extends InputWidget {
 		}
 
 		// Initialization
-		$this->setOptions( isset( $config['options'] ) ? $config['options'] : [] );
+		$this->setOptions( $config['options'] ?? [] );
 		$this->addClasses( [ 'oo-ui-radioSelectInputWidget' ] );
 	}
 
@@ -79,7 +79,7 @@ class RadioSelectInputWidget extends InputWidget {
 					'disabled' => $this->isDisabled(),
 				] ),
 				[
-					'label' => isset( $opt['label'] ) ? $opt['label'] : $optValue,
+					'label' => $opt['label'] ?? $optValue,
 					'align' => 'inline',
 				]
 			);
