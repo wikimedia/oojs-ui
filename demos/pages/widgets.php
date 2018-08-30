@@ -5,7 +5,7 @@ if ( !defined( 'OOUI_DEMOS' ) ) {
 }
 
 $loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, " .
-	"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\xE2\x80\x8E";
+	"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u{200E}";
 
 $demoContainer = new OOUI\PanelLayout( [
 	'expanded' => false,
@@ -23,7 +23,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [ 'label' => 'Normal' ] ),
 			[
-				'label' => "ButtonWidget (normal)\xE2\x80\x8E",
+				'label' => "ButtonWidget (normal)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -33,7 +33,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'flags' => [ 'progressive' ]
 			] ),
 			[
-				'label' => "ButtonWidget (progressive)\xE2\x80\x8E",
+				'label' => "ButtonWidget (progressive)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -43,7 +43,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'flags' => [ 'destructive' ]
 			] ),
 			[
-				'label' => "ButtonWidget (destructive)\xE2\x80\x8E",
+				'label' => "ButtonWidget (destructive)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -53,7 +53,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'flags' => [ 'primary', 'progressive' ]
 			] ),
 			[
-				'label' => "ButtonWidget (primary, progressive)\xE2\x80\x8E",
+				'label' => "ButtonWidget (primary, progressive)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -63,7 +63,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'flags' => [ 'primary', 'destructive' ]
 			] ),
 			[
-				'label' => "ButtonWidget (primary, destructive)\xE2\x80\x8E",
+				'label' => "ButtonWidget (primary, destructive)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -73,7 +73,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'disabled' => true
 			] ),
 			[
-				'label' => "ButtonWidget (disabled)\xE2\x80\x8E",
+				'label' => "ButtonWidget (disabled)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -85,7 +85,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'disabled' => true
 			] ),
 			[
-				'label' => "ButtonWidget (progressive, icon, disabled)\xE2\x80\x8E",
+				'label' => "ButtonWidget (progressive, icon, disabled)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -95,7 +95,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'icon' => 'tag'
 			] ),
 			[
-				'label' => "ButtonWidget (icon)\xE2\x80\x8E",
+				'label' => "ButtonWidget (icon)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -106,7 +106,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'flags' => [ 'progressive' ]
 			] ),
 			[
-				'label' => "ButtonWidget (icon, progressive)\xE2\x80\x8E",
+				'label' => "ButtonWidget (icon, progressive)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -116,7 +116,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'indicator' => 'down'
 			] ),
 			[
-				'label' => "ButtonWidget (indicator)\xE2\x80\x8E",
+				'label' => "ButtonWidget (indicator)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -127,7 +127,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'flags' => [ 'progressive' ]
 			] ),
 			[
-				'label' => "ButtonWidget (indicator, progressive)\xE2\x80\x8E",
+				'label' => "ButtonWidget (indicator, progressive)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -138,7 +138,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'title' => 'Icon only'
 			] ),
 			[
-				'label' => "ButtonWidget (frameless, icon only)\xE2\x80\x8E",
+				'label' => "ButtonWidget (frameless, icon only)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -149,7 +149,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'label' => 'Labeled'
 			] ),
 			[
-				'label' => "ButtonWidget (frameless)\xE2\x80\x8E",
+				'label' => "ButtonWidget (frameless)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -161,7 +161,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'label' => 'Progressive'
 			] ),
 			[
-				'label' => "ButtonWidget (frameless, progressive)\xE2\x80\x8E",
+				'label' => "ButtonWidget (frameless, progressive)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -173,7 +173,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'label' => 'Destructive'
 			] ),
 			[
-				'label' => "ButtonWidget (frameless, destructive)\xE2\x80\x8E",
+				'label' => "ButtonWidget (frameless, destructive)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -184,7 +184,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'label' => 'Cancel'
 			] ),
 			[
-				'label' => "ButtonWidget (frameless, label-only, destructive)\xE2\x80\x8E",
+				'label' => "ButtonWidget (frameless, label-only, destructive)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -196,7 +196,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'disabled' => true
 			] ),
 			[
-				'label' => "ButtonWidget (frameless, disabled)\xE2\x80\x8E",
+				'label' => "ButtonWidget (frameless, disabled)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -209,7 +209,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'align' => 'top',
-				'label' => "ButtonInputWidget (using <input>)\xE2\x80\x8E"
+				'label' => "ButtonInputWidget (using <input>)\u{200E}"
 			]
 		),
 		new OOUI\FieldLayout(
@@ -219,7 +219,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'align' => 'top',
-				'label' => "ButtonInputWidget (using <button>)\xE2\x80\x8E"
+				'label' => "ButtonInputWidget (using <button>)\u{200E}"
 			]
 		),
 		new OOUI\FieldLayout(
@@ -230,7 +230,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'align' => 'top',
-				'label' => "ButtonInputWidget (frameless)\xE2\x80\x8E"
+				'label' => "ButtonInputWidget (frameless)\u{200E}"
 			]
 		),
 		new OOUI\FieldLayout(
@@ -242,7 +242,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'align' => 'top',
-				'label' => "ButtonInputWidget (frameless, using <input>)\xE2\x80\x8E"
+				'label' => "ButtonInputWidget (frameless, using <input>)\u{200E}"
 			]
 		),
 		new OOUI\FieldLayout(
@@ -251,7 +251,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'accessKey' => 'g'
 			] ),
 			[
-				'label' => "ButtonWidget (with accesskey)\xE2\x80\x8E",
+				'label' => "ButtonWidget (with accesskey)\u{200E}",
 				'align' => 'top',
 				'help' => new OOUI\HtmlSnippet( 'Notice: Using `accesskey` might ' .
 					'<a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank">' .
@@ -265,7 +265,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'accessKey' => 'h'
 			] ),
 			[
-				'label' => "ButtonInputWidget (with accesskey and title)\xE2\x80\x8E",
+				'label' => "ButtonInputWidget (with accesskey and title)\u{200E}",
 				'align' => 'top',
 			]
 		)
@@ -323,14 +323,14 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget( [ 'value' => 'Text input' ] ),
 			[
-				'label' => "TextInputWidget\xE2\x80\x8E",
+				'label' => "TextInputWidget\u{200E}",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget( [ 'icon' => 'help' ] ),
 			[
-				'label' => "TextInputWidget (icon)\xE2\x80\x8E",
+				'label' => "TextInputWidget (icon)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -339,14 +339,14 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'required' => true
 			] ),
 			[
-				'label' => "TextInputWidget (required)\xE2\x80\x8E",
+				'label' => "TextInputWidget (required)\u{200E}",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget( [ 'placeholder' => 'Placeholder' ] ),
 			[
-				'label' => "TextInputWidget (placeholder)\xE2\x80\x8E",
+				'label' => "TextInputWidget (placeholder)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -356,14 +356,14 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'title' => 'Title attribute with more information about me.'
 			] ),
 			[
-				'label' => "TextInputWidget (with title)\xE2\x80\x8E",
+				'label' => "TextInputWidget (with title)\u{200E}",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget( [ 'type' => 'search' ] ),
 			[
-				'label' => "TextInputWidget (type=search)\xE2\x80\x8E",
+				'label' => "TextInputWidget (type=search)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -380,7 +380,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'accessKey' => 's'
 			] ),
 			[
-				'label' => "TextInputWidget (with accesskey)\xE2\x80\x8E",
+				'label' => "TextInputWidget (with accesskey)\u{200E}",
 				'align' => 'top',
 				'help' => new OOUI\HtmlSnippet( 'Notice: Using `accesskey` might ' .
 					'<a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank">' .
@@ -393,7 +393,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'readOnly' => true
 			] ),
 			[
-				'label' => "TextInputWidget (readonly)\xE2\x80\x8E",
+				'label' => "TextInputWidget (readonly)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -403,7 +403,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'disabled' => true
 			] ),
 			[
-				'label' => "TextInputWidget (disabled)\xE2\x80\x8E",
+				'label' => "TextInputWidget (disabled)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -412,7 +412,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'value' => "Multiline\nMultiline"
 			] ),
 			[
-				'label' => "MultilineTextInputWidget \xE2\x80\x8E",
+				'label' => "MultilineTextInputWidget \u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -422,7 +422,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'value' => "Multiline\nMultiline"
 			] ),
 			[
-				'label' => "MultilineTextInputWidget (rows=15)\xE2\x80\x8E",
+				'label' => "MultilineTextInputWidget (rows=15)\u{200E}",
 				'align' => 'top'
 			]
 		),
@@ -433,42 +433,42 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'indicator' => 'required'
 			] ),
 			[
-				'label' => "MultilineTextInputWidget (icon, indicator)\xE2\x80\x8E",
+				'label' => "MultilineTextInputWidget (icon, indicator)\u{200E}",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
 			new OOUI\NumberInputWidget(),
 			[
-				'label' => "NumberInputWidget\xE2\x80\x8E",
+				'label' => "NumberInputWidget\u{200E}",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
 			new OOUI\NumberInputWidget( [ 'disabled' => true ] ),
 			[
-				'label' => "NumberInputWidget (disabled)\xE2\x80\x8E",
+				'label' => "NumberInputWidget (disabled)\u{200E}",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
 			new OOUI\NumberInputWidget( [ 'min' => 0, 'max' => 5, 'step' => 1 ] ),
 			[
-				'label' => "NumberInputWidget (1-5, ints only)\xE2\x80\x8E",
+				'label' => "NumberInputWidget (1-5, ints only)\u{200E}",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
 			new OOUI\NumberInputWidget( [ 'min' => -1, 'max' => 1, 'step' => 0.1, 'pageStep' => 0.5 ] ),
 			[
-				'label' => "NumberInputWidget (-1–1, step by .1, page by .5)\xE2\x80\x8E",
+				'label' => "NumberInputWidget (-1–1, step by .1, page by .5)\u{200E}",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
 			new OOUI\NumberInputWidget( [ 'showButtons' => false ] ),
 			[
-				'label' => "NumberInputWidget (no buttons)\xE2\x80\x8E",
+				'label' => "NumberInputWidget (no buttons)\u{200E}",
 				'align' => 'top'
 			]
 		)
@@ -496,7 +496,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'align' => 'inline',
-				'label' => "CheckboxInputWidget (disabled)\xE2\x80\x8E"
+				'label' => "CheckboxInputWidget (disabled)\u{200E}"
 			]
 		),
 		new OOUI\FieldLayout(
@@ -506,7 +506,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'align' => 'inline',
-				'label' => "CheckboxInputWidget (with accesskey T and title)\xE2\x80\x8E",
+				'label' => "CheckboxInputWidget (with accesskey T and title)\u{200E}",
 				'title' => 'Access key is added to the title.',
 			]
 		),
@@ -536,7 +536,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'align' => 'inline',
-				'label' => "RadioInputWidget (disabled)\xE2\x80\x8E"
+				'label' => "RadioInputWidget (disabled)\u{200E}"
 			]
 		),
 		new OOUI\FieldLayout(
@@ -572,7 +572,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 					],
 					[
 						'data' => 'dog',
-						'label' => "Dog (disabled)\xE2\x80\x8E",
+						'label' => "Dog (disabled)\u{200E}",
 						'disabled' => true
 					],
 					[
@@ -700,7 +700,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'value' => 'en',
 			] ),
 			[
-				'label' => "DropdownInputWidget (long)\xE2\x80\x8E",
+				'label' => "DropdownInputWidget (long)\u{200E}",
 				'align' => 'top'
 			]
 		)
@@ -739,14 +739,14 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				]
 			] ),
 			[
-				'label' => "ComboBoxInputWidget (disabled)\xE2\x80\x8E",
+				'label' => "ComboBoxInputWidget (disabled)\u{200E}",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
 			new OOUI\ComboBoxInputWidget(),
 			[
-				'label' => "ComboBoxInputWidget (empty)\xE2\x80\x8E",
+				'label' => "ComboBoxInputWidget (empty)\u{200E}",
 				'align' => 'top'
 			]
 		)
