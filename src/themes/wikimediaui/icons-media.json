@@ -19,6 +19,9 @@
 		}
 	},
 	"images": {
+		"chart": {
+			"file": "images/icons/chart.svg"
+		},
 		"exitFullscreen": {
 			"file": "images/icons/exitFullscreen.svg"
 		},
@@ -46,6 +49,9 @@
 		"imageGallery": {
 			"file": "images/icons/imageGallery.svg"
 		},
+		"musicalScore": {
+			"file": "images/icons/musicalScore.svg"
+		},
 		"camera": {
 			"file": "images/icons/camera.svg"
 		},
@@ -57,6 +63,12 @@
 		},
 		"stop": {
 			"file": "images/icons/stop.svg"
+		},
+		"zoomIn": {
+			"file": "images/icons/zoomIn.svg"
+		},
+		"zoomOut": {
+			"file": "images/icons/zoomOut.svg"
 		}
 	}
 }
