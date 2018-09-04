@@ -121,7 +121,6 @@ Demo.static.pages.icons = function ( demo ) {
 				'beaker',
 				'calendar',
 				'code',
-				'find',
 				'hieroglyph',
 				'language',
 				'layout',
