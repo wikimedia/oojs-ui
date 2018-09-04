@@ -164,6 +164,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'references'
 			],
 			media: [
+				'camera',
 				'chart',
 				'fullScreen',
 				'exitFullscreen',

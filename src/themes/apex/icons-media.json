@@ -2,6 +2,9 @@
 	"prefix": "oo-ui-icon",
 	"intro": "@import '../../../../src/styles/common';",
 	"images": {
+		"camera": {
+			"file": "../wikimediaui/images/icons/camera.svg"
+		},
 		"chart": {
 			"file": "../wikimediaui/images/icons/chart.svg"
 		},
@@ -34,9 +37,6 @@
 		},
 		"musicalScore": {
 			"file": "../wikimediaui/images/icons/musicalScore.svg"
-		},
-		"camera": {
-			"file": "../wikimediaui/images/icons/camera.svg"
 		},
 		"pause": {
 			"file": "../wikimediaui/images/icons/pause.svg"

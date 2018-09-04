@@ -19,6 +19,9 @@
 		}
 	},
 	"images": {
+		"camera": {
+			"file": "images/icons/camera.svg"
+		},
 		"chart": {
 			"file": "images/icons/chart.svg"
 		},
@@ -51,9 +54,6 @@
 		},
 		"musicalScore": {
 			"file": "images/icons/musicalScore.svg"
-		},
-		"camera": {
-			"file": "images/icons/camera.svg"
 		},
 		"pause": {
 			"file": "images/icons/pause.svg"
