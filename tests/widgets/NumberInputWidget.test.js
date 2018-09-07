@@ -3,7 +3,6 @@
 
 	QUnit.test( 'validate number', function ( assert ) {
 		var widget = new OO.ui.NumberInputWidget( {
-			allowInteger: true,
 			min: -10,
 			max: 10,
 			step: 1,
@@ -24,7 +23,7 @@
 		assert.strictEqual(
 			widget.validateNumber( 2.5 ),
 			false,
-			'Non-integer within range is invalid when allowInteger:true.'
+			'Non-integer within range is invalid when step is 1.'
 		);
 		assert.strictEqual(
 			widget.validateNumber( 11 ),
@@ -53,10 +52,8 @@
 
 	QUnit.test( 'adjust value', function ( assert ) {
 		var widget = new OO.ui.NumberInputWidget( {
-			allowInteger: false,
 			min: -10,
 			max: 10,
-			step: 1,
 			required: false
 		} );
 
@@ -74,7 +71,7 @@
 			'Adjusting value by 0.5 outputs correct result'
 		);
 
-		widget.setAllowInteger( true );
+		widget.setStep( undefined, undefined, 1 );
 		widget.setValue( 1 );
 
 		widget.adjustValue( 0.5 );

@@ -7,8 +7,8 @@ namespace OOUI;
  */
 class NumberInputWidget extends TextInputWidget {
 
+	protected $buttonStep;
 	protected $pageStep;
-	protected $isInteger;
 	protected $showButtons;
 
 	/**
@@ -19,20 +19,18 @@ class NumberInputWidget extends TextInputWidget {
 	 * @param bool $config['readOnly'] Prevent changes (default: false)
 	 * @param number $config['min'] Minimum input allowed
 	 * @param number $config['max'] Maximum input allowed
-	 * @param number $config['step'] Stepping delta (default: 1)
-	 * @param number $config['pageStep'] Stepping delta (page-up and page-down)
-	 * @param number $config['isInteger'] Only integers are allowed
+	 * @param number|null $config['step'] If specified, the field only accepts values that are
+	 *   multiples of this. (default: null)
+	 * @param number $config['buttonStep'] Delta when using the buttons or up/down arrow keys.
+	 *   Defaults to `step` if specified, otherwise `1`.
+	 * @param number $config['pageStep'] Delta when using the page-up/page-down keys.
+	 *   Defaults to 10 times `buttonStep`.
 	 * @param number $config['showButtons'] Show increment and decrement buttons (default: true)
 	 * @param bool $config['required'] Mark the field as required.
 	 *   Implies `indicator: 'required'`. Note that `false` & setting `indicator: 'required'
 	 * @param-taint $config escapes_html
 	 */
 	public function __construct( array $config = [] ) {
-		// Config initialization
-		$config = array_merge( [
-			'step' => 1
-		], $config );
-
 		$config['type'] = 'number';
 		$config['multiline'] = false;
 
@@ -47,16 +45,14 @@ class NumberInputWidget extends TextInputWidget {
 			$this->input->setAttributes( [ 'max' => $config['max'] ] );
 		}
 
-		$this->input->setAttributes( [ 'step' => $config['step'] ] );
+		$this->input->setAttributes( [ 'step' => $config['step'] ?? 'any' ] );
 
+		if ( isset( $config['buttonStep'] ) ) {
+			$this->buttonStep = $config['buttonStep'];
+		}
 		if ( isset( $config['pageStep'] ) ) {
 			$this->pageStep = $config['pageStep'];
 		}
-
-		if ( isset( $config['isInteger'] ) ) {
-			$this->isInteger = $config['isInteger'];
-		}
-
 		if ( isset( $config['showButtons'] ) ) {
 			$this->showButtons = $config['showButtons'];
 		}
@@ -76,12 +72,15 @@ class NumberInputWidget extends TextInputWidget {
 		if ( $max !== null ) {
 			$config['max'] = $max;
 		}
-		$config['step'] = $this->input->getAttribute( 'step' );
+		$step = $this->input->getAttribute( 'step' );
+		if ( $step !== 'any' ) {
+			$config['step'] = $step;
+		}
 		if ( $this->pageStep !== null ) {
 			$config['pageStep'] = $this->pageStep;
 		}
-		if ( $this->isInteger !== null ) {
-			$config['isInteger'] = $this->isInteger;
+		if ( $this->buttonStep !== null ) {
+			$config['buttonStep'] = $this->buttonStep;
 		}
 		if ( $this->showButtons !== null ) {
 			$config['showButtons'] = $this->showButtons;
