@@ -180,6 +180,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'zoomOut'
 			],
 			location: [
+				'globe',
 				'map',
 				'mapPin',
 				'mapPinAdd',
