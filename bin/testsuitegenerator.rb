@@ -51,7 +51,8 @@ else
 		['TextInputWidget', 'type'] => %w[text number password foo],
 		['ButtonInputWidget', 'type'] => %w[button submit foo],
 		['NumberInputWidget', 'step'] => %w[1],
-		['NumberInputWidget', 'pageStep'] => %w[1],
+		['NumberInputWidget', 'buttonStep'] => %w[2],
+		['NumberInputWidget', 'pageStep'] => %w[10],
 		['NumberInputWidget', 'min'] => %w[1 3],
 		['NumberInputWidget', 'max'] => %w[3 5],
 		['FieldLayout', 'errors'] => expandos['string'].map{|v| [v] }, # treat as string[]

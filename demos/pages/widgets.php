@@ -452,16 +452,16 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\NumberInputWidget( [ 'min' => 0, 'max' => 5, 'isInteger' => true ] ),
+			new OOUI\NumberInputWidget( [ 'min' => 0, 'max' => 5, 'step' => 1 ] ),
 			[
 				'label' => "NumberInputWidget (1-5, ints only)\xE2\x80\x8E",
 				'align' => 'top'
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\NumberInputWidget( [ 'min' => 0, 'max' => 1, 'step' => 0.1, 'pageStep' => 0.25 ] ),
+			new OOUI\NumberInputWidget( [ 'min' => -1, 'max' => 1, 'step' => 0.1, 'pageStep' => 0.5 ] ),
 			[
-				'label' => "NumberInputWidget (0–1, step by .1, page by .25)\xE2\x80\x8E",
+				'label' => "NumberInputWidget (-1–1, step by .1, page by .5)\xE2\x80\x8E",
 				'align' => 'top'
 			]
 		),

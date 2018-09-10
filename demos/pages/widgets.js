@@ -903,16 +903,16 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.NumberInputWidget( { min: 1, max: 5, isInteger: true } ),
+					new OO.ui.NumberInputWidget( { min: 1, max: 5, step: 1 } ),
 					{
 						label: 'NumberInputWidget (1–5, ints only)',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.NumberInputWidget( { min: 0, max: 1, step: 0.1, pageStep: 0.25 } ),
+					new OO.ui.NumberInputWidget( { min: -1, max: 1, step: 0.1, pageStep: 0.5 } ),
 					{
-						label: 'NumberInputWidget (0–1, step by .1, page by .25)',
+						label: 'NumberInputWidget (-1–1, step by .1, page by .5)',
 						align: 'top'
 					}
 				),
