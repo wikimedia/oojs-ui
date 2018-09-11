@@ -378,7 +378,7 @@
 			& + span {
 				// This must have two values to match `background-size: 0 0` above,
 				// otherwise the transition does not work (at least in Chrome).
-				background-size: @size-icon-checkmark @size-icon-checkmark;
+				background-size: @size-icon-small @size-icon-small;
 			}
 		}
 
@@ -1105,6 +1105,12 @@
 		> .oo-ui-buttonWidget {
 			// `top: 0;` not needed as default value
 			right: 0;
+
+			.oo-ui-icon-close {
+				// This must have two values to match `background-size: 0 0` above,
+				// otherwise the transition does not work (at least in Chrome).
+				background-size: @size-icon-small @size-icon-small;
+			}
 		}
 	}
 
