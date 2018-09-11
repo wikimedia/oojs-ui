@@ -54,6 +54,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'funnel',
 				'heart',
 				'help',
+				'helpNotice',
 				'key',
 				'keyboard',
 				'lightbulb',

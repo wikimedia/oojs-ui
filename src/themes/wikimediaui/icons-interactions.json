@@ -79,6 +79,15 @@
 				}
 			}
 		},
+		"helpNotice": {
+			"file": {
+				"ltr": "images/icons/helpOutlined-ltr.svg",
+				"rtl": "images/icons/helpOutlined-rtl.svg",
+				"lang": {
+					"he,yi": "images/icons/helpOutlined-ltr.svg"
+				}
+			}
+		},
 		"key": {
 			"file": "images/icons/key.svg"
 		},

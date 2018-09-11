@@ -60,6 +60,15 @@
 				}
 			}
 		},
+		"helpNotice": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/helpOutlined-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/helpOutlined-rtl.svg",
+				"lang": {
+					"he,yi": "../wikimediaui/images/icons/helpOutlined-ltr.svg"
+				}
+			}
+		},
 		"key": {
 			"file": "../wikimediaui/images/icons/key.svg"
 		},
