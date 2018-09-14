@@ -40,7 +40,7 @@ OO.ui.Element = function OoUiElement( config ) {
 
 	// Initialization
 	if ( Array.isArray( config.classes ) ) {
-		this.$element.addClass( config.classes.join( ' ' ) );
+		this.$element.addClass( config.classes );
 	}
 	if ( config.id ) {
 		this.setElementId( config.id );

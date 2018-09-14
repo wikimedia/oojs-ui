@@ -49,8 +49,8 @@ OO.ui.Theme.prototype.updateElementClasses = function ( element ) {
 	}
 
 	$elements
-		.removeClass( classes.off.join( ' ' ) )
-		.addClass( classes.on.join( ' ' ) );
+		.removeClass( classes.off )
+		.addClass( classes.on );
 };
 
 /**

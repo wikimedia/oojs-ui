@@ -79,7 +79,7 @@ OO.ui.mixin.FlaggedElement = function OoUiMixinFlaggedElement( config ) {
 OO.ui.mixin.FlaggedElement.prototype.setFlaggedElement = function ( $flagged ) {
 	var classNames = Object.keys( this.flags ).map( function ( flag ) {
 		return 'oo-ui-flaggedElement-' + flag;
-	} ).join( ' ' );
+	} );
 
 	if ( this.$flagged ) {
 		this.$flagged.removeClass( classNames );
@@ -129,7 +129,7 @@ OO.ui.mixin.FlaggedElement.prototype.clearFlags = function () {
 	}
 
 	if ( this.$flagged ) {
-		this.$flagged.removeClass( remove.join( ' ' ) );
+		this.$flagged.removeClass( remove );
 	}
 
 	this.updateThemeClasses();
@@ -195,8 +195,8 @@ OO.ui.mixin.FlaggedElement.prototype.setFlags = function ( flags ) {
 
 	if ( this.$flagged ) {
 		this.$flagged
-			.addClass( add.join( ' ' ) )
-			.removeClass( remove.join( ' ' ) );
+			.addClass( add )
+			.removeClass( remove );
 	}
 
 	this.updateThemeClasses();
