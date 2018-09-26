@@ -130,7 +130,7 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @note: Keep tests in sync with core.test.js
+	 * @note Keep tests in sync with core.test.js
 	 */
 	public static function provideIsSafeUrl() {
 		return [
