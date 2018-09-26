@@ -15,12 +15,10 @@ OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config )
 	config = $.extend( {
 		type: 'text'
 	}, config );
-	config.multiline = false;
 	// Parent constructor
 	OO.ui.MultilineTextInputWidget.parent.call( this, config );
 
 	// Properties
-	this.multiline = true;
 	this.autosize = !!config.autosize;
 	this.minRows = config.rows !== undefined ? config.rows : '';
 	this.maxRows = config.maxRows || Math.max( 2 * ( this.minRows || 0 ), 10 );
@@ -42,7 +40,7 @@ OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config )
 	} );
 
 	// Initialization
-	if ( this.multiline && config.rows ) {
+	if ( config.rows ) {
 		this.$input.attr( 'rows', config.rows );
 	}
 	if ( this.autosize ) {
@@ -190,15 +188,6 @@ OO.ui.MultilineTextInputWidget.prototype.adjustSize = function () {
  */
 OO.ui.MultilineTextInputWidget.prototype.getInputElement = function () {
 	return $( '<textarea>' );
-};
-
-/**
- * Check if the input supports multiple lines.
- *
- * @return {boolean}
- */
-OO.ui.MultilineTextInputWidget.prototype.isMultiline = function () {
-	return !!this.multiline;
 };
 
 /**

@@ -57,11 +57,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		labelPosition: 'after'
 	}, config );
 
-	if ( config.multiline ) {
-		OO.ui.warnDeprecation( 'TextInputWidget: config.multiline is deprecated. Use the MultilineTextInputWidget instead. See T130434.' );
-		return new OO.ui.MultilineTextInputWidget( config );
-	}
-
 	// Parent constructor
 	OO.ui.TextInputWidget.parent.call( this, config );
 
