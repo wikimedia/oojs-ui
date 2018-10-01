@@ -25,7 +25,7 @@ trait GroupElement {
 	 */
 	public function initializeGroupElement( array $config = [] ) {
 		// Properties
-		$this->group = isset( $config['group'] ) ? $config['group'] : new Tag( 'div' );
+		$this->group = $config['group'] ?? new Tag( 'div' );
 
 		$this->registerConfigCallback( function ( &$config ) {
 			$config['items'] = $this->items;

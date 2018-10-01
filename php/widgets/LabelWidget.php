@@ -35,7 +35,7 @@ class LabelWidget extends Widget {
 			array_merge( $config, [ 'labelElement' => $this ] ) );
 
 		// Properties
-		$this->input = isset( $config['input'] ) ? $config['input'] : null;
+		$this->input = $config['input'] ?? null;
 
 		// Initialization
 		if ( $this->input && $this->input->getInputId() ) {

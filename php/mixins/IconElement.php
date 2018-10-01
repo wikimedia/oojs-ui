@@ -32,11 +32,11 @@ trait IconElement {
 	public function initializeIconElement( array $config = [] ) {
 		// Properties
 		// FIXME 'iconElement' is a very stupid way to call '$icon'
-		$this->icon = isset( $config['iconElement'] ) ? $config['iconElement'] : new Tag( 'span' );
+		$this->icon = $config['iconElement'] ?? new Tag( 'span' );
 
 		// Initialization
 		$this->icon->addClasses( [ 'oo-ui-iconElement-icon' ] );
-		$this->setIcon( isset( $config['icon'] ) ? $config['icon'] : null );
+		$this->setIcon( $config['icon'] ?? null );
 
 		$this->registerConfigCallback( function ( &$config ) {
 			if ( $this->iconName !== null ) {
