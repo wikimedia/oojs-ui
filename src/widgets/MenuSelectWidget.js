@@ -138,7 +138,7 @@ OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
 /**
  * @inheritdoc
  */
-OO.ui.MenuSelectWidget.prototype.onKeyDown = function ( e ) {
+OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 	var currentItem = this.findHighlightedItem() || this.findSelectedItem();
 
 	if ( !this.isDisabled() && this.isVisible() ) {
@@ -237,50 +237,50 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 /**
  * @inheritdoc
  */
-OO.ui.MenuSelectWidget.prototype.bindKeyDownListener = function () {
+OO.ui.MenuSelectWidget.prototype.bindDocumentKeyDownListener = function () {
 	if ( this.$input ) {
 		this.$input.on( 'keydown', this.onKeyDownHandler );
 	} else {
-		OO.ui.MenuSelectWidget.parent.prototype.bindKeyDownListener.call( this );
+		OO.ui.MenuSelectWidget.parent.prototype.bindDocumentKeyDownListener.call( this );
 	}
 };
 
 /**
  * @inheritdoc
  */
-OO.ui.MenuSelectWidget.prototype.unbindKeyDownListener = function () {
+OO.ui.MenuSelectWidget.prototype.unbindDocumentKeyDownListener = function () {
 	if ( this.$input ) {
 		this.$input.off( 'keydown', this.onKeyDownHandler );
 	} else {
-		OO.ui.MenuSelectWidget.parent.prototype.unbindKeyDownListener.call( this );
+		OO.ui.MenuSelectWidget.parent.prototype.unbindDocumentKeyDownListener.call( this );
 	}
 };
 
 /**
  * @inheritdoc
  */
-OO.ui.MenuSelectWidget.prototype.bindKeyPressListener = function () {
+OO.ui.MenuSelectWidget.prototype.bindDocumentKeyPressListener = function () {
 	if ( this.$input ) {
 		if ( this.filterFromInput ) {
 			this.$input.on( 'keydown mouseup cut paste change input select', this.onInputEditHandler );
 			this.updateItemVisibility();
 		}
 	} else {
-		OO.ui.MenuSelectWidget.parent.prototype.bindKeyPressListener.call( this );
+		OO.ui.MenuSelectWidget.parent.prototype.bindDocumentKeyPressListener.call( this );
 	}
 };
 
 /**
  * @inheritdoc
  */
-OO.ui.MenuSelectWidget.prototype.unbindKeyPressListener = function () {
+OO.ui.MenuSelectWidget.prototype.unbindDocumentKeyPressListener = function () {
 	if ( this.$input ) {
 		if ( this.filterFromInput ) {
 			this.$input.off( 'keydown mouseup cut paste change input select', this.onInputEditHandler );
 			this.updateItemVisibility();
 		}
 	} else {
-		OO.ui.MenuSelectWidget.parent.prototype.unbindKeyPressListener.call( this );
+		OO.ui.MenuSelectWidget.parent.prototype.unbindDocumentKeyPressListener.call( this );
 	}
 };
 
@@ -391,8 +391,8 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.togglePositioning( !!this.$floatableContainer );
 			this.toggleClipping( true );
 
-			this.bindKeyDownListener();
-			this.bindKeyPressListener();
+			this.bindDocumentKeyDownListener();
+			this.bindDocumentKeyPressListener();
 
 			if (
 				( this.isClippedVertically() || this.isFloatableOutOfView() ) &&
@@ -430,8 +430,8 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.emit( 'ready' );
 		} else {
 			this.$focusOwner.removeAttr( 'aria-activedescendant' );
-			this.unbindKeyDownListener();
-			this.unbindKeyPressListener();
+			this.unbindDocumentKeyDownListener();
+			this.unbindDocumentKeyPressListener();
 			this.$focusOwner.attr( 'aria-expanded', 'false' );
 			this.getElementDocument().removeEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
 			this.togglePositioning( false );

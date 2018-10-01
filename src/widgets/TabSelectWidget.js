@@ -19,8 +19,8 @@ OO.ui.TabSelectWidget = function OoUiTabSelectWidget( config ) {
 
 	// Events
 	this.$element.on( {
-		focus: this.bindKeyDownListener.bind( this ),
-		blur: this.unbindKeyDownListener.bind( this )
+		focus: this.bindDocumentKeyDownListener.bind( this ),
+		blur: this.unbindDocumentKeyDownListener.bind( this )
 	} );
 
 	// Initialization
