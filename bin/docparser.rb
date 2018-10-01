@@ -129,12 +129,14 @@ def parse_file filename
 			when 'param'
 				case filetype
 				when :js
-					type, name, default, description = content.match(/^\{(.+?)\} \[?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/).captures
+					type, name, default, description =
+						content.match(/^\{(?:\.\.\.)?(.+?)\} \[?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/).captures
 					next if type == 'Object' && name == 'config'
 					data[:params] << {name: name, type: cleanup_class_name(type), description: description || '', default: default}
 					previous_item = data[:params][-1]
 				when :php
-					type, name, config, description = content.match(/^(\S+) \&?\$(\w+)(?:\['(\w+)'\])?( .+)?$/).captures
+					type, name, config, description =
+						content.match(/^(\S+) \&?(?:\.\.\.)?\$(\w+)(?:\['(\w+)'\])?( .+)?$/).captures
 					next if type == 'array' && name == 'config' && !config
 					if config && name == 'config'
 						data[:config] << {name: config, type: cleanup_class_name(type), description: description || ''}
