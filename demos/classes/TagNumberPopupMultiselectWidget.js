@@ -17,11 +17,12 @@ Demo.TagNumberPopupMultiselectWidget = function DemoTagNumberPopupMultiselectWid
 	this.popup.$body.append( this.tagPopupWidget.$element );
 };
 
-OO.inheritClass( Demo.TagNumberPopupMultiselectWidget, OO.ui.TagMultiselectWidget );
+OO.inheritClass( Demo.TagNumberPopupMultiselectWidget, OO.ui.PopupTagMultiselectWidget );
 
 Demo.TagNumberPopupMultiselectWidget.prototype.onPopupEnter = function () {
-	if ( !isNaN( this.tagPopupWidget.getNumericValue() ) ) {
-		this.addItemsFromData( [ this.tagPopupWidget.getNumericValue() ] );
+	var value = this.tagPopupWidget.getNumericValue();
+	if ( !isNaN( value ) ) {
+		this.addTag( value, String( value ) );
 		this.tagPopupWidget.setValue( '' );
 	}
 };

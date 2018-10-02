@@ -2824,15 +2824,16 @@ Demo.static.pages.widgets = function ( demo ) {
 							}
 						),
 						new OO.ui.FieldLayout(
-							new OO.ui.TagMultiselectWidget( {
+							new OO.ui.MenuTagMultiselectWidget( {
 								menu: {
 									items: [
 										new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Abc Label' } ),
 										new OO.ui.MenuOptionWidget( { data: 'def', label: 'Def Label' } ),
 										new OO.ui.MenuOptionWidget( { data: 'ghi', label: 'Ghi Label' } )
 									]
-								}
-							} ).addItemsFromData( [ 'abc', 'def' ] ),
+								},
+								selected: [ 'Abc Label', 'Def Label' ]
+							} ),
 							{
 								label: 'Select from multiple TagMultiselectWidget items\u200E',
 								align: 'top'
