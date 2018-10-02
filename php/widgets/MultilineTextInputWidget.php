@@ -25,19 +25,25 @@ class MultilineTextInputWidget extends TextInputWidget {
 			'readOnly' => false,
 			'autofocus' => false,
 			'required' => false,
-			'multiline' => true,
 		], $config );
+
+		if ( isset( $config['rows'] ) && $config['rows'] ) {
+			$this->input->setAttributes( [ 'rows' => $config['rows'] ] );
+		}
 
 		// Parent constructor
 		parent::__construct( $config );
 	}
 
-	/**
-	 * Check if input supports multiple lines.
-	 *
-	 * @return bool
-	 */
-	public function isMultiline() {
-		return true;
+	protected function getInputElement( $config ) {
+		return new Tag( 'textarea' );
+	}
+
+	public function getConfig( &$config ) {
+		$rows = $this->input->getAttribute( 'rows' );
+		if ( $rows !== null ) {
+			$config['rows'] = $rows;
+		}
+		return parent::getConfig( $config );
 	}
 }
