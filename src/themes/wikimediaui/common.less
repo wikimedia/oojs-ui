@@ -7,7 +7,7 @@
 
 // Pull in the main set of variables from the shared UI base
 // * Reaching into node_modules like this to avoid a symlink that Windows users won't like
-// * Use Less "reference" import to avoid including the '/**' comment at the top of the file
+// * Use LESS "reference" import to avoid including the '/**' comment at the top of the file
 @import (reference) '../../../node_modules/wikimedia-ui-base/wikimedia-ui-base.less';
 
 // Background & Text Colors
@@ -35,17 +35,13 @@
 // `@*size` variables are used for `*width` & `*height` properties
 @size-base: 32 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.5em`≈`32px`
 
-@min-size-icon: 20px; // values used for `min-height` are defined in `px`, see T130691
-@min-size-indicator: 12px;
-@min-size-toggleswitch-grip: 16px;
+@min-size-toggleswitch-grip: 16px; // values used for `min-height` are defined in `px`, see T130691
 @min-size-toolbar-popup-toolgroup-handle: 140px;
 @min-size-toolbar-narrow-popup-toolgroup-handle: 100px;
 @min-width-button-base: 44 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.4375em`≈`44px` at base `font-size: 14px`
 @min-width-button-combo-widget: 37px;
 @min-height-widget-base: @size-base;
 @min-height-toggleswitch: 26px; // equals `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
-@max-width-base: 50em;
-@max-width-input: @max-width-base;
 
 @size-anchor: 9px;
 @size-button-base: @size-base;
@@ -57,11 +53,16 @@
 @size-dialog-message-bar: 40 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.125em`≈`40px`
 @size-toggleswitch-grip: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 @size-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
-@size-popuptool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
 
 @size-tag-group-modifier: -( 2 / @ooui-font-size-browser / @ooui-font-size-base );
 @size-toolbar-narrow-modifier: 2 / @ooui-font-size-browser / @ooui-font-size-base;
 @size-modifier-border: 1 / @ooui-font-size-browser / @ooui-font-size-base; // Use for size calculations with borders aside of `px` based `@border-width-base`
+
+@width-button-combo-widget: 37 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.42857143em`≈`34px`;
+
+@height-icon-element: 100%;
+@height-search: 56 / @ooui-font-size-browser / @ooui-font-size-base; // equals `4.375em`≈`56px`; `height: 32px` + 2 * `margin: 12px`
+@height-tagitem: 22 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.71875em`≈`22px`;
 
 @start-framed-icon-only: 11 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.859375em`≈`11px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
 @start-framed-icon-only-numberinput: 8 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.57142857em`≈`8px`
@@ -75,12 +76,6 @@
 @start-tool-icon: 11 / @ooui-font-size-browser / @ooui-font-size-base;
 @start-toolbar-narrow-tool-icon: 4 / @ooui-font-size-browser / @ooui-font-size-base;
 @end-tool-indicator: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-
-@width-button-combo-widget: 37 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.42857143em`≈`34px`;
-
-@height-icon-element: 100%;
-@height-search: 56 / @ooui-font-size-browser / @ooui-font-size-base; // equals `4.375em`≈`56px`; `height: 32px` + 2 * `margin: 12px`
-@height-tagitem: 22 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.71875em`≈`22px`;
 
 @margin-dialog-bar-button-framed: 6 / @ooui-font-size-browser / @ooui-font-size-base;
 @margin-search: 12 / @ooui-font-size-browser / @ooui-font-size-base;
