@@ -160,7 +160,7 @@ Demo.DialogWithDropdowns.prototype.initialize = function () {
 		} ),
 		new Demo.SamplePage( 'tagmenu', {
 			label: 'TagMultiselectWidget (menu)',
-			content: [ $spacer.clone(), new OO.ui.TagMultiselectWidget( {
+			content: [ $spacer.clone(), new OO.ui.MenuTagMultiselectWidget( {
 				$overlay: this.$overlay,
 				menu: {
 					items: this.makeItems()
@@ -170,7 +170,7 @@ Demo.DialogWithDropdowns.prototype.initialize = function () {
 		new Demo.SamplePage( 'tagmenu2', {
 			label: 'TagMultiselectWidget (menu)',
 			icon: 'alert',
-			content: [ $spacer.clone(), new OO.ui.TagMultiselectWidget( {
+			content: [ $spacer.clone(), new OO.ui.MenuTagMultiselectWidget( {
 				menu: {
 					items: this.makeItems()
 				}
