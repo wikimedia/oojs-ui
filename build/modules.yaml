@@ -116,8 +116,6 @@
 			"src/widgets/TabOptionWidget.js",
 			"src/widgets/TabSelectWidget.js",
 
-			"src/widgets/CapsuleItemWidget.js",
-			"src/widgets/CapsuleMultiselectWidget.js",
 			"src/widgets/TagItemWidget.js",
 			"src/widgets/TagMultiselectWidget.js",
 			"src/widgets/PopupTagMultiselectWidget.js",
@@ -262,8 +260,6 @@
 			"src/styles/widgets/TagMultiselectWidget.less",
 			"src/styles/widgets/MenuTagMultiselectWidget.less",
 			"src/styles/widgets/TagItemWidget.less",
-			"src/styles/widgets/CapsuleMultiselectWidget.less",
-			"src/styles/widgets/CapsuleItemWidget.less",
 			"src/styles/widgets/SearchWidget.less"
 		]
 	},

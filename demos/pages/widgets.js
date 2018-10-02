@@ -2824,7 +2824,7 @@ Demo.static.pages.widgets = function ( demo ) {
 							}
 						),
 						new OO.ui.FieldLayout(
-							new OO.ui.CapsuleMultiselectWidget( {
+							new OO.ui.TagMultiselectWidget( {
 								menu: {
 									items: [
 										new OO.ui.MenuOptionWidget( { data: 'abc', label: 'Abc Label' } ),
@@ -2834,7 +2834,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								}
 							} ).addItemsFromData( [ 'abc', 'def' ] ),
 							{
-								label: 'Select from multiple CapsuleMultiselectWidget items\u200E',
+								label: 'Select from multiple TagMultiselectWidget items\u200E',
 								align: 'top'
 							}
 						),

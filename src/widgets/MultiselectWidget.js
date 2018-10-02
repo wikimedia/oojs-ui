@@ -26,7 +26,7 @@ OO.ui.MultiselectWidget = function OoUiMultiselectWidget( config ) {
 
 	// Events
 	this.aggregate( { change: 'select' } );
-	// This is mostly for compatibility with CapsuleMultiselectWidget... normally, 'change' is emitted
+	// This is mostly for compatibility with TagMultiselectWidget... normally, 'change' is emitted
 	// by GroupElement only when items are added/removed
 	this.connect( this, { select: [ 'emit', 'change' ] } );
 
