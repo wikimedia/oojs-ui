@@ -14,6 +14,7 @@
 	"ooui-toolbar-more": "Liyané",
 	"ooui-toolgroup-expand": "Liyané",
 	"ooui-toolgroup-collapse": "Sacukupé",
+	"ooui-item-remove": "Buwang",
 	"ooui-dialog-message-accept": "Oké",
 	"ooui-dialog-message-reject": "Wurung",
 	"ooui-dialog-process-error": "Ana masalah",
@@ -23,5 +24,6 @@
 	"ooui-selectfile-button-select": "Pilih barkas",
 	"ooui-selectfile-not-supported": "Ora bisa milih barkas",
 	"ooui-selectfile-placeholder": "Ora ana barkas kang pinilih",
-	"ooui-selectfile-dragdrop-placeholder": "Dèkèk barkas ing kéné"
+	"ooui-selectfile-dragdrop-placeholder": "Dèkèk barkas ing kéné",
+	"ooui-field-help": "Pitulung"
 }
