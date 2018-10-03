@@ -645,6 +645,22 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
+	grunt.registerTask( 'git-status', function () {
+		var done = this.async();
+		// Are there unstaged changes?
+		require( 'child_process' ).exec( 'git ls-files --modified', function ( err, stdout, stderr ) {
+			var ret = err || stderr || stdout;
+			if ( ret ) {
+				grunt.log.error( 'Unstaged changes in these files:' );
+				grunt.log.error( ret );
+				done( false );
+			} else {
+				grunt.log.ok( 'No unstaged changes.' );
+				done();
+			}
+		} );
+	} );
+
 	grunt.registerTask( 'pre-git-build', function () {
 		var done = this.async();
 		require( 'child_process' ).exec( 'git rev-parse HEAD', function ( err, stout, stderr ) {
@@ -702,7 +718,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );
 
 	grunt.registerTask( '_test', [ 'prep-test', 'clean:coverage', 'karma:main' /* T190200 , 'karma:other' */ ] );
-	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos', 'exec:composer' ] );
+	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos', 'exec:composer', 'git-status' ] );
 	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
 
 	grunt.registerTask( 'add-theme-check', function () {
