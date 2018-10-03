@@ -7,10 +7,6 @@
 	require_once $autoload;
 
 	$testSuiteFile = 'JSPHP-suite.json';
-	if ( !file_exists( $testSuiteFile ) ) {
-		echo '<h1>Did you forget to run <code>grunt test</code>?</h1>';
-		exit;
-	}
 	$testSuiteJSON = file_get_contents( $testSuiteFile );
 	$testSuite = json_decode( $testSuiteJSON, true );
 ?>
