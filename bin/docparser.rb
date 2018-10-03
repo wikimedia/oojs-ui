@@ -81,7 +81,7 @@ def parse_file filename
 			next if comment_line.strip == '/**'
 			comment_line.sub!(/^[ \t]*\*[ \t]?/, '') # strip leading '*' and whitespace
 
-			m = comment_line.match(/^@(\w+)[ \t]*(.*)/)
+			m = comment_line.match(/^@([\w-]+)(?:[ \t]+(.+))?/)
 			if !m
 				# this is a continuation of previous item's description
 				previous_item[:description] << comment_line + "\n"
@@ -184,7 +184,7 @@ def parse_file filename
 				ignore = true
 			when 'inheritable', 'deprecated', 'singleton', 'throws',
 				 'chainable', 'fires', 'localdoc', 'member',
-				 'see', 'uses'
+				 'see', 'uses', 'param-taint'
 				# skip
 			else
 				bad_input filename, comment_line
