@@ -8,7 +8,7 @@ def bad_input file, text
 end
 
 def parse_dir dirname
-	Dir.entries(dirname).map{|filename|
+	Dir.entries(dirname).sort.map{|filename|
 		if filename == '.' || filename == '..'
 			nil
 		else
