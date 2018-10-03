@@ -501,10 +501,10 @@ module.exports = function ( grunt ) {
 				],
 				reporters: [ 'dots' ],
 				singleRun: true,
-				browserDisconnectTimeout: 5000,
+				browserDisconnectTimeout: 2 * 60 * 1000,
 				browserDisconnectTolerance: 2,
 				autoWatch: false,
-				browserNoActivityTimeout: 60 * 1000
+				browserNoActivityTimeout: 2 * 60 * 1000
 			},
 			main: {
 				browsers: [ 'Chrome' ],
