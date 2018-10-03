@@ -982,6 +982,7 @@
 }
 
 .theme-oo-ui-tabOptionWidget () {
+	color: @color-base;
 	margin: 0.5em 0 0 0.75em;
 	border-color: transparent;
 	border-style: @border-style-base;
@@ -992,22 +993,27 @@
 
 	&.oo-ui-optionWidget-selected {
 		background-color: @background-color-main;
+		color: #000;
 		border-color: #ddd;
 	}
 
 	&.oo-ui-widget-enabled {
 		&:hover {
 			background-color: rgba( 255, 255, 255, 0.2 );
+			color: #000;
 			border-color: #ddd;
 		}
 
 		&:active {
 			background-color: @background-color-main;
+			color: #000;
 			border-color: #ddd;
 		}
 
 		&.oo-ui-optionWidget-selected:hover {
 			background-color: @background-color-main;
+			color: #000;
+			cursor: default;
 		}
 
 		.oo-ui-tabSelectWidget.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected {
