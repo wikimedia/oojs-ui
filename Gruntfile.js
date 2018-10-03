@@ -462,7 +462,7 @@ module.exports = function ( grunt ) {
 		// Test
 		exec: {
 			rubyTestSuiteGenerator: {
-				command: 'ruby bin/testsuitegenerator.rb src php > tests/JSPHP-suite.json'
+				command: 'ruby bin/testsuitegenerator.rb src php -o tests/JSPHP-suite.json'
 			},
 			phpGenerateJSPHPForKarma: {
 				command: 'composer update --ansi --no-progress && php bin/generate-JSPHP-for-karma.php > tests/JSPHP.test.js'

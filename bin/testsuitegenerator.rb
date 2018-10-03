@@ -2,9 +2,16 @@ require 'pp'
 require_relative 'docparser'
 
 if ARGV.empty? || ARGV == ['-h'] || ARGV == ['--help']
-	$stderr.puts "usage: ruby #{$PROGRAM_NAME} <dirA> <dirB>"
-	$stderr.puts "       ruby #{$PROGRAM_NAME} src php > tests/JSPHP-suite.json"
+	$stderr.puts "usage: ruby #{$PROGRAM_NAME} <dirA> <dirB> -o <file>"
+	$stderr.puts "       ruby #{$PROGRAM_NAME} src php -o tests/JSPHP-suite.json"
 else
+	if (i = ARGV.index('-o'))
+		out = File.open(ARGV[i + 1], 'wb')
+		ARGV[i..(i + 1)] = []
+	else
+		out = $stdout
+	end
+
 	dir_a, dir_b = ARGV
 	js = parse_any_path dir_a
 	php = parse_any_path dir_b
@@ -188,5 +195,5 @@ else
 	$stderr.puts "Generated #{tests.values.map{|a| a[:tests].length}.inject(:+)} test cases."
 
 	$stderr.puts tests.map{|class_name, class_tests| "* #{class_name}: #{class_tests[:tests].length}" }
-	puts JSON.pretty_generate tests
+	out.puts JSON.pretty_generate tests
 end
