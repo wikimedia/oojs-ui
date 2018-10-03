@@ -204,7 +204,7 @@ module.exports = function ( grunt ) {
 		clean: {
 			build: 'dist/*',
 			demos: 'demos/{composer.json,composer.lock,node_modules,dist,php,vendor}',
-			tests: 'tests/{JSPHP-suite.json,JSPHP.test.js}',
+			tests: 'tests/JSPHP.test.js',
 			coverage: 'coverage/*',
 			doc: 'docs/*',
 			tmp: 'dist/tmp'
@@ -436,8 +436,7 @@ module.exports = function ( grunt ) {
 			all: [
 				'*.json',
 				'{build,demos,src,tests,i18n}/**/*.json',
-				'!demos/{dist,node_modules,vendor}/**/*.json',
-				'!tests/JSPHP-suite.json'
+				'!demos/{dist,node_modules,vendor}/**/*.json'
 			]
 		},
 
@@ -501,10 +500,10 @@ module.exports = function ( grunt ) {
 				],
 				reporters: [ 'dots' ],
 				singleRun: true,
-				browserDisconnectTimeout: 2 * 60 * 1000,
+				browserDisconnectTimeout: 5 * 60 * 1000,
 				browserDisconnectTolerance: 2,
 				autoWatch: false,
-				browserNoActivityTimeout: 2 * 60 * 1000
+				browserNoActivityTimeout: 5 * 60 * 1000
 			},
 			main: {
 				browsers: [ 'Chrome' ],
