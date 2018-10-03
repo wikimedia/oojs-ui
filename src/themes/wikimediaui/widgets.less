@@ -1357,7 +1357,7 @@
 }
 
 .theme-oo-ui-tabOptionWidget () {
-	color: @color-base;
+	color: @color-taboption;
 	margin: @margin-taboption 0 0 @margin-taboption;
 	border-color: transparent;
 	border-style: @border-style-base;
@@ -1376,6 +1376,7 @@
 	&.oo-ui-optionWidget-selected {
 		background-color: @background-color-base;
 		color: @color-base--active;
+		cursor: default;
 
 		.oo-ui-labelElement-label {
 			border-bottom-color: @background-color-base; // TabOption `background-color` acting as default `border-color`
@@ -1392,10 +1393,12 @@
 	&.oo-ui-widget-enabled {
 		&:hover {
 			background-color: rgba( 255, 255, 255, 0.3 );
+			color: @color-base;
 		}
 
 		&:active {
 			background-color: rgba( 255, 255, 255, 0.8 );
+			color: @color-base--active;
 		}
 
 		&.oo-ui-optionWidget-selected:hover {
