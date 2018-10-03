@@ -27,12 +27,12 @@ class MultilineTextInputWidget extends TextInputWidget {
 			'required' => false,
 		], $config );
 
+		// Parent constructor
+		parent::__construct( $config );
+
 		if ( isset( $config['rows'] ) && $config['rows'] ) {
 			$this->input->setAttributes( [ 'rows' => $config['rows'] ] );
 		}
-
-		// Parent constructor
-		parent::__construct( $config );
 	}
 
 	protected function getInputElement( $config ) {
