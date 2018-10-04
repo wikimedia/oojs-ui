@@ -2832,7 +2832,10 @@ Demo.static.pages.widgets = function ( demo ) {
 										new OO.ui.MenuOptionWidget( { data: 'ghi', label: 'Ghi Label' } )
 									]
 								},
-								selected: [ 'Abc Label', 'Def Label' ]
+								selected: [
+									{ data: 'abc', label: 'Abc Label' },
+									{ data: 'def', label: 'Def Label' }
+								]
 							} ),
 							{
 								label: 'Select from multiple TagMultiselectWidget items\u200E',
