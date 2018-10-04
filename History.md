@@ -1,4 +1,18 @@
 # OOUI Release History
+## v0.29.1 / 2018-10-03
+### Styles
+* TabOptionWidget: Increase contrast between normal & selected states (Volker E.)
+
+### Code
+* MultilineTextInputWidget: Fix fatal (Bartosz Dziewoński)
+* build: Fail in CI if there are uncommited build artefacts (James D. Forrester)
+* tests: Commit JS/PHP comparison test suite (Bartosz Dziewoński)
+* tests: Ensure consistent order in JSPHP-suite.json (Bartosz Dziewoński)
+* tests: Ensure we write LF newlines to JSPHP-suite.json, even on Windows (Bartosz Dziewoński)
+* tests: Fix generation of JS/PHP comparison test suite (Bartosz Dziewoński)
+* tests: Increase Karma tests timeout so that they actually finish (Bartosz Dziewoński)
+
+
 ## v0.29.0 / 2018-10-02
 ### Breaking changes
 * [BREAKING CHANGE] Consistently name document listeners (Ed Sanders)
