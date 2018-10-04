@@ -63,7 +63,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 		continuous: !!config.continuous,
 		expanded: this.expanded
 	} );
-	this.$content.append( this.stackLayout.$element );
+	this.setContentPanel( this.stackLayout );
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 	this.outlineVisible = false;
 	this.outlined = !!config.outlined;
@@ -75,7 +75,7 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 			expanded: this.expanded,
 			scrollable: true
 		} );
-		this.$menu.append( this.outlinePanel.$element );
+		this.setMenuPanel( this.outlinePanel );
 		this.outlineVisible = true;
 		if ( this.editable ) {
 			this.outlineControlsWidget = new OO.ui.OutlineControlsWidget(
