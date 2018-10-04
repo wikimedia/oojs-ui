@@ -35,7 +35,7 @@
  *         outlined: true
  *     } );
  *
- *     booklet.addPages ( [ page1, page2 ] );
+ *     booklet.addPages( [ page1, page2 ] );
  *     $( 'body' ).append( booklet.$element );
  *
  * @class
@@ -561,6 +561,23 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 			this.emit( 'set', page );
 		}
 	}
+};
+
+/**
+ * For outlined-continuous booklets, also reset the outlineSelectWidget to the first item.
+ *
+ * @inheritdoc
+ */
+OO.ui.BookletLayout.prototype.resetScroll = function () {
+	// Parent method
+	OO.ui.BookletLayout.parent.prototype.resetScroll.call( this );
+
+	if ( this.outlined && this.stackLayout.continuous && this.outlineSelectWidget.findFirstSelectableItem() ) {
+		this.scrolling = true;
+		this.outlineSelectWidget.selectItem( this.outlineSelectWidget.findFirstSelectableItem() );
+		this.scrolling = false;
+	}
+	return this;
 };
 
 /**

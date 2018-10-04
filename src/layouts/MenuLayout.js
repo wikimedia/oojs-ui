@@ -217,3 +217,19 @@ OO.ui.MenuLayout.prototype.clearContentPanel = function () {
 	this.contentPanel = null;
 	this.$content.empty();
 };
+
+/**
+ * Reset the scroll offset of all panels and the tab select widget
+ *
+ * @inheritdoc
+ */
+OO.ui.MenuLayout.prototype.resetScroll = function () {
+	if ( this.menuPanel ) {
+		this.menuPanel.resetScroll();
+	}
+	if ( this.contentPanel ) {
+		this.contentPanel.resetScroll();
+	}
+
+	return this;
+};

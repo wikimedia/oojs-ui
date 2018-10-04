@@ -56,3 +56,9 @@ Demo.ContinuousOutlinedBookletDialog.prototype.getSetupProcess = function ( data
 			this.bookletLayout.setPage( 'page1' );
 		}, this );
 };
+Demo.ContinuousOutlinedBookletDialog.prototype.getTeardownProcess = function ( data ) {
+	return Demo.ContinuousOutlinedBookletDialog.parent.prototype.getTeardownProcess.call( this, data )
+		.next( function () {
+			this.bookletLayout.resetScroll();
+		}, this );
+};

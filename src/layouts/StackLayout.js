@@ -248,6 +248,30 @@ OO.ui.StackLayout.prototype.setItem = function ( item ) {
 };
 
 /**
+ * Reset the scroll offset of all panels, or the container if continuous
+ *
+ * @inheritdoc
+ */
+OO.ui.StackLayout.prototype.resetScroll = function () {
+	if ( this.continuous ) {
+		// Parent method
+		return OO.ui.StackLayout.parent.prototype.resetScroll.call( this );
+	}
+	// Reset each panel
+	this.getItems().forEach( function ( panel ) {
+		var hidden = panel.$element.hasClass( 'oo-ui-element-hidden' );
+		// Scroll can only be reset when panel is visible
+		panel.$element.removeClass( 'oo-ui-element-hidden' );
+		panel.resetScroll();
+		if ( hidden ) {
+			panel.$element.addClass( 'oo-ui-element-hidden' );
+		}
+	} );
+
+	return this;
+};
+
+/**
  * Update the visibility of all items in case of non-continuous view.
  *
  * Ensure all items are hidden except for the selected one.

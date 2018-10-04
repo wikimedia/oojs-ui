@@ -31,3 +31,17 @@ OO.ui.Layout = function OoUiLayout( config ) {
 
 OO.inheritClass( OO.ui.Layout, OO.ui.Element );
 OO.mixinClass( OO.ui.Layout, OO.EventEmitter );
+
+/* Methods */
+
+/**
+ * Reset scroll offsets
+ *
+ * @chainable
+ */
+OO.ui.Layout.prototype.resetScroll = function () {
+	this.$element[ 0 ].scrollTop = 0;
+	// TODO: Reset scrollLeft in an RTL-aware manner, see OO.ui.Element.static.getScrollLeft.
+
+	return this;
+};

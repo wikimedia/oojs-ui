@@ -387,10 +387,11 @@ OO.ui.IndexLayout.prototype.clearTabPanels = function () {
 OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
 	var selectedItem,
 		$focused,
-		tabPanel = this.tabPanels[ name ],
-		previousTabPanel = this.currentTabPanelName && this.tabPanels[ this.currentTabPanelName ];
+		previousTabPanel,
+		tabPanel = this.tabPanels[ name ];
 
 	if ( name !== this.currentTabPanelName ) {
+		previousTabPanel = this.getCurrentTabPanel();
 		selectedItem = this.tabSelectWidget.findSelectedItem();
 		if ( selectedItem && selectedItem.getData() !== name ) {
 			this.tabSelectWidget.selectItemByData( name );

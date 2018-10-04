@@ -25,6 +25,12 @@ Demo.IndexedDialog.prototype.initialize = function () {
 			content: [
 				$( '<p>' ).text( loremIpsum ),
 				$( '<p>' ).text( loremIpsum ),
+				$( '<p>' ).text( loremIpsum ),
+				$( '<p>' ).text( loremIpsum ),
+				$( '<p>' ).text( loremIpsum ),
+				$( '<p>' ).text( loremIpsum ),
+				$( '<p>' ).text( loremIpsum ),
+				$( '<p>' ).text( loremIpsum ),
 				$( '<p>' ).text( loremIpsum )
 			]
 		} )
@@ -42,4 +48,10 @@ Demo.IndexedDialog.prototype.getActionProcess = function ( action ) {
 		}, this );
 	}
 	return Demo.IndexedDialog.parent.prototype.getActionProcess.call( this, action );
+};
+Demo.IndexedDialog.prototype.getTeardownProcess = function ( data ) {
+	return Demo.IndexedDialog.parent.prototype.getTeardownProcess.call( this, data )
+		.next( function () {
+			this.indexLayout.resetScroll();
+		}, this );
 };
