@@ -26,7 +26,7 @@
  *
  *     var index = new OO.ui.IndexLayout();
  *
- *     index.addTabPanels ( [ tabPanel1, tabPanel2 ] );
+ *     index.addTabPanels( [ tabPanel1, tabPanel2 ] );
  *     $( 'body' ).append( index.$element );
  *
  * @class
@@ -53,14 +53,14 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 		continuous: !!config.continuous,
 		expanded: this.expanded
 	} );
-	this.$content.append( this.stackLayout.$element );
+	this.setContentPanel( this.stackLayout );
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 
 	this.tabSelectWidget = new OO.ui.TabSelectWidget();
 	this.tabPanel = new OO.ui.PanelLayout( {
 		expanded: this.expanded
 	} );
-	this.$menu.append( this.tabPanel.$element );
+	this.setMenuPanel( this.tabPanel );
 
 	this.toggleMenu( true );
 

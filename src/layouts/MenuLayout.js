@@ -3,34 +3,37 @@
  * and its size is customized with the #menuSize config. The content area will fill all remaining space.
  *
  *     @example
- *     var menuLayout = new OO.ui.MenuLayout( {
- *         position: 'top'
- *     } ),
+ *     var menuLayout,
  *         menuPanel = new OO.ui.PanelLayout( { padded: true, expanded: true, scrollable: true } ),
  *         contentPanel = new OO.ui.PanelLayout( { padded: true, expanded: true, scrollable: true } ),
  *         select = new OO.ui.SelectWidget( {
  *             items: [
  *                 new OO.ui.OptionWidget( {
  *                     data: 'before',
- *                     label: 'Before',
+ *                     label: 'Before'
  *                 } ),
  *                 new OO.ui.OptionWidget( {
  *                     data: 'after',
- *                     label: 'After',
+ *                     label: 'After'
  *                 } ),
  *                 new OO.ui.OptionWidget( {
  *                     data: 'top',
- *                     label: 'Top',
+ *                     label: 'Top'
  *                 } ),
  *                 new OO.ui.OptionWidget( {
  *                     data: 'bottom',
- *                     label: 'Bottom',
+ *                     label: 'Bottom'
  *                 } )
  *              ]
  *         } ).on( 'select', function ( item ) {
  *            menuLayout.setMenuPosition( item.getData() );
  *         } );
  *
+ *     menuLayout = new OO.ui.MenuLayout( {
+ *         position: 'top',
+ *         menuPanel: menuPanel,
+ *         contentPanel: contentPanel
+ *     } )
  *     menuLayout.$menu.append(
  *         menuPanel.$element.append( '<b>Menu panel</b>', select.$element )
  *     );
@@ -45,9 +48,10 @@
  * may be omitted.
  *
  *     .oo-ui-menuLayout-menu {
- *         height: 200px;
  *         width: 200px;
+ *         height: 200px;
  *     }
+ *
  *     .oo-ui-menuLayout-content {
  *         top: 200px;
  *         left: 200px;
@@ -60,6 +64,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {OO.ui.PanelLayout} [menuPanel] Menu panel
+ * @cfg {OO.ui.PanelLayout} [contentPanel] Content panel
  * @cfg {boolean} [expanded=true] Expand the layout to fill the entire parent element.
  * @cfg {boolean} [showMenu=true] Show menu
  * @cfg {string} [menuPosition='before'] Position of menu: `top`, `after`, `bottom` or `before`
@@ -75,6 +81,8 @@ OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	// Parent constructor
 	OO.ui.MenuLayout.parent.call( this, config );
 
+	this.menuPanel = null;
+	this.contentPanel = null;
 	this.expanded = !!config.expanded;
 	/**
 	 * Menu DOM node
@@ -99,6 +107,12 @@ OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 		this.$element.addClass( 'oo-ui-menuLayout-expanded' );
 	} else {
 		this.$element.addClass( 'oo-ui-menuLayout-static' );
+	}
+	if ( config.menuPanel ) {
+		this.setMenuPanel( config.menuPanel );
+	}
+	if ( config.contentPanel ) {
+		this.setContentPanel( config.contentPanel );
 	}
 	this.setMenuPosition( config.menuPosition );
 	this.toggleMenu( config.showMenu );
@@ -166,4 +180,40 @@ OO.ui.MenuLayout.prototype.setMenuPosition = function ( position ) {
  */
 OO.ui.MenuLayout.prototype.getMenuPosition = function () {
 	return this.menuPosition;
+};
+
+/**
+ * Set the menu panel.
+ *
+ * @param {OO.ui.PanelLayout} menuPanel Menu panel
+ */
+OO.ui.MenuLayout.prototype.setMenuPanel = function ( menuPanel ) {
+	this.menuPanel = menuPanel;
+	this.$menu.append( this.menuPanel.$element );
+};
+
+/**
+ * Set the content panel.
+ *
+ * @param {OO.ui.PanelLayout} menuPanel Content panel
+ */
+OO.ui.MenuLayout.prototype.setContentPanel = function ( contentPanel ) {
+	this.contentPanel = contentPanel;
+	this.$content.append( this.contentPanel.$element );
+};
+
+/**
+ * Clear the menu panel.
+ */
+OO.ui.MenuLayout.prototype.clearMenuPanel = function () {
+	this.menuPanel = null;
+	this.$menu.empty();
+};
+
+/**
+ * Clear the content panel.
+ */
+OO.ui.MenuLayout.prototype.clearContentPanel = function () {
+	this.contentPanel = null;
+	this.$content.empty();
 };
