@@ -13,7 +13,7 @@
  *
  * @constructor
  */
-OO.ui.WindowInstance = function OOuiWindowInstance() {
+OO.ui.WindowInstance = function OoUiWindowInstance() {
 	var deferreds = {
 		opening: $.Deferred(),
 		opened: $.Deferred(),

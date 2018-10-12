@@ -149,7 +149,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 		if ( this.inputPosition === 'outline' ) {
 			// Override max-height for the input widget
 			// in the case the widget is outline so it can
-			// stretch all the way if the widet is wide
+			// stretch all the way if the widget is wide
 			this.input.$element.css( 'max-width', 'inherit' );
 			this.$element
 				.addClass( 'oo-ui-tagMultiselectWidget-outlined' )

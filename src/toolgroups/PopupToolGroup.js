@@ -1,7 +1,7 @@
 /**
  * PopupToolGroup is an abstract base class used by both {@link OO.ui.MenuToolGroup MenuToolGroup}
- * and {@link OO.ui.ListToolGroup ListToolGroup} to provide a popup--an overlaid menu or list of tools with an
- * optional icon and label. This class can be used for other base classes that also use this functionality.
+ * and {@link OO.ui.ListToolGroup ListToolGroup} to provide a popup (an overlaid menu or list of tools with an
+ * optional icon and label). This class can be used for other base classes that also use this functionality.
  *
  * @abstract
  * @class

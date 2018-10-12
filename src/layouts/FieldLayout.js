@@ -19,7 +19,7 @@
  * - accessed via a help icon that appears in the upper right corner of the rendered field layout, or
  * - shown as a subtle explanation below the label.
  *
- * If the help text is brief, or is essential to always espose it, set `helpInline` to `true`. If it
+ * If the help text is brief, or is essential to always expose it, set `helpInline` to `true`. If it
  * is long or not essential, leave `helpInline` to its default, `false`.
  *
  * Please see the [OOUI documentation on MediaWiki] [1] for examples and more information.

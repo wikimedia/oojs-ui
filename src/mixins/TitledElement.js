@@ -57,7 +57,7 @@ OO.ui.mixin.TitledElement.static.title = null;
 /**
  * Set the titled element.
  *
- * This method is used to retarget a titledElement mixin so that its functionality applies to the specified element.
+ * This method is used to retarget a TitledElement mixin so that its functionality applies to the specified element.
  * If an element is already set, the mixin’s effect on that element is removed before the new element is set up.
  *
  * @param {jQuery} $titled Element that should use the 'titled' functionality

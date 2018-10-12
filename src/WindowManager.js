@@ -28,7 +28,7 @@
  *
  * - the `opened` promise is resolved with `closing` promise and a `closing` event is emitted
  * - the #getHoldDelay method is called and the returned value is used to time a pause in execution before
- *   the window's {@link OO.ui.Window#getHoldProcess getHoldProces} method is called on the
+ *   the window's {@link OO.ui.Window#getHoldProcess getHoldProcess} method is called on the
  *   window and its result executed
  * - a `hold` progress notification is emitted from the `closing` promise
  * - the #getTeardownDelay() method is called and the returned value is used to time a pause in execution before

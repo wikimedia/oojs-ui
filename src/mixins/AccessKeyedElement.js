@@ -66,7 +66,7 @@ OO.ui.mixin.AccessKeyedElement.static.accessKey = null;
  * This method is used to retarget a AccessKeyedElement mixin so that its functionality applies to the specified element.
  * If an element is already set, the mixin's effect on that element is removed before the new element is set up.
  *
- * @param {jQuery} $accessKeyed Element that should use the 'accesskeyes' functionality
+ * @param {jQuery} $accessKeyed Element that should use the 'accesskeyed' functionality
  */
 OO.ui.mixin.AccessKeyedElement.prototype.setAccessKeyedElement = function ( $accessKeyed ) {
 	if ( this.$accessKeyed ) {

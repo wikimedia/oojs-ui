@@ -4,7 +4,7 @@
  * by setting the #continuous option to 'true'.
  *
  *     @example
- *     // A stack layout with two panels, configured to be displayed continously
+ *     // A stack layout with two panels, configured to be displayed continuously
  *     var myStack = new OO.ui.StackLayout( {
  *         items: [
  *             new OO.ui.PanelLayout( {

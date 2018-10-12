@@ -97,7 +97,7 @@ OO.ui.mixin.ButtonElement.prototype.setButtonElement = function ( $button ) {
 		} );
 
 	// Add `role="button"` on `<a>` elements, where it's needed
-	// `toUppercase()` is added for XHTML documents
+	// `toUpperCase()` is added for XHTML documents
 	if ( this.$button.prop( 'tagName' ).toUpperCase() === 'A' ) {
 		this.$button.attr( 'role', 'button' );
 	}

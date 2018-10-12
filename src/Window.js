@@ -261,7 +261,7 @@ OO.ui.Window.prototype.withoutSizeTransitions = function ( callback ) {
 /**
  * Get the height of the full window contents (i.e., the window head, body and foot together).
  *
- * What consistitutes the head, body, and foot varies depending on the window type.
+ * What constitutes the head, body, and foot varies depending on the window type.
  * A {@link OO.ui.MessageDialog message dialog} displays a title and message in its body,
  * and any actions in the foot. A {@link OO.ui.ProcessDialog process dialog} displays a title
  * and special actions in the head, and dialog content in the body.

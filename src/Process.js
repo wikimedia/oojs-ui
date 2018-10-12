@@ -16,7 +16,7 @@
  * @class
  *
  * @constructor
- * @param {number|jQuery.Promise|Function} step Number of miliseconds to wait before proceeding, promise
+ * @param {number|jQuery.Promise|Function} step Number of milliseconds to wait before proceeding, promise
  *  that must be resolved before proceeding, or a function to execute. See #createStep for more information. see #createStep for more information
  * @param {Object} [context=null] Execution context of the function. The context is ignored if the step is
  *  a number or promise.

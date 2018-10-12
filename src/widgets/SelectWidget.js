@@ -539,7 +539,7 @@ OO.ui.SelectWidget.prototype.unbindDocumentKeyPressListener = function () {
 
 // Deprecated alias since 0.28.3
 OO.ui.SelectWidget.prototype.unbindKeyPressListener = function () {
-	OO.ui.warnDeprecation( 'unbindDocumentKeyPressListener is deprecated, use unbindDocumentKeyPressListener instead' );
+	OO.ui.warnDeprecation( 'unbindKeyPressListener is deprecated, use unbindDocumentKeyPressListener instead' );
 	this.unbindDocumentKeyPressListener.apply( this, arguments );
 };
 

@@ -25,7 +25,7 @@
  *  'center': Vertically align the center with $floatableContainer's center
  * @cfg {string} [horizontalPosition='start'] Where to position $floatable horizontally:
  *  'before': Directly before $floatableContainer, aligning f's end edge with fC's start edge
- *  'after': Directly after $floatableContainer, algining f's start edge with fC's end edge
+ *  'after': Directly after $floatableContainer, aligning f's start edge with fC's end edge
  *  'start': Align the start (left in LTR, right in RTL) edge with $floatableContainer's start edge
  *  'end': Align the end (right in LTR, left in RTL) edge with $floatableContainer's end edge
  *  'center': Horizontally align the center with $floatableContainer's center

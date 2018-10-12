@@ -71,7 +71,7 @@ OO.ui.ActionWidget.prototype.getAction = function () {
  * Get the symbolic name of the mode or modes for which the action is configured to be available.
  *
  * The current mode is set with the action set's {@link OO.ui.ActionSet#setMode setMode} method.
- * Only actions that are configured to be avaiable in the current mode will be visible. All other actions
+ * Only actions that are configured to be available in the current mode will be visible. All other actions
  * are hidden.
  *
  * @return {string[]}

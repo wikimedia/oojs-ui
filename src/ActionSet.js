@@ -411,7 +411,7 @@ OO.ui.ActionSet.prototype.remove = function ( actions ) {
 };
 
 /**
- * Remove all action widets from the set.
+ * Remove all action widgets from the set.
  *
  * To remove only specified actions, use the {@link #method-remove remove} method instead.
  *
