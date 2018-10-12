@@ -146,7 +146,7 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 		this.positioning = positioning;
 
 		this.needsCustomPosition =
-			this.verticalPostion !== 'below' ||
+			this.verticalPosition !== 'below' ||
 			this.horizontalPosition !== 'start' ||
 			!OO.ui.contains( this.$floatableContainer[ 0 ], this.$floatable[ 0 ] );
 
