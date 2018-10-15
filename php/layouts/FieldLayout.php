@@ -105,10 +105,10 @@ class FieldLayout extends Layout {
 			array_merge( $config, [ 'titled' => $this->label ] ) );
 
 		// Initialization
-		$this->help = empty( $this->helpText ) ? '' : $this->createHelpElement();
+		$this->help = $this->helpText === '' ? '' : $this->createHelpElement();
 		if ( $this->fieldWidget->getInputId() ) {
 			$this->label->setAttributes( [ 'for' => $this->fieldWidget->getInputId() ] );
-			if ( !empty( $this->helpText ) && $this->helpInline ) {
+			if ( $this->helpText !== '' && $this->helpInline ) {
 				$this->help->setAttributes( [ 'for' => $this->fieldWidget->getInputId() ] );
 			}
 		}
