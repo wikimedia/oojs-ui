@@ -46,7 +46,7 @@ else
 		'number' => [0, -1, 300], # JS code
 		'bool' => [true, false], # PHP code
 		'boolean' => [true, false], # JS code
-		'string' => ['Foo bar', '<b>HTML?</b>', '', ' '],
+		'string' => ['Foo bar', '<b>HTML?</b>', '', ' ', '0'],
 		'HtmlSnippet' => ['Foo bar', '<b>HTML?</b>', ''].map(&make_htmlsnippet_placeholder),
 	}
 

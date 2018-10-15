@@ -50,20 +50,18 @@ trait LabelElement {
 	 * @return $this
 	 */
 	public function setLabel( $label ) {
-		$this->labelValue = (string)$label ? $label : null;
+		$this->labelValue = (string)$label !== '' ? $label : null;
 
 		$this->label->clearContent();
 		if ( $this->labelValue !== null ) {
-			if ( is_string( $this->labelValue ) && $this->labelValue !== ''
-				&& trim( $this->labelValue ) === ''
-			) {
+			if ( is_string( $this->labelValue ) && trim( $this->labelValue ) === '' ) {
 				$this->label->appendContent( new HtmlSnippet( '&nbsp;' ) );
 			} else {
 				$this->label->appendContent( $label );
 			}
 		}
 
-		$this->toggleClasses( [ 'oo-ui-labelElement' ], !!$this->labelValue );
+		$this->toggleClasses( [ 'oo-ui-labelElement' ], $this->labelValue !== null );
 
 		return $this;
 	}
