@@ -2503,7 +2503,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget(),
 					{
-						label: 'FieldLayout aligned left with inline help',
+						label: 'FieldLayout aligned left, inlined help',
 						help: 'This is some inlined help',
 						helpInline: true,
 						align: 'left'
@@ -2517,6 +2517,34 @@ Demo.static.pages.widgets = function ( demo ) {
 					{
 						label: 'ActionFieldLayout aligned left with help',
 						help: loremIpsum,
+						align: 'left'
+					}
+				),
+				new OO.ui.ActionFieldLayout(
+					new OO.ui.DropdownWidget( {
+						options: [
+							{
+								data: 'a',
+								label: 'First'
+							},
+							{
+								data: 'b',
+								label: 'Second'
+							},
+							{
+								data: 'c',
+								label: 'Third'
+							}
+						],
+						value: 'b'
+					} ),
+					new OO.ui.ButtonWidget( {
+						label: 'Button'
+					} ),
+					{
+						label: 'ActionFieldLayout aligned left, DropdownWidget',
+						help: 'This is some inlined help',
+						helpInline: true,
 						align: 'left'
 					}
 				),
@@ -2541,7 +2569,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget(),
 					{
-						label: 'FieldLayout aligned right with inlined help',
+						label: 'FieldLayout aligned right, inlined help',
 						help: 'This is some inlined help',
 						helpInline: true,
 						align: 'right'

@@ -964,6 +964,34 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\ActionFieldLayout(
+			new OOUI\DropdownInputWidget( [
+				'options' => [
+					[
+						'data' => 'a',
+						'label' => 'First'
+					],
+					[
+						'data' => 'b',
+						'label' => 'Second'
+					],
+					[
+						'data' => 'c',
+						'label' => 'Third'
+					]
+				],
+				'value' => 'b'
+			] ),
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'ActionFieldLayout aligned left, DropdownInputWidget with help',
+				'help' => 'This is some inlined help',
+				'helpInline' => true,
+				'align' => 'left'
+			]
+		),
+		new OOUI\ActionFieldLayout(
 			new OOUI\TextInputWidget(),
 			new OOUI\ButtonWidget( [
 				'label' => 'Button'
