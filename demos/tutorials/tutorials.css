@@ -44,10 +44,7 @@ legend {
 	margin-bottom: 1em;
 }
 
-nav {
-	padding: 0.5em;
-}
-
+nav,
 p {
 	margin-top: 1em;
 }
@@ -218,16 +215,12 @@ tr {
 	text-align: center;
 }
 
-.tutorials-toolbar-tutorials {
-	top: 14px;
-	width: 50%;
+.tutorials-toolbar > .oo-ui-widget {
+	margin-bottom: 1em;
 }
 
-.tutorials-toolbar-tutorials .oo-ui-dropdownWidget {
-	top: 10px;
-	left: 0;
-	width: 16em;
-	padding: 0;
+.tutorials-toolbar-tutorials {
+	width: 50%;
 }
 
 /*
