@@ -784,10 +784,10 @@ OO.ui.TagMultiselectWidget.prototype.updateInputSize = function () {
 
 		// Some safety margin for sanity, because I *really* don't feel like finding out where the few
 		// pixels this is off by are coming from.
-		bestWidth -= 10;
+		bestWidth -= 13;
 		if ( contentWidth > bestWidth ) {
 			// This will result in the input getting shifted to the next line
-			bestWidth = this.$content.innerWidth() - 10;
+			bestWidth = this.$content.innerWidth() - 13;
 		}
 		this.input.$input.width( Math.floor( bestWidth ) );
 		this.updateIfHeightChanged();
