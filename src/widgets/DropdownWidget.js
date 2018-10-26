@@ -83,7 +83,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 		click: this.onClick.bind( this ),
 		keydown: this.onKeyDown.bind( this ),
 		// Hack? Handle type-to-search when menu is not expanded and not handling its own events
-		keypress: this.menu.onKeyPressHandler,
+		keypress: this.menu.onDocumentKeyPressHandler,
 		blur: this.menu.clearKeyPressBuffer.bind( this.menu )
 	} );
 	this.menu.connect( this, {
