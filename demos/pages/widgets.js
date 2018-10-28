@@ -435,7 +435,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.ToggleButtonWidget( { icon: 'next' } ),
+					new OO.ui.ToggleButtonWidget( { icon: 'previous' } ),
 					{
 						label: 'ToggleButtonWidget (icon only)\u200E',
 						align: 'top'
