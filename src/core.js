@@ -370,7 +370,9 @@ OO.ui.infuse = function ( idOrNode, config ) {
 		// Label for the file selection widget when no file is currently selected
 		'ooui-selectfile-placeholder': 'No file is selected',
 		// Label for the file selection widget's drop target
-		'ooui-selectfile-dragdrop-placeholder': 'Drop file here'
+		'ooui-selectfile-dragdrop-placeholder': 'Drop file here',
+		// Label for the help icon attached to a form field
+		'ooui-field-help': 'Help'
 	};
 
 	/**
