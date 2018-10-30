@@ -21,6 +21,7 @@
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.IconElement
  * @mixins OO.ui.mixin.TitledElement
+ * @mixins OO.ui.mixin.LabelElement
  * @mixins OO.ui.mixin.FlaggedElement
  *
  * @constructor
@@ -36,10 +37,14 @@ OO.ui.IconWidget = function OoUiIconWidget( config ) {
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, $.extend( {}, config, { $icon: this.$element } ) );
 	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$element } ) );
+	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, { $label: this.$element, invisibleLabel: true } ) );
 	OO.ui.mixin.FlaggedElement.call( this, $.extend( {}, config, { $flagged: this.$element } ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-iconWidget' );
+	// Remove class added by LabelElement initialization. It causes unexpected CSS to apply when
+	// nested in other widgets, because this widget used to not mix in LabelElement.
+	this.$element.removeClass( 'oo-ui-labelElement-label' );
 };
 
 /* Setup */
@@ -47,6 +52,7 @@ OO.ui.IconWidget = function OoUiIconWidget( config ) {
 OO.inheritClass( OO.ui.IconWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.IconWidget, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.IconWidget, OO.ui.mixin.TitledElement );
+OO.mixinClass( OO.ui.IconWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.IconWidget, OO.ui.mixin.FlaggedElement );
 
 /* Static Properties */

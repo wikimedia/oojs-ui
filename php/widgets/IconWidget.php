@@ -10,6 +10,7 @@ namespace OOUI;
 class IconWidget extends Widget {
 	use IconElement;
 	use TitledElement;
+	use LabelElement;
 	use FlaggedElement;
 
 	/* Static Properties */
@@ -29,9 +30,14 @@ class IconWidget extends Widget {
 			array_merge( $config, [ 'iconElement' => $this ] ) );
 		$this->initializeTitledElement(
 			array_merge( $config, [ 'titled' => $this ] ) );
+		$this->initializeLabelElement(
+			array_merge( $config, [ 'labelElement' => $this, 'invisibleLabel' => true ] ) );
 		$this->initializeFlaggedElement( array_merge( $config, [ 'flagged' => $this ] ) );
 
 		// Initialization
 		$this->addClasses( [ 'oo-ui-iconWidget' ] );
+		// Remove class added by LabelElement initialization. It causes unexpected CSS to apply when
+		// nested in other widgets, because this widget used to not mix in LabelElement.
+		$this->removeClasses( [ 'oo-ui-labelElement-label' ] );
 	}
 }

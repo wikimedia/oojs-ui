@@ -3,6 +3,12 @@
 .oo-ui-indicatorWidget {
 	display: inline-block;
 	vertical-align: middle;
+	.oo-ui-unselectable();
+	// Override properties from .oo-ui-screen-reader-text(),
+	// hide label text with negative 'text-indent' instead
+	clip: auto;
+	margin: 0;
+	text-indent: -9999px;
 
 	.theme-oo-ui-indicatorWidget();
 }

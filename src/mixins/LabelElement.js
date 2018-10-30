@@ -16,6 +16,8 @@
  *  as a plaintext string, a jQuery selection of elements, or a function that will produce a string
  *  in the future. See the [OOUI documentation on MediaWiki] [2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Labels
+ * @cfg {boolean} [invisibleLabel] Whether the label should be visually hidden (but still accessible
+ *  to screen-readers).
  */
 OO.ui.mixin.LabelElement = function OoUiMixinLabelElement( config ) {
 	// Configuration initialization
@@ -24,10 +26,12 @@ OO.ui.mixin.LabelElement = function OoUiMixinLabelElement( config ) {
 	// Properties
 	this.$label = null;
 	this.label = null;
+	this.invisibleLabel = null;
 
 	// Initialization
 	this.setLabel( config.label || this.constructor.static.label );
 	this.setLabelElement( config.$label || $( '<span>' ) );
+	this.setInvisibleLabel( config.invisibleLabel );
 };
 
 /* Setup */
@@ -136,7 +140,28 @@ OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
 		this.emit( 'labelChange' );
 	}
 
-	this.$element.toggleClass( 'oo-ui-labelElement', !!this.label );
+	this.$element.toggleClass( 'oo-ui-labelElement', !!this.label && !this.invisibleLabel );
+
+	return this;
+};
+
+/**
+ * Set whether the label should be visually hidden (but still accessible to screen-readers).
+ *
+ * @param {boolean} invisibleLabel
+ * @chainable
+ */
+OO.ui.mixin.LabelElement.prototype.setInvisibleLabel = function ( invisibleLabel ) {
+	invisibleLabel = !!invisibleLabel;
+
+	if ( this.invisibleLabel !== invisibleLabel ) {
+		this.invisibleLabel = invisibleLabel;
+		this.emit( 'labelChange' );
+	}
+
+	this.$label.toggleClass( 'oo-ui-labelElement-invisible', this.invisibleLabel );
+	// Pretend that there is no label, a lot of CSS has been written with this assumption
+	this.$element.toggleClass( 'oo-ui-labelElement', !!this.label && !this.invisibleLabel );
 
 	return this;
 };

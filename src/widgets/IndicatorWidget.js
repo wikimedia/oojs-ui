@@ -22,6 +22,7 @@
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.IndicatorElement
  * @mixins OO.ui.mixin.TitledElement
+ * @mixins OO.ui.mixin.LabelElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -36,9 +37,13 @@ OO.ui.IndicatorWidget = function OoUiIndicatorWidget( config ) {
 	// Mixin constructors
 	OO.ui.mixin.IndicatorElement.call( this, $.extend( {}, config, { $indicator: this.$element } ) );
 	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$element } ) );
+	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, { $label: this.$element, invisibleLabel: true } ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-indicatorWidget' );
+	// Remove class added by LabelElement initialization. It causes unexpected CSS to apply when
+	// nested in other widgets, because this widget used to not mix in LabelElement.
+	this.$element.removeClass( 'oo-ui-labelElement-label' );
 };
 
 /* Setup */
@@ -46,6 +51,7 @@ OO.ui.IndicatorWidget = function OoUiIndicatorWidget( config ) {
 OO.inheritClass( OO.ui.IndicatorWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.IndicatorWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.IndicatorWidget, OO.ui.mixin.TitledElement );
+OO.mixinClass( OO.ui.IndicatorWidget, OO.ui.mixin.LabelElement );
 
 /* Static Properties */
 

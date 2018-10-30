@@ -355,6 +355,38 @@
       {
         "class": "ActionFieldLayout",
         "config": {
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
           "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
@@ -1408,6 +1440,114 @@
         "class": "ActionFieldLayout",
         "config": {
           "align": "top",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "top",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "top",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "top",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "inline",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "inline",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "inline",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "inline",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "left",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "left",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "left",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "left",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "align": "top",
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
           "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
@@ -3118,6 +3258,294 @@
         "class": "ActionFieldLayout",
         "config": {
           "help": "Foo bar",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "Foo bar",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "Foo bar",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "Foo bar",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "<b>HTML?</b>",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "<b>HTML?</b>",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "<b>HTML?</b>",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "<b>HTML?</b>",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": " ",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": " ",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": " ",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": " ",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "0",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "0",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "0",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "0",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "help": "Foo bar",
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
           "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
@@ -4126,6 +4554,78 @@
         "class": "ActionFieldLayout",
         "config": {
           "helpInline": true,
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "helpInline": true,
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "helpInline": true,
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "helpInline": true,
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "helpInline": false,
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "helpInline": false,
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "helpInline": false,
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "helpInline": false,
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "helpInline": true,
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
           "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
@@ -4306,6 +4806,294 @@
         "class": "ActionFieldLayout",
         "config": {
           "label": "Foo bar",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "label": "Foo bar",
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
           "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
@@ -5017,6 +5805,186 @@
         "class": "ActionFieldLayout",
         "config": {
           "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": "0",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "Foo bar",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "Foo bar",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "<b>HTML?</b>",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "<b>HTML?</b>",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": " ",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": " ",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "0",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "0",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "Foo bar",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "Foo bar",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "<b>HTML?</b>",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "<b>HTML?</b>",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": " ",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": " ",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "0",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}",
+          "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "ActionFieldLayout",
+        "config": {
+          "invisibleLabel": false,
           "title": "0",
           "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
           "buttonWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
@@ -5516,6 +6484,34 @@
       {
         "class": "FieldLayout",
         "config": {
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
         }
@@ -7051,6 +8047,102 @@
         "class": "FieldLayout",
         "config": {
           "align": "top",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "top",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "top",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "top",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "inline",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "inline",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "inline",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "inline",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "left",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "left",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "left",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "left",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "align": "top",
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
         }
@@ -9693,6 +10785,206 @@
           "errors": [
             "Foo bar"
           ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "Foo bar"
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "Foo bar"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "Foo bar"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "<b>HTML?</b>"
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "<b>HTML?</b>"
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "<b>HTML?</b>"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "<b>HTML?</b>"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            ""
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            ""
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            ""
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            ""
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            " "
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            " "
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            " "
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            " "
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "0"
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "0"
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "0"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "0"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "errors": [
+            "Foo bar"
+          ],
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
         }
@@ -11993,6 +13285,206 @@
           "notices": [
             "Foo bar"
           ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "Foo bar"
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "Foo bar"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "Foo bar"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "<b>HTML?</b>"
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "<b>HTML?</b>"
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "<b>HTML?</b>"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "<b>HTML?</b>"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            ""
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            ""
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            ""
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            ""
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            " "
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            " "
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            " "
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            " "
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "0"
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "0"
+          ],
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "0"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "0"
+          ],
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "notices": [
+            "Foo bar"
+          ],
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
         }
@@ -13771,6 +15263,262 @@
         "class": "FieldLayout",
         "config": {
           "help": "Foo bar",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "Foo bar",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "Foo bar",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "Foo bar",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "<b>HTML?</b>",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "<b>HTML?</b>",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "<b>HTML?</b>",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "<b>HTML?</b>",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": " ",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": " ",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": " ",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": " ",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "0",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "0",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "0",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "0",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "help": "Foo bar",
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
         }
@@ -14667,6 +16415,70 @@
         "class": "FieldLayout",
         "config": {
           "helpInline": true,
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "helpInline": true,
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "helpInline": true,
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "helpInline": true,
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "helpInline": false,
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "helpInline": false,
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "helpInline": false,
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "helpInline": false,
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "helpInline": true,
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
         }
@@ -14827,6 +16639,262 @@
         "class": "FieldLayout",
         "config": {
           "label": "Foo bar",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false,
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "label": "Foo bar",
           "title": "Foo bar",
           "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
         }
@@ -15459,6 +17527,166 @@
         "class": "FieldLayout",
         "config": {
           "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": "0",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "Foo bar",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "Foo bar",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "<b>HTML?</b>",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "<b>HTML?</b>",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": " ",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": " ",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "0",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": true,
+          "title": "0",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "Foo bar",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "Foo bar",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "<b>HTML?</b>",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "<b>HTML?</b>",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": " ",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": " ",
+          "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
+          "title": "0",
+          "fieldWidget": "_placeholder_{\"class\":\"ButtonWidget\",\"config\":{}}"
+        }
+      },
+      {
+        "class": "FieldLayout",
+        "config": {
+          "invisibleLabel": false,
           "title": "0",
           "fieldWidget": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}"
         }
@@ -15538,6 +17766,18 @@
       {
         "class": "FieldsetLayout",
         "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
           "items": [
             "_placeholder_{\"class\":\"FieldLayout\",\"config\":{\"fieldWidget\":\"_placeholder_{\\\"class\\\":\\\"ButtonWidget\\\",\\\"config\\\":{}}\"}}"
           ],
@@ -15619,6 +17859,24 @@
       {
         "class": "FieldsetLayout",
         "config": {
+          "items": [
+            "_placeholder_{\"class\":\"FieldLayout\",\"config\":{\"fieldWidget\":\"_placeholder_{\\\"class\\\":\\\"ButtonWidget\\\",\\\"config\\\":{}}\"}}"
+          ],
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"FieldLayout\",\"config\":{\"fieldWidget\":\"_placeholder_{\\\"class\\\":\\\"ButtonWidget\\\",\\\"config\\\":{}}\"}}"
+          ],
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
           "icon": "image",
           "label": "Foo bar"
         }
@@ -15670,6 +17928,132 @@
         "config": {
           "icon": "image",
           "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "icon": "image",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "icon": "image",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false
         }
       }
     ]
@@ -16287,6 +18671,18 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "type": "button",
           "useInputTag": true
         }
@@ -17169,6 +19565,48 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "type": "button",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "button",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "submit",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "submit",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "foo",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "foo",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "useInputTag": true,
           "value": ""
         }
@@ -17729,6 +20167,34 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "useInputTag": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "useInputTag": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "useInputTag": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "useInputTag": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "value": "",
           "dir": "Foo bar"
         }
@@ -18737,6 +21203,62 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "value": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "value": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "value": "a",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "value": "a",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "value": "b",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "value": "b",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "value": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "value": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "dir": "Foo bar",
           "inputId": "Foo bar"
         }
@@ -19822,6 +22344,76 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "dir": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "dir": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "dir": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "dir": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "dir": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "dir": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "dir": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "dir": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "dir": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "dir": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "inputId": "Foo bar",
           "disabled": true
         }
@@ -20732,6 +23324,76 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "inputId": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "inputId": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "inputId": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "inputId": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "inputId": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "inputId": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "inputId": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "inputId": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "inputId": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "inputId": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "disabled": true,
           "flags": "progressive"
         }
@@ -21068,6 +23730,34 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "disabled": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "flags": "progressive",
           "tabIndex": -1
         }
@@ -21376,6 +24066,34 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "flags": "progressive",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "flags": "progressive",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "flags": "primary",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "flags": "primary",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "tabIndex": -1,
           "title": "Foo bar"
         }
@@ -21880,6 +24598,62 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "tabIndex": -1,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "tabIndex": -1,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "tabIndex": 0,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "tabIndex": 0,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "tabIndex": 100,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "tabIndex": 100,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "tabIndex": "42",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "tabIndex": "42",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "title": "Foo bar",
           "accessKey": "k"
         }
@@ -22335,6 +25109,76 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "title": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "title": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "title": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "title": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "title": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "title": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "title": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "title": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "accessKey": "k",
           "framed": true
         }
@@ -22419,6 +25263,20 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "accessKey": "k",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "accessKey": "k",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "framed": true,
           "icon": "image"
         }
@@ -22559,6 +25417,34 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "framed": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "framed": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "framed": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "framed": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "icon": "image",
           "indicator": "down"
         }
@@ -22622,6 +25508,20 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "icon": "image",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "icon": "image",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "indicator": "down",
           "label": "Foo bar"
         }
@@ -22673,6 +25573,132 @@
         "config": {
           "indicator": "down",
           "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "indicator": "down",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "indicator": "down",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false
         }
       }
     ]
@@ -22808,6 +25834,18 @@
       {
         "class": "ButtonWidget",
         "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
           "title": "Foo bar"
         }
       },
@@ -23133,6 +26171,34 @@
         "class": "ButtonWidget",
         "config": {
           "active": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "active": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "active": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "active": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "active": true,
           "title": "Foo bar"
         }
       },
@@ -23420,6 +26486,20 @@
         "class": "ButtonWidget",
         "config": {
           "href": "http://example.com/",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "href": "http://example.com/",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "href": "http://example.com/",
           "title": "Foo bar"
         }
       },
@@ -23616,6 +26696,20 @@
         "class": "ButtonWidget",
         "config": {
           "target": "_blank",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "target": "_blank",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "target": "_blank",
           "title": "Foo bar"
         }
       },
@@ -23896,6 +26990,34 @@
         "class": "ButtonWidget",
         "config": {
           "noFollow": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "noFollow": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "noFollow": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "noFollow": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "noFollow": true,
           "title": "Foo bar"
         }
       },
@@ -24232,6 +27354,34 @@
         "class": "ButtonWidget",
         "config": {
           "disabled": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "disabled": true,
           "title": "Foo bar"
         }
       },
@@ -24540,6 +27690,34 @@
         "class": "ButtonWidget",
         "config": {
           "framed": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "framed": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "framed": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "framed": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "framed": true,
           "title": "Foo bar"
         }
       },
@@ -24771,6 +27949,20 @@
         "class": "ButtonWidget",
         "config": {
           "icon": "image",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "icon": "image",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "icon": "image",
           "title": "Foo bar"
         }
       },
@@ -24911,6 +28103,20 @@
         "class": "ButtonWidget",
         "config": {
           "indicator": "down",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "indicator": "down",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "indicator": "down",
           "title": "Foo bar"
         }
       },
@@ -24995,6 +28201,118 @@
         "class": "ButtonWidget",
         "config": {
           "label": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "label": "Foo bar",
           "title": "Foo bar"
         }
       },
@@ -25660,6 +28978,174 @@
         "class": "ButtonWidget",
         "config": {
           "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": " "
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "0"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": " "
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "0"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "ButtonWidget",
+        "config": {
+          "invisibleLabel": false,
           "accessKey": "k"
         }
       },
@@ -46582,6 +50068,66 @@
       {
         "class": "IconWidget",
         "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
           "flags": "progressive"
         }
       },
@@ -46679,6 +50225,146 @@
         "class": "IconWidget",
         "config": {
           "disabled": true,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": true,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": true,
+          "label": ""
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": true,
+          "label": " "
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": true,
+          "label": "0"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": false,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": false,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": false,
+          "label": ""
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": false,
+          "label": " "
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": false,
+          "label": "0"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "disabled": true,
           "flags": "progressive"
         }
       },
@@ -46742,6 +50428,76 @@
         "class": "IconWidget",
         "config": {
           "icon": "image",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "icon": "image",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "icon": "image",
+          "label": ""
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "icon": "image",
+          "label": " "
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "icon": "image",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "icon": "image",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "icon": "image",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "icon": "image",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "icon": "image",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "icon": "image",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "icon": "image",
           "flags": "progressive"
         }
       },
@@ -46756,6 +50512,356 @@
         "class": "IconWidget",
         "config": {
           "title": "Foo bar",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": ""
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": " "
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": ""
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": " "
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "",
+          "label": ""
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "",
+          "label": " "
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": " ",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": " ",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": " ",
+          "label": ""
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": " ",
+          "label": " "
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": " ",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": " ",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": " ",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": " ",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "0",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "0",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "0",
+          "label": ""
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "0",
+          "label": " "
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "0",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "0",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "0",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "0",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "title": "Foo bar",
           "flags": "progressive"
         }
       },
@@ -46819,6 +50925,258 @@
         "class": "IconWidget",
         "config": {
           "title": "0",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "Foo bar",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "Foo bar",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": " ",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": " ",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "0",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "0",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "IconWidget",
+        "config": {
+          "invisibleLabel": false,
           "flags": "primary"
         }
       }
@@ -46883,6 +51241,66 @@
       {
         "class": "IndicatorWidget",
         "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
           "disabled": true,
           "indicator": "down"
         }
@@ -46967,6 +51385,146 @@
       {
         "class": "IndicatorWidget",
         "config": {
+          "disabled": true,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": true,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": true,
+          "label": ""
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": true,
+          "label": " "
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": true,
+          "label": "0"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": false,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": false,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": false,
+          "label": ""
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": false,
+          "label": " "
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": false,
+          "label": "0"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
           "indicator": "down",
           "title": "Foo bar"
         }
@@ -46997,6 +51555,538 @@
         "config": {
           "indicator": "down",
           "title": "0"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "indicator": "down",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "indicator": "down",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "indicator": "down",
+          "label": ""
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "indicator": "down",
+          "label": " "
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "indicator": "down",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "indicator": "down",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "indicator": "down",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "indicator": "down",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "indicator": "down",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "indicator": "down",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": ""
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": " "
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "Foo bar",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": ""
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": " "
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "",
+          "label": ""
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "",
+          "label": " "
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": " ",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": " ",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": " ",
+          "label": ""
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": " ",
+          "label": " "
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": " ",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": " ",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": " ",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": " ",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "0",
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "0",
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "0",
+          "label": ""
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "0",
+          "label": " "
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "0",
+          "label": "0"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "0",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "0",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "0",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "title": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "IndicatorWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false
         }
       }
     ]
@@ -47084,6 +52174,18 @@
       {
         "class": "LabelWidget",
         "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
           "input": "_placeholder_{\"class\":\"CheckboxInputWidget\",\"config\":{}}",
           "disabled": true
         }
@@ -47224,6 +52326,34 @@
       {
         "class": "LabelWidget",
         "config": {
+          "input": "_placeholder_{\"class\":\"CheckboxInputWidget\",\"config\":{}}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "input": "_placeholder_{\"class\":\"CheckboxInputWidget\",\"config\":{}}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "input": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "input": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
           "disabled": true,
           "label": "Foo bar"
         }
@@ -47331,6 +52461,146 @@
         "config": {
           "disabled": false,
           "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "LabelWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false
         }
       }
     ]

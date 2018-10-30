@@ -344,7 +344,8 @@ OO.ui.FieldLayout.prototype.createHelpElement = function ( help, $overlay ) {
 			classes: [ 'oo-ui-fieldLayout-help' ],
 			framed: false,
 			icon: 'info',
-			label: OO.ui.msg( 'ooui-field-help' )
+			label: OO.ui.msg( 'ooui-field-help' ),
+			invisibleLabel: true
 		} );
 		if ( help instanceof OO.ui.HtmlSnippet ) {
 			helpWidget.getPopup().$body.html( help.toString() );

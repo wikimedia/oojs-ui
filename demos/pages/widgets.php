@@ -135,6 +135,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			new OOUI\ButtonWidget( [
 				'framed' => false,
 				'icon' => 'help',
+				'label' => 'Help',
+				'invisibleLabel' => true,
 				'title' => 'Icon only'
 			] ),
 			[
@@ -797,6 +799,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\IconWidget( [
 				'icon' => 'search',
+				'label' => 'Search',
+				'invisibleLabel' => true,
 				'title' => 'Search icon'
 			] ),
 			[
@@ -807,8 +811,10 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\IconWidget( [
 				'icon' => 'trash',
+				'label' => 'Trash',
+				'invisibleLabel' => true,
+				'title' => 'Trash icon',
 				'flags' => 'destructive',
-				'title' => 'Remove icon'
 			] ),
 			[
 				'label' => "IconWidget (flagged)\u{200E}",
@@ -818,6 +824,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\IconWidget( [
 				'icon' => 'search',
+				'label' => 'Search',
+				'invisibleLabel' => true,
 				'title' => 'Search icon',
 				'disabled' => true
 			] ),
@@ -829,6 +837,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\IndicatorWidget( [
 				'indicator' => 'required',
+				'label' => 'Required',
+				'invisibleLabel' => true,
 				'title' => 'Required indicator'
 			] ),
 			[
@@ -839,6 +849,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\IndicatorWidget( [
 				'indicator' => 'required',
+				'label' => 'Required',
+				'invisibleLabel' => true,
 				'title' => 'Required indicator',
 				'disabled' => true
 			] ),

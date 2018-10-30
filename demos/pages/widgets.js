@@ -219,6 +219,8 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						icon: 'help',
+						label: 'Help',
+						invisibleLabel: true,
 						title: 'Icon only, framed'
 					} ),
 					{
@@ -229,6 +231,8 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						indicator: 'clear',
+						label: 'Clear',
+						invisibleLabel: true,
 						title: 'Indicator only, framed'
 					} ),
 					{
@@ -240,6 +244,8 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonWidget( {
 						framed: false,
 						icon: 'help',
+						label: 'Help',
+						invisibleLabel: true,
 						title: 'Icon only'
 					} ),
 					{
@@ -251,6 +257,8 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonWidget( {
 						framed: false,
 						indicator: 'clear',
+						label: 'Clear',
+						invisibleLabel: true,
 						title: 'Indicator only'
 					} ),
 					{
@@ -435,14 +443,23 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.ToggleButtonWidget( { icon: 'previous' } ),
+					new OO.ui.ToggleButtonWidget( {
+						icon: 'previous',
+						label: 'Previous',
+						invisibleLabel: true
+					} ),
 					{
 						label: 'ToggleButtonWidget (icon only)\u200E',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.ToggleButtonWidget( { icon: 'next', value: true } ),
+					new OO.ui.ToggleButtonWidget( {
+						icon: 'next',
+						label: 'Next',
+						invisibleLabel: true,
+						value: true
+					} ),
 					{
 						label: 'ToggleButtonWidget (icon only, initially active)\u200E',
 						align: 'top'
@@ -498,6 +515,8 @@ Demo.static.pages.widgets = function ( demo ) {
 						items: [
 							new OO.ui.ButtonWidget( {
 								icon: 'tag',
+								label: 'Tag',
+								invisibleLabel: true,
 								flags: [ 'destructive' ]
 							} ),
 							new OO.ui.ButtonWidget( {
@@ -1923,6 +1942,8 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.PopupButtonWidget( {
 						icon: 'info',
 						framed: false,
+						label: 'More information',
+						invisibleLabel: true,
 						popup: {
 							head: true,
 							label: 'More information',
@@ -1940,6 +1961,8 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.PopupButtonWidget( {
 						icon: 'info',
 						framed: false,
+						label: 'More information',
+						invisibleLabel: true,
 						popup: {
 							head: true,
 							label: 'More information',
@@ -1957,6 +1980,8 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.PopupButtonWidget( {
 						icon: 'info',
 						framed: false,
+						label: 'More information',
+						invisibleLabel: true,
 						popup: {
 							head: true,
 							label: 'More information',
@@ -1974,6 +1999,8 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.PopupButtonWidget( {
 						icon: 'info',
 						framed: false,
+						label: 'More information',
+						invisibleLabel: true,
 						popup: {
 							head: true,
 							label: 'More information',
@@ -1991,6 +2018,8 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.PopupButtonWidget( {
 						icon: 'info',
 						framed: false,
+						label: 'More information',
+						invisibleLabel: true,
 						popup: {
 							head: true,
 							label: 'More information',
@@ -2008,6 +2037,8 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.PopupButtonWidget( {
 						icon: 'info',
 						framed: false,
+						label: 'More information',
+						invisibleLabel: true,
 						popup: {
 							head: true,
 							label: 'More information',
@@ -2240,6 +2271,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.IconWidget( {
 						icon: 'search',
+						label: 'Search',
 						title: 'Search icon'
 					} ),
 					{
@@ -2250,8 +2282,9 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.IconWidget( {
 						icon: 'trash',
-						flags: 'destructive',
-						title: 'Remove icon'
+						label: 'Trash',
+						title: 'Trash icon',
+						flags: 'destructive'
 					} ),
 					{
 						label: 'IconWidget (flagged)\u200E',
@@ -2261,6 +2294,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.IconWidget( {
 						icon: 'search',
+						label: 'Search',
 						title: 'Search icon',
 						disabled: true
 					} ),
@@ -2271,7 +2305,8 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.IndicatorWidget( {
-						indicator: 'clear',
+						indicator: 'required',
+						label: 'Required',
 						title: 'Required indicator'
 					} ),
 					{
@@ -2281,7 +2316,8 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.IndicatorWidget( {
-						indicator: 'clear',
+						indicator: 'required',
+						label: 'Required',
 						title: 'Required indicator',
 						disabled: true
 					} ),
@@ -2953,6 +2989,8 @@ Demo.static.pages.widgets = function ( demo ) {
 										new OO.ui.ButtonWidget( {
 											framed: false,
 											icon: 'help',
+											label: 'Help',
+											invisibleLabel: true,
 											title: 'Icon only'
 										} )
 									]
