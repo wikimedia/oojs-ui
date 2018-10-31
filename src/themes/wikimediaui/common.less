@@ -73,7 +73,7 @@
 @start-frameless: -( 6 / @ooui-font-size-browser / @ooui-font-size-base ); // `-( @start-frameless-icon + @border-width-base )`
 @start-frameless-icon: 5 / @ooui-font-size-browser / @ooui-font-size-base;
 @start-fieldlayout-help-icon: 3 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.234375em`≈`3px`
-@start-tagmultiselect-input: 5 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.390625em`≈`5px`; `@padding-horizontal-tagitem` + `@border-width-base`
+@start-tagmultiselect-input: 8 / @ooui-font-size-browser / @ooui-font-size-base; // Same as `@padding-horizontal-tagitem`.
 @start-toggleswitch-grip: 5 / @ooui-font-size-browser / @ooui-font-size-base;
 @start-tool-icon: 11 / @ooui-font-size-browser / @ooui-font-size-base;
 @start-toolbar-narrow-tool-icon: 4 / @ooui-font-size-browser / @ooui-font-size-base;
@@ -124,7 +124,7 @@
 @padding-horizontal-input-text: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-taboption: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-taboption-label: 5 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-horizontal-tagitem: 6 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-horizontal-tagitem: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-toolbar-action-buttons: 16 / @ooui-font-size-browser / @ooui-font-size-base; // aligned relatively to `@padding-horizontal-base` but for toolbar button height
 @padding-vertical-label: 4 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-base: 8 / @ooui-font-size-browser / @ooui-font-size-base;
@@ -169,8 +169,9 @@
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
 @line-height-message: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `20px` at base `font-size: 14px`
 @line-height-label: 20 / @ooui-font-size-browser / @ooui-font-size-base;
+@line-height-tagitem-label: unit( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small, @ooui-unit ); // Push label down by 1 px for vertical centering.
 @line-height-widget-multiline: 1.286; // equals `18px` at base `font-size: 14px;
-@line-height-widget-singleline: 15 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.07142857em`≈`15px`; Firefox needs a value, Chrome the unit;
+@line-height-widget-singleline: 15 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.07142857em`≈`15px`; Firefox needs a value, Chrome the unit.
 
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
 @background-color-input-binary--active: @color-progressive--active;
