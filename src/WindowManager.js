@@ -723,6 +723,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 				bodyMargin = parseFloat( $body.css( 'margin-right' ) ) || 0;
 				$body.css( {
 					overflow: 'hidden',
+					position: 'relative',
 					'margin-right': bodyMargin + scrollWidth
 				} );
 			}
@@ -738,6 +739,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 		if ( stackDepth === 0 ) {
 			$body.css( {
 				overflow: '',
+				position: '',
 				'margin-right': ''
 			} );
 		}
