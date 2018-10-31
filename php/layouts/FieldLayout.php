@@ -280,6 +280,9 @@ class FieldLayout extends Layout {
 				'framed' => false,
 				'icon' => 'info',
 				'title' => $this->helpText,
+				// TODO We have no way to use localisation messages in PHP
+				// (and to use different languages when used from MediaWiki)
+				// 'label' => msg( 'ooui-field-help' ),
 			] );
 		}
 	}
