@@ -10,12 +10,12 @@
 
 .theme-oo-ui-buttonGroupWidget () {
 	display: inline-block;
-	white-space: nowrap;
 	border-radius: @border-radius-base;
 	.oo-ui-inline-spacing( 0.5em );
 	// Create a stacking context, so that we can use `z-index` below without leaking out
 	z-index: 0;
 	position: relative;
+	padding-bottom: @border-width-base;
 
 	// Overrides both, ButtonWidget & ToggleButtonWidget
 	.oo-ui-buttonElement {
@@ -25,17 +25,18 @@
 
 	.oo-ui-buttonElement-framed {
 		.oo-ui-buttonElement-button {
-			margin-left: -@border-width-base;
+			margin-right: -@border-width-base;
+			margin-bottom: -@border-width-base;
 			border-radius: 0;
 		}
 
 		&:first-child .oo-ui-buttonElement-button {
-			margin-left: 0;
 			border-bottom-left-radius: @border-radius-base;
 			border-top-left-radius: @border-radius-base;
 		}
 
 		&:last-child .oo-ui-buttonElement-button {
+			margin-right: 0;
 			border-bottom-right-radius: @border-radius-base;
 			border-top-right-radius: @border-radius-base;
 		}
@@ -88,6 +89,7 @@
 	// Create a stacking context, so that we can use `z-index` below without leaking out
 	z-index: 0;
 	position: relative;
+	padding-bottom: @border-width-base;
 
 	&:focus {
 		outline: 0;
@@ -95,17 +97,18 @@
 
 	.oo-ui-buttonOptionWidget {
 		.oo-ui-buttonElement-button {
-			margin-left: -@border-width-base;
+			margin-right: -@border-width-base;
+			margin-bottom: -@border-width-base;
 			border-radius: 0;
 		}
 
 		&:first-child .oo-ui-buttonElement-button {
-			margin-left: 0;
 			border-bottom-left-radius: @border-radius-base;
 			border-top-left-radius: @border-radius-base;
 		}
 
 		&:last-child .oo-ui-buttonElement-button {
+			margin-right: 0;
 			border-bottom-right-radius: @border-radius-base;
 			border-top-right-radius: @border-radius-base;
 		}
