@@ -326,6 +326,8 @@ OO.ui.Dialog.prototype.detachActions = function () {
 		this.attachedActions[ i ].$element.detach();
 	}
 	this.attachedActions = [];
+
+	return this;
 };
 
 /**
