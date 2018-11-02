@@ -184,6 +184,7 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyDown = function ( e ) {
  *
  * @protected
  * @param {jQuery.Event} e Mouse up or key up event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.PopupToolGroup.prototype.onHandleMouseKeyUp = function ( e ) {
 	if (
@@ -199,6 +200,7 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyUp = function ( e ) {
  *
  * @protected
  * @param {jQuery.Event} e Mouse down or key down event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
 	var $focusable;

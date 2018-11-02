@@ -186,6 +186,7 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
  *
  * @private
  * @param {jQuery.Event} e Mouse down event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
 	var item;
@@ -208,6 +209,7 @@ OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
  *
  * @private
  * @param {MouseEvent} e Mouse up event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.SelectWidget.prototype.onDocumentMouseUp = function ( e ) {
 	var item;
@@ -266,6 +268,7 @@ OO.ui.SelectWidget.prototype.onMouseMove = function () {
  *
  * @private
  * @param {jQuery.Event} e Mouse over event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.SelectWidget.prototype.onMouseOver = function ( e ) {
 	var item;
@@ -284,6 +287,7 @@ OO.ui.SelectWidget.prototype.onMouseOver = function ( e ) {
  *
  * @private
  * @param {jQuery.Event} e Mouse over event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.SelectWidget.prototype.onMouseLeave = function () {
 	if ( !this.isDisabled() ) {
@@ -423,6 +427,7 @@ OO.ui.SelectWidget.prototype.clearKeyPressBuffer = function () {
  *
  * @protected
  * @param {KeyboardEvent} e Key press event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 	var c, filter, item;

@@ -169,6 +169,7 @@ OO.ui.DropdownWidget.prototype.onMenuToggle = function ( isVisible ) {
  *
  * @private
  * @param {jQuery.Event} e Mouse click event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
 	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
@@ -182,6 +183,7 @@ OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
  *
  * @private
  * @param {jQuery.Event} e Key down event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.DropdownWidget.prototype.onKeyDown = function ( e ) {
 	if (

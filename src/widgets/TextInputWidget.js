@@ -157,6 +157,7 @@ OO.ui.TextInputWidget.static.validationPatterns = {
  *
  * @private
  * @param {jQuery.Event} e Mouse down event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
 	if ( e.which === OO.ui.MouseButtons.LEFT ) {
@@ -170,6 +171,7 @@ OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
  *
  * @private
  * @param {jQuery.Event} e Mouse down event
+ * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.TextInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
 	if ( e.which === OO.ui.MouseButtons.LEFT ) {
