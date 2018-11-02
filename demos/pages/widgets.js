@@ -1789,6 +1789,17 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.TagMultiselectWidget( {
+						placeholder: 'Add up to 5 tags',
+						allowArbitrary: true,
+						limit: 5
+					} ),
+					{
+						label: 'TagMultiselectWidget (allowArbitrary, inline input, limit=5)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TagMultiselectWidget( {
 						placeholder: 'Add tags',
 						allowArbitrary: true,
 						inputPosition: 'outline'
@@ -1806,6 +1817,17 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'TagMultiselectWidget (inputwidget: OO.ui.NumberInputWidget, inputPosition:outline)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TagMultiselectWidget( {
+						allowArbitrary: true,
+						inputPosition: 'outline',
+						limit: 5
+					} ),
+					{
+						label: 'TagMultiselectWidget (inputPosition:outline, limit=5)',
 						align: 'top'
 					}
 				),
@@ -1834,6 +1856,28 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'MenuTagMultiselectWidget (initially selected, preset options)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MenuTagMultiselectWidget( {
+						selected: [
+							{ data: 'foo', label: 'Label for foo' },
+							{ data: 'bar', label: 'Label for bar' }
+						],
+						options: [
+							{ data: 'foo', label: 'Label for foo', icon: 'tag' },
+							{ data: 'bar', label: 'Label for bar' },
+							{ data: 'baz', label: 'Label for baz' },
+							{ data: 'quuz', label: 'Label for quuz' },
+							{ data: 'red', label: 'Label for red' },
+							{ data: 'green', label: 'Label for green' },
+							{ data: 'blue', label: 'Label for blue' }
+						],
+						limit: 5
+					} ),
+					{
+						label: 'MenuTagMultiselectWidget (initially selected, preset options, limit=5)',
 						align: 'top'
 					}
 				),
