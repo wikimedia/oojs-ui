@@ -40,7 +40,7 @@ class TextInputWidget extends InputWidget {
 	 * @param bool $config['autofocus'] Ask the browser to focus this widget, using the 'autofocus'
 	 *   HTML attribute (default: false)
 	 * @param bool $config['readOnly'] Prevent changes (default: false)
-	 * @param number $config['maxLength'] Maximum allowed number of characters to input
+	 * @param int $config['maxLength'] Maximum allowed number of characters to input
 	 *
 	 *   For unfortunate historical reasons, this counts the number of UTF-16 code units rather than
 	 *   Unicode codepoints, which means that codepoints outside the Basic Multilingual Plane (e.g.
