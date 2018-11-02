@@ -152,6 +152,7 @@ OO.ui.mixin.DraggableGroupElement.prototype.updateIndexes = function () {
  *
  * @private
  * @param {OO.ui.mixin.DraggableElement} item Dropped item
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.DraggableGroupElement.prototype.onItemDropOrDragEnd = function () {
 	var targetIndex, originalIndex,

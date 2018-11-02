@@ -127,6 +127,7 @@ OO.ui.mixin.FloatableElement.prototype.setHorizontalPosition = function ( positi
  *
  * @param {boolean} [positioning] Enable positioning, omit to toggle
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positioning ) {
 	var closestScrollableOfContainer;
@@ -260,6 +261,7 @@ OO.ui.mixin.FloatableElement.prototype.isFloatableOutOfView = function () {
  * This should only be done when both of them are attached to the DOM and visible.
  *
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.FloatableElement.prototype.position = function () {
 	if ( !this.positioning ) {

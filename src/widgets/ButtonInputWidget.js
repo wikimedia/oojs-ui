@@ -98,6 +98,7 @@ OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
  * @param {jQuery|string|Function|null} label Label nodes, text, a function that returns nodes or
  *  text, or `null` for no label
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
 	if ( typeof label === 'function' ) {
@@ -124,6 +125,7 @@ OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
  *
  * @param {string} value New value
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonInputWidget.prototype.setValue = function ( value ) {
 	if ( !this.useInputTag ) {

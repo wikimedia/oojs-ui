@@ -129,6 +129,7 @@ OO.ui.Window.static.size = 'medium';
  *
  * @private
  * @param {jQuery.Event} e Mouse down event
+ * @return {OO.ui.Window} The window, for chaining
  */
 OO.ui.Window.prototype.onMouseDown = function ( e ) {
 	// Prevent clicking on the click-block from stealing focus
@@ -408,6 +409,7 @@ OO.ui.Window.prototype.getTeardownProcess = function () {
  * @param {OO.ui.WindowManager} manager Manager for this window
  * @throws {Error} An error is thrown if the method is called more than once
  * @chainable
+ * @return {OO.ui.Window} The window, for chaining
  */
 OO.ui.Window.prototype.setManager = function ( manager ) {
 	if ( this.manager ) {
@@ -426,6 +428,7 @@ OO.ui.Window.prototype.setManager = function ( manager ) {
  * @param {string} size Symbolic name of size: `small`, `medium`, `large`, `larger` or
  *  `full`
  * @chainable
+ * @return {OO.ui.Window} The window, for chaining
  */
 OO.ui.Window.prototype.setSize = function ( size ) {
 	this.size = size;
@@ -438,6 +441,7 @@ OO.ui.Window.prototype.setSize = function ( size ) {
  *
  * @throws {Error} An error is thrown if the window is not attached to a window manager
  * @chainable
+ * @return {OO.ui.Window} The window, for chaining
  */
 OO.ui.Window.prototype.updateSize = function () {
 	if ( !this.manager ) {
@@ -463,6 +467,7 @@ OO.ui.Window.prototype.updateSize = function () {
  * @param {string|number} [dim.minHeight] Minimum height
  * @param {string|number} [dim.maxHeight] Maximum height
  * @chainable
+ * @return {OO.ui.Window} The window, for chaining
  */
 OO.ui.Window.prototype.setDimensions = function ( dim ) {
 	var height,
@@ -503,6 +508,7 @@ OO.ui.Window.prototype.setDimensions = function ( dim ) {
  *
  * @throws {Error} An error is thrown if the window is not attached to a window manager
  * @chainable
+ * @return {OO.ui.Window} The window, for chaining
  */
 OO.ui.Window.prototype.initialize = function () {
 	if ( !this.manager ) {

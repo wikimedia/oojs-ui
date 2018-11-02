@@ -110,6 +110,7 @@ OO.ui.MessageDialog.static.actions = [
  * @private
  * @param {boolean} [value] Layout actions vertically, omit to toggle
  * @chainable
+ * @return {OO.ui.MessageDialog} The dialog, for chaining
  */
 OO.ui.MessageDialog.prototype.toggleVerticalActionLayout = function ( value ) {
 	value = value === undefined ? !this.verticalActionLayout : !!value;

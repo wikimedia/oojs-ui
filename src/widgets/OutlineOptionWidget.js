@@ -110,6 +110,7 @@ OO.ui.OutlineOptionWidget.prototype.setPressed = function ( state ) {
  *
  * @param {boolean} movable Item is movable
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.OutlineOptionWidget.prototype.setMovable = function ( movable ) {
 	this.movable = !!movable;
@@ -124,6 +125,7 @@ OO.ui.OutlineOptionWidget.prototype.setMovable = function ( movable ) {
  *
  * @param {boolean} removable Item is removable
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.OutlineOptionWidget.prototype.setRemovable = function ( removable ) {
 	this.removable = !!removable;
@@ -144,6 +146,7 @@ OO.ui.OutlineOptionWidget.prototype.setSelected = function ( state ) {
  *
  * @param {number} [level=0] Indentation level, in the range of [0,#maxLevel]
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.OutlineOptionWidget.prototype.setLevel = function ( level ) {
 	var levels = this.constructor.static.levels,

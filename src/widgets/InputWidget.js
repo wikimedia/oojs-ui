@@ -157,6 +157,7 @@ OO.ui.InputWidget.prototype.getValue = function () {
  *
  * @param {string} dir Text directionality: 'ltr', 'rtl' or 'auto'
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.InputWidget.prototype.setDir = function ( dir ) {
 	this.$input.prop( 'dir', dir );
@@ -169,6 +170,7 @@ OO.ui.InputWidget.prototype.setDir = function ( dir ) {
  * @param {string} value New value
  * @fires change
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.InputWidget.prototype.setValue = function ( value ) {
 	value = this.cleanUpValue( value );
@@ -226,6 +228,7 @@ OO.ui.InputWidget.prototype.setDisabled = function ( state ) {
  *
  * @param {string} id
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.InputWidget.prototype.setInputId = function ( id ) {
 	this.$input.attr( 'id', id );

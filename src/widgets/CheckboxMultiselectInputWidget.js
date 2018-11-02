@@ -162,6 +162,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setDisabled = function ( state ) 
  *
  * @param {Object[]} options Array of menu options in the format `{ data: …, label: …, disabled: … }`
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options ) {
 	var value = this.getValue();

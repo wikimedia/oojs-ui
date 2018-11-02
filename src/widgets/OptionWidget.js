@@ -160,6 +160,7 @@ OO.ui.OptionWidget.prototype.isPressed = function () {
  *
  * @param {boolean} [state=false] Select option
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
 	if ( this.constructor.static.selectable ) {
@@ -183,6 +184,7 @@ OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
  *
  * @param {boolean} [state=false] Highlight option
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
 	if ( this.constructor.static.highlightable ) {
@@ -201,6 +203,7 @@ OO.ui.OptionWidget.prototype.setHighlighted = function ( state ) {
  *
  * @param {boolean} [state=false] Press option
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.OptionWidget.prototype.setPressed = function ( state ) {
 	if ( this.constructor.static.pressable ) {

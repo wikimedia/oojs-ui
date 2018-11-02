@@ -200,6 +200,7 @@ OO.ui.FieldLayout.prototype.makeMessage = function ( kind, text ) {
  * @private
  * @param {string} value Alignment mode, either 'left', 'right', 'top' or 'inline'
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 	if ( value !== this.align ) {
@@ -257,6 +258,7 @@ OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
  * @param {Array} errors Error messages about the widget, which will be displayed below the widget.
  *  The array may contain strings or OO.ui.HtmlSnippet instances.
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.FieldLayout.prototype.setErrors = function ( errors ) {
 	this.errors = errors.slice();
@@ -270,6 +272,7 @@ OO.ui.FieldLayout.prototype.setErrors = function ( errors ) {
  * @param {Array} notices Notices about the widget, which will be displayed below the widget.
  *  The array may contain strings or OO.ui.HtmlSnippet instances.
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.FieldLayout.prototype.setNotices = function ( notices ) {
 	this.notices = notices.slice();

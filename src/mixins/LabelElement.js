@@ -127,6 +127,7 @@ OO.ui.mixin.LabelElement.prototype.setLabelElement = function ( $label ) {
  * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} label Label nodes; text; a function that returns nodes or
  *  text; or null for no label
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
 	label = typeof label === 'function' ? OO.ui.resolveMsg( label ) : label;
@@ -150,6 +151,7 @@ OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
  *
  * @param {boolean} invisibleLabel
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.LabelElement.prototype.setInvisibleLabel = function ( invisibleLabel ) {
 	invisibleLabel = !!invisibleLabel;
@@ -173,6 +175,7 @@ OO.ui.mixin.LabelElement.prototype.setInvisibleLabel = function ( invisibleLabel
  * @param {string} query Substring of text to highlight
  * @param {Function} [compare] Optional string comparator, e.g. Intl.Collator().compare
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.LabelElement.prototype.setHighlightedQuery = function ( text, query, compare ) {
 	return this.setLabel( this.constructor.static.highlightQuery( text, query, compare ) );

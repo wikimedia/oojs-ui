@@ -179,6 +179,7 @@ OO.ui.mixin.LookupElement.prototype.setLookupsDisabled = function ( disabled ) {
  *
  * @private
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.LookupElement.prototype.openLookupMenu = function () {
 	if ( !this.lookupMenu.isEmpty() ) {
@@ -192,6 +193,7 @@ OO.ui.mixin.LookupElement.prototype.openLookupMenu = function () {
  *
  * @private
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.LookupElement.prototype.closeLookupMenu = function () {
 	this.lookupMenu.toggle( false );
@@ -208,6 +210,7 @@ OO.ui.mixin.LookupElement.prototype.closeLookupMenu = function () {
  *
  * @private
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
 	var widget = this,
@@ -321,6 +324,7 @@ OO.ui.mixin.LookupElement.prototype.getLookupMenuOptionsFromData = null;
  *
  * @param {boolean} readOnly Make input read-only
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.LookupElement.prototype.setReadOnly = function ( readOnly ) {
 	// Parent method

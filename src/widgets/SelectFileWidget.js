@@ -195,6 +195,7 @@ OO.ui.SelectFileWidget.prototype.setValue = function ( file ) {
  * Focusses the select file button.
  *
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectFileWidget.prototype.focus = function () {
 	this.selectButton.focus();
@@ -205,6 +206,7 @@ OO.ui.SelectFileWidget.prototype.focus = function () {
  * Blur the widget.
  *
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectFileWidget.prototype.blur = function () {
 	this.selectButton.blur();

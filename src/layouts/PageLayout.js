@@ -94,6 +94,7 @@ OO.ui.PageLayout.prototype.getOutlineItem = function () {
  *
  * @param {OO.ui.OutlineOptionWidget|null} outlineItem Outline option widget, null to clear
  * @chainable
+ * @return {OO.ui.PageLayout} The layout, for chaining
  */
 OO.ui.PageLayout.prototype.setOutlineItem = function ( outlineItem ) {
 	this.outlineItem = outlineItem || null;
@@ -112,6 +113,7 @@ OO.ui.PageLayout.prototype.setOutlineItem = function ( outlineItem ) {
  *
  * @param {OO.ui.OutlineOptionWidget} outlineItem Outline option widget to set up
  * @chainable
+ * @return {OO.ui.PageLayout} The layout, for chaining
  */
 OO.ui.PageLayout.prototype.setupOutlineItem = function () {
 	return this;

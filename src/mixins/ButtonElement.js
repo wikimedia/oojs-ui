@@ -228,6 +228,7 @@ OO.ui.mixin.ButtonElement.prototype.isFramed = function () {
  *
  * @param {boolean} [framed] Make button framed, omit to toggle
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.ButtonElement.prototype.toggleFramed = function ( framed ) {
 	framed = framed === undefined ? !this.framed : !!framed;
@@ -254,6 +255,7 @@ OO.ui.mixin.ButtonElement.prototype.toggleFramed = function ( framed ) {
  * @protected
  * @param {boolean} value Make button active
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.ButtonElement.prototype.setActive = function ( value ) {
 	this.active = !!value;

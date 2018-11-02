@@ -111,6 +111,7 @@ OO.ui.CheckboxInputWidget.prototype.onEdit = function () {
  *
  * @param {boolean} state `true` for selected
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.CheckboxInputWidget.prototype.setSelected = function ( state ) {
 	state = !!state;

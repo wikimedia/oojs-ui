@@ -317,6 +317,7 @@ OO.ui.Dialog.prototype.attachActions = function () {
  *
  * @protected
  * @chainable
+ * @return {OO.ui.Dialog} The dialog, for chaining
  */
 OO.ui.Dialog.prototype.detachActions = function () {
 	var i, len;

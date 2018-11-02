@@ -285,6 +285,7 @@ OO.ui.ActionSet.prototype.getOthers = function () {
  * @param {string} mode The mode. Only actions configured to be available in the specified
  *  mode will be made visible.
  * @chainable
+ * @return {OO.ui.ActionSet} The widget, for chaining
  * @fires toggle
  * @fires change
  */
@@ -314,6 +315,7 @@ OO.ui.ActionSet.prototype.setMode = function ( mode ) {
  * @param {Object.<string,boolean>} actions A list keyed by action name with boolean
  *  values that indicate whether or not the action should be enabled.
  * @chainable
+ * @return {OO.ui.ActionSet} The widget, for chaining
  */
 OO.ui.ActionSet.prototype.setAbilities = function ( actions ) {
 	var i, len, action, item;
@@ -339,6 +341,7 @@ OO.ui.ActionSet.prototype.setAbilities = function ( actions ) {
  * @param {Function} callback Callback to run for each action; callback is invoked with three
  *   arguments: the action, the action's index, the list of actions being iterated over
  * @chainable
+ * @return {OO.ui.ActionSet} The widget, for chaining
  */
 OO.ui.ActionSet.prototype.forEach = function ( filter, callback ) {
 	this.changed = false;
@@ -357,6 +360,7 @@ OO.ui.ActionSet.prototype.forEach = function ( filter, callback ) {
  *
  * @param {OO.ui.ActionWidget[]} actions Action widgets to add
  * @chainable
+ * @return {OO.ui.ActionSet} The widget, for chaining
  * @fires add
  * @fires change
  */
@@ -387,6 +391,7 @@ OO.ui.ActionSet.prototype.add = function ( actions ) {
  *
  * @param {OO.ui.ActionWidget[]} actions Action widgets to remove
  * @chainable
+ * @return {OO.ui.ActionSet} The widget, for chaining
  * @fires remove
  * @fires change
  */
@@ -416,6 +421,7 @@ OO.ui.ActionSet.prototype.remove = function ( actions ) {
  * To remove only specified actions, use the {@link #method-remove remove} method instead.
  *
  * @chainable
+ * @return {OO.ui.ActionSet} The widget, for chaining
  * @fires remove
  * @fires change
  */
@@ -447,6 +453,7 @@ OO.ui.ActionSet.prototype.clear = function () {
  *
  * @private
  * @chainable
+ * @return {OO.ui.ActionSet} The widget, for chaining
  */
 OO.ui.ActionSet.prototype.organize = function () {
 	var i, iLen, j, jLen, flag, action, category, list, item, special,

@@ -294,6 +294,7 @@ OO.ui.MenuSelectWidget.prototype.unbindDocumentKeyPressListener = function () {
  *
  * @param {OO.ui.OptionWidget} item Item to choose
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.MenuSelectWidget.prototype.chooseItem = function ( item ) {
 	OO.ui.MenuSelectWidget.parent.prototype.chooseItem.call( this, item );

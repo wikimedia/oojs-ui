@@ -288,6 +288,7 @@ OO.ui.BookletLayout.prototype.isOutlineVisible = function () {
  *
  * @param {boolean} [show] Show outline, omit to invert current state
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
 	var booklet = this;
@@ -403,6 +404,7 @@ OO.ui.BookletLayout.prototype.getCurrentPageName = function () {
  * @param {number} index Index of the insertion point
  * @fires add
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 	var i, len, name, page, item, currentIndex,
@@ -458,6 +460,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
  * @param {OO.ui.PageLayout[]} pages An array of pages to remove
  * @fires remove
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
 	var i, len, name, page,
@@ -489,6 +492,7 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
  *
  * @fires remove
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.BookletLayout.prototype.clearPages = function () {
 	var i, len,
@@ -584,6 +588,7 @@ OO.ui.BookletLayout.prototype.resetScroll = function () {
  * Select the first selectable page.
  *
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.BookletLayout.prototype.selectFirstSelectablePage = function () {
 	if ( !this.outlineSelectWidget.findSelectedItem() ) {

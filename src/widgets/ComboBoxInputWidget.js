@@ -252,6 +252,7 @@ OO.ui.ComboBoxInputWidget.prototype.setDisabled = function ( disabled ) {
  *
  * @param {Object[]} options Array of menu options in the format `{ data: …, label: … }`
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ComboBoxInputWidget.prototype.setOptions = function ( options ) {
 	this.getMenu()

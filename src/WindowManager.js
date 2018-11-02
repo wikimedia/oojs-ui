@@ -674,6 +674,7 @@ OO.ui.WindowManager.prototype.clearWindows = function () {
  *
  * @param {OO.ui.Window} win Window to update, should be the current window
  * @chainable
+ * @return {OO.ui.WindowManager} The manager, for chaining
  */
 OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 	var isFullscreen;
@@ -700,6 +701,7 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
  * @private
  * @param {boolean} [on] Bind global events
  * @chainable
+ * @return {OO.ui.WindowManager} The manager, for chaining
  */
 OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 	var scrollWidth, bodyMargin,
@@ -752,6 +754,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
  * @private
  * @param {boolean} [isolate] Make only the window manager visible to screen readers
  * @chainable
+ * @return {OO.ui.WindowManager} The manager, for chaining
  */
 OO.ui.WindowManager.prototype.toggleAriaIsolation = function ( isolate ) {
 	var $topLevelElement;

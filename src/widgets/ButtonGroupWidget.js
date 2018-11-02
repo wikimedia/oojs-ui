@@ -66,6 +66,7 @@ OO.ui.ButtonGroupWidget.static.tagName = 'span';
  * Focus the widget
  *
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonGroupWidget.prototype.focus = function () {
 	if ( !this.isDisabled() ) {

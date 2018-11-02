@@ -84,6 +84,7 @@ OO.ui.mixin.AccessKeyedElement.prototype.setAccessKeyedElement = function ( $acc
  *
  * @param {string|Function|null} accessKey Key, a function that returns a key, or `null` for no accesskey
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.AccessKeyedElement.prototype.setAccessKey = function ( accessKey ) {
 	accessKey = typeof accessKey === 'string' ? OO.ui.resolveMsg( accessKey ) : null;

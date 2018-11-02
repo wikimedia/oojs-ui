@@ -122,6 +122,7 @@ OO.ui.mixin.IconElement.prototype.setIconElement = function ( $icon ) {
  * @param {Object|string|null} icon A symbolic icon name, a {@link #icon map of icon names} keyed
  *  by language code, or `null` to remove the icon.
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.IconElement.prototype.setIcon = function ( icon ) {
 	icon = OO.isPlainObject( icon ) ? OO.ui.getLocalValue( icon, null, 'default' ) : icon;
@@ -154,6 +155,7 @@ OO.ui.mixin.IconElement.prototype.setIcon = function ( icon ) {
  * @param {string|Function|null} iconTitle A text string used as the icon title,
  *  a function that returns title text, or `null` for no title.
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.IconElement.prototype.setIconTitle = function ( iconTitle ) {
 	iconTitle =

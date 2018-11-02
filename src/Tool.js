@@ -256,6 +256,7 @@ OO.ui.Tool.prototype.setActive = function ( state ) {
  *
  * @param {string|Function} title Title text or a function that returns text
  * @chainable
+ * @return {OO.ui.Tool} The tool, for chaining
  */
 OO.ui.Tool.prototype.setTitle = function ( title ) {
 	this.title = OO.ui.resolveMsg( title );

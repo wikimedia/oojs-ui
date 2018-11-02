@@ -113,6 +113,7 @@ OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function ( e ) {
  * This only affects multiline inputs that are {@link #autosize autosized}.
  *
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  * @fires resize
  */
 OO.ui.MultilineTextInputWidget.prototype.adjustSize = function () {

@@ -29,6 +29,7 @@ OO.mixinClass( OO.ui.mixin.GroupWidget, OO.ui.mixin.GroupElement );
  *
  * @param {boolean} disabled Disable widget
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.mixin.GroupWidget.prototype.setDisabled = function ( disabled ) {
 	var i, len;

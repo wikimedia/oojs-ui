@@ -90,6 +90,7 @@ OO.ui.mixin.ClippableElement.prototype.setClippableContainer = function ( $clipp
  *
  * @param {boolean} [clipping] Enable clipping, omit to toggle
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.ClippableElement.prototype.toggleClipping = function ( clipping ) {
 	clipping = clipping === undefined ? !this.clipping : !!clipping;
@@ -244,6 +245,7 @@ OO.ui.mixin.ClippableElement.prototype.getVerticalAnchorEdge = function () {
  * beyond the edge, something reasonable will happen before clip() is called.
  *
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	var extraHeight, extraWidth, viewportSpacing,

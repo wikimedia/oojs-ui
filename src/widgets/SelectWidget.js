@@ -635,6 +635,7 @@ OO.ui.SelectWidget.prototype.togglePressed = function ( pressed ) {
  * @param {OO.ui.OptionWidget} [item] Item to highlight, omit for no highlight
  * @fires highlight
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
 	var i, len, highlighted,
@@ -706,6 +707,7 @@ OO.ui.SelectWidget.prototype.getItemFromLabel = function ( label, prefix ) {
  * @param {boolean} [prefix=false] Allow a prefix match, if only a single item matches
  * @fires select
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.selectItemByLabel = function ( label, prefix ) {
 	var itemFromLabel = this.getItemFromLabel( label, !!prefix );
@@ -722,6 +724,7 @@ OO.ui.SelectWidget.prototype.selectItemByLabel = function ( label, prefix ) {
  * @param {Object|string} [data] Value of the item to select, omit to deselect all
  * @fires select
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.selectItemByData = function ( data ) {
 	var itemFromData = this.findItemFromData( data );
@@ -738,7 +741,8 @@ OO.ui.SelectWidget.prototype.selectItemByData = function ( data ) {
  * @param {OO.ui.OptionWidget} [item] Item to select, omit to deselect all
  * @fires select
  * @chainable
- */
+ * @return {OO.ui.Widget} The widget, for chaining
+*/
 OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 	var i, len, selected,
 		changed = false;
@@ -774,6 +778,7 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
  * @param {OO.ui.OptionWidget} [item] Item to press, omit to depress all
  * @fires press
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
 	var i, len, pressed,
@@ -806,6 +811,7 @@ OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
  * @param {OO.ui.OptionWidget} item Item to choose
  * @fires choose
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
 	if ( item ) {
@@ -873,6 +879,7 @@ OO.ui.SelectWidget.prototype.findFirstSelectableItem = function () {
  * @param {number} [index] Index to insert items after
  * @fires add
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
 	// Mixin method
@@ -892,6 +899,7 @@ OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
  * @param {OO.ui.OptionWidget[]} items Items to remove
  * @fires remove
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
 	var i, len, item;
@@ -919,6 +927,7 @@ OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
  *
  * @fires remove
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.clearItems = function () {
 	var items = this.items.slice();

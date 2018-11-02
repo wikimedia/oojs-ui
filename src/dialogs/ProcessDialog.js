@@ -232,6 +232,7 @@ OO.ui.ProcessDialog.prototype.setDimensions = function () {
  *
  * @private
  * @chainable
+ * @return {OO.ui.MessageDialog} The dialog, for chaining
  */
 OO.ui.ProcessDialog.prototype.fitLabel = function () {
 	var safeWidth, primaryWidth, biggerWidth, labelWidth, navigationWidth, leftWidth, rightWidth,

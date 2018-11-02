@@ -67,6 +67,7 @@ OO.initClass( OO.ui.mixin.TabIndexedElement );
  *
  * @param {jQuery} $tabIndexed Element that should use the tabindex functionality
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TabIndexedElement.prototype.setTabIndexedElement = function ( $tabIndexed ) {
 	var tabIndex = this.tabIndex;
@@ -83,6 +84,7 @@ OO.ui.mixin.TabIndexedElement.prototype.setTabIndexedElement = function ( $tabIn
  *
  * @param {string|number|null} tabIndex Tabindex value, or `null` for no tabindex
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TabIndexedElement.prototype.setTabIndex = function ( tabIndex ) {
 	tabIndex = /^-?\d+$/.test( tabIndex ) ? Number( tabIndex ) : null;
@@ -101,6 +103,7 @@ OO.ui.mixin.TabIndexedElement.prototype.setTabIndex = function ( tabIndex ) {
  *
  * @private
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TabIndexedElement.prototype.updateTabIndex = function () {
 	if ( this.$tabIndexed ) {
@@ -192,6 +195,7 @@ OO.ui.mixin.TabIndexedElement.prototype.isLabelableNode = function ( $node ) {
  * Focus this element.
  *
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TabIndexedElement.prototype.focus = function () {
 	if ( !this.isDisabled() ) {
@@ -204,6 +208,7 @@ OO.ui.mixin.TabIndexedElement.prototype.focus = function () {
  * Blur this element.
  *
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TabIndexedElement.prototype.blur = function () {
 	this.$tabIndexed.blur();

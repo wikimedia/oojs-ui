@@ -87,6 +87,7 @@ OO.ui.MultiselectWidget.prototype.findSelectedItemsData = function () {
  *
  * @param {OO.ui.MultioptionWidget[]} items Items to select
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.MultiselectWidget.prototype.selectItems = function ( items ) {
 	this.items.forEach( function ( item ) {
@@ -101,6 +102,7 @@ OO.ui.MultiselectWidget.prototype.selectItems = function ( items ) {
  *
  * @param {Object[]|string[]} datas Values of items to select
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.MultiselectWidget.prototype.selectItemsByData = function ( datas ) {
 	var items,

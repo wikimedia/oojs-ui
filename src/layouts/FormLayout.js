@@ -123,6 +123,7 @@ OO.ui.FormLayout.static.tagName = 'form';
  * @private
  * @param {jQuery.Event} e Submit event
  * @fires submit
+ * @return {OO.ui.FormLayout} The layout, for chaining
  */
 OO.ui.FormLayout.prototype.onFormSubmit = function () {
 	if ( this.emit( 'submit' ) ) {

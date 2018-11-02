@@ -38,6 +38,7 @@ OO.mixinClass( OO.ui.Layout, OO.EventEmitter );
  * Reset scroll offsets
  *
  * @chainable
+ * @return {OO.ui.Layout} The layout, for chaining
  */
 OO.ui.Layout.prototype.resetScroll = function () {
 	this.$element[ 0 ].scrollTop = 0;

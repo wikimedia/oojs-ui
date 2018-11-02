@@ -100,6 +100,7 @@ OO.ui.TabPanelLayout.prototype.getTabItem = function () {
  *
  * @param {OO.ui.TabOptionWidget|null} tabItem Tab option widget, null to clear
  * @chainable
+ * @return {OO.ui.TabPanelLayout} The layout, for chaining
  */
 OO.ui.TabPanelLayout.prototype.setTabItem = function ( tabItem ) {
 	this.tabItem = tabItem || null;
@@ -118,6 +119,7 @@ OO.ui.TabPanelLayout.prototype.setTabItem = function ( tabItem ) {
  *
  * @param {OO.ui.TabOptionWidget} tabItem Tab option widget to set up
  * @chainable
+ * @return {OO.ui.TabPanelLayout} The layout, for chaining
  */
 OO.ui.TabPanelLayout.prototype.setupTabItem = function () {
 	this.$element.attr( 'aria-labelledby', this.tabItem.getElementId() );

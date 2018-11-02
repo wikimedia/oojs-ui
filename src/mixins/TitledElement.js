@@ -78,6 +78,7 @@ OO.ui.mixin.TitledElement.prototype.setTitledElement = function ( $titled ) {
  *
  * @param {string|Function|null} title Title text, a function that returns text, or `null` for no title
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TitledElement.prototype.setTitle = function ( title ) {
 	title = typeof title === 'function' ? OO.ui.resolveMsg( title ) : title;
@@ -96,6 +97,7 @@ OO.ui.mixin.TitledElement.prototype.setTitle = function ( title ) {
  *
  * @protected
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TitledElement.prototype.updateTitle = function () {
 	var title = this.getTitle();

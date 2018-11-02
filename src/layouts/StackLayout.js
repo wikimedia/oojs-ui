@@ -167,6 +167,7 @@ OO.ui.StackLayout.prototype.unsetCurrentItem = function () {
  * @param {OO.ui.Layout[]} items Panels to add
  * @param {number} [index] Index of the insertion point
  * @chainable
+ * @return {OO.ui.StackLayout} The layout, for chaining
  */
 OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
 	// Update the visibility
@@ -190,6 +191,7 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
  *
  * @param {OO.ui.Layout[]} items Panels to remove
  * @chainable
+ * @return {OO.ui.StackLayout} The layout, for chaining
  * @fires set
  */
 OO.ui.StackLayout.prototype.removeItems = function ( items ) {
@@ -214,6 +216,7 @@ OO.ui.StackLayout.prototype.removeItems = function ( items ) {
  * a subset of panels, use the #removeItems method.
  *
  * @chainable
+ * @return {OO.ui.StackLayout} The layout, for chaining
  * @fires set
  */
 OO.ui.StackLayout.prototype.clearItems = function () {
@@ -230,6 +233,7 @@ OO.ui.StackLayout.prototype.clearItems = function () {
  *
  * @param {OO.ui.Layout} item Panel to show
  * @chainable
+ * @return {OO.ui.StackLayout} The layout, for chaining
  * @fires set
  */
 OO.ui.StackLayout.prototype.setItem = function ( item ) {

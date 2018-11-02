@@ -74,6 +74,7 @@ OO.ui.Widget.prototype.isDisabled = function () {
  *
  * @param {boolean} disabled Disable widget
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.Widget.prototype.setDisabled = function ( disabled ) {
 	var isDisabled;
@@ -96,6 +97,7 @@ OO.ui.Widget.prototype.setDisabled = function ( disabled ) {
  * Update the disabled state, in case of changes in parent widget.
  *
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.Widget.prototype.updateDisabled = function () {
 	this.setDisabled( this.disabled );

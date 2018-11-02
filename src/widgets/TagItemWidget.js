@@ -113,6 +113,7 @@ OO.mixinClass( OO.ui.TagItemWidget, OO.ui.mixin.DraggableElement );
  *
  * @param {string} [state] Item is fixed
  * @fires fixed
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TagItemWidget.prototype.setFixed = function ( state ) {
 	state = state === undefined ? !this.fixed : !!state;

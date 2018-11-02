@@ -104,6 +104,7 @@ OO.ui.mixin.PendingElement.prototype.isPending = function () {
  * (i.e., the number of calls to #pushPending and #popPending is the same).
  *
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.PendingElement.prototype.pushPending = function () {
 	if ( this.pending === 0 ) {
@@ -120,6 +121,7 @@ OO.ui.mixin.PendingElement.prototype.pushPending = function () {
  * (i.e., the number of calls to #pushPending and #popPending is the same).
  *
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.PendingElement.prototype.popPending = function () {
 	if ( this.pending === 1 ) {

@@ -70,6 +70,7 @@ OO.ui.MultioptionWidget.prototype.isSelected = function () {
  *
  * @param {boolean} [state=false] Select option
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.MultioptionWidget.prototype.setSelected = function ( state ) {
 	state = !!state;

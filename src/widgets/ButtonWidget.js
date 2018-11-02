@@ -131,6 +131,7 @@ OO.ui.ButtonWidget.prototype.getNoFollow = function () {
  *
  * @param {string|null} href Hyperlink location, null to remove
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonWidget.prototype.setHref = function ( href ) {
 	href = typeof href === 'string' ? href : null;
@@ -152,6 +153,7 @@ OO.ui.ButtonWidget.prototype.setHref = function ( href ) {
  *
  * @private
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonWidget.prototype.updateHref = function () {
 	if ( this.href !== null && !this.isDisabled() ) {
@@ -177,6 +179,7 @@ OO.ui.ButtonWidget.prototype.onDisable = function () {
  * Set hyperlink target.
  *
  * @param {string|null} target Hyperlink target, null to remove
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonWidget.prototype.setTarget = function ( target ) {
 	target = typeof target === 'string' ? target : null;
@@ -197,6 +200,7 @@ OO.ui.ButtonWidget.prototype.setTarget = function ( target ) {
  * Set search engine traversal hint.
  *
  * @param {boolean} noFollow True if search engines should avoid traversing this hyperlink
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {
 	noFollow = typeof noFollow === 'boolean' ? noFollow : true;

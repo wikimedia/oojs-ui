@@ -129,6 +129,7 @@ OO.inheritClass( OO.ui.MenuLayout, OO.ui.Layout );
  *
  * @param {boolean} showMenu Show menu, omit to toggle
  * @chainable
+ * @return {OO.ui.MenuLayout} The layout, for chaining
  */
 OO.ui.MenuLayout.prototype.toggleMenu = function ( showMenu ) {
 	showMenu = showMenu === undefined ? !this.showMenu : !!showMenu;
@@ -159,6 +160,7 @@ OO.ui.MenuLayout.prototype.isMenuVisible = function () {
  * @param {string} position Position of menu, either `top`, `after`, `bottom` or `before`
  * @throws {Error} If position value is not supported
  * @chainable
+ * @return {OO.ui.MenuLayout} The layout, for chaining
  */
 OO.ui.MenuLayout.prototype.setMenuPosition = function ( position ) {
 	this.$element.removeClass( 'oo-ui-menuLayout-' + this.menuPosition );

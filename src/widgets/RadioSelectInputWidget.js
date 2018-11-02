@@ -125,6 +125,7 @@ OO.ui.RadioSelectInputWidget.prototype.setDisabled = function ( state ) {
  *
  * @param {Object[]} options Array of menu options in the format `{ data: …, label: … }`
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.RadioSelectInputWidget.prototype.setOptions = function ( options ) {
 	var value = this.getValue();

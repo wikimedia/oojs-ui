@@ -140,6 +140,7 @@ OO.ui.CheckboxMultiselectWidget.prototype.onClick = function ( e ) {
  * Focus the widget
  *
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.CheckboxMultiselectWidget.prototype.focus = function () {
 	var item;

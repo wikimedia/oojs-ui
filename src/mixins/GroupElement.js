@@ -116,6 +116,7 @@ OO.ui.mixin.GroupElement.prototype.findItemsFromData = function ( data ) {
  * @param {OO.ui.Element[]} items An array of items to add to the group
  * @param {number} [index] Index of the insertion point
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
 	// Mixin method
@@ -176,6 +177,7 @@ OO.ui.mixin.GroupElement.prototype.insertItemElements = function ( itemWidget, i
  *
  * @param {OO.ui.Element[]} items An array of items to remove
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
 	var i, len, item, index;
@@ -204,6 +206,7 @@ OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
  * To remove only a subset of items from a group, use the #removeItems method.
  *
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.GroupElement.prototype.clearItems = function () {
 	var i, len;

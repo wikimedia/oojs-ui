@@ -99,6 +99,7 @@ OO.ui.RadioInputWidget.prototype.onEdit = function () {
  *
  * @param {boolean} state `true` for selected
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.RadioInputWidget.prototype.setSelected = function ( state ) {
 	// RadioInputWidget doesn't track its state.

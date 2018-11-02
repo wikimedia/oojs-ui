@@ -57,6 +57,7 @@ OO.ui.ToggleWidget.prototype.getValue = function () {
  * @param {boolean} value The state of the toggle
  * @fires change
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ToggleWidget.prototype.setValue = function ( value ) {
 	value = !!value;

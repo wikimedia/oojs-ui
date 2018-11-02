@@ -100,6 +100,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicatorElement = function ( $indicat
  *
  * @param {string|null} indicator Symbolic name of indicator, or `null` for no indicator
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
 	indicator = typeof indicator === 'string' && indicator.length ? indicator.trim() : null;
@@ -133,6 +134,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
  * @param {string|Function|null} indicatorTitle Indicator title text, a function that returns text, or
  *   `null` for no indicator title
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle ) {
 	indicatorTitle =

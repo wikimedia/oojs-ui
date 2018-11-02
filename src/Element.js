@@ -787,6 +787,7 @@ OO.ui.Element.static.reconsiderScrollbars = function ( el ) {
  * @param {boolean} [show] Make element visible, omit to toggle visibility
  * @fires visible
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.Element.prototype.toggle = function ( show ) {
 	show = show === undefined ? !this.visible : !!show;
@@ -823,6 +824,7 @@ OO.ui.Element.prototype.getData = function () {
  *
  * @param {Mixed} data Element data
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.Element.prototype.setData = function ( data ) {
 	this.data = data;
@@ -834,6 +836,7 @@ OO.ui.Element.prototype.setData = function ( data ) {
  *
  * @param {string} id
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.Element.prototype.setElementId = function ( id ) {
 	this.elementId = id;
@@ -947,6 +950,7 @@ OO.ui.Element.prototype.getElementGroup = function () {
  *
  * @param {OO.ui.mixin.GroupElement|null} group Group element, null if none
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.Element.prototype.setElementGroup = function ( group ) {
 	this.elementGroup = group;

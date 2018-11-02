@@ -255,6 +255,7 @@ OO.ui.TextInputWidget.prototype.isReadOnly = function () {
  *
  * @param {boolean} state Make input read-only
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
 	this.readOnly = !!state;
@@ -276,6 +277,7 @@ OO.ui.TextInputWidget.prototype.isRequired = function () {
  *
  * @param {boolean} state Make input required
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.setRequired = function ( state ) {
 	this.required = !!state;
@@ -404,6 +406,7 @@ OO.ui.TextInputWidget.prototype.getSaneType = function ( config ) {
  * @param {number} from Select from offset
  * @param {number} [to] Select to offset, defaults to from
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.selectRange = function ( from, to ) {
 	var isBackwards, start, end,
@@ -463,6 +466,7 @@ OO.ui.TextInputWidget.prototype.getInputLength = function () {
  * Focus the input and select the entire text.
  *
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.select = function () {
 	return this.selectRange( 0, this.getInputLength() );
@@ -472,6 +476,7 @@ OO.ui.TextInputWidget.prototype.select = function () {
  * Focus the input and move the cursor to the start.
  *
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.moveCursorToStart = function () {
 	return this.selectRange( 0 );
@@ -481,6 +486,7 @@ OO.ui.TextInputWidget.prototype.moveCursorToStart = function () {
  * Focus the input and move the cursor to the end.
  *
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.moveCursorToEnd = function () {
 	return this.selectRange( this.getInputLength() );
@@ -491,6 +497,7 @@ OO.ui.TextInputWidget.prototype.moveCursorToEnd = function () {
  *
  * @param {string} content Content to be inserted
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.insertContent = function ( content ) {
 	var start, end,
@@ -511,6 +518,7 @@ OO.ui.TextInputWidget.prototype.insertContent = function ( content ) {
  * @param {string} pre Content to be inserted before the selection
  * @param {string} post Content to be inserted after the selection
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.encapsulateContent = function ( pre, post ) {
 	var start, end,
@@ -619,6 +627,7 @@ OO.ui.TextInputWidget.prototype.getValidity = function () {
  *
  * @param {string} labelPosition Label position, 'before' or 'after'
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.setLabelPosition = function ( labelPosition ) {
 	this.labelPosition = labelPosition;
@@ -637,6 +646,7 @@ OO.ui.TextInputWidget.prototype.setLabelPosition = function ( labelPosition ) {
  * something causes the label to be mispositioned.
  *
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.updatePosition = function () {
 	var after = this.labelPosition === 'after';
@@ -657,6 +667,7 @@ OO.ui.TextInputWidget.prototype.updatePosition = function () {
  *
  * @private
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.positionLabel = function () {
 	var after, rtl, property, newCss;

@@ -35,6 +35,7 @@ OO.ui.mixin.ItemWidget.prototype.isDisabled = function () {
  *
  * @param {OO.ui.mixin.GroupElement|null} group Group element, null if none
  * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.mixin.ItemWidget.prototype.setElementGroup = function ( group ) {
 	// Parent method

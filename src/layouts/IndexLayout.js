@@ -278,6 +278,7 @@ OO.ui.IndexLayout.prototype.getCurrentTabPanelName = function () {
  * @param {number} index Index of the insertion point
  * @fires add
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
 	var i, len, name, tabPanel, item, currentIndex,
@@ -331,6 +332,7 @@ OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
  * @param {OO.ui.TabPanelLayout[]} tabPanels An array of tab panels to remove
  * @fires remove
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.IndexLayout.prototype.removeTabPanels = function ( tabPanels ) {
 	var i, len, name, tabPanel,
@@ -360,6 +362,7 @@ OO.ui.IndexLayout.prototype.removeTabPanels = function ( tabPanels ) {
  *
  * @fires remove
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.IndexLayout.prototype.clearTabPanels = function () {
 	var i, len,
@@ -435,6 +438,7 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
  * Select the first selectable tab panel.
  *
  * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.IndexLayout.prototype.selectFirstSelectableTabPanel = function () {
 	if ( !this.tabSelectWidget.findSelectedItem() ) {

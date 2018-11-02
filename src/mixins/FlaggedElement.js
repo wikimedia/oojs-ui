@@ -113,6 +113,7 @@ OO.ui.mixin.FlaggedElement.prototype.getFlags = function () {
  * Clear all flags.
  *
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  * @fires flag
  */
 OO.ui.mixin.FlaggedElement.prototype.clearFlags = function () {
@@ -145,6 +146,7 @@ OO.ui.mixin.FlaggedElement.prototype.clearFlags = function () {
  *  or an object keyed by flag name with a boolean value that indicates whether the flag should
  *  be added (`true`) or removed (`false`).
  * @chainable
+ * @return {OO.ui.Element} The element, for chaining
  * @fires flag
  */
 OO.ui.mixin.FlaggedElement.prototype.setFlags = function ( flags ) {
