@@ -523,6 +523,7 @@ Demo.prototype.destroy = function () {
  * @param {OO.ui.Layout} item
  * @param {string} layout Variable name for layout
  * @param {string} widget Variable name for layout's field widget
+ * @param {boolean} showLayoutCode FieldsetLayout code is shown
  * @return {jQuery} Console interface element
  */
 Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) {

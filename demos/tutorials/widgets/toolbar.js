@@ -6,6 +6,7 @@ window.Tutorials = {};
  * @extends OO.ui.Widget
  *
  * @constructor
+ * @param {Object} [config] Configuration options
  */
 Tutorials.Toolbar = function ( config ) {
 	config = config || {};

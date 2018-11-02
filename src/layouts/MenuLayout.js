@@ -195,7 +195,7 @@ OO.ui.MenuLayout.prototype.setMenuPanel = function ( menuPanel ) {
 /**
  * Set the content panel.
  *
- * @param {OO.ui.PanelLayout} menuPanel Content panel
+ * @param {OO.ui.PanelLayout} contentPanel Content panel
  */
 OO.ui.MenuLayout.prototype.setContentPanel = function ( contentPanel ) {
 	this.contentPanel = contentPanel;
