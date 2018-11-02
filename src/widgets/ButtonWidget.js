@@ -130,6 +130,7 @@ OO.ui.ButtonWidget.prototype.getNoFollow = function () {
  * Set hyperlink location.
  *
  * @param {string|null} href Hyperlink location, null to remove
+ * @chainable
  */
 OO.ui.ButtonWidget.prototype.setHref = function ( href ) {
 	href = typeof href === 'string' ? href : null;
