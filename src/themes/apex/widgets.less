@@ -1160,6 +1160,38 @@
 				outline: 0;
 				box-shadow: @box-shadow-widget--focus;
 			}
+
+			&.oo-ui-flaggedElement-invalid {
+				.oo-ui-tagMultiselectWidget-handle,
+				&:hover .oo-ui-tagMultiselectWidget-handle {
+					border-color: @border-color-erroneous;
+				}
+			}
+		}
+
+		&.oo-ui-tagMultiselectWidget-outlined {
+			.oo-ui-tagMultiselectWidget-handle {
+				border-bottom: 0;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+			.oo-ui-tagItemWidget.oo-ui-widget-enabled {
+				background-color: @background-color-main;
+			}
+
+			.oo-ui-inputWidget-input {
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+			}
+
+			&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
+				border-color: @border-color-erroneous;
+			}
+		}
+
+		&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
+			color: @color-erroneous;
 		}
 	}
 

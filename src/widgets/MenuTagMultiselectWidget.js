@@ -95,6 +95,16 @@ OO.ui.MenuTagMultiselectWidget.prototype.onInputFocus = function () {
 };
 
 /**
+ * @inheritdoc
+ */
+OO.ui.MenuTagMultiselectWidget.prototype.onInputBlur = function () {
+	// Parent method
+	OO.ui.MenuTagMultiselectWidget.parent.prototype.onInputBlur.call( this );
+
+	this.menu.toggle( false );
+};
+
+/**
  * Respond to input change event
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onInputChange = function () {
@@ -210,7 +220,6 @@ OO.ui.MenuTagMultiselectWidget.prototype.addTagFromInput = function () {
 
 	if ( validated ) {
 		this.clearInput();
-		this.focus();
 	}
 };
 

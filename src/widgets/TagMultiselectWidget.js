@@ -322,6 +322,8 @@ OO.ui.TagMultiselectWidget.prototype.onInputKeyDown = function ( e ) {
  */
 OO.ui.TagMultiselectWidget.prototype.onInputFocus = function () {
 	this.$element.addClass( 'oo-ui-tagMultiselectWidget-focus' );
+	// Reset validity
+	this.toggleValid( true );
 };
 
 /**
@@ -329,6 +331,10 @@ OO.ui.TagMultiselectWidget.prototype.onInputFocus = function () {
  */
 OO.ui.TagMultiselectWidget.prototype.onInputBlur = function () {
 	this.$element.removeClass( 'oo-ui-tagMultiselectWidget-focus' );
+
+	// Set the widget as invalid if there's text in the input
+	this.addTagFromInput();
+	this.toggleValid( this.checkValidity() && ( !this.hasInput || !this.input.getValue() ) );
 };
 
 /**
@@ -450,7 +456,10 @@ OO.ui.TagMultiselectWidget.prototype.onChangeTags = function () {
 	var isUnderLimit = this.isUnderLimit();
 
 	// Reset validity
-	this.toggleValid( this.checkValidity() );
+	this.toggleValid(
+		this.checkValidity() &&
+		( !this.hasInput || !this.input.getValue() )
+	);
 
 	if ( this.hasInput ) {
 		this.updateInputSize();
@@ -527,9 +536,8 @@ OO.ui.TagMultiselectWidget.prototype.addTagFromInput = function () {
 	}
 
 	if ( isValid || this.allowDisplayInvalidTags ) {
-		this.addTag( val );
 		this.clearInput();
-		this.focus();
+		this.addTag( val );
 	}
 };
 
