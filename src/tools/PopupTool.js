@@ -50,6 +50,7 @@ OO.ui.PopupTool = function OoUiPopupTool( toolGroup, config ) {
 	this.popup.connect( this, { toggle: 'onPopupToggle' } );
 
 	// Initialization
+	this.popup.setAutoFlip( false );
 	this.popup.setPosition( toolGroup.getToolbar().position === 'bottom' ? 'above' : 'below' );
 	this.$element.addClass( 'oo-ui-popupTool' );
 	this.popup.$element.addClass( 'oo-ui-popupTool-popup' );
