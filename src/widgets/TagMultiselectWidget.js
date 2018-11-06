@@ -45,6 +45,10 @@
  *  invalid tags. These tags will display with an invalid state, and
  *  the widget as a whole will have an invalid state if any invalid tags
  *  are present.
+ * @cfg {number} [limit] An optional limit on the number of selected options.
+ *  If the limit exists and is reached, the input is disabled, not allowing
+ *  for any additions. If the limit is unset or is 0, an unlimited number
+ *  of items can be added.
  * @cfg {boolean} [allowReordering=true] Allow reordering of the items
  * @cfg {Object[]|String[]} [selected] A set of selected tags. If given,
  *  these will appear in the tag list on initialization, as long as they
@@ -84,6 +88,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	this.allowedValues = config.allowedValues || [];
 	this.allowDisplayInvalidTags = config.allowDisplayInvalidTags;
 	this.hasInput = this.inputPosition !== 'none';
+	this.limit = config.limit;
 	this.height = null;
 	this.valid = true;
 
@@ -145,6 +150,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 		};
 
 		this.input.$input.on( inputEvents );
+		this.inputPlaceholder = this.input.$input.attr( 'placeholder' );
 
 		if ( this.inputPosition === 'outline' ) {
 			// Override max-height for the input widget
@@ -441,9 +447,26 @@ OO.ui.TagMultiselectWidget.prototype.onTagFixed = function ( item ) {
  * Respond to change event, where items were added, removed, or cleared.
  */
 OO.ui.TagMultiselectWidget.prototype.onChangeTags = function () {
+	var isUnderLimit = this.isUnderLimit();
+
+	// Reset validity
 	this.toggleValid( this.checkValidity() );
+
 	if ( this.hasInput ) {
 		this.updateInputSize();
+		if ( !isUnderLimit ) {
+			// Clear the input
+			this.input.setValue( '' );
+		}
+		if ( this.inputPosition === 'outline' ) {
+			// Show/clear the placeholder and enable/disable the input
+			// based on whether we are/aren't under the specified limit
+			this.input.$input.attr( 'placeholder', isUnderLimit ? this.inputPlaceholder : '' );
+			this.input.setDisabled( !isUnderLimit );
+		} else {
+			// Show/hide the input
+			this.input.$input.toggleClass( 'oo-ui-element-hidden', !isUnderLimit );
+		}
 	}
 	this.updateIfHeightChanged();
 };
@@ -456,7 +479,7 @@ OO.ui.TagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
 	OO.ui.TagMultiselectWidget.parent.prototype.setDisabled.call( this, isDisabled );
 
 	if ( this.hasInput && this.input ) {
-		this.input.setDisabled( !!isDisabled );
+		this.input.setDisabled( !!isDisabled && !this.isUnderLimit() );
 	}
 
 	if ( this.items ) {
@@ -604,8 +627,8 @@ OO.ui.TagMultiselectWidget.prototype.getValue = function () {
  *  { data: 'foo', label: 'Foo item' }
  *  For multiple items, use an array of objects. For example:
  *   [
- *      { data: 'foo', label: 'Foo item' },
- *      { data: 'bar', label: 'Bar item' }
+ *   	{ data: 'foo', label: 'Foo item' },
+ *    	{ data: 'bar', label: 'Bar item' }
  * 	 ]
  *  Value can also be added with plaintext array, for example:
  *  [ 'foo', 'bar', 'bla' ] or a single string, like 'foo'
@@ -635,13 +658,26 @@ OO.ui.TagMultiselectWidget.prototype.addTag = function ( data, label ) {
 	var newItemWidget,
 		isValid = this.isAllowedData( data );
 
-	if ( isValid || this.allowDisplayInvalidTags ) {
+	if ( this.isUnderLimit() && ( isValid || this.allowDisplayInvalidTags ) ) {
 		newItemWidget = this.createTagItemWidget( data, label );
 		newItemWidget.toggleValid( isValid );
 		this.addItems( [ newItemWidget ] );
 		return true;
 	}
+
 	return false;
+};
+
+/**
+ * Check whether the current tags are under the limit. Returns true
+ * if there is no limit set.
+ *
+ * @return {boolean} True if current tag count is under the limit
+ *  or if there is no limit set
+ */
+OO.ui.TagMultiselectWidget.prototype.isUnderLimit = function () {
+	return !this.limit ||
+		this.getItemCount() < this.limit;
 };
 
 /**
