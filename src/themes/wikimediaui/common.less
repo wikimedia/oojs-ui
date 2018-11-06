@@ -88,6 +88,7 @@
 @margin-top-fieldlayout: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 @margin-top-fieldlayout--labelled: 12 / @ooui-font-size-browser / @ooui-font-size-base;
 @margin-top-fieldlayout-help: -( 6 / @ooui-font-size-browser / @ooui-font-size-base );
+@margin-top-popup: 9 / @ooui-font-size-browser / @ooui-font-size-base;
 @margin-bottom-fieldset-header: unit( 8 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ), @ooui-unit );
 @margin-end-actionlayout-input: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @margin-end-fieldlayout-help: -( 8 / @ooui-font-size-browser / @ooui-font-size-base );
@@ -115,7 +116,7 @@
 @padding-base: @padding-top-base @padding-horizontal-base @padding-bottom-base;
 @padding-frameless: @padding-top-base @padding-horizontal-frameless @padding-bottom-base;
 @padding-input-text: @padding-top-base @padding-horizontal-input-text @padding-bottom-base;
-@padding-menu: @padding-top-menu @padding-horizontal-base @padding-bottom-menu;
+@padding-menu: @padding-top-base @padding-horizontal-base @padding-bottom-menu;
 @padding-menu-large: @padding-top-tool-label @padding-horizontal-base @padding-bottom-tool-label;
 @padding-panel-form: 16 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.1428571em`≈`16px`
 @padding-panel-dialog: 20 / @ooui-font-size-browser / @ooui-font-size-base;
@@ -129,7 +130,6 @@
 @padding-vertical-label: 4 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-base: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-icon-indicator: 30 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-top-menu: 9 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-tool-label: 14 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-bottom-base: 7 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.5em`≈`7px`
@@ -171,7 +171,8 @@
 @line-height-label: 20 / @ooui-font-size-browser / @ooui-font-size-base;
 @line-height-tagitem-label: unit( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small, @ooui-unit ); // Push label down by 1 px for vertical centering.
 @line-height-widget-multiline: 1.286; // equals `18px` at base `font-size: 14px;
-@line-height-widget-singleline: 15 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.07142857em`≈`15px`; Firefox needs a value, Chrome the unit.
+@line-height-widget-singleline: 15 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.07142857em`≈`15px`
+@line-height-widget-decoratedoption: unit( 16 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit ); // equals `1.14286em`≈`16px`; Firefox needs a value, Chrome the unit.
 
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
 @background-color-input-binary--active: @color-progressive--active;

@@ -352,7 +352,7 @@
 	}
 
 	.oo-ui-labelElement-label {
-		line-height: @line-height-widget-singleline;
+		line-height: @line-height-widget-decoratedoption;
 	}
 
 	&.oo-ui-indicatorElement {
@@ -642,7 +642,7 @@
 
 .theme-oo-ui-menuSectionOptionWidget () {
 	color: @color-base--subtle;
-	padding: @padding-top-menu @padding-horizontal-base @padding-vertical-label;
+	padding: @padding-top-base @padding-horizontal-base @padding-vertical-label;
 	font-weight: bold;
 
 	& ~ .oo-ui-menuOptionWidget {
@@ -920,7 +920,7 @@
 
 	&-head {
 		> .oo-ui-labelElement-label {
-			margin: @padding-top-menu @padding-start-input-text-icon-label @padding-bottom-menu @padding-horizontal-base;
+			margin: @margin-top-popup @padding-start-input-text-icon-label @padding-bottom-menu @padding-horizontal-base;
 			line-height: @line-height-widget-singleline;
 		}
 
@@ -940,7 +940,7 @@
 		line-height: @line-height-message;
 
 		&-padded {
-			margin: @padding-top-menu @padding-horizontal-base @padding-bottom-menu;// Use `margin` rather than `padding` to enable margin to collapse
+			margin: @margin-top-popup @padding-horizontal-base @padding-bottom-menu;// Use `margin` rather than `padding` to enable margin to collapse
 
 			> :first-child {
 				margin-top: 0;
@@ -949,7 +949,7 @@
 	}
 
 	&-footer {
-		margin: @padding-top-menu @padding-horizontal-base @padding-bottom-menu;
+		margin: @margin-top-popup @padding-horizontal-base @padding-bottom-menu;
 	}
 }
 
