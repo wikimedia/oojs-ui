@@ -458,7 +458,7 @@ OO.ui.TagMultiselectWidget.prototype.onChangeTags = function () {
 	// Reset validity
 	this.toggleValid(
 		this.checkValidity() &&
-		( !this.hasInput || !this.input.getValue() )
+		!( this.hasInput && this.input.getValue() )
 	);
 
 	if ( this.hasInput ) {
