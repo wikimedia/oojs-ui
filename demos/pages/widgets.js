@@ -1794,7 +1794,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						limit: 5
 					} ),
 					{
-						label: 'TagMultiselectWidget (allowArbitrary, inline input, limit=5)',
+						label: 'TagMultiselectWidget (allowArbitrary, inline input, limit: 5)',
 						align: 'top'
 					}
 				),
@@ -1805,7 +1805,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						inputPosition: 'outline'
 					} ),
 					{
-						label: 'TagMultiselectWidget (allowArbitrary, inputPosition:outline, placeholder)',
+						label: 'TagMultiselectWidget (allowArbitrary, inputPosition: outline, placeholder)',
 						align: 'top'
 					}
 				),
@@ -1816,7 +1816,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						inputWidget: new OO.ui.NumberInputWidget()
 					} ),
 					{
-						label: 'TagMultiselectWidget (inputwidget: OO.ui.NumberInputWidget, inputPosition:outline)',
+						label: 'TagMultiselectWidget (inputwidget: OO.ui.NumberInputWidget, inputPosition: outline)',
 						align: 'top'
 					}
 				),
@@ -1827,7 +1827,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						limit: 5
 					} ),
 					{
-						label: 'TagMultiselectWidget (inputPosition:outline, limit=5)',
+						label: 'TagMultiselectWidget (inputPosition: outline, limit: 5)',
 						align: 'top'
 					}
 				),
@@ -1877,7 +1877,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						limit: 5
 					} ),
 					{
-						label: 'MenuTagMultiselectWidget (initially selected, preset options, limit=5)',
+						label: 'MenuTagMultiselectWidget (initially selected, preset options, limit: 5)',
 						align: 'top'
 					}
 				),
@@ -1901,7 +1901,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						]
 					} ),
 					{
-						label: 'MenuTagMultiselectWidget (allowArbitrary:false)',
+						label: 'MenuTagMultiselectWidget (allowArbitrary: false)',
 						align: 'top'
 					}
 				),
@@ -1920,7 +1920,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						]
 					} ),
 					{
-						label: 'MenuTagMultiselectWidget (allowArbitrary:false, menu:{highlightOnFilter:true})',
+						label: 'MenuTagMultiselectWidget (allowArbitrary: false, menu: {highlightOnFilter: true})',
 						align: 'top'
 					}
 				),
@@ -1935,7 +1935,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						]
 					} ),
 					{
-						label: 'MenuTagMultiselectWidget (inputPosition:outline, allowArbitrary:false)',
+						label: 'MenuTagMultiselectWidget (inputPosition: outline, allowArbitrary: false)',
 						align: 'top'
 					}
 				),
