@@ -1791,10 +1791,10 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TagMultiselectWidget( {
 						placeholder: 'Add up to 5 tags',
 						allowArbitrary: true,
-						limit: 5
+						tagLimit: 5
 					} ),
 					{
-						label: 'TagMultiselectWidget (allowArbitrary, inline input, limit: 5)',
+						label: 'TagMultiselectWidget (allowArbitrary, inline input, tagLimit: 5)',
 						align: 'top'
 					}
 				),
@@ -1824,10 +1824,10 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TagMultiselectWidget( {
 						allowArbitrary: true,
 						inputPosition: 'outline',
-						limit: 5
+						tagLimit: 5
 					} ),
 					{
-						label: 'TagMultiselectWidget (inputPosition: outline, limit: 5)',
+						label: 'TagMultiselectWidget (inputPosition: outline, tagLimit: 5)',
 						align: 'top'
 					}
 				),
@@ -1874,10 +1874,10 @@ Demo.static.pages.widgets = function ( demo ) {
 							{ data: 'green', label: 'Label for green' },
 							{ data: 'blue', label: 'Label for blue' }
 						],
-						limit: 5
+						tagLimit: 5
 					} ),
 					{
-						label: 'MenuTagMultiselectWidget (initially selected, preset options, limit: 5)',
+						label: 'MenuTagMultiselectWidget (initially selected, preset options, tagLimit: 5)',
 						align: 'top'
 					}
 				),

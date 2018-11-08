@@ -45,10 +45,10 @@
  *  invalid tags. These tags will display with an invalid state, and
  *  the widget as a whole will have an invalid state if any invalid tags
  *  are present.
- * @cfg {number} [limit] An optional limit on the number of selected options.
- *  If the limit exists and is reached, the input is disabled, not allowing
- *  for any additions. If the limit is unset or is 0, an unlimited number
- *  of items can be added.
+ * @cfg {number} [tagLimit] An optional limit on the number of selected options.
+ *  If 'tagLimit' is set and is reached, the input is disabled, not allowing any
+ *  additions. If 'tagLimit' is unset or is 0, an unlimited number of items can be
+ *  added.
  * @cfg {boolean} [allowReordering=true] Allow reordering of the items
  * @cfg {Object[]|String[]} [selected] A set of selected tags. If given,
  *  these will appear in the tag list on initialization, as long as they
@@ -88,7 +88,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	this.allowedValues = config.allowedValues || [];
 	this.allowDisplayInvalidTags = config.allowDisplayInvalidTags;
 	this.hasInput = this.inputPosition !== 'none';
-	this.limit = config.limit;
+	this.tagLimit = config.tagLimit;
 	this.height = null;
 	this.valid = true;
 
@@ -677,15 +677,14 @@ OO.ui.TagMultiselectWidget.prototype.addTag = function ( data, label ) {
 };
 
 /**
- * Check whether the current tags are under the limit. Returns true
- * if there is no limit set.
+ * Check whether the number of current tags is within the limit.
  *
- * @return {boolean} True if current tag count is under the limit
- *  or if there is no limit set
+ * @return {boolean} True if current tag count is within the limit or
+ *  if 'tagLimit' is not set
  */
 OO.ui.TagMultiselectWidget.prototype.isUnderLimit = function () {
-	return !this.limit ||
-		this.getItemCount() < this.limit;
+	return !this.tagLimit ||
+		this.getItemCount() < this.tagLimit;
 };
 
 /**
