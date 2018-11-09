@@ -292,6 +292,22 @@
 	},
 	"oojs-ui-images-{theme}": {
 		"styles": [
+			"src/themes/{theme}/icons-movement.json",
+			"src/themes/{theme}/icons-content.json",
+			"src/themes/{theme}/icons-alerts.json",
+			"src/themes/{theme}/icons-interactions.json",
+			"src/themes/{theme}/icons-moderation.json",
+			"src/themes/{theme}/icons-editing-core.json",
+			"src/themes/{theme}/icons-editing-styling.json",
+			"src/themes/{theme}/icons-editing-list.json",
+			"src/themes/{theme}/icons-editing-advanced.json",
+			"src/themes/{theme}/icons-editing-citation.json",
+			"src/themes/{theme}/icons-media.json",
+			"src/themes/{theme}/icons-location.json",
+			"src/themes/{theme}/icons-user.json",
+			"src/themes/{theme}/icons-layout.json",
+			"src/themes/{theme}/icons-accessibility.json",
+			"src/themes/{theme}/icons-wikimedia.json",
 			"src/themes/{theme}/indicators.json",
 			"src/themes/{theme}/textures.json"
 		]
