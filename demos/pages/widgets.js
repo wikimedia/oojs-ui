@@ -218,8 +218,8 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
-						icon: 'help',
-						label: 'Help',
+						icon: 'edit',
+						label: 'Edit',
 						invisibleLabel: true,
 						title: 'Icon only, framed'
 					} ),
@@ -243,8 +243,8 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						framed: false,
-						icon: 'help',
-						label: 'Help',
+						icon: 'edit',
+						label: 'Edit',
 						invisibleLabel: true,
 						title: 'Icon only'
 					} ),
@@ -676,7 +676,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.TextInputWidget( { icon: 'help' } ),
+					new OO.ui.TextInputWidget( { icon: 'globe' } ),
 					{
 						label: 'TextInputWidget (icon)\u200E',
 						align: 'top'

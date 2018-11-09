@@ -134,8 +134,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [
 				'framed' => false,
-				'icon' => 'help',
-				'label' => 'Help',
+				'icon' => 'edit',
+				'label' => 'Edit',
 				'invisibleLabel' => true,
 				'title' => 'Icon only'
 			] ),
@@ -330,7 +330,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [ 'icon' => 'help' ] ),
+			new OOUI\TextInputWidget( [ 'icon' => 'globe' ] ),
 			[
 				'label' => "TextInputWidget (icon)\u{200E}",
 				'align' => 'top'
