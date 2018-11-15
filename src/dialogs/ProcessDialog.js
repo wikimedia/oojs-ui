@@ -122,6 +122,7 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 	// Events
 	this.dismissButton.connect( this, { click: 'onDismissErrorButtonClick' } );
 	this.retryButton.connect( this, { click: 'onRetryButtonClick' } );
+	this.title.connect( this, { labelChange: 'fitLabel' } );
 
 	// Initialization
 	this.title.$element.addClass( 'oo-ui-processDialog-title' );

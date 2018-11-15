@@ -94,13 +94,10 @@ Demo.static.pages.dialogs = function ( demo ) {
 					}
 				},
 				{
-					name: 'Process dialog (medium, long title)',
-					dialogClass: Demo.ProcessDialog,
+					name: 'Process dialog (medium, long labels)',
+					dialogClass: Demo.FitLabelsProcessDialog,
 					config: {
 						size: 'medium'
-					},
-					data: {
-						title: 'Sample dialog with very long title that does not remotely fit into the space available and thus demonstrates what happens in that use case'
 					}
 				},
 				{
