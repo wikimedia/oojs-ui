@@ -320,7 +320,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 			expanded: false,
 			framed: true
 		} ).$element
-			.addClass( 'demo-container' )
+			.addClass( 'demo-container demo-dialogs' )
 			.attr( 'role', 'main' )
 			.append( $fieldsets ),
 		windowManager.$element

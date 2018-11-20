@@ -1,3 +1,8 @@
+html {
+	/* Prevent font scaling in iOS Safari */
+	-webkit-text-size-adjust: none;
+}
+
 body {
 	color: #222;
 	margin: 0 1em;
@@ -262,6 +267,13 @@ p {
 	/* Need to override Prism (syntax highlighter) styles */
 	background-color: #eaecf0;
 	margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+}
+
+/* Dialogs demo */
+.demo-dialogs .oo-ui-fieldLayout .oo-ui-buttonWidget {
+	max-width: 90vw;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 /* Toolbars demo */
