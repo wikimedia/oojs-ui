@@ -302,7 +302,7 @@ OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
 			// outline controls are present, delay matches transition on `.oo-ui-menuLayout-menu`.
 			setTimeout( function () {
 				OO.ui.Element.static.reconsiderScrollbars( booklet.outlinePanel.$element[ 0 ] );
-			}, 200 );
+			}, OO.ui.theme.getDialogTransitionDuration() );
 		}
 	}
 

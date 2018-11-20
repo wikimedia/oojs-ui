@@ -35,27 +35,27 @@
 	> .oo-ui-menuLayout-menu,
 	> .oo-ui-menuLayout-content {
 		.oo-ui-transition(
-			height 200ms ease,
-			width 200ms ease,
-			top 200ms ease,
-			left 200ms ease,
-			right 200ms ease,
-			bottom 200ms ease
+			height @transition-dialog,
+			width @transition-dialog,
+			top @transition-dialog,
+			left @transition-dialog,
+			right @transition-dialog,
+			bottom @transition-dialog
 		);
 	}
 
 	// These are overridden with 'auto' or '0' later
 	> .oo-ui-menuLayout-menu {
-		height: 18em;
-		width: 18em;
+		height: @size-dialog-menu;
+		width: @size-dialog-menu;
 	}
 
 	// These are overridden with 'auto' or '0' later
 	> .oo-ui-menuLayout-content {
-		top: 18em;
-		left: 18em;
-		right: 18em;
-		bottom: 18em;
+		top: @size-dialog-menu;
+		left: @size-dialog-menu;
+		right: @size-dialog-menu;
+		bottom: @size-dialog-menu;
 	}
 
 	// stylelint-disable declaration-no-important

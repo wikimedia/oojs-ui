@@ -3,9 +3,11 @@ Demo.ContinuousOutlinedBookletDialog = function DemoContinuousOutlinedBookletDia
 };
 OO.inheritClass( Demo.ContinuousOutlinedBookletDialog, OO.ui.ProcessDialog );
 Demo.ContinuousOutlinedBookletDialog.static.title = 'Continuous outlined booklet dialog';
+Demo.ContinuousOutlinedBookletDialog.static.size = 'large';
 Demo.ContinuousOutlinedBookletDialog.static.actions = [
 	{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
+	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] },
+	{ action: 'toggle', label: 'Toggle menu' }
 ];
 Demo.ContinuousOutlinedBookletDialog.prototype.getBodyHeight = function () {
 	return 250;
@@ -43,7 +45,10 @@ Demo.ContinuousOutlinedBookletDialog.prototype.initialize = function () {
 	this.$body.append( this.bookletLayout.$element );
 };
 Demo.ContinuousOutlinedBookletDialog.prototype.getActionProcess = function ( action ) {
-	if ( action ) {
+	if ( action === 'toggle' ) {
+		this.bookletLayout.toggleOutline();
+		this.setSize( this.bookletLayout.isOutlineVisible() ? 'large' : 'medium' );
+	} else if ( action ) {
 		return new OO.ui.Process( function () {
 			this.close( { action: action } );
 		}, this );

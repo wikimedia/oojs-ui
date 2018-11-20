@@ -220,10 +220,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 				},
 				{
 					name: 'Continuous outlined booklet dialog (aside navigation)',
-					dialogClass: Demo.ContinuousOutlinedBookletDialog,
-					config: {
-						size: 'medium'
-					}
+					dialogClass: Demo.ContinuousOutlinedBookletDialog
 				},
 				{
 					name: 'Indexed dialog (tab navigation)',
