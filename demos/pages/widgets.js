@@ -1883,8 +1883,17 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.MenuTagMultiselectWidget( {
-						selected: [ 'foo', 'bar' ],
-						allowArbitrary: true
+						selected: [ 'foo', 'bar', 'Not in menu' ],
+						allowArbitrary: true,
+						options: [
+							{ data: 'foo', label: 'Label for foo', icon: 'tag' },
+							{ data: 'bar', label: 'Label for bar' },
+							{ data: 'baz', label: 'Label for baz' },
+							{ data: 'quz', label: 'Label for quz' },
+							{ data: 'red', label: 'Label for red' },
+							{ data: 'green', label: 'Label for green' },
+							{ data: 'blue', label: 'Label for blue' }
+						]
 					} ),
 					{
 						label: 'MenuTagMultiselectWidget (initially selected, allowArbitrary)',

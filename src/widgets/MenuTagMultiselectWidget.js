@@ -186,7 +186,11 @@ OO.ui.MenuTagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
  */
 OO.ui.MenuTagMultiselectWidget.prototype.initializeMenuSelection = function () {
 	if ( !this.menu.findSelectedItem() ) {
-		this.menu.highlightItem( this.menu.findFirstSelectableItem() );
+		this.menu.highlightItem(
+			this.allowArbitrary ?
+				null :
+				this.menu.findFirstSelectableItem()
+		);
 	}
 };
 

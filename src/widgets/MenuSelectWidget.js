@@ -213,6 +213,10 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 			this.scrollItemIntoView( this.items[ 0 ] );
 		}
 
+		if ( !anyVisible ) {
+			this.highlightItem( null );
+		}
+
 		this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
 
 		if ( this.highlightOnFilter ) {
