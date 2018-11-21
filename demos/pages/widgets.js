@@ -213,7 +213,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					{
 						label: 'ButtonWidget (with accesskey)\u200E',
 						align: 'top',
-						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank">negatively impact screen readers</a>!' )
+						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank" rel="noopener">negatively impact screen readers</a>!' )
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -402,7 +402,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					{
 						label: 'ButtonInputWidget (with accesskey & title)\u200E',
 						align: 'top',
-						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank">negatively impact screen readers</a>!' )
+						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank" rel="noopener">negatively impact screen readers</a>!' )
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -860,7 +860,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					{
 						label: 'TextInputWidget (with accesskey)\u200E',
 						align: 'top',
-						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank">negatively impact screen readers</a>!' )
+						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank" rel="noopener">negatively impact screen readers</a>!' )
 					}
 				),
 				new OO.ui.FieldLayout(
