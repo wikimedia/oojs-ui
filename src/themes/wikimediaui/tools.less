@@ -490,7 +490,11 @@
 		.oo-ui-toolbar-actions & {
 			> .oo-ui-popupToolGroup-handle {
 				border-right: @border-width-base @border-style-base transparent;
-				.oo-ui-transition( border-color @transition-base );
+				.oo-ui-transition(
+					background-color @transition-base,
+					border-color @transition-base,
+					box-shadow @transition-base
+				);
 
 				&:hover {
 					border-right-color: @background-color-tool--hover;
