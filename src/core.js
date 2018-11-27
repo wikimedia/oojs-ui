@@ -467,7 +467,7 @@ OO.ui.deferMsg = function () {
  * @return {string} Resolved message
  */
 OO.ui.resolveMsg = function ( msg ) {
-	if ( $.isFunction( msg ) ) {
+	if ( typeof msg === 'function' ) {
 		return msg();
 	}
 	return msg;

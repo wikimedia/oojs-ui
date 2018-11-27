@@ -31,10 +31,10 @@
  *  replace the input widget used in the TagMultiselectWidget. If not given,
  *  TagMultiselectWidget creates its own.
  * @cfg {boolean} [inputPosition='inline'] Position of the input. Options are:
- * 	- inline: The input is invisible, but exists inside the tag list, so
- * 		the user types into the tag groups to add tags.
- * 	- outline: The input is underneath the tag area.
- * 	- none: No input supplied
+ *  - inline: The input is invisible, but exists inside the tag list, so
+ *    the user types into the tag groups to add tags.
+ *  - outline: The input is underneath the tag area.
+ *  - none: No input supplied
  * @cfg {boolean} [allowEditTags=true] Allow editing of the tags by clicking them
  * @cfg {boolean} [allowArbitrary=false] Allow data items to be added even if
  *  not present in the menu.
@@ -634,10 +634,10 @@ OO.ui.TagMultiselectWidget.prototype.getValue = function () {
  *  This object must contain at least a data key. Example:
  *  { data: 'foo', label: 'Foo item' }
  *  For multiple items, use an array of objects. For example:
- *   [
- *   	{ data: 'foo', label: 'Foo item' },
- *    	{ data: 'bar', label: 'Bar item' }
- * 	 ]
+ *  [
+ *     { data: 'foo', label: 'Foo item' },
+ *     { data: 'bar', label: 'Bar item' }
+ *  ]
  *  Value can also be added with plaintext array, for example:
  *  [ 'foo', 'bar', 'bla' ] or a single string, like 'foo'
  */

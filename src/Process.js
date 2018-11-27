@@ -82,7 +82,7 @@ OO.ui.Process.prototype.execute = function () {
 				return $.Deferred().reject( result ).promise();
 			}
 			// Duck-type the object to see if it can produce a promise
-			if ( result && $.isFunction( result.promise ) ) {
+			if ( result && typeof result.promise === 'function' ) {
 				// Use a promise generated from the result
 				return result.promise();
 			}
@@ -123,7 +123,7 @@ OO.ui.Process.prototype.execute = function () {
  * @return {Object} Step object, with `callback` and `context` properties
  */
 OO.ui.Process.prototype.createStep = function ( step, context ) {
-	if ( typeof step === 'number' || $.isFunction( step.promise ) ) {
+	if ( typeof step === 'number' || typeof step.promise === 'function' ) {
 		return {
 			callback: function () {
 				return step;
@@ -131,7 +131,7 @@ OO.ui.Process.prototype.createStep = function ( step, context ) {
 			context: null
 		};
 	}
-	if ( $.isFunction( step ) ) {
+	if ( typeof step === 'function' ) {
 		return {
 			callback: step,
 			context: context

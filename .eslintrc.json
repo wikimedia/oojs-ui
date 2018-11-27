@@ -1,13 +1,8 @@
 {
-    "extends": "wikimedia",
-    "parserOptions": {
-        "ecmaVersion": 5
-    },
-    "env": {
-        "browser": true,
-        "node": true,
-        "jquery": true
-    },
+    "root": true,
+    "extends": [
+        "wikimedia"
+    ],
     "globals": {
         "OO": false
     },

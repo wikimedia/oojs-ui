@@ -869,7 +869,7 @@ OO.ui.Element.prototype.supports = function ( methods ) {
 
 	methods = Array.isArray( methods ) ? methods : [ methods ];
 	for ( i = 0, len = methods.length; i < len; i++ ) {
-		if ( $.isFunction( this[ methods[ i ] ] ) ) {
+		if ( typeof this[ methods[ i ] ] === 'function' ) {
 			support++;
 		}
 	}

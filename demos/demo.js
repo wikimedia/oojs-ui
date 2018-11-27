@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/* globals Prism, javascriptStringify */
+/* globals Prism, javascriptStringify, jQuery */
 /**
  * @class
  * @extends OO.ui.Element

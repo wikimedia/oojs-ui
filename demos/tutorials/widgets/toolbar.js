@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-implicit-globals
 var urlPieces, baseUrl;
 
 window.Tutorials = {};

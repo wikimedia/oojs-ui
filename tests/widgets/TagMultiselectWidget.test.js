@@ -94,7 +94,9 @@
 	QUnit.test( 'addTag', function ( assert ) {
 		var widget,
 			getItemDatas = function ( items ) {
-				return items.map( function ( item ) { return item.getData(); } );
+				return items.map( function ( item ) {
+					return item.getData();
+				} );
 			};
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true, allowedValues: [ 'foo', 'bar' ] } );
@@ -148,7 +150,9 @@
 	QUnit.test( 'setValue', function ( assert ) {
 		var widget,
 			getItemDatas = function ( items ) {
-				return items.map( function ( item ) { return item.getData(); } );
+				return items.map( function ( item ) {
+					return item.getData();
+				} );
 			};
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );

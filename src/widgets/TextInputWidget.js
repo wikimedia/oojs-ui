@@ -610,7 +610,7 @@ OO.ui.TextInputWidget.prototype.getValidity = function () {
 	// Run our checks if the browser thinks the field is valid
 	if ( this.validate instanceof Function ) {
 		result = this.validate( this.getValue() );
-		if ( result && $.isFunction( result.promise ) ) {
+		if ( result && typeof result.promise === 'function' ) {
 			return result.promise().then( function ( valid ) {
 				return rejectOrResolve( valid );
 			} );

@@ -1,0 +1,10 @@
+{
+	"extends": [
+		"wikimedia/client",
+		"wikimedia/jquery",
+		"../.eslintrc.json"
+	],
+	"globals": {
+        "jQuery": false
+	}
+}

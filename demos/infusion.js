@@ -1,3 +1,5 @@
+/* eslint-disable no-implicit-globals */
+
 // Demonstrate JavaScript 'infusion' of PHP-generated widgets.
 // Used by widgets.php.
 
@@ -42,3 +44,5 @@ infuseButton = new OO.ui.ButtonWidget( { label: 'Infuse' } )
 
 OO.ui.ButtonGroupWidget.static.infuse( 'demo-menu-infuse' )
 	.addItems( [ infuseButton ] );
+
+/* eslint-enable no-implicit-globals */

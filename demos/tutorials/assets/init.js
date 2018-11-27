@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars, no-implicit-globals
 var Widgets = {};
 /*
 * Back to top button

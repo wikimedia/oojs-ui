@@ -2,6 +2,7 @@
  * Grunt file
  */
 
+/* eslint-env node, es6 */
 module.exports = function ( grunt ) {
 	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
@@ -351,6 +352,7 @@ module.exports = function ( grunt ) {
 		svgmin: {
 			options: {
 				js2svg: {
+					// eslint-disable-next-line no-tabs
 					indent: '	',
 					pretty: true
 				},
