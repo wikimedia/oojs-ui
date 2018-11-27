@@ -7,7 +7,6 @@
         "OO": false
     },
     "rules": {
-        "dot-notation": [ "error", { "allowKeywords": true } ],
         "no-void": 0,
         "max-len": 0
     }
