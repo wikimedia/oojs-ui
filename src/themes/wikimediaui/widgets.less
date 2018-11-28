@@ -622,10 +622,12 @@
 			background-color: @background-color-base--hover;
 			color: @color-base--emphasized;
 		}
+
 		&-selected {
 			background-color: @background-color-progressive;
 			color: @color-progressive;
 		}
+
 		&-selected&-highlighted,
 		&-pressed&-highlighted {
 			background-color: @background-color-progressive--hover;
@@ -967,6 +969,7 @@
 		height: 1em;
 		.oo-ui-transition( width @transition-base );
 	}
+
 	&-indeterminate {
 		.oo-ui-progressBarWidget-bar {
 			.oo-ui-animation( oo-ui-progressBarWidget-slide 2s infinite linear );
@@ -975,11 +978,13 @@
 			border-left-width: @border-width-base;
 		}
 	}
+
 	&.oo-ui-widget-enabled {
 		.oo-ui-progressBarWidget-bar {
 			background-color: @color-progressive;
 		}
 	}
+
 	&.oo-ui-widget-disabled {
 		.oo-ui-progressBarWidget-bar {
 			background-color: @background-color-filled--disabled;
@@ -990,6 +995,7 @@
 		from {
 			.oo-ui-transform( translate( -100% ) );
 		}
+
 		to {
 			.oo-ui-transform( translate( 350% ) );
 		}
@@ -1492,6 +1498,7 @@
 			top: 0;
 			right: 0;
 		}
+
 		& .oo-ui-buttonElement-button {
 			// frameless reset
 			border: 0;
@@ -1761,6 +1768,7 @@
 				&:hover {
 					border-color: @border-color-erroneous;
 				}
+
 				&:focus {
 					border-color: @border-color-erroneous;
 					box-shadow: @box-shadow-erroneous--focus;
@@ -1926,6 +1934,7 @@
 				border-color: @color-progressive--hover;
 			}
 		}
+
 		&:active,
 		&:active:hover,
 		&:active:focus {
@@ -1939,6 +1948,7 @@
 				box-shadow: @box-shadow-input-binary;
 			}
 		}
+
 		&:focus {
 			border-color: @color-progressive;
 			box-shadow: @box-shadow-widget--focus;
@@ -1963,11 +1973,13 @@
 				background-color: @color-progressive--hover;
 				border-color: @color-progressive--hover;
 			}
+
 			&:active,
 			&:active:hover {
 				background-color: @background-color-input-binary--active;
 				border-color: @border-color-input-binary--active;
 			}
+
 			&:focus {
 				border-color: @border-color-input-binary--checked;
 
