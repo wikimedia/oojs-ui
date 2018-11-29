@@ -33,9 +33,11 @@
 		> .oo-ui-buttonElement-frameless:last-child {
 			&.oo-ui-labelElement {
 				margin: 0;
+
 				> .oo-ui-buttonElement-button {
 					margin: 0;
 					padding: 0 0.3125em;
+
 					> .oo-ui-labelElement-label {
 						margin: 0 1em;
 						line-height: 3.40625em;
@@ -64,6 +66,7 @@
 						border-color: @border-color-progressive--hover;
 					}
 				}
+
 				&.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
 					.oo-ui-vertical-gradient( @background-color-progressive-gradient-dark, @background-color-progressive-gradient-light );
 				}
@@ -256,6 +259,7 @@
 				+ .oo-ui-tool-active.oo-ui-widget-enabled {
 					border-top-color: rgba( 0, 0, 0, 0.1 );
 				}
+
 				&:hover {
 					border-color: rgba( 0, 0, 0, 0.2 );
 				}
@@ -266,6 +270,7 @@
 			&:hover {
 				border-color: rgba( 0, 0, 0, 0.2 );
 			}
+
 			&:hover .oo-ui-tool-link .oo-ui-iconElement-icon {
 				opacity: 1;
 			}
@@ -290,6 +295,7 @@
 
 	&.oo-ui-widget-disabled {
 		color: #ccc;
+
 		.oo-ui-indicatorElement-indicator,
 		.oo-ui-iconElement-icon {
 			opacity: 0.2;
@@ -433,6 +439,7 @@
 
 		&:last-child {
 			margin-right: 0.5em;
+
 			& > .oo-ui-popupToolGroup-handle {
 				border-bottom-right-radius: @border-radius-base;
 				border-top-right-radius: @border-radius-base;
@@ -459,6 +466,7 @@
 				right: -0.3125em;
 			}
 		}
+
 		.oo-ui-iconElement-icon {
 			margin: 0.3125em + @size-icon-outer;
 			left: 0.3125em;
@@ -521,6 +529,5 @@
 				padding-left: 3em;
 			}
 		}
-
 	}
 }

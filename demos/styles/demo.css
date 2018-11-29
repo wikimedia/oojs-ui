@@ -370,10 +370,11 @@ p {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
 .demo-icons .oo-ui-fieldsetLayout-group {
 	margin-right: -1em;
 }
-/* stylelint-disable indentation */
+
 .demo-icons .oo-ui-fieldLayout .oo-ui-iconElement:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ),
 .demo-icons .oo-ui-fieldLayout .oo-ui-indicatorElement {
 	opacity: 0.87; /* brings icons/indicators closer to text color */
@@ -381,10 +382,11 @@ p {
 	-webkit-transform: translateZ( 0 );
 	transform: translateZ( 0 );
 }
-/* stylelint-enable indentation */
+
 .demo-icons .oo-ui-fieldLayout:hover .oo-ui-labelElement-label {
 	color: #000;
 }
+
 .demo-icons .oo-ui-fieldLayout:hover .oo-ui-iconElement,
 .demo-icons .oo-ui-fieldLayout:hover .oo-ui-indicatorElement {
 	opacity: 1 !important; /* stylelint-disable-line declaration-no-important */

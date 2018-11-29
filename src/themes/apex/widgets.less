@@ -535,7 +535,7 @@
 		> .oo-ui-buttonWidget {
 			height: 2.5em;
 			width: 2.5em;
-			// There's a lot of weird specific margins with weird specific selectors
+			/* There's a lot of weird specific margins with weird specific selectors */
 			margin: 0 !important; /* stylelint-disable-line declaration-no-important */
 		}
 	}
@@ -741,6 +741,7 @@
 		border-right: @border-base;
 		.oo-ui-transition( width @transition-ease-medium );
 	}
+
 	&-indeterminate {
 		.oo-ui-progressBarWidget-bar {
 			width: 40%;
@@ -749,6 +750,7 @@
 			.oo-ui-transform( translate( -25% ) );
 		}
 	}
+
 	&.oo-ui-widget-disabled {
 		opacity: 0.6;
 	}
@@ -757,6 +759,7 @@
 		from {
 			.oo-ui-transform( translate( -100% ) );
 		}
+
 		to {
 			.oo-ui-transform( translate( 350% ) );
 		}
@@ -1100,9 +1103,7 @@
 		background-color: @background-color-main;
 		cursor: text;
 		min-height: 2.4em;
-
 		.oo-ui-inline-spacing( 0.5em );
-
 		padding: 0.15em 0.25em;
 		border: 1px solid rgba( 0, 0, 0, 0.1 );
 		border-radius: @border-radius-base;
@@ -1279,10 +1280,12 @@
 			border-color: #ddd;
 			background-color: #f3f3f3;
 		}
+
 		> .oo-ui-iconElement-icon,
 		> .oo-ui-indicatorElement-indicator {
 			opacity: 0.2;
 		}
+
 		> .oo-ui-labelElement-label {
 			color: #ddd;
 			text-shadow: 0 1px 1px #fff;
@@ -1367,6 +1370,7 @@
 		&:hover .oo-ui-toggleSwitchWidget-grip {
 			border-color: @border-color-base--hover;
 		}
+
 		&:focus {
 			outline: 0;
 			border-color: @border-color-base--focus;
@@ -1411,6 +1415,7 @@
 		&-glow {
 			opacity: 0;
 		}
+
 		&-grip {
 			left: 0.25em;
 			margin-left: 0;
@@ -1421,6 +1426,7 @@
 		&-glow {
 			opacity: 1;
 		}
+
 		&-grip {
 			left: @travelDistance + 0.25em;
 			margin-left: -2px;
