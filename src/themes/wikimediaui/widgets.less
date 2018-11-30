@@ -1218,7 +1218,7 @@
 	&-label {
 		.oo-ui-box-sizing( border-box );
 		display: block;
-		right: @size-icon + 0.5em; // With close, no indicator
+		right: @size-base + @padding-horizontal-input-text; // With close, no indicator
 		padding-top: @padding-top-base;
 		padding-left: @padding-horizontal-input-text;
 		padding-bottom: @padding-bottom-base;
@@ -1238,12 +1238,19 @@
 	}
 
 	&-clearButton {
-		top: -@border-width-base; // Address `border-width`
+		top: 0;
 		right: 0; // With close, no indicator
 		margin-right: 0;
+		padding-left: 0;
 
-		.oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-			height: @size-base;
+		> .oo-ui-buttonElement-button {
+			padding-top: @height-button-input-inner;
+		}
+
+		.oo-ui-iconElement-icon {
+			background-position: center center;
+			background-size: @min-size-indicator @min-size-indicator;
+			height: @height-button-input-inner;
 		}
 	}
 
@@ -1259,15 +1266,15 @@
 		}
 	}
 
-	// With close, with indicator:
+	// With clear, with indicator:
 	&.oo-ui-indicatorElement {
 		.oo-ui-selectFileWidget-label {
-			right: @size-icon + @size-indicator + @padding-horizontal-base;
+			right: @size-indicator + @size-base + @padding-horizontal-base + @padding-horizontal-input-text;
 			padding-left: 0;
 		}
 
 		.oo-ui-selectFileWidget-clearButton {
-			right: @size-indicator + 1.55em - 0.4em;
+			right: @size-icon + @padding-horizontal-base;
 		}
 	}
 

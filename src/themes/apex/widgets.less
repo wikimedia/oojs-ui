@@ -890,11 +890,19 @@
 	&-clearButton {
 		top: 0;
 		right: 0; // With close, no indicator
-		height: @size-icon-inner;
-		margin: @size-icon-outer;
+		height: @size-button-inner;
+		margin: 0;
 
-		.oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-			height: 2.3em;
+		&.oo-ui-iconElement .oo-ui-buttonElement-button {
+			height: @size-button-inner;
+			padding: 0;
+
+			> .oo-ui-iconElement-icon {
+				background-size: @min-size-indicator @min-size-indicator;
+				height: @size-button-inner;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
 		}
 	}
 
