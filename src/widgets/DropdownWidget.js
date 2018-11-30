@@ -143,7 +143,7 @@ OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
 	selectedLabel = item.getLabel();
 
 	// If the label is a DOM element, clone it, because setLabel will append() it
-	if ( selectedLabel instanceof jQuery ) {
+	if ( selectedLabel instanceof $ ) {
 		selectedLabel = selectedLabel.clone();
 	}
 

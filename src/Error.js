@@ -37,7 +37,7 @@ OO.ui.Error = function OoUiError( message, config ) {
 	config = config || {};
 
 	// Properties
-	this.message = message instanceof jQuery ? message : String( message );
+	this.message = message instanceof $ ? message : String( message );
 	this.recoverable = config.recoverable === undefined || !!config.recoverable;
 	this.warning = !!config.warning;
 };
@@ -76,7 +76,7 @@ OO.ui.Error.prototype.isWarning = function () {
  * @return {jQuery} Error message in DOM nodes
  */
 OO.ui.Error.prototype.getMessage = function () {
-	return this.message instanceof jQuery ?
+	return this.message instanceof $ ?
 		this.message.clone() :
 		$( '<div>' ).text( this.message ).contents();
 };
@@ -87,5 +87,5 @@ OO.ui.Error.prototype.getMessage = function () {
  * @return {string} Error message
  */
 OO.ui.Error.prototype.getMessageText = function () {
-	return this.message instanceof jQuery ? this.message.text() : this.message;
+	return this.message instanceof $ ? this.message.text() : this.message;
 };

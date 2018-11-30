@@ -115,7 +115,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 		.append( this.$popup, this.$anchor );
 	// Move content, which was added to #$element by OO.ui.Widget, to the body
 	// FIXME This is gross, we should use '$body' or something for the config
-	if ( config.$content instanceof jQuery ) {
+	if ( config.$content instanceof $ ) {
 		this.$body.append( config.$content );
 	}
 

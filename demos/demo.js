@@ -630,7 +630,7 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 			if ( obj instanceof Function ) {
 				// Get function's source code, with extraneous indentation removed
 				return obj.toString().replace( /^\t\t\t\t\t\t/gm, '' );
-			} else if ( obj instanceof jQuery ) {
+			} else if ( obj instanceof $ ) {
 				if ( $.contains( item.$element[ 0 ], obj[ 0 ] ) ) {
 					// If this element appears inside the generated widget,
 					// assume this was something like `$label: $( '<p>Text</p>' )`

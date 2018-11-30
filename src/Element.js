@@ -361,7 +361,7 @@ OO.ui.Element.static.getWindow = function ( obj ) {
 OO.ui.Element.static.getDir = function ( obj ) {
 	var isDoc, isWin;
 
-	if ( obj instanceof jQuery ) {
+	if ( obj instanceof $ ) {
 		obj = obj[ 0 ];
 	}
 	isDoc = obj.nodeType === Node.DOCUMENT_NODE;
