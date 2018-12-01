@@ -56,6 +56,5 @@ Demo.BrokenDialog.prototype.getActionProcess = function ( action ) {
 				// so that it remains in "pending" state while closing
 				return state.closed;
 			}
-			return Demo.BrokenDialog.parent.prototype.getActionProcess.call( this, action );
 		}, this );
 };
