@@ -1,7 +1,10 @@
 {
 	"extends": [
+		"../.eslintrc.json",
 		"wikimedia/client",
-		"wikimedia/jquery",
-		"../.eslintrc.json"
-	]
+		"wikimedia/jquery"
+	],
+	"rules": {
+		"max-len": "off"
+	}
 }

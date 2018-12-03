@@ -7,7 +7,6 @@
         "OO": false
     },
     "rules": {
-        "no-void": 0,
-        "max-len": 0
+        "max-len": "off"
     }
 }

@@ -439,7 +439,9 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 		}
 		return;
 	}
+	// eslint-disable-next-line no-restricted-properties
 	if ( String.fromCodePoint ) {
+		// eslint-disable-next-line no-restricted-properties
 		c = String.fromCodePoint( e.charCode );
 	} else {
 		c = String.fromCharCode( e.charCode );
@@ -496,7 +498,9 @@ OO.ui.SelectWidget.prototype.onKeyPress = function () {
 OO.ui.SelectWidget.prototype.getItemMatcher = function ( s, exact ) {
 	var re;
 
+	// eslint-disable-next-line no-restricted-properties
 	if ( s.normalize ) {
+		// eslint-disable-next-line no-restricted-properties
 		s = s.normalize();
 	}
 	s = exact ? s.trim() : s.replace( /^\s+/, '' );
@@ -507,7 +511,9 @@ OO.ui.SelectWidget.prototype.getItemMatcher = function ( s, exact ) {
 	re = new RegExp( re, 'i' );
 	return function ( item ) {
 		var matchText = item.getMatchText();
+		// eslint-disable-next-line no-restricted-properties
 		if ( matchText.normalize ) {
+			// eslint-disable-next-line no-restricted-properties
 			matchText = matchText.normalize();
 		}
 		return re.test( matchText );
