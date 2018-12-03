@@ -5,6 +5,9 @@
 		"wikimedia/jquery"
 	],
 	"rules": {
-		"max-len": "off"
+		"max-len": "off",
+		"jquery/no-hide": "error",
+		"jquery/no-show": "error",
+		"jquery/no-toggle": "error"
 	}
 }
