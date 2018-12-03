@@ -23,18 +23,18 @@
  *     $icon: this.$element
  *     // Use an icon element from a child widget
  *     $icon: this.childwidget.$element
- * @cfg {Object|string} [icon=''] The symbolic name of the icon (e.g., ‘remove’ or ‘menu’), or a map of
- *  symbolic names.  A map is used for i18n purposes and contains a `default` icon
- *  name and additional names keyed by language code. The `default` name is used when no icon is keyed
- *  by the user's language.
+ * @cfg {Object|string} [icon=''] The symbolic name of the icon (e.g., ‘remove’ or ‘menu’), or a
+ *  map of symbolic names. A map is used for i18n purposes and contains a `default` icon
+ *  name and additional names keyed by language code. The `default` name is used when no icon is
+ *  keyed by the user's language.
  *
  *  Example of an i18n map:
  *
  *     { default: 'bold-a', en: 'bold-b', de: 'bold-f' }
  *  See the [OOUI documentation on MediaWiki] [2] for a list of icons included in the library.
  * [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Icons
- * @cfg {string|Function} [iconTitle] A text string used as the icon title, or a function that returns title
- *  text. The icon title is displayed when users move the mouse over the icon.
+ * @cfg {string|Function} [iconTitle] A text string used as the icon title, or a function that
+ *  returns title text. The icon title is displayed when users move the mouse over the icon.
  */
 OO.ui.mixin.IconElement = function OoUiMixinIconElement( config ) {
 	// Configuration initialization
@@ -63,8 +63,8 @@ OO.initClass( OO.ui.mixin.IconElement );
 /* Static Properties */
 
 /**
- * The symbolic name of the icon (e.g., ‘remove’ or ‘menu’), or a map of symbolic names. A map is used
- * for i18n purposes and contains a `default` icon name and additional names keyed by
+ * The symbolic name of the icon (e.g., ‘remove’ or ‘menu’), or a map of symbolic names. A map
+ * is used for i18n purposes and contains a `default` icon name and additional names keyed by
  * language code. The `default` name is used when no icon is keyed by the user's language.
  *
  * Example of an i18n map:

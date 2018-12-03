@@ -33,9 +33,15 @@ Demo.FloatableTest.prototype.initialize = function () {
 	this.floatable.$element.addClass( 'demo-floatableTest-floatable' );
 	this.$floatableContainer.addClass( 'demo-floatableTest-container' );
 
-	this.selectWidget.connect( this, { select: 'onSelectPosition' } );
-	this.toggleOverlayWidget.connect( this, { change: 'onToggleOverlay' } );
-	this.toggleClippingWidget.connect( this, { change: 'onToggleClipping' } );
+	this.selectWidget.connect( this, {
+		select: 'onSelectPosition'
+	} );
+	this.toggleOverlayWidget.connect( this, {
+		change: 'onToggleOverlay'
+	} );
+	this.toggleClippingWidget.connect( this, {
+		change: 'onToggleClipping'
+	} );
 
 	this.fieldset = new OO.ui.FieldsetLayout( {
 		items: [

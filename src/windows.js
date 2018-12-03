@@ -79,13 +79,15 @@ OO.ui.confirm = function ( text, options ) {
 /**
  * Display a quick modal prompt dialog, using a OO.ui.MessageDialog. While the dialog is open,
  * the rest of the page will be dimmed out and the user won't be able to interact with it. The
- * dialog has a text input widget and two action buttons, one to confirm an operation (labelled "OK")
- * and one to cancel it (labelled "Cancel").
+ * dialog has a text input widget and two action buttons, one to confirm an operation
+ * (labelled "OK") and one to cancel it (labelled "Cancel").
  *
  * A window manager is created automatically when this function is called for the first time.
  *
  *     @example
- *     OO.ui.prompt( 'Choose a line to go to', { textInput: { placeholder: 'Line number' } } ).done( function ( result ) {
+ *     OO.ui.prompt( 'Choose a line to go to', {
+ *         textInput: { placeholder: 'Line number' }
+ *     } ).done( function ( result ) {
  *         if ( result !== null ) {
  *             console.log( 'User typed "' + result + '" then clicked "OK".' );
  *         } else {
@@ -95,7 +97,8 @@ OO.ui.confirm = function ( text, options ) {
  *
  * @param {jQuery|string} text Message text to display
  * @param {Object} [options] Additional options, see OO.ui.MessageDialog#getSetupProcess
- * @param {Object} [options.textInput] Additional options for text input widget, see OO.ui.TextInputWidget
+ * @param {Object} [options.textInput] Additional options for text input widget,
+ *  see OO.ui.TextInputWidget
  * @return {jQuery.Promise} Promise resolved when the user closes the dialog. If the user chose to
  *  confirm, the promise will resolve with the value of the text input widget; otherwise, it will
  *  resolve to `null`.

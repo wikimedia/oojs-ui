@@ -25,11 +25,13 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [type='button'] The value of the HTML `'type'` attribute: 'button', 'submit' or 'reset'.
+ * @cfg {string} [type='button'] The value of the HTML `'type'` attribute:
+ *  'button', 'submit' or 'reset'.
  * @cfg {boolean} [useInputTag=false] Use an `<input>` tag instead of a `<button>` tag, the default.
- *  Widgets configured to be an `<input>` do not support {@link #icon icons} and {@link #indicator indicators},
- *  non-plaintext {@link #label labels}, or {@link #value values}. In general, useInputTag should only
- *  be set to `true` when there’s need to support IE 6 in a form with multiple buttons.
+ *  Widgets configured to be an `<input>` do not support {@link #icon icons} and
+ *  {@link #indicator indicators},
+ *  non-plaintext {@link #label labels}, or {@link #value values}. In general, useInputTag should
+ *  only be set to `true` when there’s need to support IE 6 in a form with multiple buttons.
  */
 OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	// Configuration initialization
@@ -47,7 +49,9 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	OO.ui.ButtonInputWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.ButtonElement.call( this, $.extend( {}, config, { $button: this.$input } ) );
+	OO.ui.mixin.ButtonElement.call( this, $.extend( {}, config, {
+		$button: this.$input
+	} ) );
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.LabelElement.call( this, config );
@@ -135,7 +139,8 @@ OO.ui.ButtonInputWidget.prototype.setValue = function ( value ) {
  * @inheritdoc
  */
 OO.ui.ButtonInputWidget.prototype.getInputId = function () {
-	// Disable generating `<label>` elements for buttons. One would very rarely need additional label
-	// for a button, and it's already a big clickable target, and it causes unexpected rendering.
+	// Disable generating `<label>` elements for buttons. One would very rarely need additional
+	// label for a button, and it's already a big clickable target, and it causes
+	// unexpected rendering.
 	return null;
 };

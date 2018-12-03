@@ -11,7 +11,8 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {number} [level] Indentation level
- * @cfg {boolean} [movable] Allow modification from {@link OO.ui.OutlineControlsWidget outline controls}.
+ * @cfg {boolean} [movable] Allow modification from
+ *  {@link OO.ui.OutlineControlsWidget outline controls}.
  */
 OO.ui.OutlineOptionWidget = function OoUiOutlineOptionWidget( config ) {
 	// Configuration initialization

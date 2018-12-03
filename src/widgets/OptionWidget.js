@@ -158,8 +158,8 @@ OO.ui.OptionWidget.prototype.isPressed = function () {
 
 /**
  * Set the option’s selected state. In general, all modifications to the selection
- * should be handled by the SelectWidget’s {@link OO.ui.SelectWidget#selectItem selectItem( [item] )}
- * method instead of this method.
+ * should be handled by the SelectWidget’s
+ * {@link OO.ui.SelectWidget#selectItem selectItem( [item] )} method instead of this method.
  *
  * @param {boolean} [state=false] Select option
  * @chainable

@@ -1,15 +1,17 @@
 /**
- * ToolGroups are collections of {@link OO.ui.Tool tools} that are used in a {@link OO.ui.Toolbar toolbar}.
- * The type of toolgroup ({@link OO.ui.ListToolGroup list}, {@link OO.ui.BarToolGroup bar}, or {@link OO.ui.MenuToolGroup menu})
- * to which a tool belongs determines how the tool is arranged and displayed in the toolbar. Toolgroups
- * themselves are created on demand with a {@link OO.ui.ToolGroupFactory toolgroup factory}.
+ * ToolGroups are collections of {@link OO.ui.Tool tools} that are used in a
+ * {@link OO.ui.Toolbar toolbar}.
+ * The type of toolgroup ({@link OO.ui.ListToolGroup list}, {@link OO.ui.BarToolGroup bar}, or
+ * {@link OO.ui.MenuToolGroup menu}) to which a tool belongs determines how the tool is arranged
+ * and displayed in the toolbar. Toolgroups themselves are created on demand with a
+ * {@link OO.ui.ToolGroupFactory toolgroup factory}.
  *
  * Toolgroups can contain individual tools, groups of tools, or all available tools, as specified
  * using the `include` config option. See OO.ui.ToolFactory#extract on documentation of the format.
  * The options `exclude`, `promote`, and `demote` support the same formats.
  *
- * See {@link OO.ui.Toolbar toolbars} for a full example. For more information about toolbars in general,
- * please see the [OOUI documentation on MediaWiki][1].
+ * See {@link OO.ui.Toolbar toolbars} for a full example. For more information about toolbars in
+ * general, please see the [OOUI documentation on MediaWiki][1].
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *
@@ -23,7 +25,8 @@
  * @param {Object} [config] Configuration options
  * @cfg {Array|string} [include] List of tools to include in the toolgroup, see above.
  * @cfg {Array|string} [exclude] List of tools to exclude from the toolgroup, see above.
- * @cfg {Array|string} [promote] List of tools to promote to the beginning of the toolgroup, see above.
+ * @cfg {Array|string} [promote] List of tools to promote to the beginning of the toolgroup,
+ *  see above.
  * @cfg {Array|string} [demote] List of tools to demote to the end of the toolgroup, see above.
  *  This setting is particularly useful when tools have been added to the toolgroup
  *  en masse (e.g., via the catch-all selector).
@@ -66,8 +69,12 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 		mouseover: this.onMouseOverFocus.bind( this ),
 		mouseout: this.onMouseOutBlur.bind( this )
 	} );
-	this.toolbar.getToolFactory().connect( this, { register: 'onToolFactoryRegister' } );
-	this.aggregate( { disable: 'itemDisable' } );
+	this.toolbar.getToolFactory().connect( this, {
+		register: 'onToolFactoryRegister'
+	} );
+	this.aggregate( {
+		disable: 'itemDisable'
+	} );
 	this.connect( this, {
 		itemDisable: 'updateDisabled',
 		disable: 'onDisable'
@@ -149,7 +156,8 @@ OO.ui.ToolGroup.static.name = null;
  * @inheritdoc
  */
 OO.ui.ToolGroup.prototype.isDisabled = function () {
-	return this.autoDisabled || OO.ui.ToolGroup.parent.prototype.isDisabled.apply( this, arguments );
+	return this.autoDisabled ||
+		OO.ui.ToolGroup.parent.prototype.isDisabled.apply( this, arguments );
 };
 
 /**
@@ -191,14 +199,25 @@ OO.ui.ToolGroup.prototype.onDisable = function ( isDisabled ) {
  */
 OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
 	if (
-		!this.isDisabled() &&
-		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+		!this.isDisabled() && (
+			e.which === OO.ui.MouseButtons.LEFT ||
+			e.which === OO.ui.Keys.SPACE ||
+			e.which === OO.ui.Keys.ENTER
+		)
 	) {
 		this.pressed = this.findTargetTool( e );
 		if ( this.pressed ) {
 			this.pressed.setActive( true );
-			this.getElementDocument().addEventListener( 'mouseup', this.onDocumentMouseKeyUpHandler, true );
-			this.getElementDocument().addEventListener( 'keyup', this.onDocumentMouseKeyUpHandler, true );
+			this.getElementDocument().addEventListener(
+				'mouseup',
+				this.onDocumentMouseKeyUpHandler,
+				true
+			);
+			this.getElementDocument().addEventListener(
+				'keyup',
+				this.onDocumentMouseKeyUpHandler,
+				true
+			);
 			return false;
 		}
 	}
@@ -211,8 +230,16 @@ OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
  * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
 OO.ui.ToolGroup.prototype.onDocumentMouseKeyUp = function ( e ) {
-	this.getElementDocument().removeEventListener( 'mouseup', this.onDocumentMouseKeyUpHandler, true );
-	this.getElementDocument().removeEventListener( 'keyup', this.onDocumentMouseKeyUpHandler, true );
+	this.getElementDocument().removeEventListener(
+		'mouseup',
+		this.onDocumentMouseKeyUpHandler,
+		true
+	);
+	this.getElementDocument().removeEventListener(
+		'keyup',
+		this.onDocumentMouseKeyUpHandler,
+		true
+	);
 	// onMouseKeyUp may be called a second time, depending on where the mouse is when the button is
 	// released, but since `this.pressed` will no longer be true, the second call will be ignored.
 	this.onMouseKeyUp( e );
@@ -234,8 +261,11 @@ OO.ui.ToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	var tool = this.findTargetTool( e );
 
 	if (
-		!this.isDisabled() && this.pressed && this.pressed === tool &&
-		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+		!this.isDisabled() && this.pressed && this.pressed === tool && (
+			e.which === OO.ui.MouseButtons.LEFT ||
+			e.which === OO.ui.Keys.SPACE ||
+			e.which === OO.ui.Keys.ENTER
+		)
 	) {
 		this.pressed.onSelect();
 		this.pressed = null;
@@ -341,8 +371,9 @@ OO.ui.ToolGroup.prototype.populate = function () {
 			// Tool is available or is already in this group
 			( this.toolbar.isToolAvailable( name ) || this.tools[ name ] )
 		) {
-			// Hack to prevent infinite recursion via ToolGroupTool. We need to reserve the tool before
-			// creating it, but we can't call reserveTool() yet because we haven't created the tool.
+			// Hack to prevent infinite recursion via ToolGroupTool. We need to reserve the tool
+			// before creating it, but we can't call reserveTool() yet because we haven't created
+			// the tool.
 			this.toolbar.tools[ name ] = true;
 			tool = this.tools[ name ];
 			if ( !tool ) {

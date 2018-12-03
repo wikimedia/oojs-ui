@@ -246,7 +246,8 @@ OO.ui.mixin.DraggableGroupElement.prototype.unsetDragItem = function () {
 /**
  * Get the item that is currently being dragged.
  *
- * @return {OO.ui.mixin.DraggableElement|null} The currently dragged item, or `null` if no item is being dragged
+ * @return {OO.ui.mixin.DraggableElement|null} The currently dragged item, or `null` if no item is
+ *  being dragged
  */
 OO.ui.mixin.DraggableGroupElement.prototype.getDragItem = function () {
 	return this.dragItem;

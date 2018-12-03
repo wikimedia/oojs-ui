@@ -1,12 +1,15 @@
 /* eslint-disable no-unused-vars */
 /**
- * ActionSets manage the behavior of the {@link OO.ui.ActionWidget action widgets} that comprise them.
+ * ActionSets manage the behavior of the {@link OO.ui.ActionWidget action widgets} that
+ * comprise them.
  * Actions can be made available for specific contexts (modes) and circumstances
  * (abilities). Action sets are primarily used with {@link OO.ui.Dialog Dialogs}.
  *
  * ActionSets contain two types of actions:
  *
- * - Special: Special actions are the first visible actions with special flags, such as 'safe' and 'primary', the default special flags. Additional special flags can be configured in subclasses with the static #specialFlags property.
+ * - Special: Special actions are the first visible actions with special flags, such as 'safe' and
+ *  'primary', the default special flags. Additional special flags can be configured in subclasses
+ *  with the static #specialFlags property.
  * - Other: Other actions include all non-special visible actions.
  *
  * See the [OOUI documentation on MediaWiki][1] for more information.
@@ -21,7 +24,10 @@
  *     MyProcessDialog.static.name = 'myProcessDialog';
  *     // An action set that uses modes ('edit' and 'help' mode, in this example).
  *     MyProcessDialog.static.actions = [
- *         { action: 'continue', modes: 'edit', label: 'Continue', flags: [ 'primary', 'progressive' ] },
+ *         { action: 'continue', modes: 'edit', label: 'Continue',
+ *           flags: [
+ *               'primary', 'progressive'
+ *         ] },
  *         { action: 'help', modes: 'edit', label: 'Help' },
  *         { modes: 'edit', label: 'Cancel', flags: 'safe' },
  *         { action: 'back', modes: 'help', label: 'Back', flags: 'safe' }
@@ -30,9 +36,13 @@
  *     MyProcessDialog.prototype.initialize = function () {
  *         MyProcessDialog.parent.prototype.initialize.apply( this, arguments );
  *         this.panel1 = new OO.ui.PanelLayout( { padded: true, expanded: false } );
- *         this.panel1.$element.append( '<p>This dialog uses an action set (continue, help, cancel, back) configured with modes. This is edit mode. Click \'help\' to see help mode.</p>' );
+ *         this.panel1.$element.append( '<p>This dialog uses an action set (continue, help, ' +
+ *             'cancel, back) configured with modes. This is edit mode. Click \'help\' to see ' +
+ *             'help mode.</p>' );
  *         this.panel2 = new OO.ui.PanelLayout( { padded: true, expanded: false } );
- *         this.panel2.$element.append( '<p>This is help mode. Only the \'back\' action widget is configured to be visible here. Click \'back\' to return to \'edit\' mode.</p>' );
+ *         this.panel2.$element.append( '<p>This is help mode. Only the \'back\' action widget ' +
+ *              'is configured to be visible here. Click \'back\' to return to \'edit\' mode.' +
+ *              '</p>' );
  *         this.stackLayout = new OO.ui.StackLayout( {
  *             items: [ this.panel1, this.panel2 ]
  *         } );
@@ -153,7 +163,8 @@ OO.ui.ActionSet.static.specialFlags = [ 'safe', 'primary' ];
  * @event change
  *
  * A 'change' event is emitted when actions are {@link #method-add added}, {@link #clear cleared},
- * or {@link #method-remove removed} from the action set or when the {@link #setMode mode} is changed.
+ * or {@link #method-remove removed} from the action set or when the {@link #setMode mode}
+ * is changed.
  *
  */
 
@@ -256,7 +267,8 @@ OO.ui.ActionSet.prototype.get = function ( filters ) {
 /**
  * Get 'special' actions.
  *
- * Special actions are the first visible action widgets with special flags, such as 'safe' and 'primary'.
+ * Special actions are the first visible action widgets with special flags, such as 'safe' and
+ * 'primary'.
  * Special flags can be configured in subclasses by changing the static #specialFlags property.
  *
  * @return {OO.ui.ActionWidget[]|null} 'Special' action widgets.

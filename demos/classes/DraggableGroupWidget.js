@@ -11,7 +11,9 @@ Demo.DraggableGroupWidget = function DemoDraggableGroupWidget( config ) {
 	Demo.DraggableGroupWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
+	OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {}, config, {
+		$group: this.$element
+	} ) );
 };
 
 /* Setup */

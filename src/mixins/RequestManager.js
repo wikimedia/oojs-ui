@@ -1,6 +1,6 @@
 /**
- * RequestManager is a mixin that manages the lifecycle of a promise-backed request for a widget, such as
- * the {@link OO.ui.mixin.LookupElement}.
+ * RequestManager is a mixin that manages the lifecycle of a promise-backed request for a widget,
+ * such as the {@link OO.ui.mixin.LookupElement}.
  *
  * @class
  * @abstract
@@ -20,9 +20,9 @@ OO.initClass( OO.ui.mixin.RequestManager );
 /**
  * Get request results for the current query.
  *
- * @return {jQuery.Promise} Promise object which will be passed response data as the first argument of
- *   the done event. If the request was aborted to make way for a subsequent request, this promise
- *   may not be rejected, depending on what jQuery feels like doing.
+ * @return {jQuery.Promise} Promise object which will be passed response data as the first argument
+ *  of the done event. If the request was aborted to make way for a subsequent request, this
+ *  promise may not be rejected, depending on what jQuery feels like doing.
  */
 OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 	var widget = this,
@@ -57,7 +57,8 @@ OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 				if ( ourRequest === widget.requestRequest ) {
 					widget.requestQuery = null;
 					widget.requestRequest = null;
-					widget.requestCache[ value ] = widget.getRequestCacheDataFromResponse( response );
+					widget.requestCache[ value ] =
+						widget.getRequestCacheDataFromResponse( response );
 					deferred.resolve( widget.requestCache[ value ] );
 				}
 			} )

@@ -1,7 +1,7 @@
 /**
- * ToolGroupFactories create {@link OO.ui.ToolGroup toolgroups} on demand. The toolgroup classes must
- * specify a symbolic name and be registered with the factory. The following classes are registered by
- * default:
+ * ToolGroupFactories create {@link OO.ui.ToolGroup toolgroups} on demand. The toolgroup classes
+ * must specify a symbolic name and be registered with the factory. The following classes are
+ * registered by default:
  *
  * - {@link OO.ui.BarToolGroup BarToolGroups} (‘bar’)
  * - {@link OO.ui.MenuToolGroup MenuToolGroups} (‘menu’)
@@ -9,7 +9,8 @@
  *
  * See {@link OO.ui.Toolbar toolbars} for an example.
  *
- * For more information about toolbars in general, please see the [OOUI documentation on MediaWiki][1].
+ * For more information about toolbars in general, please see the
+ * [OOUI documentation on MediaWiki][1].
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *

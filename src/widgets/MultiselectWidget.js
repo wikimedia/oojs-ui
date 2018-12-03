@@ -1,7 +1,8 @@
 /**
  * MultiselectWidget allows selecting multiple options from a list.
  *
- * For more information about menus and options, please see the [OOUI documentation on MediaWiki][1].
+ * For more information about menus and options, please see the [OOUI documentation
+ * on MediaWiki][1].
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options#Menu_selects_and_options
  *
@@ -27,10 +28,14 @@ OO.ui.MultiselectWidget = function OoUiMultiselectWidget( config ) {
 	OO.ui.mixin.TitledElement.call( this, config );
 
 	// Events
-	this.aggregate( { change: 'select' } );
+	this.aggregate( {
+		change: 'select'
+	} );
 	// This is mostly for compatibility with TagMultiselectWidget... normally, 'change' is emitted
 	// by GroupElement only when items are added/removed
-	this.connect( this, { select: [ 'emit', 'change' ] } );
+	this.connect( this, {
+		select: [ 'emit', 'change' ]
+	} );
 
 	// Initialization
 	if ( config.items ) {

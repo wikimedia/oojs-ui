@@ -6,10 +6,10 @@
  *
  * There are two basic types of message dialogs, confirmation and alert:
  *
- * - **confirmation**: the dialog title describes what a progressive action will do and the message provides
- *  more details about the consequences.
- * - **alert**: the dialog title describes which event occurred and the message provides more information
- *  about why the event occurred.
+ * - **confirmation**: the dialog title describes what a progressive action will do and the message
+ *   provides more details about the consequences.
+ * - **alert**: the dialog title describes which event occurred and the message provides more
+ *   information about why the event occurred.
  *
  * The MessageDialog class specifies two actions: ‘accept’, the primary
  * action (e.g., ‘ok’) and ‘reject,’ the safe action (e.g., ‘cancel’). Both will close the window,
@@ -145,7 +145,7 @@ OO.ui.MessageDialog.prototype.getActionProcess = function ( action ) {
  * @param {jQuery|string|Function|null} [data.message] Description of the action's consequence
  * @param {string} [data.size] Symbolic name of the dialog size, see OO.ui.Window
  * @param {Object[]} [data.actions] List of OO.ui.ActionOptionWidget configuration options for each
- *   action item
+ *  action item
  */
 OO.ui.MessageDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};

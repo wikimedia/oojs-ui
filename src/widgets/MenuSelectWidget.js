@@ -1,8 +1,9 @@
 /**
  * MenuSelectWidget is a {@link OO.ui.SelectWidget select widget} that contains options and
  * is used together with OO.ui.MenuOptionWidget. It is designed be used as part of another widget.
- * See {@link OO.ui.DropdownWidget DropdownWidget}, {@link OO.ui.ComboBoxInputWidget ComboBoxInputWidget},
- * and {@link OO.ui.mixin.LookupElement LookupElement} for examples of widgets that contain menus.
+ * See {@link OO.ui.DropdownWidget DropdownWidget},
+ * {@link OO.ui.ComboBoxInputWidget ComboBoxInputWidget}, and
+ * {@link OO.ui.mixin.LookupElement LookupElement} for examples of widgets that contain menus.
  * MenuSelectWidgets themselves are not instantiated directly, rather subclassed
  * and customized to be opened, closed, and displayed as needed.
  *
@@ -28,22 +29,25 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.TextInputWidget} [input] Text input used to implement option highlighting for menu items that match
- *  the text the user types. This config is used by {@link OO.ui.ComboBoxInputWidget ComboBoxInputWidget}
- *  and {@link OO.ui.mixin.LookupElement LookupElement}
+ * @cfg {OO.ui.TextInputWidget} [input] Text input used to implement option highlighting for menu
+ *  items that match the text the user types. This config is used by
+ *  {@link OO.ui.ComboBoxInputWidget ComboBoxInputWidget} and
+ *  {@link OO.ui.mixin.LookupElement LookupElement}
  * @cfg {jQuery} [$input] Text input used to implement option highlighting for menu items that match
- *  the text the user types. This config is used by {@link OO.ui.TagMultiselectWidget TagMultiselectWidget}
- * @cfg {OO.ui.Widget} [widget] Widget associated with the menu's active state. If the user clicks the mouse
- *  anywhere on the page outside of this widget, the menu is hidden. For example, if there is a button
- *  that toggles the menu's visibility on click, the menu will be hidden then re-shown when the user clicks
- *  that button, unless the button (or its parent widget) is passed in here.
+ *  the text the user types. This config is used by
+ *  {@link OO.ui.TagMultiselectWidget TagMultiselectWidget}
+ * @cfg {OO.ui.Widget} [widget] Widget associated with the menu's active state. If the user clicks
+ *  the mouse anywhere on the page outside of this widget, the menu is hidden. For example, if
+ *  there is a button that toggles the menu's visibility on click, the menu will be hidden then
+ *  re-shown when the user clicks that button, unless the button (or its parent widget) is passed
+ *  in here.
  * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu.
  * @cfg {jQuery} [$autoCloseIgnore] If these elements are clicked, don't auto-hide the menu.
  * @cfg {boolean} [hideOnChoose=true] Hide the menu when the user chooses an option.
  * @cfg {boolean} [filterFromInput=false] Filter the displayed options from the input
  * @cfg {boolean} [highlightOnFilter] Highlight the first result when filtering
- * @param {number|string} [width] Width of the menu as a number of pixels or CSS string with unit suffix,
- *  used by {@link OO.ui.mixin.ClippableElement ClippableElement}
+ * @param {number|string} [width] Width of the menu as a number of pixels or CSS string with unit
+ *  suffix, used by {@link OO.ui.mixin.ClippableElement ClippableElement}
  */
 OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	// Configuration initialization
@@ -268,7 +272,10 @@ OO.ui.MenuSelectWidget.prototype.unbindDocumentKeyDownListener = function () {
 OO.ui.MenuSelectWidget.prototype.bindDocumentKeyPressListener = function () {
 	if ( this.$input ) {
 		if ( this.filterFromInput ) {
-			this.$input.on( 'keydown mouseup cut paste change input select', this.onInputEditHandler );
+			this.$input.on(
+				'keydown mouseup cut paste change input select',
+				this.onInputEditHandler
+			);
 			this.updateItemVisibility();
 		}
 	} else {
@@ -282,7 +289,10 @@ OO.ui.MenuSelectWidget.prototype.bindDocumentKeyPressListener = function () {
 OO.ui.MenuSelectWidget.prototype.unbindDocumentKeyPressListener = function () {
 	if ( this.$input ) {
 		if ( this.filterFromInput ) {
-			this.$input.off( 'keydown mouseup cut paste change input select', this.onInputEditHandler );
+			this.$input.off(
+				'keydown mouseup cut paste change input select',
+				this.onInputEditHandler
+			);
 			this.updateItemVisibility();
 		}
 	} else {
@@ -293,10 +303,12 @@ OO.ui.MenuSelectWidget.prototype.unbindDocumentKeyPressListener = function () {
 /**
  * Choose an item.
  *
- * When a user chooses an item, the menu is closed, unless the hideOnChoose config option is set to false.
+ * When a user chooses an item, the menu is closed, unless the hideOnChoose config option is
+ * set to false.
  *
- * Note that ‘choose’ should never be modified programmatically. A user can choose an option with the keyboard
- * or mouse and it becomes selected. To select an item programmatically, use the #selectItem method.
+ * Note that ‘choose’ should never be modified programmatically. A user can choose an option with
+ * the keyboard or mouse and it becomes selected. To select an item programmatically,
+ * use the #selectItem method.
  *
  * @param {OO.ui.OptionWidget} item Item to choose
  * @chainable

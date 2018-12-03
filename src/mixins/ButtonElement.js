@@ -44,10 +44,11 @@ OO.initClass( OO.ui.mixin.ButtonElement );
 /**
  * Cancel mouse down events.
  *
- * This property is usually set to `true` to prevent the focus from changing when the button is clicked.
- * Classes such as {@link OO.ui.mixin.DraggableElement DraggableElement} and {@link OO.ui.ButtonOptionWidget ButtonOptionWidget}
- * use a value of `false` so that dragging behavior is possible and mousedown events can be handled by a
- * parent widget.
+ * This property is usually set to `true` to prevent the focus from changing when the button is
+ * clicked.
+ * Classes such as {@link OO.ui.mixin.DraggableElement DraggableElement} and
+ * {@link OO.ui.ButtonOptionWidget ButtonOptionWidget} use a value of `false` so that dragging
+ * behavior is possible and mousedown events can be handled by a parent widget.
  *
  * @static
  * @inheritable
@@ -224,7 +225,8 @@ OO.ui.mixin.ButtonElement.prototype.isFramed = function () {
 };
 
 /**
- * Render the button with or without a frame. Omit the `framed` parameter to toggle the button frame on and off.
+ * Render the button with or without a frame. Omit the `framed` parameter to toggle the button frame
+ * on and off.
  *
  * @param {boolean} [framed] Make button framed, omit to toggle
  * @chainable

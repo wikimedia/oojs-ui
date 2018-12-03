@@ -7,8 +7,10 @@
  *
  * The library currently contains the following styling flags for general use:
  *
- * - **progressive**: Progressive styling is applied to convey that the widget will move the user forward in a process.
- * - **destructive**: Destructive styling is applied to convey that the widget will remove something.
+ * - **progressive**: Progressive styling is applied to convey that the widget will move the user
+ *   forward in a process.
+ * - **destructive**: Destructive styling is applied to convey that the widget will remove
+ *   something.
  *
  * The flags affect the appearance of the buttons:
  *
@@ -24,7 +26,8 @@
  *         } );
  *     $( document.body ).append( button1.$element, button2.$element );
  *
- * {@link OO.ui.ActionWidget ActionWidgets}, which are a special kind of button that execute an action, use these flags: **primary** and **safe**.
+ * {@link OO.ui.ActionWidget ActionWidgets}, which are a special kind of button that execute an
+ * action, use these flags: **primary** and **safe**.
  * Please see the [OOUI documentation on MediaWiki] [1] for more information.
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Elements/Flagged
@@ -34,7 +37,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string|string[]} [flags] The name or names of the flags (e.g., 'progressive' or 'primary') to apply.
+ * @cfg {string|string[]} [flags] The name or names of the flags (e.g., 'progressive' or 'primary')
+ *  to apply.
  *  Please see the [OOUI documentation on MediaWiki] [2] for more information about available flags.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Elements/Flagged
  * @cfg {jQuery} [$flagged] The flagged element. By default,
@@ -71,7 +75,8 @@ OO.ui.mixin.FlaggedElement = function OoUiMixinFlaggedElement( config ) {
 /**
  * Set the flagged element.
  *
- * This method is used to retarget a flagged mixin so that its functionality applies to the specified element.
+ * This method is used to retarget a flagged mixin so that its functionality applies to the
+ * specified element.
  * If an element is already set, the method will remove the mixin’s effect on that element.
  *
  * @param {jQuery} $flagged Element that should be flagged

@@ -15,15 +15,24 @@ Demo.PopupButtonWidgetTest.prototype.initialize = function () {
 		padded: true
 	} );
 
-	this.$center = $( '<td>' ).attr( { colspan: 3, rowspan: 3 } );
+	this.$center = $( '<td>' ).attr( {
+		colspan: 3,
+		rowspan: 3
+	} );
 
 	this.toggleOverlayWidget = new OO.ui.ToggleSwitchWidget( { value: true } );
 	this.toggleAnchorWidget = new OO.ui.ToggleSwitchWidget( { value: true } );
 	this.showAllWidget = new OO.ui.ButtonWidget( { label: 'Toggle all' } );
 
-	this.toggleOverlayWidget.connect( this, { change: 'makeTable' } );
-	this.toggleAnchorWidget.connect( this, { change: 'makeTable' } );
-	this.showAllWidget.connect( this, { click: 'toggleAll' } );
+	this.toggleOverlayWidget.connect( this, {
+		change: 'makeTable'
+	} );
+	this.toggleAnchorWidget.connect( this, {
+		change: 'makeTable'
+	} );
+	this.showAllWidget.connect( this, {
+		click: 'toggleAll'
+	} );
 
 	this.fieldset = new OO.ui.FieldsetLayout( {
 		items: [

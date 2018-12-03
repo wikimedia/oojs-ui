@@ -25,7 +25,9 @@ Demo.OutlinedBookletDialog.prototype.initialize = function () {
 	];
 
 	this.bookletLayout.addPages( this.pages );
-	this.bookletLayout.connect( this, { set: 'onBookletLayoutSet' } );
+	this.bookletLayout.connect( this, {
+		set: 'onBookletLayoutSet'
+	} );
 	this.$body.append( this.bookletLayout.$element );
 };
 Demo.OutlinedBookletDialog.prototype.getActionProcess = function ( action ) {

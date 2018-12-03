@@ -1,7 +1,7 @@
 /**
- * StackLayouts contain a series of {@link OO.ui.PanelLayout panel layouts}. By default, only one panel is displayed
- * at a time, though the stack layout can also be configured to show all contained panels, one after another,
- * by setting the #continuous option to 'true'.
+ * StackLayouts contain a series of {@link OO.ui.PanelLayout panel layouts}. By default, only one
+ * panel is displayed at a time, though the stack layout can also be configured to show all
+ * contained panels, one after another, by setting the #continuous option to 'true'.
  *
  *     @example
  *     // A stack layout with two panels, configured to be displayed continuously
@@ -28,7 +28,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [continuous=false] Show all panels, one after another. By default, only one panel is displayed at a time.
+ * @cfg {boolean} [continuous=false] Show all panels, one after another. By default, only one panel
+ *  is displayed at a time.
  * @cfg {OO.ui.Layout[]} [items] Panel layouts to add to the stack layout.
  */
 OO.ui.StackLayout = function OoUiStackLayout( config ) {
@@ -162,9 +163,9 @@ OO.ui.StackLayout.prototype.unsetCurrentItem = function () {
 /**
  * Add panel layouts to the stack layout.
  *
- * Panels will be added to the end of the stack layout array unless the optional index parameter specifies a different
- * insertion point. Adding a panel that is already in the stack will move it to the end of the array or the point specified
- * by the index.
+ * Panels will be added to the end of the stack layout array unless the optional index parameter
+ * specifies a different insertion point. Adding a panel that is already in the stack will move it
+ * to the end of the array or the point specified by the index.
  *
  * @param {OO.ui.Layout[]} items Panels to add
  * @param {number} [index] Index of the insertion point
@@ -188,8 +189,8 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
 /**
  * Remove the specified panels from the stack layout.
  *
- * Removed panels are detached from the DOM, not removed, so that they may be reused. To remove all panels,
- * you may wish to use the #clearItems method instead.
+ * Removed panels are detached from the DOM, not removed, so that they may be reused. To remove all
+ * panels, you may wish to use the #clearItems method instead.
  *
  * @param {OO.ui.Layout[]} items Panels to remove
  * @chainable

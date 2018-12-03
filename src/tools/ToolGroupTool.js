@@ -5,7 +5,8 @@
  * the bar item. Included tools will be displayed in a dropdown {@link OO.ui.ListToolGroup list}
  * when the ToolGroupTool is selected.
  *
- *     // Example: ToolGroupTool with two nested tools, 'setting1' and 'setting2', defined elsewhere.
+ *     // Example: ToolGroupTool with two nested tools, 'setting1' and 'setting2',
+ *     // defined elsewhere.
  *
  *     function SettingsTool() {
  *         SettingsTool.parent.apply( this, arguments );
@@ -113,8 +114,8 @@ OO.ui.ToolGroupTool.prototype.onUpdateState = function () {
 /**
  * Build a {@link OO.ui.ToolGroup toolgroup} from the specified configuration.
  *
- * @param {Object.<string,Array>} group Toolgroup configuration. Please see {@link OO.ui.ToolGroup toolgroup} for
- *  more information.
+ * @param {Object.<string,Array>} group Toolgroup configuration. Please see
+ *  {@link OO.ui.ToolGroup toolgroup} for more information.
  * @return {OO.ui.ListToolGroup}
  */
 OO.ui.ToolGroupTool.prototype.createGroup = function ( group ) {

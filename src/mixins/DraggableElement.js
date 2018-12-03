@@ -9,7 +9,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$handle] The part of the element which can be used for dragging, defaults to the whole element
+ * @cfg {jQuery} [$handle] The part of the element which can be used for dragging, defaults to
+ *  the whole element
  * @cfg {boolean} [draggable] The items are draggable. This can change with #toggleDraggable
  *  but the draggable state should be called from the DraggableGroupElement, which updates
  *  the whole group
@@ -44,7 +45,8 @@ OO.initClass( OO.ui.mixin.DraggableElement );
  * @event dragstart
  *
  * A dragstart event is emitted when the user clicks and begins dragging an item.
- * @param {OO.ui.mixin.DraggableElement} item The item the user has clicked and is dragging with the mouse.
+ * @param {OO.ui.mixin.DraggableElement} item The item the user has clicked and is dragging with
+ *  the mouse.
  */
 
 /**
@@ -91,7 +93,7 @@ OO.ui.mixin.DraggableElement.prototype.toggleDraggable = function ( isDraggable 
 };
 
 /**
- * Check the draggable state of this widget
+ * Check the draggable state of this widget.
  *
  * @return {boolean} Widget supports draggable operations
  */
@@ -193,7 +195,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragOver = function ( e ) {
 
 /**
  * Set item index.
- * Store it in the DOM so we can access from the widget drag event
+ * Store it in the DOM so we can access from the widget drag event.
  *
  * @private
  * @param {number} index Item index
@@ -206,7 +208,7 @@ OO.ui.mixin.DraggableElement.prototype.setIndex = function ( index ) {
 };
 
 /**
- * Get item index
+ * Get item index.
  *
  * @private
  * @return {number} Item index

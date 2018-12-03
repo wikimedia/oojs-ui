@@ -53,16 +53,19 @@ Demo.ContinuousOutlinedBookletDialog.prototype.getActionProcess = function ( act
 			this.close( { action: action } );
 		}, this );
 	}
-	return Demo.ContinuousOutlinedBookletDialog.parent.prototype.getActionProcess.call( this, action );
+	return Demo.ContinuousOutlinedBookletDialog
+		.parent.prototype.getActionProcess.call( this, action );
 };
 Demo.ContinuousOutlinedBookletDialog.prototype.getSetupProcess = function ( data ) {
-	return Demo.ContinuousOutlinedBookletDialog.parent.prototype.getSetupProcess.call( this, data )
+	return Demo.ContinuousOutlinedBookletDialog
+		.parent.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			this.bookletLayout.setPage( 'page1' );
 		}, this );
 };
 Demo.ContinuousOutlinedBookletDialog.prototype.getTeardownProcess = function ( data ) {
-	return Demo.ContinuousOutlinedBookletDialog.parent.prototype.getTeardownProcess.call( this, data )
+	return Demo.ContinuousOutlinedBookletDialog
+		.parent.prototype.getTeardownProcess.call( this, data )
 		.next( function () {
 			this.bookletLayout.resetScroll();
 		}, this );

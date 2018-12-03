@@ -1,7 +1,7 @@
 /**
  * DropdownInputWidget is a {@link OO.ui.DropdownWidget DropdownWidget} intended to be used
- * within an HTML form, such as a OO.ui.FormLayout. The selected value is synchronized with the value
- * of a hidden HTML `input` tag. Please see the [OOUI documentation on MediaWiki][1] for
+ * within an HTML form, such as a OO.ui.FormLayout. The selected value is synchronized with the
+ * value of a hidden HTML `input` tag. Please see the [OOUI documentation on MediaWiki][1] for
  * more information about input widgets.
  *
  * A DropdownInputWidget always has a value (one of the options is always selected), unless there
@@ -31,9 +31,10 @@
  * @param {Object} [config] Configuration options
  * @cfg {Object[]} [options=[]] Array of menu options in the format described above.
  * @cfg {Object} [dropdown] Configuration options for {@link OO.ui.DropdownWidget DropdownWidget}
- * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful in cases where
- *  the expanded menu is larger than its containing `<div>`. The specified overlay layer is usually on top of the
- *  containing `<div>` and has a larger area. By default, the menu uses relative positioning.
+ * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful
+ *  in cases where the expanded menu is larger than its containing `<div>`. The specified overlay
+ *  layer is usually on top of the containing `<div>` and has a larger area. By default, the menu
+ *  uses relative positioning.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  */
 OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
@@ -55,7 +56,9 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	OO.ui.DropdownInputWidget.parent.call( this, config );
 
 	// Events
-	this.dropdownWidget.getMenu().connect( this, { select: 'onMenuSelect' } );
+	this.dropdownWidget.getMenu().connect( this, {
+		select: 'onMenuSelect'
+	} );
 
 	// Initialization
 	this.$element
@@ -173,8 +176,11 @@ OO.ui.DropdownInputWidget.prototype.setOptionsData = function ( options ) {
 		}
 
 		// Disable the menu option if it is itself disabled or if its parent optgroup is disabled.
-		if ( opt.disabled !== undefined ||
-			previousOptgroup instanceof OO.ui.MenuSectionOptionWidget && previousOptgroup.isDisabled() ) {
+		if (
+			opt.disabled !== undefined ||
+			previousOptgroup instanceof OO.ui.MenuSectionOptionWidget &&
+			previousOptgroup.isDisabled()
+		) {
 			optionWidget.setDisabled( true );
 		}
 

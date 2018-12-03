@@ -8,7 +8,8 @@
  *   is taking place. Because the extent of an indeterminate operation is unknown, the bar does
  *   not use percentages.
  *
- * The value of the `progress` configuration determines whether the bar is determinate or indeterminate.
+ * The value of the `progress` configuration determines whether the bar is determinate
+ * or indeterminate.
  *
  *     @example
  *     // Examples of determinate and indeterminate progress bars.
@@ -37,7 +38,8 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {number|boolean} [progress=false] The type of progress bar (determinate or indeterminate).
- *  To create a determinate progress bar, specify a number that reflects the initial percent complete.
+ *  To create a determinate progress bar, specify a number that reflects the initial
+ *  percent complete.
  *  By default, the progress bar is indeterminate.
  */
 OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
@@ -79,7 +81,8 @@ OO.ui.ProgressBarWidget.static.tagName = 'div';
 /* Methods */
 
 /**
- * Get the percent of the progress that has been completed. Indeterminate progresses will return `false`.
+ * Get the percent of the progress that has been completed. Indeterminate progresses will
+ * return `false`.
  *
  * @return {number|boolean} Progress percent
  */

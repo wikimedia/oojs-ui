@@ -259,7 +259,8 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		buffer = 7;
 
 	if ( !this.clipping ) {
-		// this.$clippableScrollableContainer and this.$clippableWindow are null, so the below will fail
+		// this.$clippableScrollableContainer and this.$clippableWindow are null, so the below
+		// will fail
 		return this;
 	}
 
@@ -350,8 +351,10 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	clipHeight = allotedHeight < naturalHeight;
 
 	if ( clipWidth ) {
-		// The order matters here. If overflow is not set first, Chrome displays bogus scrollbars. See T157672.
-		// Forcing a reflow is a smaller workaround than calling reconsiderScrollbars() for this case.
+		// The order matters here. If overflow is not set first, Chrome displays bogus scrollbars.
+		// See T157672.
+		// Forcing a reflow is a smaller workaround than calling reconsiderScrollbars() for
+		// this case.
 		this.$clippable.css( 'overflowX', 'scroll' );
 		// eslint-disable-next-line no-void
 		void this.$clippable[ 0 ].offsetHeight; // Force reflow
@@ -367,8 +370,10 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		} );
 	}
 	if ( clipHeight ) {
-		// The order matters here. If overflow is not set first, Chrome displays bogus scrollbars. See T157672.
-		// Forcing a reflow is a smaller workaround than calling reconsiderScrollbars() for this case.
+		// The order matters here. If overflow is not set first, Chrome displays bogus scrollbars.
+		// See T157672.
+		// Forcing a reflow is a smaller workaround than calling reconsiderScrollbars() for
+		// this case.
 		this.$clippable.css( 'overflowY', 'scroll' );
 		// eslint-disable-next-line no-void
 		void this.$clippable[ 0 ].offsetHeight; // Force reflow

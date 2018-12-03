@@ -12,7 +12,8 @@
  *
  *     function PageOneLayout( name, config ) {
  *         PageOneLayout.parent.call( this, name, config );
- *         this.$element.append( '<p>First page</p><p>(This booklet has an outline, displayed on the left)</p>' );
+ *         this.$element.append( '<p>First page</p><p>(This booklet has an outline, displayed on ' +
+ *         'the left)</p>' );
  *     }
  *     OO.inheritClass( PageOneLayout, OO.ui.PageLayout );
  *     PageOneLayout.prototype.setupOutlineItem = function () {
@@ -44,9 +45,11 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [continuous=false] Show all pages, one after another
- * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new page is displayed. Disabled on mobile.
- * @cfg {boolean} [outlined=false] Show the outline. The outline is used to navigate through the pages of the booklet.
- * @cfg {boolean} [editable=false] Show controls for adding, removing and reordering pages
+ * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new page is
+ *  displayed. Disabled on mobile.
+ * @cfg {boolean} [outlined=false] Show the outline. The outline is used to navigate through the
+ *  pages of the booklet.
+ * @cfg {boolean} [editable=false] Show controls for adding, removing and reordering pages.
  */
 OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	// Configuration initialization
@@ -86,11 +89,17 @@ OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	this.toggleMenu( this.outlined );
 
 	// Events
-	this.stackLayout.connect( this, { set: 'onStackLayoutSet' } );
+	this.stackLayout.connect( this, {
+		set: 'onStackLayoutSet'
+	} );
 	if ( this.outlined ) {
-		this.outlineSelectWidget.connect( this, { select: 'onOutlineSelectWidgetSelect' } );
+		this.outlineSelectWidget.connect( this, {
+			select: 'onOutlineSelectWidgetSelect'
+		} );
 		this.scrolling = false;
-		this.stackLayout.connect( this, { visibleItemChange: 'onStackLayoutVisibleItemChange' } );
+		this.stackLayout.connect( this, {
+			visibleItemChange: 'onStackLayoutVisibleItemChange'
+		} );
 	}
 	if ( this.autoFocus ) {
 		// Event 'focus' does not bubble, but 'focusin' does
@@ -119,7 +128,8 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
 /* Events */
 
 /**
- * A 'set' event is emitted when a page is {@link #setPage set} to be displayed by the booklet layout.
+ * A 'set' event is emitted when a page is {@link #setPage set} to be displayed by the
+ * booklet layout.
  * @event set
  * @param {OO.ui.PageLayout} page Current page
  */
@@ -298,8 +308,9 @@ OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
 		this.outlineVisible = show;
 		this.toggleMenu( show );
 		if ( show && this.editable ) {
-			// HACK: Kill dumb scrollbars when the sidebar stops animating, see T161798. Only necessary when
-			// outline controls are present, delay matches transition on `.oo-ui-menuLayout-menu`.
+			// HACK: Kill dumb scrollbars when the sidebar stops animating, see T161798.
+			// Only necessary when outline controls are present, delay matches transition on
+			// `.oo-ui-menuLayout-menu`.
 			setTimeout( function () {
 				OO.ui.Element.static.reconsiderScrollbars( booklet.outlinePanel.$element[ 0 ] );
 			}, OO.ui.theme.getDialogTransitionDuration() );
@@ -536,9 +547,10 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 			if ( previousPage ) {
 				previousPage.setActive( false );
 				// Blur anything focused if the next page doesn't have anything focusable.
-				// This is not needed if the next page has something focusable (because once it is focused
-				// this blur happens automatically). If the layout is non-continuous, this check is
-				// meaningless because the next page is not visible yet and thus can't hold focus.
+				// This is not needed if the next page has something focusable (because once it is
+				// focused this blur happens automatically). If the layout is non-continuous, this
+				// check is meaningless because the next page is not visible yet and thus can't
+				// hold focus.
 				if (
 					this.autoFocus &&
 					!OO.ui.isMobile() &&
@@ -555,8 +567,9 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 			page.setActive( true );
 			this.stackLayout.setItem( page );
 			if ( !this.stackLayout.continuous && previousPage ) {
-				// This should not be necessary, since any inputs on the previous page should have been
-				// blurred when it was hidden, but browsers are not very consistent about this.
+				// This should not be necessary, since any inputs on the previous page should have
+				// been blurred when it was hidden, but browsers are not very consistent about
+				// this.
 				$focused = previousPage.$element.find( ':focus' );
 				if ( $focused.length ) {
 					$focused[ 0 ].blur();
@@ -576,7 +589,11 @@ OO.ui.BookletLayout.prototype.resetScroll = function () {
 	// Parent method
 	OO.ui.BookletLayout.parent.prototype.resetScroll.call( this );
 
-	if ( this.outlined && this.stackLayout.continuous && this.outlineSelectWidget.findFirstSelectableItem() ) {
+	if (
+		this.outlined &&
+		this.stackLayout.continuous &&
+		this.outlineSelectWidget.findFirstSelectableItem()
+	) {
 		this.scrolling = true;
 		this.outlineSelectWidget.selectItem( this.outlineSelectWidget.findFirstSelectableItem() );
 		this.scrolling = false;

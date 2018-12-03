@@ -37,7 +37,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [selected=false] Select the radio button initially. By default, the radio button is not selected.
+ * @cfg {boolean} [selected=false] Select the radio button initially. By default, the radio button
+ *  is not selected.
  */
 OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 	// Configuration initialization

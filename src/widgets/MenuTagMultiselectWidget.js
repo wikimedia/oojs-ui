@@ -1,6 +1,6 @@
 /**
- * MenuTagMultiselectWidget is a {@link OO.ui.TagMultiselectWidget OO.ui.TagMultiselectWidget} intended
- * to use a menu of selectable options.
+ * MenuTagMultiselectWidget is a {@link OO.ui.TagMultiselectWidget OO.ui.TagMultiselectWidget}
+ * intended to use a menu of selectable options.
  *
  *     @example
  *     // A basic MenuTagMultiselectWidget.
@@ -32,8 +32,10 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 	// Parent constructor
 	OO.ui.MenuTagMultiselectWidget.parent.call( this, config );
 
-	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
-	this.clearInputOnChoose = config.clearInputOnChoose === undefined || !!config.clearInputOnChoose;
+	this.$overlay = ( config.$overlay === true ?
+		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
+	this.clearInputOnChoose = config.clearInputOnChoose === undefined ||
+		!!config.clearInputOnChoose;
 	this.menu = this.createMenuWidget( $.extend( {
 		widget: this,
 		input: this.hasInput ? this.input : null,
@@ -54,20 +56,22 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		toggle: 'onMenuToggle'
 	} );
 	if ( this.hasInput ) {
-		this.input.connect( this, { change: 'onInputChange' } );
+		this.input.connect( this, {
+			change: 'onInputChange'
+		} );
 	}
-	this.connect( this, { resize: 'onResize' } );
+	this.connect( this, {
+		resize: 'onResize'
+	} );
 
 	// Initialization
-	this.$overlay
-		.append( this.menu.$element );
-	this.$element
-		.addClass( 'oo-ui-menuTagMultiselectWidget' );
+	this.$overlay.append( this.menu.$element );
+	this.$element.addClass( 'oo-ui-menuTagMultiselectWidget' );
 	// Remove MenuSelectWidget's generic focus owner ARIA attribute
 	// TODO: Should this widget have a `role` that is compatible with this attribute?
 	this.menu.$focusOwner.removeAttr( 'aria-expanded' );
-	// TagMultiselectWidget already does this, but it doesn't work right because this.menu is not yet
-	// set up while the parent constructor runs, and #getAllowedValues rejects everything.
+	// TagMultiselectWidget already does this, but it doesn't work right because this.menu is
+	// not yet set up while the parent constructor runs, and #getAllowedValues rejects everything.
 	if ( config.selected ) {
 		this.setValue( config.selected );
 	}

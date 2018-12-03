@@ -52,7 +52,9 @@ Demo.BookletDialog.prototype.initialize = function () {
 		new Demo.SamplePage( 'page-3', { label: 'Page 3', icon: 'window' } )
 	];
 	this.bookletLayout.addPages( this.pages );
-	this.bookletLayout.connect( this, { set: 'onBookletLayoutSet' } );
+	this.bookletLayout.connect( this, {
+		set: 'onBookletLayoutSet'
+	} );
 	this.bookletLayout.setPage( 'page-1' );
 
 	this.$body.append( this.bookletLayout.$element );

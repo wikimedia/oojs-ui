@@ -32,22 +32,22 @@
  * @cfg {boolean} [anchor=true] Show anchor pointing to origin of popup
  * @cfg {string} [position='below'] Where to position the popup relative to $floatableContainer
  *  'above': Put popup above $floatableContainer; anchor points down to the horizontal center
- *           of $floatableContainer
+ *    of $floatableContainer
  *  'below': Put popup below $floatableContainer; anchor points up to the horizontal center
- *           of $floatableContainer
+ *    of $floatableContainer
  *  'before': Put popup to the left (LTR) / right (RTL) of $floatableContainer; anchor points
- *            endwards (right/left) to the vertical center of $floatableContainer
+ *    endwards (right/left) to the vertical center of $floatableContainer
  *  'after': Put popup to the right (LTR) / left (RTL) of $floatableContainer; anchor points
- *            startwards (left/right) to the vertical center of $floatableContainer
+ *    startwards (left/right) to the vertical center of $floatableContainer
  * @cfg {string} [align='center'] How to align the popup to $floatableContainer
- *  'forwards': If position is above/below, move the popup as far endwards (right in LTR, left in RTL)
- *              as possible while still keeping the anchor within the popup;
- *              if position is before/after, move the popup as far downwards as possible.
- *  'backwards': If position is above/below, move the popup as far startwards (left in LTR, right in RTL)
- *               as possible while still keeping the anchor within the popup;
- *               if position in before/after, move the popup as far upwards as possible.
- *  'center': Horizontally (if position is above/below) or vertically (before/after) align the center
- *            of the popup with the center of $floatableContainer.
+ *  'forwards': If position is above/below, move the popup as far endwards (right in LTR, left in
+ *    RTL) as possible while still keeping the anchor within the popup; if position is before/after,
+ *    move the popup as far downwards as possible.
+ *  'backwards': If position is above/below, move the popup as far startwards (left in LTR, right in
+ *    RTL) as possible while still keeping the anchor within the popup; if position is before/after,
+ *     move the popup as far upwards as possible.
+ *  'center': Horizontally (if position is above/below) or vertically (before/after) align the
+ *     center of the popup with the center of $floatableContainer.
  * 'force-left': Alias for 'forwards' in LTR and 'backwards' in RTL
  * 'force-right': Alias for 'backwards' in RTL and 'forwards' in LTR
  * @cfg {boolean} [autoFlip=true] Whether to automatically switch the popup's position between
@@ -56,13 +56,14 @@
  * @cfg {jQuery} [$container] Constrain the popup to the boundaries of the specified container.
  *  See the [OOUI docs on MediaWiki][3] for an example.
  *  [3]: https://www.mediawiki.org/wiki/OOUI/Widgets/Popups#containerExample
- * @cfg {number} [containerPadding=10] Padding between the popup and its container, specified as a number of pixels.
+ * @cfg {number} [containerPadding=10] Padding between the popup and its container, specified as a
+ *  number of pixels.
  * @cfg {jQuery} [$content] Content to append to the popup's body
  * @cfg {jQuery} [$footer] Content to append to the popup's footer
  * @cfg {boolean} [autoClose=false] Automatically close the popup when it loses focus.
  * @cfg {jQuery} [$autoCloseIgnore] Elements that will not close the popup when clicked.
- *  This config option is only relevant if #autoClose is set to `true`. See the [OOUI documentation on MediaWiki][2]
- *  for an example.
+ *  This config option is only relevant if #autoClose is set to `true`. See the
+ *  [OOUI documentation on MediaWiki][2] for an example.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Popups#autocloseExample
  * @cfg {boolean} [head=false] Show a popup header that contains a #label (if specified) and close
  *  button.
@@ -124,8 +125,13 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	}
 
 	if ( config.head ) {
-		this.closeButton = new OO.ui.ButtonWidget( { framed: false, icon: 'close' } );
-		this.closeButton.connect( this, { click: 'onCloseButtonClick' } );
+		this.closeButton = new OO.ui.ButtonWidget( {
+			framed: false,
+			icon: 'close'
+		} );
+		this.closeButton.connect( this, {
+			click: 'onCloseButtonClick'
+		} );
 		this.$head = $( '<div>' )
 			.addClass( 'oo-ui-popupWidget-head' )
 			.append( this.$label, this.closeButton.$element );
@@ -356,8 +362,8 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 	}
 
 	if ( change && show && this.autoFlip ) {
-		// Reset auto-flipping before showing the popup again. It's possible we no longer need to flip
-		// (e.g. if the user scrolled).
+		// Reset auto-flipping before showing the popup again. It's possible we no longer need to
+		// flip (e.g. if the user scrolled).
 		this.isAutoFlipped = false;
 	}
 
@@ -378,8 +384,8 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 			if ( this.autoFlip ) {
 				if ( this.popupPosition === 'above' || this.popupPosition === 'below' ) {
 					if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
-						// If opening the popup in the normal direction causes it to be clipped, open
-						// in the opposite one instead
+						// If opening the popup in the normal direction causes it to be clipped,
+						// open in the opposite one instead
 						normalHeight = this.$element.height();
 						this.isAutoFlipped = !this.isAutoFlipped;
 						this.position();
@@ -396,12 +402,13 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 				}
 				if ( this.popupPosition === 'before' || this.popupPosition === 'after' ) {
 					if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
-						// If opening the popup in the normal direction causes it to be clipped, open
-						// in the opposite one instead
+						// If opening the popup in the normal direction causes it to be clipped,
+						// open in the opposite one instead
 						normalWidth = this.$element.width();
 						this.isAutoFlipped = !this.isAutoFlipped;
-						// Due to T180173 horizontally clipped PopupWidgets have messed up dimensions,
-						// which causes positioning to be off. Toggle clipping back and fort to work around.
+						// Due to T180173 horizontally clipped PopupWidgets have messed up
+						// dimensions, which causes positioning to be off. Toggle clipping back and
+						// forth to work around.
 						this.toggleClipping( false );
 						this.position();
 						this.toggleClipping( true );
@@ -411,8 +418,9 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 							oppositeWidth = this.$element.width();
 							if ( oppositeWidth < normalWidth ) {
 								this.isAutoFlipped = !this.isAutoFlipped;
-								// Due to T180173 horizontally clipped PopupWidgets have messed up dimensions,
-								// which causes positioning to be off. Toggle clipping back and fort to work around.
+								// Due to T180173, horizontally clipped PopupWidgets have messed up
+								// dimensions, which causes positioning to be off. Toggle clipping
+								// back and forth to work around.
 								this.toggleClipping( false );
 								this.position();
 								this.toggleClipping( true );
@@ -489,9 +497,9 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
  * @inheritdoc
  */
 OO.ui.PopupWidget.prototype.computePosition = function () {
-	var direction, align, vertical, start, end, near, far, sizeProp, popupSize, anchorSize, anchorPos,
-		anchorOffset, anchorMargin, parentPosition, positionProp, positionAdjustment, floatablePos,
-		offsetParentPos, containerPos, popupPosition, viewportSpacing,
+	var direction, align, vertical, start, end, near, far, sizeProp, popupSize, anchorSize,
+		anchorPos, anchorOffset, anchorMargin, parentPosition, positionProp, positionAdjustment,
+		floatablePos, offsetParentPos, containerPos, popupPosition, viewportSpacing,
 		popupPos = {},
 		anchorCss = { left: '', right: '', top: '', bottom: '' },
 		popupPositionOppositeMap = {
@@ -546,14 +554,17 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 		popupPosition = popupPositionOppositeMap[ popupPosition ];
 	}
 
-	// If the popup is positioned before or after, then the anchor positioning is vertical, otherwise horizontal
+	// If the popup is positioned before or after, then the anchor positioning is vertical,
+	// otherwise horizontal
 	vertical = popupPosition === 'before' || popupPosition === 'after';
 	start = vertical ? 'top' : ( direction === 'rtl' ? 'right' : 'left' );
 	end = vertical ? 'bottom' : ( direction === 'rtl' ? 'left' : 'right' );
 	near = vertical ? 'top' : 'left';
 	far = vertical ? 'bottom' : 'right';
 	sizeProp = vertical ? 'Height' : 'Width';
-	popupSize = vertical ? ( this.height || this.$popup.height() ) : ( this.width || this.$popup.width() );
+	popupSize = vertical ?
+		( this.height || this.$popup.height() ) :
+		( this.width || this.$popup.width() );
 
 	this.setAnchorEdge( anchorEdgeMap[ popupPosition ] );
 	this.horizontalPosition = vertical ? popupPosition : hPosMap[ align ];
@@ -584,12 +595,14 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	}
 
 	if ( this.anchored ) {
-		// Position the anchor (which is positioned relative to the popup) to point to $floatableContainer
+		// Position the anchor (which is positioned relative to the popup) to point to
+		// $floatableContainer
 		anchorPos = ( floatablePos[ start ] + floatablePos[ end ] ) / 2;
 		anchorOffset = ( start === far ? -1 : 1 ) * ( anchorPos - popupPos[ start ] );
 
-		// If the anchor is less than 2*anchorSize from either edge, move the popup to make more space
-		// this.$anchor.width()/height() returns 0 because of the CSS trickery we use, so use scrollWidth/Height
+		// If the anchor is less than 2*anchorSize from either edge, move the popup to make more
+		// space this.$anchor.width()/height() returns 0 because of the CSS trickery we use, so use
+		// scrollWidth/Height
 		anchorSize = this.$anchor[ 0 ][ 'scroll' + sizeProp ];
 		anchorMargin = parseFloat( this.$anchor.css( 'margin-' + start ) );
 		if ( anchorOffset + anchorMargin < 2 * anchorSize ) {

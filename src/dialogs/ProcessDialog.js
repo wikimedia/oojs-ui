@@ -1,16 +1,17 @@
 /**
  * ProcessDialog windows encapsulate a {@link OO.ui.Process process} and all of the code necessary
  * to complete it. If the process terminates with an error, a customizable {@link OO.ui.Error error
- * interface} alerts users to the trouble, permitting the user to dismiss the error and try again when
- * relevant. The ProcessDialog class is always extended and customized with the actions and content
- * required for each process.
+ * interface} alerts users to the trouble, permitting the user to dismiss the error and try again
+ * when relevant. The ProcessDialog class is always extended and customized with the actions and
+ * content required for each process.
  *
  * The process dialog box consists of a header that visually represents the ‘working’ state of long
  * processes with an animation. The header contains the dialog title as well as
  * two {@link OO.ui.ActionWidget action widgets}:  a ‘safe’ action on the left (e.g., ‘Cancel’) and
  * a ‘primary’ action on the right (e.g., ‘Done’).
  *
- * Like other windows, the process dialog is managed by a {@link OO.ui.WindowManager window manager}.
+ * Like other windows, the process dialog is managed by a
+ * {@link OO.ui.WindowManager window manager}.
  * Please see the [OOUI documentation on MediaWiki][1] for more information and examples.
  *
  *     @example
@@ -30,7 +31,9 @@
  *     MyProcessDialog.prototype.initialize = function () {
  *         MyProcessDialog.parent.prototype.initialize.apply( this, arguments );
  *         this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
- *         this.content.$element.append( '<p>This is a process dialog window. The header contains the title and two buttons: \'Cancel\' (a safe action) on the left and \'Done\' (a primary action)  on the right.</p>' );
+ *         this.content.$element.append( '<p>This is a process dialog window. The header ' +
+ *             'contains the title and two buttons: \'Cancel\' (a safe action) on the left and ' +
+ *             '\'Done\' (a primary action)  on the right.</p>' );
  *         this.$body.append( this.content.$element );
  *     };
  *     MyProcessDialog.prototype.getActionProcess = function ( action ) {
@@ -120,9 +123,15 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 	this.$errorsTitle = $( '<div>' );
 
 	// Events
-	this.dismissButton.connect( this, { click: 'onDismissErrorButtonClick' } );
-	this.retryButton.connect( this, { click: 'onRetryButtonClick' } );
-	this.title.connect( this, { labelChange: 'fitLabel' } );
+	this.dismissButton.connect( this, {
+		click: 'onDismissErrorButtonClick'
+	} );
+	this.retryButton.connect( this, {
+		click: 'onRetryButtonClick'
+	} );
+	this.title.connect( this, {
+		labelChange: 'fitLabel'
+	} );
 
 	// Initialization
 	this.title.$element.addClass( 'oo-ui-processDialog-title' );
@@ -163,7 +172,10 @@ OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
 	// Change back buttons to icon only on mobile
 	if (
 		isMobile &&
-		( config.flags === 'back' || ( Array.isArray( config.flags ) && config.flags.indexOf( 'back' ) !== -1 ) )
+		(
+			config.flags === 'back' ||
+			( Array.isArray( config.flags ) && config.flags.indexOf( 'back' ) !== -1 )
+		)
 	) {
 		$.extend( config, {
 			icon: 'previous',
@@ -219,8 +231,9 @@ OO.ui.ProcessDialog.prototype.setDimensions = function () {
 
 	this.fitLabel();
 
-	// If there are many actions, they might be shown on multiple lines. Their layout can change when
-	// resizing the dialog and when changing the actions. Adjust the height of the footer to fit them.
+	// If there are many actions, they might be shown on multiple lines. Their layout can change
+	// when resizing the dialog and when changing the actions. Adjust the height of the footer to
+	// fit them.
 	dialog.$body.css( 'bottom', dialog.$foot.outerHeight( true ) );
 	// Wait for CSS transition to finish and do it again :(
 	setTimeout( function () {
@@ -267,7 +280,8 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
 		// We have enough space to center the label
 		leftWidth = rightWidth = biggerWidth;
 	} else {
-		// Let's hope we at least have enough space not to overlap, because we can't wrap the label…
+		// Let's hope we at least have enough space not to overlap, because we can't wrap
+		// the label.
 		if ( this.getDir() === 'ltr' ) {
 			leftWidth = safeWidth;
 			rightWidth = primaryWidth;
@@ -314,7 +328,7 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 	this.$errorItems = $( items );
 	if ( recoverable ) {
 		abilities[ this.currentAction ] = true;
-		// Copy the flags from the first matching action
+		// Copy the flags from the first matching action.
 		actions = this.actions.get( { actions: this.currentAction } );
 		if ( actions.length ) {
 			this.retryButton.clearFlags().setFlags( actions[ 0 ].getFlags() );
@@ -353,7 +367,7 @@ OO.ui.ProcessDialog.prototype.getTeardownProcess = function ( data ) {
 	// Parent method
 	return OO.ui.ProcessDialog.parent.prototype.getTeardownProcess.call( this, data )
 		.first( function () {
-			// Make sure to hide errors
+			// Make sure to hide errors.
 			this.hideErrors();
 			this.fitOnOpen = false;
 		}, this );

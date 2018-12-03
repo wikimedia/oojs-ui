@@ -22,9 +22,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$overlay] Render the popup into a separate layer. This configuration is useful in cases where
- *  the expanded popup is larger than its containing `<div>`. The specified overlay layer is usually on top of the
- *  containing `<div>` and has a larger area. By default, the popup uses relative positioning.
+ * @cfg {jQuery} [$overlay] Render the popup into a separate layer. This configuration is useful
+ *  in cases where the expanded popup is larger than its containing `<div>`. The specified overlay
+ *  layer is usually on top of the containing `<div>` and has a larger area. By default, the popup
+ *  uses relative positioning.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  */
 OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
@@ -38,14 +39,16 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 	OO.ui.mixin.PopupElement.call( this, config );
 
 	// Properties
-	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
+	this.$overlay = ( config.$overlay === true ?
+		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 
 	// Events
-	this.connect( this, { click: 'onAction' } );
+	this.connect( this, {
+		click: 'onAction'
+	} );
 
 	// Initialization
-	this.$element
-		.addClass( 'oo-ui-popupButtonWidget' );
+	this.$element.addClass( 'oo-ui-popupButtonWidget' );
 	this.popup.$element
 		.addClass( 'oo-ui-popupButtonWidget-popup' )
 		.toggleClass( 'oo-ui-popupButtonWidget-framed-popup', this.isFramed() )

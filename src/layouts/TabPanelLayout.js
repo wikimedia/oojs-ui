@@ -48,8 +48,8 @@ OO.inheritClass( OO.ui.TabPanelLayout, OO.ui.PanelLayout );
 /* Events */
 
 /**
- * An 'active' event is emitted when the tab panel becomes active. Tab panels become active when they are
- * shown in a index layout that is configured to display only one tab panel at a time.
+ * An 'active' event is emitted when the tab panel becomes active. Tab panels become active when
+ * they are shown in a index layout that is configured to display only one tab panel at a time.
  *
  * @event active
  * @param {boolean} active Tab panel is active
@@ -69,9 +69,9 @@ OO.ui.TabPanelLayout.prototype.getName = function () {
 /**
  * Check if tab panel is active.
  *
- * Tab panels become active when they are shown in a {@link OO.ui.IndexLayout index layout} that is configured to
- * display only one tab panel at a time. Additional CSS is applied to the tab panel's tab item to reflect the
- * active state.
+ * Tab panels become active when they are shown in a {@link OO.ui.IndexLayout index layout} that is
+ * configured to display only one tab panel at a time. Additional CSS is applied to the tab panel's
+ * tab item to reflect the active state.
  *
  * @return {boolean} Tab panel is active
  */
@@ -83,7 +83,8 @@ OO.ui.TabPanelLayout.prototype.isActive = function () {
  * Get tab item.
  *
  * The tab item allows users to access the tab panel from the index's tab
- * navigation. The tab item itself can be customized (with a label, level, etc.) using the #setupTabItem method.
+ * navigation. The tab item itself can be customized (with a label, level, etc.) using the
+ * #setupTabItem method.
  *
  * @return {OO.ui.TabOptionWidget|null} Tab option widget
  */

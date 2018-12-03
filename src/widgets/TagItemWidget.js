@@ -41,8 +41,9 @@ OO.ui.TagItemWidget = function OoUiTagItemWidget( config ) {
 	this.closeButton.setDisabled( this.isDisabled() );
 
 	// Events
-	this.closeButton
-		.connect( this, { click: 'remove' } );
+	this.closeButton.connect( this, {
+		click: 'remove'
+	} );
 	this.$element
 		.on( 'click', this.select.bind( this ) )
 		.on( 'keydown', this.onKeyDown.bind( this ) )
@@ -200,7 +201,11 @@ OO.ui.TagItemWidget.prototype.remove = function () {
 OO.ui.TagItemWidget.prototype.onKeyDown = function ( e ) {
 	var movement;
 
-	if ( !this.isDisabled() && !this.isFixed() && ( e.keyCode === OO.ui.Keys.BACKSPACE || e.keyCode === OO.ui.Keys.DELETE ) ) {
+	if (
+		!this.isDisabled() &&
+		!this.isFixed() &&
+		( e.keyCode === OO.ui.Keys.BACKSPACE || e.keyCode === OO.ui.Keys.DELETE )
+	) {
 		this.remove();
 		return false;
 	} else if ( e.keyCode === OO.ui.Keys.ENTER ) {

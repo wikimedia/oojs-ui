@@ -1,5 +1,5 @@
 Demo.static.pages.widgets = function ( demo ) {
-	// `\u200E` is Unicode LTR marker and is added for lorem ipsum text in RTL demo, as it's not translated
+	// Unicode LTR marker `\u200E` is added for loremIpsum text in RTL demo, as it's not translated
 	var i, fieldsets,
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
@@ -3089,7 +3089,10 @@ Demo.static.pages.widgets = function ( demo ) {
 		// eslint-disable-next-line no-jquery/no-each-util
 		$.each( fieldsetLayout.getItems(), function ( j, fieldLayout ) {
 			fieldLayout.$element.append(
-				demo.buildLinkExample( fieldLayout, fieldsetLayout instanceof OO.ui.FormLayout ? fieldLayout : fieldsetLayout ),
+				demo.buildLinkExample(
+					fieldLayout,
+					fieldsetLayout instanceof OO.ui.FormLayout ? fieldLayout : fieldsetLayout
+				),
 				demo.buildConsole( fieldLayout, 'layout', 'widget', showLayoutCode )
 			);
 		} );

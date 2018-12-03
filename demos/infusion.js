@@ -13,8 +13,8 @@
 
 	// Add a button to infuse everything!
 	// (You wouldn't typically do this: you'd only infuse those objects which you needed to attach
-	// client-side behaviors to, or where the JS implementation provides additional features over PHP,
-	// like DropdownInputWidget. We do it here because it's a good overall test.)
+	// client-side behaviors to, or where the JS implementation provides additional features
+	// over PHP, like DropdownInputWidget. We do it here because it's a good overall test.)
 	function infuseAll() {
 		var start, end;
 		start = now();

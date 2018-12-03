@@ -1,6 +1,7 @@
 /**
- * PopupTagMultiselectWidget is a {@link OO.ui.TagMultiselectWidget OO.ui.TagMultiselectWidget} intended
- * to use a popup. The popup can be configured to have a default input to insert values into the widget.
+ * PopupTagMultiselectWidget is a {@link OO.ui.TagMultiselectWidget OO.ui.TagMultiselectWidget}
+ * intended to use a popup. The popup can be configured to have a default input to insert values
+ * into the widget.
  *
  *     @example
  *     // A PopupTagMultiselectWidget.
@@ -37,9 +38,12 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.PopupTagMultiselectWidget.parent.call( this, $.extend( { inputPosition: 'none' }, config ) );
+	OO.ui.PopupTagMultiselectWidget.parent.call( this, $.extend( {
+		inputPosition: 'none'
+	}, config ) );
 
-	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
+	this.$overlay = ( config.$overlay === true ?
+		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 
 	if ( !config.popup ) {
 		// For the default base implementation, we give a popup
@@ -80,9 +84,10 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 
 	// Events
 	this.on( 'resize', this.popup.updateDimensions.bind( this.popup ) );
-	this.popup.connect( this, { toggle: 'onPopupToggle' } );
-	this.$tabIndexed
-		.on( 'focus', this.onFocus.bind( this ) );
+	this.popup.connect( this, {
+		toggle: 'onPopupToggle'
+	} );
+	this.$tabIndexed.on( 'focus', this.onFocus.bind( this ) );
 
 	// Initialize
 	this.$element

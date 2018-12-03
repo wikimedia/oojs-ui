@@ -1,7 +1,8 @@
 /**
- * FormLayouts are used to wrap {@link OO.ui.FieldsetLayout FieldsetLayouts} when you intend to use browser-based
- * form submission for the fields instead of handling them in JavaScript. Form layouts can be configured with an
- * HTML form action, an encoding type, and a method using the #action, #enctype, and #method configs, respectively.
+ * FormLayouts are used to wrap {@link OO.ui.FieldsetLayout FieldsetLayouts} when you intend to use
+ * browser-based form submission for the fields instead of handling them in JavaScript. Form layouts
+ * can be configured with an HTML form action, an encoding type, and a method using the #action,
+ * #enctype, and #method configs, respectively.
  * See the [OOUI documentation on MediaWiki] [1] for more information and examples.
  *
  * Only widgets from the {@link OO.ui.InputWidget InputWidget} family support form submission. It

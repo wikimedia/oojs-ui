@@ -1,7 +1,8 @@
 /**
  * PopupToolGroup is an abstract base class used by both {@link OO.ui.MenuToolGroup MenuToolGroup}
- * and {@link OO.ui.ListToolGroup ListToolGroup} to provide a popup (an overlaid menu or list of tools with an
- * optional icon and label). This class can be used for other base classes that also use this functionality.
+ * and {@link OO.ui.ListToolGroup ListToolGroup} to provide a popup (an overlaid menu or list of
+ * tools with an optional icon and label). This class can be used for other base classes that
+ * also use this functionality.
  *
  * @abstract
  * @class
@@ -29,7 +30,8 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 
 	// Configuration initialization
 	config = $.extend( {
-		indicator: config.indicator === undefined ? ( toolbar.position === 'bottom' ? 'up' : 'down' ) : config.indicator
+		indicator: config.indicator === undefined ?
+			( toolbar.position === 'bottom' ? 'up' : 'down' ) : config.indicator
 	}, config );
 
 	// Parent constructor
@@ -48,14 +50,18 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.TitledElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
-	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, { $clippable: this.$group } ) );
+	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, {
+		$clippable: this.$group
+	} ) );
 	OO.ui.mixin.FloatableElement.call( this, $.extend( {}, config, {
 		$floatable: this.$group,
 		$floatableContainer: this.$handle,
 		hideWhenOutOfView: false,
 		verticalPosition: this.toolbar.position === 'bottom' ? 'above' : 'below'
 	} ) );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$handle } ) );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, {
+		$tabIndexed: this.$handle
+	} ) );
 
 	// Events
 	this.$handle.on( {
@@ -143,8 +149,11 @@ OO.ui.PopupToolGroup.prototype.onBlur = function () {
 OO.ui.PopupToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	// Only close toolgroup when a tool was actually selected
 	if (
-		!this.isDisabled() && this.pressed && this.pressed === this.findTargetTool( e ) &&
-		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+		!this.isDisabled() && this.pressed && this.pressed === this.findTargetTool( e ) && (
+			e.which === OO.ui.MouseButtons.LEFT ||
+			e.which === OO.ui.Keys.SPACE ||
+			e.which === OO.ui.Keys.ENTER
+		)
 	) {
 		this.setActive( false );
 	}
@@ -159,7 +168,8 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyDown = function ( e ) {
 	// Shift-Tab on the first tool in the group jumps to the handle.
 	// Tab on the last tool in the group jumps to the next group.
 	if ( !this.isDisabled() && e.which === OO.ui.Keys.TAB ) {
-		// (We can't use this.items because ListToolGroup inserts the extra fake expand/collapse tool.)
+		// We can't use this.items because ListToolGroup inserts the extra fake
+		// expand/collapse tool.
 		$focused = $( document.activeElement );
 		$firstFocusable = OO.ui.findFocusable( this.$group );
 		if ( $focused[ 0 ] === $firstFocusable[ 0 ] && e.shiftKey ) {
@@ -168,7 +178,8 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyDown = function ( e ) {
 		}
 		$lastFocusable = OO.ui.findFocusable( this.$group, true );
 		if ( $focused[ 0 ] === $lastFocusable[ 0 ] && !e.shiftKey ) {
-			// Focus this group's handle and let the browser's tab handling happen (no 'return false').
+			// Focus this group's handle and let the browser's tab handling happen
+			// (no 'return false').
 			// This way we don't have to fiddle with other ToolGroups' business, or worry what to do
 			// if the next group is not a PopupToolGroup or doesn't exist at all.
 			this.$handle.trigger( 'focus' );
@@ -188,8 +199,11 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyDown = function ( e ) {
  */
 OO.ui.PopupToolGroup.prototype.onHandleMouseKeyUp = function ( e ) {
 	if (
-		!this.isDisabled() &&
-		( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
+		!this.isDisabled() && (
+			e.which === OO.ui.MouseButtons.LEFT ||
+			e.which === OO.ui.Keys.SPACE ||
+			e.which === OO.ui.Keys.ENTER
+		)
 	) {
 		return false;
 	}
@@ -213,7 +227,11 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
 				return false;
 			}
 		}
-		if ( e.which === OO.ui.MouseButtons.LEFT || e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) {
+		if (
+			e.which === OO.ui.MouseButtons.LEFT ||
+			e.which === OO.ui.Keys.SPACE ||
+			e.which === OO.ui.Keys.ENTER
+		) {
 			this.setActive( !this.active );
 			return false;
 		}
@@ -244,8 +262,16 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 	if ( this.active !== value ) {
 		this.active = value;
 		if ( value ) {
-			this.getElementDocument().addEventListener( 'mouseup', this.onPopupDocumentMouseKeyUpHandler, true );
-			this.getElementDocument().addEventListener( 'keyup', this.onPopupDocumentMouseKeyUpHandler, true );
+			this.getElementDocument().addEventListener(
+				'mouseup',
+				this.onPopupDocumentMouseKeyUpHandler,
+				true
+			);
+			this.getElementDocument().addEventListener(
+				'keyup',
+				this.onPopupDocumentMouseKeyUpHandler,
+				true
+			);
 
 			this.$clippable.css( 'left', '' );
 			this.$element.addClass( 'oo-ui-popupToolGroup-active' );
@@ -257,13 +283,16 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 			this.setHorizontalPosition( 'start' );
 
 			if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
-				// Anchoring to the left caused the popup to clip, so anchor it to the right instead
+				// Anchoring to the left caused the popup to clip, so anchor it to the
+				// right instead.
 				this.setHorizontalPosition( 'end' );
 			}
 			if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
-				// Anchoring to the right also caused the popup to clip, so just make it fill the container
+				// Anchoring to the right also caused the popup to clip, so just make it fill the
+				// container.
 				containerWidth = this.$clippableScrollableContainer.width();
-				containerLeft = this.$clippableScrollableContainer[ 0 ] === document.documentElement ?
+				containerLeft = this.$clippableScrollableContainer[ 0 ] ===
+					document.documentElement ?
 					0 :
 					this.$clippableScrollableContainer.offset().left;
 
@@ -276,8 +305,16 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 				} );
 			}
 		} else {
-			this.getElementDocument().removeEventListener( 'mouseup', this.onPopupDocumentMouseKeyUpHandler, true );
-			this.getElementDocument().removeEventListener( 'keyup', this.onPopupDocumentMouseKeyUpHandler, true );
+			this.getElementDocument().removeEventListener(
+				'mouseup',
+				this.onPopupDocumentMouseKeyUpHandler,
+				true
+			);
+			this.getElementDocument().removeEventListener(
+				'keyup',
+				this.onPopupDocumentMouseKeyUpHandler,
+				true
+			);
 			this.$element.removeClass( 'oo-ui-popupToolGroup-active' );
 			this.$group.removeClass( 'oo-ui-popupToolGroup-active-tools' );
 			this.togglePositioning( false );

@@ -87,7 +87,8 @@ OO.ui.mixin.GroupElement.prototype.findItemFromData = function ( data ) {
 /**
  * Find items by their data.
  *
- * All items with matching data will be returned. To return only the first match, use the #findItemFromData method instead.
+ * All items with matching data will be returned. To return only the first match, use the
+ * #findItemFromData method instead.
  *
  * @param {Object} data Item data to search for
  * @return {OO.ui.Element[]} Items with equivalent data
@@ -110,8 +111,9 @@ OO.ui.mixin.GroupElement.prototype.findItemsFromData = function ( data ) {
 /**
  * Add items to the group.
  *
- * Items will be added to the end of the group array unless the optional `index` parameter specifies
- * a different insertion point. Adding an existing item will move it to the end of the array or the point specified by the `index`.
+ * Items will be added to the end of the group array unless the optional `index` parameter
+ * specifies a different insertion point. Adding an existing item will move it to the end of the
+ * array or the point specified by the `index`.
  *
  * @param {OO.ui.Element[]} items An array of items to add to the group
  * @param {number} [index] Index of the insertion point

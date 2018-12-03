@@ -1,6 +1,7 @@
 /**
- * MenuSectionOptionWidgets are used inside {@link OO.ui.MenuSelectWidget menu select widgets} to group one or more related
- * {@link OO.ui.MenuOptionWidget menu options}. MenuSectionOptionWidgets cannot be highlighted or selected.
+ * MenuSectionOptionWidgets are used inside {@link OO.ui.MenuSelectWidget menu select widgets} to
+ * group one or more related {@link OO.ui.MenuOptionWidget menu options}. MenuSectionOptionWidgets
+ * cannot be highlighted or selected.
  *
  *     @example
  *     var dropdown = new OO.ui.DropdownWidget( {
@@ -40,7 +41,8 @@ OO.ui.MenuSectionOptionWidget = function OoUiMenuSectionOptionWidget( config ) {
 	OO.ui.MenuSectionOptionWidget.parent.call( this, config );
 
 	// Initialization
-	this.$element.addClass( 'oo-ui-menuSectionOptionWidget' )
+	this.$element
+		.addClass( 'oo-ui-menuSectionOptionWidget' )
 		.removeAttr( 'role aria-selected' );
 };
 

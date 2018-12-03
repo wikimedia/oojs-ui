@@ -91,9 +91,10 @@ OO.ui.Dialog.static.name = '';
 /**
  * The dialog title.
  *
- * The title can be specified as a plaintext string, a {@link OO.ui.mixin.LabelElement Label} node, or a function
- * that will produce a Label node or string. The title can also be specified with data passed to the
- * constructor (see #getSetupProcess). In this case, the static value will be overridden.
+ * The title can be specified as a plaintext string, a {@link OO.ui.mixin.LabelElement Label} node,
+ * or a function that will produce a Label node or string. The title can also be specified with data
+ * passed to the constructor (see #getSetupProcess). In this case, the static value will be
+ * overridden.
  *
  * @abstract
  * @static
@@ -105,8 +106,8 @@ OO.ui.Dialog.static.title = '';
 /**
  * An array of configured {@link OO.ui.ActionWidget action widgets}.
  *
- * Actions can also be specified with data passed to the constructor (see #getSetupProcess). In this case, the static
- * value will be overridden.
+ * Actions can also be specified with data passed to the constructor (see #getSetupProcess). In this
+ * case, the static value will be overridden.
  *
  * [2]: https://www.mediawiki.org/wiki/OOUI/Windows/Process_Dialogs#Action_sets
  *
@@ -190,9 +191,10 @@ OO.ui.Dialog.prototype.getActions = function () {
 /**
  * Get a process for taking action.
  *
- * When you override this method, you can create a new OO.ui.Process and return it, or add additional
- * accept steps to the process the parent method provides using the {@link OO.ui.Process#first 'first'}
- * and {@link OO.ui.Process#next 'next'} methods of OO.ui.Process.
+ * When you override this method, you can create a new OO.ui.Process and return it, or add
+ * additional accept steps to the process the parent method provides using the
+ * {@link OO.ui.Process#first 'first'} and {@link OO.ui.Process#next 'next'} methods of
+ * OO.ui.Process.
  *
  * @param {string} [action] Symbolic name of action
  * @return {OO.ui.Process} Action process

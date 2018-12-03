@@ -1,5 +1,6 @@
 /**
- * OutlineControlsWidget is a set of controls for an {@link OO.ui.OutlineSelectWidget outline select widget}.
+ * OutlineControlsWidget is a set of controls for an
+ * {@link OO.ui.OutlineSelectWidget outline select widget}.
  * Controls include moving items up and down, removing items, and adding different kinds of items.
  *
  * **Currently, this class is only used by {@link OO.ui.BookletLayout booklet layouts}.**
@@ -57,9 +58,15 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 		add: 'onOutlineChange',
 		remove: 'onOutlineChange'
 	} );
-	this.upButton.connect( this, { click: [ 'emit', 'move', -1 ] } );
-	this.downButton.connect( this, { click: [ 'emit', 'move', 1 ] } );
-	this.removeButton.connect( this, { click: [ 'emit', 'remove' ] } );
+	this.upButton.connect( this, {
+		click: [ 'emit', 'move', -1 ]
+	} );
+	this.downButton.connect( this, {
+		click: [ 'emit', 'move', 1 ]
+	} );
+	this.removeButton.connect( this, {
+		click: [ 'emit', 'remove' ]
+	} );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-outlineControlsWidget' );

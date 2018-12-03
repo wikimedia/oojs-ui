@@ -63,8 +63,10 @@ OO.ui.mixin.AccessKeyedElement.static.accessKey = null;
 /**
  * Set the access keyed element.
  *
- * This method is used to retarget a AccessKeyedElement mixin so that its functionality applies to the specified element.
- * If an element is already set, the mixin's effect on that element is removed before the new element is set up.
+ * This method is used to retarget a AccessKeyedElement mixin so that its functionality applies to
+ * the specified element.
+ * If an element is already set, the mixin's effect on that element is removed before the new
+ * element is set up.
  *
  * @param {jQuery} $accessKeyed Element that should use the 'access keyed' functionality
  */
@@ -82,7 +84,8 @@ OO.ui.mixin.AccessKeyedElement.prototype.setAccessKeyedElement = function ( $acc
 /**
  * Set access key.
  *
- * @param {string|Function|null} accessKey Key, a function that returns a key, or `null` for no access key
+ * @param {string|Function|null} accessKey Key, a function that returns a key, or `null` for no
+ *  access key
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  */
@@ -128,10 +131,12 @@ OO.ui.mixin.AccessKeyedElement.prototype.formatTitleWithAccessKey = function ( t
 	var accessKey;
 
 	if ( !this.$accessKeyed ) {
-		// Not initialized yet; the constructor will call updateTitle() which will rerun this function
+		// Not initialized yet; the constructor will call updateTitle() which will rerun this
+		// function.
 		return title;
 	}
-	// Use jquery.accessKeyLabel if available to show modifiers, otherwise just display the single key
+	// Use jquery.accessKeyLabel if available to show modifiers, otherwise just display the
+	// single key.
 	if ( $.fn.updateTooltipAccessKeys && $.fn.updateTooltipAccessKeys.getAccessKeyLabel ) {
 		accessKey = $.fn.updateTooltipAccessKeys.getAccessKeyLabel( this.$accessKeyed[ 0 ] );
 	} else {

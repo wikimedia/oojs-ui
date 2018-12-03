@@ -50,7 +50,8 @@ OO.ui.mixin.FloatableElement = function OoUiMixinFloatableElement( config ) {
 	this.setFloatableElement( config.$floatable || this.$element );
 	this.setVerticalPosition( config.verticalPosition || 'below' );
 	this.setHorizontalPosition( config.horizontalPosition || 'start' );
-	this.hideWhenOutOfView = config.hideWhenOutOfView === undefined ? true : !!config.hideWhenOutOfView;
+	this.hideWhenOutOfView = config.hideWhenOutOfView === undefined ?
+		true : !!config.hideWhenOutOfView;
 };
 
 /* Methods */
@@ -146,11 +147,15 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 	if ( this.positioning !== positioning ) {
 		this.positioning = positioning;
 
-		closestScrollableOfContainer = OO.ui.Element.static.getClosestScrollableContainer( this.$floatableContainer[ 0 ] );
+		closestScrollableOfContainer = OO.ui.Element.static.getClosestScrollableContainer(
+			this.$floatableContainer[ 0 ]
+		);
 		// If the scrollable is the root, we have to listen to scroll events
 		// on the window because of browser inconsistencies.
 		if ( $( closestScrollableOfContainer ).is( 'html, body' ) ) {
-			closestScrollableOfContainer = OO.ui.Element.static.getWindow( closestScrollableOfContainer );
+			closestScrollableOfContainer = OO.ui.Element.static.getWindow(
+				closestScrollableOfContainer
+			);
 		}
 
 		if ( positioning ) {
@@ -181,7 +186,8 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 };
 
 /**
- * Check whether the bottom edge of the given element is within the viewport of the given container.
+ * Check whether the bottom edge of the given element is within the viewport of the given
+ * container.
  *
  * @private
  * @param {jQuery} $element
@@ -189,8 +195,8 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
  * @return {boolean}
  */
 OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element, $container ) {
-	var elemRect, contRect, topEdgeInBounds, bottomEdgeInBounds, leftEdgeInBounds, rightEdgeInBounds,
-		startEdgeInBounds, endEdgeInBounds, viewportSpacing,
+	var elemRect, contRect, topEdgeInBounds, bottomEdgeInBounds, leftEdgeInBounds,
+		rightEdgeInBounds, startEdgeInBounds, endEdgeInBounds, viewportSpacing,
 		direction = $element.css( 'direction' );
 
 	elemRect = $element[ 0 ].getBoundingClientRect();
@@ -277,7 +283,8 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 		return this;
 	}
 
-	this.floatableOutOfView = this.hideWhenOutOfView && !this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable );
+	this.floatableOutOfView = this.hideWhenOutOfView &&
+		!this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable );
 	if ( this.floatableOutOfView ) {
 		this.$floatable.addClass( 'oo-ui-element-hidden' );
 		return this;
@@ -290,8 +297,8 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 	// We updated the position, so re-evaluate the clipping state.
 	// (ClippableElement does not listen to 'scroll' events on $floatableContainer's parent, and so
 	// will not notice the need to update itself.)
-	// TODO: This is terrible, we shouldn't need to know about ClippableElement at all here. Why does
-	// it not listen to the right events in the right places?
+	// TODO: This is terrible, we shouldn't need to know about ClippableElement at all here.
+	// Why does it not listen to the right events in the right places?
 	if ( this.clip ) {
 		this.clip();
 	}
@@ -319,15 +326,19 @@ OO.ui.mixin.FloatableElement.prototype.computePosition = function () {
 		$offsetParent = $( $offsetParent[ 0 ].ownerDocument.body );
 	}
 	isBody = $offsetParent.is( 'body' );
-	scrollableX = $offsetParent.css( 'overflow-x' ) === 'scroll' || $offsetParent.css( 'overflow-x' ) === 'auto';
-	scrollableY = $offsetParent.css( 'overflow-y' ) === 'scroll' || $offsetParent.css( 'overflow-y' ) === 'auto';
+	scrollableX = $offsetParent.css( 'overflow-x' ) === 'scroll' ||
+		$offsetParent.css( 'overflow-x' ) === 'auto';
+	scrollableY = $offsetParent.css( 'overflow-y' ) === 'scroll' ||
+		$offsetParent.css( 'overflow-y' ) === 'auto';
 
 	vertScrollbarWidth = $offsetParent.innerWidth() - $offsetParent.prop( 'clientWidth' );
 	horizScrollbarHeight = $offsetParent.innerHeight() - $offsetParent.prop( 'clientHeight' );
-	// We don't need to compute and add scrollTop and scrollLeft if the scrollable container is the body,
-	// or if it isn't scrollable
-	scrollTop = scrollableY && !isBody ? $offsetParent.scrollTop() : 0;
-	scrollLeft = scrollableX && !isBody ? OO.ui.Element.static.getScrollLeft( $offsetParent[ 0 ] ) : 0;
+	// We don't need to compute and add scrollTop and scrollLeft if the scrollable container
+	// is the body, or if it isn't scrollable
+	scrollTop = scrollableY && !isBody ?
+		$offsetParent.scrollTop() : 0;
+	scrollLeft = scrollableX && !isBody ?
+		OO.ui.Element.static.getScrollLeft( $offsetParent[ 0 ] ) : 0;
 
 	// Avoid passing the <body> to getRelativePosition(), because it won't return what we expect
 	// if the <body> has a margin
@@ -367,7 +378,8 @@ OO.ui.mixin.FloatableElement.prototype.computePosition = function () {
 
 	if ( newPos.start !== undefined ) {
 		if ( direction === 'rtl' ) {
-			newPos.right = ( isBody ? $( $offsetParent[ 0 ].ownerDocument.documentElement ) : $offsetParent ).outerWidth() - newPos.start;
+			newPos.right = ( isBody ? $( $offsetParent[ 0 ].ownerDocument.documentElement ) :
+				$offsetParent ).outerWidth() - newPos.start;
 		} else {
 			newPos.left = newPos.start;
 		}
@@ -377,7 +389,8 @@ OO.ui.mixin.FloatableElement.prototype.computePosition = function () {
 		if ( direction === 'rtl' ) {
 			newPos.left = newPos.end;
 		} else {
-			newPos.right = ( isBody ? $( $offsetParent[ 0 ].ownerDocument.documentElement ) : $offsetParent ).outerWidth() - newPos.end;
+			newPos.right = ( isBody ? $( $offsetParent[ 0 ].ownerDocument.documentElement ) :
+				$offsetParent ).outerWidth() - newPos.end;
 		}
 		delete newPos.end;
 	}

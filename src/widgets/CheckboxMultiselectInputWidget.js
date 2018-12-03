@@ -23,7 +23,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: …, disabled: … }`
+ * @cfg {Object[]} [options=[]] Array of menu options in the format
+ *  `{ data: …, label: …, disabled: … }`
  */
 OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidget( config ) {
 	// Configuration initialization
@@ -41,7 +42,9 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 	OO.ui.CheckboxMultiselectInputWidget.parent.call( this, config );
 
 	// Events
-	this.checkboxMultiselectWidget.connect( this, { select: 'onCheckboxesSelect' } );
+	this.checkboxMultiselectWidget.connect( this, {
+		select: 'onCheckboxesSelect'
+	} );
 
 	// Initialization
 	this.$element
@@ -61,7 +64,9 @@ OO.inheritClass( OO.ui.CheckboxMultiselectInputWidget, OO.ui.InputWidget );
  * @inheritdoc
  */
 OO.ui.CheckboxMultiselectInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.CheckboxMultiselectInputWidget.parent.static.gatherPreInfuseState( node, config );
+	var state = OO.ui.CheckboxMultiselectInputWidget.parent.static.gatherPreInfuseState(
+		node, config
+	);
 	state.value = $( node ).find( '.oo-ui-checkboxInputWidget .oo-ui-inputWidget-input:checked' )
 		.toArray().map( function ( el ) { return el.value; } );
 	return state;
@@ -137,8 +142,8 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.cleanUpValue = function ( value )
 		return cleanValue;
 	}
 	for ( i = 0; i < value.length; i++ ) {
-		singleValue =
-			OO.ui.CheckboxMultiselectInputWidget.parent.prototype.cleanUpValue.call( this, value[ i ] );
+		singleValue = OO.ui.CheckboxMultiselectInputWidget.parent.prototype.cleanUpValue
+			.call( this, value[ i ] );
 		// Remove options that we don't have here
 		if ( !this.checkboxMultiselectWidget.findItemFromData( singleValue ) ) {
 			continue;
@@ -160,7 +165,8 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setDisabled = function ( state ) 
 /**
  * Set the options available for this input.
  *
- * @param {Object[]} options Array of menu options in the format `{ data: …, label: …, disabled: … }`
+ * @param {Object[]} options Array of menu options in the format
+ *  `{ data: …, label: …, disabled: … }`
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -182,7 +188,8 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options )
  * This method may be called before the parent constructor, so various properties may not be
  * intialized yet.
  *
- * @param {Object[]} options Array of menu options in the format `{ data: …, label: … }`
+ * @param {Object[]} options Array of menu options in the format
+ *  `{ data: …, label: … }`
  * @private
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( options ) {
@@ -194,8 +201,8 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( optio
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
 			var optValue, item, optDisabled;
-			optValue =
-				OO.ui.CheckboxMultiselectInputWidget.parent.prototype.cleanUpValue.call( widget, opt.data );
+			optValue = OO.ui.CheckboxMultiselectInputWidget.parent.prototype.cleanUpValue
+				.call( widget, opt.data );
 			optDisabled = opt.disabled !== undefined ? opt.disabled : false;
 			item = new OO.ui.CheckboxMultioptionWidget( {
 				data: optValue,

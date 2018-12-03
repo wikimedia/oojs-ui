@@ -376,7 +376,9 @@ OO.inheritClass( ToDoListWidget, OO.ui.SelectWidget );</code></pre>
 <pre class="line-numbers"><code class="language-javascript">var ToDoItemWidget = function ( config ) {
 	// ... code ...
 
-	this.deleteButton.connect( this, { click: 'onDeleteButtonClick' } );
+	this.deleteButton.connect( this, {
+		click: 'onDeleteButtonClick'
+	} );
 
 	// ... code ...
 };
@@ -407,7 +409,9 @@ ToDoItemWidget.prototype.onDeleteButtonClick = function () {
 		delete: 'itemDelete'
 	} );
 
-	this.connect( this, { itemDelete: 'onItemDelete' } );
+	this.connect( this, {
+		itemDelete: 'onItemDelete'
+	} );
 };
 
 OO.inheritClass( ToDoListWidget, OO.ui.SelectWidget );
@@ -532,7 +536,9 @@ ToDoListWidget.prototype.onItemDelete = function ( itemWidget ) {
 		.addClass( 'todo-itemWidget' )
 		.append( this.deleteButton.$element );
 
-	this.deleteButton.connect( this, { click: 'onDeleteButtonClick' } );
+	this.deleteButton.connect( this, {
+		click: 'onDeleteButtonClick'
+	} );
 };
 
 OO.inheritClass( ToDoItemWidget, OO.ui.OptionWidget );
@@ -591,7 +597,9 @@ ToDoItemWidget.prototype.onDeleteButtonClick = function () {
 		delete: 'itemDelete'
 	} );
 
-	this.connect( this, { itemDelete: 'onItemDelete' } );
+	this.connect( this, {
+		itemDelete: 'onItemDelete'
+	} );
 };
 
 OO.inheritClass( ToDoListWidget, OO.ui.SelectWidget );

@@ -1,12 +1,13 @@
 /**
- * PendingElement is a mixin that is used to create elements that notify users that something is happening
- * and that they should wait before proceeding. The pending state is visually represented with a pending
- * texture that appears in the head of a pending {@link OO.ui.ProcessDialog process dialog} or in the input
- * field of a {@link OO.ui.TextInputWidget text input widget}.
+ * PendingElement is a mixin that is used to create elements that notify users that something is
+ * happening and that they should wait before proceeding. The pending state is visually represented
+ * with a pending texture that appears in the head of a pending
+ * {@link OO.ui.ProcessDialog process dialog} or in the input field of a
+ * {@link OO.ui.TextInputWidget text input widget}.
  *
- * Currently, {@link OO.ui.ActionWidget Action widgets}, which mix in this class, can also be marked as pending, but only when
- * used in {@link OO.ui.MessageDialog message dialogs}. The behavior is not currently supported for action widgets used
- * in process dialogs.
+ * Currently, {@link OO.ui.ActionWidget Action widgets}, which mix in this class, can also be marked
+ * as pending, but only when used in {@link OO.ui.MessageDialog message dialogs}. The behavior is
+ * not currently supported for action widgets used in process dialogs.
  *
  *     @example
  *     function MessageDialog( config ) {
@@ -23,7 +24,9 @@
  *     MessageDialog.prototype.initialize = function () {
  *         MessageDialog.parent.prototype.initialize.apply( this, arguments );
  *         this.content = new OO.ui.PanelLayout( { padded: true } );
- *         this.content.$element.append( '<p>Click the \'Done\' action widget to see its pending state. Note that action widgets can be marked pending in message dialogs but not process dialogs.</p>' );
+ *         this.content.$element.append( '<p>Click the \'Done\' action widget to see its pending ' +
+ *             'state. Note that action widgets can be marked pending in message dialogs but not ' +
+ *             'process dialogs.</p>' );
  *         this.$body.append( this.content.$element );
  *     };
  *     MessageDialog.prototype.getBodyHeight = function () {

@@ -4,12 +4,13 @@
  *
  * - String: a plaintext string
  * - jQuery selection: a jQuery selection, used for anything other than a plaintext label, e.g., a
- *   label that includes a link or special styling, such as a gray color or additional graphical elements.
+ *   label that includes a link or special styling, such as a gray color or additional
+ *   graphical elements.
  * - Function: a function that will produce a string in the future. Functions are used
  *   in cases where the value of the label is not currently defined.
  *
- * In addition, the LabelWidget can be associated with an {@link OO.ui.InputWidget input widget}, which
- * will come into focus when the label is clicked.
+ * In addition, the LabelWidget can be associated with an {@link OO.ui.InputWidget input widget},
+ * which will come into focus when the label is clicked.
  *
  *     @example
  *     // Two LabelWidgets.
@@ -45,7 +46,9 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 	OO.ui.LabelWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, { $label: this.$element } ) );
+	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, {
+		$label: this.$element
+	} ) );
 	OO.ui.mixin.TitledElement.call( this, config );
 
 	// Properties

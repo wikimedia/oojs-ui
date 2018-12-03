@@ -1,5 +1,6 @@
 Demo.static.pages.toolbars = function ( demo ) {
-	var i, toolGroups, actionButton, actionButtonDelete, actionButtonDisabled, actionGroup, publishButton, AlertTool, PopupTool, ToolGroupTool,
+	var i, toolGroups, actionButton, actionButtonDelete, actionButtonDisabled, actionGroup,
+		publishButton, AlertTool, PopupTool, ToolGroupTool,
 		setDisabled = function () { this.setDisabled( true ); },
 		$demo = demo.$element,
 		$containers = $(),
@@ -31,10 +32,15 @@ Demo.static.pages.toolbars = function ( demo ) {
 	for ( i = 0; i <= 7; i++ ) {
 		toolFactories.push( new OO.ui.ToolFactory() );
 		toolGroupFactories.push( new OO.ui.ToolGroupFactory() );
-		toolbars.push( new OO.ui.Toolbar( toolFactories[ i ], toolGroupFactories[ i ], configs[ i ] ) );
+		toolbars.push( new OO.ui.Toolbar(
+			toolFactories[ i ],
+			toolGroupFactories[ i ],
+			configs[ i ]
+		) );
 		toolbars[ i ].getToolAccelerator = getToolAccelerator;
 	}
 
+	// eslint-disable-next-line max-len
 	function createTool( toolbar, group, name, icon, title, init, onSelect, displayBothIconAndLabel ) {
 		var Tool = function () {
 			Tool.parent.apply( this, arguments );

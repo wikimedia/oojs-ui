@@ -1,7 +1,8 @@
 /**
- * ActionFieldLayouts are used with OO.ui.FieldsetLayout. The layout consists of a field-widget, a button,
- * and an optional label and/or help text. The field-widget (e.g., a {@link OO.ui.TextInputWidget TextInputWidget}),
- * is required and is specified before any optional configuration settings.
+ * ActionFieldLayouts are used with OO.ui.FieldsetLayout. The layout consists of a field-widget,
+ * a button, and an optional label and/or help text. The field-widget (e.g., a
+ * {@link OO.ui.TextInputWidget TextInputWidget}), is required and is specified before any optional
+ * configuration settings.
  *
  * Labels can be aligned in one of four ways:
  *
@@ -15,8 +16,8 @@
  * - **inline**: The label is placed after the field-widget and aligned to the left.
  *   An inline-alignment is best used with checkboxes or radio buttons.
  *
- * Help text is accessed via a help icon that appears in the upper right corner of the rendered field layout when help
- * text is specified.
+ * Help text is accessed via a help icon that appears in the upper right corner of the rendered
+ * field layout when help text is specified.
  *
  *     @example
  *     // Example of an ActionFieldLayout
@@ -61,16 +62,14 @@ OO.ui.ActionFieldLayout = function OoUiActionFieldLayout( fieldWidget, buttonWid
 	this.$input = this.isFieldInline() ? $( '<span>' ) : $( '<div>' );
 
 	// Initialization
-	this.$element
-		.addClass( 'oo-ui-actionFieldLayout' );
+	this.$element.addClass( 'oo-ui-actionFieldLayout' );
 	this.$button
 		.addClass( 'oo-ui-actionFieldLayout-button' )
 		.append( this.buttonWidget.$element );
 	this.$input
 		.addClass( 'oo-ui-actionFieldLayout-input' )
 		.append( this.fieldWidget.$element );
-	this.$field
-		.append( this.$input, this.$button );
+	this.$field.append( this.$input, this.$button );
 };
 
 /* Setup */

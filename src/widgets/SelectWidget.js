@@ -4,8 +4,8 @@
  * {@link OO.ui.RadioSelectWidget radio selects}, and {@link OO.ui.MenuSelectWidget
  * menu selects}.
  *
- * This class should be used together with OO.ui.OptionWidget or OO.ui.DecoratedOptionWidget. For more
- * information, please see the [OOUI documentation on MediaWiki][1].
+ * This class should be used together with OO.ui.OptionWidget or OO.ui.DecoratedOptionWidget. For
+ * more information, please see the [OOUI documentation on MediaWiki][1].
  *
  *     @example
  *     // A select widget with three options.
@@ -49,7 +49,9 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	OO.ui.SelectWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.GroupWidget.call( this, $.extend( {}, config, { $group: this.$element } ) );
+	OO.ui.mixin.GroupWidget.call( this, $.extend( {}, config, {
+		$group: this.$element
+	} ) );
 
 	// Properties
 	this.pressed = false;
@@ -110,7 +112,8 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupWidget );
 /**
  * @event select
  *
- * A `select` event is emitted when the selection is modified programmatically with the #selectItem method.
+ * A `select` event is emitted when the selection is modified programmatically with the #selectItem
+ * method.
  *
  * @param {OO.ui.OptionWidget|null} item Selected item
  */
@@ -162,8 +165,9 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
 			// OptionWidgets and focusable UI elements inside them have tabindex="-1" set.
 			item = this.findTargetItem( event );
 		} else {
-			// There is something actually user-focusable in one of the labels of the options, and the
-			// user focussed it (e.g. by tabbing to it). Do nothing (especially, don't change the focus).
+			// There is something actually user-focusable in one of the labels of the options, and
+			// the user focussed it (e.g. by tabbing to it). Do nothing (especially, don't change
+			// the focus).
 			return;
 		}
 	}
@@ -399,8 +403,8 @@ OO.ui.SelectWidget.prototype.unbindKeyDownListener = function () {
  */
 OO.ui.SelectWidget.prototype.scrollItemIntoView = function ( item ) {
 	var widget = this;
-	// Chromium's Blink engine will generate spurious 'mouseover' events during programmatic scrolling
-	// and around 100-150 ms after it is finished.
+	// Chromium's Blink engine will generate spurious 'mouseover' events during programmatic
+	// scrolling and around 100-150 ms after it is finished.
 	this.blockMouseOverEvents++;
 	item.scrollElementIntoView().done( function () {
 		setTimeout( function () {
@@ -829,12 +833,13 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
 };
 
 /**
- * Find an option by its position relative to the specified item (or to the start of the option array,
- * if item is `null`). The direction in which to search through the option array is specified with a
- * number: -1 for reverse (the default) or 1 for forward. The method will return an option, or
- * `null` if there are no options in the array.
+ * Find an option by its position relative to the specified item (or to the start of the option
+ * array, if item is `null`). The direction in which to search through the option array is specified
+ * with a number: -1 for reverse (the default) or 1 for forward. The method will return an option,
+ * or `null` if there are no options in the array.
  *
- * @param {OO.ui.OptionWidget|null} item Item to describe the start position, or `null` to start at the beginning of the array.
+ * @param {OO.ui.OptionWidget|null} item Item to describe the start position, or `null` to start at
+ *  the beginning of the array.
  * @param {number} direction Direction to move in: -1 to move backward, 1 to move forward
  * @param {Function} [filter] Only consider items for which this function returns
  *  true. Function takes an OO.ui.OptionWidget and returns a boolean.

@@ -6,7 +6,9 @@ Demo.DynamicLabelTextInputWidget = function DemoDynamicLabelTextInputWidget( con
 	// Properties
 	this.getLabelText = config.getLabelText;
 	// Events
-	this.connect( this, { change: 'onChange' } );
+	this.connect( this, {
+		change: 'onChange'
+	} );
 	// Initialization
 	this.setLabel( this.getLabelText( this.getValue() ) );
 };

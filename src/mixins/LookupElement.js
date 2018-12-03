@@ -1,12 +1,13 @@
 /**
- * LookupElement is a mixin that creates a {@link OO.ui.MenuSelectWidget menu} of suggested values for
- * a {@link OO.ui.TextInputWidget text input widget}. Suggested values are based on the characters the user types
- * into the text input field and, in general, the menu is only displayed when the user types. If a suggested value is chosen
- * from the lookup menu, that value becomes the value of the input field.
+ * LookupElement is a mixin that creates a {@link OO.ui.MenuSelectWidget menu} of suggested
+ * values for a {@link OO.ui.TextInputWidget text input widget}. Suggested values are based on
+ * the characters the user types into the text input field and, in general, the menu is only
+ * displayed when the user types. If a suggested value is chosen from the lookup menu, that value
+ * becomes the value of the input field.
  *
- * Note that a new menu of suggested items is displayed when a value is chosen from the lookup menu. If this is
- * not the desired behavior, disable lookup menus with the #setLookupsDisabled method, then set the value, then
- * re-enable lookups.
+ * Note that a new menu of suggested items is displayed when a value is chosen from the
+ * lookup menu. If this is not the desired behavior, disable lookup menus with the
+ * #setLookupsDisabled method, then set the value, then re-enable lookups.
  *
  * See the [OOUI demos][1] for an example.
  *
@@ -20,12 +21,16 @@
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$overlay] Overlay for the lookup menu; defaults to relative positioning.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
- * @cfg {jQuery} [$container=this.$element] The container element. The lookup menu is rendered beneath the specified element.
- * @cfg {Object} [menu] Configuration options to pass to {@link OO.ui.MenuSelectWidget menu select widget}
- * @cfg {boolean} [allowSuggestionsWhenEmpty=false] Request and display a lookup menu when the text input is empty.
+ * @cfg {jQuery} [$container=this.$element] The container element. The lookup menu is rendered
+ *  beneath the specified element.
+ * @cfg {Object} [menu] Configuration options to pass to
+ *  {@link OO.ui.MenuSelectWidget menu select widget}
+ * @cfg {boolean} [allowSuggestionsWhenEmpty=false] Request and display a lookup menu when the
+ *  text input is empty.
  *  By default, the lookup menu is not generated and displayed until the user begins to type.
- * @cfg {boolean} [highlightFirst=true] Whether the first lookup result should be highlighted (so, that the user can
- *  take it over into the input with simply pressing return) automatically or not.
+ * @cfg {boolean} [highlightFirst=true] Whether the first lookup result should be highlighted
+ *  (so, that the user can take it over into the input with simply pressing return) automatically
+ *  or not.
  */
 OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	// Configuration initialization
@@ -35,7 +40,8 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	OO.ui.mixin.RequestManager.call( this, config );
 
 	// Properties
-	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
+	this.$overlay = ( config.$overlay === true ?
+		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 	this.lookupMenu = new OO.ui.MenuSelectWidget( $.extend( {
 		widget: this,
 		input: this,
@@ -54,7 +60,9 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 		blur: this.onLookupInputBlur.bind( this ),
 		mousedown: this.onLookupInputMouseDown.bind( this )
 	} );
-	this.connect( this, { change: 'onLookupInputChange' } );
+	this.connect( this, {
+		change: 'onLookupInputChange'
+	} );
 	this.lookupMenu.connect( this, {
 		toggle: 'onLookupMenuToggle',
 		choose: 'onLookupMenuItemChoose'
@@ -107,7 +115,7 @@ OO.ui.mixin.LookupElement.prototype.onLookupInputBlur = function () {
  */
 OO.ui.mixin.LookupElement.prototype.onLookupInputMouseDown = function () {
 	// Only open the menu if the input was already focused.
-	// This way we allow the user to open the menu again after closing it with Esc
+	// This way we allow the user to open the menu again after closing it with Escape (esc)
 	// by clicking in the input. Opening (and populating) the menu when initially
 	// clicking into the input is handled by the focus handler.
 	if ( this.lookupInputFocused && !this.lookupMenu.isVisible() ) {
@@ -137,7 +145,7 @@ OO.ui.mixin.LookupElement.prototype.onLookupMenuToggle = function ( visible ) {
 	if ( !visible ) {
 		// When the menu is hidden, abort any active request and clear the menu.
 		// This has to be done here in addition to closeLookupMenu(), because
-		// MenuSelectWidget will close itself when the user presses Esc.
+		// MenuSelectWidget will close itself when the user presses Escape (esc).
 		this.abortLookupRequest();
 		this.lookupMenu.clearItems();
 	}
@@ -331,7 +339,7 @@ OO.ui.mixin.LookupElement.prototype.setReadOnly = function ( readOnly ) {
 	// Note: Calling #setReadOnly this way assumes this is mixed into an OO.ui.TextInputWidget
 	OO.ui.TextInputWidget.prototype.setReadOnly.call( this, readOnly );
 
-	// During construction, #setReadOnly is called before the OO.ui.mixin.LookupElement constructor
+	// During construction, #setReadOnly is called before the OO.ui.mixin.LookupElement constructor.
 	if ( this.isReadOnly() && this.lookupMenu ) {
 		this.closeLookupMenu();
 	}

@@ -1,9 +1,11 @@
 /**
- * A ToolFactory creates tools on demand. All tools ({@link OO.ui.Tool Tools}, {@link OO.ui.PopupTool PopupTools},
- * and {@link OO.ui.ToolGroupTool ToolGroupTools}) must be registered with a tool factory. Tools are
- * registered by their symbolic name. See {@link OO.ui.Toolbar toolbars} for an example.
+ * A ToolFactory creates tools on demand. All tools ({@link OO.ui.Tool Tools},
+ * {@link OO.ui.PopupTool PopupTools}, and {@link OO.ui.ToolGroupTool ToolGroupTools}) must be
+ * registered with a tool factory. Tools are registered by their symbolic name. See
+ * {@link OO.ui.Toolbar toolbars} for an example.
  *
- * For more information about toolbars in general, please see the [OOUI documentation on MediaWiki][1].
+ * For more information about toolbars in general, please see the
+ * [OOUI documentation on MediaWiki][1].
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *
@@ -23,7 +25,7 @@ OO.inheritClass( OO.ui.ToolFactory, OO.Factory );
 /* Methods */
 
 /**
- * Get tools from the factory
+ * Get tools from the factory.
  *
  * @param {Array|string} [include] Included tools, see #extract for format
  * @param {Array|string} [exclude] Excluded tools, see #extract for format

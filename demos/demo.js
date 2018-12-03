@@ -143,7 +143,7 @@ OO.mixinClass( Demo, OO.EventEmitter );
  *
  * @static
  * @property {Object.<string,Function>} pages List of functions that render a page, keyed by
- *   symbolic page name
+ *  symbolic page name
  */
 Demo.static.pages = {};
 
@@ -323,7 +323,11 @@ Demo.prototype.onModeChange = function () {
 		direction = this.directionSelect.findSelectedItem().getData(),
 		platform = this.platformSelect.findSelectedItem().getData();
 
-	history.pushState( null, document.title, this.getUrlQuery( [ page, theme, direction, platform ] ) );
+	history.pushState(
+		null,
+		document.title,
+		this.getUrlQuery( [ page, theme, direction, platform ] )
+	);
 	$( window ).triggerHandler( 'popstate' );
 };
 
@@ -632,7 +636,12 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 
 		// Prevent the default config from being part of the code
 		if ( item instanceof OO.ui.ActionFieldLayout ) {
-			defaultConfig = ( new item.constructor( new OO.ui.TextInputWidget(), new OO.ui.ButtonWidget() ) ).initialConfig;
+			defaultConfig = (
+				new item.constructor(
+					new OO.ui.TextInputWidget(),
+					new OO.ui.ButtonWidget()
+				)
+			).initialConfig;
 		} else if ( item instanceof OO.ui.FieldLayout ) {
 			defaultConfig = ( new item.constructor( new OO.ui.ButtonWidget() ) ).initialConfig;
 		} else {
@@ -815,9 +824,10 @@ Demo.prototype.buildLinkExample = function ( item, parentItem ) {
 		.attr( 'title', 'Link to this example' )
 		.attr( 'href', '#' + fragment )
 		.on( 'click', function ( e ) {
-			// We have to handle this manually in order to call .scrollToFragment() even if it's the same
-			// fragment. Normally, the browser will scroll but not fire a 'hashchange' event in this
-			// situation, and the scroll position will be off because of our fixed header.
+			// We have to handle this manually in order to call .scrollToFragment() even if it's
+			// the same fragment. Normally, the browser will scroll but not fire a 'hashchange'
+			// event in this situation, and the scroll position will be off because of our fixed
+			// header.
 			if ( e.which === OO.ui.MouseButtons.LEFT ) {
 				location.hash = $( this ).attr( 'href' );
 				Demo.static.scrollToFragment();

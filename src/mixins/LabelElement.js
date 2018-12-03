@@ -12,12 +12,12 @@
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$label] The label element created by the class. If this
  *  configuration is omitted, the label element will use a generated `<span>`.
- * @cfg {jQuery|string|Function|OO.ui.HtmlSnippet} [label] The label text. The label can be specified
- *  as a plaintext string, a jQuery selection of elements, or a function that will produce a string
- *  in the future. See the [OOUI documentation on MediaWiki] [2] for examples.
+ * @cfg {jQuery|string|Function|OO.ui.HtmlSnippet} [label] The label text. The label can be
+ *  specified as a plaintext string, a jQuery selection of elements, or a function that will
+ *  produce a string in the future. See the [OOUI documentation on MediaWiki] [2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Labels
- * @cfg {boolean} [invisibleLabel] Whether the label should be visually hidden (but still accessible
- *  to screen-readers).
+ * @cfg {boolean} [invisibleLabel] Whether the label should be visually hidden (but still
+ *  accessible to screen-readers).
  */
 OO.ui.mixin.LabelElement = function OoUiMixinLabelElement( config ) {
 	// Configuration initialization
@@ -124,8 +124,8 @@ OO.ui.mixin.LabelElement.prototype.setLabelElement = function ( $label ) {
  * An empty string will result in the label being hidden. A string containing only whitespace will
  * be converted to a single `&nbsp;`.
  *
- * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} label Label nodes; text; a function that returns nodes or
- *  text; or null for no label
+ * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} label Label nodes; text; a function that
+ *  returns nodes or text; or null for no label
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  */

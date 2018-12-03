@@ -32,8 +32,7 @@
  * @cfg {boolean} [showButtons=true] Whether to show the plus and minus buttons.
  */
 OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
-	var $field = $( '<div>' )
-		.addClass( 'oo-ui-numberInputWidget-field' );
+	var $field = $( '<div>' ).addClass( 'oo-ui-numberInputWidget-field' );
 
 	// Configuration initialization
 	config = $.extend( {
@@ -166,7 +165,8 @@ OO.ui.NumberInputWidget.prototype.getRange = function () {
  *  Defaults to `step` if specified, otherwise `1`.
  * @param {number} [pageStep=10*buttonStep] Delta when using the page-up/page-down keys.
  *  Defaults to 10 times `buttonStep`.
- * @param {number|null} [step] If specified, the field only accepts values that are multiples of this.
+ * @param {number|null} [step] If specified, the field only accepts values that are multiples
+ *  of this.
  */
 OO.ui.NumberInputWidget.prototype.setStep = function ( buttonStep, pageStep, step ) {
 	if ( buttonStep === undefined ) {

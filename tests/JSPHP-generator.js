@@ -40,9 +40,10 @@
 			}
 
 			if ( i % 20 === 0 ) {
-				// Make this test async to allow the browser to respond. Running code in a single thread
-				// for several seconds/minutes causes Karma timeouts when the browser becomes uninteractive.
-				// This slows down the tests though, so only do it every 20 tests (arbitrarily chosen).
+				// Make this test async to allow the browser to respond. Running code in a single
+				// thread for several seconds/minutes causes Karma timeouts when the browser
+				// becomes uninteractive. This slows down the tests though, so only do it every
+				// 20 tests (arbitrarily chosen).
 				assert.async()();
 			}
 		} );

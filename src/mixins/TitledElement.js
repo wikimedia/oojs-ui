@@ -43,8 +43,8 @@ OO.initClass( OO.ui.mixin.TitledElement );
 /* Static Properties */
 
 /**
- * The title text, a function that returns text, or `null` for no title. The value of the static property
- * is overridden if the #title config option is used.
+ * The title text, a function that returns text, or `null` for no title. The value of the static
+ * property is overridden if the #title config option is used.
  *
  * @static
  * @inheritable
@@ -57,8 +57,10 @@ OO.ui.mixin.TitledElement.static.title = null;
 /**
  * Set the titled element.
  *
- * This method is used to retarget a TitledElement mixin so that its functionality applies to the specified element.
- * If an element is already set, the mixin’s effect on that element is removed before the new element is set up.
+ * This method is used to retarget a TitledElement mixin so that its functionality applies to the
+ * specified element.
+ * If an element is already set, the mixin’s effect on that element is removed before the new
+ * element is set up.
  *
  * @param {jQuery} $titled Element that should use the 'titled' functionality
  */
@@ -76,7 +78,8 @@ OO.ui.mixin.TitledElement.prototype.setTitledElement = function ( $titled ) {
 /**
  * Set title.
  *
- * @param {string|Function|null} title Title text, a function that returns text, or `null` for no title
+ * @param {string|Function|null} title Title text, a function that returns text, or `null`
+ *  for no title
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  */

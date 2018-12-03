@@ -2,7 +2,8 @@
  * FieldLayouts are used with OO.ui.FieldsetLayout. Each FieldLayout requires a field-widget,
  * which is a widget that is specified by reference before any optional configuration settings.
  *
- * Field layouts can be configured with help text and/or labels. Labels are aligned in one of four ways:
+ * Field layouts can be configured with help text and/or labels. Labels are aligned in one of
+ * four ways:
  *
  * - **left**: The label is placed before the field-widget and aligned with the left margin.
  *   A left-alignment is used for forms with many fields.
@@ -16,11 +17,12 @@
  *
  * Help text can either be:
  *
- * - accessed via a help icon that appears in the upper right corner of the rendered field layout, or
+ * - accessed via a help icon that appears in the upper right corner of the rendered field layout,
+ *   or
  * - shown as a subtle explanation below the label.
  *
- * If the help text is brief, or is essential to always expose it, set `helpInline` to `true`. If it
- * is long or not essential, leave `helpInline` to its default, `false`.
+ * If the help text is brief, or is essential to always expose it, set `helpInline` to `true`.
+ * If it is long or not essential, leave `helpInline` to its default, `false`.
  *
  * Please see the [OOUI documentation on MediaWiki] [1] for examples and more information.
  *
@@ -93,7 +95,9 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.helpInline = config.helpInline;
 
 	// Events
-	this.fieldWidget.connect( this, { disable: 'onFieldDisable' } );
+	this.fieldWidget.connect( this, {
+		disable: 'onFieldDisable'
+	} );
 
 	// Initialization
 	this.$help = config.help ?

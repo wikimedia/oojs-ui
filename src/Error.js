@@ -1,14 +1,15 @@
 /**
- * Errors contain a required message (either a string or jQuery selection) that is used to describe what went wrong
- * in a {@link OO.ui.Process process}. The error's #recoverable and #warning configurations are used to customize the
- * appearance and functionality of the error interface.
+ * Errors contain a required message (either a string or jQuery selection) that is used to describe
+ * what went wrong in a {@link OO.ui.Process process}. The error's #recoverable and #warning
+ * configurations are used to customize the appearance and functionality of the error interface.
  *
- * The basic error interface contains a formatted error message as well as two buttons: 'Dismiss' and 'Try again' (i.e., the error
- * is 'recoverable' by default). If the error is not recoverable, the 'Try again' button will not be rendered and the widget
- * that initiated the failed process will be disabled.
+ * The basic error interface contains a formatted error message as well as two buttons: 'Dismiss'
+ * and 'Try again' (i.e., the error is 'recoverable' by default). If the error is not recoverable,
+ * the 'Try again' button will not be rendered and the widget that initiated the failed process will
+ * be disabled.
  *
- * If the error is a warning, the error interface will include a 'Dismiss' and a 'Continue' button, which will try the
- * process again.
+ * If the error is a warning, the error interface will include a 'Dismiss' and a 'Continue' button,
+ * which will try the process again.
  *
  * For an example of error interfaces, please see the [OOUI documentation on MediaWiki][1].
  *
@@ -23,8 +24,8 @@
  *  By default, errors are recoverable, and users can try the process again.
  * @cfg {boolean} [warning=false] Error is a warning.
  *  If the error is a warning, the error interface will include a
- *  'Dismiss' and a 'Continue' button. It is the responsibility of the developer to ensure that the warning
- *  is not triggered a second time if the user chooses to continue.
+ *  'Dismiss' and a 'Continue' button. It is the responsibility of the developer to ensure that the
+ *  warning is not triggered a second time if the user chooses to continue.
  */
 OO.ui.Error = function OoUiError( message, config ) {
 	// Allow passing positional parameters inside the config object

@@ -1,7 +1,8 @@
 /**
- * Popup tools open a popup window when they are selected from the {@link OO.ui.Toolbar toolbar}. Each popup tool is configured
- * with a static name, title, and icon, as well with as any popup configurations. Unlike other tools, popup tools do not require that developers specify
- * an #onSelect or #onUpdateState method, as these methods have been implemented already.
+ * Popup tools open a popup window when they are selected from the {@link OO.ui.Toolbar toolbar}.
+ * Each popup tool is configured with a static name, title, and icon, as well with as any popup
+ * configurations. Unlike other tools, popup tools do not require that developers specify an
+ * #onSelect or #onUpdateState method, as these methods have been implemented already.
  *
  *     // Example of a popup tool. When selected, a popup tool displays
  *     // a popup window.
@@ -19,8 +20,9 @@
  *     HelpTool.static.title = 'Help';
  *     toolFactory.register( HelpTool );
  *
- * For an example of a toolbar that contains a popup tool, see {@link OO.ui.Toolbar toolbars}. For more information about
- * toolbars in general, please see the [OOUI documentation on MediaWiki][1].
+ * For an example of a toolbar that contains a popup tool, see {@link OO.ui.Toolbar toolbars}.
+ * For more information about toolbars in general, please see the
+ * [OOUI documentation on MediaWiki][1].
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *
@@ -47,7 +49,9 @@ OO.ui.PopupTool = function OoUiPopupTool( toolGroup, config ) {
 	OO.ui.mixin.PopupElement.call( this, config );
 
 	// Events
-	this.popup.connect( this, { toggle: 'onPopupToggle' } );
+	this.popup.connect( this, {
+		toggle: 'onPopupToggle'
+	} );
 
 	// Initialization
 	this.popup.setAutoFlip( false );

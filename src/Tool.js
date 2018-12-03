@@ -1,8 +1,9 @@
 /**
- * Tools, together with {@link OO.ui.ToolGroup toolgroups}, constitute {@link OO.ui.Toolbar toolbars}.
- * Each tool is configured with a static name, title, and icon and is customized with the command to carry
- * out when the tool is selected. Tools must also be registered with a {@link OO.ui.ToolFactory tool factory},
- * which creates the tools on demand.
+ * Tools, together with {@link OO.ui.ToolGroup toolgroups}, constitute
+ * {@link OO.ui.Toolbar toolbars}.
+ * Each tool is configured with a static name, title, and icon and is customized with the command
+ * to carry out when the tool is selected. Tools must also be registered with a
+ * {@link OO.ui.ToolFactory tool factory}, which creates the tools on demand.
  *
  * Every Tool subclass must implement two methods:
  *
@@ -10,8 +11,9 @@
  * - {@link #onSelect}
  *
  * Tools are added to toolgroups ({@link OO.ui.ListToolGroup ListToolGroup},
- * {@link OO.ui.BarToolGroup BarToolGroup}, or {@link OO.ui.MenuToolGroup MenuToolGroup}), which determine how
- * the tool is displayed in the toolbar. See {@link OO.ui.Toolbar toolbars} for an example.
+ * {@link OO.ui.BarToolGroup BarToolGroup}, or {@link OO.ui.MenuToolGroup MenuToolGroup}), which
+ * determine how the tool is displayed in the toolbar. See {@link OO.ui.Toolbar toolbars} for an
+ * example.
  *
  * For more information, please see the [OOUI documentation on MediaWiki][1].
  * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
@@ -26,16 +28,19 @@
  * @constructor
  * @param {OO.ui.ToolGroup} toolGroup
  * @param {Object} [config] Configuration options
- * @cfg {string|Function} [title] Title text or a function that returns text. If this config is omitted, the value of
- *  the {@link #static-title static title} property is used.
+ * @cfg {string|Function} [title] Title text or a function that returns text. If this config is
+ *  omitted, the value of the {@link #static-title static title} property is used.
  *
- *  The title is used in different ways depending on the type of toolgroup that contains the tool. The
- *  title is used as a tooltip if the tool is part of a {@link OO.ui.BarToolGroup bar} toolgroup, or as the label text if the tool is
- *  part of a {@link OO.ui.ListToolGroup list} or {@link OO.ui.MenuToolGroup menu} toolgroup.
+ *  The title is used in different ways depending on the type of toolgroup that contains the tool.
+ *  The title is used as a tooltip if the tool is part of a {@link OO.ui.BarToolGroup bar}
+ *  toolgroup, or as the label text if the tool is part of a {@link OO.ui.ListToolGroup list} or
+ *  {@link OO.ui.MenuToolGroup menu} toolgroup.
  *
- *  For bar toolgroups, a description of the accelerator key is appended to the title if an accelerator key
- *  is associated with an action by the same name as the tool and accelerator functionality has been added to the application.
- *  To add accelerator key functionality, you must subclass OO.ui.Toolbar and override the {@link OO.ui.Toolbar#getToolAccelerator getToolAccelerator} method.
+ *  For bar toolgroups, a description of the accelerator key is appended to the title if an
+ *  accelerator key is associated with an action by the same name as the tool and accelerator
+ *  functionality has been added to the application.
+ *  To add accelerator key functionality, you must subclass OO.ui.Toolbar and override the
+ *  {@link OO.ui.Toolbar#getToolAccelerator getToolAccelerator} method.
  */
 OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	// Allow passing positional parameters inside the config object
@@ -66,10 +71,14 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, { $tabIndexed: this.$link } ) );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, {
+		$tabIndexed: this.$link
+	} ) );
 
 	// Events
-	this.toolbar.connect( this, { updateState: 'onUpdateState' } );
+	this.toolbar.connect( this, {
+		updateState: 'onUpdateState'
+	} );
 
 	// Initialization
 	this.$title.addClass( 'oo-ui-tool-title' );
@@ -88,7 +97,8 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	this.$element
 		.data( 'oo-ui-tool', this )
 		.addClass( 'oo-ui-tool' )
-		.addClass( 'oo-ui-tool-name-' + this.constructor.static.name.replace( /^([^/]+)\/([^/]+).*$/, '$1-$2' ) )
+		.addClass( 'oo-ui-tool-name-' +
+			this.constructor.static.name.replace( /^([^/]+)\/([^/]+).*$/, '$1-$2' ) )
 		.toggleClass( 'oo-ui-tool-with-label', this.constructor.static.displayBothIconAndLabel )
 		.append( this.$link );
 	this.setTitle( config.title || this.constructor.static.title );
@@ -112,8 +122,8 @@ OO.ui.Tool.static.tagName = 'span';
 /**
  * Symbolic name of tool.
  *
- * The symbolic name is used internally to register the tool with a {@link OO.ui.ToolFactory ToolFactory}. It can
- * also be used when adding tools to toolgroups.
+ * The symbolic name is used internally to register the tool with a
+ * {@link OO.ui.ToolFactory ToolFactory}. It can also be used when adding tools to toolgroups.
  *
  * @abstract
  * @static
@@ -136,7 +146,8 @@ OO.ui.Tool.static.name = '';
 OO.ui.Tool.static.group = '';
 
 /**
- * Tool title text or a function that returns title text. The value of the static property is overridden if the #title config option is used.
+ * Tool title text or a function that returns title text. The value of the static property is
+ * overridden if the #title config option is used.
  *
  * @abstract
  * @static

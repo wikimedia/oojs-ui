@@ -1,10 +1,11 @@
 /**
- * A basic tag multiselect widget, similar in concept to {@link OO.ui.ComboBoxInputWidget combo box widget}
- * that allows the user to add multiple values that are displayed in a tag area.
+ * A basic tag multiselect widget, similar in concept to
+ * {@link OO.ui.ComboBoxInputWidget combo box widget} that allows the user to add multiple values
+ * that are displayed in a tag area.
  *
- * This widget is a base widget; see {@link OO.ui.MenuTagMultiselectWidget MenuTagMultiselectWidget} and
- * {@link OO.ui.PopupTagMultiselectWidget PopupTagMultiselectWidget} for the implementations that use
- * a menu and a popup respectively.
+ * This widget is a base widget; see {@link OO.ui.MenuTagMultiselectWidget MenuTagMultiselectWidget}
+ * and {@link OO.ui.PopupTagMultiselectWidget PopupTagMultiselectWidget} for the implementations
+ * that use a menu and a popup respectively.
  *
  *     @example
  *     // A TagMultiselectWidget.
@@ -59,8 +60,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	var inputEvents,
 		rAF = window.requestAnimationFrame || setTimeout,
 		widget = this,
-		$tabFocus = $( '<span>' )
-			.addClass( 'oo-ui-tagMultiselectWidget-focusTrap' );
+		$tabFocus = $( '<span>' ).addClass( 'oo-ui-tagMultiselectWidget-focusTrap' );
 
 	config = config || {};
 
@@ -94,8 +94,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	this.height = null;
 	this.valid = true;
 
-	this.$content = $( '<div>' )
-		.addClass( 'oo-ui-tagMultiselectWidget-content' );
+	this.$content = $( '<div>' ).addClass( 'oo-ui-tagMultiselectWidget-content' );
 	this.$handle = $( '<div>' )
 		.addClass( 'oo-ui-tagMultiselectWidget-handle' )
 		.append(
@@ -103,8 +102,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 			this.$icon,
 			this.$content
 				.append(
-					this.$group
-						.addClass( 'oo-ui-tagMultiselectWidget-group' )
+					this.$group.addClass( 'oo-ui-tagMultiselectWidget-group' )
 				)
 		);
 
@@ -831,8 +829,8 @@ OO.ui.TagMultiselectWidget.prototype.updateInputSize = function () {
 				$lastItem.position().left;
 		}
 
-		// Some safety margin for sanity, because I *really* don't feel like finding out where the few
-		// pixels this is off by are coming from.
+		// Some safety margin for sanity, because I *really* don't feel like finding out where the
+		// few pixels this is off by are coming from.
 		bestWidth -= 13;
 		if ( contentWidth > bestWidth ) {
 			// This will result in the input getting shifted to the next line

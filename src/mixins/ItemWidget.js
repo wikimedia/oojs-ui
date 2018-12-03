@@ -1,8 +1,8 @@
 /**
  * Mixin for widgets used as items in widgets that mix in OO.ui.mixin.GroupWidget.
  *
- * Item widgets have a reference to a OO.ui.mixin.GroupWidget while they are attached to the group. This
- * allows bidirectional communication.
+ * Item widgets have a reference to a OO.ui.mixin.GroupWidget while they are attached to the group.
+ * This allows bidirectional communication.
  *
  * Use together with OO.ui.mixin.GroupWidget to make disabled state inheritable.
  *

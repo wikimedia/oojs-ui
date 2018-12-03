@@ -1,12 +1,12 @@
 /**
  * BarToolGroups are one of three types of {@link OO.ui.ToolGroup toolgroups} that are used to
- * create {@link OO.ui.Toolbar toolbars} (the other types of groups are {@link OO.ui.MenuToolGroup MenuToolGroup}
- * and {@link OO.ui.ListToolGroup ListToolGroup}). The {@link OO.ui.Tool tools} in a BarToolGroup are
- * displayed by icon in a single row. The title of the tool is displayed when users move the mouse over
- * the tool.
+ * create {@link OO.ui.Toolbar toolbars} (the other types of groups are
+ * {@link OO.ui.MenuToolGroup MenuToolGroup} and {@link OO.ui.ListToolGroup ListToolGroup}).
+ * The {@link OO.ui.Tool tools} in a BarToolGroup are displayed by icon in a single row. The
+ * title of the tool is displayed when users move the mouse over the tool.
  *
- * BarToolGroups are created by a {@link OO.ui.ToolGroupFactory tool group factory} when the toolbar is
- * set up.
+ * BarToolGroups are created by a {@link OO.ui.ToolGroupFactory tool group factory} when the toolbar
+ * is set up.
  *
  *     @example
  *     // Example of a BarToolGroup with two tools
@@ -84,8 +84,10 @@
  *     // document.
  *     toolbar.initialize();
  *
- * For more information about how to add tools to a bar tool group, please see {@link OO.ui.ToolGroup toolgroup}.
- * For more information about toolbars in general, please see the [OOUI documentation on MediaWiki][1].
+ * For more information about how to add tools to a bar tool group, please see
+ * {@link OO.ui.ToolGroup toolgroup}.
+ * For more information about toolbars in general, please see the
+ * [OOUI documentation on MediaWiki][1].
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *

@@ -1,16 +1,16 @@
 /**
  * A window is a container for elements that are in a child frame. They are used with
  * a window manager (OO.ui.WindowManager), which is used to open and close the window and control
- * its presentation. The size of a window is specified using a symbolic name (e.g., ‘small’, ‘medium’,
- * ‘large’), which is interpreted by the window manager. If the requested size is not recognized,
- * the window manager will choose a sensible fallback.
+ * its presentation. The size of a window is specified using a symbolic name (e.g., ‘small’,
+ * ‘medium’, ‘large’), which is interpreted by the window manager. If the requested size is not
+ * recognized, the window manager will choose a sensible fallback.
  *
  * The lifecycle of a window has three primary stages (opening, opened, and closing) in which
  * different processes are executed:
  *
- * **opening**: The opening stage begins when the window manager's {@link OO.ui.WindowManager#openWindow
- * openWindow} or the window's {@link #open open} methods are used, and the window manager begins to open
- * the window.
+ * **opening**: The opening stage begins when the window manager's
+ * {@link OO.ui.WindowManager#openWindow openWindow} or the window's {@link #open open} methods are
+ * used, and the window manager begins to open the window.
  *
  * - {@link #getSetupProcess} method is called and its result executed
  * - {@link #getReadyProcess} method is called and its result executed
@@ -19,15 +19,17 @@
  *
  * **closing**: The closing stage begins when the window manager's
  * {@link OO.ui.WindowManager#closeWindow closeWindow}
- * or the window's {@link #close} methods are used, and the window manager begins to close the window.
+ * or the window's {@link #close} methods are used, and the window manager begins to close the
+ * window.
  *
  * - {@link #getHoldProcess} method is called and its result executed
  * - {@link #getTeardownProcess} method is called and its result executed. The window is now closed
  *
  * Each of the window's processes (setup, ready, hold, and teardown) can be extended in subclasses
- * by overriding the window's #getSetupProcess, #getReadyProcess, #getHoldProcess and #getTeardownProcess
- * methods. Note that each {@link OO.ui.Process process} is executed in series, so asynchronous
- * processing can complete. Always assume window processes are executed asynchronously.
+ * by overriding the window's #getSetupProcess, #getReadyProcess, #getHoldProcess and
+ * #getTeardownProcess methods. Note that each {@link OO.ui.Process process} is executed in series,
+ * so asynchronous processing can complete. Always assume window processes are executed
+ * asynchronously.
  *
  * For more information, please see the [OOUI documentation on MediaWiki] [1].
  *
@@ -59,7 +61,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 	this.$frame = $( '<div>' );
 	/**
 	 * Overlay element to use for the `$overlay` configuration option of widgets that support it.
-	 * Things put inside of it are overlaid on top of the window and are not bound to its dimensions.
+	 * Things put inside it are overlaid on top of the window and are not bound to its dimensions.
 	 * See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
 	 *
 	 *     MyDialog.prototype.initialize = function () {
@@ -68,7 +70,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 	 *         $overlay: this.$overlay,
 	 *         label: 'Popup button',
 	 *         popup: {
-	 *           $content: $( '<p>Popup contents.</p><p>Popup contents.</p><p>Popup contents.</p>' ),
+	 *           $content: $( '<p>Popup content.</p><p>More content.</p><p>Yet more content.</p>' ),
 	 *           padded: true
 	 *         }
 	 *       } );
@@ -92,7 +94,6 @@ OO.ui.Window = function OoUiWindow( config ) {
 	this.$frame
 		.addClass( 'oo-ui-window-frame' )
 		.append( this.$focusTrapBefore, this.$content, this.$focusTrapAfter );
-
 	this.$element
 		.addClass( 'oo-ui-window' )
 		.append( this.$frame, this.$overlay );
@@ -161,8 +162,8 @@ OO.ui.Window.prototype.isVisible = function () {
 /**
  * Check if the window is opening.
  *
- * This method is a wrapper around the window manager's {@link OO.ui.WindowManager#isOpening isOpening}
- * method.
+ * This method is a wrapper around the window manager's
+ * {@link OO.ui.WindowManager#isOpening isOpening} method.
  *
  * @return {boolean} Window is opening
  */
@@ -173,7 +174,8 @@ OO.ui.Window.prototype.isOpening = function () {
 /**
  * Check if the window is closing.
  *
- * This method is a wrapper around the window manager's {@link OO.ui.WindowManager#isClosing isClosing} method.
+ * This method is a wrapper around the window manager's
+ * {@link OO.ui.WindowManager#isClosing isClosing} method.
  *
  * @return {boolean} Window is closing
  */
@@ -184,7 +186,8 @@ OO.ui.Window.prototype.isClosing = function () {
 /**
  * Check if the window is opened.
  *
- * This method is a wrapper around the window manager's {@link OO.ui.WindowManager#isOpened isOpened} method.
+ * This method is a wrapper around the window manager's
+ * {@link OO.ui.WindowManager#isOpened isOpened} method.
  *
  * @return {boolean} Window is opened
  */
@@ -657,7 +660,9 @@ OO.ui.Window.prototype.hold = function ( data ) {
 
 	return this.getHoldProcess( data ).execute().then( function () {
 		// Get the focused element within the window's content
-		var $focus = win.$content.find( OO.ui.Element.static.getDocument( win.$content ).activeElement );
+		var $focus = win.$content.find(
+			OO.ui.Element.static.getDocument( win.$content ).activeElement
+		);
 
 		// Blur the focused element
 		if ( $focus.length ) {
@@ -673,8 +678,8 @@ OO.ui.Window.prototype.hold = function ( data ) {
 /**
  * Teardown window.
  *
- * This is called by OO.ui.WindowManager during window closing (after the animation), and should not be called directly
- * by other systems.
+ * This is called by OO.ui.WindowManager during window closing (after the animation), and should not
+ * be called directly by other systems.
  *
  * @param {Object} [data] Window closing data
  * @return {jQuery.Promise} Promise resolved when window is torn down

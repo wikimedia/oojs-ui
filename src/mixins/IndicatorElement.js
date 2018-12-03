@@ -65,7 +65,8 @@ OO.ui.mixin.IndicatorElement.static.indicator = null;
 
 /**
  * A text string used as the indicator title, a function that returns title text, or `null`
- * for no title. The static property will be overridden if the #indicatorTitle configuration is used.
+ * for no title. The static property will be overridden if the #indicatorTitle configuration is
+ * used.
  *
  * @static
  * @inheritable
@@ -101,7 +102,8 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicatorElement = function ( $indicat
 };
 
 /**
- * Set the indicator by its symbolic name: ‘clear’, ‘down’, ‘required’, ‘search’, ‘up’. Use `null` to remove the indicator.
+ * Set the indicator by its symbolic name: ‘clear’, ‘down’, ‘required’, ‘search’, ‘up’. Use `null`
+ * to remove the indicator.
  *
  * @param {string|null} indicator Symbolic name of indicator, or `null` for no indicator
  * @chainable
@@ -136,8 +138,8 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
  *
  * The title is displayed when a user moves the mouse over the indicator.
  *
- * @param {string|Function|null} indicatorTitle Indicator title text, a function that returns text, or
- *   `null` for no indicator title
+ * @param {string|Function|null} indicatorTitle Indicator title text, a function that returns text,
+ *  or `null` for no indicator title
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  * @deprecated

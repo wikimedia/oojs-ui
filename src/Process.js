@@ -1,25 +1,26 @@
 /**
- * A Process is a list of steps that are called in sequence. The step can be a number, a jQuery promise,
- * or a function:
+ * A Process is a list of steps that are called in sequence. The step can be a number, a
+ * jQuery promise, or a function:
  *
  * - **number**: the process will wait for the specified number of milliseconds before proceeding.
- * - **promise**: the process will continue to the next step when the promise is successfully resolved
- *  or stop if the promise is rejected.
- * - **function**: the process will execute the function. The process will stop if the function returns
- *  either a boolean `false` or a promise that is rejected; if the function returns a number, the process
- *  will wait for that number of milliseconds before proceeding.
+ * - **promise**: the process will continue to the next step when the promise is successfully
+ *  resolved or stop if the promise is rejected.
+ * - **function**: the process will execute the function. The process will stop if the function
+ *  returns either a boolean `false` or a promise that is rejected; if the function returns a
+ *  number, the process will wait for that number of milliseconds before proceeding.
  *
  * If the process fails, an {@link OO.ui.Error error} is generated. Depending on how the error is
- * configured, users can dismiss the error and try the process again, or not. If a process is stopped,
- * its remaining steps will not be performed.
+ * configured, users can dismiss the error and try the process again, or not. If a process is
+ * stopped, its remaining steps will not be performed.
  *
  * @class
  *
  * @constructor
- * @param {number|jQuery.Promise|Function} step Number of milliseconds to wait before proceeding, promise
- *  that must be resolved before proceeding, or a function to execute. See #createStep for more information. see #createStep for more information
- * @param {Object} [context=null] Execution context of the function. The context is ignored if the step is
- *  a number or promise.
+ * @param {number|jQuery.Promise|Function} step Number of milliseconds to wait before proceeding,
+ *  promise that must be resolved before proceeding, or a function to execute. See #createStep for
+ *  more information. See #createStep for more information.
+ * @param {Object} [context=null] Execution context of the function. The context is ignored if the
+ *  step is a number or promise.
  */
 OO.ui.Process = function ( step, context ) {
 	// Properties
@@ -41,8 +42,8 @@ OO.initClass( OO.ui.Process );
  * Start the process.
  *
  * @return {jQuery.Promise} Promise that is resolved when all steps have successfully completed.
- *  If any of the steps return a promise that is rejected or a boolean false, this promise is rejected
- *  and any remaining steps are not performed.
+ *  If any of the steps return a promise that is rejected or a boolean false, this promise is
+ *  rejected and any remaining steps are not performed.
  */
 OO.ui.Process.prototype.execute = function () {
 	var i, len, promise;

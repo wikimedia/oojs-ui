@@ -1,13 +1,14 @@
 /**
  * MenuToolGroups are one of three types of {@link OO.ui.ToolGroup toolgroups} that are used to
- * create {@link OO.ui.Toolbar toolbars} (the other types of groups are {@link OO.ui.BarToolGroup BarToolGroup}
- * and {@link OO.ui.ListToolGroup ListToolGroup}). MenuToolGroups contain selectable {@link OO.ui.Tool tools},
- * which are displayed by label in a dropdown menu. The tool's title is used as the label text, and the
- * menu label is updated to reflect which tool or tools are currently selected. If no tools are selected,
- * the menu label is empty. The menu can be configured with an indicator, icon, title, and/or header.
+ * create {@link OO.ui.Toolbar toolbars} (the other types of groups are
+ * {@link OO.ui.BarToolGroup BarToolGroup} and {@link OO.ui.ListToolGroup ListToolGroup}).
+ * MenuToolGroups contain selectable {@link OO.ui.Tool tools}, which are displayed by label in a
+ * dropdown menu. The tool's title is used as the label text, and the menu label is updated to
+ * reflect which tool or tools are currently selected. If no tools are selected, the menu label
+ * is empty. The menu can be configured with an indicator, icon, title, and/or header.
  *
- * MenuToolGroups are created by a {@link OO.ui.ToolGroupFactory tool group factory} when the toolbar
- * is set up.
+ * MenuToolGroups are created by a {@link OO.ui.ToolGroupFactory tool group factory} when the
+ * toolbar is set up.
  *
  *     @example
  *     // Example of a MenuToolGroup
@@ -16,7 +17,8 @@
  *     var toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
  *
  *     // We will be placing status text in this element when tools are used
- *     var $area = $( '<p>' ).text( 'An example of a MenuToolGroup. Select a tool from the dropdown menu.' );
+ *     var $area = $( '<p>' ).text( 'An example of a MenuToolGroup. Select a tool from the '
+ *         + 'dropdown menu.' );
  *
  *     // Define the tools that we're going to place in our toolbar
  *
@@ -89,8 +91,10 @@
  *     toolbar.initialize();
  *     toolbar.emit( 'updateState' );
  *
- * For more information about how to add tools to a MenuToolGroup, please see {@link OO.ui.ToolGroup toolgroup}.
- * For more information about toolbars in general, please see the [OOUI documentation on MediaWiki] [1].
+ * For more information about how to add tools to a MenuToolGroup, please see
+ * {@link OO.ui.ToolGroup toolgroup}.
+ * For more information about toolbars in general, please see the
+ * [OOUI documentation on MediaWiki] [1].
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *
@@ -115,7 +119,9 @@ OO.ui.MenuToolGroup = function OoUiMenuToolGroup( toolbar, config ) {
 	OO.ui.MenuToolGroup.parent.call( this, toolbar, config );
 
 	// Events
-	this.toolbar.connect( this, { updateState: 'onUpdateState' } );
+	this.toolbar.connect( this, {
+		updateState: 'onUpdateState'
+	} );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuToolGroup' );

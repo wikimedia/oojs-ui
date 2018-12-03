@@ -1,6 +1,7 @@
 /**
- * IconWidget is a generic widget for {@link OO.ui.mixin.IconElement icons}. In general, IconWidgets should be used with OO.ui.LabelWidget,
- * which creates a label that identifies the icon’s function. See the [OOUI documentation on MediaWiki] [1]
+ * IconWidget is a generic widget for {@link OO.ui.mixin.IconElement icons}.
+ * In general, IconWidgets should be used with OO.ui.LabelWidget, which creates a label that
+ * identifies the icon’s function. See the [OOUI documentation on MediaWiki] [1]
  * for a list of icons included in the library.
  *
  *     @example
@@ -35,10 +36,19 @@ OO.ui.IconWidget = function OoUiIconWidget( config ) {
 	OO.ui.IconWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.IconElement.call( this, $.extend( {}, config, { $icon: this.$element } ) );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$element } ) );
-	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, { $label: this.$element, invisibleLabel: true } ) );
-	OO.ui.mixin.FlaggedElement.call( this, $.extend( {}, config, { $flagged: this.$element } ) );
+	OO.ui.mixin.IconElement.call( this, $.extend( {}, config, {
+		$icon: this.$element
+	} ) );
+	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, {
+		$titled: this.$element
+	} ) );
+	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, {
+		$label: this.$element,
+		invisibleLabel: true
+	} ) );
+	OO.ui.mixin.FlaggedElement.call( this, $.extend( {}, config, {
+		$flagged: this.$element
+	} ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-iconWidget' );

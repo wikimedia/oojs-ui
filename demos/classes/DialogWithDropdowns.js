@@ -185,7 +185,11 @@ Demo.DialogWithDropdowns.prototype.initialize = function () {
 		new Demo.SamplePage( 'tagpopup2', {
 			label: 'TagMultiselectWidget (popup)',
 			icon: 'alert',
-			content: [ $spacer.clone(), new Demo.TagNumberPopupMultiselectWidget(), $spacer.clone() ]
+			content: [
+				$spacer.clone(),
+				new Demo.TagNumberPopupMultiselectWidget(),
+				$spacer.clone()
+			]
 		} )
 	];
 	this.bookletLayout.on( 'set', function ( page ) {

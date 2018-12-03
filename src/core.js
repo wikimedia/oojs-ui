@@ -113,7 +113,7 @@ OO.ui.isFocusableElement = function ( $element ) {
 };
 
 /**
- * Find a focusable child
+ * Find a focusable child.
  *
  * @param {jQuery} $container Container to search in
  * @param {boolean} [backwards] Search backwards
@@ -190,14 +190,15 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 };
 
 /**
- * Check if a node is contained within another node
+ * Check if a node is contained within another node.
  *
  * Similar to jQuery#contains except a list of containers can be supplied
  * and a boolean argument allows you to include the container in the match list
  *
  * @param {HTMLElement|HTMLElement[]} containers Container node(s) to search in
  * @param {HTMLElement} contained Node to find
- * @param {boolean} [matchContainers] Include the container(s) in the list of nodes to match, otherwise only match descendants
+ * @param {boolean} [matchContainers] Include the container(s) in the list of nodes to match,
+ *  otherwise only match descendants
  * @return {boolean} The node is in the list of target nodes
  */
 OO.ui.contains = function ( containers, contained, matchContainers ) {
@@ -206,7 +207,10 @@ OO.ui.contains = function ( containers, contained, matchContainers ) {
 		containers = [ containers ];
 	}
 	for ( i = containers.length - 1; i >= 0; i-- ) {
-		if ( ( matchContainers && contained === containers[ i ] ) || $.contains( containers[ i ], contained ) ) {
+		if (
+			( matchContainers && contained === containers[ i ] ) ||
+			$.contains( containers[ i ], contained )
+		) {
 			return true;
 		}
 	}
@@ -303,7 +307,7 @@ OO.ui.throttle = function ( func, wait ) {
 };
 
 /**
- * A (possibly faster) way to get the current timestamp as an integer
+ * A (possibly faster) way to get the current timestamp as an integer.
  *
  * @return {number} Current timestamp, in milliseconds since the Unix epoch
  */
@@ -329,7 +333,7 @@ OO.ui.infuse = function ( idOrNode, config ) {
 
 ( function () {
 	/**
-	 * Message store for the default implementation of OO.ui.msg
+	 * Message store for the default implementation of OO.ui.msg.
 	 *
 	 * Environments that provide a localization system should not use this, but should override
 	 * OO.ui.msg altogether.
@@ -359,7 +363,8 @@ OO.ui.infuse = function ( idOrNode, config ) {
 		'ooui-dialog-process-error': 'Something went wrong',
 		// Label for process dialog dismiss error button, visible when describing errors
 		'ooui-dialog-process-dismiss': 'Dismiss',
-		// Label for process dialog retry action button, visible when describing only recoverable errors
+		// Label for process dialog retry action button, visible when describing only recoverable
+		// errors
 		'ooui-dialog-process-retry': 'Try again',
 		// Label for process dialog retry action button, visible when describing only warnings
 		'ooui-dialog-process-continue': 'Continue',
@@ -380,15 +385,16 @@ OO.ui.infuse = function ( idOrNode, config ) {
 	/**
 	 * Get a localized message.
 	 *
-	 * After the message key, message parameters may optionally be passed. In the default implementation,
-	 * any occurrences of $1 are replaced with the first parameter, $2 with the second parameter, etc.
-	 * Alternative implementations of OO.ui.msg may use any substitution system they like, as long as
-	 * they support unnamed, ordered message parameters.
+	 * After the message key, message parameters may optionally be passed. In the default
+	 * implementation, any occurrences of $1 are replaced with the first parameter, $2 with the
+	 * second parameter, etc.
+	 * Alternative implementations of OO.ui.msg may use any substitution system they like, as long
+	 * as they support unnamed, ordered message parameters.
 	 *
 	 * In environments that provide a localization system, this function should be overridden to
-	 * return the message translated in the user's language. The default implementation always returns
-	 * English messages. An example of doing this with [jQuery.i18n](https://github.com/wikimedia/jquery.i18n)
-	 * follows.
+	 * return the message translated in the user's language. The default implementation always
+	 * returns English messages. An example of doing this with
+	 * [jQuery.i18n](https://github.com/wikimedia/jquery.i18n) follows.
 	 *
 	 *     @example
 	 *     var i, iLen, button,
@@ -536,7 +542,7 @@ OO.ui.isMobile = function () {
  * such menus overlapping any fixed headers/toolbars/navigation used by the site.
  *
  * @return {Object} Object with the properties 'top', 'right', 'bottom', 'left', each representing
- *     the extra spacing from that edge of viewport (in pixels)
+ *  the extra spacing from that edge of viewport (in pixels)
  */
 OO.ui.getViewportSpacing = function () {
 	return {
