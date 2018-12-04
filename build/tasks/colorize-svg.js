@@ -82,7 +82,10 @@ module.exports = function ( grunt ) {
 			deferred = Q.defer(),
 			file = typeof this.file === 'string' ?
 				{ ltr: this.file, rtl: this.file } :
-				{ ltr: this.file.ltr || this.file.default, rtl: this.file.rtl || this.file.default },
+				{
+					ltr: this.file.ltr || this.file.default,
+					rtl: this.file.rtl || this.file.default
+				},
 			moreLangs = this.file.lang || {},
 			name = this.name,
 			sourcePath = this.list.getPath(),
@@ -173,7 +176,9 @@ module.exports = function ( grunt ) {
 				.replace( /{variant}/g, variantName );
 
 			for ( direction in file ) {
-				declarations = getDeclarations( variantizeFileName( file[ direction ], variantName ) );
+				declarations = getDeclarations(
+					variantizeFileName( file[ direction ], variantName )
+				);
 				rules[ direction ].push( selector + ' {\n\t' + declarations + '\n}' );
 
 				// TODO: Do this using proper DOM manipulation, not regexp magic
@@ -194,7 +199,9 @@ module.exports = function ( grunt ) {
 
 				for ( lang in moreLangs ) {
 					langSelector = ':lang(' + lang + ')';
-					declarations = getDeclarations( variantizeFileName( moreLangs[ lang ], variantName ) );
+					declarations = getDeclarations(
+						variantizeFileName( moreLangs[ lang ], variantName )
+					);
 					rules[ direction ].push(
 						'/* @noflip */\n' +
 						selector.replace( /,|$/g, langSelector + '$&' ) +

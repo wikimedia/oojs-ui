@@ -92,8 +92,8 @@ module.exports = function ( grunt ) {
 		function rtlPath( fileName ) {
 			return fileName.replace( /\.(\w+)$/, '.rtl.$1' );
 		}
-		// Generate all task targets required to process given file into a pair of CSS files (for LTR
-		// and RTL), and return file name of LTR file.
+		// Generate all task targets required to process given file into a pair of CSS files (for
+		// LTR and RTL), and return file name of LTR file.
 		function processFile( fileName ) {
 			var lessFileName, cssFileName, path;
 			path = require( 'path' );
@@ -140,10 +140,12 @@ module.exports = function ( grunt ) {
 			}
 		}
 
-		// Define 'less' task targets - we need a target for each theme because of different import paths
+		// Define 'less' task targets - we need a target for each theme because of different import
+		// paths
 		lessTargets = {
 			options: {
-				// Force LESS v3.0.0+ to let us use mixins before we later upgrade to @plugin architecture.
+				// Force Less v3.0.0+ to let us use mixins before we later upgrade to @plugin
+				// architecture.
 				javascriptEnabled: true,
 				modifyVars: {
 					// Changed dynamically by 'set-graphics' task
