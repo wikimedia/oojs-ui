@@ -105,6 +105,13 @@ OO.ui.Element.static.tagName = 'div';
  */
 OO.ui.Element.static.infuse = function ( idOrNode, config ) {
 	var obj = OO.ui.Element.static.unsafeInfuse( idOrNode, config, false );
+
+	if ( typeof idOrNode === 'string' ) {
+		// IDs deprecated since 0.29.7
+		OO.ui.warnDeprecation(
+			'Passing a string ID to infuse is deprecated. Use an HTMLElement or jQuery collection instead.'
+		);
+	}
 	// Verify that the type matches up.
 	// FIXME: uncomment after T89721 is fixed, see T90929.
 	/*
