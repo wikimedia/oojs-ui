@@ -39,7 +39,7 @@ module.exports = function ( grunt ) {
 	};
 
 	/**
-	 * Get path to file of generated Less stylesheet.
+	 * Get path to file of generated LESS stylesheet.
 	 *
 	 * @param {string} textDirection Text direction to get stylesheet path for, 'ltr' or 'rtl'
 	 * @return {string} Destination path

@@ -144,7 +144,7 @@ module.exports = function ( grunt ) {
 		// paths
 		lessTargets = {
 			options: {
-				// Force Less v3.0.0+ to let us use mixins before we later upgrade to @plugin
+				// Force LESS v3.0.0+ to let us use mixins before we later upgrade to @plugin
 				// architecture.
 				javascriptEnabled: true,
 				modifyVars: {
