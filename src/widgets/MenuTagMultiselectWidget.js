@@ -118,11 +118,11 @@ OO.ui.MenuTagMultiselectWidget.prototype.onInputChange = function () {
  * @param {OO.ui.OptionWidget} menuItem Chosen menu item
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onMenuChoose = function ( menuItem ) {
-	// Add tag
-	this.addTag( menuItem.getData(), menuItem.getLabel() );
 	if ( this.hasInput && this.clearInputOnChoose ) {
 		this.input.setValue( '' );
 	}
+	// Add tag
+	this.addTag( menuItem.getData(), menuItem.getLabel() );
 };
 
 /**
