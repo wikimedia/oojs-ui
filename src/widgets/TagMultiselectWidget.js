@@ -488,6 +488,9 @@ OO.ui.TagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
 	OO.ui.TagMultiselectWidget.parent.prototype.setDisabled.call( this, isDisabled );
 
 	if ( this.hasInput && this.input ) {
+		if ( !isDisabled ) {
+			this.updateInputSize();
+		}
 		this.input.setDisabled( !!isDisabled && !this.isUnderLimit() );
 	}
 
