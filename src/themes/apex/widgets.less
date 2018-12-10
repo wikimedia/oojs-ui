@@ -1229,7 +1229,7 @@
 		color: #000;
 		border: @border-base;
 		border-radius: @border-radius-base;
-		padding: @padding-top-textinput 0.5em @padding-bottom-textinput 0.5em;
+		padding: @padding-top-textinput @padding-horizontal-input-text @padding-bottom-textinput @padding-horizontal-input-text;
 		box-shadow: 0 0 0 #fff, inset 0 0.1em 0.2em #ddd;
 		font-size: inherit;
 		font-family: inherit;
@@ -1311,7 +1311,8 @@
 
 		> .oo-ui-iconElement-icon {
 			max-height: 2.5em;
-			margin-left: 0.3em + @size-icon-outer;
+			// Use `@padding-horizontal-input-text` for `margin` here for same distance with label
+			margin-left: @padding-horizontal-input-text;
 		}
 	}
 
