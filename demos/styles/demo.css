@@ -10,22 +10,26 @@ body {
 	font-family: sans-serif;
 }
 
+a:link {
+	color: #36c;
+}
+
+code,
+code[ class*='language-' ],
+pre[ class*='language-' ] {
+	font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'Courier New', monospace; /* See T209915 */
+}
+
+p {
+	margin: 0.5em 0;
+}
+
 .oo-ui-theme-wikimediaui {
 	font-size: 0.875em;
 }
 
 .oo-ui-theme-apex {
 	font-size: 0.8em;
-}
-
-code {
-	/* Support: Blink, Gecko, Webkit */
-	/* Specify a valid second value to fix size, see T176636 */
-	font-family: monospace, monospace;
-}
-
-p {
-	margin: 0.5em 0;
 }
 
 /* Layout */
@@ -118,8 +122,8 @@ p {
 	margin-right: -1.2em;
 	padding: 0.703125em 0.9375em 0.625em; /* equals frameless button */
 	border-radius: 2px;
-	line-height: 1.172em;
 	font-weight: bold;
+	line-height: 1.172em;
 	text-align: center;
 	-webkit-transition: color 100ms;
 	-moz-transition: color 100ms;
@@ -127,7 +131,8 @@ p {
 }
 
 .demo-link-example:hover::after,
-.demo-console-toggle:hover::after {
+.demo-console-toggle:hover::after,
+.demo-console-label:hover::before {
 	color: #447ff5;
 }
 
@@ -219,21 +224,23 @@ p {
 /* @noflip */
 .demo-console-label::before {
 	content: '→';
-	color: #00f;
+	color: #36c;
 	display: block;
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 20px;
+	width: 24px;
+	line-height: 24px;
 	text-align: center;
 }
 
 .demo-console-input {
-	margin: 0;
-	padding: 0;
-	border: 0;
 	width: 100%;
+	margin: 0;
+	padding: 4px;
+	border: 0;
+	font-size: inherit;
 }
 
 .demo-console-input:focus {
