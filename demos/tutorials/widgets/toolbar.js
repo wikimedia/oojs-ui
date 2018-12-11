@@ -68,6 +68,12 @@ Tutorials.Toolbar = function ( config ) {
 			this.tutorialsDropdown.$element
 		);
 
+	this.tutorialsDropdown.getMenu().items.forEach( function ( item ) {
+		if ( location.pathname.indexOf( item.getData() ) !== -1 ) {
+			item.setSelected( true );
+		}
+	} );
+
 	this.tutorialsDropdown.getMenu().on( 'choose', Tutorials.Toolbar.prototype.urlRedirection );
 };
 
