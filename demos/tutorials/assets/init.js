@@ -4,7 +4,7 @@ var Widgets = {};
 * Back to top button
 * Taken from https://codepen.io/desirecode/pen/MJPJqV/
 */
-$( document ).ready( function () {
+$( function () {
 	$( window ).scroll( function () {
 		if ( $( this ).scrollTop() > 100 ) {
 			$( '.scroll' ).fadeIn();

@@ -108,7 +108,7 @@
 		</p>
 		<p>Here is how you can add a <code class="inline-code">SelectWidget</code> and an <code class="inline-code">
 			TextInputWidget</code> to your <code class="inline-code">assets/init.js</code> file:</p>
-<pre class="line-numbers"><code class="language-javascript">$( document ).ready( function () {
+<pre class="line-numbers"><code class="language-javascript">$( function () {
 	var input = new OO.ui.TextInputWidget(),
 		list = new OO.ui.SelectWidget();
 
@@ -236,7 +236,7 @@ input.on( 'enter', function () {
 			test to the input. Let's go back to the piece in our <code class="inline-code">init.js</code>
 			file where we created the widgets, and add configuration to both:
 		</p>
-<pre class="line-numbers"><code class="language-javascript">$( document ).ready( function () {
+<pre class="line-numbers"><code class="language-javascript">$( function () {
 	var input = new OO.ui.TextInputWidget( {
 			placeholder: 'Add a ToDo item'
 		} ),
@@ -304,7 +304,7 @@ input.on( 'enter', function () {
 		<p>
 			Here's the full code of our <code class="inline-code">assets/init.js</code> file:
 		</p>
-<pre class="line-numbers"><code class="language-javascript">$( document ).ready( function () {
+<pre class="line-numbers"><code class="language-javascript">$( function () {
 	var input = new OO.ui.TextInputWidget( {
 			placeholder: 'Add a ToDo item'
 		} ),
