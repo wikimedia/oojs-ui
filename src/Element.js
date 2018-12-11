@@ -554,7 +554,10 @@ OO.ui.Element.static.getScrollLeft = ( function () {
 	var rtlScrollType = null;
 
 	function test() {
-		var $definer = $( '<div dir="rtl" style="font-size: 14px; width: 1px; height: 1px; position: absolute; top: -1000px; overflow: scroll">A</div>' ),
+		var $definer = $( '<div>' ).attr( {
+				dir: 'rtl',
+				style: 'font-size: 14px; width: 1px; height: 1px; position: absolute; top: -1000px; overflow: scroll;'
+			} ).text( 'A' ),
 			definer = $definer[ 0 ];
 
 		$definer.appendTo( 'body' );

@@ -283,7 +283,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 			openButton = new OO.ui.ButtonWidget( {
 				framed: false,
 				icon: 'window',
-				label: $( '<span dir="ltr"></span>' ).text( examples[ i ].name )
+				label: $( '<span>' ).attr( 'dir', 'ltr' ).text( examples[ i ].name )
 			} );
 
 			if ( examples[ i ].method ) {

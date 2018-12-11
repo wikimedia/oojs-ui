@@ -17,7 +17,7 @@
  *         label: 'plaintext label'
  *     } );
  *     var label2 = new OO.ui.LabelWidget( {
- *         label: $( '<a href="default.html">jQuery label</a>' )
+ *         label: $( '<a>' ).attr( 'href', 'default.html' ).text( 'jQuery label' )
  *     } );
  *     // Create a fieldset layout with fields for each example
  *     var fieldset = new OO.ui.FieldsetLayout();
