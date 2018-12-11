@@ -230,7 +230,6 @@ tr {
 */
 .scroll {
 	background-color: #222;
-	display: none;
 	position: fixed;
 	bottom: 10px;
 	right: 10px;
@@ -239,6 +238,14 @@ tr {
 	border-radius: 60px;
 	text-indent: -9999px;
 	cursor: pointer;
+	opacity: 0;
+	-webkit-transition: opacity 250ms;
+	-moz-transition: opacity 250ms;
+	transition: opacity 250ms;
+}
+
+.scroll-visible {
+	opacity: 1;
 }
 
 .scroll span {
@@ -255,7 +262,6 @@ tr {
 
 .scroll:hover {
 	background-color: #b32424;
-	opacity: 1;
 }
 
 /*
