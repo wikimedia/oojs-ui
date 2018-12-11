@@ -169,12 +169,12 @@ tr {
 }
 
 /* Borrowed from Core Apex CSS */
-.oo-ui-selectWidget-depressed .oo-ui-optionWidget-selected {
+.embed-app .oo-ui-selectWidget-depressed .oo-ui-optionWidget-selected {
 	background-color: #80ccff;
 }
 
 /* Borrowed from Core Apex CSS */
-.oo-ui-optionWidget-highlighted {
+.embed-app .oo-ui-optionWidget-highlighted {
 	background-color: #b9e3ff;
 }
 
