@@ -52,7 +52,7 @@ p {
 pre {
 	background-color: #fff;
 	padding: 1em;
-	box-shadow: 1px 1px 8px #bbb;
+	box-shadow: 0 0 8px #bbb;
 }
 
 pre + p {
@@ -82,7 +82,7 @@ table {
 	width: 100%;
 	margin-top: 2em;
 	border-collapse: collapse;
-	box-shadow: 1px 1px 8px #bbb;
+	box-shadow: 0 0 8px #bbb;
 }
 
 td,
@@ -127,7 +127,7 @@ tr {
 	margin-top: 3em;
 	border-radius: 4px;
 	padding: 2em;
-	box-shadow: 2px 2px 20px #bbb;
+	box-shadow: 0 0 20px #bbb;
 	font-size: 120%;
 }
 
@@ -154,13 +154,13 @@ tr {
 	margin-bottom: 2.5em;
 	border-radius: 2px;
 	padding: 0.75em;
-	box-shadow: 3px 3px 18px #36c;
+	box-shadow: 0 0 10px #36c;
 }
 
 .oo-ui-fieldsetLayout.oo-ui-labelElement > .oo-ui-fieldsetLayout-header {
 	width: 5.5em;
 	color: #36c;
-	box-shadow: 1px 2px 12px;
+	box-shadow: 0 0 6px;
 }
 
 .oo-ui-fieldsetLayout.oo-ui-labelElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
