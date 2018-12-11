@@ -1,18 +1,11 @@
-// eslint-disable-next-line no-unused-vars, no-implicit-globals
-var Widgets = {};
-/*
-* Back to top button
-* Taken from https://codepen.io/desirecode/pen/MJPJqV/
-*/
+window.Widgets = {};
+
 $( function () {
-	$( window ).scroll( function () {
-		if ( $( this ).scrollTop() > 100 ) {
-			$( '.scroll' ).fadeIn();
-		} else {
-			$( '.scroll' ).fadeOut();
-		}
+	var $scroll = $( '.scroll' );
+	$( window ).on( 'scroll', function () {
+		$scroll.toggleClass( 'scroll-visible', $( this ).scrollTop() > 100 );
 	} );
-	$( '.scroll' ).click( function () {
+	$scroll.on( 'click', function () {
 		$( 'html, body' ).animate( { scrollTop: 0 }, 600 );
 		return false;
 	} );
