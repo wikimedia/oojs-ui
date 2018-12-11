@@ -301,9 +301,9 @@
 
 	&.oo-ui-widget-disabled &-handle {
 		color: #ccc;
-		text-shadow: 0 1px 1px #fff;
 		border-color: #ddd;
 		background-color: #f3f3f3;
+		text-shadow: @text-shadow-widget-disabled;
 
 		.oo-ui-indicatorElement-indicator {
 			opacity: 0.2;
@@ -591,7 +591,7 @@
 
 	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected {
 		background-color: #a7dcff;
-		text-shadow: 0 1px 1px rgba( 255, 255, 255, 0.5 );
+		text-shadow: @text-shadow-button;
 	}
 }
 
@@ -979,14 +979,14 @@
 			background-color: #f3f3f3;
 			color: #ccc;
 			border-color: #ddd;
-			text-shadow: 0 1px 1px #fff;
+			text-shadow: @text-shadow-widget-disabled;
 		}
 
 		.oo-ui-selectFileWidget-info {
 			background-color: #f3f3f3;
 			color: #ccc;
 			border-color: #ddd;
-			text-shadow: 0 1px 1px #fff;
+			text-shadow: @text-shadow-widget-disabled;
 
 			> .oo-ui-iconElement-icon,
 			> .oo-ui-indicatorElement-indicator {
@@ -1065,6 +1065,10 @@
 		border-color: @border-color-base--focus;
 		outline: 0;
 		box-shadow: @box-shadow-widget--focus;
+	}
+
+	&.oo-ui-labelElement .oo-ui-labelElement-label {
+		text-shadow: @text-shadow-button;
 	}
 
 	> .oo-ui-buttonElement {
@@ -1201,9 +1205,9 @@
 
 	&.oo-ui-widget-disabled &-handle {
 		color: #ccc;
-		text-shadow: 0 1px 1px #fff;
 		border-color: #ddd;
 		background-color: #f3f3f3;
+		text-shadow: @text-shadow-widget-disabled;
 		cursor: default;
 
 		> .oo-ui-iconElement-icon,
@@ -1279,9 +1283,9 @@
 		input,
 		textarea {
 			color: #ccc;
-			text-shadow: 0 1px 1px #fff;
 			border-color: #ddd;
 			background-color: #f3f3f3;
+			text-shadow: @text-shadow-widget-disabled;
 		}
 
 		> .oo-ui-iconElement-icon,
@@ -1291,7 +1295,7 @@
 
 		> .oo-ui-labelElement-label {
 			color: #ddd;
-			text-shadow: 0 1px 1px #fff;
+			text-shadow: @text-shadow-widget-disabled;
 		}
 	}
 
