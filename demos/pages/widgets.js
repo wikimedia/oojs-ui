@@ -3041,7 +3041,7 @@ Demo.static.pages.widgets = function ( demo ) {
 										} ),
 										new OO.ui.ButtonWidget( {
 											framed: false,
-											icon: 'help',
+											icon: 'helpNotice',
 											label: 'Help',
 											invisibleLabel: true,
 											title: 'Icon only'

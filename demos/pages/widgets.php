@@ -1335,6 +1335,13 @@ $demoContainer->appendContent( new OOUI\FormLayout( [
 									'icon' => 'tag',
 									'label' => 'Random icon button',
 								] ),
+								new OOUI\ButtonInputWidget( [
+									'framed' => false,
+									'icon' => 'helpNotice',
+									'label' => 'Help',
+									'invisibleLabel' => true,
+									'title' => 'Icon only'
+								] ),
 							]
 						] ),
 					] ),
