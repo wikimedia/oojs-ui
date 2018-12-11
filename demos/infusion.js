@@ -18,11 +18,11 @@ function now() {
 function infuseAll() {
 	var start, end;
 	start = now();
-	$( '*[data-ooui]' ).map( function ( _, e ) {
-		return OO.ui.infuse( e.id );
+	$( '*[data-ooui]' ).each( function () {
+		OO.ui.infuse( this );
 	} );
 	end = now();
-	window.console.log( 'Took ' + ( end - start ) + ' ms to infuse demo page.' );
+	window.console.log( 'Took ' + Math.round( end - start ) + ' ms to infuse demo page.' );
 	infuseButton.setDisabled( true );
 }
 
