@@ -36,7 +36,7 @@
 				Let’s first create a way to view the information we have about our items.
 				We’ll start by adding a simple label to our page:
 			</p>
-<pre class="line-numbers"><code class="language-javascript">$( document ).ready( function () {
+<pre class="line-numbers"><code class="language-javascript">$( function () {
 	var input = new OO.ui.TextInputWidget( {
 			placeholder: 'Add a ToDo item'
 		} ),
@@ -65,7 +65,7 @@
 				or chosen, with the reference to the chosen item as the parameter. We’ll attach
 				a listener to this event.
 			</p>
-<pre class="line-numbers"><code class="language-javascript">$( document ).ready( function () {
+<pre class="line-numbers"><code class="language-javascript">$( function () {
 	// ... code ...
 	list.on( 'choose', function ( item ) {
 		info.setLabel( item.getData() );
@@ -118,7 +118,7 @@ OO.inheritClass( ToDoItemWidget, OO.ui.OptionWidget );</code></pre>
 				Now, change the code to use the new <code class="inline-code">
 				ToDoItemWidget</code> class:
 			</p>
-<pre class="line-numbers"><code class="language-javascript">$( document ).ready( function () {
+<pre class="line-numbers"><code class="language-javascript">$( function () {
 	// ... code ...
 
 	// Respond to 'enter' keypress
@@ -210,7 +210,7 @@ ToDoItemWidget.prototype.getCreationTime = function () {
 				Now we can set this when we instantiate the object in our initialization script,
 				and change the info label to display this new property.
 			</p>
-<pre class="line-numbers"><code class="language-javascript">$( document ).ready( function () {
+<pre class="line-numbers"><code class="language-javascript">$( function () {
 	// ... code ...
 
 	input.on( 'enter', function () {
@@ -358,7 +358,7 @@ OO.inheritClass( ToDoListWidget, OO.ui.SelectWidget );</code></pre>
 &lt;script src="assets/ToDoItemWidget.js"&gt;&lt;/script&gt;
 &lt;script src="assets/ToDoListWidget.js"&gt;&lt;/script&gt;</code></pre>
 
-<pre class="line-numbers"><code class="language-javascript">$( document ).ready( function () {
+<pre class="line-numbers"><code class="language-javascript">$( function () {
 	// ... code ...
 		list = new ToDoListWidget( {
 			classes: [ 'todo-list' ]
@@ -471,7 +471,7 @@ ToDoListWidget.prototype.onItemDelete = function ( itemWidget ) {
 &lt;/html&gt;</code></pre>
 
 			<p>2. Full code for <code class="inline-code">init.js</code></p>
-<pre class="line-numbers"><code class="language-javascript">$( document ).ready( function () {
+<pre class="line-numbers"><code class="language-javascript">$( function () {
 	var input = new OO.ui.TextInputWidget( {
 			placeholder: 'Add a ToDo item'
 		} ),
