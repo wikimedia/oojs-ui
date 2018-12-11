@@ -60,6 +60,12 @@ pre + p {
 }
 
 /* Override PrismJS default */
+code,
+code[ class*='language-' ],
+pre[ class*='language-' ] {
+	font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'Courier New', monospace; /* See T209915 */
+}
+
 :not( pre ) > code[ class*='language-' ],
 pre[ class*='language-' ] {
 	background: #fff;
