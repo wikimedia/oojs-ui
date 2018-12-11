@@ -405,7 +405,9 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			right: @padding-horizontal-base;
+			// Workaround for 'down' indicator inner distance
+			@size-indicator-inner-distance: unit( 1 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit );
+			right: @padding-horizontal-base - @size-indicator-inner-distance;
 		}
 
 		.oo-ui-labelElement-label {
