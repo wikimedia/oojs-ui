@@ -363,6 +363,8 @@ OO.ui.infuse = function ( idOrNode, config ) {
 		'ooui-dialog-process-retry': 'Try again',
 		// Label for process dialog retry action button, visible when describing only warnings
 		'ooui-dialog-process-continue': 'Continue',
+		// Label for button in combobox input that triggers its dropdown
+		'ooui-combobox-button-label': 'Dropdown for combobox',
 		// Label for the file selection widget's select file button
 		'ooui-selectfile-button-select': 'Select a file',
 		// Label for the file selection widget if file selection is not supported

@@ -84,7 +84,9 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 	this.dropdownButton = new OO.ui.ButtonWidget( {
 		classes: [ 'oo-ui-comboBoxInputWidget-dropdownButton' ],
+		label: OO.ui.msg( 'ooui-combobox-button-label' ),
 		indicator: 'down',
+		invisibleLabel: true,
 		disabled: this.disabled
 	} );
 	this.menu = new OO.ui.MenuSelectWidget( $.extend(
@@ -117,6 +119,9 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 		role: 'combobox',
 		'aria-owns': this.menu.getElementId(),
 		'aria-autocomplete': 'list'
+	} );
+	this.dropdownButton.$button.attr( {
+		'aria-controls': this.menu.getElementId()
 	} );
 	// Do not override options set via config.menu.items
 	if ( config.options !== undefined ) {
