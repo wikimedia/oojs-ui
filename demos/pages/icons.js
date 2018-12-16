@@ -222,7 +222,6 @@ Demo.static.pages.icons = function ( demo ) {
 			'clear',
 			'down',
 			'required',
-			'search',
 			'up'
 		],
 		iconsFieldsets = [],
