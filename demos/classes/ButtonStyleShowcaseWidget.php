@@ -39,9 +39,6 @@ class ButtonStyleShowcaseWidget extends OOUI\Widget {
 			'title' => "Title text",
 		],
 		[
-			'indicator' => 'down',
-		],
-		[
 			'icon' => 'tag',
 			'indicator' => 'down',
 		],
@@ -55,6 +52,7 @@ class ButtonStyleShowcaseWidget extends OOUI\Widget {
 			'disabled' => true,
 		],
 		[
+			'icon' => 'tag',
 			'indicator' => 'down',
 			'disabled' => true,
 		],

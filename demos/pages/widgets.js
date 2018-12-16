@@ -230,18 +230,6 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
-						indicator: 'clear',
-						label: 'Clear',
-						invisibleLabel: true,
-						title: 'Indicator only, framed'
-					} ),
-					{
-						label: 'ButtonWidget (indicator only)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
 						framed: false,
 						icon: 'edit',
 						label: 'Edit',
@@ -250,19 +238,6 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'ButtonWidget (frameless, icon only)\u200E',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						framed: false,
-						indicator: 'clear',
-						label: 'Clear',
-						invisibleLabel: true,
-						title: 'Indicator only'
-					} ),
-					{
-						label: 'ButtonWidget (frameless, indicator only)\u200E',
 						align: 'top'
 					}
 				),
