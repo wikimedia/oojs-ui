@@ -310,8 +310,8 @@ Demo.static.pages.icons = function ( demo ) {
 			.attr( 'role', 'main' )
 			.append(
 				selector.$element,
-				indicatorsFieldset.$element,
-				iconsFieldsets.map( function ( item ) { return item.$element[ 0 ]; } )
+				iconsFieldsets.map( function ( item ) { return item.$element[ 0 ]; } ),
+				indicatorsFieldset.$element
 			)
 	);
 };
