@@ -13,7 +13,9 @@ $demoContainer = new OOUI\PanelLayout( [
 	'framed' => true,
 ] );
 
-$demoContainer->addClasses( [ 'demo-container' ] );
+$demoContainer
+	->addClasses( [ 'demo-container' ] )
+	->setAttributes( [ 'role' => 'main' ] );
 
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'id' => 'demo-section-buttons',
