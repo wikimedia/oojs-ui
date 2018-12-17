@@ -1331,6 +1331,7 @@ $demoContainer->appendContent( new OOUI\FormLayout( [
 									'framed' => false,
 									'flags' => [ 'destructive' ],
 									'label' => 'Cancel',
+									'classes' => [ 'demo-summary-buttonElement' ],
 								] ),
 								new OOUI\ButtonInputWidget( [
 									'framed' => false,

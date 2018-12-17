@@ -3032,7 +3032,8 @@ Demo.static.pages.widgets = function ( demo ) {
 										new OO.ui.ButtonWidget( {
 											framed: false,
 											flags: [ 'destructive' ],
-											label: 'Cancel'
+											label: 'Cancel',
+											classes: [ 'demo-summary-buttonElement' ]
 										} ),
 										new OO.ui.ButtonWidget( {
 											framed: false,

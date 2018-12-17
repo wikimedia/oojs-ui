@@ -440,6 +440,11 @@ FieldLayout left & right aligned */
 	padding: 1em 1em 1.5em 1em;
 }
 
+/* Ensure color contrast in accessibility testing */
+.demo-summary-buttonElement.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
+	color: #cd2323;
+}
+
 /*
  * Support: iOS 9.2, Android 4.4.4, Op Mobile 37, Chrome/Android 57, Fx/Android 52, UC Browser 11.4, Baidu 7.12
  * Workaround for weak ancient mobile browser support of `fixed` positioning
