@@ -253,17 +253,12 @@
 .theme-oo-ui-dropdownWidget () {
 	width: 100%;
 	max-width: @max-width-input-base;
-	background-color: @background-color-main;
 	.oo-ui-inline-spacing( 0.5em );
 
 	&-handle {
 		height: 2.5em;
 		border: @border-base;
 		border-radius: @border-radius-base;
-
-		&:hover {
-			border-color: @border-color-base--hover;
-		}
 
 		&:focus {
 			outline: 0;
@@ -293,6 +288,12 @@
 	}
 
 	&.oo-ui-widget-enabled &-handle {
+		background-color: @background-color-main;
+
+		&:hover {
+			border-color: @border-color-base--hover;
+		}
+
 		&:focus {
 			border-color: @border-color-base--focus;
 			box-shadow: @box-shadow-widget--focus;
@@ -300,9 +301,9 @@
 	}
 
 	&.oo-ui-widget-disabled &-handle {
+		background-color: #f3f3f3;
 		color: #ccc;
 		border-color: #ddd;
-		background-color: #f3f3f3;
 		text-shadow: @text-shadow-widget-disabled;
 
 		.oo-ui-indicatorElement-indicator {
