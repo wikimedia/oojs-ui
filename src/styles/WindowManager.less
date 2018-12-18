@@ -35,5 +35,14 @@
 		bottom: 0;
 	}
 
+	// This class is applied to the <body> element
+	&-modal-active {
+		// Prevent the page behind the dialog from being scrolled (and remove the scrollbar)
+		overflow: hidden;
+		// Prevent positioned content from shifting when the scrollbar is removed (T208436):
+		// this works together with the `margin-right` added by WindowManager#toggleGlobalEvents
+		position: relative;
+	}
+
 	.theme-oo-ui-windowManager();
 }
