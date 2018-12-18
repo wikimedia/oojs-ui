@@ -1,14 +1,14 @@
 @import 'common';
 
-.theme-oo-ui-widget () {}
+.theme-oo-ui-widget() {}
 
-.theme-oo-ui-actionWidget () {}
+.theme-oo-ui-actionWidget() {}
 
-.theme-oo-ui-buttonWidget () {
+.theme-oo-ui-buttonWidget() {
 	.oo-ui-inline-spacing( 0.5em );
 }
 
-.theme-oo-ui-buttonGroupWidget () {
+.theme-oo-ui-buttonGroupWidget() {
 	display: inline-block;
 	border-radius: @border-radius-base;
 	.oo-ui-inline-spacing( 0.5em );
@@ -79,11 +79,11 @@
 	}
 }
 
-.theme-oo-ui-buttonInputWidget () {}
+.theme-oo-ui-buttonInputWidget() {}
 
-.theme-oo-ui-buttonOptionWidget () {}
+.theme-oo-ui-buttonOptionWidget() {}
 
-.theme-oo-ui-buttonSelectWidget () {
+.theme-oo-ui-buttonSelectWidget() {
 	border-radius: @border-radius-base;
 	.oo-ui-inline-spacing( 0.5em );
 	// Create a stacking context, so that we can use `z-index` below without leaking out
@@ -149,7 +149,7 @@
 	}
 }
 
-.theme-oo-ui-checkboxInputWidget () {
+.theme-oo-ui-checkboxInputWidget() {
 	position: relative;
 	line-height: @size-input-binary;
 	// Prevent the fake span from jumping to the next line of text
@@ -258,7 +258,7 @@
 	}
 }
 
-.theme-oo-ui-checkboxMultioptionWidget () {
+.theme-oo-ui-checkboxMultioptionWidget() {
 	padding: @padding-vertical-label 0;
 
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
@@ -270,15 +270,15 @@
 	}
 }
 
-.theme-oo-ui-checkboxMultiselectWidget () {}
+.theme-oo-ui-checkboxMultiselectWidget() {}
 
-.theme-oo-ui-checkboxMultiselectInputWidget () {
+.theme-oo-ui-checkboxMultiselectInputWidget() {
 	.oo-ui-fieldLayout {
 		margin-top: @padding-vertical-label; // `@padding-vertical-label` used as `margin-top` here
 	}
 }
 
-.theme-oo-ui-comboBoxInputWidget () {
+.theme-oo-ui-comboBoxInputWidget() {
 	// inherits from `inputWidget` & `textInputWidget`
 
 	input {
@@ -339,7 +339,7 @@
 	}
 }
 
-.theme-oo-ui-decoratedOptionWidget () {
+.theme-oo-ui-decoratedOptionWidget() {
 	padding: @padding-menu;
 	line-height: @line-height-reset;
 
@@ -388,7 +388,7 @@
 	}
 }
 
-.theme-oo-ui-dropdownWidget () {
+.theme-oo-ui-dropdownWidget() {
 	width: 100%;
 	max-width: @max-width-input;
 	.oo-ui-inline-spacing( 0.5em );
@@ -488,7 +488,7 @@
 	}
 }
 
-.theme-oo-ui-dropdownInputWidget () {
+.theme-oo-ui-dropdownInputWidget() {
 	width: 100%;
 	max-width: @max-width-input;
 
@@ -572,7 +572,7 @@
 	}
 }
 
-.theme-oo-ui-iconWidget () {
+.theme-oo-ui-iconWidget() {
 	line-height: 2.5;
 	display: inline-block;
 	position: static;
@@ -584,7 +584,7 @@
 	}
 }
 
-.theme-oo-ui-indicatorWidget () {
+.theme-oo-ui-indicatorWidget() {
 	line-height: 2.5;
 	margin: @size-indicator / 2;
 	display: inline-block;
@@ -597,11 +597,11 @@
 	}
 }
 
-.theme-oo-ui-inputWidget () {
+.theme-oo-ui-inputWidget() {
 	.oo-ui-inline-spacing( 0.5em );
 }
 
-.theme-oo-ui-labelWidget () {
+.theme-oo-ui-labelWidget() {
 	&.oo-ui-inline-help {
 		display: block;
 		color: @color-base--deemphasized;
@@ -609,7 +609,7 @@
 	}
 }
 
-.theme-oo-ui-menuOptionWidget () {
+.theme-oo-ui-menuOptionWidget() {
 	.oo-ui-transition(
 		background-color @transition-base,
 		color @transition-base
@@ -644,7 +644,7 @@
 	}
 }
 
-.theme-oo-ui-menuSectionOptionWidget () {
+.theme-oo-ui-menuSectionOptionWidget() {
 	color: @color-base--subtle;
 	padding: @padding-top-base @padding-horizontal-base @padding-vertical-label;
 	font-weight: bold;
@@ -662,7 +662,7 @@
 	}
 }
 
-.theme-oo-ui-menuSelectWidget () {
+.theme-oo-ui-menuSelectWidget() {
 	background-color: @background-color-base;
 	margin-top: -1px;
 	margin-bottom: -1px;
@@ -671,17 +671,17 @@
 	box-shadow: @box-shadow-menu;
 }
 
-.theme-oo-ui-menuTagMultiselectWidget () {}
+.theme-oo-ui-menuTagMultiselectWidget() {}
 
-.theme-oo-ui-multioptionWidget () {
+.theme-oo-ui-multioptionWidget() {
 	&.oo-ui-widget-disabled {
 		color: @color-base--disabled;
 	}
 }
 
-.theme-oo-ui-multiselectWidget () {}
+.theme-oo-ui-multiselectWidget() {}
 
-.theme-oo-ui-numberInputWidget () {
+.theme-oo-ui-numberInputWidget() {
 	max-width: @max-width-input;
 
 	&-buttoned {
@@ -726,7 +726,7 @@
 	}
 }
 
-.theme-oo-ui-optionWidget () {
+.theme-oo-ui-optionWidget() {
 	// Don't add `highlighted` or `selected` modifications here
 	// as it inherits to various visually opposite widgets.
 
@@ -739,7 +739,7 @@
 	}
 }
 
-.theme-oo-ui-outlineControlsWidget () {
+.theme-oo-ui-outlineControlsWidget() {
 	background-color: @background-color-base;
 
 	&-items,
@@ -753,7 +753,7 @@
 	}
 }
 
-.theme-oo-ui-outlineOptionWidget () {
+.theme-oo-ui-outlineOptionWidget() {
 	padding: @padding-menu-large;
 	.oo-ui-transition(
 		background-color @transition-base,
@@ -810,7 +810,7 @@
 	}
 }
 
-.theme-oo-ui-outlineSelectWidget () {
+.theme-oo-ui-outlineSelectWidget() {
 	height: 100%;
 
 	&:focus {
@@ -818,7 +818,7 @@
 	}
 }
 
-.theme-oo-ui-popupWidget () {
+.theme-oo-ui-popupWidget() {
 	&-popup {
 		background-color: @background-color-base;
 		border: @border-menu;
@@ -957,10 +957,10 @@
 	}
 }
 
-.theme-oo-ui-popupButtonWidget () {
+.theme-oo-ui-popupButtonWidget() {
 }
 
-.theme-oo-ui-progressBarWidget () {
+.theme-oo-ui-progressBarWidget() {
 	max-width: @max-width-base;
 	background-color: @background-color-base;
 	border: @border-base;
@@ -993,7 +993,7 @@
 		}
 	}
 
-	.oo-ui-progressBarWidget-slide-frames () {
+	.oo-ui-progressBarWidget-slide-frames() {
 		from {
 			.oo-ui-transform( translate( -100% ) );
 		}
@@ -1016,7 +1016,7 @@
 	}
 }
 
-.theme-oo-ui-radioInputWidget () {
+.theme-oo-ui-radioInputWidget() {
 	position: relative;
 	line-height: @size-input-binary;
 	// Prevent the fake span from jumping to the next line of text
@@ -1135,7 +1135,7 @@
 	}
 }
 
-.theme-oo-ui-radioOptionWidget () {
+.theme-oo-ui-radioOptionWidget() {
 	padding: @padding-vertical-label 0;
 
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
@@ -1147,7 +1147,7 @@
 	}
 }
 
-.theme-oo-ui-radioSelectWidget () {
+.theme-oo-ui-radioSelectWidget() {
 	&:focus {
 		outline: 0;
 
@@ -1157,13 +1157,13 @@
 	}
 }
 
-.theme-oo-ui-radioSelectInputWidget () {
+.theme-oo-ui-radioSelectInputWidget() {
 	.oo-ui-fieldLayout {
 		margin-top: @padding-vertical-label; // `@padding-vertical-label` used as `margin-top` here
 	}
 }
 
-.theme-oo-ui-searchWidget () {
+.theme-oo-ui-searchWidget() {
 	&-query {
 		height: @height-search;
 		padding: 0 @padding-panel-dialog; // Need to use `padding` over `margin` for horizontally continuos `border`/`box-shadow` below
@@ -1182,9 +1182,9 @@
 	}
 }
 
-.theme-oo-ui-selectWidget () {}
+.theme-oo-ui-selectWidget() {}
 
-.theme-oo-ui-selectFileWidget () {
+.theme-oo-ui-selectFileWidget() {
 	width: 100%;
 	max-width: @max-width-input;
 	.oo-ui-inline-spacing( 0.5em );
@@ -1376,7 +1376,7 @@
 	}
 }
 
-.theme-oo-ui-tabOptionWidget () {
+.theme-oo-ui-tabOptionWidget() {
 	color: @color-taboption;
 	margin: @margin-taboption 0 0 @margin-taboption;
 	border-color: transparent;
@@ -1431,7 +1431,7 @@
 	}
 }
 
-.theme-oo-ui-tabSelectWidget () {
+.theme-oo-ui-tabSelectWidget() {
 	background-color: @background-color-tabs;
 
 	// Keyboard focus is handled in TabOptionWidget above
@@ -1440,7 +1440,7 @@
 	}
 }
 
-.theme-oo-ui-tagItemWidget () {
+.theme-oo-ui-tagItemWidget() {
 	.oo-ui-box-sizing( border-box );
 	width: auto;
 	max-width: 100%;
@@ -1552,7 +1552,7 @@
 	}
 }
 
-.theme-oo-ui-tagMultiselectWidget () {
+.theme-oo-ui-tagMultiselectWidget() {
 	width: 100%;
 	max-width: @max-width-input;
 	vertical-align: top;
@@ -1686,7 +1686,7 @@
 	}
 }
 
-.theme-oo-ui-textInputWidget () {
+.theme-oo-ui-textInputWidget() {
 	width: 100%;
 	max-width: @max-width-input;
 
@@ -1855,13 +1855,13 @@
 	}
 }
 
-.theme-oo-ui-toggleWidget () {}
+.theme-oo-ui-toggleWidget() {}
 
-.theme-oo-ui-toggleButtonWidget () {
+.theme-oo-ui-toggleButtonWidget() {
 	.oo-ui-inline-spacing( 0.5em );
 }
 
-.theme-oo-ui-toggleSwitchWidget () {
+.theme-oo-ui-toggleSwitchWidget() {
 	@travelDistance: 1.5em;
 	background-color: @background-color-framed;
 	width: @travelDistance + 2em;
@@ -2011,7 +2011,7 @@
 	}
 }
 
-.mw-placeholder () {
+.mw-placeholder() {
 	// Normalize placeholder styling, see T139034
 	// stylelint-disable indentation
 	.oo-ui-placeholder( {
