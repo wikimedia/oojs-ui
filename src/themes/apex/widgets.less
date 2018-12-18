@@ -194,14 +194,16 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		visibility: hidden;
 
 		.oo-ui-buttonElement-button {
-			padding: 0;
-
-			.oo-ui-indicatorElement-indicator.oo-ui-indicator-down {
-				visibility: visible;
-				margin: 0.775em;
+			// Intentionally omitted: &:focus (we still want the focus outline for keyboard focus)
+			&,
+			&:hover:not( :focus ),
+			.oo-ui-buttonElement-pressed&,
+			.oo-ui-buttonElement-pressed&:focus:active {
+				border-color: transparent;
+				background: none;
+				box-shadow: none;
 			}
 		}
 	}
