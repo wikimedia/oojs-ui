@@ -3,6 +3,8 @@
 .oo-ui-clippableElement-clippable {
 	.oo-ui-box-sizing( border-box );
 	min-height: 3.125em; // equals `40px` at base `font-size: 12.8px`
+	// We set `overflow: scroll` in ClippableElement#clip
+	-webkit-overflow-scrolling: touch;
 
 	.theme-oo-ui-clippableElement();
 }
