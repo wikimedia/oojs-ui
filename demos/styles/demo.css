@@ -39,7 +39,6 @@ p {
 }
 
 .demo-menu {
-	min-width: 320px; /* Let's not pretend it works on anything lower than that */
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -449,11 +448,24 @@ FieldLayout left & right aligned */
 	.demo-menu {
 		background-color: #fff;
 		position: fixed;
+		left: 0;
+		right: 0;
 		top: 0;
+		min-height: 4.5em;
 		border-bottom: 1px solid #a2a9b1;
 		padding-top: 1em;
+		padding-left: 1em;
 		box-shadow: 0 4px 4px -4px rgba( 0, 0, 0, 0.25 );
 		z-index: 5;
+	}
+
+	.demo-menu + .demo-container.oo-ui-panelLayout {
+		margin-top: 4.5em;
+	}
+
+	/* Avoid `box-shadow` from menu lurkin into toolbar demo, +1.2em to be harmonious with menu */
+	.demo-menu + .demo-container.oo-ui-panelLayout.demo-toolbars {
+		margin-top: 5.7em;
 	}
 
 	/* This needs extra specificity to beat PanelLayout styles */
@@ -512,49 +524,10 @@ FieldLayout left & right aligned */
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-expanded .demo-console-toggle {
 		margin-top: -0.5em;
 	}
-
-	@supports ( position: fixed ) {
-		.demo-menu {
-			min-height: 11.4em;
-			left: 1em;
-			right: 1em;
-		}
-
-		/* Hide “Docs“ Button on very small screens */
-		.demo-menu > .demo-button-docs {
-			display: none;
-		}
-
-		/* This needs extra specificity to beat PanelLayout styles */
-		.demo-menu + .demo-container.oo-ui-panelLayout {
-			margin-top: 11.4em;
-		}
-
-		/* Avoid `box-shadow` from menu lurkin into toolbar demo, +1.2em to be harmonious with menu */
-		.demo-menu + .demo-container.oo-ui-panelLayout.demo-toolbars {
-			margin-top: 12.6em;
-		}
-	}
 }
 
 @media ( min-width: 568px ) {
 	@supports ( position: fixed ) {
-		.demo-menu {
-			min-height: 7.5em;
-		}
-
-		.demo-menu > .demo-button-docs {
-			display: inline-block;
-		}
-
-		.demo-menu + .demo-container.oo-ui-panelLayout {
-			margin-top: 7.5em;
-		}
-
-		.demo-menu + .demo-container.oo-ui-panelLayout.demo-toolbars {
-			margin-top: 8.7em;
-		}
-
 		.demo-console-expanded .demo-console-toggle {
 			margin-right: 0.5em;
 		}
@@ -579,7 +552,10 @@ FieldLayout left & right aligned */
 	}
 
 	.demo-menu {
+		left: auto;
+		right: auto;
 		width: 62.5em;
+		padding-left: 0;
 		white-space: nowrap;
 	}
 
@@ -600,22 +576,6 @@ FieldLayout left & right aligned */
 
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-expanded .demo-console-toggle {
 		margin-top: -3em;
-	}
-
-	@supports ( position: fixed ) {
-		.demo-menu {
-			min-height: 4.5em;
-			left: auto;
-			right: auto;
-		}
-
-		.demo-menu + .demo-container.oo-ui-panelLayout {
-			margin-top: 4.5em;
-		}
-
-		.demo-menu + .demo-container.oo-ui-panelLayout.demo-toolbars {
-			margin-top: 5.7em;
-		}
 	}
 }
 /* stylelint-enable selector-pseudo-element-colon-notation */

@@ -22,6 +22,7 @@ window.Demo = function Demo() {
 	this.stylesheetLinks = this.getStylesheetLinks();
 	this.mode = this.getCurrentMode();
 	this.$menu = $( '<div>' );
+	this.expandButton = new OO.ui.ToggleButtonWidget( { icon: 'menu' } );
 	this.pageDropdown = new OO.ui.DropdownWidget( {
 		menu: {
 			items: [
@@ -64,7 +65,6 @@ window.Demo = function Demo() {
 
 	this.documentationLink = new OO.ui.ButtonWidget( {
 		label: 'Docs',
-		classes: [ 'demo-button-docs' ],
 		icon: 'journal',
 		href: '../js/',
 		flags: [ 'progressive' ]
@@ -72,13 +72,13 @@ window.Demo = function Demo() {
 
 	this.tutorialsLink = new OO.ui.ButtonWidget( {
 		label: 'Tutorials',
-		classes: [ 'demo-button-docs' ],
 		icon: 'book',
 		href: 'tutorials/index.html',
 		flags: [ 'progressive' ]
 	} );
 
 	// Events
+	this.expandButton.on( 'change', OO.ui.bind( this.onExpandButtonChange, this ) );
 	this.pageMenu.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.themeSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.directionSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
@@ -93,6 +93,7 @@ window.Demo = function Demo() {
 		.addClass( 'demo-menu' )
 		.attr( 'role', 'navigation' )
 		.append(
+			this.expandButton.$element,
 			this.pageDropdown.$element,
 			this.themeSelect.$element,
 			this.directionSelect.$element,
@@ -121,6 +122,13 @@ window.Demo = function Demo() {
 			left: 0
 		};
 	};
+	if ( OO.ui.isMobile() ) {
+		this.onExpandButtonChange( false );
+	} else {
+		// Hide the button on desktop
+		this.expandButton.toggle( false );
+		this.onExpandButtonChange( true );
+	}
 };
 
 /* Setup */
@@ -318,6 +326,21 @@ Demo.prototype.onModeChange = function () {
 
 	history.pushState( null, document.title, this.getUrlQuery( [ page, theme, direction, platform ] ) );
 	$( window ).triggerHandler( 'popstate' );
+};
+
+/**
+ * Handle expand button change events.
+ *
+ * @param {boolean} value Whether the button is toggled on
+ */
+Demo.prototype.onExpandButtonChange = function ( value ) {
+	// Show/hide everything in the menu, except this.pageDropdown
+	this.themeSelect.toggle( value );
+	this.directionSelect.toggle( value );
+	this.jsPhpSelect.toggle( value );
+	this.platformSelect.toggle( value );
+	this.documentationLink.toggle( value );
+	this.tutorialsLink.toggle( value );
 };
 
 /**
