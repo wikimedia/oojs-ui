@@ -45,8 +45,8 @@ Demo.ButtonStyleShowcaseWidget.static.states = [
 		label: 'Button'
 	},
 	{
-		label: 'Button',
 		icon: 'tag',
+		label: 'Button',
 		indicator: 'down'
 	},
 	{
@@ -70,9 +70,9 @@ Demo.ButtonStyleShowcaseWidget.static.states = [
 	},
 	{
 		icon: 'tag',
-		indicator: 'down',
 		label: 'Dropdown',
 		invisibleLabel: true,
+		indicator: 'down',
 		disabled: true
 	}
 ];
