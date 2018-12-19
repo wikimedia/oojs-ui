@@ -45,6 +45,11 @@ OO.ui.mixin.IconElement = function OoUiMixinIconElement( config ) {
 	this.icon = null;
 	this.iconTitle = null;
 
+	// `iconTitle`s are deprecated since 0.30.0
+	if ( config.iconTitle !== undefined ) {
+		OO.ui.warnDeprecation( 'IconElement: Widgets with iconTitle set are deprecated, use title instead. See T76638 for details.' );
+	}
+
 	// Initialization
 	this.setIcon( config.icon || this.constructor.static.icon );
 	this.setIconTitle( config.iconTitle || this.constructor.static.iconTitle );
@@ -156,6 +161,7 @@ OO.ui.mixin.IconElement.prototype.setIcon = function ( icon ) {
  *  a function that returns title text, or `null` for no title.
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
+ * @deprecated
  */
 OO.ui.mixin.IconElement.prototype.setIconTitle = function ( iconTitle ) {
 	iconTitle =
@@ -171,6 +177,12 @@ OO.ui.mixin.IconElement.prototype.setIconTitle = function ( iconTitle ) {
 				this.$icon.removeAttr( 'title' );
 			}
 		}
+	}
+
+	// `setIconTitle is deprecated since 0.30.0
+	if ( iconTitle !== null ) {
+		// Avoid a warning when this is called from the constructor with no iconTitle set
+		OO.ui.warnDeprecation( 'IconElement: setIconTitle is deprecated, use setTitle of TitledElement instead. See T76638 for details.' );
 	}
 
 	return this;

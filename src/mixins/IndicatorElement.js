@@ -36,6 +36,11 @@ OO.ui.mixin.IndicatorElement = function OoUiMixinIndicatorElement( config ) {
 	this.indicator = null;
 	this.indicatorTitle = null;
 
+	// `indicatorTitle`s are deprecated since 0.30.0
+	if ( config.indicatorTitle !== undefined ) {
+		OO.ui.warnDeprecation( 'IndicatorElement: Widgets with indicatorTitle set are deprecated, use title instead. See T76638 for details.' );
+	}
+
 	// Initialization
 	this.setIndicator( config.indicator || this.constructor.static.indicator );
 	this.setIndicatorTitle( config.indicatorTitle || this.constructor.static.indicatorTitle );
@@ -135,6 +140,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
  *   `null` for no indicator title
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
+ * @deprecated
  */
 OO.ui.mixin.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle ) {
 	indicatorTitle =
@@ -150,6 +156,12 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorT
 				this.$indicator.removeAttr( 'title' );
 			}
 		}
+	}
+
+	// `setIndicatorTitle is deprecated since 0.30.0
+	if ( indicatorTitle !== null ) {
+		// Avoid a warning when this is called from the constructor with no indicatorTitle set
+		OO.ui.warnDeprecation( 'IndicatorElement: setIndicatorTitle is deprecated, use setTitle of TitledElement instead. See T76638 for details.' );
 	}
 
 	return this;
