@@ -26,6 +26,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'folderPlaceholder',
 				'die',
 				'download',
+				'robot',
 				'tag',
 				'upload',
 				'window'
