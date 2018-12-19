@@ -706,7 +706,6 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 	var scrollWidth, bodyMargin,
 		$body = $( this.getElementDocument().body ),
-		$html = $body.parent(),
 		// We could have multiple window managers open so only modify
 		// the body css at the bottom of the stack
 		stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0;
@@ -722,7 +721,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 			if ( stackDepth === 0 ) {
 				scrollWidth = window.innerWidth - document.documentElement.clientWidth;
 				bodyMargin = parseFloat( $body.css( 'margin-right' ) ) || 0;
-				$body.add( $html ).addClass( 'oo-ui-windowManager-modal-active' );
+				$body.addClass( 'oo-ui-windowManager-modal-active' );
 				$body.css( 'margin-right', bodyMargin + scrollWidth );
 			}
 			stackDepth++;
@@ -735,7 +734,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 		} );
 		stackDepth--;
 		if ( stackDepth === 0 ) {
-			$body.add( $html ).removeClass( 'oo-ui-windowManager-modal-active' );
+			$body.removeClass( 'oo-ui-windowManager-modal-active' );
 			$body.css( 'margin-right', '' );
 		}
 		this.globalEvents = false;
