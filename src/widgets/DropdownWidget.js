@@ -99,14 +99,21 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	} );
 
 	// Initialization
+	this.$label
+		.attr( {
+			role: 'textbox',
+			'aria-readonly': 'true'
+		} );
 	this.$handle
 		.addClass( 'oo-ui-dropdownWidget-handle' )
+		.append( this.$icon, this.$label, this.$indicator )
 		.attr( {
 			role: 'combobox',
-			'aria-owns': this.menu.getElementId(),
-			'aria-autocomplete': 'list'
-		} )
-		.append( this.$icon, this.$label, this.$indicator );
+			'aria-autocomplete': 'list',
+			'aria-expanded': 'false',
+			'aria-haspopup': 'true',
+			'aria-owns': this.menu.getElementId()
+		} );
 	this.$element
 		.addClass( 'oo-ui-dropdownWidget' )
 		.append( this.$handle );
