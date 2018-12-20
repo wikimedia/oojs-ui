@@ -28,6 +28,7 @@
  * @cfg {OO.ui.InputWidget} [popupInput] An input widget inside the popup that will be
  *  focused when the popup is opened and will be used as replacement for the
  *  general input in the widget.
+ * @deprecated
  */
 OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config ) {
 	var defaultInput,
@@ -87,6 +88,9 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 	this.$element
 		.append( this.popup.$element )
 		.addClass( 'oo-ui-popupTagMultiselectWidget' );
+
+	// Deprecation warning
+	OO.ui.warnDeprecation( 'PopupTagMultiselectWidget: Deprecated widget. Use MenuTagMultiselectWidget instead. See T208821.' );
 };
 
 /* Initialization */

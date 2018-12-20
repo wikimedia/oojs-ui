@@ -1808,17 +1808,6 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.PopupTagMultiselectWidget( {
-						allowArbitrary: true,
-						icon: 'tag',
-						indicator: 'clear'
-					} ),
-					{
-						label: 'PopupTagMultiselectWidget (icon, indicator, allowArbitrary)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
 					new OO.ui.MenuTagMultiselectWidget( {
 						selected: [
 							{ data: 'foo', label: 'Label for foo' },
