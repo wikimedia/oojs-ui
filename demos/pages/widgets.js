@@ -1452,7 +1452,8 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.DropdownInputWidget( {
-						disabled: true
+						disabled: true,
+						title: 'DropdownInputWidget (disabled)'
 					} ),
 					{
 						label: 'DropdownInputWidget (disabled)',
