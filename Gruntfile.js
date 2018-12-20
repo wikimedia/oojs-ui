@@ -483,8 +483,8 @@ module.exports = function ( grunt ) {
 			options: {
 				frameworks: [ 'qunit' ],
 				files: [
-					'tests/config.js',
 					'tests/QUnit.assert.equalDomElement.js',
+					'tests/JSPHP-generator.js',
 					'node_modules/jquery/dist/jquery.js',
 					'node_modules/oojs/dist/oojs.jquery.js',
 					'dist/oojs-ui-core.js',
@@ -494,6 +494,7 @@ module.exports = function ( grunt ) {
 					'dist/oojs-ui-apex.js',
 					'dist/oojs-ui-wikimediaui.js',
 					'tests/TestTimer.js',
+					'tests/config.js',
 					'tests/core.test.js',
 					'tests/Element.test.js',
 					'tests/Process.test.js',

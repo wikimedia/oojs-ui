@@ -23,4 +23,8 @@
 		<exclude-pattern>*/demos/demos.php</exclude-pattern>
 		<exclude-pattern>*/demos/widgets.php</exclude-pattern>
 	</rule>
+	<!-- Allow global functions in tests -->
+	<rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions.wfPrefix">
+		<exclude-pattern>*/tests/*.php</exclude-pattern>
+	</rule>
 </ruleset>
