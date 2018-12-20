@@ -9,22 +9,12 @@
 		position: relative;
 		width: 100%;
 		display: block;
-		.oo-ui-box-sizing( border-box );
-		padding: 0;
-		overflow: hidden;
-		font-family: inherit;
-		font-size: inherit;
-		text-align: left;
-		text-overflow: ellipsis;
 		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		cursor: default;
 		.oo-ui-unselectable();
-
-		// Support Firefox: Normalize by making inner border transparent & by removing padding
-		&::-moz-focus-inner {
-			border-color: transparent;
-			padding: 0;
-		}
+		.oo-ui-box-sizing( border-box );
 	}
 
 	&.oo-ui-widget-enabled &-handle {

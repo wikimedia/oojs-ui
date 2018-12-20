@@ -64,7 +64,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	OO.ui.DropdownWidget.parent.call( this, config );
 
 	// Properties (must be set before TabIndexedElement constructor call)
-	this.$handle = $( '<button>' );
+	this.$handle = $( '<span>' );
 	this.$overlay = ( config.$overlay === true ?
 		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 
@@ -102,9 +102,9 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	this.$handle
 		.addClass( 'oo-ui-dropdownWidget-handle' )
 		.attr( {
-			type: 'button',
+			role: 'combobox',
 			'aria-owns': this.menu.getElementId(),
-			'aria-haspopup': 'listbox'
+			'aria-autocomplete': 'list'
 		} )
 		.append( this.$icon, this.$label, this.$indicator );
 	this.$element
