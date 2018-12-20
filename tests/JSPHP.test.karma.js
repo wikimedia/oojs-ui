@@ -1,5 +1,3 @@
-QUnit.module( 'JSPHP' );
-
 ( function () {
 	// Generate some tests based on the test suite data and HTML from PHP version.
 	var theme, klassName, test;
