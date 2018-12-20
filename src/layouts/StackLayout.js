@@ -33,7 +33,9 @@
  */
 OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	// Configuration initialization
-	config = $.extend( { scrollable: true }, config );
+	// Make the layout scrollable in continuous mode, otherwise each
+	// panel is responsible for its own scrolling.
+	config = $.extend( { scrollable: !!( config && config.continuous ) }, config );
 
 	// Parent constructor
 	OO.ui.StackLayout.parent.call( this, config );
