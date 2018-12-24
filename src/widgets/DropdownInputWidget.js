@@ -25,7 +25,6 @@
  *
  * @class
  * @extends OO.ui.InputWidget
- * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -51,9 +50,6 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	// Use this instead of setOptions() because this.$input is not set up yet.
 	this.setOptionsData( config.options || [] );
 
-	// Mixin constructors
-	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.dropdownWidget.$handle } ) );
-
 	// Parent constructor
 	OO.ui.DropdownInputWidget.parent.call( this, config );
 
@@ -65,12 +61,12 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 		.addClass( 'oo-ui-dropdownInputWidget' )
 		.append( this.dropdownWidget.$element );
 	this.setTabIndexedElement( this.dropdownWidget.$tabIndexed );
+	this.setTitledElement( this.dropdownWidget.$handle );
 };
 
 /* Setup */
 
 OO.inheritClass( OO.ui.DropdownInputWidget, OO.ui.InputWidget );
-OO.mixinClass( OO.ui.DropdownInputWidget, OO.ui.mixin.TitledElement );
 
 /* Methods */
 
