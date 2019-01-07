@@ -8,15 +8,16 @@
  * are no options. If no `value` configuration option is provided, the first option is selected.
  * If you need a state representing no value (no option being selected), use a DropdownWidget.
  *
- * This and OO.ui.RadioSelectInputWidget support the same configuration options.
+ * This and OO.ui.RadioSelectInputWidget support similar configuration options.
  *
  *     @example
  *     // A DropdownInputWidget with three options.
  *     var dropdownInput = new OO.ui.DropdownInputWidget( {
  *         options: [
  *             { data: 'a', label: 'First' },
- *             { data: 'b', label: 'Second'},
- *             { data: 'c', label: 'Third' }
+ *             { data: 'b', label: 'Second', disabled: true },
+ *             { optgroup: 'Group label' },
+ *             { data: 'c', label: 'First sub-item)' }
  *         ]
  *     } );
  *     $( document.body ).append( dropdownInput.$element );
@@ -28,7 +29,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: … }`
+ * @cfg {Object[]} [options=[]] Array of menu options in the format described above.
  * @cfg {Object} [dropdown] Configuration options for {@link OO.ui.DropdownWidget DropdownWidget}
  * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful in cases where
  *  the expanded menu is larger than its containing `<div>`. The specified overlay layer is usually on top of the
@@ -140,32 +141,45 @@ OO.ui.DropdownInputWidget.prototype.setOptions = function ( options ) {
  * Set the internal list of options, used e.g. by setValue() to see which options are allowed.
  *
  * This method may be called before the parent constructor, so various properties may not be
- * intialized yet.
+ * initialized yet.
  *
- * @param {Object[]} options Array of menu options in the format `{ data: …, label: … }`
+ * @param {Object[]} options Array of menu options (see #constructor for details).
  * @private
  */
 OO.ui.DropdownInputWidget.prototype.setOptionsData = function ( options ) {
-	var
-		optionWidgets,
+	var optionWidgets, optIndex, opt, previousOptgroup, optionWidget, optValue,
 		widget = this;
 
 	this.optionsDirty = true;
 
-	optionWidgets = options.map( function ( opt ) {
-		var optValue;
+	// Go through all the supplied option configs and create either
+	// MenuSectionOption or MenuOption widgets from each.
+	optionWidgets = [];
+	for ( optIndex = 0; optIndex < options.length; optIndex++ ) {
+		opt = options[ optIndex ];
 
 		if ( opt.optgroup !== undefined ) {
-			return widget.createMenuSectionOptionWidget( opt.optgroup );
+			// Create a <optgroup> menu item.
+			optionWidget = widget.createMenuSectionOptionWidget( opt.optgroup );
+			previousOptgroup = optionWidget;
+
+		} else {
+			// Create a normal <option> menu item.
+			optValue = widget.cleanUpValue( opt.data );
+			optionWidget = widget.createMenuOptionWidget(
+				optValue,
+				opt.label !== undefined ? opt.label : optValue
+			);
 		}
 
-		optValue = widget.cleanUpValue( opt.data );
-		return widget.createMenuOptionWidget(
-			optValue,
-			opt.label !== undefined ? opt.label : optValue
-		);
+		// Disable the menu option if it is itself disabled or if its parent optgroup is disabled.
+		if ( opt.disabled !== undefined ||
+			previousOptgroup instanceof OO.ui.MenuSectionOptionWidget && previousOptgroup.isDisabled() ) {
+			optionWidget.setDisabled( true );
+		}
 
-	} );
+		optionWidgets.push( optionWidget );
+	}
 
 	this.dropdownWidget.getMenu().clearItems().addItems( optionWidgets );
 };
@@ -231,6 +245,11 @@ OO.ui.DropdownInputWidget.prototype.updateOptionsInterface = function () {
 				.attr( 'label', optionWidget.getLabel() );
 			widget.$input.append( $optionNode );
 			$optionsContainer = $optionNode;
+		}
+
+		// Disable the option or optgroup if required.
+		if ( optionWidget.isDisabled() ) {
+			$optionNode.prop( 'disabled', true );
 		}
 	} );
 

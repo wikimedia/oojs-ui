@@ -4,7 +4,7 @@
  * of a hidden HTML `input` tag. Please see the [OOUI documentation on MediaWiki][1] for
  * more information about input widgets.
  *
- * This and OO.ui.DropdownInputWidget support the same configuration options.
+ * This and OO.ui.DropdownInputWidget support similar configuration options.
  *
  *     @example
  *     // A RadioSelectInputWidget with three options

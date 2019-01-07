@@ -662,6 +662,45 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\DropdownInputWidget( [
 				'options' => [
+					[
+						'data' => 'top',
+						'label' => 'Top-level option'
+					],
+					[
+						'optgroup' => 'Whole optgroup disabled',
+						'disabled' => true
+					],
+					[
+						'data' => 'a',
+						'label' => 'A'
+					],
+					[
+						'optgroup' => 'Optgroup with one disabled option'
+					],
+					[
+						'data' => 'b',
+						'label' => 'B'
+					],
+					[
+						'data' => 'c',
+						'label' => 'C',
+						'disabled' => true
+					],
+					[
+						'data' => 'd',
+						'label' => 'D'
+					]
+				],
+				'value' => 'b',
+			] ),
+			[
+				'label' => "DropdownInputWidget (with disabled option and optgroup)",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\DropdownInputWidget( [
+				'options' => [
 					[ 'data' => 'sq', 'label' => 'Albanian' ],
 					[ 'data' => 'frp', 'label' => 'Arpitan' ],
 					[ 'data' => 'ba', 'label' => 'Bashkir' ],
