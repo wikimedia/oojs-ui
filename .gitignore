@@ -15,4 +15,3 @@ composer.lock
 .idea
 composer-setup.php
 **/.DS_Store
-package-lock.json
