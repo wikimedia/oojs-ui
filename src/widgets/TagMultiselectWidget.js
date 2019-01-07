@@ -23,6 +23,7 @@
  * @mixins OO.ui.mixin.IconElement
  * @mixins OO.ui.mixin.TabIndexedElement
  * @mixins OO.ui.mixin.FlaggedElement
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} config Configuration object
@@ -73,6 +74,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	OO.ui.mixin.TabIndexedElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
 	OO.ui.mixin.DraggableGroupElement.call( this, config );
+	OO.ui.mixin.TitledElement.call( this, config );
 
 	this.toggleDraggable(
 		config.allowReordering === undefined ?
@@ -205,6 +207,7 @@ OO.mixinClass( OO.ui.TagMultiselectWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.TagMultiselectWidget, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.TagMultiselectWidget, OO.ui.mixin.TabIndexedElement );
 OO.mixinClass( OO.ui.TagMultiselectWidget, OO.ui.mixin.FlaggedElement );
+OO.mixinClass( OO.ui.TagMultiselectWidget, OO.ui.mixin.TitledElement );
 
 /* Static properties */
 

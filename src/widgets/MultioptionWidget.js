@@ -10,6 +10,7 @@
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.ItemWidget
  * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -25,6 +26,7 @@ OO.ui.MultioptionWidget = function OoUiMultioptionWidget( config ) {
 	// Mixin constructors
 	OO.ui.mixin.ItemWidget.call( this );
 	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.TitledElement.call( this, config );
 
 	// Properties
 	this.selected = null;
@@ -41,6 +43,7 @@ OO.ui.MultioptionWidget = function OoUiMultioptionWidget( config ) {
 OO.inheritClass( OO.ui.MultioptionWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.MultioptionWidget, OO.ui.mixin.ItemWidget );
 OO.mixinClass( OO.ui.MultioptionWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.MultioptionWidget, OO.ui.mixin.TitledElement );
 
 /* Events */
 

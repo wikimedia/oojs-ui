@@ -5,6 +5,7 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -18,6 +19,9 @@ OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {
 	// Parent constructor
 	OO.ui.ToggleWidget.parent.call( this, config );
 
+	// Mixin constructor
+	OO.ui.mixin.TitledElement.call( this, config );
+
 	// Properties
 	this.value = null;
 
@@ -29,6 +33,7 @@ OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ToggleWidget, OO.ui.Widget );
+OO.mixinClass( OO.ui.ToggleWidget, OO.ui.mixin.TitledElement );
 
 /* Events */
 

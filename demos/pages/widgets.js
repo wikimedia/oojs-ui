@@ -371,8 +371,8 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonInputWidget( {
-						title: 'Accesskey is added to the title.',
 						label: 'Access key: H',
+						title: 'Accesskey is added to the title.',
 						accessKey: 'h'
 					} ),
 					{
@@ -520,7 +520,8 @@ Demo.static.pages.widgets = function ( demo ) {
 								indicator: 'clear',
 								label: 'Three'
 							} )
-						]
+						],
+						title: 'Choose wisely'
 					} ),
 					{
 						label: 'ButtonGroupWidget with ToggleButtonWidgets',
@@ -607,7 +608,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							new OO.ui.ButtonOptionWidget( {
 								data: 'a',
 								label: 'Access key: I',
-								accessKey: 'i'
+								accessKey: 'i',
+								title: 'Press browser accelerator key + '
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'b',
@@ -1650,7 +1652,10 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( { accept: [ 'image/png', 'image/jpeg' ] } ),
+					new OO.ui.SelectFileWidget( {
+						accept: [ 'image/png', 'image/jpeg' ],
+						title: 'This SelectFileWidget accepts only PNG `image/png` and JPEG `image/jpeg` files and has `title` configured'
+					} ),
 					{
 						label: 'SelectFileWidget (accept PNG and JPEG)',
 						align: 'top'
@@ -1769,10 +1774,11 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TagMultiselectWidget( {
 						placeholder: 'Add up to 5 tags',
 						allowArbitrary: true,
-						tagLimit: 5
+						tagLimit: 5,
+						title: 'Add up to 5 tags'
 					} ),
 					{
-						label: 'TagMultiselectWidget (allowArbitrary, inline input, tagLimit: 5)',
+						label: 'TagMultiselectWidget (allowArbitrary, inline input, tagLimit: 5, placeholder, title)',
 						align: 'top'
 					}
 				),

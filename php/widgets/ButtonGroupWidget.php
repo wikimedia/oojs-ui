@@ -9,6 +9,7 @@ namespace OOUI;
  */
 class ButtonGroupWidget extends Widget {
 	use GroupElement;
+	use TitledElement;
 
 	/* Static Properties */
 
@@ -25,6 +26,7 @@ class ButtonGroupWidget extends Widget {
 
 		// Traits
 		$this->initializeGroupElement( array_merge( $config, [ 'group' => $this ] ) );
+		$this->initializeTitledElement( $config );
 
 		// Initialization
 		$this->addClasses( [ 'oo-ui-buttonGroupWidget' ] );

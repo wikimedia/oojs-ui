@@ -12,6 +12,7 @@
  * @mixins OO.ui.mixin.LabelElement
  * @mixins OO.ui.mixin.FlaggedElement
  * @mixins OO.ui.mixin.AccessKeyedElement
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -28,6 +29,7 @@ OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
 	OO.ui.mixin.AccessKeyedElement.call( this, config );
+	OO.ui.mixin.TitledElement.call( this, config );
 
 	// Properties
 	this.selected = false;
@@ -52,6 +54,7 @@ OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.ItemWidget );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.FlaggedElement );
 OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.AccessKeyedElement );
+OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.TitledElement );
 
 /* Static Properties */
 

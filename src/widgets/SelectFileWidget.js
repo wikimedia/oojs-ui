@@ -1,7 +1,7 @@
 /**
  * SelectFileWidgets allow for selecting files, using the HTML5 File API. These
- * widgets can be configured with {@link OO.ui.mixin.IconElement icons} and {@link
- * OO.ui.mixin.IndicatorElement indicators}.
+ * widgets can be configured with {@link OO.ui.mixin.IconElement icons}, {@link
+ * OO.ui.mixin.IndicatorElement indicators} and {@link OO.ui.mixin.TitledElement titles}.
  * Please see the [OOUI documentation on MediaWiki] [1] for more information and examples.
  *
  *     @example
@@ -17,6 +17,7 @@
  * @mixins OO.ui.mixin.IndicatorElement
  * @mixins OO.ui.mixin.PendingElement
  * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -49,6 +50,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.PendingElement.call( this, $.extend( {}, config, { $pending: this.$info } ) );
 	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.TitledElement.call( this, config );
 
 	// Properties
 	this.$info = $( '<span>' );
@@ -135,6 +137,7 @@ OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.PendingElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.TitledElement );
 
 /* Static Properties */
 
