@@ -20,6 +20,7 @@ OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config )
 
 	// Properties
 	this.autosize = !!config.autosize;
+	this.styleHeight = null;
 	this.minRows = config.rows !== undefined ? config.rows : '';
 	this.maxRows = config.maxRows || Math.max( 2 * ( this.minRows || 0 ), 10 );
 
