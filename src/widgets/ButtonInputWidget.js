@@ -22,7 +22,6 @@
  * @mixins OO.ui.mixin.IconElement
  * @mixins OO.ui.mixin.IndicatorElement
  * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -52,7 +51,6 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.LabelElement.call( this, config );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$input } ) );
 
 	// Initialization
 	if ( !config.useInputTag ) {
@@ -68,7 +66,6 @@ OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.ButtonElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.LabelElement );
-OO.mixinClass( OO.ui.ButtonInputWidget, OO.ui.mixin.TitledElement );
 
 /* Static Properties */
 

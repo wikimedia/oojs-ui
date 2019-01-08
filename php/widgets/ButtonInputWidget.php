@@ -53,8 +53,6 @@ class ButtonInputWidget extends InputWidget {
 		$this->initializeIconElement( $config );
 		$this->initializeIndicatorElement( $config );
 		$this->initializeLabelElement( $config );
-		$this->initializeTitledElement(
-			array_merge( $config, [ 'titled' => $this->input ] ) );
 
 		// Initialization
 		if ( !$config['useInputTag'] ) {
