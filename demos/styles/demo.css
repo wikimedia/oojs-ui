@@ -411,6 +411,25 @@ p {
 	left: 0;
 }
 
+/*
+ * Left-to-right labels by default, as they're never translated and parentheses are causing
+ * rendering quirks
+ */
+/* @noflip */
+.oo-ui-labelElement .oo-ui-labelElement-label {
+	direction: ltr;
+	/* Necessary for inline elements */
+	unicode-bidi: bidi-override;
+}
+
+.oo-ui-fieldLayout.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-inline-help,
+.oo-ui-checkboxMultioptionWidget.oo-ui-labelElement .oo-ui-labelElement-label,
+.oo-ui-radioOptionWidget .oo-ui-radioInputWidget,
+.oo-ui-radioOptionWidget.oo-ui-labelElement > .oo-ui-labelElement-label,
+.oo-ui-selectFileWidget.oo-ui-labelElement .oo-ui-selectFileWidget-label {
+	text-align: left;
+}
+
 /* Special cases: ActionFieldLayout top aligned,
 FieldLayout left & right aligned */
 .oo-ui-fieldLayout-align-left,
