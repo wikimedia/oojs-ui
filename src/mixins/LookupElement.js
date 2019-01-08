@@ -63,7 +63,6 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	// Initialization
 	this.$input.attr( {
 		role: 'combobox',
-		'aria-expanded': 'false',
 		'aria-owns': this.lookupMenu.getElementId(),
 		'aria-autocomplete': 'list'
 	} );

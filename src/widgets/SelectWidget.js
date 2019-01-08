@@ -952,7 +952,7 @@ OO.ui.SelectWidget.prototype.clearItems = function () {
 /**
  * Set the DOM element which has focus while the user is interacting with this SelectWidget.
  *
- * Currently this is just used to set `aria-activedescendant` on it.
+ * This is used to set `aria-activedescendant` and `aria-expanded` on it.
  *
  * @protected
  * @param {jQuery} $focusOwner

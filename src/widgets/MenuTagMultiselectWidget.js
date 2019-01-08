@@ -63,6 +63,9 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		.append( this.menu.$element );
 	this.$element
 		.addClass( 'oo-ui-menuTagMultiselectWidget' );
+	// Remove MenuSelectWidget's generic focus owner ARIA attribute
+	// TODO: Should this widget have a `role` that is compatible with this attribute?
+	this.menu.$focusOwner.removeAttr( 'aria-expanded' );
 	// TagMultiselectWidget already does this, but it doesn't work right because this.menu is not yet
 	// set up while the parent constructor runs, and #getAllowedValues rejects everything.
 	if ( config.selected ) {
@@ -137,6 +140,11 @@ OO.ui.MenuTagMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
 	} else {
 		this.initializeMenuSelection();
 	}
+	setTimeout( function () {
+		// Remove MenuSelectWidget's generic focus owner ARIA attribute
+		// TODO: Should this widget have a `role` that is compatible with this attribute?
+		this.menu.$focusOwner.removeAttr( 'aria-expanded' );
+	}.bind( this ) );
 };
 
 /**

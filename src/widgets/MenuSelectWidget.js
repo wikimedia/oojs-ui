@@ -83,6 +83,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	// TODO: Find a better way to handle post-constructor setup
 	this.visible = false;
 	this.$element.addClass( 'oo-ui-element-hidden' );
+	this.$focusOwner.attr( 'aria-expanded', 'false' );
 };
 
 /* Setup */
