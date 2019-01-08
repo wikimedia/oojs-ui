@@ -27,7 +27,7 @@
  *             ]
  *         }
  *     } );
- *     $( 'body' ).append( dropdown.$element );
+ *     $( document.body ).append( dropdown.$element );
  *
  * @class
  * @extends OO.ui.DecoratedOptionWidget

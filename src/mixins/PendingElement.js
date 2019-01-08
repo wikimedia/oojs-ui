@@ -43,7 +43,7 @@
  *     };
  *
  *     var windowManager = new OO.ui.WindowManager();
- *     $( 'body' ).append( windowManager.$element );
+ *     $( document.body ).append( windowManager.$element );
  *
  *     var dialog = new MessageDialog();
  *     windowManager.addWindows( [ dialog ] );

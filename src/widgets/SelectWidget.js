@@ -25,7 +25,7 @@
  *             } )
  *         ]
  *     } );
- *     $( 'body' ).append( select.$element );
+ *     $( document.body ).append( select.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *

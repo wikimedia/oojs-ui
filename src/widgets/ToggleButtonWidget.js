@@ -16,7 +16,7 @@
  *             value: true
  *         } );
  *     // Append the buttons to the DOM.
- *     $( 'body' ).append( toggleButton1.$element, toggleButton2.$element );
+ *     $( document.body ).append( toggleButton1.$element, toggleButton2.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Buttons_and_Switches#Toggle_buttons
  *

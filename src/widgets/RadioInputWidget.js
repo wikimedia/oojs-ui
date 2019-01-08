@@ -28,7 +28,7 @@
  *         new OO.ui.FieldLayout( radio2, { label: 'Unselected', align: 'inline' } ),
  *         new OO.ui.FieldLayout( radio3, { label: 'Disabled', align: 'inline' } ),
  *     ] );
- *     $( 'body' ).append( fieldset.$element );
+ *     $( document.body ).append( fieldset.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *

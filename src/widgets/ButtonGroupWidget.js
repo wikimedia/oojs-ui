@@ -20,7 +20,7 @@
  *         buttonGroup = new OO.ui.ButtonGroupWidget( {
  *             items: [ button1, button2 ]
  *         } );
- *     $( 'body' ).append( buttonGroup.$element );
+ *     $( document.body ).append( buttonGroup.$element );
  *
  * @class
  * @extends OO.ui.Widget

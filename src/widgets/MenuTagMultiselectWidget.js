@@ -13,7 +13,7 @@
  *         ],
  *         selected: [ 'option1', 'option2' ]
  *     } );
- *     $( 'body' ).append( widget.$element );
+ *     $( document.body ).append( widget.$element );
  *
  * @class
  * @extends OO.ui.TagMultiselectWidget

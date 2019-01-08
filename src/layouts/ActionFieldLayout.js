@@ -34,7 +34,7 @@
  *         }
  *     );
  *
- *     $( 'body' ).append( actionFieldLayout.$element );
+ *     $( document.body ).append( actionFieldLayout.$element );
  *
  * @class
  * @extends OO.ui.FieldLayout

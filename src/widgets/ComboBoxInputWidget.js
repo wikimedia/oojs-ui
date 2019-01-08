@@ -26,7 +26,7 @@
  *             { data: 'Option 3' }
  *         ]
  *     } );
- *     $( 'body' ).append( comboBox.$element );
+ *     $( document.body ).append( comboBox.$element );
  *
  *     @example
  *     // Example: A ComboBoxInputWidget with additional option labels.
@@ -47,7 +47,7 @@
  *             }
  *         ]
  *     } );
- *     $( 'body' ).append( comboBox.$element );
+ *     $( document.body ).append( comboBox.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options#Menu_selects_and_options
  *

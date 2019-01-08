@@ -5,7 +5,7 @@
  *     @example
  *     // A PopupTagMultiselectWidget.
  *     var widget = new OO.ui.PopupTagMultiselectWidget();
- *     $( 'body' ).append( widget.$element );
+ *     $( document.body ).append( widget.$element );
  *
  *     // Example: A PopupTagMultiselectWidget with an external popup.
  *     var popupInput = new OO.ui.TextInputWidget(),
@@ -15,7 +15,7 @@
  *               $content: popupInput.$element
  *            }
  *         } );
- *     $( 'body' ).append( widget.$element );
+ *     $( document.body ).append( widget.$element );
  *
  * @class
  * @extends OO.ui.TagMultiselectWidget

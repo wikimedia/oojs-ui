@@ -15,7 +15,7 @@
  *             { data: 'c', label: 'Third' }
  *         ]
  *     } );
- *     $( 'body' ).append( radioSelectInput.$element );
+ *     $( document.body ).append( radioSelectInput.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *

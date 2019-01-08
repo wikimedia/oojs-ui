@@ -14,7 +14,7 @@
  *         }
  *     } );
  *     // Append the button to the DOM.
- *     $( 'body' ).append( popupButton.$element );
+ *     $( document.body ).append( popupButton.$element );
  *
  * @class
  * @extends OO.ui.ButtonWidget

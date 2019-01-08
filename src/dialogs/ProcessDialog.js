@@ -44,7 +44,7 @@
  *     };
  *
  *     var windowManager = new OO.ui.WindowManager();
- *     $( 'body' ).append( windowManager.$element );
+ *     $( document.body ).append( windowManager.$element );
  *
  *     var dialog = new MyProcessDialog();
  *     windowManager.addWindows( [ dialog ] );

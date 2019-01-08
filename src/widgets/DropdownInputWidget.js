@@ -19,7 +19,7 @@
  *             { data: 'c', label: 'Third' }
  *         ]
  *     } );
- *     $( 'body' ).append( dropdownInput.$element );
+ *     $( document.body ).append( dropdownInput.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *

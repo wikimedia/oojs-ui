@@ -13,7 +13,7 @@
  *         icon: 'trash',
  *         title: 'Remove'
  *     } );
- *     $( 'body' ).append( button.$element );
+ *     $( document.body ).append( button.$element );
  *
  * NOTE: HTML form buttons should use the OO.ui.ButtonInputWidget class.
  *

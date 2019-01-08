@@ -132,7 +132,7 @@
  *         toolbar.$element,
  *         contentFrame.$element.append( $area )
  *     );
- *     $( 'body' ).append( frame.$element );
+ *     $( document.body ).append( frame.$element );
  *
  *     // Here is where the toolbar is actually built. This must be done after inserting it into the
  *     // document.
@@ -259,7 +259,7 @@
  *         toolbar.$element,
  *         contentFrame.$element.append( $area )
  *     );
- *     $( 'body' ).append( frame.$element );
+ *     $( document.body ).append( frame.$element );
  *
  *     // Here is where the toolbar is actually built. This must be done after inserting it into the
  *     // document.

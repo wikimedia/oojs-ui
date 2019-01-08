@@ -18,6 +18,7 @@
 	function infuseAll() {
 		var start, end;
 		start = now();
+		// eslint-disable-next-line jquery/no-global-selector
 		$( '*[data-ooui]' ).each( function () {
 			OO.ui.infuse( this );
 		} );
@@ -26,6 +27,7 @@
 		infuseButton.setDisabled( true );
 	}
 
+	// eslint-disable-next-line jquery/no-global-selector
 	$demoMenu = $( '.demo-menu' );
 
 	OO.ui.getViewportSpacing = function () {

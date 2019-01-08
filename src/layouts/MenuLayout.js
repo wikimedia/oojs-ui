@@ -40,7 +40,7 @@
  *     menuLayout.$content.append(
  *         contentPanel.$element.append( '<b>Content panel</b>', '<p>Note that the menu is positioned relative to the content panel: top, bottom, after, before.</p>')
  *     );
- *     $( 'body' ).append( menuLayout.$element );
+ *     $( document.body ).append( menuLayout.$element );
  *
  * If menu size needs to be overridden, it can be accomplished using CSS similar to the snippet
  * below. MenuLayout's CSS will override the appropriate values with 'auto' or '0' to display the

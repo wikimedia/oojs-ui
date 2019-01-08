@@ -77,7 +77,7 @@
 				}
 				lastQuery = location.search;
 				demo = new Demo();
-				$( 'body' ).append( demo.$element );
+				$( document.body ).append( demo.$element );
 				demo.initialize().done( function () {
 					if ( prevPage === demo.mode.page && scrollPos ) {
 						// Restore scroll position from before we destroyed the demo

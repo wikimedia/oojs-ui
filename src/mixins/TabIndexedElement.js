@@ -22,7 +22,7 @@
  *             label: 'first',
  *             tabIndex: 1
  *         } );
- *     $( 'body' ).append( button1.$element, button2.$element, button3.$element, button4.$element );
+ *     $( document.body ).append( button1.$element, button2.$element, button3.$element, button4.$element );
  *
  * @abstract
  * @class

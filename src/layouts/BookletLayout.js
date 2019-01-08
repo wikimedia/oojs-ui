@@ -36,7 +36,7 @@
  *     } );
  *
  *     booklet.addPages( [ page1, page2 ] );
- *     $( 'body' ).append( booklet.$element );
+ *     $( document.body ).append( booklet.$element );
  *
  * @class
  * @extends OO.ui.MenuLayout
@@ -547,6 +547,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 				) {
 					$focused = previousPage.$element.find( ':focus' );
 					if ( $focused.length ) {
+						// eslint-disable-next-line jquery/no-event-shorthand
 						$focused[ 0 ].blur();
 					}
 				}
@@ -559,6 +560,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 				// blurred when it was hidden, but browsers are not very consistent about this.
 				$focused = previousPage.$element.find( ':focus' );
 				if ( $focused.length ) {
+					// eslint-disable-next-line jquery/no-event-shorthand
 					$focused[ 0 ].blur();
 				}
 			}

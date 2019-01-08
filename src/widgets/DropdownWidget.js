@@ -27,7 +27,8 @@
  *             ]
  *         }
  *     } );
- *     $( 'body' ).append( dropDown.$element );
+ *
+ *     $( document.body ).append( dropDown.$element );
  *
  *     dropDown.getMenu().selectItemByData( 'b' );
  *

@@ -36,6 +36,7 @@
 			item.getPrettyCreationTime() + ')' );
 	} );
 
+	// eslint-disable-next-line jquery/no-global-selector
 	$( '.embed-app4' ).append(
 		new OO.ui.FieldsetLayout( {
 			id: 'tutorials-basics2-app4',

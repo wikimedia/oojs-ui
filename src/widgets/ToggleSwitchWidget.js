@@ -23,7 +23,7 @@
  *             align: 'top'
  *         } )
  *     ] );
- *     $( 'body' ).append( fieldset.$element );
+ *     $( document.body ).append( fieldset.$element );
  *
  * @class
  * @extends OO.ui.ToggleWidget

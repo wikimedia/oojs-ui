@@ -23,7 +23,7 @@
  *
  *     // Create and append a window manager.
  *     var windowManager = new OO.ui.WindowManager();
- *     $( 'body' ).append( windowManager.$element );
+ *     $( document.body ).append( windowManager.$element );
  *     windowManager.addWindows( [ messageDialog ] );
  *     // Open the window.
  *     windowManager.openWindow( messageDialog, {

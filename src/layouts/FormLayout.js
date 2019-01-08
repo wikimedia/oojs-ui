@@ -47,7 +47,7 @@
  *         action: '/api/formhandler',
  *         method: 'get'
  *     } )
- *     $( 'body' ).append( form.$element );
+ *     $( document.body ).append( form.$element );
  *
  * @class
  * @extends OO.ui.Layout

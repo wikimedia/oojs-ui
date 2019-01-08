@@ -412,7 +412,7 @@ OO.ui.infuse = function ( idOrNode, config ) {
 	 *             label: OO.ui.msg( 'ooui-dialog-message-accept' ),
 	 *             icon: 'check'
 	 *         } );
-	 *         $( 'body' ).append( button.$element );
+	 *         $( document.body ).append( button.$element );
 	 *
 	 *         // A button displaying "OK" in Urdu
 	 *         $.i18n().locale = 'ur';
@@ -420,7 +420,7 @@ OO.ui.infuse = function ( idOrNode, config ) {
 	 *             label: OO.ui.msg( 'ooui-dialog-message-accept' ),
 	 *             icon: 'check'
 	 *         } );
-	 *         $( 'body' ).append( button.$element );
+	 *         $( document.body ).append( button.$element );
 	 *     } );
 	 *
 	 * @param {string} key Message key
@@ -556,7 +556,7 @@ OO.ui.getViewportSpacing = function () {
 OO.ui.getDefaultOverlay = function () {
 	if ( !OO.ui.$defaultOverlay ) {
 		OO.ui.$defaultOverlay = $( '<div>' ).addClass( 'oo-ui-defaultOverlay' );
-		$( 'body' ).append( OO.ui.$defaultOverlay );
+		$( document.body ).append( OO.ui.$defaultOverlay );
 	}
 	return OO.ui.$defaultOverlay;
 };

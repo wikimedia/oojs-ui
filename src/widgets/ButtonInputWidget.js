@@ -12,7 +12,7 @@
  *         icon: 'check',
  *         value: 'check'
  *     } );
- *     $( 'body' ).append( button.$element );
+ *     $( document.body ).append( button.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs#Button_inputs
  *

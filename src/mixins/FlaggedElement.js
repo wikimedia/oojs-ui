@@ -22,7 +22,7 @@
  *             label: 'Destructive',
  *             flags: 'destructive'
  *         } );
- *     $( 'body' ).append( button1.$element, button2.$element );
+ *     $( document.body ).append( button1.$element, button2.$element );
  *
  * {@link OO.ui.ActionWidget ActionWidgets}, which are a special kind of button that execute an action, use these flags: **primary** and **safe**.
  * Please see the [OOUI documentation on MediaWiki] [1] for more information.

@@ -66,7 +66,7 @@
  *     frame.$element.append(
  *         toolbar.$element
  *     );
- *     $( 'body' ).append( frame.$element );
+ *     $( document.body ).append( frame.$element );
  *     // Build the toolbar. This must be done after the toolbar has been appended to the document.
  *     toolbar.initialize();
  *

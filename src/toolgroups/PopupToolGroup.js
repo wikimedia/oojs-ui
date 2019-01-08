@@ -209,7 +209,7 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
 		if ( e.which === OO.ui.Keys.TAB && !e.shiftKey ) {
 			$focusable = OO.ui.findFocusable( this.$group );
 			if ( $focusable.length ) {
-				$focusable.focus();
+				$focusable.trigger( 'focus' );
 				return false;
 			}
 		}

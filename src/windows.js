@@ -12,7 +12,7 @@
 OO.ui.getWindowManager = function () {
 	if ( !OO.ui.windowManager ) {
 		OO.ui.windowManager = new OO.ui.WindowManager();
-		$( 'body' ).append( OO.ui.windowManager.$element );
+		$( document.body ).append( OO.ui.windowManager.$element );
 		OO.ui.windowManager.addWindows( [ new OO.ui.MessageDialog() ] );
 	}
 	return OO.ui.windowManager;

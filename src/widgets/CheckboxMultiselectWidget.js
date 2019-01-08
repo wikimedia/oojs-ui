@@ -21,7 +21,7 @@
  *         multiselect = new OO.ui.CheckboxMultiselectWidget( {
  *             items: [ option1, option2 ]
  *         } );
- *     $( 'body' ).append( multiselect.$element );
+ *     $( document.body ).append( multiselect.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *

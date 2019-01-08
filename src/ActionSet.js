@@ -63,7 +63,7 @@
  *         return this.panel1.$element.outerHeight( true );
  *     };
  *     var windowManager = new OO.ui.WindowManager();
- *     $( 'body' ).append( windowManager.$element );
+ *     $( document.body ).append( windowManager.$element );
  *     var dialog = new MyProcessDialog( {
  *         size: 'medium'
  *     } );

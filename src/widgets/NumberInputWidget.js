@@ -11,7 +11,7 @@
  *         min: 1,
  *         max: 10
  *     } );
- *     $( 'body' ).append( numberInput.$element );
+ *     $( document.body ).append( numberInput.$element );
  *
  * @class
  * @extends OO.ui.TextInputWidget

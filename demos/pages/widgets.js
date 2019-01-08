@@ -1124,6 +1124,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						align: 'top'
 					}
 				),
+				/* eslint-disable jquery/no-parse-html-literal */
 				new OO.ui.FieldLayout(
 					new OO.ui.RadioSelectWidget( {
 						items: [

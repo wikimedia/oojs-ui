@@ -577,7 +577,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
  * Example:
  *
  *     var windowManager = new OO.ui.WindowManager();
- *     $( 'body' ).append( windowManager.$element );
+ *     $( document.body ).append( windowManager.$element );
  *
  *     // Add a window under the default name: see OO.ui.MessageDialog.static.name
  *     windowManager.addWindows( [ new OO.ui.MessageDialog() ] );
@@ -767,7 +767,7 @@ OO.ui.WindowManager.prototype.toggleAriaIsolation = function ( isolate ) {
 			this.$element.removeAttr( 'aria-hidden' );
 
 			// Hide everything other than the window manager from screen readers
-			this.$ariaHidden = $( 'body' )
+			this.$ariaHidden = $( document.body )
 				.children()
 				.not( 'script' )
 				.not( $topLevelElement )

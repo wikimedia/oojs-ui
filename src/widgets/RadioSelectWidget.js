@@ -24,7 +24,7 @@
  *     // Select 'option 1' using the RadioSelectWidget's selectItem() method.
  *     radioSelect.selectItem( option1 );
  *
- *     $( 'body' ).append( radioSelect.$element );
+ *     $( document.body ).append( radioSelect.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
 

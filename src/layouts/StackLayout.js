@@ -20,7 +20,7 @@
  *         ],
  *         continuous: true
  *     } );
- *     $( 'body' ).append( myStack.$element );
+ *     $( document.body ).append( myStack.$element );
  *
  * @class
  * @extends OO.ui.PanelLayout

@@ -28,6 +28,7 @@
 				instance = new OO.ui[ test.class ]( config );
 				$fromPhp = $( testSuitePHPOutput[ theme ][ className ][ i ] );
 
+				// eslint-disable-next-line jquery/no-global-selector
 				$( '#qunit-fixture' ).append( instance.$element, $fromPhp );
 
 				if ( !infuseOnly ) {

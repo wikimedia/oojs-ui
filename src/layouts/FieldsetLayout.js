@@ -26,7 +26,7 @@
  *             label: 'Field Two'
  *         } )
  *     ] );
- *     $( 'body' ).append( fieldset.$element );
+ *     $( document.body ).append( fieldset.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Layouts/Fields_and_Fieldsets
  *

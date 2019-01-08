@@ -13,7 +13,7 @@
  *         new OO.ui.TextInputWidget( { value: 'Text' } )
  *       ]
  *     } );
- *     $( 'body' ).append( layout.$element );
+ *     $( document.body ).append( layout.$element );
  *
  * @class
  * @extends OO.ui.Layout

@@ -47,6 +47,7 @@
 		info.setLabel( item.getData() );
 	} );
 
+	// eslint-disable-next-line jquery/no-global-selector
 	$( '.embed-app1' ).append(
 		new OO.ui.FieldsetLayout( {
 			id: 'tutorials-basics2-app1',

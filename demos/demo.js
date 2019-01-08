@@ -105,9 +105,9 @@ window.Demo = function Demo() {
 	this.$element
 		.addClass( 'demo' )
 		.append( this.$menu );
-	$( 'html' ).attr( 'dir', this.mode.direction );
-	$( 'head' ).append( this.stylesheetLinks );
-	$( 'body' ).addClass( 'oo-ui-theme-' + this.mode.theme );
+	$( document.documentElement ).attr( 'dir', this.mode.direction );
+	$( document.head ).append( this.stylesheetLinks );
+	$( document.body ).addClass( 'oo-ui-theme-' + this.mode.theme );
 	// eslint-disable-next-line new-cap
 	OO.ui.theme = new OO.ui[ this.constructor.static.themes[ this.mode.theme ] + 'Theme' ]();
 	OO.ui.isMobile = function () {
@@ -277,6 +277,7 @@ Demo.static.scrollToFragment = function () {
 	var elem = document.getElementById( location.hash.slice( 1 ) );
 	if ( elem ) {
 		// The additional '10' is just because it looks nicer.
+		// eslint-disable-next-line jquery/no-global-selector
 		$( window ).scrollTop( $( elem ).offset().top - $( '.demo-menu' ).outerHeight() - 10 );
 	}
 };
@@ -533,8 +534,9 @@ Demo.prototype.normalizeQuery = function () {
  * Destroy demo.
  */
 Demo.prototype.destroy = function () {
-	$( 'body' ).removeClass( 'oo-ui-ltr oo-ui-rtl' );
-	$( 'body' ).removeClass( 'oo-ui-theme-' + this.mode.theme );
+	$( document.body )
+		.removeClass( 'oo-ui-ltr oo-ui-rtl' )
+		.removeClass( 'oo-ui-theme-' + this.mode.theme );
 	$( this.stylesheetLinks ).remove();
 	this.$element.remove();
 	this.emit( 'destroy' );
@@ -576,6 +578,7 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 
 		val = $input.val();
 		$input.val( '' );
+		// eslint-disable-next-line jquery/no-event-shorthand
 		$input[ 0 ].focus();
 		result = exec( val );
 
@@ -724,6 +727,7 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 			e.preventDefault();
 			$console.toggleClass( 'demo-console-collapsed demo-console-expanded' );
 			if ( $input.is( ':visible' ) ) {
+				// eslint-disable-next-line jquery/no-event-shorthand
 				$input[ 0 ].focus();
 				if ( console && console.log ) {
 					window[ layout ] = item;

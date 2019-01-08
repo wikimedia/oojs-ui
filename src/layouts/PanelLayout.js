@@ -10,7 +10,7 @@
  *         padded: true,
  *         $content: $( '<p>A panel layout with padding and a frame.</p>' )
  *     } );
- *     $( 'body' ).append( panel.$element );
+ *     $( document.body ).append( panel.$element );
  *
  * @class
  * @extends OO.ui.Layout

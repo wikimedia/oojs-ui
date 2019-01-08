@@ -25,7 +25,7 @@
  *         buttonSelect = new OO.ui.ButtonSelectWidget( {
  *             items: [ option1, option2, option3 ]
  *         } );
- *     $( 'body' ).append( buttonSelect.$element );
+ *     $( document.body ).append( buttonSelect.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *

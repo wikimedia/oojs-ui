@@ -7,7 +7,7 @@
  *     @example
  *     // A file select widget.
  *     var selectFile = new OO.ui.SelectFileWidget();
- *     $( 'body' ).append( selectFile.$element );
+ *     $( document.body ).append( selectFile.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets
  *

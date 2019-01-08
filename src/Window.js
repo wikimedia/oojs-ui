@@ -661,6 +661,7 @@ OO.ui.Window.prototype.hold = function ( data ) {
 
 		// Blur the focused element
 		if ( $focus.length ) {
+			// eslint-disable-next-line jquery/no-event-shorthand
 			$focus[ 0 ].blur();
 		}
 

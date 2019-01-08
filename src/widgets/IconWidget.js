@@ -13,7 +13,7 @@
  *          iconLabel = new OO.ui.LabelWidget( {
  *              label: 'Help'
  *          } );
- *      $( 'body' ).append( myIcon.$element, iconLabel.$element );
+ *      $( document.body ).append( myIcon.$element, iconLabel.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Icons
  *

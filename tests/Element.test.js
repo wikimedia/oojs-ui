@@ -1,3 +1,4 @@
+/* eslint-disable jquery/no-global-selector, jquery/no-parse-html-literal */
 QUnit.module( 'Element', {
 	beforeEach: function () {
 		this.fixture = document.createElement( 'div' );

@@ -10,7 +10,7 @@
  *         label: 'Button with Title',
  *         title: 'I am a button'
  *     } );
- *     $( 'body' ).append( button.$element );
+ *     $( document.body ).append( button.$element );
  *
  * @abstract
  * @class

@@ -11,7 +11,7 @@
  *         label: 'Button with Accesskey',
  *         accessKey: 'k'
  *     } );
- *     $( 'body' ).append( button.$element );
+ *     $( document.body ).append( button.$element );
  *
  * @abstract
  * @class

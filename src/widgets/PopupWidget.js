@@ -13,7 +13,7 @@
  *         width: 300
  *     } );
  *
- *     $( 'body' ).append( popup.$element );
+ *     $( document.body ).append( popup.$element );
  *     // To display the popup, toggle the visibility to 'true'.
  *     popup.toggle( true );
  *

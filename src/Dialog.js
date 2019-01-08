@@ -26,7 +26,7 @@
  *     } );
  *     // Create and append a window manager, which opens and closes the window.
  *     var windowManager = new OO.ui.WindowManager();
- *     $( 'body' ).append( windowManager.$element );
+ *     $( document.body ).append( windowManager.$element );
  *     windowManager.addWindows( [ myDialog ] );
  *     // Open the window!
  *     windowManager.openWindow( myDialog );

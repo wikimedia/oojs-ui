@@ -14,7 +14,7 @@
  *             { data: 'c', label: 'Third' }
  *         ]
  *     } );
- *     $( 'body' ).append( multiselectInput.$element );
+ *     $( document.body ).append( multiselectInput.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *
