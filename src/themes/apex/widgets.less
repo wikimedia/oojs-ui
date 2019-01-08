@@ -710,6 +710,12 @@
 		> .oo-ui-buttonWidget {
 			top: 0.25em;
 			right: 0.25em;
+
+			.oo-ui-icon-close {
+				// This must have two values to match `background-size: 0 0` above,
+				// otherwise the transition does not work (at least in Chrome).
+				background-size: @size-base--small @size-base--small;
+			}
 		}
 
 		> .oo-ui-labelElement-label {

@@ -935,7 +935,7 @@
 			.oo-ui-icon-close {
 				// This must have two values to match `background-size: 0 0` above,
 				// otherwise the transition does not work (at least in Chrome).
-				background-size: @size-icon-small @size-icon-small;
+				background-size: @size-base--small @size-base--small;
 			}
 		}
 	}
@@ -1524,8 +1524,8 @@
 
 			.oo-ui-icon-close {
 				left: @margin-tagitem;
-				min-width: @min-size-indicator;
-				width: @size-indicator;
+				min-width: @min-size-icon-small;
+				width: @size-icon-small;
 			}
 
 			.oo-ui-labelElement-label,
@@ -1893,11 +1893,11 @@
 
 	&-grip {
 		top: @start-toggleswitch-grip;
-		min-width: @min-size-toggleswitch-grip;
-		width: @size-toggleswitch-grip;
-		min-height: @min-size-toggleswitch-grip;
-		height: @size-toggleswitch-grip;
-		border-radius: @size-toggleswitch-grip;
+		min-width: @min-size-base--small;
+		width: @size-base--small;
+		min-height: @min-size-base--small;
+		height: @size-base--small;
+		border-radius: @size-base--small;
 		.oo-ui-transition(
 			background-color @transition-ease-medium,
 			left @transition-base,
