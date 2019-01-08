@@ -9,7 +9,7 @@
  * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
  *     @example
- *     // Example of a text input widget
+ *     // A TextInputWidget.
  *     var textInput = new OO.ui.TextInputWidget( {
  *         value: 'Text input'
  *     } )

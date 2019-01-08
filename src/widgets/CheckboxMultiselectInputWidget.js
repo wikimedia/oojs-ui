@@ -6,11 +6,11 @@
  * more information about input widgets.
  *
  *     @example
- *     // Example: A CheckboxMultiselectInputWidget with three options
+ *     // A CheckboxMultiselectInputWidget with three options.
  *     var multiselectInput = new OO.ui.CheckboxMultiselectInputWidget( {
  *         options: [
  *             { data: 'a', label: 'First' },
- *             { data: 'b', label: 'Second'},
+ *             { data: 'b', label: 'Second' },
  *             { data: 'c', label: 'Third' }
  *         ]
  *     } );

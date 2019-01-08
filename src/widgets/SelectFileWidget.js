@@ -5,7 +5,7 @@
  * Please see the [OOUI documentation on MediaWiki] [1] for more information and examples.
  *
  *     @example
- *     // Example of a file select widget
+ *     // A file select widget.
  *     var selectFile = new OO.ui.SelectFileWidget();
  *     $( 'body' ).append( selectFile.$element );
  *

@@ -4,15 +4,15 @@
  * for a list of icons included in the library.
  *
  *     @example
- *     // An icon widget with a label
+ *     // An IconWidget with a label via LabelWidget.
  *     var myIcon = new OO.ui.IconWidget( {
- *         icon: 'help',
- *         title: 'Help'
- *      } );
- *      // Create a label.
- *      var iconLabel = new OO.ui.LabelWidget( {
- *          label: 'Help'
- *      } );
+ *             icon: 'help',
+ *             title: 'Help'
+ *          } ),
+ *          // Create a label.
+ *          iconLabel = new OO.ui.LabelWidget( {
+ *              label: 'Help'
+ *          } );
  *      $( 'body' ).append( myIcon.$element, iconLabel.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Icons

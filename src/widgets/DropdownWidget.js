@@ -7,7 +7,7 @@
  * OO.ui.DropdownInputWidget instead.
  *
  *     @example
- *     // Example: A DropdownWidget with a menu that contains three options
+ *     // A DropdownWidget with a menu that contains three options.
  *     var dropDown = new OO.ui.DropdownWidget( {
  *         label: 'Dropdown menu: Select a menu option',
  *         menu: {
@@ -27,12 +27,11 @@
  *             ]
  *         }
  *     } );
- *
  *     $( 'body' ).append( dropDown.$element );
  *
  *     dropDown.getMenu().selectItemByData( 'b' );
  *
- *     dropDown.getMenu().findSelectedItem().getData(); // returns 'b'
+ *     dropDown.getMenu().findSelectedItem().getData(); // Returns 'b'.
  *
  * For more information, please see the [OOUI documentation on MediaWiki] [1].
  *

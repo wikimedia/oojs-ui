@@ -7,7 +7,7 @@
  * a menu and a popup respectively.
  *
  *     @example
- *     // Example: A basic TagMultiselectWidget.
+ *     // A TagMultiselectWidget.
  *     var widget = new OO.ui.TagMultiselectWidget( {
  *         inputPosition: 'outline',
  *         allowedValues: [ 'Option 1', 'Option 2', 'Option 3' ],

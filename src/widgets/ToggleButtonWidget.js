@@ -9,12 +9,12 @@
  *     @example
  *     // Toggle buttons in the 'off' and 'on' state.
  *     var toggleButton1 = new OO.ui.ToggleButtonWidget( {
- *         label: 'Toggle Button off'
- *     } );
- *     var toggleButton2 = new OO.ui.ToggleButtonWidget( {
- *         label: 'Toggle Button on',
- *         value: true
- *     } );
+ *             label: 'Toggle Button off'
+ *         } ),
+ *         toggleButton2 = new OO.ui.ToggleButtonWidget( {
+ *             label: 'Toggle Button on',
+ *             value: true
+ *         } );
  *     // Append the buttons to the DOM.
  *     $( 'body' ).append( toggleButton1.$element, toggleButton2.$element );
  *

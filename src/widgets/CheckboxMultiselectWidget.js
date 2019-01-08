@@ -10,20 +10,17 @@
  *     @example
  *     // A CheckboxMultiselectWidget with CheckboxMultioptions.
  *     var option1 = new OO.ui.CheckboxMultioptionWidget( {
- *         data: 'a',
- *         selected: true,
- *         label: 'Selected checkbox'
- *     } );
- *
- *     var option2 = new OO.ui.CheckboxMultioptionWidget( {
- *         data: 'b',
- *         label: 'Unselected checkbox'
- *     } );
- *
- *     var multiselect=new OO.ui.CheckboxMultiselectWidget( {
- *         items: [ option1, option2 ]
- *      } );
- *
+ *             data: 'a',
+ *             selected: true,
+ *             label: 'Selected checkbox'
+ *         } ),
+ *         option2 = new OO.ui.CheckboxMultioptionWidget( {
+ *             data: 'b',
+ *             label: 'Unselected checkbox'
+ *         } ),
+ *         multiselect = new OO.ui.CheckboxMultiselectWidget( {
+ *             items: [ option1, option2 ]
+ *         } );
  *     $( 'body' ).append( multiselect.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options

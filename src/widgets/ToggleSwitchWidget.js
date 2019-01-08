@@ -5,18 +5,23 @@
  *
  *     @example
  *     // Toggle switches in the 'off' and 'on' position.
- *     var toggleSwitch1 = new OO.ui.ToggleSwitchWidget();
- *     var toggleSwitch2 = new OO.ui.ToggleSwitchWidget( {
- *         value: true
- *     } );
- *
- *     // Create a FieldsetLayout to layout and label switches
- *     var fieldset = new OO.ui.FieldsetLayout( {
- *        label: 'Toggle switches'
- *     } );
+ *     var toggleSwitch1 = new OO.ui.ToggleSwitchWidget(),
+ *         toggleSwitch2 = new OO.ui.ToggleSwitchWidget( {
+ *             value: true
+ *         } );
+ *         // Create a FieldsetLayout to layout and label switches.
+ *         fieldset = new OO.ui.FieldsetLayout( {
+ *             label: 'Toggle switches'
+ *         } );
  *     fieldset.addItems( [
- *         new OO.ui.FieldLayout( toggleSwitch1, { label: 'Off', align: 'top' } ),
- *         new OO.ui.FieldLayout( toggleSwitch2, { label: 'On', align: 'top' } )
+ *         new OO.ui.FieldLayout( toggleSwitch1, {
+ *             label: 'Off',
+ *             align: 'top'
+ *         } ),
+ *         new OO.ui.FieldLayout( toggleSwitch2, {
+ *             label: 'On',
+ *             align: 'top'
+ *         } )
  *     ] );
  *     $( 'body' ).append( fieldset.$element );
  *

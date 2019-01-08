@@ -3,7 +3,7 @@
  * {@link OO.ui.MenuOptionWidget menu options}. MenuSectionOptionWidgets cannot be highlighted or selected.
  *
  *     @example
- *     var myDropdown = new OO.ui.DropdownWidget( {
+ *     var dropdown = new OO.ui.DropdownWidget( {
  *         menu: {
  *             items: [
  *                 new OO.ui.MenuSectionOptionWidget( {
@@ -27,7 +27,7 @@
  *             ]
  *         }
  *     } );
- *     $( 'body' ).append( myDropdown.$element );
+ *     $( 'body' ).append( dropdown.$element );
  *
  * @class
  * @extends OO.ui.DecoratedOptionWidget

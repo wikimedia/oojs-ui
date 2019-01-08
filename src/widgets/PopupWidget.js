@@ -6,7 +6,7 @@
  * Unlike most widgets, PopupWidget is initially hidden and must be shown by calling #toggle.
  *
  *     @example
- *     // A popup widget.
+ *     // A PopupWidget.
  *     var popup = new OO.ui.PopupWidget( {
  *         $content: $( '<p>Hi there!</p>' ),
  *         padded: true,

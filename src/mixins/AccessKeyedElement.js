@@ -1,12 +1,12 @@
 /**
- * AccessKeyedElement is mixed into other classes to provide an `accesskey` attribute.
+ * AccessKeyedElement is mixed into other classes to provide an `accesskey` HTML attribute.
  * Accesskeys allow an user to go to a specific element by using
  * a shortcut combination of a browser specific keys + the key
  * set to the field.
  *
  *     @example
- *     // AccessKeyedElement provides an 'accesskey' attribute to the
- *     // ButtonWidget class
+ *     // AccessKeyedElement provides an `accesskey` attribute to the
+ *     // ButtonWidget class.
  *     var button = new OO.ui.ButtonWidget( {
  *         label: 'Button with Accesskey',
  *         accessKey: 'k'

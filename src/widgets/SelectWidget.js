@@ -8,7 +8,7 @@
  * information, please see the [OOUI documentation on MediaWiki][1].
  *
  *     @example
- *     // Example of a select widget with three options
+ *     // A select widget with three options.
  *     var select = new OO.ui.SelectWidget( {
  *         items: [
  *             new OO.ui.OptionWidget( {

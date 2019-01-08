@@ -7,7 +7,7 @@
  * This and OO.ui.DropdownInputWidget support the same configuration options.
  *
  *     @example
- *     // Example: A RadioSelectInputWidget with three options
+ *     // A RadioSelectInputWidget with three options
  *     var radioSelectInput = new OO.ui.RadioSelectInputWidget( {
  *         options: [
  *             { data: 'a', label: 'First' },

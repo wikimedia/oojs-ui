@@ -4,7 +4,7 @@
  * (to adjust the value in increments) to allow the user to enter a number.
  *
  *     @example
- *     // Example: A NumberInputWidget.
+ *     // A NumberInputWidget.
  *     var numberInput = new OO.ui.NumberInputWidget( {
  *         label: 'NumberInputWidget',
  *         input: { value: 5 },

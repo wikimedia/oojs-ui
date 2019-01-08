@@ -4,8 +4,8 @@
  * the mouse over the element. Titles are not visible on touch devices.
  *
  *     @example
- *     // TitledElement provides a 'title' attribute to the
- *     // ButtonWidget class
+ *     // TitledElement provides a `title` attribute to the
+ *     // ButtonWidget class.
  *     var button = new OO.ui.ButtonWidget( {
  *         label: 'Button with Title',
  *         title: 'I am a button'

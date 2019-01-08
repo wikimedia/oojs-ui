@@ -1,4 +1,10 @@
 /**
+ * SearchInputWidgets are TextInputWidgets with `type="search"` assigned and feature a
+ * {@link OO.ui.mixin.IconElement search icon} by default.
+ * Please see the [OOUI documentation on MediaWiki] [1] for more information and examples.
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs#SearchInputWidget
+ *
  * @class
  * @extends OO.ui.TextInputWidget
  *

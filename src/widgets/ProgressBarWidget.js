@@ -17,11 +17,17 @@
  *     } );
  *     var progressBar2 = new OO.ui.ProgressBarWidget();
  *
- *     // Create a FieldsetLayout to layout progress bars
+ *     // Create a FieldsetLayout to layout progress bars.
  *     var fieldset = new OO.ui.FieldsetLayout;
  *     fieldset.addItems( [
- *        new OO.ui.FieldLayout( progressBar1, {label: 'Determinate', align: 'top'}),
- *        new OO.ui.FieldLayout( progressBar2, {label: 'Indeterminate', align: 'top'})
+ *         new OO.ui.FieldLayout( progressBar1, {
+ *             label: 'Determinate',
+ *             align: 'top'
+ *         } ),
+ *         new OO.ui.FieldLayout( progressBar2, {
+ *             label: 'Indeterminate',
+ *             align: 'top'
+ *         } )
  *     ] );
  *     $( 'body' ).append( fieldset.$element );
  *

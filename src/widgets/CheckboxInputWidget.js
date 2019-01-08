@@ -7,22 +7,22 @@
  * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
  *     @example
- *     // An example of selected, unselected, and disabled checkbox inputs
- *     var checkbox1=new OO.ui.CheckboxInputWidget( {
- *          value: 'a',
- *          selected: true
- *     } );
- *     var checkbox2=new OO.ui.CheckboxInputWidget( {
- *         value: 'b'
- *     } );
- *     var checkbox3=new OO.ui.CheckboxInputWidget( {
- *         value:'c',
- *         disabled: true
- *     } );
- *     // Create a fieldset layout with fields for each checkbox.
- *     var fieldset = new OO.ui.FieldsetLayout( {
- *         label: 'Checkboxes'
- *     } );
+ *     // An example of selected, unselected, and disabled checkbox inputs.
+ *     var checkbox1 = new OO.ui.CheckboxInputWidget( {
+ *             value: 'a',
+ *              selected: true
+ *         } ),
+ *         checkbox2 = new OO.ui.CheckboxInputWidget( {
+ *             value: 'b'
+ *         } ),
+ *         checkbox3 = new OO.ui.CheckboxInputWidget( {
+ *             value:'c',
+ *             disabled: true
+ *         } ),
+ *         // Create a fieldset layout with fields for each checkbox.
+ *         fieldset = new OO.ui.FieldsetLayout( {
+ *             label: 'Checkboxes'
+ *         } );
  *     fieldset.addItems( [
  *         new OO.ui.FieldLayout( checkbox1, { label: 'Selected checkbox', align: 'inline' } ),
  *         new OO.ui.FieldLayout( checkbox2, { label: 'Unselected checkbox', align: 'inline' } ),

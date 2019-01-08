@@ -3,7 +3,7 @@
  * which is used to display additional information or options.
  *
  *     @example
- *     // Example of a popup button.
+ *     // A PopupButtonWidget.
  *     var popupButton = new OO.ui.PopupButtonWidget( {
  *         label: 'Popup button with options',
  *         icon: 'menu',

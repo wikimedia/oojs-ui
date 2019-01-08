@@ -7,7 +7,7 @@
  *
  * The library currently contains the following styling flags for general use:
  *
- * - **progressive**:  Progressive styling is applied to convey that the widget will move the user forward in a process.
+ * - **progressive**: Progressive styling is applied to convey that the widget will move the user forward in a process.
  * - **destructive**: Destructive styling is applied to convey that the widget will remove something.
  *
  * The flags affect the appearance of the buttons:
@@ -15,13 +15,13 @@
  *     @example
  *     // FlaggedElement is mixed into ButtonWidget to provide styling flags
  *     var button1 = new OO.ui.ButtonWidget( {
- *         label: 'Progressive',
- *         flags: 'progressive'
- *     } );
- *     var button2 = new OO.ui.ButtonWidget( {
- *         label: 'Destructive',
- *         flags: 'destructive'
- *     } );
+ *             label: 'Progressive',
+ *             flags: 'progressive'
+ *         } ),
+ *         button2 = new OO.ui.ButtonWidget( {
+ *             label: 'Destructive',
+ *             flags: 'destructive'
+ *         } );
  *     $( 'body' ).append( button1.$element, button2.$element );
  *
  * {@link OO.ui.ActionWidget ActionWidgets}, which are a special kind of button that execute an action, use these flags: **primary** and **safe**.

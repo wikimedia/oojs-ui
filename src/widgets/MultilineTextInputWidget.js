@@ -1,4 +1,21 @@
 /**
+ * MultilineTextInputWidgets, like HTML textareas, are featuring customization options to
+ * configure number of rows visible. In addition, these widgets can be autosized to fit user
+ * inputs and can show {@link OO.ui.mixin.IconElement icons} and
+ * {@link OO.ui.mixin.IndicatorElement indicators}.
+ * Please see the [OOUI documentation on MediaWiki] [1] for more information and examples.
+ *
+ * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
+ *
+ *     @example
+ *     // A MultilineTextInputWidget.
+ *     var multilineTextInput = new OO.ui.MultilineTextInputWidget( {
+ *         value: 'Text input on multiple lines'
+ *     } )
+ *     $( 'body' ).append( multilineTextInput.$element );
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs#MultilineTextInputWidget
+ *
  * @class
  * @extends OO.ui.TextInputWidget
  *

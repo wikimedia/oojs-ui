@@ -3,7 +3,7 @@
  * to use a popup. The popup can be configured to have a default input to insert values into the widget.
  *
  *     @example
- *     // Example: A basic PopupTagMultiselectWidget.
+ *     // A PopupTagMultiselectWidget.
  *     var widget = new OO.ui.PopupTagMultiselectWidget();
  *     $( 'body' ).append( widget.$element );
  *

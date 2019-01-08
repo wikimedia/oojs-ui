@@ -17,7 +17,7 @@
  * For more information about menus and options, please see the [OOUI documentation on MediaWiki][1].
  *
  *     @example
- *     // Example: A ComboBoxInputWidget.
+ *     // A ComboBoxInputWidget.
  *     var comboBox = new OO.ui.ComboBoxInputWidget( {
  *         value: 'Option 1',
  *         options: [

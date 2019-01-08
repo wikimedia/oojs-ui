@@ -1,5 +1,5 @@
 /**
- * Data widget intended for creating 'hidden'-type inputs.
+ * Data widget intended for creating `<input type="hidden">` inputs.
  *
  * @class
  * @extends OO.ui.Widget

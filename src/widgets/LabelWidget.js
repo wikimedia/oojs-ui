@@ -12,15 +12,15 @@
  * will come into focus when the label is clicked.
  *
  *     @example
- *     // Examples of LabelWidgets
+ *     // Two LabelWidgets.
  *     var label1 = new OO.ui.LabelWidget( {
- *         label: 'plaintext label'
- *     } );
- *     var label2 = new OO.ui.LabelWidget( {
- *         label: $( '<a>' ).attr( 'href', 'default.html' ).text( 'jQuery label' )
- *     } );
- *     // Create a fieldset layout with fields for each example
- *     var fieldset = new OO.ui.FieldsetLayout();
+ *             label: 'plaintext label'
+ *         } ),
+ *         label2 = new OO.ui.LabelWidget( {
+ *             label: $( '<a>' ).attr( 'href', 'default.html' ).text( 'jQuery label' )
+ *         } ),
+ *         // Create a fieldset layout with fields for each example.
+ *         fieldset = new OO.ui.FieldsetLayout();
  *     fieldset.addItems( [
  *         new OO.ui.FieldLayout( label1 ),
  *         new OO.ui.FieldLayout( label2 )

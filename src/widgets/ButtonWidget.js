@@ -7,7 +7,7 @@
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Buttons_and_Switches
  *
  *     @example
- *     // A button widget
+ *     // A button widget.
  *     var button = new OO.ui.ButtonWidget( {
  *         label: 'Button with Icon',
  *         icon: 'trash',

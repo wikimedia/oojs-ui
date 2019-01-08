@@ -3,7 +3,7 @@
  * to use a menu of selectable options.
  *
  *     @example
- *     // Example: A basic MenuTagMultiselectWidget.
+ *     // A basic MenuTagMultiselectWidget.
  *     var widget = new OO.ui.MenuTagMultiselectWidget( {
  *         inputPosition: 'outline',
  *         options: [
