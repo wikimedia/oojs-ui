@@ -71,7 +71,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	this.readOnly = false;
 	this.required = false;
 	this.validate = null;
-	this.styleHeight = null;
 	this.scrollWidth = null;
 
 	this.setValidation( config.validate );
