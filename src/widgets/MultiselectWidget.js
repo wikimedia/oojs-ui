@@ -9,6 +9,7 @@
  * @abstract
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.GroupWidget
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -23,6 +24,7 @@ OO.ui.MultiselectWidget = function OoUiMultiselectWidget( config ) {
 
 	// Mixin constructors
 	OO.ui.mixin.GroupWidget.call( this, config );
+	OO.ui.mixin.TitledElement.call( this, config );
 
 	// Events
 	this.aggregate( { change: 'select' } );
@@ -43,6 +45,7 @@ OO.ui.MultiselectWidget = function OoUiMultiselectWidget( config ) {
 
 OO.inheritClass( OO.ui.MultiselectWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.MultiselectWidget, OO.ui.mixin.GroupWidget );
+OO.mixinClass( OO.ui.MultiselectWidget, OO.ui.mixin.TitledElement );
 
 /* Events */
 

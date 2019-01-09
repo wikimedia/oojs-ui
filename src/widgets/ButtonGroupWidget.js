@@ -25,6 +25,7 @@
  * @class
  * @extends OO.ui.Widget
  * @mixins OO.ui.mixin.GroupElement
+ * @mixins OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -39,6 +40,7 @@ OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
+	OO.ui.mixin.TitledElement.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonGroupWidget' );
@@ -51,6 +53,7 @@ OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 
 OO.inheritClass( OO.ui.ButtonGroupWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.ButtonGroupWidget, OO.ui.mixin.GroupElement );
+OO.mixinClass( OO.ui.ButtonGroupWidget, OO.ui.mixin.TitledElement );
 
 /* Static Properties */
 
