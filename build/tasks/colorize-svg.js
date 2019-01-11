@@ -183,7 +183,7 @@ module.exports = function ( grunt ) {
 
 				// TODO: Do this using proper DOM manipulation, not regexp magic
 				variantSvg = originalSvg[ direction ]
-					.replace( /<svg[^>]*>/, '$&<g fill="' + variant.getColor() + '">' )
+					.replace( /<\/title>/, '$&<g fill="' + variant.getColor() + '">' )
 					.replace( /<\/svg>/, '</g>$&' );
 
 				if ( originalSvg[ direction ] === variantSvg ) {
