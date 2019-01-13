@@ -15,7 +15,6 @@
 			WikimediaUITheme: new OO.ui.WikimediaUITheme()
 		};
 
-		// eslint-disable-next-line qunit/require-expect, no-loop-func
 		QUnit.test( JSON.stringify( test.config ), function ( assert ) {
 			var config, instance, infused, $fromPhp, theme;
 

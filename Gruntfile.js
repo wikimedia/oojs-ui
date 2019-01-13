@@ -354,8 +354,7 @@ module.exports = function ( grunt ) {
 		svgmin: {
 			options: {
 				js2svg: {
-					// eslint-disable-next-line no-tabs
-					indent: '	',
+					indent: '\t',
 					pretty: true
 				},
 				multipass: true,
@@ -429,6 +428,9 @@ module.exports = function ( grunt ) {
 
 		// Lint – Code
 		eslint: {
+			options: {
+				reportUnusedDisableDirectives: true
+			},
 			dev: [
 				'*.js',
 				'{build,demos,src,tests}/**/*.js',
@@ -736,13 +738,11 @@ module.exports = function ( grunt ) {
 	} );
 	grunt.registerTask( 'add-theme', [ 'add-theme-check', 'string-replace' ] );
 
-	/* eslint-disable no-process-env */
 	if ( process.env.JENKINS_HOME ) {
 		grunt.registerTask( 'test', '_ci' );
 	} else {
 		grunt.registerTask( 'test', '_test' );
 	}
-	/* eslint-enable no-process-env */
 
 	grunt.registerTask( 'default', 'test' );
 };
