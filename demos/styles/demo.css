@@ -33,7 +33,7 @@ p {
 }
 
 /* Layout */
-.demo {
+.demo-root {
 	max-width: 62.5em;
 	margin: 0 auto 4.5em;
 }

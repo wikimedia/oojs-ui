@@ -102,7 +102,7 @@ window.Demo = function Demo() {
 			this.tutorialsLink.$element
 		);
 	this.$element
-		.addClass( 'demo' )
+		.addClass( 'demo-root' )
 		.append( this.$menu );
 	$( document.documentElement ).attr( 'dir', this.mode.direction );
 	$( document.head ).append( this.stylesheetLinks );
