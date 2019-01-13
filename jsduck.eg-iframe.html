@@ -19,13 +19,20 @@
 	<script src="dist/oojs-ui.js"></script>
 	<script src="dist/oojs-ui-wikimediaui.js"></script>
 	<script>
+		/* eslint-env browser */
+		// eslint-disable-next-line no-implicit-globals, no-unused-vars
 		function loadInlineExample( code, options, callback ) {
 			try {
+				// eslint-disable-next-line no-eval
 				eval( code );
-				callback && callback( true );
-			} catch (e) {
+				if ( callback ) {
+					callback( true );
+				}
+			} catch ( e ) {
 				document.body.appendChild( document.createTextNode( e ) );
-				callback && callback( false, e );
+				if ( callback ) {
+					callback( false, e );
+				}
 			}
 		}
 	</script>

@@ -1,6 +1,7 @@
 {
     "globals": {
         "Tutorials": false,
-        "Widgets": false
+        "Widgets": false,
+        "Prism": false
     }
 }

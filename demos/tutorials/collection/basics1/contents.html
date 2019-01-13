@@ -455,15 +455,17 @@ input.on( 'enter', function () {
 		$( function () {
 			var toolbar = new Tutorials.Toolbar();
 
+			// eslint-disable-next-line jquery/no-global-selector
 			$( 'nav' ).append(
 				toolbar.$element
 			);
 
+			// eslint-disable-next-line jquery/no-global-selector
 			$( '.line-numbers.language-javascript' ).each( function () {
 				Prism.highlightElement( this );
 			} );
 
-		} )
+		} );
 	</script>
 </body>
 </html>

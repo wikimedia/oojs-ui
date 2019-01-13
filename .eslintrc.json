@@ -5,5 +5,10 @@
     ],
     "globals": {
         "OO": false
-    }
+    },
+	"plugins": [ "html" ],
+	"settings": {
+		"html/indent": "+tab",
+		"html/report-bad-indent": "error"
+	}
 }

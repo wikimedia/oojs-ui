@@ -434,15 +434,29 @@ module.exports = function ( grunt ) {
 			dev: [
 				'*.js',
 				'{build,demos,src,tests}/**/*.js',
-				'!demos/{dist,node_modules,vendor}/**/*.js',
+				'!demos/{dist,node_modules,vendor}/**',
 				'!tests/JSPHP.test.js'
-			]
+			],
+			html: {
+				options: {
+					// TODO: reportUnusedDisableDirectives doesn't work with plugin-html
+					// (https://github.com/BenoitZugmeyer/eslint-plugin-html/issues/111)
+					// Once that is fixed, merge dev and html
+					reportUnusedDisableDirectives: false
+				},
+				src: [
+					'*.html',
+					'{build,demos,src,tests}/**/*.html',
+					'!demos/{dist,node_modules,vendor}/**',
+					'!tests/JSPHP.test.js'
+				]
+			}
 		},
 		jsonlint: {
 			all: [
 				'*.json',
 				'{build,demos,src,tests,i18n}/**/*.json',
-				'!demos/{dist,node_modules,vendor}/**/*.json'
+				'!demos/{dist,node_modules,vendor}/**'
 			]
 		},
 
