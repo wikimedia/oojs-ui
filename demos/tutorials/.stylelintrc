@@ -2,6 +2,6 @@
 	"extends": "stylelint-config-wikimedia",
 	"rules": {
 		"no-descending-specificity": null,
-		"selector-class-pattern": null
+		"selector-class-pattern": "^(oo-ui|tutorials|todo)-"
 	}
 }

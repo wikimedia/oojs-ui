@@ -37,7 +37,7 @@
 	} );
 
 	// eslint-disable-next-line jquery/no-global-selector
-	$( '.embed-app3' ).append(
+	$( '.tutorials-embed-app3' ).append(
 		new OO.ui.FieldsetLayout( {
 			id: 'tutorials-basics2-app3',
 			label: 'Demo #3',

@@ -2,9 +2,9 @@ window.Widgets = {};
 
 $( function () {
 	// eslint-disable-next-line jquery/no-global-selector
-	var $scroll = $( '.scroll' );
-	$( window ).on( 'scroll', function () {
-		$scroll.toggleClass( 'scroll-visible', $( this ).scrollTop() > 100 );
+	var $scroll = $( '.tutorials-scroll' );
+	$( window ).on( 'tutorials-scroll', function () {
+		$scroll.toggleClass( 'tutorials-scroll-visible', $( this ).scrollTop() > 100 );
 	} );
 	$scroll.on( 'click', function () {
 		// eslint-disable-next-line jquery/no-animate
