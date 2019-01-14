@@ -77,7 +77,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	this.clearButton = new OO.ui.ButtonWidget( {
 		classes: [ 'oo-ui-selectFileWidget-clearButton' ],
 		framed: false,
-		icon: 'close',
+		icon: 'clear',
 		disabled: this.disabled
 	} );
 

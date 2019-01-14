@@ -1665,7 +1665,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {
 						icon: 'tag',
-						indicator: 'clear'
+						indicator: 'required'
 					} ),
 					{
 						label: 'SelectFileWidget (icon, indicator)',
@@ -1675,7 +1675,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {
 						icon: 'tag',
-						indicator: 'clear',
+						indicator: 'required',
 						disabled: true
 					} ),
 					{
