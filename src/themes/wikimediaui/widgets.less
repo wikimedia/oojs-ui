@@ -150,6 +150,8 @@
 }
 
 .theme-oo-ui-checkboxInputWidget() {
+	// Create a stacking context, so that we can use `z-index` below without leaking out
+	z-index: 0;
 	position: relative;
 	line-height: @size-input-binary;
 	// Prevent the fake span from jumping to the next line of text
@@ -1017,6 +1019,8 @@
 }
 
 .theme-oo-ui-radioInputWidget() {
+	// Create a stacking context, so that we can use `z-index` below without leaking out
+	z-index: 0;
 	position: relative;
 	line-height: @size-input-binary;
 	// Prevent the fake span from jumping to the next line of text
