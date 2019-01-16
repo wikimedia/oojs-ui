@@ -8,6 +8,9 @@
 		"logoWikidata": {
 			"file": "../wikimediaui/images/icons/logo-Wikidata.svg"
 		},
+		"logoWikimedia": {
+			"file": "../wikimediaui/images/icons/logo-Wikidata.svg"
+		},
 		"logoWikimediaCommons": {
 			"file": "../wikimediaui/images/icons/logo-Wikimedia-Commons.svg"
 		},
