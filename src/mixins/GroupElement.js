@@ -119,6 +119,11 @@ OO.ui.mixin.GroupElement.prototype.findItemsFromData = function ( data ) {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
+
+	if ( items.length === 0 ) {
+		return this;
+	}
+
 	// Mixin method
 	OO.EmitterList.prototype.addItems.call( this, items, index );
 
@@ -181,6 +186,10 @@ OO.ui.mixin.GroupElement.prototype.insertItemElements = function ( itemWidget, i
  */
 OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
 	var i, len, item, index;
+
+	if ( items.length === 0 ) {
+		return this;
+	}
 
 	// Remove specific items elements
 	for ( i = 0, len = items.length; i < len; i++ ) {
