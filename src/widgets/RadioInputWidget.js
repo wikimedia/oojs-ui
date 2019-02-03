@@ -128,7 +128,7 @@ OO.ui.RadioInputWidget.prototype.isSelected = function () {
  */
 OO.ui.RadioInputWidget.prototype.simulateLabelClick = function () {
 	if ( !this.isDisabled() ) {
-		this.$input.click();
+		this.$input.trigger( 'click' );
 	}
 	this.focus();
 };

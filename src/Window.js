@@ -552,7 +552,7 @@ OO.ui.Window.prototype.onFocusTrapFocused = function ( event ) {
 		// properly trapped. It's not a *meaningful* focus, since it's just
 		// the content-div for the Window, but it's better than letting focus
 		// escape into the page.
-		this.$content.focus();
+		this.$content.trigger( 'focus' );
 	}
 };
 
@@ -635,7 +635,7 @@ OO.ui.Window.prototype.setup = function ( data ) {
 OO.ui.Window.prototype.ready = function ( data ) {
 	var win = this;
 
-	this.$content.focus();
+	this.$content.trigger( 'focus' );
 	return this.getReadyProcess( data ).execute().then( function () {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.addClass( 'oo-ui-window-ready' ).width();
@@ -661,7 +661,6 @@ OO.ui.Window.prototype.hold = function ( data ) {
 
 		// Blur the focused element
 		if ( $focus.length ) {
-			// eslint-disable-next-line jquery/no-event-shorthand
 			$focus[ 0 ].blur();
 		}
 

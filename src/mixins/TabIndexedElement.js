@@ -199,7 +199,7 @@ OO.ui.mixin.TabIndexedElement.prototype.isLabelableNode = function ( $node ) {
  */
 OO.ui.mixin.TabIndexedElement.prototype.focus = function () {
 	if ( !this.isDisabled() ) {
-		this.$tabIndexed.focus();
+		this.$tabIndexed.trigger( 'focus' );
 	}
 	return this;
 };
@@ -211,7 +211,7 @@ OO.ui.mixin.TabIndexedElement.prototype.focus = function () {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TabIndexedElement.prototype.blur = function () {
-	this.$tabIndexed.blur();
+	this.$tabIndexed.trigger( 'blur' );
 	return this;
 };
 

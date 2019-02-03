@@ -177,7 +177,7 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
 	}
 
 	if ( event.target !== this.$element[ 0 ] ) {
-		this.$focusOwner.focus();
+		this.$focusOwner.trigger( 'focus' );
 	}
 };
 

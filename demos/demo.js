@@ -1,4 +1,4 @@
-/* globals Prism, javascriptStringify, jQuery */
+/* globals Prism, javascriptStringify */
 /**
  * @class
  * @extends OO.ui.Element
@@ -576,7 +576,6 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 
 		val = $input.val();
 		$input.val( '' );
-		// eslint-disable-next-line jquery/no-event-shorthand
 		$input[ 0 ].focus();
 		result = exec( val );
 
@@ -725,7 +724,6 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 			e.preventDefault();
 			$console.toggleClass( 'demo-console-collapsed demo-console-expanded' );
 			if ( $input.is( ':visible' ) ) {
-				// eslint-disable-next-line jquery/no-event-shorthand
 				$input[ 0 ].focus();
 				if ( console && console.log ) {
 					window[ layout ] = item;

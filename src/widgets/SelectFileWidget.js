@@ -415,7 +415,7 @@ OO.ui.SelectFileWidget.prototype.onKeyPress = function ( e ) {
 	if ( this.isSupported && !this.isDisabled() && this.$input &&
 		( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER )
 	) {
-		this.$input.click();
+		this.$input.trigger( 'click' );
 		return false;
 	}
 };
@@ -429,7 +429,7 @@ OO.ui.SelectFileWidget.prototype.onKeyPress = function ( e ) {
  */
 OO.ui.SelectFileWidget.prototype.onDropTargetClick = function () {
 	if ( this.isSupported && !this.isDisabled() && this.$input ) {
-		this.$input.click();
+		this.$input.trigger( 'click' );
 		return false;
 	}
 };

@@ -150,7 +150,7 @@ OO.ui.CheckboxInputWidget.prototype.isSelected = function () {
  */
 OO.ui.CheckboxInputWidget.prototype.simulateLabelClick = function () {
 	if ( !this.isDisabled() ) {
-		this.$input.click();
+		this.$handle.trigger( 'click' );
 	}
 	this.focus();
 };

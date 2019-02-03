@@ -163,7 +163,7 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyDown = function ( e ) {
 		$focused = $( document.activeElement );
 		$firstFocusable = OO.ui.findFocusable( this.$group );
 		if ( $focused[ 0 ] === $firstFocusable[ 0 ] && e.shiftKey ) {
-			this.$handle.focus();
+			this.$handle.trigger( 'focus' );
 			return false;
 		}
 		$lastFocusable = OO.ui.findFocusable( this.$group, true );
@@ -171,7 +171,7 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyDown = function ( e ) {
 			// Focus this group's handle and let the browser's tab handling happen (no 'return false').
 			// This way we don't have to fiddle with other ToolGroups' business, or worry what to do
 			// if the next group is not a PopupToolGroup or doesn't exist at all.
-			this.$handle.focus();
+			this.$handle.trigger( 'focus' );
 			// Close the popup so that we don't move back inside it (if this is the last group).
 			this.setActive( false );
 		}

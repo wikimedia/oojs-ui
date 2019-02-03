@@ -414,7 +414,6 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
 				) {
 					$focused = previousTabPanel.$element.find( ':focus' );
 					if ( $focused.length ) {
-						// eslint-disable-next-line jquery/no-event-shorthand
 						$focused[ 0 ].blur();
 					}
 				}
@@ -427,7 +426,6 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
 				// blurred when it was hidden, but browsers are not very consistent about this.
 				$focused = previousTabPanel.$element.find( ':focus' );
 				if ( $focused.length ) {
-					// eslint-disable-next-line jquery/no-event-shorthand
 					$focused[ 0 ].blur();
 				}
 			}
