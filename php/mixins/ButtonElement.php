@@ -30,7 +30,7 @@ trait ButtonElement {
 	 */
 	public function initializeButtonElement( array $config = [] ) {
 		// Properties
-		if ( ! $this instanceof Element ) {
+		if ( !$this instanceof Element ) {
 			throw new Exception( "ButtonElement trait can only be used on Element instances" );
 		}
 		$target = $config['button'] ?? new Tag( 'a' );
@@ -62,7 +62,7 @@ trait ButtonElement {
 	 * @return $this
 	 */
 	public function toggleFramed( $framed = null ) {
-		$this->framed = $framed !== null ? !!$framed : !$this->framed;
+		$this->framed = $framed !== null ? (bool)$framed : !$this->framed;
 		$this->toggleClasses( [ 'oo-ui-buttonElement-framed' ], $this->framed );
 		$this->toggleClasses( [ 'oo-ui-buttonElement-frameless' ], !$this->framed );
 		return $this;

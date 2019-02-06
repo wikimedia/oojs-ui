@@ -189,7 +189,7 @@ class ButtonWidget extends Widget {
 	 * @return $this
 	 */
 	public function setActive( $active = null ) {
-		$this->active = !!$active;
+		$this->active = (bool)$active;
 		$this->toggleClasses( [ 'oo-ui-buttonElement-active' ], $this->active );
 		return $this;
 	}
