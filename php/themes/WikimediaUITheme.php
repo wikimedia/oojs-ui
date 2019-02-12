@@ -8,10 +8,11 @@ class WikimediaUITheme extends Theme {
 
 	public function getElementClasses( Element $element ) {
 		$variants = [
-			'warning' => false,
 			'invert' => false,
 			'progressive' => false,
-			'destructive' => false
+			'destructive' => false,
+			'error' => false,
+			'warning' => false
 		];
 
 		// Parent method
@@ -36,6 +37,7 @@ class WikimediaUITheme extends Theme {
 				// Any other kind of button, use the right colored icon if available
 				$variants['progressive'] = $element->hasFlag( 'progressive' );
 				$variants['destructive'] = $element->hasFlag( 'destructive' );
+				$variants['error'] = $element->hasFlag( 'error' );
 				$variants['warning'] = $element->hasFlag( 'warning' );
 			}
 		}

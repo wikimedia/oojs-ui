@@ -268,18 +268,6 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
 						framed: false,
-						flags: [ 'warning' ],
-						icon: 'alert',
-						label: 'Warning'
-					} ),
-					{
-						label: 'ButtonWidget (frameless, warning)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						framed: false,
 						flags: [ 'destructive' ],
 						icon: 'trash',
 						label: 'Destructive'
@@ -2755,9 +2743,10 @@ Demo.static.pages.widgets = function ( demo ) {
 						value: 'Foo'
 					} ),
 					{
-						label: 'FieldLayout with notice and error message',
-						notices: [ 'Please input a number.' ],
+						label: 'FieldLayout with error, warning and notice message',
 						errors: [ 'The value must be a number.' ],
+						warnings: [ 'The value should be a number.' ],
+						notices: [ 'Please input a number.' ],
 						align: 'top'
 					}
 				),

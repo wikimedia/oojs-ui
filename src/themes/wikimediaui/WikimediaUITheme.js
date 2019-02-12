@@ -22,10 +22,11 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 	// Parent method
 	var variant, isFramed, isActive, isToolOrGroup,
 		variants = {
-			warning: false,
 			invert: false,
 			progressive: false,
-			destructive: false
+			destructive: false,
+			error: false,
+			warning: false
 		},
 		// Parent method
 		classes = OO.ui.WikimediaUITheme.parent.prototype.getElementClasses.call( this, element );
@@ -76,6 +77,7 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 				);
 
 			variants.destructive = element.hasFlag( 'destructive' );
+			variants.error = element.hasFlag( 'error' );
 			variants.warning = element.hasFlag( 'warning' );
 		}
 	}

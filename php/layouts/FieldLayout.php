@@ -41,6 +41,13 @@ class FieldLayout extends Layout {
 	protected $errors;
 
 	/**
+	 * Warning messages.
+	 *
+	 * @var array
+	 */
+	protected $warnings;
+
+	/**
 	 * Notice messages.
 	 *
 	 * @var array
@@ -60,6 +67,8 @@ class FieldLayout extends Layout {
 	 * @param string $config['align'] Alignment mode, either 'left', 'right', 'top' or 'inline'
 	 *   (default: 'left')
 	 * @param array $config['errors'] Error messages about the widget, as strings or HtmlSnippet
+	 *   instances.
+	 * @param array $config['warnings'] Warning messages about the widget, as strings or HtmlSnippet
 	 *   instances.
 	 * @param array $config['notices'] Notices about the widget, as strings or HtmlSnippet instances.
 	 * @param string|HtmlSnippet $config['help'] Explanatory text shown as a '?' icon.
@@ -89,6 +98,7 @@ class FieldLayout extends Layout {
 		// Properties
 		$this->fieldWidget = $fieldWidget;
 		$this->errors = $config['errors'] ?? [];
+		$this->warnings = $config['warnings'] ?? [];
 		$this->notices = $config['notices'] ?? [];
 		$this->field = $this->isFieldInline() ? new Tag( 'span' ) : new Tag( 'div' );
 		$this->messages = new Tag( 'ul' );
@@ -116,7 +126,7 @@ class FieldLayout extends Layout {
 			->addClasses( [ 'oo-ui-fieldLayout' ] )
 			->toggleClasses( [ 'oo-ui-fieldLayout-disabled' ], $this->fieldWidget->isDisabled() )
 			->appendContent( $this->body );
-		if ( count( $this->errors ) || count( $this->notices ) ) {
+		if ( count( $this->errors ) || count( $this->warnings ) || count( $this->notices ) ) {
 			$this->appendContent( $this->messages );
 		}
 		$this->body->addClasses( [ 'oo-ui-fieldLayout-body' ] );
@@ -126,11 +136,14 @@ class FieldLayout extends Layout {
 			->addClasses( [ 'oo-ui-fieldLayout-field' ] )
 			->appendContent( $this->fieldWidget );
 
-		foreach ( $this->notices as $text ) {
-			$this->messages->appendContent( $this->makeMessage( 'notice', $text ) );
-		}
 		foreach ( $this->errors as $text ) {
 			$this->messages->appendContent( $this->makeMessage( 'error', $text ) );
+		}
+		foreach ( $this->warnings as $text ) {
+			$this->messages->appendContent( $this->makeMessage( 'warning', $text ) );
+		}
+		foreach ( $this->notices as $text ) {
+			$this->messages->appendContent( $this->makeMessage( 'notice', $text ) );
 		}
 
 		$this->setAlignment( $config['align'] );
@@ -139,13 +152,16 @@ class FieldLayout extends Layout {
 	}
 
 	/**
-	 * @param string $kind 'error' or 'notice'
+	 * @param string $kind 'error', 'warnings' or 'notice'
 	 * @param string|HtmlSnippet $text
 	 * @return Tag
 	 */
 	private function makeMessage( $kind, $text ) {
 		$listItem = new Tag( 'li' );
 		if ( $kind === 'error' ) {
+			$icon = new IconWidget( [ 'icon' => 'alert', 'flags' => [ 'error' ] ] );
+			$listItem->setAttributes( [ 'role' => 'alert' ] );
+		} elseif ( $kind === 'warning' ) {
 			$icon = new IconWidget( [ 'icon' => 'alert', 'flags' => [ 'warning' ] ] );
 			$listItem->setAttributes( [ 'role' => 'alert' ] );
 		} elseif ( $kind === 'notice' ) {
@@ -256,6 +272,7 @@ class FieldLayout extends Layout {
 		$config['fieldWidget'] = $this->fieldWidget;
 		$config['align'] = $this->align;
 		$config['errors'] = $this->errors;
+		$config['warnings'] = $this->warnings;
 		$config['notices'] = $this->notices;
 		$config['help'] = $this->helpText;
 		$config['helpInline'] = $this->helpInline;
@@ -266,7 +283,7 @@ class FieldLayout extends Layout {
 	/**
 	 * Creates and returns the help element.
 	 *
-	 * @return  Widget The element that should become `$this->help`.
+	 * @return Widget The element that should become `$this->help`.
 	 */
 	private function createHelpElement() {
 		if ( $this->helpInline ) {
