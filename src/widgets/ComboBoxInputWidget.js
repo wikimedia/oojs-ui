@@ -236,19 +236,40 @@ OO.ui.ComboBoxInputWidget.prototype.onMenuToggle = function ( isVisible ) {
 };
 
 /**
- * @inheritdoc
+ * Update the disabled state of the controls
+ *
+ * @chainable
+ * @protected
+ * @return {OO.ui.ComboBoxInputWidget} The widget, for chaining
  */
-OO.ui.ComboBoxInputWidget.prototype.setDisabled = function ( disabled ) {
-	// Parent method
-	OO.ui.ComboBoxInputWidget.parent.prototype.setDisabled.call( this, disabled );
-
+OO.ui.ComboBoxInputWidget.prototype.updateControlsDisabled = function () {
+	var disabled = this.isDisabled() || this.isReadOnly();
 	if ( this.dropdownButton ) {
-		this.dropdownButton.setDisabled( this.isDisabled() );
+		this.dropdownButton.setDisabled( disabled );
 	}
 	if ( this.menu ) {
-		this.menu.setDisabled( this.isDisabled() );
+		this.menu.setDisabled( disabled );
 	}
+	return this;
+};
 
+/**
+ * @inheritdoc
+ */
+OO.ui.ComboBoxInputWidget.prototype.setDisabled = function () {
+	// Parent method
+	OO.ui.ComboBoxInputWidget.parent.prototype.setDisabled.apply( this, arguments );
+	this.updateControlsDisabled();
+	return this;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ComboBoxInputWidget.prototype.setReadOnly = function () {
+	// Parent method
+	OO.ui.ComboBoxInputWidget.parent.prototype.setReadOnly.apply( this, arguments );
+	this.updateControlsDisabled();
 	return this;
 };
 
