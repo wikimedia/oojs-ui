@@ -378,7 +378,7 @@ OO.ui.TagMultiselectWidget.prototype.doInputBackspace = function ( e, withMetaKe
 			// If Ctrl/Cmd was pressed, delete item entirely.
 			// Otherwise put it into the text field for editing.
 			if ( !withMetaKey ) {
-				this.input.setValue( item.getData() );
+				this.input.setValue( item.getLabel() );
 			}
 		}
 
