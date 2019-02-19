@@ -1715,6 +1715,9 @@
 	}
 
 	input {
+		// `input` elements `line-height` is widely ignored by browsers,
+		// hence relying on `height`, see T216070
+		height: @size-base;
 		line-height: @line-height-widget-singleline;
 	}
 
