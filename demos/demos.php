@@ -96,7 +96,7 @@
 	<link rel="stylesheet" href="classes/ButtonStyleShowcaseWidget.css">
 </head>
 <body class="oo-ui-<?php echo $direction; ?> oo-ui-theme-<?php echo $theme ?>">
-	<div class="demo">
+	<div class="demo-root">
 		<div class="demo-menu" role="navigation">
 			<?php
 				echo new OOUI\ButtonGroupWidget( [
