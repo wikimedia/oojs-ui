@@ -533,7 +533,7 @@
 		font-size: inherit;
 		font-family: inherit;
 		height: 1.5em;
-		padding: @padding-bottom-menu @padding-horizontal-base; // `@padding-bottom-menu` used as vertical `padding` here as we don't have a lot of layout leverage on `option`
+		padding: @padding-base;
 	}
 
 	&.oo-ui-widget-enabled {
@@ -648,7 +648,7 @@
 
 .theme-oo-ui-menuSectionOptionWidget() {
 	color: @color-base--subtle;
-	padding: @padding-top-base @padding-horizontal-base @padding-vertical-label;
+	padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-label;
 	font-weight: bold;
 
 	& ~ .oo-ui-menuOptionWidget {
@@ -926,7 +926,7 @@
 
 	&-head {
 		> .oo-ui-labelElement-label {
-			margin: @margin-top-popup @padding-start-input-text-icon-label @padding-bottom-menu @padding-horizontal-base;
+			margin: @margin-top-popup @padding-start-input-text-icon-label @padding-vertical-base @padding-horizontal-base;
 			line-height: @line-height-widget-singleline;
 		}
 
@@ -946,7 +946,7 @@
 		line-height: @line-height-message;
 
 		&-padded {
-			margin: @margin-top-popup @padding-horizontal-base @padding-bottom-menu;// Use `margin` rather than `padding` to enable margin to collapse
+			margin: @margin-top-popup @padding-horizontal-base @padding-vertical-base;// Use `margin` rather than `padding` to enable margin to collapse
 
 			> :first-child {
 				margin-top: 0;
@@ -955,7 +955,7 @@
 	}
 
 	&-footer {
-		margin: @margin-top-popup @padding-horizontal-base @padding-bottom-menu;
+		margin: @margin-top-popup @padding-horizontal-base @padding-vertical-base;
 	}
 }
 
@@ -1222,9 +1222,9 @@
 		.oo-ui-box-sizing( border-box );
 		display: block;
 		right: @size-base + @padding-horizontal-input-text; // With close, no indicator
-		padding-top: @padding-top-base;
+		padding-top: @padding-vertical-base;
 		padding-left: @padding-horizontal-input-text;
-		padding-bottom: @padding-bottom-base;
+		padding-bottom: @padding-vertical-base;
 		white-space: nowrap;
 	}
 
@@ -1415,7 +1415,7 @@
 
 	.oo-ui-labelElement-label {
 		border-bottom: ( 2 * @border-width-base ) @border-style-base transparent;
-		padding: @padding-top-base @padding-horizontal-taboption-label ( @padding-bottom-base - 2 * @size-modifier-border ); // Provide additional `padding` on label itself for special tab focus
+		padding: @padding-vertical-base @padding-horizontal-taboption-label ( @padding-vertical-base - 2 * @size-modifier-border ); // Provide additional `padding` on label itself for special tab focus
 		line-height: @line-height-widget-singleline;
 		.oo-ui-transition( border-color @transition-base );
 	}
@@ -1581,7 +1581,7 @@
 				background-color: transparent;
 				color: @color-base--emphasized;
 				border: 0;
-				padding: @padding-top-base 0 @padding-bottom-base @start-tagmultiselect-input;
+				padding: @padding-vertical-base 0 @padding-vertical-base @start-tagmultiselect-input;
 				font-family: inherit;
 				font-size: inherit;
 				line-height: @line-height-widget-singleline;
@@ -1832,7 +1832,7 @@
 	> .oo-ui-labelElement-label {
 		color: @color-base--subtle;
 		margin-top: @border-width-base; // Address `border` on `input`
-		padding: @padding-top-base @padding-horizontal-base @padding-bottom-base @padding-horizontal-input-text;
+		padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-base @padding-horizontal-input-text;
 		line-height: @line-height-widget-singleline;
 	}
 

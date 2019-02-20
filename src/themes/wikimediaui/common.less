@@ -115,10 +115,10 @@
 
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
 
-@padding-base: @padding-top-base @padding-horizontal-base @padding-bottom-base;
-@padding-frameless: @padding-top-base @padding-horizontal-frameless @padding-bottom-base;
-@padding-input-text: @padding-top-base @padding-horizontal-input-text @padding-bottom-base;
-@padding-menu: @padding-top-base @padding-horizontal-base @padding-bottom-menu;
+@padding-base: @padding-vertical-base @padding-horizontal-base;
+@padding-frameless: @padding-vertical-base @padding-horizontal-frameless;
+@padding-input-text: @padding-vertical-base @padding-horizontal-input-text;
+@padding-menu: @padding-base;
 @padding-menu-large: @padding-top-tool-label @padding-horizontal-base @padding-bottom-tool-label;
 @padding-panel-form: 16 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.1428571em`≈`16px`
 @padding-panel-dialog: 20 / @ooui-font-size-browser / @ooui-font-size-base;
@@ -129,13 +129,11 @@
 @padding-horizontal-taboption-label: 5 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-tagitem: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-toolbar-action-buttons: 16 / @ooui-font-size-browser / @ooui-font-size-base; // aligned relatively to `@padding-horizontal-base` but for toolbar button height
+@padding-vertical-base: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-vertical-label: 4 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-top-base: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-icon-indicator: 30 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-tool-label: 14 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-bottom-base: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-bottom-menu: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-bottom-tool-label: 13 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-icon: @size-icon;
 @padding-start-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.03125em`≈`26px`; @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base;
