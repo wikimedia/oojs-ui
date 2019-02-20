@@ -30,7 +30,7 @@ h2 {
 	margin-top: 0;
 }
 
-h2.section {
+.tutorials-section {
 	color: #222;
 	margin-top: 2em;
 	margin-bottom: 0;
@@ -76,7 +76,7 @@ pre[ class*='language-' ] {
 	margin: 2em 0;
 }
 
-span.red {
+.tutorials-emphasis {
 	color: #b32424;
 	font-weight: bold;
 }
@@ -109,25 +109,25 @@ tr {
 	background-color: #fefefe;
 }
 
-.box-container {
+.tutorials-box-container {
 	padding-top: 2em;
 }
 
-.box {
+.tutorials-box {
 	float: left;
 	width: 10%;
 }
 
-.box-wide {
+.tutorials-box-wide {
 	float: left;
 	width: 45%;
 }
 
-.header {
+.tutorials-header {
 	margin-top: 0;
 }
 
-.intro {
+.tutorials-intro {
 	background-color: #fff;
 	color: #222;
 	margin-top: 3em;
@@ -137,13 +137,13 @@ tr {
 	font-size: 120%;
 }
 
-.container {
+.tutorials-container {
 	margin-left: 16%;
 	margin-bottom: 2%;
 	margin-right: 16%;
 }
 
-.inline-code {
+.tutorials-inline-code {
 	background-color: #fff;
 	color: #b32424;
 	border: 1px solid #d3d3d3;
@@ -152,7 +152,7 @@ tr {
 	padding-bottom: 0.1em;
 }
 
-.embed-app {
+.tutorials-embed-app {
 	background-color: #fff;
 	width: 60%;
 	margin: auto;
@@ -175,17 +175,17 @@ tr {
 }
 
 /* Borrowed from Core Apex CSS */
-.embed-app .oo-ui-selectWidget-depressed .oo-ui-optionWidget-selected {
+.tutorials-embed-app .oo-ui-selectWidget-depressed .oo-ui-optionWidget-selected {
 	background-color: #80ccff;
 }
 
 /* Borrowed from Core Apex CSS */
-.embed-app .oo-ui-optionWidget-highlighted {
+.tutorials-embed-app .oo-ui-optionWidget-highlighted {
 	background-color: #b9e3ff;
 }
 
-.no-highlights .oo-ui-selectWidget-depressed .oo-ui-optionWidget-selected,
-.no-highlights .oo-ui-optionWidget-highlighted {
+.tutorials-no-highlights .oo-ui-selectWidget-depressed .oo-ui-optionWidget-selected,
+.tutorials-no-highlights .oo-ui-optionWidget-highlighted {
 	background-color: #fff;
 }
 
@@ -234,7 +234,7 @@ tr {
 * Taken from https://codepen.io/desirecode/pen/MJPJqV/
 * with minor adjustments.
 */
-.scroll {
+.tutorials-scroll {
 	background-color: #222;
 	position: fixed;
 	bottom: 10px;
@@ -250,11 +250,11 @@ tr {
 	transition: opacity 250ms;
 }
 
-.scroll-visible {
+.tutorials-scroll-visible {
 	opacity: 1;
 }
 
-.scroll span {
+.tutorials-scroll span {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -266,7 +266,7 @@ tr {
 	border-bottom-color: #fff;
 }
 
-.scroll:hover {
+.tutorials-scroll:hover {
 	background-color: #b32424;
 }
 
@@ -274,8 +274,8 @@ tr {
 * Make footer fit smaller sized screens
 */
 @media only screen and ( max-width: 860px ) {
-	.box,
-	.box-wide {
+	.tutorials-box,
+	.tutorials-box-wide {
 		width: 100%;
 		margin-bottom: 2em;
 	}

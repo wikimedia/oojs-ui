@@ -13,11 +13,11 @@
 	<link rel="stylesheet" href="../../tutorials.css">
 </head>
 <body>
-	<a href="#" title="Back to top" class="scroll"><span></span></a>
-	<div class="container">
+	<a href="#" title="Back to top" class="tutorials-scroll"><span></span></a>
+	<div class="tutorials-container">
 		<nav></nav>
-		<div class="intro">
-			<h1 class="header">OOUI Basics: Part 1</h1>
+		<div class="tutorials-intro">
+			<h1 class="tutorials-header">OOUI Basics: Part 1</h1>
 			<h2>ToDo List App</h2>
 			<p>
 				In this tutorial we'll walk through creating a simple JavaScript ToDo app with the OOUI library,
@@ -28,7 +28,7 @@
 		</div>
 		<div>
 			<a id="project-files" href="#project-files">
-				<h2 class="section">
+				<h2 class="tutorials-section">
 					Project Files
 				</h2>
 			</a>
@@ -36,19 +36,19 @@
 			<p>After installing OOUI in our project directory, we will start our project by creating these three files:</p>
 			<ul>
 				<li>
-					<b>The JavaScript initialization file:</b> create a directory named <code class="inline-code">
-					assets/</code> and inside it create a file and name it <code class="inline-code">init.js</code>.
+					<b>The JavaScript initialization file:</b> create a directory named <code class="tutorials-inline-code">
+					assets/</code> and inside it create a file and name it <code class="tutorials-inline-code">init.js</code>.
 					This will be our initialization script.
 				</li>
 				<li>
-					<b>The CSS file:</b> create <code class="inline-code">todo.css</code> and place it in your main
+					<b>The CSS file:</b> create <code class="tutorials-inline-code">todo.css</code> and place it in your main
 					project directory—we will use this file later for all of our custom CSS styling.
 				</li>
-				<li><b>The HTML file:</b> create <code class="inline-code">index.html</code> and place it in your main
+				<li><b>The HTML file:</b> create <code class="tutorials-inline-code">index.html</code> and place it in your main
 					project directory. This is the first file we'll be populating with code.</li>
 			</ul>
 			<a id="add-to-the-project" href="#add-to-the-project">
-				<h2 class="section">
+				<h2 class="tutorials-section">
 					Add to the Project
 				</h2>
 			</a>
@@ -87,11 +87,11 @@
 	&lt;/body&gt;
 &lt;/html&gt;</code></pre>
 		<p>
-			We will use the <code class="inline-code">wrapper</code> div element to inject our
+			We will use the <code class="tutorials-inline-code">wrapper</code> div element to inject our
 			application into.
 		</p>
 		<a id="building-the-base" href="#building-the-base">
-			<h2 class="section">
+			<h2 class="tutorials-section">
 				Building the Base
 			</h2>
 		</a>
@@ -100,14 +100,14 @@
 			pieces to start with: An <b>input</b> to add a new item, and a <b>list</b> displaying all items that
 			have been added.
 		</p>
-		<p>For the <b>input</b> We will need to use an <code class="inline-code">OO.ui.TextInputWidget</code>.</p>
+		<p>For the <b>input</b> We will need to use an <code class="tutorials-inline-code">OO.ui.TextInputWidget</code>.</p>
 		<p>And since a ToDo list allows us to show a list of items that can be selected, for the <b>list</b>
-			itself we will use an <code class="inline-code">OO.ui.SelectWidget</code>
+			itself we will use an <code class="tutorials-inline-code">OO.ui.SelectWidget</code>
 			(You can see a demo of all OOUI widgets in
 			<a href="https://doc.wikimedia.org/oojs-ui/master/demos/"> the demo page</a>).
 		</p>
-		<p>Here is how you can add a <code class="inline-code">SelectWidget</code> and an <code class="inline-code">
-			TextInputWidget</code> to your <code class="inline-code">assets/init.js</code> file:</p>
+		<p>Here is how you can add a <code class="tutorials-inline-code">SelectWidget</code> and an <code class="tutorials-inline-code">
+			TextInputWidget</code> to your <code class="tutorials-inline-code">assets/init.js</code> file:</p>
 <pre class="line-numbers"><code class="language-javascript">$( function () {
 	var input = new OO.ui.TextInputWidget(),
 		list = new OO.ui.SelectWidget();
@@ -122,30 +122,30 @@
 			Let's break this up and see what we did there.
 			One of OOUI's principles is to separate the data from the UI, so each one of the
 			widgets we're creating is first and foremost an object that is separate from the DOM.
-			That object contains the DOM element itself in the <code class="inline-code">$element</code> property, which we use to
+			That object contains the DOM element itself in the <code class="tutorials-inline-code">$element</code> property, which we use to
 			attach to the document, but the behavior itself (as we will soon see) is done through
 			the general OOUI object.
 		</p>
 		<p>
 			So in short, we created two widgets—a text input and a select widget—and then
-			attached their <code class="inline-code">$element</code> to the document. If
+			attached their <code class="tutorials-inline-code">$element</code> to the document. If
 			you load your page, it should have the title and an input. The list is invisible
 			because we don't have a way to add elements to it yet—so let's do that now.
 		</p>
 		<a id="adding-items" href="#adding-items">
-			<h2 class="section">
+			<h2 class="tutorials-section">
 				Adding Items to the List
 			</h2>
 		</a>
 		<hr>
 		<p>
 			We have our input, and we have the list, and now we need to connect them.
-			<code class="inline-code">OO.ui.TextInputWidget</code> emits several events. One of them is simply "enter" when the Enter key is pressed (You can see all events
+			<code class="tutorials-inline-code">OO.ui.TextInputWidget</code> emits several events. One of them is simply "enter" when the Enter key is pressed (You can see all events
 			<a href="https://doc.wikimedia.org/oojs-ui/master/js/#!/api/OO.ui.TextInputWidget">
 			in the documentation</a>). Let's make our input add an item to the list when we hit
 			the "enter" key.
-			Since the list is an <code class="inline-code">OO.ui.SelectWidget</code> we should
-			add into it an <code class="inline-code">OO.ui.OptionWidget</code>.
+			Since the list is an <code class="tutorials-inline-code">OO.ui.SelectWidget</code> we should
+			add into it an <code class="tutorials-inline-code">OO.ui.OptionWidget</code>.
 		</p>
 <pre class="line-numbers"><code class="language-javascript">// Respond to 'enter' keypress
 input.on( 'enter', function () {
@@ -160,9 +160,9 @@ input.on( 'enter', function () {
 		<p>
 			That would add an item to the list. Try it out! Add a ToDo item and click Enter in the demo box below:
 		</p>
-		<div class="embed-app embed-app1 no-highlights"></div>
+		<div class="tutorials-embed-app tutorials-embed-app1 tutorials-no-highlights"></div>
 		<a id="highlights" href="#highlights">
-			<h2 class="section">
+			<h2 class="tutorials-section">
 				Add Highlights for Hover and Select Indication
 			</h2>
 		</a>
@@ -170,7 +170,7 @@ input.on( 'enter', function () {
 		<p>
 			You can make your ToDo list items change color to indicate an item has been hovered or selected.
 			We'll achieve this effect by overriding existing selectors. Add the following code to your
-			<code class="inline-code">todo.css</code> file:
+			<code class="tutorials-inline-code">todo.css</code> file:
 		</p>
 	<pre class="line-numbers"><code class="language-css">.oo-ui-selectWidget-depressed .oo-ui-optionWidget-selected {
 	background-color: #80ccff;
@@ -180,9 +180,9 @@ input.on( 'enter', function () {
 	background-color: #b9e3ff;
 }</code></pre>
 		<p>Now try it out:</p>
-		<div class="embed-app embed-app2"></div>
+		<div class="tutorials-embed-app tutorials-embed-app2"></div>
 		<a id="unique-values" href="#unique-values">
-			<h2 class="section">
+			<h2 class="tutorials-section">
 				Unique Values
 			</h2>
 		</a>
@@ -192,7 +192,7 @@ input.on( 'enter', function () {
 			a condition that checks whether the item exists first before it is added. Let's also
 			prevent adding an empty input.
 		</p>
-		<p>Update your <code class="inline-code">assets/init.js</code> file to look like this:</p>
+		<p>Update your <code class="tutorials-inline-code">assets/init.js</code> file to look like this:</p>
 <pre class="line-numbers"><code class="language-javascript">// Respond to 'enter' keypress
 input.on( 'enter', function () {
 	// Check for duplicates and prevent empty input
@@ -213,27 +213,27 @@ input.on( 'enter', function () {
 } );</code></pre>
 		<p>
 			Now we can only add unique items to this list. When an illegal value is added
-			(an empty input or an existing item), we attach the class <code class="inline-code">
+			(an empty input or an existing item), we attach the class <code class="tutorials-inline-code">
 			.todo-error</code> to the input.
 		</p>
 		<p>For it to actually show something, we need to define it in our CSS
-			file. Add this to your <code class="inline-code">todo.css</code> file:
+			file. Add this to your <code class="tutorials-inline-code">todo.css</code> file:
 		</p>
 <pre class="line-numbers"><code class="language-css">.todo-error input {
 	background-color: #ff9696;
 }</code></pre>
 		<p>Let's try out a live demo of this version, and see if it behaves as expected:</p>
-		<div class="embed-app embed-app3"></div>
+		<div class="tutorials-embed-app tutorials-embed-app3"></div>
 		<p>It works! Now, let's add a little bit of extra flair to the app.</p>
 		<a id="custom-styling" href="#custom-styling">
-			<h2 class="section">
+			<h2 class="tutorials-section">
 				More Custom Styling
 			</h2>
 		</a>
 		<hr>
 		<p>
 			Let's make sure that our list and our input are styled a bit better, and add a placeholder
-			test to the input. Let's go back to the piece in our <code class="inline-code">init.js</code>
+			test to the input. Let's go back to the piece in our <code class="tutorials-inline-code">init.js</code>
 			file where we created the widgets, and add configuration to both:
 		</p>
 <pre class="line-numbers"><code class="language-javascript">$( function () {
@@ -251,8 +251,8 @@ input.on( 'enter', function () {
 			input widget.
 		</p>
 		<p>
-			In the part of our <code class="inline-code">init.js</code> where we've added items
-			to the list, we can use <code class="inline-code">input.setValue( '' );</code> to
+			In the part of our <code class="tutorials-inline-code">init.js</code> where we've added items
+			to the list, we can use <code class="tutorials-inline-code">input.setValue( '' );</code> to
 			clear the input each time an item is added.
 		</p>
 <pre class="line-numbers"><code class="language-javascript">// ...code
@@ -265,7 +265,7 @@ input.on( 'enter', function () {
 	] );
 	input.setValue( '' );
 } );</code></pre>
-		<p>We can now go edit our <code class="inline-code">todo.css</code> stylesheet. Notice that
+		<p>We can now go edit our <code class="tutorials-inline-code">todo.css</code> stylesheet. Notice that
 			we can also style the underlying objects, which (for now) we will do by calling their
 			oo-ui-style class, similarly to what we did in the <a href="#highlights">Highlights</a>
 			section.
@@ -293,16 +293,16 @@ input.on( 'enter', function () {
 }</code></pre>
 		<p>That's it. We now have a basic ToDo app. Yay!</p>
 		<p>Reload your own app and look at your wonderful result. Here is our final demo:</p>
-		<div class="embed-app embed-app4"></div>
+		<div class="tutorials-embed-app tutorials-embed-app4"></div>
 		<p>For your convenience, we included the complete code below.</p>
 		<a id="complete-code" href="#complete-code">
-			<h2 class="section">
+			<h2 class="tutorials-section">
 				The Complete Code
 			</h2>
 		</a>
 		<hr>
 		<p>
-			Here's the full code of our <code class="inline-code">assets/init.js</code> file:
+			Here's the full code of our <code class="tutorials-inline-code">assets/init.js</code> file:
 		</p>
 <pre class="line-numbers"><code class="language-javascript">$( function () {
 	var input = new OO.ui.TextInputWidget( {
@@ -339,7 +339,7 @@ input.on( 'enter', function () {
 	);
 } );</code></pre>
 	<p>
-		Here's the full code of our <code class="inline-code">index.html</code> file:
+		Here's the full code of our <code class="tutorials-inline-code">index.html</code> file:
 	</p>
 <pre class="line-numbers language-markup"><code>&lt;!doctype html&gt;
 &lt;html&gt;
@@ -370,7 +370,7 @@ input.on( 'enter', function () {
 	&lt;/body&gt;
 &lt;/html&gt;</code></pre>
 	<p>
-		Here's the full code of our <code class="inline-code">todo.css</code> file:
+		Here's the full code of our <code class="tutorials-inline-code">todo.css</code> file:
 	</p>
 <pre class="line-numbers"><code class="language-css">.todo-error input {
 	background-color: #ff9696;
