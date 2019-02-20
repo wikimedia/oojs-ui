@@ -415,11 +415,19 @@ p {
  * Left-to-right labels by default, as they're never translated and parentheses are causing
  * rendering quirks
  */
-/* @noflip */
 .oo-ui-labelElement .oo-ui-labelElement-label {
+	/* @noflip */
 	direction: ltr;
 	/* Necessary for inline elements */
 	unicode-bidi: bidi-override;
+}
+
+/*
+ * Support IE 10, 11, Edge 15 & 16: ButtonWidgets with empty labels are oversized
+ * Note, that this does not affect widgets with `invisibleLabel` set.
+ */
+.oo-ui-buttonElement-button > .oo-ui-labelElement-label:empty {
+	unicode-bidi: normal;
 }
 
 .oo-ui-fieldLayout.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-inline-help,
