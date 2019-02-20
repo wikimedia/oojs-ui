@@ -492,7 +492,8 @@ FieldLayout left & right aligned */
 	}
 
 	.demo-menu + .demo-container.oo-ui-panelLayout {
-		margin-top: 4.5em;
+		/* Decrease by `border-bottom` */
+		margin-top: calc( 4.5em - 1px );
 	}
 
 	/* Avoid `box-shadow` from menu lurkin into toolbar demo, +1.2em to be harmonious with menu */
@@ -504,7 +505,9 @@ FieldLayout left & right aligned */
 	.demo-container.oo-ui-panelLayout {
 		/* Apex overrides. WikimediaUI wins for now in the demo framing in this browser subset */
 		border-color: #a2a9b1;
-		border-radius: 2px;
+		/* PanelLayout doesn't have rounded borders with menu overlay ever,
+		   therefore removing top radius */
+		border-radius: 0 0 2px 2px;
 		box-shadow: none;
 	}
 
