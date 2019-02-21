@@ -748,7 +748,7 @@ OO.ui.Element.static.scrollIntoView = function ( el, config ) {
 		}
 	}
 	if ( !$.isEmptyObject( animations ) ) {
-		// eslint-disable-next-line jquery/no-animate
+		// eslint-disable-next-line no-jquery/no-animate
 		$container.stop( true ).animate( animations, config.duration === undefined ? 'fast' : config.duration );
 		$container.queue( function ( next ) {
 			deferred.resolve();

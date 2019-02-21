@@ -275,7 +275,7 @@ Demo.static.scrollToFragment = function () {
 	var elem = document.getElementById( location.hash.slice( 1 ) );
 	if ( elem ) {
 		// The additional '10' is just because it looks nicer.
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$( window ).scrollTop( $( elem ).offset().top - $( '.demo-menu' ).outerHeight() - 10 );
 	}
 };
