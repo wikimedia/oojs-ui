@@ -6,9 +6,9 @@
 	<clipPath id="a">
 		<path d="M0-33l471 471v363h82V438l471-471v1057H0"/>
 	</clipPath>
-	<g transform="matrix(.021 0 0 .021 -.756 -.588)" clip-path="url(#a)">
+	<g clip-path="url(#a)" transform="matrix(.021 0 0 .021 -.756 -.588)">
 		<path d="M511 224a288 288 0 1 0 2 0"/>
-		<path d="M511 102a410 410 0 1 0 2 0" fill="none" stroke="#000" stroke-width="116"/>
+		<path fill="none" stroke="#000" stroke-width="116" d="M511 102a410 410 0 1 0 2 0"/>
 	</g>
 	<circle cx="10" cy="3.32" r="3.32"/>
 </svg>
