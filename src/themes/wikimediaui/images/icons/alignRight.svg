@@ -4,5 +4,5 @@
 		align right
 	</title>
 	<path d="M1 15h18v2H1zm0-8h7v2H1zm0 4h7v2H1zm0-8h18v2H1z"/>
-	<rect width="8" height="6" x="11" y="7" rx="1" ry="1"/>
+	<rect width="8" height="6" x="11" y="7" rx="1"/>
 </svg>
