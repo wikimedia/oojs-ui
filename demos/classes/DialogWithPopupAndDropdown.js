@@ -42,7 +42,7 @@ Demo.DialogWithPopupAndDropdown.prototype.initialize = function () {
 				popup: {
 					head: true,
 					label: 'More information',
-					// eslint-disable-next-line jquery/no-parse-html-literal
+					// eslint-disable-next-line no-jquery/no-parse-html-literal
 					$content: $( '<p>Extra information here.</p>' ),
 					padded: true
 				}

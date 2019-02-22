@@ -1124,7 +1124,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						align: 'top'
 					}
 				),
-				/* eslint-disable jquery/no-parse-html-literal */
+				/* eslint-disable no-jquery/no-parse-html-literal */
 				new OO.ui.FieldLayout(
 					new OO.ui.RadioSelectWidget( {
 						items: [
@@ -3075,7 +3075,7 @@ Demo.static.pages.widgets = function ( demo ) {
 		} )
 	];
 
-	// eslint-disable-next-line jquery/no-each-util
+	// eslint-disable-next-line no-jquery/no-each-util
 	$.each( fieldsets, function ( i, fieldsetLayout ) {
 		var showLayoutCode = false;
 
@@ -3086,7 +3086,7 @@ Demo.static.pages.widgets = function ( demo ) {
 			showLayoutCode = true;
 		}
 
-		// eslint-disable-next-line jquery/no-each-util
+		// eslint-disable-next-line no-jquery/no-each-util
 		$.each( fieldsetLayout.getItems(), function ( j, fieldLayout ) {
 			fieldLayout.$element.append(
 				demo.buildLinkExample( fieldLayout, fieldsetLayout instanceof OO.ui.FormLayout ? fieldLayout : fieldsetLayout ),

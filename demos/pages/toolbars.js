@@ -66,7 +66,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	}
 
 	function createToolGroup( toolbar, group ) {
-		// eslint-disable-next-line jquery/no-each-util
+		// eslint-disable-next-line no-jquery/no-each-util
 		$.each( toolGroups[ group ], function ( i, tool ) {
 			var args = tool.slice();
 			args.splice( 0, 0, toolbar, group );
