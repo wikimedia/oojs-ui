@@ -40,6 +40,7 @@
  *  Options are created with {@link OO.ui.OptionWidget OptionWidget} classes. See
  *  the [OOUI documentation on MediaWiki] [2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
+ * @cfg {boolean} [multiselect] Allow for multiple selections
  */
 OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	// Configuration initialization
@@ -56,6 +57,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	// Properties
 	this.pressed = false;
 	this.selecting = null;
+	this.multiselect = !!config.multiselect;
 	this.onDocumentMouseUpHandler = this.onDocumentMouseUp.bind( this );
 	this.onDocumentMouseMoveHandler = this.onDocumentMouseMove.bind( this );
 	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
@@ -116,13 +118,16 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupWidget );
  * A `select` event is emitted when the selection is modified programmatically with the #selectItem
  * method.
  *
- * @param {OO.ui.OptionWidget|null} item Selected item
+ * @param {OO.ui.OptionWidget[]|OO.ui.OptionWidget|null} items Currently selected items
  */
 
 /**
  * @event choose
+ *
  * A `choose` event is emitted when an item is chosen with the #chooseItem method.
+ *
  * @param {OO.ui.OptionWidget} item Chosen item
+ * @param {boolean} selected Item is selected
  */
 
 /**
@@ -331,12 +336,12 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
 OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 	var nextItem,
 		handled = false,
-		currentItem = this.findHighlightedItem() || this.findSelectedItem();
+		currentItem = this.findHighlightedItem();
 
 	if ( !this.isDisabled() && this.isVisible() ) {
 		switch ( e.keyCode ) {
 			case OO.ui.Keys.ENTER:
-				if ( currentItem && currentItem.constructor.static.highlightable ) {
+				if ( currentItem ) {
 					// Was only highlighted, now let's select it. No-op if already selected.
 					this.chooseItem( currentItem );
 					handled = true;
@@ -356,7 +361,7 @@ OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 				break;
 			case OO.ui.Keys.ESCAPE:
 			case OO.ui.Keys.TAB:
-				if ( currentItem && currentItem.constructor.static.highlightable ) {
+				if ( currentItem ) {
 					currentItem.setHighlighted( false );
 				}
 				this.unbindDocumentKeyDownListener();
@@ -613,19 +618,35 @@ OO.ui.SelectWidget.prototype.findTargetItem = function ( e ) {
 };
 
 /**
+ * Find all selected items, if there are any. If the widget allows for multiselect
+ * it will return an array of selected options. If the widget doesn't allow for
+ * multiselect, it will return the selected option or null if no item is selected.
+ *
+ * @return {OO.ui.OptionWidget[]|OO.ui.OptionWidget|null} If the widget is multiselect
+ *  then return an array of selected items (or empty array),
+ *  if the widget is not multiselect, return a single selected item, or `null`
+ *  if no item is selected
+ */
+OO.ui.SelectWidget.prototype.findSelectedItems = function () {
+	var selected = this.items.filter( function ( item ) {
+		return item.isSelected();
+	} );
+
+	return this.multiselect ?
+		selected :
+		selected[ 0 ] || null;
+};
+
+/**
  * Find selected item.
  *
- * @return {OO.ui.OptionWidget|null} Selected item, `null` if no item is selected
+ * @return {OO.ui.OptionWidget[]|OO.ui.OptionWidget|null} If the widget is multiselect
+ *  then return an array of selected items (or empty array),
+ *  if the widget is not multiselect, return a single selected item, or `null`
+ *  if no item is selected
  */
 OO.ui.SelectWidget.prototype.findSelectedItem = function () {
-	var i, len;
-
-	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		if ( this.items[ i ].isSelected() ) {
-			return this.items[ i ];
-		}
-	}
-	return null;
+	return this.findSelectedItems();
 };
 
 /**
@@ -773,6 +794,30 @@ OO.ui.SelectWidget.prototype.selectItemByData = function ( data ) {
 };
 
 /**
+ * Programmatically unselect an option by its reference. If the widget
+ * allows for multiple selections, there may be other items still selected;
+ * otherwise, no items will be selected.
+ * If no item is given, all selected items will be unselected.
+ *
+ * @param {OO.ui.OptionWidget} [item] Item to unselect
+ * @fires select
+ * @chainable
+ * @return {OO.ui.Widget} The widget, for chaining
+ */
+OO.ui.SelectWidget.prototype.unselectItem = function ( item ) {
+	if ( item ) {
+		item.setSelected( false );
+	} else {
+		this.items.forEach( function ( item ) {
+			item.setSelected( false );
+		} );
+	}
+
+	this.emit( 'select', this.findSelectedItems() );
+	return this;
+};
+
+/**
  * Programmatically select an option by its reference. If the `item` parameter is omitted,
  * all options will be deselected.
  *
@@ -785,14 +830,20 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 	var i, len, selected,
 		changed = false;
 
-	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		selected = this.items[ i ] === item;
-		if ( this.items[ i ].isSelected() !== selected ) {
-			this.items[ i ].setSelected( selected );
-			changed = true;
+	if ( this.multiselect && item ) {
+		// Select the item directly
+		item.setSelected( true );
+	} else {
+		for ( i = 0, len = this.items.length; i < len; i++ ) {
+			selected = this.items[ i ] === item;
+			if ( this.items[ i ].isSelected() !== selected ) {
+				this.items[ i ].setSelected( selected );
+				changed = true;
+			}
 		}
 	}
 	if ( changed ) {
+		// TODO: When should a non-highlightable element be selected?
 		if ( item && !item.constructor.static.highlightable ) {
 			if ( item ) {
 				this.$focusOwner.attr( 'aria-activedescendant', item.getElementId() );
@@ -800,7 +851,7 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 				this.$focusOwner.removeAttr( 'aria-activedescendant' );
 			}
 		}
-		this.emit( 'select', item );
+		this.emit( 'select', this.findSelectedItems() );
 	}
 
 	return this;
@@ -853,8 +904,13 @@ OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
  */
 OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
 	if ( item ) {
-		this.selectItem( item );
-		this.emit( 'choose', item );
+		if ( this.multiselect && item.isSelected() ) {
+			this.unselectItem( item );
+		} else {
+			this.selectItem( item );
+		}
+
+		this.emit( 'choose', item, item.isSelected() );
 	}
 
 	return this;

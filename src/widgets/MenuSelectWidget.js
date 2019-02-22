@@ -162,7 +162,7 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 				break;
 			case OO.ui.Keys.ESCAPE:
 			case OO.ui.Keys.TAB:
-				if ( currentItem ) {
+				if ( currentItem && !this.multiselect ) {
 					currentItem.setHighlighted( false );
 				}
 				this.toggle( false );
@@ -379,7 +379,7 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
-	var change, originalHeight, flippedHeight;
+	var change, originalHeight, flippedHeight, selectedItem;
 
 	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
 	change = visible !== this.isVisible();
@@ -444,9 +444,10 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 
 			this.$focusOwner.attr( 'aria-expanded', 'true' );
 
-			if ( this.findSelectedItem() ) {
-				this.$focusOwner.attr( 'aria-activedescendant', this.findSelectedItem().getElementId() );
-				this.findSelectedItem().scrollElementIntoView( { duration: 0 } );
+			selectedItem = this.findSelectedItem();
+			if ( !this.multiselect && selectedItem ) {
+				this.$focusOwner.attr( 'aria-activedescendant', selectedItem.getElementId() );
+				selectedItem.scrollElementIntoView( { duration: 0 } );
 			}
 
 			// Auto-hide
