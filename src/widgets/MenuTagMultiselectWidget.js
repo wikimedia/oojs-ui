@@ -144,6 +144,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.onMenuChoose = function ( menuItem, sel
 OO.ui.MenuTagMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
 	if ( !isVisible ) {
 		this.menu.highlightItem( null );
+		this.menu.scrollToTop();
 	}
 	setTimeout( function () {
 		// Remove MenuSelectWidget's generic focus owner ARIA attribute
@@ -168,10 +169,12 @@ OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
 			this.input.setValue( '' );
 		}
 
+		this.focus();
+
 		// Highlight the menu item
 		this.menu.highlightItem( menuItem );
+		this.menu.scrollItemIntoView( menuItem );
 
-		this.focus();
 	} else {
 		// Use the default
 		OO.ui.MenuTagMultiselectWidget.parent.prototype.onTagSelect.call( this, tagItem );
@@ -255,11 +258,18 @@ OO.ui.MenuTagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
  * @chainable
  */
 OO.ui.MenuTagMultiselectWidget.prototype.initializeMenuSelection = function () {
+	var highlightedItem;
 	this.menu.highlightItem(
 		this.allowArbitrary ?
 			null :
 			this.menu.findFirstSelectableItem()
 	);
+
+	highlightedItem = this.menu.findHighlightedItem();
+	// Scroll to the highlighted item, if it exists
+	if ( highlightedItem ) {
+		this.menu.scrollItemIntoView( highlightedItem );
+	}
 };
 
 /**

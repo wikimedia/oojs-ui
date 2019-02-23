@@ -1951,6 +1951,25 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.MenuTagMultiselectWidget( {
+						inputPosition: 'outline',
+						allowArbitrary: false,
+						verticalPosition: 'below',
+						options: ( function () {
+							var i,
+								options = [];
+							for ( i = 1; i <= 50; i++ ) {
+								options.push( { data: i, label: 'Label for ' + i } );
+							}
+							return options;
+						}() )
+					} ),
+					{
+						label: 'MenuTagMultiselectWidget (very long menu; showcasing highlights and menu scroll on tag selection)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MenuTagMultiselectWidget( {
 						inputPosition: 'inline',
 						disabled: true,
 						options: [
