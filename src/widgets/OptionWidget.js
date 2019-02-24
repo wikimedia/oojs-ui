@@ -107,7 +107,7 @@ OO.ui.OptionWidget.prototype.isSelectable = function () {
 
 /**
  * Check if the option can be highlighted. A highlight indicates that the option
- * may be selected when a user presses enter or clicks. Disabled items cannot
+ * may be selected when a user presses Enter key or clicks. Disabled items cannot
  * be highlighted.
  *
  * @return {boolean} Item is highlightable
@@ -137,7 +137,7 @@ OO.ui.OptionWidget.prototype.isSelected = function () {
 
 /**
  * Check if the option is highlighted. A highlight indicates that the
- * item may be selected when a user presses enter or clicks.
+ * item may be selected when a user presses Enter key or clicks.
  *
  * @return {boolean} Item is highlighted
  */

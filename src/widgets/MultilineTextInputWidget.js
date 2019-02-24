@@ -118,7 +118,7 @@ OO.ui.MultilineTextInputWidget.prototype.updatePosition = function () {
 OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function ( e ) {
 	if (
 		( e.which === OO.ui.Keys.ENTER && ( e.ctrlKey || e.metaKey ) ) ||
-		// Some platforms emit keycode 10 for ctrl+enter in a textarea
+		// Some platforms emit keycode 10 for Control+Enter keypress in a textarea
 		e.which === 10
 	) {
 		this.emit( 'enter', e );

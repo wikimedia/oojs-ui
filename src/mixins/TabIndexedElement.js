@@ -1,7 +1,7 @@
 /**
  * The TabIndexedElement class is an attribute mixin used to add additional functionality to an
  * element created by another class. The mixin provides a ‘tabIndex’ property, which specifies the
- * order in which users will navigate through the focusable elements via the “tab” key.
+ * order in which users will navigate through the focusable elements via the Tab key.
  *
  *     @example
  *     // TabIndexedElement is mixed into the ButtonWidget class

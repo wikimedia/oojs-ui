@@ -12,7 +12,7 @@
 * ComboBoxInputWidget: Disable controls when widget is set to read-only (Ed Sanders)
 * MenuSelectWidget: Documentation fix (Ed Sanders)
 * ProgressBarWidget: Fix irregularities in indeterminate styling (Bartosz Dziewoński)
-* TagMultiselectWidget: Populate input with item label on backspace (Thalia Chan)
+* TagMultiselectWidget: Populate input with item label on Backspace key press (Thalia Chan)
 * Update getScrollLeft from upstream (Ed Sanders)
 * themes: Replace element by class attribute selector (Volker E.)
 * WikimediaUI theme: Remove variables with duplicated values (Volker E.)
@@ -1199,7 +1199,7 @@
 * Allow more widgets to be focussed programatically (Bartosz Dziewoński)
 * Generalize `.getInputId()` for all widgets (Bartosz Dziewoński)
 * Use `.focus()` method when possible instead of looking inside widgets (Bartosz Dziewoński)
-* TagMultiselectWidget: Fix `Ctrl`+`Backspace` to delete last item (Bartosz Dziewoński)
+* TagMultiselectWidget: Fix Control+Backspace keys to delete last item (Bartosz Dziewoński)
 * TagMultiselectWidget: Fix order of checks for `allowArbitrary`/`allowDuplicates` (Bartosz Dziewoński)
 
 ### Styles
@@ -1553,7 +1553,7 @@
 
 ## v0.19.1 / 2017-02-07
 ### Features
-* Dialog: Support meta as well as ctrl for modifier on enter key (David Lynch)
+* Dialog: Support Meta as well as Control for modifier on Enter key (David Lynch)
 
 ### Styles
 * FieldLayout: Fix styling for disabled widgets in PHP (Bartosz Dziewoński)
@@ -2170,7 +2170,7 @@
 * [DEPRECATING CHANGE] Move some editing icons from core to editing-* (James D. Forrester)
 
 ### Features
-* Dialog: trigger the primary action with ctrl-enter (David Lynch)
+* Dialog: trigger the primary action with Control+Enter (David Lynch)
 * TextInputWidget: Allow type="date" (Geoffrey Mon)
 
 ### Styles
@@ -2268,7 +2268,7 @@
 ## v0.15.3 / 2016-02-09
 ### Features
 * CapsuleItemWidget: Let user tab through items, edit and delete them (Prateek Saxena)
-* CapsuleMultiSelectWidget: Edit instead of remove on backspace (Prateek Saxena)
+* CapsuleMultiSelectWidget: Edit instead of remove on Backspace (Prateek Saxena)
 * CapsuleWidgets: Edit on click and remove on Ctrl+Backspace (Prateek Saxena)
 * CapsuleWidgets: Toggle through capsules and the input with arrow keys (Prateek Saxena)
 * DropdownWidget: Open menu on up and down arrow keys (Prateek Saxena)
@@ -2376,7 +2376,7 @@
 * [DEPRECATING CHANGE] core: Deprecate add/removeCaptureEventListener (Bartosz Dziewoński)
 
 ### Features
-* Send escape key cancel events through action handler (Alex Monk)
+* Send Escape key cancel events through action handler (Alex Monk)
 
 ### Styles
 * MediaWiki theme: Align variable values & properties to CSS/Less guidelines (Volker E)
@@ -3667,7 +3667,7 @@
 * FieldLayout: Use `<label>` for this.$body, not this.$element (Bartosz Dziewoński)
 * Fix primary button description text (Niklas Laxström)
 * GridLayout: Don't round to 1% (Bartosz Dziewoński)
-* Kill the escape keydown event after handling a window close (Ed Sanders)
+* Kill the Escape keydown event after handling a window close (Ed Sanders)
 * RadioInputWidget: Remove documentation lies (Bartosz Dziewoński)
 * Temporarily remove position:absolute on body when resizing (Ed Sanders)
 * build: Use String#slice instead of discouraged String#substr (Timo Tijhof)

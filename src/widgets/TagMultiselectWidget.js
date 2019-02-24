@@ -288,7 +288,7 @@ OO.ui.TagMultiselectWidget.prototype.onInputKeyDown = function ( e ) {
 		};
 
 	if ( !this.isDisabled() ) {
-		// 'keypress' event is not triggered for Backspace
+		// 'keypress' event is not triggered for Backspace key
 		if ( e.keyCode === OO.ui.Keys.BACKSPACE ) {
 			return this.doInputBackspace( e, withMetaKey );
 		} else if ( e.keyCode === OO.ui.Keys.ESCAPE ) {
@@ -339,11 +339,11 @@ OO.ui.TagMultiselectWidget.prototype.onInputBlur = function () {
 };
 
 /**
- * Perform an action after the enter key on the input
+ * Perform an action after the Enter key on the input
  *
  * @param {jQuery.Event} e Event data
  * @param {boolean} [withMetaKey] Whether this key was pressed with
- * a meta key like 'ctrl'
+ * a meta key like Control
  * @return {boolean} Whether to prevent defaults
  */
 OO.ui.TagMultiselectWidget.prototype.doInputEnter = function () {
@@ -352,11 +352,11 @@ OO.ui.TagMultiselectWidget.prototype.doInputEnter = function () {
 };
 
 /**
- * Perform an action responding to the enter key on the input
+ * Perform an action responding to the Enter key on the input
  *
  * @param {jQuery.Event} e Event data
  * @param {boolean} [withMetaKey] Whether this key was pressed with
- * a meta key like 'ctrl'
+ * a meta key like Control
  * @return {boolean} Whether to prevent defaults
  */
 OO.ui.TagMultiselectWidget.prototype.doInputBackspace = function ( e, withMetaKey ) {
@@ -385,7 +385,7 @@ OO.ui.TagMultiselectWidget.prototype.doInputBackspace = function ( e, withMetaKe
 };
 
 /**
- * Perform an action after the escape key on the input
+ * Perform an action after the Escape key on the input
  *
  * @param {jQuery.Event} e Event data
  */
@@ -394,14 +394,14 @@ OO.ui.TagMultiselectWidget.prototype.doInputEscape = function () {
 };
 
 /**
- * Perform an action after the arrow key on the input, select the previous
+ * Perform an action after the Left/Right arrow key on the input, select the previous
  * item from the input.
  * See #getPreviousItem
  *
  * @param {jQuery.Event} e Event data
  * @param {string} direction Direction of the movement; forwards or backwards
  * @param {boolean} [withMetaKey] Whether this key was pressed with
- *  a meta key like 'ctrl'
+ *  a meta key like Control
  */
 OO.ui.TagMultiselectWidget.prototype.doInputArrow = function ( e, direction ) {
 	if (

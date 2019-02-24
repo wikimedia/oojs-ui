@@ -15,7 +15,7 @@
  * - Enter/Return key: choose and select a menu option
  * - Up-arrow key: highlight the previous menu option
  * - Down-arrow key: highlight the next menu option
- * - Esc key: hide the menu
+ * - Escape key: hide the menu
  *
  * Unlike most widgets, MenuSelectWidget is initially hidden and must be shown by calling #toggle.
  *

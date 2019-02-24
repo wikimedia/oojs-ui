@@ -146,7 +146,7 @@ OO.ui.TextInputWidget.static.validationPatterns = {
 /* Events */
 
 /**
- * An `enter` event is emitted when the user presses 'enter' inside the text box.
+ * An `enter` event is emitted when the user presses Enter key inside the text box.
  *
  * @event enter
  */
@@ -186,7 +186,7 @@ OO.ui.TextInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
  *
  * @private
  * @param {jQuery.Event} e Key press event
- * @fires enter If enter key is pressed
+ * @fires enter If Enter key is pressed
  */
 OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
 	if ( e.which === OO.ui.Keys.ENTER ) {

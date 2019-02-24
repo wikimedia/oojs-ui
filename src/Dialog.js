@@ -1,7 +1,7 @@
 /**
  * The Dialog class serves as the base class for the other types of dialogs.
  * Unless extended to include controls, the rendered dialog box is a simple window
- * that users can close by hitting the ‘Esc’ key. Dialog windows are used with OO.ui.WindowManager,
+ * that users can close by hitting the Escape key. Dialog windows are used with OO.ui.WindowManager,
  * which opens, closes, and controls the presentation of the window. See the
  * [OOUI documentation on MediaWiki] [1] for more information.
  *
@@ -15,7 +15,8 @@
  *     MyDialog.prototype.initialize = function () {
  *         MyDialog.parent.prototype.initialize.call( this );
  *         this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
- *         this.content.$element.append( '<p>A simple dialog window. Press \'Esc\' to close.</p>' );
+ *         this.content.$element.append( '<p>A simple dialog window. Press Escape key to ' +
+ *             'close.</p>' );
  *         this.$body.append( this.content.$element );
  *     };
  *     MyDialog.prototype.getBodyHeight = function () {
@@ -118,7 +119,7 @@ OO.ui.Dialog.static.title = '';
 OO.ui.Dialog.static.actions = [];
 
 /**
- * Close the dialog when the 'Esc' key is pressed.
+ * Close the dialog when the Escape key is pressed.
  *
  * @static
  * @abstract
