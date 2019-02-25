@@ -1,6 +1,7 @@
 {
 	"caseSensitive": [
-		[ "@returns", "@return" ]
+		[ "@returns", "@return" ],
+		[ "[^'`]accesskey[^'`]", "access key" ]
 	],
 	"caseInsensitive": [
 		[ "paralell", "parallel" ],

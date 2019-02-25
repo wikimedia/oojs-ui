@@ -158,7 +158,7 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
 	} else {
 		if ( event.target.tabIndex === -1 ) {
 			// One of the options got focussed (and the event bubbled up here).
-			// They can't be tabbed to, but they can be activated using accesskeys.
+			// They can't be tabbed to, but they can be activated using access keys.
 			// OptionWidgets and focusable UI elements inside them have tabindex="-1" set.
 			item = this.findTargetItem( event );
 		} else {

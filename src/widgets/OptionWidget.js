@@ -39,7 +39,7 @@ OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 	// Initialization
 	this.$element
 		.data( 'oo-ui-optionWidget', this )
-		// Allow programmatic focussing (and by accesskey), but not tabbing
+		// Allow programmatic focussing (and by access key), but not tabbing
 		.attr( 'tabindex', '-1' )
 		.attr( 'role', 'option' )
 		.attr( 'aria-selected', 'false' )

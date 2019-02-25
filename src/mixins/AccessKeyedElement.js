@@ -1,6 +1,6 @@
 /**
  * AccessKeyedElement is mixed into other classes to provide an `accesskey` HTML attribute.
- * Accesskeys allow an user to go to a specific element by using
+ * Access keys allow an user to go to a specific element by using
  * a shortcut combination of a browser specific keys + the key
  * set to the field.
  *
@@ -8,7 +8,7 @@
  *     // AccessKeyedElement provides an `accesskey` attribute to the
  *     // ButtonWidget class.
  *     var button = new OO.ui.ButtonWidget( {
- *         label: 'Button with Accesskey',
+ *         label: 'Button with access key',
  *         accessKey: 'k'
  *     } );
  *     $( document.body ).append( button.$element );
@@ -19,10 +19,10 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$accessKeyed] The element to which the `accesskey` attribute is applied.
- *  If this config is omitted, the accesskey functionality is applied to $element, the
+ *  If this config is omitted, the access key functionality is applied to $element, the
  *  element created by the class.
  * @cfg {string|Function} [accessKey] The key or a function that returns the key. If
- *  this config is omitted, no accesskey will be added.
+ *  this config is omitted, no access key will be added.
  */
 OO.ui.mixin.AccessKeyedElement = function OoUiMixinAccessKeyedElement( config ) {
 	// Configuration initialization
@@ -50,7 +50,7 @@ OO.initClass( OO.ui.mixin.AccessKeyedElement );
 /* Static Properties */
 
 /**
- * The access key, a function that returns a key, or `null` for no accesskey.
+ * The access key, a function that returns a key, or `null` for no access key.
  *
  * @static
  * @inheritable
@@ -61,12 +61,12 @@ OO.ui.mixin.AccessKeyedElement.static.accessKey = null;
 /* Methods */
 
 /**
- * Set the accesskeyed element.
+ * Set the access keyed element.
  *
  * This method is used to retarget a AccessKeyedElement mixin so that its functionality applies to the specified element.
  * If an element is already set, the mixin's effect on that element is removed before the new element is set up.
  *
- * @param {jQuery} $accessKeyed Element that should use the 'accesskeyed' functionality
+ * @param {jQuery} $accessKeyed Element that should use the 'access keyed' functionality
  */
 OO.ui.mixin.AccessKeyedElement.prototype.setAccessKeyedElement = function ( $accessKeyed ) {
 	if ( this.$accessKeyed ) {
@@ -80,9 +80,9 @@ OO.ui.mixin.AccessKeyedElement.prototype.setAccessKeyedElement = function ( $acc
 };
 
 /**
- * Set accesskey.
+ * Set access key.
  *
- * @param {string|Function|null} accessKey Key, a function that returns a key, or `null` for no accesskey
+ * @param {string|Function|null} accessKey Key, a function that returns a key, or `null` for no access key
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  */
@@ -109,7 +109,7 @@ OO.ui.mixin.AccessKeyedElement.prototype.setAccessKey = function ( accessKey ) {
 };
 
 /**
- * Get accesskey.
+ * Get access key.
  *
  * @return {string} accessKey string
  */

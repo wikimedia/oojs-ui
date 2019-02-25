@@ -255,9 +255,9 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'accessKey' => 'g'
 			] ),
 			[
-				'label' => "ButtonWidget (with accesskey)",
+				'label' => "ButtonWidget (with access key)",
 				'align' => 'top',
-				'help' => new OOUI\HtmlSnippet( 'Notice: Using `accesskey` might ' .
+				'help' => new OOUI\HtmlSnippet( 'Notice: Using access key might ' .
 					'<a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank"' .
 					' rel="noopener">negatively impact screen readers</a>!' )
 			]
@@ -269,7 +269,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'accessKey' => 'h'
 			] ),
 			[
-				'label' => "ButtonInputWidget (with accesskey and title)",
+				'label' => "ButtonInputWidget (with access key and title)",
 				'align' => 'top',
 			]
 		)
@@ -384,9 +384,9 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				'accessKey' => 's'
 			] ),
 			[
-				'label' => "TextInputWidget (with accesskey)",
+				'label' => "TextInputWidget (with access key)",
 				'align' => 'top',
-				'help' => new OOUI\HtmlSnippet( 'Notice: Using `accesskey` might ' .
+				'help' => new OOUI\HtmlSnippet( 'Notice: Using access key might ' .
 					'<a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank"' .
 					' rel="noopener">negatively impact screen readers</a>!' )
 			]
@@ -510,7 +510,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'align' => 'inline',
-				'label' => "CheckboxInputWidget (with accesskey T and title)",
+				'label' => "CheckboxInputWidget (with access key T and title)",
 				'title' => 'Access key is added to the title.',
 			]
 		),

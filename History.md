@@ -1018,7 +1018,7 @@
 ## v0.22.4 / 2017-08-01
 ### Features
 * CheckboxMultiselectInputWidget: setValue when CheckboxMultiselect changes (Prateek Saxena)
-* FieldLayout: Show widget's accesskey in our title (Bartosz Dziewoński)
+* FieldLayout: Show widget's access key in our title (Bartosz Dziewoński)
 * TextInputWidget: When positioning label, don't clear padding if we will set it again (Bartosz Dziewoński)
 * TitledElement: When an AccessKeyedElement, show access key in the title (Bartosz Dziewoński)
 
@@ -1986,7 +1986,7 @@
 * [DEPRECATING CHANGE] CapsuleMultiSelectWidget: Rename to CapsuleMultiselectWidget (Bartosz Dziewoński)
 
 ### Features
-* SelectWidget/OptionWidget: Implement selecting by accesskey (Bartosz Dziewoński)
+* SelectWidget/OptionWidget: Implement selecting by access key (Bartosz Dziewoński)
 * TextInputWidget: Stop returning 'multiline' from 'getSaneType' (Prateek Saxena)
 
 ### Styles

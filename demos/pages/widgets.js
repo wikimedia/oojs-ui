@@ -212,9 +212,9 @@ Demo.static.pages.widgets = function ( demo ) {
 						accessKey: 'g'
 					} ),
 					{
-						label: 'ButtonWidget (with accesskey)',
+						label: 'ButtonWidget (with access key)',
 						align: 'top',
-						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank" rel="noopener">negatively impact screen readers</a>!' )
+						help: new OO.ui.HtmlSnippet( 'Notice: Using access key might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank" rel="noopener">negatively impact screen readers</a>!' )
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -372,13 +372,13 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonInputWidget( {
 						label: 'Access key: H',
-						title: 'Accesskey is added to the title.',
+						title: 'Access key is added to the title.',
 						accessKey: 'h'
 					} ),
 					{
-						label: 'ButtonInputWidget (with accesskey & title)',
+						label: 'ButtonInputWidget (with access key & title)',
 						align: 'top',
-						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank" rel="noopener">negatively impact screen readers</a>!' )
+						help: new OO.ui.HtmlSnippet( 'Notice: Using access key might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank" rel="noopener">negatively impact screen readers</a>!' )
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -624,7 +624,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						]
 					} ),
 					{
-						label: 'ButtonSelectWidget (with accesskeys)',
+						label: 'ButtonSelectWidget (with access keys)',
 						align: 'top'
 					}
 				)
@@ -836,9 +836,9 @@ Demo.static.pages.widgets = function ( demo ) {
 						accessKey: 's'
 					} ),
 					{
-						label: 'TextInputWidget (with accesskey)',
+						label: 'TextInputWidget (with access key)',
 						align: 'top',
-						help: new OO.ui.HtmlSnippet( 'Notice: Using `accesskey` might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank" rel="noopener">negatively impact screen readers</a>!' )
+						help: new OO.ui.HtmlSnippet( 'Notice: Using access key might <a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank" rel="noopener">negatively impact screen readers</a>!' )
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -952,7 +952,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						align: 'inline',
-						label: 'CheckboxInputWidget (with accesskey T and title)',
+						label: 'CheckboxInputWidget (with access key T and title)',
 						title: 'Access key is added to the title.'
 					}
 				),
@@ -1100,7 +1100,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						align: 'top',
-						label: 'RadioSelectWidget (with accesskeys)'
+						label: 'RadioSelectWidget (with access keys)'
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -1428,7 +1428,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						align: 'top',
-						label: 'DropdownWidget (with accesskeys)'
+						label: 'DropdownWidget (with access keys)'
 					}
 				),
 				new OO.ui.FieldLayout(
