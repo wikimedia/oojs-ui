@@ -262,6 +262,15 @@
 					box-shadow: none;
 				}
 			}
+
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+				&,
+				&:hover,
+				&:focus {
+					.oo-ui-vertical-gradient( @background-color-framed-start--active, @background-color-framed-stop--active );
+					box-shadow: inset 0 1px 4px 0 rgba( 0, 0, 0, 0.07 );
+				}
+			}
 		}
 	}
 }

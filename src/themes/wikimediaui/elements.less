@@ -311,6 +311,10 @@
 				color: @color-filled--disabled;
 				border-color: @border-color-base--disabled;
 			}
+
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+				background-color: mix( @color-progressive--active, @background-color-filled--disabled, 35% );
+			}
 		}
 
 		&.oo-ui-widget-enabled {
