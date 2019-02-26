@@ -159,7 +159,6 @@ Demo.static.pages.icons = function ( demo ) {
 				'book',
 				'journal',
 				'newspaper',
-				'web',
 				'reference',
 				'referenceExisting',
 				'references'
