@@ -1,0 +1,13 @@
+/**
+ * Message store for the default implementation of OO.ui.msg.
+ *
+ * Environments that provide a localization system should not use this, but should override
+ * OO.ui.msg altogether.
+ *
+ * @private
+ */
+OO.ui.msg.messages = <%=
+	grunt.file.read( 'i18n/en.json' )
+		.trim()
+		.replace( /"@metadata": {[\s\S]*?},\s*/, '' )
+%>;

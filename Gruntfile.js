@@ -213,7 +213,9 @@ module.exports = function ( grunt ) {
 			tmp: 'dist/tmp'
 		},
 		fileExists: {
-			src: requiredFiles
+			src: requiredFiles.filter( function ( f ) {
+				return f.startsWith( 'src/' );
+			} )
 		},
 		tyops: {
 			options: {
@@ -243,6 +245,15 @@ module.exports = function ( grunt ) {
 					banner: ''
 				},
 				files: concatOmnibus
+			},
+			i18nMessages: {
+				options: {
+					banner: '',
+					process: true
+				},
+				files: {
+					'dist/tmp/src/core-messages.js': 'src/core-messages.js.txt'
+				}
 			},
 			demoCss: {
 				options: {
@@ -701,7 +712,7 @@ module.exports = function ( grunt ) {
 		grunt.log.warn( 'You have built a no-frills, SVG-only, LTR-only version for development; some things will be broken.' );
 	} );
 
-	grunt.registerTask( 'build-code', [ 'concat:js' ] );
+	grunt.registerTask( 'build-code', [ 'concat:i18nMessages', 'concat:js' ] );
 	grunt.registerTask( 'build-styling', [
 		'colorizeSvg', 'set-graphics', 'less', 'cssjanus',
 		'concat:css', 'concat:demoCss',
