@@ -1,11 +1,11 @@
 {
-    "root": true,
-    "extends": [
-        "wikimedia"
-    ],
-    "globals": {
-        "OO": false
-    },
+	"root": true,
+	"extends": [
+		"wikimedia"
+	],
+	"globals": {
+		"OO": false
+	},
 	"plugins": [ "html" ],
 	"settings": {
 		"html/indent": "+tab",

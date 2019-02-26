@@ -2,8 +2,8 @@
 	"extends": [
 		"../src/.eslintrc.json"
 	],
-    "globals": {
-        "jQuery": false,
-        "Demo": false
-    }
+	"globals": {
+		"jQuery": false,
+		"Demo": false
+	}
 }
