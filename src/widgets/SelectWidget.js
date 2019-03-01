@@ -142,6 +142,27 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupWidget );
  * @param {OO.ui.OptionWidget[]} items Removed items
  */
 
+/* Static methods */
+
+/**
+ * Normalize text for filter matching
+ *
+ * @param {string} text Text
+ * @return {string} Normalized text
+ */
+OO.ui.SelectWidget.static.normalizeForMatching = function ( text ) {
+	// Replace trailing whitespace, normalize multiple spaces and make case insensitive
+	var normalized = text.trim().replace( /\s+/, ' ' ).toLowerCase();
+
+	// Normalize Unicode
+	// eslint-disable-next-line no-restricted-properties
+	if ( normalized.normalize ) {
+		// eslint-disable-next-line no-restricted-properties
+		normalized = normalized.normalize();
+	}
+	return normalized;
+};
+
 /* Methods */
 
 /**
@@ -495,32 +516,35 @@ OO.ui.SelectWidget.prototype.onKeyPress = function () {
  * Get a matcher for the specific string
  *
  * @protected
- * @param {string} s String to match against items
- * @param {boolean} [exact=false] Only accept exact matches
+ * @param {string} query String to match against items
+ * @param {string} [mode='prefix'] Matching mode: 'substring', 'prefix', or 'exact'
  * @return {Function} function ( OO.ui.OptionWidget ) => boolean
  */
-OO.ui.SelectWidget.prototype.getItemMatcher = function ( s, exact ) {
-	var re;
+OO.ui.SelectWidget.prototype.getItemMatcher = function ( query, mode ) {
+	var normalizeForMatching = this.constructor.static.normalizeForMatching,
+		normalizedQuery = ( query );
 
-	// eslint-disable-next-line no-restricted-properties
-	if ( s.normalize ) {
-		// eslint-disable-next-line no-restricted-properties
-		s = s.normalize();
+	// Support deprecated exact=true argument
+	if ( mode === true ) {
+		mode = 'exact';
 	}
-	s = exact ? s.trim() : s.replace( /^\s+/, '' );
-	re = '^\\s*' + s.replace( /([\\{}()|.?*+\-^$[\]])/g, '\\$1' ).replace( /\s+/g, '\\s+' );
-	if ( exact ) {
-		re += '\\s*$';
-	}
-	re = new RegExp( re, 'i' );
+
 	return function ( item ) {
-		var matchText = item.getMatchText();
-		// eslint-disable-next-line no-restricted-properties
-		if ( matchText.normalize ) {
-			// eslint-disable-next-line no-restricted-properties
-			matchText = matchText.normalize();
+		var matchText = normalizeForMatching( item.getMatchText() );
+
+		if ( normalizedQuery === '' ) {
+			return false;
 		}
-		return re.test( matchText );
+
+		switch ( mode ) {
+			case 'exact':
+				return matchText === normalizedQuery;
+			case 'substring':
+				return matchText.indexOf( normalizedQuery ) !== -1;
+			// 'prefix'
+			default:
+				return matchText.indexOf( normalizedQuery ) === 0;
+		}
 	};
 };
 
@@ -680,7 +704,7 @@ OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
 OO.ui.SelectWidget.prototype.getItemFromLabel = function ( label, prefix ) {
 	var i, item, found,
 		len = this.items.length,
-		filter = this.getItemMatcher( label, true );
+		filter = this.getItemMatcher( label, 'exact' );
 
 	for ( i = 0; i < len; i++ ) {
 		item = this.items[ i ];
@@ -691,7 +715,7 @@ OO.ui.SelectWidget.prototype.getItemFromLabel = function ( label, prefix ) {
 
 	if ( prefix ) {
 		found = null;
-		filter = this.getItemMatcher( label, false );
+		filter = this.getItemMatcher( label, 'prefix' );
 		for ( i = 0; i < len; i++ ) {
 			item = this.items[ i ];
 			if ( item instanceof OO.ui.OptionWidget && item.isSelectable() && filter( item ) ) {

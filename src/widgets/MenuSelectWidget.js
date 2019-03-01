@@ -189,8 +189,8 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 		exactMatch = false;
 
 	if ( this.$input && this.filterFromInput ) {
-		filter = showAll ? null : this.getItemMatcher( this.$input.val() );
-		exactFilter = this.getItemMatcher( this.$input.val(), true );
+		filter = showAll ? null : this.getItemMatcher( this.$input.val(), 'prefix' );
+		exactFilter = this.getItemMatcher( this.$input.val(), 'exact' );
 		// Hide non-matching options, and also hide section headers if all options
 		// in their section are hidden.
 		for ( i = 0; i < len; i++ ) {
