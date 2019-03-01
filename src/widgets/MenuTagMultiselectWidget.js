@@ -41,6 +41,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		input: this.hasInput ? this.input : null,
 		$input: this.hasInput ? this.input.$input : null,
 		filterFromInput: !!this.hasInput,
+		highlightOnFilter: true,
 		$autoCloseIgnore: this.hasInput ?
 			this.input.$element : $( [] ),
 		$floatableContainer: this.hasInput && this.inputPosition === 'outline' ?
@@ -116,7 +117,6 @@ OO.ui.MenuTagMultiselectWidget.prototype.onInputBlur = function () {
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onInputChange = function () {
 	this.menu.toggle( true );
-	this.initializeMenuSelection();
 };
 
 /**
@@ -141,8 +141,6 @@ OO.ui.MenuTagMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
 	if ( !isVisible ) {
 		this.menu.selectItem( null );
 		this.menu.highlightItem( null );
-	} else {
-		this.initializeMenuSelection();
 	}
 	setTimeout( function () {
 		// Remove MenuSelectWidget's generic focus owner ARIA attribute

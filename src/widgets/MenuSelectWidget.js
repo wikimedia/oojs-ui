@@ -75,6 +75,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
 	this.onInputEditHandler = OO.ui.debounce( this.updateItemVisibility.bind( this ), 100 );
 	this.highlightOnFilter = !!config.highlightOnFilter;
+	this.lastHighlightedItem = null;
 	this.width = config.width;
 
 	// Initialization
@@ -225,7 +226,10 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 
 		this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
 
-		if ( this.highlightOnFilter ) {
+		if (
+			this.highlightOnFilter &&
+			!( this.lastHighlightedItem && this.lastHighlightedItem.isVisible() )
+		) {
 			// Highlight the first item on the list
 			item = null;
 			items = this.getItems();
@@ -236,6 +240,7 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 				}
 			}
 			this.highlightItem( item );
+			this.lastHighlightedItem = item;
 		}
 
 	}
