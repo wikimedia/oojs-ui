@@ -1707,17 +1707,17 @@
 	width: 100%;
 	max-width: @max-width-input;
 
-	input,
-	textarea {
+	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`
+	.oo-ui-inputWidget-input {
 		-webkit-appearance: none; // Support: Safari/iOS
-		margin: 0;
-		font-size: inherit;
-		font-family: inherit;
 		background-color: @background-color-base;
 		color: @color-base--emphasized;
+		margin: 0;
 		border: @border-base;
 		border-radius: @border-radius-base;
 		padding: @padding-input-text;
+		font-size: inherit;
+		font-family: inherit;
 	}
 
 	input {
@@ -1736,8 +1736,7 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		input,
-		textarea {
+		.oo-ui-inputWidget-input {
 			box-shadow: @box-shadow-widget; // necessary for smooth transition
 			.oo-ui-transition(
 				border-color @transition-ease-medium,
@@ -1759,8 +1758,7 @@
 
 		// Set on widget parent to also enable `:hover` on child elmeents
 		&:hover {
-			input,
-			textarea {
+			.oo-ui-inputWidget-input {
 				border-color: @border-color-input--hover;
 
 				// Applying `border-color` again to show right focus color
@@ -1774,20 +1772,19 @@
 		// doesn't understand `outline-offset`. All other browsers do. :/
 		@media screen {
 			@media ( min-width: 0 ) {
-				textarea:focus {
+				textarea.oo-ui-inputWidget-input:focus {
 					outline: 1px solid @color-progressive;
 					outline-offset: -2px;
 				}
 
-				&.oo-ui-flaggedElement-invalid textarea:focus {
+				&.oo-ui-flaggedElement-invalid textarea.oo-ui-inputWidget-input:focus {
 					outline-color: @border-color-erroneous;
 				}
 			}
 		}
 
 		&.oo-ui-flaggedElement-invalid {
-			input,
-			textarea {
+			.oo-ui-inputWidget-input {
 				border-color: @border-color-erroneous;
 
 				&:hover {
@@ -1803,8 +1800,7 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		input,
-		textarea {
+		.oo-ui-inputWidget-input {
 			background-color: @background-color-base--disabled;
 			// Support: Safari
 			-webkit-text-fill-color: @color-base--disabled;
@@ -1825,8 +1821,7 @@
 	}
 
 	&.oo-ui-iconElement {
-		input,
-		textarea {
+		.oo-ui-inputWidget-input {
 			padding-left: @padding-start-input-text-icon-label;
 		}
 
@@ -1847,8 +1842,7 @@
 	}
 
 	&.oo-ui-indicatorElement {
-		input,
-		textarea {
+		.oo-ui-inputWidget-input {
 			padding-right: @size-indicator + 2 * @padding-horizontal-input-text;
 		}
 
