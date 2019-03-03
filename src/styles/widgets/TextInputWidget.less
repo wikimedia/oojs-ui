@@ -50,6 +50,38 @@
 		}
 	}
 
+	> .oo-ui-iconElement-icon,
+	&-labelPosition-before > .oo-ui-labelElement-label {
+		left: 0;
+	}
+
+	> .oo-ui-indicatorElement-indicator,
+	&-labelPosition-after > .oo-ui-labelElement-label {
+		right: 0;
+	}
+
+	> .oo-ui-labelElement-label {
+		position: absolute;
+		top: 0;
+	}
+
+	&.oo-ui-labelElement > .oo-ui-labelElement-label {
+		display: block;
+	}
+
+	// Support: IE 10-11, Edge 12+
+	// Remove clear buttons that conflict with identically aligned labels
+	&-labelPosition-after.oo-ui-labelElement ::-ms-clear {
+		display: none;
+	}
+
+	// Make clicks not steal focus from input element in PHP version
+	&-php > .oo-ui-iconElement-icon,
+	&-php > .oo-ui-indicatorElement-indicator,
+	&-php > .oo-ui-labelElement-label {
+		pointer-events: none;
+	}
+
 	&.oo-ui-widget-enabled {
 		> .oo-ui-iconElement-icon,
 		> .oo-ui-indicatorElement-indicator {
@@ -65,38 +97,6 @@
 
 	&.oo-ui-widget-disabled > * {
 		.oo-ui-unselectable();
-	}
-
-	&.oo-ui-labelElement > .oo-ui-labelElement-label {
-		display: block;
-	}
-
-	> .oo-ui-iconElement-icon,
-	&-labelPosition-before > .oo-ui-labelElement-label {
-		left: 0;
-	}
-
-	> .oo-ui-indicatorElement-indicator,
-	&-labelPosition-after > .oo-ui-labelElement-label {
-		right: 0;
-	}
-
-	// Support: IE 10-11, Edge 12+
-	// Remove clear buttons that conflict with identically aligned labels
-	&-labelPosition-after.oo-ui-labelElement ::-ms-clear {
-		display: none;
-	}
-
-	> .oo-ui-labelElement-label {
-		position: absolute;
-		top: 0;
-	}
-
-	// Make clicks not steal focus from input element in PHP version
-	&-php > .oo-ui-iconElement-icon,
-	&-php > .oo-ui-indicatorElement-indicator,
-	&-php > .oo-ui-labelElement-label {
-		pointer-events: none;
 	}
 
 	.theme-oo-ui-textInputWidget();
