@@ -160,7 +160,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorT
 		}
 	}
 
-	// `setIndicatorTitle is deprecated since 0.30.0
+	// `setIndicatorTitle` is deprecated since 0.30.0
 	if ( indicatorTitle !== null ) {
 		// Avoid a warning when this is called from the constructor with no indicatorTitle set
 		OO.ui.warnDeprecation( 'IndicatorElement: setIndicatorTitle is deprecated, use setTitle of TitledElement instead. See T76638 for details.' );
@@ -184,6 +184,7 @@ OO.ui.mixin.IndicatorElement.prototype.getIndicator = function () {
  * The title is displayed when a user moves the mouse over the indicator.
  *
  * @return {string} Indicator title text
+ * @deprecated
  */
 OO.ui.mixin.IndicatorElement.prototype.getIndicatorTitle = function () {
 	return this.indicatorTitle;
