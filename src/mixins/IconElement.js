@@ -179,7 +179,7 @@ OO.ui.mixin.IconElement.prototype.setIconTitle = function ( iconTitle ) {
 		}
 	}
 
-	// `setIconTitle is deprecated since 0.30.0
+	// `setIconTitle` is deprecated since 0.30.0
 	if ( iconTitle !== null ) {
 		// Avoid a warning when this is called from the constructor with no iconTitle set
 		OO.ui.warnDeprecation( 'IconElement: setIconTitle is deprecated, use setTitle of TitledElement instead. See T76638 for details.' );
@@ -201,6 +201,7 @@ OO.ui.mixin.IconElement.prototype.getIcon = function () {
  * Get the icon title. The title text is displayed when a user moves the mouse over the icon.
  *
  * @return {string} Icon title text
+ * @deprecated
  */
 OO.ui.mixin.IconElement.prototype.getIconTitle = function () {
 	return this.iconTitle;
