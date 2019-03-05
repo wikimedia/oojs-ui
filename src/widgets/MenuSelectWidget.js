@@ -46,6 +46,8 @@
  * @cfg {boolean} [hideOnChoose=true] Hide the menu when the user chooses an option.
  * @cfg {boolean} [filterFromInput=false] Filter the displayed options from the input
  * @cfg {boolean} [highlightOnFilter] Highlight the first result when filtering
+ * @cfg {string} [filterMode='prefix'] The mode by which the menu filters the results.
+ *  Options are 'exact', 'prefix' or 'substring'. See `OO.ui.SelectWidget#getItemMatcher`
  * @param {number|string} [width] Width of the menu as a number of pixels or CSS string with unit
  *  suffix, used by {@link OO.ui.mixin.ClippableElement ClippableElement}
  */
@@ -76,6 +78,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.onInputEditHandler = OO.ui.debounce( this.updateItemVisibility.bind( this ), 100 );
 	this.highlightOnFilter = !!config.highlightOnFilter;
 	this.width = config.width;
+	this.filterMode = config.filterMode;
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuSelectWidget' );
@@ -189,7 +192,7 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 		exactMatch = false;
 
 	if ( this.$input && this.filterFromInput ) {
-		filter = showAll ? null : this.getItemMatcher( this.$input.val(), 'prefix' );
+		filter = showAll ? null : this.getItemMatcher( this.$input.val(), this.filterMode );
 		exactFilter = this.getItemMatcher( this.$input.val(), 'exact' );
 		// Hide non-matching options, and also hide section headers if all options
 		// in their section are hidden.
