@@ -1735,6 +1735,54 @@
 		background-color: transparent;
 	}
 
+	&.oo-ui-iconElement {
+		.oo-ui-inputWidget-input {
+			padding-left: @padding-start-input-text-icon-label;
+		}
+
+		> .oo-ui-iconElement-icon {
+			left: @padding-horizontal-input-text;
+		}
+
+		textarea + .oo-ui-iconElement-icon {
+			max-height: @size-base; // Use `@size-base` as `max-height` for multiline TextInputWidgets
+		}
+	}
+
+	> .oo-ui-labelElement-label {
+		color: @color-base--subtle;
+		margin-top: @border-width-base; // Address `border` on `input`
+		padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-base @padding-horizontal-input-text;
+		line-height: @line-height-widget-singleline;
+	}
+
+	&.oo-ui-indicatorElement {
+		.oo-ui-inputWidget-input {
+			padding-right: @size-indicator + 2 * @padding-horizontal-input-text;
+		}
+
+		&.oo-ui-textInputWidget-labelPosition-after > .oo-ui-labelElement-label {
+			padding-right: 0;
+		}
+
+		> .oo-ui-indicatorElement-indicator {
+			max-height: @size-base;
+			margin-right: @padding-horizontal-base;
+		}
+	}
+
+	&-labelPosition-after {
+		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
+			margin-right: @size-indicator + @padding-horizontal-base + @padding-horizontal-input-text;
+		}
+	}
+
+	&-labelPosition-before {
+		&.oo-ui-iconElement > .oo-ui-labelElement-label {
+			padding-left: @padding-start-input-text-icon-label;
+		}
+	}
+
 	&.oo-ui-widget-enabled {
 		.oo-ui-inputWidget-input {
 			box-shadow: @box-shadow-widget; // necessary for smooth transition
@@ -1817,54 +1865,6 @@
 		> .oo-ui-labelElement-label {
 			color: @color-base--disabled;
 			text-shadow: @text-shadow-base--disabled;
-		}
-	}
-
-	&.oo-ui-iconElement {
-		.oo-ui-inputWidget-input {
-			padding-left: @padding-start-input-text-icon-label;
-		}
-
-		> .oo-ui-iconElement-icon {
-			left: @padding-horizontal-input-text;
-		}
-
-		textarea + .oo-ui-iconElement-icon {
-			max-height: @size-base; // Use `@size-base` as `max-height` for multiline TextInputWidgets
-		}
-	}
-
-	> .oo-ui-labelElement-label {
-		color: @color-base--subtle;
-		margin-top: @border-width-base; // Address `border` on `input`
-		padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-base @padding-horizontal-input-text;
-		line-height: @line-height-widget-singleline;
-	}
-
-	&.oo-ui-indicatorElement {
-		.oo-ui-inputWidget-input {
-			padding-right: @size-indicator + 2 * @padding-horizontal-input-text;
-		}
-
-		&.oo-ui-textInputWidget-labelPosition-after > .oo-ui-labelElement-label {
-			padding-right: 0;
-		}
-
-		> .oo-ui-indicatorElement-indicator {
-			max-height: @size-base;
-			margin-right: @padding-horizontal-base;
-		}
-	}
-
-	&-labelPosition-after {
-		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
-			margin-right: @size-indicator + @padding-horizontal-base + @padding-horizontal-input-text;
-		}
-	}
-
-	&-labelPosition-before {
-		&.oo-ui-iconElement > .oo-ui-labelElement-label {
-			padding-left: @padding-start-input-text-icon-label;
 		}
 	}
 }

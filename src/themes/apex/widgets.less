@@ -1258,12 +1258,6 @@
 			border-color @transition-ease-medium,
 			box-shadow @transition-ease-medium
 		);
-
-		&.oo-ui-pendingElement-pending {
-			background-color: transparent;
-		}
-
-		.apex-placeholder();
 	}
 
 	input {
@@ -1274,43 +1268,8 @@
 		line-height: @line-height-widget-multiline;
 	}
 
-	&.oo-ui-widget-enabled {
-		.oo-ui-inputWidget-input {
-			&:focus {
-				outline: 0;
-				border-color: @border-color-base--focus;
-				box-shadow: @box-shadow-widget--focus;
-			}
-
-			&[ readonly ] {
-				background-color: #f3f3f3;
-			}
-		}
-
-		&.oo-ui-flaggedElement-invalid {
-			.oo-ui-inputWidget-input {
-				background-color: #fdd;
-			}
-		}
-	}
-
-	&.oo-ui-widget-disabled {
-		.oo-ui-inputWidget-input {
-			color: #ccc;
-			border-color: #ddd;
-			background-color: #f3f3f3;
-			text-shadow: @text-shadow-widget-disabled;
-		}
-
-		> .oo-ui-iconElement-icon,
-		> .oo-ui-indicatorElement-indicator {
-			opacity: 0.2;
-		}
-
-		> .oo-ui-labelElement-label {
-			color: #ddd;
-			text-shadow: @text-shadow-widget-disabled;
-		}
+	.oo-ui-pendingElement-pending {
+		background-color: transparent;
 	}
 
 	&.oo-ui-iconElement > .oo-ui-iconElement-icon,
@@ -1345,11 +1304,10 @@
 	}
 
 	> .oo-ui-labelElement-label {
-		display: none;
+		color: @color-base--subtle;
 		top: @border-width-base; // equals `border-width`
 		padding: @padding-top-textinput 0.4em @padding-bottom-textinput 0.4em;
 		line-height: @line-height-widget-singleline;
-		color: @color-base--subtle;
 	}
 
 	&-labelPosition-after {
@@ -1361,6 +1319,47 @@
 	&-labelPosition-before {
 		&.oo-ui-iconElement > .oo-ui-labelElement-label {
 			margin-left: @size-icon + 0.6em - 0.4em;
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-inputWidget-input {
+			.apex-placeholder();
+
+			&:focus {
+				outline: 0;
+				border-color: @border-color-base--focus;
+				box-shadow: @box-shadow-widget--focus;
+			}
+
+			&[ readonly ] {
+				background-color: #f3f3f3;
+			}
+		}
+
+		&.oo-ui-flaggedElement-invalid {
+			.oo-ui-inputWidget-input {
+				background-color: #fdd;
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		.oo-ui-inputWidget-input {
+			background-color: #f3f3f3;
+			color: #ccc;
+			border-color: #ddd;
+			text-shadow: @text-shadow-widget-disabled;
+		}
+
+		> .oo-ui-iconElement-icon,
+		> .oo-ui-indicatorElement-indicator {
+			opacity: 0.2;
+		}
+
+		> .oo-ui-labelElement-label {
+			color: #ddd;
+			text-shadow: @text-shadow-widget-disabled;
 		}
 	}
 }
