@@ -14,8 +14,11 @@
 		"destructive": {
 			"color": "#d33"
 		},
+		"error": {
+			"color": "#d33"
+		},
 		"warning": {
-			"color": "#ff5d00"
+			"color": "#fc3"
 		}
 	},
 	"images": {
@@ -74,7 +77,11 @@
 				"ltr": "images/icons/tag-ltr.svg",
 				"rtl": "images/icons/tag-rtl.svg"
 			},
-			"variants": [ "destructive", "warning" ]
+			"variants": [
+				"destructive",
+				"error",
+				"warning"
+			]
 		},
 		"upload": {
 			"file": "images/icons/upload.svg"

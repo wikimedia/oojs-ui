@@ -40,6 +40,8 @@
  *  or 'inline'
  * @cfg {Array} [errors] Error messages about the widget, which will be
  *  displayed below the widget.
+ * @cfg {Array} [warnings] Warning messages about the widget, which will be
+ *  displayed below the widget.
  *  The array may contain strings or OO.ui.HtmlSnippet instances.
  * @cfg {Array} [notices] Notices about the widget, which will be displayed
  *  below the widget.
@@ -86,6 +88,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Properties
 	this.fieldWidget = fieldWidget;
 	this.errors = [];
+	this.warnings = [];
 	this.notices = [];
 	this.$field = this.isFieldInline() ? $( '<span>' ) : $( '<div>' );
 	this.$messages = $( '<ul>' );
@@ -130,6 +133,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		.append( this.fieldWidget.$element );
 
 	this.setErrors( config.errors || [] );
+	this.setWarnings( config.warnings || [] );
 	this.setNotices( config.notices || [] );
 	this.setAlignment( config.align );
 	// Call this again to take into account the widget's accessKey
@@ -184,6 +188,9 @@ OO.ui.FieldLayout.prototype.makeMessage = function ( kind, text ) {
 	var $listItem, $icon, message;
 	$listItem = $( '<li>' );
 	if ( kind === 'error' ) {
+		$icon = new OO.ui.IconWidget( { icon: 'alert', flags: [ 'error' ] } ).$element;
+		$listItem.attr( 'role', 'alert' );
+	} else if ( kind === 'warning' ) {
 		$icon = new OO.ui.IconWidget( { icon: 'alert', flags: [ 'warning' ] } ).$element;
 		$listItem.attr( 'role', 'alert' );
 	} else if ( kind === 'notice' ) {
@@ -271,6 +278,21 @@ OO.ui.FieldLayout.prototype.setErrors = function ( errors ) {
 };
 
 /**
+ * Set the list of warning messages.
+ *
+ * @param {Array} warnings Warning messages about the widget, which will be displayed below
+ *  the widget.
+ *  The array may contain strings or OO.ui.HtmlSnippet instances.
+ * @chainable
+ * @return {OO.ui.BookletLayout} The layout, for chaining
+ */
+OO.ui.FieldLayout.prototype.setWarnings = function ( warnings ) {
+	this.warnings = warnings.slice();
+	this.updateMessages();
+	return this;
+};
+
+/**
  * Set the list of notice messages.
  *
  * @param {Array} notices Notices about the widget, which will be displayed below the widget.
@@ -285,7 +307,7 @@ OO.ui.FieldLayout.prototype.setNotices = function ( notices ) {
 };
 
 /**
- * Update the rendering of error and notice messages.
+ * Update the rendering of error, warning and notice messages.
  *
  * @private
  */
@@ -293,18 +315,21 @@ OO.ui.FieldLayout.prototype.updateMessages = function () {
 	var i;
 	this.$messages.empty();
 
-	if ( this.errors.length || this.notices.length ) {
+	if ( this.errors.length || this.warnings.length || this.notices.length ) {
 		this.$body.after( this.$messages );
 	} else {
 		this.$messages.remove();
 		return;
 	}
 
-	for ( i = 0; i < this.notices.length; i++ ) {
-		this.$messages.append( this.makeMessage( 'notice', this.notices[ i ] ) );
-	}
 	for ( i = 0; i < this.errors.length; i++ ) {
 		this.$messages.append( this.makeMessage( 'error', this.errors[ i ] ) );
+	}
+	for ( i = 0; i < this.warnings.length; i++ ) {
+		this.$messages.append( this.makeMessage( 'warning', this.warnings[ i ] ) );
+	}
+	for ( i = 0; i < this.notices.length; i++ ) {
+		this.$messages.append( this.makeMessage( 'notice', this.notices[ i ] ) );
 	}
 };
 
