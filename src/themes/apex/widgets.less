@@ -1067,15 +1067,15 @@
 .theme-oo-ui-tagItemWidget() {
 	.oo-ui-vertical-gradient( @background-color-framed-start, @background-color-framed-stop );
 	color: @color-base;
+	.oo-ui-box-sizing( border-box );
 	width: auto;
 	max-width: 100%;
-	.oo-ui-box-sizing( border-box );
-	height: 1.7em;
+	height: @height-tagitem;
 	margin: 0.1em;
 	border: @border-base;
 	border-radius: @border-radius-base;
 	padding: 0 0.4em;
-	line-height: 1.7em;
+	line-height: @height-tagitem - @size-modifier-border;
 	vertical-align: middle;
 
 	&:focus {
