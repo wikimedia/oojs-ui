@@ -1244,8 +1244,8 @@
 	width: 100%;
 	max-width: @max-width-input-base;
 
-	input,
-	textarea {
+	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`
+	.oo-ui-inputWidget-input {
 		background-color: @background-color-main;
 		color: #000;
 		border: @border-base;
@@ -1275,8 +1275,7 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		input,
-		textarea {
+		.oo-ui-inputWidget-input {
 			&:focus {
 				outline: 0;
 				border-color: @border-color-base--focus;
@@ -1289,16 +1288,14 @@
 		}
 
 		&.oo-ui-flaggedElement-invalid {
-			input,
-			textarea {
+			.oo-ui-inputWidget-input {
 				background-color: #fdd;
 			}
 		}
 	}
 
 	&.oo-ui-widget-disabled {
-		input,
-		textarea {
+		.oo-ui-inputWidget-input {
 			color: #ccc;
 			border-color: #ddd;
 			background-color: #f3f3f3;
@@ -1325,8 +1322,7 @@
 	}
 
 	&.oo-ui-iconElement {
-		input,
-		textarea {
+		.oo-ui-inputWidget-input {
 			padding-left: @size-icon + 0.6em;
 		}
 
@@ -1338,8 +1334,7 @@
 	}
 
 	&.oo-ui-indicatorElement {
-		input,
-		textarea {
+		.oo-ui-inputWidget-input {
 			padding-right: @size-indicator + 1.55em;
 		}
 
