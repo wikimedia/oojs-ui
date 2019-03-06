@@ -131,8 +131,12 @@
 
 		> [ class|='oo-ui-fieldLayout-messages' ] {
 			display: table;
-			margin: @padding-vertical-label 0 0;
+			margin: @margin-top-fieldlayout-message 0 0;
 			padding: 0;
+
+			&:first-child {
+				margin-top: @margin-top-fieldlayout-message / 2;
+			}
 		}
 
 		.oo-ui-fieldLayout-messages-error {
