@@ -522,7 +522,7 @@ OO.ui.SelectWidget.prototype.onKeyPress = function () {
  */
 OO.ui.SelectWidget.prototype.getItemMatcher = function ( query, mode ) {
 	var normalizeForMatching = this.constructor.static.normalizeForMatching,
-		normalizedQuery = ( query );
+		normalizedQuery = normalizeForMatching( query );
 
 	// Support deprecated exact=true argument
 	if ( mode === true ) {
