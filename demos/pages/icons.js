@@ -18,6 +18,7 @@ Demo.static.pages.icons = function ( demo ) {
 			content: [
 				'article',
 				'articles',
+				'articleAdd',
 				'articleCheck',
 				'articleSearch',
 				'articleRedirect',
