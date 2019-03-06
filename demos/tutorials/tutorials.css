@@ -175,7 +175,7 @@ tr {
 }
 
 /* Borrowed from Core Apex CSS */
-.tutorials-embed-app .oo-ui-selectWidget-depressed .oo-ui-optionWidget-selected {
+.tutorials-embed-app .oo-ui-selectWidget-unpressed .oo-ui-optionWidget-selected {
 	background-color: #80ccff;
 }
 
@@ -184,7 +184,7 @@ tr {
 	background-color: #b9e3ff;
 }
 
-.tutorials-no-highlights .oo-ui-selectWidget-depressed .oo-ui-optionWidget-selected,
+.tutorials-no-highlights .oo-ui-selectWidget-unpressed .oo-ui-optionWidget-selected,
 .tutorials-no-highlights .oo-ui-optionWidget-highlighted {
 	background-color: #fff;
 }
