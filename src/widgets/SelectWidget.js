@@ -77,7 +77,8 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 
 	// Initialization
 	this.$element
-		.addClass( 'oo-ui-selectWidget oo-ui-selectWidget-depressed' )
+		// -depressed is a deprecated alias of -unpressed
+		.addClass( 'oo-ui-selectWidget oo-ui-selectWidget-unpressed oo-ui-selectWidget-depressed' )
 		.attr( 'role', 'listbox' );
 	this.setFocusOwner( this.$element );
 	if ( Array.isArray( config.items ) ) {
@@ -657,7 +658,8 @@ OO.ui.SelectWidget.prototype.togglePressed = function ( pressed ) {
 	if ( pressed !== this.pressed ) {
 		this.$element
 			.toggleClass( 'oo-ui-selectWidget-pressed', pressed )
-			.toggleClass( 'oo-ui-selectWidget-depressed', !pressed );
+			// -depressed is a deprecated alias of -unpressed
+			.toggleClass( 'oo-ui-selectWidget-unpressed oo-ui-selectWidget-depressed', !pressed );
 		this.pressed = pressed;
 	}
 };
