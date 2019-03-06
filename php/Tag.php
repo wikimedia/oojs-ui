@@ -76,7 +76,7 @@ class Tag {
 	 * @return $this
 	 */
 	public function addClasses( array $classes ) {
-		$this->classes = array_merge( $this->classes, $classes );
+		$this->classes = array_unique( array_merge( $this->classes, $classes ) );
 		return $this;
 	}
 
