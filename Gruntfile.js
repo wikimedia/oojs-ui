@@ -429,7 +429,8 @@ module.exports = function ( grunt ) {
 		// Lint – Code
 		eslint: {
 			options: {
-				reportUnusedDisableDirectives: true
+				reportUnusedDisableDirectives: true,
+				cache: true
 			},
 			dev: [
 				'*.js',
