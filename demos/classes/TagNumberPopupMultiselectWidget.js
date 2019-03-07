@@ -5,10 +5,10 @@ Demo.TagNumberPopupMultiselectWidget = function DemoTagNumberPopupMultiselectWid
 	} );
 
 	// Parent constructor
-	Demo.TagNumberPopupMultiselectWidget.parent.call( this, $.extend( {}, config, {
+	Demo.TagNumberPopupMultiselectWidget.parent.call( this, $.extend( {
 		allowArbitrary: true,
 		popup: {}
-	} ) );
+	}, config ) );
 
 	// Events
 	this.tagPopupWidget.connect( this, { enter: 'onPopupEnter' } );

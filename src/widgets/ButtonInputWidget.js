@@ -49,9 +49,9 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	OO.ui.ButtonInputWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.ButtonElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.ButtonElement.call( this, $.extend( {
 		$button: this.$input
-	} ) );
+	}, config ) );
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.LabelElement.call( this, config );

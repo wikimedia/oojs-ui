@@ -72,12 +72,12 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.LabelElement.call( this, config );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.TitledElement.call( this, $.extend( {
 		$titled: this.$label
-	} ) );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
 		$tabIndexed: this.$handle
-	} ) );
+	}, config ) );
 
 	// Properties
 	this.menu = new OO.ui.MenuSelectWidget( $.extend( {

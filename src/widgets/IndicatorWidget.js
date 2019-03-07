@@ -36,16 +36,16 @@ OO.ui.IndicatorWidget = function OoUiIndicatorWidget( config ) {
 	OO.ui.IndicatorWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.IndicatorElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.IndicatorElement.call( this, $.extend( {
 		$indicator: this.$element
-	} ) );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.TitledElement.call( this, $.extend( {
 		$titled: this.$element
-	} ) );
-	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.LabelElement.call( this, $.extend( {
 		$label: this.$element,
 		invisibleLabel: true
-	} ) );
+	}, config ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-indicatorWidget' );

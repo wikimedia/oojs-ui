@@ -71,9 +71,9 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
 		$tabIndexed: this.$link
-	} ) );
+	}, config ) );
 
 	// Events
 	this.toolbar.connect( this, {
