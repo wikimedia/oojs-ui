@@ -85,7 +85,8 @@
 			"src/layouts/FormLayout.js",
 			"src/layouts/PanelLayout.js",
 			"src/layouts/HorizontalLayout.js",
-			"src/widgets/NumberInputWidget.js"
+			"src/widgets/NumberInputWidget.js",
+			"src/widgets/SelectFileInputWidget.js"
 		]
 	},
 	# Additional widgets and layouts module. These have no equivalent in OOUI PHP.
@@ -225,6 +226,7 @@
 			"src/styles/widgets/CheckboxMultioptionWidget.less",
 			"src/styles/widgets/ProgressBarWidget.less",
 			"src/styles/widgets/NumberInputWidget.less",
+			"src/styles/widgets/SelectFileWidget.less",
 
 			"src/styles/core.less"
 		]
@@ -247,8 +249,6 @@
 			"src/styles/widgets/ToggleWidget.less",
 			"src/styles/widgets/ToggleButtonWidget.less",
 			"src/styles/widgets/ToggleSwitchWidget.less",
-
-			"src/styles/widgets/SelectFileWidget.less",
 
 			"src/styles/widgets/OutlineSelectWidget.less",
 			"src/styles/widgets/OutlineOptionWidget.less",

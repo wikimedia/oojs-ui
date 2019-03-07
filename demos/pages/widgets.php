@@ -797,6 +797,53 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 ] ) );
 
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-selectFile',
+	'infusable' => true,
+	'label' => 'SelectFile',
+	'items' => [
+		new OOUI\FieldLayout(
+			new OOUI\SelectFileInputWidget( [] ),
+			[
+				'label' => 'SelectFileInputWidget',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\SelectFileInputWidget( [
+				'accept' => [ 'image/png', 'image/jpeg' ],
+				'title' => 'This SelectFileInputWidget accepts only PNG `image/png`' .
+					' and JPEG `image/jpeg` files and has `title` configured'
+			] ),
+			[
+				'label' => 'SelectFileInputWidget (accept PNG and JPEG)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\SelectFileInputWidget( [
+				'icon' => 'tag',
+				'indicator' => 'required'
+			] ),
+			[
+				'label' => 'SelectFileInputWidget (icon, indicator)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\SelectFileInputWidget( [
+				'icon' => 'tag',
+				'indicator' => 'required',
+				'disabled' => true
+			] ),
+			[
+				'label' => 'SelectFileInputWidget (disabled)',
+				'align' => 'top'
+			]
+		),
+	]
+] ) );
+
+$demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'id' => 'demo-section-tabs',
 	'infusable' => true,
 	'label' => 'Tabs',

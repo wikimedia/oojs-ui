@@ -101,7 +101,7 @@ else
 	# classes with different PHP and JS implementations.
 	# we can still compare the PHP-infuse result to JS result, though.
 	infuse_only_classes = %w[ComboBoxInputWidget
-		RadioSelectInputWidget CheckboxMultiselectInputWidget NumberInputWidget]
+		RadioSelectInputWidget CheckboxMultiselectInputWidget NumberInputWidget SelectFileInputWidget]
 	testable_classes = classes
 		.reject{|c| c[:abstract] } # can't test abstract classes
 		.reject{|c| !c[:parent] || c[:trait] || c[:parent] == 'Theme' } # can't test abstract
@@ -163,6 +163,13 @@ else
 		['SearchInputWidget', 'indicator'] => [],
 		['SearchInputWidget', 'required'] => [],
 		['SearchInputWidget', 'disabled'] => [],
+		# don't try to set value/label on file widgets
+		['SelectFileInputWidget', 'value'] => [],
+		['SelectFileInputWidget', 'label'] => [],
+		['SelectFileInputWidget', 'thumbnailSizeLimit'] => [10],
+		['SelectFileInputWidget', 'placeholder'] => ['placeholder text'],
+		['SelectFileInputWidget', 'notsupported'] => ['notsupported text'],
+		['SelectFileInputWidget', 'accept'] => [['image/png', 'image/jpeg']],
 		# these are defined by Element and would bloat the tests
 		'classes' => [],
 		'id' => [],

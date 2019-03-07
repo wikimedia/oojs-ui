@@ -1669,6 +1669,50 @@ Demo.static.pages.widgets = function ( demo ) {
 			]
 		} ),
 		new OO.ui.FieldsetLayout( {
+			id: 'demo-section-selectFileInput',
+			label: 'SelectFileInput',
+			items: [
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileInputWidget( {} ),
+					{
+						label: 'SelectFileInputWidget',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileInputWidget( {
+						accept: [ 'image/png', 'image/jpeg' ],
+						title: 'This SelectFileInputWidget accepts only PNG `image/png` and JPEG `image/jpeg` files and has `title` configured'
+					} ),
+					{
+						label: 'SelectFileInputWidget (accept PNG and JPEG)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileInputWidget( {
+						icon: 'tag',
+						indicator: 'required'
+					} ),
+					{
+						label: 'SelectFileInputWidget (icon, indicator)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileInputWidget( {
+						icon: 'tag',
+						indicator: 'required',
+						disabled: true
+					} ),
+					{
+						label: 'SelectFileInputWidget (disabled)',
+						align: 'top'
+					}
+				)
+			]
+		} ),
+		new OO.ui.FieldsetLayout( {
 			id: 'demo-section-selectFile',
 			label: 'SelectFile',
 			items: [
