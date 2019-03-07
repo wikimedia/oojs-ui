@@ -534,7 +534,9 @@ OO.ui.SelectWidget.prototype.getItemMatcher = function ( query, mode ) {
 		var matchText = normalizeForMatching( item.getMatchText() );
 
 		if ( normalizedQuery === '' ) {
-			return false;
+			// Empty string matches all, except if we are in 'exact'
+			// mode, where it doesn't match at all
+			return mode !== 'exact';
 		}
 
 		switch ( mode ) {
