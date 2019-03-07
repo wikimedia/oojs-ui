@@ -1,4 +1,45 @@
 # OOUI Release History
+## v0.30.4 / 2019-03-06
+### Deprecations
+* [DEPRECATING CHANGE] SelectWidget: Rename '-depressed' to '-unpressed' (Ed Sanders)
+* [DEPRECATING CHANGE] icons: Deprecate 'web' from 'editing-citation' (Volker E.)
+
+### Features
+* Implement 'error' flag and 'warning' type messages (Volker E.)
+* MenuSelectWidget: Add 'filterMode' (Moriel Schottlender)
+
+### Styles
+* Apex theme: Bring icons and layout styles from WikimediaUI theme (Volker E.)
+* ButtonElement: Add styling for disabled active framed buttons (Bartosz Dziewoński)
+* icons: Snap 'camera' icon's frame to pixel grid (Ed Sanders)
+* icons: Add 'articleAdd' to 'content' pack (Volker E.)
+* icons: Add 'imageLayout…' icons to 'editing-advanced' pack (Volker E.)
+* WikimediaUI theme: De-emphasize `opacity` on TextInputWidget icons (Volker E.)
+* WikimediaUI theme: Give user messages more whitespace (Volker E.)
+* WikimediaUI theme: Place icons at top of message (Volker E.)
+* themes: Fix TagItemWidget's vertical alignment in Safari (Volker E.)
+* themes: Fix `padding` of label in DropdownWidget (Volker E.)
+* themes: Provide 'emphasized' color for messages (Volker E.)
+
+### Code
+* Consistently spell "access key" (Bartosz Dziewoński)
+* Follow-up I5991001e257: Add missing function call to normalize query (Ed Sanders)
+* Follow-up I5991001e: Do not filter item if query is empty (Moriel Schottlender)
+* MenuTagMultiselectWidget: Use 'highlightOnFilter' flag in MenuSelectWidget (Ed Sanders)
+* SelectWidget: Rewrite getItemMatcher without regular expressions (Ed Sanders)
+* Tag.php: Prevent duplicates in class list (Ed Sanders)
+* TextInputWidget: Reduce selector where applicable (Volker E.)
+* themes: Unify TextInput selector code (Volker E.)
+* build: Consistently indent .eslintrc.json files with tabs (Bartosz Dziewoński)
+* build: Enable eslint 'max-len' in code and fix (James D. Forrester)
+* build: Remove obsolete stylelint overrides (Volker E.)
+* build: Update eslint-config-wikimedia to 0.11.0 (Ed Sanders)
+* docs: Unify key names in documentation (Volker E.)
+* icons: Manually optimize the SVG code of some icons (Thiemo Kreuz)
+* icons: Re-crush with 'svgmin' build task (Volker E.)
+* icons: Remove redundant `ry="…"` SVG attribute when identical to `rx="…"` (Thiemo Kreuz)
+
+
 ## v0.30.3 / 2019-02-20
 ### Styles
 * WikimediaUI theme: Align TagItemWidget's close icon correctly (Volker E.)
