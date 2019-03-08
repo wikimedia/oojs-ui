@@ -57,7 +57,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 
 	// Properties
 	this.$info = $( '<span>' );
-	this.showDropTarget = config.showDropTarget;
+	this.showDropTarget = config.droppable && config.showDropTarget;
 	this.thumbnailSizeLimit = config.thumbnailSizeLimit;
 	this.isSupported = this.constructor.static.isSupported();
 	this.currentFile = null;
@@ -108,7 +108,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 		.addClass( 'oo-ui-selectFileWidget-info' )
 		.append( this.$icon, this.$label, this.clearButton.$element, this.$indicator );
 
-	if ( config.droppable && config.showDropTarget ) {
+	if ( this.showDropTarget ) {
 		this.selectButton.setIcon( 'upload' );
 		this.$thumbnail = $( '<div>' ).addClass( 'oo-ui-selectFileWidget-thumbnail' );
 		this.setPendingElement( this.$thumbnail );
