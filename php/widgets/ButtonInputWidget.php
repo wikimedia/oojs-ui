@@ -12,6 +12,7 @@ class ButtonInputWidget extends InputWidget {
 	use LabelElement {
 		LabelElement::setLabel as setLabelElementLabel;
 	}
+	use FlaggedElement;
 
 	/* Static Properties */
 
@@ -54,6 +55,9 @@ class ButtonInputWidget extends InputWidget {
 		$this->initializeIconElement( $config );
 		$this->initializeIndicatorElement( $config );
 		$this->initializeLabelElement( $config );
+		$this->initializeFlaggedElement(
+			array_merge( [ 'flagged' => $this ], $config )
+		);
 
 		// Initialization
 		if ( !$config['useInputTag'] ) {

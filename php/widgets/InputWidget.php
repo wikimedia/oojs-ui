@@ -8,7 +8,6 @@ namespace OOUI;
  * @abstract
  */
 class InputWidget extends Widget {
-	use FlaggedElement;
 	use TabIndexedElement;
 	use TitledElement;
 	use AccessKeyedElement;
@@ -45,9 +44,6 @@ class InputWidget extends Widget {
 		$this->input = $this->getInputElement( $config );
 
 		// Traits
-		$this->initializeFlaggedElement(
-			array_merge( [ 'flagged' => $this ], $config )
-		);
 		$this->initializeTabIndexedElement(
 			array_merge( [ 'tabIndexed' => $this->input ], $config )
 		);
