@@ -221,8 +221,14 @@ tr {
 	text-align: center;
 }
 
+.tutorials-toolbar {
+	font-size: 0.875em;
+}
+
 .tutorials-toolbar > .oo-ui-widget {
-	margin-bottom: 1em;
+	display: inline-block;
+	margin: 0 1em 1em 0;
+	vertical-align: middle;
 }
 
 .tutorials-toolbar-tutorials {

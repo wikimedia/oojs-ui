@@ -39,12 +39,10 @@
 		};
 	};
 
-	// More typical usage: we take the existing server-side
-	// button group and do things to it, here adding a new button.
-	infuseButton = new OO.ui.ButtonWidget( { label: 'Infuse' } )
-		.on( 'click', infuseAll );
-
-	OO.ui.ButtonGroupWidget.static.infuse( 'demo-menu-infuse' )
-		.addItems( [ infuseButton ] );
-
+	// More typical usage: we take an existing server-side button and do things to it,
+	// here enabling it and adding a click event handler.
+	// eslint-disable-next-line no-jquery/no-global-selector
+	infuseButton = OO.ui.infuse( $( '.demo-menu-infuse' ) )
+		.on( 'click', infuseAll )
+		.setDisabled( false );
 }() );

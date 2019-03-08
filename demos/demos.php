@@ -99,6 +99,14 @@
 	<div class="demo-root">
 		<div class="demo-menu" role="navigation">
 			<?php
+				echo new OOUI\DropdownInputWidget( [
+					'infusable' => true,
+					'disabled' => true,
+					'classes' => [ 'demo-pageDropdown' ],
+					'options' => [
+						[ 'label' => 'Widgets', 'data' => '' ]
+					]
+				] );
 				echo new OOUI\ButtonGroupWidget( [
 					'infusable' => true,
 					'items' => array_map( function ( $theme, $themeLabel ) use ( $query ) {
@@ -126,12 +134,10 @@
 				] );
 				echo new OOUI\ButtonGroupWidget( [
 					'infusable' => true,
-					'id' => 'demo-menu-infuse',
 					'items' => [
 						new OOUI\ButtonWidget( [
 							'label' => 'JS',
-							'href' => '.?' . http_build_query( $query ),
-							'active' => false,
+							'href' => '.?' . http_build_query( $query )
 						] ),
 						new OOUI\ButtonWidget( [
 							'label' => 'PHP',
@@ -140,12 +146,42 @@
 						] ),
 					]
 				] );
-
+				echo new OOUI\ButtonGroupWidget( [
+					'infusable' => true,
+					'items' => [
+						new OOUI\ButtonWidget( [
+							'label' => 'Desktop',
+							'active' => true,
+							'disabled' => true,
+						] ),
+						new OOUI\ButtonWidget( [
+							'label' => 'Mobile',
+							'disabled' => true,
+						] ),
+					],
+				] );
+				echo new OOUI\ButtonGroupWidget( [
+					'infusable' => true,
+					'items' => [
+						new OOUI\ButtonWidget( [
+							'label' => 'Docs',
+							'icon' => 'journal',
+							'href' => '../php/',
+							'flags' => [ 'progressive' ],
+						] ),
+						new OOUI\ButtonWidget( [
+							'label' => 'Tutorials',
+							'icon' => 'book',
+							'href' => 'tutorials/index.html',
+							'flags' => [ 'progressive' ],
+						] )
+					]
+				] );
 				echo new OOUI\ButtonWidget( [
-					'label' => 'Docs',
-					'icon' => 'journal',
-					'href' => '../php/',
-					'flags' => [ 'progressive' ],
+					'infusable' => true,
+					'classes' => [ 'demo-menu-infuse' ],
+					'disabled' => true,
+					'label' => 'Infuse',
 				] );
 			?>
 		</div>
