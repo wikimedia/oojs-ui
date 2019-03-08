@@ -49,9 +49,9 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	OO.ui.SelectWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.GroupWidget.call( this, $.extend( {}, config, {
+	OO.ui.mixin.GroupWidget.call( this, $.extend( {
 		$group: this.$element
-	} ) );
+	}, config ) );
 
 	// Properties
 	this.pressed = false;

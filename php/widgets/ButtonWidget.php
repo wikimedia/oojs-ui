@@ -69,12 +69,15 @@ class ButtonWidget extends Widget {
 		$this->initializeIndicatorElement( $config );
 		$this->initializeLabelElement( $config );
 		$this->initializeTitledElement(
-			array_merge( $config, [ 'titled' => $this->button ] ) );
+			array_merge( [ 'titled' => $this->button ], $config )
+		);
 		$this->initializeFlaggedElement( $config );
 		$this->initializeTabIndexedElement(
-			array_merge( $config, [ 'tabIndexed' => $this->button ] ) );
+			array_merge( [ 'tabIndexed' => $this->button ], $config )
+		);
 		$this->initializeAccessKeyedElement(
-			array_merge( $config, [ 'accessKeyed' => $this->button ] ) );
+			array_merge( [ 'accessKeyed' => $this->button ], $config )
+		);
 
 		// Initialization
 		$this->button->appendContent( $this->icon, $this->label, $this->indicator );

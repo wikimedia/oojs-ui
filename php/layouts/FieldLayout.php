@@ -108,11 +108,12 @@ class FieldLayout extends Layout {
 		$this->helpInline = $config['helpInline'];
 
 		// Traits
-		$this->initializeLabelElement( array_merge( $config, [
+		$this->initializeLabelElement( array_merge( [
 			'labelElement' => new Tag( 'label' )
-		] ) );
+		], $config ) );
 		$this->initializeTitledElement(
-			array_merge( $config, [ 'titled' => $this->label ] ) );
+			array_merge( [ 'titled' => $this->label ], $config )
+		);
 
 		// Initialization
 		$this->help = $this->helpText === '' ? '' : $this->createHelpElement();

@@ -45,13 +45,18 @@ class InputWidget extends Widget {
 		$this->input = $this->getInputElement( $config );
 
 		// Traits
-		$this->initializeFlaggedElement( array_merge( $config, [ 'flagged' => $this ] ) );
+		$this->initializeFlaggedElement(
+			array_merge( [ 'flagged' => $this ], $config )
+		);
 		$this->initializeTabIndexedElement(
-			array_merge( $config, [ 'tabIndexed' => $this->input ] ) );
+			array_merge( [ 'tabIndexed' => $this->input ], $config )
+		);
 		$this->initializeTitledElement(
-			array_merge( $config, [ 'titled' => $this->input ] ) );
+			array_merge( [ 'titled' => $this->input ], $config )
+		);
 		$this->initializeAccessKeyedElement(
-			array_merge( $config, [ 'accessKeyed' => $this->input ] ) );
+			array_merge( [ 'accessKeyed' => $this->input ], $config )
+		);
 
 		// Initialization
 		if ( isset( $config['name'] ) ) {

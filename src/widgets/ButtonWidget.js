@@ -47,16 +47,16 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.LabelElement.call( this, config );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.TitledElement.call( this, $.extend( {
 		$titled: this.$button
-	} ) );
+	}, config ) );
 	OO.ui.mixin.FlaggedElement.call( this, config );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
 		$tabIndexed: this.$button
-	} ) );
-	OO.ui.mixin.AccessKeyedElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.AccessKeyedElement.call( this, $.extend( {
 		$accessKeyed: this.$button
-	} ) );
+	}, config ) );
 
 	// Properties
 	this.href = null;

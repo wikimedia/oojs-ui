@@ -49,7 +49,8 @@ class ButtonInputWidget extends InputWidget {
 
 		// Traits
 		$this->initializeButtonElement(
-			array_merge( $config, [ 'button' => $this->input ] ) );
+			array_merge( [ 'button' => $this->input ], $config )
+		);
 		$this->initializeIconElement( $config );
 		$this->initializeIndicatorElement( $config );
 		$this->initializeLabelElement( $config );

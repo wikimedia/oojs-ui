@@ -80,10 +80,10 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	OO.ui.FieldLayout.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.LabelElement.call( this, $.extend( {
 		$label: $( '<label>' )
-	} ) );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, { $titled: this.$label } ) );
+	}, config ) );
+	OO.ui.mixin.TitledElement.call( this, $.extend( { $titled: this.$label }, config ) );
 
 	// Properties
 	this.fieldWidget = fieldWidget;

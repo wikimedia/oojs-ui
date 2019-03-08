@@ -50,18 +50,18 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.TitledElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
-	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.ClippableElement.call( this, $.extend( {
 		$clippable: this.$group
-	} ) );
-	OO.ui.mixin.FloatableElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.FloatableElement.call( this, $.extend( {
 		$floatable: this.$group,
 		$floatableContainer: this.$handle,
 		hideWhenOutOfView: false,
 		verticalPosition: this.toolbar.position === 'bottom' ? 'above' : 'below'
-	} ) );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
 		$tabIndexed: this.$handle
-	} ) );
+	}, config ) );
 
 	// Events
 	this.$handle.on( {

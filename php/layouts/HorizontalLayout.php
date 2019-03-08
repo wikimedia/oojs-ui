@@ -19,7 +19,7 @@ class HorizontalLayout extends Layout {
 		parent::__construct( $config );
 
 		// Traits
-		$this->initializeGroupElement( array_merge( $config, [ 'group' => $this ] ) );
+		$this->initializeGroupElement( array_merge( [ 'group' => $this ], $config ) );
 
 		// Initialization
 		$this->addClasses( [ 'oo-ui-horizontalLayout' ] );

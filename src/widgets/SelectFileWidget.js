@@ -49,9 +49,9 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
-	OO.ui.mixin.PendingElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.PendingElement.call( this, $.extend( {
 		$pending: this.$info
-	} ) );
+	}, config ) );
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.TitledElement.call( this, config );
 

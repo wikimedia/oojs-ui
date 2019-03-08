@@ -39,15 +39,15 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 
 	// Mixin constructors
 	OO.ui.mixin.FlaggedElement.call( this, config );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
 		$tabIndexed: this.$input
-	} ) );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.TitledElement.call( this, $.extend( {
 		$titled: this.$input
-	} ) );
-	OO.ui.mixin.AccessKeyedElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.AccessKeyedElement.call( this, $.extend( {
 		$accessKeyed: this.$input
-	} ) );
+	}, config ) );
 
 	// Events
 	this.$input.on( 'keydown mouseup cut paste change input select', this.onEdit.bind( this ) );

@@ -36,19 +36,19 @@ OO.ui.IconWidget = function OoUiIconWidget( config ) {
 	OO.ui.IconWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.IconElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.IconElement.call( this, $.extend( {
 		$icon: this.$element
-	} ) );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.TitledElement.call( this, $.extend( {
 		$titled: this.$element
-	} ) );
-	OO.ui.mixin.LabelElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.LabelElement.call( this, $.extend( {
 		$label: this.$element,
 		invisibleLabel: true
-	} ) );
-	OO.ui.mixin.FlaggedElement.call( this, $.extend( {}, config, {
+	}, config ) );
+	OO.ui.mixin.FlaggedElement.call( this, $.extend( {
 		$flagged: this.$element
-	} ) );
+	}, config ) );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-iconWidget' );

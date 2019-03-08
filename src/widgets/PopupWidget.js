@@ -82,10 +82,10 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 
 	// Mixin constructors
 	OO.ui.mixin.LabelElement.call( this, config );
-	OO.ui.mixin.ClippableElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.ClippableElement.call( this, $.extend( {
 		$clippable: this.$body,
 		$clippableContainer: this.$popup
-	} ) );
+	}, config ) );
 	OO.ui.mixin.FloatableElement.call( this, config );
 
 	// Properties
