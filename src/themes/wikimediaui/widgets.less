@@ -281,9 +281,8 @@
 }
 
 .theme-oo-ui-comboBoxInputWidget() {
-	// inherits from `inputWidget` & `textInputWidget`
-
-	input {
+	// Inherits from `inputWidget` & `textInputWidget`.
+	.oo-ui-inputWidget-input {
 		height: @size-base;
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
@@ -292,8 +291,8 @@
 
 	// Undo setting properties above when there is no button:
 	// if the menu is empty, or if this is the PHP version
-	&.oo-ui-comboBoxInputWidget-empty input,
-	&-php input {
+	&.oo-ui-comboBoxInputWidget-empty .oo-ui-inputWidget-input,
+	&-php .oo-ui-inputWidget-input {
 		border-top-right-radius: @border-radius-base;
 		border-bottom-right-radius: @border-radius-base;
 		border-right-width: @border-width-base;
