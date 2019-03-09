@@ -16,20 +16,23 @@ Tutorials.Toolbar = function ( config ) {
 	urlPieces = window.location.pathname.split( 'demos/tutorials/' );
 	baseUrl = urlPieces[ 0 ];
 
-	this.demosLink = new OO.ui.ButtonWidget( {
-		label: 'Demos',
-		classes: [ 'tutorials-toolbar-demos' ],
-		icon: 'journal',
-		href: baseUrl + 'demos/index.html',
-		flags: [ 'progressive' ]
-	} );
-
-	this.documentationLink = new OO.ui.ButtonWidget( {
-		label: 'Docs',
-		classes: [ 'tutorials-toolbar-docs' ],
-		icon: 'journal',
-		href: baseUrl + 'js/',
-		flags: [ 'progressive' ]
+	this.links = new OO.ui.ButtonGroupWidget( {
+		items: [
+			new OO.ui.ButtonWidget( {
+				label: 'Demos',
+				classes: [ 'tutorials-toolbar-demos' ],
+				icon: 'window',
+				href: baseUrl + 'demos/index.html',
+				flags: [ 'progressive' ]
+			} ),
+			new OO.ui.ButtonWidget( {
+				label: 'Docs',
+				classes: [ 'tutorials-toolbar-docs' ],
+				icon: 'journal',
+				href: baseUrl + 'js/',
+				flags: [ 'progressive' ]
+			} )
+		]
 	} );
 
 	this.tutorialsDropdown = new OO.ui.DropdownWidget( {
@@ -63,9 +66,8 @@ Tutorials.Toolbar = function ( config ) {
 		.addClass( 'tutorials-toolbar' )
 		.attr( 'role', 'navigation' )
 		.append(
-			this.demosLink.$element,
-			this.documentationLink.$element,
-			this.tutorialsDropdown.$element
+			this.tutorialsDropdown.$element,
+			this.links.$element
 		);
 
 	this.tutorialsDropdown.getMenu().items.forEach( function ( item ) {

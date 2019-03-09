@@ -20,6 +20,9 @@ window.Demo = function Demo() {
 	// Properties
 	this.stylesheetLinks = this.getStylesheetLinks();
 	this.mode = this.getCurrentMode();
+
+	OO.ui.theme = new OO.ui[ this.constructor.static.themes[ this.mode.theme ] + 'Theme' ]();
+
 	this.$menu = $( '<div>' );
 	this.expandButton = new OO.ui.ToggleButtonWidget( { icon: 'menu' } );
 	this.pageDropdown = new OO.ui.DropdownWidget( {
@@ -62,18 +65,21 @@ window.Demo = function Demo() {
 		new OO.ui.ButtonOptionWidget( { data: 'mobile', label: 'Mobile' } )
 	] );
 
-	this.documentationLink = new OO.ui.ButtonWidget( {
-		label: 'Docs',
-		icon: 'journal',
-		href: '../js/',
-		flags: [ 'progressive' ]
-	} );
-
-	this.tutorialsLink = new OO.ui.ButtonWidget( {
-		label: 'Tutorials',
-		icon: 'book',
-		href: 'tutorials/index.html',
-		flags: [ 'progressive' ]
+	this.links = new OO.ui.ButtonGroupWidget( {
+		items: [
+			new OO.ui.ButtonWidget( {
+				label: 'Docs',
+				icon: 'journal',
+				href: '../js/',
+				flags: [ 'progressive' ]
+			} ),
+			new OO.ui.ButtonWidget( {
+				label: 'Tutorials',
+				icon: 'book',
+				href: 'tutorials/index.html',
+				flags: [ 'progressive' ]
+			} )
+		]
 	} );
 
 	// Events
@@ -98,8 +104,7 @@ window.Demo = function Demo() {
 			this.directionSelect.$element,
 			this.jsPhpSelect.$element,
 			this.platformSelect.$element,
-			this.documentationLink.$element,
-			this.tutorialsLink.$element
+			this.links.$element
 		);
 	this.$element
 		.addClass( 'demo-root' )
@@ -107,7 +112,6 @@ window.Demo = function Demo() {
 	$( document.documentElement ).attr( 'dir', this.mode.direction );
 	$( document.head ).append( this.stylesheetLinks );
 	$( document.body ).addClass( 'oo-ui-theme-' + this.mode.theme );
-	OO.ui.theme = new OO.ui[ this.constructor.static.themes[ this.mode.theme ] + 'Theme' ]();
 	OO.ui.isMobile = function () {
 		return demo.mode.platform === 'mobile';
 	};
@@ -342,8 +346,7 @@ Demo.prototype.onExpandButtonChange = function ( value ) {
 	this.directionSelect.toggle( value );
 	this.jsPhpSelect.toggle( value );
 	this.platformSelect.toggle( value );
-	this.documentationLink.toggle( value );
-	this.tutorialsLink.toggle( value );
+	this.links.toggle( value );
 };
 
 /**
