@@ -64,16 +64,16 @@ class FieldLayout extends Layout {
 	/**
 	 * @param Widget $fieldWidget Field widget
 	 * @param array $config Configuration options
-	 * @param string $config['align'] Alignment mode, either 'left', 'right', 'top' or 'inline'
-	 *   (default: 'left')
-	 * @param array $config['errors'] Error messages about the widget, as strings or HtmlSnippet
-	 *   instances.
-	 * @param array $config['warnings'] Warning messages about the widget, as strings or HtmlSnippet
-	 *   instances.
-	 * @param array $config['notices'] Notices about the widget, as strings or HtmlSnippet instances.
-	 * @param string|HtmlSnippet $config['help'] Explanatory text shown as a '?' icon.
-	 * @param bool $config['helpInline'] Whether or not the help should be inline,
-	 *   or shown when the "help" icon is clicked. (default: false)
+	 *      - string $config['align'] Alignment mode, either 'left', 'right', 'top' or 'inline'
+	 *          (default: 'left')
+	 *      - array $config['errors'] Error messages about the widget, as strings or HtmlSnippet
+	 *          instances.
+	 *      - array $config['warnings'] Warning messages about the widget, as strings or HtmlSnippet
+	 *          instances.
+	 *      - array $config['notices'] Notices about the widget, as strings or HtmlSnippet instances.
+	 *      - string|HtmlSnippet $config['help'] Explanatory text shown as a '?' icon.
+	 *      - bool $config['helpInline'] Whether or not the help should be inline,
+	 *          or shown when the "help" icon is clicked. (default: false)
 	 * @param-taint $config escapes_htmlnoent
 	 * @throws Exception An exception is thrown if no widget is specified
 	 */

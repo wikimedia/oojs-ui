@@ -13,21 +13,21 @@ class NumberInputWidget extends TextInputWidget {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param int $config['placeholder'] Placeholder number
-	 * @param bool $config['autofocus'] Ask the browser to focus this widget, using the 'autofocus'
-	 *   HTML attribute (default: false)
-	 * @param bool $config['readOnly'] Prevent changes (default: false)
-	 * @param float $config['min'] Minimum input allowed
-	 * @param float $config['max'] Maximum input allowed
-	 * @param float|null $config['step'] If specified, the field only accepts values that are
-	 *   multiples of this. (default: null)
-	 * @param float $config['buttonStep'] Delta when using the buttons or Up/Down arrow keys.
-	 *   Defaults to `step` if specified, otherwise `1`.
-	 * @param float $config['pageStep'] Delta when using the Page-up/Page-down keys.
-	 *   Defaults to 10 times `buttonStep`.
-	 * @param bool $config['showButtons'] Show increment and decrement buttons (default: true)
-	 * @param bool $config['required'] Mark the field as required.
-	 *   Implies `indicator: 'required'`. Note that `false` & setting `indicator: 'required'
+	 *      - int $config['placeholder'] Placeholder number
+	 *      - bool $config['autofocus'] Ask the browser to focus this widget, using the 'autofocus'
+	 *          HTML attribute (default: false)
+	 *      - bool $config['readOnly'] Prevent changes (default: false)
+	 *      - float $config['min'] Minimum input allowed
+	 *      - float $config['max'] Maximum input allowed
+	 *      - float|null $config['step'] If specified, the field only accepts values that are
+	 *          multiples of this. (default: null)
+	 *      - float $config['buttonStep'] Delta when using the buttons or Up/Down arrow keys.
+	 *          Defaults to `step` if specified, otherwise `1`.
+	 *      - float $config['pageStep'] Delta when using the Page-up/Page-down keys.
+	 *          Defaults to 10 times `buttonStep`.
+	 *      - bool $config['showButtons'] Show increment and decrement buttons (default: true)
+	 *      - bool $config['required'] Mark the field as required.
+	 *          Implies `indicator: 'required'`. Note that `false` & setting `indicator: 'required'
 	 * @param-taint $config escapes_html
 	 */
 	public function __construct( array $config = [] ) {

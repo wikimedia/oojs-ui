@@ -11,7 +11,7 @@ class HorizontalLayout extends Layout {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param Widget[]|Layout[] $config['items'] Widgets or other layouts to add to the layout.
+	 *      - Widget[]|Layout[] $config['items'] Widgets or other layouts to add to the layout.
 	 * @param-taint $config escapes_htmlnoent
 	 */
 	public function __construct( array $config = [] ) {

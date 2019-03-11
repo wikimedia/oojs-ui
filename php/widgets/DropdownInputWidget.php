@@ -15,7 +15,7 @@ class DropdownInputWidget extends InputWidget {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param array[] $config['options'] Array of menu options in the format
+	 *      - array[] $config['options'] Array of menu options in the format
 	 * described in DropdownInputWidget::setOptions().
 	 * @param-taint $config escapes_html
 	 */

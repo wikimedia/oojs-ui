@@ -74,6 +74,7 @@ def parse_file filename
 		js_class_constructor = false
 		js_class_constructor_desc = ''
 		php_trait_constructor = false
+		parsing_php_config_options = false
 		ignore = false
 
 		comment, code_line = d.split '*/'
@@ -81,8 +82,16 @@ def parse_file filename
 			next if comment_line.strip == '/**'
 			comment_line.sub!(/^[ \t]*\*[ \t]?/, '') # strip leading '*' and whitespace
 
-			m = comment_line.match(/^@([\w-]+)(?:[ \t]+(.+))?/)
-			if !m
+			match_keyword = comment_line.match(/^@([\w-]+)(?:[ \t]+(.+))?/)
+			match_php_config = comment_line.match(/^ *- (\S+) \&?(?:\.\.\.)?\$config(?:\['(\w+)'\])?( .+)?$/)
+			if !match_keyword && parsing_php_config_options && match_php_config
+				type, config, description = match_php_config.captures
+				data[:config] << {name: config, type: cleanup_class_name(type), description: description || ''}
+				previous_item = data[:config][-1]
+				extract_default_from_description(previous_item)
+				next
+			end
+			if !match_keyword
 				# this is a continuation of previous item's description
 				previous_item[:description] << comment_line + "\n"
 				if filetype == :php
@@ -91,7 +100,8 @@ def parse_file filename
 				next
 			end
 
-			keyword, content = m.captures
+			parsing_php_config_options = false
+			keyword, content = match_keyword.captures
 
 			# handle JS class/constructor conundrum
 			if keyword == 'class' || keyword == 'constructor'
@@ -131,23 +141,19 @@ def parse_file filename
 				when :js
 					type, name, default, description =
 						content.match(/^\{(?:\.\.\.)?(.+?)\} \[?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/).captures
+					# ignore the "Configuration options" parameter
 					next if type == 'Object' && name == 'config'
 					data[:params] << {name: name, type: cleanup_class_name(type), description: description || '', default: default}
 					previous_item = data[:params][-1]
 				when :php
-					type, name, config, description =
-						content.match(/^(\S+) \&?(?:\.\.\.)?\$(\w+)(?:\['(\w+)'\])?( .+)?$/).captures
-					next if type == 'array' && name == 'config' && !config
-					if config && name == 'config'
-						data[:config] << {name: config, type: cleanup_class_name(type), description: description || ''}
-						previous_item = data[:config][-1]
-					else
-						data[:params] << {name: name, type: cleanup_class_name(type), description: description || ''}
-						previous_item = data[:params][-1]
-					end
-					if filetype == :php
-						extract_default_from_description(previous_item)
-					end
+					type, name, description =
+						content.match(/^(\S+) \&?(?:\.\.\.)?\$(\w+)( .+)?$/).captures
+					parsing_php_config_options = type == 'array' && name == 'config'
+					# ignore the "Configuration options" parameter
+					next if parsing_php_config_options
+					data[:params] << {name: name, type: cleanup_class_name(type), description: description || ''}
+					previous_item = data[:params][-1]
+					extract_default_from_description(previous_item)
 				end
 			when 'cfg' # JS only
 				m = content.match(/^\{(.+?)\} \[?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/)
