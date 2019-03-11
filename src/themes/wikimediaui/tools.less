@@ -67,8 +67,8 @@
 
 			&.oo-ui-labelElement {
 				> .oo-ui-buttonElement-button {
-					padding-top: @padding-top-tool-label;
-					padding-bottom: @padding-bottom-tool-label;
+					padding-top: @padding-vertical-tool-label;
+					padding-bottom: @padding-vertical-tool-label;
 				}
 			}
 		}
@@ -77,8 +77,8 @@
 			> .oo-ui-buttonElement > .oo-ui-buttonElement-button {
 				border-radius: 0;
 				border-width: 0 0 0 @border-width-base;
-				padding-top: @padding-top-tool-label;
-				padding-bottom: @padding-bottom-tool-label;
+				padding-top: @padding-vertical-tool-label;
+				padding-bottom: @padding-vertical-tool-label;
 			}
 
 			> .oo-ui-popupToolGroup.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive {
@@ -103,7 +103,7 @@
 	}
 
 	&-with-label .oo-ui-tool-link {
-		padding: @padding-top-tool-label @padding-horizontal-base @padding-bottom-tool-label @padding-start-tool;
+		padding: @padding-vertical-tool-label @padding-horizontal-base @padding-vertical-tool-label @padding-start-tool;
 	}
 
 	.oo-ui-iconElement-icon {
@@ -341,7 +341,7 @@
 	}
 
 	&.oo-ui-labelElement &-handle {
-		padding: @padding-top-tool-label @padding-horizontal-base @padding-bottom-tool-label;
+		padding: @padding-vertical-tool-label @padding-horizontal-base;
 
 		.oo-ui-labelElement-label {
 			line-height: @line-height-widget-singleline;
@@ -403,7 +403,7 @@
 
 		.oo-ui-tool-link {
 			// Tool-Links in PopupToolGroups always have a `-title` element
-			padding: @padding-top-tool-label @padding-horizontal-base @padding-bottom-tool-label @padding-horizontal-base;
+			padding: @padding-vertical-tool-label @padding-horizontal-base;
 
 			.oo-ui-toolbar-narrow & {
 				padding-left: @padding-horizontal-base - @size-toolbar-narrow-modifier;
