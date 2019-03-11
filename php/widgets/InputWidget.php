@@ -167,6 +167,10 @@ class InputWidget extends Widget {
 		if ( $this->value !== '' ) {
 			$config['value'] = $this->value;
 		}
+		$dir = $this->input->getAttribute( 'dir' );
+		if ( $dir !== null ) {
+			$config['dir'] = $dir;
+		}
 		$id = $this->input->getAttribute( 'id' );
 		if ( $id !== null ) {
 			$config['inputId'] = $id;

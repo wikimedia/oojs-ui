@@ -54,6 +54,8 @@ else
 	# Empty array will result in no tests for this config option being generated.
 	sensible_values = {
 		'align' => %w[top inline left],
+		# could also be 'auto', but this only sets an attribute
+		'dir' => %w[ltr rtl],
 		'href' => ['http://example.com/'],
 		['TextInputWidget', 'type'] => %w[text number password foo],
 		['ButtonInputWidget', 'type'] => %w[button submit foo],
@@ -80,7 +82,7 @@ else
 			[ { 'data' => 'a' }, { 'data' => 'b' } ],
 			[ { 'data' => 'a', 'label' => 'A' }, { 'data' => 'b', 'label' => 'B' } ],
 		],
-		'value' => ['', 'a', 'b', '<b>HTML?</b>'],
+		'value' => ['', 'a', '<b>HTML?</b>'],
 		# deprecated, makes test logs spammy
 		'multiline' => [],
 		# usually makes no sense in JS
