@@ -246,12 +246,6 @@ OO.ui.ToolGroup.prototype.onDocumentMouseKeyUp = function ( e ) {
 	this.onMouseKeyUp( e );
 };
 
-// Deprecated alias since 0.28.3
-OO.ui.ToolGroup.prototype.onCapturedMouseKeyUp = function () {
-	OO.ui.warnDeprecation( 'onCapturedMouseKeyUp is deprecated, use onDocumentMouseKeyUp instead' );
-	this.onDocumentMouseKeyUp.apply( this, arguments );
-};
-
 /**
  * Handle mouse up and key up events.
  *

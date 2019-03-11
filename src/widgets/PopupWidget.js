@@ -184,12 +184,6 @@ OO.ui.PopupWidget.prototype.onDocumentMouseDown = function ( e ) {
 	}
 };
 
-// Deprecated alias since 0.28.3
-OO.ui.PopupWidget.prototype.onMouseDown = function () {
-	OO.ui.warnDeprecation( 'onMouseDown is deprecated, use onDocumentMouseDown instead' );
-	this.onDocumentMouseDown.apply( this, arguments );
-};
-
 /**
  * Bind document mouse down listener.
  *
@@ -205,12 +199,6 @@ OO.ui.PopupWidget.prototype.bindDocumentMouseDownListener = function () {
 	// that it should be emitting, so we add it to this and will operate the event handler
 	// on whichever of these events was triggered first
 	this.getElementDocument().addEventListener( 'click', this.onDocumentMouseDownHandler, true );
-};
-
-// Deprecated alias since 0.28.3
-OO.ui.PopupWidget.prototype.bindMouseDownListener = function () {
-	OO.ui.warnDeprecation( 'bindMouseDownListener is deprecated, use bindDocumentMouseDownListener instead' );
-	this.bindDocumentMouseDownListener.apply( this, arguments );
 };
 
 /**
@@ -232,12 +220,6 @@ OO.ui.PopupWidget.prototype.onCloseButtonClick = function () {
 OO.ui.PopupWidget.prototype.unbindDocumentMouseDownListener = function () {
 	this.getElementDocument().removeEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
 	this.getElementDocument().removeEventListener( 'click', this.onDocumentMouseDownHandler, true );
-};
-
-// Deprecated alias since 0.28.3
-OO.ui.PopupWidget.prototype.unbindMouseDownListener = function () {
-	OO.ui.warnDeprecation( 'unbindMouseDownListener is deprecated, use unbindDocumentMouseDownListener instead' );
-	this.unbindDocumentMouseDownListener.apply( this, arguments );
 };
 
 /**
@@ -266,12 +248,6 @@ OO.ui.PopupWidget.prototype.bindDocumentKeyDownListener = function () {
 	this.getElementDocument().addEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
 };
 
-// Deprecated alias since 0.28.3
-OO.ui.PopupWidget.prototype.bindKeyDownListener = function () {
-	OO.ui.warnDeprecation( 'bindKeyDownListener is deprecated, use bindDocumentKeyDownListener instead' );
-	this.bindDocumentKeyDownListener.apply( this, arguments );
-};
-
 /**
  * Unbind document key down listener.
  *
@@ -279,12 +255,6 @@ OO.ui.PopupWidget.prototype.bindKeyDownListener = function () {
  */
 OO.ui.PopupWidget.prototype.unbindDocumentKeyDownListener = function () {
 	this.getElementDocument().removeEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
-};
-
-// Deprecated alias since 0.28.3
-OO.ui.PopupWidget.prototype.unbindKeyDownListener = function () {
-	OO.ui.warnDeprecation( 'unbindKeyDownListener is deprecated, use unbindDocumentKeyDownListener instead' );
-	this.unbindDocumentKeyDownListener.apply( this, arguments );
 };
 
 /**

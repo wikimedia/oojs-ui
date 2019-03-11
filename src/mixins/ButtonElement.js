@@ -140,12 +140,6 @@ OO.ui.mixin.ButtonElement.prototype.onDocumentMouseUp = function ( e ) {
 	this.getElementDocument().removeEventListener( 'mouseup', this.onDocumentMouseUpHandler, true );
 };
 
-// Deprecated alias since 0.28.3
-OO.ui.mixin.ButtonElement.prototype.onMouseUp = function () {
-	OO.ui.warnDeprecation( 'onMouseUp is deprecated, use onDocumentMouseUp instead' );
-	this.onDocumentMouseUp.apply( this, arguments );
-};
-
 /**
  * Handles mouse click events.
  *
@@ -191,12 +185,6 @@ OO.ui.mixin.ButtonElement.prototype.onDocumentKeyUp = function ( e ) {
 	this.$element.removeClass( 'oo-ui-buttonElement-pressed' );
 	// Stop listening for keyup, since we only needed this once
 	this.getElementDocument().removeEventListener( 'keyup', this.onDocumentKeyUpHandler, true );
-};
-
-// Deprecated alias since 0.28.3
-OO.ui.mixin.ButtonElement.prototype.onKeyUp = function () {
-	OO.ui.warnDeprecation( 'onKeyUp is deprecated, use onDocumentKeyUp instead' );
-	this.onDocumentKeyUp.apply( this, arguments );
 };
 
 /**

@@ -137,12 +137,6 @@ OO.ui.PopupToolGroup.prototype.onPopupDocumentMouseKeyUp = function ( e ) {
 	this.setActive( false );
 };
 
-// Deprecated alias since 0.28.3
-OO.ui.PopupToolGroup.prototype.onBlur = function () {
-	OO.ui.warnDeprecation( 'onBlur is deprecated, use onPopupDocumentMouseKeyUp instead' );
-	this.onPopupDocumentMouseKeyUp.apply( this, arguments );
-};
-
 /**
  * @inheritdoc
  */

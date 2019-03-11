@@ -259,12 +259,6 @@ OO.ui.SelectWidget.prototype.onDocumentMouseUp = function ( e ) {
 	return false;
 };
 
-// Deprecated alias since 0.28.3
-OO.ui.SelectWidget.prototype.onMouseUp = function () {
-	OO.ui.warnDeprecation( 'onMouseUp is deprecated, use onDocumentMouseUp instead' );
-	this.onDocumentMouseUp.apply( this, arguments );
-};
-
 /**
  * Handle document mouse move events.
  *
@@ -281,12 +275,6 @@ OO.ui.SelectWidget.prototype.onDocumentMouseMove = function ( e ) {
 			this.selecting = item;
 		}
 	}
-};
-
-// Deprecated alias since 0.28.3
-OO.ui.SelectWidget.prototype.onMouseMove = function () {
-	OO.ui.warnDeprecation( 'onMouseMove is deprecated, use onDocumentMouseMove instead' );
-	this.onDocumentMouseMove.apply( this, arguments );
 };
 
 /**
@@ -382,12 +370,6 @@ OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 	}
 };
 
-// Deprecated alias since 0.28.3
-OO.ui.SelectWidget.prototype.onKeyDown = function () {
-	OO.ui.warnDeprecation( 'onKeyDown is deprecated, use onDocumentKeyDown instead' );
-	this.onDocumentKeyDown.apply( this, arguments );
-};
-
 /**
  * Bind document key down listener.
  *
@@ -397,12 +379,6 @@ OO.ui.SelectWidget.prototype.bindDocumentKeyDownListener = function () {
 	this.getElementDocument().addEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
 };
 
-// Deprecated alias since 0.28.3
-OO.ui.SelectWidget.prototype.bindKeyDownListener = function () {
-	OO.ui.warnDeprecation( 'bindKeyDownListener is deprecated, use bindDocumentKeyDownListener instead' );
-	this.bindDocumentKeyDownListener.apply( this, arguments );
-};
-
 /**
  * Unbind document key down listener.
  *
@@ -410,12 +386,6 @@ OO.ui.SelectWidget.prototype.bindKeyDownListener = function () {
  */
 OO.ui.SelectWidget.prototype.unbindDocumentKeyDownListener = function () {
 	this.getElementDocument().removeEventListener( 'keydown', this.onDocumentKeyDownHandler, true );
-};
-
-// Deprecated alias since 0.28.3
-OO.ui.SelectWidget.prototype.unbindKeyDownListener = function () {
-	OO.ui.warnDeprecation( 'unbindKeyDownListener is deprecated, use unbindDocumentKeyDownListener instead' );
-	this.unbindDocumentKeyDownListener.apply( this, arguments );
 };
 
 /**
@@ -507,12 +477,6 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 	e.stopPropagation();
 };
 
-// Deprecated alias since 0.28.3
-OO.ui.SelectWidget.prototype.onKeyPress = function () {
-	OO.ui.warnDeprecation( 'onKeyPress is deprecated, use onDocumentKeyPress instead' );
-	this.onDocumentKeyPress.apply( this, arguments );
-};
-
 /**
  * Get a matcher for the specific string
  *
@@ -560,12 +524,6 @@ OO.ui.SelectWidget.prototype.bindDocumentKeyPressListener = function () {
 	this.getElementDocument().addEventListener( 'keypress', this.onDocumentKeyPressHandler, true );
 };
 
-// Deprecated alias since 0.28.3
-OO.ui.SelectWidget.prototype.bindKeyPressListener = function () {
-	OO.ui.warnDeprecation( 'bindKeyPressListener is deprecated, use bindDocumentKeyPressListener instead' );
-	this.bindDocumentKeyPressListener.apply( this, arguments );
-};
-
 /**
  * Unbind document key down listener.
  *
@@ -577,12 +535,6 @@ OO.ui.SelectWidget.prototype.bindKeyPressListener = function () {
 OO.ui.SelectWidget.prototype.unbindDocumentKeyPressListener = function () {
 	this.getElementDocument().removeEventListener( 'keypress', this.onDocumentKeyPressHandler, true );
 	this.clearKeyPressBuffer();
-};
-
-// Deprecated alias since 0.28.3
-OO.ui.SelectWidget.prototype.unbindKeyPressListener = function () {
-	OO.ui.warnDeprecation( 'unbindKeyPressListener is deprecated, use unbindDocumentKeyPressListener instead' );
-	this.unbindDocumentKeyPressListener.apply( this, arguments );
 };
 
 /**
