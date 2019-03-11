@@ -29,9 +29,9 @@ trait LabelElement {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param string|HtmlSnippet $config['label'] Label text
-	 * @param bool $config['invisibleLabel'] Whether the label should be visually hidden (but still
-	 *     accessible to screen-readers). (default: false)
+	 *      - string|HtmlSnippet $config['label'] Label text
+	 *      - bool $config['invisibleLabel'] Whether the label should be visually hidden (but still
+	 *          accessible to screen-readers). (default: false)
 	 */
 	public function initializeLabelElement( array $config = [] ) {
 		// Properties

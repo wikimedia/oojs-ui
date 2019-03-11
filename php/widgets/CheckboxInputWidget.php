@@ -22,8 +22,8 @@ class CheckboxInputWidget extends InputWidget {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param bool $config['selected'] Whether the checkbox is initially selected
-	 *   (default: false)
+	 *      - bool $config['selected'] Whether the checkbox is initially selected
+	 *          (default: false)
 	 * @param-taint $config escapes_html
 	 */
 	public function __construct( array $config = [] ) {

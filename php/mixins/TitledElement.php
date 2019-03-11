@@ -25,7 +25,7 @@ trait TitledElement {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param string $config['title'] Title. If not provided, the static property 'title' is used.
+	 *      - string $config['title'] Title. If not provided, the static property 'title' is used.
 	 */
 	public function initializeTitledElement( array $config = [] ) {
 		// Properties

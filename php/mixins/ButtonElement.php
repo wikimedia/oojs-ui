@@ -26,7 +26,7 @@ trait ButtonElement {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param bool $config['framed'] Render button with a frame (default: true)
+	 *      - bool $config['framed'] Render button with a frame (default: true)
 	 */
 	public function initializeButtonElement( array $config = [] ) {
 		// Properties

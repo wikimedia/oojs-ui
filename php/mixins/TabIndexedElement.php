@@ -22,8 +22,9 @@ trait TabIndexedElement {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param string|int|null $config['tabIndex'] Tab index value. Use 0 to use default ordering,
-	 *   use -1 to prevent tab focusing, use null to suppress the `tabindex` attribute. (default: 0)
+	 *      - string|int|null $config['tabIndex'] Tab index value. Use 0 to use default ordering,
+	 *          use -1 to prevent tab focusing, use null to suppress the `tabindex` attribute.
+	 *          (default: 0)
 	 */
 	public function initializeTabIndexedElement( array $config = [] ) {
 		// Properties

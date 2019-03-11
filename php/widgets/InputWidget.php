@@ -31,10 +31,10 @@ class InputWidget extends Widget {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param string $config['name'] HTML input name (default: '')
-	 * @param string $config['value'] Input value (default: '')
-	 * @param string $config['dir'] The directionality of the input (ltr/rtl)
-	 * @param string $config['inputId'] The value of the input’s HTML `id` attribute.
+	 *      - string $config['name'] HTML input name (default: '')
+	 *      - string $config['value'] Input value (default: '')
+	 *      - string $config['dir'] The directionality of the input (ltr/rtl)
+	 *      - string $config['inputId'] The value of the input’s HTML `id` attribute.
 	 * @param-taint $config escapes_html
 	 */
 	public function __construct( array $config = [] ) {
