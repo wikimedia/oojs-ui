@@ -43,6 +43,7 @@ class PanelLayout extends Layout {
 			$this->addClasses( [ 'oo-ui-panelLayout-framed' ] );
 		}
 	}
+
 	public function getConfig( &$config ) {
 		if ( $this->hasClass( 'oo-ui-panelLayout-scrollable' ) ) {
 			$config['scrollable'] = true;
@@ -56,7 +57,6 @@ class PanelLayout extends Layout {
 		if ( $this->hasClass( 'oo-ui-panelLayout-framed' ) ) {
 			$config['framed'] = true;
 		}
-		$config['content'] = $this->content;
 		return parent::getConfig( $config );
 	}
 }

@@ -59,7 +59,8 @@ OO.ui.Element = function OoUiElement( config ) {
 		this.$element.append( config.content.map( function ( v ) {
 			if ( typeof v === 'string' ) {
 				// Escape string so it is properly represented in HTML.
-				return document.createTextNode( v );
+				// Don't create empty text nodes for empty strings.
+				return v ? document.createTextNode( v ) : undefined;
 			} else if ( v instanceof OO.ui.HtmlSnippet ) {
 				// Bypass escaping.
 				return v.toString();

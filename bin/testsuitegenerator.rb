@@ -38,6 +38,7 @@ else
 	end
 
 	make_htmlsnippet_placeholder = make_class_instance_placeholder.curry['HtmlSnippet']
+	make_panellayout_placeholder = make_class_instance_placeholder.curry['PanelLayout']
 
 	# values to test for each type
 	expandos = {
@@ -48,6 +49,7 @@ else
 		'boolean' => [true, false], # JS code
 		'string' => ['Foo bar', '<b>HTML?</b>', '', ' ', '0'],
 		'HtmlSnippet' => ['Foo bar', '<b>HTML?</b>', ''].map(&make_htmlsnippet_placeholder),
+		'PanelLayout' => ['Foo bar', '<b>HTML?</b>', ''].map{|v| {content: v} }.map(&make_panellayout_placeholder),
 	}
 
 	# Values to test for specific config options, when not all values of given type are valid.
@@ -83,6 +85,7 @@ else
 			[ { 'data' => 'a', 'label' => 'A' }, { 'data' => 'b', 'label' => 'B' } ],
 		],
 		'value' => ['', 'a', '<b>HTML?</b>'],
+		'menuPosition' => %w[before after top bottom invalid],
 		# deprecated, makes test logs spammy
 		'multiline' => [],
 		# usually makes no sense in JS
@@ -101,6 +104,8 @@ else
 		'id' => [],
 		'content' => [],
 		'text' => [],
+		# test content on basic Panels
+		['PanelLayout', 'content'] => expandos['string'].map{|v| [v] }, # treat as string[]
 	}
 
 	find_class = lambda do |klass|
