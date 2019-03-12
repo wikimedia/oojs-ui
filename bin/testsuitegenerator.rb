@@ -52,6 +52,8 @@ else
 		'PanelLayout' => ['Foo bar', '<b>HTML?</b>', ''].map{|v| {content: [v]} }.map(&make_panellayout_placeholder),
 	}
 
+	string_list = expandos['string'].map{|v| [v] }
+
 	# Values to test for specific config options, when not all values of given type are valid.
 	# Empty array will result in no tests for this config option being generated.
 	sensible_values = {
@@ -66,8 +68,8 @@ else
 		['NumberInputWidget', 'pageStep'] => %w[10],
 		['NumberInputWidget', 'min'] => %w[1 3],
 		['NumberInputWidget', 'max'] => %w[3 5],
-		['FieldLayout', 'errors'] => expandos['string'].map{|v| [v] }, # treat as string[]
-		['FieldLayout', 'notices'] => expandos['string'].map{|v| [v] }, # treat as string[]
+		['FieldLayout', 'errors'] => string_list,
+		['FieldLayout', 'notices'] => string_list,
 		'type' => %w[text button],
 		'method' => %w[GET POST],
 		'target' => ['_blank'],
@@ -105,7 +107,9 @@ else
 		'content' => [],
 		'text' => [],
 		# test content on basic Panels
-		['PanelLayout', 'content'] => expandos['string'].map{|v| [v] }, # treat as string[]
+		['PanelLayout', 'content'] => string_list,
+		['TabPanelLayout', 'name'] => ['panelName'],
+		['TabPanelLayout', 'label'] => string_list,
 	}
 
 	find_class = lambda do |klass|

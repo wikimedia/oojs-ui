@@ -20095,6 +20095,710 @@
       }
     ]
   },
+  "TabPanelLayout": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "Foo bar"
+          ],
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "<b>HTML?</b>"
+          ],
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            ""
+          ],
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            " "
+          ],
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "0"
+          ],
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "padded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "padded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "expanded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "expanded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "Foo bar"
+          ],
+          "scrollable": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "Foo bar"
+          ],
+          "scrollable": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "<b>HTML?</b>"
+          ],
+          "scrollable": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "<b>HTML?</b>"
+          ],
+          "scrollable": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            ""
+          ],
+          "scrollable": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            ""
+          ],
+          "scrollable": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            " "
+          ],
+          "scrollable": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            " "
+          ],
+          "scrollable": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "0"
+          ],
+          "scrollable": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "0"
+          ],
+          "scrollable": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "Foo bar"
+          ],
+          "padded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "Foo bar"
+          ],
+          "padded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "<b>HTML?</b>"
+          ],
+          "padded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "<b>HTML?</b>"
+          ],
+          "padded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            ""
+          ],
+          "padded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            ""
+          ],
+          "padded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            " "
+          ],
+          "padded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            " "
+          ],
+          "padded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "0"
+          ],
+          "padded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "0"
+          ],
+          "padded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "Foo bar"
+          ],
+          "expanded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "Foo bar"
+          ],
+          "expanded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "<b>HTML?</b>"
+          ],
+          "expanded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "<b>HTML?</b>"
+          ],
+          "expanded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            ""
+          ],
+          "expanded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            ""
+          ],
+          "expanded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            " "
+          ],
+          "expanded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            " "
+          ],
+          "expanded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "0"
+          ],
+          "expanded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "0"
+          ],
+          "expanded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "Foo bar"
+          ],
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "Foo bar"
+          ],
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "<b>HTML?</b>"
+          ],
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "<b>HTML?</b>"
+          ],
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            ""
+          ],
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            ""
+          ],
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            " "
+          ],
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            " "
+          ],
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "0"
+          ],
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "label": [
+            "0"
+          ],
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": true,
+          "padded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": true,
+          "padded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": false,
+          "padded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": false,
+          "padded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": true,
+          "expanded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": true,
+          "expanded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": false,
+          "expanded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": false,
+          "expanded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": true,
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": true,
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": false,
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "scrollable": false,
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "padded": true,
+          "expanded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "padded": true,
+          "expanded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "padded": false,
+          "expanded": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "padded": false,
+          "expanded": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "padded": true,
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "padded": true,
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "padded": false,
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "padded": false,
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "expanded": true,
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "expanded": true,
+          "framed": false,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "expanded": false,
+          "framed": true,
+          "name": "panelName"
+        }
+      },
+      {
+        "class": "TabPanelLayout",
+        "config": {
+          "expanded": false,
+          "framed": false,
+          "name": "panelName"
+        }
+      }
+    ]
+  },
   "ButtonGroupWidget": {
     "infuseonly": false,
     "tests": [
