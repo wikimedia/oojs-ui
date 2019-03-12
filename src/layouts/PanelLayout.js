@@ -56,6 +56,17 @@ OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 
 OO.inheritClass( OO.ui.PanelLayout, OO.ui.Layout );
 
+/* Static Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.PanelLayout.static.reusePreInfuseDOM = function ( node, config ) {
+	config = OO.ui.PanelLayout.parent.static.reusePreInfuseDOM( node, config );
+	config.$content = $( node ).contents();
+	return config;
+};
+
 /* Methods */
 
 /**
