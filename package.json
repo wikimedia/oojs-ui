@@ -53,7 +53,7 @@
     "grunt-svg2png": "git://github.com/jdforrester/grunt-svg2png.git#v0.2.7-wmf.1",
     "grunt-tyops": "0.1.0",
     "imagemin": "6.1.0",
-    "imagemin-zopfli": "5.1.0",
+    "imagemin-zopfli": "6.0.0",
     "javascript-stringify": "1.6.0",
     "karma": "3.1.4",
     "karma-chrome-launcher": "2.2.0",
