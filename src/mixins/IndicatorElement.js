@@ -23,9 +23,6 @@
  *  See the [OOUI documentation on MediaWiki][2] for a list of indicators included
  *  in the library.
  * [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Indicators
- * @cfg {string|Function} [indicatorTitle] A text string used as the indicator title,
- *  or a function that returns title text. The indicator title is displayed when users move
- *  the mouse over the indicator.
  */
 OO.ui.mixin.IndicatorElement = function OoUiMixinIndicatorElement( config ) {
 	// Configuration initialization
@@ -34,16 +31,9 @@ OO.ui.mixin.IndicatorElement = function OoUiMixinIndicatorElement( config ) {
 	// Properties
 	this.$indicator = null;
 	this.indicator = null;
-	this.indicatorTitle = null;
-
-	// `indicatorTitle`s are deprecated since 0.30.0
-	if ( config.indicatorTitle !== undefined ) {
-		OO.ui.warnDeprecation( 'IndicatorElement: Widgets with indicatorTitle set are deprecated, use title instead. See T76638 for details.' );
-	}
 
 	// Initialization
 	this.setIndicator( config.indicator || this.constructor.static.indicator );
-	this.setIndicatorTitle( config.indicatorTitle || this.constructor.static.indicatorTitle );
 	this.setIndicatorElement( config.$indicator || $( '<span>' ) );
 };
 
@@ -129,42 +119,6 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
 		this.$indicator.toggleClass( 'oo-ui-indicatorElement-noIndicator', !this.indicator );
 	}
 	this.updateThemeClasses();
-
-	return this;
-};
-
-/**
- * Set the indicator title.
- *
- * The title is displayed when a user moves the mouse over the indicator.
- *
- * @param {string|Function|null} indicatorTitle Indicator title text, a function that returns text,
- *  or `null` for no indicator title
- * @chainable
- * @return {OO.ui.Element} The element, for chaining
- * @deprecated
- */
-OO.ui.mixin.IndicatorElement.prototype.setIndicatorTitle = function ( indicatorTitle ) {
-	indicatorTitle =
-		( typeof indicatorTitle === 'function' || ( typeof indicatorTitle === 'string' && indicatorTitle.length ) ) ?
-			OO.ui.resolveMsg( indicatorTitle ) : null;
-
-	if ( this.indicatorTitle !== indicatorTitle ) {
-		this.indicatorTitle = indicatorTitle;
-		if ( this.$indicator ) {
-			if ( this.indicatorTitle !== null ) {
-				this.$indicator.attr( 'title', indicatorTitle );
-			} else {
-				this.$indicator.removeAttr( 'title' );
-			}
-		}
-	}
-
-	// `setIndicatorTitle` is deprecated since 0.30.0
-	if ( indicatorTitle !== null ) {
-		// Avoid a warning when this is called from the constructor with no indicatorTitle set
-		OO.ui.warnDeprecation( 'IndicatorElement: setIndicatorTitle is deprecated, use setTitle of TitledElement instead. See T76638 for details.' );
-	}
 
 	return this;
 };
