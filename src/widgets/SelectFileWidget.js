@@ -16,6 +16,7 @@
  * @mixins OO.ui.mixin.IconElement
  * @mixins OO.ui.mixin.IndicatorElement
  * @mixins OO.ui.mixin.PendingElement
+ * @mixins OO.ui.mixin.TabIndexedElement
  * @mixins OO.ui.mixin.LabelElement
  * @mixins OO.ui.mixin.TitledElement
  *
@@ -33,6 +34,12 @@
 OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	var dragHandler;
 
+	this.selectButton = new OO.ui.ButtonWidget( {
+		$element: $( '<label>' ),
+		classes: [ 'oo-ui-selectFileWidget-selectButton' ],
+		label: OO.ui.msg( 'ooui-selectfile-button-select' )
+	} );
+
 	// Configuration initialization
 	config = $.extend( {
 		accept: null,
@@ -40,7 +47,8 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 		notsupported: OO.ui.msg( 'ooui-selectfile-not-supported' ),
 		droppable: true,
 		showDropTarget: false,
-		thumbnailSizeLimit: 20
+		thumbnailSizeLimit: 20,
+		$tabIndexed: this.selectButton.$tabIndexed
 	}, config );
 
 	// Parent constructor
@@ -51,6 +59,9 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.PendingElement.call( this, $.extend( {
 		$pending: this.$info
+	}, config ) );
+	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
+		$tabIndexed: this.selectButton.$tabIndexed
 	}, config ) );
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.TitledElement.call( this, config );
@@ -70,12 +81,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	this.notsupported = config.notsupported;
 	this.onFileSelectedHandler = this.onFileSelected.bind( this );
 
-	this.selectButton = new OO.ui.ButtonWidget( {
-		$element: $( '<label>' ),
-		classes: [ 'oo-ui-selectFileWidget-selectButton' ],
-		label: OO.ui.msg( 'ooui-selectfile-button-select' ),
-		disabled: this.disabled || !this.isSupported
-	} );
+	this.selectButton.setDisabled( this.disabled || !this.isSupported );
 
 	this.clearButton = new OO.ui.ButtonWidget( {
 		classes: [ 'oo-ui-selectFileWidget-clearButton' ],
@@ -139,6 +145,7 @@ OO.inheritClass( OO.ui.SelectFileWidget, OO.ui.Widget );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.PendingElement );
+OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.TabIndexedElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.TitledElement );
 
@@ -193,37 +200,6 @@ OO.ui.SelectFileWidget.prototype.setValue = function ( file ) {
 		this.updateUI();
 		this.emit( 'change', this.currentFile );
 	}
-};
-
-/**
- * Focus the widget.
- *
- * Focusses the select file button.
- *
- * @chainable
- * @return {OO.ui.Widget} The widget, for chaining
- */
-OO.ui.SelectFileWidget.prototype.focus = function () {
-	this.selectButton.focus();
-	return this;
-};
-
-/**
- * Blur the widget.
- *
- * @chainable
- * @return {OO.ui.Widget} The widget, for chaining
- */
-OO.ui.SelectFileWidget.prototype.blur = function () {
-	this.selectButton.blur();
-	return this;
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.SelectFileWidget.prototype.simulateLabelClick = function () {
-	this.focus();
 };
 
 /**
