@@ -76,6 +76,7 @@
 	// Stylesheets to load
 	$urls = [];
 	$urls[] = "oojs-ui-core-$theme$directionSuffix.css";
+	$urls[] = "oojs-ui-widgets-$theme$directionSuffix.css";
 	$urls[] = "oojs-ui-images-$theme$directionSuffix.css";
 	foreach ( $additionalThemeImagesSuffixes[ $theme ] as $suffix ) {
 		$urls[] = "oojs-ui-$theme$suffix$directionSuffix.css";
@@ -195,6 +196,7 @@
 	<script src="node_modules/jquery/dist/jquery.js"></script>
 	<script src="node_modules/oojs/dist/oojs.jquery.js"></script>
 	<script src="dist/oojs-ui-core.js"></script>
+	<script src="dist/oojs-ui-widgets.js"></script>
 	<script src="dist/oojs-ui-<?php echo $theme; ?>.js"></script>
 	<script>window.Demo = {};</script>
 	<script src="classes/ButtonStyleShowcaseWidget.js"></script>

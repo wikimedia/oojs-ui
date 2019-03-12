@@ -797,6 +797,31 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 ] ) );
 
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-tabs',
+	'infusable' => true,
+	'label' => 'Tabs',
+	'items' => [
+		new OOUI\FieldLayout(
+			new OOUI\TabSelectWidget( [
+				'items' => [
+					new OOUI\TabOptionWidget( [
+						'label' => 'Tab 1',
+						'selected' => true,
+					] ),
+					new OOUI\TabOptionWidget( [
+						'label' => 'Tab 2'
+					] )
+				]
+			] ),
+			[
+				'label' => 'TabSelectWidget',
+				'align' => 'top'
+			]
+		),
+	]
+] ) );
+
+$demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'id' => 'demo-section-progressBar',
 	'infusable' => true,
 	'label' => 'Progress bar',

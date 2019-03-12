@@ -31,7 +31,7 @@ trait AccessKeyedElement {
 	 */
 	public function initializeAccessKeyedElement( array $config = [] ) {
 		// Properties
-		$this->accessKeyed = $config['accessKeyed'] ?? $element;
+		$this->accessKeyed = $config['accessKeyed'] ?? $this;
 
 		// Initialization
 		$this->setAccessKey( $config['accessKey'] ?? null );
