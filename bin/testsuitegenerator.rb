@@ -49,7 +49,7 @@ else
 		'boolean' => [true, false], # JS code
 		'string' => ['Foo bar', '<b>HTML?</b>', '', ' ', '0'],
 		'HtmlSnippet' => ['Foo bar', '<b>HTML?</b>', ''].map(&make_htmlsnippet_placeholder),
-		'PanelLayout' => ['Foo bar', '<b>HTML?</b>', ''].map{|v| {content: v} }.map(&make_panellayout_placeholder),
+		'PanelLayout' => ['Foo bar', '<b>HTML?</b>', ''].map{|v| {content: [v]} }.map(&make_panellayout_placeholder),
 	}
 
 	# Values to test for specific config options, when not all values of given type are valid.

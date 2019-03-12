@@ -64,6 +64,17 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 OO.inheritClass( OO.ui.StackLayout, OO.ui.PanelLayout );
 OO.mixinClass( OO.ui.StackLayout, OO.ui.mixin.GroupElement );
 
+/* Static Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.StackLayout.static.reusePreInfuseDOM = function ( node, config ) {
+	// Skip parent (PanelLayout) which sets $content, as we assume
+	// users of StackLayout use the items API instead.
+	return OO.ui.StackLayout.parent.parent.static.reusePreInfuseDOM( node, config );
+};
+
 /* Events */
 
 /**
