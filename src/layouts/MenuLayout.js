@@ -169,11 +169,14 @@ OO.ui.MenuLayout.prototype.isMenuVisible = function () {
  * Set menu position.
  *
  * @param {string} position Position of menu, either `top`, `after`, `bottom` or `before`
- * @throws {Error} If position value is not supported
  * @chainable
  * @return {OO.ui.MenuLayout} The layout, for chaining
  */
 OO.ui.MenuLayout.prototype.setMenuPosition = function ( position ) {
+	if ( [ 'top', 'bottom', 'before', 'after' ].indexOf( position ) === -1 ) {
+		position = 'before';
+	}
+
 	this.$element.removeClass( 'oo-ui-menuLayout-' + this.menuPosition );
 	this.menuPosition = position;
 	if ( this.menuPosition === 'top' || this.menuPosition === 'before' ) {

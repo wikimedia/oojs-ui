@@ -18116,6 +18116,715 @@
       }
     ]
   },
+  "MenuLayout": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "MenuLayout",
+        "config": {
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "expanded": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "expanded": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "expanded": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "expanded": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "expanded": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "expanded": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "showMenu": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "showMenu": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "showMenu": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "showMenu": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "showMenu": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "showMenu": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "menuPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "expanded": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "expanded": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "expanded": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "expanded": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "expanded": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "expanded": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "showMenu": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "showMenu": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "showMenu": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "showMenu": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "showMenu": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "showMenu": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}",
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}",
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "contentPanel": "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}",
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": true,
+          "showMenu": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": true,
+          "showMenu": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": false,
+          "showMenu": true
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": false,
+          "showMenu": false
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": true,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": true,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": true,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": true,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": true,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": false,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": false,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": false,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": false,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "expanded": false,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": true,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": true,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": true,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": true,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": true,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": false,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": false,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": false,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": false,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "MenuLayout",
+        "config": {
+          "showMenu": false,
+          "menuPosition": "invalid"
+        }
+      }
+    ]
+  },
   "PanelLayout": {
     "infuseonly": false,
     "tests": [
