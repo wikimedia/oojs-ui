@@ -18742,6 +18742,650 @@
       }
     ]
   },
+  "StackLayout": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "StackLayout",
+        "config": {
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ]
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ]
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ]
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "padded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "padded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "expanded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "expanded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ]
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ]
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ]
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ]
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ]
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ]
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "scrollable": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "scrollable": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "scrollable": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "scrollable": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "padded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "padded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "padded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "padded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "expanded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "expanded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "expanded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "expanded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": true,
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "continuous": false,
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ],
+          "scrollable": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ],
+          "scrollable": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ],
+          "scrollable": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ],
+          "scrollable": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ],
+          "scrollable": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ],
+          "scrollable": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ],
+          "padded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ],
+          "padded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ],
+          "padded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ],
+          "padded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ],
+          "padded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ],
+          "padded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ],
+          "expanded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ],
+          "expanded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ],
+          "expanded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ],
+          "expanded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ],
+          "expanded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ],
+          "expanded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ],
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"Foo bar\"]}}"
+          ],
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ],
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"<b>HTML?</b>\"]}}"
+          ],
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ],
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"PanelLayout\",\"config\":{\"content\":[\"\"]}}"
+          ],
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": true,
+          "padded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": true,
+          "padded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": false,
+          "padded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": false,
+          "padded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": true,
+          "expanded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": true,
+          "expanded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": false,
+          "expanded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": false,
+          "expanded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": true,
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": true,
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": false,
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "scrollable": false,
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "padded": true,
+          "expanded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "padded": true,
+          "expanded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "padded": false,
+          "expanded": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "padded": false,
+          "expanded": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "padded": true,
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "padded": true,
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "padded": false,
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "padded": false,
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "expanded": true,
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "expanded": true,
+          "framed": false
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "expanded": false,
+          "framed": true
+        }
+      },
+      {
+        "class": "StackLayout",
+        "config": {
+          "expanded": false,
+          "framed": false
+        }
+      }
+    ]
+  },
   "ButtonGroupWidget": {
     "infuseonly": false,
     "tests": [
