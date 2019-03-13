@@ -169,6 +169,30 @@ class Tag {
 	}
 
 	/**
+	 * Remove any items that match by reference
+	 *
+	 * String items should never match by reference
+	 * so will not be removed.
+	 *
+	 * @param string|Tag|HtmlSnippet ...$content Content to reomve.
+	 * @return $this
+	 */
+	public function removeContent( ...$content ) {
+		if ( is_array( $content[ 0 ] ) ) {
+			$content = $content[ 0 ];
+		}
+		foreach ( $content as $item ) {
+			if ( !is_string( $item ) ) {
+				$index = array_search( $item, $this->content );
+				if ( $index !== false ) {
+					array_splice( $this->content, $index, 1 );
+				}
+			}
+		}
+		return $this;
+	}
+
+	/**
 	 * Add content to the end.
 	 *
 	 * Accepts either variadic arguments (the $content argument can be repeated any number of times)
@@ -180,16 +204,19 @@ class Tag {
 	 * This, however, is not acceptable
 	 * * $tag->appendContent( [ $element1, $element2 ], $element3 );
 	 *
+	 * Objects that are already in $this->content will be moved
+	 * to the end of the list, not duplicated.
+	 *
 	 * @param string|Tag|HtmlSnippet ...$content Content to append. Strings will be HTML-escaped
 	 *   for output, use a HtmlSnippet instance to prevent that.
 	 * @return $this
 	 */
 	public function appendContent( ...$content ) {
 		if ( is_array( $content[ 0 ] ) ) {
-			$this->content = array_merge( $this->content, $content[ 0 ] );
-		} else {
-			$this->content = array_merge( $this->content, $content );
+			$content = $content[ 0 ];
 		}
+		$this->removeContent( $content );
+		$this->content = array_merge( $this->content, $content );
 		return $this;
 	}
 
@@ -198,6 +225,9 @@ class Tag {
 	 *
 	 * Accepts either variadic arguments (the $content argument can be repeated any number of times)
 	 * or an array of arguments.
+	 *
+	 * Objects that are already in $this->content will be moved
+	 * to the end of the list, not duplicated.
 	 *
 	 * For example, these uses are valid:
 	 * * $tag->prependContent( [ $element1, $element2 ] );
@@ -211,10 +241,10 @@ class Tag {
 	 */
 	public function prependContent( ...$content ) {
 		if ( is_array( $content[ 0 ] ) ) {
-			array_splice( $this->content, 0, 0, $content[ 0 ] );
-		} else {
-			array_splice( $this->content, 0, 0, $content );
+			$content = $content[ 0 ];
 		}
+		$this->removeContent( $content );
+		array_splice( $this->content, 0, 0, $content );
 		return $this;
 	}
 

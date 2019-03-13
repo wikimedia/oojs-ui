@@ -36,7 +36,10 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	public function testContent() {
 		$content = new \ReflectionProperty( 'OOUI\Tag', 'content' );
 		$content->setAccessible( true );
-		$tag = ( new Tag() );
+		$tag = new Tag( 'div' );
+		$aTag = new Tag( 'a' );
+		$bTag = new Tag( 'b' );
+		$cTag = new Tag( 'c' );
 
 		$tag->appendContent( 'a' );
 		$this->assertEquals( [ 'a' ], $content->getValue( $tag ) );
@@ -45,6 +48,9 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 
 		$tag->appendContent( [ 'a', 'b' ] );
 		$this->assertEquals( [ 'a', 'b' ], $content->getValue( $tag ) );
+		// Strings can be duplicated
+		$tag->appendContent( [ 'b', 'a' ] );
+		$this->assertEquals( [ 'a', 'b', 'b', 'a' ], $content->getValue( $tag ) );
 		$tag->clearContent();
 
 		$tag->appendContent( 'a', 'b' );
@@ -67,6 +73,17 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 		$tag->prependContent( 'a' );
 		$tag->prependContent( 'b' );
 		$this->assertEquals( [ 'b', 'a' ], $content->getValue( $tag ) );
+		$tag->clearContent();
+
+		// Tags can't be duplicated
+		$tag->appendContent( [ $aTag, $bTag ] );
+		$tag->appendContent( [ $bTag, $cTag ] );
+		$this->assertEquals( [ $aTag, $bTag, $cTag ], $content->getValue( $tag ) );
+		$tag->clearContent();
+
+		$tag->prependContent( [ $aTag, $bTag ] );
+		$tag->prependContent( [ $bTag, $cTag ] );
+		$this->assertEquals( [ $bTag, $cTag, $aTag ], $content->getValue( $tag ) );
 		$tag->clearContent();
 	}
 
