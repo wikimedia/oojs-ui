@@ -34,6 +34,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {OO.ui.StackLayout} [contentPanel] Content stack (see MenuLayout)
  * @cfg {boolean} [continuous=false] Show all tab panels, one after another
  * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new tab panel is
  *  displayed. Disabled on mobile.
@@ -47,18 +48,20 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 
 	// Properties
 	this.currentTabPanelName = null;
-	this.tabPanels = {};
+	// Allow infused widgets to pass existing tabPanels
+	this.tabPanels = config.tabPanels || {};
 
 	this.ignoreFocus = false;
-	this.stackLayout = new OO.ui.StackLayout( {
+	this.stackLayout = this.contentPanel || new OO.ui.StackLayout( {
 		continuous: !!config.continuous,
 		expanded: this.expanded
 	} );
 	this.setContentPanel( this.stackLayout );
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 
-	this.tabSelectWidget = new OO.ui.TabSelectWidget();
-	this.tabPanel = new OO.ui.PanelLayout( {
+	// Allow infused widgets to pass an existing tabSelectWidget
+	this.tabSelectWidget = config.tabSelectWidget || new OO.ui.TabSelectWidget();
+	this.tabPanel = this.menuPanel || new OO.ui.PanelLayout( {
 		expanded: this.expanded
 	} );
 	this.setMenuPanel( this.tabPanel );
@@ -83,6 +86,8 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	this.tabPanel.$element
 		.addClass( 'oo-ui-indexLayout-tabPanel' )
 		.append( this.tabSelectWidget.$element );
+
+	this.selectFirstSelectableTabPanel();
 };
 
 /* Setup */

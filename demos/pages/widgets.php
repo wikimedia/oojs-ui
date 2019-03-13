@@ -1316,6 +1316,41 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	],
 ] ) );
 
+$indexLayout = new OOUI\IndexLayout( [
+	'infusable' => true,
+	'expanded' => false,
+] );
+$indexLayout->addTabPanels( [
+	new OOUI\TabPanelLayout( [
+		'name' => 'panel1',
+		'label' => 'Panel 1',
+		'content' => new OOUI\HtmlSnippet( 'Panel <b>1</b> <i>content</i>' ),
+		'expanded' => false,
+	] ),
+	new OOUI\TabPanelLayout( [
+		'name' => 'panel2',
+		'label' => 'Panel 2',
+		'content' => new OOUI\HtmlSnippet( 'Panel <b>2</b> <i>content</i>' ),
+		'expanded' => false,
+	] )
+] );
+$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+	'id' => 'demo-section-horizontalLayout',
+	'infusable' => false,
+	'label' => 'IndexLayout static',
+	'items' => [
+		new OOUI\FieldLayout(
+			new OOUI\Widget( [
+				'content' => $indexLayout,
+			] ),
+			[
+				'label' => 'IndexLayout',
+				'align' => 'top'
+			]
+		),
+	],
+] ) );
+
 $demoContainer->appendContent( new OOUI\FormLayout( [
 	'infusable' => true,
 	'method' => 'GET',

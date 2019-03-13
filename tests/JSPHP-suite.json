@@ -18116,6 +18116,542 @@
       }
     ]
   },
+  "IndexLayout": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "IndexLayout",
+        "config": {
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "autoFocus": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "autoFocus": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "autoFocus": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "autoFocus": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "expanded": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "expanded": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "expanded": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "expanded": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "showMenu": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "showMenu": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "showMenu": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "showMenu": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
+          "expanded": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
+          "expanded": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "expanded": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "expanded": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
+          "showMenu": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
+          "showMenu": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "showMenu": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "showMenu": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": true,
+          "showMenu": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": true,
+          "showMenu": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": false,
+          "showMenu": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": false,
+          "showMenu": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": true,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": true,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": true,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": true,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": true,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": false,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": false,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": false,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": false,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "expanded": false,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": true,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": true,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": true,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": true,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": true,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": false,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": false,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": false,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": false,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "showMenu": false,
+          "menuPosition": "invalid"
+        }
+      }
+    ]
+  },
   "MenuLayout": {
     "infuseonly": false,
     "tests": [

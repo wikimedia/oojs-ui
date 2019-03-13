@@ -112,6 +112,12 @@ else
 		'preserveContent' => [],
 		['TabPanelLayout', 'name'] => ['panelName'],
 		['TabPanelLayout', 'label'] => string_list,
+		# IndexLayout overrides contentPanel to be a StackLayout which there
+		# are current no test values for, so don't use the inherited type
+		# of PanelLayout from MenuLayout.
+		['IndexLayout', 'contentPanel'] => [],
+		# menuPanel contains a TabSelectWidget so must use preserveContent
+		['IndexLayout', 'menuPanel'] => [],
 	}
 
 	find_class = lambda do |klass|
