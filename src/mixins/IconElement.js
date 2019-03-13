@@ -33,8 +33,6 @@
  *     { default: 'bold-a', en: 'bold-b', de: 'bold-f' }
  *  See the [OOUI documentation on MediaWiki] [2] for a list of icons included in the library.
  * [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Icons
- * @cfg {string|Function} [iconTitle] A text string used as the icon title, or a function that
- *  returns title text. The icon title is displayed when users move the mouse over the icon.
  */
 OO.ui.mixin.IconElement = function OoUiMixinIconElement( config ) {
 	// Configuration initialization
@@ -43,16 +41,9 @@ OO.ui.mixin.IconElement = function OoUiMixinIconElement( config ) {
 	// Properties
 	this.$icon = null;
 	this.icon = null;
-	this.iconTitle = null;
-
-	// `iconTitle`s are deprecated since 0.30.0
-	if ( config.iconTitle !== undefined ) {
-		OO.ui.warnDeprecation( 'IconElement: Widgets with iconTitle set are deprecated, use title instead. See T76638 for details.' );
-	}
 
 	// Initialization
 	this.setIcon( config.icon || this.constructor.static.icon );
-	this.setIconTitle( config.iconTitle || this.constructor.static.iconTitle );
 	this.setIconElement( config.$icon || $( '<span>' ) );
 };
 
@@ -150,40 +141,6 @@ OO.ui.mixin.IconElement.prototype.setIcon = function ( icon ) {
 		this.$icon.toggleClass( 'oo-ui-iconElement-noIcon', !this.icon );
 	}
 	this.updateThemeClasses();
-
-	return this;
-};
-
-/**
- * Set the icon title. Use `null` to remove the title.
- *
- * @param {string|Function|null} iconTitle A text string used as the icon title,
- *  a function that returns title text, or `null` for no title.
- * @chainable
- * @return {OO.ui.Element} The element, for chaining
- * @deprecated
- */
-OO.ui.mixin.IconElement.prototype.setIconTitle = function ( iconTitle ) {
-	iconTitle =
-		( typeof iconTitle === 'function' || ( typeof iconTitle === 'string' && iconTitle.length ) ) ?
-			OO.ui.resolveMsg( iconTitle ) : null;
-
-	if ( this.iconTitle !== iconTitle ) {
-		this.iconTitle = iconTitle;
-		if ( this.$icon ) {
-			if ( this.iconTitle !== null ) {
-				this.$icon.attr( 'title', iconTitle );
-			} else {
-				this.$icon.removeAttr( 'title' );
-			}
-		}
-	}
-
-	// `setIconTitle` is deprecated since 0.30.0
-	if ( iconTitle !== null ) {
-		// Avoid a warning when this is called from the constructor with no iconTitle set
-		OO.ui.warnDeprecation( 'IconElement: setIconTitle is deprecated, use setTitle of TitledElement instead. See T76638 for details.' );
-	}
 
 	return this;
 };
