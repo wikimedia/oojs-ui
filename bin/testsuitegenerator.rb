@@ -72,6 +72,7 @@ else
 		['FieldLayout', 'notices'] => string_list,
 		'type' => %w[text button],
 		'method' => %w[GET POST],
+		'inputId' => ['input-id'],
 		'target' => ['_blank'],
 		'accessKey' => ['k'],
 		'tabIndex' => [-1, 0, 100, '42'],
