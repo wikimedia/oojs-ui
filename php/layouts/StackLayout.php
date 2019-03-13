@@ -17,6 +17,7 @@ class StackLayout extends PanelLayout {
 	 */
 	public function __construct( array $config = [] ) {
 		$config = array_merge( [
+			'preserveContent' => false,
 			'continuous' => false,
 			'items' => [],
 			'scrollable' => !empty( $config['continuous'] ) && $config['continuous']
