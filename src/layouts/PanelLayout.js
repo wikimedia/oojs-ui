@@ -63,7 +63,9 @@ OO.inheritClass( OO.ui.PanelLayout, OO.ui.Layout );
  */
 OO.ui.PanelLayout.static.reusePreInfuseDOM = function ( node, config ) {
 	config = OO.ui.PanelLayout.parent.static.reusePreInfuseDOM( node, config );
-	config.$content = $( node ).contents();
+	if ( config.preserveContent !== false ) {
+		config.$content = $( node ).contents();
+	}
 	return config;
 };
 

@@ -108,6 +108,8 @@ else
 		'text' => [],
 		# test content on basic Panels
 		['PanelLayout', 'content'] => string_list,
+		# only used internally
+		'preserveContent' => [],
 		['TabPanelLayout', 'name'] => ['panelName'],
 		['TabPanelLayout', 'label'] => string_list,
 	}

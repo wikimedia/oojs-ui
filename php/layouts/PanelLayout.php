@@ -14,6 +14,7 @@ class PanelLayout extends Layout {
 	 *          (default: true)
 	 *      - bool $config['framed'] Wrap in a frame to visually separate from outside content
 	 *          (default: false)
+	 *      - bool $config['preserveContent'] Preserve DOM content when infusing (default: true)
 	 * @param-taint $config escapes_htmlnoent
 	 */
 	public function __construct( array $config = [] ) {
@@ -24,6 +25,8 @@ class PanelLayout extends Layout {
 			'expanded' => true,
 			'framed' => false,
 		], $config );
+
+		$this->preserveContent = $config['preserveContent'] ?? true;
 
 		// Parent constructor
 		parent::__construct( $config );
@@ -45,6 +48,9 @@ class PanelLayout extends Layout {
 	}
 
 	public function getConfig( &$config ) {
+		if ( !$this->preserveContent ) {
+			$config['preserveContent'] = false;
+		}
 		if ( $this->hasClass( 'oo-ui-panelLayout-scrollable' ) ) {
 			$config['scrollable'] = true;
 		}
