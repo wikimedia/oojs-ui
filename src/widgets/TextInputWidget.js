@@ -23,6 +23,7 @@
  * @mixins OO.ui.mixin.IndicatorElement
  * @mixins OO.ui.mixin.PendingElement
  * @mixins OO.ui.mixin.LabelElement
+ * @mixins OO.ui.mixin.FlaggedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -66,6 +67,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.PendingElement.call( this, $.extend( { $pending: this.$input }, config ) );
 	OO.ui.mixin.LabelElement.call( this, config );
+	OO.ui.mixin.FlaggedElement.call( this, config );
 
 	// Properties
 	this.type = this.getSaneType( config );
@@ -135,6 +137,7 @@ OO.mixinClass( OO.ui.TextInputWidget, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.mixin.IndicatorElement );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.mixin.PendingElement );
 OO.mixinClass( OO.ui.TextInputWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( OO.ui.TextInputWidget, OO.ui.mixin.FlaggedElement );
 
 /* Static Properties */
 

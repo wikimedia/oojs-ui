@@ -8,6 +8,7 @@ namespace OOUI;
 class TextInputWidget extends InputWidget {
 	use IconElement;
 	use IndicatorElement;
+	use FlaggedElement;
 
 	/* Properties */
 
@@ -72,6 +73,9 @@ class TextInputWidget extends InputWidget {
 		// Traits
 		$this->initializeIconElement( $config );
 		$this->initializeIndicatorElement( $config );
+		$this->initializeFlaggedElement(
+			array_merge( [ 'flagged' => $this ], $config )
+		);
 
 		// Initialization
 		$this
