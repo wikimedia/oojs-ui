@@ -32,9 +32,9 @@ OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 	OO.ui.mixin.TitledElement.call( this, config );
 
 	// Properties
-	this.selected = false;
 	this.highlighted = false;
 	this.pressed = false;
+	this.setSelected( !!config.selected );
 
 	// Initialization
 	this.$element
@@ -42,7 +42,6 @@ OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 		// Allow programmatic focussing (and by access key), but not tabbing
 		.attr( 'tabindex', '-1' )
 		.attr( 'role', 'option' )
-		.attr( 'aria-selected', 'false' )
 		.addClass( 'oo-ui-optionWidget' )
 		.append( this.$label );
 };

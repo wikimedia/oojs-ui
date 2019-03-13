@@ -68078,6 +68078,2075 @@
       }
     ]
   },
+  "OptionWidget": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "OptionWidget",
+        "config": {
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "",
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": " ",
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "0",
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "label": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "label": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": true,
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "disabled": false,
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "progressive",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "primary",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "progressive",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "progressive",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "progressive",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "progressive",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "progressive",
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "primary",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "primary",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "primary",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "primary",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "flags": "primary",
+          "title": "0"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "accessKey": "k",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "accessKey": "k",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "accessKey": "k",
+          "title": ""
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "accessKey": "k",
+          "title": " "
+        }
+      },
+      {
+        "class": "OptionWidget",
+        "config": {
+          "accessKey": "k",
+          "title": "0"
+        }
+      }
+    ]
+  },
   "ProgressBarWidget": {
     "infuseonly": false,
     "tests": [
@@ -77366,6 +79435,2287 @@
         "config": {
           "accessKey": "k",
           "icon": "image"
+        }
+      }
+    ]
+  },
+  "SelectWidget": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "SelectWidget",
+        "config": {
+        }
+      },
+      {
+        "class": "SelectWidget",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ]
+        }
+      },
+      {
+        "class": "SelectWidget",
+        "config": {
+          "disabled": true
+        }
+      },
+      {
+        "class": "SelectWidget",
+        "config": {
+          "disabled": false
+        }
+      },
+      {
+        "class": "SelectWidget",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ],
+          "disabled": true
+        }
+      },
+      {
+        "class": "SelectWidget",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ],
+          "disabled": false
+        }
+      }
+    ]
+  },
+  "TabOptionWidget": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "TabOptionWidget",
+        "config": {
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "Foo bar",
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "<b>HTML?</b>",
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "",
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": " ",
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "0",
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}",
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}",
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}",
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"<b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": true,
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "disabled": false,
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "progressive",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "primary",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "progressive",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "progressive",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "progressive",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "progressive",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "progressive",
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "primary",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "primary",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "primary",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "primary",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "flags": "primary",
+          "title": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "accessKey": "k",
+          "title": "Foo bar"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "accessKey": "k",
+          "title": "<b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "accessKey": "k",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "accessKey": "k",
+          "title": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "accessKey": "k",
+          "title": "0"
+        }
+      }
+    ]
+  },
+  "TabSelectWidget": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "TabSelectWidget",
+        "config": {
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ]
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ],
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ],
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ],
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ],
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ],
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ],
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": "42"
         }
       }
     ]
