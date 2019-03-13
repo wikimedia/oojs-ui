@@ -12,7 +12,8 @@ class WikimediaUITheme extends Theme {
 			'progressive' => false,
 			'destructive' => false,
 			'error' => false,
-			'warning' => false
+			'warning' => false,
+			'success' => false
 		];
 
 		// Parent method
@@ -39,6 +40,7 @@ class WikimediaUITheme extends Theme {
 				$variants['destructive'] = $element->hasFlag( 'destructive' );
 				$variants['error'] = $element->hasFlag( 'error' );
 				$variants['warning'] = $element->hasFlag( 'warning' );
+				$variants['success'] = $element->hasFlag( 'success' );
 			}
 		}
 
