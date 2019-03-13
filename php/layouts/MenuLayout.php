@@ -12,11 +12,11 @@ class MenuLayout extends Layout {
 	/**
 	 * @var Tag
 	 */
-	private $menuWrapper;
+	protected $menuWrapper;
 	/**
 	 * @var Tag
 	 */
-	private $contentWrapper;
+	protected $contentWrapper;
 	/**
 	 * @var PanelLayout
 	 */
@@ -28,7 +28,11 @@ class MenuLayout extends Layout {
 	/**
 	 * @var string
 	 */
-	private $menuPosition;
+	protected $menuPosition;
+	/**
+	 * @var bool
+	 */
+	protected $expanded;
 
 	/**
 	 * @param array $config Configuration options
@@ -50,13 +54,14 @@ class MenuLayout extends Layout {
 
 		$this->menuPanel = null;
 		$this->contentPanel = null;
+		$this->expanded = $config['expanded'];
 		$this->menuWrapper = new Tag( 'div' );
 		$this->contentWrapper = new Tag( 'div' );
 
 		$this->menuWrapper->addClasses( [ 'oo-ui-menuLayout-menu' ] );
 		$this->contentWrapper->addClasses( [ 'oo-ui-menuLayout-content' ] );
 		$this->addClasses( [ 'oo-ui-menuLayout' ] );
-		if ( $config['expanded'] ) {
+		if ( $this->expanded ) {
 			$this->addClasses( [ 'oo-ui-menuLayout-expanded' ] );
 		} else {
 			$this->addClasses( [ 'oo-ui-menuLayout-static' ] );
@@ -73,12 +78,22 @@ class MenuLayout extends Layout {
 
 	public function getConfig( &$config ) {
 		$config = parent::getConfig( $config );
-		$config['menuPosition'] = $this->menuPosition;
-		$config['expanded'] = $this->hasClass( 'oo-ui-menuLayout-expanded' );
-		$config['showMenu'] = $this->hasClass( 'oo-ui-menuLayout-showMenu' );
-		$config['menuPosition'] = $this->menuPosition;
-		$config['menuPanel'] = $this->menuPanel;
-		$config['contentPanel'] = $this->contentPanel;
+		if ( $this->menuPosition !== 'before' ) {
+			$config['menuPosition'] = $this->menuPosition;
+		}
+		if ( !$this->expanded ) {
+			$config['expanded'] = $this->expanded;
+		}
+		$showMenu = $this->hasClass( 'oo-ui-menuLayout-showMenu' );
+		if ( !$showMenu ) {
+			$config['showMenu'] = $showMenu;
+		}
+		if ( $this->menuPanel ) {
+			$config['menuPanel'] = $this->menuPanel;
+		}
+		if ( $this->contentPanel ) {
+			$config['contentPanel'] = $this->contentPanel;
+		}
 		return $config;
 	}
 
