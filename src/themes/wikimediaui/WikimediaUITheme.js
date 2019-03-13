@@ -26,7 +26,8 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 			progressive: false,
 			destructive: false,
 			error: false,
-			warning: false
+			warning: false,
+			success: false
 		},
 		// Parent method
 		classes = OO.ui.WikimediaUITheme.parent.prototype.getElementClasses.call( this, element );
@@ -79,6 +80,7 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 			variants.destructive = element.hasFlag( 'destructive' );
 			variants.error = element.hasFlag( 'error' );
 			variants.warning = element.hasFlag( 'warning' );
+			variants.success = element.hasFlag( 'success' );
 		}
 	}
 
