@@ -42,6 +42,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		$input: this.hasInput ? this.input.$input : null,
 		filterFromInput: !!this.hasInput,
 		highlightOnFilter: true,
+		multiselect: true,
 		$autoCloseIgnore: this.hasInput ?
 			this.input.$element : $( [] ),
 		$floatableContainer: this.hasInput && this.inputPosition === 'outline' ?
@@ -120,16 +121,23 @@ OO.ui.MenuTagMultiselectWidget.prototype.onInputChange = function () {
 };
 
 /**
- * Respond to menu choose event
+ * Respond to menu choose event, which is intentional by the user.
  *
- * @param {OO.ui.OptionWidget} menuItem Chosen menu item
+ * @param {OO.ui.OptionWidget} menuItem Selected menu items
+ * @param {boolean} selected Item is selected
  */
-OO.ui.MenuTagMultiselectWidget.prototype.onMenuChoose = function ( menuItem ) {
+OO.ui.MenuTagMultiselectWidget.prototype.onMenuChoose = function ( menuItem, selected ) {
 	if ( this.hasInput && this.clearInputOnChoose ) {
 		this.input.setValue( '' );
 	}
-	// Add tag
-	this.addTag( menuItem.getData(), menuItem.getLabel() );
+
+	if ( selected && !this.findItemFromData( menuItem.getData() ) ) {
+		// The menu item is selected, add it to the tags
+		this.addTag( menuItem.getData(), menuItem.getLabel() );
+	} else {
+		// The menu item was unselected, remove the tag
+		this.removeTagByData( menuItem.getData() );
+	}
 };
 
 /**
@@ -139,7 +147,6 @@ OO.ui.MenuTagMultiselectWidget.prototype.onMenuChoose = function ( menuItem ) {
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
 	if ( !isVisible ) {
-		this.menu.selectItem( null );
 		this.menu.highlightItem( null );
 	}
 	setTimeout( function () {
@@ -165,14 +172,71 @@ OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
 			this.input.setValue( '' );
 		}
 
-		// Select the menu item
-		this.menu.selectItem( menuItem );
+		// Highlight the menu item
+		this.menu.highlightItem( menuItem );
 
 		this.focus();
 	} else {
 		// Use the default
 		OO.ui.MenuTagMultiselectWidget.parent.prototype.onTagSelect.call( this, tagItem );
 	}
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.MenuTagMultiselectWidget.prototype.removeItems = function ( items ) {
+	var widget = this;
+
+	// Parent
+	OO.ui.MenuTagMultiselectWidget.parent.prototype.removeItems.call( this, items );
+
+	items.forEach( function ( tagItem ) {
+		var menuItem = widget.menu.findItemFromData( tagItem.getData() );
+		if ( menuItem ) {
+			// Synchronize the menu selection - unselect the removed tag
+			widget.menu.unselectItem( menuItem );
+		}
+	} );
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.MenuTagMultiselectWidget.prototype.setValue = function ( valueObject ) {
+	valueObject = Array.isArray( valueObject ) ? valueObject : [ valueObject ];
+
+	// We override this method from the parent, to make sure we are adding proper
+	// menu items, and are accounting for cases where we have this widget with
+	// a menu but also 'allowArbitrary'
+	if ( !this.menu ) {
+		return;
+	}
+
+	this.clearItems();
+	valueObject.forEach( function ( obj ) {
+		var data, label, menuItem;
+
+		if ( typeof obj === 'string' ) {
+			data = label = obj;
+		} else {
+			data = obj.data;
+			label = obj.label;
+		}
+
+		// Check if the item is in the menu
+		menuItem = this.menu.getItemFromLabel( label ) || this.menu.findItemFromData( data );
+		if ( menuItem ) {
+			// Menu item found, add the menu item
+			this.addTag( menuItem.getData(), menuItem.getLabel() );
+			// Make sure that item is also selected
+			this.menu.selectItem( menuItem );
+		} else if ( this.allowArbitrary ) {
+			// If the item isn't in the menu, only add it if we
+			// allow for arbitrary values
+			this.addTag( data, label );
+		}
+	}.bind( this ) );
 };
 
 /**
@@ -195,13 +259,11 @@ OO.ui.MenuTagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
  * @chainable
  */
 OO.ui.MenuTagMultiselectWidget.prototype.initializeMenuSelection = function () {
-	if ( !this.menu.findSelectedItem() ) {
-		this.menu.highlightItem(
-			this.allowArbitrary ?
-				null :
-				this.menu.findFirstSelectableItem()
-		);
-	}
+	this.menu.highlightItem(
+		this.allowArbitrary ?
+			null :
+			this.menu.findFirstSelectableItem()
+	);
 };
 
 /**
