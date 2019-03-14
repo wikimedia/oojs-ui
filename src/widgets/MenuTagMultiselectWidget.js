@@ -48,7 +48,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		input: this.hasInput ? this.input : null,
 		$input: this.hasInput ? this.input.$input : null,
 		filterFromInput: !!this.hasInput,
-		highlightOnFilter: true,
+		highlightOnFilter: !this.allowArbitrary,
 		multiselect: true,
 		$autoCloseIgnore: $autoCloseIgnore,
 		$floatableContainer: this.hasInput && this.inputPosition === 'outline' ?
