@@ -27,10 +27,16 @@
  * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: … }`
  */
 OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config ) {
+	var $autoCloseIgnore = $( [] );
 	config = config || {};
 
 	// Parent constructor
 	OO.ui.MenuTagMultiselectWidget.parent.call( this, config );
+
+	$autoCloseIgnore = $autoCloseIgnore.add( this.$group );
+	if ( this.hasInput ) {
+		$autoCloseIgnore = $autoCloseIgnore.add( this.input.$element );
+	}
 
 	this.$overlay = ( config.$overlay === true ?
 		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
@@ -38,13 +44,13 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		!!config.clearInputOnChoose;
 	this.menu = this.createMenuWidget( $.extend( {
 		widget: this,
+		hideOnChoose: false,
 		input: this.hasInput ? this.input : null,
 		$input: this.hasInput ? this.input.$input : null,
 		filterFromInput: !!this.hasInput,
 		highlightOnFilter: true,
 		multiselect: true,
-		$autoCloseIgnore: this.hasInput ?
-			this.input.$element : $( [] ),
+		$autoCloseIgnore: $autoCloseIgnore,
 		$floatableContainer: this.hasInput && this.inputPosition === 'outline' ?
 			this.input.$element : this.$element,
 		$overlay: this.$overlay,
@@ -101,16 +107,6 @@ OO.ui.MenuTagMultiselectWidget.prototype.onInputFocus = function () {
 	OO.ui.MenuTagMultiselectWidget.parent.prototype.onInputFocus.call( this );
 
 	this.menu.toggle( true );
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.MenuTagMultiselectWidget.prototype.onInputBlur = function () {
-	// Parent method
-	OO.ui.MenuTagMultiselectWidget.parent.prototype.onInputBlur.call( this );
-
-	this.menu.toggle( false );
 };
 
 /**
