@@ -1735,11 +1735,10 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {
-						icon: 'tag',
-						indicator: 'required'
+						icon: 'tag'
 					} ),
 					{
-						label: 'SelectFileWidget (icon, indicator)',
+						label: 'SelectFileWidget (icon)',
 						align: 'top'
 					}
 				),

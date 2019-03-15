@@ -822,10 +822,9 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\SelectFileInputWidget( [
 				'icon' => 'tag',
-				'indicator' => 'required'
 			] ),
 			[
-				'label' => 'SelectFileInputWidget (icon, indicator)',
+				'label' => 'SelectFileInputWidget (icon)',
 				'align' => 'top'
 			]
 		),

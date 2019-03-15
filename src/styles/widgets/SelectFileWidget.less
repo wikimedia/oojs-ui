@@ -38,7 +38,13 @@
 			height: 100%;
 			width: auto;
 			margin-left: 8.815em;
-			border: 0;
+			margin-right: 0;
+
+			> .oo-ui-inputWidget-input {
+				border: 0;
+				box-shadow: none;
+				background: transparent;
+			}
 		}
 
 		.oo-ui-selectFileInputWidget-label {
@@ -52,7 +58,7 @@
 		}
 	}
 
-	&.oo-ui-selectFileInputWidget-empty.oo-ui-selectFileWidget-supported {
+	&.oo-ui-selectFileInputWidget-empty {
 		&.oo-ui-selectFileWidget-dropTarget {
 			text-align: center;
 
@@ -65,14 +71,6 @@
 				display: block;
 				margin: 2.2em 1em 1em; // `2.2em` for vertical-align middle
 			}
-
-			.oo-ui-selectFileInputWidget-info {
-				margin: 0;
-			}
-		}
-
-		.oo-ui-selectFileInputWidget-clearButton {
-			display: none;
 		}
 
 		&.oo-ui-widget-enabled {
@@ -90,20 +88,6 @@
 		&.oo-ui-selectFileWidget-dropTarget,
 		&.oo-ui-selectFileWidget-dropTarget .oo-ui-buttonElement-button {
 			cursor: no-drop;
-		}
-	}
-
-	&-notsupported {
-		&.oo-ui-selectFileWidget-dropTarget {
-			height: auto;
-
-			.oo-ui-selectFileWidget-thumbnail {
-				display: none;
-			}
-
-			.oo-ui-selectFileInputWidget-info {
-				margin: 0;
-			}
 		}
 	}
 

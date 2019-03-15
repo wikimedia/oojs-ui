@@ -1,12 +1,7 @@
 @import '../common';
 
 .oo-ui-selectFileInputWidget {
-	display: inline-block;
-	vertical-align: middle;
-
 	&-selectButton {
-		display: table-cell;
-
 		> .oo-ui-buttonElement-button {
 			position: relative;
 			overflow: hidden;
@@ -34,18 +29,8 @@
 		}
 	}
 
-	&-info {
-		width: 100%;
-		display: table-cell;
-		vertical-align: middle;
-		position: relative;
-		overflow: hidden;
-		.oo-ui-box-sizing( border-box );
-
-		.oo-ui-widget-disabled & {
-			cursor: default;
-			.oo-ui-unselectable();
-		}
+	&-info > .oo-ui-inputWidget-input {
+		pointer-events: none;
 	}
 
 	&-label {

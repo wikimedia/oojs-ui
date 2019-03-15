@@ -187,7 +187,7 @@ OO.ui.mixin.TabIndexedElement.prototype.getInputId = function () {
 OO.ui.mixin.TabIndexedElement.prototype.isLabelableNode = function ( $node ) {
 	var
 		labelableTags = [ 'button', 'meter', 'output', 'progress', 'select', 'textarea' ],
-		tagName = $node.prop( 'tagName' ).toLowerCase();
+		tagName = ( $node.prop( 'tagName' ) || '' ).toLowerCase();
 
 	if ( tagName === 'input' && $node.attr( 'type' ) !== 'hidden' ) {
 		return true;

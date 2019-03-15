@@ -15,15 +15,12 @@
  *
  * @class
  * @extends OO.ui.InputWidget
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.IndicatorElement
- * @mixins OO.ui.mixin.PendingElement
- * @mixins OO.ui.mixin.LabelElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {string[]|null} [accept=null] MIME types to accept. null accepts all types.
  * @cfg {string} [placeholder] Text to display when no file is selected.
+ * @cfg {string} [icon] Icon to show next to file info
  */
 OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	// Construct buttons before parent method is called (calling setDisabled)
@@ -31,11 +28,6 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 		$element: $( '<label>' ),
 		classes: [ 'oo-ui-selectFileInputWidget-selectButton' ],
 		label: OO.ui.msg( 'ooui-selectfile-button-select' )
-	} );
-	this.clearButton = new OO.ui.ButtonWidget( {
-		classes: [ 'oo-ui-selectFileInputWidget-clearButton' ],
-		framed: false,
-		icon: 'clear'
 	} );
 
 	// Configuration initialization
@@ -45,47 +37,42 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 		$tabIndexed: this.selectButton.$tabIndexed
 	}, config );
 
+	this.info = new OO.ui.SearchInputWidget( {
+		classes: [ 'oo-ui-selectFileInputWidget-info' ],
+		placeholder: config.placeholder,
+		// Pass an empty collection so that .focus() always does nothing
+		$tabIndexed: $( [] )
+	} ).setIcon( config.icon );
+	// Set tabindex manually on $input as $tabIndexed has been overridden
+	this.info.$input.attr( 'tabindex', -1 );
+
 	// Parent constructor
 	OO.ui.SelectFileInputWidget.parent.call( this, config );
 
-	// Mixin constructors
-	OO.ui.mixin.IconElement.call( this, config );
-	OO.ui.mixin.IndicatorElement.call( this, config );
-	OO.ui.mixin.PendingElement.call( this, $.extend( {
-		$pending: this.$info
-	}, config ) );
-	OO.ui.mixin.LabelElement.call( this, config );
-
 	// Properties
-	this.$info = $( '<span>' );
 	this.currentFile = null;
 	if ( Array.isArray( config.accept ) ) {
 		this.accept = config.accept;
 	} else {
 		this.accept = null;
 	}
-	this.placeholder = config.placeholder;
 	this.onFileSelectedHandler = this.onFileSelected.bind( this );
 
 	// Events
+	this.info.connect( this, { change: 'onInfoChange' } );
 	this.selectButton.$button.on( {
 		keypress: this.onKeyPress.bind( this )
-	} );
-	this.clearButton.connect( this, {
-		click: 'onClearClick'
 	} );
 	this.connect( this, { change: 'updateUI' } );
 
 	// Initialization
 	this.setupInput();
-	this.$label.addClass( 'oo-ui-selectFileInputWidget-label' );
-	this.$info
-		.addClass( 'oo-ui-selectFileInputWidget-info' )
-		.append( this.$icon, this.$label, this.clearButton.$element, this.$indicator );
+
+	this.fieldLayout = new OO.ui.ActionFieldLayout( this.info, this.selectButton, { align: 'top' } );
 
 	this.$element
 		.addClass( 'oo-ui-selectFileInputWidget' )
-		.append( this.$info, this.selectButton.$element );
+		.append( this.fieldLayout.$element );
 
 	this.updateUI();
 };
@@ -93,10 +80,6 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.SelectFileInputWidget, OO.ui.InputWidget );
-OO.mixinClass( OO.ui.SelectFileInputWidget, OO.ui.mixin.IconElement );
-OO.mixinClass( OO.ui.SelectFileInputWidget, OO.ui.mixin.IndicatorElement );
-OO.mixinClass( OO.ui.SelectFileInputWidget, OO.ui.mixin.PendingElement );
-OO.mixinClass( OO.ui.SelectFileInputWidget, OO.ui.mixin.LabelElement );
 
 /* Methods */
 
@@ -158,20 +141,7 @@ OO.ui.SelectFileInputWidget.prototype.onFileSelected = function ( e ) {
  * @protected
  */
 OO.ui.SelectFileInputWidget.prototype.updateUI = function () {
-	var filename = this.getFilename();
-
-	if ( filename ) {
-		this.$element.removeClass( 'oo-ui-selectFileInputWidget-empty' );
-		this.setLabel(
-			$( '<span>' )
-				.addClass( 'oo-ui-selectFileInputWidget-fileName' )
-				.text( filename )
-		);
-
-	} else {
-		this.$element.addClass( 'oo-ui-selectFileInputWidget-empty' );
-		this.setLabel( this.placeholder );
-	}
+	this.info.setValue( this.getFilename() );
 };
 
 /**
@@ -227,14 +197,18 @@ OO.ui.SelectFileInputWidget.prototype.isAllowedType = function ( mimeType ) {
 };
 
 /**
- * Handle clear button click events.
+ * Handle info input change events
+ *
+ * The info widget can only be changed by the user
+ * with the clear button.
  *
  * @private
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @param {string} value
  */
-OO.ui.SelectFileInputWidget.prototype.onClearClick = function () {
-	this.setValue( null );
-	return false;
+OO.ui.SelectFileInputWidget.prototype.onInfoChange = function ( value ) {
+	if ( value === '' ) {
+		this.setValue( null );
+	}
 };
 
 /**
@@ -263,11 +237,8 @@ OO.ui.SelectFileInputWidget.prototype.setDisabled = function ( disabled ) {
 	// Parent method
 	OO.ui.SelectFileInputWidget.parent.prototype.setDisabled.call( this, disabled );
 
-	if ( this.selectButton ) {
-		this.selectButton.setDisabled( disabled );
-	}
-	if ( this.clearButton ) {
-		this.clearButton.setDisabled( disabled );
-	}
+	this.selectButton.setDisabled( disabled );
+	this.info.setDisabled( disabled );
+
 	return this;
 };

@@ -45381,6 +45381,12 @@
       {
         "class": "SelectFileInputWidget",
         "config": {
+          "icon": "image"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
           "dir": "ltr"
         }
       },
@@ -45448,30 +45454,6 @@
         "class": "SelectFileInputWidget",
         "config": {
           "accessKey": "k"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "invisibleLabel": false
         }
       },
       {
@@ -45491,6 +45473,16 @@
             "image/png",
             "image/jpeg"
           ],
+          "icon": "image"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "accept": [
+            "image/png",
+            "image/jpeg"
+          ],
           "dir": "ltr"
         }
       },
@@ -45607,41 +45599,8 @@
       {
         "class": "SelectFileInputWidget",
         "config": {
-          "accept": [
-            "image/png",
-            "image/jpeg"
-          ],
+          "placeholder": "placeholder text",
           "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "accept": [
-            "image/png",
-            "image/jpeg"
-          ],
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "accept": [
-            "image/png",
-            "image/jpeg"
-          ],
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "accept": [
-            "image/png",
-            "image/jpeg"
-          ],
-          "invisibleLabel": false
         }
       },
       {
@@ -45731,29 +45690,85 @@
       {
         "class": "SelectFileInputWidget",
         "config": {
-          "placeholder": "placeholder text",
-          "icon": "image"
+          "icon": "image",
+          "dir": "ltr"
         }
       },
       {
         "class": "SelectFileInputWidget",
         "config": {
-          "placeholder": "placeholder text",
-          "indicator": "down"
+          "icon": "image",
+          "dir": "rtl"
         }
       },
       {
         "class": "SelectFileInputWidget",
         "config": {
-          "placeholder": "placeholder text",
-          "invisibleLabel": true
+          "icon": "image",
+          "inputId": "input-id"
         }
       },
       {
         "class": "SelectFileInputWidget",
         "config": {
-          "placeholder": "placeholder text",
-          "invisibleLabel": false
+          "icon": "image",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "disabled": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "title": ""
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "accessKey": "k"
         }
       },
       {
@@ -45899,62 +45914,6 @@
       {
         "class": "SelectFileInputWidget",
         "config": {
-          "dir": "ltr",
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "dir": "rtl",
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "dir": "ltr",
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "dir": "rtl",
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "dir": "ltr",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "dir": "ltr",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "dir": "rtl",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "dir": "rtl",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
           "inputId": "input-id",
           "disabled": true
         }
@@ -46018,34 +45977,6 @@
       {
         "class": "SelectFileInputWidget",
         "config": {
-          "inputId": "input-id",
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "inputId": "input-id",
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "inputId": "input-id",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "inputId": "input-id",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
           "disabled": true,
           "tabIndex": -1
         }
@@ -46144,62 +46075,6 @@
       {
         "class": "SelectFileInputWidget",
         "config": {
-          "disabled": true,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "disabled": false,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "disabled": true,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "disabled": false,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "disabled": true,
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "disabled": true,
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "disabled": false,
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "disabled": false,
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
           "tabIndex": -1,
           "title": ""
         }
@@ -46284,118 +46159,6 @@
       {
         "class": "SelectFileInputWidget",
         "config": {
-          "tabIndex": -1,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": 0,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": 100,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": "42",
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": -1,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": 0,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": 100,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": "42",
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": -1,
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": -1,
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": 0,
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": 0,
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": 100,
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": 100,
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": "42",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "tabIndex": "42",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
           "title": "",
           "accessKey": "k"
         }
@@ -46405,125 +46168,6 @@
         "config": {
           "title": "Foo bar <b>HTML?</b>",
           "accessKey": "k"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "title": "",
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "title": "Foo bar <b>HTML?</b>",
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "title": "",
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "title": "Foo bar <b>HTML?</b>",
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "title": "",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "title": "",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "title": "Foo bar <b>HTML?</b>",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "title": "Foo bar <b>HTML?</b>",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "accessKey": "k",
-          "icon": "image"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "accessKey": "k",
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "accessKey": "k",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "accessKey": "k",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "icon": "image",
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "icon": "image",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "icon": "image",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "indicator": "down",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "SelectFileInputWidget",
-        "config": {
-          "indicator": "down",
-          "invisibleLabel": false
         }
       }
     ]

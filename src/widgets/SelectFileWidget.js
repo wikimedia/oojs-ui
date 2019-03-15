@@ -16,6 +16,7 @@
  *
  * @class
  * @extends OO.ui.SelectFileInputWidget
+ * @mixins OO.ui.mixin.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -27,7 +28,8 @@
  *  preview (for performance).
  */
 OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
-	var dragHandler;
+	var dragHandler, droppable,
+		isSupported = this.constructor.static.isSupported();
 
 	// Configuration initialization
 	config = $.extend( {
@@ -37,20 +39,27 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 		thumbnailSizeLimit: 20
 	}, config );
 
-	if ( !this.constructor.static.isSupported() ) {
+	if ( !isSupported ) {
 		config.disabled = true;
 	}
 
 	// Parent constructor
 	OO.ui.SelectFileWidget.parent.call( this, config );
 
+	// Mixin constructors
+	OO.ui.mixin.PendingElement.call( this );
+
+	if ( !isSupported ) {
+		this.info.setValue( config.notsupported );
+	}
+
 	// Properties
-	this.showDropTarget = config.droppable && config.showDropTarget;
+	droppable = config.droppable && isSupported;
+	this.showDropTarget = droppable && config.showDropTarget;
 	this.thumbnailSizeLimit = config.thumbnailSizeLimit;
-	this.notsupported = config.notsupported;
 
 	// Events
-	if ( config.droppable ) {
+	if ( droppable ) {
 		dragHandler = this.onDragEnterOrOver.bind( this );
 		this.$element.on( {
 			dragenter: dragHandler,
@@ -72,12 +81,13 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 			} )
 			.append(
 				this.$thumbnail,
-				this.$info,
+				this.info.$element,
 				this.selectButton.$element,
 				$( '<span>' )
 					.addClass( 'oo-ui-selectFileWidget-dropLabel' )
 					.text( OO.ui.msg( 'ooui-selectfile-dragdrop-placeholder' ) )
 			);
+		this.fieldLayout.$element.remove();
 	}
 
 	this.$element.addClass( 'oo-ui-selectFileWidget' );
@@ -88,6 +98,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.SelectFileWidget, OO.ui.SelectFileInputWidget );
+OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.PendingElement );
 
 /* Static Properties */
 
@@ -158,53 +169,44 @@ OO.ui.SelectFileWidget.prototype.onEdit = function () {};
  * @inheritdoc
  */
 OO.ui.SelectFileWidget.prototype.updateUI = function () {
-	if ( !this.selectButton ) {
-		// Too early
+	// Too early, or not supported
+	if ( !this.selectButton || !this.constructor.static.isSupported() ) {
 		return;
 	}
 
-	if ( !this.constructor.static.isSupported() ) {
-		this.$element.addClass( 'oo-ui-selectFileWidget-notsupported oo-ui-selectFileInputWidget-empty' );
-		this.setLabel( this.notsupported );
-	} else {
-		this.$element.addClass( 'oo-ui-selectFileWidget-supported' );
-		if ( this.currentFile ) {
-			this.$element.removeClass( 'oo-ui-selectFileInputWidget-empty' );
-			this.setLabel(
-				$( '<span>' )
-					.addClass( 'oo-ui-selectFileInputWidget-fileName' )
-					.text( this.currentFile.name )
-			);
+	// Parent method
+	OO.ui.SelectFileWidget.super.prototype.updateUI.call( this );
 
-			if ( this.showDropTarget ) {
-				this.pushPending();
-				this.loadAndGetImageUrl().done( function ( url ) {
-					this.$thumbnail.css( 'background-image', 'url( ' + url + ' )' );
-				}.bind( this ) ).fail( function () {
-					this.$thumbnail.append(
-						new OO.ui.IconWidget( {
-							icon: 'attachment',
-							classes: [ 'oo-ui-selectFileWidget-noThumbnail-icon' ]
-						} ).$element
-					);
-				}.bind( this ) ).always( function () {
-					this.popPending();
-				}.bind( this ) );
-				this.$element.off( 'click' );
-			}
-		} else {
-			if ( this.showDropTarget ) {
-				this.$element.off( 'click' );
-				this.$element.on( {
-					click: this.onDropTargetClick.bind( this )
-				} );
-				this.$thumbnail
-					.empty()
-					.css( 'background-image', '' );
-			}
-			this.$element.addClass( 'oo-ui-selectFileInputWidget-empty' );
-			this.setLabel( this.placeholder );
+	if ( this.currentFile ) {
+		this.$element.removeClass( 'oo-ui-selectFileInputWidget-empty' );
+
+		if ( this.showDropTarget ) {
+			this.pushPending();
+			this.loadAndGetImageUrl().done( function ( url ) {
+				this.$thumbnail.css( 'background-image', 'url( ' + url + ' )' );
+			}.bind( this ) ).fail( function () {
+				this.$thumbnail.append(
+					new OO.ui.IconWidget( {
+						icon: 'attachment',
+						classes: [ 'oo-ui-selectFileWidget-noThumbnail-icon' ]
+					} ).$element
+				);
+			}.bind( this ) ).always( function () {
+				this.popPending();
+			}.bind( this ) );
+			this.$element.off( 'click' );
 		}
+	} else {
+		if ( this.showDropTarget ) {
+			this.$element.off( 'click' );
+			this.$element.on( {
+				click: this.onDropTargetClick.bind( this )
+			} );
+			this.$thumbnail
+				.empty()
+				.css( 'background-image', '' );
+		}
+		this.$element.addClass( 'oo-ui-selectFileInputWidget-empty' );
 	}
 };
 

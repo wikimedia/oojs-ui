@@ -6,9 +6,6 @@ namespace OOUI;
  * Generic widget for buttons.
  */
 class SelectFileInputWidget extends InputWidget {
-	use IconElement;
-	use IndicatorElement;
-	use LabelElement;
 
 	/* Static Properties */
 
@@ -19,6 +16,7 @@ class SelectFileInputWidget extends InputWidget {
 	 *      - string[]|null $config['accept'] MIME types to accept. null accepts all types.
 	 *  (default: null)
 	 *      - string $config['placeholder'] Text to display when no file is selected.
+	 *      - string $config['icon'] Icon to show next to file info
 	 *  and show a preview (for performance).
 	 */
 	public function __construct( array $config = [] ) {
@@ -26,20 +24,16 @@ class SelectFileInputWidget extends InputWidget {
 		$config = array_merge( [
 			'accept' => null,
 			'placeholder' => null,
+			'icon' => null,
 		], $config );
 
 		// Parent constructor
 		parent::__construct( $config );
 
-		// Traits
-		$this->initializeIconElement( $config );
-		$this->initializeIndicatorElement( $config );
-		$this->initializeLabelElement( $config );
-		$this->initializeTitledElement( $config );
-
 		// Properties
 		$this->accept = $config['accept'];
 		$this->placeholder = $config['placeholder'];
+		$this->icon = $config['icon'];
 
 		$this->addClasses( [ 'oo-ui-selectFileWidget' ] );
 
@@ -60,6 +54,9 @@ class SelectFileInputWidget extends InputWidget {
 		}
 		if ( $this->placeholder !== null ) {
 			$config['placeholder'] = $this->placeholder;
+		}
+		if ( $this->icon !== null ) {
+			$config['icon'] = $this->icon;
 		}
 		return parent::getConfig( $config );
 	}
