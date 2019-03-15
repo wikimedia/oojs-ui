@@ -226,7 +226,7 @@
 			"src/styles/widgets/CheckboxMultioptionWidget.less",
 			"src/styles/widgets/ProgressBarWidget.less",
 			"src/styles/widgets/NumberInputWidget.less",
-			"src/styles/widgets/SelectFileWidget.less",
+			"src/styles/widgets/SelectFileInputWidget.less",
 
 			"src/styles/core.less"
 		]
@@ -249,6 +249,8 @@
 			"src/styles/widgets/ToggleWidget.less",
 			"src/styles/widgets/ToggleButtonWidget.less",
 			"src/styles/widgets/ToggleSwitchWidget.less",
+
+			"src/styles/widgets/SelectFileWidget.less",
 
 			"src/styles/widgets/OutlineSelectWidget.less",
 			"src/styles/widgets/OutlineOptionWidget.less",

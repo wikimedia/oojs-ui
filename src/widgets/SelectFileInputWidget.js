@@ -29,11 +29,11 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	// Construct buttons before parent method is called (calling setDisabled)
 	this.selectButton = new OO.ui.ButtonWidget( {
 		$element: $( '<label>' ),
-		classes: [ 'oo-ui-selectFileWidget-selectButton' ],
+		classes: [ 'oo-ui-selectFileInputWidget-selectButton' ],
 		label: OO.ui.msg( 'ooui-selectfile-button-select' )
 	} );
 	this.clearButton = new OO.ui.ButtonWidget( {
-		classes: [ 'oo-ui-selectFileWidget-clearButton' ],
+		classes: [ 'oo-ui-selectFileInputWidget-clearButton' ],
 		framed: false,
 		icon: 'clear'
 	} );
@@ -78,13 +78,13 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 
 	// Initialization
 	this.setupInput();
-	this.$label.addClass( 'oo-ui-selectFileWidget-label' );
+	this.$label.addClass( 'oo-ui-selectFileInputWidget-label' );
 	this.$info
-		.addClass( 'oo-ui-selectFileWidget-info' )
+		.addClass( 'oo-ui-selectFileInputWidget-info' )
 		.append( this.$icon, this.$label, this.clearButton.$element, this.$indicator );
 
 	this.$element
-		.addClass( 'oo-ui-selectFileWidget' )
+		.addClass( 'oo-ui-selectFileInputWidget' )
 		.append( this.$info, this.selectButton.$element );
 
 	this.updateUI();
@@ -161,15 +161,15 @@ OO.ui.SelectFileInputWidget.prototype.updateUI = function () {
 	var filename = this.getFilename();
 
 	if ( filename ) {
-		this.$element.removeClass( 'oo-ui-selectFileWidget-empty' );
+		this.$element.removeClass( 'oo-ui-selectFileInputWidget-empty' );
 		this.setLabel(
 			$( '<span>' )
-				.addClass( 'oo-ui-selectFileWidget-fileName' )
+				.addClass( 'oo-ui-selectFileInputWidget-fileName' )
 				.text( filename )
 		);
 
 	} else {
-		this.$element.addClass( 'oo-ui-selectFileWidget-empty' );
+		this.$element.addClass( 'oo-ui-selectFileInputWidget-empty' );
 		this.setLabel( this.placeholder );
 	}
 };

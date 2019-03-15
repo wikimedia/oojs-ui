@@ -1191,7 +1191,7 @@
 
 .theme-oo-ui-selectWidget() {}
 
-.theme-oo-ui-selectFileWidget() {
+.theme-oo-ui-selectFileInputWidget() {
 	width: 100%;
 	max-width: @max-width-input;
 	.oo-ui-inline-spacing( 0.5em );
@@ -1261,71 +1261,88 @@
 		}
 	}
 
-	&-empty {
-		.oo-ui-selectFileWidget-label {
-			color: @color-base--disabled;
-		}
-	}
-
 	&.oo-ui-iconElement {
-		.oo-ui-selectFileWidget-label {
+		.oo-ui-selectFileInputWidget-label {
 			left: @padding-start-input-text-icon-label;
 		}
 	}
 
 	// With clear, with indicator:
 	&.oo-ui-indicatorElement {
-		.oo-ui-selectFileWidget-label {
+		.oo-ui-selectFileInputWidget-label {
 			right: @size-indicator + @size-base + @padding-horizontal-base + @padding-horizontal-input-text;
 			padding-left: 0;
 		}
 
-		.oo-ui-selectFileWidget-clearButton {
+		.oo-ui-selectFileInputWidget-clearButton {
 			right: @size-icon + @padding-horizontal-base;
 		}
 	}
 
-	&-empty,
-	&-notsupported {
+	&-empty {
 		// No close, with indicator:
 		&.oo-ui-indicatorElement {
-			.oo-ui-selectFileWidget-label {
+			.oo-ui-selectFileInputWidget-label {
 				right: 2em;
 			}
 		}
+
+		.oo-ui-selectFileInputWidget-label {
+			color: @color-base--disabled;
+		}
 	}
 
+	&.oo-ui-widget-disabled,
+	&-empty.oo-ui-widget-disabled {
+		.oo-ui-selectFileInputWidget-info {
+			background-color: @background-color-base--disabled;
+			color: @color-base--disabled;
+			border-color: @border-color-base--disabled;
+			text-shadow: @text-shadow-base--disabled;
+
+			> .oo-ui-iconElement-icon {
+				opacity: @opacity-base--disabled;
+			}
+
+			> .oo-ui-indicatorElement-indicator {
+				opacity: @opacity-indicator--disabled;
+			}
+		}
+	}
+}
+
+.theme-oo-ui-selectFileWidget() {
 	&-dropTarget {
 		background-color: @background-color-base;
 		border: @border-base;
+		border-style: dashed;
 		border-radius: @border-radius-base;
 		vertical-align: middle;
 		overflow: hidden;
 
-		.oo-ui-selectFileWidget-selectButton {
+		.oo-ui-selectFileInputWidget-selectButton {
 			> .oo-ui-buttonElement-button {
 				border-radius: @border-radius-base;
 			}
 		}
 
-		.oo-ui-selectFileWidget-label {
+		.oo-ui-selectFileInputWidget-label {
 			overflow: inherit;
 			white-space: normal;
 		}
 
-		.oo-ui-selectFileWidget-fileName {
+		.oo-ui-selectFileInputWidget-fileName {
 			padding-right: @padding-start-input-text-icon-label;
 		}
 
-		.oo-ui-selectFileWidget-clearButton {
+		.oo-ui-selectFileInputWidget-clearButton {
 			top: 0; // Reset from SelectFileWidget without drop target
 		}
 	}
 
-	&-empty.oo-ui-widget-enabled {
+	&.oo-ui-selectFileInputWidget-empty.oo-ui-widget-enabled {
 		&.oo-ui-selectFileWidget-dropTarget {
 			background-color: @background-color-base;
-			border-style: dashed;
 			.oo-ui-transition(
 				background-color @transition-ease-medium,
 				color @transition-ease-medium,
@@ -1346,22 +1363,7 @@
 	}
 
 	&.oo-ui-widget-disabled,
-	&-empty.oo-ui-widget-disabled {
-		.oo-ui-selectFileWidget-info {
-			background-color: @background-color-base--disabled;
-			color: @color-base--disabled;
-			border-color: @border-color-base--disabled;
-			text-shadow: @text-shadow-base--disabled;
-
-			> .oo-ui-iconElement-icon {
-				opacity: @opacity-base--disabled;
-			}
-
-			> .oo-ui-indicatorElement-indicator {
-				opacity: @opacity-indicator--disabled;
-			}
-		}
-
+	&.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled {
 		&.oo-ui-selectFileWidget-dropTarget {
 			background-color: @background-color-base--disabled;
 			border-color: @border-color-base--disabled;
@@ -1369,7 +1371,7 @@
 	}
 
 	&-notsupported {
-		.oo-ui-selectFileWidget-info {
+		.oo-ui-selectFileInputWidget-info {
 			background-color: @background-color-base--disabled;
 			color: @color-base;
 			border-color: @border-color-base--disabled;
@@ -1378,15 +1380,7 @@
 		&.oo-ui-selectFileWidget-dropTarget {
 			background-color: @background-color-base--disabled;
 			border-color: @border-color-base--disabled;
-
-			.oo-ui-selectFileWidget-label {
-				padding: 1em @padding-horizontal-base;
-			}
 		}
-	}
-
-	.oo-ui-widget-disabled &-dropLabel {
-		display: none;
 	}
 }
 

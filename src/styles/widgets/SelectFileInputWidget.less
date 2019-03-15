@@ -1,0 +1,78 @@
+@import '../common';
+
+.oo-ui-selectFileInputWidget {
+	display: inline-block;
+	vertical-align: middle;
+
+	&-selectButton {
+		display: table-cell;
+
+		> .oo-ui-buttonElement-button {
+			position: relative;
+			overflow: hidden;
+
+			> [ type='file' ] {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				z-index: 1;
+				cursor: pointer;
+				// Push the button part of the native control out of view, as it changes the cursor
+				padding-top: 100px;
+			}
+		}
+
+		&.oo-ui-widget-disabled {
+			> .oo-ui-buttonElement-button > [ type='file' ] {
+				display: none;
+			}
+		}
+	}
+
+	&-info {
+		width: 100%;
+		display: table-cell;
+		vertical-align: middle;
+		position: relative;
+		overflow: hidden;
+		.oo-ui-box-sizing( border-box );
+
+		.oo-ui-widget-disabled & {
+			cursor: default;
+			.oo-ui-unselectable();
+		}
+	}
+
+	&-label {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		text-overflow: ellipsis;
+	}
+
+	&-clearButton {
+		position: absolute;
+		z-index: 2;
+	}
+
+	&-empty {
+		.oo-ui-selectFileInputWidget-clearButton {
+			display: none;
+		}
+	}
+
+	&-empty.oo-ui-widget-enabled {
+		.oo-ui-selectFileInputWidget-label {
+			cursor: default;
+		}
+	}
+
+	.theme-oo-ui-selectFileInputWidget();
+}

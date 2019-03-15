@@ -37,13 +37,16 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 		thumbnailSizeLimit: 20
 	}, config );
 
+	if ( !this.constructor.static.isSupported() ) {
+		config.disabled = true;
+	}
+
 	// Parent constructor
 	OO.ui.SelectFileWidget.parent.call( this, config );
 
 	// Properties
 	this.showDropTarget = config.droppable && config.showDropTarget;
 	this.thumbnailSizeLimit = config.thumbnailSizeLimit;
-	this.isSupported = this.constructor.static.isSupported();
 	this.notsupported = config.notsupported;
 
 	// Events
@@ -76,6 +79,8 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 					.text( OO.ui.msg( 'ooui-selectfile-dragdrop-placeholder' ) )
 			);
 	}
+
+	this.$element.addClass( 'oo-ui-selectFileWidget' );
 
 	this.updateUI();
 };
@@ -153,22 +158,21 @@ OO.ui.SelectFileWidget.prototype.onEdit = function () {};
  * @inheritdoc
  */
 OO.ui.SelectFileWidget.prototype.updateUI = function () {
-	if ( this.isSupported === undefined ) {
+	if ( !this.selectButton ) {
 		// Too early
 		return;
 	}
 
-	if ( !this.isSupported ) {
-		this.$element.addClass( 'oo-ui-selectFileWidget-notsupported' );
-		this.$element.removeClass( 'oo-ui-selectFileWidget-empty' );
+	if ( !this.constructor.static.isSupported() ) {
+		this.$element.addClass( 'oo-ui-selectFileWidget-notsupported oo-ui-selectFileInputWidget-empty' );
 		this.setLabel( this.notsupported );
 	} else {
 		this.$element.addClass( 'oo-ui-selectFileWidget-supported' );
 		if ( this.currentFile ) {
-			this.$element.removeClass( 'oo-ui-selectFileWidget-empty' );
+			this.$element.removeClass( 'oo-ui-selectFileInputWidget-empty' );
 			this.setLabel(
 				$( '<span>' )
-					.addClass( 'oo-ui-selectFileWidget-fileName' )
+					.addClass( 'oo-ui-selectFileInputWidget-fileName' )
 					.text( this.currentFile.name )
 			);
 
@@ -198,7 +202,7 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 					.empty()
 					.css( 'background-image', '' );
 			}
-			this.$element.addClass( 'oo-ui-selectFileWidget-empty' );
+			this.$element.addClass( 'oo-ui-selectFileInputWidget-empty' );
 			this.setLabel( this.placeholder );
 		}
 	}
@@ -252,11 +256,6 @@ OO.ui.SelectFileWidget.prototype.addInput = function () {
 		this.$input.remove();
 	}
 
-	if ( !this.isSupported ) {
-		this.$input = null;
-		return;
-	}
-
 	this.$input = $( '<input>' );
 	this.setupInput();
 };
@@ -297,7 +296,7 @@ OO.ui.SelectFileWidget.prototype.onFileSelected = function ( e ) {
  * @return {undefined/boolean} False to prevent default if event is handled
  */
 OO.ui.SelectFileWidget.prototype.onDropTargetClick = function () {
-	if ( this.isSupported && !this.isDisabled() && this.$input ) {
+	if ( !this.isDisabled() && this.$input ) {
 		this.$input.trigger( 'click' );
 		return false;
 	}
@@ -318,7 +317,7 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 	e.preventDefault();
 	e.stopPropagation();
 
-	if ( this.isDisabled() || !this.isSupported ) {
+	if ( this.isDisabled() ) {
 		this.$element.removeClass( 'oo-ui-selectFileWidget-canDrop' );
 		dt.dropEffect = 'none';
 		return false;
@@ -372,7 +371,7 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 	e.stopPropagation();
 	this.$element.removeClass( 'oo-ui-selectFileWidget-canDrop' );
 
-	if ( this.isDisabled() || !this.isSupported ) {
+	if ( this.isDisabled() ) {
 		return false;
 	}
 
@@ -385,4 +384,14 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 	}
 
 	return false;
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.SelectFileWidget.prototype.setDisabled = function ( disabled ) {
+	disabled = disabled || !this.constructor.static.isSupported();
+
+	// Parent method
+	OO.ui.SelectFileWidget.parent.prototype.setDisabled.call( this, disabled );
 };
