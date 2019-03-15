@@ -1699,6 +1699,13 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileInputWidget( { multiple: true } ),
+					{
+						label: 'SelectFileInputWidget (multiple)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileInputWidget( {
 						button: {
 							flags: [ 'primary', 'progressive' ],
@@ -1763,6 +1770,13 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileWidget( { multiple: true } ),
+					{
+						label: 'SelectFileWidget (multiple)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {
 						accept: [ 'image/png', 'image/jpeg' ],
 						title: 'This SelectFileWidget accepts only PNG `image/png` and JPEG `image/jpeg` files and has `title` configured'
@@ -1800,9 +1814,12 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( { showDropTarget: true } ),
+					new OO.ui.SelectFileWidget( {
+						accept: [ 'image/png', 'image/jpeg' ],
+						showDropTarget: true
+					} ),
 					{
-						label: 'SelectFileWidget (with drop target)',
+						label: 'SelectFileWidget (with drop target, accept PNG and JPEG)',
 						align: 'top'
 					}
 				),

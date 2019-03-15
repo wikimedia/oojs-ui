@@ -828,6 +828,13 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
+			new OOUI\SelectFileInputWidget( [ 'multiple' => true ] ),
+			[
+				'label' => 'SelectFileInputWidget (multiple)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
 			new OOUI\SelectFileInputWidget( [
 				'button' => [
 					'flags' => [ 'primary', 'progressive' ],

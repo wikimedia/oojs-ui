@@ -19,6 +19,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {string[]|null} [accept=null] MIME types to accept. null accepts all types.
+ * @cfg {boolean} [multiple=false] Allow multiple files to be selected.
  * @cfg {string} [placeholder] Text to display when no file is selected.
  * @cfg {Object} [button] Config to pass to select file button.
  * @cfg {string} [icon] Icon to show next to file info
@@ -55,12 +56,13 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	OO.ui.SelectFileInputWidget.parent.call( this, config );
 
 	// Properties
-	this.currentFile = null;
+	this.currentFiles = this.filterFiles( this.$input[ 0 ].files || [] );
 	if ( Array.isArray( config.accept ) ) {
 		this.accept = config.accept;
 	} else {
 		this.accept = null;
 	}
+	this.multiple = !!config.multiple;
 
 	// Events
 	this.info.connect( this, { change: 'onInfoChange' } );
@@ -95,6 +97,9 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	if ( this.accept ) {
 		this.$input.attr( 'accept', this.accept.join( ', ' ) );
 	}
+	if ( this.multiple ) {
+		this.$input.attr( 'multiple', '' );
+	}
 	this.selectButton.$button.append( this.$input );
 
 	this.$element
@@ -123,8 +128,10 @@ OO.ui.SelectFileInputWidget.static.title = '';
  * @return {string} Filename
  */
 OO.ui.SelectFileInputWidget.prototype.getFilename = function () {
-	if ( this.currentFile ) {
-		return this.currentFile.name;
+	if ( this.currentFiles.length ) {
+		return this.currentFiles.map( function ( file ) {
+			return file.name;
+		} ).join( ', ' );
 	} else {
 		// Try to strip leading fakepath.
 		return this.getValue().split( '\\' ).pop();
@@ -147,7 +154,7 @@ OO.ui.SelectFileInputWidget.prototype.setValue = function ( value ) {
 			this.emit( 'change', this.value );
 		}
 	} else {
-		this.currentFile = null;
+		this.currentFiles = [];
 		// Parent method
 		OO.ui.SelectFileInputWidget.super.prototype.setValue.call( this, '' );
 	}
@@ -160,13 +167,7 @@ OO.ui.SelectFileInputWidget.prototype.setValue = function ( value ) {
  * @param {jQuery.Event} e
  */
 OO.ui.SelectFileInputWidget.prototype.onFileSelected = function ( e ) {
-	var file = OO.getProp( e.target, 'files', 0 ) || null;
-
-	if ( file && !this.isAllowedType( file.type ) ) {
-		file = null;
-	}
-
-	this.currentFile = file;
+	this.currentFiles = this.filterFiles( e.target.files || [] );
 };
 
 /**
@@ -182,29 +183,35 @@ OO.ui.SelectFileInputWidget.prototype.updateUI = function () {
  * Determine if we should accept this file.
  *
  * @private
- * @param {string} mimeType File MIME type
- * @return {boolean}
+ * @param {FileList|File[]} files Files to filter
+ * @return {File[]} Filter files
  */
-OO.ui.SelectFileInputWidget.prototype.isAllowedType = function ( mimeType ) {
-	var i, mimeTest;
+OO.ui.SelectFileInputWidget.prototype.filterFiles = function ( files ) {
+	var accept = this.accept;
 
-	if ( !this.accept || !mimeType ) {
-		return true;
-	}
+	function mimeAllowed( file ) {
+		var i, mimeTest,
+			mimeType = file.type;
 
-	for ( i = 0; i < this.accept.length; i++ ) {
-		mimeTest = this.accept[ i ];
-		if ( mimeTest === mimeType ) {
+		if ( !accept || !mimeType ) {
 			return true;
-		} else if ( mimeTest.substr( -2 ) === '/*' ) {
-			mimeTest = mimeTest.substr( 0, mimeTest.length - 1 );
-			if ( mimeType.substr( 0, mimeTest.length ) === mimeTest ) {
+		}
+
+		for ( i = 0; i < accept.length; i++ ) {
+			mimeTest = accept[ i ];
+			if ( mimeTest === mimeType ) {
 				return true;
+			} else if ( mimeTest.substr( -2 ) === '/*' ) {
+				mimeTest = mimeTest.substr( 0, mimeTest.length - 1 );
+				if ( mimeType.substr( 0, mimeTest.length ) === mimeTest ) {
+					return true;
+				}
 			}
 		}
+		return false;
 	}
 
-	return false;
+	return Array.prototype.filter.call( files, mimeAllowed );
 };
 
 /**
