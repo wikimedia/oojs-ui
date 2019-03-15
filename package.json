@@ -12,6 +12,10 @@
     "url": "https://phabricator.wikimedia.org/diffusion/GOJU/oojs-ui.git"
   },
   "license": "MIT",
+  "main": "dist/oojs-ui.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "grunt test",
     "predoc": "grunt build",
