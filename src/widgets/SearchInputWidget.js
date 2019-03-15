@@ -23,6 +23,7 @@ OO.ui.SearchInputWidget = function OoUiSearchInputWidget( config ) {
 	this.connect( this, {
 		change: 'onChange'
 	} );
+	this.$indicator.on( 'click', this.onIndicatorClick.bind( this ) );
 
 	// Initialization
 	this.updateSearchIndicator();
@@ -46,9 +47,12 @@ OO.ui.SearchInputWidget.prototype.getSaneType = function () {
 };
 
 /**
- * @inheritdoc
+ * Handle click events on the indicator
+ *
+ * @param {jQuery.Event} e Click event
+ * @return {boolean}
  */
-OO.ui.SearchInputWidget.prototype.onIndicatorMouseDown = function ( e ) {
+OO.ui.SearchInputWidget.prototype.onIndicatorClick = function ( e ) {
 	if ( e.which === OO.ui.MouseButtons.LEFT ) {
 		// Clear the text field
 		this.setValue( '' );
