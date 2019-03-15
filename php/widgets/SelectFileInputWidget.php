@@ -16,6 +16,7 @@ class SelectFileInputWidget extends InputWidget {
 	 *      - string[]|null $config['accept'] MIME types to accept. null accepts all types.
 	 *  (default: null)
 	 *      - string $config['placeholder'] Text to display when no file is selected.
+	 *      - array $config['button'] Config to pass to select file button.
 	 *      - string $config['icon'] Icon to show next to file info
 	 *  and show a preview (for performance).
 	 */
@@ -24,6 +25,7 @@ class SelectFileInputWidget extends InputWidget {
 		$config = array_merge( [
 			'accept' => null,
 			'placeholder' => null,
+			'button' => null,
 			'icon' => null,
 		], $config );
 
@@ -33,6 +35,7 @@ class SelectFileInputWidget extends InputWidget {
 		// Properties
 		$this->accept = $config['accept'];
 		$this->placeholder = $config['placeholder'];
+		$this->button = $config['button'];
 		$this->icon = $config['icon'];
 
 		$this->addClasses( [ 'oo-ui-selectFileWidget' ] );
@@ -54,6 +57,9 @@ class SelectFileInputWidget extends InputWidget {
 		}
 		if ( $this->placeholder !== null ) {
 			$config['placeholder'] = $this->placeholder;
+		}
+		if ( $this->button !== null ) {
+			$config['button'] = $this->button;
 		}
 		if ( $this->icon !== null ) {
 			$config['icon'] = $this->icon;

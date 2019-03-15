@@ -1681,6 +1681,19 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileInputWidget( {
+						button: {
+							flags: [ 'primary', 'progressive' ],
+							icon: 'upload',
+							label: 'Custom button'
+						}
+					} ),
+					{
+						label: 'SelectFileInputWidget (custom button)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileInputWidget( {
 						accept: [ 'image/png', 'image/jpeg' ],
 						title: 'This SelectFileInputWidget accepts only PNG `image/png` and JPEG `image/jpeg` files and has `title` configured'
 					} ),

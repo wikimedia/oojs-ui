@@ -20,15 +20,18 @@
  * @param {Object} [config] Configuration options
  * @cfg {string[]|null} [accept=null] MIME types to accept. null accepts all types.
  * @cfg {string} [placeholder] Text to display when no file is selected.
+ * @cfg {Object} [button] Config to pass to select file button.
  * @cfg {string} [icon] Icon to show next to file info
  */
 OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
+	config = config || {};
+
 	// Construct buttons before parent method is called (calling setDisabled)
-	this.selectButton = new OO.ui.ButtonWidget( {
+	this.selectButton = new OO.ui.ButtonWidget( $.extend( {
 		$element: $( '<label>' ),
 		classes: [ 'oo-ui-selectFileInputWidget-selectButton' ],
 		label: OO.ui.msg( 'ooui-selectfile-button-select' )
-	} );
+	}, config.button ) );
 
 	// Configuration initialization
 	config = $.extend( {
