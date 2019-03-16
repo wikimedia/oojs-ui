@@ -11,8 +11,8 @@
  *     // A MultilineTextInputWidget.
  *     var multilineTextInput = new OO.ui.MultilineTextInputWidget( {
  *         value: 'Text input on multiple lines'
- *     } )
- *     $( 'body' ).append( multilineTextInput.$element );
+ *     } );
+ *     $( document.body ).append( multilineTextInput.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs#MultilineTextInputWidget
  *

@@ -6,7 +6,7 @@
  * Note that inline elements, such as OO.ui.ButtonWidgets, do not need this wrapper.
  *
  *     @example
- *     // HorizontalLayout with a text input and a label
+ *     // HorizontalLayout with a text input and a label.
  *     var layout = new OO.ui.HorizontalLayout( {
  *       items: [
  *         new OO.ui.LabelWidget( { label: 'Label' } ),

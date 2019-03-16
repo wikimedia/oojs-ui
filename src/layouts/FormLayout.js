@@ -17,21 +17,21 @@
  * [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *
  *     @example
- *     // Example of a form layout that wraps a fieldset layout
+ *     // Example of a form layout that wraps a fieldset layout.
  *     var input1 = new OO.ui.TextInputWidget( {
- *         placeholder: 'Username'
- *     } );
- *     var input2 = new OO.ui.TextInputWidget( {
- *         placeholder: 'Password',
- *         type: 'password'
- *     } );
- *     var submit = new OO.ui.ButtonInputWidget( {
- *         label: 'Submit'
- *     } );
+ *             placeholder: 'Username'
+ *         } ),
+ *         input2 = new OO.ui.TextInputWidget( {
+ *             placeholder: 'Password',
+ *             type: 'password'
+ *         } ),
+ *         submit = new OO.ui.ButtonInputWidget( {
+ *             label: 'Submit'
+ *         } ),
+ *         fieldset = new OO.ui.FieldsetLayout( {
+ *             label: 'A form layout'
+ *         } );
  *
- *     var fieldset = new OO.ui.FieldsetLayout( {
- *         label: 'A form layout'
- *     } );
  *     fieldset.addItems( [
  *         new OO.ui.FieldLayout( input1, {
  *             label: 'Username',

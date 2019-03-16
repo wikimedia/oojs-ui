@@ -12,7 +12,7 @@
  *     // A TextInputWidget.
  *     var textInput = new OO.ui.TextInputWidget( {
  *         value: 'Text input'
- *     } )
+ *     } );
  *     $( document.body ).append( textInput.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
