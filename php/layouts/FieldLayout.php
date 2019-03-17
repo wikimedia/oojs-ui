@@ -73,11 +73,9 @@ class FieldLayout extends Layout {
 	 * @param array $config Configuration options
 	 *      - string $config['align'] Alignment mode, either 'left', 'right', 'top' or 'inline'
 	 *          (default: 'left')
-	 *      - array $config['errors'] Error messages about the widget, as strings or HtmlSnippet
-	 *          instances.
-	 *      - array $config['warnings'] Warning messages about the widget, as strings or HtmlSnippet
-	 *          instances.
-	 *      - array $config['notices'] Notices about the widget, as strings or HtmlSnippet instances.
+	 *      - string[]|HtmlSnippet[] $config['errors'] Error messages about the widget.
+	 *      - string[]|HtmlSnippet[] $config['warnings'] Warning messages about the widget.
+	 *      - string[]|HtmlSnippet[] $config['notices'] Notices about the widget.
 	 *      - string|HtmlSnippet $config['help'] Explanatory text shown as a '?' icon.
 	 *      - bool $config['helpInline'] Whether or not the help should be inline,
 	 *          or shown when the "help" icon is clicked. (default: false)

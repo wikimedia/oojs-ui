@@ -126,6 +126,11 @@ else
 		['NumberInputWidget', 'max'] => %w[3 5],
 		['FieldLayout', 'errors'] => string_list,
 		['FieldLayout', 'notices'] => string_list,
+		['FieldLayout', 'warnings'] => [],
+		# it is sufficient to test FieldLayout only
+		['ActionFieldLayout', 'errors'] => [],
+		['ActionFieldLayout', 'notices'] => [],
+		['ActionFieldLayout', 'warnings'] => [],
 		'type' => %w[text button],
 		'method' => %w[GET POST],
 		'inputId' => ['input-id'],
