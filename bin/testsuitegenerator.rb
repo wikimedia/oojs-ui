@@ -12,7 +12,7 @@ def find_class classes, klass
 	classes.find{|c| c[:name] == klass }
 end
 
-def expand_types_to_values classes, types
+def expand_type_to_values classes, type
 	# values to test for each type
 	expandos = {
 		'null' => [nil],
@@ -30,6 +30,7 @@ def expand_types_to_values classes, types
 		},
 	}
 
+	types = type.split '|'
 	# For abstract classes (not "testable"), test a few different subclasses instead
 	if types.delete 'Widget'
 		types.push 'ButtonWidget', 'TextInputWidget'
@@ -48,8 +49,7 @@ def expand_types_to_values classes, types
 			constructor = find_class(classes, t)[:methods].find{|m| m[:name] == '#constructor' }
 			params = constructor ? (constructor[:params] || []) : []
 			config = params.map{|config_option|
-				types = config_option[:type].split '|'
-				values = expand_types_to_values(classes, types)
+				values = expand_type_to_values(classes, config_option[:type])
 				{ config_option[:name] => values[0] }
 			}
 			vals = [
@@ -107,9 +107,6 @@ else
 		.reject{|c| !c[:parent] || c[:trait] || c[:parent] == 'Theme' } # can't test abstract
 		.reject{|c| %w[Element Widget Layout Theme].include? c[:name] } # no toplevel
 
-	# string_list = expandos['string'].map{|v| [v] }
-	string_list = ['Foo bar', '<b>HTML?</b>', '', ' ', '0'].map{|v| [v] }
-
 	# Values to test for specific config options, when not all values of given type are valid.
 	# Empty array will result in no tests for this config option being generated.
 	sensible_values = {
@@ -124,8 +121,9 @@ else
 		['NumberInputWidget', 'pageStep'] => %w[10],
 		['NumberInputWidget', 'min'] => %w[1 3],
 		['NumberInputWidget', 'max'] => %w[3 5],
-		['FieldLayout', 'errors'] => string_list,
-		['FieldLayout', 'notices'] => string_list,
+		# this overrides 'string[]|HtmlSnippet[]' from the doc comment
+		['FieldLayout', 'errors'] => expand_type_to_values([], 'string[]'),
+		['FieldLayout', 'notices'] => expand_type_to_values([], 'string[]'),
 		['FieldLayout', 'warnings'] => [],
 		# it is sufficient to test FieldLayout only
 		['ActionFieldLayout', 'errors'] => [],
@@ -169,11 +167,14 @@ else
 		'content' => [],
 		'text' => [],
 		# test content on basic Panels
-		['PanelLayout', 'content'] => string_list,
+		# this overrides 'string[]|HtmlSnippet[]|Element[]' from the doc comment
+		['PanelLayout', 'content'] => expand_type_to_values([], 'string[]'),
 		# only used internally
 		'preserveContent' => [],
 		['TabPanelLayout', 'name'] => ['panelName'],
-		['TabPanelLayout', 'label'] => string_list,
+		# this overrides 'string|HtmlSnippet' from the doc comment
+		# TODO: this looks incorrect, this option doesn't look like it takes arrays.
+		['TabPanelLayout', 'label'] => expand_type_to_values([], 'string[]'),
 		# IndexLayout overrides contentPanel to be a StackLayout which there
 		# are current no test values for, so don't use the inherited type
 		# of PanelLayout from MenuLayout.
@@ -202,11 +203,10 @@ else
 		config_combinations = config_combinations.map{|config_comb|
 			config_comb += required_config
 			expanded = config_comb.map{|config_option|
-				types = config_option[:type].split '|'
 				values =
 					sensible_values[ [ class_name, config_option[:name] ] ] ||
 					sensible_values[ config_option[:name] ] ||
-					expand_types_to_values(testable_classes, types)
+					expand_type_to_values(testable_classes, config_option[:type])
 				values.map{|v| config_option.dup.merge(value: v) }
 			}
 			expanded.empty? ? [ [] ] : expanded[0].product(*expanded[1..-1])
