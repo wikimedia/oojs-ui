@@ -20,11 +20,11 @@ def expand_type_to_values classes, type
 		'number' => [0, -1, 300], # JS code
 		'bool' => [true, false], # PHP code
 		'boolean' => [true, false], # JS code
-		'string' => ['Foo bar', '<b>HTML?</b>', '', ' ', '0'],
-		'HtmlSnippet' => ['Foo bar', '<b>HTML?</b>', ''].map{|v|
+		'string' => ['Foo bar <b>HTML?</b>', '', ' ', '0'],
+		'HtmlSnippet' => ['Foo bar <b>HTML?</b>'].map{|v|
 			make_class_instance_placeholder('HtmlSnippet', v)
 		},
-		'PanelLayout' => ['Foo bar', '<b>HTML?</b>', ''].map{|v|
+		'PanelLayout' => ['Foo bar <b>HTML?</b>', ''].map{|v|
 			config = { content: [v] }
 			make_class_instance_placeholder('PanelLayout', config)
 		},
@@ -107,6 +107,8 @@ else
 		.reject{|c| !c[:parent] || c[:trait] || c[:parent] == 'Theme' } # can't test abstract
 		.reject{|c| %w[Element Widget Layout Theme].include? c[:name] } # no toplevel
 
+	simple_string = ['', 'Foo bar <b>HTML?</b>']
+
 	# Values to test for specific config options, when not all values of given type are valid.
 	# Empty array will result in no tests for this config option being generated.
 	sensible_values = {
@@ -146,10 +148,10 @@ else
 			[ { 'data' => 'a' }, { 'data' => 'b' } ],
 			[ { 'data' => 'a', 'label' => 'A' }, { 'data' => 'b', 'label' => 'B' } ],
 		],
-		'value' => ['', 'a', '<b>HTML?</b>'],
+		'value' => simple_string,
+		'title' => simple_string,
+		'help' => simple_string,
 		'menuPosition' => %w[before after top bottom invalid],
-		# deprecated, makes test logs spammy
-		'multiline' => [],
 		# usually makes no sense in JS
 		'autofocus' => [],
 		# too simple to test?
