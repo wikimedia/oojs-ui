@@ -281,7 +281,7 @@ OO.ui.throttle = function ( func, wait ) {
 		previous = 0,
 		run = function () {
 			timeout = null;
-			previous = OO.ui.now();
+			previous = Date.now();
 			func.apply( context, args );
 		};
 	return function () {
@@ -290,7 +290,7 @@ OO.ui.throttle = function ( func, wait ) {
 		// period. If it's less, run the function immediately. If it's more,
 		// set a timeout for the remaining time -- but don't replace an
 		// existing timeout, since that'd indefinitely prolong the wait.
-		var remaining = wait - ( OO.ui.now() - previous );
+		var remaining = wait - ( Date.now() - previous );
 		context = this;
 		args = arguments;
 		if ( remaining <= 0 ) {
@@ -309,10 +309,12 @@ OO.ui.throttle = function ( func, wait ) {
 /**
  * A (possibly faster) way to get the current timestamp as an integer.
  *
+ * @deprecated Since 0.31.1; use `Date.now()` instead.
  * @return {number} Current timestamp, in milliseconds since the Unix epoch
  */
-OO.ui.now = Date.now || function () {
-	return new Date().getTime();
+OO.ui.now = function () {
+	OO.ui.warnDeprecation( 'OO.ui.now() is deprecated, use Date.now() instead' );
+	return Date.now();
 };
 
 /**
