@@ -319,6 +319,18 @@ OO.ui.Tool.prototype.updateTitle = function () {
 };
 
 /**
+ * @inheritdoc OO.ui.mixin.IconElement
+ */
+OO.ui.Tool.prototype.setIcon = function ( icon ) {
+	// Mixin method
+	OO.ui.mixin.IconElement.prototype.setIcon.call( this, icon );
+
+	this.$element.toggleClass( 'oo-ui-tool-with-icon', !!this.icon );
+
+	return this;
+};
+
+/**
  * Destroy tool.
  *
  * Destroying the tool removes all event handlers and the tool’s DOM elements.
