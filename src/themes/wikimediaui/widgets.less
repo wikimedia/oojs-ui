@@ -1223,6 +1223,11 @@
 		&.oo-ui-selectFileInputWidget-empty {
 			border-style: dashed;
 		}
+
+		// Inline style `background-image` on thumbnail will take place over PendingElement.
+		.oo-ui-pendingElement-pending {
+			background-size: @size-icon @size-icon;
+		}
 	}
 
 	&.oo-ui-widget-enabled {

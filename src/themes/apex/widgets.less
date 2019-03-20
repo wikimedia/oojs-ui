@@ -2,11 +2,7 @@
 
 .theme-oo-ui-widget() {}
 
-.theme-oo-ui-actionWidget() {
-	&.oo-ui-pendingElement-pending {
-		.oo-ui-background-image( '@{ooui-default-image-path}/textures/pending.gif' );
-	}
-}
+.theme-oo-ui-actionWidget() {}
 
 .theme-oo-ui-buttonWidget() {
 	.oo-ui-inline-spacing( 0.5em );
@@ -863,6 +859,11 @@
 
 		&.oo-ui-selectFileInputWidget-empty {
 			border-style: dashed;
+		}
+
+		// Inline style `background-image` on thumbnail will take place over PendingElement.
+		.oo-ui-pendingElement-pending {
+			background-size: @size-icon-inner @size-icon-inner;
 		}
 	}
 
