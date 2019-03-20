@@ -729,6 +729,7 @@ module.exports = function ( grunt ) {
 		'build-i18n', 'concat:omnibus', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
 	] );
+	grunt.registerTask( 'quick-build-code', [ 'build-code', 'copy:demos' ] );
 
 	// Minification tasks for the npm publish step
 	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', 'imagemin:distPngs', 'cssmin' ] );
