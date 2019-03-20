@@ -264,7 +264,10 @@ OO.ui.SelectFileWidget.prototype.addInput = function () {
 		this.$input.remove();
 	}
 
-	this.$input = $( '<input>' );
+	this.$input = $( '<input>' )
+		// Set empty title so that browser default tooltips like "No file chosen" don't appear.
+		// This input is "empty" after a file was actually chosen, which is misleading.
+		.attr( 'title', '' );
 	this.setupInput();
 };
 
