@@ -1338,6 +1338,11 @@
 		.oo-ui-selectFileInputWidget-clearButton {
 			top: 0; // Reset from SelectFileWidget without drop target
 		}
+
+		// Inline style `background-image` on thumbnail will take place over PendingElement.
+		.oo-ui-pendingElement-pending {
+			background-size: @size-icon @size-icon;
+		}
 	}
 
 	&.oo-ui-selectFileInputWidget-empty.oo-ui-widget-enabled {
