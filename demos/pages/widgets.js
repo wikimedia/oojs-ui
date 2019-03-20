@@ -1737,6 +1737,13 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileWidget( { buttonOnly: true } ),
+					{
+						label: 'SelectFileWidget (buttonOnly)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {
 						accept: [ 'image/png', 'image/jpeg' ],
 						title: 'This SelectFileWidget accepts only PNG `image/png` and JPEG `image/jpeg` files and has `title` configured'

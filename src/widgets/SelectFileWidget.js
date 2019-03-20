@@ -22,6 +22,8 @@
  * @param {Object} [config] Configuration options
  * @cfg {string} [notsupported] Text to display when file support is missing in the browser.
  * @cfg {boolean} [droppable=true] Whether to accept files by drag and drop.
+ * @cfg {boolean} [buttonOnly=false] Show only the select file button, no info field. Requires
+ *  showDropTarget to be false.
  * @cfg {boolean} [showDropTarget=false] Whether to show a drop target. Requires droppable to be
  *  true.
  * @cfg {number} [thumbnailSizeLimit=20] File size limit in MiB above which to not try and show a
@@ -35,6 +37,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	config = $.extend( {
 		notsupported: OO.ui.msg( 'ooui-selectfile-not-supported' ),
 		droppable: true,
+		buttonOnly: false,
 		showDropTarget: false,
 		thumbnailSizeLimit: 20
 	}, config );
@@ -87,6 +90,9 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 					.addClass( 'oo-ui-selectFileWidget-dropLabel' )
 					.text( OO.ui.msg( 'ooui-selectfile-dragdrop-placeholder' ) )
 			);
+		this.fieldLayout.$element.remove();
+	} else if ( config.buttonOnly ) {
+		this.$element.append( this.selectButton.$element );
 		this.fieldLayout.$element.remove();
 	}
 
