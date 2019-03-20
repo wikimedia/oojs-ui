@@ -425,7 +425,7 @@ OO.ui.TagMultiselectWidget.prototype.onTagSelect = function ( item ) {
 			this.addTagFromInput();
 		}
 		// 1. Get the label of the tag into the input
-		this.input.setValue( item.getData() );
+		this.input.setValue( item.getLabel() );
 		// 2. Remove the tag
 		this.removeItems( [ item ] );
 		// 3. Focus the input
