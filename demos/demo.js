@@ -50,8 +50,8 @@ window.Demo = function Demo() {
 		] );
 	} );
 	this.directionSelect = new OO.ui.ButtonSelectWidget().addItems( [
-		new OO.ui.ButtonOptionWidget( { data: 'ltr', label: 'LTR' } ),
-		new OO.ui.ButtonOptionWidget( { data: 'rtl', label: 'RTL' } )
+		new OO.ui.ButtonOptionWidget( { data: 'ltr', icon: 'textDirLTR' } ),
+		new OO.ui.ButtonOptionWidget( { data: 'rtl', icon: 'textDirRTL' } )
 	] );
 	this.jsPhpSelect = new OO.ui.ButtonGroupWidget().addItems( [
 		new OO.ui.ButtonWidget( { label: 'JS' } ).setActive( true ),
