@@ -3,6 +3,9 @@
 	"intro": "@import '../../../../src/styles/common';",
 	"images": {
 		"pending": { "file": "images/textures/pending.gif" },
-		"transparency": { "file": "images/textures/transparency.svg" }
+		"transparency": {
+			"file": "images/textures/transparency.svg",
+			"deprecated": "Deprecated since v0.31.1."
+		}
 	}
 }
