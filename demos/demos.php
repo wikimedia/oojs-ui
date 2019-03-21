@@ -122,12 +122,12 @@
 					'infusable' => true,
 					'items' => [
 						new OOUI\ButtonWidget( [
-							'label' => 'LTR',
+							'icon' => 'textDirLTR',
 							'href' => '?' . http_build_query( array_merge( $query, [ 'direction' => 'ltr' ] ) ),
 							'active' => $query['direction'] === 'ltr',
 						] ),
 						new OOUI\ButtonWidget( [
-							'label' => 'RTL',
+							'icon' => 'textDirRTL',
 							'href' => '?' . http_build_query( array_merge( $query, [ 'direction' => 'rtl' ] ) ),
 							'active' => $query['direction'] === 'rtl',
 						] ),
