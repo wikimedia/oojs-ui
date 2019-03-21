@@ -198,6 +198,24 @@
 			}
 		}
 
+		&:indeterminate {
+			& + span {
+				background-image: none;
+				background-color: #36c;
+				border-color: #36c;
+			}
+
+			& + span:before {
+				content: ' ';
+				position: absolute;
+				top: 8 / @ooui-font-size-browser / @ooui-font-size-base;
+				bottom: 8 / @ooui-font-size-browser / @ooui-font-size-base;
+				left: 3 / @ooui-font-size-browser / @ooui-font-size-base;
+				right: 3 / @ooui-font-size-browser / @ooui-font-size-base;
+				background-color: #fff;
+			}
+		}
+
 		&:disabled {
 			& + span {
 				background-color: @background-color-filled--disabled;

@@ -945,6 +945,25 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.CheckboxInputWidget( {
+						indeterminate: true
+					} ),
+					{
+						align: 'inline',
+						label: 'CheckboxInputWidget (indeterminate)'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.CheckboxInputWidget( {
+						indeterminate: true,
+						disabled: true
+					} ),
+					{
+						align: 'inline',
+						label: 'CheckboxInputWidget (indeterminate, disabled)'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.RadioInputWidget( {
 						name: 'oojs-ui-radio-demo'
 					} ),
