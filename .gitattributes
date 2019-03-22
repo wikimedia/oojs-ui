@@ -1,18 +1,38 @@
-.css* export-ignore
+# This file is mostly used to manage the packagist release export
+
+# Repo management files
 .git* export-ignore
-.js* export-ignore
+.mailmap export-ignore
 .npmignore export-ignore
-.rubocop.yml export-ignore
 .travis.yml export-ignore
-build export-ignore
+
+
+# Build files
 composer.json export-ignore
-doc export-ignore
-docs export-ignore
+package*.json export-ignore
+Gruntfile.js export-ignore
+
+bin export-ignore
+build export-ignore
+
+
+# Linting files
+.css* export-ignore
+.eslintrc.json export-ignore
+.phpcs.xml export-ignore
+.rubocop_todo.yml export-ignore
+.rubocop.yml export-ignore
+.stylelintrc export-ignore
+.phpcs.xml export-ignore
+jsduck* export-ignore
 Doxyfile export-ignore
 Gemfile* export-ignore
-Gruntfile.js export-ignore
-jsduck* export-ignore
-.phpcs.xml export-ignore
 phpunit.xml.dist export-ignore
+Rakefile export-ignore
+
+
+# JavaScript-only or non-release files
+demos export-ignore
+docs export-ignore
 src export-ignore
 tests export-ignore
