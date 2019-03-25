@@ -183,7 +183,9 @@ class Tag {
 		}
 		foreach ( $content as $item ) {
 			if ( !is_string( $item ) ) {
-				$index = array_search( $item, $this->content );
+				// Use strict type comparions so we don't
+				// compare objects with existing strings
+				$index = array_search( $item, $this->content, true );
 				if ( $index !== false ) {
 					array_splice( $this->content, $index, 1 );
 				}

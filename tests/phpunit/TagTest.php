@@ -85,6 +85,12 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 		$tag->prependContent( [ $bTag, $cTag ] );
 		$this->assertEquals( [ $bTag, $cTag, $aTag ], $content->getValue( $tag ) );
 		$tag->clearContent();
+
+		// Tags aren't compared with strings
+		$tag->appendContent( '<a></a>' );
+		$tag->appendContent( $aTag );
+		$this->assertEquals( [ '<a></a>', $aTag ], $content->getValue( $tag ) );
+		$tag->clearContent();
 	}
 
 	/**
