@@ -154,6 +154,8 @@ else
 		'menuPosition' => %w[before after top bottom invalid],
 		# usually makes no sense in JS
 		'autofocus' => [],
+		# CheckboxInputWidget: indeterminate makes no DOM changes
+		'indeterminate' => [],
 		# too simple to test?
 		'action' => [],
 		'enctype' => [],

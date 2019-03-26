@@ -515,6 +515,25 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
+			new OOUI\CheckboxInputWidget( [
+				'indeterminate' => true
+			] ),
+			[
+				'align' => 'inline',
+				'label' => 'CheckboxInputWidget (indeterminate) * requires infusion'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\CheckboxInputWidget( [
+				'indeterminate' => true,
+				'disabled' => true
+			] ),
+			[
+				'align' => 'inline',
+				'label' => 'CheckboxInputWidget (indeterminate, disabled) * requires infusion'
+			]
+		),
+		new OOUI\FieldLayout(
 			new OOUI\RadioInputWidget( [
 				'name' => 'oojs-ui-radio-demo'
 			] ),
