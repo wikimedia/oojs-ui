@@ -293,7 +293,7 @@ module.exports = function ( grunt ) {
 				flatten: true
 			},
 			imagesThemes: {
-				src: 'src/themes/*/images/**/*.{png,gif}',
+				src: 'src/themes/*/{*.json,images/**/*.{png,gif}}',
 				dest: 'dist/',
 				expand: true,
 				rename: strip( 'src/' )
