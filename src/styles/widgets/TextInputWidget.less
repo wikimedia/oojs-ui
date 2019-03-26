@@ -2,19 +2,32 @@
 
 .oo-ui-textInputWidget {
 	position: relative;
-	// Necessary for proper alignment when used with `display: inline-block`
+	// Necessary for proper alignment when used with `display: inline-block`.
 	vertical-align: middle;
 	.oo-ui-box-sizing( border-box );
 
-	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`
+	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`.
 	.oo-ui-inputWidget-input {
+		// Support: Safari/iOS `none` needed, Chrome would accept `textfield` as well.
+		-webkit-appearance: none;
 		display: block;
 		width: 100%;
 		.oo-ui-box-sizing( border-box );
 	}
 
+	input {
+		// Support: Firefox.
+		-moz-appearance: textfield;
+
+		// Support: IE 10-11, Edge 12+.
+		&::-ms-clear {
+			display: none;
+		}
+	}
+
 	textarea {
-		overflow: auto; // Support: IE 8-11 defaults `overflow` to `scroll`. Modern browsers use `auto`
+		// Support: IE 8-11 defaults `overflow` to `scroll`. Modern browsers use `auto`.
+		overflow: auto;
 
 		&.oo-ui-textInputWidget-autosized {
 			resize: none;
@@ -22,10 +35,9 @@
 	}
 
 	// Normalize styling of `<input type=number>` by removing
-	// proprietary vendor UI extensions
+	// proprietary vendor UI extensions.
 	[ type='number' ] {
-		-moz-appearance: textfield;
-
+		// Support: Safari, Chrome (Blink).
 		&::-webkit-outer-spin-button,
 		&::-webkit-inner-spin-button {
 			-webkit-appearance: none;
@@ -34,16 +46,9 @@
 	}
 
 	// Normalize styling of `<input type=search>` and
-	// remove proprietary vendor UI extensions
+	// remove proprietary vendor UI extensions.
 	[ type='search' ] {
-		-webkit-appearance: none; // Support: Safari/iOS `none` needed, Chrome would accept `textfield` as well
-
-		// Support: IE 10-11, Edge 12+
-		&::-ms-clear {
-			display: none;
-		}
-
-		// Support: Safari, Chrome (Blink)
+		// Support: Safari, Chrome (Blink).
 		&::-webkit-search-decoration,
 		&::-webkit-search-cancel-button {
 			display: none;
@@ -69,13 +74,13 @@
 		display: block;
 	}
 
-	// Support: IE 10-11, Edge 12+
-	// Remove clear buttons that conflict with identically aligned labels
+	// Support: IE 10-11, Edge 12+.
+	// Remove clear buttons that conflict with identically aligned labels.
 	&-labelPosition-after.oo-ui-labelElement ::-ms-clear {
 		display: none;
 	}
 
-	// Make clicks not steal focus from input element in PHP version
+	// Make clicks not steal focus from input element in PHP version.
 	&-php > .oo-ui-iconElement-icon,
 	&-php > .oo-ui-indicatorElement-indicator,
 	&-php > .oo-ui-labelElement-label {
