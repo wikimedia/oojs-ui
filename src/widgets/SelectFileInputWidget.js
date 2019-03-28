@@ -24,6 +24,8 @@
  * @cfg {string} [icon] Icon to show next to file info
  */
 OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
+	var widget = this;
+
 	config = config || {};
 
 	// Construct buttons before parent method is called (calling setDisabled)
@@ -59,19 +61,41 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	} else {
 		this.accept = null;
 	}
-	this.onFileSelectedHandler = this.onFileSelected.bind( this );
 
 	// Events
 	this.info.connect( this, { change: 'onInfoChange' } );
 	this.selectButton.$button.on( {
 		keypress: this.onKeyPress.bind( this )
 	} );
+	this.$input.on( {
+		change: this.onFileSelected.bind( this ),
+		// Support: IE11
+		// In IE 11, focussing a file input (by clicking on it) displays a text cursor and scrolls
+		// the cursor into view (in this case, it scrolls the button, which has 'overflow: hidden').
+		// Since this messes with our custom styling (the file input has large dimensions and this
+		// causes the label to scroll out of view), scroll the button back to top. (T192131)
+		focus: function () {
+			widget.$input.parent().prop( 'scrollTop', 0 );
+		}
+	} );
 	this.connect( this, { change: 'updateUI' } );
 
-	// Initialization
-	this.setupInput();
-
 	this.fieldLayout = new OO.ui.ActionFieldLayout( this.info, this.selectButton, { align: 'top' } );
+
+	this.$input
+		.attr( {
+			type: 'file',
+			// this.selectButton is tabindexed
+			tabindex: -1,
+			// Infused input may have previously by
+			// TabIndexed, so remove aria-disabled attr.
+			'aria-disabled': null
+		} );
+
+	if ( this.accept ) {
+		this.$input.attr( 'accept', this.accept.join( ', ' ) );
+	}
+	this.selectButton.$button.append( this.$input );
 
 	this.$element
 		.addClass( 'oo-ui-selectFileInputWidget' )
@@ -145,38 +169,6 @@ OO.ui.SelectFileInputWidget.prototype.onFileSelected = function ( e ) {
  */
 OO.ui.SelectFileInputWidget.prototype.updateUI = function () {
 	this.info.setValue( this.getFilename() );
-};
-
-/**
- * Setup the input element.
- *
- * @protected
- */
-OO.ui.SelectFileInputWidget.prototype.setupInput = function () {
-	var widget = this;
-	this.$input
-		.attr( {
-			type: 'file',
-			// this.selectButton is tabindexed
-			tabindex: -1,
-			// Infused input may have previously by
-			// TabIndexed, so remove aria-disabled attr.
-			'aria-disabled': null
-		} )
-		.on( 'change', this.onFileSelectedHandler )
-		// Support: IE11
-		// In IE 11, focussing a file input (by clicking on it) displays a text cursor and scrolls
-		// the cursor into view (in this case, it scrolls the button, which has 'overflow: hidden').
-		// Since this messes with our custom styling (the file input has large dimensions and this
-		// causes the label to scroll out of view), scroll the button back to top. (T192131)
-		.on( 'focus', function () {
-			widget.$input.parent().prop( 'scrollTop', 0 );
-		} );
-
-	if ( this.accept ) {
-		this.$input.attr( 'accept', this.accept.join( ', ' ) );
-	}
-	this.selectButton.$button.append( this.$input );
 };
 
 /**

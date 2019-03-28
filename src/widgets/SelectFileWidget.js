@@ -96,6 +96,15 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 		this.fieldLayout.$element.remove();
 	}
 
+	this.$input
+		.on( 'click', function ( e ) {
+			// Prevents dropTarget to get clicked which calls
+			// a click on this input
+			e.stopPropagation();
+		} )
+		// Set empty title so that browser default tooltips like "No file chosen" don't appear.
+		.attr( 'title', '' );
+
 	this.$element.addClass( 'oo-ui-selectFileWidget' );
 
 	this.updateUI();
@@ -255,48 +264,27 @@ OO.ui.SelectFileWidget.prototype.loadAndGetImageUrl = function () {
 };
 
 /**
- * Add the input to the widget
- *
- * @private
- */
-OO.ui.SelectFileWidget.prototype.addInput = function () {
-	if ( this.$input ) {
-		this.$input.remove();
-	}
-
-	this.$input = $( '<input>' )
-		// Set empty title so that browser default tooltips like "No file chosen" don't appear.
-		// This input is "empty" after a file was actually chosen, which is misleading.
-		.attr( 'title', '' );
-	this.setupInput();
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.SelectFileWidget.prototype.setupInput = function () {
-	// Parent method
-	OO.ui.SelectFileWidget.super.prototype.setupInput.call( this );
-
-	this.$input.on( 'click', function ( e ) {
-		// Prevents dropTarget to get clicked which calls
-		// a click on this input
-		e.stopPropagation();
-	} );
-};
-
-/**
  * @inheritdoc
  */
 OO.ui.SelectFileWidget.prototype.onFileSelected = function ( e ) {
-	var file = OO.getProp( e.target, 'files', 0 ) || null;
+	var file;
+
+	if ( this.inputClearing ) {
+		return;
+	}
+
+	file = OO.getProp( e.target, 'files', 0 ) || null;
 
 	if ( file && !this.isAllowedType( file.type ) ) {
 		file = null;
 	}
 
+	// After a file is selected clear the native widget to avoid confusion
+	this.inputClearing = true;
+	this.$input[ 0 ].value = '';
+	this.inputClearing = false;
+
 	this.setValue( file );
-	this.addInput();
 };
 
 /**
