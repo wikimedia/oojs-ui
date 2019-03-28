@@ -108,6 +108,13 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 
 OO.inheritClass( OO.ui.SelectFileInputWidget, OO.ui.InputWidget );
 
+/* Static properties */
+
+// Set empty title so that browser default tooltips like "No file chosen" don't appear.
+// On SelectFileWidget this tooltip will often be incorrect, so create a consistent
+// experience on SelectFileInputWidget.
+OO.ui.SelectFileInputWidget.static.title = '';
+
 /* Methods */
 
 /**
