@@ -125,11 +125,13 @@
 							'icon' => 'textDirLTR',
 							'href' => '?' . http_build_query( array_merge( $query, [ 'direction' => 'ltr' ] ) ),
 							'active' => $query['direction'] === 'ltr',
+							'title' => 'Switch to left-to-right direction demo',
 						] ),
 						new OOUI\ButtonWidget( [
 							'icon' => 'textDirRTL',
 							'href' => '?' . http_build_query( array_merge( $query, [ 'direction' => 'rtl' ] ) ),
 							'active' => $query['direction'] === 'rtl',
+							'title' => 'Switch to right-to-left direction demo',
 						] ),
 					]
 				] );

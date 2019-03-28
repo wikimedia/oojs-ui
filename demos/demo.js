@@ -50,8 +50,16 @@ window.Demo = function Demo() {
 		] );
 	} );
 	this.directionSelect = new OO.ui.ButtonSelectWidget().addItems( [
-		new OO.ui.ButtonOptionWidget( { data: 'ltr', icon: 'textDirLTR' } ),
-		new OO.ui.ButtonOptionWidget( { data: 'rtl', icon: 'textDirRTL' } )
+		new OO.ui.ButtonOptionWidget( {
+			data: 'ltr',
+			icon: 'textDirLTR',
+			title: 'Switch to left-to-right direction demo'
+		} ),
+		new OO.ui.ButtonOptionWidget( {
+			data: 'rtl',
+			icon: 'textDirRTL',
+			title: 'Switch to right-to-left direction demo'
+		} )
 	] );
 	this.jsPhpSelect = new OO.ui.ButtonGroupWidget().addItems( [
 		new OO.ui.ButtonWidget( { label: 'JS' } ).setActive( true ),
