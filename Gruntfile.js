@@ -654,14 +654,6 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'enable-source-maps', function () {
-		// Only create Source maps when doing a git-build for testing and local
-		// development. Distributions for export should not, as the map would
-		// be pointing at "../src".
-		grunt.config.set( 'concat.js.options.sourceMap', true );
-		grunt.config.set( 'concat.js.options.sourceMapStyle', 'link' );
-	} );
-
 	grunt.registerTask( 'set-graphics', function ( graphics ) {
 		graphics = graphics || grunt.option( 'graphics' ) || 'mixed';
 		grunt.config.set(
@@ -729,7 +721,7 @@ module.exports = function ( grunt ) {
 		'clean:tmp', 'demos'
 	] );
 
-	grunt.registerTask( 'git-build', [ 'enable-source-maps', 'pre-git-build', 'build' ] );
+	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 
 	// Quickly build a no-frills vector-only ltr-only version for development
 	grunt.registerTask( 'quick-build', [
