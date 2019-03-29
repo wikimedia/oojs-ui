@@ -46,6 +46,9 @@ OO.initClass( OO.ui.mixin.TitledElement );
  * The title text, a function that returns text, or `null` for no title. The value of the static
  * property is overridden if the #title config option is used.
  *
+ * If the element has a default title (e.g. `<input type=file>`), `null` will allow that title to be
+ * shown. Use empty string to suppress it.
+ *
  * @static
  * @inheritable
  * @property {string|Function|null}
@@ -70,9 +73,7 @@ OO.ui.mixin.TitledElement.prototype.setTitledElement = function ( $titled ) {
 	}
 
 	this.$titled = $titled;
-	if ( this.title ) {
-		this.updateTitle();
-	}
+	this.updateTitle();
 };
 
 /**
@@ -85,7 +86,7 @@ OO.ui.mixin.TitledElement.prototype.setTitledElement = function ( $titled ) {
  */
 OO.ui.mixin.TitledElement.prototype.setTitle = function ( title ) {
 	title = typeof title === 'function' ? OO.ui.resolveMsg( title ) : title;
-	title = ( typeof title === 'string' && title.length ) ? title : null;
+	title = typeof title === 'string' ? title : null;
 
 	if ( this.title !== title ) {
 		this.title = title;

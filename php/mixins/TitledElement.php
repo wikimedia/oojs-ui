@@ -44,12 +44,11 @@ trait TitledElement {
 	/**
 	 * Set title.
 	 *
-	 * @param string|null $title Title text or null for no title
+	 * @param string|null $title Title text or null for browser default title, which is no title for
+	 *   most elements.
 	 * @return $this
 	 */
 	public function setTitle( $title ) {
-		$title = $title !== '' ? $title : null;
-
 		if ( $this->title !== $title ) {
 			$this->title = $title;
 			$this->updateTitle();

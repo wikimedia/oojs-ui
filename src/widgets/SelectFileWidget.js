@@ -101,9 +101,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 			// Prevents dropTarget to get clicked which calls
 			// a click on this input
 			e.stopPropagation();
-		} )
-		// Set empty title so that browser default tooltips like "No file chosen" don't appear.
-		.attr( 'title', '' );
+		} );
 
 	this.$element.addClass( 'oo-ui-selectFileWidget' );
 
