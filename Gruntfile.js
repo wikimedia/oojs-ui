@@ -734,7 +734,7 @@ module.exports = function ( grunt ) {
 	// Quickly build a no-frills vector-only ltr-only version for development
 	grunt.registerTask( 'quick-build', [
 		'pre-git-build', 'clean:build', 'fileExists', 'tyops',
-		'concat:js',
+		'build-code',
 		'colorizeSvg', 'set-graphics:vector', 'less', 'concat:css',
 		'copy:imagesCommon', 'copy:imagesThemes',
 		'build-i18n', 'concat:omnibus', 'copy:demos', 'copy:fastcomposerdemos',
