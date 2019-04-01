@@ -54,7 +54,7 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 		) {
 			// … use white icon / indicator, regardless of other flags
 			variants.invert = true;
-		} else if ( !isFramed && element.isDisabled() ) {
+		} else if ( !isFramed && element.isDisabled() && !element.hasFlag( 'invert' ) ) {
 			// Frameless disabled button, always use black icon / indicator regardless of
 			// other flags.
 			variants.invert = false;
@@ -78,6 +78,7 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 				);
 
 			variants.destructive = element.hasFlag( 'destructive' );
+			variants.invert = element.hasFlag( 'invert' );
 			variants.error = element.hasFlag( 'error' );
 			variants.warning = element.hasFlag( 'warning' );
 			variants.success = element.hasFlag( 'success' );
