@@ -511,17 +511,16 @@
 	width: 100%;
 	max-width: @max-width-input;
 
-	&-php {
-		border-right: @border-base;
-		border-radius: @border-radius-base;
-		overflow-x: hidden;
-	}
-
 	select {
-		// Remove user agent styles
+		// Remove user agent styles.
 		-webkit-appearance: none;
 		-moz-appearance: none;
+		// Support Firefox <= 34: Anything apart from `transparent` mixes up `option` sizes.
+		background-color: transparent;
+		background-position: right @padding-horizontal-base center;
 		.oo-ui-box-sizing( border-box );
+		// Support Firefox <= 34: `height` needed in addition to adding, otherwise oversized.
+		height: @size-base;
 		border: @border-base;
 		border-radius: @border-radius-base;
 		padding: @padding-base;
@@ -529,24 +528,22 @@
 		font-family: inherit;
 		vertical-align: middle;
 
-		// Support IE 10-11: Hide the default arrow
+		// Support IE 10-11: Hide the default arrow.
 		&::-ms-expand {
 			display: none;
 		}
 
-		// Add custom dropdown arrow
-		// Support: Everything besides IE 6-8
-		// Support: Firefox 57 - it can't parse `rule[ attr ]` and the LESS compiler doesn't
-		// strip whitespace inside the :not() (T180138)
-		&:not( [no-ie] ) { // stylelint-disable-line selector-attribute-brackets-space-inside
-			background-position: right 1.75em center;
-			width: e( 'calc( 100% + 1em )' );
-			height: @size-base;
-			padding: 0 0 0 @padding-horizontal-base;
+		// Support IE 9: Undo the custom arrow.
+		@media screen and ( min-width: 0\0 ) {
+			select {
+				background-image: none\9;
+				padding: 5px\9;
+			}
 		}
 	}
 
 	option {
+		background-color: transparent;
 		font-size: inherit;
 		font-family: inherit;
 		height: 1.5em;
@@ -554,17 +551,23 @@
 	}
 
 	&.oo-ui-widget-enabled {
+		background-color: @background-color-framed;
+		.oo-ui-transition(
+			background-color @transition-base
+		);
+
+		&:hover {
+			background-color: @background-color-framed--hover;
+		}
+
 		select {
-			background-color: @background-color-framed;
 			color: @color-base;
 			.oo-ui-transition(
-				background-color @transition-base,
 				border-color @transition-base,
 				box-shadow @transition-base
 			);
 
 			&:hover {
-				background-color: @background-color-framed--hover;
 				color: @color-base--hover;
 				border-color: @border-color-base--hover;
 			}
@@ -583,8 +586,9 @@
 	}
 
 	&.oo-ui-widget-disabled {
+		background-color: @background-color-base--disabled;
+
 		select {
-			background-color: @background-color-base--disabled;
 			color: @color-base--disabled;
 			border-color: @border-color-base--disabled;
 		}
