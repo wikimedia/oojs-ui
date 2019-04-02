@@ -132,11 +132,12 @@
 @padding-horizontal-taboption-label: 5 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-tagitem: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-horizontal-toolbar-action-buttons: 16 / @ooui-font-size-browser / @ooui-font-size-base; // aligned relatively to `@padding-horizontal-base` but for toolbar button height
-@padding-vertical-base: 8 / @ooui-font-size-browser / @ooui-font-size-base;
+// Must be < `8` as it cuts off scripts.
+@padding-vertical-base: 6 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-vertical-label: 4 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-icon-indicator: 30 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-vertical-tool-label: 14 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-vertical-tool-label: 12 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-icon: @size-icon;
 @padding-start-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.03125em`≈`26px`; @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base;
 @padding-start-fieldset-header-iconized: unit( 26 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ), @ooui-unit );
@@ -169,11 +170,10 @@
 @font-size-fieldset-header: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
+@line-height-base: unit( 18 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit ); // equals `18px` at base `font-size: 14px;
 @line-height-message: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `20px` at base `font-size: 14px`
 @line-height-label: 20 / @ooui-font-size-browser / @ooui-font-size-base;
 @line-height-tagitem-label: unit( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small, @ooui-unit ); // Push label down by 1 px for vertical centering.
-@line-height-widget-multiline: 1.286; // equals `18px` at base `font-size: 14px;
-@line-height-widget-singleline: unit( 14 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `1`≈`14px`
 @line-height-widget-decoratedoption: unit( 16 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit ); // equals `1.14286em`≈`16px`; Firefox needs a value, Chrome the unit.
 
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
