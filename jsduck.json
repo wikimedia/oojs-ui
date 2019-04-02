@@ -12,7 +12,7 @@
 	"--processes": "0",
 	"--warnings-exit-nonzero": true,
 	"--builtin-classes": true,
-	"--external": "HTMLDocument,Window,MouseEvent,KeyboardEvent,File",
+	"--external": "HTMLDocument,Window,MouseEvent,KeyboardEvent,File,FileList",
 	"--warnings": ["-nodoc(class,public)"],
 	"--": [
 		"jsduck.external.js",
