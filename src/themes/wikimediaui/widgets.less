@@ -1755,7 +1755,14 @@
 			}
 		}
 
-		> .oo-ui-iconElement-icon,
+		> .oo-ui-iconElement-icon {
+			opacity: @opacity-icon-accessory;
+		}
+
+		// Indicators, when in TextInputWidget variants visible by default,
+		// are vast majority limited to 'required' indicator.
+		// Applying higher opacity helps scanning the form for most important
+		// form fields.
 		> .oo-ui-indicatorElement-indicator {
 			opacity: @opacity-icon-base;
 		}
