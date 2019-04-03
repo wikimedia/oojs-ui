@@ -365,33 +365,6 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			]
 		),
 		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [ 'type' => 'search' ] ),
-			[
-				'label' => "TextInputWidget (type=search)",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\SearchInputWidget(),
-			[
-				'label' => "SearchInputWidget",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\TextInputWidget( [
-				'value' => 'Access key: S',
-				'accessKey' => 's'
-			] ),
-			[
-				'label' => "TextInputWidget (with access key)",
-				'align' => 'top',
-				'help' => new OOUI\HtmlSnippet( 'Notice: Using access key might ' .
-					'<a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank"' .
-					' rel="noopener">negatively impact screen readers</a>!' )
-			]
-		),
-		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget( [
 				'value' => 'Readonly',
 				'readOnly' => true
@@ -409,6 +382,19 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			[
 				'label' => "TextInputWidget (disabled)",
 				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
+				'value' => 'Access key: S',
+				'accessKey' => 's'
+			] ),
+			[
+				'label' => "TextInputWidget (with access key)",
+				'align' => 'top',
+				'help' => new OOUI\HtmlSnippet( 'Notice: Using access key might ' .
+					'<a href="http://webaim.org/techniques/keyboard/accesskey" target="_blank"' .
+					' rel="noopener">negatively impact screen readers</a>!' )
 			]
 		),
 		new OOUI\FieldLayout(
@@ -438,6 +424,13 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			] ),
 			[
 				'label' => "MultilineTextInputWidget (icon, indicator)",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\SearchInputWidget(),
+			[
+				'label' => "SearchInputWidget (type=search)",
 				'align' => 'top'
 			]
 		),
