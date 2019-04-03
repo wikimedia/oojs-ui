@@ -140,11 +140,13 @@
 @padding-start-icon: @size-icon;
 @padding-start-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.03125em`≈`26px`; @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base;
 @padding-start-fieldset-header-iconized: unit( 26 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ), @ooui-unit );
+@padding-start-messages: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-indicator-only: @padding-start-icon-only;
 @padding-start-indicator-plus: 32 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-frameless-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-frameless-icon-plus: @padding-start-frameless-icon-only;
-@padding-start-fieldlayout-label: @padding-horizontal-input-text;
+// Equals ≈`6px` is not aligned to M101 design guideline, as checkbox and radio sizes aren't either.
+@padding-start-fieldlayout-label: 6 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-input-text-icon-label: 37 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-menu-icon-label: 37 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-tool: 37 / @ooui-font-size-browser / @ooui-font-size-base;
@@ -184,7 +186,6 @@
 @border-color-input-binary: @border-color-base--active;
 @border-color-input-binary--active: @color-progressive--active;
 @border-color-input-binary--checked: @color-progressive;
-@padding-start-input-binary-label: 6 / @ooui-font-size-browser / @ooui-font-size-base;
 @box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
 @border-width-radio--checked: 6 / @ooui-font-size-browser / @ooui-font-size-base;
 
