@@ -442,7 +442,7 @@
 		}
 
 		.oo-ui-labelElement-label {
-			line-height: @line-height-widget-singleline;
+			line-height: @line-height-base;
 		}
 	}
 
@@ -965,7 +965,7 @@
 	&-head {
 		> .oo-ui-labelElement-label {
 			margin: @margin-top-popup @padding-start-input-text-icon-label @padding-vertical-base @padding-horizontal-base;
-			line-height: @line-height-widget-singleline;
+			line-height: @line-height-base;
 		}
 
 		> .oo-ui-buttonWidget {
@@ -1254,7 +1254,7 @@
 
 	// Overwrite `.oo-ui-labelElement .oo-ui-labelElement-label`
 	&.oo-ui-labelElement &-label {
-		line-height: @line-height-widget-singleline;
+		line-height: @line-height-base;
 	}
 }
 
@@ -1345,7 +1345,7 @@
 	.oo-ui-labelElement-label {
 		border-bottom: ( 2 * @border-width-base ) @border-style-base transparent;
 		padding: @padding-vertical-base @padding-horizontal-taboption-label ( @padding-vertical-base - 2 * @size-modifier-border ); // Provide additional `padding` on label itself for special tab focus
-		line-height: @line-height-widget-singleline;
+		line-height: @line-height-base;
 		.oo-ui-transition( border-color @transition-base );
 	}
 
@@ -1515,7 +1515,7 @@
 				padding: @padding-vertical-base 0 @padding-vertical-base @start-tagmultiselect-input;
 				font-family: inherit;
 				font-size: inherit;
-				line-height: @line-height-widget-singleline;
+				line-height: @line-height-base;
 				vertical-align: top;
 
 				.mw-placeholder();
@@ -1641,17 +1641,13 @@
 		padding: @padding-input-text;
 		font-size: inherit;
 		font-family: inherit;
+		line-height: @line-height-base;
 	}
 
 	input {
 		// `input` elements `line-height` is widely ignored by browsers,
 		// hence relying on `height`, see T216070
 		height: @size-base;
-		line-height: @line-height-widget-singleline;
-	}
-
-	textarea {
-		line-height: @line-height-widget-multiline;
 	}
 
 	.oo-ui-pendingElement-pending {
@@ -1676,7 +1672,7 @@
 		color: @color-base--subtle;
 		margin-top: @border-width-base; // Address `border` on `input`
 		padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-base @padding-horizontal-input-text;
-		line-height: @line-height-widget-singleline;
+		line-height: @line-height-base;
 	}
 
 	&.oo-ui-indicatorElement {
