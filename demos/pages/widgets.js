@@ -867,9 +867,9 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.SearchInputWidget( { disabled: true, value: 'test' } ),
+					new OO.ui.SearchInputWidget( { disabled: true, value: 'Tìm kiếm bị vô hiệu hóa' } ),
 					{
-						label: 'SearchInputWidget (disabled, filled)',
+						label: 'SearchInputWidget (disabled, filled, Vietnamese value “Disabled search”)',
 						align: 'top'
 					}
 				),
@@ -1575,16 +1575,17 @@ Demo.static.pages.widgets = function ( demo ) {
 							{ data: 'ii', label: 'Sichuan Yi' },
 							{ data: 'bcc', label: 'Southern Balochi' },
 							{ data: 'shi', label: 'Tachelhit' },
+							{ data: 'vi', label: 'Tiếng Việt' },
 							{ data: 'th', label: 'Thai' },
 							{ data: 'tr', label: 'Turkish' },
 							{ data: 'fiu-vro', label: 'Võro' },
 							{ data: 'vls', label: 'West Flemish' },
 							{ data: 'zea', label: 'Zeelandic' }
 						],
-						value: 'en'
+						value: 'vi'
 					} ),
 					{
-						label: 'DropdownInputWidget (long)',
+						label: 'DropdownInputWidget (long, Vietnamese default `value: \'vi\'`)',
 						align: 'top'
 					}
 				)
