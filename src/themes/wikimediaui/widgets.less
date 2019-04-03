@@ -281,6 +281,10 @@
 .theme-oo-ui-checkboxMultioptionWidget() {
 	padding: @padding-vertical-label 0;
 
+	&:first-child {
+		margin-top: -@padding-vertical-label;
+	}
+
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
 		padding-left: @padding-start-input-binary-label;
 	}
@@ -294,7 +298,19 @@
 
 .theme-oo-ui-checkboxMultiselectInputWidget() {
 	.oo-ui-fieldLayout {
-		margin-top: @padding-vertical-label; // `@padding-vertical-label` used as `margin-top` here
+		// Override `.oo-ui-fieldLayout.oo-ui-labelElement`.
+		margin-top: 0;
+		// Equal to CheckboxMultiOptionWidget and to prevent collapsing `margin`s.
+		padding: @padding-vertical-label 0;
+
+		&:first-child {
+			// `@padding-vertical-label` used as negative `margin-top` here.
+			margin-top: -@padding-vertical-label;
+		}
+
+		&.oo-ui-labelElement.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
+			padding-left: @padding-start-input-binary-label;
+		}
 	}
 }
 
@@ -1163,6 +1179,10 @@
 .theme-oo-ui-radioOptionWidget() {
 	padding: @padding-vertical-label 0;
 
+	&:first-child {
+		margin-top: -@padding-vertical-label;
+	}
+
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
 		padding-left: @padding-start-input-binary-label;
 	}
@@ -1184,7 +1204,19 @@
 
 .theme-oo-ui-radioSelectInputWidget() {
 	.oo-ui-fieldLayout {
-		margin-top: @padding-vertical-label; // `@padding-vertical-label` used as `margin-top` here
+		// Override `.oo-ui-fieldLayout.oo-ui-labelElement`.
+		margin-top: 0;
+		// Equal to RadioOptionWidget and to prevent collapsing `margin`s.
+		padding: @padding-vertical-label 0;
+
+		&:first-child {
+			// `@padding-vertical-label` used as negative `margin-top` here.
+			margin-top: -@padding-vertical-label;
+		}
+
+		&.oo-ui-labelElement.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
+			padding-left: @padding-start-input-binary-label;
+		}
 	}
 }
 
