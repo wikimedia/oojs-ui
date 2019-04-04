@@ -44,14 +44,14 @@
  *         contentPanel: contentPanel
  *     } );
  *     menuLayout.$menu.append(
- *         menuPanel.$element.append( '<b>Menu panel</b>', select.$element );
+ *         menuPanel.$element.append( '<b>Menu panel</b>', select.$element )
  *     );
  *     menuLayout.$content.append(
  *         contentPanel.$element.append(
  *             '<b>Content panel</b>',
  *             '<p>Note that the menu is positioned relative to the content panel: ' +
  *             'top, bottom, after, before.</p>'
- *          );
+ *          )
  *     );
  *     $( document.body ).append( menuLayout.$element );
  *
