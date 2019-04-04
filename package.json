@@ -54,7 +54,7 @@
     "grunt-tyops": "0.1.0",
     "imagemin": "6.1.0",
     "imagemin-zopfli": "6.0.0",
-    "javascript-stringify": "2.0.0",
+    "javascript-stringify": "1.6.0",
     "karma": "3.1.4",
     "karma-chrome-launcher": "2.2.0",
     "karma-coverage": "1.1.2",
