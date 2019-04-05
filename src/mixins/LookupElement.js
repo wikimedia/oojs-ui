@@ -31,6 +31,9 @@
  * @cfg {boolean} [highlightFirst=true] Whether the first lookup result should be highlighted
  *  (so, that the user can take it over into the input with simply pressing return) automatically
  *  or not.
+ * @cfg {boolean} [showSuggestionsOnFocus=true] Show suggestions when focusing the input. If this
+ *  is set to false, suggestions will still be shown on a mousedown triggered focus. This matches
+ *  browser autocomplete behavior.
  */
 OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	// Configuration initialization
@@ -53,6 +56,7 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	this.lookupsDisabled = false;
 	this.lookupInputFocused = false;
 	this.lookupHighlightFirstItem = config.highlightFirst;
+	this.showSuggestionsOnFocus = config.showSuggestionsOnFocus !== false;
 
 	// Events
 	this.$input.on( {
@@ -93,7 +97,9 @@ OO.mixinClass( OO.ui.mixin.LookupElement, OO.ui.mixin.RequestManager );
  */
 OO.ui.mixin.LookupElement.prototype.onLookupInputFocus = function () {
 	this.lookupInputFocused = true;
-	this.populateLookupMenu();
+	if ( this.showSuggestionsOnFocus ) {
+		this.populateLookupMenu();
+	}
 };
 
 /**
@@ -114,11 +120,17 @@ OO.ui.mixin.LookupElement.prototype.onLookupInputBlur = function () {
  * @param {jQuery.Event} e Input mouse down event
  */
 OO.ui.mixin.LookupElement.prototype.onLookupInputMouseDown = function () {
-	// Only open the menu if the input was already focused.
-	// This way we allow the user to open the menu again after closing it with Escape (esc)
-	// by clicking in the input. Opening (and populating) the menu when initially
-	// clicking into the input is handled by the focus handler.
-	if ( this.lookupInputFocused && !this.lookupMenu.isVisible() ) {
+	if (
+		!this.lookupMenu.isVisible() &&
+		(
+			// Open the menu if the input was already focused.
+			// This way we allow the user to open the menu again after closing it with Escape (esc)
+			// by clicking in the input.
+			this.lookupInputFocused ||
+			// If showSuggestionsOnFocus is disabled, still open the menu on mousedown.
+			!this.showSuggestionsOnFocus
+		)
+	) {
 		this.populateLookupMenu();
 	}
 };
