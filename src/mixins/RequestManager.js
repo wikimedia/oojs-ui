@@ -6,11 +6,15 @@
  * @abstract
  *
  * @constructor
+ * @param {Object} [config] Configuration options
+ * @cfg {boolean} [showPendingRequest=true] Show pending state while request data is being fetched.
+ *  Requires widget to have also mixed in {@link OO.ui.mixin.PendingElement}.
  */
-OO.ui.mixin.RequestManager = function OoUiMixinRequestManager() {
+OO.ui.mixin.RequestManager = function OoUiMixinRequestManager( config ) {
 	this.requestCache = {};
 	this.requestQuery = null;
 	this.requestRequest = null;
+	this.showPendingRequest = !!this.pushPending && config.showPendingRequest !== false;
 };
 
 /* Setup */
@@ -34,7 +38,7 @@ OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 	if ( Object.prototype.hasOwnProperty.call( this.requestCache, value ) ) {
 		deferred.resolve( this.requestCache[ value ] );
 	} else {
-		if ( this.pushPending ) {
+		if ( this.showPendingRequest ) {
 			this.pushPending();
 		}
 		this.requestQuery = value;
@@ -47,7 +51,7 @@ OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 				// being aborted, or at least eventually. It would be nice if we could popPending()
 				// at abort time, but only if we knew that we hadn't already called popPending()
 				// for that request.
-				if ( widget.popPending ) {
+				if ( widget.showPendingRequest ) {
 					widget.popPending();
 				}
 			} )
