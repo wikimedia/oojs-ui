@@ -609,6 +609,15 @@
 		box-shadow: 0 0.15em 0.5em 0 rgba( 0, 0, 0, 0.2 );
 	}
 
+	// Support: Progressively enhance for browser's which render `filter`.
+	@supports ( filter: drop-shadow( 0 0 0 ) ) {
+		filter: @filter-drop-shadow-menu;
+
+		&-popup {
+			box-shadow: none;
+		}
+	}
+
 	&-anchored-top {
 		margin-top: @size-anchor;
 

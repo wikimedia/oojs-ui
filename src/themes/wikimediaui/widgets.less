@@ -866,6 +866,15 @@
 		box-shadow: @box-shadow-menu;
 	}
 
+	// Support: Progressively enhance for browser's which render `filter`.
+	@supports ( filter: drop-shadow( 0 0 0 ) ) {
+		filter: @filter-drop-shadow-menu;
+
+		&-popup {
+			box-shadow: none;
+		}
+	}
+
 	&-anchored-top {
 		margin-top: @size-anchor;
 
