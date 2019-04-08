@@ -186,8 +186,16 @@
 			left: 0;
 			width: @size-input-binary;
 			height: @size-input-binary;
-			border: @border-input-binary;
+			border-color: @border-color-input-binary;
+			border-style: @border-style-base;
 			border-radius: @border-radius-base;
+			// Support IE 8: // Support IE 8: Don't show border around native widget, see T220041.
+			border-width: 0;
+
+			// Support all other browsers.
+			:root & {
+				border-width: @border-width-base;
+			}
 		}
 
 		&:checked {
@@ -1091,8 +1099,16 @@
 			.oo-ui-box-sizing( border-box );
 			width: @size-input-binary;
 			height: @size-input-binary;
-			border: @border-input-binary;
+			border-color: @border-color-input-binary;
+			border-style: @border-style-base;
 			border-radius: 100%;
+			// Support IE 8: Don't show border around native widget, see T220041.
+			border-width: 0;
+
+			// Support all other browsers.
+			:root & {
+				border-width: @border-width-base;
+			}
 
 			// Needed for `:focus` state's inner white circle
 			&:before {
