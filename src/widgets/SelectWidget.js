@@ -339,13 +339,15 @@ OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 			case OO.ui.Keys.UP:
 			case OO.ui.Keys.LEFT:
 				this.clearKeyPressBuffer();
-				nextItem = currentItem ? this.findRelativeSelectableItem( currentItem, -1 ) : firstItem;
+				nextItem = currentItem ?
+					this.findRelativeSelectableItem( currentItem, -1 ) : firstItem;
 				handled = true;
 				break;
 			case OO.ui.Keys.DOWN:
 			case OO.ui.Keys.RIGHT:
 				this.clearKeyPressBuffer();
-				nextItem = currentItem ? this.findRelativeSelectableItem( currentItem, 1 ) : firstItem;
+				nextItem = currentItem ?
+					this.findRelativeSelectableItem( currentItem, 1 ) : firstItem;
 				handled = true;
 				break;
 			case OO.ui.Keys.ESCAPE:

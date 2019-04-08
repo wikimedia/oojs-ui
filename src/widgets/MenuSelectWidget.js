@@ -443,8 +443,8 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			selectedItem = this.findSelectedItem();
 			if ( !this.multiselect && selectedItem ) {
 				// TODO: Verify if this is even needed; This is already done on highlight changes
-				// in SelectWidget#highlightItem, so we should just need to highlight the item we need to
-				// highlight here and not bother with attr or checking selections.
+				// in SelectWidget#highlightItem, so we should just need to highlight the item
+				// we need to highlight here and not bother with attr or checking selections.
 				this.$focusOwner.attr( 'aria-activedescendant', selectedItem.getElementId() );
 				selectedItem.scrollElementIntoView( { duration: 0 } );
 			}
