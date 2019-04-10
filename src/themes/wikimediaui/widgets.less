@@ -198,7 +198,7 @@
 			}
 		}
 
-		&:checked {
+		&:checked:not( :indeterminate ) {
 			& + span {
 				// This must have two values to match `background-size: 0 0` above,
 				// otherwise the transition does not work (at least in Chrome).
@@ -207,12 +207,6 @@
 		}
 
 		&:indeterminate {
-			& + span {
-				background-image: none;
-				background-color: #36c;
-				border-color: #36c;
-			}
-
 			& + span:before {
 				content: ' ';
 				position: absolute;
@@ -260,7 +254,8 @@
 			box-shadow: @box-shadow-input-binary--active;
 		}
 
-		&:checked {
+		&:checked,
+		&:indeterminate {
 			& + span {
 				background-color: @background-color-input-binary--checked;
 				border-color: @border-color-input-binary--checked;
