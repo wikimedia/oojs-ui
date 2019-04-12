@@ -887,7 +887,9 @@
 			&:before {
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor;
-				border-bottom-color: @border-color-base;
+				// The subtracting-triangles method results in a line that
+				// is ~0.7px wide, so make it slightly darker to compensate.
+				border-bottom-color: darken( @border-color-base, 14% );
 				border-width: @size-anchor + 1px;
 			}
 
