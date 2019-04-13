@@ -1,7 +1,8 @@
 Demo.static.pages.toolbars = function ( demo ) {
-	var i, toolGroups, actionButton, actionButtonDelete, actionButtonDisabled, actionGroup,
-		publishButton, AlertTool, PopupTool, ToolGroupTool,
+	var i, toolGroups, actionButton, actionButtonCancel, actionButtonDisabled, actionGroup,
+		AlertTool, PopupTool, ToolGroupTool,
 		setDisabled = function () { this.setDisabled( true ); },
+		setInactive = function () { this.setActive( false ); },
 		$demo = demo.$element,
 		$containers = $(),
 		toolFactories = [],
@@ -41,7 +42,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	}
 
 	// eslint-disable-next-line max-len
-	function createTool( toolbar, group, name, icon, title, init, onSelect, displayBothIconAndLabel ) {
+	function createTool( toolbar, group, name, icon, title, flags, init, onSelect, displayBothIconAndLabel ) {
 		var Tool = function () {
 			Tool.parent.apply( this, arguments );
 			this.toggled = false;
@@ -67,6 +68,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		Tool.static.group = group;
 		Tool.static.icon = icon;
 		Tool.static.title = title;
+		Tool.static.flags = flags;
 		Tool.static.displayBothIconAndLabel = !!displayBothIconAndLabel;
 		return Tool;
 	}
@@ -245,7 +247,21 @@ Demo.static.pages.toolbars = function ( demo ) {
 			type: 'list',
 			icon: 'edit',
 			include: [ { group: 'editorSwitchTools' } ]
+		},
+		{
+			name: 'publish',
+			type: 'bar',
+			include: [ { group: 'publish' } ]
 		}
+		// TODO: Show a flagged list tool in another demo,
+		// or when VE adds one.
+		// {
+		// name: 'list',
+		// type: 'list',
+		// icon: 'ellipsis',
+		// flags: [ 'primary', 'progressive' ],
+		// include: [ { group: 'listTools' } ]
+		// }
 	] );
 	// Word processor toolbar
 	toolbars[ 3 ].setup( [
@@ -405,14 +421,12 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolbars[ 1 ].$actions.append( actionButton.$element, actionButtonDisabled.$element );
 
 	for ( i = 3; i <= 5; i += 2 ) {
-		publishButton = new OO.ui.ButtonWidget( { label: 'Publish changes…', flags: [ 'progressive', 'primary' ] } );
-		toolbars[ i ].$actions.append( toolbars[ i - 1 ].$element, publishButton.$element );
+		toolbars[ i ].$actions.append( toolbars[ i - 1 ].$element );
 	}
 
-	actionButtonDelete = new OO.ui.ButtonWidget( { label: 'Delete', flags: [ 'destructive' ] } );
-	publishButton = new OO.ui.ButtonWidget( { label: 'Publish changes…', flags: [ 'progressive', 'primary' ] } );
+	actionButtonCancel = new OO.ui.ButtonWidget( { label: 'Cancel', flags: [ 'destructive' ] } );
 	actionGroup = new OO.ui.ButtonGroupWidget( {
-		items: [ actionButtonDelete, publishButton, toolbars[ 6 ].items[ 0 ] ]
+		items: [ actionButtonCancel, toolbars[ 6 ].items[ 0 ] ]
 	} );
 	toolbars[ 7 ].$actions.append( actionGroup.$element );
 
@@ -425,7 +439,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		// Parameters like in createTool() function above (starting with 'name')
 		barTools: [
 			[ 'barTool', 'image', 'Basic tool in bar' ],
-			[ 'disabledBarTool', 'image', 'Basic tool in bar disabled', setDisabled ]
+			[ 'disabledBarTool', 'image', 'Basic tool in bar disabled', null, setDisabled ]
 		],
 
 		disabledBarTools: [
@@ -433,11 +447,17 @@ Demo.static.pages.toolbars = function ( demo ) {
 		],
 
 		cite: [
-			[ 'citeTool', 'quotes', 'Cite', null, null, true ]
+			[ 'citeTool', 'quotes', 'Cite', null, null, null, true ]
+		],
+
+		publish: [
+			// TODO: Show a destructive tool in another demo
+			// [ 'cancel', null, 'Cancel', [ 'destructive' ], null, setInactive, true ],
+			[ 'publish', null, 'Publish changes…', [ 'primary', 'progressive' ], null, setInactive, true ]
 		],
 
 		citeDisabled: [
-			[ 'citeToolDisabled', 'quotes', 'Cite', setDisabled, null, true ]
+			[ 'citeToolDisabled', 'quotes', 'Cite', null, setDisabled, null, true ]
 		],
 
 		editorSwitchTools: [
@@ -484,7 +504,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		listTools: [
 			[ 'listTool', 'image', 'First basic tool in list' ],
 			[ 'listTool1', 'image', 'Basic tool in list' ],
-			[ 'listTool3', 'image', 'Basic disabled tool in list', setDisabled ],
+			[ 'listTool3', 'image', 'Basic disabled tool in list', null, setDisabled ],
 			[ 'listTool6', 'image', 'A final tool' ]
 		],
 
@@ -499,13 +519,13 @@ Demo.static.pages.toolbars = function ( demo ) {
 		],
 
 		autoDisableListTools: [
-			[ 'autoDisableListTool', 'image', 'Click to disable this tool', null, setDisabled ]
+			[ 'autoDisableListTool', 'image', 'Click to disable this tool', null, null, setDisabled ]
 		],
 
 		menuTools: [
 			[ 'menuTool', 'image', 'Basic tool' ],
 			[ 'iconlessMenuTool', null, 'Tool without an icon' ],
-			[ 'disabledMenuTool', 'image', 'Basic tool disabled', setDisabled ]
+			[ 'disabledMenuTool', 'image', 'Basic tool disabled', null, setDisabled ]
 		],
 
 		disabledMenuTools: [
@@ -519,7 +539,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 			[ 'advanced', 'advanced', 'Advanced settings' ],
 			[ 'textLanguage', 'language', 'Languages' ],
 			[ 'templatesUsed', 'puzzle', 'Templates used' ],
-			[ 'codeMirror', 'highlight', 'Syntax highlighting', setDisabled ],
+			[ 'codeMirror', 'highlight', 'Syntax highlighting', null, setDisabled ],
 			[ 'changeDirectionality', 'textDirRTL', 'View as right-to-left' ],
 			[ 'find', 'articleSearch', 'Find and replace' ]
 		],
@@ -551,7 +571,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 			[ 'language', 'language', 'Language' ],
 			[ 'big', 'bigger', 'Big' ],
 			[ 'small', 'smaller', 'Small' ],
-			[ 'clear', 'cancel', 'Clear Styling', setDisabled ]
+			[ 'clear', 'cancel', 'Clear Styling', null, setDisabled ]
 		],
 
 		unusedStuff: [
@@ -582,6 +602,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 	for ( i = 3; i <= 5; i += 2 ) {
 		createToolGroup( i - 1, 'overflowTools' );
 		createToolGroup( i - 1, 'editorSwitchTools' );
+		createToolGroup( i - 1, 'publish' );
+		createToolGroup( i - 1, 'listTools' );
 		createToolGroup( i, 'cite' );
 		createToolGroup( i, 'formatTools' );
 		createToolGroup( i, 'insertTools' );
@@ -622,10 +644,10 @@ Demo.static.pages.toolbars = function ( demo ) {
 			.attr( 'role', 'main' )
 			.append(
 				$containers.eq( 0 ).append( '<div class="demo-toolbars-contents">Toolbar</div>' ),
-				$containers.eq( 1 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons</div>' ),
+				$containers.eq( 1 ).append( '<div class="demo-toolbars-contents">Toolbar with buttons in actions (deprecated)</div>' ),
 				$containers.eq( 2 ).append( '<div class="demo-toolbars-contents">Word processor toolbar</div>' ),
 				$containers.eq( 3 ).prepend( '<div class="demo-toolbars-contents">Word processor toolbar set to <code>position: &#39;bottom&#39;</code></div>' ),
-				$containers.eq( 4 ).append( '<div class="demo-toolbars-contents">Toolbar with action buttons in a group</div>' )
+				$containers.eq( 4 ).append( '<div class="demo-toolbars-contents">Toolbar with buttonGroup in actions (deprecated)</div>' )
 			)
 	);
 	for ( i = 0; i < toolbars.length; i++ ) {

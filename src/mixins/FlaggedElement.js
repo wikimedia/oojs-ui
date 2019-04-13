@@ -54,9 +54,13 @@ OO.ui.mixin.FlaggedElement = function OoUiMixinFlaggedElement( config ) {
 	this.$flagged = null;
 
 	// Initialization
-	this.setFlags( config.flags );
+	this.setFlags( config.flags || this.constructor.static.flags );
 	this.setFlaggedElement( config.$flagged || this.$element );
 };
+
+/* Setup */
+
+OO.initClass( OO.ui.mixin.FlaggedElement );
 
 /* Events */
 
@@ -69,6 +73,17 @@ OO.ui.mixin.FlaggedElement = function OoUiMixinFlaggedElement( config ) {
  * @param {Object.<string,boolean>} changes Object keyed by flag name. A Boolean `true` indicates
  * that the flag was added, `false` that the flag was removed.
  */
+
+/* Static Properties */
+
+/**
+ * Initial value to pass to setFlags if no value is provided in config.
+ *
+ * @static
+ * @inheritable
+ * @property {string|string[]|Object.<string, boolean>}
+ */
+OO.ui.mixin.FlaggedElement.static.flags = null;
 
 /* Methods */
 
