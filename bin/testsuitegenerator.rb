@@ -203,7 +203,7 @@ else
 
 		config_sources = find_config_sources(classes, class_name)
 			.map{|c| find_class(classes, c)[:methods].find{|m| m[:name] == '#constructor' } }
-		config = config_sources.compact.map{|c| c[:config] }.compact.inject([], :+)
+		config = config_sources.compact.map{|c| c[:config] }.compact.inject([], :+).uniq{|a| a[:name] }
 		constructor = klass[:methods].find{|m| m[:name] == '#constructor' }
 		required_config = constructor ? (constructor[:params] || []) : []
 
