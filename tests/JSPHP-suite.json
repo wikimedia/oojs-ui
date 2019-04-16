@@ -31636,36 +31636,6 @@
       {
         "class": "NumberInputWidget",
         "config": {
-          "placeholder": 0
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
           "min": "1"
         }
       },
@@ -31720,18 +31690,6 @@
       {
         "class": "NumberInputWidget",
         "config": {
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
           "type": "text"
         }
       },
@@ -31762,1306 +31720,6 @@
       {
         "class": "NumberInputWidget",
         "config": {
-          "placeholder": "0"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "maxLength": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "autocomplete": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "autocomplete": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "spellcheck": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "spellcheck": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "value": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "value": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "dir": "ltr"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "dir": "rtl"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "inputId": "input-id"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "disabled": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "disabled": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "tabIndex": -1
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "tabIndex": 0
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "tabIndex": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "tabIndex": "42"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "title": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "title": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "accessKey": "k"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "icon": "image"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "flags": "progressive"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "flags": "primary"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "readOnly": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "readOnly": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "readOnly": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "readOnly": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "readOnly": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "readOnly": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "min": "1"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "min": "3"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "min": "1"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "min": "3"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "min": "1"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "min": "3"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "max": "3"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "max": "5"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "max": "3"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "max": "5"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "max": "3"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "max": "5"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "step": "1"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "step": "1"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "step": "1"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "buttonStep": "2"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "buttonStep": "2"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "buttonStep": "2"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "pageStep": "10"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "pageStep": "10"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "pageStep": "10"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "showButtons": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "showButtons": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "showButtons": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "showButtons": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "showButtons": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "showButtons": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "type": "text"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "type": "button"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "type": "text"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "type": "button"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "type": "text"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "type": "button"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": " "
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": "0"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": " "
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": "0"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": " "
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": "0"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "maxLength": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "maxLength": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "maxLength": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "autocomplete": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "autocomplete": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "autocomplete": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "autocomplete": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "autocomplete": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "autocomplete": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "spellcheck": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "spellcheck": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "spellcheck": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "spellcheck": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "spellcheck": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "spellcheck": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "value": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "value": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "value": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "value": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "value": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "value": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "dir": "ltr"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "dir": "rtl"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "dir": "ltr"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "dir": "rtl"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "dir": "ltr"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "dir": "rtl"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "inputId": "input-id"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "inputId": "input-id"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "inputId": "input-id"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "disabled": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "disabled": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "disabled": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "disabled": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "disabled": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "disabled": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "tabIndex": -1
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "tabIndex": 0
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "tabIndex": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "tabIndex": "42"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "tabIndex": -1
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "tabIndex": 0
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "tabIndex": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "tabIndex": "42"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "tabIndex": -1
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "tabIndex": 0
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "tabIndex": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "tabIndex": "42"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "title": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "title": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "title": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "title": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "title": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "title": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "accessKey": "k"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "accessKey": "k"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "accessKey": "k"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "flags": "progressive"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 0,
-          "flags": "primary"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "flags": "progressive"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": -1,
-          "flags": "primary"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "flags": "progressive"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "placeholder": 300,
-          "flags": "primary"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "min": "1"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "min": "3"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "min": "1"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "min": "3"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "max": "3"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "max": "5"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "max": "3"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "max": "5"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "step": "1"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "step": "1"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "buttonStep": "2"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "buttonStep": "2"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "pageStep": "10"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "pageStep": "10"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "showButtons": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "showButtons": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "showButtons": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "showButtons": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "type": "text"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "type": "button"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "type": "text"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "type": "button"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "placeholder": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "placeholder": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "placeholder": " "
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
-          "placeholder": "0"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "placeholder": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "placeholder": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "placeholder": " "
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
           "placeholder": "0"
         }
       },
@@ -33080,362 +31738,150 @@
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "maxLength": 100
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "maxLength": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "required": true
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
           "required": false
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "autocomplete": true
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
           "autocomplete": false
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "autocomplete": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "autocomplete": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "spellcheck": true
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
           "spellcheck": false
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "spellcheck": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "spellcheck": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "value": ""
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
           "value": "Foo bar <b>HTML?</b>"
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "value": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "value": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "dir": "ltr"
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
           "dir": "rtl"
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "dir": "ltr"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "dir": "rtl"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "inputId": "input-id"
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "inputId": "input-id"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "disabled": true
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
           "disabled": false
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "disabled": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "disabled": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "tabIndex": -1
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
           "tabIndex": 0
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
           "tabIndex": 100
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
           "tabIndex": "42"
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "tabIndex": -1
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "tabIndex": 0
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "tabIndex": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "tabIndex": "42"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "title": ""
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
           "title": "Foo bar <b>HTML?</b>"
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "title": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "title": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "accessKey": "k"
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "accessKey": "k"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "icon": "image"
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "indicator": "down"
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": false,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": true,
           "flags": "progressive"
         }
       },
       {
         "class": "NumberInputWidget",
         "config": {
-          "readOnly": true,
-          "flags": "primary"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
-          "flags": "progressive"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "readOnly": false,
           "flags": "primary"
         }
       },
@@ -33541,34 +31987,6 @@
         "class": "NumberInputWidget",
         "config": {
           "min": "1",
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "min": "1",
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "min": "3",
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "min": "3",
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "min": "1",
           "type": "text"
         }
       },
@@ -34101,34 +32519,6 @@
         "class": "NumberInputWidget",
         "config": {
           "max": "3",
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "max": "3",
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "max": "5",
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "max": "5",
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "max": "3",
           "type": "text"
         }
       },
@@ -34619,20 +33009,6 @@
         "class": "NumberInputWidget",
         "config": {
           "step": "1",
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "step": "1",
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "step": "1",
           "type": "text"
         }
       },
@@ -34885,20 +33261,6 @@
         "class": "NumberInputWidget",
         "config": {
           "buttonStep": "2",
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "buttonStep": "2",
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "buttonStep": "2",
           "type": "text"
         }
       },
@@ -35144,20 +33506,6 @@
         "class": "NumberInputWidget",
         "config": {
           "pageStep": "10",
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "pageStep": "10",
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "pageStep": "10",
           "type": "text"
         }
       },
@@ -35383,34 +33731,6 @@
         "config": {
           "pageStep": "10",
           "flags": "primary"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "showButtons": true,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "showButtons": true,
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "showButtons": false,
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "showButtons": false,
-          "required": false
         }
       },
       {
@@ -35878,464 +34198,6 @@
       {
         "class": "NumberInputWidget",
         "config": {
-          "required": true,
-          "type": "text"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "type": "button"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "type": "text"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "type": "button"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "placeholder": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "placeholder": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "placeholder": " "
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "placeholder": "0"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "placeholder": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "placeholder": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "placeholder": " "
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "placeholder": "0"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "readOnly": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "readOnly": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "readOnly": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "readOnly": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "maxLength": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "maxLength": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "autocomplete": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "autocomplete": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "autocomplete": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "autocomplete": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "spellcheck": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "spellcheck": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "spellcheck": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "spellcheck": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "value": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "value": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "value": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "value": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "dir": "ltr"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "dir": "rtl"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "dir": "ltr"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "dir": "rtl"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "inputId": "input-id"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "inputId": "input-id"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "disabled": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "disabled": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "disabled": true
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "disabled": false
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "tabIndex": -1
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "tabIndex": 0
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "tabIndex": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "tabIndex": "42"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "tabIndex": -1
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "tabIndex": 0
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "tabIndex": 100
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "tabIndex": "42"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "title": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "title": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "title": ""
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "title": "Foo bar <b>HTML?</b>"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "accessKey": "k"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "accessKey": "k"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "icon": "image"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "indicator": "down"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "flags": "progressive"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": true,
-          "flags": "primary"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "flags": "progressive"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
-          "required": false,
-          "flags": "primary"
-        }
-      },
-      {
-        "class": "NumberInputWidget",
-        "config": {
           "type": "text",
           "placeholder": "Foo bar <b>HTML?</b>"
         }
@@ -37520,6 +35382,356 @@
         "class": "NumberInputWidget",
         "config": {
           "placeholder": "0",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "maxLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "maxLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "required": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "required": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "required": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "required": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "autocomplete": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "autocomplete": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "autocomplete": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "autocomplete": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "value": ""
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "value": ""
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
           "flags": "primary"
         }
       },
