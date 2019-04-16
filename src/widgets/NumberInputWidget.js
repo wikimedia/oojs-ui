@@ -356,18 +356,39 @@ OO.ui.NumberInputWidget.prototype.onKeyDown = function ( e ) {
 };
 
 /**
+ * Update the disabled state of the controls
+ *
+ * @chainable
+ * @protected
+ * @return {OO.ui.NumberInputWidget} The widget, for chaining
+ */
+OO.ui.NumberInputWidget.prototype.updateControlsDisabled = function () {
+	var disabled = this.isDisabled() || this.isReadOnly();
+	if ( this.minusButton ) {
+		this.minusButton.setDisabled( disabled );
+	}
+	if ( this.plusButton ) {
+		this.plusButton.setDisabled( disabled );
+	}
+	return this;
+};
+
+/**
  * @inheritdoc
  */
 OO.ui.NumberInputWidget.prototype.setDisabled = function ( disabled ) {
 	// Parent method
 	OO.ui.NumberInputWidget.parent.prototype.setDisabled.call( this, disabled );
+	this.updateControlsDisabled();
+	return this;
+};
 
-	if ( this.minusButton ) {
-		this.minusButton.setDisabled( this.isDisabled() );
-	}
-	if ( this.plusButton ) {
-		this.plusButton.setDisabled( this.isDisabled() );
-	}
-
+/**
+ * @inheritdoc
+ */
+OO.ui.NumberInputWidget.prototype.setReadOnly = function () {
+	// Parent method
+	OO.ui.NumberInputWidget.parent.prototype.setReadOnly.apply( this, arguments );
+	this.updateControlsDisabled();
 	return this;
 };
