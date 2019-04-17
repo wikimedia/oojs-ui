@@ -296,7 +296,11 @@ OO.ui.NumberInputWidget.prototype.onButtonClick = function ( dir ) {
 OO.ui.NumberInputWidget.prototype.onWheel = function ( event ) {
 	var delta = 0;
 
-	if ( !this.isDisabled() && this.$input.is( ':focus' ) ) {
+	if ( this.isDisabled() || this.isReadOnly() ) {
+		return;
+	}
+
+	if ( this.$input.is( ':focus' ) ) {
 		// Standard 'wheel' event
 		if ( event.originalEvent.deltaMode !== undefined ) {
 			this.sawWheelEvent = true;
@@ -337,21 +341,23 @@ OO.ui.NumberInputWidget.prototype.onWheel = function ( event ) {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.NumberInputWidget.prototype.onKeyDown = function ( e ) {
-	if ( !this.isDisabled() ) {
-		switch ( e.which ) {
-			case OO.ui.Keys.UP:
-				this.adjustValue( this.buttonStep );
-				return false;
-			case OO.ui.Keys.DOWN:
-				this.adjustValue( -this.buttonStep );
-				return false;
-			case OO.ui.Keys.PAGEUP:
-				this.adjustValue( this.pageStep );
-				return false;
-			case OO.ui.Keys.PAGEDOWN:
-				this.adjustValue( -this.pageStep );
-				return false;
-		}
+	if ( this.isDisabled() || this.isReadOnly() ) {
+		return;
+	}
+
+	switch ( e.which ) {
+		case OO.ui.Keys.UP:
+			this.adjustValue( this.buttonStep );
+			return false;
+		case OO.ui.Keys.DOWN:
+			this.adjustValue( -this.buttonStep );
+			return false;
+		case OO.ui.Keys.PAGEUP:
+			this.adjustValue( this.pageStep );
+			return false;
+		case OO.ui.Keys.PAGEDOWN:
+			this.adjustValue( -this.pageStep );
+			return false;
 	}
 };
 
