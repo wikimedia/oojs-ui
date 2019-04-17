@@ -75,7 +75,7 @@ OO.mixinClass( OO.ui.ToggleSwitchWidget, OO.ui.mixin.TabIndexedElement );
  *
  * @private
  * @param {jQuery.Event} e Mouse click event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.ToggleSwitchWidget.prototype.onClick = function ( e ) {
 	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
@@ -89,7 +89,7 @@ OO.ui.ToggleSwitchWidget.prototype.onClick = function ( e ) {
  *
  * @private
  * @param {jQuery.Event} e Key press event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.ToggleSwitchWidget.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {

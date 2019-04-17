@@ -109,7 +109,7 @@ OO.ui.mixin.ButtonElement.prototype.setButtonElement = function ( $button ) {
  *
  * @protected
  * @param {jQuery.Event} e Mouse down event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.mixin.ButtonElement.prototype.onMouseDown = function ( e ) {
 	if ( this.isDisabled() || e.which !== OO.ui.MouseButtons.LEFT ) {
@@ -146,7 +146,7 @@ OO.ui.mixin.ButtonElement.prototype.onDocumentMouseUp = function ( e ) {
  * @protected
  * @param {jQuery.Event} e Mouse click event
  * @fires click
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.mixin.ButtonElement.prototype.onClick = function ( e ) {
 	if ( !this.isDisabled() && e.which === OO.ui.MouseButtons.LEFT ) {
@@ -193,7 +193,7 @@ OO.ui.mixin.ButtonElement.prototype.onDocumentKeyUp = function ( e ) {
  * @protected
  * @param {jQuery.Event} e Key press event
  * @fires click
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.mixin.ButtonElement.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) ) {

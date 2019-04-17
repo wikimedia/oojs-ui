@@ -391,7 +391,7 @@ OO.ui.Toolbar.prototype.getToolGroupFactory = function () {
  *
  * @private
  * @param {jQuery.Event} e Mouse down event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
 	var $closestWidgetToEvent = $( e.target ).closest( '.oo-ui-widget' ),

@@ -291,7 +291,7 @@ OO.ui.NumberInputWidget.prototype.onButtonClick = function ( dir ) {
  *
  * @private
  * @param {jQuery.Event} event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.NumberInputWidget.prototype.onWheel = function ( event ) {
 	var delta = 0;
@@ -334,7 +334,7 @@ OO.ui.NumberInputWidget.prototype.onWheel = function ( event ) {
  *
  * @private
  * @param {jQuery.Event} e Key down event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.NumberInputWidget.prototype.onKeyDown = function ( e ) {
 	if ( !this.isDisabled() ) {

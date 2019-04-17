@@ -303,7 +303,7 @@ OO.ui.SelectFileWidget.prototype.onFileSelected = function ( e ) {
  *
  * @private
  * @param {jQuery.Event} e Key press event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.SelectFileWidget.prototype.onDropTargetClick = function () {
 	if ( !this.isDisabled() && this.$input ) {
@@ -317,7 +317,7 @@ OO.ui.SelectFileWidget.prototype.onDropTargetClick = function () {
  *
  * @private
  * @param {jQuery.Event} e Drag event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 	var itemsOrFiles,
@@ -371,7 +371,7 @@ OO.ui.SelectFileWidget.prototype.onDragLeave = function () {
  *
  * @private
  * @param {jQuery.Event} e Drop event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 	var files,

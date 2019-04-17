@@ -196,7 +196,7 @@ OO.ui.ToolGroup.prototype.onDisable = function ( isDisabled ) {
  *
  * @protected
  * @param {jQuery.Event} e Mouse down or key down event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
 	if (

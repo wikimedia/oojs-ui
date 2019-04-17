@@ -234,7 +234,7 @@ OO.ui.SelectFileInputWidget.prototype.onInfoChange = function ( value ) {
  *
  * @private
  * @param {jQuery.Event} e Key press event
- * @return {undefined/boolean} False to prevent default if event is handled
+ * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.SelectFileInputWidget.prototype.onKeyPress = function ( e ) {
 	if ( !this.isDisabled() && this.$input &&
