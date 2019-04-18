@@ -463,6 +463,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.getElementDocument().removeEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
 			this.togglePositioning( false );
 			this.toggleClipping( false );
+			this.lastHighlightedItem = null;
 		}
 	}
 
