@@ -5,6 +5,7 @@
 .theme-oo-ui-buttonElement() {
 	> .oo-ui-buttonElement-button {
 		position: relative;
+		min-height: @min-height-widget-base;
 		border-radius: @border-radius-base;
 		padding-top: @padding-top-icon-indicator;
 		font-weight: bold;
@@ -99,7 +100,7 @@
 				border-style: @border-style-base;
 				border-width: @border-width-base;
 				padding-top: @padding-top-icon-indicator; // Support IE 7: Acts as `min-height`, see T93290
-				padding-left: @padding-start-frameless-icon-only; // Support IE 7: Acts as `min-width`
+				padding-left: @padding-start-icon-only; // Support IE 7: Acts as `min-width`
 
 				> .oo-ui-iconElement-icon {
 					left: @start-frameless-icon;
@@ -135,12 +136,10 @@
 			> .oo-ui-buttonElement-button {
 				min-width: @min-size-indicator;
 				min-height: @min-size-indicator;
-				padding-top: 0;
 			}
 
 			&.oo-ui-iconElement > .oo-ui-buttonElement-button { // Reset with specificity from above, see T174968
-				padding-left: @padding-start-frameless-icon-plus + ( 2 * @padding-horizontal-base );
-				padding-top: @padding-top-icon-indicator;
+				padding-left: @padding-start-frameless-icon-plus + @padding-start-indicator-only;
 			}
 
 			&.oo-ui-labelElement > .oo-ui-buttonElement-button { // Reset with specificity from above, see T174167
@@ -253,7 +252,9 @@
 				padding-left: @padding-start-icon-only;
 
 				> .oo-ui-iconElement-icon {
-					left: @start-framed-icon-only;
+					// Providing value flexible centering for icon only in mobile context.
+					left: 50%;
+					margin-left: -( @size-icon / 2 );
 				}
 			}
 
@@ -262,6 +263,11 @@
 			&.oo-ui-indicatorElement {
 				> .oo-ui-buttonElement-button {
 					padding-left: @padding-start-input-text-icon-label;
+
+					> .oo-ui-iconElement-icon {
+						left: @start-framed-icon-only;
+						margin-left: 0;
+					}
 				}
 			}
 		}

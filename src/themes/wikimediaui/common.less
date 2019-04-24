@@ -40,14 +40,16 @@
 @size-base: 32 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.5em`≈`32px`
 @size-base--small: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 
-@min-size-base--small: 16px; // values used for `min-height` are defined in `px`, see T130691
+// `min-size/-width/-height` values are defined in `px`, see T130691.
+@min-size-base--small: 16px;
 @min-size-icon-small: 14px;
 @min-size-toolbar-popup-toolgroup-handle: 140px;
 @min-size-toolbar-narrow-popup-toolgroup-handle: 100px;
-@min-width-button-base: 44 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.4375em`≈`44px` at base `font-size: 14px`
+@min-width-button-base: 44px;
 @min-width-button-combo-widget: 37px;
+@min-height-toggleswitch: 26px; // equals @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
+// …except `@min-height-widget-base` due to being used in calculations with `em` based values.
 @min-height-widget-base: @size-base;
-@min-height-toggleswitch: 26px; // equals `16px` @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
 
 @size-anchor: 9px;
 @size-button-base: @size-base;
@@ -73,7 +75,6 @@
 @height-tabselect: 37 / @ooui-font-size-browser / @ooui-font-size-base;
 
 @start-framed-icon-only: 11 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.859375em`≈`11px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
-@start-framed-icon-only-numberinput: 8 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.57142857em`≈`8px`
 @start-framed-indicator-only: 15 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.07142857em`≈`15px`; `@size-indicator + 2 * @border-width-base`
 @start-framed-indicator-only-button-combo-widget: 12 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.85714286em`≈`12px`
 @start-frameless: -( 6 / @ooui-font-size-browser / @ooui-font-size-base ); // `-( @start-frameless-icon + @border-width-base )`
@@ -85,21 +86,21 @@
 @start-toolbar-narrow-tool-icon: 4 / @ooui-font-size-browser / @ooui-font-size-base;
 @end-tool-indicator: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 
-@margin-dialog-bar-button-framed: 6 / @ooui-font-size-browser / @ooui-font-size-base;
-@margin-search: 12 / @ooui-font-size-browser / @ooui-font-size-base;
+@margin-dialog-bar-button-framed: 6px;
+@margin-search: 12px;
 @margin-taboption: @margin-dialog-bar-button-framed;
-@margin-tagitem: 4 / @ooui-font-size-browser / @ooui-font-size-base;
-@margin-button-close: 4 / @ooui-font-size-browser / @ooui-font-size-base;
-@margin-top-form-fieldset: 24 / @ooui-font-size-browser / @ooui-font-size-base;
-@margin-top-fieldlayout: 16 / @ooui-font-size-browser / @ooui-font-size-base;
-@margin-top-fieldlayout--labelled: 12 / @ooui-font-size-browser / @ooui-font-size-base;
-@margin-top-fieldlayout-help: -( 6 / @ooui-font-size-browser / @ooui-font-size-base );
-@margin-top-message: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-@margin-top-popup: 9 / @ooui-font-size-browser / @ooui-font-size-base;
-@margin-bottom-fieldset-header: unit( 8 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ), @ooui-unit );
-@margin-horizontal-fieldlayout-message: 12 / @ooui-font-size-browser / @ooui-font-size-base;
-@margin-end-actionlayout-input: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-@margin-end-fieldlayout-help: -( 8 / @ooui-font-size-browser / @ooui-font-size-base );
+@margin-tagitem: 4px;
+@margin-button-close: 4px;
+@margin-top-form-fieldset: 24px;
+@margin-top-fieldlayout: 16px;
+@margin-top-fieldlayout--labelled: 12px;
+@margin-top-fieldlayout-help: -6px;
+@margin-top-message: 8px;
+@margin-top-popup: 9px;
+@margin-bottom-fieldset-header: 8px;
+@margin-horizontal-fieldlayout-message: 12px;
+@margin-end-actionlayout-input: 8px;
+@margin-end-fieldlayout-help: -8px;
 
 @border-base--disabled: @border-width-base @border-style-base @border-color-base--disabled;
 @border-filled--disabled: @border-width-base @border-style-base @border-color-filled--disabled;
@@ -132,42 +133,44 @@
 @padding-input-text: @padding-vertical-base @padding-horizontal-input-text;
 @padding-menu: @padding-vertical-menu @padding-horizontal-base;
 @padding-menu-large: @padding-vertical-tool-label @padding-horizontal-base;
-@padding-panel-form: 16 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.1428571em`≈`16px`
-@padding-panel-dialog: 20 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-horizontal-base: 12 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.9375em`≈`12px`
-@padding-horizontal-frameless: 2 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.28571429em`≈`4px`
-@padding-horizontal-input-text: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-horizontal-message-block: 24 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-horizontal-taboption: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-horizontal-taboption-label: 5 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-horizontal-tagitem: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-horizontal-toolbar-action-buttons: 16 / @ooui-font-size-browser / @ooui-font-size-base; // aligned relatively to `@padding-horizontal-base` but for toolbar button height
+@padding-panel-form: 16px;
+@padding-panel-dialog: 20px;
+@padding-horizontal-base: 12px;
+@padding-horizontal-frameless: 2px;
+@padding-horizontal-input-text: 8px;
+@padding-horizontal-message-block: 24px;
+@padding-horizontal-taboption: 8px;
+@padding-horizontal-taboption-label: 5px;
+@padding-horizontal-tagitem: 8px;
+@padding-horizontal-toolbar-action-buttons: 16px; // Aligned relatively to `@padding-horizontal-base` but for toolbar button height.
+// All paddings holding icons need `em`s due to font-size derived icon scaling.
+@padding-horizontal-base-iconized: 12 / @ooui-font-size-browser / @ooui-font-size-base;
 // Must be < `8` as it cuts off scripts.
-@padding-vertical-base: 6 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-vertical-label: 4 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-vertical-base: 6px;
+@padding-vertical-label: 4px;
 // Menu items don't have a border.
-@padding-vertical-menu: 7 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-vertical-message-block: 16 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-vertical-menu: @padding-vertical-base + @border-width-base;
+@padding-vertical-message-block: 16px;
 @padding-top-icon-indicator: 30 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-vertical-dialog-action: 10 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-vertical-tool-label: 12 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-icon: @size-icon;
-@padding-start-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.03125em`≈`26px`; @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base;
+// All paddings holding icons need `em`s due to font-size derived icon scaling.
+@padding-start-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base; // @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base.
 @padding-start-fieldset-header-iconized: unit( 26 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ), @ooui-unit );
 @padding-start-messages: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-start-indicator-only: @padding-start-icon-only;
-@padding-start-indicator-plus: 32 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-start-frameless-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-start-frameless-icon-plus: @padding-start-frameless-icon-only;
-// Equals ≈`6px` is not aligned to M101 design guideline, as checkbox and radio sizes aren't either.
-@padding-start-fieldlayout-label: 6 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-start-indicator-only: @size-indicator * 2;
+@padding-start-indicator-plus: 32px;
+@padding-start-frameless-icon-plus: @padding-start-icon-only;
+// `6px` is not aligned to Design Style Guide, as checkbox and radio sizes aren't either.
+@padding-start-fieldlayout-label: 6px;
 @padding-start-input-text-icon-label: 37 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-menu-icon-label: 37 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-tool: 37 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-tool-icon-only: 42 / @ooui-font-size-browser / @ooui-font-size-base; // Provide slightly more space than `@padding-start-input-text-icon-label` as we want to provide minimal touch action size
-@padding-end-dropdown: @size-indicator + ( 2 * @padding-horizontal-base );
-@padding-end-tagitem-close: 23 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.640625em`≈`21px`;
+@padding-end-dropdown: @padding-start-indicator-plus;
+@padding-end-tagitem-close: 23px;
 @padding-end-toolgroup-label-indicator: 26 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-end-toolgroup-indicator: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 
@@ -185,16 +188,19 @@
 
 @filter-drop-shadow-menu: drop-shadow( 0 2px 1px rgba( 0, 0, 0, 0.3 ) );
 
+// `font-size` has to be in `em` to enable user override in browser settings for accessibility.
 @font-size-small: 13 / @ooui-font-size-browser / @ooui-font-size-base;
 @font-size-fieldset-header: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 // ProcessDialog title, need to be set in `em` as we alternate between mobile/desktop.
 @font-size-dialog-process-title: 1.1em;
 
+// `line-height` has to be relative/in `em` to enable user override in browser settings.
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
 @line-height-base: unit( 18 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit ); // equals `18px` at base `font-size: 14px;
 @line-height-message: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `20px` at base `font-size: 14px`
 @line-height-label: 20 / @ooui-font-size-browser / @ooui-font-size-base;
 @line-height-tagitem-label: unit( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small, @ooui-unit ); // Push label down by 1 px for vertical centering.
+@line-height-widget-decoratedoption: unit( 16 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit ); // Equals `1.14286em`≈`16px`; Firefox needs a value, Chrome the unit.
 
 @opacity-icon-accessory: 0.67; // Equals `#555`, closest to `#54595d` on background-color `#fff`
 
@@ -202,12 +208,13 @@
 @background-color-input-binary--active: @color-progressive--active;
 @background-color-input-binary--checked: @color-progressive;
 @size-input-binary: 20 / @ooui-font-size-browser / @ooui-font-size-base;
+@start-input-binary-icon: 3 / @ooui-font-size-browser / @ooui-font-size-base;
 @border-input-binary: @border-width-base @border-style-base @border-color-input-binary;
 @border-color-input-binary: @border-color-base--active;
 @border-color-input-binary--active: @color-progressive--active;
 @border-color-input-binary--checked: @color-progressive;
 @box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
-@border-width-radio--checked: 6 / @ooui-font-size-browser / @ooui-font-size-base;
+@border-width-radio--checked: 6px;
 
 // Dialogs
 @size-dialog-menu: 200 / @ooui-font-size-browser / @ooui-font-size-base;

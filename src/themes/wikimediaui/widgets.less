@@ -189,7 +189,7 @@
 			border-color: @border-color-input-binary;
 			border-style: @border-style-base;
 			border-radius: @border-radius-base;
-			// Support IE 8: // Support IE 8: Don't show border around native widget, see T220041.
+			// Support IE 8: Don't show border around native widget, see T220041.
 			border-width: 0;
 
 			// Support all other browsers.
@@ -209,12 +209,14 @@
 		&:indeterminate {
 			& + span:before {
 				content: ' ';
+				// `@color-base--inverted` as `background-color` due to Accent50 filled area below.
+				background-color: @color-base--inverted;
 				position: absolute;
-				top: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-				bottom: 8 / @ooui-font-size-browser / @ooui-font-size-base;
-				left: 3 / @ooui-font-size-browser / @ooui-font-size-base;
-				right: 3 / @ooui-font-size-browser / @ooui-font-size-base;
-				background-color: #fff;
+				top: 50%;
+				left: @start-input-binary-icon;
+				right: @start-input-binary-icon;
+				height: @border-width-base * 2;
+				margin-top: -@border-width-base;
 			}
 		}
 
@@ -336,7 +338,6 @@
 
 		.oo-ui-buttonElement-button {
 			min-width: @min-width-button-combo-widget;
-			min-height: @min-height-widget-base;
 			padding-left: 0;
 
 			> .oo-ui-indicatorElement-indicator {
@@ -439,8 +440,8 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			// Workaround for 'down' indicator inner distance
-			@size-indicator-inner-distance: unit( 1 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit );
+			// Workaround for 'down' indicator inner distance.
+			@size-indicator-inner-distance: 1px;
 			right: @padding-horizontal-base - @size-indicator-inner-distance;
 		}
 
@@ -451,6 +452,10 @@
 
 	&.oo-ui-iconElement &-handle {
 		padding-left: @padding-start-input-text-icon-label;
+	}
+
+	&.oo-ui-indicatorElement &-handle {
+		padding-right: @size-indicator + ( 2 * unit( @padding-horizontal-base ) / @ooui-font-size-browser / @ooui-font-size-base );
 	}
 
 	&.oo-ui-widget-enabled &-handle {
@@ -695,10 +700,10 @@
 		padding-left: 2 * @padding-horizontal-base;
 
 		&.oo-ui-iconElement {
-			padding-left: @padding-start-menu-icon-label + @padding-horizontal-base;
+			padding-left: @padding-start-menu-icon-label + @padding-horizontal-base-iconized;
 
 			.oo-ui-iconElement-icon {
-				left: 2 * @padding-horizontal-base;
+				left: 2 * @padding-horizontal-base-iconized;
 			}
 		}
 	}
@@ -781,11 +786,6 @@
 	max-width: @max-width-input;
 
 	&-buttoned {
-		.oo-ui-buttonWidget,
-		.oo-ui-inputWidget-input {
-			height: @size-base;
-		}
-
 		.oo-ui-buttonWidget {
 			width: @width-button-combo-widget;
 
@@ -795,16 +795,12 @@
 				min-height: @min-height-widget-base;
 				padding-left: 0;
 				padding-right: 0;
-
-				.oo-ui-iconElement-icon {
-					left: @start-framed-icon-only-numberinput;
-				}
 			}
 		}
 
 		.oo-ui-inputWidget-input {
 			border-radius: 0;
-			max-height: @min-height-widget-base;
+			height: @min-height-widget-base;
 		}
 	}
 
@@ -1324,6 +1320,10 @@
 .theme-oo-ui-selectFileInputWidget() {
 	width: 100%;
 	max-width: @max-width-input;
+
+	&-info > .oo-ui-inputWidget-input {
+		height: @size-base;
+	}
 }
 
 .theme-oo-ui-selectFileWidget() {
@@ -1423,7 +1423,7 @@
 
 		.oo-ui-labelElement-label {
 			border-bottom: ( 2 * @border-width-base ) @border-style-base transparent;
-			padding: @padding-vertical-base @padding-horizontal-taboption-label ( @padding-vertical-base - 2 * @size-modifier-border ); // Provide additional `padding` on label itself for special tab focus
+			padding: @padding-vertical-base @padding-horizontal-taboption-label ( @padding-vertical-base - 2 * @border-width-base ); // Provide additional `padding` on label itself for special tab focus
 			.oo-ui-transition( border-color @transition-base );
 		}
 
@@ -1614,7 +1614,7 @@
 			}
 
 			.oo-ui-icon-close {
-				left: @margin-tagitem - @size-modifier-border;
+				left: @margin-tagitem - @border-width-base;
 				min-width: @min-size-icon-small;
 				width: @size-icon-small;
 			}
@@ -1796,6 +1796,7 @@
 		line-height: @line-height-base;
 	}
 
+	// TextInputWidget (single line).
 	input {
 		// `input` elements `line-height` is widely ignored by browsers,
 		// hence relying on `height`, see T216070
@@ -1822,14 +1823,13 @@
 
 	> .oo-ui-labelElement-label {
 		color: @color-base--subtle;
-		margin-top: @border-width-base; // Address `border` on `input`
-		padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-base @padding-horizontal-input-text;
-		line-height: @line-height-base;
+		padding: 0 @padding-horizontal-base 0 @padding-horizontal-input-text;
+		line-height: @size-base;
 	}
 
 	&.oo-ui-indicatorElement {
 		.oo-ui-inputWidget-input {
-			padding-right: @size-indicator + 2 * @padding-horizontal-input-text;
+			padding-right: @min-size-indicator + 2 * @padding-horizontal-input-text;
 		}
 
 		&.oo-ui-textInputWidget-labelPosition-after > .oo-ui-labelElement-label {
@@ -1844,7 +1844,7 @@
 
 	&-labelPosition-after {
 		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
-			margin-right: @size-indicator + @padding-horizontal-base + @padding-horizontal-input-text;
+			margin-right: @size-base;
 		}
 	}
 
