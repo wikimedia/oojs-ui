@@ -174,7 +174,7 @@ class FieldLayout extends Layout {
 	private function makeMessage( $kind, $text ) {
 		$listItem = new Tag( 'li' );
 		if ( $kind === 'error' ) {
-			$icon = new IconWidget( [ 'icon' => 'alert', 'flags' => [ 'error' ] ] );
+			$icon = new IconWidget( [ 'icon' => 'error', 'flags' => [ 'error' ] ] );
 			$listItem->setAttributes( [ 'role' => 'alert' ] );
 		} elseif ( $kind === 'warning' ) {
 			$icon = new IconWidget( [ 'icon' => 'alert', 'flags' => [ 'warning' ] ] );

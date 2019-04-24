@@ -192,7 +192,7 @@ OO.ui.FieldLayout.prototype.makeMessage = function ( kind, text ) {
 	var $listItem, $icon, message;
 	$listItem = $( '<li>' );
 	if ( kind === 'error' ) {
-		$icon = new OO.ui.IconWidget( { icon: 'alert', flags: [ 'error' ] } ).$element;
+		$icon = new OO.ui.IconWidget( { icon: 'error', flags: [ 'error' ] } ).$element;
 		$listItem.attr( 'role', 'alert' );
 	} else if ( kind === 'warning' ) {
 		$icon = new OO.ui.IconWidget( { icon: 'alert', flags: [ 'warning' ] } ).$element;
