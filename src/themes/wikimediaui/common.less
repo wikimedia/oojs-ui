@@ -121,7 +121,7 @@
 @padding-base: @padding-vertical-base @padding-horizontal-base;
 @padding-frameless: @padding-vertical-base @padding-horizontal-frameless;
 @padding-input-text: @padding-vertical-base @padding-horizontal-input-text;
-@padding-menu: @padding-base;
+@padding-menu: @padding-vertical-menu @padding-horizontal-base;
 @padding-menu-large: @padding-vertical-tool-label @padding-horizontal-base;
 @padding-panel-form: 16 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.1428571em`≈`16px`
 @padding-panel-dialog: 20 / @ooui-font-size-browser / @ooui-font-size-base;
@@ -135,6 +135,8 @@
 // Must be < `8` as it cuts off scripts.
 @padding-vertical-base: 6 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-vertical-label: 4 / @ooui-font-size-browser / @ooui-font-size-base;
+// Menu items don't have a border.
+@padding-vertical-menu: 7 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-icon-indicator: 30 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-vertical-tool-label: 12 / @ooui-font-size-browser / @ooui-font-size-base;
@@ -178,7 +180,6 @@
 @line-height-message: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `20px` at base `font-size: 14px`
 @line-height-label: 20 / @ooui-font-size-browser / @ooui-font-size-base;
 @line-height-tagitem-label: unit( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small, @ooui-unit ); // Push label down by 1 px for vertical centering.
-@line-height-widget-decoratedoption: unit( 16 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit ); // equals `1.14286em`≈`16px`; Firefox needs a value, Chrome the unit.
 
 @opacity-icon-accessory: 0.67; // Equals `#555`, closest to `#54595d` on background-color `#fff`
 
