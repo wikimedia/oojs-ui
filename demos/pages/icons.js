@@ -20,6 +20,8 @@ Demo.static.pages.icons = function ( demo ) {
 				'articles',
 				'articleAdd',
 				'articleCheck',
+				'articleDisambiguation',
+				'articleNotFound',
 				'articleSearch',
 				'articleRedirect',
 				'history',
