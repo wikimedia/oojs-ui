@@ -855,7 +855,6 @@
 .theme-oo-ui-selectFileInputWidget() {
 	width: 100%;
 	max-width: @max-width-input-base;
-	.oo-ui-inline-spacing( 0.5em );
 
 	&-label {
 		.oo-ui-box-sizing( border-box );
@@ -884,6 +883,12 @@
 		.oo-ui-pendingElement-pending {
 			background-size: @size-icon-inner @size-icon-inner;
 		}
+	}
+
+	&-buttonOnly {
+		// Reset widths that conflict with buttonWidget styles
+		width: auto;
+		max-width: none;
 	}
 
 	&.oo-ui-widget-enabled {
