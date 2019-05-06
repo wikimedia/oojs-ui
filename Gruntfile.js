@@ -33,7 +33,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-exec' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
-	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 	grunt.loadNpmTasks( 'grunt-svgmin' );
@@ -441,12 +440,12 @@ module.exports = function ( grunt ) {
 		eslint: {
 			options: {
 				reportUnusedDisableDirectives: true,
+				extensions: [ '.js', '.json' ],
 				cache: true
 			},
 			dev: [
-				'*.js',
-				'{build,demos,src,tests}/**/*.js',
-				'!demos/{dist,node_modules,vendor}/**',
+				'**/*.js{,on}',
+				'!{coverage,dist,docs,node_modules,vendor,demos/{dist,node_modules,vendor}}/**',
 				'!tests/JSPHP.test.js'
 			],
 			html: {
@@ -457,19 +456,11 @@ module.exports = function ( grunt ) {
 					reportUnusedDisableDirectives: false
 				},
 				src: [
-					'*.html',
-					'{build,demos,src,tests}/**/*.html',
-					'!demos/{dist,node_modules,vendor}/**',
+					'**/*.html',
+					'!{coverage,dist,docs,node_modules,vendor,demos/{dist,node_modules,vendor}}/**',
 					'!tests/JSPHP.test.js'
 				]
 			}
-		},
-		jsonlint: {
-			all: [
-				'*.json',
-				'{build,demos,src,tests,i18n}/**/*.json',
-				'!demos/{dist,node_modules,vendor}/**'
-			]
 		},
 
 		// Lint – Styling
@@ -563,7 +554,6 @@ module.exports = function ( grunt ) {
 			files: [
 				'<%= eslint.dev %>',
 				'<%= stylelint.dev %>',
-				'<%= jsonlint.all %>',
 				'src/**/*.less',
 				'php/**/*.php',
 				'.{stylelintrc,eslintrc.json}'
@@ -738,7 +728,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', 'imagemin:distPngs', 'cssmin' ] );
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
-	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'banana' ] );
 
 	// Run this before opening "tests/index.php"
 	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );
