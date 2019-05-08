@@ -41,51 +41,6 @@
 			border-top: @border-toolbar;
 		}
 	}
-
-	&-actions {
-		> .oo-ui-buttonElement {
-			margin-right: 0;
-
-			> .oo-ui-buttonElement-button {
-				border: 0;
-				border-radius: 0;
-				padding-top: @padding-top-tool;
-				padding-left: @padding-horizontal-toolbar-action-buttons;
-				padding-right: @padding-horizontal-toolbar-action-buttons;
-
-				.oo-ui-toolbar-narrow & {
-					padding-left: @padding-horizontal-base;
-					padding-right: @padding-horizontal-base;
-				}
-			}
-
-			&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive {
-				> .oo-ui-buttonElement-button:focus {
-					box-shadow: @box-shadow-toolbar-action-button--focus;
-				}
-			}
-
-			&.oo-ui-labelElement {
-				> .oo-ui-buttonElement-button {
-					padding-top: @padding-vertical-tool-label;
-					padding-bottom: @padding-vertical-tool-label;
-				}
-			}
-		}
-
-		> .oo-ui-buttonGroupWidget {
-			> .oo-ui-buttonElement > .oo-ui-buttonElement-button {
-				border-radius: 0;
-				border-width: 0 0 0 @border-width-base;
-				padding-top: @padding-vertical-tool-label;
-				padding-bottom: @padding-vertical-tool-label;
-			}
-
-			> .oo-ui-popupToolGroup.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive {
-				.mw-primary-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
-			}
-		}
-	}
 }
 
 .theme-oo-ui-tool() {
