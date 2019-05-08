@@ -26,7 +26,7 @@
 	},
 	"images": {
 		"book": {
-			"file":  {
+			"file": {
 				"ltr": "images/icons/book-ltr.svg",
 				"rtl": "images/icons/book-rtl.svg"
 			}
