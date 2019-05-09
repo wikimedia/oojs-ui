@@ -8,7 +8,8 @@
 			"Kvardek du",
 			"Psychoslave",
 			"Fitoschido",
-			"YvesNevelsteen"
+			"YvesNevelsteen",
+			"Mirin"
 		]
 	},
 	"ooui-outline-control-move-down": "Movi eron suben",
@@ -17,6 +18,7 @@
 	"ooui-toolbar-more": "Pli",
 	"ooui-toolgroup-expand": "Pli",
 	"ooui-toolgroup-collapse": "Malpli",
+	"ooui-item-remove": "Forigi",
 	"ooui-dialog-message-accept": "Bone",
 	"ooui-dialog-message-reject": "Nuligi",
 	"ooui-dialog-process-error": "Io misfunkciis",
