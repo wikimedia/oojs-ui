@@ -34,7 +34,7 @@ p {
 
 /* Layout */
 .demo-root {
-	max-width: 62.5em;
+	max-width: 68.5713em; /* Equals `960px` at `14px` font size. */
 	margin: 0 auto 4.5em;
 }
 
@@ -370,8 +370,8 @@ p {
 
 .demo-icons .oo-ui-fieldLayout {
 	display: inline-block;
-	margin: 1em 1em 1em 0;
-	width: 13.75em;
+	margin: 0.5em 0.5em 0.5em 0;
+	width: 12.5em;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -589,7 +589,7 @@ FieldLayout left & right aligned */
 	.demo-menu {
 		left: auto;
 		right: auto;
-		width: 62.5em;
+		width: 68.5713em; /* Keep synchronised with `.demo-root` `max-width`. */
 		padding-left: 0;
 		white-space: nowrap;
 	}
