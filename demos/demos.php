@@ -98,95 +98,100 @@
 </head>
 <body class="oo-ui-<?php echo $direction; ?> oo-ui-theme-<?php echo $theme ?>">
 	<div class="demo-root">
-		<div class="demo-menu" role="navigation">
-			<?php
-				echo new OOUI\DropdownInputWidget( [
-					'infusable' => true,
-					'disabled' => true,
-					'classes' => [ 'demo-pageDropdown' ],
-					'options' => [
-						[ 'label' => 'Widgets', 'data' => '' ]
-					]
-				] );
-				echo new OOUI\ButtonGroupWidget( [
-					'infusable' => true,
-					'items' => array_map( function ( $theme, $themeLabel ) use ( $query ) {
-						return new OOUI\ButtonWidget( [
-							'label' => $themeLabel,
-							'href' => '?' . http_build_query( array_merge( $query, [ 'theme' => $theme ] ) ),
-							'active' => $query['theme'] === $theme,
-						] );
-					}, array_keys( $themes ), array_values( $themes ) ),
-				] );
-				echo new OOUI\ButtonGroupWidget( [
-					'infusable' => true,
-					'items' => [
-						new OOUI\ButtonWidget( [
-							'icon' => 'textDirLTR',
-							'href' => '?' . http_build_query( array_merge( $query, [ 'direction' => 'ltr' ] ) ),
-							'active' => $query['direction'] === 'ltr',
-							'title' => 'Switch to left-to-right direction demo',
-						] ),
-						new OOUI\ButtonWidget( [
-							'icon' => 'textDirRTL',
-							'href' => '?' . http_build_query( array_merge( $query, [ 'direction' => 'rtl' ] ) ),
-							'active' => $query['direction'] === 'rtl',
-							'title' => 'Switch to right-to-left direction demo',
-						] ),
-					]
-				] );
-				echo new OOUI\ButtonGroupWidget( [
-					'infusable' => true,
-					'items' => [
-						new OOUI\ButtonWidget( [
-							'label' => 'JS',
-							'href' => '.?' . http_build_query( $query )
-						] ),
-						new OOUI\ButtonWidget( [
-							'label' => 'PHP',
-							'href' => '?' . http_build_query( $query ),
-							'active' => true,
-						] ),
-					]
-				] );
-				echo new OOUI\ButtonGroupWidget( [
-					'infusable' => true,
-					'items' => [
-						new OOUI\ButtonWidget( [
-							'label' => 'Desktop',
-							'active' => true,
-							'disabled' => true,
-						] ),
-						new OOUI\ButtonWidget( [
-							'label' => 'Mobile',
-							'disabled' => true,
-						] ),
-					],
-				] );
-				echo new OOUI\ButtonGroupWidget( [
-					'infusable' => true,
-					'items' => [
-						new OOUI\ButtonWidget( [
-							'label' => 'Docs',
-							'icon' => 'journal',
-							'href' => '../php/',
-							'flags' => [ 'progressive' ],
-						] ),
-						new OOUI\ButtonWidget( [
-							'label' => 'Tutorials',
-							'icon' => 'book',
-							'href' => 'tutorials/index.html',
-							'flags' => [ 'progressive' ],
-						] )
-					]
-				] );
-				echo new OOUI\ButtonWidget( [
-					'infusable' => true,
-					'classes' => [ 'demo-menu-infuse' ],
-					'disabled' => true,
-					'label' => 'Infuse',
-				] );
-			?>
+		<div class="demo-header" role="banner">
+			<h1>OOUI</h1>
+			<h2>Demos <span>– Rapidly create web-applications in JS or PHP. Cross-browser, i18n
+				and a11y ready.</span></h2>
+			<div class="demo-menu" role="navigation">
+				<?php
+					echo new OOUI\DropdownInputWidget( [
+						'infusable' => true,
+						'disabled' => true,
+						'classes' => [ 'demo-pageDropdown' ],
+						'options' => [
+							[ 'label' => 'Widgets', 'data' => '' ]
+						]
+					] );
+					echo new OOUI\ButtonGroupWidget( [
+						'infusable' => true,
+						'items' => array_map( function ( $theme, $themeLabel ) use ( $query ) {
+							return new OOUI\ButtonWidget( [
+								'label' => $themeLabel,
+								'href' => '?' . http_build_query( array_merge( $query, [ 'theme' => $theme ] ) ),
+								'active' => $query['theme'] === $theme,
+							] );
+						}, array_keys( $themes ), array_values( $themes ) ),
+					] );
+					echo new OOUI\ButtonGroupWidget( [
+						'infusable' => true,
+						'items' => [
+							new OOUI\ButtonWidget( [
+								'icon' => 'textDirLTR',
+								'href' => '?' . http_build_query( array_merge( $query, [ 'direction' => 'ltr' ] ) ),
+								'active' => $query['direction'] === 'ltr',
+								'title' => 'Switch to left-to-right direction demo',
+							] ),
+							new OOUI\ButtonWidget( [
+								'icon' => 'textDirRTL',
+								'href' => '?' . http_build_query( array_merge( $query, [ 'direction' => 'rtl' ] ) ),
+								'active' => $query['direction'] === 'rtl',
+								'title' => 'Switch to right-to-left direction demo',
+							] ),
+						]
+					] );
+					echo new OOUI\ButtonGroupWidget( [
+						'infusable' => true,
+						'items' => [
+							new OOUI\ButtonWidget( [
+								'label' => 'JS',
+								'href' => '.?' . http_build_query( $query )
+							] ),
+							new OOUI\ButtonWidget( [
+								'label' => 'PHP',
+								'href' => '?' . http_build_query( $query ),
+								'active' => true,
+							] ),
+						]
+					] );
+					echo new OOUI\ButtonGroupWidget( [
+						'infusable' => true,
+						'items' => [
+							new OOUI\ButtonWidget( [
+								'label' => 'Desktop',
+								'active' => true,
+								'disabled' => true,
+							] ),
+							new OOUI\ButtonWidget( [
+								'label' => 'Mobile',
+								'disabled' => true,
+							] ),
+						],
+					] );
+					echo new OOUI\ButtonGroupWidget( [
+						'infusable' => true,
+						'items' => [
+							new OOUI\ButtonWidget( [
+								'label' => 'Docs',
+								'icon' => 'journal',
+								'href' => '../php/',
+								'flags' => [ 'progressive' ],
+							] ),
+							new OOUI\ButtonWidget( [
+								'label' => 'Tutorials',
+								'icon' => 'book',
+								'href' => 'tutorials/index.html',
+								'flags' => [ 'progressive' ],
+							] )
+						]
+					] );
+					echo new OOUI\ButtonWidget( [
+						'infusable' => true,
+						'classes' => [ 'demo-menu-infuse' ],
+						'disabled' => true,
+						'label' => 'Infuse',
+					] );
+				?>
+			</div>
 		</div>
 		<?php
 			// $page is validated above
