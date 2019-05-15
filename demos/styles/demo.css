@@ -20,6 +20,25 @@ pre[ class*='language-' ] {
 	font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'Courier New', monospace; /* See T209915 */
 }
 
+h1 {
+	color: #000;
+	display: inline-block;
+	margin: 0 0 8px 0;
+	font-size: 2em; /* Browser default, but for ensured consistent rendering */
+}
+
+h2 {
+	color: #000;
+	display: inline-block;
+	margin-left: 0.5em;
+	font-size: 1.143em; /* Equals `16px` at `14px` base font size */
+	font-weight: normal;
+}
+
+h2 span {
+	color: #54595d;
+}
+
 p {
 	margin: 0.5em 0;
 }
@@ -38,6 +57,7 @@ p {
 	margin: 0 auto 4.5em;
 }
 
+.demo-header,
 .demo-menu {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -477,27 +497,27 @@ FieldLayout left & right aligned */
  * Workaround for weak ancient mobile browser support of `fixed` positioning
  */
 @supports ( position: fixed ) {
-	.demo-menu {
+	.demo-header {
 		background-color: #fff;
 		position: fixed;
 		left: 0;
 		right: 0;
 		top: 0;
-		min-height: 4.5em;
+		min-height: 91px;
 		border-bottom: 1px solid #a2a9b1;
-		padding-top: 1em;
+		padding-top: 8px;
 		padding-left: 1em;
 		box-shadow: 0 4px 4px -4px rgba( 0, 0, 0, 0.25 );
 		z-index: 5;
 	}
 
-	.demo-menu + .demo-container.oo-ui-panelLayout {
+	.demo-header + .demo-container.oo-ui-panelLayout {
 		/* Decrease by `border-bottom` */
-		margin-top: calc( 4.5em - 1px );
+		margin-top: calc( 91px - 1px );
 	}
 
 	/* Avoid `box-shadow` from menu lurkin into toolbar demo, +1.2em to be harmonious with menu */
-	.demo-menu + .demo-container.oo-ui-panelLayout.demo-toolbars {
+	.demo-header + .demo-container.oo-ui-panelLayout.demo-toolbars {
 		margin-top: 5.7em;
 	}
 
@@ -522,6 +542,17 @@ FieldLayout left & right aligned */
 	.oo-ui-theme-wikimediaui,
 	.oo-ui-theme-apex {
 		font-size: 1em;
+	}
+
+	/* Hide from all but screen readers */
+	.demo-header h2 span {
+		clip: rect( 1px, 1px, 1px, 1px );
+		clip-path: inset( 50% );
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
 	}
 
 	.demo-menu > .oo-ui-widget {
@@ -580,18 +611,29 @@ FieldLayout left & right aligned */
 		font-size: 0.8em;
 	}
 
-	.demo-container {
-		border-radius: 2px;
-		border-width: 1px;
-		padding: 2em;
-	}
-
-	.demo-menu {
+	.demo-header {
 		left: auto;
 		right: auto;
 		width: 68.5713em; /* Keep synchronised with `.demo-root` `max-width`. */
 		padding-left: 0;
 		white-space: nowrap;
+	}
+
+	/* Make it visible for all browsers again */
+	.demo-header h2 span {
+		clip: auto;
+		clip-path: none;
+		position: static;
+		width: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+	}
+
+	.demo-container {
+		border-radius: 2px;
+		border-width: 1px;
+		padding: 2em;
 	}
 
 	.demo-console-expanded {

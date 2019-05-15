@@ -23,6 +23,7 @@ window.Demo = function Demo() {
 
 	OO.ui.theme = new OO.ui[ this.constructor.static.themes[ this.mode.theme ] + 'Theme' ]();
 
+	this.$header = $( '<div>' );
 	this.$menu = $( '<div>' );
 	this.expandButton = new OO.ui.ToggleButtonWidget( { icon: 'menu' } );
 	this.pageDropdown = new OO.ui.DropdownWidget( {
@@ -114,9 +115,15 @@ window.Demo = function Demo() {
 			this.platformSelect.$element,
 			this.links.$element
 		);
+	this.$header
+		.addClass( 'demo-header' )
+		.attr( 'role', 'banner' )
+		.append( $( '<h1>' ).text( 'OOUI' ) )
+		.append( $( '<h2>' ).html( 'Demos <span>– Rapidly create web-applications in JS or PHP. Cross-browser, i18n and a11y ready.</span>' ) )
+		.append( this.$menu );
 	this.$element
 		.addClass( 'demo-root' )
-		.append( this.$menu );
+		.append( this.$header );
 	$( document.documentElement ).attr( 'dir', this.mode.direction );
 	$( document.head ).append( this.stylesheetLinks );
 	$( document.body ).addClass( 'oo-ui-theme-' + this.mode.theme );
