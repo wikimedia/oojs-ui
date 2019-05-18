@@ -431,7 +431,7 @@
 		min-height: @min-height-widget-base; // Address label-less widgets
 		border: @border-base;
 		border-radius: @border-radius-base;
-		padding: @padding-base;
+		padding: @padding-vertical-base @padding-end-dropdown @padding-vertical-base @padding-horizontal-base;
 		line-height: @line-height-reset;
 
 		.oo-ui-iconElement-icon {
@@ -451,10 +451,6 @@
 
 	&.oo-ui-iconElement &-handle {
 		padding-left: @padding-start-input-text-icon-label;
-	}
-
-	&.oo-ui-indicatorElement &-handle {
-		padding-right: @size-indicator + ( 2 * @padding-horizontal-base );
 	}
 
 	&.oo-ui-widget-enabled &-handle {
@@ -538,23 +534,31 @@
 		height: @size-base;
 		border: @border-base;
 		border-radius: @border-radius-base;
-		padding: @padding-base;
+		// Support IE 10: Don't try to use vertical padding on select!
+		padding-left: @padding-horizontal-base;
+		padding-right: @padding-end-dropdown;
 		font-size: inherit;
 		font-family: inherit;
 		vertical-align: middle;
+		// stylelint-disable declaration-block-no-duplicate-properties, media-feature-parentheses-space-inside
+		// Support IE 8-9: Move custom arrow out of canvas and remove padding the custom arrow.
+		// Also affects IE 10. An absolute horror show.
+		background-position: ~'-9999em 0\9';
+		// stylelint-disable-next-line declaration-block-no-shorthand-property-overrides
+		padding: ~'0\9';
+
+		/* Support IE 10: Move it in again and also add `padding`. Because we talk to morons. */
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+			background-position: right @padding-horizontal-base center;
+			padding-left: @padding-horizontal-base;
+			padding-right: @padding-end-dropdown;
+		}
 
 		// Support IE 10-11: Hide the default arrow.
 		&::-ms-expand {
 			display: none;
 		}
-
-		// Support IE 9: Undo the custom arrow.
-		@media screen and ( min-width: 0\0 ) {
-			select {
-				background-image: none\9;
-				padding: 5px\9;
-			}
-		}
+		// stylelint-enable
 	}
 
 	option {
