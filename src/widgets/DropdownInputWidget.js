@@ -31,10 +31,10 @@
  * @param {Object} [config] Configuration options
  * @cfg {Object[]} [options=[]] Array of menu options in the format described above.
  * @cfg {Object} [dropdown] Configuration options for {@link OO.ui.DropdownWidget DropdownWidget}
- * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful
- *  in cases where the expanded menu is larger than its containing `<div>`. The specified overlay
- *  layer is usually on top of the containing `<div>` and has a larger area. By default, the menu
- *  uses relative positioning.
+ * @cfg {jQuery|boolean} [$overlay] Render the menu into a separate layer. This configuration is
+ *  useful in cases where the expanded menu is larger than its containing `<div>`. The specified
+ *  overlay layer is usually on top of the containing `<div>` and has a larger area. By default,
+ *  the menu uses relative positioning. Pass 'true' to use the default overlay.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  */
 OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {

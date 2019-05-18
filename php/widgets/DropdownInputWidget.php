@@ -132,7 +132,6 @@ class DropdownInputWidget extends InputWidget {
 			$optionsConfig[] = $optionConfig;
 		}
 		$config['options'] = $optionsConfig;
-		$config['$overlay'] = true;
 		return parent::getConfig( $config );
 	}
 }
