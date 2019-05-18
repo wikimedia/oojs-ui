@@ -324,7 +324,10 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
 OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 	var nextItem,
 		handled = false,
-		currentItem = this.findHighlightedItem(),
+		selected = this.findSelectedItems(),
+		currentItem = this.findHighlightedItem() || (
+			Array.isArray( selected ) ? selected[ 0 ] : selected
+		),
 		firstItem = this.getItems()[ 0 ];
 
 	if ( !this.isDisabled() && this.isVisible() ) {
@@ -434,7 +437,7 @@ OO.ui.SelectWidget.prototype.clearKeyPressBuffer = function () {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
-	var c, filter, item;
+	var c, filter, item, selected;
 
 	if ( !e.charCode ) {
 		if ( e.keyCode === OO.ui.Keys.BACKSPACE && this.keyPressBuffer !== '' ) {
@@ -456,7 +459,10 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 	}
 	this.keyPressBufferTimer = setTimeout( this.clearKeyPressBuffer.bind( this ), 1500 );
 
-	item = this.findHighlightedItem() || this.findSelectedItem();
+	selected = this.findSelectedItems();
+	item = this.findHighlightedItem() || (
+		Array.isArray( selected ) ? selected[ 0 ] : selected
+	);
 
 	if ( this.keyPressBuffer === c ) {
 		// Common (if weird) special case: typing "xxxx" will cycle through all
