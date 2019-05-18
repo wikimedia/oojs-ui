@@ -52,4 +52,15 @@
 	infuseButton = OO.ui.infuse( $( '.demo-menu-infuse' ) )
 		.on( 'click', infuseAll )
 		.setDisabled( false );
+
+	// eslint-disable-next-line no-jquery/no-global-selector
+	OO.ui.infuse( $( '.demo-pageDropdown' ) ).on( 'change', function ( page ) {
+		var qs = location.search.slice( 1 ).split( '&' ).map( function ( pair ) {
+			if ( pair.indexOf( 'page=' ) === 0 ) {
+				return 'page=' + page;
+			}
+			return pair;
+		} ).join( '&' );
+		location.href = location.pathname + '?' + qs;
+	} );
 }() );

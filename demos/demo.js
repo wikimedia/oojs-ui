@@ -29,12 +29,28 @@ window.Demo = function Demo() {
 	this.pageDropdown = new OO.ui.DropdownWidget( {
 		menu: {
 			items: [
-				new OO.ui.MenuOptionWidget( { data: 'dialogs', label: 'Dialogs' } ),
-				new OO.ui.MenuOptionWidget( { data: 'icons', label: 'Icons' } ),
-				new OO.ui.MenuOptionWidget( { data: 'toolbars', label: 'Toolbars' } ),
-				new OO.ui.MenuOptionWidget( { data: 'widgets', label: 'Widgets' } )
+				new OO.ui.MenuOptionWidget( {
+					data: 'widgets',
+					label: 'Widgets'
+				} ),
+				new OO.ui.MenuOptionWidget( {
+					data: 'layouts',
+					label: 'Layouts'
+				} ),
+				new OO.ui.MenuOptionWidget( {
+					data: 'dialogs',
+					label: 'Dialogs'
+				} ),
+				new OO.ui.MenuOptionWidget( {
+					data: 'icons',
+					label: 'Icons'
+				} ),
+				new OO.ui.MenuOptionWidget( {
+					data: 'toolbars',
+					label: 'Toolbars'
+				} )
 			],
-			// Funny effect... This dropdown is considered to always be "out of viewport"
+			// Funny effect… This dropdown is considered to always be "out of viewport"
 			// due to the getViewportSpacing() override below. Don't let it disappear.
 			hideWhenOutOfView: false
 		},
