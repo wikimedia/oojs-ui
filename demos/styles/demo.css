@@ -75,6 +75,10 @@ p {
 	width: 8em;
 }
 
+.demo-menu > .demo-menuLink-docs {
+	margin-right: 0.5em;
+}
+
 .demo-container {
 	/* Needed for applying `padding` further below */
 	-webkit-box-sizing: border-box;

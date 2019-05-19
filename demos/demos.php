@@ -167,22 +167,23 @@
 							] ),
 						],
 					] );
-					echo new OOUI\ButtonGroupWidget( [
+					echo new OOUI\ButtonWidget( [
 						'infusable' => true,
-						'items' => [
-							new OOUI\ButtonWidget( [
-								'label' => 'Docs',
-								'icon' => 'journal',
-								'href' => '../php/',
-								'flags' => [ 'progressive' ],
-							] ),
-							new OOUI\ButtonWidget( [
-								'label' => 'Tutorials',
-								'icon' => 'book',
-								'href' => 'tutorials/index.html',
-								'flags' => [ 'progressive' ],
-							] )
-						]
+						'classes' => [ 'demo-menuLink', 'demo-menuLink-docs' ],
+						'label' => 'Docs',
+						'icon' => 'journal',
+						'href' => '../php/',
+						'framed' => false,
+						'flags' => [ 'progressive' ],
+					] );
+					echo new OOUI\ButtonWidget( [
+						'infusable' => true,
+						'classes' => [ 'demo-menuLink', 'demo-menuLink-tutorials' ],
+						'label' => 'Tutorials',
+						'icon' => 'book',
+						'href' => 'tutorials/index.html',
+						'framed' => false,
+						'flags' => [ 'progressive' ],
 					] );
 					echo new OOUI\ButtonWidget( [
 						'infusable' => true,
