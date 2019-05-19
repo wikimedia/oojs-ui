@@ -74,21 +74,21 @@ window.Demo = function Demo() {
 		new OO.ui.ButtonOptionWidget( { data: 'mobile', label: 'Mobile' } )
 	] );
 
-	this.links = new OO.ui.ButtonGroupWidget( {
-		items: [
-			new OO.ui.ButtonWidget( {
-				label: 'Docs',
-				icon: 'journal',
-				href: '../js/',
-				flags: [ 'progressive' ]
-			} ),
-			new OO.ui.ButtonWidget( {
-				label: 'Tutorials',
-				icon: 'book',
-				href: 'tutorials/index.html',
-				flags: [ 'progressive' ]
-			} )
-		]
+	this.linkDocs = new OO.ui.ButtonWidget( {
+		classes: [ 'demo-menuLink', 'demo-menuLink-docs' ],
+		label: 'Docs',
+		icon: 'journal',
+		href: '../js/',
+		framed: false,
+		flags: [ 'progressive' ]
+	} );
+	this.linkTutorials = new OO.ui.ButtonWidget( {
+		classes: [ 'demo-menuLink', 'demo-menuLink-tutorials' ],
+		label: 'Tutorials',
+		icon: 'book',
+		href: 'tutorials/index.html',
+		framed: false,
+		flags: [ 'progressive' ]
 	} );
 
 	// Events
@@ -113,7 +113,8 @@ window.Demo = function Demo() {
 			this.directionSelect.$element,
 			this.jsPhpSelect.$element,
 			this.platformSelect.$element,
-			this.links.$element
+			this.linkDocs.$element,
+			this.linkTutorials.$element
 		);
 	this.$header
 		.addClass( 'demo-header' )
@@ -361,7 +362,8 @@ Demo.prototype.onExpandButtonChange = function ( value ) {
 	this.directionSelect.toggle( value );
 	this.jsPhpSelect.toggle( value );
 	this.platformSelect.toggle( value );
-	this.links.toggle( value );
+	this.linkDocs.toggle( value );
+	this.linkTutorials.toggle( value );
 };
 
 /**
