@@ -16,15 +16,22 @@
 	// client-side behaviors to, or where the JS implementation provides additional features
 	// over PHP, like DropdownInputWidget. We do it here because it's a good overall test.)
 	function infuseAll() {
-		var start, end;
-		start = now();
-		// eslint-disable-next-line no-jquery/no-global-selector
-		$( '*[data-ooui]' ).each( function () {
-			OO.ui.infuse( this );
-		} );
-		end = now();
-		window.console.log( 'Took ' + Math.round( end - start ) + ' ms to infuse demo page.' );
-		infuseButton.setDisabled( true );
+		var start, end,
+			isInfused = infuseButton.isActive();
+		if ( isInfused ) {
+			// Can't actually uninfuse, just reload the page
+			location.reload();
+		} else {
+			start = now();
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$( '*[data-ooui]' ).each( function () {
+				OO.ui.infuse( this );
+			} );
+			end = now();
+			window.console.log( 'Took ' + Math.round( end - start ) + ' ms to infuse demo page.' );
+		}
+		// Pretend to behave like a ToggleButtonWidget (not available in PHP)
+		infuseButton.setActive( !isInfused );
 	}
 
 	// eslint-disable-next-line no-jquery/no-global-selector
