@@ -7,8 +7,13 @@
 	.oo-ui-box-sizing( border-box );
 
 	.oo-ui-dropdownWidget,
-	&.oo-ui-dropdownInputWidget-php select {
+	&.oo-ui-dropdownInputWidget-php select,
+	&.oo-ui-isMobile select {
 		display: block;
+	}
+
+	&.oo-ui-isMobile .oo-ui-dropdownWidget {
+		display: none;
 	}
 
 	select {
