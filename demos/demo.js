@@ -136,6 +136,7 @@ window.Demo = function Demo() {
 		.addClass( 'demo-header' )
 		.attr( 'role', 'banner' )
 		.append( $( '<h1>' ).text( 'OOUI' ) )
+		.append( ' ' )
 		.append( $( '<h2>' ).html( 'Demos <span>– Rapidly create web-applications in JS or PHP. Cross-browser, i18n and a11y ready.</span>' ) )
 		.append( this.$menu );
 	this.$element
