@@ -536,7 +536,8 @@ FieldLayout left & right aligned */
 	}
 
 	.oo-ui-windowManager-modal > .oo-ui-dialog,
-	.oo-ui-processDialog-errors {
+	.oo-ui-processDialog-errors,
+	.oo-ui-defaultOverlay {
 		z-index: 6;
 	}
 }

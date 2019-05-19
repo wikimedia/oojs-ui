@@ -25,7 +25,10 @@
 	OOUI\Element::setDefaultDir( $direction );
 
 	// We will require_once a file by this name later, so this validation is important
-	$pages = [ 'widgets' ];
+	$pages = [
+		'widgets',
+		'layouts'
+	];
 	$page = ( isset( $_GET['page'] ) && in_array( $_GET['page'], $pages ) )
 		? $_GET['page'] : 'widgets';
 
@@ -104,14 +107,20 @@
 				and a11y ready.</span></h2>
 			<div class="demo-menu" role="navigation">
 				<?php
-					echo new OOUI\DropdownInputWidget( [
+					echo ( new OOUI\DropdownInputWidget( [
 						'infusable' => true,
-						'disabled' => true,
 						'classes' => [ 'demo-pageDropdown' ],
 						'options' => [
-							[ 'label' => 'Widgets', 'data' => '' ]
+							[
+								'label' => 'Widgets',
+								'data' => 'widgets'
+							],
+							[
+								'label' => 'Layouts',
+								'data' => 'layouts'
+							]
 						]
-					] );
+					] ) )->setValue( $page );
 					echo new OOUI\ButtonGroupWidget( [
 						'infusable' => true,
 						'items' => array_map( function ( $theme, $themeLabel ) use ( $query ) {
