@@ -25,38 +25,36 @@ window.Demo = function Demo() {
 
 	this.$header = $( '<div>' );
 	this.$menu = $( '<div>' );
-	this.expandButton = new OO.ui.ToggleButtonWidget( { icon: 'menu' } );
-	this.pageDropdown = new OO.ui.DropdownWidget( {
-		menu: {
-			items: [
-				new OO.ui.MenuOptionWidget( {
-					data: 'widgets',
-					label: 'Widgets'
-				} ),
-				new OO.ui.MenuOptionWidget( {
-					data: 'layouts',
-					label: 'Layouts'
-				} ),
-				new OO.ui.MenuOptionWidget( {
-					data: 'dialogs',
-					label: 'Dialogs'
-				} ),
-				new OO.ui.MenuOptionWidget( {
-					data: 'icons',
-					label: 'Icons'
-				} ),
-				new OO.ui.MenuOptionWidget( {
-					data: 'toolbars',
-					label: 'Toolbars'
-				} )
-			],
-			// Funny effect… This dropdown is considered to always be "out of viewport"
-			// due to the getViewportSpacing() override below. Don't let it disappear.
-			hideWhenOutOfView: false
-		},
-		classes: [ 'demo-pageDropdown' ]
+	this.expandButton = new OO.ui.ToggleButtonWidget( {
+		classes: [ 'demo-menuToggle' ],
+		icon: 'menu'
 	} );
-	this.pageMenu = this.pageDropdown.getMenu();
+	this.pageSelect = new OO.ui.TabSelectWidget( {
+		classes: [ 'demo-pageSelect' ],
+		framed: false,
+		items: [
+			new OO.ui.TabOptionWidget( {
+				data: 'widgets',
+				label: 'Widgets'
+			} ),
+			new OO.ui.TabOptionWidget( {
+				data: 'layouts',
+				label: 'Layouts'
+			} ),
+			new OO.ui.TabOptionWidget( {
+				data: 'dialogs',
+				label: 'Dialogs'
+			} ),
+			new OO.ui.TabOptionWidget( {
+				data: 'icons',
+				label: 'Icons'
+			} ),
+			new OO.ui.TabOptionWidget( {
+				data: 'toolbars',
+				label: 'Toolbars'
+			} )
+		]
+	} );
 	this.themeSelect = new OO.ui.ButtonSelectWidget();
 	Object.keys( this.constructor.static.themes ).forEach( function ( theme ) {
 		demo.themeSelect.addItems( [
@@ -109,13 +107,13 @@ window.Demo = function Demo() {
 
 	// Events
 	this.expandButton.on( 'change', OO.ui.bind( this.onExpandButtonChange, this ) );
-	this.pageMenu.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
+	this.pageSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.themeSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.directionSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.platformSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 
 	// Initialization
-	this.pageMenu.selectItemByData( this.mode.page );
+	this.pageSelect.selectItemByData( this.mode.page );
 	this.themeSelect.selectItemByData( this.mode.theme );
 	this.directionSelect.selectItemByData( this.mode.direction );
 	this.platformSelect.selectItemByData( this.mode.platform );
@@ -124,7 +122,6 @@ window.Demo = function Demo() {
 		.attr( 'role', 'navigation' )
 		.append(
 			this.expandButton.$element,
-			this.pageDropdown.$element,
 			this.themeSelect.$element,
 			this.directionSelect.$element,
 			this.jsPhpSelect.$element,
@@ -138,7 +135,7 @@ window.Demo = function Demo() {
 		.append( $( '<h1>' ).text( 'OOUI' ) )
 		.append( ' ' )
 		.append( $( '<h2>' ).html( 'Demos <span>– Rapidly create web-applications in JS or PHP. Cross-browser, i18n and a11y ready.</span>' ) )
-		.append( this.$menu );
+		.append( this.$menu, this.pageSelect.$element );
 	this.$element
 		.addClass( 'demo-root' )
 		.append( this.$header );
@@ -158,6 +155,7 @@ window.Demo = function Demo() {
 		};
 	};
 	if ( OO.ui.isMobile() ) {
+		this.$header.addClass( 'demo-header-mobile' );
 		this.onExpandButtonChange( false );
 	} else {
 		// Hide the button on desktop
@@ -355,7 +353,7 @@ Demo.prototype.initialize = function () {
  * Will load a new page.
  */
 Demo.prototype.onModeChange = function () {
-	var page = this.pageMenu.findSelectedItem().getData(),
+	var page = this.pageSelect.findSelectedItem().getData(),
 		theme = this.themeSelect.findSelectedItem().getData(),
 		direction = this.directionSelect.findSelectedItem().getData(),
 		platform = this.platformSelect.findSelectedItem().getData();

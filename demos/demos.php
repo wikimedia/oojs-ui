@@ -107,20 +107,6 @@
 				and a11y ready.</span></h2>
 			<div class="demo-menu" role="navigation">
 				<?php
-					echo ( new OOUI\DropdownInputWidget( [
-						'infusable' => true,
-						'classes' => [ 'demo-pageDropdown' ],
-						'options' => [
-							[
-								'label' => 'Widgets',
-								'data' => 'widgets'
-							],
-							[
-								'label' => 'Layouts',
-								'data' => 'layouts'
-							]
-						]
-					] ) )->setValue( $page );
 					echo new OOUI\ButtonGroupWidget( [
 						'infusable' => true,
 						'items' => array_map( function ( $theme, $themeLabel ) use ( $query ) {
@@ -202,6 +188,30 @@
 					] );
 				?>
 			</div>
+			<?php
+				$items = [];
+				foreach ( $pages as $p ) {
+					$items[] = new OOUI\TabOptionWidget( [
+						'label' => new OOUI\HtmlSnippet(
+							'<a href="?' . http_build_query( array_merge( $query, [ 'page' => $p ] ) ) . '">' .
+								ucfirst( $p ) .
+							'</a>'
+						),
+						'selected' => $page === $p,
+					] );
+				}
+				foreach ( [ 'Dialogs', 'Icons', 'Toolbars' ] as $p ) {
+					$items[] = new OOUI\TabOptionWidget( [
+						'label' => $p,
+						'disabled' => true,
+					] );
+				}
+				// Add items after constructor, so disabled state is not reset
+				echo ( new OOUI\TabSelectWidget( [
+					'classes' => [ 'demo-pageSelect' ],
+					'framed' => false,
+				] ) )->addItems( $items );
+			?>
 		</div>
 		<?php
 			// $page is validated above

@@ -71,12 +71,35 @@ p {
 	margin-bottom: 1em;
 }
 
-.demo-menu .demo-pageDropdown {
-	width: 8em;
-}
-
 .demo-menu > .demo-menuLink-docs {
 	margin-right: 0.5em;
+}
+
+.demo-menuToggle {
+	position: absolute;
+	top: 0.75em;
+	right: 0;
+	margin: 0;
+}
+
+.demo-pageSelect {
+	clear: both;
+	margin-left: -1em;
+	border-width: 1px 0 0 0;
+}
+
+.demo-pageSelect .oo-ui-tabOptionWidget {
+	margin-top: 0;
+	border-width: 2px 2px 0 2px;
+}
+
+.demo-pageSelect .oo-ui-tabOptionWidget:first-child {
+	margin-left: -2px;
+}
+
+.demo-pageSelect a {
+	color: inherit;
+	text-decoration: inherit;
 }
 
 .demo-container {
@@ -84,6 +107,14 @@ p {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+.demo-container.oo-ui-panelLayout-padded.oo-ui-panelLayout-framed {
+	margin: 0;
+}
+
+.demo-header + .demo-container.oo-ui-panelLayout.demo-toolbars {
+	padding-top: 1em;
 }
 
 /* Console */
@@ -312,7 +343,7 @@ p {
 	padding: 0;
 }
 
-.demo-toolbar {
+.demo-toolbar + .demo-toolbar {
 	margin-top: 4em;
 }
 
@@ -507,8 +538,7 @@ FieldLayout left & right aligned */
 		left: 0;
 		right: 0;
 		top: 0;
-		min-height: 91px;
-		border-bottom: 1px solid #a2a9b1;
+		min-height: 9.286em;
 		padding-top: 8px;
 		padding-left: 1em;
 		box-shadow: 0 4px 4px -4px rgba( 0, 0, 0, 0.25 );
@@ -516,13 +546,16 @@ FieldLayout left & right aligned */
 	}
 
 	.demo-header + .demo-container.oo-ui-panelLayout {
-		/* Decrease by `border-bottom` */
-		margin-top: calc( 91px - 1px );
+		/* `min-height` - `border-bottom` */
+		margin-top: 9.286em;
 	}
 
-	/* Avoid `box-shadow` from menu lurkin into toolbar demo, +1.2em to be harmonious with menu */
-	.demo-header + .demo-container.oo-ui-panelLayout.demo-toolbars {
-		margin-top: 5.7em;
+	.demo-header-mobile {
+		min-height: 6.071em;
+	}
+
+	.demo-header-mobile + .demo-container.oo-ui-panelLayout {
+		margin-top: 6.071em;
 	}
 
 	/* This needs extra specificity to beat PanelLayout styles */
@@ -533,6 +566,7 @@ FieldLayout left & right aligned */
 		   therefore removing top radius */
 		border-radius: 0 0 2px 2px;
 		box-shadow: none;
+		border-width: 0;
 	}
 
 	.oo-ui-windowManager-modal > .oo-ui-dialog,
@@ -566,7 +600,7 @@ FieldLayout left & right aligned */
 
 	.demo-container {
 		border-radius: 0;
-		border-width: 1px 0 0;
+		border-width: 0;
 		padding: 1.5em 2.5em 1em 0;
 	}
 
@@ -621,6 +655,11 @@ FieldLayout left & right aligned */
 		white-space: nowrap;
 	}
 
+	.demo-pageSelect {
+		margin-left: 0;
+		border-width: 1px 1px 0 1px;
+	}
+
 	/* Make it visible for all browsers again */
 	.demo-header h2 span {
 		clip: auto;
@@ -634,8 +673,11 @@ FieldLayout left & right aligned */
 
 	.demo-container {
 		border-radius: 2px;
-		border-width: 1px;
-		padding: 2em;
+		padding: 1.5em 2em;
+	}
+
+	.demo-container.oo-ui-panelLayout {
+		border-width: 0 1px 1px 1px;
 	}
 
 	.demo-console-expanded {
