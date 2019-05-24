@@ -27,6 +27,10 @@ OO.ui.TabSelectWidget = function OoUiTabSelectWidget( config ) {
 	this.$element
 		.addClass( 'oo-ui-tabSelectWidget' )
 		.attr( 'role', 'tablist' );
+
+	if ( OO.ui.isMobile() ) {
+		this.$element.addClass( 'oo-ui-tabSelectWidget-mobile' );
+	}
 };
 
 /* Setup */
