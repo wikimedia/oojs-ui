@@ -38,6 +38,7 @@
  * @cfg {boolean} [continuous=false] Show all tab panels, one after another
  * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new tab panel is
  *  displayed. Disabled on mobile.
+ * @cfg {boolean} [framed=true] Render the tabs with frames
  */
 OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	// Configuration initialization
@@ -60,7 +61,9 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 
 	// Allow infused widgets to pass an existing tabSelectWidget
-	this.tabSelectWidget = config.tabSelectWidget || new OO.ui.TabSelectWidget();
+	this.tabSelectWidget = config.tabSelectWidget || new OO.ui.TabSelectWidget( {
+		framed: config.framed === undefined || config.framed
+	} );
 	this.tabPanel = this.menuPanel || new OO.ui.PanelLayout( {
 		expanded: this.expanded
 	} );

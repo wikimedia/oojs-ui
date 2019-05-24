@@ -911,66 +911,108 @@
 	margin: 0.5em 0 0 0.75em;
 	border-color: transparent;
 	border-style: @border-style-base;
-	border-width: @border-width-base @border-width-base 0 @border-width-base;
-	border-top-left-radius: @border-radius-base;
-	border-top-right-radius: @border-radius-base;
 	padding: 0.5em 1em;
 
 	&.oo-ui-optionWidget-selected {
 		background-color: @background-color-main;
 		color: #000;
 		border-color: #ddd;
+		cursor: default;
 	}
 
 	.oo-ui-tabSelectWidget-mobile &:last-child {
 		margin-right: 2em; // Equals to mobile overflow gradient below.
 	}
 
-	&.oo-ui-widget-enabled {
-		&:hover {
-			background-color: rgba( 255, 255, 255, 0.2 );
-			color: #000;
-			border-color: #ddd;
+	.oo-ui-tabSelectWidget-framed & {
+		border-width: @border-width-base @border-width-base 0 @border-width-base;
+		border-top-left-radius: @border-radius-base;
+		border-top-right-radius: @border-radius-base;
+
+		&.oo-ui-widget-enabled {
+			&:hover {
+				background-color: rgba( 255, 255, 255, 0.2 );
+				color: #000;
+				border-color: #ddd;
+			}
+
+			&:active {
+				background-color: @background-color-main;
+				color: #000;
+				border-color: #ddd;
+			}
+
+			&.oo-ui-optionWidget-selected:hover {
+				background-color: @background-color-main;
+				color: #000;
+			}
+		}
+	}
+
+	.oo-ui-tabSelectWidget-frameless & {
+		border-width: 0;
+		background-color: transparent;
+		box-shadow: inset 0 0 0 0 @color-progressive;
+		.oo-ui-transition(
+			color @transition-base,
+			box-shadow @transition-base
+		);
+
+		&.oo-ui-optionWidget-selected {
+			color: @color-progressive;
+			box-shadow: inset 0 -@border-width-frameless-tab 0 0 @color-progressive;
 		}
 
-		&:active {
-			background-color: @background-color-main;
-			color: #000;
-			border-color: #ddd;
+		&.oo-ui-widget-enabled {
+			&:hover,
+			&:active {
+				color: @color-progressive;
+				box-shadow: inset 0 -@border-width-frameless-tab 0 0 @color-progressive;
+			}
 		}
+	}
 
-		&.oo-ui-optionWidget-selected:hover {
-			background-color: @background-color-main;
-			color: #000;
-			cursor: default;
-		}
-
-		.oo-ui-tabSelectWidget.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected {
-			box-shadow: @box-shadow-widget--focus;
-		}
+	// Use same focus styling from framed and unframed
+	.oo-ui-tabSelectWidget.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected {
+		box-shadow: @box-shadow-widget--focus, inset 0 -@border-width-frameless-tab 0 0 @color-progressive;
 	}
 }
 
 .theme-oo-ui-tabSelectWidget() {
-	background-color: @background-color-tabs;
-	box-shadow: inset 0 -0.015em 0.1em rgba( 0, 0, 0, 0.1 );
+	&-framed {
+		background-color: @background-color-tabs;
+		box-shadow: inset 0 -0.015em 0.1em rgba( 0, 0, 0, 0.1 );
+	}
+
+	&-frameless {
+		box-shadow: inset 0 -@border-width-base 0 0 @border-color-base;
+	}
+
+	// Add background gradient to emphasize tab overflow.
+	&-mobile {
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: -@border-width-base;
+			width: 2em;
+			height: 100%;
+			pointer-events: none;
+		}
+
+		&.oo-ui-tabSelectWidget-framed:after {
+			.oo-ui-horizontal-gradient( fade( @background-color-tabs, 0 ), @background-color-tabs );
+			border-right: @border-base;
+		}
+
+		&.oo-ui-tabSelectWidget-frameless:after {
+			.oo-ui-horizontal-gradient( fade( #fff, 0 ), #fff );
+		}
+	}
 
 	// Keyboard focus is handled in TabOptionWidget above
 	&.oo-ui-widget-enabled:focus {
 		outline: 0;
-	}
-
-	// Add background gradient to emphasize tab overflow.
-	&-mobile:after {
-		content: '';
-		.oo-ui-horizontal-gradient( fade( @background-color-tabs, 0 ), @background-color-tabs );
-		position: absolute;
-		top: 0;
-		right: -@border-width-base;
-		width: 2em;
-		height: 100%;
-		border-right: @border-base;
-		pointer-events: none;
 	}
 }
 
