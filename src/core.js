@@ -302,17 +302,6 @@ OO.ui.throttle = function ( func, wait ) {
 };
 
 /**
- * A (possibly faster) way to get the current timestamp as an integer.
- *
- * @deprecated Since 0.31.1; use `Date.now()` instead.
- * @return {number} Current timestamp, in milliseconds since the Unix epoch
- */
-OO.ui.now = function () {
-	OO.ui.warnDeprecation( 'OO.ui.now() is deprecated, use Date.now() instead' );
-	return Date.now();
-};
-
-/**
  * Reconstitute a JavaScript object corresponding to a widget created by
  * the PHP implementation.
  *
