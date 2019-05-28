@@ -1368,6 +1368,10 @@
 		}
 	}
 
+	.oo-ui-tabSelectWidget-mobile &:last-child {
+		margin-right: @margin-taboption * 3; // Equals to mobile overflow gradient below.
+	}
+
 	.oo-ui-labelElement-label {
 		border-bottom: ( 2 * @border-width-base ) @border-style-base transparent;
 		padding: @padding-vertical-base @padding-horizontal-taboption-label ( @padding-vertical-base - 2 * @size-modifier-border ); // Provide additional `padding` on label itself for special tab focus
@@ -1402,6 +1406,19 @@
 	// Keyboard focus is handled in TabOptionWidget above
 	&.oo-ui-widget-enabled:focus {
 		outline: 0;
+	}
+
+	// Add background gradient to emphasize tab overflow.
+	&-mobile:after {
+		content: '';
+		.oo-ui-horizontal-gradient( fade( #eaecf0, 0 ), #eaecf0 );
+		position: absolute;
+		top: 0;
+		right: -@border-width-base;
+		width: @margin-taboption * 3;
+		height: 100%;
+		border-right: @border-base;
+		pointer-events: none;
 	}
 }
 

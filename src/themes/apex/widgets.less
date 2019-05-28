@@ -922,6 +922,10 @@
 		border-color: #ddd;
 	}
 
+	.oo-ui-tabSelectWidget-mobile &:last-child {
+		margin-right: 2em; // Equals to mobile overflow gradient below.
+	}
+
 	&.oo-ui-widget-enabled {
 		&:hover {
 			background-color: rgba( 255, 255, 255, 0.2 );
@@ -948,12 +952,25 @@
 }
 
 .theme-oo-ui-tabSelectWidget() {
-	background-color: #eee;
+	background-color: @background-color-tabs;
 	box-shadow: inset 0 -0.015em 0.1em rgba( 0, 0, 0, 0.1 );
 
 	// Keyboard focus is handled in TabOptionWidget above
 	&.oo-ui-widget-enabled:focus {
 		outline: 0;
+	}
+
+	// Add background gradient to emphasize tab overflow.
+	&-mobile:after {
+		content: '';
+		.oo-ui-horizontal-gradient( fade( @background-color-tabs, 0 ), @background-color-tabs );
+		position: absolute;
+		top: 0;
+		right: -@border-width-base;
+		width: 2em;
+		height: 100%;
+		border-right: @border-base;
+		pointer-events: none;
 	}
 }
 
