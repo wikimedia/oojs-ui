@@ -313,8 +313,7 @@
 			"src/themes/{theme}/icons-layout.json",
 			"src/themes/{theme}/icons-accessibility.json",
 			"src/themes/{theme}/icons-wikimedia.json",
-			"src/themes/{theme}/indicators.json",
-			"src/themes/{theme}/textures.json"
+			"src/themes/{theme}/indicators.json"
 		]
 	},
 
