@@ -379,24 +379,29 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	],
 ] ) );
 
-$indexLayout = new OOUI\IndexLayout( [
-	'infusable' => true,
-	'expanded' => false,
-] );
-$indexLayout->addTabPanels( [
-	new OOUI\TabPanelLayout( [
-		'name' => 'panel1',
-		'label' => 'Panel 1',
-		'content' => new OOUI\HtmlSnippet( 'Panel <b>1</b> <i>content</i>' ),
+$indexLayouts = [];
+for ( $i = 0; $i < 2; $i++ ) {
+	$indexLayout = new OOUI\IndexLayout( [
+		'infusable' => true,
 		'expanded' => false,
-	] ),
-	new OOUI\TabPanelLayout( [
-		'name' => 'panel2',
-		'label' => 'Panel 2',
-		'content' => new OOUI\HtmlSnippet( 'Panel <b>2</b> <i>content</i>' ),
-		'expanded' => false,
-	] )
-] );
+		'framed' => $i === 0,
+	] );
+	$indexLayout->addTabPanels( [
+		new OOUI\TabPanelLayout( [
+			'name' => 'panel1',
+			'label' => 'Panel 1',
+			'content' => new OOUI\HtmlSnippet( 'Panel <b>1</b> <i>content</i>' ),
+			'expanded' => false,
+		] ),
+		new OOUI\TabPanelLayout( [
+			'name' => 'panel2',
+			'label' => 'Panel 2',
+			'content' => new OOUI\HtmlSnippet( 'Panel <b>2</b> <i>content</i>' ),
+			'expanded' => false,
+		] )
+	] );
+	$indexLayouts[] = $indexLayout;
+}
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'id' => 'demo-section-horizontalLayout',
 	'infusable' => false,
@@ -404,10 +409,19 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\Widget( [
-				'content' => $indexLayout,
+				'content' => $indexLayouts[ 0 ],
 			] ),
 			[
-				'label' => 'IndexLayout',
+				'label' => 'IndexLayout (framed)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\Widget( [
+				'content' => $indexLayouts[ 1 ],
+			] ),
+			[
+				'label' => 'IndexLayout (frameless)',
 				'align' => 'top'
 			]
 		),

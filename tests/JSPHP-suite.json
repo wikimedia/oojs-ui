@@ -7455,6 +7455,18 @@
       {
         "class": "IndexLayout",
         "config": {
+          "framed": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
           "expanded": true
         }
       },
@@ -7538,6 +7550,34 @@
         "class": "IndexLayout",
         "config": {
           "continuous": true,
+          "framed": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
+          "framed": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "framed": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": false,
+          "framed": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "continuous": true,
           "expanded": true
         }
       },
@@ -7664,6 +7704,34 @@
         "class": "IndexLayout",
         "config": {
           "autoFocus": true,
+          "framed": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
+          "framed": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "framed": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": false,
+          "framed": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "autoFocus": true,
           "expanded": true
         }
       },
@@ -7783,6 +7851,132 @@
         "class": "IndexLayout",
         "config": {
           "autoFocus": false,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": true,
+          "expanded": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": true,
+          "expanded": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": false,
+          "expanded": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": false,
+          "expanded": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": true,
+          "showMenu": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": true,
+          "showMenu": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": false,
+          "showMenu": true
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": false,
+          "showMenu": false
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": true,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": true,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": true,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": true,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": true,
+          "menuPosition": "invalid"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": false,
+          "menuPosition": "before"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": false,
+          "menuPosition": "after"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": false,
+          "menuPosition": "top"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": false,
+          "menuPosition": "bottom"
+        }
+      },
+      {
+        "class": "IndexLayout",
+        "config": {
+          "framed": false,
           "menuPosition": "invalid"
         }
       },
@@ -45226,6 +45420,18 @@
       {
         "class": "TabSelectWidget",
         "config": {
+          "framed": true
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": false
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
           "items": [
             "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
           ]
@@ -45264,6 +45470,108 @@
       {
         "class": "TabSelectWidget",
         "config": {
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": true,
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ]
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": false,
+          "items": [
+            "_placeholder_{\"class\":\"OptionWidget\",\"config\":{}}"
+          ]
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "TabSelectWidget",
+        "config": {
+          "framed": false,
           "tabIndex": "42"
         }
       },

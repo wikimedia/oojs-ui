@@ -476,7 +476,53 @@ Demo.static.pages.layouts = function ( demo ) {
 						]
 					} ),
 					{
-						label: 'IndexLayout',
+						label: 'IndexLayout (framed)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.Widget( {
+						content: [
+							new OO.ui.PanelLayout( {
+								expanded: false,
+								framed: false,
+								content: [
+									new OO.ui.IndexLayout( {
+										expanded: false,
+										framed: false
+									} ).addTabPanels( [
+										new Demo.SampleTabPanel( 'first', {
+											expanded: false,
+											label: 'One tab'
+										} ),
+										new Demo.SampleTabPanel( 'second', {
+											expanded: false,
+											label: 'Two tab'
+										} ),
+										new Demo.SampleTabPanel( 'third', {
+											expanded: false,
+											label: 'Three tab'
+										} ),
+										new Demo.SampleTabPanel( 'fourth', {
+											expanded: false,
+											label: 'Four tab'
+										} ),
+										new Demo.SampleTabPanel( 'long', {
+											expanded: false,
+											label: 'Long tab',
+											content: [
+												$( '<p>' ).text( loremIpsum ),
+												$( '<p>' ).text( loremIpsum ),
+												$( '<p>' ).text( loremIpsum )
+											]
+										} )
+									] )
+								]
+							} )
+						]
+					} ),
+					{
+						label: 'IndexLayout (frameless)',
 						align: 'top'
 					}
 				)
