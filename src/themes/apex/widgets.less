@@ -914,9 +914,6 @@
 	padding: 0.5em 1em;
 
 	&.oo-ui-optionWidget-selected {
-		background-color: @background-color-main;
-		color: #000;
-		border-color: #ddd;
 		cursor: default;
 	}
 
@@ -928,6 +925,12 @@
 		border-width: @border-width-base @border-width-base 0 @border-width-base;
 		border-top-left-radius: @border-radius-base;
 		border-top-right-radius: @border-radius-base;
+
+		&.oo-ui-optionWidget-selected {
+			background-color: @background-color-main;
+			color: #000;
+			border-color: #ddd;
+		}
 
 		&.oo-ui-widget-enabled {
 			&:hover {
@@ -947,6 +950,10 @@
 				color: #000;
 			}
 		}
+	}
+
+	.oo-ui-tabSelectWidget-framed.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected {
+		box-shadow: @box-shadow-widget--focus, inset 0 -@border-width-frameless-tab 0 0 @color-progressive;
 	}
 
 	.oo-ui-tabSelectWidget-frameless & {
@@ -972,9 +979,10 @@
 		}
 	}
 
-	// Use same focus styling from framed and unframed
-	.oo-ui-tabSelectWidget.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected {
-		box-shadow: @box-shadow-widget--focus, inset 0 -@border-width-frameless-tab 0 0 @color-progressive;
+	// The option widget has no guaranteed margin to draw an outer shadow in, so use
+	// a background higlight, like other option widgets.
+	.oo-ui-tabSelectWidget-frameless.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected {
+		background-color: #e1f3ff;
 	}
 }
 
