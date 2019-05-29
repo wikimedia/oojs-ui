@@ -31,26 +31,6 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 		),
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [
-				'label' => 'Progressive',
-				'flags' => [ 'progressive' ]
-			] ),
-			[
-				'label' => "ButtonWidget (progressive)",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonWidget( [
-				'label' => 'Destructive',
-				'flags' => [ 'destructive' ]
-			] ),
-			[
-				'label' => "ButtonWidget (destructive)",
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonWidget( [
 				'label' => 'Primary progressive',
 				'flags' => [ 'primary', 'progressive' ]
 			] ),
@@ -67,6 +47,30 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 			[
 				'label' => "ButtonWidget (primary, destructive)",
 				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Progressive',
+				'flags' => [ 'progressive' ]
+			] ),
+			[
+				'label' => "ButtonWidget (progressive)",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Destructive',
+				'flags' => [ 'destructive' ]
+			] ),
+			[
+				'label' => "ButtonWidget (destructive)",
+				'align' => 'top',
+				'help' => 'Flagged (progressive or destructive) normal ButtonWidgets should ' .
+					'only be used in contexts where two equally important primary actions ' .
+					'are available.',
+				'helpInline' => true,
 			]
 		),
 		new OOUI\FieldLayout(
