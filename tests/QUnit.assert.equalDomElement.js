@@ -21,7 +21,7 @@
 	 * @return {Object|null} Summary of element.
 	 */
 	function getDomElementSummary( element ) {
-		var i, name, attribute, property, childSummary,
+		var i, name, attribute, property, childSummary, matches,
 			summary = {
 				type: element.nodeName.toLowerCase(),
 				// $( '<div><textarea>Foo</textarea></div>' )[0].textContent === 'Foo', which breaks
@@ -125,12 +125,12 @@
 			delete summary.attributes.title;
 			delete summary.attributes[ 'aria-disabled' ];
 		}
-		// Extra stuff on JS FieldLayout's $help
+		// Extra stuff on JS Field(set)Layout's $help
 		if (
 			summary.attributes.class &&
-			summary.attributes.class.match( /oo-ui-fieldLayout-help/ )
+			( matches = summary.attributes.class.match( /oo-ui-field(set)?Layout-help/ ) )
 		) {
-			summary.attributes.class = 'oo-ui-fieldLayout-help';
+			summary.attributes.class = matches[ 0 ];
 			summary.children = [];
 		}
 		// Only used by JS FieldLayout

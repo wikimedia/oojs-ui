@@ -22,6 +22,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'infusable' => true,
 	'label' => 'Field layouts',
 	'icon' => 'tag',
+	'help' => 'Fieldset help',
 	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [
@@ -345,6 +346,8 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'id' => 'demo-section-horizontalLayout',
 	'infusable' => false,
 	'label' => 'HorizontalLayout',
+	'help' => 'Inline FieldsetLayout help',
+	'helpInline' => true,
 	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\Widget( [
@@ -405,7 +408,7 @@ for ( $i = 0; $i < 2; $i++ ) {
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'id' => 'demo-section-horizontalLayout',
 	'infusable' => false,
-	'label' => 'IndexLayout static',
+	'label' => 'Other layouts',
 	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\Widget( [

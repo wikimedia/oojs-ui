@@ -34,7 +34,7 @@ Demo.static.pages.layouts = function ( demo ) {
 			id: 'demo-section-fieldLayouts',
 			label: 'Field layouts',
 			icon: 'tag',
-			help: loremIpsum,
+			help: 'Fieldset help',
 			items: [
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
@@ -349,6 +349,8 @@ Demo.static.pages.layouts = function ( demo ) {
 		new OO.ui.FieldsetLayout( {
 			id: 'demo-section-horizontalLayout',
 			label: 'HorizontalLayout',
+			help: 'Inline FieldsetLayout help',
+			helpInline: true,
 			items: [
 				new OO.ui.FieldLayout(
 					new OO.ui.Widget( {

@@ -7124,6 +7124,30 @@
       {
         "class": "FieldsetLayout",
         "config": {
+          "help": ""
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
           "icon": "image"
         }
       },
@@ -7175,6 +7199,42 @@
           "items": [
             "_placeholder_{\"class\":\"FieldLayout\",\"config\":{\"fieldWidget\":\"_placeholder_{\\\"class\\\":\\\"ButtonWidget\\\",\\\"config\\\":{}}\"}}"
           ],
+          "help": ""
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"FieldLayout\",\"config\":{\"fieldWidget\":\"_placeholder_{\\\"class\\\":\\\"ButtonWidget\\\",\\\"config\\\":{}}\"}}"
+          ],
+          "help": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"FieldLayout\",\"config\":{\"fieldWidget\":\"_placeholder_{\\\"class\\\":\\\"ButtonWidget\\\",\\\"config\\\":{}}\"}}"
+          ],
+          "helpInline": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"FieldLayout\",\"config\":{\"fieldWidget\":\"_placeholder_{\\\"class\\\":\\\"ButtonWidget\\\",\\\"config\\\":{}}\"}}"
+          ],
+          "helpInline": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "items": [
+            "_placeholder_{\"class\":\"FieldLayout\",\"config\":{\"fieldWidget\":\"_placeholder_{\\\"class\\\":\\\"ButtonWidget\\\",\\\"config\\\":{}}\"}}"
+          ],
           "icon": "image"
         }
       },
@@ -7238,6 +7298,258 @@
           "items": [
             "_placeholder_{\"class\":\"FieldLayout\",\"config\":{\"fieldWidget\":\"_placeholder_{\\\"class\\\":\\\"ButtonWidget\\\",\\\"config\\\":{}}\"}}"
           ],
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "",
+          "helpInline": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "",
+          "helpInline": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>",
+          "helpInline": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>",
+          "helpInline": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "",
+          "icon": "image"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>",
+          "icon": "image"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "",
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "",
+          "label": ""
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "",
+          "label": " "
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "",
+          "label": "0"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>",
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>",
+          "label": ""
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>",
+          "label": " "
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>",
+          "label": "0"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "help": "Foo bar <b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": true,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": true,
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": true,
+          "label": ""
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": true,
+          "label": " "
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": true,
+          "label": "0"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": false,
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": false,
+          "label": ""
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": false,
+          "label": " "
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": false,
+          "label": "0"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "FieldsetLayout",
+        "config": {
+          "helpInline": false,
           "invisibleLabel": false
         }
       },

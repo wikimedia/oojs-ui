@@ -76,7 +76,7 @@ class FieldLayout extends Layout {
 	 *      - string[]|HtmlSnippet[] $config['errors'] Error messages about the widget.
 	 *      - string[]|HtmlSnippet[] $config['warnings'] Warning messages about the widget.
 	 *      - string[]|HtmlSnippet[] $config['notices'] Notices about the widget.
-	 *      - string|HtmlSnippet $config['help'] Explanatory text shown as a '?' icon.
+	 *      - string|HtmlSnippet $config['help'] Explanatory text shown as a '?' icon, or inline.
 	 *      - bool $config['helpInline'] Whether or not the help should be inline,
 	 *          or shown when the "help" icon is clicked. (default: false)
 	 * @param-taint $config escapes_htmlnoent
