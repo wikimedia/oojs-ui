@@ -78,8 +78,12 @@ class FieldsetLayout extends Layout {
 
 	public function getConfig( &$config ) {
 		$config['$overlay'] = true;
-		$config['help'] = $this->helpText;
-		$config['helpInline'] = $this->helpInline;
+		if ( $this->helpText !== '' ) {
+			$config['help'] = $this->helpText;
+		}
+		if ( $this->helpInline ) {
+			$config['helpInline'] = $this->helpInline;
+		}
 		return parent::getConfig( $config );
 	}
 }

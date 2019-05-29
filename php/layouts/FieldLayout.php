@@ -287,13 +287,27 @@ class FieldLayout extends Layout {
 
 	public function getConfig( &$config ) {
 		$config['fieldWidget'] = $this->fieldWidget;
-		$config['align'] = $this->align;
-		$config['errors'] = $this->errors;
-		$config['warnings'] = $this->warnings;
-		$config['successMessages'] = $this->successMessages;
-		$config['notices'] = $this->notices;
-		$config['help'] = $this->helpText;
-		$config['helpInline'] = $this->helpInline;
+		if ( $this->align !== 'left' ) {
+			$config['align'] = $this->align;
+		}
+		if ( count( $this->errors ) ) {
+			$config['errors'] = $this->errors;
+		}
+		if ( count( $this->warnings ) ) {
+			$config['warnings'] = $this->warnings;
+		}
+		if ( count( $this->successMessages ) ) {
+			$config['successMessages'] = $this->successMessages;
+		}
+		if ( count( $this->notices ) ) {
+			$config['notices'] = $this->notices;
+		}
+		if ( $this->helpText !== '' ) {
+			$config['help'] = $this->helpText;
+		}
+		if ( $this->helpInline ) {
+			$config['helpInline'] = $this->helpInline;
+		}
 		$config['$overlay'] = true;
 		return parent::getConfig( $config );
 	}
