@@ -1846,6 +1846,47 @@ Demo.static.pages.widgets = function ( demo ) {
 			]
 		} ),
 		new OO.ui.FieldsetLayout( {
+			id: 'demo-section-tabs',
+			label: 'Tabs',
+			items: [
+				new OO.ui.FieldLayout(
+					new OO.ui.TabSelectWidget( {
+						items: [
+							new OO.ui.TabOptionWidget( {
+								label: 'Tab 1',
+								selected: true
+							} ),
+							new OO.ui.TabOptionWidget( {
+								label: 'Tab 2'
+							} )
+						]
+					} ),
+					{
+						label: 'TabSelectWidget (framed)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TabSelectWidget( {
+						framed: false,
+						items: [
+							new OO.ui.TabOptionWidget( {
+								label: 'Tab 1',
+								selected: true
+							} ),
+							new OO.ui.TabOptionWidget( {
+								label: 'Tab 2'
+							} )
+						]
+					} ),
+					{
+						label: 'TabSelectWidget (frameless)',
+						align: 'top'
+					}
+				)
+			]
+		} ),
+		new OO.ui.FieldsetLayout( {
 			id: 'demo-section-tagMultiselect',
 			label: 'TagMultiselect, MenuTagMultiselect',
 			items: [

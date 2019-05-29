@@ -892,7 +892,25 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 				]
 			] ),
 			[
-				'label' => 'TabSelectWidget',
+				'label' => 'TabSelectWidget (framed)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TabSelectWidget( [
+				'framed' => false,
+				'items' => [
+					new OOUI\TabOptionWidget( [
+						'label' => 'Tab 1',
+						'selected' => true,
+					] ),
+					new OOUI\TabOptionWidget( [
+						'label' => 'Tab 2'
+					] )
+				]
+			] ),
+			[
+				'label' => 'TabSelectWidget (frameless)',
 				'align' => 'top'
 			]
 		),
