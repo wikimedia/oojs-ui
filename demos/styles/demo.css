@@ -550,11 +550,11 @@ FieldLayout left & right aligned */
 	}
 
 	.demo-header-mobile {
-		min-height: 5.929em;
+		min-height: 5.833em;
 	}
 
 	.demo-header-mobile + .demo-container.oo-ui-panelLayout {
-		margin-top: 5.929em;
+		margin-top: 5.833em;
 	}
 
 	/* This needs extra specificity to beat PanelLayout styles */
