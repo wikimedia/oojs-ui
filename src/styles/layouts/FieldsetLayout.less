@@ -37,6 +37,11 @@
 
 	.oo-ui-fieldsetLayout-help {
 		float: right;
+
+		// In PHP mode this just behaves as a help tooltip
+		&:not( .oo-ui-popupButtonWidget ) > .oo-ui-buttonElement-button {
+			cursor: help;
+		}
 	}
 
 	.theme-oo-ui-fieldsetLayout();
