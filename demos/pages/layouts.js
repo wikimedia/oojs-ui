@@ -705,8 +705,7 @@ Demo.static.pages.layouts = function ( demo ) {
 		} )
 	];
 
-	// eslint-disable-next-line no-jquery/no-each-util
-	$.each( fieldsets, function ( i, fieldsetLayout ) {
+	fieldsets.forEach( function ( fieldsetLayout ) {
 		var showLayoutCode = false;
 
 		if (
@@ -716,8 +715,7 @@ Demo.static.pages.layouts = function ( demo ) {
 			showLayoutCode = true;
 		}
 
-		// eslint-disable-next-line no-jquery/no-each-util
-		$.each( fieldsetLayout.getItems(), function ( j, fieldLayout ) {
+		fieldsetLayout.getItems().forEach( function ( fieldLayout ) {
 			fieldLayout.$element.append(
 				demo.buildLinkExample(
 					fieldLayout,
