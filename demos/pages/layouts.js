@@ -746,6 +746,9 @@ Demo.static.pages.layouts = function ( demo ) {
 		// We are removing all of the widgets from the page, so also remove their "detached"
 		// menus and stuff, otherwise they can remain visible forever.
 		$overlay.remove();
-		OO.ui.$defaultOverlay.empty();
+		// Check if getDefaultOverlay was used
+		if ( OO.ui.$defaultOverlay ) {
+			OO.ui.$defaultOverlay.empty();
+		}
 	} );
 };
