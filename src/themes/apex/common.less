@@ -79,9 +79,9 @@
 @padding-vertical-base: unit( 3 / 16 / 0.8, em );
 @padding-vertical-frameless: unit( 4 / 16 / 0.8, em );
 @padding-vertical-label: @padding-vertical-frameless;
+// Must be < `8` as it cuts off scripts.
+@padding-vertical-textinput: unit( 6 / 16 / 0.8, em );
 @padding-start-fieldlayout-label: @padding-horizontal-input-text;
-@padding-top-textinput: unit( 7 / 16 / 0.8, em );
-@padding-bottom-textinput: unit( 8 / 16 / 0.8, em );
 
 @box-shadow-widget--focus: 0 0 2px 2px @border-color-base--focus;
 
@@ -90,8 +90,7 @@
 @font-size-small: unit( 12 / 16 / 0.8, em );
 
 @line-height-base: 1.4;
-@line-height-widget-multiline: 1.275;
-@line-height-widget-singleline: 1.172em; // Firefox needs a value, Chrome the unit; equals `15px` at base `font-size: 12.8px`
+@line-height-input: unit( 18 / 16 / 0.8, em ); // Firefox needs a value, Chrome the unit; equals `18px` at base `font-size: 12.8px`
 
 // FIXME: Should be theme-independent variable, only in Apex for now;
 @text-shadow-button: 0 1px 1px rgba( 255, 255, 255, 0.5 );
