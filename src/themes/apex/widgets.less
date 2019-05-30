@@ -259,9 +259,11 @@
 	.oo-ui-inline-spacing( 0.5em );
 
 	&-handle {
-		height: 2.5em;
+		min-height: 2.5em;
 		border: @border-base;
 		border-radius: @border-radius-base;
+		padding: @padding-vertical-textinput @padding-end-dropdown @padding-vertical-textinput @padding-horizontal-base;
+		line-height: @line-height-reset;
 
 		&:focus {
 			outline: 0;
@@ -272,30 +274,24 @@
 			position: absolute;
 			top: 0;
 			height: 100%;
+			margin: 0;
 		}
 
 		.oo-ui-iconElement-icon {
-			left: 0.25em;
-			margin: 0 0.3em;
+			left: 0.55em;
 		}
 
 		.oo-ui-labelElement-label {
-			line-height: 2.5em;
-			margin: 0 0.5em;
+			line-height: @line-height-input;
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			right: 0;
-			margin: 0 0.775em;
+			right: 0.775em;
 		}
 	}
 
-	&.oo-ui-iconElement .oo-ui-dropdownWidget-handle .oo-ui-labelElement-label {
-		margin-left: 3em;
-	}
-
-	&.oo-ui-indicatorElement &-handle {
-		padding-right: @size-indicator + ( 2 * @padding-horizontal-base );
+	&.oo-ui-iconElement .oo-ui-dropdownWidget-handle {
+		padding-left: 3em;
 	}
 
 	&.oo-ui-widget-enabled &-handle {

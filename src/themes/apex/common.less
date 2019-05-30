@@ -82,6 +82,7 @@
 // Must be < `8` as it cuts off scripts.
 @padding-vertical-textinput: unit( 6 / 16 / 0.8, em );
 @padding-start-fieldlayout-label: @padding-horizontal-input-text;
+@padding-end-dropdown: @size-indicator + ( 2 * @padding-horizontal-base );
 
 @box-shadow-widget--focus: 0 0 2px 2px @border-color-base--focus;
 
@@ -89,6 +90,7 @@
 
 @font-size-small: unit( 12 / 16 / 0.8, em );
 
+@line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
 @line-height-base: 1.4;
 @line-height-input: unit( 18 / 16 / 0.8, em ); // Firefox needs a value, Chrome the unit; equals `18px` at base `font-size: 12.8px`
 
