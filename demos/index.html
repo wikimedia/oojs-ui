@@ -67,8 +67,7 @@
 			OO.ui.isDemo = true;
 
 			function setup() {
-				var
-					prevPage = demo ? demo.mode.page : null,
+				var prevPage = demo ? demo.mode.page : null,
 					scrollPos = $( window ).scrollTop();
 				if ( demo ) {
 					if ( lastQuery === location.search ) {
@@ -90,6 +89,8 @@
 			}
 
 			setup();
+
+			OO.ui.demo = demo;
 
 			$( window ).on( 'popstate', setup );
 			$( window ).on( 'hashchange', Demo.static.scrollToFragment );

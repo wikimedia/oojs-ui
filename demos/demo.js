@@ -80,7 +80,7 @@ window.Demo = function Demo() {
 		new OO.ui.ButtonWidget( { label: 'JS' } ).setActive( true ),
 		new OO.ui.ButtonWidget( {
 			label: 'PHP',
-			href: 'demos.php' + this.getUrlQuery( this.getCurrentFactorValues() )
+			href: 'demos.php' + this.getUrlQuery()
 		} )
 	] );
 	this.platformSelect = new OO.ui.ButtonSelectWidget().addItems( [
@@ -361,7 +361,12 @@ Demo.prototype.onModeChange = function () {
 	history.pushState(
 		null,
 		document.title,
-		this.getUrlQuery( [ page, theme, direction, platform ] )
+		this.getUrlQuery( {
+			page: page,
+			theme: theme,
+			direction: direction,
+			platform: platform
+		} )
 	);
 	$( window ).triggerHandler( 'popstate' );
 };
@@ -384,16 +389,18 @@ Demo.prototype.onExpandButtonChange = function ( value ) {
 /**
  * Get URL query for given factors describing the demo's mode.
  *
- * @param {string[]} factors Factors, as returned e.g. by #getCurrentFactorValues
+ * @param {Object} [mode] Factors, defaults to values provided by #getCurrentMode
+ * @param {string} [fragment] URL fragment, excluding the '#'
  * @return {string} URL query part, starting with '?'
  */
-Demo.prototype.getUrlQuery = function ( factors ) {
-	return '?page=' + factors[ 0 ] +
-		'&theme=' + factors[ 1 ] +
-		'&direction=' + factors[ 2 ] +
-		'&platform=' + factors[ 3 ] +
+Demo.prototype.getUrlQuery = function ( mode, fragment ) {
+	mode = $.extend( this.getCurrentMode(), mode );
+	return '?page=' + mode.page +
+		'&theme=' + mode.theme +
+		'&direction=' + mode.direction +
+		'&platform=' + mode.platform +
 		// Preserve current URL 'fragment' part
-		location.hash;
+		( fragment ? '#' + fragment : location.hash );
 };
 
 /**
@@ -469,10 +476,11 @@ Demo.prototype.getCurrentFactorValues = function () {
  *
  * Generated from parsed URL query values.
  *
+ * @param {string[]} [factorValues] Values to use instead of getCurrentFactorValues
  * @return {Object} List of factor values keyed by factor name
  */
-Demo.prototype.getCurrentMode = function () {
-	var factorValues = this.getCurrentFactorValues();
+Demo.prototype.getCurrentMode = function ( factorValues ) {
+	factorValues = factorValues || this.getCurrentFactorValues();
 
 	return {
 		page: factorValues[ 0 ],
@@ -564,7 +572,7 @@ Demo.prototype.normalizeQuery = function () {
 	}
 
 	// Update query
-	history.replaceState( null, document.title, this.getUrlQuery( modes ) );
+	history.replaceState( null, document.title, this.getUrlQuery( this.getCurrentMode( modes ) ) );
 };
 
 /**
