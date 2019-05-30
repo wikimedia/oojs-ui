@@ -104,26 +104,6 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonWidget( {
-						label: 'Progressive',
-						flags: [ 'progressive' ]
-					} ),
-					{
-						label: 'ButtonWidget (progressive)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
-						label: 'Destructive',
-						flags: [ 'destructive' ]
-					} ),
-					{
-						label: 'ButtonWidget (destructive)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonWidget( {
 						label: 'Primary progressive',
 						flags: [ 'primary', 'progressive' ]
 					} ),
@@ -140,6 +120,28 @@ Demo.static.pages.widgets = function ( demo ) {
 					{
 						label: 'ButtonWidget (primary, destructive)',
 						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						label: 'Progressive',
+						flags: [ 'progressive' ]
+					} ),
+					{
+						label: 'ButtonWidget (progressive)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						label: 'Destructive',
+						flags: [ 'destructive' ]
+					} ),
+					{
+						label: 'ButtonWidget (destructive)',
+						align: 'top',
+						help: 'Flagged (progressive or destructive) normal ButtonWidgets should only be used in contexts where two equally important primary actions are available.',
+						helpInline: true
 					}
 				),
 				new OO.ui.FieldLayout(

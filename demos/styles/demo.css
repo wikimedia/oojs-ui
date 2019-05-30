@@ -491,7 +491,8 @@ p {
 /* Special cases: ActionFieldLayout top aligned,
 FieldLayout left & right aligned */
 .oo-ui-fieldLayout-align-left,
-.oo-ui-fieldLayout-align-right {
+.oo-ui-fieldLayout-align-right,
+.oo-ui-fieldLayout-body .oo-ui-inline-help {
 	max-width: 50em;
 }
 
