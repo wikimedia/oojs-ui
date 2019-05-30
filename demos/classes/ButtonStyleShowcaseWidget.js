@@ -5,11 +5,9 @@ Demo.ButtonStyleShowcaseWidget = function DemoButtonStyleShowcaseWidget( config 
 
 	this.$element.addClass( 'demo-buttonStyleShowcaseWidget' );
 
-	// eslint-disable-next-line no-jquery/no-each-util
-	$.each( this.constructor.static.styles, function ( i, style ) {
+	this.constructor.static.styles.forEach( function ( style ) {
 		var $buttonRow = $( '<div>' );
-		// eslint-disable-next-line no-jquery/no-each-util
-		$.each( widget.constructor.static.states, function ( j, state ) {
+		widget.constructor.static.states.forEach( function ( state ) {
 			$buttonRow.append(
 				new OO.ui.ButtonWidget( $.extend( {}, style, state ) ).$element
 			);
