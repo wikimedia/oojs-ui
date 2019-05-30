@@ -21,6 +21,9 @@ window.Demo = function Demo() {
 	this.stylesheetLinks = this.getStylesheetLinks();
 	this.mode = this.getCurrentMode();
 
+	OO.ui.isMobile = function () {
+		return demo.mode.platform === 'mobile';
+	};
 	OO.ui.theme = new OO.ui[ this.constructor.static.themes[ this.mode.theme ] + 'Theme' ]();
 
 	this.$header = $( '<div>' );
@@ -142,9 +145,6 @@ window.Demo = function Demo() {
 	$( document.documentElement ).attr( 'dir', this.mode.direction );
 	$( document.head ).append( this.stylesheetLinks );
 	$( document.body ).addClass( 'oo-ui-theme-' + this.mode.theme );
-	OO.ui.isMobile = function () {
-		return demo.mode.platform === 'mobile';
-	};
 	OO.ui.getViewportSpacing = function () {
 		return {
 			// Contents of dialogs are shown on top of the fixed menu
