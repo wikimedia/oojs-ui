@@ -1214,22 +1214,15 @@
 		color: #000;
 		border: @border-base;
 		border-radius: @border-radius-base;
-		padding: @padding-top-textinput @padding-horizontal-input-text @padding-bottom-textinput @padding-horizontal-input-text;
+		padding: @padding-vertical-textinput @padding-horizontal-input-text;
 		box-shadow: 0 0 0 #fff, inset 0 0.1em 0.2em #ddd;
 		font-size: inherit;
 		font-family: inherit;
+		line-height: @line-height-input;
 		.oo-ui-transition(
 			border-color @transition-ease-medium,
 			box-shadow @transition-ease-medium
 		);
-	}
-
-	input {
-		line-height: @line-height-widget-singleline;
-	}
-
-	textarea {
-		line-height: @line-height-widget-multiline;
 	}
 
 	.oo-ui-pendingElement-pending {
@@ -1270,8 +1263,8 @@
 	> .oo-ui-labelElement-label {
 		color: @color-base--subtle;
 		top: @border-width-base; // equals `border-width`
-		padding: @padding-top-textinput 0.4em @padding-bottom-textinput 0.4em;
-		line-height: @line-height-widget-singleline;
+		padding: @padding-vertical-textinput 0.4em;
+		line-height: @line-height-input;
 	}
 
 	&-labelPosition-after {
