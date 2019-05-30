@@ -1850,6 +1850,11 @@ Demo.static.pages.widgets = function ( demo ) {
 		new OO.ui.FieldsetLayout( {
 			id: 'demo-section-tabs',
 			label: 'Tabs',
+			help: new OO.ui.HtmlSnippet(
+				'Use <a href="' + OO.ui.demo.getUrlQuery( { page: 'layouts' }, 'demo-section-other-layouts' ) + '">TabPanelLayout</a> ' +
+				'if you want to use a TabSelectWidget to switch between content.'
+			),
+			helpInline: true,
 			items: [
 				new OO.ui.FieldLayout(
 					new OO.ui.TabSelectWidget( {

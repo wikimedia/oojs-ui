@@ -406,7 +406,7 @@ for ( $i = 0; $i < 2; $i++ ) {
 	$indexLayouts[] = $indexLayout;
 }
 $demoContainer->appendContent( new OOUI\FieldsetLayout( [
-	'id' => 'demo-section-horizontalLayout',
+	'id' => 'demo-section-other-layouts',
 	'infusable' => false,
 	'label' => 'Other layouts',
 	'items' => [

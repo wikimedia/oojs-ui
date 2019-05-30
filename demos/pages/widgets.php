@@ -882,6 +882,12 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	'id' => 'demo-section-tabs',
 	'infusable' => true,
 	'label' => 'Tabs',
+	'help' => new \OOUI\HtmlSnippet(
+		'Use <a href="' . '?' . http_build_query( array_merge( $query, [ 'page' => 'layouts' ] ) ) .
+		'#demo-section-other-layouts">TabPanelLayout</a> ' .
+		'if you want to use a TabSelectWidget to switch between content.'
+	),
+	'helpInline' => true,
 	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\TabSelectWidget( [
