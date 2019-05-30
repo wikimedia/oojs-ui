@@ -1851,7 +1851,7 @@ Demo.static.pages.widgets = function ( demo ) {
 			id: 'demo-section-tabs',
 			label: 'Tabs',
 			help: new OO.ui.HtmlSnippet(
-				'Use <a href="' + OO.ui.demo.getUrlQuery( { page: 'layouts' }, 'demo-section-other-layouts' ) + '">TabPanelLayout</a> ' +
+				'Use <a href="' + OO.ui.demo.getUrlQuery( { page: 'layouts' }, 'demo-section-other-layouts' ) + '">IndexLayout</a> ' +
 				'if you want to use a TabSelectWidget to switch between content.'
 			),
 			helpInline: true,
