@@ -56,8 +56,17 @@ p {
 
 /* Layout */
 .demo-root {
-	max-width: 68.5713em; /* Equals `960px` at `14px` font size. */
 	margin: 0 auto 4.5em;
+}
+
+.demo-root,
+.demo-header {
+	max-width: 68.5713em; /* Equals `960px` at `14px` font size. */
+}
+
+.demo-header {
+	width: 100%;
+	position: relative;
 }
 
 .demo-header,
@@ -78,16 +87,16 @@ p {
 	margin-right: 0.5em;
 }
 
-.demo-menuToggle {
+.demo-menu > .demo-menuToggle {
 	position: absolute;
 	top: 0.75em;
-	right: 0;
+	right: 1em;
 	margin: 0;
 }
 
 .demo-pageSelect {
 	clear: both;
-	margin-left: -1em;
+	margin: 0 -1em;
 	border-width: 1px 0 0 0;
 }
 
@@ -649,13 +658,18 @@ FieldLayout left & right aligned */
 	.demo-header {
 		left: auto;
 		right: auto;
-		width: 68.5713em; /* Keep synchronised with `.demo-root` `max-width`. */
 		padding-left: 0;
 		white-space: nowrap;
 	}
 
+	@supports ( position: fixed ) {
+		.demo-header {
+			width: calc( 100% - 2em );
+		}
+	}
+
 	.demo-pageSelect {
-		margin-left: 0;
+		margin: 0;
 		border-width: 1px 1px 0 1px;
 	}
 
