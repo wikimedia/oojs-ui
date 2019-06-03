@@ -26,6 +26,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'articleRedirect',
 				'history',
 				'info',
+				'infoFilled',
 				'folderPlaceholder',
 				'die',
 				'download',
