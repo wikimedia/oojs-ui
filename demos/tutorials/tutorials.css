@@ -1,10 +1,10 @@
 body {
-	background-color: #fcfcfc;
+	background-color: #f8f9fa;
 	color: #222;
 	margin: 0;
 	/* stylelint-disable-next-line font-family-name-quotes */
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen-Sans', Ubuntu, Cantarell, Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	line-height: 1.8;
+	line-height: 1.6;
 }
 
 a {
@@ -64,16 +64,12 @@ code,
 code[ class*='language-' ],
 pre[ class*='language-' ] {
 	font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'Courier New', monospace; /* See T209915 */
+	line-height: 1.4;
 }
 
 :not( pre ) > code[ class*='language-' ],
 pre[ class*='language-' ] {
 	background: #fff;
-}
-
-/* Override PrismJS default */
-pre[ class*='language-' ] {
-	margin: 2em 0;
 }
 
 .tutorials-emphasis {
@@ -91,22 +87,21 @@ table {
 	box-shadow: 0 0 8px #bbb;
 }
 
-td,
-th {
+tr {
+	background-color: #f8f9fa;
+}
+
+th,
+td {
 	border: 1px solid #ddd;
 	padding: 8px;
 	text-align: left;
 }
 
 th {
-	background-image: linear-gradient( to bottom right, #052a74, #a8c1f9 );
 	background-color: #36c; /* fallback */
+	background-image: linear-gradient( to bottom right, #052a74, #a8c1f9 );
 	color: #fff;
-	text-transform: uppercase;
-}
-
-tr {
-	background-color: #fefefe;
 }
 
 .tutorials-box-container {
@@ -147,9 +142,7 @@ tr {
 	background-color: #fff;
 	color: #b32424;
 	border: 1px solid #d3d3d3;
-	padding: 0.25em;
-	padding-top: 0.1em;
-	padding-bottom: 0.1em;
+	padding: 0.1em 0.25em;
 }
 
 .tutorials-embed-app {
@@ -190,7 +183,6 @@ tr {
 }
 
 .tutorials-footer {
-	background-color: #fcfcfc;
 	margin-top: 6em;
 }
 
@@ -201,16 +193,17 @@ tr {
 }
 
 .tutorials-footer-content {
-	height: 20em;
+	min-height: 15em;
 }
 
 .tutorials-footer h3 {
 	color: #222;
+	margin-bottom: 0;
 }
 
 .tutorials-footer-top {
-	background-image: linear-gradient( to bottom right, #052a74, #a8c1f9 );
 	background-color: #36c; /* fallback */
+	background-image: linear-gradient( to bottom right, #052a74, #a8c1f9 );
 	color: #f8f9fa;
 	height: 8em;
 	padding-top: 2em;
