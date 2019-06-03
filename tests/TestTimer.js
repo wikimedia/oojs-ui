@@ -10,6 +10,7 @@
 OO.ui.TestTimer = function TestTimer() {
 	this.pendingCalls = [];
 	this.nextId = 1;
+	this.timestamp = 0;
 };
 
 /* Inheritance */
@@ -17,6 +18,15 @@ OO.ui.TestTimer = function TestTimer() {
 OO.initClass( OO.ui.TestTimer );
 
 /* Methods */
+
+/**
+ * Return the fake timestamp
+ *
+ * @return {number} The fake timestamp
+ */
+OO.ui.TestTimer.prototype.now = function () {
+	return this.timestamp;
+};
 
 /**
  * Emulated setTimeout; just pushes the call into a queue
@@ -29,7 +39,7 @@ OO.ui.TestTimer.prototype.setTimeout = function ( f, timeout ) {
 	this.pendingCalls.push( {
 		id: this.nextId,
 		f: f,
-		timeout: timeout || 0
+		timestamp: this.timestamp + ( timeout || 0 )
 	} );
 	return this.nextId++;
 };
@@ -54,21 +64,18 @@ OO.ui.TestTimer.prototype.clearTimeout = function ( id ) {
  */
 OO.ui.TestTimer.prototype.runPending = function ( interval ) {
 	var calls, i, len, call;
+	this.timestamp += ( interval || 0 );
 	calls = this.pendingCalls.splice( 0, this.pendingCalls.length ).sort( function ( a, b ) {
 		return a.timeout - b.timeout;
 	} );
 	for ( i = 0, len = calls.length; i < len; i++ ) {
 		call = calls[ i ];
-		if ( interval === undefined || call.timeout <= interval ) {
+		if ( interval === undefined || call.timestamp <= this.timestamp ) {
 			if ( call.f ) {
 				call.f();
 			}
 		} else {
-			this.pendingCalls.push( {
-				id: call.id,
-				f: call.f,
-				timeout: call.timeout - interval
-			} );
+			this.pendingCalls.push( call );
 		}
 	}
 };
