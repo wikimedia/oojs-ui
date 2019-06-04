@@ -193,12 +193,13 @@
 	}
 
 	// Give hovered/focussed widgets higher `z-index`, so that borders display correctly.
-	.oo-ui-actionFieldLayout-input > .oo-ui-textInputWidget > .oo-ui-inputWidget-input {
+	.oo-ui-actionFieldLayout-input > .oo-ui-textInputWidget {
 		// Apply these styles to the element itself and all following siblings (e.g. .oo-ui-iconElement-icon)
-		&:hover,
-		&:hover ~ *,
-		&:focus,
-		&:focus ~ * {
+		> .oo-ui-inputWidget-input:hover,
+		> .oo-ui-inputWidget-input:hover ~ *,
+		> .oo-ui-inputWidget-input:focus,
+		> .oo-ui-inputWidget-input:focus ~ *,
+		&.oo-ui-flaggedElement-invalid > .oo-ui-inputWidget-input {
 			z-index: 1;
 		}
 	}
