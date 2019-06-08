@@ -162,7 +162,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 							{
 								action: 'reject',
 								label: 'Cancel',
-								flags: [ 'safe', 'back' ]
+								flags: [ 'safe', 'close' ]
 							},
 							{
 								action: 'repeat',
@@ -179,7 +179,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 						title: 'Delete file?',
 						message: 'The file will be irreversably obliterated. Proceed with caution.',
 						actions: [
-							{ action: 'reject', label: 'Cancel', flags: [ 'safe', 'back' ] },
+							{ action: 'reject', label: 'Cancel', flags: [ 'safe', 'close' ] },
 							{ action: 'reject', label: 'Move file to trash' },
 							{
 								action: 'accept',

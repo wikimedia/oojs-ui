@@ -167,20 +167,27 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
 	var isMobile = OO.ui.isMobile();
 
+	function checkFlag( flag ) {
+		return config.flags === flag ||
+			( Array.isArray( config.flags ) && config.flags.indexOf( flag ) !== -1 );
+	}
+
 	// Default to unframed on mobile
 	config = $.extend( { framed: !isMobile }, config );
-	// Change back buttons to icon only on mobile
-	if (
-		isMobile &&
-		(
-			config.flags === 'back' ||
-			( Array.isArray( config.flags ) && config.flags.indexOf( 'back' ) !== -1 )
-		)
-	) {
-		$.extend( config, {
-			icon: 'previous',
-			label: ''
-		} );
+	if ( isMobile ) {
+		if ( checkFlag( 'close' ) ) {
+			// Change close buttons to icon only on mobile
+			$.extend( config, {
+				icon: 'close',
+				label: ''
+			} );
+		} else if ( checkFlag( 'back' ) ) {
+			// Change back buttons to icon only on mobile
+			$.extend( config, {
+				icon: 'previous',
+				label: ''
+			} );
+		}
 	}
 
 	return config;

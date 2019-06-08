@@ -6,7 +6,7 @@ Demo.ContinuousOutlinedBookletDialog.static.title = 'Continuous outlined booklet
 Demo.ContinuousOutlinedBookletDialog.static.size = 'large';
 Demo.ContinuousOutlinedBookletDialog.static.actions = [
 	{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] },
+	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] },
 	{ action: 'toggle', label: 'Toggle menu' }
 ];
 Demo.ContinuousOutlinedBookletDialog.prototype.getBodyHeight = function () {

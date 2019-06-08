@@ -5,7 +5,7 @@ OO.inheritClass( Demo.ProcessDialog, OO.ui.ProcessDialog );
 Demo.ProcessDialog.static.title = 'Process dialog';
 Demo.ProcessDialog.static.actions = [
 	{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] },
+	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] },
 	{ action: 'other', label: 'Other', flags: 'other' }
 ];
 Demo.ProcessDialog.prototype.initialize = function () {

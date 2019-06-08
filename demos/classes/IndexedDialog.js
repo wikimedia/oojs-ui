@@ -5,7 +5,7 @@ OO.inheritClass( Demo.IndexedDialog, OO.ui.ProcessDialog );
 Demo.IndexedDialog.static.title = 'Indexed dialog';
 Demo.IndexedDialog.static.actions = [
 	{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
+	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] }
 ];
 Demo.IndexedDialog.prototype.getBodyHeight = function () {
 	return 250;

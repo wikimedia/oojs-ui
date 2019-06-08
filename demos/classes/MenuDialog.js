@@ -5,7 +5,7 @@ OO.inheritClass( Demo.MenuDialog, OO.ui.ProcessDialog );
 Demo.MenuDialog.static.title = 'Menu dialog';
 Demo.MenuDialog.static.actions = [
 	{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
+	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] }
 ];
 Demo.MenuDialog.prototype.getBodyHeight = function () {
 	return 350;
