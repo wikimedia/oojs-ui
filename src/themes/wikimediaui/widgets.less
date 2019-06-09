@@ -1461,20 +1461,20 @@
 		&:after {
 			content: '';
 			position: absolute;
-			top: 0;
-			right: -@border-width-base;
+			bottom: 0;
+			right: 0;
 			width: @margin-taboption * 3;
-			height: 100%;
+			height: @size-base;
 			pointer-events: none;
 		}
 
 		&.oo-ui-tabSelectWidget-framed:after {
 			.oo-ui-horizontal-gradient( fade( #eaecf0, 0 ), #eaecf0 );
-			border-right: @border-base;
 		}
 
 		&.oo-ui-tabSelectWidget-frameless:after {
 			.oo-ui-horizontal-gradient( fade( #fff, 0 ), #fff );
+			bottom: @size-modifier-border * 2;
 		}
 	}
 
