@@ -5,7 +5,7 @@ OO.inheritClass( Demo.OutlinedBookletDialog, OO.ui.ProcessDialog );
 Demo.OutlinedBookletDialog.static.title = 'Outlined booklet dialog';
 Demo.OutlinedBookletDialog.static.actions = [
 	{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] },
+	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] },
 	{ action: 'toggle', label: 'Toggle menu' }
 ];
 Demo.OutlinedBookletDialog.prototype.getBodyHeight = function () {

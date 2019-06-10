@@ -20,7 +20,7 @@ Demo.SearchWidgetDialog.prototype.getBodyHeight = function () {
 	return 300;
 };
 Demo.SearchWidgetDialog.static.actions = [
-	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
+	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] }
 ];
 Demo.SearchWidgetDialog.prototype.getActionProcess = function ( action ) {
 	var dialog = this;

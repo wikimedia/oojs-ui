@@ -5,7 +5,7 @@ OO.inheritClass( Demo.FitLabelsProcessDialog, OO.ui.ProcessDialog );
 Demo.FitLabelsProcessDialog.static.actions = [
 	{ action: 'save', modes: [ 'short' ], label: 'Apply changes', flags: [ 'primary', 'progressive' ] },
 	{ action: 'save', modes: [ 'long' ], label: 'Apply changes (demo of a long action label)', flags: [ 'primary', 'progressive' ] },
-	{ action: 'cancel', modes: [ 'short', 'long' ], label: 'Cancel', flags: [ 'safe', 'back' ] }
+	{ action: 'cancel', modes: [ 'short', 'long' ], label: 'Cancel', flags: [ 'safe', 'close' ] }
 ];
 Demo.FitLabelsProcessDialog.prototype.initialize = function () {
 	var shortTitle = 'Process dialog',

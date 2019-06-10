@@ -12,7 +12,7 @@ Demo.FloatableTest = function DemoFloatableTest( config ) {
 OO.inheritClass( Demo.FloatableTest, OO.ui.ProcessDialog );
 Demo.FloatableTest.static.title = 'FloatableElement test';
 Demo.FloatableTest.static.actions = [
-	{ action: '', label: 'Cancel', flags: [ 'safe', 'back' ] },
+	{ action: '', label: 'Cancel', flags: [ 'safe', 'close' ] },
 	{ action: 'center', label: 'Center view' }
 ];
 Demo.FloatableTest.prototype.getBodyHeight = function () {

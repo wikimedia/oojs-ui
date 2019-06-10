@@ -5,7 +5,7 @@ OO.inheritClass( Demo.PopupButtonWidgetTest, OO.ui.ProcessDialog );
 Demo.PopupButtonWidgetTest.static.title = 'PopupButtonWidget test';
 Demo.PopupButtonWidgetTest.static.actions = [
 	{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
-	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'back' ] }
+	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] }
 ];
 Demo.PopupButtonWidgetTest.prototype.initialize = function () {
 	Demo.PopupButtonWidgetTest.parent.prototype.initialize.apply( this, arguments );
