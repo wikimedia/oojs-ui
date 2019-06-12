@@ -94,6 +94,13 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 		.addClass( 'oo-ui-tool-link' )
 		.append( this.checkIcon.$element, this.$icon, this.$title, this.$accel )
 		.attr( 'role', 'button' );
+
+	// Don't show keyboard shortcuts on mobile as users are unlikely to have
+	// a physical keyboard, and likely to have limited screen space.
+	if ( !OO.ui.isMobile() ) {
+		this.$link.append( this.$accel );
+	}
+
 	this.$element
 		.data( 'oo-ui-tool', this )
 		.addClass( 'oo-ui-tool' )
