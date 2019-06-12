@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="OOUI">
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
-		<!-- Disabled because "@param string $config['foo']" confuses it -->
 		<!-- Disabled because it complains about "missing" documentation where it is inherited -->
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
