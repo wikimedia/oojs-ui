@@ -5,13 +5,13 @@
 .theme-oo-ui-actionWidget() {}
 
 .theme-oo-ui-buttonWidget() {
-	.oo-ui-inline-spacing( 0.5em );
+	.oo-ui-inline-spacing( @margin-end-widget );
 }
 
 .theme-oo-ui-buttonGroupWidget() {
 	display: inline-block;
 	border-radius: @border-radius-base;
-	.oo-ui-inline-spacing( 0.5em );
+	.oo-ui-inline-spacing( @margin-end-widget );
 	// Create a stacking context, so that we can use `z-index` below without leaking out
 	z-index: 0;
 	position: relative;
@@ -19,7 +19,7 @@
 
 	// Overrides both, ButtonWidget & ToggleButtonWidget
 	.oo-ui-buttonElement {
-		.oo-ui-inline-spacing( 0 );
+		margin-right: 0;
 		z-index: 0;
 	}
 
@@ -85,7 +85,7 @@
 
 .theme-oo-ui-buttonSelectWidget() {
 	border-radius: @border-radius-base;
-	.oo-ui-inline-spacing( 0.5em );
+	.oo-ui-inline-spacing( @margin-end-widget );
 	// Create a stacking context, so that we can use `z-index` below without leaking out
 	z-index: 0;
 	position: relative;
@@ -426,7 +426,7 @@
 .theme-oo-ui-dropdownWidget() {
 	width: 100%;
 	max-width: @max-width-input;
-	.oo-ui-inline-spacing( 0.5em );
+	.oo-ui-inline-spacing( @margin-end-widget );
 
 	&-handle {
 		min-height: @min-height-widget-base; // Address label-less widgets
@@ -645,7 +645,7 @@
 }
 
 .theme-oo-ui-inputWidget() {
-	.oo-ui-inline-spacing( 0.5em );
+	.oo-ui-inline-spacing( @margin-end-widget );
 }
 
 .theme-oo-ui-labelWidget() {
@@ -1651,7 +1651,7 @@
 	&-handle {
 		.oo-ui-box-sizing( border-box );
 		min-height: @min-height-widget-base;
-		.oo-ui-inline-spacing( 0.5em );
+		.oo-ui-inline-spacing( @margin-end-widget );
 		border: @border-base;
 		border-radius: @border-radius-base;
 		padding: 0 @padding-horizontal-input-text;
@@ -1960,7 +1960,7 @@
 .theme-oo-ui-toggleWidget() {}
 
 .theme-oo-ui-toggleButtonWidget() {
-	.oo-ui-inline-spacing( 0.5em );
+	.oo-ui-inline-spacing( @margin-end-widget );
 }
 
 .theme-oo-ui-toggleSwitchWidget() {
@@ -1971,7 +1971,7 @@
 	height: 2em;
 	border: @border-input-binary;
 	border-radius: 1em;
-	.oo-ui-inline-spacing( 0.5em );
+	.oo-ui-inline-spacing( @margin-end-widget );
 	.oo-ui-transition(
 		background-color @transition-ease-medium,
 		border-color @transition-ease-medium
