@@ -10,15 +10,14 @@
 	.oo-ui-inputWidget-input {
 		// Support: Safari/iOS `none` needed, Chrome would accept `textfield` as well.
 		-webkit-appearance: none;
+		// Support: Firefox.
+		-moz-appearance: textfield;
 		display: block;
 		width: 100%;
 		.oo-ui-box-sizing( border-box );
 	}
 
 	input {
-		// Support: Firefox.
-		-moz-appearance: textfield;
-
 		// Support: IE 10-11, Edge 12+.
 		&::-ms-clear {
 			display: none;
