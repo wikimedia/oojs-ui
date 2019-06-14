@@ -27670,6 +27670,639 @@
       }
     ]
   },
+  "MessageWidget": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "MessageWidget",
+        "config": {
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": " "
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "0"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "label": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "label": " "
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "label": "0"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "label": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "label": " "
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "label": "0"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "disabled": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "label": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "label": " "
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "label": "0"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "icon": "image",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "Foo bar <b>HTML?</b>",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "Foo bar <b>HTML?</b>",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": " ",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "0",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "Foo bar <b>HTML?</b>",
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "Foo bar <b>HTML?</b>",
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "",
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "",
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": " ",
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": " ",
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "0",
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "0",
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}",
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}",
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "Foo bar <b>HTML?</b>",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "Foo bar <b>HTML?</b>",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": " ",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": " ",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "0",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "0",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "invisibleLabel": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "invisibleLabel": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "invisibleLabel": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "invisibleLabel": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "title": "",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "title": "",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "title": "Foo bar <b>HTML?</b>",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MessageWidget",
+        "config": {
+          "title": "Foo bar <b>HTML?</b>",
+          "flags": "primary"
+        }
+      }
+    ]
+  },
   "MultilineTextInputWidget": {
     "infuseonly": false,
     "tests": [

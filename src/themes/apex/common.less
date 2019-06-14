@@ -13,6 +13,10 @@
 @background-color-pending-stripe: #ddd;
 // Tabs Navigation Background Color
 @background-color-tabs: #eee;
+@background-color-error--framed: #ffdcdc;
+@background-color-warning--framed: #fff8c6;
+@background-color-success--framed: #d5fdd6;
+@background-color-notice--framed: #fafafa;
 
 @color-base: #333;
 @color-base--read-only: #767676;
@@ -25,6 +29,10 @@
 @color-progressive: #087ecc;
 @color-destructive: #d45353;
 @color-error: @color-destructive;
+@color-warning: @color-base--emphasized;
+@color-success: #34782b;
+@color-success--framed: @color-base--emphasized;
+@color-notice: @color-base--emphasized;
 
 // Box Sizes
 // `@*size` variables are used for `*width` & `*height` properties
@@ -52,6 +60,7 @@
 @start-frameless: -@padding-horizontal-frameless;
 
 @margin-top-fieldlayout-message: unit( 8 / 16 / 0.8, em );
+@margin-top-message-label: unit( 2 / 16 / 0.8, em );
 
 @border-base: @border-width-base @border-style-base @border-color-base;
 
@@ -63,6 +72,9 @@
 @border-color-progressive: #a6cee1;
 @border-color-progressive--hover: #9dc2d4;
 @border-color-error: @color-error;
+@border-color-warning: #b85c00;
+@border-color-success: @color-success;
+@border-color-notice: @border-color-base;
 // Border Styles
 @border-style-base: solid;
 // Border Widths
@@ -76,12 +88,15 @@
 @padding-horizontal-base: unit( 10 / 16 / 0.8, em );
 @padding-horizontal-frameless: unit( 4 / 16 / 0.8, em );
 @padding-horizontal-input-text: 0.5em;
+@padding-horizontal-message-block: unit( 24 / 16 / 0.8, em );
 @padding-vertical-base: unit( 3 / 16 / 0.8, em );
 @padding-vertical-frameless: unit( 4 / 16 / 0.8, em );
 @padding-vertical-label: @padding-vertical-frameless;
+@padding-vertical-message-block: unit( 20 / 16 / 0.8, em );
 // Must be < `8` as it cuts off scripts.
 @padding-vertical-textinput: unit( 6 / 16 / 0.8, em );
 @padding-start-fieldlayout-label: @padding-horizontal-input-text;
+@padding-start-messages: unit( 8 / 16 / 0.8, em );
 @padding-end-dropdown: @size-indicator + ( 2 * @padding-horizontal-base );
 
 @box-shadow-widget--focus: 0 0 2px 2px @border-color-base--focus;

@@ -1058,7 +1058,92 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'label' => "LabelWidget (with HTML)",
 				'align' => 'top'
 			]
-		)
+		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'notice',
+				'label' => new OOUI\HtmlSnippet( 'MessageWidget with notice for the user.<br> ' .
+					'Featuring multiple lines of notice.' )
+			] ),
+			[
+				'label' => "MessageWidget (type => 'notice')",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'notice',
+				'inline' => true,
+				'label' => 'Inlined MessageWidget with notice for the user.'
+			] ),
+			[
+				'label' => "MessageWidget (type => 'notice', inline)",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'error',
+				'label' => 'MessageWidget with comprehensive error message for the user.'
+			] ),
+			[
+				'label' => "MessageWidget (type => 'error')",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'error',
+				'inline' => true,
+				'label' => 'Inline MessageWidget with error message for the user.'
+			] ),
+			[
+				'label' => "MessageWidget (type => 'error', inline)",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'warning',
+				'label' => 'MessageWidget with warning message for the user.'
+			] ),
+			[
+				'label' => "MessageWidget (type => 'warning')",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'warning',
+				'inline' => true,
+				'label' => 'Inline MessageWidget with warning message for the user.'
+			] ),
+			[
+				'label' => "MessageWidget (type => 'warning', inline)",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'success',
+				'label' => 'MessageWidget with engaging success message for the user.'
+			] ),
+			[
+				'label' => "MessageWidget (type => 'success')",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'success',
+				'inline' => true,
+				'label' => 'Inline MessageWidget with engaging success message for the user.'
+			] ),
+			[
+				'label' => "MessageWidget (type => 'success', inline)",
+				'align' => 'top'
+			]
+		),
 	]
 ] ) );
 
