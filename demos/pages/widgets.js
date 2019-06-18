@@ -91,7 +91,7 @@ Demo.static.pages.widgets = function ( demo ) {
 	} );
 
 	fieldsets = [
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-buttons',
 			label: 'Buttons',
 			items: [
@@ -433,7 +433,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-button-sets',
 			label: 'Button sets',
 			items: [
@@ -620,7 +620,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-button-showcase',
 			label: 'Button style showcase',
 			items: [
@@ -632,7 +632,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-inputs',
 			label: 'Inputs: TextInput, TextInput, MultilineTextInput, SearchInput, NumberInput',
 			items: [
@@ -912,7 +912,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-inputs-binary',
 			label: 'Checkbox, Radio & ToggleSwitch',
 			items: [
@@ -1183,7 +1183,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-dropdown',
 			label: 'Dropdown',
 			items: [
@@ -1593,7 +1593,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-comboBox',
 			label: 'ComboBox',
 			items: [
@@ -1690,7 +1690,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-selectFileInput',
 			label: 'SelectFileInput',
 			items: [
@@ -1754,7 +1754,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-selectFile',
 			label: 'SelectFile',
 			items: [
@@ -1847,7 +1847,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-tabs',
 			label: 'Tabs',
 			help: new OO.ui.HtmlSnippet(
@@ -1893,7 +1893,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-tagMultiselect',
 			label: 'TagMultiselect, MenuTagMultiselect',
 			items: [
@@ -2133,7 +2133,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-lookupElement',
 			label: 'LookupElement',
 			items: [
@@ -2155,7 +2155,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-popupButton',
 			label: 'PopupButton',
 			items: [
@@ -2417,7 +2417,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-draggable',
 			label: 'Draggable',
 			items: [
@@ -2451,7 +2451,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-progressBar',
 			label: 'Progress bar',
 			items: [
@@ -2485,7 +2485,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-others',
 			label: 'Other widgets',
 			items: [

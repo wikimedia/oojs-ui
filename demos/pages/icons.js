@@ -237,7 +237,10 @@ Demo.static.pages.icons = function ( demo ) {
 		],
 		iconsFieldsets = [],
 		iconsWidgets = [],
-		indicatorsFieldset = new OO.ui.FieldsetLayout( { label: 'Indicators' } );
+		indicatorsFieldset = new Demo.LinkedFieldsetLayout( {
+			label: 'Indicators',
+			id: 'demo=section-indicators'
+		} );
 
 	for ( i = 0, len = indicators.length; i < len; i++ ) {
 		indicatorsFieldset.addItems( [
@@ -254,7 +257,10 @@ Demo.static.pages.icons = function ( demo ) {
 		] );
 	}
 	for ( iconSet in icons ) {
-		iconsFieldset = new OO.ui.FieldsetLayout( { label: 'Icons – ' + iconSet } );
+		iconsFieldset = new Demo.LinkedFieldsetLayout( {
+			label: 'Icons – ' + iconSet,
+			id: 'demo-section-' + iconSet
+		} );
 		iconsFieldsets.push( iconsFieldset );
 
 		for ( i = 0, len = icons[ iconSet ].length; i < len; i++ ) {

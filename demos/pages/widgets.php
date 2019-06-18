@@ -17,7 +17,7 @@ $demoContainer
 	->addClasses( [ 'demo-container' ] )
 	->setAttributes( [ 'role' => 'main' ] );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-buttons',
 	'infusable' => true,
 	'label' => 'Buttons',
@@ -280,7 +280,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	]
 ] ) );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-button-sets',
 	'infusable' => true,
 	'label' => 'Button sets',
@@ -309,7 +309,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	]
 ] ) );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-button-showcase',
 	'infusable' => true,
 	'label' => 'Button style showcase',
@@ -323,7 +323,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	]
 ] ) );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-inputs',
 	'infusable' => true,
 	'label' => 'TextInput',
@@ -476,7 +476,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	]
 ] ) );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-inputs-binary',
 	'infusable' => true,
 	'label' => 'Checkbox & Radio',
@@ -609,7 +609,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	]
 ] ) );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-dropdown',
 	'infusable' => true,
 	'label' => 'Dropdown',
@@ -766,7 +766,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	]
 ] ) );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-comboBox',
 	'infusable' => true,
 	'label' => 'ComboBox',
@@ -812,7 +812,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	]
 ] ) );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-selectFile',
 	'infusable' => true,
 	'label' => 'SelectFile',
@@ -878,7 +878,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	]
 ] ) );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-tabs',
 	'infusable' => true,
 	'label' => 'Tabs',
@@ -927,7 +927,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	]
 ] ) );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-progressBar',
 	'infusable' => true,
 	'label' => 'Progress bar',
@@ -963,7 +963,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 	]
 ] ) );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-others',
 	'infusable' => true,
 	'label' => 'Other widgets',

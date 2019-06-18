@@ -120,6 +120,19 @@ p {
 	margin: 0;
 }
 
+.demo-linked-fieldset .oo-ui-labelElement-label {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+.demo-linked-fieldset-anchor {
+	display: block;
+	position: absolute;
+	/* Put underneath sticky menu */
+	top: -10em;
+	left: 0;
+}
+
 .demo-header + .demo-container.oo-ui-panelLayout.demo-toolbars {
 	padding-top: 1em;
 }
