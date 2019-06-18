@@ -33,7 +33,7 @@
   "dependencies": {
     "jquery": "3.3.1",
     "oojs": "2.2.2",
-    "wikimedia-ui-base": "0.13.0"
+    "wikimedia-ui-base": "0.14.0"
   },
   "devDependencies": {
     "eslint-config-wikimedia": "0.12.0",
