@@ -71,6 +71,9 @@ OO.ui.ProcessDialog = function OoUiProcessDialog( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-processDialog' );
+	if ( OO.ui.isMobile() ) {
+		this.$element.addClass( 'oo-ui-isMobile' );
+	}
 };
 
 /* Setup */
@@ -165,29 +168,25 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
  * @inheritdoc
  */
 OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
-	var isMobile = OO.ui.isMobile();
-
 	function checkFlag( flag ) {
 		return config.flags === flag ||
 			( Array.isArray( config.flags ) && config.flags.indexOf( flag ) !== -1 );
 	}
 
-	// Default to unframed on mobile
-	config = $.extend( { framed: !isMobile }, config );
-	if ( isMobile ) {
-		if ( checkFlag( 'close' ) ) {
-			// Change close buttons to icon only on mobile
-			$.extend( config, {
-				icon: 'close',
-				invisibleLabel: true
-			} );
-		} else if ( checkFlag( 'back' ) ) {
-			// Change back buttons to icon only on mobile
-			$.extend( config, {
-				icon: 'previous',
-				invisibleLabel: true
-			} );
-		}
+	// Default to unframed.
+	config = $.extend( { framed: false }, config );
+	if ( checkFlag( 'close' ) ) {
+		// Change close buttons to icon only.
+		$.extend( config, {
+			icon: 'close',
+			invisibleLabel: true
+		} );
+	} else if ( OO.ui.isMobile() && checkFlag( 'back' ) ) {
+		// Change back buttons to icon only.
+		$.extend( config, {
+			icon: 'previous',
+			invisibleLabel: true
+		} );
 	}
 
 	return config;
