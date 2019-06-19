@@ -179,13 +179,13 @@ OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
 			// Change close buttons to icon only on mobile
 			$.extend( config, {
 				icon: 'close',
-				label: ''
+				invisibleLabel: true
 			} );
 		} else if ( checkFlag( 'back' ) ) {
 			// Change back buttons to icon only on mobile
 			$.extend( config, {
 				icon: 'previous',
-				label: ''
+				invisibleLabel: true
 			} );
 		}
 	}
