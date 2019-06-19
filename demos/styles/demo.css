@@ -42,6 +42,10 @@ p {
 	margin: 0.5em 0;
 }
 
+p:first-child {
+	margin-top: 0;
+}
+
 .oo-ui-theme-wikimediaui {
 	/* As WikimediaUI theme is used in MinervaNeue and Vector, we use system fonts to reflect font independent ability of theme. */
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; /* stylelint-disable-line value-keyword-case; */
