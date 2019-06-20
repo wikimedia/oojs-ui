@@ -239,7 +239,7 @@ Demo.static.pages.icons = function ( demo ) {
 		iconsWidgets = [],
 		indicatorsFieldset = new Demo.LinkedFieldsetLayout( {
 			label: 'Indicators',
-			id: 'demo=section-indicators'
+			id: 'demo-section-indicators'
 		} );
 
 	for ( i = 0, len = indicators.length; i < len; i++ ) {
