@@ -95,6 +95,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'editLock',
 				'editUndo',
 				'link',
+				'unLink',
 				'linkExternal',
 				'linkSecure',
 				'redo',
