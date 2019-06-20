@@ -30,10 +30,9 @@ Demo.static.pages.layouts = function ( demo ) {
 	} );
 
 	fieldsets = [
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-fieldLayouts',
 			label: 'Field layouts',
-			icon: 'tag',
 			help: 'Fieldset help',
 			items: [
 				new OO.ui.FieldLayout(
@@ -346,7 +345,7 @@ Demo.static.pages.layouts = function ( demo ) {
 				fieldLayoutForValidation
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-horizontalLayout',
 			label: 'HorizontalLayout',
 			help: 'Inline FieldsetLayout help',
@@ -383,7 +382,7 @@ Demo.static.pages.layouts = function ( demo ) {
 				)
 			]
 		} ),
-		new OO.ui.FieldsetLayout( {
+		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-other-layouts',
 			label: 'Other layouts',
 			items: [
@@ -534,7 +533,7 @@ Demo.static.pages.layouts = function ( demo ) {
 			method: 'GET',
 			action: 'demos.php',
 			items: [
-				new OO.ui.FieldsetLayout( {
+				new Demo.LinkedFieldsetLayout( {
 					id: 'demo-section-formLayout',
 					label: 'Form layout (compounded example)',
 					items: [

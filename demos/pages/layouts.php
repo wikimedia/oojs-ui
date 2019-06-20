@@ -17,11 +17,10 @@ $demoContainer
 	->addClasses( [ 'demo-container' ] )
 	->setAttributes( [ 'role' => 'main' ] );
 
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-fieldLayouts',
 	'infusable' => true,
 	'label' => 'Field layouts',
-	'icon' => 'tag',
 	'help' => 'Fieldset help',
 	'items' => [
 		new OOUI\FieldLayout(
@@ -342,7 +341,7 @@ $demoContainer->appendContent( new OOUI\FieldsetLayout( [
 // We can't make the outer FieldsetLayout infusable, because the Widget in its FieldLayout
 // is added with 'content', which is not preserved after infusion. But we need the Widget
 // to wrap the HorizontalLayout. Need to think about this at some point.
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-horizontalLayout',
 	'infusable' => false,
 	'label' => 'HorizontalLayout',
@@ -405,7 +404,7 @@ for ( $i = 0; $i < 2; $i++ ) {
 	] );
 	$indexLayouts[] = $indexLayout;
 }
-$demoContainer->appendContent( new OOUI\FieldsetLayout( [
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-other-layouts',
 	'infusable' => false,
 	'label' => 'Other layouts',
@@ -436,7 +435,7 @@ $demoContainer->appendContent( new OOUI\FormLayout( [
 	'method' => 'GET',
 	'action' => 'demos.php',
 	'items' => [
-		new OOUI\FieldsetLayout( [
+		new Demo\LinkedFieldsetLayout( [
 			'id' => 'demo-section-formLayout',
 			'label' => 'Form layout',
 			'items' => [

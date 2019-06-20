@@ -8,6 +8,7 @@
 	}
 	require_once $autoload;
 	require_once 'classes/ButtonStyleShowcaseWidget.php';
+	require_once 'classes/LinkedFieldsetLayout.php';
 
 	// @codingStandardsIgnoreStart MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment
 	$themes = [

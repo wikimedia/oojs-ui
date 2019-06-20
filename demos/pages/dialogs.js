@@ -8,6 +8,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 	config = [
 		{
 			name: 'Convenience functions',
+			id: 'demo-section-functions',
 			examples: [
 				{
 					name: 'Quick alert',
@@ -34,6 +35,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 		},
 		{
 			name: 'Dialog interface',
+			id: 'demo-section-dialog',
 			examples: [
 				{
 					name: 'Simple dialog (small)',
@@ -193,6 +195,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 		},
 		{
 			name: 'Elements best used inside dialogs',
+			id: 'demo-section-elements',
 			examples: [
 				{
 					name: 'Search widget dialog (medium)',
@@ -237,6 +240,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 		},
 		{
 			name: 'Low-level test cases',
+			id: 'demo-section-tests',
 			examples: [
 				{
 					name: 'FloatableElement test',
@@ -275,7 +279,10 @@ Demo.static.pages.dialogs = function ( demo ) {
 	}
 
 	for ( j = 0; j < config.length; j++ ) {
-		fieldset = new OO.ui.FieldsetLayout( { label: config[ j ].name } );
+		fieldset = new Demo.LinkedFieldsetLayout( {
+			label: config[ j ].name,
+			id: config[ j ].id
+		} );
 		examples = config[ j ].examples;
 		$fieldsets = $fieldsets.add( fieldset.$element );
 
