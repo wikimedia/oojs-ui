@@ -95,6 +95,7 @@ p:first-child {
 	position: absolute;
 	top: 0.75em;
 	right: 1em;
+	left: auto;
 	margin: 0;
 }
 
@@ -179,26 +180,6 @@ p:first-child {
 	transition: background-color 100ms, color 100ms;
 }
 
-.demo-link-example {
-	display: inline-block;
-	position: relative;
-	top: 1px;
-	right: 2em;
-	opacity: 0;
-	-webkit-transition: opacity 100ms;
-	-moz-transition: opacity 100ms;
-	transition: opacity 100ms;
-}
-
-.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example {
-	right: 7.2em;
-	opacity: 1;
-}
-
-.demo-console-expanded .demo-console-toggle {
-	margin-top: -3em;
-}
-
 .demo-link-example::after,
 .demo-console-toggle::after {
 	color: #36c;
@@ -218,12 +199,42 @@ p:first-child {
 	color: #447ff5;
 }
 
+.demo-link-example {
+	display: inline-block;
+	position: relative;
+	top: 1px;
+	margin-right: 2em;
+	opacity: 0;
+	-webkit-transition: opacity 100ms;
+	-moz-transition: opacity 100ms;
+	transition: opacity 100ms;
+}
+
+.demo-link-example:focus,
+.oo-ui-fieldLayout:hover > .demo-link-example {
+	opacity: 1;
+}
+
 .demo-link-example::after {
 	content: '#';
 }
 
+.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example {
+	right: 7.2em;
+	left: 0;
+	opacity: 1;
+}
+
 .demo-container > .oo-ui-fieldsetLayout:first-child .oo-ui-fieldLayout:first-child .demo-link-example::after {
 	content: 'Link to this example #';
+}
+
+.demo-console-toggle {
+	display: block;
+}
+
+.demo-console-expanded .demo-console-toggle {
+	margin-top: -3em;
 }
 
 .demo-console-toggle::after {
@@ -240,11 +251,6 @@ p:first-child {
 
 .oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-expanded .demo-console-toggle::after {
 	content: 'Hide code ↑';
-}
-
-.demo-link-example:focus,
-.oo-ui-fieldLayout:hover > .demo-link-example {
-	opacity: 1;
 }
 
 .demo-console-collapsed .demo-sample-code,
@@ -642,11 +648,19 @@ FieldLayout left & right aligned */
 		border-width: 1px;
 	}
 
+	.demo-link-example,
+	.demo-console-toggle {
+		display: block;
+	}
+
+	.demo-link-example {
+		margin-right: -2em;
+	}
+
 	.demo-console-expanded {
 		width: calc( 100% + 2.5em ); /* equals `100%` + `padding` of `.demo-container` above */
 	}
 
-	.demo-link-example,
 	.demo-console-toggle {
 		margin-right: -3.5em;
 	}
@@ -657,7 +671,6 @@ FieldLayout left & right aligned */
 
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example,
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-toggle {
-		right: 0;
 		margin-top: 0;
 	}
 }
@@ -665,6 +678,11 @@ FieldLayout left & right aligned */
 /* @media ( min-width: 568px ) {} */
 
 @media ( min-width: 768px ) {
+	.demo-link-example,
+	.demo-console-toggle {
+		display: inline-block;
+	}
+
 	.demo-link-example,
 	.demo-console-toggle,
 	.demo-console-expanded .demo-console-toggle {
@@ -719,8 +737,8 @@ FieldLayout left & right aligned */
 		border-width: 0 1px 1px 1px;
 	}
 
-	.demo-console-expanded {
-		width: 100%;
+	.demo-link-example {
+		margin-right: 1.5em;
 	}
 
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example,
@@ -729,7 +747,11 @@ FieldLayout left & right aligned */
 	}
 
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example {
-		right: 7.2em;
+		margin-right: 6.4em;
+	}
+
+	.demo-console-expanded {
+		width: 100%;
 	}
 
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-expanded .demo-console-toggle {
