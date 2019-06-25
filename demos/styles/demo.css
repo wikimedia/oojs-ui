@@ -551,6 +551,11 @@ FieldLayout left & right aligned */
 	padding: 1em 1em 1.5em 1em;
 }
 
+/* Special case: TagMultiselectWidget & NumberInputWidget combo */
+.oo-ui-tagMultiselectWidget-outlined .oo-ui-numberInputWidget-buttoned .oo-ui-buttonElement-button {
+	border-radius: 0;
+}
+
 /* Ensure color contrast in accessibility testing */
 .demo-summary-buttonElement.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
 	color: #cd2323;
