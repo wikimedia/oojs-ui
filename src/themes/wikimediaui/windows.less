@@ -115,83 +115,108 @@
 .theme-oo-ui-processDialog() {
 	&-content {
 		.oo-ui-window-head {
-			height: @size-dialog-bar-top;
+			min-height: @size-dialog-bar--desktop;
 		}
 
 		.oo-ui-window-body {
-			top: @size-dialog-bar-top;
+			top: @size-dialog-bar--desktop;
 			outline: @border-dialog-bar; // Using `@border-dialog-bar` here as `outline` is `border` subsitute
 		}
 	}
 
 	&-navigation {
 		position: relative;
-		height: @size-dialog-bar-top;
+		min-height: @size-dialog-bar--desktop;
 	}
 
 	&-location {
-		height: @size-dialog-bar-top;
+		min-height: @size-dialog-bar--desktop;
 		cursor: default;
 		text-align: center;
 	}
 
 	&-title {
 		font-weight: bold;
-		line-height: @size-dialog-bar-top;
+		line-height: @size-dialog-bar--desktop;
+	}
+
+	// Support: All but IE 6.
+	[ class^='oo-ui-processDialog-actions' ] {
+		.oo-ui-actionWidget {
+			&.oo-ui-buttonElement-framed {
+				margin: @margin-dialog-bar-button-framed;
+			}
+
+			&.oo-ui-buttonElement-frameless {
+				> .oo-ui-buttonElement-button {
+					border-radius: 0;
+				}
+
+				&.oo-ui-iconElement {
+					&:first-child {
+						margin-left: 0;
+					}
+
+					> .oo-ui-buttonElement-button {
+						// Use min-height as height includes borders.
+						min-height: @size-dialog-bar--desktop;
+						padding-top: 0;
+						// Make icon only actions a tad wider, specifically the close action.
+						padding-left: @size-dialog-bar--mobile;
+
+						> .oo-ui-iconElement-icon {
+							left: @padding-horizontal-base;
+						}
+					}
+				}
+
+				&.oo-ui-labelElement {
+					&:first-child {
+						margin-left: 0;
+					}
+
+					> .oo-ui-buttonElement-button {
+						padding: @padding-vertical-dialog-action @padding-horizontal-base;
+					}
+
+					&.oo-ui-iconElement {
+						> .oo-ui-buttonElement-button {
+							padding-left: @size-icon + @padding-horizontal-base;
+						}
+					}
+				}
+			}
+		}
 	}
 
 	&-actions {
-		&-safe,
 		&-primary,
-		&-other {
-			.oo-ui-actionWidget {
-				&.oo-ui-buttonElement-framed {
-					margin: @margin-dialog-bar-button-framed;
+		&-safe {
+			.oo-ui-actionWidget.oo-ui-buttonElement-frameless.oo-ui-flaggedElement {
+				&-progressive {
+					&:hover {
+						background-color: rgba( 8, 126, 204, 0.05 );
+					}
+
+					&:active {
+						background-color: rgba( 8, 126, 204, 0.1 );
+					}
 				}
 
-				&.oo-ui-buttonElement-frameless {
-					&.oo-ui-iconElement {
-						&:first-child {
-							margin-left: 0;
-						}
-
-						> .oo-ui-buttonElement-button {
-							padding-left: @size-dialog-bar-top;
-							// Use min-height as height includes borders
-							padding-top: 0;
-							min-height: @size-dialog-bar-top;
-
-							> .oo-ui-iconElement-icon {
-								left: @padding-horizontal-base;
-							}
-						}
+				&-destructive {
+					&:hover {
+						background-color: rgba( 212, 83, 83, 0.05 );
 					}
 
-					&.oo-ui-labelElement {
-						&:first-child {
-							margin-left: 0;
-						}
-
-						> .oo-ui-buttonElement-button {
-							padding: 0.75em 1em;
-						}
-
-						&.oo-ui-iconElement {
-							> .oo-ui-buttonElement-button {
-								padding-left: @size-icon + 0.75em;
-							}
-						}
-					}
-
-					.oo-ui-labelElement-label {
-						line-height: @size-icon;
+					&:active {
+						background-color: rgba( 212, 83, 83, 0.1 );
 					}
 				}
 			}
 		}
 
 		&-safe,
-		&-primary {
+		&-other {
 			.oo-ui-actionWidget.oo-ui-buttonElement-frameless {
 				&:hover {
 					background-color: rgba( 0, 0, 0, 0.05 );
@@ -199,32 +224,6 @@
 
 				&:active {
 					background-color: rgba( 0, 0, 0, 0.1 );
-				}
-
-				&.oo-ui-flaggedElement {
-					&-progressive {
-						&:hover {
-							background-color: rgba( 8, 126, 204, 0.05 );
-						}
-
-						&:active {
-							background-color: rgba( 8, 126, 204, 0.1 );
-						}
-
-						.oo-ui-labelElement-label {
-							font-weight: bold;
-						}
-					}
-
-					&-destructive {
-						&:hover {
-							background-color: rgba( 212, 83, 83, 0.05 );
-						}
-
-						&:active {
-							background-color: rgba( 212, 83, 83, 0.1 );
-						}
-					}
 				}
 			}
 		}
@@ -265,6 +264,37 @@
 		border: @border-width-base solid @border-color-error;
 		background-color: #fff7f7;
 		border-radius: @border-radius-base;
+	}
+
+	// Ensure click target sizes on mobile.
+	&.oo-ui-isMobile {
+		.oo-ui-processDialog {
+			&-content .oo-ui-window-head,
+			&-navigation,
+			&-location {
+				min-height: @size-dialog-bar--mobile;
+			}
+
+			&-content .oo-ui-window-body {
+				top: @size-dialog-bar--mobile;
+			}
+
+			&-title {
+				line-height: @size-dialog-bar--mobile;
+			}
+		}
+
+		[ class^='oo-ui-processDialog-actions' ] .oo-ui-actionWidget.oo-ui-buttonElement-frameless {
+			&.oo-ui-iconElement > .oo-ui-buttonElement-button {
+				// Use min-height as height includes borders.
+				min-height: @size-dialog-bar--mobile;
+				padding-left: @size-dialog-bar--mobile;
+			}
+
+			&.oo-ui-labelElement > .oo-ui-buttonElement-button {
+				padding: @padding-vertical-tool-label @padding-horizontal-base;
+			}
+		}
 	}
 }
 
