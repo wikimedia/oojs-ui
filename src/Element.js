@@ -312,29 +312,6 @@ OO.ui.Element.static.gatherPreInfuseState = function () {
 };
 
 /**
- * Get a jQuery function within a specific document.
- *
- * @static
- * @param {jQuery|HTMLElement|HTMLDocument|Window} context Context to bind the function to
- * @param {jQuery} [$iframe] HTML iframe element that contains the document, omit if document is
- *   not in an iframe
- * @return {Function} Bound jQuery function
- */
-OO.ui.Element.static.getJQuery = function ( context, $iframe ) {
-	function wrapper( selector ) {
-		return $( selector, wrapper.context );
-	}
-
-	wrapper.context = this.getDocument( context );
-
-	if ( $iframe ) {
-		wrapper.$iframe = $iframe;
-	}
-
-	return wrapper;
-};
-
-/**
  * Get the document of an element.
  *
  * @static
