@@ -153,13 +153,3 @@ OO.ui.mixin.IconElement.prototype.setIcon = function ( icon ) {
 OO.ui.mixin.IconElement.prototype.getIcon = function () {
 	return this.icon;
 };
-
-/**
- * Get the icon title. The title text is displayed when a user moves the mouse over the icon.
- *
- * @return {string} Icon title text
- * @deprecated
- */
-OO.ui.mixin.IconElement.prototype.getIconTitle = function () {
-	return this.iconTitle;
-};
