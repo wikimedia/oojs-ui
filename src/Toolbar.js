@@ -486,12 +486,7 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 			groupConfig.type : defaultType;
 		toolGroup = this.getToolGroupFactory().create( type, this, groupConfig );
 		items.push( toolGroup );
-		if ( groupConfig.name ) {
-			this.groupsByName[ groupConfig.name ] = toolGroup;
-		} else {
-			// Groups without name are deprecated
-			OO.ui.warnDeprecation( 'Toolgroups must have a \'name\' property' );
-		}
+		this.groupsByName[ groupConfig.name ] = toolGroup;
 		toolGroup.connect( this, {
 			active: 'onToolGroupActive'
 		} );
