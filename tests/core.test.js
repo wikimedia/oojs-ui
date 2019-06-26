@@ -104,6 +104,7 @@ QUnit.test( 'debounce', function ( assert ) {
 		clearTimeoutReal = window.clearTimeout;
 	window.setTimeout = testTimer.setTimeout.bind( testTimer );
 	window.clearTimeout = testTimer.clearTimeout.bind( testTimer );
+
 	try {
 		f = OO.ui.debounce( log.push.bind( log ), 50 );
 		f( 1 );
@@ -185,27 +186,30 @@ QUnit.test( 'throttle', function ( assert ) {
 		log = [],
 		testTimer = new OO.ui.TestTimer(),
 		setTimeoutReal = window.setTimeout,
-		clearTimeoutReal = window.clearTimeout;
+		clearTimeoutReal = window.clearTimeout,
+		nowReal = Date.now;
 	window.setTimeout = testTimer.setTimeout.bind( testTimer );
 	window.clearTimeout = testTimer.clearTimeout.bind( testTimer );
+	Date.now = testTimer.now.bind( testTimer );
 	try {
 		f = OO.ui.throttle( log.push.bind( log ), 50 );
-		f( 1 ); // runs
-		testTimer.runPending( 20 );
+		testTimer.runPending( 50 ); // 1 happens
+		f( 1 );
+		testTimer.runPending( 20 ); // 1 happens
 		log.push( 'a' );
-		f( 2 ); // throttled
-		testTimer.runPending( 30 );
-		log.push( 'b' );
-		f( 3 ); // throttled
-		log.push( 'c' );
-		testTimer.runPending( 30 ); // call happens
-		log.push( 'd' );
-		f( 4 ); // throttled
+		f( 2 );
 		testTimer.runPending( 20 );
+		log.push( 'b' );
+		f( 3 ); // throttles 2
+		log.push( 'c' );
+		testTimer.runPending( 30 ); // 3 happens
+		log.push( 'd' );
+		f( 4 );
+		testTimer.runPending( 20 ); // 3 happens
 		log.push( 'e' );
 		testTimer.runPending( 20 );
 		log.push( 'f' );
-		testTimer.runPending( 20 ); // call happens
+		testTimer.runPending( 20 ); // 4 happens
 		log.push( 'g' );
 		testTimer.runPending( 20 );
 		assert.deepEqual( log, [ 1, 'a', 'b', 'c', 3, 'd', 'e', 'f', 4, 'g' ], 'throttle 50 ms' );
@@ -214,6 +218,7 @@ QUnit.test( 'throttle', function ( assert ) {
 		f = OO.ui.throttle( log.push.bind( log ), 0 );
 		f( 1 );
 		log.push( 'a' );
+		testTimer.runPending();
 		f( 2 );
 		log.push( 'b' );
 		testTimer.runPending();
@@ -221,11 +226,12 @@ QUnit.test( 'throttle', function ( assert ) {
 		log.push( 'c' );
 		testTimer.runPending();
 		log.push( 'd' );
-		assert.deepEqual( log, [ 1, 'a', 2, 'b', 3, 'c', 'd' ], 'throttle 0 ms' );
+		assert.deepEqual( log, [ 'a', 1, 'b', 2, 'c', 3, 'd' ], 'throttle 0 ms' );
 		testTimer.runPending();
 
 	} finally {
 		window.setTimeout = setTimeoutReal;
 		window.clearTimeout = clearTimeoutReal;
+		Date.now = nowReal;
 	}
 } );

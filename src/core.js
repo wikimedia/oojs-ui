@@ -278,7 +278,7 @@ OO.ui.warnDeprecation = function ( message ) {
  */
 OO.ui.throttle = function ( func, wait ) {
 	var context, args, timeout,
-		previous = 0,
+		previous = Date.now() - wait,
 		run = function () {
 			timeout = null;
 			previous = Date.now();
@@ -290,17 +290,12 @@ OO.ui.throttle = function ( func, wait ) {
 		// period. If it's less, run the function immediately. If it's more,
 		// set a timeout for the remaining time -- but don't replace an
 		// existing timeout, since that'd indefinitely prolong the wait.
-		var remaining = wait - ( Date.now() - previous );
+		var remaining = Math.max( wait - ( Date.now() - previous ), 0 );
 		context = this;
 		args = arguments;
-		if ( remaining <= 0 ) {
-			// Note: unless wait was ridiculously large, this means we'll
-			// automatically run the first time the function was called in a
-			// given period. (If you provide a wait period larger than the
-			// current Unix timestamp, you *deserve* unexpected behavior.)
-			clearTimeout( timeout );
-			run();
-		} else if ( !timeout ) {
+		if ( !timeout ) {
+			// If time is up, do setTimeout( run, 0 ) so the function
+			// always runs asynchronously, just like Promise#then .
 			timeout = setTimeout( run, remaining );
 		}
 	};
