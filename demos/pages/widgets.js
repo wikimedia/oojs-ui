@@ -2602,6 +2602,90 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'RadioSelectInputWidget (with an associated label)',
 						align: 'top'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'notice',
+						label: new OO.ui.HtmlSnippet( 'MessageWidget with notice for the user.<br>Featuring multiple lines of notice.' )
+					} ),
+					{
+						label: 'MessageWidget (type: \'notice\')',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'notice',
+						inline: true,
+						label: 'Inlined MessageWidget with notice for the user.'
+					} ),
+					{
+						label: 'MessageWidget (type: \'notice\', inline: true)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'error',
+						label: 'MessageWidget with comprehensive error message for the user.'
+					} ),
+					{
+						label: 'MessageWidget (type: \'error\')',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'error',
+						inline: true,
+						label: 'Inline MessageWidget with error message for the user.'
+					} ),
+					{
+						label: 'MessageWidget (type: \'error\', inline: true)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'warning',
+						label: 'MessageWidget with warning message for the user.'
+					} ),
+					{
+						label: 'MessageWidget (type: \'warning\')',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'warning',
+						inline: true,
+						label: 'Inline MessageWidget with warning message for the user.'
+					} ),
+					{
+						label: 'MessageWidget (type: \'warning\', inline: true)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'success',
+						label: 'MessageWidget with engaging success message for the user.'
+					} ),
+					{
+						label: 'MessageWidget (type: \'success\')',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'success',
+						inline: true,
+						label: 'Inline MessageWidget with engaging success message for the user.'
+					} ),
+					{
+						label: 'MessageWidget (type: \'success\', inline: true)',
+						align: 'top'
+					}
 				)
 			]
 		} )

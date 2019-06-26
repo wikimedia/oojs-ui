@@ -34,6 +34,7 @@
 			"src/widgets/IconWidget.js",
 			"src/widgets/IndicatorWidget.js",
 			"src/widgets/LabelWidget.js",
+			"src/widgets/MessageWidget.js",
 
 			# The JavaScript-specific dependencies of the basic widgets. It's sad how many there are :(
 			# TextInputWidget
@@ -202,6 +203,7 @@
 			"src/styles/widgets/RadioSelectWidget.less",
 			"src/styles/widgets/RadioOptionWidget.less",
 			"src/styles/widgets/LabelWidget.less",
+			"src/styles/widgets/MessageWidget.less",
 			"src/styles/widgets/IconWidget.less",
 			"src/styles/widgets/IndicatorWidget.less",
 			"src/styles/widgets/ButtonWidget.less",

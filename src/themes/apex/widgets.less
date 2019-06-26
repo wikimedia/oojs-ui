@@ -456,6 +456,56 @@
 
 .theme-oo-ui-menuTagMultiselectWidget() {}
 
+.theme-oo-ui-messageWidget() {
+	padding: @padding-vertical-label @padding-horizontal-base;
+	font-weight: bold;
+
+	&.oo-ui-messageWidget-block {
+		border: @border-width-base @border-style-base;
+		padding: @padding-vertical-message-block @padding-horizontal-message-block;
+
+		&.oo-ui-flaggedElement-error {
+			background-color: @background-color-error--framed;
+			border-color: @border-color-error;
+		}
+
+		&.oo-ui-flaggedElement-warning {
+			background-color: @background-color-warning--framed;
+			border-color: @border-color-warning;
+		}
+
+		&.oo-ui-flaggedElement-success {
+			background-color: @background-color-success--framed;
+			border-color: @border-color-success;
+		}
+
+		&.oo-ui-flaggedElement-notice {
+			background-color: @background-color-notice--framed;
+			border-color: @border-color-notice;
+		}
+	}
+
+	&.oo-ui-flaggedElement-error {
+		color: @color-error;
+	}
+
+	&.oo-ui-flaggedElement-success:not( .oo-ui-messageWidget-block ) {
+		color: @color-success;
+	}
+
+	.oo-ui-iconElement-icon {
+		display: block;
+		float: left;
+		margin: 0;
+	}
+
+	.oo-ui-labelElement-label {
+		margin-top: @margin-top-message-label;
+		margin-left: @size-icon + @padding-start-messages;
+		line-height: @line-height-base;
+	}
+}
+
 .theme-oo-ui-multioptionWidget() {
 	.oo-ui-labelElement-label {
 		line-height: 1.5em;
