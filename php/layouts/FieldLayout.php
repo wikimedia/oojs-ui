@@ -107,7 +107,7 @@ class FieldLayout extends Layout {
 		$this->successMessages = $config['successMessages'] ?? [];
 		$this->notices = $config['notices'] ?? [];
 		$this->field = $this->isFieldInline() ? new Tag( 'span' ) : new Tag( 'div' );
-		$this->messages = new Tag( 'ul' );
+		$this->messages = new Tag( 'div' );
 		$this->header = new Tag( 'span' );
 		$this->body = new Tag( 'div' );
 		$this->helpText = $config['help'] ?? '';
@@ -172,25 +172,11 @@ class FieldLayout extends Layout {
 	 * @return Tag
 	 */
 	private function makeMessage( $kind, $text ) {
-		$listItem = new Tag( 'li' );
-		if ( $kind === 'error' ) {
-			$icon = new IconWidget( [ 'icon' => 'error', 'flags' => [ 'error' ] ] );
-			$listItem->setAttributes( [ 'role' => 'alert' ] );
-		} elseif ( $kind === 'warning' ) {
-			$icon = new IconWidget( [ 'icon' => 'alert', 'flags' => [ 'warning' ] ] );
-			$listItem->setAttributes( [ 'role' => 'alert' ] );
-		} elseif ( $kind === 'success' ) {
-			$icon = new IconWidget( [ 'icon' => 'check', 'flags' => [ 'success' ] ] );
-		} elseif ( $kind === 'notice' ) {
-			$icon = new IconWidget( [ 'icon' => 'notice' ] );
-		} else {
-			$icon = null;
-		}
-		$message = new LabelWidget( [ 'label' => $text ] );
-		$listItem
-			->appendContent( $icon, $message )
-			->addClasses( [ "oo-ui-fieldLayout-messages-$kind" ] );
-		return $listItem;
+		return new MessageWidget( [
+			'type' => $kind,
+			'inline' => true,
+			'label' => $text,
+		] );
 	}
 
 	/**
