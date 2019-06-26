@@ -570,6 +570,11 @@ FieldLayout left & right aligned */
 	color: #cd2323;
 }
 
+/* Special case: MessageWidget in full-width to receive `max-width`. */
+.oo-ui-messageWidget {
+	max-width: 50em;
+}
+
 /*
  * Support: iOS 9.2, Android 4.4.4, Op Mobile 37, Chrome/Android 57, Fx/Android 52, UC Browser 11.4, Baidu 7.12
  * Workaround for weak ancient mobile browser support of `fixed` positioning
