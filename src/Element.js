@@ -31,10 +31,6 @@ OO.ui.Element = function OoUiElement( config ) {
 	config = config || {};
 
 	// Properties
-	this.$ = function () {
-		OO.ui.warnDeprecation( 'this.$ is deprecated, use global $ instead' );
-		return $.apply( this, arguments );
-	};
 	this.elementId = null;
 	this.visible = true;
 	this.data = config.data;
