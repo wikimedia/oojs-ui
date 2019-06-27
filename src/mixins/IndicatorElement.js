@@ -131,15 +131,3 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
 OO.ui.mixin.IndicatorElement.prototype.getIndicator = function () {
 	return this.indicator;
 };
-
-/**
- * Get the indicator title.
- *
- * The title is displayed when a user moves the mouse over the indicator.
- *
- * @return {string} Indicator title text
- * @deprecated
- */
-OO.ui.mixin.IndicatorElement.prototype.getIndicatorTitle = function () {
-	return this.indicatorTitle;
-};
