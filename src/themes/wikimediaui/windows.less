@@ -131,13 +131,14 @@
 
 	&-location {
 		min-height: @size-dialog-bar--desktop;
-		cursor: default;
 		text-align: center;
+		cursor: default;
 	}
 
 	&-title {
+		font-size: @font-size-dialog-process-title;
 		font-weight: bold;
-		line-height: @size-dialog-bar--desktop;
+		line-height: @size-dialog-bar--desktop / unit( @font-size-dialog-process-title );
 	}
 
 	// Support: All but IE 6.
@@ -266,7 +267,7 @@
 		border-radius: @border-radius-base;
 	}
 
-	// Ensure click target sizes on mobile.
+	// Ensure click target sizes and layout amendments on mobile.
 	&.oo-ui-isMobile {
 		.oo-ui-processDialog {
 			&-content .oo-ui-window-head,
@@ -275,12 +276,16 @@
 				min-height: @size-dialog-bar--mobile;
 			}
 
-			&-content .oo-ui-window-body {
-				top: @size-dialog-bar--mobile;
+			&-location {
+				text-align: left;
 			}
 
 			&-title {
-				line-height: @size-dialog-bar--mobile;
+				line-height: @size-dialog-bar--mobile / unit( @font-size-dialog-process-title );
+			}
+
+			&-content .oo-ui-window-body {
+				top: @size-dialog-bar--mobile;
 			}
 		}
 
