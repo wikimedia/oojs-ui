@@ -94,7 +94,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	this.successMessages = [];
 	this.notices = [];
 	this.$field = this.isFieldInline() ? $( '<span>' ) : $( '<div>' );
-	this.$messages = $( '<ul>' );
+	this.$messages = $( '<div>' );
 	this.$header = $( '<span>' );
 	this.$body = $( '<div>' );
 	this.align = null;
@@ -189,26 +189,11 @@ OO.ui.FieldLayout.prototype.isFieldInline = function () {
  * @return {jQuery}
  */
 OO.ui.FieldLayout.prototype.makeMessage = function ( kind, text ) {
-	var $listItem, $icon, message;
-	$listItem = $( '<li>' );
-	if ( kind === 'error' ) {
-		$icon = new OO.ui.IconWidget( { icon: 'error', flags: [ 'error' ] } ).$element;
-		$listItem.attr( 'role', 'alert' );
-	} else if ( kind === 'warning' ) {
-		$icon = new OO.ui.IconWidget( { icon: 'alert', flags: [ 'warning' ] } ).$element;
-		$listItem.attr( 'role', 'alert' );
-	} else if ( kind === 'success' ) {
-		$icon = new OO.ui.IconWidget( { icon: 'check', flags: [ 'success' ] } ).$element;
-	} else if ( kind === 'notice' ) {
-		$icon = new OO.ui.IconWidget( { icon: 'notice' } ).$element;
-	} else {
-		$icon = '';
-	}
-	message = new OO.ui.LabelWidget( { label: text } );
-	$listItem
-		.append( $icon, message.$element )
-		.addClass( 'oo-ui-fieldLayout-messages-' + kind );
-	return $listItem;
+	return new OO.ui.MessageWidget( {
+		type: kind,
+		inline: true,
+		label: text
+	} ).$element;
 };
 
 /**
