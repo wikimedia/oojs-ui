@@ -98,9 +98,9 @@
 @margin-end-actionlayout-input: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 @margin-end-fieldlayout-help: -( 8 / @ooui-font-size-browser / @ooui-font-size-base );
 
-@border-base--disabled: @border-width-base solid @border-color-base--disabled;
-@border-filled--disabled: @border-width-base solid @border-color-filled--disabled;
-@border-dialog-bar: @border-width-base solid @border-color-dialog-bar;
+@border-base--disabled: @border-width-base @border-style-base @border-color-base--disabled;
+@border-filled--disabled: @border-width-base @border-style-base @border-color-filled--disabled;
+@border-dialog-bar: @border-width-base @border-style-base @border-color-dialog-bar;
 
 @border-color-base--focus: @color-progressive--focus;
 @border-color-framed-progressive--hover: @color-progressive--hover;
@@ -199,7 +199,7 @@
 @background-color-input-binary--active: @color-progressive--active;
 @background-color-input-binary--checked: @color-progressive;
 @size-input-binary: 20 / @ooui-font-size-browser / @ooui-font-size-base;
-@border-input-binary: @border-width-base solid @border-color-input-binary;
+@border-input-binary: @border-width-base @border-style-base @border-color-input-binary;
 @border-color-input-binary: @border-color-base--active;
 @border-color-input-binary--active: @color-progressive--active;
 @border-color-input-binary--checked: @color-progressive;
