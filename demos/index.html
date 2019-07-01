@@ -100,8 +100,6 @@
 					if ( prevPage === demo.mode.page && scrollPos ) {
 						// Restore scroll position from before we destroyed the demo
 						$( window ).scrollTop( scrollPos );
-					} else {
-						Demo.static.scrollToFragment();
 					}
 				} );
 			}
@@ -111,7 +109,6 @@
 			OO.ui.demo = demo;
 
 			$( window ).on( 'popstate', setup );
-			$( window ).on( 'hashchange', Demo.static.scrollToFragment );
 		} );
 	</script>
 </body>

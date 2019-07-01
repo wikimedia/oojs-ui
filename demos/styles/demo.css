@@ -133,6 +133,11 @@ p:first-child {
 	color: inherit;
 }
 
+.demo-linked-field .oo-ui-fieldLayout-header {
+	position: relative;
+}
+
+.demo-linked-field-anchor,
 .demo-linked-fieldset-anchor {
 	display: block;
 	position: absolute;
