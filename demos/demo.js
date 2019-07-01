@@ -846,14 +846,16 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
  * Build a link to this example.
  *
  * @param {OO.ui.Layout} item
- * @param {OO.ui.FieldsetLayout} parentItem
  * @return {jQuery} Link interface element
  */
-Demo.prototype.buildLinkExample = function ( item, parentItem ) {
+Demo.prototype.buildLinkExample = function ( item ) {
 	var $linkExample, label, fragment;
 
 	if ( item.$label.text() === '' ) {
-		item = parentItem;
+		item = this.getElementGroup();
+		if ( !item ) {
+			return $( [] );
+		}
 	}
 	fragment = item.elementId;
 	if ( !fragment ) {

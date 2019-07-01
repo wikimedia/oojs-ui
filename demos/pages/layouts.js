@@ -707,10 +707,7 @@ Demo.static.pages.layouts = function ( demo ) {
 	fieldsets.forEach( function ( fieldsetLayout ) {
 		fieldsetLayout.getItems().forEach( function ( fieldLayout ) {
 			fieldLayout.$element.append(
-				demo.buildLinkExample(
-					fieldLayout,
-					fieldsetLayout instanceof OO.ui.FormLayout ? fieldLayout : fieldsetLayout
-				),
+				demo.buildLinkExample( fieldLayout ),
 				demo.buildConsole( fieldLayout, 'layout', 'widget', true )
 			);
 		} );
