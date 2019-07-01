@@ -705,22 +705,13 @@ Demo.static.pages.layouts = function ( demo ) {
 	];
 
 	fieldsets.forEach( function ( fieldsetLayout ) {
-		var showLayoutCode = false;
-
-		if (
-			fieldsetLayout instanceof OO.ui.FormLayout ||
-			fieldsetLayout.getLabel() === 'Field layouts'
-		) {
-			showLayoutCode = true;
-		}
-
 		fieldsetLayout.getItems().forEach( function ( fieldLayout ) {
 			fieldLayout.$element.append(
 				demo.buildLinkExample(
 					fieldLayout,
 					fieldsetLayout instanceof OO.ui.FormLayout ? fieldLayout : fieldsetLayout
 				),
-				demo.buildConsole( fieldLayout, 'layout', 'widget', showLayoutCode )
+				demo.buildConsole( fieldLayout, 'layout', 'widget', true )
 			);
 		} );
 	} );
