@@ -174,7 +174,7 @@ OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
 	}
 
 	// Default to unframed.
-	config = $.extend( { framed: false }, config );
+	config = $.extend( { framed: true }, config );
 	if ( checkFlag( 'close' ) ) {
 		// Change close buttons to icon only.
 		$.extend( config, {
