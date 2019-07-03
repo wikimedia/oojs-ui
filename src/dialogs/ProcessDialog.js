@@ -282,7 +282,7 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
 
 	labelWidth = this.title.$element.width();
 
-	if ( 2 * biggerWidth + labelWidth < navigationWidth ) {
+	if ( !OO.ui.isMobile() && 2 * biggerWidth + labelWidth < navigationWidth ) {
 		// We have enough space to center the label
 		leftWidth = rightWidth = biggerWidth;
 	} else {
