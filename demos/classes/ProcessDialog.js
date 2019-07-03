@@ -6,7 +6,7 @@ Demo.ProcessDialog.static.title = 'Process dialog';
 Demo.ProcessDialog.static.actions = [
 	{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
 	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] },
-	{ action: 'other', label: 'Other', flags: 'other' }
+	{ action: 'other', label: 'Other' }
 ];
 Demo.ProcessDialog.prototype.initialize = function () {
 	var $content;

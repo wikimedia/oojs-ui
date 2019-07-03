@@ -6,8 +6,8 @@ Demo.LongProcessDialog.static.title = 'Process dialog';
 Demo.LongProcessDialog.static.actions = [
 	{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
 	{ action: 'cancel', label: 'Abort', flags: [ 'safe' ] },
-	{ action: 'other', label: 'Other', flags: 'other' },
-	{ action: 'other', label: 'Additional other', flags: 'other' }
+	{ action: 'other', label: 'Other' },
+	{ action: 'other2', label: 'Additional other' }
 ];
 Demo.LongProcessDialog.prototype.initialize = function () {
 	var i;
