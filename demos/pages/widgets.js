@@ -2617,7 +2617,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.MessageWidget( {
 						type: 'notice',
 						inline: true,
-						label: 'Inlined MessageWidget with notice for the user.'
+						label: new OO.ui.HtmlSnippet( 'Inlined MessageWidget with notice for the user.<br>Featuring multiple lines of notice.' )
 					} ),
 					{
 						label: 'MessageWidget (type: \'notice\', inline: true)',

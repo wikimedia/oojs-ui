@@ -457,8 +457,19 @@
 .theme-oo-ui-menuTagMultiselectWidget() {}
 
 .theme-oo-ui-messageWidget() {
-	padding: @padding-vertical-label @padding-horizontal-base;
 	font-weight: bold;
+
+	.oo-ui-iconElement-icon {
+		display: block;
+		float: left;
+		margin: 0;
+	}
+
+	.oo-ui-labelElement-label {
+		margin-top: @margin-top-message-label;
+		margin-left: @size-icon + @padding-start-messages;
+		line-height: @line-height-base;
+	}
 
 	&.oo-ui-messageWidget-block {
 		border: @border-width-base @border-style-base;
@@ -493,16 +504,8 @@
 		color: @color-success;
 	}
 
-	.oo-ui-iconElement-icon {
-		display: block;
-		float: left;
-		margin: 0;
-	}
-
-	.oo-ui-labelElement-label {
-		margin-top: @margin-top-message-label;
-		margin-left: @size-icon + @padding-start-messages;
-		line-height: @line-height-base;
+	& + .oo-ui-messageWidget {
+		margin-top: @margin-top-message;
 	}
 }
 

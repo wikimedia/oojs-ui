@@ -108,6 +108,15 @@
 		max-width: @max-width-base;
 		margin: 0.25em 0 0 0.25em;
 		padding: 0;
+
+		> .oo-ui-messageWidget {
+			margin-left: @margin-horizontal-fieldlayout-message;
+			margin-right: @margin-horizontal-fieldlayout-message;
+
+			&:first-child {
+				margin-top: @margin-top-message / 2;
+			}
+		}
 	}
 }
 
