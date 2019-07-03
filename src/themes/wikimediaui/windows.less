@@ -144,46 +144,37 @@
 	// Support: All but IE 6.
 	[ class^='oo-ui-processDialog-actions' ] {
 		.oo-ui-actionWidget {
-			&.oo-ui-buttonElement-framed {
-				margin: @margin-dialog-bar-button-framed;
+			> .oo-ui-buttonElement-button {
+				border-radius: 0;
 			}
 
-			&.oo-ui-buttonElement-frameless {
+			&.oo-ui-iconElement {
 				> .oo-ui-buttonElement-button {
-					border-radius: 0;
+					// Use min-height as height includes borders.
+					min-height: @size-dialog-bar--desktop;
+					padding-top: 0;
+					// Make icon only actions a tad wider, specifically the close action.
+					padding-left: @size-dialog-bar--mobile;
+					padding-right: 0;
+
+					> .oo-ui-iconElement-icon {
+						left: @padding-horizontal-base;
+					}
+				}
+			}
+
+			&.oo-ui-labelElement {
+				&:first-child {
+					margin-left: 0;
+				}
+
+				> .oo-ui-buttonElement-button {
+					padding: @padding-vertical-dialog-action @padding-horizontal-base;
 				}
 
 				&.oo-ui-iconElement {
-					&:first-child {
-						margin-left: 0;
-					}
-
 					> .oo-ui-buttonElement-button {
-						// Use min-height as height includes borders.
-						min-height: @size-dialog-bar--desktop;
-						padding-top: 0;
-						// Make icon only actions a tad wider, specifically the close action.
-						padding-left: @size-dialog-bar--mobile;
-
-						> .oo-ui-iconElement-icon {
-							left: @padding-horizontal-base;
-						}
-					}
-				}
-
-				&.oo-ui-labelElement {
-					&:first-child {
-						margin-left: 0;
-					}
-
-					> .oo-ui-buttonElement-button {
-						padding: @padding-vertical-dialog-action @padding-horizontal-base;
-					}
-
-					&.oo-ui-iconElement {
-						> .oo-ui-buttonElement-button {
-							padding-left: @size-icon + @padding-horizontal-base;
-						}
+						padding-left: @size-icon + @padding-horizontal-base;
 					}
 				}
 			}
@@ -191,40 +182,21 @@
 	}
 
 	&-actions {
-		&-primary,
-		&-safe {
-			.oo-ui-actionWidget.oo-ui-buttonElement-frameless.oo-ui-flaggedElement {
-				&-progressive {
-					&:hover {
-						background-color: rgba( 8, 126, 204, 0.05 );
-					}
-
-					&:active {
-						background-color: rgba( 8, 126, 204, 0.1 );
-					}
-				}
-
-				&-destructive {
-					&:hover {
-						background-color: rgba( 212, 83, 83, 0.05 );
-					}
-
-					&:active {
-						background-color: rgba( 212, 83, 83, 0.1 );
-					}
+		&-safe,
+		&-other {
+			.oo-ui-actionWidget {
+				> .oo-ui-buttonElement-button {
+					border-right: @border-dialog-bar;
+					border-left: 0;
+					border-bottom: 0;
 				}
 			}
 		}
 
-		&-safe,
-		&-other {
-			.oo-ui-actionWidget.oo-ui-buttonElement-frameless {
-				&:hover {
-					background-color: rgba( 0, 0, 0, 0.05 );
-				}
-
-				&:active {
-					background-color: rgba( 0, 0, 0, 0.1 );
+		&-safe {
+			.oo-ui-actionWidget {
+				> .oo-ui-buttonElement-button {
+					border-top: 0;
 				}
 			}
 		}
@@ -233,6 +205,11 @@
 			.oo-ui-actionWidget {
 				&.oo-ui-buttonElement {
 					margin-right: 0;
+				}
+
+				> .oo-ui-buttonElement-button {
+					border-top: @border-dialog-bar;
+					border-bottom: 0;
 				}
 			}
 		}
@@ -289,7 +266,7 @@
 			}
 		}
 
-		[ class^='oo-ui-processDialog-actions' ] .oo-ui-actionWidget.oo-ui-buttonElement-frameless {
+		[ class^='oo-ui-processDialog-actions' ] .oo-ui-actionWidget {
 			&.oo-ui-iconElement > .oo-ui-buttonElement-button {
 				// Use min-height as height includes borders.
 				min-height: @size-dialog-bar--mobile;
