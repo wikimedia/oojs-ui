@@ -24,10 +24,12 @@
  *     MyProcessDialog.static.name = 'myProcessDialog';
  *     // An action set that uses modes ('edit' and 'help' mode, in this example).
  *     MyProcessDialog.static.actions = [
- *         { action: 'continue', modes: 'edit', label: 'Continue',
- *           flags: [
- *               'primary', 'progressive'
- *         ] },
+ *         {
+ *           action: 'continue',
+ *           modes: 'edit',
+ *           label: 'Continue',
+ *           flags: [ 'primary', 'progressive' ]
+ *         },
  *         { action: 'help', modes: 'edit', label: 'Help' },
  *         { modes: 'edit', label: 'Cancel', flags: 'safe' },
  *         { action: 'back', modes: 'help', label: 'Back', flags: 'safe' }
