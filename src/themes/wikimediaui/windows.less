@@ -199,6 +199,26 @@
 					border-top: 0;
 				}
 			}
+
+			// Special case: 'close' and 'back' action.
+			.oo-ui-widget-enabled {
+				&.oo-ui-flaggedElement-close,
+				&.oo-ui-flaggedElement-back {
+					> .oo-ui-buttonElement-button {
+						background-color: @background-color-base;
+						border-right-color: transparent;
+
+						&:hover {
+							background-color: @background-color-framed;
+							border-right-color: @border-color-dialog-bar;
+						}
+
+						&:active {
+							border-right-color: @border-color-dialog-bar;
+						}
+					}
+				}
+			}
 		}
 
 		&-other {
