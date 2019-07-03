@@ -4,7 +4,7 @@ Demo.LongProcessDialog = function DemoLongProcessDialog( config ) {
 OO.inheritClass( Demo.LongProcessDialog, OO.ui.ProcessDialog );
 Demo.LongProcessDialog.static.title = 'Process dialog';
 Demo.LongProcessDialog.static.actions = [
-	{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
+	{ action: 'save', label: 'Done', icon: 'check', flags: [ 'primary', 'progressive' ] },
 	{ action: 'cancel', label: 'Abort', flags: [ 'safe' ] },
 	{ action: 'other', label: 'Other' },
 	{ action: 'other2', label: 'Additional other' }
