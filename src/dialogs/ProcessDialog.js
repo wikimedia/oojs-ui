@@ -276,8 +276,8 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
 		navigationWidth = size.width - 20;
 	}
 
-	safeWidth = this.$safeActions.is( ':visible' ) ? this.$safeActions.width() : 0;
-	primaryWidth = this.$primaryActions.is( ':visible' ) ? this.$primaryActions.width() : 0;
+	safeWidth = this.$safeActions.width();
+	primaryWidth = this.$primaryActions.width();
 	biggerWidth = Math.max( safeWidth, primaryWidth );
 
 	labelWidth = this.title.$element.width();

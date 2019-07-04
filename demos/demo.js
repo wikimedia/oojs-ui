@@ -761,7 +761,7 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 			var code;
 			e.preventDefault();
 			$console.toggleClass( 'demo-console-collapsed demo-console-expanded' );
-			if ( $input.is( ':visible' ) ) {
+			if ( $console.hasClass( 'demo-console-expanded' ) ) {
 				$input[ 0 ].focus();
 				if ( console && console.log ) {
 					window[ layout ] = item;
