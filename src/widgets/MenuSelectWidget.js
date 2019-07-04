@@ -48,7 +48,7 @@
  * @cfg {boolean} [highlightOnFilter] Highlight the first result when filtering
  * @cfg {string} [filterMode='prefix'] The mode by which the menu filters the results.
  *  Options are 'exact', 'prefix' or 'substring'. See `OO.ui.SelectWidget#getItemMatcher`
- * @param {number|string} [width] Width of the menu as a number of pixels or CSS string with unit
+ * @cfg {number|string} [width] Width of the menu as a number of pixels or CSS string with unit
  *  suffix, used by {@link OO.ui.mixin.ClippableElement ClippableElement}
  */
 OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
