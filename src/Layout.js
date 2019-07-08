@@ -45,7 +45,7 @@ OO.mixinClass( OO.ui.Layout, OO.EventEmitter );
  */
 OO.ui.Layout.prototype.resetScroll = function () {
 	this.$element[ 0 ].scrollTop = 0;
-	// TODO: Reset scrollLeft in an RTL-aware manner, see OO.ui.Element.static.getScrollLeft.
+	OO.ui.Element.static.setScrollLeft( this.$element[ 0 ], 0 );
 
 	return this;
 };

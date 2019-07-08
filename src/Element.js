@@ -486,7 +486,7 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 			borders: { top: 0, left: 0, bottom: 0, right: 0 },
 			scroll: {
 				top: $win.scrollTop(),
-				left: $win.scrollLeft()
+				left: OO.ui.Element.static.getScrollLeft( win )
 			},
 			scrollbar: { right: 0, bottom: 0 },
 			rect: {
@@ -502,7 +502,7 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 			borders: this.getBorders( el ),
 			scroll: {
 				top: $el.scrollTop(),
-				left: $el.scrollLeft()
+				left: OO.ui.Element.static.getScrollLeft( el )
 			},
 			scrollbar: {
 				right: $el.innerWidth() - el.clientWidth,
@@ -513,29 +513,12 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 	}
 };
 
-/**
- * Get the number of pixels that an element's content is scrolled to the left.
- *
- * Adapted from <https://github.com/othree/jquery.rtl-scroll-type>.
- * Original code copyright 2012 Wei-Ko Kao, licensed under the MIT License.
- *
- * This function smooths out browser inconsistencies (nicely described in the README at
- * <https://github.com/othree/jquery.rtl-scroll-type>) and produces a result consistent
- * with Firefox's 'scrollLeft', which seems the sanest.
- *
- * @static
- * @method
- * @param {HTMLElement|Window} el Element to measure
- * @return {number} Scroll position from the left.
- *  If the element's direction is LTR, this is a positive number between `0` (initial scroll
- *  position) and `el.scrollWidth - el.clientWidth` (furthest possible scroll position).
- *  If the element's direction is RTL, this is a negative number between `0` (initial scroll
- *  position) and `-el.scrollWidth + el.clientWidth` (furthest possible scroll position).
- */
-OO.ui.Element.static.getScrollLeft = ( function () {
+( function () {
 	var rtlScrollType = null;
 
-	function test() {
+	// Adapted from <https://github.com/othree/jquery.rtl-scroll-type>.
+	// Original code copyright 2012 Wei-Ko Kao, licensed under the MIT License.
+	function rtlScrollTypeTest() {
 		var $definer = $( '<div>' ).attr( {
 				dir: 'rtl',
 				style: 'font-size: 14px; width: 4px; height: 1px; position: absolute; top: -1000px; overflow: scroll;'
@@ -559,27 +542,112 @@ OO.ui.Element.static.getScrollLeft = ( function () {
 		$definer.remove();
 	}
 
-	return function getScrollLeft( el ) {
-		var isRoot = el.window === el ||
-				el === el.ownerDocument.body ||
-				el === el.ownerDocument.documentElement,
-			scrollLeft = isRoot ? $( window ).scrollLeft() : el.scrollLeft,
-			// All browsers use the correct scroll type ('negative') on the root, so don't
-			// do any fixups when looking at the root element
-			direction = isRoot ? 'ltr' : $( el ).css( 'direction' );
+	function isRoot( el ) {
+		return el.window === el ||
+			el === el.ownerDocument.body ||
+			el === el.ownerDocument.documentElement;
+	}
+
+	/**
+	 * Convert native `scrollLeft` value to a value consistent between browsers. See #getScrollLeft.
+	 * @param {number} nativeOffset Native `scrollLeft` value
+	 * @param {HTMLElement|Window} el Element from which the value was obtained
+	 * @return {number}
+	 */
+	OO.ui.Element.static.computeNormalizedScrollLeft = function ( nativeOffset, el ) {
+		// All browsers use the correct scroll type ('negative') on the root, so don't
+		// do any fixups when looking at the root element
+		var direction = isRoot( el ) ? 'ltr' : $( el ).css( 'direction' );
 
 		if ( direction === 'rtl' ) {
 			if ( rtlScrollType === null ) {
-				test();
+				rtlScrollTypeTest();
 			}
 			if ( rtlScrollType === 'reverse' ) {
-				scrollLeft = -scrollLeft;
+				return -nativeOffset;
 			} else if ( rtlScrollType === 'default' ) {
-				scrollLeft = scrollLeft - el.scrollWidth + el.clientWidth;
+				return nativeOffset - el.scrollWidth + el.clientWidth;
 			}
 		}
 
+		return nativeOffset;
+	};
+
+	/**
+	 * Convert our normalized `scrollLeft` value to a value for current browser. See #getScrollLeft.
+	 * @param {number} normalizedOffset Normalized `scrollLeft` value
+	 * @param {HTMLElement|Window} el Element on which the value will be set
+	 * @return {number}
+	 */
+	OO.ui.Element.static.computeNativeScrollLeft = function ( normalizedOffset, el ) {
+		// All browsers use the correct scroll type ('negative') on the root, so don't
+		// do any fixups when looking at the root element
+		var direction = isRoot( el ) ? 'ltr' : $( el ).css( 'direction' );
+
+		if ( direction === 'rtl' ) {
+			if ( rtlScrollType === null ) {
+				rtlScrollTypeTest();
+			}
+			if ( rtlScrollType === 'reverse' ) {
+				return -normalizedOffset;
+			} else if ( rtlScrollType === 'default' ) {
+				return normalizedOffset + el.scrollWidth - el.clientWidth;
+			}
+		}
+
+		return normalizedOffset;
+	};
+
+	/**
+	 * Get the number of pixels that an element's content is scrolled to the left.
+	 *
+	 * This function smooths out browser inconsistencies (nicely described in the README at
+	 * <https://github.com/othree/jquery.rtl-scroll-type>) and produces a result consistent
+	 * with Firefox's 'scrollLeft', which seems the sanest.
+	 *
+	 * (Firefox's scrollLeft handling is nice because it increases from left to right, consistently
+	 * with `getBoundingClientRect().left` and related APIs; because initial value is zero, so
+	 * resetting it is easy; because adapting a hardcoded scroll position to a symmetrical RTL
+	 * interface requires just negating it, rather than involving `clientWidth` and `scrollWidth`;
+	 * and because if you mess up and don't adapt your code to RTL, it will scroll to the beginning
+	 * rather than somewhere randomly in the middle but not where you wanted.)
+	 *
+	 * @static
+	 * @method
+	 * @param {HTMLElement|Window} el Element to measure
+	 * @return {number} Scroll position from the left.
+	 *  If the element's direction is LTR, this is a positive number between `0` (initial scroll
+	 *  position) and `el.scrollWidth - el.clientWidth` (furthest possible scroll position).
+	 *  If the element's direction is RTL, this is a negative number between `0` (initial scroll
+	 *  position) and `-el.scrollWidth + el.clientWidth` (furthest possible scroll position).
+	 */
+	OO.ui.Element.static.getScrollLeft = function ( el ) {
+		var scrollLeft = isRoot( el ) ? $( window ).scrollLeft() : el.scrollLeft;
+		scrollLeft = OO.ui.Element.static.computeNormalizedScrollLeft( scrollLeft, el );
 		return scrollLeft;
+	};
+
+	/**
+	 * Set the number of pixels that an element's content is scrolled to the left.
+	 *
+	 * See #getScrollLeft.
+	 *
+	 * @static
+	 * @method
+	 * @param {HTMLElement|Window} el Element to scroll (and to use in calculations)
+	 * @param {number} scrollLeft Scroll position from the left.
+	 *  If the element's direction is LTR, this must be a positive number between `0` (initial scroll
+	 *  position) and `el.scrollWidth - el.clientWidth` (furthest possible scroll position).
+	 *  If the element's direction is RTL, this must be a negative number between `0` (initial scroll
+	 *  position) and `-el.scrollWidth + el.clientWidth` (furthest possible scroll position).
+	 */
+	OO.ui.Element.static.setScrollLeft = function ( el, scrollLeft ) {
+		scrollLeft = OO.ui.Element.static.computeNativeScrollLeft( scrollLeft, el );
+		if ( isRoot( el ) ) {
+			$( window ).scrollLeft( scrollLeft );
+		} else {
+			el.scrollLeft = scrollLeft;
+		}
 	};
 }() );
 
@@ -758,6 +826,9 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
 				// Scroll the right into view, but not at the expense
 				// of scrolling the left out of view
 				Math.min( position.left - padding.left, -position.right + padding.right );
+		}
+		if ( animations.scrollLeft !== undefined ) {
+			animations.scrollLeft = OO.ui.Element.static.computeNativeScrollLeft( animations.scrollLeft, container );
 		}
 	}
 	if ( !$.isEmptyObject( animations ) ) {
