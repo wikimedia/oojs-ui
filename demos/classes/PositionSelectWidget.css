@@ -41,3 +41,7 @@
 .demo-positionSelectWidget .oo-ui-radioOptionWidget.oo-ui-optionWidget-selected {
 	outline: 1px solid #d33;
 }
+
+.demo-positionSelectWidget .oo-ui-radioOptionWidget:first-child {
+	margin-top: 0;
+}
