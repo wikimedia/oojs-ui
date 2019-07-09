@@ -1,5 +1,5 @@
 Demo.PositionSelectWidget = function DemoPositionSelectWidget( config ) {
-	var verticalPositions, horizontalPositions, $table,
+	var verticalPositions, horizontalPositions,
 		widget = this;
 
 	Demo.PositionSelectWidget.parent.call( this, config );
@@ -7,19 +7,16 @@ Demo.PositionSelectWidget = function DemoPositionSelectWidget( config ) {
 	verticalPositions = [ 'above', 'top', 'center', 'bottom', 'below' ];
 	horizontalPositions = [ 'before', 'start', 'center', 'end', 'after' ];
 
-	$table = $( '<table>' );
 	verticalPositions.forEach( function ( v ) {
-		var $tr = $( '<tr>' );
+		var $row = $( '<div>' );
 		horizontalPositions.forEach( function ( h ) {
-			var $td = $( '<td>' );
-			$td.append( widget.getOption( h, v ).$element );
-			$td.attr( 'title', v + '/' + h );
-			$tr.append( $td );
+			var option = widget.getOption( h, v );
+			option.$element.attr( 'title', v + '/' + h );
+			$row.append( option.$element );
 		} );
-		$table.append( $tr );
+		widget.$element.append( $row );
 	} );
 
-	this.$element.append( $table );
 	this.$element.addClass( 'demo-positionSelectWidget' );
 };
 OO.inheritClass( Demo.PositionSelectWidget, OO.ui.RadioSelectWidget );

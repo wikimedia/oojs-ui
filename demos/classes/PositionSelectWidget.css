@@ -1,41 +1,28 @@
-.demo-positionSelectWidget table {
-	border-collapse: collapse;
+.demo-positionSelectWidget {
+	position: relative;
+	width: 8em;
+	margin: 0 auto;
 }
 
-.demo-positionSelectWidget tr:nth-child( 2 ) td:nth-child( 2 ) {
-	border-top: 1px solid #000;
-	border-left: 1px solid #000;
+.demo-positionSelectWidget > div {
+	height: 1.6em;
 }
 
-.demo-positionSelectWidget tr:nth-child( 2 ) td:nth-child( 3 ) {
-	border-top: 1px solid #000;
+.demo-positionSelectWidget:before {
+	content: '';
+	position: absolute;
+	width: 4.8em;
+	height: 4.8em;
+	border: 1px solid #000;
+	left: 1.5em;
+	top: 1.5em;
 }
 
-.demo-positionSelectWidget tr:nth-child( 2 ) td:nth-child( 4 ) {
-	border-top: 1px solid #000;
-	border-right: 1px solid #000;
-}
-
-.demo-positionSelectWidget tr:nth-child( 3 ) td:nth-child( 2 ) {
-	border-left: 1px solid #000;
-}
-
-.demo-positionSelectWidget tr:nth-child( 3 ) td:nth-child( 4 ) {
-	border-right: 1px solid #000;
-}
-
-.demo-positionSelectWidget tr:nth-child( 4 ) td:nth-child( 2 ) {
-	border-bottom: 1px solid #000;
-	border-left: 1px solid #000;
-}
-
-.demo-positionSelectWidget tr:nth-child( 4 ) td:nth-child( 3 ) {
-	border-bottom: 1px solid #000;
-}
-
-.demo-positionSelectWidget tr:nth-child( 4 ) td:nth-child( 4 ) {
-	border-bottom: 1px solid #000;
-	border-right: 1px solid #000;
+.demo-positionSelectWidget .oo-ui-radioOptionWidget {
+	width: 1.4em;
+	height: 1.4em;
+	padding: 0.1em;
+	display: inline-block;
 }
 
 .demo-positionSelectWidget .oo-ui-radioOptionWidget.oo-ui-optionWidget-selected {
