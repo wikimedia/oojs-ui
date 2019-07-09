@@ -241,7 +241,7 @@
 
 	&-errors {
 		background-color: rgba( 255, 255, 255, 0.9 );
-		padding: 3em 3em 1.5em 3em;
+		padding: 3em 3em 0 3em;
 		text-align: center;
 
 		.oo-ui-buttonWidget {
@@ -251,17 +251,16 @@
 		&-title {
 			font-size: 1.5em;
 			color: @color-base--emphasized;
-			margin-bottom: 2em;
+			margin-bottom: 1.5em;
 		}
 	}
 
 	&-error {
+		background-color: @background-color-error--framed;
+		margin: 1em 0 0;
+		border: @border-error;
+		padding: @padding-vertical-message-block @padding-horizontal-message-block;
 		text-align: left;
-		margin: 1em;
-		padding: 1em;
-		border: @border-width-base @border-style-base @border-color-error;
-		background-color: #fff7f7;
-		border-radius: @border-radius-base;
 	}
 
 	// Ensure click target sizes and layout amendments on mobile.
