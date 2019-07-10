@@ -173,7 +173,6 @@ OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
 			( Array.isArray( config.flags ) && config.flags.indexOf( flag ) !== -1 );
 	}
 
-	// Default to unframed.
 	config = $.extend( { framed: true }, config );
 	if ( checkFlag( 'close' ) ) {
 		// Change close buttons to icon only.
@@ -181,7 +180,7 @@ OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
 			icon: 'close',
 			invisibleLabel: true
 		} );
-	} else if ( OO.ui.isMobile() && checkFlag( 'back' ) ) {
+	} else if ( checkFlag( 'back' ) ) {
 		// Change back buttons to icon only.
 		$.extend( config, {
 			icon: 'previous',
