@@ -352,7 +352,7 @@ OO.ui.TagMultiselectWidget.prototype.doInputEnter = function () {
 };
 
 /**
- * Perform an action responding to the Enter key on the input
+ * Perform an action responding to the Backspace key on the input
  *
  * @param {jQuery.Event} e Event data
  * @param {boolean} [withMetaKey] Whether this key was pressed with
