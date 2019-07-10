@@ -526,27 +526,26 @@ Demo.prototype.getStylesheetLinks = function () {
  */
 Demo.prototype.normalizeQuery = function () {
 	var i, len, factorValues, match, valid, factorValue,
-		modes = [],
 		factors = this.getFactors(),
-		defaults = this.getDefaultFactorValues();
+		modes = this.getDefaultFactorValues();
 
 	factorValues = this.getCurrentFactorValues();
 	for ( i = 0, len = factors.length; i < len; i++ ) {
 		factorValue = factorValues[ i ];
-		modes[ i ] = factors[ i ][ factorValue ] !== undefined ? factorValue : defaults[ i ];
+		if ( factors[ i ][ factorValue ] !== undefined ) {
+			modes[ i ] = factorValue;
+		}
 	}
 
 	// Backwards-compatibility with old URLs that used the 'fragment' part to link to demo sections:
 	// if a fragment is specified and it describes valid factors, turn the URL into the new style.
 	match = location.hash.match( /^#(\w+)-(\w+)-(\w+)-(\w+)$/ );
 	if ( match ) {
-		factorValues = [];
+		factorValues = Array.prototype.slice.call( match, 1 );
 		valid = true;
 		for ( i = 0, len = factors.length; i < len; i++ ) {
-			factorValue = match[ i + 1 ];
-			if ( factors[ i ][ factorValue ] !== undefined ) {
-				factorValues[ i ] = factorValue;
-			} else {
+			factorValue = factorValues[ i ];
+			if ( factors[ i ][ factorValue ] === undefined ) {
 				valid = false;
 				break;
 			}
