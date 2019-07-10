@@ -539,9 +539,22 @@ Demo.prototype.normalizeQuery = function () {
 
 	// Backwards-compatibility with old URLs that used the 'fragment' part to link to demo sections:
 	// if a fragment is specified and it describes valid factors, turn the URL into the new style.
-	match = location.hash.match( /^#(\w+)-(\w+)-(\w+)-(\w+)$/ );
+	match = location.hash.match( /^#(\w+)-(\w+)-(\w+)(?:-(\w+))?$/ );
 	if ( match ) {
 		factorValues = Array.prototype.slice.call( match, 1 );
+		// Backwards-compatibility with changed theme name (I8ee1fab4)
+		if ( factorValues[ 1 ] === 'mediawiki' ) {
+			factorValues[ 1 ] = 'wikimediaui';
+		}
+		// Backwards-compatibility with old graphics distributions (Ic6309b4e)
+		if ( factorValues[ 2 ] === 'mixed' || factorValues[ 2 ] === 'vector' || factorValues[ 2 ] === 'raster' ) {
+			factorValues[ 2 ] = factorValues[ 3 ];
+			factorValues[ 3 ] = null;
+		}
+		// Backwards-compatibility with no platforms (Idc49819c)
+		if ( !factorValues[ 3 ] ) {
+			factorValues[ 3 ] = 'desktop';
+		}
 		valid = true;
 		for ( i = 0, len = factors.length; i < len; i++ ) {
 			factorValue = factorValues[ i ];
