@@ -227,7 +227,8 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 
 		if (
 			this.highlightOnFilter &&
-			!( this.lastHighlightedItem && this.lastHighlightedItem.isVisible() )
+			!( this.lastHighlightedItem && this.lastHighlightedItem.isVisible() ) &&
+			this.isVisible()
 		) {
 			// Highlight the first item on the list
 			item = null;
@@ -241,7 +242,6 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 			this.highlightItem( item );
 			this.lastHighlightedItem = item;
 		}
-
 	}
 
 	// Reevaluate clipping
