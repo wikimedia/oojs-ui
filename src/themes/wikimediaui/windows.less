@@ -289,8 +289,16 @@
 				padding-left: @size-dialog-bar--mobile;
 			}
 
-			&.oo-ui-labelElement > .oo-ui-buttonElement-button {
-				padding: @padding-vertical-tool-label @padding-horizontal-base;
+			&.oo-ui-labelElement {
+				> .oo-ui-buttonElement-button {
+					padding: @padding-vertical-tool-label @padding-horizontal-base;
+				}
+
+				&.oo-ui-iconElement {
+					> .oo-ui-buttonElement-button {
+						padding-left: @padding-start-input-text-icon-label;
+					}
+				}
 			}
 		}
 	}
