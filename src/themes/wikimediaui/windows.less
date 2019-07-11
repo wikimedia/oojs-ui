@@ -141,41 +141,38 @@
 		line-height: @size-dialog-bar--desktop / unit( @font-size-dialog-process-title );
 	}
 
-	// Support: All but IE 6.
-	[ class^='oo-ui-processDialog-actions' ] {
-		.oo-ui-actionWidget {
+	.oo-ui-actionWidget {
+		> .oo-ui-buttonElement-button {
+			border-radius: 0;
+		}
+
+		&.oo-ui-iconElement {
 			> .oo-ui-buttonElement-button {
-				border-radius: 0;
+				// Use min-height as height includes borders.
+				min-height: @size-dialog-bar--desktop;
+				padding-top: 0;
+				// Make icon only actions a tad wider, specifically the close action.
+				padding-left: @size-dialog-bar--mobile;
+				padding-right: 0;
+
+				> .oo-ui-iconElement-icon {
+					left: @padding-horizontal-base;
+				}
+			}
+		}
+
+		&.oo-ui-labelElement {
+			&:first-child {
+				margin-left: 0;
+			}
+
+			> .oo-ui-buttonElement-button {
+				padding: @padding-vertical-dialog-action @padding-horizontal-base;
 			}
 
 			&.oo-ui-iconElement {
 				> .oo-ui-buttonElement-button {
-					// Use min-height as height includes borders.
-					min-height: @size-dialog-bar--desktop;
-					padding-top: 0;
-					// Make icon only actions a tad wider, specifically the close action.
-					padding-left: @size-dialog-bar--mobile;
-					padding-right: 0;
-
-					> .oo-ui-iconElement-icon {
-						left: @padding-horizontal-base;
-					}
-				}
-			}
-
-			&.oo-ui-labelElement {
-				&:first-child {
-					margin-left: 0;
-				}
-
-				> .oo-ui-buttonElement-button {
-					padding: @padding-vertical-dialog-action @padding-horizontal-base;
-				}
-
-				&.oo-ui-iconElement {
-					> .oo-ui-buttonElement-button {
-						padding-left: @padding-start-input-text-icon-label;
-					}
+					padding-left: @padding-start-input-text-icon-label;
 				}
 			}
 		}
@@ -285,7 +282,7 @@
 			}
 		}
 
-		[ class^='oo-ui-processDialog-actions' ] .oo-ui-actionWidget {
+		.oo-ui-actionWidget {
 			&.oo-ui-iconElement > .oo-ui-buttonElement-button {
 				// Use min-height as height includes borders.
 				min-height: @size-dialog-bar--mobile;
