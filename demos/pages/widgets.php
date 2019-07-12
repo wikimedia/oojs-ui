@@ -1062,8 +1062,8 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\MessageWidget( [
 				'type' => 'notice',
-				'label' => new OOUI\HtmlSnippet( 'MessageWidget with notice for the user.<br> ' .
-					'Featuring multiple lines of notice.' )
+				'label' => new OOUI\HtmlSnippet( '<strong>MessageWidget with notice for the ' .
+					'user.</strong><br>Featuring multiple lines of notice.' )
 			] ),
 			[
 				'label' => "MessageWidget (type => 'notice')",

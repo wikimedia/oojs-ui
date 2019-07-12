@@ -2606,7 +2606,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.MessageWidget( {
 						type: 'notice',
-						label: new OO.ui.HtmlSnippet( 'MessageWidget with notice for the user.<br>Featuring multiple lines of notice.' )
+						label: new OO.ui.HtmlSnippet( '<strong>MessageWidget with notice for the user.</strong><br>Featuring multiple lines of notice.' )
 					} ),
 					{
 						label: 'MessageWidget (type: \'notice\')',
