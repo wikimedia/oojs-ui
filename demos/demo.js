@@ -197,51 +197,6 @@ Demo.static.themes = {
 };
 
 /**
- * Additional suffixes for which each theme defines image modules.
- *
- * @static
- * @property {Object.<string,string[]>
- */
-Demo.static.additionalThemeImagesSuffixes = {
-	wikimediaui: [
-		'-icons-movement',
-		'-icons-content',
-		'-icons-alerts',
-		'-icons-interactions',
-		'-icons-moderation',
-		'-icons-editing-core',
-		'-icons-editing-styling',
-		'-icons-editing-list',
-		'-icons-editing-advanced',
-		'-icons-editing-citation',
-		'-icons-media',
-		'-icons-location',
-		'-icons-user',
-		'-icons-layout',
-		'-icons-accessibility',
-		'-icons-wikimedia'
-	],
-	apex: [
-		'-icons-movement',
-		'-icons-content',
-		'-icons-alerts',
-		'-icons-interactions',
-		'-icons-moderation',
-		'-icons-editing-core',
-		'-icons-editing-styling',
-		'-icons-editing-list',
-		'-icons-editing-advanced',
-		'-icons-editing-citation',
-		'-icons-media',
-		'-icons-location',
-		'-icons-user',
-		'-icons-layout',
-		'-icons-accessibility',
-		'-icons-wikimedia'
-	]
-};
-
-/**
  * Available text directions.
  *
  * List of text direction descriptions, each containing a `fileSuffix` property used for linking to
@@ -482,10 +437,8 @@ Demo.prototype.getCurrentMode = function ( factorValues ) {
  * @return {HTMLElement[]} List of link elements
  */
 Demo.prototype.getStylesheetLinks = function () {
-	var i, len, links, fragments,
+	var links, fragments,
 		factors = this.getFactors(),
-		theme = this.getCurrentFactorValues()[ 1 ],
-		suffixes = this.constructor.static.additionalThemeImagesSuffixes[ theme ] || [],
 		urls = [];
 
 	// Translate modes to filename fragments
@@ -495,9 +448,6 @@ Demo.prototype.getStylesheetLinks = function () {
 
 	// Theme styles
 	urls.push( 'dist/oojs-ui' + fragments.slice( 1 ).join( '' ) + '.css' );
-	for ( i = 0, len = suffixes.length; i < len; i++ ) {
-		urls.push( 'dist/oojs-ui' + fragments[ 1 ] + suffixes[ i ] + fragments[ 2 ] + '.css' );
-	}
 
 	// Demo styles
 	urls.push( 'styles/demo' + fragments[ 2 ] + '.css' );

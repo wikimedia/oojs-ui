@@ -295,6 +295,8 @@
 			"src/styles/WindowManager.less"
 		]
 	},
+
+	# Image content. Generates oojs-ui-images-{theme}.css and so oojs-ui-{theme}.css files
 	"oojs-ui-images-{theme}": {
 		"styles": [
 			"src/themes/{theme}/icons-movement.json",
@@ -317,7 +319,7 @@
 		]
 	},
 
-	# Additional icon packs. Some exist for all themes, some are WikimediaUI-theme-specific.
+	# Icon packs. Generates oojs-ui-{theme}-icons-{pack}.css files
 	"oojs-ui-{theme}-icons-accessibility": {
 		"styles": [
 			"src/themes/{theme}/icons-accessibility.json"
