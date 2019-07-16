@@ -39,52 +39,11 @@
 		'direction' => $direction,
 	];
 
-	$additionalThemeImagesSuffixes = [
-		'wikimediaui' => [
-			'-icons-movement',
-			'-icons-content',
-			'-icons-alerts',
-			'-icons-interactions',
-			'-icons-moderation',
-			'-icons-editing-core',
-			'-icons-editing-styling',
-			'-icons-editing-list',
-			'-icons-editing-advanced',
-			'-icons-editing-citation',
-			'-icons-media',
-			'-icons-location',
-			'-icons-user',
-			'-icons-layout',
-			'-icons-accessibility',
-			'-icons-wikimedia'
-		],
-		'apex' => [
-			'-icons-movement',
-			'-icons-content',
-			'-icons-alerts',
-			'-icons-interactions',
-			'-icons-moderation',
-			'-icons-editing-core',
-			'-icons-editing-styling',
-			'-icons-editing-list',
-			'-icons-editing-advanced',
-			'-icons-editing-citation',
-			'-icons-media',
-			'-icons-location',
-			'-icons-user',
-			'-icons-layout',
-			'-icons-accessibility',
-			'-icons-wikimedia'
-		]
-	];
 	// Stylesheets to load
 	$urls = [];
 	$urls[] = "oojs-ui-core-$theme$directionSuffix.css";
 	$urls[] = "oojs-ui-widgets-$theme$directionSuffix.css";
 	$urls[] = "oojs-ui-images-$theme$directionSuffix.css";
-	foreach ( $additionalThemeImagesSuffixes[ $theme ] as $suffix ) {
-		$urls[] = "oojs-ui-$theme$suffix$directionSuffix.css";
-	}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="<?php echo $direction; ?>">
