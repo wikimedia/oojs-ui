@@ -44,5 +44,12 @@
 		position: relative;
 	}
 
+	// This class is applied to the <html> and <body> elements
+	&-ios-modal-ready {
+		// Needed for iOS Safari to actually prevent it from scrolling the page (T212159):
+		height: 100%;
+		overflow: hidden;
+	}
+
 	.theme-oo-ui-windowManager();
 }

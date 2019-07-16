@@ -440,6 +440,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 						compatOpening.notify( { state: 'ready' } );
 						lifecycle.deferreds.opened.resolve( data );
 						compatOpening.resolve( manager.compatOpened.promise(), data );
+						manager.togglePreventIosScrolling( true );
 					}, function () {
 						lifecycle.deferreds.opened.reject();
 						compatOpening.reject();
@@ -530,6 +531,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		compatOpened = manager.compatOpened;
 		manager.compatOpened = null;
 		compatOpened.resolve( compatClosing.promise(), data );
+		manager.togglePreventIosScrolling( false );
 		setTimeout( function () {
 			win.hold( data ).then( function () {
 				compatClosing.notify( { state: 'hold' } );
@@ -700,6 +702,47 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 
 	this.emit( 'resize', win );
 
+	return this;
+};
+
+/**
+ * Prevent scrolling of the document on iOS devices that don't respect `body { overflow: hidden; }`.
+ *
+ * This function is called when the window is opened (ready), and so the background is covered up,
+ * and the user won't see that we're doing weird things to the scroll position.
+ *
+ * @private
+ * @param {boolean} on
+ * @chainable
+ * @return {OO.ui.WindowManager} The manager, for chaining
+ */
+OO.ui.WindowManager.prototype.togglePreventIosScrolling = function ( on ) {
+	var
+		isIos = /ipad|iphone|ipod/i.test( navigator.userAgent ),
+		$body = $( this.getElementDocument().body ),
+		scrollableRoot = OO.ui.Element.static.getRootScrollableElement( $body[ 0 ] ),
+		stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0;
+
+	// Only if this is the first/last WindowManager (see #toggleGlobalEvents)
+	if ( !isIos || stackDepth !== 1 ) {
+		return this;
+	}
+
+	if ( on ) {
+		// We can't apply this workaround for non-fullscreen dialogs, because the user would see the
+		// scroll position change. If they have content that needs scrolling, you're out of luck…
+		// Always remember the scroll position in case dialog is closed with different size.
+		this.iosOrigScrollPosition = scrollableRoot.scrollTop;
+		if ( this.getCurrentWindow().getSize() === 'full' ) {
+			$body.add( $body.parent() ).addClass( 'oo-ui-windowManager-ios-modal-ready' );
+		}
+	} else {
+		// Always restore ability to scroll in case dialog was opened with different size.
+		$body.add( $body.parent() ).removeClass( 'oo-ui-windowManager-ios-modal-ready' );
+		if ( this.getCurrentWindow().getSize() === 'full' ) {
+			scrollableRoot.scrollTop = this.iosOrigScrollPosition;
+		}
+	}
 	return this;
 };
 
