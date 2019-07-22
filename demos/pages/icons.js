@@ -38,6 +38,7 @@ Demo.static.pages.icons = function ( demo ) {
 			alerts: [
 				'alert',
 				'bell',
+				'bellOutline',
 				'error',
 				'message',
 				'notice',
@@ -200,6 +201,7 @@ Demo.static.pages.icons = function ( demo ) {
 			user: [
 				'userAnonymous',
 				'userAvatar',
+				'userAvatarOutline',
 				'userTalk'
 			],
 			layout: [
