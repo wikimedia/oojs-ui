@@ -63,24 +63,13 @@
 
 			> .oo-ui-iconElement-icon,
 			> .oo-ui-indicatorElement-indicator {
-				opacity: @opacity-icon-base;
 				.oo-ui-transition(
 					opacity @transition-base
 				);
 
-				&.oo-ui-image-invert {
-					opacity: @opacity-icon-base--selected;
-				}
-			}
-
-			&:hover {
-				> .oo-ui-iconElement-icon,
-				> .oo-ui-indicatorElement-indicator {
-					opacity: @opacity-icon-base--hover;
-
-					&.oo-ui-image-invert {
-						opacity: @opacity-icon-base--selected;
-					}
+				// Framed `:hover` styles are at `$-framed` below.
+				&:not( .oo-ui-image-invert ) {
+					opacity: @opacity-icon-base;
 				}
 			}
 		}
@@ -232,13 +221,6 @@
 						opacity: @opacity-icon-base--selected;
 					}
 				}
-
-				> .oo-ui-buttonElement-button:hover {
-					> .oo-ui-iconElement-icon,
-					> .oo-ui-indicatorElement-indicator {
-						opacity: @opacity-icon-base--hover;
-					}
-				}
 			}
 		}
 
@@ -333,6 +315,13 @@
 					background-color: @background-color-framed--hover;
 					color: @color-base--hover;
 					border-color: @border-color-base--hover;
+
+					> .oo-ui-iconElement-icon,
+					> .oo-ui-indicatorElement-indicator {
+						&:not( .oo-ui-image-invert ) {
+							opacity: @opacity-icon-base--hover;
+						}
+					}
 				}
 
 				&:focus {
