@@ -141,9 +141,38 @@
 		line-height: @size-dialog-bar--desktop / unit( @font-size-dialog-process-title );
 	}
 
+	// ActionWidget is only ever part of ProcessDialog actions (primary, safe, other),
+	// therefore sufficient as only selector.
 	.oo-ui-actionWidget {
 		> .oo-ui-buttonElement-button {
 			border-radius: 0;
+			border-top-color: transparent;
+			// For ActionWidgets in top bar (safe and premium).
+			border-bottom-color: @border-color-dialog-bar;
+
+			&:hover,
+			&:active {
+				border-top-color: transparent;
+				border-bottom-color: @border-color-dialog-bar;
+			}
+
+			&:focus {
+				border-color: @border-color-base--focus;
+			}
+		}
+
+		&:not( .oo-ui-flaggedElement-progressive ):not( .oo-ui-flaggedElement-destructive ) {
+			> .oo-ui-buttonElement-button {
+				&:hover,
+				&:active {
+					border-right-color: @border-color-dialog-bar;
+					border-left-color: transparent;
+				}
+
+				&:focus {
+					border-color: @border-color-base--focus;
+				}
+			}
 		}
 
 		&.oo-ui-iconElement {
@@ -179,39 +208,55 @@
 	}
 
 	&-actions {
-		&-safe,
-		&-other {
+		&-primary {
 			.oo-ui-actionWidget {
 				> .oo-ui-buttonElement-button {
-					border-right: @border-dialog-bar;
-					border-left: 0;
-					border-bottom: 0;
+					border-left-color: @border-color-dialog-bar;
+					border-right-color: transparent;
+				}
+
+				&:not( .oo-ui-flaggedElement-progressive ):not( .oo-ui-flaggedElement-destructive ) {
+					> .oo-ui-buttonElement-button {
+						&:hover,
+						&:active {
+							border-left-color: @border-color-dialog-bar;
+							border-right-color: transparent;
+						}
+
+						&:focus {
+							border-color: @border-color-base--focus;
+						}
+					}
 				}
 			}
 		}
 
-		&-safe {
-			.oo-ui-actionWidget {
-				> .oo-ui-buttonElement-button {
-					border-top: 0;
-				}
+		&-safe,
+		&-other {
+			.oo-ui-actionWidget > .oo-ui-buttonElement-button {
+				border-right-color: @border-color-dialog-bar;
+				border-left-color: transparent;
 			}
+		}
 
-			// Let icon-only actions (e.g. 'close') appear pseudo-frameless.
-			.oo-ui-widget-enabled {
-				&.oo-ui-iconElement:not( .oo-ui-labelElement ) {
-					> .oo-ui-buttonElement-button {
-						background-color: transparent;
-						border-right-color: transparent;
+		&-safe {
+			.oo-ui-widget-enabled.oo-ui-iconElement:not( .oo-ui-labelElement ) {
+				> .oo-ui-buttonElement-button {
+					background-color: transparent;
+					border-right-color: transparent;
 
-						&:hover {
-							background-color: @background-color-framed;
-							border-right-color: @border-color-dialog-bar;
-						}
+					&:hover {
+						background-color: @background-color-framed;
+						border-right-color: @border-color-dialog-bar;
+					}
 
-						&:active {
-							border-right-color: @border-color-dialog-bar;
-						}
+					&:active {
+						background-color: @background-color-framed--active;
+						border-right-color: @border-color-dialog-bar;
+					}
+
+					&:focus {
+						border-color: @border-color-base--focus;
 					}
 				}
 			}
@@ -223,9 +268,11 @@
 					margin-right: 0;
 				}
 
-				> .oo-ui-buttonElement-button {
-					border-top: @border-dialog-bar;
-					border-bottom: 0;
+				&:not( .oo-ui-flaggedElement-progressive ):not( .oo-ui-flaggedElement-destructive ) {
+					> .oo-ui-buttonElement-button {
+						border-top-color: @border-color-dialog-bar;
+						border-bottom-color: transparent;
+					}
 				}
 			}
 		}
