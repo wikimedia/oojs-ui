@@ -1524,10 +1524,14 @@
 
 		&.oo-ui-tabSelectWidget-framed:after {
 			.oo-ui-horizontal-gradient( fade( #eaecf0, 0 ), #eaecf0 );
+			// Override fallback color from mixin
+			background-color: transparent;
 		}
 
 		&.oo-ui-tabSelectWidget-frameless:after {
 			.oo-ui-horizontal-gradient( fade( #fff, 0 ), #fff );
+			// Override fallback color from mixin
+			background-color: transparent;
 			bottom: @size-modifier-border * 2;
 		}
 	}

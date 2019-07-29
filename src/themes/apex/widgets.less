@@ -1071,10 +1071,14 @@
 
 		&.oo-ui-tabSelectWidget-framed:after {
 			.oo-ui-horizontal-gradient( fade( @background-color-tabs, 0 ), @background-color-tabs );
+			// Override fallback color from mixin
+			background-color: transparent;
 		}
 
 		&.oo-ui-tabSelectWidget-frameless:after {
 			.oo-ui-horizontal-gradient( fade( #fff, 0 ), #fff );
+			// Override fallback color from mixin
+			background-color: transparent;
 			bottom: @border-width-frameless-tab;
 		}
 	}

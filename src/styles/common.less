@@ -71,19 +71,20 @@
 // Safari 3.1-5.0, iOS 3.2-4.3, Android 2.1-3.0
 // See T125925.
 
-.oo-ui-horizontal-gradient( @start: #eee, @stop: #fff ) {
-	background-image: -webkit-gradient( linear, left top, right top, color-stop( 0, @start ), color-stop( 100%, @stop ) );
-	background-image: -webkit-linear-gradient( left, @start 0, @stop 100% );
-	background-image: -moz-linear-gradient( left, @start 0, @stop 100% );
-	background-image: linear-gradient( to right, @start 0, @stop 100% );
+.oo-ui-horizontal-gradient( @startColor: #eee, @endColor: #fff, @startPos: 0, @endPos: 100% ) {
+	background-color: average( @startColor, @endColor );
+	background-image: -webkit-gradient( linear, left top, right top, color-stop( @startPos, @startColor ), color-stop( @endPos, @endColor ) );
+	background-image: -webkit-linear-gradient( left, @startColor @startPos, @endColor @endPos );
+	background-image: -moz-linear-gradient( left, @startColor @startPos, @endColor @endPos );
+	background-image: linear-gradient( to right, @startColor @startPos, @endColor @endPos );
 }
 
-.oo-ui-vertical-gradient( @start: #eee, @stop: #fff ) {
-	background-color: average( @start, @stop );
-	background-image: -webkit-gradient( linear, right top, right bottom, color-stop( 0, @start ), color-stop( 100%, @stop ) );
-	background-image: -webkit-linear-gradient( top, @start 0, @stop 100% );
-	background-image: -moz-linear-gradient( top, @start 0, @stop 100% );
-	background-image: linear-gradient( to bottom, @start 0, @stop 100% );
+.oo-ui-vertical-gradient( @startColor: #eee, @endColor: #fff, @startPos: 0, @endPos: 100% ) {
+	background-color: average( @startColor, @endColor );
+	background-image: -webkit-gradient( linear, right top, right bottom, color-stop( @startPos, @startColor ), color-stop( @endPos, @endColor ) );
+	background-image: -webkit-linear-gradient( top, @startColor @startPos, @endColor @endPos );
+	background-image: -moz-linear-gradient( top, @startColor @startPos, @endColor @endPos );
+	background-image: linear-gradient( to bottom, @startColor @startPos, @endColor @endPos );
 }
 
 .oo-ui-unselectable() {
