@@ -146,7 +146,8 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'title' => 'Icon only'
 			] ),
 			[
-				'label' => "ButtonWidget (frameless, icon only)",
+				'label' => new OOUI\HtmlSnippet( 'ButtonWidget (quiet, <code>\'framed\' => false</code>, ' .
+					'icon only)' ),
 				'align' => 'top'
 			]
 		),
@@ -157,7 +158,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'label' => 'Labeled'
 			] ),
 			[
-				'label' => "ButtonWidget (frameless)",
+				'label' => 'ButtonWidget (quiet)',
 				'align' => 'top'
 			]
 		),
@@ -169,7 +170,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'label' => 'Progressive'
 			] ),
 			[
-				'label' => "ButtonWidget (frameless, progressive)",
+				'label' => "ButtonWidget (quiet, progressive)",
 				'align' => 'top'
 			]
 		),
@@ -181,7 +182,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'label' => 'Destructive'
 			] ),
 			[
-				'label' => "ButtonWidget (frameless, destructive)",
+				'label' => "ButtonWidget (quiet, destructive)",
 				'align' => 'top'
 			]
 		),
@@ -192,7 +193,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'label' => 'Cancel'
 			] ),
 			[
-				'label' => "ButtonWidget (frameless, label-only, destructive)",
+				'label' => "ButtonWidget (quiet, label only, destructive)",
 				'align' => 'top'
 			]
 		),
@@ -205,7 +206,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'rel' => [ 'noreferrer', 'noopener' ]
 			] ),
 			[
-				'label' => 'ButtonWidget (frameless, progressive, with ' .
+				'label' => 'ButtonWidget (quiet, progressive, with ' .
 					'rel="noreferrer noopener" link attribute)',
 				'align' => 'top'
 			]
@@ -218,7 +219,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'disabled' => true
 			] ),
 			[
-				'label' => "ButtonWidget (frameless, disabled)",
+				'label' => "ButtonWidget (quiet, disabled)",
 				'align' => 'top'
 			]
 		),
@@ -252,7 +253,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			] ),
 			[
 				'align' => 'top',
-				'label' => "ButtonInputWidget (frameless)"
+				'label' => new OOUI\HtmlSnippet( 'ButtonWidget (quiet, <code>\'framed\' => false</code>)' )
 			]
 		),
 		new OOUI\FieldLayout(
@@ -264,7 +265,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			] ),
 			[
 				'align' => 'top',
-				'label' => "ButtonInputWidget (frameless, using <input>)"
+				'label' => new OOUI\HtmlSnippet( 'ButtonWidget (quiet, using <code>&lt;input&gt;</code>)' )
 			]
 		),
 		new OOUI\FieldLayout(

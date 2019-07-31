@@ -240,7 +240,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						title: 'Icon only'
 					} ),
 					{
-						label: 'ButtonWidget (frameless, icon only)',
+						label: new OO.ui.HtmlSnippet( 'ButtonWidget (quiet, <code>framed: false</code>, icon only)' ),
 						align: 'top'
 					}
 				),
@@ -251,7 +251,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'Labeled'
 					} ),
 					{
-						label: 'ButtonWidget (frameless)',
+						label: 'ButtonWidget (quiet)',
 						align: 'top'
 					}
 				),
@@ -263,7 +263,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'Progressive'
 					} ),
 					{
-						label: 'ButtonWidget (frameless, progressive)',
+						label: 'ButtonWidget (quiet, progressive)',
 						align: 'top'
 					}
 				),
@@ -275,7 +275,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'Destructive'
 					} ),
 					{
-						label: 'ButtonWidget (frameless, destructive)',
+						label: 'ButtonWidget (quiet, destructive)',
 						align: 'top'
 					}
 				),
@@ -286,7 +286,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'Cancel'
 					} ),
 					{
-						label: 'ButtonWidget (frameless, label-only, destructive)',
+						label: 'ButtonWidget (quiet, label only, destructive)',
 						align: 'top'
 					}
 				),
@@ -298,7 +298,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						disabled: true
 					} ),
 					{
-						label: 'ButtonWidget (frameless, disabled)',
+						label: 'ButtonWidget (quiet, disabled)',
 						align: 'top'
 					}
 				),
@@ -310,7 +310,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'Labeled'
 					} ),
 					{
-						label: 'ButtonWidget (frameless, icon & label & indicator)',
+						label: new OO.ui.HtmlSnippet( 'ButtonWidget (quiet, <code>framed: false</code>, icon & label & indicator)' ),
 						align: 'top'
 					}
 				),
@@ -321,7 +321,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'Labeled'
 					} ),
 					{
-						label: 'ButtonWidget (frameless, label & indicator)',
+						label: 'ButtonWidget (quiet, label & indicator)',
 						align: 'top'
 					}
 				),
@@ -333,7 +333,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						title: 'Icon & indicator'
 					} ),
 					{
-						label: 'ButtonWidget (frameless, icon & indicator)',
+						label: 'ButtonWidget (quiet, icon & indicator)',
 						align: 'top'
 					}
 				),
@@ -346,7 +346,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						rel: [ 'noreferrer', 'noopener' ]
 					} ),
 					{
-						label: 'ButtonWidget (frameless, progressive, with rel="noreferrer noopener" link attribute)',
+						label: 'ButtonWidget (quiet, progressive, with rel="noreferrer noopener" link attribute)',
 						align: 'top'
 					}
 				),
@@ -392,7 +392,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						align: 'top',
-						label: 'ButtonInputWidget (frameless, using <button>)'
+						label: new OO.ui.HtmlSnippet( 'ButtonInputWidget (quiet, <code>framed: false</code>, using <code>&lt;button&gt;</code>)' )
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -404,7 +404,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						align: 'top',
-						label: 'ButtonInputWidget (frameless, using <input>)'
+						label: new OO.ui.HtmlSnippet( 'ButtonInputWidget (quiet, using <code>&lt;input&gt;</code>)' )
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -2187,7 +2187,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (frameless, with popup head, align: force-left)',
+						label: 'PopupButtonWidget (quiet, with popup head, align: force-left)',
 						align: 'top'
 					}
 				),
@@ -2206,7 +2206,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (frameless, with popup head align: force-right)',
+						label: 'PopupButtonWidget (quiet, with popup head align: force-right)',
 						align: 'top'
 					}
 				),
@@ -2225,7 +2225,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (frameless, with popup head align: backwards)',
+						label: 'PopupButtonWidget (quiet, with popup head align: backwards)',
 						align: 'top'
 					}
 				),
@@ -2244,7 +2244,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (frameless, with popup head align: forwards)',
+						label: 'PopupButtonWidget (quiet, with popup head align: forwards)',
 						align: 'top'
 					}
 				),
@@ -2263,7 +2263,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (frameless, with popup head align: center)',
+						label: 'PopupButtonWidget (quiet, with popup head align: center)',
 						align: 'top'
 					}
 				),
@@ -2283,7 +2283,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (frameless, with popup head and footer, align: forwards)',
+						label: 'PopupButtonWidget (quiet, with popup head and footer, align: forwards)',
 						align: 'top'
 					}
 				),
