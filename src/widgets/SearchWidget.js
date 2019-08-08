@@ -19,6 +19,8 @@
  * @param {Object} [config] Configuration options
  * @cfg {string|jQuery} [placeholder] Placeholder text for query input
  * @cfg {string} [value] Initial query value
+ * @cfg {OO.ui.InputWidget} [input] {@link OO.ui.InputWidget Input widget} for search. Defaults
+ *  to a {@link OO.ui.SearchInputWidget search input widget} if not provided.
  */
 OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
 	// Configuration initialization
@@ -28,8 +30,7 @@ OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
 	OO.ui.SearchWidget.parent.call( this, config );
 
 	// Properties
-	this.query = new OO.ui.TextInputWidget( {
-		icon: 'search',
+	this.query = config.input || new OO.ui.SearchInputWidget( {
 		placeholder: config.placeholder,
 		value: config.value
 	} );
