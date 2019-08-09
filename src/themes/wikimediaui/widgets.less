@@ -930,6 +930,10 @@
 	// Support: Progressively enhance for browser's which render `filter`.
 	@supports ( filter: drop-shadow( 0 0 0 ) ) {
 		filter: @filter-drop-shadow-menu;
+		// Safari can have visual glitches with lingering shadows in some contexts
+		// when using drop-shadow. This makes it be more zealous about cleaning
+		// up. (See: T226872)
+		-webkit-transform: translateZ( 0 );
 
 		&-popup {
 			box-shadow: none;
