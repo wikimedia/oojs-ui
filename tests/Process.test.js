@@ -178,3 +178,90 @@ QUnit.test( 'execute (wait)', function ( assert ) {
 			);
 		} );
 } );
+
+QUnit.test( 'execute (thenable, success)', function ( assert ) {
+	var process = new OO.ui.Process(),
+		result = [];
+
+	return process
+		.next( function () {
+			var deferred = $.Deferred();
+
+			setTimeout( function () {
+				result.push( 1 );
+				deferred.resolve();
+			}, 10 );
+
+			return { then: deferred.then.bind( deferred ) };
+		} )
+		.first( function () {
+			var deferred = $.Deferred();
+
+			setTimeout( function () {
+				result.push( 0 );
+				deferred.resolve();
+			}, 10 );
+
+			return { then: deferred.then.bind( deferred ) };
+		} )
+		.next( function () {
+			result.push( 2 );
+		} )
+		.execute()
+		.then( function () {
+			assert.deepEqual(
+				result,
+				[ 0, 1, 2 ],
+				'Synchronous and asynchronous steps are executed in the correct order'
+			);
+		} );
+} );
+
+QUnit.test( 'execute (thenable, failure)', function ( assert ) {
+	var process = new OO.ui.Process(),
+		deferred = $.Deferred();
+
+	deferred.reject( 'err' );
+
+	return process
+		.next( { then: deferred.then.bind( deferred ) } )
+		.execute()
+		.then(
+			function () {
+				assert.ok( false, 'Promise should have rejected' );
+			},
+			function ( err ) {
+				assert.strictEqual(
+					err,
+					'err',
+					'Error is propagated correctly'
+				);
+			}
+		);
+} );
+
+QUnit.test( 'execute (function returning thenable, failure)', function ( assert ) {
+	var process = new OO.ui.Process();
+
+	return process
+		.next( function () {
+			var deferred = $.Deferred();
+
+			deferred.reject( 'err' );
+
+			return { then: deferred.then.bind( deferred ) };
+		} )
+		.execute()
+		.then(
+			function () {
+				assert.ok( false, 'Promise should have rejected' );
+			},
+			function ( err ) {
+				assert.strictEqual(
+					err,
+					'err',
+					'Error is propagated correctly'
+				);
+			}
+		);
+} );
