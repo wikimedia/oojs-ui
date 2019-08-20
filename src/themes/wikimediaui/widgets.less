@@ -933,7 +933,7 @@
 		// Safari can have visual glitches with lingering shadows in some contexts
 		// when using drop-shadow. This makes it be more zealous about cleaning
 		// up. (See: T226872)
-		-webkit-transform: translateZ( 0 );
+		.oo-ui-force-gpu-composite-layer();
 
 		&-popup {
 			box-shadow: none;
