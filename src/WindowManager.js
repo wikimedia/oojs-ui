@@ -441,16 +441,22 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 						lifecycle.deferreds.opened.resolve( data );
 						compatOpening.resolve( manager.compatOpened.promise(), data );
 						manager.togglePreventIosScrolling( true );
-					}, function () {
+					}, function ( err ) {
 						lifecycle.deferreds.opened.reject();
 						compatOpening.reject();
 						manager.closeWindow( win );
+						setTimeout( function () {
+							throw err;
+						} );
 					} );
 				}, manager.getReadyDelay() );
-			}, function () {
+			}, function ( err ) {
 				lifecycle.deferreds.opened.reject();
 				compatOpening.reject();
 				manager.closeWindow( win );
+				setTimeout( function () {
+					throw err;
+				} );
 			} );
 		}, manager.getSetupDelay() );
 	} );
