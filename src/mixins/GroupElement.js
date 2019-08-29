@@ -134,7 +134,18 @@ OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
 };
 
 /**
- * @inheritdoc
+ * Move an item from its current position to a new index.
+ *
+ * The item is expected to exist in the list. If it doesn't,
+ * the method will throw an exception.
+ *
+ * See https://doc.wikimedia.org/oojs/master/OO.EmitterList.html
+ *
+ * @private
+ * @param {OO.EventEmitter} items Item to add
+ * @param {number} newIndex Index to move the item to
+ * @return {number} The index the item was moved to
+ * @throws {Error} If item is not in the list
  */
 OO.ui.mixin.GroupElement.prototype.moveItem = function ( items, newIndex ) {
 	// insertItemElements expects this.items to not have been modified yet, so call before the mixin
@@ -147,7 +158,29 @@ OO.ui.mixin.GroupElement.prototype.moveItem = function ( items, newIndex ) {
 };
 
 /**
- * @inheritdoc
+ * Utility method to insert an item into the list, and
+ * connect it to aggregate events.
+ *
+ * Don't call this directly unless you know what you're doing.
+ * Use #addItems instead.
+ *
+ * This method can be extended in child classes to produce
+ * different behavior when an item is inserted. For example,
+ * inserted items may also be attached to the DOM or may
+ * interact with some other nodes in certain ways. Extending
+ * this method is allowed, but if overridden, the aggregation
+ * of events must be preserved, or behavior of emitted events
+ * will be broken.
+ *
+ * If you are extending this method, please make sure the
+ * parent method is called.
+ *
+ * See https://doc.wikimedia.org/oojs/master/OO.EmitterList.html
+ *
+ * @protected
+ * @param {OO.EventEmitter|Object} item Item to add
+ * @param {number} index Index to add items at
+ * @return {number} The index the item was added at
  */
 OO.ui.mixin.GroupElement.prototype.insertItem = function ( item, index ) {
 	item.setElementGroup( this );

@@ -16,7 +16,6 @@
 	"--warnings": ["-nodoc(class,public)"],
 	"--": [
 		"jsduck.external.js",
-		"node_modules/oojs/dist/oojs.jquery.js",
 		"src"
 	]
 }
