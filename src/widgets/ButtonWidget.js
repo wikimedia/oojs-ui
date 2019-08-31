@@ -34,6 +34,7 @@
  * @cfg {string} [href] Hyperlink to visit when the button is clicked.
  * @cfg {string} [target] The frame or window in which to open the hyperlink.
  * @cfg {boolean} [noFollow] Search engine traversal hint (default: true)
+ * @cfg {string[]} [rel] Relationship attributes for the hyperlink
  */
 OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	// Configuration initialization
@@ -62,6 +63,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	this.href = null;
 	this.target = null;
 	this.noFollow = false;
+	this.rel = [];
 
 	// Events
 	this.connect( this, {
@@ -77,6 +79,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	this.setHref( config.href );
 	this.setTarget( config.target );
 	this.setNoFollow( config.noFollow );
+	this.setRel( config.rel );
 };
 
 /* Setup */
@@ -132,6 +135,15 @@ OO.ui.ButtonWidget.prototype.getTarget = function () {
  */
 OO.ui.ButtonWidget.prototype.getNoFollow = function () {
 	return this.noFollow;
+};
+
+/**
+ * Get the relationship attribute of the hyperlink.
+ *
+ * @return {string[]} Relationship attributes that apply to the hyperlink
+ */
+OO.ui.ButtonWidget.prototype.getRel = function () {
+	return this.rel;
 };
 
 /**
@@ -214,9 +226,37 @@ OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {
 	noFollow = typeof noFollow === 'boolean' ? noFollow : true;
 
 	if ( noFollow !== this.noFollow ) {
-		this.noFollow = noFollow;
-		if ( noFollow ) {
-			this.$button.attr( 'rel', 'nofollow' );
+		if ( !noFollow ) {
+			this.setRel(
+				this.rel.splice(
+					this.rel.indexOf( 'nofollow' ),
+					1
+				)
+			);
+		} else {
+			this.setRel( this.rel.concat( [ 'nofollow' ] ) );
+		}
+	}
+
+	return this;
+};
+
+/**
+ * Set the relationship attribute of the the hyperlink.
+ *
+ * @param {string|string[]} relationship Relationship attributes for the hyperlink
+ * @return {OO.ui.Widget} The widget, for chaining
+ */
+OO.ui.ButtonWidget.prototype.setRel = function ( relationship ) {
+	relationship = Array.isArray( relationship ) ? relationship : typeof relationship === 'string' ? [ relationship ] : [];
+
+	if ( relationship !== this.rel ) {
+		this.rel = relationship;
+		// For backwards compatibility.
+		this.noFollow = relationship.indexOf( 'nofollow' ) !== -1;
+
+		if ( relationship.length > 0 ) {
+			this.$button.attr( 'rel', relationship.join( ' ' ) );
 		} else {
 			this.$button.removeAttr( 'rel' );
 		}
