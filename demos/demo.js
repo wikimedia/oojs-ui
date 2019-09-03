@@ -30,7 +30,9 @@ window.Demo = function Demo() {
 	this.$menu = $( '<div>' );
 	this.expandButton = new OO.ui.ToggleButtonWidget( {
 		classes: [ 'demo-menuToggle' ],
-		icon: 'menu'
+		icon: 'menu',
+		label: 'Menu',
+		invisibleLabel: true
 	} );
 	this.pageSelect = new OO.ui.TabSelectWidget( {
 		classes: [ 'demo-pageSelect' ],
