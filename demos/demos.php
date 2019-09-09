@@ -187,6 +187,7 @@
 	<script src="dist/oojs-ui-<?php echo $theme; ?>.js"></script>
 	<script>window.Demo = {};</script>
 	<script src="classes/ButtonStyleShowcaseWidget.js"></script>
+	<script src="classes/LinkedFieldsetLayout.js"></script>
 	<script src="infusion.js"></script>
 </body>
 </html>
