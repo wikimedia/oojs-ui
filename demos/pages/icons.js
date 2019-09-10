@@ -202,6 +202,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'userAnonymous',
 				'userAvatar',
 				'userAvatarOutline',
+				'userGroup',
 				'userTalk'
 			],
 			layout: [
