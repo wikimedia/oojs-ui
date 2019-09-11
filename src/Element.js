@@ -95,8 +95,8 @@ OO.ui.Element.static.tagName = 'div';
  * Reconstitute a JavaScript object corresponding to a widget created
  * by the PHP implementation.
  *
- * @param {string|HTMLElement|jQuery} idOrNode
- *   A DOM id (if a string) or node for the widget to infuse.
+ * @param {HTMLElement|jQuery} node
+ *   A node for the widget to infuse.
  * @param {Object} [config] Configuration options
  * @return {OO.ui.Element}
  *   The `OO.ui.Element` corresponding to this (infusable) document node.
@@ -104,15 +104,9 @@ OO.ui.Element.static.tagName = 'div';
  *   the value returned is a newly-created Element wrapping around the existing
  *   DOM node.
  */
-OO.ui.Element.static.infuse = function ( idOrNode, config ) {
-	var obj = OO.ui.Element.static.unsafeInfuse( idOrNode, config, false );
+OO.ui.Element.static.infuse = function ( node, config ) {
+	var obj = OO.ui.Element.static.unsafeInfuse( node, config, false );
 
-	if ( typeof idOrNode === 'string' ) {
-		// IDs deprecated since 0.29.7
-		OO.ui.warnDeprecation(
-			'Passing a string ID to infuse is deprecated. Use an HTMLElement or jQuery collection instead.'
-		);
-	}
 	// Verify that the type matches up.
 	// FIXME: uncomment after T89721 is fixed, see T90929.
 	/*
@@ -128,28 +122,22 @@ OO.ui.Element.static.infuse = function ( idOrNode, config ) {
  * extra property so that only the top-level invocation touches the DOM.
  *
  * @private
- * @param {string|HTMLElement|jQuery} idOrNode
+ * @param {HTMLElement|jQuery} node
  * @param {Object} [config] Configuration options
  * @param {jQuery.Promise} [domPromise] A promise that will be resolved
  *     when the top-level widget of this infusion is inserted into DOM,
  *     replacing the original node; only used internally.
  * @return {OO.ui.Element}
  */
-OO.ui.Element.static.unsafeInfuse = function ( idOrNode, config, domPromise ) {
+OO.ui.Element.static.unsafeInfuse = function ( node, config, domPromise ) {
 	// look for a cached result of a previous infusion.
-	var id, $elem, error, data, cls, parts, parent, obj, top, state, infusedChildren;
-	if ( typeof idOrNode === 'string' ) {
-		id = idOrNode;
-		$elem = $( document.getElementById( id ) );
-	} else {
-		$elem = $( idOrNode );
+	var error, data, cls, parts, parent, obj, top, state, infusedChildren,
+		$elem = $( node ),
 		id = $elem.attr( 'id' );
-	}
+
 	if ( !$elem.length ) {
-		if ( typeof idOrNode === 'string' ) {
-			error = 'Widget not found: ' + idOrNode;
-		} else if ( idOrNode && idOrNode.selector ) {
-			error = 'Widget not found: ' + idOrNode.selector;
+		if ( node && node.selector ) {
+			error = 'Widget not found: ' + node.selector;
 		} else {
 			error = 'Widget not found';
 		}
@@ -228,8 +216,10 @@ OO.ui.Element.static.unsafeInfuse = function ( idOrNode, config, domPromise ) {
 	data = OO.copy( data, null, function deserialize( value ) {
 		var infused;
 		if ( OO.isPlainObject( value ) ) {
-			if ( value.tag ) {
-				infused = OO.ui.Element.static.unsafeInfuse( value.tag, config, domPromise );
+			if ( value.tag && document.getElementById( value.tag ) ) {
+				infused = OO.ui.Element.static.unsafeInfuse(
+					document.getElementById( value.tag ), config, domPromise
+				);
 				infusedChildren.push( infused );
 				// Flatten the structure
 				infusedChildren.push.apply(
