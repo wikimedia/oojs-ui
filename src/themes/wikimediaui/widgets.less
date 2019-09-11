@@ -1324,21 +1324,6 @@
 .theme-oo-ui-selectFileInputWidget() {
 	width: 100%;
 	max-width: @max-width-input;
-
-	&-label {
-		.oo-ui-box-sizing( border-box );
-		display: block;
-		right: @size-base + @padding-horizontal-input-text; // With close, no indicator
-		padding-top: @padding-vertical-base;
-		padding-left: @padding-horizontal-input-text;
-		padding-bottom: @padding-vertical-base;
-		white-space: nowrap;
-	}
-
-	// Overwrite `.oo-ui-labelElement .oo-ui-labelElement-label`
-	&.oo-ui-labelElement &-label {
-		line-height: @line-height-base;
-	}
 }
 
 .theme-oo-ui-selectFileWidget() {
