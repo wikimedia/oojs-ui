@@ -143,6 +143,8 @@ module.exports = function ( grunt ) {
 		// paths
 		lessTargets = {
 			options: {
+				// Throw errors if we try to calculate mixed units, like `px` and `em` values.
+				strictUnits: true,
 				// Force LESS v3.0.0+ to let us use mixins before we later upgrade to @plugin
 				// architecture.
 				javascriptEnabled: true,
