@@ -5,7 +5,7 @@ html {
 
 body {
 	color: #222;
-	margin: 0 1em;
+	margin: 0 16px 64px;
 	padding: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; /* stylelint-disable-line value-keyword-case; */
 	/* Enforce scrollbar to reduce reflow when JS kicks in */
@@ -32,7 +32,7 @@ h1 {
 h2 {
 	color: #000;
 	display: inline-block;
-	margin-left: 0.5em;
+	margin-left: 8px;
 	font-size: 1.143em; /* Equals `16px` at `14px` base font size */
 	font-weight: normal;
 }
@@ -42,7 +42,7 @@ h2 span {
 }
 
 p {
-	margin: 0.5em 0;
+	margin: 8px 0;
 }
 
 p:first-child {
@@ -63,7 +63,7 @@ p:first-child {
 
 /* Layout */
 .demo-root {
-	margin: 0 auto 4.5em;
+	margin: 0 auto;
 }
 
 .demo-root,
@@ -77,7 +77,8 @@ p:first-child {
 }
 
 .demo-header,
-.demo-menu {
+.demo-menu,
+.demo-console-input {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -86,25 +87,26 @@ p:first-child {
 .demo-menu > .oo-ui-widget {
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: 1em;
-	margin-bottom: 1em;
+	margin-right: 16px;
+	margin-bottom: 16px;
 }
 
 .demo-menu > .demo-menuLink-docs {
-	margin-right: 0.5em;
+	margin-right: 8px;
 }
 
 .demo-menu > .demo-menuToggle {
 	position: absolute;
-	top: 0.75em;
-	right: 1em;
+	top: 12px;
+	right: 16px;
 	left: auto;
 	margin: 0;
 }
 
 .demo-pageSelect {
 	clear: both;
-	margin: 0 -1em;
+	/* Keep tabs slightly intended (16px -12px) to align with heading on mobile. */
+	margin: 0 -12px;
 	border-width: 1px 0 0 0;
 }
 
@@ -159,7 +161,6 @@ p:first-child {
 .demo-console {
 	clear: both;
 	position: relative;
-	border: 1px solid transparent;
 	margin-bottom: -2px;
 	line-height: 1.4;
 	/* @noflip */
@@ -167,25 +168,33 @@ p:first-child {
 }
 
 .demo-console-expanded {
-	width: 100%;
 	background-color: #fff;
-	border-color: #a2a9b1;
-	margin: 0.5em 0;
+	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	margin: 8px 0;
 }
 
 .demo-link-example,
 .demo-console-toggle {
 	float: right;
 	margin-top: -2.5em;
-	padding: 0.703125em 0.9375em 0.625em; /* equals frameless button */
-	line-height: 1.172em;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	padding: 6px; /* Equals frameless button. */
+	line-height: 1.28571429em;
 	cursor: pointer;
-	-webkit-transition: background-color 100ms, color 100ms;
-	-moz-transition: background-color 100ms, color 100ms;
-	transition: background-color 100ms, color 100ms;
+	-webkit-transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
+	-moz-transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
+	transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
+}
+
+.demo-link-example:focus,
+.demo-console-toggle:focus {
+	border-color: #36c;
+	box-shadow: inset 0 0 0 1px #36c;
+	outline: 0;
 }
 
 .demo-link-example::after,
@@ -269,10 +278,11 @@ p:first-child {
 }
 
 /* @noflip */
-.demo-console-log {
-	border: 1px solid #a2a9b1;
-	border-width: 0 0 1px 0;
+.demo-console-log:not( :empty ) {
 	max-height: 5em;
+	border: 1px solid #a2a9b1;
+	border-width: 1px 1px 0 1px;
+	padding: 8px 4px;
 	overflow: auto;
 }
 
@@ -289,14 +299,14 @@ p:first-child {
 
 /* @noflip */
 .demo-console-log-line-input::before {
+	content: '→';
 	display: block;
 	position: absolute;
+	min-width: 20px;
 	top: 0;
 	left: 0;
-	width: 20px;
-	text-align: center;
 	bottom: 0;
-	content: '→';
+	text-align: center;
 }
 
 .demo-console-log-line-error {
@@ -308,13 +318,10 @@ p:first-child {
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-right: -20px;
-	cursor: pointer;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	cursor: pointer;
 }
 
 /* @noflip */
@@ -326,20 +333,28 @@ p:first-child {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 24px;
-	line-height: 24px;
+	min-width: 1.714em; /* Equals to `24px`, needed for user scalability. */
+	line-height: 2.14285714em;
 	text-align: center;
 }
 
 .demo-console-input {
 	width: 100%;
 	margin: 0;
-	padding: 4px;
-	border: 0;
+	border: 1px solid #a2a9b1;
+	border-radius: 2px;
+	box-shadow: inset 0 0 0 1px transparent;
+	padding: 6px 2.14285714em 6px 1.714em; /* Left and right are covered by user font size scalable icons. */
 	font-size: inherit;
+	line-height: 1.28571429em;
+	-webkit-transition: border-color 250ms, box-shadow 250ms;
+	-moz-transition: border-color 250ms, box-shadow 250ms;
+	transition: border-color 250ms, box-shadow 250ms;
 }
 
 .demo-console-input:focus {
+	border-color: #36c;
+	box-shadow: inset 0 0 0 1px #36c;
 	outline: 0;
 }
 
@@ -347,9 +362,11 @@ p:first-child {
 	background: #f8f9fa;
 	color: #222;
 	display: inline-block;
-	position: relative;
-	width: 20px;
-	line-height: 1.6;
+	position: absolute;
+	min-width: 28px;
+	bottom: 2px;
+	right: 2px;
+	line-height: 30px;
 	text-align: center;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -440,7 +457,7 @@ p:first-child {
 .oo-ui-theme-apex .oo-ui-menuToolGroup-tools .oo-ui-tool-name-heading4 .oo-ui-tool-title,
 .oo-ui-theme-apex .oo-ui-menuToolGroup-tools .oo-ui-tool-name-heading5 .oo-ui-tool-title,
 .oo-ui-theme-apex .oo-ui-menuToolGroup-tools .oo-ui-tool-name-heading6 .oo-ui-tool-title {
-	/* Use px so padding is not changed by font size. This is normally 0.5em. */
+	/* Use px so padding is not changed by font size. This is normally 8px. */
 	padding-left: 6.4px;
 }
 
@@ -462,12 +479,12 @@ p:first-child {
 /* Icons demo */
 
 .demo-icons .oo-ui-buttonSelectWidget {
-	margin-bottom: 2em;
+	margin-bottom: 24px;
 }
 
 .demo-icons .oo-ui-fieldLayout {
 	display: inline-block;
-	margin: 0.5em 0.5em 0.5em 0;
+	margin: 8px 8px 8px 0;
 	width: 12.5em;
 	white-space: nowrap;
 	overflow: hidden;
@@ -475,7 +492,7 @@ p:first-child {
 }
 
 .demo-icons .oo-ui-fieldsetLayout-group {
-	margin-right: -1em;
+	margin-right: -16px;
 }
 
 .demo-icons .oo-ui-fieldLayout .oo-ui-iconElement:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ),
@@ -562,7 +579,7 @@ FieldLayout left & right aligned */
 .oo-ui-formLayout .oo-ui-fieldsetLayout:last-child {
 	background-color: #eaecf0;
 	border: 1px solid #c8ccd1;
-	padding: 1em 1em 1.5em 1em;
+	padding: 16px 16px 24px 16px;
 }
 
 /* Special case: TagMultiselectWidget & NumberInputWidget combo */
@@ -593,7 +610,7 @@ FieldLayout left & right aligned */
 		top: 0;
 		min-height: 9.214em;
 		padding-top: 8px;
-		padding-left: 1em;
+		padding-left: 16px;
 		box-shadow: 0 4px 4px -4px rgba( 0, 0, 0, 0.25 );
 		z-index: 5;
 	}
@@ -648,13 +665,13 @@ FieldLayout left & right aligned */
 	}
 
 	.demo-menu > .oo-ui-widget {
-		margin-bottom: 1em;
+		margin-bottom: 16px;
 	}
 
 	.demo-container {
 		border-radius: 0;
 		border-width: 0;
-		padding: 1.5em 2.5em 1em 0;
+		padding: 24px 0 0;
 	}
 
 	.demo-container.demo-toolbars {
@@ -664,22 +681,15 @@ FieldLayout left & right aligned */
 	.demo-link-example,
 	.demo-console-toggle {
 		display: block;
+		margin-right: -6px;
 	}
 
 	.demo-link-example {
-		margin-right: -2em;
+		display: none;
 	}
 
-	.demo-console-expanded {
-		width: calc( 100% + 2.5em ); /* equals `100%` + `padding` of `.demo-container` above */
-	}
-
-	.demo-console-toggle {
-		margin-right: -3.5em;
-	}
-
-	.demo-console-expanded .demo-console-toggle {
-		margin-right: -1em;
+	.demo-console-toggle::after {
+		font-size: 1.25em;
 	}
 
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example,
@@ -696,10 +706,16 @@ FieldLayout left & right aligned */
 		display: inline-block;
 	}
 
-	.demo-link-example,
-	.demo-console-toggle,
-	.demo-console-expanded .demo-console-toggle {
-		margin-right: -1.5em;
+	.demo-link-example {
+		margin-right: 2.286em; /* Equals to `32px`. */
+	}
+
+	.demo-console-toggle::after {
+		font-size: 1em;
+	}
+
+	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example {
+		margin-right: 0;
 	}
 }
 
@@ -743,11 +759,17 @@ FieldLayout left & right aligned */
 
 	.demo-container {
 		border-radius: 2px;
-		padding: 1.5em 2em;
+		padding: 24px;
 	}
 
 	.demo-container.oo-ui-panelLayout {
 		border-width: 0 1px 1px 1px;
+	}
+
+	.demo-link-example,
+	.demo-console-toggle,
+	.demo-console-expanded .demo-console-toggle {
+		margin-right: -6px; /* Equals to toggle `padding` */
 	}
 
 	.demo-link-example {
@@ -760,7 +782,7 @@ FieldLayout left & right aligned */
 	}
 
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example {
-		margin-right: 6.4em;
+		margin-right: 7.9em;
 	}
 
 	.demo-console-expanded {
