@@ -158,12 +158,15 @@
 @padding-vertical-dialog-action: 10 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-vertical-tool-label: 12 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-icon: @size-icon;
-// All paddings holding icons need `em`s due to font-size derived icon scaling.
+// All paddings holding icons/indicators need `em`s due to font-size derived icon scaling.
 @padding-start-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base; // @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base.
 @padding-start-fieldset-header-iconized: unit( 26 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ), @ooui-unit );
 @padding-start-messages: 8 / @ooui-font-size-browser / @ooui-font-size-base;
+// Indicator receives a little less than `@padding-horizontal-base` to make up for its fragility.
+// Also abusing `@padding-start` as `start` value.
+@padding-start-indicator: 10 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-indicator-only: @size-indicator * 2;
-@padding-start-indicator-plus: 32px;
+@padding-start-indicator-plus: 30 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-frameless-icon-plus: @padding-start-icon-only;
 // `6px` is not aligned to Design Style Guide, as checkbox and radio sizes aren't either.
 @padding-start-fieldlayout-label: 6px;

@@ -48,7 +48,7 @@
 		&.oo-ui-labelElement,
 		&.oo-ui-iconElement {
 			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-				right: @padding-horizontal-base;
+				right: @padding-start-indicator;
 			}
 		}
 	}
@@ -278,17 +278,6 @@
 				padding-top: @padding-top-icon-indicator;
 				padding-right: @padding-start-indicator-only;
 				padding-bottom: 0;
-
-				> .oo-ui-indicatorElement-indicator {
-					right: @start-framed-indicator-only;
-				}
-			}
-
-			// Indicator and label framed
-			&.oo-ui-labelElement {
-				> .oo-ui-buttonElement-button {
-					padding-right: @padding-start-indicator-plus;
-				}
 			}
 		}
 
