@@ -99,7 +99,7 @@
 	}
 
 	.oo-ui-fieldLayout-help { // Assuming that this is a PopupButtonWidget
-		.oo-ui-inline-spacing( 0 );
+		margin-right: 0; // Override `.oo-ui-inline-spacing()`.
 
 		.oo-ui-buttonElement-button {
 			padding-top: @size-icon;
@@ -290,7 +290,7 @@
 .theme-oo-ui-horizontalLayout() {
 	> .oo-ui-layout,
 	> .oo-ui-widget {
-		.oo-ui-inline-spacing( 0.5em );
+		.oo-ui-inline-spacing( @margin-end-widget );
 	}
 
 	> .oo-ui-layout {
@@ -298,6 +298,6 @@
 	}
 
 	> .oo-ui-widget {
-		margin-bottom: 0.5em;
+		margin-bottom: @margin-bottom-horizontallayout-widget;
 	}
 }
