@@ -1138,7 +1138,6 @@
 	max-width: @max-width-input-base;
 
 	&-handle {
-		background-color: @background-color-main;
 		cursor: text;
 		min-height: 2.4em;
 		.oo-ui-inline-spacing( 0.5em );
@@ -1189,6 +1188,8 @@
 	}
 
 	&.oo-ui-widget-enabled {
+		background-color: @background-color-main;
+
 		&.oo-ui-tagMultiselectWidget-inlined {
 			&:hover &-handle {
 				border-color: rgba( 0, 0, 0, 0.2 );
@@ -1234,16 +1235,19 @@
 		}
 	}
 
-	&.oo-ui-widget-disabled &-handle {
-		color: #ccc;
-		border-color: #ddd;
+	&.oo-ui-widget-disabled {
 		background-color: #f3f3f3;
-		text-shadow: @text-shadow-widget-disabled;
-		cursor: default;
 
-		> .oo-ui-iconElement-icon,
-		> .oo-ui-indicatorElement-indicator {
-			opacity: 0.2;
+		&-handle {
+			color: #ccc;
+			border-color: #ddd;
+			text-shadow: @text-shadow-widget-disabled;
+			cursor: default;
+
+			> .oo-ui-iconElement-icon,
+			> .oo-ui-indicatorElement-indicator {
+				opacity: 0.2;
+			}
 		}
 	}
 

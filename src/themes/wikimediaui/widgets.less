@@ -1709,8 +1709,10 @@
 	}
 
 	&.oo-ui-widget-enabled {
+		// `background-color` needs to be on handle parent in oorder to enable pending animation.
+		background-color: @background-color-base;
+
 		.oo-ui-tagMultiselectWidget-handle {
-			background-color: @background-color-base;
 			.oo-ui-transition(
 				border-color @transition-ease-medium,
 				box-shadow @transition-ease-medium
@@ -1737,8 +1739,9 @@
 		}
 
 		&.oo-ui-tagMultiselectWidget-outlined {
+			background-color: @background-color-base--read-only;
+
 			.oo-ui-tagMultiselectWidget-handle {
-				background-color: @background-color-base--read-only;
 				border-bottom: 0;
 				border-bottom-left-radius: 0;
 				border-bottom-right-radius: 0;
@@ -1764,10 +1767,10 @@
 	}
 
 	&.oo-ui-widget-disabled &-handle {
+		background-color: @background-color-base--disabled;
 		color: @color-base--disabled;
 		text-shadow: @text-shadow-base--disabled;
 		border-color: @border-color-base--disabled;
-		background-color: @background-color-base--disabled;
 
 		> .oo-ui-iconElement-icon {
 			opacity: @opacity-base--disabled;
