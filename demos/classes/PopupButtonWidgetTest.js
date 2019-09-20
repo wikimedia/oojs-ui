@@ -49,8 +49,38 @@ Demo.PopupButtonWidgetTest.prototype.initialize = function () {
 			} )
 		]
 	} );
-
 	this.$center.append( this.fieldset.$element );
+
+	this.$table = $( '<table>' ).append(
+		$( '<tr>' ).append(
+			$( '<td>' ),
+			$( '<td>' ).attr( 'id', 'above-backwards' ),
+			$( '<td>' ).attr( 'id', 'above-center' ),
+			$( '<td>' ).attr( 'id', 'above-forwards' ),
+			$( '<td>' )
+		),
+		$( '<tr>' ).append(
+			$( '<td>' ).attr( 'id', 'before-backwards' ),
+			this.$center,
+			$( '<td>' ).attr( 'id', 'after-backwards' ).css( 'text-align', this.getDir() === 'rtl' ? 'left' : 'right' )
+		),
+		$( '<tr>' ).append(
+			$( '<td>' ).attr( 'id', 'before-center' ),
+			$( '<td>' ).attr( 'id', 'after-center' ).css( 'text-align', this.getDir() === 'rtl' ? 'left' : 'right' )
+		),
+		$( '<tr>' ).append(
+			$( '<td>' ).attr( 'id', 'before-forwards' ),
+			$( '<td>' ).attr( 'id', 'after-forwards' ).css( 'text-align', this.getDir() === 'rtl' ? 'left' : 'right' )
+		),
+		$( '<tr>' ).append(
+			$( '<td>' ),
+			$( '<td>' ).attr( 'id', 'below-backwards' ),
+			$( '<td>' ).attr( 'id', 'below-center' ),
+			$( '<td>' ).attr( 'id', 'below-forwards' ),
+			$( '<td>' )
+		)
+	);
+	this.panel.$element.append( this.$table );
 
 	this.makeTable();
 
@@ -65,41 +95,20 @@ Demo.PopupButtonWidgetTest.prototype.makeContents = function () {
 		.add( $( '<p>' ).text( loremIpsum ) );
 };
 Demo.PopupButtonWidgetTest.prototype.makeTable = function () {
-	this.buttons = [];
-	if ( this.$table ) {
-		this.$table.detach();
-	}
+	var
+		dialog = this,
+		positions = [ 'above', 'below', 'before', 'after' ],
+		aligns = [ 'backwards', 'center', 'forwards' ];
 
-	this.$table = $( '<table>' ).append(
-		$( '<tr>' ).append(
-			$( '<td>' ),
-			$( '<td>' ).append( this.getButton( 'above', 'backwards' ).$element ),
-			$( '<td>' ).append( this.getButton( 'above', 'center' ).$element ),
-			$( '<td>' ).append( this.getButton( 'above', 'forwards' ).$element ),
-			$( '<td>' )
-		),
-		$( '<tr>' ).append(
-			$( '<td>' ).append( this.getButton( 'before', 'backwards' ).$element ),
-			this.$center,
-			$( '<td>' ).append( this.getButton( 'after', 'backwards' ).$element ).css( 'text-align', this.getDir() === 'rtl' ? 'left' : 'right' )
-		),
-		$( '<tr>' ).append(
-			$( '<td>' ).append( this.getButton( 'before', 'center' ).$element ),
-			$( '<td>' ).append( this.getButton( 'after', 'center' ).$element ).css( 'text-align', this.getDir() === 'rtl' ? 'left' : 'right' )
-		),
-		$( '<tr>' ).append(
-			$( '<td>' ).append( this.getButton( 'before', 'forwards' ).$element ),
-			$( '<td>' ).append( this.getButton( 'after', 'forwards' ).$element ).css( 'text-align', this.getDir() === 'rtl' ? 'left' : 'right' )
-		),
-		$( '<tr>' ).append(
-			$( '<td>' ),
-			$( '<td>' ).append( this.getButton( 'below', 'backwards' ).$element ),
-			$( '<td>' ).append( this.getButton( 'below', 'center' ).$element ),
-			$( '<td>' ).append( this.getButton( 'below', 'forwards' ).$element ),
-			$( '<td>' )
-		)
-	);
-	this.panel.$element.append( this.$table );
+	this.buttons = [];
+
+	positions.forEach( function ( position ) {
+		aligns.forEach( function ( align ) {
+			dialog.$table.find( '#' + position + '-' + align )
+				.empty()
+				.append( dialog.getButton( position, align ).$element );
+		} );
+	} );
 };
 Demo.PopupButtonWidgetTest.prototype.getButton = function ( position, align ) {
 	var button = new OO.ui.PopupButtonWidget( {
