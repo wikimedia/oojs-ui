@@ -41,7 +41,6 @@ class IndexLayout extends MenuLayout {
 	 *        displayed. Disabled on mobile. (default: false)
 	 *      - bool $config['autoFocus'] (default: true)
 	 *      - bool $config['framed'] (default: true)
-	 * @param-taint $config escapes_htmlnoent
 	 */
 	public function __construct( array $config = [] ) {
 		$config = array_merge(

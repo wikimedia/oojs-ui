@@ -41,7 +41,6 @@ class MenuLayout extends Layout {
 	 *      - bool $config['expanded'] Expand content to fill the parent element (default: true)
 	 *      - bool $config['showMenu'] Show menu (default: true)
 	 *      - string $config['menuPosition'] top, after, bottom, before (default: before)
-	 * @param-taint $config escapes_htmlnoent
 	 */
 	public function __construct( array $config = [] ) {
 		$config = array_merge( [

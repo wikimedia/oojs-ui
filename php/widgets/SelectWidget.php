@@ -14,7 +14,6 @@ class SelectWidget extends Widget {
 	/**
 	 * @param array $config Configuration options
 	 *      - OptionWidget[] $config['items'] OptionWidget objects to add to the select
-	 * @param-taint $config escapes_html
 	 */
 	public function __construct( array $config = [] ) {
 		$config = array_merge(

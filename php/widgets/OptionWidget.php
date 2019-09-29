@@ -18,7 +18,6 @@ class OptionWidget extends Widget {
 	/**
 	 * @param array $config Configuration options
 	 *      - bool $config['selected'] Whether to mark the option as selected
-	 * @param-taint $config escapes_html
 	 */
 	public function __construct( array $config = [] ) {
 		parent::__construct( $config );

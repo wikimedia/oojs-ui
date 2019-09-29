@@ -13,7 +13,6 @@ class StackLayout extends PanelLayout {
 	 * @param array $config Configuration options
 	 *      - bool $config['continuous'] Show all panels, one after another (default: false)
 	 *      - PanelLayout[] $config['items'] Panel layouts to add to the stack layout.
-	 * @param-taint $config escapes_htmlnoent
 	 */
 	public function __construct( array $config = [] ) {
 		$config = array_merge( [

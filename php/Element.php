@@ -72,7 +72,6 @@ class Element extends Tag {
 	 *      - string[]|HtmlSnippet[]|Element[] $config['content'] Content to append (after text).
 	 *          Strings will be HTML-escaped for output, use an HtmlSnippet instance to prevent that.
 	 *      - mixed $config['data'] Element data
-	 * @param-taint $config escapes_html
 	 */
 	public function __construct( array $config = [] ) {
 		// Parent constructor
