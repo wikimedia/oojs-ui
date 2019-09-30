@@ -29,7 +29,6 @@ class TabPanelLayout extends PanelLayout {
 	 * @param string $name Unique symbolic name of tab panel
 	 * @param array $config Configuration options
 	 *      - string|HtmlSnippet $config['label'] Label for tab panel's tab
-	 * @param-taint $config escapes_htmlnoent
 	 */
 	public function __construct( $name, array $config = [] ) {
 		// Allow passing positional parameters inside the config array

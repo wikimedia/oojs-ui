@@ -79,7 +79,6 @@ class FieldLayout extends Layout {
 	 *      - string|HtmlSnippet $config['help'] Explanatory text shown as a '?' icon, or inline.
 	 *      - bool $config['helpInline'] Whether or not the help should be inline,
 	 *          or shown when the "help" icon is clicked. (default: false)
-	 * @param-taint $config escapes_htmlnoent
 	 * @throws Exception An exception is thrown if no widget is specified
 	 */
 	public function __construct( $fieldWidget, array $config = [] ) {
