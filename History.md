@@ -112,7 +112,7 @@
 * [BREAKING CHANGE] Make OO.ui.throttle always work asynchronously (David Chan)
 * [BREAKING CHANGE] Toolbar: Drop support for unnamed groups, deprecated since v0.27.1 (James D. Forrester)
 * [BREAKING CHANGE] core: Drop OO.ui.now(), deprecated since 0.31.1 (James D. Forrester)
-* [BREAKING CHANGE] {Icon,Iindicator}Element: Drop get$1Title, deprecated in 0.30.0 (James D. Forrester)
+* [BREAKING CHANGE] {Icon,Indicator}Element: Drop get$1Title, deprecated in 0.30.0 (James D. Forrester)
 * [BREAKING CHANGE] Drop textures, deprecated since 0.31.1 (James D. Forrester)
 
 ### Features
