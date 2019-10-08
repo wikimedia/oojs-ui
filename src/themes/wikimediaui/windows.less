@@ -9,7 +9,7 @@
 
 .theme-oo-ui-messageDialog() {
 	&-content > .oo-ui-window-foot {
-		outline: @border-dialog; // Using `@border-dialog` here as `outline` is `border` subsitute
+		outline: @border-dialog; // Use `@border-dialog` here as `outline` is `border` substitute.
 	}
 
 	&-title,
@@ -114,13 +114,17 @@
 
 .theme-oo-ui-processDialog() {
 	&-content {
+		.oo-ui-window-head,
+		.oo-ui-window-foot {
+			outline: @border-dialog-bar; // Use `@border-dialog-bar` here as `outline` is `border` substitute.
+		}
+
 		.oo-ui-window-head {
 			min-height: @size-dialog-bar--desktop;
 		}
 
 		.oo-ui-window-body {
 			top: @size-dialog-bar--desktop;
-			outline: @border-dialog-bar; // Using `@border-dialog-bar` here as `outline` is `border` subsitute
 		}
 	}
 
@@ -146,18 +150,14 @@
 	.oo-ui-actionWidget {
 		> .oo-ui-buttonElement-button {
 			border-radius: 0;
+			// For ActionWidgets in top bar (safe and primary).
 			border-top-color: transparent;
-			// For ActionWidgets in top bar (safe and premium).
-			border-bottom-color: @border-color-dialog-bar;
+			border-bottom-color: transparent;
 
 			&:hover,
 			&:active {
 				border-top-color: transparent;
-				border-bottom-color: @border-color-dialog-bar;
-			}
-
-			&:focus {
-				border-color: @border-color-base--focus;
+				border-bottom-color: transparent;
 			}
 		}
 
@@ -266,13 +266,6 @@
 			.oo-ui-actionWidget {
 				&.oo-ui-buttonElement {
 					margin-right: 0;
-				}
-
-				&:not( .oo-ui-flaggedElement-progressive ):not( .oo-ui-flaggedElement-destructive ) {
-					> .oo-ui-buttonElement-button {
-						border-top-color: @border-color-dialog-bar;
-						border-bottom-color: transparent;
-					}
 				}
 			}
 		}
