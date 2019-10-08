@@ -1103,21 +1103,40 @@
 	}
 
 	> .oo-ui-buttonElement {
-		margin-top: -1.25em;
-		padding-left: 0.3em;
-
 		> .oo-ui-buttonElement-button {
 			padding: 0;
-
-			.oo-ui-iconElement-icon {
-				min-width: @min-size-tagitem-close;
-				width: @size-icon-tagitem-close;
-				margin-right: -0.3em;
-			}
 
 			.oo-ui-labelElement-label,
 			.oo-ui-indicatorElement-indicator {
 				display: none;
+			}
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		&:not( .oo-ui-tagItemWidget-fixed ) {
+			padding-right: @padding-end-tagitem-close;
+		}
+
+		// Clear button
+		> .oo-ui-buttonElement {
+			display: block;
+			width: @size-icon-inner;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+		& .oo-ui-buttonElement-button {
+			display: block;
+			.oo-ui-transition(
+				background-color @transition-base
+			);
+
+			.oo-ui-iconElement-icon {
+				min-width: @min-size-tagitem-close;
+				width: @size-icon-tagitem-close;
+				margin: 0 0 0 @start-icon-tagitem-close;
 			}
 		}
 	}
