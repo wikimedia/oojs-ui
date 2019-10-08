@@ -9,6 +9,7 @@ Demo.SimpleDialog.prototype.initialize = function () {
 
 	Demo.SimpleDialog.parent.prototype.initialize.apply( this, arguments );
 	this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
+	// eslint-disable-next-line no-jquery/no-parse-html-literal
 	this.content.$element.append( '<p>Dialog content</p>' );
 
 	closeButton = new OO.ui.ButtonWidget( {

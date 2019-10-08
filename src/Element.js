@@ -636,10 +636,12 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 	 * @method
 	 * @param {HTMLElement|Window} el Element to scroll (and to use in calculations)
 	 * @param {number} scrollLeft Scroll position from the left.
-	 *  If the element's direction is LTR, this must be a positive number between `0` (initial scroll
-	 *  position) and `el.scrollWidth - el.clientWidth` (furthest possible scroll position).
-	 *  If the element's direction is RTL, this must be a negative number between `0` (initial scroll
-	 *  position) and `-el.scrollWidth + el.clientWidth` (furthest possible scroll position).
+	 *  If the element's direction is LTR, this must be a positive number between
+	 *  `0` (initial scroll position) and `el.scrollWidth - el.clientWidth`
+	 *  (furthest possible scroll position).
+	 *  If the element's direction is RTL, this must be a negative number between
+	 *  `0` (initial scroll position) and `-el.scrollWidth + el.clientWidth`
+	 *  (furthest possible scroll position).
 	 */
 	OO.ui.Element.static.setScrollLeft = function ( el, scrollLeft ) {
 		scrollLeft = OO.ui.Element.static.computeNativeScrollLeft( scrollLeft, el );
@@ -828,7 +830,8 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
 				Math.min( position.left - padding.left, -position.right + padding.right );
 		}
 		if ( animations.scrollLeft !== undefined ) {
-			animations.scrollLeft = OO.ui.Element.static.computeNativeScrollLeft( animations.scrollLeft, container );
+			animations.scrollLeft =
+				OO.ui.Element.static.computeNativeScrollLeft( animations.scrollLeft, container );
 		}
 	}
 	if ( !$.isEmptyObject( animations ) ) {
