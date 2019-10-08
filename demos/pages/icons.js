@@ -87,7 +87,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'halfStar',
 				'unStar',
 				'trash',
-				'unTrash',
+				'restore',
 				'pushPin',
 				'ongoingConversation'
 			],
