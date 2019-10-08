@@ -266,6 +266,7 @@ OO.ui.StackLayout.prototype.resetScroll = function () {
 	}
 	// Reset each panel
 	this.getItems().forEach( function ( panel ) {
+		// eslint-disable-next-line no-jquery/no-class-state
 		var hidden = panel.$element.hasClass( 'oo-ui-element-hidden' );
 		// Scroll can only be reset when panel is visible
 		panel.$element.removeClass( 'oo-ui-element-hidden' );

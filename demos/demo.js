@@ -724,7 +724,9 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 		.on( 'click', function ( e ) {
 			var code;
 			e.preventDefault();
+			// eslint-disable-next-line no-jquery/no-class-state
 			$console.toggleClass( 'demo-console-collapsed demo-console-expanded' );
+			// eslint-disable-next-line no-jquery/no-class-state
 			if ( $console.hasClass( 'demo-console-expanded' ) ) {
 				$input[ 0 ].focus();
 				if ( console && console.log ) {

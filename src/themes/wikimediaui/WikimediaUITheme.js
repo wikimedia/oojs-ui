@@ -34,6 +34,7 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 
 	if (
 		element instanceof OO.ui.IconWidget &&
+		// eslint-disable-next-line no-jquery/no-class-state
 		element.$element.hasClass( 'oo-ui-checkboxInputWidget-checkIcon' )
 	) {
 		// Icon on CheckboxInputWidget
