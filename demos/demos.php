@@ -139,6 +139,7 @@
 						'href' => 'tutorials/index.html',
 						'framed' => false,
 						'flags' => [ 'progressive' ],
+						'rel' => []
 					] );
 					echo new OOUI\ButtonWidget( [
 						'infusable' => true,

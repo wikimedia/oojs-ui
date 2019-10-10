@@ -107,7 +107,8 @@ window.Demo = function Demo() {
 		icon: 'book',
 		href: 'tutorials/index.html',
 		framed: false,
-		flags: [ 'progressive' ]
+		flags: [ 'progressive' ],
+		rel: []
 	} );
 
 	// Events

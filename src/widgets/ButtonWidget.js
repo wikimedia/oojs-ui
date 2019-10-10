@@ -34,6 +34,7 @@
  * @cfg {string} [href] Hyperlink to visit when the button is clicked.
  * @cfg {string} [target] The frame or window in which to open the hyperlink.
  * @cfg {boolean} [noFollow] Search engine traversal hint (default: true)
+ * @cfg {string[]} [rel] Relationship attributes for the hyperlink
  */
 OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	// Configuration initialization
@@ -62,6 +63,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	this.href = null;
 	this.target = null;
 	this.noFollow = false;
+	this.rel = [];
 
 	// Events
 	this.connect( this, {
@@ -76,7 +78,11 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	this.setActive( config.active );
 	this.setHref( config.href );
 	this.setTarget( config.target );
-	this.setNoFollow( config.noFollow );
+	if ( config.rel ) {
+		this.setRel( config.rel );
+	} else {
+		this.setNoFollow( config.noFollow );
+	}
 };
 
 /* Setup */
@@ -132,6 +138,15 @@ OO.ui.ButtonWidget.prototype.getTarget = function () {
  */
 OO.ui.ButtonWidget.prototype.getNoFollow = function () {
 	return this.noFollow;
+};
+
+/**
+ * Get the relationship attribute of the hyperlink.
+ *
+ * @return {string[]} Relationship attributes that apply to the hyperlink
+ */
+OO.ui.ButtonWidget.prototype.getRel = function () {
+	return this.rel;
 };
 
 /**
@@ -211,12 +226,42 @@ OO.ui.ButtonWidget.prototype.setTarget = function ( target ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {
+	var rel;
+
 	noFollow = typeof noFollow === 'boolean' ? noFollow : true;
 
 	if ( noFollow !== this.noFollow ) {
-		this.noFollow = noFollow;
-		if ( noFollow ) {
-			this.$button.attr( 'rel', 'nofollow' );
+		if ( !noFollow ) {
+			rel = this.rel.concat();
+			rel.splice(
+				this.rel.indexOf( 'nofollow' ),
+				1
+			);
+			this.setRel( rel );
+		} else {
+			this.setRel( this.rel.concat( [ 'nofollow' ] ) );
+		}
+	}
+
+	return this;
+};
+
+/**
+ * Set the `rel` attribute of the the hyperlink.
+ *
+ * @param {string|string[]} rel Relationship attributes for the hyperlink
+ * @return {OO.ui.Widget} The widget, for chaining
+ */
+OO.ui.ButtonWidget.prototype.setRel = function ( rel ) {
+	rel = Array.isArray( rel ) ? rel : typeof rel === 'string' ? [ rel ] : [];
+
+	if ( rel !== this.rel ) {
+		this.rel = rel;
+		// For backwards compatibility.
+		this.noFollow = rel.indexOf( 'nofollow' ) !== -1;
+
+		if ( rel.length > 0 ) {
+			this.$button.attr( 'rel', rel.join( ' ' ) );
 		} else {
 			this.$button.removeAttr( 'rel' );
 		}
