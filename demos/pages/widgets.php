@@ -199,20 +199,6 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [
 				'framed' => false,
-				'flags' => [ 'progressive' ],
-				'label' => 'Documentation',
-				'href' => 'https://doc.wikimedia.org',
-				'rel' => [ 'noreferrer', 'noopener' ]
-			] ),
-			[
-				'label' => 'ButtonWidget (frameless, progressive, with ' .
-					'rel="noreferrer noopener" link attribute)',
-				'align' => 'top'
-			]
-		),
-		new OOUI\FieldLayout(
-			new OOUI\ButtonWidget( [
-				'framed' => false,
 				'icon' => 'tag',
 				'label' => 'Disabled',
 				'disabled' => true
