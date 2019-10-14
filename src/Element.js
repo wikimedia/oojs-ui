@@ -143,8 +143,8 @@ OO.ui.Element.static.unsafeInfuse = function ( node, config, domPromise ) {
 		}
 		throw new Error( error );
 	}
-	if ( $elem[ 0 ].oouiInfused ) {
-		$elem = $elem[ 0 ].oouiInfused;
+	if ( $elem[ 0 ].$oouiInfused ) {
+		$elem = $elem[ 0 ].$oouiInfused;
 	}
 	data = $elem.data( 'ooui-infused' );
 	if ( data ) {
@@ -244,7 +244,7 @@ OO.ui.Element.static.unsafeInfuse = function ( node, config, domPromise ) {
 	// If anyone is holding a reference to the old DOM element,
 	// let's allow them to OO.ui.infuse() it and do what they expect, see T105828.
 	// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
-	$elem[ 0 ].oouiInfused = obj.$element;
+	$elem[ 0 ].$oouiInfused = obj.$element;
 	// now replace old DOM with this new DOM.
 	if ( top ) {
 		// An efficient constructor might be able to reuse the entire DOM tree of the original
