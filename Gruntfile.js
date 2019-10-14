@@ -446,7 +446,7 @@ module.exports = function ( grunt ) {
 				cache: true
 			},
 			dev: [
-				'**/*.js{,on}',
+				'**/*.{js,json}',
 				'!{coverage,dist,docs,node_modules,vendor,demos/{dist,node_modules,vendor}}/**',
 				'!tests/JSPHP.test.js'
 			],
@@ -471,8 +471,7 @@ module.exports = function ( grunt ) {
 				syntax: 'less'
 			},
 			dev: [
-				'{demos,src}/**/*.css',
-				'{demos,src}/**/*.less',
+				'{demos,src}/**/*.{css,less}',
 				'!demos/dist/**',
 				'!demos/styles/demo.rtl.css',
 				'!demos/vendor/**'

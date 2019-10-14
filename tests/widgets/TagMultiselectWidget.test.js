@@ -11,7 +11,6 @@
 			'Basic widget (inputPosition:inline) has an input'
 		);
 		assert.ok(
-			// eslint-disable-next-line no-jquery/no-class-state
 			widget.$element.hasClass( 'oo-ui-tagMultiselectWidget-inlined' ),
 			'Basic widget (inputPosition:inline) has an inline input class'
 		);
@@ -27,7 +26,6 @@
 			'Widget with inputPosition:outline has an input'
 		);
 		assert.ok(
-			// eslint-disable-next-line no-jquery/no-class-state
 			widget.$element.hasClass( 'oo-ui-tagMultiselectWidget-outlined' ),
 			'Widget with inputPosition:outline has the correct class'
 		);
