@@ -107,7 +107,6 @@ Demo.static.pages.toolbars = function ( demo ) {
 			head: true
 		} }, config ) );
 
-		// eslint-disable-next-line no-jquery/no-parse-html-literal
 		this.popup.$body.append( '<p>Alert contents</p>' );
 	};
 
@@ -128,7 +127,6 @@ Demo.static.pages.toolbars = function ( demo ) {
 			head: true
 		} }, config ) );
 
-		// eslint-disable-next-line no-jquery/no-parse-html-literal
 		this.popup.$body.append( '<p>Popup contents</p>' );
 	};
 
@@ -574,13 +572,11 @@ Demo.static.pages.toolbars = function ( demo ) {
 		} ).$element
 			.addClass( 'demo-container demo-toolbars' )
 			.attr( 'role', 'main' )
-			/* eslint-disable no-jquery/no-parse-html-literal */
 			.append(
 				$containers.eq( 0 ).append( '<div class="demo-toolbars-contents">Toolbar</div>' ),
 				$containers.eq( 1 ).append( '<div class="demo-toolbars-contents">Word processor toolbar</div>' ),
 				$containers.eq( 2 ).prepend( '<div class="demo-toolbars-contents">Word processor toolbar set to <code>position: &#39;bottom&#39;</code></div>' )
 			)
-			/* eslint-enable no-jquery/no-parse-html-literal */
 	);
 	for ( i = 0; i < toolbars.length; i++ ) {
 		toolbars[ i ].initialize();

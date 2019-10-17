@@ -15,7 +15,6 @@ Demo.LongProcessDialog.prototype.initialize = function () {
 	Demo.LongProcessDialog.parent.prototype.initialize.apply( this, arguments );
 	this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 	for ( i = 0; i < 100; i++ ) {
-		// eslint-disable-next-line no-jquery/no-parse-html-literal
 		this.content.$element.append( '<p>Dialog content</p>' );
 	}
 	this.$body.append( this.content.$element );
