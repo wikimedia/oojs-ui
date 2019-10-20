@@ -174,7 +174,7 @@ class Tag {
 	 * String items should never match by reference
 	 * so will not be removed.
 	 *
-	 * @param string|Tag|HtmlSnippet ...$content Content to reomve.
+	 * @param string|Tag|HtmlSnippet|array ...$content Content to remove.
 	 * @return $this
 	 */
 	public function removeContent( ...$content ) {
