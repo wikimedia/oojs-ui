@@ -1,0 +1,303 @@
+@import 'common.less';
+
+.theme-oo-ui-layout() {}
+
+.theme-oo-ui-bookletLayout() {
+	&-stackLayout {
+		> .oo-ui-panelLayout {
+			padding: @padding-panel-dialog;
+		}
+	}
+
+	&-outlinePanel {
+		> .oo-ui-outlineControlsWidget {
+			border-top: @border-dialog-bar;
+		}
+	}
+
+	> .oo-ui-menuLayout-menu {
+		border-right: @border-dialog-bar;
+	}
+}
+
+.theme-oo-ui-indexLayout() {
+	&-stackLayout {
+		> .oo-ui-panelLayout {
+			padding: @padding-panel-dialog;
+		}
+	}
+
+	&.oo-ui-menuLayout.oo-ui-menuLayout-expanded {
+		> .oo-ui-menuLayout-menu {
+			height: @height-tabselect;
+		}
+
+		> .oo-ui-menuLayout-content {
+			top: @height-tabselect;
+		}
+	}
+}
+
+.theme-oo-ui-fieldLayout() {
+	// We just relatively follow M101 design guideline here
+	margin-top: @margin-top-fieldlayout; // `1.5em` in the guideline, we go for `1.1428571em`≈`16px`
+
+	&.oo-ui-labelElement,
+	&.oo-ui-fieldLayout-align-inline {
+		margin-top: @margin-top-fieldlayout--labelled; // `1.25em` in the guideline, we go for `0.8571429em`≈`12px`
+	}
+
+	&,
+	&.oo-ui-labelElement,
+	&.oo-ui-fieldLayout-align-inline {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&.oo-ui-labelElement {
+		> .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
+			padding-bottom: @padding-vertical-label;
+		}
+
+		&.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header,
+		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body {
+			max-width: @max-width-base;
+		}
+
+		&.oo-ui-fieldLayout-align-left,
+		&.oo-ui-fieldLayout-align-right {
+			> .oo-ui-fieldLayout-body {
+				> .oo-ui-fieldLayout-header {
+					.oo-ui-box-sizing( border-box );
+					width: 40%;
+					padding-right: @size-base + @start-frameless-icon;
+
+					> .oo-ui-labelElement-label {
+						display: block;
+						padding-top: @padding-vertical-label;
+					}
+				}
+
+				> .oo-ui-fieldLayout-help {
+					// Override the default
+					margin-right: 0;
+					margin-left: -( @size-base + @size-modifier-border );
+				}
+
+				> .oo-ui-fieldLayout-field {
+					width: 60%;
+				}
+			}
+		}
+
+		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
+			padding-top: 0;
+			padding-bottom: 0;
+			padding-left: @padding-start-fieldlayout-label;
+		}
+	}
+
+	.oo-ui-fieldLayout-help { // Assuming that this is a PopupButtonWidget
+		margin-right: 0; // Override `.oo-ui-inline-spacing()`.
+
+		.oo-ui-buttonElement-button {
+			padding-top: @size-icon;
+			padding-right: 0; // Accessible label causes triggering of `.oo-ui-labelElement`, we need to reset it here
+
+			&:hover,
+			&:active {
+				background-color: transparent;
+			}
+		}
+	}
+
+	&.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-inline-help {
+		margin-top: @padding-vertical-label;
+	}
+
+	&.oo-ui-fieldLayout-align-top,
+	&.oo-ui-fieldLayout-align-inline {
+		.oo-ui-fieldLayout-help {
+			// HACK: This PopupButtonWidget's height extends below the header line (with align: top),
+			// causing the field widget to be narrower than it should be.
+			margin-top: @margin-top-fieldlayout-help;
+			margin-right: @margin-end-fieldlayout-help;
+			margin-left: 0; // Reset `.oo-ui-buttonElement-frameless.oo-ui-iconElement:first-child`
+		}
+	}
+
+	&-messages {
+		.oo-ui-box-sizing( border-box );
+		max-width: @max-width-base;
+		padding: @padding-vertical-label 0;
+
+		> .oo-ui-messageWidget {
+			margin-left: @margin-horizontal-fieldlayout-message;
+			margin-right: @margin-horizontal-fieldlayout-message;
+
+			&:first-child {
+				margin-top: @margin-top-message / 2;
+			}
+		}
+	}
+
+	&-disabled > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
+		color: @color-base--disabled;
+	}
+}
+
+.theme-oo-ui-actionFieldLayout() {
+	&.oo-ui-fieldLayout-align-top {
+		max-width: @max-width-base;
+	}
+
+	.oo-ui-actionFieldLayout-input .oo-ui-widget {
+		&:not( .oo-ui-textInputWidget ) {
+			margin-right: @margin-end-actionlayout-input;
+		}
+
+		&.oo-ui-textInputWidget > .oo-ui-inputWidget-input {
+			border-radius: @border-radius-base 0 0 @border-radius-base;
+			position: relative;
+		}
+	}
+
+	.oo-ui-actionFieldLayout-button {
+		.oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
+			border-radius: 0 @border-radius-base @border-radius-base 0;
+			margin-left: -@border-width-base;
+		}
+
+		.oo-ui-buttonElement-frameless {
+			margin-left: @padding-horizontal-frameless; // Address frameless negative margin focus hack
+		}
+	}
+
+	// Give hovered/focussed widgets higher `z-index`, so that borders display correctly.
+	.oo-ui-actionFieldLayout-input > .oo-ui-textInputWidget {
+		> .oo-ui-inputWidget-input:hover,
+		> .oo-ui-inputWidget-input:focus,
+		&.oo-ui-flaggedElement-invalid > .oo-ui-inputWidget-input {
+			// Apply these styles to the element itself and all following siblings (e.g. .oo-ui-iconElement-icon),
+			// otherwise the icons etc. will disappear behind the input
+			&,
+			& ~ * {
+				z-index: 1;
+			}
+		}
+	}
+
+	.oo-ui-actionFieldLayout-button > .oo-ui-buttonElement > .oo-ui-buttonElement-button {
+		&:hover,
+		&:focus {
+			z-index: 1;
+		}
+	}
+}
+
+.theme-oo-ui-fieldsetLayout() {
+	.oo-ui-fieldsetLayout-header {
+		max-width: @max-width-base;
+
+		.oo-ui-iconElement-icon {
+			height: @size-icon;
+		}
+	}
+
+	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header .oo-ui-iconElement-icon {
+		display: block;
+	}
+
+	+ .oo-ui-fieldsetLayout,
+	+ .oo-ui-formLayout {
+		margin-top: @margin-top-form-fieldset;
+	}
+
+	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
+		display: inline-block;
+		margin-bottom: @margin-bottom-fieldset-header;
+		font-size: @font-size-fieldset-header;
+		font-weight: bold;
+	}
+
+	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
+		padding-left: @padding-start-fieldset-header-iconized;
+	}
+
+	> .oo-ui-inline-help {
+		margin-bottom: @margin-bottom-fieldset-header;
+	}
+
+	.oo-ui-fieldsetLayout-help {
+		// Assuming that this is a PopupButtonWidget.
+		// HACK: This PopupButtonWidget's `height` extends below the header's baseline (with align: top),
+		// causing the field widget to be narrower than it should be.
+		&,
+		&:last-child {
+			margin-right: @margin-end-fieldlayout-help;
+		}
+
+		.oo-ui-buttonElement-button {
+			padding-top: @size-icon;
+			padding-right: 0; // Accessible label causes triggering of `.oo-ui-labelElement`, we need to reset it here
+
+			&:hover,
+			&:active {
+				background-color: transparent;
+			}
+		}
+	}
+}
+
+.theme-oo-ui-formLayout() {
+	+ .oo-ui-fieldsetLayout,
+	+ .oo-ui-formLayout {
+		margin-top: @margin-top-form-fieldset;
+	}
+}
+
+.theme-oo-ui-menuLayout() {}
+
+.theme-oo-ui-panelLayout() {
+	&-padded {
+		padding: @padding-panel-form;
+
+		&.oo-ui-formLayout > .oo-ui-fieldsetLayout {
+			.oo-ui-labelElement-label,
+			.oo-ui-iconElement-icon {
+				margin-top: -( @margin-top-fieldlayout--labelled / 2 ); // Reduce distance for `line-height` and only if element visible
+			}
+		}
+	}
+
+	&-framed {
+		border: @border-dialog;
+		border-radius: @border-radius-base;
+	}
+
+	&-padded&-framed {
+		margin: @margin-top-fieldlayout--labelled 0;
+	}
+}
+
+.theme-oo-ui-tabPanelLayout() {}
+
+.theme-oo-ui-pageLayout() {}
+
+.theme-oo-ui-stackLayout() {}
+
+.theme-oo-ui-horizontalLayout() {
+	> .oo-ui-layout,
+	> .oo-ui-widget {
+		.oo-ui-inline-spacing( @margin-end-widget );
+	}
+
+	> .oo-ui-layout {
+		margin-top: 0;
+	}
+
+	> .oo-ui-widget {
+		margin-bottom: @margin-bottom-horizontallayout-widget;
+	}
+}

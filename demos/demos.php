@@ -12,6 +12,7 @@
 
 	// @codingStandardsIgnoreStart MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment
 	$themes = [
+		'oasis' => 'Oasis',
 		'wikimediaui' => 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 		'apex' => 'Apex',
 	];

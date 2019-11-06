@@ -1,0 +1,547 @@
+@import 'common.less';
+
+.theme-oo-ui-toolbar() {
+	&-bar {
+		background-color: @background-color-toolbar;
+		color: @color-base;
+
+		.oo-ui-toolbar-position-top > & {
+			border-bottom: @border-toolbar;
+			box-shadow: @box-shadow-toolbar-top;
+		}
+
+		.oo-ui-toolbar-position-bottom > & {
+			border-top: @border-toolbar;
+			box-shadow: @box-shadow-toolbar-bottom;
+		}
+
+		.oo-ui-toolbar-bar {
+			background-color: transparent;
+			border: 0;
+			box-shadow: none;
+		}
+	}
+
+	&-narrow {
+		&-bar:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: @size-tool;
+			left: 0;
+			width: 100%;
+			height: 0;
+		}
+
+		&.oo-ui-toolbar-position-top .oo-ui-toolbar-bar:after {
+			border-bottom: @border-toolbar;
+		}
+
+		&.oo-ui-toolbar-position-bottom .oo-ui-toolbar-bar:after {
+			border-top: @border-toolbar;
+		}
+	}
+}
+
+.theme-oo-ui-tool() {
+	.oo-ui-box-sizing( border-box );
+
+	.oo-ui-tool-link {
+		position: relative;
+		.oo-ui-box-sizing( border-box );
+		padding-top: @padding-top-tool;
+		padding-left: @padding-start-tool-icon-only;
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-start-tool-icon-only - @size-toolbar-narrow-modifier;
+		}
+	}
+
+	&.oo-ui-tool-with-label .oo-ui-tool-link {
+		padding: @padding-vertical-tool-label @padding-horizontal-base @padding-vertical-tool-label @padding-horizontal-base;
+	}
+
+	&.oo-ui-tool-with-icon.oo-ui-tool-with-label .oo-ui-tool-link {
+		padding: @padding-vertical-tool-label @padding-horizontal-base @padding-vertical-tool-label @padding-start-tool;
+	}
+
+	.oo-ui-iconElement-icon {
+		display: block;
+		left: @start-tool-icon;
+
+		.oo-ui-toolbar-narrow & {
+			left: @start-tool-icon - ( @size-toolbar-narrow-modifier / 2 );
+		}
+	}
+
+	.oo-ui-tool-title {
+		line-height: @line-height-base;
+	}
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-tool-link {
+			.oo-ui-transition( background-color @transition-base );
+
+			&:focus {
+				outline: @border-width-base @border-style-base @border-color-base--focus;
+				box-shadow: @box-shadow-base--focus;
+				// Slightly elevate on focus
+				z-index: 1;
+			}
+		}
+
+		.oo-ui-iconElement-icon {
+			opacity: @opacity-icon-base;
+			.oo-ui-transition( opacity @transition-base );
+			.oo-ui-force-gpu-composite-layer();
+		}
+
+		.oo-ui-tool-title {
+			.oo-ui-transition( color @transition-base );
+		}
+
+		&:hover {
+			.oo-ui-iconElement-icon {
+				opacity: @opacity-base;
+			}
+		}
+
+		&[ class*='oo-ui-flaggedElement' ] {
+			.oo-ui-iconElement-icon {
+				opacity: @opacity-base;
+			}
+		}
+
+		.mw-tool-colored( ~'.oo-ui-tool-link', inherit, @background-color-tool--hover, @color-progressive--active, @color-progressive--focus, @color-tool--active );
+
+		&.oo-ui-flaggedElement {
+			&-progressive {
+				.mw-tool-colored( ~'.oo-ui-tool-link', @color-progressive, @background-color-tool--hover, @color-progressive--active, @color-progressive--focus );
+			}
+
+			&-destructive {
+				.mw-tool-colored( ~'.oo-ui-tool-link', @color-destructive-non-primary, @background-color-tool--hover, @color-destructive--active, @color-destructive--focus );
+			}
+		}
+
+		&.oo-ui-flaggedElement-primary {
+			&.oo-ui-flaggedElement {
+				&-progressive {
+					.mw-primary-tool-colored( ~'.oo-ui-tool-link', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
+				}
+
+				&-destructive {
+					.mw-primary-tool-colored( ~'.oo-ui-tool-link', @color-destructive, @color-destructive--hover, @color-destructive--active, @color-destructive--focus );
+				}
+			}
+
+			> .oo-ui-tool-link {
+				font-weight: bold;
+
+				> .oo-ui-iconElement-icon,
+				> .oo-ui-indicatorElement-indicator {
+					opacity: @opacity-icon-base--selected;
+				}
+			}
+		}
+	}
+}
+
+.theme-oo-ui-popupTool() {}
+
+.theme-oo-ui-toolGroupTool() {
+	> .oo-ui-toolGroup {
+		border-right: 0;
+	}
+}
+
+.theme-oo-ui-toolGroup() {
+	.oo-ui-box-sizing( border-box );
+	border-right: @border-toolgroup;
+
+	.oo-ui-toolbar-actions & {
+		border-right: 0;
+		border-left: @border-toolgroup;
+
+		&.oo-ui-barToolGroup {
+			border-right-width: 0;
+		}
+	}
+
+	&.oo-ui-widget-disabled:not( .oo-ui-flaggedElement-primary ) {
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			// `!important` necessary until T106914 is resolved
+			opacity: @opacity-tool--disabled !important; // stylelint-disable-line declaration-no-important
+		}
+	}
+}
+
+.theme-oo-ui-barToolGroup() {
+	&-tools > .oo-ui-tool {
+		& + .oo-ui-tool {
+			margin-left: -@border-width-base * 2;
+		}
+	}
+
+	&-tools.oo-ui-toolGroup-enabled-tools .oo-ui-tool.oo-ui-widget-disabled,
+	&-tools.oo-ui-toolGroup-disabled-tools .oo-ui-tool {
+		.oo-ui-iconElement-icon {
+			opacity: @opacity-tool--disabled;
+		}
+
+		&.oo-ui-flaggedElement-primary {
+			> .oo-ui-tool-link {
+				background-color: @background-color-filled--disabled;
+				border-color: @border-color-base--disabled;
+
+				.oo-ui-tool-title {
+					color: @color-base--inverted;
+				}
+			}
+
+			&.oo-ui-tool-active > .oo-ui-tool-link {
+				background-color: mix( @color-progressive--active, @background-color-filled--disabled, 35% );
+			}
+
+			.oo-ui-iconElement-icon {
+				opacity: @opacity-icon-base--selected;
+			}
+		}
+
+		> .oo-ui-tool-link .oo-ui-tool-title {
+			color: @color-base--disabled;
+		}
+	}
+}
+
+.theme-oo-ui-listToolGroup() {
+	&-tools .oo-ui-tool {
+		&.oo-ui-widget-enabled {
+			&:hover {
+				background-color: @background-color-tool--hover;
+				color: @color-tool--hover;
+			}
+		}
+
+		&-active {
+			&.oo-ui-widget-enabled {
+				background-color: @background-color-tool--active;
+
+				&:hover {
+					background-color: @background-color-tool--active-hover;
+				}
+
+				.oo-ui-tool-link .oo-ui-tool-title {
+					color: @color-tool--active;
+				}
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled,
+	&-tools .oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {
+		color: @color-base--disabled;
+	}
+}
+
+.theme-oo-ui-menuToolGroup() {
+	.oo-ui-popupToolGroup-handle {
+		min-width: @min-size-toolbar-popup-toolgroup-handle;
+
+		.oo-ui-toolbar-narrow & {
+			min-width: @min-size-toolbar-narrow-popup-toolgroup-handle;
+		}
+	}
+
+	&-tools .oo-ui-tool {
+		&-link {
+			.oo-ui-iconElement-icon {
+				left: @start-tool-icon;
+
+				.oo-ui-toolbar-narrow & {
+					left: @start-tool-icon - ( @size-toolbar-narrow-modifier / 2 );
+				}
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			&:hover {
+				background-color: @background-color-tool--active-hover;
+			}
+		}
+
+		&.oo-ui-tool-active {
+			background-color: @background-color-tool--active;
+		}
+	}
+
+	&.oo-ui-widget-disabled,
+	&-tools .oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {
+		color: @color-base--disabled;
+	}
+}
+
+.theme-oo-ui-popupToolGroup() {
+	min-width: @size-tool;
+
+	.oo-ui-toolbar-narrow & {
+		min-width: @size-tool - @size-toolbar-narrow-modifier;
+	}
+
+	&.oo-ui-indicatorElement:not( .oo-ui-labelElement ):not( .oo-ui-iconElement ) {
+		min-width: @padding-end-toolgroup-label-indicator;
+	}
+
+	&-handle {
+		.oo-ui-box-sizing( border-box );
+
+		.oo-ui-iconElement-icon {
+			left: @start-tool-icon;
+
+			.oo-ui-toolbar-narrow & {
+				left: @start-tool-icon - @size-toolbar-narrow-modifier;
+			}
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			// HACK: Magic number for cross-browser positioning closer to label baseline
+			background-position: center 52%;
+			right: @end-tool-indicator;
+
+			.oo-ui-toolbar-narrow & {
+				right: @start-toolbar-narrow-tool-icon;
+			}
+		}
+	}
+
+	&.oo-ui-iconElement &-handle,
+	&.oo-ui-indicatorElement &-handle {
+		padding-top: @padding-top-tool;
+	}
+
+	&.oo-ui-iconElement.oo-ui-indicatorElement &-handle {
+		padding-left: @padding-start-tool-icon-only;
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-start-tool-icon-only - @size-toolbar-narrow-modifier;
+		}
+	}
+
+	&.oo-ui-labelElement &-handle {
+		padding: @padding-vertical-tool-label @padding-horizontal-base;
+
+		.oo-ui-labelElement-label {
+			line-height: @line-height-base;
+		}
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-horizontal-base-iconized - @size-toolbar-narrow-modifier;
+			padding-right: @padding-horizontal-base-iconized - @size-toolbar-narrow-modifier;
+		}
+	}
+
+	&.oo-ui-iconElement.oo-ui-labelElement &-handle {
+		padding-left: @padding-start-tool;
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-start-tool - @size-toolbar-narrow-modifier;
+		}
+	}
+
+	&.oo-ui-labelElement.oo-ui-indicatorElement &-handle {
+		padding-right: @padding-end-toolgroup-label-indicator;
+
+		.oo-ui-toolbar-narrow & {
+			padding-right: @padding-end-toolgroup-label-indicator - 2 * @start-toolbar-narrow-tool-icon;
+		}
+	}
+
+	&.oo-ui-indicatorElement &-handle {
+		padding-right: @padding-end-toolgroup-indicator;
+
+		.oo-ui-toolbar-narrow & {
+			padding-right: @padding-end-toolgroup-indicator - @start-toolbar-narrow-tool-icon;
+		}
+	}
+
+	&:not( .oo-ui-labelElement ):not( .oo-ui-iconElement ) .oo-ui-indicatorElement-indicator {
+		// Override earlier fading of the indicator if it's the only thing in the button
+		opacity: @opacity-base;
+	}
+
+	&-header {
+		color: @color-base--subtle;
+		padding: 0 @padding-horizontal-base;
+		font-weight: bold;
+		line-height: @size-base; // Doesn't work with `padding` in header, due to clippable logic
+
+		.oo-ui-toolbar-narrow & {
+			padding: 0 ( @padding-horizontal-base-iconized - @size-toolbar-narrow-modifier );
+		}
+	}
+
+	&-tools {
+		background-color: @background-color-toolbar;
+		min-width: 16em;
+		margin: 0 -@border-width-base;
+		// Toolbar menus have toolbar `border-color` applied
+		border: @border-toolbar;
+		box-shadow: @box-shadow-menu;
+
+		.oo-ui-tool-link {
+			// Tool-Links in PopupToolGroups always have a `-title` element
+			padding: @padding-vertical-tool-label @padding-horizontal-base;
+
+			.oo-ui-toolbar-narrow & {
+				padding-left: @padding-horizontal-base-iconized - @size-toolbar-narrow-modifier;
+				padding-right: @padding-horizontal-base-iconized - @size-toolbar-narrow-modifier;
+			}
+
+			.oo-ui-tool-accel {
+				color: @color-base--subtle;
+				line-height: @line-height-base;
+
+				&:not( :empty ) {
+					// Push away from tool's title
+					padding-left: @padding-horizontal-base-iconized * 1.5;
+
+					.oo-ui-toolbar-narrow & {
+						padding-left: ( @padding-horizontal-base-iconized * 1.5 ) - @size-toolbar-narrow-modifier;
+					}
+				}
+			}
+		}
+
+		.oo-ui-iconElement .oo-ui-tool-link {
+			// Tool-Links in PopupToolGroups always have a `-title` element
+			padding-left: @padding-start-menu-icon-label;
+
+			.oo-ui-toolbar-narrow & {
+				padding-left: @padding-start-menu-icon-label - @size-toolbar-narrow-modifier;
+			}
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		> .oo-ui-popupToolGroup-handle {
+			.oo-ui-transition(
+				background-color @transition-base,
+				box-shadow @transition-base
+			);
+
+			&:hover {
+				background-color: @background-color-tool--hover;
+			}
+
+			&:active {
+				background-color: @background-color-tool--active;
+			}
+
+			// We don't generalize this further, as only PopupToolGroup carries them,
+			// all other ToolGroups own Tools, which come with their own icon rules
+			.oo-ui-iconElement-icon,
+			.oo-ui-indicatorElement-indicator {
+				opacity: @opacity-icon-base;
+				.oo-ui-transition( opacity @transition-base );
+				.oo-ui-force-gpu-composite-layer();
+			}
+
+			&:hover,
+			&:active {
+				.oo-ui-iconElement-icon,
+				.oo-ui-indicatorElement-indicator {
+					opacity: @opacity-icon-base--selected;
+				}
+			}
+
+			&:focus {
+				outline: @border-width-base @border-style-base @border-color-base--focus;
+				box-shadow: @box-shadow-base--focus;
+			}
+		}
+
+		&[ class*='oo-ui-flaggedElement' ] > .oo-ui-popupToolGroup-handle {
+			&,
+			&:hover {
+				.oo-ui-iconElement-icon {
+					opacity: @opacity-icon-base--selected;
+				}
+			}
+		}
+
+		// Due to z-index shuffling `border` has to acts as `background` here
+		.oo-ui-toolbar-actions & {
+			> .oo-ui-popupToolGroup-handle {
+				border-right: @border-width-base @border-style-base transparent;
+				.oo-ui-transition(
+					background-color @transition-base,
+					border-color @transition-base,
+					box-shadow @transition-base
+				);
+
+				&:hover {
+					border-right-color: @background-color-tool--hover;
+				}
+
+				&:active {
+					border-right-color: @background-color-tool--active;
+				}
+
+				&:focus {
+					border-right-color: @border-color-base--focus;
+				}
+			}
+		}
+	}
+
+	&.oo-ui-popupToolGroup-active {
+		> .oo-ui-popupToolGroup-handle {
+			background-color: @background-color-tool--active;
+			color: @color-tool--active;
+
+			&:hover {
+				background-color: @background-color-tool--active-hover;
+				color: @color-tool--active;
+			}
+		}
+	}
+
+	&-tools .oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
+		color: @color-tool--active;
+	}
+
+	&-tools .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
+		outline: 0;
+		box-shadow: @box-shadow-popuptoolgroup-tool--focus;
+	}
+
+	&.oo-ui-flaggedElement {
+		&-progressive {
+			.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @background-color-framed--hover, @color-progressive--active, @color-progressive--focus );
+		}
+
+		&-destructive {
+			.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-destructive-non-primary, @background-color-framed--hover, @color-destructive--active, @color-destructive--focus );
+		}
+	}
+
+	&.oo-ui-flaggedElement-primary {
+		&.oo-ui-flaggedElement {
+			&-progressive {
+				.mw-primary-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
+			}
+
+			&-destructive {
+				.mw-primary-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-destructive, @color-destructive--hover, @color-destructive--active, @color-destructive--focus );
+			}
+		}
+
+		> .oo-ui-popupToolGroup-handle {
+			> .oo-ui-iconElement-icon,
+			> .oo-ui-indicatorElement-indicator {
+				opacity: @opacity-icon-base--selected;
+			}
+		}
+	}
+}
