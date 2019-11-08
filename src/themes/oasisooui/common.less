@@ -4,6 +4,9 @@
 
 @ooui-font-size-browser: 16; // assumed browser default of `16px`
 @ooui-font-size-base: 0.875 / 1em; // equals `14px` at browser default of `16px`
+@ooui-unit: em;
+
+@size-base: 32 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.5em`≈`32px`
 
 @min-size-icon: 18px; // values used for `min-height` are defined in `px`, see T130691
 @min-size-indicator: 12px;
@@ -12,5 +15,24 @@
 @size-dialog-menu: 200 / @ooui-font-size-browser / @ooui-font-size-base;
 
 @transition-dialog: 300ms;
+
+@margin-top-fieldlayout: 16px;
+@margin-top-fieldlayout--labelled: 12px;
+@margin-top-fieldlayout-help: -6px;
+@margin-end-fieldlayout-help: -8px;
+
+@padding-vertical-label: 4px;
+@max-width-base: 50em;
+@start-frameless-icon: 5 / @ooui-font-size-browser / @ooui-font-size-base;
+@size-modifier-border: 1 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-start-fieldlayout-label: 6px;
+@margin-horizontal-fieldlayout-message: 12px;
+@margin-top-form-fieldset: 24px;
+@margin-top-message: 8px;
+@color-base--disabled: #72777d;
+@margin-bottom-fieldset-header: 8px;
+@font-size-fieldset-header: 16 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-start-fieldset-header-iconized: unit( 26 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ), @ooui-unit );
+
 
 // Theme mixins
