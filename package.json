@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "jquery": "3.4.1",
+    "design-system": "git://github.com/Wikia/design-system.git#22.0.0",
     "oojs": "3.0.0",
     "wikimedia-ui-base": "0.14.0"
   },
