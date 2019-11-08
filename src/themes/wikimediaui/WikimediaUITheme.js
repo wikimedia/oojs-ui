@@ -90,6 +90,10 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 		classes[ variants[ variant ] ? 'on' : 'off' ].push( 'oo-ui-image-' + variant );
 	}
 
+    if (element instanceof OO.ui.TabSelectWidget) {
+        classes['on'].push( 'wds-tabs' );
+    }
+
 	return classes;
 };
 

@@ -5,7 +5,6 @@
  * @constructor
  */
 OO.ui.OasisOOUITheme = function OoUiOasisTheme() {
-	// Parent constructor
 	OO.ui.OasisOOUITheme.parent.call( this );
 };
 
@@ -15,18 +14,19 @@ OO.inheritClass( OO.ui.OasisOOUITheme, OO.ui.Theme );
 
 /* Methods */
 
-/**
- * @inheritdoc
- */
 OO.ui.OasisOOUITheme.prototype.getElementClasses = function ( element ) {
-	// Parent method
 	var classes = OO.ui.OasisOOUITheme.parent.prototype.getElementClasses.call( this, element );
 
-	// Add classes to classes.on or classes.off
+    if (element instanceof OO.ui.TabSelectWidget) {
+        classes['on'].push( 'wds-tabs' );
+    }
 
 	return classes;
 };
 
-/* Instantiation */
+OO.ui.OasisOOUITheme.prototype.updateElementClasses = function ( element ) {
+    var classes = this.getElementClasses( element );
+    element.$element.removeClass( classes.off ).addClass( classes.on );
+};
 
 OO.ui.theme = new OO.ui.OasisOOUITheme();
