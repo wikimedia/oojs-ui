@@ -1817,7 +1817,9 @@
 		}
 
 		> .oo-ui-iconElement-icon {
-			left: @padding-horizontal-input-text;
+			// In contrast to ButtonWidget, add `border` to `left` as icon is a sibling of
+			// `input` with its `border.
+			left: @padding-horizontal-input-text + @border-width-base;
 		}
 
 		textarea + .oo-ui-iconElement-icon {
