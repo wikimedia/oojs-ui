@@ -245,26 +245,26 @@
 
 	&-errors {
 		background-color: rgba( 255, 255, 255, 0.9 );
-		padding: 3em 3em 1.5em 3em;
-		text-align: center;
-
-		.oo-ui-buttonWidget {
-			margin: 2em 1em 2em 1em;
-		}
+		padding: 3em 3em 0 3em;
 
 		&-title {
 			font-size: 1.5em;
 			color: #000;
 			margin-bottom: 2em;
+			text-align: center;
 		}
-	}
 
-	&-error {
-		text-align: left;
-		margin: 1em;
-		padding: 1em;
-		border: 1px solid @border-color-error;
-		background-color: @background-color-error--framed;
+		> .oo-ui-messageWidget {
+			margin: 1em 0 0;
+		}
+
+		&-actions {
+			text-align: center;
+
+			> .oo-ui-buttonWidget {
+				margin: 2em 1em;
+			}
+		}
 	}
 
 	// Ensure layout amendments on mobile.
