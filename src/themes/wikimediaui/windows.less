@@ -274,25 +274,25 @@
 	&-errors {
 		background-color: rgba( 255, 255, 255, 0.9 );
 		padding: 3em 3em 0 3em;
-		text-align: center;
-
-		.oo-ui-buttonWidget {
-			margin: 2em 1em 2em 1em;
-		}
 
 		&-title {
 			font-size: 1.5em;
 			color: @color-base--emphasized;
 			margin-bottom: 1.5em;
+			text-align: center;
 		}
-	}
 
-	&-error {
-		background-color: @background-color-error--framed;
-		margin: 1em 0 0;
-		border: @border-error;
-		padding: @padding-vertical-message-block @padding-horizontal-message-block;
-		text-align: left;
+		> .oo-ui-messageWidget {
+			margin: 1em 0 0;
+		}
+
+		&-actions {
+			text-align: center;
+
+			> .oo-ui-buttonWidget {
+				margin: 2em 1em;
+			}
+		}
 	}
 
 	// Ensure click target sizes and layout amendments on mobile.
