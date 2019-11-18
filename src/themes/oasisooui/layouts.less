@@ -2,9 +2,41 @@
 
 .theme-oo-ui-layout() {}
 
-.theme-oo-ui-bookletLayout() {}
+.theme-oo-ui-bookletLayout() {
+	&-stackLayout {
+		> .oo-ui-panelLayout {
+			padding: @padding-panel-dialog;
+		}
+	}
 
-.theme-oo-ui-indexLayout() {}
+	&-outlinePanel {
+		> .oo-ui-outlineControlsWidget {
+			border-top: @border-dialog-bar;
+		}
+	}
+
+	> .oo-ui-menuLayout-menu {
+		border-right: @border-dialog-bar;
+	}
+}
+
+.theme-oo-ui-indexLayout() {
+	&-stackLayout {
+		> .oo-ui-panelLayout {
+			padding: @padding-panel-dialog;
+		}
+	}
+
+	&.oo-ui-menuLayout.oo-ui-menuLayout-expanded {
+		> .oo-ui-menuLayout-menu {
+			height: @height-tabselect;
+		}
+
+		> .oo-ui-menuLayout-content {
+			top: @height-tabselect;
+		}
+	}
+}
 
 .theme-oo-ui-fieldLayout() {
 	// We just relatively follow M101 design guideline here
@@ -115,7 +147,54 @@
 	}
 }
 
-.theme-oo-ui-actionFieldLayout() {}
+.theme-oo-ui-actionFieldLayout() {
+	&.oo-ui-fieldLayout-align-top {
+		max-width: @max-width-base;
+	}
+
+	.oo-ui-actionFieldLayout-input .oo-ui-widget {
+		&:not( .oo-ui-textInputWidget ) {
+			margin-right: @margin-end-actionlayout-input;
+		}
+
+		&.oo-ui-textInputWidget > .oo-ui-inputWidget-input {
+			border-radius: @border-radius-base 0 0 @border-radius-base;
+			position: relative;
+		}
+	}
+
+	.oo-ui-actionFieldLayout-button {
+		.oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
+			border-radius: 0 @border-radius-base @border-radius-base 0;
+			margin-left: -@border-width-base;
+		}
+
+		.oo-ui-buttonElement-frameless {
+			margin-left: @padding-horizontal-frameless; // Address frameless negative margin focus hack
+		}
+	}
+
+	// Give hovered/focussed widgets higher `z-index`, so that borders display correctly.
+	.oo-ui-actionFieldLayout-input > .oo-ui-textInputWidget {
+		> .oo-ui-inputWidget-input:hover,
+		> .oo-ui-inputWidget-input:focus,
+		&.oo-ui-flaggedElement-invalid > .oo-ui-inputWidget-input {
+			// Apply these styles to the element itself and all following siblings (e.g. .oo-ui-iconElement-icon),
+			// otherwise the icons etc. will disappear behind the input
+			&,
+			& ~ * {
+				z-index: 1;
+			}
+		}
+	}
+
+	.oo-ui-actionFieldLayout-button > .oo-ui-buttonElement > .oo-ui-buttonElement-button {
+		&:hover,
+		&:focus {
+			z-index: 1;
+		}
+	}
+}
 
 .theme-oo-ui-fieldsetLayout() {
 	.oo-ui-fieldsetLayout-header {
@@ -171,11 +250,36 @@
 	}
 }
 
-.theme-oo-ui-formLayout() {}
+.theme-oo-ui-formLayout() {
+	+ .oo-ui-fieldsetLayout,
+	+ .oo-ui-formLayout {
+		margin-top: @margin-top-form-fieldset;
+	}
+}
 
 .theme-oo-ui-menuLayout() {}
 
-.theme-oo-ui-panelLayout() {}
+.theme-oo-ui-panelLayout() {
+	&-padded {
+		padding: @padding-panel-form;
+
+		&.oo-ui-formLayout > .oo-ui-fieldsetLayout {
+			.oo-ui-labelElement-label,
+			.oo-ui-iconElement-icon {
+				margin-top: -( @margin-top-fieldlayout--labelled / 2 ); // Reduce distance for `line-height` and only if element visible
+			}
+		}
+	}
+
+	&-framed {
+		border: @border-dialog;
+		border-radius: @border-radius-base;
+	}
+
+	&-padded&-framed {
+		margin: @margin-top-fieldlayout--labelled 0;
+	}
+}
 
 .theme-oo-ui-tabPanelLayout() {}
 
@@ -183,4 +287,17 @@
 
 .theme-oo-ui-stackLayout() {}
 
-.theme-oo-ui-horizontalLayout() {}
+.theme-oo-ui-horizontalLayout() {
+	> .oo-ui-layout,
+	> .oo-ui-widget {
+		.oo-ui-inline-spacing( @margin-end-widget );
+	}
+
+	> .oo-ui-layout {
+		margin-top: 0;
+	}
+
+	> .oo-ui-widget {
+		margin-bottom: @margin-bottom-horizontallayout-widget;
+	}
+}

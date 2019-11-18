@@ -4,6 +4,133 @@
 
 .theme-oo-ui-buttonElement() {
 	font-size: 12px;
+
+	> input.oo-ui-buttonElement-button {
+		-webkit-appearance: none;
+	}
+
+	&.oo-ui-labelElement {
+		> .oo-ui-buttonElement-button {
+			line-height: @line-height-reset;
+		}
+
+		> input.oo-ui-buttonElement-button,
+		> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			line-height: @line-height-base;
+		}
+
+		&.oo-ui-indicatorElement {
+			> .oo-ui-buttonElement-button {
+				padding-right: @padding-start-indicator-plus;
+			}
+		}
+	}
+
+	&.oo-ui-iconElement .oo-ui-iconElement-icon,
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		.oo-ui-force-gpu-composite-layer();
+	}
+
+	&.oo-ui-indicatorElement {
+		// Indicator and label/icon
+		&.oo-ui-labelElement,
+		&.oo-ui-iconElement {
+			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+				right: @padding-start-indicator;
+			}
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		> .oo-ui-buttonElement-button {
+			.oo-ui-transition(
+					background-color @transition-base,
+					color @transition-base,
+					border-color @transition-base,
+					box-shadow @transition-base
+			);
+
+			> .oo-ui-iconElement-icon,
+			> .oo-ui-indicatorElement-indicator {
+				.oo-ui-transition(
+						opacity @transition-base
+				);
+
+				// Framed `:hover` styles are at `$-framed` below.
+				&:not( .oo-ui-image-invert ) {
+					opacity: @opacity-icon-base;
+				}
+			}
+		}
+
+		&.oo-ui-buttonElement-pressed {
+			> .oo-ui-buttonElement-button {
+				> .oo-ui-iconElement-icon,
+				> .oo-ui-indicatorElement-indicator {
+					opacity: @opacity-icon-base--selected;
+				}
+			}
+		}
+	}
+
+	&-framed {
+		&.oo-ui-iconElement {
+			// Icon (-only) framed
+			> .oo-ui-buttonElement-button {
+				padding-top: @padding-top-icon-indicator;
+				padding-bottom: 0;
+				padding-left: @padding-start-icon-only;
+
+				> .oo-ui-iconElement-icon {
+					// Providing value flexible centering for icon only in mobile context.
+					left: 50%;
+					margin-left: -( @size-icon / 2 );
+				}
+			}
+
+			// Icon and label/indicator framed
+			&.oo-ui-labelElement,
+			&.oo-ui-indicatorElement {
+				> .oo-ui-buttonElement-button {
+					padding-left: @padding-start-input-text-icon-label;
+
+					> .oo-ui-iconElement-icon {
+						left: @start-framed-icon-only;
+						margin-left: 0;
+					}
+				}
+			}
+		}
+
+		&.oo-ui-indicatorElement {
+			// Indicator (-only) framed
+			> .oo-ui-buttonElement-button {
+				padding-top: @padding-top-icon-indicator;
+				padding-right: @padding-start-indicator-only;
+				padding-bottom: 0;
+			}
+		}
+
+		&.oo-ui-labelElement {
+			> .oo-ui-buttonElement-button {
+				padding-top: @padding-vertical-base;
+				padding-bottom: @padding-vertical-base;
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			> .oo-ui-buttonElement-button {
+				&:hover {
+					> .oo-ui-iconElement-icon,
+					> .oo-ui-indicatorElement-indicator {
+						&:not( .oo-ui-image-invert ) {
+							opacity: @opacity-icon-base--hover;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .theme-oo-ui-clippableElement() {}
@@ -22,7 +149,15 @@
 
 .theme-oo-ui-indicatorElement() {}
 
-.theme-oo-ui-labelElement() {}
+.theme-oo-ui-labelElement() {
+	.oo-ui-labelElement-label {
+		line-height: @line-height-label;
+	}
+
+	.oo-ui-labelElement-label-highlight {
+		font-weight: bold;
+	}
+}
 
 .theme-oo-ui-lookupElement() {}
 
