@@ -1,11 +1,377 @@
 @import 'common.less';
 
-.theme-oo-ui-window() {}
+.theme-oo-ui-window() {
+	background: transparent;
+}
 
-.theme-oo-ui-dialog() {}
+.theme-oo-ui-dialog() {
+}
 
-.theme-oo-ui-messageDialog() {}
+.theme-oo-ui-messageDialog() {
+	&-content > .oo-ui-window-foot {
+		outline: @border-dialog; // Use `@border-dialog` here as `outline` is `border` substitute.
+	}
 
-.theme-oo-ui-processDialog() {}
+	&-title,
+	&-message {
+		display: block;
+		line-height: @line-height-message;
+		text-align: center;
+	}
 
-.theme-oo-ui-windowManager() {}
+	&-title {
+		font-size: 1.5em;
+		color: @color-base--emphasized;
+	}
+
+	&-message {
+		font-size: 1.1em;
+		color: @color-base;
+		text-align: left;
+	}
+
+	&-actions {
+		.oo-ui-actionWidget {
+			min-height: @size-dialog-message-bar;
+			.oo-ui-inline-spacing( 0 );
+
+			// Reset Frameless ButtonWidgets
+			&:first-child {
+				margin-left: 0;
+			}
+
+			.oo-ui-buttonElement-button {
+				border: 0;
+				border-radius: 0;
+				padding: 0;
+			}
+
+			&.oo-ui-labelElement .oo-ui-labelElement-label {
+				line-height: @size-dialog-message-bar;
+				text-align: center;
+			}
+
+			&.oo-ui-widget-enabled {
+				&.oo-ui-flaggedElement {
+					&-progressive {
+						.oo-ui-buttonElement-button {
+							&:active {
+								background-color: rgba( 8, 126, 204, 0.1 );
+							}
+						}
+					}
+
+					&-destructive {
+						.oo-ui-buttonElement-button {
+							&:active {
+								background-color: rgba( 212, 83, 83, 0.1 );
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&-horizontal {
+			.oo-ui-actionWidget {
+				border-right: @border-base;
+				margin: 0;
+
+				&:first-child > .oo-ui-buttonElement-button {
+					border-radius: 0 0 0 @border-radius-base;
+				}
+
+				&:last-child {
+					border-right-width: 0;
+
+					> .oo-ui-buttonElement-button {
+						border-radius: 0 0 @border-radius-base 0;
+					}
+				}
+
+				&:only-child > .oo-ui-buttonElement-button {
+					border-radius: 0 0 @border-radius-base @border-radius-base;
+				}
+			}
+		}
+
+		&-vertical {
+			.oo-ui-actionWidget {
+				border-bottom: @border-base;
+				margin: 0;
+
+				&:last-child {
+					border-bottom-width: 0;
+				}
+
+				&:last-child > .oo-ui-buttonElement-button {
+					border-radius: 0 0 @border-radius-base @border-radius-base;
+				}
+			}
+		}
+	}
+}
+
+.theme-oo-ui-processDialog() {
+	&-content {
+		.oo-ui-window-head,
+		.oo-ui-window-foot {
+			outline: @border-dialog-bar; // Use `@border-dialog-bar` here as `outline` is `border` substitute.
+		}
+
+		.oo-ui-window-head {
+			min-height: @size-dialog-bar--desktop;
+		}
+
+		.oo-ui-window-body {
+			top: @size-dialog-bar--desktop;
+		}
+	}
+
+	&-navigation {
+		position: relative;
+		min-height: @size-dialog-bar--desktop;
+	}
+
+	&-location {
+		min-height: @size-dialog-bar--desktop;
+		text-align: center;
+		cursor: default;
+	}
+
+	&-title {
+		font-size: @font-size-dialog-process-title;
+		font-weight: bold;
+		line-height: @size-dialog-bar--desktop / unit( @font-size-dialog-process-title );
+	}
+
+	// ActionWidget is only ever part of ProcessDialog actions (primary, safe, other),
+	// therefore sufficient as only selector.
+	.oo-ui-actionWidget {
+		> .oo-ui-buttonElement-button {
+			border-radius: 0;
+			// For ActionWidgets in top bar (safe and primary).
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+
+			&:hover,
+			&:active {
+				border-top-color: transparent;
+				border-bottom-color: transparent;
+			}
+		}
+
+		&:not( .oo-ui-flaggedElement-progressive ):not( .oo-ui-flaggedElement-destructive ) {
+			> .oo-ui-buttonElement-button {
+				&:hover,
+				&:active {
+					border-right-color: @border-color-dialog-bar;
+					border-left-color: transparent;
+				}
+
+				&:focus {
+					border-color: @border-color-base--focus;
+				}
+			}
+		}
+
+		&.oo-ui-iconElement {
+			> .oo-ui-buttonElement-button {
+				// Use min-height as height includes borders.
+				min-height: @size-dialog-bar--desktop;
+				padding-top: 0;
+				// Make icon only actions a tad wider, specifically the close action.
+				padding-left: @size-dialog-bar--mobile;
+				padding-right: 0;
+			}
+		}
+
+		&.oo-ui-labelElement {
+			&:first-child {
+				margin-left: 0;
+			}
+
+			> .oo-ui-buttonElement-button {
+				padding: @padding-vertical-dialog-action @padding-horizontal-base;
+			}
+
+			&.oo-ui-iconElement {
+				> .oo-ui-buttonElement-button {
+					padding-left: @padding-start-input-text-icon-label;
+				}
+			}
+		}
+	}
+
+	&-actions {
+		&-primary {
+			.oo-ui-actionWidget {
+				> .oo-ui-buttonElement-button {
+					border-left-color: @border-color-dialog-bar;
+					border-right-color: transparent;
+				}
+
+				&:not( .oo-ui-flaggedElement-progressive ):not( .oo-ui-flaggedElement-destructive ) {
+					> .oo-ui-buttonElement-button {
+						&:hover,
+						&:active {
+							border-left-color: @border-color-dialog-bar;
+							border-right-color: transparent;
+						}
+
+						&:focus {
+							border-color: @border-color-base--focus;
+						}
+					}
+				}
+			}
+		}
+
+		&-safe,
+		&-other {
+			.oo-ui-actionWidget > .oo-ui-buttonElement-button {
+				border-right-color: @border-color-dialog-bar;
+				border-left-color: transparent;
+			}
+		}
+
+		&-safe {
+			.oo-ui-widget-enabled.oo-ui-iconElement:not( .oo-ui-labelElement ) {
+				> .oo-ui-buttonElement-button {
+					background-color: transparent;
+					border-right-color: transparent;
+
+					&:hover {
+						background-color: @background-color-framed;
+						border-right-color: @border-color-dialog-bar;
+					}
+
+					&:active {
+						background-color: @background-color-framed--active;
+						border-right-color: @border-color-dialog-bar;
+					}
+
+					&:focus {
+						border-color: @border-color-base--focus;
+					}
+				}
+			}
+		}
+
+		&-other {
+			.oo-ui-actionWidget {
+				&.oo-ui-buttonElement {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	> .oo-ui-window-frame {
+		min-height: 5em;
+	}
+
+	&-errors {
+		background-color: rgba( 255, 255, 255, 0.9 );
+		padding: 3em 3em 0 3em;
+		text-align: center;
+
+		.oo-ui-buttonWidget {
+			margin: 2em 1em 2em 1em;
+		}
+
+		&-title {
+			font-size: 1.5em;
+			color: @color-base--emphasized;
+			margin-bottom: 1.5em;
+		}
+	}
+
+	&-error {
+		background-color: @background-color-error--framed;
+		margin: 1em 0 0;
+		border: @border-error;
+		padding: @padding-vertical-message-block @padding-horizontal-message-block;
+		text-align: left;
+	}
+
+	// Ensure click target sizes and layout amendments on mobile.
+	&.oo-ui-isMobile {
+		.oo-ui-processDialog {
+			&-content .oo-ui-window-head,
+			&-navigation,
+			&-location {
+				min-height: @size-dialog-bar--mobile;
+			}
+
+			&-location {
+				margin-left: 1em;
+				text-align: left;
+			}
+
+			&-title {
+				line-height: @size-dialog-bar--mobile / unit( @font-size-dialog-process-title );
+			}
+
+			&-content .oo-ui-window-body {
+				top: @size-dialog-bar--mobile;
+			}
+		}
+
+		.oo-ui-actionWidget {
+			&.oo-ui-iconElement > .oo-ui-buttonElement-button {
+				// Use min-height as height includes borders.
+				min-height: @size-dialog-bar--mobile;
+				padding-left: @size-dialog-bar--mobile;
+			}
+
+			&.oo-ui-labelElement {
+				> .oo-ui-buttonElement-button {
+					padding: @padding-vertical-tool-label @padding-horizontal-base;
+				}
+
+				&.oo-ui-iconElement {
+					> .oo-ui-buttonElement-button {
+						padding-left: @padding-start-input-text-icon-label;
+					}
+				}
+			}
+		}
+	}
+}
+
+.theme-oo-ui-windowManager() {
+	&-modal > .oo-ui-dialog {
+		background-color: rgba( 255, 255, 255, 0.5 );
+		opacity: 0;
+		.oo-ui-transition( opacity @transition-dialog );
+
+		> .oo-ui-window-frame {
+			background-color: @background-color-base;
+			opacity: 0;
+			.oo-ui-transform( scale( 0.5 ) );
+			.oo-ui-transition( all @transition-dialog );
+		}
+
+		&.oo-ui-window-setup {
+			// Fade window overlay
+			opacity: 1;
+
+			> .oo-ui-window-frame {
+				// Fade frame
+				opacity: 1;
+				.oo-ui-transform( scale( 1 ) );
+			}
+		}
+	}
+
+	&-modal&-floating > .oo-ui-dialog > .oo-ui-window-frame {
+		top: 1em;
+		bottom: 1em;
+		max-height: 100%;
+		max-height: e( 'calc( 100% - 2em )' );
+		border: @border-dialog;
+		border-radius: @border-radius-base;
+		box-shadow: @box-shadow-dialog;
+	}
+}

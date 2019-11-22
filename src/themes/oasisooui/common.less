@@ -1,3 +1,4 @@
+@import "design-system/wds-variables";
 // Theme variables
 
 @ooui-default-image-path: 'themes/oasisooui/images';
@@ -463,7 +464,83 @@
 @size-dialog-menu: 200 / @ooui-font-size-browser / @ooui-font-size-base;
 @transition-dialog: @transition-ease-out-medium;
 
+// Theme mixins
 
+.mw-frameless-button-colored( @child, @color-text, @hover, @active, @focus ) { // following CSS Pseudo Classes
+	> @{child} {
+		color: @color-text;
+	}
+
+	> @{child}:hover {
+		color: @hover;
+	}
+
+	> @{child}:active,
+	> @{child}:active:focus,
+	&.oo-ui-buttonElement-pressed > @{child} {
+		color: @active;
+		box-shadow: none;
+	}
+}
+
+.mw-framed-button-colored( @child, @color-text, @hover, @border-color--hover, @active, @focus ) {
+	> @{child} {
+		color: @color-text;
+	}
+
+	> @{child}:hover {
+		background-color: @hover;
+		border-color: @border-color--hover;
+	}
+
+	> @{child}:active,
+	> @{child}:active:focus,
+	&.oo-ui-buttonElement-pressed > @{child},
+	&.oo-ui-buttonElement-active > @{child},
+	&.oo-ui-popupToolGroup-active > @{child} {
+		background-color: lighten( @active, 60% );
+		color: @active;
+		border-color: @active;
+		box-shadow: none;
+	}
+
+	> @{child}:focus {
+		border-color: @focus;
+		box-shadow: inset 0 0 0 1px @focus;
+	}
+}
+
+.mw-framed-primary-button-colored( @child, @color, @hover, @active, @focus ) {
+	> @{child} {
+		color: @color-base--inverted;
+		background-color: @color;
+		border-color: @color;
+	}
+
+	> @{child}:hover {
+		background-color: @hover;
+		border-color: @hover;
+	}
+
+	> @{child}:active,
+	> @{child}:active:focus,
+	&.oo-ui-buttonElement-pressed > @{child},
+	&.oo-ui-buttonElement-active > @{child},
+	&.oo-ui-popupToolGroup-active > @{child} {
+		color: @color-base--inverted;
+		background-color: @active;
+		border-color: @active;
+		box-shadow: none;
+	}
+
+	> @{child}:focus {
+		border-color: @focus;
+		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base--inverted;
+	}
+}
+
+// For some reason the ':' in the arguments list makes the linter think this a rule.
+// stylelint-disable-next-line selector-class-pattern
 .mw-tool-colored( @child, @color-text, @hover, @active, @focus, @active-text: @active ) {
 	> @{child} {
 		color: @color-text;
