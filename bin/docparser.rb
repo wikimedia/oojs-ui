@@ -190,7 +190,9 @@ def parse_file filename
 				ignore = true
 			when 'inheritable', 'deprecated', 'singleton', 'throws',
 				 'chainable', 'fires', 'localdoc', 'member',
-				 'see', 'uses', 'param-taint'
+				 'see', 'uses', 'param-taint', 'suppress',
+				 'codingStandardsIgnoreStart', 'codingStandardsIgnoreEnd',
+				 'phan-param', 'phan-return', 'phan-suppress-next-line'
 				# skip
 			else
 				bad_input filename, comment_line
