@@ -69,7 +69,7 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	} );
 	this.lookupMenu.connect( this, {
 		toggle: 'onLookupMenuToggle',
-		choose: 'onLookupMenuItemChoose'
+		choose: 'onLookupMenuChoose'
 	} );
 
 	// Initialization
@@ -169,8 +169,17 @@ OO.ui.mixin.LookupElement.prototype.onLookupMenuToggle = function ( visible ) {
  * @protected
  * @param {OO.ui.MenuOptionWidget} item Selected item
  */
-OO.ui.mixin.LookupElement.prototype.onLookupMenuItemChoose = function ( item ) {
-	this.setValue( item.getData() );
+OO.ui.mixin.LookupElement.prototype.onLookupMenuChoose = function ( item ) {
+	if ( this.onLookupMenuItemChoose ) {
+		// @since 0.35.2
+		OO.ui.warnDeprecation(
+			'onLookupMenuItemChoose is deprecated. ' +
+			'Use onLookupMenuChoose instead.'
+		);
+		this.onLookupMenuItemChoose();
+	} else {
+		this.setValue( item.getData() );
+	}
 };
 
 /**
