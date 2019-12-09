@@ -727,6 +727,7 @@ module.exports = function ( grunt ) {
 
 	// Minification tasks for the npm publish step
 	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', 'imagemin:distPngs', 'cssmin' ] );
+	// Note that this skips "git-build", so version numbers are final and don't have a git hash.
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
 	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'banana' ] );
