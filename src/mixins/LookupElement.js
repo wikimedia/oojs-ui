@@ -176,7 +176,7 @@ OO.ui.mixin.LookupElement.prototype.onLookupMenuChoose = function ( item ) {
 			'onLookupMenuItemChoose is deprecated. ' +
 			'Use onLookupMenuChoose instead.'
 		);
-		this.onLookupMenuItemChoose();
+		this.onLookupMenuItemChoose( item );
 	} else {
 		this.setValue( item.getData() );
 	}
