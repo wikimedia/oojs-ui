@@ -1,4 +1,10 @@
 # OOUI Release History
+## v0.36.1 / 2019-12-11
+### Code
+* Follow-up 70e453d: Pass item param (Ed Sanders)
+* Gruntfile: Document that 'publish-build' step doesn't add -pre (James D. Forrester)
+
+
 ## v0.36.0 / 2019-12-04
 ### Breaking changes
 * [BREAKING CHANGE] Require PHP 7.2.9+, up from 5.6.99/HHVM (James D. Forrester)
