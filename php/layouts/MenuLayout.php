@@ -18,11 +18,11 @@ class MenuLayout extends Layout {
 	 */
 	protected $contentWrapper;
 	/**
-	 * @var PanelLayout
+	 * @var ?PanelLayout
 	 */
 	protected $menuPanel;
 	/**
-	 * @var PanelLayout
+	 * @var ?PanelLayout
 	 */
 	protected $contentPanel;
 	/**

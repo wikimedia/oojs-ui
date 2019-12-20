@@ -192,7 +192,7 @@ def parse_file filename
 				 'chainable', 'fires', 'localdoc', 'member',
 				 'see', 'uses', 'param-taint', 'suppress',
 				 'codingStandardsIgnoreStart', 'codingStandardsIgnoreEnd',
-				 'phan-param', 'phan-return', 'phan-suppress-next-line'
+				 /^phan-/
 				# skip
 			else
 				bad_input filename, comment_line
