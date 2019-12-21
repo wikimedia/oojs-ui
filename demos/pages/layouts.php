@@ -88,7 +88,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\ActionFieldLayout(
 			new OOUI\TextInputWidget(),
-			new OOUI\ButtonWidget( [
+			new OOUI\ButtonInputWidget( [
 				'label' => 'Button'
 			] ),
 			[
@@ -116,7 +116,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\ActionFieldLayout(
 			new OOUI\TextInputWidget(),
-			new OOUI\ButtonWidget( [
+			new OOUI\ButtonInputWidget( [
 				'label' => 'Button'
 			] ),
 			[
@@ -127,7 +127,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\ActionFieldLayout(
 			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
-			new OOUI\ButtonWidget( [
+			new OOUI\ButtonInputWidget( [
 				'label' => 'Button'
 			] ),
 			[
@@ -145,7 +145,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\ActionFieldLayout(
 			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
-			new OOUI\ButtonWidget( [
+			new OOUI\ButtonInputWidget( [
 				'label' => 'Button'
 			] ),
 			[
@@ -156,7 +156,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\ActionFieldLayout(
 			new OOUI\TextInputWidget(),
-			new OOUI\ButtonWidget( [
+			new OOUI\ButtonInputWidget( [
 				'label' => 'Button'
 			] ),
 			[
@@ -183,7 +183,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\ActionFieldLayout(
 			new OOUI\TextInputWidget(),
-			new OOUI\ButtonWidget( [
+			new OOUI\ButtonInputWidget( [
 				'label' => 'Button'
 			] ),
 			[
@@ -210,7 +210,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				],
 				'value' => 'b'
 			] ),
-			new OOUI\ButtonWidget( [
+			new OOUI\ButtonInputWidget( [
 				'label' => 'Button'
 			] ),
 			[
@@ -222,7 +222,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\ActionFieldLayout(
 			new OOUI\TextInputWidget(),
-			new OOUI\ButtonWidget( [
+			new OOUI\ButtonInputWidget( [
 				'label' => 'Button'
 			] ),
 			[
@@ -249,7 +249,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\ActionFieldLayout(
 			new OOUI\TextInputWidget(),
-			new OOUI\ButtonWidget( [
+			new OOUI\ButtonInputWidget( [
 				'label' => 'Button'
 			] ),
 			[
