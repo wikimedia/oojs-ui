@@ -15,53 +15,82 @@ OO.inheritClass( OO.ui.OasisOOUITheme, OO.ui.Theme );
 /* Methods */
 
 OO.ui.OasisOOUITheme.prototype.getElementClasses = function ( element ) {
-	var classes = OO.ui.OasisOOUITheme.parent.prototype.getElementClasses.call( this, element );
+    // Parent method
+    var variant, isFramed, isActive, isToolOrGroup,
+        variants = {
+            invert: false,
+            progressive: false,
+            destructive: false,
+            error: false,
+            warning: false,
+            success: false
+        },
+        // Parent method
+        classes = OO.ui.OasisOOUITheme.parent.prototype.getElementClasses.call( this, element );
 
-	return classes;
-};
+    if (
+        element instanceof OO.ui.IconWidget &&
+        // eslint-disable-next-line no-jquery/no-class-state
+        element.$element.hasClass( 'oo-ui-checkboxInputWidget-checkIcon' )
+    ) {
+        // Icon on CheckboxInputWidget
+        variants.invert = true;
+    } else if ( element.supports( [ 'hasFlag' ] ) ) {
+        isFramed = element.supports( [ 'isFramed' ] ) && element.isFramed();
+        isActive = element.supports( [ 'isActive' ] ) && element.isActive();
+        isToolOrGroup =
+            // Check if the class exists, as classes that are not in the 'core' module may
+            // not be loaded.
+            ( OO.ui.Tool && element instanceof OO.ui.Tool ) ||
+            ( OO.ui.ToolGroup && element instanceof OO.ui.ToolGroup );
+        if (
+            // Button with a dark background.
+            isFramed && ( isActive || element.isDisabled() || element.hasFlag( 'primary' ) ) ||
+            // Toolbar with a dark background.
+            isToolOrGroup && element.hasFlag( 'primary' )
+        ) {
+            // … use white icon / indicator, regardless of other flags
+            variants.invert = true;
+        } else if ( !isFramed && element.isDisabled() && !element.hasFlag( 'invert' ) ) {
+            // Frameless disabled button, always use black icon / indicator regardless of
+            // other flags.
+            variants.invert = false;
+        } else if ( !element.isDisabled() ) {
+            // Any other kind of button, use the right colored icon / indicator if available.
+            variants.progressive = element.hasFlag( 'progressive' ) ||
+                // Active tools/toolgroups
+                ( isToolOrGroup && isActive ) ||
+                // Pressed or selected outline/menu option widgets
+                (
+                    (
+                        element instanceof OO.ui.MenuOptionWidget ||
+                        // Check if the class exists, as classes that are not in the 'core' module
+                        // may not be loaded.
+                        (
+                            OO.ui.OutlineOptionWidget &&
+                            element instanceof OO.ui.OutlineOptionWidget
+                        )
+                    ) &&
+                    ( element.isPressed() || element.isSelected() )
+                );
 
-OO.ui.OasisOOUITheme.prototype.updateElementClasses = function ( element ) {
-    var classes = this.getElementClasses( element );
-
-    switch (element.constructor.name) {
-        case 'OoUiTabSelectWidget':
-            classes['on'].push( 'wds-tabs' );
-            break;
-        case 'OoUiTabOptionWidget':
-            classes['on'].push( 'wds-tabs__tab' );
-
-            if (element.selected) {
-                classes['on'].push( 'wds-is-current' );
-            }
-
-            if (element.$label) {
-                element.$label.addClass( 'wds-tabs__tab-label' );
-            }
-            break;
-        case 'OoUiButtonWidget':
-        case 'OoUiButtonInputWidget':
-            console.log(element);
-            if (element.$button) {
-                element.$button.addClass( 'wds-button' );
-
-                if (!element.flags.primary) {
-                    element.$button.addClass( 'wds-is-secondary' );
-                }
-
-                if (!element.framed) {
-                    element.$button.addClass( 'wds-is-text' );
-                }
-
-                if (element.disabled) {
-                    element.$button.addClass( 'wds-is-disabled' );
-                }
-            }
-            break;
-        default:
-            break;
+            variants.destructive = element.hasFlag( 'destructive' );
+            variants.invert = element.hasFlag( 'invert' );
+            variants.error = element.hasFlag( 'error' );
+            variants.warning = element.hasFlag( 'warning' );
+            variants.success = element.hasFlag( 'success' );
+        }
     }
 
-    element.$element.removeClass( classes.off ).addClass( classes.on );
+    for ( variant in variants ) {
+        classes[ variants[ variant ] ? 'on' : 'off' ].push( 'oo-ui-image-' + variant );
+    }
+
+    if (element instanceof OO.ui.TabSelectWidget) {
+        classes['on'].push( 'wds-tabs' );
+    }
+
+    return classes;
 };
 
 OO.ui.theme = new OO.ui.OasisOOUITheme();
