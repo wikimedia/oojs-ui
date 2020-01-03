@@ -7,7 +7,7 @@ module.exports = function ( grunt ) {
 	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
-			oasisooui: 'OasisOOUI',
+			fandom: 'Fandom',
 			wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 			apex: 'Apex'
 		},
@@ -214,8 +214,8 @@ module.exports = function ( grunt ) {
 			coverage: 'coverage/*',
 			doc: 'docs/*',
 			tmp: 'dist/tmp',
-			designSystem: 'src/themes/oasisooui/design-system',
-            designSystemScss: 'src/themes/oasisooui/design-system/variables/*.scss'
+			wds: 'src/themes/fandom/wds-variables',
+            wdsVariables: 'src/themes/fandom/wds-variables/*.scss'
 		},
 		fileExists: {
 			src: requiredFiles.filter( function ( f ) {
@@ -353,15 +353,9 @@ module.exports = function ( grunt ) {
 				dest: 'demos/',
 				expand: true
 			},
-            designSystemVariables: {
+            wdsVariables: {
                 src: 'node_modules/design-system/dist/scss/wds-variables/*.scss',
-                dest: 'src/themes/oasisooui/design-system/variables/',
-                flatten: true,
-                expand: true,
-            },
-            designSystemIcons: {
-                src: 'node_modules/design-system/dist/svg/*.svg',
-                dest: 'src/themes/oasisooui/design-system/icons/',
+                dest: 'src/themes/fandom/wds-variables/',
                 flatten: true,
                 expand: true,
             }
@@ -457,7 +451,7 @@ module.exports = function ( grunt ) {
         scss2less: {
             convert: {
                 files: [{
-                    src: 'src/themes/oasisooui/design-system/variables/*.scss',
+                    src: 'src/themes/fandom/wds-variables/*.scss',
                     dest: './',
                     ext: '.less',
                     expand: true,
@@ -742,16 +736,15 @@ module.exports = function ( grunt ) {
 		'clean:tmp', 'demos'
 	] );
 
-    grunt.registerTask( 'build-oasis', [
+    grunt.registerTask( 'build-fandom', [
         'clean:build', 'fileExists', 'build-code', 'build-styling', 'build-i18n',
         'concat:omnibus',
         'clean:tmp', 'demos'
     ] );
 
-    grunt.registerTask( 'import-design-system', [
-        'clean:designSystem',
-        'copy:designSystemVariables', 'scss2less', 'clean:designSystemScss',
-        'copy:designSystemIcons',
+    grunt.registerTask( 'import-wds', [
+        'clean:wds',
+        'copy:wdsVariables', 'scss2less', 'clean:wdsVariables',
     ] );
 
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );

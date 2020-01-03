@@ -2,7 +2,7 @@
 
 namespace OOUI;
 
-class OasisOOUITheme extends Theme {
+class FandomTheme extends Theme {
 
 	/* Methods */
 

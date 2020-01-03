@@ -4,17 +4,17 @@
  *
  * @constructor
  */
-OO.ui.OasisOOUITheme = function OoUiOasisTheme() {
-	OO.ui.OasisOOUITheme.parent.call( this );
+OO.ui.FandomTheme = function OoUiFandomTheme() {
+	OO.ui.FandomTheme.parent.call( this );
 };
 
 /* Setup */
 
-OO.inheritClass( OO.ui.OasisOOUITheme, OO.ui.Theme );
+OO.inheritClass( OO.ui.FandomTheme, OO.ui.Theme );
 
 /* Methods */
 
-OO.ui.OasisOOUITheme.prototype.getElementClasses = function ( element ) {
+OO.ui.FandomTheme.prototype.getElementClasses = function ( element ) {
     // Parent method
     var variant, isFramed, isActive, isToolOrGroup,
         variants = {
@@ -26,7 +26,7 @@ OO.ui.OasisOOUITheme.prototype.getElementClasses = function ( element ) {
             success: false
         },
         // Parent method
-        classes = OO.ui.OasisOOUITheme.parent.prototype.getElementClasses.call( this, element );
+        classes = OO.ui.FandomTheme.parent.prototype.getElementClasses.call( this, element );
 
     if (
         element instanceof OO.ui.IconWidget &&
@@ -93,4 +93,4 @@ OO.ui.OasisOOUITheme.prototype.getElementClasses = function ( element ) {
     return classes;
 };
 
-OO.ui.theme = new OO.ui.OasisOOUITheme();
+OO.ui.theme = new OO.ui.FandomTheme();

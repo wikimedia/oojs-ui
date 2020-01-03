@@ -25,8 +25,5 @@
 		}
 	},
 	"images": {
-		"bookmark": {
-			"file": "design-system/icons/wds-icons-bookmark.svg"
-		}
 	}
 }
