@@ -41,6 +41,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-tyops' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-string-replace' );
+	grunt.loadNpmTasks( 'grunt-scss2less' );
 	grunt.loadTasks( 'build/tasks' );
 
 	( function () {
@@ -212,7 +213,9 @@ module.exports = function ( grunt ) {
 			tests: 'tests/JSPHP.test.js',
 			coverage: 'coverage/*',
 			doc: 'docs/*',
-			tmp: 'dist/tmp'
+			tmp: 'dist/tmp',
+			designSystem: 'src/themes/oasisooui/design-system',
+            designSystemScss: 'src/themes/oasisooui/design-system/variables/*.scss'
 		},
 		fileExists: {
 			src: requiredFiles.filter( function ( f ) {
@@ -349,7 +352,19 @@ module.exports = function ( grunt ) {
 				src: 'vendor/**',
 				dest: 'demos/',
 				expand: true
-			}
+			},
+            designSystemVariables: {
+                src: 'node_modules/design-system/dist/scss/wds-variables/*.scss',
+                dest: 'src/themes/oasisooui/design-system/variables/',
+                flatten: true,
+                expand: true,
+            },
+            designSystemIcons: {
+                src: 'node_modules/design-system/dist/svg/*.svg',
+                dest: 'src/themes/oasisooui/design-system/icons/',
+                flatten: true,
+                expand: true,
+            }
 		},
 		colorizeSvg: colorizeSvgFiles,
 		svg2png: {
@@ -438,6 +453,20 @@ module.exports = function ( grunt ) {
 				extDot: 'last'
 			}
 		},
+
+        scss2less: {
+            convert: {
+                files: [{
+                    src: 'src/themes/oasisooui/design-system/variables/*.scss',
+                    dest: './',
+                    ext: '.less',
+                    expand: true,
+                    rename: function(dest, src) {
+                        return dest + '/' + src.replace('_','');
+                    }
+                }]
+            }
+        },
 
 		// Lint – Code
 		eslint: {
@@ -698,7 +727,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'build-code', [ 'concat:i18nMessages', 'concat:js' ] );
 	grunt.registerTask( 'build-styling', [
-		'colorizeSvg', 'set-graphics', 'less', 'cssjanus',
+		'colorizeSvg', 'set-graphics:vector', 'less', 'cssjanus',
 		'concat:css', 'concat:demoCss',
 		'copy:imagesCommon', 'copy:imagesThemes',
 		'svg2png'
@@ -712,6 +741,18 @@ module.exports = function ( grunt ) {
 		'copy:wikimediauibasevars',
 		'clean:tmp', 'demos'
 	] );
+
+    grunt.registerTask( 'build-oasis', [
+        'clean:build', 'fileExists', 'build-code', 'build-styling', 'build-i18n',
+        'concat:omnibus',
+        'clean:tmp', 'demos'
+    ] );
+
+    grunt.registerTask( 'import-design-system', [
+        'clean:designSystem',
+        'copy:designSystemVariables', 'scss2less', 'clean:designSystemScss',
+        'copy:designSystemIcons',
+    ] );
 
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 
