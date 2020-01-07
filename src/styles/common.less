@@ -19,7 +19,8 @@
 }
 .oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @ooui-distribution = vector ) {
 	background-color: currentColor;
-	mask-image: url( '@{svg}' );
+	-webkit-mask: url( '@{svg}' ) no-repeat center;
+	mask: url( '@{svg}' ) no-repeat center;
 }
 .oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @ooui-distribution = raster ) {
 	.oo-ui-background-image( @fallback );
