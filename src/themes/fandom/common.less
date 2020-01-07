@@ -18,11 +18,11 @@
 // Primary 'Progressive' and 'Destructive' Colors
 @background-color-progressive: @background-color-primary;
 @background-color-progressive--hover: @background-color-primary--hover;
-@color-progressive: @color-primary; // equals HSB 220°/75%/80%
-@color-progressive--hover: @color-primary--hover; // equals HSB 220°/72%/96%
-@color-progressive--active: #2a4b8d; // equals HSB 220°/70%/55%
-@color-progressive--active-hover: @color-primary;
-@color-progressive--focus: @color-primary--focus;
+@color-progressive: @wds-fandom-color-button-background;
+@color-progressive--active: darken(@wds-fandom-color-button-background, 20%); // equals HSB 220°/70%/55%
+@color-progressive--hover: @color-progressive--active;
+@color-progressive--active-hover: @color-progressive--active;
+@color-progressive--focus: @color-progressive--active;
 
 @color-destructive-non-primary: #d73333; // Exemption for non-primary buttons, foremost used in VE, lightened up R50 to align to AA contrast ratio
 
@@ -124,6 +124,7 @@
 @border-toolgroup: @border-width-base @border-style-base #eaecf0;
 
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
+@border-radius-base: @wds-rounded-corner-radius;
 
 @padding-base: @padding-vertical-base @padding-horizontal-base;
 @padding-frameless: @padding-vertical-base @padding-horizontal-frameless;
@@ -132,7 +133,7 @@
 @padding-menu-large: @padding-vertical-tool-label @padding-horizontal-base;
 @padding-panel-form: 16px;
 @padding-panel-dialog: 20px;
-@padding-horizontal-base: 12px;
+@padding-horizontal-base: @wds-button-horizontal-padding;
 @padding-horizontal-frameless: 6px;
 @padding-horizontal-input-text: 8px;
 @padding-horizontal-message-block: 24px;
@@ -143,7 +144,7 @@
 // All paddings holding icons need `em`s due to font-size derived icon scaling.
 @padding-horizontal-base-iconized: 12 / @ooui-font-size-browser / @ooui-font-size-base;
 // Must be < `8` as it cuts off scripts.
-@padding-vertical-base: 6px;
+@padding-vertical-base: @wds-button-vertical-padding;
 @padding-vertical-label: 4px;
 // Menu items don't have a border.
 @padding-vertical-menu: @padding-vertical-base + @border-width-base;
@@ -220,79 +221,7 @@
 @size-dialog-menu: 200 / @ooui-font-size-browser / @ooui-font-size-base;
 @transition-dialog: @transition-ease-out-medium;
 
-// Theme mixins
-.mw-frameless-button-colored( @child, @color-text, @hover, @active, @focus ) { // following CSS Pseudo Classes
-	> @{child} {
-		color: @color-text;
-	}
-
-	> @{child}:hover {
-		color: @hover;
-	}
-
-	> @{child}:active,
-	> @{child}:active:focus,
-	&.oo-ui-buttonElement-pressed > @{child} {
-		color: @active;
-		box-shadow: none;
-	}
-}
-
-.mw-framed-button-colored( @child, @color-text, @hover, @border-color--hover, @active, @focus ) {
-	> @{child} {
-		color: @color-text;
-	}
-
-	> @{child}:hover {
-		background-color: @hover;
-		border-color: @border-color--hover;
-	}
-
-	> @{child}:active,
-	> @{child}:active:focus,
-	&.oo-ui-buttonElement-pressed > @{child},
-	&.oo-ui-buttonElement-active > @{child},
-	&.oo-ui-popupToolGroup-active > @{child} {
-		background-color: lighten( @active, 60% );
-		color: @active;
-		border-color: @active;
-		box-shadow: none;
-	}
-
-	> @{child}:focus {
-		border-color: @focus;
-		box-shadow: inset 0 0 0 1px @focus;
-	}
-}
-
-.mw-framed-primary-button-colored( @child, @color, @hover, @active, @focus ) {
-	> @{child} {
-		color: @color-base--inverted;
-		background-color: @color;
-		border-color: @color;
-	}
-
-	> @{child}:hover {
-		background-color: @hover;
-		border-color: @hover;
-	}
-
-	> @{child}:active,
-	> @{child}:active:focus,
-	&.oo-ui-buttonElement-pressed > @{child},
-	&.oo-ui-buttonElement-active > @{child},
-	&.oo-ui-popupToolGroup-active > @{child} {
-		color: @color-base--inverted;
-		background-color: @active;
-		border-color: @active;
-		box-shadow: none;
-	}
-
-	> @{child}:focus {
-		border-color: @focus;
-		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base--inverted;
-	}
-}
+@transition-base: @wds-button-transition-duration;
 
 // For some reason the ':' in the arguments list makes the linter think this a rule.
 // stylelint-disable-next-line selector-class-pattern
