@@ -29,7 +29,7 @@
 			"file": "../wikimediaui/images/icons/bookmarkOutline.svg"
 		},
 		"bookmark": {
-			"file": "../wikimediaui/images/icons/bookmark.svg"
+			"file": "~design-system-svg/wds-icons-bookmark.svg"
 		},
 		"block": {
 			"file": "../wikimediaui/images/icons/block.svg",
