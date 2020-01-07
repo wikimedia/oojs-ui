@@ -8,7 +8,7 @@ module.exports = function ( grunt ) {
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
 			fandom: 'Fandom',
-			// wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
+			wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 			// apex: 'Apex'
 		},
 		lessFiles = {},
@@ -737,7 +737,9 @@ module.exports = function ( grunt ) {
 	] );
 
     grunt.registerTask( 'build-fandom', [
-        'clean:build', 'fileExists', 'build-code', 'build-styling', 'build-i18n',
+        'clean:build', 'fileExists', 'build-code',
+        'set-graphics:vector', 'less', 'cssjanus',
+        'concat:css', 'concat:demoCss',
         'concat:omnibus',
         'clean:tmp', 'demos'
     ] );
