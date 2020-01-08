@@ -1,6 +1,6 @@
 {
   "extends": "stylelint-config-standard",
-  "plugins": ["stylelint-scss", "stylelint-order", "stylelint-prettier"],
+  "plugins": ["stylelint-order", "stylelint-prettier"],
   "rules": {
     "at-rule-empty-line-before": [
       "always",
