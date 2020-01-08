@@ -66,9 +66,7 @@
 	}
 
 	&-frameless {
-		> .oo-ui-buttonElement-button {
-			border: @wds-fandom-color-dark-gray solid 1px;
-		}
+		color: @wds-color-dark-gray;
 
 		&.oo-ui-iconElement {
 			//&:first-child {
@@ -78,9 +76,10 @@
 			> .oo-ui-buttonElement-button {
 				min-width: @wds-icon-small-size;
 				min-height: @wds-icon-small-size;
+				padding-left: @wds-button-vertical-padding + @wds-button-horizontal-gap + @wds-icon-small-size;
 
 				> .oo-ui-iconElement-icon {
-					//left: @start-frameless-icon;
+					left: @wds-button-vertical-padding;
 				}
 			}
 		}
@@ -120,10 +119,10 @@
 		&.oo-ui-flaggedElement {
 			&-progressive {
 				> .oo-ui-buttonElement-button {
-					color: @wds-fandom-color-button-background;
+					color: @wds-fandom-color-link;
 
 					&:hover, &:active, &:focus {
-						color: darken(@wds-fandom-color-button-background, 20%);
+						color: @wds-fandom-color-link-hover;
 					}
 				}
 			}
@@ -131,6 +130,10 @@
 			&-destructive {
 				> .oo-ui-buttonElement-button {
 					color: @wds-color-alert;
+
+					&:hover, &:active, &:focus {
+						color: darken(@wds-color-alert, 20%);
+					}
 				}
 			}
 		}
@@ -289,14 +292,9 @@
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-				background-color: @color-progressive--active;
-				color: @color-base--inverted;
-				border-color: @border-color-input-binary--active;
-
-				&:focus {
-					border-color: @color-progressive--focus;
-					box-shadow: @box-shadow-progressive--focus;
-				}
+				background-color: darken(@wds-fandom-color-button-background, 20%);
+				color: @wds-color-white;
+				border-color: darken(@wds-fandom-color-button-background, 20%);
 			}
 		}
 	}
