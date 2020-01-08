@@ -2,28 +2,6 @@
 	"selectorWithoutVariant": ".oo-ui-icon-{name}",
 	"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}",
 	"intro": "@import '../../../../src/styles/common.less';",
-	"variants": {
-		"invert": {
-			"color": "#fff",
-			"global": true
-		},
-		"progressive": {
-			"color": "#36c",
-			"global": true
-		},
-		"destructive": {
-			"color": "#d33"
-		},
-		"error": {
-			"color": "#d33"
-		},
-		"warning": {
-			"color": "#fc3"
-		},
-		"success": {
-			"color": "#14866d"
-		}
-	},
 	"images": {
 		"edit": {
 			"file": "../wikimediaui/images/icons/edit.svg"
@@ -42,7 +20,6 @@
 		},
 		"unLink": {
 			"file": "../wikimediaui/images/icons/unLink.svg",
-			"variants": [ "destructive" ]
 		},
 		"linkExternal": {
 			"file": "~design-system-svg/wds-icons-external.svg"
