@@ -1,5 +1,5 @@
-@import "wds-variables/index";
-@import ( reference ) '../../../node_modules/wikimedia-ui-base/wikimedia-ui-base.less';
+@import 'wds-variables/index';
+@import (reference) '../../../node_modules/wikimedia-ui-base/wikimedia-ui-base.less';
 
 @ooui-default-image-path: 'themes/fandom/images';
 @ooui-font-size-browser: 16; // assumed browser default of `16px`
@@ -58,7 +58,7 @@
 @size-dialog-message-bar: 40 / @ooui-font-size-browser / @ooui-font-size-base;
 @size-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
 
-@size-tag-group-modifier: -( 2 / @ooui-font-size-browser / @ooui-font-size-base );
+@size-tag-group-modifier: -(2 / @ooui-font-size-browser / @ooui-font-size-base);
 @size-toolbar-narrow-modifier: 2 / @ooui-font-size-browser / @ooui-font-size-base;
 @size-modifier-border: 1 / @ooui-font-size-browser / @ooui-font-size-base; // Use for size calculations with borders aside of `px` based `@border-width-base`
 
@@ -73,7 +73,7 @@
 @start-framed-icon-only: 11 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.859375em`≈`11px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
 @start-framed-indicator-only: 15 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.07142857em`≈`15px`; `@size-indicator + 2 * @border-width-base`
 @start-framed-indicator-only-button-combo-widget: 12 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.85714286em`≈`12px`
-@start-frameless: -( 6 / @ooui-font-size-browser / @ooui-font-size-base ); // `-( @start-frameless-icon + @border-width-base )`
+@start-frameless: -(6 / @ooui-font-size-browser / @ooui-font-size-base); // `-( @start-frameless-icon + @border-width-base )`
 @start-frameless-icon: 5 / @ooui-font-size-browser / @ooui-font-size-base;
 @start-fieldlayout-help-icon: 3 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.234375em`≈`3px`
 @start-tagmultiselect-input: 8 / @ooui-font-size-browser / @ooui-font-size-base; // Same as `@padding-horizontal-tagitem`.
@@ -156,7 +156,10 @@
 @padding-start-icon: @size-icon;
 // All paddings holding icons/indicators need `em`s due to font-size derived icon scaling.
 @padding-start-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base; // @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base.
-@padding-start-fieldset-header-iconized: unit( 26 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ), @ooui-unit );
+@padding-start-fieldset-header-iconized: unit(
+	26 / @ooui-font-size-browser / (@ooui-font-size-base * @font-size-fieldset-header),
+	@ooui-unit
+);
 @padding-start-messages: 8 / @ooui-font-size-browser / @ooui-font-size-base;
 // Indicator receives a little less than `@padding-horizontal-base` to make up for its fragility.
 // Also abusing `@padding-start` as `start` value.
@@ -175,8 +178,8 @@
 @padding-end-toolgroup-label-indicator: 26 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-end-toolgroup-indicator: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 
-@box-shadow-toolbar-top: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
-@box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.1 );
+@box-shadow-toolbar-top: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+@box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba(0, 0, 0, 0.1);
 @box-shadow-widget: inset 0 0 0 1px transparent;
 @box-shadow-widget--focus: inset 0 0 0 1px @color-progressive;
 @box-shadow-progressive--focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-base--inverted;
@@ -187,7 +190,7 @@
 @box-shadow-input-binary--active: inset 0 0 0 1px @color-progressive--active;
 @box-shadow-error--focus: inset 0 0 0 1px @color-error;
 
-@filter-drop-shadow-menu: drop-shadow( 0 2px 1px rgba( 0, 0, 0, 0.3 ) );
+@filter-drop-shadow-menu: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.3));
 
 // `font-size` has to be in `em` to enable user override in browser settings for accessibility.
 @font-size-small: 13 / @ooui-font-size-browser / @ooui-font-size-base;
@@ -197,11 +200,20 @@
 
 // `line-height` has to be relative/in `em` to enable user override in browser settings.
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
-@line-height-base: unit( 18 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit ); // equals `18px` at base `font-size: 14px;
+@line-height-base: unit(
+	18 / @ooui-font-size-browser / @ooui-font-size-base,
+	@ooui-unit
+); // equals `18px` at base `font-size: 14px;
 @line-height-message: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `20px` at base `font-size: 14px`
 @line-height-label: 20 / @ooui-font-size-browser / @ooui-font-size-base;
-@line-height-tagitem-label: unit( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small, @ooui-unit ); // Push label down by 1 px for vertical centering.
-@line-height-widget-decoratedoption: unit( 16 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit ); // Equals `1.14286em`≈`16px`; Firefox needs a value, Chrome the unit.
+@line-height-tagitem-label: unit(
+	21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small,
+	@ooui-unit
+); // Push label down by 1 px for vertical centering.
+@line-height-widget-decoratedoption: unit(
+	16 / @ooui-font-size-browser / @ooui-font-size-base,
+	@ooui-unit
+); // Equals `1.14286em`≈`16px`; Firefox needs a value, Chrome the unit.
 
 @opacity-icon-accessory: 0.67; // Equals `#555`, closest to `#54595d` on background-color `#fff`
 
@@ -214,7 +226,7 @@
 @border-color-input-binary: @border-color-base--active;
 @border-color-input-binary--active: @color-progressive--active;
 @border-color-input-binary--checked: @color-progressive;
-@box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
+@box-shadow-input-binary: 0 0 0 1px rgba(0, 0, 0, 0.1);
 @border-width-radio--checked: 6px;
 
 // Dialogs
@@ -238,21 +250,21 @@
 	> @{child}:active:focus,
 	&.oo-ui-tool-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
-		background-color: lighten( @active, 60% );
-		color: @active-text;
+		background-color: lighten(@active, 60%);
 		box-shadow: none;
+		color: @active-text;
 	}
 
 	> @{child}:focus {
-		outline: @border-width-base @border-style-base @focus;
 		box-shadow: inset 0 0 0 1px @focus;
+		outline: @border-width-base @border-style-base @focus;
 	}
 }
 
 .mw-primary-tool-colored( @child, @color, @hover, @active, @focus ) {
 	> @{child} {
-		color: @color-base--inverted;
 		background-color: @color;
+		color: @color-base--inverted;
 	}
 
 	> @{child}:hover {
@@ -262,14 +274,14 @@
 	> @{child}:active,
 	> @{child}:active:focus,
 	&.oo-ui-tool-active > @{child} {
-		color: @color-base--inverted;
 		background-color: @active;
 		box-shadow: none;
+		color: @color-base--inverted;
 	}
 
 	> @{child}:focus {
-		outline: @border-width-base @border-style-base @focus;
 		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base--inverted;
+		outline: @border-width-base @border-style-base @focus;
 	}
 
 	&.oo-ui-widget-disabled > @{child},

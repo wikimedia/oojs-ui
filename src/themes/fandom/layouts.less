@@ -1,7 +1,5 @@
 @import 'common.less';
 
-.theme-oo-ui-layout() {}
-
 .theme-oo-ui-bookletLayout() {
 	&-stackLayout {
 		> .oo-ui-panelLayout {
@@ -69,9 +67,10 @@
 		&.oo-ui-fieldLayout-align-right {
 			> .oo-ui-fieldLayout-body {
 				> .oo-ui-fieldLayout-header {
-					.oo-ui-box-sizing( border-box );
-					width: 40%;
+					.oo-ui-box-sizing(border-box);
+
 					padding-right: @size-base + @start-frameless-icon;
+					width: 40%;
 
 					> .oo-ui-labelElement-label {
 						display: block;
@@ -80,9 +79,9 @@
 				}
 
 				> .oo-ui-fieldLayout-help {
+					margin-left: -(@size-base + @size-modifier-border);
 					// Override the default
 					margin-right: 0;
-					margin-left: -( @size-base + @size-modifier-border );
 				}
 
 				> .oo-ui-fieldLayout-field {
@@ -92,18 +91,19 @@
 		}
 
 		&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
-			padding-top: 0;
 			padding-bottom: 0;
 			padding-left: @padding-start-fieldlayout-label;
+			padding-top: 0;
 		}
 	}
 
-	.oo-ui-fieldLayout-help { // Assuming that this is a PopupButtonWidget
+	.oo-ui-fieldLayout-help {
+		// Assuming that this is a PopupButtonWidget
 		margin-right: 0; // Override `.oo-ui-inline-spacing()`.
 
 		.oo-ui-buttonElement-button {
-			padding-top: @size-icon;
 			padding-right: 0; // Accessible label causes triggering of `.oo-ui-labelElement`, we need to reset it here
+			padding-top: @size-icon;
 
 			&:hover,
 			&:active {
@@ -119,16 +119,17 @@
 	&.oo-ui-fieldLayout-align-top,
 	&.oo-ui-fieldLayout-align-inline {
 		.oo-ui-fieldLayout-help {
+			margin-left: 0; // Reset `.oo-ui-buttonElement-frameless.oo-ui-iconElement:first-child`
+			margin-right: @margin-end-fieldlayout-help;
 			// HACK: This PopupButtonWidget's height extends below the header line (with align: top),
 			// causing the field widget to be narrower than it should be.
 			margin-top: @margin-top-fieldlayout-help;
-			margin-right: @margin-end-fieldlayout-help;
-			margin-left: 0; // Reset `.oo-ui-buttonElement-frameless.oo-ui-iconElement:first-child`
 		}
 	}
 
 	&-messages {
-		.oo-ui-box-sizing( border-box );
+		.oo-ui-box-sizing(border-box);
+
 		max-width: @max-width-base;
 		padding: @padding-vertical-label 0;
 
@@ -153,7 +154,7 @@
 	}
 
 	.oo-ui-actionFieldLayout-input .oo-ui-widget {
-		&:not( .oo-ui-textInputWidget ) {
+		&:not(.oo-ui-textInputWidget) {
 			margin-right: @margin-end-actionlayout-input;
 		}
 
@@ -216,9 +217,9 @@
 
 	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
 		display: inline-block;
-		margin-bottom: @margin-bottom-fieldset-header;
 		font-size: @font-size-fieldset-header;
 		font-weight: bold;
+		margin-bottom: @margin-bottom-fieldset-header;
 	}
 
 	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
@@ -239,8 +240,8 @@
 		}
 
 		.oo-ui-buttonElement-button {
-			padding-top: @size-icon;
 			padding-right: 0; // Accessible label causes triggering of `.oo-ui-labelElement`, we need to reset it here
+			padding-top: @size-icon;
 
 			&:hover,
 			&:active {
@@ -257,7 +258,8 @@
 	}
 }
 
-.theme-oo-ui-menuLayout() {}
+.theme-oo-ui-menuLayout() {
+}
 
 .theme-oo-ui-panelLayout() {
 	&-padded {
@@ -266,7 +268,7 @@
 		&.oo-ui-formLayout > .oo-ui-fieldsetLayout {
 			.oo-ui-labelElement-label,
 			.oo-ui-iconElement-icon {
-				margin-top: -( @margin-top-fieldlayout--labelled / 2 ); // Reduce distance for `line-height` and only if element visible
+				margin-top: -(@margin-top-fieldlayout--labelled / 2); // Reduce distance for `line-height` and only if element visible
 			}
 		}
 	}
@@ -281,16 +283,10 @@
 	}
 }
 
-.theme-oo-ui-tabPanelLayout() {}
-
-.theme-oo-ui-pageLayout() {}
-
-.theme-oo-ui-stackLayout() {}
-
 .theme-oo-ui-horizontalLayout() {
 	> .oo-ui-layout,
 	> .oo-ui-widget {
-		.oo-ui-inline-spacing( @margin-end-widget );
+		.oo-ui-inline-spacing(@margin-end-widget);
 	}
 
 	> .oo-ui-layout {

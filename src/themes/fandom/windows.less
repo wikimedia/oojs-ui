@@ -4,9 +4,6 @@
 	background: transparent;
 }
 
-.theme-oo-ui-dialog() {
-}
-
 .theme-oo-ui-messageDialog() {
 	&-content > .oo-ui-window-foot {
 		outline: @border-dialog; // Use `@border-dialog` here as `outline` is `border` substitute.
@@ -20,20 +17,20 @@
 	}
 
 	&-title {
-		font-size: 1.5em;
 		color: @color-base--emphasized;
+		font-size: 1.5em;
 	}
 
 	&-message {
-		font-size: 1.1em;
 		color: @color-base;
+		font-size: 1.1em;
 		text-align: left;
 	}
 
 	&-actions {
 		.oo-ui-actionWidget {
 			min-height: @size-dialog-message-bar;
-			.oo-ui-inline-spacing( 0 );
+			.oo-ui-inline-spacing(0);
 
 			// Reset Frameless ButtonWidgets
 			&:first-child {
@@ -56,7 +53,7 @@
 					&-progressive {
 						.oo-ui-buttonElement-button {
 							&:active {
-								background-color: rgba( 8, 126, 204, 0.1 );
+								background-color: rgba(8, 126, 204, 0.1);
 							}
 						}
 					}
@@ -64,7 +61,7 @@
 					&-destructive {
 						.oo-ui-buttonElement-button {
 							&:active {
-								background-color: rgba( 212, 83, 83, 0.1 );
+								background-color: rgba(212, 83, 83, 0.1);
 							}
 						}
 					}
@@ -129,44 +126,44 @@
 	}
 
 	&-navigation {
-		position: relative;
 		min-height: @size-dialog-bar--desktop;
+		position: relative;
 	}
 
 	&-location {
+		cursor: default;
 		min-height: @size-dialog-bar--desktop;
 		text-align: center;
-		cursor: default;
 	}
 
 	&-title {
 		font-size: @font-size-dialog-process-title;
 		font-weight: bold;
-		line-height: @size-dialog-bar--desktop / unit( @font-size-dialog-process-title );
+		line-height: @size-dialog-bar--desktop / unit(@font-size-dialog-process-title);
 	}
 
 	// ActionWidget is only ever part of ProcessDialog actions (primary, safe, other),
 	// therefore sufficient as only selector.
 	.oo-ui-actionWidget {
 		> .oo-ui-buttonElement-button {
+			border-bottom-color: transparent;
 			border-radius: 0;
 			// For ActionWidgets in top bar (safe and primary).
 			border-top-color: transparent;
-			border-bottom-color: transparent;
 
 			&:hover,
 			&:active {
-				border-top-color: transparent;
 				border-bottom-color: transparent;
+				border-top-color: transparent;
 			}
 		}
 
-		&:not( .oo-ui-flaggedElement-progressive ):not( .oo-ui-flaggedElement-destructive ) {
+		&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
 			> .oo-ui-buttonElement-button {
 				&:hover,
 				&:active {
-					border-right-color: @border-color-dialog-bar;
 					border-left-color: transparent;
+					border-right-color: @border-color-dialog-bar;
 				}
 
 				&:focus {
@@ -179,10 +176,10 @@
 			> .oo-ui-buttonElement-button {
 				// Use min-height as height includes borders.
 				min-height: @size-dialog-bar--desktop;
-				padding-top: 0;
 				// Make icon only actions a tad wider, specifically the close action.
 				padding-left: @size-dialog-bar--mobile;
 				padding-right: 0;
+				padding-top: 0;
 			}
 		}
 
@@ -211,7 +208,7 @@
 					border-right-color: transparent;
 				}
 
-				&:not( .oo-ui-flaggedElement-progressive ):not( .oo-ui-flaggedElement-destructive ) {
+				&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
 					> .oo-ui-buttonElement-button {
 						&:hover,
 						&:active {
@@ -230,13 +227,13 @@
 		&-safe,
 		&-other {
 			.oo-ui-actionWidget > .oo-ui-buttonElement-button {
-				border-right-color: @border-color-dialog-bar;
 				border-left-color: transparent;
+				border-right-color: @border-color-dialog-bar;
 			}
 		}
 
 		&-safe {
-			.oo-ui-widget-enabled.oo-ui-iconElement:not( .oo-ui-labelElement ) {
+			.oo-ui-widget-enabled.oo-ui-iconElement:not(.oo-ui-labelElement) {
 				> .oo-ui-buttonElement-button {
 					background-color: transparent;
 					border-right-color: transparent;
@@ -272,7 +269,7 @@
 	}
 
 	&-errors {
-		background-color: rgba( 255, 255, 255, 0.9 );
+		background-color: rgba(255, 255, 255, 0.9);
 		padding: 3em 3em 0 3em;
 		text-align: center;
 
@@ -281,16 +278,16 @@
 		}
 
 		&-title {
-			font-size: 1.5em;
 			color: @color-base--emphasized;
+			font-size: 1.5em;
 			margin-bottom: 1.5em;
 		}
 	}
 
 	&-error {
 		background-color: @background-color-error--framed;
-		margin: 1em 0 0;
 		border: @border-error;
+		margin: 1em 0 0;
 		padding: @padding-vertical-message-block @padding-horizontal-message-block;
 		text-align: left;
 	}
@@ -310,7 +307,7 @@
 			}
 
 			&-title {
-				line-height: @size-dialog-bar--mobile / unit( @font-size-dialog-process-title );
+				line-height: @size-dialog-bar--mobile / unit(@font-size-dialog-process-title);
 			}
 
 			&-content .oo-ui-window-body {
@@ -342,15 +339,15 @@
 
 .theme-oo-ui-windowManager() {
 	&-modal > .oo-ui-dialog {
-		background-color: rgba( 255, 255, 255, 0.5 );
+		background-color: rgba(255, 255, 255, 0.5);
 		opacity: 0;
-		.oo-ui-transition( opacity @transition-dialog );
+		.oo-ui-transition(opacity @transition-dialog);
 
 		> .oo-ui-window-frame {
 			background-color: @background-color-base;
 			opacity: 0;
-			.oo-ui-transform( scale( 0.5 ) );
-			.oo-ui-transition( all @transition-dialog );
+			.oo-ui-transform(scale(0.5));
+			.oo-ui-transition(all @transition-dialog);
 		}
 
 		&.oo-ui-window-setup {
@@ -360,18 +357,18 @@
 			> .oo-ui-window-frame {
 				// Fade frame
 				opacity: 1;
-				.oo-ui-transform( scale( 1 ) );
+				.oo-ui-transform(scale(1));
 			}
 		}
 	}
 
 	&-modal&-floating > .oo-ui-dialog > .oo-ui-window-frame {
-		top: 1em;
-		bottom: 1em;
-		max-height: 100%;
-		max-height: e( 'calc( 100% - 2em )' );
 		border: @border-dialog;
 		border-radius: @border-radius-base;
+		bottom: 1em;
 		box-shadow: @box-shadow-dialog;
+		max-height: 100%;
+		max-height: e('calc( 100% - 2em )');
+		top: 1em;
 	}
 }
