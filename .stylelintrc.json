@@ -17,6 +17,7 @@
       }
     ],
     "block-closing-brace-newline-after": "always-single-line",
+    "block-no-empty": null,
     "color-no-invalid-hex": true,
     "declaration-colon-newline-after": null,
     "function-linear-gradient-no-nonstandard-direction": true,
