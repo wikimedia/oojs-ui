@@ -38,20 +38,17 @@
 			}
 		},
 		"link": {
-			"file": "../wikimediaui/images/icons/link.svg"
+			"file": "~design-system-svg/wds-icons-link.svg"
 		},
 		"unLink": {
 			"file": "../wikimediaui/images/icons/unLink.svg",
 			"variants": [ "destructive" ]
 		},
 		"linkExternal": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/linkExternal-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/linkExternal-rtl.svg"
-			}
+			"file": "~design-system-svg/wds-icons-external.svg"
 		},
 		"linkSecure": {
-			"file": "../wikimediaui/images/icons/linkSecure.svg"
+			"file": "~design-system-svg/wds-icons-lock.svg"
 		},
 		"redo": {
 			"file": {

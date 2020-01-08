@@ -38,10 +38,10 @@
 			"file": "../wikimediaui/images/icons/notBright.svg"
 		},
 		"eye": {
-			"file": "../wikimediaui/images/icons/eye.svg"
+			"file": "~design-system-svg/wds-icons-eye.svg"
 		},
 		"eyeClosed": {
-			"file": "../wikimediaui/images/icons/eyeClosed.svg"
+			"file": "~design-system-svg/wds-icons-eye-crossed.svg"
 		},
 		"moon": {
 			"file": "../wikimediaui/images/icons/moon.svg"

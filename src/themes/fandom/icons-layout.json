@@ -26,7 +26,8 @@
 	},
 	"images": {
 		"menu": {
-			"file": "../wikimediaui/images/icons/menu.svg" },
+			"file": "~design-system-svg/wds-icons-menu.svg"
+		},
 		"stripeFlow": {
 			"file": {
 				"ltr": "../wikimediaui/images/icons/stripeFlow-ltr.svg",

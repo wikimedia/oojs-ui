@@ -51,15 +51,15 @@
 			}
 		},
 		"lock": {
-			"file": "../wikimediaui/images/icons/lock.svg",
+			"file": "~design-system-svg/wds-icons-lock.svg",
 			"variants": [ "destructive" ]
 		},
 		"unLock": {
-			"file": "../wikimediaui/images/icons/unLock.svg",
+			"file": "~design-system-svg/wds-icons-unlock.svg",
 			"variants": [ "destructive" ]
 		},
 		"restore": {
-			"file": "../wikimediaui/images/icons/restore.svg"
+			"file": "~design-system-svg/wds-icons-trash-open.svg"
 		},
 		"star": {
 			"file": "../wikimediaui/images/icons/star.svg"
@@ -74,21 +74,18 @@
 			"file": "../wikimediaui/images/icons/unStar.svg"
 		},
 		"trash": {
-			"file": "../wikimediaui/images/icons/trash.svg",
+			"file": "~design-system-svg/wds-icons-trash.svg",
 			"variants": [ "destructive" ]
 		},
 		"unTrash": {
-			"file": "../wikimediaui/images/icons/restore.svg",
+			"file": "~design-system-svg/wds-icons-trash-open.svg",
 			"deprecated": "Changed and renamed since v0.31.1, use 'restore' instead."
 		},
 		"pushPin": {
-			"file": "../wikimediaui/images/icons/pushPin.svg"
+			"file": "~design-system-svg/wds-icons-pin.svg"
 		},
 		"ongoingConversation": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/ongoingConversation-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/ongoingConversation-rtl.svg"
-			}
+			"file": "~design-system-svg/wds-icons-bubble.svg"
 		}
 	}
 }

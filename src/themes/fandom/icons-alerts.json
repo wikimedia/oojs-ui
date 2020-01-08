@@ -26,34 +26,31 @@
 	},
 	"images": {
 		"alert": {
-			"file": "../wikimediaui/images/icons/alert.svg",
+			"file": "~design-system-svg/wds-icons-alert.svg",
 			"variants": [
 				"warning"
 			]
 		},
 		"bell": {
-			"file": "../wikimediaui/images/icons/bell.svg"
+			"file": "~design-system-svg/wds-icons-bell.svg"
 		},
 		"bellOutline": {
-			"file": "../wikimediaui/images/icons/bellOutline.svg"
+			"file": "~design-system-svg/wds-icons-bell.svg"
 		},
 		"error": {
-			"file": "../wikimediaui/images/icons/error.svg",
+			"file": "~design-system-svg/wds-icons-error.svg",
 			"variants": [
 				"error"
 			]
 		},
 		"message": {
-			"file": "../wikimediaui/images/icons/message.svg"
+			"file": "~design-system-svg/wds-icons-message.svg"
 		},
 		"notice": {
 			"file": "../wikimediaui/images/icons/notice.svg"
 		},
 		"speechBubble": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/speechBubble-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/speechBubble-rtl.svg"
-			}
+			"file": "~design-system-svg/wds-icons-bubble.svg"
 		},
 		"speechBubbleAdd": {
 			"file": {
