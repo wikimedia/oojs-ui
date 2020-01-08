@@ -9,7 +9,7 @@
   "homepage": "https://www.mediawiki.org/wiki/OOUI",
   "repository": {
     "type": "git",
-    "url": "https://phabricator.wikimedia.org/diffusion/GOJU/oojs-ui.git"
+    "url": "https://gerrit.wikimedia.org/r/oojs/ui"
   },
   "license": "MIT",
   "main": "dist/oojs-ui.js",

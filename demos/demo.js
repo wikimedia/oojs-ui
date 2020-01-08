@@ -699,7 +699,7 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 				// The code generated for Demo widgets cannot be copied and used
 				if ( item.constructor.name.indexOf( 'Demo' ) === 0 ) {
 					url =
-						'https://phabricator.wikimedia.org/diffusion/GOJU/browse/master/demos/classes/' +
+						'https://gerrit.wikimedia.org/g/oojs/ui/+/master/demos/classes/' +
 						item.constructor.name.slice( 4 ) + '.js';
 					demoLinks.push( url );
 				} else {
