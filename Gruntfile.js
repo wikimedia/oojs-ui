@@ -8,7 +8,7 @@ module.exports = function ( grunt ) {
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
 			fandom: 'Fandom',
-			wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
+			// wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 			// apex: 'Apex'
 		},
 		lessFiles = {},

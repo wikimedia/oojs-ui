@@ -5,13 +5,18 @@
 
 .theme-oo-ui-buttonElement() {
 	> .oo-ui-buttonElement-button {
+		align-items: center;
 		border-radius: @wds-rounded-corner-radius;
+		display: grid;
 		font-size: @wds-font-size-xs;
 		font-weight: 600;
+		grid-template-columns: repeat(3, auto);
+		justify-items: center;
+		letter-spacing: 0.15px;
 		padding: @wds-button-vertical-padding @wds-button-horizontal-padding;
-		position: relative;
 		text-decoration: none;
 		text-transform: uppercase;
+		.oo-ui-transition(background-color @transition-base, color @transition-base, border-color @transition-base);
 
 		&:focus {
 			outline: 0;
@@ -23,97 +28,23 @@
 		-moz-appearance: none;
 	}
 
-	&.oo-ui-labelElement {
-		letter-spacing: 0.15px;
-
+	&.oo-ui-indicatorElement.oo-ui-iconElement,
+	&.oo-ui-labelElement.oo-ui-iconElement,
+	&.oo-ui-labelElement.oo-ui-indicatorElement {
 		> .oo-ui-buttonElement-button {
-			line-height: @wds-line-height-none;
-		}
-
-		> input.oo-ui-buttonElement-button,
-		> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-			line-height: @wds-font-size-l;
-		}
-	}
-
-	&.oo-ui-iconElement .oo-ui-iconElement-icon,
-	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		.oo-ui-force-gpu-composite-layer();
-	}
-
-	&.oo-ui-indicatorElement {
-		&.oo-ui-labelElement,
-		&.oo-ui-iconElement {
-			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-				right: @wds-button-horizontal-padding;
-			}
-		}
-	}
-
-	&.oo-ui-widget-enabled {
-		> .oo-ui-buttonElement-button {
-			.oo-ui-transition(background-color @transition-base, color @transition-base, border-color @transition-base);
+			grid-gap: @wds-button-horizontal-gap;
 		}
 	}
 
 	&.oo-ui-widget-disabled {
 		> .oo-ui-buttonElement-button {
+			opacity: 0.5;
 			pointer-events: none;
 		}
 	}
 
 	&-frameless {
 		color: @wds-color-dark-gray;
-
-		&.oo-ui-iconElement {
-			//&:first-child {
-			//	margin-left: @start-frameless; // Address `left` on `.oo-ui-iconElement-icon` below with negative value
-			//}
-
-			> .oo-ui-buttonElement-button {
-				min-height: @wds-icon-small-size;
-				min-width: @wds-icon-small-size;
-				padding-left: @wds-button-vertical-padding + @wds-button-horizontal-gap + @wds-icon-small-size;
-
-				> .oo-ui-iconElement-icon {
-					left: @wds-button-vertical-padding;
-				}
-			}
-		}
-
-		&.oo-ui-labelElement {
-			&:first-child {
-				//margin-left: -@padding-horizontal-frameless; // Address `padding-left/-right` below
-			}
-
-			&.oo-ui-iconElement {
-				&:first-child {
-					//margin-left: @start-frameless;
-				}
-			}
-		}
-
-		&.oo-ui-indicatorElement {
-			> .oo-ui-buttonElement-button {
-				min-height: @wds-icon-small-size;
-				min-width: @wds-icon-small-size;
-			}
-
-			&.oo-ui-iconElement > .oo-ui-buttonElement-button {
-				// Reset with specificity from above, see T174968
-				//padding-left: @padding-start-frameless-icon-plus + @padding-start-indicator-only;
-			}
-
-			&.oo-ui-labelElement > .oo-ui-buttonElement-button {
-				// Reset with specificity from above, see T174167
-				//padding-left: @padding-horizontal-frameless;
-				//padding-top: @padding-vertical-base;
-			}
-
-			&.oo-ui-iconElement.oo-ui-labelElement > .oo-ui-buttonElement-button {
-				//padding-left: @padding-start-icon-only;
-			}
-		}
 
 		&.oo-ui-flaggedElement {
 			&-progressive {
@@ -144,101 +75,33 @@
 		&.oo-ui-widget-enabled {
 			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
 			& > .oo-ui-buttonElement-button:active {
-				border-color: @border-color-frameless;
-				box-shadow: none;
-				color: @color-base--active;
-			}
-
-			&[class*='oo-ui-flaggedElement'] {
-				> .oo-ui-buttonElement-button {
-					> .oo-ui-iconElement-icon,
-					> .oo-ui-indicatorElement-indicator {
-						opacity: @opacity-icon-base--selected;
-					}
-				}
-			}
-		}
-
-		&.oo-ui-widget-disabled {
-			> .oo-ui-buttonElement-button {
-				opacity: 0.5;
+				border-color: currentColor;
 			}
 		}
 	}
 
 	&-framed {
 		> .oo-ui-buttonElement-button {
-			border: 1px solid @wds-fandom-color-dark-gray;
-			border-color: @wds-fandom-color-dark-gray;
+			border-color: currentColor;
+			border-style: solid;
+			border-width: 1px;
 			color: @wds-fandom-color-dark-gray;
 
 			&:hover,
 			&:focus,
 			&:active {
-				border-color: darken(@wds-fandom-color-dark-gray, 20%);
 				color: darken(@wds-fandom-color-dark-gray, 20%);
-
-				//> .oo-ui-iconElement-icon,
-				//> .oo-ui-indicatorElement-indicator {
-				//	&:not( .oo-ui-image-invert ) {
-				//		opacity: @opacity-icon-base--hover;
-				//	}
-				//}
-			}
-		}
-
-		&.oo-ui-iconElement {
-			// Icon (-only) framed
-			> .oo-ui-buttonElement-button {
-				min-height: @button-min-height;
-				min-width: 2 * @wds-button-horizontal-padding + @size-icon;
-
-				> .oo-ui-iconElement-icon {
-					left: 50%;
-					margin-left: -(@size-icon / 2);
-				}
-			}
-
-			// Icon and label/indicator framed
-			&.oo-ui-labelElement,
-			&.oo-ui-indicatorElement {
-				> .oo-ui-buttonElement-button {
-					padding-left: @wds-button-horizontal-padding + @wds-icon-small-size + @wds-button-horizontal-gap;
-
-					> .oo-ui-iconElement-icon {
-						left: @wds-button-horizontal-padding;
-						margin-left: 0;
-					}
-				}
-			}
-		}
-
-		&.oo-ui-indicatorElement {
-			// Indicator (-only) framed
-			> .oo-ui-buttonElement-button {
-				padding-bottom: 0;
-				padding-right: @wds-button-horizontal-padding + @wds-icon-tiny-size + @wds-button-horizontal-gap;
-				padding-top: @padding-top-icon-indicator;
-			}
-		}
-
-		&.oo-ui-labelElement {
-			> .oo-ui-buttonElement-button {
-				padding-bottom: @padding-vertical-base;
-				padding-top: @padding-vertical-base;
 			}
 		}
 
 		&.oo-ui-flaggedElement {
 			&-progressive {
 				> .oo-ui-buttonElement-button {
-					border-color: @wds-fandom-color-link;
 					color: @wds-fandom-color-link;
 
 					&:focus,
 					&:hover,
 					&:active {
-						border-color: @wds-fandom-color-link-hover;
 						color: @wds-fandom-color-link-hover;
 					}
 				}
@@ -246,7 +109,6 @@
 
 			&-destructive {
 				> .oo-ui-buttonElement-button {
-					border-color: @wds-color-alert;
 					color: @wds-color-alert;
 
 					&:focus,
@@ -291,19 +153,6 @@
 					}
 				}
 			}
-
-			//> .oo-ui-buttonElement-button {
-			//	> .oo-ui-iconElement-icon,
-			//	> .oo-ui-indicatorElement-indicator {
-			//		opacity: @opacity-icon-base--selected;
-			//	}
-			//}
-		}
-
-		&.oo-ui-widget-disabled {
-			> .oo-ui-buttonElement-button {
-				opacity: 0.5;
-			}
 		}
 
 		&.oo-ui-widget-enabled {
@@ -335,9 +184,20 @@
 }
 
 .theme-oo-ui-iconElement() {
+	&-icon {
+		position: static;
+	}
 }
 
 .theme-oo-ui-indicatorElement() {
+	&-indicator {
+		position: static;
+	}
+
+	.oo-ui-indicator-down,
+	.oo-ui-indicator-up {
+		margin-right: -6px;
+	}
 }
 
 .theme-oo-ui-labelElement() {
