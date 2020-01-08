@@ -583,7 +583,7 @@ module.exports = function ( grunt ) {
 				'php/**/*.php',
 				'.{stylelintrc,eslintrc.json}'
 			],
-			tasks: 'quick-build'
+			tasks: 'build-fandom'
 		},
 
 		// Adding new theme
@@ -738,8 +738,7 @@ module.exports = function ( grunt ) {
 
     grunt.registerTask( 'build-fandom', [
         'clean:build', 'fileExists', 'build-code',
-        'set-graphics:vector', 'less', 'cssjanus',
-        'concat:css', 'concat:demoCss',
+        'build-styling',
         'concat:omnibus',
         'clean:tmp', 'demos'
     ] );
