@@ -26,16 +26,16 @@
 	},
 	"images": {
 		"camera": {
-			"file": "../wikimediaui/images/icons/camera.svg"
+			"file": "~design-system-svg/wds-icons-camera.svg"
 		},
 		"chart": {
-			"file": "../wikimediaui/images/icons/chart.svg"
+			"file": "~design-system-svg/wds-icons-activity.svg"
 		},
 		"exitFullscreen": {
-			"file": "../wikimediaui/images/icons/exitFullscreen.svg"
+			"file": "~design-system-svg/wds-icons-zoom-out.svg"
 		},
 		"fullScreen": {
-			"file": "../wikimediaui/images/icons/fullScreen.svg"
+			"file": "~design-system-svg/wds-icons-zoom-in.svg"
 		},
 		"image": {
 			"file": "../wikimediaui/images/icons/image.svg"
@@ -62,13 +62,13 @@
 			"file": "../wikimediaui/images/icons/musicalScore.svg"
 		},
 		"pause": {
-			"file": "../wikimediaui/images/icons/pause.svg"
+			"file": "~design-system-svg/wds-icons-pause.svg"
 		},
 		"play": {
-			"file": "../wikimediaui/images/icons/play.svg"
+			"file": "~design-system-svg/wds-icons-play.svg"
 		},
 		"stop": {
-			"file": "../wikimediaui/images/icons/stop.svg"
+			"file": "~design-system-svg/wds-icons-checkbox-empty.svg"
 		},
 		"zoomIn": {
 			"file": "../wikimediaui/images/icons/zoomIn.svg"

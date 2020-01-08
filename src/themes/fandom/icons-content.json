@@ -71,7 +71,7 @@
 			"file": "../wikimediaui/images/icons/die.svg"
 		},
 		"download": {
-			"file": "../wikimediaui/images/icons/download.svg"
+			"file": "~design-system-svg/wds-icons-download.svg"
 		},
 		"folderPlaceholder": {
 			"file": {
@@ -102,10 +102,7 @@
 			"file": "../wikimediaui/images/icons/robot.svg"
 		},
 		"tag": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/tag-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/tag-rtl.svg"
-			},
+			"file": "~design-system-svg/wds-icons-tag.svg",
 			"variants": [
 				"destructive",
 				"error",

@@ -9,6 +9,18 @@ var Q = require( 'q' ),
 	path = require( 'path' ),
 	asyncTask = require( 'grunt-promise-q' );
 
+function replaceDesignSystemSVGPath( file ) {
+	if ( typeof file === 'string' ) {
+		return file.replace( '~design-system-svg/', '../../../node_modules/design-system/dist/svg/' );
+	} else {
+		const newFile = {};
+		Object.keys( file ).forEach( (key) => {
+			newFile[ key ] = replaceDesignSystemSVGPath( file[ key ] );
+		} );
+		return newFile;
+	}
+}
+
 module.exports = function ( grunt ) {
 
 	/* Classes */
@@ -61,7 +73,8 @@ module.exports = function ( grunt ) {
 	function Image( list, name, data ) {
 		this.list = list;
 		this.name = name;
-		this.file = data.file;
+		this.file = replaceDesignSystemSVGPath( data.file );
+
 		this.variantNames = ( data.variants || [] )
 			.concat( this.list.getVariants().getGlobalVariantNames() )
 			.filter( function ( variant, index, variants ) {
