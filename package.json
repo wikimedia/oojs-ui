@@ -13,13 +13,6 @@
   },
   "license": "MIT",
   "main": "dist/oojs-ui.js",
-  "files": [
-    "/README.md",
-    "/LICENSE-MIT",
-    "/AUTHORS.txt",
-    "/History.md",
-    "/dist/"
-  ],
   "scripts": {
     "test": "grunt test",
     "predoc": "grunt build",
