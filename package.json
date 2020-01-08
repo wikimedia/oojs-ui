@@ -31,8 +31,8 @@
     "jenkins": "npm test && npm run doc && npm run postdoc"
   },
   "dependencies": {
-    "jquery": "3.4.1",
     "design-system": "git://github.com/Wikia/design-system.git#360041f894d99c3e3ae04b90ed2c2e68277dfc8a",
+    "jquery": "3.4.1",
     "oojs": "3.0.0",
     "wikimedia-ui-base": "0.14.0"
   },
@@ -73,6 +73,11 @@
     "prismjs": "1.17.1",
     "q": "1.5.1",
     "qunit": "2.9.1",
-    "stylelint-config-wikimedia": "0.7.0"
+    "prettier": "^1.19.1",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-config-wikimedia": "0.7.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.13.0"
   }
 }

@@ -1,0 +1,51 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": ["stylelint-scss", "stylelint-order", "stylelint-prettier"],
+  "rules": {
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": ["blockless-after-same-name-blockless", "first-nested"],
+        "ignore": ["after-comment"],
+        "ignoreAtRules": ["media", "else"]
+      }
+    ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["extend", "include", "mixin", "for", "if", "else", "function", "return", "at-root", "content"]
+      }
+    ],
+    "block-closing-brace-newline-after": "always-single-line",
+    "color-no-invalid-hex": true,
+    "declaration-colon-newline-after": null,
+    "function-linear-gradient-no-nonstandard-direction": true,
+    "indentation": "tab",
+    "media-feature-name-no-unknown": true,
+    "no-descending-specificity": null,
+    "property-no-unknown": true,
+    "rule-empty-line-before": [
+      "always",
+      {
+        "ignore": ["after-comment", "inside-block"]
+      }
+    ],
+    "string-quotes": "single",
+    "value-list-comma-newline-after": null,
+    "order/properties-alphabetical-order": true,
+    "order/order": [
+      "custom-properties",
+      "dollar-variables",
+      {
+        "type": "at-rule",
+        "name": "extend"
+      },
+      {
+        "type": "at-rule",
+        "name": "include"
+      },
+      "declarations"
+    ],
+    "prettier/prettier": true
+  }
+}
