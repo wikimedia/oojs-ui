@@ -1,5 +1,10 @@
 [![npm](https://img.shields.io/npm/v/oojs-ui.svg?style=flat)](https://www.npmjs.com/package/oojs-ui) [![Packagist](https://img.shields.io/packagist/v/oojs/oojs-ui.svg?style=flat)](https://packagist.org/packages/oojs/oojs-ui) [![David](https://img.shields.io/david/dev/wikimedia/oojs-ui.svg?style=flat)](https://david-dm.org/wikimedia/oojs-ui#info=devDependencies)
 
+This is a fork of MediaWiki oojs-ui library with Fandom theme used in Fandom's unified-platform.
+
+If you want to publish new version just update version in package.json and than run `npm publish`.
+You need to be logged in to our internal npm registry (artifactory). To login use `npm login`.
+
 OOUI
 =================
 
