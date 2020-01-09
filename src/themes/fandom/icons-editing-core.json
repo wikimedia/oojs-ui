@@ -19,7 +19,7 @@
 			"file": "~design-system-svg/wds-icons-link.svg"
 		},
 		"unLink": {
-			"file": "../wikimediaui/images/icons/unLink.svg",
+			"file": "../wikimediaui/images/icons/unLink.svg"
 		},
 		"linkExternal": {
 			"file": "~design-system-svg/wds-icons-external.svg"
