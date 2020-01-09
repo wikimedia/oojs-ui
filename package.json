@@ -1,6 +1,6 @@
 {
-  "name": "oojs-ui",
-  "version": "0.35.1",
+  "name": "@fandom/oojs-ui",
+  "version": "0.35.1-test2",
   "description": "User interface classes built on the OOjs framework.",
   "keywords": [
     "oojs-plugin",
@@ -28,7 +28,8 @@
     "quickdoc": "grunt quick-build && npm run doc && grunt copy:jsduck",
     "publish-build": "grunt publish-build",
     "demos": "grunt publish-build && grunt demos",
-    "jenkins": "npm test && npm run doc && npm run postdoc"
+    "jenkins": "npm test && npm run doc && npm run postdoc",
+    "prepublishOnly": "npm run publish-build"
   },
   "dependencies": {
     "design-system": "git://github.com/Wikia/design-system.git#360041f894d99c3e3ae04b90ed2c2e68277dfc8a",
@@ -78,5 +79,8 @@
     "stylelint-config-wikimedia": "0.7.0",
     "stylelint-order": "^4.0.0",
     "stylelint-prettier": "^1.1.2"
+  },
+  "publishConfig": {
+    "registry": "https://artifactory.wikia-inc.com/artifactory/api/npm/wikia-npm/"
   }
 }
