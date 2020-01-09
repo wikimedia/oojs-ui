@@ -740,8 +740,7 @@ module.exports = function ( grunt ) {
         'clean:build', 'fileExists', 'build-code',
         'build-styling',
         'concat:omnibus',
-        'clean:tmp',
-      'clean:demos', 'copy:demos'
+        'clean:tmp', 'demos'
     ] );
 
     grunt.registerTask( 'import-wds', [
