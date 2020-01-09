@@ -2,8 +2,8 @@
 
 namespace OOUI\Tests;
 
-use OOUI\WikimediaUITheme;
 use OOUI\Theme;
+use OOUI\WikimediaUITheme;
 
 class TestCase extends \PHPUnit\Framework\TestCase {
 	/**

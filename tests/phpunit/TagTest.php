@@ -105,9 +105,9 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 		] );
 		$this->assertEquals( 'foo', $tag->getAttribute( 'attr1' ) );
 		$this->assertEquals( 'bar', $tag->getAttribute( 'attr2' ) );
-		$this->assertEquals( null, $tag->getAttribute( 'attr3' ) );
+		$this->assertNull( $tag->getAttribute( 'attr3' ) );
 		$tag->removeAttributes( [ 'attr1' ] );
-		$this->assertEquals( null, $tag->getAttribute( 'attr1' ) );
+		$this->assertNull( $tag->getAttribute( 'attr1' ) );
 		$this->assertEquals( 'bar', $tag->getAttribute( 'attr2' ) );
 	}
 
