@@ -7,7 +7,7 @@ module.exports = function ( grunt ) {
 	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
-			fandom: 'Fandom',
+			fandom: 'Fandom'
 			// wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 			// apex: 'Apex'
 		},
@@ -448,19 +448,19 @@ module.exports = function ( grunt ) {
 			}
 		},
 
-        scss2less: {
-            convert: {
-                files: [{
-                    src: 'src/themes/fandom/wds-variables/*.scss',
-                    dest: './',
-                    ext: '.less',
-                    expand: true,
-                    rename: function(dest, src) {
-                        return dest + '/' + src.replace('_','');
-                    }
-                }]
-            }
-        },
+    scss2less: {
+        convert: {
+            files: [{
+                src: 'src/themes/fandom/wds-variables/*.scss',
+                dest: './',
+                ext: '.less',
+                expand: true,
+                rename: function(dest, src) {
+                    return dest + '/' + src.replace('_','');
+                }
+            }]
+        }
+    },
 
 		// Lint – Code
 		eslint: {
@@ -740,7 +740,8 @@ module.exports = function ( grunt ) {
         'clean:build', 'fileExists', 'build-code',
         'build-styling',
         'concat:omnibus',
-        'clean:tmp', 'demos'
+        'clean:tmp',
+      'clean:demos', 'copy:demos'
     ] );
 
     grunt.registerTask( 'import-wds', [

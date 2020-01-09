@@ -1,39 +1,25 @@
 @import 'common.less';
+@import 'mixins/flex-button';
 
 .theme-oo-ui-element() {
 }
 
 .theme-oo-ui-buttonElement() {
-	> .oo-ui-buttonElement-button {
-		align-items: center;
-		border-radius: @wds-rounded-corner-radius;
-		display: grid;
-		font-size: @wds-font-size-xs;
-		font-weight: 600;
-		grid-template-columns: repeat(3, auto);
-		justify-items: center;
-		letter-spacing: 0.15px;
-		padding: @wds-button-vertical-padding @wds-button-horizontal-padding;
-		text-decoration: none;
-		text-transform: uppercase;
-		.oo-ui-transition(background-color @transition-base, color @transition-base, border-color @transition-base);
+	.flex-button(~'> .oo-ui-buttonElement-button');
 
-		&:focus {
-			outline: 0;
-		}
+	> .oo-ui-buttonElement-button {
+		border-radius: @wds-rounded-corner-radius;
+	}
+
+	> button.oo-ui-buttonElement-button {
+		color: currentColor;
 	}
 
 	> input.oo-ui-buttonElement-button {
 		-webkit-appearance: none;
 		-moz-appearance: none;
-	}
-
-	&.oo-ui-indicatorElement.oo-ui-iconElement,
-	&.oo-ui-labelElement.oo-ui-iconElement,
-	&.oo-ui-labelElement.oo-ui-indicatorElement {
-		> .oo-ui-buttonElement-button {
-			grid-gap: @wds-button-horizontal-gap;
-		}
+		color: currentColor;
+		padding: @wds-button-vertical-padding @wds-button-horizontal-padding;
 	}
 
 	&.oo-ui-widget-disabled {
@@ -44,7 +30,7 @@
 	}
 
 	&-frameless {
-		color: @wds-color-dark-gray;
+		color: @wds-fandom-color-dark-gray;
 
 		&.oo-ui-flaggedElement {
 			&-progressive {
@@ -185,24 +171,21 @@
 
 .theme-oo-ui-iconElement() {
 	&-icon {
+		display: inline-block;
 		position: static;
 	}
 }
 
 .theme-oo-ui-indicatorElement() {
 	&-indicator {
+		display: inline-block;
 		position: static;
-	}
-
-	.oo-ui-indicator-down,
-	.oo-ui-indicator-up {
-		margin-right: -6px;
 	}
 }
 
 .theme-oo-ui-labelElement() {
 	.oo-ui-labelElement-label {
-		line-height: @line-height-label;
+		line-height: @wds-line-height-normal;
 	}
 
 	.oo-ui-labelElement-label-highlight {

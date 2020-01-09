@@ -194,7 +194,7 @@
 			left: 0;
 			position: absolute;
 			width: @size-input-binary;
-			.oo-ui-box-sizing(border-box);
+			box-sizing: border-box;
 
 			// Support all other browsers.
 			:root & {
@@ -545,7 +545,7 @@
 		padding-left: @padding-horizontal-base;
 		padding-right: @padding-end-dropdown;
 		vertical-align: middle;
-		.oo-ui-box-sizing(border-box);
+		box-sizing: border-box;
 
 		/* Support IE 10: Move it in again and also add `padding`. Because we talk to morons. */
 		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -1150,7 +1150,7 @@
 			left: 0;
 			position: absolute;
 			width: @size-input-binary;
-			.oo-ui-box-sizing(border-box);
+			box-sizing: border-box;
 
 			// Support all other browsers.
 			:root & {
@@ -1509,7 +1509,7 @@
 }
 
 .theme-oo-ui-tagItemWidget() {
-	.oo-ui-box-sizing(border-box);
+	box-sizing: border-box;
 
 	border: @border-base;
 	border-radius: @height-tagitem;
@@ -1626,7 +1626,7 @@
 	width: 100%;
 
 	&-handle {
-		.oo-ui-box-sizing(border-box);
+		box-sizing: border-box;
 
 		border: @border-base;
 		border-radius: @border-radius-base;
@@ -1646,7 +1646,7 @@
 				line-height: @line-height-base;
 				padding: @padding-vertical-base 0 @padding-vertical-base @start-tagmultiselect-input;
 				vertical-align: top;
-				.oo-ui-box-sizing(border-box);
+				box-sizing: border-box;
 
 				.mw-placeholder();
 

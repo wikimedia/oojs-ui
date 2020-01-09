@@ -1,0 +1,31 @@
+.flex-button( @parent-selector ) {
+	@{parent-selector} {
+		align-items: center;
+		display: flex;
+		font-size: @wds-font-size-xs;
+		font-weight: 600;
+		justify-content: center;
+		letter-spacing: 0.15px;
+		line-height: @wds-line-height-normal;
+		padding: @wds-button-vertical-padding @wds-button-horizontal-padding - @wds-button-horizontal-gap;
+		text-decoration: none;
+		text-transform: uppercase;
+		.oo-ui-transition(background-color @transition-base, color @transition-base, border-color @transition-base);
+
+		&:focus {
+			outline: 0;
+		}
+
+		> * {
+			margin: 0 @wds-button-horizontal-gap;
+		}
+	}
+
+	&:not(.oo-ui-indicatorElement) > * > .oo-ui-indicatorElement-indicator,
+	&:not(.oo-ui-labelElement) > * > .oo-ui-labelElement-label,
+	&:not(.oo-ui-iconElement) > * > .oo-ui-iconElement-icon {
+		margin: 0;
+		min-width: 0;
+		width: 0;
+	}
+}
