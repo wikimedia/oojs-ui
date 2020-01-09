@@ -1,6 +1,6 @@
 {
-  "name": "oojs-ui",
-  "version": "0.35.1",
+  "name": "@fandom/oojs-ui",
+  "version": "0.35.1-test",
   "description": "User interface classes built on the OOjs framework.",
   "keywords": [
     "oojs-plugin",
@@ -13,6 +13,13 @@
   },
   "license": "MIT",
   "main": "dist/oojs-ui.js",
+  "files": [
+    "/README.md",
+    "/LICENSE-MIT",
+    "/AUTHORS.txt",
+    "/History.md",
+    "/dist/"
+  ],
   "scripts": {
     "test": "grunt test",
     "predoc": "grunt build",
@@ -71,5 +78,8 @@
     "stylelint-config-wikimedia": "0.7.0",
     "stylelint-order": "^4.0.0",
     "stylelint-prettier": "^1.1.2"
+  },
+  "publishConfig": {
+    "registry": "https://artifactory.wikia-inc.com/artifactory/api/npm/wikia-npm/"
   }
 }

@@ -13,10 +13,10 @@
 			}
 		},
 		"cancel": {
-			"file": "../wikimediaui/images/icons/cancel.svg",
+			"file": "../wikimediaui/images/icons/cancel.svg"
 		},
 		"check": {
-			"file": "~design-system-svg/wds-icons-checkmark.svg",
+			"file": "~design-system-svg/wds-icons-checkmark.svg"
 		},
 		"checkAll": {
 			"file": "../wikimediaui/images/icons/checkAll.svg"
@@ -94,7 +94,7 @@
 			"file": "~design-system-svg/wds-icons-gear.svg"
 		},
 		"subtract": {
-			"file": "../wikimediaui/images/icons/subtract.svg",
+			"file": "../wikimediaui/images/icons/subtract.svg"
 		}
 	}
 }
