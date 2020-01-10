@@ -139,17 +139,26 @@
 			}
 		}
 
-		&.oo-ui-widget-enabled {
-			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-				background-color: @wds-fandom-color-button-background;
-				border-color: @wds-fandom-color-button-background;
-				color: @wds-fandom-color-black;
+		&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
+			> .oo-ui-buttonElement-button {
+				background-color: @wds-fandom-color-dark-gray;
+				border-color: @wds-fandom-color-dark-gray;
+				color: @wds-color-white;
+			}
 
-				&:focus,
-				&:hover,
-				&:active {
-					background-color: darken(@wds-fandom-color-button-background, 20%);
-					border-color: darken(@wds-fandom-color-button-background, 20%);
+			&.oo-ui-flaggedElement {
+				&-progressive {
+					> .oo-ui-buttonElement-button {
+						background-color: @wds-fandom-color-link;
+						border-color: @wds-fandom-color-link;
+					}
+				}
+
+				&-destructive {
+					> .oo-ui-buttonElement-button {
+						background-color: @wds-color-alert;
+						border-color: @wds-color-alert;
+					}
 				}
 			}
 		}
