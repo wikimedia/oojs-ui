@@ -191,15 +191,19 @@
 }
 
 .theme-oo-ui-iconElement() {
-	&-icon {
+	&-icon:not(.oo-ui-iconElement-noIcon) {
+		background-color: currentColor;
 		display: inline-block;
+		mask-size: contain;
 		position: static;
 	}
 }
 
 .theme-oo-ui-indicatorElement() {
-	&-indicator {
+	&-indicator:not(.oo-ui-indicatorElement-noIndicator) {
+		background-color: currentColor;
 		display: inline-block;
+		mask-size: contain;
 		position: static;
 	}
 }

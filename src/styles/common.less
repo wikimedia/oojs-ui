@@ -18,7 +18,6 @@
 	background-image: linear-gradient( transparent, transparent ), e( '/* @embed */' ) url( @svg );
 }
 .oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @ooui-distribution = vector ) {
-	background-color: currentColor;
 	-webkit-mask: url( '@{svg}' ) no-repeat center;
 	mask: url( '@{svg}' ) no-repeat center;
 }
