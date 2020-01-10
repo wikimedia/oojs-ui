@@ -68,9 +68,7 @@
 
 	&-framed {
 		> .oo-ui-buttonElement-button {
-			border-color: currentColor;
-			border-style: solid;
-			border-width: 1px;
+			border: 1px solid currentColor;
 			color: @wds-fandom-color-dark-gray;
 
 			&:hover,
@@ -143,9 +141,16 @@
 
 		&.oo-ui-widget-enabled {
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-				background-color: darken(@wds-fandom-color-button-background, 20%);
-				border-color: darken(@wds-fandom-color-button-background, 20%);
-				color: @wds-color-white;
+				background-color: @wds-fandom-color-button-background;
+				border-color: @wds-fandom-color-button-background;
+				color: @wds-fandom-color-black;
+
+				&:focus,
+				&:hover,
+				&:active {
+					background-color: darken(@wds-fandom-color-button-background, 20%);
+					border-color: darken(@wds-fandom-color-button-background, 20%);
+				}
 			}
 		}
 	}
