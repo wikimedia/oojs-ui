@@ -11,10 +11,6 @@
 		border-radius: @wds-rounded-corner-radius;
 	}
 
-	> button.oo-ui-buttonElement-button {
-		color: currentColor;
-	}
-
 	> input.oo-ui-buttonElement-button {
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -30,7 +26,12 @@
 	}
 
 	&-frameless {
+		border: 1px solid transparent;
 		color: @wds-fandom-color-dark-gray;
+
+		> button.oo-ui-buttonElement-button {
+			color: inherit;
+		}
 
 		&.oo-ui-flaggedElement {
 			&-progressive {
