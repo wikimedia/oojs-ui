@@ -911,14 +911,14 @@
 			&::before {
 				// The subtracting-triangles method results in a line that
 				// is ~0.7px wide, so make it slightly darker to compensate.
-				border-bottom-color: darken(@wds-fandom-color-mid-light-gray, 14%);
+				border-bottom-color: @wds-fandom-color-mid-light-gray;
 				border-width: @size-anchor + 1px;
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor;
 			}
 
 			&::after {
-				border-bottom-color: @wds-color-white; // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
+				border-bottom-color: @wds-color-white;
 				border-width: @size-anchor;
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor + 1px;
@@ -933,14 +933,14 @@
 			bottom: -@size-anchor;
 
 			&::before {
-				border-top-color: @border-color-base;
+				border-top-color: @wds-fandom-color-mid-light-gray;
 				border-width: @size-anchor + 1px;
 				left: -@size-anchor;
 				top: -@size-anchor - 1px;
 			}
 
 			&::after {
-				border-top-color: @background-color-base; // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
+				border-top-color: @wds-color-white;
 				border-width: @size-anchor;
 				left: -@size-anchor + 1px;
 				top: -@size-anchor - 1px;
@@ -955,14 +955,14 @@
 			left: -@size-anchor;
 
 			&::before {
-				border-right-color: @border-color-base;
+				border-right-color: @wds-fandom-color-mid-light-gray;
 				border-width: @size-anchor + 1px;
 				right: -@size-anchor - 1px;
 				top: -@size-anchor;
 			}
 
 			&::after {
-				border-right-color: @background-color-base; // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
+				border-right-color: @wds-color-white;
 				border-width: @size-anchor;
 				right: -@size-anchor - 1px;
 				top: -@size-anchor + 1px;
@@ -977,14 +977,14 @@
 			right: -@size-anchor;
 
 			&::before {
-				border-left-color: @border-color-base;
+				border-left-color: @wds-fandom-color-mid-light-gray;
 				border-width: @size-anchor + 1px;
 				left: -@size-anchor - 1px;
 				top: -@size-anchor;
 			}
 
 			&::after {
-				border-left-color: @background-color-base; // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
+				border-left-color: @wds-color-white;
 				border-width: @size-anchor;
 				left: -@size-anchor - 1px;
 				top: -@size-anchor + 1px;

@@ -71,7 +71,6 @@
 			> .oo-ui-fieldLayout-body {
 				> .oo-ui-fieldLayout-header {
 					box-sizing: border-box;
-
 					padding-right: @size-base + @start-frameless-icon;
 					width: 40%;
 
@@ -132,7 +131,6 @@
 
 	&-messages {
 		box-sizing: border-box;
-
 		max-width: @max-width-base;
 		padding: @padding-vertical-label 0;
 
@@ -201,32 +199,23 @@
 }
 
 .theme-oo-ui-fieldsetLayout() {
-	.oo-ui-fieldsetLayout-header {
-		max-width: @max-width-base;
-
-		.oo-ui-iconElement-icon {
-			height: @size-icon;
-		}
-	}
-
-	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header .oo-ui-iconElement-icon {
-		display: block;
-	}
-
 	+ .oo-ui-fieldsetLayout,
 	+ .oo-ui-formLayout {
 		margin-top: @margin-top-form-fieldset;
 	}
 
-	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
-		display: inline-block;
-		font-size: @font-size-fieldset-header;
-		font-weight: bold;
+	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header,
+	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header {
+		display: inline-flex;
+		align-items: center;
 		margin-bottom: @margin-bottom-fieldset-header;
+		padding: 0;
 	}
 
-	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
-		padding-left: @padding-start-fieldset-header-iconized;
+	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
+		font-size: @wds-font-size-base;
+		font-weight: @wds-font-weight-bold;
+		margin-left: @wds-button-horizontal-gap;
 	}
 
 	> .oo-ui-inline-help {

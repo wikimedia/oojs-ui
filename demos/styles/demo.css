@@ -595,11 +595,6 @@ FieldLayout left & right aligned */
 	border-radius: 0;
 }
 
-/* Ensure color contrast in accessibility testing */
-.demo-summary-buttonElement.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
-	color: #cd2323;
-}
-
 /* Special case: MessageWidget in full-width to receive `max-width`. */
 .oo-ui-messageWidget {
 	max-width: 50em;

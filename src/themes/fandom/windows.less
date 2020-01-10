@@ -9,7 +9,7 @@
 
 .theme-oo-ui-messageDialog() {
 	&-content > .oo-ui-window-foot {
-		outline: @border-dialog; // Use `@border-dialog` here as `outline` is `border` substitute.
+		outline: @wds-fandom-color-mid-light-gray;
 	}
 
 	&-title,
@@ -116,7 +116,7 @@
 	&-content {
 		.oo-ui-window-head,
 		.oo-ui-window-foot {
-			outline: @border-dialog-bar; // Use `@border-dialog-bar` here as `outline` is `border` substitute.
+			outline: 1px solid @wds-color-light-c3;
 		}
 
 		.oo-ui-window-head {
@@ -140,9 +140,9 @@
 	}
 
 	&-title {
-		font-size: @font-size-dialog-process-title;
-		font-weight: bold;
-		line-height: @size-dialog-bar--desktop / unit(@font-size-dialog-process-title);
+		//font-size: @font-size-dialog-process-title;
+		font-weight: @wds-font-weight-bold;
+		line-height: @size-dialog-bar--desktop;
 	}
 
 	// ActionWidget is only ever part of ProcessDialog actions (primary, safe, other),
@@ -150,7 +150,7 @@
 	.oo-ui-actionWidget {
 		> .oo-ui-buttonElement-button {
 			border-bottom-color: transparent;
-			border-radius: 0;
+			border-radius: 0 @wds-rounded-corner-radius 0 0;
 			// For ActionWidgets in top bar (safe and primary).
 			border-top-color: transparent;
 
@@ -164,25 +164,24 @@
 		&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
 			> .oo-ui-buttonElement-button {
 				&:hover,
+				&:focus,
 				&:active {
 					border-left-color: transparent;
-					border-right-color: @border-color-dialog-bar;
-				}
-
-				&:focus {
-					border-color: @border-color-base--focus;
+					border-right-color: @wds-color-light-c3;
 				}
 			}
 		}
 
 		&.oo-ui-iconElement {
 			> .oo-ui-buttonElement-button {
-				// Use min-height as height includes borders.
 				min-height: @size-dialog-bar--desktop;
-				// Make icon only actions a tad wider, specifically the close action.
-				padding-left: @size-dialog-bar--mobile;
-				padding-right: 0;
-				padding-top: 0;
+				padding: 0 8px;
+			}
+
+			.oo-ui-icon-close {
+				height: @wds-icon-tiny-size;
+				min-width: @wds-icon-tiny-size;
+				width: @wds-icon-tiny-size;
 			}
 		}
 
@@ -193,12 +192,6 @@
 
 			> .oo-ui-buttonElement-button {
 				padding: @padding-vertical-dialog-action @padding-horizontal-base;
-			}
-
-			&.oo-ui-iconElement {
-				> .oo-ui-buttonElement-button {
-					padding-left: @padding-start-input-text-icon-label;
-				}
 			}
 		}
 	}
@@ -214,13 +207,10 @@
 				&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
 					> .oo-ui-buttonElement-button {
 						&:hover,
+						&:focus,
 						&:active {
-							border-left-color: @border-color-dialog-bar;
+							border-left-color: @wds-color-light-c3;
 							border-right-color: transparent;
-						}
-
-						&:focus {
-							border-color: @border-color-base--focus;
 						}
 					}
 				}
@@ -231,7 +221,7 @@
 		&-other {
 			.oo-ui-actionWidget > .oo-ui-buttonElement-button {
 				border-left-color: transparent;
-				border-right-color: @border-color-dialog-bar;
+				border-right-color: @wds-color-light-c3;
 			}
 		}
 
@@ -239,20 +229,13 @@
 			.oo-ui-widget-enabled.oo-ui-iconElement:not(.oo-ui-labelElement) {
 				> .oo-ui-buttonElement-button {
 					background-color: transparent;
+					border-radius: @wds-rounded-corner-radius 0 0 0;
 					border-right-color: transparent;
 
-					&:hover {
-						background-color: @background-color-framed;
-						border-right-color: @border-color-dialog-bar;
-					}
-
-					&:active {
-						background-color: @background-color-framed--active;
-						border-right-color: @border-color-dialog-bar;
-					}
-
+					&:hover,
+					&:active,
 					&:focus {
-						border-color: @border-color-base--focus;
+						background-color: @wds-color-light-c2;
 					}
 				}
 			}
@@ -319,21 +302,9 @@
 		}
 
 		.oo-ui-actionWidget {
-			&.oo-ui-iconElement > .oo-ui-buttonElement-button {
-				// Use min-height as height includes borders.
-				min-height: @size-dialog-bar--mobile;
-				padding-left: @size-dialog-bar--mobile;
-			}
-
 			&.oo-ui-labelElement {
 				> .oo-ui-buttonElement-button {
 					padding: @padding-vertical-tool-label @padding-horizontal-base;
-				}
-
-				&.oo-ui-iconElement {
-					> .oo-ui-buttonElement-button {
-						padding-left: @padding-start-input-text-icon-label;
-					}
 				}
 			}
 		}
@@ -342,7 +313,7 @@
 
 .theme-oo-ui-windowManager() {
 	&-modal > .oo-ui-dialog {
-		background-color: rgba(255, 255, 255, 0.5);
+		background-color: rgba(@wds-color-black, 0.5);
 		opacity: 0;
 		.oo-ui-transition(opacity @transition-dialog);
 
@@ -366,11 +337,8 @@
 	}
 
 	&-modal&-floating > .oo-ui-dialog > .oo-ui-window-frame {
-		border: @border-dialog;
-		border-radius: @border-radius-base;
+		border-radius: @wds-rounded-corner-radius;
 		bottom: 1em;
-		box-shadow: @box-shadow-dialog;
-		max-height: 100%;
 		max-height: e('calc( 100% - 2em )');
 		top: 1em;
 	}
