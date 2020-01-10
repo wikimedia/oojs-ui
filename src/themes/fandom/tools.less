@@ -35,18 +35,18 @@
 
 	.oo-ui-tool-link {
 		border-radius: @wds-rounded-corner-radius;
+
+		.oo-ui-transition(background-color @transition-base, color @transition-base);
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: @fade-out-fandom-color;
+			color: @wds-fandom-color-link;
+		}
 	}
 
 	&.oo-ui-widget-enabled {
-		.oo-ui-tool-link {
-			&:hover,
-			&:active,
-			&:focus {
-				background-color: @fade-out-fandom-color;
-				color: @wds-fandom-color-link;
-			}
-		}
-
 		&.oo-ui-flaggedElement {
 			&-progressive {
 				.oo-ui-tool-link {
@@ -64,7 +64,7 @@
 
 			&-destructive {
 				.oo-ui-tool-link {
-					border-color: 1px solid currentColor;
+					border: 1px solid currentColor;
 					color: @wds-color-alert;
 
 					&:hover,
@@ -111,6 +111,11 @@
 			}
 		}
 	}
+
+	&.oo-ui-widget-disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
 }
 
 .theme-oo-ui-popupTool() {
@@ -135,50 +140,15 @@
 		border-right: 0;
 
 		&.oo-ui-barToolGroup {
-			border-right-width: 0;
+			border-right: 0;
 		}
 	}
 }
 
 .theme-oo-ui-barToolGroup() {
 	&-tools > .oo-ui-tool {
-		+ .oo-ui-tool {
-			margin-left: -@border-width-base * 2;
-		}
-
 		> .oo-ui-tool-link {
 			display: inline-flex;
-		}
-	}
-
-	&-tools.oo-ui-toolGroup-enabled-tools .oo-ui-tool.oo-ui-widget-disabled,
-	&-tools.oo-ui-toolGroup-disabled-tools .oo-ui-tool {
-		pointer-events: none;
-		.oo-ui-iconElement-icon {
-			opacity: 0.5;
-		}
-
-		&.oo-ui-flaggedElement-primary {
-			> .oo-ui-tool-link {
-				background-color: @background-color-filled--disabled;
-				border-color: @border-color-base--disabled;
-
-				.oo-ui-tool-title {
-					color: @color-base--inverted;
-				}
-			}
-
-			&.oo-ui-tool-active > .oo-ui-tool-link {
-				background-color: mix(@color-progressive--active, @background-color-filled--disabled, 35%);
-			}
-
-			.oo-ui-iconElement-icon {
-				opacity: @opacity-icon-base--selected;
-			}
-		}
-
-		> .oo-ui-tool-link .oo-ui-tool-title {
-			color: @color-base--disabled;
 		}
 	}
 }
@@ -186,56 +156,25 @@
 .theme-oo-ui-listToolGroup() {
 	&-tools .oo-ui-tool {
 		&.oo-ui-widget-enabled {
-			&:hover {
-				background-color: @background-color-tool--hover;
-				color: @color-tool--hover;
-			}
-		}
+			&:hover,
+			&.oo-ui-tool-active {
+				background-color: @fade-out-fandom-color;
+				color: @wds-fandom-color-link;
 
-		&-active {
-			&.oo-ui-widget-enabled {
-				background-color: @background-color-tool--active;
-
-				&:hover {
-					background-color: @background-color-tool--active-hover;
-				}
-
-				.oo-ui-tool-link .oo-ui-tool-title {
-					color: @color-tool--active;
+				.oo-ui-tool-accel {
+					color: currentColor;
 				}
 			}
 		}
 	}
 
-	&.oo-ui-widget-disabled,
-	&-tools .oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {
-		opacity: 0.5;
-	}
+	//&.oo-ui-widget-disabled {
+	//	opacity: 0.5;
+	//	pointer-events: none;
+	//}
 }
 
 .theme-oo-ui-menuToolGroup() {
-	&-tools .oo-ui-tool {
-		&-link {
-			.oo-ui-iconElement-icon {
-				left: @start-tool-icon;
-			}
-		}
-
-		&.oo-ui-widget-enabled {
-			&:hover {
-				background-color: @background-color-tool--active-hover;
-			}
-		}
-
-		&.oo-ui-tool-active {
-			background-color: @background-color-tool--active;
-		}
-	}
-
-	&.oo-ui-widget-disabled,
-	&-tools .oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {
-		color: @color-base--disabled;
-	}
 }
 
 .theme-oo-ui-popupToolGroup() {
@@ -246,26 +185,37 @@
 	}
 
 	&-header {
-		color: @color-base--subtle;
-		font-weight: bold;
-		line-height: @size-base; // Doesn't work with `padding` in header, due to clippable logic
-		padding: 0 @padding-horizontal-base;
+		color: @wds-fandom-color-middle-gray;
+		font-weight: @wds-font-weight-bold;
 	}
 
 	&-tools {
-		background-color: @background-color-toolbar;
-		// Toolbar menus have toolbar `border-color` applied
-		border: @border-toolbar;
-		box-shadow: @box-shadow-menu;
-		margin: 0 -@border-width-base;
+		background-color: @wds-color-white;
+		border-radius: @wds-dropdown-border-radius;
+		box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
 		min-width: 16em;
 
+		&.oo-ui-popupToolGroup-active-tools {
+			padding: 7px 0;
+		}
+
+		> .oo-ui-tool {
+			margin: 0 9px;
+		}
+
 		.oo-ui-tool-link {
-			// Tool-Links in PopupToolGroups always have a `-title` element
-			padding: @padding-vertical-tool-label @padding-horizontal-base;
+			display: flex;
+			font-weight: @wds-font-weight-normal;
+			justify-content: space-between;
+			line-height: @wds-line-height-none;
+			padding: 9px 7px;
+			text-transform: none;
+			width: auto;
 
 			.oo-ui-tool-accel {
-				color: @color-base--subtle;
+				color: @wds-fandom-color-middle-gray;
+				display: initial;
+				flex-grow: 1;
 				line-height: @line-height-base;
 
 				&:not(:empty) {
@@ -273,11 +223,6 @@
 					padding-left: @padding-horizontal-base-iconized * 1.5;
 				}
 			}
-		}
-
-		.oo-ui-iconElement .oo-ui-tool-link {
-			// Tool-Links in PopupToolGroups always have a `-title` element
-			padding-left: @padding-start-menu-icon-label;
 		}
 	}
 
@@ -292,39 +237,6 @@
 				color: @wds-fandom-color-link;
 			}
 		}
-
-		&[class*='oo-ui-flaggedElement'] > .oo-ui-popupToolGroup-handle {
-			&,
-			&:hover {
-				.oo-ui-iconElement-icon {
-					opacity: @opacity-icon-base--selected;
-				}
-			}
-		}
-
-		// Due to z-index shuffling `border` has to acts as `background` here
-		.oo-ui-toolbar-actions & {
-			> .oo-ui-popupToolGroup-handle {
-				border-right: @border-width-base @border-style-base transparent;
-				.oo-ui-transition(
-					background-color @transition-base,
-					border-color @transition-base,
-					box-shadow @transition-base
-				);
-
-				&:hover {
-					border-right-color: @background-color-tool--hover;
-				}
-
-				&:active {
-					border-right-color: @background-color-tool--active;
-				}
-
-				&:focus {
-					border-right-color: @border-color-base--focus;
-				}
-			}
-		}
 	}
 
 	&.oo-ui-popupToolGroup-active {
@@ -334,12 +246,7 @@
 		}
 	}
 
-	&-tools .oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
-		color: @color-tool--active;
-	}
-
 	&-tools .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
-		box-shadow: @box-shadow-popuptoolgroup-tool--focus;
 		outline: 0;
 	}
 
@@ -385,13 +292,6 @@
 					@color-destructive--active,
 					@color-destructive--focus
 				);
-			}
-		}
-
-		> .oo-ui-popupToolGroup-handle {
-			> .oo-ui-iconElement-icon,
-			> .oo-ui-indicatorElement-indicator {
-				opacity: @opacity-icon-base--selected;
 			}
 		}
 	}

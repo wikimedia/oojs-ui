@@ -190,11 +190,11 @@
 			border-style: @border-style-base;
 			// Support IE 8: Don't show border around native widget, see T220041.
 			border-width: 0;
+			box-sizing: border-box;
 			height: @size-input-binary;
 			left: 0;
 			position: absolute;
 			width: @size-input-binary;
-			box-sizing: border-box;
 
 			// Support all other browsers.
 			:root & {
@@ -379,26 +379,6 @@
 	line-height: @line-height-reset;
 	padding: @padding-menu;
 
-	&.oo-ui-iconElement {
-		padding-left: @padding-start-menu-icon-label;
-	}
-
-	.oo-ui-iconElement-icon {
-		left: @start-framed-icon-only;
-	}
-
-	.oo-ui-labelElement-label {
-		line-height: @line-height-base;
-	}
-
-	&.oo-ui-indicatorElement {
-		padding-right: @padding-start-indicator-plus;
-	}
-
-	.oo-ui-indicatorElement-indicator {
-		right: @padding-horizontal-base;
-	}
-
 	&.oo-ui-widget-enabled {
 		&:hover {
 			.oo-ui-iconElement-icon,
@@ -535,6 +515,7 @@
 		background-position: ~'-9999em 0\9';
 		border: @border-base;
 		border-radius: @border-radius-base;
+		box-sizing: border-box;
 		font-family: inherit;
 		font-size: inherit;
 		// Support Firefox <= 34: `height` needed in addition to adding, otherwise oversized.
@@ -545,7 +526,6 @@
 		padding-left: @padding-horizontal-base;
 		padding-right: @padding-end-dropdown;
 		vertical-align: middle;
-		box-sizing: border-box;
 
 		/* Support IE 10: Move it in again and also add `padding`. Because we talk to morons. */
 		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -679,7 +659,7 @@
 }
 
 .theme-oo-ui-menuSectionOptionWidget() {
-	color: @color-base--subtle;
+	color: @wds-fandom-color-middle-gray;
 	font-weight: bold;
 	padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-label;
 
@@ -903,10 +883,10 @@
 
 .theme-oo-ui-popupWidget() {
 	&-popup {
-		background-color: @background-color-base;
-		border: @border-menu;
-		border-radius: @border-radius-base;
-		box-shadow: @box-shadow-menu;
+		background-color: @wds-color-white;
+		border: 1px solid @wds-fandom-color-mid-light-gray;
+		border-radius: @wds-rounded-corner-radius;
+		box-shadow: 0 0 3px 0 rgba(@wds-color-black, 0.3);
 	}
 
 	// Support: Progressively enhance for browser's which render `filter`.
@@ -931,14 +911,14 @@
 			&::before {
 				// The subtracting-triangles method results in a line that
 				// is ~0.7px wide, so make it slightly darker to compensate.
-				border-bottom-color: darken(@border-color-base, 14%);
+				border-bottom-color: darken(@wds-fandom-color-mid-light-gray, 14%);
 				border-width: @size-anchor + 1px;
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor;
 			}
 
 			&::after {
-				border-bottom-color: @background-color-base; // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
+				border-bottom-color: @wds-color-white; // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
 				border-width: @size-anchor;
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor + 1px;
@@ -1023,13 +1003,11 @@
 		}
 
 		> .oo-ui-buttonWidget {
-			// `top: 0;` not needed as default value
-			right: 0;
-
 			.oo-ui-icon-close {
-				// This must have two values to match `background-size: 0 0` above,
-				// otherwise the transition does not work (at least in Chrome).
-				background-size: @size-base--small @size-base--small;
+				height: @wds-icon-tiny-size;
+				margin-right: 0;
+				min-width: @wds-icon-tiny-size;
+				width: @wds-icon-tiny-size;
 			}
 		}
 	}
@@ -1146,11 +1124,11 @@
 			border-style: @border-style-base;
 			// Support IE 8: Don't show border around native widget, see T220041.
 			border-width: 0;
+			box-sizing: border-box;
 			height: @size-input-binary;
 			left: 0;
 			position: absolute;
 			width: @size-input-binary;
-			box-sizing: border-box;
 
 			// Support all other browsers.
 			:root & {
@@ -1500,10 +1478,9 @@
 }
 
 .theme-oo-ui-tagItemWidget() {
-	box-sizing: border-box;
-
 	border: @border-base;
 	border-radius: @height-tagitem;
+	box-sizing: border-box;
 	height: @height-tagitem;
 	line-height: @height-tagitem - 2 * @size-modifier-border;
 	margin: 0 @margin-tagitem @margin-tagitem 0;
@@ -1617,10 +1594,9 @@
 	width: 100%;
 
 	&-handle {
-		box-sizing: border-box;
-
 		border: @border-base;
 		border-radius: @border-radius-base;
+		box-sizing: border-box;
 		line-height: @line-height-reset;
 		min-height: @min-height-widget-base;
 		padding: 0 @padding-horizontal-input-text;
@@ -1630,6 +1606,7 @@
 			> input {
 				background-color: transparent;
 				border: 0;
+				box-sizing: border-box;
 				color: @color-base--emphasized;
 				font-family: inherit;
 				font-size: inherit;
@@ -1637,7 +1614,6 @@
 				line-height: @line-height-base;
 				padding: @padding-vertical-base 0 @padding-vertical-base @start-tagmultiselect-input;
 				vertical-align: top;
-				box-sizing: border-box;
 
 				.mw-placeholder();
 
@@ -1792,7 +1768,7 @@
 	}
 
 	> .oo-ui-labelElement-label {
-		color: @color-base--subtle;
+		color: @wds-fandom-color-middle-gray;
 		line-height: @size-base;
 		padding: 0 @padding-horizontal-base 0 @padding-horizontal-input-text;
 	}
