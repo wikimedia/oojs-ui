@@ -16,10 +16,10 @@
 			"file": "../wikimediaui/images/icons/notBright.svg"
 		},
 		"eye": {
-			"file": "~design-system-svg/wds-icons-eye.svg"
+			"file": "~design-system-svg/wds-icons-eye-small.svg"
 		},
 		"eyeClosed": {
-			"file": "~design-system-svg/wds-icons-eye-crossed.svg"
+			"file": "~design-system-svg/wds-icons-eye-crossed-small.svg"
 		},
 		"moon": {
 			"file": "../wikimediaui/images/icons/moon.svg"

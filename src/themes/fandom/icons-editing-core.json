@@ -16,16 +16,16 @@
 			}
 		},
 		"link": {
-			"file": "~design-system-svg/wds-icons-link.svg"
+			"file": "~design-system-svg/wds-icons-link-small.svg"
 		},
 		"unLink": {
 			"file": "../wikimediaui/images/icons/unLink.svg"
 		},
 		"linkExternal": {
-			"file": "~design-system-svg/wds-icons-external.svg"
+			"file": "~design-system-svg/wds-icons-external-small.svg"
 		},
 		"linkSecure": {
-			"file": "~design-system-svg/wds-icons-lock.svg"
+			"file": "~design-system-svg/wds-icons-lock-small.svg"
 		},
 		"redo": {
 			"file": {

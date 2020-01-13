@@ -49,7 +49,7 @@
 			"file": "../wikimediaui/images/icons/die.svg"
 		},
 		"download": {
-			"file": "~design-system-svg/wds-icons-download.svg"
+			"file": "~design-system-svg/wds-icons-download-small.svg"
 		},
 		"folderPlaceholder": {
 			"file": {
@@ -80,7 +80,7 @@
 			"file": "../wikimediaui/images/icons/robot.svg"
 		},
 		"tag": {
-			"file": "~design-system-svg/wds-icons-tag.svg"
+			"file": "~design-system-svg/wds-icons-tag-small.svg"
 		},
 		"upload": {
 			"file": "../wikimediaui/images/icons/upload.svg"

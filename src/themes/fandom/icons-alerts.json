@@ -4,25 +4,25 @@
 	"intro": "@import '../../../../src/styles/common.less';",
 	"images": {
 		"alert": {
-			"file": "~design-system-svg/wds-icons-alert.svg"
+			"file": "~design-system-svg/wds-icons-alert-small.svg"
 		},
 		"bell": {
-			"file": "~design-system-svg/wds-icons-bell.svg"
+			"file": "~design-system-svg/wds-icons-bell-small.svg"
 		},
 		"bellOutline": {
-			"file": "~design-system-svg/wds-icons-bell.svg"
+			"file": "~design-system-svg/wds-icons-bell-small.svg"
 		},
 		"error": {
-			"file": "~design-system-svg/wds-icons-error.svg"
+			"file": "~design-system-svg/wds-icons-error-small.svg"
 		},
 		"message": {
-			"file": "~design-system-svg/wds-icons-message.svg"
+			"file": "~design-system-svg/wds-icons-message-small.svg"
 		},
 		"notice": {
 			"file": "../wikimediaui/images/icons/notice.svg"
 		},
 		"speechBubble": {
-			"file": "~design-system-svg/wds-icons-bubble.svg"
+			"file": "~design-system-svg/wds-icons-bubble-small.svg"
 		},
 		"speechBubbleAdd": {
 			"file": {

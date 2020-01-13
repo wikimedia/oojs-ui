@@ -4,16 +4,16 @@
 	"intro": "@import '../../../../src/styles/common.less';",
 	"images": {
 		"camera": {
-			"file": "~design-system-svg/wds-icons-camera.svg"
+			"file": "~design-system-svg/wds-icons-camera-small.svg"
 		},
 		"chart": {
-			"file": "~design-system-svg/wds-icons-activity.svg"
+			"file": "~design-system-svg/wds-icons-activity-small.svg"
 		},
 		"exitFullscreen": {
-			"file": "~design-system-svg/wds-icons-zoom-out.svg"
+			"file": "~design-system-svg/wds-icons-zoom-out-small.svg"
 		},
 		"fullScreen": {
-			"file": "~design-system-svg/wds-icons-zoom-in.svg"
+			"file": "~design-system-svg/wds-icons-zoom-in-small.svg"
 		},
 		"image": {
 			"file": "../wikimediaui/images/icons/image.svg"
@@ -40,13 +40,13 @@
 			"file": "../wikimediaui/images/icons/musicalScore.svg"
 		},
 		"pause": {
-			"file": "~design-system-svg/wds-icons-pause.svg"
+			"file": "~design-system-svg/wds-icons-pause-small.svg"
 		},
 		"play": {
-			"file": "~design-system-svg/wds-icons-play.svg"
+			"file": "~design-system-svg/wds-icons-play-small.svg"
 		},
 		"stop": {
-			"file": "~design-system-svg/wds-icons-checkbox-empty.svg"
+			"file": "~design-system-svg/wds-icons-checkbox-empty-small.svg"
 		},
 		"zoomIn": {
 			"file": "../wikimediaui/images/icons/zoomIn.svg"

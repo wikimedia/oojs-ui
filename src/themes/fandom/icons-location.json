@@ -7,7 +7,7 @@
 			"file": "../wikimediaui/images/icons/globe.svg"
 		},
 		"map": {
-			"file": "~design-system-svg/wds-icons-map.svg"
+			"file": "~design-system-svg/wds-icons-map-small.svg"
 		},
 		"mapPin": {
 			"file": "../wikimediaui/images/icons/mapPin.svg"

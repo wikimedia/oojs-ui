@@ -4,7 +4,7 @@
 	"intro": "@import '../../../../src/styles/common.less';",
 	"images": {
 		"add": {
-			"file": "~design-system-svg/wds-icons-add.svg"
+			"file": "~design-system-svg/wds-icons-add-small.svg"
 		},
 		"browser": {
 			"file": {
@@ -16,7 +16,7 @@
 			"file": "../wikimediaui/images/icons/cancel.svg"
 		},
 		"check": {
-			"file": "~design-system-svg/wds-icons-checkmark.svg"
+			"file": "~design-system-svg/wds-icons-checkmark-small.svg"
 		},
 		"checkAll": {
 			"file": "../wikimediaui/images/icons/checkAll.svg"
@@ -25,10 +25,10 @@
 			"file": "../wikimediaui/images/icons/clear.svg"
 		},
 		"clock": {
-			"file": "~design-system-svg/wds-icons-watch.svg"
+			"file": "~design-system-svg/wds-icons-watch-small.svg"
 		},
 		"close": {
-			"file": "~design-system-svg/wds-icons-close.svg"
+			"file": "~design-system-svg/wds-icons-close-small.svg"
 		},
 		"ellipsis": {
 			"file": "../wikimediaui/images/icons/ellipsis.svg"
@@ -46,10 +46,10 @@
 			}
 		},
 		"heart": {
-			"file": "~design-system-svg/wds-icons-heart-filled.svg"
+			"file": "~design-system-svg/wds-icons-heart-filled-small.svg"
 		},
 		"help": {
-			"file": "~design-system-svg/wds-icons-question.svg"
+			"file": "~design-system-svg/wds-icons-question-small.svg"
 		},
 		"helpNotice": {
 			"file": {
@@ -76,7 +76,7 @@
 			}
 		},
 		"newWindow": {
-			"file": "~design-system-svg/wds-icons-external.svg"
+			"file": "~design-system-svg/wds-icons-external-small.svg"
 		},
 		"pageSettings": {
 			"file": "../wikimediaui/images/icons/pageSettings.svg"
@@ -85,13 +85,13 @@
 			"file": "../wikimediaui/images/icons/printer.svg"
 		},
 		"reload": {
-			"file": "~design-system-svg/wds-icons-refresh.svg"
+			"file": "~design-system-svg/wds-icons-refresh-small.svg"
 		},
 		"search": {
-			"file": "~design-system-svg/wds-icons-magnifying-glass.svg"
+			"file": "~design-system-svg/wds-icons-magnifying-glass-small.svg"
 		},
 		"settings": {
-			"file": "~design-system-svg/wds-icons-gear.svg"
+			"file": "~design-system-svg/wds-icons-gear-small.svg"
 		},
 		"subtract": {
 			"file": "../wikimediaui/images/icons/subtract.svg"

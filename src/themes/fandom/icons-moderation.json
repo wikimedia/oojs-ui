@@ -7,7 +7,7 @@
 			"file": "../wikimediaui/images/icons/bookmarkOutline.svg"
 		},
 		"bookmark": {
-			"file": "~design-system-svg/wds-icons-bookmark.svg"
+			"file": "~design-system-svg/wds-icons-bookmark-small.svg"
 		},
 		"block": {
 			"file": "../wikimediaui/images/icons/block.svg"
@@ -28,13 +28,13 @@
 			}
 		},
 		"lock": {
-			"file": "~design-system-svg/wds-icons-lock.svg"
+			"file": "~design-system-svg/wds-icons-lock-small.svg"
 		},
 		"unLock": {
-			"file": "~design-system-svg/wds-icons-unlock.svg"
+			"file": "~design-system-svg/wds-icons-unlock-small.svg"
 		},
 		"restore": {
-			"file": "~design-system-svg/wds-icons-trash-open.svg"
+			"file": "~design-system-svg/wds-icons-trash-open-small.svg"
 		},
 		"star": {
 			"file": "../wikimediaui/images/icons/star.svg"
@@ -49,17 +49,17 @@
 			"file": "../wikimediaui/images/icons/unStar.svg"
 		},
 		"trash": {
-			"file": "~design-system-svg/wds-icons-trash.svg"
+			"file": "~design-system-svg/wds-icons-trash-small.svg"
 		},
 		"unTrash": {
-			"file": "~design-system-svg/wds-icons-trash-open.svg",
+			"file": "~design-system-svg/wds-icons-trash-open-small.svg",
 			"deprecated": "Changed and renamed since v0.31.1, use 'restore' instead."
 		},
 		"pushPin": {
-			"file": "~design-system-svg/wds-icons-pin.svg"
+			"file": "~design-system-svg/wds-icons-pin-small.svg"
 		},
 		"ongoingConversation": {
-			"file": "~design-system-svg/wds-icons-bubble.svg"
+			"file": "~design-system-svg/wds-icons-bubble-small.svg"
 		}
 	}
 }
