@@ -154,130 +154,105 @@
 }
 
 .theme-oo-ui-checkboxInputWidget() {
-	line-height: @size-input-binary;
+	line-height: @wds-line-height-none;
 	position: relative;
-	// Prevent the fake span from jumping to the next line of text
 	white-space: nowrap;
-	// Create a stacking context, so that we can use `z-index` below without leaking out
 	z-index: 0;
+	vertical-align: middle;
 
-	* {
-		font: inherit;
-		vertical-align: middle;
-	}
+	//* {
+	//	font: inherit;
+	//	vertical-align: middle;
+	//}
 
-	// `<input type=checkbox>` element is visually replaced by `span` that follows
 	[type='checkbox'] {
 		height: @size-input-binary;
-		// Having margin would offset the input from where the span is absolutely positioned,
-		// making only the overlap region receive events
 		margin: 0;
-		// Support: Firefox mobile to override user-agent stylesheet, see T73750
 		max-width: none;
-		// Use opacity so that VoiceOver can still identify it
 		opacity: 0;
 		position: relative;
-		// Ensure the invisible input takes up the required width
 		width: @size-input-binary;
-		// Render "on top of" the span, so that it's still clickable
 		z-index: 1;
 
-		& + span {
-			background-color: @background-color-base;
-			background-size: 0 0;
-			border-color: @border-color-input-binary;
-			border-radius: @border-radius-base;
-			border-style: @border-style-base;
-			// Support IE 8: Don't show border around native widget, see T220041.
-			border-width: 0;
-			box-sizing: border-box;
+		+ span {
+			background-color: @wds-color-white;
+			border: 2px solid @wds-color-light-gray;
 			height: @size-input-binary;
 			left: 0;
+			min-height: @size-input-binary;
+			min-width: @size-input-binary;
 			position: absolute;
 			width: @size-input-binary;
+			top: 0;
+			mask: none;
+			-webkit-mask: none;
+			box-sizing: border-box;
 
-			// Support all other browsers.
-			:root & {
-				border-width: @border-width-base;
-			}
-		}
-
-		&:checked:not(:indeterminate) {
-			& + span {
-				// This must have two values to match `background-size: 0 0` above,
-				// otherwise the transition does not work (at least in Chrome).
-				background-size: @size-icon-small @size-icon-small;
-			}
-		}
-
-		&:indeterminate {
-			& + span::before {
-				// `@color-base--inverted` as `background-color` due to Accent50 filled area below.
-				background-color: @color-base--inverted;
-				content: ' ';
-				height: @border-width-base * 2;
-				left: @start-input-binary-icon;
-				margin-top: -@border-width-base;
+			&::before {
+				border-style: solid;
+				border-color: transparent;
+				border-width: 0 0 2px 2px;
+				content: '';
+				display: block;
+				height: 3px;
+				left: 2px;
 				position: absolute;
-				right: @start-input-binary-icon;
-				top: 50%;
+				top: 2px;
+				transform: rotate(-45deg);
+				width: 6px;
 			}
 		}
 
-		&:disabled {
-			& + span {
-				background-color: @background-color-filled--disabled;
-				border-color: @border-color-base--disabled;
+		&:indeterminate + span:before {
+			border-width: 2px 0 0 0;
+			border-color: @wds-color-light-gray;
+			transform: rotate(0deg);
+			top: 5px;
+			width: 8px;
+		}
+
+		&:disabled,
+		&:checked:disabled {
+			+ span {
+				border-color: @wds-color-light-gray;
+				pointer-events: none;
+				opacity: 0.5;
 			}
+		}
+
+		&:checked:disabled + span::before {
+			border-color: @wds-color-light-gray;
 		}
 	}
 
 	&.oo-ui-widget-enabled [type='checkbox'] {
 		cursor: pointer;
 
-		& + span {
+		+ span {
+			color: @wds-fandom-color-link;
 			cursor: pointer;
-			.oo-ui-transition(background-color @transition-base, border-color @transition-base, box-shadow @transition-base);
+			.oo-ui-transition(background-color @transition-base, border-color @transition-base);
 		}
 
-		// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
-		&:focus + span {
-			border-color: @color-progressive;
-			box-shadow: @box-shadow-widget--focus;
-		}
-
+		&:focus + span,
 		&:hover + span {
-			border-color: @color-progressive;
+			border-color: currentColor;
 		}
 
 		&:active + span {
-			background-color: @color-progressive--active;
-			border-color: @border-color-input-binary--active;
-			box-shadow: @box-shadow-input-binary--active;
+			background-color: currentColor;
+			border-color: currentColor;
 		}
 
-		&:checked,
-		&:indeterminate {
-			& + span {
-				background-color: @background-color-input-binary--checked;
-				border-color: @border-color-input-binary--checked;
-			}
-
-			&:focus + span {
-				background-color: @background-color-input-binary--checked;
-				border-color: @border-color-input-binary--checked;
-				box-shadow: @box-shadow-progressive--focus;
-			}
-
-			&:hover + span {
-				background-color: @color-progressive--hover;
-				border-color: @color-progressive--hover;
-			}
-
+		&:checked, &:indeterminate {
+			& + span,
+			&:focus + span,
 			&:active + span {
-				background-color: @background-color-input-binary--active;
-				border-color: @border-color-input-binary--active;
-				box-shadow: @box-shadow-input-binary--active;
+				border-color: currentColor;
+
+				&::before {
+					border-color: currentColor;
+				}
 			}
 		}
 	}
