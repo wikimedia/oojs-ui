@@ -154,16 +154,12 @@
 }
 
 .theme-oo-ui-checkboxInputWidget() {
+	color: @wds-fandom-color-link;
 	line-height: @wds-line-height-none;
 	position: relative;
 	white-space: nowrap;
 	z-index: 0;
 	vertical-align: middle;
-
-	//* {
-	//	font: inherit;
-	//	vertical-align: middle;
-	//}
 
 	[type='checkbox'] {
 		height: @size-input-binary;
@@ -177,6 +173,7 @@
 		+ span {
 			background-color: @wds-color-white;
 			border: 2px solid @wds-color-light-gray;
+			color: inherit;
 			height: @size-input-binary;
 			left: 0;
 			min-height: @size-input-binary;
@@ -229,7 +226,6 @@
 		cursor: pointer;
 
 		+ span {
-			color: @wds-fandom-color-link;
 			cursor: pointer;
 			.oo-ui-transition(background-color @transition-base, border-color @transition-base);
 		}
@@ -1070,81 +1066,52 @@
 }
 
 .theme-oo-ui-radioInputWidget() {
-	line-height: @size-input-binary;
+	color: @wds-fandom-color-link;
+	line-height: @wds-line-height-none;
 	position: relative;
-	// Prevent the fake span from jumping to the next line of text
+	vertical-align: middle;
 	white-space: nowrap;
-	// Create a stacking context, so that we can use `z-index` below without leaking out
 	z-index: 0;
 
-	* {
-		font: inherit;
-		vertical-align: middle;
-	}
-
-	// `<input type=radio>` element is visually replaced by `span` that follows
 	[type='radio'] {
 		height: @size-input-binary;
-		// Having margin would offset the input from where the span is absolutely positioned,
-		// making only the overlap region receive events
 		margin: 0;
-		// Support: Firefox mobile to override user-agent stylesheet, see T73750
 		max-width: none;
-		// Use opacity so that VoiceOver can still identify it
 		opacity: 0;
 		position: relative;
-		// Ensure the invisible input takes up the required width
 		width: @size-input-binary;
-		// Render "on top of" the span, so that it's still clickable
 		z-index: 1;
 
 		& + span {
-			background-color: @background-color-base;
-			border-color: @border-color-input-binary;
+			background-color: @wds-color-light-gray;
+			border: 2px solid @wds-color-light-gray;
 			border-radius: 100%;
-			border-style: @border-style-base;
-			// Support IE 8: Don't show border around native widget, see T220041.
-			border-width: 0;
 			box-sizing: border-box;
+			color: inherit;
 			height: @size-input-binary;
 			left: 0;
 			position: absolute;
+			top: 0;
 			width: @size-input-binary;
 
-			// Support all other browsers.
-			:root & {
-				border-width: @border-width-base;
-			}
-
-			// Needed for `:focus` state's inner white circle
 			&::before {
-				border: @border-width-base @border-style-base transparent;
+				border: (@size-input-binary - 2 * 2px)/2 solid @wds-color-white;
 				border-radius: 100%;
-				bottom: -4px;
+				bottom: 0;
 				content: ' ';
-				left: -4px;
+				left: 0;
 				position: absolute;
-				right: -4px;
-				top: -4px; // `px` unit due to pixel rounding error when using `@size-input-binary / 4`
-			}
-		}
-
-		&:checked {
-			& + span,
-			&:hover + span,
-			&:focus:hover + span {
-				border-width: @border-width-radio--checked;
+				right: 0;
+				top: 0;
 			}
 		}
 
 		&:disabled {
-			& + span {
-				background-color: @background-color-filled--disabled;
-				border-color: @border-color-base--disabled;
-			}
-
-			&:checked + span {
-				background-color: @background-color-base;
+			+ span {
+				pointer-events: none;
+				opacity: 0.5;
+				background-color: @wds-color-light-gray;
+				border-color: @wds-color-light-gray;
 			}
 		}
 	}
@@ -1152,47 +1119,46 @@
 	&.oo-ui-widget-enabled [type='radio'] {
 		cursor: pointer;
 
-		& + span {
+		+ span {
 			cursor: pointer;
+
 			.oo-ui-transition(
 				background-color @transition-base,
 				border-color @transition-base,
 				border-width @transition-base
 			);
+
+			&::before {
+				.oo-ui-transition(border-width 0.1s);
+			}
 		}
 
 		&:hover + span {
-			border-color: @color-progressive;
-		}
-
-		&:active + span {
-			background-color: @background-color-input-binary--active;
-			border-color: @border-color-input-binary--active;
+			border-color: currentColor;
 		}
 
 		&:checked {
-			& + span {
-				border-color: @border-color-input-binary--checked;
-			}
-
-			// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
-			&:focus + span {
-				&::before {
-					border-color: @background-color-base;
-				}
-			}
-
-			&:hover + span {
-				border-color: @color-progressive--hover;
-			}
-
-			&:active + span {
-				border-color: @border-color-input-binary--active;
-				box-shadow: @box-shadow-input-binary--active;
+			& + span,
+			&:hover + span,
+			&:focus + span,
+			&:focus:hover + span {
+				background-color: currentColor;
+				border-color: currentColor;
 
 				&::before {
-					border-color: @border-color-input-binary--active;
+					border-width: 3px;
 				}
+			}
+		}
+
+		&:active + span,
+		&:checked:active + span {
+			background-color: currentColor;
+			border-color: currentColor;
+
+			&::before {
+				transition: none;
+				border-width: 0;
 			}
 		}
 	}
