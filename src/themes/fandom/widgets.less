@@ -754,11 +754,6 @@
 .theme-oo-ui-numberInputWidget() {
 	max-width: @max-width-input;
 
-	&-field {
-		display: grid;
-		grid-template-columns: 37px 1fr 37px;
-	}
-
 	&-buttoned {
 		.oo-ui-buttonWidget {
 			display: initial;
@@ -769,6 +764,11 @@
 				padding-left: 0;
 				padding-right: 0;
 			}
+		}
+
+		.oo-ui-numberInputWidget-field {
+			display: grid;
+			grid-template-columns: 37px 1fr 37px;
 		}
 
 		.oo-ui-inputWidget-input {
@@ -1739,11 +1739,11 @@
 		background-color: @wds-color-white;
 		border: 1px solid @wds-fandom-color-mid-light-gray;
 		border-radius: @wds-rounded-corner-radius;
-		padding: @wds-button-vertical-padding @input-horizontal-padding;
-		font-size: @wds-font-size-s;
 		color: inherit;
 		font-family: inherit;
+		font-size: @wds-font-size-s;
 		line-height: @wds-line-height-normal;
+		padding: @wds-button-vertical-padding @input-horizontal-padding;
 	}
 
 	// TextInputWidget (single line).
@@ -1757,8 +1757,8 @@
 
 	> .oo-ui-iconElement-icon,
 	> .oo-ui-indicatorElement-indicator {
-		position: absolute;
 		height: auto;
+		position: absolute;
 	}
 
 	&.oo-ui-iconElement {
