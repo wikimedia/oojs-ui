@@ -171,11 +171,14 @@
 		z-index: 1;
 
 		+ span {
+			align-items: center;
 			background-color: @wds-color-white;
 			border: 2px solid @wds-color-light-gray;
 			box-sizing: border-box;
 			color: inherit;
+			display: grid;
 			height: @size-input-binary;
+			justify-items: center;
 			left: 0;
 			-webkit-mask: none;
 			mask: none;
@@ -192,9 +195,7 @@
 				content: '';
 				display: block;
 				height: 3px;
-				left: 2px;
-				position: absolute;
-				top: 2px;
+				margin-top: -2px;
 				transform: rotate(-45deg);
 				width: 6px;
 			}
@@ -203,7 +204,7 @@
 		&:indeterminate + span::before {
 			border-color: @wds-color-light-gray;
 			border-width: 2px 0 0 0;
-			top: 5px;
+			margin-top: 2px;
 			transform: rotate(0deg);
 			width: 8px;
 		}
@@ -1095,6 +1096,7 @@
 			width: @size-input-binary;
 
 			&::before {
+				background-color: @wds-color-white;
 				border: (@size-input-binary - 2 * 2px)/2 solid @wds-color-white;
 				border-radius: 100%;
 				bottom: 0;
@@ -1146,6 +1148,7 @@
 				border-color: currentColor;
 
 				&::before {
+					background-color: transparent;
 					border-width: 3px;
 				}
 			}
@@ -1157,6 +1160,7 @@
 			border-color: currentColor;
 
 			&::before {
+				background-color: transparent;
 				border-width: 0;
 				transition: none;
 			}
@@ -1181,13 +1185,6 @@
 }
 
 .theme-oo-ui-radioSelectWidget() {
-	&:focus {
-		outline: 0;
-
-		[type='radio']:checked + span::before {
-			border-color: @background-color-base;
-		}
-	}
 }
 
 .theme-oo-ui-radioSelectInputWidget() {
@@ -1807,141 +1804,53 @@
 .theme-oo-ui-toggleSwitchWidget() {
 	@travelDistance: 1.5em;
 
-	background-color: @background-color-framed;
-	border: @border-input-binary;
-	border-radius: 1em;
-	height: 2em;
-	min-height: @min-height-toggleswitch;
-	width: @travelDistance + 2em;
-	.oo-ui-inline-spacing(@margin-end-widget);
-	.oo-ui-transition(background-color @transition-ease-medium, border-color @transition-ease-medium);
-
-	&::before {
-		border: 1px @border-style-base transparent;
-		border-radius: 1em;
-		bottom: 1px;
-		content: '';
-		display: block;
-		left: 1px;
-		position: absolute;
-		right: 1px;
-		top: 1px;
-		z-index: 1;
-		.oo-ui-transition(border-color @transition-ease-medium);
-	}
+	background-color: @wds-fandom-color-middle-gray;
+	border-radius: 8px;
+	height: 14px;
+	overflow: visible;
+	width: 34px;
+	.oo-ui-transition(background-color @transition-base);
 
 	&-grip {
-		border-radius: @size-base--small;
-		height: @size-base--small;
-		min-height: @min-size-base--small;
-		min-width: @min-size-base--small;
-		top: @start-toggleswitch-grip;
-		width: @size-base--small;
-		.oo-ui-transition(background-color @transition-ease-medium, left @transition-base, margin-left @transition-base);
+		background-color: @wds-fandom-color-light-gray;
+		border-radius: 50%;
+		box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+		content: '';
+		display: block;
+		height: 20px;
+		left: -1px;
+		outline: 0;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 20px;
+		.oo-ui-transition(background-color @transition-base, transform @transition-base);
 	}
 
 	&-glow {
-		// We don't need this for any effects, we have the background on parent element
 		display: none;
 	}
 
-	&.oo-ui-toggleWidget-off {
-		.oo-ui-toggleSwitchWidget-grip {
-			left: @start-toggleswitch-grip;
-			margin-left: 0;
-		}
+	&:focus {
+		outline: none;
 	}
 
 	&.oo-ui-toggleWidget-on {
+		background-color: lighten(desaturate(@wds-fandom-color-button-background, 20%), 10%);
+
 		.oo-ui-toggleSwitchWidget-grip {
-			left: @travelDistance + 0.4em;
-			margin-left: -2px;
-		}
-	}
-
-	&.oo-ui-widget-enabled {
-		.oo-ui-toggleSwitchWidget-grip {
-			background-color: @background-color-framed;
-			border: @border-input-binary;
-		}
-
-		&:hover {
-			background-color: @background-color-framed--hover;
-			border-color: @color-progressive--hover;
-
-			.oo-ui-toggleSwitchWidget-grip {
-				background-color: @background-color-framed--hover;
-				border-color: @color-progressive--hover;
-			}
-		}
-
-		&:active,
-		&:active:hover,
-		&:active:focus {
-			background-color: @background-color-input-binary--active;
-			border-color: @border-color-input-binary--active;
-			box-shadow: @box-shadow-input-binary--active;
-
-			.oo-ui-toggleSwitchWidget-grip {
-				background-color: @background-color-base;
-				border-color: @background-color-base;
-				box-shadow: @box-shadow-input-binary;
-			}
-		}
-
-		&:focus {
-			border-color: @color-progressive;
-			box-shadow: @box-shadow-widget--focus;
-			outline: 0;
-
-			.oo-ui-toggleSwitchWidget-grip {
-				border-color: @color-progressive;
-			}
-		}
-
-		&.oo-ui-toggleWidget-on {
-			background-color: @background-color-input-binary--checked;
-			border-color: @border-color-input-binary--checked;
-
-			.oo-ui-toggleSwitchWidget-grip {
-				background-color: @background-color-base;
-				border-color: @background-color-base;
-				box-shadow: @box-shadow-input-binary;
-			}
-
-			&:hover {
-				background-color: @color-progressive--hover;
-				border-color: @color-progressive--hover;
-			}
-
-			&:active,
-			&:active:hover {
-				background-color: @background-color-input-binary--active;
-				border-color: @border-color-input-binary--active;
-			}
-
-			&:focus {
-				border-color: @border-color-input-binary--checked;
-
-				&::before {
-					border-color: @color-base--inverted;
-				}
-			}
+			background-color: @wds-fandom-color-button-background;
+			transform: translate(80%, -50%);
 		}
 	}
 
 	&.oo-ui-widget-disabled {
-		background-color: @background-color-filled--disabled;
-		border-color: @border-color-base--disabled;
-		outline: 0; // Chrome when element has `tabindex` attribute
+		opacity: 0.5;
+		pointer-events: none;
 
-		&.oo-ui-toggleWidget-off .oo-ui-toggleSwitchWidget-grip {
-			border: @border-filled--disabled;
-			box-shadow: @box-shadow-filled--disabled;
-		}
-
-		&.oo-ui-toggleWidget-on .oo-ui-toggleSwitchWidget-grip {
-			background-color: @background-color-base;
+		.oo-ui-toggleWidget-off .oo-ui-toggleSwitchWidget-grip {
+			background-color: @wds-color-white;
+			transform: translate(80%, -50%);
 		}
 	}
 }
