@@ -85,6 +85,12 @@
 }
 
 .theme-oo-ui-buttonOptionWidget() {
+	margin: 0;
+	padding: 0;
+
+	> * {
+		margin: 0;
+	}
 }
 
 .theme-oo-ui-buttonSelectWidget() {
@@ -1238,13 +1244,13 @@
 	}
 
 	.oo-ui-tabSelectWidget-framed & {
+		background-color: @wds-color-white;
 		border-top-left-radius: @wds-rounded-corner-radius;
 		border-top-right-radius: @wds-rounded-corner-radius;
-		margin: 6px 3px 0;
-		height: @size-base;
 		box-sizing: border-box;
-		background-color: @wds-color-white;
 		color: @wds-fandom-color-link;
+		height: @size-base;
+		margin: 6px 3px 0;
 
 		.oo-ui-labelElement-label {
 			pointer-events: none;
