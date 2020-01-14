@@ -290,21 +290,20 @@
 }
 
 .theme-oo-ui-comboBoxInputWidget() {
-	// Inherits from `inputWidget` & `textInputWidget`.
 	.oo-ui-inputWidget-input {
 		border-bottom-right-radius: 0;
 		border-right-width: 0;
 		border-top-right-radius: 0;
-		height: @size-base;
+		height: @size-base + 2px;
 	}
 
 	// Undo setting properties above when there is no button:
 	// if the menu is empty, or if this is the PHP version
 	&.oo-ui-comboBoxInputWidget-empty .oo-ui-inputWidget-input,
 	&-php .oo-ui-inputWidget-input {
-		border-bottom-right-radius: @border-radius-base;
-		border-right-width: @border-width-base;
-		border-top-right-radius: @border-radius-base;
+		border-bottom-right-radius: @wds-dropdown-border-radius;
+		border-right-width: 1px;
+		border-top-right-radius: @wds-dropdown-border-radius;
 	}
 
 	&-dropdownButton.oo-ui-indicatorElement {
@@ -313,37 +312,13 @@
 		.oo-ui-buttonElement-button {
 			min-width: @min-width-button-combo-widget;
 			padding-left: 0;
-
-			> .oo-ui-indicatorElement-indicator {
-				right: @start-framed-indicator-only-button-combo-widget;
-			}
+			padding-right: 0;
 		}
 
 		.oo-ui-buttonElement-button,
 		.oo-ui-buttonElement-button:focus {
 			border-bottom-left-radius: 0;
 			border-top-left-radius: 0;
-		}
-	}
-
-	&-php .oo-ui-indicatorWidget {
-		margin: 0;
-		right: @padding-horizontal-base;
-	}
-
-	&-open &-dropdownButton {
-		> .oo-ui-buttonElement-button {
-			background-color: @background-color-framed--hover;
-
-			.oo-ui-indicatorElement-indicator {
-				opacity: @opacity-icon-base--selected;
-			}
-		}
-	}
-
-	&.oo-ui-widget-disabled {
-		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-filled--disabled;
 		}
 	}
 }
@@ -562,20 +537,10 @@
 }
 
 .theme-oo-ui-menuSectionOptionWidget() {
-	//color: @wds-fandom-color-middle-gray;
-	font-weight: bold;
-	//padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-label;
+	font-weight: @wds-font-weight-bold;
 
 	& ~ .oo-ui-menuOptionWidget {
 		padding-left: @wds-dropdown-padding;
-
-		&.oo-ui-iconElement {
-			//padding-left: @padding-start-menu-icon-label + @padding-horizontal-base-iconized;
-			//
-			//.oo-ui-iconElement-icon {
-			//	left: 2 * @padding-horizontal-base-iconized;
-			//}
-		}
 	}
 }
 
