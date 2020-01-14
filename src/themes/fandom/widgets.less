@@ -378,24 +378,30 @@
 .theme-oo-ui-dropdownWidget() {
 	max-width: @max-width-input;
 	width: 100%;
-	.oo-ui-inline-spacing(@margin-end-widget);
 
 	&-handle {
-		border: @border-base;
-		border-radius: @border-radius-base;
-		line-height: @line-height-reset;
-		min-height: @min-height-widget-base; // Address label-less widgets
-		padding: @padding-vertical-base @padding-end-dropdown @padding-vertical-base @padding-horizontal-base;
+		background-color: @wds-color-white;
+		border: 1px solid @wds-fandom-color-mid-light-gray;
+		border-radius: @wds-rounded-corner-radius;
+		line-height: @wds-line-height-normal;
+		min-height: @min-height-widget-base;
+		padding: @wds-button-vertical-padding @input-horizontal-padding;
+		color: inherit;
+		font-family: inherit;
+		font-size: @wds-font-size-s;
 
 		.oo-ui-iconElement-icon {
-			left: @padding-horizontal-base;
+			height: auto;
+			left: @input-horizontal-padding;
+			top: 7px;
+			position: absolute;
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			// Workaround for 'down' indicator inner distance.
-			@size-indicator-inner-distance: 1px;
-
-			right: @padding-horizontal-base - @size-indicator-inner-distance;
+			height: auto;
+			position: absolute;
+			right: @input-horizontal-padding - 1px;
+			top: 10px;
 		}
 
 		.oo-ui-labelElement-label {
@@ -404,70 +410,32 @@
 	}
 
 	&.oo-ui-iconElement &-handle {
-		padding-left: @padding-start-input-text-icon-label;
+		padding-left: @input-horizontal-padding + @wds-icon-small-size + @wds-button-horizontal-gap;
 	}
 
 	&.oo-ui-indicatorElement &-handle {
-		padding-right: @size-indicator +
-			(2 * unit(@padding-horizontal-base) / @ooui-font-size-browser / @ooui-font-size-base);
+		padding-right: @min-size-indicator + 2 * @padding-horizontal-input-text;
 	}
 
 	&.oo-ui-widget-enabled &-handle {
-		background-color: @background-color-framed;
-		color: @color-base;
-		.oo-ui-transition(background-color @transition-base, border-color @transition-base, box-shadow @transition-base);
+		box-shadow: @box-shadow-widget;
+		.oo-ui-transition(border-color @transition-base, box-shadow @transition-base);
 
-		&:hover {
-			background-color: @background-color-framed--hover;
-			border-color: @border-color-base--hover;
-			color: @color-base--hover;
-
-			.oo-ui-iconElement-icon,
-			.oo-ui-indicatorElement-indicator {
-				opacity: @opacity-icon-base--hover;
-			}
+		&:hover, &:focus, &:active {
+			border-color: @wds-fandom-color-link;
 		}
 
 		&:active {
-			border-color: @border-color-base--active;
-			color: @color-base--active;
-		}
-
-		&:focus {
-			border-color: @border-color-base--focus;
-			box-shadow: @box-shadow-widget--focus;
-			outline: 0;
-		}
-
-		.oo-ui-iconElement-icon,
-		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-icon-base;
-			.oo-ui-transition(opacity @transition-base);
+			box-shadow: inset 0 0 0 1px @wds-fandom-color-link;
 		}
 	}
 
 	&.oo-ui-widget-enabled&-open &-handle {
-		background-color: @background-color-framed--hover;
-
-		.oo-ui-iconElement-icon,
-		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-icon-base--selected;
-		}
 	}
 
 	&.oo-ui-widget-disabled &-handle {
-		background-color: @background-color-base--disabled;
-		border-color: @border-color-base--disabled;
-		color: @color-base--disabled;
-		text-shadow: @text-shadow-base--disabled;
-
-		&:focus {
-			outline: 0;
-		}
-
-		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-indicator--disabled;
-		}
+		opacity: 0.5;
+		pointer-events: none;
 	}
 }
 
