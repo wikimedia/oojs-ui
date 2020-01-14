@@ -11,8 +11,8 @@
 }
 
 .theme-oo-ui-buttonGroupWidget() {
-	border-radius: @border-radius-base;
-	display: inline-block;
+	border-radius: @wds-rounded-corner-radius;
+	display: inline-flex;
 	padding-bottom: @border-width-base;
 	position: relative;
 	// Create a stacking context, so that we can use `z-index` below without leaking out
@@ -294,7 +294,12 @@
 		border-bottom-right-radius: 0;
 		border-right-width: 0;
 		border-top-right-radius: 0;
-		height: @size-base + 2px;
+		height: @size-base;
+	}
+
+	&-dropdownButton > .oo-ui-buttonElement-button {
+		display: grid;
+		height: @size-base;
 	}
 
 	// Undo setting properties above when there is no button:
@@ -338,7 +343,7 @@
 		font-family: inherit;
 		font-size: @wds-font-size-s;
 		line-height: @wds-line-height-normal;
-		min-height: @min-height-widget-base;
+		min-height: @size-base;
 		padding: @wds-button-vertical-padding @input-horizontal-padding;
 
 		.oo-ui-iconElement-icon {
@@ -357,6 +362,10 @@
 
 		.oo-ui-labelElement-label {
 			line-height: @line-height-base;
+		}
+
+		&:focus {
+			outline: 0;
 		}
 	}
 
@@ -510,6 +519,10 @@
 
 .theme-oo-ui-inputWidget() {
 	.oo-ui-inline-spacing(@margin-end-widget);
+
+	&-input:focus {
+		outline: 0;
+	}
 }
 
 .theme-oo-ui-labelWidget() {
@@ -641,7 +654,7 @@
 		.oo-ui-inputWidget-input {
 			border-radius: 0;
 			display: initial;
-			height: @size-base + 2px;
+			height: @size-base;
 		}
 	}
 
@@ -1144,39 +1157,31 @@
 
 .theme-oo-ui-selectFileWidget() {
 	&-dropTarget {
-		background-color: @background-color-base;
-		border: @border-base;
-		border-radius: @border-radius-base;
+		background-color: @wds-fandom-color-light-gray;
+		border: 1px solid @wds-fandom-color-mid-light-gray;
+		border-radius: @wds-rounded-corner-radius;
 		overflow: hidden;
 		vertical-align: middle;
 
 		&.oo-ui-selectFileInputWidget-empty {
 			border-style: dashed;
 		}
-
-		// Inline style `background-image` on thumbnail will take place over PendingElement.
-		.oo-ui-pendingElement-pending {
-			background-size: @size-icon @size-icon;
-		}
 	}
 
 	&-buttonOnly {
 		max-width: none;
-		// Reset widths that conflict with buttonWidget styles
 		width: auto;
 	}
 
 	&.oo-ui-widget-enabled {
 		&.oo-ui-selectFileWidget-dropTarget {
-			background-color: @background-color-base;
 			.oo-ui-transition(
-				background-color @transition-ease-medium,
-				color @transition-ease-medium,
-				border-color @transition-ease-medium
+					border-color @transition-ease-medium, background-color @transition-ease-medium
 			);
 
 			&:hover {
-				border-color: @border-color-input--hover;
+				background-color: fadeout(@wds-fandom-color-link, 90%);
+				border-color: @wds-fandom-color-link;
 			}
 		}
 
@@ -1196,8 +1201,7 @@
 	&.oo-ui-widget-disabled,
 	&.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled {
 		&.oo-ui-selectFileWidget-dropTarget {
-			background-color: @background-color-base--disabled;
-			border-color: @border-color-base--disabled;
+			opacity: 0.5;
 		}
 	}
 }
@@ -1452,7 +1456,7 @@
 		border-radius: @border-radius-base;
 		box-sizing: border-box;
 		line-height: @line-height-reset;
-		min-height: @min-height-widget-base;
+		min-height: @size-base;
 		padding: 0 @padding-horizontal-input-text;
 		.oo-ui-inline-spacing(@margin-end-widget);
 
@@ -1621,7 +1625,7 @@
 		}
 
 		textarea + .oo-ui-iconElement-icon {
-			max-height: @size-base; // Use `@size-base` as `max-height` for multiline TextInputWidgets
+			max-height: @size-base;
 			top: 10px;
 		}
 	}
@@ -1697,9 +1701,10 @@
 	}
 
 	&.oo-ui-widget-disabled {
+		opacity: 0.5;
+
 		.oo-ui-inputWidget-input {
 			background-color: @wds-fandom-color-light-gray;
-			opacity: 0.5;
 		}
 	}
 }

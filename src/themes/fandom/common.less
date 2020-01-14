@@ -32,23 +32,17 @@
 @opacity-tool--disabled: 0.34; // equals `#a9a9a9` on background-color `#fff`
 
 // Box Sizes
-// `@*size` variables are used for `*width` & `*height` properties
-@size-base: 32px; // equals `2.5em`≈`32px`
-@size-base--small: 16px;
+@size-base: 34px;
 
-// `min-size/-width/-height` values are defined in `px`, see T130691.
 @min-size-base--small: 16px;
 @min-size-icon-small: 14px;
 @min-size-toolbar-popup-toolgroup-handle: 140px;
 @min-size-toolbar-narrow-popup-toolgroup-handle: 100px;
 @min-width-button-base: 44px;
 @min-width-button-combo-widget: 37px;
-@min-height-toggleswitch: 26px; // equals @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
-// …except `@min-height-widget-base` due to being used in calculations with `em` based values.
-@min-height-widget-base: @size-base;
+@min-height-toggleswitch: 26px;
 
 @size-anchor: 7px;
-@size-button-base: @size-base;
 @size-button-tagitem-close: 20px; // equals `1.5625em`≈`20px`
 @size-icon: @wds-icon-small-size;
 @min-size-icon: @wds-icon-small-size;
