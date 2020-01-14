@@ -349,30 +349,6 @@
 }
 
 .theme-oo-ui-decoratedOptionWidget() {
-	line-height: @line-height-reset;
-	padding: @padding-menu;
-
-	&.oo-ui-widget-enabled {
-		&:hover {
-			.oo-ui-iconElement-icon,
-			.oo-ui-indicatorElement-indicator {
-				opacity: @opacity-icon-base--hover;
-			}
-		}
-
-		.oo-ui-iconElement-icon,
-		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-icon-base;
-			.oo-ui-transition(opacity @transition-base);
-		}
-	}
-
-	&.oo-ui-widget-disabled {
-		.oo-ui-iconElement-icon,
-		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-base--disabled;
-		}
-	}
 }
 
 .theme-oo-ui-dropdownWidget() {
@@ -383,18 +359,18 @@
 		background-color: @wds-color-white;
 		border: 1px solid @wds-fandom-color-mid-light-gray;
 		border-radius: @wds-rounded-corner-radius;
-		line-height: @wds-line-height-normal;
-		min-height: @min-height-widget-base;
-		padding: @wds-button-vertical-padding @input-horizontal-padding;
 		color: inherit;
 		font-family: inherit;
 		font-size: @wds-font-size-s;
+		line-height: @wds-line-height-normal;
+		min-height: @min-height-widget-base;
+		padding: @wds-button-vertical-padding @input-horizontal-padding;
 
 		.oo-ui-iconElement-icon {
 			height: auto;
 			left: @input-horizontal-padding;
-			top: 7px;
 			position: absolute;
+			top: 7px;
 		}
 
 		.oo-ui-indicatorElement-indicator {
@@ -421,7 +397,9 @@
 		box-shadow: @box-shadow-widget;
 		.oo-ui-transition(border-color @transition-base, box-shadow @transition-base);
 
-		&:hover, &:focus, &:active {
+		&:hover,
+		&:focus,
+		&:active {
 			border-color: @wds-fandom-color-link;
 		}
 
@@ -570,60 +548,43 @@
 .theme-oo-ui-menuOptionWidget() {
 	.oo-ui-transition(background-color @transition-base, color @transition-base);
 
-	&-checkIcon {
+	&-checkIcon.oo-ui-labelElement-invisible {
 		display: none;
 	}
 
 	&.oo-ui-optionWidget {
-		&-highlighted {
-			background-color: @background-color-base--hover;
-			color: @color-base--emphasized;
-		}
-
+		&-highlighted,
 		&-selected {
-			background-color: @background-color-progressive;
-			color: @color-progressive;
-		}
-
-		&-selected&-highlighted,
-		&-pressed&-highlighted {
-			background-color: @background-color-progressive--hover;
-			color: @color-progressive;
-		}
-	}
-
-	&.oo-ui-widget-enabled {
-		&.oo-ui-optionWidget {
-			color: @color-base;
+			background-color: fadeout(@wds-fandom-color-link, 90%);
+			color: @wds-fandom-color-link;
 		}
 	}
 }
 
 .theme-oo-ui-menuSectionOptionWidget() {
-	color: @wds-fandom-color-middle-gray;
+	//color: @wds-fandom-color-middle-gray;
 	font-weight: bold;
-	padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-label;
+	//padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-label;
 
 	& ~ .oo-ui-menuOptionWidget {
-		padding-left: 2 * @padding-horizontal-base;
+		padding-left: @wds-dropdown-padding;
 
 		&.oo-ui-iconElement {
-			padding-left: @padding-start-menu-icon-label + @padding-horizontal-base-iconized;
-
-			.oo-ui-iconElement-icon {
-				left: 2 * @padding-horizontal-base-iconized;
-			}
+			//padding-left: @padding-start-menu-icon-label + @padding-horizontal-base-iconized;
+			//
+			//.oo-ui-iconElement-icon {
+			//	left: 2 * @padding-horizontal-base-iconized;
+			//}
 		}
 	}
 }
 
 .theme-oo-ui-menuSelectWidget() {
-	background-color: @background-color-base;
-	border: @border-menu;
-	border-radius: 0 0 @border-radius-base @border-radius-base;
-	box-shadow: @box-shadow-menu;
-	margin-bottom: -1px;
-	margin-top: -1px;
+	background-color: @wds-color-white;
+	border: @wds-fandom-color-mid-light-gray;
+	border-radius: 0 0 @wds-dropdown-border-radius @wds-dropdown-border-radius;
+	box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
+	padding: @wds-dropdown-padding - @wds-list-item-vertical-padding 0;
 }
 
 .theme-oo-ui-menuTagMultiselectWidget() {
@@ -739,15 +700,31 @@
 }
 
 .theme-oo-ui-optionWidget() {
-	// Don't add `highlighted` or `selected` modifications here
-	// as it inherits to various visually opposite widgets.
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 @wds-dropdown-padding / 2;
+	padding: @wds-list-item-vertical-padding (@wds-dropdown-padding / 2 - @wds-button-horizontal-gap / 2);
+	white-space: nowrap;
 
-	&-selected .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-		opacity: @opacity-icon-base--selected;
+	> * {
+		margin: 0 @wds-button-horizontal-gap / 2;
 	}
 
+	> :not(.oo-ui-labelElement-label) {
+		flex-shrink: 1;
+	}
+
+	> .oo-ui-labelElement-label {
+		flex-grow: 1;
+		line-height: @wds-line-height-none;
+	}
+
+	// Don't add `highlighted` or `selected` modifications here
+	// as it inherits to various visually opposite widgets.
 	&.oo-ui-widget-disabled {
-		color: @color-base--disabled;
+		opacity: 0.5;
 	}
 }
 
