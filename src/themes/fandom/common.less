@@ -1,19 +1,11 @@
 @import 'wds-variables/index';
 @import (reference) '../../../node_modules/wikimedia-ui-base/wikimedia-ui-base.less';
 
-@ooui-default-image-path: 'themes/fandom/images';
-@ooui-font-size-browser: 16; // assumed browser default of `16px`
-@ooui-font-size-base: @wds-font-size-s;
 @ooui-unit: px;
 
 // Background & Text Colors
-@background-color-base--hover: #eaecf0;
-@background-color-base--active: #eaecf0;
-@background-color-base--read-only: #f8f9fa;
-@background-color-frameless--hover: @wmui-color-base90;
 @background-color-pending-stripe: #eaecf0;
 @color-base--deemphasized: #54595d;
-@color-taboption: @color-base--hover;
 
 // Primary 'Progressive' and 'Destructive' Colors
 @background-color-progressive: @background-color-primary;
@@ -23,8 +15,6 @@
 @color-progressive--hover: @color-progressive--active;
 @color-progressive--active-hover: @color-progressive--active;
 @color-progressive--focus: @color-progressive--active;
-
-@color-destructive-non-primary: #d73333; // Exemption for non-primary buttons, foremost used in VE, lightened up R50 to align to AA contrast ratio
 
 // Disabled Widgets
 @opacity-filled--disabled: 1;
@@ -153,10 +143,6 @@
 @padding-start-icon: @size-icon;
 // All paddings holding icons/indicators need `em`s due to font-size derived icon scaling.
 @padding-start-icon-only: 30px; // @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base.
-@padding-start-fieldset-header-iconized: unit(
-	26 / @ooui-font-size-browser / (@ooui-font-size-base * @font-size-fieldset-header),
-	@ooui-unit
-);
 @padding-start-messages: 8px;
 // Indicator receives a little less than `@padding-horizontal-base` to make up for its fragility.
 // Also abusing `@padding-start` as `start` value.
