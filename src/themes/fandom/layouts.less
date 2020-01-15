@@ -12,12 +12,12 @@
 
 	&-outlinePanel {
 		> .oo-ui-outlineControlsWidget {
-			border-top: @border-dialog-bar;
+			border-top: @wds-fandom-color-mid-light-gray;
 		}
 	}
 
 	> .oo-ui-menuLayout-menu {
-		border-right: @border-dialog-bar;
+		border-right: @wds-fandom-color-mid-light-gray;
 	}
 }
 
@@ -41,7 +41,7 @@
 
 .theme-oo-ui-fieldLayout() {
 	// We just relatively follow M101 design guideline here
-	margin-top: @margin-top-fieldlayout; // `1.5em` in the guideline, we go for `1.1428571em`≈`16px`
+	margin-top: 16px; // `1.5em` in the guideline, we go for `1.1428571em`≈`16px`
 
 	&.oo-ui-labelElement,
 	&.oo-ui-fieldLayout-align-inline {
@@ -71,7 +71,7 @@
 			> .oo-ui-fieldLayout-body {
 				> .oo-ui-fieldLayout-header {
 					box-sizing: border-box;
-					padding-right: @size-base + @start-frameless-icon;
+					padding-right: @size-base + 5px;
 					width: 40%;
 
 					> .oo-ui-labelElement-label {
@@ -81,7 +81,7 @@
 				}
 
 				> .oo-ui-fieldLayout-help {
-					margin-left: -(@size-base + @size-modifier-border);
+					margin-left: -(@size-base + 2px);
 					// Override the default
 					margin-right: 0;
 				}
@@ -119,7 +119,7 @@
 			margin-right: @margin-end-fieldlayout-help;
 			// HACK: This PopupButtonWidget's height extends below the header line (with align: top),
 			// causing the field widget to be narrower than it should be.
-			margin-top: @margin-top-fieldlayout-help;
+			margin-top: -6px;
 		}
 	}
 
@@ -129,8 +129,8 @@
 		padding: @padding-vertical-label 0;
 
 		> .oo-ui-messageWidget {
-			margin-left: @margin-horizontal-fieldlayout-message;
-			margin-right: @margin-horizontal-fieldlayout-message;
+			margin-left: 12px;
+			margin-right: 12px;
 
 			&:first-child {
 				margin-top: @margin-top-message / 2;
@@ -150,7 +150,7 @@
 
 	.oo-ui-actionFieldLayout-input .oo-ui-widget {
 		&:not(.oo-ui-textInputWidget) {
-			margin-right: @margin-end-actionlayout-input;
+			margin-right: 8px;
 		}
 
 		&.oo-ui-textInputWidget > .oo-ui-inputWidget-input {
@@ -166,7 +166,7 @@
 		}
 
 		.oo-ui-buttonElement-frameless {
-			margin-left: @padding-horizontal-frameless; // Address frameless negative margin focus hack
+			margin-left: 6px;
 		}
 	}
 
@@ -292,6 +292,6 @@
 	}
 
 	> .oo-ui-widget {
-		margin-bottom: @margin-bottom-horizontallayout-widget;
+		margin-bottom: 8px;
 	}
 }

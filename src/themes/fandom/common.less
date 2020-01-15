@@ -1,223 +1,46 @@
 @import 'wds-variables/index';
 @import (reference) '../../../node_modules/wikimedia-ui-base/wikimedia-ui-base.less';
 
-@ooui-unit: px;
-
-// Background & Text Colors
-@background-color-pending-stripe: #eaecf0;
-@color-base--deemphasized: #54595d;
-
-// Primary 'Progressive' and 'Destructive' Colors
-@background-color-progressive: @background-color-primary;
-@background-color-progressive--hover: @background-color-primary--hover;
-@color-progressive: orange;
-@color-progressive--active: lime;
-@color-progressive--hover: @color-progressive--active;
-@color-progressive--active-hover: @color-progressive--active;
-@color-progressive--focus: @color-progressive--active;
-
-// Disabled Widgets
-@opacity-filled--disabled: 1;
-@opacity-indicator--disabled: 0.15; // equals `#c7c8cc` on background-color `#fff`
-@opacity-tool--disabled: 0.34; // equals `#a9a9a9` on background-color `#fff`
-
-// Box Sizes
-@size-base: 34px;
-
-@min-size-base--small: 16px;
-@min-size-icon-small: 14px;
-@min-size-toolbar-popup-toolgroup-handle: 140px;
-@min-size-toolbar-narrow-popup-toolgroup-handle: 100px;
-@min-width-button-base: 44px;
-@min-width-button-combo-widget: 37px;
-@min-height-toggleswitch: 26px;
-
-@size-anchor: 7px;
-@size-button-tagitem-close: 20px; // equals `1.5625em`≈`20px`
-@size-icon: @wds-icon-small-size;
-@min-size-icon: @wds-icon-small-size;
-@size-icon-small: @wds-icon-tiny-size;
-@size-indicator: @wds-icon-tiny-size;
-@min-size-indicator: @wds-icon-tiny-size;
-@size-dialog-bar--desktop: 40px; // equals `3.125em`≈`40px`
-@size-dialog-bar--mobile: 44px; // equals `3.4375em`≈`44px`
+@size-dialog-bar--desktop: 40px;
+@size-dialog-bar--mobile: 44px;
 @size-dialog-message-bar: 40px;
-@size-tool: 42px;
 
-@button-min-height: @wds-button-vertical-padding * 2 + @wds-font-size-l + 2px;
-
-@size-tag-group-modifier: -(2px);
-@size-toolbar-narrow-modifier: 2px;
-@size-modifier-border: 1px; // Use for size calculations with borders aside of `px` based `@border-width-base`
-
-@width-button-combo-widget: 37px; // equals `2.42857143em`≈`34px`;
-
-@height-icon-element: 100%;
-@height-button-input-inner: 28px;
-@height-search: 56px; // equals `4.375em`≈`56px`; `height: 32px` + 2 * `margin: 12px`
-@height-tagitem: 22px; // equals `1.71875em`≈`22px`;
+@height-search: 56px;
+@height-tagitem: 22px;
 @height-tabselect: 37px;
-
-@start-framed-icon-only: 11px; // equals `0.859375em`≈`11px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
-@start-framed-indicator-only: 15px; // equals `1.07142857em`≈`15px`; `@size-indicator + 2 * @border-width-base`
-@start-framed-indicator-only-button-combo-widget: 12px; // equals `0.85714286em`≈`12px`
-@start-frameless: -(6px); // `-( @start-frameless-icon + @border-width-base )`
-@start-frameless-icon: 5px;
-@start-fieldlayout-help-icon: 3px; // equals `0.234375em`≈`3px`
-@start-tagmultiselect-input: 8px; // Same as `@padding-horizontal-tagitem`.
-@start-toggleswitch-grip: 5px;
-@start-tool-icon: 11px;
-@start-toolbar-narrow-tool-icon: 4px;
-@end-tool-indicator: 8px;
 
 @margin-dialog-bar-button-framed: 6px;
 @margin-search: 12px;
 @margin-taboption: @margin-dialog-bar-button-framed;
-@margin-tagitem: 4px;
-@margin-button-close: 4px;
 @margin-top-form-fieldset: 24px;
-@margin-top-fieldlayout: 16px;
 @margin-top-fieldlayout--labelled: 12px;
-@margin-top-fieldlayout-help: -6px;
 @margin-top-message: 8px;
 @margin-top-popup: 9px;
 @margin-bottom-fieldset-header: 8px;
-@margin-bottom-horizontallayout-widget: 8px;
-@margin-horizontal-fieldlayout-message: 12px;
-@margin-end-actionlayout-input: 8px;
 @margin-end-fieldlayout-help: -8px;
 @margin-end-widget: 8px;
 
-@border-base--disabled: @border-width-base @border-style-base @border-color-base--disabled;
-@border-filled--disabled: @border-width-base @border-style-base @border-color-filled--disabled;
-@border-dialog-bar: @border-width-base @border-style-base @border-color-dialog-bar;
-
-@border-color-base--focus: @color-progressive--focus;
-@border-color-framed-progressive--hover: @color-progressive--hover;
-@border-color-framed-destructive--hover: @color-destructive--hover;
-@border-color-frameless: transparent;
-
-@border-color-focus-inset: @color-base--inverted;
-@border-color-error: @color-error;
-@border-color-warning: @wmui-color-yellow50;
-@border-color-success: @color-success;
-@border-color-notice: @border-color-base;
-@border-color-base--disabled: #c8ccd1;
-@border-color-input--hover: @border-color-base--active;
-@border-color-dialog-bar: #c8ccd1;
-
-@border-width-frameless-tab: 2px;
-
-@border-toolbar: @border-width-base @border-style-base #c8ccd1;
-
-@border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
-@border-radius-base: @wds-rounded-corner-radius;
-
-@padding-base: @padding-vertical-base @padding-horizontal-base;
-@padding-frameless: @padding-vertical-base @padding-horizontal-frameless;
-@padding-input-text: @padding-vertical-base @padding-horizontal-input-text;
-@padding-menu: @padding-vertical-menu @padding-horizontal-base;
-@padding-menu-large: @padding-vertical-tool-label @padding-horizontal-base;
 @padding-panel-form: 16px;
 @padding-panel-dialog: 20px;
 @padding-horizontal-base: @wds-button-horizontal-padding;
-@padding-horizontal-frameless: 6px;
-@padding-horizontal-input-text: @input-horizontal-padding;
-@padding-horizontal-message-block: 24px;
-@padding-horizontal-taboption: 8px;
-@padding-horizontal-taboption-label: 5px;
-@padding-horizontal-tagitem: 8px;
-@padding-horizontal-toolbar-action-buttons: 16px; // Aligned relatively to `@padding-horizontal-base` but for toolbar button height.
-// All paddings holding icons need `em`s due to font-size derived icon scaling.
-@padding-horizontal-base-iconized: 12px;
-// Must be < `8` as it cuts off scripts.
 @padding-vertical-base: @wds-button-vertical-padding;
 @padding-vertical-label: 4px;
-// Menu items don't have a border.
-@padding-vertical-menu: @padding-vertical-base + @border-width-base;
-@padding-vertical-message-block: 16px;
-@padding-top-icon-indicator: 30px;
-@padding-top-tool: 42px;
-@padding-vertical-dialog-action: 10px;
-@padding-vertical-tool-label: 12px;
-@padding-start-icon: @size-icon;
-// All paddings holding icons/indicators need `em`s due to font-size derived icon scaling.
-@padding-start-icon-only: 30px; // @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base.
-@padding-start-messages: 8px;
-// Indicator receives a little less than `@padding-horizontal-base` to make up for its fragility.
-// Also abusing `@padding-start` as `start` value.
-@padding-start-indicator: 10px;
-@padding-start-indicator-only: @size-indicator + @wds-button-horizontal-padding;
-@padding-start-indicator-plus: 30px;
-@padding-start-frameless-icon-plus: @padding-start-icon-only;
-// `6px` is not aligned to Design Style Guide, as checkbox and radio sizes aren't either.
 @padding-start-fieldlayout-label: 6px;
 @padding-start-input-text-icon-label: 37px;
-@padding-start-menu-icon-label: 37px;
-@padding-start-tool: 37px;
-@padding-start-tool-icon-only: 42px; // Provide slightly more space than `@padding-start-input-text-icon-label` as we want to provide minimal touch action size
-@padding-end-dropdown: @padding-start-indicator-plus;
-@padding-end-tagitem-close: 23px;
-@padding-end-toolgroup-label-indicator: 26px;
-@padding-end-toolgroup-indicator: 16px;
+@padding-end-dropdown: 30px;
 
 @input-horizontal-padding: 8px;
 
-@box-shadow-toolbar-top: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-@box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba(0, 0, 0, 0.1);
-@box-shadow-widget: inset 0 0 0 1px transparent;
-@box-shadow-widget--focus: inset 0 0 0 1px @color-progressive;
-@box-shadow-progressive--focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-base--inverted;
-@box-shadow-frameless-indicator--focus: 0 0 0 2px @color-progressive;
-@box-shadow-action--focus: @box-shadow-widget--focus, 0 0 0 1px @color-progressive;
-@box-shadow-toolbar-action-button--focus: inset 0 0 0 2px @color-progressive, inset 0 0 0 3px @color-base--inverted;
-@box-shadow-input-binary--active: inset 0 0 0 1px @color-progressive--active;
-@box-shadow-error--focus: inset 0 0 0 1px @color-error;
-
-@filter-drop-shadow-menu: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.3));
-
-// `font-size` has to be in `em` to enable user override in browser settings for accessibility.
-@font-size-small: 13px;
-@font-size-fieldset-header: @wds-font-size-base;
-// ProcessDialog title, need to be set in `em` as we alternate between mobile/desktop.
-@font-size-dialog-process-title: 1.1em;
-
-// `line-height` has to be relative/in `em` to enable user override in browser settings.
-@line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
-@line-height-base: unit(
-	18px,
-	@ooui-unit
-); // equals `18px` at base `font-size: 14px;
-@line-height-message: 20px; // equals `20px` at base `font-size: 14px`
-@line-height-label: @wds-line-height-normal;
-@line-height-tagitem-label: unit(
-	21px / @font-size-small,
-	@ooui-unit
-); // Push label down by 1 px for vertical centering.
-@line-height-widget-decoratedoption: unit(
-	16px,
-	@ooui-unit
-); // Equals `1.14286em`≈`16px`; Firefox needs a value, Chrome the unit.
-
-@opacity-icon-accessory: 0.67; // Equals `#555`, closest to `#54595d` on background-color `#fff`
-
-// Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
-@background-color-input-binary--active: @color-progressive--active;
-@background-color-input-binary--checked: @color-progressive;
+//potrzebne
+@line-height-base: @wds-line-height-normal;
 @size-input-binary: 16px;
-@start-input-binary-icon: 3px;
-@border-input-binary: @border-width-base @border-style-base @border-color-input-binary;
-@border-color-input-binary: @border-color-base--active;
-@border-color-input-binary--active: @color-progressive--active;
-@border-color-input-binary--checked: @color-progressive;
-@box-shadow-input-binary: 0 0 0 1px rgba(0, 0, 0, 0.1);
-@border-width-radio--checked: 6px;
-
-// Dialogs
 @size-dialog-menu: 200px;
-@transition-dialog: @transition-ease-out-medium;
-
 @transition-base: @wds-button-transition-duration;
-@color-placeholder: #767676;
-
-@transition-duration-quick: 100ms;
+@transition-dialog: ease-out @wds-button-transition-duration;
+@size-base: 34px;
+@combo-button-width: 37px;
+@size-anchor: 7px;
+@size-icon: @wds-icon-small-size;
+@min-size-icon: @size-icon;
+@size-indicator: @wds-icon-tiny-size;
+@border-radius-base: @wds-rounded-corner-radius;

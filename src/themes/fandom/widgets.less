@@ -131,15 +131,6 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		&:focus {
-			.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
-				.oo-ui-buttonElement-button {
-					border-color: @border-color-base--focus;
-					box-shadow: @box-shadow-progressive--focus;
-				}
-			}
-		}
-
 		// Give hovered/focussed/active buttons higher `z-index`, so that borders display correctly.
 		// Identical to .theme-oo-ui-buttonGroupWidget, except we don't need `:focus` selector.
 		.oo-ui-buttonElement {
@@ -318,10 +309,10 @@
 	}
 
 	&-dropdownButton.oo-ui-indicatorElement {
-		width: @width-button-combo-widget;
+		width: @combo-button-width;
 
 		.oo-ui-buttonElement-button {
-			min-width: @min-width-button-combo-widget;
+			min-width: @combo-button-width;
 			padding-left: 0;
 			padding-right: 0;
 		}
@@ -380,11 +371,11 @@
 	}
 
 	&.oo-ui-indicatorElement &-handle {
-		padding-right: @min-size-indicator + 2 * @padding-horizontal-input-text;
+		padding-right: @size-indicator + 2 * @input-horizontal-padding;
 	}
 
 	&.oo-ui-widget-enabled &-handle {
-		box-shadow: @box-shadow-widget;
+		box-shadow: inset 0 0 0 1px transparent;
 		.oo-ui-transition(border-color @transition-base, box-shadow @transition-base);
 
 		&:hover,
@@ -455,7 +446,7 @@
 		font-family: inherit;
 		font-size: inherit;
 		height: 1.5em;
-		padding: @padding-base;
+		padding: @wds-button-vertical-padding @wds-button-horizontal-padding;
 	}
 
 	&.oo-ui-widget-enabled {
@@ -470,30 +461,10 @@
 			color: @color-base;
 			.oo-ui-transition(border-color @transition-base, box-shadow @transition-base);
 
-			&:hover {
-				border-color: @border-color-base--hover;
-				color: @color-base--hover;
+			&:hover, &:active, &:focus {
+				border-color: currentColor;
+				color: @wds-fandom-color-link;
 			}
-
-			&:active {
-				border-color: @border-color-base--active;
-				color: @color-base--active;
-			}
-
-			&:focus {
-				border-color: @border-color-base--focus;
-				box-shadow: @box-shadow-widget--focus;
-				outline: 0;
-			}
-		}
-	}
-
-	&.oo-ui-widget-disabled {
-		background-color: @background-color-base--disabled;
-
-		select {
-			border-color: @border-color-base--disabled;
-			color: @color-base--disabled;
 		}
 	}
 }
@@ -534,9 +505,8 @@
 
 .theme-oo-ui-labelWidget() {
 	&.oo-ui-inline-help {
-		color: @color-base--deemphasized;
 		display: block;
-		font-size: @font-size-small;
+		font-size: @wds-font-size-xs;
 	}
 }
 
@@ -657,10 +627,10 @@
 	&-buttoned {
 		.oo-ui-buttonWidget {
 			display: initial;
-			width: @width-button-combo-widget;
+			width: @combo-button-width;
 
 			.oo-ui-buttonElement-button {
-				min-width: @min-width-button-combo-widget;
+				min-width: @combo-button-width;
 				padding-left: 0;
 				padding-right: 0;
 			}
@@ -741,7 +711,7 @@
 }
 
 .theme-oo-ui-outlineOptionWidget() {
-	padding: @padding-menu-large;
+	padding: @wds-button-vertical-padding @wds-button-horizontal-padding;
 	.oo-ui-transition(background-color @transition-base, color @transition-base);
 
 	&.oo-ui-optionWidget-highlighted,&.oo-ui-optionWidget-selected, &.oo-ui-optionWidget-pressed {
@@ -760,10 +730,6 @@
 
 .theme-oo-ui-outlineSelectWidget() {
 	height: 100%;
-
-	&:focus {
-		box-shadow: inset 0 0 0 2px @color-progressive;
-	}
 }
 
 .theme-oo-ui-popupWidget() {
@@ -777,7 +743,7 @@
 
 	// Support: Progressively enhance for browser's which render `filter`.
 	@supports (filter: drop-shadow(0 0 0)) {
-		filter: @filter-drop-shadow-menu;
+		filter: drop-shadow(0 2px 1px rgba(@wds-color-black, 0.3));
 		// Safari can have visual glitches with lingering shadows in some contexts
 		// when using drop-shadow. This makes it be more zealous about cleaning
 		// up. (See: T226872)
@@ -901,7 +867,7 @@
 	}
 
 	&-body {
-		line-height: @line-height-message;
+		line-height: @line-height-base;
 
 		&-padded {
 			margin: @margin-top-popup @padding-horizontal-base @padding-vertical-base; // Use `margin` rather than `padding` to enable margin to collapse
@@ -1115,8 +1081,7 @@
 
 .theme-oo-ui-searchWidget() {
 	&-query {
-		border-bottom: @border-toolbar;
-		box-shadow: @box-shadow-toolbar-top;
+		border-bottom: @wds-fandom-color-mid-light-gray;
 		height: @height-search;
 		padding: 0 @padding-panel-form; // Need to use `padding` over `margin` for horizontally continuos `border`/`box-shadow` below
 
@@ -1182,8 +1147,8 @@
 		&.oo-ui-selectFileWidget-canDrop {
 			&.oo-ui-selectFileWidget-dropTarget,
 			.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
-				background-color: @background-color-progressive;
-				color: @color-progressive--active-hover;
+				background-color: @fade-out-fandom-color;
+				color: @wds-fandom-color-link;
 			}
 		}
 	}
@@ -1204,7 +1169,6 @@
 	font-size: @wds-font-size-xs;
 	font-weight: @wds-font-weight-bold;
 	height: 40px;
-	line-height: @line-height-reset;
 	margin: 0;
 	padding: 0 11px;
 	text-transform: uppercase;
@@ -1248,13 +1212,9 @@
 		}
 	}
 
-	.oo-ui-tabSelectWidget-framed.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected .oo-ui-labelElement-label {
-		border-bottom-color: @border-color-base--focus;
-	}
-
 	.oo-ui-tabSelectWidget-frameless & {
 		box-shadow: inset 0 0 0 0 @wds-fandom-color-link;
-		.oo-ui-transition(color @transition-base, box-shadow @transition-duration-quick);
+		.oo-ui-transition(color @transition-base, box-shadow @transition-base);
 
 		&.oo-ui-optionWidget-selected,
 		&.oo-ui-widget-enabled:active {
@@ -1301,7 +1261,7 @@
 			.oo-ui-horizontal-gradient(fade(#fff, 0), #fff);
 			// Override fallback color from mixin
 			background-color: transparent;
-			bottom: @size-modifier-border * 2;
+			bottom: 2px;
 		}
 	}
 
@@ -1354,7 +1314,7 @@
 		&.oo-ui-flaggedElement-invalid {
 			background-color: fadeout(@wds-color-alert, 90%);
 			border-color: currentColor;
-			color: @border-color-error;
+			color: @wds-color-alert;
 
 			&:hover,
 			&:focus {
@@ -1403,7 +1363,7 @@
 		box-sizing: border-box;
 		line-height: @wds-line-height-none;
 		min-height: @size-base;
-		padding: 0 @padding-horizontal-input-text;
+		padding: 0 @input-horizontal-padding;
 		.oo-ui-inline-spacing(@margin-end-widget);
 
 		> .oo-ui-tagMultiselectWidget-content {
@@ -1428,8 +1388,8 @@
 
 		.oo-ui-tagMultiselectWidget-group {
 			display: inline-block;
-			margin-left: @size-tag-group-modifier;
-			margin-top: @margin-tagitem;
+			margin-left: -2px;
+			margin-top: 4px;
 			max-width: 100%;
 		}
 	}
@@ -1497,7 +1457,7 @@
 			}
 
 			&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
-				border-color: @border-color-error;
+				border-color: @wds-color-alert;
 			}
 		}
 
@@ -1561,12 +1521,12 @@
 	> .oo-ui-labelElement-label {
 		color: @wds-fandom-color-middle-gray;
 		line-height: @size-base;
-		padding: 0 @padding-horizontal-base 0 @padding-horizontal-input-text;
+		padding: 0 @padding-horizontal-base 0 @input-horizontal-padding;
 	}
 
 	&.oo-ui-indicatorElement {
 		.oo-ui-inputWidget-input {
-			padding-right: @min-size-indicator + 2 * @padding-horizontal-input-text;
+			padding-right: @size-indicator + 2 * @input-horizontal-padding;
 		}
 
 		&.oo-ui-textInputWidget-labelPosition-after > .oo-ui-labelElement-label {
@@ -1593,7 +1553,7 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-inputWidget-input {
-			box-shadow: @box-shadow-widget; // necessary for smooth transition
+			box-shadow: inset 0 0 0 1px transparent;
 			.oo-ui-transition(border-color @transition-ease-medium, box-shadow @transition-ease-medium);
 
 			.mw-placeholder();
@@ -1700,5 +1660,5 @@
 
 .mw-placeholder() {
 	// Normalize placeholder styling, see T139034
-	.oo-ui-placeholder({color: @color-placeholder; opacity: 1;});
+	.oo-ui-placeholder({color: #767676; opacity: 1;});
 }

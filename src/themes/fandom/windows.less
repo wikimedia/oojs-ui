@@ -15,7 +15,7 @@
 	&-title,
 	&-message {
 		display: block;
-		line-height: @line-height-message;
+		line-height: @line-height-base;
 		text-align: center;
 	}
 
@@ -140,7 +140,6 @@
 	}
 
 	&-title {
-		//font-size: @font-size-dialog-process-title;
 		font-weight: @wds-font-weight-bold;
 		line-height: @size-dialog-bar--desktop;
 	}
@@ -191,7 +190,7 @@
 			}
 
 			> .oo-ui-buttonElement-button {
-				padding: @padding-vertical-dialog-action @padding-horizontal-base;
+				padding: @padding-vertical-base @padding-horizontal-base;
 			}
 		}
 	}
@@ -200,7 +199,7 @@
 		&-primary {
 			.oo-ui-actionWidget {
 				> .oo-ui-buttonElement-button {
-					border-left-color: @border-color-dialog-bar;
+					border-left-color: @wds-color-light-c3;
 					border-right-color: transparent;
 				}
 
@@ -274,7 +273,7 @@
 		background-color: @background-color-error--framed;
 		border: @border-error;
 		margin: 1em 0 0;
-		padding: @padding-vertical-message-block @padding-horizontal-message-block;
+		padding: 16px 24px;
 		text-align: left;
 	}
 
@@ -293,7 +292,7 @@
 			}
 
 			&-title {
-				line-height: @size-dialog-bar--mobile / unit(@font-size-dialog-process-title);
+				line-height: @wds-line-height-none;
 			}
 
 			&-content .oo-ui-window-body {
@@ -304,7 +303,7 @@
 		.oo-ui-actionWidget {
 			&.oo-ui-labelElement {
 				> .oo-ui-buttonElement-button {
-					padding: @padding-vertical-tool-label @padding-horizontal-base;
+					padding: @padding-vertical-base @padding-horizontal-base;
 				}
 			}
 		}
@@ -315,13 +314,13 @@
 	&-modal > .oo-ui-dialog {
 		background-color: rgba(@wds-color-black, 0.5);
 		opacity: 0;
-		.oo-ui-transition(opacity @transition-dialog);
+		.oo-ui-transition(opacity @transition-base);
 
 		> .oo-ui-window-frame {
 			background-color: @background-color-base;
 			opacity: 0;
 			.oo-ui-transform(scale(0.5));
-			.oo-ui-transition(all @transition-dialog);
+			.oo-ui-transition(all @transition-base);
 		}
 
 		&.oo-ui-window-setup {
