@@ -104,13 +104,7 @@
 		margin-right: 0; // Override `.oo-ui-inline-spacing()`.
 
 		.oo-ui-buttonElement-button {
-			padding-right: 0; // Accessible label causes triggering of `.oo-ui-labelElement`, we need to reset it here
-			padding-top: @size-icon;
-
-			&:hover,
-			&:active {
-				background-color: transparent;
-			}
+			padding: 0;
 		}
 	}
 
@@ -206,8 +200,8 @@
 
 	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header,
 	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header {
-		display: inline-flex;
 		align-items: center;
+		display: inline-flex;
 		margin-bottom: @margin-bottom-fieldset-header;
 		padding: 0;
 	}
@@ -251,9 +245,6 @@
 	+ .oo-ui-formLayout {
 		margin-top: @margin-top-form-fieldset;
 	}
-}
-
-.theme-oo-ui-menuLayout() {
 }
 
 .theme-oo-ui-menuLayout() {
