@@ -1,7 +1,7 @@
 {
 	"selectorWithoutVariant": ".oo-ui-icon-{name}",
 	"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}",
-	"intro": "@import '../../../../src/styles/common.less';",
+	"intro": "@import '../../../../src/styles/common';",
 	"images": {
 		"userAnonymous": {
 			"file": "../wikimediaui/images/icons/userAnonymous.svg"
