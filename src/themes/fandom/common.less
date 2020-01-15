@@ -1,14 +1,50 @@
 @import 'wds-variables/index';
-@import (reference) '../../../node_modules/wikimedia-ui-base/wikimedia-ui-base.less';
 
-@size-dialog-bar--desktop: 40px;
-@size-dialog-bar--mobile: 44px;
-@size-dialog-message-bar: 40px;
+@line-height-base: @wds-line-height-normal;
+
+// Background Colors
+@background-color-base: @wds-color-white;
+@background-color-framed: @wds-fandom-color-mid-light-gray;
+@background-color-framed--hover: @wds-fandom-color-mid-light-gray;
+@background-color-error--framed: fadeout(@wds-color-alert, 90%);
+
+// Foreground Colors
+@color-base: @wds-fandom-color-black;
+@color-base--emphasized: @color-base;
+@color-base--disabled: rgba(@color-base, 0.5);
+
+// Sizes
+@size-input-binary: 16px;
+@size-base: 34px;
+@size-anchor: 7px;
+@size-icon: @wds-icon-small-size;
+@size-indicator: @wds-icon-tiny-size;
+@min-size-icon: @size-icon;
+@min-size-indicator: @size-indicator;
+@max-width-base: 50em;
+@max-width-input: @max-width-base;
+@combo-button-width: 37px;
 
 @height-search: 56px;
 @height-tagitem: 22px;
 @height-tabselect: 37px;
 
+// Borders
+@border-width-base: 1px;
+@border-style-base: solid;
+@border-color-base: @wds-fandom-color-mid-light-gray;
+@border-base: @border-width-base @border-style-base @border-color-base;
+@border-color-filled--disabled: rgba(@border-color-base, 0.5);
+@border-error: @border-width-base @border-style-base @wds-color-alert;
+@border-radius-base: @wds-rounded-corner-radius;
+
+// Dialog
+@size-dialog-menu: 200px;
+@size-dialog-bar--desktop: 40px;
+@size-dialog-bar--mobile: 44px;
+@size-dialog-message-bar: 40px;
+
+// Margins & paddings
 @margin-dialog-bar-button-framed: 6px;
 @margin-search: 12px;
 @margin-taboption: @margin-dialog-bar-button-framed;
@@ -31,16 +67,7 @@
 
 @input-horizontal-padding: 8px;
 
-//potrzebne
-@line-height-base: @wds-line-height-normal;
-@size-input-binary: 16px;
-@size-dialog-menu: 200px;
+// Transitions
 @transition-base: @wds-button-transition-duration;
 @transition-dialog: ease-out @wds-button-transition-duration;
-@size-base: 34px;
-@combo-button-width: 37px;
-@size-anchor: 7px;
-@size-icon: @wds-icon-small-size;
-@min-size-icon: @size-icon;
-@size-indicator: @wds-icon-tiny-size;
-@border-radius-base: @wds-rounded-corner-radius;
+@transition-ease-medium: @wds-button-transition-duration;
