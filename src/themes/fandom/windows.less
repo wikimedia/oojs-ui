@@ -9,7 +9,7 @@
 
 .theme-oo-ui-messageDialog() {
 	&-content > .oo-ui-window-foot {
-		outline: @wds-fandom-color-mid-light-gray;
+		outline: @border-base;
 	}
 
 	&-title,
@@ -116,7 +116,7 @@
 	&-content {
 		.oo-ui-window-head,
 		.oo-ui-window-foot {
-			outline: 1px solid @wds-color-light-c3;
+			outline: 1px solid @dialog-border-color;
 		}
 
 		.oo-ui-window-head {
@@ -140,7 +140,7 @@
 	}
 
 	&-title {
-		font-weight: @wds-font-weight-bold;
+		font-weight: @font-weight-bold;
 		line-height: @size-dialog-bar--desktop;
 	}
 
@@ -149,7 +149,7 @@
 	.oo-ui-actionWidget {
 		> .oo-ui-buttonElement-button {
 			border-bottom-color: transparent;
-			border-radius: 0 @wds-rounded-corner-radius 0 0;
+			border-radius: 0 @border-radius-base 0 0;
 			// For ActionWidgets in top bar (safe and primary).
 			border-top-color: transparent;
 
@@ -166,7 +166,7 @@
 				&:focus,
 				&:active {
 					border-left-color: transparent;
-					border-right-color: @wds-color-light-c3;
+					border-right-color: @dialog-border-color;
 				}
 			}
 		}
@@ -178,9 +178,9 @@
 			}
 
 			.oo-ui-icon-close {
-				height: @wds-icon-tiny-size;
-				min-width: @wds-icon-tiny-size;
-				width: @wds-icon-tiny-size;
+				height: @size-icon-tiny;
+				min-width: @size-icon-tiny;
+				width: @size-icon-tiny;
 			}
 		}
 
@@ -199,7 +199,7 @@
 		&-primary {
 			.oo-ui-actionWidget {
 				> .oo-ui-buttonElement-button {
-					border-left-color: @wds-color-light-c3;
+					border-left-color: @dialog-border-color;
 					border-right-color: transparent;
 				}
 
@@ -208,7 +208,7 @@
 						&:hover,
 						&:focus,
 						&:active {
-							border-left-color: @wds-color-light-c3;
+							border-left-color: @dialog-border-color;
 							border-right-color: transparent;
 						}
 					}
@@ -220,7 +220,7 @@
 		&-other {
 			.oo-ui-actionWidget > .oo-ui-buttonElement-button {
 				border-left-color: transparent;
-				border-right-color: @wds-color-light-c3;
+				border-right-color: @dialog-border-color;
 			}
 		}
 
@@ -228,13 +228,13 @@
 			.oo-ui-widget-enabled.oo-ui-iconElement:not(.oo-ui-labelElement) {
 				> .oo-ui-buttonElement-button {
 					background-color: transparent;
-					border-radius: @wds-rounded-corner-radius 0 0 0;
+					border-radius: @border-radius-base 0 0 0;
 					border-right-color: transparent;
 
 					&:hover,
 					&:active,
 					&:focus {
-						background-color: @wds-color-light-c2;
+						background-color: @background-color-framed;
 					}
 				}
 			}
@@ -292,7 +292,7 @@
 			}
 
 			&-title {
-				line-height: @wds-line-height-none;
+				line-height: @line-height-none;
 			}
 
 			&-content .oo-ui-window-body {
@@ -312,7 +312,7 @@
 
 .theme-oo-ui-windowManager() {
 	&-modal > .oo-ui-dialog {
-		background-color: rgba(@wds-color-black, 0.5);
+		background-color: @dialog-overlay-background-color;
 		opacity: 0;
 		.oo-ui-transition(opacity @transition-base);
 
@@ -336,7 +336,7 @@
 	}
 
 	&-modal&-floating > .oo-ui-dialog > .oo-ui-window-frame {
-		border-radius: @wds-rounded-corner-radius;
+		border-radius: @border-radius-base;
 		bottom: 1em;
 		max-height: e('calc( 100% - 2em )');
 		top: 1em;

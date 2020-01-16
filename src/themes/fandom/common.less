@@ -1,29 +1,47 @@
 @import 'wds-variables/index';
 
-@line-height-base: @wds-line-height-normal;
+// Colors
+@primary-color: @wds-fandom-color-link;
+@primary-color--fadeout: fadeout(@primary-color, 90%);
+@alert-color: @wds-color-alert;
+@warning-color: @wds-color-warning;
+@success-color: @wds-color-success;
+@notice-color: @wds-color-message;
+
+@opacity--disabled: 0.5;
 
 // Background Colors
 @background-color-base: @wds-color-white;
-@background-color-framed: @wds-fandom-color-mid-light-gray;
-@background-color-framed--hover: @wds-fandom-color-mid-light-gray;
-@background-color-error--framed: fadeout(@wds-color-alert, 90%);
+@background-color-framed: @wds-fandom-color-light-gray;
+@background-color-framed--hover: @background-color-framed;
+@background-color-error--framed: fadeout(@alert-color, 90%);
 
 // Foreground Colors
 @color-base: @wds-fandom-color-black;
 @color-base--emphasized: @color-base;
-@color-base--disabled: rgba(@color-base, 0.5);
+@color-base--disabled: rgba(@color-base, @opacity--disabled);
+
+// Typography
+@font-weight-bold: @wds-font-weight-bold;
+@line-height-base: @wds-line-height-normal;
+@line-height-none: @wds-line-height-none;
+@font-size-base: @wds-font-size-s;
+@font-size-small: @wds-font-size-xs;
 
 // Sizes
 @size-input-binary: 16px;
 @size-base: 34px;
 @size-anchor: 7px;
 @size-icon: @wds-icon-small-size;
-@size-indicator: @wds-icon-tiny-size;
+@size-icon-tiny: @wds-icon-tiny-size;
+@size-indicator: @size-icon-tiny;
 @min-size-icon: @size-icon;
 @min-size-indicator: @size-indicator;
 @max-width-base: 50em;
 @max-width-input: @max-width-base;
 @combo-button-width: 37px;
+@input-border-color: @wds-color-light-gray;
+@gap-base: @wds-button-horizontal-gap;
 
 @height-search: 56px;
 @height-tagitem: 22px;
@@ -34,8 +52,8 @@
 @border-style-base: solid;
 @border-color-base: @wds-fandom-color-mid-light-gray;
 @border-base: @border-width-base @border-style-base @border-color-base;
-@border-color-filled--disabled: rgba(@border-color-base, 0.5);
-@border-error: @border-width-base @border-style-base @wds-color-alert;
+@border-color-filled--disabled: rgba(@border-color-base, @opacity--disabled);
+@border-error: @border-width-base @border-style-base @alert-color;
 @border-radius-base: @wds-rounded-corner-radius;
 
 // Dialog
@@ -43,6 +61,8 @@
 @size-dialog-bar--desktop: 40px;
 @size-dialog-bar--mobile: 44px;
 @size-dialog-message-bar: 40px;
+@dialog-border-color: @wds-color-light-c3;
+@dialog-overlay-background-color: rgba(@wds-color-black, @opacity--disabled);
 
 // Margins & paddings
 @margin-dialog-bar-button-framed: 6px;
@@ -67,7 +87,13 @@
 
 @input-horizontal-padding: 8px;
 
+// Toolbars
+@tool-vertical-padding: 6px;
+@tool-horizontal-padding: 10px;
+@tool-horizontal-gap: 4px;
+@tool-group-separator-color: @wds-fandom-color-dark-gray;
+
 // Transitions
 @transition-base: @wds-button-transition-duration;
-@transition-dialog: ease-out @wds-button-transition-duration;
-@transition-ease-medium: @wds-button-transition-duration;
+@transition-dialog: ease-out @transition-base;
+@transition-ease-medium: @transition-base;

@@ -11,7 +11,7 @@
 }
 
 .theme-oo-ui-buttonGroupWidget() {
-	border-radius: @wds-rounded-corner-radius;
+	border-radius: @border-radius-base;
 	display: inline-flex;
 	padding-bottom: @border-width-base;
 	position: relative;
@@ -151,8 +151,8 @@
 }
 
 .theme-oo-ui-checkboxInputWidget() {
-	color: @wds-fandom-color-link;
-	line-height: @wds-line-height-none;
+	color: @primary-color;
+	line-height: @line-height-none;
 	position: relative;
 	vertical-align: middle;
 	white-space: nowrap;
@@ -169,8 +169,7 @@
 
 		+ span {
 			align-items: center;
-			background-color: @wds-color-white;
-			border: 2px solid @wds-color-light-gray;
+			border: 2px solid @input-border-color;
 			box-sizing: border-box;
 			color: inherit;
 			display: grid;
@@ -199,7 +198,7 @@
 		}
 
 		&:indeterminate + span::before {
-			border-color: @wds-color-light-gray;
+			border-color: @input-border-color;
 			border-width: 2px 0 0 0;
 			margin-top: 2px;
 			transform: rotate(0deg);
@@ -209,14 +208,14 @@
 		&:disabled,
 		&:checked:disabled {
 			+ span {
-				border-color: @wds-color-light-gray;
-				opacity: 0.5;
+				border-color: @input-border-color;
+				opacity: @opacity--disabled;
 				pointer-events: none;
 			}
 		}
 
 		&:checked:disabled + span::before {
-			border-color: @wds-color-light-gray;
+			border-color: @input-border-color;
 		}
 	}
 
@@ -303,9 +302,9 @@
 	// if the menu is empty, or if this is the PHP version
 	&.oo-ui-comboBoxInputWidget-empty .oo-ui-inputWidget-input,
 	&-php .oo-ui-inputWidget-input {
-		border-bottom-right-radius: @wds-dropdown-border-radius;
+		border-bottom-right-radius: @border-radius-base;
 		border-right-width: 1px;
-		border-top-right-radius: @wds-dropdown-border-radius;
+		border-top-right-radius: @border-radius-base;
 	}
 
 	&-dropdownButton.oo-ui-indicatorElement {
@@ -334,14 +333,14 @@
 
 	&-handle {
 		background-color: @wds-color-white;
-		border: 1px solid @wds-fandom-color-mid-light-gray;
-		border-radius: @wds-rounded-corner-radius;
+		border: @border-base;
+		border-radius: @border-radius-base;
 		color: inherit;
 		font-family: inherit;
-		font-size: @wds-font-size-s;
-		line-height: @wds-line-height-normal;
+		font-size: @font-size-base;
+		line-height: @line-height-base;
 		min-height: @size-base;
-		padding: @wds-button-vertical-padding @input-horizontal-padding;
+		padding: @padding-vertical-base @input-horizontal-padding;
 
 		.oo-ui-iconElement-icon {
 			height: auto;
@@ -367,7 +366,7 @@
 	}
 
 	&.oo-ui-iconElement &-handle {
-		padding-left: @input-horizontal-padding + @wds-icon-small-size + @wds-button-horizontal-gap;
+		padding-left: @input-horizontal-padding + @size-icon + @gap-base;
 	}
 
 	&.oo-ui-indicatorElement &-handle {
@@ -381,11 +380,11 @@
 		&:hover,
 		&:focus,
 		&:active {
-			border-color: @wds-fandom-color-link;
+			border-color: @primary-color;
 		}
 
 		&:active {
-			box-shadow: inset 0 0 0 1px @wds-fandom-color-link;
+			box-shadow: inset 0 0 0 1px @primary-color;
 		}
 	}
 
@@ -393,7 +392,7 @@
 	}
 
 	&.oo-ui-widget-disabled &-handle {
-		opacity: 0.5;
+		opacity: @opacity--disabled;
 		pointer-events: none;
 	}
 }
@@ -446,7 +445,7 @@
 		font-family: inherit;
 		font-size: inherit;
 		height: 1.5em;
-		padding: @wds-button-vertical-padding @wds-button-horizontal-padding;
+		padding: @padding-vertical-base @padding-horizontal-base;
 	}
 
 	&.oo-ui-widget-enabled {
@@ -463,7 +462,7 @@
 
 			&:hover, &:active, &:focus {
 				border-color: currentColor;
-				color: @wds-fandom-color-link;
+				color: @primary-color;
 			}
 		}
 	}
@@ -477,7 +476,7 @@
 	top: auto;
 
 	&.oo-ui-widget-disabled {
-		opacity: 0.5;
+		opacity: @opacity--disabled;
 	}
 }
 
@@ -490,7 +489,7 @@
 	top: auto;
 
 	&.oo-ui-widget-disabled {
-		opacity: 0.5;
+		opacity: @opacity--disabled;
 	}
 }
 
@@ -506,7 +505,7 @@
 .theme-oo-ui-labelWidget() {
 	&.oo-ui-inline-help {
 		display: block;
-		font-size: @wds-font-size-xs;
+		font-size: @font-size-small;
 	}
 }
 
@@ -520,14 +519,14 @@
 	&.oo-ui-optionWidget {
 		&-highlighted,
 		&-selected {
-			background-color: fadeout(@wds-fandom-color-link, 90%);
-			color: @wds-fandom-color-link;
+			background-color: @primary-color--fadeout;
+			color: @primary-color;
 		}
 	}
 }
 
 .theme-oo-ui-menuSectionOptionWidget() {
-	font-weight: @wds-font-weight-bold;
+	font-weight: @font-weight-bold;
 
 	& ~ .oo-ui-menuOptionWidget {
 		padding-left: @wds-dropdown-padding;
@@ -536,8 +535,8 @@
 
 .theme-oo-ui-menuSelectWidget() {
 	background-color: @wds-color-white;
-	border: @wds-fandom-color-mid-light-gray;
-	border-radius: 0 0 @wds-dropdown-border-radius @wds-dropdown-border-radius;
+	border: @border-base;
+	border-radius: 0 0 @border-radius-base @border-radius-base;
 	box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
 	padding: @wds-dropdown-padding - @wds-list-item-vertical-padding 0;
 }
@@ -569,41 +568,41 @@
 		}
 
 		&.oo-ui-flaggedElement-error {
-			background-color: @wds-color-alert;
+			background-color: @alert-color;
 		}
 
 		&.oo-ui-flaggedElement-warning {
-			background-color: @wds-color-warning;
+			background-color: @warning-color;
 		}
 
 		&.oo-ui-flaggedElement-success {
-			background-color: @wds-color-success;
+			background-color: @success-color;
 		}
 
 		&.oo-ui-flaggedElement-notice {
-			background-color: @wds-color-message;
+			background-color: @notice-color;
 		}
 	}
 
 	&:not(.oo-ui-messageWidget-block) {
 		> .oo-ui-iconElement-icon {
-			margin-right: @wds-button-horizontal-gap;
+			margin-right: @gap-base;
 		}
 
 		&.oo-ui-flaggedElement-error {
-			color: @wds-color-alert;
+			color: @alert-color;
 		}
 
 		&.oo-ui-flaggedElement-warning {
-			color: @wds-color-warning;
+			color: @warning-color;
 		}
 
 		&.oo-ui-flaggedElement-success {
-			color: @wds-color-success;
+			color: @success-color;
 		}
 
 		&.oo-ui-flaggedElement-notice {
-			color: @wds-color-message;
+			color: @notice-color;
 		}
 	}
 
@@ -673,11 +672,11 @@
 	display: flex;
 	justify-content: space-between;
 	margin: 0 @wds-dropdown-padding / 2;
-	padding: @wds-list-item-vertical-padding (@wds-dropdown-padding / 2 - @wds-button-horizontal-gap / 2);
+	padding: @wds-list-item-vertical-padding (@wds-dropdown-padding / 2 - @gap-base / 2);
 	white-space: nowrap;
 
 	> * {
-		margin: 0 @wds-button-horizontal-gap / 2;
+		margin: 0 @gap-base / 2;
 	}
 
 	> :not(.oo-ui-labelElement-label) {
@@ -686,13 +685,13 @@
 
 	> .oo-ui-labelElement-label {
 		flex-grow: 1;
-		line-height: @wds-line-height-none;
+		line-height: @line-height-none;
 	}
 
 	// Don't add `highlighted` or `selected` modifications here
 	// as it inherits to various visually opposite widgets.
 	&.oo-ui-widget-disabled {
-		opacity: 0.5;
+		opacity: @opacity--disabled;
 	}
 }
 
@@ -711,12 +710,12 @@
 }
 
 .theme-oo-ui-outlineOptionWidget() {
-	padding: @wds-button-vertical-padding @wds-button-horizontal-padding;
+	padding: @padding-vertical-base @padding-horizontal-base;
 	.oo-ui-transition(background-color @transition-base, color @transition-base);
 
 	&.oo-ui-optionWidget-highlighted,&.oo-ui-optionWidget-selected, &.oo-ui-optionWidget-pressed {
-		background-color: @fade-out-fandom-color;
-		color: @wds-fandom-color-link;
+		background-color: @primary-color--fadeout;
+		color: @primary-color;
 	}
 
 	&-level-1 {
@@ -735,8 +734,8 @@
 .theme-oo-ui-popupWidget() {
 	&-popup {
 		background-color: @wds-color-white;
-		border: 1px solid @wds-fandom-color-mid-light-gray;
-		border-radius: @wds-rounded-corner-radius;
+		border: @border-base;
+		border-radius: @border-radius-base;
 		box-shadow: 0 0 3px 0 rgba(@wds-color-black, 0.3);
 		color: @wds-color-black;
 	}
@@ -763,7 +762,7 @@
 			&::before {
 				// The subtracting-triangles method results in a line that
 				// is ~0.7px wide, so make it slightly darker to compensate.
-				border-bottom-color: @wds-fandom-color-mid-light-gray;
+				border-bottom-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor;
@@ -785,7 +784,7 @@
 			bottom: -@size-anchor;
 
 			&::before {
-				border-top-color: @wds-fandom-color-mid-light-gray;
+				border-top-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 				left: -@size-anchor;
 				top: -@size-anchor - 1px;
@@ -807,7 +806,7 @@
 			left: -@size-anchor;
 
 			&::before {
-				border-right-color: @wds-fandom-color-mid-light-gray;
+				border-right-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 				right: -@size-anchor - 1px;
 				top: -@size-anchor;
@@ -829,7 +828,7 @@
 			right: -@size-anchor;
 
 			&::before {
-				border-left-color: @wds-fandom-color-mid-light-gray;
+				border-left-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 				left: -@size-anchor - 1px;
 				top: -@size-anchor;
@@ -858,10 +857,10 @@
 			right: 0;
 
 			.oo-ui-icon-close {
-				height: @wds-icon-tiny-size;
+				height: @size-icon-tiny;
 				margin-right: 0;
-				min-width: @wds-icon-tiny-size;
-				width: @wds-icon-tiny-size;
+				min-width: @size-icon-tiny;
+				width: @size-icon-tiny;
 			}
 		}
 	}
@@ -888,8 +887,8 @@
 
 .theme-oo-ui-progressBarWidget() {
 	background-color: @wds-color-white;
-	border: 1px solid @wds-fandom-color-mid-light-gray;
-	border-radius: @wds-rounded-corner-radius;
+	border: @border-base;
+	border-radius: @border-radius-base;
 	max-width: @max-width-base;
 	overflow: hidden;
 
@@ -909,12 +908,12 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-progressBarWidget-bar {
-			background-color: @wds-fandom-color-link;
+			background-color: @primary-color;
 		}
 	}
 
 	&.oo-ui-widget-disabled {
-		opacity: 0.5;
+		opacity: @opacity--disabled;
 
 		.oo-ui-progressBarWidget-bar {
 			background-color: @wds-fandom-color-mid-light-gray;
@@ -945,8 +944,8 @@
 }
 
 .theme-oo-ui-radioInputWidget() {
-	color: @wds-fandom-color-link;
-	line-height: @wds-line-height-none;
+	color: @primary-color;
+	line-height: @line-height-none;
 	position: relative;
 	vertical-align: middle;
 	white-space: nowrap;
@@ -990,7 +989,7 @@
 			+ span {
 				background-color: @wds-color-light-gray;
 				border-color: @wds-color-light-gray;
-				opacity: 0.5;
+				opacity: @opacity--disabled;
 				pointer-events: none;
 			}
 		}
@@ -1081,7 +1080,7 @@
 
 .theme-oo-ui-searchWidget() {
 	&-query {
-		border-bottom: @wds-fandom-color-mid-light-gray;
+		border-bottom: @border-base;
 		height: @height-search;
 		padding: 0 @padding-panel-form; // Need to use `padding` over `margin` for horizontally continuos `border`/`box-shadow` below
 
@@ -1115,8 +1114,8 @@
 .theme-oo-ui-selectFileWidget() {
 	&-dropTarget {
 		background-color: @wds-fandom-color-light-gray;
-		border: 1px solid @wds-fandom-color-mid-light-gray;
-		border-radius: @wds-rounded-corner-radius;
+		border: @border-base;
+		border-radius: @border-radius-base;
 		overflow: hidden;
 		vertical-align: middle;
 
@@ -1135,8 +1134,8 @@
 			.oo-ui-transition(border-color @transition-ease-medium, background-color @transition-ease-medium);
 
 			&:hover {
-				background-color: fadeout(@wds-fandom-color-link, 90%);
-				border-color: @wds-fandom-color-link;
+				background-color: @primary-color--fadeout;
+				border-color: @primary-color;
 			}
 		}
 
@@ -1147,8 +1146,8 @@
 		&.oo-ui-selectFileWidget-canDrop {
 			&.oo-ui-selectFileWidget-dropTarget,
 			.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
-				background-color: @fade-out-fandom-color;
-				color: @wds-fandom-color-link;
+				background-color: @primary-color--fadeout;
+				color: @primary-color;
 			}
 		}
 	}
@@ -1156,7 +1155,7 @@
 	&.oo-ui-widget-disabled,
 	&.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled {
 		&.oo-ui-selectFileWidget-dropTarget {
-			opacity: 0.5;
+			opacity: @opacity--disabled;
 		}
 	}
 }
@@ -1166,8 +1165,8 @@
 
 	align-items: center;
 	display: inline-flex;
-	font-size: @wds-font-size-xs;
-	font-weight: @wds-font-weight-bold;
+	font-size: @font-size-small;
+	font-weight: @font-weight-bold;
 	height: 40px;
 	margin: 0;
 	padding: 0 11px;
@@ -1189,10 +1188,10 @@
 
 	.oo-ui-tabSelectWidget-framed & {
 		background-color: @wds-color-white;
-		border-top-left-radius: @wds-rounded-corner-radius;
-		border-top-right-radius: @wds-rounded-corner-radius;
+		border-top-left-radius: @border-radius-base;
+		border-top-right-radius: @border-radius-base;
 		box-sizing: border-box;
-		color: @wds-fandom-color-link;
+		color: @primary-color;
 		height: @size-base;
 		margin: 6px 3px 0;
 
@@ -1201,7 +1200,7 @@
 		}
 
 		&.oo-ui-optionWidget-selected {
-			background-color: @wds-fandom-color-link;
+			background-color: @primary-color;
 			color: @wds-color-white;
 		}
 
@@ -1213,30 +1212,30 @@
 	}
 
 	.oo-ui-tabSelectWidget-frameless & {
-		box-shadow: inset 0 0 0 0 @wds-fandom-color-link;
+		box-shadow: inset 0 0 0 0 @primary-color;
 		.oo-ui-transition(color @transition-base, box-shadow @transition-base);
 
 		&.oo-ui-optionWidget-selected,
 		&.oo-ui-widget-enabled:active {
-			box-shadow: inset 0 -@option-selected-border-width 0 0 @wds-fandom-color-link;
-			color: @wds-fandom-color-link;
+			box-shadow: inset 0 -@option-selected-border-width 0 0 @primary-color;
+			color: @primary-color;
 		}
 
 		&.oo-ui-widget-enabled:hover {
-			color: @wds-fandom-color-link;
+			color: @primary-color;
 		}
 	}
 
 	//.oo-ui-tabSelectWidget-frameless.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected {
 	//	border-radius: @border-radius-base;
-	//	box-shadow: inset 0 0 0 @option-selected-border-width @wds-fandom-color-link;
+	//	box-shadow: inset 0 0 0 @option-selected-border-width @primary-color;
 	//}
 }
 
 .theme-oo-ui-tabSelectWidget() {
 	&-framed {
-		background-color: @fade-out-fandom-color;
-		border-bottom: 2px solid @wds-fandom-color-link;
+		background-color: @primary-color--fadeout;
+		border-bottom: 2px solid @primary-color;
 	}
 
 	// Add background gradient to emphasize tab overflow.
@@ -1271,12 +1270,12 @@
 }
 
 .theme-oo-ui-tagItemWidget() {
-	border: 1px solid @wds-fandom-color-mid-light-gray;
+	border: @border-base;
 	border-radius: @height-tagitem;
 	box-sizing: border-box;
 	display: inline-grid;
-	grid-column-gap: @wds-button-horizontal-gap;
-	grid-template-columns: 1fr @wds-icon-tiny-size;
+	grid-column-gap: @gap-base;
+	grid-template-columns: 1fr @size-icon-tiny;
 	height: @height-tagitem;
 	margin: 0 4px 4px 0;
 	max-width: 100%;
@@ -1289,7 +1288,7 @@
 	}
 
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
-		font-size: @wds-font-size-xs;
+		font-size: @font-size-small;
 		line-height: @height-tagitem - 2px;
 	}
 
@@ -1305,20 +1304,20 @@
 
 		&:hover,
 		&:focus {
-			background-color: @fade-out-fandom-color;
-			border-color: @wds-fandom-color-link;
-			color: @wds-fandom-color-link;
+			background-color: @primary-color--fadeout;
+			border-color: @primary-color;
+			color: @primary-color;
 			outline: 0;
 		}
 
 		&.oo-ui-flaggedElement-invalid {
-			background-color: fadeout(@wds-color-alert, 90%);
+			background-color: @background-color-error--framed;
 			border-color: currentColor;
-			color: @wds-color-alert;
+			color: @alert-color;
 
 			&:hover,
 			&:focus {
-				color: darken(@wds-color-alert, 20%);
+				color: darken(@alert-color, 20%);
 			}
 		}
 
@@ -1331,8 +1330,8 @@
 
 			.oo-ui-icon-close {
 				margin: 0;
-				min-width: @wds-icon-tiny-size;
-				width: @wds-icon-tiny-size;
+				min-width: @size-icon-tiny;
+				width: @size-icon-tiny;
 			}
 
 			.oo-ui-labelElement-label,
@@ -1343,7 +1342,7 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		opacity: 0.5;
+		opacity: @opacity--disabled;
 		pointer-events: none;
 
 		> .oo-ui-buttonElement {
@@ -1358,10 +1357,10 @@
 	width: 100%;
 
 	&-handle {
-		border: 1px solid @wds-fandom-color-mid-light-gray;
-		border-radius: @wds-rounded-corner-radius;
+		border: @border-base;
+		border-radius: @border-radius-base;
 		box-sizing: border-box;
-		line-height: @wds-line-height-none;
+		line-height: @line-height-none;
 		min-height: @size-base;
 		padding: 0 @input-horizontal-padding;
 		.oo-ui-inline-spacing(@margin-end-widget);
@@ -1375,7 +1374,7 @@
 				font-size: inherit;
 				height: @size-base - 2px;
 				line-height: @line-height-base;
-				padding: @wds-button-vertical-padding 0;
+				padding: @padding-vertical-base 0;
 				vertical-align: top;
 
 				.mw-placeholder();
@@ -1421,19 +1420,19 @@
 
 		&.oo-ui-tagMultiselectWidget-inlined {
 			&:hover .oo-ui-tagMultiselectWidget-handle {
-				border-color: @wds-fandom-color-link;
+				border-color: @primary-color;
 			}
 
 			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
-				border-color: @wds-fandom-color-link;
-				box-shadow: inset 0 0 0 1px @wds-fandom-color-link;
+				border-color: @primary-color;
+				box-shadow: inset 0 0 0 1px @primary-color;
 				outline: 0;
 			}
 
 			&.oo-ui-flaggedElement-invalid {
 				.oo-ui-tagMultiselectWidget-handle,
 				&:hover .oo-ui-tagMultiselectWidget-handle {
-					border-color: @wds-color-alert;
+					border-color: @alert-color;
 				}
 			}
 		}
@@ -1457,17 +1456,17 @@
 			}
 
 			&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
-				border-color: @wds-color-alert;
+				border-color: @alert-color;
 			}
 		}
 
 		&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
-			color: @wds-color-alert;
+			color: @alert-color;
 		}
 	}
 
 	&.oo-ui-widget-disabled &-handle {
-		opacity: 0.5;
+		opacity: @opacity--disabled;
 	}
 }
 
@@ -1478,13 +1477,13 @@
 	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`
 	.oo-ui-inputWidget-input {
 		background-color: @wds-color-white;
-		border: 1px solid @wds-fandom-color-mid-light-gray;
-		border-radius: @wds-rounded-corner-radius;
+		border: @border-base;
+		border-radius: @border-radius-base;
 		color: inherit;
 		font-family: inherit;
-		font-size: @wds-font-size-s;
-		line-height: @wds-line-height-normal;
-		padding: @wds-button-vertical-padding @input-horizontal-padding;
+		font-size: @font-size-base;
+		line-height: @line-height-base;
+		padding: @padding-vertical-base @input-horizontal-padding;
 	}
 
 	// TextInputWidget (single line).
@@ -1493,7 +1492,7 @@
 	}
 
 	.oo-ui-pendingElement-pending {
-		background-color: @fade-out-fandom-color;
+		background-color: @primary-color--fadeout;
 	}
 
 	> .oo-ui-iconElement-icon,
@@ -1504,7 +1503,7 @@
 
 	&.oo-ui-iconElement {
 		.oo-ui-inputWidget-input {
-			padding-left: @input-horizontal-padding + @wds-icon-small-size + @wds-button-horizontal-gap;
+			padding-left: @input-horizontal-padding + @size-icon + @gap-base;
 		}
 
 		> .oo-ui-iconElement-icon {
@@ -1560,11 +1559,11 @@
 
 			&:hover,
 			&:focus {
-				border-color: @wds-fandom-color-link;
+				border-color: @primary-color;
 			}
 
 			&:focus {
-				box-shadow: inset 0 0 0 1px @wds-fandom-color-link;
+				box-shadow: inset 0 0 0 1px @primary-color;
 			}
 
 			&[readonly] {
@@ -1574,22 +1573,22 @@
 
 		&.oo-ui-flaggedElement-invalid {
 			.oo-ui-inputWidget-input {
-				border-color: @wds-color-alert;
+				border-color: @alert-color;
 
 				&:hover,
 				&:focus {
-					border-color: @wds-color-alert;
+					border-color: @alert-color;
 				}
 
 				&:focus {
-					box-shadow: inset 0 0 0 1px @wds-color-alert;
+					box-shadow: inset 0 0 0 1px @alert-color;
 				}
 			}
 		}
 	}
 
 	&.oo-ui-widget-disabled {
-		opacity: 0.5;
+		opacity: @opacity--disabled;
 
 		//.oo-ui-inputWidget-input {
 		//	background-color: @wds-fandom-color-light-gray;
@@ -1648,7 +1647,7 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		opacity: 0.5;
+		opacity: @opacity--disabled;
 		pointer-events: none;
 
 		.oo-ui-toggleWidget-off .oo-ui-toggleSwitchWidget-grip {

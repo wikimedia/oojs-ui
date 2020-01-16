@@ -8,19 +8,19 @@
 	.flex-button(~'> .oo-ui-buttonElement-button');
 
 	> .oo-ui-buttonElement-button {
-		border-radius: @wds-rounded-corner-radius;
+		border-radius: @border-radius-base;
 	}
 
 	> input.oo-ui-buttonElement-button {
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		color: currentColor;
-		padding: @wds-button-vertical-padding @wds-button-horizontal-padding;
+		padding: @padding-vertical-base @padding-horizontal-base;
 	}
 
 	&.oo-ui-widget-disabled {
 		> .oo-ui-buttonElement-button {
-			opacity: 0.5;
+			opacity: @opacity--disabled;
 			pointer-events: none;
 		}
 	}
@@ -42,24 +42,24 @@
 		&.oo-ui-flaggedElement {
 			&-progressive {
 				> .oo-ui-buttonElement-button {
-					color: @wds-fandom-color-link;
+					color: @primary-color;
 
 					&:hover,
 					&:active,
 					&:focus {
-						color: @wds-fandom-color-link-hover;
+						color: @primary-color-hover;
 					}
 				}
 			}
 
 			&-destructive {
 				> .oo-ui-buttonElement-button {
-					color: @wds-color-alert;
+					color: @alert-color;
 
 					&:hover,
 					&:active,
 					&:focus {
-						color: darken(@wds-color-alert, 20%);
+						color: darken(@alert-color, 20%);
 					}
 				}
 			}
@@ -88,25 +88,25 @@
 		&.oo-ui-flaggedElement {
 			&-progressive {
 				> .oo-ui-buttonElement-button {
-					color: @wds-fandom-color-link;
+					color: @primary-color;
 
 					&:focus,
 					&:hover,
 					&:active {
-						color: @wds-fandom-color-link-hover;
+						color: @primary-color-hover;
 					}
 				}
 			}
 
 			&-destructive {
 				> .oo-ui-buttonElement-button {
-					color: @wds-color-alert;
+					color: @alert-color;
 
 					&:focus,
 					&:hover,
 					&:active {
-						border-color: darken(@wds-color-alert, 20%);
-						color: darken(@wds-color-alert, 20%);
+						border-color: darken(@alert-color, 20%);
+						color: darken(@alert-color, 20%);
 					}
 				}
 			}
@@ -131,15 +131,15 @@
 
 				&-destructive {
 					> .oo-ui-buttonElement-button {
-						background-color: @wds-color-alert;
-						border-color: @wds-color-alert;
+						background-color: @alert-color;
+						border-color: @alert-color;
 						color: @wds-color-white;
 
 						&:focus,
 						&:hover,
 						&:active {
-							background-color: darken(@wds-color-alert, 20%);
-							border-color: darken(@wds-color-alert, 20%);
+							background-color: darken(@alert-color, 20%);
+							border-color: darken(@alert-color, 20%);
 						}
 					}
 				}
@@ -156,15 +156,15 @@
 			&.oo-ui-flaggedElement {
 				&-progressive {
 					> .oo-ui-buttonElement-button {
-						background-color: @wds-fandom-color-link;
-						border-color: @wds-fandom-color-link;
+						background-color: @primary-color;
+						border-color: @primary-color;
 					}
 				}
 
 				&-destructive {
 					> .oo-ui-buttonElement-button {
-						background-color: @wds-color-alert;
-						border-color: @wds-color-alert;
+						background-color: @alert-color;
+						border-color: @alert-color;
 					}
 				}
 			}
@@ -212,7 +212,7 @@
 
 .theme-oo-ui-labelElement() {
 	.oo-ui-labelElement-label {
-		line-height: @wds-line-height-normal;
+		line-height: @line-height-base;
 	}
 
 	.oo-ui-labelElement-label-highlight {
@@ -225,7 +225,7 @@
 
 .theme-oo-ui-pendingElement() {
 	&-pending {
-		background-color: @fade-out-fandom-color;
+		background-color: @primary-color--fadeout;
 		background-image: -webkit-linear-gradient(
 			135deg,
 			@background-color-base 25%,

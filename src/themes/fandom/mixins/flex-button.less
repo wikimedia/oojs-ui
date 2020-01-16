@@ -1,12 +1,12 @@
-.flex-button( @parent-selector, @v-padding: @wds-button-vertical-padding, @h-padding: @wds-button-horizontal-padding, @h-gap: @wds-button-horizontal-gap ) {
+.flex-button( @parent-selector, @v-padding: @padding-vertical-base, @h-padding: @padding-horizontal-base, @h-gap: @gap-base ) {
 	@{parent-selector} {
 		align-items: center;
 		display: inline-flex;
-		font-size: @wds-font-size-xs;
-		font-weight: @wds-font-weight-bold;
+		font-size: @font-size-small;
+		font-weight: @font-weight-bold;
 		justify-content: center;
 		letter-spacing: 0.15px;
-		line-height: @wds-line-height-normal;
+		line-height: @line-height-base;
 		padding: @v-padding @h-padding - @h-gap / 2;
 		text-decoration: none;
 		text-transform: uppercase;
