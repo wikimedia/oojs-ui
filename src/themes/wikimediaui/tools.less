@@ -157,16 +157,6 @@
 
 .theme-oo-ui-toolGroup() {
 	.oo-ui-box-sizing( border-box );
-	border-right: @border-toolgroup;
-
-	.oo-ui-toolbar-actions & {
-		border-right: 0;
-		border-left: @border-toolgroup;
-
-		&.oo-ui-barToolGroup {
-			border-right-width: 0;
-		}
-	}
 
 	&.oo-ui-widget-disabled:not( .oo-ui-flaggedElement-primary ) {
 		.oo-ui-indicatorElement-indicator,
@@ -246,6 +236,13 @@
 }
 
 .theme-oo-ui-menuToolGroup() {
+	border-left: @border-toolgroup;
+	border-right: @border-toolgroup;
+
+	& + .oo-ui-menuToolGroup {
+		border-left: 0;
+	}
+
 	.oo-ui-popupToolGroup-handle {
 		min-width: @min-size-toolbar-popup-toolgroup-handle;
 
