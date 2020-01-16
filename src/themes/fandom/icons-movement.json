@@ -3,59 +3,53 @@
 	"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}",
 	"intro": "@import '../../../../src/styles/common';",
 	"images": {
-		"arrowNext": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/arrowNext-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/arrowNext-rtl.svg"
-			}
-		},
-		"arrowPrevious": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/arrowPrevious-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/arrowPrevious-rtl.svg"
-			}
-		},
-		"collapse": {
-			"file": "../wikimediaui/images/icons/collapse.svg"
-		},
-		"downTriangle": {
-			"file": "../wikimediaui/images/icons/downTriangle.svg"
-		},
-		"draggable": {
-			"file": "../wikimediaui/images/icons/draggable.svg"
-		},
-		"expand": {
-			"file": "../wikimediaui/images/icons/expand.svg"
-		},
-		"move": {
-			"file": "../wikimediaui/images/icons/move.svg"
-		},
-		"next": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/next-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/next-rtl.svg"
-			}
-		},
-		"previous": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/previous-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/previous-rtl.svg"
-			}
-		},
-		"last": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/moveLast-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/moveLast-rtl.svg"
-			}
-		},
-		"first": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/moveFirst-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/moveFirst-rtl.svg"
-			}
-		},
-		"upTriangle": {
-			"file": "../wikimediaui/images/icons/upTriangle.svg"
-		}
+      "arrowNext": {
+        "file": "~design-system-svg/wds-icons-arrow.svg"
+      },
+      "arrowPrevious": {
+        "file": "~design-system-svg/wds-icons-arrow.svg"
+      },
+      "collapse": {
+        "file": "~design-system-svg/wds-icons-menu-control.svg"
+      },
+      "downTriangle": {
+        "file": "~design-system-svg/wds-icons-dropdown.svg"
+      },
+      "draggable": {
+        "file": "images/icons/draggable.svg"
+      },
+      "expand": {
+        "file": "~design-system-svg/wds-icons-menu-control.svg"
+      },
+      "move": {
+        "file": "images/icons/move.svg"
+      },
+      "next": {
+        "file": {
+          "ltr": "images/icons/next-ltr.svg",
+          "rtl": "images/icons/next-rtl.svg"
+        }
+      },
+      "previous": {
+        "file": {
+          "ltr": "images/icons/previous-ltr.svg",
+          "rtl": "images/icons/previous-rtl.svg"
+        }
+      },
+      "last": {
+        "file": {
+          "ltr": "images/icons/moveLast-ltr.svg",
+          "rtl": "images/icons/moveLast-rtl.svg"
+        }
+      },
+      "first": {
+        "file": {
+          "ltr": "images/icons/moveFirst-ltr.svg",
+          "rtl": "images/icons/moveFirst-rtl.svg"
+        }
+      },
+      "upTriangle": {
+        "file": "~design-system-svg/wds-icons-dropdown.svg"
+      }
 	}
 }

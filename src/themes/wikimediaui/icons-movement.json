@@ -26,22 +26,28 @@
 	},
 	"images": {
 		"arrowNext": {
-			"file": "~design-system-svg/wds-icons-arrow.svg"
+			"file": {
+				"ltr": "images/icons/arrowNext-ltr.svg",
+				"rtl": "images/icons/arrowNext-rtl.svg"
+			}
 		},
 		"arrowPrevious": {
-			"file": "~design-system-svg/wds-icons-arrow.svg"
+			"file": {
+				"ltr": "images/icons/arrowPrevious-ltr.svg",
+				"rtl": "images/icons/arrowPrevious-rtl.svg"
+			}
 		},
 		"collapse": {
-			"file": "~design-system-svg/wds-icons-menu-control.svg"
+			"file": "images/icons/collapse.svg"
 		},
 		"downTriangle": {
-			"file": "~design-system-svg/wds-icons-dropdown.svg"
+			"file": "images/icons/downTriangle.svg"
 		},
 		"draggable": {
 			"file": "images/icons/draggable.svg"
 		},
 		"expand": {
-			"file": "~design-system-svg/wds-icons-menu-control.svg"
+			"file": "images/icons/expand.svg"
 		},
 		"move": {
 			"file": "images/icons/move.svg"
@@ -71,7 +77,7 @@
 			}
 		},
 		"upTriangle": {
-			"file": "~design-system-svg/wds-icons-dropdown.svg"
+			"file": "images/icons/upTriangle.svg"
 		}
 	}
 }
