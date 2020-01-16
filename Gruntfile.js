@@ -7,7 +7,7 @@ module.exports = function ( grunt ) {
 	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
-			fandom: 'Fandom'
+			fandom: 'Fandom',
 			wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 			apex: 'Apex'
 		},
