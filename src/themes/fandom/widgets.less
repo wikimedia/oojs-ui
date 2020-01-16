@@ -169,6 +169,7 @@
 
 		+ span {
 			align-items: center;
+			background-color: transparent;
 			border: 2px solid @input-border-color;
 			box-sizing: border-box;
 			color: inherit;
@@ -374,7 +375,7 @@
 	}
 
 	&.oo-ui-widget-enabled &-handle {
-		box-shadow: inset 0 0 0 1px transparent;
+		box-shadow: @input-focus-box-shadow--transparent;
 		.oo-ui-transition(border-color @transition-base, box-shadow @transition-base);
 
 		&:hover,
@@ -384,7 +385,7 @@
 		}
 
 		&:active {
-			box-shadow: inset 0 0 0 1px @primary-color;
+			box-shadow: @input-focus-box-shadow--active;
 		}
 	}
 
@@ -460,7 +461,9 @@
 			color: @color-base;
 			.oo-ui-transition(border-color @transition-base, box-shadow @transition-base);
 
-			&:hover, &:active, &:focus {
+			&:hover,
+			&:active,
+			&:focus {
 				border-color: currentColor;
 				color: @primary-color;
 			}
@@ -545,12 +548,12 @@
 }
 
 .theme-oo-ui-messageWidget() {
-	display: flex;
 	align-items: flex-start;
+	display: flex;
 
 	&.oo-ui-messageWidget-block {
-		box-shadow: 0 2px 6px 0 rgba(@wds-color-black, 0.2);
 		align-items: center;
+		box-shadow: 0 2px 6px 0 rgba(@wds-color-black, 0.2);
 
 		> .oo-ui-iconElement-icon {
 			align-items: center;
@@ -561,9 +564,9 @@
 		}
 
 		> .oo-ui-labelElement-label {
-			flex: 1;
 			background-color: @wds-color-white;
 			color: @wds-color-light-c7;
+			flex: 1;
 			padding: 13px 12px;
 		}
 
@@ -713,7 +716,9 @@
 	padding: @padding-vertical-base @padding-horizontal-base;
 	.oo-ui-transition(background-color @transition-base, color @transition-base);
 
-	&.oo-ui-optionWidget-highlighted,&.oo-ui-optionWidget-selected, &.oo-ui-optionWidget-pressed {
+	&.oo-ui-optionWidget-highlighted,
+	&.oo-ui-optionWidget-selected,
+	&.oo-ui-optionWidget-pressed {
 		background-color: @primary-color--fadeout;
 		color: @primary-color;
 	}
@@ -944,7 +949,8 @@
 }
 
 .theme-oo-ui-radioInputWidget() {
-	color: @primary-color;
+	@checked-input-dot-size: 6px;
+
 	line-height: @line-height-none;
 	position: relative;
 	vertical-align: middle;
@@ -960,87 +966,52 @@
 		width: @size-input-binary;
 		z-index: 1;
 
-		& + span {
-			background-color: @wds-color-light-gray;
-			border: 2px solid @wds-color-light-gray;
+		+ span {
+			.oo-ui-transition(border-color @transition-base);
+
+			align-items: center;
+			background-color: transparent;
+			border: 2px solid currentColor;
 			border-radius: 100%;
 			box-sizing: border-box;
-			color: inherit;
+			color: @wds-color-light-gray;
+			display: grid;
 			height: @size-input-binary;
+			justify-items: center;
 			left: 0;
 			position: absolute;
 			top: 0;
 			width: @size-input-binary;
 
 			&::before {
-				background-color: @wds-color-white;
-				border: (@size-input-binary - 2 * 2px)/2 solid @wds-color-white;
+				.oo-ui-transition(height 0.1s, width 0.1s);
+
+				background-color: currentColor;
 				border-radius: 100%;
-				bottom: 0;
 				content: ' ';
-				left: 0;
-				position: absolute;
-				right: 0;
-				top: 0;
+				height: 0;
+				width: 0;
 			}
 		}
 
-		&:disabled {
-			+ span {
-				background-color: @wds-color-light-gray;
-				border-color: @wds-color-light-gray;
-				opacity: @opacity--disabled;
-				pointer-events: none;
-			}
+		&:checked + span::before {
+			height: @checked-input-dot-size;
+			width: @checked-input-dot-size;
+		}
+
+		&:disabled + span {
+			color: @wds-color-light-gray;
+			opacity: @opacity--disabled;
+			pointer-events: none;
 		}
 	}
 
 	&.oo-ui-widget-enabled [type='radio'] {
 		cursor: pointer;
 
-		+ span {
-			cursor: pointer;
-
-			.oo-ui-transition(
-				background-color @transition-base,
-				border-color @transition-base,
-				border-width @transition-base
-			);
-
-			&::before {
-				.oo-ui-transition(border-width 0.1s);
-			}
-		}
-
-		&:hover + span {
-			border-color: currentColor;
-		}
-
-		&:checked {
-			& + span,
-			&:hover + span,
-			&:focus + span,
-			&:focus:hover + span {
-				background-color: currentColor;
-				border-color: currentColor;
-
-				&::before {
-					background-color: transparent;
-					border-width: 3px;
-				}
-			}
-		}
-
-		&:active + span,
-		&:checked:active + span {
-			background-color: currentColor;
-			border-color: currentColor;
-
-			&::before {
-				background-color: transparent;
-				border-width: 0;
-				transition: none;
-			}
+		&:hover + span,
+		&:checked + span {
+			color: @primary-color;
 		}
 	}
 }
@@ -1225,11 +1196,6 @@
 			color: @primary-color;
 		}
 	}
-
-	//.oo-ui-tabSelectWidget-frameless.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected {
-	//	border-radius: @border-radius-base;
-	//	box-shadow: inset 0 0 0 @option-selected-border-width @primary-color;
-	//}
 }
 
 .theme-oo-ui-tabSelectWidget() {
@@ -1317,7 +1283,7 @@
 
 			&:hover,
 			&:focus {
-				color: darken(@alert-color, 20%);
+				color: @alert-color--active;
 			}
 		}
 
@@ -1412,9 +1378,8 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		background-color: @wds-color-white;
-
 		.oo-ui-tagMultiselectWidget-handle {
+			background-color: @wds-fandom-color-light-gray;
 			.oo-ui-transition(border-color @transition-ease-medium, box-shadow @transition-ease-medium);
 		}
 
@@ -1425,7 +1390,7 @@
 
 			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
 				border-color: @primary-color;
-				box-shadow: inset 0 0 0 1px @primary-color;
+				box-shadow: @input-focus-box-shadow--active;
 				outline: 0;
 			}
 
@@ -1438,8 +1403,6 @@
 		}
 
 		&.oo-ui-tagMultiselectWidget-outlined {
-			background-color: @wds-fandom-color-light-gray;
-
 			.oo-ui-tagMultiselectWidget-handle {
 				border-bottom: 0;
 				border-bottom-left-radius: 0;
@@ -1552,7 +1515,7 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-inputWidget-input {
-			box-shadow: inset 0 0 0 1px transparent;
+			box-shadow: @input-focus-box-shadow--transparent;
 			.oo-ui-transition(border-color @transition-ease-medium, box-shadow @transition-ease-medium);
 
 			.mw-placeholder();
@@ -1563,7 +1526,7 @@
 			}
 
 			&:focus {
-				box-shadow: inset 0 0 0 1px @primary-color;
+				box-shadow: @input-focus-box-shadow--active;
 			}
 
 			&[readonly] {
@@ -1581,7 +1544,7 @@
 				}
 
 				&:focus {
-					box-shadow: inset 0 0 0 1px @alert-color;
+					box-shadow: @input-focus-box-shadow--alert;
 				}
 			}
 		}
@@ -1589,10 +1552,6 @@
 
 	&.oo-ui-widget-disabled {
 		opacity: @opacity--disabled;
-
-		//.oo-ui-inputWidget-input {
-		//	background-color: @wds-fandom-color-light-gray;
-		//}
 	}
 }
 
@@ -1638,7 +1597,7 @@
 	}
 
 	&.oo-ui-toggleWidget-on {
-		background-color: lighten(desaturate(@wds-fandom-color-button-background, 20%), 10%);
+		background-color: lighten(desaturate(@wds-fandom-color-button-background, 20%), 20%);
 
 		.oo-ui-toggleSwitchWidget-grip {
 			background-color: @wds-fandom-color-button-background;

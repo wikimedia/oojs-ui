@@ -27,7 +27,7 @@
 
 	&-frameless {
 		border: 1px solid transparent;
-		color: @wds-fandom-color-dark-gray;
+		color: @secondary-color;
 
 		> button.oo-ui-buttonElement-button {
 			color: inherit;
@@ -36,7 +36,7 @@
 		&:hover,
 		&:active,
 		&:focus {
-			color: darken(@wds-fandom-color-dark-gray, 20%);
+			color: @secondary-color--active;
 		}
 
 		&.oo-ui-flaggedElement {
@@ -59,7 +59,7 @@
 					&:hover,
 					&:active,
 					&:focus {
-						color: darken(@alert-color, 20%);
+						color: @alert-color--active;
 					}
 				}
 			}
@@ -76,16 +76,17 @@
 	&-framed {
 		> .oo-ui-buttonElement-button {
 			border: 1px solid currentColor;
-			color: @wds-fandom-color-dark-gray;
+			color: @secondary-color;
 
 			&:hover,
 			&:focus,
 			&:active {
-				color: darken(@wds-fandom-color-dark-gray, 20%);
+				color: @secondary-color--active;
 			}
 		}
 
-		&.oo-ui-flaggedElement {
+		&.oo-ui-flaggedElement,
+		&.oo-ui-widget-enabled.oo-ui-flaggedElement {
 			&-progressive {
 				> .oo-ui-buttonElement-button {
 					color: @primary-color;
@@ -105,14 +106,15 @@
 					&:focus,
 					&:hover,
 					&:active {
-						border-color: darken(@alert-color, 20%);
-						color: darken(@alert-color, 20%);
+						border-color: currentColor;
+						color: @alert-color--active;
 					}
 				}
 			}
 		}
 
-		&.oo-ui-flaggedElement-primary {
+		&.oo-ui-flaggedElement-primary,
+		&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary {
 			&.oo-ui-flaggedElement {
 				&-progressive {
 					> .oo-ui-buttonElement-button {
@@ -138,8 +140,8 @@
 						&:focus,
 						&:hover,
 						&:active {
-							background-color: darken(@alert-color, 20%);
-							border-color: darken(@alert-color, 20%);
+							background-color: @alert-color--active;
+							border-color: @alert-color--active;
 						}
 					}
 				}
@@ -148,8 +150,8 @@
 
 		&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
 			> .oo-ui-buttonElement-button {
-				background-color: @wds-fandom-color-dark-gray;
-				border-color: @wds-fandom-color-dark-gray;
+				background-color: @secondary-color;
+				border-color: @secondary-color;
 				color: @wds-color-white;
 			}
 
@@ -216,7 +218,7 @@
 	}
 
 	.oo-ui-labelElement-label-highlight {
-		font-weight: bold;
+		font-weight: @font-weight-bold;
 	}
 }
 

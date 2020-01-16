@@ -4,7 +4,10 @@
 @primary-color: @wds-fandom-color-link;
 @primary-color--hover: @wds-fandom-color-link-hover;
 @primary-color--fadeout: fadeout(@primary-color, 90%);
+@secondary-color: @wds-fandom-color-dark-gray;
+@secondary-color--active: darken(@wds-fandom-color-dark-gray, 20%);
 @alert-color: @wds-color-alert;
+@alert-color--active: darken(@alert-color, 20%);
 @warning-color: @wds-color-warning;
 @success-color: @wds-color-success;
 @notice-color: @wds-color-message;
@@ -86,13 +89,17 @@
 @padding-start-input-text-icon-label: 37px;
 @padding-end-dropdown: 30px;
 
+// Inputs
 @input-horizontal-padding: 8px;
+@input-focus-box-shadow--transparent: inset 0 0 0 1px transparent;
+@input-focus-box-shadow--active: inset 0 0 0 1px @primary-color;
+@input-focus-box-shadow--alert: inset 0 0 0 1px @alert-color;
 
 // Toolbars
 @tool-vertical-padding: 6px;
 @tool-horizontal-padding: 10px;
 @tool-horizontal-gap: 4px;
-@tool-group-separator-color: @wds-fandom-color-dark-gray;
+@tool-group-separator-color: @secondary-color;
 
 // Transitions
 @transition-base: @wds-button-transition-duration;

@@ -149,8 +149,7 @@
 	.oo-ui-actionWidget {
 		> .oo-ui-buttonElement-button {
 			border-bottom-color: transparent;
-			border-radius: 0 @border-radius-base 0 0;
-			// For ActionWidgets in top bar (safe and primary).
+			border-radius: 0;
 			border-top-color: transparent;
 
 			&:hover,
@@ -174,7 +173,7 @@
 		&.oo-ui-iconElement {
 			> .oo-ui-buttonElement-button {
 				min-height: @size-dialog-bar--desktop;
-				padding: 0 8px;
+				padding: 0 12px;
 			}
 
 			.oo-ui-icon-close {
@@ -185,12 +184,14 @@
 		}
 
 		&.oo-ui-labelElement {
+			height: 100%;
+
 			&:first-child {
 				margin-left: 0;
 			}
 
 			> .oo-ui-buttonElement-button {
-				padding: @padding-vertical-base @padding-horizontal-base;
+				height: 100%;
 			}
 		}
 	}
@@ -199,6 +200,7 @@
 		&-primary {
 			.oo-ui-actionWidget {
 				> .oo-ui-buttonElement-button {
+					border-top-right-radius: @border-radius-base;
 					border-left-color: @dialog-border-color;
 					border-right-color: transparent;
 				}
@@ -219,8 +221,8 @@
 		&-safe,
 		&-other {
 			.oo-ui-actionWidget > .oo-ui-buttonElement-button {
-				border-left-color: transparent;
-				border-right-color: @dialog-border-color;
+					border-left-color: transparent;
+					border-right-color: @dialog-border-color;
 			}
 		}
 
@@ -228,13 +230,15 @@
 			.oo-ui-widget-enabled.oo-ui-iconElement:not(.oo-ui-labelElement) {
 				> .oo-ui-buttonElement-button {
 					background-color: transparent;
-					border-radius: @border-radius-base 0 0 0;
+					border-top-left-radius: @border-radius-base;
 					border-right-color: transparent;
 
 					&:hover,
 					&:active,
 					&:focus {
 						background-color: @background-color-framed;
+						border-top-color: transparent;
+						border-bottom-color: transparent;
 					}
 				}
 			}
@@ -244,6 +248,10 @@
 			.oo-ui-actionWidget {
 				&.oo-ui-buttonElement {
 					margin-right: 0;
+				}
+
+				&:first-child > .oo-ui-buttonElement-button {
+					border-bottom-left-radius: @border-radius-base;
 				}
 			}
 		}
