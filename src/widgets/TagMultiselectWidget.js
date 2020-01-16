@@ -781,7 +781,8 @@ OO.ui.TagMultiselectWidget.prototype.getPreviousItem = function ( item ) {
  * @private
  */
 OO.ui.TagMultiselectWidget.prototype.updateInputSize = function () {
-	var $lastItem, direction, contentWidth, currentWidth, bestWidth;
+	var $lastItem, direction, contentWidth, currentWidth, bestWidth, placeholder;
+
 	if ( this.inputPosition === 'inline' && !this.isDisabled() ) {
 		if ( this.input.$input[ 0 ].scrollWidth === 0 ) {
 			// Input appears to be attached but not visible.
@@ -795,14 +796,16 @@ OO.ui.TagMultiselectWidget.prototype.updateInputSize = function () {
 
 		// Get the width of the input with the placeholder text as
 		// the value and save it so that we don't keep recalculating
+		placeholder = this.input.$input.attr( 'placeholder' );
 		if (
 			this.contentWidthWithPlaceholder === undefined &&
 			this.input.getValue() === '' &&
-			this.input.$input.attr( 'placeholder' ) !== undefined
+			placeholder !== undefined
 		) {
-			this.input.setValue( this.input.$input.attr( 'placeholder' ) );
+			// Set the value directly to avoid any side effects of setValue
+			this.input.$input.val( placeholder );
 			this.contentWidthWithPlaceholder = this.input.$input[ 0 ].scrollWidth;
-			this.input.setValue( '' );
+			this.input.$input.val( '' );
 
 		}
 
