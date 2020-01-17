@@ -457,10 +457,7 @@ OO.ui.TagMultiselectWidget.prototype.onChangeTags = function () {
 	var isUnderLimit = this.isUnderLimit();
 
 	// Reset validity
-	this.toggleValid(
-		this.checkValidity() &&
-		!( this.hasInput && this.input.getValue() )
-	);
+	this.toggleValid( this.checkValidity() );
 
 	if ( this.hasInput ) {
 		this.updateInputSize();
