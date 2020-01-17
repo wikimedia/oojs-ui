@@ -4,14 +4,12 @@
 .theme-oo-ui-toolbar() {
 	&-bar {
 		background-color: @wds-fandom-color-light-gray;
-		padding: 12px 5px;
+		border: @border-base;
+		border-radius: 3px;
+		padding: 13px;
 
-		.oo-ui-toolbar-position-top > & {
-			border-bottom: @border-base;
-		}
-
-		.oo-ui-toolbar-position-bottom > & {
-			border-top: @border-base;
+		.oo-ui-toolbar-actions & {
+			padding: 0;
 		}
 
 		.oo-ui-toolbar-bar {
