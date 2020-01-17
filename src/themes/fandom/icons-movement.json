@@ -21,6 +21,9 @@
 		"expand": {
 			"file": "~design-system-svg/wds-icons-menu-control.svg"
 		},
+		"more": {
+			"file":  "~design-system-svg/wds-icons-more.svg"
+		},
 		"move": {
 			"file": "../wikimediaui/images/icons/move.svg"
 		},
