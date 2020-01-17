@@ -16,7 +16,7 @@
 			"file": "~design-system-svg/wds-icons-zoom-in-small.svg"
 		},
 		"image": {
-			"file": "../wikimediaui/images/icons/image.svg"
+			"file": "~design-system-svg/wds-icons-image-small.svg"
 		},
 		"imageAdd": {
 			"file": {
@@ -34,7 +34,7 @@
 			}
 		},
 		"imageGallery": {
-			"file": "../wikimediaui/images/icons/imageGallery.svg"
+			"file": "~design-system-svg/wds-icons-images-small.svg"
 		},
 		"musicalScore": {
 			"file": "../wikimediaui/images/icons/musicalScore.svg"
