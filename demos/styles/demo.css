@@ -506,9 +506,10 @@ p:first-child {
 .demo-icons .oo-ui-fieldLayout .oo-ui-iconElement:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ),
 .demo-icons .oo-ui-fieldLayout .oo-ui-indicatorElement {
 	opacity: 0.87; /* brings icons/indicators closer to text color */
-	/* Support Chrome by promoting layer to GPU, see T182257 */
+	/* Support Chrome by promoting layer to GPU, see T182257
+	Fandom change: disable this transform to fix icons that have their own transforms
 	-webkit-transform: translateZ( 0 );
-	transform: translateZ( 0 );
+	transform: translateZ( 0 );*/
 }
 
 .demo-icons .oo-ui-fieldLayout:hover .oo-ui-labelElement-label {

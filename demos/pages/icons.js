@@ -12,6 +12,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'last',
 				'expand',
 				'collapse',
+				'more',
 				'move',
 				'draggable'
 			],
@@ -120,7 +121,8 @@ Demo.static.pages.icons = function ( demo ) {
 				'indent',
 				'listBullet',
 				'listNumbered',
-				'outdent'
+				'outdent',
+				'structure',
 			],
 			'editing-advanced': [
 				'alignCenter',

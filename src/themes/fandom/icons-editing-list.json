@@ -10,22 +10,19 @@
 			}
 		},
 		"listBullet": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/listBullet-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/listBullet-rtl.svg"
-			}
+			"file": "~design-system-svg/wds-icons-bullet-list-small.svg"
 		},
 		"listNumbered": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/listNumbered-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/listNumbered-rtl.svg"
-			}
+			"file": "~design-system-svg/wds-icons-numbered-list-small.svg"
 		},
 		"outdent": {
 			"file": {
 				"ltr": "../wikimediaui/images/icons/outdent-ltr.svg",
 				"rtl": "../wikimediaui/images/icons/outdent-rtl.svg"
 			}
+		},
+		"structure": {
+			"file": "~design-system-svg/wds-icons-left-align-small.svg"
 		}
 	}
 }
