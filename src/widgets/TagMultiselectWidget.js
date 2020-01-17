@@ -526,19 +526,27 @@ OO.ui.TagMultiselectWidget.prototype.onTagNavigate = function ( item, direction 
 };
 
 /**
+ * Get data and label for a new tag from the input value
+ *
+ * @return {Object} The data and label for a tag
+ */
+OO.ui.TagMultiselectWidget.prototype.getTagInfoFromInput = function () {
+	var val = this.input.getValue();
+	return { data: val, label: val };
+};
+
+/**
  * Add tag from input value
  */
 OO.ui.TagMultiselectWidget.prototype.addTagFromInput = function () {
-	var val = this.input.getValue(),
-		isValid = this.isAllowedData( val );
+	var tagInfo = this.getTagInfoFromInput();
 
-	if ( !val ) {
+	if ( !tagInfo.data ) {
 		return;
 	}
 
-	if ( isValid || this.allowDisplayInvalidTags ) {
+	if ( this.addTag( tagInfo.data, tagInfo.label ) ) {
 		this.clearInput();
-		this.addTag( val );
 	}
 };
 
@@ -656,7 +664,9 @@ OO.ui.TagMultiselectWidget.prototype.setValue = function ( valueObject ) {
 };
 
 /**
- * Add tag to the display area
+ * Add tag to the display area.
+ *
+ * Performs a validation check on the tag to be added.
  *
  * @param {string|Object} data Tag data
  * @param {string} [label] Tag label. If no label is provided, the

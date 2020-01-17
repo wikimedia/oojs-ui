@@ -123,16 +123,16 @@ OO.ui.MenuTagMultiselectWidget.prototype.onInputChange = function () {
  * @param {boolean} selected Item is selected
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onMenuChoose = function ( menuItem, selected ) {
-	if ( this.hasInput && this.clearInputOnChoose ) {
-		this.input.setValue( '' );
-	}
-
 	if ( selected && !this.findItemFromData( menuItem.getData() ) ) {
 		// The menu item is selected, add it to the tags
 		this.addTag( menuItem.getData(), menuItem.getLabel() );
 	} else {
 		// The menu item was unselected, remove the tag
 		this.removeTagByData( menuItem.getData() );
+	}
+
+	if ( this.hasInput && this.clearInputOnChoose ) {
+		this.input.setValue( '' );
 	}
 };
 
@@ -275,29 +275,15 @@ OO.ui.MenuTagMultiselectWidget.prototype.initializeMenuSelection = function () {
 /**
  * @inheritdoc
  */
-OO.ui.MenuTagMultiselectWidget.prototype.addTagFromInput = function () {
+OO.ui.MenuTagMultiselectWidget.prototype.getTagInfoFromInput = function () {
 	var val = this.input.getValue(),
 		// Look for a highlighted item first
 		// Then look for the element that fits the data
 		item = this.menu.findHighlightedItem() || this.menu.findItemFromData( val ),
 		data = item ? item.getData() : val,
-		isValid = this.isAllowedData( data );
+		label = item ? item.getLabel() : val;
 
-	// Override the parent method so we add from the menu
-	// rather than directly from the input
-
-	if ( !val ) {
-		return;
-	}
-
-	if ( isValid || this.allowDisplayInvalidTags ) {
-		this.clearInput();
-		if ( item ) {
-			this.addTag( data, item.getLabel() );
-		} else {
-			this.addTag( val );
-		}
-	}
+	return { data: data, label: label };
 };
 
 /**
