@@ -347,6 +347,13 @@ module.exports = function ( grunt ) {
 				],
 				dest: 'dist/wikimedia-ui-base.less'
 			},
+			designsystemcss: {
+				flatten: true,
+				src: [
+					'node_modules/design-system/dist/css/styles.css'
+				],
+				dest: 'demos/styles/wds.css'
+			},
 			// Copies the necessary vendor/ files for demos without running "composer install"
 			fastcomposerdemos: {
 				src: 'vendor/**',
@@ -583,7 +590,7 @@ module.exports = function ( grunt ) {
 				'php/**/*.php',
 				'.{stylelintrc,eslintrc.json}'
 			],
-			tasks: 'build-fandom'
+			tasks: 'build'
 		},
 
 		// Adding new theme
@@ -732,20 +739,14 @@ module.exports = function ( grunt ) {
 		'clean:build', 'fileExists', 'tyops', 'build-code', 'build-styling', 'build-i18n',
 		'concat:omnibus',
 		'copy:dist',
-		'copy:wikimediauibasevars',
+		// 'copy:wikimediauibasevars',
 		'clean:tmp', 'demos'
 	] );
 
-    grunt.registerTask( 'build-fandom', [
-        'clean:build', 'fileExists', 'build-code',
-        'build-styling',
-        'concat:omnibus',
-        'clean:tmp', 'demos'
-    ] );
-
     grunt.registerTask( 'import-wds', [
         'clean:wds',
-        'copy:wdsVariables', 'scss2less', 'clean:wdsVariables',
+        'copy:designsystemcss',
+        'copy:wdsVariables', 'scss2less', 'clean:wdsVariables'
     ] );
 
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
