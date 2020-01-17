@@ -18,7 +18,8 @@
 	background-image: linear-gradient( transparent, transparent ), e( '/* @embed */' ) url( @svg );
 }
 .oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @ooui-distribution = vector ) {
-	.oo-ui-background-image( @svg );
+	-webkit-mask: url( '@{svg}' ) no-repeat center;
+	mask: url( '@{svg}' ) no-repeat center;
 }
 .oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @ooui-distribution = raster ) {
 	.oo-ui-background-image( @fallback );

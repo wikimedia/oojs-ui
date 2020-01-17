@@ -1,9 +1,0 @@
-{
-	"extends": "stylelint-config-wikimedia",
-	"rules": {
-		"block-closing-brace-space-after": null,
-		"block-no-empty": null,
-		"no-descending-specificity": null,
-		"selector-class-pattern": "^(oo-ui|mw-tool)-"
-	}
-}

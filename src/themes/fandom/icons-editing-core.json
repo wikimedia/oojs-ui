@@ -1,0 +1,37 @@
+{
+	"selectorWithoutVariant": ".oo-ui-icon-{name}",
+	"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"edit": {
+			"file": "~design-system-svg/wds-icons-pencil-small.svg"
+		},
+		"editLock": {
+			"file": "../wikimediaui/images/icons/editLock.svg"
+		},
+		"editUndo": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/editUndo-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/editUndo-rtl.svg"
+			}
+		},
+		"link": {
+			"file": "~design-system-svg/wds-icons-link-small.svg"
+		},
+		"unLink": {
+			"file": "../wikimediaui/images/icons/unLink.svg"
+		},
+		"linkExternal": {
+			"file": "~design-system-svg/wds-icons-external-small.svg"
+		},
+		"linkSecure": {
+			"file": "~design-system-svg/wds-icons-lock-small.svg"
+		},
+		"redo": {
+			"file": "~design-system-svg/wds-icons-reply-small.svg"
+		},
+		"undo": {
+			"file": "~design-system-svg/wds-icons-reply-small.svg"
+		}
+	}
+}

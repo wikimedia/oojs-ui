@@ -1,0 +1,37 @@
+{
+	"selectorWithoutVariant": ".oo-ui-icon-{name}",
+	"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"bright": {
+			"file": "../wikimediaui/images/icons/bright.svg"
+		},
+		"halfBright": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/halfBright-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/halfBright-rtl.svg"
+			}
+		},
+		"notBright": {
+			"file": "../wikimediaui/images/icons/notBright.svg"
+		},
+		"eye": {
+			"file": "~design-system-svg/wds-icons-eye-small.svg"
+		},
+		"eyeClosed": {
+			"file": "~design-system-svg/wds-icons-eye-crossed-small.svg"
+		},
+		"moon": {
+			"file": "../wikimediaui/images/icons/moon.svg"
+		},
+		"largerText": {
+			"file": "../wikimediaui/images/icons/largerText.svg"
+		},
+		"smallerText": {
+			"file": "../wikimediaui/images/icons/smallerText.svg"
+		},
+		"visionSimulator": {
+			"file": "../wikimediaui/images/icons/visionSimulator.svg"
+		}
+	}
+}

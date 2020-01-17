@@ -1,0 +1,107 @@
+@import 'wds-variables/index';
+
+// Colors
+@primary-color: @wds-fandom-color-link;
+@primary-color--hover: @wds-fandom-color-link-hover;
+@primary-color--fadeout: fadeout(@primary-color, 90%);
+@secondary-color: @wds-fandom-color-dark-gray;
+@secondary-color--active: darken(@wds-fandom-color-dark-gray, 20%);
+@alert-color: @wds-color-alert;
+@alert-color--active: darken(@alert-color, 20%);
+@warning-color: @wds-color-warning;
+@success-color: @wds-color-success;
+@notice-color: @wds-color-message;
+
+@opacity--disabled: 0.5;
+
+// Background Colors
+@background-color-base: @wds-color-white;
+@background-color-framed: @wds-fandom-color-light-gray;
+@background-color-framed--hover: @background-color-framed;
+@background-color-error--framed: fadeout(@alert-color, 90%);
+
+// Foreground Colors
+@color-base: @wds-fandom-color-black;
+@color-base--emphasized: @color-base;
+@color-base--disabled: rgba(@color-base, @opacity--disabled);
+
+// Typography
+@font-weight-bold: @wds-font-weight-bold;
+@line-height-base: @wds-line-height-normal;
+@line-height-none: @wds-line-height-none;
+@font-size-base: @wds-font-size-s;
+@font-size-small: @wds-font-size-xs;
+
+// Sizes
+@size-input-binary: 16px;
+@size-base: 34px;
+@size-anchor: 7px;
+@size-icon: @wds-icon-small-size;
+@size-icon-tiny: @wds-icon-tiny-size;
+@size-indicator: @size-icon-tiny;
+@min-size-icon: @size-icon;
+@min-size-indicator: @size-indicator;
+@max-width-base: 50em;
+@max-width-input: @max-width-base;
+@combo-button-width: 37px;
+@input-border-color: @wds-color-light-gray;
+@gap-base: @wds-button-horizontal-gap;
+
+@height-search: 56px;
+@height-tagitem: 22px;
+@height-tabselect: 37px;
+
+// Borders
+@border-width-base: 1px;
+@border-style-base: solid;
+@border-color-base: @wds-fandom-color-mid-light-gray;
+@border-base: @border-width-base @border-style-base @border-color-base;
+@border-color-filled--disabled: rgba(@border-color-base, @opacity--disabled);
+@border-error: @border-width-base @border-style-base @alert-color;
+@border-radius-base: @wds-rounded-corner-radius;
+
+// Dialog
+@size-dialog-menu: 200px;
+@size-dialog-bar--desktop: 40px;
+@size-dialog-bar--mobile: 44px;
+@size-dialog-message-bar: 40px;
+@dialog-border-color: @wds-color-light-c3;
+@dialog-overlay-background-color: rgba(@wds-color-black, @opacity--disabled);
+
+// Margins & paddings
+@margin-dialog-bar-button-framed: 6px;
+@margin-search: 12px;
+@margin-taboption: @margin-dialog-bar-button-framed;
+@margin-top-form-fieldset: 24px;
+@margin-top-fieldlayout--labelled: 12px;
+@margin-top-message: 8px;
+@margin-top-popup: 9px;
+@margin-bottom-fieldset-header: 8px;
+@margin-end-fieldlayout-help: -8px;
+@margin-end-widget: 8px;
+
+@padding-panel-form: 16px;
+@padding-panel-dialog: 20px;
+@padding-horizontal-base: @wds-button-horizontal-padding;
+@padding-vertical-base: @wds-button-vertical-padding;
+@padding-vertical-label: 4px;
+@padding-start-fieldlayout-label: 6px;
+@padding-start-input-text-icon-label: 37px;
+@padding-end-dropdown: 30px;
+
+// Inputs
+@input-horizontal-padding: 8px;
+@input-focus-box-shadow--transparent: inset 0 0 0 1px transparent;
+@input-focus-box-shadow--active: inset 0 0 0 1px @primary-color;
+@input-focus-box-shadow--alert: inset 0 0 0 1px @alert-color;
+
+// Toolbars
+@tool-vertical-padding: 6px;
+@tool-horizontal-padding: 10px;
+@tool-horizontal-gap: 4px;
+@tool-group-separator-color: @secondary-color;
+
+// Transitions
+@transition-base: @wds-button-transition-duration;
+@transition-dialog: ease-out @transition-base;
+@transition-ease-medium: @transition-base;

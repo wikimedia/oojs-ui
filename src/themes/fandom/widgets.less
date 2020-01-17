@@ -1,0 +1,1622 @@
+@import 'common.less';
+
+.theme-oo-ui-widget() {
+}
+
+.theme-oo-ui-actionWidget() {
+}
+
+.theme-oo-ui-buttonWidget() {
+	.oo-ui-inline-spacing(@margin-end-widget);
+}
+
+.theme-oo-ui-buttonGroupWidget() {
+	border-radius: @border-radius-base;
+	display: inline-flex;
+	padding-bottom: @border-width-base;
+	position: relative;
+	// Create a stacking context, so that we can use `z-index` below without leaking out
+	z-index: 0;
+	.oo-ui-inline-spacing(@margin-end-widget);
+
+	// Overrides both, ButtonWidget & ToggleButtonWidget
+	.oo-ui-buttonElement {
+		margin-right: 0;
+		z-index: 0;
+	}
+
+	.oo-ui-buttonElement-framed {
+		.oo-ui-buttonElement-button {
+			border-radius: 0;
+			margin-bottom: -@border-width-base;
+			margin-right: -@border-width-base;
+		}
+
+		&:first-child .oo-ui-buttonElement-button {
+			border-bottom-left-radius: @border-radius-base;
+			border-top-left-radius: @border-radius-base;
+		}
+
+		&:last-child .oo-ui-buttonElement-button {
+			border-bottom-right-radius: @border-radius-base;
+			border-top-right-radius: @border-radius-base;
+			margin-right: 0;
+		}
+
+		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
+			> .oo-ui-buttonElement-button {
+				border-left-color: @border-color-filled--disabled;
+			}
+		}
+	}
+
+	// Give hovered/focussed/active buttons higher `z-index`, so that borders display correctly.
+	// Identical to .theme-oo-ui-buttonSelectWidget, except for the `:focus` selector.
+	&.oo-ui-widget-enabled {
+		.oo-ui-buttonElement {
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
+				z-index: 1;
+			}
+
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+				z-index: 2;
+			}
+
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+				z-index: 3;
+			}
+
+			&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+				z-index: -1;
+			}
+
+			&.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on {
+				> .oo-ui-buttonElement-button,
+				> .oo-ui-buttonElement-button:active {
+					border-left-color: @border-color-base;
+					z-index: 3;
+				}
+			}
+		}
+	}
+}
+
+.theme-oo-ui-buttonInputWidget() {
+}
+
+.theme-oo-ui-buttonOptionWidget() {
+	margin: 0;
+	padding: 0;
+
+	> * {
+		margin: 0;
+	}
+}
+
+.theme-oo-ui-buttonSelectWidget() {
+	border-radius: @border-radius-base;
+	padding-bottom: @border-width-base;
+	position: relative;
+	// Create a stacking context, so that we can use `z-index` below without leaking out
+	z-index: 0;
+	.oo-ui-inline-spacing(@margin-end-widget);
+
+	&:focus {
+		outline: 0;
+	}
+
+	.oo-ui-buttonOptionWidget {
+		.oo-ui-buttonElement-button {
+			border-radius: 0;
+			margin-bottom: -@border-width-base;
+			margin-right: -@border-width-base;
+		}
+
+		&:first-child .oo-ui-buttonElement-button {
+			border-bottom-left-radius: @border-radius-base;
+			border-top-left-radius: @border-radius-base;
+		}
+
+		&:last-child .oo-ui-buttonElement-button {
+			border-bottom-right-radius: @border-radius-base;
+			border-top-right-radius: @border-radius-base;
+			margin-right: 0;
+		}
+
+		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
+			> .oo-ui-buttonElement-button {
+				border-left-color: @border-color-filled--disabled;
+			}
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		// Give hovered/focussed/active buttons higher `z-index`, so that borders display correctly.
+		// Identical to .theme-oo-ui-buttonGroupWidget, except we don't need `:focus` selector.
+		.oo-ui-buttonElement {
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+			&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
+				z-index: 1;
+			}
+
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+				z-index: 3;
+			}
+
+			&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+				z-index: -1;
+			}
+		}
+	}
+}
+
+.theme-oo-ui-checkboxInputWidget() {
+	color: @primary-color;
+	line-height: @line-height-none;
+	position: relative;
+	vertical-align: middle;
+	white-space: nowrap;
+	z-index: 0;
+
+	[type='checkbox'] {
+		height: @size-input-binary;
+		margin: 0;
+		max-width: none;
+		opacity: 0;
+		position: relative;
+		width: @size-input-binary;
+		z-index: 1;
+
+		+ span {
+			align-items: center;
+			background-color: transparent;
+			border: 2px solid @input-border-color;
+			box-sizing: border-box;
+			color: inherit;
+			display: grid;
+			height: @size-input-binary;
+			justify-items: center;
+			left: 0;
+			-webkit-mask: none;
+			mask: none;
+			min-height: @size-input-binary;
+			min-width: @size-input-binary;
+			position: absolute;
+			top: 0;
+			width: @size-input-binary;
+
+			&::before {
+				border-color: transparent;
+				border-style: solid;
+				border-width: 0 0 2px 2px;
+				content: '';
+				display: block;
+				height: 3px;
+				margin-top: -2px;
+				transform: rotate(-45deg);
+				width: 6px;
+			}
+		}
+
+		&:indeterminate + span::before {
+			border-color: @input-border-color;
+			border-width: 2px 0 0 0;
+			margin-top: 2px;
+			transform: rotate(0deg);
+			width: 8px;
+		}
+
+		&:disabled,
+		&:checked:disabled {
+			+ span {
+				border-color: @input-border-color;
+				opacity: @opacity--disabled;
+				pointer-events: none;
+			}
+		}
+
+		&:checked:disabled + span::before {
+			border-color: @input-border-color;
+		}
+	}
+
+	&.oo-ui-widget-enabled [type='checkbox'] {
+		cursor: pointer;
+
+		+ span {
+			cursor: pointer;
+			.oo-ui-transition(background-color @transition-base, border-color @transition-base);
+		}
+
+		&:focus + span,
+		&:hover + span {
+			border-color: currentColor;
+		}
+
+		&:active + span {
+			background-color: currentColor;
+			border-color: currentColor;
+		}
+
+		&:checked,
+		&:indeterminate {
+			& + span,
+			&:focus + span,
+			&:active + span {
+				border-color: currentColor;
+
+				&::before {
+					border-color: currentColor;
+				}
+			}
+		}
+	}
+}
+
+.theme-oo-ui-checkboxMultioptionWidget() {
+	padding: @padding-vertical-label 0;
+
+	&:first-child {
+		margin-top: -@padding-vertical-label;
+	}
+
+	&.oo-ui-labelElement > .oo-ui-labelElement-label {
+		padding-left: @padding-start-fieldlayout-label;
+	}
+
+	.oo-ui-checkboxInputWidget {
+		margin-right: 0;
+	}
+}
+
+.theme-oo-ui-checkboxMultiselectWidget() {
+}
+
+.theme-oo-ui-checkboxMultiselectInputWidget() {
+	.oo-ui-fieldLayout {
+		// Override `.oo-ui-fieldLayout.oo-ui-labelElement`.
+		margin-top: 0;
+		// Equal to CheckboxMultiOptionWidget and to prevent collapsing `margin`s.
+		padding: @padding-vertical-label 0;
+
+		&:first-child {
+			// `@padding-vertical-label` used as negative `margin-top` here.
+			margin-top: -@padding-vertical-label;
+		}
+	}
+}
+
+.theme-oo-ui-comboBoxInputWidget() {
+	.oo-ui-inputWidget-input {
+		border-bottom-right-radius: 0;
+		border-right-width: 0;
+		border-top-right-radius: 0;
+		height: @size-base;
+	}
+
+	&-dropdownButton > .oo-ui-buttonElement-button {
+		display: grid;
+		height: @size-base;
+	}
+
+	// Undo setting properties above when there is no button:
+	// if the menu is empty, or if this is the PHP version
+	&.oo-ui-comboBoxInputWidget-empty .oo-ui-inputWidget-input,
+	&-php .oo-ui-inputWidget-input {
+		border-bottom-right-radius: @border-radius-base;
+		border-right-width: 1px;
+		border-top-right-radius: @border-radius-base;
+	}
+
+	&-dropdownButton.oo-ui-indicatorElement {
+		width: @combo-button-width;
+
+		.oo-ui-buttonElement-button {
+			min-width: @combo-button-width;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.oo-ui-buttonElement-button,
+		.oo-ui-buttonElement-button:focus {
+			border-bottom-left-radius: 0;
+			border-top-left-radius: 0;
+		}
+	}
+}
+
+.theme-oo-ui-decoratedOptionWidget() {
+}
+
+.theme-oo-ui-dropdownWidget() {
+	max-width: @max-width-input;
+	width: 100%;
+
+	&-handle {
+		background-color: @wds-color-white;
+		border: @border-base;
+		border-radius: @border-radius-base;
+		color: inherit;
+		font-family: inherit;
+		font-size: @font-size-base;
+		line-height: @line-height-base;
+		min-height: @size-base;
+		padding: @padding-vertical-base @input-horizontal-padding;
+
+		.oo-ui-iconElement-icon {
+			height: auto;
+			left: @input-horizontal-padding;
+			position: absolute;
+			top: 7px;
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			height: auto;
+			position: absolute;
+			right: @input-horizontal-padding - 1px;
+			top: 10px;
+		}
+
+		.oo-ui-labelElement-label {
+			line-height: @line-height-base;
+		}
+
+		&:focus {
+			outline: 0;
+		}
+	}
+
+	&.oo-ui-iconElement &-handle {
+		padding-left: @input-horizontal-padding + @size-icon + @gap-base;
+	}
+
+	&.oo-ui-indicatorElement &-handle {
+		padding-right: @size-indicator + 2 * @input-horizontal-padding;
+	}
+
+	&.oo-ui-widget-enabled &-handle {
+		box-shadow: @input-focus-box-shadow--transparent;
+		.oo-ui-transition(border-color @transition-base, box-shadow @transition-base);
+
+		&:hover,
+		&:focus,
+		&:active {
+			border-color: @primary-color;
+		}
+
+		&:active {
+			box-shadow: @input-focus-box-shadow--active;
+		}
+	}
+
+	&.oo-ui-widget-enabled&-open &-handle {
+	}
+
+	&.oo-ui-widget-disabled &-handle {
+		opacity: @opacity--disabled;
+		pointer-events: none;
+	}
+}
+
+.theme-oo-ui-dropdownInputWidget() {
+	max-width: @max-width-input;
+	width: 100%;
+
+	select {
+		// Remove user agent styles.
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		// Support Firefox <= 34: Anything apart from `transparent` mixes up `option` sizes.
+		background-color: transparent;
+		background-position: right @padding-horizontal-base center;
+		// stylelint-disable declaration-block-no-duplicate-properties, media-feature-parentheses-space-inside
+		// Support IE 8-9: Move custom arrow out of canvas and remove padding the custom arrow.
+		// Also affects IE 10. An absolute horror show.
+		background-position: ~'-9999em 0\9';
+		border: @border-base;
+		border-radius: @border-radius-base;
+		box-sizing: border-box;
+		font-family: inherit;
+		font-size: inherit;
+		// Support Firefox <= 34: `height` needed in addition to adding, otherwise oversized.
+		height: @size-base;
+		// stylelint-disable-next-line declaration-block-no-shorthand-property-overrides
+		padding: ~'0\9';
+		// Support IE 10: Don't try to use vertical padding on select!
+		padding-left: @padding-horizontal-base;
+		padding-right: @padding-end-dropdown;
+		vertical-align: middle;
+
+		/* Support IE 10: Move it in again and also add `padding`. Because we talk to morons. */
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+			background-position: right @padding-horizontal-base center;
+			padding-left: @padding-horizontal-base;
+			padding-right: @padding-end-dropdown;
+		}
+
+		// Support IE 10-11: Hide the default arrow.
+		&::-ms-expand {
+			display: none;
+		}
+		// stylelint-enable
+	}
+
+	option {
+		background-color: transparent;
+		font-family: inherit;
+		font-size: inherit;
+		height: 1.5em;
+		padding: @padding-vertical-base @padding-horizontal-base;
+	}
+
+	&.oo-ui-widget-enabled {
+		background-color: @background-color-framed;
+		.oo-ui-transition(background-color @transition-base);
+
+		&:hover {
+			background-color: @background-color-framed--hover;
+		}
+
+		select {
+			color: @color-base;
+			.oo-ui-transition(border-color @transition-base, box-shadow @transition-base);
+
+			&:hover,
+			&:active,
+			&:focus {
+				border-color: currentColor;
+				color: @primary-color;
+			}
+		}
+	}
+}
+
+.theme-oo-ui-iconWidget() {
+	display: inline-block;
+	height: @size-icon;
+	line-height: 2.5;
+	position: static;
+	top: auto;
+
+	&.oo-ui-widget-disabled {
+		opacity: @opacity--disabled;
+	}
+}
+
+.theme-oo-ui-indicatorWidget() {
+	display: inline-block;
+	height: @size-indicator;
+	line-height: 2.5;
+	margin: @size-indicator / 2;
+	position: static;
+	top: auto;
+
+	&.oo-ui-widget-disabled {
+		opacity: @opacity--disabled;
+	}
+}
+
+.theme-oo-ui-inputWidget() {
+	.oo-ui-inline-spacing(@margin-end-widget);
+
+	&:focus,
+	&-input:focus {
+		outline: 0;
+	}
+}
+
+.theme-oo-ui-labelWidget() {
+	&.oo-ui-inline-help {
+		display: block;
+		font-size: @font-size-small;
+	}
+}
+
+.theme-oo-ui-menuOptionWidget() {
+	.oo-ui-transition(background-color @transition-base, color @transition-base);
+
+	&-checkIcon.oo-ui-labelElement-invisible {
+		display: none;
+	}
+
+	&.oo-ui-optionWidget {
+		&-highlighted,
+		&-selected {
+			background-color: @primary-color--fadeout;
+			color: @primary-color;
+		}
+	}
+}
+
+.theme-oo-ui-menuSectionOptionWidget() {
+	font-weight: @font-weight-bold;
+
+	& ~ .oo-ui-menuOptionWidget {
+		padding-left: @wds-dropdown-padding;
+	}
+}
+
+.theme-oo-ui-menuSelectWidget() {
+	background-color: @wds-color-white;
+	border: @border-base;
+	border-radius: 0 0 @border-radius-base @border-radius-base;
+	box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
+	padding: @wds-dropdown-padding - @wds-list-item-vertical-padding 0;
+}
+
+.theme-oo-ui-menuTagMultiselectWidget() {
+}
+
+.theme-oo-ui-messageWidget() {
+	align-items: flex-start;
+	display: flex;
+
+	&.oo-ui-messageWidget-block {
+		align-items: center;
+		box-shadow: 0 2px 6px 0 rgba(@wds-color-black, 0.2);
+
+		> .oo-ui-iconElement-icon {
+			align-items: center;
+			color: @wds-color-white;
+			display: flex;
+			justify-content: center;
+			width: 48px;
+		}
+
+		> .oo-ui-labelElement-label {
+			background-color: @wds-color-white;
+			color: @wds-color-light-c7;
+			flex: 1;
+			padding: 13px 12px;
+		}
+
+		&.oo-ui-flaggedElement-error {
+			background-color: @alert-color;
+		}
+
+		&.oo-ui-flaggedElement-warning {
+			background-color: @warning-color;
+		}
+
+		&.oo-ui-flaggedElement-success {
+			background-color: @success-color;
+		}
+
+		&.oo-ui-flaggedElement-notice {
+			background-color: @notice-color;
+		}
+	}
+
+	&:not(.oo-ui-messageWidget-block) {
+		> .oo-ui-iconElement-icon {
+			margin-right: @gap-base;
+		}
+
+		&.oo-ui-flaggedElement-error {
+			color: @alert-color;
+		}
+
+		&.oo-ui-flaggedElement-warning {
+			color: @warning-color;
+		}
+
+		&.oo-ui-flaggedElement-success {
+			color: @success-color;
+		}
+
+		&.oo-ui-flaggedElement-notice {
+			color: @notice-color;
+		}
+	}
+
+	& + .oo-ui-messageWidget {
+		margin-top: @margin-top-message;
+	}
+}
+
+.theme-oo-ui-multioptionWidget() {
+	&.oo-ui-widget-disabled {
+		color: @color-base--disabled;
+	}
+}
+
+.theme-oo-ui-multiselectWidget() {
+}
+
+.theme-oo-ui-numberInputWidget() {
+	max-width: @max-width-input;
+
+	&-buttoned {
+		.oo-ui-buttonWidget {
+			display: initial;
+			width: @combo-button-width;
+
+			.oo-ui-buttonElement-button {
+				min-width: @combo-button-width;
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		.oo-ui-numberInputWidget-field {
+			display: grid;
+			grid-template-columns: 37px 1fr 37px;
+		}
+
+		.oo-ui-inputWidget-input {
+			border-radius: 0;
+			display: initial;
+			height: @size-base;
+		}
+	}
+
+	&-minusButton > .oo-ui-buttonElement-button {
+		border-bottom-right-radius: 0;
+		border-right-width: 0;
+		border-top-right-radius: 0;
+	}
+
+	&-plusButton > .oo-ui-buttonElement-button {
+		border-bottom-left-radius: 0;
+		border-left-width: 0;
+		border-top-left-radius: 0;
+	}
+
+	&.oo-ui-widget-disabled {
+		&.oo-ui-numberInputWidget-buttoned .oo-ui-iconElement-icon {
+			opacity: 1;
+		}
+	}
+}
+
+.theme-oo-ui-optionWidget() {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 @wds-dropdown-padding / 2;
+	padding: @wds-list-item-vertical-padding (@wds-dropdown-padding / 2 - @gap-base / 2);
+	white-space: nowrap;
+
+	> * {
+		margin: 0 @gap-base / 2;
+	}
+
+	> :not(.oo-ui-labelElement-label) {
+		flex-shrink: 1;
+	}
+
+	> .oo-ui-labelElement-label {
+		flex-grow: 1;
+		line-height: @line-height-none;
+	}
+
+	// Don't add `highlighted` or `selected` modifications here
+	// as it inherits to various visually opposite widgets.
+	&.oo-ui-widget-disabled {
+		opacity: @opacity--disabled;
+	}
+}
+
+.theme-oo-ui-outlineControlsWidget() {
+	background-color: @background-color-base;
+
+	&-items,
+	&-movers {
+		> .oo-ui-buttonWidget {
+			height: @size-base;
+			// There's a lot of weird specific margins with weird specific selectors
+			margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+			width: @size-base;
+		}
+	}
+}
+
+.theme-oo-ui-outlineOptionWidget() {
+	padding: @padding-vertical-base @padding-horizontal-base;
+	.oo-ui-transition(background-color @transition-base, color @transition-base);
+
+	&.oo-ui-optionWidget-highlighted,
+	&.oo-ui-optionWidget-selected,
+	&.oo-ui-optionWidget-pressed {
+		background-color: @primary-color--fadeout;
+		color: @primary-color;
+	}
+
+	&-level-1 {
+		padding-left: 2.5em;
+	}
+
+	&-level-2 {
+		padding-left: 5em;
+	}
+}
+
+.theme-oo-ui-outlineSelectWidget() {
+	height: 100%;
+}
+
+.theme-oo-ui-popupWidget() {
+	&-popup {
+		background-color: @wds-color-white;
+		border: @border-base;
+		border-radius: @border-radius-base;
+		box-shadow: 0 0 3px 0 rgba(@wds-color-black, 0.3);
+		color: @wds-color-black;
+	}
+
+	// Support: Progressively enhance for browser's which render `filter`.
+	@supports (filter: drop-shadow(0 0 0)) {
+		filter: drop-shadow(0 2px 1px rgba(@wds-color-black, 0.3));
+		// Safari can have visual glitches with lingering shadows in some contexts
+		// when using drop-shadow. This makes it be more zealous about cleaning
+		// up. (See: T226872)
+		.oo-ui-force-gpu-composite-layer();
+
+		&-popup {
+			box-shadow: none;
+		}
+	}
+
+	&-anchored-top {
+		margin-top: @size-anchor;
+
+		.oo-ui-popupWidget-anchor {
+			top: -@size-anchor;
+
+			&::before {
+				// The subtracting-triangles method results in a line that
+				// is ~0.7px wide, so make it slightly darker to compensate.
+				border-bottom-color: @border-color-base;
+				border-width: @size-anchor + 1px;
+				bottom: -@size-anchor - 1px;
+				left: -@size-anchor;
+			}
+
+			&::after {
+				border-bottom-color: @wds-color-white;
+				border-width: @size-anchor;
+				bottom: -@size-anchor - 1px;
+				left: -@size-anchor + 1px;
+			}
+		}
+	}
+
+	&-anchored-bottom {
+		margin-bottom: @size-anchor;
+
+		.oo-ui-popupWidget-anchor {
+			bottom: -@size-anchor;
+
+			&::before {
+				border-top-color: @border-color-base;
+				border-width: @size-anchor + 1px;
+				left: -@size-anchor;
+				top: -@size-anchor - 1px;
+			}
+
+			&::after {
+				border-top-color: @wds-color-white;
+				border-width: @size-anchor;
+				left: -@size-anchor + 1px;
+				top: -@size-anchor - 1px;
+			}
+		}
+	}
+
+	&-anchored-start {
+		margin-left: @size-anchor;
+
+		.oo-ui-popupWidget-anchor {
+			left: -@size-anchor;
+
+			&::before {
+				border-right-color: @border-color-base;
+				border-width: @size-anchor + 1px;
+				right: -@size-anchor - 1px;
+				top: -@size-anchor;
+			}
+
+			&::after {
+				border-right-color: @wds-color-white;
+				border-width: @size-anchor;
+				right: -@size-anchor - 1px;
+				top: -@size-anchor + 1px;
+			}
+		}
+	}
+
+	&-anchored-end {
+		margin-right: @size-anchor;
+
+		.oo-ui-popupWidget-anchor {
+			right: -@size-anchor;
+
+			&::before {
+				border-left-color: @border-color-base;
+				border-width: @size-anchor + 1px;
+				left: -@size-anchor - 1px;
+				top: -@size-anchor;
+			}
+
+			&::after {
+				border-left-color: @wds-color-white;
+				border-width: @size-anchor;
+				left: -@size-anchor - 1px;
+				top: -@size-anchor + 1px;
+			}
+		}
+	}
+
+	&-transitioning .oo-ui-popupWidget-popup {
+		.oo-ui-transition(width @transition-base, height @transition-base, left @transition-base);
+	}
+
+	&-head {
+		> .oo-ui-labelElement-label {
+			line-height: @line-height-base;
+			margin: @margin-top-popup @padding-start-input-text-icon-label @padding-vertical-base @padding-horizontal-base;
+		}
+
+		> .oo-ui-buttonWidget {
+			right: 0;
+
+			.oo-ui-icon-close {
+				height: @size-icon-tiny;
+				margin-right: 0;
+				min-width: @size-icon-tiny;
+				width: @size-icon-tiny;
+			}
+		}
+	}
+
+	&-body {
+		line-height: @line-height-base;
+
+		&-padded {
+			margin: @margin-top-popup @padding-horizontal-base @padding-vertical-base; // Use `margin` rather than `padding` to enable margin to collapse
+
+			> :first-child {
+				margin-top: 0;
+			}
+		}
+	}
+
+	&-footer {
+		margin: @margin-top-popup @padding-horizontal-base @padding-vertical-base;
+	}
+}
+
+.theme-oo-ui-popupButtonWidget() {
+}
+
+.theme-oo-ui-progressBarWidget() {
+	background-color: @wds-color-white;
+	border: @border-base;
+	border-radius: @border-radius-base;
+	max-width: @max-width-base;
+	overflow: hidden;
+
+	&-bar {
+		height: 1em;
+		.oo-ui-transition(width @transition-base);
+	}
+
+	&-indeterminate {
+		.oo-ui-progressBarWidget-bar {
+			.oo-ui-animation(oo-ui-progressBarWidget-slide 2s infinite linear);
+
+			width: 40%;
+			.oo-ui-transform(translate(-25%));
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-progressBarWidget-bar {
+			background-color: @primary-color;
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		opacity: @opacity--disabled;
+
+		.oo-ui-progressBarWidget-bar {
+			background-color: @wds-fandom-color-mid-light-gray;
+		}
+	}
+
+	.oo-ui-progressBarWidget-slide-frames() {
+		from {
+			.oo-ui-transform(translate(-100%));
+		}
+
+		to {
+			.oo-ui-transform(translate(350%));
+		}
+	}
+
+	@-webkit-keyframes oo-ui-progressBarWidget-slide {
+		.oo-ui-progressBarWidget-slide-frames;
+	}
+
+	@-moz-keyframes oo-ui-progressBarWidget-slide {
+		.oo-ui-progressBarWidget-slide-frames;
+	}
+
+	@keyframes oo-ui-progressBarWidget-slide {
+		.oo-ui-progressBarWidget-slide-frames;
+	}
+}
+
+.theme-oo-ui-radioInputWidget() {
+	@checked-input-dot-size: 6px;
+
+	line-height: @line-height-none;
+	position: relative;
+	vertical-align: middle;
+	white-space: nowrap;
+	z-index: 0;
+
+	[type='radio'] {
+		height: @size-input-binary;
+		margin: 0;
+		max-width: none;
+		opacity: 0;
+		position: relative;
+		width: @size-input-binary;
+		z-index: 1;
+
+		+ span {
+			.oo-ui-transition(border-color @transition-base);
+
+			align-items: center;
+			background-color: transparent;
+			border: 2px solid currentColor;
+			border-radius: 100%;
+			box-sizing: border-box;
+			color: @wds-color-light-gray;
+			display: grid;
+			height: @size-input-binary;
+			justify-items: center;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: @size-input-binary;
+
+			&::before {
+				.oo-ui-transition(height 0.1s, width 0.1s);
+
+				background-color: currentColor;
+				border-radius: 100%;
+				content: ' ';
+				height: 0;
+				width: 0;
+			}
+		}
+
+		&:checked + span::before {
+			height: @checked-input-dot-size;
+			width: @checked-input-dot-size;
+		}
+
+		&:disabled + span {
+			color: @wds-color-light-gray;
+			opacity: @opacity--disabled;
+			pointer-events: none;
+		}
+	}
+
+	&.oo-ui-widget-enabled [type='radio'] {
+		cursor: pointer;
+
+		&:hover + span,
+		&:checked + span {
+			color: @primary-color;
+		}
+	}
+}
+
+.theme-oo-ui-radioOptionWidget() {
+	padding: @padding-vertical-label 0;
+
+	&:first-child {
+		margin-top: -@padding-vertical-label;
+	}
+
+	&.oo-ui-labelElement > .oo-ui-labelElement-label {
+		padding-left: @padding-start-fieldlayout-label;
+	}
+
+	.oo-ui-radioInputWidget {
+		margin-right: 0;
+	}
+}
+
+.theme-oo-ui-radioSelectWidget() {
+}
+
+.theme-oo-ui-radioSelectInputWidget() {
+	.oo-ui-fieldLayout {
+		// Override `.oo-ui-fieldLayout.oo-ui-labelElement`.
+		margin-top: 0;
+		// Equal to RadioOptionWidget and to prevent collapsing `margin`s.
+		padding: @padding-vertical-label 0;
+
+		&:first-child {
+			// `@padding-vertical-label` used as negative `margin-top` here.
+			margin-top: -@padding-vertical-label;
+		}
+	}
+}
+
+.theme-oo-ui-searchWidget() {
+	&-query {
+		border-bottom: @border-base;
+		height: @height-search;
+		padding: 0 @padding-panel-form; // Need to use `padding` over `margin` for horizontally continuos `border`/`box-shadow` below
+
+		.oo-ui-textInputWidget {
+			margin: @margin-search 0;
+		}
+	}
+
+	&-results {
+		line-height: 0;
+		padding: @padding-panel-form; // Use smaller `@padding-panel-form` over `@padding-panel-dialog` for image results
+		top: @height-search;
+	}
+}
+
+.theme-oo-ui-selectWidget() {
+	&:focus {
+		outline: 0;
+	}
+}
+
+.theme-oo-ui-selectFileInputWidget() {
+	max-width: @max-width-input;
+	width: 100%;
+
+	&-info > .oo-ui-inputWidget-input {
+		height: @size-base;
+	}
+}
+
+.theme-oo-ui-selectFileWidget() {
+	&-dropTarget {
+		background-color: @wds-fandom-color-light-gray;
+		border: @border-base;
+		border-radius: @border-radius-base;
+		overflow: hidden;
+		vertical-align: middle;
+
+		&.oo-ui-selectFileInputWidget-empty {
+			border-style: dashed;
+		}
+	}
+
+	&-buttonOnly {
+		max-width: none;
+		width: auto;
+	}
+
+	&.oo-ui-widget-enabled {
+		&.oo-ui-selectFileWidget-dropTarget {
+			.oo-ui-transition(border-color @transition-ease-medium, background-color @transition-ease-medium);
+
+			&:hover {
+				background-color: @primary-color--fadeout;
+				border-color: @primary-color;
+			}
+		}
+
+		.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
+			.oo-ui-transition(background-color @transition-ease-medium, color @transition-ease-medium);
+		}
+
+		&.oo-ui-selectFileWidget-canDrop {
+			&.oo-ui-selectFileWidget-dropTarget,
+			.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
+				background-color: @primary-color--fadeout;
+				color: @primary-color;
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled,
+	&.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled {
+		&.oo-ui-selectFileWidget-dropTarget {
+			opacity: @opacity--disabled;
+		}
+	}
+}
+
+.theme-oo-ui-tabOptionWidget() {
+	@option-selected-border-width: 2px;
+
+	align-items: center;
+	display: inline-flex;
+	font-size: @font-size-small;
+	font-weight: @font-weight-bold;
+	height: 40px;
+	margin: 0;
+	padding: 0 11px;
+	text-transform: uppercase;
+	.oo-ui-transition(background-color @transition-base, color @transition-base, border-color @transition-base);
+
+	&.oo-ui-optionWidget-selected {
+		cursor: default;
+	}
+
+	.oo-ui-labelElement-label {
+		margin: 0;
+		pointer-events: none;
+	}
+
+	.oo-ui-tabSelectWidget-mobile &:last-child {
+		margin-right: @margin-taboption * 3; // Equals to mobile overflow gradient below.
+	}
+
+	.oo-ui-tabSelectWidget-framed & {
+		background-color: @wds-color-white;
+		border-top-left-radius: @border-radius-base;
+		border-top-right-radius: @border-radius-base;
+		box-sizing: border-box;
+		color: @primary-color;
+		height: @size-base;
+		margin: 6px 3px 0;
+
+		.oo-ui-labelElement-label {
+			pointer-events: none;
+		}
+
+		&.oo-ui-optionWidget-selected {
+			background-color: @primary-color;
+			color: @wds-color-white;
+		}
+
+		&.oo-ui-widget-enabled {
+			&:not(.oo-ui-optionWidget-selected):hover {
+				color: @wds-fandom-color-black;
+			}
+		}
+	}
+
+	.oo-ui-tabSelectWidget-frameless & {
+		box-shadow: inset 0 0 0 0 @primary-color;
+		.oo-ui-transition(color @transition-base, box-shadow @transition-base);
+
+		&.oo-ui-optionWidget-selected,
+		&.oo-ui-widget-enabled:active {
+			box-shadow: inset 0 -@option-selected-border-width 0 0 @primary-color;
+			color: @primary-color;
+		}
+
+		&.oo-ui-widget-enabled:hover {
+			color: @primary-color;
+		}
+	}
+}
+
+.theme-oo-ui-tabSelectWidget() {
+	&-framed {
+		background-color: @primary-color--fadeout;
+		border-bottom: 2px solid @primary-color;
+	}
+
+	// Add background gradient to emphasize tab overflow.
+	&-mobile {
+		&::after {
+			bottom: 0;
+			content: '';
+			height: @size-base;
+			pointer-events: none;
+			position: absolute;
+			right: 0;
+			width: @margin-taboption * 3;
+		}
+
+		&.oo-ui-tabSelectWidget-framed::after {
+			.oo-ui-horizontal-gradient(fade(#eaecf0, 0), #eaecf0);
+			// Override fallback color from mixin
+			background-color: transparent;
+		}
+
+		&.oo-ui-tabSelectWidget-frameless::after {
+			.oo-ui-horizontal-gradient(fade(#fff, 0), #fff);
+			// Override fallback color from mixin
+			background-color: transparent;
+			bottom: 2px;
+		}
+	}
+
+	&.oo-ui-widget-enabled:focus {
+		outline: 0;
+	}
+}
+
+.theme-oo-ui-tagItemWidget() {
+	border: @border-base;
+	border-radius: @height-tagitem;
+	box-sizing: border-box;
+	display: inline-grid;
+	grid-column-gap: @gap-base;
+	grid-template-columns: 1fr @size-icon-tiny;
+	height: @height-tagitem;
+	margin: 0 4px 4px 0;
+	max-width: 100%;
+	padding: 0 8px;
+	vertical-align: middle;
+	width: auto;
+
+	&.oo-ui-tagItemWidget-fixed {
+		display: inline-block;
+	}
+
+	&.oo-ui-labelElement .oo-ui-labelElement-label {
+		font-size: @font-size-small;
+		line-height: @height-tagitem - 2px;
+	}
+
+	&.oo-ui-widget-enabled {
+		background-color: @wds-fandom-color-light-gray;
+
+		.oo-ui-transition(
+			background-color @transition-base,
+			color @transition-base,
+			border-color @transition-base,
+			box-shadow @transition-base
+		);
+
+		&:hover,
+		&:focus {
+			background-color: @primary-color--fadeout;
+			border-color: @primary-color;
+			color: @primary-color;
+			outline: 0;
+		}
+
+		&.oo-ui-flaggedElement-invalid {
+			background-color: @background-color-error--framed;
+			border-color: currentColor;
+			color: @alert-color;
+
+			&:hover,
+			&:focus {
+				color: @alert-color--active;
+			}
+		}
+
+		.oo-ui-buttonElement-button {
+			// frameless reset
+			border: 0;
+			border-radius: @height-tagitem;
+			display: block;
+			padding: 0;
+
+			.oo-ui-icon-close {
+				margin: 0;
+				min-width: @size-icon-tiny;
+				width: @size-icon-tiny;
+			}
+
+			.oo-ui-labelElement-label,
+			.oo-ui-indicatorElement-indicator {
+				display: none;
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		opacity: @opacity--disabled;
+		pointer-events: none;
+
+		> .oo-ui-buttonElement {
+			display: none;
+		}
+	}
+}
+
+.theme-oo-ui-tagMultiselectWidget() {
+	max-width: @max-width-input;
+	vertical-align: top;
+	width: 100%;
+
+	&-handle {
+		border: @border-base;
+		border-radius: @border-radius-base;
+		box-sizing: border-box;
+		line-height: @line-height-none;
+		min-height: @size-base;
+		padding: 0 @input-horizontal-padding;
+		.oo-ui-inline-spacing(@margin-end-widget);
+
+		> .oo-ui-tagMultiselectWidget-content {
+			> input {
+				background-color: transparent;
+				border: 0;
+				box-sizing: border-box;
+				font-family: inherit;
+				font-size: inherit;
+				height: @size-base - 2px;
+				line-height: @line-height-base;
+				padding: @padding-vertical-base 0;
+				vertical-align: top;
+
+				.mw-placeholder();
+
+				&:focus {
+					outline: 0;
+				}
+			}
+		}
+
+		.oo-ui-tagMultiselectWidget-group {
+			display: inline-block;
+			margin-left: -2px;
+			margin-top: 4px;
+			max-width: 100%;
+		}
+	}
+
+	&.oo-ui-iconElement &-handle {
+		padding-left: @size-icon + 8px;
+
+		> .oo-ui-iconElement-icon {
+			left: 0;
+			margin: 0 4px;
+		}
+	}
+
+	&.oo-ui-indicatorElement &-handle {
+		padding-right: @size-indicator + 22px;
+
+		> .oo-ui-indicatorElement-indicator {
+			margin: 0 11px;
+			right: 0;
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-tagMultiselectWidget-handle {
+			background-color: @wds-fandom-color-light-gray;
+			.oo-ui-transition(border-color @transition-ease-medium, box-shadow @transition-ease-medium);
+		}
+
+		&.oo-ui-tagMultiselectWidget-inlined {
+			&:hover .oo-ui-tagMultiselectWidget-handle {
+				border-color: @primary-color;
+			}
+
+			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
+				border-color: @primary-color;
+				box-shadow: @input-focus-box-shadow--active;
+				outline: 0;
+			}
+
+			&.oo-ui-flaggedElement-invalid {
+				.oo-ui-tagMultiselectWidget-handle,
+				&:hover .oo-ui-tagMultiselectWidget-handle {
+					border-color: @alert-color;
+				}
+			}
+		}
+
+		&.oo-ui-tagMultiselectWidget-outlined {
+			.oo-ui-tagMultiselectWidget-handle {
+				border-bottom: 0;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+			.oo-ui-tagItemWidget.oo-ui-widget-enabled {
+				background-color: @background-color-base;
+			}
+
+			.oo-ui-inputWidget-input {
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+			}
+
+			&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
+				border-color: @alert-color;
+			}
+		}
+
+		&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
+			color: @alert-color;
+		}
+	}
+
+	&.oo-ui-widget-disabled &-handle {
+		opacity: @opacity--disabled;
+	}
+}
+
+.theme-oo-ui-textInputWidget() {
+	max-width: @max-width-input;
+	width: 100%;
+
+	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`
+	.oo-ui-inputWidget-input {
+		background-color: @wds-color-white;
+		border: @border-base;
+		border-radius: @border-radius-base;
+		color: inherit;
+		font-family: inherit;
+		font-size: @font-size-base;
+		line-height: @line-height-base;
+		padding: @padding-vertical-base @input-horizontal-padding;
+	}
+
+	// TextInputWidget (single line).
+	input {
+		height: @size-base;
+	}
+
+	.oo-ui-pendingElement-pending {
+		background-color: @primary-color--fadeout;
+	}
+
+	> .oo-ui-iconElement-icon,
+	> .oo-ui-indicatorElement-indicator {
+		height: auto;
+		position: absolute;
+	}
+
+	&.oo-ui-iconElement {
+		.oo-ui-inputWidget-input {
+			padding-left: @input-horizontal-padding + @size-icon + @gap-base;
+		}
+
+		> .oo-ui-iconElement-icon {
+			left: @input-horizontal-padding;
+			top: 7px;
+		}
+
+		textarea + .oo-ui-iconElement-icon {
+			max-height: @size-base;
+			top: 10px;
+		}
+	}
+
+	> .oo-ui-labelElement-label {
+		color: @wds-fandom-color-middle-gray;
+		line-height: @size-base;
+		padding: 0 @padding-horizontal-base 0 @input-horizontal-padding;
+	}
+
+	&.oo-ui-indicatorElement {
+		.oo-ui-inputWidget-input {
+			padding-right: @size-indicator + 2 * @input-horizontal-padding;
+		}
+
+		&.oo-ui-textInputWidget-labelPosition-after > .oo-ui-labelElement-label {
+			padding-right: 0;
+		}
+
+		> .oo-ui-indicatorElement-indicator {
+			margin-right: @input-horizontal-padding;
+			top: 10px;
+		}
+	}
+
+	&-labelPosition-after {
+		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
+			margin-right: @size-base;
+		}
+	}
+
+	&-labelPosition-before {
+		&.oo-ui-iconElement > .oo-ui-labelElement-label {
+			padding-left: @padding-start-input-text-icon-label;
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-inputWidget-input {
+			box-shadow: @input-focus-box-shadow--transparent;
+			.oo-ui-transition(border-color @transition-ease-medium, box-shadow @transition-ease-medium);
+
+			.mw-placeholder();
+
+			&:hover,
+			&:focus {
+				border-color: @primary-color;
+			}
+
+			&:focus {
+				box-shadow: @input-focus-box-shadow--active;
+			}
+
+			&[readonly] {
+				background-color: @wds-fandom-color-light-gray;
+			}
+		}
+
+		&.oo-ui-flaggedElement-invalid {
+			.oo-ui-inputWidget-input {
+				border-color: @alert-color;
+
+				&:hover,
+				&:focus {
+					border-color: @alert-color;
+				}
+
+				&:focus {
+					box-shadow: @input-focus-box-shadow--alert;
+				}
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		opacity: @opacity--disabled;
+	}
+}
+
+.theme-oo-ui-toggleWidget() {
+}
+
+.theme-oo-ui-toggleButtonWidget() {
+	.oo-ui-inline-spacing(@margin-end-widget);
+}
+
+.theme-oo-ui-toggleSwitchWidget() {
+	@travelDistance: 1.5em;
+
+	background-color: @wds-fandom-color-middle-gray;
+	border-radius: 8px;
+	height: 14px;
+	overflow: visible;
+	width: 34px;
+	.oo-ui-transition(background-color @transition-base);
+
+	&-grip {
+		background-color: @wds-fandom-color-light-gray;
+		border-radius: 50%;
+		box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+		content: '';
+		display: block;
+		height: 20px;
+		left: -1px;
+		outline: 0;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 20px;
+		.oo-ui-transition(background-color @transition-base, transform @transition-base);
+	}
+
+	&-glow {
+		display: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&.oo-ui-toggleWidget-on {
+		background-color: lighten(desaturate(@wds-fandom-color-button-background, 20%), 20%);
+
+		.oo-ui-toggleSwitchWidget-grip {
+			background-color: @wds-fandom-color-button-background;
+			transform: translate(80%, -50%);
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		opacity: @opacity--disabled;
+		pointer-events: none;
+
+		.oo-ui-toggleWidget-off .oo-ui-toggleSwitchWidget-grip {
+			background-color: @wds-color-white;
+			transform: translate(80%, -50%);
+		}
+	}
+}
+
+.mw-placeholder() {
+	// Normalize placeholder styling, see T139034
+	.oo-ui-placeholder({color: #767676; opacity: 1;});
+}

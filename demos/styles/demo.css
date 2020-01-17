@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Rubik:300,400,600,700);
+
 html {
 	/* Prevent font scaling in iOS Safari */
 	-webkit-text-size-adjust: none;
@@ -52,6 +54,12 @@ p:first-child {
 .oo-ui-theme-wikimediaui {
 	/* As WikimediaUI theme is used in MinervaNeue and Vector, we use system fonts to reflect font independent ability of theme. */
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; /* stylelint-disable-line value-keyword-case; */
+	font-size: 0.875em;
+}
+
+.oo-ui-theme-fandom {
+	color: #0E191A;
+	font-family: Rubik, Helvetica, Arial, sans-serif;
 	font-size: 0.875em;
 }
 
@@ -585,11 +593,6 @@ FieldLayout left & right aligned */
 /* Special case: TagMultiselectWidget & NumberInputWidget combo */
 .oo-ui-tagMultiselectWidget-outlined .oo-ui-numberInputWidget-buttoned .oo-ui-buttonElement-button {
 	border-radius: 0;
-}
-
-/* Ensure color contrast in accessibility testing */
-.demo-summary-buttonElement.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
-	color: #cd2323;
 }
 
 /* Special case: MessageWidget in full-width to receive `max-width`. */

@@ -1,0 +1,43 @@
+{
+	"selectorWithoutVariant": ".oo-ui-icon-{name}",
+	"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"alert": {
+			"file": "~design-system-svg/wds-icons-alert-small.svg"
+		},
+		"bell": {
+			"file": "~design-system-svg/wds-icons-bell-small.svg"
+		},
+		"bellOutline": {
+			"file": "~design-system-svg/wds-icons-bell-small.svg"
+		},
+		"error": {
+			"file": "~design-system-svg/wds-icons-error-small.svg"
+		},
+		"message": {
+			"file": "~design-system-svg/wds-icons-message-small.svg"
+		},
+		"notice": {
+			"file": "../wikimediaui/images/icons/notice.svg"
+		},
+		"speechBubble": {
+			"file": "~design-system-svg/wds-icons-bubble-small.svg"
+		},
+		"speechBubbleAdd": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/speechBubbleAdd-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/speechBubbleAdd-rtl.svg"
+			}
+		},
+		"speechBubbles": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/speechBubbles-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/speechBubbles-rtl.svg"
+			}
+		},
+		"tray": {
+			"file": "../wikimediaui/images/icons/tray.svg"
+		}
+	}
+}

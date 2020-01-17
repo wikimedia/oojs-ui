@@ -7,8 +7,9 @@ module.exports = function ( grunt ) {
 	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
-			wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
-			apex: 'Apex'
+			fandom: 'Fandom'
+			// wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
+			// apex: 'Apex'
 		},
 		lessFiles = {},
 		lessTargets = {},
@@ -40,6 +41,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-tyops' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-string-replace' );
+	grunt.loadNpmTasks( 'grunt-scss2less' );
 	grunt.loadTasks( 'build/tasks' );
 
 	( function () {
@@ -211,7 +213,9 @@ module.exports = function ( grunt ) {
 			tests: 'tests/JSPHP.test.js',
 			coverage: 'coverage/*',
 			doc: 'docs/*',
-			tmp: 'dist/tmp'
+			tmp: 'dist/tmp',
+			wds: 'src/themes/fandom/wds-variables',
+            wdsVariables: 'src/themes/fandom/wds-variables/*.scss'
 		},
 		fileExists: {
 			src: requiredFiles.filter( function ( f ) {
@@ -323,7 +327,7 @@ module.exports = function ( grunt ) {
 			},
 			demos: {
 				// Make sure you update this if dependencies are added
-				src: '{node_modules/{jquery,oojs}/dist/**/*,composer.json,dist/**/*,php/**/*,node_modules/{prismjs,javascript-stringify}/**/*}',
+				src: '{node_modules/{jquery,oojs}/dist/**/*,composer.json,dist/**/*,php/**/*,node_modules/{prismjs,javascript-stringify,design-system}/**/*}',
 				dest: 'demos/',
 				expand: true
 			},
@@ -343,12 +347,25 @@ module.exports = function ( grunt ) {
 				],
 				dest: 'dist/wikimedia-ui-base.less'
 			},
+			designsystemcss: {
+				flatten: true,
+				src: [
+					'node_modules/design-system/dist/css/styles.css'
+				],
+				dest: 'demos/styles/wds.css'
+			},
 			// Copies the necessary vendor/ files for demos without running "composer install"
 			fastcomposerdemos: {
 				src: 'vendor/**',
 				dest: 'demos/',
 				expand: true
-			}
+			},
+            wdsVariables: {
+                src: 'node_modules/design-system/dist/scss/wds-variables/*.scss',
+                dest: 'src/themes/fandom/wds-variables/',
+                flatten: true,
+                expand: true,
+            }
 		},
 		colorizeSvg: colorizeSvgFiles,
 		svg2png: {
@@ -437,6 +454,20 @@ module.exports = function ( grunt ) {
 				extDot: 'last'
 			}
 		},
+
+    scss2less: {
+        convert: {
+            files: [{
+                src: 'src/themes/fandom/wds-variables/*.scss',
+                dest: './',
+                ext: '.less',
+                expand: true,
+                rename: function(dest, src) {
+                    return dest + '/' + src.replace('_','');
+                }
+            }]
+        }
+    },
 
 		// Lint – Code
 		eslint: {
@@ -559,7 +590,7 @@ module.exports = function ( grunt ) {
 				'php/**/*.php',
 				'.{stylelintrc,eslintrc.json}'
 			],
-			tasks: 'quick-build'
+			tasks: 'build'
 		},
 
 		// Adding new theme
@@ -697,7 +728,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'build-code', [ 'concat:i18nMessages', 'concat:js' ] );
 	grunt.registerTask( 'build-styling', [
-		'colorizeSvg', 'set-graphics', 'less', 'cssjanus',
+		'colorizeSvg', 'set-graphics:vector', 'less', 'cssjanus',
 		'concat:css', 'concat:demoCss',
 		'copy:imagesCommon', 'copy:imagesThemes',
 		'svg2png'
@@ -708,9 +739,15 @@ module.exports = function ( grunt ) {
 		'clean:build', 'fileExists', 'tyops', 'build-code', 'build-styling', 'build-i18n',
 		'concat:omnibus',
 		'copy:dist',
-		'copy:wikimediauibasevars',
+		// 'copy:wikimediauibasevars',
 		'clean:tmp', 'demos'
 	] );
+
+    grunt.registerTask( 'import-wds', [
+        'clean:wds',
+        'copy:designsystemcss',
+        'copy:wdsVariables', 'scss2less', 'clean:wdsVariables'
+    ] );
 
 	grunt.registerTask( 'git-build', [ 'pre-git-build', 'build' ] );
 

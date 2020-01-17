@@ -1,0 +1,65 @@
+{
+	"selectorWithoutVariant": ".oo-ui-icon-{name}",
+	"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}",
+	"intro": "@import '../../../../src/styles/common';",
+	"images": {
+		"bookmarkOutline": {
+			"file": "../wikimediaui/images/icons/bookmarkOutline.svg"
+		},
+		"bookmark": {
+			"file": "~design-system-svg/wds-icons-bookmark-small.svg"
+		},
+		"block": {
+			"file": "../wikimediaui/images/icons/block.svg"
+		},
+		"unBlock": {
+			"file": "../wikimediaui/images/icons/unBlock.svg"
+		},
+		"flag": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/flag-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/flag-rtl.svg"
+			}
+		},
+		"unFlag": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/unFlag-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/unFlag-rtl.svg"
+			}
+		},
+		"lock": {
+			"file": "~design-system-svg/wds-icons-lock-small.svg"
+		},
+		"unLock": {
+			"file": "~design-system-svg/wds-icons-unlock-small.svg"
+		},
+		"restore": {
+			"file": "~design-system-svg/wds-icons-trash-open-small.svg"
+		},
+		"star": {
+			"file": "../wikimediaui/images/icons/star.svg"
+		},
+		"halfStar": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/halfStar-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/halfStar-rtl.svg"
+			}
+		},
+		"unStar": {
+			"file": "../wikimediaui/images/icons/unStar.svg"
+		},
+		"trash": {
+			"file": "~design-system-svg/wds-icons-trash-small.svg"
+		},
+		"unTrash": {
+			"file": "~design-system-svg/wds-icons-trash-open-small.svg",
+			"deprecated": "Changed and renamed since v0.31.1, use 'restore' instead."
+		},
+		"pushPin": {
+			"file": "~design-system-svg/wds-icons-pin-small.svg"
+		},
+		"ongoingConversation": {
+			"file": "~design-system-svg/wds-icons-bubble-small.svg"
+		}
+	}
+}

@@ -1,6 +1,6 @@
 {
-  "name": "oojs-ui",
-  "version": "0.35.1",
+  "name": "@fandom/oojs-ui",
+  "version": "0.35.1-test11",
   "description": "User interface classes built on the OOjs framework.",
   "keywords": [
     "oojs-plugin",
@@ -28,9 +28,11 @@
     "quickdoc": "grunt quick-build && npm run doc && grunt copy:jsduck",
     "publish-build": "grunt publish-build",
     "demos": "grunt publish-build && grunt demos",
-    "jenkins": "npm test && npm run doc && npm run postdoc"
+    "jenkins": "npm test && npm run doc && npm run postdoc",
+    "prepublishOnly": "npm run publish-build"
   },
   "dependencies": {
+    "design-system": "git://github.com/Wikia/design-system.git#360041f894d99c3e3ae04b90ed2c2e68277dfc8a",
     "jquery": "3.4.1",
     "oojs": "3.0.0",
     "wikimedia-ui-base": "0.14.0"
@@ -54,6 +56,7 @@
     "grunt-file-exists": "0.1.4",
     "grunt-karma": "3.0.1",
     "grunt-promise-q": "git://github.com/jdforrester/grunt-promise-q.git#v0.1.1-wmf.1",
+    "grunt-scss2less": "0.0.1",
     "grunt-string-replace": "1.3.1",
     "grunt-stylelint": "0.12.0",
     "grunt-svg2png": "git://github.com/jdforrester/grunt-svg2png.git#v0.2.7-wmf.2",
@@ -68,9 +71,16 @@
     "karma-firefox-launcher": "1.1.0",
     "karma-qunit": "2.1.0",
     "karma-remap-istanbul": "0.6.0",
+    "prettier": "^1.19.1",
     "prismjs": "1.17.1",
     "q": "1.5.1",
     "qunit": "2.9.1",
-    "stylelint-config-wikimedia": "0.7.0"
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-config-wikimedia": "0.7.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-prettier": "^1.1.2"
+  },
+  "publishConfig": {
+    "registry": "https://artifactory.wikia-inc.com/artifactory/api/npm/wikia-npm/"
   }
 }
