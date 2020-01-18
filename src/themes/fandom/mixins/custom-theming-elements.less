@@ -1,0 +1,70 @@
+@import 'button-theming';
+
+.custom-theming-elements(@link-color, @button-color, @button-active-color, @alert-color) {
+	@button-text-color: if(luma(@button-color) < 50%, @wds-color-white, @wds-color-black);
+
+	.oo-ui-buttonElement {
+		&-frameless {
+			.button-secondary-theming(@link-color);
+
+			&.oo-ui-flaggedElement {
+				&-progressive {
+					.button-secondary-theming(@link-color);
+				}
+
+				&-destructive {
+					.button-secondary-theming(@alert-color);
+				}
+			}
+		}
+
+		&-framed {
+			.button-secondary-theming(@link-color);
+
+			&.oo-ui-flaggedElement,
+			&.oo-ui-widget-enabled.oo-ui-flaggedElement {
+				&-progressive {
+					.button-secondary-theming(@button-color, @button-active-color);
+				}
+
+				&-destructive {
+					.button-secondary-theming(@alert-color);
+				}
+			}
+
+			&.oo-ui-flaggedElement-primary,
+			&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary {
+				&.oo-ui-flaggedElement {
+					&-progressive {
+						.button-primary-theming(@button-color, @button-text-color, @button-active-color);
+					}
+
+					&-destructive {
+						.button-primary-theming(@alert-color, @wds-color-white);
+					}
+				}
+			}
+
+			&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
+				@text-color: if(luma(@link-color) < 50%, @wds-color-white, @wds-color-black);
+				.button-primary-theming(@link-color, @text-color);
+
+				&.oo-ui-flaggedElement {
+					&-progressive {
+						.button-primary-theming(@button-color, @button-text-color, @button-active-color);
+					}
+
+					&-destructive {
+						.button-primary-theming(@alert-color, @wds-color-white);
+					}
+				}
+			}
+		}
+	}
+
+	.oo-ui-pendingElement {
+		&-pending {
+			background-color: fadeout(@button-color, 20%);
+		}
+	}
+}

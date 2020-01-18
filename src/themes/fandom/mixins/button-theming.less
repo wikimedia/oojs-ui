@@ -1,0 +1,38 @@
+.button-primary-theming(@background-color, @text-color, @background-color-active: null) {
+	@background-active: if(
+		iscolor(@background-color-active),
+		@background-color-active,
+		if(luma(@background-color) < 50%, lighten(@background-color, 20%), darken(@background-color, 20%))
+	);
+
+	> .oo-ui-buttonElement-button {
+		background-color: @background-color;
+		border-color: @background-color;
+		color: @text-color;
+
+		&:focus,
+		&:hover,
+		&:active {
+			background-color: @background-active;
+			border-color: @background-active;
+		}
+	}
+}
+
+.button-secondary-theming(@color, @color-active: null) {
+	@active: if(
+		iscolor(@color-active),
+		@color-active,
+		(if(luma(@color) < 50%, lighten(@color, 20%), darken(@color, 20%)))
+	);
+
+	> .oo-ui-buttonElement-button {
+		color: @color;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: @active;
+		}
+	}
+}

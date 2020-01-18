@@ -26,44 +26,25 @@
 	}
 
 	&-frameless {
-		border: 1px solid transparent;
-		color: @secondary-color;
+		//.button-secondary-theming(@secondary-color);
+
+		> .oo-ui-buttonElement-button {
+			border: 1px solid transparent;
+		}
 
 		> button.oo-ui-buttonElement-button {
 			color: inherit;
 		}
 
-		&:hover,
-		&:active,
-		&:focus {
-			color: @secondary-color--active;
-		}
-
-		&.oo-ui-flaggedElement {
-			&-progressive {
-				> .oo-ui-buttonElement-button {
-					color: @primary-color;
-
-					&:hover,
-					&:active,
-					&:focus {
-						color: @primary-color--hover;
-					}
-				}
-			}
-
-			&-destructive {
-				> .oo-ui-buttonElement-button {
-					color: @alert-color;
-
-					&:hover,
-					&:active,
-					&:focus {
-						color: @alert-color--active;
-					}
-				}
-			}
-		}
+		//&.oo-ui-flaggedElement {
+		//	&-progressive {
+		//		.button-secondary-theming(@primary-color);
+		//	}
+		//
+		//	&-destructive {
+		//		.button-secondary-theming(@alert-color);
+		//	}
+		//}
 
 		&.oo-ui-widget-enabled {
 			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
@@ -74,103 +55,49 @@
 	}
 
 	&-framed {
+		//.button-secondary-theming(@secondary-color);
+
 		> .oo-ui-buttonElement-button {
 			border: 1px solid currentColor;
-			color: @secondary-color;
-
-			&:hover,
-			&:focus,
-			&:active {
-				color: @secondary-color--active;
-			}
 		}
 
-		&.oo-ui-flaggedElement,
-		&.oo-ui-widget-enabled.oo-ui-flaggedElement {
-			&-progressive {
-				> .oo-ui-buttonElement-button {
-					color: @primary-color;
+		//&.oo-ui-flaggedElement,
+		//&.oo-ui-widget-enabled.oo-ui-flaggedElement {
+		//	&-progressive {
+		//		.button-secondary-theming(@primary-color);
+		//	}
+		//
+		//	&-destructive {
+		//		.button-secondary-theming(@alert-color);
+		//	}
+		//}
 
-					&:focus,
-					&:hover,
-					&:active {
-						color: @primary-color--hover;
-					}
-				}
-			}
+		//&.oo-ui-flaggedElement-primary,
+		//&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary {
+		//	&.oo-ui-flaggedElement {
+		//		&-progressive {
+		//			.button-primary-theming(@wds-fandom-color-button-background, @wds-fandom-color-black);
+		//		}
+		//
+		//		&-destructive {
+		//			.button-primary-theming(@alert-color, @wds-color-white);
+		//		}
+		//	}
+		//}
 
-			&-destructive {
-				> .oo-ui-buttonElement-button {
-					color: @alert-color;
-
-					&:focus,
-					&:hover,
-					&:active {
-						border-color: currentColor;
-						color: @alert-color--active;
-					}
-				}
-			}
-		}
-
-		&.oo-ui-flaggedElement-primary,
-		&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary {
-			&.oo-ui-flaggedElement {
-				&-progressive {
-					> .oo-ui-buttonElement-button {
-						background-color: @wds-fandom-color-button-background;
-						border-color: @wds-fandom-color-button-background;
-						color: @wds-fandom-color-black;
-
-						&:focus,
-						&:hover,
-						&:active {
-							background-color: darken(@wds-fandom-color-button-background, 20%);
-							border-color: darken(@wds-fandom-color-button-background, 20%);
-						}
-					}
-				}
-
-				&-destructive {
-					> .oo-ui-buttonElement-button {
-						background-color: @alert-color;
-						border-color: @alert-color;
-						color: @wds-color-white;
-
-						&:focus,
-						&:hover,
-						&:active {
-							background-color: @alert-color--active;
-							border-color: @alert-color--active;
-						}
-					}
-				}
-			}
-		}
-
-		&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
-			> .oo-ui-buttonElement-button {
-				background-color: @secondary-color;
-				border-color: @secondary-color;
-				color: @wds-color-white;
-			}
-
-			&.oo-ui-flaggedElement {
-				&-progressive {
-					> .oo-ui-buttonElement-button {
-						background-color: @primary-color;
-						border-color: @primary-color;
-					}
-				}
-
-				&-destructive {
-					> .oo-ui-buttonElement-button {
-						background-color: @alert-color;
-						border-color: @alert-color;
-					}
-				}
-			}
-		}
+		//&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
+		//	.button-primary-theming(@secondary-color, @wds-color-white);
+		//
+		//	&.oo-ui-flaggedElement {
+		//		&-progressive {
+		//			.button-primary-theming(@primary-color, @wds-color-white);
+		//		}
+		//
+		//		&-destructive {
+		//			.button-primary-theming(@alert-color, @wds-color-white);
+		//		}
+		//	}
+		//}
 	}
 }
 
