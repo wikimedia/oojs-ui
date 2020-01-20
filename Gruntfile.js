@@ -203,6 +203,12 @@ module.exports = function ( grunt ) {
 		grunt.option( 'name', 'MISSING' );
 	}
 
+	lessTargets['fandom-demo'] = {
+		files: {
+			'demos/styles/demo-fandom.css': 'src/themes/fandom/demo.less'
+		}
+	};
+
 	grunt.initConfig( {
 		pkg: pkg,
 
@@ -287,14 +293,7 @@ module.exports = function ( grunt ) {
 		},
 
 		// Build – Styling
-		less: {
-			dist: lessTargets,
-			'fandom-demo': {
-				files: {
-					'demos/styles/demo-fandom.css': 'src/themes/fandom/demo.less'
-				}
-			}
-		},
+		less: lessTargets,
 		cssjanus: {
 			options: {
 				generateExactDuplicates: true
@@ -597,7 +596,7 @@ module.exports = function ( grunt ) {
 				'php/**/*.php',
 				'.{stylelintrc,eslintrc.json}'
 			],
-			tasks: 'build'
+			tasks: 'quick-build'
 		},
 
 		// Adding new theme
@@ -735,7 +734,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'build-code', [ 'concat:i18nMessages', 'concat:js' ] );
 	grunt.registerTask( 'build-styling', [
-		'colorizeSvg', 'set-graphics:vector', 'less:dist', 'cssjanus',
+		'colorizeSvg', 'set-graphics:vector', 'less', 'cssjanus',
 		'concat:css', 'concat:demoCss',
 		'copy:imagesCommon', 'copy:imagesThemes',
 		'svg2png'
@@ -762,7 +761,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'quick-build', [
 		'pre-git-build', 'clean:build', 'fileExists', 'tyops',
 		'build-code',
-		'colorizeSvg', 'set-graphics:vector', 'less:dist', 'concat:css',
+		'colorizeSvg', 'set-graphics:vector', 'less', 'concat:css',
 		'copy:imagesCommon', 'copy:imagesThemes',
 		'build-i18n', 'concat:omnibus', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
@@ -780,7 +779,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( '_test', [ 'prep-test', 'clean:coverage', 'karma:main' /* T190200 , 'karma:other' */ ] );
 	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos', 'exec:composer', 'git-status' ] );
-	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'less:fandom-demo', 'exec:demos' ] );
+	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
 
 	grunt.registerTask( 'add-theme-check', function () {
 		if ( grunt.option( 'template' ) === 'MISSING' ) {
