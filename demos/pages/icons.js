@@ -115,7 +115,8 @@ Demo.static.pages.icons = function ( demo ) {
 				'underline',
 				'textDirLTR',
 				'textDirRTL',
-				'textStyle'
+				'textStyle',
+				'textFormat',
 			],
 			'editing-list': [
 				'indent',

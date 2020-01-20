@@ -92,6 +92,9 @@
 		},
 		"textStyle": {
 			"file": "../wikimediaui/images/icons/textStyle.svg"
+		},
+		"textFormat": {
+			"file": "~design-system-svg/wds-icons-text-small.svg"
 		}
 	}
 }
