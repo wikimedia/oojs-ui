@@ -1,13 +1,19 @@
-.theming-windows(@text-color, @border-color, @background-color, @overlay-color, @alert-color) {
+.theming-windows(@alert-color, @is-dark-theme: false) {
+	@alert-color--fadeout: fadeout(@alert-color, 90%);
+
+	@dialog-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-mid-light-gray);
+	@dialog-background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
+	@overlay-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-color-black, 0.5));
+
 	.oo-ui-messageDialog {
 		&-content > .oo-ui-window-foot {
-			outline-color: @border-color;
+			outline-color: @dialog-border-color;
 		}
 
 		&-actions {
 			&-vertical {
 				.oo-ui-actionWidget {
-					border-bottom-color: @border-color;
+					border-bottom-color: @dialog-border-color;
 				}
 			}
 		}
@@ -17,7 +23,7 @@
 		&-content {
 			.oo-ui-window-head,
 			.oo-ui-window-foot {
-				outline-color: @border-color;
+				outline-color: @dialog-border-color;
 			}
 		}
 
@@ -27,7 +33,7 @@
 					&:hover,
 					&:focus,
 					&:active {
-						border-right-color: @border-color;
+						border-right-color: @dialog-border-color;
 					}
 				}
 			}
@@ -37,7 +43,7 @@
 			&-primary {
 				.oo-ui-actionWidget {
 					> .oo-ui-buttonElement-button {
-						border-left-color: @border-color;
+						border-left-color: @dialog-border-color;
 					}
 
 					&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
@@ -45,7 +51,7 @@
 							&:hover,
 							&:focus,
 							&:active {
-								border-left-color: @border-color;
+								border-left-color: @dialog-border-color;
 							}
 						}
 					}
@@ -55,7 +61,7 @@
 			&-safe,
 			&-other {
 				.oo-ui-actionWidget > .oo-ui-buttonElement-button {
-					border-right-color: @border-color;
+					border-right-color: @dialog-border-color;
 				}
 			}
 
@@ -77,7 +83,7 @@
 		}
 
 		&-error {
-			background-color: fadeout(@alert-color, 90%);
+			background-color: @alert-color--fadeout;
 			border-color: @alert-color;
 		}
 	}
@@ -87,7 +93,7 @@
 			background-color: @overlay-color;
 
 			> .oo-ui-window-frame {
-				background-color: @background-color;
+				background-color: @dialog-background-color;
 			}
 		}
 	}

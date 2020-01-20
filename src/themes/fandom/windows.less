@@ -213,7 +213,6 @@
 					&:hover,
 					&:active,
 					&:focus {
-						background-color: @background-color-framed;
 						border-bottom-color: transparent;
 						border-top-color: transparent;
 					}
@@ -239,7 +238,6 @@
 	}
 
 	&-errors {
-		background-color: fadeout(@wds-color-white, 90%);
 		padding: 3em 3em 0 3em;
 		text-align: center;
 
@@ -254,7 +252,6 @@
 	}
 
 	&-error {
-		background-color: fadeout(@alert-color, 90%);
 		border: @border-error;
 		margin: 1em 0 0;
 		padding: 16px 24px;
@@ -296,12 +293,10 @@
 
 .theme-oo-ui-windowManager() {
 	&-modal > .oo-ui-dialog {
-		background-color: @dialog-overlay-background-color;
 		opacity: 0;
 		.oo-ui-transition(opacity @transition-base);
 
 		> .oo-ui-window-frame {
-			background-color: @background-color-base;
 			opacity: 0;
 			.oo-ui-transform(scale(0.5));
 			.oo-ui-transition(all @transition-base);

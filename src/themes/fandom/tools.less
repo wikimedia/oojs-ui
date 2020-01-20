@@ -3,7 +3,6 @@
 
 .theme-oo-ui-toolbar() {
 	&-bar {
-		background-color: @wds-fandom-color-light-gray;
 		border: @border-base;
 		border-radius: @border-radius-base;
 		padding: 13px;
@@ -30,13 +29,6 @@
 		border-radius: @border-radius-base;
 
 		.oo-ui-transition(background-color @transition-base, color @transition-base);
-
-		&:hover,
-		&:active,
-		&:focus {
-			background-color: @primary-color--fadeout;
-			color: @primary-color;
-		}
 	}
 
 	&.oo-ui-widget-enabled {
@@ -44,13 +36,11 @@
 			&-progressive {
 				.oo-ui-tool-link {
 					border: 1px solid currentColor;
-					color: @primary-color;
 
 					&:hover,
 					&:active,
 					&:focus {
 						background-color: transparent;
-						color: @primary-color--hover;
 					}
 				}
 			}
@@ -58,47 +48,11 @@
 			&-destructive {
 				.oo-ui-tool-link {
 					border: 1px solid currentColor;
-					color: @alert-color;
 
 					&:hover,
 					&:active,
 					&:focus {
 						background-color: transparent;
-						color: @alert-color--active;
-					}
-				}
-			}
-		}
-
-		&.oo-ui-flaggedElement-primary {
-			&.oo-ui-flaggedElement {
-				&-progressive {
-					.oo-ui-tool-link {
-						background-color: @primary-color;
-						border-color: @primary-color;
-						color: @wds-color-white;
-
-						&:hover,
-						&:active,
-						&:focus {
-							background-color: @primary-color--hover;
-							border-color: @primary-color--hover;
-						}
-					}
-				}
-
-				&-destructive {
-					.oo-ui-tool-link {
-						background-color: @alert-color;
-						border-color: @alert-color;
-						color: @wds-color-white;
-
-						&:hover,
-						&:active,
-						&:focus {
-							background-color: @alert-color--active;
-							border-color: @alert-color--active;
-						}
 					}
 				}
 			}
@@ -121,7 +75,7 @@
 }
 
 .theme-oo-ui-toolGroup() {
-	border-right: 1px solid @tool-group-separator-color;
+	border-right: @border-base;
 	padding: 0 12px;
 
 	.oo-ui-toolGroup {
@@ -129,7 +83,7 @@
 	}
 
 	.oo-ui-toolbar-actions & {
-		border-left: 1px solid @tool-group-separator-color;
+		border-left: @border-base;
 		border-right: 0;
 
 		&.oo-ui-barToolGroup {
@@ -151,9 +105,6 @@
 		&.oo-ui-widget-enabled {
 			&:hover .oo-ui-tool-link,
 			&.oo-ui-tool-active .oo-ui-tool-link {
-				background-color: @primary-color--fadeout;
-				color: @primary-color;
-
 				.oo-ui-tool-accel {
 					color: currentColor;
 				}
@@ -173,14 +124,11 @@
 	}
 
 	&-header {
-		color: @wds-fandom-color-middle-gray;
 		font-weight: @font-weight-bold;
 	}
 
 	&-tools {
-		background-color: @wds-color-white;
 		border-radius: @border-radius-base;
-		box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
 		min-width: 16em;
 
 		&.oo-ui-popupToolGroup-active-tools {
@@ -202,7 +150,6 @@
 			width: auto;
 
 			.oo-ui-tool-accel {
-				color: @wds-fandom-color-middle-gray;
 				display: initial;
 				flex-grow: 1;
 				font-size: @font-size-small;
@@ -219,26 +166,12 @@
 	&.oo-ui-widget-enabled {
 		> .oo-ui-popupToolGroup-handle {
 			.oo-ui-transition(background-color @transition-base, color @transition-base);
-
-			&:hover,
-			&:active,
-			&:focus {
-				background-color: @primary-color--fadeout;
-				color: @primary-color;
-			}
 		}
 	}
 
 	&.oo-ui-widget-disabled {
 		opacity: @opacity--disabled;
 		pointer-events: none;
-	}
-
-	&.oo-ui-popupToolGroup-active {
-		> .oo-ui-popupToolGroup-handle {
-			background-color: @primary-color--fadeout;
-			color: @primary-color;
-		}
 	}
 
 	&-tools .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
