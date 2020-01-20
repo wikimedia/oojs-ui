@@ -42,7 +42,7 @@
 }
 
 .theming-primary-buttons(@button-color, @alert-color) {
-	@button-color--active: if(if(luma(@button-color) < 50%, lighten(@button-color, 20%), darken(@button-color, 20%)));
+	@button-color--active: if(luma(@button-color) < 50%, lighten(@button-color, 20%), darken(@button-color, 20%));
 	@button-color--text: if(luma(@button-color) < 50%, @wds-color-white, @wds-color-black);
 
 	@alert-color--active: if(if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%)));
