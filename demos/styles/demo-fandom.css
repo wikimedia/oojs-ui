@@ -1,5 +1,13 @@
 body.oo-ui-theme-fandom {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #1a1a1a;
   color: #f2f5f5;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+body.oo-ui-theme-fandom .demo-header {
+  background-color: #1a1a1a;
+}
+body.oo-ui-theme-fandom h1,
+body.oo-ui-theme-fandom h2,
+body.oo-ui-theme-fandom h2 span {
+  color: inherit;
 }
