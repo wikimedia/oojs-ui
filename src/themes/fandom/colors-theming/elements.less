@@ -1,15 +1,13 @@
 @import '../mixins/button-theming';
 
-.colors-theming-elements-buttons(@link-color, @button-color, @button-active-color, @alert-color) {
-	@button-text-color: if(luma(@button-color) < 50%, @wds-color-white, @wds-color-black);
-
+.theming-text-buttons(@color, @alert-color) {
 	.oo-ui-buttonElement {
 		&-frameless {
-			.button-secondary-theming(@link-color);
+			.button-secondary-theming(@color);
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.button-secondary-theming(@link-color);
+					.button-secondary-theming(@color);
 				}
 
 				&-destructive {
@@ -17,45 +15,56 @@
 				}
 			}
 		}
+	}
+}
 
+.theming-secondary-buttons(@color, @active-color, @alert-color) {
+	.oo-ui-buttonElement {
 		&-framed {
-			.button-secondary-theming(@link-color);
+			.button-secondary-theming(@color);
 
 			&.oo-ui-flaggedElement,
 			&.oo-ui-widget-enabled.oo-ui-flaggedElement {
 				&-progressive {
-					.button-secondary-theming(@button-color, @button-active-color);
+					.button-secondary-theming(@color, @active-color);
 				}
 
 				&-destructive {
 					.button-secondary-theming(@alert-color);
 				}
 			}
+		}
+	}
+}
 
+.theming-primary-buttons(@color, @active-color, @alert-color) {
+	@text-color: if(luma(@color) < 50%, @wds-color-white, @wds-color-black);
+
+	.oo-ui-buttonElement {
+		&-framed {
 			&.oo-ui-flaggedElement-primary,
 			&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary {
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.button-primary-theming(@button-color, @button-text-color, @button-active-color);
+						.button-primary-theming(@color, @text-color, @active-color);
 					}
 
 					&-destructive {
-						.button-primary-theming(@alert-color, @wds-color-white);
+						.button-primary-theming(@alert-color);
 					}
 				}
 			}
 
 			&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
-				@text-color: if(luma(@link-color) < 50%, @wds-color-white, @wds-color-black);
-				.button-primary-theming(@link-color, @text-color);
+				.button-primary-theming(@color, @text-color);
 
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.button-primary-theming(@button-color, @button-text-color, @button-active-color);
+						.button-primary-theming(@color, @text-color, @active-color);
 					}
 
 					&-destructive {
-						.button-primary-theming(@alert-color, @wds-color-white);
+						.button-primary-theming(@alert-color);
 					}
 				}
 			}
@@ -63,7 +72,7 @@
 	}
 }
 
-.colors-theming-elements-pending(@color) {
+.theming-pending(@color) {
 	.oo-ui-pendingElement {
 		&-pending {
 			background-color: fadeout(@color, 20%);

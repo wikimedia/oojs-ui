@@ -3,18 +3,17 @@
 @import 'layouts';
 @import 'windows';
 
-.colors-theming-elements-buttons(
-	@secondary-color,
-	@wds-fandom-color-button-background,
-	@wds-fandom-color-link-hover,
-	@alert-color
-);
+// elements
+.theming-text-buttons(@secondary-color, @alert-color);
+.theming-secondary-buttons(@secondary-color, null, @alert-color);
+.theming-primary-buttons(@wds-fandom-color-button-background, @wds-fandom-color-link-hover, @alert-color);
+.theming-pending(@primary-color);
 
-.colors-theming-elements-pending(@primary-color);
+// layouts
+.theming-layouts(@color-base, @border-color-base);
 
-.colors-theming-layouts(@color-base, @border-color-base);
-
-.colors-theming-windows(
+// windows
+.theming-windows(
 	@color-base,
 	@border-color-base,
 	@demo-background-color,
