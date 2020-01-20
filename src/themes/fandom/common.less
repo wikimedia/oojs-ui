@@ -1,5 +1,9 @@
 @import 'wds-variables/index';
 
+// For theming colors demo purposes
+@demo-background-color: @wds-color-white;
+@is-dark: boolean(if(luma(@demo-background-color) < 50%));
+
 // Colors
 @primary-color: @wds-fandom-color-link;
 @primary-color--hover: @wds-fandom-color-link-hover;
@@ -21,7 +25,7 @@
 @background-color-error--framed: fadeout(@alert-color, 90%);
 
 // Foreground Colors
-@color-base: @wds-fandom-color-black;
+@color-base: if(@is-dark, @wds-fandom-color-light-gray, @wds-fandom-color-black);
 @color-base--emphasized: @color-base;
 @color-base--disabled: rgba(@color-base, @opacity--disabled);
 

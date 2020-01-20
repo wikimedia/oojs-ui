@@ -1,0 +1,15 @@
+@import '../common.less';
+
+.custom-theming-elements(@text-color, @border-color) {
+	.oo-ui-fieldLayout {
+		&-disabled > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
+			color: rgba(@text-color, @opacity--disabled);
+		}
+	}
+
+	.oo-ui-panelLayout {
+		&-framed {
+			border-color: @border-color;
+		}
+	}
+}
