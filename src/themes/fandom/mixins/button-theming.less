@@ -5,7 +5,11 @@
 		if(luma(@background-color) < 50%, lighten(@background-color, 20%), darken(@background-color, 20%))
 	);
 
-	@text-color: if(luma(@button-text-color) < 50%, @wds-color-white, @wds-color-black);
+	@text-color: if(
+		iscolor(@button-text-color),
+		@button-text-color,
+		if(luma(@background-color) < 50%, @wds-color-white, @wds-color-black)
+	);
 
 	> .oo-ui-buttonElement-button {
 		background-color: @background-color;
