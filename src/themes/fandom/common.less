@@ -1,8 +1,8 @@
 @import 'wds-variables/index';
 
 // For theming colors demo purposes
-@demo-background-color: @wds-color-white;
-@is-dark: boolean(if(luma(@demo-background-color) < 50%));
+@demo-background-color: @wds-color-black;
+@is-dark: boolean(luma(@demo-background-color) < 50%);
 
 // Colors
 @primary-color: @wds-fandom-color-link;
@@ -70,7 +70,7 @@
 @size-dialog-bar--mobile: 44px;
 @size-dialog-message-bar: 40px;
 @dialog-border-color: @wds-color-light-c3;
-@dialog-overlay-background-color: rgba(@wds-color-black, @opacity--disabled);
+@dialog-overlay-background-color: rgba(if(@is-dark, @wds-color-white, @wds-color-black), 0.5);
 
 // Margins & paddings
 @margin-dialog-bar-button-framed: 6px;

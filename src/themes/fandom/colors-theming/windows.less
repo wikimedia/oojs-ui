@@ -1,0 +1,94 @@
+.colors-theming-windows(@text-color, @border-color, @background-color, @overlay-color, @alert-color) {
+	.oo-ui-messageDialog {
+		&-content > .oo-ui-window-foot {
+			outline-color: @border-color;
+		}
+
+		&-actions {
+			&-vertical {
+				.oo-ui-actionWidget {
+					border-bottom-color: @border-color;
+				}
+			}
+		}
+	}
+
+	.oo-ui-processDialog {
+		&-content {
+			.oo-ui-window-head,
+			.oo-ui-window-foot {
+				outline-color: @border-color;
+			}
+		}
+
+		.oo-ui-actionWidget {
+			&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
+				> .oo-ui-buttonElement-button {
+					&:hover,
+					&:focus,
+					&:active {
+						border-right-color: @border-color;
+					}
+				}
+			}
+		}
+
+		&-actions {
+			&-primary {
+				.oo-ui-actionWidget {
+					> .oo-ui-buttonElement-button {
+						border-left-color: @border-color;
+					}
+
+					&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
+						> .oo-ui-buttonElement-button {
+							&:hover,
+							&:focus,
+							&:active {
+								border-left-color: @border-color;
+							}
+						}
+					}
+				}
+			}
+
+			&-safe,
+			&-other {
+				.oo-ui-actionWidget > .oo-ui-buttonElement-button {
+					border-right-color: @border-color;
+				}
+			}
+
+			&-safe {
+				.oo-ui-widget-enabled.oo-ui-iconElement:not(.oo-ui-labelElement) {
+					> .oo-ui-buttonElement-button {
+						&:hover,
+						&:active,
+						&:focus {
+							background-color: @background-color-framed;
+						}
+					}
+				}
+			}
+		}
+
+		&-errors {
+			background-color: fadeout(@wds-color-white, 90%);
+		}
+
+		&-error {
+			background-color: fadeout(@alert-color, 90%);
+			border-color: @alert-color;
+		}
+	}
+
+	.oo-ui-windowManager {
+		&-modal > .oo-ui-dialog {
+			background-color: @overlay-color;
+
+			> .oo-ui-window-frame {
+				background-color: @background-color;
+			}
+		}
+	}
+}

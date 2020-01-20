@@ -2,14 +2,23 @@
 @import 'elements-buttons';
 @import 'elements-pending';
 @import 'layouts';
+@import 'windows';
 
-.custom-theming-elements-buttons(
+.colors-theming-elements-buttons(
 	@secondary-color,
 	@wds-fandom-color-button-background,
 	@wds-fandom-color-link-hover,
 	@alert-color
 );
 
-.custom-theming-elements-pending(@primary-color);
+.colors-theming-elements-pending(@primary-color);
 
-.custom-theming-layouts(@color-base, @border-color-base);
+.colors-theming-layouts(@color-base, @border-color-base);
+
+.colors-theming-windows(
+	@color-base,
+	@border-color-base,
+	@demo-background-color,
+	@dialog-overlay-background-color,
+	@alert-color
+);
