@@ -26,8 +26,6 @@
 	}
 
 	&-frameless {
-		//.button-secondary-theming(@secondary-color);
-
 		> .oo-ui-buttonElement-button {
 			border: 1px solid transparent;
 		}
@@ -35,16 +33,6 @@
 		> button.oo-ui-buttonElement-button {
 			color: inherit;
 		}
-
-		//&.oo-ui-flaggedElement {
-		//	&-progressive {
-		//		.button-secondary-theming(@primary-color);
-		//	}
-		//
-		//	&-destructive {
-		//		.button-secondary-theming(@alert-color);
-		//	}
-		//}
 
 		&.oo-ui-widget-enabled {
 			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
@@ -55,49 +43,9 @@
 	}
 
 	&-framed {
-		//.button-secondary-theming(@secondary-color);
-
 		> .oo-ui-buttonElement-button {
 			border: 1px solid currentColor;
 		}
-
-		//&.oo-ui-flaggedElement,
-		//&.oo-ui-widget-enabled.oo-ui-flaggedElement {
-		//	&-progressive {
-		//		.button-secondary-theming(@primary-color);
-		//	}
-		//
-		//	&-destructive {
-		//		.button-secondary-theming(@alert-color);
-		//	}
-		//}
-
-		//&.oo-ui-flaggedElement-primary,
-		//&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary {
-		//	&.oo-ui-flaggedElement {
-		//		&-progressive {
-		//			.button-primary-theming(@wds-fandom-color-button-background, @wds-fandom-color-black);
-		//		}
-		//
-		//		&-destructive {
-		//			.button-primary-theming(@alert-color, @wds-color-white);
-		//		}
-		//	}
-		//}
-
-		//&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
-		//	.button-primary-theming(@secondary-color, @wds-color-white);
-		//
-		//	&.oo-ui-flaggedElement {
-		//		&-progressive {
-		//			.button-primary-theming(@primary-color, @wds-color-white);
-		//		}
-		//
-		//		&-destructive {
-		//			.button-primary-theming(@alert-color, @wds-color-white);
-		//		}
-		//	}
-		//}
 	}
 }
 
@@ -162,7 +110,6 @@
 
 .theme-oo-ui-pendingElement() {
 	&-pending {
-		background-color: @primary-color--fadeout;
 		background-image: -webkit-linear-gradient(
 			135deg,
 			@background-color-base 25%,

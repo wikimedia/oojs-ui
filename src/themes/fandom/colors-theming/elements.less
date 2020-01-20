@@ -1,68 +1,78 @@
-@import '../mixins/button-theming';
-
 .theming-text-buttons(@color, @alert-color) {
+	@color--active: if(luma(@color) < 50%, lighten(@color, 20%), darken(@color, 20%));
+	@alert-color--active: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
+
 	.oo-ui-buttonElement {
 		&-frameless {
-			.button-secondary-theming(@color);
+			.button-secondary(@color, @color--active);
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.button-secondary-theming(@color);
+					.button-secondary(@color, @color--active);
 				}
 
 				&-destructive {
-					.button-secondary-theming(@alert-color);
+					.button-secondary(@alert-color, @alert-color--active);
 				}
 			}
 		}
 	}
 }
 
-.theming-secondary-buttons(@color, @active-color, @alert-color) {
+.theming-secondary-buttons(@color, @alert-color) {
+	@color--active: if(luma(@color) < 50%, lighten(@color, 20%), darken(@color, 20%));
+	@alert-color--active: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
+
 	.oo-ui-buttonElement {
 		&-framed {
-			.button-secondary-theming(@color);
+			.button-secondary(@color, @color--active);
 
 			&.oo-ui-flaggedElement,
 			&.oo-ui-widget-enabled.oo-ui-flaggedElement {
 				&-progressive {
-					.button-secondary-theming(@color, @active-color);
+					.button-secondary(@color, @color--active);
 				}
 
 				&-destructive {
-					.button-secondary-theming(@alert-color);
+					.button-secondary(@alert-color, @alert-color--active);
 				}
 			}
 		}
 	}
 }
 
-.theming-primary-buttons(@color, @active-color, @alert-color) {
+.theming-primary-buttons(@button-color, @alert-color) {
+	@button-color--active: if(if(luma(@button-color) < 50%, lighten(@button-color, 20%), darken(@button-color, 20%)));
+	@button-color--text: if(luma(@button-color) < 50%, @wds-color-white, @wds-color-black);
+
+	@alert-color--active: if(if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%)));
+	@alert-color--text: if(luma(@alert-color) < 50%, @wds-color-white, @wds-color-black);
+
 	.oo-ui-buttonElement {
 		&-framed {
 			&.oo-ui-flaggedElement-primary,
 			&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary {
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.button-primary-theming(@color, null, @active-color);
+						.button-primary(@button-color, @button-color--text, @button-color--active);
 					}
 
 					&-destructive {
-						.button-primary-theming(@alert-color);
+						.button-primary(@alert-color, @alert-color--text, @alert-color--text);
 					}
 				}
 			}
 
 			&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
-				.button-primary-theming(@color);
+				.button-primary(@button-color, @button-color--text, @button-color--active);
 
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.button-primary-theming(@color, null, @active-color);
+						.button-primary(@button-color, @button-color--text, @button-color--active);
 					}
 
 					&-destructive {
-						.button-primary-theming(@alert-color);
+						.button-primary(@alert-color, @alert-color--text, @alert-color--text);
 					}
 				}
 			}
@@ -74,6 +84,33 @@
 	.oo-ui-pendingElement {
 		&-pending {
 			background-color: fadeout(@color, 20%);
+		}
+	}
+}
+
+.button-primary(@background-color, @text-color, @background-color--active) {
+	> .oo-ui-buttonElement-button {
+		background-color: @background-color;
+		border-color: @background-color;
+		color: @text-color;
+
+		&:focus,
+		&:hover,
+		&:active {
+			background-color: @background-color--active;
+			border-color: @background-color--active;
+		}
+	}
+}
+
+.button-secondary(@color, @color--active) {
+	> .oo-ui-buttonElement-button {
+		color: @color;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: @color--active;
 		}
 	}
 }
