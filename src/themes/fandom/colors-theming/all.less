@@ -3,6 +3,11 @@
 @import 'layouts';
 @import 'windows';
 @import 'tools';
+@import 'widgets';
+
+@primary-color: #ffc0e6;
+@secondary-color: #68e7ff;
+
 
 // elements
 .theming-text-buttons(@secondary-color, @alert-color);
@@ -16,5 +21,13 @@
 // windows
 .theming-windows(@alert-color, @is-dark);
 
-// TODO: this should be color-link
+// tools
 .theming-tools(@primary-color, @alert-color, @is-dark);
+
+// widgets
+.theming-button-widgets(@border-color-base);
+.theming-checkboxes(@primary-color, @wds-fandom-color-mid-light-gray);
+.theming-dropdowns(@primary-color, @is-dark);
+.theming-menuOptions(@primary-color, @is-dark);
+.theming-outlineControls();
+.theming-popups(@color-base, @is-dark);
