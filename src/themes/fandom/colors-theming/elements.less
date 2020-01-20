@@ -1,4 +1,4 @@
-@import 'button-theming';
+@import '../mixins/button-theming';
 
 .custom-theming-elements(@link-color, @button-color, @button-active-color, @alert-color) {
 	@button-text-color: if(luma(@button-color) < 50%, @wds-color-white, @wds-color-black);
