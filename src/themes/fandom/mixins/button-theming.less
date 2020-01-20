@@ -1,9 +1,11 @@
-.button-primary-theming(@background-color, @text-color, @background-color-active: null) {
+.button-primary-theming(@background-color, @button-text-color: null, @background-color-active: null) {
 	@background-active: if(
 		iscolor(@background-color-active),
 		@background-color-active,
 		if(luma(@background-color) < 50%, lighten(@background-color, 20%), darken(@background-color, 20%))
 	);
+
+	@text-color: if(luma(@button-text-color) < 50%, @wds-color-white, @wds-color-black);
 
 	> .oo-ui-buttonElement-button {
 		background-color: @background-color;

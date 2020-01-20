@@ -38,15 +38,13 @@
 }
 
 .theming-primary-buttons(@color, @active-color, @alert-color) {
-	@text-color: if(luma(@color) < 50%, @wds-color-white, @wds-color-black);
-
 	.oo-ui-buttonElement {
 		&-framed {
 			&.oo-ui-flaggedElement-primary,
 			&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary {
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.button-primary-theming(@color, @text-color, @active-color);
+						.button-primary-theming(@color, null, @active-color);
 					}
 
 					&-destructive {
@@ -56,11 +54,11 @@
 			}
 
 			&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
-				.button-primary-theming(@color, @text-color);
+				.button-primary-theming(@color);
 
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.button-primary-theming(@color, @text-color, @active-color);
+						.button-primary-theming(@color, null, @active-color);
 					}
 
 					&-destructive {
