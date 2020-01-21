@@ -33,9 +33,9 @@
 	}
 }
 
-.theming-checkboxes(@color--active, @color--inactive) {
+.theming-checkboxes(@accent-color) {
 	.oo-ui-checkboxInputWidget {
-		color: @color--active;
+		color: @accent-color;
 
 		[type='checkbox'] {
 			+ span,
@@ -43,7 +43,7 @@
 			&:disabled + span,
 			&:checked:disabled + span,
 			&:checked:disabled + span::before {
-				border-color: @color--inactive;
+				border-color: @neutral-border-color;
 			}
 		}
 	}
@@ -169,19 +169,19 @@
 	}
 }
 
-.theming-radios(@color--active, @color--inactive) {
+.theming-radios(@accent-color) {
 	.oo-ui-radioInputWidget {
 		[type='radio'] {
 			+ span,
 			&:disabled + span {
-				color: @color--inactive;
+				color: @accent-color;
 			}
 		}
 
 		&.oo-ui-widget-enabled [type='radio'] {
 			&:hover + span,
 			&:checked + span {
-				color: @color--active;
+				color: @neutral-border-color;
 			}
 		}
 	}

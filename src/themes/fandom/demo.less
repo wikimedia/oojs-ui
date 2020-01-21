@@ -1,4 +1,9 @@
-@import 'colors-theming/index';
+@import 'colors-theming/colors';
+@import 'colors-theming/elements';
+@import 'colors-theming/layouts';
+@import 'colors-theming/windows';
+@import 'colors-theming/tools';
+@import 'colors-theming/widgets';
 
 body.oo-ui-theme-fandom {
 	background-color: @color-page;
@@ -16,3 +21,35 @@ body.oo-ui-theme-fandom {
 		color: inherit;
 	}
 }
+
+// elements
+.theming-text-buttons(@color-links, @color-links--hover);
+.theming-secondary-buttons(@color-links, @color-links--hover);
+.theming-primary-buttons(@color-buttons, @color-buttons--hover, @color-buttons--text);
+.theming-pending(@color-buttons);
+
+// layouts
+.theming-layouts();
+
+// windows
+.theming-windows();
+
+// tools
+.theming-tools(@color-buttons, @color-buttons--hover, @color-buttons--text, @color-buttons--fadeout);
+
+// widgets
+.theming-button-widgets();
+.theming-checkboxes(@color-buttons);
+.theming-dropdowns(@color-buttons);
+.theming-menuOptions(@color-buttons, @color-buttons--fadeout);
+.theming-outlineControls(@color-buttons, @color-buttons--fadeout);
+.theming-popups();
+.theming-progressBars(@color-buttons);
+.theming-radios(@color-buttons);
+.theming-fileSelects(@color-buttons, @color-buttons--fadeout);
+.theming-tabs(@color-buttons, @color-buttons--text);
+.theming-tags(@color-buttons, @color-buttons--fadeout);
+.theming-toggles(@color-buttons, @color-buttons--hover);
+.theming-inputs(@color-buttons, @color-buttons--fadeout);
+.theming-messages();
+
