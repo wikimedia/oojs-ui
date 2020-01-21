@@ -4,6 +4,7 @@
 	@dialog-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-mid-light-gray);
 	@dialog-background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
 	@overlay-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-color-black, 0.5));
+	@actions-safe-background-color--hover: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-color-black, 0.15));
 
 	.oo-ui-messageDialog {
 		&-content > .oo-ui-window-foot {
@@ -71,7 +72,7 @@
 						&:hover,
 						&:active,
 						&:focus {
-							background-color: @background-color-framed;
+							background-color: @actions-safe-background-color--hover;
 						}
 					}
 				}

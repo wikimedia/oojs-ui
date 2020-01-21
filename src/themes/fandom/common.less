@@ -2,32 +2,9 @@
 
 // For theming colors demo purposes
 @demo-background-color: @wds-color-black;
-@is-dark: boolean(luma(@demo-background-color) < 50%);
-
-// Colors
-@primary-color: @wds-fandom-color-link;
-@primary-color--hover: @wds-fandom-color-link-hover;
-@primary-color--fadeout: fadeout(@primary-color, 90%);
-@secondary-color: @wds-fandom-color-dark-gray;
-@secondary-color--active: darken(@wds-fandom-color-dark-gray, 20%);
-@alert-color: @wds-color-alert;
-@alert-color--active: darken(@alert-color, 20%);
-@warning-color: @wds-color-warning;
-@success-color: @wds-color-success;
-@notice-color: @wds-color-message;
-
+@is-dark-theme: boolean(luma(@demo-background-color) < 50%);
+@color-base: if(@is-dark-theme, @wds-fandom-color-light-gray, @wds-fandom-color-black);
 @opacity--disabled: 0.5;
-
-// Background Colors
-@background-color-base: @wds-color-white;
-@background-color-framed: @wds-fandom-color-light-gray;
-@background-color-framed--hover: @background-color-framed;
-@background-color-error--framed: fadeout(@alert-color, 90%);
-
-// Foreground Colors
-@color-base: if(@is-dark, @wds-fandom-color-light-gray, @wds-fandom-color-black);
-@color-base--emphasized: @color-base;
-@color-base--disabled: rgba(@color-base, @opacity--disabled);
 
 // Typography
 @font-weight-bold: @wds-font-weight-bold;
@@ -48,7 +25,6 @@
 @max-width-base: 50em;
 @max-width-input: @max-width-base;
 @combo-button-width: 37px;
-@input-border-color: @wds-color-light-gray;
 @gap-base: @wds-button-horizontal-gap;
 
 @height-search: 56px;
@@ -60,8 +36,6 @@
 @border-style-base: solid;
 @border-color-base: @wds-fandom-color-mid-light-gray;
 @border-base: @border-width-base @border-style-base @border-color-base;
-@border-color-filled--disabled: rgba(@border-color-base, @opacity--disabled);
-@border-error: @border-width-base @border-style-base @alert-color;
 @border-radius-base: @wds-rounded-corner-radius;
 
 // Dialog
@@ -69,8 +43,6 @@
 @size-dialog-bar--desktop: 40px;
 @size-dialog-bar--mobile: 44px;
 @size-dialog-message-bar: 40px;
-@dialog-border-color: @wds-color-light-c3;
-@dialog-overlay-background-color: rgba(if(@is-dark, @wds-color-white, @wds-color-black), 0.5);
 
 // Margins & paddings
 @margin-dialog-bar-button-framed: 6px;
@@ -95,9 +67,6 @@
 
 // Inputs
 @input-horizontal-padding: 8px;
-//@input-focus-box-shadow--transparent: inset 0 0 0 1px transparent;
-//@input-focus-box-shadow--active: inset 0 0 0 1px @primary-color;
-//@input-focus-box-shadow--alert: inset 0 0 0 1px @alert-color;
 
 // Toolbars
 @tool-vertical-padding: 6px;

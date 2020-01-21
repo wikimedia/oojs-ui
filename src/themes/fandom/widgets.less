@@ -157,7 +157,8 @@
 		+ span {
 			align-items: center;
 			background-color: transparent;
-			border: 2px solid @input-border-color;
+			border-style: solid;
+			border-width: 2px;
 			box-sizing: border-box;
 			color: inherit;
 			display: grid;
@@ -1013,7 +1014,8 @@
 
 .theme-oo-ui-tabSelectWidget() {
 	&-framed {
-		border-bottom: 2px solid @primary-color;
+		border-bottom-width: 2px;
+		border-bottom-style: solid;
 	}
 
 	// Add background gradient to emphasize tab overflow.

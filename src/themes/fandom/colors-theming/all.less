@@ -7,35 +7,39 @@
 
 @primary-color: #ffc0e6;
 @secondary-color: #68e7ff;
-
+@alert-color: @wds-color-alert;
+@warning-color: @wds-color-warning;
+@success-color: @wds-color-success;
+@notice-color: @wds-color-message;
+@border-color-base: @wds-fandom-color-mid-light-gray;
 
 // elements
 .theming-text-buttons(@secondary-color, @alert-color);
 .theming-secondary-buttons(@secondary-color, @alert-color);
 .theming-primary-buttons(@primary-color, @alert-color);
-.theming-pending(@primary-color);
+.theming-pending(@primary-color, @is-dark-theme);
 
 // layouts
 .theming-layouts(@color-base, @border-color-base);
 
 // windows
-.theming-windows(@alert-color, @is-dark);
+.theming-windows(@alert-color, @is-dark-theme);
 
 // tools
-.theming-tools(@primary-color, @alert-color, @is-dark);
+.theming-tools(@primary-color, @alert-color, @is-dark-theme);
 
 // widgets
 .theming-button-widgets(@border-color-base);
 .theming-checkboxes(@primary-color, @wds-fandom-color-mid-light-gray);
-.theming-dropdowns(@primary-color, @is-dark);
-.theming-menuOptions(@primary-color, @is-dark);
+.theming-dropdowns(@primary-color, @is-dark-theme);
+.theming-menuOptions(@primary-color, @is-dark-theme);
 .theming-outlineControls();
-.theming-popups(@color-base, @is-dark);
-.theming-progressBars(@primary-color, @is-dark);
+.theming-popups(@color-base, @is-dark-theme);
+.theming-progressBars(@primary-color, @is-dark-theme);
 .theming-radios(@primary-color, @wds-fandom-color-mid-light-gray);
-.theming-fileSelects(@primary-color, @is-dark);
-.theming-tabs(@primary-color, @is-dark);
-.theming-tags(@primary-color, @alert-color, @is-dark);
+.theming-fileSelects(@primary-color, @is-dark-theme);
+.theming-tabs(@primary-color, @is-dark-theme);
+.theming-tags(@primary-color, @alert-color, @is-dark-theme);
 .theming-toggles(@primary-color);
-.theming-inputs(@primary-color, @is-dark);
+.theming-inputs(@primary-color, @is-dark-theme);
 .theming-messages(@alert-color, @warning-color, @success-color, @notice-color);

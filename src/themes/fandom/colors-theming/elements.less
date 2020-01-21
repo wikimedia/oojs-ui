@@ -80,10 +80,22 @@
 	}
 }
 
-.theming-pending(@color) {
+.theming-pending(@accent-color, @is-dark-theme:false) {
+	@background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
+
 	.oo-ui-pendingElement {
 		&-pending {
-			background-color: fadeout(@color, 20%);
+			background-color: fadeout(@accent-color, 20%);
+			background-image: linear-gradient(
+				135deg,
+				@background-color 25%,
+				transparent 25%,
+				transparent 50%,
+				@background-color 50%,
+				@background-color 75%,
+				transparent 75%,
+				transparent
+			);
 		}
 	}
 }

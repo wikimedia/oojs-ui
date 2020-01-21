@@ -142,7 +142,6 @@
 				&:focus,
 				&:active {
 					border-left-color: transparent;
-					border-right-color: @border-color-base;
 				}
 			}
 		}
@@ -177,7 +176,6 @@
 		&-primary {
 			.oo-ui-actionWidget {
 				> .oo-ui-buttonElement-button {
-					border-left-color: @border-color-base;
 					border-right-color: transparent;
 					border-top-right-radius: @border-radius-base;
 				}
@@ -187,7 +185,6 @@
 						&:hover,
 						&:focus,
 						&:active {
-							border-left-color: @border-color-base;
 							border-right-color: transparent;
 						}
 					}
@@ -199,7 +196,6 @@
 		&-other {
 			.oo-ui-actionWidget > .oo-ui-buttonElement-button {
 				border-left-color: transparent;
-				border-right-color: @border-color-base;
 			}
 		}
 
@@ -252,7 +248,8 @@
 	}
 
 	&-error {
-		border: @border-error;
+		border-style: solid;
+		border-width: 1px;
 		margin: 1em 0 0;
 		padding: 16px 24px;
 		text-align: left;
