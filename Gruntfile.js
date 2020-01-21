@@ -42,6 +42,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-string-replace' );
 	grunt.loadNpmTasks( 'grunt-scss2less' );
+	grunt.loadNpmTasks('grunt-less-to-sass');
 	grunt.loadTasks( 'build/tasks' );
 
 	( function () {
@@ -462,18 +463,30 @@ module.exports = function ( grunt ) {
 		},
 
 		scss2less: {
-		convert: {
-			files: [{
-				src: 'src/themes/fandom/wds-variables/*.scss',
-				dest: './',
-				ext: '.less',
-				expand: true,
-				rename: function(dest, src) {
-					return dest + '/' + src.replace('_','');
-				}
-			}]
-		}
-    },
+			convert: {
+				files: [{
+					src: 'src/themes/fandom/wds-variables/*.scss',
+					dest: './',
+					ext: '.less',
+					expand: true,
+					rename: function(dest, src) {
+						return dest + '/' + src.replace('_','');
+					}
+				}]
+			}
+		},
+
+		lessToSass: {
+			theming: {
+				files: [{
+					expand: true,
+					cwd: 'src/themes/fandom/theming',
+					src: ['*.less'],
+					ext: '.scss',
+					dest: 'dist/themes/fandom/theming'
+				}]
+			}
+		},
 
 		// Lint – Code
 		eslint: {
@@ -746,6 +759,7 @@ module.exports = function ( grunt ) {
 		'concat:omnibus',
 		'copy:dist',
 		// 'copy:wikimediauibasevars',
+		'lessToSass:theming',
 		'clean:tmp', 'demos'
 	] );
 
@@ -763,6 +777,7 @@ module.exports = function ( grunt ) {
 		'build-code',
 		'colorizeSvg', 'set-graphics:vector', 'less', 'concat:css',
 		'copy:imagesCommon', 'copy:imagesThemes',
+		'lessToSass:theming',
 		'build-i18n', 'concat:omnibus', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
 	] );
