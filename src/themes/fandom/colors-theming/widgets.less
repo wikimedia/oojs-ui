@@ -1,11 +1,11 @@
 @import '../mixins/active-box-shadow';
 
-.theming-button-widgets(@button-border-color) {
+.theming-button-widgets() {
 	.oo-ui-buttonGroupWidget {
 		.oo-ui-buttonElement-framed {
 			&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
 				> .oo-ui-buttonElement-button {
-					border-left-color: rgba(@button-border-color, @opacity--disabled);
+					border-left-color: rgba(@neutral-border-color, @opacity--disabled);
 				}
 			}
 		}
@@ -15,7 +15,7 @@
 				&.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on {
 					> .oo-ui-buttonElement-button,
 					> .oo-ui-buttonElement-button:active {
-						border-left-color: @button-border-color;
+						border-left-color: @neutral-border-color;
 					}
 				}
 			}
@@ -26,7 +26,7 @@
 		.oo-ui-buttonOptionWidget {
 			&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
 				> .oo-ui-buttonElement-button {
-					border-left-color: rgba(@button-border-color, 0.5);
+					border-left-color: rgba(@neutral-border-color, 0.5);
 				}
 			}
 		}
@@ -49,14 +49,11 @@
 	}
 }
 
-.theming-dropdowns(@accent-color, @is-dark-theme: false) {
-	@dropdown-background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
-	@dropdown-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-mid-light-gray);
-
+.theming-dropdowns(@accent-color) {
 	.oo-ui-dropdownWidget {
 		&-handle {
-			background-color: @dropdown-background-color;
-			border-color: @dropdown-border-color;
+			background-color: @neutral-background-color--transparent;
+			border-color: @neutral-border-color;
 		}
 
 		&.oo-ui-widget-enabled &-handle {
@@ -73,12 +70,7 @@
 	}
 }
 
-.theming-menuOptions(@accent-color, @is-dark-theme: false) {
-	@accent-color--fadeout: fadeout(@accent-color, 90%);
-
-	@select-background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
-	@select-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-mid-light-gray);
-
+.theming-menuOptions(@accent-color, @accent-color--fadeout) {
 	.oo-ui-menuOptionWidget {
 		&.oo-ui-optionWidget {
 			&-highlighted,
@@ -90,38 +82,33 @@
 	}
 
 	.oo-ui-menuSelectWidget {
-		background-color: @select-background-color;
-		border: @select-border-color;
+		background-color: @neutral-background-color;
+		border: @neutral-border-color;
 		box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
 	}
 }
 
-.theming-outlineControls() {
+.theming-outlineControls(@accent-color, @accent-color--fadeout) {
 	.oo-ui-outlineControlsWidget {
-		//background-color: @background-color-base;
-		background-color: orange;
+		background-color: @neutral-background-color;
 	}
 
 	.oo-ui-outlineOptionWidget {
 		&.oo-ui-optionWidget-highlighted,
 		&.oo-ui-optionWidget-selected,
 		&.oo-ui-optionWidget-pressed {
-			//background-color: @primary-color--fadeout;
-			//color: @primary-color;
-			color: green;
+			background-color: @accent-color--fadeout;
+			color: @accent-color;
 		}
 	}
 }
 
-.theming-popups(@font-color, @is-dark-theme: false) {
-	@popup-background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
-	@popup-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-mid-light-gray);
-
+.theming-popups() {
 	.oo-ui-popupWidget {
 		&-popup {
-			background-color: @popup-background-color;
-			border: @popup-border-color;
-			color: @font-color;
+			background-color: @neutral-background-color;
+			border: @neutral-border-color;
+			color: @color-text;
 			filter: drop-shadow(0 2px 1px rgba(@wds-fandom-color-black, 0.3));
 		}
 
@@ -129,7 +116,7 @@
 			.oo-ui-popupWidget-anchor {
 				&::before,
 				&::after {
-					border-bottom-color: @popup-border-color;
+					border-bottom-color: @neutral-border-color;
 				}
 			}
 		}
@@ -138,7 +125,7 @@
 			.oo-ui-popupWidget-anchor {
 				&::before,
 				&::after {
-					border-top-color: @popup-border-color;
+					border-top-color: @neutral-border-color;
 				}
 			}
 		}
@@ -147,7 +134,7 @@
 			.oo-ui-popupWidget-anchor {
 				&::before,
 				&::after {
-					border-right-color: @popup-border-color;
+					border-right-color: @neutral-border-color;
 				}
 			}
 		}
@@ -156,20 +143,17 @@
 			.oo-ui-popupWidget-anchor {
 				&::before,
 				&::after {
-					border-left-color: @popup-border-color;
+					border-left-color: @neutral-border-color;
 				}
 			}
 		}
 	}
 }
 
-.theming-progressBars(@accent-color, @is-dark-theme: false) {
-	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
-	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
-
+.theming-progressBars(@accent-color) {
 	.oo-ui-progressBarWidget {
-		background-color: @background-color;
-		border-color: @border-color;
+		background-color: @neutral-background-color--transparent;
+		border-color: @neutral-border-color;
 
 		&.oo-ui-widget-enabled {
 			.oo-ui-progressBarWidget-bar {
@@ -179,7 +163,7 @@
 
 		&.oo-ui-widget-disabled {
 			.oo-ui-progressBarWidget-bar {
-				background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
+				background-color: @neutral-overlay-color;
 			}
 		}
 	}
@@ -203,15 +187,11 @@
 	}
 }
 
-.theming-fileSelects(@accent-color, @is-dark-theme: false) {
-	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
-	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
-	@accent-color--fadeout: fadeout(@accent-color, 90%);
-
+.theming-fileSelects(@accent-color, @accent-color--fadeout) {
 	.oo-ui-selectFileWidget {
 		&-dropTarget {
-			background-color: @background-color;
-			border-color: @border-color;
+			background-color: @neutral-background-color--transparent;
+			border-color: @neutral-border-color;
 		}
 
 		&.oo-ui-widget-enabled {
@@ -232,11 +212,7 @@
 	}
 }
 
-.theming-tabs(@accent-color, @is-dark-theme: false) {
-	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
-	@accent-color--text: if(luma(@accent-color) < 50%, @wds-color-white, @wds-fandom-color-black);
-	@background-color--text: if(@is-dark-theme, @wds-color-white, @wds-fandom-color-black);
-
+.theming-tabs(@accent-color, @accent-color--text) {
 	.oo-ui-tabSelectWidget {
 		&-framed {
 			background-color: transparent;
@@ -246,8 +222,8 @@
 
 	.oo-ui-tabOptionWidget {
 		.oo-ui-tabSelectWidget-framed & {
-			background-color: @background-color;
-			color: @background-color--text;
+			background-color: @neutral-background-color--transparent;
+			color: @color-text;
 
 			&.oo-ui-optionWidget-selected {
 				background-color: @accent-color;
@@ -275,19 +251,10 @@
 	}
 }
 
-.theming-tags(@accent-color, @alert-color, @is-dark-theme: false) {
-	@tag-color--base: if(@is-dark-theme, @wds-color-white, @wds-fandom-color-black);
-	@accent-color--fadeout: fadeout(@accent-color, 90%);
-	@alert-color--fadeout: fadeout(@alert-color, 90%);
-	@alert-color--active: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
-
-	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
-	@background-color--outlined: if(@is-dark-theme, rgba(@wds-color-white, 0.25), rgba(@wds-fandom-color-black, 0.25));
-	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
-
+.theming-tags(@accent-color, @accent-color--fadeout) {
 	.oo-ui-tagItemWidget {
 		border-color: currentColor;
-		color: @tag-color--base;
+		color: @color-text;
 
 		.oo-ui-buttonElement-button {
 			color: inherit;
@@ -303,6 +270,7 @@
 			&:hover,
 			&:focus {
 				background-color: @accent-color--fadeout;
+				border-color: currentColor;
 				color: @accent-color;
 
 				.oo-ui-buttonElement-button {
@@ -316,7 +284,7 @@
 
 				&:hover,
 				&:focus {
-					color: @alert-color--active;
+					color: @alert-color--hover;
 				}
 			}
 		}
@@ -324,12 +292,12 @@
 
 	.oo-ui-tagMultiselectWidget {
 		&-handle {
-			border-color: @border-color;
+			border-color: @neutral-border-color;
 		}
 
 		&.oo-ui-widget-enabled {
 			.oo-ui-tagMultiselectWidget-handle {
-				background-color: @background-color;
+				background-color: @neutral-background-color--transparent;
 			}
 
 			&.oo-ui-tagMultiselectWidget-inlined {
@@ -352,7 +320,7 @@
 
 			&.oo-ui-tagMultiselectWidget-outlined {
 				.oo-ui-tagMultiselectWidget-handle {
-					background-color: @background-color--outlined;
+					background-color: @neutral-background-color--readonly;
 				}
 
 				&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
@@ -364,12 +332,14 @@
 				color: @alert-color;
 			}
 		}
+
+		.oo-ui-inputWidget-input {
+			color: inherit;
+		}
 	}
 }
 
-.theming-toggles(@accent-color) {
-	@accent-color--active: if(luma(@accent-color) < 50%, lighten(@accent-color, 20%), darken(@accent-color, 20%));
-
+.theming-toggles(@accent-color, @accent-color--hover) {
 	.oo-ui-toggleSwitchWidget {
 		background-color: @wds-fandom-color-middle-gray;
 
@@ -378,7 +348,7 @@
 		}
 
 		&.oo-ui-toggleWidget-on {
-			background-color: desaturate(@accent-color--active, 30%);
+			background-color: desaturate(@accent-color--hover, 30%);
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @accent-color;
@@ -387,17 +357,12 @@
 	}
 }
 
-.theming-inputs(@accent-color, @is-dark-theme: false) {
-	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
-	@background-color--readonly: if(@is-dark-theme, rgba(@wds-color-white, 0.25), rgba(@wds-fandom-color-black, 0.25));
-	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
-
-	@accent-color--fadeout: fadeout(@accent-color, 90%);
-
+.theming-inputs(@accent-color, @accent-color--fadeout) {
 	.oo-ui-textInputWidget {
 		.oo-ui-inputWidget-input {
-			background-color: @background-color;
-			border-color: @border-color;
+			background-color: @neutral-background-color--transparent;
+			border-color: @neutral-border-color;
+			color: @color-text;
 		}
 
 		.oo-ui-pendingElement-pending {
@@ -422,7 +387,7 @@
 				}
 
 				&[readonly] {
-					background-color: @background-color--readonly;
+					background-color: @neutral-background-color--readonly;
 				}
 			}
 
@@ -444,7 +409,7 @@
 	}
 }
 
-.theming-messages(@alert-color, @warning-color, @success-color, @notice-color) {
+.theming-messages() {
 	.oo-ui-messageWidget {
 		&.oo-ui-messageWidget-block {
 			box-shadow: 0 2px 6px 0 rgba(@wds-fandom-color-black, 0.2);

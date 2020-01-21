@@ -1,20 +1,13 @@
-.theming-windows(@alert-color, @is-dark-theme: false) {
-	@alert-color--fadeout: fadeout(@alert-color, 90%);
-
-	@dialog-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-mid-light-gray);
-	@dialog-background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
-	@overlay-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
-	@actions-safe-background-color--hover: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
-
+.theming-windows() {
 	.oo-ui-messageDialog {
 		&-content > .oo-ui-window-foot {
-			outline-color: @dialog-border-color;
+			outline-color: @neutral-border-color;
 		}
 
 		&-actions {
 			&-vertical {
 				.oo-ui-actionWidget {
-					border-bottom-color: @dialog-border-color;
+					border-bottom-color: @neutral-border-color;
 				}
 			}
 		}
@@ -24,7 +17,7 @@
 		&-content {
 			.oo-ui-window-head,
 			.oo-ui-window-foot {
-				outline-color: @dialog-border-color;
+				outline-color: @neutral-border-color;
 			}
 		}
 
@@ -34,7 +27,7 @@
 					&:hover,
 					&:focus,
 					&:active {
-						border-right-color: @dialog-border-color;
+						border-right-color: @neutral-border-color;
 					}
 				}
 			}
@@ -44,7 +37,7 @@
 			&-primary {
 				.oo-ui-actionWidget {
 					> .oo-ui-buttonElement-button {
-						border-left-color: @dialog-border-color;
+						border-left-color: @neutral-border-color;
 					}
 
 					&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
@@ -52,7 +45,7 @@
 							&:hover,
 							&:focus,
 							&:active {
-								border-left-color: @dialog-border-color;
+								border-left-color: @neutral-border-color;
 							}
 						}
 					}
@@ -62,7 +55,7 @@
 			&-safe,
 			&-other {
 				.oo-ui-actionWidget > .oo-ui-buttonElement-button {
-					border-right-color: @dialog-border-color;
+					border-right-color: @neutral-border-color;
 				}
 			}
 
@@ -72,7 +65,7 @@
 						&:hover,
 						&:active,
 						&:focus {
-							background-color: @actions-safe-background-color--hover;
+							background-color: @neutral-background-color--transparent;
 						}
 					}
 				}
@@ -91,10 +84,10 @@
 
 	.oo-ui-windowManager {
 		&-modal > .oo-ui-dialog {
-			background-color: @overlay-color;
+			background-color: @neutral-overlay-color;
 
 			> .oo-ui-window-frame {
-				background-color: @dialog-background-color;
+				background-color: @neutral-background-color;
 			}
 		}
 	}

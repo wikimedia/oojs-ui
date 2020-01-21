@@ -1,15 +1,7 @@
-@import '../common.less';
-
-.theming-layouts(@text-color, @border-color) {
-	.oo-ui-fieldLayout {
-		&-disabled > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
-			color: rgba(@text-color, @opacity--disabled);
-		}
-	}
-
+.theming-layouts() {
 	.oo-ui-panelLayout {
 		&-framed {
-			border-color: @border-color;
+			border-color: @neutral-border-color;
 		}
 	}
 }

@@ -1,78 +1,66 @@
-.theming-text-buttons(@color, @alert-color) {
-	@color--active: if(luma(@color) < 50%, lighten(@color, 20%), darken(@color, 20%));
-	@alert-color--active: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
-
+.theming-text-buttons(@button-color, @button-color--hover) {
 	.oo-ui-buttonElement {
 		&-frameless {
-			.button-secondary(@color, @color--active);
+			.button-secondary(@button-color, @button-color--hover);
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.button-secondary(@color, @color--active);
+					.button-secondary(@button-color, @button-color--hover);
 				}
 
 				&-destructive {
-					.button-secondary(@alert-color, @alert-color--active);
+					.button-secondary(@alert-color, @alert-color--hover);
 				}
 			}
 		}
 	}
 }
 
-.theming-secondary-buttons(@color, @alert-color) {
-	@color--active: if(luma(@color) < 50%, lighten(@color, 20%), darken(@color, 20%));
-	@alert-color--active: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
-
+.theming-secondary-buttons(@button-color, @button-color--hover) {
 	.oo-ui-buttonElement {
 		&-framed {
-			.button-secondary(@color, @color--active);
+			.button-secondary(@button-color, @button-color--hover);
 
 			&.oo-ui-flaggedElement,
 			&.oo-ui-widget-enabled.oo-ui-flaggedElement {
 				&-progressive {
-					.button-secondary(@color, @color--active);
+					.button-secondary(@button-color, @button-color--hover);
 				}
 
 				&-destructive {
-					.button-secondary(@alert-color, @alert-color--active);
+					.button-secondary(@alert-color, @alert-color--hover);
 				}
 			}
 		}
 	}
 }
 
-.theming-primary-buttons(@button-color, @alert-color) {
-	@button-color--active: if(luma(@button-color) < 50%, lighten(@button-color, 20%), darken(@button-color, 20%));
-	@button-color--text: if(luma(@button-color) < 50%, @wds-color-white, @wds-fandom-color-black);
-
-	@alert-color--active: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
-	@alert-color--text: if(luma(@alert-color) < 50%, @wds-color-white, @wds-fandom-color-black);
-
+.theming-primary-buttons(@button-color, @button-color--hover, @button-color--text) {
 	.oo-ui-buttonElement {
 		&-framed {
 			&.oo-ui-flaggedElement-primary,
 			&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary {
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.button-primary(@button-color, @button-color--text, @button-color--active);
+						.button-primary(@button-color, @button-color--text, @button-color--hover);
 					}
 
 					&-destructive {
-						.button-primary(@alert-color, @alert-color--text, @alert-color--active);
+						.button-primary(@alert-color, @alert-color--text, @alert-color--hover);
 					}
 				}
 			}
 
 			&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
-				.button-primary(@button-color, @button-color--text, @button-color--active);
+				.button-primary(@button-color, @button-color--text, @button-color--hover);
 
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.button-primary(@button-color, @button-color--text, @button-color--active);
+						.button-primary(@button-color, @button-color--text, @button-color--hover);
 					}
 
 					&-destructive {
-						.button-primary(@alert-color, @alert-color--text, @alert-color--active);
+						.button-primary(@alert-color, @alert-color--text, @alert-color--hover);
 					}
 				}
 			}
@@ -80,19 +68,17 @@
 	}
 }
 
-.theming-pending(@accent-color, @is-dark-theme:false) {
-	@background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
-
+.theming-pending(@accent-color) {
 	.oo-ui-pendingElement {
 		&-pending {
 			background-color: fadeout(@accent-color, 20%);
 			background-image: linear-gradient(
 				135deg,
-				@background-color 25%,
+				@neutral-background-color 25%,
 				transparent 25%,
 				transparent 50%,
-				@background-color 50%,
-				@background-color 75%,
+				@neutral-background-color 50%,
+				@neutral-background-color 75%,
 				transparent 75%,
 				transparent
 			);
@@ -100,7 +86,7 @@
 	}
 }
 
-.button-primary(@background-color, @text-color, @background-color--active) {
+.button-primary(@background-color, @text-color, @background-color--hover) {
 	> .oo-ui-buttonElement-button {
 		background-color: @background-color;
 		border-color: @background-color;
@@ -109,20 +95,20 @@
 		&:focus,
 		&:hover,
 		&:active {
-			background-color: @background-color--active;
-			border-color: @background-color--active;
+			background-color: @background-color--hover;
+			border-color: @background-color--hover;
 		}
 	}
 }
 
-.button-secondary(@color, @color--active) {
+.button-secondary(@color, @color--hover) {
 	> .oo-ui-buttonElement-button {
 		color: @color;
 
 		&:hover,
 		&:active,
 		&:focus {
-			color: @color--active;
+			color: @color--hover;
 		}
 	}
 }

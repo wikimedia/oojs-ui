@@ -1,0 +1,40 @@
+@color-page: @wds-fandom-color-navy;
+@is-dark-theme: boolean(luma(@color-page) < 50%);
+
+@color-text: if(@is-dark-theme, @wds-fandom-color-light-gray, @wds-fandom-color-black);
+
+@color-buttons: #ffc0e6;
+@color-buttons--hover: if(luma(@color-buttons) < 50%, lighten(@color-buttons, 20%), darken(@color-buttons, 20%));
+@color-buttons--text: if(luma(@color-buttons) < 50%, @wds-color-white, @wds-fandom-color-black);
+@color-buttons--fadeout: fadeout(@color-buttons, 90%);
+@color-links: #68e7ff;
+@color-links--hover: if(luma(@color-links) < 50%, lighten(@color-links, 20%), darken(@color-links, 20%));
+
+@alert-color: @wds-color-alert;
+@alert-color--hover: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
+@alert-color--text: if(luma(@alert-color) < 50%, @wds-color-white, @wds-fandom-color-black);
+@alert-color--fadeout: fadeout(@alert-color, 90%);
+@warning-color: @wds-color-warning;
+@success-color: @wds-color-success;
+@notice-color: @wds-color-message;
+
+// neutral colors
+@neutral-background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
+@neutral-background-color--transparent: if(
+	@is-dark-theme,
+	rgba(@wds-color-white, 0.15),
+	rgba(@wds-fandom-color-black, 0.15)
+);
+@neutral-background-color--readonly: if(
+	@is-dark-theme,
+	rgba(@wds-color-white, 0.25),
+	rgba(@wds-fandom-color-black, 0.25)
+);
+@neutral-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-mid-light-gray);
+@neutral-overlay-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
+
+// toolbar colors
+@toolbar-background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), @wds-fandom-color-light-gray);
+@toolbar-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-dark-gray);
+@toolbar-font-color: if(@is-dark-theme, @wds-color-white, @wds-fandom-color-black);
+@toolbar-separator-color: if(@is-dark-theme, rgba(@wds-fandom-color-black, 0.6), @wds-fandom-color-dark-gray);

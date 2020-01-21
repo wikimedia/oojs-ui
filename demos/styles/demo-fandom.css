@@ -121,11 +121,8 @@
   background-color: rgba(255, 192, 230, 0.8);
   background-image: linear-gradient(135deg, #3a3a3a 25%, transparent 25%, transparent 50%, #3a3a3a 50%, #3a3a3a 75%, transparent 75%, transparent);
 }
-.oo-ui-fieldLayout-disabled > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header > .oo-ui-labelElement-label {
-  color: rgba(242, 245, 245, 0.5);
-}
 .oo-ui-panelLayout-framed {
-  border-color: #bed1cf;
+  border-color: rgba(255, 255, 255, 0.5);
 }
 .oo-ui-messageDialog-content > .oo-ui-window-foot {
   outline-color: rgba(255, 255, 255, 0.5);
@@ -180,7 +177,7 @@
 .oo-ui-tool .oo-ui-tool-link:hover,
 .oo-ui-tool .oo-ui-tool-link:active,
 .oo-ui-tool .oo-ui-tool-link:focus {
-  background-color: rgba(255, 192, 230, 0.15);
+  background-color: rgba(255, 192, 230, 0.1);
   color: #ffc0e6;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive .oo-ui-tool-link {
@@ -229,7 +226,7 @@
 }
 .oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled:hover .oo-ui-tool-link,
 .oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active .oo-ui-tool-link {
-  background-color: rgba(255, 192, 230, 0.15);
+  background-color: rgba(255, 192, 230, 0.1);
   color: #ffc0e6;
 }
 .oo-ui-popupToolGroup-header {
@@ -245,22 +242,22 @@
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:hover,
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:active,
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:focus {
-  background-color: rgba(255, 192, 230, 0.15);
+  background-color: rgba(255, 192, 230, 0.1);
   color: #ffc0e6;
 }
 .oo-ui-popupToolGroup.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
-  background-color: rgba(255, 192, 230, 0.15);
+  background-color: rgba(255, 192, 230, 0.1);
   color: #ffc0e6;
 }
 .oo-ui-buttonGroupWidget .oo-ui-buttonElement-framed.oo-ui-widget-disabled + .oo-ui-widget-disabled > .oo-ui-buttonElement-button {
-  border-left-color: rgba(190, 209, 207, 0.5);
+  border-left-color: rgba(255, 255, 255, 0.5);
 }
 .oo-ui-buttonGroupWidget.oo-ui-widget-enabled .oo-ui-buttonElement.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on > .oo-ui-buttonElement-button,
 .oo-ui-buttonGroupWidget.oo-ui-widget-enabled .oo-ui-buttonElement.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on > .oo-ui-buttonElement-button:active {
-  border-left-color: #bed1cf;
+  border-left-color: rgba(255, 255, 255, 0.5);
 }
 .oo-ui-buttonSelectWidget .oo-ui-buttonOptionWidget.oo-ui-widget-disabled + .oo-ui-widget-disabled > .oo-ui-buttonElement-button {
-  border-left-color: rgba(190, 209, 207, 0.5);
+  border-left-color: rgba(255, 255, 255, 0.5);
 }
 .oo-ui-checkboxInputWidget {
   color: #ffc0e6;
@@ -273,7 +270,7 @@
   border-color: #bed1cf;
 }
 .oo-ui-dropdownWidget-handle {
-  background-color: #3a3a3a;
+  background-color: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.5);
 }
 .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:hover,
@@ -295,12 +292,13 @@
   box-shadow: 0 3px 12px 0 rgba(14, 25, 26, 0.3);
 }
 .oo-ui-outlineControlsWidget {
-  background-color: orange;
+  background-color: #3a3a3a;
 }
 .oo-ui-outlineOptionWidget.oo-ui-optionWidget-highlighted,
 .oo-ui-outlineOptionWidget.oo-ui-optionWidget-selected,
 .oo-ui-outlineOptionWidget.oo-ui-optionWidget-pressed {
-  color: green;
+  background-color: rgba(255, 192, 230, 0.1);
+  color: #ffc0e6;
 }
 .oo-ui-popupWidget-popup {
   background-color: #3a3a3a;
@@ -360,7 +358,7 @@
 }
 .oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget {
   background-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  color: #f2f5f5;
 }
 .oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
   background-color: #ffc0e6;
@@ -379,7 +377,7 @@
 }
 .oo-ui-tagItemWidget {
   border-color: currentColor;
-  color: #fff;
+  color: #f2f5f5;
 }
 .oo-ui-tagItemWidget .oo-ui-buttonElement-button {
   color: inherit;
@@ -393,6 +391,7 @@
 .oo-ui-tagItemWidget.oo-ui-widget-enabled:hover,
 .oo-ui-tagItemWidget.oo-ui-widget-enabled:focus {
   background-color: rgba(255, 192, 230, 0.1);
+  border-color: currentColor;
   color: #ffc0e6;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled:hover .oo-ui-buttonElement-button,
@@ -433,6 +432,9 @@
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
   color: #e81a3f;
 }
+.oo-ui-tagMultiselectWidget .oo-ui-inputWidget-input {
+  color: inherit;
+}
 .oo-ui-toggleSwitchWidget {
   background-color: #7f9998;
 }
@@ -448,6 +450,7 @@
 .oo-ui-textInputWidget .oo-ui-inputWidget-input {
   background-color: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.5);
+  color: #f2f5f5;
 }
 .oo-ui-textInputWidget .oo-ui-pendingElement-pending {
   background-color: rgba(255, 192, 230, 0.1);

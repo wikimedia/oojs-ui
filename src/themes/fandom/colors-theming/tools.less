@@ -1,20 +1,6 @@
 @import '../common.less';
 
-.theming-tools(@accent-color, @alert-color, @is-dark-theme: false) {
-	@accent-color--fadeout: if(@is-dark-theme, rgba(@accent-color, 0.15), fadeout(@accent-color, 90%));
-	@accent-color--hover: if(luma(@accent-color) < 50%, lighten(@accent-color, 20%), darken(@accent-color, 20%));
-	@accent-color--text: if(luma(@accent-color) < 50%, @wds-color-white, @wds-fandom-color-black);
-
-	@alert-color--hover: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
-	@alert-color--text: if(luma(@alert-color) < 50%, @wds-color-white, @wds-fandom-color-black);
-
-	@toolbar-background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), @wds-fandom-color-light-gray);
-	@toolbar-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-dark-gray);
-	@toolbar-font-color: if(@is-dark-theme, @wds-color-white, @wds-fandom-color-black);
-	@tool-group-separator-color: if(@is-dark-theme, rgba(@wds-fandom-color-black, 0.6), @wds-fandom-color-dark-gray);
-
-	@popup-background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
-
+.theming-tools(@tool-color, @tool-color--hover, @tool-color--text, @tool-color--fadeout) {
 	.oo-ui-toolbar {
 		&-bar {
 			background-color: @toolbar-background-color;
@@ -28,8 +14,8 @@
 			&:hover,
 			&:active,
 			&:focus {
-				background-color: @accent-color--fadeout;
-				color: @accent-color;
+				background-color: @tool-color--fadeout;
+				color: @tool-color;
 			}
 		}
 
@@ -37,12 +23,12 @@
 			&.oo-ui-flaggedElement {
 				&-progressive {
 					.oo-ui-tool-link {
-						color: @accent-color;
+						color: @tool-color;
 
 						&:hover,
 						&:active,
 						&:focus {
-							color: @accent-color--hover;
+							color: @tool-color--hover;
 						}
 					}
 				}
@@ -64,15 +50,15 @@
 				&.oo-ui-flaggedElement {
 					&-progressive {
 						.oo-ui-tool-link {
-							background-color: @accent-color;
-							border-color: @accent-color;
-							color: @accent-color--text;
+							background-color: @tool-color;
+							border-color: @tool-color;
+							color: @tool-color--text;
 
 							&:hover,
 							&:active,
 							&:focus {
-								background-color: @accent-color--hover;
-								border-color: @accent-color--hover;
+								background-color: @tool-color--hover;
+								border-color: @tool-color--hover;
 							}
 						}
 					}
@@ -97,10 +83,10 @@
 	}
 
 	.oo-ui-toolGroup {
-		border-right-color: @tool-group-separator-color;
+		border-right-color: @toolbar-separator-color;
 
 		.oo-ui-toolbar-actions & {
-			border-left-color: @tool-group-separator-color;
+			border-left-color: @toolbar-separator-color;
 		}
 	}
 
@@ -109,8 +95,8 @@
 			&.oo-ui-widget-enabled {
 				&:hover .oo-ui-tool-link,
 				&.oo-ui-tool-active .oo-ui-tool-link {
-					background-color: @accent-color--fadeout;
-					color: @accent-color;
+					background-color: @tool-color--fadeout;
+					color: @tool-color;
 				}
 			}
 		}
@@ -122,7 +108,7 @@
 		}
 
 		&-tools {
-			background-color: @popup-background-color;
+			background-color: @neutral-background-color;
 			box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
 
 			.oo-ui-tool-link {
@@ -137,16 +123,16 @@
 				&:hover,
 				&:active,
 				&:focus {
-					background-color: @accent-color--fadeout;
-					color: @accent-color;
+					background-color: @tool-color--fadeout;
+					color: @tool-color;
 				}
 			}
 		}
 
 		&.oo-ui-popupToolGroup-active {
 			> .oo-ui-popupToolGroup-handle {
-				background-color: @accent-color--fadeout;
-				color: @accent-color;
+				background-color: @tool-color--fadeout;
+				color: @tool-color;
 			}
 		}
 	}
