@@ -43,10 +43,10 @@
 
 .theming-primary-buttons(@button-color, @alert-color) {
 	@button-color--active: if(luma(@button-color) < 50%, lighten(@button-color, 20%), darken(@button-color, 20%));
-	@button-color--text: if(luma(@button-color) < 50%, @wds-color-white, @wds-color-black);
+	@button-color--text: if(luma(@button-color) < 50%, @wds-color-white, @wds-fandom-color-black);
 
 	@alert-color--active: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
-	@alert-color--text: if(luma(@alert-color) < 50%, @wds-color-white, @wds-color-black);
+	@alert-color--text: if(luma(@alert-color) < 50%, @wds-color-white, @wds-fandom-color-black);
 
 	.oo-ui-buttonElement {
 		&-framed {

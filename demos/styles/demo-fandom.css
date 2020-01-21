@@ -58,7 +58,7 @@
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
   background-color: #ffc0e6;
   border-color: #ffc0e6;
-  color: #1a1a1a;
+  color: #0e191a;
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:focus,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:focus,
@@ -87,7 +87,7 @@
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
   background-color: #ffc0e6;
   border-color: #ffc0e6;
-  color: #1a1a1a;
+  color: #0e191a;
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active > .oo-ui-buttonElement-button:focus,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active > .oo-ui-buttonElement-button:hover,
@@ -98,7 +98,7 @@
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
   background-color: #ffc0e6;
   border-color: #ffc0e6;
-  color: #1a1a1a;
+  color: #0e191a;
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:focus,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:hover,
@@ -306,7 +306,7 @@
   background-color: #3a3a3a;
   border: rgba(255, 255, 255, 0.5);
   color: #f2f5f5;
-  filter: drop-shadow(0 2px 1px rgba(26, 26, 26, 0.3));
+  filter: drop-shadow(0 2px 1px rgba(14, 25, 26, 0.3));
 }
 .oo-ui-popupWidget-anchored-top .oo-ui-popupWidget-anchor::before,
 .oo-ui-popupWidget-anchored-top .oo-ui-popupWidget-anchor::after {
@@ -364,7 +364,7 @@
 }
 .oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
   background-color: #ffc0e6;
-  color: #1a1a1a;
+  color: #0e191a;
 }
 .oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-widget-enabled:not(.oo-ui-optionWidget-selected):hover {
   color: #ffc0e6;
@@ -478,48 +478,48 @@
 .oo-ui-textInputWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input:focus {
   box-shadow: inset 0 0 0 1px #e81a3f;
 }
-.oo-ui-messageWidget-block {
-  box-shadow: 0 2px 6px 0 rgba(26, 26, 26, 0.2);
+.oo-ui-messageWidget.oo-ui-messageWidget-block {
+  box-shadow: 0 2px 6px 0 rgba(14, 25, 26, 0.2);
 }
-.oo-ui-messageWidget-block > .oo-ui-iconElement-icon {
+.oo-ui-messageWidget.oo-ui-messageWidget-block > .oo-ui-iconElement-icon {
   color: #fff;
 }
-.oo-ui-messageWidget-block > .oo-ui-labelElement-label {
+.oo-ui-messageWidget.oo-ui-messageWidget-block > .oo-ui-labelElement-label {
   background-color: #fff;
   color: #666;
 }
-.oo-ui-messageWidget-block.oo-ui-flaggedElement-error {
+.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-error {
   background-color: #e81a3f;
 }
-.oo-ui-messageWidget-block.oo-ui-flaggedElement-warning {
+.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-warning {
   background-color: #de5e33;
 }
-.oo-ui-messageWidget-block.oo-ui-flaggedElement-success {
+.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-success {
   background-color: #018c30;
 }
-.oo-ui-messageWidget-block.oo-ui-flaggedElement-notice {
+.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-notice {
   background-color: #008c8f;
 }
-:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-error {
+.oo-ui-messageWidget:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-error {
   color: #e81a3f;
 }
-:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-warning {
+.oo-ui-messageWidget:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-warning {
   color: #de5e33;
 }
-:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-success {
+.oo-ui-messageWidget:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-success {
   color: #018c30;
 }
-:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-notice {
+.oo-ui-messageWidget:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-notice {
   color: #008c8f;
 }
 body.oo-ui-theme-fandom {
-  background-color: #1a1a1a;
+  background-color: #002a32;
   color: #f2f5f5;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
 body.oo-ui-theme-fandom .demo-header {
-  background-color: #1a1a1a;
+  background-color: #002a32;
 }
 body.oo-ui-theme-fandom h1,
 body.oo-ui-theme-fandom h2,

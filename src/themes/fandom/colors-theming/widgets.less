@@ -122,7 +122,7 @@
 			background-color: @popup-background-color;
 			border: @popup-border-color;
 			color: @font-color;
-			filter: drop-shadow(0 2px 1px rgba(@wds-color-black, 0.3));
+			filter: drop-shadow(0 2px 1px rgba(@wds-fandom-color-black, 0.3));
 		}
 
 		&-anchored-top {
@@ -164,8 +164,8 @@
 }
 
 .theming-progressBars(@accent-color, @is-dark-theme: false) {
-	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-color-black, 0.15));
-	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-color-black, 0.5));
+	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
+	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
 
 	.oo-ui-progressBarWidget {
 		background-color: @background-color;
@@ -179,7 +179,7 @@
 
 		&.oo-ui-widget-disabled {
 			.oo-ui-progressBarWidget-bar {
-				background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-color-black, 0.5));
+				background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
 			}
 		}
 	}
@@ -204,8 +204,8 @@
 }
 
 .theming-fileSelects(@accent-color, @is-dark-theme: false) {
-	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-color-black, 0.15));
-	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-color-black, 0.5));
+	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
+	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
 	@accent-color--fadeout: fadeout(@accent-color, 90%);
 
 	.oo-ui-selectFileWidget {
@@ -233,9 +233,9 @@
 }
 
 .theming-tabs(@accent-color, @is-dark-theme: false) {
-	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-color-black, 0.15));
-	@accent-color--text: if(luma(@accent-color) < 50%, @wds-color-white, @wds-color-black);
-	@background-color--text: if(@is-dark-theme, @wds-color-white, @wds-color-black);
+	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
+	@accent-color--text: if(luma(@accent-color) < 50%, @wds-color-white, @wds-fandom-color-black);
+	@background-color--text: if(@is-dark-theme, @wds-color-white, @wds-fandom-color-black);
 
 	.oo-ui-tabSelectWidget {
 		&-framed {
@@ -276,14 +276,14 @@
 }
 
 .theming-tags(@accent-color, @alert-color, @is-dark-theme: false) {
-	@tag-color--base: if(@is-dark-theme, @wds-color-white, @wds-color-black);
+	@tag-color--base: if(@is-dark-theme, @wds-color-white, @wds-fandom-color-black);
 	@accent-color--fadeout: fadeout(@accent-color, 90%);
 	@alert-color--fadeout: fadeout(@alert-color, 90%);
 	@alert-color--active: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
 
-	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-color-black, 0.15));
-	@background-color--outlined: if(@is-dark-theme, rgba(@wds-color-white, 0.25), rgba(@wds-color-black, 0.25));
-	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-color-black, 0.5));
+	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
+	@background-color--outlined: if(@is-dark-theme, rgba(@wds-color-white, 0.25), rgba(@wds-fandom-color-black, 0.25));
+	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
 
 	.oo-ui-tagItemWidget {
 		border-color: currentColor;
@@ -388,9 +388,9 @@
 }
 
 .theming-inputs(@accent-color, @is-dark-theme: false) {
-	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-color-black, 0.15));
-	@background-color--readonly: if(@is-dark-theme, rgba(@wds-color-white, 0.25), rgba(@wds-color-black, 0.25));
-	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-color-black, 0.5));
+	@background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), rgba(@wds-fandom-color-black, 0.15));
+	@background-color--readonly: if(@is-dark-theme, rgba(@wds-color-white, 0.25), rgba(@wds-fandom-color-black, 0.25));
+	@border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
 
 	@accent-color--fadeout: fadeout(@accent-color, 90%);
 
@@ -445,50 +445,52 @@
 }
 
 .theming-messages(@alert-color, @warning-color, @success-color, @notice-color) {
-	&.oo-ui-messageWidget-block {
-		box-shadow: 0 2px 6px 0 rgba(@wds-color-black, 0.2);
+	.oo-ui-messageWidget {
+		&.oo-ui-messageWidget-block {
+			box-shadow: 0 2px 6px 0 rgba(@wds-fandom-color-black, 0.2);
 
-		> .oo-ui-iconElement-icon {
-			color: @wds-color-white;
+			> .oo-ui-iconElement-icon {
+				color: @wds-color-white;
+			}
+
+			> .oo-ui-labelElement-label {
+				background-color: @wds-color-white;
+				color: @wds-color-medium-gray;
+			}
+
+			&.oo-ui-flaggedElement-error {
+				background-color: @alert-color;
+			}
+
+			&.oo-ui-flaggedElement-warning {
+				background-color: @warning-color;
+			}
+
+			&.oo-ui-flaggedElement-success {
+				background-color: @success-color;
+			}
+
+			&.oo-ui-flaggedElement-notice {
+				background-color: @notice-color;
+			}
 		}
 
-		> .oo-ui-labelElement-label {
-			background-color: @wds-color-white;
-			color: @wds-color-medium-gray;
-		}
+		&:not(.oo-ui-messageWidget-block) {
+			&.oo-ui-flaggedElement-error {
+				color: @alert-color;
+			}
 
-		&.oo-ui-flaggedElement-error {
-			background-color: @alert-color;
-		}
+			&.oo-ui-flaggedElement-warning {
+				color: @warning-color;
+			}
 
-		&.oo-ui-flaggedElement-warning {
-			background-color: @warning-color;
-		}
+			&.oo-ui-flaggedElement-success {
+				color: @success-color;
+			}
 
-		&.oo-ui-flaggedElement-success {
-			background-color: @success-color;
-		}
-
-		&.oo-ui-flaggedElement-notice {
-			background-color: @notice-color;
-		}
-	}
-
-	&:not(.oo-ui-messageWidget-block) {
-		&.oo-ui-flaggedElement-error {
-			color: @alert-color;
-		}
-
-		&.oo-ui-flaggedElement-warning {
-			color: @warning-color;
-		}
-
-		&.oo-ui-flaggedElement-success {
-			color: @success-color;
-		}
-
-		&.oo-ui-flaggedElement-notice {
-			color: @notice-color;
+			&.oo-ui-flaggedElement-notice {
+				color: @notice-color;
+			}
 		}
 	}
 }
