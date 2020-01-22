@@ -13,20 +13,20 @@ body.oo-ui-theme-fandom h2 span {
   color: inherit;
 }
 .oo-ui-buttonElement-frameless > .oo-ui-buttonElement-button {
-  color: #68e7ff;
+  color: #ffc0e6;
 }
 .oo-ui-buttonElement-frameless > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-frameless > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-frameless > .oo-ui-buttonElement-button:focus {
-  color: #02d7ff;
+  color: #ff5abe;
 }
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
-  color: #68e7ff;
+  color: #ffc0e6;
 }
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:focus {
-  color: #02d7ff;
+  color: #ff5abe;
 }
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
   color: #e81a3f;
@@ -37,16 +37,16 @@ body.oo-ui-theme-fandom h2 span {
   color: #f1778d;
 }
 .oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
-  color: #68e7ff;
+  color: #ffc0e6;
 }
 .oo-ui-buttonElement-framed > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-framed > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-framed > .oo-ui-buttonElement-button:focus {
-  color: #02d7ff;
+  color: #ff5abe;
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
-  color: #68e7ff;
+  color: #ffc0e6;
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:hover,
@@ -54,7 +54,7 @@ body.oo-ui-theme-fandom h2 span {
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:focus,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:focus {
-  color: #02d7ff;
+  color: #ff5abe;
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
