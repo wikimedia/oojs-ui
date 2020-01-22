@@ -57,12 +57,6 @@ p:first-child {
 	font-size: 0.875em;
 }
 
-.oo-ui-theme-fandom {
-	color: #0E191A;
-	font-family: Rubik, Helvetica, Arial, sans-serif;
-	font-size: 0.875em;
-}
-
 .oo-ui-theme-apex {
 	/* Monobook uses `sans-serif`. Let's reflect this here. */
 	font-family: sans-serif;

@@ -1,0 +1,141 @@
+.theming-tools(@tool-color, @tool-color--hover, @tool-color--text, @tool-color--fadeout) {
+	.oo-ui-toolbar {
+		&-bar {
+			background-color: @toolbar-background-color;
+			border-color: @toolbar-border-color;
+			color: @toolbar-font-color;
+		}
+	}
+
+	.oo-ui-tool {
+		.oo-ui-tool-link {
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: @tool-color--fadeout;
+				color: @tool-color;
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			&.oo-ui-flaggedElement {
+				&-progressive {
+					.oo-ui-tool-link {
+						color: @tool-color;
+
+						&:hover,
+						&:active,
+						&:focus {
+							color: @tool-color--hover;
+						}
+					}
+				}
+
+				&-destructive {
+					.oo-ui-tool-link {
+						color: @alert-color;
+
+						&:hover,
+						&:active,
+						&:focus {
+							color: @alert-color--hover;
+						}
+					}
+				}
+			}
+
+			&.oo-ui-flaggedElement-primary {
+				&.oo-ui-flaggedElement {
+					&-progressive {
+						.oo-ui-tool-link {
+							background-color: @tool-color;
+							border-color: @tool-color;
+							color: @tool-color--text;
+
+							&:hover,
+							&:active,
+							&:focus {
+								background-color: @tool-color--hover;
+								border-color: @tool-color--hover;
+							}
+						}
+					}
+
+					&-destructive {
+						.oo-ui-tool-link {
+							background-color: @alert-color;
+							border-color: @alert-color;
+							color: @alert-color--text;
+
+							&:hover,
+							&:active,
+							&:focus {
+								background-color: @alert-color--hover;
+								border-color: @alert-color--hover;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.oo-ui-toolGroup {
+		border-right-color: @toolbar-separator-color;
+
+		.oo-ui-toolbar-actions & {
+			border-left-color: @toolbar-separator-color;
+		}
+	}
+
+	.oo-ui-listToolGroup {
+		&-tools .oo-ui-tool {
+			&.oo-ui-widget-enabled {
+				&:hover .oo-ui-tool-link,
+				&.oo-ui-tool-active .oo-ui-tool-link {
+					background-color: @tool-color--fadeout;
+					color: @tool-color;
+
+					.oo-ui-tool-accel {
+						color: currentColor;
+					}
+				}
+			}
+		}
+	}
+
+	.oo-ui-popupToolGroup {
+		&-header {
+			color: @wds-fandom-color-middle-gray;
+		}
+
+		&-tools {
+			background-color: @neutral-background-color;
+			box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
+
+			.oo-ui-tool-link {
+				.oo-ui-tool-accel {
+					color: @wds-fandom-color-middle-gray;
+				}
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			> .oo-ui-popupToolGroup-handle {
+				&:hover,
+				&:active,
+				&:focus {
+					background-color: @tool-color--fadeout;
+					color: @tool-color;
+				}
+			}
+		}
+
+		&.oo-ui-popupToolGroup-active {
+			> .oo-ui-popupToolGroup-handle {
+				background-color: @tool-color--fadeout;
+				color: @tool-color;
+			}
+		}
+	}
+}

@@ -1,0 +1,491 @@
+.theming-button-widgets() {
+	.oo-ui-buttonGroupWidget {
+		.oo-ui-buttonElement-framed {
+			&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
+				> .oo-ui-buttonElement-button {
+					border-left-color: rgba(@neutral-border-color, 0.5);
+				}
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			.oo-ui-buttonElement {
+				&.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on {
+					> .oo-ui-buttonElement-button,
+					> .oo-ui-buttonElement-button:active {
+						border-left-color: @neutral-border-color;
+					}
+				}
+			}
+		}
+	}
+
+	.oo-ui-buttonSelectWidget {
+		.oo-ui-buttonOptionWidget {
+			&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
+				> .oo-ui-buttonElement-button {
+					border-left-color: rgba(@neutral-border-color, 0.5);
+				}
+			}
+		}
+	}
+}
+
+.theming-checkboxes(@accent-color) {
+	.oo-ui-checkboxInputWidget {
+		color: @accent-color;
+
+		[type='checkbox'] {
+			+ span,
+			&:indeterminate + span::before,
+			&:disabled + span,
+			&:checked:disabled + span,
+			&:checked:disabled + span::before {
+				border-color: @neutral-border-color;
+			}
+		}
+
+		&.oo-ui-widget-enabled [type='checkbox'] {
+			&:focus + span,
+			&:hover + span {
+				border-color: currentColor;
+			}
+
+			&:active + span {
+				background-color: currentColor;
+				border-color: currentColor;
+			}
+
+			&:checked,
+			&:indeterminate {
+				& + span,
+				&:focus + span,
+				&:active + span {
+					border-color: currentColor;
+
+					&::before {
+						border-color: currentColor;
+					}
+				}
+			}
+		}
+	}
+}
+
+.theming-dropdowns(@accent-color) {
+	.oo-ui-dropdownWidget {
+		&-handle {
+			background-color: @neutral-background-color--transparent;
+			border-color: @neutral-border-color;
+		}
+
+		&.oo-ui-widget-enabled &-handle {
+			&:hover,
+			&:focus,
+			&:active {
+				border-color: @accent-color;
+			}
+
+			&:active {
+				.active-box-shadow(@accent-color);
+			}
+		}
+	}
+}
+
+.theming-menuOptions(@accent-color, @accent-color--fadeout) {
+	.oo-ui-menuOptionWidget {
+		&.oo-ui-optionWidget {
+			&-highlighted,
+			&-selected {
+				background-color: @accent-color--fadeout;
+				color: @accent-color;
+			}
+		}
+	}
+
+	.oo-ui-menuSelectWidget {
+		background-color: @neutral-background-color;
+		border: @neutral-border-color;
+		box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
+	}
+}
+
+.theming-outlineControls(@accent-color, @accent-color--fadeout) {
+	.oo-ui-outlineControlsWidget {
+		background-color: @neutral-background-color;
+	}
+
+	.oo-ui-outlineOptionWidget {
+		&.oo-ui-optionWidget-highlighted,
+		&.oo-ui-optionWidget-selected,
+		&.oo-ui-optionWidget-pressed {
+			background-color: @accent-color--fadeout;
+			color: @accent-color;
+		}
+	}
+}
+
+.theming-popups() {
+	.oo-ui-popupWidget {
+		&-popup {
+			background-color: @neutral-background-color;
+			border: @neutral-border-color;
+			color: @color-text;
+			filter: drop-shadow(0 2px 1px rgba(@wds-fandom-color-black, 0.3));
+		}
+
+		&-anchored-top {
+			.oo-ui-popupWidget-anchor {
+				&::before,
+				&::after {
+					border-bottom-color: @neutral-border-color;
+				}
+			}
+		}
+
+		&-anchored-bottom {
+			.oo-ui-popupWidget-anchor {
+				&::before,
+				&::after {
+					border-top-color: @neutral-border-color;
+				}
+			}
+		}
+
+		&-anchored-start {
+			.oo-ui-popupWidget-anchor {
+				&::before,
+				&::after {
+					border-right-color: @neutral-border-color;
+				}
+			}
+		}
+
+		&-anchored-end {
+			.oo-ui-popupWidget-anchor {
+				&::before,
+				&::after {
+					border-left-color: @neutral-border-color;
+				}
+			}
+		}
+	}
+}
+
+.theming-progressBars(@accent-color) {
+	.oo-ui-progressBarWidget {
+		background-color: @neutral-background-color--transparent;
+		border-color: @neutral-border-color;
+
+		&.oo-ui-widget-enabled {
+			.oo-ui-progressBarWidget-bar {
+				background-color: @accent-color;
+			}
+		}
+
+		&.oo-ui-widget-disabled {
+			.oo-ui-progressBarWidget-bar {
+				background-color: @neutral-overlay-color;
+			}
+		}
+	}
+}
+
+.theming-radios(@accent-color) {
+	.oo-ui-radioInputWidget {
+		[type='radio'] {
+			+ span,
+			&:disabled + span {
+				color: @accent-color;
+
+				&::before {
+					background-color: currentColor;
+				}
+			}
+		}
+
+		&.oo-ui-widget-enabled [type='radio'] {
+			&:hover + span,
+			&:checked + span {
+				color: @neutral-border-color;
+			}
+		}
+	}
+}
+
+.theming-fileSelects(@accent-color, @accent-color--fadeout) {
+	.oo-ui-selectFileWidget {
+		&-dropTarget {
+			background-color: @neutral-background-color--transparent;
+			border-color: @neutral-border-color;
+		}
+
+		&.oo-ui-widget-enabled {
+			&.oo-ui-selectFileWidget-dropTarget {
+				&:hover {
+					border-color: @accent-color;
+				}
+			}
+
+			&.oo-ui-selectFileWidget-canDrop {
+				&.oo-ui-selectFileWidget-dropTarget,
+				.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
+					background-color: @accent-color--fadeout;
+					color: @accent-color;
+				}
+			}
+		}
+	}
+}
+
+.theming-tabs(@accent-color, @accent-color--text) {
+	.oo-ui-tabSelectWidget {
+		&-framed {
+			background-color: transparent;
+			border-bottom-color: @accent-color;
+		}
+	}
+
+	.oo-ui-tabOptionWidget {
+		.oo-ui-tabSelectWidget-framed & {
+			background-color: @neutral-background-color--transparent;
+			color: @color-text;
+
+			&.oo-ui-optionWidget-selected {
+				background-color: @accent-color;
+				color: @accent-color--text;
+			}
+
+			&.oo-ui-widget-enabled {
+				&:not(.oo-ui-optionWidget-selected):hover {
+					color: @accent-color;
+				}
+			}
+		}
+
+		.oo-ui-tabSelectWidget-frameless & {
+			&.oo-ui-optionWidget-selected,
+			&.oo-ui-widget-enabled:active {
+				box-shadow: inset 0 -2px 0 0 @accent-color;
+				color: @accent-color;
+			}
+
+			&.oo-ui-widget-enabled:hover {
+				color: @accent-color;
+			}
+		}
+	}
+}
+
+.theming-tags(@accent-color, @accent-color--fadeout) {
+	.oo-ui-tagItemWidget {
+		color: @color-text;
+
+		.oo-ui-buttonElement-button {
+			color: inherit;
+
+			&:hover {
+				color: @accent-color;
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			background-color: transparent;
+
+			&:hover,
+			&:focus {
+				background-color: @accent-color--fadeout;
+				border-color: currentColor;
+				color: @accent-color;
+
+				.oo-ui-buttonElement-button {
+					color: @accent-color;
+				}
+			}
+
+			&.oo-ui-flaggedElement-invalid {
+				background-color: @alert-color--fadeout;
+				color: @alert-color;
+
+				&:hover,
+				&:focus {
+					color: @alert-color--hover;
+				}
+			}
+		}
+	}
+
+	.oo-ui-tagMultiselectWidget {
+		&-handle {
+			border-color: @neutral-border-color;
+		}
+
+		&.oo-ui-widget-enabled {
+			.oo-ui-tagMultiselectWidget-handle {
+				background-color: @neutral-background-color--transparent;
+			}
+
+			&.oo-ui-tagMultiselectWidget-inlined {
+				&:hover .oo-ui-tagMultiselectWidget-handle {
+					border-color: @accent-color;
+				}
+
+				&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
+					border-color: @accent-color;
+					.active-box-shadow(@accent-color);
+				}
+
+				&.oo-ui-flaggedElement-invalid {
+					.oo-ui-tagMultiselectWidget-handle,
+					&:hover .oo-ui-tagMultiselectWidget-handle {
+						border-color: @alert-color;
+					}
+				}
+			}
+
+			&.oo-ui-tagMultiselectWidget-outlined {
+				.oo-ui-tagMultiselectWidget-handle {
+					background-color: @neutral-background-color--transparent;
+				}
+
+				&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
+					border-color: @alert-color;
+				}
+			}
+
+			&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
+				color: @alert-color;
+			}
+		}
+
+		.oo-ui-inputWidget-input {
+			color: inherit;
+		}
+	}
+}
+
+.theming-toggles(@accent-color, @accent-color--hover) {
+	.oo-ui-toggleSwitchWidget {
+		background-color: @wds-fandom-color-middle-gray;
+
+		&-grip {
+			background-color: @wds-fandom-color-light-gray;
+		}
+
+		&.oo-ui-toggleWidget-on {
+			background-color: desaturate(@accent-color--hover, 30%);
+
+			.oo-ui-toggleSwitchWidget-grip {
+				background-color: @accent-color;
+			}
+		}
+	}
+}
+
+.theming-inputs(@accent-color, @accent-color--fadeout) {
+	.oo-ui-textInputWidget {
+		.oo-ui-inputWidget-input {
+			background-color: @neutral-background-color--transparent;
+			border-color: @neutral-border-color;
+			color: @color-text;
+		}
+
+		.oo-ui-pendingElement-pending {
+			background-color: @accent-color--fadeout;
+		}
+
+		> .oo-ui-labelElement-label {
+			color: green;
+		}
+
+		&.oo-ui-widget-enabled {
+			.oo-ui-inputWidget-input {
+				.active-box-shadow(transparent);
+
+				&:hover,
+				&:focus {
+					border-color: @accent-color;
+				}
+
+				&:focus {
+					.active-box-shadow(@accent-color);
+				}
+
+				&[readonly] {
+					background-color: @neutral-background-color--readonly;
+				}
+			}
+
+			&.oo-ui-flaggedElement-invalid {
+				.oo-ui-inputWidget-input {
+					border-color: @alert-color;
+
+					&:hover,
+					&:focus {
+						border-color: @alert-color;
+					}
+
+					&:focus {
+						.active-box-shadow(@alert-color);
+					}
+				}
+			}
+		}
+	}
+}
+
+.theming-messages() {
+	.oo-ui-messageWidget {
+		&.oo-ui-messageWidget-block {
+			box-shadow: 0 2px 6px 0 rgba(@wds-fandom-color-black, 0.2);
+
+			> .oo-ui-iconElement-icon {
+				color: @wds-color-white;
+			}
+
+			> .oo-ui-labelElement-label {
+				background-color: @wds-color-white;
+				color: @wds-color-medium-gray;
+			}
+
+			&.oo-ui-flaggedElement-error {
+				background-color: @alert-color;
+			}
+
+			&.oo-ui-flaggedElement-warning {
+				background-color: @warning-color;
+			}
+
+			&.oo-ui-flaggedElement-success {
+				background-color: @success-color;
+			}
+
+			&.oo-ui-flaggedElement-notice {
+				background-color: @notice-color;
+			}
+		}
+
+		&:not(.oo-ui-messageWidget-block) {
+			&.oo-ui-flaggedElement-error {
+				color: @alert-color;
+			}
+
+			&.oo-ui-flaggedElement-warning {
+				color: @warning-color;
+			}
+
+			&.oo-ui-flaggedElement-success {
+				color: @success-color;
+			}
+
+			&.oo-ui-flaggedElement-notice {
+				color: @notice-color;
+			}
+		}
+	}
+}
+
+.active-box-shadow(@color) {
+	box-shadow: inset 0 0 0 1px @color;
+}

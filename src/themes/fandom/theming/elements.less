@@ -1,0 +1,121 @@
+.theming-text-buttons(@button-color, @button-color--hover) {
+	.oo-ui-buttonElement {
+		&-frameless {
+			.button-secondary(@button-color, @button-color--hover);
+
+			&.oo-ui-flaggedElement {
+				&-progressive {
+					.button-secondary(@button-color, @button-color--hover);
+				}
+
+				&-destructive {
+					.button-secondary(@alert-color, @alert-color--hover);
+				}
+			}
+
+			&.oo-ui-widget-enabled {
+				&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
+				& > .oo-ui-buttonElement-button:active {
+					border-color: currentColor;
+				}
+			}
+		}
+	}
+}
+
+.theming-secondary-buttons(@button-color, @button-color--hover) {
+	.oo-ui-buttonElement {
+		&-framed {
+			.button-secondary(@button-color, @button-color--hover);
+
+			&.oo-ui-flaggedElement,
+			&.oo-ui-widget-enabled.oo-ui-flaggedElement {
+				&-progressive {
+					.button-secondary(@button-color, @button-color--hover);
+				}
+
+				&-destructive {
+					.button-secondary(@alert-color, @alert-color--hover);
+				}
+			}
+		}
+	}
+}
+
+.theming-primary-buttons(@button-color, @button-color--hover, @button-color--text) {
+	.oo-ui-buttonElement {
+		&-framed {
+			&.oo-ui-flaggedElement-primary,
+			&.oo-ui-widget-enabled.oo-ui-flaggedElement-primary {
+				&.oo-ui-flaggedElement {
+					&-progressive {
+						.button-primary(@button-color, @button-color--text, @button-color--hover);
+					}
+
+					&-destructive {
+						.button-primary(@alert-color, @alert-color--text, @alert-color--hover);
+					}
+				}
+			}
+
+			&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
+				.button-primary(@button-color, @button-color--text, @button-color--hover);
+
+				&.oo-ui-flaggedElement {
+					&-progressive {
+						.button-primary(@button-color, @button-color--text, @button-color--hover);
+					}
+
+					&-destructive {
+						.button-primary(@alert-color, @alert-color--text, @alert-color--hover);
+					}
+				}
+			}
+		}
+	}
+}
+
+.theming-pending(@accent-color) {
+	.oo-ui-pendingElement {
+		&-pending {
+			background-color: fadeout(@accent-color, 20%);
+			background-image: linear-gradient(
+				135deg,
+				@neutral-background-color 25%,
+				transparent 25%,
+				transparent 50%,
+				@neutral-background-color 50%,
+				@neutral-background-color 75%,
+				transparent 75%,
+				transparent
+			);
+		}
+	}
+}
+
+.button-primary(@background-color, @text-color, @background-color--hover) {
+	> .oo-ui-buttonElement-button {
+		background-color: @background-color;
+		border-color: @background-color;
+		color: @text-color;
+
+		&:focus,
+		&:hover,
+		&:active {
+			background-color: @background-color--hover;
+			border-color: @background-color--hover;
+		}
+	}
+}
+
+.button-secondary(@color, @color--hover) {
+	> .oo-ui-buttonElement-button {
+		color: @color;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: @color--hover;
+		}
+	}
+}

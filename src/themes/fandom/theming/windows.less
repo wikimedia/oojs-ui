@@ -1,0 +1,94 @@
+.theming-windows() {
+	.oo-ui-messageDialog {
+		&-content > .oo-ui-window-foot {
+			outline-color: @neutral-border-color;
+		}
+
+		&-actions {
+			&-vertical {
+				.oo-ui-actionWidget {
+					border-bottom-color: @neutral-border-color;
+				}
+			}
+		}
+	}
+
+	.oo-ui-processDialog {
+		&-content {
+			.oo-ui-window-head,
+			.oo-ui-window-foot {
+				outline-color: @neutral-border-color;
+			}
+		}
+
+		.oo-ui-actionWidget {
+			&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
+				> .oo-ui-buttonElement-button {
+					&:hover,
+					&:focus,
+					&:active {
+						border-right-color: @neutral-border-color;
+					}
+				}
+			}
+		}
+
+		&-actions {
+			&-primary {
+				.oo-ui-actionWidget {
+					> .oo-ui-buttonElement-button {
+						border-left-color: @neutral-border-color;
+					}
+
+					&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
+						> .oo-ui-buttonElement-button {
+							&:hover,
+							&:focus,
+							&:active {
+								border-left-color: @neutral-border-color;
+							}
+						}
+					}
+				}
+			}
+
+			&-safe,
+			&-other {
+				.oo-ui-actionWidget > .oo-ui-buttonElement-button {
+					border-right-color: @neutral-border-color;
+				}
+			}
+
+			&-safe {
+				.oo-ui-widget-enabled.oo-ui-iconElement:not(.oo-ui-labelElement) {
+					> .oo-ui-buttonElement-button {
+						&:hover,
+						&:active,
+						&:focus {
+							background-color: @neutral-background-color--transparent;
+						}
+					}
+				}
+			}
+		}
+
+		&-errors {
+			background-color: @neutral-background-color;
+		}
+
+		&-error {
+			background-color: @alert-color--fadeout;
+			border-color: @alert-color;
+		}
+	}
+
+	.oo-ui-windowManager {
+		&-modal > .oo-ui-dialog {
+			background-color: @neutral-overlay-color;
+
+			> .oo-ui-window-frame {
+				background-color: @neutral-background-color;
+			}
+		}
+	}
+}

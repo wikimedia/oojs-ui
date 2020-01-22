@@ -20,13 +20,10 @@
 	}
 
 	&-title {
-		color: @color-base--emphasized;
 		font-size: 1.5em;
 	}
 
 	&-message {
-		color: @color-base;
-		font-size: 1.1em;
 		text-align: left;
 	}
 
@@ -49,26 +46,6 @@
 			&.oo-ui-labelElement .oo-ui-labelElement-label {
 				line-height: @size-dialog-message-bar;
 				text-align: center;
-			}
-
-			&.oo-ui-widget-enabled {
-				&.oo-ui-flaggedElement {
-					&-progressive {
-						.oo-ui-buttonElement-button {
-							&:active {
-								background-color: rgba(8, 126, 204, 0.1);
-							}
-						}
-					}
-
-					&-destructive {
-						.oo-ui-buttonElement-button {
-							&:active {
-								background-color: rgba(212, 83, 83, 0.1);
-							}
-						}
-					}
-				}
 			}
 		}
 
@@ -116,7 +93,7 @@
 	&-content {
 		.oo-ui-window-head,
 		.oo-ui-window-foot {
-			outline: 1px solid @dialog-border-color;
+			outline: @border-base;
 		}
 
 		.oo-ui-window-head {
@@ -165,7 +142,6 @@
 				&:focus,
 				&:active {
 					border-left-color: transparent;
-					border-right-color: @dialog-border-color;
 				}
 			}
 		}
@@ -200,9 +176,8 @@
 		&-primary {
 			.oo-ui-actionWidget {
 				> .oo-ui-buttonElement-button {
-					border-top-right-radius: @border-radius-base;
-					border-left-color: @dialog-border-color;
 					border-right-color: transparent;
+					border-top-right-radius: @border-radius-base;
 				}
 
 				&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
@@ -210,7 +185,6 @@
 						&:hover,
 						&:focus,
 						&:active {
-							border-left-color: @dialog-border-color;
 							border-right-color: transparent;
 						}
 					}
@@ -221,8 +195,7 @@
 		&-safe,
 		&-other {
 			.oo-ui-actionWidget > .oo-ui-buttonElement-button {
-					border-left-color: transparent;
-					border-right-color: @dialog-border-color;
+				border-left-color: transparent;
 			}
 		}
 
@@ -230,15 +203,14 @@
 			.oo-ui-widget-enabled.oo-ui-iconElement:not(.oo-ui-labelElement) {
 				> .oo-ui-buttonElement-button {
 					background-color: transparent;
-					border-top-left-radius: @border-radius-base;
 					border-right-color: transparent;
+					border-top-left-radius: @border-radius-base;
 
 					&:hover,
 					&:active,
 					&:focus {
-						background-color: @background-color-framed;
-						border-top-color: transparent;
 						border-bottom-color: transparent;
+						border-top-color: transparent;
 					}
 				}
 			}
@@ -262,7 +234,6 @@
 	}
 
 	&-errors {
-		background-color: @background-color-base;
 		padding: @padding-panel-form;
 		text-align: center;
 
@@ -271,15 +242,14 @@
 		}
 
 		&-title {
-			color: @color-base--emphasized;
 			font-size: 1.5em;
 			margin-bottom: 1.5em;
 		}
 	}
 
 	&-error {
-		background-color: @background-color-error--framed;
-		border: @border-error;
+		border-style: solid;
+		border-width: 1px;
 		margin: 1em 0 0;
 		padding: 16px 24px;
 		text-align: left;
@@ -320,13 +290,11 @@
 
 .theme-oo-ui-windowManager() {
 	&-modal > .oo-ui-dialog {
-		background-color: @dialog-overlay-background-color;
 		opacity: 0;
 		z-index: inherit;
 		.oo-ui-transition(opacity @transition-base);
 
 		> .oo-ui-window-frame {
-			background-color: @background-color-base;
 			opacity: 0;
 			.oo-ui-transform(scale(0.5));
 			.oo-ui-transition(all @transition-base);

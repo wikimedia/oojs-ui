@@ -43,11 +43,6 @@
 			margin-right: 0;
 		}
 
-		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
-			> .oo-ui-buttonElement-button {
-				border-left-color: @border-color-filled--disabled;
-			}
-		}
 	}
 
 	// Give hovered/focussed/active buttons higher `z-index`, so that borders display correctly.
@@ -73,7 +68,6 @@
 			&.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on {
 				> .oo-ui-buttonElement-button,
 				> .oo-ui-buttonElement-button:active {
-					border-left-color: @border-color-base;
 					z-index: 3;
 				}
 			}
@@ -122,12 +116,6 @@
 			border-top-right-radius: @border-radius-base;
 			margin-right: 0;
 		}
-
-		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
-			> .oo-ui-buttonElement-button {
-				border-left-color: @border-color-filled--disabled;
-			}
-		}
 	}
 
 	&.oo-ui-widget-enabled {
@@ -151,7 +139,6 @@
 }
 
 .theme-oo-ui-checkboxInputWidget() {
-	color: @primary-color;
 	line-height: @line-height-none;
 	position: relative;
 	vertical-align: middle;
@@ -170,7 +157,8 @@
 		+ span {
 			align-items: center;
 			background-color: transparent;
-			border: 2px solid @input-border-color;
+			border-style: solid;
+			border-width: 2px;
 			box-sizing: border-box;
 			color: inherit;
 			display: grid;
@@ -199,7 +187,6 @@
 		}
 
 		&:indeterminate + span::before {
-			border-color: @input-border-color;
 			border-width: 2px 0 0 0;
 			margin-top: 2px;
 			transform: rotate(0deg);
@@ -209,14 +196,9 @@
 		&:disabled,
 		&:checked:disabled {
 			+ span {
-				border-color: @input-border-color;
 				opacity: @opacity--disabled;
 				pointer-events: none;
 			}
-		}
-
-		&:checked:disabled + span::before {
-			border-color: @input-border-color;
 		}
 	}
 
@@ -226,29 +208,6 @@
 		+ span {
 			cursor: pointer;
 			.oo-ui-transition(background-color @transition-base, border-color @transition-base);
-		}
-
-		&:focus + span,
-		&:hover + span {
-			border-color: currentColor;
-		}
-
-		&:active + span {
-			background-color: currentColor;
-			border-color: currentColor;
-		}
-
-		&:checked,
-		&:indeterminate {
-			& + span,
-			&:focus + span,
-			&:active + span {
-				border-color: currentColor;
-
-				&::before {
-					border-color: currentColor;
-				}
-			}
 		}
 	}
 }
@@ -333,7 +292,6 @@
 	width: 100%;
 
 	&-handle {
-		background-color: @wds-color-white;
 		border: @border-base;
 		border-radius: @border-radius-base;
 		color: inherit;
@@ -375,21 +333,7 @@
 	}
 
 	&.oo-ui-widget-enabled &-handle {
-		box-shadow: @input-focus-box-shadow--transparent;
 		.oo-ui-transition(border-color @transition-base, box-shadow @transition-base);
-
-		&:hover,
-		&:focus,
-		&:active {
-			border-color: @primary-color;
-		}
-
-		&:active {
-			box-shadow: @input-focus-box-shadow--active;
-		}
-	}
-
-	&.oo-ui-widget-enabled&-open &-handle {
 	}
 
 	&.oo-ui-widget-disabled &-handle {
@@ -450,23 +394,10 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		background-color: @background-color-framed;
 		.oo-ui-transition(background-color @transition-base);
 
-		&:hover {
-			background-color: @background-color-framed--hover;
-		}
-
 		select {
-			color: @color-base;
 			.oo-ui-transition(border-color @transition-base, box-shadow @transition-base);
-
-			&:hover,
-			&:active,
-			&:focus {
-				border-color: currentColor;
-				color: @primary-color;
-			}
 		}
 	}
 }
@@ -518,14 +449,6 @@
 	&-checkIcon.oo-ui-labelElement-invisible {
 		display: none;
 	}
-
-	&.oo-ui-optionWidget {
-		&-highlighted,
-		&-selected {
-			background-color: @primary-color--fadeout;
-			color: @primary-color;
-		}
-	}
 }
 
 .theme-oo-ui-menuSectionOptionWidget() {
@@ -537,10 +460,8 @@
 }
 
 .theme-oo-ui-menuSelectWidget() {
-	background-color: @wds-color-white;
 	border: @border-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
-	box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
 	padding: @wds-dropdown-padding - @wds-list-item-vertical-padding 0;
 }
 
@@ -553,59 +474,23 @@
 
 	&.oo-ui-messageWidget-block {
 		align-items: center;
-		box-shadow: 0 2px 6px 0 rgba(@wds-color-black, 0.2);
 
 		> .oo-ui-iconElement-icon {
 			align-items: center;
-			color: @wds-color-white;
 			display: flex;
 			justify-content: center;
 			width: 48px;
 		}
 
 		> .oo-ui-labelElement-label {
-			background-color: @wds-color-white;
-			color: @wds-color-light-c7;
 			flex: 1;
 			padding: 13px 12px;
-		}
-
-		&.oo-ui-flaggedElement-error {
-			background-color: @alert-color;
-		}
-
-		&.oo-ui-flaggedElement-warning {
-			background-color: @warning-color;
-		}
-
-		&.oo-ui-flaggedElement-success {
-			background-color: @success-color;
-		}
-
-		&.oo-ui-flaggedElement-notice {
-			background-color: @notice-color;
 		}
 	}
 
 	&:not(.oo-ui-messageWidget-block) {
 		> .oo-ui-iconElement-icon {
 			margin-right: @gap-base;
-		}
-
-		&.oo-ui-flaggedElement-error {
-			color: @alert-color;
-		}
-
-		&.oo-ui-flaggedElement-warning {
-			color: @warning-color;
-		}
-
-		&.oo-ui-flaggedElement-success {
-			color: @success-color;
-		}
-
-		&.oo-ui-flaggedElement-notice {
-			color: @notice-color;
 		}
 	}
 
@@ -615,9 +500,6 @@
 }
 
 .theme-oo-ui-multioptionWidget() {
-	&.oo-ui-widget-disabled {
-		color: @color-base--disabled;
-	}
 }
 
 .theme-oo-ui-multiselectWidget() {
@@ -640,7 +522,7 @@
 
 		.oo-ui-numberInputWidget-field {
 			display: grid;
-			grid-template-columns: 37px 1fr 37px;
+			grid-template-columns: @combo-button-width 1fr @combo-button-width;
 		}
 
 		.oo-ui-inputWidget-input {
@@ -699,8 +581,6 @@
 }
 
 .theme-oo-ui-outlineControlsWidget() {
-	background-color: @background-color-base;
-
 	&-items,
 	&-movers {
 		> .oo-ui-buttonWidget {
@@ -715,13 +595,6 @@
 .theme-oo-ui-outlineOptionWidget() {
 	padding: @padding-vertical-base @padding-horizontal-base;
 	.oo-ui-transition(background-color @transition-base, color @transition-base);
-
-	&.oo-ui-optionWidget-highlighted,
-	&.oo-ui-optionWidget-selected,
-	&.oo-ui-optionWidget-pressed {
-		background-color: @primary-color--fadeout;
-		color: @primary-color;
-	}
 
 	&-level-1 {
 		padding-left: 2.5em;
@@ -738,24 +611,8 @@
 
 .theme-oo-ui-popupWidget() {
 	&-popup {
-		background-color: @wds-color-white;
 		border: @border-base;
 		border-radius: @border-radius-base;
-		box-shadow: 0 0 3px 0 rgba(@wds-color-black, 0.3);
-		color: @wds-color-black;
-	}
-
-	// Support: Progressively enhance for browser's which render `filter`.
-	@supports (filter: drop-shadow(0 0 0)) {
-		filter: drop-shadow(0 2px 1px rgba(@wds-color-black, 0.3));
-		// Safari can have visual glitches with lingering shadows in some contexts
-		// when using drop-shadow. This makes it be more zealous about cleaning
-		// up. (See: T226872)
-		.oo-ui-force-gpu-composite-layer();
-
-		&-popup {
-			box-shadow: none;
-		}
 	}
 
 	&-anchored-top {
@@ -765,16 +622,12 @@
 			top: -@size-anchor;
 
 			&::before {
-				// The subtracting-triangles method results in a line that
-				// is ~0.7px wide, so make it slightly darker to compensate.
-				border-bottom-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor;
 			}
 
 			&::after {
-				border-bottom-color: @wds-color-white;
 				border-width: @size-anchor;
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor + 1px;
@@ -789,14 +642,12 @@
 			bottom: -@size-anchor;
 
 			&::before {
-				border-top-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 				left: -@size-anchor;
 				top: -@size-anchor - 1px;
 			}
 
 			&::after {
-				border-top-color: @wds-color-white;
 				border-width: @size-anchor;
 				left: -@size-anchor + 1px;
 				top: -@size-anchor - 1px;
@@ -811,14 +662,12 @@
 			left: -@size-anchor;
 
 			&::before {
-				border-right-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 				right: -@size-anchor - 1px;
 				top: -@size-anchor;
 			}
 
 			&::after {
-				border-right-color: @wds-color-white;
 				border-width: @size-anchor;
 				right: -@size-anchor - 1px;
 				top: -@size-anchor + 1px;
@@ -833,14 +682,12 @@
 			right: -@size-anchor;
 
 			&::before {
-				border-left-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 				left: -@size-anchor - 1px;
 				top: -@size-anchor;
 			}
 
 			&::after {
-				border-left-color: @wds-color-white;
 				border-width: @size-anchor;
 				left: -@size-anchor - 1px;
 				top: -@size-anchor + 1px;
@@ -891,7 +738,6 @@
 }
 
 .theme-oo-ui-progressBarWidget() {
-	background-color: @wds-color-white;
 	border: @border-base;
 	border-radius: @border-radius-base;
 	max-width: @max-width-base;
@@ -911,18 +757,8 @@
 		}
 	}
 
-	&.oo-ui-widget-enabled {
-		.oo-ui-progressBarWidget-bar {
-			background-color: @primary-color;
-		}
-	}
-
 	&.oo-ui-widget-disabled {
 		opacity: @opacity--disabled;
-
-		.oo-ui-progressBarWidget-bar {
-			background-color: @wds-fandom-color-mid-light-gray;
-		}
 	}
 
 	.oo-ui-progressBarWidget-slide-frames() {
@@ -974,7 +810,6 @@
 			border: 2px solid currentColor;
 			border-radius: 100%;
 			box-sizing: border-box;
-			color: @wds-color-light-gray;
 			display: grid;
 			height: @size-input-binary;
 			justify-items: center;
@@ -986,7 +821,6 @@
 			&::before {
 				.oo-ui-transition(height 0.1s, width 0.1s);
 
-				background-color: currentColor;
 				border-radius: 100%;
 				content: ' ';
 				height: 0;
@@ -1000,7 +834,6 @@
 		}
 
 		&:disabled + span {
-			color: @wds-color-light-gray;
 			opacity: @opacity--disabled;
 			pointer-events: none;
 		}
@@ -1008,11 +841,6 @@
 
 	&.oo-ui-widget-enabled [type='radio'] {
 		cursor: pointer;
-
-		&:hover + span,
-		&:checked + span {
-			color: @primary-color;
-		}
 	}
 }
 
@@ -1084,7 +912,6 @@
 
 .theme-oo-ui-selectFileWidget() {
 	&-dropTarget {
-		background-color: @wds-fandom-color-light-gray;
 		border: @border-base;
 		border-radius: @border-radius-base;
 		overflow: hidden;
@@ -1103,23 +930,10 @@
 	&.oo-ui-widget-enabled {
 		&.oo-ui-selectFileWidget-dropTarget {
 			.oo-ui-transition(border-color @transition-ease-medium, background-color @transition-ease-medium);
-
-			&:hover {
-				background-color: @primary-color--fadeout;
-				border-color: @primary-color;
-			}
 		}
 
 		.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
 			.oo-ui-transition(background-color @transition-ease-medium, color @transition-ease-medium);
-		}
-
-		&.oo-ui-selectFileWidget-canDrop {
-			&.oo-ui-selectFileWidget-dropTarget,
-			.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
-				background-color: @primary-color--fadeout;
-				color: @primary-color;
-			}
 		}
 	}
 
@@ -1132,8 +946,6 @@
 }
 
 .theme-oo-ui-tabOptionWidget() {
-	@option-selected-border-width: 2px;
-
 	align-items: center;
 	display: inline-flex;
 	font-size: @font-size-small;
@@ -1158,50 +970,26 @@
 	}
 
 	.oo-ui-tabSelectWidget-framed & {
-		background-color: @wds-color-white;
 		border-top-left-radius: @border-radius-base;
 		border-top-right-radius: @border-radius-base;
 		box-sizing: border-box;
-		color: @primary-color;
 		height: @size-base;
 		margin: 6px 3px 0;
 
 		.oo-ui-labelElement-label {
 			pointer-events: none;
 		}
-
-		&.oo-ui-optionWidget-selected {
-			background-color: @primary-color;
-			color: @wds-color-white;
-		}
-
-		&.oo-ui-widget-enabled {
-			&:not(.oo-ui-optionWidget-selected):hover {
-				color: @wds-fandom-color-black;
-			}
-		}
 	}
 
 	.oo-ui-tabSelectWidget-frameless & {
-		box-shadow: inset 0 0 0 0 @primary-color;
 		.oo-ui-transition(color @transition-base, box-shadow @transition-base);
-
-		&.oo-ui-optionWidget-selected,
-		&.oo-ui-widget-enabled:active {
-			box-shadow: inset 0 -@option-selected-border-width 0 0 @primary-color;
-			color: @primary-color;
-		}
-
-		&.oo-ui-widget-enabled:hover {
-			color: @primary-color;
-		}
 	}
 }
 
 .theme-oo-ui-tabSelectWidget() {
 	&-framed {
-		background-color: @primary-color--fadeout;
-		border-bottom: 2px solid @primary-color;
+		border-bottom-width: 2px;
+		border-bottom-style: solid;
 	}
 
 	// Add background gradient to emphasize tab overflow.
@@ -1236,7 +1024,7 @@
 }
 
 .theme-oo-ui-tagItemWidget() {
-	border: @border-base;
+	border: 1px solid currentColor;
 	border-radius: @height-tagitem;
 	box-sizing: border-box;
 	display: inline-grid;
@@ -1259,8 +1047,6 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		background-color: @wds-fandom-color-light-gray;
-
 		.oo-ui-transition(
 			background-color @transition-base,
 			color @transition-base,
@@ -1270,21 +1056,7 @@
 
 		&:hover,
 		&:focus {
-			background-color: @primary-color--fadeout;
-			border-color: @primary-color;
-			color: @primary-color;
 			outline: 0;
-		}
-
-		&.oo-ui-flaggedElement-invalid {
-			background-color: @background-color-error--framed;
-			border-color: currentColor;
-			color: @alert-color;
-
-			&:hover,
-			&:focus {
-				color: @alert-color--active;
-			}
 		}
 
 		.oo-ui-buttonElement-button {
@@ -1292,6 +1064,7 @@
 			border: 0;
 			border-radius: @height-tagitem;
 			display: block;
+			height: @height-tagitem - 2px;
 			padding: 0;
 
 			.oo-ui-icon-close {
@@ -1379,26 +1152,12 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-tagMultiselectWidget-handle {
-			background-color: @wds-fandom-color-light-gray;
 			.oo-ui-transition(border-color @transition-ease-medium, box-shadow @transition-ease-medium);
 		}
 
 		&.oo-ui-tagMultiselectWidget-inlined {
-			&:hover .oo-ui-tagMultiselectWidget-handle {
-				border-color: @primary-color;
-			}
-
 			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
-				border-color: @primary-color;
-				box-shadow: @input-focus-box-shadow--active;
 				outline: 0;
-			}
-
-			&.oo-ui-flaggedElement-invalid {
-				.oo-ui-tagMultiselectWidget-handle,
-				&:hover .oo-ui-tagMultiselectWidget-handle {
-					border-color: @alert-color;
-				}
 			}
 		}
 
@@ -1409,22 +1168,10 @@
 				border-bottom-right-radius: 0;
 			}
 
-			.oo-ui-tagItemWidget.oo-ui-widget-enabled {
-				background-color: @background-color-base;
-			}
-
 			.oo-ui-inputWidget-input {
 				border-top-left-radius: 0;
 				border-top-right-radius: 0;
 			}
-
-			&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
-				border-color: @alert-color;
-			}
-		}
-
-		&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
-			color: @alert-color;
 		}
 	}
 
@@ -1439,7 +1186,6 @@
 
 	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`
 	.oo-ui-inputWidget-input {
-		background-color: @wds-color-white;
 		border: @border-base;
 		border-radius: @border-radius-base;
 		color: inherit;
@@ -1452,10 +1198,6 @@
 	// TextInputWidget (single line).
 	input {
 		height: @size-base;
-	}
-
-	.oo-ui-pendingElement-pending {
-		background-color: @primary-color--fadeout;
 	}
 
 	> .oo-ui-iconElement-icon,
@@ -1481,7 +1223,6 @@
 	}
 
 	> .oo-ui-labelElement-label {
-		color: @wds-fandom-color-middle-gray;
 		line-height: @size-base;
 		padding: 0 @padding-horizontal-base 0 @input-horizontal-padding;
 	}
@@ -1515,38 +1256,9 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-inputWidget-input {
-			box-shadow: @input-focus-box-shadow--transparent;
 			.oo-ui-transition(border-color @transition-ease-medium, box-shadow @transition-ease-medium);
 
 			.mw-placeholder();
-
-			&:hover,
-			&:focus {
-				border-color: @primary-color;
-			}
-
-			&:focus {
-				box-shadow: @input-focus-box-shadow--active;
-			}
-
-			&[readonly] {
-				background-color: @wds-fandom-color-light-gray;
-			}
-		}
-
-		&.oo-ui-flaggedElement-invalid {
-			.oo-ui-inputWidget-input {
-				border-color: @alert-color;
-
-				&:hover,
-				&:focus {
-					border-color: @alert-color;
-				}
-
-				&:focus {
-					box-shadow: @input-focus-box-shadow--alert;
-				}
-			}
 		}
 	}
 
@@ -1565,7 +1277,6 @@
 .theme-oo-ui-toggleSwitchWidget() {
 	@travelDistance: 1.5em;
 
-	background-color: @wds-fandom-color-middle-gray;
 	border-radius: 8px;
 	height: 14px;
 	overflow: visible;
@@ -1573,9 +1284,7 @@
 	.oo-ui-transition(background-color @transition-base);
 
 	&-grip {
-		background-color: @wds-fandom-color-light-gray;
 		border-radius: 50%;
-		box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
 		content: '';
 		display: block;
 		height: 20px;
@@ -1597,10 +1306,7 @@
 	}
 
 	&.oo-ui-toggleWidget-on {
-		background-color: lighten(desaturate(@wds-fandom-color-button-background, 20%), 20%);
-
 		.oo-ui-toggleSwitchWidget-grip {
-			background-color: @wds-fandom-color-button-background;
 			transform: translate(80%, -50%);
 		}
 	}
@@ -1610,7 +1316,6 @@
 		pointer-events: none;
 
 		.oo-ui-toggleWidget-off .oo-ui-toggleSwitchWidget-grip {
-			background-color: @wds-color-white;
 			transform: translate(80%, -50%);
 		}
 	}
