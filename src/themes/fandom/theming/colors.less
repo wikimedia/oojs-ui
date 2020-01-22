@@ -16,19 +16,20 @@
 @notice-color: @wds-color-message;
 
 // neutral colors
-@neutral-background-color: if(@is-dark-theme, #3a3a3a, @wds-color-white);
+@neutral-gray-color: #3a3a3a;
+@neutral-background-color: if(@is-dark-theme, @neutral-gray-color, @wds-color-white);
 @neutral-background-color--transparent: if(
-		@is-dark-theme,
-		rgba(@wds-color-white, 0.15),
-		rgba(@wds-fandom-color-black, 0.15)
+	@is-dark-theme,
+	rgba(@wds-color-white, 0.15),
+	rgba(@neutral-gray-color, 0.15)
 );
 @neutral-background-color--readonly: if(
-		@is-dark-theme,
-		rgba(@wds-color-white, 0.25),
-		rgba(@wds-fandom-color-black, 0.25)
+	@is-dark-theme,
+	rgba(@wds-color-white, 0.25),
+	rgba(@neutral-gray-color, 0.25)
 );
-@neutral-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-mid-light-gray);
-@neutral-overlay-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@wds-fandom-color-black, 0.5));
+@neutral-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@neutral-gray-color, 0.5));
+@neutral-overlay-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@neutral-gray-color, 0.5));
 
 // toolbar colors
 @toolbar-background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), @wds-fandom-color-light-gray);

@@ -209,29 +209,6 @@
 			cursor: pointer;
 			.oo-ui-transition(background-color @transition-base, border-color @transition-base);
 		}
-
-		&:focus + span,
-		&:hover + span {
-			border-color: currentColor;
-		}
-
-		&:active + span {
-			background-color: currentColor;
-			border-color: currentColor;
-		}
-
-		&:checked,
-		&:indeterminate {
-			& + span,
-			&:focus + span,
-			&:active + span {
-				border-color: currentColor;
-
-				&::before {
-					border-color: currentColor;
-				}
-			}
-		}
 	}
 }
 
@@ -844,7 +821,6 @@
 			&::before {
 				.oo-ui-transition(height 0.1s, width 0.1s);
 
-				background-color: currentColor;
 				border-radius: 100%;
 				content: ' ';
 				height: 0;
@@ -1048,7 +1024,7 @@
 }
 
 .theme-oo-ui-tagItemWidget() {
-	border: @border-base;
+	border: 1px solid currentColor;
 	border-radius: @height-tagitem;
 	box-sizing: border-box;
 	display: inline-grid;

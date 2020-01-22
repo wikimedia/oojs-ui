@@ -44,6 +44,31 @@
 				border-color: @neutral-border-color;
 			}
 		}
+
+		&.oo-ui-widget-enabled [type='checkbox'] {
+			&:focus + span,
+			&:hover + span {
+				border-color: currentColor;
+			}
+
+			&:active + span {
+				background-color: currentColor;
+				border-color: currentColor;
+			}
+
+			&:checked,
+			&:indeterminate {
+				& + span,
+				&:focus + span,
+				&:active + span {
+					border-color: currentColor;
+
+					&::before {
+						border-color: currentColor;
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -173,6 +198,10 @@
 			+ span,
 			&:disabled + span {
 				color: @accent-color;
+
+				&::before {
+					background-color: currentColor;
+				}
 			}
 		}
 
@@ -251,7 +280,6 @@
 
 .theming-tags(@accent-color, @accent-color--fadeout) {
 	.oo-ui-tagItemWidget {
-		border-color: currentColor;
 		color: @color-text;
 
 		.oo-ui-buttonElement-button {
@@ -318,7 +346,7 @@
 
 			&.oo-ui-tagMultiselectWidget-outlined {
 				.oo-ui-tagMultiselectWidget-handle {
-					background-color: @neutral-background-color--readonly;
+					background-color: @neutral-background-color--transparent;
 				}
 
 				&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {

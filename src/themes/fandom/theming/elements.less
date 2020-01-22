@@ -12,6 +12,13 @@
 					.button-secondary(@alert-color, @alert-color--hover);
 				}
 			}
+
+			&.oo-ui-widget-enabled {
+				&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
+				& > .oo-ui-buttonElement-button:active {
+					border-color: currentColor;
+				}
+			}
 		}
 	}
 }
