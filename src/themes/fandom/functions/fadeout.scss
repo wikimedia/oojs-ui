@@ -1,0 +1,3 @@
+@function fadeout($color, $value) {
+	@return fade_out($color, $value / 100%);
+}

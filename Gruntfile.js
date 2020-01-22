@@ -274,6 +274,18 @@ module.exports = function ( grunt ) {
 				files: {
 					'demos/styles/demo.rtl.css': 'demos/styles/demo.rtl.css'
 				}
+			},
+			theming: {
+				options: {
+					banner: ''
+				},
+				files: {
+					'dist/themes/fandom/theming/colors.scss': [
+						'src/themes/fandom/functions/luma.scss',
+						'src/themes/fandom/functions/fadeout.scss',
+						'dist/themes/fandom/theming/colors.scss'
+					]
+				}
 			}
 		},
 
@@ -760,16 +772,17 @@ module.exports = function ( grunt ) {
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
 	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
+	grunt.registerTask( 'fandom-theming', [ 'lessToSass:theming', 'concat:theming' ] );
 	grunt.registerTask( 'build', [
 		'clean:build', 'fileExists', 'tyops', 'build-code', 'build-styling', 'build-i18n',
 		'concat:omnibus',
 		'copy:dist',
 		// 'copy:wikimediauibasevars',
-		'lessToSass:theming',
+		'fandom-theming',
 		'clean:tmp', 'demos'
 	] );
 
-    grunt.registerTask( 'import-wds', [
+    grunt.registerTask( 'fandom-import-wds', [
         'clean:wds',
         'copy:designsystemcss',
         'copy:wdsVariables', 'scss2less', 'clean:wdsVariables'
@@ -783,7 +796,7 @@ module.exports = function ( grunt ) {
 		'build-code',
 		'colorizeSvg', 'set-graphics:vector', 'less', 'concat:css',
 		'copy:imagesCommon', 'copy:imagesThemes',
-		'lessToSass:theming',
+		'fandom-theming',
 		'build-i18n', 'concat:omnibus', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
 	] );
