@@ -484,7 +484,13 @@ module.exports = function ( grunt ) {
 					src: ['*.less'],
 					ext: '.scss',
 					dest: 'dist/themes/fandom/theming'
-				}]
+				}],
+				options: {
+					replacements: [{
+						pattern: /(\$[\w\-]*:\s*)boolean\((.*)\)/gi,
+						replacement: '$1$2',
+					}]
+				}
 			}
 		},
 
