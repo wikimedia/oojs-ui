@@ -502,7 +502,7 @@ body.oo-ui-theme-fandom h2 span {
   background-color: #088488;
 }
 .oo-ui-textInputWidget .oo-ui-inputWidget-input {
-  background-color: rgba(58, 58, 58, 0.05);
+  background-color: transparent;
   border-color: rgba(58, 58, 58, 0.5);
   color: #0e191a;
 }
