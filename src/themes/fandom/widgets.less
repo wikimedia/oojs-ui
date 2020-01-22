@@ -299,6 +299,7 @@
 		font-size: @font-size-base;
 		min-height: @size-base;
 		padding: @padding-vertical-base @input-horizontal-padding;
+		text-align: left;
 
 		.oo-ui-iconElement-icon {
 			height: auto;
@@ -556,7 +557,7 @@
 	display: flex;
 	justify-content: space-between;
 	margin: 0 @wds-dropdown-padding / 2;
-	padding: @wds-list-item-vertical-padding (@wds-dropdown-padding / 2 - @gap-base / 2);
+	padding: 8px (@wds-dropdown-padding / 2 - @gap-base / 2);
 	white-space: nowrap;
 
 	> * {
@@ -569,7 +570,6 @@
 
 	> .oo-ui-labelElement-label {
 		flex-grow: 1;
-		line-height: @line-height-none;
 	}
 
 	// Don't add `highlighted` or `selected` modifications here
