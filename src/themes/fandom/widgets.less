@@ -42,7 +42,6 @@
 			border-top-right-radius: @border-radius-base;
 			margin-right: 0;
 		}
-
 	}
 
 	// Give hovered/focussed/active buttons higher `z-index`, so that borders display correctly.
@@ -157,7 +156,7 @@
 		+ span {
 			align-items: center;
 			background-color: transparent;
-			border-style: solid;
+			border-style: @border-style-base;
 			border-width: 2px;
 			box-sizing: border-box;
 			color: inherit;
@@ -175,7 +174,7 @@
 
 			&::before {
 				border-color: transparent;
-				border-style: solid;
+				border-style: @border-style-base;
 				border-width: 0 0 2px 2px;
 				content: '';
 				display: block;
@@ -292,8 +291,9 @@
 	width: 100%;
 
 	&-handle {
-		border: @border-base;
 		border-radius: @border-radius-base;
+		border-style: @border-style-base;
+		border-width: @border-width-base;
 		color: inherit;
 		font-family: inherit;
 		font-size: @font-size-base;
@@ -357,8 +357,9 @@
 		// Support IE 8-9: Move custom arrow out of canvas and remove padding the custom arrow.
 		// Also affects IE 10. An absolute horror show.
 		background-position: ~'-9999em 0\9';
-		border: @border-base;
 		border-radius: @border-radius-base;
+		border-style: @border-style-base;
+		border-width: @border-width-base;
 		box-sizing: border-box;
 		font-family: inherit;
 		font-size: inherit;
@@ -460,8 +461,9 @@
 }
 
 .theme-oo-ui-menuSelectWidget() {
-	border: @border-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
+	border-style: @border-style-base;
+	border-width: @border-width-base;
 	padding: @wds-dropdown-padding - @wds-list-item-vertical-padding 0;
 }
 
@@ -610,8 +612,9 @@
 
 .theme-oo-ui-popupWidget() {
 	&-popup {
-		border: @border-base;
 		border-radius: @border-radius-base;
+		border-style: @border-style-base;
+		border-width: @border-width-base;
 	}
 
 	&-anchored-top {
@@ -737,8 +740,9 @@
 }
 
 .theme-oo-ui-progressBarWidget() {
-	border: @border-base;
 	border-radius: @border-radius-base;
+	border-style: @border-style-base;
+	border-width: @border-width-base;
 	max-width: @max-width-base;
 	overflow: hidden;
 
@@ -878,7 +882,8 @@
 
 .theme-oo-ui-searchWidget() {
 	&-query {
-		border-bottom: @border-base;
+		border-bottom-style: @border-style-base;
+		border-bottom-width: @border-width-base;
 		height: @height-search;
 		padding: 0 @padding-panel-form; // Need to use `padding` over `margin` for horizontally continuos `border`/`box-shadow` below
 
@@ -911,8 +916,9 @@
 
 .theme-oo-ui-selectFileWidget() {
 	&-dropTarget {
-		border: @border-base;
 		border-radius: @border-radius-base;
+		border-style: @border-style-base;
+		border-width: @border-width-base;
 		overflow: hidden;
 		vertical-align: middle;
 
@@ -987,8 +993,8 @@
 
 .theme-oo-ui-tabSelectWidget() {
 	&-framed {
-		border-bottom-width: 2px;
 		border-bottom-style: solid;
+		border-bottom-width: 2px;
 	}
 
 	// Add background gradient to emphasize tab overflow.
@@ -1095,8 +1101,9 @@
 	width: 100%;
 
 	&-handle {
-		border: @border-base;
 		border-radius: @border-radius-base;
+		border-style: @border-style-base;
+		border-width: @border-width-base;
 		box-sizing: border-box;
 		line-height: @line-height-none;
 		min-height: @size-base;
@@ -1185,8 +1192,9 @@
 
 	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`
 	.oo-ui-inputWidget-input {
-		border: @border-base;
 		border-radius: @border-radius-base;
+		border-style: @border-style-base;
+		border-width: @border-width-base;
 		color: inherit;
 		font-family: inherit;
 		font-size: @font-size-base;

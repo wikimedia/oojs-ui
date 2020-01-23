@@ -14,7 +14,8 @@
 		padding: @wds-dropdown-padding - @wds-list-item-vertical-padding 0;
 
 		> .oo-ui-outlineControlsWidget {
-			border-top: @border-base;
+			border-top-style: @border-style-base;
+			border-top-width: @border-width-base;
 		}
 
 		.oo-ui-outlineOptionWidget {
@@ -24,7 +25,8 @@
 	}
 
 	> .oo-ui-menuLayout-menu {
-		border-right: @border-base;
+		border-right-style: @border-style-base;
+		border-right-width: @border-width-base;
 	}
 }
 
@@ -266,8 +268,9 @@
 	}
 
 	&-framed {
-		border: @border-base;
 		border-radius: @border-radius-base;
+		border-style: @border-style-base;
+		border-width: @border-width-base;
 	}
 
 	&-padded&-framed {

@@ -3,8 +3,9 @@
 
 .theme-oo-ui-toolbar() {
 	&-bar {
-		border: @border-base;
 		border-radius: @border-radius-base;
+		border-style: @border-style-base;
+		border-width: @border-width-base;
 		padding: 13px;
 
 		.oo-ui-toolbar-actions & {
@@ -75,7 +76,8 @@
 }
 
 .theme-oo-ui-toolGroup() {
-	border-right: @border-base;
+	border-right-style: @border-style-base;
+	border-right-width: @border-width-base;
 	padding: 0 12px;
 
 	.oo-ui-toolGroup {
@@ -83,7 +85,8 @@
 	}
 
 	.oo-ui-toolbar-actions & {
-		border-left: @border-base;
+		border-left-style: @border-style-base;
+		border-left-width: @border-width-base;
 		border-right: 0;
 
 		&.oo-ui-barToolGroup {

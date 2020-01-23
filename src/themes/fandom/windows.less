@@ -9,7 +9,8 @@
 
 .theme-oo-ui-messageDialog() {
 	&-content > .oo-ui-window-foot {
-		outline: @border-base;
+		outline-style: @border-style-base;
+		outline-width: @border-width-base;
 	}
 
 	&-title,
@@ -51,7 +52,8 @@
 
 		&-horizontal {
 			.oo-ui-actionWidget {
-				border-right: @border-base;
+				border-right-style: @border-style-base;
+				border-right-width: @border-width-base;
 				margin: 0;
 
 				&:first-child > .oo-ui-buttonElement-button {
@@ -74,7 +76,8 @@
 
 		&-vertical {
 			.oo-ui-actionWidget {
-				border-bottom: @border-base;
+				border-bottom-style: @border-style-base;
+				border-bottom-width: @border-width-base;
 				margin: 0;
 
 				&:last-child {
@@ -93,7 +96,8 @@
 	&-content {
 		.oo-ui-window-head,
 		.oo-ui-window-foot {
-			outline: @border-base;
+			outline-style: @border-style-base;
+			outline-width: @border-width-base;
 		}
 
 		.oo-ui-window-head {
@@ -248,8 +252,8 @@
 	}
 
 	&-error {
-		border-style: solid;
-		border-width: 1px;
+		border-style: @border-style-base;
+		border-width: @border-width-base;
 		margin: 1em 0 0;
 		padding: 16px 24px;
 		text-align: left;
