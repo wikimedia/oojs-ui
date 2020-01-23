@@ -73,7 +73,7 @@
 			"phpcs -p -s",
 			"phpunit $PHPUNIT_ARGS",
 			"minus-x check .",
-			"phan -d . -p --require-config-exists"
+			"phan -d . -p --require-config-exists --allow-polyfill-parser"
 		],
 		"fix": [
 			"phpcbf",
