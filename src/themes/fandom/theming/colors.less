@@ -23,11 +23,7 @@
 	rgba(@wds-color-white, 0.15),
 	rgba(@neutral-gray-color, 0.05)
 );
-@neutral-background-color--readonly: if(
-	@is-dark-theme,
-	rgba(@wds-color-white, 0.25),
-	rgba(@neutral-gray-color, 0.25)
-);
+@neutral-background-color--readonly: if(@is-dark-theme, rgba(@wds-color-white, 0.25), rgba(@neutral-gray-color, 0.1));
 @neutral-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@neutral-gray-color, 0.5));
 @neutral-overlay-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@neutral-gray-color, 0.5));
 
@@ -36,3 +32,8 @@
 @toolbar-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-dark-gray);
 @toolbar-font-color: if(@is-dark-theme, @wds-color-white, @wds-fandom-color-black);
 @toolbar-separator-color: if(@is-dark-theme, rgba(@wds-fandom-color-black, 0.6), @wds-fandom-color-dark-gray);
+@toolbar-tool-background-color--hover: if(
+	@is-dark-theme,
+	rgba(@wds-color-white, 0.1),
+	rgba(@wds-fandom-color-black, 0.1)
+);
