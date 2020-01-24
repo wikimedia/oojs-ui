@@ -193,8 +193,11 @@ body.oo-ui-theme-fandom h2 span {
   color: #0e191a;
 }
 .oo-ui-tool .oo-ui-tool-link:hover,
-.oo-ui-tool .oo-ui-tool-link:active,
 .oo-ui-tool .oo-ui-tool-link:focus {
+  background-color: rgba(14, 25, 26, 0.1);
+}
+.oo-ui-tool .oo-ui-tool-link:active,
+.oo-ui-tool .oo-ui-tool-link:active:hover {
   background-color: rgba(8, 132, 136, 0.1);
   color: #088488;
 }
@@ -242,12 +245,13 @@ body.oo-ui-theme-fandom h2 span {
 .oo-ui-toolbar-actions .oo-ui-toolGroup {
   border-left-color: #5f7a7b;
 }
-.oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled:hover .oo-ui-tool-link,
+.oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled:hover .oo-ui-tool-link {
+  background-color: rgba(14, 25, 26, 0.1);
+}
 .oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active .oo-ui-tool-link {
   background-color: rgba(8, 132, 136, 0.1);
   color: #088488;
 }
-.oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled:hover .oo-ui-tool-link .oo-ui-tool-accel,
 .oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active .oo-ui-tool-link .oo-ui-tool-accel {
   color: currentColor;
 }
@@ -262,12 +266,11 @@ body.oo-ui-theme-fandom h2 span {
   color: #7f9998;
 }
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:hover,
-.oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:active,
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:focus {
-  background-color: rgba(8, 132, 136, 0.1);
-  color: #088488;
+  background-color: rgba(14, 25, 26, 0.1);
 }
-.oo-ui-popupToolGroup.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
+.oo-ui-popupToolGroup.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle,
+.oo-ui-popupToolGroup.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle:hover {
   background-color: rgba(8, 132, 136, 0.1);
   color: #088488;
 }
@@ -509,9 +512,6 @@ body.oo-ui-theme-fandom h2 span {
 .oo-ui-textInputWidget .oo-ui-pendingElement-pending {
   background-color: rgba(8, 132, 136, 0.1);
 }
-.oo-ui-textInputWidget > .oo-ui-labelElement-label {
-  color: green;
-}
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input {
   box-shadow: inset 0 0 0 1px transparent;
 }
@@ -523,7 +523,7 @@ body.oo-ui-theme-fandom h2 span {
   box-shadow: inset 0 0 0 1px #088488;
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input[readonly] {
-  background-color: rgba(58, 58, 58, 0.25);
+  background-color: rgba(58, 58, 58, 0.1);
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
   border-color: #e81a3f;

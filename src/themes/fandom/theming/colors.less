@@ -3,6 +3,8 @@
 @is-dark-theme: boolean(luma(@color-page) < 50%);
 
 @color-text: if(@is-dark-theme, @wds-fandom-color-light-gray, @wds-fandom-color-black);
+@color-text--secondary: if(@is-dark-theme, darken(@color-text, 25%), lighten(@color-text, 25%));
+
 @color-buttons--hover: if(luma(@color-buttons) < 50%, lighten(@color-buttons, 20%), darken(@color-buttons, 20%));
 @color-buttons--text: if(luma(@color-buttons) < 50%, @wds-color-white, @wds-fandom-color-black);
 @color-buttons--fadeout: fadeout(@color-buttons, 90%);
@@ -23,13 +25,10 @@
 	rgba(@wds-color-white, 0.15),
 	rgba(@neutral-gray-color, 0.05)
 );
-@neutral-background-color--readonly: if(
-	@is-dark-theme,
-	rgba(@wds-color-white, 0.25),
-	rgba(@neutral-gray-color, 0.25)
-);
+@neutral-background-color--readonly: if(@is-dark-theme, rgba(@wds-color-white, 0.25), rgba(@neutral-gray-color, 0.1));
 @neutral-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@neutral-gray-color, 0.5));
 @neutral-overlay-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@neutral-gray-color, 0.5));
+@neutral-color--fadeout: if(@is-dark-theme, fadeout(@wds-color-white, 90%), fadeout(@wds-fandom-color-black, 90%));
 
 // toolbar colors
 @toolbar-background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), @wds-fandom-color-light-gray);
