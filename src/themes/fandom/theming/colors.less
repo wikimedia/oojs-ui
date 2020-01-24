@@ -1,4 +1,4 @@
-// to work, this file needs to have @color-page and @color-buttons defined before it's imported
+// to work, this file needs to have community colors (@color-page, @color-buttons, @color-links) defined before it's imported
 
 @is-dark-theme: boolean(luma(@color-page) < 50%);
 
@@ -9,6 +9,10 @@
 @color-buttons--hover: if(luma(@color-buttons) < 50%, lighten(@color-buttons, 20%), darken(@color-buttons, 20%));
 @color-buttons--text: if(luma(@color-buttons) < 50%, @wds-color-white, @wds-fandom-color-black);
 @color-buttons--fadeout: fadeout(@color-buttons, 90%);
+
+@color-links--hover: if(luma(@color-links) < 50%, lighten(@color-links, 20%), darken(@color-links, 20%));
+@color-links--text: if(luma(@color-links) < 50%, @wds-color-white, @wds-fandom-color-black);
+@color-links--fadeout: fadeout(@color-links, 90%);
 
 // alert / warning / success / message
 @mix-color: if(@is-dark-theme, #000, #fff);
