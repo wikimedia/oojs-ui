@@ -255,6 +255,10 @@
 	&-dropdownButton > .oo-ui-buttonElement-button {
 		display: grid;
 		height: @size-base;
+
+		.oo-ui-indicator-down {
+			.oo-ui-transition(transform @transition-base);
+		}
 	}
 
 	// Undo setting properties above when there is no button:
@@ -280,6 +284,10 @@
 			border-bottom-left-radius: 0;
 			border-top-left-radius: 0;
 		}
+	}
+
+	&-open &-dropdownButton .oo-ui-indicator-down {
+		transform: rotate(180deg);
 	}
 }
 
@@ -309,6 +317,8 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
+			.oo-ui-transition(transform @transition-base);
+
 			height: auto;
 			position: absolute;
 			right: @input-horizontal-padding - 1px;
@@ -339,6 +349,10 @@
 	&.oo-ui-widget-disabled &-handle {
 		opacity: @opacity--disabled;
 		pointer-events: none;
+	}
+
+	&-open &-handle .oo-ui-indicator-down {
+		transform: rotate(180deg);
 	}
 }
 
