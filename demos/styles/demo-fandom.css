@@ -407,12 +407,12 @@ body.oo-ui-theme-fandom h2 span {
   background-color: rgba(8, 132, 136, 0.1);
   color: #088488;
 }
+.oo-ui-tabSelectWidget {
+  border-bottom-color: rgba(58, 58, 58, 0.5);
+}
 .oo-ui-tabSelectWidget-framed {
   background-color: transparent;
   border-bottom-color: #ff776d;
-}
-.oo-ui-tabSelectWidget-frameless {
-  border-bottom-color: rgba(58, 58, 58, 0.5);
 }
 .oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget {
   background-color: rgba(58, 58, 58, 0.05);
