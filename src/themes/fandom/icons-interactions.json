@@ -52,13 +52,7 @@
 			"file": "~design-system-svg/wds-icons-question-small.svg"
 		},
 		"helpNotice": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/helpNotice-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/helpNotice-rtl.svg",
-				"lang": {
-					"he,yi": "../wikimediaui/images/icons/helpNotice-ltr.svg"
-				}
-			}
+			"file": "~design-system-svg/wds-icons-question-small.svg"
 		},
 		"key": {
 			"file": "../wikimediaui/images/icons/key.svg"
