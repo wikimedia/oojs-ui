@@ -3,19 +3,23 @@
 @is-dark-theme: boolean(luma(@color-page) < 50%);
 
 @color-text: if(@is-dark-theme, @wds-fandom-color-light-gray, @wds-fandom-color-black);
+@color-text--hover: rgba(@color-text, 0.8);
 @color-text--secondary: if(@is-dark-theme, darken(@color-text, 25%), lighten(@color-text, 25%));
 
 @color-buttons--hover: if(luma(@color-buttons) < 50%, lighten(@color-buttons, 20%), darken(@color-buttons, 20%));
 @color-buttons--text: if(luma(@color-buttons) < 50%, @wds-color-white, @wds-fandom-color-black);
 @color-buttons--fadeout: fadeout(@color-buttons, 90%);
 
-@alert-color: @wds-color-alert;
+// alert / warning / success / message
+@mix-color: if(@is-dark-theme, #000, #fff);
+@mix-weight: if(@is-dark-theme, 75%, 90%);
+@alert-color: mix(@wds-color-alert, @mix-color, @mix-weight);
 @alert-color--hover: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
 @alert-color--text: if(luma(@alert-color) < 50%, @wds-color-white, @wds-fandom-color-black);
 @alert-color--fadeout: fadeout(@alert-color, 90%);
-@warning-color: @wds-color-warning;
-@success-color: @wds-color-success;
-@notice-color: @wds-color-message;
+@warning-color: mix(@wds-color-warning, @mix-color, @mix-weight);
+@success-color: mix(@wds-color-success, @mix-color, @mix-weight);
+@notice-color: mix(@wds-color-message, @mix-color, @mix-weight);
 
 // neutral colors
 @neutral-gray-color: #3a3a3a;
