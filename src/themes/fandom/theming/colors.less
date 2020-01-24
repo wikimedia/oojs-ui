@@ -1,8 +1,10 @@
 // to work, this file needs to have community colors (@color-page, @color-buttons, @color-links) defined before it's imported
 
+@neutral-gray-color: #3a3a3a;
+
 @is-dark-theme: boolean(luma(@color-page) < 50%);
 
-@color-text: if(@is-dark-theme, @wds-fandom-color-light-gray, @wds-fandom-color-black);
+@color-text: if(@is-dark-theme, #d5d4d4, @neutral-gray-color);
 @color-text--hover: rgba(@color-text, 0.8);
 @color-text--secondary: if(@is-dark-theme, darken(@color-text, 25%), lighten(@color-text, 25%));
 
@@ -13,6 +15,8 @@
 @color-links--hover: if(luma(@color-links) < 50%, lighten(@color-links, 20%), darken(@color-links, 20%));
 @color-links--text: if(luma(@color-links) < 50%, @wds-color-white, @wds-fandom-color-black);
 @color-links--fadeout: fadeout(@color-links, 90%);
+
+@color-page-border: mix(@color-page, if(@is-dark-theme, #fff, #000), 80%);
 
 // alert / warning / success / message
 @mix-color: if(@is-dark-theme, #000, #fff);
@@ -26,7 +30,6 @@
 @notice-color: mix(@wds-color-message, @mix-color, @mix-weight);
 
 // neutral colors
-@neutral-gray-color: #3a3a3a;
 @neutral-background-color: if(@is-dark-theme, @neutral-gray-color, @wds-color-white);
 @neutral-background-color--transparent: if(
 	@is-dark-theme,
