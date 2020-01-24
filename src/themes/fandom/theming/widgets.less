@@ -242,8 +242,6 @@
 
 .theming-tabs(@accent-color, @accent-color--text) {
 	.oo-ui-tabSelectWidget {
-		border-bottom-color: @color-page-border;
-
 		&-framed {
 			background-color: transparent;
 			border-bottom-color: @accent-color;
@@ -269,6 +267,8 @@
 
 		.oo-ui-tabSelectWidget-frameless &,
 		.oo-ui-tabSelectWidget:not(.oo-ui-tabSelectWidget-framed) & {
+			border-bottom-color: @color-page-border;
+
 			&.oo-ui-optionWidget-selected,
 			&.oo-ui-widget-enabled:active {
 				box-shadow: inset 0 -2px 0 0 @accent-color;

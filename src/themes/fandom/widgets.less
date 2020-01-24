@@ -1000,16 +1000,18 @@
 		}
 	}
 
-	.oo-ui-tabSelectWidget-frameless & {
+	.oo-ui-tabSelectWidget-frameless &,
+	.oo-ui-tabSelectWidget:not(.oo-ui-tabSelectWidget-framed) & {
 		.oo-ui-transition(color @transition-base, box-shadow @transition-base);
+
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
 	}
 }
 
 .theme-oo-ui-tabSelectWidget() {
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-
 	&-framed {
+		border-bottom-style: solid;
 		border-bottom-width: 2px;
 	}
 

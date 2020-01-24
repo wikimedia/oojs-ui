@@ -407,9 +407,6 @@ body.oo-ui-theme-fandom h2 span {
   background-color: rgba(8, 132, 136, 0.1);
   color: #088488;
 }
-.oo-ui-tabSelectWidget {
-  border-bottom-color: #c2c4c4;
-}
 .oo-ui-tabSelectWidget-framed {
   background-color: transparent;
   border-bottom-color: #ff776d;
@@ -424,6 +421,10 @@ body.oo-ui-theme-fandom h2 span {
 }
 .oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-widget-enabled:not(.oo-ui-optionWidget-selected):hover {
   color: #ff776d;
+}
+.oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget,
+.oo-ui-tabSelectWidget:not(.oo-ui-tabSelectWidget-framed) .oo-ui-tabOptionWidget {
+  border-bottom-color: #c2c4c4;
 }
 .oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected,
 .oo-ui-tabSelectWidget:not(.oo-ui-tabSelectWidget-framed) .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected,
