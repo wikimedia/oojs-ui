@@ -30,6 +30,17 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 	var $autoCloseIgnore = $( [] );
 	config = config || {};
 
+	// Ensure that any pre-selected items exist as menu options,
+	// so that they can be added as tags from #setValue
+	config.options = config.options || [];
+	config.selected = config.selected || [];
+	config.selected.forEach( function ( title ) {
+		config.options.push( {
+			data: title,
+			label: title
+		} );
+	} );
+
 	// Parent constructor
 	OO.ui.MenuTagMultiselectWidget.parent.call( this, config );
 
