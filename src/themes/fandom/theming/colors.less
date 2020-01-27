@@ -9,9 +9,9 @@
 
 //@neutral-gray-color: #3a3a3a;
 
-@is-dark-theme: boolean(luma(@themed-page-background) < 10%);
-@is-dark-button: boolean(luma(@themed-button-background) < 10%);
-@is-dark-link: boolean(luma(@themed-link-color) < 10%);
+@is-dark-theme: boolean(luma(@themed-page-background) < 50%);
+@is-dark-button: boolean(luma(@themed-button-background) < 50%);
+@is-dark-link: boolean(luma(@themed-link-color) < 50%);
 
 @mix-color: if(@is-dark-theme, #fff, #000);
 @themed-text-color--light: #d5d4d4;
@@ -43,7 +43,7 @@
 @mix-weight: 75%;
 
 @themed-alert-color: mix(@wds-color-alert, @mix-color, @mix-weight);
-@is-dark-color: boolean(luma(@themed-alert-color) < 10%);
+@is-dark-color: boolean(luma(@themed-alert-color) < 50%);
 @themed-alert-color--hover: if(@is-dark-color, lighten(@themed-alert-color, 20%), darken(@themed-alert-color, 20%));
 @themed-alert-color--label: if(@is-dark-color, @themed-button-label--light, @themed-button-label--dark);
 @themed-alert-color--transparent: rgba(@themed-alert-color, 0.1);
