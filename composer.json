@@ -53,8 +53,8 @@
 		"jakub-onderka/php-console-highlighter": "0.4.0",
 		"mediawiki/mediawiki-codesniffer": "29.0.0",
 		"phpunit/phpunit": "^8.5",
-		"mediawiki/minus-x": "0.3.2",
-		"mediawiki/mediawiki-phan-config": "0.9.0"
+		"mediawiki/minus-x": "1.0.0",
+		"mediawiki/mediawiki-phan-config": "0.9.1"
 	},
 	"autoload": {
 		"classmap": [

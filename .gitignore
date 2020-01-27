@@ -16,3 +16,4 @@ composer.lock
 composer-setup.php
 **/.DS_Store
 .eslintcache
+/.phpunit.result.cache
