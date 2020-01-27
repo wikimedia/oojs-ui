@@ -44,7 +44,7 @@
 			}
 		},
 		"highlight": {
-			"file": "../wikimediaui/images/icons/highlight.svg"
+			"file": "~design-system-svg/wds-icons-pencil-small.svg"
 		},
 		"italic": {
 			"file": {
