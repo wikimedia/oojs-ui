@@ -1,13 +1,13 @@
 .theming-windows() {
 	.oo-ui-messageDialog {
 		&-content > .oo-ui-window-foot {
-			outline-color: @neutral-border-color;
+			outline-color: @themed-border-color;
 		}
 
 		&-actions {
 			&-vertical {
 				.oo-ui-actionWidget {
-					border-bottom-color: @neutral-border-color;
+					border-bottom-color: @themed-border-color;
 				}
 			}
 		}
@@ -17,7 +17,7 @@
 		&-content {
 			.oo-ui-window-head,
 			.oo-ui-window-foot {
-				outline-color: @neutral-border-color;
+				outline-color: @themed-border-color;
 			}
 		}
 
@@ -27,7 +27,7 @@
 					&:hover,
 					&:focus,
 					&:active {
-						border-right-color: @neutral-border-color;
+						border-right-color: @themed-border-color;
 					}
 				}
 			}
@@ -37,7 +37,7 @@
 			&-primary {
 				.oo-ui-actionWidget {
 					> .oo-ui-buttonElement-button {
-						border-left-color: @neutral-border-color;
+						border-left-color: @themed-border-color;
 					}
 
 					&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
@@ -45,7 +45,7 @@
 							&:hover,
 							&:focus,
 							&:active {
-								border-left-color: @neutral-border-color;
+								border-left-color: @themed-border-color;
 							}
 						}
 					}
@@ -55,7 +55,7 @@
 			&-safe,
 			&-other {
 				.oo-ui-actionWidget > .oo-ui-buttonElement-button {
-					border-right-color: @neutral-border-color;
+					border-right-color: @themed-border-color;
 				}
 			}
 
@@ -77,8 +77,8 @@
 		}
 
 		&-error {
-			background-color: @alert-color--fadeout;
-			border-color: @alert-color;
+			background-color: @themed-alert-color--transparent;
+			border-color: @themed-alert-color;
 		}
 	}
 

@@ -11,7 +11,7 @@
 		.oo-ui-tool-link {
 			&:hover,
 			&:focus {
-				background-color: @neutral-color--fadeout;
+				background-color: @neutral-background-color--transparent;
 			}
 
 			&:active,
@@ -37,12 +37,12 @@
 
 				&-destructive {
 					.oo-ui-tool-link {
-						color: @alert-color;
+						color: @themed-alert-color;
 
 						&:hover,
 						&:active,
 						&:focus {
-							color: @alert-color--hover;
+							color: @themed-alert-color--hover;
 						}
 					}
 				}
@@ -67,15 +67,15 @@
 
 					&-destructive {
 						.oo-ui-tool-link {
-							background-color: @alert-color;
-							border-color: @alert-color;
-							color: @alert-color--text;
+							background-color: @themed-alert-color;
+							border-color: @themed-alert-color;
+							color: @themed-alert-color--label;
 
 							&:hover,
 							&:active,
 							&:focus {
-								background-color: @alert-color--hover;
-								border-color: @alert-color--hover;
+								background-color: @themed-alert-color--hover;
+								border-color: @themed-alert-color--hover;
 							}
 						}
 					}
@@ -96,7 +96,7 @@
 		&-tools .oo-ui-tool {
 			&.oo-ui-widget-enabled {
 				&:hover .oo-ui-tool-link {
-					background-color: @neutral-color--fadeout;
+					background-color: @neutral-background-color--transparent;
 				}
 
 				&.oo-ui-tool-active .oo-ui-tool-link {
@@ -131,7 +131,7 @@
 			> .oo-ui-popupToolGroup-handle {
 				&:hover,
 				&:focus {
-					background-color: @neutral-color--fadeout;
+					background-color: @neutral-background-color--transparent;
 				}
 			}
 		}

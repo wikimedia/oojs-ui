@@ -6,10 +6,10 @@
 @import 'widgets';
 
 // elements
-.theming-text-buttons(@color-text, @color-text--hover);
-.theming-secondary-buttons(@color-text, @color-text--hover);
-.theming-primary-buttons(@color-buttons, @color-buttons--hover, @color-buttons--text);
-.theming-pending(@color-buttons);
+.theming-text-buttons(@themed-text-color, @themed-text-color--hover);
+.theming-secondary-buttons(@themed-text-color, @themed-text-color--hover);
+.theming-primary-buttons(@themed-button-background, @themed-button-background--hover, @themed-button-label);
+.theming-pending(@themed-button-background);
 
 // layouts
 .theming-layouts();
@@ -18,20 +18,20 @@
 .theming-windows();
 
 // tools
-.theming-tools(@color-links, @color-links--text, @color-links--hover, @color-links--fadeout);
+.theming-tools(@themed-link-color, @themed-link--label, @themed-link-color--hover, @themed-link-color--transparent);
 
 // widgets
 .theming-button-widgets();
-.theming-checkboxes(@color-links);
-.theming-dropdowns(@color-links);
-.theming-menuOptions(@color-links, @color-links--fadeout);
-.theming-outlineControls(@color-links, @color-links--fadeout);
+.theming-checkboxes(@themed-link-color);
+.theming-dropdowns(@themed-link-color);
+.theming-menuOptions(@themed-link-color, @themed-link-color--transparent);
+.theming-outlineControls(@themed-link-color, @themed-link-color--transparent);
 .theming-popups();
-.theming-progressBars(@color-buttons);
-.theming-radios(@color-links);
-.theming-fileSelects(@color-buttons, @color-buttons--fadeout);
-.theming-tabs(@color-links, @color-links--text);
-.theming-tags(@color-links, @color-links--fadeout);
-.theming-toggles(@color-links, @color-links--hover);
-.theming-inputs(@color-links, @color-links--fadeout);
+.theming-progressBars(@themed-button-background);
+.theming-radios(@themed-link-color);
+.theming-fileSelects(@themed-button-background, @themed-link-color--transparent);
+.theming-tabs(@themed-link-color, @themed-link--label);
+.theming-tags(@themed-link-color, @themed-link-color--transparent);
+.theming-toggles(@themed-link-color, @themed-link-color--hover);
+.theming-inputs(@themed-link-color, @themed-link-color--transparent);
 .theming-messages();

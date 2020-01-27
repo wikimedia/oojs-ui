@@ -1,46 +1,64 @@
-// to work, this file needs to have community colors (@color-page, @color-buttons, @color-links) defined before it's imported
+// to work, this file needs to have community colors defined before it's imported
+//   @color-page
+//   @color-buttons
+//   @color-links
 
-@neutral-gray-color: #3a3a3a;
+@themed-page-background: @color-page;
+@themed-button-background: @color-buttons;
+@themed-link-color: @color-links;
 
-@is-dark-theme: boolean(luma(@color-page) < 50%);
+//@neutral-gray-color: #3a3a3a;
 
-@color-text: if(@is-dark-theme, #d5d4d4, @neutral-gray-color);
-@color-text--hover: rgba(@color-text, 0.8);
-@color-text--secondary: if(@is-dark-theme, darken(@color-text, 25%), lighten(@color-text, 25%));
+@is-dark-theme: boolean(luma(@themed-page-background) < 10%);
+@is-dark-button: boolean(luma(@themed-button-background) < 10%);
+@is-dark-link: boolean(luma(@themed-link-color) < 10%);
 
-@color-buttons--hover: if(luma(@color-buttons) < 50%, lighten(@color-buttons, 20%), darken(@color-buttons, 20%));
-@color-buttons--text: if(luma(@color-buttons) < 50%, @wds-color-white, @wds-fandom-color-black);
-@color-buttons--fadeout: fadeout(@color-buttons, 90%);
+@mix-color: if(@is-dark-theme, #fff, #000);
+@themed-text-color--light: #d5d4d4;
+@themed-text-color--dark: #3a3a3a;
+@themed-button-label--light: @wds-color-white;
+@themed-button-label--dark: @wds-fandom-color-black;
 
-@color-links--hover: if(luma(@color-links) < 50%, lighten(@color-links, 20%), darken(@color-links, 20%));
-@color-links--text: if(luma(@color-links) < 50%, @wds-color-white, @wds-fandom-color-black);
-@color-links--fadeout: fadeout(@color-links, 90%);
+@themed-text-color: if(@is-dark-theme, @themed-text-color--light, @themed-text-color--dark);
+@themed-text-color--hover: rgba(@themed-text-color, 0.8);
+@themed-text--secondary: if(@is-dark-theme, darken(@themed-text-color, 25%), lighten(@themed-text-color, 25%));
 
-@color-page-border: mix(@color-page, if(@is-dark-theme, #fff, #000), 80%);
+@themed-button-label: if(@is-dark-button, @themed-button-label--light, @themed-button-label--dark);
+@themed-button-background---transparent: rgba(@themed-button-background, 0.1);
+@themed-button-background--hover: if(
+	@is-dark-button,
+	lighten(@themed-button-background, 20%),
+	darken(@themed-button-background, 20%)
+);
+
+@themed-link-color--hover: if(@is-dark-link, lighten(@themed-link-color, 20%), darken(@themed-link-color, 20%));
+@themed-link-color--transparent: rgba(@themed-link-color, 0.1);
+@themed-link--label: if(@is-dark-link, @themed-button-label--light, @themed-button-label--dark);
+
+@themed-border-color: rmix(@themed-page-background, @mix-color, 80%);
 
 // alert / warning / success / message
-@mix-color: if(@is-dark-theme, #2b2b2b, #d4d4d4);
-@mix-weight: if(@is-dark-theme, 60%, 75%);
+//@mix-color: if(@is-dark-theme, #2b2b2b, #d4d4d4);
+//@mix-weight: if(@is-dark-theme, 60%, 75%);
+@mix-weight: 75%;
 
-@alert-color: mix(@wds-color-alert, @mix-color, @mix-weight);
-@alert-color--hover: if(luma(@alert-color) < 50%, lighten(@alert-color, 20%), darken(@alert-color, 20%));
-@alert-color--text: if(luma(@alert-color) < 50%, @wds-color-white, @wds-fandom-color-black);
-@alert-color--fadeout: fadeout(@alert-color, 90%);
-@warning-color: mix(@wds-color-warning, @mix-color, @mix-weight);
-@success-color: mix(@wds-color-success, @mix-color, @mix-weight);
-@notice-color: mix(@wds-color-message, @mix-color, @mix-weight);
+@themed-alert-color: mix(@wds-color-alert, @mix-color, @mix-weight);
+@is-dark-color: boolean(luma(@themed-alert-color) < 10%);
+@themed-alert-color--hover: if(@is-dark-color, lighten(@themed-alert-color, 20%), darken(@themed-alert-color, 20%));
+@themed-alert-color--label: if(@is-dark-color, @themed-button-label--light, @themed-button-label--dark);
+@themed-alert-color--transparent: rgba(@themed-alert-color, 0.1);
+
+@themed-warning-color: mix(@wds-color-warning, @mix-color, @mix-weight);
+@themed-success-color: mix(@wds-color-success, @mix-color, @mix-weight);
+@themed-notice-color: mix(@wds-color-message, @mix-color, @mix-weight);
 
 // neutral colors
-@neutral-background-color: if(@is-dark-theme, @neutral-gray-color, @wds-color-white);
-@neutral-background-color--transparent: if(
-	@is-dark-theme,
-	rgba(@wds-color-white, 0.15),
-	rgba(@neutral-gray-color, 0.15)
-);
-@neutral-background-color--readonly: if(@is-dark-theme, rgba(@wds-color-white, 0.25), rgba(@neutral-gray-color, 0.1));
-@neutral-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@neutral-gray-color, 0.5));
-@neutral-overlay-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@neutral-gray-color, 0.5));
-@neutral-color--fadeout: if(@is-dark-theme, fadeout(@wds-color-white, 90%), fadeout(@wds-fandom-color-black, 90%));
+@neutral-background-color: if(@is-dark-theme, #3a3a3a, #fff);
+@neutral-background-color--transparent: if(@is-dark-theme, rgba(#fff, 0.15), rgba(#000, 0.05));
+//@neutral-background-color--readonly: if(@is-dark-theme, rgba(@mix-color, 0.25), rgba(@mix-color, 0.1));
+//@neutral-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@neutral-gray-color, 0.5));
+@neutral-overlay-color: f(@is-dark-theme, rgba(#fff, 0.5), rgba(#000, 0.5));
+//@neutral-color--fadeout: rgba(@opposite-color, 0.1);
 
 // toolbar colors
 @toolbar-background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), @wds-fandom-color-light-gray);
