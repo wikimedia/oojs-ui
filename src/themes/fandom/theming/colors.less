@@ -35,7 +35,7 @@
 @themed-link-color--transparent: rgba(@themed-link-color, 0.1);
 @themed-link--label: if(@is-dark-link, @themed-button-label--light, @themed-button-label--dark);
 
-@themed-border-color: rmix(@themed-page-background, @mix-color, 80%);
+@themed-border-color: mix(@themed-page-background, @mix-color, 80%);
 
 // alert / warning / success / message
 //@mix-color: if(@is-dark-theme, #2b2b2b, #d4d4d4);
@@ -57,7 +57,7 @@
 @neutral-background-color--transparent: if(@is-dark-theme, rgba(#fff, 0.15), rgba(#000, 0.05));
 //@neutral-background-color--readonly: if(@is-dark-theme, rgba(@mix-color, 0.25), rgba(@mix-color, 0.1));
 //@neutral-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), rgba(@neutral-gray-color, 0.5));
-@neutral-overlay-color: f(@is-dark-theme, rgba(#fff, 0.5), rgba(#000, 0.5));
+@neutral-overlay-color: if(@is-dark-theme, rgba(#fff, 0.5), rgba(#000, 0.5));
 //@neutral-color--fadeout: rgba(@opposite-color, 0.1);
 
 // toolbar colors
