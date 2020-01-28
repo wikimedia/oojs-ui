@@ -4,7 +4,7 @@
 .oo-ui-buttonElement-frameless > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-frameless > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-frameless > .oo-ui-buttonElement-button:focus {
-  color: rgba(58, 58, 58, 0.8);
+  color: #070707;
 }
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
   color: #3a3a3a;
@@ -12,7 +12,7 @@
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:focus {
-  color: rgba(58, 58, 58, 0.8);
+  color: #070707;
 }
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
   color: #ae142f;
@@ -32,7 +32,7 @@
 .oo-ui-buttonElement-framed > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-framed > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-framed > .oo-ui-buttonElement-button:focus {
-  color: rgba(58, 58, 58, 0.8);
+  color: #070707;
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
@@ -44,7 +44,7 @@
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:focus,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:focus {
-  color: rgba(58, 58, 58, 0.8);
+  color: #070707;
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
@@ -126,34 +126,34 @@
   background-image: linear-gradient(135deg, #fff 25%, transparent 25%, transparent 50%, #fff 50%, #fff 75%, transparent 75%, transparent);
 }
 .oo-ui-panelLayout-framed {
-  border-color: rgba(58, 58, 58, 0.5);
+  border-color: #020202;
 }
 .oo-ui-messageDialog-content > .oo-ui-window-foot {
-  outline-color: rgba(58, 58, 58, 0.5);
+  outline-color: #020202;
 }
 .oo-ui-messageDialog-actions-vertical .oo-ui-actionWidget {
-  border-bottom-color: rgba(58, 58, 58, 0.5);
+  border-bottom-color: #020202;
 }
 .oo-ui-processDialog-content .oo-ui-window-head,
 .oo-ui-processDialog-content .oo-ui-window-foot {
-  outline-color: rgba(58, 58, 58, 0.5);
+  outline-color: #020202;
 }
 .oo-ui-processDialog .oo-ui-actionWidget:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) > .oo-ui-buttonElement-button:hover,
 .oo-ui-processDialog .oo-ui-actionWidget:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) > .oo-ui-buttonElement-button:focus,
 .oo-ui-processDialog .oo-ui-actionWidget:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) > .oo-ui-buttonElement-button:active {
-  border-right-color: rgba(58, 58, 58, 0.5);
+  border-right-color: #020202;
 }
 .oo-ui-processDialog-actions-primary .oo-ui-actionWidget > .oo-ui-buttonElement-button {
-  border-left-color: rgba(58, 58, 58, 0.5);
+  border-left-color: #020202;
 }
 .oo-ui-processDialog-actions-primary .oo-ui-actionWidget:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) > .oo-ui-buttonElement-button:hover,
 .oo-ui-processDialog-actions-primary .oo-ui-actionWidget:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) > .oo-ui-buttonElement-button:focus,
 .oo-ui-processDialog-actions-primary .oo-ui-actionWidget:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) > .oo-ui-buttonElement-button:active {
-  border-left-color: rgba(58, 58, 58, 0.5);
+  border-left-color: #020202;
 }
 .oo-ui-processDialog-actions-safe .oo-ui-actionWidget > .oo-ui-buttonElement-button,
 .oo-ui-processDialog-actions-other .oo-ui-actionWidget > .oo-ui-buttonElement-button {
-  border-right-color: rgba(58, 58, 58, 0.5);
+  border-right-color: #020202;
 }
 .oo-ui-processDialog-actions-safe .oo-ui-widget-enabled.oo-ui-iconElement:not(.oo-ui-labelElement) > .oo-ui-buttonElement-button:hover,
 .oo-ui-processDialog-actions-safe .oo-ui-widget-enabled.oo-ui-iconElement:not(.oo-ui-labelElement) > .oo-ui-buttonElement-button:active,
@@ -164,7 +164,7 @@
   background-color: #fff;
 }
 .oo-ui-processDialog-error {
-  background-color: rgba(174, 20, 47, 0.1);
+  background-color: rgba(174, 19, 47, 0.1);
   border-color: #ae142f;
 }
 .oo-ui-windowManager-modal > .oo-ui-dialog {
@@ -261,14 +261,14 @@
   color: #ff776d;
 }
 .oo-ui-buttonGroupWidget .oo-ui-buttonElement-framed.oo-ui-widget-disabled + .oo-ui-widget-disabled > .oo-ui-buttonElement-button {
-  border-left-color: rgba(58, 58, 58, 0.5);
+  border-left-color: rgba(2, 2, 2, 0.5);
 }
 .oo-ui-buttonGroupWidget.oo-ui-widget-enabled .oo-ui-buttonElement.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on > .oo-ui-buttonElement-button,
 .oo-ui-buttonGroupWidget.oo-ui-widget-enabled .oo-ui-buttonElement.oo-ui-toggleWidget-on + .oo-ui-toggleWidget-on > .oo-ui-buttonElement-button:active {
-  border-left-color: rgba(58, 58, 58, 0.5);
+  border-left-color: #020202;
 }
 .oo-ui-buttonSelectWidget .oo-ui-buttonOptionWidget.oo-ui-widget-disabled + .oo-ui-widget-disabled > .oo-ui-buttonElement-button {
-  border-left-color: rgba(58, 58, 58, 0.5);
+  border-left-color: rgba(2, 2, 2, 0.5);
 }
 .oo-ui-checkboxInputWidget {
   color: #ff776d;
@@ -278,7 +278,7 @@
 .oo-ui-checkboxInputWidget [type='checkbox']:disabled + span,
 .oo-ui-checkboxInputWidget [type='checkbox']:checked:disabled + span,
 .oo-ui-checkboxInputWidget [type='checkbox']:checked:disabled + span::before {
-  border-color: rgba(58, 58, 58, 0.5);
+  border-color: #020202;
 }
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:focus + span,
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:hover + span {
@@ -306,7 +306,7 @@
 }
 .oo-ui-dropdownWidget-handle {
   background-color: rgba(0, 0, 0, 0.05);
-  border-color: rgba(58, 58, 58, 0.5);
+  border-color: #020202;
 }
 .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:hover,
 .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:focus,
@@ -323,7 +323,7 @@
 }
 .oo-ui-menuSelectWidget {
   background-color: #fff;
-  border: rgba(58, 58, 58, 0.5);
+  border: #020202;
   box-shadow: 0 3px 12px 0 rgba(14, 25, 26, 0.3);
 }
 .oo-ui-outlineControlsWidget {
@@ -337,29 +337,29 @@
 }
 .oo-ui-popupWidget-popup {
   background-color: #fff;
-  border: rgba(58, 58, 58, 0.5);
+  border: #020202;
   color: #3a3a3a;
   filter: drop-shadow(0 2px 1px rgba(14, 25, 26, 0.3));
 }
 .oo-ui-popupWidget-anchored-top .oo-ui-popupWidget-anchor::before,
 .oo-ui-popupWidget-anchored-top .oo-ui-popupWidget-anchor::after {
-  border-bottom-color: rgba(58, 58, 58, 0.5);
+  border-bottom-color: #020202;
 }
 .oo-ui-popupWidget-anchored-bottom .oo-ui-popupWidget-anchor::before,
 .oo-ui-popupWidget-anchored-bottom .oo-ui-popupWidget-anchor::after {
-  border-top-color: rgba(58, 58, 58, 0.5);
+  border-top-color: #020202;
 }
 .oo-ui-popupWidget-anchored-start .oo-ui-popupWidget-anchor::before,
 .oo-ui-popupWidget-anchored-start .oo-ui-popupWidget-anchor::after {
-  border-right-color: rgba(58, 58, 58, 0.5);
+  border-right-color: #020202;
 }
 .oo-ui-popupWidget-anchored-end .oo-ui-popupWidget-anchor::before,
 .oo-ui-popupWidget-anchored-end .oo-ui-popupWidget-anchor::after {
-  border-left-color: rgba(58, 58, 58, 0.5);
+  border-left-color: #020202;
 }
 .oo-ui-progressBarWidget {
   background-color: rgba(0, 0, 0, 0.05);
-  border-color: rgba(58, 58, 58, 0.5);
+  border-color: #020202;
 }
 .oo-ui-progressBarWidget.oo-ui-widget-enabled .oo-ui-progressBarWidget-bar {
   background-color: #088488;
@@ -370,7 +370,7 @@
 .oo-ui-radioInputWidget [type='radio'] + span,
 .oo-ui-radioInputWidget [type='radio']:disabled + span,
 .oo-ui-radioInputWidget [type='radio']:checked:disabled + span {
-  color: rgba(58, 58, 58, 0.5);
+  color: #020202;
 }
 .oo-ui-radioInputWidget [type='radio'] + span::before,
 .oo-ui-radioInputWidget [type='radio']:disabled + span::before,
@@ -383,7 +383,7 @@
 }
 .oo-ui-selectFileWidget-dropTarget {
   background-color: rgba(0, 0, 0, 0.05);
-  border-color: rgba(58, 58, 58, 0.5);
+  border-color: #020202;
 }
 .oo-ui-selectFileWidget.oo-ui-widget-enabled.oo-ui-selectFileWidget-dropTarget:hover {
   border-color: #088488;
@@ -410,7 +410,7 @@
 }
 .oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget,
 .oo-ui-tabSelectWidget:not(.oo-ui-tabSelectWidget-framed) .oo-ui-tabOptionWidget {
-  border-bottom-color: rgba(58, 58, 58, 0.5);
+  border-bottom-color: #020202;
 }
 .oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected,
 .oo-ui-tabSelectWidget:not(.oo-ui-tabSelectWidget-framed) .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected,
@@ -446,7 +446,7 @@
   color: #ff776d;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid {
-  background-color: rgba(174, 20, 47, 0.1);
+  background-color: rgba(174, 19, 47, 0.1);
   color: #ae142f;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid:hover,
@@ -454,7 +454,7 @@
   color: #e93e5d;
 }
 .oo-ui-tagMultiselectWidget-handle {
-  border-color: rgba(58, 58, 58, 0.5);
+  border-color: #020202;
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled .oo-ui-tagMultiselectWidget-handle {
   background-color: rgba(0, 0, 0, 0.05);
@@ -497,7 +497,7 @@
 }
 .oo-ui-textInputWidget .oo-ui-inputWidget-input {
   background-color: transparent;
-  border-color: rgba(58, 58, 58, 0.5);
+  border-color: #020202;
   color: #3a3a3a;
 }
 .oo-ui-textInputWidget .oo-ui-pendingElement-pending {
@@ -509,9 +509,6 @@
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input:hover,
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input:focus {
   border-color: #ff776d;
-}
-.oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input:focus {
-  box-shadow: inset 0 0 0 1px #ff776d;
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input[readonly] {
   background-color: rgba(255, 255, 255, 0.5);
