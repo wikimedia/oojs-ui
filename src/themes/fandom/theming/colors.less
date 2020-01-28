@@ -11,7 +11,6 @@
 @is-dark-button: boolean(luma(@themed-button-background) < 50%);
 @is-dark-link: boolean(luma(@themed-link-color) < 50%);
 
-@mix-color: if(@is-dark-theme, #fff, #000);
 @themed-text-color--light: #d5d4d4;
 @themed-text-color--dark: #3a3a3a;
 @themed-button-label--light: @wds-color-white;
@@ -32,11 +31,12 @@
 @themed-link-color--fadeout: fadeout(@themed-link-color, 90%);
 @themed-link--label: if(@is-dark-link, @themed-button-label--light, @themed-button-label--dark);
 
-@themed-border-color: mix(@themed-page-background, @mix-color, 0.8);
+@themed-border-color: mix(@themed-page-background, if(@is-dark-theme, #fff, #000), 80%);
 
 // alert / warning / success / message
 // TODO: adjust till contrast ratio is 3:1
-@mix-weight: 75%;
+@mix-color: if(@is-dark-theme, #2b2b2b, #d4d4d4);
+@mix-weight: if(@is-dark-theme, 60%, 75%);
 
 @themed-alert-color: mix(@wds-color-alert, @mix-color, @mix-weight);
 @is-dark-color: boolean(luma(@themed-alert-color) < 50%);
