@@ -13,16 +13,16 @@
 
 @white: #fff;
 @black: #000;
-@themed-text-color--light: #d5d4d4;
-@themed-text-color--dark: #3a3a3a;
-@themed-button-label--light: @white;
-@themed-button-label--dark: @wds-fandom-color-black;
+@text-color--light: #d5d4d4;
+@text-color--dark: #3a3a3a;
+@button-label--light: @white;
+@button-label--dark: @wds-fandom-color-black;
 
-@themed-text-color: if(@is-dark-theme, @themed-text-color--light, @themed-text-color--dark);
+@themed-text-color: if(@is-dark-theme, @text-color--light, @text-color--dark);
 @themed-text-color--hover: if(@is-dark-theme, darken(@themed-text-color, 20%), darken(@themed-text-color, 20%));
 @themed-text-color--secondary: fadeout(@themed-text-color, 50%);
 
-@themed-button-label: if(@is-dark-button, @themed-button-label--light, @themed-button-label--dark);
+@themed-button-label: if(@is-dark-button, @button-label--light, @button-label--dark);
 @themed-button-background--hover: if(
 	@is-dark-button,
 	lighten(@themed-button-background, 20%),
@@ -31,7 +31,7 @@
 
 @themed-link-color--hover: if(@is-dark-link, lighten(@themed-link-color, 20%), darken(@themed-link-color, 20%));
 @themed-link-color--fadeout: fadeout(@themed-link-color, 90%);
-@themed-link--label: if(@is-dark-link, @themed-button-label--light, @themed-button-label--dark);
+@themed-link--label: if(@is-dark-link, @button-label--light, @button-label--dark);
 
 @themed-border-color: mix(@themed-page-background, if(@is-dark-theme, @white, @black), 80%);
 
@@ -43,7 +43,7 @@
 @themed-alert-color: mix(@wds-color-alert, @mix-color, @mix-weight);
 @is-dark-color: boolean(luma(@themed-alert-color) < 50%);
 @themed-alert-color--hover: if(@is-dark-color, lighten(@themed-alert-color, 20%), darken(@themed-alert-color, 20%));
-@themed-alert-color--label: if(@is-dark-color, @themed-button-label--light, @themed-button-label--dark);
+@themed-alert-color--label: if(@is-dark-color, @button-label--light, @button-label--dark);
 @themed-alert-color--fadeout: fadeout(@themed-alert-color, 90%);
 
 @themed-warning-color: mix(@wds-color-warning, @mix-color, @mix-weight);
@@ -60,5 +60,5 @@
 @themed-neutral-overlay-color: if(@is-dark-theme, rgba(@white, 0.5), rgba(@black, 0.5));
 
 // toolbar colors
-@toolbar-font-color: if(@is-dark-theme, @white, @wds-fandom-color-black);
+@toolbar-text-color: if(@is-dark-theme, @white, @wds-fandom-color-black);
 @toolbar-separator-color: mix(@themed-page-background, if(@is-dark-theme, @white, @black), 50%);

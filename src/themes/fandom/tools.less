@@ -29,7 +29,7 @@
 	.oo-ui-tool-link {
 		border-radius: @border-radius-base;
 
-		.oo-ui-transition(background-color @transition-base, color @transition-base);
+		.oo-ui-transition(background-color @transition-base, border-color @transition-base, color @transition-base);
 	}
 
 	&.oo-ui-widget-enabled {
@@ -146,9 +146,10 @@
 			width: auto;
 
 			.oo-ui-tool-accel {
+				align-self: end;
 				display: initial;
 				flex-grow: 1;
-				font-size: @font-size-small;
+				font-size: @font-size-tiny;
 				line-height: @line-height-base;
 
 				&:not(:empty) {

@@ -18,20 +18,32 @@
 .theming-windows();
 
 // tools
-.theming-tools(@themed-link-color, @themed-link--label, @themed-link-color--hover, @themed-link-color--fadeout);
+.theming-tools(
+	@themed-neutral-background-color--fadeout,
+	@toolbar-text-color,
+	@themed-border-color,
+	@themed-link-color,
+	@themed-link-color--fadeout,
+	@themed-link-color--hover
+);
 
 // widgets
 .theming-button-widgets();
-.theming-checkboxes(@themed-link-color);
+.theming-checkboxes(@themed-border-color, @themed-link-color);
 .theming-dropdowns(@themed-link-color);
 .theming-menuOptions(@themed-link-color, @themed-link-color--fadeout);
 .theming-outlineControls(@themed-link-color, @themed-link-color--fadeout);
 .theming-popups();
 .theming-progressBars(@themed-button-background);
-.theming-radios(@themed-link-color);
+.theming-radios(@themed-border-color, @themed-link-color);
 .theming-fileSelects(@themed-button-background, @themed-link-color--fadeout);
 .theming-tabs(@themed-link-color, @themed-link--label);
 .theming-tags(@themed-link-color, @themed-link-color--fadeout);
-.theming-toggles(@themed-link-color, @themed-link-color--hover);
+.theming-toggles(
+	mix(@themed-page-background, @themed-text-color, 50%),
+	@white,
+	mix(@themed-page-background, @themed-link-color, 50%),
+	@themed-link-color
+);
 .theming-inputs(@themed-link-color, @themed-link-color--fadeout);
-.theming-messages();
+.theming-messages(@white, @text-color--dark);

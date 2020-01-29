@@ -204,15 +204,15 @@
   color: #d94a64;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive .oo-ui-tool-link {
-  background-color: #ff776d;
-  border-color: #ff776d;
+  background-color: #088488;
+  border-color: #088488;
   color: #fff;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive .oo-ui-tool-link:hover,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive .oo-ui-tool-link:active,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive .oo-ui-tool-link:focus {
-  background-color: #ffd6d3;
-  border-color: #ffd6d3;
+  background-color: #0ee1e8;
+  border-color: #0ee1e8;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive .oo-ui-tool-link {
   background-color: #9c2137;
@@ -238,18 +238,12 @@
   background-color: rgba(255, 119, 109, 0.1);
   color: #ff776d;
 }
-.oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active .oo-ui-tool-link .oo-ui-tool-accel {
-  color: currentColor;
-}
 .oo-ui-popupToolGroup-header {
-  color: #7f9998;
+  color: rgba(213, 212, 212, 0.5);
 }
 .oo-ui-popupToolGroup-tools {
   background-color: #3a3a3a;
-  box-shadow: 0 3px 12px 0 rgba(14, 25, 26, 0.3);
-}
-.oo-ui-popupToolGroup-tools .oo-ui-tool-link .oo-ui-tool-accel {
-  color: #7f9998;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
 }
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:hover,
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:focus {
@@ -324,7 +318,7 @@
 .oo-ui-menuSelectWidget {
   background-color: #3a3a3a;
   border: #52458f;
-  box-shadow: 0 3px 12px 0 rgba(14, 25, 26, 0.3);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
 }
 .oo-ui-outlineControlsWidget {
   background-color: #3a3a3a;
@@ -339,7 +333,7 @@
   background-color: #3a3a3a;
   border: #52458f;
   color: #d5d4d4;
-  filter: drop-shadow(0 2px 1px rgba(14, 25, 26, 0.3));
+  filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.3));
 }
 .oo-ui-popupWidget-anchored-top .oo-ui-popupWidget-anchor::before,
 .oo-ui-popupWidget-anchored-top .oo-ui-popupWidget-anchor::after {
@@ -483,14 +477,14 @@
   color: inherit;
 }
 .oo-ui-toggleSwitchWidget {
-  background-color: rgba(213, 212, 212, 0.5);
+  background-color: #7e75a4;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
 }
 .oo-ui-toggleSwitchWidget-grip {
-  background-color: #f2f5f5;
+  background-color: #fff;
 }
 .oo-ui-toggleSwitchWidget.oo-ui-toggleWidget-on {
-  background-color: rgba(255, 119, 109, 0.5);
+  background-color: #934770;
 }
 .oo-ui-toggleSwitchWidget.oo-ui-toggleWidget-on .oo-ui-toggleSwitchWidget-grip {
   background-color: #ff776d;
@@ -527,14 +521,14 @@
   box-shadow: inset 0 0 0 1px #9c2137;
 }
 .oo-ui-messageWidget.oo-ui-messageWidget-block {
-  box-shadow: 0 2px 6px 0 rgba(14, 25, 26, 0.2);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
 }
 .oo-ui-messageWidget.oo-ui-messageWidget-block > .oo-ui-iconElement-icon {
   color: #fff;
 }
 .oo-ui-messageWidget.oo-ui-messageWidget-block > .oo-ui-labelElement-label {
   background-color: #fff;
-  color: #666;
+  color: #3a3a3a;
 }
 .oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-error {
   background-color: #9c2137;

@@ -1,9 +1,9 @@
-.theming-tools(@tool-color, @tool-color--text, @tool-color--active, @tool-background-color--active) {
+.theming-tools(@toolbar-background-color, @toolbar-text-color, @toolbar-border-color, @tool-accent-color, @tool-accent-color--fadeout, @tool-accent-color--hover) {
 	.oo-ui-toolbar {
 		&-bar {
-			background-color: @themed-neutral-background-color--fadeout;
-			border-color: @themed-border-color;
-			color: @toolbar-font-color;
+			background-color: @toolbar-background-color;
+			border-color: @toolbar-border-color;
+			color: @toolbar-text-color;
 		}
 	}
 
@@ -11,13 +11,13 @@
 		.oo-ui-tool-link {
 			&:hover,
 			&:focus {
-				background-color: @tool-background-color--active;
+				background-color: @tool-accent-color--fadeout;
 			}
 
 			&:active,
 			&:active:hover {
-				background-color: @tool-background-color--active;
-				color: @tool-color;
+				background-color: @tool-accent-color--fadeout;
+				color: @tool-accent-color;
 			}
 		}
 
@@ -25,12 +25,12 @@
 			&.oo-ui-flaggedElement {
 				&-progressive {
 					.oo-ui-tool-link {
-						color: @tool-color;
+						color: @tool-accent-color;
 
 						&:hover,
 						&:active,
 						&:focus {
-							color: @tool-color--active;
+							color: @tool-accent-color--hover;
 						}
 					}
 				}
@@ -52,15 +52,15 @@
 				&.oo-ui-flaggedElement {
 					&-progressive {
 						.oo-ui-tool-link {
-							background-color: @tool-color;
-							border-color: @tool-color;
-							color: @tool-color--text;
+							background-color: @themed-button-background;
+							border-color: @themed-button-background;
+							color: @themed-button-label;
 
 							&:hover,
 							&:active,
 							&:focus {
-								background-color: @tool-color--active;
-								border-color: @tool-color--active;
+								background-color: @themed-button-background--hover;
+								border-color: @themed-button-background--hover;
 							}
 						}
 					}
@@ -96,16 +96,12 @@
 		&-tools .oo-ui-tool {
 			&.oo-ui-widget-enabled {
 				&:hover .oo-ui-tool-link {
-					background-color: @tool-background-color--active;
+					background-color: @tool-accent-color--fadeout;
 				}
 
 				&.oo-ui-tool-active .oo-ui-tool-link {
-					background-color: @tool-background-color--active;
-					color: @tool-color;
-
-					.oo-ui-tool-accel {
-						color: currentColor;
-					}
+					background-color: @tool-accent-color--fadeout;
+					color: @tool-accent-color;
 				}
 			}
 		}
@@ -113,25 +109,19 @@
 
 	.oo-ui-popupToolGroup {
 		&-header {
-			color: @wds-fandom-color-middle-gray;
+			color: @themed-text-color--secondary;
 		}
 
 		&-tools {
 			background-color: @themed-neutral-background-color;
-			box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
-
-			.oo-ui-tool-link {
-				.oo-ui-tool-accel {
-					color: @wds-fandom-color-middle-gray;
-				}
-			}
+			box-shadow: 0 3px 12px 0 rgba(@black, 0.3);
 		}
 
 		&.oo-ui-widget-enabled {
 			> .oo-ui-popupToolGroup-handle {
 				&:hover,
 				&:focus {
-					background-color: @tool-background-color--active;
+					background-color: @tool-accent-color--fadeout;
 				}
 			}
 		}
@@ -140,8 +130,8 @@
 			> .oo-ui-popupToolGroup-handle {
 				&,
 				&:hover {
-					background-color: @tool-background-color--active;
-					color: @tool-color;
+					background-color: @tool-accent-color--fadeout;
+					color: @tool-accent-color;
 				}
 			}
 		}
