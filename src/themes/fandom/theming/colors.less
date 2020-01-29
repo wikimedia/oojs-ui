@@ -11,9 +11,11 @@
 @is-dark-button: boolean(luma(@themed-button-background) < 50%);
 @is-dark-link: boolean(luma(@themed-link-color) < 50%);
 
+@white: #fff;
+@black: #000;
 @themed-text-color--light: #d5d4d4;
 @themed-text-color--dark: #3a3a3a;
-@themed-button-label--light: @wds-color-white;
+@themed-button-label--light: @white;
 @themed-button-label--dark: @wds-fandom-color-black;
 
 @themed-text-color: if(@is-dark-theme, @themed-text-color--light, @themed-text-color--dark);
@@ -31,7 +33,7 @@
 @themed-link-color--fadeout: fadeout(@themed-link-color, 90%);
 @themed-link--label: if(@is-dark-link, @themed-button-label--light, @themed-button-label--dark);
 
-@themed-border-color: mix(@themed-page-background, if(@is-dark-theme, #fff, #000), 80%);
+@themed-border-color: mix(@themed-page-background, if(@is-dark-theme, @white, @black), 80%);
 
 // alert / warning / success / message
 // TODO: adjust till contrast ratio is 3:1
@@ -49,12 +51,14 @@
 @themed-notice-color: mix(@wds-color-message, @mix-color, @mix-weight);
 
 // neutral colors
-@neutral-background-color: if(@is-dark-theme, #3a3a3a, #fff);
-@neutral-background-color--transparent: if(@is-dark-theme, rgba(#fff, 0.15), rgba(#000, 0.05));
-@neutral-overlay-color: if(@is-dark-theme, rgba(#fff, 0.5), rgba(#000, 0.5));
+@themed-neutral-background-color: if(@is-dark-theme, #3a3a3a, @white);
+@themed-neutral-background-color--fadeout: if(
+	@is-dark-theme,
+	mix(@themed-page-background, @white, 85%),
+	mix(@themed-page-background, @black, 95%)
+);
+@themed-neutral-overlay-color: if(@is-dark-theme, rgba(@white, 0.5), rgba(@black, 0.5));
 
 // toolbar colors
-@toolbar-background-color: if(@is-dark-theme, rgba(@wds-color-white, 0.15), @wds-fandom-color-light-gray);
-@toolbar-border-color: if(@is-dark-theme, rgba(@wds-color-white, 0.5), @wds-fandom-color-dark-gray);
-@toolbar-font-color: if(@is-dark-theme, @wds-color-white, @wds-fandom-color-black);
-@toolbar-separator-color: if(@is-dark-theme, rgba(@wds-fandom-color-black, 0.6), @wds-fandom-color-dark-gray);
+@toolbar-font-color: if(@is-dark-theme, @white, @wds-fandom-color-black);
+@toolbar-separator-color: mix(@themed-page-background, if(@is-dark-theme, @white, @black), 50%);

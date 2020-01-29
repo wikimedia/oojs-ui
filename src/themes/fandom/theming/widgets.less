@@ -75,7 +75,7 @@
 .theming-dropdowns(@accent-color) {
 	.oo-ui-dropdownWidget {
 		&-handle {
-			background-color: @neutral-background-color--transparent;
+			background-color: @themed-neutral-background-color--fadeout;
 			border-color: @themed-border-color;
 		}
 
@@ -105,7 +105,7 @@
 	}
 
 	.oo-ui-menuSelectWidget {
-		background-color: @neutral-background-color;
+		background-color: @themed-neutral-background-color;
 		border: @themed-border-color;
 		box-shadow: 0 3px 12px 0 rgba(@wds-fandom-color-black, 0.3);
 	}
@@ -113,7 +113,7 @@
 
 .theming-outlineControls(@accent-color, @accent-color--fadeout) {
 	.oo-ui-outlineControlsWidget {
-		background-color: @neutral-background-color;
+		background-color: @themed-neutral-background-color;
 	}
 
 	.oo-ui-outlineOptionWidget {
@@ -129,7 +129,7 @@
 .theming-popups() {
 	.oo-ui-popupWidget {
 		&-popup {
-			background-color: @neutral-background-color;
+			background-color: @themed-neutral-background-color;
 			border: @themed-border-color;
 			color: @themed-text-color;
 			filter: drop-shadow(0 2px 1px rgba(@wds-fandom-color-black, 0.3));
@@ -175,7 +175,7 @@
 
 .theming-progressBars(@accent-color) {
 	.oo-ui-progressBarWidget {
-		background-color: @neutral-background-color--transparent;
+		background-color: @themed-neutral-background-color--fadeout;
 		border-color: @themed-border-color;
 
 		&.oo-ui-widget-enabled {
@@ -186,7 +186,7 @@
 
 		&.oo-ui-widget-disabled {
 			.oo-ui-progressBarWidget-bar {
-				background-color: @neutral-overlay-color;
+				background-color: @themed-neutral-overlay-color;
 			}
 		}
 	}
@@ -218,7 +218,7 @@
 .theming-fileSelects(@accent-color, @accent-color--fadeout) {
 	.oo-ui-selectFileWidget {
 		&-dropTarget {
-			background-color: @neutral-background-color--transparent;
+			background-color: @themed-neutral-background-color--fadeout;
 			border-color: @themed-border-color;
 		}
 
@@ -250,7 +250,7 @@
 
 	.oo-ui-tabOptionWidget {
 		.oo-ui-tabSelectWidget-framed & {
-			background-color: @neutral-background-color--transparent;
+			background-color: @themed-neutral-background-color--fadeout;
 			color: @themed-text-color;
 
 			&.oo-ui-optionWidget-selected {
@@ -327,7 +327,7 @@
 
 		&.oo-ui-widget-enabled {
 			.oo-ui-tagMultiselectWidget-handle {
-				background-color: @neutral-background-color--transparent;
+				background-color: @themed-neutral-background-color--fadeout;
 			}
 
 			&.oo-ui-tagMultiselectWidget-inlined {
@@ -350,7 +350,7 @@
 
 			&.oo-ui-tagMultiselectWidget-outlined {
 				.oo-ui-tagMultiselectWidget-handle {
-					background-color: @neutral-background-color--transparent;
+					background-color: @themed-neutral-background-color--fadeout;
 				}
 
 				&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
@@ -414,7 +414,7 @@
 				}
 
 				&[readonly] {
-					background-color: rgba(@neutral-background-color, 0.5);
+					background-color: rgba(@themed-neutral-background-color, 0.5);
 				}
 			}
 
