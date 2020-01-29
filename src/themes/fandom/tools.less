@@ -116,6 +116,10 @@
 
 	.oo-ui-popupToolGroup-handle {
 		border-radius: @border-radius-base;
+
+		> .oo-ui-indicatorElement-indicator {
+			.oo-ui-transition(transform @transition-base);
+		}
 	}
 
 	&-header {
@@ -173,5 +177,9 @@
 
 	&-tools .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
 		outline: 0;
+	}
+
+	&-active > .oo-ui-popupToolGroup-handle > .oo-ui-indicator-down {
+		transform: rotate(180deg);
 	}
 }
