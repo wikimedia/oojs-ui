@@ -98,7 +98,9 @@
 		background-color: @background-color;
 		border-color: @background-color;
 		color: @text-color;
+	}
 
+	&.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
 		&:focus,
 		&:hover,
 		&:active {
@@ -111,7 +113,9 @@
 .button-secondary(@color, @color--hover) {
 	> .oo-ui-buttonElement-button {
 		color: @color;
+	}
 
+	&.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
 		&:hover,
 		&:active,
 		&:focus {
