@@ -18,6 +18,12 @@
 @button-label--light: @white;
 @button-label--dark: @wds-fandom-color-black;
 
+@themed-page-background-color--fadeout: if(
+	luma(@themed-page-background) > 231,
+	@white,
+	if(@is-dark-theme, mix(@themed-page-background, @white, 85%), mix(@themed-page-background, @black, 95%))
+);
+
 @themed-text-color: if(@is-dark-theme, @text-color--light, @text-color--dark);
 @themed-text-color--hover: if(@is-dark-theme, darken(@themed-text-color, 20%), darken(@themed-text-color, 20%));
 @themed-text-color--secondary: fadeout(@themed-text-color, 50%);
@@ -34,11 +40,12 @@
 @themed-link--label: if(@is-dark-link, @button-label--light, @button-label--dark);
 
 @themed-border-color: mix(@themed-page-background, if(@is-dark-theme, @white, @black), 80%);
+@themed-overlay-color: if(@is-dark-theme, rgba(@white, 0.5), rgba(@black, 0.5));
 
 // alert / warning / success / message
 // TODO: adjust till contrast ratio is 3:1
-@mix-color: if(@is-dark-theme, #2b2b2b, #d4d4d4);
-@mix-weight: if(@is-dark-theme, 60%, 75%);
+@mix-color: if(@is-dark-theme, #fff, #000);
+@mix-weight: 90%;
 
 @themed-alert-color: mix(@wds-color-alert, @mix-color, @mix-weight);
 @is-dark-color: boolean(luma(@themed-alert-color) < 50%);
@@ -50,15 +57,6 @@
 @themed-success-color: mix(@wds-color-success, @mix-color, @mix-weight);
 @themed-notice-color: mix(@wds-color-message, @mix-color, @mix-weight);
 
-// neutral colors
-@themed-neutral-background-color: if(@is-dark-theme, #3a3a3a, @white);
-@themed-neutral-background-color--fadeout: if(
-	@is-dark-theme,
-	mix(@themed-page-background, @white, 85%),
-	mix(@themed-page-background, @black, 95%)
-);
-@themed-neutral-overlay-color: if(@is-dark-theme, rgba(@white, 0.5), rgba(@black, 0.5));
-
-// toolbar colors
+// toolbar
 @toolbar-text-color: if(@is-dark-theme, @white, @wds-fandom-color-black);
 @toolbar-separator-color: mix(@themed-page-background, if(@is-dark-theme, @white, @black), 50%);
