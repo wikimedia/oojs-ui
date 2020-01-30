@@ -36,7 +36,8 @@
 );
 
 @themed-link-color--hover: if(@is-dark-link, lighten(@themed-link-color, 20%), darken(@themed-link-color, 20%));
-@themed-link-color--fadeout: fadeout(@themed-link-color, 90%);
+@themed-link-color--fadeout: fadeout(@themed-link-color, 85%);
+@themed-link-color--active: darken(@themed-link-color--fadeout, 20%);
 @themed-link--label: if(@is-dark-link, @button-label--light, @button-label--dark);
 
 @themed-border-color: mix(@themed-page-background, if(@is-dark-theme, @white, @black), 80%);
@@ -51,7 +52,8 @@
 @is-dark-color: boolean(luma(@themed-alert-color) < 50%);
 @themed-alert-color--hover: if(@is-dark-color, lighten(@themed-alert-color, 20%), darken(@themed-alert-color, 20%));
 @themed-alert-color--label: if(@is-dark-color, @button-label--light, @button-label--dark);
-@themed-alert-color--fadeout: fadeout(@themed-alert-color, 90%);
+@themed-alert-color--fadeout: fadeout(@themed-alert-color, 85%);
+@themed-alert-color--active: darken(@themed-link-color--fadeout, 20%);
 
 @themed-warning-color: mix(@wds-color-warning, @mix-color, @mix-weight);
 @themed-success-color: mix(@wds-color-success, @mix-color, @mix-weight);

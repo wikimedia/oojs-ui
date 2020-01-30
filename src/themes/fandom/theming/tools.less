@@ -1,4 +1,4 @@
-.theming-tools(@toolbar-background-color, @toolbar-text-color, @toolbar-border-color, @tool-accent-color, @tool-accent-color--fadeout, @tool-accent-color--hover) {
+.theming-tools(@toolbar-background-color, @toolbar-text-color, @toolbar-border-color, @tool-accent-color, @tool-accent-color--fadeout, @tool-accent-color--hover, @tool-accent-color--active) {
 	.oo-ui-toolbar {
 		&-bar {
 			background-color: @toolbar-background-color;
@@ -16,7 +16,7 @@
 
 			&:active,
 			&:active:hover {
-				background-color: @tool-accent-color--fadeout;
+				background-color: @tool-accent-color--active;
 				color: @tool-accent-color;
 			}
 		}
@@ -97,10 +97,11 @@
 			&.oo-ui-widget-enabled {
 				&:hover .oo-ui-tool-link {
 					background-color: @tool-accent-color--fadeout;
+					color: @tool-accent-color;
 				}
 
 				&.oo-ui-tool-active .oo-ui-tool-link {
-					background-color: @tool-accent-color--fadeout;
+					background-color: @tool-accent-color--active;
 					color: @tool-accent-color;
 				}
 			}
@@ -130,7 +131,7 @@
 			> .oo-ui-popupToolGroup-handle {
 				&,
 				&:hover {
-					background-color: @tool-accent-color--fadeout;
+					background-color: @tool-accent-color--active;
 					color: @tool-accent-color;
 				}
 			}

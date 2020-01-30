@@ -178,7 +178,7 @@
   background-color: #473988;
 }
 .oo-ui-processDialog-error {
-  background-color: rgba(234, 49, 82, 0.1);
+  background-color: rgba(234, 49, 82, 0.15);
   border-color: #ea3152;
 }
 .oo-ui-windowManager-modal > .oo-ui-dialog {
@@ -194,11 +194,11 @@
 }
 .oo-ui-tool .oo-ui-tool-link:hover,
 .oo-ui-tool .oo-ui-tool-link:focus {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 119, 109, 0.15);
 }
 .oo-ui-tool .oo-ui-tool-link:active,
 .oo-ui-tool .oo-ui-tool-link:active:hover {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 24, 7, 0.15);
   color: #ff776d;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive .oo-ui-tool-link {
@@ -246,10 +246,11 @@
   border-left-color: #938bb9;
 }
 .oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled:hover .oo-ui-tool-link {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 119, 109, 0.15);
+  color: #ff776d;
 }
 .oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active .oo-ui-tool-link {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 24, 7, 0.15);
   color: #ff776d;
 }
 .oo-ui-popupToolGroup-header {
@@ -261,11 +262,11 @@
 }
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:hover,
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:focus {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 119, 109, 0.15);
 }
 .oo-ui-popupToolGroup.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle,
 .oo-ui-popupToolGroup.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle:hover {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 24, 7, 0.15);
   color: #ff776d;
 }
 .oo-ui-buttonGroupWidget .oo-ui-buttonElement-framed.oo-ui-widget-disabled + .oo-ui-widget-disabled > .oo-ui-buttonElement-button {
@@ -324,9 +325,12 @@
 .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:active {
   box-shadow: inset 0 0 0 1px #ff776d;
 }
-.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
+.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted {
+  background-color: rgba(255, 119, 109, 0.15);
+  color: #ff776d;
+}
 .oo-ui-menuOptionWidget.oo-ui-optionWidget-selected {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 24, 7, 0.15);
   color: #ff776d;
 }
 .oo-ui-menuSelectWidget {
@@ -337,10 +341,13 @@
 .oo-ui-outlineControlsWidget {
   background-color: #473988;
 }
-.oo-ui-outlineOptionWidget.oo-ui-optionWidget-highlighted,
+.oo-ui-outlineOptionWidget.oo-ui-optionWidget-highlighted {
+  background-color: rgba(255, 119, 109, 0.15);
+  color: #ff776d;
+}
 .oo-ui-outlineOptionWidget.oo-ui-optionWidget-selected,
 .oo-ui-outlineOptionWidget.oo-ui-optionWidget-pressed {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 24, 7, 0.15);
   color: #ff776d;
 }
 .oo-ui-popupWidget-popup {
@@ -398,7 +405,7 @@
 }
 .oo-ui-selectFileWidget.oo-ui-widget-enabled.oo-ui-selectFileWidget-canDrop.oo-ui-selectFileWidget-dropTarget,
 .oo-ui-selectFileWidget.oo-ui-widget-enabled.oo-ui-selectFileWidget-canDrop .oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 119, 109, 0.15);
   color: #ff776d;
 }
 .oo-ui-tabSelectWidget-framed {
@@ -445,7 +452,7 @@
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled:hover,
 .oo-ui-tagItemWidget.oo-ui-widget-enabled:focus {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 119, 109, 0.15);
   border-color: currentColor;
   color: #ff776d;
 }
@@ -454,7 +461,7 @@
   color: #ff776d;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid {
-  background-color: rgba(234, 49, 82, 0.1);
+  background-color: rgba(234, 49, 82, 0.15);
   color: #ea3152;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid:hover,
@@ -529,7 +536,7 @@
   color: #e6e6e6;
 }
 .oo-ui-textInputWidget .oo-ui-pendingElement-pending {
-  background-color: rgba(255, 119, 109, 0.1);
+  background-color: rgba(255, 119, 109, 0.15);
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input {
   box-shadow: inset 0 0 0 1px transparent;

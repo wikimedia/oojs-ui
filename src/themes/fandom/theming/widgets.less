@@ -95,12 +95,16 @@
 	}
 }
 
-.theming-menuOptions(@accent-color, @accent-color--fadeout) {
+.theming-menuOptions(@accent-color, @accent-color--fadeout, @accent-color--active) {
 	.oo-ui-menuOptionWidget {
 		&.oo-ui-optionWidget {
-			&-highlighted,
-			&-selected {
+			&-highlighted {
 				background-color: @accent-color--fadeout;
+				color: @accent-color;
+			}
+
+			&-selected {
+				background-color: @accent-color--active;
 				color: @accent-color;
 			}
 		}
@@ -113,16 +117,20 @@
 	}
 }
 
-.theming-outlineControls(@accent-color, @accent-color--fadeout) {
+.theming-outlineControls(@accent-color, @accent-color--fadeout, @accent-color--active) {
 	.oo-ui-outlineControlsWidget {
 		background-color: @themed-page-background-color--fadeout;
 	}
 
 	.oo-ui-outlineOptionWidget {
-		&.oo-ui-optionWidget-highlighted,
+		&.oo-ui-optionWidget-highlighted {
+			background-color: @accent-color--fadeout;
+			color: @accent-color;
+		}
+
 		&.oo-ui-optionWidget-selected,
 		&.oo-ui-optionWidget-pressed {
-			background-color: @accent-color--fadeout;
+			background-color: @accent-color--active;
 			color: @accent-color;
 		}
 	}
