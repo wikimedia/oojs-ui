@@ -1,5 +1,3 @@
-@import '../../../styles/common';
-
 .theming-button-widgets() {
 	.oo-ui-buttonGroupWidget {
 		.oo-ui-buttonElement-framed {
@@ -510,5 +508,8 @@
 }
 
 .themed-placeholder() {
-	.oo-ui-placeholder({color: @themed-text-color;opacity: 0.4;});
+	&::placeholder {
+		color: @themed-text-color;
+		opacity: 0.4;
+	}
 }
