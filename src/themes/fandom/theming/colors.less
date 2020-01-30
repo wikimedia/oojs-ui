@@ -18,8 +18,8 @@
 @button-label--light: @white;
 @button-label--dark: @wds-fandom-color-black;
 
-@themed-page-background-color--fadeout: if(
-	luma(@themed-page-background) > 231,
+@themed-page-background--fadeout: if(
+	luma(@themed-page-background) > 90.5%,
 	@white,
 	if(@is-dark-theme, mix(@themed-page-background, @white, 85%), mix(@themed-page-background, @black, 95%))
 );
