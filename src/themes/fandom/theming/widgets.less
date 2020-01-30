@@ -1,3 +1,5 @@
+@import '../../../styles/common';
+
 .theming-button-widgets() {
 	.oo-ui-buttonGroupWidget {
 		.oo-ui-buttonElement-framed {
@@ -323,6 +325,10 @@
 	.oo-ui-tagMultiselectWidget {
 		&-handle {
 			border-color: @themed-border-color;
+
+			> .oo-ui-tagMultiselectWidget-content > input {
+				.themed-placeholder();
+			}
 		}
 
 		&.oo-ui-widget-enabled {
@@ -403,6 +409,7 @@
 		&.oo-ui-widget-enabled {
 			.oo-ui-inputWidget-input {
 				.active-box-shadow(transparent);
+				.themed-placeholder();
 
 				&:hover,
 				&:focus {
@@ -414,7 +421,10 @@
 				}
 
 				&[readonly] {
-					background-color: rgba(@themed-page-background-color--fadeout, 0.5);
+					&:hover,
+					&:focus {
+						border-color: @themed-border-color;
+					}
 				}
 			}
 
@@ -489,4 +499,8 @@
 
 .active-box-shadow(@color) {
 	box-shadow: inset 0 0 0 1px @color;
+}
+
+.themed-placeholder() {
+	.oo-ui-placeholder({color: @themed-text-color;opacity: 0.4;});
 }
