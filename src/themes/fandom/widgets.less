@@ -629,6 +629,7 @@
 		border-radius: @border-radius-base;
 		border-style: @border-style-base;
 		border-width: @border-width-base;
+		padding: @popup-vertical-padding @popup-horizontal-padding;
 	}
 
 	&-anchored-top {
@@ -718,11 +719,12 @@
 	&-head {
 		> .oo-ui-labelElement-label {
 			line-height: @line-height-base;
-			margin: @margin-top-popup @padding-start-input-text-icon-label @padding-vertical-base @padding-horizontal-base;
+			margin-bottom: @gap-base;
 		}
 
 		> .oo-ui-buttonWidget {
 			right: 0;
+			top: 4px;
 
 			.oo-ui-icon-close {
 				height: @size-icon-tiny;
@@ -737,10 +739,8 @@
 		line-height: @line-height-base;
 
 		&-padded {
-			margin: @margin-top-popup @padding-horizontal-base @padding-vertical-base; // Use `margin` rather than `padding` to enable margin to collapse
-
-			> :first-child {
-				margin-top: 0;
+			> :last-child {
+				margin-bottom: 0;
 			}
 		}
 	}
