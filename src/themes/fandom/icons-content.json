@@ -4,16 +4,10 @@
 	"intro": "@import '../../../../src/styles/common';",
 	"images": {
 		"article": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/article-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/article-rtl.svg"
-			}
+			"file": "~design-system-svg/wds-icons-page-small.svg"
 		},
 		"articles": {
-			"file": {
-				"ltr": "../wikimediaui/images/icons/articles-ltr.svg",
-				"rtl": "../wikimediaui/images/icons/articles-rtl.svg"
-			}
+			"file": "~design-system-svg/wds-icons-pages-small.svg"
 		},
 		"articleAdd": {
 			"file": "../wikimediaui/images/icons/articleAdd.svg"

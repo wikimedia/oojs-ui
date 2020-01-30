@@ -4,25 +4,25 @@
 	"intro": "@import '../../../../src/styles/common';",
 	"images": {
 		"arrowNext": {
-			"file": "~design-system-svg/wds-icons-arrow.svg"
+			"file": "~design-system-svg/wds-icons-arrow-small.svg"
 		},
 		"arrowPrevious": {
-			"file": "~design-system-svg/wds-icons-arrow.svg"
+			"file": "~design-system-svg/wds-icons-arrow-small.svg"
 		},
 		"collapse": {
-			"file": "~design-system-svg/wds-icons-menu-control.svg"
+			"file": "~design-system-svg/wds-icons-menu-control-small.svg"
 		},
 		"downTriangle": {
-			"file": "~design-system-svg/wds-icons-dropdown.svg"
+			"file": "~design-system-svg/wds-icons-dropdown-small.svg"
 		},
 		"draggable": {
 			"file": "../wikimediaui/images/icons/draggable.svg"
 		},
 		"expand": {
-			"file": "~design-system-svg/wds-icons-menu-control.svg"
+			"file": "~design-system-svg/wds-icons-menu-control-small.svg"
 		},
 		"more": {
-			"file":  "~design-system-svg/wds-icons-more.svg"
+			"file":  "~design-system-svg/wds-icons-more-small.svg"
 		},
 		"move": {
 			"file": "../wikimediaui/images/icons/move.svg"
@@ -52,7 +52,7 @@
 			}
 		},
 		"upTriangle": {
-			"file": "~design-system-svg/wds-icons-dropdown.svg"
+			"file": "~design-system-svg/wds-icons-dropdown-small.svg"
 		}
 	}
 }

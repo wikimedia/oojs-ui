@@ -4,13 +4,13 @@
 	"intro": "@import '../../../../src/styles/common';",
 	"images": {
 		"clear": {
-			"file": "../wikimediaui/images/indicators/clear.svg"
+			"file": "~design-system-svg/wds-icons-close-tiny.svg"
 		},
 		"up": {
-			"file": "../wikimediaui/images/indicators/up.svg"
+			"file": "~design-system-svg/wds-icons-dropdown-tiny.svg"
 		},
 		"down": {
-			"file": "../wikimediaui/images/indicators/down.svg"
+			"file": "~design-system-svg/wds-icons-dropdown-tiny.svg"
 		},
 		"required": {
 			"file": "../wikimediaui/images/indicators/required.svg"

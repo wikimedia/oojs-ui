@@ -9,7 +9,7 @@
 				}
 
 				&-destructive {
-					.button-secondary(@alert-color, @alert-color--hover);
+					.button-secondary(@themed-alert-color, @themed-alert-color--hover);
 				}
 			}
 
@@ -35,7 +35,7 @@
 				}
 
 				&-destructive {
-					.button-secondary(@alert-color, @alert-color--hover);
+					.button-secondary(@themed-alert-color, @themed-alert-color--hover);
 				}
 			}
 		}
@@ -53,21 +53,21 @@
 					}
 
 					&-destructive {
-						.button-primary(@alert-color, @alert-color--text, @alert-color--hover);
+						.button-primary(@themed-alert-color, @themed-alert-color--label, @themed-alert-color--hover);
 					}
 				}
 			}
 
 			&.oo-ui-widget-enabled.oo-ui-buttonElement-active {
-				.button-primary(@button-color, @button-color--text, @button-color--hover);
+				.button-primary(@button-color, @button-color--text, @button-color);
 
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.button-primary(@button-color, @button-color--text, @button-color--hover);
+						.button-primary(@button-color, @button-color--text, @button-color);
 					}
 
 					&-destructive {
-						.button-primary(@alert-color, @alert-color--text, @alert-color--hover);
+						.button-primary(@themed-alert-color, @themed-alert-color--label, @themed-alert-color);
 					}
 				}
 			}
@@ -81,11 +81,11 @@
 			background-color: fadeout(@accent-color, 20%);
 			background-image: linear-gradient(
 				135deg,
-				@neutral-background-color 25%,
+				@themed-page-background--fadeout 25%,
 				transparent 25%,
 				transparent 50%,
-				@neutral-background-color 50%,
-				@neutral-background-color 75%,
+				@themed-page-background--fadeout 50%,
+				@themed-page-background--fadeout 75%,
 				transparent 75%,
 				transparent
 			);
@@ -98,7 +98,9 @@
 		background-color: @background-color;
 		border-color: @background-color;
 		color: @text-color;
+	}
 
+	&.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
 		&:focus,
 		&:hover,
 		&:active {
@@ -111,7 +113,9 @@
 .button-secondary(@color, @color--hover) {
 	> .oo-ui-buttonElement-button {
 		color: @color;
+	}
 
+	&.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
 		&:hover,
 		&:active,
 		&:focus {

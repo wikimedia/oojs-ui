@@ -6,10 +6,10 @@
 @import 'widgets';
 
 // elements
-.theming-text-buttons(@color-buttons, @color-buttons--hover);
-.theming-secondary-buttons(@color-buttons, @color-buttons--hover);
-.theming-primary-buttons(@color-buttons, @color-buttons--hover, @color-buttons--text);
-.theming-pending(@color-buttons);
+.theming-text-buttons(@themed-text-color, @themed-text-color--hover);
+.theming-secondary-buttons(@themed-text-color, @themed-text-color--hover);
+.theming-primary-buttons(@themed-button-background, @themed-button-background--hover, @themed-button-label);
+.theming-pending(@themed-link-color);
 
 // layouts
 .theming-layouts();
@@ -18,20 +18,20 @@
 .theming-windows();
 
 // tools
-.theming-tools(@color-buttons, @color-buttons--text, @color-buttons--hover, @color-buttons--fadeout);
+.theming-tools(@themed-page-background--fadeout, @toolbar-text-color, @themed-border-color, @themed-link-color, @themed-link-color--fadeout, @themed-link-color--hover, @themed-link-color--active); // stylelint-disable-line
 
 // widgets
 .theming-button-widgets();
-.theming-checkboxes(@color-buttons);
-.theming-dropdowns(@color-buttons);
-.theming-menuOptions(@color-buttons, @color-buttons--fadeout);
-.theming-outlineControls(@color-buttons, @color-buttons--fadeout);
+.theming-checkboxes(@themed-border-color, @themed-link-color);
+.theming-dropdowns(@themed-link-color);
+.theming-menuOptions(@themed-link-color, @themed-link-color--fadeout, @themed-link-color--active);
+.theming-outlineControls(@themed-link-color, @themed-link-color--fadeout, @themed-link-color--active);
 .theming-popups();
-.theming-progressBars(@color-buttons);
-.theming-radios(@color-buttons);
-.theming-fileSelects(@color-buttons, @color-buttons--fadeout);
-.theming-tabs(@color-buttons, @color-buttons--text);
-.theming-tags(@color-buttons, @color-buttons--fadeout);
-.theming-toggles(@color-buttons, @color-buttons--hover);
-.theming-inputs(@color-buttons, @color-buttons--fadeout);
-.theming-messages();
+.theming-progressBars(@themed-link-color);
+.theming-radios(@themed-border-color, @themed-link-color);
+.theming-fileSelects(@themed-link-color, @themed-link-color--fadeout);
+.theming-tabs(@themed-link-color, @themed-link--label);
+.theming-tags(@themed-link-color, @themed-link-color--fadeout);
+.theming-toggles(mix(@themed-page-background, @themed-text-color, 50%), @white, mix(@themed-page-background, @themed-link-color, 50%), @themed-link-color);  // stylelint-disable-line
+.theming-inputs(@themed-link-color, @themed-link-color--fadeout);
+.theming-messages(@white, @text-color--dark);

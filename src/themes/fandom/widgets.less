@@ -255,6 +255,10 @@
 	&-dropdownButton > .oo-ui-buttonElement-button {
 		display: grid;
 		height: @size-base;
+
+		.oo-ui-indicator-down {
+			.oo-ui-transition(transform @transition-base);
+		}
 	}
 
 	// Undo setting properties above when there is no button:
@@ -280,6 +284,10 @@
 			border-bottom-left-radius: 0;
 			border-top-left-radius: 0;
 		}
+	}
+
+	&-open &-dropdownButton .oo-ui-indicator-down {
+		transform: rotate(180deg);
 	}
 }
 
@@ -309,6 +317,8 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
+			.oo-ui-transition(transform @transition-base);
+
 			height: auto;
 			position: absolute;
 			right: @input-horizontal-padding - 1px;
@@ -339,6 +349,10 @@
 	&.oo-ui-widget-disabled &-handle {
 		opacity: @opacity--disabled;
 		pointer-events: none;
+	}
+
+	&-open &-handle .oo-ui-indicator-down {
+		transform: rotate(180deg);
 	}
 }
 
@@ -806,7 +820,7 @@
 		z-index: 1;
 
 		+ span {
-			.oo-ui-transition(border-color @transition-base);
+			.oo-ui-transition(color @transition-base);
 
 			align-items: center;
 			background-color: transparent;
@@ -986,8 +1000,12 @@
 		}
 	}
 
-	.oo-ui-tabSelectWidget-frameless & {
+	.oo-ui-tabSelectWidget-frameless &,
+	.oo-ui-tabSelectWidget:not(.oo-ui-tabSelectWidget-framed) & {
 		.oo-ui-transition(color @transition-base, box-shadow @transition-base);
+
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
 	}
 }
 
@@ -1122,8 +1140,6 @@
 				padding: @padding-vertical-base 0;
 				vertical-align: top;
 
-				.mw-placeholder();
-
 				&:focus {
 					outline: 0;
 				}
@@ -1135,6 +1151,18 @@
 			margin-left: -2px;
 			margin-top: 4px;
 			max-width: 100%;
+		}
+	}
+
+	&-outlined {
+		.oo-ui-buttonElement-frameless .oo-ui-buttonElement-button {
+			padding-left: 9px;
+			padding-right: 9px;
+		}
+
+		.oo-ui-buttonElement-frameless:not(.oo-ui-labelElement) .oo-ui-buttonElement-button {
+			padding-left: 4px;
+			padding-right: 4px;
 		}
 	}
 
@@ -1263,14 +1291,31 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-inputWidget-input {
-			.oo-ui-transition(border-color @transition-ease-medium, box-shadow @transition-ease-medium);
-
-			.mw-placeholder();
+			.oo-ui-transition(
+				border-color @transition-ease-medium,
+				border-width @transition-ease-medium,
+				box-shadow @transition-ease-medium
+			);
 		}
 	}
 
 	&.oo-ui-widget-disabled {
 		opacity: @opacity--disabled;
+	}
+
+	&-type-text,
+	&-type-search {
+		> input.oo-ui-inputWidget-input {
+			border-radius: 0;
+			border-width: 0 0 @border-width-base 0;
+		}
+
+		&.oo-ui-widget-enabled > input.oo-ui-inputWidget-input {
+			&:active,
+			&:focus {
+				box-shadow: none;
+			}
+		}
 	}
 }
 
@@ -1326,9 +1371,4 @@
 			transform: translate(80%, -50%);
 		}
 	}
-}
-
-.mw-placeholder() {
-	// Normalize placeholder styling, see T139034
-	.oo-ui-placeholder({color: #767676; opacity: 1;});
 }
