@@ -190,6 +190,11 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
 			// They can't be tabbed to, but they can be activated using access keys.
 			// OptionWidgets and focusable UI elements inside them have tabindex="-1" set.
 			item = this.findTargetItem( event );
+			if ( !( item.isHighlightable() || item.isSelectable() ) ) {
+				// The item is disabled (weirdly, disabled items can be focussed in Firefox and IE, but not
+				// in Chrome). Do nothing (do not highlight or select anything).
+				return;
+			}
 		} else {
 			// There is something actually user-focusable in one of the labels of the options, and
 			// the user focussed it (e.g. by tabbing to it). Do nothing (especially, don't change
