@@ -221,6 +221,10 @@
   background-color: #f48ea0;
   border-color: #f48ea0;
 }
+.oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active .oo-ui-tool-link {
+  background-color: rgba(204, 204, 204, 0.15);
+  color: #ffffff;
+}
 .oo-ui-toolGroup {
   border-right-color: #a3a3a3;
 }
