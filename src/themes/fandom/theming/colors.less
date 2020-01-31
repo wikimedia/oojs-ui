@@ -40,7 +40,8 @@
 @themed-link-color--active: darken(@themed-link-color--fadeout, 20%);
 @themed-link--label: if(@is-dark-link, @button-label--light, @button-label--dark);
 
-@themed-border-color: mix(@themed-page-background, if(@is-dark-theme, @white, @black), 80%);
+//@themed-border-color: mix(@themed-page-background, if(@is-dark-theme, @white, @black), 80%);
+@themed-border-color: if(@is-dark-theme, mix(@themed-page-background, @white, 70%), mix(@themed-page-background, @black, 80%));
 @themed-overlay-color: if(@is-dark-theme, rgba(@white, 0.5), rgba(@black, 0.5));
 
 // alert / warning / success / message
