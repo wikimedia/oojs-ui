@@ -18,7 +18,7 @@
 
 .theming-secondary-buttons(@button-color, @button-color--hover) {
 	.oo-ui-buttonElement {
-		&-framed:not(.oo-ui-flaggedElement-primary) {
+		&-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active) {
 			.button-secondary(@button-color, @button-color--hover);
 
 			&.oo-ui-flaggedElement,

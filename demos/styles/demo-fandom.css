@@ -22,36 +22,36 @@
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
   color: #f48ea0;
 }
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary) > .oo-ui-buttonElement-button {
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active) > .oo-ui-buttonElement-button {
   color: #e6e6e6;
 }
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
   color: #b3b3b3;
 }
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
   color: #e6e6e6;
 }
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
   color: #b3b3b3;
 }
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
   color: #ea3152;
 }
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
-.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
   color: #f48ea0;
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
