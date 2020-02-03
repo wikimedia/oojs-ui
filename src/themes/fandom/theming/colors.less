@@ -19,13 +19,13 @@
 @button-label--dark: @wds-fandom-color-black;
 
 @themed-page-background--fadeout: if(
-	luma(@themed-page-background) > 90.5%,
+	lightness(@themed-page-background) > 90%,
 	@white,
 	if(@is-dark-theme, mix(@themed-page-background, @white, 85%), mix(@themed-page-background, @black, 95%))
 );
 
 @themed-text-color: if(@is-dark-theme, @text-color--light, @text-color--dark);
-@themed-text-color--hover: if(@is-dark-theme, darken(@themed-text-color, 20%), darken(@themed-text-color, 20%));
+@themed-text-color--hover: if(@is-dark-theme, lighten(@themed-text-color, 20%), darken(@themed-text-color, 20%));
 @themed-text-color--secondary: fadeout(@themed-text-color, 50%);
 
 @themed-button-label: if(@is-dark-button, @button-label--light, @button-label--dark);
