@@ -11,12 +11,12 @@
 @import ( reference ) '../../../node_modules/wikimedia-ui-base/wikimedia-ui-base.less';
 
 // Background & Text Colors
-@background-color-base--hover: #eaecf0;
-@background-color-base--active: #eaecf0;
-@background-color-base--read-only: #f8f9fa;
+@background-color-base--hover: @wmui-color-base80;
+@background-color-base--active: @wmui-color-base80;
+@background-color-base--read-only: @wmui-color-base90;
 @background-color-frameless--hover: @wmui-color-base90;
-@background-color-pending-stripe: #eaecf0;
-@color-base--deemphasized: #54595d;
+@background-color-pending-stripe: @wmui-color-base80;
+@color-base--deemphasized: @wmui-color-base20;
 @color-taboption: @color-base--hover;
 
 // Primary 'Progressive' and 'Destructive' Colors
@@ -24,7 +24,7 @@
 @background-color-progressive--hover: @background-color-primary--hover;
 @color-progressive: @color-primary; // equals HSB 220°/75%/80%
 @color-progressive--hover: @color-primary--hover; // equals HSB 220°/72%/96%
-@color-progressive--active: #2a4b8d; // equals HSB 220°/70%/55%
+@color-progressive--active: @wmui-color-accent30; // equals HSB 220°/70%/55%
 @color-progressive--active-hover: @color-primary;
 @color-progressive--focus: @color-primary--focus;
 
@@ -118,14 +118,14 @@
 @border-color-warning: @wmui-color-yellow50;
 @border-color-success: @color-success;
 @border-color-notice: @border-color-base;
-@border-color-base--disabled: #c8ccd1;
+@border-color-base--disabled: @wmui-color-base70;
 @border-color-input--hover: @border-color-base--active;
-@border-color-dialog-bar: #c8ccd1;
+@border-color-dialog-bar: @wmui-color-base70;
 
 @border-width-frameless-tab: 2px;
 
-@border-toolbar: @border-width-base @border-style-base #c8ccd1;
-@border-toolgroup: @border-width-base @border-style-base #eaecf0;
+@border-toolbar: @border-width-base @border-style-base @wmui-color-base70;
+@border-toolgroup: @border-width-base @border-style-base @wmui-color-base80;
 
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
 
