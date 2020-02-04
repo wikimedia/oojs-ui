@@ -17,9 +17,17 @@ a:link {
 }
 
 code,
-code[ class*='language-' ],
+:not( pre ) > code[ class*='language-' ],
 pre[ class*='language-' ] {
+	background-color: #f8f9fa;
 	font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'Courier New', monospace; /* See T209915 */
+}
+
+code,
+:not( pre ) > code[ class*='language-' ] {
+	border-radius: 2px;
+	padding: 2px;
+	font-size: 0.929em; /* Equals `13px` at `14px` base font size. */
 }
 
 h1 {
