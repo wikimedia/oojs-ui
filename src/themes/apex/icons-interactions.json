@@ -65,6 +65,9 @@
 				}
 			}
 		},
+		"home": {
+			"file": "../wikimediaui/images/icons/home.svg"
+		},
 		"key": {
 			"file": "../wikimediaui/images/icons/key.svg"
 		},

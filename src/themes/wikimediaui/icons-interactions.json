@@ -90,6 +90,9 @@
 				}
 			}
 		},
+		"home": {
+			"file": "images/icons/home.svg"
+		},
 		"key": {
 			"file": "images/icons/key.svg"
 		},

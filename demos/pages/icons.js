@@ -62,6 +62,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'heart',
 				'help',
 				'helpNotice',
+				'home',
 				'key',
 				'keyboard',
 				'lightbulb',
