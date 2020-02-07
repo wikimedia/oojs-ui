@@ -66,6 +66,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'key',
 				'keyboard',
 				'lightbulb',
+				'logIn',
 				'logOut',
 				'newWindow',
 				'pageSettings',
