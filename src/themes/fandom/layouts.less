@@ -33,7 +33,7 @@
 .theme-oo-ui-indexLayout() {
 	&-stackLayout {
 		> .oo-ui-panelLayout {
-			padding: @padding-panel-dialog 0;
+			padding: @padding-panel-dialog;
 		}
 	}
 
@@ -257,7 +257,7 @@
 
 .theme-oo-ui-panelLayout() {
 	&-padded {
-		padding: 0.5rem;
+		padding: @dialog-vertical-padding @dialog-horizontal-padding;
 
 		&.oo-ui-formLayout > .oo-ui-fieldsetLayout {
 			.oo-ui-labelElement-label,

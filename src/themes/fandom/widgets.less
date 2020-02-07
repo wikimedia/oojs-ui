@@ -160,9 +160,9 @@
 			border-width: 2px;
 			box-sizing: border-box;
 			color: inherit;
-			display: grid;
+			display: flex;
 			height: @size-input-binary;
-			justify-items: center;
+			justify-content: center;
 			left: 0;
 			-webkit-mask: none;
 			mask: none;
@@ -629,7 +629,7 @@
 		border-radius: @border-radius-base;
 		border-style: @border-style-base;
 		border-width: @border-width-base;
-		padding: @popup-vertical-padding @popup-horizontal-padding;
+		padding: @dialog-vertical-padding @dialog-horizontal-padding;
 	}
 
 	&-anchored-top {
@@ -717,20 +717,31 @@
 	}
 
 	&-head {
+		position: relative;
+
 		> .oo-ui-labelElement-label {
-			line-height: @line-height-base;
-			margin-bottom: @gap-base;
+			font-size: @wds-font-size-xl;
+			font-weight: @wds-font-weight-bold;
+			line-height: @wds-line-height-tight;
+			margin-bottom: @dialog-vertical-padding;
 		}
 
 		> .oo-ui-buttonWidget {
 			right: 0;
-			top: 4px;
+			top: 0;
 
-			.oo-ui-icon-close {
-				height: @size-icon-tiny;
-				margin-right: 0;
-				min-width: @size-icon-tiny;
-				width: @size-icon-tiny;
+			> .oo-ui-buttonElement-button {
+				padding: 0;
+
+				.oo-ui-iconElement-icon {
+					margin-right: 0;
+				}
+
+				.oo-ui-icon-close {
+					min-height: @wds-font-size-xl;
+					min-width: @wds-font-size-xl;
+					width: @wds-font-size-xl;
+				}
 			}
 		}
 	}
@@ -939,6 +950,10 @@
 		&.oo-ui-selectFileInputWidget-empty {
 			border-style: dashed;
 		}
+	}
+
+	&-dropLabel {
+		font-weight: @wds-font-weight-bold;
 	}
 
 	&-buttonOnly {

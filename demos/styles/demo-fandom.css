@@ -4,7 +4,7 @@
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
-  color: #070707;
+  color: #6d6d6d;
 }
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
   color: #3a3a3a;
@@ -12,7 +12,7 @@
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
-  color: #070707;
+  color: #6d6d6d;
 }
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
   color: #d11739;
@@ -22,36 +22,36 @@
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
   color: #ed617a;
 }
-.oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active) > .oo-ui-buttonElement-button {
   color: #3a3a3a;
 }
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
-  color: #070707;
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+  color: #6d6d6d;
 }
-.oo-ui-buttonElement-framed.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
   color: #3a3a3a;
 }
-.oo-ui-buttonElement-framed.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
-.oo-ui-buttonElement-framed.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-.oo-ui-buttonElement-framed.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
-  color: #070707;
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+  color: #6d6d6d;
 }
-.oo-ui-buttonElement-framed.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button,
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
   color: #d11739;
 }
-.oo-ui-buttonElement-framed.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
-.oo-ui-buttonElement-framed.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
-.oo-ui-buttonElement-framed.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
+.oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
   color: #ed617a;
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
@@ -220,6 +220,10 @@
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive .oo-ui-tool-link:focus {
   background-color: #ed617a;
   border-color: #ed617a;
+}
+.oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active .oo-ui-tool-link {
+  background-color: rgba(255, 24, 7, 0.15);
+  color: #ff776d;
 }
 .oo-ui-toolGroup {
   border-right-color: #797b7b;
