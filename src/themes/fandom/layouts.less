@@ -67,7 +67,10 @@
 
 	&.oo-ui-labelElement {
 		> .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
+			font-size: @wds-font-size-xxs;
+			font-weight: @wds-font-weight-bold;
 			padding-bottom: @padding-vertical-label;
+			text-transform: uppercase;
 		}
 
 		&.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header,
@@ -143,6 +146,20 @@
 
 			&:first-child {
 				margin-top: @margin-top-message / 2;
+			}
+		}
+
+		// B/C for legacy messages
+		> :not(.oo-ui-messageWidget) {
+			margin-left: 12px;
+			margin-right: 12px;
+
+			> .oo-ui-iconElement-icon {
+				margin-right: 6px;
+			}
+
+			> .oo-ui-labelElement-label {
+				vertical-align: middle;
 			}
 		}
 	}
