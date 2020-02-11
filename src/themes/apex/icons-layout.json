@@ -3,7 +3,14 @@
 	"intro": "@import '../../../../src/styles/common.less';",
 	"images": {
 		"menu": {
-			"file": "../wikimediaui/images/icons/menu.svg" },
+			"file": "../wikimediaui/images/icons/menu.svg"
+		},
+		"recentChanges": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/recentChanges-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/recentChanges-rtl.svg"
+			}
+		},
 		"stripeFlow": {
 			"file": {
 				"ltr": "../wikimediaui/images/icons/stripeFlow-ltr.svg",

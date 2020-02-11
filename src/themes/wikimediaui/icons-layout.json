@@ -26,7 +26,14 @@
 	},
 	"images": {
 		"menu": {
-			"file": "images/icons/menu.svg" },
+			"file": "images/icons/menu.svg"
+		},
+		"recentChanges": {
+			"file": {
+				"ltr": "images/icons/recentChanges-ltr.svg",
+				"rtl": "images/icons/recentChanges-rtl.svg"
+			}
+		},
 		"stripeFlow": {
 			"file": {
 				"ltr": "images/icons/stripeFlow-ltr.svg",

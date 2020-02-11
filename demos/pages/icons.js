@@ -210,6 +210,7 @@ Demo.static.pages.icons = function ( demo ) {
 			],
 			layout: [
 				'menu',
+				'recentChanges',
 				'stripeFlow',
 				'stripeSummary',
 				'stripeToC',
