@@ -911,7 +911,7 @@
 		border-bottom-style: @border-style-base;
 		border-bottom-width: @border-width-base;
 		height: @height-search;
-		padding: 0 @padding-panel-form; // Need to use `padding` over `margin` for horizontally continuos `border`/`box-shadow` below
+		padding: 0 @dialog-horizontal-padding;
 
 		.oo-ui-textInputWidget {
 			margin: @margin-search 0;
@@ -920,7 +920,7 @@
 
 	&-results {
 		line-height: 0;
-		padding: @padding-panel-form; // Use smaller `@padding-panel-form` over `@padding-panel-dialog` for image results
+		padding: @dialog-padding;
 		top: @height-search;
 	}
 }
