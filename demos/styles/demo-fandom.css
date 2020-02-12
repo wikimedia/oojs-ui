@@ -592,3 +592,151 @@ body.oo-ui-theme-fandom h2,
 body.oo-ui-theme-fandom h2 span {
   color: inherit;
 }
+body.oo-ui-theme-fandom .demo-theming section {
+  background-color: #fff;
+  border-radius: 3px;
+  margin: 20px 0;
+  padding: 20px;
+}
+body.oo-ui-theme-fandom .demo-theming .theming-header {
+  border-bottom: 1px solid #c2c4c4;
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-bottom: 6px;
+  text-align: left;
+  width: 100%;
+}
+body.oo-ui-theme-fandom .demo-theming .variable-name {
+  background-color: #f2f5f5;
+  border: 1px solid #c2c4c4;
+  border-radius: 3px;
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 4px;
+  padding: 1px 4px;
+}
+body.oo-ui-theme-fandom .demo-theming .color-box {
+  align-items: start;
+  display: grid;
+  grid-column-gap: 12px;
+  grid-template-columns: 60px 1fr;
+  margin-bottom: 20px;
+}
+body.oo-ui-theme-fandom .demo-theming .color-box:last-child {
+  margin-bottom: 0;
+}
+body.oo-ui-theme-fandom .demo-theming .color-box::before {
+  border: 1px solid #c2c4c4;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.15));
+  height: 60px;
+  width: 60px;
+}
+body.oo-ui-theme-fandom .demo-theming .color-box small {
+  color: rgba(58, 58, 58, 0.6);
+  display: block;
+  font-size: 12px;
+}
+body.oo-ui-theme-fandom .demo-theming .base-colors {
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: repeat(3, auto);
+}
+body.oo-ui-theme-fandom .demo-theming .base-colors .themed-page-background::before {
+  background-color: #f2f5f5;
+}
+body.oo-ui-theme-fandom .demo-theming .base-colors .themed-link-color::before {
+  background-color: #ff776d;
+}
+body.oo-ui-theme-fandom .demo-theming .base-colors .themed-button-background::before {
+  background-color: #088488;
+}
+body.oo-ui-theme-fandom .demo-theming .base-colors .theming-header {
+  grid-column: 1 / -1;
+}
+body.oo-ui-theme-fandom .demo-theming .base-colors .color-box {
+  align-items: center;
+}
+body.oo-ui-theme-fandom .demo-theming .base-variables .color-box {
+  grid-template-columns: 1fr;
+}
+body.oo-ui-theme-fandom .demo-theming .base-variables .color-box::before {
+  display: none;
+}
+body.oo-ui-theme-fandom .demo-theming .background-colors .themed-page-background::before {
+  background-color: #f2f5f5;
+}
+body.oo-ui-theme-fandom .demo-theming .background-colors .themed-page-background--secondary::before {
+  background-color: #fff;
+}
+body.oo-ui-theme-fandom .demo-theming .text-colors .themed-text-color::before {
+  background-color: #3a3a3a;
+}
+body.oo-ui-theme-fandom .demo-theming .text-colors .themed-text-color--hover::before {
+  background-color: #6d6d6d;
+}
+body.oo-ui-theme-fandom .demo-theming .text-colors .themed-text-color--secondary::before {
+  background-color: rgba(58, 58, 58, 0.6);
+}
+body.oo-ui-theme-fandom .demo-theming .link-colors .themed-link-color::before {
+  background-color: #ff776d;
+}
+body.oo-ui-theme-fandom .demo-theming .link-colors .themed-link-color--hover::before {
+  background-color: #ffd6d3;
+}
+body.oo-ui-theme-fandom .demo-theming .link-colors .themed-link-color--fadeout::before {
+  background-color: rgba(255, 119, 109, 0.15);
+}
+body.oo-ui-theme-fandom .demo-theming .link-colors .themed-link-color--active::before {
+  background-color: rgba(255, 24, 7, 0.15);
+}
+body.oo-ui-theme-fandom .demo-theming .link-colors .themed-link--label::before {
+  background-color: #fff;
+}
+body.oo-ui-theme-fandom .demo-theming .button-colors .themed-button-background::before {
+  background-color: #088488;
+}
+body.oo-ui-theme-fandom .demo-theming .button-colors .themed-button-background--hover::before {
+  background-color: #0ee1e8;
+}
+body.oo-ui-theme-fandom .demo-theming .button-colors .themed-button-label::before {
+  background-color: #fff;
+}
+body.oo-ui-theme-fandom .demo-theming .border-colors .themed-border-color::before {
+  background-color: #c2c4c4;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color::before {
+  background-color: #d11739;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color--label::before {
+  background-color: #fff;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color--fadeout::before {
+  background-color: rgba(209, 23, 57, 0.15);
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color--active::before {
+  background-color: rgba(255, 24, 7, 0.15);
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-success-color::before {
+  background-color: #017e2b;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-warning-color::before {
+  background-color: #c8552e;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-notice-color::before {
+  background-color: #007e81;
+}
+body.oo-ui-theme-fandom .demo-theming .other-colors .themed-overlay-color::before {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+body.oo-ui-theme-fandom .demo-theming .other-colors .themed-window-box-shadow::before {
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
+}
+body.oo-ui-theme-fandom .demo-theming .toolbar-colors .toolbar-text-color::before {
+  background-color: #0e191a;
+}
+body.oo-ui-theme-fandom .demo-theming .toolbar-colors .toolbar-separator-color::before {
+  background-color: #797b7b;
+}

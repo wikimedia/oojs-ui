@@ -57,6 +57,10 @@ window.Demo = function Demo() {
 			new OO.ui.TabOptionWidget( {
 				data: 'toolbars',
 				label: 'Toolbars'
+			} ),
+			new OO.ui.TabOptionWidget( {
+				data: 'theming',
+				label: 'Theming'
 			} )
 		]
 	} );
