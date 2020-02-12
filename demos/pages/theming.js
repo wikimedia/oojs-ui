@@ -31,9 +31,9 @@ Demo.static.pages.theming = function(demo) {
 	});
 
 	const baseColors = colorBoxes([
-		{ name: 'themed-page-background' },
-		{ name: 'themed-link-color' },
-		{ name: 'themed-button-background' },
+		{ name: 'themed-page-background', desc:'set in ThemeDesigner ($color-page)' },
+		{ name: 'themed-link-color', desc:'set in ThemeDesigner ($color-links)' },
+		{ name: 'themed-button-background', desc:'set in ThemeDesigner ($color-buttons)' },
 	]);
 
 	const booleanVariables = colorBoxes([

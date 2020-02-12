@@ -657,12 +657,12 @@ body.oo-ui-theme-fandom .demo-theming .base-colors .theming-header {
   grid-column: 1 / -1;
 }
 body.oo-ui-theme-fandom .demo-theming .base-colors .color-box {
-  align-items: center;
+  margin-bottom: 0;
 }
-body.oo-ui-theme-fandom .demo-theming .base-variables .color-box {
+body.oo-ui-theme-fandom .demo-theming .boolean-variables .color-box {
   grid-template-columns: 1fr;
 }
-body.oo-ui-theme-fandom .demo-theming .base-variables .color-box::before {
+body.oo-ui-theme-fandom .demo-theming .boolean-variables .color-box::before {
   display: none;
 }
 body.oo-ui-theme-fandom .demo-theming .background-colors .themed-page-background::before {
