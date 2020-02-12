@@ -36,7 +36,7 @@ Demo.static.pages.theming = function(demo) {
 		{ name: 'themed-button-background' },
 	]);
 
-	const baseVariables = colorBoxes([
+	const booleanVariables = colorBoxes([
 		{ name: 'is-dark-theme', desc: 'true if relative luminance (brightness) of @themed-page-background is below 50%' },
 		{ name: 'is-dark-link', desc: 'true if relative luminance (brightness) of @themed-link-color is below 50%' },
 		{ name: 'is-dark-button', desc: 'true if relative luminance (brightness) of @themed-button-background is below 50%' },
@@ -124,7 +124,7 @@ Demo.static.pages.theming = function(demo) {
 
 	var sections = [
 		{ header: 'Base colors', content: baseColors },
-		{ header: 'Base variables', content: baseVariables },
+		{ header: 'Boolean variables', content: booleanVariables },
 		{ header: 'Background colors', content: backgroundColors },
 		{ header: 'Text colors', content: textColors },
 		{ header: 'Link colors', content: linkColors },
