@@ -4,13 +4,23 @@ Demo.static.pages.theming = function(demo) {
 	}
 
 	function colorBoxes(colorsNames) {
-		return colorsNames.map(color =>
-			$('<div class="color-box ' + color.name + '">').append(
+		return colorsNames.map(color => {
+			var colorUsage;
+
+			if (color.usage) {
+				colorUsage = $('<div class="color-usage">').append(
+					$('<h3>').text('Where to use it?'),
+					$('<ul>').append(color.usage.map(item => $('<li>').html(item))),
+				);
+			}
+
+			return $('<div class="color-box ' + color.name + '">').append(
 				$('<label>')
 					.append($('<span class="variable-name">').text('@' + color.name))
 					.append($('<small>').html(color.desc)),
-			),
-		);
+				colorUsage,
+			);
+		});
 	}
 
 	const selector = new OO.ui.ButtonSelectWidget({
@@ -31,23 +41,31 @@ Demo.static.pages.theming = function(demo) {
 	});
 
 	const baseColors = colorBoxes([
-		{ name: 'themed-page-background', desc:'set in ThemeDesigner ($color-page)' },
-		{ name: 'themed-link-color', desc:'set in ThemeDesigner ($color-links)' },
-		{ name: 'themed-button-background', desc:'set in ThemeDesigner ($color-buttons)' },
+		{ name: 'themed-page-background', desc: 'set in ThemeDesigner ($color-page)' },
+		{ name: 'themed-link-color', desc: 'set in ThemeDesigner ($color-links)' },
+		{ name: 'themed-button-background', desc: 'set in ThemeDesigner ($color-buttons)' },
 	]);
 
 	const booleanVariables = colorBoxes([
 		{ name: 'is-dark-theme', desc: 'true if relative luminance (brightness) of @themed-page-background is below 50%' },
 		{ name: 'is-dark-link', desc: 'true if relative luminance (brightness) of @themed-link-color is below 50%' },
-		{ name: 'is-dark-button', desc: 'true if relative luminance (brightness) of @themed-button-background is below 50%' },
+		{
+			name: 'is-dark-button',
+			desc: 'true if relative luminance (brightness) of @themed-button-background is below 50%',
+		},
 	]);
 
 	const backgroundColors = colorBoxes([
-		{ name: 'themed-page-background', desc: 'formerly: $color-page (basic color set in ThemeDesigner)' },
+		{
+			name: 'themed-page-background',
+			desc: 'formerly: $color-page (basic color set in ThemeDesigner)',
+			usage: ['base background color for articles and other content'],
+		},
 		{
 			name: 'themed-page-background--secondary',
 			desc:
 				'light themes: mix of 95% @themed-page-background / 5% black<br>dark themes: mix of 85% @themed-page-background / 15% white<br>very light themes (@themed-page-background lightness > 90%): white',
+			usage: ['background color for various windows, such as popups, dialogs, dropdowns, etc.', 'for elements inside main content that need to stand&nbsp;out'],
 		},
 	]);
 
@@ -55,12 +73,14 @@ Demo.static.pages.theming = function(demo) {
 		{
 			name: 'themed-text-color',
 			desc: 'light themes: @text-color--light #e6e6e6<br>dark themes: @text-color--dark #3a3a3a',
+			usage: ['as base text color', 'color for secondary buttons and for text buttons'],
 		},
 		{
 			name: 'themed-text-color--hover',
 			desc: 'light themes: @themed-text-color lightened by 20%<br>dark themes: @themed-text-color darkened by 20%',
+			usage: ['when there is some hoverable text (i.e. secondary buttons, text buttons)'],
 		},
-		{ name: 'themed-text-color--secondary', desc: '@themed-text-color at 60% opacity' },
+		{ name: 'themed-text-color--secondary', desc: '@themed-text-color at 60% opacity', usage: ['for text that is less important'], },
 	]);
 
 	const linkColors = colorBoxes([
@@ -100,13 +120,32 @@ Demo.static.pages.theming = function(demo) {
 	]);
 
 	const specialColors = colorBoxes([
-		{ name: 'themed-alert-color', desc: 'light themes: mix of 90% @wds-color-alert and 10% black<br>dark themes: mix of 90% @wds-color-alert and 10% white' },
-		{ name: 'themed-alert-color--label', desc: 'light @themed-alert-color: @wds-fandom-color-black<br>dark @themed-alert-color: white' },
+		{
+			name: 'themed-alert-color',
+			desc:
+				'light themes: mix of 90% @wds-color-alert and 10% black<br>dark themes: mix of 90% @wds-color-alert and 10% white',
+		},
+		{
+			name: 'themed-alert-color--label',
+			desc: 'light @themed-alert-color: @wds-fandom-color-black<br>dark @themed-alert-color: white',
+		},
 		{ name: 'themed-alert-color--fadeout', desc: '@themed-alert-color at 15% opacity' },
 		{ name: 'themed-alert-color--active', desc: '@themed-link-color--fadeout darkened by 20%' },
-		{ name: 'themed-success-color', desc: 'light themes: mix of 90% @wds-color-success and 10% black<br>dark themes: mix of 90% @wds-color-success and 10% white' },
-		{ name: 'themed-warning-color', desc: 'light themes: mix of 90% @wds-color-warning and 10% black<br>dark themes: mix of 90% @wds-color-warning and 10% white' },
-		{ name: 'themed-notice-color', desc: 'light themes: mix of 90% @wds-color-message and 10% black<br>dark themes: mix of 90% @wds-color-message and 10% white' },
+		{
+			name: 'themed-success-color',
+			desc:
+				'light themes: mix of 90% @wds-color-success and 10% black<br>dark themes: mix of 90% @wds-color-success and 10% white',
+		},
+		{
+			name: 'themed-warning-color',
+			desc:
+				'light themes: mix of 90% @wds-color-warning and 10% black<br>dark themes: mix of 90% @wds-color-warning and 10% white',
+		},
+		{
+			name: 'themed-notice-color',
+			desc:
+				'light themes: mix of 90% @wds-color-message and 10% black<br>dark themes: mix of 90% @wds-color-message and 10% white',
+		},
 	]);
 
 	const otherColors = colorBoxes([
@@ -118,8 +157,12 @@ Demo.static.pages.theming = function(demo) {
 	]);
 
 	const toolbarColors = colorBoxes([
-		{ name: 'toolbar-text-color', desc: 'light themes: @wds-fandom-color-black<br>dark themes: white', },
-		{ name: 'toolbar-separator-color', desc: 'light themes: mix of 50% @themed-page-background and 50% black<br>dark themes: mix of 50% @themed-page-background and 50% white' },
+		{ name: 'toolbar-text-color', desc: 'light themes: @wds-fandom-color-black<br>dark themes: white' },
+		{
+			name: 'toolbar-separator-color',
+			desc:
+				'light themes: mix of 50% @themed-page-background and 50% black<br>dark themes: mix of 50% @themed-page-background and 50% white',
+		},
 	]);
 
 	var sections = [

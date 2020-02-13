@@ -55,7 +55,7 @@ body.oo-ui-theme-fandom {
 			align-items: start;
 			display: grid;
 			grid-column-gap: 12px;
-			grid-template-columns: 60px 1fr;
+			grid-template-columns: @box-size 1fr auto;
 			margin-bottom: 20px;
 
 			&:last-child {
@@ -77,6 +77,26 @@ body.oo-ui-theme-fandom {
 				display: block;
 				font-size: @wds-font-size-xs;
 			}
+
+			.color-usage {
+				background-color: @themed-page-background;
+				border: 1px solid @themed-border-color;
+				border-radius: @wds-rounded-corner-radius;
+				font-size: @wds-font-size-xs;
+				padding: 8px 12px;
+				text-align: left;
+				width: 300px;
+
+				h3 {
+					font-size: @wds-font-size-s;
+					margin: 0 0 4px;
+				}
+
+				ul {
+					margin: 0;
+					padding-left: 12px;
+				}
+			}
 		}
 
 		.base-colors {
@@ -85,7 +105,7 @@ body.oo-ui-theme-fandom {
 			.classToBackgroundColor(themed-button-background);
 
 			display: grid;
-			grid-column-gap: 20px;
+			grid-column-gap: 10px;
 			grid-template-columns: repeat(3, auto);
 
 			.theming-header {
