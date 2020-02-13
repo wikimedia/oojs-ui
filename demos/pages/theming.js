@@ -100,13 +100,13 @@ Demo.static.pages.theming = function(demo) {
 	]);
 
 	const specialColors = colorBoxes([
-		{ name: 'themed-alert-color', desc: '' },
-		{ name: 'themed-alert-color--label', desc: '' },
-		{ name: 'themed-alert-color--fadeout', desc: '' },
-		{ name: 'themed-alert-color--active', desc: '' },
-		{ name: 'themed-success-color', desc: '' },
-		{ name: 'themed-warning-color', desc: '' },
-		{ name: 'themed-notice-color', desc: '' },
+		{ name: 'themed-alert-color', desc: 'light themes: mix of 90% @wds-color-alert and 10% black<br>dark themes: mix of 90% @wds-color-alert and 10% white' },
+		{ name: 'themed-alert-color--label', desc: 'light @themed-alert-color: @wds-fandom-color-black<br>dark @themed-alert-color: white' },
+		{ name: 'themed-alert-color--fadeout', desc: '@themed-alert-color at 15% opacity' },
+		{ name: 'themed-alert-color--active', desc: '@themed-link-color--fadeout darkened by 20%' },
+		{ name: 'themed-success-color', desc: 'light themes: mix of 90% @wds-color-success and 10% black<br>dark themes: mix of 90% @wds-color-success and 10% white' },
+		{ name: 'themed-warning-color', desc: 'light themes: mix of 90% @wds-color-warning and 10% black<br>dark themes: mix of 90% @wds-color-warning and 10% white' },
+		{ name: 'themed-notice-color', desc: 'light themes: mix of 90% @wds-color-message and 10% black<br>dark themes: mix of 90% @wds-color-message and 10% white' },
 	]);
 
 	const otherColors = colorBoxes([
