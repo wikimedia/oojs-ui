@@ -614,6 +614,7 @@ body.oo-ui-theme-fandom .demo-theming .variable-name {
   font-weight: 700;
   margin-bottom: 4px;
   padding: 1px 4px;
+  white-space: nowrap;
 }
 body.oo-ui-theme-fandom .demo-theming .color-box {
   align-items: start;
