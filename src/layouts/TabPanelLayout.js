@@ -15,6 +15,7 @@
  * @param {string} name Unique symbolic name of tab panel
  * @param {Object} [config] Configuration options
  * @cfg {jQuery|string|Function|OO.ui.HtmlSnippet} [label] Label for tab panel's tab
+ * @cfg {Object} [tabItemConfig] Additional tab item config
  */
 OO.ui.TabPanelLayout = function OoUiTabPanelLayout( name, config ) {
 	// Allow passing positional parameters inside the config object
@@ -32,6 +33,7 @@ OO.ui.TabPanelLayout = function OoUiTabPanelLayout( name, config ) {
 	// Properties
 	this.name = name;
 	this.label = config.label;
+	this.tabItemConfig = config.tabItemConfig || {};
 	this.tabItem = null;
 	this.active = false;
 
@@ -90,6 +92,15 @@ OO.ui.TabPanelLayout.prototype.isActive = function () {
  */
 OO.ui.TabPanelLayout.prototype.getTabItem = function () {
 	return this.tabItem;
+};
+
+/**
+ * Get config for creating a tab item.
+ *
+ * @return {Object} Tab option config
+ */
+OO.ui.TabPanelLayout.prototype.getTabItemConfig = function () {
+	return this.tabItemConfig;
 };
 
 /**

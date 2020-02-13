@@ -518,12 +518,15 @@ Demo.static.pages.layouts = function ( demo ) {
 										} ),
 										new Demo.SampleTabPanel( 'long', {
 											expanded: false,
-											label: 'Long tab',
+											label: 'Long tab (href)',
 											content: [
 												$( '<p>' ).text( loremIpsum ),
 												$( '<p>' ).text( loremIpsum ),
 												$( '<p>' ).text( loremIpsum )
-											]
+											],
+											tabItemConfig: {
+												href: '#exampleHref'
+											}
 										} )
 									] )
 								]

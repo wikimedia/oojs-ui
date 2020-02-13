@@ -400,9 +400,12 @@ for ( $i = 0; $i < 2; $i++ ) {
 	$indexLayout->addTabPanels( [
 		new OOUI\TabPanelLayout( [
 			'name' => 'panel1',
-			'label' => 'Panel 1',
+			'label' => 'Panel 1 (href)',
 			'content' => new OOUI\HtmlSnippet( 'Panel <b>1</b> <i>content</i>' ),
 			'expanded' => false,
+			'tabItemConfig' => [
+				'href' => '#exampleHref'
+			]
 		] ),
 		new OOUI\TabPanelLayout( [
 			'name' => 'panel2',
