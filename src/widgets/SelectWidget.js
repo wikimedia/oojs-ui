@@ -773,7 +773,9 @@ OO.ui.SelectWidget.prototype.unselectItem = function ( item ) {
 		item.setSelected( false );
 	} else {
 		this.items.forEach( function ( item ) {
-			item.setSelected( false );
+			if ( item.isSelected() ) {
+				item.setSelected( false );
+			}
 		} );
 	}
 

@@ -295,12 +295,12 @@ OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem )
 	if ( !this.continuous ) {
 		for ( i = 0, len = items.length; i < len; i++ ) {
 			if ( !selectedItem || selectedItem !== items[ i ] ) {
-				items[ i ].$element.addClass( 'oo-ui-element-hidden' );
+				items[ i ].toggle( false );
 				items[ i ].$element.attr( 'aria-hidden', 'true' );
 			}
 		}
 		if ( selectedItem ) {
-			selectedItem.$element.removeClass( 'oo-ui-element-hidden' );
+			selectedItem.toggle( true );
 			selectedItem.$element.removeAttr( 'aria-hidden' );
 		}
 	}

@@ -39,6 +39,11 @@ class Element extends Tag {
 	protected $data = null;
 
 	/**
+	 * @var bool
+	 */
+	protected $visible = true;
+
+	/**
 	 * Strings of the CSS classes explicitly configured for this element (as opposed to #$classes,
 	 * which contains all classes for this element).
 	 *
@@ -109,6 +114,21 @@ class Element extends Tag {
 	 */
 	public function getTagName() {
 		return $this::$tagName;
+	}
+
+	/**
+	 * Toggle visiblity of an element.
+	 *
+	 * @param bool|null $show Make element visible, omit to toggle visibility
+	 * @return $this
+	 */
+	public function toggle( $show = null ) {
+		$show = $show === null ? !$this->visible : $show;
+
+		$this->visible = $show;
+		$this->toggleClasses( [ 'oo-ui-element-hidden' ], !$this->visible );
+
+		return $this;
 	}
 
 	/**

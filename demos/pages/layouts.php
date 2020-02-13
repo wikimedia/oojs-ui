@@ -413,6 +413,10 @@ for ( $i = 0; $i < 2; $i++ ) {
 	] );
 	$indexLayouts[] = $indexLayout;
 }
+
+// Demonstrate setTabPanel
+$indexLayouts[1]->setTabPanel( 'panel2' );
+
 $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-other-layouts',
 	'infusable' => false,
@@ -432,7 +436,9 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'content' => $indexLayouts[ 1 ],
 			] ),
 			[
-				'label' => 'IndexLayout (frameless)',
+				'label' => new OOUI\HtmlSnippet(
+					'IndexLayout (frameless, <code>setTabPanel(\'panel2\')</code> called)'
+				),
 				'align' => 'top'
 			]
 		),
