@@ -39,7 +39,11 @@
 
 @themed-link-color--hover: if(@is-dark-link, lighten(@themed-link-color, 20%), darken(@themed-link-color, 20%));
 @themed-link-color--fadeout: fadeout(@themed-link-color, 85%);
-@themed-link-color--active: darken(@themed-link-color--fadeout, 20%);
+@themed-link-color--active: if(
+	lightness(@themed-link-color) < 50%,
+	lighten(@themed-link-color--fadeout, 20%),
+	darken(@themed-link-color--fadeout, 20%)
+);
 @themed-link--label: if(@is-dark-link, @button-label--light, @button-label--dark);
 
 @themed-border-color: if(
