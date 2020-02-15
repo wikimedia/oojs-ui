@@ -4,7 +4,6 @@
 .git* export-ignore
 .mailmap export-ignore
 .npmignore export-ignore
-.travis.yml export-ignore
 
 
 # Build files
