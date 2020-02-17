@@ -124,6 +124,18 @@
 .oo-ui-panelLayout-framed {
   border-color: #c2c4c4;
 }
+.oo-ui-fieldLayout-messages-alert {
+  color: #d11739;
+}
+.oo-ui-fieldLayout-messages-warning {
+  color: #c8552e;
+}
+.oo-ui-fieldLayout-messages-success {
+  color: #017e2b;
+}
+.oo-ui-fieldLayout-messages-notice {
+  color: #007e81;
+}
 .oo-ui-messageDialog-content > .oo-ui-window-foot {
   outline-color: #c2c4c4;
 }
