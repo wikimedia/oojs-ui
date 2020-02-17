@@ -1,6 +1,6 @@
 {
   "name": "@fandom/oojs-ui",
-  "version": "0.35.1-gallery3",
+  "version": "0.35.1-paddings2",
   "description": "User interface classes built on the OOjs framework.",
   "keywords": [
     "oojs-plugin",
@@ -32,7 +32,7 @@
     "prepublishOnly": "npm run publish-build"
   },
   "dependencies": {
-    "design-system": "git://github.com/Wikia/design-system.git#360041f894d99c3e3ae04b90ed2c2e68277dfc8a",
+    "design-system": "git://github.com/Wikia/design-system.git#22.8.0",
     "jquery": "3.4.1",
     "oojs": "3.0.0",
     "wikimedia-ui-base": "0.14.0"
