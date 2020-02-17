@@ -576,10 +576,6 @@
 	padding: 8px (@wds-dropdown-padding / 2 - @gap-base / 2);
 	white-space: nowrap;
 
-	> * {
-		margin: 0 @gap-base / 2;
-	}
-
 	> :not(.oo-ui-labelElement-label) {
 		flex-shrink: 1;
 	}
@@ -908,8 +904,6 @@
 
 .theme-oo-ui-searchWidget() {
 	&-query {
-		border-bottom-style: @border-style-base;
-		border-bottom-width: @border-width-base;
 		height: @height-search;
 		padding: 0 @dialog-padding;
 
