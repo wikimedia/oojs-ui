@@ -183,9 +183,7 @@ body.oo-ui-theme-fandom {
 }
 
 .classToBackgroundColor(@colorName) {
-	.@{colorName} {
-		&::before {
-			background-color: @@colorName;
-		}
+	.@{colorName}::before {
+		background-color: @@colorName;
 	}
 }
