@@ -28,7 +28,7 @@
 					"ar": "../wikimediaui/images/icons/bold-arab-ain.svg",
 					"be": "../wikimediaui/images/icons/bold-cyrl-te.svg",
 					"ce": "../wikimediaui/images/icons/bold-cyrl-palochka.svg",
-					"cs,en,he,ml,pl,sco": "../wikimediaui/images/icons/bold-b.svg",
+					"cs,en,he,ml,pl,sco": "~design-system-svg/wds-icons-bold-small.svg",
 					"da,de,hu,ksh,nn,no,sv": "../wikimediaui/images/icons/bold-f.svg",
 					"es,gl,pt": "../wikimediaui/images/icons/bold-n.svg",
 					"eu,fi": "../wikimediaui/images/icons/bold-l.svg",
@@ -51,7 +51,7 @@
 				"default": "../wikimediaui/images/icons/italic-a.svg",
 				"lang": {
 					"ar": "../wikimediaui/images/icons/italic-arab-meem.svg",
-					"cs,en,fr,he,ml,pl,pt,sco": "../wikimediaui/images/icons/italic-i.svg",
+					"cs,en,fr,he,ml,pl,pt,sco": "~design-system-svg/wds-icons-italics-small.svg",
 					"be,ce,da,de,fi,ky,nn,no,os,sv,ru,uk": "../wikimediaui/images/icons/italic-k.svg",
 					"es,gl,it,nl": "../wikimediaui/images/icons/italic-c.svg",
 					"eu": "../wikimediaui/images/icons/italic-e.svg",
@@ -95,6 +95,9 @@
 		},
 		"textFormat": {
 			"file": "~design-system-svg/wds-icons-text-small.svg"
+		},
+		"paragraph": {
+			"file": "~design-system-svg/wds-icons-paragraph-small.svg"
 		}
 	}
 }
