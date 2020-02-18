@@ -16,9 +16,178 @@ body.oo-ui-theme-fandom {
 		background-color: @themed-page-background;
 	}
 
+	.demo-container.oo-ui-panelLayout {
+		border-color: @themed-border-color;
+	}
+
 	h1,
 	h2,
 	h2 span {
 		color: inherit;
+	}
+
+	.demo-theming {
+		section {
+			background-color: @themed-page-background--secondary;
+			border-radius: @wds-rounded-corner-radius;
+			margin: 20px 0;
+			padding: 20px;
+		}
+
+		.theming-header {
+			border-bottom: 1px solid @themed-border-color;
+			font-size: @wds-font-size-l;
+			margin-bottom: 20px;
+			padding-bottom: 6px;
+			text-align: left;
+			width: 100%;
+		}
+
+		.variable-name {
+			background-color: @themed-page-background;
+			border: 1px solid @themed-border-color;
+			border-radius: @wds-rounded-corner-radius;
+			display: inline-block;
+			font-weight: @wds-font-weight-bold;
+			margin-bottom: 4px;
+			padding: 1px 4px;
+			white-space: nowrap;
+		}
+
+		.color-box {
+			@box-size: 60px;
+
+			align-items: start;
+			display: grid;
+			grid-column-gap: 12px;
+			grid-template-columns: @box-size 1fr auto;
+			margin-bottom: 20px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&::before {
+				border: 1px solid @themed-border-color;
+				border-radius: @wds-rounded-corner-radius;
+				content: '';
+				display: block;
+				filter: drop-shadow(0 0 3px rgba(@black, 0.15));
+				height: @box-size;
+				width: @box-size;
+			}
+
+			small {
+				color: @themed-text-color--secondary;
+				display: block;
+				font-size: @wds-font-size-xs;
+			}
+
+			.color-usage {
+				background-color: @themed-page-background;
+				border: 1px solid @themed-border-color;
+				border-radius: @wds-rounded-corner-radius;
+				font-size: @wds-font-size-xs;
+				padding: 8px 12px;
+				text-align: left;
+				width: 300px;
+
+				h3 {
+					font-size: @wds-font-size-s;
+					margin: 0 0 4px;
+				}
+
+				ul {
+					margin: 0;
+					padding-left: 12px;
+				}
+			}
+		}
+
+		.base-colors {
+			.classToBackgroundColor(themed-page-background);
+			.classToBackgroundColor(themed-link-color);
+			.classToBackgroundColor(themed-button-background);
+
+			display: grid;
+			grid-column-gap: 10px;
+			grid-template-columns: repeat(3, auto);
+
+			.theming-header {
+				grid-column: 1 e('/') -1;
+			}
+
+			.color-box {
+				margin-bottom: 0;
+			}
+		}
+
+		.boolean-variables {
+			.color-box {
+				grid-template-columns: 1fr;
+
+				&::before {
+					display: none;
+				}
+			}
+		}
+
+		.background-colors {
+			.classToBackgroundColor(themed-page-background);
+			.classToBackgroundColor(themed-page-background--secondary);
+		}
+
+		.text-colors {
+			.classToBackgroundColor(themed-text-color);
+			.classToBackgroundColor(themed-text-color--hover);
+			.classToBackgroundColor(themed-text-color--secondary);
+		}
+
+		.link-colors {
+			.classToBackgroundColor(themed-link-color);
+			.classToBackgroundColor(themed-link-color--hover);
+			.classToBackgroundColor(themed-link-color--fadeout);
+			.classToBackgroundColor(themed-link-color--active);
+			.classToBackgroundColor(themed-link--label);
+		}
+
+		.button-colors {
+			.classToBackgroundColor(themed-button-background);
+			.classToBackgroundColor(themed-button-background--hover);
+			.classToBackgroundColor(themed-button-label);
+		}
+
+		.border-colors {
+			.classToBackgroundColor(themed-border-color);
+		}
+
+		.special-colors {
+			.classToBackgroundColor(themed-alert-color);
+			.classToBackgroundColor(themed-alert-color--label);
+			.classToBackgroundColor(themed-alert-color--fadeout);
+			.classToBackgroundColor(themed-alert-color--active);
+			.classToBackgroundColor(themed-success-color);
+			.classToBackgroundColor(themed-warning-color);
+			.classToBackgroundColor(themed-notice-color);
+		}
+
+		.other-colors {
+			.classToBackgroundColor(themed-overlay-color);
+
+			.themed-window-box-shadow::before {
+				box-shadow: @themed-window-box-shadow;
+			}
+		}
+
+		.toolbar-colors {
+			.classToBackgroundColor(toolbar-text-color);
+			.classToBackgroundColor(toolbar-separator-color);
+		}
+	}
+}
+
+.classToBackgroundColor(@colorName) {
+	.@{colorName}::before {
+		background-color: @@colorName;
 	}
 }
