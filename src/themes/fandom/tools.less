@@ -76,7 +76,11 @@
 }
 
 .theme-oo-ui-toolGroup() {
-	padding: 0 12px;
+	padding: 0 6px;
+
+	&:first-child {
+		padding-left: 0;
+	}
 
 	&:not(:last-child) {
 		border-right-style: @border-style-base;
