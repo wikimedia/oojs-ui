@@ -8,6 +8,7 @@
 @themed-link-color: @color-links;
 
 @is-dark-theme: boolean(luma(@themed-page-background) < 50%);
+@is-very-light-theme: boolean(lightness(@themed-page-background) > 90%);
 @is-dark-button: boolean(luma(@themed-button-background) < 50%);
 @is-dark-link: boolean(luma(@themed-link-color) < 50%);
 
@@ -21,7 +22,7 @@
 @page-background--secondary--darker: mix(@themed-page-background, @black, 95%);
 
 @themed-page-background--secondary: if(
-	lightness(@themed-page-background) > 90%,
+	@is-very-light-theme,
 	@white,
 	if(@is-dark-theme, @page-background--secondary--lighter, @page-background--secondary--darker)
 );

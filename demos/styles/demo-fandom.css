@@ -118,8 +118,8 @@
   border-color: #d11739;
 }
 .oo-ui-pendingElement-pending {
-  background-color: rgba(255, 119, 109, 0.8);
-  background-image: linear-gradient(135deg, #fff 25%, transparent 25%, transparent 50%, #fff 50%, #fff 75%, transparent 75%, transparent);
+  background-color: rgba(242, 245, 245, 0.8);
+  background-image: linear-gradient(135deg, #e6e9e9 25%, transparent 25%, transparent 50%, #e6e9e9 50%, #e6e9e9 75%, transparent 75%, transparent);
 }
 .oo-ui-panelLayout-framed {
   border-color: #c2c4c4;

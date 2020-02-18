@@ -68,17 +68,20 @@
 	}
 }
 
-.theming-pending(@accent-color) {
+.theming-pending() {
+	@first-color: @themed-page-background;
+	@second-color: if(@is-dark-theme, @page-background--secondary--lighter, @page-background--secondary--darker);
+
 	.oo-ui-pendingElement {
 		&-pending {
-			background-color: fadeout(@accent-color, 20%);
+			background-color: fadeout(@first-color, 20%);
 			background-image: linear-gradient(
 				135deg,
-				@themed-page-background--secondary 25%,
+				@second-color 25%,
 				transparent 25%,
 				transparent 50%,
-				@themed-page-background--secondary 50%,
-				@themed-page-background--secondary 75%,
+				@second-color 50%,
+				@second-color 75%,
 				transparent 75%,
 				transparent
 			);

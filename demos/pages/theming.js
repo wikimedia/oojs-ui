@@ -48,6 +48,7 @@ Demo.static.pages.theming = function(demo) {
 
 	const booleanVariables = colorBoxes([
 		{ name: 'is-dark-theme', desc: 'true if relative luminance (brightness) of @themed-page-background is below 50%' },
+		{ name: 'is-very-light-theme', desc: 'true if lightness of @themed-page-background is greater than 90%' },
 		{ name: 'is-dark-link', desc: 'true if relative luminance (brightness) of @themed-link-color is below 50%' },
 		{
 			name: 'is-dark-button',
