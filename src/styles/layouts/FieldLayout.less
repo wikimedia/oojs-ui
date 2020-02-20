@@ -29,23 +29,28 @@
 		text-align: right;
 	}
 
-	&.oo-ui-fieldLayout-align-inline > .oo-ui-fieldLayout-body {
-		display: table;
-		width: 100%;
+	&.oo-ui-fieldLayout-align-inline {
+		// Word-break overlong labels. See T237230.
+		.oo-ui-hyphens( auto );
 
-		> .oo-ui-fieldLayout-header,
-		> .oo-ui-fieldLayout-field {
-			display: table-cell;
-		}
+		> .oo-ui-fieldLayout-body {
+			display: table;
+			width: 100%;
 
-		> .oo-ui-fieldLayout-header {
-			vertical-align: middle;
-		}
+			> .oo-ui-fieldLayout-header,
+			> .oo-ui-fieldLayout-field {
+				display: table-cell;
+			}
 
-		> .oo-ui-fieldLayout-field {
-			// Since this is a "table cell", this doesn't actually mean 1px, but as narrow as possible
-			width: 1px;
-			vertical-align: top;
+			> .oo-ui-fieldLayout-header {
+				vertical-align: middle;
+			}
+
+			> .oo-ui-fieldLayout-field {
+				// Since this is a "table cell", this doesn't actually mean 1px, but as narrow as possible
+				width: 1px;
+				vertical-align: top;
+			}
 		}
 	}
 
