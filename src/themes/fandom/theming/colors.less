@@ -68,7 +68,11 @@
 @themed-alert-color--active: darken(@themed-link-color--fadeout, 20%);
 
 @themed-warning-color: mix(@wds-color-warning, @mix-color, @mix-weight);
+
 @themed-success-color: mix(@wds-color-success, @mix-color, @mix-weight);
+@is-dark-color: boolean(luma(@themed-success-color) < 50%);
+@themed-success-color--label: if(@is-dark-color, @button-label--light, @button-label--dark);
+
 @themed-notice-color: mix(@wds-color-message, @mix-color, @mix-weight);
 
 // toolbar

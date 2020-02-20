@@ -97,12 +97,9 @@
 	&-content {
 		.oo-ui-window-head,
 		.oo-ui-window-foot {
+			min-height: @size-dialog-bar--desktop;
 			outline-style: @border-style-base;
 			outline-width: @border-width-base;
-		}
-
-		.oo-ui-window-head {
-			min-height: @size-dialog-bar--desktop;
 		}
 
 		.oo-ui-window-body {
@@ -223,6 +220,8 @@
 		}
 
 		&-other {
+			height: @size-dialog-bar--desktop;
+
 			.oo-ui-actionWidget {
 				&.oo-ui-buttonElement {
 					margin-right: 0;
