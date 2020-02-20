@@ -147,7 +147,7 @@ Demo.static.pages.theming = function(demo) {
 		{
 			name: 'themed-border-color',
 			desc:
-				'light themes: mix of 80% @themed-page-background and 20% black<br>dark themes: mix of 70@ @themed-page-background and 30% white',
+				'light themes: mix of 75% @themed-page-background and 25% black<br>dark themes: mix of 50% @themed-page-background and 50% white',
 			usage: ['border color everywhere - tables, separators, borders for containers, etc. '],
 		},
 	]);
