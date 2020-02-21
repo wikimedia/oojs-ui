@@ -198,7 +198,9 @@ Demo.static.pages.dialogs = function ( demo ) {
 							},
 							{
 								action: 'repeat',
-								label: 'Try to save this again',
+								// This message should be *just* long enough to trigger a vertical
+								// layout but will probably vary by which font is used.
+								label: 'Try to save this again..',
 								flags: [ 'primary', 'progressive' ]
 							}
 						]
