@@ -132,5 +132,6 @@ Release process:
     # Dev release
     $ npm run release dev your-custom-identifier
     # eg. npm run release dev new-buttons
+    # NOTE: Git tags are not created during dev releases, use "version" field or check artifactory.
 
 </pre>
