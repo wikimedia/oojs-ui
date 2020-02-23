@@ -112,6 +112,13 @@ Releases will be numbered in the following format:
 
 `<major>.<minor>.<patch>`
 
+Because we want to tag our fork separately from upstream, tagging is done by mixing NPM's SemVer and base OOJS version of our fork and are numbered in the following format:
+
+`<major>.<minor>.<patch>.<prerelease-if-exists>---base-<base-oojs-version>`
+
+Examples:
+ - `0.0.1---base-0.35.1`
+ - `0.0.1-new-buttons.0---base-0.35.1`
 
 Release
 ----------
@@ -119,39 +126,11 @@ Release
 Release process:
 <pre lang="bash">
 
-    $ cd path/to/oojs-ui/
-    $ git remote update
-    $ git checkout -B release -t origin/master
+    # Prod release
+    $ npm run release major/minor/patch
 
-    # Ensure tests pass
-    $ npm install && composer update && npm test && composer test
-
-    # Avoid using "npm version patch" because that creates
-    # both a commit and a tag, and we shouldn't tag until after
-    # the commit is merged.
-
-    # Update release notes
-    # Copy the resulting list into a new section at the top of History.md and edit
-    # into five sub-sections, in order:
-    # * Breaking changes
-    # * Deprecations
-    # * Features
-    # * Styles
-    # * Code
-    $ git log --format='* %s (%aN)' --no-merges --reverse v$(node -e 'console.log(require("./package.json").version);')...HEAD | grep -v "Localisation updates from" | sort
-    $ edit History.md
-
-    # Update the version number
-    $ edit package.json
-
-    $ git add -p
-    $ git commit -m "Tag vX.X.X"
-    $ git review
-
-    # After merging:
-    $ git remote update
-    $ git checkout origin/master
-    $ git tag "vX.X.X"
-    $ npm run publish-build && git push --tags && npm publish
+    # Dev release
+    $ npm run release dev your-custom-identifier
+    # eg. npm run release dev new-buttons
 
 </pre>
