@@ -143,6 +143,15 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'align' => 'inline'
 			]
 		),
+		new OOUI\FieldLayout(
+			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
+			[
+				'label' => 'FieldLayout aligned inline with '
+					. 'ExtraLongLabelSimilarToAnOverlongTitleInMediaWikiToTestOverflowBehavior',
+				'help' => $loremIpsum,
+				'align' => 'inline'
+			]
+		),
 		new OOUI\ActionFieldLayout(
 			new OOUI\CheckboxInputWidget( [ 'selected' => true ] ),
 			new OOUI\ButtonInputWidget( [

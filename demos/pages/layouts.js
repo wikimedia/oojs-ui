@@ -152,6 +152,14 @@ Demo.static.pages.layouts = function ( demo ) {
 						align: 'inline'
 					}
 				),
+				new OO.ui.FieldLayout(
+					new OO.ui.CheckboxInputWidget( { selected: true } ),
+					{
+						label: 'FieldLayout aligned inline with ExtraLongLabelSimilarToAnOverlongTitleInMediaWikiToTestOverflowBehavior',
+						help: loremIpsum,
+						align: 'inline'
+					}
+				),
 				new OO.ui.ActionFieldLayout(
 					new OO.ui.CheckboxInputWidget( { selected: true } ),
 					new OO.ui.ButtonWidget( {
