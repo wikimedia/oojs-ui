@@ -281,7 +281,6 @@ module.exports = function ( grunt ) {
 				},
 				files: {
 					'dist/themes/fandom/theming/colors.scss': [
-						'src/themes/fandom/functions/luma.scss',
 						'src/themes/fandom/functions/fadeout.scss',
 						'dist/themes/fandom/theming/colors.scss'
 					]
