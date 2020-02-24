@@ -152,30 +152,6 @@ Demo.static.pages.theming = function(demo) {
 		},
 	]);
 
-	// const specialColors = colorBoxes([
-	// 	{
-	// 		name: 'themed-alert-color',
-	// 		desc:
-	// 			'light themes: mix of 90% @wds-color-alert and 10% black<br>dark themes: mix of 90% @wds-color-alert and 10% white',
-	// 	},
-	// 	{ name: 'themed-alert-color--fadeout', desc: '@themed-alert-color at 15% opacity' },
-	// 	{
-	// 		name: 'themed-success-color',
-	// 		desc:
-	// 			'light themes: mix of 90% @wds-color-success and 10% black<br>dark themes: mix of 90% @wds-color-success and 10% white',
-	// 	},
-	// 	{
-	// 		name: 'themed-warning-color',
-	// 		desc:
-	// 			'light themes: mix of 90% @wds-color-warning and 10% black<br>dark themes: mix of 90% @wds-color-warning and 10% white',
-	// 	},
-	// 	{
-	// 		name: 'themed-notice-color',
-	// 		desc:
-	// 			'light themes: mix of 90% @wds-color-message and 10% black<br>dark themes: mix of 90% @wds-color-message and 10% white',
-	// 	},
-	// ]);
-
 	const otherColors = colorBoxes([
 		{
 			name: 'themed-overlay-color',
@@ -202,7 +178,6 @@ Demo.static.pages.theming = function(demo) {
 		{ header: 'Link colors', content: linkColors },
 		{ header: 'Button colors', content: buttonColors },
 		{ header: 'Border colors', content: borderColors },
-		// { header: 'Special colors', content: specialColors },
 		{ header: 'Other colors', content: otherColors },
 		{ header: 'Toolbar colors', content: toolbarColors },
 	];
