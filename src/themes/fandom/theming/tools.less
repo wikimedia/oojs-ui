@@ -67,15 +67,17 @@
 
 					&-destructive {
 						.oo-ui-tool-link {
-							background-color: @themed-alert-color;
-							border-color: @themed-alert-color;
-							color: @themed-alert-color--label;
+							background-color: @wds-color-alert;
+							border-color: @wds-color-alert;
+							color: @wds-color-white;
 
 							&:hover,
 							&:active,
 							&:focus {
-								background-color: @themed-alert-color--hover;
-								border-color: @themed-alert-color--hover;
+								@hover-color: darken(@wds-color-alert, 20%);
+
+								background-color: @hover-color;
+								border-color: @hover-color;
 							}
 						}
 					}
