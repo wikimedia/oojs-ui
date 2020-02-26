@@ -123,7 +123,19 @@ Examples:
 Release
 ----------
 
-Release process:
+##### Requirements:
+ * you need to have composer installed on your machine, try [this](https://getcomposer.org/download/)
+ * you need to setup your Artifactory account 
+   * Verify you can login to [Artifactory](https://artifactory.wikia-inc.com/artifactory/webapp/#/home)
+   * Change Fandom scoped packages to use artifactory: 
+     
+     `$ npm config set @fandom:registry https://artifactory.wikia-inc.com/artifactory/api/npm/wikia-npm/`
+   * Get your Artifactory login and artifactory API key for password by going to "Edit Profile" in Artifactory web ui 
+     and use them to login by 
+     
+     `> npm login --scope=@fandom` 
+
+##### Release process:
 <pre lang="bash">
 
     # Prod release
