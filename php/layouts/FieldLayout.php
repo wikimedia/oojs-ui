@@ -127,6 +127,11 @@ class FieldLayout extends Layout {
 			if ( $this->helpText !== '' && $this->helpInline ) {
 				$this->help->setAttributes( [ 'for' => $this->fieldWidget->getInputId() ] );
 			}
+		} else {
+			// We can't use `label for` with non-form elements, use `aria-labelledby` instead
+			$id = Tag::generateElementId();
+			$this->label->setAttributes( [ 'id' => $id ] );
+			$this->fieldWidget->setAttributes( [ 'aria-labelledby' => $id ] );
 		}
 		$this
 			->addClasses( [ 'oo-ui-fieldLayout' ] )
