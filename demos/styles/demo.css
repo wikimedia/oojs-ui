@@ -138,7 +138,7 @@ p:first-child {
 	margin: 0;
 }
 
-.demo-linked-fieldset .oo-ui-labelElement-label {
+.demo-linked-fieldset > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
 	text-decoration: inherit;
 	color: inherit;
 }
