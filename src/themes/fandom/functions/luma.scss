@@ -1,7 +1,0 @@
-@import '~design-system/dist/scss/wds-functions/brightness';
-
-@function luma($color) {
-	$brightness: brightness($color);
-
-	@return $brightness / 255 * 100%;
-}

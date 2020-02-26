@@ -1,16 +1,26 @@
-// to work, this file needs to have community colors defined before it's imported
-//   @color-page
-//   @color-buttons
-//   @color-links
+// to work, this file needs to have these variables defined before it's imported
+//   @color-page, @color-buttons, @color-links
+//   @themed-alert-color, @themed-warning-color, @themed-success-color, @themed-notice-color
+//   @color-page-luma, @color-buttons-luma, @color-links-luma, @color-alert-luma
 
+// Base colors
 @themed-page-background: @color-page;
 @themed-button-background: @color-buttons;
 @themed-link-color: @color-links;
 
-@is-dark-theme: boolean(luma(@themed-page-background) < 50%);
-@is-very-light-theme: boolean(lightness(@themed-page-background) > 90%);
-@is-dark-button: boolean(luma(@themed-button-background) < 50%);
-@is-dark-link: boolean(luma(@themed-link-color) < 50%);
+// Special colors variations
+@themed-alert-color--fadeout: fadeout(@themed-alert-color, 85%);
+@themed-alert-color--hover: if(
+	@color-alert-luma < 50%,
+	lighten(@themed-alert-color, 20%),
+	darken(@themed-alert-color, 20%)
+);
+
+// Boolean variables
+@is-dark-theme: boolean(@color-page-luma < 50%);
+@is-very-light-theme: boolean(@color-page-luma > 90%);
+@is-dark-button: boolean(@color-buttons-luma < 50%);
+@is-dark-link: boolean(@color-links-luma < 50%);
 
 @white: #fff;
 @black: #000;
@@ -21,23 +31,19 @@
 @page-background--secondary--lighter: mix(@themed-page-background, @white, 85%);
 @page-background--secondary--darker: mix(@themed-page-background, @black, 95%);
 
+// Background colors
 @themed-page-background--secondary: if(
 	@is-very-light-theme,
 	@white,
 	if(@is-dark-theme, @page-background--secondary--lighter, @page-background--secondary--darker)
 );
 
+// Text colors
 @themed-text-color: if(@is-dark-theme, @text-color--light, @text-color--dark);
 @themed-text-color--hover: if(@is-dark-theme, darken(@themed-text-color, 20%), lighten(@themed-text-color, 20%));
 @themed-text-color--secondary: fadeout(@themed-text-color, 40%);
 
-@themed-button-label: if(@is-dark-button, @button-label--light, @button-label--dark);
-@themed-button-background--hover: if(
-	@is-dark-button,
-	lighten(@themed-button-background, 20%),
-	darken(@themed-button-background, 20%)
-);
-
+// Link colors
 @themed-link-color--hover: if(@is-dark-link, lighten(@themed-link-color, 20%), darken(@themed-link-color, 20%));
 @themed-link-color--fadeout: fadeout(@themed-link-color, 85%);
 @themed-link-color--active: if(
@@ -47,34 +53,25 @@
 );
 @themed-link--label: if(@is-dark-link, @button-label--light, @button-label--dark);
 
+// Button colors
+@themed-button-label: if(@is-dark-button, @button-label--light, @button-label--dark);
+@themed-button-background--hover: if(
+	@is-dark-button,
+	lighten(@themed-button-background, 20%),
+	darken(@themed-button-background, 20%)
+);
+
+// Border colors
 @themed-border-color: if(
 	@is-dark-theme,
 	mix(@themed-page-background, @white, 50%),
 	mix(@themed-page-background, @black, 75%)
 );
+
+// Other colors
 @themed-overlay-color: if(@is-dark-theme, rgba(@white, 0.5), rgba(@black, 0.5));
 @themed-window-box-shadow: 0 3px 12px 0 rgba(@black, 0.3);
 
-// alert / warning / success / message
-// TODO: adjust till contrast ratio is 3:1 IW-2948
-@mix-color: if(@is-dark-theme, #fff, #000);
-@mix-weight: 90%;
-
-@themed-alert-color: mix(@wds-color-alert, @mix-color, @mix-weight);
-@is-dark-color: boolean(luma(@themed-alert-color) < 50%);
-@themed-alert-color--hover: if(@is-dark-color, lighten(@themed-alert-color, 20%), darken(@themed-alert-color, 20%));
-@themed-alert-color--label: if(@is-dark-color, @button-label--light, @button-label--dark);
-@themed-alert-color--fadeout: fadeout(@themed-alert-color, 85%);
-@themed-alert-color--active: darken(@themed-link-color--fadeout, 20%);
-
-@themed-warning-color: mix(@wds-color-warning, @mix-color, @mix-weight);
-
-@themed-success-color: mix(@wds-color-success, @mix-color, @mix-weight);
-@is-dark-color: boolean(luma(@themed-success-color) < 50%);
-@themed-success-color--label: if(@is-dark-color, @button-label--light, @button-label--dark);
-
-@themed-notice-color: mix(@wds-color-message, @mix-color, @mix-weight);
-
-// toolbar
+// Toolbar colors
 @toolbar-text-color: if(@is-dark-theme, @white, @wds-fandom-color-black);
 @toolbar-separator-color: mix(@themed-page-background, if(@is-dark-theme, @white, @black), 50%);
