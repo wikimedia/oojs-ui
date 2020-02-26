@@ -15,12 +15,12 @@
   color: #6d6d6d;
 }
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
-  color: #d11739;
+  color: #e81a3f;
 }
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-frameless.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
-  color: #ed617a;
+  color: #f1778d;
 }
 .oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active) > .oo-ui-buttonElement-button {
   color: #3a3a3a;
@@ -44,7 +44,7 @@
 }
 .oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button,
 .oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
-  color: #d11739;
+  color: #e81a3f;
 }
 .oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
@@ -52,7 +52,7 @@
 .oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
 .oo-ui-buttonElement-framed:not(.oo-ui-flaggedElement-primary):not(.oo-ui-buttonElement-active).oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
-  color: #ed617a;
+  color: #f1778d;
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
@@ -71,8 +71,8 @@
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
-  background-color: #d11739;
-  border-color: #d11739;
+  background-color: #e81a3f;
+  border-color: #e81a3f;
   color: #fff;
 }
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
@@ -81,8 +81,8 @@
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-framed.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
-  background-color: #ed617a;
-  border-color: #ed617a;
+  background-color: #8e0e25;
+  border-color: #8e0e25;
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
   background-color: #088488;
@@ -107,15 +107,15 @@
   border-color: #088488;
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
-  background-color: #d11739;
-  border-color: #d11739;
+  background-color: #e81a3f;
+  border-color: #e81a3f;
   color: #fff;
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active.oo-ui-flaggedElement-destructive.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
-  background-color: #d11739;
-  border-color: #d11739;
+  background-color: #e81a3f;
+  border-color: #e81a3f;
 }
 .oo-ui-pendingElement-pending {
   background-color: rgba(242, 245, 245, 0.8);
@@ -125,16 +125,16 @@
   border-color: #b6b8b8;
 }
 .oo-ui-fieldLayout-messages-alert {
-  color: #d11739;
+  color: #e81a3f;
 }
 .oo-ui-fieldLayout-messages-warning {
-  color: #c8552e;
+  color: #de5e33;
 }
 .oo-ui-fieldLayout-messages-success {
-  color: #017e2b;
+  color: #018c30;
 }
 .oo-ui-fieldLayout-messages-notice {
-  color: #007e81;
+  color: #008c8f;
 }
 .oo-ui-messageDialog-content > .oo-ui-window-foot {
   outline-color: #b6b8b8;
@@ -172,8 +172,8 @@
   background-color: #fff;
 }
 .oo-ui-processDialog-error {
-  background-color: rgba(209, 23, 57, 0.15);
-  border-color: #d11739;
+  background-color: rgba(232, 26, 63, 0.15);
+  border-color: #e81a3f;
 }
 .oo-ui-windowManager-modal > .oo-ui-dialog {
   background-color: rgba(0, 0, 0, 0.5);
@@ -204,12 +204,12 @@
   color: #ffd6d3;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive .oo-ui-tool-link {
-  color: #d11739;
+  color: #e81a3f;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive .oo-ui-tool-link:hover,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive .oo-ui-tool-link:active,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive .oo-ui-tool-link:focus {
-  color: #ed617a;
+  color: #f1778d;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive .oo-ui-tool-link {
   background-color: #088488;
@@ -223,15 +223,15 @@
   border-color: #0ee1e8;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive .oo-ui-tool-link {
-  background-color: #d11739;
-  border-color: #d11739;
+  background-color: #e81a3f;
+  border-color: #e81a3f;
   color: #fff;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive .oo-ui-tool-link:hover,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive .oo-ui-tool-link:active,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive .oo-ui-tool-link:focus {
-  background-color: #ed617a;
-  border-color: #ed617a;
+  background-color: #8e0e25;
+  border-color: #8e0e25;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active .oo-ui-tool-link {
   background-color: rgba(255, 24, 7, 0.15);
@@ -467,12 +467,12 @@
   color: #ff776d;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid {
-  background-color: rgba(209, 23, 57, 0.15);
-  color: #d11739;
+  background-color: rgba(232, 26, 63, 0.15);
+  color: #e81a3f;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid:hover,
 .oo-ui-tagItemWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid:focus {
-  color: #ed617a;
+  color: #f1778d;
 }
 .oo-ui-tagMultiselectWidget-handle {
   border-color: #b6b8b8;
@@ -493,16 +493,16 @@
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-inlined.oo-ui-flaggedElement-invalid .oo-ui-tagMultiselectWidget-handle,
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-inlined.oo-ui-flaggedElement-invalid:hover .oo-ui-tagMultiselectWidget-handle {
-  border-color: #d11739;
+  border-color: #e81a3f;
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined .oo-ui-tagMultiselectWidget-handle {
   background-color: #fff;
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
-  border-color: #d11739;
+  border-color: #e81a3f;
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
-  color: #d11739;
+  color: #e81a3f;
 }
 .oo-ui-tagMultiselectWidget .oo-ui-inputWidget-input {
   color: inherit;
@@ -547,14 +547,14 @@
   border-color: #b6b8b8;
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
-  border-color: #d11739;
+  border-color: #e81a3f;
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input:hover,
 .oo-ui-textInputWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input:focus {
-  border-color: #d11739;
+  border-color: #e81a3f;
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input:focus {
-  box-shadow: inset 0 0 0 1px #d11739;
+  box-shadow: inset 0 0 0 1px #e81a3f;
 }
 .oo-ui-messageWidget.oo-ui-messageWidget-block {
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
@@ -567,28 +567,28 @@
   color: #3a3a3a;
 }
 .oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-error {
-  background-color: #d11739;
+  background-color: #e81a3f;
 }
 .oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-warning {
-  background-color: #c8552e;
+  background-color: #de5e33;
 }
 .oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-success {
-  background-color: #017e2b;
+  background-color: #018c30;
 }
 .oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-notice {
-  background-color: #007e81;
+  background-color: #008c8f;
 }
 .oo-ui-messageWidget:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-error {
-  color: #d11739;
+  color: #e81a3f;
 }
 .oo-ui-messageWidget:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-warning {
-  color: #c8552e;
+  color: #de5e33;
 }
 .oo-ui-messageWidget:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-success {
-  color: #017e2b;
+  color: #018c30;
 }
 .oo-ui-messageWidget:not(.oo-ui-messageWidget-block).oo-ui-flaggedElement-notice {
-  color: #007e81;
+  color: #008c8f;
 }
 body.oo-ui-theme-fandom {
   background-color: #f2f5f5;
@@ -620,6 +620,10 @@ body.oo-ui-theme-fandom .demo-theming .theming-header {
   padding-bottom: 6px;
   text-align: left;
   width: 100%;
+}
+body.oo-ui-theme-fandom .demo-theming .theming-header small {
+  font-size: 14px;
+  font-weight: 400;
 }
 body.oo-ui-theme-fandom .demo-theming .variable-name {
   background-color: #f2f5f5;
@@ -692,6 +696,24 @@ body.oo-ui-theme-fandom .demo-theming .base-colors .theming-header {
 body.oo-ui-theme-fandom .demo-theming .base-colors .color-box {
   margin-bottom: 0;
 }
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color::before {
+  background-color: #e81a3f;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-success-color::before {
+  background-color: #018c30;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-warning-color::before {
+  background-color: #de5e33;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-notice-color::before {
+  background-color: #008c8f;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors-variations .themed-alert-color--fadeout::before {
+  background-color: rgba(232, 26, 63, 0.15);
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors-variations .themed-alert-color--hover::before {
+  background-color: #f1778d;
+}
 body.oo-ui-theme-fandom .demo-theming .boolean-variables .color-box {
   grid-template-columns: 1fr;
 }
@@ -739,27 +761,6 @@ body.oo-ui-theme-fandom .demo-theming .button-colors .themed-button-label::befor
 }
 body.oo-ui-theme-fandom .demo-theming .border-colors .themed-border-color::before {
   background-color: #b6b8b8;
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color::before {
-  background-color: #d11739;
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color--label::before {
-  background-color: #fff;
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color--fadeout::before {
-  background-color: rgba(209, 23, 57, 0.15);
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color--active::before {
-  background-color: rgba(255, 24, 7, 0.15);
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-success-color::before {
-  background-color: #017e2b;
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-warning-color::before {
-  background-color: #c8552e;
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-notice-color::before {
-  background-color: #007e81;
 }
 body.oo-ui-theme-fandom .demo-theming .other-colors .themed-overlay-color::before {
   background-color: rgba(0, 0, 0, 0.5);
