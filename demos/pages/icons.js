@@ -213,7 +213,6 @@ Demo.static.pages.icons = function ( demo ) {
 				'recentChanges',
 				'textFlow',
 				'textSummary',
-				'toc',
 				'viewCompact',
 				'viewDetails'
 			],
