@@ -621,6 +621,10 @@ body.oo-ui-theme-fandom .demo-theming .theming-header {
   text-align: left;
   width: 100%;
 }
+body.oo-ui-theme-fandom .demo-theming .theming-header small {
+  font-size: 14px;
+  font-weight: 400;
+}
 body.oo-ui-theme-fandom .demo-theming .variable-name {
   background-color: #f2f5f5;
   border: 1px solid #b6b8b8;
@@ -692,6 +696,24 @@ body.oo-ui-theme-fandom .demo-theming .base-colors .theming-header {
 body.oo-ui-theme-fandom .demo-theming .base-colors .color-box {
   margin-bottom: 0;
 }
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color::before {
+  background-color: #e81a3f;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-success-color::before {
+  background-color: #018c30;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-warning-color::before {
+  background-color: #de5e33;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors .themed-notice-color::before {
+  background-color: #008c8f;
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors-variations .themed-alert-color--fadeout::before {
+  background-color: rgba(232, 26, 63, 0.15);
+}
+body.oo-ui-theme-fandom .demo-theming .special-colors-variations .themed-alert-color--hover::before {
+  background-color: #f1778d;
+}
 body.oo-ui-theme-fandom .demo-theming .boolean-variables .color-box {
   grid-template-columns: 1fr;
 }
@@ -739,21 +761,6 @@ body.oo-ui-theme-fandom .demo-theming .button-colors .themed-button-label::befor
 }
 body.oo-ui-theme-fandom .demo-theming .border-colors .themed-border-color::before {
   background-color: #b6b8b8;
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color::before {
-  background-color: #e81a3f;
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-alert-color--fadeout::before {
-  background-color: rgba(232, 26, 63, 0.15);
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-success-color::before {
-  background-color: #018c30;
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-warning-color::before {
-  background-color: #de5e33;
-}
-body.oo-ui-theme-fandom .demo-theming .special-colors .themed-notice-color::before {
-  background-color: #008c8f;
 }
 body.oo-ui-theme-fandom .demo-theming .other-colors .themed-overlay-color::before {
   background-color: rgba(0, 0, 0, 0.5);

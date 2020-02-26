@@ -1,6 +1,6 @@
 Demo.static.pages.theming = function(demo) {
 	function header(text) {
-		return $('<h1 class="theming-header">').text(text);
+		return $('<h1 class="theming-header">').html(text);
 	}
 
 	function colorBoxes(colorsNames) {
@@ -44,6 +44,42 @@ Demo.static.pages.theming = function(demo) {
 		{ name: 'themed-page-background', desc: 'set in ThemeDesigner ($color-page)' },
 		{ name: 'themed-link-color', desc: 'set in ThemeDesigner ($color-links)' },
 		{ name: 'themed-button-background', desc: 'set in ThemeDesigner ($color-buttons)' },
+	]);
+
+	const specialColors = colorBoxes([
+		{
+			name: 'themed-alert-color',
+			desc: 'primarily set to @wds-color-alert',
+			usage: ['buttons flagged as destructive', 'fields marked as invalid', 'error messages'],
+		},
+		{
+			name: 'themed-success-color',
+			desc: 'primarily set to @wds-color-success',
+			usage: ['success messages'],
+		},
+		{
+			name: 'themed-warning-color',
+			desc: 'primarily set to @wds-color-warning',
+			usage: ['warning messages'],
+		},
+		{
+			name: 'themed-notice-color',
+			desc: 'primarily set to @wds-color-message',
+		},
+	]);
+
+	const specialColorsVariations = colorBoxes([
+		{
+			name: 'themed-alert-color--fadeout',
+			desc: '@themed-alert-color at 15% opacity',
+			usage: ['light background for invalid fields, tags, etc.'],
+		},
+		{
+			name: 'themed-alert-color--hover',
+			desc:
+				'light @themed-alert-color: @themed-alert-color darkened by 20%<br>dark @themed-alert-color: @themed-alert-color lightened by 20%',
+			usage: ['destructive buttons hover state'],
+		},
 	]);
 
 	const booleanVariables = colorBoxes([
@@ -156,9 +192,13 @@ Demo.static.pages.theming = function(demo) {
 		{
 			name: 'themed-overlay-color',
 			desc: 'light themes: black at 50% opacity<br>dark themes: white at 50% opacity',
-			usage: ['color for overlaying curtains, that need to be transparent']
+			usage: ['color for overlaying curtains, that need to be transparent'],
 		},
-		{ name: 'themed-window-box-shadow', desc: '0 3px 12px 0 rgba(0, 0, 0, 0.3)', usage: ['shadow for windows, such as popups, dialogs, etc.']},
+		{
+			name: 'themed-window-box-shadow',
+			desc: '0 3px 12px 0 rgba(0, 0, 0, 0.3)',
+			usage: ['shadow for windows, such as popups, dialogs, etc.'],
+		},
 	]);
 
 	const toolbarColors = colorBoxes([
@@ -171,22 +211,26 @@ Demo.static.pages.theming = function(demo) {
 	]);
 
 	var sections = [
-		{ header: 'Base colors', content: baseColors },
-		{ header: 'Boolean variables', content: booleanVariables },
-		{ header: 'Background colors', content: backgroundColors },
-		{ header: 'Text colors', content: textColors },
-		{ header: 'Link colors', content: linkColors },
-		{ header: 'Button colors', content: buttonColors },
-		{ header: 'Border colors', content: borderColors },
-		{ header: 'Other colors', content: otherColors },
-		{ header: 'Toolbar colors', content: toolbarColors },
+		{ header: 'Base colors <small>(set on Theme Designer)</small>', class: 'base-colors', content: baseColors },
+		{
+			header:
+				'Special colors <small>(adjusted on UCP to meet 3.1:1 ratio with @themed-page-background for accessibility)</small>',
+			class: 'special-colors',
+			content: specialColors,
+		},
+		{ header: 'Special colors variations', class: 'special-colors-variations', content: specialColorsVariations },
+		{ header: 'Boolean variables', class: 'boolean-variables', content: booleanVariables },
+		{ header: 'Background colors', class: 'background-colors', content: backgroundColors },
+		{ header: 'Text colors', class: 'text-colors', content: textColors },
+		{ header: 'Link colors', class: 'link-colors', content: linkColors },
+		{ header: 'Button colors', class: 'button-colors', content: buttonColors },
+		{ header: 'Border colors', class: 'border-colors', content: borderColors },
+		{ header: 'Other colors', class: 'other-colors', content: otherColors },
+		{ header: 'Toolbar colors', class: 'toolbar-colors', content: toolbarColors },
 	];
 
 	sections = sections.map(section =>
-		$('<section class="' + section.header.toLowerCase().replace(' ', '-') + '">').append(
-			header(section.header),
-			section.content,
-		),
+		$('<section class="' + section.class + '">').append(header(section.header), section.content),
 	);
 
 	demo.$element.append(

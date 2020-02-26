@@ -55,6 +55,11 @@ body.oo-ui-theme-fandom {
 			padding-bottom: 6px;
 			text-align: left;
 			width: 100%;
+
+			small {
+				font-size: @wds-font-size-s;
+				font-weight: @wds-font-weight-normal;
+			}
 		}
 
 		.variable-name {
@@ -136,6 +141,18 @@ body.oo-ui-theme-fandom {
 			}
 		}
 
+		.special-colors {
+			.classToBackgroundColor(themed-alert-color);
+			.classToBackgroundColor(themed-success-color);
+			.classToBackgroundColor(themed-warning-color);
+			.classToBackgroundColor(themed-notice-color);
+		}
+
+		.special-colors-variations {
+			.classToBackgroundColor(themed-alert-color--fadeout);
+			.classToBackgroundColor(themed-alert-color--hover);
+		}
+
 		.boolean-variables {
 			.color-box {
 				grid-template-columns: 1fr;
@@ -173,14 +190,6 @@ body.oo-ui-theme-fandom {
 
 		.border-colors {
 			.classToBackgroundColor(themed-border-color);
-		}
-
-		.special-colors {
-			.classToBackgroundColor(themed-alert-color);
-			.classToBackgroundColor(themed-alert-color--fadeout);
-			.classToBackgroundColor(themed-success-color);
-			.classToBackgroundColor(themed-warning-color);
-			.classToBackgroundColor(themed-notice-color);
 		}
 
 		.other-colors {
