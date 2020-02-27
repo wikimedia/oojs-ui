@@ -1,5 +1,6 @@
 // to work, this file needs to have these variables defined before it's imported
 //   @color-page, @color-buttons, @color-links
+//   @themed-button-label, @themed-link-label
 //   @themed-alert-color, @themed-warning-color, @themed-success-color, @themed-notice-color
 //   @color-page-luma, @color-buttons-luma, @color-links-luma, @color-alert-luma
 
@@ -51,10 +52,8 @@
 	lighten(@themed-link-color--fadeout, 20%),
 	darken(@themed-link-color--fadeout, 20%)
 );
-@themed-link--label: if(@is-dark-link, @button-label--light, @button-label--dark);
 
 // Button colors
-@themed-button-label: if(@is-dark-button, @button-label--light, @button-label--dark);
 @themed-button-background--hover: if(
 	@is-dark-button,
 	lighten(@themed-button-background, 20%),
