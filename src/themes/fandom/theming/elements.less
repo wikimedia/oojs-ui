@@ -70,7 +70,7 @@
 
 .theming-pending() {
 	@first-color: @themed-page-background;
-	@second-color: if(@is-dark-theme, @page-background--secondary--lighter, @page-background--secondary--darker);
+	@second-color: @themed-page-background--secondary;
 
 	.oo-ui-pendingElement {
 		&-pending {

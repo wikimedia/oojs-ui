@@ -28,14 +28,12 @@
 @text-color--dark: #3a3a3a;
 @button-label--light: @white;
 @button-label--dark: @wds-fandom-color-black;
-@page-background--secondary--lighter: mix(@themed-page-background, @white, 85%);
-@page-background--secondary--darker: mix(@themed-page-background, @black, 95%);
 
 // Background colors
 @themed-page-background--secondary: if(
 	@is-dark-theme,
-	@page-background--secondary--lighter,
-	@page-background--secondary--darker
+	mix(@themed-page-background, @white, 85%),
+	mix(@themed-page-background, @black, 95%)
 );
 @themed-page-background--windows: if(@is-very-light-theme, @white, @themed-page-background--secondary);
 

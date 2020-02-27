@@ -136,6 +136,9 @@
 .oo-ui-fieldLayout-messages-notice {
   color: #008c8f;
 }
+.oo-ui-bookletLayout > .oo-ui-menuLayout-menu {
+  border-right-color: #b6b8b8;
+}
 .oo-ui-messageDialog-content > .oo-ui-window-foot {
   outline-color: #b6b8b8;
 }
@@ -179,7 +182,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 .oo-ui-windowManager-modal > .oo-ui-dialog > .oo-ui-window-frame {
-  background-color: #e6e9e9;
+  background-color: #fff;
 }
 .oo-ui-toolbar-bar {
   background-color: #e6e9e9;
@@ -255,7 +258,7 @@
   color: rgba(58, 58, 58, 0.6);
 }
 .oo-ui-popupToolGroup-tools {
-  background-color: #e6e9e9;
+  background-color: #fff;
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
 }
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:hover,
@@ -332,7 +335,7 @@
   color: #ff776d;
 }
 .oo-ui-menuSelectWidget {
-  background-color: #e6e9e9;
+  background-color: #fff;
   border: #b6b8b8;
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
 }
@@ -349,7 +352,7 @@
   color: #ff776d;
 }
 .oo-ui-popupWidget-popup {
-  background-color: #e6e9e9;
+  background-color: #fff;
   border: #b6b8b8;
   color: #3a3a3a;
   filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.3));
@@ -358,25 +361,25 @@
   border-bottom-color: #b6b8b8;
 }
 .oo-ui-popupWidget-anchored.oo-ui-popupWidget-anchored-top .oo-ui-popupWidget-anchor::after {
-  border-bottom-color: #e6e9e9;
+  border-bottom-color: #fff;
 }
 .oo-ui-popupWidget-anchored.oo-ui-popupWidget-anchored-bottom .oo-ui-popupWidget-anchor::before {
   border-top-color: #b6b8b8;
 }
 .oo-ui-popupWidget-anchored.oo-ui-popupWidget-anchored-bottom .oo-ui-popupWidget-anchor::after {
-  border-top-color: #e6e9e9;
+  border-top-color: #fff;
 }
 .oo-ui-popupWidget-anchored.oo-ui-popupWidget-anchored-start .oo-ui-popupWidget-anchor::before {
   border-right-color: #b6b8b8;
 }
 .oo-ui-popupWidget-anchored.oo-ui-popupWidget-anchored-start .oo-ui-popupWidget-anchor::after {
-  border-right-color: #e6e9e9;
+  border-right-color: #fff;
 }
 .oo-ui-popupWidget-anchored.oo-ui-popupWidget-anchored-end .oo-ui-popupWidget-anchor::before {
   border-left-color: #b6b8b8;
 }
 .oo-ui-popupWidget-anchored.oo-ui-popupWidget-anchored-end .oo-ui-popupWidget-anchor::after {
-  border-left-color: #e6e9e9;
+  border-left-color: #fff;
 }
 .oo-ui-progressBarWidget {
   background-color: #e6e9e9;
@@ -525,9 +528,6 @@
   border-color: #b6b8b8;
   color: #3a3a3a;
 }
-.oo-ui-textInputWidget .oo-ui-pendingElement-pending {
-  background-color: rgba(255, 119, 109, 0.15);
-}
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input {
   box-shadow: inset 0 0 0 1px transparent;
 }
@@ -601,6 +601,11 @@ body.oo-ui-theme-fandom .demo-header {
 }
 body.oo-ui-theme-fandom .demo-container.oo-ui-panelLayout {
   border-color: #b6b8b8;
+}
+body.oo-ui-theme-fandom .oo-ui-formLayout .oo-ui-fieldsetLayout:last-child {
+  background-color: #e6e9e9;
+  border-color: #b6b8b8;
+  border-radius: 3px;
 }
 body.oo-ui-theme-fandom h1,
 body.oo-ui-theme-fandom h2,
