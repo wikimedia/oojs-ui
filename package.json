@@ -1,6 +1,6 @@
 {
   "name": "@fandom/oojs-ui",
-  "version": "0.35.1-bkg2",
+  "version": "0.35.1-bkg3",
   "description": "User interface classes built on the OOjs framework.",
   "keywords": [
     "oojs-plugin",
