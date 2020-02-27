@@ -33,10 +33,11 @@
 
 // Background colors
 @themed-page-background--secondary: if(
-	@is-very-light-theme,
-	@white,
-	if(@is-dark-theme, @page-background--secondary--lighter, @page-background--secondary--darker)
+	@is-dark-theme,
+	@page-background--secondary--lighter,
+	@page-background--secondary--darker
 );
+@themed-page-background--windows: if(@is-very-light-theme, @white, @themed-page-background--secondary);
 
 // Text colors
 @themed-text-color: if(@is-dark-theme, @text-color--light, @text-color--dark);

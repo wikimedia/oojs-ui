@@ -101,11 +101,14 @@ Demo.static.pages.theming = function(demo) {
 		{
 			name: 'themed-page-background--secondary',
 			desc:
-				'light themes: mix of 95% @themed-page-background / 5% black<br>dark themes: mix of 85% @themed-page-background / 15% white<br>very light themes (@themed-page-background lightness > 90%): white',
-			usage: [
-				'background color for various windows, such as popups, dialogs, dropdowns, etc.',
-				'for elements inside main content that need to stand&nbsp;out, i.e. tables',
-			],
+				'light themes: mix of 95% @themed-page-background / 5% black<br>dark themes: mix of 85% @themed-page-background / 15% white',
+			usage: ['for elements inside main content that need to stand&nbsp;out, i.e. tables'],
+		},
+		{
+			name: 'themed-page-background--windows',
+			desc:
+				'very light themes (@themed-page-background lightness > 90%): white<br>all other (@themed-page-background lightness < 90%): @themed-page-background--secondary',
+			usage: ['background color for various windows, such as popups, dialogs, dropdowns, etc.'],
 		},
 	]);
 
