@@ -735,6 +735,12 @@ body.oo-ui-theme-fandom .demo-theming .text-colors .themed-text-color--hover::be
 body.oo-ui-theme-fandom .demo-theming .text-colors .themed-text-color--secondary::before {
   background-color: rgba(58, 58, 58, 0.6);
 }
+body.oo-ui-theme-fandom .demo-theming .label-colors .themed-link-label::before {
+  background-color: #fff;
+}
+body.oo-ui-theme-fandom .demo-theming .label-colors .themed-button-label::before {
+  background-color: #fff;
+}
 body.oo-ui-theme-fandom .demo-theming .link-colors .themed-link-color::before {
   background-color: #ff776d;
 }
@@ -747,17 +753,11 @@ body.oo-ui-theme-fandom .demo-theming .link-colors .themed-link-color--fadeout::
 body.oo-ui-theme-fandom .demo-theming .link-colors .themed-link-color--active::before {
   background-color: rgba(255, 24, 7, 0.15);
 }
-body.oo-ui-theme-fandom .demo-theming .link-colors .themed-link--label::before {
-  background-color: #fff;
-}
 body.oo-ui-theme-fandom .demo-theming .button-colors .themed-button-background::before {
   background-color: #088488;
 }
 body.oo-ui-theme-fandom .demo-theming .button-colors .themed-button-background--hover::before {
   background-color: #0ee1e8;
-}
-body.oo-ui-theme-fandom .demo-theming .button-colors .themed-button-label::before {
-  background-color: #fff;
 }
 body.oo-ui-theme-fandom .demo-theming .border-colors .themed-border-color::before {
   background-color: #b6b8b8;

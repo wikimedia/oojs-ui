@@ -127,6 +127,19 @@ Demo.static.pages.theming = function(demo) {
 		},
 	]);
 
+	const labelColors = colorBoxes([
+		{
+			name: 'themed-link-label',
+			desc: '@wds-fandom-color-black or white - depending on which one makes better contrast ratio with @themed-link-color',
+			usage: ['text color for elements with background set to @themed-link-color, i.e. TabSelectWidget (framed)'],
+		},
+		{
+			name: 'themed-button-label',
+			desc: '@wds-fandom-color-black or white - depending on which one makes better contrast ratio with @themed-button-background',
+			usage: ['text color for buttons with background set to @themed-button-background, i.e. primary buttons'],
+		},
+	]);
+
 	const linkColors = colorBoxes([
 		{
 			name: 'themed-link-color',
@@ -153,11 +166,6 @@ Demo.static.pages.theming = function(demo) {
 			desc: '@themed-link-color--fadeout darkened by 20%',
 			usage: ['color for active (selected) items, i.e. selected options in dropdowns, selected tool in toolbar'],
 		},
-		{
-			name: 'themed-link--label',
-			desc: 'light @themed-link-color: @wds-fandom-color-black<br>dark @themed-link-color: white',
-			usage: ['text color for elements with background set to @themed-link-color, i.e. TabSelectWidget (framed)'],
-		},
 	]);
 
 	const buttonColors = colorBoxes([
@@ -171,11 +179,6 @@ Demo.static.pages.theming = function(demo) {
 			desc:
 				'light @themed-button-background: @themed-button-background darkened by 20%<br>dark @themed-button-background: @themed-button-background lightened by 20%',
 			usage: ['hover color for elements colored with @themed-button-background'],
-		},
-		{
-			name: 'themed-button-label',
-			desc: 'light @themed-button-background: @wds-fandom-color-black<br>dark @themed-button-background: white',
-			usage: ['text color for buttons with background set to @themed-button-background'],
 		},
 	]);
 
@@ -222,6 +225,7 @@ Demo.static.pages.theming = function(demo) {
 		{ header: 'Boolean variables', class: 'boolean-variables', content: booleanVariables },
 		{ header: 'Background colors', class: 'background-colors', content: backgroundColors },
 		{ header: 'Text colors', class: 'text-colors', content: textColors },
+		{ header: 'Label colors', class: 'label-colors', content: labelColors },
 		{ header: 'Link colors', class: 'link-colors', content: linkColors },
 		{ header: 'Button colors', class: 'button-colors', content: buttonColors },
 		{ header: 'Border colors', class: 'border-colors', content: borderColors },
