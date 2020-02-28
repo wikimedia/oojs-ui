@@ -13,6 +13,9 @@
 @themed-success-color: @wds-color-success;
 @themed-notice-color: @wds-color-message;
 
+@themed-button-label: if(luma(@color-buttons) < 50%, @white, @wds-fandom-color-black);
+@themed-link-label: if(luma(@color-links) < 50%, @white, @wds-fandom-color-black);
+
 @color-page-luma: luma(@color-page);
 @color-buttons-luma: luma(@color-buttons);
 @color-links-luma: luma(@color-links);
@@ -181,18 +184,21 @@ body.oo-ui-theme-fandom {
 			.classToBackgroundColor(themed-text-color--secondary);
 		}
 
+		.label-colors {
+			.classToBackgroundColor(themed-link-label);
+			.classToBackgroundColor(themed-button-label);
+		}
+
 		.link-colors {
 			.classToBackgroundColor(themed-link-color);
 			.classToBackgroundColor(themed-link-color--hover);
 			.classToBackgroundColor(themed-link-color--fadeout);
 			.classToBackgroundColor(themed-link-color--active);
-			.classToBackgroundColor(themed-link--label);
 		}
 
 		.button-colors {
 			.classToBackgroundColor(themed-button-background);
 			.classToBackgroundColor(themed-button-background--hover);
-			.classToBackgroundColor(themed-button-label);
 		}
 
 		.border-colors {
