@@ -37,6 +37,12 @@ body.oo-ui-theme-fandom {
 		border-color: @themed-border-color;
 	}
 
+	.oo-ui-formLayout .oo-ui-fieldsetLayout:last-child {
+		background-color: @themed-page-background--secondary;
+		border-color: @themed-border-color;
+		border-radius: @wds-rounded-corner-radius;
+	}
+
 	h1,
 	h2,
 	h2 span {
@@ -169,6 +175,7 @@ body.oo-ui-theme-fandom {
 		.background-colors {
 			.classToBackgroundColor(themed-page-background);
 			.classToBackgroundColor(themed-page-background--secondary);
+			.classToBackgroundColor(themed-page-background--windows);
 		}
 
 		.text-colors {
