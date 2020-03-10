@@ -21,6 +21,7 @@
  *
  * @class
  * @extends OO.ui.Widget
+ * @mixins OO.ui.mixin.IconElement
  * @mixins OO.ui.mixin.LabelElement
  * @mixins OO.ui.mixin.ClippableElement
  * @mixins OO.ui.mixin.FloatableElement
@@ -81,6 +82,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.$popup = $( '<div>' );
 
 	// Mixin constructors
+	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.ClippableElement.call( this, $.extend( {
 		$clippable: this.$body,
@@ -125,16 +127,18 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	}
 
 	if ( config.head ) {
-		this.closeButton = new OO.ui.ButtonWidget( {
-			framed: false,
-			icon: 'close'
-		} );
-		this.closeButton.connect( this, {
-			click: 'onCloseButtonClick'
-		} );
+		if ( !config.hideCloseButton ) {
+			this.closeButton = new OO.ui.ButtonWidget( {
+				framed: false,
+				icon: 'close'
+			} );
+			this.closeButton.connect( this, {
+				click: 'onCloseButtonClick'
+			} );
+		}
 		this.$head = $( '<div>' )
 			.addClass( 'oo-ui-popupWidget-head' )
-			.append( this.$label, this.closeButton.$element );
+			.append( this.$icon, this.$label, this.closeButton && this.closeButton.$element || '' );
 		this.$popup.prepend( this.$head );
 	}
 
@@ -155,6 +159,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.PopupWidget, OO.ui.Widget );
+OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.ClippableElement );
 OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.FloatableElement );

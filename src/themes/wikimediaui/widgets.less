@@ -1036,8 +1036,19 @@
 	}
 
 	&-head {
+		position: relative;
+		overflow: auto;
+
+		> .oo-ui-iconElement-icon {
+			left: @start-framed-icon-only;
+		}
+
+		> .oo-ui-iconElement-noIcon + .oo-ui-labelElement-label {
+			margin-left: @padding-horizontal-base;
+		}
+
 		> .oo-ui-labelElement-label {
-			margin: @margin-top-popup @padding-start-input-text-icon-label @padding-vertical-base @padding-horizontal-base;
+			margin: @margin-vertical-popup @padding-horizontal-base @margin-vertical-popup @padding-start-menu-icon-label;
 			line-height: @line-height-base;
 		}
 
@@ -1057,7 +1068,7 @@
 		line-height: @line-height-message;
 
 		&-padded {
-			margin: @margin-top-popup @padding-horizontal-base @padding-vertical-base;// Use `margin` rather than `padding` to enable margin to collapse
+			margin: 0 @padding-horizontal-base @padding-vertical-base;// Use `margin` rather than `padding` to enable margin to collapse
 
 			> :first-child {
 				margin-top: 0;
@@ -1066,7 +1077,7 @@
 	}
 
 	&-footer {
-		margin: @margin-top-popup @padding-horizontal-base @padding-vertical-base;
+		margin: @margin-vertical-popup @padding-horizontal-base;
 	}
 }
 

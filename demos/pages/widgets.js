@@ -2299,6 +2299,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						invisibleLabel: true,
 						popup: {
 							head: true,
+							icon: 'infoFilled',
 							label: 'More information',
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
@@ -2306,7 +2307,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (quiet, with popup head, align: force-left)',
+						label: 'PopupButtonWidget (quiet, with popup head with icon, align: force-left)',
 						align: 'top'
 					}
 				),
@@ -2321,11 +2322,12 @@ Demo.static.pages.widgets = function ( demo ) {
 							label: 'More information',
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
-							align: 'force-right'
+							align: 'force-right',
+							hideCloseButton: true
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (quiet, with popup head align: force-right)',
+						label: 'PopupButtonWidget (quiet, with popup head, hideCloseButton: true, align: force-right)',
 						align: 'top'
 					}
 				),
