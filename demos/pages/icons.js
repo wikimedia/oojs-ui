@@ -31,6 +31,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'die',
 				'download',
 				'robot',
+				'specialPages',
 				'tag',
 				'upload',
 				'window'
