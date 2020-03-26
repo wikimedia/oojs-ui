@@ -74,6 +74,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'reload',
 				'search',
 				'settings',
+				'stopHand',
 				'subtract'
 			],
 			moderation: [
