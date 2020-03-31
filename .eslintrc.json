@@ -8,6 +8,7 @@
 	},
 	"plugins": [ "html" ],
 	"settings": {
+		"max-len": "error",
 		"html/indent": "+tab",
 		"html/report-bad-indent": "error"
 	}
