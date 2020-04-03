@@ -401,6 +401,17 @@ OO.ui.FieldLayout.prototype.createHelpElement = function ( help, $overlay ) {
 			label: OO.ui.msg( 'ooui-field-help' ),
 			invisibleLabel: true
 		} );
+
+		helpWidget.popup.on( 'ready', function () {
+			var $popupElement = helpWidget.popup.$element;
+			$popupElement.attr( 'tabindex', 0 );
+			$popupElement.trigger( 'focus' );
+		} );
+
+		helpWidget.popup.on( 'closing', function () {
+			helpWidget.$button.trigger( 'focus' );
+		} );
+
 		if ( help instanceof OO.ui.HtmlSnippet ) {
 			helpWidget.getPopup().$body.html( help.toString() );
 		} else {
