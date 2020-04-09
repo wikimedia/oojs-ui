@@ -2,10 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
-			"GatoSelvadego",
-			"Gloria sah",
+			"Fierodelveneto",
 			"Fitoschido",
-			"Fierodelveneto"
+			"GatoSelvadego",
+			"Gloria sah"
 		]
 	},
 	"ooui-outline-control-move-down": "Sposta in baso",
@@ -14,7 +14,7 @@
 	"ooui-toolgroup-expand": "Piassè",
 	"ooui-toolgroup-collapse": "Manco",
 	"ooui-dialog-message-accept": "Va ben",
-	"ooui-dialog-message-reject": "Fa gnente",
+	"ooui-dialog-message-reject": "Descançełare",
 	"ooui-dialog-process-error": "Xe 'ndà storto calcossa",
 	"ooui-dialog-process-dismiss": "Scondi",
 	"ooui-dialog-process-retry": "Proa da novo",
