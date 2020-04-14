@@ -411,12 +411,13 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
 	var selectedItem,
 		$focused,
 		previousTabPanel,
-		tabPanel = this.tabPanels[ name ];
+		tabPanel;
 
 	if ( name !== this.currentTabPanelName ) {
+		tabPanel = this.getTabPanel( name );
 		previousTabPanel = this.getCurrentTabPanel();
 		selectedItem = this.tabSelectWidget.findSelectedItem();
-		if ( selectedItem && selectedItem.getData() !== name ) {
+		if ( !selectedItem || selectedItem.getData() !== name ) {
 			this.tabSelectWidget.selectItemByData( name );
 		}
 		if ( tabPanel ) {

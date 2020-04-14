@@ -148,6 +148,8 @@ else
 			[ { 'data' => 'a' }, { 'data' => 'b' } ],
 			[ { 'data' => 'a', 'label' => 'A' }, { 'data' => 'b', 'label' => 'B' } ],
 		],
+		# multiselect is not tested anywhere yet
+		'multiselect' => [],
 		'value' => simple_string,
 		'title' => simple_string,
 		'help' => simple_string,
