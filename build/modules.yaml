@@ -119,6 +119,8 @@
 			"src/widgets/TabOptionWidget.js",
 			"src/widgets/TabSelectWidget.js",
 
+			"src/widgets/ButtonMenuSelectWidget.js",
+
 			"src/widgets/TagItemWidget.js",
 			"src/widgets/TagMultiselectWidget.js",
 			"src/widgets/PopupTagMultiselectWidget.js",
