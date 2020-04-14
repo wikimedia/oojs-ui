@@ -4,7 +4,7 @@ html {
 }
 
 body {
-	color: #222;
+	color: #202122;
 	margin: 0 16px 64px;
 	padding: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; /* stylelint-disable-line value-keyword-case; */
@@ -368,7 +368,7 @@ p:first-child {
 
 .demo-console-submit {
 	background: #f8f9fa;
-	color: #222;
+	color: #202122;
 	display: inline-block;
 	position: absolute;
 	min-width: 28px;

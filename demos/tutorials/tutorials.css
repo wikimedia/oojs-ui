@@ -1,6 +1,6 @@
 body {
 	background-color: #f8f9fa;
-	color: #222;
+	color: #202122;
 	margin: 0;
 	/* stylelint-disable-next-line font-family-name-quotes */
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen-Sans', Ubuntu, Cantarell, Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -23,7 +23,7 @@ footer a {
 
 h1,
 h2 {
-	color: #222;
+	color: #202122;
 }
 
 h2 {
@@ -31,7 +31,7 @@ h2 {
 }
 
 .tutorials-section {
-	color: #222;
+	color: #202122;
 	margin-top: 2em;
 	margin-bottom: 0;
 }
@@ -124,7 +124,7 @@ th {
 
 .tutorials-intro {
 	background-color: #fff;
-	color: #222;
+	color: #202122;
 	margin-top: 3em;
 	border-radius: 4px;
 	padding: 2em;
@@ -197,7 +197,7 @@ th {
 }
 
 .tutorials-footer h3 {
-	color: #222;
+	color: #202122;
 	margin-bottom: 0;
 }
 
@@ -234,7 +234,7 @@ th {
 * with minor adjustments.
 */
 .tutorials-scroll {
-	background-color: #222;
+	background-color: #202122;
 	position: fixed;
 	bottom: 10px;
 	right: 10px;
