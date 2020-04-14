@@ -139,14 +139,12 @@ class IndexLayout extends MenuLayout {
 	 */
 	public function addTabPanels( array $tabPanels ) {
 		$tabItems = [];
-		foreach ( $tabPanels as $i => $tabPanel ) {
+		foreach ( $tabPanels as $tabPanel ) {
 			$this->tabPanels[ $tabPanel->getName() ] = $tabPanel;
-			$labelElement = new Tag( 'span' );
-			$tabItem = new TabOptionWidget( [
-				'labelElement' => $labelElement,
-				'label' => $tabPanel->getLabel(),
+			$tabItem = new TabOptionWidget( array_merge( [
 				'data' => $tabPanel->getName(),
-			] );
+			], $tabPanel->getTabItemConfig() ) );
+			$tabPanel->setTabItem( $tabItem );
 			$tabItems[] = $tabItem;
 		}
 		$this->tabSelectWidget->addItems( $tabItems );

@@ -301,10 +301,10 @@ OO.ui.IndexLayout.prototype.getCurrentTabPanelName = function () {
  * @return {OO.ui.IndexLayout} The layout, for chaining
  */
 OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
-	var i, len, name, tabPanel, item, currentIndex,
+	var i, len, name, tabPanel, tabItem, currentIndex,
 		stackLayoutTabPanels = this.stackLayout.getItems(),
 		remove = [],
-		items = [];
+		tabItems = [];
 
 	// Remove tab panels with same names
 	for ( i = 0, len = tabPanels.length; i < len; i++ ) {
@@ -328,14 +328,16 @@ OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
 	for ( i = 0, len = tabPanels.length; i < len; i++ ) {
 		tabPanel = tabPanels[ i ];
 		name = tabPanel.getName();
-		this.tabPanels[ tabPanel.getName() ] = tabPanel;
-		item = new OO.ui.TabOptionWidget( { data: name } );
-		tabPanel.setTabItem( item );
-		items.push( item );
+		this.tabPanels[ name ] = tabPanel;
+		tabItem = new OO.ui.TabOptionWidget(
+			$.extend( { data: name }, tabPanel.getTabItemConfig() )
+		);
+		tabPanel.setTabItem( tabItem );
+		tabItems.push( tabItem );
 	}
 
-	if ( items.length ) {
-		this.tabSelectWidget.addItems( items, index );
+	if ( tabItems.length ) {
+		this.tabSelectWidget.addItems( tabItems, index );
 		this.selectFirstSelectableTabPanel();
 	}
 	this.stackLayout.addItems( tabPanels, index );

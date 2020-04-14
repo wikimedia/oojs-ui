@@ -10,10 +10,17 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {string} [href] Hyperlink to add to TabOption. Mostly used in OOUI PHP.
  */
 OO.ui.TabOptionWidget = function OoUiTabOptionWidget( config ) {
 	// Configuration initialization
 	config = config || {};
+
+	if ( config.href ) {
+		config = $.extend( {
+			$label: $( '<a>' ).attr( 'href', config.href )
+		}, config );
+	}
 
 	// Parent constructor
 	OO.ui.TabOptionWidget.parent.call( this, config );

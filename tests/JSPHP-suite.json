@@ -48688,6 +48688,12 @@
       {
         "class": "TabOptionWidget",
         "config": {
+          "href": "http://example.com/"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
           "selected": true
         }
       },
@@ -48778,6 +48784,118 @@
       {
         "class": "TabOptionWidget",
         "config": {
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "selected": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "selected": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "disabled": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "disabled": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "label": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "label": " "
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "label": "0"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
+          "title": ""
+        }
+      },
+      {
+        "class": "TabOptionWidget",
+        "config": {
+          "href": "http://example.com/",
           "title": "Foo bar <b>HTML?</b>"
         }
       },
