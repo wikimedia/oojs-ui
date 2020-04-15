@@ -54,7 +54,7 @@
 		"mediawiki/mediawiki-codesniffer": "29.0.0",
 		"phpunit/phpunit": "^8.5",
 		"mediawiki/minus-x": "1.0.0",
-		"mediawiki/mediawiki-phan-config": "0.9.1"
+		"mediawiki/mediawiki-phan-config": "0.10.2"
 	},
 	"autoload": {
 		"classmap": [
