@@ -2214,42 +2214,6 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'Options',
 						clearOnSelect: false,
 						menu: {
-							items: [
-								new OO.ui.MenuOptionWidget( {
-									data: 'a',
-									label: 'First'
-								} ),
-								new OO.ui.MenuOptionWidget( {
-									data: 'b',
-									label: 'Second',
-									indicator: 'clear'
-								} ),
-								new OO.ui.MenuOptionWidget( {
-									data: 'c',
-									label: 'Third'
-								} ),
-								new OO.ui.MenuOptionWidget( {
-									data: 'c',
-									label: 'The fourth option has an overly long label'
-								} ),
-								new OO.ui.MenuOptionWidget( {
-									icon: 'feedback',
-									data: 'd',
-									label: 'The fifth option has an icon'
-								} )
-							]
-						}
-					} ),
-					{
-						label: 'ButtonMenuSelectWidget (clearOnSelect=false)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonMenuSelectWidget( {
-						icon: 'ellipsis',
-						framed: false,
-						menu: {
 							horizontalPosition: 'end',
 							items: [
 								new OO.ui.MenuOptionWidget( {
@@ -2278,7 +2242,43 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'ButtonMenuSelectWidget (quiet, no label, horizontalPosition="end")',
+						label: 'ButtonMenuSelectWidget (clearOnSelect=false, horizontalPosition="end")',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ButtonMenuSelectWidget( {
+						icon: 'ellipsis',
+						framed: false,
+						menu: {
+							items: [
+								new OO.ui.MenuOptionWidget( {
+									data: 'a',
+									label: 'First'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'b',
+									label: 'Second',
+									indicator: 'clear'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'c',
+									label: 'Third'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									data: 'c',
+									label: 'The fourth option has an overly long label'
+								} ),
+								new OO.ui.MenuOptionWidget( {
+									icon: 'feedback',
+									data: 'd',
+									label: 'The fifth option has an icon'
+								} )
+							]
+						}
+					} ),
+					{
+						label: 'ButtonMenuSelectWidget (quiet, no label)',
 						align: 'top'
 					}
 				)
