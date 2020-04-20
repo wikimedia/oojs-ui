@@ -25,7 +25,7 @@ class ElementTest extends TestCase {
 	 * @dataProvider provideGetSerializedConfig
 	 */
 	public function testGetSerializedConfig( $widget, $expected ) {
-		$this->assertContains( $expected, (string)$widget );
+		$this->assertStringContainsString( $expected, (string)$widget );
 	}
 
 	public static function provideConfigFromHtmlAttributes() {
