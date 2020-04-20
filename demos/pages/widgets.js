@@ -2249,7 +2249,10 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonMenuSelectWidget( {
 						icon: 'ellipsis',
+						label: 'More options',
+						invisibleLabel: true,
 						framed: false,
+						title: 'More options',
 						menu: {
 							items: [
 								new OO.ui.MenuOptionWidget( {
