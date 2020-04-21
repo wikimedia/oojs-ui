@@ -180,7 +180,11 @@
 			.oo-ui-actionWidget {
 				> .oo-ui-buttonElement-button {
 					border-right-color: transparent;
-					border-top-right-radius: @border-radius-base;
+
+					// border radius only for non-fullscreen dialogs
+					.oo-ui-windowManager-floating & {
+						border-top-right-radius: @border-radius-base;
+					}
 				}
 
 				&:not(.oo-ui-flaggedElement-progressive):not(.oo-ui-flaggedElement-destructive) {
