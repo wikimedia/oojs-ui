@@ -2242,7 +2242,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'ButtonMenuSelectWidget (clearOnSelect=false, horizontalPosition="end")',
+						label: 'ButtonMenuSelectWidget (clearOnSelect=false, menu.horizontalPosition="end")',
 						align: 'top'
 					}
 				),
