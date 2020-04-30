@@ -19,10 +19,27 @@ QUnit.module( 'Element', {
 QUnit.test( 'static.infuse', function ( assert ) {
 	var
 		$textInputWidget = $( $.parseHTML( '<div aria-disabled=\'false\' id=\'ooui-php-1\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div>' ) ),
-		$fakeWidget = $( $.parseHTML( '<div data-ooui=\'{"_":"Array"}\'></div>' ) );
+		$unknownTypeWidget = $( $.parseHTML( '<div data-ooui=\'{"_":"Array"}\'></div>' ) ),
+		$nonExistentTypeWidget = $( $.parseHTML( '<div data-ooui=\'{"_":"FOO.bar.FakeWidget"}\'></div>' ) ),
+		$invalidJsonWidget = $( $.parseHTML( '<div data-ooui=\'{{\'></div>' ) ),
+		$emptyTypeWidget = $( $.parseHTML( '<div data-ooui=\'{}\'></div>' ) ),
+		$nonWidget = $( $.parseHTML( '<div></div>' ) );
+
 	assert.ok( OO.ui.Element.static.infuse( $textInputWidget ) );
 	assert.throws( function () {
-		OO.ui.Element.static.infuse( $fakeWidget );
+		OO.ui.Element.static.infuse( $unknownTypeWidget );
+	}, Error );
+	assert.throws( function () {
+		OO.ui.Element.static.infuse( $nonExistentTypeWidget );
+	}, Error );
+	assert.throws( function () {
+		OO.ui.Element.static.infuse( $invalidJsonWidget );
+	}, Error );
+	assert.throws( function () {
+		OO.ui.Element.static.infuse( $emptyTypeWidget );
+	}, Error );
+	assert.throws( function () {
+		OO.ui.Element.static.infuse( $nonWidget );
 	}, Error );
 } );
 

@@ -131,7 +131,7 @@ OO.ui.Element.static.infuse = function ( node, config ) {
  */
 OO.ui.Element.static.unsafeInfuse = function ( node, config, domPromise ) {
 	// look for a cached result of a previous infusion.
-	var error, data, cls, parts, parent, obj, top, state, infusedChildren,
+	var error, data, cls, parts, obj, top, state, infusedChildren,
 		$elem = $( node ),
 		id = $elem.attr( 'id' );
 
@@ -186,23 +186,8 @@ OO.ui.Element.static.unsafeInfuse = function ( node, config, domPromise ) {
 	}
 	parts = data._.split( '.' );
 	cls = OO.getProp.apply( OO, [ window ].concat( parts ) );
-	if ( cls === undefined ) {
-		throw new Error( 'Unknown widget type: id: ' + id + ', class: ' + data._ );
-	}
 
-	// Verify that we're creating an OO.ui.Element instance
-	parent = cls.parent;
-
-	while ( parent !== undefined ) {
-		if ( parent === OO.ui.Element ) {
-			// Safe
-			break;
-		}
-
-		parent = parent.parent;
-	}
-
-	if ( parent !== OO.ui.Element ) {
+	if ( !( cls && ( cls === OO.ui.Element || cls.prototype instanceof OO.ui.Element ) ) ) {
 		throw new Error( 'Unknown widget type: id: ' + id + ', class: ' + data._ );
 	}
 
