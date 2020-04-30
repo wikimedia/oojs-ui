@@ -1,6 +1,6 @@
 Widgets.ToDoListWidget5 = function ToDoListWidget5( config ) {
 	config = config || {};
-	ToDoListWidget5.parent.call( this, config );
+	ToDoListWidget5.super.call( this, config );
 
 	this.aggregate( {
 		delete: 'itemDelete'

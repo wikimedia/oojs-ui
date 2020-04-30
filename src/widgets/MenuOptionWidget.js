@@ -13,7 +13,7 @@
  */
 OO.ui.MenuOptionWidget = function OoUiMenuOptionWidget( config ) {
 	// Parent constructor
-	OO.ui.MenuOptionWidget.parent.call( this, config );
+	OO.ui.MenuOptionWidget.super.call( this, config );
 
 	// Properties
 	this.checkIcon = new OO.ui.IconWidget( {

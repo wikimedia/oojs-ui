@@ -8,7 +8,7 @@ Demo.DraggableGroupWidget = function DemoDraggableGroupWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	Demo.DraggableGroupWidget.parent.call( this, config );
+	Demo.DraggableGroupWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {

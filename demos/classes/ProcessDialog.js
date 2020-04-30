@@ -1,5 +1,5 @@
 Demo.ProcessDialog = function DemoProcessDialog( config ) {
-	Demo.ProcessDialog.parent.call( this, config );
+	Demo.ProcessDialog.super.call( this, config );
 };
 OO.inheritClass( Demo.ProcessDialog, OO.ui.ProcessDialog );
 Demo.ProcessDialog.static.title = 'Process dialog';
@@ -10,7 +10,7 @@ Demo.ProcessDialog.static.actions = [
 ];
 Demo.ProcessDialog.prototype.initialize = function () {
 	var $content;
-	Demo.ProcessDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.ProcessDialog.super.prototype.initialize.apply( this, arguments );
 
 	$content = $( '<div>' ).append(
 		$( '<p>' ).text( 'Dialog content' ),
@@ -32,7 +32,7 @@ Demo.ProcessDialog.prototype.getActionProcess = function ( action ) {
 			dialog.close( { action: action } );
 		} );
 	}
-	return Demo.ProcessDialog.parent.prototype.getActionProcess.call( this, action );
+	return Demo.ProcessDialog.super.prototype.getActionProcess.call( this, action );
 };
 Demo.ProcessDialog.prototype.getBodyHeight = function () {
 	return this.content.$element.outerHeight( true );

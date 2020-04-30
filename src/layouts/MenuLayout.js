@@ -92,7 +92,7 @@ OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	}, config );
 
 	// Parent constructor
-	OO.ui.MenuLayout.parent.call( this, config );
+	OO.ui.MenuLayout.super.call( this, config );
 
 	this.menuPanel = null;
 	this.contentPanel = null;

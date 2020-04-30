@@ -52,7 +52,7 @@ OO.ui.ButtonMenuSelectWidget = function OoUiButtonMenuSelectWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ButtonMenuSelectWidget.parent.call( this, config );
+	OO.ui.ButtonMenuSelectWidget.super.call( this, config );
 
 	this.$overlay = ( config.$overlay === true ?
 		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;

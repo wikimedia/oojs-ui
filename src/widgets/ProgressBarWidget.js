@@ -47,7 +47,7 @@ OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ProgressBarWidget.parent.call( this, config );
+	OO.ui.ProgressBarWidget.super.call( this, config );
 
 	// Properties
 	this.$bar = $( '<div>' );

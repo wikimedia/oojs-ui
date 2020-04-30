@@ -1,7 +1,7 @@
 Demo.ButtonStyleShowcaseWidget = function DemoButtonStyleShowcaseWidget( config ) {
 	var widget = this;
 
-	Demo.ButtonStyleShowcaseWidget.parent.call( this, config );
+	Demo.ButtonStyleShowcaseWidget.super.call( this, config );
 
 	this.$element.addClass( 'demo-buttonStyleShowcaseWidget' );
 

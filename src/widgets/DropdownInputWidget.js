@@ -53,7 +53,7 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	this.setOptionsData( config.options || [] );
 
 	// Parent constructor
-	OO.ui.DropdownInputWidget.parent.call( this, config );
+	OO.ui.DropdownInputWidget.super.call( this, config );
 
 	// Events
 	this.dropdownWidget.getMenu().connect( this, {
@@ -106,7 +106,7 @@ OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
 		this.dropdownWidget.getMenu().findFirstSelectableItem();
 	this.dropdownWidget.getMenu().selectItem( selected );
 	value = selected ? selected.getData() : '';
-	OO.ui.DropdownInputWidget.parent.prototype.setValue.call( this, value );
+	OO.ui.DropdownInputWidget.super.prototype.setValue.call( this, value );
 	if ( this.optionsDirty ) {
 		// We reached this from the constructor or from #setOptions.
 		// We have to update the <select> element.
@@ -120,7 +120,7 @@ OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
  */
 OO.ui.DropdownInputWidget.prototype.setDisabled = function ( state ) {
 	this.dropdownWidget.setDisabled( state );
-	OO.ui.DropdownInputWidget.parent.prototype.setDisabled.call( this, state );
+	OO.ui.DropdownInputWidget.super.prototype.setDisabled.call( this, state );
 	return this;
 };
 

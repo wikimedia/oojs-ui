@@ -42,7 +42,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 	} );
 
 	// Parent constructor
-	OO.ui.MenuTagMultiselectWidget.parent.call( this, config );
+	OO.ui.MenuTagMultiselectWidget.super.call( this, config );
 
 	$autoCloseIgnore = $autoCloseIgnore.add( this.$group );
 	if ( this.hasInput ) {
@@ -115,7 +115,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.onResize = function () {
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onInputFocus = function () {
 	// Parent method
-	OO.ui.MenuTagMultiselectWidget.parent.prototype.onInputFocus.call( this );
+	OO.ui.MenuTagMultiselectWidget.super.prototype.onInputFocus.call( this );
 
 	this.menu.toggle( true );
 };
@@ -188,7 +188,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
 
 	} else {
 		// Use the default
-		OO.ui.MenuTagMultiselectWidget.parent.prototype.onTagSelect.call( this, tagItem );
+		OO.ui.MenuTagMultiselectWidget.super.prototype.onTagSelect.call( this, tagItem );
 	}
 };
 
@@ -199,7 +199,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.removeItems = function ( items ) {
 	var widget = this;
 
 	// Parent
-	OO.ui.MenuTagMultiselectWidget.parent.prototype.removeItems.call( this, items );
+	OO.ui.MenuTagMultiselectWidget.super.prototype.removeItems.call( this, items );
 
 	items.forEach( function ( tagItem ) {
 		var menuItem = widget.menu.findItemFromData( tagItem.getData() );
@@ -254,7 +254,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.setValue = function ( valueObject ) {
  */
 OO.ui.MenuTagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
 	// Parent method
-	OO.ui.MenuTagMultiselectWidget.parent.prototype.setDisabled.call( this, isDisabled );
+	OO.ui.MenuTagMultiselectWidget.super.prototype.setDisabled.call( this, isDisabled );
 
 	if ( this.menu ) {
 		// Protect against calling setDisabled() before the menu was initialized

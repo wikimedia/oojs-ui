@@ -18,7 +18,7 @@
  */
 OO.ui.MultiselectWidget = function OoUiMultiselectWidget( config ) {
 	// Parent constructor
-	OO.ui.MultiselectWidget.parent.call( this, config );
+	OO.ui.MultiselectWidget.super.call( this, config );
 
 	// Configuration initialization
 	config = config || {};

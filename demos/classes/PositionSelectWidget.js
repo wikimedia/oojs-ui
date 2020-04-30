@@ -2,7 +2,7 @@ Demo.PositionSelectWidget = function DemoPositionSelectWidget( config ) {
 	var verticalPositions, horizontalPositions,
 		widget = this;
 
-	Demo.PositionSelectWidget.parent.call( this, config );
+	Demo.PositionSelectWidget.super.call( this, config );
 
 	verticalPositions = [ 'above', 'top', 'center', 'bottom', 'below' ];
 	horizontalPositions = [ 'before', 'start', 'center', 'end', 'after' ];

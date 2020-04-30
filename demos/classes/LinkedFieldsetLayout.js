@@ -1,5 +1,5 @@
 Demo.LinkedFieldsetLayout = function LinkedFieldsetLayout( config ) {
-	Demo.LinkedFieldsetLayout.parent.call( this, $.extend( {
+	Demo.LinkedFieldsetLayout.super.call( this, $.extend( {
 		$label: $( '<a>' ).attr( 'href', '#' + config.id )
 	}, config ) );
 

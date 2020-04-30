@@ -8,7 +8,7 @@ Demo.DraggableHandledItemWidget = function DemoDraggableHandledItemWidget( confi
 	config = config || {};
 
 	// Parent constructor
-	Demo.DraggableHandledItemWidget.parent.call( this, config );
+	Demo.DraggableHandledItemWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$icon }, config ) );

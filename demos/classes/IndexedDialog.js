@@ -1,5 +1,5 @@
 Demo.IndexedDialog = function DemoIndexedDialog( config ) {
-	Demo.IndexedDialog.parent.call( this, config );
+	Demo.IndexedDialog.super.call( this, config );
 };
 OO.inheritClass( Demo.IndexedDialog, OO.ui.ProcessDialog );
 Demo.IndexedDialog.static.title = 'Indexed dialog';
@@ -13,7 +13,7 @@ Demo.IndexedDialog.prototype.getBodyHeight = function () {
 Demo.IndexedDialog.prototype.initialize = function () {
 	var loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 		'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E';
-	Demo.IndexedDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.IndexedDialog.super.prototype.initialize.apply( this, arguments );
 	this.indexLayout = new OO.ui.IndexLayout();
 	this.tabPanels = [
 		new Demo.SampleTabPanel( 'first', { label: 'One tab' } ),
@@ -47,10 +47,10 @@ Demo.IndexedDialog.prototype.getActionProcess = function ( action ) {
 			this.close( { action: action } );
 		}, this );
 	}
-	return Demo.IndexedDialog.parent.prototype.getActionProcess.call( this, action );
+	return Demo.IndexedDialog.super.prototype.getActionProcess.call( this, action );
 };
 Demo.IndexedDialog.prototype.getTeardownProcess = function ( data ) {
-	return Demo.IndexedDialog.parent.prototype.getTeardownProcess.call( this, data )
+	return Demo.IndexedDialog.super.prototype.getTeardownProcess.call( this, data )
 		.next( function () {
 			this.indexLayout.resetScroll();
 		}, this );

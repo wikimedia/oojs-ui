@@ -25,7 +25,7 @@ OO.ui.MessageWidget = function OoUiMessageWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.MessageWidget.parent.call( this, config );
+	OO.ui.MessageWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );

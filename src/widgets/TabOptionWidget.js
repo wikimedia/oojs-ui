@@ -23,7 +23,7 @@ OO.ui.TabOptionWidget = function OoUiTabOptionWidget( config ) {
 	}
 
 	// Parent constructor
-	OO.ui.TabOptionWidget.parent.call( this, config );
+	OO.ui.TabOptionWidget.super.call( this, config );
 
 	// Initialization
 	this.$element

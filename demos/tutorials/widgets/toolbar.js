@@ -11,7 +11,7 @@ window.Tutorials = {};
  */
 Tutorials.Toolbar = function ( config ) {
 	config = config || {};
-	Tutorials.Toolbar.parent.call( this, config );
+	Tutorials.Toolbar.super.call( this, config );
 
 	urlPieces = window.location.pathname.split( 'demos/tutorials/' );
 	baseUrl = urlPieces[ 0 ];

@@ -43,7 +43,7 @@ OO.ui.PopupTool = function OoUiPopupTool( toolGroup, config ) {
 	}
 
 	// Parent constructor
-	OO.ui.PopupTool.parent.call( this, toolGroup, config );
+	OO.ui.PopupTool.super.call( this, toolGroup, config );
 
 	// Mixin constructors
 	OO.ui.mixin.PopupElement.call( this, config );

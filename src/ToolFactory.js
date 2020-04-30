@@ -15,7 +15,7 @@
  */
 OO.ui.ToolFactory = function OoUiToolFactory() {
 	// Parent constructor
-	OO.ui.ToolFactory.parent.call( this );
+	OO.ui.ToolFactory.super.call( this );
 };
 
 /* Setup */

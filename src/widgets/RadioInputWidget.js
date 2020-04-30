@@ -45,7 +45,7 @@ OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.RadioInputWidget.parent.call( this, config );
+	OO.ui.RadioInputWidget.super.call( this, config );
 
 	// Initialization
 	this.$element
@@ -73,7 +73,7 @@ OO.ui.RadioInputWidget.static.tagName = 'span';
  * @inheritdoc
  */
 OO.ui.RadioInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.RadioInputWidget.parent.static.gatherPreInfuseState( node, config );
+	var state = OO.ui.RadioInputWidget.super.static.gatherPreInfuseState( node, config );
 	state.checked = config.$input.prop( 'checked' );
 	return state;
 };
@@ -138,7 +138,7 @@ OO.ui.RadioInputWidget.prototype.simulateLabelClick = function () {
  * @inheritdoc
  */
 OO.ui.RadioInputWidget.prototype.restorePreInfuseState = function ( state ) {
-	OO.ui.RadioInputWidget.parent.prototype.restorePreInfuseState.call( this, state );
+	OO.ui.RadioInputWidget.super.prototype.restorePreInfuseState.call( this, state );
 	if ( state.checked !== undefined && state.checked !== this.isSelected() ) {
 		this.setSelected( state.checked );
 	}

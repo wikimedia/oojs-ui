@@ -2,7 +2,7 @@
 	QUnit.module( 'LabelElement' );
 
 	function TestElement( config ) {
-		TestElement.parent.call( this, config );
+		TestElement.super.call( this, config );
 		OO.ui.mixin.LabelElement.call( this, config );
 	}
 	OO.inheritClass( TestElement, OO.ui.Widget );

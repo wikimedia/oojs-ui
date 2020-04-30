@@ -1,5 +1,5 @@
 Demo.PopupButtonWidgetTest = function DemoPopupButtonWidgetTest( config ) {
-	Demo.PopupButtonWidgetTest.parent.call( this, config );
+	Demo.PopupButtonWidgetTest.super.call( this, config );
 };
 OO.inheritClass( Demo.PopupButtonWidgetTest, OO.ui.ProcessDialog );
 Demo.PopupButtonWidgetTest.static.title = 'PopupButtonWidget test';
@@ -8,7 +8,7 @@ Demo.PopupButtonWidgetTest.static.actions = [
 	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] }
 ];
 Demo.PopupButtonWidgetTest.prototype.initialize = function () {
-	Demo.PopupButtonWidgetTest.parent.prototype.initialize.apply( this, arguments );
+	Demo.PopupButtonWidgetTest.super.prototype.initialize.apply( this, arguments );
 
 	this.panel = new OO.ui.PanelLayout( {
 		expanded: false,
@@ -137,5 +137,5 @@ Demo.PopupButtonWidgetTest.prototype.getActionProcess = function ( action ) {
 			this.close( { action: action } );
 		}, this );
 	}
-	return Demo.PopupButtonWidgetTest.parent.prototype.getActionProcess.call( this, action );
+	return Demo.PopupButtonWidgetTest.super.prototype.getActionProcess.call( this, action );
 };

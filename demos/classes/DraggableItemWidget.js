@@ -8,7 +8,7 @@ Demo.DraggableItemWidget = function DemoDraggableItemWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	Demo.DraggableItemWidget.parent.call( this, config );
+	Demo.DraggableItemWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.DraggableElement.call( this, config );

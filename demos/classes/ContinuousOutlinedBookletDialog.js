@@ -1,5 +1,5 @@
 Demo.ContinuousOutlinedBookletDialog = function DemoContinuousOutlinedBookletDialog( config ) {
-	Demo.ContinuousOutlinedBookletDialog.parent.call( this, config );
+	Demo.ContinuousOutlinedBookletDialog.super.call( this, config );
 };
 OO.inheritClass( Demo.ContinuousOutlinedBookletDialog, OO.ui.ProcessDialog );
 Demo.ContinuousOutlinedBookletDialog.static.title = 'Continuous outlined booklet dialog';
@@ -14,7 +14,7 @@ Demo.ContinuousOutlinedBookletDialog.prototype.getBodyHeight = function () {
 };
 Demo.ContinuousOutlinedBookletDialog.prototype.initialize = function () {
 	var lipsum;
-	Demo.ContinuousOutlinedBookletDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.ContinuousOutlinedBookletDialog.super.prototype.initialize.apply( this, arguments );
 	this.bookletLayout = new OO.ui.BookletLayout( {
 		outlined: true,
 		continuous: true
@@ -54,18 +54,18 @@ Demo.ContinuousOutlinedBookletDialog.prototype.getActionProcess = function ( act
 		}, this );
 	}
 	return Demo.ContinuousOutlinedBookletDialog
-		.parent.prototype.getActionProcess.call( this, action );
+		.super.prototype.getActionProcess.call( this, action );
 };
 Demo.ContinuousOutlinedBookletDialog.prototype.getSetupProcess = function ( data ) {
 	return Demo.ContinuousOutlinedBookletDialog
-		.parent.prototype.getSetupProcess.call( this, data )
+		.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			this.bookletLayout.setPage( 'page1' );
 		}, this );
 };
 Demo.ContinuousOutlinedBookletDialog.prototype.getTeardownProcess = function ( data ) {
 	return Demo.ContinuousOutlinedBookletDialog
-		.parent.prototype.getTeardownProcess.call( this, data )
+		.super.prototype.getTeardownProcess.call( this, data )
 		.next( function () {
 			this.bookletLayout.resetScroll();
 		}, this );

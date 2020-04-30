@@ -39,7 +39,7 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	config = $.extend( { scrollable: !!( config && config.continuous ) }, config );
 
 	// Parent constructor
-	OO.ui.StackLayout.parent.call( this, config );
+	OO.ui.StackLayout.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, $.extend( { $group: this.$element }, config ) );
@@ -262,7 +262,7 @@ OO.ui.StackLayout.prototype.setItem = function ( item ) {
 OO.ui.StackLayout.prototype.resetScroll = function () {
 	if ( this.continuous ) {
 		// Parent method
-		return OO.ui.StackLayout.parent.prototype.resetScroll.call( this );
+		return OO.ui.StackLayout.super.prototype.resetScroll.call( this );
 	}
 	// Reset each panel
 	this.getItems().forEach( function ( panel ) {

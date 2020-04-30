@@ -37,7 +37,7 @@ OO.ui.RadioSelectInputWidget = function OoUiRadioSelectInputWidget( config ) {
 	this.setOptionsData( config.options || [] );
 
 	// Parent constructor
-	OO.ui.RadioSelectInputWidget.parent.call( this, config );
+	OO.ui.RadioSelectInputWidget.super.call( this, config );
 
 	// Events
 	this.radioSelectWidget.connect( this, {
@@ -61,7 +61,7 @@ OO.inheritClass( OO.ui.RadioSelectInputWidget, OO.ui.InputWidget );
  * @inheritdoc
  */
 OO.ui.RadioSelectInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.RadioSelectInputWidget.parent.static.gatherPreInfuseState( node, config );
+	var state = OO.ui.RadioSelectInputWidget.super.static.gatherPreInfuseState( node, config );
 	state.value = $( node ).find( '.oo-ui-radioInputWidget .oo-ui-inputWidget-input:checked' ).val();
 	return state;
 };
@@ -70,7 +70,7 @@ OO.ui.RadioSelectInputWidget.static.gatherPreInfuseState = function ( node, conf
  * @inheritdoc
  */
 OO.ui.RadioSelectInputWidget.static.reusePreInfuseDOM = function ( node, config ) {
-	config = OO.ui.RadioSelectInputWidget.parent.static.reusePreInfuseDOM( node, config );
+	config = OO.ui.RadioSelectInputWidget.super.static.reusePreInfuseDOM( node, config );
 	// Cannot reuse the `<input type=radio>` set
 	delete config.$input;
 	return config;
@@ -109,7 +109,7 @@ OO.ui.RadioSelectInputWidget.prototype.setValue = function ( value ) {
 		this.radioSelectWidget.findFirstSelectableItem();
 	this.radioSelectWidget.selectItem( selected );
 	value = selected ? selected.getData() : '';
-	OO.ui.RadioSelectInputWidget.parent.prototype.setValue.call( this, value );
+	OO.ui.RadioSelectInputWidget.super.prototype.setValue.call( this, value );
 	return this;
 };
 
@@ -118,7 +118,7 @@ OO.ui.RadioSelectInputWidget.prototype.setValue = function ( value ) {
  */
 OO.ui.RadioSelectInputWidget.prototype.setDisabled = function ( state ) {
 	this.radioSelectWidget.setDisabled( state );
-	OO.ui.RadioSelectInputWidget.parent.prototype.setDisabled.call( this, state );
+	OO.ui.RadioSelectInputWidget.super.prototype.setDisabled.call( this, state );
 	return this;
 };
 

@@ -15,7 +15,7 @@
  */
 OO.ui.OutlineSelectWidget = function OoUiOutlineSelectWidget( config ) {
 	// Parent constructor
-	OO.ui.OutlineSelectWidget.parent.call( this, config );
+	OO.ui.OutlineSelectWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.TabIndexedElement.call( this, config );

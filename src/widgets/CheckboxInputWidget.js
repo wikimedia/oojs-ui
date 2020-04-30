@@ -46,7 +46,7 @@ OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.CheckboxInputWidget.parent.call( this, config );
+	OO.ui.CheckboxInputWidget.super.call( this, config );
 
 	// Properties
 	this.checkIcon = new OO.ui.IconWidget( {
@@ -92,7 +92,7 @@ OO.ui.CheckboxInputWidget.static.tagName = 'span';
  * @inheritdoc
  */
 OO.ui.CheckboxInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.CheckboxInputWidget.parent.static.gatherPreInfuseState( node, config );
+	var state = OO.ui.CheckboxInputWidget.super.static.gatherPreInfuseState( node, config );
 	state.checked = config.$input.prop( 'checked' );
 	return state;
 };
@@ -214,7 +214,7 @@ OO.ui.CheckboxInputWidget.prototype.simulateLabelClick = function () {
  * @inheritdoc
  */
 OO.ui.CheckboxInputWidget.prototype.restorePreInfuseState = function ( state ) {
-	OO.ui.CheckboxInputWidget.parent.prototype.restorePreInfuseState.call( this, state );
+	OO.ui.CheckboxInputWidget.super.prototype.restorePreInfuseState.call( this, state );
 	if ( state.checked !== undefined && state.checked !== this.isSelected() ) {
 		this.setSelected( state.checked );
 	}

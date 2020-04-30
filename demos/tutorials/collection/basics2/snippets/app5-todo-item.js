@@ -1,6 +1,6 @@
 Widgets.ToDoItemWidget5 = function ( config ) {
 	config = config || {};
-	Widgets.ToDoItemWidget5.parent.call( this, config );
+	Widgets.ToDoItemWidget5.super.call( this, config );
 
 	this.deleteButton.connect( this, {
 		click: 'onDeleteButtonClick'

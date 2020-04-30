@@ -60,7 +60,7 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.WindowManager.parent.call( this, config );
+	OO.ui.WindowManager.super.call( this, config );
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );

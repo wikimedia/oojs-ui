@@ -60,7 +60,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}, config );
 
 	// Parent constructor
-	OO.ui.TextInputWidget.parent.call( this, config );
+	OO.ui.TextInputWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );

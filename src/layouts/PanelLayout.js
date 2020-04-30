@@ -34,7 +34,7 @@ OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	}, config );
 
 	// Parent constructor
-	OO.ui.PanelLayout.parent.call( this, config );
+	OO.ui.PanelLayout.super.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-panelLayout' );
@@ -62,7 +62,7 @@ OO.inheritClass( OO.ui.PanelLayout, OO.ui.Layout );
  * @inheritdoc
  */
 OO.ui.PanelLayout.static.reusePreInfuseDOM = function ( node, config ) {
-	config = OO.ui.PanelLayout.parent.static.reusePreInfuseDOM( node, config );
+	config = OO.ui.PanelLayout.super.static.reusePreInfuseDOM( node, config );
 	if ( config.preserveContent !== false ) {
 		config.$content = $( node ).contents();
 	}

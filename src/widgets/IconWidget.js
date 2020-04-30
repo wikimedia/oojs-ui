@@ -33,7 +33,7 @@ OO.ui.IconWidget = function OoUiIconWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.IconWidget.parent.call( this, config );
+	OO.ui.IconWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, $.extend( {

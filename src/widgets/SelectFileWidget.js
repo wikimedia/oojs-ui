@@ -47,7 +47,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	}
 
 	// Parent constructor
-	OO.ui.SelectFileWidget.parent.call( this, config );
+	OO.ui.SelectFileWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.PendingElement.call( this );
@@ -403,5 +403,5 @@ OO.ui.SelectFileWidget.prototype.setDisabled = function ( disabled ) {
 	disabled = disabled || !this.constructor.static.isSupported();
 
 	// Parent method
-	OO.ui.SelectFileWidget.parent.prototype.setDisabled.call( this, disabled );
+	OO.ui.SelectFileWidget.super.prototype.setDisabled.call( this, disabled );
 };

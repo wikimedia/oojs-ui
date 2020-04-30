@@ -1,6 +1,6 @@
 Widgets.ToDoItemWidget2 = function ( config ) {
 	config = config || {};
-	Widgets.ToDoItemWidget2.parent.call( this, config );
+	Widgets.ToDoItemWidget2.super.call( this, config );
 
 	this.creationTime = config.creationTime;
 };

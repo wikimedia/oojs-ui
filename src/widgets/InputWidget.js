@@ -28,7 +28,7 @@ OO.ui.InputWidget = function OoUiInputWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.InputWidget.parent.call( this, config );
+	OO.ui.InputWidget.super.call( this, config );
 
 	// Properties
 	// See #reusePreInfuseDOM about config.$input
@@ -80,7 +80,7 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.AccessKeyedElement );
  * @inheritdoc
  */
 OO.ui.InputWidget.static.reusePreInfuseDOM = function ( node, config ) {
-	config = OO.ui.InputWidget.parent.static.reusePreInfuseDOM( node, config );
+	config = OO.ui.InputWidget.super.static.reusePreInfuseDOM( node, config );
 	// Reusing `$input` lets browsers preserve inputted values across page reloads, see T114134.
 	config.$input = $( node ).find( '.oo-ui-inputWidget-input' );
 	return config;
@@ -90,7 +90,7 @@ OO.ui.InputWidget.static.reusePreInfuseDOM = function ( node, config ) {
  * @inheritdoc
  */
 OO.ui.InputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.InputWidget.parent.static.gatherPreInfuseState( node, config );
+	var state = OO.ui.InputWidget.super.static.gatherPreInfuseState( node, config );
 	if ( config.$input && config.$input.length ) {
 		state.value = config.$input.val();
 		// Might be better in TabIndexedElement, but it's awkward to do there because
@@ -221,7 +221,7 @@ OO.ui.InputWidget.prototype.cleanUpValue = function ( value ) {
  * @inheritdoc
  */
 OO.ui.InputWidget.prototype.setDisabled = function ( state ) {
-	OO.ui.InputWidget.parent.prototype.setDisabled.call( this, state );
+	OO.ui.InputWidget.super.prototype.setDisabled.call( this, state );
 	if ( this.$input ) {
 		this.$input.prop( 'disabled', this.isDisabled() );
 	}
@@ -244,7 +244,7 @@ OO.ui.InputWidget.prototype.setInputId = function ( id ) {
  * @inheritdoc
  */
 OO.ui.InputWidget.prototype.restorePreInfuseState = function ( state ) {
-	OO.ui.InputWidget.parent.prototype.restorePreInfuseState.call( this, state );
+	OO.ui.InputWidget.super.prototype.restorePreInfuseState.call( this, state );
 	if ( state.value !== undefined && state.value !== this.getValue() ) {
 		this.setValue( state.value );
 	}

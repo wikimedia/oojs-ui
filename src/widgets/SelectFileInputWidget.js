@@ -53,7 +53,7 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	this.info.$input.attr( 'tabindex', -1 );
 
 	// Parent constructor
-	OO.ui.SelectFileInputWidget.parent.call( this, config );
+	OO.ui.SelectFileInputWidget.super.call( this, config );
 
 	// Properties
 	this.currentFiles = this.filterFiles( this.$input[ 0 ].files || [] );
@@ -253,7 +253,7 @@ OO.ui.SelectFileInputWidget.prototype.onKeyPress = function ( e ) {
  */
 OO.ui.SelectFileInputWidget.prototype.setDisabled = function ( disabled ) {
 	// Parent method
-	OO.ui.SelectFileInputWidget.parent.prototype.setDisabled.call( this, disabled );
+	OO.ui.SelectFileInputWidget.super.prototype.setDisabled.call( this, disabled );
 
 	this.selectButton.setDisabled( disabled );
 	this.info.setDisabled( disabled );

@@ -21,7 +21,7 @@ OO.ui.MultioptionWidget = function OoUiMultioptionWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.MultioptionWidget.parent.call( this, config );
+	OO.ui.MultioptionWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ItemWidget.call( this );

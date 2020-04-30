@@ -9,7 +9,7 @@
  *     // defined elsewhere.
  *
  *     function SettingsTool() {
- *         SettingsTool.parent.apply( this, arguments );
+ *         SettingsTool.super.apply( this, arguments );
  *     };
  *     OO.inheritClass( SettingsTool, OO.ui.ToolGroupTool );
  *     SettingsTool.static.name = 'settings';
@@ -44,7 +44,7 @@ OO.ui.ToolGroupTool = function OoUiToolGroupTool( toolGroup, config ) {
 	}
 
 	// Parent constructor
-	OO.ui.ToolGroupTool.parent.call( this, toolGroup, config );
+	OO.ui.ToolGroupTool.super.call( this, toolGroup, config );
 
 	// Properties
 	this.innerToolGroup = this.createGroup( this.constructor.static.groupConfig );

@@ -81,7 +81,7 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	}
 
 	// Parent constructor
-	OO.ui.ComboBoxInputWidget.parent.call( this, config );
+	OO.ui.ComboBoxInputWidget.super.call( this, config );
 
 	// Properties
 	this.$overlay = ( config.$overlay === true ?
@@ -262,7 +262,7 @@ OO.ui.ComboBoxInputWidget.prototype.updateControlsDisabled = function () {
  */
 OO.ui.ComboBoxInputWidget.prototype.setDisabled = function () {
 	// Parent method
-	OO.ui.ComboBoxInputWidget.parent.prototype.setDisabled.apply( this, arguments );
+	OO.ui.ComboBoxInputWidget.super.prototype.setDisabled.apply( this, arguments );
 	this.updateControlsDisabled();
 	return this;
 };
@@ -272,7 +272,7 @@ OO.ui.ComboBoxInputWidget.prototype.setDisabled = function () {
  */
 OO.ui.ComboBoxInputWidget.prototype.setReadOnly = function () {
 	// Parent method
-	OO.ui.ComboBoxInputWidget.parent.prototype.setReadOnly.apply( this, arguments );
+	OO.ui.ComboBoxInputWidget.super.prototype.setReadOnly.apply( this, arguments );
 	this.updateControlsDisabled();
 	return this;
 };

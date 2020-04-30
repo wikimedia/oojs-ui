@@ -1,5 +1,5 @@
 Demo.FitLabelsProcessDialog = function DemoLongProcessDialog( config ) {
-	Demo.FitLabelsProcessDialog.parent.call( this, config );
+	Demo.FitLabelsProcessDialog.super.call( this, config );
 };
 OO.inheritClass( Demo.FitLabelsProcessDialog, OO.ui.ProcessDialog );
 Demo.FitLabelsProcessDialog.static.actions = [
@@ -11,7 +11,7 @@ Demo.FitLabelsProcessDialog.prototype.initialize = function () {
 	var shortTitle = 'Process dialog',
 		longTitle = 'Process dialog (demo of a long title label)';
 
-	Demo.FitLabelsProcessDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.FitLabelsProcessDialog.super.prototype.initialize.apply( this, arguments );
 
 	this.longActionToggle = new OO.ui.ToggleSwitchWidget();
 	this.longTitleToggle = new OO.ui.ToggleSwitchWidget();
@@ -39,7 +39,7 @@ Demo.FitLabelsProcessDialog.prototype.initialize = function () {
 	this.$body.append( this.content.$element );
 };
 Demo.FitLabelsProcessDialog.prototype.getSetupProcess = function ( data ) {
-	return Demo.FitLabelsProcessDialog.parent.prototype.getSetupProcess.call( this, data )
+	return Demo.FitLabelsProcessDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			this.longActionToggle.setValue( false );
 			this.longTitleToggle.setValue( false );
@@ -54,7 +54,7 @@ Demo.FitLabelsProcessDialog.prototype.getActionProcess = function ( action ) {
 			dialog.close( { action: action } );
 		} );
 	}
-	return Demo.FitLabelsProcessDialog.parent.prototype.getActionProcess.call( this, action );
+	return Demo.FitLabelsProcessDialog.super.prototype.getActionProcess.call( this, action );
 };
 
 Demo.FitLabelsProcessDialog.prototype.getBodyHeight = function () {

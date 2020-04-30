@@ -9,7 +9,7 @@ window.Demo = function Demo() {
 	var demo = this;
 
 	// Parent constructor
-	Demo.parent.call( this );
+	Demo.super.call( this );
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );

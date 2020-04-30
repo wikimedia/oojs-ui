@@ -41,7 +41,7 @@
  */
 OO.ui.MessageDialog = function OoUiMessageDialog( config ) {
 	// Parent constructor
-	OO.ui.MessageDialog.parent.call( this, config );
+	OO.ui.MessageDialog.super.call( this, config );
 
 	// Properties
 	this.verticalActionLayout = null;
@@ -134,7 +134,7 @@ OO.ui.MessageDialog.prototype.getActionProcess = function ( action ) {
 			this.close( { action: action } );
 		}, this );
 	}
-	return OO.ui.MessageDialog.parent.prototype.getActionProcess.call( this, action );
+	return OO.ui.MessageDialog.super.prototype.getActionProcess.call( this, action );
 };
 
 /**
@@ -151,7 +151,7 @@ OO.ui.MessageDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
 
 	// Parent method
-	return OO.ui.MessageDialog.parent.prototype.getSetupProcess.call( this, data )
+	return OO.ui.MessageDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			this.title.setLabel(
 				data.title !== undefined ? data.title : this.constructor.static.title
@@ -170,7 +170,7 @@ OO.ui.MessageDialog.prototype.getReadyProcess = function ( data ) {
 	data = data || {};
 
 	// Parent method
-	return OO.ui.MessageDialog.parent.prototype.getReadyProcess.call( this, data )
+	return OO.ui.MessageDialog.super.prototype.getReadyProcess.call( this, data )
 		.next( function () {
 			// Focus the primary action button
 			var actions = this.actions.get();
@@ -208,7 +208,7 @@ OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
 	var
 		dialog = this,
 		$scrollable = this.container.$element;
-	OO.ui.MessageDialog.parent.prototype.setDimensions.call( this, dim );
+	OO.ui.MessageDialog.super.prototype.setDimensions.call( this, dim );
 
 	// Twiddle the overflow property, otherwise an unnecessary scrollbar will be produced.
 	// Need to do it after transition completes (250ms), add 50ms just in case.
@@ -243,7 +243,7 @@ OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
  */
 OO.ui.MessageDialog.prototype.initialize = function () {
 	// Parent method
-	OO.ui.MessageDialog.parent.prototype.initialize.call( this );
+	OO.ui.MessageDialog.super.prototype.initialize.call( this );
 
 	// Properties
 	this.$actions = $( '<div>' );
@@ -282,7 +282,7 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
 	var i, len, special, others;
 
 	// Parent method
-	OO.ui.MessageDialog.parent.prototype.attachActions.call( this );
+	OO.ui.MessageDialog.super.prototype.attachActions.call( this );
 
 	special = this.actions.getSpecial();
 	others = this.actions.getOthers();

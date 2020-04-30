@@ -1,5 +1,5 @@
 Demo.LongProcessDialog = function DemoLongProcessDialog( config ) {
-	Demo.LongProcessDialog.parent.call( this, config );
+	Demo.LongProcessDialog.super.call( this, config );
 };
 OO.inheritClass( Demo.LongProcessDialog, OO.ui.ProcessDialog );
 Demo.LongProcessDialog.static.title = 'Process dialog';
@@ -12,7 +12,7 @@ Demo.LongProcessDialog.static.actions = [
 Demo.LongProcessDialog.prototype.initialize = function () {
 	var i;
 
-	Demo.LongProcessDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.LongProcessDialog.super.prototype.initialize.apply( this, arguments );
 	this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 	for ( i = 0; i < 100; i++ ) {
 		// eslint-disable-next-line no-jquery/no-parse-html-literal
@@ -27,7 +27,7 @@ Demo.LongProcessDialog.prototype.getActionProcess = function ( action ) {
 			dialog.close( { action: action } );
 		} );
 	}
-	return Demo.LongProcessDialog.parent.prototype.getActionProcess.call( this, action );
+	return Demo.LongProcessDialog.super.prototype.getActionProcess.call( this, action );
 };
 Demo.LongProcessDialog.prototype.getBodyHeight = function () {
 	return this.content.$element.outerHeight( true );

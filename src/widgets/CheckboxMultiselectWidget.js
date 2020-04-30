@@ -33,7 +33,7 @@
  */
 OO.ui.CheckboxMultiselectWidget = function OoUiCheckboxMultiselectWidget( config ) {
 	// Parent constructor
-	OO.ui.CheckboxMultiselectWidget.parent.call( this, config );
+	OO.ui.CheckboxMultiselectWidget.super.call( this, config );
 
 	// Properties
 	this.$lastClicked = null;
