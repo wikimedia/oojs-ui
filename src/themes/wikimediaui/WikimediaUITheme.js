@@ -6,7 +6,7 @@
  */
 OO.ui.WikimediaUITheme = function OoUiWikimediaUITheme() {
 	// Parent constructor
-	OO.ui.WikimediaUITheme.parent.call( this );
+	OO.ui.WikimediaUITheme.super.call( this );
 };
 
 /* Setup */
@@ -30,7 +30,7 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 			success: false
 		},
 		// Parent method
-		classes = OO.ui.WikimediaUITheme.parent.prototype.getElementClasses.call( this, element );
+		classes = OO.ui.WikimediaUITheme.super.prototype.getElementClasses.call( this, element );
 
 	if (
 		element instanceof OO.ui.IconWidget &&

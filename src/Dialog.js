@@ -8,12 +8,12 @@
  *     @example
  *     // A simple dialog window.
  *     function MyDialog( config ) {
- *         MyDialog.parent.call( this, config );
+ *         MyDialog.super.call( this, config );
  *     }
  *     OO.inheritClass( MyDialog, OO.ui.Dialog );
  *     MyDialog.static.name = 'myDialog';
  *     MyDialog.prototype.initialize = function () {
- *         MyDialog.parent.prototype.initialize.call( this );
+ *         MyDialog.super.prototype.initialize.call( this );
  *         this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
  *         this.content.$element.append( '<p>A simple dialog window. Press Escape key to ' +
  *             'close.</p>' );
@@ -44,7 +44,7 @@
  */
 OO.ui.Dialog = function OoUiDialog( config ) {
 	// Parent constructor
-	OO.ui.Dialog.parent.call( this, config );
+	OO.ui.Dialog.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.PendingElement.call( this );
@@ -224,7 +224,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
 
 	// Parent method
-	return OO.ui.Dialog.parent.prototype.getSetupProcess.call( this, data )
+	return OO.ui.Dialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			var config = this.constructor.static,
 				actions = data.actions !== undefined ? data.actions : config.actions,
@@ -242,7 +242,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
  */
 OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
 	// Parent method
-	return OO.ui.Dialog.parent.prototype.getTeardownProcess.call( this, data )
+	return OO.ui.Dialog.super.prototype.getTeardownProcess.call( this, data )
 		.first( function () {
 			this.$element.off( 'keydown', this.onDialogKeyDownHandler );
 
@@ -256,7 +256,7 @@ OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
  */
 OO.ui.Dialog.prototype.initialize = function () {
 	// Parent method
-	OO.ui.Dialog.parent.prototype.initialize.call( this );
+	OO.ui.Dialog.super.prototype.initialize.call( this );
 
 	// Properties
 	this.title = new OO.ui.LabelWidget();

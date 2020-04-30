@@ -1,5 +1,5 @@
 Demo.DialogWithDropdowns = function DemoDialogWithDropdowns( config ) {
-	Demo.DialogWithDropdowns.parent.call( this, config );
+	Demo.DialogWithDropdowns.super.call( this, config );
 };
 OO.inheritClass( Demo.DialogWithDropdowns, OO.ui.ProcessDialog );
 Demo.DialogWithDropdowns.static.title = 'Dialog with dropdowns ($overlay test)';
@@ -15,7 +15,7 @@ Demo.DialogWithDropdowns.prototype.initialize = function () {
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
 		$spacer = $( '<div>' ).height( 350 );
-	Demo.DialogWithDropdowns.parent.prototype.initialize.apply( this, arguments );
+	Demo.DialogWithDropdowns.super.prototype.initialize.apply( this, arguments );
 	this.bookletLayout = new OO.ui.BookletLayout( {
 		outlined: true
 	} );
@@ -218,5 +218,5 @@ Demo.DialogWithDropdowns.prototype.getActionProcess = function ( action ) {
 			this.close( { action: action } );
 		}, this );
 	}
-	return Demo.DialogWithDropdowns.parent.prototype.getActionProcess.call( this, action );
+	return Demo.DialogWithDropdowns.super.prototype.getActionProcess.call( this, action );
 };

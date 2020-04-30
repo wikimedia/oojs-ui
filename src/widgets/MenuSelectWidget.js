@@ -56,7 +56,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.MenuSelectWidget.parent.call( this, config );
+	OO.ui.MenuSelectWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ClippableElement.call( this, $.extend( { $clippable: this.$group }, config ) );
@@ -157,7 +157,7 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 			case OO.ui.Keys.RIGHT:
 				// Do nothing if a text field is associated, arrow keys will be handled natively
 				if ( !this.$input ) {
-					OO.ui.MenuSelectWidget.parent.prototype.onDocumentKeyDown.call( this, e );
+					OO.ui.MenuSelectWidget.super.prototype.onDocumentKeyDown.call( this, e );
 				}
 				break;
 			case OO.ui.Keys.ESCAPE:
@@ -173,7 +173,7 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 				}
 				break;
 			default:
-				OO.ui.MenuSelectWidget.parent.prototype.onDocumentKeyDown.call( this, e );
+				OO.ui.MenuSelectWidget.super.prototype.onDocumentKeyDown.call( this, e );
 				return;
 		}
 	}
@@ -255,7 +255,7 @@ OO.ui.MenuSelectWidget.prototype.bindDocumentKeyDownListener = function () {
 	if ( this.$input ) {
 		this.$input.on( 'keydown', this.onDocumentKeyDownHandler );
 	} else {
-		OO.ui.MenuSelectWidget.parent.prototype.bindDocumentKeyDownListener.call( this );
+		OO.ui.MenuSelectWidget.super.prototype.bindDocumentKeyDownListener.call( this );
 	}
 };
 
@@ -266,7 +266,7 @@ OO.ui.MenuSelectWidget.prototype.unbindDocumentKeyDownListener = function () {
 	if ( this.$input ) {
 		this.$input.off( 'keydown', this.onDocumentKeyDownHandler );
 	} else {
-		OO.ui.MenuSelectWidget.parent.prototype.unbindDocumentKeyDownListener.call( this );
+		OO.ui.MenuSelectWidget.super.prototype.unbindDocumentKeyDownListener.call( this );
 	}
 };
 
@@ -283,7 +283,7 @@ OO.ui.MenuSelectWidget.prototype.bindDocumentKeyPressListener = function () {
 			this.updateItemVisibility();
 		}
 	} else {
-		OO.ui.MenuSelectWidget.parent.prototype.bindDocumentKeyPressListener.call( this );
+		OO.ui.MenuSelectWidget.super.prototype.bindDocumentKeyPressListener.call( this );
 	}
 };
 
@@ -300,7 +300,7 @@ OO.ui.MenuSelectWidget.prototype.unbindDocumentKeyPressListener = function () {
 			this.updateItemVisibility();
 		}
 	} else {
-		OO.ui.MenuSelectWidget.parent.prototype.unbindDocumentKeyPressListener.call( this );
+		OO.ui.MenuSelectWidget.super.prototype.unbindDocumentKeyPressListener.call( this );
 	}
 };
 
@@ -319,7 +319,7 @@ OO.ui.MenuSelectWidget.prototype.unbindDocumentKeyPressListener = function () {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.MenuSelectWidget.prototype.chooseItem = function ( item ) {
-	OO.ui.MenuSelectWidget.parent.prototype.chooseItem.call( this, item );
+	OO.ui.MenuSelectWidget.super.prototype.chooseItem.call( this, item );
 	if ( this.hideOnChoose ) {
 		this.toggle( false );
 	}
@@ -331,7 +331,7 @@ OO.ui.MenuSelectWidget.prototype.chooseItem = function ( item ) {
  */
 OO.ui.MenuSelectWidget.prototype.addItems = function ( items, index ) {
 	// Parent method
-	OO.ui.MenuSelectWidget.parent.prototype.addItems.call( this, items, index );
+	OO.ui.MenuSelectWidget.super.prototype.addItems.call( this, items, index );
 
 	this.updateItemVisibility();
 
@@ -343,7 +343,7 @@ OO.ui.MenuSelectWidget.prototype.addItems = function ( items, index ) {
  */
 OO.ui.MenuSelectWidget.prototype.removeItems = function ( items ) {
 	// Parent method
-	OO.ui.MenuSelectWidget.parent.prototype.removeItems.call( this, items );
+	OO.ui.MenuSelectWidget.super.prototype.removeItems.call( this, items );
 
 	this.updateItemVisibility();
 
@@ -355,7 +355,7 @@ OO.ui.MenuSelectWidget.prototype.removeItems = function ( items ) {
  */
 OO.ui.MenuSelectWidget.prototype.clearItems = function () {
 	// Parent method
-	OO.ui.MenuSelectWidget.parent.prototype.clearItems.call( this );
+	OO.ui.MenuSelectWidget.super.prototype.clearItems.call( this );
 
 	this.updateItemVisibility();
 
@@ -392,7 +392,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 	}
 
 	// Parent method
-	OO.ui.MenuSelectWidget.parent.prototype.toggle.call( this, visible );
+	OO.ui.MenuSelectWidget.super.prototype.toggle.call( this, visible );
 
 	if ( change ) {
 		if ( visible ) {

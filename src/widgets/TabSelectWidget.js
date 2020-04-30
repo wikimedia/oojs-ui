@@ -13,7 +13,7 @@
  */
 OO.ui.TabSelectWidget = function OoUiTabSelectWidget( config ) {
 	// Parent constructor
-	OO.ui.TabSelectWidget.parent.call( this, config );
+	OO.ui.TabSelectWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.TabIndexedElement.call( this, config );

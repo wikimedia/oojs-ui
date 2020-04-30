@@ -1,6 +1,6 @@
 Demo.FloatableWidget = function DemoFloatableWidget( config ) {
 	// Parent constructor
-	Demo.FloatableWidget.parent.call( this, config );
+	Demo.FloatableWidget.super.call( this, config );
 	// Mixin constructors
 	OO.ui.mixin.FloatableElement.call( this, config );
 	OO.ui.mixin.ClippableElement.call( this, config );

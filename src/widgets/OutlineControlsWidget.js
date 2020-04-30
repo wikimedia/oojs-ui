@@ -27,7 +27,7 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.OutlineControlsWidget.parent.call( this, config );
+	OO.ui.OutlineControlsWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, config );

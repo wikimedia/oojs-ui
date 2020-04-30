@@ -17,7 +17,7 @@ OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ToggleWidget.parent.call( this, config );
+	OO.ui.ToggleWidget.super.call( this, config );
 
 	// Mixin constructor
 	OO.ui.mixin.TitledElement.call( this, config );

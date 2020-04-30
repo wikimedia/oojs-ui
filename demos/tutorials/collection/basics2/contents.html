@@ -104,7 +104,7 @@
 	config = config || {};
 
 	// Call parent constructor
-	ToDoItemWidget.parent.call( this, config );
+	ToDoItemWidget.super.call( this, config );
 };
 // Inheritance
 OO.inheritClass( ToDoItemWidget, OO.ui.OptionWidget );</code></pre>
@@ -152,7 +152,7 @@ OO.inheritClass( ToDoItemWidget, OO.ui.OptionWidget );</code></pre>
 	config = config || {};
 
 	// Call parent constructor
-	ToDoItemWidget.parent.call( this, config );
+	ToDoItemWidget.super.call( this, config );
 
 	this.creationTime = config.creationTime;
 };
@@ -347,7 +347,7 @@ ToDoItemWidget.prototype.getCreationTime = function () {
 	config = config || {};
 
 	// Call parent constructor
-	ToDoListWidget.parent.call( this, config );
+	ToDoListWidget.super.call( this, config );
 };
 
 OO.inheritClass( ToDoListWidget, OO.ui.SelectWidget );</code></pre>
@@ -524,7 +524,7 @@ ToDoListWidget.prototype.onItemDelete = function ( itemWidget ) {
 			<p>3. Full code for <code class="tutorials-inline-code">ToDoItemWidget.js</code></p>
 <pre class="line-numbers"><code class="language-javascript">var ToDoItemWidget = function ( config ) {
 	config = config || {};
-	ToDoItemWidget.parent.call( this, config );
+	ToDoItemWidget.super.call( this, config );
 
 	this.creationTime = config.creationTime;
 
@@ -591,7 +591,7 @@ ToDoItemWidget.prototype.onDeleteButtonClick = function () {
 	config = config || {};
 
 	// Call parent constructor
-	ToDoListWidget.parent.call( this, config );
+	ToDoListWidget.super.call( this, config );
 
 	this.aggregate( {
 		delete: 'itemDelete'

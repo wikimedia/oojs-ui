@@ -38,7 +38,7 @@
  */
 OO.ui.MenuSectionOptionWidget = function OoUiMenuSectionOptionWidget( config ) {
 	// Parent constructor
-	OO.ui.MenuSectionOptionWidget.parent.call( this, config );
+	OO.ui.MenuSectionOptionWidget.super.call( this, config );
 
 	// Initialization
 	this.$element

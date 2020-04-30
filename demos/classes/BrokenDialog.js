@@ -1,5 +1,5 @@
 Demo.BrokenDialog = function DemoBrokenDialog( config ) {
-	Demo.BrokenDialog.parent.call( this, config );
+	Demo.BrokenDialog.super.call( this, config );
 	this.broken = false;
 };
 OO.inheritClass( Demo.BrokenDialog, OO.ui.ProcessDialog );
@@ -13,7 +13,7 @@ Demo.BrokenDialog.prototype.getBodyHeight = function () {
 	return 250;
 };
 Demo.BrokenDialog.prototype.initialize = function () {
-	Demo.BrokenDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.BrokenDialog.super.prototype.initialize.apply( this, arguments );
 	this.content = new OO.ui.PanelLayout( { padded: true } );
 	this.fieldset = new OO.ui.FieldsetLayout( {
 		label: 'Dialog with error handling',
@@ -28,13 +28,13 @@ Demo.BrokenDialog.prototype.initialize = function () {
 	this.$body.append( this.content.$element );
 };
 Demo.BrokenDialog.prototype.getSetupProcess = function ( data ) {
-	return Demo.BrokenDialog.parent.prototype.getSetupProcess.call( this, data )
+	return Demo.BrokenDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			this.broken = true;
 		}, this );
 };
 Demo.BrokenDialog.prototype.getActionProcess = function ( action ) {
-	return Demo.BrokenDialog.parent.prototype.getActionProcess.call( this, action )
+	return Demo.BrokenDialog.super.prototype.getActionProcess.call( this, action )
 		.next( function () {
 			return 1000;
 		}, this )

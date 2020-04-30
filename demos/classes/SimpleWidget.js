@@ -13,7 +13,7 @@ Demo.SimpleWidget = function DemoSimpleWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	Demo.SimpleWidget.parent.call( this, config );
+	Demo.SimpleWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );

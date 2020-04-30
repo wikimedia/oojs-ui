@@ -1,5 +1,5 @@
 Demo.OutlinedBookletDialog = function DemoOutlinedBookletDialog( config ) {
-	Demo.OutlinedBookletDialog.parent.call( this, config );
+	Demo.OutlinedBookletDialog.super.call( this, config );
 };
 OO.inheritClass( Demo.OutlinedBookletDialog, OO.ui.ProcessDialog );
 Demo.OutlinedBookletDialog.static.title = 'Outlined booklet dialog';
@@ -12,7 +12,7 @@ Demo.OutlinedBookletDialog.prototype.getBodyHeight = function () {
 	return 250;
 };
 Demo.OutlinedBookletDialog.prototype.initialize = function () {
-	Demo.OutlinedBookletDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.OutlinedBookletDialog.super.prototype.initialize.apply( this, arguments );
 	this.bookletLayout = new OO.ui.BookletLayout( {
 		outlined: true
 	} );
@@ -38,13 +38,13 @@ Demo.OutlinedBookletDialog.prototype.getActionProcess = function ( action ) {
 			this.close( { action: action } );
 		}, this );
 	}
-	return Demo.OutlinedBookletDialog.parent.prototype.getActionProcess.call( this, action );
+	return Demo.OutlinedBookletDialog.super.prototype.getActionProcess.call( this, action );
 };
 Demo.OutlinedBookletDialog.prototype.onBookletLayoutSet = function ( page ) {
 	this.setSize( page.getName() );
 };
 Demo.OutlinedBookletDialog.prototype.getSetupProcess = function ( data ) {
-	return Demo.OutlinedBookletDialog.parent.prototype.getSetupProcess.call( this, data )
+	return Demo.OutlinedBookletDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			this.bookletLayout.setPage( this.getSize() );
 		}, this );

@@ -1,5 +1,5 @@
 Demo.BookletDialog = function DemoBookletDialog( config ) {
-	Demo.BookletDialog.parent.call( this, config );
+	Demo.BookletDialog.super.call( this, config );
 };
 OO.inheritClass( Demo.BookletDialog, OO.ui.ProcessDialog );
 Demo.BookletDialog.static.title = 'Booklet dialog';
@@ -12,7 +12,7 @@ Demo.BookletDialog.prototype.getBodyHeight = function () {
 };
 Demo.BookletDialog.prototype.initialize = function () {
 	var dialog;
-	Demo.BookletDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.BookletDialog.super.prototype.initialize.apply( this, arguments );
 
 	dialog = this;
 
@@ -65,7 +65,7 @@ Demo.BookletDialog.prototype.getActionProcess = function ( action ) {
 			this.close( { action: action } );
 		}, this );
 	}
-	return Demo.BookletDialog.parent.prototype.getActionProcess.call( this, action );
+	return Demo.BookletDialog.super.prototype.getActionProcess.call( this, action );
 };
 Demo.BookletDialog.prototype.onBookletLayoutSet = function ( page ) {
 	page.$element.append( this.navigationField.$element );

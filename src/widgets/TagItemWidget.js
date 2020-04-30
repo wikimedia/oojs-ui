@@ -20,7 +20,7 @@ OO.ui.TagItemWidget = function OoUiTagItemWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.TagItemWidget.parent.call( this, config );
+	OO.ui.TagItemWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ItemWidget.call( this );
@@ -153,7 +153,7 @@ OO.ui.TagItemWidget.prototype.setDisabled = function ( state ) {
 		OO.ui.warnDeprecation( 'TagItemWidget#setDisabled: Disabling individual items is deprecated and will result in inconsistent behavior. Use #setFixed instead. See T193571.' );
 	}
 	// Parent method
-	OO.ui.TagItemWidget.parent.prototype.setDisabled.call( this, state );
+	OO.ui.TagItemWidget.super.prototype.setDisabled.call( this, state );
 	if (
 		!state &&
 		// Verify we have a group, and that the widget is ready

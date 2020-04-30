@@ -1,5 +1,5 @@
 Demo.MenuDialog = function DemoMenuDialog( config ) {
-	Demo.MenuDialog.parent.call( this, config );
+	Demo.MenuDialog.super.call( this, config );
 };
 OO.inheritClass( Demo.MenuDialog, OO.ui.ProcessDialog );
 Demo.MenuDialog.static.title = 'Menu dialog';
@@ -12,7 +12,7 @@ Demo.MenuDialog.prototype.getBodyHeight = function () {
 };
 Demo.MenuDialog.prototype.initialize = function () {
 	var menuLayout, positionField, showField, expandField, menuPanel, contentPanel;
-	Demo.MenuDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.MenuDialog.super.prototype.initialize.apply( this, arguments );
 
 	positionField = new OO.ui.FieldLayout(
 		new OO.ui.ButtonSelectWidget( {
@@ -84,5 +84,5 @@ Demo.MenuDialog.prototype.getActionProcess = function ( action ) {
 			this.close( { action: action } );
 		}, this );
 	}
-	return Demo.MenuDialog.parent.prototype.getActionProcess.call( this, action );
+	return Demo.MenuDialog.super.prototype.getActionProcess.call( this, action );
 };

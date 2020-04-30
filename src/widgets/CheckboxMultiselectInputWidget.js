@@ -39,7 +39,7 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 	this.setOptionsData( config.options || [] );
 
 	// Parent constructor
-	OO.ui.CheckboxMultiselectInputWidget.parent.call( this, config );
+	OO.ui.CheckboxMultiselectInputWidget.super.call( this, config );
 
 	// Events
 	this.checkboxMultiselectWidget.connect( this, {
@@ -64,7 +64,7 @@ OO.inheritClass( OO.ui.CheckboxMultiselectInputWidget, OO.ui.InputWidget );
  * @inheritdoc
  */
 OO.ui.CheckboxMultiselectInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.CheckboxMultiselectInputWidget.parent.static.gatherPreInfuseState(
+	var state = OO.ui.CheckboxMultiselectInputWidget.super.static.gatherPreInfuseState(
 		node, config
 	);
 	state.value = $( node ).find( '.oo-ui-checkboxInputWidget .oo-ui-inputWidget-input:checked' )
@@ -76,7 +76,7 @@ OO.ui.CheckboxMultiselectInputWidget.static.gatherPreInfuseState = function ( no
  * @inheritdoc
  */
 OO.ui.CheckboxMultiselectInputWidget.static.reusePreInfuseDOM = function ( node, config ) {
-	config = OO.ui.CheckboxMultiselectInputWidget.parent.static.reusePreInfuseDOM( node, config );
+	config = OO.ui.CheckboxMultiselectInputWidget.super.static.reusePreInfuseDOM( node, config );
 	// Cannot reuse the `<input type=checkbox>` set
 	delete config.$input;
 	return config;
@@ -120,7 +120,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.getValue = function () {
 OO.ui.CheckboxMultiselectInputWidget.prototype.setValue = function ( value ) {
 	value = this.cleanUpValue( value );
 	this.checkboxMultiselectWidget.selectItemsByData( value );
-	OO.ui.CheckboxMultiselectInputWidget.parent.prototype.setValue.call( this, value );
+	OO.ui.CheckboxMultiselectInputWidget.super.prototype.setValue.call( this, value );
 	if ( this.optionsDirty ) {
 		// We reached this from the constructor or from #setOptions.
 		// We have to update the <select> element.
@@ -142,7 +142,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.cleanUpValue = function ( value )
 		return cleanValue;
 	}
 	for ( i = 0; i < value.length; i++ ) {
-		singleValue = OO.ui.CheckboxMultiselectInputWidget.parent.prototype.cleanUpValue
+		singleValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
 			.call( this, value[ i ] );
 		// Remove options that we don't have here
 		if ( !this.checkboxMultiselectWidget.findItemFromData( singleValue ) ) {
@@ -158,7 +158,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.cleanUpValue = function ( value )
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.setDisabled = function ( state ) {
 	this.checkboxMultiselectWidget.setDisabled( state );
-	OO.ui.CheckboxMultiselectInputWidget.parent.prototype.setDisabled.call( this, state );
+	OO.ui.CheckboxMultiselectInputWidget.super.prototype.setDisabled.call( this, state );
 	return this;
 };
 
@@ -201,7 +201,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( optio
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
 			var optValue, item, optDisabled;
-			optValue = OO.ui.CheckboxMultiselectInputWidget.parent.prototype.cleanUpValue
+			optValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
 				.call( widget, opt.data );
 			optDisabled = opt.disabled !== undefined ? opt.disabled : false;
 			item = new OO.ui.CheckboxMultioptionWidget( {

@@ -1,5 +1,5 @@
 Demo.SimpleDialog = function DemoSimpleDialog( config ) {
-	Demo.SimpleDialog.parent.call( this, config );
+	Demo.SimpleDialog.super.call( this, config );
 };
 OO.inheritClass( Demo.SimpleDialog, OO.ui.Dialog );
 Demo.SimpleDialog.static.title = 'Simple dialog';
@@ -7,7 +7,7 @@ Demo.SimpleDialog.prototype.initialize = function () {
 	var closeButton,
 		dialog = this;
 
-	Demo.SimpleDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.SimpleDialog.super.prototype.initialize.apply( this, arguments );
 	this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 	// eslint-disable-next-line no-jquery/no-parse-html-literal
 	this.content.$element.append( '<p>Dialog content</p>' );

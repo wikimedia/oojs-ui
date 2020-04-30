@@ -33,7 +33,7 @@ OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config )
 		type: 'text'
 	}, config );
 	// Parent constructor
-	OO.ui.MultilineTextInputWidget.parent.call( this, config );
+	OO.ui.MultilineTextInputWidget.super.call( this, config );
 
 	// Properties
 	this.autosize = !!config.autosize;
@@ -78,7 +78,7 @@ OO.inheritClass( OO.ui.MultilineTextInputWidget, OO.ui.TextInputWidget );
  * @inheritdoc
  */
 OO.ui.MultilineTextInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.MultilineTextInputWidget.parent.static.gatherPreInfuseState( node, config );
+	var state = OO.ui.MultilineTextInputWidget.super.static.gatherPreInfuseState( node, config );
 	state.scrollTop = config.$input.scrollTop();
 	return state;
 };
@@ -89,7 +89,7 @@ OO.ui.MultilineTextInputWidget.static.gatherPreInfuseState = function ( node, co
  * @inheritdoc
  */
 OO.ui.MultilineTextInputWidget.prototype.onElementAttach = function () {
-	OO.ui.MultilineTextInputWidget.parent.prototype.onElementAttach.call( this );
+	OO.ui.MultilineTextInputWidget.super.prototype.onElementAttach.call( this );
 	this.adjustSize();
 };
 
@@ -106,7 +106,7 @@ OO.ui.MultilineTextInputWidget.prototype.onChange = function () {
  * @inheritdoc
  */
 OO.ui.MultilineTextInputWidget.prototype.updatePosition = function () {
-	OO.ui.MultilineTextInputWidget.parent.prototype.updatePosition.call( this );
+	OO.ui.MultilineTextInputWidget.super.prototype.updatePosition.call( this );
 	this.adjustSize();
 };
 
@@ -222,7 +222,7 @@ OO.ui.MultilineTextInputWidget.prototype.isAutosizing = function () {
  * @inheritdoc
  */
 OO.ui.MultilineTextInputWidget.prototype.restorePreInfuseState = function ( state ) {
-	OO.ui.MultilineTextInputWidget.parent.prototype.restorePreInfuseState.call( this, state );
+	OO.ui.MultilineTextInputWidget.super.prototype.restorePreInfuseState.call( this, state );
 	if ( state.scrollTop !== undefined ) {
 		this.$input.scrollTop( state.scrollTop );
 	}

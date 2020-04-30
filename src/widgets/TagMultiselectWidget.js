@@ -65,7 +65,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.TagMultiselectWidget.parent.call( this, config );
+	OO.ui.TagMultiselectWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.GroupWidget.call( this, config );
@@ -483,7 +483,7 @@ OO.ui.TagMultiselectWidget.prototype.onChangeTags = function () {
  */
 OO.ui.TagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
 	// Parent method
-	OO.ui.TagMultiselectWidget.parent.prototype.setDisabled.call( this, isDisabled );
+	OO.ui.TagMultiselectWidget.super.prototype.setDisabled.call( this, isDisabled );
 
 	if ( this.hasInput && this.input ) {
 		if ( !isDisabled ) {

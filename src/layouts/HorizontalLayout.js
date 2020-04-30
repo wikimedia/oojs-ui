@@ -28,7 +28,7 @@ OO.ui.HorizontalLayout = function OoUiHorizontalLayout( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.HorizontalLayout.parent.call( this, config );
+	OO.ui.HorizontalLayout.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, $.extend( { $group: this.$element }, config ) );

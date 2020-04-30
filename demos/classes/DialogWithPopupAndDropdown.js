@@ -1,5 +1,5 @@
 Demo.DialogWithPopupAndDropdown = function DemoDialogWithPopupAndDropdown( config ) {
-	Demo.DialogWithPopupAndDropdown.parent.call( this, config );
+	Demo.DialogWithPopupAndDropdown.super.call( this, config );
 };
 OO.inheritClass( Demo.DialogWithPopupAndDropdown, OO.ui.ProcessDialog );
 Demo.DialogWithPopupAndDropdown.static.title = 'Dialog with popup and dropdown (ClippableElement test)';
@@ -12,7 +12,7 @@ Demo.DialogWithPopupAndDropdown.prototype.getBodyHeight = function () {
 };
 Demo.DialogWithPopupAndDropdown.prototype.initialize = function () {
 	var $spacer = $( '<div>' ).height( 240 );
-	Demo.DialogWithPopupAndDropdown.parent.prototype.initialize.apply( this, arguments );
+	Demo.DialogWithPopupAndDropdown.super.prototype.initialize.apply( this, arguments );
 	this.bookletLayout = new OO.ui.BookletLayout( {
 		outlined: true
 	} );
@@ -67,5 +67,5 @@ Demo.DialogWithPopupAndDropdown.prototype.getActionProcess = function ( action )
 			this.close( { action: action } );
 		}, this );
 	}
-	return Demo.DialogWithPopupAndDropdown.parent.prototype.getActionProcess.call( this, action );
+	return Demo.DialogWithPopupAndDropdown.super.prototype.getActionProcess.call( this, action );
 };

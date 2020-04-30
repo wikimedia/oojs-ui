@@ -1,6 +1,6 @@
 Widgets.ToDoItemWidget3 = function ( config ) {
 	config = config || {};
-	Widgets.ToDoItemWidget3.parent.call( this, config );
+	Widgets.ToDoItemWidget3.super.call( this, config );
 
 	this.deleteButton = new OO.ui.ButtonWidget( {
 		label: 'Delete'

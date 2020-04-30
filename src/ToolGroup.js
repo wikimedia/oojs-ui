@@ -42,7 +42,7 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ToolGroup.parent.call( this, config );
+	OO.ui.ToolGroup.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, config );
@@ -158,7 +158,7 @@ OO.ui.ToolGroup.static.name = null;
  */
 OO.ui.ToolGroup.prototype.isDisabled = function () {
 	return this.autoDisabled ||
-		OO.ui.ToolGroup.parent.prototype.isDisabled.apply( this, arguments );
+		OO.ui.ToolGroup.super.prototype.isDisabled.apply( this, arguments );
 };
 
 /**
@@ -177,7 +177,7 @@ OO.ui.ToolGroup.prototype.updateDisabled = function () {
 		}
 		this.autoDisabled = allDisabled;
 	}
-	OO.ui.ToolGroup.parent.prototype.updateDisabled.apply( this, arguments );
+	OO.ui.ToolGroup.super.prototype.updateDisabled.apply( this, arguments );
 };
 
 /**

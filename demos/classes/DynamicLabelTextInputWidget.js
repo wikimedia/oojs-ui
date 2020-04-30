@@ -2,7 +2,7 @@ Demo.DynamicLabelTextInputWidget = function DemoDynamicLabelTextInputWidget( con
 	// Configuration initialization
 	config = $.extend( { getLabelText: function () {} }, config );
 	// Parent constructor
-	Demo.DynamicLabelTextInputWidget.parent.call( this, config );
+	Demo.DynamicLabelTextInputWidget.super.call( this, config );
 	// Properties
 	this.getLabelText = config.getLabelText;
 	// Events

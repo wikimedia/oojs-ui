@@ -20,7 +20,7 @@ OO.ui.ButtonOptionWidget = function OoUiButtonOptionWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ButtonOptionWidget.parent.call( this, config );
+	OO.ui.ButtonOptionWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ButtonElement.call( this, config );
@@ -63,7 +63,7 @@ OO.ui.ButtonOptionWidget.static.highlightable = false;
  * @inheritdoc
  */
 OO.ui.ButtonOptionWidget.prototype.setSelected = function ( state ) {
-	OO.ui.ButtonOptionWidget.parent.prototype.setSelected.call( this, state );
+	OO.ui.ButtonOptionWidget.super.prototype.setSelected.call( this, state );
 
 	if ( this.constructor.static.selectable ) {
 		this.setActive( state );

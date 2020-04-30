@@ -46,7 +46,7 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 	this.input = this;
 
 	// Parent constructor
-	OO.ui.NumberInputWidget.parent.call( this, $.extend( config, {
+	OO.ui.NumberInputWidget.super.call( this, $.extend( config, {
 		type: 'number'
 	} ) );
 
@@ -200,7 +200,7 @@ OO.ui.NumberInputWidget.prototype.setValue = function ( value ) {
 		// so here we make sure an 'empty' value is actually displayed as such.
 		this.$input.val( '' );
 	}
-	return OO.ui.NumberInputWidget.parent.prototype.setValue.call( this, value );
+	return OO.ui.NumberInputWidget.super.prototype.setValue.call( this, value );
 };
 
 /**
@@ -384,7 +384,7 @@ OO.ui.NumberInputWidget.prototype.updateControlsDisabled = function () {
  */
 OO.ui.NumberInputWidget.prototype.setDisabled = function ( disabled ) {
 	// Parent method
-	OO.ui.NumberInputWidget.parent.prototype.setDisabled.call( this, disabled );
+	OO.ui.NumberInputWidget.super.prototype.setDisabled.call( this, disabled );
 	this.updateControlsDisabled();
 	return this;
 };
@@ -394,7 +394,7 @@ OO.ui.NumberInputWidget.prototype.setDisabled = function ( disabled ) {
  */
 OO.ui.NumberInputWidget.prototype.setReadOnly = function () {
 	// Parent method
-	OO.ui.NumberInputWidget.parent.prototype.setReadOnly.apply( this, arguments );
+	OO.ui.NumberInputWidget.super.prototype.setReadOnly.apply( this, arguments );
 	this.updateControlsDisabled();
 	return this;
 };

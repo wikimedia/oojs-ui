@@ -19,7 +19,7 @@ OO.ui.OutlineOptionWidget = function OoUiOutlineOptionWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.OutlineOptionWidget.parent.call( this, config );
+	OO.ui.OutlineOptionWidget.super.call( this, config );
 
 	// Properties
 	this.level = 0;
@@ -100,7 +100,7 @@ OO.ui.OutlineOptionWidget.prototype.getLevel = function () {
  * @inheritdoc
  */
 OO.ui.OutlineOptionWidget.prototype.setPressed = function ( state ) {
-	OO.ui.OutlineOptionWidget.parent.prototype.setPressed.call( this, state );
+	OO.ui.OutlineOptionWidget.super.prototype.setPressed.call( this, state );
 	return this;
 };
 
@@ -138,7 +138,7 @@ OO.ui.OutlineOptionWidget.prototype.setRemovable = function ( removable ) {
  * @inheritdoc
  */
 OO.ui.OutlineOptionWidget.prototype.setSelected = function ( state ) {
-	OO.ui.OutlineOptionWidget.parent.prototype.setSelected.call( this, state );
+	OO.ui.OutlineOptionWidget.super.prototype.setSelected.call( this, state );
 	return this;
 };
 

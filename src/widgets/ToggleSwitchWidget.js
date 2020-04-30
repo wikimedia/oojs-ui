@@ -36,7 +36,7 @@
  */
 OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	// Parent constructor
-	OO.ui.ToggleSwitchWidget.parent.call( this, config );
+	OO.ui.ToggleSwitchWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.TabIndexedElement.call( this, config );
@@ -102,7 +102,7 @@ OO.ui.ToggleSwitchWidget.prototype.onKeyPress = function ( e ) {
  * @inheritdoc
  */
 OO.ui.ToggleSwitchWidget.prototype.setValue = function ( value ) {
-	OO.ui.ToggleSwitchWidget.parent.prototype.setValue.call( this, value );
+	OO.ui.ToggleSwitchWidget.super.prototype.setValue.call( this, value );
 	this.$element.attr( 'aria-checked', this.value.toString() );
 	return this;
 };

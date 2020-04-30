@@ -38,7 +38,7 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.PopupTagMultiselectWidget.parent.call( this, $.extend( {
+	OO.ui.PopupTagMultiselectWidget.super.call( this, $.extend( {
 		inputPosition: 'none'
 	}, config ) );
 
@@ -147,7 +147,7 @@ OO.ui.PopupTagMultiselectWidget.prototype.onTagSelect = function ( item ) {
 		this.popupInput.focus();
 	} else {
 		// Parent
-		OO.ui.PopupTagMultiselectWidget.parent.prototype.onTagSelect.call( this, item );
+		OO.ui.PopupTagMultiselectWidget.super.prototype.onTagSelect.call( this, item );
 	}
 };
 

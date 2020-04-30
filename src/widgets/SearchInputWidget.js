@@ -17,7 +17,7 @@ OO.ui.SearchInputWidget = function OoUiSearchInputWidget( config ) {
 	}, config );
 
 	// Parent constructor
-	OO.ui.SearchInputWidget.parent.call( this, config );
+	OO.ui.SearchInputWidget.super.call( this, config );
 
 	// Events
 	this.connect( this, {
@@ -97,7 +97,7 @@ OO.ui.SearchInputWidget.prototype.onDisable = function () {
  * @inheritdoc
  */
 OO.ui.SearchInputWidget.prototype.setReadOnly = function ( state ) {
-	OO.ui.SearchInputWidget.parent.prototype.setReadOnly.call( this, state );
+	OO.ui.SearchInputWidget.super.prototype.setReadOnly.call( this, state );
 	this.updateSearchIndicator();
 	return this;
 };

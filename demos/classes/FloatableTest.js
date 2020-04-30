@@ -1,6 +1,6 @@
 Demo.FloatableTest = function DemoFloatableTest( config ) {
 	// Parent constructor
-	Demo.FloatableTest.parent.call( this, config );
+	Demo.FloatableTest.super.call( this, config );
 	// Properties
 	// Must be equal to dialog width and height
 	this.viewportSize = 500;
@@ -19,7 +19,7 @@ Demo.FloatableTest.prototype.getBodyHeight = function () {
 	return this.viewportSize;
 };
 Demo.FloatableTest.prototype.initialize = function () {
-	Demo.FloatableTest.parent.prototype.initialize.apply( this, arguments );
+	Demo.FloatableTest.super.prototype.initialize.apply( this, arguments );
 
 	this.$container = $( '<div>' ).css( { width: this.outerSize, height: this.outerSize } );
 	this.selectWidget = new Demo.PositionSelectWidget();
@@ -88,7 +88,7 @@ Demo.FloatableTest.prototype.centerView = function () {
 	OO.ui.Element.static.setScrollLeft( this.$body[ 0 ], offset * dir );
 };
 Demo.FloatableTest.prototype.getSetupProcess = function () {
-	return Demo.FloatableTest.parent.prototype.getSetupProcess.call( this ).next( function () {
+	return Demo.FloatableTest.super.prototype.getSetupProcess.call( this ).next( function () {
 		var offset, side;
 		offset = ( this.outerSize - this.innerSize ) / 2;
 		side = this.getDir() === 'rtl' ? 'right' : 'left';
@@ -122,5 +122,5 @@ Demo.FloatableTest.prototype.getActionProcess = function ( action ) {
 			this.centerView();
 		}, this );
 	}
-	return Demo.FloatableTest.parent.prototype.getActionProcess.call( this, action );
+	return Demo.FloatableTest.super.prototype.getActionProcess.call( this, action );
 };

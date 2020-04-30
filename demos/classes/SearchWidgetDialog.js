@@ -1,12 +1,12 @@
 Demo.SearchWidgetDialog = function DemoSearchWidgetDialog( config ) {
-	Demo.SearchWidgetDialog.parent.call( this, config );
+	Demo.SearchWidgetDialog.super.call( this, config );
 	this.broken = false;
 };
 OO.inheritClass( Demo.SearchWidgetDialog, OO.ui.ProcessDialog );
 Demo.SearchWidgetDialog.static.title = 'Search widget dialog';
 Demo.SearchWidgetDialog.prototype.initialize = function () {
 	var i, items, searchWidget;
-	Demo.SearchWidgetDialog.parent.prototype.initialize.apply( this, arguments );
+	Demo.SearchWidgetDialog.super.prototype.initialize.apply( this, arguments );
 	items = [];
 	searchWidget = new OO.ui.SearchWidget();
 	for ( i = 1; i <= 20; i++ ) {

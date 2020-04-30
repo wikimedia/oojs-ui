@@ -11,7 +11,7 @@
  *     // Example of a IndexLayout that contains two TabPanelLayouts.
  *
  *     function TabPanelOneLayout( name, config ) {
- *         TabPanelOneLayout.parent.call( this, name, config );
+ *         TabPanelOneLayout.super.call( this, name, config );
  *         this.$element.append( '<p>First tab panel</p>' );
  *     }
  *     OO.inheritClass( TabPanelOneLayout, OO.ui.TabPanelLayout );
@@ -45,7 +45,7 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	config = $.extend( {}, config, { menuPosition: 'top' } );
 
 	// Parent constructor
-	OO.ui.IndexLayout.parent.call( this, config );
+	OO.ui.IndexLayout.super.call( this, config );
 
 	// Properties
 	this.currentTabPanelName = null;

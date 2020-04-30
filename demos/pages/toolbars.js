@@ -41,7 +41,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	// eslint-disable-next-line max-len
 	function createTool( toolbar, group, name, icon, title, flags, init, onSelect, displayBothIconAndLabel ) {
 		var Tool = function () {
-			Tool.parent.apply( this, arguments );
+			Tool.super.apply( this, arguments );
 			this.toggled = false;
 			if ( init ) {
 				init.call( this );
@@ -80,7 +80,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 
 	function createDisabledToolGroup( parent, name ) {
 		var DisabledToolGroup = function () {
-			DisabledToolGroup.parent.apply( this, arguments );
+			DisabledToolGroup.super.apply( this, arguments );
 			this.setDisabled( true );
 		};
 

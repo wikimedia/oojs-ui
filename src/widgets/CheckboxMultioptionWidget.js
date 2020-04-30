@@ -19,7 +19,7 @@ OO.ui.CheckboxMultioptionWidget = function OoUiCheckboxMultioptionWidget( config
 	this.checkbox = new OO.ui.CheckboxInputWidget();
 
 	// Parent constructor
-	OO.ui.CheckboxMultioptionWidget.parent.call( this, config );
+	OO.ui.CheckboxMultioptionWidget.super.call( this, config );
 
 	// Events
 	this.checkbox.on( 'change', this.onCheckboxChange.bind( this ) );
@@ -58,7 +58,7 @@ OO.ui.CheckboxMultioptionWidget.prototype.onCheckboxChange = function () {
  * @inheritdoc
  */
 OO.ui.CheckboxMultioptionWidget.prototype.setSelected = function ( state ) {
-	OO.ui.CheckboxMultioptionWidget.parent.prototype.setSelected.call( this, state );
+	OO.ui.CheckboxMultioptionWidget.super.prototype.setSelected.call( this, state );
 	this.checkbox.setSelected( state );
 	return this;
 };
@@ -67,7 +67,7 @@ OO.ui.CheckboxMultioptionWidget.prototype.setSelected = function ( state ) {
  * @inheritdoc
  */
 OO.ui.CheckboxMultioptionWidget.prototype.setDisabled = function ( disabled ) {
-	OO.ui.CheckboxMultioptionWidget.parent.prototype.setDisabled.call( this, disabled );
+	OO.ui.CheckboxMultioptionWidget.super.prototype.setDisabled.call( this, disabled );
 	this.checkbox.setDisabled( this.isDisabled() );
 	return this;
 };

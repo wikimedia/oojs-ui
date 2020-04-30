@@ -40,7 +40,7 @@ OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.ToggleButtonWidget.parent.call( this, config );
+	OO.ui.ToggleButtonWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ButtonElement.call( this, $.extend( {
@@ -110,7 +110,7 @@ OO.ui.ToggleButtonWidget.prototype.setValue = function ( value ) {
 	}
 
 	// Parent method
-	OO.ui.ToggleButtonWidget.parent.prototype.setValue.call( this, value );
+	OO.ui.ToggleButtonWidget.super.prototype.setValue.call( this, value );
 
 	return this;
 };
