@@ -23,6 +23,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'articleDisambiguation',
 				'articleNotFound',
 				'articleSearch',
+				'articlesSearch',
 				'articleRedirect',
 				'history',
 				'info',
