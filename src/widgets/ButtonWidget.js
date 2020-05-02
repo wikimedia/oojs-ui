@@ -247,7 +247,7 @@ OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {
 };
 
 /**
- * Set the `rel` attribute of the the hyperlink.
+ * Set the `rel` attribute of the hyperlink.
  *
  * @param {string|string[]} rel Relationship attributes for the hyperlink
  * @return {OO.ui.Widget} The widget, for chaining

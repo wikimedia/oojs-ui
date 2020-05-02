@@ -216,7 +216,7 @@ class ButtonWidget extends Widget {
 	}
 
 	/**
-	 * Set the relationship attribute of the the hyperlink.
+	 * Set the relationship attribute of the hyperlink.
 	 *
 	 * @param string|string[] $rel Relationship attributes for the hyperlink
 	 * @return $this
