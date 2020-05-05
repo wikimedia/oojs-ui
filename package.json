@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "jquery": "3.5.1",
-    "oojs": "3.0.1",
+    "oojs": "5.0.0",
     "wikimedia-ui-base": "0.15.0"
   },
   "devDependencies": {
