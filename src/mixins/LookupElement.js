@@ -170,16 +170,7 @@ OO.ui.mixin.LookupElement.prototype.onLookupMenuToggle = function ( visible ) {
  * @param {OO.ui.MenuOptionWidget} item Selected item
  */
 OO.ui.mixin.LookupElement.prototype.onLookupMenuChoose = function ( item ) {
-	if ( this.onLookupMenuItemChoose ) {
-		// @since 0.35.2
-		OO.ui.warnDeprecation(
-			'onLookupMenuItemChoose is deprecated. ' +
-			'Use onLookupMenuChoose instead.'
-		);
-		this.onLookupMenuItemChoose( item );
-	} else {
-		this.setValue( item.getData() );
-	}
+	this.setValue( item.getData() );
 };
 
 /**
