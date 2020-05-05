@@ -146,35 +146,6 @@ OO.ui.TagItemWidget.prototype.isFixed = function () {
 };
 
 /**
- * @inheritdoc
- */
-OO.ui.TagItemWidget.prototype.setDisabled = function ( state ) {
-	if ( state && this.elementGroup && !this.elementGroup.isDisabled() ) {
-		OO.ui.warnDeprecation( 'TagItemWidget#setDisabled: Disabling individual items is deprecated and will result in inconsistent behavior. Use #setFixed instead. See T193571.' );
-	}
-	// Parent method
-	OO.ui.TagItemWidget.super.prototype.setDisabled.call( this, state );
-	if (
-		!state &&
-		// Verify we have a group, and that the widget is ready
-		this.toggleDraggable && this.elementGroup &&
-		!this.isFixed() &&
-		!this.elementGroup.isDraggable()
-	) {
-		// Only enable the draggable state of the item if the
-		// entire group is draggable to begin with, and if the
-		// item is not fixed
-		this.toggleDraggable( !state );
-	}
-
-	if ( this.closeButton ) {
-		this.closeButton.setDisabled( state );
-	}
-
-	return this;
-};
-
-/**
  * Handle removal of the item
  *
  * This is mainly for extensibility concerns, so other children
