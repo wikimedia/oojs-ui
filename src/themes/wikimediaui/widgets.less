@@ -1980,6 +1980,17 @@
 
 .theme-oo-ui-toggleButtonWidget() {
 	.oo-ui-inline-spacing( @margin-end-widget );
+
+	&.oo-ui-widget-enabled.oo-ui-buttonElement-frameless.oo-ui-toggleWidget-on {
+		.oo-ui-buttonElement-button {
+			background-color: @background-color-frameless--active;
+			color: @color-base--active;
+
+			& > .oo-ui-iconElement-icon:not( .oo-ui-image-invert ) {
+				opacity: @opacity-icon-base--selected;
+			}
+		}
+	}
 }
 
 .theme-oo-ui-toggleSwitchWidget() {

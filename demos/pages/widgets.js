@@ -443,6 +443,52 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'ToggleButtonWidget (icon only, initially active)',
 						align: 'top'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ToggleButtonWidget( {
+						label: 'Toggle',
+						framed: false
+					} ),
+					{
+						label: 'ToggleButtonWidget (frameless)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ToggleButtonWidget( {
+						label: 'Toggle',
+						framed: false,
+						value: true
+					} ),
+					{
+						label: 'ToggleButtonWidget (frameless, initially active)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ToggleButtonWidget( {
+						icon: 'pushPin',
+						label: 'pin',
+						invisibleLabel: true,
+						framed: false
+					} ),
+					{
+						label: 'ToggleButtonWidget (frameless, icon only)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ToggleButtonWidget( {
+						icon: 'pushPin',
+						label: 'pin',
+						invisibleLabel: true,
+						framed: false,
+						value: true
+					} ),
+					{
+						label: 'ToggleButtonWidget (frameless, icon only, initially active)',
+						align: 'top'
+					}
 				)
 			]
 		} ),
