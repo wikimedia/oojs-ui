@@ -35,6 +35,7 @@ OO.ui.SearchWidget = function OoUiSearchWidget( config ) {
 		value: config.value
 	} );
 	this.results = new OO.ui.SelectWidget();
+	this.results.setFocusOwner( this.query.$input );
 	this.$query = $( '<div>' );
 	this.$results = $( '<div>' );
 
