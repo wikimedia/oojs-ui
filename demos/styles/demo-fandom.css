@@ -331,6 +331,9 @@
 .oo-ui-dropdownInputWidget.oo-ui-widget-enabled select:active {
   box-shadow: inset 0 0 0 1px #ff776d;
 }
+.oo-ui-dropdownInputWidget select optgroup[label] {
+  background-color: #e6e9e9;
+}
 .oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted {
   background-color: rgba(255, 119, 109, 0.15);
   color: #ff776d;
