@@ -92,8 +92,12 @@
 		}
 	}
 
-	.oo-ui-dropdownInputWidget select optgroup[label] {
-		background-color: @themed-page-background--secondary;
+	.oo-ui-dropdownInputWidget select optgroup {
+		color: initial;
+
+		option {
+			color: @themed-text-color;
+		}
 	}
 }
 
