@@ -375,14 +375,17 @@
 		border-style: @border-style-base;
 		border-width: @border-width-base;
 		box-sizing: border-box;
+		color: inherit;
 		font-family: inherit;
-		font-size: inherit;
+		font-size: @font-size-base;
+		mask: none;
+		-webkit-mask: none;
 		// Support Firefox <= 34: `height` needed in addition to adding, otherwise oversized.
 		height: @size-base;
 		// stylelint-disable-next-line declaration-block-no-shorthand-property-overrides
 		padding: ~'0\9';
 		// Support IE 10: Don't try to use vertical padding on select!
-		padding-left: @padding-horizontal-base;
+		padding-left: @input-horizontal-padding;
 		padding-right: @padding-end-dropdown;
 		vertical-align: middle;
 

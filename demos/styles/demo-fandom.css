@@ -314,16 +314,21 @@
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:indeterminate:active + span::before {
   border-color: currentColor;
 }
-.oo-ui-dropdownWidget-handle {
+.oo-ui-dropdownWidget-handle,
+.theme-oo-ui-dropdownInputWidget select {
   background-color: #e6e9e9;
   border-color: #b6b8b8;
 }
-.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:hover,
-.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:focus,
-.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:active {
+.oo-ui-dropdownWidget-handle.oo-ui-widget-enabled -handle:hover,
+.theme-oo-ui-dropdownInputWidget.oo-ui-widget-enabled select:hover,
+.oo-ui-dropdownWidget-handle.oo-ui-widget-enabled -handle:focus,
+.theme-oo-ui-dropdownInputWidget.oo-ui-widget-enabled select:focus,
+.oo-ui-dropdownWidget-handle.oo-ui-widget-enabled -handle:active,
+.theme-oo-ui-dropdownInputWidget.oo-ui-widget-enabled select:active {
   border-color: #ff776d;
 }
-.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:active {
+.oo-ui-dropdownWidget-handle.oo-ui-widget-enabled -handle:active,
+.theme-oo-ui-dropdownInputWidget.oo-ui-widget-enabled select:active {
   box-shadow: inset 0 0 0 1px #ff776d;
 }
 .oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted {
