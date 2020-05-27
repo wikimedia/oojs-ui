@@ -149,10 +149,22 @@ OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
-	var currentItem = this.findHighlightedItem() || this.findSelectedItem();
+	var handled = false,
+		selected = this.findSelectedItems(),
+		currentItem = this.findHighlightedItem() || (
+			Array.isArray( selected ) ? selected[ 0 ] : selected
+		);
 
 	if ( !this.isDisabled() && this.isVisible() ) {
 		switch ( e.keyCode ) {
+			case OO.ui.Keys.TAB:
+				if ( currentItem ) {
+					// Was only highlighted, now let's select it. No-op if already selected.
+					this.chooseItem( currentItem );
+				}
+				this.toggle( false );
+				handled = true;
+				break;
 			case OO.ui.Keys.LEFT:
 			case OO.ui.Keys.RIGHT:
 				// Do nothing if a text field is associated, arrow keys will be handled natively
@@ -161,20 +173,18 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 				}
 				break;
 			case OO.ui.Keys.ESCAPE:
-			case OO.ui.Keys.TAB:
 				if ( currentItem && !this.multiselect ) {
 					currentItem.setHighlighted( false );
 				}
 				this.toggle( false );
-				// Don't prevent tabbing away, prevent defocusing
-				if ( e.keyCode === OO.ui.Keys.ESCAPE ) {
-					e.preventDefault();
-					e.stopPropagation();
-				}
+				handled = true;
 				break;
 			default:
-				OO.ui.MenuSelectWidget.super.prototype.onDocumentKeyDown.call( this, e );
-				return;
+				return OO.ui.MenuSelectWidget.super.prototype.onDocumentKeyDown.call( this, e );
+		}
+		if ( handled ) {
+			e.preventDefault();
+			e.stopPropagation();
 		}
 	}
 };
