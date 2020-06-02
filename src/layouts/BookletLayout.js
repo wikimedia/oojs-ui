@@ -130,6 +130,7 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
 /**
  * A 'set' event is emitted when a page is {@link #setPage set} to be displayed by the
  * booklet layout.
+ *
  * @event set
  * @param {OO.ui.PageLayout} page Current page
  */

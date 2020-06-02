@@ -501,6 +501,7 @@ OO.ui.TagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
 
 /**
  * Respond to tag remove event
+ *
  * @param {OO.ui.TagItemWidget} item Removed tag
  */
 OO.ui.TagMultiselectWidget.prototype.onTagRemove = function ( item ) {

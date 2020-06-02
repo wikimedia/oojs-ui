@@ -525,6 +525,7 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 
 	/**
 	 * Convert native `scrollLeft` value to a value consistent between browsers. See #getScrollLeft.
+	 *
 	 * @param {number} nativeOffset Native `scrollLeft` value
 	 * @param {HTMLElement|Window} el Element from which the value was obtained
 	 * @return {number}
@@ -550,6 +551,7 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 
 	/**
 	 * Convert our normalized `scrollLeft` value to a value for current browser. See #getScrollLeft.
+	 *
 	 * @param {number} normalizedOffset Normalized `scrollLeft` value
 	 * @param {HTMLElement|Window} el Element on which the value will be set
 	 * @return {number}

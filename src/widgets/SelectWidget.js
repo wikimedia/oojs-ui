@@ -450,9 +450,9 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 		}
 		return;
 	}
-	// eslint-disable-next-line no-restricted-properties
+	// eslint-disable-next-line es/no-string-fromcodepoint
 	if ( String.fromCodePoint ) {
-		// eslint-disable-next-line no-restricted-properties
+		// eslint-disable-next-line es/no-string-fromcodepoint
 		c = String.fromCodePoint( e.charCode );
 	} else {
 		c = String.fromCharCode( e.charCode );
@@ -791,7 +791,7 @@ OO.ui.SelectWidget.prototype.unselectItem = function ( item ) {
  * @fires select
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
-*/
+ */
 OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 	var i, len, selected,
 		changed = false;

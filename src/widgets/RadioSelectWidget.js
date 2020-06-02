@@ -27,7 +27,6 @@
  *     $( document.body ).append( radioSelect.$element );
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
-
  *
  * @class
  * @extends OO.ui.SelectWidget

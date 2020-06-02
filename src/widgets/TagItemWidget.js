@@ -139,6 +139,7 @@ OO.ui.TagItemWidget.prototype.setFixed = function ( state ) {
 
 /**
  * Check whether the item is fixed
+ *
  * @return {boolean}
  */
 OO.ui.TagItemWidget.prototype.isFixed = function () {

@@ -1,7 +1,7 @@
 QUnit.module( 'core' );
 
 /**
- * @note: Keep tests in sync with phpunit/TagTest.php
+ * Note: Keep tests in sync with phpunit/TagTest.php
  */
 QUnit.test( 'isSafeUrl', function ( assert ) {
 	// eslint-disable-next-line no-script-url

@@ -5,7 +5,9 @@
  * An option to do it may be added in the future.
  */
 
-var Q = require( 'q' ),
+'use strict';
+
+const Q = require( 'q' ),
 	path = require( 'path' ),
 	asyncTask = require( 'grunt-promise-q' );
 
@@ -16,7 +18,7 @@ module.exports = function ( grunt ) {
 	/**
 	 * Destination for images.
 	 *
-	 * @class
+	 * @class Destination
 	 *
 	 * @constructor
 	 * @param {string} path Image path
@@ -51,7 +53,7 @@ module.exports = function ( grunt ) {
 	/**
 	 * Source image.
 	 *
-	 * @class
+	 * @class Image
 	 *
 	 * @constructor
 	 * @param {Object} list Image list
@@ -78,15 +80,13 @@ module.exports = function ( grunt ) {
 	Image.prototype.generate = function ( destination ) {
 		// TODO Make configurable
 
-		var selector, declarations, direction, lang, langSelector,
-			deferred = Q.defer(),
-			file = typeof this.file === 'string' ?
+		const file = typeof this.file === 'string' ?
 				{ ltr: this.file, rtl: this.file } :
 				{
 					ltr: this.file.ltr || this.file.default,
 					rtl: this.file.rtl || this.file.default
 				},
-			moreLangs = this.file.lang || {},
+			deferred = Q.defer(),
 			name = this.name,
 			sourcePath = this.list.getPath(),
 			destinationPath = destination.getPath(),
@@ -103,9 +103,12 @@ module.exports = function ( grunt ) {
 			uncolorizableImages = [],
 			unknownVariants = [];
 
+		let selector, declarations, direction, lang, langSelector,
+			moreLangs = this.file.lang || {};
+
 		function getDeclarations( primary ) {
 			// If 'primary' is not a SVG file, 'fallback' and 'primary' are intentionally the same
-			var fallback = primary.replace( /\.svg$/, '.png' );
+			const fallback = primary.replace( /\.svg$/, '.png' );
 			return '.oo-ui-background-image-svg-internal(' +
 				'\'' + ( cssPrependPath || '' ) + primary + '\', ' +
 				'\'' + ( cssPrependPath || '' ) + fallback + '\'' +
@@ -162,8 +165,8 @@ module.exports = function ( grunt ) {
 
 		// Variants
 		this.variantNames.forEach( function ( variantName ) {
-			var variantSvg, destinationFilePath,
-				variant = variants.getVariant( variantName );
+			let variantSvg, destinationFilePath;
+			const variant = variants.getVariant( variantName );
 
 			if ( variant === undefined ) {
 				unknownVariants.push( variantName );
@@ -256,7 +259,7 @@ module.exports = function ( grunt ) {
 	/**
 	 * List of source images.
 	 *
-	 * @class
+	 * @class ImageList
 	 *
 	 * @constructor
 	 * @param {string} path Images path
@@ -265,7 +268,7 @@ module.exports = function ( grunt ) {
 	 * @param {Object} data List of image configurations keyed by name
 	 */
 	function ImageList( path, variants, options, data ) {
-		var key;
+		let key;
 
 		this.list = {};
 		this.path = path;
@@ -289,7 +292,7 @@ module.exports = function ( grunt ) {
 	/**
 	 * Get image variants.
 	 *
-	 * @return {VariantsList} Image variants
+	 * @return {VariantList} Image variants
 	 */
 	ImageList.prototype.getVariants = function () {
 		return this.variants;
@@ -341,13 +344,14 @@ module.exports = function ( grunt ) {
 	 * @return {Q.Promise} Promise resolved with number of generated SVG files
 	 */
 	ImageList.prototype.generate = function ( destination ) {
-		var list = this.list,
+		const list = this.list,
 			intro = this.getCssIntro();
 		return Q.all( Object.keys( this.list ).map( function ( key ) {
 			return list[ key ].generate( destination );
 		} ) ).then( function ( data ) {
-			var textDirection, stylesheetPath, destinationFilePath, dataFormat;
-			dataFormat = {
+			let textDirection, stylesheetPath, destinationFilePath;
+
+			const dataFormat = {
 				files: {},
 				rules: {
 					ltr: [],
@@ -384,7 +388,7 @@ module.exports = function ( grunt ) {
 	/**
 	 * Image variant.
 	 *
-	 * @class
+	 * @class Variant
 	 *
 	 * @constructor
 	 * @param {VariantList} list Variant list
@@ -420,13 +424,13 @@ module.exports = function ( grunt ) {
 	/**
 	 * List of variants.
 	 *
-	 * @class
+	 * @class VariantList
 	 *
 	 * @constructor
 	 * @param {Object} data List of variant configurations keyed by name
 	 */
 	function VariantList( data ) {
-		var key;
+		let key;
 
 		this.list = {};
 		this.globals = [];
@@ -470,7 +474,7 @@ module.exports = function ( grunt ) {
 	/**
 	 * Image source.
 	 *
-	 * @class
+	 * @class Source
 	 *
 	 * @constructor
 	 * @param {string} path Directory containing source images
@@ -513,7 +517,7 @@ module.exports = function ( grunt ) {
 		'colorizeSvg',
 		'Generate colored variants of SVG images',
 		function () {
-			var
+			const
 				data = this.data,
 				options = this.options(),
 				source = new Source(

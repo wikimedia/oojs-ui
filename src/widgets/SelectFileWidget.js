@@ -197,6 +197,7 @@ OO.ui.SelectFileWidget.prototype.getFilename = function () {
 
 /**
  * Disable InputWidget#onEdit listener, onFileSelected is used instead.
+ *
  * @inheritdoc
  */
 OO.ui.SelectFileWidget.prototype.onEdit = function () {};

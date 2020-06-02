@@ -348,7 +348,6 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
 	return this.currentWindow;
 };
 
-/* eslint-disable valid-jsdoc */
 /**
  * Open a window.
  *
