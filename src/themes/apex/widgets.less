@@ -1410,6 +1410,16 @@
 
 .theme-oo-ui-toggleButtonWidget() {
 	.oo-ui-inline-spacing( 0.5em );
+
+	&.oo-ui-widget-enabled.oo-ui-buttonElement-frameless.oo-ui-toggleWidget-on {
+		.oo-ui-buttonElement-button {
+			background-color: @background-color-frameless-start--active;
+
+			> .oo-ui-labelElement-label {
+				color: @color-base--emphasized;
+			}
+		}
+	}
 }
 
 .theme-oo-ui-toggleSwitchWidget() {
