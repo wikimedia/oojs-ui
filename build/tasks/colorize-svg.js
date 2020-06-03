@@ -103,9 +103,6 @@ module.exports = function ( grunt ) {
 			uncolorizableImages = [],
 			unknownVariants = [];
 
-		let selector, declarations, direction, lang, langSelector,
-			moreLangs = this.file.lang || {};
-
 		function getDeclarations( primary ) {
 			// If 'primary' is not a SVG file, 'fallback' and 'primary' are intentionally the same
 			const fallback = primary.replace( /\.svg$/, '.png' );
@@ -122,23 +119,24 @@ module.exports = function ( grunt ) {
 			return fileName;
 		}
 
+		const fileLangs = this.file.lang || {};
 		// Expand shorthands:
 		// { "en,de,fr": "foo.svg" } → { "en": "foo.svg", "de": "foo.svg", "fr": "foo.svg" }
-		moreLangs = Object.keys( moreLangs ).reduce( function ( langs, langList ) {
+		const moreLangs = Object.keys( fileLangs ).reduce( function ( langs, langList ) {
 			langList.split( ',' ).forEach( function ( lang ) {
-				langs[ lang ] = moreLangs[ langList ];
+				langs[ lang ] = fileLangs[ langList ];
 			} );
 			return langs;
 		}, {} );
 
 		// Original
-		selector = cssSelectors.selectorWithoutVariant
+		const selector = cssSelectors.selectorWithoutVariant
 			.replace( /{prefix}/g, cssClassPrefix )
 			.replace( /{name}/g, name )
 			.replace( /{variant}/g, '' );
 
-		for ( direction in file ) {
-			declarations = getDeclarations( file[ direction ] );
+		for ( const direction in file ) {
+			const declarations = getDeclarations( file[ direction ] );
 			rules[ direction ].push( selector + ' {\n\t' + declarations + '\n}' );
 
 			originalSvg[ direction ] = grunt.file.read(
@@ -146,10 +144,10 @@ module.exports = function ( grunt ) {
 			);
 			files[ path.join( destinationPath, file[ direction ] ) ] = originalSvg[ direction ];
 
-			for ( lang in moreLangs ) {
+			for ( const lang in moreLangs ) {
 				// This will not work for selectors ending in a pseudo-element.
-				langSelector = ':lang(' + lang + ')';
-				declarations = getDeclarations( moreLangs[ lang ] );
+				const langSelector = ':lang(' + lang + ')';
+				const declarations = getDeclarations( moreLangs[ lang ] );
 				rules[ direction ].push(
 					'/* @noflip */\n' +
 					selector.replace( /,|$/g, langSelector + '$&' ) +
@@ -165,7 +163,6 @@ module.exports = function ( grunt ) {
 
 		// Variants
 		this.variantNames.forEach( function ( variantName ) {
-			let variantSvg, destinationFilePath;
 			const variant = variants.getVariant( variantName );
 
 			if ( variant === undefined ) {
@@ -173,19 +170,19 @@ module.exports = function ( grunt ) {
 				return;
 			}
 
-			selector = cssSelectors.selectorWithVariant
+			const selector = cssSelectors.selectorWithVariant
 				.replace( /{prefix}/g, cssClassPrefix )
 				.replace( /{name}/g, name )
 				.replace( /{variant}/g, variantName );
 
-			for ( direction in file ) {
-				declarations = getDeclarations(
+			for ( const direction in file ) {
+				const declarations = getDeclarations(
 					variantizeFileName( file[ direction ], variantName )
 				);
 				rules[ direction ].push( selector + ' {\n\t' + declarations + '\n}' );
 
 				// TODO: Do this using proper DOM manipulation, not regexp magic
-				variantSvg = originalSvg[ direction ]
+				const variantSvg = originalSvg[ direction ]
 					.replace( /<\/title>/, '$&<g fill="' + variant.getColor() + '">' )
 					.replace( /<\/svg>/, '</g>$&' );
 
@@ -194,15 +191,15 @@ module.exports = function ( grunt ) {
 					continue;
 				}
 
-				destinationFilePath = path.join(
+				const destinationFilePath = path.join(
 					destinationPath,
 					variantizeFileName( file[ direction ], variantName )
 				);
 				files[ destinationFilePath ] = variantSvg;
 
-				for ( lang in moreLangs ) {
-					langSelector = ':lang(' + lang + ')';
-					declarations = getDeclarations(
+				for ( const lang in moreLangs ) {
+					const langSelector = ':lang(' + lang + ')';
+					const declarations = getDeclarations(
 						variantizeFileName( moreLangs[ lang ], variantName )
 					);
 					rules[ direction ].push(
@@ -212,7 +209,7 @@ module.exports = function ( grunt ) {
 					);
 
 					// TODO: Do this using proper DOM manipulation, not regexp magic
-					variantSvg = originalSvg[ 'lang-' + lang ]
+					const variantSvg = originalSvg[ 'lang-' + lang ]
 						.replace( /<svg[^>]*>/, '$&<g fill="' + variant.getColor() + '">' )
 						.replace( /<\/svg>/, '</g>$&' );
 
@@ -221,7 +218,7 @@ module.exports = function ( grunt ) {
 						continue;
 					}
 
-					destinationFilePath = path.join(
+					const destinationFilePath = path.join(
 						destinationPath,
 						variantizeFileName( moreLangs[ lang ], variantName )
 					);
@@ -268,14 +265,12 @@ module.exports = function ( grunt ) {
 	 * @param {Object} data List of image configurations keyed by name
 	 */
 	function ImageList( path, variants, options, data ) {
-		let key;
-
 		this.list = {};
 		this.path = path;
 		this.variants = variants;
 		this.options = options;
 
-		for ( key in data ) {
+		for ( const key in data ) {
 			this.list[ key ] = new Image( this, key, data[ key ] );
 		}
 	}
@@ -349,8 +344,6 @@ module.exports = function ( grunt ) {
 		return Q.all( Object.keys( this.list ).map( function ( key ) {
 			return list[ key ].generate( destination );
 		} ) ).then( function ( data ) {
-			let textDirection, stylesheetPath, destinationFilePath;
-
 			const dataFormat = {
 				files: {},
 				rules: {
@@ -360,7 +353,7 @@ module.exports = function ( grunt ) {
 			};
 
 			data = data.reduce( function ( a, b ) {
-				for ( destinationFilePath in b.files ) {
+				for ( const destinationFilePath in b.files ) {
 					// This de-duplicates the entries, as the same file can be used by many Images
 					a.files[ destinationFilePath ] = b.files[ destinationFilePath ];
 				}
@@ -369,15 +362,15 @@ module.exports = function ( grunt ) {
 				return a;
 			}, dataFormat );
 
-			for ( textDirection in data.rules ) {
-				stylesheetPath = destination.getStylesheetPath( textDirection );
+			for ( const textDirection in data.rules ) {
+				const stylesheetPath = destination.getStylesheetPath( textDirection );
 				grunt.file.write(
 					stylesheetPath,
 					intro + '\n' + data.rules[ textDirection ].join( '\n' )
 				);
 				grunt.log.writeln( 'Created "' + stylesheetPath + '".' );
 			}
-			for ( destinationFilePath in data.files ) {
+			for ( const destinationFilePath in data.files ) {
 				grunt.file.write( destinationFilePath, data.files[ destinationFilePath ] );
 			}
 
@@ -430,12 +423,10 @@ module.exports = function ( grunt ) {
 	 * @param {Object} data List of variant configurations keyed by name
 	 */
 	function VariantList( data ) {
-		let key;
-
 		this.list = {};
 		this.globals = [];
 
-		for ( key in data ) {
+		for ( const key in data ) {
 			this.list[ key ] = new Variant( this, key, data[ key ] );
 			if ( this.list[ key ].isGlobal() ) {
 				this.globals.push( key );
