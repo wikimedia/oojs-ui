@@ -72,6 +72,14 @@ OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config )
 
 OO.inheritClass( OO.ui.MultilineTextInputWidget, OO.ui.TextInputWidget );
 
+/* Events */
+
+/**
+ * An `resize` event is emitted when the widget changes size via the autosize functionality.
+ *
+ * @event resize
+ */
+
 /* Static Methods */
 
 /**
