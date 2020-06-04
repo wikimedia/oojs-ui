@@ -161,9 +161,9 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 				if ( currentItem ) {
 					// Was only highlighted, now let's select it. No-op if already selected.
 					this.chooseItem( currentItem );
+					handled = true;
 				}
 				this.toggle( false );
-				handled = true;
 				break;
 			case OO.ui.Keys.LEFT:
 			case OO.ui.Keys.RIGHT:
