@@ -204,6 +204,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'mapTrail'
 			],
 			user: [
+				'userAdd',
 				'userAnonymous',
 				'userAvatar',
 				'userAvatarOutline',
