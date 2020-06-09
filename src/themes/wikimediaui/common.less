@@ -71,6 +71,7 @@
 
 @height-icon-element: 100%;
 @height-button-input-inner: 28 / @ooui-font-size-browser / @ooui-font-size-base;
+@height-progressbar-bar: 14 / @ooui-font-size-browser / @ooui-font-size-base;
 @height-search: 56 / @ooui-font-size-browser / @ooui-font-size-base; // equals `4.375em`≈`56px`; `height: 32px` + 2 * `margin: 12px`
 @height-tagitem: 22 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.71875em`≈`22px`;
 @height-tabselect: 37 / @ooui-font-size-browser / @ooui-font-size-base;
@@ -129,6 +130,7 @@
 @border-toolgroup: @border-width-base @border-style-base @wmui-color-base80;
 
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
+@border-radius-progressbar: @height-progressbar-bar;
 
 @padding-base: @padding-vertical-base @padding-horizontal-base;
 @padding-frameless: @padding-vertical-base @padding-horizontal-frameless;
@@ -185,6 +187,7 @@
 @box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-widget: inset 0 0 0 1px transparent;
 @box-shadow-widget--focus: inset 0 0 0 1px @color-progressive;
+@box-shadow-progressbar: @box-shadow-card;
 @box-shadow-progressive--focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-base--inverted;
 @box-shadow-frameless-indicator--focus: 0 0 0 2px @color-progressive;
 @box-shadow-action--focus: @box-shadow-widget--focus, 0 0 0 1px @color-progressive;

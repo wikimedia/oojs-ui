@@ -1088,11 +1088,12 @@
 	max-width: @max-width-base;
 	background-color: @background-color-base;
 	border: @border-base;
-	border-radius: @border-radius-base;
+	border-radius: @border-radius-progressbar;
+	box-shadow: @box-shadow-progressbar;
 	overflow: hidden;
 
 	&-bar {
-		height: 1em;
+		height: @height-progressbar-bar;
 		.oo-ui-transition( width @transition-base );
 	}
 
