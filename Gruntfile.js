@@ -501,6 +501,14 @@ module.exports = function ( grunt ) {
 		},
 		karma: {
 			options: {
+				customLaunchers: {
+					ChromeCustom: {
+						base: 'ChromeHeadless',
+						// Chrome requires --no-sandbox in Docker/CI.
+						// WMF CI images expose CHROMIUM_FLAGS which sets that.
+						flags: ( process.env.CHROMIUM_FLAGS || '' ).split( ' ' )
+					}
+				},
 				frameworks: [ 'qunit' ],
 				files: [
 					'tests/QUnit.assert.equalDomElement.js',
@@ -531,7 +539,7 @@ module.exports = function ( grunt ) {
 				browserNoActivityTimeout: 5 * 60 * 1000
 			},
 			main: {
-				browsers: [ 'ChromeHeadless' ],
+				browsers: [ 'ChromeCustom' ],
 				preprocessors: {
 					'dist/*.js': [ 'coverage' ]
 				},
