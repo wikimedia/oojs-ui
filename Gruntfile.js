@@ -531,7 +531,7 @@ module.exports = function ( grunt ) {
 				browserNoActivityTimeout: 5 * 60 * 1000
 			},
 			main: {
-				browsers: [ 'Chrome' ],
+				browsers: [ 'ChromeHeadless' ],
 				preprocessors: {
 					'dist/*.js': [ 'coverage' ]
 				},
@@ -546,7 +546,7 @@ module.exports = function ( grunt ) {
 				}
 			},
 			other: {
-				browsers: [ 'Firefox' ]
+				browsers: [ 'FirefoxHeadless' ]
 			}
 		},
 
