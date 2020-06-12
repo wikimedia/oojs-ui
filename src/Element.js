@@ -1,3 +1,6 @@
+// getDocument( element ) is preferrable to window.document
+/* global document:off */
+
 /**
  * Each Element represents a rendering in the DOM—a button or an icon, for example, or anything
  * that is visible to a user. Unlike {@link OO.ui.Widget widgets}, plain elements usually do not
@@ -24,6 +27,8 @@
  *  Data can also be specified with the #setData method.
  */
 OO.ui.Element = function OoUiElement( config ) {
+	var doc;
+
 	if ( OO.ui.isDemo ) {
 		this.initialConfig = config;
 	}
@@ -35,10 +40,11 @@ OO.ui.Element = function OoUiElement( config ) {
 	this.visible = true;
 	this.data = config.data;
 	this.$element = config.$element ||
-		$( document.createElement( this.getTagName() ) );
+		$( window.document.createElement( this.getTagName() ) );
 	this.elementGroup = null;
 
 	// Initialization
+	doc = OO.ui.Element.static.getDocument( this.$element );
 	if ( Array.isArray( config.classes ) ) {
 		this.$element.addClass( config.classes );
 	}
@@ -56,7 +62,7 @@ OO.ui.Element = function OoUiElement( config ) {
 			if ( typeof v === 'string' ) {
 				// Escape string so it is properly represented in HTML.
 				// Don't create empty text nodes for empty strings.
-				return v ? document.createTextNode( v ) : undefined;
+				return v ? doc.createTextNode( v ) : undefined;
 			} else if ( v instanceof OO.ui.HtmlSnippet ) {
 				// Bypass escaping.
 				return v.toString();
@@ -122,22 +128,22 @@ OO.ui.Element.static.infuse = function ( node, config ) {
  * extra property so that only the top-level invocation touches the DOM.
  *
  * @private
- * @param {HTMLElement|jQuery} node
+ * @param {HTMLElement|jQuery} elem
  * @param {Object} [config] Configuration options
  * @param {jQuery.Promise} [domPromise] A promise that will be resolved
  *     when the top-level widget of this infusion is inserted into DOM,
- *     replacing the original node; only used internally.
+ *     replacing the original element; only used internally.
  * @return {OO.ui.Element}
  */
-OO.ui.Element.static.unsafeInfuse = function ( node, config, domPromise ) {
+OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 	// look for a cached result of a previous infusion.
-	var error, data, cls, parts, obj, top, state, infusedChildren,
-		$elem = $( node ),
+	var error, data, cls, parts, obj, top, state, infusedChildren, doc,
+		$elem = $( elem ),
 		id = $elem.attr( 'id' );
 
 	if ( !$elem.length ) {
-		if ( node && node.selector ) {
-			error = 'Widget not found: ' + node.selector;
+		if ( elem && elem.selector ) {
+			error = 'Widget not found: ' + elem.selector;
 		} else {
 			error = 'Widget not found';
 		}
@@ -146,6 +152,7 @@ OO.ui.Element.static.unsafeInfuse = function ( node, config, domPromise ) {
 	if ( $elem[ 0 ].$oouiInfused ) {
 		$elem = $elem[ 0 ].$oouiInfused;
 	}
+	doc = this.getDocument( $elem );
 	data = $elem.data( 'ooui-infused' );
 	if ( data ) {
 		// cached!
@@ -201,9 +208,9 @@ OO.ui.Element.static.unsafeInfuse = function ( node, config, domPromise ) {
 	data = OO.copy( data, null, function deserialize( value ) {
 		var infused;
 		if ( OO.isPlainObject( value ) ) {
-			if ( value.tag && document.getElementById( value.tag ) ) {
+			if ( value.tag && doc.getElementById( value.tag ) ) {
 				infused = OO.ui.Element.static.unsafeInfuse(
-					document.getElementById( value.tag ), config, domPromise
+					doc.getElementById( value.tag ), config, domPromise
 				);
 				infusedChildren.push( infused );
 				// Flatten the structure
@@ -411,7 +418,7 @@ OO.ui.Element.static.getRelativePosition = function ( $element, $anchor ) {
 		iframePos = $( iframe ).offset();
 		pos.left += iframePos.left;
 		pos.top += iframePos.top;
-		elementDocument = iframe.ownerDocument;
+		elementDocument = this.getDocument( iframe );
 	}
 	pos.left -= anchorPos.left;
 	pos.top -= anchorPos.top;
@@ -426,7 +433,7 @@ OO.ui.Element.static.getRelativePosition = function ( $element, $anchor ) {
  * @return {Object} Dimensions object with `top`, `left`, `bottom` and `right` properties
  */
 OO.ui.Element.static.getBorders = function ( el ) {
-	var doc = el.ownerDocument,
+	var doc = this.getDocument( el ),
 		win = doc.defaultView,
 		style = win.getComputedStyle( el, null ),
 		$el = $( el ),
@@ -452,7 +459,7 @@ OO.ui.Element.static.getBorders = function ( el ) {
  */
 OO.ui.Element.static.getDimensions = function ( el ) {
 	var $el, $win,
-		doc = el.ownerDocument || el.document,
+		doc = this.getDocument( el ),
 		win = doc.defaultView;
 
 	if ( win === el || el === doc.documentElement ) {
@@ -518,7 +525,7 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 	}
 
 	function isRoot( el ) {
-		return el.window === el ||
+		return el === el.window ||
 			el === el.ownerDocument.body ||
 			el === el.ownerDocument.documentElement;
 	}
@@ -645,10 +652,11 @@ OO.ui.Element.static.getDimensions = function ( el ) {
  * @return {HTMLBodyElement|HTMLHtmlElement} Scrollable parent, `<body>` or `<html>`
  */
 OO.ui.Element.static.getRootScrollableElement = function ( el ) {
-	var scrollTop, body;
+	var scrollTop, body,
+		doc = this.getDocument( el );
 
 	if ( OO.ui.scrollableElement === undefined ) {
-		body = el.ownerDocument.body;
+		body = doc.body;
 		scrollTop = body.scrollTop;
 		body.scrollTop = 1;
 
@@ -662,7 +670,7 @@ OO.ui.Element.static.getRootScrollableElement = function ( el ) {
 		}
 	}
 
-	return el.ownerDocument[ OO.ui.scrollableElement ];
+	return doc[ OO.ui.scrollableElement ];
 };
 
 /**
@@ -678,7 +686,7 @@ OO.ui.Element.static.getRootScrollableElement = function ( el ) {
  */
 OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) {
 	var i, val,
-		doc = el.ownerDocument,
+		doc = this.getDocument( el ),
 		rootScrollableElement = this.getRootScrollableElement( el ),
 		// Browsers do not correctly return the computed value of 'overflow' when 'overflow-x' and
 		// 'overflow-y' have different values, so we need to check the separate properties.
@@ -763,8 +771,8 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
 	container = config.scrollContainer || (
 		elOrPosition instanceof HTMLElement ?
 			this.getClosestScrollableContainer( elOrPosition, config.direction ) :
-			// No scrollContainer or element
-			this.getClosestScrollableContainer( document.body )
+			// No scrollContainer or element, use global document
+			this.getClosestScrollableContainer( window.document.body )
 	);
 	$container = $( container );
 	containerDimensions = this.getDimensions( container );
