@@ -85,6 +85,61 @@ QUnit.test( 'static.infuse (infusing already infused nodes)', function ( assert 
 	assert.deepEqual( a.getFlags(), [ 'extra' ], 'infuse with extra config' );
 } );
 
+QUnit.test( 'static.getClosestScrollableContainer', function ( assert ) {
+	var fixture = this.fixture,
+		div = document.createElement( 'div' ),
+		getRootScrollableElement = OO.ui.Element.static.getRootScrollableElement;
+
+	fixture.appendChild( div );
+
+	// Chrome<=60: <body> is root scrollable
+	// Chrome>60, Firefox: <html> is root scrollable
+	[ 'body', 'documentElement' ].forEach( function ( root ) {
+		var rootElement = document[ root ];
+		OO.ui.Element.static.getRootScrollableElement = function () {
+			return rootElement;
+		};
+		[ 'scroll', 'visible' ].forEach( function ( overflow ) {
+			var msg = 'root=' + root + ', body overflow=' + overflow;
+			document.body.style.overflowY = overflow;
+			assert.strictEqual(
+				OO.ui.Element.static.getClosestScrollableContainer( fixture ),
+				rootElement,
+				msg + ', fixture'
+			);
+			assert.strictEqual(
+				OO.ui.Element.static.getClosestScrollableContainer( div ),
+				rootElement,
+				msg + ', div'
+			);
+			assert.strictEqual(
+				OO.ui.Element.static.getClosestScrollableContainer( document.body ),
+				rootElement,
+				msg + ', body'
+			);
+			assert.strictEqual(
+				OO.ui.Element.static.getClosestScrollableContainer( document.documentElement ),
+				rootElement,
+				msg + ', html'
+			);
+
+			fixture.style.overflowY = 'scroll';
+			assert.strictEqual(
+				OO.ui.Element.static.getClosestScrollableContainer( div ),
+				fixture,
+				msg + ', fixture overflow, div'
+			);
+			fixture.style.overflowY = '';
+
+			document.body.style.overflowY = '';
+		} );
+	} );
+
+	// Restore
+	OO.ui.Element.static.getRootScrollableElement = getRootScrollableElement;
+	fixture.removeChild( div );
+} );
+
 QUnit.test( 'static.getDocument', function ( assert ) {
 	var frameDoc, frameEl, frameDiv,
 		el = this.fixture,

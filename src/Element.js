@@ -633,7 +633,8 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 /**
  * Get the root scrollable element of given element's document.
  *
- * On Blink-based browsers (Chrome etc.), `document.documentElement` can't be used to get or set
+ * Support: Chrome <= 60
+ * On older versions of Blink, `document.documentElement` can't be used to get or set
  * the scrollTop property; instead we have to use `document.body`. Changing and testing the value
  * lets us use 'body' or 'documentElement' based on what is working.
  *
@@ -641,8 +642,7 @@ OO.ui.Element.static.getDimensions = function ( el ) {
  *
  * @static
  * @param {HTMLElement} el Element to find root scrollable parent for
- * @return {HTMLElement} Scrollable parent, `document.body` or `document.documentElement`
- *     depending on browser
+ * @return {HTMLBodyElement|HTMLHtmlElement} Scrollable parent, `<body>` or `<html>`
  */
 OO.ui.Element.static.getRootScrollableElement = function ( el ) {
 	var scrollTop, body;
@@ -678,24 +678,24 @@ OO.ui.Element.static.getRootScrollableElement = function ( el ) {
  */
 OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) {
 	var i, val,
+		doc = el.ownerDocument,
+		rootScrollableElement = this.getRootScrollableElement( el ),
 		// Browsers do not correctly return the computed value of 'overflow' when 'overflow-x' and
 		// 'overflow-y' have different values, so we need to check the separate properties.
 		props = [ 'overflow-x', 'overflow-y' ],
 		$parent = $( el ).parent();
 
+	if ( el === doc.documentElement ) {
+		return rootScrollableElement;
+	}
+
 	if ( dimension === 'x' || dimension === 'y' ) {
 		props = [ 'overflow-' + dimension ];
 	}
 
-	// Special case for the document root (which doesn't really have any scrollable container,
-	// since it is the ultimate scrollable container, but this is probably saner than null or
-	// exception).
-	if ( $( el ).is( 'html, body' ) ) {
-		return this.getRootScrollableElement( el );
-	}
-
-	while ( $parent.length ) {
-		if ( $parent[ 0 ] === this.getRootScrollableElement( el ) ) {
+	// The parent of <html> is the document, so check we haven't traversed that far
+	while ( $parent.length && $parent[ 0 ] !== doc ) {
+		if ( $parent[ 0 ] === rootScrollableElement ) {
 			return $parent[ 0 ];
 		}
 		i = props.length;
@@ -708,13 +708,19 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
 			// when using built-in find functionality.
 			// This could cause funny issues...
 			if ( val === 'auto' || val === 'scroll' ) {
-				return $parent[ 0 ];
+				if ( $parent[ 0 ] === doc.body ) {
+					// If overflow is set on <body>, return the rootScrollableElement
+					// (<body> or <html>) as <body> may not be scrollable.
+					return rootScrollableElement;
+				} else {
+					return $parent[ 0 ];
+				}
 			}
 		}
 		$parent = $parent.parent();
 	}
 	// The element is unattached... return something mostly sane
-	return this.getRootScrollableElement( el );
+	return rootScrollableElement;
 };
 
 /**
