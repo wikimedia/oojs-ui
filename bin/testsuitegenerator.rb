@@ -100,7 +100,7 @@ else
 
 	# classes with different PHP and JS implementations.
 	# we can still compare the PHP-infuse result to JS result, though.
-	infuse_only_classes = %w[ComboBoxInputWidget
+	infuse_only_classes = %w[ComboBoxInputWidget SearchInputWidget
 		RadioSelectInputWidget CheckboxMultiselectInputWidget NumberInputWidget SelectFileInputWidget]
 	testable_classes = classes
 		.reject{|c| c[:abstract] } # can't test abstract classes
