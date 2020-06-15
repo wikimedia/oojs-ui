@@ -120,7 +120,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		// We can't use `label for` with non-form elements, use `aria-labelledby` instead
 		id = OO.ui.generateElementId();
 		this.$label.attr( 'id', id );
-		this.fieldWidget.$element.attr( 'aria-labelledby', id );
+		this.fieldWidget.setLabelledBy( id );
 
 		// Forward clicks on the label to the widget, like `label for` would do
 		this.$label.on( 'click', function () {

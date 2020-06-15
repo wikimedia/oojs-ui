@@ -130,3 +130,16 @@ OO.ui.Widget.prototype.getInputId = function () {
  */
 OO.ui.Widget.prototype.simulateLabelClick = function () {
 };
+
+/**
+ * Set the element with the given ID as a label for this widget.
+ *
+ * @param {string|null} id
+ */
+OO.ui.Widget.prototype.setLabelledBy = function ( id ) {
+	if ( id ) {
+		this.$element.attr( 'aria-labelledby', id );
+	} else {
+		this.$element.removeAttr( 'aria-labelledby' );
+	}
+};

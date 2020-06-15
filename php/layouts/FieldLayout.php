@@ -131,7 +131,7 @@ class FieldLayout extends Layout {
 			// We can't use `label for` with non-form elements, use `aria-labelledby` instead
 			$id = Tag::generateElementId();
 			$this->label->setAttributes( [ 'id' => $id ] );
-			$this->fieldWidget->setAttributes( [ 'aria-labelledby' => $id ] );
+			$this->fieldWidget->setLabelledBy( $id );
 		}
 		$this
 			->addClasses( [ 'oo-ui-fieldLayout' ] )

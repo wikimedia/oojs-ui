@@ -280,3 +280,10 @@ OO.ui.DropdownInputWidget.prototype.blur = function () {
 	this.dropdownWidget.blur();
 	return this;
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.DropdownInputWidget.prototype.setLabelledBy = function ( id ) {
+	this.dropdownWidget.setLabelledBy( id );
+};

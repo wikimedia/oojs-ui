@@ -219,3 +219,14 @@ OO.ui.DropdownWidget.prototype.onKeyDown = function ( e ) {
 		return false;
 	}
 };
+
+/**
+ * @inheritdoc
+ */
+OO.ui.DropdownWidget.prototype.setLabelledBy = function ( id ) {
+	if ( id ) {
+		this.$handle.attr( 'aria-labelledby', id );
+	} else {
+		this.$handle.removeAttr( 'aria-labelledby' );
+	}
+};

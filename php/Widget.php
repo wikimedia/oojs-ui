@@ -72,6 +72,19 @@ class Widget extends Element {
 		return null;
 	}
 
+	/**
+	 * Set the element with the given ID as a label for this widget.
+	 *
+	 * @param string|null $id
+	 */
+	public function setLabelledBy( $id ) {
+		if ( $id ) {
+			$this->setAttributes( [ 'aria-labelledby' => $id ] );
+		} else {
+			$this->removeAttributes( [ 'aria-labelledby' ] );
+		}
+	}
+
 	public function getConfig( &$config ) {
 		if ( $this->disabled ) {
 			$config['disabled'] = $this->disabled;
