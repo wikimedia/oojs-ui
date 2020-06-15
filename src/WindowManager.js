@@ -362,7 +362,6 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  * @fires opening
  */
 OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, compatOpening ) {
-	/* eslint-enable valid-jsdoc */
 	var error,
 		manager = this;
 	data = data || {};
