@@ -57,6 +57,8 @@
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  */
 OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
+	var labelId;
+
 	// Configuration initialization
 	config = $.extend( { indicator: 'down' }, config );
 
@@ -99,6 +101,8 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	} );
 
 	// Initialization
+	labelId = OO.ui.generateElementId();
+	this.setLabelId( labelId );
 	this.$label
 		.attr( {
 			role: 'textbox',
@@ -112,7 +116,8 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 			'aria-autocomplete': 'list',
 			'aria-expanded': 'false',
 			'aria-haspopup': 'true',
-			'aria-owns': this.menu.getElementId()
+			'aria-owns': this.menu.getElementId(),
+			'aria-labelledby': labelId
 		} );
 	this.$element
 		.addClass( 'oo-ui-dropdownWidget' )
@@ -224,9 +229,11 @@ OO.ui.DropdownWidget.prototype.onKeyDown = function ( e ) {
  * @inheritdoc
  */
 OO.ui.DropdownWidget.prototype.setLabelledBy = function ( id ) {
+	var labelId = this.$label.attr( 'id' );
+
 	if ( id ) {
-		this.$handle.attr( 'aria-labelledby', id );
+		this.$handle.attr( 'aria-labelledby', id + ' ' + labelId );
 	} else {
-		this.$handle.removeAttr( 'aria-labelledby' );
+		this.$handle.attr( 'aria-labelledby', labelId );
 	}
 };

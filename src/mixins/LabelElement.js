@@ -137,6 +137,18 @@ OO.ui.mixin.LabelElement.prototype.setLabelElement = function ( $label ) {
 };
 
 /**
+ * Set the 'id' attribute of the label element.
+ *
+ * @param {string} id
+ * @chainable
+ * @return {OO.ui.mixin.LabelElement} The element, for chaining
+ */
+OO.ui.mixin.LabelElement.prototype.setLabelId = function ( id ) {
+	this.$label.attr( 'id', id );
+	return this;
+};
+
+/**
  * Set the label.
  *
  * An empty string will result in the label being hidden. A string containing only whitespace will
