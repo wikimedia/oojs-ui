@@ -355,6 +355,8 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  * @param {Object} [data] Window opening data
  * @param {jQuery|null} [data.$returnFocusTo] Element to which the window will return focus when
  *  closed. Defaults the current activeElement. If set to null, focus isn't changed on close.
+ * @param {OO.ui.WindowInstance} [lifecycle] Used internally
+ * @param {jQuery.Deferred} [compatOpening] Used internally
  * @return {OO.ui.WindowInstance} A lifecycle object representing this particular
  *  opening of the window. For backwards-compatibility, then object is also a Thenable that is
  *  resolved when the window is done opening, with nested promise for when closing starts. This

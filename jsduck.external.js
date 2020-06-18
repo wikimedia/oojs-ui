@@ -21,7 +21,7 @@
 
 /**
  * @class jQuery.jqXHR
- * @alias jqXHR
+ * @alternateClassName jqXHR
  * <http://api.jquery.com/Types/#jqXHR>
  */
 
