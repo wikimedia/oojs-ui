@@ -139,14 +139,15 @@ OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function ( e ) {
  * This only affects multiline inputs that are {@link #autosize autosized}.
  *
  * @chainable
+ * @param {boolean} [force] Force an update, even if the value hasn't changed
  * @return {OO.ui.Widget} The widget, for chaining
  * @fires resize
  */
-OO.ui.MultilineTextInputWidget.prototype.adjustSize = function () {
+OO.ui.MultilineTextInputWidget.prototype.adjustSize = function ( force ) {
 	var scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError,
 		idealHeight, newHeight, scrollWidth, property;
 
-	if ( this.$input.val() !== this.valCache ) {
+	if ( force || this.$input.val() !== this.valCache ) {
 		if ( this.autosize ) {
 			this.$clone
 				.val( this.$input.val() )
