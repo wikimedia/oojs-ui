@@ -12,6 +12,8 @@ Demo.static.pages.icons = function ( demo ) {
 				'last',
 				'expand',
 				'collapse',
+				'doubleChevronStart',
+				'doubleChevronEnd',
 				'move',
 				'draggable'
 			],
