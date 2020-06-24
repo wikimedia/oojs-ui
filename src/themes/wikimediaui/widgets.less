@@ -128,6 +128,8 @@
 				.oo-ui-buttonElement-button {
 					border-color: @border-color-base--focus;
 					box-shadow: @box-shadow-progressive--focus;
+					// In Windows high contrast mode the outline becomes visible.
+					outline: @outline-base--focus;
 				}
 			}
 		}
@@ -246,6 +248,8 @@
 		&:focus + span {
 			border-color: @color-progressive;
 			box-shadow: @box-shadow-widget--focus;
+			// In Windows high contrast mode the outline becomes visible.
+			outline: @outline-base--focus;
 		}
 
 		&:hover + span {
