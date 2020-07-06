@@ -51,6 +51,8 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	} ).setIcon( config.icon );
 	// Set tabindex manually on $input as $tabIndexed has been overridden
 	this.info.$input.attr( 'tabindex', -1 );
+	// This indicator serves as the only way to clear the file, so it must be keyboard-accessible
+	this.info.$indicator.attr( 'tabindex', 0 );
 
 	// Parent constructor
 	OO.ui.SelectFileInputWidget.super.call( this, config );

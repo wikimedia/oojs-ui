@@ -45277,7 +45277,7 @@
     ]
   },
   "SearchInputWidget": {
-    "infuseonly": false,
+    "infuseonly": true,
     "tests": [
       {
         "class": "SearchInputWidget",

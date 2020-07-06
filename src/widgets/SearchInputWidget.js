@@ -24,12 +24,16 @@ OO.ui.SearchInputWidget = function OoUiSearchInputWidget( config ) {
 		change: 'onChange'
 	} );
 	this.$indicator.on( 'click', this.onIndicatorClick.bind( this ) );
+	this.$indicator.on( 'keydown', this.onIndicatorKeyDown.bind( this ) );
 
 	// Initialization
 	this.updateSearchIndicator();
 	this.connect( this, {
 		disable: 'onDisable'
 	} );
+	this.$indicator
+		.attr( 'tabindex', -1 )
+		.attr( 'role', 'button' );
 };
 
 /* Setup */
@@ -44,6 +48,21 @@ OO.inheritClass( OO.ui.SearchInputWidget, OO.ui.TextInputWidget );
  */
 OO.ui.SearchInputWidget.prototype.getSaneType = function () {
 	return 'search';
+};
+
+/**
+ * Handle key down events on the indicator
+ *
+ * @param {jQuery.Event} e KeyDown event
+ * @return {boolean}
+ */
+OO.ui.SearchInputWidget.prototype.onIndicatorKeyDown = function ( e ) {
+	if ( e.keyCode === OO.ui.Keys.ENTER ) {
+		// Clear the text field
+		this.setValue( '' );
+		this.focus();
+		return false;
+	}
 };
 
 /**
@@ -71,6 +90,7 @@ OO.ui.SearchInputWidget.prototype.updateSearchIndicator = function () {
 		this.setIndicator( null );
 	} else {
 		this.setIndicator( 'clear' );
+		this.$indicator.attr( 'aria-label', OO.ui.msg( 'ooui-item-remove' ) );
 	}
 };
 
