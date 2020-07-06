@@ -45341,6 +45341,18 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "autocomplete": true
         }
       },
@@ -45365,6 +45377,18 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "dir": "ltr"
         }
       },
@@ -45378,6 +45402,18 @@
         "class": "SearchInputWidget",
         "config": {
           "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false
         }
       },
       {
@@ -45426,6 +45462,12 @@
         "class": "SearchInputWidget",
         "config": {
           "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "indicator": "down"
         }
       },
       {
@@ -45542,6 +45584,34 @@
         "class": "SearchInputWidget",
         "config": {
           "type": "text",
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "text",
+          "required": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "button",
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "button",
+          "required": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "text",
           "autocomplete": true
         }
       },
@@ -45598,6 +45668,34 @@
         "class": "SearchInputWidget",
         "config": {
           "type": "text",
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "text",
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "button",
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "button",
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "text",
           "dir": "ltr"
         }
       },
@@ -45634,6 +45732,34 @@
         "config": {
           "type": "button",
           "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "text",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "text",
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "button",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "button",
+          "disabled": false
         }
       },
       {
@@ -45746,6 +45872,20 @@
         "config": {
           "type": "button",
           "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "text",
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "button",
+          "indicator": "down"
         }
       },
       {
@@ -45864,6 +46004,62 @@
         "class": "SearchInputWidget",
         "config": {
           "placeholder": "Foo bar <b>HTML?</b>",
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
+          "required": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "",
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "",
+          "required": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": " ",
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": " ",
+          "required": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "0",
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "0",
+          "required": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
           "autocomplete": true
         }
       },
@@ -45976,6 +46172,62 @@
         "class": "SearchInputWidget",
         "config": {
           "placeholder": "Foo bar <b>HTML?</b>",
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "",
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "",
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": " ",
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": " ",
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "0",
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "0",
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
           "dir": "ltr"
         }
       },
@@ -46054,6 +46306,62 @@
         "config": {
           "placeholder": "0",
           "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "",
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": " ",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": " ",
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "0",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "0",
+          "disabled": false
         }
       },
       {
@@ -46278,6 +46586,34 @@
         "config": {
           "placeholder": "0",
           "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "",
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": " ",
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "0",
+          "indicator": "down"
         }
       },
       {
@@ -46354,6 +46690,34 @@
         "class": "SearchInputWidget",
         "config": {
           "readOnly": true,
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": true,
+          "required": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": false,
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": false,
+          "required": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": true,
           "autocomplete": true
         }
       },
@@ -46410,6 +46774,34 @@
         "class": "SearchInputWidget",
         "config": {
           "readOnly": true,
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": true,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": false,
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": false,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": true,
           "dir": "ltr"
         }
       },
@@ -46446,6 +46838,34 @@
         "config": {
           "readOnly": false,
           "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": false,
+          "disabled": false
         }
       },
       {
@@ -46564,6 +46984,20 @@
         "class": "SearchInputWidget",
         "config": {
           "readOnly": true,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": true,
           "flags": "progressive"
         }
       },
@@ -46586,6 +47020,20 @@
         "config": {
           "readOnly": false,
           "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "maxLength": 100,
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "maxLength": 100,
+          "required": false
         }
       },
       {
@@ -46620,6 +47068,20 @@
         "class": "SearchInputWidget",
         "config": {
           "maxLength": 100,
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "maxLength": 100,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "maxLength": 100,
           "dir": "ltr"
         }
       },
@@ -46635,6 +47097,20 @@
         "config": {
           "maxLength": 100,
           "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "maxLength": 100,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "maxLength": 100,
+          "disabled": false
         }
       },
       {
@@ -46697,6 +47173,13 @@
         "class": "SearchInputWidget",
         "config": {
           "maxLength": 100,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "maxLength": 100,
           "flags": "progressive"
         }
       },
@@ -46704,6 +47187,314 @@
         "class": "SearchInputWidget",
         "config": {
           "maxLength": 100,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "autocomplete": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "autocomplete": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "autocomplete": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "autocomplete": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "required": false,
           "flags": "primary"
         }
       },
@@ -46739,6 +47530,34 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": true,
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": true,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": false,
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": false,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": true,
           "dir": "ltr"
         }
       },
@@ -46781,6 +47600,34 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": true,
           "tabIndex": -1
         }
       },
@@ -46893,6 +47740,20 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": true,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": true,
           "flags": "progressive"
         }
       },
@@ -46915,6 +47776,34 @@
         "config": {
           "autocomplete": false,
           "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "spellcheck": true,
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "spellcheck": true,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "spellcheck": false,
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "spellcheck": false,
+          "value": "Foo bar <b>HTML?</b>"
         }
       },
       {
@@ -46963,6 +47852,34 @@
         "class": "SearchInputWidget",
         "config": {
           "spellcheck": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "spellcheck": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "spellcheck": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "spellcheck": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "spellcheck": true,
           "tabIndex": -1
         }
       },
@@ -47069,6 +47986,20 @@
         "config": {
           "spellcheck": false,
           "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "spellcheck": true,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "spellcheck": false,
+          "indicator": "down"
         }
       },
       {
@@ -47096,6 +48027,230 @@
         "class": "SearchInputWidget",
         "config": {
           "spellcheck": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "title": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "title": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "value": "Foo bar <b>HTML?</b>",
           "flags": "primary"
         }
       },
@@ -47117,6 +48272,34 @@
         "class": "SearchInputWidget",
         "config": {
           "dir": "ltr",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "dir": "ltr",
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "dir": "rtl",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "dir": "rtl",
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "dir": "ltr",
           "tabIndex": -1
         }
       },
@@ -47223,6 +48406,20 @@
         "config": {
           "dir": "rtl",
           "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "dir": "ltr",
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "dir": "rtl",
+          "indicator": "down"
         }
       },
       {
@@ -47257,6 +48454,20 @@
         "class": "SearchInputWidget",
         "config": {
           "inputId": "input-id",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "inputId": "input-id",
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "inputId": "input-id",
           "tabIndex": -1
         }
       },
@@ -47313,6 +48524,13 @@
         "class": "SearchInputWidget",
         "config": {
           "inputId": "input-id",
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "inputId": "input-id",
           "flags": "progressive"
         }
       },
@@ -47320,6 +48538,160 @@
         "class": "SearchInputWidget",
         "config": {
           "inputId": "input-id",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "disabled": false,
           "flags": "primary"
         }
       },
@@ -47433,6 +48805,34 @@
         "config": {
           "tabIndex": "42",
           "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "tabIndex": -1,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "tabIndex": 0,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "tabIndex": 100,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "tabIndex": "42",
+          "indicator": "down"
         }
       },
       {
@@ -47517,6 +48917,20 @@
         "config": {
           "title": "Foo bar <b>HTML?</b>",
           "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "title": "",
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "title": "Foo bar <b>HTML?</b>",
+          "indicator": "down"
         }
       },
       {
@@ -47552,6 +48966,13 @@
         "config": {
           "accessKey": "k",
           "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "accessKey": "k",
+          "indicator": "down"
         }
       },
       {
@@ -47572,6 +48993,13 @@
         "class": "SearchInputWidget",
         "config": {
           "icon": "image",
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "icon": "image",
           "flags": "progressive"
         }
       },
@@ -47579,6 +49007,20 @@
         "class": "SearchInputWidget",
         "config": {
           "icon": "image",
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "indicator": "down",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "indicator": "down",
           "flags": "primary"
         }
       }

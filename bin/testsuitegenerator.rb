@@ -162,11 +162,6 @@ else
 		'action' => [],
 		'enctype' => [],
 		'name' => [],
-		# the dynamic 'clear' indicator in JS messes everything up
-		['SearchInputWidget', 'value'] => [],
-		['SearchInputWidget', 'indicator'] => [],
-		['SearchInputWidget', 'required'] => [],
-		['SearchInputWidget', 'disabled'] => [],
 		# don't try to set value/label on file widgets
 		['SelectFileInputWidget', 'value'] => [],
 		['SelectFileInputWidget', 'label'] => [],
