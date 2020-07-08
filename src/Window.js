@@ -90,7 +90,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 	this.$overlay.addClass( 'oo-ui-window-overlay' );
 	this.$content
 		.addClass( 'oo-ui-window-content' )
-		.attr( 'tabindex', 0 );
+		.attr( 'tabindex', -1 );
 	this.$frame
 		.addClass( 'oo-ui-window-frame' )
 		.append( this.$focusTrapBefore, this.$content, this.$focusTrapAfter );
