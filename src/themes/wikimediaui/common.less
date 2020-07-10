@@ -37,8 +37,10 @@
 @opacity-tool--disabled: 0.34; // equals `#a9a9a9` on background-color `#fff`
 
 // Box Sizes
-// `@*size` variables are used for `*width` & `*height` properties
-@size-base: 32 / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.5em`≈`32px`
+// `@*size` variables are used for `*width` & `*height` properties.
+// `@min-size-base` is defined as `px` carrying value in WikimediaUI Base variables and
+// gets preference over `@size-base` to prevent recursion.
+@size-base: unit( @min-size-base ) / @ooui-font-size-browser / @ooui-font-size-base; // equals `2.5em`≈`32px`
 @size-base--small: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 
 // `min-size/-width/-height` values are defined in `px`, see T130691.
@@ -53,9 +55,10 @@
 @min-height-widget-base: @size-base;
 
 @size-anchor: 9px;
-@size-button-base: @size-base;
 @size-button-tagitem-close: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.5625em`≈`20px`
-@size-icon: 20 / @ooui-font-size-browser / @ooui-font-size-base;
+// `@min-size-icon` is defined as `px` carrying value in WikimediaUI Base variables and
+// gets preference over `@size-icon` to prevent recursion.
+@size-icon: unit( @min-size-icon ) / @ooui-font-size-browser / @ooui-font-size-base;
 @size-icon-small: 14 / @ooui-font-size-browser / @ooui-font-size-base;
 @size-indicator: 12 / @ooui-font-size-browser / @ooui-font-size-base; // equals `0.9375em`≈`12px`
 @size-dialog-bar--desktop: 40 / @ooui-font-size-browser / @ooui-font-size-base; // equals `3.125em`≈`40px`
