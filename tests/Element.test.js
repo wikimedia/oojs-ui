@@ -4,8 +4,10 @@ QUnit.module( 'Element', {
 		this.fixture = document.createElement( 'div' );
 		document.body.appendChild( this.fixture );
 
-		this.makeFrame = function () {
+		this.makeFrame = function ( src, onload ) {
 			var frame = document.createElement( 'iframe' );
+			frame.onload = onload;
+			frame.src = src;
 			this.fixture.appendChild( frame );
 			return ( frame.contentWindow && frame.contentWindow.document ) || frame.contentDocument;
 		};
@@ -142,6 +144,7 @@ QUnit.test( 'static.getClosestScrollableContainer', function ( assert ) {
 
 QUnit.test( 'static.getDocument', function ( assert ) {
 	var frameDoc, frameEl, frameDiv,
+		done = assert.async( 2 ),
 		el = this.fixture,
 		div = document.createElement( 'div' ),
 		$el = $( this.fixture ),
@@ -149,7 +152,20 @@ QUnit.test( 'static.getDocument', function ( assert ) {
 		win = window,
 		doc = document;
 
-	frameDoc = this.makeFrame();
+	// Test a cross-origin frame (T258256). 'data:' URLs are always considered cross-origin.
+	// This must be the first test case, so that the frame is the first in the document, otherwise
+	// it doesn't actually test for the regression.
+	frameDoc = this.makeFrame( 'data:text/html,', function () {
+		try {
+			assert.strictEqual( OO.ui.Element.static.getDocument( win ), doc, 'Window (when a a cross-origin frame exists)' );
+		} catch ( err ) {
+			assert.ok( false, 'Window (when a a cross-origin frame exists)' );
+		}
+		done();
+	} );
+
+	// 'about:blank' is always considered same-origin
+	frameDoc = this.makeFrame( 'about:blank' );
 	frameEl = frameDoc.createElement( 'span' );
 	frameDoc.documentElement.appendChild( frameEl );
 	frameDiv = frameDoc.createElement( 'div' );
@@ -166,6 +182,8 @@ QUnit.test( 'static.getDocument', function ( assert ) {
 	assert.strictEqual( OO.ui.Element.static.getDocument( frameDoc ), frameDoc, 'HTMLDocument (framed)' );
 
 	assert.strictEqual( OO.ui.Element.static.getDocument( {} ), null, 'Invalid' );
+
+	done();
 } );
 
 QUnit.test( 'getElementDocument', function ( assert ) {
