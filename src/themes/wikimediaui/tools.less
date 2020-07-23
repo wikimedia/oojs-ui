@@ -112,11 +112,11 @@
 			}
 		}
 
-		.mw-tool-colored( ~'.oo-ui-tool-link', inherit, @background-color-tool--hover, @color-progressive--active, @color-progressive--focus, @color-tool--active );
+		.mw-tool-colored( ~'.oo-ui-tool-link', inherit, @background-color-tool--hover, @color-primary--active, @color-primary--focus, @color-tool--active );
 
 		&.oo-ui-flaggedElement {
 			&-progressive {
-				.mw-tool-colored( ~'.oo-ui-tool-link', @color-progressive, @background-color-tool--hover, @color-progressive--active, @color-progressive--focus );
+				.mw-tool-colored( ~'.oo-ui-tool-link', @color-primary, @background-color-tool--hover, @color-primary--active, @color-primary--focus );
 			}
 
 			&-destructive {
@@ -127,7 +127,7 @@
 		&.oo-ui-flaggedElement-primary {
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-primary-tool-colored( ~'.oo-ui-tool-link', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
+					.mw-primary-tool-colored( ~'.oo-ui-tool-link', @color-primary, @color-primary--hover, @color-primary--active, @color-primary--focus );
 				}
 
 				&-destructive {
@@ -191,7 +191,7 @@
 			}
 
 			&.oo-ui-tool-active > .oo-ui-tool-link {
-				background-color: mix( @color-progressive--active, @background-color-filled--disabled, 35% );
+				background-color: mix( @color-primary--active, @background-color-filled--disabled, 35% );
 			}
 
 			.oo-ui-iconElement-icon {
@@ -515,7 +515,7 @@
 
 	&.oo-ui-flaggedElement {
 		&-progressive {
-			.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @background-color-framed--hover, @color-progressive--active, @color-progressive--focus );
+			.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-primary, @background-color-framed--hover, @color-primary--active, @color-primary--focus );
 		}
 
 		&-destructive {
@@ -526,7 +526,7 @@
 	&.oo-ui-flaggedElement-primary {
 		&.oo-ui-flaggedElement {
 			&-progressive {
-				.mw-primary-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
+				.mw-primary-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-primary, @color-primary--hover, @color-primary--active, @color-primary--focus );
 			}
 
 			&-destructive {
