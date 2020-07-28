@@ -153,8 +153,8 @@
 @padding-horizontal-toolbar-action-buttons: 16px; // Aligned relatively to `@padding-horizontal-base` but for toolbar button height.
 // All paddings holding icons need `em`s due to font-size derived icon scaling.
 @padding-horizontal-base-iconized: 12 / @ooui-font-size-browser / @ooui-font-size-base;
-// Must be < `8` as it cuts off scripts.
-@padding-vertical-base: 6px;
+// Must be < `8` as it cuts off scripts. Directly connected to `line-height` further down.
+@padding-vertical-base: 5px;
 @padding-vertical-label: 4px;
 // Menu items don't have a border.
 @padding-vertical-menu: @padding-vertical-base + @border-width-base;
@@ -162,7 +162,7 @@
 @padding-top-icon-indicator: 30 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-top-tool: 42 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-vertical-dialog-action: 10 / @ooui-font-size-browser / @ooui-font-size-base;
-@padding-vertical-tool-label: 12 / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-vertical-tool-label: 11 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-icon: @size-icon;
 // All paddings holding icons/indicators need `em`s due to font-size derived icon scaling.
 @padding-start-icon-only: 30 / @ooui-font-size-browser / @ooui-font-size-base; // @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base.
@@ -212,11 +212,8 @@
 
 // `line-height` has to be relative/in `em` to enable user override in browser settings.
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
-@line-height-base: unit( 18 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit ); // equals `18px` at base `font-size: 14px;
-@line-height-message: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `20px` at base `font-size: 14px`
-@line-height-label: 20 / @ooui-font-size-browser / @ooui-font-size-base;
+@line-height-base: 20 / @ooui-font-size-browser / @ooui-font-size-base; // Equals `1.42857143em`≈`20px` at base `font-size: 14px;
 @line-height-tagitem-label: unit( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small, @ooui-unit ); // Push label down by 1 px for vertical centering.
-@line-height-widget-decoratedoption: unit( 16 / @ooui-font-size-browser / @ooui-font-size-base, @ooui-unit ); // Equals `1.14286em`≈`16px`; Firefox needs a value, Chrome the unit.
 
 @opacity-icon-accessory: 0.67; // Equals `#555`, closest to `#54595d` on background-color `#fff`
 
