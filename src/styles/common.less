@@ -2,32 +2,10 @@
 // Build process should ensure that import paths are set up correctly for this to happen.
 @import 'theme.less';
 
-// Variables
-
-// @ooui-default-image-ext set during build
-// @ooui-distribution set during build
-
 // Mixins
 
 .oo-ui-background-image( @url ) {
 	background-image: e( '/* @embed */' ) url( ~'@{url}' ); // stylelint-disable-line function-url-quotes
-}
-
-.oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @ooui-distribution = mixed ) {
-	background-image: url( @fallback );
-	background-image: linear-gradient( transparent, transparent ), e( '/* @embed */' ) url( @svg );
-}
-.oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @ooui-distribution = vector ) {
-	.oo-ui-background-image( @svg );
-}
-.oo-ui-background-image-svg-internal( @svg, @fallback ) when ( @ooui-distribution = raster ) {
-	.oo-ui-background-image( @fallback );
-}
-
-.oo-ui-background-image-svg( @url-without-extension ) {
-	@svg: '@{url-without-extension}.svg';
-	@fallback: '@{url-without-extension}.@{ooui-default-image-ext}';
-	.oo-ui-background-image-svg-internal( @svg, @fallback );
 }
 
 // Support Webkit/Blink: Force element on own GPU composite layer

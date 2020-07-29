@@ -104,11 +104,8 @@ module.exports = function ( grunt ) {
 			unknownVariants = [];
 
 		function getDeclarations( primary ) {
-			// If 'primary' is not a SVG file, 'fallback' and 'primary' are intentionally the same
-			const fallback = primary.replace( /\.svg$/, '.png' );
-			return '.oo-ui-background-image-svg-internal(' +
-				'\'' + ( cssPrependPath || '' ) + primary + '\', ' +
-				'\'' + ( cssPrependPath || '' ) + fallback + '\'' +
+			return '.oo-ui-background-image(' +
+				'\'' + ( cssPrependPath || '' ) + primary + '\'' +
 				')';
 		}
 

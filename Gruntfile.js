@@ -18,15 +18,13 @@ module.exports = function ( grunt ) {
 		concatJsFiles = {},
 		concatOmnibus = {},
 		rtlFiles = {},
-		minBanner = '/*! OOUI v<%= pkg.version %> | http://oojs.mit-license.org */',
-		zopfli = require( 'imagemin-zopfli' );
+		minBanner = '/*! OOUI v<%= pkg.version %> | http://oojs.mit-license.org */';
 
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
-	grunt.loadNpmTasks( 'grunt-contrib-imagemin' );
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
@@ -36,7 +34,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 	grunt.loadNpmTasks( 'grunt-svgmin' );
-	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadNpmTasks( 'grunt-tyops' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-string-replace' );
@@ -147,12 +144,7 @@ module.exports = function ( grunt ) {
 				strictUnits: true,
 				// Force LESS v3.0.0+ to let us use mixins before we later upgrade to @plugin
 				// architecture.
-				javascriptEnabled: true,
-				modifyVars: {
-					// Changed dynamically by 'set-graphics' task
-					'ooui-distribution': 'mixed',
-					'ooui-default-image-ext': 'png'
-				}
+				javascriptEnabled: true
 			}
 		};
 		for ( theme in lessFiles ) {
@@ -305,7 +297,7 @@ module.exports = function ( grunt ) {
 				flatten: true
 			},
 			imagesThemes: {
-				src: 'src/themes/*/{*.json,images/**/*.{png,gif}}',
+				src: 'src/themes/*/{*.json}',
 				dest: 'dist/',
 				expand: true,
 				rename: strip( 'src/' )
@@ -351,17 +343,6 @@ module.exports = function ( grunt ) {
 			}
 		},
 		colorizeSvg: colorizeSvgFiles,
-		svg2png: {
-			// This task gets dynamically disabled by 'set-graphics', if not needed
-			dist: {
-				src: 'dist/{images,themes}/**/*.svg'
-			}
-		},
-		'svg2png-off': {
-			dist: {
-				src: []
-			}
-		},
 		// SVG Optimization
 		svgmin: {
 			options: {
@@ -412,15 +393,6 @@ module.exports = function ( grunt ) {
 					dest: 'dist',
 					ext: '.svg'
 				} ]
-			}
-		},
-		imagemin: {
-			distPngs: {
-				options: {
-					use: [ zopfli() ]
-				},
-				expand: true,
-				src: 'dist/**/*.png'
 			}
 		},
 		cssmin: {
@@ -653,22 +625,6 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'set-graphics', function ( graphics ) {
-		graphics = graphics || grunt.option( 'graphics' ) || 'mixed';
-		grunt.config.set(
-			'less.options.modifyVars.ooui-distribution',
-			graphics
-		);
-		grunt.config.set(
-			'less.options.modifyVars.ooui-default-image-ext',
-			graphics === 'vector' ? 'svg' : 'png'
-		);
-		if ( graphics === 'vector' ) {
-			grunt.task.renameTask( 'svg2png', 'svg2png-off' );
-			grunt.registerTask( 'svg2png', function () {} );
-		}
-	} );
-
 	grunt.registerTask( 'git-status', function () {
 		var done = this.async();
 		// Are there unstaged changes?
@@ -705,10 +661,9 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'build-code', [ 'concat:i18nMessages', 'concat:js' ] );
 	grunt.registerTask( 'build-styling', [
-		'colorizeSvg', 'set-graphics', 'less', 'cssjanus',
+		'colorizeSvg', 'less', 'cssjanus',
 		'concat:css', 'concat:demoCss',
-		'copy:imagesCommon', 'copy:imagesThemes',
-		'svg2png'
+		'copy:imagesCommon', 'copy:imagesThemes'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
 	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
@@ -726,15 +681,15 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'quick-build', [
 		'pre-git-build', 'clean:build', 'fileExists', 'tyops',
 		'build-code',
-		'colorizeSvg', 'set-graphics:vector', 'less', 'concat:css',
+		'colorizeSvg', 'less', 'concat:css',
 		'copy:imagesCommon', 'copy:imagesThemes',
 		'build-i18n', 'concat:omnibus', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
 	] );
 	grunt.registerTask( 'quick-build-code', [ 'build-code', 'copy:demos' ] );
 
-	// Minification tasks for the npm publish step
-	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', 'imagemin:distPngs', 'cssmin' ] );
+	// Minification tasks for the npm publish step.
+	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', 'cssmin' ] );
 	// Note that this skips "git-build", so version numbers are final and don't have a git hash.
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
