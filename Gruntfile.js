@@ -399,7 +399,7 @@ module.exports = function ( grunt ) {
 			options: {
 				keepSpecialComments: 0,
 				banner: minBanner,
-				compatibility: 'ie8',
+				compatibility: 'ie9',
 				report: 'gzip'
 			},
 			dist: {
