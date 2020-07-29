@@ -205,7 +205,7 @@
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
+					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button', @color-primary, @color-primary--hover, @color-primary--active, @color-primary--focus );
 				}
 
 				&-destructive {
@@ -296,7 +296,7 @@
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-				background-color: mix( @color-progressive--active, @background-color-filled--disabled, 35% );
+				background-color: mix( @color-primary--active, @background-color-filled--disabled, 35% );
 			}
 		}
 
@@ -337,19 +337,19 @@
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-				background-color: @color-progressive--active;
+				background-color: @color-primary--active;
 				color: @color-base--inverted;
 				border-color: @border-color-input-binary--active;
 
 				&:focus {
-					border-color: @color-progressive--focus;
+					border-color: @color-primary--focus;
 					box-shadow: @box-shadow-progressive--focus;
 				}
 			}
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-framed--hover, @border-color-framed-progressive--hover, @color-progressive--active, @color-progressive--focus );
+					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-primary, @background-color-framed--hover, @border-color-framed-progressive--hover, @color-primary--active, @color-primary--focus );
 				}
 
 				&-destructive {
@@ -360,7 +360,7 @@
 			&.oo-ui-flaggedElement-primary {
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
+						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-primary, @color-primary--hover, @color-primary--active, @color-primary--focus );
 					}
 
 					&-destructive {
