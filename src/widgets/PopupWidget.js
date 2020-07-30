@@ -382,7 +382,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 				// Bind a keydown event to the last focusable element
 				// If user presses the tab key on this item, dismiss the popup and
 				// take focus back to the caller, ideally the caller implements this functionality
-				// This is to prevent illogical focus order, which is a common accessibility pitfall.
+				// This is to prevent illogical focus order, a common accessibility pitfall.
 				// Alternative Fix: Implement focus trap for popup widget.
 				$lastFocusableElement.on( 'keydown', this.onTabKeyDownHandler );
 			}
