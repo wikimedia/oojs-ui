@@ -298,18 +298,6 @@ OO.ui.MenuTagMultiselectWidget.prototype.getTagInfoFromInput = function () {
 };
 
 /**
- * Return the visible items in the menu. This is mainly used for when
- * the menu is filtering results.
- *
- * @return {OO.ui.MenuOptionWidget[]} Visible results
- */
-OO.ui.MenuTagMultiselectWidget.prototype.getMenuVisibleItems = function () {
-	return this.menu.getItems().filter( function ( menuItem ) {
-		return menuItem.isVisible();
-	} );
-};
-
-/**
  * Create the menu for this widget. This is in a separate method so that
  * child classes can override this without polluting the constructor with
  * unnecessary extra objects that will be overidden.
