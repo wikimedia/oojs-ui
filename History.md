@@ -1,4 +1,22 @@
 # OOUI Release History
+## v0.40.0 / 2020-07-30
+### Breaking changes
+* [BREAKING CHANGE] build: Remove PNG fallback, composition and optimization (Volker E.)
+
+### Styles
+* WikimediaUI theme: Increase `@line-height-base` to `20px` equivalent (Volker E.)
+* WikimediaUI theme: Remove IE 8 workaround (Volker E.)
+* WikimediaUI theme: Replace `@color-progressive` with `@color-primary` var (Volker E.)
+* styles: Remove outdated comment (Volker E.)
+
+### Code
+* Element: Avoid crash when `getDocument()` is called with `window` (Bartosz Dziewoński)
+* OO.ui.PopupWidget: Reword a comment to fit within max line length (Thalia Chan)
+* build: Bump 'cssmin' compatibility version to 'ie9' (Volker E.)
+* build: Updating grunt to 1.2.1 (libraryupgrader)
+* build: Updating lodash to 4.17.19 (libraryupgrader)
+
+
 ## v0.39.3 / 2020-07-09
 ### Styles
 * WikimediaUI theme: Add button focus for Windows high contrast mode (bkudiess-msft)
