@@ -155,7 +155,7 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 			Array.isArray( selected ) ? selected[ 0 ] : selected
 		);
 
-	if ( !this.isDisabled() && this.isVisible() ) {
+	if ( !this.isDisabled() && this.isVisible() && this.getVisibleItems().length ) {
 		switch ( e.keyCode ) {
 			case OO.ui.Keys.TAB:
 				if ( currentItem ) {
@@ -187,6 +187,17 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 			e.stopPropagation();
 		}
 	}
+};
+
+/**
+ * Return the visible items in the menu.
+ *
+ * @return {OO.ui.MenuOptionWidget[]} Visible items
+ */
+OO.ui.MenuSelectWidget.prototype.getVisibleItems = function () {
+	return this.getItems().filter( function ( item ) {
+		return item.isVisible();
+	} );
 };
 
 /**
