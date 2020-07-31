@@ -152,12 +152,14 @@
 		max-width: @max-width-base;
 	}
 
-	.oo-ui-actionFieldLayout-input .oo-ui-widget {
-		&:not( .oo-ui-textInputWidget ) {
-			margin-right: @margin-end-actionlayout-input;
-		}
+	.oo-ui-actionFieldLayout-input > .oo-ui-widget {
+		// 100% width widgets, such as textInputWidget will effectively have
+		// no margin due to the containing table-cell layout
+		margin-right: @margin-end-actionlayout-input;
 
-		&.oo-ui-textInputWidget > .oo-ui-inputWidget-input {
+		&.oo-ui-textInputWidget > .oo-ui-inputWidget-input,
+		.oo-ui-dropdownWidget-handle,
+		.oo-ui-tagMultiselectWidget-handle {
 			border-radius: @border-radius-base 0 0 @border-radius-base;
 			position: relative;
 		}
