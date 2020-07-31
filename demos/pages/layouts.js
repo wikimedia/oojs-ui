@@ -210,7 +210,7 @@ Demo.static.pages.layouts = function ( demo ) {
 					}
 				),
 				new OO.ui.ActionFieldLayout(
-					new OO.ui.DropdownWidget( {
+					new OO.ui.DropdownInputWidget( {
 						label: 'Select one',
 						options: [
 							{
@@ -232,7 +232,7 @@ Demo.static.pages.layouts = function ( demo ) {
 						label: 'Button'
 					} ),
 					{
-						label: 'ActionFieldLayout aligned left, DropdownWidget',
+						label: 'ActionFieldLayout aligned left, DropdownInputWidget',
 						help: 'This is some inlined help',
 						helpInline: true,
 						align: 'left'
