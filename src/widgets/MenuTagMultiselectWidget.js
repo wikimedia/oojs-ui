@@ -34,12 +34,17 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 	// so that they can be added as tags from #setValue
 	config.options = config.options || [];
 	config.selected = config.selected || [];
-	config.selected.forEach( function ( title ) {
-		config.options.push( {
-			data: title,
-			label: title
-		} );
-	} );
+	config.options = config.options.concat(
+		config.selected.map( function ( option ) {
+			if ( typeof option === 'string' ) {
+				return {
+					data: option,
+					label: option
+				};
+			}
+			return option;
+		} )
+	);
 
 	// Parent constructor
 	OO.ui.MenuTagMultiselectWidget.super.call( this, config );
@@ -67,7 +72,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		$overlay: this.$overlay,
 		disabled: this.isDisabled()
 	}, config.menu ) );
-	this.addOptions( config.options || [] );
+	this.addOptions( config.options );
 
 	// Events
 	this.menu.connect( this, {
@@ -310,15 +315,23 @@ OO.ui.MenuTagMultiselectWidget.prototype.createMenuWidget = function ( menuConfi
 };
 
 /**
- * Add options to the menu
+ * Add options to the menu, ensuring that they are unique by data.
  *
  * @param {Object[]} menuOptions Object defining options
  */
 OO.ui.MenuTagMultiselectWidget.prototype.addOptions = function ( menuOptions ) {
 	var widget = this,
-		items = menuOptions.map( function ( obj ) {
-			return widget.createMenuOptionWidget( obj.data, obj.label, obj.icon );
-		} );
+		optionsData = [],
+		items = [];
+
+	menuOptions.forEach( function ( obj ) {
+		if ( optionsData.indexOf( obj.data ) === -1 ) {
+			optionsData.push( obj.data );
+			items.push(
+				widget.createMenuOptionWidget( obj.data, obj.label, obj.icon )
+			);
+		}
+	} );
 
 	this.menu.addItems( items );
 };
