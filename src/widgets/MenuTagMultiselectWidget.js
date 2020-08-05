@@ -27,15 +27,17 @@
  * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: … }`
  */
 OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config ) {
-	var $autoCloseIgnore = $( [] );
+	var options, selected, configCopy,
+		$autoCloseIgnore = $( [] );
+
 	config = config || {};
 
 	// Ensure that any pre-selected items exist as menu options,
 	// so that they can be added as tags from #setValue
-	config.options = config.options || [];
-	config.selected = config.selected || [];
-	config.options = config.options.concat(
-		config.selected.map( function ( option ) {
+	options = config.options || [];
+	selected = config.selected || [];
+	options = options.concat(
+		selected.map( function ( option ) {
 			if ( typeof option === 'string' ) {
 				return {
 					data: option,
@@ -46,8 +48,12 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		} )
 	);
 
+	configCopy = OO.copy( config );
+	configCopy.options = options;
+	configCopy.selected = selected;
+
 	// Parent constructor
-	OO.ui.MenuTagMultiselectWidget.super.call( this, config );
+	OO.ui.MenuTagMultiselectWidget.super.call( this, configCopy );
 
 	$autoCloseIgnore = $autoCloseIgnore.add( this.$group );
 	if ( this.hasInput ) {
@@ -72,7 +78,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		$overlay: this.$overlay,
 		disabled: this.isDisabled()
 	}, config.menu ) );
-	this.addOptions( config.options );
+	this.addOptions( options );
 
 	// Events
 	this.menu.connect( this, {
@@ -96,8 +102,8 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 	this.menu.$focusOwner.removeAttr( 'aria-expanded' );
 	// TagMultiselectWidget already does this, but it doesn't work right because this.menu is
 	// not yet set up while the parent constructor runs, and #getAllowedValues rejects everything.
-	if ( config.selected.length > 0 ) {
-		this.setValue( config.selected );
+	if ( selected.length > 0 ) {
+		this.setValue( selected );
 	}
 };
 
