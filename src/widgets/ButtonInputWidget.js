@@ -105,9 +105,7 @@ OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
-	if ( typeof label === 'function' ) {
-		label = OO.ui.resolveMsg( label );
-	}
+	label = OO.ui.resolveMsg( label );
 
 	if ( this.useInputTag ) {
 		// Discard non-plaintext labels

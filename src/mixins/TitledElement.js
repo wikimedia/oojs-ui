@@ -85,7 +85,7 @@ OO.ui.mixin.TitledElement.prototype.setTitledElement = function ( $titled ) {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TitledElement.prototype.setTitle = function ( title ) {
-	title = typeof title === 'function' ? OO.ui.resolveMsg( title ) : title;
+	title = OO.ui.resolveMsg( title );
 	title = typeof title === 'string' ? title : null;
 
 	if ( this.title !== title ) {

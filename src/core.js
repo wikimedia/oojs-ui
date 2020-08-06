@@ -407,8 +407,9 @@ OO.ui.deferMsg = function () {
  *
  * If the message is a function it will be executed, otherwise it will pass through directly.
  *
- * @param {Function|string} msg Deferred message, or message text
- * @return {string} Resolved message
+ * @param {Function|string|Mixed} msg
+ * @return {string|Mixed} Resolved message when there was something to resolve, pass through
+ *  otherwise
  */
 OO.ui.resolveMsg = function ( msg ) {
 	if ( typeof msg === 'function' ) {
