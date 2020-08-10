@@ -121,7 +121,9 @@ OO.ui.mixin.LabelElement.static.highlightQuery = function ( text, query, compare
 /* Methods */
 
 /**
- * Set the label element.
+ * Replace the wrapper element (an empty `<span>` by default) with another one (e.g. an
+ * `<a href="…">`), without touching the label's content. This is the same as using the "$label"
+ * config on construction time.
  *
  * If an element is already set, it will be cleaned up before setting up the new element.
  *
@@ -149,10 +151,14 @@ OO.ui.mixin.LabelElement.prototype.setLabelId = function ( id ) {
 };
 
 /**
- * Set the label.
+ * Replace both the visible content of the label (same as #setLabelContent) as well as the value
+ * returned by #getLabel, without touching the label's wrapper element. This is the same as using
+ * the "label" config on construction time.
  *
  * An empty string will result in the label being hidden. A string containing only whitespace will
  * be converted to a single `&nbsp;`.
+ *
+ * To change the wrapper element, use #setLabelElement or the "$label" config.
  *
  * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} label Label nodes; text; a function that
  *  returns nodes or text; or null for no label
@@ -217,7 +223,8 @@ OO.ui.mixin.LabelElement.prototype.setHighlightedQuery = function (
 };
 
 /**
- * Get the label.
+ * Get the label's value as provided via #setLabel or the "label" config. Note this is not
+ * necessarily the same as the label's visible content when #setLabelContent was used.
  *
  * @return {jQuery|string|Function|null} Label nodes; text; a function that returns nodes or
  *  text; or null for no label
@@ -227,9 +234,12 @@ OO.ui.mixin.LabelElement.prototype.getLabel = function () {
 };
 
 /**
- * Set the content of the label.
+ * Replace the visible content of the label, without touching it's wrapper element. Note this is not
+ * the same as using the "label" config on construction time. #setLabelContent does not change the
+ * value returned by #getLabel.
  *
- * Do not call this method until after the label element has been set by #setLabelElement.
+ * To change the value as well, use #setLabel or the "label" config. To change the wrapper element,
+ * use #setLabelElement or the "$label" config.
  *
  * @private
  * @param {jQuery|string|Function|null} label Label nodes; text; a function that returns nodes or
