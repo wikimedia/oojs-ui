@@ -101,6 +101,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	this.onDocumentMouseDownHandler = this.onDocumentMouseDown.bind( this );
 	this.onDocumentKeyDownHandler = this.onDocumentKeyDown.bind( this );
 	this.onTabKeyDownHandler = this.onTabKeyDown.bind( this );
+	this.onShiftTabKeyDownHandler = this.onShiftTabKeyDown.bind( this );
 
 	// Initialization
 	this.setSize( config.width, config.height );
@@ -285,6 +286,19 @@ OO.ui.PopupWidget.prototype.onTabKeyDown = function ( e ) {
 };
 
 /**
+ * Handles Shift + Tab key down events.
+ *
+ * @private
+ * @param {KeyboardEvent} e Key down event
+ */
+OO.ui.PopupWidget.prototype.onShiftTabKeyDown = function ( e ) {
+	if ( e.shiftKey && e.which === OO.ui.Keys.TAB ) {
+		e.preventDefault();
+		this.toggle( false );
+	}
+};
+
+/**
  * Show, hide, or toggle the visibility of the anchor.
  *
  * @param {boolean} [show] Show anchor, omit to toggle
@@ -345,7 +359,7 @@ OO.ui.PopupWidget.prototype.hasAnchor = function () {
  */
 OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 	var change, normalHeight, oppositeHeight, normalWidth,
-		oppositeWidth, $lastFocusableElement;
+		oppositeWidth, $firstFocusableElement, $lastFocusableElement;
 	show = show === undefined ? !this.isVisible() : !!show;
 
 	change = show !== this.isVisible();
@@ -371,20 +385,22 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 	if ( change ) {
 		this.togglePositioning( show && !!this.$floatableContainer );
 
-		// Find the last focusable element in the popup widget
+		// Find the first and last focusable element in the popup widget
 		$lastFocusableElement = OO.ui.findFocusable( this.$element, true );
+		$firstFocusableElement = OO.ui.findFocusable( this.$element, false );
 
 		if ( show ) {
 			if ( this.autoClose ) {
 				this.bindDocumentMouseDownListener();
 				this.bindDocumentKeyDownListener();
 
-				// Bind a keydown event to the last focusable element
+				// Bind a keydown event to the first and last focusable element
 				// If user presses the tab key on this item, dismiss the popup and
 				// take focus back to the caller, ideally the caller implements this functionality
 				// This is to prevent illogical focus order, a common accessibility pitfall.
 				// Alternative Fix: Implement focus trap for popup widget.
 				$lastFocusableElement.on( 'keydown', this.onTabKeyDownHandler );
+				$firstFocusableElement.on( 'keydown', this.onShiftTabKeyDownHandler );
 			}
 			this.updateDimensions();
 			this.toggleClipping( true );
@@ -442,8 +458,9 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 		} else {
 			this.toggleClipping( false );
 			if ( this.autoClose ) {
-				// Remove binded keydown event from the last focusable element when popup closes
+				// Remove binded keydown event from the first and last focusable elements when popup closes
 				$lastFocusableElement.off( 'keydown', this.onTabKeyDownHandler );
+				$firstFocusableElement.off( 'keydown', this.onShiftTabKeyDownHandler );
 
 				this.unbindDocumentMouseDownListener();
 				this.unbindDocumentKeyDownListener();
