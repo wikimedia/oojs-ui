@@ -49,8 +49,8 @@ OO.initClass( OO.ui.mixin.LabelElement );
 
 /**
  * The label text. The label can be specified as a plaintext string, a function that will
- * produce a string in the future, or `null` for no label. The static value will
- * be overridden if a label is specified with the #label config option.
+ * produce a string (will be resolved on construction time), or `null` for no label. The static
+ * value will be overridden if a label is specified with the #label config option.
  *
  * @static
  * @inheritable
@@ -219,8 +219,7 @@ OO.ui.mixin.LabelElement.prototype.setHighlightedQuery = function (
 /**
  * Get the label.
  *
- * @return {jQuery|string|Function|null} Label nodes; text; a function that returns nodes or
- *  text; or null for no label
+ * @return {jQuery|string|null} Label nodes; text; or null for no label
  */
 OO.ui.mixin.LabelElement.prototype.getLabel = function () {
 	return this.label;
@@ -232,8 +231,7 @@ OO.ui.mixin.LabelElement.prototype.getLabel = function () {
  * Do not call this method until after the label element has been set by #setLabelElement.
  *
  * @private
- * @param {jQuery|string|Function|null} label Label nodes; text; a function that returns nodes or
- *  text; or null for no label
+ * @param {jQuery|string|null} label Label nodes; text; or null for no label
  */
 OO.ui.mixin.LabelElement.prototype.setLabelContent = function ( label ) {
 	if ( typeof label === 'string' ) {
