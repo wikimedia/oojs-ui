@@ -59,7 +59,7 @@ OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
 	this.$grip.addClass( 'oo-ui-toggleSwitchWidget-grip' );
 	this.$element
 		.addClass( 'oo-ui-toggleSwitchWidget' )
-		.attr( 'role', 'checkbox' )
+		.attr( 'role', 'switch' )
 		.append( this.$glow, this.$grip );
 };
 
