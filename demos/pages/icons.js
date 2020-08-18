@@ -1,5 +1,5 @@
 Demo.static.pages.icons = function ( demo ) {
-	var i, len, iconSet, iconsFieldset, iconWidget, selector,
+	var selector,
 		icons = {
 			movement: [
 				'arrowPrevious',
@@ -255,41 +255,42 @@ Demo.static.pages.icons = function ( demo ) {
 			id: 'demo-section-indicators'
 		} );
 
-	for ( i = 0, len = indicators.length; i < len; i++ ) {
+	indicators.forEach( function ( indicator ) {
 		indicatorsFieldset.addItems( [
 			new OO.ui.FieldLayout(
 				new OO.ui.IndicatorWidget( {
-					indicator: indicators[ i ],
-					title: indicators[ i ]
+					indicator: indicator,
+					title: indicator
 				} ),
 				{
 					align: 'inline',
-					label: indicators[ i ]
+					label: indicator
 				}
 			)
 		] );
-	}
-	for ( iconSet in icons ) {
-		iconsFieldset = new Demo.LinkedFieldsetLayout( {
+	} );
+	iconsFieldsets = Object.keys( icons ).map( function ( iconSet ) {
+		var iconsFieldset = new Demo.LinkedFieldsetLayout( {
 			label: 'Icons – ' + iconSet,
 			id: 'demo-section-' + iconSet
 		} );
-		iconsFieldsets.push( iconsFieldset );
 
-		for ( i = 0, len = icons[ iconSet ].length; i < len; i++ ) {
-			iconWidget = new OO.ui.IconWidget( {
-				icon: icons[ iconSet ][ i ],
-				title: icons[ iconSet ][ i ]
+		icons[ iconSet ].forEach( function ( icon ) {
+			var iconWidget = new OO.ui.IconWidget( {
+				icon: icon,
+				title: icon
 			} );
 			iconsWidgets.push( iconWidget );
 			iconsFieldset.addItems( [
 				new OO.ui.FieldLayout( iconWidget, {
-					label: icons[ iconSet ][ i ],
+					label: icon,
 					align: 'inline'
 				} )
 			] );
-		}
-	}
+		} );
+
+		return iconsFieldset;
+	} );
 
 	selector = new OO.ui.ButtonSelectWidget( {
 		items: [

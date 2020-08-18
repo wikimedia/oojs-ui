@@ -763,14 +763,14 @@ OO.ui.SelectWidget.prototype.selectItemByData = function ( data ) {
  * otherwise, no items will be selected.
  * If no item is given, all selected items will be unselected.
  *
- * @param {OO.ui.OptionWidget} [item] Item to unselect
+ * @param {OO.ui.OptionWidget} [unselectedItem] Item to unselect
  * @fires select
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
-OO.ui.SelectWidget.prototype.unselectItem = function ( item ) {
-	if ( item ) {
-		item.setSelected( false );
+OO.ui.SelectWidget.prototype.unselectItem = function ( unselectedItem ) {
+	if ( unselectedItem ) {
+		unselectedItem.setSelected( false );
 	} else {
 		this.items.forEach( function ( item ) {
 			if ( item.isSelected() ) {

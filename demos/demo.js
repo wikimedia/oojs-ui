@@ -541,13 +541,13 @@ Demo.prototype.destroy = function () {
 /**
  * Build a console for interacting with an element.
  *
- * @param {OO.ui.Layout} item
- * @param {string} layout Variable name for layout
- * @param {string} widget Variable name for layout's field widget
+ * @param {OO.ui.Layout} layout
+ * @param {string} layoutName Variable name for layout
+ * @param {string} widgetName Variable name for layout's field widget
  * @param {boolean} showLayoutCode FieldsetLayout code is shown
  * @return {jQuery} Console interface element
  */
-Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) {
+Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLayoutCode ) {
 	var $toggle, $log, $label, $input, $submit, $console, $form, $pre, $code,
 		console = window.console;
 
@@ -558,8 +558,8 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 		}
 		try {
 			// eslint-disable-next-line no-new-func
-			func = new Function( layout, widget, 'item', str );
-			ret = { value: func( item, item.fieldWidget, item.fieldWidget ) };
+			func = new Function( layoutName, widgetName, 'item', str );
+			ret = { value: func( layout, layout.fieldWidget, layout.fieldWidget ) };
 		} catch ( error ) {
 			ret = {
 				value: undefined,
@@ -616,9 +616,9 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 			demoLinks = [],
 			docLinks = [];
 
-		function getConstructorName( item ) {
-			var isDemoWidget = item.constructor.name.indexOf( 'Demo' ) === 0;
-			return ( isDemoWidget ? 'Demo.' : 'OO.ui.' ) + item.constructor.name.slice( 4 );
+		function getConstructorName( widget ) {
+			var isDemoWidget = widget.constructor.name.indexOf( 'Demo' ) === 0;
+			return ( isDemoWidget ? 'Demo.' : 'OO.ui.' ) + widget.constructor.name.slice( 4 );
 		}
 
 		// If no item was passed we shouldn't show a code block
@@ -731,15 +731,15 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 			if ( $console.hasClass( 'demo-console-expanded' ) ) {
 				$input[ 0 ].focus();
 				if ( console && console.log ) {
-					window[ layout ] = item;
-					window[ widget ] = item.fieldWidget;
-					console.log( '[demo]', 'Globals ' + layout + ', ' + widget + ' have been set' );
-					console.log( '[demo]', item );
+					window[ layoutName ] = layout;
+					window[ widgetName ] = layout.fieldWidget;
+					console.log( '[demo]', 'Globals ' + layoutName + ', ' + widgetName + ' have been set' );
+					console.log( '[demo]', layout );
 
 					if ( showLayoutCode === true ) {
-						code = getCode( item, true );
+						code = getCode( layout, true );
 					} else {
-						code = getCode( item.fieldWidget, true );
+						code = getCode( layout.fieldWidget, true );
 					}
 
 					if ( code ) {
@@ -760,7 +760,7 @@ Demo.prototype.buildConsole = function ( item, layout, widget, showLayoutCode ) 
 
 	$input = $( '<input>' )
 		.addClass( 'demo-console-input' )
-		.prop( 'placeholder', '... (predefined: ' + layout + ', ' + widget + ')' );
+		.prop( 'placeholder', '... (predefined: ' + layoutName + ', ' + widgetName + ')' );
 
 	$submit = $( '<div>' )
 		.addClass( 'demo-console-submit' )

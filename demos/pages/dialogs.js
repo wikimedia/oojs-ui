@@ -1,11 +1,11 @@
 Demo.static.pages.dialogs = function ( demo ) {
-	var i, j, name, openButton, fieldset, examples, DialogClass, config,
+	var configs,
 		$demo = demo.$element,
 		$fieldsets = $( [] ),
 		windows = {},
 		windowManager = new OO.ui.WindowManager();
 
-	config = [
+	configs = [
 		{
 			name: 'Convenience functions',
 			id: 'demo-section-functions',
@@ -300,42 +300,43 @@ Demo.static.pages.dialogs = function ( demo ) {
 		windowManager.openWindow( name, data );
 	}
 
-	for ( j = 0; j < config.length; j++ ) {
-		fieldset = new Demo.LinkedFieldsetLayout( {
-			label: config[ j ].name,
-			id: config[ j ].id
+	configs.forEach( function ( config, j ) {
+		var fieldset = new Demo.LinkedFieldsetLayout( {
+			label: config.name,
+			id: config.id
 		} );
-		examples = config[ j ].examples;
+
 		$fieldsets = $fieldsets.add( fieldset.$element );
 
-		for ( i = 0; i < examples.length; i++ ) {
-			openButton = new OO.ui.ButtonWidget( {
-				framed: false,
-				icon: 'window',
-				label: $( '<span>' ).attr( 'dir', 'ltr' ).text( examples[ i ].name )
-			} );
+		config.examples.forEach( function ( example, i ) {
+			var name, DialogClass,
+				openButton = new OO.ui.ButtonWidget( {
+					framed: false,
+					icon: 'window',
+					label: $( '<span>' ).attr( 'dir', 'ltr' ).text( example.name )
+				} );
 
-			if ( examples[ i ].method ) {
+			if ( example.method ) {
 				openButton.on(
 					'click', OO.ui.bind(
 						OO.ui,
-						examples[ i ].method,
-						examples[ i ].param,
-						examples[ i ].data
+						example.method,
+						example.param,
+						example.data
 					)
 				);
 			} else {
 				name = 'window_' + j + '_' + i;
-				DialogClass = examples[ i ].dialogClass || Demo.SimpleDialog;
-				windows[ name ] = new DialogClass( examples[ i ].config );
+				DialogClass = example.dialogClass || Demo.SimpleDialog;
+				windows[ name ] = new DialogClass( example.config );
 				openButton.on(
-					'click', OO.ui.bind( openDialog, this, name, examples[ i ].data )
+					'click', OO.ui.bind( openDialog, this, name, example.data )
 				);
 			}
 
 			fieldset.addItems( [ new OO.ui.FieldLayout( openButton, { align: 'inline' } ) ] );
-		}
-	}
+		} );
+	} );
 	windowManager.addWindows( windows );
 
 	$demo.append(

@@ -52,7 +52,7 @@
  *  additions. If 'tagLimit' is unset or is 0, an unlimited number of items can be
  *  added.
  * @cfg {boolean} [allowReordering=true] Allow reordering of the items
- * @cfg {Object[]|String[]} [selected] A set of selected tags. If given,
+ * @cfg {Object[]|string[]} [selected] A set of selected tags. If given,
  *  these will appear in the tag list on initialization, as long as they
  *  pass the validity tests.
  */
@@ -271,21 +271,22 @@ OO.ui.TagMultiselectWidget.prototype.onInputKeyPress = function ( e ) {
 OO.ui.TagMultiselectWidget.prototype.onInputKeyDown = function ( e ) {
 	var movement, direction,
 		widget = this,
-		withMetaKey = e.metaKey || e.ctrlKey,
-		isMovementInsideInput = function ( direction ) {
-			var inputRange = widget.input.getRange(),
-				inputValue = widget.hasInput && widget.input.getValue();
+		withMetaKey = e.metaKey || e.ctrlKey;
 
-			if ( direction === 'forwards' && inputRange.to > inputValue.length - 1 ) {
-				return false;
-			}
+	function isMovementInsideInput( dir ) {
+		var inputRange = widget.input.getRange(),
+			inputValue = widget.hasInput && widget.input.getValue();
 
-			if ( direction === 'backwards' && inputRange.from <= 0 ) {
-				return false;
-			}
+		if ( dir === 'forwards' && inputRange.to > inputValue.length - 1 ) {
+			return false;
+		}
 
-			return true;
-		};
+		if ( dir === 'backwards' && inputRange.from <= 0 ) {
+			return false;
+		}
+
+		return true;
+	}
 
 	if ( !this.isDisabled() ) {
 		// 'keypress' event is not triggered for Backspace key

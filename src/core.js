@@ -182,6 +182,7 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 		return obj[ fallback ];
 	}
 	// First existing language
+	// eslint-disable-next-line no-unreachable-loop
 	for ( lang in obj ) {
 		return obj[ lang ];
 	}

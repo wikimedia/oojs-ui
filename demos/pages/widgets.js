@@ -2119,10 +2119,10 @@ Demo.static.pages.widgets = function ( demo ) {
 						allowArbitrary: false,
 						verticalPosition: 'below',
 						options: ( function () {
-							var i,
+							var n,
 								options = [];
-							for ( i = 1; i <= 50; i++ ) {
-								options.push( { data: i, label: 'Label for ' + i } );
+							for ( n = 1; n <= 50; n++ ) {
+								options.push( { data: n, label: 'Label for ' + n } );
 							}
 							return options;
 						}() )
