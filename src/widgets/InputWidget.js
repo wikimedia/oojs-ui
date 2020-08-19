@@ -80,9 +80,12 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.AccessKeyedElement );
  * @inheritdoc
  */
 OO.ui.InputWidget.static.reusePreInfuseDOM = function ( node, config ) {
+	var $input = $( node ).find( '.oo-ui-inputWidget-input' );
 	config = OO.ui.InputWidget.super.static.reusePreInfuseDOM( node, config );
 	// Reusing `$input` lets browsers preserve inputted values across page reloads, see T114134.
-	config.$input = $( node ).find( '.oo-ui-inputWidget-input' );
+	if ( $input.length ) {
+		config.$input = $input;
+	}
 	return config;
 };
 
@@ -91,7 +94,7 @@ OO.ui.InputWidget.static.reusePreInfuseDOM = function ( node, config ) {
  */
 OO.ui.InputWidget.static.gatherPreInfuseState = function ( node, config ) {
 	var state = OO.ui.InputWidget.super.static.gatherPreInfuseState( node, config );
-	if ( config.$input && config.$input.length ) {
+	if ( config.$input ) {
 		state.value = config.$input.val();
 		// Might be better in TabIndexedElement, but it's awkward to do there because
 		// mixins are awkward
