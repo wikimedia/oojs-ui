@@ -87,7 +87,9 @@ OO.inheritClass( OO.ui.MultilineTextInputWidget, OO.ui.TextInputWidget );
  */
 OO.ui.MultilineTextInputWidget.static.gatherPreInfuseState = function ( node, config ) {
 	var state = OO.ui.MultilineTextInputWidget.super.static.gatherPreInfuseState( node, config );
-	state.scrollTop = config.$input.scrollTop();
+	if ( config.$input ) {
+		state.scrollTop = config.$input.scrollTop();
+	}
 	return state;
 };
 

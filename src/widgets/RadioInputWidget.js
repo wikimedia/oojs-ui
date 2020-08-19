@@ -74,7 +74,9 @@ OO.ui.RadioInputWidget.static.tagName = 'span';
  */
 OO.ui.RadioInputWidget.static.gatherPreInfuseState = function ( node, config ) {
 	var state = OO.ui.RadioInputWidget.super.static.gatherPreInfuseState( node, config );
-	state.checked = config.$input.prop( 'checked' );
+	if ( config.$input ) {
+		state.checked = config.$input.prop( 'checked' );
+	}
 	return state;
 };
 
