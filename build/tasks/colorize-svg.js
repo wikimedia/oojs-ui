@@ -21,13 +21,13 @@ module.exports = function ( grunt ) {
 	 * @class Destination
 	 *
 	 * @constructor
-	 * @param {string} path Image path
+	 * @param {string} imagePath Image path
 	 * @param {Object} stylesheetPath Stylesheet file path
 	 * @param {string} stylesheetPath.ltr Stylesheet file path, left-to-right
 	 * @param {string} stylesheetPath.rtl Stylesheet file path, right-to-left
 	 */
-	function Destination( path, stylesheetPath ) {
-		this.path = path;
+	function Destination( imagePath, stylesheetPath ) {
+		this.path = imagePath;
 		this.stylesheetPath = stylesheetPath;
 	}
 
@@ -127,14 +127,14 @@ module.exports = function ( grunt ) {
 		}, {} );
 
 		// Original
-		const selector = cssSelectors.selectorWithoutVariant
+		const selectorWithoutVariant = cssSelectors.selectorWithoutVariant
 			.replace( /{prefix}/g, cssClassPrefix )
 			.replace( /{name}/g, name )
 			.replace( /{variant}/g, '' );
 
 		for ( const direction in file ) {
 			const declarations = getDeclarations( file[ direction ] );
-			rules[ direction ].push( selector + ' {\n\t' + declarations + '\n}' );
+			rules[ direction ].push( selectorWithoutVariant + ' {\n\t' + declarations + '\n}' );
 
 			originalSvg[ direction ] = grunt.file.read(
 				path.join( sourcePath, file[ direction ] )
@@ -144,11 +144,11 @@ module.exports = function ( grunt ) {
 			for ( const lang in moreLangs ) {
 				// This will not work for selectors ending in a pseudo-element.
 				const langSelector = ':lang(' + lang + ')';
-				const declarations = getDeclarations( moreLangs[ lang ] );
+				const decls = getDeclarations( moreLangs[ lang ] );
 				rules[ direction ].push(
 					'/* @noflip */\n' +
-					selector.replace( /,|$/g, langSelector + '$&' ) +
-					' {\n\t' + declarations + '\n}'
+					selectorWithoutVariant.replace( /,|$/g, langSelector + '$&' ) +
+					' {\n\t' + decls + '\n}'
 				);
 
 				originalSvg[ 'lang-' + lang ] = grunt.file.read(
@@ -167,7 +167,7 @@ module.exports = function ( grunt ) {
 				return;
 			}
 
-			const selector = cssSelectors.selectorWithVariant
+			const selectorWithVariant = cssSelectors.selectorWithVariant
 				.replace( /{prefix}/g, cssClassPrefix )
 				.replace( /{name}/g, name )
 				.replace( /{variant}/g, variantName );
@@ -176,7 +176,7 @@ module.exports = function ( grunt ) {
 				const declarations = getDeclarations(
 					variantizeFileName( file[ direction ], variantName )
 				);
-				rules[ direction ].push( selector + ' {\n\t' + declarations + '\n}' );
+				rules[ direction ].push( selectorWithVariant + ' {\n\t' + declarations + '\n}' );
 
 				// TODO: Do this using proper DOM manipulation, not regexp magic
 				const variantSvg = originalSvg[ direction ]
@@ -196,30 +196,30 @@ module.exports = function ( grunt ) {
 
 				for ( const lang in moreLangs ) {
 					const langSelector = ':lang(' + lang + ')';
-					const declarations = getDeclarations(
+					const decls = getDeclarations(
 						variantizeFileName( moreLangs[ lang ], variantName )
 					);
 					rules[ direction ].push(
 						'/* @noflip */\n' +
-						selector.replace( /,|$/g, langSelector + '$&' ) +
-						' {\n\t' + declarations + '\n}'
+						selectorWithVariant.replace( /,|$/g, langSelector + '$&' ) +
+						' {\n\t' + decls + '\n}'
 					);
 
 					// TODO: Do this using proper DOM manipulation, not regexp magic
-					const variantSvg = originalSvg[ 'lang-' + lang ]
+					const variantSvgLang = originalSvg[ 'lang-' + lang ]
 						.replace( /<svg[^>]*>/, '$&<g fill="' + variant.getColor() + '">' )
 						.replace( /<\/svg>/, '</g>$&' );
 
-					if ( originalSvg[ 'lang-' + lang ] === variantSvg ) {
+					if ( originalSvg[ 'lang-' + lang ] === variantSvgLang ) {
 						uncolorizableImages.push( moreLangs[ lang ] );
 						continue;
 					}
 
-					const destinationFilePath = path.join(
+					const destinationFilePathLang = path.join(
 						destinationPath,
 						variantizeFileName( moreLangs[ lang ], variantName )
 					);
-					files[ destinationFilePath ] = variantSvg;
+					files[ destinationFilePathLang ] = variantSvgLang;
 				}
 			}
 		} );
@@ -256,14 +256,14 @@ module.exports = function ( grunt ) {
 	 * @class ImageList
 	 *
 	 * @constructor
-	 * @param {string} path Images path
+	 * @param {string} imagePath Images path
 	 * @param {VariantList} variants Variants list
 	 * @param {Object} options Additional options
 	 * @param {Object} data List of image configurations keyed by name
 	 */
-	function ImageList( path, variants, options, data ) {
+	function ImageList( imagePath, variants, options, data ) {
 		this.list = {};
-		this.path = path;
+		this.path = imagePath;
 		this.variants = variants;
 		this.options = options;
 
@@ -465,13 +465,13 @@ module.exports = function ( grunt ) {
 	 * @class Source
 	 *
 	 * @constructor
-	 * @param {string} path Directory containing source images
+	 * @param {string} imagePath Directory containing source images
 	 * @param {Object} images Lists of image configurations
 	 * @param {Object} [variants] List of variant configurations, keyed by variant name
 	 * @param {Object} [options] Additional options
 	 */
-	function Source( path, images, variants, options ) {
-		this.path = path;
+	function Source( imagePath, images, variants, options ) {
+		this.path = imagePath;
 		this.images = images;
 		this.variants = variants || {};
 		this.options = options || {};
