@@ -166,7 +166,7 @@ OO.ui.mixin.LabelElement.prototype.setLabelId = function ( id ) {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
-	label = typeof label === 'function' ? OO.ui.resolveMsg( label ) : label;
+	label = OO.ui.resolveMsg( label );
 	label = ( ( typeof label === 'string' || label instanceof $ ) && label.length ) || ( label instanceof OO.ui.HtmlSnippet && label.toString().length ) ? label : null;
 
 	if ( this.label !== label ) {
