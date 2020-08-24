@@ -66,3 +66,18 @@ QUnit.test( 'prompt() - reject', function ( assert ) {
 		assert.strictEqual( result, null, 'Rejected' );
 	} );
 } );
+
+QUnit.test( 'clearWindows()', function ( assert ) {
+	var windowManager = OO.ui.getWindowManager(),
+		alertWindow;
+	windowManager.once( 'opening', function ( win, opened ) {
+		opened.then( function () {
+			alertWindow = win;
+			assert.ok( windowManager.isOpened( alertWindow ) );
+			windowManager.clearWindows();
+		} );
+	} );
+	return OO.ui.alert( 'Text' ).then( function () {
+		assert.notOk( windowManager.isOpened( alertWindow ) );
+	} );
+} );

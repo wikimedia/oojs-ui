@@ -663,12 +663,12 @@ OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
 
 	promises = names.map( function ( name ) {
 		var cleanupWindow,
-			win = this.windows[ name ];
+			win = manager.windows[ name ];
 		if ( !win ) {
 			throw new Error( 'Cannot remove window' );
 		}
 		cleanupWindow = cleanup.bind( null, name, win );
-		return this.closeWindow( name ).closed.then( cleanupWindow, cleanupWindow );
+		return manager.closeWindow( name ).closed.then( cleanupWindow, cleanupWindow );
 	} );
 
 	return $.when.apply( $, promises );
