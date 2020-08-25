@@ -129,17 +129,13 @@
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
 @border-radius-progressbar: @height-progressbar-bar;
 
-@padding-base: @padding-vertical-base @padding-horizontal-base;
 @padding-frameless: @padding-vertical-base @padding-horizontal-frameless;
-@padding-input-text: @padding-vertical-base @padding-horizontal-input-text;
 @padding-menu: @padding-vertical-menu @padding-horizontal-base;
 @padding-menu-large: @padding-vertical-tool-label @padding-horizontal-base;
 @padding-panel-form: 12px 16px 16px;
 @padding-panel-form-search-query: 0 16px;
 @padding-panel-dialog: 20px;
-@padding-horizontal-base: 12px;
 @padding-horizontal-frameless: 6px;
-@padding-horizontal-input-text: 8px;
 @padding-horizontal-message-block: 24px;
 @padding-horizontal-taboption: 8px;
 @padding-horizontal-taboption-label: 5px;
@@ -147,8 +143,6 @@
 @padding-horizontal-toolbar-action-buttons: 16px; // Aligned relatively to `@padding-horizontal-base` but for toolbar button height.
 // All paddings holding icons need `em`s due to font-size derived icon scaling.
 @padding-horizontal-base-iconized: 12 / @ooui-font-size-browser / @ooui-font-size-base;
-// Must be < `8` as it cuts off scripts. Directly connected to `line-height` further down.
-@padding-vertical-base: 5px;
 @padding-vertical-label: 4px;
 // Menu items don't have a border.
 @padding-vertical-menu: @padding-vertical-base + @border-width-base;
@@ -192,9 +186,6 @@
 @box-shadow-popuptoolgroup-tool--focus: inset 0 0 0 2px @color-primary--focus;
 @box-shadow-input-binary--active: inset 0 0 0 1px @color-primary--active;
 @box-shadow-error--focus: inset 0 0 0 1px @color-error;
-
-// Enable Windows high contrast mode on certain widgets, that have default outlines overridden.
-@outline-base--focus: @border-width-base @border-style-base transparent;
 
 @filter-drop-shadow-menu: drop-shadow( 0 2px 1px rgba( 0, 0, 0, 0.3 ) );
 
