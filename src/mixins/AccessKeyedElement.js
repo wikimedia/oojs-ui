@@ -90,7 +90,8 @@ OO.ui.mixin.AccessKeyedElement.prototype.setAccessKeyedElement = function ( $acc
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.AccessKeyedElement.prototype.setAccessKey = function ( accessKey ) {
-	accessKey = typeof accessKey === 'string' ? OO.ui.resolveMsg( accessKey ) : null;
+	accessKey = OO.ui.resolveMsg( accessKey );
+	accessKey = typeof accessKey === 'string' ? accessKey : null;
 
 	if ( this.accessKey !== accessKey ) {
 		if ( this.$accessKeyed ) {
