@@ -166,6 +166,18 @@ OO.ui.ComboBoxInputWidget.prototype.getInput = function () {
 };
 
 /**
+ * @inheritdoc
+ */
+OO.ui.ComboBoxInputWidget.prototype.onEdit = function () {
+	// Parent method
+	OO.ui.ComboBoxInputWidget.super.prototype.onEdit.apply( this, arguments );
+
+	if ( !this.menu.isVisible() && !this.isDisabled() && this.isVisible() ) {
+		this.menu.toggle( true );
+	}
+};
+
+/**
  * Handle input change events.
  *
  * @private
@@ -177,10 +189,6 @@ OO.ui.ComboBoxInputWidget.prototype.onInputChange = function ( value ) {
 	this.menu.selectItem( match );
 	if ( this.menu.findHighlightedItem() ) {
 		this.menu.highlightItem( match );
-	}
-
-	if ( !this.isDisabled() ) {
-		this.menu.toggle( true );
 	}
 };
 
