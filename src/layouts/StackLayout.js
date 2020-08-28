@@ -91,11 +91,17 @@ OO.mixinClass( OO.ui.StackLayout, OO.ui.mixin.GroupElement );
  * @fires visibleItemChange
  */
 OO.ui.StackLayout.prototype.onScroll = function () {
-	var currentRect,
-		len = this.items.length,
-		currentIndex = this.items.indexOf( this.currentItem ),
-		newIndex = currentIndex,
-		containerRect = this.$element[ 0 ].getBoundingClientRect();
+	var currentRect, currentIndex, newIndex, containerRect,
+		len = this.items.length;
+
+	if ( !this.currentItem ) {
+		// onScroll should never be triggered while there are no items, but this event is debounced.
+		return;
+	}
+
+	currentIndex = this.items.indexOf( this.currentItem );
+	newIndex = currentIndex;
+	containerRect = this.$element[ 0 ].getBoundingClientRect();
 
 	if ( !containerRect || ( !containerRect.top && !containerRect.bottom ) ) {
 		// Can't get bounding rect, possibly not attached.
