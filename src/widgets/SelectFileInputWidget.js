@@ -146,7 +146,7 @@ OO.ui.SelectFileInputWidget.prototype.getFilename = function () {
 OO.ui.SelectFileInputWidget.prototype.setValue = function ( value ) {
 	if ( value === undefined ) {
 		// Called during init, don't replace value if just infusing.
-		return;
+		return this;
 	}
 	if ( value ) {
 		// We need to update this.value, but without trying to modify
@@ -155,10 +155,11 @@ OO.ui.SelectFileInputWidget.prototype.setValue = function ( value ) {
 			this.value = value;
 			this.emit( 'change', this.value );
 		}
+		return this;
 	} else {
 		this.currentFiles = [];
 		// Parent method
-		OO.ui.SelectFileInputWidget.super.prototype.setValue.call( this, '' );
+		return OO.ui.SelectFileInputWidget.super.prototype.setValue.call( this, '' );
 	}
 };
 
