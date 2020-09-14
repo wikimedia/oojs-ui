@@ -6,6 +6,7 @@
 			"Gloria sah",
 			"KlaudiuMihaila",
 			"Minisarm",
+			"NGC 54",
 			"Stelistcristi"
 		]
 	},
@@ -25,5 +26,6 @@
 	"ooui-selectfile-not-supported": "Selecția de fișiere nu este acceptată",
 	"ooui-selectfile-placeholder": "Niciun fișier selectat",
 	"ooui-selectfile-dragdrop-placeholder": "Trageți fișierul aici",
+	"ooui-popup-widget-close-button-aria-label": "Închide",
 	"ooui-field-help": "Ajutor"
 }
