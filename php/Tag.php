@@ -462,10 +462,10 @@ class Tag {
 		// Content
 		$content = '';
 		foreach ( $this->content as $part ) {
-			if ( is_string( $part ) ) {
-				$content .= htmlspecialchars( $part );
-			} elseif ( $part instanceof Tag || $part instanceof HtmlSnippet ) {
+			if ( $part instanceof Tag || $part instanceof HtmlSnippet ) {
 				$content .= (string)$part;
+			} else {
+				$content .= htmlspecialchars( (string)$part );
 			}
 		}
 
