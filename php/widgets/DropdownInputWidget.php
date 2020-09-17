@@ -68,7 +68,7 @@ class DropdownInputWidget extends InputWidget {
 	 */
 	public function setOptions( $options ) {
 		$value = $this->getValue();
-		$isValueAvailable = false;
+		$availableValue = null;
 		$this->options = [];
 		$container = $this->input;
 
@@ -81,8 +81,9 @@ class DropdownInputWidget extends InputWidget {
 					->setAttributes( [ 'value' => $optValue ] )
 					->appendContent( $opt['label'] ?? $optValue );
 
-				if ( $value === $optValue ) {
-					$isValueAvailable = true;
+				// Prefer the previous value, if available, otherwise select the first one
+				if ( $value === $optValue || $availableValue === null ) {
+					$availableValue = $optValue;
 				}
 				$container->appendContent( $option );
 			} else {
@@ -101,14 +102,8 @@ class DropdownInputWidget extends InputWidget {
 		}
 
 		// Restore the previous value, or reset to something sensible
-		if ( $isValueAvailable ) {
-			// Previous value is still available
-			$this->setValue( $value );
-		} else {
-			// No longer valid, reset
-			if ( count( $options ) ) {
-				$this->setValue( $options[0]['data'] );
-			}
+		if ( $availableValue !== null ) {
+			$this->setValue( $availableValue );
 		}
 
 		return $this;
