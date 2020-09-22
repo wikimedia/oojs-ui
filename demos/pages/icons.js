@@ -72,6 +72,8 @@ Demo.static.pages.icons = function ( demo ) {
 				'lightbulb',
 				'logIn',
 				'logOut',
+				'network',
+				'networkOff',
 				'newWindow',
 				'pageSettings',
 				'printer',
