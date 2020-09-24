@@ -577,12 +577,6 @@ FieldLayout left & right aligned */
 	margin-right: -2em;
 }
 
-.oo-ui-fieldLayout-body:after {
-	content: ' ';
-	clear: both;
-	display: block;
-}
-
 /* Special case: FieldsetLayout with "Summary" */
 .oo-ui-formLayout .oo-ui-fieldsetLayout:last-child {
 	background-color: #eaecf0;
