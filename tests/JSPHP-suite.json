@@ -22550,6 +22550,12 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
           "spellcheck": true
         }
       },
@@ -23250,6 +23256,15 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "options": [
+
+          ],
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "options": [
             {
               "data": "a",
               "label": "A"
@@ -23268,6 +23283,18 @@
             }
           ],
           "autocomplete": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "options": [
+            {
+              "data": "a",
+              "label": "A"
+            }
+          ],
+          "autocomplete": "foo"
         }
       },
       {
@@ -23303,6 +23330,20 @@
         "config": {
           "options": [
             {
+              "data": "a"
+            },
+            {
+              "data": "b"
+            }
+          ],
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "options": [
+            {
               "data": "a",
               "label": "A"
             },
@@ -23328,6 +23369,22 @@
             }
           ],
           "autocomplete": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "options": [
+            {
+              "data": "a",
+              "label": "A"
+            },
+            {
+              "data": "b",
+              "label": "B"
+            }
+          ],
+          "autocomplete": "foo"
         }
       },
       {
@@ -24493,6 +24550,13 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
+          "type": "text",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
           "type": "button",
           "autocomplete": true
         }
@@ -24502,6 +24566,13 @@
         "config": {
           "type": "button",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "type": "button",
+          "autocomplete": "foo"
         }
       },
       {
@@ -24941,6 +25012,13 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
           "placeholder": "",
           "autocomplete": true
         }
@@ -24950,6 +25028,13 @@
         "config": {
           "placeholder": "",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "placeholder": "",
+          "autocomplete": "foo"
         }
       },
       {
@@ -24969,6 +25054,13 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
+          "placeholder": " ",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
           "placeholder": "0",
           "autocomplete": true
         }
@@ -24978,6 +25070,13 @@
         "config": {
           "placeholder": "0",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "placeholder": "0",
+          "autocomplete": "foo"
         }
       },
       {
@@ -25599,6 +25698,13 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
+          "readOnly": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
           "readOnly": false,
           "autocomplete": true
         }
@@ -25608,6 +25714,13 @@
         "config": {
           "readOnly": false,
           "autocomplete": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "readOnly": false,
+          "autocomplete": "foo"
         }
       },
       {
@@ -25922,6 +26035,13 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "maxLength": 100,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "maxLength": 100,
           "spellcheck": true
         }
       },
@@ -26075,6 +26195,13 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
+          "required": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
           "required": false,
           "autocomplete": true
         }
@@ -26089,6 +26216,13 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
+          "required": false,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
           "required": true,
           "spellcheck": true
         }
@@ -26397,6 +26531,20 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
+          "autocomplete": "foo",
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
           "autocomplete": true,
           "value": ""
         }
@@ -26419,6 +26567,20 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "autocomplete": false,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "value": ""
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "value": "Foo bar <b>HTML?</b>"
         }
       },
@@ -26447,6 +26609,20 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "autocomplete": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "dir": "rtl"
         }
       },
@@ -26461,6 +26637,13 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "autocomplete": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "inputId": "input-id"
         }
       },
@@ -26489,6 +26672,20 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "autocomplete": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "disabled": true
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "disabled": false
         }
       },
@@ -26545,6 +26742,34 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "autocomplete": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "tabIndex": "42"
         }
       },
@@ -26573,6 +26798,20 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "autocomplete": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "title": ""
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "title": "Foo bar <b>HTML?</b>"
         }
       },
@@ -26587,6 +26826,13 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "autocomplete": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "accessKey": "k"
         }
       },
@@ -26601,6 +26847,13 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "autocomplete": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "icon": "image"
         }
       },
@@ -26615,6 +26868,13 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "autocomplete": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "indicator": "down"
         }
       },
@@ -26643,6 +26903,20 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "autocomplete": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "flags": "primary"
         }
       },
@@ -31574,6 +31848,12 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "spellcheck": true
         }
       },
@@ -31939,6 +32219,13 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "rows": 0,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "rows": -1,
           "autocomplete": true
         }
@@ -31953,6 +32240,13 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "rows": -1,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "rows": 300,
           "autocomplete": true
         }
@@ -31962,6 +32256,13 @@
         "config": {
           "rows": 300,
           "autocomplete": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "rows": 300,
+          "autocomplete": "foo"
         }
       },
       {
@@ -32527,6 +32828,13 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "type": "text",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "type": "button",
           "autocomplete": true
         }
@@ -32536,6 +32844,13 @@
         "config": {
           "type": "button",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "type": "button",
+          "autocomplete": "foo"
         }
       },
       {
@@ -32975,6 +33290,13 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "placeholder": "",
           "autocomplete": true
         }
@@ -32984,6 +33306,13 @@
         "config": {
           "placeholder": "",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "placeholder": "",
+          "autocomplete": "foo"
         }
       },
       {
@@ -33003,6 +33332,13 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "placeholder": " ",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "placeholder": "0",
           "autocomplete": true
         }
@@ -33012,6 +33348,13 @@
         "config": {
           "placeholder": "0",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "placeholder": "0",
+          "autocomplete": "foo"
         }
       },
       {
@@ -33633,6 +33976,13 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "readOnly": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "readOnly": false,
           "autocomplete": true
         }
@@ -33642,6 +33992,13 @@
         "config": {
           "readOnly": false,
           "autocomplete": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "readOnly": false,
+          "autocomplete": "foo"
         }
       },
       {
@@ -33956,6 +34313,13 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "maxLength": 100,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "maxLength": 100,
           "spellcheck": true
         }
       },
@@ -34109,6 +34473,13 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "required": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "required": false,
           "autocomplete": true
         }
@@ -34123,6 +34494,13 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "required": false,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "required": true,
           "spellcheck": true
         }
@@ -34431,6 +34809,20 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "autocomplete": "foo",
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "autocomplete": true,
           "value": ""
         }
@@ -34453,6 +34845,20 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "autocomplete": false,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "value": ""
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "value": "Foo bar <b>HTML?</b>"
         }
       },
@@ -34481,6 +34887,20 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "autocomplete": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "dir": "rtl"
         }
       },
@@ -34495,6 +34915,13 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "autocomplete": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "inputId": "input-id"
         }
       },
@@ -34523,6 +34950,20 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "autocomplete": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "disabled": true
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "disabled": false
         }
       },
@@ -34579,6 +35020,34 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "autocomplete": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "tabIndex": "42"
         }
       },
@@ -34607,6 +35076,20 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "autocomplete": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "title": ""
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "title": "Foo bar <b>HTML?</b>"
         }
       },
@@ -34621,6 +35104,13 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "autocomplete": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "accessKey": "k"
         }
       },
@@ -34635,6 +35125,13 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "autocomplete": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "icon": "image"
         }
       },
@@ -34649,6 +35146,13 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "autocomplete": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "indicator": "down"
         }
       },
@@ -34677,6 +35181,20 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "autocomplete": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "flags": "primary"
         }
       },
@@ -36071,6 +36589,12 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "spellcheck": true
         }
       },
@@ -36457,6 +36981,13 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "min": "1",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "min": "3",
           "autocomplete": true
         }
@@ -36466,6 +36997,13 @@
         "config": {
           "min": "3",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "min": "3",
+          "autocomplete": "foo"
         }
       },
       {
@@ -36989,6 +37527,13 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "max": "3",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "max": "5",
           "autocomplete": true
         }
@@ -36998,6 +37543,13 @@
         "config": {
           "max": "5",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "max": "5",
+          "autocomplete": "foo"
         }
       },
       {
@@ -37403,6 +37955,13 @@
         "class": "NumberInputWidget",
         "config": {
           "step": "1",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "step": "1",
           "spellcheck": true
         }
       },
@@ -37655,6 +38214,13 @@
         "class": "NumberInputWidget",
         "config": {
           "buttonStep": "2",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "buttonStep": "2",
           "spellcheck": true
         }
       },
@@ -37900,6 +38466,13 @@
         "class": "NumberInputWidget",
         "config": {
           "pageStep": "10",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "pageStep": "10",
           "spellcheck": true
         }
       },
@@ -38207,6 +38780,13 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "showButtons": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "showButtons": false,
           "autocomplete": true
         }
@@ -38216,6 +38796,13 @@
         "config": {
           "showButtons": false,
           "autocomplete": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "showButtons": false,
+          "autocomplete": "foo"
         }
       },
       {
@@ -38641,6 +39228,13 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "type": "text",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "type": "button",
           "autocomplete": true
         }
@@ -38650,6 +39244,13 @@
         "config": {
           "type": "button",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "type": "button",
+          "autocomplete": "foo"
         }
       },
       {
@@ -39089,6 +39690,13 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "placeholder": "",
           "autocomplete": true
         }
@@ -39098,6 +39706,13 @@
         "config": {
           "placeholder": "",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "placeholder": "",
+          "autocomplete": "foo"
         }
       },
       {
@@ -39117,6 +39732,13 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "placeholder": " ",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "placeholder": "0",
           "autocomplete": true
         }
@@ -39126,6 +39748,13 @@
         "config": {
           "placeholder": "0",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "placeholder": "0",
+          "autocomplete": "foo"
         }
       },
       {
@@ -39747,6 +40376,13 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "readOnly": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "readOnly": false,
           "autocomplete": true
         }
@@ -39756,6 +40392,13 @@
         "config": {
           "readOnly": false,
           "autocomplete": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "autocomplete": "foo"
         }
       },
       {
@@ -40070,6 +40713,13 @@
         "class": "NumberInputWidget",
         "config": {
           "maxLength": 100,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "maxLength": 100,
           "spellcheck": true
         }
       },
@@ -40223,6 +40873,13 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "required": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "required": false,
           "autocomplete": true
         }
@@ -40237,6 +40894,13 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "required": false,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "required": true,
           "spellcheck": true
         }
@@ -40545,6 +41209,20 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "autocomplete": "foo",
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "autocomplete": true,
           "value": ""
         }
@@ -40567,6 +41245,20 @@
         "class": "NumberInputWidget",
         "config": {
           "autocomplete": false,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "value": ""
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "value": "Foo bar <b>HTML?</b>"
         }
       },
@@ -40595,6 +41287,20 @@
         "class": "NumberInputWidget",
         "config": {
           "autocomplete": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "dir": "rtl"
         }
       },
@@ -40609,6 +41315,13 @@
         "class": "NumberInputWidget",
         "config": {
           "autocomplete": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "inputId": "input-id"
         }
       },
@@ -40637,6 +41350,20 @@
         "class": "NumberInputWidget",
         "config": {
           "autocomplete": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "disabled": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "disabled": false
         }
       },
@@ -40693,6 +41420,34 @@
         "class": "NumberInputWidget",
         "config": {
           "autocomplete": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "tabIndex": "42"
         }
       },
@@ -40721,6 +41476,20 @@
         "class": "NumberInputWidget",
         "config": {
           "autocomplete": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "title": ""
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "title": "Foo bar <b>HTML?</b>"
         }
       },
@@ -40735,6 +41504,13 @@
         "class": "NumberInputWidget",
         "config": {
           "autocomplete": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "accessKey": "k"
         }
       },
@@ -40749,6 +41525,13 @@
         "class": "NumberInputWidget",
         "config": {
           "autocomplete": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "icon": "image"
         }
       },
@@ -40763,6 +41546,13 @@
         "class": "NumberInputWidget",
         "config": {
           "autocomplete": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "indicator": "down"
         }
       },
@@ -40791,6 +41581,20 @@
         "class": "NumberInputWidget",
         "config": {
           "autocomplete": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "flags": "primary"
         }
       },
@@ -45365,6 +46169,12 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "spellcheck": true
         }
       },
@@ -45625,6 +46435,13 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "type": "text",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "type": "button",
           "autocomplete": true
         }
@@ -45634,6 +46451,13 @@
         "config": {
           "type": "button",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "button",
+          "autocomplete": "foo"
         }
       },
       {
@@ -46073,6 +46897,13 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "placeholder": "",
           "autocomplete": true
         }
@@ -46082,6 +46913,13 @@
         "config": {
           "placeholder": "",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "",
+          "autocomplete": "foo"
         }
       },
       {
@@ -46101,6 +46939,13 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "placeholder": " ",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "placeholder": "0",
           "autocomplete": true
         }
@@ -46110,6 +46955,13 @@
         "config": {
           "placeholder": "0",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "0",
+          "autocomplete": "foo"
         }
       },
       {
@@ -46731,6 +47583,13 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "readOnly": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "readOnly": false,
           "autocomplete": true
         }
@@ -46740,6 +47599,13 @@
         "config": {
           "readOnly": false,
           "autocomplete": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": false,
+          "autocomplete": "foo"
         }
       },
       {
@@ -47054,6 +47920,13 @@
         "class": "SearchInputWidget",
         "config": {
           "maxLength": 100,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "maxLength": 100,
           "spellcheck": true
         }
       },
@@ -47207,6 +48080,13 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "required": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "required": false,
           "autocomplete": true
         }
@@ -47221,6 +48101,13 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "required": false,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "required": true,
           "spellcheck": true
         }
@@ -47529,6 +48416,20 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "autocomplete": "foo",
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "autocomplete": true,
           "value": ""
         }
@@ -47551,6 +48452,20 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": false,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "value": "Foo bar <b>HTML?</b>"
         }
       },
@@ -47579,6 +48494,20 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "dir": "rtl"
         }
       },
@@ -47593,6 +48522,13 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "inputId": "input-id"
         }
       },
@@ -47621,6 +48557,20 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "disabled": false
         }
       },
@@ -47677,6 +48627,34 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "tabIndex": "42"
         }
       },
@@ -47705,6 +48683,20 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "title": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "title": "Foo bar <b>HTML?</b>"
         }
       },
@@ -47719,6 +48711,13 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "accessKey": "k"
         }
       },
@@ -47733,6 +48732,13 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "icon": "image"
         }
       },
@@ -47747,6 +48753,13 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "indicator": "down"
         }
       },
@@ -47775,6 +48788,20 @@
         "class": "SearchInputWidget",
         "config": {
           "autocomplete": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "flags": "primary"
         }
       },
@@ -51457,6 +52484,12 @@
       {
         "class": "TextInputWidget",
         "config": {
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
           "spellcheck": true
         }
       },
@@ -51843,6 +52876,13 @@
       {
         "class": "TextInputWidget",
         "config": {
+          "type": "text",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
           "type": "number",
           "autocomplete": true
         }
@@ -51852,6 +52892,13 @@
         "config": {
           "type": "number",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "type": "number",
+          "autocomplete": "foo"
         }
       },
       {
@@ -51871,6 +52918,13 @@
       {
         "class": "TextInputWidget",
         "config": {
+          "type": "password",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
           "type": "foo",
           "autocomplete": true
         }
@@ -51880,6 +52934,13 @@
         "config": {
           "type": "foo",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "type": "foo",
+          "autocomplete": "foo"
         }
       },
       {
@@ -52599,6 +53660,13 @@
       {
         "class": "TextInputWidget",
         "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
           "placeholder": "",
           "autocomplete": true
         }
@@ -52608,6 +53676,13 @@
         "config": {
           "placeholder": "",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "placeholder": "",
+          "autocomplete": "foo"
         }
       },
       {
@@ -52627,6 +53702,13 @@
       {
         "class": "TextInputWidget",
         "config": {
+          "placeholder": " ",
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
           "placeholder": "0",
           "autocomplete": true
         }
@@ -52636,6 +53718,13 @@
         "config": {
           "placeholder": "0",
           "autocomplete": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "placeholder": "0",
+          "autocomplete": "foo"
         }
       },
       {
@@ -53257,6 +54346,13 @@
       {
         "class": "TextInputWidget",
         "config": {
+          "readOnly": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
           "readOnly": false,
           "autocomplete": true
         }
@@ -53266,6 +54362,13 @@
         "config": {
           "readOnly": false,
           "autocomplete": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "readOnly": false,
+          "autocomplete": "foo"
         }
       },
       {
@@ -53580,6 +54683,13 @@
         "class": "TextInputWidget",
         "config": {
           "maxLength": 100,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "maxLength": 100,
           "spellcheck": true
         }
       },
@@ -53733,6 +54843,13 @@
       {
         "class": "TextInputWidget",
         "config": {
+          "required": true,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
           "required": false,
           "autocomplete": true
         }
@@ -53747,6 +54864,13 @@
       {
         "class": "TextInputWidget",
         "config": {
+          "required": false,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
           "required": true,
           "spellcheck": true
         }
@@ -54055,6 +55179,20 @@
       {
         "class": "TextInputWidget",
         "config": {
+          "autocomplete": "foo",
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
           "autocomplete": true,
           "value": ""
         }
@@ -54077,6 +55215,20 @@
         "class": "TextInputWidget",
         "config": {
           "autocomplete": false,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "value": ""
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "value": "Foo bar <b>HTML?</b>"
         }
       },
@@ -54105,6 +55257,20 @@
         "class": "TextInputWidget",
         "config": {
           "autocomplete": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "dir": "rtl"
         }
       },
@@ -54119,6 +55285,13 @@
         "class": "TextInputWidget",
         "config": {
           "autocomplete": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "inputId": "input-id"
         }
       },
@@ -54147,6 +55320,20 @@
         "class": "TextInputWidget",
         "config": {
           "autocomplete": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "disabled": true
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "disabled": false
         }
       },
@@ -54203,6 +55390,34 @@
         "class": "TextInputWidget",
         "config": {
           "autocomplete": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "tabIndex": "42"
         }
       },
@@ -54231,6 +55446,20 @@
         "class": "TextInputWidget",
         "config": {
           "autocomplete": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "title": ""
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "title": "Foo bar <b>HTML?</b>"
         }
       },
@@ -54245,6 +55474,13 @@
         "class": "TextInputWidget",
         "config": {
           "autocomplete": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "accessKey": "k"
         }
       },
@@ -54259,6 +55495,13 @@
         "class": "TextInputWidget",
         "config": {
           "autocomplete": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "icon": "image"
         }
       },
@@ -54273,6 +55516,13 @@
         "class": "TextInputWidget",
         "config": {
           "autocomplete": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "indicator": "down"
         }
       },
@@ -54301,6 +55551,20 @@
         "class": "TextInputWidget",
         "config": {
           "autocomplete": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "autocomplete": "foo",
           "flags": "primary"
         }
       },

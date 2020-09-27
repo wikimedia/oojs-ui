@@ -48,8 +48,8 @@ class TextInputWidget extends InputWidget {
 	 *      - bool $config['required'] Mark the field as required.
 	 *          Implies `indicator: 'required'`. Note that `false` & setting `indicator: 'required'
 	 *          will result in no indicator shown. (default: false)
-	 *      - bool $config['autocomplete'] If the field should support autocomplete
-	 *          or not (default: true)
+	 *      - bool|string $config['autocomplete'] If the field should support autocomplete
+	 *          or not (default: true). Can also be an autocomplete type hint.
 	 *      - bool $config['spellcheck'] If the field should support spellcheck
 	 *          or not (default: browser-dependent)
 	 */
@@ -60,8 +60,10 @@ class TextInputWidget extends InputWidget {
 			'readOnly' => false,
 			'autofocus' => false,
 			'required' => false,
-			'autocomplete' => true,
 		], $config );
+		if ( is_bool( $config['autocomplete'] ?? null ) ) {
+			$config['autocomplete'] = $config['autocomplete'] ? 'on' : 'off';
+		}
 
 		// Parent constructor
 		parent::__construct( $config );
@@ -95,8 +97,8 @@ class TextInputWidget extends InputWidget {
 		if ( $config['autofocus'] ) {
 			$this->input->setAttributes( [ 'autofocus' => 'autofocus' ] );
 		}
-		if ( !$config['autocomplete'] ) {
-			$this->input->setAttributes( [ 'autocomplete' => 'off' ] );
+		if ( isset( $config['autocomplete'] ) ) {
+			$this->input->setAttributes( [ 'autocomplete' => $config['autocomplete'] ] );
 		}
 		if ( isset( $config['spellcheck'] ) ) {
 			$this->input->setAttributes( [ 'spellcheck' => $config['spellcheck'] ? 'true' : 'false' ] );
@@ -208,7 +210,7 @@ class TextInputWidget extends InputWidget {
 		}
 		$autocomplete = $this->input->getAttribute( 'autocomplete' );
 		if ( $autocomplete !== null ) {
-			$config['autocomplete'] = false;
+			$config['autocomplete'] = $autocomplete;
 		}
 		return parent::getConfig( $config );
 	}
