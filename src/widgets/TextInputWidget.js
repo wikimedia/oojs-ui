@@ -43,7 +43,8 @@
  * @cfg {boolean} [required=false] Mark the field as required with `true`. Implies `indicator:
  *  'required'`. Note that `false` & setting `indicator: 'required' will result in no indicator
  *  shown.
- * @cfg {boolean} [autocomplete=true] Should the browser support autocomplete for this field
+ * @cfg {boolean|string} [autocomplete] Should the browser support autocomplete for this field?
+ *  Type hints such as 'email' are also allowed.
  * @cfg {boolean} [spellcheck] Should the browser support spellcheck for this field (`undefined`
  *  means leaving it up to the browser).
  * @cfg {RegExp|Function|string} [validate] Validation pattern: when string, a symbolic name of a
@@ -58,6 +59,11 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 		type: 'text',
 		labelPosition: 'after'
 	}, config );
+	if ( config.autocomplete === false ) {
+		config.autocomplete = 'off';
+	} else if ( config.autocomplete === true ) {
+		config.autocomplete = 'on';
+	}
 
 	// Parent constructor
 	OO.ui.TextInputWidget.super.call( this, config );
@@ -105,21 +111,23 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	if ( config.autofocus ) {
 		this.$input.attr( 'autofocus', 'autofocus' );
 	}
-	if ( config.autocomplete === false ) {
-		this.$input.attr( 'autocomplete', 'off' );
-		// Turning off autocompletion also disables "form caching" when the user navigates to a
-		// different page and then clicks "Back". Re-enable it when leaving.
-		// Borrowed from jQuery UI.
-		$( window ).on( {
-			beforeunload: function () {
-				this.$input.removeAttr( 'autocomplete' );
-			}.bind( this ),
-			pageshow: function () {
-				// Browsers don't seem to actually fire this event on "Back", they instead just
-				// reload the whole page... it shouldn't hurt, though.
-				this.$input.attr( 'autocomplete', 'off' );
-			}.bind( this )
-		} );
+	if ( config.autocomplete !== null && config.autocomplete !== undefined ) {
+		this.$input.attr( 'autocomplete', config.autocomplete );
+		if ( config.autocomplete === 'off' ) {
+			// Turning off autocompletion also disables "form caching" when the user navigates to a
+			// different page and then clicks "Back". Re-enable it when leaving.
+			// Borrowed from jQuery UI.
+			$( window ).on( {
+				beforeunload: function () {
+					this.$input.removeAttr( 'autocomplete' );
+				}.bind( this ),
+				pageshow: function () {
+					// Browsers don't seem to actually fire this event on "Back", they instead just
+					// reload the whole page... it shouldn't hurt, though.
+					this.$input.attr( 'autocomplete', 'off' );
+				}.bind( this )
+			} );
+		}
 	}
 	if ( config.spellcheck !== undefined ) {
 		this.$input.attr( 'spellcheck', config.spellcheck ? 'true' : 'false' );

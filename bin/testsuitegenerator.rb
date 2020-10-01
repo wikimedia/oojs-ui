@@ -117,6 +117,7 @@ else
 		'dir' => %w[ltr rtl],
 		'href' => ['http://example.com/'],
 		['TextInputWidget', 'type'] => %w[text number password foo],
+		'autocomplete' => [true, false, 'foo'],
 		['ButtonInputWidget', 'type'] => %w[button submit foo],
 		['NumberInputWidget', 'step'] => %w[1],
 		['NumberInputWidget', 'buttonStep'] => %w[2],
