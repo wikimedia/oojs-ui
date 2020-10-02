@@ -78,7 +78,11 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 				this.selectButton.$element,
 				$( '<span>' )
 					.addClass( 'oo-ui-selectFileWidget-dropLabel' )
-					.text( OO.ui.msg( 'ooui-selectfile-dragdrop-placeholder' ) )
+					.text( OO.ui.msg(
+						this.multiple ?
+							'ooui-selectfile-dragdrop-placeholder-multiple' :
+							'ooui-selectfile-dragdrop-placeholder'
+					) )
 			);
 		this.fieldLayout.$element.remove();
 	} else if ( config.buttonOnly ) {

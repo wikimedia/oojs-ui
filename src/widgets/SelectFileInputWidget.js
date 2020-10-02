@@ -33,7 +33,11 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	this.selectButton = new OO.ui.ButtonWidget( $.extend( {
 		$element: $( '<label>' ),
 		classes: [ 'oo-ui-selectFileInputWidget-selectButton' ],
-		label: OO.ui.msg( 'ooui-selectfile-button-select' )
+		label: OO.ui.msg(
+			config.multiple ?
+				'ooui-selectfile-button-select-multiple' :
+				'ooui-selectfile-button-select'
+		)
 	}, config.button ) );
 
 	// Configuration initialization
