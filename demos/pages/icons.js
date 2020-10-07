@@ -194,7 +194,9 @@ Demo.static.pages.icons = function ( demo ) {
 				'musicalScore',
 				'play',
 				'pause',
+				'volumeDown',
 				'volumeUp',
+				'volumeOff',
 				'stop',
 				'zoomIn',
 				'zoomOut'
