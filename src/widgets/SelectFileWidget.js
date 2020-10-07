@@ -25,7 +25,7 @@
  * @cfg {boolean} [buttonOnly=false] Show only the select file button, no info field. Requires
  *  showDropTarget to be false.
  * @cfg {boolean} [showDropTarget=false] Whether to show a drop target. Requires droppable to be
- *  true. Not yet supported in multiple file mode.
+ *  true.
  * @cfg {number} [thumbnailSizeLimit=20] File size limit in MiB above which to not try and show a
  *  preview (for performance).
  */
@@ -58,22 +58,18 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 
 	// Properties
 	droppable = config.droppable && isSupported;
-	// TODO: Support drop target when multiple is set
-	this.showDropTarget = droppable && config.showDropTarget && !this.multiple;
+	this.showDropTarget = droppable && config.showDropTarget;
 	this.thumbnailSizeLimit = config.thumbnailSizeLimit;
 
 	// Initialization
 	if ( this.showDropTarget ) {
 		this.selectButton.setIcon( 'upload' );
-		this.$thumbnail = $( '<div>' ).addClass( 'oo-ui-selectFileWidget-thumbnail' );
-		this.setPendingElement( this.$thumbnail );
 		this.$element
 			.addClass( 'oo-ui-selectFileWidget-dropTarget' )
 			.on( {
 				click: this.onDropTargetClick.bind( this )
 			} )
 			.append(
-				this.$thumbnail,
 				this.info.$element,
 				this.selectButton.$element,
 				$( '<span>' )
@@ -84,6 +80,13 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 							'ooui-selectfile-dragdrop-placeholder'
 					) )
 			);
+		if ( !this.multiple ) {
+			this.$thumbnail = $( '<div>' ).addClass( 'oo-ui-selectFileWidget-thumbnail' );
+			this.setPendingElement( this.$thumbnail );
+			this.$element
+				.addClass( 'oo-ui-selectFileWidget-withThumbnail' )
+				.prepend( this.$thumbnail );
+		}
 		this.fieldLayout.$element.remove();
 	} else if ( config.buttonOnly ) {
 		// Copy over any classes that may have been added already.
@@ -222,19 +225,21 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 		this.$element.removeClass( 'oo-ui-selectFileInputWidget-empty' );
 
 		if ( this.showDropTarget ) {
-			this.pushPending();
-			this.loadAndGetImageUrl( this.currentFiles[ 0 ] ).done( function ( url ) {
-				this.$thumbnail.css( 'background-image', 'url( ' + url + ' )' );
-			}.bind( this ) ).fail( function () {
-				this.$thumbnail.append(
-					new OO.ui.IconWidget( {
-						icon: 'attachment',
-						classes: [ 'oo-ui-selectFileWidget-noThumbnail-icon' ]
-					} ).$element
-				);
-			}.bind( this ) ).always( function () {
-				this.popPending();
-			}.bind( this ) );
+			if ( !this.multiple ) {
+				this.pushPending();
+				this.loadAndGetImageUrl( this.currentFiles[ 0 ] ).done( function ( url ) {
+					this.$thumbnail.css( 'background-image', 'url( ' + url + ' )' );
+				}.bind( this ) ).fail( function () {
+					this.$thumbnail.append(
+						new OO.ui.IconWidget( {
+							icon: 'attachment',
+							classes: [ 'oo-ui-selectFileWidget-noThumbnail-icon' ]
+						} ).$element
+					);
+				}.bind( this ) ).always( function () {
+					this.popPending();
+				}.bind( this ) );
+			}
 			this.$element.off( 'click' );
 		}
 	} else {
@@ -243,9 +248,11 @@ OO.ui.SelectFileWidget.prototype.updateUI = function () {
 			this.$element.on( {
 				click: this.onDropTargetClick.bind( this )
 			} );
-			this.$thumbnail
-				.empty()
-				.css( 'background-image', '' );
+			if ( !this.multiple ) {
+				this.$thumbnail
+					.empty()
+					.css( 'background-image', '' );
+			}
 		}
 		this.$element.addClass( 'oo-ui-selectFileInputWidget-empty' );
 	}
