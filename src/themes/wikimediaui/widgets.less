@@ -1082,11 +1082,14 @@
 
 .theme-oo-ui-progressBarWidget() {
 	max-width: @max-width-base;
-	background-color: @background-color-base;
 	border: @border-base;
 	border-radius: @border-radius-progressbar;
 	box-shadow: @box-shadow-progressbar;
 	overflow: hidden;
+
+	&:not( .oo-ui-pendingElement-pending ) {
+		background-color: @background-color-base;
+	}
 
 	&-bar {
 		height: @height-progressbar-bar;

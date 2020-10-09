@@ -811,10 +811,13 @@
 
 .theme-oo-ui-progressBarWidget() {
 	max-width: @max-width-input-base;
-	background-color: @background-color-main;
 	border: @border-base;
 	border-radius: @border-radius-base;
 	overflow: hidden;
+
+	&:not( .oo-ui-pendingElement-pending ) {
+		background-color: @background-color-main;
+	}
 
 	&-bar {
 		.oo-ui-vertical-gradient( @background-color-progressive-gradient-light, @background-color-progressive-gradient-dark );
