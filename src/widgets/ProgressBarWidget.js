@@ -34,6 +34,7 @@
  *
  * @class
  * @extends OO.ui.Widget
+ * @mixins OO.ui.mixin.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -48,6 +49,9 @@ OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
 
 	// Parent constructor
 	OO.ui.ProgressBarWidget.super.call( this, config );
+
+	// Mixin constructors
+	OO.ui.mixin.PendingElement.call( this, config );
 
 	// Properties
 	this.$bar = $( '<div>' );
@@ -69,6 +73,7 @@ OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.ProgressBarWidget, OO.ui.Widget );
+OO.mixinClass( OO.ui.ProgressBarWidget, OO.ui.mixin.PendingElement );
 
 /* Static Properties */
 
