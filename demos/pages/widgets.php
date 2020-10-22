@@ -1159,6 +1159,28 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'align' => 'top'
 			]
 		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'notice',
+				'icon' => 'article',
+				'label' => 'MessageWidget (notice) with custom icon.'
+			] ),
+			[
+				'label' => "MessageWidget (type => 'notice', icon => 'article')",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'success',
+				'icon' => 'article',
+				'label' => 'MessageWidget (success) with custom icon.'
+			] ),
+			[
+				'label' => "MessageWidget (type => 'success', icon => 'article')",
+				'align' => 'top'
+			]
+		),
 	]
 ] ) );
 

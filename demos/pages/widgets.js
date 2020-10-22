@@ -2843,6 +2843,28 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'MessageWidget (type: \'success\', inline: true)',
 						align: 'top'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'notice',
+						icon: 'article',
+						label: 'MessageWidget (info) with custom icon.'
+					} ),
+					{
+						label: 'MessageWidget (type: \'notice\', icon: \'article\')',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'success',
+						icon: 'article',
+						label: 'MessageWidget (success) with custom icon.'
+					} ),
+					{
+						label: 'MessageWidget (type: \'success\', icon: \'article\')',
+						align: 'top'
+					}
 				)
 			]
 		} )

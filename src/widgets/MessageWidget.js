@@ -37,6 +37,12 @@ OO.ui.MessageWidget = function OoUiMessageWidget( config ) {
 	this.setType( config.type );
 	this.setInline( config.inline );
 
+	// If an icon is passed in, set it again as setType will
+	// have overridden the setIcon call in the IconElement constructor
+	if ( config.icon ) {
+		this.setIcon( config.icon );
+	}
+
 	// Build the widget
 	this.$element
 		.append( this.$icon, this.$label )
