@@ -772,12 +772,14 @@
 	}
 
 	&-head {
-		height: 2.5em;
+		// Headers and footers are always padded
 		padding-left: 0.75em;
+		// Set bottom margin here to it can collapse with the body
+		margin-bottom: 0.7em;
 
 		> .oo-ui-buttonWidget {
-			top: 0.25em;
-			right: 0.25em;
+			position: absolute;
+			right: 0;
 
 			.oo-ui-icon-close {
 				// This must have two values to match `background-size: 0 0` above,
@@ -787,21 +789,29 @@
 		}
 
 		> .oo-ui-labelElement-label {
-			margin: 0.75em ( @size-icon + 0.25 ) 0.75em 0.25em;
+			display: inline-block;
+			margin: 0.75em ( @size-icon + 0.25 ) 0 0.25em;
 		}
 
-		> .oo-ui-iconElement-icon {
+		> .oo-ui-iconElement-icon:not( .oo-ui-iconElement-noIcon ) {
 			height: 100%;
+			display: inline-block;
+			vertical-align: middle;
 		}
 	}
 
 	&-body {
 		line-height: 1.4;
+
+		&-padded {
+			// Use 'margin' rather than 'padding' to allow the margin to collapse with
+			// the margin of <p> elements etc. inside the popup
+			margin: 0.75em 1em;
+		}
 	}
 
-	&-body-padded {
-		// Use 'margin' rather than 'padding' to allow the margin to collapse with
-		// the margin of <p> elements etc. inside the popup
+	&-footer {
+		// Headers and footers are always padded
 		margin: 0.75em 1em;
 	}
 }

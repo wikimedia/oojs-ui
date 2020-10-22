@@ -1034,9 +1034,13 @@
 	}
 
 	&-head {
+		// Headers and footers are always padded
+		// Set bottom margin here to it can collapse with the body
+		margin-bottom: @margin-vertical-popup;
+
 		> .oo-ui-iconElement-icon {
 			left: @start-framed-icon-only;
-			height: @size-icon + 2 * 0.3em;
+			height: calc( @size-icon ~' + 2 * ' @margin-vertical-popup );
 		}
 
 		> .oo-ui-iconElement-noIcon + .oo-ui-labelElement-label {
@@ -1044,12 +1048,13 @@
 		}
 
 		> .oo-ui-labelElement-label {
-			margin: @margin-vertical-popup @padding-horizontal-base @margin-vertical-popup @padding-start-menu-icon-label;
+			display: inline-block;
+			margin: @margin-vertical-popup @padding-horizontal-base 0 @padding-start-menu-icon-label;
 			line-height: @line-height-base;
 		}
 
 		> .oo-ui-buttonWidget {
-			// `top: 0;` not needed as default value
+			position: absolute;
 			right: 0;
 
 			.oo-ui-icon-close {
@@ -1064,15 +1069,14 @@
 		line-height: @line-height-base;
 
 		&-padded {
-			margin: 0 @padding-horizontal-base @padding-vertical-base;// Use `margin` rather than `padding` to enable margin to collapse
-
-			> :first-child {
-				margin-top: 0;
-			}
+			// Use 'margin' rather than 'padding' to allow the margin to collapse with
+			// the margin of <p> elements etc. inside the popup
+			margin: @padding-vertical-base @padding-horizontal-base;
 		}
 	}
 
 	&-footer {
+		// Headers and footers are always padded
 		margin: @margin-vertical-popup @padding-horizontal-base;
 	}
 }
