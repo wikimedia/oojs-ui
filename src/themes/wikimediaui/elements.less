@@ -7,6 +7,7 @@
 		position: relative;
 		min-height: @min-height-widget-base;
 		border-radius: @border-radius-base;
+		// Use `padding` to ensure user preference text sizing scales icons.
 		padding-top: @padding-top-icon-indicator;
 		font-weight: bold;
 		text-decoration: none;
@@ -93,13 +94,13 @@
 			}
 
 			> .oo-ui-buttonElement-button {
-				min-width: @size-icon;
-				min-height: @size-icon;
+				min-width: @min-size-base;
+				min-height: @min-size-base;
 				border-color: @border-color-frameless;
 				border-style: @border-style-base;
 				border-width: @border-width-base;
-				padding-top: @padding-top-icon-indicator; // Support IE 7: Acts as `min-height`, see T93290
-				padding-left: @padding-start-icon-only; // Support IE 7: Acts as `min-width`
+				padding-top: @padding-top-icon-indicator;
+				padding-left: @padding-start-icon-only;
 
 				> .oo-ui-iconElement-icon {
 					left: @start-frameless-icon;
@@ -131,9 +132,8 @@
 		}
 
 		&.oo-ui-indicatorElement {
-			> .oo-ui-buttonElement-button {
+			&:not( .oo-ui-iconElement ):not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button {
 				min-width: @min-size-indicator;
-				min-height: @min-size-indicator;
 			}
 
 			&.oo-ui-iconElement > .oo-ui-buttonElement-button { // Reset with specificity from above, see T174968
