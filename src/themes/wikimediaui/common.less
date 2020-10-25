@@ -232,9 +232,9 @@
 	}
 
 	> @{child}:active,
-	> @{child}:active:focus,
 	&.oo-ui-buttonElement-pressed > @{child} {
 		color: @active;
+		border-color: @active;
 		box-shadow: none;
 	}
 }
@@ -249,8 +249,14 @@
 		border-color: @border-color--hover;
 	}
 
+	> @{child}:focus {
+		border-color: @focus;
+		box-shadow: inset 0 0 0 1px @focus;
+		// In Windows high contrast mode the outline becomes visible.
+		outline: @outline-base--focus;
+	}
+
 	> @{child}:active,
-	> @{child}:active:focus,
 	&.oo-ui-buttonElement-pressed > @{child},
 	&.oo-ui-buttonElement-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
@@ -258,13 +264,6 @@
 		color: @active;
 		border-color: @active;
 		box-shadow: none;
-	}
-
-	> @{child}:focus {
-		border-color: @focus;
-		box-shadow: inset 0 0 0 1px @focus;
-		// In Windows high contrast mode the outline becomes visible.
-		outline: @outline-base--focus;
 	}
 }
 
@@ -280,8 +279,14 @@
 		border-color: @hover;
 	}
 
+	> @{child}:focus {
+		border-color: @focus;
+		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base--inverted;
+		// In Windows high contrast mode the outline becomes visible.
+		outline: @outline-base--focus;
+	}
+
 	> @{child}:active,
-	> @{child}:active:focus,
 	&.oo-ui-buttonElement-pressed > @{child},
 	&.oo-ui-buttonElement-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
@@ -289,13 +294,6 @@
 		background-color: @active;
 		border-color: @active;
 		box-shadow: none;
-	}
-
-	> @{child}:focus {
-		border-color: @focus;
-		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base--inverted;
-		// In Windows high contrast mode the outline becomes visible.
-		outline: @outline-base--focus;
 	}
 }
 
@@ -310,18 +308,17 @@
 		background-color: @hover;
 	}
 
+	> @{child}:focus {
+		outline: @border-width-base @border-style-base @focus;
+		box-shadow: inset 0 0 0 1px @focus;
+	}
+
 	> @{child}:active,
-	> @{child}:active:focus,
 	&.oo-ui-tool-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
 		background-color: lighten( @active, 60% );
 		color: @active-text;
 		box-shadow: none;
-	}
-
-	> @{child}:focus {
-		outline: @border-width-base @border-style-base @focus;
-		box-shadow: inset 0 0 0 1px @focus;
 	}
 }
 
@@ -335,22 +332,20 @@
 		background-color: @hover;
 	}
 
+	> @{child}:focus {
+		outline: @border-width-base @border-style-base @focus;
+		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base--inverted;
+	}
+
 	> @{child}:active,
-	> @{child}:active:focus,
 	&.oo-ui-tool-active > @{child} {
 		color: @color-base--inverted;
 		background-color: @active;
 		box-shadow: none;
 	}
 
-	> @{child}:focus {
-		outline: @border-width-base @border-style-base @focus;
-		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base--inverted;
-	}
-
 	&.oo-ui-widget-disabled > @{child},
-	&.oo-ui-widget-disabled > @{child}:active,
-	&.oo-ui-widget-disabled > @{child}:active:focus {
+	&.oo-ui-widget-disabled > @{child}:active {
 		background-color: @background-color-filled--disabled;
 		color: @color-filled--disabled;
 	}
