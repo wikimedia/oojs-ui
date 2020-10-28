@@ -44,7 +44,7 @@ class Tag {
 	/**
 	 * Infusion support.
 	 *
-	 * @var boolean Whether to serialize tag/element/widget state for client-side use.
+	 * @var bool Whether to serialize tag/element/widget state for client-side use.
 	 */
 	protected $infusable = false;
 

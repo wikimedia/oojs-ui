@@ -16,7 +16,7 @@ class CheckboxInputWidget extends InputWidget {
 	/**
 	 * Whether the checkbox is selected.
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $selected;
 

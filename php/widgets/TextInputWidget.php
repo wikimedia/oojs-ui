@@ -22,14 +22,14 @@ class TextInputWidget extends InputWidget {
 	/**
 	 * Prevent changes.
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $readOnly = false;
 
 	/**
 	 * Mark as required.
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $required = false;
 

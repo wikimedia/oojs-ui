@@ -6,6 +6,9 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
 		<!-- Together with the above, false positives in WikimediaUITheme.php and others -->
 		<exclude name="MediaWiki.Commenting.FunctionComment.WrongStyle" />
+		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate" />
+		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationProtected" />
+		<exclude name="MediaWiki.Commenting.PropertyDocumentation.WrongStyle" />
 	</rule>
 	<file>.</file>
 	<arg name="encoding" value="UTF-8"/>
