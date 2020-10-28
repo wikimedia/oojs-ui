@@ -156,28 +156,23 @@
 
 				&:hover {
 					background-color: @background-color-frameless--hover;
-					color: @color-base--emphasized;
+					color: @color-base--active;
 				}
 
-				&:active {
-					background-color: @background-color-frameless--active;
-					color: @color-base--hover;
-				}
-			}
-
-			&.oo-ui-iconElement,
-			&.oo-ui-labelElement {
-				> .oo-ui-buttonElement-button:focus {
+				&:focus {
 					border-color: @border-color-base--focus;
 					box-shadow: @box-shadow-widget--focus;
 					// In Windows high contrast mode the outline becomes visible.
 					outline: @outline-base--focus;
-
-					&:active {
-						border-color: @border-color-frameless;
-						box-shadow: none;
-					}
 				}
+			}
+
+			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
+			> .oo-ui-buttonElement-button:active {
+				background-color: @background-color-frameless--active;
+				color: @color-base--active;
+				border-color: @border-color-base--active;
+				box-shadow: none;
 			}
 
 			&.oo-ui-indicatorElement:not( .oo-ui-iconElement ):not( .oo-ui-labelElement ) { // IE 9+ only on non-critical design properties
@@ -186,21 +181,12 @@
 
 					&:focus {
 						box-shadow: @box-shadow-frameless-indicator--focus;
-						// In Windows high contrast mode the outline becomes visible.
-						outline: @outline-base--focus;
+					}
 
-						&:active {
-							box-shadow: none;
-						}
+					&:active {
+						box-shadow: none;
 					}
 				}
-			}
-
-			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
-			& > .oo-ui-buttonElement-button:active {
-				color: @color-base--active;
-				border-color: @border-color-frameless;
-				box-shadow: none;
 			}
 
 			&.oo-ui-flaggedElement {
@@ -327,15 +313,7 @@
 				}
 			}
 
-			> .oo-ui-buttonElement-button:active,
-			> .oo-ui-buttonElement-button:active:focus,
-			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-				background-color: @background-color-framed--active;
-				color: @color-base--active;
-				border-color: @border-color-base--active;
-				box-shadow: none;
-			}
-
+			// `.oo-ui-buttonElement-active` is the selected (toggled) one here.
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
 				background-color: @color-primary--active;
 				color: @color-base--inverted;
@@ -345,6 +323,15 @@
 					border-color: @color-primary--focus;
 					box-shadow: @box-shadow-progressive--focus;
 				}
+			}
+
+			// `.oo-ui-buttonElement-pressed` is the `:active` (mousedown) one here.
+			> .oo-ui-buttonElement-button:active,
+			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+				background-color: @background-color-framed--active;
+				color: @color-base--active;
+				border-color: @border-color-base--active;
+				box-shadow: none;
 			}
 
 			&.oo-ui-flaggedElement {
