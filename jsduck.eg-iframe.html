@@ -7,8 +7,11 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<style>
 	body {
-		font-size: 0.875em;
 		font-family: sans-serif;
+		font-size: 0.875em;
+		/* Support IE 9-11, Trident cuts values 2 digits after decimal point.
+		   `calc` enables to set correct calculation in place again. See T102364. */
+		font-size: calc( 1em * 0.875 );
 	}
 	</style>
 	<link rel="stylesheet" href="dist/oojs-ui-wikimediaui.css">
