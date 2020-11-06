@@ -241,7 +241,7 @@
 		// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
 		&:focus + span {
 			border-color: @border-color-base--focus;
-			box-shadow: @box-shadow-widget--focus;
+			box-shadow: @box-shadow-base--focus;
 			// In Windows high contrast mode the outline becomes visible.
 			outline: @outline-base--focus;
 		}
@@ -485,7 +485,7 @@
 		&:focus {
 			border-color: @border-color-base--focus;
 			outline: 0;
-			box-shadow: @box-shadow-widget--focus;
+			box-shadow: @box-shadow-base--focus;
 		}
 
 		.oo-ui-iconElement-icon,
@@ -603,7 +603,7 @@
 			&:focus {
 				border-color: @border-color-base--focus;
 				outline: 0;
-				box-shadow: @box-shadow-widget--focus;
+				box-shadow: @box-shadow-base--focus;
 			}
 		}
 	}
@@ -1577,7 +1577,7 @@
 
 		&:focus {
 			border-color: @border-color-base--focus;
-			box-shadow: @box-shadow-widget--focus;
+			box-shadow: @box-shadow-base--focus;
 			outline: 0;
 		}
 
@@ -1740,7 +1740,7 @@
 			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
 				border-color: @border-color-base--focus;
 				outline: 0;
-				box-shadow: @box-shadow-widget--focus;
+				box-shadow: @box-shadow-base--focus;
 			}
 
 			&.oo-ui-flaggedElement-invalid {
@@ -1874,7 +1874,7 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-inputWidget-input {
-			box-shadow: @box-shadow-widget; // necessary for smooth transition
+			box-shadow: @box-shadow-base; // necessary for smooth transition
 			.oo-ui-transition(
 				border-color @transition-ease-medium,
 				box-shadow @transition-ease-medium
@@ -1885,7 +1885,7 @@
 			&:focus {
 				outline: 0;
 				border-color: @border-color-base--focus;
-				box-shadow: @box-shadow-widget--focus;
+				box-shadow: @box-shadow-base--focus;
 
 				~ .oo-ui-iconElement-icon,
 				~ .oo-ui-indicatorElement-indicator {
@@ -2087,7 +2087,7 @@
 
 		&:focus {
 			border-color: @color-primary;
-			box-shadow: @box-shadow-widget--focus;
+			box-shadow: @box-shadow-base--focus;
 			outline: 0;
 
 			.oo-ui-toggleSwitchWidget-grip {
