@@ -67,6 +67,6 @@
 		"prismjs": "1.20.0",
 		"q": "1.5.1",
 		"qunit": "2.10.0",
-		"stylelint-config-wikimedia": "0.10.1"
+		"stylelint-config-wikimedia": "0.10.2"
 	}
 }
