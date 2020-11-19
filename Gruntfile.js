@@ -440,7 +440,8 @@ module.exports = function ( grunt ) {
 		// Lint – Styling
 		stylelint: {
 			options: {
-				syntax: 'less'
+				syntax: 'less',
+				reportNeedlessDisables: true
 			},
 			dev: [
 				'{demos,src}/**/*.{css,less}',
