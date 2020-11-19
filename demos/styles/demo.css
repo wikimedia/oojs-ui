@@ -7,7 +7,7 @@ body {
 	color: #202122;
 	margin: 0 16px 64px;
 	padding: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; /* stylelint-disable-line value-keyword-case; */
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 	/* Enforce scrollbar to reduce reflow when JS kicks in */
 	overflow-y: scroll;
 }
@@ -59,7 +59,7 @@ p:first-child {
 
 .oo-ui-theme-wikimediaui {
 	/* As WikimediaUI theme is used in MinervaNeue and Vector, we use system fonts to reflect font independent ability of theme. */
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; /* stylelint-disable-line value-keyword-case; */
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 	font-size: 0.875em;
 }
 

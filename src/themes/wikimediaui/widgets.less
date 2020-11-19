@@ -544,9 +544,9 @@
 		font-size: inherit;
 		font-family: inherit;
 		vertical-align: middle;
-		// stylelint-disable declaration-block-no-duplicate-properties, media-feature-parentheses-space-inside
 		// Support IE 8-9: Move custom arrow out of canvas and remove padding the custom arrow.
 		// Also affects IE 10. An absolute horror show.
+		/* stylelint-disable-next-line declaration-block-no-duplicate-properties */
 		background-position: ~'-9999em 0\9';
 		// stylelint-disable-next-line declaration-block-no-shorthand-property-overrides
 		padding: ~'0\9';
@@ -562,7 +562,6 @@
 		&::-ms-expand {
 			display: none;
 		}
-		// stylelint-enable
 	}
 
 	option {
