@@ -1,5 +1,6 @@
 // Import the actual theme - this is the theme.less file from the theme's directory.
 // Build process should ensure that import paths are set up correctly for this to happen.
+
 @import 'theme.less';
 
 // Mixins
@@ -120,7 +121,7 @@
 	}
 }
 
-// stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown
+/* stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown */
 .oo-ui-placeholder( @rules ) {
 	// WebKit, Blink, Edge
 	&::-webkit-input-placeholder {
@@ -143,7 +144,7 @@
 		@rules();
 	}
 }
-// stylelint-enable selector-no-vendor-prefix, at-rule-no-unknown
+/* stylelint-enable selector-no-vendor-prefix, at-rule-no-unknown */
 
 // Screen Reader Helper Mixin
 .oo-ui-screen-reader-text() {

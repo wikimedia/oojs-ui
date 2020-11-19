@@ -552,7 +552,7 @@
 		padding: ~'0\9';
 
 		/* Support IE 10: Move it in again and also add `padding`. Because we talk to morons. */
-		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		@media screen and ( -ms-high-contrast: active ), ( -ms-high-contrast: none ) {
 			background-position: right @padding-horizontal-base center;
 			padding-left: @padding-horizontal-base;
 			padding-right: @padding-end-dropdown;
@@ -1912,6 +1912,7 @@
 
 		// HACK: Exclude IE/Edge (and Saf<6) from this selector as it
 		// doesn't understand `outline-offset`. All other browsers do. :/
+
 		@media screen {
 			@media ( min-width: 0 ) {
 				textarea.oo-ui-inputWidget-input:focus {
