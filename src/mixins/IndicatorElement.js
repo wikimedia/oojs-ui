@@ -92,7 +92,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicatorElement = function ( $indicat
 };
 
 /**
- * Set the indicator by its symbolic name: ‘clear’, ‘down’, ‘required’, ‘search’, ‘up’. Use `null`
+ * Set the indicator by its symbolic name: ‘clear’, ‘down’, ‘required’, ‘up’. Use `null`
  * to remove the indicator.
  *
  * @param {string|null} indicator Symbolic name of indicator, or `null` for no indicator
