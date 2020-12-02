@@ -308,14 +308,21 @@ OO.ui.throttle = function ( func, wait ) {
  *
  * This is an alias for `OO.ui.Element.static.infuse()`.
  *
- * @param {string|HTMLElement|jQuery} idOrNode
- *   A DOM id (if a string) or node for the widget to infuse.
+ * @param {string|HTMLElement|jQuery} node Node for the widget to infuse.
+ *   String must be a selector (deprecated).
  * @param {Object} [config] Configuration options
  * @return {OO.ui.Element}
  *   The `OO.ui.Element` corresponding to this (infusable) document node.
  */
-OO.ui.infuse = function ( idOrNode, config ) {
-	return OO.ui.Element.static.infuse( idOrNode, config );
+OO.ui.infuse = function ( node, config ) {
+	if ( typeof node === 'string' ) {
+		// Passing a selector was accidentally introduced in Ibf95b0dee.
+		// Emit deprecation warnings since 0.40.4 so we can remove it later
+		OO.ui.warnDeprecation(
+			'Passing a selector to infuse is deprecated. Use an HTMLElement or jQuery collection instead.'
+		);
+	}
+	return OO.ui.Element.static.infuse( node, config );
 };
 
 /**
