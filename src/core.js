@@ -316,8 +316,8 @@ OO.ui.throttle = function ( func, wait ) {
  */
 OO.ui.infuse = function ( node, config ) {
 	if ( typeof node === 'string' ) {
-		// Passing a selector was accidentally introduced in Ibf95b0dee.
-		// Emit deprecation warnings since 0.40.4 so we can remove it later
+		// Deprecate passing a selector, which was accidentally introduced in Ibf95b0dee.
+		// @since 0.41.0
 		OO.ui.warnDeprecation(
 			'Passing a selector to infuse is deprecated. Use an HTMLElement or jQuery collection instead.'
 		);
