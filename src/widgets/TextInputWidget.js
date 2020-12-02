@@ -314,9 +314,6 @@ OO.ui.TextInputWidget.prototype.setRequired = function ( state ) {
 /**
  * Support function for making #onElementAttach work across browsers.
  *
- * This whole function could be replaced with one line of code using the DOMNodeInsertedIntoDocument
- * event, but it's not supported by Firefox and allegedly deprecated, so we only use it as fallback.
- *
  * Due to MutationObserver performance woes, #onElementAttach is only somewhat reliably called the
  * first time that the element gets attached to the documented.
  */
@@ -374,10 +371,6 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
 		// Create a fake parent and observe it
 		fakeParentNode = $( '<div>' ).append( topmostNode )[ 0 ];
 		mutationObserver.observe( fakeParentNode, { childList: true } );
-	} else {
-		// Using the DOMNodeInsertedIntoDocument event is much nicer and less magical, and works for
-		// detachment and reattachment, but it's not supported by Firefox and allegedly deprecated.
-		this.$element.on( 'DOMNodeInsertedIntoDocument', this.onElementAttach.bind( this ) );
 	}
 };
 
