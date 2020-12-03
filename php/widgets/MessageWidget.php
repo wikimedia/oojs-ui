@@ -62,7 +62,7 @@ class MessageWidget extends Widget {
 
 		// If an icon is passed in, set it again as setType will
 		// have overridden the setIcon call in the IconElement constructor
-		if ( $config['icon'] ) {
+		if ( isset( $config['icon'] ) ) {
 			$this->setIcon( $config['icon'] );
 		}
 
