@@ -38,6 +38,7 @@
 
 // `min-size/-width/-height` values are defined in `px`, see T130691.
 @min-size-base--small: 16px;
+@min-size-button-tagitem-remove: 20px;
 @min-size-icon-small: 14px;
 @min-size-toolbar-popup-toolgroup-handle: 140px;
 @min-size-toolbar-narrow-popup-toolgroup-handle: 100px;
@@ -47,7 +48,7 @@
 @min-height-widget-base: @min-size-base;
 
 @size-anchor: 9px;
-@size-button-tagitem-close: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.5625em`≈`20px`
+@size-button-tagitem-remove: 20 / @ooui-font-size-browser / @ooui-font-size-base; // equals `1.5625em`≈`20px`
 // `@min-size-icon` is defined as `px` carrying value in WikimediaUI Base variables and
 // gets preference over `@size-icon` to prevent recursion.
 @size-icon: unit( @min-size-icon ) / @ooui-font-size-browser / @ooui-font-size-base;
@@ -162,7 +163,7 @@
 @padding-start-tool: 37 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-start-tool-icon-only: 42 / @ooui-font-size-browser / @ooui-font-size-base; // Provide slightly more space than `@padding-start-input-text-icon-label` as we want to provide minimal touch action size
 @padding-end-dropdown: @padding-start-indicator-plus;
-@padding-end-tagitem-close: 23px;
+@padding-end-tagitem-remove: 23px;
 @padding-end-toolgroup-label-indicator: 26 / @ooui-font-size-browser / @ooui-font-size-base;
 @padding-end-toolgroup-indicator: 16 / @ooui-font-size-browser / @ooui-font-size-base;
 

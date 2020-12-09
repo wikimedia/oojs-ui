@@ -1582,7 +1582,7 @@
 
 		&:not( .oo-ui-tagItemWidget-fixed ) {
 			background-color: @background-color-framed;
-			padding-right: @padding-end-tagitem-close;
+			padding-right: @padding-end-tagitem-remove;
 		}
 
 		&.oo-ui-flaggedElement-invalid {
@@ -1598,7 +1598,7 @@
 			}
 		}
 
-		// Clear button
+		// Remove button
 		> .oo-ui-buttonElement {
 			display: block;
 			position: absolute;
@@ -1608,11 +1608,14 @@
 
 		& .oo-ui-buttonElement-button {
 			display: block;
+			// Button override
+			min-width: @min-size-button-tagitem-remove;
+			min-height: @min-size-button-tagitem-remove;
 			// frameless reset
 			border: 0;
 			border-radius: @height-tagitem;
-			padding-top: @size-button-tagitem-close;
-			padding-left: @size-button-tagitem-close;
+			padding-top: @size-button-tagitem-remove;
+			padding-left: @size-button-tagitem-remove;
 			.oo-ui-transition(
 				background-color @transition-base
 			);
