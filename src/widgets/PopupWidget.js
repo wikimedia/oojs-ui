@@ -458,7 +458,8 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 		} else {
 			this.toggleClipping( false );
 			if ( this.autoClose ) {
-				// Remove binded keydown event from the first and last focusable elements when popup closes
+				// Remove binded keydown event from the first and last focusable elements
+				// when popup closes
 				$lastFocusableElement.off( 'keydown', this.onTabKeyDownHandler );
 				$firstFocusableElement.off( 'keydown', this.onShiftTabKeyDownHandler );
 

@@ -168,8 +168,13 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 			infusedChildren = $elem.data( 'ooui-infused-children' );
 			if ( infusedChildren && infusedChildren.length ) {
 				infusedChildren.forEach( function ( childData ) {
-					var childState = childData.constructor.static.gatherPreInfuseState( $elem, childData );
-					domPromise.done( childData.restorePreInfuseState.bind( childData, childState ) );
+					var childState = childData.constructor.static.gatherPreInfuseState(
+						$elem,
+						childData
+					);
+					domPromise.done(
+						childData.restorePreInfuseState.bind( childData, childState )
+					);
 				} );
 			}
 		}
