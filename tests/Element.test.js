@@ -25,7 +25,8 @@ QUnit.test( 'static.infuse', function ( assert ) {
 		$nonExistentTypeWidget = $( $.parseHTML( '<div data-ooui=\'{"_":"FOO.bar.FakeWidget"}\'></div>' ) ),
 		$invalidJsonWidget = $( $.parseHTML( '<div data-ooui=\'{{\'></div>' ) ),
 		$emptyTypeWidget = $( $.parseHTML( '<div data-ooui=\'{}\'></div>' ) ),
-		$nonWidget = $( $.parseHTML( '<div></div>' ) );
+		$nonWidget = $( $.parseHTML( '<div></div>' ) ),
+		$moreThanOneInCollection = $( '<div aria-disabled=\'false\' id=\'ooui-php-1\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div><div aria-disabled=\'false\' id=\'ooui-php-2\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div>' );
 
 	assert.ok( OO.ui.Element.static.infuse( $textInputWidget ) );
 	assert.throws( function () {
@@ -42,6 +43,9 @@ QUnit.test( 'static.infuse', function ( assert ) {
 	}, Error );
 	assert.throws( function () {
 		OO.ui.Element.static.infuse( $nonWidget );
+	}, Error );
+	assert.throws( function () {
+		OO.ui.Element.static.infuse( $moreThanOneInCollection );
 	}, Error );
 } );
 

@@ -308,7 +308,7 @@ OO.ui.throttle = function ( func, wait ) {
  *
  * This is an alias for `OO.ui.Element.static.infuse()`.
  *
- * @param {string|HTMLElement|jQuery} node Node for the widget to infuse.
+ * @param {string|HTMLElement|jQuery} node A single node for the widget to infuse.
  *   String must be a selector (deprecated).
  * @param {Object} [config] Configuration options
  * @return {OO.ui.Element}
