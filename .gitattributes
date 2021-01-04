@@ -28,6 +28,7 @@ Doxyfile export-ignore
 Gemfile* export-ignore
 phpunit.xml.dist export-ignore
 Rakefile export-ignore
+.phan/ export-ignore
 
 
 # JavaScript-only or non-release files
