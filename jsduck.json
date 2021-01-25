@@ -13,7 +13,7 @@
 	"--warnings-exit-nonzero": true,
 	"--builtin-classes": true,
 	"--external": "HTMLDocument,HTMLBodyElement,HTMLHtmlElement,Window,MouseEvent,KeyboardEvent,File,FileList",
-	"--warnings": ["-nodoc(class,public)"],
+	"--warnings": [ "-nodoc(class,public)" ],
 	"--": [
 		"jsduck.external.js",
 		"src"
