@@ -420,6 +420,7 @@ module.exports = function ( grunt ) {
 			dev: [
 				'**/*.{js,json}',
 				'!{coverage,dist,docs,node_modules,vendor,demos/{dist,node_modules,vendor}}/**',
+				'!tests/JSPHP-suite.json',
 				'!tests/JSPHP.test.js'
 			],
 			html: {
