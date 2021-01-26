@@ -61,6 +61,12 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	// Parent constructor
 	OO.ui.SelectFileInputWidget.super.call( this, config );
 
+	// Mixin constructors
+	OO.ui.mixin.RequiredElement.call( this, $.extend( {}, {
+		// TODO: Display the required indicator somewhere
+		indicatorElement: null
+	}, config ) );
+
 	// Properties
 	this.currentFiles = this.filterFiles( this.$input[ 0 ].files || [] );
 	if ( Array.isArray( config.accept ) ) {
@@ -118,8 +124,9 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.SelectFileInputWidget, OO.ui.InputWidget );
+OO.mixinClass( OO.ui.SelectFileInputWidget, OO.ui.mixin.RequiredElement );
 
-/* Static properties */
+/* Static Properties */
 
 // Set empty title so that browser default tooltips like "No file chosen" don't appear.
 // On SelectFileWidget this tooltip will often be incorrect, so create a consistent

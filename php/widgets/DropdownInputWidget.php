@@ -7,6 +7,8 @@ namespace OOUI;
  * OO.ui.FormLayout.
  */
 class DropdownInputWidget extends InputWidget {
+	use RequiredElement;
+
 	/**
 	 * HTML `<option>` tags for this widget.
 	 * @var Tag[]
@@ -21,6 +23,11 @@ class DropdownInputWidget extends InputWidget {
 	public function __construct( array $config = [] ) {
 		// Parent constructor
 		parent::__construct( $config );
+
+		// Traits
+		$this->initializeRequiredElement(
+			array_merge( [ 'indicatorElement' => null ], $config )
+		);
 
 		// Initialization
 		$this->setOptions( $config['options'] ?? [] );

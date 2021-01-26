@@ -126,7 +126,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
 /**
  * Get the symbolic name of the indicator (e.g., ‘clear’ or  ‘down’).
  *
- * @return {string} Symbolic name of indicator
+ * @return {string|null} Symbolic name of indicator, null if not set
  */
 OO.ui.mixin.IndicatorElement.prototype.getIndicator = function () {
 	return this.indicator;

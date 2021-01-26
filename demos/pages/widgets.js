@@ -974,6 +974,16 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.CheckboxInputWidget( {
 						selected: true,
+						required: true
+					} ),
+					{
+						align: 'inline',
+						label: 'CheckboxInputWidget (required)'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.CheckboxInputWidget( {
+						selected: true,
 						accessKey: 't'
 					} ),
 					{
@@ -1028,6 +1038,16 @@ Demo.static.pages.widgets = function ( demo ) {
 					{
 						align: 'inline',
 						label: 'RadioInputWidget (disabled)'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.RadioInputWidget( {
+						selected: false,
+						required: true
+					} ),
+					{
+						align: 'inline',
+						label: 'RadioInputWidget (required)'
 					}
 				),
 				new OO.ui.FieldLayout(
@@ -1511,6 +1531,29 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.DropdownInputWidget( {
+						required: true,
+						options: [
+							{
+								data: 'a',
+								label: 'First'
+							},
+							{
+								data: 'b',
+								label: 'Second'
+							},
+							{
+								data: 'c',
+								label: 'Third'
+							}
+						]
+					} ),
+					{
+						label: 'DropdownInputWidget (required)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.DropdownInputWidget( {
 						options: [
 							{
 								optgroup: 'Vowels'
@@ -1749,8 +1792,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileInputWidget( {
-						icon: 'tag',
-						indicator: 'required'
+						icon: 'tag'
 					} ),
 					{
 						label: 'SelectFileInputWidget (icon, indicator)',
@@ -1760,11 +1802,20 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileInputWidget( {
 						icon: 'tag',
-						indicator: 'required',
 						disabled: true
 					} ),
 					{
 						label: 'SelectFileInputWidget (disabled)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.SelectFileInputWidget( {
+						icon: 'tag',
+						required: true
+					} ),
+					{
+						label: 'SelectFileInputWidget (required)',
 						align: 'top'
 					}
 				)

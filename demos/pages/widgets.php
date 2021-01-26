@@ -518,6 +518,16 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\CheckboxInputWidget( [
 				'selected' => true,
+				'required' => true
+			] ),
+			[
+				'align' => 'inline',
+				'label' => "CheckboxInputWidget (required)"
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\CheckboxInputWidget( [
+				'selected' => true,
 				'accessKey' => 't'
 			] ),
 			[
@@ -572,6 +582,16 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			[
 				'align' => 'inline',
 				'label' => "RadioInputWidget (disabled)"
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\RadioInputWidget( [
+				'selected' => true,
+				'required' => true
+			] ),
+			[
+				'align' => 'inline',
+				'label' => "RadioInputWidget (required)"
 			]
 		),
 		new OOUI\FieldLayout(
@@ -658,6 +678,29 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			] ),
 			[
 				'label' => 'DropdownInputWidget (disabled)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\DropdownInputWidget( [
+				'options' => [
+					[
+						'data' => 'a',
+						'label' => 'First'
+					],
+					[
+						'data' => 'b',
+						'label' => 'Second'
+					],
+					[
+						'data' => 'c',
+						'label' => 'Third'
+					]
+				],
+				'required' => true
+			] ),
+			[
+				'label' => 'DropdownInputWidget (required)',
 				'align' => 'top'
 			]
 		),
@@ -882,11 +925,20 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		new OOUI\FieldLayout(
 			new OOUI\SelectFileInputWidget( [
 				'icon' => 'tag',
-				'indicator' => 'required',
 				'disabled' => true
 			] ),
 			[
 				'label' => 'SelectFileInputWidget (disabled)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\SelectFileInputWidget( [
+				'icon' => 'tag',
+				'required' => true
+			] ),
+			[
+				'label' => 'SelectFileInputWidget (required)',
 				'align' => 'top'
 			]
 		),

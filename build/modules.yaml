@@ -26,6 +26,7 @@
 			"src/mixins/FlaggedElement.js",
 			"src/mixins/TitledElement.js",
 			"src/mixins/AccessKeyedElement.js",
+			"src/mixins/RequiredElement.js",
 
 			# The basic widgets and layouts. These should be the same classes that are supported in
 			# OOUI PHP. (Continued below, as some dependencies below depend on these.)

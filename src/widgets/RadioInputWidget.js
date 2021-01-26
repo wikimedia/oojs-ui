@@ -47,6 +47,12 @@ OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 	// Parent constructor
 	OO.ui.RadioInputWidget.super.call( this, config );
 
+	// Mixin constructors
+	OO.ui.mixin.RequiredElement.call( this, $.extend( {}, {
+		// TODO: Display the required indicator somewhere
+		indicatorElement: null
+	}, config ) );
+
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-radioInputWidget' )
@@ -58,6 +64,7 @@ OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 /* Setup */
 
 OO.inheritClass( OO.ui.RadioInputWidget, OO.ui.InputWidget );
+OO.mixinClass( OO.ui.RadioInputWidget, OO.ui.mixin.RequiredElement );
 
 /* Static Properties */
 
