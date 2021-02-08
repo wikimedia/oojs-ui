@@ -48,7 +48,7 @@ class SelectFileInputWidget extends InputWidget {
 		);
 
 		// Initialization
-		$this->addClasses( [ 'oo-ui-selectFileWidget' ] );
+		$this->addClasses( [ 'oo-ui-selectFileInputWidget' ] );
 		$this->input->setAttributes( [
 			'type' => 'file'
 		] );
