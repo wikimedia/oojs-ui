@@ -82,7 +82,7 @@ class DropdownInputWidget extends InputWidget {
 		// Rebuild the dropdown menu
 		$this->input->clearContent();
 		foreach ( $options as $opt ) {
-			if ( empty( $opt['optgroup'] ) ) {
+			if ( !isset( $opt['optgroup'] ) ) {
 				$optValue = $this->cleanUpValue( $opt['data'] );
 				$option = ( new Tag( 'option' ) )
 					->setAttributes( [ 'value' => $optValue ] )
