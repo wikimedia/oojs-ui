@@ -15,8 +15,8 @@
 			'Basic widget (inputPosition:inline) has an inline input class'
 		);
 		assert.ok(
-			widget.$content.children( 'input' ).length,
-			'Basic widget (inputPosition:inline) has its input placed inside the content'
+			widget.$group.children( 'input' ).length,
+			'Basic widget (inputPosition:inline) has its input placed inside the group'
 		);
 
 		widget = new OO.ui.TagMultiselectWidget( { inputPosition: 'outline' } );

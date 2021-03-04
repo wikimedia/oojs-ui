@@ -1673,7 +1673,12 @@
 		padding: 0 @padding-horizontal-input-text;
 		line-height: @line-height-reset;
 
-		> .oo-ui-tagMultiselectWidget-content {
+		.oo-ui-tagMultiselectWidget-group {
+			display: inline-block;
+			max-width: 100%;
+			margin-top: @margin-tagitem;
+			margin-left: @size-tag-group-modifier;
+
 			> input {
 				background-color: transparent;
 				color: @color-base--emphasized;
@@ -1681,6 +1686,7 @@
 				height: @size-base - 2 * ( @size-modifier-border );
 				border: 0;
 				padding: @padding-vertical-base 0 @padding-vertical-base @start-tagmultiselect-input;
+				margin-top: -@margin-tagitem;
 				font-family: inherit;
 				font-size: inherit;
 				line-height: @line-height-base;
@@ -1691,18 +1697,11 @@
 				&:focus {
 					outline: 0; // Support: Chrome
 				}
-			}
 
-			.oo-ui-tagMultiselectWidget-group:empty + input { // Support: IE 9+ & modern browsers only
-				margin-left: 0;
+				&:first-child {
+					margin-left: 0;
+				}
 			}
-		}
-
-		.oo-ui-tagMultiselectWidget-group {
-			display: inline-block;
-			max-width: 100%;
-			margin-top: @margin-tagitem;
-			margin-left: @size-tag-group-modifier;
 		}
 	}
 
