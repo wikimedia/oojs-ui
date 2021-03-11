@@ -1698,8 +1698,10 @@
 					outline: 0; // Support: Chrome
 				}
 
+				// Match appearance of TextInputWidget when empty
 				&:first-child {
-					margin-left: 0;
+					margin-left: -@size-tag-group-modifier;
+					padding-left: 0;
 				}
 			}
 		}
