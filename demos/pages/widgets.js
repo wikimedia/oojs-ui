@@ -2049,6 +2049,18 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.TagMultiselectWidget( {
+						disabled: true,
+						placeholder: 'Add tags',
+						allowArbitrary: true,
+						inputPosition: 'outline'
+					} ),
+					{
+						label: 'TagMultiselectWidget (disabled, allowArbitrary, inputPosition: outline, placeholder)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.TagMultiselectWidget( {
 						allowArbitrary: true,
 						inputPosition: 'outline',
 						inputWidget: new OO.ui.NumberInputWidget()
