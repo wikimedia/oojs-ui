@@ -80,8 +80,11 @@ OO.ui.SearchWidget.prototype.onQueryKeydown = function ( e ) {
 			highlightedItem = this.results.findSelectedItem();
 		}
 		nextItem = this.results.findRelativeSelectableItem( highlightedItem, dir );
+		// nextItem may be null if there are no results
 		this.results.highlightItem( nextItem );
-		nextItem.scrollElementIntoView();
+		if ( nextItem ) {
+			nextItem.scrollElementIntoView();
+		}
 	}
 };
 
