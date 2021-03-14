@@ -255,8 +255,7 @@ OO.ui.TagMultiselectWidget.prototype.onInputKeyPress = function ( e ) {
 			stopOrContinue = this.doInputEnter( e, withMetaKey );
 		}
 
-		// Make sure the input gets resized.
-		setTimeout( this.updateInputSize.bind( this ), 0 );
+		this.updateInputSize();
 		return stopOrContinue;
 	}
 };
