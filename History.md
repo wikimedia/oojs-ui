@@ -1954,7 +1954,7 @@
 * WikimediaUI theme: Pull in the upstream WikimediaUI package (James D. Forrester)
 * build: Updating mediawiki/mediawiki-codesniffer to 0.10.0 (Kunal Mehta)
 * phpcs: Enable more rules, or document why they are disabled (Bartosz Dziewoński)
-* testsuitegenerator: Blacklist deprecated `multiline` config option (Bartosz Dziewoński)
+* testsuitegenerator: Skip the deprecated `multiline` config option (Bartosz Dziewoński)
 
 
 ## v0.22.2 / 2017-06-28

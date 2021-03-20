@@ -432,13 +432,13 @@ OO.ui.resolveMsg = function ( msg ) {
  */
 OO.ui.isSafeUrl = function ( url ) {
 	// Keep this function in sync with php/Tag.php
-	var i, protocolWhitelist;
+	var i, protocolAllowList;
 
 	function stringStartsWith( haystack, needle ) {
 		return haystack.substr( 0, needle.length ) === needle;
 	}
 
-	protocolWhitelist = [
+	protocolAllowList = [
 		'bitcoin', 'ftp', 'ftps', 'geo', 'git', 'gopher', 'http', 'https', 'irc', 'ircs',
 		'magnet', 'mailto', 'mms', 'news', 'nntp', 'redis', 'sftp', 'sip', 'sips', 'sms', 'ssh',
 		'svn', 'tel', 'telnet', 'urn', 'worldwind', 'xmpp'
@@ -448,8 +448,8 @@ OO.ui.isSafeUrl = function ( url ) {
 		return true;
 	}
 
-	for ( i = 0; i < protocolWhitelist.length; i++ ) {
-		if ( stringStartsWith( url, protocolWhitelist[ i ] + ':' ) ) {
+	for ( i = 0; i < protocolAllowList.length; i++ ) {
+		if ( stringStartsWith( url, protocolAllowList[ i ] + ':' ) ) {
 			return true;
 		}
 	}
