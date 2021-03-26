@@ -191,7 +191,7 @@ def parse_file filename
 			when 'inheritable', 'deprecated', 'singleton', 'throws',
 				 'chainable', 'fires', 'localdoc', 'member',
 				 'see', 'uses', 'param-taint', 'suppress',
-				 'codingStandardsIgnoreStart', 'codingStandardsIgnoreEnd',
+				 'phpcs',
 				 /^phan-/
 				# skip
 			else
