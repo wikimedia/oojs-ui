@@ -188,7 +188,7 @@
 
 // `line-height` has to be relative/in `em` to enable user override in browser settings.
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
-@line-height-base: 20 / @ooui-font-size-browser / @ooui-font-size-base; // Equals `1.42857143em`≈`20px` at base `font-size: 14px;
+@line-height-label: 20 / @ooui-font-size-browser / @ooui-font-size-base; // Equals `1.42857143em`≈`20px` at base `font-size: 14px;
 @line-height-tagitem-label: unit( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small, @ooui-unit ); // Push label down by 1 px for vertical centering.
 
 @opacity-icon-accessory: 0.67; // Equals `#555`, closest to `#54595d` on background-color `#fff`
@@ -338,3 +338,7 @@
 		color: @color-filled--disabled;
 	}
 }
+
+// Deprecated
+// Deprecated in v0.42.0; to be removed in v0.43.0.
+@line-height-base: @line-height-label;
