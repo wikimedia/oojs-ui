@@ -182,7 +182,7 @@
 
 	<!-- Demonstrate JavaScript "infusion" of PHP widgets -->
 	<script src="node_modules/jquery/dist/jquery.js"></script>
-	<script src="node_modules/oojs/dist/oojs.jquery.js"></script>
+	<script src="node_modules/oojs/dist/oojs.js"></script>
 	<script src="dist/oojs-ui-core.js"></script>
 	<script src="dist/oojs-ui-widgets.js"></script>
 	<script src="dist/oojs-ui-<?php echo $theme; ?>.js"></script>

@@ -488,7 +488,7 @@ module.exports = function ( grunt ) {
 					'tests/QUnit.assert.equalDomElement.js',
 					'tests/JSPHP-generator.js',
 					'node_modules/jquery/dist/jquery.js',
-					'node_modules/oojs/dist/oojs.jquery.js',
+					'node_modules/oojs/dist/oojs.js',
 					'dist/oojs-ui-core.js',
 					'dist/oojs-ui-widgets.js',
 					'dist/oojs-ui-windows.js',
