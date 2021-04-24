@@ -31,7 +31,7 @@
 		"jenkins": "npm test && npm run doc && npm run postdoc"
 	},
 	"dependencies": {
-		"jquery": "3.5.1",
+		"jquery": "3.6.0",
 		"oojs": "5.0.0",
 		"wikimedia-ui-base": "0.18.0"
 	},
