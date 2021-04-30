@@ -69,7 +69,7 @@
 				<?php
 					echo new OOUI\ButtonGroupWidget( [
 						'infusable' => true,
-						'items' => array_map( function ( $theme, $themeLabel ) use ( $query ) {
+						'items' => array_map( static function ( $theme, $themeLabel ) use ( $query ) {
 							return new OOUI\ButtonWidget( [
 								'label' => $themeLabel,
 								'href' => '?' . http_build_query( array_merge( $query, [ 'theme' => $theme ] ) ),

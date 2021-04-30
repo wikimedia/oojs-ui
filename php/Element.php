@@ -219,7 +219,7 @@ class Element extends Tag {
 		$config = $this->getConfig( $config );
 		// Post-process config array to turn Tag references into ID references
 		// and HtmlSnippet references into a { html: 'string' } JSON form.
-		$replaceElements = function ( &$item ) {
+		$replaceElements = static function ( &$item ) {
 			if ( $item instanceof Tag ) {
 				$item->ensureInfusableId();
 				$item = [ 'tag' => $item->getAttribute( 'id' ) ];

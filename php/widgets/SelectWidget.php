@@ -44,7 +44,7 @@ class SelectWidget extends Widget {
 	}
 
 	public function findSelectedItems() {
-		$selected = array_filter( $this->getItems(), function ( $item ) {
+		$selected = array_filter( $this->getItems(), static function ( $item ) {
 			return $item->isSelected();
 		} );
 
