@@ -478,30 +478,30 @@ OO.ui.ActionSet.prototype.organize = function () {
 		this.others = [];
 		for ( i = 0, iLen = this.list.length; i < iLen; i++ ) {
 			action = this.list[ i ];
-			if ( action.isVisible() ) {
-				// Populate the 3 categories "actions", "flags" and "modes"
-				for ( category in this.categories ) {
-					if ( !this.categorized[ category ] ) {
-						this.categorized[ category ] = {};
-					}
-					/**
-					 * This calls one of these getters. All return strings or arrays of strings.
-					 * {@see OO.ui.ActionWidget.getAction}
-					 * {@see OO.ui.FlaggedElement.getFlags}
-					 * {@see OO.ui.ActionWidget.getModes}
-					 */
-					list = action[ this.categories[ category ] ]();
-					if ( !Array.isArray( list ) ) {
-						list = [ list ];
-					}
-					for ( j = 0, jLen = list.length; j < jLen; j++ ) {
-						item = list[ j ];
-						if ( !this.categorized[ category ][ item ] ) {
-							this.categorized[ category ][ item ] = [];
-						}
-						this.categorized[ category ][ item ].push( action );
-					}
+			// Populate the 3 categories "actions", "flags" and "modes"
+			for ( category in this.categories ) {
+				if ( !this.categorized[ category ] ) {
+					this.categorized[ category ] = {};
 				}
+				/**
+				 * This calls one of these getters. All return strings or arrays of strings.
+				 * {@see OO.ui.ActionWidget.getAction}
+				 * {@see OO.ui.FlaggedElement.getFlags}
+				 * {@see OO.ui.ActionWidget.getModes}
+				 */
+				list = action[ this.categories[ category ] ]();
+				if ( !Array.isArray( list ) ) {
+					list = [ list ];
+				}
+				for ( j = 0, jLen = list.length; j < jLen; j++ ) {
+					item = list[ j ];
+					if ( !this.categorized[ category ][ item ] ) {
+						this.categorized[ category ][ item ] = [];
+					}
+					this.categorized[ category ][ item ].push( action );
+				}
+			}
+			if ( action.isVisible() ) {
 				// Populate special/others
 				special = false;
 				for ( j = 0, jLen = specialFlags.length; j < jLen; j++ ) {
