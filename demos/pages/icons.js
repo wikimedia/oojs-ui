@@ -254,7 +254,7 @@ Demo.static.pages.icons = function ( demo ) {
 			'required',
 			'up'
 		],
-		iconsFieldsets = [],
+		iconsFieldsets,
 		iconsWidgets = [],
 		indicatorsFieldset = new Demo.LinkedFieldsetLayout( {
 			label: 'Indicators',

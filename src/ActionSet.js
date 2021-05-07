@@ -92,9 +92,6 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.ActionSet = function OoUiActionSet( config ) {
-	// Configuration initialization
-	config = config || {};
-
 	// Mixin constructors
 	OO.EventEmitter.call( this );
 
