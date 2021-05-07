@@ -158,17 +158,13 @@ class Element extends Tag {
 	 * @return bool All methods are supported
 	 */
 	public function supports( $methods ) {
-		$support = 0;
-		$methods = (array)$methods;
-
-		foreach ( $methods as $method ) {
-			if ( method_exists( $this, $method ) ) {
-				$support++;
-				continue;
+		foreach ( (array)$methods as $method ) {
+			if ( !method_exists( $this, $method ) ) {
+				return false;
 			}
 		}
 
-		return count( $methods ) === $support;
+		return true;
 	}
 
 	/**

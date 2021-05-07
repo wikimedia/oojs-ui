@@ -147,14 +147,15 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 	}
 
 	public function getConfig( &$config ) {
-		$o = [];
+		$options = [];
 		foreach ( $this->fields as $field ) {
-			$label = $field->getLabel();
-			$data = $field->getField()->getValue();
-			$disabled = $field->getField()->isDisabled();
-			$o[] = [ 'data' => $data, 'label' => $label, 'disabled' => $disabled ];
+			$options[] = [
+				'data' => $field->getField()->getValue(),
+				'label' => $field->getLabel(),
+				'disabled' => $field->getField()->isDisabled(),
+			];
 		}
-		$config['options'] = $o;
+		$config['options'] = $options;
 		return parent::getConfig( $config );
 	}
 }
