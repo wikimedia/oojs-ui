@@ -138,8 +138,8 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 		return $this;
 	}
 
-	public function setDisabled( $state ) {
-		parent::setDisabled( $state );
+	public function setDisabled( $disabled ) {
+		parent::setDisabled( $disabled );
 		foreach ( $this->fields as $field ) {
 			$field->getField()->setDisabled( $this->isDisabled() );
 		}
