@@ -213,8 +213,10 @@ OO.ui.ActionSet.prototype.isSpecial = function ( action ) {
  * @param {string|string[]} [filters.actions] Actions that action widgets must have
  * @param {string|string[]} [filters.flags] Flags that action widgets must have (e.g., 'safe')
  * @param {string|string[]} [filters.modes] Modes that action widgets must have
- * @param {boolean} [filters.visible] Action widgets must be visible
- * @param {boolean} [filters.disabled] Action widgets must be disabled
+ * @param {boolean} [filters.visible] Visibility that action widgets must have, omit to get both
+ *  visible and invisible
+ * @param {boolean} [filters.disabled] Disabled state that action widgets must have, omit to get
+ *  both enabled and disabled
  * @return {OO.ui.ActionWidget[]} Action widgets matching all criteria
  */
 OO.ui.ActionSet.prototype.get = function ( filters ) {
@@ -223,7 +225,7 @@ OO.ui.ActionSet.prototype.get = function ( filters ) {
 	if ( filters ) {
 		this.organize();
 
-		// Collect category candidates
+		// Collect candidates for the 3 categories "actions", "flags" and "modes"
 		matches = [];
 		for ( category in this.categorized ) {
 			list = filters[ category ];
@@ -480,11 +482,17 @@ OO.ui.ActionSet.prototype.organize = function () {
 		for ( i = 0, iLen = this.list.length; i < iLen; i++ ) {
 			action = this.list[ i ];
 			if ( action.isVisible() ) {
-				// Populate categories
+				// Populate the 3 categories "actions", "flags" and "modes"
 				for ( category in this.categories ) {
 					if ( !this.categorized[ category ] ) {
 						this.categorized[ category ] = {};
 					}
+					/**
+					 * This calls one of these getters. All return strings or arrays of strings.
+					 * {@see OO.ui.ActionWidget.getAction}
+					 * {@see OO.ui.FlaggedElement.getFlags}
+					 * {@see OO.ui.ActionWidget.getModes}
+					 */
 					list = action[ this.categories[ category ] ]();
 					if ( !Array.isArray( list ) ) {
 						list = [ list ];
