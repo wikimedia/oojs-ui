@@ -137,24 +137,14 @@ OO.ui.Element.static.infuse = function ( node, config ) {
  */
 OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 	// look for a cached result of a previous infusion.
-	var error, data, cls, parts, obj, top, state, infusedChildren, doc, id,
+	var data, cls, parts, obj, top, state, infusedChildren, doc, id,
 		$elem = $( elem );
 
 	if ( $elem.length > 1 ) {
-		if ( elem && elem.selector ) {
-			error = 'Collection contains more than one element: ' + elem.selector;
-		} else {
-			error = 'Collection contains more than one element';
-		}
-		throw new Error( error );
+		throw new Error( 'Collection contains more than one element' );
 	}
 	if ( !$elem.length ) {
-		if ( elem && $elem.selector ) {
-			error = 'Widget not found: ' + $elem.selector;
-		} else {
-			error = 'Widget not found';
-		}
-		throw new Error( error );
+		throw new Error( 'Widget not found' );
 	}
 	if ( $elem[ 0 ].$oouiInfused ) {
 		$elem = $elem[ 0 ].$oouiInfused;
