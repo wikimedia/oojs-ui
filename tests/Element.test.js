@@ -27,30 +27,34 @@ QUnit.test( 'static.infuse', function ( assert ) {
 		$emptyTypeWidget = $( $.parseHTML( '<div data-ooui=\'{}\'></div>' ) ),
 		$nonWidget = $( $.parseHTML( '<div></div>' ) ),
 		$emptyCollection = $(),
+		$unmatchedSelector = $( '#there-is.no-spoon' ),
 		$moreThanOneInCollection = $( '<div aria-disabled=\'false\' id=\'ooui-php-1\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div><div aria-disabled=\'false\' id=\'ooui-php-2\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div>' );
 
 	assert.ok( OO.ui.Element.static.infuse( $textInputWidget ) );
 	assert.throws( function () {
 		OO.ui.Element.static.infuse( $unknownTypeWidget );
-	}, Error );
+	}, /Error: Unknown widget type/ );
 	assert.throws( function () {
 		OO.ui.Element.static.infuse( $nonExistentTypeWidget );
-	}, Error );
+	}, /Error: Unknown widget type/ );
 	assert.throws( function () {
 		OO.ui.Element.static.infuse( $invalidJsonWidget );
-	}, Error );
+	}, /Error: No valid infusion data found: undefined/ );
 	assert.throws( function () {
 		OO.ui.Element.static.infuse( $emptyTypeWidget );
-	}, Error );
+	}, /Error: No valid infusion data found: undefined/ );
 	assert.throws( function () {
 		OO.ui.Element.static.infuse( $nonWidget );
-	}, Error );
+	}, /Error: No infusion data found: undefined/ );
 	assert.throws( function () {
 		OO.ui.Element.static.infuse( $emptyCollection );
-	}, Error );
+	}, /Error: Widget not found/ );
+	assert.throws( function () {
+		OO.ui.Element.static.infuse( $unmatchedSelector );
+	}, /Error: Widget not found/ );
 	assert.throws( function () {
 		OO.ui.Element.static.infuse( $moreThanOneInCollection );
-	}, Error );
+	}, /Error: Collection contains more than one element/ );
 } );
 
 QUnit.test( 'static.infuse (infusing already infused nodes)', function ( assert ) {

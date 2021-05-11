@@ -149,8 +149,8 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 		throw new Error( error );
 	}
 	if ( !$elem.length ) {
-		if ( elem && elem.selector ) {
-			error = 'Widget not found: ' + elem.selector;
+		if ( elem && $elem.selector ) {
+			error = 'Widget not found: ' + $elem.selector;
 		} else {
 			error = 'Widget not found';
 		}
