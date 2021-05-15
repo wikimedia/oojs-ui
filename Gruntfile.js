@@ -417,25 +417,12 @@ module.exports = function ( grunt ) {
 				extensions: [ '.js', '.json' ],
 				cache: true
 			},
-			dev: [
-				'**/*.{js,json}',
+			all: [
+				'**/*.{html,js,json}',
 				'!{coverage,dist,docs,node_modules,vendor,demos/{dist,node_modules,vendor}}/**',
 				'!tests/JSPHP-suite.json',
 				'!tests/JSPHP.test.js'
-			],
-			html: {
-				options: {
-					// TODO: reportUnusedDisableDirectives doesn't work with plugin-html
-					// (https://github.com/BenoitZugmeyer/eslint-plugin-html/issues/111)
-					// Once that is fixed, merge dev and html
-					reportUnusedDisableDirectives: false
-				},
-				src: [
-					'**/*.html',
-					'!{coverage,dist,docs,node_modules,vendor,demos/{dist,node_modules,vendor}}/**',
-					'!tests/JSPHP.test.js'
-				]
-			}
+			]
 		},
 
 		// Lint – Styling
