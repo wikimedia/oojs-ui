@@ -11,15 +11,6 @@
 		<exclude name="MediaWiki.Commenting.PropertyDocumentation.WrongStyle" />
 		<exclude name="PSR2.Classes.PropertyDeclaration.Multiple" />
 	</rule>
-	<file>.</file>
-	<arg name="encoding" value="UTF-8"/>
-	<arg name="extensions" value="php"/>
-	<exclude-pattern>.git/*</exclude-pattern>
-	<exclude-pattern>build/*</exclude-pattern>
-	<exclude-pattern>coverage/*</exclude-pattern>
-	<exclude-pattern>node_modules/*</exclude-pattern>
-	<exclude-pattern>vendor/*</exclude-pattern>
-	<exclude-pattern>demos/php/*</exclude-pattern>
 	<!-- Allow superglobals in entry points -->
 	<rule ref="MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals">
 		<exclude-pattern>*/demos/demos.php</exclude-pattern>
@@ -29,4 +20,9 @@
 	<rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions.wfPrefix">
 		<exclude-pattern>*/tests/*.php</exclude-pattern>
 	</rule>
+	<file>.</file>
+	<arg name="encoding" value="UTF-8"/>
+	<arg name="extensions" value="php"/>
+	<exclude-pattern type="relative">^build/*</exclude-pattern>
+	<exclude-pattern type="relative">^demos/(php|vendor)/*</exclude-pattern>
 </ruleset>
