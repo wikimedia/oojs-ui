@@ -167,7 +167,7 @@ QUnit.test( 'static.getDocument', function ( assert ) {
 	// Test a cross-origin frame (T258256). 'data:' URLs are always considered cross-origin.
 	// This must be the first test case, so that the frame is the first in the document, otherwise
 	// it doesn't actually test for the regression.
-	frameDoc = this.makeFrame( 'data:text/html,', function () {
+	this.makeFrame( 'data:text/html,', function () {
 		try {
 			assert.strictEqual( OO.ui.Element.static.getDocument( win ), doc, 'Window (when a a cross-origin frame exists)' );
 		} catch ( err ) {
