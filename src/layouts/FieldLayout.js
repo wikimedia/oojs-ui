@@ -123,13 +123,9 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		this.fieldWidget.setLabelledBy( id );
 
 		// Forward clicks on the label to the widget, like `label for` would do
-		this.$label.on( 'click', function () {
-			this.fieldWidget.simulateLabelClick();
-		}.bind( this ) );
+		this.$label.on( 'click', this.onLabelClick.bind( this ) );
 		if ( this.helpInline ) {
-			this.$help.on( 'click', function () {
-				this.fieldWidget.simulateLabelClick();
-			}.bind( this ) );
+			this.$help.on( 'click', this.onLabelClick.bind( this ) );
 		}
 	}
 	this.$element
@@ -168,6 +164,15 @@ OO.mixinClass( OO.ui.FieldLayout, OO.ui.mixin.TitledElement );
  */
 OO.ui.FieldLayout.prototype.onFieldDisable = function ( value ) {
 	this.$element.toggleClass( 'oo-ui-fieldLayout-disabled', value );
+};
+
+/**
+ * Handle click events on the field label, or inline help
+ *
+ * @param {jQuery.Event} event
+ */
+OO.ui.FieldLayout.prototype.onLabelClick = function () {
+	this.fieldWidget.simulateLabelClick();
 };
 
 /**
