@@ -230,7 +230,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 				actions = data.actions !== undefined ? data.actions : config.actions,
 				title = data.title !== undefined ? data.title : config.title;
 
-			this.title.setLabel( title ).setTitle( title );
+			this.title.setLabel( title );
 			this.actions.add( this.getActionWidgets( actions ) );
 
 			this.$element.on( 'keydown', this.onDialogKeyDownHandler );
