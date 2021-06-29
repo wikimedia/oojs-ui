@@ -819,7 +819,7 @@
 * WikimediaUI theme: Fix toolbar tools' `padding` (Volker E.)
 
 ### Code
-* MenuLayout.php: Fix visiblity of properties and default config values (Ed Sanders)
+* MenuLayout.php: Fix visibility of properties and default config values (Ed Sanders)
 * Tag.php: Fix (ap/pre)pendContent to behave like JS DOM (Ed Sanders)
 * PHP tests: Only test ltr/rtl for 'dir', remove value='b' tests (Ed Sanders)
 * PHP tests: Only test one string for inputId (Ed Sanders)
@@ -982,9 +982,9 @@
 * Avoid deprecated OO.ui.infuse( id ) (Ed Sanders)
 * Use `-webkit-overflow-scrolling: touch` for scrollable things (Bartosz Dziewoński)
 * ComboBoxInputWidget: Add 'label' and `aria-controls` attribute to button (Volker E.)
-* ComboBoxInputWidget: `aria-expanded` needs to be set from intialization (Volker E.)
+* ComboBoxInputWidget: `aria-expanded` needs to be set from initialization (Volker E.)
 * DropDownWidget: Turn handle into `button` and add ARIA attribute (Volker E.)
-* LookupElement: `aria-expanded` needs to be set from intialization (Volker E.)
+* LookupElement: `aria-expanded` needs to be set from initialization (Volker E.)
 * MenuTagMultiselectWidget: Clear input before adding tag (Thalia Chan)
 * TagMultiselectWidget: Resize input when enabling (Thalia Chan)
 * WindowManager: Move inline CSS to a class (Bartosz Dziewoński)
