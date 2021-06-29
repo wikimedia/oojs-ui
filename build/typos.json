@@ -11,6 +11,7 @@
 		[ "inpsect(ors?|ion)", "inspect$1" ],
 		[ "itme", "item" ],
 		[ "\bteh\b", "the" ],
+		[ "intialized", "initialized" ],
 		[ "intialization", "initialization" ],
 		[ "durring", "during" ],
 		[ "contian", "contain" ],
