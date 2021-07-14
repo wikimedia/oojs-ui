@@ -28,7 +28,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {string} [type='text'] The value of the HTML `type` attribute: 'text', 'password'
- *  'email', 'url' or 'number'.
+ *  'email', 'url' or 'number'. Subclasses might support other types.
  * @cfg {string} [placeholder] Placeholder text
  * @cfg {boolean} [autofocus=false] Use an HTML `autofocus` attribute to
  *  instruct the browser to focus this widget.
@@ -53,9 +53,9 @@
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Configuration initialization
 	config = $.extend( {
-		type: 'text',
 		labelPosition: 'after'
 	}, config );
+	config.type = this.getSaneType( config );
 	if ( config.autocomplete === false ) {
 		config.autocomplete = 'off';
 	} else if ( config.autocomplete === true ) {
@@ -74,7 +74,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	OO.ui.mixin.RequiredElement.call( this, config );
 
 	// Properties
-	this.type = this.getSaneType( config );
+	this.type = config.type;
 	this.readOnly = false;
 	this.validate = null;
 	this.scrollWidth = null;
@@ -95,7 +95,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 
 	// Initialization
 	this.$element
-		.addClass( 'oo-ui-textInputWidget oo-ui-textInputWidget-type-' + this.type )
+		.addClass( 'oo-ui-textInputWidget oo-ui-textInputWidget-type-' + config.type )
 		.append( this.$icon, this.$indicator );
 	this.setReadOnly( !!config.readOnly );
 	if ( config.placeholder !== undefined ) {
@@ -162,7 +162,7 @@ OO.ui.TextInputWidget.static.validationPatterns = {
 /* Methods */
 
 /**
- * Handle icon mouse down events.
+ * Focus the input element when clicking on the icon.
  *
  * @private
  * @param {jQuery.Event} e Mouse down event
@@ -176,7 +176,10 @@ OO.ui.TextInputWidget.prototype.onIconMouseDown = function ( e ) {
 };
 
 /**
- * Handle indicator mouse down events.
+ * Focus the input element when clicking on the indicator. This default implementation is
+ * effectively only suitable for the 'required' indicator. If you are looking for functional 'clear'
+ * or 'down' indicators, you might want to use the {@link OO.ui.SearchInputWidget SearchInputWidget}
+ * or {@link OO.ui.ComboBoxInputWidget ComboBoxInputWidget} subclasses.
  *
  * @private
  * @param {jQuery.Event} e Mouse down event
@@ -340,20 +343,20 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
  * @protected
  */
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
-	if ( this.getSaneType( config ) === 'number' ) {
-		return $( '<input>' )
-			.attr( 'step', 'any' )
-			.attr( 'type', 'number' );
-	} else {
-		return $( '<input>' ).attr( 'type', this.getSaneType( config ) );
+	var $input = $( '<input>' ).attr( 'type', config.type );
+
+	if ( config.type === 'number' ) {
+		$input.attr( 'step', 'any' );
 	}
+
+	return $input;
 };
 
 /**
- * Get sanitized value for 'type' for given config.
+ * Get sanitized value for 'type' for given config. Subclasses might support other types.
  *
  * @param {Object} config Configuration options
- * @return {string|null}
+ * @return {string}
  * @protected
  */
 OO.ui.TextInputWidget.prototype.getSaneType = function ( config ) {

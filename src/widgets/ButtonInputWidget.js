@@ -89,8 +89,7 @@ OO.ui.ButtonInputWidget.static.tagName = 'span';
  * @protected
  */
 OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
-	var type;
-	type = [ 'button', 'submit', 'reset' ].indexOf( config.type ) !== -1 ? config.type : 'button';
+	var type = config.type === 'submit' || config.type === 'reset' ? config.type : 'button';
 	return $( '<' + ( config.useInputTag ? 'input' : 'button' ) + ' type="' + type + '">' );
 };
 

@@ -1,6 +1,7 @@
 /**
  * SearchInputWidgets are TextInputWidgets with `type="search"` assigned and feature a
- * {@link OO.ui.mixin.IconElement search icon} by default.
+ * {@link OO.ui.mixin.IconElement 'search' icon} as well as a functional
+ * {@link OO.ui.mixin.IndicatorElement 'clear' indicator} by default.
  * Please see the [OOUI documentation on MediaWiki] [1] for more information and examples.
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs#SearchInputWidget
@@ -51,7 +52,7 @@ OO.ui.SearchInputWidget.prototype.getSaneType = function () {
 };
 
 /**
- * Handle key down events on the indicator
+ * Clear and focus the input element when pressing enter on the 'clear' indicator.
  *
  * @param {jQuery.Event} e KeyDown event
  * @return {boolean}
@@ -66,7 +67,7 @@ OO.ui.SearchInputWidget.prototype.onIndicatorKeyDown = function ( e ) {
 };
 
 /**
- * Handle click events on the indicator
+ * Clear and focus the input element when clicking on the 'clear' indicator.
  *
  * @param {jQuery.Event} e Click event
  * @return {boolean}

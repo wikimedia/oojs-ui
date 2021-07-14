@@ -10,6 +10,10 @@
  * For a list of indicators included in the library, please see the
  * [OOUI documentation on MediaWiki] [1].
  *
+ * Note that indicators don't come with any functionality by default. See e.g.
+ * {@link OO.ui.SearchInputWidget SearchInputWidget} for a working 'clear' or
+ * {@link OO.ui.ComboBoxInputWidget ComboBoxInputWidget} for a working 'down' indicator.
+ *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Indicators
  *
  * @abstract
@@ -19,7 +23,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {jQuery} [$indicator] The indicator element created by the class. If this
  *  configuration is omitted, the indicator element will use a generated `<span>`.
- * @cfg {string} [indicator] Symbolic name of the indicator (e.g., ‘clear’ or ‘down’).
+ * @cfg {string} [indicator] Symbolic name of the indicator (e.g. ‘required’ or ‘down’).
  *  See the [OOUI documentation on MediaWiki][2] for a list of indicators included
  *  in the library.
  * [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Indicators
@@ -44,7 +48,7 @@ OO.initClass( OO.ui.mixin.IndicatorElement );
 /* Static Properties */
 
 /**
- * Symbolic name of the indicator (e.g., ‘clear’ or  ‘down’).
+ * Symbolic name of the indicator (e.g. ‘required’ or ‘down’).
  * The static property will be overridden if the #indicator configuration is used.
  *
  * @static
@@ -92,8 +96,8 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicatorElement = function ( $indicat
 };
 
 /**
- * Set the indicator by its symbolic name: ‘clear’, ‘down’, ‘required’, ‘up’. Use `null`
- * to remove the indicator.
+ * Set the indicator by its symbolic name. Built-in names currently include ‘clear’, ‘up’,
+ * ‘down’ and ‘required’ (declared via indicators.json). Use `null` to remove the indicator.
  *
  * @param {string|null} indicator Symbolic name of indicator, or `null` for no indicator
  * @chainable
@@ -124,7 +128,7 @@ OO.ui.mixin.IndicatorElement.prototype.setIndicator = function ( indicator ) {
 };
 
 /**
- * Get the symbolic name of the indicator (e.g., ‘clear’ or  ‘down’).
+ * Get the symbolic name of the indicator (e.g., ‘required’ or ‘down’).
  *
  * @return {string|null} Symbolic name of indicator, null if not set
  */

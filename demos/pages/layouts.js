@@ -628,7 +628,6 @@ Demo.static.pages.layouts = function ( demo ) {
 										label: 'Two'
 									} ),
 									new OO.ui.ButtonOptionWidget( {
-										indicator: 'clear',
 										label: 'Three'
 									} )
 								]

@@ -311,7 +311,6 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 						'label' => 'Two'
 					] ),
 					new OOUI\ButtonWidget( [
-						'indicator' => 'clear',
 						'label' => 'Three'
 					] )
 				]
