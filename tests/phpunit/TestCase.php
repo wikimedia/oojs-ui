@@ -14,12 +14,12 @@ class TestCase extends \PHPUnit\Framework\TestCase {
 		return new WikimediaUITheme();
 	}
 
-	public function setUp() : void {
+	public function setUp(): void {
 		parent::setUp();
 		Theme::setSingleton( $this->getTheme() );
 	}
 
-	public function tearDown() : void {
+	public function tearDown(): void {
 		Theme::setSingleton( null );
 		parent::tearDown();
 	}

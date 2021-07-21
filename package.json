@@ -64,7 +64,7 @@
 		"karma-firefox-launcher": "2.1.0",
 		"karma-qunit": "4.1.0",
 		"karma-remap-istanbul": "0.6.0",
-		"prismjs": "1.23.0",
+		"prismjs": "1.24.1",
 		"q": "1.5.1",
 		"qunit": "2.10.0",
 		"stylelint-config-wikimedia": "0.10.3"

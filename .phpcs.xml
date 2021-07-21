@@ -9,6 +9,7 @@
 		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate" />
 		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.Commenting.PropertyDocumentation.WrongStyle" />
+		<exclude name="MediaWiki.NamingConventions.PrefixedGlobalFunctions.allowedPrefix" />
 		<exclude name="PSR2.Classes.PropertyDeclaration.Multiple" />
 	</rule>
 	<!-- Allow superglobals in entry points -->
