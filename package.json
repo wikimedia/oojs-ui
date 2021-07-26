@@ -66,7 +66,7 @@
 		"karma-remap-istanbul": "0.6.0",
 		"prismjs": "1.24.1",
 		"q": "1.5.1",
-		"qunit": "2.10.0",
+		"qunit": "2.16.0",
 		"stylelint-config-wikimedia": "0.10.3"
 	}
 }
