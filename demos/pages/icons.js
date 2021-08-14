@@ -154,6 +154,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'markup',
 				'newline',
 				'noWikiText',
+				'ocr',
 				'outline',
 				'puzzle',
 				'quotes',
