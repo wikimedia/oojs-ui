@@ -484,7 +484,6 @@ Demo.static.pages.widgets = function ( demo ) {
 								label: 'Two'
 							} ),
 							new OO.ui.ButtonWidget( {
-								indicator: 'clear',
 								label: 'Three'
 							} )
 						]
@@ -543,7 +542,6 @@ Demo.static.pages.widgets = function ( demo ) {
 								label: 'Two'
 							} ),
 							new OO.ui.ToggleButtonWidget( {
-								indicator: 'clear',
 								label: 'Three'
 							} )
 						],
@@ -568,7 +566,6 @@ Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'd',
-								indicator: 'clear',
 								label: 'Three'
 							} )
 						]
@@ -593,7 +590,6 @@ Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'd',
-								indicator: 'clear',
 								label: 'Three'
 							} )
 						]
@@ -618,7 +614,6 @@ Demo.static.pages.widgets = function ( demo ) {
 							} ),
 							new OO.ui.ButtonOptionWidget( {
 								data: 'd',
-								indicator: 'clear',
 								label: 'Three'
 							} )
 						]
@@ -788,7 +783,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.MultilineTextInputWidget( {
 						autosize: true,
 						icon: 'tag',
-						indicator: 'clear',
+						indicator: 'required',
 						label: 'Inline label',
 						value: 'Autosize\nAutosize\nAutosize\nAutosize'
 					} ),
@@ -821,7 +816,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
 						icon: 'tag',
-						indicator: 'clear',
+						indicator: 'required',
 						value: 'Text input with label',
 						label: 'Inline label'
 					} ),
@@ -833,7 +828,7 @@ Demo.static.pages.widgets = function ( demo ) {
 				new OO.ui.FieldLayout(
 					new OO.ui.TextInputWidget( {
 						icon: 'tag',
-						indicator: 'clear',
+						indicator: 'required',
 						value: 'Text input with label',
 						label: 'Inline label',
 						labelPosition: 'before'
@@ -847,7 +842,7 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.TextInputWidget( {
 						value: 'Disabled',
 						icon: 'tag',
-						indicator: 'clear',
+						indicator: 'required',
 						label: 'Inline label',
 						disabled: true
 					} ),
@@ -1255,7 +1250,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								new OO.ui.MenuOptionWidget( {
 									data: 'b',
 									label: 'Second',
-									indicator: 'clear'
+									indicator: 'required'
 								} ),
 								new OO.ui.MenuOptionWidget( {
 									data: 'c',
@@ -1291,7 +1286,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								new OO.ui.MenuOptionWidget( {
 									data: 'b',
 									label: 'Disabled second option',
-									indicator: 'clear',
+									indicator: 'required',
 									disabled: true
 								} ),
 								new OO.ui.MenuOptionWidget( {
@@ -2262,7 +2257,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								new OO.ui.MenuOptionWidget( {
 									data: 'b',
 									label: 'Second',
-									indicator: 'clear'
+									indicator: 'required'
 								} ),
 								new OO.ui.MenuOptionWidget( {
 									data: 'c',
@@ -2300,7 +2295,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								new OO.ui.MenuOptionWidget( {
 									data: 'b',
 									label: 'Second',
-									indicator: 'clear'
+									indicator: 'required'
 								} ),
 								new OO.ui.MenuOptionWidget( {
 									data: 'c',
@@ -2339,7 +2334,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								new OO.ui.MenuOptionWidget( {
 									data: 'b',
 									label: 'Second',
-									indicator: 'clear'
+									indicator: 'required'
 								} ),
 								new OO.ui.MenuOptionWidget( {
 									data: 'c',
