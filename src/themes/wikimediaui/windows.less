@@ -146,7 +146,7 @@
 	&-title {
 		font-size: @font-size-dialog-process-title;
 		font-weight: bold;
-		line-height: @size-dialog-bar--desktop / unit( @font-size-dialog-process-title );
+		line-height: ( @size-dialog-bar--desktop / unit( @font-size-dialog-process-title ) );
 	}
 
 	// ActionWidget is only ever part of ProcessDialog actions (primary, safe, other),
@@ -314,7 +314,7 @@
 			}
 
 			&-title {
-				line-height: @size-dialog-bar--mobile / unit( @font-size-dialog-process-title );
+				line-height: ( @size-dialog-bar--mobile / unit( @font-size-dialog-process-title ) );
 			}
 
 			&-content .oo-ui-window-body {
