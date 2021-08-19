@@ -423,7 +423,7 @@
 }
 
 .theme-oo-ui-dropdownWidget() {
-	width: 100%;
+	width: @size-full;
 	max-width: @max-width-input;
 	.oo-ui-inline-spacing( @margin-end-widget );
 
@@ -523,7 +523,7 @@
 }
 
 .theme-oo-ui-dropdownInputWidget() {
-	width: 100%;
+	width: @size-full;
 	max-width: @max-width-input;
 
 	select {
@@ -1175,7 +1175,7 @@
 			height: @size-input-binary;
 			border-color: @border-color-input-binary;
 			border-style: @border-style-base;
-			border-radius: 100%;
+			border-radius: @border-radius-input-radio;
 			border-width: 0;
 			border-width: @border-width-base;
 
@@ -1183,12 +1183,14 @@
 			&:before {
 				content: ' ';
 				position: absolute;
-				top: -4px; // `px` unit due to pixel rounding error when using `@size-input-binary / 4`
-				left: -4px;
-				right: -4px;
-				bottom: -4px;
+				// `px` unit due to pixel rounding error when using
+				// `@size-input-binary / 4`.
+				top: @position-offset-input-radio-focus;
+				left: @position-offset-input-radio-focus;
+				right: @position-offset-input-radio-focus;
+				bottom: @position-offset-input-radio-focus;
 				border: @border-width-base @border-style-base transparent;
-				border-radius: 100%;
+				border-radius: @border-radius-input-radio;
 			}
 		}
 
@@ -1322,7 +1324,7 @@
 .theme-oo-ui-selectWidget() {}
 
 .theme-oo-ui-selectFileInputWidget() {
-	width: 100%;
+	width: @size-full;
 	max-width: @max-width-input;
 	min-height: @size-base;
 
@@ -1655,7 +1657,7 @@
 }
 
 .theme-oo-ui-tagMultiselectWidget() {
-	width: 100%;
+	width: @size-full;
 	max-width: @max-width-input;
 	vertical-align: top;
 
@@ -1795,7 +1797,7 @@
 }
 
 .theme-oo-ui-textInputWidget() {
-	width: 100%;
+	width: @size-full;
 	max-width: @max-width-input;
 
 	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`
