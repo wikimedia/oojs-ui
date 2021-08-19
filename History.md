@@ -1,4 +1,56 @@
 # OOUI Release History
+## v0.42.0 / 2021-08-18
+### Breaking changes
+* [BREAKING CHANGE] Remove obsolete browsers' vendor prefixes (Volker E.)
+* [BREAKING CHANGE] Use OOjs v6.0.0, up from v5.0.0 (James D. Forrester)
+* [BREAKING CHANGE] Use jQuery v3.6.0, up from v3.5.1 (James D. Forrester)
+### Deprecating changes
+* [DEPRECATING CHANGE] Rename `line-height-base` to `line-height-label` (Volker E.)
+
+### Styles
+* icons: Add destructive variant for close icon (Gergő Tisza)
+* icons: Add 'ocr' icon for OCR app (Volker E.)
+* icons: Add 'share' icon to 'content' pack (Volker E.)
+* themes: Remove obsolete `-moz-keyframes` vendor prefix. (Volker E.)
+* themes: Use parentheses to wrap division-like expressions (lens0021)
+* WikimediaUI theme: Use latest WikimediaUI Base vars from v0.19.0 (Volker E.)
+
+### Code
+* Element: Add more test coverage to `infuse()` (Timo Tijhof)
+* Element: Remove unused elem.selector logic for error messages (Timo Tijhof)
+* FieldLayout: Move label click handler to a method (Ed Sanders)
+* Fix for OO.ui.ActionSet.prototype.get() not returning invisible widgets (Andrew Kostka)
+* Follow-up bf59f8f86: Add intialized intialized -> initialized to typos file (James D. Forrester)
+* Improve filter-related documentation in ActionSet.js (Thiemo Kreuz)
+* Make use of the PHP operator `??` in a few more places (Thiemo Kreuz)
+* PHP setDisabled methods: Rename $state to $disabled to match parent class (Thiemo Kreuz)
+* Remove a few very small pieces of unused code (Thiemo Kreuz)
+* Revert 2016 patch that introduced tooltips on dialog titles (Thiemo Kreuz)
+* Rewrite some small loops for readability (Thiemo Kreuz)
+* SelectWidget: Handle null from findTargetItem() (Umherirrender)
+* TagMultiselectWidget: Update size immediately on keypress (Ed Sanders)
+* WikimediaUI theme: Remove unnecessary variable (Volker E.)
+* build: Cleanup and improve .phpcs.xml (Umherirrender)
+* build: Explicitly use HTTPS for grunt-promise-q dependency fork (Kunal Mehta)
+* build: Merge eslint dev and html tasks back together (Kunal Mehta)
+* build: Swap deprecated @codingStandardsIgnore to @phpcs:ignore (Umherirrender)
+* build: Update 'grunt' to v1.4.1 (Volker E.)
+* build: Update 'stylelint-config-wikimedia' & 'wikimedia-ui-base' (Volker E.)
+* build: Update dependencies (Volker E.)
+* build: Updating composer dependencies (libraryupgrader)
+* build: Updating dependencies (libraryupgrader)
+* build: Updating eslint-config-wikimedia to 0.20.0 (libraryupgrader)
+* build: Updating npm dependencies (libraryupgrader)
+* build: Updating path-parse to 1.0.7 (libraryupgrader)
+* build: Upgrade karma and related dependencies to 6.x (James D. Forrester)
+* build: Upgrade qunit from 2.10 to 2.16 (James D. Forrester)
+* code: Use more inclusive language for internal variable names (James D. Forrester)
+* docs: Note in README that our IRC presence has moved to Libera (James D. Forrester)
+* docs: Fix a couple of typos (DannyS712)
+* docs: Update somewhat ambiguous docs related to the clear indicator (Thiemo Kreuz)
+* docs: Bump license year to 2021 (Volker E.)
+
+
 ## v0.41.3 / 2021-03-12
 ### Styles
 * TagMultiselectWidget: Fix appearance when disabled (Ed Sanders)
