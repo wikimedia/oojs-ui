@@ -369,7 +369,7 @@ p:first-child {
 	min-width: 28px;
 	bottom: 2px;
 	right: 2px;
-	line-height: 30px;
+	line-height: 2.25em;
 	text-align: center;
 	-webkit-user-select: none;
 	-moz-user-select: none;

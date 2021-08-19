@@ -33,7 +33,7 @@
 	"dependencies": {
 		"jquery": "3.6.0",
 		"oojs": "6.0.0",
-		"wikimedia-ui-base": "0.18.1"
+		"wikimedia-ui-base": "0.19.0"
 	},
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.20.0",
@@ -67,6 +67,6 @@
 		"prismjs": "1.24.1",
 		"q": "1.5.1",
 		"qunit": "2.16.0",
-		"stylelint-config-wikimedia": "0.10.3"
+		"stylelint-config-wikimedia": "0.11.1"
 	}
 }
