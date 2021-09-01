@@ -532,25 +532,25 @@ OO.ui.BookletLayout.prototype.clearPages = function () {
  * @param {string} name Symbolic name of page
  */
 OO.ui.BookletLayout.prototype.setPage = function ( name ) {
-	var $focused,
-		page = this.pages[ name ],
-		previousPage = this.currentPageName && this.pages[ this.currentPageName ];
-
-	if ( name === this.currentPageName ) {
+	var page = this.pages[ name ];
+	if ( !page || name === this.currentPageName ) {
 		return;
 	}
+
+	var previousPage = this.pages[ this.currentPageName ];
+	this.currentPageName = name;
 
 	if ( this.outlined ) {
 		var selectedItem = this.outlineSelectWidget.findSelectedItem();
 		if ( selectedItem && selectedItem.getData() !== name ) {
+			// Warning! This triggers a "select" event and the .onOutlineSelectWidgetSelect()
+			// handler, which calls .setPage() a second time. Make sure .currentPageName is set to
+			// break this loop.
 			this.outlineSelectWidget.selectItemByData( name );
 		}
 	}
 
-	if ( !page ) {
-		return;
-	}
-
+	var $focused;
 	if ( previousPage ) {
 		previousPage.setActive( false );
 		// Blur anything focused if the next page doesn't have anything focusable.
@@ -569,7 +569,6 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 			}
 		}
 	}
-	this.currentPageName = name;
 	page.setActive( true );
 	this.stackLayout.setItem( page );
 	if ( !this.stackLayout.continuous && previousPage ) {
