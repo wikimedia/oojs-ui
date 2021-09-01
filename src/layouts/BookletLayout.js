@@ -532,53 +532,56 @@ OO.ui.BookletLayout.prototype.clearPages = function () {
  * @param {string} name Symbolic name of page
  */
 OO.ui.BookletLayout.prototype.setPage = function ( name ) {
-	var selectedItem,
-		$focused,
+	var $focused,
 		page = this.pages[ name ],
 		previousPage = this.currentPageName && this.pages[ this.currentPageName ];
 
-	if ( name !== this.currentPageName ) {
-		if ( this.outlined ) {
-			selectedItem = this.outlineSelectWidget.findSelectedItem();
-			if ( selectedItem && selectedItem.getData() !== name ) {
-				this.outlineSelectWidget.selectItemByData( name );
-			}
-		}
-		if ( page ) {
-			if ( previousPage ) {
-				previousPage.setActive( false );
-				// Blur anything focused if the next page doesn't have anything focusable.
-				// This is not needed if the next page has something focusable (because once it is
-				// focused this blur happens automatically). If the layout is non-continuous, this
-				// check is meaningless because the next page is not visible yet and thus can't
-				// hold focus.
-				if (
-					this.autoFocus &&
-					!OO.ui.isMobile() &&
-					this.stackLayout.continuous &&
-					OO.ui.findFocusable( page.$element ).length !== 0
-				) {
-					$focused = previousPage.$element.find( ':focus' );
-					if ( $focused.length ) {
-						$focused[ 0 ].blur();
-					}
-				}
-			}
-			this.currentPageName = name;
-			page.setActive( true );
-			this.stackLayout.setItem( page );
-			if ( !this.stackLayout.continuous && previousPage ) {
-				// This should not be necessary, since any inputs on the previous page should have
-				// been blurred when it was hidden, but browsers are not very consistent about
-				// this.
-				$focused = previousPage.$element.find( ':focus' );
-				if ( $focused.length ) {
-					$focused[ 0 ].blur();
-				}
-			}
-			this.emit( 'set', page );
+	if ( name === this.currentPageName ) {
+		return;
+	}
+
+	if ( this.outlined ) {
+		var selectedItem = this.outlineSelectWidget.findSelectedItem();
+		if ( selectedItem && selectedItem.getData() !== name ) {
+			this.outlineSelectWidget.selectItemByData( name );
 		}
 	}
+
+	if ( !page ) {
+		return;
+	}
+
+	if ( previousPage ) {
+		previousPage.setActive( false );
+		// Blur anything focused if the next page doesn't have anything focusable.
+		// This is not needed if the next page has something focusable (because once it is
+		// focused this blur happens automatically). If the layout is non-continuous, this
+		// check is meaningless because the next page is not visible yet and thus can't
+		// hold focus.
+		if ( this.autoFocus &&
+			!OO.ui.isMobile() &&
+			this.stackLayout.continuous &&
+			OO.ui.findFocusable( page.$element ).length !== 0
+		) {
+			$focused = previousPage.$element.find( ':focus' );
+			if ( $focused.length ) {
+				$focused[ 0 ].blur();
+			}
+		}
+	}
+	this.currentPageName = name;
+	page.setActive( true );
+	this.stackLayout.setItem( page );
+	if ( !this.stackLayout.continuous && previousPage ) {
+		// This should not be necessary, since any inputs on the previous page should have
+		// been blurred when it was hidden, but browsers are not very consistent about
+		// this.
+		$focused = previousPage.$element.find( ':focus' );
+		if ( $focused.length ) {
+			$focused[ 0 ].blur();
+		}
+	}
+	this.emit( 'set', page );
 };
 
 /**
