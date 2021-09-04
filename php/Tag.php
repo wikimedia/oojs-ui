@@ -484,7 +484,8 @@ class Tag {
 	/**
 	 * Magic method implementation.
 	 *
-	 * PHP doesn't allow __toString to throw exceptions and will trigger a fatal error if it does.
+	 * It was not possible to throw an exception from within a __toString() method prior to PHP 7.4.0.
+	 * Doing so will result in a fatal error.
 	 * This is a wrapper around the real toString() to convert them to errors instead.
 	 *
 	 * @return string
@@ -494,7 +495,6 @@ class Tag {
 			return $this->toString();
 		} catch ( Exception $ex ) {
 			trigger_error( (string)$ex, E_USER_ERROR );
-			return '';
 		}
 	}
 }
