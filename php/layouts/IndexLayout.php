@@ -19,7 +19,7 @@ class IndexLayout extends MenuLayout {
 	 */
 	protected $tabPanel;
 	/**
-	 * @var PanelLayout[]
+	 * @var TabPanelLayout[]
 	 */
 	protected $tabPanels;
 	/**
