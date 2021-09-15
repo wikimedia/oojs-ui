@@ -114,7 +114,6 @@ OO.ui.PageLayout.prototype.setOutlineItem = function ( outlineItem ) {
  * unset the outline item itself (with an {@link OO.ui.OutlineOptionWidget outline option} or
  * `null`), use the #setOutlineItem method instead.
  *
- * @param {OO.ui.OutlineOptionWidget} outlineItem Outline option widget to set up
  * @chainable
  * @return {OO.ui.PageLayout} The layout, for chaining
  */

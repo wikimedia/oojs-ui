@@ -9,8 +9,8 @@ Demo.SamplePage = function DemoSamplePage( name, config ) {
 	}
 };
 OO.inheritClass( Demo.SamplePage, OO.ui.PageLayout );
-Demo.SamplePage.prototype.setupOutlineItem = function ( outlineItem ) {
-	Demo.SamplePage.super.prototype.setupOutlineItem.call( this, outlineItem );
+Demo.SamplePage.prototype.setupOutlineItem = function () {
+	Demo.SamplePage.super.prototype.setupOutlineItem.call( this );
 	this.outlineItem
 		.setMovable( true )
 		.setRemovable( true )
