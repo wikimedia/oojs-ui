@@ -110,15 +110,13 @@ OO.ui.PageLayout.prototype.setOutlineItem = function ( outlineItem ) {
 /**
  * Set up the outline item.
  *
- * Use this method to customize the outline item (e.g., to add a label or outline level). To set or
- * unset the outline item itself (with an {@link OO.ui.OutlineOptionWidget outline option} or
+ * Override this method to customize the outline item (e.g., to add a label or outline level). To
+ * set or unset the outline item itself (with an {@link OO.ui.OutlineOptionWidget outline option} or
  * `null`), use the #setOutlineItem method instead.
  *
- * @chainable
- * @return {OO.ui.PageLayout} The layout, for chaining
+ * @protected
  */
 OO.ui.PageLayout.prototype.setupOutlineItem = function () {
-	return this;
 };
 
 /**
