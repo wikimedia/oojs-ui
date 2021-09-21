@@ -42,7 +42,6 @@ OO.initClass( OO.ui.mixin.LabelElement );
 
 /**
  * @event labelChange
- * @param {string} value
  */
 
 /* Static Properties */
