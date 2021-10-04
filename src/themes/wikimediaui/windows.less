@@ -331,7 +331,10 @@
 
 			&.oo-ui-labelElement {
 				> .oo-ui-buttonElement-button {
-					padding: @padding-vertical-tool-label @padding-horizontal-base;
+					min-height: @size-dialog-bar--mobile;
+					// Vertically center text using line-height instead of vertical padding (T291142)
+					line-height: @size-dialog-bar--mobile;
+					padding: 0 @padding-horizontal-base;
 				}
 
 				&.oo-ui-iconElement {
