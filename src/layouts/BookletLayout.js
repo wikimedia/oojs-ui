@@ -436,7 +436,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 
 	if ( this.outlined && items.length ) {
 		this.outlineSelectWidget.addItems( items, index );
-		this.selectFirstSelectablePage();
+		// It's impossible to lose a selection here. Selecting something else is business logic.
 	}
 	this.stackLayout.addItems( pages, index );
 	this.emit( 'add', pages, index );
@@ -456,20 +456,20 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
  */
 OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
 	var i, len, name, page,
-		items = [];
+		itemsToRemove = [];
 
 	for ( i = 0, len = pages.length; i < len; i++ ) {
 		page = pages[ i ];
 		name = page.getName();
 		delete this.pages[ name ];
 		if ( this.outlined ) {
-			items.push( this.outlineSelectWidget.findItemFromData( name ) );
+			itemsToRemove.push( this.outlineSelectWidget.findItemFromData( name ) );
 			page.setOutlineItem( null );
 		}
 	}
-	if ( this.outlined && items.length ) {
-		this.outlineSelectWidget.removeItems( items );
-		this.selectFirstSelectablePage();
+	if ( itemsToRemove.length ) {
+		this.outlineSelectWidget.removeItems( itemsToRemove );
+		// We might loose the selection here, but what to select instead is business logic.
 	}
 	this.stackLayout.removeItems( pages );
 	this.emit( 'remove', pages );
