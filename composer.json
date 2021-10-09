@@ -70,7 +70,7 @@
 	"scripts": {
 		"test": [
 			"parallel-lint . --exclude vendor --exclude demos/vendor",
-			"phpcs -p -s",
+			"@phpcs",
 			"phpunit",
 			"minus-x check .",
 			"phan -d . -p --require-config-exists --allow-polyfill-parser"
@@ -82,6 +82,7 @@
 		"doc": [
 			"doxygen"
 		],
-		"phan": "phan -d . --long-progress-bar"
+		"phan": "phan -d . --long-progress-bar",
+		"phpcs": "phpcs -sp --cache"
 	}
 }
