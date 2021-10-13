@@ -227,11 +227,26 @@
 				}
 			}
 		}
+
+		&.oo-ui-widget-disabled {
+			.oo-ui-tool-title {
+				color: @color-base--disabled;
+			}
+
+			.oo-ui-indicatorElement-indicator,
+			.oo-ui-iconElement-icon {
+				opacity: @opacity-tool--disabled;
+			}
+		}
 	}
 
-	&.oo-ui-widget-disabled,
-	&-tools .oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {
+	&.oo-ui-widget-disabled {
 		color: @color-base--disabled;
+
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			opacity: @opacity-tool--disabled;
+		}
 	}
 }
 
