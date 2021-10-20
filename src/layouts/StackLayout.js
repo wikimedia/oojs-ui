@@ -133,18 +133,28 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
  * Removed panels are detached from the DOM, not removed, so that they may be reused. To remove all
  * panels, you may wish to use the #clearItems method instead.
  *
- * @param {OO.ui.Layout[]} items Panels to remove
+ * @param {OO.ui.Layout[]} itemsToRemove Panels to remove
  * @chainable
  * @return {OO.ui.StackLayout} The layout, for chaining
  * @fires set
  */
-OO.ui.StackLayout.prototype.removeItems = function ( items ) {
-	// Mixin method
-	OO.ui.mixin.GroupElement.prototype.removeItems.call( this, items );
+OO.ui.StackLayout.prototype.removeItems = function ( itemsToRemove ) {
+	var isCurrentItemRemoved = itemsToRemove.indexOf( this.currentItem ) !== -1,
+		nextItem;
 
-	if ( items.indexOf( this.currentItem ) !== -1 ) {
+	if ( isCurrentItemRemoved ) {
+		var i = this.items.indexOf( this.currentItem );
+		do {
+			nextItem = this.items[ ++i ];
+		} while ( nextItem && itemsToRemove.indexOf( nextItem ) !== -1 );
+	}
+
+	// Mixin method
+	OO.ui.mixin.GroupElement.prototype.removeItems.call( this, itemsToRemove );
+
+	if ( isCurrentItemRemoved ) {
 		if ( this.items.length ) {
-			this.setItem( this.items[ 0 ] );
+			this.setItem( nextItem || this.items[ this.items.length - 1 ] );
 		} else {
 			this.unsetCurrentItem();
 		}

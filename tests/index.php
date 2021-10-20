@@ -30,6 +30,7 @@
 	<script src="./Element.test.js"></script>
 	<script src="./Process.test.js"></script>
 	<script src="./windows.test.js"></script>
+	<script src="./layouts/StackLayout.test.js"></script>
 	<script src="./mixins/FlaggedElement.test.js"></script>
 	<script src="./mixins/LabelElement.test.js"></script>
 	<script src="./widgets/SelectWidget.test.js"></script>
