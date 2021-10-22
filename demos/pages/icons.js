@@ -158,6 +158,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'outline',
 				'puzzle',
 				'quotes',
+				'sandbox',
 				'searchCaseSensitive',
 				'searchDiacritics',
 				'searchRegularExpression',
