@@ -80,7 +80,10 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-selectWidget oo-ui-selectWidget-unpressed' )
-		.attr( 'role', 'listbox' );
+		.attr( {
+			role: 'listbox',
+			'aria-multiselectable': this.multiselect.toString()
+		} );
 	this.setFocusOwner( this.$element );
 	if ( Array.isArray( config.items ) ) {
 		this.addItems( config.items );
