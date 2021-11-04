@@ -41,27 +41,6 @@
 	box-sizing: @type;
 }
 
-// `hyphens` is only useful in connection with `word-wrap` property and depends on installed
-// client browser dictionaries.
-// In sync with MediaWiki core's .hyphens() mixin.
-.oo-ui-hyphens( @value: auto ) {
-	& when ( @value = auto ) {
-		// Legacy `word-wrap`; IE 6-11, Edge 12+, Firefox 3.5+, Chrome 4+, Safari 3.1+,
-		//   Opera 11.5+, iOS 3.2+, Android 2.1+
-		// `overflow-wrap` is W3 standard, but it doesn't seem as if browser vendors
-		//   will abandon `word-wrap` (it has wider support), therefore no duplication.
-		word-wrap: break-word;
-	}
-	& when ( @value = none ) {
-		word-wrap: normal;
-	}
-
-	// CSS3 hyphenation
-	-moz-hyphens: @value;    // Firefox 6-42
-	-ms-hyphens: @value;     // IE 10-11, Edge 12+
-	hyphens: @value;         // Firefox 43+, Chrome 55+, Android 62+, UC Browser 11.8+, Samsung 6.2+
-}
-
 .oo-ui-horizontal-gradient( @startColor: #eee, @endColor: #fff, @startPos: 0, @endPos: 100% ) {
 	background-color: average( @startColor, @endColor );
 	background-image: -webkit-linear-gradient( left, @startColor @startPos, @endColor @endPos ); // Android 4.3
