@@ -2,16 +2,16 @@
  * Grunt file
  */
 
-/* eslint-env node, es6 */
+'use strict';
+
 module.exports = function ( grunt ) {
-	var modules = grunt.file.readYAML( 'build/modules.yaml' ),
+	const modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		themes = {
 			wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 			apex: 'Apex'
 		},
 		lessFiles = {},
-		lessTargets = {},
 		colorizeSvgFiles = {},
 		requiredFiles = [],
 		concatCssFiles = {},
@@ -19,6 +19,7 @@ module.exports = function ( grunt ) {
 		concatOmnibus = {},
 		rtlFiles = {},
 		minBanner = '/*! OOUI v<%= pkg.version %> | http://oojs.mit-license.org */';
+	let lessTargets = {};
 
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
@@ -40,7 +41,7 @@ module.exports = function ( grunt ) {
 	grunt.loadTasks( 'build/tasks' );
 
 	( function () {
-		var distFile, module, moduleDef, theme, moduleStyleFiles;
+		let theme;
 
 		for ( theme in themes ) {
 			lessFiles[ theme ] = {};
@@ -53,10 +54,10 @@ module.exports = function ( grunt ) {
 			// Only pass one argument, otherwise grunt.file.exists() will try to join them
 			return grunt.file.exists( file );
 		}
-		for ( module in modules ) {
-			if ( module.indexOf( '{theme}' ) !== -1 || module.indexOf( '{Theme}' ) !== -1 ) {
+		for ( const module in modules ) {
+			if ( module.includes( '{theme}' ) || module.includes( '{Theme}' ) ) {
 				for ( theme in themes ) {
-					moduleDef = {};
+					const moduleDef = {};
 					moduleDef.theme = theme;
 					if ( modules[ module ].scripts ) {
 						moduleDef.scripts = modules[ module ].scripts
@@ -80,7 +81,7 @@ module.exports = function ( grunt ) {
 			}
 		}
 
-		for ( module in modules ) {
+		for ( const module in modules ) {
 			requiredFiles.push.apply( requiredFiles, modules[ module ].scripts || [] );
 			requiredFiles.push.apply( requiredFiles, modules[ module ].styles || [] );
 		}
@@ -91,10 +92,10 @@ module.exports = function ( grunt ) {
 		// Generate all task targets required to process given file into a pair of CSS files (for
 		// LTR and RTL), and return file name of LTR file.
 		function processFile( fileName ) {
-			var lessFileName, cssFileName, path;
-			path = require( 'path' );
+			const path = require( 'path' );
+			let cssFileName;
 			if ( path.extname( fileName ) === '.json' ) {
-				lessFileName = fileName.replace( /\.json$/, '.less' ).replace( /^src/, 'dist/tmp' );
+				const lessFileName = fileName.replace( /\.json$/, '.less' ).replace( /^src/, 'dist/tmp' );
 
 				colorizeSvgFiles[ fileName.replace( /.+\/(\w+)\/([\w-]+)\.(?:json|less)$/, '$1-$2' ) ] = {
 					options: grunt.file.readJSON( fileName ),
@@ -118,18 +119,18 @@ module.exports = function ( grunt ) {
 			}
 			return cssFileName;
 		}
-		for ( module in modules ) {
+		for ( const module in modules ) {
 			if ( modules[ module ].styles ) {
-				moduleStyleFiles = modules[ module ].styles;
+				const moduleStyleFiles = modules[ module ].styles;
 				theme = modules[ module ].theme;
 
-				distFile = 'dist/' + module + '.css';
+				const distFile = 'dist/' + module + '.css';
 
 				concatCssFiles[ distFile ] = moduleStyleFiles.map( processFile );
 				concatCssFiles[ rtlPath( distFile ) ] = concatCssFiles[ distFile ].map( rtlPath );
 			}
 			if ( modules[ module ].scripts ) {
-				distFile = 'dist/' + module + '.js';
+				const distFile = 'dist/' + module + '.js';
 				concatJsFiles[ distFile ] = modules[ module ].scripts.slice();
 				concatJsFiles[ distFile ].unshift( 'src/intro.js.txt' );
 				concatJsFiles[ distFile ].push( 'src/outro.js.txt' );
@@ -178,7 +179,7 @@ module.exports = function ( grunt ) {
 	}() );
 
 	function strip( str ) {
-		var path = require( 'path' );
+		const path = require( 'path' );
 		// http://gruntjs.com/configuring-tasks#building-the-files-object-dynamically
 		// http://gruntjs.com/api/grunt.file#grunt.file.expandmapping
 		return function ( dest, src ) {
@@ -613,10 +614,10 @@ module.exports = function ( grunt ) {
 	} );
 
 	grunt.registerTask( 'git-status', function () {
-		var done = this.async();
+		const done = this.async();
 		// Are there unstaged changes?
 		require( 'child_process' ).exec( 'git ls-files --modified', function ( err, stdout, stderr ) {
-			var ret = err || stderr || stdout;
+			const ret = err || stderr || stdout;
 			if ( ret ) {
 				grunt.log.error( 'Unstaged changes in these files:' );
 				grunt.log.error( ret );
@@ -629,7 +630,7 @@ module.exports = function ( grunt ) {
 	} );
 
 	grunt.registerTask( 'pre-git-build', function () {
-		var done = this.async();
+		const done = this.async();
 		require( 'child_process' ).exec( 'git rev-parse HEAD', function ( err, stout, stderr ) {
 			if ( !stout || err || stderr ) {
 				grunt.log.err( err || stderr );

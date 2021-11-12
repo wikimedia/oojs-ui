@@ -1,16 +1,7 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia",
+		"wikimedia/server",
 		"wikimedia/jsduck"
-	],
-	"globals": {
-		"OO": "readonly"
-	},
-	"plugins": [ "html" ],
-	"settings": {
-		"max-len": "error",
-		"html/indent": "+tab",
-		"html/report-bad-indent": "error"
-	}
+	]
 }

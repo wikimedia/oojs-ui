@@ -1,9 +1,15 @@
 {
+	"root": true,
 	"extends": [
 		"../src/.eslintrc.json",
 		"wikimedia/jquery"
 	],
 	"globals": {
 		"Demo": false
+	},
+	"plugins": [ "html" ],
+	"settings": {
+		"html/indent": "+tab",
+		"html/report-bad-indent": "error"
 	}
 }

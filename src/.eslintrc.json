@@ -1,15 +1,18 @@
 {
+	"root": true,
 	"extends": [
-		"../.eslintrc.json",
 		"wikimedia/client",
-		"wikimedia/jquery"
+		"wikimedia/jquery",
+		"wikimedia/jsduck"
 	],
-	"rules": {
-		"mediawiki/msg-doc": "error",
-		"no-jquery/no-visibility": "error",
-		"no-jquery/variable-pattern": "error"
-	},
 	"plugins": [
 		"mediawiki"
-	]
+	],
+	"globals": {
+		"OO": "writable"
+	},
+	"rules": {
+		"mediawiki/msg-doc": "error",
+		"no-jquery/no-visibility": "error"
+	}
 }

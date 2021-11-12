@@ -1,9 +1,13 @@
 {
+	"root": true,
 	"extends": [
-		"../src/.eslintrc.json",
-		"wikimedia/qunit",
-		"wikimedia/language/es6"
+		"wikimedia/client-es6",
+		"wikimedia/jquery",
+		"wikimedia/qunit"
 	],
+	"globals": {
+		"OO": "readonly"
+	},
 	"rules": {
 		"no-jquery/no-class-state": "off",
 		"no-var": "off"
