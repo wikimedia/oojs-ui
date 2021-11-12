@@ -10,12 +10,12 @@
 			1,
 			'Basic widget (inputPosition:inline) has an input'
 		);
-		assert.ok(
+		assert.true(
 			widget.$element.hasClass( 'oo-ui-tagMultiselectWidget-inlined' ),
 			'Basic widget (inputPosition:inline) has an inline input class'
 		);
-		assert.ok(
-			widget.$group.children( 'input' ).length,
+		assert.true(
+			widget.$group.children( 'input' ).length > 0,
 			'Basic widget (inputPosition:inline) has its input placed inside the group'
 		);
 
@@ -25,12 +25,12 @@
 			1,
 			'Widget with inputPosition:outline has an input'
 		);
-		assert.ok(
+		assert.true(
 			widget.$element.hasClass( 'oo-ui-tagMultiselectWidget-outlined' ),
 			'Widget with inputPosition:outline has the correct class'
 		);
-		assert.ok(
-			widget.$element.children( '.oo-ui-textInputWidget' ).length,
+		assert.true(
+			widget.$element.children( '.oo-ui-textInputWidget' ).length > 0,
 			'Widget with inputPosition:outline has its input placed in the widget\'s element itself'
 		);
 

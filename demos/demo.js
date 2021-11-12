@@ -274,8 +274,7 @@ Demo.prototype.initialize = function () {
 
 	// Helper function to get high resolution profiling data, where available.
 	function now() {
-		return ( window.performance && performance.now ) ? performance.now() :
-			Date.now ? Date.now() : new Date().getTime();
+		return ( window.performance && performance.now ) ? performance.now() : Date.now();
 	}
 
 	return $.when.apply( $, promises )

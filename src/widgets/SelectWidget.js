@@ -448,7 +448,7 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 
 	if ( !e.charCode ) {
 		if ( e.keyCode === OO.ui.Keys.BACKSPACE && this.keyPressBuffer !== '' ) {
-			this.keyPressBuffer = this.keyPressBuffer.substr( 0, this.keyPressBuffer.length - 1 );
+			this.keyPressBuffer = this.keyPressBuffer.slice( 0, this.keyPressBuffer.length - 1 );
 			return false;
 		}
 		return;

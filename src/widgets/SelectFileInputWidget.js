@@ -215,9 +215,9 @@ OO.ui.SelectFileInputWidget.prototype.filterFiles = function ( files ) {
 			mimeTest = accept[ i ];
 			if ( mimeTest === mimeType ) {
 				return true;
-			} else if ( mimeTest.substr( -2 ) === '/*' ) {
-				mimeTest = mimeTest.substr( 0, mimeTest.length - 1 );
-				if ( mimeType.substr( 0, mimeTest.length ) === mimeTest ) {
+			} else if ( mimeTest.slice( -2 ) === '/*' ) {
+				mimeTest = mimeTest.slice( 0, mimeTest.length - 1 );
+				if ( mimeType.slice( 0, mimeTest.length ) === mimeTest ) {
 					return true;
 				}
 			}

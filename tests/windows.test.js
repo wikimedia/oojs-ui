@@ -73,11 +73,11 @@ QUnit.test( 'clearWindows()', function ( assert ) {
 	windowManager.once( 'opening', function ( win, opened ) {
 		opened.then( function () {
 			alertWindow = win;
-			assert.ok( windowManager.isOpened( alertWindow ) );
+			assert.true( windowManager.isOpened( alertWindow ) );
 			windowManager.clearWindows();
 		} );
 	} );
 	return OO.ui.alert( 'Text' ).then( function () {
-		assert.notOk( windowManager.isOpened( alertWindow ) );
+		assert.false( windowManager.isOpened( alertWindow ) );
 	} );
 } );

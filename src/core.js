@@ -435,7 +435,7 @@ OO.ui.isSafeUrl = function ( url ) {
 	var i, protocolAllowList;
 
 	function stringStartsWith( haystack, needle ) {
-		return haystack.substr( 0, needle.length ) === needle;
+		return haystack.slice( 0, needle.length ) === needle;
 	}
 
 	protocolAllowList = [

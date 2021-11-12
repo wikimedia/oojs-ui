@@ -30,7 +30,7 @@ QUnit.test( 'static.infuse', function ( assert ) {
 		$unmatchedSelector = $( '#there-is.no-spoon' ),
 		$moreThanOneInCollection = $( '<div aria-disabled=\'false\' id=\'ooui-php-1\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div><div aria-disabled=\'false\' id=\'ooui-php-2\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div>' );
 
-	assert.ok( OO.ui.Element.static.infuse( $textInputWidget ) );
+	assert.true( OO.ui.Element.static.infuse( $textInputWidget ) instanceof OO.ui.TextInputWidget );
 	assert.throws( function () {
 		OO.ui.Element.static.infuse( $unknownTypeWidget );
 	}, /Error: Unknown widget type/ );
@@ -73,24 +73,24 @@ QUnit.test( 'static.infuse (infusing already infused nodes)', function ( assert 
 	reset();
 	a = OO.ui.infuse( document.getElementById( 'button' ) );
 	b = OO.ui.infuse( $( '#button' ) );
-	assert.ok( a instanceof OO.ui.ButtonWidget, 'infuse() returned a ButtonWidget' );
-	assert.ok( b instanceof OO.ui.ButtonWidget, 'infuse() returned a ButtonWidget' );
+	assert.true( a instanceof OO.ui.ButtonWidget, 'infuse() returned a ButtonWidget' );
+	assert.true( b instanceof OO.ui.ButtonWidget, 'infuse() returned a ButtonWidget' );
 	assert.strictEqual( a, b, 'Both infuse() calls returned the same widget instance' );
 
 	// Infuse a field, then its widget
 	reset();
 	a = OO.ui.infuse( document.getElementById( 'field' ) );
 	b = OO.ui.infuse( document.getElementById( 'button' ) );
-	assert.ok( a instanceof OO.ui.FieldLayout, 'infuse() returned a FieldLayout' );
-	assert.ok( b instanceof OO.ui.ButtonWidget, 'infuse() returned a ButtonWidget' );
+	assert.true( a instanceof OO.ui.FieldLayout, 'infuse() returned a FieldLayout' );
+	assert.true( b instanceof OO.ui.ButtonWidget, 'infuse() returned a ButtonWidget' );
 	assert.strictEqual( a.fieldWidget, b, 'Both infuse() calls returned the same widget instance' );
 
 	// Infuse a widget, then its field
 	reset();
 	a = OO.ui.infuse( document.getElementById( 'button' ) );
 	b = OO.ui.infuse( document.getElementById( 'field' ) );
-	assert.ok( a instanceof OO.ui.ButtonWidget, 'infuse() returned a ButtonWidget' );
-	assert.ok( b instanceof OO.ui.FieldLayout, 'infuse() returned a FieldLayout' );
+	assert.true( a instanceof OO.ui.ButtonWidget, 'infuse() returned a ButtonWidget' );
+	assert.true( b instanceof OO.ui.FieldLayout, 'infuse() returned a FieldLayout' );
 	assert.strictEqual( b.fieldWidget, a, 'Both infuse() calls returned the same widget instance' );
 
 	// Infuse a widget with extra config
@@ -171,7 +171,7 @@ QUnit.test( 'static.getDocument', function ( assert ) {
 		try {
 			assert.strictEqual( OO.ui.Element.static.getDocument( win ), doc, 'Window (when a a cross-origin frame exists)' );
 		} catch ( err ) {
-			assert.ok( false, 'Window (when a a cross-origin frame exists)' );
+			assert.true( false, 'Window (when a a cross-origin frame exists)' );
 		}
 		done();
 	} );

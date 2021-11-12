@@ -2,8 +2,8 @@
 
 	function unstub( value ) {
 		var config;
-		if ( typeof value === 'string' && value.substr( 0, 13 ) === '_placeholder_' ) {
-			value = JSON.parse( value.substr( 13 ) );
+		if ( typeof value === 'string' && value.slice( 0, 13 ) === '_placeholder_' ) {
+			value = JSON.parse( value.slice( 13 ) );
 			config = OO.copy( value.config, null, unstub );
 			return new OO.ui[ value.class ]( config );
 		}

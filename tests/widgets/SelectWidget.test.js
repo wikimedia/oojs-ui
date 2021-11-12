@@ -95,7 +95,7 @@
 		} );
 		selectWidget.selectItem( optionWidget );
 
-		assert.notOk( selectEventWasFired );
+		assert.false( selectEventWasFired );
 	} );
 
 }() );

@@ -228,7 +228,7 @@ QUnit.test( 'execute (thenable, failure)', function ( assert ) {
 		.execute()
 		.then(
 			function () {
-				assert.ok( false, 'Promise should have rejected' );
+				assert.true( false, 'Promise should have rejected' );
 			},
 			function ( err ) {
 				assert.strictEqual(
@@ -254,7 +254,7 @@ QUnit.test( 'execute (function returning thenable, failure)', function ( assert 
 		.execute()
 		.then(
 			function () {
-				assert.ok( false, 'Promise should have rejected' );
+				assert.true( false, 'Promise should have rejected' );
 			},
 			function ( err ) {
 				assert.strictEqual(
