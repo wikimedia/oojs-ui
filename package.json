@@ -57,7 +57,7 @@
 		"grunt-stylelint": "0.16.0",
 		"grunt-svgmin": "6.0.1",
 		"grunt-tyops": "0.1.0",
-		"javascript-stringify": "2.1.0",
+		"javascript-stringify": "1.6.0",
 		"karma": "6.3.8",
 		"karma-chrome-launcher": "3.1.0",
 		"karma-coverage": "2.0.3",
