@@ -1,6 +1,3 @@
-// eslint-disable-next-line no-implicit-globals
-var urlPieces, baseUrl;
-
 window.Tutorials = {};
 /**
  * @class
@@ -13,8 +10,8 @@ Tutorials.Toolbar = function ( config ) {
 	config = config || {};
 	Tutorials.Toolbar.super.call( this, config );
 
-	urlPieces = window.location.pathname.split( 'demos/tutorials/' );
-	baseUrl = urlPieces[ 0 ];
+	var urlPieces = window.location.pathname.split( 'demos/tutorials/' );
+	this.baseUrl = urlPieces[ 0 ];
 
 	this.links = new OO.ui.ButtonGroupWidget( {
 		items: [
@@ -22,14 +19,14 @@ Tutorials.Toolbar = function ( config ) {
 				label: 'Demos',
 				classes: [ 'tutorials-toolbar-demos' ],
 				icon: 'window',
-				href: baseUrl + 'demos/index.html',
+				href: this.baseUrl + 'demos/index.html',
 				flags: [ 'progressive' ]
 			} ),
 			new OO.ui.ButtonWidget( {
 				label: 'Docs',
 				classes: [ 'tutorials-toolbar-docs' ],
 				icon: 'journal',
-				href: baseUrl + 'js/',
+				href: this.baseUrl + 'js/',
 				flags: [ 'progressive' ]
 			} )
 		]
@@ -76,11 +73,13 @@ Tutorials.Toolbar = function ( config ) {
 		}
 	} );
 
-	this.tutorialsDropdown.getMenu().on( 'choose', Tutorials.Toolbar.prototype.urlRedirection );
+	this.tutorialsDropdown.getMenu().connect( this, {
+		choose: 'urlRedirection'
+	} );
 };
 
 OO.inheritClass( Tutorials.Toolbar, OO.ui.Widget );
 
 Tutorials.Toolbar.prototype.urlRedirection = function ( item ) {
-	window.location = baseUrl + item.getData();
+	window.location = this.baseUrl + item.getData();
 };
