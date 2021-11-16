@@ -5,7 +5,7 @@
 		"wikimedia/jquery"
 	],
 	"globals": {
-		"Demo": false
+		"Demo": "writable"
 	},
 	"plugins": [ "html" ],
 	"settings": {
