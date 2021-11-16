@@ -1,11 +1,10 @@
 Demo.PositionSelectWidget = function DemoPositionSelectWidget( config ) {
-	var verticalPositions, horizontalPositions,
-		widget = this;
+	var widget = this;
 
 	Demo.PositionSelectWidget.super.call( this, config );
 
-	verticalPositions = [ 'above', 'top', 'center', 'bottom', 'below' ];
-	horizontalPositions = [ 'before', 'start', 'center', 'end', 'after' ];
+	var verticalPositions = [ 'above', 'top', 'center', 'bottom', 'below' ];
+	var horizontalPositions = [ 'before', 'start', 'center', 'end', 'after' ];
 
 	verticalPositions.forEach( function ( v ) {
 		var $row = $( '<div>' );

@@ -10,11 +10,9 @@ Demo.LongProcessDialog.static.actions = [
 	{ action: 'other2', label: 'Additional other' }
 ];
 Demo.LongProcessDialog.prototype.initialize = function () {
-	var i;
-
 	Demo.LongProcessDialog.super.prototype.initialize.apply( this, arguments );
 	this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
-	for ( i = 0; i < 100; i++ ) {
+	for ( var i = 0; i < 100; i++ ) {
 		// eslint-disable-next-line no-jquery/no-parse-html-literal
 		this.content.$element.append( '<p>Dialog content</p>' );
 	}

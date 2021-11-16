@@ -1,6 +1,5 @@
 Demo.static.pages.icons = function ( demo ) {
-	var selector,
-		icons = {
+	var icons = {
 			movement: [
 				'arrowPrevious',
 				'arrowNext',
@@ -301,7 +300,7 @@ Demo.static.pages.icons = function ( demo ) {
 		return iconsFieldset;
 	} );
 
-	selector = new OO.ui.ButtonSelectWidget( {
+	var selector = new OO.ui.ButtonSelectWidget( {
 		items: [
 			new OO.ui.ButtonOptionWidget( {
 				label: 'None',

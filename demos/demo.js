@@ -279,10 +279,9 @@ Demo.prototype.initialize = function () {
 
 	return $.when.apply( $, promises )
 		.done( function () {
-			var start, end;
-			start = now();
+			var start = now();
 			demo.constructor.static.pages[ demo.mode.page ]( demo );
-			end = now();
+			var end = now();
 			window.console.log( 'Took ' + ( end - start ) + ' ms to build demo page.' );
 		} )
 		.fail( function () {
@@ -358,9 +357,9 @@ Demo.prototype.getUrlQuery = function ( mode, fragment ) {
  * @return {Object[]} List of mode factors, keyed by symbolic name
  */
 Demo.prototype.getFactors = function () {
-	var key,
-		factors = [ {}, {}, {}, {} ];
+	var factors = [ {}, {}, {}, {} ];
 
+	var key;
 	for ( key in this.constructor.static.pages ) {
 		factors[ 0 ][ key ] = key;
 	}
@@ -400,13 +399,12 @@ Demo.prototype.getDefaultFactorValues = function () {
  * @return {string[]} Factor values in URL order: page, theme, direction, platform
  */
 Demo.prototype.getCurrentFactorValues = function () {
-	var i, parts, index,
-		factors = this.getDefaultFactorValues(),
+	var factors = this.getDefaultFactorValues(),
 		order = [ 'page', 'theme', 'direction', 'platform' ],
 		query = location.search.slice( 1 ).split( '&' );
-	for ( i = 0; i < query.length; i++ ) {
-		parts = query[ i ].split( '=', 2 );
-		index = order.indexOf( parts[ 0 ] );
+	for ( var i = 0; i < query.length; i++ ) {
+		var parts = query[ i ].split( '=', 2 );
+		var index = order.indexOf( parts[ 0 ] );
 		if ( index !== -1 ) {
 			factors[ index ] = decodeURIComponent( parts[ 1 ] );
 		}
@@ -439,12 +437,11 @@ Demo.prototype.getCurrentMode = function ( factorValues ) {
  * @return {HTMLElement[]} List of link elements
  */
 Demo.prototype.getStylesheetLinks = function () {
-	var links, fragments,
-		factors = this.getFactors(),
+	var factors = this.getFactors(),
 		urls = [];
 
 	// Translate modes to filename fragments
-	fragments = this.getCurrentFactorValues().map( function ( val, index ) {
+	var fragments = this.getCurrentFactorValues().map( function ( val, index ) {
 		return factors[ index ][ val ];
 	} );
 
@@ -455,7 +452,7 @@ Demo.prototype.getStylesheetLinks = function () {
 	urls.push( 'styles/demo' + fragments[ 2 ] + '.css' );
 
 	// Add link tags
-	links = urls.map( function ( url ) {
+	var links = urls.map( function ( url ) {
 		var
 			link = document.createElement( 'link' ),
 			$link = $( link ),
@@ -477,21 +474,20 @@ Demo.prototype.getStylesheetLinks = function () {
  * Normalize the URL query.
  */
 Demo.prototype.normalizeQuery = function () {
-	var i, len, factorValues, match, valid, factorValue,
-		factors = this.getFactors(),
+	var factors = this.getFactors(),
 		modes = this.getDefaultFactorValues();
 
-	factorValues = this.getCurrentFactorValues();
-	for ( i = 0, len = factors.length; i < len; i++ ) {
-		factorValue = factorValues[ i ];
-		if ( factors[ i ][ factorValue ] !== undefined ) {
+	var factorValues = this.getCurrentFactorValues();
+	factors.forEach( function ( factor, i ) {
+		var factorValue = factorValues[ i ];
+		if ( factor[ factorValue ] !== undefined ) {
 			modes[ i ] = factorValue;
 		}
-	}
+	} );
 
 	// Backwards-compatibility with old URLs that used the 'fragment' part to link to demo sections:
 	// if a fragment is specified and it describes valid factors, turn the URL into the new style.
-	match = location.hash.match( /^#(\w+)-(\w+)-(\w+)(?:-(\w+))?$/ );
+	var match = location.hash.match( /^#(\w+)-(\w+)-(\w+)(?:-(\w+))?$/ );
 	if ( match ) {
 		factorValues = Array.prototype.slice.call( match, 1 );
 		// Backwards-compatibility with changed theme name (I8ee1fab4)
@@ -507,14 +503,10 @@ Demo.prototype.normalizeQuery = function () {
 		if ( !factorValues[ 3 ] ) {
 			factorValues[ 3 ] = 'desktop';
 		}
-		valid = true;
-		for ( i = 0, len = factors.length; i < len; i++ ) {
-			factorValue = factorValues[ i ];
-			if ( factors[ i ][ factorValue ] === undefined ) {
-				valid = false;
-				break;
-			}
-		}
+		var valid = factors.every( function ( factor, i ) {
+			var factorValue = factorValues[ i ];
+			return factor[ factorValue ] !== undefined;
+		} );
 		if ( valid ) {
 			location.hash = '';
 			modes = factorValues;
@@ -547,14 +539,14 @@ Demo.prototype.destroy = function () {
  * @return {jQuery} Console interface element
  */
 Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLayoutCode ) {
-	var $toggle, $log, $label, $input, $submit, $console, $form, $pre, $code,
-		console = window.console;
+	var console = window.console;
+	var $input, $log, $console, $code;
 
 	function exec( str ) {
-		var func, ret;
 		if ( str.indexOf( 'return' ) !== 0 ) {
 			str = 'return ' + str;
 		}
+		var func, ret;
 		try {
 			// eslint-disable-next-line no-new-func
 			func = new Function( layoutName, widgetName, 'item', str );
@@ -569,14 +561,12 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 	}
 
 	function submit() {
-		var val, result, logval;
-
-		val = $input.val();
+		var val = $input.val();
 		$input.val( '' );
 		$input[ 0 ].focus();
-		result = exec( val );
+		var result = exec( val );
 
-		logval = String( result.value );
+		var logval = String( result.value );
 		if ( logval === '' ) {
 			logval = '""';
 		}
@@ -610,8 +600,7 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 	}
 
 	function getCode( item, toplevel ) {
-		var config, defaultConfig, url, params, out, i,
-			items = [],
+		var items = [],
 			demoLinks = [],
 			docLinks = [];
 
@@ -625,9 +614,10 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 			return false;
 		}
 
-		config = item.initialConfig;
+		var config = item.initialConfig;
 
 		// Prevent the default config from being part of the code
+		var defaultConfig;
 		if ( item instanceof OO.ui.ActionFieldLayout ) {
 			defaultConfig = (
 				new item.constructor(
@@ -675,6 +665,7 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 
 		// The generated code needs to include different arguments, based on the object type
 		items.push( item );
+		var params;
 		if ( item instanceof OO.ui.ActionFieldLayout ) {
 			params = getCode( item.fieldWidget ) + ', ' + getCode( item.buttonWidget );
 			items.push( item.fieldWidget );
@@ -688,14 +679,15 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 		if ( config !== '{}' ) {
 			params += ( params ? ', ' : '' ) + config;
 		}
-		out = 'new ' + getConstructorName( item ) + '(' +
+		var out = 'new ' + getConstructorName( item ) + '(' +
 			( params ? ' ' : '' ) + params + ( params ? ' ' : '' ) +
 			')';
 
 		if ( toplevel ) {
-			for ( i = 0; i < items.length; i++ ) {
+			for ( var i = 0; i < items.length; i++ ) {
 				item = items[ i ];
 				// The code generated for Demo widgets cannot be copied and used
+				var url;
 				if ( item.constructor.name.indexOf( 'Demo' ) === 0 ) {
 					url =
 						'https://gerrit.wikimedia.org/g/oojs/ui/+/master/demos/classes/' +
@@ -718,7 +710,7 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 		);
 	}
 
-	$toggle = $( '<span>' )
+	var $toggle = $( '<span>' )
 		.addClass( 'demo-console-toggle' )
 		.attr( 'title', 'Toggle console' )
 		.on( 'click', function ( e ) {
@@ -754,26 +746,26 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 	$log = $( '<div>' )
 		.addClass( 'demo-console-log' );
 
-	$label = $( '<label>' )
+	var $label = $( '<label>' )
 		.addClass( 'demo-console-label' );
 
 	$input = $( '<input>' )
 		.addClass( 'demo-console-input' )
 		.prop( 'placeholder', '... (predefined: ' + layoutName + ', ' + widgetName + ')' );
 
-	$submit = $( '<div>' )
+	var $submit = $( '<div>' )
 		.addClass( 'demo-console-submit' )
 		.text( '↵' )
 		.on( 'click', submit );
 
-	$form = $( '<form>' ).on( 'submit', function ( e ) {
+	var $form = $( '<form>' ).on( 'submit', function ( e ) {
 		e.preventDefault();
 		submit();
 	} );
 
 	$code = $( '<code>' ).addClass( 'language-javascript' );
 
-	$pre = $( '<pre>' )
+	var $pre = $( '<pre>' )
 		.addClass( 'demo-sample-code' )
 		.append( $code );
 
@@ -801,17 +793,15 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
  * @return {jQuery} Link interface element
  */
 Demo.prototype.buildLinkExample = function ( item ) {
-	var $linkExample, label, fragment;
-
 	if ( item.$label.text() === '' ) {
 		item = this.getElementGroup();
 		if ( !item ) {
 			return $( [] );
 		}
 	}
-	fragment = item.elementId;
+	var fragment = item.elementId;
 	if ( !fragment ) {
-		label = item.$label.text();
+		var label = item.$label.text();
 		fragment = label.replace( /[^\w]+/g, '-' ).replace( /^-|-$/g, '' );
 	}
 
@@ -827,7 +817,7 @@ Demo.prototype.buildLinkExample = function ( item ) {
 		);
 	}
 
-	$linkExample = $( '<a>' )
+	var $linkExample = $( '<a>' )
 		.addClass( 'demo-link-example' )
 		.attr( 'title', 'Link to this example' )
 		.attr( 'href', '#' + fragment );

@@ -5,11 +5,10 @@ Demo.SearchWidgetDialog = function DemoSearchWidgetDialog( config ) {
 OO.inheritClass( Demo.SearchWidgetDialog, OO.ui.ProcessDialog );
 Demo.SearchWidgetDialog.static.title = 'Search widget dialog';
 Demo.SearchWidgetDialog.prototype.initialize = function () {
-	var i, items, searchWidget;
 	Demo.SearchWidgetDialog.super.prototype.initialize.apply( this, arguments );
-	items = [];
-	searchWidget = new OO.ui.SearchWidget();
-	for ( i = 1; i <= 20; i++ ) {
+	var items = [];
+	var searchWidget = new OO.ui.SearchWidget();
+	for ( var i = 1; i <= 20; i++ ) {
 		items.push( new OO.ui.OptionWidget( { data: i, label: 'Item ' + i } ) );
 	}
 	searchWidget.results.addItems( items );

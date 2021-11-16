@@ -9,10 +9,9 @@ Demo.ProcessDialog.static.actions = [
 	{ action: 'other', label: 'Other' }
 ];
 Demo.ProcessDialog.prototype.initialize = function () {
-	var $content;
 	Demo.ProcessDialog.super.prototype.initialize.apply( this, arguments );
 
-	$content = $( '<div>' ).append(
+	var $content = $( '<div>' ).append(
 		$( '<p>' ).text( 'Dialog content' ),
 		$( '<a>' )
 			.text( 'Be alert!' )

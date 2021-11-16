@@ -39,8 +39,6 @@ Demo.BrokenDialog.prototype.getActionProcess = function ( action ) {
 			return 1000;
 		}, this )
 		.next( function () {
-			var state;
-
 			if ( action === 'save' ) {
 				if ( this.broken ) {
 					this.broken = false;
@@ -50,7 +48,7 @@ Demo.BrokenDialog.prototype.getActionProcess = function ( action ) {
 				return new OO.ui.Error( 'Permission denied', { recoverable: false } );
 			}
 
-			state = this.close( { action: action } );
+			var state = this.close( { action: action } );
 			if ( action === 'save' ) {
 				// Return a promise that is resolved when the dialog is closed,
 				// so that it remains in "pending" state while closing

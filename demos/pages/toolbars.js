@@ -1,8 +1,11 @@
 Demo.static.pages.toolbars = function ( demo ) {
 	var i, toolGroups,
-		AlertTool, PopupTool, ToolGroupTool,
-		setDisabled = function () { this.setDisabled( true ); },
-		setInactive = function () { this.setActive( false ); },
+		setDisabled = function () {
+			this.setDisabled( true );
+		},
+		setInactive = function () {
+			this.setActive( false );
+		},
 		$demo = demo.$element,
 		$containers = $(),
 		toolFactories = [],
@@ -99,7 +102,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolGroupFactories[ 0 ].register( createDisabledToolGroup( OO.ui.ListToolGroup, 'disabledList' ) );
 	toolGroupFactories[ 1 ].register( createDisabledToolGroup( OO.ui.MenuToolGroup, 'disabledMenu' ) );
 
-	AlertTool = function ( toolGroup, config ) {
+	var AlertTool = function ( toolGroup, config ) {
 		// Parent constructor
 		OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
 			padded: true,
@@ -120,7 +123,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolFactories[ 1 ].register( AlertTool );
 	toolFactories[ 3 ].register( AlertTool );
 
-	PopupTool = function ( toolGroup, config ) {
+	var PopupTool = function ( toolGroup, config ) {
 		// Parent constructor
 		OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
 			padded: true,
@@ -141,7 +144,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolFactories[ 1 ].register( PopupTool );
 	toolFactories[ 3 ].register( PopupTool );
 
-	ToolGroupTool = function ( toolGroup, config ) {
+	var ToolGroupTool = function ( toolGroup, config ) {
 		// Parent constructor
 		OO.ui.ToolGroupTool.call( this, toolGroup, config );
 	};

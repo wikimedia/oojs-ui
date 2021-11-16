@@ -13,13 +13,12 @@ Demo.ContinuousOutlinedBookletDialog.prototype.getBodyHeight = function () {
 	return 250;
 };
 Demo.ContinuousOutlinedBookletDialog.prototype.initialize = function () {
-	var lipsum;
 	Demo.ContinuousOutlinedBookletDialog.super.prototype.initialize.apply( this, arguments );
 	this.bookletLayout = new OO.ui.BookletLayout( {
 		outlined: true,
 		continuous: true
 	} );
-	lipsum = [
+	var lipsum = [
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend justo nec erat tempus, quis aliquet augue aliquam. Sed rutrum odio in tellus pharetra, ut mollis est fermentum. ' +
 			'Sed egestas dolor libero, a aliquet sem finibus eu. Morbi dolor nisl, pulvinar vitae maximus sed, lacinia eu ipsum. Fusce rutrum placerat massa, vel vehicula nisi viverra nec. ' +
 			'Nam at turpis vel nisi efficitur tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi aliquam pulvinar fermentum. Maecenas rutrum accumsan lorem ac sagittis. ' +

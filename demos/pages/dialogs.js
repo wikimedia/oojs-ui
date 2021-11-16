@@ -1,11 +1,10 @@
 Demo.static.pages.dialogs = function ( demo ) {
-	var configs,
-		$demo = demo.$element,
+	var $demo = demo.$element,
 		$fieldsets = $( [] ),
 		windows = {},
 		windowManager = new OO.ui.WindowManager();
 
-	configs = [
+	var configs = [
 		{
 			name: 'Convenience functions',
 			id: 'demo-section-functions',
@@ -309,12 +308,11 @@ Demo.static.pages.dialogs = function ( demo ) {
 		$fieldsets = $fieldsets.add( fieldset.$element );
 
 		config.examples.forEach( function ( example, i ) {
-			var name, DialogClass,
-				openButton = new OO.ui.ButtonWidget( {
-					framed: false,
-					icon: 'window',
-					label: $( '<span>' ).attr( 'dir', 'ltr' ).text( example.name )
-				} );
+			var openButton = new OO.ui.ButtonWidget( {
+				framed: false,
+				icon: 'window',
+				label: $( '<span>' ).attr( 'dir', 'ltr' ).text( example.name )
+			} );
 
 			if ( example.method ) {
 				openButton.on(
@@ -326,8 +324,8 @@ Demo.static.pages.dialogs = function ( demo ) {
 					)
 				);
 			} else {
-				name = 'window_' + j + '_' + i;
-				DialogClass = example.dialogClass || Demo.SimpleDialog;
+				var name = 'window_' + j + '_' + i;
+				var DialogClass = example.dialogClass || Demo.SimpleDialog;
 				windows[ name ] = new DialogClass( example.config );
 				openButton.on(
 					'click', OO.ui.bind( openDialog, this, name, example.data )

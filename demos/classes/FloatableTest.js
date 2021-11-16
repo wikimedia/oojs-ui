@@ -89,9 +89,8 @@ Demo.FloatableTest.prototype.centerView = function () {
 };
 Demo.FloatableTest.prototype.getSetupProcess = function () {
 	return Demo.FloatableTest.super.prototype.getSetupProcess.call( this ).next( function () {
-		var offset, side;
-		offset = ( this.outerSize - this.innerSize ) / 2;
-		side = this.getDir() === 'rtl' ? 'right' : 'left';
+		var offset = ( this.outerSize - this.innerSize ) / 2;
+		var side = this.getDir() === 'rtl' ? 'right' : 'left';
 		this.$floatableContainer.css( 'top', offset );
 		this.$floatableContainer.css( side, offset );
 

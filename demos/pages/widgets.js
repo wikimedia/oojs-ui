@@ -1,6 +1,6 @@
 Demo.static.pages.widgets = function ( demo ) {
 	// Unicode LTR marker `\u200E` is added for loremIpsum text in RTL demo, as it's not translated
-	var i, fieldsets,
+	var i,
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
 		textInputForLabel, labelForTextInput, radioSelectInputForLabel, labelForRadioSelectInput,
@@ -67,7 +67,7 @@ Demo.static.pages.widgets = function ( demo ) {
 		input: radioSelectInputForLabel
 	} );
 
-	fieldsets = [
+	var fieldsets = [
 		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-buttons',
 			label: 'Buttons',
@@ -2188,9 +2188,8 @@ Demo.static.pages.widgets = function ( demo ) {
 						allowArbitrary: false,
 						verticalPosition: 'below',
 						options: ( function () {
-							var n,
-								options = [];
-							for ( n = 1; n <= 50; n++ ) {
+							var options = [];
+							for ( var n = 1; n <= 50; n++ ) {
 								options.push( { data: n, label: 'Label for ' + n } );
 							}
 							return options;
