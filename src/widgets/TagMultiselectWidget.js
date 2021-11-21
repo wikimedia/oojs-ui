@@ -856,7 +856,7 @@ OO.ui.TagMultiselectWidget.prototype.updateInputSize = function () {
 				$lastItem.position().left;
 		}
 
-		// Some safety margin for sanity, because I *really* don't feel like finding out where the
+		// Some safety margin because I *really* don't feel like finding out where the
 		// few pixels this is off by are coming from.
 		bestWidth -= 13;
 		if ( contentWidth > bestWidth ) {
