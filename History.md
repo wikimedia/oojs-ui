@@ -2824,7 +2824,7 @@
 
 ### Styles
 * ButtonElement: Fix 'active' state icon variants in MediaWiki theme (Bartosz Dziewoński)
-* FieldLayout: Use saner line-height for errors/notices (Bartosz Dziewoński)
+* FieldLayout: Use more sensible line-height for errors/notices (Bartosz Dziewoński)
 * SelectFileWidget: Improve thumbnail appearance (Volker E)
 * styles: Inherit specific `font` properties, not all (Volker E)
 * MediaWiki theme: Clear border on selected framed buttons (Volker E)
@@ -3182,7 +3182,7 @@
 
 ### Styles
 * CapsuleItemWidget: Tweak styles for the "remove" button (Bartosz Dziewoński)
-* MenuSelectWidget: Bring some sanity styling when inside different widgets (Bartosz Dziewoński)
+* MenuSelectWidget: Bring some sense to styling when inside different widgets (Bartosz Dziewoński)
 * NumberInputWidget: Apex: Round the correct corners in the disabled state (Prateek Saxena)
 * styles: Use block rather than inline-block to avoid line height issues (Bartosz Dziewoński)
 * MediaWiki theme: Restore non-broken version of eye.svg (Bartosz Dziewoński)

@@ -200,7 +200,7 @@ OO.ui.mixin.ClippableElement.prototype.setIdealSize = function ( width, height )
  * (This can't be guessed from the actual CSS because the computed values for 'left'/'right' are
  * always in pixels, even if they were unset or set to 'auto'.)
  *
- * When in doubt, 'left' (or 'right' in RTL) is a sane fallback.
+ * When in doubt, 'left' (or 'right' in RTL) is a reasonable fallback.
  *
  * @return {string} 'left' or 'right'
  */
@@ -222,7 +222,7 @@ OO.ui.mixin.ClippableElement.prototype.getHorizontalAnchorEdge = function () {
  * (This can't be guessed from the actual CSS because the computed values for 'left'/'right' are
  * always in pixels, even if they were unset or set to 'auto'.)
  *
- * When in doubt, 'top' is a sane fallback.
+ * When in doubt, 'top' is a reasonable fallback.
  *
  * @return {string} 'top' or 'bottom'
  */

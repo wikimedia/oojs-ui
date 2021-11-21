@@ -591,7 +591,7 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 	 *
 	 * This function smooths out browser inconsistencies (nicely described in the README at
 	 * <https://github.com/othree/jquery.rtl-scroll-type>) and produces a result consistent
-	 * with Firefox's 'scrollLeft', which seems the sanest.
+	 * with Firefox's 'scrollLeft', which seems the most sensible.
 	 *
 	 * (Firefox's scrollLeft handling is nice because it increases from left to right, consistently
 	 * with `getBoundingClientRect().left` and related APIs; because initial value is zero, so
@@ -731,7 +731,7 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
 		}
 		$parent = $parent.parent();
 	}
-	// The element is unattached... return something mostly sane
+	// The element is unattached… return something moderately sensible.
 	return rootScrollableElement;
 };
 
