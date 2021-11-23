@@ -20,7 +20,7 @@ OO.ui.mixin.RequiredElement = function OoUiMixinRequiredElement( config ) {
 
 	// Properties
 	this.$required = null;
-	this.required = false;
+	this.required = !!config.required;
 	this.indicatorElement = config.indicatorElement !== undefined ? config.indicatorElement : this;
 	if ( this.indicatorElement && !this.indicatorElement.getIndicator ) {
 		throw new Error( 'config.indicatorElement must mixin OO.ui.mixin.IndicatorElement.' );
@@ -28,7 +28,6 @@ OO.ui.mixin.RequiredElement = function OoUiMixinRequiredElement( config ) {
 
 	// Initialization
 	this.setRequiredElement( config.$required || this.$input || this.$element );
-	this.setRequired( !!config.required );
 };
 
 /* Setup */
@@ -53,7 +52,7 @@ OO.ui.mixin.RequiredElement.prototype.setRequiredElement = function ( $required 
 	}
 
 	this.$required = $required;
-	this.setRequired( this.isRequired() );
+	this.updateRequired();
 };
 
 /**
@@ -73,7 +72,19 @@ OO.ui.mixin.RequiredElement.prototype.isRequired = function () {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.mixin.RequiredElement.prototype.setRequired = function ( state ) {
+	if ( this.required === state ) {
+		return this;
+	}
+
 	this.required = !!state;
+	this.updateRequired();
+	return this;
+};
+
+/**
+ * @private
+ */
+OO.ui.mixin.RequiredElement.prototype.updateRequired = function () {
 	if ( this.required ) {
 		this.$required
 			.prop( 'required', true )
@@ -89,5 +100,4 @@ OO.ui.mixin.RequiredElement.prototype.setRequired = function ( state ) {
 			this.indicatorElement.setIndicator( null );
 		}
 	}
-	return this;
 };
