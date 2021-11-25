@@ -95,13 +95,11 @@ OO.ui.MessageWidget.prototype.setInline = function ( inline ) {
  * @param  {string} [type] Given type. Defaults to 'notice'
  */
 OO.ui.MessageWidget.prototype.setType = function ( type ) {
-	// Validate type
-	if ( Object.keys( this.constructor.static.iconMap ).indexOf( type ) === -1 ) {
-		type = 'notice'; // Default
+	if ( !this.constructor.static.iconMap[ type ] ) {
+		type = 'notice';
 	}
 
 	if ( this.type !== type ) {
-
 		// Flags
 		this.clearFlags();
 		this.setFlags( type );
