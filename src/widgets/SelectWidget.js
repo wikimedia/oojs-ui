@@ -869,13 +869,11 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 	}
 
 	if ( changed ) {
-		// TODO: When should a non-highlightable element be selected?
-		if ( item && !item.constructor.static.highlightable ) {
-			if ( item ) {
-				this.$focusOwner.attr( 'aria-activedescendant', item.getElementId() );
-			} else {
-				this.$focusOwner.removeAttr( 'aria-activedescendant' );
-			}
+		// Fall back to the selected instead of the highlighted option (see #highlightItem) only
+		// when we know highlighting is disabled. Unfortunately we can't know without an item.
+		// Don't even try when an arbitrary number of options can be selected.
+		if ( !this.multiselect && item && !item.constructor.static.highlightable ) {
+			this.$focusOwner.attr( 'aria-activedescendant', item.getElementId() );
 		}
 		this.emit( 'select', this.findSelectedItems() );
 	}
