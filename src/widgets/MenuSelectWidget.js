@@ -207,14 +207,12 @@ OO.ui.MenuSelectWidget.prototype.getVisibleItems = function () {
  * @protected
  */
 OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
-	var i, item, section, sectionEmpty, exactFilter,
+	var i, item, section, sectionEmpty,
 		anyVisible = false,
-		showAll = !this.isVisible(),
-		exactMatch = false;
+		showAll = !this.isVisible();
 
 	if ( this.$input && this.filterFromInput ) {
 		var filter = showAll ? null : this.getItemMatcher( this.$input.val(), this.filterMode );
-		exactFilter = this.getItemMatcher( this.$input.val(), 'exact' );
 		// Hide non-matching options, and also hide section headers if all options
 		// in their section are hidden.
 		for ( i = 0; i < this.items.length; i++ ) {
@@ -228,7 +226,6 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 				sectionEmpty = true;
 			} else if ( item instanceof OO.ui.OptionWidget ) {
 				var visible = showAll || filter( item );
-				exactMatch = exactMatch || exactFilter( item );
 				anyVisible = anyVisible || visible;
 				sectionEmpty = sectionEmpty && !visible;
 				item.toggle( visible );
