@@ -207,18 +207,17 @@ OO.ui.MenuSelectWidget.prototype.getVisibleItems = function () {
  * @protected
  */
 OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
-	var i, item, items, visible, section, sectionEmpty, filter, exactFilter,
+	var i, item, section, sectionEmpty, exactFilter,
 		anyVisible = false,
-		len = this.items.length,
 		showAll = !this.isVisible(),
 		exactMatch = false;
 
 	if ( this.$input && this.filterFromInput ) {
-		filter = showAll ? null : this.getItemMatcher( this.$input.val(), this.filterMode );
+		var filter = showAll ? null : this.getItemMatcher( this.$input.val(), this.filterMode );
 		exactFilter = this.getItemMatcher( this.$input.val(), 'exact' );
 		// Hide non-matching options, and also hide section headers if all options
 		// in their section are hidden.
-		for ( i = 0; i < len; i++ ) {
+		for ( i = 0; i < this.items.length; i++ ) {
 			item = this.items[ i ];
 			if ( item instanceof OO.ui.MenuSectionOptionWidget ) {
 				if ( section ) {
@@ -228,7 +227,7 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 				section = item;
 				sectionEmpty = true;
 			} else if ( item instanceof OO.ui.OptionWidget ) {
-				visible = showAll || filter( item );
+				var visible = showAll || filter( item );
 				exactMatch = exactMatch || exactFilter( item );
 				anyVisible = anyVisible || visible;
 				sectionEmpty = sectionEmpty && !visible;
@@ -253,7 +252,7 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 		) {
 			// Highlight the first item on the list
 			item = null;
-			items = this.getItems();
+			var items = this.getItems();
 			for ( i = 0; i < items.length; i++ ) {
 				if ( items[ i ].isVisible() ) {
 					item = items[ i ];
