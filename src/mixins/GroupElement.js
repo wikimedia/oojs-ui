@@ -121,7 +121,6 @@ OO.ui.mixin.GroupElement.prototype.findItemsFromData = function ( data ) {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
-
 	if ( items.length === 0 ) {
 		return this;
 	}

@@ -356,6 +356,7 @@ OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
  * Get sanitized value for 'type' for given config. Subclasses might support other types.
  *
  * @param {Object} config Configuration options
+ * @param {string} [config.type='text']
  * @return {string}
  * @protected
  */
