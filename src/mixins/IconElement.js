@@ -121,25 +121,26 @@ OO.ui.mixin.IconElement.prototype.setIconElement = function ( $icon ) {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.IconElement.prototype.setIcon = function ( icon ) {
-	icon = OO.isPlainObject( icon ) ? OO.ui.getLocalValue( icon, null, 'default' ) : icon;
-	icon = typeof icon === 'string' && icon.trim().length ? icon.trim() : null;
-
-	if ( this.icon !== icon ) {
-		if ( this.$icon ) {
-			if ( this.icon !== null ) {
-				this.$icon.removeClass( 'oo-ui-icon-' + this.icon );
-			}
-			if ( icon !== null ) {
-				this.$icon.addClass( 'oo-ui-icon-' + icon );
-			}
-		}
-		this.icon = icon;
+	if ( icon && typeof icon !== 'string' ) {
+		icon = OO.ui.getLocalValue( icon, null, 'default' );
 	}
 
-	this.$element.toggleClass( 'oo-ui-iconElement', !!this.icon );
+	if ( this.icon === icon ) {
+		return this;
+	}
+
+	this.$element.toggleClass( 'oo-ui-iconElement', !!icon );
 	if ( this.$icon ) {
-		this.$icon.toggleClass( 'oo-ui-iconElement-noIcon', !this.icon );
+		if ( this.icon ) {
+			this.$icon.removeClass( 'oo-ui-icon-' + this.icon );
+		}
+		if ( icon ) {
+			this.$icon.addClass( 'oo-ui-icon-' + icon );
+		}
+		this.$icon.toggleClass( 'oo-ui-iconElement-noIcon', !icon );
 	}
+
+	this.icon = icon;
 	this.updateThemeClasses();
 
 	return this;
