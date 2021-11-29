@@ -217,19 +217,14 @@ OO.ui.ListToolGroup.prototype.onMouseKeyUp = function ( e ) {
 };
 
 OO.ui.ListToolGroup.prototype.updateCollapsibleState = function () {
-	var i, icon, len;
-
-	if ( this.toolbar.position !== 'bottom' ) {
-		icon = this.expanded ? 'collapse' : 'expand';
-	} else {
-		icon = this.expanded ? 'expand' : 'collapse';
-	}
+	var inverted = this.toolbar.position === 'bottom',
+		icon = this.expanded === inverted ? 'expand' : 'collapse';
 
 	this.getExpandCollapseTool()
 		.setIcon( icon )
 		.setTitle( OO.ui.msg( this.expanded ? 'ooui-toolgroup-collapse' : 'ooui-toolgroup-expand' ) );
 
-	for ( i = 0, len = this.collapsibleTools.length; i < len; i++ ) {
+	for ( var i = 0; i < this.collapsibleTools.length; i++ ) {
 		this.collapsibleTools[ i ].toggle( this.expanded );
 	}
 
