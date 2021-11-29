@@ -517,11 +517,9 @@ OO.ui.TextInputWidget.prototype.encapsulateContent = function ( pre, post ) {
  *  of a pattern (either ‘integer’ or ‘non-empty’) defined by the class.
  */
 OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
-	if ( validate instanceof RegExp || validate instanceof Function ) {
-		this.validate = validate;
-	} else {
-		this.validate = this.constructor.static.validationPatterns[ validate ] || /.*/;
-	}
+	this.validate = validate instanceof RegExp || validate instanceof Function ?
+		validate :
+		this.constructor.static.validationPatterns[ validate ];
 };
 
 /**
@@ -560,14 +558,12 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
  * @return {jQuery.Promise} A promise that resolves if the value is valid, rejects if not.
  */
 OO.ui.TextInputWidget.prototype.getValidity = function () {
-	var result;
+	var result = true;
 
 	function rejectOrResolve( valid ) {
-		if ( valid ) {
-			return $.Deferred().resolve().promise();
-		} else {
-			return $.Deferred().reject().promise();
-		}
+		var deferred = $.Deferred(),
+			promise = valid ? deferred.resolve() : deferred.reject();
+		return promise.promise();
 	}
 
 	// Check browser validity and reject if it is invalid
@@ -579,18 +575,19 @@ OO.ui.TextInputWidget.prototype.getValidity = function () {
 	}
 
 	// Run our checks if the browser thinks the field is valid
-	if ( this.validate instanceof Function ) {
-		result = this.validate( this.getValue() );
-		if ( result && typeof result.promise === 'function' ) {
-			return result.promise().then( function ( valid ) {
-				return rejectOrResolve( valid );
-			} );
+	if ( this.validate ) {
+		if ( this.validate instanceof Function ) {
+			result = this.validate( this.getValue() );
+			if ( result && typeof result.promise === 'function' ) {
+				return result.promise().then( function ( valid ) {
+					return rejectOrResolve( valid );
+				} );
+			}
 		} else {
-			return rejectOrResolve( result );
+			result = this.validate.test( this.getValue() );
 		}
-	} else {
-		return rejectOrResolve( this.getValue().match( this.validate ) );
 	}
+	return rejectOrResolve( result );
 };
 
 /**
