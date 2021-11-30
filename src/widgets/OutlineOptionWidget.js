@@ -151,7 +151,7 @@ OO.ui.OutlineOptionWidget.prototype.setSelected = function ( state ) {
  */
 OO.ui.OutlineOptionWidget.prototype.setLevel = function ( level ) {
 	if ( this.level === level ) {
-		return;
+		return this;
 	}
 
 	var levels = this.constructor.static.levels,
