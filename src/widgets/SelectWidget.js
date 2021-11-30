@@ -664,7 +664,8 @@ OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
 				// This was the second change; there can only be two, a set and an unset
 				break;
 			}
-			changed = true;
+			// Un-highlighting can't fail, but highlighting can
+			changed = !highlighted || this.items[ i ].isHighlighted();
 		}
 	}
 
@@ -810,7 +811,8 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 				// This was the second change; there can only be two, a set and an unset
 				break;
 			}
-			changed = true;
+			// Un-selecting can't fail, but selecting can
+			changed = !selected || this.items[ i ].isSelected();
 		}
 	}
 
@@ -856,7 +858,8 @@ OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
 				// This was the second change; there can only be two, a set and an unset
 				break;
 			}
-			changed = true;
+			// Un-pressing can't fail, but pressing can
+			changed = !pressed || this.items[ i ].isPressed();
 		}
 	}
 
