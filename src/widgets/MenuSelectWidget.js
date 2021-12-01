@@ -207,58 +207,60 @@ OO.ui.MenuSelectWidget.prototype.getVisibleItems = function () {
  * @protected
  */
 OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
+	if ( !this.filterFromInput || !this.$input ) {
+		this.clip();
+		return;
+	}
+
 	var i, item, section, sectionEmpty,
 		anyVisible = false,
 		showAll = !this.isVisible();
 
-	if ( this.$input && this.filterFromInput ) {
-		var filter = showAll ? null : this.getItemMatcher( this.$input.val(), this.filterMode );
-		// Hide non-matching options, and also hide section headers if all options
-		// in their section are hidden.
-		for ( i = 0; i < this.items.length; i++ ) {
-			item = this.items[ i ];
-			if ( item instanceof OO.ui.MenuSectionOptionWidget ) {
-				if ( section ) {
-					// If the previous section was empty, hide its header
-					section.toggle( showAll || !sectionEmpty );
-				}
-				section = item;
-				sectionEmpty = true;
-			} else if ( item instanceof OO.ui.OptionWidget ) {
-				var visible = showAll || filter( item );
-				anyVisible = anyVisible || visible;
-				sectionEmpty = sectionEmpty && !visible;
-				item.toggle( visible );
+	var filter = showAll ? null : this.getItemMatcher( this.$input.val(), this.filterMode );
+	// Hide non-matching options, and also hide section headers if all options
+	// in their section are hidden.
+	for ( i = 0; i < this.items.length; i++ ) {
+		item = this.items[ i ];
+		if ( item instanceof OO.ui.MenuSectionOptionWidget ) {
+			if ( section ) {
+				// If the previous section was empty, hide its header
+				section.toggle( showAll || !sectionEmpty );
+			}
+			section = item;
+			sectionEmpty = true;
+		} else if ( item instanceof OO.ui.OptionWidget ) {
+			var visible = showAll || filter( item );
+			anyVisible = anyVisible || visible;
+			sectionEmpty = sectionEmpty && !visible;
+			item.toggle( visible );
+		}
+	}
+	// Process the final section
+	if ( section ) {
+		section.toggle( showAll || !sectionEmpty );
+	}
+
+	if ( !anyVisible ) {
+		this.highlightItem( null );
+	}
+
+	this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
+
+	if ( this.highlightOnFilter &&
+		!( this.lastHighlightedItem && this.lastHighlightedItem.isVisible() ) &&
+		this.isVisible()
+	) {
+		// Highlight the first item on the list
+		item = null;
+		var items = this.getItems();
+		for ( i = 0; i < items.length; i++ ) {
+			if ( items[ i ].isVisible() ) {
+				item = items[ i ];
+				break;
 			}
 		}
-		// Process the final section
-		if ( section ) {
-			section.toggle( showAll || !sectionEmpty );
-		}
-
-		if ( !anyVisible ) {
-			this.highlightItem( null );
-		}
-
-		this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
-
-		if (
-			this.highlightOnFilter &&
-			!( this.lastHighlightedItem && this.lastHighlightedItem.isVisible() ) &&
-			this.isVisible()
-		) {
-			// Highlight the first item on the list
-			item = null;
-			var items = this.getItems();
-			for ( i = 0; i < items.length; i++ ) {
-				if ( items[ i ].isVisible() ) {
-					item = items[ i ];
-					break;
-				}
-			}
-			this.highlightItem( item );
-			this.lastHighlightedItem = item;
-		}
+		this.highlightItem( item );
+		this.lastHighlightedItem = item;
 	}
 
 	// Reevaluate clipping
