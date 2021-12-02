@@ -19,15 +19,15 @@ OO.ui.mixin.RequiredElement = function OoUiMixinRequiredElement( config ) {
 	config = config || {};
 
 	// Properties
-	this.$required = null;
-	this.required = !!config.required;
+	this.$required = config.$required || this.$input || this.$element;
+	this.required = false;
 	this.indicatorElement = config.indicatorElement !== undefined ? config.indicatorElement : this;
 	if ( this.indicatorElement && !this.indicatorElement.getIndicator ) {
 		throw new Error( 'config.indicatorElement must mixin OO.ui.mixin.IndicatorElement.' );
 	}
 
 	// Initialization
-	this.setRequiredElement( config.$required || this.$input || this.$element );
+	this.setRequired( !!config.required );
 };
 
 /* Setup */
@@ -47,12 +47,30 @@ OO.initClass( OO.ui.mixin.RequiredElement );
  * @param {jQuery} $required Element that should use the 'required' functionality
  */
 OO.ui.mixin.RequiredElement.prototype.setRequiredElement = function ( $required ) {
-	if ( this.$required ) {
-		this.$required.removeProp( 'required' ).removeAttr( 'aria-required' );
+	if ( this.$required === $required ) {
+		return;
+	}
+
+	if ( this.$required && this.required ) {
+		this.updateRequiredElement( false );
 	}
 
 	this.$required = $required;
-	this.updateRequired();
+	this.updateRequiredElement();
+};
+
+/**
+ * @private
+ * @param {boolean} [state]
+ */
+OO.ui.mixin.RequiredElement.prototype.updateRequiredElement = function ( state ) {
+	if ( state === undefined ) {
+		state = this.required;
+	}
+
+	this.$required
+		.prop( 'required', state )
+		.attr( 'aria-required', state ? 'true' : null );
 };
 
 /**
@@ -77,27 +95,12 @@ OO.ui.mixin.RequiredElement.prototype.setRequired = function ( state ) {
 	}
 
 	this.required = !!state;
-	this.updateRequired();
-	return this;
-};
-
-/**
- * @private
- */
-OO.ui.mixin.RequiredElement.prototype.updateRequired = function () {
-	if ( this.required ) {
-		this.$required
-			.prop( 'required', true )
-			.attr( 'aria-required', 'true' );
-		if ( this.indicatorElement && this.indicatorElement.getIndicator() === null ) {
-			this.indicatorElement.setIndicator( 'required' );
-		}
-	} else {
-		this.$required
-			.prop( 'required', false )
-			.removeAttr( 'aria-required' );
-		if ( this.indicatorElement && this.indicatorElement.getIndicator() === 'required' ) {
-			this.indicatorElement.setIndicator( null );
+	this.updateRequiredElement();
+	if ( this.indicatorElement ) {
+		var expected = state ? null : 'required';
+		if ( this.indicatorElement.getIndicator() === expected ) {
+			this.indicatorElement.setIndicator( state ? 'required' : null );
 		}
 	}
+	return this;
 };
