@@ -71,6 +71,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.autoHide = config.autoHide === undefined || !!config.autoHide;
 	this.hideOnChoose = config.hideOnChoose === undefined || !!config.hideOnChoose;
 	this.filterFromInput = !!config.filterFromInput;
+	this.previouslySelectedValue = null;
 	this.$input = config.$input ? config.$input : config.input ? config.input.$input : null;
 	this.$widget = config.widget ? config.widget.$element : null;
 	this.$autoCloseIgnore = config.$autoCloseIgnore || $( [] );
@@ -213,10 +214,10 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 	}
 
 	var i, item, section, sectionEmpty,
-		anyVisible = false,
-		showAll = !this.isVisible();
+		anyVisible = false;
 
-	var filter = showAll ? null : this.getItemMatcher( this.$input.val(), this.filterMode );
+	var showAll = !this.isVisible() || this.previouslySelectedValue === this.$input.val(),
+		filter = showAll ? null : this.getItemMatcher( this.$input.val(), this.filterMode );
 	// Hide non-matching options, and also hide section headers if all options
 	// in their section are hidden.
 	for ( i = 0; i < this.items.length; i++ ) {
@@ -229,7 +230,7 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 			section = item;
 			sectionEmpty = true;
 		} else if ( item instanceof OO.ui.OptionWidget ) {
-			var visible = showAll || filter( item );
+			var visible = !filter || filter( item );
 			anyVisible = anyVisible || visible;
 			sectionEmpty = sectionEmpty && !visible;
 			item.toggle( visible );
@@ -299,6 +300,10 @@ OO.ui.MenuSelectWidget.prototype.bindDocumentKeyPressListener = function () {
 				'keydown mouseup cut paste change input select',
 				this.onInputEditHandler
 			);
+			this.$input.one( 'keypress', function () {
+				this.previouslySelectedValue = null;
+			}.bind( this ) );
+			this.previouslySelectedValue = this.$input.val();
 			this.updateItemVisibility();
 		}
 	} else {
