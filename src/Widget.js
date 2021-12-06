@@ -14,9 +14,6 @@
  *  appearance reflects this state.
  */
 OO.ui.Widget = function OoUiWidget( config ) {
-	// Initialize config
-	config = $.extend( { disabled: false }, config );
-
 	// Parent constructor
 	OO.ui.Widget.super.call( this, config );
 
@@ -29,7 +26,7 @@ OO.ui.Widget = function OoUiWidget( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-widget' );
-	this.setDisabled( !!config.disabled );
+	this.setDisabled( config && config.disabled );
 };
 
 /* Setup */
@@ -77,10 +74,8 @@ OO.ui.Widget.prototype.isDisabled = function () {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.Widget.prototype.setDisabled = function ( disabled ) {
-	var isDisabled;
-
 	this.disabled = !!disabled;
-	isDisabled = this.isDisabled();
+	var isDisabled = this.isDisabled();
 	if ( isDisabled !== this.wasDisabled ) {
 		this.$element.toggleClass( 'oo-ui-widget-disabled', isDisabled );
 		this.$element.toggleClass( 'oo-ui-widget-enabled', !isDisabled );
