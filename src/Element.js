@@ -250,10 +250,13 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 		}
 		top.resolve();
 	}
-	obj.$element.data( 'ooui-infused', obj );
-	obj.$element.data( 'ooui-infused-children', infusedChildren );
-	// set the 'data-ooui' attribute so we can identify infused widgets
-	obj.$element.attr( 'data-ooui', '' );
+	obj.$element
+		.data( {
+			'ooui-infused': obj,
+			'ooui-infused-children': infusedChildren
+		} )
+		// set the 'data-ooui' attribute so we can identify infused widgets
+		.attr( 'data-ooui', '' );
 	// restore dynamic state after the new element is inserted into DOM
 	domPromise.done( obj.restorePreInfuseState.bind( obj, state ) );
 	return obj;

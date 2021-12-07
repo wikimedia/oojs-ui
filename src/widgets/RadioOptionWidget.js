@@ -27,8 +27,7 @@ OO.ui.RadioOptionWidget = function OoUiRadioOptionWidget( config ) {
 	this.radio.$input.attr( 'role', 'presentation' );
 	this.$element
 		.addClass( 'oo-ui-radioOptionWidget' )
-		.attr( 'role', 'radio' )
-		.attr( 'aria-checked', 'false' )
+		.attr( { role: 'radio', 'aria-checked': 'false' } )
 		.removeAttr( 'aria-selected' )
 		.prepend( this.radio.$element );
 };

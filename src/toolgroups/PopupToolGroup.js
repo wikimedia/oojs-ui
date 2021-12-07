@@ -74,8 +74,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Initialization
 	this.$handle
 		.addClass( 'oo-ui-popupToolGroup-handle' )
-		.attr( 'role', 'button' )
-		.attr( 'aria-expanded', 'false' )
+		.attr( { role: 'button', 'aria-expanded': 'false' } )
 		.append( this.$icon, this.$label, this.$indicator );
 	// If the pop-up should have a header, add it to the top of the toolGroup.
 	// Note: If this feature is useful for other widgets, we could abstract it into an

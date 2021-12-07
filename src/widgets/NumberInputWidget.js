@@ -144,8 +144,7 @@ OO.ui.NumberInputWidget.prototype.setRange = function ( min, max ) {
 	}
 	this.min = min;
 	this.max = max;
-	this.$input.attr( 'min', this.min );
-	this.$input.attr( 'max', this.max );
+	this.$input.attr( { min: this.min, max: this.max } );
 	this.setValidityFlag();
 };
 

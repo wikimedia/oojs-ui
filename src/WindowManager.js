@@ -782,8 +782,9 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 			if ( stackDepth === 0 ) {
 				scrollWidth = window.innerWidth - document.documentElement.clientWidth;
 				bodyMargin = parseFloat( $body.css( 'margin-right' ) ) || 0;
-				$body.addClass( 'oo-ui-windowManager-modal-active' );
-				$body.css( 'margin-right', bodyMargin + scrollWidth );
+				$body
+					.addClass( 'oo-ui-windowManager-modal-active' )
+					.css( 'margin-right', bodyMargin + scrollWidth );
 			}
 			stackDepth++;
 			this.globalEvents = true;
@@ -795,8 +796,9 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 		} );
 		stackDepth--;
 		if ( stackDepth === 0 ) {
-			$body.removeClass( 'oo-ui-windowManager-modal-active' );
-			$body.css( 'margin-right', '' );
+			$body
+				.removeClass( 'oo-ui-windowManager-modal-active' )
+				.css( 'margin-right', '' );
 		}
 		this.globalEvents = false;
 	}

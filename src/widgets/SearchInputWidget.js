@@ -33,8 +33,10 @@ OO.ui.SearchInputWidget = function OoUiSearchInputWidget( config ) {
 		disable: 'onDisable'
 	} );
 	this.$indicator
-		.attr( 'tabindex', -1 )
-		.attr( 'role', 'button' );
+		.attr( {
+			tabindex: -1,
+			role: 'button'
+		} );
 };
 
 /* Setup */
