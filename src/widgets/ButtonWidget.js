@@ -116,7 +116,7 @@ OO.ui.ButtonWidget.static.tagName = 'span';
 /**
  * Get hyperlink location.
  *
- * @return {string} Hyperlink location
+ * @return {string|null} Hyperlink location
  */
 OO.ui.ButtonWidget.prototype.getHref = function () {
 	return this.href;
@@ -125,7 +125,7 @@ OO.ui.ButtonWidget.prototype.getHref = function () {
 /**
  * Get hyperlink target.
  *
- * @return {string} Hyperlink target
+ * @return {string|null} Hyperlink target
  */
 OO.ui.ButtonWidget.prototype.getTarget = function () {
 	return this.target;

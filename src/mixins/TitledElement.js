@@ -122,7 +122,7 @@ OO.ui.mixin.TitledElement.prototype.updateTitle = function () {
 /**
  * Get title.
  *
- * @return {string} Title string
+ * @return {string|null} Title string
  */
 OO.ui.mixin.TitledElement.prototype.getTitle = function () {
 	return this.title;
