@@ -452,7 +452,7 @@ class Tag {
 			// Use single-quotes around the attribute value in HTML, because
 			// some of the values might be JSON strings
 			// 1. Encode both single and double quotes (and other special chars)
-			$value = htmlspecialchars( $value, ENT_QUOTES );
+			$value = htmlspecialchars( $value ?? '', ENT_QUOTES );
 			// 2. Decode double quotes, for readability.
 			$value = str_replace( '&quot;', '"', $value );
 			// 3. Wrap attribute value in single quotes in the HTML.
