@@ -521,7 +521,7 @@ module.exports = function ( grunt ) {
 		// Development
 		watch: {
 			files: [
-				'<%= eslint.dev %>',
+				'<%= eslint.all %>',
 				'<%= stylelint.dev %>',
 				'src/**/*.less',
 				'php/**/*.php',
