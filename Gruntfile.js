@@ -7,6 +7,7 @@
 module.exports = function ( grunt ) {
 	const modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
+		path = require( 'path' ),
 		themes = {
 			wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 			apex: 'Apex'
@@ -92,7 +93,6 @@ module.exports = function ( grunt ) {
 		// Generate all task targets required to process given file into a pair of CSS files (for
 		// LTR and RTL), and return file name of LTR file.
 		function processFile( fileName ) {
-			const path = require( 'path' );
 			let cssFileName;
 			if ( path.extname( fileName ) === '.json' ) {
 				const lessFileName = fileName.replace( /\.json$/, '.less' ).replace( /^src/, 'dist/tmp' );
@@ -179,7 +179,6 @@ module.exports = function ( grunt ) {
 	}() );
 
 	function strip( str ) {
-		const path = require( 'path' );
 		// http://gruntjs.com/configuring-tasks#building-the-files-object-dynamically
 		// http://gruntjs.com/api/grunt.file#grunt.file.expandmapping
 		return function ( dest, src ) {
@@ -525,9 +524,12 @@ module.exports = function ( grunt ) {
 				'<%= stylelint.dev %>',
 				'src/**/*.less',
 				'php/**/*.php',
-				'.{stylelintrc,eslintrc.json}'
+				'.{stylelintrc,eslintrc.json}',
+				'!demos/{composer.json,composer.lock}',
+				'!demos/{node_modules,dist,php,vendor}/**/*'
 			],
-			tasks: 'quick-build'
+			// Task set based on file extension in watch handler
+			tasks: ''
 		},
 
 		// Adding new theme
@@ -613,6 +615,33 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
+	grunt.event.on( 'watch', function ( action, filepath ) {
+		// Clear tasks set on last run.
+		grunt.config( 'watch.tasks', '' );
+		switch ( path.extname( filepath ) ) {
+			case '.js':
+				grunt.config( 'watch.tasks', 'quick-build-code' );
+				break;
+			case '.less':
+				grunt.config( 'watch.tasks', 'quick-build-css' );
+				break;
+			case '.yaml':
+				// Specifically modules.yaml could change the .js or .less lists.
+				grunt.config( 'watch.tasks', 'quick-build' );
+				break;
+			case '.json':
+				if ( filepath.includes( 'i18n/' ) ) {
+					// Only JS uses i18n messages at the moment, at it does
+					// so by compiling them into the library when building.
+					grunt.config( 'watch.tasks', 'quick-build-code' );
+				}
+				break;
+			case '.php':
+				grunt.config( 'watch.tasks', 'copy:demos' );
+				break;
+		}
+	} );
+
 	grunt.registerTask( 'git-status', function () {
 		const done = this.async();
 		// Are there unstaged changes?
@@ -653,10 +682,18 @@ module.exports = function ( grunt ) {
 		'concat:css', 'concat:demoCss',
 		'copy:imagesCommon', 'copy:imagesThemes'
 	] );
+	grunt.registerTask( 'build-styling-ltr', [
+		// Same as 'build-styling' but without 'cssjanus' and 'concat:demoCss' which are
+		// only for RTL.
+		'colorizeSvg', 'less',
+		'concat:css',
+		'copy:imagesCommon', 'copy:imagesThemes'
+	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
 	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
 	grunt.registerTask( 'build', [
-		'clean:build', 'fileExists', 'tyops', 'build-code', 'build-styling', 'build-i18n',
+		'clean:build', 'fileExists', 'tyops',
+		'build-code', 'build-styling', 'build-i18n',
 		'concat:omnibus',
 		'copy:dist',
 		'copy:wikimediauibasevars',
@@ -669,12 +706,12 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'quick-build', [
 		'pre-git-build', 'clean:build', 'fileExists', 'tyops',
 		'build-code',
-		'colorizeSvg', 'less', 'concat:css',
-		'copy:imagesCommon', 'copy:imagesThemes',
+		'build-styling-ltr',
 		'build-i18n', 'concat:omnibus', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
 	] );
 	grunt.registerTask( 'quick-build-code', [ 'build-code', 'copy:demos' ] );
+	grunt.registerTask( 'quick-build-css', [ 'build-styling-ltr', 'copy:demos' ] );
 
 	// Minification tasks for the npm publish step.
 	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', 'cssmin' ] );
