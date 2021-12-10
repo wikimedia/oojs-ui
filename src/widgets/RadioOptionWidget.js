@@ -48,12 +48,6 @@ OO.ui.RadioOptionWidget.static.highlightable = false;
  * @static
  * @inheritdoc
  */
-OO.ui.RadioOptionWidget.static.scrollIntoViewOnSelect = true;
-
-/**
- * @static
- * @inheritdoc
- */
 OO.ui.RadioOptionWidget.static.pressable = false;
 
 /**
