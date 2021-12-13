@@ -218,8 +218,9 @@ class ButtonWidget extends Widget {
 		// For backwards compatibility
 		$this->noFollow = in_array( 'nofollow', $this->rel );
 
-		if ( $this->rel ) {
-			$this->button->setAttributes( [ 'rel' => implode( ' ', $this->rel ) ] );
+		$value = implode( ' ', $this->rel );
+		if ( $value !== '' ) {
+			$this->button->setAttributes( [ 'rel' => $value ] );
 		} else {
 			$this->button->removeAttributes( [ 'rel' ] );
 		}
