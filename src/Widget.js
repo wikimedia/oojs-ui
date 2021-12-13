@@ -82,8 +82,8 @@ OO.ui.Widget.prototype.setDisabled = function ( disabled ) {
 		this.$element.attr( 'aria-disabled', isDisabled.toString() );
 		this.emit( 'disable', isDisabled );
 		this.updateThemeClasses();
+		this.wasDisabled = isDisabled;
 	}
-	this.wasDisabled = isDisabled;
 
 	return this;
 };
