@@ -2922,6 +2922,17 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'MessageWidget (type: \'success\', icon: \'article\')',
 						align: 'top'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MessageWidget( {
+						type: 'notice',
+						label: 'MessageWidget with close button.',
+						showClose: true
+					} ),
+					{
+						label: 'MessageWidget (type: \'notice\', showClose: true)',
+						align: 'top'
+					}
 				)
 			]
 		} )

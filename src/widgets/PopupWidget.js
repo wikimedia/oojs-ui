@@ -143,7 +143,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 		}
 		this.$head = $( '<div>' )
 			.addClass( 'oo-ui-popupWidget-head' )
-			.append( this.$icon, this.$label, this.closeButton && this.closeButton.$element || '' );
+			.append( this.$icon, this.$label, this.closeButton && this.closeButton.$element );
 		this.$popup.prepend( this.$head );
 	}
 
