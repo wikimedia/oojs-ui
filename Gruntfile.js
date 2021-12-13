@@ -17,7 +17,8 @@ module.exports = function ( grunt ) {
 		requiredFiles = [],
 		concatCssFiles = {},
 		concatJsFiles = {},
-		concatOmnibus = {},
+		concatOmnibusJs = {},
+		concatOmnibusCss = {},
 		rtlFiles = {},
 		minBanner = '/*! OOUI v<%= pkg.version %> | http://oojs.mit-license.org */';
 	let lessTargets = {};
@@ -158,22 +159,22 @@ module.exports = function ( grunt ) {
 		}
 
 		// Composite files
-		concatOmnibus[ 'dist/oojs-ui.js' ] = [
+		concatOmnibusJs[ 'dist/oojs-ui.js' ] = [
 			'dist/oojs-ui-core.js',
 			'dist/oojs-ui-widgets.js',
 			'dist/oojs-ui-toolbars.js',
 			'dist/oojs-ui-windows.js'
 		];
 		for ( theme in themes ) {
-			concatOmnibus[ themify( 'dist/oojs-ui-{theme}.css' ) ] = [
+			concatOmnibusCss[ themify( 'dist/oojs-ui-{theme}.css' ) ] = [
 				'dist/oojs-ui-core-{theme}.css',
 				'dist/oojs-ui-widgets-{theme}.css',
 				'dist/oojs-ui-toolbars-{theme}.css',
 				'dist/oojs-ui-windows-{theme}.css',
 				'dist/oojs-ui-images-{theme}.css'
 			].map( themify );
-			concatOmnibus[ rtlPath( themify( 'dist/oojs-ui-{theme}.css' ) ) ] =
-				concatOmnibus[ themify( 'dist/oojs-ui-{theme}.css' ) ].map( rtlPath );
+			concatOmnibusCss[ rtlPath( themify( 'dist/oojs-ui-{theme}.css' ) ) ] =
+				concatOmnibusCss[ themify( 'dist/oojs-ui-{theme}.css' ) ].map( rtlPath );
 		}
 
 	}() );
@@ -233,11 +234,17 @@ module.exports = function ( grunt ) {
 			css: {
 				files: concatCssFiles
 			},
-			omnibus: {
+			omnibusJs: {
 				options: {
 					banner: ''
 				},
-				files: concatOmnibus
+				files: concatOmnibusJs
+			},
+			omnibusCss: {
+				options: {
+					banner: ''
+				},
+				files: concatOmnibusCss
 			},
 			i18nMessages: {
 				options: {
@@ -676,17 +683,17 @@ module.exports = function ( grunt ) {
 		grunt.log.warn( 'You have built a no-frills, SVG-only, LTR-only version for development; some things will be broken.' );
 	} );
 
-	grunt.registerTask( 'build-code', [ 'concat:i18nMessages', 'concat:js' ] );
+	grunt.registerTask( 'build-code', [ 'concat:i18nMessages', 'concat:js', 'concat:omnibusJs' ] );
 	grunt.registerTask( 'build-styling', [
 		'colorizeSvg', 'less', 'cssjanus',
-		'concat:css', 'concat:demoCss',
+		'concat:css', 'concat:omnibusCss', 'concat:demoCss',
 		'copy:imagesCommon', 'copy:imagesThemes'
 	] );
 	grunt.registerTask( 'build-styling-ltr', [
 		// Same as 'build-styling' but without 'cssjanus' and 'concat:demoCss' which are
 		// only for RTL.
 		'colorizeSvg', 'less',
-		'concat:css',
+		'concat:css', 'concat:omnibusCss',
 		'copy:imagesCommon', 'copy:imagesThemes'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
@@ -694,7 +701,6 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build', [
 		'clean:build', 'fileExists', 'tyops',
 		'build-code', 'build-styling', 'build-i18n',
-		'concat:omnibus',
 		'copy:dist',
 		'copy:wikimediauibasevars',
 		'clean:tmp', 'demos'
@@ -707,7 +713,7 @@ module.exports = function ( grunt ) {
 		'pre-git-build', 'clean:build', 'fileExists', 'tyops',
 		'build-code',
 		'build-styling-ltr',
-		'build-i18n', 'concat:omnibus', 'copy:demos', 'copy:fastcomposerdemos',
+		'build-i18n', 'copy:demos', 'copy:fastcomposerdemos',
 		'note-quick-build'
 	] );
 	grunt.registerTask( 'quick-build-code', [ 'build-code', 'copy:demos' ] );
