@@ -226,21 +226,18 @@ OO.ui.ButtonWidget.prototype.setTarget = function ( target ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {
-	var rel;
-
 	noFollow = typeof noFollow === 'boolean' ? noFollow : true;
 
 	if ( noFollow !== this.noFollow ) {
-		if ( !noFollow ) {
-			rel = this.rel.concat();
-			rel.splice(
-				this.rel.indexOf( 'nofollow' ),
-				1
-			);
-			this.setRel( rel );
+		var rel;
+		if ( noFollow ) {
+			rel = this.rel.concat( [ 'nofollow' ] );
 		} else {
-			this.setRel( this.rel.concat( [ 'nofollow' ] ) );
+			rel = this.rel.filter( function ( value ) {
+				return value !== 'nofollow';
+			} );
 		}
+		this.setRel( rel );
 	}
 
 	return this;

@@ -195,21 +195,13 @@ class ButtonWidget extends Widget {
 	 * @return $this
 	 */
 	public function setNoFollow( $noFollow ) {
-		if ( $this->noFollow ) {
-			if ( !$noFollow ) {
-				$relationship = $this->rel;
-				$index = array_search( 'nofollow', $relationship );
-				unset( $relationship[$index] );
-
-				$this->setRel( $relationship );
-			}
-		} else {
+		if ( $noFollow !== $this->noFollow ) {
 			if ( $noFollow ) {
-				$this->setRel( array_merge(
-					$this->rel,
-					[ 'nofollow' ]
-				) );
+				$rel = array_merge( $this->rel, [ 'nofollow' ] );
+			} else {
+				$rel = array_diff( $this->rel, [ 'nofollow' ] );
 			}
+			$this->setRel( $rel );
 		}
 
 		return $this;
@@ -222,7 +214,7 @@ class ButtonWidget extends Widget {
 	 * @return $this
 	 */
 	public function setRel( $rel ) {
-		$this->rel = is_array( $rel ) ? $rel : [ $rel ];
+		$this->rel = (array)$rel;
 		// For backwards compatibility
 		$this->noFollow = in_array( 'nofollow', $this->rel );
 
