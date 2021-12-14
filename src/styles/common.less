@@ -86,8 +86,8 @@
 	}
 }
 
-/* stylelint-disable selector-no-vendor-prefix */
 .oo-ui-placeholder( @rules ) {
+	/* stylelint-disable selector-no-vendor-prefix */
 	// WebKit, Blink, Edge
 	&::-webkit-input-placeholder {
 		@rules();
@@ -100,12 +100,12 @@
 	&::-moz-placeholder {
 		@rules();
 	}
+	/* stylelint-enable selector-no-vendor-prefix */
 	// W3C Standard Selectors Level 4
 	&::placeholder {
 		@rules();
 	}
 }
-/* stylelint-enable selector-no-vendor-prefix */
 
 // Screen Reader Helper Mixin
 .oo-ui-screen-reader-text() {
