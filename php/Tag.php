@@ -209,15 +209,14 @@ class Tag {
 	 * Objects that are already in $this->content will be moved
 	 * to the end of the list, not duplicated.
 	 *
-	 * @param string|Tag|HtmlSnippet|array $content Can be an array only if no $params are passed.
-	 * @param string|Tag|HtmlSnippet ...$params Content to append
+	 * @param string|Tag|HtmlSnippet|array ...$content Content to append
 	 * @return $this
 	 */
-	public function appendContent( $content, ...$params ) {
-		if ( !is_array( $content ) ) {
-			$content = func_get_args();
+	public function appendContent( ...$content ) {
+		if ( is_array( $content[ 0 ] ) ) {
+			$content = $content[ 0 ];
 		}
-		$this->removeContent( $content );
+		$this->removeContent( ...$content );
 		$this->content = array_merge( $this->content, $content );
 		return $this;
 	}
@@ -237,7 +236,7 @@ class Tag {
 	 * This, however, is not acceptable
 	 * * $tag->prependContent( [ $element1, $element2 ], $element3 );
 	 *
-	 * @param string|Tag|HtmlSnippet ...$content Content to prepend. Strings will be HTML-escaped
+	 * @param string|Tag|HtmlSnippet|array ...$content Content to prepend. Strings will be HTML-escaped
 	 *   for output, use a HtmlSnippet instance to prevent that.
 	 * @return $this
 	 */
