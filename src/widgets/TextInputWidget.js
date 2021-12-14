@@ -370,7 +370,7 @@ OO.ui.TextInputWidget.prototype.getSaneType = function ( config ) {
  * Focus the input and select a specified range within the text.
  *
  * @param {number} from Select from offset
- * @param {number} [to] Select to offset, defaults to from
+ * @param {number} [to=from] Select to offset
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */

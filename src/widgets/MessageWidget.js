@@ -17,7 +17,7 @@
  *  impact the flags that the widget receives (and hence its CSS design) as well
  *  as the icon that appears. Available types:
  *  'notice', 'error', 'warning', 'success'
- * @cfg {boolean} [inline] Set the notice as an inline notice. The default
+ * @cfg {boolean} [inline=false] Set the notice as an inline notice. The default
  *  is not inline, or 'boxed' style.
  * @cfg {boolean} [showClose] Show a close button. Can't be used with inline.
  */
@@ -113,7 +113,7 @@ OO.ui.MessageWidget.prototype.setInline = function ( inline ) {
  * Set the widget type. The given type must belong to the list of
  * legal types set by OO.ui.MessageWidget.static.iconMap
  *
- * @param  {string} [type] Given type. Defaults to 'notice'
+ * @param {string} [type='notice']
  */
 OO.ui.MessageWidget.prototype.setType = function ( type ) {
 	if ( !this.constructor.static.iconMap[ type ] ) {

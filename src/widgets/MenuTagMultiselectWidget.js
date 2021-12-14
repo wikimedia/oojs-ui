@@ -346,7 +346,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.addOptions = function ( menuOptions ) {
  * Create a menu option widget.
  *
  * @param {string} data Item data
- * @param {string} [label] Item label
+ * @param {string} [label=data] Item label
  * @param {string} [icon] Symbolic icon name
  * @return {OO.ui.OptionWidget} Option widget
  */

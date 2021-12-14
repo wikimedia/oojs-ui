@@ -13,7 +13,7 @@
  * @constructor
  * @param {Object} [config] Configuration object
  * @cfg {boolean} [valid=true] Item is valid
- * @cfg {boolean} [fixed] Item is fixed. This means the item is
+ * @cfg {boolean} [fixed=false] Item is fixed. This means the item is
  *  always included in the values and cannot be removed.
  */
 OO.ui.TagItemWidget = function OoUiTagItemWidget( config ) {

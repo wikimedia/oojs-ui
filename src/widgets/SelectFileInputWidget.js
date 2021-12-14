@@ -22,7 +22,7 @@
  * @cfg {boolean} [multiple=false] Allow multiple files to be selected.
  * @cfg {string} [placeholder] Text to display when no file is selected.
  * @cfg {Object} [button] Config to pass to select file button.
- * @cfg {string} [icon] Icon to show next to file info
+ * @cfg {Object|string|null} [icon=null] Icon to show next to file info
  */
 OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	var widget = this;

@@ -40,7 +40,7 @@
  *  Options are created with {@link OO.ui.OptionWidget OptionWidget} classes. See
  *  the [OOUI documentation on MediaWiki] [2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
- * @cfg {boolean} [multiselect] Allow for multiple selections
+ * @cfg {boolean} [multiselect=false] Allow for multiple selections
  */
 OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	// Configuration initialization

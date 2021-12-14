@@ -31,10 +31,10 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [active=false] Whether button should be shown as active
- * @cfg {string} [href] Hyperlink to visit when the button is clicked.
- * @cfg {string} [target] The frame or window in which to open the hyperlink.
- * @cfg {boolean} [noFollow] Search engine traversal hint (default: true)
- * @cfg {string|string[]} [rel] Relationship attributes for the hyperlink
+ * @cfg {string} [href=null] Hyperlink to visit when the button is clicked.
+ * @cfg {string} [target=null] The frame or window in which to open the hyperlink.
+ * @cfg {boolean} [noFollow=true] Search engine traversal hint
+ * @cfg {string|string[]} [rel=[]] Relationship attributes for the hyperlink
  */
 OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	// Configuration initialization

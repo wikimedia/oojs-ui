@@ -32,7 +32,7 @@ OO.ui.TestTimer.prototype.now = function () {
  * Emulated setTimeout; just pushes the call into a queue
  *
  * @param {Function} f The function to call
- * @param {number} [timeout] Minimum wait time in ms
+ * @param {number} [timeout=0] Minimum wait time in ms
  * @return {number} Timeout id for cancellation
  */
 OO.ui.TestTimer.prototype.setTimeout = function ( f, timeout ) {

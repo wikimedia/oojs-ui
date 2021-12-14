@@ -116,7 +116,7 @@ OO.ui.isFocusableElement = function ( $element ) {
  * Find a focusable child.
  *
  * @param {jQuery} $container Container to search in
- * @param {boolean} [backwards] Search backwards
+ * @param {boolean} [backwards=false] Search backwards
  * @return {jQuery} Focusable child, or an empty jQuery object if none found
  */
 OO.ui.findFocusable = function ( $container, backwards ) {

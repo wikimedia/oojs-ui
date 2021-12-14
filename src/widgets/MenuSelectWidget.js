@@ -45,7 +45,7 @@
  * @cfg {jQuery} [$autoCloseIgnore] If these elements are clicked, don't auto-hide the menu.
  * @cfg {boolean} [hideOnChoose=true] Hide the menu when the user chooses an option.
  * @cfg {boolean} [filterFromInput=false] Filter the displayed options from the input
- * @cfg {boolean} [highlightOnFilter] Highlight the first result when filtering
+ * @cfg {boolean} [highlightOnFilter=false] Highlight the first result when filtering
  * @cfg {string} [filterMode='prefix'] The mode by which the menu filters the results.
  *  Options are 'exact', 'prefix' or 'substring'. See `OO.ui.SelectWidget#getItemMatcher`
  * @cfg {number|string} [width] Width of the menu as a number of pixels or CSS string with unit

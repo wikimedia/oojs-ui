@@ -16,7 +16,7 @@
  *  specified as a plaintext string, a jQuery selection of elements, or a function that will
  *  produce a string in the future. See the [OOUI documentation on MediaWiki] [2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Labels
- * @cfg {boolean} [invisibleLabel] Whether the label should be visually hidden (but still
+ * @cfg {boolean} [invisibleLabel=false] Whether the label should be visually hidden (but still
  *  accessible to screen-readers).
  */
 OO.ui.mixin.LabelElement = function OoUiMixinLabelElement( config ) {

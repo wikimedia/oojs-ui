@@ -143,7 +143,7 @@ OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function ( e ) {
  * This only affects multiline inputs that are {@link #autosize autosized}.
  *
  * @chainable
- * @param {boolean} [force] Force an update, even if the value hasn't changed
+ * @param {boolean} [force=false] Force an update, even if the value hasn't changed
  * @return {OO.ui.Widget} The widget, for chaining
  * @fires resize
  */

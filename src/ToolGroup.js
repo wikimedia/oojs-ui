@@ -23,11 +23,11 @@
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
- * @cfg {Array|string} [include] List of tools to include in the toolgroup, see above.
- * @cfg {Array|string} [exclude] List of tools to exclude from the toolgroup, see above.
- * @cfg {Array|string} [promote] List of tools to promote to the beginning of the toolgroup,
+ * @cfg {Array|string} [include=[]] List of tools to include in the toolgroup, see above.
+ * @cfg {Array|string} [exclude=[]] List of tools to exclude from the toolgroup, see above.
+ * @cfg {Array|string} [promote=[]] List of tools to promote to the beginning of the toolgroup,
  *  see above.
- * @cfg {Array|string} [demote] List of tools to demote to the end of the toolgroup, see above.
+ * @cfg {Array|string} [demote=[]] List of tools to demote to the end of the toolgroup, see above.
  *  This setting is particularly useful when tools have been added to the toolgroup
  *  en masse (e.g., via the catch-all selector).
  */
