@@ -91,4 +91,15 @@
 			'rel contains only noreferrer'
 		);
 	} );
+
+	QUnit.test( 'setRel when called with the same object reference', function ( assert ) {
+		var rel = [],
+			widget = new OO.ui.ButtonWidget( { rel: rel } );
+
+		rel.push( 'nofollow' );
+		widget.setRel( rel );
+
+		assert.true( widget.getNoFollow(), 'nofollow state got updated' );
+		assert.strictEqual( widget.$button.attr( 'rel' ), 'nofollow', 'rel attribute got updated' );
+	} );
 }() );

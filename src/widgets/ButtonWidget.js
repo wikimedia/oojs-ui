@@ -246,18 +246,18 @@ OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {
 /**
  * Set the `rel` attribute of the hyperlink.
  *
- * @param {string|string[]} rel Relationship attributes for the hyperlink
+ * @param {string|string[]} [rel] Relationship attributes for the hyperlink, omit to remove
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonWidget.prototype.setRel = function ( rel ) {
-	rel = Array.isArray( rel ) ? rel : typeof rel === 'string' ? [ rel ] : [];
-
-	if ( rel !== this.rel ) {
-		this.rel = rel;
-		// For backwards compatibility.
-		this.noFollow = rel.indexOf( 'nofollow' ) !== -1;
-		this.$button.attr( 'rel', rel.join( ' ' ) || null );
+	if ( !Array.isArray( rel ) ) {
+		rel = rel ? [ rel ] : [];
 	}
+
+	this.rel = rel;
+	// For backwards compatibility.
+	this.noFollow = rel.indexOf( 'nofollow' ) !== -1;
+	this.$button.attr( 'rel', rel.join( ' ' ) || null );
 
 	return this;
 };

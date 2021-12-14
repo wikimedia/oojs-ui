@@ -214,7 +214,7 @@ class ButtonWidget extends Widget {
 	 * @return $this
 	 */
 	public function setRel( $rel ) {
-		$this->rel = (array)$rel;
+		$this->rel = $rel === '' ? [] : (array)$rel;
 		// For backwards compatibility
 		$this->noFollow = in_array( 'nofollow', $this->rel );
 
