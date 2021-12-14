@@ -453,10 +453,13 @@ OO.ui.Toolbar.prototype.initialize = function () {
  * within that toolgroup. Please see {@link OO.ui.ToolGroup toolgroups} for more information about
  * including tools in toolgroups.
  *
- * @param {Object.<string,Array>} groups List of toolgroup configurations
- * @param {string} [groups.name] Symbolic name for this toolgroup
- * @param {string} [groups.type] Toolgroup type, should exist in the toolgroup factory
- * @param {Array|string} [groups.include] Tools to include in the toolgroup
+ * @param {Object[]} groups List of toolgroup configurations
+ * @param {string} groups.name Symbolic name for this toolgroup
+ * @param {string} [groups.type] Toolgroup type, e.g. "bar", "list", or "menu". Should exist in the
+ *  {@link OO.ui.ToolGroupFactory} provided via the constructor. Defaults to "list" for catch-all
+ *  groups where `include='*'`, otherwise "bar".
+ * @param {Array|string} [groups.include] Tools to include in the toolgroup, or "*" for catch-all,
+ *  see {@link OO.ui.ToolFactory#extract}
  * @param {Array|string} [groups.exclude] Tools to exclude from the toolgroup
  * @param {Array|string} [groups.promote] Tools to promote to the beginning of the toolgroup
  * @param {Array|string} [groups.demote] Tools to demote to the end of the toolgroup

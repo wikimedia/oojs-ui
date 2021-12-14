@@ -112,7 +112,7 @@ OO.mixinClass( OO.ui.TagItemWidget, OO.ui.mixin.DraggableElement );
 /**
  * Set this item as fixed, meaning it cannot be removed
  *
- * @param {string} [state] Item is fixed
+ * @param {boolean} [state] Item is fixed, omit to toggle
  * @fires fixed
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -222,7 +222,7 @@ OO.ui.TagItemWidget.prototype.select = function () {
 /**
  * Set the valid state of this item
  *
- * @param {boolean} [valid] Item is valid
+ * @param {boolean} [valid] Item is valid, omit to toggle
  * @fires valid
  */
 OO.ui.TagItemWidget.prototype.toggleValid = function ( valid ) {

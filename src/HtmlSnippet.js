@@ -6,7 +6,7 @@
  * @class
  *
  * @constructor
- * @param {string} [content] HTML content
+ * @param {string} content HTML content
  */
 OO.ui.HtmlSnippet = function OoUiHtmlSnippet( content ) {
 	// Properties
