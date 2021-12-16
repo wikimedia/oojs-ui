@@ -19,6 +19,7 @@
  *  'notice', 'error', 'warning', 'success'
  * @cfg {boolean} [inline] Set the notice as an inline notice. The default
  *  is not inline, or 'boxed' style.
+ * @cfg {boolean} [showClose] Show a close button. Can't be used with inline.
  */
 OO.ui.MessageWidget = function OoUiMessageWidget( config ) {
 	// Configuration initialization
@@ -43,9 +44,23 @@ OO.ui.MessageWidget = function OoUiMessageWidget( config ) {
 		this.setIcon( config.icon );
 	}
 
+	if ( !this.inline && config.showClose ) {
+		this.closeButton = new OO.ui.ButtonWidget( {
+			classes: [ 'oo-ui-messageWidget-close' ],
+			framed: false,
+			icon: 'close',
+			label: OO.ui.msg( 'ooui-popup-widget-close-button-aria-label' ),
+			invisibleLabel: true
+		} );
+		this.closeButton.connect( this, {
+			click: 'onCloseButtonClick'
+		} );
+		this.$element.addClass( 'oo-ui-messageWidget-showClose' );
+	}
+
 	// Build the widget
 	this.$element
-		.append( this.$icon, this.$label )
+		.append( this.$icon, this.$label, this.closeButton && this.closeButton.$element )
 		.addClass( 'oo-ui-messageWidget' );
 };
 
@@ -56,6 +71,12 @@ OO.mixinClass( OO.ui.MessageWidget, OO.ui.mixin.IconElement );
 OO.mixinClass( OO.ui.MessageWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( OO.ui.MessageWidget, OO.ui.mixin.TitledElement );
 OO.mixinClass( OO.ui.MessageWidget, OO.ui.mixin.FlaggedElement );
+
+/* Events */
+
+/**
+ * @event close
+ */
 
 /* Static Properties */
 
@@ -119,4 +140,15 @@ OO.ui.MessageWidget.prototype.setType = function ( type ) {
 
 		this.type = type;
 	}
+};
+
+/**
+ * Handle click events on the close button
+ *
+ * @param {jQuery} e jQuery event
+ * @fires close
+ */
+OO.ui.MessageWidget.prototype.onCloseButtonClick = function () {
+	this.toggle( false );
+	this.emit( 'close' );
 };

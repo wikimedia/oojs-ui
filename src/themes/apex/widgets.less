@@ -477,6 +477,16 @@
 		padding: @padding-vertical-message-block @padding-horizontal-message-block;
 		font-weight: normal;
 
+		&.oo-ui-messageWidget-showClose {
+			padding-right: @size-icon + @padding-start-messages + @padding-horizontal-message-block;
+		}
+
+		> .oo-ui-messageWidget-close {
+			position: absolute;
+			top: 8px;
+			right: 8px;
+		}
+
 		&.oo-ui-flaggedElement-error {
 			background-color: @background-color-error--framed;
 			border-color: @border-color-error;

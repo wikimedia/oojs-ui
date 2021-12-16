@@ -1232,6 +1232,17 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'align' => 'top'
 			]
 		),
+		new OOUI\FieldLayout(
+			new OOUI\MessageWidget( [
+				'type' => 'notice',
+				'label' => 'MessageWidget with close button.',
+				'showClose' => true
+			] ),
+			[
+				'label' => "MessageWidget (type => 'notice', showClose => true)",
+				'align' => 'top'
+			]
+		),
 	]
 ] ) );
 
