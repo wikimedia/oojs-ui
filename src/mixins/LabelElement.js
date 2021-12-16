@@ -26,7 +26,7 @@ OO.ui.mixin.LabelElement = function OoUiMixinLabelElement( config ) {
 	// Properties
 	this.$label = null;
 	this.label = null;
-	this.invisibleLabel = null;
+	this.invisibleLabel = false;
 
 	// Initialization
 	this.setLabel( config.label || this.constructor.static.label );
@@ -173,10 +173,9 @@ OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
 			this.setLabelContent( label );
 		}
 		this.label = label;
+		this.$element.toggleClass( 'oo-ui-labelElement', !!this.label && !this.invisibleLabel );
 		this.emit( 'labelChange' );
 	}
-
-	this.$element.toggleClass( 'oo-ui-labelElement', !!this.label && !this.invisibleLabel );
 
 	return this;
 };
@@ -193,12 +192,11 @@ OO.ui.mixin.LabelElement.prototype.setInvisibleLabel = function ( invisibleLabel
 
 	if ( this.invisibleLabel !== invisibleLabel ) {
 		this.invisibleLabel = invisibleLabel;
+		this.$label.toggleClass( 'oo-ui-labelElement-invisible', this.invisibleLabel );
+		// Pretend that there is no label, a lot of CSS has been written with this assumption
+		this.$element.toggleClass( 'oo-ui-labelElement', !!this.label && !this.invisibleLabel );
 		this.emit( 'labelChange' );
 	}
-
-	this.$label.toggleClass( 'oo-ui-labelElement-invisible', this.invisibleLabel );
-	// Pretend that there is no label, a lot of CSS has been written with this assumption
-	this.$element.toggleClass( 'oo-ui-labelElement', !!this.label && !this.invisibleLabel );
 
 	return this;
 };
