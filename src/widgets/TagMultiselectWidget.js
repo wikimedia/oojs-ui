@@ -901,7 +901,7 @@ OO.ui.TagMultiselectWidget.prototype.checkValidity = function () {
 /**
  * Set the valid state of this item
  *
- * @param {boolean} [valid] Item is valid
+ * @param {boolean} [valid] Item is valid, omit to toggle
  * @fires valid
  */
 OO.ui.TagMultiselectWidget.prototype.toggleValid = function ( valid ) {

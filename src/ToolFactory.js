@@ -27,10 +27,10 @@ OO.inheritClass( OO.ui.ToolFactory, OO.Factory );
 /**
  * Get tools from the factory.
  *
- * @param {Array|string} [include] Included tools, see #extract for format
- * @param {Array|string} [exclude] Excluded tools, see #extract for format
- * @param {Array|string} [promote] Promoted tools, see #extract for format
- * @param {Array|string} [demote] Demoted tools, see #extract for format
+ * @param {Array|string} include Included tools, see #extract for format
+ * @param {Array|string} exclude Excluded tools, see #extract for format
+ * @param {Array|string} promote Promoted tools, see #extract for format
+ * @param {Array|string} demote Demoted tools, see #extract for format
  * @return {string[]} List of tools
  */
 OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, demote ) {
@@ -74,7 +74,7 @@ OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, dem
  *
  * @private
  * @param {Array|string} collection List of tools, see above
- * @param {Object} [used] Object containing information about used tools, see above
+ * @param {Object.<string,boolean>} [used] Object containing information about used tools, see above
  * @return {string[]} List of extracted tool names
  */
 OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {
