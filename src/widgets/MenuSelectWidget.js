@@ -248,18 +248,11 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 	this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
 
 	if ( this.highlightOnFilter &&
-		!( this.lastHighlightedItem && this.lastHighlightedItem.isVisible() ) &&
+		!( this.lastHighlightedItem && this.lastHighlightedItem.isSelectable() ) &&
 		this.isVisible()
 	) {
-		// Highlight the first item on the list
-		item = null;
-		var items = this.getItems();
-		for ( i = 0; i < items.length; i++ ) {
-			if ( items[ i ].isVisible() ) {
-				item = items[ i ];
-				break;
-			}
-		}
+		// Highlight the first selectable item in the list
+		item = this.findFirstSelectableItem();
 		this.highlightItem( item );
 		this.lastHighlightedItem = item;
 	}
