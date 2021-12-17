@@ -91,6 +91,10 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 		$tag->appendContent( $aTag );
 		$this->assertEquals( [ '<a></a>', $aTag ], $content->getValue( $tag ) );
 		$tag->clearContent();
+
+		// Good practice for variable-length argument lists to support being empty as well
+		$tag->appendContent();
+		$tag->prependContent();
 	}
 
 	/**

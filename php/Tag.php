@@ -178,7 +178,7 @@ class Tag {
 	 * @return $this
 	 */
 	public function removeContent( ...$content ) {
-		if ( is_array( $content[ 0 ] ) ) {
+		if ( $content && is_array( $content[ 0 ] ) ) {
 			$content = $content[ 0 ];
 		}
 		foreach ( $content as $item ) {
@@ -213,7 +213,7 @@ class Tag {
 	 * @return $this
 	 */
 	public function appendContent( ...$content ) {
-		if ( is_array( $content[ 0 ] ) ) {
+		if ( $content && is_array( $content[ 0 ] ) ) {
 			$content = $content[ 0 ];
 		}
 		$this->removeContent( ...$content );
@@ -241,7 +241,7 @@ class Tag {
 	 * @return $this
 	 */
 	public function prependContent( ...$content ) {
-		if ( is_array( $content[ 0 ] ) ) {
+		if ( $content && is_array( $content[ 0 ] ) ) {
 			$content = $content[ 0 ];
 		}
 		$this->removeContent( $content );
