@@ -64,7 +64,7 @@ class TabPanelLayout extends PanelLayout {
 	public function getConfig( &$config ) {
 		$config['name'] = $this->name;
 		$config['label'] = $this->label;
-		if ( !empty( $this->tabItemConfig ) ) {
+		if ( $this->tabItemConfig ) {
 			$config['tabItemConfig'] = $this->tabItemConfig;
 		}
 		// scrollable default has changed to true
