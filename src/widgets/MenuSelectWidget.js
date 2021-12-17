@@ -347,6 +347,10 @@ OO.ui.MenuSelectWidget.prototype.chooseItem = function ( item ) {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.addItems = function ( items, index ) {
+	if ( !items || !items.length ) {
+		return this;
+	}
+
 	// Parent method
 	OO.ui.MenuSelectWidget.super.prototype.addItems.call( this, items, index );
 

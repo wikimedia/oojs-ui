@@ -53,9 +53,7 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	if ( this.continuous ) {
 		this.$element.addClass( 'oo-ui-stackLayout-continuous' );
 	}
-	if ( Array.isArray( config.items ) ) {
-		this.addItems( config.items );
-	}
+	this.addItems( config.items );
 };
 
 /* Setup */
@@ -108,19 +106,23 @@ OO.ui.StackLayout.prototype.unsetCurrentItem = function () {
  * specifies a different insertion point. Adding a panel that is already in the stack will move it
  * to the end of the array or the point specified by the index.
  *
- * @param {OO.ui.Layout[]} items Panels to add
+ * @param {OO.ui.Layout[]} [items] Panels to add
  * @param {number} [index] Index of the insertion point
  * @chainable
  * @return {OO.ui.StackLayout} The layout, for chaining
  */
 OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
+	if ( !items || !items.length ) {
+		return this;
+	}
+
 	// Update the visibility
 	this.updateHiddenState( items, this.currentItem );
 
 	// Mixin method
 	OO.ui.mixin.GroupElement.prototype.addItems.call( this, items, index );
 
-	if ( !this.currentItem && items.length ) {
+	if ( !this.currentItem ) {
 		this.setItem( items[ 0 ] );
 	}
 
