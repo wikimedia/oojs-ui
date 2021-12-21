@@ -220,7 +220,8 @@ Demo.static.pages.icons = function ( demo ) {
 				'userAvatarOutline',
 				'userContributions',
 				'userGroup',
-				'userTalk'
+				'userTalk',
+				'watchlist'
 			],
 			layout: [
 				'menu',

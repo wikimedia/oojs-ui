@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+	<title>
+		watchlist
+	</title>
+    <path d="M20 6h-8v2h8V6Zm0 12H2v2h18v-2Zm0-6H6v2h14v-2ZM0 3.4h3.5L5 0l1.5 3.4H10L7.3 6.3 8 10 5 8l-3 2 .7-3.7L0 3.4Z"/>
+</svg>
