@@ -49,6 +49,8 @@ OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config )
 			.removeAttr( 'name' )
 			.insertAfter( this.$input )
 			.attr( 'aria-hidden', 'true' )
+			// Exclude scrollbars when calculating new size (T297963)
+			.css( 'overflow', 'hidden' )
 			.addClass( 'oo-ui-element-hidden' );
 	}
 
