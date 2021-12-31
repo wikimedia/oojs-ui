@@ -120,7 +120,7 @@ OO.ui.mixin.TabIndexedElement.prototype.updateTabIndex = function () {
 				tabindex: this.isDisabled() ? -1 : this.tabIndex,
 				// Support: ChromeVox and NVDA
 				// These do not seem to inherit aria-disabled from parent elements
-				'aria-disabled': this.isDisabled().toString()
+				'aria-disabled': this.isDisabled() ? 'true' : null
 			} );
 		} else {
 			this.$tabIndexed.removeAttr( 'tabindex aria-disabled' );
