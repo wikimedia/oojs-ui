@@ -69,8 +69,7 @@ OO.ui.mixin.RequiredElement.prototype.updateRequiredElement = function ( state )
 	}
 
 	this.$required
-		.prop( 'required', state )
-		.attr( 'aria-required', state ? 'true' : null );
+		.prop( 'required', state );
 };
 
 /**
