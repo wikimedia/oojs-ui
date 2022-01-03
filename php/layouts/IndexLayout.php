@@ -143,8 +143,9 @@ class IndexLayout extends MenuLayout {
 			$this->tabPanels[ $tabPanel->getName() ] = $tabPanel;
 			$tabItem = new TabOptionWidget( array_merge( [
 				'data' => $tabPanel->getName(),
+				'label' => $tabPanel->getLabel(),
 			], $tabPanel->getTabItemConfig() ) );
-			$tabPanel->setTabItem( $tabItem );
+			// TODO: Set aria-labelledby/aria-controls as in .js
 			$tabItems[] = $tabItem;
 		}
 		$this->tabSelectWidget->addItems( $tabItems );
