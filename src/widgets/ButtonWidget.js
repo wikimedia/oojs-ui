@@ -78,7 +78,7 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	this.setActive( config.active );
 	this.setHref( config.href );
 	this.setTarget( config.target );
-	if ( config.rel ) {
+	if ( config.rel !== undefined ) {
 		this.setRel( config.rel );
 	} else {
 		this.setNoFollow( config.noFollow );

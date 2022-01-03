@@ -328,6 +328,19 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
+					new OO.ui.ButtonWidget( {
+						framed: false,
+						flags: [ 'progressive' ],
+						label: 'Documentation',
+						href: 'https://doc.wikimedia.org',
+						rel: ''
+					} ),
+					{
+						label: 'ButtonWidget (quiet, progressive, with rel="" link attribute)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
 					new OO.ui.ButtonInputWidget( {
 						label: 'Submit the form',
 						type: 'submit',
