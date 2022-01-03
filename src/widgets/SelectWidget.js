@@ -85,9 +85,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 			'aria-multiselectable': this.multiselect.toString()
 		} );
 	this.setFocusOwner( this.$element );
-	if ( Array.isArray( config.items ) ) {
-		this.addItems( config.items );
-	}
+	this.addItems( config.items );
 };
 
 /* Setup */
@@ -922,13 +920,17 @@ OO.ui.SelectWidget.prototype.findFirstSelectableItem = function () {
  * Add an array of options to the select. Optionally, an index number can be used to
  * specify an insertion point.
  *
- * @param {OO.ui.OptionWidget[]} items Items to add
+ * @param {OO.ui.OptionWidget[]} [items] Options to add
  * @param {number} [index] Index to insert items after
  * @fires add
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
+	if ( !items || !items.length ) {
+		return this;
+	}
+
 	// Mixin method
 	OO.ui.mixin.GroupWidget.prototype.addItems.call( this, items, index );
 

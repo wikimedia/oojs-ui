@@ -434,7 +434,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 		}
 	}
 
-	if ( this.outlined && items.length ) {
+	if ( this.outlined ) {
 		this.outlineSelectWidget.addItems( items, index );
 		// It's impossible to lose a selection here. Selecting something else is business logic.
 	}

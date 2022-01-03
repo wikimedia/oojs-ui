@@ -44,9 +44,7 @@ OO.ui.mixin.DraggableGroupElement = function OoUiMixinDraggableGroupElement( con
 	} );
 
 	// Initialize
-	if ( Array.isArray( config.items ) ) {
-		this.addItems( config.items );
-	}
+	this.addItems( config.items );
 	this.$element
 		.addClass( 'oo-ui-draggableGroupElement' )
 		.toggleClass( 'oo-ui-draggableGroupElement-horizontal', this.orientation === 'horizontal' );
