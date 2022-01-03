@@ -648,15 +648,24 @@ OO.ui.SelectWidget.prototype.togglePressed = function ( pressed ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
+	if ( item && item.isHighlighted() ) {
+		return this;
+	}
+
 	var changed = false;
 
 	for ( var i = 0; i < this.items.length; i++ ) {
 		var highlighted = this.items[ i ] === item;
 		if ( this.items[ i ].isHighlighted() !== highlighted ) {
 			this.items[ i ].setHighlighted( highlighted );
+			if ( changed ) {
+				// This was the second change; there can only be two, a set and an unset
+				break;
+			}
 			changed = true;
 		}
 	}
+
 	if ( changed ) {
 		if ( item ) {
 			this.$focusOwner.attr( 'aria-activedescendant', item.getElementId() );
@@ -779,20 +788,30 @@ OO.ui.SelectWidget.prototype.unselectItem = function ( unselectedItem ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
-	var changed = false;
-
-	if ( this.multiselect && item ) {
-		// Select the item directly
-		item.setSelected( true );
-	} else {
-		for ( var i = 0; i < this.items.length; i++ ) {
-			var selected = this.items[ i ] === item;
-			if ( this.items[ i ].isSelected() !== selected ) {
-				this.items[ i ].setSelected( selected );
-				changed = true;
-			}
+	if ( item ) {
+		if ( item.isSelected() ) {
+			return this;
+		} else if ( this.multiselect ) {
+			// We don't care about the state of the other items when multiselect is allowed
+			item.setSelected( true );
+			return this;
 		}
 	}
+
+	var changed = false;
+
+	for ( var i = 0; i < this.items.length; i++ ) {
+		var selected = this.items[ i ] === item;
+		if ( this.items[ i ].isSelected() !== selected ) {
+			this.items[ i ].setSelected( selected );
+			if ( changed && !this.multiselect ) {
+				// This was the second change; there can only be two, a set and an unset
+				break;
+			}
+			changed = true;
+		}
+	}
+
 	if ( changed ) {
 		// TODO: When should a non-highlightable element be selected?
 		if ( item && !item.constructor.static.highlightable ) {
@@ -821,15 +840,24 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
+	if ( item && item.isPressed() ) {
+		return this;
+	}
+
 	var changed = false;
 
 	for ( var i = 0; i < this.items.length; i++ ) {
 		var pressed = this.items[ i ] === item;
 		if ( this.items[ i ].isPressed() !== pressed ) {
 			this.items[ i ].setPressed( pressed );
+			if ( changed ) {
+				// This was the second change; there can only be two, a set and an unset
+				break;
+			}
 			changed = true;
 		}
 	}
+
 	if ( changed ) {
 		this.emit( 'press', item );
 	}
