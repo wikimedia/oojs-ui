@@ -67,7 +67,7 @@ OO.ui.mixin.GroupElement.prototype.setGroupElement = function ( $group ) {
  * Only the first item with matching data will be returned. To return all matching items,
  * use the #findItemsFromData method.
  *
- * @param {Object} data Item data to search for
+ * @param {Mixed} data Item data to search for
  * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
  */
 OO.ui.mixin.GroupElement.prototype.findItemFromData = function ( data ) {
@@ -90,7 +90,7 @@ OO.ui.mixin.GroupElement.prototype.findItemFromData = function ( data ) {
  * All items with matching data will be returned. To return only the first match, use the
  * #findItemFromData method instead.
  *
- * @param {Object} data Item data to search for
+ * @param {Mixed} data Item data to search for
  * @return {OO.ui.Element[]} Items with equivalent data
  */
 OO.ui.mixin.GroupElement.prototype.findItemsFromData = function ( data ) {
