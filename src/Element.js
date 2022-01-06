@@ -46,7 +46,13 @@ OO.ui.Element = function OoUiElement( config ) {
 	// Initialization
 	doc = OO.ui.Element.static.getDocument( this.$element );
 	if ( Array.isArray( config.classes ) ) {
-		this.$element.addClass( config.classes );
+		this.$element.addClass(
+			// Remove empty strings to work around jQuery bug
+			// https://github.com/jquery/jquery/issues/4998
+			config.classes.filter( function ( val ) {
+				return val;
+			} )
+		);
 	}
 	if ( config.id ) {
 		this.setElementId( config.id );
