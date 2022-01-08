@@ -64,6 +64,7 @@ Demo.static.pages.icons = function ( demo ) {
 				'ellipsis',
 				'feedback',
 				'funnel',
+				'hand',
 				'heart',
 				'help',
 				'helpNotice',
@@ -81,7 +82,6 @@ Demo.static.pages.icons = function ( demo ) {
 				'reload',
 				'search',
 				'settings',
-				'stopHand',
 				'subtract'
 			],
 			moderation: [
