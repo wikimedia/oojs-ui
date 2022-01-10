@@ -672,10 +672,10 @@ OO.ui.TagMultiselectWidget.prototype.setValue = function ( valueObject ) {
 
 	this.clearItems();
 	valueObject.forEach( function ( obj ) {
-		if ( typeof obj === 'string' ) {
-			this.addTag( obj );
-		} else {
+		if ( typeof obj === 'object' ) {
 			this.addTag( obj.data, obj.label );
+		} else {
+			this.addTag( String( obj ) );
 		}
 	}.bind( this ) );
 };
