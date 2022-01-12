@@ -978,17 +978,14 @@ OO.ui.Element.prototype.getElementId = function () {
  * @return {boolean} All methods are supported
  */
 OO.ui.Element.prototype.supports = function ( methods ) {
-	var i, len,
-		support = 0;
-
-	methods = Array.isArray( methods ) ? methods : [ methods ];
-	for ( i = 0, len = methods.length; i < len; i++ ) {
-		if ( typeof this[ methods[ i ] ] === 'function' ) {
-			support++;
-		}
+	if ( !Array.isArray( methods ) ) {
+		return typeof this[ methods ] === 'function';
 	}
 
-	return methods.length === support;
+	var element = this;
+	return methods.every( function ( method ) {
+		return typeof element[ method ] === 'function';
+	} );
 };
 
 /**

@@ -19,7 +19,6 @@ OO.inheritClass( OO.ui.WikimediaUITheme, OO.ui.Theme );
  * @inheritdoc
  */
 OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
-	// Parent method
 	var variant, isFramed, isActive, isToolOrGroup,
 		variants = {
 			invert: false,
@@ -39,9 +38,9 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 	) {
 		// Icon on CheckboxInputWidget
 		variants.invert = true;
-	} else if ( element.supports( [ 'hasFlag' ] ) ) {
-		isFramed = element.supports( [ 'isFramed' ] ) && element.isFramed();
-		isActive = element.supports( [ 'isActive' ] ) && element.isActive();
+	} else if ( element.supports( 'hasFlag' ) ) {
+		isFramed = element.supports( 'isFramed' ) && element.isFramed();
+		isActive = element.supports( 'isActive' ) && element.isActive();
 		isToolOrGroup =
 			// Check if the class exists, as classes that are not in the 'core' module may
 			// not be loaded.

@@ -38,19 +38,21 @@ OO.ui.Theme.prototype.getElementClasses = function () {
  * @param {OO.ui.Element} element Element for which to update classes
  */
 OO.ui.Theme.prototype.updateElementClasses = function ( element ) {
-	var $elements = $( [] ),
-		classes = this.getElementClasses( element );
+	var domElements = [];
 
 	if ( element.$icon ) {
-		$elements = $elements.add( element.$icon );
+		domElements.push( element.$icon[ 0 ] );
 	}
 	if ( element.$indicator ) {
-		$elements = $elements.add( element.$indicator );
+		domElements.push( element.$indicator[ 0 ] );
 	}
 
-	$elements
-		.removeClass( classes.off )
-		.addClass( classes.on );
+	if ( domElements.length ) {
+		var classes = this.getElementClasses( element );
+		$( domElements )
+			.removeClass( classes.off )
+			.addClass( classes.on );
+	}
 };
 
 /**
