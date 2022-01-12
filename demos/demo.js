@@ -213,6 +213,8 @@ Demo.static.directions = {
 	rtl: { fileSuffix: '.rtl' }
 };
 
+Demo.static.imageLists = {};
+
 /**
  * Available platforms.
  *

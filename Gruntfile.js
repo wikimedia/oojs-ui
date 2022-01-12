@@ -8,6 +8,7 @@ module.exports = function ( grunt ) {
 	const modules = grunt.file.readYAML( 'build/modules.yaml' ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		path = require( 'path' ),
+		stringify = require( 'javascript-stringify' ),
 		themes = {
 			wikimediaui: 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 			apex: 'Apex'
@@ -683,6 +684,25 @@ module.exports = function ( grunt ) {
 		grunt.log.warn( 'You have built a no-frills, SVG-only, LTR-only version for development; some things will be broken.' );
 	} );
 
+	grunt.registerTask( 'demo-image-list', function () {
+		const imageLists = {};
+		for ( const module in modules ) {
+			if ( module.includes( 'oojs-ui-images-' ) ) {
+				const theme = modules[ module ].theme;
+				imageLists[ theme ] = imageLists[ theme ] || {};
+				modules[ module ].styles.forEach( function ( style ) {
+					const data = require( './' + style );
+					const name = path.parse( style ).name;
+					imageLists[ theme ][ name ] = data.images;
+				} );
+			}
+		}
+		grunt.file.write(
+			'./demos/dist/image-lists.js',
+			'Demo.static.imageLists = ' + stringify( imageLists, null, '\t' ) + ';\n'
+		);
+	} );
+
 	grunt.registerTask( 'build-code', [ 'concat:i18nMessages', 'concat:js', 'concat:omnibusJs' ] );
 	grunt.registerTask( 'build-styling', [
 		'colorizeSvg', 'less', 'cssjanus',
@@ -713,11 +733,11 @@ module.exports = function ( grunt ) {
 		'pre-git-build', 'clean:build', 'fileExists', 'tyops',
 		'build-code',
 		'build-styling-ltr',
-		'build-i18n', 'copy:demos', 'copy:fastcomposerdemos',
+		'build-i18n', 'copy:demos', 'demo-image-list', 'copy:fastcomposerdemos',
 		'note-quick-build'
 	] );
-	grunt.registerTask( 'quick-build-code', [ 'build-code', 'copy:demos' ] );
-	grunt.registerTask( 'quick-build-css', [ 'build-styling-ltr', 'copy:demos' ] );
+	grunt.registerTask( 'quick-build-code', [ 'build-code', 'copy:demos', 'demo-image-list' ] );
+	grunt.registerTask( 'quick-build-css', [ 'build-styling-ltr', 'copy:demos', 'demo-image-list' ] );
 
 	// Minification tasks for the npm publish step.
 	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', 'cssmin' ] );
@@ -731,7 +751,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( '_test', [ 'prep-test', 'clean:coverage', 'karma:main' /* T190200 , 'karma:other' */ ] );
 	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos', 'exec:composer', 'git-status' ] );
-	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'exec:demos' ] );
+	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'demo-image-list', 'exec:demos' ] );
 
 	grunt.registerTask( 'add-theme-check', function () {
 		if ( grunt.option( 'template' ) === 'MISSING' ) {
