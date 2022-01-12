@@ -49,9 +49,11 @@ Demo.static.pages.icons = function ( demo ) {
 
 		var icons = imageList[ 'icons-' + name ];
 		Object.keys( icons ).forEach( function ( icon ) {
+			var deprecationMessage = icons[ icon ].deprecated;
 			var iconWidget = new OO.ui.IconWidget( {
 				icon: icon,
-				title: icon
+				disabled: !!deprecationMessage,
+				title: deprecationMessage || icon
 			} );
 			iconsWidgets.push( iconWidget );
 			iconsFieldset.addItems( [
