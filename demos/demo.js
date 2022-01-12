@@ -213,6 +213,14 @@ Demo.static.directions = {
 	rtl: { fileSuffix: '.rtl' }
 };
 
+/**
+ * Icon/indicator image data by theme.
+ *
+ * A collection of the 'images' properties from icon/indicator manifest files.
+ *
+ * @static
+ * @property {Object.<string,Object>}
+ */
 Demo.static.imageLists = {};
 
 /**
