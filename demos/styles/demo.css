@@ -487,9 +487,9 @@ p:first-child {
 
 .demo-icons .oo-ui-fieldLayout {
 	display: inline-block;
+	vertical-align: top;
 	margin: 8px 8px 8px 0;
-	width: 12.5em;
-	white-space: nowrap;
+	width: 15.5em;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
