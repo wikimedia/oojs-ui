@@ -60,6 +60,28 @@ Demo.static.pages.icons = function ( demo ) {
 					align: 'inline'
 				} )
 			] );
+			if ( icons[ icon ].file.lang ) {
+				Object.keys( icons[ icon ].file.lang ).forEach( function ( lang ) {
+					var langs = lang.split( ',' );
+					var langList = langs.join( ', ' );
+					var title = icon + ' (' + langList + ')';
+					var $label = $( '<span>' ).text( icon + ' ' ).append(
+						$( '<small>' ).text( '(' + langList + ')' )
+					);
+					var iconWidgetLang = new OO.ui.IconWidget( {
+						icon: icon,
+						title: title
+					} );
+					iconWidgetLang.$element.attr( 'lang', langs[ 0 ] );
+					iconsWidgets.push( iconWidgetLang );
+					iconsFieldset.addItems( [
+						new OO.ui.FieldLayout( iconWidgetLang, {
+							label: $label,
+							align: 'inline'
+						} )
+					] );
+				} );
+			}
 		} );
 
 		return iconsFieldset;
@@ -111,7 +133,12 @@ Demo.static.pages.icons = function ( demo ) {
 			framed: true
 		} ).$element
 			.addClass( 'demo-container demo-icons' )
-			.attr( 'role', 'main' )
+			.attr( {
+				role: 'main',
+				// 'default' is not a real language, but forces us to render
+				// non-language specific icons, e.g. bold-a.svg
+				lang: 'default'
+			} )
 			.append(
 				selector.$element,
 				iconsFieldsets.map( function ( item ) { return item.$element[ 0 ]; } ),
