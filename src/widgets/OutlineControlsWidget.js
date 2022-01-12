@@ -37,12 +37,12 @@ OO.ui.OutlineControlsWidget = function OoUiOutlineControlsWidget( outline, confi
 	this.$movers = $( '<div>' );
 	this.upButton = new OO.ui.ButtonWidget( {
 		framed: false,
-		icon: 'collapse',
+		icon: 'upTriangle',
 		title: OO.ui.msg( 'ooui-outline-control-move-up' )
 	} );
 	this.downButton = new OO.ui.ButtonWidget( {
 		framed: false,
-		icon: 'expand',
+		icon: 'downTriangle',
 		title: OO.ui.msg( 'ooui-outline-control-move-down' )
 	} );
 	this.removeButton = new OO.ui.ButtonWidget( {
