@@ -745,6 +745,8 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
  * @param {string} [config.duration='fast'] jQuery animation duration value
  * @param {string} [config.direction] Scroll in only one direction, e.g. 'x' or 'y', omit
  *  to scroll in both directions
+ * @param {Object} [config.alignToTop=false] Aligns the top of the element to the top of the visible
+ *  area of the scrollable ancestor.
  * @param {Object} [config.padding] Additional padding on the container to scroll past.
  *  Object containing any of 'top', 'bottom', 'left', or 'right' as numbers.
  * @param {Object} [config.scrollContainer] Scroll container. Defaults to
@@ -805,7 +807,7 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
 	}
 
 	if ( !config.direction || config.direction === 'y' ) {
-		if ( position.top < padding.top ) {
+		if ( position.top < padding.top || config.alignToTop ) {
 			animations.scrollTop = containerDimensions.scroll.top + position.top - padding.top;
 		} else if ( position.bottom < padding.bottom ) {
 			animations.scrollTop = containerDimensions.scroll.top +
