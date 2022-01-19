@@ -46,7 +46,7 @@ OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonGroupWidget' );
-	this.addItems( config.items );
+	this.addItems( config.items || [] );
 };
 
 /* Setup */

@@ -85,7 +85,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 			'aria-multiselectable': this.multiselect.toString()
 		} );
 	this.setFocusOwner( this.$element );
-	this.addItems( config.items );
+	this.addItems( config.items || [] );
 };
 
 /* Setup */

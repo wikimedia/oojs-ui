@@ -90,7 +90,7 @@ OO.ui.FormLayout = function OoUiFormLayout( config ) {
 			action: action,
 			enctype: config.enctype
 		} );
-	this.addItems( config.items );
+	this.addItems( config.items || [] );
 };
 
 /* Setup */

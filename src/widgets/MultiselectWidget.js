@@ -38,7 +38,7 @@ OO.ui.MultiselectWidget = function OoUiMultiselectWidget( config ) {
 	} );
 
 	// Initialization
-	this.addItems( config.items );
+	this.addItems( config.items || [] );
 	this.$group.addClass( 'oo-ui-multiselectWidget-group' );
 	this.$element.addClass( 'oo-ui-multiselectWidget' )
 		.append( this.$group );

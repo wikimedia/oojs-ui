@@ -105,7 +105,7 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 			this.$header.append( helpWidget.$element );
 		}
 	}
-	this.addItems( config.items );
+	this.addItems( config.items || [] );
 };
 
 /* Setup */

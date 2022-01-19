@@ -35,7 +35,7 @@ OO.ui.HorizontalLayout = function OoUiHorizontalLayout( config ) {
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-horizontalLayout' );
-	this.addItems( config.items );
+	this.addItems( config.items || [] );
 };
 
 /* Setup */
