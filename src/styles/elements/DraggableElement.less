@@ -6,19 +6,13 @@
 	&-handle:not( .oo-ui-draggableElement-undraggable ),
 	&-handle:not( .oo-ui-draggableElement-undraggable ).oo-ui-widget {
 		cursor: move;
-		cursor: url( images/grab.cur );
 		/* stylelint-disable plugin/no-unsupported-browser-features */
-		cursor: -webkit-grab;
-		cursor: -moz-grab;
 		cursor: grab;
 		/* stylelint-enable plugin/no-unsupported-browser-features */
 	}
 
 	&-handle:not( .oo-ui-draggableElement-undraggable ):active {
-		cursor: url( images/grabbing.cur );
 		/* stylelint-disable plugin/no-unsupported-browser-features */
-		cursor: -webkit-grabbing;
-		cursor: -moz-grabbing;
 		cursor: grabbing;
 		/* stylelint-enable plugin/no-unsupported-browser-features */
 	}
