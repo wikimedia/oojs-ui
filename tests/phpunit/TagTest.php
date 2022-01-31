@@ -98,6 +98,26 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
+	 * @covers Tag::appendContent
+	 * @covers Tag::prependContent
+	 * @covers Tag::removeContent
+	 */
+	public function testVariadicContentMethods() {
+		$tag = new Tag();
+		$empty = [];
+
+		$tag->appendContent( $empty );
+		$tag->appendContent( ...$empty );
+		$tag->prependContent( $empty );
+		$tag->prependContent( ...$empty );
+		$tag->removeContent( $empty );
+		$tag->removeContent( ...$empty );
+
+		// What we really care about is that the calls above don't fail
+		$this->assertSame( '<div></div>', $tag->toString() );
+	}
+
+	/**
 	 * @covers Tag::setAttributes
 	 * @covers Tag::getAttribute
 	 * @covers Tag::removeAttributes
