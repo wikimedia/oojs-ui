@@ -179,7 +179,7 @@ class Tag {
 	 */
 	public function removeContent( ...$content ) {
 		if ( $content && is_array( $content[ 0 ] ) ) {
-			$content = $content[ 0 ];
+			return $this->removeContent( ...$content[0] );
 		}
 		foreach ( $content as $item ) {
 			if ( !is_string( $item ) ) {
@@ -214,7 +214,7 @@ class Tag {
 	 */
 	public function appendContent( ...$content ) {
 		if ( $content && is_array( $content[ 0 ] ) ) {
-			$content = $content[ 0 ];
+			return $this->appendContent( ...$content[0] );
 		}
 		$this->removeContent( ...$content );
 		$this->content = array_merge( $this->content, $content );
@@ -242,9 +242,9 @@ class Tag {
 	 */
 	public function prependContent( ...$content ) {
 		if ( $content && is_array( $content[ 0 ] ) ) {
-			$content = $content[ 0 ];
+			return $this->prependContent( ...$content[0] );
 		}
-		$this->removeContent( $content );
+		$this->removeContent( ...$content );
 		array_splice( $this->content, 0, 0, $content );
 		return $this;
 	}
