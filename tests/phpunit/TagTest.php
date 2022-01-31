@@ -118,6 +118,26 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
+	 * @covers Tag::appendContent
+	 */
+	public function testAppendContentWithArrayKeys() {
+		$tag = new Tag();
+		// FIXME: The behavior of appendContent() and prependContent() is not consistent
+		$this->expectError();
+		$tag->appendContent( [ 'foo' => 'bar' ] );
+	}
+
+	/**
+	 * @covers Tag::prependContent
+	 */
+	public function testPrependContentWithArrayKeys() {
+		$tag = new Tag();
+		// FIXME: The behavior of appendContent() and prependContent() is not consistent
+		$tag->prependContent( [ 'foo' => 'bar' ] );
+		$this->assertSame( '<div>bar</div>', $tag->toString() );
+	}
+
+	/**
 	 * @covers Tag::setAttributes
 	 * @covers Tag::getAttribute
 	 * @covers Tag::removeAttributes
