@@ -122,7 +122,6 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testAppendContentWithArrayKeys() {
 		$tag = new Tag();
-		// FIXME: The behavior of appendContent() and prependContent() is not consistent
 		$this->expectError();
 		$tag->appendContent( [ 'foo' => 'bar' ] );
 	}
@@ -132,9 +131,8 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testPrependContentWithArrayKeys() {
 		$tag = new Tag();
-		// FIXME: The behavior of appendContent() and prependContent() is not consistent
+		$this->expectError();
 		$tag->prependContent( [ 'foo' => 'bar' ] );
-		$this->assertSame( '<div>bar</div>', $tag->toString() );
 	}
 
 	/**
