@@ -37,7 +37,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-file-exists' );
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
-	grunt.loadNpmTasks( 'grunt-svgmin' );
 	grunt.loadNpmTasks( 'grunt-tyops' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-string-replace' );
@@ -351,58 +350,6 @@ module.exports = function ( grunt ) {
 			}
 		},
 		colorizeSvg: colorizeSvgFiles,
-		// SVG Optimization
-		svgmin: {
-			options: {
-				js2svg: {
-					indent: '\t',
-					pretty: true
-				},
-				multipass: true,
-				plugins: [ {
-					cleanupIDs: false
-				}, {
-					removeDesc: false
-				}, {
-					removeRasterImages: true
-				}, {
-					removeTitle: false
-				}, {
-					removeViewBox: false
-				}, {
-					removeXMLProcInst: false
-				}, {
-					sortAttrs: true
-				} ]
-			},
-			srcSvgs: {
-				files: [ {
-					expand: true,
-					cwd: 'src',
-					src: [
-						'**/*.svg'
-					],
-					dest: 'src',
-					ext: '.svg'
-				} ]
-			},
-			distSvgs: {
-				options: {
-					js2svg: {
-						pretty: false
-					}
-				},
-				files: [ {
-					expand: true,
-					cwd: 'dist',
-					src: [
-						'**/*.svg'
-					],
-					dest: 'dist',
-					ext: '.svg'
-				} ]
-			}
-		},
 		cssmin: {
 			options: {
 				keepSpecialComments: 0,
@@ -740,7 +687,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'quick-build-css', [ 'build-styling-ltr', 'copy:demos', 'demo-image-list' ] );
 
 	// Minification tasks for the npm publish step.
-	grunt.registerTask( 'minify', [ 'uglify', 'svgmin:distSvgs', 'cssmin' ] );
+	grunt.registerTask( 'minify', [ 'uglify', 'cssmin' ] );
 	// Note that this skips "git-build", so version numbers are final and don't have a git hash.
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
