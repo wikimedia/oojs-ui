@@ -526,7 +526,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 
 	if ( this.outlined ) {
 		var selectedItem = this.outlineSelectWidget.findSelectedItem();
-		if ( selectedItem && selectedItem.getData() !== name ) {
+		if ( !selectedItem || selectedItem.getData() !== name ) {
 			// Warning! This triggers a "select" event and the .onOutlineSelectWidgetSelect()
 			// handler, which calls .setPage() a second time. Make sure .currentPageName is set to
 			// break this loop.
