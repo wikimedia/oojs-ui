@@ -466,6 +466,10 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
 			itemsToRemove.push( this.outlineSelectWidget.findItemFromData( name ) );
 			page.setOutlineItem( null );
 		}
+		// If the current page is removed, clear currentPageName
+		if ( this.currentPageName === name ) {
+			this.currentPageName = null;
+		}
 	}
 	if ( itemsToRemove.length ) {
 		this.outlineSelectWidget.removeItems( itemsToRemove );
