@@ -521,7 +521,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 		return;
 	}
 
-	var previousPage = this.pages[ this.currentPageName ];
+	var previousPage = this.currentPageName ? this.pages[ this.currentPageName ] : null;
 	this.currentPageName = name;
 
 	if ( this.outlined ) {
