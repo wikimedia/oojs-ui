@@ -1,40 +1,20 @@
-# This file is mostly used to manage the packagist release export
+# This file is mostly used to manage the Packagist release export
 
-# Repo management files
-.git* export-ignore
-.mailmap export-ignore
-.npmignore export-ignore
-.nvmrc export-ignore
+# Repo configuration and development-only files
+/.* export-ignore
+/bin/ export-ignore
+/build/ export-ignore
+/tests/ export-ignore
+/composer.json export-ignore
+/Doxyfile export-ignore
+/Gemfile* export-ignore
+/Gruntfile.js export-ignore
+/jsduck* export-ignore
+/package*.json export-ignore
+/phpunit.xml.dist export-ignore
+/Rakefile export-ignore
 
-
-# Build files
-composer.json export-ignore
-package*.json export-ignore
-Gruntfile.js export-ignore
-
-bin export-ignore
-build export-ignore
-
-
-# Linting files
-.css* export-ignore
-.eslintrc.json export-ignore
-.phpcs.xml export-ignore
-.rubocop_todo.yml export-ignore
-.rubocop.yml export-ignore
-.stylelintrc export-ignore
-.svgo.config.js export-ignore
-.phpcs.xml export-ignore
-jsduck* export-ignore
-Doxyfile export-ignore
-Gemfile* export-ignore
-phpunit.xml.dist export-ignore
-Rakefile export-ignore
-.phan/ export-ignore
-
-
-# JavaScript-only or non-release files
-demos export-ignore
-docs export-ignore
-src export-ignore
-tests export-ignore
+# Not needed for PHP release (JavaScript-only or non-release)
+/demos/ export-ignore
+/docs/ export-ignore
+/src/ export-ignore
