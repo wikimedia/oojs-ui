@@ -4,6 +4,7 @@
 .git* export-ignore
 .mailmap export-ignore
 .npmignore export-ignore
+.nvmrc export-ignore
 
 
 # Build files
@@ -22,6 +23,7 @@ build export-ignore
 .rubocop_todo.yml export-ignore
 .rubocop.yml export-ignore
 .stylelintrc export-ignore
+.svgo.config.js export-ignore
 .phpcs.xml export-ignore
 jsduck* export-ignore
 Doxyfile export-ignore
