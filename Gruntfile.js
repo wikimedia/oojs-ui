@@ -297,13 +297,7 @@ module.exports = function ( grunt ) {
 			}
 		},
 		copy: {
-			imagesCommon: {
-				src: 'src/styles/images/*.cur',
-				dest: 'dist/images/',
-				expand: true,
-				flatten: true
-			},
-			imagesThemes: {
+			images: {
 				src: 'src/themes/*/*.json',
 				dest: 'dist/',
 				expand: true,
@@ -654,14 +648,14 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build-styling', [
 		'colorizeSvg', 'less', 'cssjanus',
 		'concat:css', 'concat:omnibusCss', 'concat:demoCss',
-		'copy:imagesCommon', 'copy:imagesThemes'
+		'copy:images'
 	] );
 	grunt.registerTask( 'build-styling-ltr', [
 		// Same as 'build-styling' but without 'cssjanus' and 'concat:demoCss' which are
 		// only for RTL.
 		'colorizeSvg', 'less',
 		'concat:css', 'concat:omnibusCss',
-		'copy:imagesCommon', 'copy:imagesThemes'
+		'copy:images'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
 	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
