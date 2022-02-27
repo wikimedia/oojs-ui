@@ -375,7 +375,6 @@ module.exports = function ( grunt ) {
 		// Lint – Styling
 		stylelint: {
 			options: {
-				syntax: 'less',
 				reportNeedlessDisables: true
 			},
 			dev: [

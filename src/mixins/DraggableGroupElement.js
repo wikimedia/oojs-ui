@@ -10,8 +10,8 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {OO.ui.mixin.DraggableElement[]} items
- * @cfg {string} [orientation='vertical'] Item orientation: 'horizontal' or 'vertical'. The orientation
- *  should match the layout of the items. Items displayed in a single row
+ * @cfg {string} [orientation='vertical'] Item orientation: 'horizontal' or 'vertical'.
+ *  The orientation should match the layout of the items. Items displayed in a single row
  *  or in several rows should use horizontal orientation. The vertical orientation should only be
  *  used when the items are displayed in a single column.
  * @cfg {boolean} [draggable=true] The items are draggable. This can change with #toggleDraggable
