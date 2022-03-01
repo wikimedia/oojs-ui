@@ -47,10 +47,31 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 		click: 'onAction'
 	} );
 
+	// Set up id for use in aria-describedby and aria-owns
+	var buttonId = this.$element.attr( 'id' );
+	if ( buttonId === undefined ) {
+		buttonId = OO.ui.generateElementId();
+		this.$element.attr( 'id', buttonId );
+	}
+	var popupId = this.popup.$element.attr( 'id' );
+	if ( popupId === undefined ) {
+		popupId = OO.ui.generateElementId();
+		this.popup.$element.attr( 'id', popupId );
+	}
+
 	// Initialization
-	this.$element.addClass( 'oo-ui-popupButtonWidget' );
+	this.$element
+		.addClass( 'oo-ui-popupButtonWidget' )
+		.attr( {
+			'aria-haspopup': 'dialog',
+			'aria-owns': popupId
+		} );
 	this.popup.$element
 		.addClass( 'oo-ui-popupButtonWidget-popup' )
+		.attr( {
+			role: 'dialog',
+			'aria-describedby': buttonId
+		} )
 		.toggleClass( 'oo-ui-popupButtonWidget-framed-popup', this.isFramed() )
 		.toggleClass( 'oo-ui-popupButtonWidget-frameless-popup', !this.isFramed() );
 	this.$overlay.append( this.popup.$element );

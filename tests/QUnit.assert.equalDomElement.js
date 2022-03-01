@@ -135,6 +135,9 @@
 		}
 		// Only used by JS FieldLayout
 		delete summary.attributes[ 'aria-describedby' ];
+		delete summary.attributes[ 'aria-haspopup' ];
+		delete summary.attributes[ 'aria-owns' ];
+		delete summary.attributes.role;
 
 		return summary;
 	}
