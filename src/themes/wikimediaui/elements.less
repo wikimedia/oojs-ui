@@ -11,10 +11,6 @@
 		padding-top: @padding-top-icon-indicator;
 		font-weight: bold;
 		text-decoration: none;
-
-		&:focus {
-			outline: 0;
-		}
 	}
 
 	// ButtonInputWidget's `<input>`
@@ -73,6 +69,11 @@
 				&:not( .oo-ui-image-invert ) {
 					opacity: @opacity-icon-base;
 				}
+			}
+
+			&:focus {
+				// In Windows high contrast mode the transparent outline becomes visible.
+				outline: @outline-base--focus;
 			}
 		}
 
@@ -162,8 +163,6 @@
 				&:focus {
 					border-color: @border-color-base--focus;
 					box-shadow: @box-shadow-base--focus;
-					// In Windows high contrast mode the outline becomes visible.
-					outline: @outline-base--focus;
 				}
 			}
 
@@ -308,8 +307,6 @@
 				&:focus {
 					border-color: @border-color-base--focus;
 					box-shadow: @box-shadow-base--focus;
-					// In Windows high contrast mode the outline becomes visible.
-					outline: @outline-base--focus;
 				}
 			}
 
