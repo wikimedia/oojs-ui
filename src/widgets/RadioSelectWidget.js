@@ -51,7 +51,9 @@ OO.ui.RadioSelectWidget = function OoUiRadioSelectWidget( config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-radioSelectWidget' )
-		.attr( 'role', 'radiogroup' );
+		.attr( 'role', 'radiogroup' )
+		// Not applicable to 'radiogroup', and it would always be 'false' anyway
+		.removeAttr( 'aria-multiselectable' );
 };
 
 /* Setup */
