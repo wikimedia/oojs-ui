@@ -179,16 +179,16 @@ Demo.static.pages.dialogs = function ( demo ) {
 					data: {
 						title: 'Cannot save data',
 						message: 'The server is not responding',
+						// These messages should be just long enough to trigger a vertical
+						// layout but will probably vary by which font is used.
 						actions: [
 							{
 								action: 'reject',
-								label: 'Cancel',
+								label: 'Do not try this again',
 								flags: [ 'safe', 'close' ]
 							},
 							{
 								action: 'repeat',
-								// This message should be just long enough to trigger a vertical
-								// layout but will probably vary by which font is used.
 								label: 'Try to save this again',
 								flags: [ 'primary', 'progressive' ]
 							}
