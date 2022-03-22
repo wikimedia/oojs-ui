@@ -309,18 +309,12 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
  * @private
  */
 OO.ui.MessageDialog.prototype.fitActions = function () {
-	var i, len, action,
-		previous = this.verticalActionLayout,
-		actions = this.actions.get();
+	var previous = this.verticalActionLayout;
 
 	// Detect clipping
 	this.toggleVerticalActionLayout( false );
-	for ( i = 0, len = actions.length; i < len; i++ ) {
-		action = actions[ i ];
-		if ( action.$element[ 0 ].scrollWidth > action.$element[ 0 ].clientWidth ) {
-			this.toggleVerticalActionLayout( true );
-			break;
-		}
+	if ( this.$actions[ 0 ].scrollWidth > this.$actions[ 0 ].clientWidth ) {
+		this.toggleVerticalActionLayout( true );
 	}
 
 	// Move the body out of the way of the foot
