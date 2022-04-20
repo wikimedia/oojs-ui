@@ -40,7 +40,7 @@
 	&-frameless {
 		> .oo-ui-buttonElement-button {
 			> .oo-ui-iconElement-icon {
-				.oo-ui-transition( opacity @transition-ease-medium );
+				transition: opacity @transition-ease-medium;
 				// Support Webkit/Blink: `opacity` < 1 causes wiggling, see T65020
 				.oo-ui-force-gpu-composite-layer();
 			}
@@ -132,7 +132,7 @@
 				}
 			}
 
-			&.oo-ui-indicatorElement:not( .oo-ui-iconElement ):not( .oo-ui-labelElement ) { // IE 9+ only on non-critical design properties
+			&.oo-ui-indicatorElement:not( .oo-ui-iconElement ):not( .oo-ui-labelElement ) {
 				> .oo-ui-buttonElement-button {
 					border-radius: @border-radius-base;
 
@@ -174,7 +174,7 @@
 			border: @border-base;
 			padding: @padding-base;
 			text-shadow: @text-shadow-button;
-			.oo-ui-transition( border-color @transition-base );
+			transition: border-color @transition-base;
 
 			&:hover {
 				border-color: @border-color-base--hover;
@@ -333,9 +333,9 @@
 		background-color: @background-color-pending-stripe;
 		background-image: linear-gradient( 135deg, @background-color-main 25%, transparent 25%, transparent 50%, @background-color-main 50%, @background-color-main 75%, transparent 75%, transparent );
 		background-size: @size-icon-inner @size-icon-inner;
-		.oo-ui-animation( oo-ui-pendingElement-stripes 650ms linear infinite );
+		animation: oo-ui-pendingElement-stripes 650ms linear infinite;
 
-		.oo-ui-pendingElement-stripes-frames() {
+		@keyframes oo-ui-pendingElement-stripes {
 			0% {
 				background-position: -@size-icon-inner 0;
 			}
@@ -343,14 +343,6 @@
 			100% {
 				background-position: 0 0;
 			}
-		}
-
-		@-webkit-keyframes oo-ui-pendingElement-stripes {
-			.oo-ui-pendingElement-stripes-frames;
-		}
-
-		@keyframes oo-ui-pendingElement-stripes {
-			.oo-ui-pendingElement-stripes-frames;
 		}
 	}
 }

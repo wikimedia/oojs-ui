@@ -773,11 +773,7 @@
 	}
 
 	&-transitioning .oo-ui-popupWidget-popup {
-		.oo-ui-transition(
-			width @transition-base,
-			height @transition-base,
-			left @transition-base
-		);
+		transition: width @transition-base, height @transition-base, left @transition-base;
 	}
 
 	&-head {
@@ -842,15 +838,15 @@
 		.oo-ui-vertical-gradient( @background-color-progressive-gradient-light, @background-color-progressive-gradient-dark );
 		height: 1em;
 		border-right: @border-base;
-		.oo-ui-transition( width @transition-ease-medium );
+		transition: width @transition-ease-medium;
 	}
 
 	&-indeterminate {
 		.oo-ui-progressBarWidget-bar {
 			width: 40%;
 			border-left: @border-base;
-			.oo-ui-animation( oo-ui-progressBarWidget-slide 2s infinite linear );
-			.oo-ui-transform( translate( -25% ) );
+			animation: oo-ui-progressBarWidget-slide 2s infinite linear;
+			transform: translate( -25% );
 		}
 	}
 
@@ -858,22 +854,14 @@
 		opacity: 0.6;
 	}
 
-	.oo-ui-progressBarWidget-slide-frames() {
+	@keyframes oo-ui-progressBarWidget-slide {
 		from {
-			.oo-ui-transform( translate( -100% ) );
+			transform: translate( -100% );
 		}
 
 		to {
-			.oo-ui-transform( translate( 350% ) );
+			transform: translate (350% );
 		}
-	}
-
-	@-webkit-keyframes oo-ui-progressBarWidget-slide {
-		.oo-ui-progressBarWidget-slide-frames;
-	}
-
-	@keyframes oo-ui-progressBarWidget-slide {
-		.oo-ui-progressBarWidget-slide-frames;
 	}
 }
 
@@ -1041,10 +1029,7 @@
 		border-width: 0;
 		background-color: transparent;
 		box-shadow: inset 0 0 0 0 @color-progressive;
-		.oo-ui-transition(
-			color @transition-base,
-			box-shadow @transition-base
-		);
+		transition: color @transition-base, box-shadow @transition-base;
 
 		&.oo-ui-optionWidget-selected {
 			color: @color-progressive;
@@ -1112,7 +1097,7 @@
 .theme-oo-ui-tagItemWidget() {
 	.oo-ui-vertical-gradient( @background-color-framed-start, @background-color-framed-stop );
 	color: @color-base;
-	.oo-ui-box-sizing( border-box );
+	box-sizing: border-box;
 	width: auto;
 	max-width: 100%;
 	height: @height-tagitem;
@@ -1160,9 +1145,7 @@
 
 		& .oo-ui-buttonElement-button {
 			display: block;
-			.oo-ui-transition(
-				background-color @transition-base
-			);
+			transition: background-color @transition-base;
 
 			.oo-ui-iconElement-icon {
 				min-width: @min-size-icon-tagitem-remove;
@@ -1199,8 +1182,7 @@
 		padding: 0.15em 0.25em;
 		border: 1px solid rgba( 0, 0, 0, 0.1 );
 		border-radius: @border-radius-base;
-
-		.oo-ui-box-sizing( border-box );
+		box-sizing: border-box;
 
 		.oo-ui-tagMultiselectWidget-group {
 			> input {
@@ -1330,10 +1312,7 @@
 		font-size: inherit;
 		font-family: inherit;
 		line-height: @line-height-input;
-		.oo-ui-transition(
-			border-color @transition-ease-medium,
-			box-shadow @transition-ease-medium
-		);
+		transition: border-color @transition-ease-medium, box-shadow @transition-ease-medium;
 	}
 
 	.oo-ui-pendingElement-pending {
@@ -1489,10 +1468,7 @@
 		border: @border-base;
 		border-radius: 1em;
 		box-shadow: 0 0.1em 0.25em rgba( 0, 0, 0, 0.1 );
-		.oo-ui-transition(
-			left @transition-ease-medium,
-			margin-left @transition-ease-medium
-		);
+		transition: left @transition-ease-medium, margin-left @transition-ease-medium;
 	}
 
 	&-glow {
@@ -1503,7 +1479,7 @@
 		left: 0;
 		border-radius: 1em;
 		box-shadow: inset 0 1px 4px 0 rgba( 0, 0, 0, 0.07 );
-		.oo-ui-transition( opacity @transition-ease-medium );
+		transition: opacity @transition-ease-medium;
 		.oo-ui-vertical-gradient( #b0d9ee, #eaf4fa );
 		.oo-ui-unselectable();
 	}

@@ -18,38 +18,13 @@
 	transform: translateZ( 0 );
 }
 
-.oo-ui-animation( @value1, @value2: X, ... ) {
-	@value: ~`"@{arguments}".replace( /[\[\]]|\,\sX/g, '' )`; // stylelint-disable-line string-quotes
-	-webkit-animation: @value;
-	animation: @value;
-}
-
-.oo-ui-transition( @value1, @value2: X, ... ) {
-	@value: ~`"@{arguments}".replace( /[\[\]]|\,\sX/g, '' )`; // stylelint-disable-line string-quotes
-	-webkit-transition: @value;
-	transition: @value;
-}
-
-.oo-ui-transform( @string ) {
-	-webkit-transform: @string;
-	-ms-transform: @string; // IE 9 only
-	transform: @string;
-}
-
-.oo-ui-box-sizing( @type: border-box ) {
-	-moz-box-sizing: @type;
-	box-sizing: @type;
-}
-
 .oo-ui-horizontal-gradient( @startColor: #eee, @endColor: #fff, @startPos: 0, @endPos: 100% ) {
 	background-color: average( @startColor, @endColor );
-	background-image: -webkit-linear-gradient( left, @startColor @startPos, @endColor @endPos ); // Android 4.3
 	background-image: linear-gradient( to right, @startColor @startPos, @endColor @endPos );
 }
 
 .oo-ui-vertical-gradient( @startColor: #eee, @endColor: #fff, @startPos: 0, @endPos: 100% ) {
 	background-color: average( @startColor, @endColor );
-	background-image: -webkit-linear-gradient( top, @startColor @startPos, @endColor @endPos ); // Android 4.3
 	background-image: linear-gradient( to bottom, @startColor @startPos, @endColor @endPos );
 }
 
