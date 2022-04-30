@@ -348,7 +348,6 @@ module.exports = function ( grunt ) {
 			options: {
 				keepSpecialComments: 0,
 				banner: minBanner,
-				compatibility: 'ie9',
 				report: 'gzip'
 			},
 			dist: {
