@@ -83,7 +83,7 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	} );
 	this.$input.on( {
 		change: this.onFileSelected.bind( this ),
-		// Support: IE11
+		// Support: IE 11
 		// In IE 11, focussing a file input (by clicking on it) displays a text cursor and scrolls
 		// the cursor into view (in this case, it scrolls the button, which has 'overflow: hidden').
 		// Since this messes with our custom styling (the file input has large dimensions and this
