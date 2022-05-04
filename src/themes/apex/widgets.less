@@ -676,7 +676,9 @@
 	}
 
 	// Support: Progressively enhance for browser's which render `filter`.
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	@supports ( filter: drop-shadow( 0 0 0 ) ) {
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		filter: @filter-drop-shadow-menu;
 
 		&-popup {

@@ -1,5 +1,6 @@
 html {
 	/* Prevent font scaling in iOS Safari */
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	-webkit-text-size-adjust: none;
 }
 
@@ -598,6 +599,7 @@ FieldLayout left & right aligned */
  * Support: iOS 9.2, Android 4.4.4, Op Mobile 37, Chrome/Android 57, Fx/Android 52, UC Browser 11.4, Baidu 7.12
  * Workaround for weak ancient mobile browser support of `fixed` positioning
  */
+/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 @supports ( position: fixed ) {
 	.demo-header {
 		background-color: #fff;
@@ -653,6 +655,7 @@ FieldLayout left & right aligned */
 	/* Hide from all but screen readers */
 	.demo-header h2 span {
 		clip: rect( 1px, 1px, 1px, 1px );
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		clip-path: inset( 50% );
 		position: absolute;
 		width: 1px;
@@ -735,6 +738,7 @@ FieldLayout left & right aligned */
 		white-space: nowrap;
 	}
 
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	@supports ( position: fixed ) {
 		.demo-header {
 			width: calc( 100% - 2em );
@@ -749,6 +753,7 @@ FieldLayout left & right aligned */
 	/* Make it visible for all browsers again */
 	.demo-header h2 span {
 		clip: auto;
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		clip-path: none;
 		position: static;
 		width: auto;
