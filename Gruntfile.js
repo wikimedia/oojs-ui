@@ -5,7 +5,9 @@
 'use strict';
 
 module.exports = function ( grunt ) {
-	const modules = grunt.file.readYAML( 'build/modules.yaml' ),
+	const OO = require( 'oojs' ),
+		// modules is modified in place later, so make a deep copy
+		modules = OO.copy( require( './build/modules' ) ),
 		pkg = grunt.file.readJSON( 'package.json' ),
 		path = require( 'path' ),
 		stringify = require( 'javascript-stringify' ),
@@ -215,7 +217,6 @@ module.exports = function ( grunt ) {
 			options: {
 				typos: 'build/typos.json'
 			},
-			build: 'build/modules.yaml',
 			src: '{src,php}/**/*.{js,json,less,css}'
 		},
 		concat: {
@@ -567,14 +568,15 @@ module.exports = function ( grunt ) {
 		grunt.config( 'watch.tasks', '' );
 		switch ( path.extname( filepath ) ) {
 			case '.js':
-				grunt.config( 'watch.tasks', 'quick-build-code' );
+				if ( filepath.includes( 'modules.js' ) ) {
+					// modules.js could change the .js or .less lists.
+					grunt.config( 'watch.tasks', 'quick-build' );
+				} else {
+					grunt.config( 'watch.tasks', 'quick-build-code' );
+				}
 				break;
 			case '.less':
 				grunt.config( 'watch.tasks', 'quick-build-css' );
-				break;
-			case '.yaml':
-				// Specifically modules.yaml could change the .js or .less lists.
-				grunt.config( 'watch.tasks', 'quick-build' );
 				break;
 			case '.json':
 				if ( filepath.includes( 'i18n/' ) ) {

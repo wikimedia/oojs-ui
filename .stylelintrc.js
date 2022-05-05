@@ -1,8 +1,20 @@
-{
+/* eslint-disable quotes, quote-props, max-len */
+
+'use strict';
+
+const modules = require( './build/modules' );
+
+module.exports = {
 	"extends": [
 		"stylelint-config-wikimedia/support-modern"
 	],
 	"overrides": [
+		{
+			files: modules[ 'oojs-ui-core-{theme}' ].styles,
+			extends: [
+				"stylelint-config-wikimedia/support-basic"
+			]
+		},
 		{
 			"files": [
 				"**/*.(less|css|html)"
@@ -16,4 +28,4 @@
 			}
 		}
 	]
-}
+};
