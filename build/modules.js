@@ -1,12 +1,14 @@
-# NOTE: We're trying to stick to just the JSON-with-comments subset of YAML in this file.
+/* eslint-disable quotes, quote-props, max-len */
 
-{
-	# The core JavaScript library. This contains the widgets you're most likely to need in your
-	# interfaces, including everything required to infuse any PHP widgets.
+'use strict';
+
+module.exports = {
+	// The core JavaScript library. This contains the widgets you're most likely to need in your
+	// interfaces, including everything required to infuse any PHP widgets.
 	"oojs-ui-core": {
 		"scripts": [
-			# Core of the core. The basic building block of Element, facilities to connect PHP and JS
-			# widgets (infuse), some abstract classes, a bunch of convenience methods.
+			// Core of the core. The basic building block of Element, facilities to connect PHP and JS
+			// widgets (infuse), some abstract classes, a bunch of convenience methods.
 			"src/core.js",
 			"dist/tmp/src/core-messages.js",
 			"src/mixin.js",
@@ -16,7 +18,7 @@
 			"src/Widget.js",
 			"src/Theme.js",
 
-			# Basic element mixins. These should be the same classes that are supported in OOUI PHP.
+			// Basic element mixins. These should be the same classes that are supported in OOUI PHP.
 			"src/mixins/TabIndexedElement.js",
 			"src/mixins/ButtonElement.js",
 			"src/mixins/GroupElement.js",
@@ -28,8 +30,8 @@
 			"src/mixins/AccessKeyedElement.js",
 			"src/mixins/RequiredElement.js",
 
-			# The basic widgets and layouts. These should be the same classes that are supported in
-			# OOUI PHP. (Continued below, as some dependencies below depend on these.)
+			// The basic widgets and layouts. These should be the same classes that are supported in
+			// OOUI PHP. (Continued below, as some dependencies below depend on these.)
 			"src/widgets/ButtonWidget.js",
 			"src/widgets/ButtonGroupWidget.js",
 			"src/widgets/IconWidget.js",
@@ -37,39 +39,39 @@
 			"src/widgets/LabelWidget.js",
 			"src/widgets/MessageWidget.js",
 
-			# The JavaScript-specific dependencies of the basic widgets. It's sad how many there are :(
-			# TextInputWidget
+			// The JavaScript-specific dependencies of the basic widgets. It's sad how many there are :(
+			// TextInputWidget
 			"src/mixins/PendingElement.js",
-			# ComboBoxInputWidget, DropdownWidget, PopupWidget
+			// ComboBoxInputWidget, DropdownWidget, PopupWidget
 			"src/mixins/FloatableElement.js",
 			"src/mixins/ClippableElement.js",
-			# FieldLayout, FieldsetLayout
+			// FieldLayout, FieldsetLayout
 			"src/widgets/PopupWidget.js",
 			"src/mixins/PopupElement.js",
 			"src/widgets/PopupButtonWidget.js",
-			# DropdownInputWidget, RadioSelectInputWidget
+			// DropdownInputWidget, RadioSelectInputWidget
 			"src/mixins/GroupWidget.js",
 			"src/mixins/ItemWidget.js",
 			"src/widgets/OptionWidget.js",
 			"src/widgets/SelectWidget.js",
 			"src/widgets/DecoratedOptionWidget.js",
-			# DropdownInputWidget
+			// DropdownInputWidget
 			"src/widgets/MenuOptionWidget.js",
 			"src/widgets/MenuSectionOptionWidget.js",
 			"src/widgets/MenuSelectWidget.js",
 			"src/widgets/DropdownWidget.js",
-			# RadioSelectInputWidget
+			// RadioSelectInputWidget
 			"src/widgets/RadioOptionWidget.js",
 			"src/widgets/RadioSelectWidget.js",
-			# CheckboxMultiselectInputWidget
+			// CheckboxMultiselectInputWidget
 			"src/widgets/MultioptionWidget.js",
 			"src/widgets/MultiselectWidget.js",
 			"src/widgets/CheckboxMultioptionWidget.js",
 			"src/widgets/CheckboxMultiselectWidget.js",
-			# ProgressBarWidget
+			// ProgressBarWidget
 			"src/widgets/ProgressBarWidget.js",
 
-			# The basic widgets and layouts, continued.
+			// The basic widgets and layouts, continued.
 			"src/widgets/InputWidget.js",
 			"src/widgets/HiddenInputWidget.js",
 			"src/widgets/ButtonInputWidget.js",
@@ -92,7 +94,7 @@
 			"src/widgets/SelectFileInputWidget.js"
 		]
 	},
-	# Additional widgets and layouts module. These have no equivalent in OOUI PHP.
+	// Additional widgets and layouts module. These have no equivalent in OOUI PHP.
 	"oojs-ui-widgets": {
 		"scripts": [
 			"src/mixins/DraggableElement.js",
@@ -129,9 +131,9 @@
 
 			"src/widgets/SelectFileWidget.js",
 			"src/widgets/SearchWidget.js"
-		],
+		]
 	},
-	# Toolbar and tools module.
+	// Toolbar and tools module.
 	"oojs-ui-toolbars": {
 		"scripts": [
 			"src/Toolbar.js",
@@ -145,9 +147,9 @@
 			"src/toolgroups/PopupToolGroup.js",
 			"src/toolgroups/ListToolGroup.js",
 			"src/toolgroups/MenuToolGroup.js"
-		],
+		]
 	},
-	# Windows and dialogs module.
+	// Windows and dialogs module.
 	"oojs-ui-windows": {
 		"scripts": [
 			"src/widgets/ActionWidget.js",
@@ -161,21 +163,22 @@
 			"src/dialogs/MessageDialog.js",
 			"src/dialogs/ProcessDialog.js",
 			"src/windows.js"
-		],
+		]
 	},
 
-	# All styles, built per-theme, and theme-specific scripts.
-	#
-	# '{Theme}' expands to proper theme name: 'Apex' or 'WikimediaUI'.
-	# '{theme}' expands to lowercase theme name: 'apex' or 'wikimediaui'.
-	#
-	# The .json files are first compiled to .less using the colorize-svg script.
+	// All styles, built per-theme, and theme-specific scripts.
+	//
+	// '{Theme}' expands to proper theme name: 'Apex' or 'WikimediaUI'.
+	// '{theme}' expands to lowercase theme name: 'apex' or 'wikimediaui'.
+	//
+	// The .json files are first compiled to .less using the colorize-svg script.
 	"oojs-ui-{theme}": {
 		"scripts": [
 			"src/themes/{theme}/{Theme}Theme.js"
 		]
 	},
 	"oojs-ui-core-{theme}": {
+		// This list is also used by .stylelintrc.js to apply 'support-basic' rules
 		"styles": [
 			"src/styles/Element.less",
 			"src/styles/elements/ButtonElement.less",
@@ -299,7 +302,7 @@
 		]
 	},
 
-	# Image content. Generates oojs-ui-images-{theme}.css and so oojs-ui-{theme}.css files
+	// Image content. Generates oojs-ui-images-{theme}.css and so oojs-ui-{theme}.css files
 	"oojs-ui-images-{theme}": {
 		"styles": [
 			"src/themes/{theme}/icons-movement.json",
@@ -322,7 +325,7 @@
 		]
 	},
 
-	# Icon packs. Generates oojs-ui-{theme}-icons-{pack}.css files
+	// Icon packs. Generates oojs-ui-{theme}-icons-{pack}.css files
 	"oojs-ui-{theme}-icons-accessibility": {
 		"styles": [
 			"src/themes/{theme}/icons-accessibility.json"
@@ -403,4 +406,4 @@
 			"src/themes/{theme}/icons-wikimedia.json"
 		]
 	}
-}
+};
