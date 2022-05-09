@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Keresturec"
+		]
+	},
+	"ooui-toolbar-more": "Вецей",
+	"ooui-toolgroup-expand": "Вецей",
+	"ooui-toolgroup-collapse": "Менше",
+	"ooui-item-remove": "Одстрань",
+	"ooui-dialog-message-accept": "У порядку",
+	"ooui-dialog-message-reject": "Одкаж",
+	"ooui-dialog-process-error": "Цошка нє у шоре",
+	"ooui-dialog-process-dismiss": "Одруц",
+	"ooui-dialog-process-retry": "Пробуй ознова",
+	"ooui-dialog-process-continue": "Предлуж",
+	"ooui-selectfile-button-select": "Воберце файл",
+	"ooui-selectfile-button-select-multiple": "Воберце файли",
+	"ooui-selectfile-not-supported": "Вивор файла нє потримани",
+	"ooui-selectfile-placeholder": "Файл нє вибрани",
+	"ooui-selectfile-dragdrop-placeholder": "Унєшце файл ту",
+	"ooui-selectfile-dragdrop-placeholder-multiple": "Унєшце файли ту",
+	"ooui-popup-widget-close-button-aria-label": "Заври",
+	"ooui-field-help": "Помоц"
+}
