@@ -200,11 +200,10 @@ Demo.static.pages.widgets = function ( demo ) {
 					new OO.ui.ButtonWidget( {
 						icon: 'edit',
 						label: 'Edit',
-						invisibleLabel: true,
-						title: 'Icon only, framed'
+						invisibleLabel: true
 					} ),
 					{
-						label: 'ButtonWidget (icon only)',
+						label: new OO.ui.HtmlSnippet( 'ButtonWidget (icon only, framed, <code>invisibleLabel: true</code>)' ),
 						align: 'top'
 					}
 				),
@@ -427,10 +426,11 @@ Demo.static.pages.widgets = function ( demo ) {
 						icon: 'next',
 						label: 'Next',
 						invisibleLabel: true,
-						value: true
+						value: true,
+						title: ''
 					} ),
 					{
-						label: 'ToggleButtonWidget (icon only, initially active)',
+						label: 'ToggleButtonWidget (icon only, initially active, empty title)',
 						align: 'top'
 					}
 				),

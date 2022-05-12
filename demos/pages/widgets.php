@@ -139,15 +139,29 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\FieldLayout(
 			new OOUI\ButtonWidget( [
+				'icon' => 'edit',
+				'label' => 'Edit',
+				'invisibleLabel' => true,
+				'title' => '',
+			] ),
+			[
+				'label' => new OOUI\HtmlSnippet(
+					'ButtonWidget (<code>\'invisibleLabel\' => true</code>, empty title)'
+				),
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
 				'framed' => false,
 				'icon' => 'edit',
 				'label' => 'Edit',
 				'invisibleLabel' => true,
-				'title' => 'Icon only'
 			] ),
 			[
-				'label' => new OOUI\HtmlSnippet( 'ButtonWidget (quiet, <code>\'framed\' => false</code>, ' .
-					'icon only)' ),
+				'label' => new OOUI\HtmlSnippet(
+					'ButtonWidget (quiet, <code>\'framed\' => false, \'invisibleLabel\' => true</code>)'
+				),
 				'align' => 'top'
 			]
 		),

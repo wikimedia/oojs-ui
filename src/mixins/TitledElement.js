@@ -22,6 +22,8 @@
  *  element created by the class.
  * @cfg {string|Function} [title] The title text or a function that returns text. If
  *  this config is omitted, the value of the {@link #static-title static title} property is used.
+ *  If config for an invisible label ({@link OO.ui.mixin.LabelElement}) is present, and a title is
+ *  omitted, the label will be used as a fallback for the title.
  */
 OO.ui.mixin.TitledElement = function OoUiMixinTitledElement( config ) {
 	// Configuration initialization
@@ -32,7 +34,16 @@ OO.ui.mixin.TitledElement = function OoUiMixinTitledElement( config ) {
 	this.title = null;
 
 	// Initialization
-	this.setTitle( config.title !== undefined ? config.title : this.constructor.static.title );
+	var title = config.title !== undefined ? config.title : this.constructor.static.title;
+	if (
+		title === null &&
+		config.invisibleLabel &&
+		typeof config.label === 'string'
+	) {
+		// If config for an invisible label is present, use this as a fallback title
+		title = config.label;
+	}
+	this.setTitle( title );
 	this.setTitledElement( config.$titled || this.$element );
 };
 
