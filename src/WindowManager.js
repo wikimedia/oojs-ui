@@ -850,14 +850,8 @@ OO.ui.WindowManager.prototype.toggleAriaIsolation = function ( isolate ) {
 
 /**
  * Destroy the window manager.
- *
- * Destroying the window manager ensures that it will no longer listen to events. If you would like
- * to continue using the window manager, but wish to remove all windows from it, use the
- * #clearWindows method instead.
  */
 OO.ui.WindowManager.prototype.destroy = function () {
-	this.toggleGlobalEvents( false );
-	this.toggleAriaIsolation( false );
 	this.clearWindows();
 	this.$element.remove();
 };
