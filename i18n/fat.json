@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"Emmanuel Bans"
+		]
+	},
+	"ooui-outline-control-move-down": "Fa adze nu kc ase",
+	"ooui-outline-control-move-up": "Fa kc sro",
+	"ooui-outline-control-remove": "Yi niema nu",
+	"ooui-toolbar-more": "Bebree",
+	"ooui-toolgroup-expand": "Bebree",
+	"ooui-toolgroup-collapse": "Kitiwaa",
+	"ooui-item-remove": "Yi",
+	"ooui-dialog-message-accept": "Nyoo",
+	"ooui-dialog-message-reject": "Twa mu",
+	"ooui-dialog-process-error": "Biribi sii y3",
+	"ooui-dialog-process-dismiss": "Twam",
+	"ooui-dialog-process-retry": "Yɔ biom",
+	"ooui-dialog-process-continue": "Tuaso",
+	"ooui-selectfile-button-select-multiple": "Yi files nu",
+	"ooui-selectfile-not-supported": "Yɛn gye File yi ntu mu",
+	"ooui-selectfile-dragdrop-placeholder": "Fa file nu tu ha dae",
+	"ooui-selectfile-dragdrop-placeholder-multiple": "Fa files nu tu ha",
+	"ooui-popup-widget-close-button-aria-label": "Kata du",
+	"ooui-field-help": "Mmoa"
+}
