@@ -77,7 +77,7 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	this.currentWindow = null;
 	this.globalEvents = false;
 	this.$returnFocusTo = null;
-	this.$ariaHidden = null;
+	this.$hidden = null;
 	this.onWindowResizeTimeout = null;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 	this.afterWindowResizeHandler = this.afterWindowResize.bind( this );
@@ -440,7 +440,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 	this.preparingToOpen.done( function () {
 		if ( manager.modal ) {
 			manager.toggleGlobalEvents( true );
-			manager.toggleAriaIsolation( true );
+			manager.toggleIsolation( true );
 		}
 		manager.$returnFocusTo = data.$returnFocusTo !== undefined ?
 			data.$returnFocusTo :
@@ -568,7 +568,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 						compatClosing.notify( { state: 'teardown' } );
 						if ( manager.modal ) {
 							manager.toggleGlobalEvents( false );
-							manager.toggleAriaIsolation( false );
+							manager.toggleIsolation( false );
 						}
 						if ( manager.$returnFocusTo && manager.$returnFocusTo.length ) {
 							manager.$returnFocusTo[ 0 ].focus();
@@ -824,44 +824,57 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 };
 
 /**
- * Toggle screen reader visibility of content other than the window manager.
+ * Toggle isolation of content other than the window manager.
+ *
+ * This hides the content from screen readers (aria-hidden) and makes
+ * it invisible to user input events (inert).
  *
  * @private
  * @param {boolean} [isolate] Make only the window manager visible to screen readers
  * @chainable
  * @return {OO.ui.WindowManager} The manager, for chaining
  */
-OO.ui.WindowManager.prototype.toggleAriaIsolation = function ( isolate ) {
-	isolate = isolate === undefined ? !this.$ariaHidden : !!isolate;
+OO.ui.WindowManager.prototype.toggleIsolation = function ( isolate ) {
+	isolate = isolate === undefined ? !this.$hidden : !!isolate;
 
 	if ( isolate ) {
-		if ( !this.$ariaHidden ) {
+		if ( !this.$hidden ) {
 			// Find the top level element containing the window manager or the
 			// window manager's element itself in case its a direct child of body
 			var $topLevelElement = this.$element.parentsUntil( 'body' ).last();
 			$topLevelElement = $topLevelElement.length === 0 ? this.$element : $topLevelElement;
 
 			// In case previously set by another window manager
-			this.$element.removeAttr( 'aria-hidden' );
+			this.$element
+				.removeAttr( 'aria-hidden' )
+				.removeAttr( 'inert' );
 
 			// Hide everything other than the window manager from screen readers
-			this.$ariaHidden = $( document.body )
+			this.$hidden = $( document.body )
 				.children()
 				.not( 'script' )
 				.not( $topLevelElement )
-				.attr( 'aria-hidden', true );
+				.attr( 'aria-hidden', true )
+				.attr( 'inert', true );
 		}
-	} else if ( this.$ariaHidden ) {
+	} else if ( this.$hidden ) {
 		// Restore screen reader visibility
-		this.$ariaHidden.removeAttr( 'aria-hidden' );
-		this.$ariaHidden = null;
+		this.$hidden
+			.removeAttr( 'aria-hidden' )
+			.removeAttr( 'inert' );
+		this.$hidden = null;
 
 		// and hide the window manager
-		this.$element.attr( 'aria-hidden', true );
+		this.$element
+			.attr( 'aria-hidden', true )
+			.attr( 'insert', true );
 	}
 
 	return this;
 };
+
+// Deprecated alias, since 0.44.1
+OO.ui.WindowManager.prototype.toggleAriaIsolation = OO.ui.WindowManager.prototype.toggleIsolation;
 
 /**
  * Destroy the window manager.
