@@ -543,8 +543,19 @@ OO.ui.Window.prototype.initialize = function () {
  * @param {jQuery.Event} event Focus event
  */
 OO.ui.Window.prototype.onFocusTrapFocused = function ( event ) {
-	var backwards = this.$focusTrapBefore.is( event.target ),
-		element = OO.ui.findFocusable( this.$content, backwards );
+	var backwards = this.$focusTrapBefore.is( event.target );
+	this.focus( backwards );
+};
+
+/**
+ * Focus the window
+ *
+ * @param {boolean} focusLast Focus the last focusable element in the window, instead of the first
+ * @chainable
+ * @return {OO.ui.Window} The window, for chaining
+ */
+OO.ui.Window.prototype.focus = function ( focusLast ) {
+	var element = OO.ui.findFocusable( this.$content, !!focusLast );
 	if ( element ) {
 		// There's a focusable element inside the content, at the front or
 		// back depending on which focus trap we hit; select it.
@@ -557,6 +568,7 @@ OO.ui.Window.prototype.onFocusTrapFocused = function ( event ) {
 		// escape into the page.
 		this.$content.trigger( 'focus' );
 	}
+	return this;
 };
 
 /**
