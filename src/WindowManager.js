@@ -81,6 +81,7 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	this.onWindowResizeTimeout = null;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 	this.afterWindowResizeHandler = this.afterWindowResize.bind( this );
+	this.onWindowFocusHandler = this.onWindowFocus.bind( this );
 
 	// Initialization
 	this.$element
@@ -179,6 +180,26 @@ OO.ui.WindowManager.static.defaultSize = 'medium';
 OO.ui.WindowManager.prototype.onWindowResize = function () {
 	clearTimeout( this.onWindowResizeTimeout );
 	this.onWindowResizeTimeout = setTimeout( this.afterWindowResizeHandler, 200 );
+};
+
+/**
+ * Handle window focus events.
+ *
+ * @private
+ * @param {jQuery.Event} e Window focus event
+ */
+OO.ui.WindowManager.prototype.onWindowFocus = function () {
+	var currentWindow = this.getCurrentWindow();
+	if (
+		// This event should only be bound while a window is open
+		currentWindow &&
+		// Focus can be moved outside the window focus traps but pressing tab
+		// from the address bar (T307995). When this happens move focus back
+		// to the start of the current window.
+		!OO.ui.contains( currentWindow.$element[ 0 ], document.activeElement )
+	) {
+		currentWindow.focus();
+	}
 };
 
 /**
@@ -750,7 +771,7 @@ OO.ui.WindowManager.prototype.togglePreventIosScrolling = function ( on ) {
 };
 
 /**
- * Bind or unbind global events for scrolling.
+ * Bind or unbind global events for scrolling/focus.
  *
  * @private
  * @param {boolean} [on] Bind global events
@@ -770,7 +791,8 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 		if ( !this.globalEvents ) {
 			$window.on( {
 				// Start listening for top-level window dimension changes
-				'orientationchange resize': this.onWindowResizeHandler
+				'orientationchange resize': this.onWindowResizeHandler,
+				focus: this.onWindowFocusHandler
 			} );
 			if ( stackDepth === 0 ) {
 				var scrollWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -785,7 +807,8 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 	} else if ( this.globalEvents ) {
 		$window.off( {
 			// Stop listening for top-level window dimension changes
-			'orientationchange resize': this.onWindowResizeHandler
+			'orientationchange resize': this.onWindowResizeHandler,
+			focus: this.onWindowFocusHandler
 		} );
 		stackDepth--;
 		if ( stackDepth === 0 ) {
