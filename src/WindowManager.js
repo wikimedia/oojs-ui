@@ -241,9 +241,7 @@ OO.ui.WindowManager.prototype.isOpened = function ( win ) {
  * @return {boolean} Window is being managed
  */
 OO.ui.WindowManager.prototype.hasWindow = function ( win ) {
-	var name;
-
-	for ( name in this.windows ) {
+	for ( var name in this.windows ) {
 		if ( this.windows[ name ] === win ) {
 			return true;
 		}
@@ -364,8 +362,7 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  * @fires opening
  */
 OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, compatOpening ) {
-	var error,
-		manager = this;
+	var manager = this;
 	data = data || {};
 
 	// Internal parameter 'lifecycle' allows this method to always return
@@ -401,6 +398,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 	}
 
 	// Error handling
+	var error;
 	if ( !this.hasWindow( win ) ) {
 		error = 'Cannot open window: window is not attached to manager';
 	} else if ( this.lifecycle && this.lifecycle.isOpened() ) {
@@ -479,11 +477,9 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
  * @fires closing
  */
 OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
-	var error,
-		manager = this,
+	var manager = this,
 		compatClosing = $.Deferred(),
-		lifecycle = this.lifecycle,
-		compatOpened;
+		lifecycle = this.lifecycle;
 
 	// Argument handling
 	if ( typeof win === 'string' ) {
@@ -493,6 +489,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 	}
 
 	// Error handling
+	var error;
 	if ( !lifecycle ) {
 		error = 'Cannot close window: no window is currently open';
 	} else if ( !win ) {
@@ -538,7 +535,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		manager.preparingToClose = null;
 		manager.emit( 'closing', win, compatClosing, data );
 		lifecycle.deferreds.closing.resolve( data );
-		compatOpened = manager.compatOpened;
+		var compatOpened = manager.compatOpened;
 		manager.compatOpened = null;
 		compatOpened.resolve( compatClosing.promise(), data );
 		manager.togglePreventIosScrolling( false );
@@ -616,13 +613,12 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
  *  explicit nor a statically configured symbolic name.
  */
 OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
-	var i, len, win, name, list;
-
+	var list;
 	if ( Array.isArray( windows ) ) {
 		// Convert to map of windows by looking up symbolic names from static configuration
 		list = {};
-		for ( i = 0, len = windows.length; i < len; i++ ) {
-			name = windows[ i ].constructor.static.name;
+		for ( var i = 0, len = windows.length; i < len; i++ ) {
+			var name = windows[ i ].constructor.static.name;
 			if ( !name ) {
 				throw new Error( 'Windows must have a `name` static property defined.' );
 			}
@@ -633,9 +629,9 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
 	}
 
 	// Add windows
-	for ( name in list ) {
-		win = list[ name ];
-		this.windows[ name ] = win.toggle( false );
+	for ( var n in list ) {
+		var win = list[ n ];
+		this.windows[ n ] = win.toggle( false );
 		this.$element.append( win.$element );
 		win.setManager( this );
 	}
@@ -653,15 +649,14 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
  * @throws {Error} An error is thrown if the named windows are not managed by the window manager.
  */
 OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
-	var promises,
-		manager = this;
+	var manager = this;
 
 	function cleanup( name, win ) {
 		delete manager.windows[ name ];
 		win.$element.detach();
 	}
 
-	promises = names.map( function ( name ) {
+	var promises = names.map( function ( name ) {
 		var cleanupWindow,
 			win = manager.windows[ name ];
 		if ( !win ) {
@@ -697,14 +692,12 @@ OO.ui.WindowManager.prototype.clearWindows = function () {
  * @return {OO.ui.WindowManager} The manager, for chaining
  */
 OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
-	var isFullscreen;
-
 	// Bypass for non-current, and thus invisible, windows
 	if ( win !== this.currentWindow ) {
 		return;
 	}
 
-	isFullscreen = win.getSize() === 'full';
+	var isFullscreen = win.getSize() === 'full';
 
 	this.$element.toggleClass( 'oo-ui-windowManager-fullscreen', isFullscreen );
 	this.$element.toggleClass( 'oo-ui-windowManager-floating', !isFullscreen );
@@ -727,16 +720,16 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
  * @return {OO.ui.WindowManager} The manager, for chaining
  */
 OO.ui.WindowManager.prototype.togglePreventIosScrolling = function ( on ) {
-	var
-		isIos = /ipad|iphone|ipod/i.test( navigator.userAgent ),
+	var isIos = /ipad|iphone|ipod/i.test( navigator.userAgent ),
 		$body = $( this.getElementDocument().body ),
-		scrollableRoot = OO.ui.Element.static.getRootScrollableElement( $body[ 0 ] ),
 		stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0;
 
 	// Only if this is the first/last WindowManager (see #toggleGlobalEvents)
 	if ( !isIos || stackDepth !== 1 ) {
 		return this;
 	}
+
+	var scrollableRoot = OO.ui.Element.static.getRootScrollableElement( $body[ 0 ] );
 
 	if ( on ) {
 		// We can't apply this workaround for non-fullscreen dialogs, because the user would see the
@@ -765,23 +758,23 @@ OO.ui.WindowManager.prototype.togglePreventIosScrolling = function ( on ) {
  * @return {OO.ui.WindowManager} The manager, for chaining
  */
 OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
-	var scrollWidth, bodyMargin,
-		$body = $( this.getElementDocument().body ),
-		// We could have multiple window managers open so only modify
-		// the body css at the bottom of the stack
-		stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0;
+	var $body = $( this.getElementDocument().body );
+	var $window = $( this.getElementWindow() );
+	// We could have multiple window managers open so only modify
+	// the body css at the bottom of the stack
+	var stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0;
 
 	on = on === undefined ? !!this.globalEvents : !!on;
 
 	if ( on ) {
 		if ( !this.globalEvents ) {
-			$( this.getElementWindow() ).on( {
+			$window.on( {
 				// Start listening for top-level window dimension changes
 				'orientationchange resize': this.onWindowResizeHandler
 			} );
 			if ( stackDepth === 0 ) {
-				scrollWidth = window.innerWidth - document.documentElement.clientWidth;
-				bodyMargin = parseFloat( $body.css( 'margin-right' ) ) || 0;
+				var scrollWidth = window.innerWidth - document.documentElement.clientWidth;
+				var bodyMargin = parseFloat( $body.css( 'margin-right' ) ) || 0;
 				$body
 					.addClass( 'oo-ui-windowManager-modal-active' )
 					.css( 'margin-right', bodyMargin + scrollWidth );
@@ -790,7 +783,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 			this.globalEvents = true;
 		}
 	} else if ( this.globalEvents ) {
-		$( this.getElementWindow() ).off( {
+		$window.off( {
 			// Stop listening for top-level window dimension changes
 			'orientationchange resize': this.onWindowResizeHandler
 		} );
@@ -816,14 +809,13 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
  * @return {OO.ui.WindowManager} The manager, for chaining
  */
 OO.ui.WindowManager.prototype.toggleAriaIsolation = function ( isolate ) {
-	var $topLevelElement;
 	isolate = isolate === undefined ? !this.$ariaHidden : !!isolate;
 
 	if ( isolate ) {
 		if ( !this.$ariaHidden ) {
 			// Find the top level element containing the window manager or the
 			// window manager's element itself in case its a direct child of body
-			$topLevelElement = this.$element.parentsUntil( 'body' ).last();
+			var $topLevelElement = this.$element.parentsUntil( 'body' ).last();
 			$topLevelElement = $topLevelElement.length === 0 ? this.$element : $topLevelElement;
 
 			// In case previously set by another window manager
