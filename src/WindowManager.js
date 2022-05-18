@@ -53,7 +53,7 @@
  * @cfg {OO.Factory} [factory] Window factory to use for automatic instantiation
  *  Note that window classes that are instantiated with a factory must have
  *  a {@link OO.ui.Dialog#static-name static name} property that specifies a symbolic name.
- * @cfg {boolean} [modal=true] Prevent interaction outside the dialog
+ * @cfg {boolean} [modal=true] Prevent interaction outside the current window
  */
 OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	// Configuration initialization
@@ -172,6 +172,15 @@ OO.ui.WindowManager.static.sizes = {
 OO.ui.WindowManager.static.defaultSize = 'medium';
 
 /* Methods */
+
+/**
+ * Check if the window manager is modal, preventing interaction outside the current window
+ *
+ * @return {boolean} The window manager is modal
+ */
+OO.ui.WindowManager.prototype.isModal = function () {
+	return this.modal;
+};
 
 /**
  * Handle window resize events.

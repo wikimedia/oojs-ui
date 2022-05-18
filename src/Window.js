@@ -81,10 +81,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 	 */
 	this.$overlay = $( '<div>' );
 	this.$content = $( '<div>' );
-
-	this.$focusTrapBefore = $( '<div>' ).prop( 'tabIndex', 0 );
-	this.$focusTrapAfter = $( '<div>' ).prop( 'tabIndex', 0 );
-	this.$focusTraps = this.$focusTrapBefore.add( this.$focusTrapAfter );
+	this.$focusTraps = null;
 
 	// Initialization
 	this.$overlay.addClass( 'oo-ui-window-overlay' );
@@ -93,7 +90,8 @@ OO.ui.Window = function OoUiWindow( config ) {
 		.attr( 'tabindex', -1 );
 	this.$frame
 		.addClass( 'oo-ui-window-frame' )
-		.append( this.$focusTrapBefore, this.$content, this.$focusTrapAfter );
+		// Focus traps will be appended either side of $content in #setManager, if required
+		.append( this.$content );
 	this.$element
 		.addClass( 'oo-ui-window' )
 		.append( this.$frame, this.$overlay );
@@ -420,6 +418,18 @@ OO.ui.Window.prototype.setManager = function ( manager ) {
 	}
 
 	this.manager = manager;
+
+	if ( this.manager.isModal() ) {
+		// Set focus traps
+		this.$focusTrapBefore = $( '<div>' ).prop( 'tabIndex', 0 );
+		this.$focusTrapAfter = $( '<div>' ).prop( 'tabIndex', 0 );
+		this.$focusTraps = this.$focusTrapBefore.add( this.$focusTrapAfter );
+
+		this.$frame
+			.prepend( this.$focusTrapBefore )
+			.append( this.$focusTrapAfter );
+	}
+
 	this.initialize();
 
 	return this;
@@ -627,8 +637,10 @@ OO.ui.Window.prototype.setup = function ( data ) {
 
 	this.toggle( true );
 
-	this.focusTrapHandler = OO.ui.bind( this.onFocusTrapFocused, this );
-	this.$focusTraps.on( 'focus', this.focusTrapHandler );
+	if ( this.$focusTraps ) {
+		this.focusTrapHandler = OO.ui.bind( this.onFocusTrapFocused, this );
+		this.$focusTraps.on( 'focus', this.focusTrapHandler );
+	}
 
 	return this.getSetupProcess( data ).execute().then( function () {
 		win.updateSize();
@@ -703,7 +715,9 @@ OO.ui.Window.prototype.teardown = function ( data ) {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.removeClass( 'oo-ui-window-active' ).width();
 
-		win.$focusTraps.off( 'focus', win.focusTrapHandler );
+		if ( win.$focusTraps ) {
+			win.$focusTraps.off( 'focus', win.focusTrapHandler );
+		}
 		win.toggle( false );
 	} );
 };
