@@ -878,7 +878,7 @@ OO.ui.WindowManager.prototype.toggleIsolation = function ( isolate ) {
 		// and hide the window manager
 		this.$element
 			.attr( 'aria-hidden', true )
-			.attr( 'insert', true );
+			.attr( 'inert', true );
 	}
 
 	return this;
