@@ -400,6 +400,21 @@ p:first-child {
 	text-overflow: ellipsis;
 }
 
+.demo-dialogs-non-modal {
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	position: -webkit-sticky;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	position: sticky;
+	bottom: 1em;
+	width: 100%;
+	background-color: #fff;
+}
+
+.demo-dialogs-non-modal .oo-ui-window {
+	border: 1px solid #a2a9b1;
+	box-shadow: 0 0 4px 0 rgba( 0, 0, 0, 0.25 );
+}
+
 /* Toolbars demo */
 
 .demo-container.demo-toolbars {

@@ -1,8 +1,11 @@
 Demo.static.pages.dialogs = function ( demo ) {
 	var $demo = demo.$element,
 		$fieldsets = $( [] ),
-		windows = {},
-		windowManager = new OO.ui.WindowManager();
+		windowManager = new OO.ui.WindowManager(),
+		nonModalWindowManager = new OO.ui.WindowManager( {
+			modal: false,
+			classes: [ 'demo-dialogs-non-modal' ]
+		} );
 
 	var configs = [
 		{
@@ -215,6 +218,19 @@ Demo.static.pages.dialogs = function ( demo ) {
 			]
 		},
 		{
+			name: 'Non-modal window manager',
+			id: 'demo-section-non-modal',
+			examples: [
+				{
+					name: 'Simple dialog (large)',
+					config: {
+						size: 'large'
+					},
+					windowManager: nonModalWindowManager
+				}
+			]
+		},
+		{
 			name: 'Elements best used inside dialogs',
 			id: 'demo-section-elements',
 			examples: [
@@ -295,8 +311,8 @@ Demo.static.pages.dialogs = function ( demo ) {
 		}
 	];
 
-	function openDialog( name, data ) {
-		windowManager.openWindow( name, data );
+	function openDialog( name, data, manager ) {
+		manager.openWindow( name, data );
 	}
 
 	configs.forEach( function ( config, j ) {
@@ -326,16 +342,18 @@ Demo.static.pages.dialogs = function ( demo ) {
 			} else {
 				var name = 'window_' + j + '_' + i;
 				var DialogClass = example.dialogClass || Demo.SimpleDialog;
+				var manager = example.windowManager || windowManager;
+				var windows = {};
 				windows[ name ] = new DialogClass( example.config );
+				manager.addWindows( windows );
 				openButton.on(
-					'click', OO.ui.bind( openDialog, this, name, example.data )
+					'click', OO.ui.bind( openDialog, this, name, example.data, manager )
 				);
 			}
 
 			fieldset.addItems( [ new OO.ui.FieldLayout( openButton, { align: 'inline' } ) ] );
 		} );
 	} );
-	windowManager.addWindows( windows );
 
 	$demo.append(
 		new OO.ui.PanelLayout( {
@@ -344,12 +362,13 @@ Demo.static.pages.dialogs = function ( demo ) {
 		} ).$element
 			.addClass( 'demo-container demo-dialogs' )
 			.attr( 'role', 'main' )
-			.append( $fieldsets ),
+			.append( $fieldsets, nonModalWindowManager.$element ),
 		windowManager.$element
 	);
 
 	demo.once( 'destroy', function () {
 		windowManager.destroy();
+		nonModalWindowManager.destroy();
 		OO.ui.getWindowManager().closeWindow( OO.ui.getWindowManager().getCurrentWindow() );
 	} );
 };
