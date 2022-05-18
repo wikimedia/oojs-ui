@@ -88,7 +88,9 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 		.addClass( 'oo-ui-windowManager' )
 		.toggleClass( 'oo-ui-windowManager-modal', this.modal );
 	if ( this.modal ) {
-		this.$element.attr( 'aria-hidden', true );
+		this.$element
+			.attr( 'aria-hidden', true )
+			.attr( 'inert', true );
 	}
 };
 
