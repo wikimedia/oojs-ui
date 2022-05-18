@@ -77,7 +77,9 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	this.currentWindow = null;
 	this.globalEvents = false;
 	this.$returnFocusTo = null;
-	this.$hidden = null;
+	this.isolated = false;
+	this.$ariaHidden = null;
+	this.$inert = null;
 	this.onWindowResizeTimeout = null;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 	this.afterWindowResizeHandler = this.afterWindowResize.bind( this );
@@ -89,8 +91,8 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 		.toggleClass( 'oo-ui-windowManager-modal', this.modal );
 	if ( this.modal ) {
 		this.$element
-			.attr( 'aria-hidden', true )
-			.attr( 'inert', true );
+			.attr( 'aria-hidden', 'true' )
+			.attr( 'inert', '' );
 	}
 };
 
@@ -846,39 +848,50 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
  * @return {OO.ui.WindowManager} The manager, for chaining
  */
 OO.ui.WindowManager.prototype.toggleIsolation = function ( isolate ) {
-	isolate = isolate === undefined ? !this.$hidden : !!isolate;
+	this.isolated = isolate === undefined ? !this.isolated : !!isolate;
 
-	if ( isolate ) {
-		if ( !this.$hidden ) {
-			// Find the top level element containing the window manager or the
-			// window manager's element itself in case its a direct child of body
-			var $topLevelElement = this.$element.parentsUntil( 'body' ).last();
-			$topLevelElement = $topLevelElement.length === 0 ? this.$element : $topLevelElement;
-
-			// In case previously set by another window manager
-			this.$element
-				.removeAttr( 'aria-hidden' )
-				.removeAttr( 'inert' );
-
-			// Hide everything other than the window manager from screen readers
-			this.$hidden = $( document.body )
-				.children()
-				.not( 'script' )
-				.not( $topLevelElement )
-				.attr( 'aria-hidden', true )
-				.attr( 'inert', true );
-		}
-	} else if ( this.$hidden ) {
-		// Restore screen reader visibility
-		this.$hidden
+	if ( this.isolated ) {
+		// In case previously set by another window manager
+		this.$element
 			.removeAttr( 'aria-hidden' )
 			.removeAttr( 'inert' );
-		this.$hidden = null;
+
+		var $el = this.$element;
+
+		var ariaHidden = [];
+		var inert = [];
+
+		// Walk up the tree
+		while ( !$el.is( 'body' ) && $el.length ) {
+			// Hide all siblings at each level, just leaving the path to the manager visible.
+			var $siblings = $el.siblings().not( 'script' );
+			// $ariaHidden/$inert exclude elements which already have aria-hidden/inert set,
+			// as we wouldn't want to reset those attributes when window closes.
+			// This will also support multiple window managers opening on top of each other,
+			// as an element hidden by another manager will not be re-enabled until *that*
+			// manager closes its window.
+			ariaHidden.push.apply( ariaHidden, $siblings.not( '[aria-hidden=true]' ).toArray() );
+			inert.push.apply( inert, $siblings.not( '[inert]' ).toArray() );
+			$el = $el.parent();
+		}
+		// Build lists as plain arrays for performance ($.add is slow)
+		this.$ariaHidden = $( ariaHidden );
+		this.$inert = $( inert );
+
+		// Hide everything other than the window manager from screen readers
+		this.$ariaHidden.attr( 'aria-hidden', 'true' );
+		this.$inert.attr( 'inert', '' );
+	} else {
+		// Restore screen reader visibility
+		this.$ariaHidden.removeAttr( 'aria-hidden' );
+		this.$inert.removeAttr( 'inert' );
+		this.$ariaHidden = null;
+		this.$inert = null;
 
 		// and hide the window manager
 		this.$element
-			.attr( 'aria-hidden', true )
-			.attr( 'inert', true );
+			.attr( 'aria-hidden', 'true' )
+			.attr( 'inert', '' );
 	}
 
 	return this;
