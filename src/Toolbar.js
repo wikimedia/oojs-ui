@@ -326,15 +326,17 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 		.on( 'mousedown keydown', this.onPointerDown.bind( this ) );
 
 	// Initialization
+	this.$bar.addClass( 'oo-ui-toolbar-bar' );
 	this.$group.addClass( 'oo-ui-toolbar-tools' );
 	this.$after.addClass( 'oo-ui-toolbar-tools oo-ui-toolbar-after' );
+	this.$popups.addClass( 'oo-ui-toolbar-popups' );
+
+	this.$bar.append( this.$group, this.$after );
 	if ( config.actions ) {
 		this.$bar.append( this.$actions.addClass( 'oo-ui-toolbar-actions' ) );
 	}
-	this.$popups.addClass( 'oo-ui-toolbar-popups' );
-	this.$bar
-		.addClass( 'oo-ui-toolbar-bar' )
-		.append( this.$after, this.$group, '<div style="clear:both"></div>' );
+	this.$bar.append( $( '<div>' ).css( 'clear', 'both' ) );
+
 	// Possible classes: oo-ui-toolbar-position-top, oo-ui-toolbar-position-bottom
 	this.$element
 		.addClass( 'oo-ui-toolbar oo-ui-toolbar-position-' + this.position )
