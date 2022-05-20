@@ -30,6 +30,7 @@
  * @cfg {Array|string} [demote=[]] List of tools to demote to the end of the toolgroup, see above.
  *  This setting is particularly useful when tools have been added to the toolgroup
  *  en masse (e.g., via the catch-all selector).
+ * @cfg {string} [align='before'] Alignment within the toolbar, either 'before' or 'after'.
  */
 OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	// Allow passing positional parameters inside the config object
@@ -56,6 +57,7 @@ OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	this.exclude = config.exclude || [];
 	this.promote = config.promote || [];
 	this.demote = config.demote || [];
+	this.align = config.align || 'before';
 	this.onDocumentMouseKeyUpHandler = this.onDocumentMouseKeyUp.bind( this );
 
 	// Events

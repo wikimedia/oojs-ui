@@ -14,9 +14,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		configs = [
 			{ $overlay: true },
 			{},
-			{ actions: true },
-			{ position: 'bottom' },
-			{ actions: true, position: 'bottom' }
+			{ position: 'bottom' }
 		];
 
 	// Show some random accelerator keys that don't actually work
@@ -30,7 +28,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		}[ name ];
 	}
 
-	for ( i = 0; i <= 4; i++ ) {
+	for ( i = 0; i <= configs.length; i++ ) {
 		toolFactories.push( new OO.ui.ToolFactory() );
 		toolGroupFactories.push( new OO.ui.ToolGroupFactory() );
 		toolbars.push( new OO.ui.Toolbar(
@@ -121,7 +119,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	AlertTool.static.icon = 'alert';
 
 	toolFactories[ 1 ].register( AlertTool );
-	toolFactories[ 3 ].register( AlertTool );
+	toolFactories[ 2 ].register( AlertTool );
 
 	var PopupTool = function ( toolGroup, config ) {
 		// Parent constructor
@@ -142,7 +140,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	PopupTool.static.icon = 'help';
 
 	toolFactories[ 1 ].register( PopupTool );
-	toolFactories[ 3 ].register( PopupTool );
+	toolFactories[ 2 ].register( PopupTool );
 
 	var ToolGroupTool = function ( toolGroup, config ) {
 		// Parent constructor
@@ -159,8 +157,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 	};
 
 	toolFactories[ 0 ].register( ToolGroupTool );
+	toolFactories[ 1 ].register( ToolGroupTool );
 	toolFactories[ 2 ].register( ToolGroupTool );
-	toolFactories[ 4 ].register( ToolGroupTool );
 
 	// Toolbars setup, in order of toolbar items appearance
 	// Toolbar
@@ -204,42 +202,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 			include: '*'
 		}
 	] );
-	// Action toolbar for toolbars[ 2 ] below
-	toolbars[ 1 ].setup( [
-		{
-			name: 'popup',
-			include: [ { group: 'popupTools' } ]
-		},
-		{
-			name: 'overflow',
-			type: 'list',
-			icon: 'menu',
-			indicator: '',
-			include: [ { group: 'overflowTools' } ]
-		},
-		{
-			name: 'editorSwitch',
-			type: 'list',
-			icon: 'edit',
-			include: [ { group: 'editorSwitchTools' } ]
-		},
-		{
-			name: 'publish',
-			type: 'bar',
-			include: [ { group: 'publish' } ]
-		}
-		// TODO: Show a flagged list tool in another demo,
-		// or when VE adds one.
-		// {
-		// name: 'list',
-		// type: 'list',
-		// icon: 'ellipsis',
-		// flags: [ 'primary', 'progressive' ],
-		// include: [ { group: 'listTools' } ]
-		// }
-	] );
 	// Word processor toolbar
-	toolbars[ 2 ].setup( [
+	toolbars[ 1 ].setup( [
 		{
 			name: 'history',
 			type: 'bar',
@@ -288,20 +252,15 @@ Demo.static.pages.toolbars = function ( demo ) {
 			name: 'specialCharacters',
 			type: 'bar',
 			include: [ { group: 'specialCharacters' } ]
-		}
-	] );
-	// Action toolbar for toolbars[ 4 ] below
-	toolbars[ 3 ].setup( [
+		},
 		{
 			name: 'popup',
+			align: 'after',
 			include: [ { group: 'popupTools' } ]
 		},
 		{
-			name: 'alert',
-			include: [ { group: 'alertTools' } ]
-		},
-		{
 			name: 'overflow',
+			align: 'after',
 			type: 'list',
 			icon: 'menu',
 			indicator: '',
@@ -309,13 +268,30 @@ Demo.static.pages.toolbars = function ( demo ) {
 		},
 		{
 			name: 'editorSwitch',
+			align: 'after',
 			type: 'list',
 			icon: 'edit',
 			include: [ { group: 'editorSwitchTools' } ]
+		},
+		{
+			name: 'publish',
+			align: 'after',
+			type: 'bar',
+			include: [ { group: 'publish' } ]
 		}
+		// TODO: Show a flagged list tool in another demo,
+		// or when VE adds one.
+		// {
+		// name: 'list',
+		// type: 'list',
+		// icon: 'ellipsis',
+		// align: 'after',
+		// flags: [ 'primary', 'progressive' ],
+		// include: [ { group: 'listTools' } ]
+		// }
 	] );
 	// Word processor toolbar set to `position: 'bottom'`
-	toolbars[ 4 ].setup( [
+	toolbars[ 2 ].setup( [
 		{
 			name: 'history',
 			type: 'bar',
@@ -363,12 +339,33 @@ Demo.static.pages.toolbars = function ( demo ) {
 			name: 'specialCharacters',
 			type: 'bar',
 			include: [ { group: 'specialCharacters' } ]
+		},
+		{
+			name: 'popup',
+			align: 'after',
+			include: [ { group: 'popupTools' } ]
+		},
+		{
+			name: 'alert',
+			align: 'after',
+			include: [ { group: 'alertTools' } ]
+		},
+		{
+			name: 'overflow',
+			align: 'after',
+			type: 'list',
+			icon: 'menu',
+			indicator: '',
+			include: [ { group: 'overflowTools' } ]
+		},
+		{
+			name: 'editorSwitch',
+			align: 'after',
+			type: 'list',
+			icon: 'edit',
+			include: [ { group: 'editorSwitchTools' } ]
 		}
 	] );
-
-	for ( i = 2; i <= 4; i += 2 ) {
-		toolbars[ i ].$actions.append( toolbars[ i - 1 ].$element );
-	}
 
 	for ( i = 0; i < toolbars.length; i++ ) {
 		toolbars[ i ].emit( 'updateState' );
@@ -529,16 +526,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	createToolGroup( 0, 'autoDisableListTools' );
 	createToolGroup( 0, 'unusedStuff' );
 
-	createToolGroup( 3, 'listTools' );
-
-	createToolGroup( 4, 'menuTools' );
-	createToolGroup( 4, 'disabledMenuTools' );
-
-	for ( i = 2; i <= 4; i += 2 ) {
-		createToolGroup( i - 1, 'overflowTools' );
-		createToolGroup( i - 1, 'editorSwitchTools' );
-		createToolGroup( i - 1, 'publish' );
-		createToolGroup( i - 1, 'listTools' );
+	for ( i = 1; i <= 2; i++ ) {
 		createToolGroup( i, 'cite' );
 		createToolGroup( i, 'formatTools' );
 		createToolGroup( i, 'insertTools' );
@@ -552,13 +540,13 @@ Demo.static.pages.toolbars = function ( demo ) {
 		createToolGroup( i, 'structureTools' );
 		createToolGroup( i, 'styleTools' );
 		createToolGroup( i, 'unusedStuff' );
+		createToolGroup( i, 'overflowTools' );
+		createToolGroup( i, 'editorSwitchTools' );
+		createToolGroup( i, 'publish' );
+		createToolGroup( i, 'listTools' );
 	}
 
 	for ( i = 0; i < toolbars.length; i++ ) {
-		if ( i === 1 || i === 3 ) {
-			// Action toolbars
-			continue;
-		}
 		$containers = $containers.add(
 			new OO.ui.PanelLayout( {
 				expanded: false,

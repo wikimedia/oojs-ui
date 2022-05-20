@@ -279,6 +279,7 @@
  * @cfg {boolean} [actions] Add an actions section to the toolbar. Actions are commands that are
  *  included in the toolbar, but are not configured as tools. By default, actions are displayed on
  *  the right side of the toolbar.
+ *  This feature is deprecated. It is suggested to use the ToolGroup 'align' property instead.
  * @cfg {string} [position='top'] Whether the toolbar is positioned above ('top') or below
  *  ('bottom') content.
  * @cfg {jQuery} [$overlay] An overlay for the popup.
@@ -310,6 +311,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.tools = {};
 	this.position = config.position || 'top';
 	this.$bar = $( '<div>' );
+	this.$after = $( '<div>' );
 	this.$actions = $( '<div>' );
 	this.$popups = $( '<div>' );
 	this.initialized = false;
@@ -320,18 +322,19 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 
 	// Events
 	this.$element
-		.add( this.$bar ).add( this.$group ).add( this.$actions )
+		.add( this.$bar ).add( this.$group ).add( this.$after ).add( this.$actions )
 		.on( 'mousedown keydown', this.onPointerDown.bind( this ) );
 
 	// Initialization
 	this.$group.addClass( 'oo-ui-toolbar-tools' );
+	this.$after.addClass( 'oo-ui-toolbar-tools oo-ui-toolbar-after' );
 	if ( config.actions ) {
 		this.$bar.append( this.$actions.addClass( 'oo-ui-toolbar-actions' ) );
 	}
 	this.$popups.addClass( 'oo-ui-toolbar-popups' );
 	this.$bar
 		.addClass( 'oo-ui-toolbar-bar' )
-		.append( this.$group, '<div style="clear:both"></div>' );
+		.append( this.$after, this.$group, '<div style="clear:both"></div>' );
 	// Possible classes: oo-ui-toolbar-position-top, oo-ui-toolbar-position-bottom
 	this.$element
 		.addClass( 'oo-ui-toolbar oo-ui-toolbar-position-' + this.position )
@@ -387,6 +390,19 @@ OO.ui.Toolbar.prototype.getToolGroupFactory = function () {
 };
 
 /**
+ * @inheritdoc {OO.ui.mixin.GroupElement}
+ */
+OO.ui.Toolbar.prototype.insertItemElements = function ( itemWidget ) {
+	// Mixin method
+	OO.ui.mixin.GroupElement.prototype.insertItemElements.apply( this, arguments );
+
+	if ( itemWidget.align === 'after' ) {
+		// Toolbar only ever appends ToolGroups to the end, so we can ignore 'index'
+		this.$after.append( itemWidget.$element );
+	}
+};
+
+/**
  * Handles mouse down events.
  *
  * @private
@@ -427,7 +443,8 @@ OO.ui.Toolbar.prototype.onWindowResize = function () {
  */
 OO.ui.Toolbar.prototype.getNarrowThreshold = function () {
 	if ( this.narrowThreshold === null ) {
-		this.narrowThreshold = this.$group[ 0 ].offsetWidth + this.$actions[ 0 ].offsetWidth;
+		this.narrowThreshold = this.$group[ 0 ].offsetWidth + this.$after[ 0 ].offsetWidth +
+			this.$actions[ 0 ].offsetWidth;
 	}
 	return this.narrowThreshold;
 };
