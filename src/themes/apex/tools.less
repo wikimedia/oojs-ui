@@ -243,26 +243,26 @@
 	&.oo-ui-labelElement {
 		.oo-ui-toolGroup-handle .oo-ui-labelElement-label {
 			line-height: 2.6em;
-			margin: 0 1em;
+			padding: 0 1em;
 
 			.oo-ui-toolbar-narrow & {
-				margin: 0 0.5em;
+				padding: 0 0.5em;
 			}
 		}
 
 		&.oo-ui-iconElement .oo-ui-toolGroup-handle .oo-ui-labelElement-label {
-			margin-left: 3em;
+			padding-left: 3em;
 
 			.oo-ui-toolbar-narrow & {
-				margin-left: 2.5em;
+				padding-left: 2.5em;
 			}
 		}
 
 		&.oo-ui-indicatorElement .oo-ui-toolGroup-handle .oo-ui-labelElement-label {
-			margin-right: 2.25em;
+			padding-right: 2.25em;
 
 			.oo-ui-toolbar-narrow & {
-				margin-right: 1.75em;
+				padding-right: 1.75em;
 			}
 		}
 	}
@@ -390,10 +390,18 @@
 	border-color: rgba( 0, 0, 0, 0.1 );
 
 	.oo-ui-popupToolGroup-handle {
-		min-width: 10em;
+		width: 10em;
 
 		.oo-ui-toolbar-narrow & {
-			min-width: 8.125em;
+			width: 8.125em;
+		}
+
+		.oo-ui-labelElement-label {
+			display: block;
+			width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 	}
 

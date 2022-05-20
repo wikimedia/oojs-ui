@@ -371,10 +371,18 @@
 	}
 
 	.oo-ui-popupToolGroup-handle {
-		min-width: @min-size-toolbar-popup-toolgroup-handle;
+		width: @size-toolbar-popup-toolgroup-handle;
 
 		.oo-ui-toolbar-narrow & {
-			min-width: @min-size-toolbar-narrow-popup-toolgroup-handle;
+			width: @size-toolbar-narrow-popup-toolgroup-handle;
+		}
+
+		.oo-ui-labelElement-label {
+			display: block;
+			width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 	}
 
