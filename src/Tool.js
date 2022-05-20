@@ -31,6 +31,7 @@
  * @cfg {string|Function} [title] Title text or a function that returns text. If this config is
  *  omitted, the value of the {@link #static-title static title} property is used.
  * @cfg {boolean} [displayBothIconAndLabel] See static.displayBothIconAndLabel
+ * @cfg {Object} [narrowConfig] See static.narrowConfig
  *
  *  The title is used in different ways depending on the type of toolgroup that contains the tool.
  *  The title is used as a tooltip if the tool is part of a {@link OO.ui.BarToolGroup bar}
@@ -70,6 +71,7 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	} );
 	this.displayBothIconAndLabel = config.displayBothIconAndLabel !== undefined ?
 		config.displayBothIconAndLabel : this.constructor.static.displayBothIconAndLabel;
+	this.narrowConfig = config.narrowConfig || this.constructor.static.narrowConfig;
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
@@ -80,7 +82,8 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 
 	// Events
 	this.toolbar.connect( this, {
-		updateState: 'onUpdateState'
+		updateState: 'onUpdateState',
+		resize: 'onToolbarResize'
 	} );
 
 	// Initialization
@@ -216,6 +219,17 @@ OO.ui.Tool.static.isCompatibleWith = function () {
 	return false;
 };
 
+/**
+ * Config options to change when toolbar is in narrow mode
+ *
+ * Supports `displayBothIconAndLabel`, `title` and `icon` properties.
+ *
+ * @static
+ * @inheritable
+ * @property {Object|null}
+ */
+OO.ui.Tool.static.narrowConfig = null;
+
 /* Methods */
 
 /**
@@ -317,6 +331,39 @@ OO.ui.Tool.prototype.getTitle = function () {
  */
 OO.ui.Tool.prototype.getName = function () {
 	return this.constructor.static.name;
+};
+
+/**
+ * Handle resize events from the toolbar
+ */
+OO.ui.Tool.prototype.onToolbarResize = function () {
+	if ( !this.narrowConfig ) {
+		return;
+	}
+	if ( this.toolbar.isNarrow() ) {
+		if ( this.narrowConfig.displayBothIconAndLabel !== undefined ) {
+			this.wideDisplayBothIconAndLabel = this.displayBothIconAndLabel;
+			this.setDisplayBothIconAndLabel( this.narrowConfig.displayBothIconAndLabel );
+		}
+		if ( this.narrowConfig.title !== undefined ) {
+			this.wideTitle = this.title;
+			this.setTitle( this.narrowConfig.title );
+		}
+		if ( this.narrowConfig.icon !== undefined ) {
+			this.wideIcon = this.icon;
+			this.setIcon( this.narrowConfig.icon );
+		}
+	} else {
+		if ( this.wideDisplayBothIconAndLabel !== undefined ) {
+			this.setDisplayBothIconAndLabel( this.wideDisplayBothIconAndLabel );
+		}
+		if ( this.wideTitle !== undefined ) {
+			this.setTitle( this.wideTitle );
+		}
+		if ( this.wideIcon !== undefined ) {
+			this.setIcon( this.wideIcon );
+		}
+	}
 };
 
 /**

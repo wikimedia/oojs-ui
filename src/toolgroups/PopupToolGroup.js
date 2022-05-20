@@ -20,6 +20,7 @@
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
  * @cfg {string} [header] Text to display at the top of the popup
+ * @cfg {Object} [narrowConfig] See static.narrowConfig
  */
 OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Allow passing positional parameters inside the config object
@@ -43,6 +44,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Don't conflict with parent method of the same name
 	this.onPopupDocumentMouseKeyUpHandler = this.onPopupDocumentMouseKeyUp.bind( this );
 	this.$handle = $( '<span>' );
+	this.narrowConfig = config.narrowConfig || this.constructor.static.narrowConfig;
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
@@ -69,6 +71,9 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 		keyup: this.onHandleMouseKeyUp.bind( this ),
 		mousedown: this.onHandleMouseKeyDown.bind( this ),
 		mouseup: this.onHandleMouseKeyUp.bind( this )
+	} );
+	this.toolbar.connect( this, {
+		resize: 'onToolbarResize'
 	} );
 
 	// Initialization
@@ -105,6 +110,19 @@ OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.ClippableElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.FloatableElement );
 OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.TabIndexedElement );
 
+/* Static properties */
+
+/**
+ * Config options to change when toolbar is in narrow mode
+ *
+ * Supports `invisibleLabel`, label` and `icon` properties.
+ *
+ * @static
+ * @inheritable
+ * @property {Object|null}
+ */
+OO.ui.PopupToolGroup.static.narrowConfig = null;
+
 /* Methods */
 
 /**
@@ -116,6 +134,39 @@ OO.ui.PopupToolGroup.prototype.setDisabled = function () {
 
 	if ( this.isDisabled() && this.isElementAttached() ) {
 		this.setActive( false );
+	}
+};
+
+/**
+ * Handle resize events from the toolbar
+ */
+OO.ui.PopupToolGroup.prototype.onToolbarResize = function () {
+	if ( !this.narrowConfig ) {
+		return;
+	}
+	if ( this.toolbar.isNarrow() ) {
+		if ( this.narrowConfig.invisibleLabel !== undefined ) {
+			this.wideInvisibleLabel = this.invisibleLabel;
+			this.setInvisibleLabel( this.narrowConfig.invisibleLabel );
+		}
+		if ( this.narrowConfig.label !== undefined ) {
+			this.wideLabel = this.label;
+			this.setLabel( this.narrowConfig.label );
+		}
+		if ( this.narrowConfig.icon !== undefined ) {
+			this.wideIcon = this.icon;
+			this.setIcon( this.narrowConfig.icon );
+		}
+	} else {
+		if ( this.wideInvisibleLabel !== undefined ) {
+			this.setInvisibleLabel( this.wideInvisibleLabel );
+		}
+		if ( this.wideLabel !== undefined ) {
+			this.setLabel( this.wideLabel );
+		}
+		if ( this.wideIcon !== undefined ) {
+			this.setIcon( this.wideIcon );
+		}
 	}
 };
 

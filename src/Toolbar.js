@@ -315,6 +315,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.$actions = $( '<div>' );
 	this.$popups = $( '<div>' );
 	this.initialized = false;
+	this.narrow = false;
 	this.narrowThreshold = null;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) ||
@@ -369,6 +370,12 @@ OO.mixinClass( OO.ui.Toolbar, OO.ui.mixin.GroupElement );
  * returns to 0.
  *
  * @param {boolean} There are active toolgroups in this toolbar
+ */
+
+/**
+ * @event resize
+ *
+ * Toolbar has resized to a point where narrow mode has changed
  */
 
 /* Methods */
@@ -430,10 +437,32 @@ OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
  * @param {jQuery.Event} e Window resize event
  */
 OO.ui.Toolbar.prototype.onWindowResize = function () {
-	this.$element.add( this.$popups ).toggleClass(
-		'oo-ui-toolbar-narrow',
-		this.$bar[ 0 ].clientWidth <= this.getNarrowThreshold()
-	);
+	this.setNarrow( this.$bar[ 0 ].clientWidth <= this.getNarrowThreshold() );
+};
+
+/**
+ * Check if the toolbar is in narrow mode
+ *
+ * @return {boolean} Toolbar is in narrow mode
+ */
+OO.ui.Toolbar.prototype.isNarrow = function () {
+	return this.narrow;
+};
+
+/**
+ * Set the narrow mode flag
+ *
+ * @param {boolean} narrow Toolbar is in narrow mode
+ */
+OO.ui.Toolbar.prototype.setNarrow = function ( narrow ) {
+	if ( narrow !== this.narrow ) {
+		this.narrow = narrow;
+		this.$element.add( this.$popups ).toggleClass(
+			'oo-ui-toolbar-narrow',
+			this.narrow
+		);
+		this.emit( 'resize' );
+	}
 };
 
 /**

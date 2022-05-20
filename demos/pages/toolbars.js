@@ -40,7 +40,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	}
 
 	// eslint-disable-next-line max-len
-	function createTool( toolbar, group, name, icon, title, flags, init, onSelect, displayBothIconAndLabel ) {
+	function createTool( toolbar, group, name, icon, title, flags, narrowConfig, init, onSelect, displayBothIconAndLabel ) {
 		var Tool = function () {
 			Tool.super.apply( this, arguments );
 			this.toggled = false;
@@ -67,6 +67,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		Tool.static.icon = icon;
 		Tool.static.title = title;
 		Tool.static.flags = flags;
+		Tool.static.narrowConfig = narrowConfig;
 		Tool.static.displayBothIconAndLabel = !!displayBothIconAndLabel;
 		return Tool;
 	}
@@ -245,6 +246,10 @@ Demo.static.pages.toolbars = function ( demo ) {
 			name: 'insert',
 			type: 'list',
 			label: 'Insert',
+			narrowConfig: {
+				invisibleLabel: true,
+				icon: 'add'
+			},
 			include: [ { group: 'insertTools' }, { group: 'autoDisableListTools' }, { group: 'unusedStuff' } ],
 			allowCollapse: [ 'comment', 'hieroglyphs', 'score', 'signature', 'gallery', 'chem', 'math', 'syntaxHighlightDialog', 'graph', 'referencesList' ]
 		},
@@ -333,6 +338,10 @@ Demo.static.pages.toolbars = function ( demo ) {
 			name: 'insert',
 			type: 'list',
 			label: 'Insert',
+			narrowConfig: {
+				invisibleLabel: true,
+				icon: 'add'
+			},
 			include: [ { group: 'insertTools' }, { group: 'autoDisableListTools' }, { group: 'unusedStuff' } ]
 		},
 		{
@@ -376,7 +385,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		// Parameters like in createTool() function above (starting with 'name')
 		barTools: [
 			[ 'barTool', 'image', 'Basic tool in bar' ],
-			[ 'disabledBarTool', 'image', 'Basic tool in bar disabled', null, setDisabled ]
+			[ 'disabledBarTool', 'image', 'Basic tool in bar disabled', null, null, setDisabled ]
 		],
 
 		disabledBarTools: [
@@ -384,17 +393,17 @@ Demo.static.pages.toolbars = function ( demo ) {
 		],
 
 		cite: [
-			[ 'citeTool', 'quotes', 'Cite', null, null, null, true ]
+			[ 'citeTool', 'quotes', 'Cite', null, { displayBothIconAndLabel: false }, null, null, true ]
 		],
 
 		publish: [
 			// TODO: Show a destructive tool in another demo
 			// [ 'cancel', null, 'Cancel', [ 'destructive' ], null, setInactive, true ],
-			[ 'publish', null, 'Publish changes…', [ 'primary', 'progressive' ], null, setInactive, true ]
+			[ 'publish', null, 'Publish changes…', [ 'primary', 'progressive' ], { title: 'Publish…' }, null, setInactive, true ]
 		],
 
 		citeDisabled: [
-			[ 'citeToolDisabled', 'quotes', 'Cite', null, setDisabled, null, true ]
+			[ 'citeToolDisabled', 'quotes', 'Cite', null, { displayBothIconAndLabel: false }, setDisabled, null, true ]
 		],
 
 		editorSwitchTools: [
@@ -441,7 +450,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		listTools: [
 			[ 'listTool', 'image', 'First basic tool in list' ],
 			[ 'listTool1', 'image', 'Basic tool in list' ],
-			[ 'listTool3', 'image', 'Basic disabled tool in list', null, setDisabled ],
+			[ 'listTool3', 'image', 'Basic disabled tool in list', null, null, setDisabled ],
 			[ 'listTool6', 'image', 'A final tool' ]
 		],
 
@@ -456,13 +465,13 @@ Demo.static.pages.toolbars = function ( demo ) {
 		],
 
 		autoDisableListTools: [
-			[ 'autoDisableListTool', 'image', 'Click to disable this tool', null, null, setDisabled ]
+			[ 'autoDisableListTool', 'image', 'Click to disable this tool', null, null, null, setDisabled ]
 		],
 
 		menuTools: [
 			[ 'menuTool', 'image', 'Basic tool' ],
 			[ 'iconlessMenuTool', null, 'Tool without an icon' ],
-			[ 'disabledMenuTool', 'image', 'Basic tool disabled', null, setDisabled ]
+			[ 'disabledMenuTool', 'image', 'Basic tool disabled', null, null, setDisabled ]
 		],
 
 		disabledMenuTools: [
@@ -476,7 +485,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 			[ 'advanced', 'advanced', 'Advanced settings' ],
 			[ 'textLanguage', 'language', 'Languages' ],
 			[ 'templatesUsed', 'puzzle', 'Templates used' ],
-			[ 'codeMirror', 'highlight', 'Syntax highlighting', null, setDisabled ],
+			[ 'codeMirror', 'highlight', 'Syntax highlighting', null, null, setDisabled ],
 			[ 'changeDirectionality', 'textDirRTL', 'View as right-to-left' ],
 			[ 'find', 'articleSearch', 'Find and replace' ]
 		],
@@ -508,7 +517,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 			[ 'language', 'language', 'Language' ],
 			[ 'big', 'bigger', 'Big' ],
 			[ 'small', 'smaller', 'Small' ],
-			[ 'clear', 'cancel', 'Clear Styling', null, setDisabled ]
+			[ 'clear', 'cancel', 'Clear Styling', null, null, setDisabled ]
 		],
 
 		unusedStuff: [
