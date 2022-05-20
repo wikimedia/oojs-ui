@@ -420,7 +420,16 @@ OO.ui.Window.prototype.setManager = function ( manager ) {
 	this.manager = manager;
 
 	if ( this.manager.isModal() ) {
-		// Set focus traps
+		/**
+		 * Set focus traps
+		 *
+		 * It is considered best practice to trap focus in a loop within a modal dialog, even
+		 * though with 'inert' support we could allow focus to break out to the browser chrome.
+		 *
+		 * - https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html#kbd_label
+		 * - https://allyjs.io/tutorials/accessible-dialog.html#reacting-to-kbdtabkbd-and-kbdshift-tabkbd
+		 * - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#focus_management
+		 */
 		this.$focusTrapBefore = $( '<div>' ).prop( 'tabIndex', 0 );
 		this.$focusTrapAfter = $( '<div>' ).prop( 'tabIndex', 0 );
 		this.$focusTraps = this.$focusTrapBefore.add( this.$focusTrapAfter );
