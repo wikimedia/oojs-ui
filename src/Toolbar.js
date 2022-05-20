@@ -465,16 +465,15 @@ OO.ui.Toolbar.prototype.initialize = function () {
  * @param {Array|string} [groups.demote] Tools to demote to the end of the toolgroup
  */
 OO.ui.Toolbar.prototype.setup = function ( groups ) {
-	var i, len, type, toolGroup, groupConfig,
-		items = [],
-		defaultType = 'bar';
+	var defaultType = 'bar';
 
 	// Cleanup previous groups
 	this.reset();
 
+	var items = [];
 	// Build out new groups
-	for ( i = 0, len = groups.length; i < len; i++ ) {
-		groupConfig = groups[ i ];
+	for ( var i = 0, len = groups.length; i < len; i++ ) {
+		var groupConfig = groups[ i ];
 		if ( groupConfig.include === '*' ) {
 			// Apply defaults to catch-all groups
 			if ( groupConfig.type === undefined ) {
@@ -485,9 +484,9 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 			}
 		}
 		// Check type has been registered
-		type = this.getToolGroupFactory().lookup( groupConfig.type ) ?
+		var type = this.getToolGroupFactory().lookup( groupConfig.type ) ?
 			groupConfig.type : defaultType;
-		toolGroup = this.getToolGroupFactory().create( type, this, groupConfig );
+		var toolGroup = this.getToolGroupFactory().create( type, this, groupConfig );
 		items.push( toolGroup );
 		this.groupsByName[ groupConfig.name ] = toolGroup;
 		toolGroup.connect( this, {
@@ -531,11 +530,9 @@ OO.ui.Toolbar.prototype.getToolGroupByName = function ( name ) {
  * Remove all tools and toolgroups from the toolbar.
  */
 OO.ui.Toolbar.prototype.reset = function () {
-	var i, len;
-
 	this.groupsByName = {};
 	this.tools = {};
-	for ( i = 0, len = this.items.length; i < len; i++ ) {
+	for ( var i = 0, len = this.items.length; i < len; i++ ) {
 		this.items[ i ].destroy();
 	}
 	this.clearItems();

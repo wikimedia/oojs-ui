@@ -34,19 +34,18 @@ OO.inheritClass( OO.ui.ToolFactory, OO.Factory );
  * @return {string[]} List of tools
  */
 OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, demote ) {
-	var i, len, included, promoted, demoted,
-		auto = [],
+	var auto = [],
 		used = {};
 
 	// Collect included and not excluded tools
-	included = OO.simpleArrayDifference( this.extract( include ), this.extract( exclude ) );
+	var included = OO.simpleArrayDifference( this.extract( include ), this.extract( exclude ) );
 
 	// Promotion
-	promoted = this.extract( promote, used );
-	demoted = this.extract( demote, used );
+	var promoted = this.extract( promote, used );
+	var demoted = this.extract( demote, used );
 
 	// Auto
-	for ( i = 0, len = included.length; i < len; i++ ) {
+	for ( var i = 0, len = included.length; i < len; i++ ) {
 		if ( !used[ included[ i ] ] ) {
 			auto.push( included[ i ] );
 		}
@@ -78,13 +77,13 @@ OO.ui.ToolFactory.prototype.getTools = function ( include, exclude, promote, dem
  * @return {string[]} List of extracted tool names
  */
 OO.ui.ToolFactory.prototype.extract = function ( collection, used ) {
-	var i, len, item, name, tool,
-		names = [];
+	var names = [];
 
 	collection = !Array.isArray( collection ) ? [ collection ] : collection;
 
-	for ( i = 0, len = collection.length; i < len; i++ ) {
-		item = collection[ i ];
+	for ( var i = 0, len = collection.length; i < len; i++ ) {
+		var item = collection[ i ];
+		var name, tool;
 		if ( item === '*' ) {
 			for ( name in this.registry ) {
 				tool = this.registry[ name ];
