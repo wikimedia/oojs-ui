@@ -147,7 +147,14 @@ window.Demo = function Demo() {
 		.append( this.$header );
 	$( document.documentElement ).attr( 'dir', this.mode.direction );
 	$( document.head ).append( this.stylesheetLinks );
+	// The following classes are used here:
+	// * oo-ui-theme-wikimediaui
+	// * oo-ui-theme-apex
 	$( document.body ).addClass( 'oo-ui-theme-' + this.mode.theme );
+	// The following classes are used here:
+	// * oo-ui-platform-mobile
+	// * oo-ui-platform-desktop
+	$( document.body ).addClass( 'oo-ui-platform-' + ( OO.ui.isMobile() ? 'mobile' : 'desktop' ) );
 	OO.ui.getViewportSpacing = function () {
 		return {
 			// Contents of dialogs are shown on top of the fixed menu
@@ -158,7 +165,6 @@ window.Demo = function Demo() {
 		};
 	};
 	if ( OO.ui.isMobile() ) {
-		this.$header.addClass( 'demo-header-mobile' );
 		this.onExpandButtonChange( false );
 	} else {
 		// Hide the button on desktop
@@ -531,9 +537,12 @@ Demo.prototype.normalizeQuery = function () {
  * Destroy demo.
  */
 Demo.prototype.destroy = function () {
+	// Theme classes documented in setup
+	// eslint-disable-next-line mediawiki/class-doc
 	$( document.body )
 		.removeClass( 'oo-ui-ltr oo-ui-rtl' )
-		.removeClass( 'oo-ui-theme-' + this.mode.theme );
+		.removeClass( 'oo-ui-theme-' + this.mode.theme )
+		.removeClass( 'oo-ui-platform-mobile oo-ui-platform-desktop' );
 	$( this.stylesheetLinks ).remove();
 	this.$element.remove();
 	this.emit( 'destroy' );

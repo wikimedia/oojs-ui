@@ -2,6 +2,7 @@
 	"root": true,
 	"extends": [
 		"../src/.eslintrc.json",
+		"wikimedia/mediawiki",
 		"wikimedia/jquery"
 	],
 	"globals": {

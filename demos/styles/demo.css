@@ -84,15 +84,14 @@ p:first-child {
 }
 
 .demo-header {
-	width: 100%;
+	width: calc( 100% - 32px );
 	background-color: #fff;
 	position: fixed;
-	left: 0;
-	right: 0;
+	left: auto;
+	right: auto;
 	top: 0;
 	min-height: 9.214em;
 	padding-top: 8px;
-	padding-left: 16px;
 	box-shadow: 0 4px 4px -4px rgba( 0, 0, 0, 0.25 );
 	z-index: 5;
 }
@@ -147,8 +146,6 @@ p:first-child {
 
 .demo-pageSelect {
 	clear: both;
-	/* Keep tabs slightly intended (16px -12px) to align with heading on mobile. */
-	margin: 0 -12px;
 	border-width: 1px 0 0 0;
 }
 
@@ -189,15 +186,15 @@ p:first-child {
 	left: 0;
 }
 
-.demo-header-mobile {
+.oo-ui-platform-mobile .demo-header {
 	min-height: 5.833em;
 }
 
-.demo-header-mobile + .demo-container.oo-ui-panelLayout {
+.oo-ui-platform-mobile .demo-header + .demo-container.oo-ui-panelLayout {
 	margin-top: 5.833em;
 }
 
-.demo-header-mobile ~ * .demo-linked-fieldset-anchor {
+.oo-ui-platform-mobile .demo-header ~ * .demo-linked-fieldset-anchor {
 	top: -6.5em;
 }
 
@@ -285,6 +282,7 @@ p:first-child {
 	right: 7.2em;
 	left: 0;
 	opacity: 1;
+	margin-right: 0;
 }
 
 .demo-container > .oo-ui-fieldsetLayout:first-child .oo-ui-fieldLayout:first-child .demo-link-example::after {
@@ -457,7 +455,8 @@ p:first-child {
 /* Toolbars demo */
 
 .demo-container.demo-toolbars {
-	padding: 0;
+	padding-left: 0 !important; /* stylelint-disable-line declaration-no-important */
+	padding-right: 0 !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .demo-toolbar + .demo-toolbar {
@@ -682,118 +681,74 @@ FieldLayout left & right aligned */
 		border-width: 1px;
 	}
 
-	.demo-link-example,
-	.demo-console-toggle {
-		display: block;
-		margin-right: -6px;
-	}
-
-	.demo-link-example {
-		display: none;
-	}
-
-	.demo-console-toggle::after {
-		font-size: 1.25em;
-	}
-
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example,
 	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-toggle {
 		margin-top: 0;
 	}
 }
 
-/* @media ( min-width: 568px ) {} */
-
-@media ( min-width: 768px ) {
-	.demo-link-example,
-	.demo-console-toggle {
-		display: inline-block;
-	}
-
-	.demo-link-example {
-		margin-right: 2.286em; /* Equals to `32px`. */
-	}
-
-	.demo-console-toggle::after {
-		font-size: 1em;
-	}
-
-	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example {
-		margin-right: 0;
-	}
+.oo-ui-platform-desktop.oo-ui-theme-wikimediaui {
+	font-size: 0.875em;
+	/* Support: IE 11, Trident cuts values 2 digits after decimal point.
+	   `calc` enables to set correct calculation in place again. See T102364. */
+	font-size: calc( 1em * 0.875 );
 }
 
-@media ( min-width: 960px ) {
-	.oo-ui-theme-wikimediaui {
-		font-size: 0.875em;
-		/* Support: IE 11, Trident cuts values 2 digits after decimal point.
-		   `calc` enables to set correct calculation in place again. See T102364. */
-		font-size: calc( 1em * 0.875 );
-	}
-
-	.oo-ui-theme-apex {
-		font-size: 0.8em;
-	}
-
-	.demo-header {
-		left: auto;
-		right: auto;
-		padding-left: 0;
-		white-space: nowrap;
-		width: calc( 100% - 32px );
-	}
-
-	.demo-pageSelect {
-		margin: 0;
-		border-width: 1px 1px 0 1px;
-	}
-
-	/* Make it visible for all browsers again */
-	.demo-header h2 span {
-		clip: auto;
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-		clip-path: none;
-		position: static;
-		width: auto;
-		height: auto;
-		margin: 0;
-		overflow: visible;
-	}
-
-	.demo-container {
-		border-radius: 2px;
-		padding: 24px;
-	}
-
-	.demo-container.oo-ui-panelLayout {
-		border-width: 0 1px 1px 1px;
-	}
-
-	.demo-link-example,
-	.demo-console-toggle,
-	.demo-console-expanded .demo-console-toggle {
-		margin-right: -6px; /* Equals to toggle `padding` */
-	}
-
-	.demo-link-example {
-		margin-right: 1.5em;
-	}
-
-	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example,
-	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-toggle {
-		margin-top: -2.5em;
-	}
-
-	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example {
-		margin-right: 7.9em;
-	}
-
-	.demo-console-expanded {
-		width: 100%;
-	}
-
-	.oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-expanded .demo-console-toggle {
-		margin-top: -3em;
-	}
+.oo-ui-platform-desktop.oo-ui-theme-apex {
+	font-size: 0.8em;
 }
+
+.oo-ui-platform-desktop .demo-pageSelect {
+	margin: 0;
+	border-width: 1px 1px 0 1px;
+}
+
+/* Make it visible for all browsers again */
+.oo-ui-platform-desktop .demo-header h2 span {
+	clip: auto;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	clip-path: none;
+	position: static;
+	width: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+}
+
+.oo-ui-platform-desktop .demo-container {
+	border-radius: 2px;
+	padding: 24px;
+}
+
+.oo-ui-platform-desktop .demo-container.oo-ui-panelLayout {
+	border-width: 0 1px 1px 1px;
+}
+
+.oo-ui-platform-desktop .demo-link-example,
+.oo-ui-platform-desktop .demo-console-toggle,
+.oo-ui-platform-desktop .demo-console-expanded .demo-console-toggle {
+	margin-right: -6px; /* Equals to toggle `padding` */
+}
+
+.oo-ui-platform-desktop .demo-link-example {
+	margin-right: 1.5em;
+}
+
+.oo-ui-platform-desktop .oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example,
+.oo-ui-platform-desktop .oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-toggle {
+	margin-top: -2.5em;
+}
+
+.oo-ui-platform-desktop .oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-link-example {
+	margin-right: 7.9em;
+}
+
+.oo-ui-platform-desktop .demo-console-expanded {
+	width: 100%;
+}
+
+.oo-ui-platform-desktop .oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-expanded .demo-console-toggle {
+	margin-top: -3em;
+}
+
 /* stylelint-enable selector-pseudo-element-colon-notation */
