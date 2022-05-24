@@ -151,10 +151,9 @@ OO.ui.MenuToolGroup.static.name = 'menu';
  * @private
  */
 OO.ui.MenuToolGroup.prototype.onUpdateState = function () {
-	var name,
-		labelTexts = [];
+	var labelTexts = [];
 
-	for ( name in this.tools ) {
+	for ( var name in this.tools ) {
 		if ( this.tools[ name ].isActive() ) {
 			labelTexts.push( this.tools[ name ].getTitle() );
 		}

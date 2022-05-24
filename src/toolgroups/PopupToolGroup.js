@@ -158,19 +158,18 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyUp = function ( e ) {
  * @inheritdoc
  */
 OO.ui.PopupToolGroup.prototype.onMouseKeyDown = function ( e ) {
-	var $focused, $firstFocusable, $lastFocusable;
 	// Shift-Tab on the first tool in the group jumps to the handle.
 	// Tab on the last tool in the group jumps to the next group.
 	if ( !this.isDisabled() && e.which === OO.ui.Keys.TAB ) {
 		// We can't use this.items because ListToolGroup inserts the extra fake
 		// expand/collapse tool.
-		$focused = $( document.activeElement );
-		$firstFocusable = OO.ui.findFocusable( this.$group );
+		var $focused = $( document.activeElement );
+		var $firstFocusable = OO.ui.findFocusable( this.$group );
 		if ( $focused[ 0 ] === $firstFocusable[ 0 ] && e.shiftKey ) {
 			this.$handle.trigger( 'focus' );
 			return false;
 		}
-		$lastFocusable = OO.ui.findFocusable( this.$group, true );
+		var $lastFocusable = OO.ui.findFocusable( this.$group, true );
 		if ( $focused[ 0 ] === $lastFocusable[ 0 ] && !e.shiftKey ) {
 			// Focus this group's handle and let the browser's tab handling happen
 			// (no 'return false').

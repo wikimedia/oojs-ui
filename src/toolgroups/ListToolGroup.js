@@ -140,10 +140,9 @@ OO.ui.ListToolGroup.static.name = 'list';
  * @inheritdoc
  */
 OO.ui.ListToolGroup.prototype.populate = function () {
-	var i, len, allowCollapse = [];
-
 	OO.ui.ListToolGroup.super.prototype.populate.call( this );
 
+	var allowCollapse = [];
 	// Update the list of collapsible tools
 	if ( this.allowCollapse !== undefined ) {
 		allowCollapse = this.allowCollapse;
@@ -152,7 +151,7 @@ OO.ui.ListToolGroup.prototype.populate = function () {
 	}
 
 	this.collapsibleTools = [];
-	for ( i = 0, len = allowCollapse.length; i < len; i++ ) {
+	for ( var i = 0, len = allowCollapse.length; i < len; i++ ) {
 		if ( this.tools[ allowCollapse[ i ] ] !== undefined ) {
 			this.collapsibleTools.push( this.tools[ allowCollapse[ i ] ] );
 		}
@@ -171,9 +170,8 @@ OO.ui.ListToolGroup.prototype.populate = function () {
  * @return {OO.ui.Tool} Expand collapse tool
  */
 OO.ui.ListToolGroup.prototype.getExpandCollapseTool = function () {
-	var ExpandCollapseTool;
 	if ( this.expandCollapseTool === undefined ) {
-		ExpandCollapseTool = function () {
+		var ExpandCollapseTool = function () {
 			ExpandCollapseTool.super.apply( this, arguments );
 		};
 
