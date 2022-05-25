@@ -69,24 +69,18 @@
 		&.oo-ui-fieldLayout-align-right {
 			> .oo-ui-fieldLayout-body {
 				> .oo-ui-fieldLayout-header {
-					box-sizing: border-box;
-					width: 40%;
-					padding-right: @size-base + @start-frameless-icon;
-
 					> .oo-ui-labelElement-label {
 						display: block;
 						padding-top: @padding-vertical-label;
+						margin-right: @padding-start-fieldlayout-label;
 					}
 				}
 
 				> .oo-ui-fieldLayout-help {
 					// Override the default
 					margin-right: 0;
-					margin-left: -( @size-base + @size-modifier-border );
-				}
-
-				> .oo-ui-fieldLayout-field {
-					width: 60%;
+					// Move into the space of `margin-right` of header
+					margin-left: -@padding-start-fieldlayout-label;
 				}
 			}
 		}

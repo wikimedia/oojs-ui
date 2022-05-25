@@ -16,17 +16,18 @@
 	&.oo-ui-fieldLayout-align-left,
 	&.oo-ui-fieldLayout-align-right {
 		> .oo-ui-fieldLayout-body {
-			.oo-ui-clearfix();
+			display: flex;
+
+			> .oo-ui-fieldLayout-field {
+				// Minimum 60%
+				width: 60%;
+				flex-shrink: 0;
+			}
 
 			> .oo-ui-fieldLayout-header {
 				word-wrap: break-word;
-			}
-
-			> .oo-ui-fieldLayout-header,
-			> .oo-ui-fieldLayout-help,
-			> .oo-ui-fieldLayout-field {
-				display: block;
-				float: left;
+				// Fill remaining space after the field and help button are placed
+				flex-grow: 1;
 			}
 		}
 	}
