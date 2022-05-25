@@ -740,7 +740,7 @@ FieldLayout left & right aligned */
 		right: auto;
 		padding-left: 0;
 		white-space: nowrap;
-		width: calc( 100% - 2em );
+		width: calc( 100% - 32px );
 	}
 
 	.demo-pageSelect {
