@@ -85,7 +85,38 @@ p:first-child {
 
 .demo-header {
 	width: 100%;
-	position: relative;
+	background-color: #fff;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	min-height: 9.214em;
+	padding-top: 8px;
+	padding-left: 16px;
+	box-shadow: 0 4px 4px -4px rgba( 0, 0, 0, 0.25 );
+	z-index: 5;
+}
+
+.demo-header + .demo-container.oo-ui-panelLayout {
+	/* `min-height` - `border-bottom` */
+	margin-top: 9.214em;
+}
+
+/* This needs extra specificity to beat PanelLayout styles */
+.demo-container.oo-ui-panelLayout {
+	/* Apex overrides. WikimediaUI wins for now in the demo framing in this browser subset */
+	border-color: #a2a9b1;
+	/* PanelLayout doesn't have rounded borders with menu overlay ever,
+	   therefore removing top radius */
+	border-radius: 0 0 2px 2px;
+	box-shadow: none;
+	border-width: 0;
+}
+
+.oo-ui-windowManager-modal > .oo-ui-dialog,
+.oo-ui-processDialog-errors,
+.oo-ui-defaultOverlay {
+	z-index: 6;
 }
 
 .demo-header,
@@ -156,6 +187,14 @@ p:first-child {
 	/* Put underneath sticky menu */
 	top: -10em;
 	left: 0;
+}
+
+.demo-header-mobile {
+	min-height: 5.833em;
+}
+
+.demo-header-mobile + .demo-container.oo-ui-panelLayout {
+	margin-top: 5.833em;
 }
 
 .demo-header-mobile ~ * .demo-linked-fieldset-anchor {
@@ -610,56 +649,6 @@ FieldLayout left & right aligned */
 	max-width: 50em;
 }
 
-/*
- * Support: iOS 9.2, Android 4.4.4, Op Mobile 37, Chrome/Android 57, Fx/Android 52, UC Browser 11.4, Baidu 7.12
- * Workaround for weak ancient mobile browser support of `fixed` positioning
- */
-/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-@supports ( position: fixed ) {
-	.demo-header {
-		background-color: #fff;
-		position: fixed;
-		left: 0;
-		right: 0;
-		top: 0;
-		min-height: 9.214em;
-		padding-top: 8px;
-		padding-left: 16px;
-		box-shadow: 0 4px 4px -4px rgba( 0, 0, 0, 0.25 );
-		z-index: 5;
-	}
-
-	.demo-header + .demo-container.oo-ui-panelLayout {
-		/* `min-height` - `border-bottom` */
-		margin-top: 9.214em;
-	}
-
-	.demo-header-mobile {
-		min-height: 5.833em;
-	}
-
-	.demo-header-mobile + .demo-container.oo-ui-panelLayout {
-		margin-top: 5.833em;
-	}
-
-	/* This needs extra specificity to beat PanelLayout styles */
-	.demo-container.oo-ui-panelLayout {
-		/* Apex overrides. WikimediaUI wins for now in the demo framing in this browser subset */
-		border-color: #a2a9b1;
-		/* PanelLayout doesn't have rounded borders with menu overlay ever,
-		   therefore removing top radius */
-		border-radius: 0 0 2px 2px;
-		box-shadow: none;
-		border-width: 0;
-	}
-
-	.oo-ui-windowManager-modal > .oo-ui-dialog,
-	.oo-ui-processDialog-errors,
-	.oo-ui-defaultOverlay {
-		z-index: 6;
-	}
-}
-
 /* Media Queries */
 @media ( min-width: 320px ) {
 	.oo-ui-theme-wikimediaui,
@@ -751,13 +740,7 @@ FieldLayout left & right aligned */
 		right: auto;
 		padding-left: 0;
 		white-space: nowrap;
-	}
-
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-	@supports ( position: fixed ) {
-		.demo-header {
-			width: calc( 100% - 2em );
-		}
+		width: calc( 100% - 2em );
 	}
 
 	.demo-pageSelect {
