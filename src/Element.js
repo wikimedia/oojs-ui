@@ -27,8 +27,6 @@
  *  Data can also be specified with the #setData method.
  */
 OO.ui.Element = function OoUiElement( config ) {
-	var doc;
-
 	if ( OO.ui.isDemo ) {
 		this.initialConfig = config;
 	}
@@ -44,7 +42,7 @@ OO.ui.Element = function OoUiElement( config ) {
 	this.elementGroup = null;
 
 	// Initialization
-	doc = OO.ui.Element.static.getDocument( this.$element );
+	var doc = OO.ui.Element.static.getDocument( this.$element );
 	if ( Array.isArray( config.classes ) ) {
 		this.$element.addClass(
 			// Remove empty strings to work around jQuery bug
@@ -143,8 +141,7 @@ OO.ui.Element.static.infuse = function ( node, config ) {
  */
 OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 	// look for a cached result of a previous infusion.
-	var data, cls, parts, obj, top, state, infusedChildren, doc, id,
-		$elem = $( elem );
+	var $elem = $( elem );
 
 	if ( $elem.length > 1 ) {
 		throw new Error( 'Collection contains more than one element' );
@@ -156,9 +153,9 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 		$elem = $elem[ 0 ].$oouiInfused;
 	}
 
-	id = $elem.attr( 'id' );
-	doc = this.getDocument( $elem );
-	data = $elem.data( 'ooui-infused' );
+	var id = $elem.attr( 'id' );
+	var doc = this.getDocument( $elem );
+	var data = $elem.data( 'ooui-infused' );
 	if ( data ) {
 		// cached!
 		if ( data === true ) {
@@ -166,13 +163,13 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 		}
 		if ( domPromise ) {
 			// Pick up dynamic state, like focus, value of form inputs, scroll position, etc.
-			state = data.constructor.static.gatherPreInfuseState( $elem, data );
+			var stateCache = data.constructor.static.gatherPreInfuseState( $elem, data );
 			// Restore dynamic state after the new element is re-inserted into DOM under
 			// infused parent.
-			domPromise.done( data.restorePreInfuseState.bind( data, state ) );
-			infusedChildren = $elem.data( 'ooui-infused-children' );
-			if ( infusedChildren && infusedChildren.length ) {
-				infusedChildren.forEach( function ( childData ) {
+			domPromise.done( data.restorePreInfuseState.bind( data, stateCache ) );
+			var infusedChildrenCache = $elem.data( 'ooui-infused-children' );
+			if ( infusedChildrenCache && infusedChildrenCache.length ) {
+				infusedChildrenCache.forEach( function ( childData ) {
 					var childState = childData.constructor.static.gatherPreInfuseState(
 						$elem,
 						childData
@@ -201,20 +198,21 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 		// Special case: this is a raw Tag; wrap existing node, don't rebuild.
 		return new OO.ui.Element( $.extend( {}, config, { $element: $elem } ) );
 	}
-	parts = data._.split( '.' );
-	cls = OO.getProp.apply( OO, [ window ].concat( parts ) );
+	var parts = data._.split( '.' );
+	var cls = OO.getProp.apply( OO, [ window ].concat( parts ) );
 
 	if ( !( cls && ( cls === OO.ui.Element || cls.prototype instanceof OO.ui.Element ) ) ) {
 		throw new Error( 'Unknown widget type: id: ' + id + ', class: ' + data._ );
 	}
 
+	var top;
 	if ( !domPromise ) {
 		top = $.Deferred();
 		domPromise = top.promise();
 	}
 	$elem.data( 'ooui-infused', true ); // prevent loops
 	data.id = id; // implicit
-	infusedChildren = [];
+	var infusedChildren = [];
 	data = OO.copy( data, null, function deserialize( value ) {
 		var infused;
 		if ( OO.isPlainObject( value ) ) {
@@ -239,10 +237,10 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 	// allow widgets to reuse parts of the DOM
 	data = cls.static.reusePreInfuseDOM( $elem[ 0 ], data );
 	// pick up dynamic state, like focus, value of form inputs, scroll position, etc.
-	state = cls.static.gatherPreInfuseState( $elem[ 0 ], data );
+	var state = cls.static.gatherPreInfuseState( $elem[ 0 ], data );
 	// rebuild widget
 	// eslint-disable-next-line new-cap
-	obj = new cls( $.extend( {}, config, data ) );
+	var obj = new cls( $.extend( {}, config, data ) );
 	// If anyone is holding a reference to the old DOM element,
 	// let's allow them to OO.ui.infuse() it and do what they expect, see T105828.
 	// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
@@ -343,13 +341,11 @@ OO.ui.Element.static.getWindow = function ( obj ) {
  * @return {string} Text direction, either 'ltr' or 'rtl'
  */
 OO.ui.Element.static.getDir = function ( obj ) {
-	var isDoc, isWin;
-
 	if ( obj instanceof $ ) {
 		obj = obj[ 0 ];
 	}
-	isDoc = obj.nodeType === Node.DOCUMENT_NODE;
-	isWin = obj.document !== undefined;
+	var isDoc = obj.nodeType === Node.DOCUMENT_NODE;
+	var isWin = obj.document !== undefined;
 	if ( isDoc || isWin ) {
 		if ( isWin ) {
 			obj = obj.document;
@@ -371,8 +367,6 @@ OO.ui.Element.static.getDir = function ( obj ) {
  * @return {Object} Offset object, containing left and top properties
  */
 OO.ui.Element.static.getFrameOffset = function ( from, to, offset ) {
-	var i, len, frames, frame, rect;
-
 	if ( !to ) {
 		to = window;
 	}
@@ -384,8 +378,9 @@ OO.ui.Element.static.getFrameOffset = function ( from, to, offset ) {
 	}
 
 	// Get iframe element
-	frames = from.parent.document.getElementsByTagName( 'iframe' );
-	for ( i = 0, len = frames.length; i < len; i++ ) {
+	var frame;
+	var frames = from.parent.document.getElementsByTagName( 'iframe' );
+	for ( var i = 0, len = frames.length; i < len; i++ ) {
 		if ( frames[ i ].contentWindow === from ) {
 			frame = frames[ i ];
 			break;
@@ -394,7 +389,7 @@ OO.ui.Element.static.getFrameOffset = function ( from, to, offset ) {
 
 	// Recursively accumulate offset values
 	if ( frame ) {
-		rect = frame.getBoundingClientRect();
+		var rect = frame.getBoundingClientRect();
 		offset.left += rect.left;
 		offset.top += rect.top;
 		if ( from !== to ) {
@@ -416,19 +411,18 @@ OO.ui.Element.static.getFrameOffset = function ( from, to, offset ) {
  * @return {Object} Translated position coordinates, containing top and left properties
  */
 OO.ui.Element.static.getRelativePosition = function ( $element, $anchor ) {
-	var iframe, iframePos,
-		pos = $element.offset(),
+	var pos = $element.offset(),
 		anchorPos = $anchor.offset(),
 		elementDocument = this.getDocument( $element ),
 		anchorDocument = this.getDocument( $anchor );
 
 	// If $element isn't in the same document as $anchor, traverse up
 	while ( elementDocument !== anchorDocument ) {
-		iframe = elementDocument.defaultView.frameElement;
+		var iframe = elementDocument.defaultView.frameElement;
 		if ( !iframe ) {
 			throw new Error( '$element frame is not contained in $anchor frame' );
 		}
-		iframePos = $( iframe ).offset();
+		var iframePos = $( iframe ).offset();
 		pos.left += iframePos.left;
 		pos.top += iframePos.top;
 		elementDocument = this.getDocument( iframe );
@@ -471,12 +465,11 @@ OO.ui.Element.static.getBorders = function ( el ) {
  * @return {Object} Dimensions object with `borders`, `scroll`, `scrollbar` and `rect` properties
  */
 OO.ui.Element.static.getDimensions = function ( el ) {
-	var $el, $win,
-		doc = this.getDocument( el ),
+	var doc = this.getDocument( el ),
 		win = doc.defaultView;
 
 	if ( win === el || el === doc.documentElement ) {
-		$win = $( win );
+		var $win = $( win );
 		return {
 			borders: { top: 0, left: 0, bottom: 0, right: 0 },
 			scroll: {
@@ -492,7 +485,7 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 			}
 		};
 	} else {
-		$el = $( el );
+		var $el = $( el );
 		return {
 			borders: this.getBorders( el ),
 			scroll: {
@@ -665,12 +658,11 @@ OO.ui.Element.static.getDimensions = function ( el ) {
  * @return {HTMLBodyElement|HTMLHtmlElement} Scrollable parent, `<body>` or `<html>`
  */
 OO.ui.Element.static.getRootScrollableElement = function ( el ) {
-	var scrollTop, body,
-		doc = this.getDocument( el );
+	var doc = this.getDocument( el );
 
 	if ( OO.ui.scrollableElement === undefined ) {
-		body = doc.body;
-		scrollTop = body.scrollTop;
+		var body = doc.body;
+		var scrollTop = body.scrollTop;
 		body.scrollTop = 1;
 
 		// In some browsers (observed in Chrome 56 on Linux Mint 18.1),
@@ -698,8 +690,7 @@ OO.ui.Element.static.getRootScrollableElement = function ( el ) {
  * @return {HTMLElement} Closest scrollable container
  */
 OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) {
-	var i, val,
-		doc = this.getDocument( el ),
+	var doc = this.getDocument( el ),
 		rootScrollableElement = this.getRootScrollableElement( el ),
 		// Browsers do not correctly return the computed value of 'overflow' when 'overflow-x' and
 		// 'overflow-y' have different values, so we need to check the separate properties.
@@ -719,9 +710,9 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
 		if ( $parent[ 0 ] === rootScrollableElement ) {
 			return $parent[ 0 ];
 		}
-		i = props.length;
+		var i = props.length;
 		while ( i-- ) {
-			val = $parent.css( props[ i ] );
+			var val = $parent.css( props[ i ] );
 			// We assume that elements with 'overflow' (in any direction) set to 'hidden' will
 			// never be scrolled in that direction, but they can actually be scrolled
 			// programatically. The user can unintentionally perform a scroll in such case even if
@@ -761,37 +752,36 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
  * @return {jQuery.Promise} Promise which resolves when the scroll is complete
  */
 OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
-	var position, animations, container, $container, elementPosition, containerDimensions,
-		$window, padding, animate, method,
-		deferred = $.Deferred();
+	var deferred = $.Deferred();
 
 	// Configuration initialization
 	config = config || {};
 
-	padding = $.extend( {
+	var padding = $.extend( {
 		top: 0,
 		bottom: 0,
 		left: 0,
 		right: 0
 	}, config.padding );
 
-	animate = config.animate !== false;
+	var animate = config.animate !== false;
 
-	animations = {};
-	elementPosition = elOrPosition instanceof HTMLElement ?
+	var animations = {};
+	var elementPosition = elOrPosition instanceof HTMLElement ?
 		this.getDimensions( elOrPosition ).rect :
 		elOrPosition;
-	container = config.scrollContainer || (
+	var container = config.scrollContainer || (
 		elOrPosition instanceof HTMLElement ?
 			this.getClosestScrollableContainer( elOrPosition, config.direction ) :
 			// No scrollContainer or element, use global document
 			this.getClosestScrollableContainer( window.document.body )
 	);
-	$container = $( container );
-	containerDimensions = this.getDimensions( container );
-	$window = $( this.getWindow( container ) );
+	var $container = $( container );
+	var containerDimensions = this.getDimensions( container );
+	var $window = $( this.getWindow( container ) );
 
 	// Compute the element's position relative to the container
+	var position;
 	if ( $container.is( 'html, body' ) ) {
 		// If the scrollable container is the root, this is easy
 		position = {
@@ -847,7 +837,7 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
 			} );
 		} else {
 			$container.stop( true );
-			for ( method in animations ) {
+			for ( var method in animations ) {
 				$container[ method ]( animations[ method ] );
 			}
 			deferred.resolve();
@@ -871,10 +861,10 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
  * @param {HTMLElement} el Element to reconsider the scrollbars on
  */
 OO.ui.Element.static.reconsiderScrollbars = function ( el ) {
-	var i, len, scrollLeft, scrollTop, nodes = [];
 	// Save scroll position
-	scrollLeft = el.scrollLeft;
-	scrollTop = el.scrollTop;
+	var scrollLeft = el.scrollLeft;
+	var scrollTop = el.scrollTop;
+	var nodes = [];
 	// Detach all children
 	while ( el.firstChild ) {
 		nodes.push( el.firstChild );
@@ -884,7 +874,7 @@ OO.ui.Element.static.reconsiderScrollbars = function ( el ) {
 	// eslint-disable-next-line no-void
 	void el.offsetHeight;
 	// Reattach all children
-	for ( i = 0, len = nodes.length; i < len; i++ ) {
+	for ( var i = 0, len = nodes.length; i < len; i++ ) {
 		el.appendChild( nodes[ i ] );
 	}
 	// Restore scroll position (no-op if scrollbars disappeared)

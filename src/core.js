@@ -65,8 +65,7 @@ OO.ui.generateElementId = function () {
  * @return {boolean} Element is focusable
  */
 OO.ui.isFocusableElement = function ( $element ) {
-	var nodeName,
-		element = $element[ 0 ];
+	var element = $element[ 0 ];
 
 	// Anything disabled is not focusable
 	if ( element.disabled ) {
@@ -99,7 +98,7 @@ OO.ui.isFocusableElement = function ( $element ) {
 	// Some element types are naturally focusable
 	// (indexOf is much faster than regex in Chrome and about the
 	// same in FF: https://jsperf.com/regex-vs-indexof-array2)
-	nodeName = element.nodeName.toLowerCase();
+	var nodeName = element.nodeName.toLowerCase();
 	if ( [ 'input', 'select', 'textarea', 'button', 'object' ].indexOf( nodeName ) !== -1 ) {
 		return true;
 	}
@@ -163,15 +162,13 @@ OO.ui.getUserLanguages = function () {
  * @return {Mixed} Local value
  */
 OO.ui.getLocalValue = function ( obj, lang, fallback ) {
-	var i, len, langs;
-
 	// Requested language
 	if ( obj[ lang ] ) {
 		return obj[ lang ];
 	}
 	// Known user language
-	langs = OO.ui.getUserLanguages();
-	for ( i = 0, len = langs.length; i < len; i++ ) {
+	var langs = OO.ui.getUserLanguages();
+	for ( var i = 0, len = langs.length; i < len; i++ ) {
 		lang = langs[ i ];
 		if ( obj[ lang ] ) {
 			return obj[ lang ];
@@ -203,11 +200,10 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
  * @return {boolean} The node is in the list of target nodes
  */
 OO.ui.contains = function ( containers, contained, matchContainers ) {
-	var i;
 	if ( !Array.isArray( containers ) ) {
 		containers = [ containers ];
 	}
-	for ( i = containers.length - 1; i >= 0; i-- ) {
+	for ( var i = containers.length - 1; i >= 0; i-- ) {
 		if (
 			( matchContainers && contained === containers[ i ] ) ||
 			$.contains( containers[ i ], contained )
@@ -340,12 +336,11 @@ OO.ui.infuse = function ( node, config ) {
  * [jQuery.i18n](https://github.com/wikimedia/jquery.i18n) follows.
  *
  *     @example
- *     var i, iLen, button,
- *         messagePath = 'oojs-ui/dist/i18n/',
+ *     var messagePath = 'oojs-ui/dist/i18n/',
  *         languages = [ $.i18n().locale, 'ur', 'en' ],
  *         languageMap = {};
  *
- *     for ( i = 0, iLen = languages.length; i < iLen; i++ ) {
+ *     for ( var i = 0, iLen = languages.length; i < iLen; i++ ) {
  *         languageMap[ languages[ i ] ] = messagePath + languages[ i ].toLowerCase() + '.json';
  *     }
  *
@@ -357,7 +352,7 @@ OO.ui.infuse = function ( node, config ) {
  *         OO.ui.msg = $.i18n;
  *
  *         // A button displaying "OK" in the default locale
- *         button = new OO.ui.ButtonWidget( {
+ *         var button = new OO.ui.ButtonWidget( {
  *             label: OO.ui.msg( 'ooui-dialog-message-accept' ),
  *             icon: 'check'
  *         } );
@@ -432,13 +427,12 @@ OO.ui.resolveMsg = function ( msg ) {
  */
 OO.ui.isSafeUrl = function ( url ) {
 	// Keep this function in sync with php/Tag.php
-	var i, protocolAllowList;
 
 	function stringStartsWith( haystack, needle ) {
 		return haystack.slice( 0, needle.length ) === needle;
 	}
 
-	protocolAllowList = [
+	var protocolAllowList = [
 		'bitcoin', 'ftp', 'ftps', 'geo', 'git', 'gopher', 'http', 'https', 'irc', 'ircs',
 		'magnet', 'mailto', 'mms', 'news', 'nntp', 'redis', 'sftp', 'sip', 'sips', 'sms', 'ssh',
 		'svn', 'tel', 'telnet', 'urn', 'worldwind', 'xmpp'
@@ -448,7 +442,7 @@ OO.ui.isSafeUrl = function ( url ) {
 		return true;
 	}
 
-	for ( i = 0; i < protocolAllowList.length; i++ ) {
+	for ( var i = 0; i < protocolAllowList.length; i++ ) {
 		if ( stringStartsWith( url, protocolAllowList[ i ] + ':' ) ) {
 			return true;
 		}

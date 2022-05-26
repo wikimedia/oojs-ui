@@ -59,8 +59,7 @@ OO.ui.Theme.prototype.updateElementClasses = function ( element ) {
  * @private
  */
 OO.ui.Theme.prototype.updateQueuedElementClasses = function () {
-	var i;
-	for ( i = 0; i < this.elementClassesQueue.length; i++ ) {
+	for ( var i = 0; i < this.elementClassesQueue.length; i++ ) {
 		this.updateElementClasses( this.elementClassesQueue[ i ] );
 	}
 	// Clear the queue
