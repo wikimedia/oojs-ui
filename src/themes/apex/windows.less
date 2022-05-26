@@ -61,6 +61,10 @@
 		}
 
 		&-horizontal {
+			width: calc( ~'100% + 2px' );
+			margin-left: -@border-width-base;
+			margin-right: -@border-width-base;
+
 			.oo-ui-actionWidget {
 				margin: 0;
 
@@ -95,15 +99,6 @@
 				&:only-child > .oo-ui-buttonElement-button {
 					border-radius: 0 0 @border-radius-base @border-radius-base;
 				}
-			}
-		}
-
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-		@supports ( width: calc( 100% + 2px ) ) {
-			&-horizontal {
-				width: calc( ~'100% + 2px' );
-				margin-left: -@border-width-base;
-				margin-right: -@border-width-base;
 			}
 		}
 
