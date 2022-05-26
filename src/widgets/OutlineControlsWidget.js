@@ -104,9 +104,7 @@ OO.mixinClass( OO.ui.OutlineControlsWidget, OO.ui.mixin.GroupElement );
  * @param {boolean} [abilities.remove] Allow removing removable items
  */
 OO.ui.OutlineControlsWidget.prototype.setAbilities = function ( abilities ) {
-	var ability;
-
-	for ( ability in this.abilities ) {
+	for ( var ability in this.abilities ) {
 		if ( abilities[ ability ] !== undefined ) {
 			this.abilities[ ability ] = !!abilities[ ability ];
 		}
@@ -121,15 +119,15 @@ OO.ui.OutlineControlsWidget.prototype.setAbilities = function ( abilities ) {
  * @private
  */
 OO.ui.OutlineControlsWidget.prototype.onOutlineChange = function () {
-	var i, len, firstMovable, lastMovable,
-		items = this.outline.getItems(),
+	var items = this.outline.getItems(),
 		selectedItem = this.outline.findSelectedItem(),
 		movable = this.abilities.move && selectedItem && selectedItem.isMovable(),
 		removable = this.abilities.remove && selectedItem && selectedItem.isRemovable();
 
+	var firstMovable, lastMovable;
 	if ( movable ) {
-		i = -1;
-		len = items.length;
+		var i = -1;
+		var len = items.length;
 		while ( ++i < len ) {
 			if ( items[ i ].isMovable() ) {
 				firstMovable = items[ i ];

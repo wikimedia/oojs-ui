@@ -32,8 +32,7 @@
  * @deprecated
  */
 OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config ) {
-	var defaultInput,
-		defaultConfig = { popup: {} };
+	var defaultConfig = { popup: {} };
 
 	config = config || {};
 
@@ -50,7 +49,7 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 		// with an input widget inside it. For any other use cases
 		// the popup needs to be populated externally and the
 		// event handled to add tags separately and manually
-		defaultInput = new OO.ui.TextInputWidget();
+		var defaultInput = new OO.ui.TextInputWidget();
 
 		defaultConfig.popupInput = defaultInput;
 		defaultConfig.popup.$content = defaultInput.$element;

@@ -226,13 +226,14 @@ OO.ui.NumberInputWidget.prototype.getNumericValue = function () {
  * @param {number} delta Adjustment amount
  */
 OO.ui.NumberInputWidget.prototype.adjustValue = function ( delta ) {
-	var n, v = this.getNumericValue();
+	var v = this.getNumericValue();
 
 	delta = +delta;
 	if ( isNaN( delta ) || !isFinite( delta ) ) {
 		throw new Error( 'Delta must be a finite number' );
 	}
 
+	var n;
 	if ( isNaN( v ) ) {
 		n = 0;
 	} else {

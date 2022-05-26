@@ -30,8 +30,7 @@
  *  preview (for performance).
  */
 OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
-	var dragHandler, droppable,
-		isSupported = this.constructor.static.isSupported();
+	var isSupported = this.constructor.static.isSupported();
 
 	// Configuration initialization
 	config = $.extend( {
@@ -57,7 +56,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	}
 
 	// Properties
-	droppable = config.droppable && isSupported;
+	var droppable = config.droppable && isSupported;
 	this.showDropTarget = droppable && config.showDropTarget;
 	this.thumbnailSizeLimit = config.thumbnailSizeLimit;
 
@@ -100,7 +99,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 
 	// Events
 	if ( droppable ) {
-		dragHandler = this.onDragEnterOrOver.bind( this );
+		var dragHandler = this.onDragEnterOrOver.bind( this );
 		this.$element.on( {
 			dragenter: dragHandler,
 			dragover: dragHandler,
@@ -135,9 +134,8 @@ OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.PendingElement );
  * @return {boolean}
  */
 OO.ui.SelectFileWidget.static.isSupported = function () {
-	var $input;
 	if ( OO.ui.SelectFileWidget.static.isSupportedCache === null ) {
-		$input = $( '<input>' ).attr( 'type', 'file' );
+		var $input = $( '<input>' ).attr( 'type', 'file' );
 		OO.ui.SelectFileWidget.static.isSupportedCache = $input[ 0 ].files !== undefined;
 	}
 	return OO.ui.SelectFileWidget.static.isSupportedCache;
@@ -299,13 +297,11 @@ OO.ui.SelectFileWidget.prototype.loadAndGetImageUrl = function ( file ) {
  * @inheritdoc
  */
 OO.ui.SelectFileWidget.prototype.onFileSelected = function ( e ) {
-	var files;
-
 	if ( this.inputClearing ) {
 		return;
 	}
 
-	files = this.filterFiles( e.target.files || [] );
+	var files = this.filterFiles( e.target.files || [] );
 
 	// After a file is selected clear the native widget to avoid confusion
 	this.inputClearing = true;
@@ -337,8 +333,7 @@ OO.ui.SelectFileWidget.prototype.onDropTargetClick = function () {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
-	var itemsOrFiles,
-		hasDroppableFile = false,
+	var hasDroppableFile = false,
 		dt = e.originalEvent.dataTransfer;
 
 	e.preventDefault();
@@ -352,7 +347,7 @@ OO.ui.SelectFileWidget.prototype.onDragEnterOrOver = function ( e ) {
 
 	// DataTransferItem and File both have a type property, but in Chrome files
 	// have no information at this point.
-	itemsOrFiles = dt.items || dt.files;
+	var itemsOrFiles = dt.items || dt.files;
 	if ( itemsOrFiles && itemsOrFiles.length ) {
 		if ( this.filterFiles( itemsOrFiles ).length ) {
 			hasDroppableFile = true;
@@ -391,8 +386,7 @@ OO.ui.SelectFileWidget.prototype.onDragLeave = function () {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
-	var files,
-		dt = e.originalEvent.dataTransfer;
+	var dt = e.originalEvent.dataTransfer;
 
 	e.preventDefault();
 	e.stopPropagation();
@@ -402,7 +396,7 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 		return false;
 	}
 
-	files = this.filterFiles( dt.files || [] );
+	var files = this.filterFiles( dt.files || [] );
 	this.setValue( files );
 
 	return false;

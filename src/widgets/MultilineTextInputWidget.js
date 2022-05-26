@@ -148,9 +148,6 @@ OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function ( e ) {
  * @fires resize
  */
 OO.ui.MultilineTextInputWidget.prototype.adjustSize = function ( force ) {
-	var scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError,
-		idealHeight, newHeight, scrollWidth, property;
-
 	if ( force || this.$input.val() !== this.valCache ) {
 		if ( this.autosize ) {
 			this.$clone
@@ -163,39 +160,39 @@ OO.ui.MultilineTextInputWidget.prototype.adjustSize = function ( force ) {
 
 			this.valCache = this.$input.val();
 
-			scrollHeight = this.$clone[ 0 ].scrollHeight;
+			var scrollHeight = this.$clone[ 0 ].scrollHeight;
 
 			// Remove inline height property to measure natural heights
 			this.$clone.css( 'height', '' );
-			innerHeight = this.$clone.innerHeight();
-			outerHeight = this.$clone.outerHeight();
+			var innerHeight = this.$clone.innerHeight();
+			var outerHeight = this.$clone.outerHeight();
 
 			// Measure max rows height
 			this.$clone
 				.attr( 'rows', this.maxRows )
 				.css( 'height', 'auto' )
 				.val( '' );
-			maxInnerHeight = this.$clone.innerHeight();
+			var maxInnerHeight = this.$clone.innerHeight();
 
 			// Difference between reported innerHeight and scrollHeight with no scrollbars present.
 			// This is sometimes non-zero on Blink-based browsers, depending on zoom level.
-			measurementError = maxInnerHeight - this.$clone[ 0 ].scrollHeight;
-			idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
+			var measurementError = maxInnerHeight - this.$clone[ 0 ].scrollHeight;
+			var idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
 
 			this.$clone.addClass( 'oo-ui-element-hidden' );
 
 			// Only apply inline height when expansion beyond natural height is needed
 			// Use the difference between the inner and outer height as a buffer
-			newHeight = idealHeight > innerHeight ? idealHeight + ( outerHeight - innerHeight ) : '';
+			var newHeight = idealHeight > innerHeight ? idealHeight + ( outerHeight - innerHeight ) : '';
 			if ( newHeight !== this.styleHeight ) {
 				this.$input.css( 'height', newHeight );
 				this.styleHeight = newHeight;
 				this.emit( 'resize' );
 			}
 		}
-		scrollWidth = this.$input[ 0 ].offsetWidth - this.$input[ 0 ].clientWidth;
+		var scrollWidth = this.$input[ 0 ].offsetWidth - this.$input[ 0 ].clientWidth;
 		if ( scrollWidth !== this.scrollWidth ) {
-			property = this.$element.css( 'direction' ) === 'rtl' ? 'left' : 'right';
+			var property = this.$element.css( 'direction' ) === 'rtl' ? 'left' : 'right';
 			// Reset
 			this.$label.css( { right: '', left: '' } );
 			this.$indicator.css( { right: '', left: '' } );

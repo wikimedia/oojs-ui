@@ -86,10 +86,9 @@ OO.ui.CheckboxMultioptionWidget.prototype.focus = function () {
  * @param {jQuery.Event} e
  */
 OO.ui.CheckboxMultioptionWidget.prototype.onKeyDown = function ( e ) {
-	var
-		element = this.getElementGroup(),
-		nextItem;
+	var element = this.getElementGroup();
 
+	var nextItem;
 	if ( e.keyCode === OO.ui.Keys.LEFT || e.keyCode === OO.ui.Keys.UP ) {
 		nextItem = element.getRelativeFocusableItem( this, -1 );
 	} else if ( e.keyCode === OO.ui.Keys.RIGHT || e.keyCode === OO.ui.Keys.DOWN ) {

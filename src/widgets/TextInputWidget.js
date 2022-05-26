@@ -294,13 +294,13 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
 		return;
 	}
 
-	var onRemove,
-		widget = this,
+	var widget = this,
 		topmostNode = this.$element[ 0 ];
 	while ( topmostNode.parentNode ) {
 		topmostNode = topmostNode.parentNode;
 	}
 
+	var onRemove;
 	// We have no way to detect the $element being attached somewhere without observing the
 	// entire DOM with subtree modifications, which would hurt performance. So we cheat: we hook
 	// to the parent node of $element, and instead detect when $element is removed from it (and

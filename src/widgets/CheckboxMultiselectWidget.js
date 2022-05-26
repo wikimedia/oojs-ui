@@ -64,12 +64,12 @@ OO.inheritClass( OO.ui.CheckboxMultiselectWidget, OO.ui.MultiselectWidget );
  *  in the select.
  */
 OO.ui.CheckboxMultiselectWidget.prototype.getRelativeFocusableItem = function ( item, direction ) {
-	var currentIndex, nextIndex, i,
-		increase = direction > 0 ? 1 : -1,
+	var increase = direction > 0 ? 1 : -1,
 		len = this.items.length;
 
+	var nextIndex;
 	if ( item ) {
-		currentIndex = this.items.indexOf( item );
+		var currentIndex = this.items.indexOf( item );
 		nextIndex = ( currentIndex + increase + len ) % len;
 	} else {
 		// If no item is selected and moving forward, start at the beginning.
@@ -77,7 +77,7 @@ OO.ui.CheckboxMultiselectWidget.prototype.getRelativeFocusableItem = function ( 
 		nextIndex = direction > 0 ? 0 : len - 1;
 	}
 
-	for ( i = 0; i < len; i++ ) {
+	for ( var i = 0; i < len; i++ ) {
 		item = this.items[ nextIndex ];
 		if ( item && !item.isDisabled() ) {
 			return item;
@@ -93,26 +93,25 @@ OO.ui.CheckboxMultiselectWidget.prototype.getRelativeFocusableItem = function ( 
  * @param {jQuery.Event} e
  */
 OO.ui.CheckboxMultiselectWidget.prototype.onClick = function ( e ) {
-	var $options, lastClickedIndex, nowClickedIndex, i, direction, wasSelected, items,
-		$lastClicked = this.$lastClicked,
+	var $lastClicked = this.$lastClicked,
 		$nowClicked = $( e.target ).closest( '.oo-ui-checkboxMultioptionWidget' )
 			.not( '.oo-ui-widget-disabled' );
 
 	// Allow selecting multiple options at once by Shift-clicking them
 	if ( $lastClicked && $nowClicked.length && e.shiftKey ) {
-		$options = this.$group.find( '.oo-ui-checkboxMultioptionWidget' );
-		lastClickedIndex = $options.index( $lastClicked );
-		nowClickedIndex = $options.index( $nowClicked );
+		var $options = this.$group.find( '.oo-ui-checkboxMultioptionWidget' );
+		var lastClickedIndex = $options.index( $lastClicked );
+		var nowClickedIndex = $options.index( $nowClicked );
 		// If it's the same item, either the user is being silly, or it's a fake event generated
 		// by the browser. In either case we don't need custom handling.
 		if ( nowClickedIndex !== lastClickedIndex ) {
-			items = this.items;
-			wasSelected = items[ nowClickedIndex ].isSelected();
-			direction = nowClickedIndex > lastClickedIndex ? 1 : -1;
+			var items = this.items;
+			var wasSelected = items[ nowClickedIndex ].isSelected();
+			var direction = nowClickedIndex > lastClickedIndex ? 1 : -1;
 
 			// This depends on the DOM order of the items and the order of the .items array being
 			// the same.
-			for ( i = lastClickedIndex; i !== nowClickedIndex; i += direction ) {
+			for ( var i = lastClickedIndex; i !== nowClickedIndex; i += direction ) {
 				if ( !items[ i ].isDisabled() ) {
 					items[ i ].setSelected( !wasSelected );
 				}
@@ -142,9 +141,8 @@ OO.ui.CheckboxMultiselectWidget.prototype.onClick = function ( e ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.CheckboxMultiselectWidget.prototype.focus = function () {
-	var item;
 	if ( !this.isDisabled() ) {
-		item = this.getRelativeFocusableItem( null, 1 );
+		var item = this.getRelativeFocusableItem( null, 1 );
 		if ( item ) {
 			item.focus();
 		}

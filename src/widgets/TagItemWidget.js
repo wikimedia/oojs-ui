@@ -171,8 +171,6 @@ OO.ui.TagItemWidget.prototype.remove = function () {
  * @return {boolean|undefined} false to stop the operation
  */
 OO.ui.TagItemWidget.prototype.onKeyDown = function ( e ) {
-	var movement;
-
 	if (
 		!this.isDisabled() &&
 		!this.isFixed() &&
@@ -187,6 +185,8 @@ OO.ui.TagItemWidget.prototype.onKeyDown = function ( e ) {
 		e.keyCode === OO.ui.Keys.LEFT ||
 		e.keyCode === OO.ui.Keys.RIGHT
 	) {
+		var movement;
+
 		if ( OO.ui.Element.static.getDir( this.$element ) === 'rtl' ) {
 			movement = {
 				left: 'forwards',

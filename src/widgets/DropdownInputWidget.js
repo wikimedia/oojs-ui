@@ -106,10 +106,9 @@ OO.ui.DropdownInputWidget.prototype.onMenuSelect = function ( item ) {
  * @inheritdoc
  */
 OO.ui.DropdownInputWidget.prototype.setValue = function ( value ) {
-	var selected;
 	value = this.cleanUpValue( value );
 	// Only allow setting values that are actually present in the dropdown
-	selected = this.dropdownWidget.getMenu().findItemFromData( value ) ||
+	var selected = this.dropdownWidget.getMenu().findItemFromData( value ) ||
 		this.dropdownWidget.getMenu().findFirstSelectableItem();
 	this.dropdownWidget.getMenu().selectItem( selected );
 	value = selected ? selected.getData() : '';
@@ -160,17 +159,18 @@ OO.ui.DropdownInputWidget.prototype.setOptions = function ( options ) {
  * @private
  */
 OO.ui.DropdownInputWidget.prototype.setOptionsData = function ( options ) {
-	var optionWidgets, optIndex, opt, previousOptgroup, optionWidget, optValue,
-		widget = this;
+	var widget = this;
 
 	this.optionsDirty = true;
 
 	// Go through all the supplied option configs and create either
 	// MenuSectionOption or MenuOption widgets from each.
-	optionWidgets = [];
-	for ( optIndex = 0; optIndex < options.length; optIndex++ ) {
-		opt = options[ optIndex ];
+	var optionWidgets = [];
+	var previousOptgroup;
+	for ( var optIndex = 0; optIndex < options.length; optIndex++ ) {
+		var opt = options[ optIndex ];
 
+		var optionWidget;
 		if ( opt.optgroup !== undefined ) {
 			// Create a <optgroup> menu item.
 			optionWidget = widget.createMenuSectionOptionWidget( opt.optgroup );
@@ -178,7 +178,7 @@ OO.ui.DropdownInputWidget.prototype.setOptionsData = function ( options ) {
 
 		} else {
 			// Create a normal <option> menu item.
-			optValue = widget.cleanUpValue( opt.data );
+			var optValue = widget.cleanUpValue( opt.data );
 			optionWidget = widget.createMenuOptionWidget(
 				optValue,
 				opt.label !== undefined ? opt.label : optValue

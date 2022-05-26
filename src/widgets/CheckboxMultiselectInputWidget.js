@@ -136,13 +136,12 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setValue = function ( value ) {
  * @return {string[]} Cleaned up value
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.cleanUpValue = function ( value ) {
-	var i, singleValue,
-		cleanValue = [];
+	var cleanValue = [];
 	if ( !Array.isArray( value ) ) {
 		return cleanValue;
 	}
-	for ( i = 0; i < value.length; i++ ) {
-		singleValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
+	for ( var i = 0; i < value.length; i++ ) {
+		var singleValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
 			.call( this, value[ i ] );
 		// Remove options that we don't have here
 		if ( !this.checkboxMultiselectWidget.findItemFromData( singleValue ) ) {
@@ -200,11 +199,10 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( optio
 	this.checkboxMultiselectWidget
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
-			var optValue, item, optDisabled;
-			optValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
+			var optValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
 				.call( widget, opt.data );
-			optDisabled = opt.disabled !== undefined ? opt.disabled : false;
-			item = new OO.ui.CheckboxMultioptionWidget( {
+			var optDisabled = opt.disabled !== undefined ? opt.disabled : false;
+			var item = new OO.ui.CheckboxMultioptionWidget( {
 				data: optValue,
 				label: opt.label !== undefined ? opt.label : optValue,
 				disabled: optDisabled

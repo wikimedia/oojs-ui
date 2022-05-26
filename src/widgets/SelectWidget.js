@@ -320,14 +320,14 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
  * @param {KeyboardEvent} e Key down event
  */
 OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
-	var nextItem,
-		handled = false,
+	var handled = false,
 		selected = this.findSelectedItems(),
 		currentItem = this.findHighlightedItem() || (
 			Array.isArray( selected ) ? selected[ 0 ] : selected
 		),
 		firstItem = this.getItems()[ 0 ];
 
+	var nextItem;
 	if ( !this.isDisabled() && this.isVisible() ) {
 		switch ( e.keyCode ) {
 			case OO.ui.Keys.ENTER:
@@ -687,10 +687,10 @@ OO.ui.SelectWidget.prototype.highlightItem = function ( item ) {
  * @return {OO.ui.Element|null} Item with equivalent label, `null` if none exists
  */
 OO.ui.SelectWidget.prototype.getItemFromLabel = function ( label, prefix ) {
-	var i, item,
-		len = this.items.length,
+	var len = this.items.length,
 		filter = this.getItemMatcher( label, 'exact' );
 
+	var i, item;
 	for ( i = 0; i < len; i++ ) {
 		item = this.items[ i ];
 		if ( item instanceof OO.ui.OptionWidget && item.isSelectable() && filter( item ) ) {
@@ -911,10 +911,10 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
  * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the select
  */
 OO.ui.SelectWidget.prototype.findRelativeSelectableItem = function ( item, direction, filter ) {
-	var nextIndex,
-		increase = direction > 0 ? 1 : -1,
+	var increase = direction > 0 ? 1 : -1,
 		len = this.items.length;
 
+	var nextIndex;
 	if ( item instanceof OO.ui.OptionWidget ) {
 		var currentIndex = this.items.indexOf( item );
 		nextIndex = ( currentIndex + increase + len ) % len;

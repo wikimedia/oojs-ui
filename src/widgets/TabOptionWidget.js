@@ -56,12 +56,11 @@ OO.ui.TabOptionWidget.static.scrollIntoViewOnSelect = true;
  * @return {jQuery.Promise} Promise which resolves when the scroll is complete
  */
 OO.ui.TabOptionWidget.prototype.scrollElementIntoView = function ( config ) {
-	var padding;
 	if ( !OO.ui.isMobile() || !this.getElementGroup() ) {
 		// Parent method
 		return OO.ui.TabOptionWidget.super.prototype.scrollElementIntoView.call( this );
 	} else {
-		padding = Math.max( (
+		var padding = Math.max( (
 			this.getElementGroup().$element[ 0 ].clientWidth - this.$element[ 0 ].clientWidth
 		) / 2, 0 );
 		// Parent method

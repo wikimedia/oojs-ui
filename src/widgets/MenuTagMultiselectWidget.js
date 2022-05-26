@@ -27,15 +27,14 @@
  * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: … }`
  */
 OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config ) {
-	var options, selected, configCopy,
-		$autoCloseIgnore = $( [] );
+	var $autoCloseIgnore = $( [] );
 
 	config = config || {};
 
 	// Ensure that any pre-selected items exist as menu options,
 	// so that they can be added as tags from #setValue
-	options = config.options || [];
-	selected = config.selected || [];
+	var options = config.options || [];
+	var selected = config.selected || [];
 	options = options.concat(
 		selected.map( function ( option ) {
 			if ( typeof option === 'string' ) {
@@ -48,7 +47,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		} )
 	);
 
-	configCopy = OO.copy( config );
+	var configCopy = OO.copy( config );
 	configCopy.options = options;
 	configCopy.selected = selected;
 
@@ -236,7 +235,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.setValue = function ( valueObject ) {
 
 	this.clearItems();
 	valueObject.forEach( function ( obj ) {
-		var data, label, menuItem;
+		var data, label;
 
 		if ( typeof obj === 'string' ) {
 			data = label = obj;
@@ -246,7 +245,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.setValue = function ( valueObject ) {
 		}
 
 		// Check if the item is in the menu
-		menuItem = this.menu.getItemFromLabel( label ) || this.menu.findItemFromData( data );
+		var menuItem = this.menu.getItemFromLabel( label ) || this.menu.findItemFromData( data );
 		if ( menuItem ) {
 			// Menu item found, add the menu item
 			this.addTag( menuItem.getData(), menuItem.getLabel() );
@@ -280,14 +279,13 @@ OO.ui.MenuTagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
  * @chainable
  */
 OO.ui.MenuTagMultiselectWidget.prototype.initializeMenuSelection = function () {
-	var highlightedItem;
 	this.menu.highlightItem(
 		this.allowArbitrary ?
 			null :
 			this.menu.findFirstSelectableItem()
 	);
 
-	highlightedItem = this.menu.findHighlightedItem();
+	var highlightedItem = this.menu.findHighlightedItem();
 	// Scroll to the highlighted item, if it exists
 	if ( highlightedItem ) {
 		this.menu.scrollItemIntoView( highlightedItem );

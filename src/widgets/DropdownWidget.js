@@ -57,8 +57,6 @@
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  */
 OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
-	var labelId;
-
 	// Configuration initialization
 	config = $.extend( { indicator: 'down' }, config );
 
@@ -101,7 +99,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	} );
 
 	// Initialization
-	labelId = OO.ui.generateElementId();
+	var labelId = OO.ui.generateElementId();
 	this.setLabelId( labelId );
 	this.$label
 		.attr( {

@@ -213,14 +213,15 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 		return;
 	}
 
-	var i, item, section, sectionEmpty,
-		anyVisible = false;
+	var anyVisible = false;
 
 	var showAll = !this.isVisible() || this.previouslySelectedValue === this.$input.val(),
 		filter = showAll ? null : this.getItemMatcher( this.$input.val(), this.filterMode );
 	// Hide non-matching options, and also hide section headers if all options
 	// in their section are hidden.
-	for ( i = 0; i < this.items.length; i++ ) {
+	var item;
+	var section, sectionEmpty;
+	for ( var i = 0; i < this.items.length; i++ ) {
 		item = this.items[ i ];
 		if ( item instanceof OO.ui.MenuSectionOptionWidget ) {
 			if ( section ) {
@@ -396,10 +397,8 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
-	var change, originalHeight, flippedHeight, selectedItem;
-
 	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
-	change = visible !== this.isVisible();
+	var change = visible !== this.isVisible();
 
 	if ( visible && !this.warnedUnattached && !this.isElementAttached() ) {
 		OO.ui.warnDeprecation( 'MenuSelectWidget#toggle: Before calling this method, the menu must be attached to the DOM.' );
@@ -443,14 +442,14 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 				this.originalVerticalPosition !== 'center'
 			) {
 				// If opening the menu in one direction causes it to be clipped, flip it
-				originalHeight = this.$element.height();
+				var originalHeight = this.$element.height();
 				this.setVerticalPosition(
 					this.constructor.static.flippedPositions[ this.originalVerticalPosition ]
 				);
 				if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
 					// If flipping also causes it to be clipped, open in whichever direction
 					// we have more space
-					flippedHeight = this.$element.height();
+					var flippedHeight = this.$element.height();
 					if ( originalHeight > flippedHeight ) {
 						this.setVerticalPosition( this.originalVerticalPosition );
 					}
@@ -461,7 +460,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 
 			this.$focusOwner.attr( 'aria-expanded', 'true' );
 
-			selectedItem = this.findSelectedItem();
+			var selectedItem = this.findSelectedItem();
 			if ( !this.multiselect && selectedItem ) {
 				// TODO: Verify if this is even needed; This is already done on highlight changes
 				// in SelectWidget#highlightItem, so we should just need to highlight the item

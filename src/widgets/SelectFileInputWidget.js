@@ -204,15 +204,14 @@ OO.ui.SelectFileInputWidget.prototype.filterFiles = function ( files ) {
 	var accept = this.accept;
 
 	function mimeAllowed( file ) {
-		var i, mimeTest,
-			mimeType = file.type;
+		var mimeType = file.type;
 
 		if ( !accept || !mimeType ) {
 			return true;
 		}
 
-		for ( i = 0; i < accept.length; i++ ) {
-			mimeTest = accept[ i ];
+		for ( var i = 0; i < accept.length; i++ ) {
+			var mimeTest = accept[ i ];
 			if ( mimeTest === mimeType ) {
 				return true;
 			} else if ( mimeTest.slice( -2 ) === '/*' ) {
