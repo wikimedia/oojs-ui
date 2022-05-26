@@ -32,15 +32,13 @@ OO.mixinClass( OO.ui.mixin.GroupWidget, OO.ui.mixin.GroupElement );
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.mixin.GroupWidget.prototype.setDisabled = function ( disabled ) {
-	var i, len;
-
 	// Parent method
 	// Note: Calling #setDisabled this way assumes this is mixed into an OO.ui.Widget
 	OO.ui.Widget.prototype.setDisabled.call( this, disabled );
 
 	// During construction, #setDisabled is called before the OO.ui.mixin.GroupElement constructor
 	if ( this.items ) {
-		for ( i = 0, len = this.items.length; i < len; i++ ) {
+		for ( var i = 0, len = this.items.length; i < len; i++ ) {
 			this.items[ i ].updateDisabled();
 		}
 	}

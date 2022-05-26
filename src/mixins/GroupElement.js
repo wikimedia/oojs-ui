@@ -53,10 +53,8 @@ OO.mixinClass( OO.ui.mixin.GroupElement, OO.EmitterList );
  * @param {jQuery} $group Element to use as group
  */
 OO.ui.mixin.GroupElement.prototype.setGroupElement = function ( $group ) {
-	var i, len;
-
 	this.$group = $group;
-	for ( i = 0, len = this.items.length; i < len; i++ ) {
+	for ( var i = 0, len = this.items.length; i < len; i++ ) {
 		this.$group.append( this.items[ i ].$element );
 	}
 };
@@ -71,11 +69,10 @@ OO.ui.mixin.GroupElement.prototype.setGroupElement = function ( $group ) {
  * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
  */
 OO.ui.mixin.GroupElement.prototype.findItemFromData = function ( data ) {
-	var i, len, item,
-		hash = OO.getHash( data );
+	var hash = OO.getHash( data );
 
-	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		item = this.items[ i ];
+	for ( var i = 0, len = this.items.length; i < len; i++ ) {
+		var item = this.items[ i ];
 		if ( hash === OO.getHash( item.getData() ) ) {
 			return item;
 		}
@@ -94,12 +91,11 @@ OO.ui.mixin.GroupElement.prototype.findItemFromData = function ( data ) {
  * @return {OO.ui.Element[]} Items with equivalent data
  */
 OO.ui.mixin.GroupElement.prototype.findItemsFromData = function ( data ) {
-	var i, len, item,
-		hash = OO.getHash( data ),
+	var hash = OO.getHash( data ),
 		items = [];
 
-	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		item = this.items[ i ];
+	for ( var i = 0, len = this.items.length; i < len; i++ ) {
+		var item = this.items[ i ];
 		if ( hash === OO.getHash( item.getData() ) ) {
 			items.push( item );
 		}
@@ -219,16 +215,14 @@ OO.ui.mixin.GroupElement.prototype.insertItemElements = function ( itemWidget, i
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
-	var i, len, item, index;
-
 	if ( items.length === 0 ) {
 		return this;
 	}
 
 	// Remove specific items elements
-	for ( i = 0, len = items.length; i < len; i++ ) {
-		item = items[ i ];
-		index = this.items.indexOf( item );
+	for ( var i = 0, len = items.length; i < len; i++ ) {
+		var item = items[ i ];
+		var index = this.items.indexOf( item );
 		if ( index !== -1 ) {
 			item.setElementGroup( null );
 			item.$element.detach();
@@ -252,10 +246,8 @@ OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.GroupElement.prototype.clearItems = function () {
-	var i, len;
-
 	// Remove all item elements
-	for ( i = 0, len = this.items.length; i < len; i++ ) {
+	for ( var i = 0, len = this.items.length; i < len; i++ ) {
 		this.items[ i ].setElementGroup( null );
 		this.items[ i ].$element.detach();
 	}

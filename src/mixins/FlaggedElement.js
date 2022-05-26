@@ -137,13 +137,12 @@ OO.ui.mixin.FlaggedElement.prototype.getFlags = function () {
  * @fires flag
  */
 OO.ui.mixin.FlaggedElement.prototype.clearFlags = function () {
-	var flag, className,
-		changes = {},
+	var changes = {},
 		remove = [],
 		classPrefix = 'oo-ui-flaggedElement-';
 
-	for ( flag in this.flags ) {
-		className = classPrefix + flag;
+	for ( var flag in this.flags ) {
+		var className = classPrefix + flag;
 		changes[ flag ] = false;
 		delete this.flags[ flag ];
 		remove.push( className );
@@ -170,12 +169,12 @@ OO.ui.mixin.FlaggedElement.prototype.clearFlags = function () {
  * @fires flag
  */
 OO.ui.mixin.FlaggedElement.prototype.setFlags = function ( flags ) {
-	var i, len, flag, className,
-		changes = {},
+	var changes = {},
 		add = [],
 		remove = [],
 		classPrefix = 'oo-ui-flaggedElement-';
 
+	var className, flag;
 	if ( typeof flags === 'string' ) {
 		className = classPrefix + flags;
 		// Set
@@ -184,7 +183,7 @@ OO.ui.mixin.FlaggedElement.prototype.setFlags = function ( flags ) {
 			add.push( className );
 		}
 	} else if ( Array.isArray( flags ) ) {
-		for ( i = 0, len = flags.length; i < len; i++ ) {
+		for ( var i = 0, len = flags.length; i < len; i++ ) {
 			flag = flags[ i ];
 			className = classPrefix + flag;
 			// Set

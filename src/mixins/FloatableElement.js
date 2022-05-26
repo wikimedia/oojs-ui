@@ -131,8 +131,6 @@ OO.ui.mixin.FloatableElement.prototype.setHorizontalPosition = function ( positi
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positioning ) {
-	var closestScrollableOfContainer;
-
 	if ( !this.$floatable || !this.$floatableContainer ) {
 		return this;
 	}
@@ -147,7 +145,7 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 	if ( this.positioning !== positioning ) {
 		this.positioning = positioning;
 
-		closestScrollableOfContainer = OO.ui.Element.static.getClosestScrollableContainer(
+		var closestScrollableOfContainer = OO.ui.Element.static.getClosestScrollableContainer(
 			this.$floatableContainer[ 0 ]
 		);
 		// If the scrollable is the root, we have to listen to scroll events
@@ -195,13 +193,12 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
  * @return {boolean}
  */
 OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element, $container ) {
-	var elemRect, contRect, topEdgeInBounds, bottomEdgeInBounds, leftEdgeInBounds,
-		rightEdgeInBounds, startEdgeInBounds, endEdgeInBounds, viewportSpacing,
-		direction = $element.css( 'direction' );
+	var direction = $element.css( 'direction' );
 
-	elemRect = $element[ 0 ].getBoundingClientRect();
+	var elemRect = $element[ 0 ].getBoundingClientRect();
+	var contRect;
 	if ( $container[ 0 ] === window ) {
-		viewportSpacing = OO.ui.getViewportSpacing();
+		var viewportSpacing = OO.ui.getViewportSpacing();
 		contRect = {
 			top: 0,
 			left: 0,
@@ -216,10 +213,11 @@ OO.ui.mixin.FloatableElement.prototype.isElementInViewport = function ( $element
 		contRect = $container[ 0 ].getBoundingClientRect();
 	}
 
-	topEdgeInBounds = elemRect.top >= contRect.top && elemRect.top <= contRect.bottom;
-	bottomEdgeInBounds = elemRect.bottom >= contRect.top && elemRect.bottom <= contRect.bottom;
-	leftEdgeInBounds = elemRect.left >= contRect.left && elemRect.left <= contRect.right;
-	rightEdgeInBounds = elemRect.right >= contRect.left && elemRect.right <= contRect.right;
+	var topEdgeInBounds = elemRect.top >= contRect.top && elemRect.top <= contRect.bottom;
+	var bottomEdgeInBounds = elemRect.bottom >= contRect.top && elemRect.bottom <= contRect.bottom;
+	var leftEdgeInBounds = elemRect.left >= contRect.left && elemRect.left <= contRect.right;
+	var rightEdgeInBounds = elemRect.right >= contRect.left && elemRect.right <= contRect.right;
+	var startEdgeInBounds, endEdgeInBounds;
 	if ( direction === 'rtl' ) {
 		startEdgeInBounds = rightEdgeInBounds;
 		endEdgeInBounds = leftEdgeInBounds;
@@ -314,9 +312,7 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
  * @return {Object} New position to apply with .css(). Keys are 'top', 'left', 'bottom' and 'right'.
  */
 OO.ui.mixin.FloatableElement.prototype.computePosition = function () {
-	var isBody, scrollableX, scrollableY, containerPos,
-		horizScrollbarHeight, vertScrollbarWidth, scrollTop, scrollLeft,
-		newPos = { top: '', left: '', bottom: '', right: '' },
+	var newPos = { top: '', left: '', bottom: '', right: '' },
 		direction = this.$floatableContainer.css( 'direction' ),
 		$offsetParent = this.$floatable.offsetParent();
 
@@ -325,24 +321,24 @@ OO.ui.mixin.FloatableElement.prototype.computePosition = function () {
 		// <html> element, but they do work on the <body>
 		$offsetParent = $( $offsetParent[ 0 ].ownerDocument.body );
 	}
-	isBody = $offsetParent.is( 'body' );
-	scrollableX = $offsetParent.css( 'overflow-x' ) === 'scroll' ||
+	var isBody = $offsetParent.is( 'body' );
+	var scrollableX = $offsetParent.css( 'overflow-x' ) === 'scroll' ||
 		$offsetParent.css( 'overflow-x' ) === 'auto';
-	scrollableY = $offsetParent.css( 'overflow-y' ) === 'scroll' ||
+	var scrollableY = $offsetParent.css( 'overflow-y' ) === 'scroll' ||
 		$offsetParent.css( 'overflow-y' ) === 'auto';
 
-	vertScrollbarWidth = $offsetParent.innerWidth() - $offsetParent.prop( 'clientWidth' );
-	horizScrollbarHeight = $offsetParent.innerHeight() - $offsetParent.prop( 'clientHeight' );
+	var vertScrollbarWidth = $offsetParent.innerWidth() - $offsetParent.prop( 'clientWidth' );
+	var horizScrollbarHeight = $offsetParent.innerHeight() - $offsetParent.prop( 'clientHeight' );
 	// We don't need to compute and add scrollTop and scrollLeft if the scrollable container
 	// is the body, or if it isn't scrollable
-	scrollTop = scrollableY && !isBody ?
+	var scrollTop = scrollableY && !isBody ?
 		$offsetParent.scrollTop() : 0;
-	scrollLeft = scrollableX && !isBody ?
+	var scrollLeft = scrollableX && !isBody ?
 		OO.ui.Element.static.getScrollLeft( $offsetParent[ 0 ] ) : 0;
 
 	// Avoid passing the <body> to getRelativePosition(), because it won't return what we expect
 	// if the <body> has a margin
-	containerPos = isBody ?
+	var containerPos = isBody ?
 		this.$floatableContainer.offset() :
 		OO.ui.Element.static.getRelativePosition( this.$floatableContainer, $offsetParent );
 	containerPos.bottom = containerPos.top + this.$floatableContainer.outerHeight();

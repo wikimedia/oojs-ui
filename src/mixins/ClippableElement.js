@@ -248,16 +248,6 @@ OO.ui.mixin.ClippableElement.prototype.getVerticalAnchorEdge = function () {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.ClippableElement.prototype.clip = function () {
-	var extraHeight, extraWidth, viewportSpacing,
-		desiredWidth, desiredHeight, allotedWidth, allotedHeight,
-		naturalWidth, naturalHeight, clipWidth, clipHeight,
-		$item, itemRect, $viewport, viewportRect, availableRect,
-		direction, vertScrollbarWidth, horizScrollbarHeight,
-		// Extra tolerance so that the sloppy code below doesn't result in results that are off
-		// by one or two pixels. (And also so that we have space to display drop shadows.)
-		// Chosen by fair dice roll.
-		buffer = 7;
-
 	if ( !this.clipping ) {
 		// this.$clippableScrollableContainer and this.$clippableWindow are null, so the below
 		// will fail
@@ -273,8 +263,9 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		return out;
 	}
 
-	viewportSpacing = OO.ui.getViewportSpacing();
+	var viewportSpacing = OO.ui.getViewportSpacing();
 
+	var $viewport, viewportRect;
 	if ( this.$clippableScrollableContainer.is( 'html, body' ) ) {
 		$viewport = $( this.$clippableScrollableContainer[ 0 ].ownerDocument.body );
 		// Dimensions of the browser window, rather than the element!
@@ -296,9 +287,9 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	}
 
 	// Account for scrollbar gutter
-	direction = $viewport.css( 'direction' );
-	vertScrollbarWidth = $viewport.innerWidth() - $viewport.prop( 'clientWidth' );
-	horizScrollbarHeight = $viewport.innerHeight() - $viewport.prop( 'clientHeight' );
+	var direction = $viewport.css( 'direction' );
+	var vertScrollbarWidth = $viewport.innerWidth() - $viewport.prop( 'clientWidth' );
+	var horizScrollbarHeight = $viewport.innerHeight() - $viewport.prop( 'clientHeight' );
 	viewportRect.bottom -= horizScrollbarHeight;
 	if ( direction === 'rtl' ) {
 		viewportRect.left += vertScrollbarWidth;
@@ -306,18 +297,21 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		viewportRect.right -= vertScrollbarWidth;
 	}
 
-	// Add arbitrary tolerance
+	// Extra tolerance so that the sloppy code below doesn't result in results that are off
+	// by one or two pixels. (And also so that we have space to display drop shadows.)
+	// Chosen by fair dice roll.
+	var buffer = 7;
 	viewportRect.top += buffer;
 	viewportRect.left += buffer;
 	viewportRect.right -= buffer;
 	viewportRect.bottom -= buffer;
 
-	$item = this.$clippableContainer || this.$clippable;
+	var $item = this.$clippableContainer || this.$clippable;
 
-	extraHeight = $item.outerHeight() - this.$clippable.outerHeight();
-	extraWidth = $item.outerWidth() - this.$clippable.outerWidth();
+	var extraHeight = $item.outerHeight() - this.$clippable.outerHeight();
+	var extraWidth = $item.outerWidth() - this.$clippable.outerWidth();
 
-	itemRect = $item[ 0 ].getBoundingClientRect();
+	var itemRect = $item[ 0 ].getBoundingClientRect();
 	// Convert into a plain object
 	itemRect = $.extend( {}, itemRect );
 
@@ -334,21 +328,21 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		itemRect.bottom = viewportRect.bottom;
 	}
 
-	availableRect = rectIntersection( viewportRect, itemRect );
+	var availableRect = rectIntersection( viewportRect, itemRect );
 
-	desiredWidth = Math.max( 0, availableRect.right - availableRect.left );
-	desiredHeight = Math.max( 0, availableRect.bottom - availableRect.top );
+	var desiredWidth = Math.max( 0, availableRect.right - availableRect.left );
+	var desiredHeight = Math.max( 0, availableRect.bottom - availableRect.top );
 	// It should never be desirable to exceed the dimensions of the browser viewport... right?
 	desiredWidth = Math.min( desiredWidth,
 		document.documentElement.clientWidth - viewportSpacing.left - viewportSpacing.right );
 	desiredHeight = Math.min( desiredHeight,
 		document.documentElement.clientHeight - viewportSpacing.top - viewportSpacing.right );
-	allotedWidth = Math.ceil( desiredWidth - extraWidth );
-	allotedHeight = Math.ceil( desiredHeight - extraHeight );
-	naturalWidth = this.$clippable.prop( 'scrollWidth' );
-	naturalHeight = this.$clippable.prop( 'scrollHeight' );
-	clipWidth = allotedWidth < naturalWidth;
-	clipHeight = allotedHeight < naturalHeight;
+	var allotedWidth = Math.ceil( desiredWidth - extraWidth );
+	var allotedHeight = Math.ceil( desiredHeight - extraHeight );
+	var naturalWidth = this.$clippable.prop( 'scrollWidth' );
+	var naturalHeight = this.$clippable.prop( 'scrollHeight' );
+	var clipWidth = allotedWidth < naturalWidth;
+	var clipHeight = allotedHeight < naturalHeight;
 
 	if ( clipWidth ) {
 		// The order matters here. If overflow is not set first, Chrome displays bogus scrollbars.

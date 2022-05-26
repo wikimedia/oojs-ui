@@ -128,13 +128,13 @@ OO.ui.mixin.DraggableElement.prototype.onDragMouseDown = function ( e ) {
  * @fires dragstart
  */
 OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
-	var element = this,
-		dataTransfer = e.originalEvent.dataTransfer;
+	var element = this;
 
 	if ( !this.wasHandleUsed || !this.isDraggable() ) {
 		return false;
 	}
 
+	var dataTransfer = e.originalEvent.dataTransfer;
 	// Define drop effect
 	dataTransfer.dropEffect = 'none';
 	dataTransfer.effectAllowed = 'move';

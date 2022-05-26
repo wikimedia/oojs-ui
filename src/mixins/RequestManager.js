@@ -31,8 +31,7 @@ OO.initClass( OO.ui.mixin.RequestManager );
 OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 	var widget = this,
 		value = this.getRequestQuery(),
-		deferred = $.Deferred(),
-		ourRequest;
+		deferred = $.Deferred();
 
 	this.abortRequest();
 	if ( Object.prototype.hasOwnProperty.call( this.requestCache, value ) ) {
@@ -42,7 +41,7 @@ OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 			this.pushPending();
 		}
 		this.requestQuery = value;
-		ourRequest = this.requestRequest = this.getRequest();
+		var ourRequest = this.requestRequest = this.getRequest();
 		ourRequest
 			.always( function () {
 				// We need to pop pending even if this is an old request, otherwise

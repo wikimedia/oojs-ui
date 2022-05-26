@@ -129,8 +129,6 @@ OO.ui.mixin.AccessKeyedElement.prototype.getAccessKey = function () {
  * @return {string}
  */
 OO.ui.mixin.AccessKeyedElement.prototype.formatTitleWithAccessKey = function ( title ) {
-	var accessKey;
-
 	if ( !this.$accessKeyed ) {
 		// Not initialized yet; the constructor will call updateTitle() which will rerun this
 		// function.
@@ -138,6 +136,7 @@ OO.ui.mixin.AccessKeyedElement.prototype.formatTitleWithAccessKey = function ( t
 	}
 	// Use jquery.accessKeyLabel if available to show modifiers, otherwise just display the
 	// single key.
+	var accessKey;
 	if ( $.fn.updateTooltipAccessKeys && $.fn.updateTooltipAccessKeys.getAccessKeyLabel ) {
 		accessKey = $.fn.updateTooltipAccessKeys.getAccessKeyLabel( this.$accessKeyed[ 0 ] );
 	} else {
