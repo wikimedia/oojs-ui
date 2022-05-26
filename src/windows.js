@@ -104,15 +104,14 @@ OO.ui.confirm = function ( text, options ) {
  *  resolve to `null`.
  */
 OO.ui.prompt = function ( text, options ) {
-	var instance,
-		manager = OO.ui.getWindowManager(),
+	var manager = OO.ui.getWindowManager(),
 		textInput = new OO.ui.TextInputWidget( ( options && options.textInput ) || {} ),
 		textField = new OO.ui.FieldLayout( textInput, {
 			align: 'top',
 			label: text
 		} );
 
-	instance = manager.openWindow( 'message', $.extend( {
+	var instance = manager.openWindow( 'message', $.extend( {
 		message: textField.$element
 	}, options ) );
 

@@ -187,15 +187,14 @@ OO.ui.MessageDialog.prototype.getReadyProcess = function ( data ) {
  * @inheritdoc
  */
 OO.ui.MessageDialog.prototype.getBodyHeight = function () {
-	var bodyHeight, oldOverflow,
-		$scrollable = this.container.$element;
+	var $scrollable = this.container.$element;
 
-	oldOverflow = $scrollable[ 0 ].style.overflow;
+	var oldOverflow = $scrollable[ 0 ].style.overflow;
 	$scrollable[ 0 ].style.overflow = 'hidden';
 
 	OO.ui.Element.static.reconsiderScrollbars( $scrollable[ 0 ] );
 
-	bodyHeight = this.text.$element.outerHeight( true );
+	var bodyHeight = this.text.$element.outerHeight( true );
 	$scrollable[ 0 ].style.overflow = oldOverflow;
 
 	return bodyHeight;
@@ -205,9 +204,10 @@ OO.ui.MessageDialog.prototype.getBodyHeight = function () {
  * @inheritdoc
  */
 OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
-	var
-		dialog = this,
+	var dialog = this,
 		$scrollable = this.container.$element;
+
+	// Parent method
 	OO.ui.MessageDialog.super.prototype.setDimensions.call( this, dim );
 
 	// Twiddle the overflow property, otherwise an unnecessary scrollbar will be produced.
@@ -279,19 +279,17 @@ OO.ui.MessageDialog.prototype.getActionWidgetConfig = function ( config ) {
  * @inheritdoc
  */
 OO.ui.MessageDialog.prototype.attachActions = function () {
-	var i, len, special, others;
-
 	// Parent method
 	OO.ui.MessageDialog.super.prototype.attachActions.call( this );
 
-	special = this.actions.getSpecial();
-	others = this.actions.getOthers();
+	var special = this.actions.getSpecial();
+	var others = this.actions.getOthers();
 
 	if ( special.safe ) {
 		this.$actions.append( special.safe.$element );
 		special.safe.toggleFramed( true );
 	}
-	for ( i = 0, len = others.length; i < len; i++ ) {
+	for ( var i = 0, len = others.length; i < len; i++ ) {
 		this.$actions.append( others[ i ].$element );
 		others[ i ].toggleFramed( true );
 	}

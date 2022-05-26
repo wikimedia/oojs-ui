@@ -200,18 +200,16 @@ OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
  * @inheritdoc
  */
 OO.ui.ProcessDialog.prototype.attachActions = function () {
-	var i, len, other, special, others;
-
 	// Parent method
 	OO.ui.ProcessDialog.super.prototype.attachActions.call( this );
 
-	special = this.actions.getSpecial();
-	others = this.actions.getOthers();
+	var special = this.actions.getSpecial();
+	var others = this.actions.getOthers();
 	if ( special.primary ) {
 		this.$primaryActions.append( special.primary.$element );
 	}
-	for ( i = 0, len = others.length; i < len; i++ ) {
-		other = others[ i ];
+	for ( var i = 0, len = others.length; i < len; i++ ) {
+		var other = others[ i ];
 		this.$otherActions.append( other.$element );
 	}
 	if ( special.safe ) {
@@ -259,9 +257,9 @@ OO.ui.ProcessDialog.prototype.setDimensions = function () {
  * @return {OO.ui.MessageDialog} The dialog, for chaining
  */
 OO.ui.ProcessDialog.prototype.fitLabel = function () {
-	var safeWidth, primaryWidth, biggerWidth, labelWidth, navigationWidth, leftWidth, rightWidth,
-		size = this.getSizeProperties();
+	var size = this.getSizeProperties();
 
+	var navigationWidth;
 	if ( typeof size.width !== 'number' ) {
 		if ( this.isOpened() ) {
 			navigationWidth = this.$head.width() - 20;
@@ -280,12 +278,13 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
 		navigationWidth = size.width - 20;
 	}
 
-	safeWidth = this.$safeActions.width();
-	primaryWidth = this.$primaryActions.width();
-	biggerWidth = Math.max( safeWidth, primaryWidth );
+	var safeWidth = this.$safeActions.width();
+	var primaryWidth = this.$primaryActions.width();
+	var biggerWidth = Math.max( safeWidth, primaryWidth );
 
-	labelWidth = this.title.$element.width();
+	var labelWidth = this.title.$element.width();
 
+	var leftWidth, rightWidth;
 	if ( !OO.ui.isMobile() && 2 * biggerWidth + labelWidth < navigationWidth ) {
 		// We have enough space to center the label
 		leftWidth = rightWidth = biggerWidth;
@@ -313,8 +312,7 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
  * @param {OO.ui.Error[]|OO.ui.Error} errors Errors to be handled
  */
 OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
-	var i, len, actions,
-		items = [],
+	var items = [],
 		abilities = {},
 		recoverable = true,
 		warning = false;
@@ -323,7 +321,7 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 		errors = [ errors ];
 	}
 
-	for ( i = 0, len = errors.length; i < len; i++ ) {
+	for ( var i = 0, len = errors.length; i < len; i++ ) {
 		if ( !errors[ i ].isRecoverable() ) {
 			recoverable = false;
 		}
@@ -339,7 +337,7 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 	if ( recoverable ) {
 		abilities[ this.currentAction ] = true;
 		// Copy the flags from the first matching action.
-		actions = this.actions.get( { actions: this.currentAction } );
+		var actions = this.actions.get( { actions: this.currentAction } );
 		if ( actions.length ) {
 			this.retryButton.clearFlags().setFlags( actions[ 0 ].getFlags() );
 		}

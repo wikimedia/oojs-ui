@@ -273,11 +273,11 @@ OO.ui.Window.prototype.withoutSizeTransitions = function ( callback ) {
  * @return {number} The height of the window contents (the dialog head, body and foot) in pixels
  */
 OO.ui.Window.prototype.getContentHeight = function () {
-	var bodyHeight,
-		win = this,
+	var win = this,
 		bodyStyleObj = this.$body[ 0 ].style,
 		frameStyleObj = this.$frame[ 0 ].style;
 
+	var bodyHeight;
 	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements.
 	// Disable transitions first, otherwise we'll get values from when the window was animating.
 	this.withoutSizeTransitions( function () {
@@ -492,10 +492,10 @@ OO.ui.Window.prototype.updateSize = function () {
  * @return {OO.ui.Window} The window, for chaining
  */
 OO.ui.Window.prototype.setDimensions = function ( dim ) {
-	var height,
-		win = this,
+	var win = this,
 		styleObj = this.$frame[ 0 ].style;
 
+	var height;
 	// Calculate the height we need to set using the correct width
 	if ( dim.height === undefined ) {
 		this.withoutSizeTransitions( function () {

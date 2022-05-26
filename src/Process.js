@@ -46,8 +46,6 @@ OO.initClass( OO.ui.Process );
  *  rejected and any remaining steps are not performed.
  */
 OO.ui.Process.prototype.execute = function () {
-	var i, len, promise;
-
 	/**
 	 * Continue execution.
 	 *
@@ -58,8 +56,7 @@ OO.ui.Process.prototype.execute = function () {
 	function proceed( step ) {
 		return function () {
 			// Execute step in the correct context
-			var deferred,
-				result = step.callback.call( step.context );
+			var result = step.callback.call( step.context );
 
 			if ( result === false ) {
 				// Use rejected promise for boolean false results
@@ -70,7 +67,7 @@ OO.ui.Process.prototype.execute = function () {
 					throw new Error( 'Cannot go back in time: flux capacitor is out of service' );
 				}
 				// Use a delayed promise for numbers, expecting them to be in milliseconds
-				deferred = $.Deferred();
+				var deferred = $.Deferred();
 				setTimeout( deferred.resolve, result );
 				return deferred.promise();
 			}
@@ -92,10 +89,11 @@ OO.ui.Process.prototype.execute = function () {
 		};
 	}
 
+	var promise;
 	if ( this.steps.length ) {
 		// Generate a chain reaction of promises
 		promise = proceed( this.steps[ 0 ] )();
-		for ( i = 1, len = this.steps.length; i < len; i++ ) {
+		for ( var i = 1, len = this.steps.length; i < len; i++ ) {
 			promise = promise.then( proceed( this.steps[ i ] ) );
 		}
 	} else {

@@ -191,9 +191,7 @@ OO.ui.ActionSet.prototype.onActionChange = function () {
  * @return {boolean} Action is special
  */
 OO.ui.ActionSet.prototype.isSpecial = function ( action ) {
-	var flag;
-
-	for ( flag in this.special ) {
+	for ( var flag in this.special ) {
 		if ( action === this.special[ flag ] ) {
 			return true;
 		}
@@ -217,27 +215,27 @@ OO.ui.ActionSet.prototype.isSpecial = function ( action ) {
  * @return {OO.ui.ActionWidget[]} Action widgets matching all criteria
  */
 OO.ui.ActionSet.prototype.get = function ( filters ) {
-	var i, len, list, category, actions, index, match, matches;
-
 	if ( filters ) {
 		this.organize();
 
+		var i, len;
 		// Collect candidates for the 3 categories "actions", "flags" and "modes"
-		matches = [];
-		for ( category in this.categorized ) {
-			list = filters[ category ];
+		var matches = [];
+		for ( var category in this.categorized ) {
+			var list = filters[ category ];
 			if ( list ) {
 				if ( !Array.isArray( list ) ) {
 					list = [ list ];
 				}
 				for ( i = 0, len = list.length; i < len; i++ ) {
-					actions = this.categorized[ category ][ list[ i ] ];
+					var actions = this.categorized[ category ][ list[ i ] ];
 					if ( Array.isArray( actions ) ) {
 						matches.push.apply( matches, actions );
 					}
 				}
 			}
 		}
+		var match;
 		// Remove by boolean filters
 		for ( i = 0, len = matches.length; i < len; i++ ) {
 			match = matches[ i ];
@@ -253,7 +251,7 @@ OO.ui.ActionSet.prototype.get = function ( filters ) {
 		// Remove duplicates
 		for ( i = 0, len = matches.length; i < len; i++ ) {
 			match = matches[ i ];
-			index = matches.lastIndexOf( match );
+			var index = matches.lastIndexOf( match );
 			while ( index !== i ) {
 				matches.splice( index, 1 );
 				len--;
@@ -303,11 +301,9 @@ OO.ui.ActionSet.prototype.getOthers = function () {
  * @fires change
  */
 OO.ui.ActionSet.prototype.setMode = function ( mode ) {
-	var i, len, action;
-
 	this.changing = true;
-	for ( i = 0, len = this.list.length; i < len; i++ ) {
-		action = this.list[ i ];
+	for ( var i = 0, len = this.list.length; i < len; i++ ) {
+		var action = this.list[ i ];
 		action.toggle( action.hasMode( mode ) );
 	}
 
@@ -331,11 +327,9 @@ OO.ui.ActionSet.prototype.setMode = function ( mode ) {
  * @return {OO.ui.ActionSet} The widget, for chaining
  */
 OO.ui.ActionSet.prototype.setAbilities = function ( actions ) {
-	var i, len, action, item;
-
-	for ( i = 0, len = this.list.length; i < len; i++ ) {
-		item = this.list[ i ];
-		action = item.getAction();
+	for ( var i = 0, len = this.list.length; i < len; i++ ) {
+		var item = this.list[ i ];
+		var action = item.getAction();
 		if ( actions[ action ] !== undefined ) {
 			item.setDisabled( !actions[ action ] );
 		}
@@ -378,11 +372,9 @@ OO.ui.ActionSet.prototype.forEach = function ( filter, callback ) {
  * @fires change
  */
 OO.ui.ActionSet.prototype.add = function ( actions ) {
-	var i, len, action;
-
 	this.changing = true;
-	for ( i = 0, len = actions.length; i < len; i++ ) {
-		action = actions[ i ];
+	for ( var i = 0, len = actions.length; i < len; i++ ) {
+		var action = actions[ i ];
 		action.connect( this, {
 			click: [ 'emit', 'click', action ],
 			toggle: [ 'onActionChange' ]
@@ -409,12 +401,10 @@ OO.ui.ActionSet.prototype.add = function ( actions ) {
  * @fires change
  */
 OO.ui.ActionSet.prototype.remove = function ( actions ) {
-	var i, len, index, action;
-
 	this.changing = true;
-	for ( i = 0, len = actions.length; i < len; i++ ) {
-		action = actions[ i ];
-		index = this.list.indexOf( action );
+	for ( var i = 0, len = actions.length; i < len; i++ ) {
+		var action = actions[ i ];
+		var index = this.list.indexOf( action );
 		if ( index !== -1 ) {
 			action.disconnect( this );
 			this.list.splice( index, 1 );
@@ -439,12 +429,11 @@ OO.ui.ActionSet.prototype.remove = function ( actions ) {
  * @fires change
  */
 OO.ui.ActionSet.prototype.clear = function () {
-	var i, len, action,
-		removed = this.list.slice();
+	var removed = this.list.slice();
 
 	this.changing = true;
-	for ( i = 0, len = this.list.length; i < len; i++ ) {
-		action = this.list[ i ];
+	for ( var i = 0, len = this.list.length; i < len; i++ ) {
+		var action = this.list[ i ];
 		action.disconnect( this );
 	}
 
@@ -469,17 +458,17 @@ OO.ui.ActionSet.prototype.clear = function () {
  * @return {OO.ui.ActionSet} The widget, for chaining
  */
 OO.ui.ActionSet.prototype.organize = function () {
-	var i, iLen, j, jLen, flag, action, category, list, item, special,
-		specialFlags = this.constructor.static.specialFlags;
+	var specialFlags = this.constructor.static.specialFlags;
 
 	if ( !this.organized ) {
 		this.categorized = {};
 		this.special = {};
 		this.others = [];
-		for ( i = 0, iLen = this.list.length; i < iLen; i++ ) {
-			action = this.list[ i ];
+		for ( var i = 0, iLen = this.list.length; i < iLen; i++ ) {
+			var action = this.list[ i ];
+			var j, jLen;
 			// Populate the 3 categories "actions", "flags" and "modes"
-			for ( category in this.categories ) {
+			for ( var category in this.categories ) {
 				if ( !this.categorized[ category ] ) {
 					this.categorized[ category ] = {};
 				}
@@ -489,12 +478,12 @@ OO.ui.ActionSet.prototype.organize = function () {
 				 * {@see OO.ui.FlaggedElement.getFlags}
 				 * {@see OO.ui.ActionWidget.getModes}
 				 */
-				list = action[ this.categories[ category ] ]();
+				var list = action[ this.categories[ category ] ]();
 				if ( !Array.isArray( list ) ) {
 					list = [ list ];
 				}
 				for ( j = 0, jLen = list.length; j < jLen; j++ ) {
-					item = list[ j ];
+					var item = list[ j ];
 					if ( !this.categorized[ category ][ item ] ) {
 						this.categorized[ category ][ item ] = [];
 					}
@@ -503,9 +492,9 @@ OO.ui.ActionSet.prototype.organize = function () {
 			}
 			if ( action.isVisible() ) {
 				// Populate special/others
-				special = false;
+				var special = false;
 				for ( j = 0, jLen = specialFlags.length; j < jLen; j++ ) {
-					flag = specialFlags[ j ];
+					var flag = specialFlags[ j ];
 					if ( !this.special[ flag ] && action.hasFlag( flag ) ) {
 						this.special[ flag ] = action;
 						special = true;

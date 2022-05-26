@@ -137,13 +137,12 @@ OO.ui.Dialog.static.escapable = true;
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.Dialog.prototype.onDialogKeyDown = function ( e ) {
-	var actions;
 	if ( e.which === OO.ui.Keys.ESCAPE && this.constructor.static.escapable ) {
 		this.executeAction( '' );
 		e.preventDefault();
 		e.stopPropagation();
 	} else if ( e.which === OO.ui.Keys.ENTER && ( e.ctrlKey || e.metaKey ) ) {
-		actions = this.actions.get( { flags: 'primary', visible: true, disabled: false } );
+		var actions = this.actions.get( { flags: 'primary', visible: true, disabled: false } );
 		if ( actions.length > 0 ) {
 			this.executeAction( actions[ 0 ].getAction() );
 			e.preventDefault();
@@ -274,8 +273,8 @@ OO.ui.Dialog.prototype.initialize = function () {
  * @return {OO.ui.ActionWidget[]} Action widgets
  */
 OO.ui.Dialog.prototype.getActionWidgets = function ( actions ) {
-	var i, len, widgets = [];
-	for ( i = 0, len = actions.length; i < len; i++ ) {
+	var widgets = [];
+	for ( var i = 0, len = actions.length; i < len; i++ ) {
 		widgets.push( this.getActionWidget( actions[ i ] ) );
 	}
 	return widgets;
@@ -323,10 +322,8 @@ OO.ui.Dialog.prototype.attachActions = function () {
  * @return {OO.ui.Dialog} The dialog, for chaining
  */
 OO.ui.Dialog.prototype.detachActions = function () {
-	var i, len;
-
 	// Detach all actions that may have been previously attached
-	for ( i = 0, len = this.attachedActions.length; i < len; i++ ) {
+	for ( var i = 0, len = this.attachedActions.length; i < len; i++ ) {
 		this.attachedActions[ i ].$element.detach();
 	}
 	this.attachedActions = [];
