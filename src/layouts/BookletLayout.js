@@ -156,11 +156,9 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
  * @param {jQuery.Event} e Focusin event
  */
 OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
-	var name, $target;
-
 	// Find the page that an element was focused within
-	$target = $( e.target ).closest( '.oo-ui-pageLayout' );
-	for ( name in this.pages ) {
+	var $target = $( e.target ).closest( '.oo-ui-pageLayout' );
+	for ( var name in this.pages ) {
 		// Check for page match, exclude current page to find only page changes
 		if ( this.pages[ name ].$element[ 0 ] === $target[ 0 ] && name !== this.currentPageName ) {
 			this.setPage( name );
@@ -176,11 +174,12 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
  * @param {OO.ui.PanelLayout|null} page The page panel that is now the current panel
  */
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
-	var promise, layout = this;
+	var layout = this;
 	// If everything is unselected, do nothing
 	if ( !page ) {
 		return;
 	}
+	var promise;
 	// For continuous BookletLayouts, scroll the selected page into view first
 	if ( this.stackLayout.continuous && !this.scrolling ) {
 		promise = page.scrollElementIntoView();
@@ -205,9 +204,9 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
  * @param {number} [itemIndex] A specific item to focus on
  */
 OO.ui.BookletLayout.prototype.focus = function ( itemIndex ) {
-	var page,
-		items = this.stackLayout.getItems();
+	var items = this.stackLayout.getItems();
 
+	var page;
 	if ( itemIndex !== undefined && items[ itemIndex ] ) {
 		page = items[ itemIndex ];
 	} else {
@@ -308,28 +307,29 @@ OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
  * @return {OO.ui.PageLayout|null} Page closest to the specified page
  */
 OO.ui.BookletLayout.prototype.findClosestPage = function ( page ) {
-	var next, prev, level,
-		pages = this.stackLayout.getItems(),
+	var pages = this.stackLayout.getItems(),
 		index = pages.indexOf( page );
 
-	if ( index !== -1 ) {
-		next = pages[ index + 1 ];
-		prev = pages[ index - 1 ];
-		// Prefer adjacent pages at the same level
-		if ( this.outlined ) {
-			level = this.outlineSelectWidget.findItemFromData( page.getName() ).getLevel();
-			if (
-				prev &&
-				level === this.outlineSelectWidget.findItemFromData( prev.getName() ).getLevel()
-			) {
-				return prev;
-			}
-			if (
-				next &&
-				level === this.outlineSelectWidget.findItemFromData( next.getName() ).getLevel()
-			) {
-				return next;
-			}
+	if ( index === -1 ) {
+		return null;
+	}
+
+	var next = pages[ index + 1 ];
+	var prev = pages[ index - 1 ];
+	// Prefer adjacent pages at the same level
+	if ( this.outlined ) {
+		var level = this.outlineSelectWidget.findItemFromData( page.getName() ).getLevel();
+		if (
+			prev &&
+			level === this.outlineSelectWidget.findItemFromData( prev.getName() ).getLevel()
+		) {
+			return prev;
+		}
+		if (
+			next &&
+			level === this.outlineSelectWidget.findItemFromData( next.getName() ).getLevel()
+		) {
+			return next;
 		}
 	}
 	return prev || next || null;
@@ -399,11 +399,12 @@ OO.ui.BookletLayout.prototype.getCurrentPageName = function () {
  * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
-	var i, len, name, page, item, currentIndex,
-		stackLayoutPages = this.stackLayout.getItems(),
+	var stackLayoutPages = this.stackLayout.getItems(),
 		remove = [],
 		items = [];
 
+	var i, len;
+	var page, name;
 	// Remove pages with same names
 	for ( i = 0, len = pages.length; i < len; i++ ) {
 		page = pages[ i ];
@@ -411,7 +412,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 
 		if ( Object.prototype.hasOwnProperty.call( this.pages, name ) ) {
 			// Correct the insertion index
-			currentIndex = stackLayoutPages.indexOf( this.pages[ name ] );
+			var currentIndex = stackLayoutPages.indexOf( this.pages[ name ] );
 			if ( currentIndex !== -1 && currentIndex + 1 < index ) {
 				index--;
 			}
@@ -428,7 +429,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
 		name = page.getName();
 		this.pages[ page.getName() ] = page;
 		if ( this.outlined ) {
-			item = new OO.ui.OutlineOptionWidget( { data: name } );
+			var item = new OO.ui.OutlineOptionWidget( { data: name } );
 			page.setOutlineItem( item );
 			items.push( item );
 		}
@@ -455,12 +456,11 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
  * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
-	var i, len, name, page,
-		itemsToRemove = [];
+	var itemsToRemove = [];
 
-	for ( i = 0, len = pages.length; i < len; i++ ) {
-		page = pages[ i ];
-		name = page.getName();
+	for ( var i = 0, len = pages.length; i < len; i++ ) {
+		var page = pages[ i ];
+		var name = page.getName();
 		delete this.pages[ name ];
 		if ( this.outlined ) {
 			itemsToRemove.push( this.outlineSelectWidget.findItemFromData( name ) );
@@ -491,14 +491,13 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
  * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.BookletLayout.prototype.clearPages = function () {
-	var i, len,
-		pages = this.stackLayout.getItems();
+	var pages = this.stackLayout.getItems();
 
 	this.pages = {};
 	this.currentPageName = null;
 	if ( this.outlined ) {
 		this.outlineSelectWidget.clearItems();
-		for ( i = 0, len = pages.length; i < len; i++ ) {
+		for ( var i = 0, len = pages.length; i < len; i++ ) {
 			pages[ i ].setOutlineItem( null );
 		}
 	}

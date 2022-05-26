@@ -132,11 +132,9 @@ OO.inheritClass( OO.ui.IndexLayout, OO.ui.MenuLayout );
  * @param {jQuery.Event} e Focusing event
  */
 OO.ui.IndexLayout.prototype.onStackLayoutFocus = function ( e ) {
-	var name, $target;
-
 	// Find the tab panel that an element was focused within
-	$target = $( e.target ).closest( '.oo-ui-tabPanelLayout' );
-	for ( name in this.tabPanels ) {
+	var $target = $( e.target ).closest( '.oo-ui-tabPanelLayout' );
+	for ( var name in this.tabPanels ) {
 		// Check for tab panel match, exclude current tab panel to find only tab panel changes
 		if ( this.tabPanels[ name ].$element[ 0 ] === $target[ 0 ] &&
 				name !== this.currentTabPanelName ) {
@@ -172,9 +170,9 @@ OO.ui.IndexLayout.prototype.onStackLayoutSet = function ( tabPanel ) {
  * @param {number} [itemIndex] A specific item to focus on
  */
 OO.ui.IndexLayout.prototype.focus = function ( itemIndex ) {
-	var tabPanel,
-		items = this.stackLayout.getItems();
+	var items = this.stackLayout.getItems();
 
+	var tabPanel;
 	if ( itemIndex !== undefined && items[ itemIndex ] ) {
 		tabPanel = items[ itemIndex ];
 	} else {
@@ -225,27 +223,28 @@ OO.ui.IndexLayout.prototype.onTabSelectWidgetSelect = function ( item ) {
  * @return {OO.ui.TabPanelLayout|null} Tab panel closest to the specified
  */
 OO.ui.IndexLayout.prototype.getClosestTabPanel = function ( tabPanel ) {
-	var next, prev, level,
-		tabPanels = this.stackLayout.getItems(),
+	var tabPanels = this.stackLayout.getItems(),
 		index = tabPanels.indexOf( tabPanel );
 
-	if ( index !== -1 ) {
-		next = tabPanels[ index + 1 ];
-		prev = tabPanels[ index - 1 ];
-		// Prefer adjacent tab panels at the same level
-		level = this.tabSelectWidget.findItemFromData( tabPanel.getName() ).getLevel();
-		if (
-			prev &&
-			level === this.tabSelectWidget.findItemFromData( prev.getName() ).getLevel()
-		) {
-			return prev;
-		}
-		if (
-			next &&
-			level === this.tabSelectWidget.findItemFromData( next.getName() ).getLevel()
-		) {
-			return next;
-		}
+	if ( index === -1 ) {
+		return null;
+	}
+
+	var next = tabPanels[ index + 1 ];
+	var prev = tabPanels[ index - 1 ];
+	// Prefer adjacent tab panels at the same level
+	var level = this.tabSelectWidget.findItemFromData( tabPanel.getName() ).getLevel();
+	if (
+		prev &&
+		level === this.tabSelectWidget.findItemFromData( prev.getName() ).getLevel()
+	) {
+		return prev;
+	}
+	if (
+		next &&
+		level === this.tabSelectWidget.findItemFromData( next.getName() ).getLevel()
+	) {
+		return next;
 	}
 	return prev || next || null;
 };

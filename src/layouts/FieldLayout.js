@@ -64,8 +64,6 @@
  * @throws {Error} An error is thrown if no widget is specified
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
-	var id;
-
 	// Allow passing positional parameters inside the config object
 	if ( OO.isPlainObject( fieldWidget ) && config === undefined ) {
 		config = fieldWidget;
@@ -118,7 +116,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		}
 	} else {
 		// We can't use `label for` with non-form elements, use `aria-labelledby` instead
-		id = OO.ui.generateElementId();
+		var id = OO.ui.generateElementId();
 		this.$label.attr( 'id', id );
 		this.fieldWidget.setLabelledBy( id );
 
@@ -331,7 +329,6 @@ OO.ui.FieldLayout.prototype.setNotices = function ( notices ) {
  * @private
  */
 OO.ui.FieldLayout.prototype.updateMessages = function () {
-	var i;
 	this.$messages.empty();
 
 	if (
@@ -346,6 +343,7 @@ OO.ui.FieldLayout.prototype.updateMessages = function () {
 		return;
 	}
 
+	var i;
 	for ( i = 0; i < this.errors.length; i++ ) {
 		this.$messages.append( this.makeMessage( 'error', this.errors[ i ] ) );
 	}

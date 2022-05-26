@@ -52,8 +52,6 @@
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  */
 OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
-	var helpWidget;
-
 	// Configuration initialization
 	config = config || {};
 
@@ -80,13 +78,13 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	// Help
 	if ( config.help ) {
 		if ( config.helpInline ) {
-			helpWidget = new OO.ui.LabelWidget( {
+			var inlineHelpWidget = new OO.ui.LabelWidget( {
 				label: config.help,
 				classes: [ 'oo-ui-inline-help' ]
 			} );
-			this.$element.prepend( this.$header, helpWidget.$element, this.$group );
+			this.$element.prepend( this.$header, inlineHelpWidget.$element, this.$group );
 		} else {
-			helpWidget = new OO.ui.PopupButtonWidget( {
+			var helpWidget = new OO.ui.PopupButtonWidget( {
 				$overlay: config.$overlay,
 				popup: {
 					padded: true

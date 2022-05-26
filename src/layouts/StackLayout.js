@@ -141,9 +141,9 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
  * @fires set
  */
 OO.ui.StackLayout.prototype.removeItems = function ( itemsToRemove ) {
-	var isCurrentItemRemoved = itemsToRemove.indexOf( this.currentItem ) !== -1,
-		nextItem;
+	var isCurrentItemRemoved = itemsToRemove.indexOf( this.currentItem ) !== -1;
 
+	var nextItem;
 	if ( isCurrentItemRemoved ) {
 		var i = this.items.indexOf( this.currentItem );
 		do {
@@ -243,10 +243,8 @@ OO.ui.StackLayout.prototype.resetScroll = function () {
  * @param {OO.ui.Layout} [selectedItem] Selected item to show
  */
 OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem ) {
-	var i, len;
-
 	if ( !this.continuous ) {
-		for ( i = 0, len = items.length; i < len; i++ ) {
+		for ( var i = 0, len = items.length; i < len; i++ ) {
 			if ( !selectedItem || selectedItem !== items[ i ] ) {
 				items[ i ].toggle( false );
 				items[ i ].$element.attr( 'aria-hidden', 'true' );

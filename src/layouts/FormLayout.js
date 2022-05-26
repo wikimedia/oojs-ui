@@ -62,8 +62,6 @@
  * @cfg {OO.ui.FieldsetLayout[]} [items] Fieldset layouts to add to the form layout.
  */
 OO.ui.FormLayout = function OoUiFormLayout( config ) {
-	var action;
-
 	// Configuration initialization
 	config = config || {};
 
@@ -77,7 +75,7 @@ OO.ui.FormLayout = function OoUiFormLayout( config ) {
 	this.$element.on( 'submit', this.onFormSubmit.bind( this ) );
 
 	// Make sure the action is safe
-	action = config.action;
+	var action = config.action;
 	if ( action !== undefined && !OO.ui.isSafeUrl( action ) ) {
 		action = './' + action;
 	}
