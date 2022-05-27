@@ -113,7 +113,7 @@ window.Demo = function Demo() {
 
 	// Events
 	this.expandButton.on( 'change', OO.ui.bind( this.onExpandButtonChange, this ) );
-	this.pageSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
+	this.pageSelect.on( 'choose', OO.ui.bind( this.onPageSelectChoose, this ) );
 	this.themeSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.directionSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
 	this.platformSelect.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
@@ -307,11 +307,29 @@ Demo.prototype.initialize = function () {
 };
 
 /**
- * Handle mode change events.
+ * Handle mode change events (theme/directionality/platform)
  *
- * Will load a new page.
+ * Will load a new demo.
  */
 Demo.prototype.onModeChange = function () {
+	this.updateHistoryState();
+	$( window ).triggerHandler( 'popstate' );
+};
+
+/**
+ * Handle choose events on the page select widget
+ */
+Demo.prototype.onPageSelectChoose = function () {
+	this.updateHistoryState();
+	this.$container.empty();
+	var page = this.pageSelect.findSelectedItem().getData();
+	this.constructor.static.pages[ page ]( this );
+};
+
+/**
+ * Update the browser history state
+ */
+Demo.prototype.updateHistoryState = function () {
 	var page = this.pageSelect.findSelectedItem().getData(),
 		theme = this.themeSelect.findSelectedItem().getData(),
 		direction = this.directionSelect.findSelectedItem().getData(),
@@ -327,7 +345,6 @@ Demo.prototype.onModeChange = function () {
 			platform: platform
 		} )
 	);
-	$( window ).triggerHandler( 'popstate' );
 };
 
 /**
