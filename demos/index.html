@@ -88,26 +88,27 @@
 			function setup() {
 				var prevPage = demo ? demo.mode.page : null,
 					scrollPos = $( window ).scrollTop();
-				if ( demo ) {
+
+				var oldDemo = OO.ui.demo;
+				if ( oldDemo ) {
 					if ( lastQuery === location.search ) {
 						return false;
 					}
-					demo.destroy();
+					oldDemo.destroy();
 				}
 				lastQuery = location.search;
-				demo = new Demo();
-				$( document.body ).append( demo.$element );
-				demo.initialize().done( function () {
-					if ( prevPage === demo.mode.page && scrollPos ) {
+				var newDemo = new Demo();
+				newDemo.initialize().then( function () {
+					$( document.body ).append( newDemo.$element );
+					if ( prevPage === newDemo.mode.page && scrollPos ) {
 						// Restore scroll position from before we destroyed the demo
 						$( window ).scrollTop( scrollPos );
 					}
 				} );
+				OO.ui.demo = newDemo;
 			}
 
 			setup();
-
-			OO.ui.demo = demo;
 
 			$( window ).on( 'popstate', setup );
 		} );
