@@ -12,9 +12,7 @@ $demoContainer = new OOUI\PanelLayout( [
 	'framed' => true,
 ] );
 
-$demoContainer
-	->addClasses( [ 'demo-container' ] )
-	->setAttributes( [ 'role' => 'main' ] );
+$demoContainer;
 
 $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-fieldLayouts',

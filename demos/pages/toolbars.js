@@ -6,7 +6,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 		setInactive = function () {
 			this.setActive( false );
 		},
-		$demo = demo.$element,
+		$demo = demo.$container,
 		$containers = $(),
 		toolFactories = [],
 		toolGroupFactories = [],
@@ -561,10 +561,9 @@ Demo.static.pages.toolbars = function ( demo ) {
 	$demo.append(
 		new OO.ui.PanelLayout( {
 			expanded: false,
-			framed: false
+			framed: false,
+			classes: [ 'demo-toolbars' ]
 		} ).$element
-			.addClass( 'demo-container demo-toolbars' )
-			.attr( 'role', 'main' )
 			/* eslint-disable no-jquery/no-parse-html-literal */
 			.append(
 				$containers.eq( 0 ).append( '<div class="demo-toolbars-contents">Toolbar</div>' ),

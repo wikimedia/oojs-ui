@@ -142,9 +142,10 @@ window.Demo = function Demo() {
 		.append( ' ' )
 		.append( $( '<h2>' ).attr( 'dir', 'ltr' ).html( 'Demos <span>– Rapidly create web-applications in JS or PHP. Cross-browser, i18n and a11y ready.</span>' ) )
 		.append( this.$menu, this.pageSelect.$element );
+	this.$container = $( '<div>' ).addClass( 'demo-container' ).attr( 'role', 'main' );
 	this.$element
 		.addClass( 'demo-root' )
-		.append( this.$header );
+		.append( this.$header, this.$container );
 	$( document.documentElement ).attr( 'dir', this.mode.direction );
 	$( document.head ).append( this.stylesheetLinks );
 	// The following classes are used here:

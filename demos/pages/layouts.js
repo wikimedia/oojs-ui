@@ -3,7 +3,7 @@ Demo.static.pages.layouts = function ( demo ) {
 	var loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
 		$overlay = $( '<div>' ).addClass( 'demo-overlay' ).attr( 'id', 'demo-overlay' ),
-		$demo = demo.$element;
+		$demo = demo.$container;
 
 	var inputForValidation = new OO.ui.TextInputWidget( {
 		validate: function ( value ) {
@@ -777,8 +777,6 @@ Demo.static.pages.layouts = function ( demo ) {
 			expanded: false,
 			framed: true
 		} ).$element
-			.addClass( 'demo-container' )
-			.attr( 'role', 'main' )
 			.append(
 				$( fieldsets.map( function ( fieldset ) { return fieldset.$element[ 0 ]; } ) )
 			)

@@ -174,10 +174,12 @@
 				] ) )->addItems( $items );
 			?>
 		</div>
-		<?php
-			// $page is validated above
-			require_once "pages/$page.php";
-		?>
+		<div class="demo-container" role="main">
+			<?php
+				// $page is validated above
+				require_once "pages/$page.php";
+			?>
+		</div>
 	</div>
 
 	<!-- Demonstrate JavaScript "infusion" of PHP widgets -->

@@ -129,14 +129,13 @@ Demo.static.pages.icons = function ( demo ) {
 			destructive: false
 		} );
 
-	demo.$element.append(
+	demo.$container.append(
 		new OO.ui.PanelLayout( {
 			expanded: false,
 			framed: true
 		} ).$element
-			.addClass( 'demo-container demo-icons' )
+			.addClass( 'demo-icons' )
 			.attr( {
-				role: 'main',
 				// 'default' is not a real language, but forces us to render
 				// non-language specific icons, e.g. bold-a.svg
 				lang: 'default'

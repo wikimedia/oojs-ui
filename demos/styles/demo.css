@@ -96,13 +96,13 @@ p:first-child {
 	z-index: 5;
 }
 
-.demo-header + .demo-container.oo-ui-panelLayout {
+.demo-header + .demo-container {
 	/* `min-height` - `border-bottom` */
 	margin-top: 9.214em;
 }
 
 /* This needs extra specificity to beat PanelLayout styles */
-.demo-container.oo-ui-panelLayout {
+.demo-container > .oo-ui-panelLayout {
 	/* Apex overrides. WikimediaUI wins for now in the demo framing in this browser subset */
 	border-color: #a2a9b1;
 	/* PanelLayout doesn't have rounded borders with menu overlay ever,
@@ -157,12 +157,7 @@ p:first-child {
 	text-decoration: inherit;
 }
 
-.demo-container {
-	/* Needed for applying `padding` further below */
-	box-sizing: border-box;
-}
-
-.demo-container.oo-ui-panelLayout-padded.oo-ui-panelLayout-framed {
+.demo-container > .oo-ui-panelLayout-padded.oo-ui-panelLayout-framed {
 	margin: 0;
 }
 
@@ -188,7 +183,7 @@ p:first-child {
 	min-height: 5.833em;
 }
 
-.oo-ui-platform-mobile .demo-header + .demo-container.oo-ui-panelLayout {
+.oo-ui-platform-mobile .demo-header + .demo-container {
 	margin-top: 5.833em;
 }
 
@@ -196,7 +191,7 @@ p:first-child {
 	top: -6.5em;
 }
 
-.demo-header + .demo-container.oo-ui-panelLayout.demo-toolbars {
+.demo-header + .demo-container > .oo-ui-panelLayout.demo-toolbars {
 	padding-top: 1em;
 }
 
@@ -279,7 +274,7 @@ p:first-child {
 	margin-right: 0;
 }
 
-.demo-container > .oo-ui-fieldsetLayout:first-child .oo-ui-fieldLayout:first-child .demo-link-example::after {
+.demo-container > .oo-ui-panelLayout > .oo-ui-fieldsetLayout:first-child .oo-ui-fieldLayout:first-child .demo-link-example::after {
 	content: 'Link to this example #';
 }
 
@@ -444,7 +439,7 @@ p:first-child {
 
 /* Toolbars demo */
 
-.demo-container.demo-toolbars {
+.demo-container > .demo-toolbars {
 	padding-left: 0 !important; /* stylelint-disable-line declaration-no-important */
 	padding-right: 0 !important; /* stylelint-disable-line declaration-no-important */
 }
@@ -660,13 +655,13 @@ FieldLayout left & right aligned */
 		margin-bottom: 16px;
 	}
 
-	.demo-container {
+	.demo-container > .oo-ui-panelLayout {
 		border-radius: 0;
 		border-width: 0;
 		padding: 24px 0 0;
 	}
 
-	.demo-container.demo-toolbars {
+	.demo-container > .demo-toolbars {
 		border-width: 1px;
 	}
 
@@ -704,12 +699,9 @@ FieldLayout left & right aligned */
 	overflow: visible;
 }
 
-.oo-ui-platform-desktop .demo-container {
+.oo-ui-platform-desktop .demo-container > .oo-ui-panelLayout {
 	border-radius: 2px;
 	padding: 24px;
-}
-
-.oo-ui-platform-desktop .demo-container.oo-ui-panelLayout {
 	border-width: 0 1px 1px 1px;
 }
 

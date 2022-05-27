@@ -8,7 +8,7 @@ Demo.static.pages.widgets = function ( demo ) {
 		verticalDragItems = [],
 		verticalHandledDragItems = [],
 		$overlay = $( '<div>' ).addClass( 'demo-overlay' ).attr( 'id', 'demo-overlay' ),
-		$demo = demo.$element,
+		$demo = demo.$container,
 		fixedItemsTagMultiselectWidget = new OO.ui.TagMultiselectWidget( {
 			placeholder: 'Add tags',
 			allowArbitrary: true
@@ -2965,8 +2965,6 @@ Demo.static.pages.widgets = function ( demo ) {
 			expanded: false,
 			framed: true
 		} ).$element
-			.addClass( 'demo-container' )
-			.attr( 'role', 'main' )
 			.append(
 				$( fieldsets.map( function ( fieldset ) { return fieldset.$element[ 0 ]; } ) )
 			)

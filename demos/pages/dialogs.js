@@ -1,5 +1,5 @@
 Demo.static.pages.dialogs = function ( demo ) {
-	var $demo = demo.$element,
+	var $demo = demo.$container,
 		$fieldsets = $( [] ),
 		windowManager = new OO.ui.WindowManager(),
 		nonModalWindowManager = new OO.ui.WindowManager( {
@@ -360,8 +360,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 			expanded: false,
 			framed: true
 		} ).$element
-			.addClass( 'demo-container demo-dialogs' )
-			.attr( 'role', 'main' )
+			.addClass( 'demo-dialogs' )
 			.append( $fieldsets, nonModalWindowManager.$element ),
 		windowManager.$element
 	);
