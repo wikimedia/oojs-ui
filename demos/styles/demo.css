@@ -121,7 +121,6 @@ p:first-child {
 .demo-header,
 .demo-menu,
 .demo-console-input {
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -160,7 +159,6 @@ p:first-child {
 
 .demo-container {
 	/* Needed for applying `padding` further below */
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -216,7 +214,6 @@ p:first-child {
 .demo-console-expanded {
 	background-color: #fff;
 	width: 100%;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	margin: 8px 0;
 }
@@ -230,7 +227,6 @@ p:first-child {
 	padding: 6px; /* Equals frameless button. */
 	line-height: 1.28571429em;
 	cursor: pointer;
-	-webkit-transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
 	transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
 }
 
@@ -249,7 +245,6 @@ p:first-child {
 	border-radius: 2px;
 	font-weight: bold;
 	text-align: center;
-	-webkit-transition: color 100ms;
 	transition: color 100ms;
 }
 
@@ -265,7 +260,6 @@ p:first-child {
 	top: 1px;
 	margin-right: 2em;
 	opacity: 0;
-	-webkit-transition: opacity 100ms;
 	transition: opacity 100ms;
 }
 
@@ -361,7 +355,6 @@ p:first-child {
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	cursor: pointer;
 }
@@ -389,7 +382,6 @@ p:first-child {
 	padding: 6px 2.14285714em 6px 1.714em; /* Left and right are covered by user font size scalable icons. */
 	font-size: inherit;
 	line-height: 1.28571429em;
-	-webkit-transition: border-color 250ms, box-shadow 250ms;
 	transition: border-color 250ms, box-shadow 250ms;
 }
 
@@ -414,8 +406,6 @@ p:first-child {
 	-ms-user-select: none;
 	user-select: none;
 	cursor: pointer;
-	-webkit-transition: background-color 100ms, color 100ms;
-	-moz-transition: background-color 100ms, color 100ms;
 	transition: background-color 100ms, color 100ms;
 }
 
@@ -556,7 +546,6 @@ p:first-child {
 .demo-icons .oo-ui-fieldLayout .oo-ui-indicatorElement {
 	opacity: 0.87; /* brings icons/indicators closer to text color */
 	/* Support Chrome by promoting layer to GPU, see T182257 */
-	-webkit-transform: translateZ( 0 );
 	transform: translateZ( 0 );
 }
 
