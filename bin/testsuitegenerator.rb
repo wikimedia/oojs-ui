@@ -180,6 +180,8 @@ else
 		['PanelLayout', 'content'] => expand_type_to_values([], 'string[]'),
 		# only used internally
 		'preserveContent' => [],
+		# PHP LabelWidget isn't a TitledElement, so the output is different
+		['LabelWidget', 'invisibleLabel'] => [],
 		['TabPanelLayout', 'name'] => ['panelName'],
 		# this overrides 'string|HtmlSnippet' from the doc comment
 		# TODO: this looks incorrect, this option doesn't look like it takes arrays.

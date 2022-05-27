@@ -32157,18 +32157,6 @@
       {
         "class": "LabelWidget",
         "config": {
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
           "input": "_placeholder_{\"class\":\"CheckboxInputWidget\",\"config\":{}}",
           "disabled": true
         }
@@ -32267,34 +32255,6 @@
       {
         "class": "LabelWidget",
         "config": {
-          "input": "_placeholder_{\"class\":\"CheckboxInputWidget\",\"config\":{}}",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "input": "_placeholder_{\"class\":\"CheckboxInputWidget\",\"config\":{}}",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "input": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "input": "_placeholder_{\"class\":\"TextInputWidget\",\"config\":{}}",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
           "disabled": true,
           "label": "Foo bar <b>HTML?</b>"
         }
@@ -32360,104 +32320,6 @@
         "config": {
           "disabled": false,
           "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "disabled": true,
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "disabled": true,
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "disabled": false,
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "disabled": false,
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "label": "Foo bar <b>HTML?</b>",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "label": "Foo bar <b>HTML?</b>",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "label": "",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "label": "",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "label": " ",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "label": " ",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "label": "0",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "label": "0",
-          "invisibleLabel": false
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}",
-          "invisibleLabel": true
-        }
-      },
-      {
-        "class": "LabelWidget",
-        "config": {
-          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}",
-          "invisibleLabel": false
         }
       }
     ]
