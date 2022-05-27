@@ -38,5 +38,14 @@
 		left: 0;
 	}
 
+	&-focusTrap {
+		display: none;
+
+		.oo-ui-windowManager-modal &,
+		.oo-ui-windowManager-fullscreen & {
+			display: block;
+		}
+	}
+
 	.theme-oo-ui-window();
 }
