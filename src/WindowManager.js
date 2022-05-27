@@ -54,6 +54,8 @@
  *  Note that window classes that are instantiated with a factory must have
  *  a {@link OO.ui.Dialog#static-name static name} property that specifies a symbolic name.
  * @cfg {boolean} [modal=true] Prevent interaction outside the current window
+ * @cfg {boolean} [forceTrapFocus] Force the trapping of focus within windows. This is done
+ *  automatically for modal window managers and full screen windows.
  */
 OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	// Configuration initialization
@@ -88,7 +90,8 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-windowManager' )
-		.toggleClass( 'oo-ui-windowManager-modal', this.modal );
+		.toggleClass( 'oo-ui-windowManager-modal', this.modal )
+		.toggleClass( 'oo-ui-windowManager-forceTrapFocus', !!config.forceTrapFocus );
 	if ( this.modal ) {
 		this.$element
 			.attr( 'aria-hidden', 'true' )
