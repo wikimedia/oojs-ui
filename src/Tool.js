@@ -30,6 +30,7 @@
  * @param {Object} [config] Configuration options
  * @cfg {string|Function} [title] Title text or a function that returns text. If this config is
  *  omitted, the value of the {@link #static-title static title} property is used.
+ * @cfg {boolean} [displayBothIconAndLabel] See static.displayBothIconAndLabel
  *
  *  The title is used in different ways depending on the type of toolgroup that contains the tool.
  *  The title is used as a tooltip if the tool is part of a {@link OO.ui.BarToolGroup bar}
@@ -67,6 +68,8 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 		icon: 'check',
 		classes: [ 'oo-ui-tool-checkIcon' ]
 	} );
+	this.displayBothIconAndLabel = config.displayBothIconAndLabel !== undefined ?
+		config.displayBothIconAndLabel : this.constructor.static.displayBothIconAndLabel;
 
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
@@ -106,7 +109,6 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 		.addClass( 'oo-ui-tool' )
 		.addClass( 'oo-ui-tool-name-' +
 			this.constructor.static.name.replace( /^([^/]+)\/([^/]+).*$/, '$1-$2' ) )
-		.toggleClass( 'oo-ui-tool-with-label', this.constructor.static.displayBothIconAndLabel )
 		.append( this.$link );
 	this.setTitle( config.title || this.constructor.static.title );
 };
@@ -279,6 +281,23 @@ OO.ui.Tool.prototype.setActive = function ( state ) {
 OO.ui.Tool.prototype.setTitle = function ( title ) {
 	this.title = OO.ui.resolveMsg( title );
 	this.updateTitle();
+	// Update classes
+	this.setDisplayBothIconAndLabel( this.displayBothIconAndLabel );
+	return this;
+};
+
+/**
+ * Set the tool's displayBothIconAndLabel state.
+ *
+ * Update title classes if necessary
+ *
+ * @param {boolean} displayBothIconAndLabel
+ * @chainable
+ * @return {OO.ui.Tool} The tool, for chaining
+ */
+OO.ui.Tool.prototype.setDisplayBothIconAndLabel = function ( displayBothIconAndLabel ) {
+	this.displayBothIconAndLabel = displayBothIconAndLabel;
+	this.$element.toggleClass( 'oo-ui-tool-with-label', !!this.title && this.displayBothIconAndLabel );
 	return this;
 };
 
