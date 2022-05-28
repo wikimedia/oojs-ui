@@ -116,6 +116,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	OO.inheritClass( AlertTool, OO.ui.PopupTool );
 
 	AlertTool.static.name = 'alertTool';
+	AlertTool.static.title = 'Alerts';
 	AlertTool.static.group = 'popupTools';
 	AlertTool.static.icon = 'alert';
 
@@ -137,6 +138,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	OO.inheritClass( PopupTool, OO.ui.PopupTool );
 
 	PopupTool.static.name = 'popupTool';
+	PopupTool.static.title = 'Notices';
 	PopupTool.static.group = 'popupTools';
 	PopupTool.static.icon = 'help';
 
@@ -218,6 +220,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 		{
 			name: 'textStyle',
 			type: 'list',
+			label: 'Style text',
+			invisibleLabel: true,
 			icon: 'textStyle',
 			include: [ { group: 'styleTools' } ]
 		},
@@ -239,6 +243,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 		{
 			name: 'structure',
 			type: 'list',
+			label: 'Structure',
+			invisibleLabel: true,
 			icon: 'listBullet',
 			include: [ { group: 'structureTools' } ]
 		},
@@ -267,6 +273,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 			name: 'overflow',
 			align: 'after',
 			type: 'list',
+			label: 'Page options',
+			invisibleLabel: true,
 			icon: 'menu',
 			indicator: '',
 			include: [ { group: 'overflowTools' } ]
@@ -275,6 +283,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 			name: 'editorSwitch',
 			align: 'after',
 			type: 'list',
+			label: 'Switch editor',
+			invisibleLabel: true,
 			icon: 'edit',
 			include: [ { group: 'editorSwitchTools' } ]
 		},
@@ -310,6 +320,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 		{
 			name: 'style',
 			type: 'list',
+			label: 'Style text',
+			invisibleLabel: true,
 			icon: 'textStyle',
 			include: [ { group: 'styleTools' } ]
 		},
@@ -331,6 +343,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 		{
 			name: 'structure',
 			type: 'list',
+			label: 'Structure',
+			invisibleLabel: true,
 			icon: 'listBullet',
 			include: [ { group: 'structureTools' } ]
 		},
@@ -363,6 +377,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 			name: 'overflow',
 			align: 'after',
 			type: 'list',
+			label: 'Page options',
+			invisibleLabel: true,
 			icon: 'menu',
 			indicator: '',
 			include: [ { group: 'overflowTools' } ]
@@ -371,6 +387,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 			name: 'editorSwitch',
 			align: 'after',
 			type: 'list',
+			label: 'Switch editor',
+			invisibleLabel: true,
 			icon: 'edit',
 			include: [ { group: 'editorSwitchTools' } ]
 		}
