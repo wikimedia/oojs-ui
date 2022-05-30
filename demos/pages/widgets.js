@@ -2387,7 +2387,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							label: 'More information',
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
-							align: 'force-left'
+							align: 'force-left',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2407,7 +2408,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							align: 'force-right',
-							hideCloseButton: true
+							hideCloseButton: true,
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2426,7 +2428,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							label: 'More information',
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
-							align: 'backwards'
+							align: 'backwards',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2445,7 +2448,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							label: 'More information',
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
-							align: 'forwards'
+							align: 'forwards',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2464,7 +2468,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							label: 'More information',
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
-							align: 'center'
+							align: 'center',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2484,7 +2489,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							$content: $( '<p>' + loremIpsum + '</p><ul><li>Item one</li><li>Item two</li><li>Item three</li><li>Item four</li></ul><p>Even more text here which might well be clipped off the visible area.</p>' ),
 							$footer: $( '<p>And maybe a footer whilst we\'re at it?</p>' ),
 							padded: true,
-							align: 'forwards'
+							align: 'forwards',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2499,7 +2505,8 @@ Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
-							align: 'forwards'
+							align: 'forwards',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2514,7 +2521,8 @@ Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
-							align: 'backwards'
+							align: 'backwards',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2529,7 +2537,8 @@ Demo.static.pages.widgets = function ( demo ) {
 						popup: {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
-							align: 'center'
+							align: 'center',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2545,7 +2554,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							align: 'center',
-							position: 'above'
+							position: 'above',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2561,7 +2571,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							align: 'center',
-							position: 'before'
+							position: 'before',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2577,7 +2588,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							align: 'center',
-							position: 'after'
+							position: 'after',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2593,7 +2605,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							anchor: false,
-							align: 'center'
+							align: 'center',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2609,7 +2622,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							anchor: false,
-							align: 'forwards'
+							align: 'forwards',
+							autoFlip: false
 						}
 					} ),
 					{
@@ -2625,7 +2639,8 @@ Demo.static.pages.widgets = function ( demo ) {
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							anchor: false,
-							align: 'backwards'
+							align: 'backwards',
+							autoFlip: false
 						}
 					} ),
 					{
