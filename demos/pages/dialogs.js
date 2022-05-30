@@ -5,6 +5,11 @@ Demo.static.pages.dialogs = function ( demo ) {
 		nonModalWindowManager = new OO.ui.WindowManager( {
 			modal: false,
 			classes: [ 'demo-dialogs-non-modal' ]
+		} ),
+		nonModalFocusTrapWindowManager = new OO.ui.WindowManager( {
+			modal: false,
+			forceTrapFocus: true,
+			classes: [ 'demo-dialogs-non-modal' ]
 		} );
 
 	var configs = [
@@ -231,6 +236,19 @@ Demo.static.pages.dialogs = function ( demo ) {
 			]
 		},
 		{
+			name: 'Non-modal window manager with focus traps',
+			id: 'demo-section-non-modal-focus-trap',
+			examples: [
+				{
+					name: 'Simple dialog (large)',
+					config: {
+						size: 'large'
+					},
+					windowManager: nonModalFocusTrapWindowManager
+				}
+			]
+		},
+		{
 			name: 'Elements best used inside dialogs',
 			id: 'demo-section-elements',
 			examples: [
@@ -361,13 +379,18 @@ Demo.static.pages.dialogs = function ( demo ) {
 			framed: true
 		} ).$element
 			.addClass( 'demo-dialogs' )
-			.append( $fieldsets, nonModalWindowManager.$element ),
+			.append(
+				$fieldsets,
+				nonModalWindowManager.$element,
+				nonModalFocusTrapWindowManager.$element
+			),
 		windowManager.$element
 	);
 
 	demo.once( 'destroy', function () {
 		windowManager.destroy();
 		nonModalWindowManager.destroy();
+		nonModalFocusTrapWindowManager.destroy();
 		OO.ui.getWindowManager().closeWindow( OO.ui.getWindowManager().getCurrentWindow() );
 	} );
 };
