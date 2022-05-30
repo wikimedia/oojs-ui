@@ -81,7 +81,19 @@ OO.ui.Window = function OoUiWindow( config ) {
 	 */
 	this.$overlay = $( '<div>' );
 	this.$content = $( '<div>' );
-	this.$focusTraps = null;
+	/**
+	 * Set focus traps
+	 *
+	 * It is considered best practice to trap focus in a loop within a modal dialog, even
+	 * though with 'inert' support we could allow focus to break out to the browser chrome.
+	 *
+	 * - https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html#kbd_label
+	 * - https://allyjs.io/tutorials/accessible-dialog.html#reacting-to-kbdtabkbd-and-kbdshift-tabkbd
+	 * - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#focus_management
+	 */
+	this.$focusTrapBefore = $( '<div>' ).addClass( 'oo-ui-window-focusTrap' ).prop( 'tabIndex', 0 );
+	this.$focusTrapAfter = this.$focusTrapBefore.clone();
+	this.$focusTraps = this.$focusTrapBefore.add( this.$focusTrapAfter );
 
 	// Initialization
 	this.$overlay.addClass( 'oo-ui-window-overlay' );
@@ -90,8 +102,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 		.attr( 'tabindex', -1 );
 	this.$frame
 		.addClass( 'oo-ui-window-frame' )
-		// Focus traps will be appended either side of $content in #setManager, if required
-		.append( this.$content );
+		.append( this.$focusTrapBefore, this.$content, this.$focusTrapAfter );
 	this.$element
 		.addClass( 'oo-ui-window' )
 		.append( this.$frame, this.$overlay );
@@ -419,26 +430,6 @@ OO.ui.Window.prototype.setManager = function ( manager ) {
 
 	this.manager = manager;
 
-	if ( this.manager.isModal() ) {
-		/**
-		 * Set focus traps
-		 *
-		 * It is considered best practice to trap focus in a loop within a modal dialog, even
-		 * though with 'inert' support we could allow focus to break out to the browser chrome.
-		 *
-		 * - https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html#kbd_label
-		 * - https://allyjs.io/tutorials/accessible-dialog.html#reacting-to-kbdtabkbd-and-kbdshift-tabkbd
-		 * - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#focus_management
-		 */
-		this.$focusTrapBefore = $( '<div>' ).prop( 'tabIndex', 0 );
-		this.$focusTrapAfter = $( '<div>' ).prop( 'tabIndex', 0 );
-		this.$focusTraps = this.$focusTrapBefore.add( this.$focusTrapAfter );
-
-		this.$frame
-			.prepend( this.$focusTrapBefore )
-			.append( this.$focusTrapAfter );
-	}
-
 	this.initialize();
 
 	return this;
@@ -545,6 +536,7 @@ OO.ui.Window.prototype.initialize = function () {
 
 	// Events
 	this.$element.on( 'mousedown', this.onMouseDown.bind( this ) );
+	this.$focusTraps.on( 'focus', this.onFocusTrapFocused.bind( this ) );
 
 	// Initialization
 	this.$head.addClass( 'oo-ui-window-head' );
@@ -646,11 +638,6 @@ OO.ui.Window.prototype.setup = function ( data ) {
 
 	this.toggle( true );
 
-	if ( this.$focusTraps ) {
-		this.focusTrapHandler = OO.ui.bind( this.onFocusTrapFocused, this );
-		this.$focusTraps.on( 'focus', this.focusTrapHandler );
-	}
-
 	return this.getSetupProcess( data ).execute().then( function () {
 		win.updateSize();
 		// Force redraw by asking the browser to measure the elements' widths
@@ -724,9 +711,6 @@ OO.ui.Window.prototype.teardown = function ( data ) {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.removeClass( 'oo-ui-window-active' ).width();
 
-		if ( win.$focusTraps ) {
-			win.$focusTraps.off( 'focus', win.focusTrapHandler );
-		}
 		win.toggle( false );
 	} );
 };
