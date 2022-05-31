@@ -323,6 +323,7 @@ Demo.prototype.onPageSelectChoose = function () {
 	this.updateHistoryState();
 	this.$container.empty();
 	var page = this.pageSelect.findSelectedItem().getData();
+	this.mode.page = page;
 	this.constructor.static.pages[ page ]( this );
 };
 
