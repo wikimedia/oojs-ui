@@ -159,7 +159,7 @@ window.Demo = function Demo() {
 	OO.ui.getViewportSpacing = function () {
 		return {
 			// Contents of dialogs are shown on top of the fixed menu
-			top: demo.mode.page === 'dialogs' ? 0 : demo.$menu.outerHeight(),
+			top: demo.mode.page === 'dialogs' ? 0 : demo.$header.outerHeight(),
 			right: 0,
 			bottom: 0,
 			left: 0

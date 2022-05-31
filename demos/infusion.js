@@ -3,7 +3,7 @@
 	// Demonstrate JavaScript 'infusion' of PHP-generated widgets.
 	// Used by widgets.php.
 
-	var infuseButton, $demoMenu;
+	var infuseButton, $demoHeader;
 
 	// Helper function to get high resolution profiling data, where available.
 	function now() {
@@ -34,11 +34,11 @@
 	}
 
 	// eslint-disable-next-line no-jquery/no-global-selector
-	$demoMenu = $( '.demo-menu' );
+	$demoHeader = $( '.demo-header' );
 
 	OO.ui.getViewportSpacing = function () {
 		return {
-			top: $demoMenu.outerHeight(),
+			top: $demoHeader.outerHeight(),
 			right: 0,
 			bottom: 0,
 			left: 0
