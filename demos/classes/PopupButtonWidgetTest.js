@@ -117,6 +117,7 @@ Demo.PopupButtonWidgetTest.prototype.getButton = function ( position, align ) {
 		popup: {
 			position: position,
 			align: align,
+			autoFlip: false,
 			anchor: this.toggleAnchorWidget.getValue(),
 			padded: true,
 			$content: this.makeContents()
