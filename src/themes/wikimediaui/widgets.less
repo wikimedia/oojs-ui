@@ -94,6 +94,10 @@
 	padding-bottom: @border-width-base;
 
 	&:focus {
+		// The ButtonSelectWidget element is focusable when enabled, but we
+		// want the focus visual outline only on single ButtonOptionWidgets below.
+		// Support: Chrome <90 Also putting it on `disabled` as well as Chrome showed
+		// outline as soon as `tabindex` attribute was on element.
 		outline: 0;
 	}
 
@@ -474,7 +478,7 @@
 
 		&:focus {
 			border-color: @border-color-base--focus;
-			outline: 0;
+			outline: @outline-base--focus;
 			box-shadow: @box-shadow-base--focus;
 		}
 
@@ -501,6 +505,8 @@
 		background-color: @background-color-base--disabled;
 
 		&:focus {
+			// Support: Chrome <90 shows outline on click when element has `tabindex` attribute,
+			// no matter if it's value is `-1`.
 			outline: 0;
 		}
 
@@ -572,7 +578,7 @@
 
 			&:focus {
 				border-color: @border-color-base--focus;
-				outline: 0;
+				outline: @outline-base--focus;
 				box-shadow: @box-shadow-base--focus;
 			}
 		}
@@ -1242,6 +1248,8 @@
 
 .theme-oo-ui-radioSelectWidget() {
 	&:focus {
+		// The RadioSelectWidget element is focusable when enabled, but we
+		// want the focus visual outline only on single RadioOptionWidgets.
 		outline: 0;
 
 		[ type='radio' ]:checked + span:before {
@@ -1517,7 +1525,7 @@
 		&:focus {
 			border-color: @border-color-base--focus;
 			box-shadow: @box-shadow-base--focus;
-			outline: 0;
+			outline: @outline-base--focus;
 		}
 
 		&:not( .oo-ui-tagItemWidget-fixed ) {
@@ -1632,7 +1640,7 @@
 				.mw-placeholder();
 
 				&:focus {
-					outline: 0; // Support: Chrome
+					outline: @outline-base--focus; // Support: Chrome
 				}
 
 				// Match appearance of TextInputWidget when empty
@@ -1690,7 +1698,7 @@
 
 			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
 				border-color: @border-color-base--focus;
-				outline: 0;
+				outline: @outline-base--focus;
 				box-shadow: @box-shadow-base--focus;
 			}
 
@@ -1820,8 +1828,8 @@
 			.mw-placeholder();
 
 			&:focus {
-				outline: 0;
 				border-color: @border-color-base--focus;
+				outline: @outline-base--focus;
 				box-shadow: @box-shadow-base--focus;
 
 				~ .oo-ui-iconElement-icon,
@@ -2014,12 +2022,12 @@
 		}
 
 		&:focus {
-			border-color: @color-primary;
+			border-color: @border-color-base--focus;
 			box-shadow: @box-shadow-base--focus;
-			outline: 0;
+			outline: @outline-base--focus;
 
 			.oo-ui-toggleSwitchWidget-grip {
-				border-color: @color-primary;
+				border-color: @border-color-base--focus;
 			}
 		}
 
@@ -2056,7 +2064,9 @@
 	&.oo-ui-widget-disabled {
 		background-color: @background-color-filled--disabled;
 		border-color: @border-color-base--disabled;
-		outline: 0; // Chrome when element has `tabindex` attribute
+		// Support: Chrome <90 shows outline on click when element has `tabindex` attribute,
+		// no matter if it's value is `-1`.
+		outline: 0;
 
 		&.oo-ui-toggleWidget-off .oo-ui-toggleSwitchWidget-grip {
 			border: @border-filled--disabled;
