@@ -112,6 +112,10 @@ OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.mixin.FloatableElement );
 
 /* Static properties */
 
+OO.ui.MenuSelectWidget.static.handleNavigationKeys = true;
+
+OO.ui.MenuSelectWidget.static.listWrapsAround = false;
+
 /**
  * Positions to flip to if there isn't room in the container for the
  * menu in a specific direction.
@@ -156,7 +160,7 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 			Array.isArray( selected ) ? selected[ 0 ] : selected
 		);
 
-	if ( !this.isDisabled() && this.isVisible() && this.getVisibleItems().length ) {
+	if ( !this.isDisabled() && this.getVisibleItems().length ) {
 		switch ( e.keyCode ) {
 			case OO.ui.Keys.TAB:
 				if ( currentItem ) {
@@ -168,7 +172,9 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 				break;
 			case OO.ui.Keys.LEFT:
 			case OO.ui.Keys.RIGHT:
-				// Do nothing if a text field is associated, arrow keys will be handled natively
+			case OO.ui.Keys.HOME:
+			case OO.ui.Keys.END:
+				// Do nothing if a text field is associated, these keys will be handled by the text input
 				if ( !this.$input ) {
 					OO.ui.MenuSelectWidget.super.prototype.onDocumentKeyDown.call( this, e );
 				}

@@ -89,9 +89,8 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	this.$handle.on( {
 		click: this.onClick.bind( this ),
 		keydown: this.onKeyDown.bind( this ),
-		// Hack? Handle type-to-search when menu is not expanded and not handling its own events.
-		keypress: this.menu.onDocumentKeyPressHandler,
-		blur: this.menu.clearKeyPressBuffer.bind( this.menu )
+		keypress: this.onKeyPress.bind( this ),
+		blur: this.onBlur.bind( this )
 	} );
 	this.menu.connect( this, {
 		select: 'onMenuSelect',
@@ -199,28 +198,55 @@ OO.ui.DropdownWidget.prototype.onClick = function ( e ) {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.DropdownWidget.prototype.onKeyDown = function ( e ) {
-	if (
-		!this.isDisabled() &&
-		(
-			e.which === OO.ui.Keys.ENTER ||
-			(
-				e.which === OO.ui.Keys.SPACE &&
-				// Avoid conflicts with type-to-search, see SelectWidget#onKeyPress.
-				// Space only closes the menu is the user is not typing to search.
-				this.menu.keyPressBuffer === ''
-			) ||
-			(
-				!this.menu.isVisible() &&
-				(
-					e.which === OO.ui.Keys.UP ||
-					e.which === OO.ui.Keys.DOWN
-				)
-			)
-		)
-	) {
-		this.menu.toggle();
-		return false;
+	if ( !this.isDisabled() ) {
+		switch ( e.keyCode ) {
+			case OO.ui.Keys.ENTER:
+				this.menu.toggle();
+				return false;
+			case OO.ui.Keys.SPACE:
+				if ( this.menu.keyPressBuffer === '' ) {
+					// Avoid conflicts with type-to-search, see SelectWidget#onKeyPress.
+					// Space only opens the menu is the user is not typing to search.
+					this.menu.toggle();
+					return false;
+				}
+				break;
+			case OO.ui.Keys.UP:
+			case OO.ui.Keys.LEFT:
+			case OO.ui.Keys.DOWN:
+			case OO.ui.Keys.RIGHT:
+			case OO.ui.Keys.HOME:
+			case OO.ui.Keys.END:
+			case OO.ui.Keys.PAGEUP:
+			case OO.ui.Keys.PAGEDOWN:
+				// Hack? Handle keyboard events the same as MenuSelectWidget would, even
+				// when menu is not expanded and therefore not handling events.
+				return this.menu.onDocumentKeyDown( e );
+		}
 	}
+};
+
+/**
+ * Handle key press events.
+ *
+ * @private
+ * @param {jQuery.Event} e Key press event
+ * @return {undefined|boolean} False to prevent default if event is handled
+ */
+OO.ui.DropdownWidget.prototype.onKeyPress = function ( e ) {
+	// Hack? Handle keyboard events the same as MenuSelectWidget would, even
+	// when menu is not expanded and therefore not handling events.
+	return this.menu.onDocumentKeyPress( e );
+};
+
+/**
+ * Handle blur events.
+ *
+ * @private
+ * @param {jQuery.Event} e Blur event
+ */
+OO.ui.DropdownWidget.prototype.onBlur = function () {
+	this.menu.clearKeyPressBuffer();
 };
 
 /**
