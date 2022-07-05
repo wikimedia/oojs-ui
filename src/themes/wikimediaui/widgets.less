@@ -1063,6 +1063,11 @@
 }
 
 .theme-oo-ui-progressBarWidget() {
+	// Support Safari: Create a stacking context to prevent the bar from overflowing the
+	// `border-radius` of the component's root element by `position: relative` and
+	// `z-index` other than `auto`.
+	position: relative;
+	z-index: 1;
 	max-width: @max-width-base;
 	border: @border-base;
 	border-radius: @border-radius-progressbar;

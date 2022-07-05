@@ -827,6 +827,11 @@
 }
 
 .theme-oo-ui-progressBarWidget() {
+	// Support Safari: Create a stacking context to prevent the bar from overflowing the
+	// `border-radius` of the component's root element by `position: relative` and
+	// `z-index` other than `auto`.
+	position: relative;
+	z-index: 1;
 	max-width: @max-width-input-base;
 	border: @border-base;
 	border-radius: @border-radius-base;
@@ -845,9 +850,9 @@
 
 	&-indeterminate {
 		.oo-ui-progressBarWidget-bar {
-			width: 40%;
+			width: 33%;
 			border-left: @border-base;
-			animation: oo-ui-progressBarWidget-slide 2s infinite linear;
+			animation: oo-ui-progressBarWidget-slide 1.6s infinite linear;
 			transform: translate( -25% );
 		}
 	}
@@ -862,7 +867,7 @@
 		}
 
 		to {
-			transform: translate (350% );
+			transform: translate( 300% );
 		}
 	}
 }
