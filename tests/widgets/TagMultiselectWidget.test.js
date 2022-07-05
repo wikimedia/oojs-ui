@@ -295,4 +295,30 @@
 			'Getting the previous item from the first item returns the last item (if inputPosition:none)'
 		);
 	} );
+
+	QUnit.test( 'doInputBackspace', function ( assert ) {
+		var widget,
+			getItemDatas = function ( items ) {
+				return items.map( function ( item ) {
+					return item.getData();
+				} );
+			};
+
+		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
+		/* eslint-disable no-jquery/no-parse-html-literal */
+		widget.addTag( 'foo', $( '<span>foo</span>' ) );
+		widget.addTag( 'baz', $( '<span>baz</span>' ) );
+		widget.doInputBackspace( null, false );
+
+		assert.deepEqual(
+			getItemDatas( widget.getItems() ),
+			[ 'foo' ],
+			'Removing the last tag from the items array'
+		);
+		assert.strictEqual(
+			widget.getTagInfoFromInput().label,
+			'baz',
+			'Retrieving last introduced item label from input'
+		);
+	} );
 }() );
