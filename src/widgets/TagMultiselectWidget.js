@@ -378,7 +378,13 @@ OO.ui.TagMultiselectWidget.prototype.doInputBackspace = function ( e, withMetaKe
 			// If Ctrl/Cmd was pressed, delete item entirely.
 			// Otherwise put it into the text field for editing.
 			if ( !withMetaKey ) {
-				this.input.setValue( item.getLabel() );
+				var itemLabel;
+				if ( typeof item.getLabel() === 'string' ) {
+					itemLabel = item.getLabel();
+				} else if ( item.getLabel() instanceof $ ) {
+					itemLabel = item.getLabel().text();
+				}
+				this.input.setValue( itemLabel );
 			}
 		}
 
@@ -682,7 +688,7 @@ OO.ui.TagMultiselectWidget.prototype.setValue = function ( valueObject ) {
  * Performs a validation check on the tag to be added.
  *
  * @param {Mixed} data Tag data
- * @param {string} [label=data] Tag label. If no label is provided, the
+ * @param {string|jQuery} [label=data] Tag label. If no label is provided, the
  *  stringified version of the data will be used instead.
  * @return {boolean} Item was added successfully
  */
@@ -726,7 +732,7 @@ OO.ui.TagMultiselectWidget.prototype.removeTagByData = function ( data ) {
  *
  * @protected
  * @param {Mixed} data Item data
- * @param {string} [label=data] The label text.
+ * @param {string|jQuery} [label=data] The label text or JQuery collection.
  * @return {OO.ui.TagItemWidget}
  */
 OO.ui.TagMultiselectWidget.prototype.createTagItemWidget = function ( data, label ) {
