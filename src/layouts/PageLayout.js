@@ -5,8 +5,8 @@
  * directly, rather extended to include the required content and functionality.
  *
  * Each page must have a unique symbolic name, which is passed to the constructor. In addition, the
- * page's outline item is customized (with a label, outline level, etc.) using the
- * #setupOutlineItem method. See {@link OO.ui.BookletLayout BookletLayout} for an example.
+ * page's outline item is customized (with a label, outline level, etc.) using
+ * the #setupOutlineItem method. See {@link OO.ui.BookletLayout BookletLayout} for an example.
  *
  * @class
  * @extends OO.ui.PanelLayout
