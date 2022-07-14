@@ -98,13 +98,19 @@
 				}
 				lastQuery = location.search;
 				var newDemo = new Demo();
-				newDemo.initialize().then( function () {
-					$( document.body ).append( newDemo.$element );
-					if ( prevPage === newDemo.mode.page && scrollPos ) {
-						// Restore scroll position from before we destroyed the demo
-						$( window ).scrollTop( scrollPos );
-					}
-				} );
+				newDemo.initialize().then(
+					function () {
+						$( document.body ).append( newDemo.$element );
+						newDemo.setup();
+						if ( prevPage === newDemo.mode.page && scrollPos ) {
+							// Restore scroll position from before we destroyed the demo
+							$( window ).scrollTop( scrollPos );
+						}
+					},
+					function () {
+						// Demo contains an error message which should be displayed
+						$( document.body ).append( newDemo.$element );
+					} );
 				OO.ui.demo = newDemo;
 			}
 

@@ -279,9 +279,9 @@ Demo.static.defaultPlatform = 'desktop';
 /* Methods */
 
 /**
- * Load the demo page. Must be called after $element is attached.
+ * Initialize the demo page. Called before $element is attached.
  *
- * @return {jQuery.Promise} Resolved when demo is initialized
+ * @return {jQuery.Promise} Resolved when demo is initialized, rejects if styles failed to load
  */
 Demo.prototype.initialize = function () {
 	var demo = this,
@@ -289,21 +289,27 @@ Demo.prototype.initialize = function () {
 			return $( el ).data( 'load-promise' );
 		} );
 
+	return $.when.apply( $, promises ).then(
+		null,
+		function () {
+			demo.$element.append( $( '<p>' ).text( 'Demo styles failed to load.' ) );
+		}
+	);
+};
+
+/**
+ * Setup the demo page. Called after $element is attached.
+ */
+Demo.prototype.setup = function () {
 	// Helper function to get high resolution profiling data, where available.
 	function now() {
 		return ( window.performance && performance.now ) ? performance.now() : Date.now();
 	}
 
-	return $.when.apply( $, promises )
-		.done( function () {
-			var start = now();
-			demo.constructor.static.pages[ demo.mode.page ]( demo );
-			var end = now();
-			window.console.log( 'Took ' + ( end - start ) + ' ms to build demo page.' );
-		} )
-		.fail( function () {
-			demo.$element.append( $( '<p>' ).text( 'Demo styles failed to load.' ) );
-		} );
+	var start = now();
+	this.constructor.static.pages[ this.mode.page ]( this );
+	var end = now();
+	window.console.log( 'Took ' + ( end - start ) + ' ms to build demo page.' );
 };
 
 /**
