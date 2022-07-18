@@ -148,6 +148,27 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupWidget );
  * @param {OO.ui.OptionWidget[]} items Removed items
  */
 
+/* Static Properties */
+
+/**
+ * Whether this widget will respond to the navigation keys Home, End, PageUp, PageDown.
+ *
+ * @static
+ * @inheritable
+ * @property {boolean}
+ */
+OO.ui.SelectWidget.static.handleNavigationKeys = false;
+
+/**
+ * Whether selecting items using arrow keys or navigation keys in this widget will wrap around after
+ * the user reaches the beginning or end of the list.
+ *
+ * @static
+ * @inheritable
+ * @property {boolean}
+ */
+OO.ui.SelectWidget.static.listWrapsAround = true;
+
 /* Static methods */
 
 /**
@@ -322,13 +343,12 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
 OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 	var handled = false,
 		selected = this.findSelectedItems(),
-		currentItem = this.findHighlightedItem() || (
+		currentItem = this.isVisible() && this.findHighlightedItem() || (
 			Array.isArray( selected ) ? selected[ 0 ] : selected
-		),
-		firstItem = this.getItems()[ 0 ];
+		);
 
 	var nextItem;
-	if ( !this.isDisabled() && this.isVisible() ) {
+	if ( !this.isDisabled() ) {
 		switch ( e.keyCode ) {
 			case OO.ui.Keys.ENTER:
 				if ( currentItem ) {
@@ -339,17 +359,42 @@ OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 				break;
 			case OO.ui.Keys.UP:
 			case OO.ui.Keys.LEFT:
-				this.clearKeyPressBuffer();
-				nextItem = currentItem ?
-					this.findRelativeSelectableItem( currentItem, -1 ) : firstItem;
-				handled = true;
-				break;
 			case OO.ui.Keys.DOWN:
 			case OO.ui.Keys.RIGHT:
 				this.clearKeyPressBuffer();
-				nextItem = currentItem ?
-					this.findRelativeSelectableItem( currentItem, 1 ) : firstItem;
+				nextItem = this.findRelativeSelectableItem(
+					currentItem,
+					e.keyCode === OO.ui.Keys.UP || e.keyCode === OO.ui.Keys.LEFT ? -1 : 1,
+					null,
+					this.constructor.static.listWrapsAround
+				);
 				handled = true;
+				break;
+			case OO.ui.Keys.HOME:
+			case OO.ui.Keys.END:
+				if ( this.constructor.static.handleNavigationKeys ) {
+					this.clearKeyPressBuffer();
+					nextItem = this.findRelativeSelectableItem(
+						null,
+						e.keyCode === OO.ui.Keys.HOME ? 1 : -1,
+						null,
+						this.constructor.static.listWrapsAround
+					);
+					handled = true;
+				}
+				break;
+			case OO.ui.Keys.PAGEUP:
+			case OO.ui.Keys.PAGEDOWN:
+				if ( this.constructor.static.handleNavigationKeys ) {
+					this.clearKeyPressBuffer();
+					nextItem = this.findRelativeSelectableItem(
+						currentItem,
+						e.keyCode === OO.ui.Keys.PAGEUP ? -10 : 10,
+						null,
+						this.constructor.static.listWrapsAround
+					);
+					handled = true;
+				}
 				break;
 			case OO.ui.Keys.ESCAPE:
 			case OO.ui.Keys.TAB:
@@ -364,7 +409,7 @@ OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 		}
 
 		if ( nextItem ) {
-			if ( nextItem.constructor.static.highlightable ) {
+			if ( this.isVisible() && nextItem.constructor.static.highlightable ) {
 				this.highlightItem( nextItem );
 			} else {
 				this.chooseItem( nextItem );
@@ -453,7 +498,7 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 	this.keyPressBufferTimer = setTimeout( this.clearKeyPressBuffer.bind( this ), 1500 );
 
 	var selected = this.findSelectedItems();
-	var item = this.findHighlightedItem() || (
+	var item = this.isVisible() && this.findHighlightedItem() || (
 		Array.isArray( selected ) ? selected[ 0 ] : selected
 	);
 
@@ -899,42 +944,67 @@ OO.ui.SelectWidget.prototype.chooseItem = function ( item ) {
 
 /**
  * Find an option by its position relative to the specified item (or to the start of the option
- * array, if item is `null`). The direction in which to search through the option array is specified
- * with a number: -1 for reverse (the default) or 1 for forward. The method will return an option,
- * or `null` if there are no options in the array.
+ * array, if item is `null`). The direction and distance in which to search through the option array
+ * is specified with a number: e.g. -1 for the previous item (the default) or 1 for the next item,
+ * or 15 for the 15th next item, etc. The method will return an option, or `null` if there are no
+ * options in the array.
  *
  * @param {OO.ui.OptionWidget|null} item Item to describe the start position, or `null` to start at
  *  the beginning of the array.
- * @param {number} direction Direction to move in: -1 to move backward, 1 to move forward
+ * @param {number} offset Relative position: negative to move backward, positive to move forward
  * @param {Function} [filter] Only consider items for which this function returns
  *  true. Function takes an OO.ui.OptionWidget and returns a boolean.
+ * @param {boolean} [wrap=false] Do not wrap around after reaching the last or first item
  * @return {OO.ui.OptionWidget|null} Item at position, `null` if there are no items in the select
  */
-OO.ui.SelectWidget.prototype.findRelativeSelectableItem = function ( item, direction, filter ) {
-	var increase = direction > 0 ? 1 : -1,
+OO.ui.SelectWidget.prototype.findRelativeSelectableItem = function ( item, offset, filter, wrap ) {
+	var step = offset > 0 ? 1 : -1,
 		len = this.items.length;
+	if ( wrap === undefined ) {
+		wrap = true;
+	}
 
 	var nextIndex;
 	if ( item instanceof OO.ui.OptionWidget ) {
-		var currentIndex = this.items.indexOf( item );
-		nextIndex = ( currentIndex + increase + len ) % len;
+		nextIndex = this.items.indexOf( item );
 	} else {
 		// If no item is selected and moving forward, start at the beginning.
 		// If moving backward, start at the end.
-		nextIndex = direction > 0 ? 0 : len - 1;
+		nextIndex = offset > 0 ? 0 : len - 1;
+		offset -= step;
 	}
 
+	var previousItem = item;
+	var nextItem = null;
 	for ( var i = 0; i < len; i++ ) {
 		item = this.items[ nextIndex ];
 		if (
 			item instanceof OO.ui.OptionWidget && item.isSelectable() &&
 			( !filter || filter( item ) )
 		) {
-			return item;
+			nextItem = item;
 		}
-		nextIndex = ( nextIndex + increase + len ) % len;
+
+		if ( offset === 0 && nextItem && nextItem !== previousItem ) {
+			// We walked at least the desired number of steps *and* we've selected a different item.
+			// This is to ensure that disabled items don't cause us to get stuck or return null.
+			break;
+		}
+
+		nextIndex += step;
+		if ( nextIndex < 0 || nextIndex >= len ) {
+			if ( wrap ) {
+				nextIndex = ( nextIndex + len ) % len;
+			} else {
+				// We ran out of the list, return whichever was the last valid item
+				break;
+			}
+		}
+		if ( offset !== 0 ) {
+			offset -= step;
+		}
 	}
-	return null;
+	return nextItem;
 };
 
 /**
