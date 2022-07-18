@@ -369,9 +369,25 @@
 
 .theme-oo-ui-groupElement() {}
 
-.theme-oo-ui-iconElement() {}
+.theme-oo-ui-iconElement() {
+	// Support inverted high contrast mode in Windows (T180890)
+	@media ( forced-colors: active ) and ( prefers-color-scheme: dark ) {
+		&-icon:not( .oo-ui-image-invert ) {
+			// stylelint-disable-next-line plugin/no-unsupported-browser-features
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
+	}
+}
 
-.theme-oo-ui-indicatorElement() {}
+.theme-oo-ui-indicatorElement() {
+	// Support inverted high contrast mode in Windows (T180890)
+	@media ( forced-colors: active ) and ( prefers-color-scheme: dark ) {
+		&-indicator:not( .oo-ui-image-invert ) {
+			// stylelint-disable-next-line plugin/no-unsupported-browser-features
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
+	}
+}
 
 .theme-oo-ui-labelElement() {
 	.oo-ui-labelElement-label {
