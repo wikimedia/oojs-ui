@@ -125,6 +125,7 @@ OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 		this.$body.append( config.$content );
 	}
 
+	this.padded = !!config.padded;
 	if ( config.padded ) {
 		this.$body.addClass( 'oo-ui-popupWidget-body-padded' );
 	}
@@ -574,10 +575,12 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 
 	// Set height and width before we do anything else, since it might cause our measurements
 	// to change (e.g. due to scrollbars appearing or disappearing), and it also affects centering
-	this.$popup.css( {
-		width: this.width !== null ? this.width : 'auto',
-		height: this.height !== null ? this.height : 'auto'
-	} );
+	this.setIdealSize(
+		// The properties refer to the width of this.$popup, but we set the properties on this.$body to
+		// make calculations work out right (T180173), so we subtract padding here.
+		this.width !== null ? this.width - ( this.padded ? 24 : 0 ) : 'auto',
+		this.height !== null ? this.height - ( this.padded ? 10 : 0 ) : 'auto'
+	);
 
 	var align = alignMap[ direction ][ this.align ] || this.align;
 	var popupPosition = this.popupPosition;
@@ -593,9 +596,7 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	var near = vertical ? 'top' : 'left';
 	var far = vertical ? 'bottom' : 'right';
 	var sizeProp = vertical ? 'Height' : 'Width';
-	var popupSize = vertical ?
-		( this.height || this.$popup.height() ) :
-		( this.width || this.$popup.width() );
+	var popupSize = vertical ? this.$popup.height() : this.$popup.width();
 
 	this.setAnchorEdge( anchorEdgeMap[ popupPosition ] );
 	this.horizontalPosition = vertical ? popupPosition : hPosMap[ align ];
