@@ -78,6 +78,12 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Configuration initialization
 	config = $.extend( { align: 'left', helpInline: false }, config );
 
+	if ( config.help && !config.label ) {
+		// Add an empty label. For some combinations of 'helpInline' and 'align'
+		// there would be no space in the interface to display the help text otherwise.
+		config.label = ' ';
+	}
+
 	// Parent constructor
 	OO.ui.FieldLayout.super.call( this, config );
 
