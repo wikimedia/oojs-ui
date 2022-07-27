@@ -344,6 +344,124 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	]
 ] ) );
 
+$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+	'id' => 'demo-section-fieldLayouts-no-label',
+	'infusable' => true,
+	'label' => 'Field layouts with no label',
+	'help' => 'When no label is specified, the layouts take up the same width and height ' .
+		'despite different "align" values (first four examples below). ' .
+		'However, when help text is specified, they behave as if the label was also specified ' .
+		'and use the usual different widths and heights (next four examples). ' .
+		'The last four examples use a normal label, for comparison.',
+	'helpInline' => true,
+	'items' => [
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'align' => 'top',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'align' => 'inline',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'align' => 'left',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'align' => 'right',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'help' => $loremIpsum,
+				'align' => 'top',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'help' => $loremIpsum,
+				'align' => 'inline',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'help' => $loremIpsum,
+				'align' => 'left',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'help' => $loremIpsum,
+				'align' => 'right',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'Label (align: top)',
+				'align' => 'top',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'Label (align: inline)',
+				'align' => 'inline',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'Label (align: left)',
+				'align' => 'left',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Button'
+			] ),
+			[
+				'label' => 'Label (align: right)',
+				'align' => 'right',
+			]
+		)
+	]
+] ) );
+
 // We can't make the outer FieldsetLayout infusable, because the Widget in its FieldLayout
 // is added with 'content', which is not preserved after infusion. But we need the Widget
 // to wrap the HorizontalLayout. Need to think about this at some point.
