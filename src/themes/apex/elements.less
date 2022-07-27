@@ -309,6 +309,14 @@
 		margin: @size-icon-outer;
 		opacity: 0.8;
 	}
+
+	// Support inverted high contrast mode in Windows (T180890)
+	@media ( forced-colors: active ) and ( prefers-color-scheme: dark ) {
+		&-icon:not( .oo-ui-image-invert ) {
+			// stylelint-disable-next-line plugin/no-unsupported-browser-features
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
+	}
 }
 
 .theme-oo-ui-indicatorElement() {
@@ -317,6 +325,14 @@
 		top: auto;
 		height: @size-indicator;
 		opacity: 0.8;
+	}
+
+	// Support inverted high contrast mode in Windows (T180890)
+	@media ( forced-colors: active ) and ( prefers-color-scheme: dark ) {
+		&-indicator:not( .oo-ui-image-invert ) {
+			// stylelint-disable-next-line plugin/no-unsupported-browser-features
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
 	}
 }
 
