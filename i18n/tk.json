@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"TayfunEt."
+		]
+	},
+	"ooui-outline-control-move-down": "Harydy aşak süýşüriň",
+	"ooui-outline-control-move-up": "Harydy ýokaryk galdyryň",
+	"ooui-outline-control-remove": "Harydy aýyryň",
+	"ooui-toolbar-more": "Has köp",
+	"ooui-toolgroup-expand": "Has köp",
+	"ooui-toolgroup-collapse": "Az",
+	"ooui-item-remove": "Aýyr",
+	"ooui-dialog-message-accept": "OK",
+	"ooui-dialog-message-reject": "Goýbolsun et",
+	"ooui-dialog-process-error": "Bir zat nädogry boldy"
+}
