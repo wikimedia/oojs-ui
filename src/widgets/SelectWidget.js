@@ -203,7 +203,7 @@ OO.ui.SelectWidget.prototype.onFocus = function ( event ) {
 	if ( event.target === this.$element[ 0 ] ) {
 		// This widget was focussed, e.g. by the user tabbing to it.
 		// The styles for focus state depend on one of the items being selected.
-		if ( !this.findSelectedItem() ) {
+		if ( !this.findFirstSelectedItem() ) {
 			item = this.findFirstSelectableItem();
 		}
 	} else {
@@ -342,10 +342,7 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
  */
 OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 	var handled = false,
-		selected = this.findSelectedItems(),
-		currentItem = this.isVisible() && this.findHighlightedItem() || (
-			Array.isArray( selected ) ? selected[ 0 ] : selected
-		);
+		currentItem = this.isVisible() && this.findHighlightedItem() || this.findFirstSelectedItem();
 
 	var nextItem;
 	if ( !this.isDisabled() ) {
@@ -497,10 +494,7 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 	}
 	this.keyPressBufferTimer = setTimeout( this.clearKeyPressBuffer.bind( this ), 1500 );
 
-	var selected = this.findSelectedItems();
-	var item = this.isVisible() && this.findHighlightedItem() || (
-		Array.isArray( selected ) ? selected[ 0 ] : selected
-	);
+	var item = this.isVisible() && this.findHighlightedItem() || this.findFirstSelectedItem();
 
 	if ( this.keyPressBuffer === c ) {
 		// Common (if weird) special case: typing "xxxx" will cycle through all
@@ -617,6 +611,18 @@ OO.ui.SelectWidget.prototype.findTargetItem = function ( e ) {
 };
 
 /**
+ * @return {OO.ui.OptionWidget|null} The first (of possibly many) selected item, if any
+ */
+OO.ui.SelectWidget.prototype.findFirstSelectedItem = function () {
+	for ( var i = 0; i < this.items.length; i++ ) {
+		if ( this.items[ i ].isSelected() ) {
+			return this.items[ i ];
+		}
+	}
+	return null;
+};
+
+/**
  * Find all selected items, if there are any. If the widget allows for multiselect
  * it will return an array of selected options. If the widget doesn't allow for
  * multiselect, it will return the selected option or null if no item is selected.
@@ -627,13 +633,13 @@ OO.ui.SelectWidget.prototype.findTargetItem = function ( e ) {
  *  if no item is selected
  */
 OO.ui.SelectWidget.prototype.findSelectedItems = function () {
-	var selected = this.items.filter( function ( item ) {
+	if ( !this.multiselect ) {
+		return this.findFirstSelectedItem();
+	}
+
+	return this.items.filter( function ( item ) {
 		return item.isSelected();
 	} );
-
-	return this.multiselect ?
-		selected :
-		selected[ 0 ] || null;
 };
 
 /**

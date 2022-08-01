@@ -155,10 +155,7 @@ OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
  */
 OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 	var handled = false,
-		selected = this.findSelectedItems(),
-		currentItem = this.findHighlightedItem() || (
-			Array.isArray( selected ) ? selected[ 0 ] : selected
-		);
+		currentItem = this.findHighlightedItem() || this.findFirstSelectedItem();
 
 	if ( !this.isDisabled() && this.getVisibleItems().length ) {
 		switch ( e.keyCode ) {
@@ -466,8 +463,8 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 
 			this.$focusOwner.attr( 'aria-expanded', 'true' );
 
-			var selectedItem = this.findSelectedItem();
-			if ( !this.multiselect && selectedItem ) {
+			var selectedItem = !this.multiselect && this.findSelectedItem();
+			if ( selectedItem ) {
 				// TODO: Verify if this is even needed; This is already done on highlight changes
 				// in SelectWidget#highlightItem, so we should just need to highlight the item
 				// we need to highlight here and not bother with attr or checking selections.
