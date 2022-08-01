@@ -94,8 +94,6 @@ class FieldLayout extends Layout {
 		}
 
 		// Config initialization
-		$config = array_merge( [ 'align' => 'left', 'helpInline' => false ], $config );
-
 		if ( ( $config['help'] ?? '' ) !== '' && ( $config['label'] ?? '' ) === '' ) {
 			// Add an empty label. For some combinations of 'helpInline' and 'align'
 			// there would be no space in the interface to display the help text otherwise.
@@ -116,7 +114,7 @@ class FieldLayout extends Layout {
 		$this->header = new Tag( 'span' );
 		$this->body = new Tag( 'div' );
 		$this->helpText = $config['help'] ?? '';
-		$this->helpInline = $config['helpInline'];
+		$this->helpInline = $config['helpInline'] ?? false;
 
 		// Traits
 		$this->initializeLabelElement( array_merge( [
@@ -171,7 +169,7 @@ class FieldLayout extends Layout {
 			$this->messages->appendContent( $this->makeMessage( 'notice', $text ) );
 		}
 
-		$this->setAlignment( $config['align'] );
+		$this->setAlignment( $config['align'] ?? 'left' );
 		// Call this again to take into account the widget's accessKey
 		$this->updateTitle();
 	}

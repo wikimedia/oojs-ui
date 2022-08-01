@@ -21,7 +21,7 @@ trait RequiredElement {
 	protected $requiredElement;
 
 	/**
-	 * @var IndicatorElement
+	 * @var IndicatorElement|null
 	 */
 	protected $indicatorElement;
 
