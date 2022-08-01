@@ -45,17 +45,11 @@ class MenuLayout extends Layout {
 	 * @phan-param array{menuPanel:PanelLayout,contentPanel:PanelLayout,expanded?:bool,showMenu?:bool,menuPosition?:string} $config
 	 */
 	public function __construct( array $config = [] ) {
-		$config = array_merge( [
-			'expanded' => true,
-			'showMenu' => true,
-			'menuPosition' => 'before',
-		], $config );
-
 		parent::__construct( $config );
 
 		$this->menuPanel = null;
 		$this->contentPanel = null;
-		$this->expanded = $config['expanded'];
+		$this->expanded = $config['expanded'] ?? true;
 		$this->menuWrapper = new Tag( 'div' );
 		$this->contentWrapper = new Tag( 'div' );
 
@@ -71,8 +65,8 @@ class MenuLayout extends Layout {
 		if ( !empty( $config['contentPanel'] ) ) {
 			$this->setContentPanel( $config['contentPanel'] );
 		}
-		$this->setMenuPosition( $config['menuPosition'] );
-		$this->toggleMenu( (bool)$config['showMenu' ] );
+		$this->setMenuPosition( $config['menuPosition'] ?? 'before' );
+		$this->toggleMenu( (bool)( $config['showMenu'] ?? true ) );
 	}
 
 	public function getConfig( &$config ) {

@@ -20,8 +20,6 @@ class StackLayout extends PanelLayout {
 	public function __construct( array $config = [] ) {
 		$config = array_merge( [
 			'preserveContent' => false,
-			'continuous' => false,
-			'items' => [],
 			'scrollable' => $config['continuous'] ?? false
 		], $config );
 
@@ -39,7 +37,7 @@ class StackLayout extends PanelLayout {
 		if ( $this->continuous ) {
 			$this->addClasses( [ 'oo-ui-stackLayout-continuous' ] );
 		}
-		$this->addItems( $config['items'] );
+		$this->addItems( $config['items'] ?? [] );
 	}
 
 	public function setItem( $item ) {

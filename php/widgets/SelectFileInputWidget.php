@@ -23,24 +23,15 @@ class SelectFileInputWidget extends InputWidget {
 	 *  and show a preview (for performance).
 	 */
 	public function __construct( array $config = [] ) {
-		// Config initialization
-		$config = array_merge( [
-			'accept' => null,
-			'multiple' => false,
-			'placeholder' => null,
-			'button' => null,
-			'icon' => null,
-		], $config );
-
 		// Parent constructor
 		parent::__construct( $config );
 
 		// Properties
-		$this->accept = $config['accept'];
-		$this->multiple = $config['multiple'];
-		$this->placeholder = $config['placeholder'];
-		$this->button = $config['button'];
-		$this->icon = $config['icon'];
+		$this->accept = $config['accept'] ?? null;
+		$this->multiple = $config['multiple'] ?? false;
+		$this->placeholder = $config['placeholder'] ?? null;
+		$this->button = $config['button'] ?? null;
+		$this->icon = $config['icon'] ?? null;
 
 		// Traits
 		$this->initializeRequiredElement(
