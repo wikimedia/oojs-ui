@@ -263,7 +263,8 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 		this.highlightItem( null );
 	}
 
-	this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible );
+	// Only matters while open: a closed menu is hidden anyway, and this is recalculated on open
+	this.$element.toggleClass( 'oo-ui-menuSelectWidget-invisible', !anyVisible && this.isVisible() );
 
 	if ( this.highlightOnFilter &&
 		!( this.lastHighlightedItem && this.lastHighlightedItem.isSelectable() ) &&

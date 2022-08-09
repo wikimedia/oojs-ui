@@ -3,8 +3,9 @@
  * can be entered manually) and a {@link OO.ui.MenuSelectWidget menu of options} (from which
  * a value can be chosen instead). Users can choose options from the combo box in one of two ways:
  *
- * - by typing a value in the text input field. If the value exactly matches the value of a menu
- *   option, that option will appear to be selected.
+ * - by typing a value in the text input field. The menu will only show options starting with the
+ *   typed text, and if the value exactly matches the value of a menu option, that option will
+ *   appear to be selected.
  * - by choosing a value from the menu. The value of the chosen option will then appear in the text
  *   input field.
  *
@@ -91,6 +92,8 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	} );
 	this.menu = new OO.ui.MenuSelectWidget( Object.assign(
 		{
+			// Filter options as the user types, like the native <datalist> used in PHP
+			filterFromInput: true,
 			widget: this,
 			input: this,
 			$floatableContainer: this.$element,
