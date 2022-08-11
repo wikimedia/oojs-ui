@@ -81,6 +81,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	this.lastHighlightedItem = null;
 	this.width = config.width;
 	this.filterMode = config.filterMode;
+	this.screenReaderMode = false;
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-menuSelectWidget' );
@@ -159,13 +160,20 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 
 	if ( !this.isDisabled() && this.getVisibleItems().length ) {
 		switch ( e.keyCode ) {
-			case OO.ui.Keys.TAB:
-				if ( currentItem ) {
-					// Was only highlighted, now let's select it. No-op if already selected.
-					this.chooseItem( currentItem );
-					handled = true;
+			case OO.ui.Keys.ENTER:
+				if ( this.isVisible() ) {
+					OO.ui.MenuSelectWidget.super.prototype.onDocumentKeyDown.call( this, e );
 				}
-				this.toggle( false );
+				break;
+			case OO.ui.Keys.TAB:
+				if ( this.isVisible() ) {
+					if ( currentItem ) {
+						// Was only highlighted, now let's select it. No-op if already selected.
+						this.chooseItem( currentItem );
+						handled = true;
+					}
+					this.toggle( false );
+				}
 				break;
 			case OO.ui.Keys.LEFT:
 			case OO.ui.Keys.RIGHT:
@@ -177,11 +185,13 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 				}
 				break;
 			case OO.ui.Keys.ESCAPE:
-				if ( currentItem && !this.multiselect ) {
-					currentItem.setHighlighted( false );
+				if ( this.isVisible() ) {
+					if ( currentItem && !this.multiselect ) {
+						currentItem.setHighlighted( false );
+					}
+					this.toggle( false );
+					handled = true;
 				}
-				this.toggle( false );
-				handled = true;
 				break;
 			default:
 				return OO.ui.MenuSelectWidget.super.prototype.onDocumentKeyDown.call( this, e );
@@ -388,6 +398,27 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
 };
 
 /**
+ * Toggle visibility of the menu for screen readers.
+ *
+ * @param {boolean} screenReaderMode
+ */
+OO.ui.MenuSelectWidget.prototype.toggleScreenReaderMode = function ( screenReaderMode ) {
+	screenReaderMode = !!screenReaderMode;
+	this.screenReaderMode = screenReaderMode;
+
+	this.$element.toggleClass( 'oo-ui-menuSelectWidget-screenReaderMode', this.screenReaderMode );
+
+	if ( screenReaderMode ) {
+		this.bindDocumentKeyDownListener();
+		this.bindDocumentKeyPressListener();
+	} else {
+		this.$focusOwner.removeAttr( 'aria-activedescendant' );
+		this.unbindDocumentKeyDownListener();
+		this.unbindDocumentKeyPressListener();
+	}
+};
+
+/**
  * Toggle visibility of the menu. The menu is initially hidden and must be shown by calling
  * `.toggle( true )` after its #$element is attached to the DOM.
  *
@@ -437,8 +468,10 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.togglePositioning( !!this.$floatableContainer );
 			this.toggleClipping( true );
 
-			this.bindDocumentKeyDownListener();
-			this.bindDocumentKeyPressListener();
+			if ( !this.screenReaderMode ) {
+				this.bindDocumentKeyDownListener();
+				this.bindDocumentKeyPressListener();
+			}
 
 			if (
 				( this.isClippedVertically() || this.isFloatableOutOfView() ) &&
@@ -462,6 +495,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			// later (e.g. after the user scrolls), that seems like it would be annoying
 
 			this.$focusOwner.attr( 'aria-expanded', 'true' );
+			this.$focusOwner.attr( 'aria-owns', this.getElementId() );
 
 			var selectedItem = !this.multiselect && this.findSelectedItem();
 			if ( selectedItem ) {
@@ -480,9 +514,12 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.emit( 'ready' );
 		} else {
 			this.$focusOwner.removeAttr( 'aria-activedescendant' );
-			this.unbindDocumentKeyDownListener();
-			this.unbindDocumentKeyPressListener();
+			if ( !this.screenReaderMode ) {
+				this.unbindDocumentKeyDownListener();
+				this.unbindDocumentKeyPressListener();
+			}
 			this.$focusOwner.attr( 'aria-expanded', 'false' );
+			this.$focusOwner.removeAttr( 'aria-owns' );
 			this.getElementDocument().removeEventListener( 'mousedown', this.onDocumentMouseDownHandler, true );
 			this.togglePositioning( false );
 			this.toggleClipping( false );

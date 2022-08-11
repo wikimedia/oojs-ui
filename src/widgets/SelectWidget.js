@@ -409,6 +409,9 @@ OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 			if ( this.isVisible() && nextItem.constructor.static.highlightable ) {
 				this.highlightItem( nextItem );
 			} else {
+				if ( this.screenReaderMode ) {
+					this.highlightItem( nextItem );
+				}
 				this.chooseItem( nextItem );
 			}
 			this.scrollItemIntoView( nextItem );
@@ -514,6 +517,9 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 		if ( this.isVisible() && item.constructor.static.highlightable ) {
 			this.highlightItem( item );
 		} else {
+			if ( this.screenReaderMode ) {
+				this.highlightItem( item );
+			}
 			this.chooseItem( item );
 		}
 		this.scrollItemIntoView( item );

@@ -18,5 +18,10 @@
 		display: none;
 	}
 
+	&-screenReaderMode.oo-ui-element-hidden {
+		display: block !important; // stylelint-disable-line declaration-no-important
+		.oo-ui-screen-reader-text();
+	}
+
 	.theme-oo-ui-menuSelectWidget();
 }

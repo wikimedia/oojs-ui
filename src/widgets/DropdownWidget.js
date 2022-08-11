@@ -89,7 +89,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	this.$handle.on( {
 		click: this.onClick.bind( this ),
 		keydown: this.onKeyDown.bind( this ),
-		keypress: this.onKeyPress.bind( this ),
+		focus: this.onFocus.bind( this ),
 		blur: this.onBlur.bind( this )
 	} );
 	this.menu.connect( this, {
@@ -113,7 +113,6 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 			'aria-autocomplete': 'list',
 			'aria-expanded': 'false',
 			'aria-haspopup': 'true',
-			'aria-owns': this.menu.getElementId(),
 			'aria-labelledby': labelId
 		} );
 	this.$element
@@ -211,32 +210,18 @@ OO.ui.DropdownWidget.prototype.onKeyDown = function ( e ) {
 					return false;
 				}
 				break;
-			case OO.ui.Keys.UP:
-			case OO.ui.Keys.LEFT:
-			case OO.ui.Keys.DOWN:
-			case OO.ui.Keys.RIGHT:
-			case OO.ui.Keys.HOME:
-			case OO.ui.Keys.END:
-			case OO.ui.Keys.PAGEUP:
-			case OO.ui.Keys.PAGEDOWN:
-				// Hack? Handle keyboard events the same as MenuSelectWidget would, even
-				// when menu is not expanded and therefore not handling events.
-				return this.menu.onDocumentKeyDown( e );
 		}
 	}
 };
 
 /**
- * Handle key press events.
+ * Handle focus events.
  *
  * @private
- * @param {jQuery.Event} e Key press event
- * @return {undefined|boolean} False to prevent default if event is handled
+ * @param {jQuery.Event} e Focus event
  */
-OO.ui.DropdownWidget.prototype.onKeyPress = function ( e ) {
-	// Hack? Handle keyboard events the same as MenuSelectWidget would, even
-	// when menu is not expanded and therefore not handling events.
-	return this.menu.onDocumentKeyPress( e );
+OO.ui.DropdownWidget.prototype.onFocus = function () {
+	this.menu.toggleScreenReaderMode( true );
 };
 
 /**
@@ -246,7 +231,7 @@ OO.ui.DropdownWidget.prototype.onKeyPress = function ( e ) {
  * @param {jQuery.Event} e Blur event
  */
 OO.ui.DropdownWidget.prototype.onBlur = function () {
-	this.menu.clearKeyPressBuffer();
+	this.menu.toggleScreenReaderMode( false );
 };
 
 /**
