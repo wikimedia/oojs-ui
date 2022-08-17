@@ -28,16 +28,20 @@
 			"email": "legoktm@gmail.com"
 		},
 		{
+			"name": "Moriel Schottlender",
+			"email": "mschottlender@wikimedia.org"
+		},
+		{
 			"name": "Prateek Saxena",
 			"email": "prtksxna@gmail.com"
 		},
 		{
 			"name": "Roan Kattouw",
-			"email": "roan@wikimedia.org"
+			"email": "roan.kattouw@gmail.com"
 		},
 		{
-			"name": "Rob Moen",
-			"email": "rmoen@wikimedia.org"
+			"name": "Thiemo Kreuz",
+			"email": "thiemo.kreuz@wikimedia.de"
 		},
 		{
 			"name": "Timo Tijhof",
@@ -45,7 +49,11 @@
 		},
 		{
 			"name": "Trevor Parscal",
-			"email": "trevor@wikimedia.org"
+			"email": "trevorparscal@gmail.com"
+		},
+		{
+			"name": "Volker E.",
+			"email": "volker.e@wikimedia.org"
 		}
 	],
 	"require-dev": {
