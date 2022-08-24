@@ -39,6 +39,8 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @cfg {boolean} [clearOnSelect=true] Clear selection immediately after making it
+ * @cfg {Object} [menuClass=OO.ui.MenuSelectWidget] Class for the menu widget. This
+ *  must be a subclass of {@link OO.ui.MenuSelectWidget menu select widget}.
  * @cfg {Object} [menu] Configuration options to pass to
  *  {@link OO.ui.MenuSelectWidget menu select widget}.
  * @cfg {jQuery|boolean} [$overlay] Render the menu into a separate layer. This configuration is
@@ -57,9 +59,11 @@ OO.ui.ButtonMenuSelectWidget = function OoUiButtonMenuSelectWidget( config ) {
 	this.$overlay = ( config.$overlay === true ?
 		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 
+	var MenuClass = config.menuClass || OO.ui.MenuSelectWidget;
+
 	// Properties
 	this.clearOnSelect = config.clearOnSelect !== false;
-	this.menu = new OO.ui.MenuSelectWidget( $.extend( {
+	this.menu = new MenuClass( $.extend( {
 		widget: this,
 		$floatableContainer: this.$element
 	}, config.menu ) );
