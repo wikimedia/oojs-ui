@@ -38,6 +38,7 @@ class PanelLayout extends Layout {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		if ( !$this->preserveContent ) {
 			$config['preserveContent'] = false;

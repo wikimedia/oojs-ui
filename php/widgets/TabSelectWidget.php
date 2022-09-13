@@ -46,6 +46,7 @@ class TabSelectWidget extends SelectWidget {
 		return $this;
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		if ( $this->framed !== true ) {
 			$config['framed'] = $this->framed;

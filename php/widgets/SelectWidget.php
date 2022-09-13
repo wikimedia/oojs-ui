@@ -44,10 +44,15 @@ class SelectWidget extends Widget {
 		parent::__construct( $config );
 	}
 
+	/**
+	 * @return OptionWidget[]|OptionWidget|null
+	 */
 	public function findSelectedItems() {
+		/** @var OptionWidget[] $selected */
 		$selected = array_filter( $this->getItems(), static function ( $item ) {
 			return $item->isSelected();
 		} );
+		'@phan-var OptionWidget[] $selected';
 
 		return $this->multiselect ?
 			$selected :
@@ -56,6 +61,9 @@ class SelectWidget extends Widget {
 				null );
 	}
 
+	/**
+	 * @return OptionWidget[]|OptionWidget|null
+	 */
 	public function findSelectedItem() {
 		return $this->findSelectedItems();
 	}
@@ -69,6 +77,7 @@ class SelectWidget extends Widget {
 	 */
 	public function selectItemByData( $data = null ) {
 		$itemFromData = $this->findItemFromData( $data );
+		'@phan-var OptionWidget $itemFromData';
 		if ( $data === null || $itemFromData === null ) {
 			return $this->selectItem();
 		}

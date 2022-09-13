@@ -116,6 +116,7 @@ class TextInputWidget extends InputWidget {
 		return $this;
 	}
 
+	/** @inheritDoc */
 	protected function getInputElement( $config ) {
 		if ( $this->getSaneType( $config ) === 'number' ) {
 			return ( new Tag( 'input' ) )->setAttributes( [
@@ -141,6 +142,7 @@ class TextInputWidget extends InputWidget {
 		return isset( $config['type'] ) && in_array( $config['type'], $allowedTypes ) ? $config['type'] : 'text';
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		if ( $this->type !== 'text' ) {
 			$config['type'] = $this->type;

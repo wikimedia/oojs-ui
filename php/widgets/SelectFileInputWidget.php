@@ -10,7 +10,10 @@ class SelectFileInputWidget extends InputWidget {
 
 	/* Static Properties */
 
-	protected $accept, $placeholder;
+	/** @var string[]|null */
+	protected $accept;
+	/** @var string|null */
+	protected $placeholder;
 
 	/**
 	 * @param array $config Configuration options
@@ -55,6 +58,7 @@ class SelectFileInputWidget extends InputWidget {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		if ( $this->accept !== null ) {
 			$config['accept'] = $this->accept;

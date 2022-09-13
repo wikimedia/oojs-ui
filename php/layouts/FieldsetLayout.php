@@ -14,8 +14,10 @@ class FieldsetLayout extends Layout {
 
 	/* Static Properties */
 
+	/** @var string */
 	public static $tagName = 'fieldset';
 
+	/** @var Tag */
 	protected $header;
 
 	/**
@@ -75,6 +77,7 @@ class FieldsetLayout extends Layout {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		$config['$overlay'] = true;
 		if ( $this->helpText !== '' ) {

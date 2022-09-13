@@ -60,6 +60,7 @@ class ComboBoxInputWidget extends TextInputWidget {
 		return $this;
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		$options = [];
 		foreach ( $this->options as $option ) {

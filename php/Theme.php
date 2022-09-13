@@ -11,6 +11,7 @@ abstract class Theme {
 
 	/* Properties */
 
+	/** @var self|null */
 	private static $singleton;
 
 	/* Static Methods */
@@ -41,7 +42,7 @@ abstract class Theme {
 	 * otherwise state transitions will not work properly.
 	 *
 	 * @param Element $element Element for which to get classes
-	 * @return array Categorized class names with `on` and `off` lists
+	 * @return string[][] Categorized class names with `on` and `off` lists
 	 */
 	public function getElementClasses( Element $element ) {
 		return [ 'on' => [], 'off' => [] ];

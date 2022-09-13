@@ -28,6 +28,7 @@ class TabOptionWidget extends OptionWidget {
 		] );
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		if ( $this->href ) {
 			$config['href'] = $this->href;
