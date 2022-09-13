@@ -69,6 +69,7 @@ class MenuLayout extends Layout {
 		$this->toggleMenu( (bool)( $config['showMenu'] ?? true ) );
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		$config = parent::getConfig( $config );
 		if ( $this->menuPosition !== 'before' ) {
@@ -90,6 +91,9 @@ class MenuLayout extends Layout {
 		return $config;
 	}
 
+	/**
+	 * @param bool $showMenu
+	 */
 	public function toggleMenu( $showMenu ) {
 		$this->toggleClasses( [ 'oo-ui-menuLayout-showMenu' ], $showMenu );
 		$this->toggleClasses( [ 'oo-ui-menuLayout-hideMenu' ], !$showMenu );
@@ -98,6 +102,9 @@ class MenuLayout extends Layout {
 		] );
 	}
 
+	/**
+	 * @param string $position
+	 */
 	public function setMenuPosition( $position ) {
 		if ( !in_array( $position, [ 'top', 'bottom', 'before', 'after' ], true ) ) {
 			$position = 'before';
@@ -114,11 +121,17 @@ class MenuLayout extends Layout {
 		$this->addClasses( [ 'oo-ui-menuLayout-' . $position ] );
 	}
 
+	/**
+	 * @param PanelLayout $menuPanel
+	 */
 	public function setMenuPanel( PanelLayout $menuPanel ) {
 		$this->menuPanel = $menuPanel;
 		$this->menuWrapper->appendContent( $this->menuPanel );
 	}
 
+	/**
+	 * @param PanelLayout $contentPanel
+	 */
 	public function setContentPanel( PanelLayout $contentPanel ) {
 		$this->contentPanel = $contentPanel;
 		$this->contentWrapper->appendContent( $this->contentPanel );

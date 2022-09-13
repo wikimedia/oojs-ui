@@ -51,6 +51,7 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 		$this->addClasses( [ 'oo-ui-checkboxMultiselectInputWidget' ] );
 	}
 
+	/** @inheritDoc */
 	protected function getInputElement( $config ) {
 		// Actually unused
 		return new Tag( 'unused' );
@@ -59,9 +60,8 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 	/**
 	 * Set the value of the input.
 	 *
-	 * @param string[] $value New value
+	 * @param mixed $value New value should be an array of strings
 	 * @return $this
-	 * @suppress PhanParamSignatureMismatch Parent has string $value
 	 */
 	public function setValue( $value ) {
 		$this->value = $this->cleanUpValue( $value );
@@ -79,7 +79,7 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 	/**
 	 * Clean up incoming value.
 	 *
-	 * @param string[] $value Original value
+	 * @param mixed $value Original value
 	 * @return string[] Cleaned up value
 	 * @suppress PhanParamSignatureMismatch Parent has 'string' instead of 'string[]'
 	 */
@@ -138,6 +138,7 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 		return $this;
 	}
 
+	/** @inheritDoc */
 	public function setDisabled( $disabled ) {
 		parent::setDisabled( $disabled );
 		foreach ( $this->fields as $field ) {
@@ -146,6 +147,7 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 		return $this;
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		$options = [];
 		foreach ( $this->fields as $field ) {

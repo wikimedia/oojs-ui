@@ -32,6 +32,7 @@ class HiddenInputWidget extends Widget {
 		$this->removeAttributes( [ 'aria-disabled' ] );
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		$config['value'] = $this->getAttribute( 'value' );
 		$config['name'] = $this->getAttribute( 'name' );

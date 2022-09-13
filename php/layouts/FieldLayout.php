@@ -66,7 +66,14 @@ class FieldLayout extends Layout {
 	 */
 	protected $help;
 
-	protected $field, $header, $body, $messages;
+	/** @var Tag */
+	protected $field;
+	/** @var Tag */
+	protected $header;
+	/** @var Tag */
+	protected $body;
+	/** @var Tag */
+	protected $messages;
 
 	/**
 	 * @param Widget $fieldWidget Field widget
@@ -279,6 +286,7 @@ class FieldLayout extends Layout {
 		return $title;
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		$config['fieldWidget'] = $this->fieldWidget;
 		if ( $this->align !== 'left' ) {

@@ -86,6 +86,7 @@ class Widget extends Element {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		if ( $this->disabled ) {
 			$config['disabled'] = $this->disabled;

@@ -48,6 +48,7 @@ class ActionFieldLayout extends FieldLayout {
 			->appendContent( $this->input, $this->button );
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		$config['buttonWidget'] = $this->buttonWidget;
 		return parent::getConfig( $config );

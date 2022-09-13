@@ -39,11 +39,13 @@ class RadioSelectInputWidget extends InputWidget {
 		$this->addClasses( [ 'oo-ui-radioSelectInputWidget' ] );
 	}
 
+	/** @inheritDoc */
 	protected function getInputElement( $config ) {
 		// Actually unused
 		return new Tag( 'unused' );
 	}
 
+	/** @inheritDoc */
 	public function setValue( $value ) {
 		$this->value = $this->cleanUpValue( $value );
 		foreach ( $this->fields as $field ) {
@@ -105,6 +107,7 @@ class RadioSelectInputWidget extends InputWidget {
 		return $this;
 	}
 
+	/** @inheritDoc */
 	public function setDisabled( $disabled ) {
 		parent::setDisabled( $disabled );
 		foreach ( $this->fields as $field ) {
@@ -113,6 +116,7 @@ class RadioSelectInputWidget extends InputWidget {
 		return $this;
 	}
 
+	/** @inheritDoc */
 	public function getConfig( &$config ) {
 		$options = [];
 		foreach ( $this->fields as $field ) {

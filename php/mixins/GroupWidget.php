@@ -10,6 +10,9 @@ namespace OOUI;
 trait GroupWidget {
 	use GroupElement;
 
+	/**
+	 * @param bool $disabled
+	 */
 	public function setDisabled( $disabled ) {
 		// @phan-suppress-next-line PhanTraitParentReference
 		parent::setDisabled( $disabled );
