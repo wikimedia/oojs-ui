@@ -72,9 +72,6 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 		autocomplete: false
 	}, config );
 
-	// ComboBoxInputWidget shouldn't support `multiline`
-	config.multiline = false;
-
 	// See InputWidget#reusePreInfuseDOM about `config.$input`
 	if ( config.$input ) {
 		config.$input.removeAttr( 'list' );
