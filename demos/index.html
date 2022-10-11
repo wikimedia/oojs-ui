@@ -102,6 +102,14 @@
 					function () {
 						$( document.body ).append( newDemo.$element );
 						newDemo.setup();
+						// Scroll to fragment if provided
+						var hash = location.hash.slice( 1 );
+						if ( hash ) {
+							var elem = document.getElementById( hash );
+							if ( elem ) {
+								elem.scrollIntoView();
+							}
+						}
 						if ( prevPage === newDemo.mode.page && scrollPos ) {
 							// Restore scroll position from before we destroyed the demo
 							$( window ).scrollTop( scrollPos );
