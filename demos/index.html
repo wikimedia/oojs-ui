@@ -81,12 +81,12 @@
 	<script src="pages/toolbars.js"></script>
 	<script>
 		$( function () {
-			var demo, lastQuery = location.search;
+			var lastQuery = location.search;
 
 			OO.ui.isDemo = true;
 
 			function setup() {
-				var prevPage = demo ? demo.mode.page : null,
+				var prevPage = OO.ui.demo ? OO.ui.demo.mode.page : null,
 					scrollPos = $( window ).scrollTop();
 
 				var oldDemo = OO.ui.demo;
