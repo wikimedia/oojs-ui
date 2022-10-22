@@ -429,6 +429,16 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget( [
+			'value' => 'Has minimum length',
+			'minLength' => 2
+			] ),
+			[
+				'label' => "TextInputWidget (minimum length)",
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\TextInputWidget( [
 				'value' => 'Access key: S',
 				'accessKey' => 's'
 			] ),

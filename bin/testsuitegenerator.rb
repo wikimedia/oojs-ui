@@ -139,6 +139,7 @@ else
 		'accessKey' => ['k'],
 		'tabIndex' => [-1, 0, 100, '42'],
 		'maxLength' => [100],
+		'minLength' => [100],
 		'icon' => ['image'],
 		'indicator' => ['down'],
 		'flags' => %w[progressive primary],
