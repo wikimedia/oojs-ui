@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Oby Ezeilo",
-			"Ukabia"
+			"Ukabia",
+			"Zenyth1234"
 		]
 	},
 	"ooui-outline-control-move-down": "Wetuo ihe a ala",
@@ -13,5 +14,9 @@
 	"ooui-toolgroup-collapse": "ole na ole",
 	"ooui-item-remove": "Wepụ",
 	"ooui-dialog-message-accept": "ọdimma",
-	"ooui-dialog-message-reject": "Hapụ̀"
+	"ooui-dialog-message-reject": "Hapụ̀",
+	"ooui-dialog-process-error": "Enwere ihe na-ezighi ezi",
+	"ooui-dialog-process-dismiss": "Ghapụ",
+	"ooui-dialog-process-retry": "Nwaa ọzọ",
+	"ooui-dialog-process-continue": "Gaa n'ịhu"
 }
