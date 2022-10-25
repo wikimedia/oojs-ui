@@ -34,6 +34,7 @@
  *  instruct the browser to focus this widget.
  * @cfg {boolean} [readOnly=false] Prevent changes to the value of the text input.
  * @cfg {number} [maxLength] Maximum number of characters allowed in the input.
+ * @cfg {number} [minLength] Minimum number of characters allowed in the input.
  *
  *  For unfortunate historical reasons, this counts the number of UTF-16 code units rather than
  *  Unicode codepoints, which means that codepoints outside the Basic Multilingual Plane (e.g.
@@ -103,6 +104,9 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 	if ( config.maxLength !== undefined ) {
 		this.$input.attr( 'maxlength', config.maxLength );
+	}
+	if ( config.minLength !== undefined ) {
+		this.$input.attr( 'minlength', config.minLength );
 	}
 	if ( config.autofocus ) {
 		this.$input.attr( 'autofocus', 'autofocus' );

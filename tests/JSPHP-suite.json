@@ -23570,6 +23570,12 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
           "autocomplete": true
         }
       },
@@ -24182,6 +24188,57 @@
           "options": [
 
           ],
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "options": [
+            {
+              "data": "a",
+              "label": "A"
+            }
+          ],
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "options": [
+            {
+              "data": "a"
+            },
+            {
+              "data": "b"
+            }
+          ],
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "options": [
+            {
+              "data": "a",
+              "label": "A"
+            },
+            {
+              "data": "b",
+              "label": "B"
+            }
+          ],
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "options": [
+
+          ],
           "autocomplete": true
         }
       },
@@ -25553,6 +25610,20 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "type": "text",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "type": "button",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "type": "text",
           "autocomplete": true
         }
       },
@@ -25987,6 +26058,34 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "placeholder": "Foo bar <b>HTML?</b>",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "placeholder": "",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "placeholder": " ",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "placeholder": "0",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
           "autocomplete": true
         }
       },
@@ -26701,6 +26800,20 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "readOnly": true,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "readOnly": false,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "readOnly": true,
           "autocomplete": true
         }
       },
@@ -27051,6 +27164,13 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "maxLength": 100,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "maxLength": 100,
           "autocomplete": true
         }
       },
@@ -27219,6 +27339,181 @@
         "class": "ComboBoxInputWidget",
         "config": {
           "maxLength": 100,
+          "required": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": true
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "value": ""
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "disabled": true
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "disabled": false
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "title": ""
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
+          "required": true
+        }
+      },
+      {
+        "class": "ComboBoxInputWidget",
+        "config": {
+          "minLength": 100,
           "required": false
         }
       },
@@ -33040,6 +33335,12 @@
       {
         "class": "MultilineTextInputWidget",
         "config": {
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
           "autocomplete": true
         }
       },
@@ -33380,6 +33681,27 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "rows": 0,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "rows": -1,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "rows": 300,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "rows": 0,
           "autocomplete": true
         }
       },
@@ -34003,6 +34325,20 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "type": "text",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "type": "button",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "type": "text",
           "autocomplete": true
         }
       },
@@ -34437,6 +34773,34 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "placeholder": "Foo bar <b>HTML?</b>",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "placeholder": "",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "placeholder": " ",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "placeholder": "0",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
           "autocomplete": true
         }
       },
@@ -35151,6 +35515,20 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "readOnly": true,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "readOnly": false,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "readOnly": true,
           "autocomplete": true
         }
       },
@@ -35501,6 +35879,13 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "maxLength": 100,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "maxLength": 100,
           "autocomplete": true
         }
       },
@@ -35669,6 +36054,181 @@
         "class": "MultilineTextInputWidget",
         "config": {
           "maxLength": 100,
+          "required": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": true
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "value": ""
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "disabled": true
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "disabled": false
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "title": ""
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
+          "required": true
+        }
+      },
+      {
+        "class": "MultilineTextInputWidget",
+        "config": {
+          "minLength": 100,
           "required": false
         }
       },
@@ -37781,6 +38341,12 @@
       {
         "class": "NumberInputWidget",
         "config": {
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
           "autocomplete": true
         }
       },
@@ -38156,6 +38722,20 @@
         "class": "NumberInputWidget",
         "config": {
           "min": "1",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "min": "3",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "min": "1",
           "autocomplete": true
         }
       },
@@ -38702,6 +39282,20 @@
         "class": "NumberInputWidget",
         "config": {
           "max": "3",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "max": "5",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "max": "3",
           "autocomplete": true
         }
       },
@@ -39143,6 +39737,13 @@
         "class": "NumberInputWidget",
         "config": {
           "step": "1",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "step": "1",
           "autocomplete": true
         }
       },
@@ -39402,6 +40003,13 @@
         "class": "NumberInputWidget",
         "config": {
           "buttonStep": "2",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "buttonStep": "2",
           "autocomplete": true
         }
       },
@@ -39654,6 +40262,13 @@
         "class": "NumberInputWidget",
         "config": {
           "pageStep": "10",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "pageStep": "10",
           "autocomplete": true
         }
       },
@@ -39955,6 +40570,20 @@
         "class": "NumberInputWidget",
         "config": {
           "showButtons": true,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "showButtons": false,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "showButtons": true,
           "autocomplete": true
         }
       },
@@ -40403,6 +41032,20 @@
         "class": "NumberInputWidget",
         "config": {
           "type": "text",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "type": "button",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "type": "text",
           "autocomplete": true
         }
       },
@@ -40837,6 +41480,34 @@
         "class": "NumberInputWidget",
         "config": {
           "placeholder": "Foo bar <b>HTML?</b>",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "placeholder": "",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "placeholder": " ",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "placeholder": "0",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
           "autocomplete": true
         }
       },
@@ -41551,6 +42222,20 @@
         "class": "NumberInputWidget",
         "config": {
           "readOnly": true,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": false,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "readOnly": true,
           "autocomplete": true
         }
       },
@@ -41901,6 +42586,13 @@
         "class": "NumberInputWidget",
         "config": {
           "maxLength": 100,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "maxLength": 100,
           "autocomplete": true
         }
       },
@@ -42069,6 +42761,181 @@
         "class": "NumberInputWidget",
         "config": {
           "maxLength": 100,
+          "required": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "value": ""
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "disabled": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "disabled": false
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "title": ""
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
+          "required": true
+        }
+      },
+      {
+        "class": "NumberInputWidget",
+        "config": {
+          "minLength": 100,
           "required": false
         }
       },
@@ -47597,6 +48464,12 @@
       {
         "class": "SearchInputWidget",
         "config": {
+          "minLength": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
           "autocomplete": true
         }
       },
@@ -47846,6 +48719,20 @@
         "class": "SearchInputWidget",
         "config": {
           "type": "text",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "button",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "type": "text",
           "autocomplete": true
         }
       },
@@ -48280,6 +49167,34 @@
         "class": "SearchInputWidget",
         "config": {
           "placeholder": "Foo bar <b>HTML?</b>",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": " ",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "0",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
           "autocomplete": true
         }
       },
@@ -48994,6 +49909,20 @@
         "class": "SearchInputWidget",
         "config": {
           "readOnly": true,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": false,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "readOnly": true,
           "autocomplete": true
         }
       },
@@ -49344,6 +50273,13 @@
         "class": "SearchInputWidget",
         "config": {
           "maxLength": 100,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "maxLength": 100,
           "autocomplete": true
         }
       },
@@ -49512,6 +50448,181 @@
         "class": "SearchInputWidget",
         "config": {
           "maxLength": 100,
+          "required": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "value": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "title": ""
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
+          "required": true
+        }
+      },
+      {
+        "class": "SearchInputWidget",
+        "config": {
+          "minLength": 100,
           "required": false
         }
       },
@@ -54168,6 +55279,12 @@
       {
         "class": "TextInputWidget",
         "config": {
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
           "autocomplete": true
         }
       },
@@ -54515,6 +55632,34 @@
         "class": "TextInputWidget",
         "config": {
           "type": "text",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "type": "number",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "type": "password",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "type": "foo",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "type": "text",
           "autocomplete": true
         }
       },
@@ -55299,6 +56444,34 @@
         "class": "TextInputWidget",
         "config": {
           "placeholder": "Foo bar <b>HTML?</b>",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "placeholder": "",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "placeholder": " ",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "placeholder": "0",
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "placeholder": "Foo bar <b>HTML?</b>",
           "autocomplete": true
         }
       },
@@ -56013,6 +57186,20 @@
         "class": "TextInputWidget",
         "config": {
           "readOnly": true,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "readOnly": false,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "readOnly": true,
           "autocomplete": true
         }
       },
@@ -56363,6 +57550,13 @@
         "class": "TextInputWidget",
         "config": {
           "maxLength": 100,
+          "minLength": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "maxLength": 100,
           "autocomplete": true
         }
       },
@@ -56531,6 +57725,181 @@
         "class": "TextInputWidget",
         "config": {
           "maxLength": 100,
+          "required": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": true
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "autocomplete": "foo"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "spellcheck": true
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "spellcheck": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "value": ""
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "disabled": true
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "disabled": false
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "title": ""
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
+          "required": true
+        }
+      },
+      {
+        "class": "TextInputWidget",
+        "config": {
+          "minLength": 100,
           "required": false
         }
       },
