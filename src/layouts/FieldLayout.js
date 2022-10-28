@@ -62,6 +62,8 @@
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  *
  * @throws {Error} An error is thrown if no widget is specified
+ *
+ * @property {OO.ui.Widget} fieldWidget
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Allow passing positional parameters inside the config object
