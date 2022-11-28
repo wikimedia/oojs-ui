@@ -134,6 +134,7 @@ OO.ui.OutlineOptionWidget.prototype.setRemovable = function ( removable ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.OutlineOptionWidget.prototype.setLevel = function ( level ) {
+	level = level || 0;
 	if ( this.level === level ) {
 		return this;
 	}
