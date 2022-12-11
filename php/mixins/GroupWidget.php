@@ -6,6 +6,8 @@ namespace OOUI;
  * Use together with ItemWidget to make disabled state inheritable.
  *
  * @abstract
+ *
+ * @method Widget[] getItems()
  */
 trait GroupWidget {
 	use GroupElement;

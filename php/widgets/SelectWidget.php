@@ -6,6 +6,8 @@ namespace OOUI;
  * A SelectWidget is of a generic selection of options.
  *
  * Should be used in conjunction with OptionWidget
+ *
+ * @method OptionWidget[] getItems()
  */
 class SelectWidget extends Widget {
 
@@ -52,7 +54,6 @@ class SelectWidget extends Widget {
 		$selected = array_filter( $this->getItems(), static function ( $item ) {
 			return $item->isSelected();
 		} );
-		'@phan-var OptionWidget[] $selected';
 
 		return $this->multiselect ?
 			$selected :
@@ -77,7 +78,7 @@ class SelectWidget extends Widget {
 	 */
 	public function selectItemByData( $data = null ) {
 		$itemFromData = $this->findItemFromData( $data );
-		'@phan-var OptionWidget $itemFromData';
+		'@phan-var OptionWidget|null $itemFromData';
 		if ( $data === null || $itemFromData === null ) {
 			return $this->selectItem();
 		}

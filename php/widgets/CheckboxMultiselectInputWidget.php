@@ -27,7 +27,7 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 	/**
 	 * Layouts for this input, as FieldLayouts.
 	 *
-	 * @var array
+	 * @var FieldLayout[]
 	 */
 	protected $fields = [];
 
@@ -67,11 +67,15 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 		$this->value = $this->cleanUpValue( $value );
 		// Deselect all options
 		foreach ( $this->fields as $field ) {
-			$field->getField()->setSelected( false );
+			$widget = $field->getField();
+			'@phan-var CheckboxInputWidget $widget';
+			$widget->setSelected( false );
 		}
 		// Select the requested ones
 		foreach ( $this->value as $key ) {
-			$this->fields[ $key ]->getField()->setSelected( true );
+			$widget = $this->fields[ $key ]->getField();
+			'@phan-var CheckboxInputWidget $widget';
+			$widget->setSelected( true );
 		}
 		return $this;
 	}
@@ -151,10 +155,12 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 	public function getConfig( &$config ) {
 		$options = [];
 		foreach ( $this->fields as $field ) {
+			$widget = $field->getField();
+			'@phan-var CheckboxInputWidget $widget';
 			$options[] = [
-				'data' => $field->getField()->getValue(),
+				'data' => $widget->getValue(),
 				'label' => $field->getLabel(),
-				'disabled' => $field->getField()->isDisabled(),
+				'disabled' => $widget->isDisabled(),
 			];
 		}
 		$config['options'] = $options;
