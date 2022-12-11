@@ -17,7 +17,7 @@ class RadioSelectInputWidget extends InputWidget {
 	/**
 	 * Layouts for this input, as FieldLayouts.
 	 *
-	 * @var array
+	 * @var FieldLayout[]
 	 */
 	protected $fields = [];
 
@@ -49,7 +49,9 @@ class RadioSelectInputWidget extends InputWidget {
 	public function setValue( $value ) {
 		$this->value = $this->cleanUpValue( $value );
 		foreach ( $this->fields as $field ) {
-			$field->getField()->setSelected( $field->getField()->getValue() === $this->value );
+			$widget = $field->getField();
+			'@phan-var RadioInputWidget $widget';
+			$widget->setSelected( $widget->getValue() === $this->value );
 		}
 		return $this;
 	}
@@ -120,8 +122,10 @@ class RadioSelectInputWidget extends InputWidget {
 	public function getConfig( &$config ) {
 		$options = [];
 		foreach ( $this->fields as $field ) {
+			$widget = $field->getField();
+			'@phan-var RadioInputWidget $widget';
 			$options[] = [
-				'data' => $field->getField()->getValue(),
+				'data' => $widget->getValue(),
 				'label' => $field->getLabel(),
 			];
 		}

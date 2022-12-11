@@ -59,11 +59,13 @@ abstract class Theme {
 		$classes = $this->getElementClasses( $element );
 
 		if ( method_exists( $element, 'getIconElement' ) ) {
+			// @phan-suppress-next-line PhanUndeclaredMethod
 			$element->getIconElement()
 				->removeClasses( $classes['off'] )
 				->addClasses( $classes['on'] );
 		}
 		if ( method_exists( $element, 'getIndicatorElement' ) ) {
+			// @phan-suppress-next-line PhanUndeclaredMethod
 			$element->getIndicatorElement()
 				->removeClasses( $classes['off'] )
 				->addClasses( $classes['on'] );
