@@ -23,6 +23,16 @@ class CheckboxInputWidget extends InputWidget {
 	protected $selected;
 
 	/**
+	 * @var bool
+	 */
+	protected $indeterminate;
+
+	/**
+	 * @var IconWidget
+	 */
+	protected $checkIcon;
+
+	/**
 	 * @param array $config Configuration options
 	 *      - bool $config['selected'] Whether the checkbox is initially selected
 	 *          (default: false)

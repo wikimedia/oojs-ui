@@ -6,6 +6,9 @@ namespace OOUI;
  * Layout that expands to cover the entire area of its parent, with optional scrolling and padding.
  */
 class PanelLayout extends Layout {
+	/** @var bool */
+	protected $preserveContent;
+
 	/**
 	 * @param array $config Configuration options
 	 *      - bool $config['scrollable'] Allow vertical scrolling (default: false)

@@ -12,8 +12,14 @@ class SelectFileInputWidget extends InputWidget {
 
 	/** @var string[]|null */
 	protected $accept;
+	/** @var bool */
+	protected $multiple;
 	/** @var string|null */
 	protected $placeholder;
+	/** @var array|null */
+	protected $button;
+	/** @var string|null */
+	protected $icon;
 
 	/**
 	 * @param array $config Configuration options
