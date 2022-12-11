@@ -15,6 +15,16 @@ class ActionFieldLayout extends FieldLayout {
 	protected $buttonWidget;
 
 	/**
+	 * @var Tag
+	 */
+	protected $button;
+
+	/**
+	 * @var Tag
+	 */
+	protected $input;
+
+	/**
 	 * @param Widget $fieldWidget Field widget
 	 * @param ButtonWidget|ButtonInputWidget $buttonWidget Field widget
 	 * @param array $config Configuration options

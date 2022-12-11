@@ -8,6 +8,9 @@ namespace OOUI;
 class TabSelectWidget extends SelectWidget {
 	use TabIndexedElement;
 
+	/** @var bool */
+	protected $framed;
+
 	/**
 	 * @param array $config Configuration options
 	 *      - bool $config['framed'] Use framed tabs (default: true)

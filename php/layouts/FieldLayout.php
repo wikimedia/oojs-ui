@@ -74,6 +74,10 @@ class FieldLayout extends Layout {
 	protected $body;
 	/** @var Tag */
 	protected $messages;
+	/** @var string */
+	protected $helpText;
+	/** @var string|false */
+	protected $helpInline;
 
 	/**
 	 * @param Widget $fieldWidget Field widget

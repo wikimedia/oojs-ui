@@ -19,6 +19,10 @@ class FieldsetLayout extends Layout {
 
 	/** @var Tag */
 	protected $header;
+	/** @var string */
+	protected $helpText;
+	/** @var string|false */
+	protected $helpInline;
 
 	/**
 	 * @param array $config Configuration options
