@@ -13,6 +13,13 @@ class ComboBoxInputWidget extends TextInputWidget {
 	 */
 	protected $options = [];
 
+	/** @var bool */
+	protected $forceAutocomplete;
+	/** @var Widget */
+	protected $downIndicator;
+	/** @var Tag */
+	protected $datalist;
+
 	/**
 	 * @param array $config Configuration options
 	 *      - array[] $config['options'] Array of menu options in the format
