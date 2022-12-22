@@ -752,6 +752,26 @@ Demo.static.pages.layouts = function ( demo ) {
 							}
 						),
 						new OO.ui.FieldLayout(
+							new OO.ui.Widget( {
+								content: [
+									new OO.ui.PanelLayout( {
+										expanded: false,
+										framed: true,
+										content: [
+											new OO.ui.CopyTextLayout( {
+												copyText: 'This text will be copied'
+											} )
+
+										]
+									} )
+								]
+							} ),
+							{
+								label: 'Copy text with CopyTextLayout',
+								align: 'top'
+							}
+						),
+						new OO.ui.FieldLayout(
 							new OO.ui.SelectFileWidget( {} ),
 							{
 								label: 'Select a file with SelectFileWidget',
