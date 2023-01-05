@@ -1040,7 +1040,7 @@ OO.ui.SelectWidget.prototype.findFirstSelectableItem = function () {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
-	if ( !items || !items.length ) {
+	if ( !items || items.length === 0 ) {
 		return this;
 	}
 
