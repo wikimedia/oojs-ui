@@ -309,13 +309,7 @@ OO.ui.PopupWidget.prototype.toggleAnchor = function ( show ) {
 	show = show === undefined ? !this.anchored : !!show;
 
 	if ( this.anchored !== show ) {
-		if ( show ) {
-			this.$element.addClass( 'oo-ui-popupWidget-anchored' );
-			this.$element.addClass( 'oo-ui-popupWidget-anchored-' + this.anchorEdge );
-		} else {
-			this.$element.removeClass( 'oo-ui-popupWidget-anchored' );
-			this.$element.removeClass( 'oo-ui-popupWidget-anchored-' + this.anchorEdge );
-		}
+		this.$element.toggleClass( 'oo-ui-popupWidget-anchored oo-ui-popupWidget-anchored-' + this.anchorEdge, show );
 		this.anchored = show;
 	}
 };
