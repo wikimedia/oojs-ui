@@ -1,4 +1,10 @@
 # OOUI Release History
+
+## v0.46.1 / 2023-01-07
+### Code
+* php: Declare all class properties (Umherirrender)
+* php: Fix undeclared method issues from phan (Umherirrender)
+
 ## v0.46.0 / 2022-12-07
 ### Breaking changes
 * [BREAKING CHANGE] Raise claimed PHP need from 7.2+ to 7.4+ (James D. Forrester)
