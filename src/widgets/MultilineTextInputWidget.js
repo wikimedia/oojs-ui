@@ -154,9 +154,8 @@ OO.ui.MultilineTextInputWidget.prototype.adjustSize = function ( force ) {
 				.val( this.$input.val() )
 				.attr( 'rows', this.minRows )
 				// Set inline height property to 0 to measure scroll height
-				.css( 'height', 0 );
-
-			this.$clone.removeClass( 'oo-ui-element-hidden' );
+				.css( 'height', 0 )
+				.removeClass( 'oo-ui-element-hidden' );
 
 			this.valCache = this.$input.val();
 

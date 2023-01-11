@@ -396,11 +396,7 @@ OO.ui.ToolGroup.prototype.populate = function () {
 		this.removeItems( remove );
 	}
 	// Update emptiness state
-	if ( add.length ) {
-		this.$element.removeClass( 'oo-ui-toolGroup-empty' );
-	} else {
-		this.$element.addClass( 'oo-ui-toolGroup-empty' );
-	}
+	this.$element.toggleClass( 'oo-ui-toolGroup-empty', !add.length );
 	// Re-add tools (moving existing ones to new locations)
 	this.addItems( add );
 	// Disabled state may depend on items
