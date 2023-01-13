@@ -146,6 +146,17 @@ OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	} catch ( err ) {
 		// The above is only for Firefox. Move on if it fails.
 	}
+
+	// Support: Chrome on Android
+	if ( !dataTransfer.getData( 'text' ) ) {
+		try {
+			dataTransfer.setData( 'text', ' ' );
+		} catch ( err ) {
+			// This try catch exists only out of an abundance of caution,
+			// and Chesterton's fence with respect to the try-catch above.
+		}
+	}
+
 	// Briefly add a 'clone' class to style the browser's native drag image
 	this.$element.addClass( 'oo-ui-draggableElement-clone' );
 	// Add placeholder class after the browser has rendered the clone
