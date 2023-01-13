@@ -456,7 +456,7 @@ OO.ui.TagMultiselectWidget.prototype.onTagFixed = function ( item ) {
 			break;
 		}
 	}
-	this.addItems( item, i );
+	this.addItems( [ item ], i );
 };
 /**
  * Respond to change event, where items were added, removed, or cleared.
