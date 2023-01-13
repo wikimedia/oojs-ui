@@ -867,8 +867,8 @@ OO.ui.Element.static.reconsiderScrollbars = function ( el ) {
 		el.removeChild( el.firstChild );
 	}
 	// Force reflow
-	// eslint-disable-next-line no-void
-	void el.offsetHeight;
+	// eslint-disable-next-line no-unused-expressions
+	el.offsetHeight;
 	// Reattach all children
 	for ( var i = 0, len = nodes.length; i < len; i++ ) {
 		el.appendChild( nodes[ i ] );
