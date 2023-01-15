@@ -68,7 +68,10 @@
 			}
 		},
 		"success": {
-			"file": "images/icons/success.svg"
+			"file": "images/icons/success.svg",
+			"variants": [
+				"success"
+			]
 		},
 		"tray": {
 			"file": "images/icons/tray.svg"
