@@ -159,6 +159,9 @@ OO.ui.MultilineTextInputWidget.prototype.adjustSize = function ( force ) {
 
 			this.valCache = this.$input.val();
 
+			// https://bugzilla.mozilla.org/show_bug.cgi?id=1799404
+			// eslint-disable-next-line no-unused-expressions
+			this.$clone[ 0 ].scrollHeight;
 			var scrollHeight = this.$clone[ 0 ].scrollHeight;
 
 			// Remove inline height property to measure natural heights
