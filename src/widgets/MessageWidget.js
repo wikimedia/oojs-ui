@@ -90,7 +90,7 @@ OO.ui.MessageWidget.static.iconMap = {
 	notice: 'infoFilled',
 	error: 'error',
 	warning: 'alert',
-	success: 'check'
+	success: 'success'
 };
 
 /* Methods */
