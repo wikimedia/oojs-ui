@@ -761,6 +761,10 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
 	}, config.padding );
 
 	var animate = config.animate !== false;
+	if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) {
+		// Respect 'prefers-reduced-motion' user preference
+		animate = false;
+	}
 
 	var animations = {};
 	var elementPosition = elOrPosition instanceof HTMLElement ?
