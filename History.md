@@ -1,7 +1,5 @@
 # OOUI Release History
-
 ## v0.46.2 / 2023-01-17
-
 ### Features
 * DraggableElement: Enable Drag'n'Drop on Chrome on Android (Michael Große)
 * MultilineTextInputWidget: Work around recent Firefox bug calculating wrong .scrollheight (Thiemo Kreuz)
@@ -21,6 +19,7 @@
 ### Code
 * php: Declare all class properties (Umherirrender)
 * php: Fix undeclared method issues from phan (Umherirrender)
+
 
 ## v0.46.0 / 2022-12-07
 ### Breaking changes
@@ -71,6 +70,11 @@
 * demos: Make icons page more robust (Thiemo Kreuz)
 * README: Update some of the release steps to avoid typo mistakes (James D. Forrester)
 * AUTHORS: Update for the first time since 2017(!) and composer.json listing too (James D. Forrester)
+
+
+## 0.44.5 / 2023-02-06
+### Styles
+* build: Update 'wikimedia-ui-base' to v0.20.0 (Volker E.)
 
 
 ## 0.44.4 / 2022-12-12
