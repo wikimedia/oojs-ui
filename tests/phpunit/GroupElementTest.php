@@ -16,7 +16,7 @@ class GroupElementTest extends TestCase {
 		};
 		$element->initializeGroupElement();
 
-		$this->expectError();
+		$this->expectException( \Error::class );
 		$element->addItems( [ 'foo' => new Element() ] );
 	}
 

@@ -122,7 +122,7 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testAppendContentWithArrayKeys() {
 		$tag = new Tag();
-		$this->expectError();
+		$this->expectException( \Error::class );
 		$tag->appendContent( [ 'foo' => 'bar' ] );
 	}
 
@@ -131,7 +131,7 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testPrependContentWithArrayKeys() {
 		$tag = new Tag();
-		$this->expectError();
+		$this->expectException( \Error::class );
 		$tag->prependContent( [ 'foo' => 'bar' ] );
 	}
 
