@@ -336,7 +336,7 @@ OO.ui.MenuSelectWidget.prototype.unbindDocumentKeyPressListener = function () {
 };
 
 /**
- * Choose an item.
+ * Select an item or toggle an item's selection when multiselect is enabled.
  *
  * When a user chooses an item, the menu is closed, unless the hideOnChoose config option is
  * set to false.

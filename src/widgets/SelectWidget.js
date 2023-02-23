@@ -926,14 +926,14 @@ OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
 };
 
 /**
- * Choose an item.
+ * Select an item or toggle an item's selection when multiselect is enabled.
  *
  * Note that ‘choose’ should never be modified programmatically. A user can choose
  * an option with the keyboard or mouse and it becomes selected. To select an item programmatically,
  * use the #selectItem method.
  *
- * This method is identical to #selectItem, but may vary in subclasses that take additional action
- * when users choose an item with the keyboard or mouse.
+ * This method is not identical to #selectItem and may vary further in subclasses that take
+ * additional action when users choose an item with the keyboard or mouse.
  *
  * @param {OO.ui.OptionWidget} item Item to choose
  * @fires choose
