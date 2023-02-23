@@ -41,7 +41,7 @@
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.22.1",
 		"eslint-plugin-html": "6.2.0",
-		"grunt": "1.5.3",
+		"grunt": "1.6.1",
 		"grunt-banana-checker": "0.10.0",
 		"grunt-contrib-clean": "2.0.0",
 		"grunt-contrib-concat": "2.0.0",
