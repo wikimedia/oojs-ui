@@ -342,9 +342,8 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
  */
 OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 	var handled = false,
-		currentItem = this.isVisible() &&
-			this.findHighlightedItem() ||
-			this.findFirstSelectedItem();
+		currentItem = ( this.isVisible() && this.findHighlightedItem() ) ||
+			( !this.multiselect && this.findSelectedItem() );
 
 	var nextItem;
 	if ( !this.isDisabled() ) {
@@ -499,7 +498,8 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 	}
 	this.keyPressBufferTimer = setTimeout( this.clearKeyPressBuffer.bind( this ), 1500 );
 
-	var item = this.isVisible() && this.findHighlightedItem() || this.findFirstSelectedItem();
+	var item = ( this.isVisible() && this.findHighlightedItem() ) ||
+		( !this.multiselect && this.findSelectedItem() );
 
 	if ( this.keyPressBuffer === c ) {
 		// Common (if weird) special case: typing "xxxx" will cycle through all
