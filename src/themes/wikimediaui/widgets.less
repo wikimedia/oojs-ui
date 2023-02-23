@@ -210,7 +210,7 @@
 		}
 
 		&:indeterminate {
-			& + span:before {
+			& + span::before {
 				content: ' ';
 				// `@color-base--inverted` as `background-color` due to Accent50 filled area below.
 				background-color: @color-base--inverted;
@@ -921,7 +921,7 @@
 		.oo-ui-popupWidget-anchor {
 			top: -@size-anchor;
 
-			&:before {
+			&::before {
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor;
 				// The subtracting-triangles method results in a line that
@@ -930,7 +930,7 @@
 				border-width: @size-anchor + 1px;
 			}
 
-			&:after {
+			&::after {
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor + 1px;
 				border-bottom-color: @background-color-base; // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
@@ -945,14 +945,14 @@
 		.oo-ui-popupWidget-anchor {
 			bottom: -@size-anchor;
 
-			&:before {
+			&::before {
 				top: -@size-anchor - 1px;
 				left: -@size-anchor;
 				border-top-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 			}
 
-			&:after {
+			&::after {
 				top: -@size-anchor - 1px;
 				left: -@size-anchor + 1px;
 				border-top-color: @background-color-base; // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
@@ -967,14 +967,14 @@
 		.oo-ui-popupWidget-anchor {
 			left: -@size-anchor;
 
-			&:before {
+			&::before {
 				right: -@size-anchor - 1px;
 				top: -@size-anchor;
 				border-right-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 			}
 
-			&:after {
+			&::after {
 				right: -@size-anchor - 1px;
 				top: -@size-anchor + 1px;
 				border-right-color: @background-color-base;  // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
@@ -989,14 +989,14 @@
 		.oo-ui-popupWidget-anchor {
 			right: -@size-anchor;
 
-			&:before {
+			&::before {
 				left: -@size-anchor - 1px;
 				top: -@size-anchor;
 				border-left-color: @border-color-base;
 				border-width: @size-anchor + 1px;
 			}
 
-			&:after {
+			&::after {
 				left: -@size-anchor - 1px;
 				top: -@size-anchor + 1px;
 				border-left-color: @background-color-base;  // Using `@background-color-base` var here as `border*-color` is `background-color` subsitute
@@ -1155,7 +1155,7 @@
 			border-width: @border-width-base;
 
 			// Needed for `:focus` state's inner white circle
-			&:before {
+			&::before {
 				content: ' ';
 				position: absolute;
 				// `px` unit due to pixel rounding error when using
@@ -1213,7 +1213,7 @@
 
 			// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
 			&:focus + span {
-				&:before {
+				&::before {
 					border-color: @background-color-base;
 				}
 			}
@@ -1226,7 +1226,7 @@
 				border-color: @border-color-input-binary--active;
 				box-shadow: @box-shadow-input-binary--active;
 
-				&:before {
+				&::before {
 					border-color: @border-color-input-binary--active;
 				}
 			}
@@ -1256,7 +1256,7 @@
 		// want the focus visual outline only on single RadioOptionWidgets.
 		outline: 0;
 
-		[ type='radio' ]:checked + span:before {
+		[ type='radio' ]:checked + span::before {
 			border-color: @background-color-base;
 		}
 	}
@@ -1469,7 +1469,7 @@
 
 	// Add background gradient to emphasize tab overflow.
 	&-mobile {
-		&:after {
+		&::after {
 			content: '';
 			position: absolute;
 			bottom: 0;
@@ -1479,13 +1479,13 @@
 			pointer-events: none;
 		}
 
-		&.oo-ui-tabSelectWidget-framed:after {
+		&.oo-ui-tabSelectWidget-framed::after {
 			.oo-ui-horizontal-gradient( fade( #eaecf0, 0 ), #eaecf0 );
 			// Override fallback color from mixin
 			background-color: transparent;
 		}
 
-		&.oo-ui-tabSelectWidget-frameless:after {
+		&.oo-ui-tabSelectWidget-frameless::after {
 			.oo-ui-horizontal-gradient( fade( #fff, 0 ), #fff );
 			// Override fallback color from mixin
 			background-color: transparent;
@@ -1953,7 +1953,7 @@
 	.oo-ui-inline-spacing( @margin-end-widget );
 	transition: background-color @transition-ease-medium, border-color @transition-ease-medium;
 
-	&:before {
+	&::before {
 		content: '';
 		display: block;
 		position: absolute;
@@ -2058,7 +2058,7 @@
 			&:focus {
 				border-color: @border-color-input-binary--checked;
 
-				&:before {
+				&::before {
 					border-color: @color-base--inverted;
 				}
 			}

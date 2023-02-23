@@ -693,14 +693,14 @@
 		.oo-ui-popupWidget-anchor {
 			top: -@size-anchor;
 
-			&:before {
+			&::before {
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor;
 				border-bottom-color: darken( @border-color-base, 14% );
 				border-width: @size-anchor + 1px;
 			}
 
-			&:after {
+			&::after {
 				bottom: -@size-anchor - 1px;
 				left: -@size-anchor + 1px;
 				border-bottom-color: #fff;
@@ -715,14 +715,14 @@
 		.oo-ui-popupWidget-anchor {
 			bottom: -@size-anchor;
 
-			&:before {
+			&::before {
 				top: -@size-anchor - 1px;
 				left: -@size-anchor;
 				border-top-color: #aaa;
 				border-width: @size-anchor + 1px;
 			}
 
-			&:after {
+			&::after {
 				top: -@size-anchor - 1px;
 				left: -@size-anchor + 1px;
 				border-top-color: #fff;
@@ -737,14 +737,14 @@
 		.oo-ui-popupWidget-anchor {
 			left: -@size-anchor;
 
-			&:before {
+			&::before {
 				right: -@size-anchor - 1px;
 				top: -@size-anchor;
 				border-right-color: #aaa;
 				border-width: @size-anchor + 1px;
 			}
 
-			&:after {
+			&::after {
 				right: -@size-anchor - 1px;
 				top: -@size-anchor + 1px;
 				border-right-color: #fff;
@@ -759,14 +759,14 @@
 		.oo-ui-popupWidget-anchor {
 			right: -@size-anchor;
 
-			&:before {
+			&::before {
 				left: -@size-anchor - 1px;
 				top: -@size-anchor;
 				border-left-color: #aaa;
 				border-width: @size-anchor + 1px;
 			}
 
-			&:after {
+			&::after {
 				left: -@size-anchor - 1px;
 				top: -@size-anchor + 1px;
 				border-left-color: #fff;
@@ -1072,7 +1072,7 @@
 
 	// Add background gradient to emphasize tab overflow.
 	&-mobile {
-		&:after {
+		&::after {
 			content: '';
 			position: absolute;
 			bottom: 0;
@@ -1082,13 +1082,13 @@
 			pointer-events: none;
 		}
 
-		&.oo-ui-tabSelectWidget-framed:after {
+		&.oo-ui-tabSelectWidget-framed::after {
 			.oo-ui-horizontal-gradient( fade( @background-color-tabs, 0 ), @background-color-tabs );
 			// Override fallback color from mixin
 			background-color: transparent;
 		}
 
-		&.oo-ui-tabSelectWidget-frameless:after {
+		&.oo-ui-tabSelectWidget-frameless::after {
 			.oo-ui-horizontal-gradient( fade( #fff, 0 ), #fff );
 			// Override fallback color from mixin
 			background-color: transparent;

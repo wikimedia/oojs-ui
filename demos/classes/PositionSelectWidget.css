@@ -8,7 +8,7 @@
 	height: 1.6em;
 }
 
-.demo-positionSelectWidget:before {
+.demo-positionSelectWidget::before {
 	content: '';
 	position: absolute;
 	width: 4.8em;

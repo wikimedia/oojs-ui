@@ -196,7 +196,6 @@ p:first-child {
 }
 
 /* Console */
-/* stylelint-disable selector-pseudo-element-colon-notation */
 .demo-console {
 	clear: both;
 	position: relative;
@@ -731,5 +730,3 @@ FieldLayout left & right aligned */
 .oo-ui-platform-desktop .oo-ui-fieldsetLayout-group > .oo-ui-fieldLayout:first-child .demo-console-expanded .demo-console-toggle {
 	margin-top: -3em;
 }
-
-/* stylelint-enable selector-pseudo-element-colon-notation */
