@@ -349,7 +349,7 @@ OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 		switch ( e.keyCode ) {
 			case OO.ui.Keys.ENTER:
 				if ( currentItem ) {
-					// Was only highlighted, now let's select it. No-op if already selected.
+					// Select highlighted item or toggle when multiselect is enabled
 					this.chooseItem( currentItem );
 					handled = true;
 				}
