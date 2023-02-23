@@ -570,8 +570,8 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	// Set height and width before we do anything else, since it might cause our measurements
 	// to change (e.g. due to scrollbars appearing or disappearing), and it also affects centering
 	this.setIdealSize(
-		// The properties refer to the width of this.$popup, but we set the properties on this.$body to
-		// make calculations work out right (T180173), so we subtract padding here.
+		// The properties refer to the width of this.$popup, but we set the properties on this.$body
+		// to make calculations work out right (T180173), so we subtract padding here.
 		this.width !== null ? this.width - ( this.padded ? 24 : 0 ) : 'auto',
 		this.height !== null ? this.height - ( this.padded ? 10 : 0 ) : 'auto'
 	);

@@ -179,7 +179,8 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 			case OO.ui.Keys.RIGHT:
 			case OO.ui.Keys.HOME:
 			case OO.ui.Keys.END:
-				// Do nothing if a text field is associated, these keys will be handled by the text input
+				// Do nothing if a text field is associated, these keys will be handled by the
+				// text input
 				if ( !this.$input ) {
 					OO.ui.MenuSelectWidget.super.prototype.onDocumentKeyDown.call( this, e );
 				}

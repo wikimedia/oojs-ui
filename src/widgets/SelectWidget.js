@@ -182,9 +182,9 @@ OO.ui.SelectWidget.static.normalizeForMatching = function ( text ) {
 	var normalized = text.trim().replace( /\s+/, ' ' ).toLowerCase();
 
 	// Normalize Unicode
-	// eslint-disable-next-line no-restricted-properties
+	// eslint-disable-next-line es-x/no-string-prototype-normalize
 	if ( normalized.normalize ) {
-		// eslint-disable-next-line no-restricted-properties
+		// eslint-disable-next-line es-x/no-string-prototype-normalize
 		normalized = normalized.normalize();
 	}
 	return normalized;
@@ -342,7 +342,9 @@ OO.ui.SelectWidget.prototype.onMouseLeave = function () {
  */
 OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 	var handled = false,
-		currentItem = this.isVisible() && this.findHighlightedItem() || this.findFirstSelectedItem();
+		currentItem = this.isVisible() &&
+			this.findHighlightedItem() ||
+			this.findFirstSelectedItem();
 
 	var nextItem;
 	if ( !this.isDisabled() ) {
@@ -488,7 +490,7 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 		return;
 	}
 
-	// eslint-disable-next-line es/no-string-fromcodepoint
+	// eslint-disable-next-line es-x/no-string-fromcodepoint
 	var c = String.fromCodePoint ? String.fromCodePoint( e.charCode ) :
 		String.fromCharCode( e.charCode );
 

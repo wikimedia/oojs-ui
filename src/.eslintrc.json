@@ -13,6 +13,7 @@
 	},
 	"rules": {
 		"mediawiki/msg-doc": "error",
-		"no-jquery/no-visibility": "error"
+		"no-jquery/no-visibility": "error",
+		"es-x/no-regexp-prototype-flags": "off"
 	}
 }

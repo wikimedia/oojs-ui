@@ -11,6 +11,7 @@
 	"plugins": [ "html" ],
 	"settings": {
 		"html/indent": "+tab",
-		"html/report-bad-indent": "error"
+		"html/report-bad-indent": "error",
+		"es-x/no-regexp-prototype-flags": "off"
 	}
 }
