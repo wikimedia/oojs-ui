@@ -167,7 +167,7 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 				break;
 			case OO.ui.Keys.TAB:
 				if ( this.isVisible() ) {
-					if ( currentItem ) {
+					if ( currentItem && !currentItem.isSelected() ) {
 						// Was only highlighted, now let's select it. No-op if already selected.
 						this.chooseItem( currentItem );
 						handled = true;
