@@ -621,19 +621,23 @@ Demo.static.pages.layouts = function ( demo ) {
 									} ).addTabPanels( [
 										new Demo.SampleTabPanel( 'first', {
 											expanded: false,
-											label: 'One tab'
+											label: 'One tab',
+											content: [ $( '<p>' ).text( 'First tab' ) ]
 										} ),
 										new Demo.SampleTabPanel( 'second', {
 											expanded: false,
-											label: 'Two tab'
+											label: 'Two tab',
+											content: [ $( '<p>' ).text( 'Second tab' ) ]
 										} ),
 										new Demo.SampleTabPanel( 'third', {
 											expanded: false,
-											label: 'Three tab'
+											label: 'Three tab',
+											content: [ $( '<p>' ).text( 'Third tab' ) ]
 										} ),
 										new Demo.SampleTabPanel( 'fourth', {
 											expanded: false,
-											label: 'Four tab'
+											label: 'Four tab',
+											content: [ $( '<p>' ).text( 'Fourth tab' ) ]
 										} ),
 										new Demo.SampleTabPanel( 'long', {
 											expanded: false,

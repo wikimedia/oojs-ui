@@ -39,6 +39,8 @@
  * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new tab panel is
  *  displayed. Disabled on mobile.
  * @cfg {boolean} [framed=true] Render the tabs with frames
+ * @cfg {boolean} [openMatchedPanels=true] Automatically switch to a panel when the browser's
+ *  find-in-page feature matches content there, in browsers that support it.
  */
 OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	// Configuration initialization
@@ -51,15 +53,29 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	this.currentTabPanelName = null;
 	// Allow infused widgets to pass existing tabPanels
 	this.tabPanels = config.tabPanels || {};
+	this.openMatchedPanels = config.openMatchedPanels === undefined || !!config.openMatchedPanels;
 
 	this.ignoreFocus = false;
+	if ( this.contentPanel ) {
+		this.contentPanel.setHideUntilFound( this.openMatchedPanels );
+	}
 	this.stackLayout = this.contentPanel || new OO.ui.StackLayout( {
 		continuous: !!config.continuous,
-		expanded: this.expanded
+		expanded: this.expanded,
+		hideUntilFound: this.openMatchedPanels
 	} );
 	this.setContentPanel( this.stackLayout );
 	this.autoFocus = config.autoFocus === undefined || !!config.autoFocus;
 
+	if ( config.tabSelectWidget ) {
+		// If we are using a custom tabSelectWidget (e.g. infusing) then
+		// ensure the tabPanels are linked to tabItems
+		this.stackLayout.getItems().forEach( function ( tabPanel, i ) {
+			if ( !tabPanel.getTabItem() ) {
+				tabPanel.setTabItem( config.tabSelectWidget.items[ i ] || null );
+			}
+		} );
+	}
 	// Allow infused widgets to pass an existing tabSelectWidget
 	this.tabSelectWidget = config.tabSelectWidget || new OO.ui.TabSelectWidget( {
 		framed: config.framed === undefined || config.framed
@@ -75,6 +91,9 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	this.stackLayout.connect( this, {
 		set: 'onStackLayoutSet'
 	} );
+	if ( this.openMatchedPanels ) {
+		this.stackLayout.$element.on( 'beforematch', this.onStackLayoutBeforeMatch.bind( this ) );
+	}
 	this.tabSelectWidget.connect( this, {
 		select: 'onTabSelectWidgetSelect'
 	} );
@@ -158,6 +177,29 @@ OO.ui.IndexLayout.prototype.onStackLayoutSet = function ( tabPanel ) {
 	// Focus the first element on the newly selected panel
 	if ( this.autoFocus && !OO.ui.isMobile() ) {
 		this.focus();
+	}
+};
+
+/**
+ * Handle beforematch events triggered by the browser's find-in-page feature
+ *
+ * @param {Event} event 'beforematch' event
+ */
+OO.ui.IndexLayout.prototype.onStackLayoutBeforeMatch = function ( event ) {
+	var tabPanel;
+	// Find TabPanel from DOM node
+	this.stackLayout.getItems().some( function ( item ) {
+		if ( item.$element[ 0 ] === event.target ) {
+			tabPanel = item;
+			return true;
+		}
+		return false;
+	} );
+	if ( tabPanel ) {
+		var tabItem = tabPanel.getTabItem();
+		if ( tabItem ) {
+			this.tabSelectWidget.selectItem( tabItem );
+		}
 	}
 };
 
