@@ -80,7 +80,8 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-tool-link {
-			transition: background-color @transition-base;
+			transition-property: background-color;
+			transition-duration: @transition-duration-base;
 
 			&:focus {
 				outline: @border-width-base @border-style-base @border-color-base--focus;
@@ -92,12 +93,14 @@
 
 		.oo-ui-iconElement-icon {
 			opacity: @opacity-icon-base;
-			transition: opacity @transition-base;
+			transition-property: opacity;
+			transition-duration: @transition-duration-base;
 			.oo-ui-force-gpu-composite-layer();
 		}
 
 		.oo-ui-tool-title {
-			transition: color @transition-base;
+			transition-property: color;
+			transition-duration: @transition-duration-base;
 		}
 
 		&:hover {
@@ -437,7 +440,8 @@
 
 	&.oo-ui-widget-enabled {
 		> .oo-ui-popupToolGroup-handle {
-			transition: background-color @transition-base, box-shadow @transition-base;
+			transition-property: background-color, box-shadow;
+			transition-duration: @transition-duration-base;
 
 			&:hover {
 				background-color: @background-color-tool--hover;
@@ -452,7 +456,8 @@
 			.oo-ui-iconElement-icon,
 			.oo-ui-indicatorElement-indicator {
 				opacity: @opacity-icon-base;
-				transition: opacity @transition-base;
+				transition-property: opacity;
+				transition-duration: @transition-duration-base;
 				.oo-ui-force-gpu-composite-layer();
 			}
 
@@ -483,7 +488,8 @@
 		.oo-ui-toolbar-actions & {
 			> .oo-ui-popupToolGroup-handle {
 				border-right: @border-width-base @border-style-base transparent;
-				transition: background-color @transition-base, border-color @transition-base, box-shadow @transition-base;
+				transition-property: background-color, border-color, box-shadow;
+				transition-duration: @transition-duration-base;
 
 				&:hover {
 					border-right-color: @background-color-tool--hover;

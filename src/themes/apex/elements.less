@@ -40,7 +40,8 @@
 	&-frameless {
 		> .oo-ui-buttonElement-button {
 			> .oo-ui-iconElement-icon {
-				transition: opacity @transition-ease-medium;
+				transition-property: opacity;
+				transition-duration: @transition-duration-medium;
 				// Support Webkit/Blink: `opacity` < 1 causes wiggling, see T65020
 				.oo-ui-force-gpu-composite-layer();
 			}
@@ -174,7 +175,8 @@
 			border: @border-base;
 			padding: @padding-base;
 			text-shadow: @text-shadow-button;
-			transition: border-color @transition-base;
+			transition-property: border-color;
+			transition-duration: @transition-duration-base;
 
 			&:hover {
 				border-color: @border-color-base--hover;

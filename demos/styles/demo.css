@@ -221,7 +221,8 @@ p:first-child {
 	padding: 6px; /* Equals frameless button. */
 	line-height: 1.28571429em;
 	cursor: pointer;
-	transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
+	transition-property: background-color, color, border-color, box-shadow;
+	transition-duration: 100ms;
 }
 
 .demo-link-example:focus,
@@ -239,7 +240,8 @@ p:first-child {
 	border-radius: 2px;
 	font-weight: bold;
 	text-align: center;
-	transition: color 100ms;
+	transition-property: color;
+	transition-duration: 100ms;
 }
 
 .demo-link-example:hover::after,
@@ -254,7 +256,8 @@ p:first-child {
 	top: 1px;
 	margin-right: 2em;
 	opacity: 0;
-	transition: opacity 100ms;
+	transition-property: opacity;
+	transition-duration: 100ms;
 }
 
 .demo-link-example:focus,
@@ -376,7 +379,8 @@ p:first-child {
 	padding: 6px 2.14285714em 6px 1.714em; /* Left and right are covered by user font size scalable icons. */
 	font-size: inherit;
 	line-height: 1.28571429em;
-	transition: border-color 250ms, box-shadow 250ms;
+	transition-property: border-color, box-shadow;
+	transition-duration: 250ms;
 }
 
 .demo-console-input:focus {
@@ -400,7 +404,8 @@ p:first-child {
 	-ms-user-select: none;
 	user-select: none;
 	cursor: pointer;
-	transition: background-color 100ms, color 100ms;
+	transition-property: background-color, color;
+	transition-duration: 100ms;
 }
 
 .demo-console-submit:hover {

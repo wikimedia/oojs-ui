@@ -236,7 +236,8 @@
 
 		& + span {
 			cursor: pointer;
-			transition: background-color @transition-base, border-color @transition-base, box-shadow @transition-base;
+			transition-property: background-color, border-color, box-shadow;
+			transition-duration: @transition-duration-base;
 		}
 
 		// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
@@ -409,7 +410,8 @@
 		.oo-ui-iconElement-icon,
 		.oo-ui-indicatorElement-indicator {
 			opacity: @opacity-icon-base;
-			transition: opacity @transition-base;
+			transition-property: opacity;
+			transition-duration: @transition-duration-base;
 		}
 	}
 
@@ -459,7 +461,8 @@
 	&.oo-ui-widget-enabled &-handle {
 		background-color: @background-color-framed;
 		color: @color-base;
-		transition: background-color @transition-base, border-color @transition-base, box-shadow @transition-base;
+		transition-property: background-color, border-color, box-shadow;
+		transition-duration: @transition-duration-base;
 
 		&:hover {
 			background-color: @background-color-framed--hover;
@@ -486,7 +489,8 @@
 		.oo-ui-iconElement-icon,
 		.oo-ui-indicatorElement-indicator {
 			opacity: @opacity-icon-base;
-			transition: opacity @transition-base;
+			transition-property: opacity;
+			transition-duration: @transition-duration-base;
 		}
 	}
 
@@ -557,7 +561,8 @@
 
 	&.oo-ui-widget-enabled {
 		background-color: @background-color-framed;
-		transition: background-color @transition-base;
+		transition-property: background-color;
+		transition-duration: @transition-duration-base;
 
 		&:hover {
 			background-color: @background-color-framed--hover;
@@ -565,7 +570,8 @@
 
 		select {
 			color: @color-base;
-			transition: border-color @transition-base, box-shadow @transition-base;
+			transition-property: border-color, box-shadow;
+			transition-duration: @transition-duration-base;
 
 			&:hover {
 				color: @color-base--hover;
@@ -632,7 +638,8 @@
 }
 
 .theme-oo-ui-menuOptionWidget() {
-	transition: background-color @transition-base, color @transition-base;
+	transition-property: background-color, color;
+	transition-duration: @transition-duration-base;
 
 	&-checkIcon {
 		display: none;
@@ -832,7 +839,8 @@
 
 .theme-oo-ui-outlineOptionWidget() {
 	padding: @padding-menu-large;
-	transition: background-color @transition-base, color @transition-base;
+	transition-property: background-color, color;
+	transition-duration: @transition-duration-base;
 
 	&.oo-ui-optionWidget-highlighted {
 		background-color: @background-color-base--hover;
@@ -1006,7 +1014,8 @@
 	}
 
 	&-transitioning .oo-ui-popupWidget-popup {
-		transition: width @transition-base, height @transition-base, left @transition-base;
+		transition-property: width, height, left;
+		transition-duration: @transition-duration-base;
 	}
 
 	&-head {
@@ -1079,7 +1088,8 @@
 
 	&-bar {
 		height: @height-progressbar-bar;
-		transition: width @transition-base;
+		transition-property: width;
+		transition-duration: @transition-duration-base;
 	}
 
 	&-indeterminate {
@@ -1194,7 +1204,8 @@
 
 		& + span {
 			cursor: pointer;
-			transition: background-color @transition-base, border-color @transition-base, border-width @transition-base;
+			transition-property: background-color, border-color, border-width;
+			transition-duration: @transition-duration-base;
 		}
 
 		&:hover + span {
@@ -1333,7 +1344,8 @@
 	&.oo-ui-widget-enabled {
 		&.oo-ui-selectFileWidget-dropTarget {
 			background-color: @background-color-base;
-			transition: background-color @transition-ease-medium, color @transition-ease-medium, border-color @transition-ease-medium;
+			transition-property: background-color, color, border-color;
+			transition-duration: @transition-duration-medium;
 
 			&:hover {
 				border-color: @border-color-input--hover;
@@ -1341,7 +1353,8 @@
 		}
 
 		.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
-			transition: background-color @transition-ease-medium, color @transition-ease-medium;
+			transition-property: background-color, color;
+			transition-duration: @transition-duration-medium;
 		}
 
 		&.oo-ui-selectFileWidget-canDrop {
@@ -1370,7 +1383,8 @@
 	border-style: @border-style-base;
 	font-weight: bold;
 	line-height: @line-height-reset;
-	transition: background-color @transition-base, color @transition-base, border-color @transition-base;
+	transition-property: background-color, color, border-color;
+	transition-duration: @transition-duration-base;
 
 	&.oo-ui-optionWidget-selected {
 		cursor: default;
@@ -1395,7 +1409,8 @@
 		.oo-ui-labelElement-label {
 			border-bottom: ( 2 * @border-width-base ) @border-style-base transparent;
 			padding: @padding-vertical-base @padding-horizontal-taboption-label ( @padding-vertical-base - 2 * @border-width-base ); // Provide additional `padding` on label itself for special tab focus
-			transition: border-color @transition-base;
+			transition-property: border-color;
+			transition-duration: @transition-duration-base;
 		}
 
 		&.oo-ui-optionWidget-selected {
@@ -1432,7 +1447,8 @@
 		margin: @margin-taboption @margin-taboption -@border-width-base 0;
 		border-width: @border-width-base 0;
 		box-shadow: inset 0 0 0 0 @color-primary;
-		transition: color @transition-base, box-shadow @transition-base;
+		transition-property: color, box-shadow;
+		transition-duration: @transition-duration-base;
 
 		&.oo-ui-optionWidget-selected {
 			color: @color-primary;
@@ -1518,7 +1534,8 @@
 
 	&.oo-ui-widget-enabled {
 		color: @color-base;
-		transition: background-color @transition-base, color @transition-base, border-color @transition-base, box-shadow @transition-base;
+		transition-property: background-color, color, border-color, box-shadow;
+		transition-duration: @transition-duration-base;
 
 		&:hover {
 			background-color: @background-color-framed--hover;
@@ -1568,7 +1585,8 @@
 			border-radius: @height-tagitem;
 			padding-top: @size-button-tagitem-remove;
 			padding-left: @size-button-tagitem-remove;
-			transition: background-color @transition-base;
+			transition-property: background-color;
+			transition-duration: @transition-duration-base;
 
 			&:hover {
 				background-color: @background-color-framed--hover;
@@ -1692,7 +1710,8 @@
 		background-color: @background-color-base;
 
 		.oo-ui-tagMultiselectWidget-handle {
-			transition: border-color @transition-ease-medium, box-shadow @transition-ease-medium;
+			transition-property: border-color, box-shadow;
+			transition-duration: @transition-duration-medium;
 		}
 
 		&.oo-ui-tagMultiselectWidget-inlined {
@@ -1827,7 +1846,8 @@
 	&.oo-ui-widget-enabled {
 		.oo-ui-inputWidget-input {
 			box-shadow: @box-shadow-base; // necessary for smooth transition
-			transition: border-color @transition-ease-medium, box-shadow @transition-ease-medium;
+			transition-property: border-color, box-shadow;
+			transition-duration: @transition-duration-medium;
 
 			.mw-placeholder();
 
@@ -1951,7 +1971,8 @@
 	border: @border-input-binary;
 	border-radius: 1em;
 	.oo-ui-inline-spacing( @margin-end-widget );
-	transition: background-color @transition-ease-medium, border-color @transition-ease-medium;
+	transition-property: background-color, border-color;
+	transition-duration: @transition-duration-medium;
 
 	&::before {
 		content: '';
@@ -1964,7 +1985,8 @@
 		border: 1px @border-style-base transparent;
 		border-radius: 1em;
 		z-index: 1;
-		transition: border-color @transition-ease-medium;
+		transition-property: border-color;
+		transition-duration: @transition-duration-medium;
 	}
 
 	&-grip {
@@ -1974,7 +1996,8 @@
 		min-height: @min-size-base--small;
 		height: @size-base--small;
 		border-radius: @size-base--small;
-		transition: background-color @transition-ease-medium, left @transition-base, margin-left @transition-base;
+		transition-property: background-color, left, margin-left;
+		transition-duration: @transition-duration-medium, @transition-duration-base, @transition-duration-base;
 	}
 
 	&-glow {

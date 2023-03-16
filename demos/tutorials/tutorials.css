@@ -247,7 +247,8 @@ th {
 	text-indent: -9999px;
 	cursor: pointer;
 	opacity: 0;
-	transition: opacity 250ms;
+	transition-property: opacity;
+	transition-duration: 250ms;
 }
 
 .tutorials-scroll-visible {

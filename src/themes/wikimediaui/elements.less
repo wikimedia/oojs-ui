@@ -53,11 +53,13 @@
 
 	&.oo-ui-widget-enabled {
 		> .oo-ui-buttonElement-button {
-			transition: background-color @transition-base, color @transition-base, border-color @transition-base, box-shadow @transition-base;
+			transition-property: background-color, color, border-color, box-shadow;
+			transition-duration: @transition-duration-base;
 
 			> .oo-ui-iconElement-icon,
 			> .oo-ui-indicatorElement-indicator {
-				transition: opacity @transition-base;
+				transition-property: opacity;
+				transition-duration: @transition-duration-base;
 
 				// Framed `:hover` styles are at `$-framed` below.
 				&:not( .oo-ui-image-invert ) {

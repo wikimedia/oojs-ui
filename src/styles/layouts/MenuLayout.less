@@ -34,7 +34,8 @@
 
 	> .oo-ui-menuLayout-menu,
 	> .oo-ui-menuLayout-content {
-		transition: height @transition-dialog, width @transition-dialog, top @transition-dialog, left @transition-dialog, right @transition-dialog, bottom @transition-dialog;
+		transition-property: height, width, top, left, right, bottom;
+		transition-duration: @transition-duration-medium;
 	}
 
 	// These are overridden with 'auto' or '0' later
