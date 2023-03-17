@@ -9,6 +9,7 @@ Demo.static.pages.icons = function ( demo ) {
 		'moderation',
 		'editing-core',
 		'editing-styling',
+		'editing-functions',
 		'editing-list',
 		'editing-advanced',
 		'editing-citation',

@@ -312,6 +312,7 @@ module.exports = {
 			"src/themes/{theme}/icons-moderation.json",
 			"src/themes/{theme}/icons-editing-core.json",
 			"src/themes/{theme}/icons-editing-styling.json",
+			"src/themes/{theme}/icons-editing-functions.json",
 			"src/themes/{theme}/icons-editing-list.json",
 			"src/themes/{theme}/icons-editing-advanced.json",
 			"src/themes/{theme}/icons-editing-citation.json",
@@ -364,6 +365,11 @@ module.exports = {
 	"oojs-ui-{theme}-icons-editing-styling": {
 		"styles": [
 			"src/themes/{theme}/icons-editing-styling.json"
+		]
+	},
+	"oojs-ui-{theme}-icons-editing-functions": {
+		"styles": [
+			"src/themes/{theme}/icons-editing-functions.json"
 		]
 	},
 	"oojs-ui-{theme}-icons-editing-list": {
