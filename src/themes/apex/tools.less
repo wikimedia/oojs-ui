@@ -68,7 +68,8 @@
 	margin: 0.375em;
 	border-radius: @border-radius-base;
 	border: 1px solid transparent;
-	transition: border-color @transition-ease-medium;
+	transition-property: border-color;
+	transition-duration: @transition-duration-medium;
 
 	.oo-ui-toolbar-narrow & {
 		+ .oo-ui-toolGroup {

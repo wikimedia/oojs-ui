@@ -282,13 +282,15 @@
 	&-modal > .oo-ui-dialog {
 		background-color: rgba( 255, 255, 255, 0.5 );
 		opacity: 0;
-		transition: opacity @transition-dialog;
+		transition-property: opacity;
+		transition-duration: @transition-duration-medium;
 
 		> .oo-ui-window-frame {
 			background-color: #fff;
 			opacity: 0;
 			transform: scale( 0.5 );
-			transition: all @transition-dialog;
+			transition-property: all;
+			transition-duration: @transition-duration-medium;
 		}
 
 		&.oo-ui-window-setup {
