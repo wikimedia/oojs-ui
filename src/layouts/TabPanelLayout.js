@@ -14,8 +14,8 @@
  * @constructor
  * @param {string} name Unique symbolic name of tab panel
  * @param {Object} [config] Configuration options
- * @cfg {jQuery|string|Function|OO.ui.HtmlSnippet} [label] Label for tab panel's tab
- * @cfg {Object} [tabItemConfig] Additional tab item config
+ * @param {jQuery|string|Function|OO.ui.HtmlSnippet} [config.label] Label for tab panel's tab
+ * @param {Object} [config.tabItemConfig] Additional tab item config
  */
 OO.ui.TabPanelLayout = function OoUiTabPanelLayout( name, config ) {
 	// Allow passing positional parameters inside the config object

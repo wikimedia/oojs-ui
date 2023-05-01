@@ -86,7 +86,7 @@
  *
  * @abstract
  * @class
- * @mixins OO.EventEmitter
+ * @mixes OO.EventEmitter
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -126,7 +126,6 @@ OO.mixinClass( OO.ui.ActionSet, OO.EventEmitter );
  *
  * @abstract
  * @static
- * @inheritable
  * @property {string}
  */
 OO.ui.ActionSet.static.specialFlags = [ 'safe', 'primary' ];

@@ -7,7 +7,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [showPendingRequest=true] Show pending state while request data is being fetched.
+ * @param {boolean} [config.showPendingRequest=true] Show pending state while request data is being fetched.
  *  Requires widget to have also mixed in {@link OO.ui.mixin.PendingElement}.
  */
 OO.ui.mixin.RequestManager = function OoUiMixinRequestManager( config ) {

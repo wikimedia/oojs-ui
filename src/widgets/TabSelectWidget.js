@@ -5,11 +5,11 @@
  *
  * @class
  * @extends OO.ui.SelectWidget
- * @mixins OO.ui.mixin.TabIndexedElement
+ * @mixes OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [framed=true] Use framed tabs
+ * @param {boolean} [config.framed=true] Use framed tabs
  */
 OO.ui.TabSelectWidget = function OoUiTabSelectWidget( config ) {
 	// Parent constructor

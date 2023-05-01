@@ -69,7 +69,7 @@ OO.ui.Theme.prototype.updateQueuedElementClasses = function () {
 /**
  * Queue #updateElementClasses to be called for this element.
  *
- * @localdoc QUnit tests override this method to directly call #queueUpdateElementClasses,
+ * QUnit tests override this method to directly call #queueUpdateElementClasses,
  *   to make them synchronous.
  *
  * @param {OO.ui.Element} element Element for which to update classes

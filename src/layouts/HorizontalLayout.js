@@ -17,11 +17,11 @@
  *
  * @class
  * @extends OO.ui.Layout
- * @mixins OO.ui.mixin.GroupElement
+ * @mixes OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.Widget[]|OO.ui.Layout[]} [items] Widgets or other layouts to add to the layout.
+ * @param {OO.ui.Widget[]|OO.ui.Layout[]} [config.items] Widgets or other layouts to add to the layout.
  */
 OO.ui.HorizontalLayout = function OoUiHorizontalLayout( config ) {
 	// Configuration initialization

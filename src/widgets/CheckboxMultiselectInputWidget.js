@@ -23,7 +23,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Object[]} [options=[]] Array of menu options in the format
+ * @param {Object[]} [config.options=[]] Array of menu options in the format
  *  `{ data: …, label: …, disabled: … }`
  */
 OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidget( config ) {

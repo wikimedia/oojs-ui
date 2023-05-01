@@ -5,16 +5,16 @@
  *
  * @abstract
  * @class
- * @mixins OO.ui.mixin.GroupElement
+ * @mixes OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.mixin.DraggableElement[]} items
- * @cfg {string} [orientation='vertical'] Item orientation: 'horizontal' or 'vertical'.
+ * @param {OO.ui.mixin.DraggableElement[]} config.items
+ * @param {string} [config.orientation='vertical'] Item orientation: 'horizontal' or 'vertical'.
  *  The orientation should match the layout of the items. Items displayed in a single row
  *  or in several rows should use horizontal orientation. The vertical orientation should only be
  *  used when the items are displayed in a single column.
- * @cfg {boolean} [draggable=true] The items are draggable. This can change with #toggleDraggable
+ * @param {boolean} [config.draggable=true] The items are draggable. This can change with #toggleDraggable
  */
 OO.ui.mixin.DraggableGroupElement = function OoUiMixinDraggableGroupElement( config ) {
 	// Configuration initialization

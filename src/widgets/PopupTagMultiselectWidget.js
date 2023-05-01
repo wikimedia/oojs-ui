@@ -20,13 +20,13 @@
  *
  * @class
  * @extends OO.ui.TagMultiselectWidget
- * @mixins OO.ui.mixin.PopupElement
+ * @mixes OO.ui.mixin.PopupElement
  *
  * @param {Object} config Configuration object
- * @cfg {jQuery} [$overlay] An overlay for the popup.
+ * @param {jQuery} [config.$overlay] An overlay for the popup.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
- * @cfg {Object} [popup] Configuration options for the popup
- * @cfg {OO.ui.InputWidget} [popupInput] An input widget inside the popup that will be
+ * @param {Object} [config.popup] Configuration options for the popup
+ * @param {OO.ui.InputWidget} [config.popupInput] An input widget inside the popup that will be
  *  focused when the popup is opened and will be used as replacement for the
  *  general input in the widget.
  * @deprecated

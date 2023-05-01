@@ -34,11 +34,11 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.PendingElement
+ * @mixes OO.ui.mixin.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {number|boolean} [progress=false] The type of progress bar (determinate or indeterminate).
+ * @param {number|boolean} [config.progress=false] The type of progress bar (determinate or indeterminate).
  *  To create a determinate progress bar, specify a number that reflects the initial
  *  percent complete.
  *  By default, the progress bar is indeterminate.

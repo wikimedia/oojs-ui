@@ -2,6 +2,6 @@
 	"root": true,
 	"extends": [
 		"wikimedia/server",
-		"wikimedia/jsduck"
+		"wikimedia/jsdoc"
 	]
 }

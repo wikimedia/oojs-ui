@@ -18,19 +18,19 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.GroupElement
+ * @mixes OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
- * @cfg {Array|string} [include=[]] List of tools to include in the toolgroup, see above.
- * @cfg {Array|string} [exclude=[]] List of tools to exclude from the toolgroup, see above.
- * @cfg {Array|string} [promote=[]] List of tools to promote to the beginning of the toolgroup,
+ * @param {Array|string} [config.include=[]] List of tools to include in the toolgroup, see above.
+ * @param {Array|string} [config.exclude=[]] List of tools to exclude from the toolgroup, see above.
+ * @param {Array|string} [config.promote=[]] List of tools to promote to the beginning of the toolgroup,
  *  see above.
- * @cfg {Array|string} [demote=[]] List of tools to demote to the end of the toolgroup, see above.
+ * @param {Array|string} [config.demote=[]] List of tools to demote to the end of the toolgroup, see above.
  *  This setting is particularly useful when tools have been added to the toolgroup
  *  en masse (e.g., via the catch-all selector).
- * @cfg {string} [align='before'] Alignment within the toolbar, either 'before' or 'after'.
+ * @param {string} [config.align='before'] Alignment within the toolbar, either 'before' or 'after'.
  */
 OO.ui.ToolGroup = function OoUiToolGroup( toolbar, config ) {
 	// Allow passing positional parameters inside the config object
@@ -116,7 +116,6 @@ OO.mixinClass( OO.ui.ToolGroup, OO.ui.mixin.GroupElement );
  * Show labels in tooltips.
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.ToolGroup.static.titleTooltips = false;
@@ -131,7 +130,6 @@ OO.ui.ToolGroup.static.titleTooltips = false;
  * key combination).
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.ToolGroup.static.accelTooltips = false;
@@ -140,7 +138,6 @@ OO.ui.ToolGroup.static.accelTooltips = false;
  * Automatically disable the toolgroup when all tools are disabled
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.ToolGroup.static.autoDisable = true;
@@ -148,7 +145,6 @@ OO.ui.ToolGroup.static.autoDisable = true;
 /**
  * @abstract
  * @static
- * @inheritable
  * @property {string}
  */
 OO.ui.ToolGroup.static.name = null;

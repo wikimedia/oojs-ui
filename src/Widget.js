@@ -6,11 +6,11 @@
  * @abstract
  * @class
  * @extends OO.ui.Element
- * @mixins OO.EventEmitter
+ * @mixes OO.EventEmitter
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [disabled=false] Disable the widget. Disabled widgets cannot be used and their
+ * @param {boolean} [config.disabled=false] Disable the widget. Disabled widgets cannot be used and their
  *  appearance reflects this state.
  */
 OO.ui.Widget = function OoUiWidget( config ) {

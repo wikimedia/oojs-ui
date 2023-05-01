@@ -6,8 +6,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [value=''] The value of the input.
- * @cfg {string} [name=''] The value of the input’s HTML `name` attribute.
+ * @param {string} [config.value=''] The value of the input.
+ * @param {string} [config.name=''] The value of the input’s HTML `name` attribute.
  */
 OO.ui.HiddenInputWidget = function OoUiHiddenInputWidget( config ) {
 	// Configuration initialization

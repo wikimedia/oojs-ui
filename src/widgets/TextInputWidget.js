@@ -19,33 +19,33 @@
  *
  * @class
  * @extends OO.ui.InputWidget
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.IndicatorElement
- * @mixins OO.ui.mixin.PendingElement
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.FlaggedElement
+ * @mixes OO.ui.mixin.IconElement
+ * @mixes OO.ui.mixin.IndicatorElement
+ * @mixes OO.ui.mixin.PendingElement
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.FlaggedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [type='text'] The value of the HTML `type` attribute: 'text', 'password'
+ * @param {string} [config.type='text'] The value of the HTML `type` attribute: 'text', 'password'
  *  'email', 'url' or 'number'. Subclasses might support other types.
- * @cfg {string} [placeholder] Placeholder text
- * @cfg {boolean} [autofocus=false] Use an HTML `autofocus` attribute to
+ * @param {string} [config.placeholder] Placeholder text
+ * @param {boolean} [config.autofocus=false] Use an HTML `autofocus` attribute to
  *  instruct the browser to focus this widget.
- * @cfg {boolean} [readOnly=false] Prevent changes to the value of the text input.
- * @cfg {number} [maxLength] Maximum number of characters allowed in the input.
- * @cfg {number} [minLength] Minimum number of characters allowed in the input.
+ * @param {boolean} [config.readOnly=false] Prevent changes to the value of the text input.
+ * @param {number} [config.maxLength] Maximum number of characters allowed in the input.
+ * @param {number} [config.minLength] Minimum number of characters allowed in the input.
  *
  *  For unfortunate historical reasons, this counts the number of UTF-16 code units rather than
  *  Unicode codepoints, which means that codepoints outside the Basic Multilingual Plane (e.g.
  *  many emojis) count as 2 characters each.
- * @cfg {string} [labelPosition='after'] The position of the inline label relative to that of
+ * @param {string} [config.labelPosition='after'] The position of the inline label relative to that of
  *  the value or placeholder text: `'before'` or `'after'`
- * @cfg {boolean|string} [autocomplete] Should the browser support autocomplete for this field?
+ * @param {boolean|string} [config.autocomplete] Should the browser support autocomplete for this field?
  *  Type hints such as 'email' are also allowed.
- * @cfg {boolean} [spellcheck] Should the browser support spellcheck for this field (`undefined`
+ * @param {boolean} [config.spellcheck] Should the browser support spellcheck for this field (`undefined`
  *  means leaving it up to the browser).
- * @cfg {RegExp|Function|string} [validate] Validation pattern: when string, a symbolic name of a
+ * @param {RegExp|Function|string} [config.validate] Validation pattern: when string, a symbolic name of a
  *  pattern defined by the class: 'non-empty' (the value cannot be an empty string) or 'integer'
  *  (the value must contain only numbers); when RegExp, a regular expression that must match the
  *  value for it to be considered valid; when Function, a function receiving the value as parameter

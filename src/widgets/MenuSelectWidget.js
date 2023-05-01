@@ -24,31 +24,31 @@
  *
  * @class
  * @extends OO.ui.SelectWidget
- * @mixins OO.ui.mixin.ClippableElement
- * @mixins OO.ui.mixin.FloatableElement
+ * @mixes OO.ui.mixin.ClippableElement
+ * @mixes OO.ui.mixin.FloatableElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.TextInputWidget} [input] Text input used to implement option highlighting for menu
+ * @param {OO.ui.TextInputWidget} [config.input] Text input used to implement option highlighting for menu
  *  items that match the text the user types. This config is used by
  *  {@link OO.ui.ComboBoxInputWidget ComboBoxInputWidget} and
  *  {@link OO.ui.mixin.LookupElement LookupElement}
- * @cfg {jQuery} [$input] Text input used to implement option highlighting for menu items that match
+ * @param {jQuery} [config.$input] Text input used to implement option highlighting for menu items that match
  *  the text the user types. This config is used by
  *  {@link OO.ui.TagMultiselectWidget TagMultiselectWidget}
- * @cfg {OO.ui.Widget} [widget] Widget associated with the menu's active state. If the user clicks
+ * @param {OO.ui.Widget} [config.widget] Widget associated with the menu's active state. If the user clicks
  *  the mouse anywhere on the page outside of this widget, the menu is hidden. For example, if
  *  there is a button that toggles the menu's visibility on click, the menu will be hidden then
  *  re-shown when the user clicks that button, unless the button (or its parent widget) is passed
  *  in here.
- * @cfg {boolean} [autoHide=true] Hide the menu when the mouse is pressed outside the menu.
- * @cfg {jQuery} [$autoCloseIgnore] If these elements are clicked, don't auto-hide the menu.
- * @cfg {boolean} [hideOnChoose=true] Hide the menu when the user chooses an option.
- * @cfg {boolean} [filterFromInput=false] Filter the displayed options from the input
- * @cfg {boolean} [highlightOnFilter=false] Highlight the first result when filtering
- * @cfg {string} [filterMode='prefix'] The mode by which the menu filters the results.
+ * @param {boolean} [config.autoHide=true] Hide the menu when the mouse is pressed outside the menu.
+ * @param {jQuery} [config.$autoCloseIgnore] If these elements are clicked, don't auto-hide the menu.
+ * @param {boolean} [config.hideOnChoose=true] Hide the menu when the user chooses an option.
+ * @param {boolean} [config.filterFromInput=false] Filter the displayed options from the input
+ * @param {boolean} [config.highlightOnFilter=false] Highlight the first result when filtering
+ * @param {string} [config.filterMode='prefix'] The mode by which the menu filters the results.
  *  Options are 'exact', 'prefix' or 'substring'. See `OO.ui.SelectWidget#getItemMatcher`
- * @cfg {number|string} [width] Width of the menu as a number of pixels or CSS string with unit
+ * @param {number|string} [config.width] Width of the menu as a number of pixels or CSS string with unit
  *  suffix, used by {@link OO.ui.mixin.ClippableElement ClippableElement}
  */
 OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {

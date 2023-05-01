@@ -10,17 +10,17 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.TabIndexedElement
- * @mixins OO.ui.mixin.TitledElement
- * @mixins OO.ui.mixin.AccessKeyedElement
+ * @mixes OO.ui.mixin.TabIndexedElement
+ * @mixes OO.ui.mixin.TitledElement
+ * @mixes OO.ui.mixin.AccessKeyedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [name=''] The value of the input’s HTML `name` attribute.
- * @cfg {string} [value=''] The value of the input.
- * @cfg {string} [dir] The directionality of the input (ltr/rtl).
- * @cfg {string} [inputId] The value of the input’s HTML `id` attribute.
- * @cfg {Function} [inputFilter] The name of an input filter function. Input filters modify the
+ * @param {string} [config.name=''] The value of the input’s HTML `name` attribute.
+ * @param {string} [config.value=''] The value of the input.
+ * @param {string} [config.dir] The directionality of the input (ltr/rtl).
+ * @param {string} [config.inputId] The value of the input’s HTML `id` attribute.
+ * @param {Function} [config.inputFilter] The name of an input filter function. Input filters modify the
  *  value of an input before it is accepted.
  */
 OO.ui.InputWidget = function OoUiInputWidget( config ) {

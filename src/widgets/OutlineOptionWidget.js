@@ -10,10 +10,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {number} [level=0] Indentation level
- * @cfg {boolean} [movable=false] Allow modification from
+ * @param {number} [config.level=0] Indentation level
+ * @param {boolean} [config.movable=false] Allow modification from
  *  {@link OO.ui.OutlineControlsWidget outline controls}.
- * @cfg {boolean} [removable=false]
+ * @param {boolean} [config.removable=false]
  */
 OO.ui.OutlineOptionWidget = function OoUiOutlineOptionWidget( config ) {
 	// Configuration initialization
@@ -51,14 +51,12 @@ OO.ui.OutlineOptionWidget.static.scrollIntoViewOnSelect = true;
 
 /**
  * @static
- * @inheritable
  * @property {string}
  */
 OO.ui.OutlineOptionWidget.static.levelClass = 'oo-ui-outlineOptionWidget-level-';
 
 /**
  * @static
- * @inheritable
  * @property {number}
  */
 OO.ui.OutlineOptionWidget.static.levels = 3;

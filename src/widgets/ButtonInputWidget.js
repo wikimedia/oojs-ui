@@ -18,22 +18,22 @@
  *
  * @class
  * @extends OO.ui.InputWidget
- * @mixins OO.ui.mixin.ButtonElement
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.IndicatorElement
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.FlaggedElement
+ * @mixes OO.ui.mixin.ButtonElement
+ * @mixes OO.ui.mixin.IconElement
+ * @mixes OO.ui.mixin.IndicatorElement
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.FlaggedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [type='button'] The value of the HTML `'type'` attribute:
+ * @param {string} [config.type='button'] The value of the HTML `'type'` attribute:
  *  'button', 'submit' or 'reset'.
- * @cfg {boolean} [useInputTag=false] Use an `<input>` tag instead of a `<button>` tag, the default.
- *  Widgets configured to be an `<input>` do not support {@link #icon icons} and
- *  {@link #indicator indicators},
- *  non-plaintext {@link #label labels}, or {@link #value values}. In general, useInputTag should
- *  only be set to `true` when there’s need to support IE 6 in a form with multiple buttons.
- * @cfg {boolean} [formNoValidate=false] Whether to use `formnovalidate` attribute.
+ * @param {boolean} [config.useInputTag=false] Use an `<input>` tag instead of a `<button>` tag, the
+ *  default. Widgets configured to be an `<input>` do not support {@link #icon icons} and
+ *  {@link #indicator indicators}, non-plaintext {@link #label labels}, or {@link #value values}. In
+ *  general, useInputTag should only be set to `true` when there’s need to support IE 6 in a form
+ *  with multiple buttons.
+ * @param {boolean} [config.formNoValidate=false] Whether to use `formnovalidate` attribute.
  */
 OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	// Configuration initialization

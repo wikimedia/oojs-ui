@@ -9,8 +9,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Object} [popup] Configuration to pass to popup
- * @cfg {boolean} [popup.autoClose=true] Popup auto-closes when it loses focus
+ * @param {Object} [config.popup] Configuration to pass to popup
+ * @param {boolean} [config.popup.autoClose=true] Popup auto-closes when it loses focus
  */
 OO.ui.mixin.PopupElement = function OoUiMixinPopupElement( config ) {
 	// Configuration initialization

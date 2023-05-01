@@ -6,20 +6,20 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.TitledElement
- * @mixins OO.ui.mixin.FlaggedElement
+ * @mixes OO.ui.mixin.IconElement
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.TitledElement
+ * @mixes OO.ui.mixin.FlaggedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [type='notice'] The type of the notice widget. This will also
+ * @param {string} [config.type='notice'] The type of the notice widget. This will also
  *  impact the flags that the widget receives (and hence its CSS design) as well
  *  as the icon that appears. Available types:
  *  'notice', 'error', 'warning', 'success'
- * @cfg {boolean} [inline=false] Set the notice as an inline notice. The default
+ * @param {boolean} [config.inline=false] Set the notice as an inline notice. The default
  *  is not inline, or 'boxed' style.
- * @cfg {boolean} [showClose] Show a close button. Can't be used with inline.
+ * @param {boolean} [config.showClose] Show a close button. Can't be used with inline.
  */
 OO.ui.MessageWidget = function OoUiMessageWidget( config ) {
 	// Configuration initialization

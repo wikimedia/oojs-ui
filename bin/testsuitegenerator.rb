@@ -72,7 +72,7 @@ def find_config_sources classes, klass_name
 		break unless klass
 		klass_names +=
 			find_config_sources(classes, klass[:parent]) +
-			klass[:mixins].map{|mixin_name| find_config_sources(classes, mixin_name) }.flatten
+			klass[:mixes].map{|mixed_name| find_config_sources(classes, mixed_name) }.flatten
 		klass_name = klass[:parent]
 	end
 	klass_names.uniq

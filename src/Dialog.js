@@ -37,7 +37,7 @@
  * @abstract
  * @class
  * @extends OO.ui.Window
- * @mixins OO.ui.mixin.PendingElement
+ * @mixes OO.ui.mixin.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -84,7 +84,6 @@ OO.mixinClass( OO.ui.Dialog, OO.ui.mixin.PendingElement );
  *
  * @abstract
  * @static
- * @inheritable
  * @property {string}
  */
 OO.ui.Dialog.static.name = '';
@@ -99,7 +98,6 @@ OO.ui.Dialog.static.name = '';
  *
  * @abstract
  * @static
- * @inheritable
  * @property {jQuery|string|Function}
  */
 OO.ui.Dialog.static.title = '';
@@ -113,7 +111,6 @@ OO.ui.Dialog.static.title = '';
  * [2]: https://www.mediawiki.org/wiki/OOUI/Windows/Process_Dialogs#Action_sets
  *
  * @static
- * @inheritable
  * @property {Object[]}
  */
 OO.ui.Dialog.static.actions = [];
@@ -123,7 +120,6 @@ OO.ui.Dialog.static.actions = [];
  *
  * @static
  * @abstract
- * @inheritable
  * @property {boolean}
  */
 OO.ui.Dialog.static.escapable = true;

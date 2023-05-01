@@ -58,10 +58,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: … }`
- * @cfg {Object} [menu] Configuration options to pass to the {@link OO.ui.MenuSelectWidget menu
+ * @param {Object[]} [config.options=[]] Array of menu options in the format `{ data: …, label: … }`
+ * @param {Object} [config.menu] Configuration options to pass to the {@link OO.ui.MenuSelectWidget menu
  *  select widget}.
- * @cfg {jQuery} [$overlay] Render the menu into a separate layer. This configuration is useful
+ * @param {jQuery} [config.$overlay] Render the menu into a separate layer. This configuration is useful
  *  in cases where the expanded menu is larger than its containing `<div>`. The specified overlay
  *  layer is usually on top of the containing `<div>` and has a larger area. By default, the menu
  *  uses relative positioning.

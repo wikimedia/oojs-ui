@@ -15,23 +15,23 @@
  *
  * @class
  * @abstract
- * @mixins OO.ui.mixin.RequestManager
+ * @mixes OO.ui.mixin.RequestManager
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$overlay] Overlay for the lookup menu; defaults to relative positioning.
+ * @param {jQuery} [config.$overlay] Overlay for the lookup menu; defaults to relative positioning.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
- * @cfg {jQuery} [$container=this.$element] The container element. The lookup menu is rendered
+ * @param {jQuery} [config.$container=this.$element] The container element. The lookup menu is rendered
  *  beneath the specified element.
- * @cfg {Object} [menu] Configuration options to pass to
+ * @param {Object} [config.menu] Configuration options to pass to
  *  {@link OO.ui.MenuSelectWidget menu select widget}
- * @cfg {boolean} [allowSuggestionsWhenEmpty=false] Request and display a lookup menu when the
+ * @param {boolean} [config.allowSuggestionsWhenEmpty=false] Request and display a lookup menu when the
  *  text input is empty.
  *  By default, the lookup menu is not generated and displayed until the user begins to type.
- * @cfg {boolean} [highlightFirst=true] Whether the first lookup result should be highlighted
+ * @param {boolean} [config.highlightFirst=true] Whether the first lookup result should be highlighted
  *  (so, that the user can take it over into the input with simply pressing return) automatically
  *  or not.
- * @cfg {boolean} [showSuggestionsOnFocus=true] Show suggestions when focusing the input. If this
+ * @param {boolean} [config.showSuggestionsOnFocus=true] Show suggestions when focusing the input. If this
  *  is set to false, suggestions will still be shown on a mousedown triggered focus. This matches
  *  browser autocomplete behavior.
  */

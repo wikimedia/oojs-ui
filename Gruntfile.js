@@ -38,6 +38,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-exec' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
+	grunt.loadNpmTasks( 'grunt-jsdoc' );
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 	grunt.loadNpmTasks( 'grunt-tyops' );
@@ -320,12 +321,6 @@ module.exports = function ( grunt ) {
 				expand: true,
 				dest: 'dist/'
 			},
-			jsduck: {
-				// Don't publish devDependencies
-				src: '{dist,node_modules/{' + Object.keys( pkg.dependencies ).join( ',' ) + '}}/**/*',
-				dest: 'docs/',
-				expand: true
-			},
 			demos: {
 				// Make sure you update this if dependencies are added
 				src: '{node_modules/{jquery,oojs}/dist/**/*,composer.json,dist/**/*,php/**/*,node_modules/{prismjs,javascript-stringify}/**/*}',
@@ -392,6 +387,15 @@ module.exports = function ( grunt ) {
 		// Lint – i18n
 		banana: {
 			all: 'i18n/'
+		},
+
+		// Documentation
+		jsdoc: {
+			dist: {
+				options: {
+					configure: '.jsdoc.json'
+				}
+			}
 		},
 
 		// Test

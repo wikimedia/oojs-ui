@@ -20,9 +20,9 @@
  * @constructor
  * @param {string|jQuery} message Description of error
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [recoverable=true] Error is recoverable.
+ * @param {boolean} [config.recoverable=true] Error is recoverable.
  *  By default, errors are recoverable, and users can try the process again.
- * @cfg {boolean} [warning=false] Error is a warning.
+ * @param {boolean} [config.warning=false] Error is a warning.
  *  If the error is a warning, the error interface will include a
  *  'Dismiss' and a 'Continue' button. It is the responsibility of the developer to ensure that the
  *  warning is not triggered a second time if the user chooses to continue.

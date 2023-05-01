@@ -4,16 +4,16 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.ItemWidget
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.FlaggedElement
- * @mixins OO.ui.mixin.TabIndexedElement
- * @mixins OO.ui.mixin.DraggableElement
+ * @mixes OO.ui.mixin.ItemWidget
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.FlaggedElement
+ * @mixes OO.ui.mixin.TabIndexedElement
+ * @mixes OO.ui.mixin.DraggableElement
  *
  * @constructor
  * @param {Object} [config] Configuration object
- * @cfg {boolean} [valid=true] Item is valid
- * @cfg {boolean} [fixed=false] Item is fixed. This means the item is
+ * @param {boolean} [config.valid=true] Item is valid
+ * @param {boolean} [config.fixed=false] Item is fixed. This means the item is
  *  always included in the values and cannot be removed.
  */
 OO.ui.TagItemWidget = function OoUiTagItemWidget( config ) {

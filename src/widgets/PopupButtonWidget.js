@@ -18,11 +18,11 @@
  *
  * @class
  * @extends OO.ui.ButtonWidget
- * @mixins OO.ui.mixin.PopupElement
+ * @mixes OO.ui.mixin.PopupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$overlay] Render the popup into a separate layer. This configuration is useful
+ * @param {jQuery} [config.$overlay] Render the popup into a separate layer. This configuration is useful
  *  in cases where the expanded popup is larger than its containing `<div>`. The specified overlay
  *  layer is usually on top of the containing `<div>` and has a larger area. By default, the popup
  *  uses relative positioning.

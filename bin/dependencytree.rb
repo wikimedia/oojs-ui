@@ -23,9 +23,9 @@ def describe klass_name
 		if klass[:parent]
 			out.push prefix describe klass[:parent]
 		end
-		if klass[:mixins]
-			klass[:mixins].each do |mixin|
-				out.push prefix describe mixin
+		if klass[:mixes]
+			klass[:mixes].each do |mixed|
+				out.push prefix describe mixed
 			end
 		end
 	end

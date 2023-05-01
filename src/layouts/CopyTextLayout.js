@@ -7,9 +7,9 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} copyText Text to copy, can also be provided as textInput.value
- * @cfg {Object} textInput Config for text input
- * @cfg {Object} button Config for button
+ * @param {string} [config.copyText] Text to copy, can also be provided as textInput.value
+ * @param {Object} [config.textInput] Config for text input
+ * @param {Object} [config.button] Config for button
  */
 OO.ui.CopyTextLayout = function OoUiCopyTextLayout( config ) {
 	var TextClass;

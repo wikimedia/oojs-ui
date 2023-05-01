@@ -23,16 +23,16 @@
  *
  * @class
  * @extends OO.ui.ToggleWidget
- * @mixins OO.ui.mixin.ButtonElement
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.IndicatorElement
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.FlaggedElement
- * @mixins OO.ui.mixin.TabIndexedElement
+ * @mixes OO.ui.mixin.ButtonElement
+ * @mixes OO.ui.mixin.IconElement
+ * @mixes OO.ui.mixin.IndicatorElement
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.FlaggedElement
+ * @mixes OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [value=false] The toggle button’s initial on/off
+ * @param {boolean} [config.value=false] The toggle button’s initial on/off
  *  state. By default, the button is in the 'off' state.
  */
 OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {

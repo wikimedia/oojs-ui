@@ -8,7 +8,7 @@
  *
  * @class
  * @extends OO.ui.SelectWidget
- * @mixins OO.ui.mixin.TabIndexedElement
+ * @mixes OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options

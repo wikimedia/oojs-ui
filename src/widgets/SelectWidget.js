@@ -32,15 +32,15 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.GroupWidget
+ * @mixes OO.ui.mixin.GroupWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.OptionWidget[]} [items] An array of options to add to the select.
+ * @param {OO.ui.OptionWidget[]} [config.items] An array of options to add to the select.
  *  Options are created with {@link OO.ui.OptionWidget OptionWidget} classes. See
  *  the [OOUI documentation on MediaWiki] [2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
- * @cfg {boolean} [multiselect=false] Allow for multiple selections
+ * @param {boolean} [config.multiselect=false] Allow for multiple selections
  */
 OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	// Configuration initialization
@@ -154,7 +154,6 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupWidget );
  * Whether this widget will respond to the navigation keys Home, End, PageUp, PageDown.
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.SelectWidget.static.handleNavigationKeys = false;
@@ -164,7 +163,6 @@ OO.ui.SelectWidget.static.handleNavigationKeys = false;
  * the user reaches the beginning or end of the list.
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.SelectWidget.static.listWrapsAround = true;

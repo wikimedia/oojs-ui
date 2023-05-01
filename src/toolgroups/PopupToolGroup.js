@@ -7,20 +7,20 @@
  * @abstract
  * @class
  * @extends OO.ui.ToolGroup
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.IndicatorElement
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.TitledElement
- * @mixins OO.ui.mixin.FlaggedElement
- * @mixins OO.ui.mixin.ClippableElement
- * @mixins OO.ui.mixin.FloatableElement
- * @mixins OO.ui.mixin.TabIndexedElement
+ * @mixes OO.ui.mixin.IconElement
+ * @mixes OO.ui.mixin.IndicatorElement
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.TitledElement
+ * @mixes OO.ui.mixin.FlaggedElement
+ * @mixes OO.ui.mixin.ClippableElement
+ * @mixes OO.ui.mixin.FloatableElement
+ * @mixes OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
- * @cfg {string} [header] Text to display at the top of the popup
- * @cfg {Object} [narrowConfig] See static.narrowConfig
+ * @param {string} [config.header] Text to display at the top of the popup
+ * @param {Object} [config.narrowConfig] See static.narrowConfig
  */
 OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	// Allow passing positional parameters inside the config object
@@ -119,7 +119,6 @@ OO.mixinClass( OO.ui.PopupToolGroup, OO.ui.mixin.TabIndexedElement );
  * Supports `invisibleLabel`, label` and `icon` properties.
  *
  * @static
- * @inheritable
  * @property {Object|null}
  */
 OO.ui.PopupToolGroup.static.narrowConfig = null;

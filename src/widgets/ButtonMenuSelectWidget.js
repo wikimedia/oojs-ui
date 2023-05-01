@@ -38,12 +38,12 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [clearOnSelect=true] Clear selection immediately after making it
- * @cfg {Object} [menuClass=OO.ui.MenuSelectWidget] Class for the menu widget. This
+ * @param {boolean} [config.clearOnSelect=true] Clear selection immediately after making it
+ * @param {Object} [config.menuClass=OO.ui.MenuSelectWidget] Class for the menu widget. This
  *  must be a subclass of {@link OO.ui.MenuSelectWidget menu select widget}.
- * @cfg {Object} [menu] Configuration options to pass to
+ * @param {Object} [config.menu] Configuration options to pass to
  *  {@link OO.ui.MenuSelectWidget menu select widget}.
- * @cfg {jQuery|boolean} [$overlay] Render the menu into a separate layer. This configuration is
+ * @param {jQuery|boolean} [config.$overlay] Render the menu into a separate layer. This configuration is
  *  useful in cases where the expanded menu is larger than its containing `<div>`. The specified
  *  overlay layer is usually on top of the containing `<div>` and has a larger area. By default,
  *  the menu uses relative positioning. Pass 'true' to use the default overlay.

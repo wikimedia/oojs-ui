@@ -21,17 +21,17 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.FlaggedElement
- * @mixins OO.ui.mixin.TabIndexedElement
+ * @mixes OO.ui.mixin.IconElement
+ * @mixes OO.ui.mixin.FlaggedElement
+ * @mixes OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {OO.ui.ToolGroup} toolGroup
  * @param {Object} [config] Configuration options
- * @cfg {string|Function} [title] Title text or a function that returns text. If this config is
+ * @param {string|Function} [config.title] Title text or a function that returns text. If this config is
  *  omitted, the value of the {@link #static-title static title} property is used.
- * @cfg {boolean} [displayBothIconAndLabel] See static.displayBothIconAndLabel
- * @cfg {Object} [narrowConfig] See static.narrowConfig
+ * @param {boolean} [config.displayBothIconAndLabel] See static.displayBothIconAndLabel
+ * @param {Object} [config.narrowConfig] See static.narrowConfig
  *
  *  The title is used in different ways depending on the type of toolgroup that contains the tool.
  *  The title is used as a tooltip if the tool is part of a {@link OO.ui.BarToolGroup bar}
@@ -139,7 +139,6 @@ OO.ui.Tool.static.tagName = 'span';
  *
  * @abstract
  * @static
- * @inheritable
  * @property {string}
  */
 OO.ui.Tool.static.name = '';
@@ -152,7 +151,6 @@ OO.ui.Tool.static.name = '';
  *
  * @abstract
  * @static
- * @inheritable
  * @property {string}
  */
 OO.ui.Tool.static.group = '';
@@ -163,7 +161,6 @@ OO.ui.Tool.static.group = '';
  *
  * @abstract
  * @static
- * @inheritable
  * @property {string|Function}
  */
 OO.ui.Tool.static.title = '';
@@ -173,7 +170,6 @@ OO.ui.Tool.static.title = '';
  * Normally only the icon is displayed, or only the label if no icon is given.
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.Tool.static.displayBothIconAndLabel = false;
@@ -185,7 +181,6 @@ OO.ui.Tool.static.displayBothIconAndLabel = false;
  * can be included in a toolgroup using the wildcard selector, an asterisk (*).
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.Tool.static.autoAddToCatchall = true;
@@ -199,7 +194,6 @@ OO.ui.Tool.static.autoAddToCatchall = true;
  *
  * @static
  * @property {boolean}
- * @inheritable
  */
 OO.ui.Tool.static.autoAddToGroup = true;
 
@@ -211,7 +205,6 @@ OO.ui.Tool.static.autoAddToGroup = true;
  * must also call this method so that the compatibility check can be performed.
  *
  * @static
- * @inheritable
  * @param {Mixed} data Data to check
  * @return {boolean} Tool can be used with data
  */
@@ -225,7 +218,6 @@ OO.ui.Tool.static.isCompatibleWith = function () {
  * Supports `displayBothIconAndLabel`, `title` and `icon` properties.
  *
  * @static
- * @inheritable
  * @property {Object|null}
  */
 OO.ui.Tool.static.narrowConfig = null;

@@ -28,8 +28,8 @@
  *
  * @class
  * @extends OO.ui.OptionWidget
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.IndicatorElement
+ * @mixes OO.ui.mixin.IconElement
+ * @mixes OO.ui.mixin.IndicatorElement
  *
  * @constructor
  * @param {Object} [config] Configuration options

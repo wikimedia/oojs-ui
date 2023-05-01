@@ -75,7 +75,6 @@ OO.ui.MessageDialog.static.size = 'small';
  * title of an alert dialog describes which event occurred.
  *
  * @static
- * @inheritable
  * @property {jQuery|string|Function|null}
  */
 OO.ui.MessageDialog.static.title = null;
@@ -87,7 +86,6 @@ OO.ui.MessageDialog.static.title = null;
  * message describes why an event occurred.
  *
  * @static
- * @inheritable
  * @property {jQuery|string|Function|null}
  */
 OO.ui.MessageDialog.static.message = null;

@@ -6,11 +6,11 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$required] The element to which the `required` attribute is applied.
+ * @param {jQuery} [config.$required] The element to which the `required` attribute is applied.
  *  If this config is omitted, the required functionality is applied to $input if it
  *  exists, or $element if it doesn't.
- * @cfg {boolean} [required=false] Mark the field as required with `true`.
- * @cfg {OO.ui.Element} [indicatorElement=this] Element which mixes in OO.ui.mixin.IndicatorElement
+ * @param {boolean} [config.required=false] Mark the field as required with `true`.
+ * @param {OO.ui.Element} [config.indicatorElement=this] Element which mixes in OO.ui.mixin.IndicatorElement
  *  Will set the indicator on that element to 'required' when the element is required.
  *  Note that `false` & setting `indicator: 'required'` will result in no indicator shown.
  */

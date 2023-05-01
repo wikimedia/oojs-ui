@@ -15,21 +15,21 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$floatable] Node to position, assigned to #$floatable, omit to use #$element
- * @cfg {jQuery} [$floatableContainer] Node to position adjacent to
- * @cfg {string} [verticalPosition='below'] Where to position $floatable vertically:
+ * @param {jQuery} [config.$floatable] Node to position, assigned to #$floatable, omit to use #$element
+ * @param {jQuery} [config.$floatableContainer] Node to position adjacent to
+ * @param {string} [config.verticalPosition='below'] Where to position $floatable vertically:
  *  'below': Directly below $floatableContainer, aligning f's top edge with fC's bottom edge
  *  'above': Directly above $floatableContainer, aligning f's bottom edge with fC's top edge
  *  'top': Align the top edge with $floatableContainer's top edge
  *  'bottom': Align the bottom edge with $floatableContainer's bottom edge
  *  'center': Vertically align the center with $floatableContainer's center
- * @cfg {string} [horizontalPosition='start'] Where to position $floatable horizontally:
+ * @param {string} [config.horizontalPosition='start'] Where to position $floatable horizontally:
  *  'before': Directly before $floatableContainer, aligning f's end edge with fC's start edge
  *  'after': Directly after $floatableContainer, aligning f's start edge with fC's end edge
  *  'start': Align the start (left in LTR, right in RTL) edge with $floatableContainer's start edge
  *  'end': Align the end (right in LTR, left in RTL) edge with $floatableContainer's end edge
  *  'center': Horizontally align the center with $floatableContainer's center
- * @cfg {boolean} [hideWhenOutOfView=true] Whether to hide the floatable element if the container
+ * @param {boolean} [config.hideWhenOutOfView=true] Whether to hide the floatable element if the container
  *  is out of view
  */
 OO.ui.mixin.FloatableElement = function OoUiMixinFloatableElement( config ) {

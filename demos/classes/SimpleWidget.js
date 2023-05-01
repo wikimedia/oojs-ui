@@ -3,8 +3,8 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.IconElement
+ * @mixes OO.ui.mixin.LabelElement
  *
  * @param {Object} [config] Configuration options
  */

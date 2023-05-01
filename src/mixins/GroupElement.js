@@ -7,12 +7,12 @@
  * [1]: https://www.mediawiki.org/wiki/OOUI/Elements/Groups
  *
  * @abstract
- * @mixins OO.EmitterList
+ * @mixes OO.EmitterList
  * @class
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$group] The container element created by the class. If this configuration
+ * @param {jQuery} [config.$group] The container element created by the class. If this configuration
  *  is omitted, the group element will use a generated `<div>`.
  */
 OO.ui.mixin.GroupElement = function OoUiMixinGroupElement( config ) {

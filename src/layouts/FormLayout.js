@@ -52,14 +52,14 @@
  *
  * @class
  * @extends OO.ui.Layout
- * @mixins OO.ui.mixin.GroupElement
+ * @mixes OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [method] HTML form `method` attribute
- * @cfg {string} [action] HTML form `action` attribute
- * @cfg {string} [enctype] HTML form `enctype` attribute
- * @cfg {OO.ui.FieldsetLayout[]} [items] Fieldset layouts to add to the form layout.
+ * @param {string} [config.method] HTML form `method` attribute
+ * @param {string} [config.action] HTML form `action` attribute
+ * @param {string} [config.enctype] HTML form `enctype` attribute
+ * @param {OO.ui.FieldsetLayout[]} [config.items] Fieldset layouts to add to the form layout.
  */
 OO.ui.FormLayout = function OoUiFormLayout( config ) {
 	// Configuration initialization

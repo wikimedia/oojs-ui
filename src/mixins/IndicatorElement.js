@@ -21,9 +21,9 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$indicator] The indicator element created by the class. If this
+ * @param {jQuery} [config.$indicator] The indicator element created by the class. If this
  *  configuration is omitted, the indicator element will use a generated `<span>`.
- * @cfg {string} [indicator] Symbolic name of the indicator (e.g. ‘required’ or ‘down’).
+ * @param {string} [config.indicator] Symbolic name of the indicator (e.g. ‘required’ or ‘down’).
  *  See the [OOUI documentation on MediaWiki][2] for a list of indicators included
  *  in the library.
  * [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Indicators
@@ -52,7 +52,6 @@ OO.initClass( OO.ui.mixin.IndicatorElement );
  * The static property will be overridden if the #indicator configuration is used.
  *
  * @static
- * @inheritable
  * @property {string|null}
  */
 OO.ui.mixin.IndicatorElement.static.indicator = null;
@@ -63,7 +62,6 @@ OO.ui.mixin.IndicatorElement.static.indicator = null;
  * used.
  *
  * @static
- * @inheritable
  * @property {string|Function|null}
  */
 OO.ui.mixin.IndicatorElement.static.indicatorTitle = null;

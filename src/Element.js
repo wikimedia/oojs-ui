@@ -11,18 +11,18 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string[]} [classes] The names of the CSS classes to apply to the element. CSS styles are
+ * @param {string[]} [config.classes] The names of the CSS classes to apply to the element. CSS styles are
  *  added to the top level (e.g., the outermost div) of the element. See the
  *  [OOUI documentation on MediaWiki][2] for an example.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Buttons_and_Switches#cssExample
- * @cfg {string} [id] The HTML id attribute used in the rendered tag.
- * @cfg {string} [text] Text to insert
- * @cfg {Array} [content] An array of content elements to append (after #text).
+ * @param {string} [config.id] The HTML id attribute used in the rendered tag.
+ * @param {string} [config.text] Text to insert
+ * @param {Array} [config.content] An array of content elements to append (after #text).
  *  Strings will be html-escaped; use an OO.ui.HtmlSnippet to append raw HTML.
  *  Instances of OO.ui.Element will have their $element appended.
- * @cfg {jQuery} [$content] Content elements to append (after #text).
- * @cfg {jQuery} [$element] Wrapper element. Defaults to a new element with #getTagName.
- * @cfg {Mixed} [data] Custom data of any type or combination of types (e.g., string, number,
+ * @param {jQuery} [config.$content] Content elements to append (after #text).
+ * @param {jQuery} [config.$element] Wrapper element. Defaults to a new element with #getTagName.
+ * @param {Mixed} [config.data] Custom data of any type or combination of types (e.g., string, number,
  *  array, object).
  *  Data can also be specified with the #setData method.
  */
@@ -88,7 +88,6 @@ OO.initClass( OO.ui.Element );
  * The static value may be ignored if the #getTagName method is overridden.
  *
  * @static
- * @inheritable
  * @property {string}
  */
 OO.ui.Element.static.tagName = 'div';
@@ -980,7 +979,7 @@ OO.ui.Element.prototype.supports = function ( methods ) {
 /**
  * Update the theme-provided classes.
  *
- * @localdoc This is called in element mixins and widget classes any time state changes.
+ * This is called in element mixins and widget classes any time state changes.
  *   Updating is debounced, minimizing overhead of changing multiple attributes and
  *   guaranteeing that theme updates do not occur within an element's constructor
  */

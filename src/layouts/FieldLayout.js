@@ -30,34 +30,34 @@
  *
  * @class
  * @extends OO.ui.Layout
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.TitledElement
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {OO.ui.Widget} fieldWidget Field widget
  * @param {Object} [config] Configuration options
- * @cfg {string} [align='left'] Alignment of the label: 'left', 'right', 'top'
+ * @param {string} [config.align='left'] Alignment of the label: 'left', 'right', 'top'
  *  or 'inline'
- * @cfg {Array} [errors] Error messages about the widget, which will be
+ * @param {Array} [config.errors] Error messages about the widget, which will be
  *  displayed below the widget.
- * @cfg {Array} [warnings] Warning messages about the widget, which will be
+ * @param {Array} [config.warnings] Warning messages about the widget, which will be
  *  displayed below the widget.
- * @cfg {Array} [successMessages] Success messages on user interactions with the widget,
+ * @param {Array} [config.successMessages] Success messages on user interactions with the widget,
  *  which will be displayed below the widget.
  *  The array may contain strings or OO.ui.HtmlSnippet instances.
- * @cfg {Array} [notices] Notices about the widget, which will be displayed
+ * @param {Array} [config.notices] Notices about the widget, which will be displayed
  *  below the widget.
  *  The array may contain strings or OO.ui.HtmlSnippet instances.
  *  These are more visible than `help` messages when `helpInline` is set, and so
  *  might be good for transient messages.
- * @cfg {string|OO.ui.HtmlSnippet} [help] Help text. When help text is specified
+ * @param {string|OO.ui.HtmlSnippet} [config.help] Help text. When help text is specified
  *  and `helpInline` is `false`, a "help" icon will appear in the upper-right
  *  corner of the rendered field; clicking it will display the text in a popup.
  *  If `helpInline` is `true`, then a subtle description will be shown after the
  *  label.
- * @cfg {boolean} [helpInline=false] Whether or not the help should be inline,
+ * @param {boolean} [config.helpInline=false] Whether or not the help should be inline,
  *  or shown when the "help" icon is clicked.
- * @cfg {jQuery} [$overlay] Passed to OO.ui.PopupButtonWidget for help popup, if
+ * @param {jQuery} [config.$overlay] Passed to OO.ui.PopupButtonWidget for help popup, if
  * `help` is given.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  *

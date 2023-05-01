@@ -37,9 +37,9 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [selected=false] Select the checkbox initially. By default, the checkbox is
+ * @param {boolean} [config.selected=false] Select the checkbox initially. By default, the checkbox is
  *  not selected.
- * @cfg {boolean} [indeterminate=false] Whether the checkbox is in the indeterminate state.
+ * @param {boolean} [config.indeterminate=false] Whether the checkbox is in the indeterminate state.
  */
 OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 	// Configuration initialization

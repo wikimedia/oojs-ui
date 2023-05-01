@@ -10,9 +10,9 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$button] The button element created by the class.
+ * @param {jQuery} [config.$button] The button element created by the class.
  *  If this configuration is omitted, the button element will use a generated `<a>`.
- * @cfg {boolean} [framed=true] Render the button with a frame
+ * @param {boolean} [config.framed=true] Render the button with a frame
  */
 OO.ui.mixin.ButtonElement = function OoUiMixinButtonElement( config ) {
 	// Configuration initialization
@@ -51,7 +51,6 @@ OO.initClass( OO.ui.mixin.ButtonElement );
  * behavior is possible and mousedown events can be handled by a parent widget.
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.mixin.ButtonElement.static.cancelButtonMouseDownEvents = true;

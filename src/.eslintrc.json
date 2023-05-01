@@ -3,7 +3,7 @@
 	"extends": [
 		"wikimedia/client",
 		"wikimedia/jquery",
-		"wikimedia/jsduck"
+		"wikimedia/jsdoc"
 	],
 	"plugins": [
 		"mediawiki"

@@ -21,17 +21,17 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.ClippableElement
- * @mixins OO.ui.mixin.FloatableElement
+ * @mixes OO.ui.mixin.IconElement
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.ClippableElement
+ * @mixes OO.ui.mixin.FloatableElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {number|null} [width=320] Width of popup in pixels. Pass `null` to use automatic width.
- * @cfg {number|null} [height=null] Height of popup in pixels. Pass `null` to use automatic height.
- * @cfg {boolean} [anchor=true] Show anchor pointing to origin of popup
- * @cfg {string} [position='below'] Where to position the popup relative to $floatableContainer
+ * @param {number|null} [config.width=320] Width of popup in pixels. Pass `null` to use automatic width.
+ * @param {number|null} [config.height=null] Height of popup in pixels. Pass `null` to use automatic height.
+ * @param {boolean} [config.anchor=true] Show anchor pointing to origin of popup
+ * @param {string} [config.position='below'] Where to position the popup relative to $floatableContainer
  *  'above': Put popup above $floatableContainer; anchor points down to the horizontal center
  *    of $floatableContainer
  *  'below': Put popup below $floatableContainer; anchor points up to the horizontal center
@@ -40,7 +40,7 @@
  *    endwards (right/left) to the vertical center of $floatableContainer
  *  'after': Put popup to the right (LTR) / left (RTL) of $floatableContainer; anchor points
  *    startwards (left/right) to the vertical center of $floatableContainer
- * @cfg {string} [align='center'] How to align the popup to $floatableContainer
+ * @param {string} [config.align='center'] How to align the popup to $floatableContainer
  *  'forwards': If position is above/below, move the popup as far endwards (right in LTR, left in
  *    RTL) as possible while still keeping the anchor within the popup; if position is before/after,
  *    move the popup as far downwards as possible.
@@ -51,25 +51,25 @@
  *     center of the popup with the center of $floatableContainer.
  * 'force-left': Alias for 'forwards' in LTR and 'backwards' in RTL
  * 'force-right': Alias for 'backwards' in RTL and 'forwards' in LTR
- * @cfg {boolean} [autoFlip=true] Whether to automatically switch the popup's position between
+ * @param {boolean} [config.autoFlip=true] Whether to automatically switch the popup's position between
  *  'above' and 'below', or between 'before' and 'after', if there is not enough space in the
  *  desired direction to display the popup without clipping
- * @cfg {jQuery} [$container] Constrain the popup to the boundaries of the specified container.
+ * @param {jQuery} [config.$container] Constrain the popup to the boundaries of the specified container.
  *  See the [OOUI docs on MediaWiki][3] for an example.
  *  [3]: https://www.mediawiki.org/wiki/OOUI/Widgets/Popups#containerExample
- * @cfg {number} [containerPadding=10] Padding between the popup and its container, specified as a
+ * @param {number} [config.containerPadding=10] Padding between the popup and its container, specified as a
  *  number of pixels.
- * @cfg {jQuery} [$content] Content to append to the popup's body
- * @cfg {jQuery} [$footer] Content to append to the popup's footer
- * @cfg {boolean} [autoClose=false] Automatically close the popup when it loses focus.
- * @cfg {jQuery} [$autoCloseIgnore] Elements that will not close the popup when clicked.
+ * @param {jQuery} [config.$content] Content to append to the popup's body
+ * @param {jQuery} [config.$footer] Content to append to the popup's footer
+ * @param {boolean} [config.autoClose=false] Automatically close the popup when it loses focus.
+ * @param {jQuery} [config.$autoCloseIgnore] Elements that will not close the popup when clicked.
  *  This config option is only relevant if #autoClose is set to `true`. See the
  *  [OOUI documentation on MediaWiki][2] for an example.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Popups#autocloseExample
- * @cfg {boolean} [head=false] Show a popup header that contains a #label (if specified) and close
+ * @param {boolean} [config.head=false] Show a popup header that contains a #label (if specified) and close
  *  button.
- * @cfg {boolean} [hideCloseButton=false]
- * @cfg {boolean} [padded=false] Add padding to the popup's body
+ * @param {boolean} [config.hideCloseButton=false]
+ * @param {boolean} [config.padded=false] Add padding to the popup's body
  */
 OO.ui.PopupWidget = function OoUiPopupWidget( config ) {
 	// Configuration initialization

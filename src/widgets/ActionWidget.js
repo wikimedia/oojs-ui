@@ -11,15 +11,15 @@
  *
  * @class
  * @extends OO.ui.ButtonWidget
- * @mixins OO.ui.mixin.PendingElement
+ * @mixes OO.ui.mixin.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [action=''] Symbolic name of the action (e.g., ‘continue’ or ‘cancel’).
- * @cfg {string[]} [modes=[]] Symbolic names of the modes (e.g., ‘edit’ or ‘read’) in which the
+ * @param {string} [config.action=''] Symbolic name of the action (e.g., ‘continue’ or ‘cancel’).
+ * @param {string[]} [config.modes=[]] Symbolic names of the modes (e.g., ‘edit’ or ‘read’) in which the
  *  action should be made available. See the action set's {@link OO.ui.ActionSet#setMode setMode}
  *  method for more information about setting modes.
- * @cfg {boolean} [framed=false] Render the action button with a frame
+ * @param {boolean} [config.framed=false] Render the action button with a frame
  */
 OO.ui.ActionWidget = function OoUiActionWidget( config ) {
 	// Configuration initialization

@@ -54,7 +54,7 @@ def parse_file filename
 			name: nil,
 			description: '',
 			parent: nil,
-			mixins: [],
+			mixes: [],
 			methods: [],
 			properties: [],
 			events: [],
@@ -65,7 +65,7 @@ def parse_file filename
 		}
 		valid_for_all = %w[name description].map(&:to_sym)
 		valid_per_kind = {
-			class:    valid_for_all + %w[parent mixins methods properties events abstract mixin].map(&:to_sym),
+			class:    valid_for_all + %w[parent mixes methods properties events abstract].map(&:to_sym),
 			method:   valid_for_all + %w[params config return visibility static].map(&:to_sym),
 			property: valid_for_all + %w[type static].map(&:to_sym),
 			event:    valid_for_all + %w[params].map(&:to_sym),
@@ -134,17 +134,18 @@ def parse_file filename
 				data[:name] = content.strip
 			when 'extends'
 				data[:parent] = cleanup_class_name(content.strip)
-			when 'mixins'
-				data[:mixins] << cleanup_class_name(content.strip)
+			when 'mixes'
+				data[:mixes] << cleanup_class_name(content.strip)
 			when 'param'
 				case filetype
 				when :js
-					type, name, default, description =
-						content.match(/^\{(?:\.\.\.)?(.+?)\} \[?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/).captures
+					type, is_config, name, default, description =
+						content.match(/^\{(?:\.\.\.)?(.+?)\} \[?(config\.)?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/).captures
 					# ignore the "Configuration options" parameter
 					next if type == 'Object' && name == 'config'
-					data[:params] << {name: name, type: cleanup_class_name(type), description: description || '', default: default}
-					previous_item = data[:params][-1]
+					key = is_config ? :config : :params
+					data[key] << {name: name, type: cleanup_class_name(type), description: description || '', default: default}
+					previous_item = data[key][-1]
 				when :php
 					type, name, description =
 						content.match(/^(\S+) \&?(?:\.\.\.)?\$(\w+)( .+)?$/).captures
@@ -155,15 +156,6 @@ def parse_file filename
 					previous_item = data[:params][-1]
 					extract_default_from_description(previous_item)
 				end
-			when 'cfg' # JS only
-				m = content.match(/^\{(.+?)\} \[?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/)
-				if !m
-					bad_input filename, comment_line
-					next
-				end
-				type, name, default, description = m.captures
-				data[:config] << {name: name, type: cleanup_class_name(type), description: description || '', default: default}
-				previous_item = data[:config][-1]
 			when 'return'
 				case filetype
 				when :js
@@ -189,7 +181,7 @@ def parse_file filename
 			when 'ignore', 'inheritdoc'
 				ignore = true
 			when 'inheritable', 'deprecated', 'singleton', 'throws',
-				 'chainable', 'fires', 'localdoc', 'member',
+				 'chainable', 'fires', 'member',
 				 'see', 'uses', 'param-taint', 'suppress',
 				 'phpcs',
 				 /^phan-/
@@ -270,7 +262,7 @@ def parse_file filename
 
 	# this is evil, assumes we only have one class in a file, but we'd need a proper parser to do it better
 	if current_class
-		current_class[:mixins] +=
+		current_class[:mixes] +=
 			text.scan(/^[ \t]*use (\w+)(?: ?\{|;)/).flatten.map(&method(:cleanup_class_name))
 	end
 

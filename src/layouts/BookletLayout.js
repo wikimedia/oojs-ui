@@ -44,12 +44,12 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [continuous=false] Show all pages, one after another
- * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new page is
+ * @param {boolean} [config.continuous=false] Show all pages, one after another
+ * @param {boolean} [config.autoFocus=true] Focus on the first focusable element when a new page is
  *  displayed. Disabled on mobile.
- * @cfg {boolean} [outlined=false] Show the outline. The outline is used to navigate through the
+ * @param {boolean} [config.outlined=false] Show the outline. The outline is used to navigate through the
  *  pages of the booklet.
- * @cfg {boolean} [editable=false] Show controls for adding, removing and reordering pages.
+ * @param {boolean} [config.editable=false] Show controls for adding, removing and reordering pages.
  */
 OO.ui.BookletLayout = function OoUiBookletLayout( config ) {
 	// Configuration initialization

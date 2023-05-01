@@ -5,11 +5,11 @@
  * @abstract
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.TitledElement
+ * @mixes OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [value=false] The toggle’s initial on/off state.
+ * @param {boolean} [config.value=false] The toggle’s initial on/off state.
  *  By default, the toggle is in the 'off' state.
  */
 OO.ui.ToggleWidget = function OoUiToggleWidget( config ) {

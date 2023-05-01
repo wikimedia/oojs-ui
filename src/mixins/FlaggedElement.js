@@ -37,11 +37,11 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string|string[]} [flags] The name or names of the flags (e.g., 'progressive' or 'primary')
+ * @param {string|string[]} [config.flags] The name or names of the flags (e.g., 'progressive' or 'primary')
  *  to apply.
  *  Please see the [OOUI documentation on MediaWiki] [2] for more information about available flags.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Elements/Flagged
- * @cfg {jQuery} [$flagged] The flagged element. By default,
+ * @param {jQuery} [config.$flagged] The flagged element. By default,
  *  the flagged functionality is applied to the element created by the class ($element).
  *  If a different element is specified, the flagged functionality will be applied to it instead.
  */
@@ -80,7 +80,6 @@ OO.initClass( OO.ui.mixin.FlaggedElement );
  * Initial value to pass to setFlags if no value is provided in config.
  *
  * @static
- * @inheritable
  * @property {string|string[]|Object.<string, boolean>}
  */
 OO.ui.mixin.FlaggedElement.static.flags = null;

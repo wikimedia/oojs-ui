@@ -10,7 +10,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {Mixed} [data]
+ * @param {Mixed} [config.data]
  */
 OO.ui.RadioOptionWidget = function OoUiRadioOptionWidget( config ) {
 	// Configuration initialization

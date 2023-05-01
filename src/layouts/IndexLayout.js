@@ -34,12 +34,12 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.StackLayout} [contentPanel] Content stack (see MenuLayout)
- * @cfg {boolean} [continuous=false] Show all tab panels, one after another
- * @cfg {boolean} [autoFocus=true] Focus on the first focusable element when a new tab panel is
+ * @param {OO.ui.StackLayout} [config.contentPanel] Content stack (see MenuLayout)
+ * @param {boolean} [config.continuous=false] Show all tab panels, one after another
+ * @param {boolean} [config.autoFocus=true] Focus on the first focusable element when a new tab panel is
  *  displayed. Disabled on mobile.
- * @cfg {boolean} [framed=true] Render the tabs with frames
- * @cfg {boolean} [openMatchedPanels=true] Automatically switch to a panel when the browser's
+ * @param {boolean} [config.framed=true] Render the tabs with frames
+ * @param {boolean} [config.openMatchedPanels=true] Automatically switch to a panel when the browser's
  *  find-in-page feature matches content there, in browsers that support it.
  */
 OO.ui.IndexLayout = function OoUiIndexLayout( config ) {

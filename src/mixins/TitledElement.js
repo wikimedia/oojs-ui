@@ -17,10 +17,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$titled] The element to which the `title` attribute is applied.
+ * @param {jQuery} [config.$titled] The element to which the `title` attribute is applied.
  *  If this config is omitted, the title functionality is applied to $element, the
  *  element created by the class.
- * @cfg {string|Function} [title] The title text or a function that returns text. If
+ * @param {string|Function} [config.title] The title text or a function that returns text. If
  *  this config is omitted, the value of the {@link #static-title static title} property is used.
  *  If config for an invisible label ({@link OO.ui.mixin.LabelElement}) is present, and a title is
  *  omitted, the label will be used as a fallback for the title.
@@ -61,7 +61,6 @@ OO.initClass( OO.ui.mixin.TitledElement );
  * shown. Use empty string to suppress it.
  *
  * @static
- * @inheritable
  * @property {string|Function|null}
  */
 OO.ui.mixin.TitledElement.static.title = null;

@@ -15,23 +15,23 @@
  *
  * @class
  * @extends OO.ui.InputWidget
- * @mixins OO.ui.mixin.RequiredElement
- * @mixins OO.ui.mixin.PendingElement
+ * @mixes OO.ui.mixin.RequiredElement
+ * @mixes OO.ui.mixin.PendingElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string[]|null} [accept=null] MIME types to accept. null accepts all types.
- * @cfg {boolean} [multiple=false] Allow multiple files to be selected.
- * @cfg {string} [placeholder] Text to display when no file is selected.
- * @cfg {Object} [button] Config to pass to select file button.
- * @cfg {Object|string|null} [icon=null] Icon to show next to file info
- * @cfg {boolean} [droppable=true] Whether to accept files by drag and drop.
- * @cfg {boolean} [buttonOnly=false] Show only the select file button, no info field. Requires
- *  showDropTarget to be false.
- * @cfg {boolean} [showDropTarget=false] Whether to show a drop target. Requires droppable to be
- *  true.
- * @cfg {number} [thumbnailSizeLimit=20] File size limit in MiB above which to not try and show a
- *  preview (for performance).
+ * @param {string[]|null} [config.accept=null] MIME types to accept. null accepts all types.
+ * @param {boolean} [config.multiple=false] Allow multiple files to be selected.
+ * @param {string} [config.placeholder] Text to display when no file is selected.
+ * @param {Object} [config.button] Config to pass to select file button.
+ * @param {Object|string|null} [config.icon=null] Icon to show next to file info
+ * @param {boolean} [config.droppable=true] Whether to accept files by drag and drop.
+ * @param {boolean} [config.buttonOnly=false] Show only the select file button, no info field.
+ *  Requires showDropTarget to be false.
+ * @param {boolean} [config.showDropTarget=false] Whether to show a drop target. Requires droppable
+ *  to be true.
+ * @param {number} [config.thumbnailSizeLimit=20] File size limit in MiB above which to not try and
+ *  show a preview (for performance).
  */
 OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	config = config || {};

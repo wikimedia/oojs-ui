@@ -30,12 +30,12 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.TitledElement
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.InputWidget} [input] {@link OO.ui.InputWidget Input widget} that uses the label.
+ * @param {OO.ui.InputWidget} [config.input] {@link OO.ui.InputWidget Input widget} that uses the label.
  *  Clicking the label will focus the specified input field.
  */
 OO.ui.LabelWidget = function OoUiLabelWidget( config ) {

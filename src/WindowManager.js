@@ -46,15 +46,15 @@
  *
  * @class
  * @extends OO.ui.Element
- * @mixins OO.EventEmitter
+ * @mixes OO.EventEmitter
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.Factory} [factory] Window factory to use for automatic instantiation
+ * @param {OO.Factory} [config.factory] Window factory to use for automatic instantiation
  *  Note that window classes that are instantiated with a factory must have
  *  a {@link OO.ui.Dialog#static-name static name} property that specifies a symbolic name.
- * @cfg {boolean} [modal=true] Prevent interaction outside the current window
- * @cfg {boolean} [forceTrapFocus] Force the trapping of focus within windows. This is done
+ * @param {boolean} [config.modal=true] Prevent interaction outside the current window
+ * @param {boolean} [config.forceTrapFocus] Force the trapping of focus within windows. This is done
  *  automatically for modal window managers and full screen windows.
  */
 OO.ui.WindowManager = function OoUiWindowManager( config ) {
@@ -145,7 +145,6 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
  * Symbolic name must be valid as a CSS class name suffix.
  *
  * @static
- * @inheritable
  * @property {Object}
  */
 OO.ui.WindowManager.static.sizes = {
@@ -174,7 +173,6 @@ OO.ui.WindowManager.static.sizes = {
  * The default size is used if the window's requested size is not recognized.
  *
  * @static
- * @inheritable
  * @property {string}
  */
 OO.ui.WindowManager.static.defaultSize = 'medium';

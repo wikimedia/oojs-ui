@@ -84,16 +84,16 @@
  * @constructor
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
- * @cfg {Array} [allowCollapse] Allow the specified tools to be collapsed. By default, collapsible
+ * @param {Array} [config.allowCollapse] Allow the specified tools to be collapsed. By default, collapsible
  *  tools will only be displayed if users click the ‘More’ option displayed at the bottom of the
  *  list. If the list is expanded, a ‘Fewer’ option permits users to collapse the list again.
  *  Any tools that are included in the toolgroup, but are not designated as collapsible, will always
  *  be displayed.
  *  To open a collapsible list in its expanded state, set #expanded to 'true'.
- * @cfg {Array} [forceExpand] Expand the specified tools. All other tools will be designated as
+ * @param {Array} [config.forceExpand] Expand the specified tools. All other tools will be designated as
  *  collapsible. Unless #expanded is set to true, the collapsible tools will be collapsed when the
  *  list is first opened.
- * @cfg {boolean} [expanded=false] Expand collapsible tools. This config is only relevant if tools
+ * @param {boolean} [config.expanded=false] Expand collapsible tools. This config is only relevant if tools
  *  have been designated as collapsible. When expanded is set to true, all tools in the group will
  *  be displayed when the list is first opened. Users can collapse the list with a ‘Fewer’ option at
  *  the bottom.

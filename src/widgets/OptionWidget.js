@@ -8,15 +8,15 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.ItemWidget
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.FlaggedElement
- * @mixins OO.ui.mixin.AccessKeyedElement
- * @mixins OO.ui.mixin.TitledElement
+ * @mixes OO.ui.mixin.ItemWidget
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.FlaggedElement
+ * @mixes OO.ui.mixin.AccessKeyedElement
+ * @mixes OO.ui.mixin.TitledElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [selected=false]
+ * @param {boolean} [config.selected=false]
  */
 OO.ui.OptionWidget = function OoUiOptionWidget( config ) {
 	// Configuration initialization
@@ -64,7 +64,6 @@ OO.mixinClass( OO.ui.OptionWidget, OO.ui.mixin.TitledElement );
  * Whether this option can be selected. See #setSelected.
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.OptionWidget.static.selectable = true;
@@ -73,7 +72,6 @@ OO.ui.OptionWidget.static.selectable = true;
  * Whether this option can be highlighted. See #setHighlighted.
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.OptionWidget.static.highlightable = true;
@@ -82,7 +80,6 @@ OO.ui.OptionWidget.static.highlightable = true;
  * Whether this option can be pressed. See #setPressed.
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.OptionWidget.static.pressable = true;
@@ -91,7 +88,6 @@ OO.ui.OptionWidget.static.pressable = true;
  * Whether this option will be scrolled into view when it is selected.
  *
  * @static
- * @inheritable
  * @property {boolean}
  */
 OO.ui.OptionWidget.static.scrollIntoViewOnSelect = false;

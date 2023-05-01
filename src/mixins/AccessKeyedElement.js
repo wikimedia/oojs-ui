@@ -18,10 +18,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$accessKeyed] The element to which the `accesskey` attribute is applied.
+ * @param {jQuery} [config.$accessKeyed] The element to which the `accesskey` attribute is applied.
  *  If this config is omitted, the access key functionality is applied to $element, the
  *  element created by the class.
- * @cfg {string|Function|null} [accessKey=null] The key or a function that returns the key. If
+ * @param {string|Function|null} [config.accessKey=null] The key or a function that returns the key. If
  *  this config is omitted, no access key will be added.
  */
 OO.ui.mixin.AccessKeyedElement = function OoUiMixinAccessKeyedElement( config ) {
@@ -53,7 +53,6 @@ OO.initClass( OO.ui.mixin.AccessKeyedElement );
  * The access key, a function that returns a key, or `null` for no access key.
  *
  * @static
- * @inheritable
  * @property {string|Function|null}
  */
 OO.ui.mixin.AccessKeyedElement.static.accessKey = null;

@@ -9,7 +9,6 @@
 /Doxyfile export-ignore
 /Gemfile* export-ignore
 /Gruntfile.js export-ignore
-/jsduck* export-ignore
 /package*.json export-ignore
 /phpunit.xml.dist export-ignore
 /Rakefile export-ignore

@@ -9,9 +9,9 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$handle] The part of the element which can be used for dragging, defaults to
+ * @param {jQuery} [config.$handle] The part of the element which can be used for dragging, defaults to
  *  the whole element
- * @cfg {boolean} [draggable=true] The items are draggable. This can change with #toggleDraggable
+ * @param {boolean} [config.draggable=true] The items are draggable. This can change with #toggleDraggable
  *  but the draggable state should be called from the DraggableGroupElement, which updates
  *  the whole group
  */

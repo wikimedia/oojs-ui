@@ -77,11 +77,11 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {OO.ui.PanelLayout} [menuPanel] Menu panel
- * @cfg {OO.ui.PanelLayout} [contentPanel] Content panel
- * @cfg {boolean} [expanded=true] Expand the layout to fill the entire parent element.
- * @cfg {boolean} [showMenu=true] Show menu
- * @cfg {string} [menuPosition='before'] Position of menu: `top`, `after`, `bottom` or `before`
+ * @param {OO.ui.PanelLayout} [config.menuPanel] Menu panel
+ * @param {OO.ui.PanelLayout} [config.contentPanel] Content panel
+ * @param {boolean} [config.expanded=true] Expand the layout to fill the entire parent element.
+ * @param {boolean} [config.showMenu=true] Show menu
+ * @param {string} [config.menuPosition='before'] Position of menu: `top`, `after`, `bottom` or `before`
  */
 OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	// Configuration initialization

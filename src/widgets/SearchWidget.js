@@ -17,9 +17,9 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string|jQuery} [placeholder] Placeholder text for query input
- * @cfg {string} [value] Initial query value
- * @cfg {OO.ui.InputWidget} [input] {@link OO.ui.InputWidget Input widget} for search. Defaults
+ * @param {string|jQuery} [config.placeholder] Placeholder text for query input
+ * @param {string} [config.value] Initial query value
+ * @param {OO.ui.InputWidget} [config.input] {@link OO.ui.InputWidget Input widget} for search. Defaults
  *  to a {@link OO.ui.SearchInputWidget search input widget} if not provided.
  */
 OO.ui.SearchWidget = function OoUiSearchWidget( config ) {

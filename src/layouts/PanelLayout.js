@@ -18,10 +18,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [scrollable=false] Allow vertical scrolling
- * @cfg {boolean} [padded=false] Add padding between the content and the edges of the panel.
- * @cfg {boolean} [expanded=true] Expand the panel to fill the entire parent element.
- * @cfg {boolean} [framed=false] Render the panel with a frame to visually separate it from outside
+ * @param {boolean} [config.scrollable=false] Allow vertical scrolling
+ * @param {boolean} [config.padded=false] Add padding between the content and the edges of the panel.
+ * @param {boolean} [config.expanded=true] Expand the panel to fill the entire parent element.
+ * @param {boolean} [config.framed=false] Render the panel with a frame to visually separate it from outside
  *  content.
  */
 OO.ui.PanelLayout = function OoUiPanelLayout( config ) {

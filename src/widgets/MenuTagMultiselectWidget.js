@@ -20,11 +20,11 @@
  *
  * @constructor
  * @param {Object} [config] Configuration object
- * @cfg {boolean} [clearInputOnChoose=true] Clear the text input value when a menu option is chosen
- * @cfg {Object} [menu] Configuration object for the menu widget
- * @cfg {jQuery} [$overlay] An overlay for the menu.
+ * @param {boolean} [config.clearInputOnChoose=true] Clear the text input value when a menu option is chosen
+ * @param {Object} [config.menu] Configuration object for the menu widget
+ * @param {jQuery} [config.$overlay] An overlay for the menu.
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
- * @cfg {Object[]} [options=[]] Array of menu options in the format `{ data: …, label: … }`
+ * @param {Object[]} [config.options=[]] Array of menu options in the format `{ data: …, label: … }`
  */
 OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config ) {
 	var $autoCloseIgnore = $( [] );

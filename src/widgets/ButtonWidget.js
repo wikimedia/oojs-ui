@@ -19,22 +19,22 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.mixin.ButtonElement
- * @mixins OO.ui.mixin.IconElement
- * @mixins OO.ui.mixin.IndicatorElement
- * @mixins OO.ui.mixin.LabelElement
- * @mixins OO.ui.mixin.TitledElement
- * @mixins OO.ui.mixin.FlaggedElement
- * @mixins OO.ui.mixin.TabIndexedElement
- * @mixins OO.ui.mixin.AccessKeyedElement
+ * @mixes OO.ui.mixin.ButtonElement
+ * @mixes OO.ui.mixin.IconElement
+ * @mixes OO.ui.mixin.IndicatorElement
+ * @mixes OO.ui.mixin.LabelElement
+ * @mixes OO.ui.mixin.TitledElement
+ * @mixes OO.ui.mixin.FlaggedElement
+ * @mixes OO.ui.mixin.TabIndexedElement
+ * @mixes OO.ui.mixin.AccessKeyedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [active=false] Whether button should be shown as active
- * @cfg {string} [href=null] Hyperlink to visit when the button is clicked.
- * @cfg {string} [target=null] The frame or window in which to open the hyperlink.
- * @cfg {boolean} [noFollow=true] Search engine traversal hint
- * @cfg {string|string[]} [rel=[]] Relationship attributes for the hyperlink
+ * @param {boolean} [config.active=false] Whether button should be shown as active
+ * @param {string} [config.href=null] Hyperlink to visit when the button is clicked.
+ * @param {string} [config.target=null] The frame or window in which to open the hyperlink.
+ * @param {boolean} [config.noFollow=true] Search engine traversal hint
+ * @param {string|string[]} [config.rel=[]] Relationship attributes for the hyperlink
  */
 OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	// Configuration initialization

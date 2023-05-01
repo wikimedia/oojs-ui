@@ -10,13 +10,13 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$label] The label element created by the class. If this
+ * @param {jQuery} [config.$label] The label element created by the class. If this
  *  configuration is omitted, the label element will use a generated `<span>`.
- * @cfg {jQuery|string|Function|OO.ui.HtmlSnippet} [label] The label text. The label can be
+ * @param {jQuery|string|Function|OO.ui.HtmlSnippet} [config.label] The label text. The label can be
  *  specified as a plaintext string, a jQuery selection of elements, or a function that will
  *  produce a string in the future. See the [OOUI documentation on MediaWiki] [2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Labels
- * @cfg {boolean} [invisibleLabel=false] Whether the label should be visually hidden (but still
+ * @param {boolean} [config.invisibleLabel=false] Whether the label should be visually hidden (but still
  *  accessible to screen-readers).
  */
 OO.ui.mixin.LabelElement = function OoUiMixinLabelElement( config ) {
@@ -52,7 +52,6 @@ OO.initClass( OO.ui.mixin.LabelElement );
  * value will be overridden if a label is specified with the #label config option.
  *
  * @static
- * @inheritable
  * @property {string|Function|null}
  */
 OO.ui.mixin.LabelElement.static.label = null;

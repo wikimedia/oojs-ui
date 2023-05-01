@@ -25,13 +25,13 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {number} [rows] Number of visible lines in textarea. If used with `autosize`,
+ * @param {number} [config.rows] Number of visible lines in textarea. If used with `autosize`,
  *  specifies minimum number of rows to display.
- * @cfg {boolean} [autosize=false] Automatically resize the text input to fit its content.
+ * @param {boolean} [config.autosize=false] Automatically resize the text input to fit its content.
  *  Use the #maxRows config to specify a maximum number of displayed rows.
- * @cfg {number} [maxRows] Maximum number of rows to display when #autosize is set to true.
+ * @param {number} [config.maxRows] Maximum number of rows to display when #autosize is set to true.
  *  Defaults to the maximum of `10` and `2 * rows`, or `10` if `rows` isn't provided.
- * @cfg {boolean} [allowLinebreaks=true] Whether to allow the user to add line breaks.
+ * @param {boolean} [config.allowLinebreaks=true] Whether to allow the user to add line breaks.
  */
 OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config ) {
 	config = $.extend( {

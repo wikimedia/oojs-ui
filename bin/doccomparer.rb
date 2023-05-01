@@ -47,8 +47,8 @@ def smart_compare_process val, type
 	case type
 	when :class
 		val = val.dup
-		val[:mixins].delete 'OO.EventEmitter' # JS only
-		val[:mixins].delete 'PendingElement' # JS only
+		val[:mixes].delete 'OO.EventEmitter' # JS only
+		val[:mixes].delete 'PendingElement' # JS only
 		val.delete :methods
 		val.delete :properties
 		val.delete :events

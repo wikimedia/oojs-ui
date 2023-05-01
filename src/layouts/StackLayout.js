@@ -24,14 +24,14 @@
  *
  * @class
  * @extends OO.ui.PanelLayout
- * @mixins OO.ui.mixin.GroupElement
+ * @mixes OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [continuous=false] Show all panels, one after another. By default, only one panel
+ * @param {boolean} [config.continuous=false] Show all panels, one after another. By default, only one panel
  *  is displayed at a time.
- * @cfg {OO.ui.Layout[]} [items] Panel layouts to add to the stack layout.
- * @cfg {boolean} [hideUntilFound] Hide panels using hidden="until-found", meaning they will be
+ * @param {OO.ui.Layout[]} [config.items] Panel layouts to add to the stack layout.
+ * @param {boolean} [config.hideUntilFound] Hide panels using hidden="until-found", meaning they will be
  *  shown when matched with the browser's find-and-replace feature if supported.
  */
 OO.ui.StackLayout = function OoUiStackLayout( config ) {

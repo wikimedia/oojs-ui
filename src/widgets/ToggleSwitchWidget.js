@@ -27,11 +27,11 @@
  *
  * @class
  * @extends OO.ui.ToggleWidget
- * @mixins OO.ui.mixin.TabIndexedElement
+ * @mixes OO.ui.mixin.TabIndexedElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [value=false] The toggle switch’s initial on/off state.
+ * @param {boolean} [config.value=false] The toggle switch’s initial on/off state.
  *  By default, the toggle switch is in the 'off' position.
  */
 OO.ui.ToggleSwitchWidget = function OoUiToggleSwitchWidget( config ) {
