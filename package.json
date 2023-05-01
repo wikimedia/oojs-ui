@@ -39,7 +39,7 @@
 		"wikimedia-ui-base": "0.21.0"
 	},
 	"devDependencies": {
-		"eslint-config-wikimedia": "0.24.0",
+		"eslint-config-wikimedia": "0.25.0",
 		"eslint-plugin-html": "7.1.0",
 		"grunt": "1.6.1",
 		"grunt-banana-checker": "0.10.0",
