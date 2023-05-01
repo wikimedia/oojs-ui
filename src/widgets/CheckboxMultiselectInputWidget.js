@@ -140,11 +140,14 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.cleanUpValue = function ( value )
 	if ( !Array.isArray( value ) ) {
 		return cleanValue;
 	}
+	var dataHashSet = new Set( this.checkboxMultiselectWidget.getItems().map( function ( item ) {
+		return OO.getHash( item.getData() );
+	} ) );
 	for ( var i = 0; i < value.length; i++ ) {
 		var singleValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
 			.call( this, value[ i ] );
 		// Remove options that we don't have here
-		if ( !this.checkboxMultiselectWidget.findItemFromData( singleValue ) ) {
+		if ( !dataHashSet.has( OO.getHash( singleValue ) ) ) {
 			continue;
 		}
 		cleanValue.push( singleValue );
@@ -222,12 +225,12 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( optio
  * @private
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.updateOptionsInterface = function () {
-	var defaultValue = this.defaultValue;
+	var defaultValueSet = new Set( this.defaultValue );
 
 	this.checkboxMultiselectWidget.getItems().forEach( function ( item ) {
 		// Remember original selection state. This property can be later used to check whether
 		// the selection state of the input has been changed since it was created.
-		var isDefault = defaultValue.indexOf( item.getData() ) !== -1;
+		var isDefault = defaultValueSet.has( item.getData() );
 		item.checkbox.defaultSelected = isDefault;
 		item.checkbox.$input[ 0 ].defaultChecked = isDefault;
 	} );

@@ -96,8 +96,9 @@ OO.ui.MultiselectWidget.prototype.findSelectedItemsData = function () {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.MultiselectWidget.prototype.selectItems = function ( items ) {
+	var itemsSet = new Set( items );
 	this.items.forEach( function ( item ) {
-		var selected = items.indexOf( item ) !== -1;
+		var selected = itemsSet.has( item );
 		item.setSelected( selected );
 	} );
 	return this;
@@ -111,10 +112,12 @@ OO.ui.MultiselectWidget.prototype.selectItems = function ( items ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.MultiselectWidget.prototype.selectItemsByData = function ( datas ) {
-	var widget = this;
-	var items = datas.map( function ( data ) {
-		return widget.findItemFromData( data );
+	var dataHashSet = new Set( datas.map( function ( data ) {
+		return OO.getHash( data );
+	} ) );
+	this.items.forEach( function ( item ) {
+		var selected = dataHashSet.has( OO.getHash( item.getData() ) );
+		item.setSelected( selected );
 	} );
-	this.selectItems( items );
 	return this;
 };

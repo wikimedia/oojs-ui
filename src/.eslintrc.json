@@ -9,7 +9,8 @@
 		"mediawiki"
 	],
 	"globals": {
-		"OO": "writable"
+		"OO": "writable",
+		"Set": "readonly"
 	},
 	"rules": {
 		"mediawiki/msg-doc": "error",
