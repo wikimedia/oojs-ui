@@ -528,6 +528,7 @@ Demo.prototype.normalizeQuery = function () {
 
 	// Backwards-compatibility with old URLs that used the 'fragment' part to link to demo sections:
 	// if a fragment is specified and it describes valid factors, turn the URL into the new style.
+	// eslint-disable-next-line security/detect-unsafe-regex
 	var match = location.hash.match( /^#(\w+)-(\w+)-(\w+)(?:-(\w+))?$/ );
 	if ( match ) {
 		factorValues = Array.prototype.slice.call( match, 1 );

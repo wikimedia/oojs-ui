@@ -26,7 +26,7 @@
 		// eslint-disable-next-line no-unused-vars, strict
 		function loadInlineExample( code, options, callback ) {
 			try {
-				// eslint-disable-next-line no-eval
+				// eslint-disable-next-line no-eval, security/detect-eval-with-expression
 				eval( code );
 				if ( callback ) {
 					callback( true );

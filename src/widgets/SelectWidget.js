@@ -182,11 +182,8 @@ OO.ui.SelectWidget.static.normalizeForMatching = function ( text ) {
 	var normalized = text.trim().replace( /\s+/, ' ' ).toLowerCase();
 
 	// Normalize Unicode
-	// eslint-disable-next-line es-x/no-string-prototype-normalize
-	if ( normalized.normalize ) {
-		// eslint-disable-next-line es-x/no-string-prototype-normalize
-		normalized = normalized.normalize();
-	}
+	normalized = normalized.normalize();
+
 	return normalized;
 };
 
@@ -489,9 +486,7 @@ OO.ui.SelectWidget.prototype.onDocumentKeyPress = function ( e ) {
 		return;
 	}
 
-	// eslint-disable-next-line es-x/no-string-fromcodepoint
-	var c = String.fromCodePoint ? String.fromCodePoint( e.charCode ) :
-		String.fromCharCode( e.charCode );
+	var c = String.fromCodePoint( e.charCode );
 
 	if ( this.keyPressBufferTimer ) {
 		clearTimeout( this.keyPressBufferTimer );
