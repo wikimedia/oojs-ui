@@ -9,7 +9,6 @@
 		"OO": "readonly"
 	},
 	"rules": {
-		"no-jquery/no-class-state": "off",
-		"no-var": "off"
+		"no-jquery/no-class-state": "off"
 	}
 }

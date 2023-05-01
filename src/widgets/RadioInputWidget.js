@@ -10,19 +10,19 @@
  *
  *     @example
  *     // An example of selected, unselected, and disabled radio inputs
- *     var radio1 = new OO.ui.RadioInputWidget( {
+ *     const radio1 = new OO.ui.RadioInputWidget( {
  *         value: 'a',
  *         selected: true
  *     } );
- *     var radio2 = new OO.ui.RadioInputWidget( {
+ *     const radio2 = new OO.ui.RadioInputWidget( {
  *         value: 'b'
  *     } );
- *     var radio3 = new OO.ui.RadioInputWidget( {
+ *     const radio3 = new OO.ui.RadioInputWidget( {
  *         value: 'c',
  *         disabled: true
  *     } );
  *     // Create a fieldset layout with fields for each radio button.
- *     var fieldset = new OO.ui.FieldsetLayout( {
+ *     const fieldset = new OO.ui.FieldsetLayout( {
  *         label: 'Radio inputs'
  *     } );
  *     fieldset.addItems( [
@@ -80,7 +80,7 @@ OO.ui.RadioInputWidget.static.tagName = 'span';
  * @inheritdoc
  */
 OO.ui.RadioInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.RadioInputWidget.super.static.gatherPreInfuseState( node, config );
+	const state = OO.ui.RadioInputWidget.super.static.gatherPreInfuseState( node, config );
 	if ( config.$input ) {
 		state.checked = config.$input.prop( 'checked' );
 	}

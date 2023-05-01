@@ -362,7 +362,7 @@ OO.ui.Tool.prototype.onToolbarResize = function () {
  * Update the title.
  */
 OO.ui.Tool.prototype.updateTitle = function () {
-	var titleTooltips = this.toolGroup.constructor.static.titleTooltips,
+	const titleTooltips = this.toolGroup.constructor.static.titleTooltips,
 		accelTooltips = this.toolGroup.constructor.static.accelTooltips,
 		accel = this.toolbar.getToolAccelerator( this.constructor.static.name ),
 		tooltipParts = [];

@@ -18,7 +18,7 @@
  *
  *     @example
  *     // Example of a form layout that wraps a fieldset layout.
- *     var input1 = new OO.ui.TextInputWidget( {
+ *     const input1 = new OO.ui.TextInputWidget( {
  *             placeholder: 'Username'
  *         } ),
  *         input2 = new OO.ui.TextInputWidget( {
@@ -43,7 +43,7 @@
  *         } ),
  *         new OO.ui.FieldLayout( submit )
  *     ] );
- *     var form = new OO.ui.FormLayout( {
+ *     const form = new OO.ui.FormLayout( {
  *         items: [ fieldset ],
  *         action: '/api/formhandler',
  *         method: 'get'
@@ -75,7 +75,7 @@ OO.ui.FormLayout = function OoUiFormLayout( config ) {
 	this.$element.on( 'submit', this.onFormSubmit.bind( this ) );
 
 	// Make sure the action is safe
-	var action = config.action;
+	let action = config.action;
 	if ( action !== undefined && !OO.ui.isSafeUrl( action ) ) {
 		action = './' + action;
 	}

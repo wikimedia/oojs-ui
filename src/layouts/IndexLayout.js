@@ -19,12 +19,12 @@
  *         this.tabItem.setLabel( 'Tab panel one' );
  *     };
  *
- *     var tabPanel1 = new TabPanelOneLayout( 'one' ),
+ *     const tabPanel1 = new TabPanelOneLayout( 'one' ),
  *         tabPanel2 = new OO.ui.TabPanelLayout( 'two', { label: 'Tab panel two' } );
  *
  *     tabPanel2.$element.append( '<p>Second tab panel</p>' );
  *
- *     var index = new OO.ui.IndexLayout();
+ *     const index = new OO.ui.IndexLayout();
  *
  *     index.addTabPanels( [ tabPanel1, tabPanel2 ] );
  *     $( document.body ).append( index.$element );
@@ -152,8 +152,8 @@ OO.inheritClass( OO.ui.IndexLayout, OO.ui.MenuLayout );
  */
 OO.ui.IndexLayout.prototype.onStackLayoutFocus = function ( e ) {
 	// Find the tab panel that an element was focused within
-	var $target = $( e.target ).closest( '.oo-ui-tabPanelLayout' );
-	for ( var name in this.tabPanels ) {
+	const $target = $( e.target ).closest( '.oo-ui-tabPanelLayout' );
+	for ( const name in this.tabPanels ) {
 		// Check for tab panel match, exclude current tab panel to find only tab panel changes
 		if ( this.tabPanels[ name ].$element[ 0 ] === $target[ 0 ] &&
 				name !== this.currentTabPanelName ) {
@@ -186,7 +186,7 @@ OO.ui.IndexLayout.prototype.onStackLayoutSet = function ( tabPanel ) {
  * @param {Event} event 'beforematch' event
  */
 OO.ui.IndexLayout.prototype.onStackLayoutBeforeMatch = function ( event ) {
-	var tabPanel;
+	let tabPanel;
 	// Find TabPanel from DOM node
 	this.stackLayout.getItems().some( function ( item ) {
 		if ( item.$element[ 0 ] === event.target ) {
@@ -196,7 +196,7 @@ OO.ui.IndexLayout.prototype.onStackLayoutBeforeMatch = function ( event ) {
 		return false;
 	} );
 	if ( tabPanel ) {
-		var tabItem = tabPanel.getTabItem();
+		const tabItem = tabPanel.getTabItem();
 		if ( tabItem ) {
 			this.tabSelectWidget.selectItem( tabItem );
 		}
@@ -212,9 +212,9 @@ OO.ui.IndexLayout.prototype.onStackLayoutBeforeMatch = function ( event ) {
  * @param {number} [itemIndex] A specific item to focus on
  */
 OO.ui.IndexLayout.prototype.focus = function ( itemIndex ) {
-	var items = this.stackLayout.getItems();
+	const items = this.stackLayout.getItems();
 
-	var tabPanel;
+	let tabPanel;
 	if ( itemIndex !== undefined && items[ itemIndex ] ) {
 		tabPanel = items[ itemIndex ];
 	} else {
@@ -265,17 +265,17 @@ OO.ui.IndexLayout.prototype.onTabSelectWidgetSelect = function ( item ) {
  * @return {OO.ui.TabPanelLayout|null} Tab panel closest to the specified
  */
 OO.ui.IndexLayout.prototype.getClosestTabPanel = function ( tabPanel ) {
-	var tabPanels = this.stackLayout.getItems(),
+	const tabPanels = this.stackLayout.getItems(),
 		index = tabPanels.indexOf( tabPanel );
 
 	if ( index === -1 ) {
 		return null;
 	}
 
-	var next = tabPanels[ index + 1 ];
-	var prev = tabPanels[ index - 1 ];
+	const next = tabPanels[ index + 1 ];
+	const prev = tabPanels[ index - 1 ];
 	// Prefer adjacent tab panels at the same level
-	var level = this.tabSelectWidget.findItemFromData( tabPanel.getName() ).getLevel();
+	const level = this.tabSelectWidget.findItemFromData( tabPanel.getName() ).getLevel();
 	if (
 		prev &&
 		level === this.tabSelectWidget.findItemFromData( prev.getName() ).getLevel()
@@ -316,7 +316,7 @@ OO.ui.IndexLayout.prototype.getTabPanel = function ( name ) {
  * @return {OO.ui.TabPanelLayout|undefined} Current tab panel, if found
  */
 OO.ui.IndexLayout.prototype.getCurrentTabPanel = function () {
-	var name = this.getCurrentTabPanelName();
+	const name = this.getCurrentTabPanelName();
 	return name ? this.getTabPanel( name ) : undefined;
 };
 
@@ -342,8 +342,8 @@ OO.ui.IndexLayout.prototype.getCurrentTabPanelName = function () {
  * @return {OO.ui.IndexLayout} The layout, for chaining
  */
 OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
-	var i, len, name, tabPanel, tabItem, currentIndex,
-		stackLayoutTabPanels = this.stackLayout.getItems(),
+	let i, len, name, tabPanel, tabItem, currentIndex;
+	const stackLayoutTabPanels = this.stackLayout.getItems(),
 		remove = [],
 		tabItems = [];
 
@@ -398,8 +398,9 @@ OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
  * @return {OO.ui.IndexLayout} The layout, for chaining
  */
 OO.ui.IndexLayout.prototype.removeTabPanels = function ( tabPanels ) {
-	var i, len, name, tabPanel,
-		items = [];
+	let i, len, name, tabPanel;
+
+	const items = [];
 
 	for ( i = 0, len = tabPanels.length; i < len; i++ ) {
 		tabPanel = tabPanels[ i ];
@@ -428,8 +429,9 @@ OO.ui.IndexLayout.prototype.removeTabPanels = function ( tabPanels ) {
  * @return {OO.ui.IndexLayout} The layout, for chaining
  */
 OO.ui.IndexLayout.prototype.clearTabPanels = function () {
-	var i, len,
-		tabPanels = this.stackLayout.getItems();
+	let i, len;
+
+	const tabPanels = this.stackLayout.getItems();
 
 	this.tabPanels = {};
 	this.currentTabPanelName = null;
@@ -451,7 +453,7 @@ OO.ui.IndexLayout.prototype.clearTabPanels = function () {
  * @param {string} name Symbolic name of tab panel
  */
 OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
-	var selectedItem,
+	let selectedItem,
 		$focused,
 		previousTabPanel,
 		tabPanel;

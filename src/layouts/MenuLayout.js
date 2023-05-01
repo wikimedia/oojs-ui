@@ -21,8 +21,8 @@
  *     }
  *
  *     @example
- *     var menuLayout,
- *         menuPanel = new OO.ui.PanelLayout( {
+ *     let menuLayout;
+ *     const menuPanel = new OO.ui.PanelLayout( {
  *             padded: true,
  *             expanded: true,
  *             scrollable: true

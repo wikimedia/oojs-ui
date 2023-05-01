@@ -155,8 +155,9 @@ OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
-	var handled = false,
-		currentItem = this.findHighlightedItem() || this.findFirstSelectedItem();
+	let handled = false;
+
+	const currentItem = this.findHighlightedItem() || this.findFirstSelectedItem();
 
 	if ( !this.isDisabled() && this.getVisibleItems().length ) {
 		switch ( e.keyCode ) {
@@ -227,15 +228,15 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 		return;
 	}
 
-	var anyVisible = false;
+	let anyVisible = false;
 
-	var showAll = !this.isVisible() || this.previouslySelectedValue === this.$input.val(),
+	const showAll = !this.isVisible() || this.previouslySelectedValue === this.$input.val(),
 		filter = showAll ? null : this.getItemMatcher( this.$input.val(), this.filterMode );
 	// Hide non-matching options, and also hide section headers if all options
 	// in their section are hidden.
-	var item;
-	var section, sectionEmpty;
-	for ( var i = 0; i < this.items.length; i++ ) {
+	let item;
+	let section, sectionEmpty;
+	for ( let i = 0; i < this.items.length; i++ ) {
 		item = this.items[ i ];
 		if ( item instanceof OO.ui.MenuSectionOptionWidget ) {
 			if ( section ) {
@@ -245,7 +246,7 @@ OO.ui.MenuSelectWidget.prototype.updateItemVisibility = function () {
 			section = item;
 			sectionEmpty = true;
 		} else if ( item instanceof OO.ui.OptionWidget ) {
-			var visible = !filter || filter( item );
+			const visible = !filter || filter( item );
 			anyVisible = anyVisible || visible;
 			sectionEmpty = sectionEmpty && !visible;
 			item.toggle( visible );
@@ -433,7 +434,7 @@ OO.ui.MenuSelectWidget.prototype.toggleScreenReaderMode = function ( screenReade
  */
 OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 	visible = ( visible === undefined ? !this.visible : !!visible ) && !!this.items.length;
-	var change = visible !== this.isVisible();
+	const change = visible !== this.isVisible();
 
 	if ( visible && !this.warnedUnattached && !this.isElementAttached() ) {
 		OO.ui.warnDeprecation( 'MenuSelectWidget#toggle: Before calling this method, the menu must be attached to the DOM.' );
@@ -479,14 +480,14 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 				this.originalVerticalPosition !== 'center'
 			) {
 				// If opening the menu in one direction causes it to be clipped, flip it
-				var originalHeight = this.$element.height();
+				const originalHeight = this.$element.height();
 				this.setVerticalPosition(
 					this.constructor.static.flippedPositions[ this.originalVerticalPosition ]
 				);
 				if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
 					// If flipping also causes it to be clipped, open in whichever direction
 					// we have more space
-					var flippedHeight = this.$element.height();
+					const flippedHeight = this.$element.height();
 					if ( originalHeight > flippedHeight ) {
 						this.setVerticalPosition( this.originalVerticalPosition );
 					}
@@ -498,7 +499,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 			this.$focusOwner.attr( 'aria-expanded', 'true' );
 			this.$focusOwner.attr( 'aria-owns', this.getElementId() );
 
-			var selectedItem = !this.multiselect && this.findSelectedItem();
+			const selectedItem = !this.multiselect && this.findSelectedItem();
 			if ( selectedItem ) {
 				// TODO: Verify if this is even needed; This is already done on highlight changes
 				// in SelectWidget#highlightItem, so we should just need to highlight the item

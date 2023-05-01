@@ -6,9 +6,9 @@ OO.inheritClass( Demo.SearchWidgetDialog, OO.ui.ProcessDialog );
 Demo.SearchWidgetDialog.static.title = 'Search widget dialog';
 Demo.SearchWidgetDialog.prototype.initialize = function () {
 	Demo.SearchWidgetDialog.super.prototype.initialize.apply( this, arguments );
-	var items = [];
-	var searchWidget = new OO.ui.SearchWidget();
-	for ( var i = 1; i <= 20; i++ ) {
+	const items = [];
+	const searchWidget = new OO.ui.SearchWidget();
+	for ( let i = 1; i <= 20; i++ ) {
 		items.push( new OO.ui.OptionWidget( { data: i, label: 'Item ' + i } ) );
 	}
 	searchWidget.results.addItems( items );
@@ -22,7 +22,7 @@ Demo.SearchWidgetDialog.static.actions = [
 	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] }
 ];
 Demo.SearchWidgetDialog.prototype.getActionProcess = function ( action ) {
-	var dialog = this;
+	const dialog = this;
 	return new OO.ui.Process( function () {
 		dialog.close( { action: action } );
 	} );

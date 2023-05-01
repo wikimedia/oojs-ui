@@ -22,7 +22,7 @@
  *
  *     @example
  *     // FlaggedElement is mixed into ButtonWidget to provide styling flags
- *     var button1 = new OO.ui.ButtonWidget( {
+ *     const button1 = new OO.ui.ButtonWidget( {
  *             label: 'Progressive',
  *             flags: 'progressive'
  *         } ),
@@ -96,7 +96,7 @@ OO.ui.mixin.FlaggedElement.static.flags = null;
  * @param {jQuery} $flagged Element that should be flagged
  */
 OO.ui.mixin.FlaggedElement.prototype.setFlaggedElement = function ( $flagged ) {
-	var classNames = Object.keys( this.flags ).map( function ( flag ) {
+	const classNames = Object.keys( this.flags ).map( function ( flag ) {
 		return 'oo-ui-flaggedElement-' + flag;
 	} );
 
@@ -136,12 +136,12 @@ OO.ui.mixin.FlaggedElement.prototype.getFlags = function () {
  * @fires OO.ui.mixin.FlaggedElement#flag
  */
 OO.ui.mixin.FlaggedElement.prototype.clearFlags = function () {
-	var changes = {},
+	const changes = {},
 		remove = [],
 		classPrefix = 'oo-ui-flaggedElement-';
 
-	for ( var flag in this.flags ) {
-		var className = classPrefix + flag;
+	for ( const flag in this.flags ) {
+		const className = classPrefix + flag;
 		changes[ flag ] = false;
 		delete this.flags[ flag ];
 		remove.push( className );
@@ -168,12 +168,12 @@ OO.ui.mixin.FlaggedElement.prototype.clearFlags = function () {
  * @fires OO.ui.mixin.FlaggedElement#flag
  */
 OO.ui.mixin.FlaggedElement.prototype.setFlags = function ( flags ) {
-	var changes = {},
+	const changes = {},
 		add = [],
 		remove = [],
 		classPrefix = 'oo-ui-flaggedElement-';
 
-	var className, flag;
+	let className, flag;
 	if ( typeof flags === 'string' ) {
 		className = classPrefix + flags;
 		// Set
@@ -182,7 +182,7 @@ OO.ui.mixin.FlaggedElement.prototype.setFlags = function ( flags ) {
 			add.push( className );
 		}
 	} else if ( Array.isArray( flags ) ) {
-		for ( var i = 0, len = flags.length; i < len; i++ ) {
+		for ( let i = 0, len = flags.length; i < len; i++ ) {
 			flag = flags[ i ];
 			className = classPrefix + flag;
 			// Set

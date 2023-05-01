@@ -4,7 +4,7 @@
  *
  *     @example
  *     // A basic MenuTagMultiselectWidget.
- *     var widget = new OO.ui.MenuTagMultiselectWidget( {
+ *     const widget = new OO.ui.MenuTagMultiselectWidget( {
  *         inputPosition: 'outline',
  *         options: [
  *            { data: 'option1', label: 'Option 1', icon: 'tag' },
@@ -27,14 +27,14 @@
  * @param {Object[]} [config.options=[]] Array of menu options in the format `{ data: …, label: … }`
  */
 OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config ) {
-	var $autoCloseIgnore = $( [] );
+	let $autoCloseIgnore = $( [] );
 
 	config = config || {};
 
 	// Ensure that any pre-selected items exist as menu options,
 	// so that they can be added as tags from #setValue
-	var options = config.options || [];
-	var selected = config.selected || [];
+	let options = config.options || [];
+	const selected = config.selected || [];
 	options = options.concat(
 		selected.map( function ( option ) {
 			if ( typeof option === 'string' ) {
@@ -47,7 +47,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		} )
 	);
 
-	var configCopy = OO.copy( config );
+	const configCopy = OO.copy( config );
 	configCopy.options = options;
 	configCopy.selected = selected;
 
@@ -124,7 +124,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.onResize = function () {
  * @inheritdoc
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onInputFocus = function () {
-	var valid = this.isValid();
+	const valid = this.isValid();
 
 	// Parent method
 	OO.ui.MenuTagMultiselectWidget.super.prototype.onInputFocus.call( this );
@@ -183,7 +183,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
  * @inheritdoc
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
-	var menuItem = this.menu.findItemFromData( tagItem.getData() );
+	const menuItem = this.menu.findItemFromData( tagItem.getData() );
 	if ( !this.allowArbitrary ) {
 		// Override the base behavior from TagMultiselectWidget; the base behavior
 		// in TagMultiselectWidget is to remove the tag to edit it in the input,
@@ -211,13 +211,13 @@ OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
  * @inheritdoc
  */
 OO.ui.MenuTagMultiselectWidget.prototype.removeItems = function ( items ) {
-	var widget = this;
+	const widget = this;
 
 	// Parent
 	OO.ui.MenuTagMultiselectWidget.super.prototype.removeItems.call( this, items );
 
 	items.forEach( function ( tagItem ) {
-		var menuItem = widget.menu.findItemFromData( tagItem.getData() );
+		const menuItem = widget.menu.findItemFromData( tagItem.getData() );
 		if ( menuItem ) {
 			// Synchronize the menu selection - unselect the removed tag
 			widget.menu.unselectItem( menuItem );
@@ -240,7 +240,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.setValue = function ( valueObject ) {
 
 	this.clearItems();
 	valueObject.forEach( function ( obj ) {
-		var data, label;
+		let data, label;
 
 		if ( typeof obj === 'string' ) {
 			data = label = obj;
@@ -250,7 +250,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.setValue = function ( valueObject ) {
 		}
 
 		// Check if the item is in the menu
-		var menuItem = this.menu.getItemFromLabel( label ) || this.menu.findItemFromData( data );
+		const menuItem = this.menu.getItemFromLabel( label ) || this.menu.findItemFromData( data );
 		if ( menuItem ) {
 			// Menu item found, add the menu item
 			this.addTag( menuItem.getData(), menuItem.getLabel() );
@@ -290,7 +290,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.initializeMenuSelection = function () {
 			this.menu.findFirstSelectableItem()
 	);
 
-	var highlightedItem = this.menu.findHighlightedItem();
+	const highlightedItem = this.menu.findHighlightedItem();
 	// Scroll to the highlighted item, if it exists
 	if ( highlightedItem ) {
 		this.menu.scrollItemIntoView( highlightedItem );
@@ -301,7 +301,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.initializeMenuSelection = function () {
  * @inheritdoc
  */
 OO.ui.MenuTagMultiselectWidget.prototype.getTagInfoFromInput = function () {
-	var val = this.input.getValue(),
+	const val = this.input.getValue(),
 		// Look for a highlighted item first
 		// Then look for the element that fits the data
 		item = this.menu.findHighlightedItem() || this.menu.findItemFromData( val ),
@@ -329,7 +329,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.createMenuWidget = function ( menuConfi
  * @param {Object[]} menuOptions Object defining options
  */
 OO.ui.MenuTagMultiselectWidget.prototype.addOptions = function ( menuOptions ) {
-	var widget = this,
+	const widget = this,
 		optionsData = [],
 		items = [];
 
@@ -376,7 +376,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.getMenu = function () {
  * @return {string[]} Allowed data values
  */
 OO.ui.MenuTagMultiselectWidget.prototype.getAllowedValues = function () {
-	var menuDatas = [];
+	let menuDatas = [];
 	if ( this.menu ) {
 		// If the parent constructor is calling us, we're not ready yet, this.menu is not set up.
 		menuDatas = this.menu.getItems().map( function ( menuItem ) {

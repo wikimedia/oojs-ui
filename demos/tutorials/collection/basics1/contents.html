@@ -109,7 +109,7 @@
 		<p>Here is how you can add a <code class="tutorials-inline-code">SelectWidget</code> and an <code class="tutorials-inline-code">
 			TextInputWidget</code> to your <code class="tutorials-inline-code">assets/init.js</code> file:</p>
 <pre class="line-numbers"><code class="language-javascript">$( function () {
-	var input = new OO.ui.TextInputWidget(),
+	const input = new OO.ui.TextInputWidget(),
 		list = new OO.ui.SelectWidget();
 
 	// Append to the wrapper
@@ -237,7 +237,7 @@ input.on( 'enter', function () {
 			file where we created the widgets, and add configuration to both:
 		</p>
 <pre class="line-numbers"><code class="language-javascript">$( function () {
-	var input = new OO.ui.TextInputWidget( {
+	const input = new OO.ui.TextInputWidget( {
 			placeholder: 'Add a ToDo item'
 		} ),
 		list = new OO.ui.SelectWidget( {
@@ -305,7 +305,7 @@ input.on( 'enter', function () {
 			Here's the full code of our <code class="tutorials-inline-code">assets/init.js</code> file:
 		</p>
 <pre class="line-numbers"><code class="language-javascript">$( function () {
-	var input = new OO.ui.TextInputWidget( {
+	const input = new OO.ui.TextInputWidget( {
 			placeholder: 'Add a ToDo item'
 		} ),
 		list = new OO.ui.SelectWidget( {
@@ -453,7 +453,7 @@ input.on( 'enter', function () {
 	<script src="snippets/app4.js"></script>
 	<script>
 		$( function () {
-			var toolbar = new Tutorials.Toolbar();
+			const toolbar = new Tutorials.Toolbar();
 
 			// eslint-disable-next-line no-jquery/no-global-selector
 			$( 'nav' ).append(

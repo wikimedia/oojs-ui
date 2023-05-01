@@ -185,7 +185,7 @@ OO.ui.TagItemWidget.prototype.onKeyDown = function ( e ) {
 		e.keyCode === OO.ui.Keys.LEFT ||
 		e.keyCode === OO.ui.Keys.RIGHT
 	) {
-		var movement;
+		let movement;
 
 		if ( OO.ui.Element.static.getDir( this.$element ) === 'rtl' ) {
 			movement = {

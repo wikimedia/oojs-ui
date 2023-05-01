@@ -11,11 +11,12 @@ Demo.MenuDialog.prototype.getBodyHeight = function () {
 	return 350;
 };
 Demo.MenuDialog.prototype.initialize = function () {
-	var menuLayout, menuPanel, contentPanel;
+	// eslint-disable-next-line prefer-const
+	let menuLayout, menuPanel, contentPanel;
 
 	Demo.MenuDialog.super.prototype.initialize.apply( this, arguments );
 
-	var positionField = new OO.ui.FieldLayout(
+	const positionField = new OO.ui.FieldLayout(
 		new OO.ui.ButtonSelectWidget( {
 			items: [
 				new OO.ui.ButtonOptionWidget( {
@@ -43,7 +44,7 @@ Demo.MenuDialog.prototype.initialize = function () {
 			align: 'top'
 		}
 	);
-	var showField = new OO.ui.FieldLayout(
+	const showField = new OO.ui.FieldLayout(
 		new OO.ui.ToggleSwitchWidget( { value: true } ).on( 'change', function ( value ) {
 			menuLayout.toggleMenu( value );
 		} ),
@@ -52,7 +53,7 @@ Demo.MenuDialog.prototype.initialize = function () {
 			align: 'top'
 		}
 	);
-	var expandField = new OO.ui.FieldLayout(
+	const expandField = new OO.ui.FieldLayout(
 		new OO.ui.ToggleSwitchWidget( { value: true } ).on( 'change', function ( value ) {
 			menuLayout.$element.toggleClass( 'oo-ui-menuLayout-expanded', value );
 			menuLayout.$element.toggleClass( 'oo-ui-menuLayout-static', !value );

@@ -3,8 +3,8 @@ QUnit.module( 'OO.ui.Process' );
 /* Tests */
 
 QUnit.test( 'next', function ( assert ) {
-	var process = new OO.ui.Process(),
-		result = [];
+	const process = new OO.ui.Process();
+	const result = [];
 
 	return process
 		.next( function () {
@@ -23,8 +23,8 @@ QUnit.test( 'next', function ( assert ) {
 } );
 
 QUnit.test( 'first', function ( assert ) {
-	var process = new OO.ui.Process(),
-		result = [];
+	const process = new OO.ui.Process();
+	const result = [];
 
 	return process
 		.first( function () {
@@ -43,12 +43,12 @@ QUnit.test( 'first', function ( assert ) {
 } );
 
 QUnit.test( 'execute (async)', function ( assert ) {
-	var process = new OO.ui.Process(),
-		result = [];
+	const process = new OO.ui.Process();
+	const result = [];
 
 	return process
 		.next( function () {
-			var deferred = $.Deferred();
+			const deferred = $.Deferred();
 
 			setTimeout( function () {
 				result.push( 1 );
@@ -58,7 +58,7 @@ QUnit.test( 'execute (async)', function ( assert ) {
 			return deferred.promise();
 		} )
 		.first( function () {
-			var deferred = $.Deferred();
+			const deferred = $.Deferred();
 
 			setTimeout( function () {
 				result.push( 0 );
@@ -81,12 +81,12 @@ QUnit.test( 'execute (async)', function ( assert ) {
 } );
 
 QUnit.test( 'execute (return false)', function ( assert ) {
-	var process = new OO.ui.Process(),
+	const process = new OO.ui.Process(),
 		result = [];
 
 	return process
 		.next( function () {
-			var deferred = $.Deferred();
+			const deferred = $.Deferred();
 
 			setTimeout( function () {
 				result.push( 0 );
@@ -115,7 +115,7 @@ QUnit.test( 'execute (return false)', function ( assert ) {
 } );
 
 QUnit.test( 'execute (async reject)', function ( assert ) {
-	var process = new OO.ui.Process(),
+	const process = new OO.ui.Process(),
 		result = [];
 
 	return process
@@ -123,7 +123,7 @@ QUnit.test( 'execute (async reject)', function ( assert ) {
 			result.push( 0 );
 		} )
 		.next( function () {
-			var deferred = $.Deferred();
+			const deferred = $.Deferred();
 
 			setTimeout( function () {
 				result.push( 1 );
@@ -148,7 +148,7 @@ QUnit.test( 'execute (async reject)', function ( assert ) {
 } );
 
 QUnit.test( 'execute (wait)', function ( assert ) {
-	var process = new OO.ui.Process(),
+	const process = new OO.ui.Process(),
 		result = [];
 
 	process
@@ -180,12 +180,12 @@ QUnit.test( 'execute (wait)', function ( assert ) {
 } );
 
 QUnit.test( 'execute (thenable, success)', function ( assert ) {
-	var process = new OO.ui.Process(),
+	const process = new OO.ui.Process(),
 		result = [];
 
 	return process
 		.next( function () {
-			var deferred = $.Deferred();
+			const deferred = $.Deferred();
 
 			setTimeout( function () {
 				result.push( 1 );
@@ -195,7 +195,7 @@ QUnit.test( 'execute (thenable, success)', function ( assert ) {
 			return { then: deferred.then.bind( deferred ) };
 		} )
 		.first( function () {
-			var deferred = $.Deferred();
+			const deferred = $.Deferred();
 
 			setTimeout( function () {
 				result.push( 0 );
@@ -218,7 +218,7 @@ QUnit.test( 'execute (thenable, success)', function ( assert ) {
 } );
 
 QUnit.test( 'execute (thenable, failure)', function ( assert ) {
-	var process = new OO.ui.Process(),
+	const process = new OO.ui.Process(),
 		deferred = $.Deferred();
 
 	deferred.reject( 'err' );
@@ -241,11 +241,11 @@ QUnit.test( 'execute (thenable, failure)', function ( assert ) {
 } );
 
 QUnit.test( 'execute (function returning thenable, failure)', function ( assert ) {
-	var process = new OO.ui.Process();
+	const process = new OO.ui.Process();
 
 	return process
 		.next( function () {
-			var deferred = $.Deferred();
+			const deferred = $.Deferred();
 
 			deferred.reject( 'err' );
 

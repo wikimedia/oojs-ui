@@ -9,7 +9,7 @@
 	OO.mixinClass( TestElement, OO.ui.mixin.FlaggedElement );
 
 	QUnit.test( 'constructor', function ( assert ) {
-		var element;
+		let element;
 
 		element = new TestElement();
 		assert.deepEqual( element.getFlags(), [], 'No flags by default' );
@@ -21,7 +21,7 @@
 	} );
 
 	QUnit.test( 'getFlags', function ( assert ) {
-		var element = new TestElement();
+		const element = new TestElement();
 
 		element.setFlags( 'foo' );
 		assert.deepEqual( element.getFlags(), [ 'foo' ], 'Flag was set' );
@@ -31,7 +31,7 @@
 	} );
 
 	QUnit.test( 'hasFlag', function ( assert ) {
-		var element = new TestElement();
+		const element = new TestElement();
 		assert.deepEqual( element.hasFlag( 'foo' ), false, 'Flag absent by default' );
 
 		element.setFlags( 'foo' );
@@ -42,14 +42,14 @@
 	} );
 
 	QUnit.test( 'clearFlags', function ( assert ) {
-		var element = new TestElement();
+		const element = new TestElement();
 		element.setFlags( 'foo' );
 		element.clearFlags();
 		assert.deepEqual( element.hasFlag( 'foo' ), false, 'Flag was removed' );
 	} );
 
 	QUnit.test( 'setFlags', function ( assert ) {
-		var element = new TestElement();
+		const element = new TestElement();
 		element.setFlags( 'foo' );
 		assert.deepEqual( element.hasFlag( 'foo' ), true, 'string' );
 

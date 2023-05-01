@@ -64,7 +64,7 @@ OO.ui.generateElementId = function () {
  * @return {boolean} Element is focusable
  */
 OO.ui.isFocusableElement = function ( $element ) {
-	var element = $element[ 0 ];
+	const element = $element[ 0 ];
 
 	// Anything disabled is not focusable
 	if ( element.disabled ) {
@@ -97,7 +97,7 @@ OO.ui.isFocusableElement = function ( $element ) {
 	// Some element types are naturally focusable
 	// (indexOf is much faster than regex in Chrome and about the
 	// same in FF: https://jsperf.com/regex-vs-indexof-array2)
-	var nodeName = element.nodeName.toLowerCase();
+	const nodeName = element.nodeName.toLowerCase();
 	if ( [ 'input', 'select', 'textarea', 'button', 'object' ].indexOf( nodeName ) !== -1 ) {
 		return true;
 	}
@@ -118,7 +118,7 @@ OO.ui.isFocusableElement = function ( $element ) {
  * @return {jQuery} Focusable child, or an empty jQuery object if none found
  */
 OO.ui.findFocusable = function ( $container, backwards ) {
-	var $focusable = $( [] ),
+	let $focusable = $( [] ),
 		// $focusableCandidates is a superset of things that
 		// could get matched by isFocusableElement
 		$focusableCandidates = $container
@@ -129,7 +129,7 @@ OO.ui.findFocusable = function ( $container, backwards ) {
 	}
 
 	$focusableCandidates.each( function () {
-		var $this = $( this );
+		const $this = $( this );
 		if ( OO.ui.isFocusableElement( $this ) ) {
 			$focusable = $this;
 			return false;
@@ -166,8 +166,8 @@ OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 		return obj[ lang ];
 	}
 	// Known user language
-	var langs = OO.ui.getUserLanguages();
-	for ( var i = 0, len = langs.length; i < len; i++ ) {
+	const langs = OO.ui.getUserLanguages();
+	for ( let i = 0, len = langs.length; i < len; i++ ) {
 		lang = langs[ i ];
 		if ( obj[ lang ] ) {
 			return obj[ lang ];
@@ -202,7 +202,7 @@ OO.ui.contains = function ( containers, contained, matchContainers ) {
 	if ( !Array.isArray( containers ) ) {
 		containers = [ containers ];
 	}
-	for ( var i = containers.length - 1; i >= 0; i-- ) {
+	for ( let i = containers.length - 1; i >= 0; i-- ) {
 		if (
 			( matchContainers && contained === containers[ i ] ) ||
 			$.contains( containers[ i ], contained )
@@ -227,9 +227,9 @@ OO.ui.contains = function ( containers, contained, matchContainers ) {
  * @return {Function} Debounced function
  */
 OO.ui.debounce = function ( func, wait, immediate ) {
-	var timeout;
+	let timeout;
 	return function () {
-		var context = this,
+		const context = this,
 			args = arguments,
 			later = function () {
 				timeout = null;
@@ -273,20 +273,22 @@ OO.ui.warnDeprecation = function ( message ) {
  * @return {Function} Throttled function
  */
 OO.ui.throttle = function ( func, wait ) {
-	var context, args, timeout,
-		previous = Date.now() - wait,
-		run = function () {
-			timeout = null;
-			previous = Date.now();
-			func.apply( context, args );
-		};
+	let context, args, timeout,
+		previous = Date.now() - wait;
+
+	const run = function () {
+		timeout = null;
+		previous = Date.now();
+		func.apply( context, args );
+	};
+
 	return function () {
 		// Check how long it's been since the last time the function was
 		// called, and whether it's more or less than the requested throttle
 		// period. If it's less, run the function immediately. If it's more,
 		// set a timeout for the remaining time -- but don't replace an
 		// existing timeout, since that'd indefinitely prolong the wait.
-		var remaining = Math.max( wait - ( Date.now() - previous ), 0 );
+		const remaining = Math.max( wait - ( Date.now() - previous ), 0 );
 		context = this;
 		args = arguments;
 		if ( !timeout ) {
@@ -335,11 +337,11 @@ OO.ui.infuse = function ( node, config ) {
  * [jQuery.i18n](https://github.com/wikimedia/jquery.i18n) follows.
  *
  *     @example
- *     var messagePath = 'oojs-ui/dist/i18n/',
+ *     const messagePath = 'oojs-ui/dist/i18n/',
  *         languages = [ $.i18n().locale, 'ur', 'en' ],
  *         languageMap = {};
  *
- *     for ( var i = 0, iLen = languages.length; i < iLen; i++ ) {
+ *     for ( let i = 0, iLen = languages.length; i < iLen; i++ ) {
  *         languageMap[ languages[ i ] ] = messagePath + languages[ i ].toLowerCase() + '.json';
  *     }
  *
@@ -351,7 +353,7 @@ OO.ui.infuse = function ( node, config ) {
  *         OO.ui.msg = $.i18n;
  *
  *         // A button displaying "OK" in the default locale
- *         var button = new OO.ui.ButtonWidget( {
+ *         const button = new OO.ui.ButtonWidget( {
  *             label: OO.ui.msg( 'ooui-dialog-message-accept' ),
  *             icon: 'check'
  *         } );
@@ -372,13 +374,14 @@ OO.ui.infuse = function ( node, config ) {
  */
 OO.ui.msg = function ( key ) {
 	// `OO.ui.msg.messages` is defined in code generated during the build process
-	var messages = OO.ui.msg.messages,
-		message = messages[ key ],
-		params = Array.prototype.slice.call( arguments, 1 );
+	const messages = OO.ui.msg.messages;
+	const params = Array.prototype.slice.call( arguments, 1 );
+
+	let message = messages[ key ];
 	if ( typeof message === 'string' ) {
 		// Perform $1 substitution
 		message = message.replace( /\$(\d+)/g, function ( unused, n ) {
-			var i = parseInt( n, 10 );
+			const i = parseInt( n, 10 );
 			return params[ i - 1 ] !== undefined ? params[ i - 1 ] : '$' + n;
 		} );
 	} else {
@@ -398,7 +401,7 @@ OO.ui.msg = function ( key ) {
  * @return {Function} Function that returns the resolved message when executed
  */
 OO.ui.deferMsg = function () {
-	var args = arguments;
+	const args = arguments;
 	return function () {
 		return OO.ui.msg.apply( OO.ui, args );
 	};
@@ -431,7 +434,7 @@ OO.ui.isSafeUrl = function ( url ) {
 		return haystack.slice( 0, needle.length ) === needle;
 	}
 
-	var protocolAllowList = [
+	const protocolAllowList = [
 		'bitcoin', 'ftp', 'ftps', 'geo', 'git', 'gopher', 'http', 'https', 'irc', 'ircs',
 		'magnet', 'mailto', 'mms', 'news', 'nntp', 'redis', 'sftp', 'sip', 'sips', 'sms', 'ssh',
 		'svn', 'tel', 'telnet', 'urn', 'worldwind', 'xmpp'
@@ -441,7 +444,7 @@ OO.ui.isSafeUrl = function ( url ) {
 		return true;
 	}
 
-	for ( var i = 0; i < protocolAllowList.length; i++ ) {
+	for ( let i = 0; i < protocolAllowList.length; i++ ) {
 		if ( stringStartsWith( url, protocolAllowList[ i ] + ':' ) ) {
 			return true;
 		}

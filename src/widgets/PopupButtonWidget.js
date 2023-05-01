@@ -4,7 +4,7 @@
  *
  *     @example
  *     // A PopupButtonWidget.
- *     var popupButton = new OO.ui.PopupButtonWidget( {
+ *     const popupButton = new OO.ui.PopupButtonWidget( {
  *         label: 'Popup button with options',
  *         icon: 'menu',
  *         popup: {

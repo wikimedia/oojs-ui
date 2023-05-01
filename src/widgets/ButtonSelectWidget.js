@@ -9,7 +9,7 @@
  *
  *     @example
  *     // A ButtonSelectWidget that contains three ButtonOptionWidgets.
- *     var option1 = new OO.ui.ButtonOptionWidget( {
+ *     const option1 = new OO.ui.ButtonOptionWidget( {
  *             data: 1,
  *             label: 'Option 1',
  *             title: 'Button option 1'

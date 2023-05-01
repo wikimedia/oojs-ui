@@ -11,7 +11,7 @@ Demo.IndexedDialog.prototype.getBodyHeight = function () {
 	return 250;
 };
 Demo.IndexedDialog.prototype.initialize = function () {
-	var loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
+	const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 		'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E';
 	Demo.IndexedDialog.super.prototype.initialize.apply( this, arguments );
 	this.indexLayout = new OO.ui.IndexLayout();

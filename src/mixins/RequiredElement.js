@@ -97,7 +97,7 @@ OO.ui.mixin.RequiredElement.prototype.setRequired = function ( state ) {
 	this.updateRequiredElement();
 	if ( this.indicatorElement ) {
 		// Make sure to not destroy other, unrelated indicators
-		var expected = state ? null : 'required';
+		const expected = state ? null : 'required';
 		if ( this.indicatorElement.getIndicator() === expected ) {
 			this.indicatorElement.setIndicator( state ? 'required' : null );
 		}

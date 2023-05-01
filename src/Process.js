@@ -56,7 +56,7 @@ OO.ui.Process.prototype.execute = function () {
 	function proceed( step ) {
 		return function () {
 			// Execute step in the correct context
-			var result = step.callback.call( step.context );
+			const result = step.callback.call( step.context );
 
 			if ( result === false ) {
 				// Use rejected promise for boolean false results
@@ -67,7 +67,7 @@ OO.ui.Process.prototype.execute = function () {
 					throw new Error( 'Cannot go back in time: flux capacitor is out of service' );
 				}
 				// Use a delayed promise for numbers, expecting them to be in milliseconds
-				var deferred = $.Deferred();
+				const deferred = $.Deferred();
 				setTimeout( deferred.resolve, result );
 				return deferred.promise();
 			}
@@ -89,11 +89,11 @@ OO.ui.Process.prototype.execute = function () {
 		};
 	}
 
-	var promise;
+	let promise;
 	if ( this.steps.length ) {
 		// Generate a chain reaction of promises
 		promise = proceed( this.steps[ 0 ] )();
-		for ( var i = 1, len = this.steps.length; i < len; i++ ) {
+		for ( let i = 1, len = this.steps.length; i < len; i++ ) {
 			promise = promise.then( proceed( this.steps[ i ] ) );
 		}
 	} else {

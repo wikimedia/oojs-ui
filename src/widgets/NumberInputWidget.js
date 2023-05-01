@@ -5,7 +5,7 @@
  *
  *     @example
  *     // A NumberInputWidget.
- *     var numberInput = new OO.ui.NumberInputWidget( {
+ *     const numberInput = new OO.ui.NumberInputWidget( {
  *         label: 'NumberInputWidget',
  *         input: { value: 5 },
  *         min: 1,
@@ -32,7 +32,7 @@
  * @param {boolean} [config.showButtons=true] Whether to show the plus and minus buttons.
  */
 OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
-	var $field = $( '<div>' ).addClass( 'oo-ui-numberInputWidget-field' );
+	const $field = $( '<div>' ).addClass( 'oo-ui-numberInputWidget-field' );
 
 	// Configuration initialization
 	config = $.extend( {
@@ -226,14 +226,14 @@ OO.ui.NumberInputWidget.prototype.getNumericValue = function () {
  * @param {number} delta Adjustment amount
  */
 OO.ui.NumberInputWidget.prototype.adjustValue = function ( delta ) {
-	var v = this.getNumericValue();
+	const v = this.getNumericValue();
 
 	delta = +delta;
 	if ( isNaN( delta ) || !isFinite( delta ) ) {
 		throw new Error( 'Delta must be a finite number' );
 	}
 
-	var n;
+	let n;
 	if ( isNaN( v ) ) {
 		n = 0;
 	} else {
@@ -256,7 +256,7 @@ OO.ui.NumberInputWidget.prototype.adjustValue = function ( delta ) {
  * @return {boolean}
  */
 OO.ui.NumberInputWidget.prototype.validateNumber = function ( value ) {
-	var n = +value;
+	const n = +value;
 	if ( value === '' ) {
 		return !this.isRequired();
 	}
@@ -294,7 +294,7 @@ OO.ui.NumberInputWidget.prototype.onButtonClick = function ( dir ) {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.NumberInputWidget.prototype.onWheel = function ( event ) {
-	var delta = 0;
+	let delta = 0;
 
 	if ( this.isDisabled() || this.isReadOnly() ) {
 		return;
@@ -369,7 +369,7 @@ OO.ui.NumberInputWidget.prototype.onKeyDown = function ( e ) {
  * @return {OO.ui.NumberInputWidget} The widget, for chaining
  */
 OO.ui.NumberInputWidget.prototype.updateControlsDisabled = function () {
-	var disabled = this.isDisabled() || this.isReadOnly();
+	const disabled = this.isDisabled() || this.isReadOnly();
 	if ( this.minusButton ) {
 		this.minusButton.setDisabled( disabled );
 	}

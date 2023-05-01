@@ -80,7 +80,7 @@ OO.mixinClass( OO.ui.InputWidget, OO.ui.mixin.AccessKeyedElement );
  * @inheritdoc
  */
 OO.ui.InputWidget.static.reusePreInfuseDOM = function ( node, config ) {
-	var $input = $( node ).find( '.oo-ui-inputWidget-input' );
+	const $input = $( node ).find( '.oo-ui-inputWidget-input' );
 	config = OO.ui.InputWidget.super.static.reusePreInfuseDOM( node, config );
 	// Reusing `$input` lets browsers preserve inputted values across page reloads, see T114134.
 	if ( $input.length ) {
@@ -93,7 +93,7 @@ OO.ui.InputWidget.static.reusePreInfuseDOM = function ( node, config ) {
  * @inheritdoc
  */
 OO.ui.InputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.InputWidget.super.static.gatherPreInfuseState( node, config );
+	const state = OO.ui.InputWidget.super.static.gatherPreInfuseState( node, config );
 	if ( config.$input ) {
 		state.value = config.$input.val();
 		// Might be better in TabIndexedElement, but it's awkward to do there because
@@ -135,7 +135,7 @@ OO.ui.InputWidget.prototype.getInputElement = function () {
  * @param {jQuery.Event} e Key down, mouse up, cut, paste, change, input, or select event
  */
 OO.ui.InputWidget.prototype.onEdit = function () {
-	var widget = this;
+	const widget = this;
 	if ( !this.isDisabled() ) {
 		widget.setValue( widget.$input.val() );
 		// Allow the stack to clear so the value will be updated
@@ -156,7 +156,7 @@ OO.ui.InputWidget.prototype.onEdit = function () {
 OO.ui.InputWidget.prototype.getValue = function () {
 	// Resynchronize our internal data with DOM data. Other scripts executing on the page can modify
 	// it, and we won't know unless they're kind enough to trigger a 'change' event.
-	var value = this.$input.val();
+	const value = this.$input.val();
 	if ( this.value !== value ) {
 		this.setValue( value );
 	}

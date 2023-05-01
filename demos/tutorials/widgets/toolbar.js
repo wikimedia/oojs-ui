@@ -10,7 +10,7 @@ Tutorials.Toolbar = function ( config ) {
 	config = config || {};
 	Tutorials.Toolbar.super.call( this, config );
 
-	var urlPieces = window.location.pathname.split( 'demos/tutorials/' );
+	const urlPieces = window.location.pathname.split( 'demos/tutorials/' );
 	this.baseUrl = urlPieces[ 0 ];
 
 	this.links = new OO.ui.ButtonGroupWidget( {

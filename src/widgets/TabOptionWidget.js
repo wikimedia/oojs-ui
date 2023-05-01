@@ -60,7 +60,7 @@ OO.ui.TabOptionWidget.prototype.scrollElementIntoView = function ( config ) {
 		// Parent method
 		return OO.ui.TabOptionWidget.super.prototype.scrollElementIntoView.call( this );
 	} else {
-		var padding = Math.max( (
+		const padding = Math.max( (
 			this.getElementGroup().$element[ 0 ].clientWidth - this.$element[ 0 ].clientWidth
 		) / 2, 0 );
 		// Parent method

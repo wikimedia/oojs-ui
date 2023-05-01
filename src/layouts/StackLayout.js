@@ -5,7 +5,7 @@
  *
  *     @example
  *     // A stack layout with two panels, configured to be displayed continuously
- *     var myStack = new OO.ui.StackLayout( {
+ *     const myStack = new OO.ui.StackLayout( {
  *         items: [
  *             new OO.ui.PanelLayout( {
  *                 $content: $( '<p>Panel One</p>' ),
@@ -111,7 +111,7 @@ OO.ui.StackLayout.prototype.getCurrentItem = function () {
  * @fires OO.ui.StackLayout#set
  */
 OO.ui.StackLayout.prototype.unsetCurrentItem = function () {
-	var prevItem = this.currentItem;
+	const prevItem = this.currentItem;
 	if ( prevItem === null ) {
 		return;
 	}
@@ -173,11 +173,11 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
  * @fires OO.ui.StackLayout#set
  */
 OO.ui.StackLayout.prototype.removeItems = function ( itemsToRemove ) {
-	var isCurrentItemRemoved = itemsToRemove.indexOf( this.currentItem ) !== -1;
+	const isCurrentItemRemoved = itemsToRemove.indexOf( this.currentItem ) !== -1;
 
-	var nextItem;
+	let nextItem;
 	if ( isCurrentItemRemoved ) {
-		var i = this.items.indexOf( this.currentItem );
+		let i = this.items.indexOf( this.currentItem );
 		do {
 			nextItem = this.items[ ++i ];
 		} while ( nextItem && itemsToRemove.indexOf( nextItem ) !== -1 );
@@ -252,7 +252,7 @@ OO.ui.StackLayout.prototype.resetScroll = function () {
 	// Reset each panel
 	this.getItems().forEach( function ( panel ) {
 		// eslint-disable-next-line no-jquery/no-class-state
-		var hidden = panel.$element.hasClass( 'oo-ui-element-hidden' );
+		const hidden = panel.$element.hasClass( 'oo-ui-element-hidden' );
 		// Scroll can only be reset when panel is visible
 		panel.$element.removeClass( 'oo-ui-element-hidden' );
 		panel.resetScroll();
@@ -275,16 +275,16 @@ OO.ui.StackLayout.prototype.resetScroll = function () {
  * @param {OO.ui.Layout} [selectedItem] Selected item to show
  */
 OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem ) {
-	var layout = this;
+	const layout = this;
 	if ( !this.isContinuous() ) {
 		items.forEach( function ( item ) {
 			if ( !selectedItem || selectedItem !== item ) {
 				// If the panel is a TabPanelLayout which has a disabled tab, then
 				// fully hide it so we don't search inside it and automatically switch
 				// to it.
-				var isDisabled = item instanceof OO.ui.TabPanelLayout &&
+				const isDisabled = item instanceof OO.ui.TabPanelLayout &&
 					item.getTabItem() && item.getTabItem().isDisabled();
-				var hideUntilFound = !isDisabled && layout.hideUntilFound;
+				const hideUntilFound = !isDisabled && layout.hideUntilFound;
 				// jQuery "fixes" the value of the hidden attribute to always be "hidden"
 				// Browsers which don't support 'until-found' will still hide the element
 				item.$element[ 0 ].setAttribute( 'hidden', hideUntilFound ? 'until-found' : 'hidden' );

@@ -68,8 +68,8 @@ QUnit.test( 'prompt() - reject', function ( assert ) {
 } );
 
 QUnit.test( 'clearWindows()', function ( assert ) {
-	var windowManager = OO.ui.getWindowManager(),
-		alertWindow;
+	const windowManager = OO.ui.getWindowManager();
+	let alertWindow;
 	windowManager.once( 'opening', function ( win, opened ) {
 		opened.then( function () {
 			alertWindow = win;

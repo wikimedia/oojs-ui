@@ -139,7 +139,7 @@ OO.ui.mixin.DraggableGroupElement.prototype.onItemDragStart = function ( item ) 
  */
 OO.ui.mixin.DraggableGroupElement.prototype.updateIndexes = function () {
 	// Map the index of each object
-	for ( var i = 0, len = this.itemsOrder.length; i < len; i++ ) {
+	for ( let i = 0, len = this.itemsOrder.length; i < len; i++ ) {
 		this.itemsOrder[ i ].setIndex( i );
 	}
 };
@@ -152,14 +152,14 @@ OO.ui.mixin.DraggableGroupElement.prototype.updateIndexes = function () {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.DraggableGroupElement.prototype.onItemDropOrDragEnd = function () {
-	var item = this.getDragItem();
+	const item = this.getDragItem();
 
 	// TODO: Figure out a way to configure a list of legally droppable
 	// elements even if they are not yet in the list
 	if ( item ) {
-		var originalIndex = this.items.indexOf( item );
+		const originalIndex = this.items.indexOf( item );
 		// If the item has moved forward, add one to the index to account for the left shift
-		var targetIndex = item.getIndex() + ( item.getIndex() > originalIndex ? 1 : 0 );
+		const targetIndex = item.getIndex() + ( item.getIndex() > originalIndex ? 1 : 0 );
 		if ( targetIndex !== originalIndex ) {
 			this.reorder( this.getDragItem(), targetIndex );
 			this.emit( 'reorder', this.getDragItem(), targetIndex );
@@ -179,14 +179,14 @@ OO.ui.mixin.DraggableGroupElement.prototype.onItemDropOrDragEnd = function () {
  * @fires OO.ui.mixin.DraggableGroupElement#reorder
  */
 OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
-	var item = this.getDragItem(),
+	const item = this.getDragItem(),
 		dragItemIndex = item.getIndex();
 
 	// Get the OptionWidget item we are dragging over
-	var overIndex = $( e.target ).closest( '.oo-ui-draggableElement' ).data( 'index' );
+	const overIndex = $( e.target ).closest( '.oo-ui-draggableElement' ).data( 'index' );
 
 	if ( overIndex !== undefined && overIndex !== dragItemIndex ) {
-		var targetIndex = overIndex + ( overIndex > dragItemIndex ? 1 : 0 );
+		const targetIndex = overIndex + ( overIndex > dragItemIndex ? 1 : 0 );
 
 		if ( targetIndex > 0 ) {
 			this.$group.children().eq( targetIndex - 1 ).after( item.$element );

@@ -1,9 +1,9 @@
 Demo.static.pages.widgets = function ( demo ) {
+	let i;
+
 	// Unicode LTR marker `\u200E` is added for loremIpsum text in RTL demo, as it's not translated
-	var i,
-		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
+	const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
-		textInputForLabel, labelForTextInput, radioSelectInputForLabel, labelForRadioSelectInput,
 		horizontalDragItems = [],
 		verticalDragItems = [],
 		verticalHandledDragItems = [],
@@ -44,13 +44,13 @@ Demo.static.pages.widgets = function ( demo ) {
 		}
 	}
 
-	textInputForLabel = new OO.ui.TextInputWidget( { value: 'Input for label above' } );
-	labelForTextInput = new OO.ui.LabelWidget( {
+	const textInputForLabel = new OO.ui.TextInputWidget( { value: 'Input for label above' } );
+	const labelForTextInput = new OO.ui.LabelWidget( {
 		label: 'Label for TextInputWidget below',
 		input: textInputForLabel
 	} );
 
-	radioSelectInputForLabel = new OO.ui.RadioSelectInputWidget( {
+	const radioSelectInputForLabel = new OO.ui.RadioSelectInputWidget( {
 		options: [
 			{
 				data: 'a',
@@ -62,12 +62,12 @@ Demo.static.pages.widgets = function ( demo ) {
 			}
 		]
 	} );
-	labelForRadioSelectInput = new OO.ui.LabelWidget( {
+	const labelForRadioSelectInput = new OO.ui.LabelWidget( {
 		label: 'Label for RadioSelectInputWidget below',
 		input: radioSelectInputForLabel
 	} );
 
-	var fieldsets = [
+	const fieldsets = [
 		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-buttons',
 			label: 'Buttons',
@@ -2147,8 +2147,8 @@ Demo.static.pages.widgets = function ( demo ) {
 						allowArbitrary: false,
 						verticalPosition: 'below',
 						options: ( function () {
-							var options = [];
-							for ( var n = 1; n <= 50; n++ ) {
+							const options = [];
+							for ( let n = 1; n <= 50; n++ ) {
 								options.push( { data: n, label: 'Label for ' + n } );
 							}
 							return options;

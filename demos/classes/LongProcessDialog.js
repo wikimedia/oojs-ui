@@ -12,14 +12,14 @@ Demo.LongProcessDialog.static.actions = [
 Demo.LongProcessDialog.prototype.initialize = function () {
 	Demo.LongProcessDialog.super.prototype.initialize.apply( this, arguments );
 	this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
-	for ( var i = 0; i < 100; i++ ) {
+	for ( let i = 0; i < 100; i++ ) {
 		// eslint-disable-next-line no-jquery/no-parse-html-literal
 		this.content.$element.append( '<p>Dialog content</p>' );
 	}
 	this.$body.append( this.content.$element );
 };
 Demo.LongProcessDialog.prototype.getActionProcess = function ( action ) {
-	var dialog = this;
+	const dialog = this;
 	if ( action ) {
 		return new OO.ui.Process( function () {
 			dialog.close( { action: action } );

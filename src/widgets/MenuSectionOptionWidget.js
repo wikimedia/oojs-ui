@@ -4,7 +4,7 @@
  * cannot be highlighted or selected.
  *
  *     @example
- *     var dropdown = new OO.ui.DropdownWidget( {
+ *     const dropdown = new OO.ui.DropdownWidget( {
  *         menu: {
  *             items: [
  *                 new OO.ui.MenuSectionOptionWidget( {

@@ -162,11 +162,11 @@ OO.ui.ToolGroup.prototype.isDisabled = function () {
  * @inheritdoc
  */
 OO.ui.ToolGroup.prototype.updateDisabled = function () {
-	var allDisabled = true;
+	let allDisabled = true;
 
 	if ( this.constructor.static.autoDisable ) {
-		for ( var i = this.items.length - 1; i >= 0; i-- ) {
-			var item = this.items[ i ];
+		for ( let i = this.items.length - 1; i >= 0; i-- ) {
+			const item = this.items[ i ];
 			if ( !item.isDisabled() ) {
 				allDisabled = false;
 				break;
@@ -250,7 +250,7 @@ OO.ui.ToolGroup.prototype.onDocumentMouseKeyUp = function ( e ) {
  * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
 OO.ui.ToolGroup.prototype.onMouseKeyUp = function ( e ) {
-	var tool = this.findTargetTool( e );
+	const tool = this.findTargetTool( e );
 
 	if (
 		!this.isDisabled() && this.pressed && this.pressed === tool && (
@@ -275,7 +275,7 @@ OO.ui.ToolGroup.prototype.onMouseKeyUp = function ( e ) {
  * @param {jQuery.Event} e Mouse over or focus event
  */
 OO.ui.ToolGroup.prototype.onMouseOverFocus = function ( e ) {
-	var tool = this.findTargetTool( e );
+	const tool = this.findTargetTool( e );
 
 	if ( this.pressed && this.pressed === tool ) {
 		this.pressed.setActive( true );
@@ -289,7 +289,7 @@ OO.ui.ToolGroup.prototype.onMouseOverFocus = function ( e ) {
  * @param {jQuery.Event} e Mouse out or blur event
  */
 OO.ui.ToolGroup.prototype.onMouseOutBlur = function ( e ) {
-	var tool = this.findTargetTool( e );
+	const tool = this.findTargetTool( e );
 
 	if ( this.pressed && this.pressed === tool ) {
 		this.pressed.setActive( false );
@@ -307,9 +307,9 @@ OO.ui.ToolGroup.prototype.onMouseOutBlur = function ( e ) {
  * @return {OO.ui.Tool|null} Tool, `null` if none was found
  */
 OO.ui.ToolGroup.prototype.findTargetTool = function ( e ) {
-	var $item = $( e.target ).closest( '.oo-ui-tool-link' );
+	const $item = $( e.target ).closest( '.oo-ui-tool-link' );
 
-	var tool;
+	let tool;
 	if ( $item.length ) {
 		tool = $item.parent().data( 'oo-ui-tool' );
 	}
@@ -345,7 +345,7 @@ OO.ui.ToolGroup.prototype.getToolbar = function () {
  * Add and remove tools based on configuration.
  */
 OO.ui.ToolGroup.prototype.populate = function () {
-	var toolFactory = this.toolbar.getToolFactory(),
+	const toolFactory = this.toolbar.getToolFactory(),
 		names = {},
 		add = [],
 		remove = [],
@@ -353,9 +353,9 @@ OO.ui.ToolGroup.prototype.populate = function () {
 			this.include, this.exclude, this.promote, this.demote
 		);
 
-	var name;
+	let name;
 	// Build a list of needed tools
-	for ( var i = 0, len = list.length; i < len; i++ ) {
+	for ( let i = 0, len = list.length; i < len; i++ ) {
 		name = list[ i ];
 		if (
 			// Tool exists
@@ -367,7 +367,7 @@ OO.ui.ToolGroup.prototype.populate = function () {
 			// before creating it, but we can't call reserveTool() yet because we haven't created
 			// the tool.
 			this.toolbar.tools[ name ] = true;
-			var tool = this.tools[ name ];
+			let tool = this.tools[ name ];
 			if ( !tool ) {
 				// Auto-initialize tools on first use
 				this.tools[ name ] = tool = toolFactory.create( name, this );
@@ -404,7 +404,7 @@ OO.ui.ToolGroup.prototype.populate = function () {
 OO.ui.ToolGroup.prototype.destroy = function () {
 	this.clearItems();
 	this.toolbar.getToolFactory().disconnect( this );
-	for ( var name in this.tools ) {
+	for ( const name in this.tools ) {
 		this.toolbar.releaseTool( this.tools[ name ] );
 		this.tools[ name ].disconnect( this ).destroy();
 		delete this.tools[ name ];

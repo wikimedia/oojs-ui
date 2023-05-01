@@ -20,7 +20,7 @@ Demo.TagNumberPopupMultiselectWidget = function DemoTagNumberPopupMultiselectWid
 OO.inheritClass( Demo.TagNumberPopupMultiselectWidget, OO.ui.PopupTagMultiselectWidget );
 
 Demo.TagNumberPopupMultiselectWidget.prototype.onPopupEnter = function () {
-	var value = this.tagPopupWidget.getNumericValue();
+	const value = this.tagPopupWidget.getNumericValue();
 	if ( !isNaN( value ) ) {
 		this.addTag( value, String( value ) );
 		this.tagPopupWidget.setValue( '' );

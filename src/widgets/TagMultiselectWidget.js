@@ -9,7 +9,7 @@
  *
  *     @example
  *     // A TagMultiselectWidget.
- *     var widget = new OO.ui.TagMultiselectWidget( {
+ *     const widget = new OO.ui.TagMultiselectWidget( {
  *         inputPosition: 'outline',
  *         allowedValues: [ 'Option 1', 'Option 2', 'Option 3' ],
  *         selected: [ 'Option 1' ]
@@ -58,7 +58,7 @@
  *  pass the validity tests.
  */
 OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
-	var rAF = window.requestAnimationFrame || setTimeout,
+	const rAF = window.requestAnimationFrame || setTimeout,
 		widget = this,
 		$tabFocus = $( '<span>' ).addClass( 'oo-ui-tagMultiselectWidget-focusTrap' );
 
@@ -140,7 +140,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 		}
 		this.input.setDisabled( this.isDisabled() );
 
-		var inputEvents = {
+		const inputEvents = {
 			focus: this.onInputFocus.bind( this ),
 			blur: this.onInputBlur.bind( this ),
 			'propertychange change click mouseup keydown keyup input cut paste select focus':
@@ -254,10 +254,10 @@ OO.ui.TagMultiselectWidget.prototype.onMouseDown = function ( e ) {
  * @return {boolean} Whether to prevent defaults
  */
 OO.ui.TagMultiselectWidget.prototype.onInputKeyPress = function ( e ) {
-	var withMetaKey = e.metaKey || e.ctrlKey;
+	const withMetaKey = e.metaKey || e.ctrlKey;
 
 	if ( !this.isDisabled() ) {
-		var stopOrContinue;
+		let stopOrContinue;
 		if ( e.which === OO.ui.Keys.ENTER ) {
 			stopOrContinue = this.doInputEnter( e, withMetaKey );
 		}
@@ -275,11 +275,11 @@ OO.ui.TagMultiselectWidget.prototype.onInputKeyPress = function ( e ) {
  * @return {boolean}
  */
 OO.ui.TagMultiselectWidget.prototype.onInputKeyDown = function ( e ) {
-	var widget = this,
+	const widget = this,
 		withMetaKey = e.metaKey || e.ctrlKey;
 
 	function isMovementInsideInput( dir ) {
-		var inputRange = widget.input.getRange(),
+		const inputRange = widget.input.getRange(),
 			inputValue = widget.hasInput && widget.input.getValue();
 
 		if ( dir === 'forwards' && inputRange.to > inputValue.length - 1 ) {
@@ -303,7 +303,7 @@ OO.ui.TagMultiselectWidget.prototype.onInputKeyDown = function ( e ) {
 			e.keyCode === OO.ui.Keys.LEFT ||
 			e.keyCode === OO.ui.Keys.RIGHT
 		) {
-			var movement;
+			let movement;
 			if ( OO.ui.Element.static.getDir( this.$element ) === 'rtl' ) {
 				movement = {
 					left: 'forwards',
@@ -315,7 +315,7 @@ OO.ui.TagMultiselectWidget.prototype.onInputKeyDown = function ( e ) {
 					right: 'forwards'
 				};
 			}
-			var direction = e.keyCode === OO.ui.Keys.LEFT ?
+			const direction = e.keyCode === OO.ui.Keys.LEFT ?
 				movement.left : movement.right;
 
 			if ( !this.hasInput || !isMovementInsideInput( direction ) ) {
@@ -378,15 +378,15 @@ OO.ui.TagMultiselectWidget.prototype.doInputBackspace = function ( e, withMetaKe
 		!this.isEmpty()
 	) {
 		// Delete the last item
-		var items = this.getItems();
-		var item = items[ items.length - 1 ];
+		const items = this.getItems();
+		const item = items[ items.length - 1 ];
 
 		if ( !item.isDisabled() && !item.isFixed() ) {
 			this.removeItems( [ item ] );
 			// If Ctrl/Cmd was pressed, delete item entirely.
 			// Otherwise put it into the text field for editing.
 			if ( !withMetaKey ) {
-				var itemLabel;
+				let itemLabel;
 				if ( typeof item.getLabel() === 'string' ) {
 					itemLabel = item.getLabel();
 				} else if ( item.getLabel() instanceof $ ) {
@@ -455,10 +455,10 @@ OO.ui.TagMultiselectWidget.prototype.onTagSelect = function ( item ) {
  * @param {OO.ui.TagItemWidget} item Selected item
  */
 OO.ui.TagMultiselectWidget.prototype.onTagFixed = function ( item ) {
-	var items = this.getItems();
+	const items = this.getItems();
 
 	// Move item to the end of the static items
-	var i;
+	let i;
 	for ( i = 0; i < items.length; i++ ) {
 		if ( items[ i ] !== item && !items[ i ].isFixed() ) {
 			break;
@@ -470,7 +470,7 @@ OO.ui.TagMultiselectWidget.prototype.onTagFixed = function ( item ) {
  * Respond to change event, where items were added, removed, or cleared.
  */
 OO.ui.TagMultiselectWidget.prototype.onChangeTags = function () {
-	var isUnderLimit = this.isUnderLimit();
+	const isUnderLimit = this.isUnderLimit();
 
 	this.changing = true;
 
@@ -489,7 +489,7 @@ OO.ui.TagMultiselectWidget.prototype.onChangeTags = function () {
 			this.input.$input.attr( 'placeholder', isUnderLimit ? this.inputPlaceholder : '' );
 			this.input.setDisabled( !isUnderLimit );
 		} else {
-			var hadFocus = document.activeElement === this.input.$input[ 0 ];
+			const hadFocus = document.activeElement === this.input.$input[ 0 ];
 			// Move input to the end of the group
 			this.$group.append( this.input.$input );
 			// Show/hide the input
@@ -541,7 +541,7 @@ OO.ui.TagMultiselectWidget.prototype.onTagRemove = function ( item ) {
  * @param {string} direction Direction of movement; 'forwards' or 'backwards'
  */
 OO.ui.TagMultiselectWidget.prototype.onTagNavigate = function ( item, direction ) {
-	var firstItem = this.getItems()[ 0 ];
+	const firstItem = this.getItems()[ 0 ];
 
 	if ( direction === 'forwards' ) {
 		this.getNextItem( item ).focus();
@@ -558,7 +558,7 @@ OO.ui.TagMultiselectWidget.prototype.onTagNavigate = function ( item, direction 
  * @return {Object} The data and label for a tag
  */
 OO.ui.TagMultiselectWidget.prototype.getTagInfoFromInput = function () {
-	var val = this.input.getValue();
+	const val = this.input.getValue();
 	return { data: val, label: val };
 };
 
@@ -566,7 +566,7 @@ OO.ui.TagMultiselectWidget.prototype.getTagInfoFromInput = function () {
  * Add tag from input value
  */
 OO.ui.TagMultiselectWidget.prototype.addTagFromInput = function () {
-	var tagInfo = this.getTagInfoFromInput();
+	const tagInfo = this.getTagInfoFromInput();
 
 	if ( !tagInfo.data ) {
 		return;
@@ -701,10 +701,10 @@ OO.ui.TagMultiselectWidget.prototype.setValue = function ( valueObject ) {
  * @return {boolean} Item was added successfully
  */
 OO.ui.TagMultiselectWidget.prototype.addTag = function ( data, label ) {
-	var isValid = this.isAllowedData( data );
+	const isValid = this.isAllowedData( data );
 
 	if ( this.isUnderLimit() && ( isValid || this.allowDisplayInvalidTags ) ) {
-		var newItemWidget = this.createTagItemWidget( data, label );
+		const newItemWidget = this.createTagItemWidget( data, label );
 		newItemWidget.toggleValid( isValid );
 		this.addItems( [ newItemWidget ] );
 		return true;
@@ -730,7 +730,7 @@ OO.ui.TagMultiselectWidget.prototype.isUnderLimit = function () {
  * @param {string|Object} data Tag data
  */
 OO.ui.TagMultiselectWidget.prototype.removeTagByData = function ( data ) {
-	var item = this.findItemFromData( data );
+	const item = this.findItemFromData( data );
 
 	this.removeItems( [ item ] );
 };
@@ -757,7 +757,7 @@ OO.ui.TagMultiselectWidget.prototype.createTagItemWidget = function ( data, labe
  * @return {OO.ui.Widget} The next widget available.
  */
 OO.ui.TagMultiselectWidget.prototype.getNextItem = function ( item ) {
-	var itemIndex = this.items.indexOf( item );
+	const itemIndex = this.items.indexOf( item );
 
 	if ( item === undefined || itemIndex === -1 ) {
 		return this.items[ 0 ];
@@ -785,7 +785,7 @@ OO.ui.TagMultiselectWidget.prototype.getNextItem = function ( item ) {
  * @return {OO.ui.Widget} The previous widget available.
  */
 OO.ui.TagMultiselectWidget.prototype.getPreviousItem = function ( item ) {
-	var itemIndex = this.items.indexOf( item );
+	const itemIndex = this.items.indexOf( item );
 
 	if ( item === undefined || itemIndex === -1 ) {
 		return this.items[ this.items.length - 1 ];
@@ -820,12 +820,12 @@ OO.ui.TagMultiselectWidget.prototype.updateInputSize = function () {
 			return;
 		}
 		this.input.$input.css( 'width', '1em' );
-		var $lastItem = this.$group.children().last();
-		var direction = OO.ui.Element.static.getDir( this.$handle );
+		const $lastItem = this.$group.children().last();
+		const direction = OO.ui.Element.static.getDir( this.$handle );
 
 		// Get the width of the input with the placeholder text as
 		// the value and save it so that we don't keep recalculating
-		var placeholder = this.input.$input.attr( 'placeholder' );
+		const placeholder = this.input.$input.attr( 'placeholder' );
 		if (
 			this.contentWidthWithPlaceholder === undefined &&
 			this.input.getValue() === '' &&
@@ -839,13 +839,13 @@ OO.ui.TagMultiselectWidget.prototype.updateInputSize = function () {
 		}
 
 		// Always keep the input wide enough for the placeholder text
-		var contentWidth = Math.max(
+		const contentWidth = Math.max(
 			this.input.$input[ 0 ].scrollWidth,
 			// undefined arguments in Math.max lead to NaN
 			( this.contentWidthWithPlaceholder === undefined ) ?
 				0 : this.contentWidthWithPlaceholder
 		);
-		var currentWidth = this.input.$input.width();
+		const currentWidth = this.input.$input.width();
 
 		if ( contentWidth < currentWidth ) {
 			this.updateIfHeightChanged();
@@ -853,7 +853,7 @@ OO.ui.TagMultiselectWidget.prototype.updateInputSize = function () {
 			return;
 		}
 
-		var bestWidth;
+		let bestWidth;
 		if ( $lastItem.length === 0 ) {
 			bestWidth = this.$content.innerWidth();
 		} else {
@@ -886,7 +886,7 @@ OO.ui.TagMultiselectWidget.prototype.updateInputSize = function () {
  * @private
  */
 OO.ui.TagMultiselectWidget.prototype.updateIfHeightChanged = function () {
-	var height = this.$element.height();
+	const height = this.$element.height();
 	if ( height !== this.height ) {
 		this.height = height;
 		this.emit( 'resize' );

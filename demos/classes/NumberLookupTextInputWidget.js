@@ -21,7 +21,7 @@ OO.mixinClass( Demo.NumberLookupTextInputWidget, OO.ui.mixin.LookupElement );
  * @inheritdoc
  */
 Demo.NumberLookupTextInputWidget.prototype.getLookupRequest = function () {
-	var
+	const
 		value = this.getValue(),
 		deferred = $.Deferred(),
 		delay = 500 + Math.floor( Math.random() * 500 );
@@ -53,9 +53,8 @@ Demo.NumberLookupTextInputWidget.prototype.getLookupCacheDataFromResponse = func
  * @inheritdoc
  */
 Demo.NumberLookupTextInputWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
-	var
-		items = [],
-		i, number;
+	const items = [];
+	let i, number;
 	for ( i = 0; i < data.length; i++ ) {
 		number = String( data[ i ] );
 		items.push( new OO.ui.MenuOptionWidget( {

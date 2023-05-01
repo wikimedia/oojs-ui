@@ -20,7 +20,7 @@ OO.inheritClass( OO.ui.BlankTheme, OO.ui.Theme );
  */
 OO.ui.BlankTheme.prototype.getElementClasses = function ( element ) {
 	// Parent method
-	var classes = OO.ui.BlankTheme.super.prototype.getElementClasses.call( this, element );
+	const classes = OO.ui.BlankTheme.super.prototype.getElementClasses.call( this, element );
 
 	// Add classes to classes.on or classes.off
 

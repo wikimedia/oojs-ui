@@ -22,11 +22,11 @@
  *     MyDialog.prototype.getBodyHeight = function () {
  *         return this.content.$element.outerHeight( true );
  *     };
- *     var myDialog = new MyDialog( {
+ *     const myDialog = new MyDialog( {
  *         size: 'medium'
  *     } );
  *     // Create and append a window manager, which opens and closes the window.
- *     var windowManager = new OO.ui.WindowManager();
+ *     const windowManager = new OO.ui.WindowManager();
  *     $( document.body ).append( windowManager.$element );
  *     windowManager.addWindows( [ myDialog ] );
  *     // Open the window!
@@ -138,7 +138,7 @@ OO.ui.Dialog.prototype.onDialogKeyDown = function ( e ) {
 		e.preventDefault();
 		e.stopPropagation();
 	} else if ( e.which === OO.ui.Keys.ENTER && ( e.ctrlKey || e.metaKey ) ) {
-		var actions = this.actions.get( { flags: 'primary', visible: true, disabled: false } );
+		const actions = this.actions.get( { flags: 'primary', visible: true, disabled: false } );
 		if ( actions.length > 0 ) {
 			this.executeAction( actions[ 0 ].getAction() );
 			e.preventDefault();
@@ -221,7 +221,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 	// Parent method
 	return OO.ui.Dialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
-			var config = this.constructor.static,
+			const config = this.constructor.static,
 				actions = data.actions !== undefined ? data.actions : config.actions,
 				title = data.title !== undefined ? data.title : config.title;
 
@@ -269,8 +269,8 @@ OO.ui.Dialog.prototype.initialize = function () {
  * @return {OO.ui.ActionWidget[]} Action widgets
  */
 OO.ui.Dialog.prototype.getActionWidgets = function ( actions ) {
-	var widgets = [];
-	for ( var i = 0, len = actions.length; i < len; i++ ) {
+	const widgets = [];
+	for ( let i = 0, len = actions.length; i < len; i++ ) {
 		widgets.push( this.getActionWidget( actions[ i ] ) );
 	}
 	return widgets;
@@ -319,7 +319,7 @@ OO.ui.Dialog.prototype.attachActions = function () {
  */
 OO.ui.Dialog.prototype.detachActions = function () {
 	// Detach all actions that may have been previously attached
-	for ( var i = 0, len = this.attachedActions.length; i < len; i++ ) {
+	for ( let i = 0, len = this.attachedActions.length; i < len; i++ ) {
 		this.attachedActions[ i ].$element.detach();
 	}
 	this.attachedActions = [];

@@ -37,7 +37,7 @@
  *         this.$body.append( this.content.$element );
  *     };
  *     MyProcessDialog.prototype.getActionProcess = function ( action ) {
- *         var dialog = this;
+ *         const dialog = this;
  *         if ( action ) {
  *             return new OO.ui.Process( function () {
  *                 dialog.close( { action: action } );
@@ -46,10 +46,10 @@
  *         return MyProcessDialog.super.prototype.getActionProcess.call( this, action );
  *     };
  *
- *     var windowManager = new OO.ui.WindowManager();
+ *     const windowManager = new OO.ui.WindowManager();
  *     $( document.body ).append( windowManager.$element );
  *
- *     var dialog = new MyProcessDialog();
+ *     const dialog = new MyProcessDialog();
  *     windowManager.addWindows( [ dialog ] );
  *     windowManager.openWindow( dialog );
  *
@@ -203,13 +203,13 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
 	// Parent method
 	OO.ui.ProcessDialog.super.prototype.attachActions.call( this );
 
-	var special = this.actions.getSpecial();
-	var others = this.actions.getOthers();
+	const special = this.actions.getSpecial();
+	const others = this.actions.getOthers();
 	if ( special.primary ) {
 		this.$primaryActions.append( special.primary.$element );
 	}
-	for ( var i = 0, len = others.length; i < len; i++ ) {
-		var other = others[ i ];
+	for ( let i = 0, len = others.length; i < len; i++ ) {
+		const other = others[ i ];
 		this.$otherActions.append( other.$element );
 	}
 	if ( special.safe ) {
@@ -221,7 +221,7 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
  * @inheritdoc
  */
 OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
-	var dialog = this;
+	const dialog = this;
 	return OO.ui.ProcessDialog.super.prototype.executeAction.call( this, action )
 		.fail( function ( errors ) {
 			dialog.showErrors( errors || [] );
@@ -232,7 +232,7 @@ OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
  * @inheritdoc
  */
 OO.ui.ProcessDialog.prototype.setDimensions = function () {
-	var dialog = this;
+	const dialog = this;
 
 	// Parent method
 	OO.ui.ProcessDialog.super.prototype.setDimensions.apply( this, arguments );
@@ -257,9 +257,9 @@ OO.ui.ProcessDialog.prototype.setDimensions = function () {
  * @return {OO.ui.MessageDialog} The dialog, for chaining
  */
 OO.ui.ProcessDialog.prototype.fitLabel = function () {
-	var size = this.getSizeProperties();
+	const size = this.getSizeProperties();
 
-	var navigationWidth;
+	let navigationWidth;
 	if ( typeof size.width !== 'number' ) {
 		if ( this.isOpened() ) {
 			navigationWidth = this.$head.width() - 20;
@@ -278,13 +278,13 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
 		navigationWidth = size.width - 20;
 	}
 
-	var safeWidth = this.$safeActions.width();
-	var primaryWidth = this.$primaryActions.width();
-	var biggerWidth = Math.max( safeWidth, primaryWidth );
+	const safeWidth = this.$safeActions.width();
+	const primaryWidth = this.$primaryActions.width();
+	const biggerWidth = Math.max( safeWidth, primaryWidth );
 
-	var labelWidth = this.title.$element.width();
+	const labelWidth = this.title.$element.width();
 
-	var leftWidth, rightWidth;
+	let leftWidth, rightWidth;
 	if ( !OO.ui.isMobile() && 2 * biggerWidth + labelWidth < navigationWidth ) {
 		// We have enough space to center the label
 		leftWidth = rightWidth = biggerWidth;
@@ -312,16 +312,16 @@ OO.ui.ProcessDialog.prototype.fitLabel = function () {
  * @param {OO.ui.Error[]|OO.ui.Error} errors Errors to be handled
  */
 OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
-	var items = [],
-		abilities = {},
-		recoverable = true,
+	const items = [],
+		abilities = {};
+	let recoverable = true,
 		warning = false;
 
 	if ( errors instanceof OO.ui.Error ) {
 		errors = [ errors ];
 	}
 
-	for ( var i = 0, len = errors.length; i < len; i++ ) {
+	for ( let i = 0, len = errors.length; i < len; i++ ) {
 		if ( !errors[ i ].isRecoverable() ) {
 			recoverable = false;
 		}
@@ -337,7 +337,7 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 	if ( recoverable ) {
 		abilities[ this.currentAction ] = true;
 		// Copy the flags from the first matching action.
-		var actions = this.actions.get( { actions: this.currentAction } );
+		const actions = this.actions.get( { actions: this.currentAction } );
 		if ( actions.length ) {
 			this.retryButton.clearFlags().setFlags( actions[ 0 ].getFlags() );
 		}

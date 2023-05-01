@@ -18,7 +18,7 @@ Demo.ContinuousOutlinedBookletDialog.prototype.initialize = function () {
 		outlined: true,
 		continuous: true
 	} );
-	var lipsum = [
+	const lipsum = [
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend justo nec erat tempus, quis aliquet augue aliquam. Sed rutrum odio in tellus pharetra, ut mollis est fermentum. ' +
 			'Sed egestas dolor libero, a aliquet sem finibus eu. Morbi dolor nisl, pulvinar vitae maximus sed, lacinia eu ipsum. Fusce rutrum placerat massa, vel vehicula nisi viverra nec. ' +
 			'Nam at turpis vel nisi efficitur tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi aliquam pulvinar fermentum. Maecenas rutrum accumsan lorem ac sagittis. ' +

@@ -33,7 +33,7 @@
  *         return 100;
  *     }
  *     MessageDialog.prototype.getActionProcess = function ( action ) {
- *         var dialog = this;
+ *         const dialog = this;
  *         if ( action === 'save' ) {
  *             dialog.getActions().get({actions: 'save'})[0].pushPending();
  *             return new OO.ui.Process()
@@ -45,10 +45,10 @@
  *         return MessageDialog.super.prototype.getActionProcess.call( this, action );
  *     };
  *
- *     var windowManager = new OO.ui.WindowManager();
+ *     const windowManager = new OO.ui.WindowManager();
  *     $( document.body ).append( windowManager.$element );
  *
- *     var dialog = new MessageDialog();
+ *     const dialog = new MessageDialog();
  *     windowManager.addWindows( [ dialog ] );
  *     windowManager.openWindow( dialog );
  *

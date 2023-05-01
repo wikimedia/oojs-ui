@@ -233,7 +233,7 @@ OO.ui.mixin.LookupElement.prototype.closeLookupMenu = function () {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
-	var widget = this,
+	const widget = this,
 		value = this.getValue();
 
 	if ( this.lookupsDisabled || this.isReadOnly() ) {

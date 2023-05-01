@@ -5,7 +5,7 @@
  *
  *     @example
  *     // Toggle switches in the 'off' and 'on' position.
- *     var toggleSwitch1 = new OO.ui.ToggleSwitchWidget(),
+ *     const toggleSwitch1 = new OO.ui.ToggleSwitchWidget(),
  *         toggleSwitch2 = new OO.ui.ToggleSwitchWidget( {
  *             value: true
  *         } );

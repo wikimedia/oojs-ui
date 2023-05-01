@@ -12,7 +12,7 @@
  *
  *     @example
  *     // A TextInputWidget.
- *     var textInput = new OO.ui.TextInputWidget( {
+ *     const textInput = new OO.ui.TextInputWidget( {
  *         value: 'Text input'
  *     } );
  *     $( document.body ).append( textInput.$element );
@@ -286,7 +286,7 @@ OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
  * first time that the element gets attached to the documented.
  */
 OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
-	var MutationObserver = window.MutationObserver ||
+	const MutationObserver = window.MutationObserver ||
 			window.WebKitMutationObserver ||
 			window.MozMutationObserver;
 
@@ -298,22 +298,25 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
 		return;
 	}
 
-	var widget = this,
-		topmostNode = this.$element[ 0 ];
+	const widget = this;
+
+	let topmostNode = this.$element[ 0 ];
 	while ( topmostNode.parentNode ) {
 		topmostNode = topmostNode.parentNode;
 	}
 
-	var onRemove;
+	// eslint-disable-next-line prefer-const
+	let onRemove;
+
 	// We have no way to detect the $element being attached somewhere without observing the
 	// entire DOM with subtree modifications, which would hurt performance. So we cheat: we hook
 	// to the parent node of $element, and instead detect when $element is removed from it (and
 	// thus probably attached somewhere else). If there is no parent, we create a "fake" one. If
 	// it doesn't get attached, we end up back here and create the parent.
-	var mutationObserver = new MutationObserver( function ( mutations ) {
-		for ( var i = 0; i < mutations.length; i++ ) {
-			var removedNodes = mutations[ i ].removedNodes;
-			for ( var j = 0; j < removedNodes.length; j++ ) {
+	const mutationObserver = new MutationObserver( function ( mutations ) {
+		for ( let i = 0; i < mutations.length; i++ ) {
+			const removedNodes = mutations[ i ].removedNodes;
+			for ( let j = 0; j < removedNodes.length; j++ ) {
 				if ( removedNodes[ j ] === topmostNode ) {
 					setTimeout( onRemove, 0 );
 					return;
@@ -332,7 +335,7 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
 	};
 
 	// Create a fake parent and observe it
-	var fakeParentNode = document.createElement( 'div' );
+	const fakeParentNode = document.createElement( 'div' );
 	fakeParentNode.appendChild( topmostNode );
 	mutationObserver.observe( fakeParentNode, { childList: true } );
 };
@@ -342,7 +345,7 @@ OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
  * @protected
  */
 OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
-	var $input = $( '<input>' ).attr( 'type', config.type );
+	const $input = $( '<input>' ).attr( 'type', config.type );
 
 	if ( config.type === 'number' ) {
 		$input.attr( 'step', 'any' );
@@ -360,7 +363,7 @@ OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
  * @protected
  */
 OO.ui.TextInputWidget.prototype.getSaneType = function ( config ) {
-	var allowedTypes = [
+	const allowedTypes = [
 		'text',
 		'password',
 		'email',
@@ -379,11 +382,11 @@ OO.ui.TextInputWidget.prototype.getSaneType = function ( config ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.selectRange = function ( from, to ) {
-	var input = this.$input[ 0 ];
+	const input = this.$input[ 0 ];
 
 	to = to || from;
 
-	var isBackwards = to < from,
+	const isBackwards = to < from,
 		start = isBackwards ? to : from,
 		end = isBackwards ? from : to;
 
@@ -408,7 +411,7 @@ OO.ui.TextInputWidget.prototype.selectRange = function ( from, to ) {
  * @return {Object} Object containing 'from' and 'to' offsets
  */
 OO.ui.TextInputWidget.prototype.getRange = function () {
-	var input = this.$input[ 0 ],
+	const input = this.$input[ 0 ],
 		start = input.selectionStart,
 		end = input.selectionEnd,
 		isBackwards = input.selectionDirection === 'backward';
@@ -469,7 +472,7 @@ OO.ui.TextInputWidget.prototype.moveCursorToEnd = function () {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.insertContent = function ( content ) {
-	var value = this.getValue(),
+	const value = this.getValue(),
 		range = this.getRange(),
 		start = Math.min( range.from, range.to ),
 		end = Math.max( range.from, range.to );
@@ -488,7 +491,7 @@ OO.ui.TextInputWidget.prototype.insertContent = function ( content ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.encapsulateContent = function ( pre, post ) {
-	var offset = pre.length,
+	const offset = pre.length,
 		range = this.getRange(),
 		start = Math.min( range.from, range.to ),
 		end = Math.max( range.from, range.to );
@@ -522,7 +525,7 @@ OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
  * @param {boolean} [isValid] Optionally override validation result
  */
 OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
-	var widget = this,
+	const widget = this,
 		setFlag = function ( valid ) {
 			if ( !valid ) {
 				widget.$input.attr( 'aria-invalid', 'true' );
@@ -553,7 +556,7 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
  */
 OO.ui.TextInputWidget.prototype.getValidity = function () {
 	function rejectOrResolve( valid ) {
-		var deferred = $.Deferred(),
+		const deferred = $.Deferred(),
 			promise = valid ? deferred.resolve() : deferred.reject();
 		return promise.promise();
 	}
@@ -568,7 +571,7 @@ OO.ui.TextInputWidget.prototype.getValidity = function () {
 	}
 
 	// Run our checks if the browser thinks the field is valid
-	var result;
+	let result;
 	if ( this.validate instanceof Function ) {
 		result = this.validate( this.getValue() );
 		if ( result && typeof result.promise === 'function' ) {
@@ -610,7 +613,7 @@ OO.ui.TextInputWidget.prototype.setLabelPosition = function ( labelPosition ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TextInputWidget.prototype.updatePosition = function () {
-	var after = this.labelPosition === 'after';
+	const after = this.labelPosition === 'after';
 
 	this.$element
 		.toggleClass( 'oo-ui-textInputWidget-labelPosition-after', !!this.label && after )
@@ -636,7 +639,7 @@ OO.ui.TextInputWidget.prototype.positionLabel = function () {
 		return this;
 	}
 
-	var newCss = {
+	const newCss = {
 		'padding-right': '',
 		'padding-left': ''
 	};
@@ -650,7 +653,7 @@ OO.ui.TextInputWidget.prototype.positionLabel = function () {
 		return;
 	}
 
-	var after = this.labelPosition === 'after',
+	const after = this.labelPosition === 'after',
 		rtl = this.$element.css( 'direction' ) === 'rtl',
 		property = after === rtl ? 'padding-left' : 'padding-right';
 

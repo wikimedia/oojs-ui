@@ -255,7 +255,7 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	}
 
 	function rectIntersection( a, b ) {
-		var out = {};
+		const out = {};
 		out.top = Math.max( a.top, b.top );
 		out.left = Math.max( a.left, b.left );
 		out.bottom = Math.min( a.bottom, b.bottom );
@@ -263,9 +263,9 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		return out;
 	}
 
-	var viewportSpacing = OO.ui.getViewportSpacing();
+	const viewportSpacing = OO.ui.getViewportSpacing();
 
-	var $viewport, viewportRect;
+	let $viewport, viewportRect;
 	if ( this.$clippableScrollableContainer.is( 'html, body' ) ) {
 		$viewport = $( this.$clippableScrollableContainer[ 0 ].ownerDocument.body );
 		// Dimensions of the browser window, rather than the element!
@@ -287,9 +287,9 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	}
 
 	// Account for scrollbar gutter
-	var direction = $viewport.css( 'direction' );
-	var vertScrollbarWidth = $viewport.innerWidth() - $viewport.prop( 'clientWidth' );
-	var horizScrollbarHeight = $viewport.innerHeight() - $viewport.prop( 'clientHeight' );
+	const direction = $viewport.css( 'direction' );
+	const vertScrollbarWidth = $viewport.innerWidth() - $viewport.prop( 'clientWidth' );
+	const horizScrollbarHeight = $viewport.innerHeight() - $viewport.prop( 'clientHeight' );
 	viewportRect.bottom -= horizScrollbarHeight;
 	if ( direction === 'rtl' ) {
 		viewportRect.left += vertScrollbarWidth;
@@ -300,18 +300,18 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	// Extra tolerance so that the sloppy code below doesn't result in results that are off
 	// by one or two pixels. (And also so that we have space to display drop shadows.)
 	// Chosen by fair dice roll.
-	var buffer = 7;
+	const buffer = 7;
 	viewportRect.top += buffer;
 	viewportRect.left += buffer;
 	viewportRect.right -= buffer;
 	viewportRect.bottom -= buffer;
 
-	var $item = this.$clippableContainer || this.$clippable;
+	const $item = this.$clippableContainer || this.$clippable;
 
-	var extraHeight = $item.outerHeight() - this.$clippable.outerHeight();
-	var extraWidth = $item.outerWidth() - this.$clippable.outerWidth();
+	const extraHeight = $item.outerHeight() - this.$clippable.outerHeight();
+	const extraWidth = $item.outerWidth() - this.$clippable.outerWidth();
 
-	var itemRect = $item[ 0 ].getBoundingClientRect();
+	let itemRect = $item[ 0 ].getBoundingClientRect();
 	// Convert into a plain object
 	itemRect = $.extend( {}, itemRect );
 
@@ -328,21 +328,21 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		itemRect.bottom = viewportRect.bottom;
 	}
 
-	var availableRect = rectIntersection( viewportRect, itemRect );
+	const availableRect = rectIntersection( viewportRect, itemRect );
 
-	var desiredWidth = Math.max( 0, availableRect.right - availableRect.left );
-	var desiredHeight = Math.max( 0, availableRect.bottom - availableRect.top );
+	let desiredWidth = Math.max( 0, availableRect.right - availableRect.left );
+	let desiredHeight = Math.max( 0, availableRect.bottom - availableRect.top );
 	// It should never be desirable to exceed the dimensions of the browser viewport... right?
 	desiredWidth = Math.min( desiredWidth,
 		document.documentElement.clientWidth - viewportSpacing.left - viewportSpacing.right );
 	desiredHeight = Math.min( desiredHeight,
 		document.documentElement.clientHeight - viewportSpacing.top - viewportSpacing.right );
-	var allotedWidth = Math.ceil( desiredWidth - extraWidth );
-	var allotedHeight = Math.ceil( desiredHeight - extraHeight );
-	var naturalWidth = this.$clippable.prop( 'scrollWidth' );
-	var naturalHeight = this.$clippable.prop( 'scrollHeight' );
-	var clipWidth = allotedWidth < naturalWidth;
-	var clipHeight = allotedHeight < naturalHeight;
+	const allotedWidth = Math.ceil( desiredWidth - extraWidth );
+	const allotedHeight = Math.ceil( desiredHeight - extraHeight );
+	const naturalWidth = this.$clippable.prop( 'scrollWidth' );
+	const naturalHeight = this.$clippable.prop( 'scrollHeight' );
+	const clipWidth = allotedWidth < naturalWidth;
+	const clipHeight = allotedHeight < naturalHeight;
 
 	if ( clipWidth ) {
 		// The hacks below are no longer needed for Firefox and Chrome after T349034,

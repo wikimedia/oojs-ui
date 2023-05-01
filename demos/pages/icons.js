@@ -1,7 +1,7 @@
 Demo.static.pages.icons = function ( demo ) {
-	var imageList = Demo.static.imageLists[ demo.mode.theme ] || {};
+	const imageList = Demo.static.imageLists[ demo.mode.theme ] || {};
 
-	var iconOrder = [
+	const iconOrder = [
 		'movement',
 		'content',
 		'alerts',
@@ -21,13 +21,12 @@ Demo.static.pages.icons = function ( demo ) {
 		'wikimedia'
 	];
 
-	var iconsFieldsets,
-		iconsWidgets = [],
-		indicatorsFieldset = new Demo.LinkedFieldsetLayout( {
-			label: 'Indicators',
-			id: 'demo-section-indicators'
-		} );
+	const iconsWidgets = [];
 
+	const indicatorsFieldset = new Demo.LinkedFieldsetLayout( {
+		label: 'Indicators',
+		id: 'demo-section-indicators'
+	} );
 	Object.keys( imageList.indicators || {} ).forEach( function ( indicator ) {
 		indicatorsFieldset.addItems( [
 			new OO.ui.FieldLayout(
@@ -42,16 +41,17 @@ Demo.static.pages.icons = function ( demo ) {
 			)
 		] );
 	} );
-	iconsFieldsets = iconOrder.map( function ( name ) {
-		var iconsFieldset = new Demo.LinkedFieldsetLayout( {
+
+	const iconsFieldsets = iconOrder.map( function ( name ) {
+		const iconsFieldset = new Demo.LinkedFieldsetLayout( {
 			label: 'Icons – ' + name,
 			id: 'demo-section-' + name
 		} );
 
-		var icons = imageList[ 'icons-' + name ] || {};
+		const icons = imageList[ 'icons-' + name ] || {};
 		Object.keys( icons ).forEach( function ( icon ) {
-			var deprecationMessage = icons[ icon ].deprecated;
-			var iconWidget = new OO.ui.IconWidget( {
+			const deprecationMessage = icons[ icon ].deprecated;
+			const iconWidget = new OO.ui.IconWidget( {
 				icon: icon,
 				disabled: !!deprecationMessage,
 				title: deprecationMessage || icon
@@ -65,13 +65,13 @@ Demo.static.pages.icons = function ( demo ) {
 			] );
 			if ( icons[ icon ].file.lang ) {
 				Object.keys( icons[ icon ].file.lang ).forEach( function ( lang ) {
-					var langs = lang.split( ',' );
-					var langList = langs.join( ', ' );
-					var title = icon + ' (' + langList + ')';
-					var $label = $( '<span>' ).text( icon + ' ' ).append(
+					const langs = lang.split( ',' );
+					const langList = langs.join( ', ' );
+					const title = icon + ' (' + langList + ')';
+					const $label = $( '<span>' ).text( icon + ' ' ).append(
 						$( '<small>' ).text( '(' + langList + ')' )
 					);
-					var iconWidgetLang = new OO.ui.IconWidget( {
+					const iconWidgetLang = new OO.ui.IconWidget( {
 						icon: icon,
 						title: title
 					} );
@@ -90,7 +90,7 @@ Demo.static.pages.icons = function ( demo ) {
 		return iconsFieldset;
 	} );
 
-	var selector = new OO.ui.ButtonSelectWidget( {
+	const selector = new OO.ui.ButtonSelectWidget( {
 		items: [
 			new OO.ui.ButtonOptionWidget( {
 				label: 'None',

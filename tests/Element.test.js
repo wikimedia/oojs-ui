@@ -5,7 +5,7 @@ QUnit.module( 'Element', {
 		document.body.appendChild( this.fixture );
 
 		this.makeFrame = function ( src, onload ) {
-			var frame = document.createElement( 'iframe' );
+			const frame = document.createElement( 'iframe' );
 			frame.onload = onload;
 			frame.src = src;
 			this.fixture.appendChild( frame );
@@ -19,7 +19,7 @@ QUnit.module( 'Element', {
 } );
 
 QUnit.test( 'static.infuse', function ( assert ) {
-	var
+	const
 		$textInputWidget = $( $.parseHTML( '<div aria-disabled=\'false\' id=\'ooui-php-1\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div>' ) ),
 		$unknownTypeWidget = $( $.parseHTML( '<div data-ooui=\'{"_":"Array"}\'></div>' ) ),
 		$nonExistentTypeWidget = $( $.parseHTML( '<div data-ooui=\'{"_":"FOO.bar.FakeWidget"}\'></div>' ) ),
@@ -58,14 +58,16 @@ QUnit.test( 'static.infuse', function ( assert ) {
 } );
 
 QUnit.test( 'static.infuse (infusing already infused nodes)', function ( assert ) {
-	var a, b, fixture = this.fixture;
+	let a, b;
+
+	const fixture = this.fixture;
 
 	function reset() {
 		// ( new OOUI\FieldLayout(
 		//     new OOUI\ButtonWidget( [ 'id' => 'button' ] ),
 		//     [ 'id' => 'field' ]
 		// ) )->setInfusable( true )
-		var html = '<div id=\'field\' class=\'oo-ui-layout oo-ui-fieldLayout oo-ui-fieldLayout-align-left\' data-ooui=\'{"_":"OO.ui.FieldLayout","fieldWidget":{"tag":"button"},"align":"left","errors":[],"notices":[],"$overlay":true}\'><div class=\'oo-ui-fieldLayout-body\'><span class=\'oo-ui-fieldLayout-header\'><label class=\'oo-ui-labelElement-label\'></label></span><span class=\'oo-ui-fieldLayout-field\'><span id=\'button\' aria-disabled=\'false\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-buttonElement oo-ui-buttonElement-framed oo-ui-buttonWidget\' data-ooui=\'{"_":"OO.ui.ButtonWidget"}\'><a role=\'button\' tabindex=\'0\' aria-disabled=\'false\' rel=\'nofollow\' class=\'oo-ui-buttonElement-button\'><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-labelElement-label\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></a></span></span></div></div>';
+		const html = '<div id=\'field\' class=\'oo-ui-layout oo-ui-fieldLayout oo-ui-fieldLayout-align-left\' data-ooui=\'{"_":"OO.ui.FieldLayout","fieldWidget":{"tag":"button"},"align":"left","errors":[],"notices":[],"$overlay":true}\'><div class=\'oo-ui-fieldLayout-body\'><span class=\'oo-ui-fieldLayout-header\'><label class=\'oo-ui-labelElement-label\'></label></span><span class=\'oo-ui-fieldLayout-field\'><span id=\'button\' aria-disabled=\'false\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-buttonElement oo-ui-buttonElement-framed oo-ui-buttonWidget\' data-ooui=\'{"_":"OO.ui.ButtonWidget"}\'><a role=\'button\' tabindex=\'0\' aria-disabled=\'false\' rel=\'nofollow\' class=\'oo-ui-buttonElement-button\'><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-labelElement-label\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></a></span></span></div></div>';
 		$( fixture ).empty().append( html );
 	}
 
@@ -100,7 +102,7 @@ QUnit.test( 'static.infuse (infusing already infused nodes)', function ( assert 
 } );
 
 QUnit.test( 'static.getClosestScrollableContainer', function ( assert ) {
-	var fixture = this.fixture,
+	const fixture = this.fixture,
 		div = document.createElement( 'div' ),
 		getRootScrollableElement = OO.ui.Element.static.getRootScrollableElement;
 
@@ -109,12 +111,12 @@ QUnit.test( 'static.getClosestScrollableContainer', function ( assert ) {
 	// Chrome<=60: <body> is root scrollable
 	// Chrome>60, Firefox: <html> is root scrollable
 	[ 'body', 'documentElement' ].forEach( function ( root ) {
-		var rootElement = document[ root ];
+		const rootElement = document[ root ];
 		OO.ui.Element.static.getRootScrollableElement = function () {
 			return rootElement;
 		};
 		[ 'scroll', 'visible' ].forEach( function ( overflow ) {
-			var msg = 'root=' + root + ', body overflow=' + overflow;
+			const msg = 'root=' + root + ', body overflow=' + overflow;
 			document.body.style.overflowY = overflow;
 			assert.strictEqual(
 				OO.ui.Element.static.getClosestScrollableContainer( fixture ),
@@ -155,8 +157,7 @@ QUnit.test( 'static.getClosestScrollableContainer', function ( assert ) {
 } );
 
 QUnit.test( 'static.getDocument', function ( assert ) {
-	var frameDoc, frameEl, frameDiv,
-		done = assert.async( 2 ),
+	const done = assert.async( 2 ),
 		el = this.fixture,
 		div = document.createElement( 'div' ),
 		$el = $( this.fixture ),
@@ -177,10 +178,10 @@ QUnit.test( 'static.getDocument', function ( assert ) {
 	} );
 
 	// 'about:blank' is always considered same-origin
-	frameDoc = this.makeFrame( 'about:blank' );
-	frameEl = frameDoc.createElement( 'span' );
+	const frameDoc = this.makeFrame( 'about:blank' );
+	const frameEl = frameDoc.createElement( 'span' );
 	frameDoc.documentElement.appendChild( frameEl );
-	frameDiv = frameDoc.createElement( 'div' );
+	const frameDiv = frameDoc.createElement( 'div' );
 
 	assert.strictEqual( OO.ui.Element.static.getDocument( $el ), doc, 'jQuery' );
 	assert.strictEqual( OO.ui.Element.static.getDocument( $div ), doc, 'jQuery (detached)' );
@@ -199,9 +200,7 @@ QUnit.test( 'static.getDocument', function ( assert ) {
 } );
 
 QUnit.test( 'getElementDocument', function ( assert ) {
-	var el, doc;
-
-	doc = document;
-	el = new OO.ui.Element();
+	const doc = document;
+	const el = new OO.ui.Element();
 	assert.strictEqual( el.getElementDocument(), doc );
 } );

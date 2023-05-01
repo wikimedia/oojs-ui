@@ -22,9 +22,9 @@
  *
  *     @example
  *     // Example of a ListToolGroup
- *     var toolFactory = new OO.ui.ToolFactory();
- *     var toolGroupFactory = new OO.ui.ToolGroupFactory();
- *     var toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
+ *     const toolFactory = new OO.ui.ToolFactory();
+ *     const toolGroupFactory = new OO.ui.ToolGroupFactory();
+ *     const toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
  *
  *     // Configure and register two tools
  *     function SettingsTool() {
@@ -67,7 +67,7 @@
  *     ] );
  *
  *     // Create some UI around the toolbar and place it in the document
- *     var frame = new OO.ui.PanelLayout( {
+ *     const frame = new OO.ui.PanelLayout( {
  *         expanded: false,
  *         framed: true
  *     } );
@@ -142,7 +142,7 @@ OO.ui.ListToolGroup.static.name = 'list';
 OO.ui.ListToolGroup.prototype.populate = function () {
 	OO.ui.ListToolGroup.super.prototype.populate.call( this );
 
-	var allowCollapse = [];
+	let allowCollapse = [];
 	// Update the list of collapsible tools
 	if ( this.allowCollapse !== undefined ) {
 		allowCollapse = this.allowCollapse;
@@ -151,7 +151,7 @@ OO.ui.ListToolGroup.prototype.populate = function () {
 	}
 
 	this.collapsibleTools = [];
-	for ( var i = 0, len = allowCollapse.length; i < len; i++ ) {
+	for ( let i = 0, len = allowCollapse.length; i < len; i++ ) {
 		if ( this.tools[ allowCollapse[ i ] ] !== undefined ) {
 			this.collapsibleTools.push( this.tools[ allowCollapse[ i ] ] );
 		}
@@ -171,7 +171,7 @@ OO.ui.ListToolGroup.prototype.populate = function () {
  */
 OO.ui.ListToolGroup.prototype.getExpandCollapseTool = function () {
 	if ( this.expandCollapseTool === undefined ) {
-		var ExpandCollapseTool = function () {
+		const ExpandCollapseTool = function () {
 			ExpandCollapseTool.super.apply( this, arguments );
 		};
 
@@ -215,14 +215,14 @@ OO.ui.ListToolGroup.prototype.onMouseKeyUp = function ( e ) {
 };
 
 OO.ui.ListToolGroup.prototype.updateCollapsibleState = function () {
-	var inverted = this.toolbar.position === 'bottom',
+	const inverted = this.toolbar.position === 'bottom',
 		icon = this.expanded === inverted ? 'expand' : 'collapse';
 
 	this.getExpandCollapseTool()
 		.setIcon( icon )
 		.setTitle( OO.ui.msg( this.expanded ? 'ooui-toolgroup-collapse' : 'ooui-toolgroup-expand' ) );
 
-	for ( var i = 0; i < this.collapsibleTools.length; i++ ) {
+	for ( let i = 0; i < this.collapsibleTools.length; i++ ) {
 		this.collapsibleTools[ i ].toggle( this.expanded );
 	}
 

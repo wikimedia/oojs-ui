@@ -10,7 +10,7 @@
  *
  *     @example
  *     // An example of selected, unselected, and disabled checkbox inputs.
- *     var checkbox1 = new OO.ui.CheckboxInputWidget( {
+ *     const checkbox1 = new OO.ui.CheckboxInputWidget( {
  *             value: 'a',
  *              selected: true
  *         } ),
@@ -97,7 +97,7 @@ OO.ui.CheckboxInputWidget.static.tagName = 'span';
  * @inheritdoc
  */
 OO.ui.CheckboxInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.CheckboxInputWidget.super.static.gatherPreInfuseState( node, config );
+	const state = OO.ui.CheckboxInputWidget.super.static.gatherPreInfuseState( node, config );
 	if ( config.$input ) {
 		state.checked = config.$input.prop( 'checked' );
 	}
@@ -118,7 +118,7 @@ OO.ui.CheckboxInputWidget.prototype.getInputElement = function () {
  * @inheritdoc
  */
 OO.ui.CheckboxInputWidget.prototype.onEdit = function () {
-	var widget = this;
+	const widget = this;
 	if ( !this.isDisabled() ) {
 		// Allow the stack to clear so the value will be updated
 		setTimeout( function () {
@@ -164,7 +164,7 @@ OO.ui.CheckboxInputWidget.prototype.setSelected = function ( state, internal ) {
 OO.ui.CheckboxInputWidget.prototype.isSelected = function () {
 	// Resynchronize our internal data with DOM data. Other scripts executing on the page can modify
 	// it, and we won't know unless they're kind enough to trigger a 'change' event.
-	var selected = this.$input.prop( 'checked' );
+	const selected = this.$input.prop( 'checked' );
 	if ( this.selected !== selected ) {
 		this.setSelected( selected );
 	}
@@ -200,7 +200,7 @@ OO.ui.CheckboxInputWidget.prototype.setIndeterminate = function ( state, interna
 OO.ui.CheckboxInputWidget.prototype.isIndeterminate = function () {
 	// Resynchronize our internal data with DOM data. Other scripts executing on the page can modify
 	// it, and we won't know unless they're kind enough to trigger a 'change' event.
-	var indeterminate = this.$input.prop( 'indeterminate' );
+	const indeterminate = this.$input.prop( 'indeterminate' );
 	if ( this.indeterminate !== indeterminate ) {
 		this.setIndeterminate( indeterminate );
 	}

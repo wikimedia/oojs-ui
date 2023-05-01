@@ -29,7 +29,7 @@ OO.initClass( OO.ui.mixin.RequestManager );
  *  promise may not be rejected, depending on what jQuery feels like doing.
  */
 OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
-	var widget = this,
+	const widget = this,
 		value = this.getRequestQuery(),
 		deferred = $.Deferred();
 
@@ -41,7 +41,7 @@ OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 			this.pushPending();
 		}
 		this.requestQuery = value;
-		var ourRequest = this.requestRequest = this.getRequest();
+		const ourRequest = this.requestRequest = this.getRequest();
 		ourRequest
 			.always( function () {
 				// We need to pop pending even if this is an old request, otherwise
@@ -84,7 +84,7 @@ OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
  * @private
  */
 OO.ui.mixin.RequestManager.prototype.abortRequest = function () {
-	var oldRequest = this.requestRequest;
+	const oldRequest = this.requestRequest;
 	if ( oldRequest ) {
 		// First unset this.requestRequest to the fail handler will notice
 		// that the request is no longer current

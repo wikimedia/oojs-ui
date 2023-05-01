@@ -10,7 +10,7 @@
  *
  *     @example
  *     // A file select input widget.
- *     var selectFile = new OO.ui.SelectFileInputWidget();
+ *     const selectFile = new OO.ui.SelectFileInputWidget();
  *     $( document.body ).append( selectFile.$element );
  *
  * @class
@@ -179,7 +179,7 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 
 	this.connect( this, { change: 'updateUI' } );
 	if ( config.droppable ) {
-		var dragHandler = this.onDragEnterOrOver.bind( this );
+		const dragHandler = this.onDragEnterOrOver.bind( this );
 		this.$element.on( {
 			dragenter: dragHandler,
 			dragover: dragHandler,
@@ -263,7 +263,7 @@ OO.ui.SelectFileInputWidget.prototype.setValue = function ( files ) {
 
 	if ( this.canSetFiles ) {
 		// Convert File[] array back to FileList for setting DOM value
-		var dataTransfer = new DataTransfer();
+		const dataTransfer = new DataTransfer();
 		Array.prototype.forEach.call( this.currentFiles || [], function ( file ) {
 			dataTransfer.items.add( file );
 		} );
@@ -299,7 +299,7 @@ OO.ui.SelectFileInputWidget.prototype.getFilename = function () {
  * @param {jQuery.Event} e
  */
 OO.ui.SelectFileInputWidget.prototype.onFileSelected = function ( e ) {
-	var files = this.filterFiles( e.target.files || [] );
+	const files = this.filterFiles( e.target.files || [] );
 	this.setValue( files );
 };
 
@@ -367,7 +367,7 @@ OO.ui.SelectFileInputWidget.prototype.updateUI = function () {
  * @return {jQuery.Promise} Promise resolves with the image URL after it has loaded
  */
 OO.ui.SelectFileInputWidget.prototype.loadAndGetImageUrl = function ( file ) {
-	var deferred = $.Deferred(),
+	const deferred = $.Deferred(),
 		reader = new FileReader();
 
 	if (
@@ -375,7 +375,7 @@ OO.ui.SelectFileInputWidget.prototype.loadAndGetImageUrl = function ( file ) {
 		file.size < this.thumbnailSizeLimit * 1024 * 1024
 	) {
 		reader.onload = function ( event ) {
-			var img = document.createElement( 'img' );
+			const img = document.createElement( 'img' );
 			img.addEventListener( 'load', function () {
 				if (
 					img.naturalWidth === 0 ||
@@ -405,17 +405,17 @@ OO.ui.SelectFileInputWidget.prototype.loadAndGetImageUrl = function ( file ) {
  * @return {File[]} Filter files
  */
 OO.ui.SelectFileInputWidget.prototype.filterFiles = function ( files ) {
-	var accept = this.accept;
+	const accept = this.accept;
 
 	function mimeAllowed( file ) {
-		var mimeType = file.type;
+		const mimeType = file.type;
 
 		if ( !accept || !mimeType ) {
 			return true;
 		}
 
-		for ( var i = 0; i < accept.length; i++ ) {
-			var mimeTest = accept[ i ];
+		for ( let i = 0; i < accept.length; i++ ) {
+			let mimeTest = accept[ i ];
 			if ( mimeTest === mimeType ) {
 				return true;
 			} else if ( mimeTest.slice( -2 ) === '/*' ) {
@@ -505,8 +505,9 @@ OO.ui.SelectFileInputWidget.prototype.onDropTargetClick = function () {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.SelectFileInputWidget.prototype.onDragEnterOrOver = function ( e ) {
-	var hasDroppableFile = false,
-		dt = e.originalEvent.dataTransfer;
+	let hasDroppableFile = false;
+
+	const dt = e.originalEvent.dataTransfer;
 
 	e.preventDefault();
 	e.stopPropagation();
@@ -523,8 +524,8 @@ OO.ui.SelectFileInputWidget.prototype.onDragEnterOrOver = function ( e ) {
 
 	// DataTransferItem and File both have a type property, but in Chrome files
 	// have no information at this point.
-	var itemsOrFiles = dt.items || dt.files;
-	var hasFiles = !!( itemsOrFiles && itemsOrFiles.length );
+	const itemsOrFiles = dt.items || dt.files;
+	const hasFiles = !!( itemsOrFiles && itemsOrFiles.length );
 	if ( hasFiles ) {
 		if ( this.filterFiles( itemsOrFiles ).length ) {
 			hasDroppableFile = true;
@@ -568,7 +569,7 @@ OO.ui.SelectFileInputWidget.prototype.onDragLeave = function () {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.SelectFileInputWidget.prototype.onDrop = function ( e ) {
-	var dt = e.originalEvent.dataTransfer;
+	const dt = e.originalEvent.dataTransfer;
 
 	e.preventDefault();
 	e.stopPropagation();
@@ -582,7 +583,7 @@ OO.ui.SelectFileInputWidget.prototype.onDrop = function ( e ) {
 		return false;
 	}
 
-	var files = this.filterFiles( dt.files || [] );
+	const files = this.filterFiles( dt.files || [] );
 	this.setValue( files );
 
 	return false;

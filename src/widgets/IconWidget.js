@@ -8,7 +8,7 @@
  *
  *     @example
  *     // An IconWidget with a label via LabelWidget.
- *     var myIcon = new OO.ui.IconWidget( {
+ *     const myIcon = new OO.ui.IconWidget( {
  *             icon: 'help',
  *             title: 'Help'
  *          } ),

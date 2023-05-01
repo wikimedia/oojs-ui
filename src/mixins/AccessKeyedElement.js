@@ -7,7 +7,7 @@
  *     @example
  *     // AccessKeyedElement provides an `accesskey` attribute to the
  *     // ButtonWidget class.
- *     var button = new OO.ui.ButtonWidget( {
+ *     const button = new OO.ui.ButtonWidget( {
  *         label: 'Button with access key',
  *         accessKey: 'k'
  *     } );
@@ -135,7 +135,7 @@ OO.ui.mixin.AccessKeyedElement.prototype.formatTitleWithAccessKey = function ( t
 	}
 	// Use jquery.accessKeyLabel if available to show modifiers, otherwise just display the
 	// single key.
-	var accessKey;
+	let accessKey;
 	if ( $.fn.updateTooltipAccessKeys && $.fn.updateTooltipAccessKeys.getAccessKeyLabel ) {
 		accessKey = $.fn.updateTooltipAccessKeys.getAccessKeyLabel( this.$accessKeyed[ 0 ] );
 	} else {

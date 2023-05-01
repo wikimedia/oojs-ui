@@ -6,7 +6,7 @@
  *     @example
  *     // TitledElement provides a `title` attribute to the
  *     // ButtonWidget class.
- *     var button = new OO.ui.ButtonWidget( {
+ *     const button = new OO.ui.ButtonWidget( {
  *         label: 'Button with Title',
  *         title: 'I am a button'
  *     } );
@@ -34,7 +34,7 @@ OO.ui.mixin.TitledElement = function OoUiMixinTitledElement( config ) {
 	this.title = null;
 
 	// Initialization
-	var title = config.title !== undefined ? config.title : this.constructor.static.title;
+	let title = config.title !== undefined ? config.title : this.constructor.static.title;
 	if (
 		title === null &&
 		config.invisibleLabel &&
@@ -114,7 +114,7 @@ OO.ui.mixin.TitledElement.prototype.setTitle = function ( title ) {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TitledElement.prototype.updateTitle = function () {
-	var title = this.getTitle();
+	let title = this.getTitle();
 	if ( this.$titled ) {
 		if ( title !== null ) {
 			// Only if this is an AccessKeyedElement

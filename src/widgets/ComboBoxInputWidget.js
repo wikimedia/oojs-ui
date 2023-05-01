@@ -21,7 +21,7 @@
  *
  *     @example
  *     // A ComboBoxInputWidget.
- *     var comboBox = new OO.ui.ComboBoxInputWidget( {
+ *     const comboBox = new OO.ui.ComboBoxInputWidget( {
  *         value: 'Option 1',
  *         options: [
  *             { data: 'Option 1' },
@@ -32,7 +32,7 @@
  *     $( document.body ).append( comboBox.$element );
  *
  *     @example <caption>A ComboBoxInputWidget can have additional option labels:</caption>
- *     var comboBox = new OO.ui.ComboBoxInputWidget( {
+ *     const comboBox = new OO.ui.ComboBoxInputWidget( {
  *         value: 'Option 1',
  *         options: [
  *             {
@@ -188,7 +188,7 @@ OO.ui.ComboBoxInputWidget.prototype.onEdit = function ( event ) {
  * @param {string} value New value
  */
 OO.ui.ComboBoxInputWidget.prototype.onInputChange = function ( value ) {
-	var match = this.menu.findItemFromData( value );
+	const match = this.menu.findItemFromData( value );
 
 	this.menu.selectItem( match );
 	if ( this.menu.findHighlightedItem() ) {
@@ -233,7 +233,7 @@ OO.ui.ComboBoxInputWidget.prototype.onMenuChoose = function ( item ) {
  * @private
  */
 OO.ui.ComboBoxInputWidget.prototype.onMenuItemsChange = function () {
-	var match = this.menu.findItemFromData( this.getValue() );
+	const match = this.menu.findItemFromData( this.getValue() );
 	this.menu.selectItem( match );
 	if ( this.menu.findHighlightedItem() ) {
 		this.menu.highlightItem( match );
@@ -259,7 +259,7 @@ OO.ui.ComboBoxInputWidget.prototype.onMenuToggle = function ( isVisible ) {
  * @return {OO.ui.ComboBoxInputWidget} The widget, for chaining
  */
 OO.ui.ComboBoxInputWidget.prototype.updateControlsDisabled = function () {
-	var disabled = this.isDisabled() || this.isReadOnly();
+	const disabled = this.isDisabled() || this.isReadOnly();
 	if ( this.dropdownButton ) {
 		this.dropdownButton.setDisabled( disabled );
 	}

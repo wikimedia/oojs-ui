@@ -9,7 +9,7 @@
  *
  *     @example
  *     // A PopupWidget.
- *     var popup = new OO.ui.PopupWidget( {
+ *     const popup = new OO.ui.PopupWidget( {
  *         $content: $( '<p>Hi there!</p>' ),
  *         padded: true,
  *         width: 300
@@ -356,7 +356,7 @@ OO.ui.PopupWidget.prototype.hasAnchor = function () {
 OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 	show = show === undefined ? !this.isVisible() : !!show;
 
-	var change = show !== this.isVisible();
+	const change = show !== this.isVisible();
 
 	if ( show && !this.warnedUnattached && !this.isElementAttached() ) {
 		OO.ui.warnDeprecation( 'PopupWidget#toggle: Before calling this method, the popup must be attached to the DOM.' );
@@ -380,8 +380,8 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 		this.togglePositioning( show && !!this.$floatableContainer );
 
 		// Find the first and last focusable element in the popup widget
-		var $lastFocusableElement = OO.ui.findFocusable( this.$element, true );
-		var $firstFocusableElement = OO.ui.findFocusable( this.$element, false );
+		const $lastFocusableElement = OO.ui.findFocusable( this.$element, true );
+		const $firstFocusableElement = OO.ui.findFocusable( this.$element, false );
 
 		if ( show ) {
 			if ( this.autoClose ) {
@@ -404,13 +404,13 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 					if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
 						// If opening the popup in the normal direction causes it to be clipped,
 						// open in the opposite one instead
-						var normalHeight = this.$element.height();
+						const normalHeight = this.$element.height();
 						this.isAutoFlipped = !this.isAutoFlipped;
 						this.position();
 						if ( this.isClippedVertically() || this.isFloatableOutOfView() ) {
 							// If that also causes it to be clipped, open in whichever direction
 							// we have more space
-							var oppositeHeight = this.$element.height();
+							const oppositeHeight = this.$element.height();
 							if ( oppositeHeight < normalHeight ) {
 								this.isAutoFlipped = !this.isAutoFlipped;
 								this.position();
@@ -422,7 +422,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 					if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
 						// If opening the popup in the normal direction causes it to be clipped,
 						// open in the opposite one instead
-						var normalWidth = this.$element.width();
+						const normalWidth = this.$element.width();
 						this.isAutoFlipped = !this.isAutoFlipped;
 						// Due to T180173 horizontally clipped PopupWidgets have messed up
 						// dimensions, which causes positioning to be off. Toggle clipping back and
@@ -433,7 +433,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 						if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
 							// If that also causes it to be clipped, open in whichever direction
 							// we have more space
-							var oppositeWidth = this.$element.width();
+							const oppositeWidth = this.$element.width();
 							if ( oppositeWidth < normalWidth ) {
 								this.isAutoFlipped = !this.isAutoFlipped;
 								// Due to T180173, horizontally clipped PopupWidgets have messed up
@@ -500,7 +500,7 @@ OO.ui.PopupWidget.prototype.setSize = function ( width, height, transition ) {
  * @chainable
  */
 OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
-	var widget = this;
+	const widget = this;
 
 	// Prevent transition from being interrupted
 	clearTimeout( this.transitionTimeout );
@@ -526,7 +526,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
  * @inheritdoc
  */
 OO.ui.PopupWidget.prototype.computePosition = function () {
-	var popupPos = {},
+	const popupPos = {},
 		anchorCss = { left: '', right: '', top: '', bottom: '' },
 		popupPositionOppositeMap = {
 			above: 'below',
@@ -565,7 +565,7 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 		// Lazy-initialize $container if not specified in constructor
 		this.$container = $( this.getClosestScrollableElementContainer() );
 	}
-	var direction = this.$container.css( 'direction' );
+	const direction = this.$container.css( 'direction' );
 
 	// Set height and width before we do anything else, since it might cause our measurements
 	// to change (e.g. due to scrollbars appearing or disappearing), and it also affects centering
@@ -576,38 +576,38 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 		this.height !== null ? this.height - ( this.padded ? 10 : 0 ) : 'auto'
 	);
 
-	var align = alignMap[ direction ][ this.align ] || this.align;
-	var popupPosition = this.popupPosition;
+	const align = alignMap[ direction ][ this.align ] || this.align;
+	let popupPosition = this.popupPosition;
 	if ( this.isAutoFlipped ) {
 		popupPosition = popupPositionOppositeMap[ popupPosition ];
 	}
 
 	// If the popup is positioned before or after, then the anchor positioning is vertical,
 	// otherwise horizontal
-	var vertical = popupPosition === 'before' || popupPosition === 'after';
-	var start = vertical ? 'top' : ( direction === 'rtl' ? 'right' : 'left' );
-	var end = vertical ? 'bottom' : ( direction === 'rtl' ? 'left' : 'right' );
-	var near = vertical ? 'top' : 'left';
-	var far = vertical ? 'bottom' : 'right';
-	var sizeProp = vertical ? 'Height' : 'Width';
-	var popupSize = vertical ? this.$popup.height() : this.$popup.width();
+	const vertical = popupPosition === 'before' || popupPosition === 'after';
+	const start = vertical ? 'top' : ( direction === 'rtl' ? 'right' : 'left' );
+	const end = vertical ? 'bottom' : ( direction === 'rtl' ? 'left' : 'right' );
+	const near = vertical ? 'top' : 'left';
+	const far = vertical ? 'bottom' : 'right';
+	const sizeProp = vertical ? 'Height' : 'Width';
+	const popupSize = vertical ? this.$popup.height() : this.$popup.width();
 
 	this.setAnchorEdge( anchorEdgeMap[ popupPosition ] );
 	this.horizontalPosition = vertical ? popupPosition : hPosMap[ align ];
 	this.verticalPosition = vertical ? vPosMap[ align ] : popupPosition;
 
 	// Parent method
-	var parentPosition = OO.ui.mixin.FloatableElement.prototype.computePosition.call( this );
+	const parentPosition = OO.ui.mixin.FloatableElement.prototype.computePosition.call( this );
 	// Find out which property FloatableElement used for positioning, and adjust that value
-	var positionProp = vertical ?
+	const positionProp = vertical ?
 		( parentPosition.top !== '' ? 'top' : 'bottom' ) :
 		( parentPosition.left !== '' ? 'left' : 'right' );
 
 	// Figure out where the near and far edges of the popup and $floatableContainer are
-	var floatablePos = this.$floatableContainer.offset();
+	const floatablePos = this.$floatableContainer.offset();
 	floatablePos[ far ] = floatablePos[ near ] + this.$floatableContainer[ 'outer' + sizeProp ]();
 	// Measure where the offsetParent is and compute our position based on that and parentPosition
-	var offsetParentPos = this.$element.offsetParent()[ 0 ] === document.documentElement ?
+	const offsetParentPos = this.$element.offsetParent()[ 0 ] === document.documentElement ?
 		{ top: 0, left: 0 } :
 		this.$element.offsetParent().offset();
 
@@ -620,18 +620,18 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 		popupPos[ near ] = popupPos[ far ] - popupSize;
 	}
 
-	var anchorOffset, positionAdjustment;
+	let anchorOffset, positionAdjustment;
 	if ( this.anchored ) {
 		// Position the anchor (which is positioned relative to the popup) to point to
 		// $floatableContainer
-		var anchorPos = ( floatablePos[ start ] + floatablePos[ end ] ) / 2;
+		const anchorPos = ( floatablePos[ start ] + floatablePos[ end ] ) / 2;
 		anchorOffset = ( start === far ? -1 : 1 ) * ( anchorPos - popupPos[ start ] );
 
 		// If the anchor is less than 2*anchorSize from either edge, move the popup to make more
 		// space this.$anchor.width()/height() returns 0 because of the CSS trickery we use, so use
 		// scrollWidth/Height
-		var anchorSize = this.$anchor[ 0 ][ 'scroll' + sizeProp ];
-		var anchorMargin = parseFloat( this.$anchor.css( 'margin-' + start ) );
+		const anchorSize = this.$anchor[ 0 ][ 'scroll' + sizeProp ];
+		const anchorMargin = parseFloat( this.$anchor.css( 'margin-' + start ) );
 		if ( anchorOffset + anchorMargin < 2 * anchorSize ) {
 			// Not enough space for the anchor on the start side; pull the popup startwards
 			positionAdjustment = ( positionProp === start ? -1 : 1 ) *
@@ -648,12 +648,12 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
 	}
 
 	// Check if the popup will go beyond the edge of this.$container
-	var containerPos = this.$container[ 0 ] === document.documentElement ?
+	const containerPos = this.$container[ 0 ] === document.documentElement ?
 		{ top: 0, left: 0 } :
 		this.$container.offset();
 	containerPos[ far ] = containerPos[ near ] + this.$container[ 'inner' + sizeProp ]();
 	if ( this.$container[ 0 ] === document.documentElement ) {
-		var viewportSpacing = OO.ui.getViewportSpacing();
+		const viewportSpacing = OO.ui.getViewportSpacing();
 		containerPos[ near ] += viewportSpacing[ near ];
 		containerPos[ far ] -= viewportSpacing[ far ];
 	}
@@ -766,7 +766,7 @@ OO.ui.PopupWidget.prototype.setAutoCloseIgnore = function ( $autoCloseIgnore ) {
  * @return {string} The ID of the body element
  */
 OO.ui.PopupWidget.prototype.getBodyId = function () {
-	var id = this.$body.attr( 'id' );
+	let id = this.$body.attr( 'id' );
 	if ( id === undefined ) {
 		id = OO.ui.generateElementId();
 		this.$body.attr( 'id', id );

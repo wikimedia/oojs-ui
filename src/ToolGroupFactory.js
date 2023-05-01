@@ -22,10 +22,10 @@ OO.ui.ToolGroupFactory = function OoUiToolGroupFactory() {
 	// Parent constructor
 	OO.Factory.call( this );
 
-	var defaultClasses = this.constructor.static.getDefaultClasses();
+	const defaultClasses = this.constructor.static.getDefaultClasses();
 
 	// Register default toolgroups
-	for ( var i = 0, l = defaultClasses.length; i < l; i++ ) {
+	for ( let i = 0, l = defaultClasses.length; i < l; i++ ) {
 		this.register( defaultClasses[ i ] );
 	}
 };

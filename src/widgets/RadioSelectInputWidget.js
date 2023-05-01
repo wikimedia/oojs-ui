@@ -10,7 +10,7 @@
  *
  *     @example
  *     // A RadioSelectInputWidget with three options
- *     var radioSelectInput = new OO.ui.RadioSelectInputWidget( {
+ *     const radioSelectInput = new OO.ui.RadioSelectInputWidget( {
  *         options: [
  *             { data: 'a', label: 'First' },
  *             { data: 'b', label: 'Second'},
@@ -61,7 +61,7 @@ OO.inheritClass( OO.ui.RadioSelectInputWidget, OO.ui.InputWidget );
  * @inheritdoc
  */
 OO.ui.RadioSelectInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.RadioSelectInputWidget.super.static.gatherPreInfuseState( node, config );
+	const state = OO.ui.RadioSelectInputWidget.super.static.gatherPreInfuseState( node, config );
 	state.value = $( node ).find( '.oo-ui-radioInputWidget .oo-ui-inputWidget-input:checked' ).val();
 	return state;
 };
@@ -104,7 +104,7 @@ OO.ui.RadioSelectInputWidget.prototype.onMenuSelect = function ( item ) {
 OO.ui.RadioSelectInputWidget.prototype.setValue = function ( value ) {
 	value = this.cleanUpValue( value );
 	// Only allow setting values that are actually present in the dropdown
-	var selected = this.radioSelectWidget.findItemFromData( value ) ||
+	const selected = this.radioSelectWidget.findItemFromData( value ) ||
 		this.radioSelectWidget.findFirstSelectableItem();
 	this.radioSelectWidget.selectItem( selected );
 	value = selected ? selected.getData() : '';
@@ -129,7 +129,7 @@ OO.ui.RadioSelectInputWidget.prototype.setDisabled = function ( state ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.RadioSelectInputWidget.prototype.setOptions = function ( options ) {
-	var value = this.getValue();
+	const value = this.getValue();
 
 	this.setOptionsData( options );
 
@@ -150,12 +150,12 @@ OO.ui.RadioSelectInputWidget.prototype.setOptions = function ( options ) {
  * @private
  */
 OO.ui.RadioSelectInputWidget.prototype.setOptionsData = function ( options ) {
-	var widget = this;
+	const widget = this;
 
 	this.radioSelectWidget
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
-			var optValue = widget.cleanUpValue( opt.data );
+			const optValue = widget.cleanUpValue( opt.data );
 			return new OO.ui.RadioOptionWidget( {
 				data: optValue,
 				label: opt.label !== undefined ? opt.label : optValue

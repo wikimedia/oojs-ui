@@ -1,6 +1,8 @@
 ( function () {
 	// Generate some tests based on the test suite data and HTML from PHP version.
-	var theme, klassName, i, outputs = {};
+	let theme, klassName, i;
+
+	const outputs = {};
 
 	for ( theme in { ApexTheme: 1, WikimediaUITheme: 1 } ) {
 		outputs[ theme ] = {};

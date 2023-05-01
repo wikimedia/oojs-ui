@@ -19,10 +19,10 @@
  *
  *     @example
  *     // Example: Creating and opening a message dialog window.
- *     var messageDialog = new OO.ui.MessageDialog();
+ *     const messageDialog = new OO.ui.MessageDialog();
  *
  *     // Create and append a window manager.
- *     var windowManager = new OO.ui.WindowManager();
+ *     const windowManager = new OO.ui.WindowManager();
  *     $( document.body ).append( windowManager.$element );
  *     windowManager.addWindows( [ messageDialog ] );
  *     // Open the window.
@@ -171,7 +171,7 @@ OO.ui.MessageDialog.prototype.getReadyProcess = function ( data ) {
 	return OO.ui.MessageDialog.super.prototype.getReadyProcess.call( this, data )
 		.next( function () {
 			// Focus the primary action button
-			var actions = this.actions.get();
+			let actions = this.actions.get();
 			actions = actions.filter( function ( action ) {
 				return action.getFlags().indexOf( 'primary' ) > -1;
 			} );
@@ -185,14 +185,14 @@ OO.ui.MessageDialog.prototype.getReadyProcess = function ( data ) {
  * @inheritdoc
  */
 OO.ui.MessageDialog.prototype.getBodyHeight = function () {
-	var $scrollable = this.container.$element;
+	const $scrollable = this.container.$element;
 
-	var oldOverflow = $scrollable[ 0 ].style.overflow;
+	const oldOverflow = $scrollable[ 0 ].style.overflow;
 	$scrollable[ 0 ].style.overflow = 'hidden';
 
 	OO.ui.Element.static.reconsiderScrollbars( $scrollable[ 0 ] );
 
-	var bodyHeight = this.text.$element.outerHeight( true );
+	const bodyHeight = this.text.$element.outerHeight( true );
 	$scrollable[ 0 ].style.overflow = oldOverflow;
 
 	return bodyHeight;
@@ -202,7 +202,7 @@ OO.ui.MessageDialog.prototype.getBodyHeight = function () {
  * @inheritdoc
  */
 OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
-	var dialog = this,
+	const dialog = this,
 		$scrollable = this.container.$element;
 
 	// Parent method
@@ -211,7 +211,7 @@ OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
 	// Twiddle the overflow property, otherwise an unnecessary scrollbar will be produced.
 	// Need to do it after transition completes (250ms), add 50ms just in case.
 	setTimeout( function () {
-		var oldOverflow = $scrollable[ 0 ].style.overflow,
+		const oldOverflow = $scrollable[ 0 ].style.overflow,
 			activeElement = document.activeElement;
 
 		$scrollable[ 0 ].style.overflow = 'hidden';
@@ -280,14 +280,14 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
 	// Parent method
 	OO.ui.MessageDialog.super.prototype.attachActions.call( this );
 
-	var special = this.actions.getSpecial();
-	var others = this.actions.getOthers();
+	const special = this.actions.getSpecial();
+	const others = this.actions.getOthers();
 
 	if ( special.safe ) {
 		this.$actions.append( special.safe.$element );
 		special.safe.toggleFramed( true );
 	}
-	for ( var i = 0, len = others.length; i < len; i++ ) {
+	for ( let i = 0, len = others.length; i < len; i++ ) {
 		this.$actions.append( others[ i ].$element );
 		others[ i ].toggleFramed( true );
 	}
@@ -305,7 +305,7 @@ OO.ui.MessageDialog.prototype.attachActions = function () {
  * @private
  */
 OO.ui.MessageDialog.prototype.fitActions = function () {
-	var previous = this.verticalActionLayout;
+	const previous = this.verticalActionLayout;
 
 	// Detect clipping
 	this.toggleVerticalActionLayout( false );

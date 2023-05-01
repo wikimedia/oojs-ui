@@ -87,7 +87,7 @@ Demo.PopupButtonWidgetTest.prototype.initialize = function () {
 	this.$body.append( this.panel.$element );
 };
 Demo.PopupButtonWidgetTest.prototype.makeContents = function () {
-	var loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
+	const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 		'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E';
 	return $( [] )
 		.add( $( '<p>' ).text( loremIpsum ) )
@@ -95,7 +95,7 @@ Demo.PopupButtonWidgetTest.prototype.makeContents = function () {
 		.add( $( '<p>' ).text( loremIpsum ) );
 };
 Demo.PopupButtonWidgetTest.prototype.makeTable = function () {
-	var
+	const
 		dialog = this,
 		positions = [ 'above', 'below', 'before', 'after' ],
 		aligns = [ 'backwards', 'center', 'forwards' ];
@@ -111,7 +111,7 @@ Demo.PopupButtonWidgetTest.prototype.makeTable = function () {
 	} );
 };
 Demo.PopupButtonWidgetTest.prototype.getButton = function ( position, align ) {
-	var button = new OO.ui.PopupButtonWidget( {
+	const button = new OO.ui.PopupButtonWidget( {
 		$overlay: ( this.toggleOverlayWidget.getValue() ? this.$overlay : null ),
 		label: $( '<span>' ).append( position + '<br>' + align ),
 		popup: {
