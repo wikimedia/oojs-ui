@@ -34,16 +34,19 @@
 // gets preference over `@size-base` to prevent recursion.
 @size-base: ( unit( @min-size-base ) / @ooui-font-size-browser / @ooui-font-size-base ); // equals `2.5em`≈`32px`
 @size-base--small: ( 16 / @ooui-font-size-browser / @ooui-font-size-base );
+// FIXME: Remove with WikimediaUI Base consuming Codex tokens.
+@size-toggle-switch-grip: ( 20 / @ooui-font-size-browser / @ooui-font-size-base );
 
 // `min-size/-width/-height` values are defined in `px`, see T130691.
 @min-size-base--small: 16px;
 @min-size-button-tagitem-remove: 20px;
 @min-size-icon-small: 14px;
+// FIXME: Remove with WikimediaUI Base consuming Codex tokens.
+@min-size-toggle-switch-grip: 20px;
 @min-size-toolbar-popup-toolgroup-handle: 140px;
 @min-size-toolbar-narrow-popup-toolgroup-handle: 100px;
 @min-width-button-base: 44px;
 @min-width-button-combo-widget: 37px;
-@min-height-toggleswitch: 26px; // equals @size-toggleswitch-grip-min + 4px*2 distance top/bottom + 1px*2 border top/bottom
 @min-height-widget-base: @min-size-base;
 
 @size-anchor: 9px;
@@ -78,7 +81,6 @@
 @start-frameless-icon: ( 5 / @ooui-font-size-browser / @ooui-font-size-base );
 @start-fieldlayout-help-icon: ( 3 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `0.234375em`≈`3px`
 @start-tagmultiselect-input: ( 8 / @ooui-font-size-browser / @ooui-font-size-base ); // Same as `@padding-horizontal-tagitem`.
-@start-toggleswitch-grip: ( 5 / @ooui-font-size-browser / @ooui-font-size-base );
 @start-tool-icon: ( 11 / @ooui-font-size-browser / @ooui-font-size-base );
 @start-toolbar-narrow-tool-icon: ( 4 / @ooui-font-size-browser / @ooui-font-size-base );
 @end-tool-indicator: ( 8 / @ooui-font-size-browser / @ooui-font-size-base );
@@ -118,6 +120,8 @@
 
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
 @border-radius-progressbar: @height-progressbar-bar;
+// FIXME: Remove with WikimediaUI Base consuming Codex tokens.
+@border-radius-pill: 9999px;
 
 @padding-frameless: @padding-vertical-base @padding-horizontal-frameless;
 @padding-menu: ( @padding-vertical-base + @border-width-base ) @padding-horizontal-base;

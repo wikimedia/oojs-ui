@@ -1963,17 +1963,18 @@
 }
 
 .theme-oo-ui-toggleSwitchWidget() {
-	@travelDistance: 1.5em;
 	background-color: @background-color-framed;
-	width: @travelDistance + 2em;
-	min-height: @min-height-toggleswitch;
+	min-width: 48px;
+	width: 3.5em;
+	min-height: @min-size-base;
 	height: 2em;
 	border: @border-input-binary;
-	border-radius: 1em;
+	border-radius: @border-radius-pill;
 	.oo-ui-inline-spacing( @margin-end-widget );
 	transition-property: background-color, border-color;
 	transition-duration: @transition-duration-medium;
 
+	// Inner focus outline, set visible when toggled on further down.
 	&::before {
 		content: '';
 		display: block;
@@ -1982,22 +1983,27 @@
 		left: 1px;
 		bottom: 1px;
 		right: 1px;
-		border: 1px @border-style-base transparent;
-		border-radius: 1em;
+		border: @border-width-base @border-style-base transparent;
+		border-radius: @border-radius-pill;
 		z-index: 1;
 		transition-property: border-color;
 		transition-duration: @transition-duration-medium;
 	}
 
+	// The moving element of the switch.
 	&-grip {
-		top: @start-toggleswitch-grip;
-		min-width: @min-size-base--small;
-		width: @size-base--small;
-		min-height: @min-size-base--small;
-		height: @size-base--small;
-		border-radius: @size-base--small;
-		transition-property: background-color, left, margin-left;
+		// Position vertically centered with help of `transform` further down.
+		top: 50%;
+		min-width: @min-size-toggle-switch-grip;
+		width: @size-toggle-switch-grip;
+		min-height: @min-size-toggle-switch-grip;
+		height: @size-toggle-switch-grip;
+		border-radius: @border-radius-circle;
+		transition-property: background-color, border-color, transform;
 		transition-duration: @transition-duration-medium, @transition-duration-base, @transition-duration-base;
+		// Set starting position with `transform` and add 1px equivalent to x position.
+		// Divide height by 50% to center the grip vertically.
+		transform: translateX( ( 5px ) ) translateY( -50% );
 	}
 
 	&-glow {
@@ -2005,17 +2011,11 @@
 		display: none;
 	}
 
-	&.oo-ui-toggleWidget-off {
-		.oo-ui-toggleSwitchWidget-grip {
-			left: @start-toggleswitch-grip;
-			margin-left: 0;
-		}
-	}
-
 	&.oo-ui-toggleWidget-on {
 		.oo-ui-toggleSwitchWidget-grip {
-			left: @travelDistance + 0.4em;
-			margin-left: -2px;
+			// Move the grip to the right and add 1px equivalent to x position.
+			// Continue to divide height by 50% to center the grip.
+			transform: translateX( calc( 100% + 1px ) ) translateY( -50% );
 		}
 	}
 
