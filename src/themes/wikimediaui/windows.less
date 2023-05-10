@@ -115,16 +115,16 @@
 
 .theme-oo-ui-processDialog() {
 	&-content {
-		.oo-ui-window-head,
-		.oo-ui-window-foot {
+		> .oo-ui-window-head,
+		> .oo-ui-window-foot {
 			outline: @border-dialog-bar; // Use `@border-dialog-bar` here as `outline` is `border` substitute.
 		}
 
-		.oo-ui-window-head {
+		> .oo-ui-window-head {
 			min-height: @size-dialog-bar--desktop;
 		}
 
-		.oo-ui-window-body {
+		> .oo-ui-window-body {
 			top: @size-dialog-bar--desktop;
 		}
 	}
@@ -299,7 +299,7 @@
 	// Ensure click target sizes and layout amendments on mobile.
 	&.oo-ui-isMobile {
 		.oo-ui-processDialog {
-			&-content .oo-ui-window-head,
+			&-content > .oo-ui-window-head,
 			&-navigation,
 			&-location {
 				min-height: @size-dialog-bar--mobile;
@@ -314,7 +314,7 @@
 				line-height: ( @size-dialog-bar--mobile / unit( @font-size-dialog-process-title ) );
 			}
 
-			&-content .oo-ui-window-body {
+			&-content > .oo-ui-window-body {
 				top: @size-dialog-bar--mobile;
 			}
 		}

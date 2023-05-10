@@ -12,10 +12,8 @@
 }
 
 .theme-oo-ui-messageDialog() {
-	&-content {
-		.oo-ui-window-body {
-			box-shadow: none;
-		}
+	&-content > .oo-ui-window-body {
+		box-shadow: none;
 	}
 
 	&-title,
@@ -129,11 +127,11 @@
 
 .theme-oo-ui-processDialog() {
 	&-content {
-		.oo-ui-window-head {
+		> .oo-ui-window-head {
 			height: 3.4em;
 		}
 
-		.oo-ui-window-body {
+		> .oo-ui-window-body {
 			top: 3.4em;
 			box-shadow: 0 0 0.33em rgba( 0, 0, 0, 0.33 );
 		}
