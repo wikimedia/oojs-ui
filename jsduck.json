@@ -14,6 +14,7 @@
 	"--builtin-classes": true,
 	"--external": "HTMLDocument,HTMLBodyElement,HTMLHtmlElement,Window,MouseEvent,KeyboardEvent,File,FileList",
 	"--warnings": [ "-nodoc(class,public)" ],
+	"--exclude": "src/core-es6.js",
 	"--": [
 		"jsduck.external.js",
 		"src"
