@@ -124,10 +124,15 @@ OO.ui.MenuTagMultiselectWidget.prototype.onResize = function () {
  * @inheritdoc
  */
 OO.ui.MenuTagMultiselectWidget.prototype.onInputFocus = function () {
+	var valid = this.isValid();
+
 	// Parent method
 	OO.ui.MenuTagMultiselectWidget.super.prototype.onInputFocus.call( this );
 
 	this.menu.toggle( true );
+	if ( !valid ) {
+		this.menu.highlightItem();
+	}
 };
 
 /**
