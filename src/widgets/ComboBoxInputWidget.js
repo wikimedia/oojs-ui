@@ -29,8 +29,9 @@
  *     } );
  *     $( document.body ).append( comboBox.$element );
  *
+ * A ComboBoxInputWidget can have additional option labels:
+ *
  *     @example
- *     // Example: A ComboBoxInputWidget with additional option labels.
  *     var comboBox = new OO.ui.ComboBoxInputWidget( {
  *         value: 'Option 1',
  *         options: [
