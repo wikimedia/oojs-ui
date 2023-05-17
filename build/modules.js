@@ -109,6 +109,7 @@ module.exports = {
 			"src/layouts/MenuLayout.js",
 			"src/layouts/BookletLayout.js",
 			"src/layouts/IndexLayout.js",
+			"src/layouts/CopyTextLayout.js",
 
 			"src/widgets/ToggleWidget.js",
 			"src/widgets/ToggleButtonWidget.js",
@@ -248,6 +249,7 @@ module.exports = {
 
 			"src/styles/layouts/BookletLayout.less",
 			"src/styles/layouts/IndexLayout.less",
+			"src/styles/layouts/CopyTextLayout.less",
 			"src/styles/layouts/MenuLayout.less",
 			"src/styles/layouts/TabPanelLayout.less",
 			"src/styles/layouts/PageLayout.less",
