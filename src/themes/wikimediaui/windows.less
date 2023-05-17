@@ -371,7 +371,8 @@
 		}
 	}
 
-	&-modal&-floating > .oo-ui-dialog > .oo-ui-window-frame {
+	// stylelint-disable-next-line selector-not-notation
+	&-modal:not( &-size-full ) > .oo-ui-dialog > .oo-ui-window-frame {
 		top: 1em;
 		bottom: 1em;
 		max-height: 100%;
