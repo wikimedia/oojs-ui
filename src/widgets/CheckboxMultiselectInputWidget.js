@@ -44,8 +44,8 @@ OO.ui.CheckboxMultiselectInputWidget = function OoUiCheckboxMultiselectInputWidg
 	// Events
 	// HACK: When selecting multiple items, the 'select' event is fired after every item, and our
 	// handler performs a linear-time operation (validating every selected value), so selecting
-	// multiple items becomes quadratic (T335082#8815547). Debounce it, so that it only executes once
-	// at the end of the selecting, making it linear again. This will make the internal state
+	// multiple items becomes quadratic (T335082#8815547). Debounce it, so that it only executes
+	// once at the end of the selecting, making it linear again. This will make the internal state
 	// momentarily inconsistent while the selecting is ongoing, but that's probably fine.
 	this.onCheckboxesSelectHandler = OO.ui.debounce( this.onCheckboxesSelect );
 	this.checkboxMultiselectWidget.connect( this, {
