@@ -5,6 +5,9 @@
 		]
 	},
 	"ooui-copytextlayout-copy": "نقل کرو",
+	"ooui-outline-control-move-down": "آئٹم تلے ٹورو",
+	"ooui-outline-control-move-up": "آئٹم اُتے ٹورو",
+	"ooui-outline-control-remove": "آئٹم ہٹاؤ",
 	"ooui-toolbar-more": "ٻئے",
 	"ooui-toolgroup-expand": "ٻئے",
 	"ooui-toolgroup-collapse": "گھٹ",
@@ -16,5 +19,8 @@
 	"ooui-dialog-process-retry": "ولدا کوشش کرو",
 	"ooui-dialog-process-continue": "جاری رکھو",
 	"ooui-selectfile-button-select": "فائل چݨو",
-	"ooui-selectfile-placeholder": "کوئی فائل کائنی چُݨی"
+	"ooui-selectfile-button-select-multiple": "فائلاں چݨو",
+	"ooui-selectfile-placeholder": "کوئی فائل کائنی چُݨی",
+	"ooui-popup-widget-close-button-aria-label": "بند کرو",
+	"ooui-field-help": "مدد"
 }
