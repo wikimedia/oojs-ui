@@ -37,6 +37,7 @@
  *    the user types into the tag groups to add tags.
  *  - outline: The input is underneath the tag area.
  *  - none: No input supplied
+ * @cfg {string} [placeholder] Placeholder text for the input box
  * @cfg {boolean} [allowEditTags=true] Allow editing of the tags by clicking them
  * @cfg {boolean} [allowArbitrary=false] Allow data items to be added even if
  *  not present in the menu.
