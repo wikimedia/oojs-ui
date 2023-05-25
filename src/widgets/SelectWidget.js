@@ -849,6 +849,7 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
 		} else if ( this.multiselect ) {
 			// We don't care about the state of the other items when multiselect is allowed
 			item.setSelected( true );
+			this.emit( 'select', this.findSelectedItems() );
 			return this;
 		}
 	}
