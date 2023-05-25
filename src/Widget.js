@@ -69,7 +69,7 @@ OO.ui.Widget.prototype.isDisabled = function () {
  *
  * When a widget is disabled, it cannot be used and its appearance is updated to reflect this state.
  *
- * @param {boolean} disabled Disable widget
+ * @param {boolean} [disabled=false] Disable widget
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */

@@ -59,7 +59,7 @@ OO.ui.ToggleWidget.prototype.getValue = function () {
 /**
  * Set the state of the toggle: `true` for 'on', `false` for 'off'.
  *
- * @param {boolean} value The state of the toggle
+ * @param {boolean} [value=false] The state of the toggle
  * @fires change
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining

@@ -277,7 +277,7 @@ OO.ui.Tool.prototype.isActive = function () {
  * This method should be called within #onSelect or #onUpdateState event handlers to make the tool
  * appear pressed or not.
  *
- * @param {boolean} state Make tool appear active
+ * @param {boolean} [state=false] Make tool appear active
  */
 OO.ui.Tool.prototype.setActive = function ( state ) {
 	this.active = !!state;

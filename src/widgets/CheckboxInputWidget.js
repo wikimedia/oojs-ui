@@ -132,8 +132,8 @@ OO.ui.CheckboxInputWidget.prototype.onEdit = function () {
 /**
  * Set selection state of this checkbox.
  *
- * @param {boolean} state Selected state
- * @param {boolean} internal Used for internal calls to suppress events
+ * @param {boolean} [state=false] Selected state
+ * @param {boolean} [internal=false] Used for internal calls to suppress events
  * @chainable
  * @return {OO.ui.CheckboxInputWidget} The widget, for chaining
  */
@@ -175,8 +175,8 @@ OO.ui.CheckboxInputWidget.prototype.isSelected = function () {
 /**
  * Set indeterminate state of this checkbox.
  *
- * @param {boolean} state Indeterminate state
- * @param {boolean} internal Used for internal calls to suppress events
+ * @param {boolean} [state=false] Indeterminate state
+ * @param {boolean} [internal=false] Used for internal calls to suppress events
  * @chainable
  * @return {OO.ui.CheckboxInputWidget} The widget, for chaining
  */

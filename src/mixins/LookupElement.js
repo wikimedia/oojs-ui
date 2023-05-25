@@ -188,7 +188,7 @@ OO.ui.mixin.LookupElement.prototype.getLookupMenu = function () {
  *
  * When lookups are disabled, calls to #populateLookupMenu will be ignored.
  *
- * @param {boolean} disabled Disable lookups
+ * @param {boolean} [disabled=false] Disable lookups
  */
 OO.ui.mixin.LookupElement.prototype.setLookupsDisabled = function ( disabled ) {
 	this.lookupsDisabled = !!disabled;
@@ -342,7 +342,7 @@ OO.ui.mixin.LookupElement.prototype.getLookupMenuOptionsFromData = null;
  *
  * This will also disable/enable the lookups functionality.
  *
- * @param {boolean} readOnly Make input read-only
+ * @param {boolean} [readOnly=false] Make input read-only
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  */

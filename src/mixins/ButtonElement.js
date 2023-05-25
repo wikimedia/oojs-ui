@@ -243,7 +243,7 @@ OO.ui.mixin.ButtonElement.prototype.toggleFramed = function ( framed ) {
  *  - {@link OO.ui.ButtonWidget ButtonWidget} when clicking the button would only refresh the page
  *
  * @protected
- * @param {boolean} value Make button active
+ * @param {boolean} [value=false] Make button active
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  */

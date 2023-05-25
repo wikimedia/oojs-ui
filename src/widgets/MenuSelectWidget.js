@@ -401,7 +401,7 @@ OO.ui.MenuSelectWidget.prototype.clearItems = function () {
 /**
  * Toggle visibility of the menu for screen readers.
  *
- * @param {boolean} screenReaderMode
+ * @param {boolean} [screenReaderMode=false]
  */
 OO.ui.MenuSelectWidget.prototype.toggleScreenReaderMode = function ( screenReaderMode ) {
 	screenReaderMode = !!screenReaderMode;

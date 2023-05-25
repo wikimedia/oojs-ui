@@ -182,7 +182,7 @@ OO.ui.mixin.LabelElement.prototype.setLabel = function ( label ) {
 /**
  * Set whether the label should be visually hidden (but still accessible to screen-readers).
  *
- * @param {boolean} invisibleLabel
+ * @param {boolean} [invisibleLabel=false]
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  */

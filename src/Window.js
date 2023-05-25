@@ -563,7 +563,7 @@ OO.ui.Window.prototype.onFocusTrapFocused = function ( event ) {
 /**
  * Focus the window
  *
- * @param {boolean} focusLast Focus the last focusable element in the window, instead of the first
+ * @param {boolean} [focusLast=false] Focus the last focusable element in the window, instead of the first
  * @chainable
  * @return {OO.ui.Window} The window, for chaining
  */

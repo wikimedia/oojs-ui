@@ -98,7 +98,7 @@ OO.ui.MessageWidget.static.iconMap = {
 /**
  * Set the inline state of the widget.
  *
- * @param {boolean} inline Widget is inline
+ * @param {boolean} [inline=false] Widget is inline
  */
 OO.ui.MessageWidget.prototype.setInline = function ( inline ) {
 	inline = !!inline;

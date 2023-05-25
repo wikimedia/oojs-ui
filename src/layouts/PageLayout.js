@@ -126,7 +126,7 @@ OO.ui.PageLayout.prototype.setupOutlineItem = function () {
  * one page at a time. Additional CSS is applied to the outline item to reflect the page's active
  * state. Outside of the booklet context, setting the active state on a page does nothing.
  *
- * @param {boolean} active Page is active
+ * @param {boolean} [active=false] Page is active
  * @fires active
  */
 OO.ui.PageLayout.prototype.setActive = function ( active ) {

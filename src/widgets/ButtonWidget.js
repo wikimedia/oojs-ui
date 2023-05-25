@@ -222,7 +222,7 @@ OO.ui.ButtonWidget.prototype.setTarget = function ( target ) {
 /**
  * Set search engine traversal hint.
  *
- * @param {boolean} noFollow True if search engines should avoid traversing this hyperlink
+ * @param {boolean} [noFollow=true] True if search engines should avoid traversing this hyperlink
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {

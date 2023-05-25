@@ -736,7 +736,7 @@ OO.ui.PopupWidget.prototype.getPosition = function () {
 /**
  * Set popup auto-flipping.
  *
- * @param {boolean} autoFlip Whether to automatically switch the popup's position between
+ * @param {boolean} [autoFlip=false] Whether to automatically switch the popup's position between
  *  'above' and 'below', or between 'before' and 'after', if there is not enough space in the
  *  desired direction to display the popup without clipping
  */

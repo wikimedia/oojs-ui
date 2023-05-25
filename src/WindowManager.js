@@ -770,7 +770,7 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
  * and the user won't see that we're doing weird things to the scroll position.
  *
  * @private
- * @param {boolean} on
+ * @param {boolean} [on=false]
  * @chainable
  * @return {OO.ui.WindowManager} The manager, for chaining
  */

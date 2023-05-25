@@ -678,7 +678,7 @@ OO.ui.SelectWidget.prototype.findHighlightedItem = function () {
  * has not yet let go of the mouse. The item may appear selected, but it will not be selected
  * until the user releases the mouse.
  *
- * @param {boolean} pressed An option is being pressed
+ * @param {boolean} [pressed] An option is being pressed, omit to toggle
  */
 OO.ui.SelectWidget.prototype.togglePressed = function ( pressed ) {
 	if ( pressed === undefined ) {
@@ -813,7 +813,7 @@ OO.ui.SelectWidget.prototype.selectItemByData = function ( data ) {
  * otherwise, no items will be selected.
  * If no item is given, all selected items will be unselected.
  *
- * @param {OO.ui.OptionWidget} [unselectedItem] Item to unselect
+ * @param {OO.ui.OptionWidget} [unselectedItem] Item to unselect, or nothing to unselect all
  * @fires select
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining

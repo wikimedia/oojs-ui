@@ -84,7 +84,7 @@ OO.mixinClass( OO.ui.mixin.DraggableGroupElement, OO.ui.mixin.GroupElement );
  * Change the draggable state of this widget.
  * This allows users to temporarily halt the dragging operations.
  *
- * @param {boolean} isDraggable Widget supports draggable operations
+ * @param {boolean} [isDraggable] Widget supports draggable operations, omit to toggle
  * @fires draggable
  */
 OO.ui.mixin.DraggableGroupElement.prototype.toggleDraggable = function ( isDraggable ) {

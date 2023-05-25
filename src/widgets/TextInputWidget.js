@@ -269,7 +269,7 @@ OO.ui.TextInputWidget.prototype.isReadOnly = function () {
 /**
  * Set the {@link #readOnly read-only} state of the input.
  *
- * @param {boolean} state Make input read-only
+ * @param {boolean} [state=false] Make input read-only
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */

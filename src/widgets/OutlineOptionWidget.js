@@ -101,7 +101,7 @@ OO.ui.OutlineOptionWidget.prototype.getLevel = function () {
  *
  * Movability is used by {@link OO.ui.OutlineControlsWidget outline controls}.
  *
- * @param {boolean} movable Item is movable
+ * @param {boolean} [movable=false] Item is movable
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -116,7 +116,7 @@ OO.ui.OutlineOptionWidget.prototype.setMovable = function ( movable ) {
  *
  * Removability is used by {@link OO.ui.OutlineControlsWidget outline controls}.
  *
- * @param {boolean} removable Item is removable
+ * @param {boolean} [removable=false] Item is removable
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */

@@ -74,7 +74,7 @@ OO.ui.mixin.DraggableElement.static.cancelButtonMouseDownEvents = false;
  * Change the draggable state of this widget.
  * This allows users to temporarily halt the dragging operations.
  *
- * @param {boolean} isDraggable Widget supports draggable operations
+ * @param {boolean} [isDraggable] Widget supports draggable operations, omit to toggle
  * @fires draggable
  */
 OO.ui.mixin.DraggableElement.prototype.toggleDraggable = function ( isDraggable ) {

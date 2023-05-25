@@ -27,7 +27,7 @@ OO.mixinClass( OO.ui.mixin.GroupWidget, OO.ui.mixin.GroupElement );
  *
  * This will also update the disabled state of child widgets.
  *
- * @param {boolean} disabled Disable widget
+ * @param {boolean} [disabled=false] Disable widget
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */

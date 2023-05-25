@@ -138,7 +138,7 @@ OO.inheritClass( OO.ui.MenuLayout, OO.ui.Layout );
 /**
  * Toggle menu.
  *
- * @param {boolean} showMenu Show menu, omit to toggle
+ * @param {boolean} [showMenu] Show menu, omit to toggle
  * @chainable
  * @return {OO.ui.MenuLayout} The layout, for chaining
  */

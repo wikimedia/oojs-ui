@@ -297,7 +297,7 @@ OO.ui.PopupToolGroup.prototype.isActive = function () {
  * When active, the popup is visible. A mouseup event anywhere in the document will trigger
  * deactivation.
  *
- * @param {boolean} value The active state to set
+ * @param {boolean} [value=false] The active state to set
  * @fires active
  */
 OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {

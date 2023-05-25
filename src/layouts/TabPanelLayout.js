@@ -151,7 +151,7 @@ OO.ui.TabPanelLayout.prototype.setupTabItem = function () {
  * one tab panel at a time. Additional CSS is applied to the tab item to reflect the tab panel's
  * active state. Outside of the index context, setting the active state on a tab panel does nothing.
  *
- * @param {boolean} active Tab panel is active
+ * @param {boolean} [active=false] Tab panel is active
  * @fires active
  */
 OO.ui.TabPanelLayout.prototype.setActive = function ( active ) {
