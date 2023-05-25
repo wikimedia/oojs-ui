@@ -21,6 +21,10 @@
 
 	&-stackLayout > .oo-ui-panelLayout[ hidden ] {
 		padding: 0;
+		// Prevent "hidden" panels from blocking interactions with other panels
+		pointer-events: none;
+		// Ensure the scrollbar is invisible too
+		opacity: 0;
 	}
 
 	.theme-oo-ui-indexLayout();
