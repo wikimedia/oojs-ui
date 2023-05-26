@@ -20,11 +20,15 @@
 	}
 
 	&-stackLayout > .oo-ui-panelLayout[ hidden ] {
+		// Panels are hidden with hidden=until-found in browsers which support it,
+		// which applies content-visibility:hidden to hide the contents. As the
+		// container is still absolutely positioned over the whole stack we need
+		// to give it 0 dimensions to prevent it blocking interactions with other
+		// panels.
+		width: 0;
+		height: 0;
 		padding: 0;
-		// Prevent "hidden" panels from blocking interactions with other panels
-		pointer-events: none;
-		// Ensure the scrollbar is invisible too
-		opacity: 0;
+		overflow: hidden;
 	}
 
 	.theme-oo-ui-indexLayout();
