@@ -886,6 +886,11 @@ OO.ui.WindowManager.prototype.toggleIsolation = function ( isolate ) {
 		while ( !$el.is( 'body' ) && $el.length ) {
 			// Hide all siblings at each level, just leaving the path to the manager visible.
 			var $siblings = $el.siblings().not( 'script' );
+			// Ensure the path to this manager is visible, as it may have been hidden by
+			// another manager.
+			$el
+				.removeAttr( 'aria-hidden' )
+				.removeAttr( 'inert' );
 			// $ariaHidden/$inert exclude elements which already have aria-hidden/inert set,
 			// as we wouldn't want to reset those attributes when window closes.
 			// This will also support multiple window managers opening on top of each other,
