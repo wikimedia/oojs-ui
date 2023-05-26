@@ -257,15 +257,16 @@ OO.ui.StackLayout.prototype.resetScroll = function () {
  * @param {OO.ui.Layout} [selectedItem] Selected item to show
  */
 OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem ) {
+	var layout = this;
 	if ( !this.continuous ) {
-		for ( var i = 0, len = items.length; i < len; i++ ) {
-			if ( !selectedItem || selectedItem !== items[ i ] ) {
+		items.forEach( function ( item ) {
+			if ( !selectedItem || selectedItem !== item ) {
 				// jQuery "fixes" the value of the hidden attribute to always be "hidden"
 				// Browsers which don't support 'until-found' will still hide the element
-				items[ i ].$element[ 0 ].setAttribute( 'hidden', this.hideUntilFound ? 'until-found' : 'hidden' );
-				items[ i ].$element.attr( 'aria-hidden', 'true' );
+				item.$element[ 0 ].setAttribute( 'hidden', layout.hideUntilFound ? 'until-found' : 'hidden' );
+				item.$element.attr( 'aria-hidden', 'true' );
 			}
-		}
+		} );
 		if ( selectedItem ) {
 			selectedItem.$element[ 0 ].removeAttribute( 'hidden' );
 			selectedItem.$element.removeAttr( 'aria-hidden' );
