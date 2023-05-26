@@ -261,9 +261,15 @@ OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem )
 	if ( !this.continuous ) {
 		items.forEach( function ( item ) {
 			if ( !selectedItem || selectedItem !== item ) {
+				// If the panel is a TabPanelLayout which has a disabled tab, then
+				// fully hide it so we don't search inside it and automatically switch
+				// to it.
+				var isDisabled = item instanceof OO.ui.TabPanelLayout &&
+					item.getTabItem() && item.getTabItem().isDisabled();
+				var hideUntilFound = !isDisabled && layout.hideUntilFound;
 				// jQuery "fixes" the value of the hidden attribute to always be "hidden"
 				// Browsers which don't support 'until-found' will still hide the element
-				item.$element[ 0 ].setAttribute( 'hidden', layout.hideUntilFound ? 'until-found' : 'hidden' );
+				item.$element[ 0 ].setAttribute( 'hidden', hideUntilFound ? 'until-found' : 'hidden' );
 				item.$element.attr( 'aria-hidden', 'true' );
 			}
 		} );
