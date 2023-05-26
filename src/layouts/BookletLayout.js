@@ -181,7 +181,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
 	}
 	var promise;
 	// For continuous BookletLayouts, scroll the selected page into view first
-	if ( this.stackLayout.continuous && !this.scrolling ) {
+	if ( this.stackLayout.isContinuous() && !this.scrolling ) {
 		promise = page.scrollElementIntoView();
 	} else {
 		promise = $.Deferred().resolve();
@@ -543,7 +543,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 		// hold focus.
 		if ( this.autoFocus &&
 			!OO.ui.isMobile() &&
-			this.stackLayout.continuous &&
+			this.stackLayout.isContinuous() &&
 			OO.ui.findFocusable( page.$element ).length !== 0
 		) {
 			$focused = previousPage.$element.find( ':focus' );
@@ -554,7 +554,7 @@ OO.ui.BookletLayout.prototype.setPage = function ( name ) {
 	}
 	page.setActive( true );
 	this.stackLayout.setItem( page );
-	if ( !this.stackLayout.continuous && previousPage ) {
+	if ( !this.stackLayout.isContinuous() && previousPage ) {
 		// This should not be necessary, since any inputs on the previous page should have
 		// been blurred when it was hidden, but browsers are not very consistent about
 		// this.
@@ -577,7 +577,7 @@ OO.ui.BookletLayout.prototype.resetScroll = function () {
 
 	if (
 		this.outlined &&
-		this.stackLayout.continuous &&
+		this.stackLayout.isContinuous() &&
 		this.outlineSelectWidget.findFirstSelectableItem()
 	) {
 		this.scrolling = true;

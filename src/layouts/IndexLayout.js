@@ -474,7 +474,7 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
 				if (
 					this.autoFocus &&
 					!OO.ui.isMobile() &&
-					this.stackLayout.continuous &&
+					this.stackLayout.isContinuous() &&
 					OO.ui.findFocusable( tabPanel.$element ).length !== 0
 				) {
 					$focused = previousTabPanel.$element.find( ':focus' );
@@ -486,7 +486,7 @@ OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {
 			this.currentTabPanelName = name;
 			tabPanel.setActive( true );
 			this.stackLayout.setItem( tabPanel );
-			if ( !this.stackLayout.continuous && previousTabPanel ) {
+			if ( !this.stackLayout.isContinuous() && previousTabPanel ) {
 				// This should not be necessary, since any inputs on the previous tab panel should
 				// have been blurred when it was hidden, but browsers are not very consistent about
 				// this.

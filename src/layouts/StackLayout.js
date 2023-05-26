@@ -48,14 +48,11 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 
 	// Properties
 	this.currentItem = null;
-	this.continuous = !!config.continuous;
+	this.setContinuous( !!config.continuous );
 	this.hideUntilFound = !!config.hideUntilFound;
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-stackLayout' );
-	if ( this.continuous ) {
-		this.$element.addClass( 'oo-ui-stackLayout-continuous' );
-	}
 	this.addItems( config.items || [] );
 };
 
@@ -75,6 +72,27 @@ OO.mixinClass( OO.ui.StackLayout, OO.ui.mixin.GroupElement );
  */
 
 /* Methods */
+
+/**
+ * Set the layout to continuous mode or not
+ *
+ * @param {boolean} continuous Continuous mode
+ */
+OO.ui.StackLayout.prototype.setContinuous = function ( continuous ) {
+	this.continuous = continuous;
+	this.$element.toggleClass( 'oo-ui-stackLayout-continuous', !!continuous );
+	// Force an update of the attributes used to hide/show items
+	this.updateHiddenState( this.items, this.currentItem );
+};
+
+/**
+ * Check if the layout is in continuous mode
+ *
+ * @return {boolean} The layout is in continuous mode
+ */
+OO.ui.StackLayout.prototype.isContinuous = function () {
+	return this.continuous;
+};
 
 /**
  * Get the current panel.
@@ -227,7 +245,7 @@ OO.ui.StackLayout.prototype.setItem = function ( item ) {
  * @inheritdoc
  */
 OO.ui.StackLayout.prototype.resetScroll = function () {
-	if ( this.continuous ) {
+	if ( this.isContinuous() ) {
 		// Parent method
 		return OO.ui.StackLayout.super.prototype.resetScroll.call( this );
 	}
@@ -258,7 +276,7 @@ OO.ui.StackLayout.prototype.resetScroll = function () {
  */
 OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem ) {
 	var layout = this;
-	if ( !this.continuous ) {
+	if ( !this.isContinuous() ) {
 		items.forEach( function ( item ) {
 			if ( !selectedItem || selectedItem !== item ) {
 				// If the panel is a TabPanelLayout which has a disabled tab, then
@@ -277,5 +295,10 @@ OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem )
 			selectedItem.$element[ 0 ].removeAttribute( 'hidden' );
 			selectedItem.$element.removeAttr( 'aria-hidden' );
 		}
+	} else {
+		items.forEach( function ( item ) {
+			item.$element[ 0 ].removeAttribute( 'hidden' );
+			item.$element.removeAttr( 'aria-hidden' );
+		} );
 	}
 };
