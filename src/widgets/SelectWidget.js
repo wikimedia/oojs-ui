@@ -819,17 +819,15 @@ OO.ui.SelectWidget.prototype.selectItemByData = function ( data ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.unselectItem = function ( unselectedItem ) {
-	if ( unselectedItem ) {
-		unselectedItem.setSelected( false );
-	} else {
-		this.items.forEach( function ( item ) {
-			if ( item.isSelected() ) {
-				item.setSelected( false );
-			}
-		} );
+	if ( !unselectedItem ) {
+		// Unselect all
+		this.selectItem();
+	} else if ( unselectedItem.isSelected() ) {
+		unselectedItem.setSelected();
+		// Other items might still be selected in multiselect mode
+		this.emit( 'select', this.findSelectedItems() );
 	}
 
-	this.emit( 'select', this.findSelectedItems() );
 	return this;
 };
 
