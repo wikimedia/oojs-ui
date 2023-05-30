@@ -527,9 +527,7 @@
 
 	select {
 		// Remove user agent styles.
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		-webkit-appearance: none;
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		-moz-appearance: none;
 		// Support Firefox <= 34: Anything apart from `transparent` mixes up `option` sizes.
 		background-color: transparent;
@@ -909,9 +907,7 @@
 	}
 
 	// Support: Progressively enhance for browser's which render `filter`.
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	@supports ( filter: drop-shadow( 0 0 0 ) ) {
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		filter: @filter-drop-shadow-menu;
 		// Safari can have visual glitches with lingering shadows in some contexts
 		// when using drop-shadow. This makes it be more zealous about cleaning

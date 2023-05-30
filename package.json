@@ -69,7 +69,7 @@
 		"prismjs": "1.29.0",
 		"q": "1.5.1",
 		"qunit": "2.19.4",
-		"stylelint-config-wikimedia": "0.14.0",
+		"stylelint-config-wikimedia": "0.15.0",
 		"svgo": "3.0.2"
 	}
 }

@@ -427,9 +427,7 @@ p:first-child {
 }
 
 .demo-dialogs-non-modal {
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	position: -webkit-sticky;
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	position: sticky;
 	bottom: 1em;
 	width: 100%;
@@ -646,7 +644,6 @@ FieldLayout left & right aligned */
 	/* Hide from all but screen readers */
 	.demo-header h2 span {
 		clip: rect( 1px, 1px, 1px, 1px );
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		clip-path: inset( 50% );
 		position: absolute;
 		width: 1px;
@@ -694,7 +691,6 @@ FieldLayout left & right aligned */
 /* Make it visible for all browsers again */
 .oo-ui-platform-desktop .demo-header h2 span {
 	clip: auto;
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	clip-path: none;
 	position: static;
 	width: auto;
