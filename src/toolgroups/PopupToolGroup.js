@@ -60,6 +60,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 		$floatableContainer: this.$handle,
 		hideWhenOutOfView: false,
 		verticalPosition: this.toolbar.position === 'bottom' ? 'above' : 'below'
+		// horizontalPosition is set in setActive
 	}, config ) );
 	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
 		$tabIndexed: this.$handle
@@ -324,13 +325,18 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 			this.togglePositioning( true );
 			this.toggleClipping( true );
 
-			// Try anchoring the popup to the left first
-			this.setHorizontalPosition( 'start' );
+			// Tools on the left of the toolbar will try to align their
+			// popups with their left side if possible, and vice-versa.
+			var preferredSide = this.align === 'before' ? 'start' : 'end';
+			var otherSide = this.align === 'before' ? 'end' : 'start';
+
+			// Try anchoring the popup to the preferred side first
+			this.setHorizontalPosition( preferredSide );
 
 			if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
-				// Anchoring to the left caused the popup to clip, so anchor it to the
-				// right instead.
-				this.setHorizontalPosition( 'end' );
+				// Anchoring to the preferred side caused the popup to clip, so anchor it
+				// to the other side instead.
+				this.setHorizontalPosition( otherSide );
 			}
 			if ( this.isClippedHorizontally() || this.isFloatableOutOfView() ) {
 				// Anchoring to the right also caused the popup to clip, so just make it fill the
@@ -342,7 +348,7 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 					this.$clippableScrollableContainer.offset().left;
 
 				this.toggleClipping( false );
-				this.setHorizontalPosition( 'start' );
+				this.setHorizontalPosition( preferredSide );
 
 				this.$clippable.css( {
 					'margin-left': -( this.$element.offset().left - containerLeft ),
