@@ -401,13 +401,13 @@ OO.ui.Toolbar.prototype.getToolGroupFactory = function () {
 /**
  * @inheritdoc {OO.ui.mixin.GroupElement}
  */
-OO.ui.Toolbar.prototype.insertItemElements = function ( itemWidget ) {
+OO.ui.Toolbar.prototype.insertItemElements = function ( item ) {
 	// Mixin method
 	OO.ui.mixin.GroupElement.prototype.insertItemElements.apply( this, arguments );
 
-	if ( itemWidget.align === 'after' ) {
+	if ( item.align === 'after' ) {
 		// Toolbar only ever appends ToolGroups to the end, so we can ignore 'index'
-		this.$after.append( itemWidget.$element );
+		this.$after.append( item.$element );
 	}
 };
 

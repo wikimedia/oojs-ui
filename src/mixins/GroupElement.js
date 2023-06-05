@@ -191,16 +191,16 @@ OO.ui.mixin.GroupElement.prototype.insertItem = function ( item, index ) {
  * Insert elements into the group
  *
  * @private
- * @param {OO.ui.Element} itemWidget Item to insert
+ * @param {OO.ui.Element} item Item to insert
  * @param {number} index Insertion index
  */
-OO.ui.mixin.GroupElement.prototype.insertItemElements = function ( itemWidget, index ) {
+OO.ui.mixin.GroupElement.prototype.insertItemElements = function ( item, index ) {
 	if ( index === undefined || index < 0 || index >= this.items.length ) {
-		this.$group.append( itemWidget.$element );
+		this.$group.append( item.$element );
 	} else if ( index === 0 ) {
-		this.$group.prepend( itemWidget.$element );
+		this.$group.prepend( item.$element );
 	} else {
-		this.items[ index ].$element.before( itemWidget.$element );
+		this.items[ index ].$element.before( item.$element );
 	}
 };
 
