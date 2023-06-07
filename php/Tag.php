@@ -416,7 +416,6 @@ class Tag {
 	/**
 	 * Render element into HTML.
 	 * @return string HTML serialization
-	 * @throws Exception
 	 */
 	public function toString() {
 		// List of void elements from HTML5, section 8.1.2 as of 2016-09-19
