@@ -23,6 +23,12 @@
 				"rtl": "../wikimediaui/images/icons/userGroup-rtl.svg"
 			}
 		},
+		"userRights": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/userRights-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/userRights-rtl.svg"
+			}
+		},
 		"userTalk": {
 			"file": {
 				"ltr": "../wikimediaui/images/icons/userTalk-ltr.svg",

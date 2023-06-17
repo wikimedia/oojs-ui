@@ -52,6 +52,12 @@
 				"rtl": "images/icons/userGroup-rtl.svg"
 			}
 		},
+		"userRights": {
+			"file": {
+				"ltr": "images/icons/userRights-ltr.svg",
+				"rtl": "images/icons/userRights-rtl.svg"
+			}
+		},
 		"userTalk": {
 			"file": {
 				"ltr": "images/icons/userTalk-ltr.svg",
