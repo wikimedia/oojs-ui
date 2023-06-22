@@ -91,9 +91,9 @@ OO.ui.WindowManager = function OoUiWindowManager( config ) {
 	// Initialization
 	this.$element
 		.addClass( 'oo-ui-windowManager' )
-		.toggleClass( 'oo-ui-windowManager-modal', this.modal )
+		.toggleClass( 'oo-ui-windowManager-modal', this.isModal() )
 		.toggleClass( 'oo-ui-windowManager-forceTrapFocus', !!config.forceTrapFocus );
-	if ( this.modal ) {
+	if ( this.isModal() ) {
 		this.$element
 			.attr( 'aria-hidden', 'true' )
 			.attr( 'inert', '' );
@@ -310,7 +310,7 @@ OO.ui.WindowManager.prototype.getSetupDelay = function () {
  * @return {number} Milliseconds to wait
  */
 OO.ui.WindowManager.prototype.getReadyDelay = function () {
-	return this.modal ? OO.ui.theme.getDialogTransitionDuration() : 0;
+	return this.isModal() ? OO.ui.theme.getDialogTransitionDuration() : 0;
 };
 
 /**
@@ -334,7 +334,7 @@ OO.ui.WindowManager.prototype.getHoldDelay = function () {
  * @return {number} Milliseconds to wait
  */
 OO.ui.WindowManager.prototype.getTeardownDelay = function () {
-	return this.modal ? OO.ui.theme.getDialogTransitionDuration() : 0;
+	return this.isModal() ? OO.ui.theme.getDialogTransitionDuration() : 0;
 };
 
 /**
@@ -457,7 +457,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 	this.preparingToOpen = $.when( this.lifecycle && this.lifecycle.closed );
 	// Ensure handlers get called after preparingToOpen is set
 	this.preparingToOpen.done( function () {
-		if ( manager.modal ) {
+		if ( manager.isModal() ) {
 			manager.toggleGlobalEvents( true );
 			manager.toggleIsolation( true );
 		}
@@ -585,7 +585,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 				setTimeout( function () {
 					win.teardown( data ).then( function () {
 						compatClosing.notify( { state: 'teardown' } );
-						if ( manager.modal ) {
+						if ( manager.isModal() ) {
 							manager.toggleGlobalEvents( false );
 							manager.toggleIsolation( false );
 						}
