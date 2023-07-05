@@ -1,5 +1,21 @@
 # OOUI Release History
 
+## v0.47.2 / 2023-07-05
+### Features
+* MessageWidget.php: Replace 'check' with 'success' icon (Daimona Eaytoy)
+* Match alignment of toolbar popups with the position of the tool (Ed Sanders)
+
+### Styles
+* icons: Add 'qrCode' icon to 'content' pack (MusikAnimal)
+* Icons: Add user rights icon to OOUI (LWatson)
+* Icons: Add user temporary icon to OOUI (LWatson)
+
+### Code
+* Remove @throws for OOUI\Exception (Daimona Eaytoy)
+* Rename itemWidget to item (Ed Sanders)
+* WindowManager: Use isModal instead of reading property directly (Ed Sanders)
+
+
 ## v0.47.1 / 2023-05-30
 ### Features
 * Ensure window managers are un-hidden when in use (Ed Sanders)
