@@ -280,17 +280,61 @@ OO.ui.TextInputWidget.prototype.setReadOnly = function ( state ) {
 };
 
 /**
- * Support function for making #onElementAttach work.
+ * Support function for making #onElementAttach work across browsers.
+ *
+ * Due to MutationObserver performance woes, #onElementAttach is only somewhat reliably called the
+ * first time that the element gets attached to the documented.
  */
 OO.ui.TextInputWidget.prototype.installParentChangeDetector = function () {
-	var widget = this;
-	this.connectDetectorNode = document.createElement( 'ooui-connect-detector' );
-	this.connectDetectorNode.onConnectOOUI = function () {
+	var MutationObserver = window.MutationObserver ||
+			window.WebKitMutationObserver ||
+			window.MozMutationObserver;
+
+	if ( !MutationObserver || this.isElementAttached() ) {
+		// Widget is attached already, do nothing. This breaks the functionality of this
+		// function when the widget is detached and reattached. Alas, doing this correctly with
+		// MutationObserver would require observation of the whole document, which would hurt
+		// performance of other, more important code.
+		return;
+	}
+
+	var widget = this,
+		topmostNode = this.$element[ 0 ];
+	while ( topmostNode.parentNode ) {
+		topmostNode = topmostNode.parentNode;
+	}
+
+	var onRemove;
+	// We have no way to detect the $element being attached somewhere without observing the
+	// entire DOM with subtree modifications, which would hurt performance. So we cheat: we hook
+	// to the parent node of $element, and instead detect when $element is removed from it (and
+	// thus probably attached somewhere else). If there is no parent, we create a "fake" one. If
+	// it doesn't get attached, we end up back here and create the parent.
+	var mutationObserver = new MutationObserver( function ( mutations ) {
+		for ( var i = 0; i < mutations.length; i++ ) {
+			var removedNodes = mutations[ i ].removedNodes;
+			for ( var j = 0; j < removedNodes.length; j++ ) {
+				if ( removedNodes[ j ] === topmostNode ) {
+					setTimeout( onRemove, 0 );
+					return;
+				}
+			}
+		}
+	} );
+
+	onRemove = function () {
+		// If the node was attached somewhere else, report it
 		if ( widget.isElementAttached() ) {
 			widget.onElementAttach();
 		}
+		mutationObserver.disconnect();
+		widget.installParentChangeDetector();
 	};
-	this.$element.append( this.connectDetectorNode );
+
+	// Create a fake parent and observe it
+	var fakeParentNode = document.createElement( 'div' );
+	fakeParentNode.appendChild( topmostNode );
+	mutationObserver.observe( fakeParentNode, { childList: true } );
 };
 
 /**

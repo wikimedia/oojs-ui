@@ -10,7 +10,6 @@ module.exports = {
 			// Core of the core. The basic building block of Element, facilities to connect PHP and JS
 			// widgets (infuse), some abstract classes, a bunch of convenience methods.
 			"src/core.js",
-			"src/core-es6.js",
 			"dist/tmp/src/core-messages.js",
 			"src/mixin.js",
 			"src/Element.js",
