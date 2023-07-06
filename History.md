@@ -1,5 +1,9 @@
 # OOUI Release History
 
+## v0.47.3 / 2023-07-06
+### Code
+* Revert "TextInputWidget: Use Custom Elements for #onElementAttach support" (Roan Kattouw)
+
 ## v0.47.2 / 2023-07-05
 ### Features
 * MessageWidget.php: Replace 'check' with 'success' icon (Daimona Eaytoy)
