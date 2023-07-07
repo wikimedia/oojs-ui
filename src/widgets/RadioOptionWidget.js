@@ -66,7 +66,7 @@ OO.ui.RadioOptionWidget.prototype.setSelected = function ( state ) {
 
 	this.radio.setSelected( state );
 	this.$element
-		.attr( 'aria-checked', state.toString() )
+		.attr( 'aria-checked', this.selected.toString() )
 		.removeAttr( 'aria-selected' );
 
 	return this;

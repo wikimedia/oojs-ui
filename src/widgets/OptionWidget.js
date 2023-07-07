@@ -172,7 +172,7 @@ OO.ui.OptionWidget.prototype.setSelected = function ( state ) {
 		this.selected = !!state;
 		this.$element
 			.toggleClass( 'oo-ui-optionWidget-selected', state )
-			.attr( 'aria-selected', state.toString() );
+			.attr( 'aria-selected', this.selected.toString() );
 		if ( state && this.constructor.static.scrollIntoViewOnSelect ) {
 			this.scrollElementIntoView();
 		}

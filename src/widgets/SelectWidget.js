@@ -823,7 +823,7 @@ OO.ui.SelectWidget.prototype.unselectItem = function ( unselectedItem ) {
 		// Unselect all
 		this.selectItem();
 	} else if ( unselectedItem.isSelected() ) {
-		unselectedItem.setSelected();
+		unselectedItem.setSelected( false );
 		// Other items might still be selected in multiselect mode
 		this.emit( 'select', this.findSelectedItems() );
 	}
