@@ -59892,5 +59892,327 @@
         }
       }
     ]
+  },
+  "ToggleSwitchWidget": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "href": "http://example.com/"
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": true
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": false
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "title": ""
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "href": "http://example.com/",
+          "disabled": true
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "href": "http://example.com/",
+          "disabled": false
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "href": "http://example.com/",
+          "title": ""
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "href": "http://example.com/",
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "href": "http://example.com/",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "href": "http://example.com/",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "href": "http://example.com/",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "href": "http://example.com/",
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "disabled": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "title": "",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "title": "",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "title": "",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "title": "",
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "title": "Foo bar <b>HTML?</b>",
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "title": "Foo bar <b>HTML?</b>",
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "title": "Foo bar <b>HTML?</b>",
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ToggleSwitchWidget",
+        "config": {
+          "title": "Foo bar <b>HTML?</b>",
+          "tabIndex": "42"
+        }
+      }
+    ]
+  },
+  "ToggleWidget": {
+    "infuseonly": false,
+    "tests": [
+      {
+        "class": "ToggleWidget",
+        "config": {
+        }
+      },
+      {
+        "class": "ToggleWidget",
+        "config": {
+          "disabled": true
+        }
+      },
+      {
+        "class": "ToggleWidget",
+        "config": {
+          "disabled": false
+        }
+      },
+      {
+        "class": "ToggleWidget",
+        "config": {
+          "title": ""
+        }
+      },
+      {
+        "class": "ToggleWidget",
+        "config": {
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ToggleWidget",
+        "config": {
+          "disabled": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "ToggleWidget",
+        "config": {
+          "disabled": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ToggleWidget",
+        "config": {
+          "disabled": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "ToggleWidget",
+        "config": {
+          "disabled": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      }
+    ]
   }
 }

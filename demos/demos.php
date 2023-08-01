@@ -39,6 +39,8 @@
 		'direction' => $direction,
 	];
 
+	$value = isset( $_GET['value'] ) ? boolval( $_GET['value'] ) : true;
+
 	// Stylesheets to load
 	$urls = [];
 	$urls[] = "oojs-ui-core-$theme$directionSuffix.css";

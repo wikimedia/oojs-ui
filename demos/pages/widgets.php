@@ -528,7 +528,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-inputs-binary',
 	'infusable' => true,
-	'label' => 'Checkbox & Radio',
+	'label' => 'Checkbox, Radio & ToggleSwitch',
 	'items' => [
 		new OOUI\FieldLayout(
 			new OOUI\CheckboxInputWidget( [
@@ -673,6 +673,36 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			[
 				'align' => 'top',
 				'label' => 'CheckboxMultiselectInputWidget',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ToggleSwitchWidget( [
+				'href' => '?' . http_build_query( array_merge( $query, [ 'value' => !$value ] ) ),
+				'value' => $value
+			] ),
+			[
+				'label' => 'ToggleSwitchWidget (linked)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ToggleSwitchWidget( [
+				'href' => '?' . http_build_query( array_merge( $query, [ 'value' => !$value ] ) ),
+				'disabled' => true,
+			] ),
+			[
+				'label' => 'ToggleSwitchWidget (disabled)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ToggleSwitchWidget( [
+				'disabled' => true,
+				'value' => true
+			] ),
+			[
+				'label' => 'ToggleSwitchWidget (disabled, checked)',
+				'align' => 'top'
 			]
 		)
 	]

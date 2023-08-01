@@ -125,6 +125,15 @@
 			delete summary.attributes.title;
 			delete summary.attributes[ 'aria-disabled' ];
 		}
+		// PHP ToggleSwitchWidget has an extra 'a' tag that needs to be removed
+		if ( summary.attributes.class &&
+			summary.attributes.class.match( /oo-ui-toggleSwitchWidget/ ) &&
+			summary.children[ 1 ] !== undefined &&
+			summary.children[ 1 ].type === 'a'
+		) {
+			summary.children[ 1 ] = summary.children[ 1 ].children[ 0 ];
+		}
+
 		// Extra stuff on JS Field(set)Layout's $help
 		if (
 			summary.attributes.class &&
