@@ -33,10 +33,11 @@
  *  {@link #indicator indicators},
  *  non-plaintext {@link #label labels}, or {@link #value values}. In general, useInputTag should
  *  only be set to `true` when there’s need to support IE 6 in a form with multiple buttons.
+ * @cfg {boolean} [formNoValidate=false] Whether to use `formnovalidate` attribute.
  */
 OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	// Configuration initialization
-	config = $.extend( { type: 'button', useInputTag: false }, config );
+	config = $.extend( { type: 'button', useInputTag: false, formNoValidate: false }, config );
 
 	// See InputWidget#reusePreInfuseDOM about config.$input
 	if ( config.$input ) {
@@ -62,6 +63,11 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	if ( !config.useInputTag ) {
 		this.$input.append( this.$icon, this.$label, this.$indicator );
 	}
+
+	if ( config.formNoValidate ) {
+		this.$input.attr( 'formnovalidate', 'formnovalidate' );
+	}
+
 	this.$element.addClass( 'oo-ui-buttonInputWidget' );
 };
 

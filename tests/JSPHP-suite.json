@@ -12976,6 +12976,18 @@
       {
         "class": "ButtonInputWidget",
         "config": {
+          "formNoValidate": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
           "value": ""
         }
       },
@@ -13181,6 +13193,48 @@
         "class": "ButtonInputWidget",
         "config": {
           "type": "button",
+          "formNoValidate": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "button",
+          "formNoValidate": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "submit",
+          "formNoValidate": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "submit",
+          "formNoValidate": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "foo",
+          "formNoValidate": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "foo",
+          "formNoValidate": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "type": "button",
           "value": ""
         }
       },
@@ -13748,6 +13802,34 @@
         "class": "ButtonInputWidget",
         "config": {
           "useInputTag": true,
+          "formNoValidate": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "useInputTag": true,
+          "formNoValidate": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "useInputTag": false,
+          "formNoValidate": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "useInputTag": false,
+          "formNoValidate": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "useInputTag": true,
           "value": ""
         }
       },
@@ -14119,6 +14201,384 @@
         "class": "ButtonInputWidget",
         "config": {
           "useInputTag": false,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "value": ""
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "value": ""
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "value": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "framed": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "framed": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "framed": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "framed": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "icon": "image"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "indicator": "down"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "label": ""
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "label": " "
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "label": "0"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "label": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "label": ""
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "label": " "
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "label": "0"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "label": "_placeholder_{\"class\":\"HtmlSnippet\",\"config\":\"Foo bar <b>HTML?</b>\"}"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "invisibleLabel": true
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "invisibleLabel": false
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": true,
+          "flags": "primary"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
+          "flags": "progressive"
+        }
+      },
+      {
+        "class": "ButtonInputWidget",
+        "config": {
+          "formNoValidate": false,
           "flags": "primary"
         }
       },
