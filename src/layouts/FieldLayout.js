@@ -436,6 +436,7 @@ OO.ui.FieldLayout.prototype.createHelpElement = function ( help, $overlay ) {
 	// Preference given to an input or a button
 	(
 		this.fieldWidget.$input ||
+		( this.fieldWidget.input && this.fieldWidget.input.$input ) ||
 		this.fieldWidget.$button ||
 		this.fieldWidget.$element
 	).attr( 'aria-describedby', helpId );
