@@ -38,6 +38,8 @@ module.exports = {
 			"src/widgets/IndicatorWidget.js",
 			"src/widgets/LabelWidget.js",
 			"src/widgets/MessageWidget.js",
+			"src/widgets/ToggleWidget.js",
+			"src/widgets/ToggleSwitchWidget.js",
 
 			// The JavaScript-specific dependencies of the basic widgets. It's sad how many there are :(
 			// TextInputWidget
@@ -111,9 +113,7 @@ module.exports = {
 			"src/layouts/IndexLayout.js",
 			"src/layouts/CopyTextLayout.js",
 
-			"src/widgets/ToggleWidget.js",
 			"src/widgets/ToggleButtonWidget.js",
-			"src/widgets/ToggleSwitchWidget.js",
 
 			"src/widgets/OutlineControlsWidget.js",
 			"src/widgets/OutlineOptionWidget.js",
@@ -237,7 +237,8 @@ module.exports = {
 			"src/styles/widgets/ProgressBarWidget.less",
 			"src/styles/widgets/NumberInputWidget.less",
 			"src/styles/widgets/SelectFileInputWidget.less",
-
+			"src/styles/widgets/ToggleWidget.less",
+			"src/styles/widgets/ToggleSwitchWidget.less",
 			"src/styles/core.less"
 		]
 	},
@@ -257,10 +258,7 @@ module.exports = {
 
 			"src/styles/widgets/ButtonSelectWidget.less",
 			"src/styles/widgets/ButtonOptionWidget.less",
-			"src/styles/widgets/ToggleWidget.less",
 			"src/styles/widgets/ToggleButtonWidget.less",
-			"src/styles/widgets/ToggleSwitchWidget.less",
-
 			"src/styles/widgets/SelectFileWidget.less",
 
 			"src/styles/widgets/OutlineSelectWidget.less",
