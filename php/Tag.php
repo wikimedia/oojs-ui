@@ -319,6 +319,13 @@ class Tag {
 	}
 
 	/**
+	 * Reset the unique ID, for consistent test output
+	 */
+	public static function resetElementId() {
+		self::$elementId = 0;
+	}
+
+	/**
 	 * Ensure that this given Tag is infusable and has a unique `id`
 	 * attribute.
 	 * @return $this
