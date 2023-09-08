@@ -53,7 +53,9 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 		// Pass an empty collection so that .focus() always does nothing
 		$tabIndexed: $( [] )
 	} ).setIcon( config.icon );
-	// Set tabindex manually on $input as $tabIndexed has been overridden
+	// Set tabindex manually on $input as $tabIndexed has been overridden.
+	// Prevents field from becoming focused while tabbing.
+	// We will also set the disabled attribute on $input, but that is done in #setDisabled.
 	this.info.$input.attr( 'tabindex', -1 );
 	// This indicator serves as the only way to clear the file, so it must be keyboard-accessible
 	this.info.$indicator.attr( 'tabindex', 0 );
@@ -270,6 +272,11 @@ OO.ui.SelectFileInputWidget.prototype.setDisabled = function ( disabled ) {
 
 	this.selectButton.setDisabled( disabled );
 	this.info.setDisabled( disabled );
+
+	// Always make the input element disabled, so that it can't be found and focused,
+	// e.g. by OO.ui.findFocusable.
+	// The SearchInputWidget can otherwise be enabled normally.
+	this.info.$input.attr( 'disabled', true );
 
 	return this;
 };
