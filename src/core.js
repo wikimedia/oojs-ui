@@ -493,6 +493,19 @@ OO.ui.getViewportSpacing = function () {
 };
 
 /**
+ * Get the element where elements that are positioned outside of normal flow are inserted,
+ * for example dialogs and dropdown menus.
+ *
+ * This is meant to be overridden if the site needs to style this element in some way
+ * (e.g. setting font size), and doesn't want to style the whole document.
+ *
+ * @return {HTMLElement}
+ */
+OO.ui.getTeleportTarget = function () {
+	return document.body;
+};
+
+/**
  * Get the default overlay, which is used by various widgets when they are passed `$overlay: true`.
  * See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  *
@@ -501,7 +514,7 @@ OO.ui.getViewportSpacing = function () {
 OO.ui.getDefaultOverlay = function () {
 	if ( !OO.ui.$defaultOverlay ) {
 		OO.ui.$defaultOverlay = $( '<div>' ).addClass( 'oo-ui-defaultOverlay' );
-		$( document.body ).append( OO.ui.$defaultOverlay );
+		$( OO.ui.getTeleportTarget() ).append( OO.ui.$defaultOverlay );
 	}
 	return OO.ui.$defaultOverlay;
 };
