@@ -23,7 +23,7 @@ OO.ui.CopyTextLayout = function OoUiCopyTextLayout( config ) {
 	}, config.textInput ) );
 	this.button = new OO.ui.ButtonWidget( $.extend( {
 		label: OO.ui.msg( 'ooui-copytextlayout-copy' ),
-		icon: 'articles'
+		icon: 'copy'
 	}, config.button ) );
 
 	// Parent constructor
