@@ -345,6 +345,9 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 	var clipHeight = allotedHeight < naturalHeight;
 
 	if ( clipWidth ) {
+		// The hacks below are no longer needed for Firefox and Chrome after T349034,
+		// but may still be needed for Safari. TODO: Test and maybe remove them.
+
 		// Set overflow to 'scroll' first to avoid browser bugs causing bogus scrollbars (T67059),
 		// then to 'auto' which is what we want.
 		// Forcing a reflow is a smaller workaround than calling reconsiderScrollbars() for
@@ -369,6 +372,9 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		} );
 	}
 	if ( clipHeight ) {
+		// The hacks below are no longer needed for Firefox and Chrome after T349034,
+		// but may still be needed for Safari. TODO: Test and maybe remove them.
+
 		// Set overflow to 'scroll' first to avoid browser bugs causing bogus scrollbars (T67059),
 		// then to 'auto' which is what we want.
 		// Forcing a reflow is a smaller workaround than calling reconsiderScrollbars() for

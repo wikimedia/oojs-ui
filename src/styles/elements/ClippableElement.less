@@ -5,6 +5,9 @@
 	min-height: 40px;
 	// We set `overflow: scroll` in ClippableElement#clip
 	-webkit-overflow-scrolling: touch;
+	// Reserve space for the vertical scrollbar, so that adding it doesn't cause horizontal overflow
+	// and a horizontal scrollbar (T349034)
+	scrollbar-gutter: stable;
 
 	.theme-oo-ui-clippableElement();
 }
