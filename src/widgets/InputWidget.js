@@ -138,7 +138,11 @@ OO.ui.InputWidget.prototype.getInputElement = function () {
 OO.ui.InputWidget.prototype.onEdit = function () {
 	var widget = this;
 	if ( !this.isDisabled() ) {
+		widget.setValue( widget.$input.val() );
 		// Allow the stack to clear so the value will be updated
+		// TODO: This appears to only be used by TextInputWidget, and in current browsers
+		// they always the value immediately, however it is mostly harmless so this can be
+		// left in until more thoroughly tested.
 		setTimeout( function () {
 			widget.setValue( widget.$input.val() );
 		} );
