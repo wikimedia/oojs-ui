@@ -25,10 +25,14 @@
 		// container is still absolutely positioned over the whole stack we need
 		// to give it 0 dimensions to prevent it blocking interactions with other
 		// panels.
-		width: 0;
-		height: 0;
-		padding: 0;
-		overflow: hidden;
+		// Use !important as hidden panels should never have size, even if
+		// sub-classes override PanelLayout default styles with greater specificity.
+		/* stylelint-disable declaration-no-important */
+		width: 0 !important;
+		height: 0 !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+		/* stylelint-enable declaration-no-important */
 	}
 
 	.theme-oo-ui-indexLayout();
