@@ -794,6 +794,18 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.MultilineTextInputWidget( {
+						rows: 1,
+						autosize: true,
+						allowLinebreaks: false,
+						value: 'A single line of\ntext that will wrap when required\nto not overflow. ' + loremIpsum
+					} ),
+					{
+						label: 'MultilineTextInputWidget (autosize, rows=1, allowLinebreaks=false)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MultilineTextInputWidget( {
 						autosize: true,
 						icon: 'tag',
 						indicator: 'required',

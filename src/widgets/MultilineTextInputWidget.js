@@ -5,6 +5,10 @@
  * {@link OO.ui.mixin.IndicatorElement indicators}.
  * Please see the [OOUI documentation on MediaWiki] [1] for more information and examples.
  *
+ * MultilineTextInputWidgets can also be used when a single line string is required, but
+ * we want to display it to the user over mulitple lines (wrapped). This is done by setting
+ * the `allowLinebreaks` config to `false`.
+ *
  * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
  *     @example
@@ -27,11 +31,18 @@
  *  Use the #maxRows config to specify a maximum number of displayed rows.
  * @cfg {number} [maxRows] Maximum number of rows to display when #autosize is set to true.
  *  Defaults to the maximum of `10` and `2 * rows`, or `10` if `rows` isn't provided.
+ * @cfg {boolean} [allowLinebreaks=true] Whether to allow the user to add line breaks.
  */
 OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config ) {
 	config = $.extend( {
 		type: 'text'
 	}, config );
+
+	// This property needs to exist before setValue in the parent constructor,
+	// otherwise any linebreaks in the initial value won't be stripped by
+	// cleanUpValue:
+	this.allowLinebreaks = config.allowLinebreaks !== undefined ? config.allowLinebreaks : true;
+
 	// Parent constructor
 	OO.ui.MultilineTextInputWidget.super.call( this, config );
 
@@ -128,6 +139,15 @@ OO.ui.MultilineTextInputWidget.prototype.updatePosition = function () {
  * Modify to emit 'enter' on Ctrl/Meta+Enter, instead of plain Enter
  */
 OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function ( e ) {
+	if ( !this.allowLinebreaks ) {
+		// In this mode we're pretending to be a single-line input, so we
+		// prevent adding newlines and react to enter in the same way as
+		// TextInputWidget:
+		if ( e.which === OO.ui.Keys.ENTER ) {
+			e.preventDefault();
+		}
+		return OO.ui.TextInputWidget.prototype.onKeyPress.call( this, e );
+	}
 	if (
 		( e.which === OO.ui.Keys.ENTER && ( e.ctrlKey || e.metaKey ) ) ||
 		// Some platforms emit keycode 10 for Control+Enter keypress in a textarea
@@ -135,6 +155,22 @@ OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function ( e ) {
 	) {
 		this.emit( 'enter', e );
 	}
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.MultilineTextInputWidget.prototype.cleanUpValue = function ( value ) {
+	// Parent method will guarantee we're dealing with a string, and apply inputFilter:
+	value = OO.ui.MultilineTextInputWidget.super.prototype.cleanUpValue( value );
+	if ( !this.allowLinebreaks ) {
+		// If we're forbidding linebreaks then clean them out of the incoming
+		// value to avoid a confusing situation
+		// TODO: Better handle a paste with linebreaks by using the paste event, as when
+		// we use input filtering the cursor is always reset to the end of the input.
+		value = value.replace( /\r?\n/g, ' ' );
+	}
+	return value;
 };
 
 /**
