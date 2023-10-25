@@ -35,13 +35,18 @@
 		bottom: 0;
 	}
 
-	// This class is applied to the <body> element
+	// This class is applied to the <html> and <body> elements
 	&-modal-active {
-		// Prevent the page behind the dialog from being scrolled (and remove the scrollbar)
-		overflow: hidden;
-		// Prevent positioned content from shifting when the scrollbar is removed (T208436):
-		// this works together with the `margin-right` added by WindowManager#toggleGlobalEvents
-		position: relative;
+		body& {
+			// Prevent the page behind the dialog from being scrolled (and remove the scrollbar)
+			// Not sure why this is applied to body and not html. There may be some legacy reason for it.
+			overflow: hidden;
+		}
+
+		html& {
+			// Prevent positioned content from shifting when the scrollbar is removed (T208436, T93476)
+			scrollbar-gutter: stable;
+		}
 	}
 
 	// This class is applied to the <html> and <body> elements
