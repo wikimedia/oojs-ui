@@ -3,7 +3,8 @@
 		"authors": [
 			"Basharh",
 			"Bishnu Saikia",
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"ooui-copytextlayout-copy": "Copiar",
@@ -15,7 +16,7 @@
 	"ooui-toolgroup-collapse": "Menos",
 	"ooui-item-remove": "Desaniciar",
 	"ooui-dialog-message-accept": "Aceutar",
-	"ooui-dialog-message-reject": "Encaboxar",
+	"ooui-dialog-message-reject": "Zarrar",
 	"ooui-dialog-process-error": "Daqué funcionó mal",
 	"ooui-dialog-process-dismiss": "Descartar",
 	"ooui-dialog-process-retry": "Vuelvi a intentalo",
