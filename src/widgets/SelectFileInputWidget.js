@@ -513,7 +513,11 @@ OO.ui.SelectFileInputWidget.prototype.onDragEnterOrOver = function ( e ) {
 	e.stopPropagation();
 
 	if ( this.isDisabled() ) {
-		this.$element.removeClass( 'oo-ui-selectFileInputWidget-canDrop oo-ui-selectFileWidget-canDrop' );
+		this.$element.removeClass( [
+			'oo-ui-selectFileInputWidget-canDrop',
+			'oo-ui-selectFileWidget-canDrop',
+			'oo-ui-selectFileInputWidget-cantDrop'
+		] );
 		dt.dropEffect = 'none';
 		return false;
 	}
@@ -521,7 +525,8 @@ OO.ui.SelectFileInputWidget.prototype.onDragEnterOrOver = function ( e ) {
 	// DataTransferItem and File both have a type property, but in Chrome files
 	// have no information at this point.
 	var itemsOrFiles = dt.items || dt.files;
-	if ( itemsOrFiles && itemsOrFiles.length ) {
+	var hasFiles = !!( itemsOrFiles && itemsOrFiles.length );
+	if ( hasFiles ) {
 		if ( this.filterFiles( itemsOrFiles ).length ) {
 			hasDroppableFile = true;
 		}
@@ -534,6 +539,7 @@ OO.ui.SelectFileInputWidget.prototype.onDragEnterOrOver = function ( e ) {
 	}
 
 	this.$element.toggleClass( 'oo-ui-selectFileInputWidget-canDrop oo-ui-selectFileWidget-canDrop', hasDroppableFile );
+	this.$element.toggleClass( 'oo-ui-selectFileInputWidget-cantDrop', !hasDroppableFile && hasFiles );
 	if ( !hasDroppableFile ) {
 		dt.dropEffect = 'none';
 	}
@@ -548,7 +554,11 @@ OO.ui.SelectFileInputWidget.prototype.onDragEnterOrOver = function ( e ) {
  * @param {jQuery.Event} e Drag event
  */
 OO.ui.SelectFileInputWidget.prototype.onDragLeave = function () {
-	this.$element.removeClass( 'oo-ui-selectFileInputWidget-canDrop oo-ui-selectFileWidget-canDrop' );
+	this.$element.removeClass( [
+		'oo-ui-selectFileInputWidget-canDrop',
+		'oo-ui-selectFileWidget-canDrop',
+		'oo-ui-selectFileInputWidget-cantDrop'
+	] );
 };
 
 /**
@@ -563,7 +573,11 @@ OO.ui.SelectFileInputWidget.prototype.onDrop = function ( e ) {
 
 	e.preventDefault();
 	e.stopPropagation();
-	this.$element.removeClass( 'oo-ui-selectFileInputWidget-canDrop oo-ui-selectFileWidget-canDrop' );
+	this.$element.removeClass( [
+		'oo-ui-selectFileInputWidget-canDrop',
+		'oo-ui-selectFileWidget-canDrop',
+		'oo-ui-selectFileInputWidget-cantDrop'
+	] );
 
 	if ( this.isDisabled() ) {
 		return false;

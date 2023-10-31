@@ -1358,6 +1358,14 @@
 				color: @color-progressive--active;
 			}
 		}
+
+		&.oo-ui-selectFileInputWidget-cantDrop {
+			&.oo-ui-selectFileInputWidget-dropTarget,
+			.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
+				background-color: @background-color-error-subtle;
+				color: @border-color-error;
+			}
+		}
 	}
 
 	&.oo-ui-widget-disabled,
