@@ -20,7 +20,6 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {string} [notsupported] Text to display when file support is missing in the browser.
  * @cfg {boolean} [droppable=true] Whether to accept files by drag and drop.
  * @cfg {boolean} [buttonOnly=false] Show only the select file button, no info field. Requires
  *  showDropTarget to be false.
@@ -30,20 +29,13 @@
  *  preview (for performance).
  */
 OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
-	var isSupported = this.constructor.static.isSupported();
-
 	// Configuration initialization
 	config = $.extend( {
-		notsupported: OO.ui.msg( 'ooui-selectfile-not-supported' ),
 		droppable: true,
 		buttonOnly: false,
 		showDropTarget: false,
 		thumbnailSizeLimit: 20
 	}, config );
-
-	if ( !isSupported ) {
-		config.disabled = true;
-	}
 
 	// Parent constructor
 	OO.ui.SelectFileWidget.super.call( this, config );
@@ -51,13 +43,8 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	// Mixin constructors
 	OO.ui.mixin.PendingElement.call( this );
 
-	if ( !isSupported ) {
-		this.info.setValue( config.notsupported );
-	}
-
 	// Properties
-	var droppable = config.droppable && isSupported;
-	this.showDropTarget = droppable && config.showDropTarget;
+	this.showDropTarget = config.droppable && config.showDropTarget;
 	this.thumbnailSizeLimit = config.thumbnailSizeLimit;
 
 	// Initialization
@@ -98,7 +85,7 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 	}
 
 	// Events
-	if ( droppable ) {
+	if ( config.droppable ) {
 		var dragHandler = this.onDragEnterOrOver.bind( this );
 		this.$element.on( {
 			dragenter: dragHandler,
@@ -124,24 +111,6 @@ OO.ui.SelectFileWidget = function OoUiSelectFileWidget( config ) {
 
 OO.inheritClass( OO.ui.SelectFileWidget, OO.ui.SelectFileInputWidget );
 OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.PendingElement );
-
-/* Static Properties */
-
-/**
- * Check if this widget is supported
- *
- * @static
- * @return {boolean}
- */
-OO.ui.SelectFileWidget.static.isSupported = function () {
-	if ( OO.ui.SelectFileWidget.static.isSupportedCache === null ) {
-		var $input = $( '<input>' ).attr( 'type', 'file' );
-		OO.ui.SelectFileWidget.static.isSupportedCache = $input[ 0 ].files !== undefined;
-	}
-	return OO.ui.SelectFileWidget.static.isSupportedCache;
-};
-
-OO.ui.SelectFileWidget.static.isSupportedCache = null;
 
 /* Events */
 
@@ -211,8 +180,8 @@ OO.ui.SelectFileWidget.prototype.onEdit = function () {};
  * @inheritdoc
  */
 OO.ui.SelectFileWidget.prototype.updateUI = function () {
-	// Too early, or not supported
-	if ( !this.selectButton || !this.constructor.static.isSupported() ) {
+	// Too early
+	if ( !this.selectButton ) {
 		return;
 	}
 
@@ -400,14 +369,4 @@ OO.ui.SelectFileWidget.prototype.onDrop = function ( e ) {
 	this.setValue( files );
 
 	return false;
-};
-
-/**
- * @inheritdoc
- */
-OO.ui.SelectFileWidget.prototype.setDisabled = function ( disabled ) {
-	disabled = disabled || !this.constructor.static.isSupported();
-
-	// Parent method
-	OO.ui.SelectFileWidget.super.prototype.setDisabled.call( this, disabled );
 };

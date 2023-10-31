@@ -169,7 +169,6 @@ else
 		['SelectFileInputWidget', 'label'] => [],
 		['SelectFileInputWidget', 'thumbnailSizeLimit'] => [10],
 		['SelectFileInputWidget', 'placeholder'] => ['placeholder text'],
-		['SelectFileInputWidget', 'notsupported'] => ['notsupported text'],
 		['SelectFileInputWidget', 'accept'] => [['image/png', 'image/jpeg']],
 		# these are defined by Element and would bloat the tests
 		'classes' => [],

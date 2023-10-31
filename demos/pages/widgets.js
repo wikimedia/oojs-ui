@@ -1897,13 +1897,6 @@ Demo.static.pages.widgets = function ( demo ) {
 					}
 				),
 				new OO.ui.FieldLayout(
-					new Demo.UnsupportedSelectFileWidget(),
-					{
-						label: 'SelectFileWidget (no browser support)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileWidget( {
 						accept: [ 'image/png', 'image/jpeg' ],
 						showDropTarget: true
@@ -1931,15 +1924,6 @@ Demo.static.pages.widgets = function ( demo ) {
 					} ),
 					{
 						label: 'SelectFileWidget (with drop target, disabled)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new Demo.UnsupportedSelectFileWidget( {
-						showDropTarget: true
-					} ),
-					{
-						label: 'SelectFileWidget (with drop target, no browser support)',
 						align: 'top'
 					}
 				)
