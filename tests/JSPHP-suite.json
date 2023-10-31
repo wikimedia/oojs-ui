@@ -53120,6 +53120,48 @@
       {
         "class": "SelectFileInputWidget",
         "config": {
+          "droppable": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
           "dir": "ltr"
         }
       },
@@ -53248,6 +53290,76 @@
             "image/png",
             "image/jpeg"
           ],
+          "droppable": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "accept": [
+            "image/png",
+            "image/jpeg"
+          ],
+          "droppable": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "accept": [
+            "image/png",
+            "image/jpeg"
+          ],
+          "buttonOnly": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "accept": [
+            "image/png",
+            "image/jpeg"
+          ],
+          "buttonOnly": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "accept": [
+            "image/png",
+            "image/jpeg"
+          ],
+          "showDropTarget": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "accept": [
+            "image/png",
+            "image/jpeg"
+          ],
+          "showDropTarget": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "accept": [
+            "image/png",
+            "image/jpeg"
+          ],
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "accept": [
+            "image/png",
+            "image/jpeg"
+          ],
           "dir": "ltr"
         }
       },
@@ -53413,6 +53525,104 @@
         "class": "SelectFileInputWidget",
         "config": {
           "multiple": true,
+          "droppable": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": true,
+          "droppable": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": false,
+          "droppable": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": false,
+          "droppable": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": true,
+          "buttonOnly": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": true,
+          "buttonOnly": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": false,
+          "buttonOnly": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": false,
+          "buttonOnly": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": true,
+          "showDropTarget": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": true,
+          "showDropTarget": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": false,
+          "showDropTarget": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": false,
+          "showDropTarget": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": true,
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": false,
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "multiple": true,
           "dir": "ltr"
         }
       },
@@ -53616,6 +53826,55 @@
         "class": "SelectFileInputWidget",
         "config": {
           "placeholder": "placeholder text",
+          "droppable": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "placeholder": "placeholder text",
+          "droppable": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "placeholder": "placeholder text",
+          "buttonOnly": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "placeholder": "placeholder text",
+          "buttonOnly": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "placeholder": "placeholder text",
+          "showDropTarget": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "placeholder": "placeholder text",
+          "showDropTarget": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "placeholder": "placeholder text",
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "placeholder": "placeholder text",
           "dir": "ltr"
         }
       },
@@ -53714,6 +53973,55 @@
         "class": "SelectFileInputWidget",
         "config": {
           "icon": "image",
+          "droppable": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "droppable": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "buttonOnly": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "buttonOnly": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "showDropTarget": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "showDropTarget": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "icon": "image",
           "dir": "ltr"
         }
       },
@@ -53805,6 +54113,818 @@
         "class": "SelectFileInputWidget",
         "config": {
           "icon": "image",
+          "required": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "buttonOnly": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "buttonOnly": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "buttonOnly": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "buttonOnly": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "showDropTarget": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "showDropTarget": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "showDropTarget": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "showDropTarget": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "required": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": true,
+          "required": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "required": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "droppable": false,
+          "required": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "showDropTarget": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "showDropTarget": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "showDropTarget": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "showDropTarget": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "required": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": true,
+          "required": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "required": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "buttonOnly": false,
+          "required": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "thumbnailSizeLimit": 10
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "title": ""
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "title": ""
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "required": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": true,
+          "required": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "required": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "showDropTarget": false,
+          "required": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "dir": "ltr"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "dir": "rtl"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "inputId": "input-id"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "disabled": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "disabled": false
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "tabIndex": -1
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "tabIndex": 0
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "tabIndex": 100
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "tabIndex": "42"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "title": ""
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "title": "Foo bar <b>HTML?</b>"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "accessKey": "k"
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
+          "required": true
+        }
+      },
+      {
+        "class": "SelectFileInputWidget",
+        "config": {
+          "thumbnailSizeLimit": 10,
           "required": false
         }
       },

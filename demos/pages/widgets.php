@@ -1006,6 +1006,46 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'align' => 'top'
 			]
 		),
+		new OOUI\FieldLayout(
+			new OOUI\SelectFileInputWidget( [
+				'buttonOnly' => true
+			] ),
+			[
+				'label' => 'SelectFileInputWidget (buttonOnly)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\SelectFileInputWidget( [
+				'accept' => [ 'image/png', 'image/jpeg' ],
+				'showDropTarget' => true
+			] ),
+			[
+				'label' => 'SelectFileInputWidget (with drop target, accept PNG and JPEG)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\SelectFileInputWidget( [
+				'accept' => [ 'image/png', 'image/jpeg' ],
+				'multiple' => true,
+				'showDropTarget' => true
+			] ),
+			[
+				'label' => 'SelectFileInputWidget (multiple, with drop target, accept PNG and JPEG)',
+				'align' => 'top'
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\SelectFileInputWidget( [
+				'showDropTarget' => true,
+				'disabled' => true
+			] ),
+			[
+				'label' => 'SelectFileInputWidget (with drop target, disabled)',
+				'align' => 'top'
+			]
+		),
 	]
 ] ) );
 

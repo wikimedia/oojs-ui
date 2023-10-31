@@ -1815,7 +1815,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						icon: 'tag'
 					} ),
 					{
-						label: 'SelectFileInputWidget (icon, indicator)',
+						label: 'SelectFileInputWidget (icon)',
 						align: 'top'
 					}
 				),
@@ -1838,92 +1838,42 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: 'SelectFileInputWidget (required)',
 						align: 'top'
 					}
-				)
-			]
-		} ),
-		new Demo.LinkedFieldsetLayout( {
-			id: 'demo-section-selectFile',
-			label: 'SelectFile',
-			items: [
+				),
 				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( {} ),
+					new OO.ui.SelectFileInputWidget( { buttonOnly: true } ),
 					{
-						label: 'SelectFileWidget',
+						label: 'SelectFileInputWidget (buttonOnly)',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( { buttonOnly: true } ),
-					{
-						label: 'SelectFileWidget (buttonOnly)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( { multiple: true } ),
-					{
-						label: 'SelectFileWidget (multiple)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( {
-						accept: [ 'image/png', 'image/jpeg' ],
-						title: 'This SelectFileWidget accepts only PNG `image/png` and JPEG `image/jpeg` files and has `title` configured'
-					} ),
-					{
-						label: 'SelectFileWidget (accept PNG and JPEG)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( {
-						icon: 'tag'
-					} ),
-					{
-						label: 'SelectFileWidget (icon)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( {
-						icon: 'tag',
-						indicator: 'required',
-						disabled: true
-					} ),
-					{
-						label: 'SelectFileWidget (disabled)',
-						align: 'top'
-					}
-				),
-				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( {
+					new OO.ui.SelectFileInputWidget( {
 						accept: [ 'image/png', 'image/jpeg' ],
 						showDropTarget: true
 					} ),
 					{
-						label: 'SelectFileWidget (with drop target, accept PNG and JPEG)',
+						label: 'SelectFileInputWidget (with drop target, accept PNG and JPEG)',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( {
+					new OO.ui.SelectFileInputWidget( {
 						accept: [ 'image/png', 'image/jpeg' ],
 						multiple: true,
 						showDropTarget: true
 					} ),
 					{
-						label: 'SelectFileWidget (multiple, with drop target, accept PNG and JPEG)',
+						label: 'SelectFileInputWidget (multiple, with drop target, accept PNG and JPEG)',
 						align: 'top'
 					}
 				),
 				new OO.ui.FieldLayout(
-					new OO.ui.SelectFileWidget( {
+					new OO.ui.SelectFileInputWidget( {
 						showDropTarget: true,
 						disabled: true
 					} ),
 					{
-						label: 'SelectFileWidget (with drop target, disabled)',
+						label: 'SelectFileInputWidget (with drop target, disabled)',
 						align: 'top'
 					}
 				)

@@ -130,7 +130,6 @@ module.exports = {
 			"src/widgets/PopupTagMultiselectWidget.js",
 			"src/widgets/MenuTagMultiselectWidget.js",
 
-			"src/widgets/SelectFileWidget.js",
 			"src/widgets/SearchWidget.js"
 		]
 	},
@@ -259,7 +258,6 @@ module.exports = {
 			"src/styles/widgets/ButtonSelectWidget.less",
 			"src/styles/widgets/ButtonOptionWidget.less",
 			"src/styles/widgets/ToggleButtonWidget.less",
-			"src/styles/widgets/SelectFileWidget.less",
 
 			"src/styles/widgets/OutlineSelectWidget.less",
 			"src/styles/widgets/OutlineOptionWidget.less",

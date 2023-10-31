@@ -776,9 +776,9 @@ Demo.static.pages.layouts = function ( demo ) {
 							}
 						),
 						new OO.ui.FieldLayout(
-							new OO.ui.SelectFileWidget( {} ),
+							new OO.ui.SelectFileInputWidget( {} ),
 							{
-								label: 'Select a file with SelectFileWidget',
+								label: 'Select a file with SelectFileInputWidget',
 								align: 'top'
 							}
 						),

@@ -928,9 +928,7 @@
 	width: 100%;
 	max-width: @max-width-input-base;
 	min-height: @size-200;
-}
 
-.theme-oo-ui-selectFileWidget() {
 	&-dropTarget {
 		background-color: @background-color-base;
 		border: 1px solid #aaa;
@@ -954,8 +952,8 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		&.oo-ui-selectFileWidget-canDrop {
-			&.oo-ui-selectFileWidget-dropTarget,
+		&.oo-ui-selectFileInputWidget-canDrop {
+			&.oo-ui-selectFileInputWidget-dropTarget,
 			.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
 				background-color: #e1f3ff;
 			}
@@ -964,7 +962,7 @@
 
 	&.oo-ui-widget-disabled,
 	&.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled {
-		&.oo-ui-selectFileWidget-dropTarget {
+		&.oo-ui-selectFileInputWidget-dropTarget {
 			background-color: #f3f3f3;
 			color: #ccc;
 			border-color: #ddd;

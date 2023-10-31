@@ -1311,9 +1311,7 @@
 	&-info > .oo-ui-inputWidget-input {
 		height: @size-200;
 	}
-}
 
-.theme-oo-ui-selectFileWidget() {
 	&-dropTarget {
 		background-color: @background-color-base;
 		border: @border-base;
@@ -1338,7 +1336,7 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		&.oo-ui-selectFileWidget-dropTarget {
+		&.oo-ui-selectFileInputWidget-dropTarget {
 			background-color: @background-color-base;
 			transition-property: background-color, color, border-color;
 			transition-duration: @transition-duration-medium;
@@ -1353,8 +1351,8 @@
 			transition-duration: @transition-duration-medium;
 		}
 
-		&.oo-ui-selectFileWidget-canDrop {
-			&.oo-ui-selectFileWidget-dropTarget,
+		&.oo-ui-selectFileInputWidget-canDrop {
+			&.oo-ui-selectFileInputWidget-dropTarget,
 			.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
 				background-color: @background-color-progressive;
 				color: @color-progressive--active;
@@ -1364,7 +1362,7 @@
 
 	&.oo-ui-widget-disabled,
 	&.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled {
-		&.oo-ui-selectFileWidget-dropTarget {
+		&.oo-ui-selectFileInputWidget-dropTarget {
 			background-color: @background-color-disabled-subtle;
 			border-color: @border-color-disabled;
 		}
