@@ -25,8 +25,6 @@
  * @cfg {Object|string|null} [icon=null] Icon to show next to file info
  */
 OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
-	var widget = this;
-
 	config = config || {};
 
 	// Construct buttons before parent method is called (calling setDisabled)
@@ -84,15 +82,7 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 		keypress: this.onKeyPress.bind( this )
 	} );
 	this.$input.on( {
-		change: this.onFileSelected.bind( this ),
-		// Support: IE 11
-		// In IE 11, focussing a file input (by clicking on it) displays a text cursor and scrolls
-		// the cursor into view (in this case, it scrolls the button, which has 'overflow: hidden').
-		// Since this messes with our custom styling (the file input has large dimensions and this
-		// causes the label to scroll out of view), scroll the button back to top. (T192131)
-		focus: function () {
-			widget.$input.parent().prop( 'scrollTop', 0 );
-		}
+		change: this.onFileSelected.bind( this )
 	} );
 	this.connect( this, { change: 'updateUI' } );
 
