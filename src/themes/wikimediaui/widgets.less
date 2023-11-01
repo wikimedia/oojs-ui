@@ -429,7 +429,7 @@
 	.oo-ui-inline-spacing( @margin-end-widget );
 
 	&-handle {
-		min-height: @min-height-widget-base; // Address label-less widgets
+		min-height: @min-size-interactive-pointer; // Address label-less widgets
 		border: @border-base;
 		border-radius: @border-radius-base;
 		padding: @padding-vertical-base @padding-end-dropdown @padding-vertical-base @padding-horizontal-base;
@@ -716,7 +716,7 @@
 		}
 
 		&.oo-ui-messageWidget-showClose {
-			padding-right: @min-size-base + @padding-horizontal-message-block;
+			padding-right: @min-size-interactive-pointer + @padding-horizontal-message-block;
 		}
 
 		> .oo-ui-messageWidget-close {
@@ -777,7 +777,7 @@
 			.oo-ui-buttonElement-button {
 				display: block;
 				min-width: @min-width-button-combo-widget;
-				min-height: @min-height-widget-base;
+				min-height: @min-size-interactive-pointer;
 				padding-left: 0;
 				padding-right: 0;
 			}
@@ -1629,7 +1629,7 @@
 
 	&-handle {
 		box-sizing: border-box;
-		min-height: @min-height-widget-base;
+		min-height: @min-size-interactive-pointer;
 		.oo-ui-inline-spacing( @margin-end-widget );
 		border: @border-base;
 		border-radius: @border-radius-base;
@@ -1814,7 +1814,7 @@
 
 	&.oo-ui-indicatorElement {
 		.oo-ui-inputWidget-input {
-			padding-right: @min-size-indicator + 2 * @padding-horizontal-input-text;
+			padding-right: @min-size-icon-x-small + 2 * @padding-horizontal-input-text;
 		}
 
 		&.oo-ui-textInputWidget-labelPosition-after > .oo-ui-labelElement-label {
@@ -1962,7 +1962,7 @@
 	background-color: @background-color-framed;
 	min-width: 48px;
 	width: 3.5em;
-	min-height: @min-size-base;
+	min-height: @min-size-interactive-pointer;
 	height: 2em;
 	border: @border-input-binary;
 	border-radius: @border-radius-pill;

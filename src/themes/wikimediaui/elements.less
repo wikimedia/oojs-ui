@@ -5,7 +5,7 @@
 .theme-oo-ui-buttonElement() {
 	> .oo-ui-buttonElement-button {
 		position: relative;
-		min-height: @min-height-widget-base;
+		min-height: @min-size-interactive-pointer;
 		border-radius: @border-radius-base;
 		// Use `padding` to ensure user preference text sizing scales icons.
 		padding-top: @padding-top-icon-indicator;
@@ -90,8 +90,8 @@
 			}
 
 			> .oo-ui-buttonElement-button {
-				min-width: @min-size-base;
-				min-height: @min-size-base;
+				min-width: @min-size-interactive-pointer;
+				min-height: @min-size-interactive-pointer;
 				border-color: @border-color-frameless;
 				border-style: @border-style-base;
 				border-width: @border-width-base;
@@ -129,7 +129,7 @@
 
 		&.oo-ui-indicatorElement {
 			&:not( .oo-ui-iconElement ):not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button {
-				min-width: @min-size-indicator;
+				min-width: @min-size-icon-x-small;
 			}
 
 			&.oo-ui-iconElement > .oo-ui-buttonElement-button { // Reset with specificity from above, see T174968
