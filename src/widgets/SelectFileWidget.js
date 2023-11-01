@@ -117,9 +117,9 @@ OO.mixinClass( OO.ui.SelectFileWidget, OO.ui.mixin.PendingElement );
 /**
  * @event change
  *
- * A change event is emitted when the on/off state of the toggle changes.
+ * A change event is emitted when the currently selected files change
  *
- * @param {File|null} value New value
+ * @param {File[]} currentFiles Current file list
  */
 
 /* Methods */
