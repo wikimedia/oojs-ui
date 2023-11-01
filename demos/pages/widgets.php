@@ -12,9 +12,9 @@ $demoContainer = new OOUI\PanelLayout( [
 	'framed' => true,
 ] );
 
-$demoContainer;
+$fieldsets = [];
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-buttons',
 	'infusable' => true,
 	'label' => 'Buttons',
@@ -318,9 +318,9 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			]
 		)
 	]
-] ) );
+] );
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-button-sets',
 	'infusable' => true,
 	'label' => 'Button sets',
@@ -346,9 +346,9 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			]
 		)
 	]
-] ) );
+] );
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-button-showcase',
 	'infusable' => true,
 	'label' => 'Button style showcase',
@@ -360,9 +360,9 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			]
 		)
 	]
-] ) );
+] );
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-inputs',
 	'infusable' => true,
 	'label' => 'TextInput',
@@ -383,7 +383,7 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 		),
 		new OOUI\FieldLayout(
 			new OOUI\TextInputWidget( [
-				'required' => true
+				'required' => true,
 			] ),
 			[
 				'label' => "TextInputWidget (required)",
@@ -523,9 +523,9 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			]
 		)
 	]
-] ) );
+] );
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-inputs-binary',
 	'infusable' => true,
 	'label' => 'Checkbox, Radio & ToggleSwitch',
@@ -706,9 +706,9 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			]
 		)
 	]
-] ) );
+] );
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-dropdown',
 	'infusable' => true,
 	'label' => 'Dropdown',
@@ -886,9 +886,9 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			]
 		)
 	]
-] ) );
+] );
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-comboBox',
 	'infusable' => true,
 	'label' => 'ComboBox',
@@ -932,15 +932,15 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			]
 		)
 	]
-] ) );
+] );
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-selectFile',
 	'infusable' => true,
 	'label' => 'SelectFile',
 	'items' => [
 		new OOUI\FieldLayout(
-			new OOUI\SelectFileInputWidget( [] ),
+			new OOUI\SelectFileInputWidget( [ 'name' => 'file-1' ] ),
 			[
 				'label' => 'SelectFileInputWidget',
 				'align' => 'top'
@@ -1047,9 +1047,9 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			]
 		),
 	]
-] ) );
+] );
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-tabs',
 	'infusable' => true,
 	'label' => 'Tabs',
@@ -1096,9 +1096,9 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			]
 		),
 	]
-] ) );
+] );
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-progressBar',
 	'infusable' => true,
 	'label' => 'Progress bar',
@@ -1132,9 +1132,9 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 			]
 		),
 	]
-] ) );
+] );
 
-$demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
+$fieldsets[] = new Demo\LinkedFieldsetLayout( [
 	'id' => 'demo-section-others',
 	'infusable' => true,
 	'label' => 'Other widgets',
@@ -1348,7 +1348,57 @@ $demoContainer->appendContent( new Demo\LinkedFieldsetLayout( [
 				'align' => 'top'
 			]
 		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonInputWidget( [
+				'label' => 'Test form submission',
+				'type' => 'submit',
+				'flags' => [ 'progressive', 'primary' ]
+			] ),
+			[
+				'label' => ' ',
+				'align' => 'left',
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonInputWidget( [
+				'label' => 'Test form submission (no validation)',
+				'formNoValidate' => true,
+				'type' => 'submit',
+				'flags' => [ 'progressive', 'primary' ]
+			] ),
+			[
+				'label' => ' ',
+				'align' => 'left',
+			]
+		),
 	]
-] ) );
+] );
+
+// phpcs:disable MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals
+
+if ( !empty( $_POST ) ) {
+	$demoContainer->appendContent(
+		new OOUI\HtmlSnippet(
+			'<h2>POST data</h2><pre>' . htmlentities( var_export( $_POST, true ) ) . '</pre><hr>'
+		)
+	);
+}
+
+if ( !empty( $_POST ) ) {
+	$demoContainer->appendContent(
+		new OOUI\HtmlSnippet(
+			'<h2>Files</h2><pre>' . htmlentities( var_export( $_FILES, true ) ) . '</pre><hr>'
+		)
+	);
+}
+
+$demoContainer->appendContent(
+	new OOUI\FormLayout( [
+		'action' => '',
+		'method' => 'post',
+		'enctype' => 'multipart/form-data',
+		'items' => $fieldsets
+	] )
+);
 
 echo $demoContainer;
