@@ -48,12 +48,11 @@ OO.ui.PopupButtonWidget = function OoUiPopupButtonWidget( config ) {
 	} );
 
 	// Initialization
-	this.$element
-		.addClass( 'oo-ui-popupButtonWidget' )
-		.attr( {
-			'aria-haspopup': 'dialog',
-			'aria-owns': this.popup.getElementId()
-		} );
+	this.$element.addClass( 'oo-ui-popupButtonWidget' );
+	this.$button.attr( {
+		'aria-haspopup': 'dialog',
+		'aria-owns': this.popup.getElementId()
+	} );
 	this.popup.$element
 		.addClass( 'oo-ui-popupButtonWidget-popup' )
 		.attr( {
