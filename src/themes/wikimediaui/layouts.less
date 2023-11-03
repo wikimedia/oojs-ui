@@ -84,7 +84,7 @@
 					// Move into the space of `margin-right` of header
 					margin-left: -@padding-start-fieldlayout-label;
 					// Limit height to position the popup nicely (T313344)
-					height: @size-base;
+					height: @size-200;
 				}
 			}
 		}
@@ -100,7 +100,7 @@
 		margin-right: 0; // Override `.oo-ui-inline-spacing()`.
 
 		.oo-ui-buttonElement-button {
-			padding-top: @size-icon;
+			padding-top: @size-icon-medium;
 			padding-right: 0; // Accessible label causes triggering of `.oo-ui-labelElement`, we need to reset it here
 
 			&:hover,
@@ -201,7 +201,7 @@
 		max-width: @max-width-base;
 
 		.oo-ui-iconElement-icon {
-			height: @size-icon;
+			height: @size-icon-medium;
 		}
 	}
 
@@ -239,7 +239,7 @@
 		}
 
 		.oo-ui-buttonElement-button {
-			padding-top: @size-icon;
+			padding-top: @size-icon-medium;
 			padding-right: 0; // Accessible label causes triggering of `.oo-ui-labelElement`, we need to reset it here
 
 			&:hover,

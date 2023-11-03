@@ -16,7 +16,7 @@
 	// Support `<input>` from ButtonInputWidget
 	> input.oo-ui-buttonElement-button,
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
-		line-height: @size-icon;
+		line-height: @size-icon-medium;
 	}
 
 	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
@@ -29,12 +29,12 @@
 
 	&.oo-ui-iconElement {
 		.oo-ui-indicatorElement-indicator {
-			margin-left: ( @size-indicator / 2 );
+			margin-left: ( @size-icon-x-small / 2 );
 		}
 	}
 
 	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
-		margin: ( @size-indicator / 2 );
+		margin: ( @size-icon-x-small / 2 );
 	}
 
 	&-frameless {
@@ -191,7 +191,7 @@
 		// Support <input> from ButtonInputWidget
 		> input.oo-ui-buttonElement-button,
 		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
-			line-height: @size-icon;
+			line-height: @size-icon-medium;
 		}
 
 		&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
@@ -210,8 +210,8 @@
 
 		&.oo-ui-iconElement {
 			> .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-				margin-left: -0.5em + @size-icon-outer;
-				margin-right: -0.5em + @size-icon-outer;
+				margin-left: -0.5em + @size-icon-medium-outer;
+				margin-right: -0.5em + @size-icon-medium-outer;
 				// Vertical align text
 				display: inline-block;
 				vertical-align: middle;
@@ -230,7 +230,7 @@
 
 			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
 			&.oo-ui-iconElement:not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
-				margin-left: ( @size-indicator / 2 );
+				margin-left: ( @size-icon-x-small / 2 );
 				margin-right: -0.275em;
 			}
 		}
@@ -306,9 +306,9 @@
 	&-icon {
 		position: static;
 		top: auto;
-		width: @size-icon-inner;
-		height: @size-icon-inner;
-		margin: @size-icon-outer;
+		width: @size-icon-medium-inner;
+		height: @size-icon-medium-inner;
+		margin: @size-icon-medium-outer;
 		opacity: 0.8;
 	}
 
@@ -324,7 +324,7 @@
 	&-indicator {
 		position: static;
 		top: auto;
-		height: @size-indicator;
+		height: @size-icon-x-small;
 		opacity: 0.8;
 	}
 
@@ -348,12 +348,12 @@
 	&-pending {
 		background-color: @background-color-pending-stripe;
 		background-image: linear-gradient( 135deg, @background-color-main 25%, transparent 25%, transparent 50%, @background-color-main 50%, @background-color-main 75%, transparent 75%, transparent );
-		background-size: @size-icon-inner @size-icon-inner;
+		background-size: @size-icon-medium-inner @size-icon-medium-inner;
 		animation: oo-ui-pendingElement-stripes 650ms linear infinite;
 
 		@keyframes oo-ui-pendingElement-stripes {
 			0% {
-				background-position: -@size-icon-inner 0;
+				background-position: -@size-icon-medium-inner 0;
 			}
 
 			100% {

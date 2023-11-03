@@ -1,5 +1,6 @@
 // Theme variables
 @ooui-default-image-path: 'themes/wikimediaui/images';
+@apex-font-size-base: 0.8em;
 
 @background-color-main: #fff;
 // 'Framed' UI elements (Framed Buttons, Dropdowns, ToggleSwitches...)
@@ -38,9 +39,14 @@
 @color-notice: @color-base--emphasized;
 
 // Box Sizes
-// `@*size` variables are used for `*width` & `*height` properties
-@size-base: unit( ( 32 / 16 / 0.8 ), em ); // equals `2.5em`≈`32px`
-@size-base--small: unit( ( 16 / 16 / 0.8 ), em );
+// `@*size` variables in scale are used for `*width` & `*height` properties
+@size-200: unit( ( 32 / 16 / @apex-font-size-base ), em );
+@size-100: unit( ( 16 / 16 / @apex-font-size-base ), em );
+
+@size-icon-medium: unit( ( 20 / 16 / @apex-font-size-base ), em ); // equals `1.42857143em`≈`20px` at base `font-size: 14px`
+// Note, in Codex `@size-icon-small` is `16px` equivalent.
+@size-icon-small: unit( ( 14 / 16 / @apex-font-size-base ), em );
+@size-icon-x-small: unit( ( 12 / 16 / @apex-font-size-base ), em ); // equals `0.9375em`≈`12px`
 
 @min-size-interactive-pointer: 32px;
 @min-size-icon-medium: 20px;
@@ -50,23 +56,23 @@
 @max-width-input-base: @max-width-base;
 
 @size-anchor: 6px;
-@size-button-inner: unit( ( 30 / 16 / 0.8 ), em ); // `@size-base` - 2 x `@border-width-base`
-@size-icon-inner: unit( ( 20 / 16 / 0.8 ), em );
-@size-icon-outer: unit( ( 2 / 16 / 0.8 ), em );
-@size-icon: @size-icon-inner + 2 * @size-icon-outer; // 24
-@size-icon-tagitem-remove: unit( ( 14 / 16 / 0.8 ), em );
-@size-indicator: unit( ( 12 / 16 / 0.8 ), em );
-@size-dialog-message-bar: unit( ( 32 / 16 / 0.8 ), em );
-@size-modifier-border: unit( ( 1 / 16 / 0.8 ), em ); // Use for size calculations with borders aside of `px` based `@border-width-base`
+@size-button-inner: unit( ( 30 / 16 / @apex-font-size-base ), em ); // `@size-base` - 2 x `@border-width-base`
+@size-icon-medium-inner: unit( ( 20 / 16 / @apex-font-size-base ), em );
+@size-icon-medium-outer: unit( ( 2 / 16 / @apex-font-size-base ), em );
+@size-icon-medium: @size-icon-medium-inner + 2 * @size-icon-medium-outer; // 24
+@size-icon-tagitem-remove: unit( ( 14 / 16 / @apex-font-size-base ), em );
+@size-icon-x-small: unit( ( 12 / 16 / @apex-font-size-base ), em );
+@size-dialog-message-bar: unit( ( 32 / 16 / @apex-font-size-base ), em );
+@size-modifier-border: unit( ( 1 / 16 / @apex-font-size-base ), em ); // Use for size calculations with borders aside of `px` based `@border-width-base`
 
-@height-tagitem: unit( ( 22 / 16 / 0.8 ), em );
+@height-tagitem: unit( ( 22 / 16 / @apex-font-size-base ), em );
 
 @start-frameless: -@padding-horizontal-frameless;
-@start-icon-tagitem-remove: unit( ( 3 / 16 / 0.8 ), em );
+@start-icon-tagitem-remove: unit( ( 3 / 16 / @apex-font-size-base ), em );
 
-@margin-top-message: unit( ( 8 / 16 / 0.8 ), em );
-@margin-top-message-label: unit( ( 2 / 16 / 0.8 ), em );
-@margin-horizontal-fieldlayout-message: unit( ( 2 / 16 / 0.8 ), em );
+@margin-top-message: unit( ( 8 / 16 / @apex-font-size-base ), em );
+@margin-top-message-label: unit( ( 2 / 16 / @apex-font-size-base ), em );
+@margin-horizontal-fieldlayout-message: unit( ( 2 / 16 / @apex-font-size-base ), em );
 
 @border-base: @border-width-base @border-style-base @border-color-base;
 
@@ -91,30 +97,30 @@
 @padding-base: @padding-vertical-base @padding-horizontal-base;
 @padding-frameless: @padding-vertical-frameless @padding-horizontal-frameless;
 @padding-panel-form: 1em 1em 1.25em;
-@padding-horizontal-base: unit( ( 10 / 16 / 0.8 ), em );
-@padding-horizontal-frameless: unit( ( 4 / 16 / 0.8 ), em );
+@padding-horizontal-base: unit( ( 10 / 16 / @apex-font-size-base ), em );
+@padding-horizontal-frameless: unit( ( 4 / 16 / @apex-font-size-base ), em );
 @padding-horizontal-input-text: 0.5em;
-@padding-horizontal-message-block: unit( ( 24 / 16 / 0.8 ), em );
-@padding-vertical-base: unit( ( 3 / 16 / 0.8 ), em );
-@padding-vertical-frameless: unit( ( 4 / 16 / 0.8 ), em );
+@padding-horizontal-message-block: unit( ( 24 / 16 / @apex-font-size-base ), em );
+@padding-vertical-base: unit( ( 3 / 16 / @apex-font-size-base ), em );
+@padding-vertical-frameless: unit( ( 4 / 16 / @apex-font-size-base ), em );
 @padding-vertical-label: @padding-vertical-frameless;
-@padding-vertical-message-block: unit( ( 16 / 16 / 0.8 ), em );
+@padding-vertical-message-block: unit( ( 16 / 16 / @apex-font-size-base ), em );
 // Must be < `8` as it cuts off scripts.
-@padding-vertical-textinput: unit( ( 6 / 16 / 0.8 ), em );
+@padding-vertical-textinput: unit( ( 6 / 16 / @apex-font-size-base ), em );
 @padding-start-fieldlayout-label: @padding-horizontal-input-text;
-@padding-start-messages: unit( ( 8 / 16 / 0.8 ), em );
-@padding-end-dropdown: @size-indicator + ( 2 * @padding-horizontal-base );
-@padding-end-tagitem-remove: unit( ( 23 / 16 / 0.8 ), em );
+@padding-start-messages: unit( ( 8 / 16 / @apex-font-size-base ), em );
+@padding-end-dropdown: @size-icon-x-small + ( 2 * @padding-horizontal-base );
+@padding-end-tagitem-remove: unit( ( 23 / 16 / @apex-font-size-base ), em );
 
 @box-shadow-base--focus: 0 0 2px 2px @border-color-base--focus;
 
 @filter-drop-shadow-menu: drop-shadow( 0 0.15em 0.5em rgba( 0, 0, 0, 0.2 ) );
 
-@font-size-small: unit( ( 12 / 16 / 0.8 ), em );
+@font-size-small: unit( ( 12 / 16 / @apex-font-size-base ), em );
 
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
 @line-height-base: 1.4;
-@line-height-input: unit( ( 18 / 16 / 0.8 ), em ); // Firefox needs a value, Chrome the unit; equals `18px` at base `font-size: 12.8px`
+@line-height-input: unit( ( 18 / 16 / @apex-font-size-base ), em ); // Firefox needs a value, Chrome the unit; equals `18px` at base `font-size: 12.8px`
 
 // FIXME: Should be theme-independent variable, only in Apex for now;
 @text-shadow-button: 0 1px 1px rgba( 255, 255, 255, 0.5 );
@@ -126,7 +132,7 @@
 @transition-duration-medium: 250ms;
 
 // Dialogs
-@size-dialog-menu: unit( ( 200 / 16 / 0.8 ), em );
+@size-dialog-menu: unit( ( 200 / 16 / @apex-font-size-base ), em );
 
 // Theme mixins
 

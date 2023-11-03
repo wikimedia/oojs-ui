@@ -29,11 +29,12 @@
 @opacity-tool--disabled: 0.34; // equals `#a9a9a9` on background-color `#fff`
 
 // Box Sizes
-// `@*size` variables are used for `*width` & `*height` properties.
+// `@*size` variables in scale are used for `*width` & `*height` properties.
 // `@min-size-interactive-pointer` is defined as `px` carrying value in WikimediaUI Base variables and
-// gets preference over `@size-base` to prevent recursion.
-@size-base: ( unit( @min-size-interactive-pointer ) / @ooui-font-size-browser / @ooui-font-size-base ); // equals `2.5em`≈`32px`
-@size-base--small: ( 16 / @ooui-font-size-browser / @ooui-font-size-base );
+// gets preference over `@size-200` to prevent recursion.
+// FIXME: Remove with Codex tokens.
+@size-200: ( unit( @min-size-interactive-pointer ) / @ooui-font-size-browser / @ooui-font-size-base ); // equals `2.5em`≈`32px`
+@size-100: ( 16 / @ooui-font-size-browser / @ooui-font-size-base );
 // FIXME: Remove with WikimediaUI Base consuming Codex tokens.
 @size-toggle-switch-grip: ( 20 / @ooui-font-size-browser / @ooui-font-size-base );
 
@@ -55,10 +56,13 @@
 @size-anchor: 9px;
 @size-button-tagitem-remove: ( 20 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `1.5625em`≈`20px`
 // `@min-size-icon-medium` is defined as `px` carrying value in WikimediaUI Base variables and
-// gets preference over `@size-icon` to prevent recursion.
-@size-icon: ( unit( @min-size-icon-medium ) / @ooui-font-size-browser / @ooui-font-size-base );
+// gets preference over `@size-icon-medium` to prevent recursion.
+// FIXME: Remove with Codex tokens.
+@size-icon-medium: ( unit( @min-size-icon-medium ) / @ooui-font-size-browser / @ooui-font-size-base );
+// Note, in Codex `@size-icon-small` is `16px` equivalent.
 @size-icon-small: ( 14 / @ooui-font-size-browser / @ooui-font-size-base );
-@size-indicator: ( 12 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `0.9375em`≈`12px`
+// FIXME: Remove with Codex tokens.
+@size-icon-x-small: ( 12 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `0.9375em`≈`12px`
 @size-dialog-bar--desktop: ( 42 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `3em`≈`40px`
 @size-dialog-bar--mobile: ( 44 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `3.4375em`≈`44px`
 @size-dialog-message-bar: ( 40 / @ooui-font-size-browser / @ooui-font-size-base );
@@ -78,7 +82,7 @@
 @height-tabselect: ( 37 / @ooui-font-size-browser / @ooui-font-size-base );
 
 @start-framed-icon-only: ( 11 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `0.859375em`≈`11px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
-@start-framed-indicator-only: ( 15 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `1.07142857em`≈`15px`; `@size-indicator + 2 * @border-width-base`
+@start-framed-indicator-only: ( 15 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `1.07142857em`≈`15px`; `@size-icon-x-small + 2 * @border-width-base`
 @start-framed-indicator-only-button-combo-widget: ( 12 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `0.85714286em`≈`12px`
 @start-frameless: -( 6 / @ooui-font-size-browser / @ooui-font-size-base ); // `-( @start-frameless-icon + @border-width-base )`
 @start-frameless-icon: ( 5 / @ooui-font-size-browser / @ooui-font-size-base );
@@ -148,7 +152,7 @@
 @padding-vertical-dialog-action: 10px;
 // Tools don't feature borders.
 @padding-vertical-tool-label: 11px;
-@padding-start-icon: @size-icon;
+@padding-start-icon: @size-icon-medium;
 // All paddings holding icons/indicators need `em`s due to font-size derived icon scaling.
 @padding-start-icon-only: ( 30 / @ooui-font-size-browser / @ooui-font-size-base ); // @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base.
 @padding-start-fieldset-header-iconized: unit( ( 26 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ) ), @ooui-unit );
@@ -156,7 +160,7 @@
 // Indicator receives a little less than `@padding-horizontal-base` to make up for its fragility.
 // Also abusing `@padding-start` as `start` value.
 @padding-start-indicator: ( 10 / @ooui-font-size-browser / @ooui-font-size-base );
-@padding-start-indicator-only: @size-indicator * 2;
+@padding-start-indicator-only: @size-icon-x-small * 2;
 @padding-start-indicator-plus: ( 30 / @ooui-font-size-browser / @ooui-font-size-base );
 @padding-start-frameless-icon-plus: @padding-start-icon-only;
 // `6px` is not aligned to Design Style Guide, as checkbox and radio sizes aren't either.

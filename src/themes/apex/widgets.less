@@ -371,8 +371,8 @@
 	display: inline-block;
 	position: static;
 	top: auto;
-	height: @size-icon-inner;
-	margin: @size-icon-outer;
+	height: @size-icon-medium-inner;
+	margin: @size-icon-medium-outer;
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
@@ -384,7 +384,7 @@
 	display: inline-block;
 	position: static;
 	top: auto;
-	height: @size-icon;
+	height: @size-icon-medium;
 
 	&.oo-ui-widget-disabled {
 		opacity: 0.2;
@@ -469,7 +469,7 @@
 
 	> .oo-ui-labelElement-label {
 		margin-top: @margin-top-message-label;
-		margin-left: @size-icon + @padding-start-messages;
+		margin-left: @size-icon-medium + @padding-start-messages;
 		line-height: @line-height-base;
 	}
 
@@ -479,7 +479,7 @@
 		font-weight: normal;
 
 		&.oo-ui-messageWidget-showClose {
-			padding-right: @size-icon + @padding-start-messages + @padding-horizontal-message-block;
+			padding-right: @size-icon-medium + @padding-start-messages + @padding-horizontal-message-block;
 		}
 
 		> .oo-ui-messageWidget-close {
@@ -538,19 +538,19 @@
 	max-width: @max-width-input-base;
 
 	&-field > .oo-ui-buttonWidget {
-		width: @size-base;
+		width: @size-200;
 	}
 
 	&-buttoned {
 		.oo-ui-buttonWidget,
 		.oo-ui-inputWidget-input {
-			height: @size-base;
+			height: @size-200;
 		}
 
 		.oo-ui-buttonElement-button {
 			.oo-ui-iconElement-icon {
 				min-width: @min-size-icon-medium;
-				width: @size-icon-inner;
+				width: @size-icon-medium-inner;
 			}
 		}
 
@@ -791,13 +791,13 @@
 			.oo-ui-icon-close {
 				// This must have two values to match `background-size: 0 0` above,
 				// otherwise the transition does not work (at least in Chrome).
-				background-size: @size-base--small @size-base--small;
+				background-size: @size-100 @size-100;
 			}
 		}
 
 		> .oo-ui-labelElement-label {
 			display: inline-block;
-			margin: 0.75em ( @size-icon + 0.25 ) 0 0.25em;
+			margin: 0.75em ( @size-icon-medium + 0.25em ) 0 0.25em;
 		}
 
 		> .oo-ui-iconElement-icon:not( .oo-ui-iconElement-noIcon ) {
@@ -931,7 +931,7 @@
 .theme-oo-ui-selectFileInputWidget() {
 	width: 100%;
 	max-width: @max-width-input-base;
-	min-height: @size-base;
+	min-height: @size-200;
 }
 
 .theme-oo-ui-selectFileWidget() {
@@ -947,7 +947,7 @@
 
 		// Inline style `background-image` on thumbnail will take place over PendingElement.
 		.oo-ui-pendingElement-pending {
-			background-size: @size-icon-inner @size-icon-inner;
+			background-size: @size-icon-medium-inner @size-icon-medium-inner;
 		}
 	}
 
@@ -1078,7 +1078,7 @@
 			position: absolute;
 			bottom: 0;
 			right: 0;
-			height: @size-base;
+			height: @size-200;
 			width: 2em;
 			pointer-events: none;
 		}
@@ -1146,7 +1146,7 @@
 		// Clear button
 		> .oo-ui-buttonElement {
 			display: block;
-			width: @size-icon-inner;
+			width: @size-icon-medium-inner;
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -1217,7 +1217,7 @@
 	}
 
 	&.oo-ui-iconElement &-handle {
-		padding-left: @size-icon + 2 * 0.3em;
+		padding-left: @size-icon-medium + 2 * 0.3em;
 
 		> .oo-ui-iconElement-icon {
 			left: 0;
@@ -1226,7 +1226,7 @@
 	}
 
 	&.oo-ui-indicatorElement &-handle {
-		padding-right: @size-indicator + 2 * 0.775em;
+		padding-right: @size-icon-x-small + 2 * 0.775em;
 
 		> .oo-ui-indicatorElement-indicator {
 			right: 0;
@@ -1335,12 +1335,12 @@
 		position: absolute;
 		top: 0;
 		height: 100%;
-		margin: 0 @size-icon-outer;
+		margin: 0 @size-icon-medium-outer;
 	}
 
 	&.oo-ui-iconElement {
 		.oo-ui-inputWidget-input {
-			padding-left: @size-icon + 0.6em;
+			padding-left: @size-icon-medium + 0.6em;
 		}
 
 		> .oo-ui-iconElement-icon {
@@ -1352,7 +1352,7 @@
 
 	&.oo-ui-indicatorElement {
 		.oo-ui-inputWidget-input {
-			padding-right: @size-indicator + 1.55em;
+			padding-right: @size-icon-x-small + 1.55em;
 		}
 
 		> .oo-ui-indicatorElement-indicator {
@@ -1370,13 +1370,13 @@
 
 	&-labelPosition-after {
 		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
-			margin-right: @size-indicator + 1.55em - 0.4em;
+			margin-right: @size-icon-x-small + 1.55em - 0.4em;
 		}
 	}
 
 	&-labelPosition-before {
 		&.oo-ui-iconElement > .oo-ui-labelElement-label {
-			margin-left: @size-icon + 0.6em - 0.4em;
+			margin-left: @size-icon-medium + 0.6em - 0.4em;
 		}
 	}
 

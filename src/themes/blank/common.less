@@ -10,8 +10,13 @@
 @min-size-icon-medium: 20px; // values used for `min-height` are defined in `px`, see T130691
 @min-size-icon-x-small: 12px;
 
-@size-icon: ( 20 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `1.42857143em`≈`20px` at base `font-size: 14px`
-@size-indicator: ( 12 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `0.85714286em`≈`12px` at base `font-size: 14px`
+@size-200: ( unit( @min-size-interactive-pointer ) / @ooui-font-size-browser / @ooui-font-size-base ); // equals `2.5em`≈`32px`
+@size-100: ( 16 / @ooui-font-size-browser / @ooui-font-size-base );
+
+@size-icon-medium: ( 20 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `1.42857143em`≈`20px` at base `font-size: 14px`
+// Note, in Codex `@size-icon-small` is `16px` equivalent.
+@size-icon-small: ( 14 / @ooui-font-size-browser / @ooui-font-size-base );
+@size-icon-x-small: ( 12 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `0.9375em`≈`12px`
 
 // Theme animation variables
 @transition-duration-medium: 250ms;
