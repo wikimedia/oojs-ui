@@ -5,19 +5,19 @@
 @ooui-font-size-base: ( 0.875 / 1em ); // equals `14px` at browser default of `16px`
 @ooui-unit: em;
 
-// Pull in the main set of variables from the shared UI base
+// Pull in the main set of Codex design tokens.
 // * Reaching into node_modules like this to avoid a symlink that Windows users won't like
-// * Use LESS "reference" import to avoid including the '/**' comment at the top of the file
-@import ( reference ) '../../../node_modules/wikimedia-ui-base/wikimedia-ui-base.less';
+// * Use Less "reference" import to avoid including the '/**' comment at the top of the file
+// See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html
+@import ( reference ) '../../../node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-legacy.less';
+@import ( reference ) '../../../node_modules/@wikimedia/codex-design-tokens/dist/deprecated-aliases-wikimedia-ui-base.less';
 
 // Background & Text Colors
-@background-color-base--active: @wmui-color-base80;
 @background-color-frameless--hover: @background-color-quiet--hover;
 @background-color-frameless--active: @background-color-quiet--active;
-@background-color-pending-stripe: @wmui-color-base80;
-// Backdrop is the term used by CSS Fullscreen API and is used to dim the background when a modal Dialog is open. Also known as overlay mask.
-@background-color-backdrop-light: rgba( 255, 255, 255, 0.65 );
-@color-base--deemphasized: @wmui-color-base20;
+@background-color-pending-stripe: @background-color-interactive;
+@background-color-base--read-only: #f8f9fa;
+@color-base--deemphasized: @color-subtle;
 @color-taboption: @color-base--hover;
 
 // Primary 'Progressive' and 'Destructive' Colors
@@ -32,16 +32,9 @@
 // `@*size` variables in scale are used for `*width` & `*height` properties.
 // `@min-size-interactive-pointer` is defined as `px` carrying value in WikimediaUI Base variables and
 // gets preference over `@size-200` to prevent recursion.
-// FIXME: Remove with Codex tokens.
-@size-200: ( unit( @min-size-interactive-pointer ) / @ooui-font-size-browser / @ooui-font-size-base ); // equals `2.5em`≈`32px`
-@size-100: ( 16 / @ooui-font-size-browser / @ooui-font-size-base );
 // FIXME: Remove with WikimediaUI Base consuming Codex tokens.
 @size-toggle-switch-grip: ( 20 / @ooui-font-size-browser / @ooui-font-size-base );
 
-// FIXME: Remove with Codex tokens.
-@min-size-interactive-pointer: 32px;
-@min-size-icon-medium: 20px;
-@min-size-icon-x-small: 12px;
 // FIXME: Note, that Codex token value is `16px`.
 @min-size-icon-small: 14px;
 // `min-size/-width/-height` values are defined in `px`, see T130691.
@@ -57,12 +50,8 @@
 @size-button-tagitem-remove: ( 20 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `1.5625em`≈`20px`
 // `@min-size-icon-medium` is defined as `px` carrying value in WikimediaUI Base variables and
 // gets preference over `@size-icon-medium` to prevent recursion.
-// FIXME: Remove with Codex tokens.
-@size-icon-medium: ( unit( @min-size-icon-medium ) / @ooui-font-size-browser / @ooui-font-size-base );
 // Note, in Codex `@size-icon-small` is `16px` equivalent.
 @size-icon-small: ( 14 / @ooui-font-size-browser / @ooui-font-size-base );
-// FIXME: Remove with Codex tokens.
-@size-icon-x-small: ( 12 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `0.9375em`≈`12px`
 @size-dialog-bar--desktop: ( 42 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `3em`≈`40px`
 @size-dialog-bar--mobile: ( 44 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `3.4375em`≈`44px`
 @size-dialog-message-bar: ( 40 / @ooui-font-size-browser / @ooui-font-size-base );
@@ -80,6 +69,9 @@
 @height-search: ( 56 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `4.375em`≈`56px`; `height: 32px` + 2 * `margin: 12px`
 @height-tagitem: ( 22 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `1.71875em`≈`22px`;
 @height-tabselect: ( 37 / @ooui-font-size-browser / @ooui-font-size-base );
+
+@max-width-base: 50em;
+@max-width-input: @max-width-base;
 
 @start-framed-icon-only: ( 11 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `0.859375em`≈`11px`; HACK: We have to break with `@padding-start-input-text-icon` to perfectly center in `@min-width-button-base`
 @start-framed-indicator-only: ( 15 / @ooui-font-size-browser / @ooui-font-size-base ); // equals `1.07142857em`≈`15px`; `@size-icon-x-small + 2 * @border-width-base`
@@ -111,24 +103,22 @@
 @margin-end-widget: 8px;
 
 @border-filled--disabled: @border-width-base @border-style-base @border-color-filled--disabled;
-@border-dialog-bar: @border-width-base @border-style-base @border-color-dialog-bar;
+@border-dialog: @border-base;
+@border-dialog-bar: @border-subtle;
+@border-menu: @border-base;
 
 @border-color-framed-progressive--hover: @color-primary--hover;
 @border-color-framed-destructive--hover: @color-destructive--hover;
 @border-color-frameless: transparent;
 
-@border-color-focus-inset: @color-base--inverted;
-@border-color-dialog-bar: @wmui-color-base70;
-
 @border-width-frameless-tab: 2px;
 
-@border-toolbar: @border-width-base @border-style-base @wmui-color-base70;
-@border-toolgroup: @border-width-base @border-style-base @wmui-color-base80;
+@border-toolbar: @border-subtle;
+@border-toolgroup: @border-width-base @border-style-base #eaecf0;
 
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
 @border-radius-progressbar: @height-progressbar-bar;
-// FIXME: Remove with WikimediaUI Base consuming Codex tokens.
-@border-radius-pill: 9999px;
+@border-radius-input-radio: @border-radius-circle;
 
 @padding-frameless: @padding-vertical-base @padding-horizontal-frameless;
 @padding-menu: ( @padding-vertical-base + @border-width-base ) @padding-horizontal-base;
@@ -144,6 +134,8 @@
 @padding-horizontal-toolbar-action-buttons: 16px; // Aligned relatively to `@padding-horizontal-base` but for toolbar button height.
 // All paddings holding icons need `em`s due to font-size derived icon scaling.
 @padding-horizontal-base-iconized: ( 12 / @ooui-font-size-browser / @ooui-font-size-base );
+// FIXME: Note, that Codex token value is `4px`.
+@padding-vertical-base: 5px;
 @padding-vertical-label: 4px;
 @padding-vertical-message-block: 16px;
 @padding-top-icon-indicator: ( 30 / @ooui-font-size-browser / @ooui-font-size-base );
@@ -199,11 +191,19 @@
 @line-height-label: ( 20 / @ooui-font-size-browser / @ooui-font-size-base ); // Equals `1.42857143em`≈`20px` at base `font-size: 14px;
 @line-height-tagitem-label: unit( ( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small ), @ooui-unit ); // Push label down by 1 px for vertical centering.
 
+// Text Shadows
+@text-shadow-base: 0 1px 1px @color-base--inverted; // 'coined' effect
+@text-shadow-base--disabled: @text-shadow-base;
+
 @opacity-icon-accessory: 0.67; // Equals `#555`, closest to `#54595d` on background-color `#fff`
 
 // Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
 @background-color-input-binary--active: @color-primary--active;
 @background-color-input-binary--checked: @color-primary;
+// Positioning Model
+// Use `px` unit to prevent pixel rounding error when using `@size-input-binary / 4`.
+// Works with different sizes on mobile and desktop as it negatively offsets from outside.
+@position-offset-input-radio-focus: -4px;
 @size-input-binary: ( 20 / @ooui-font-size-browser / @ooui-font-size-base );
 @start-input-binary-icon: ( 3 / @ooui-font-size-browser / @ooui-font-size-base );
 @border-input-binary: @border-width-base @border-style-base @border-color-input-binary;
@@ -213,8 +213,15 @@
 @border-width-radio--checked: 6px;
 
 // Dialogs
+@border-color-dialog-bar: @border-color-subtle;
 @size-dialog-menu: ( 200 / @ooui-font-size-browser / @ooui-font-size-base );
-@transition-dialog: @transition-ease-out-medium;
+
+// Tabs Navigation Background Color
+@background-color-tabs: #eaecf0;
+
+// Toolbar and Tools
+@color-tool--hover: @color-base--emphasized; // Used here in combination with `:hover` background-color turning light grey
+@color-tool--active: @color-primary;
 
 // Theme mixins
 

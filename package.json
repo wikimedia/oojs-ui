@@ -34,9 +34,9 @@
 		"jenkins": "npm test && npm run doc && npm run postdoc"
 	},
 	"dependencies": {
+		"@wikimedia/codex-design-tokens": "1.0.0",
 		"jquery": "3.7.1",
-		"oojs": "7.0.1",
-		"wikimedia-ui-base": "0.22.0"
+		"oojs": "7.0.1"
 	},
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.25.1",

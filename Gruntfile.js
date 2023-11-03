@@ -22,6 +22,7 @@ module.exports = function ( grunt ) {
 		concatJsFiles = {},
 		concatOmnibusJs = {},
 		concatOmnibusCss = {},
+		concatCodexTokensCss = {},
 		rtlFiles = {},
 		minBanner = '/*! OOUI v<%= pkg.version %> | http://oojs.mit-license.org */';
 	let lessTargets = {};
@@ -179,6 +180,11 @@ module.exports = function ( grunt ) {
 				concatOmnibusCss[ themify( 'dist/oojs-ui-{theme}.css' ) ].map( rtlPath );
 		}
 
+		concatCodexTokensCss[ 'dist/wikimedia-ui-base.less' ] = [
+			'node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-legacy.less',
+			'node_modules/@wikimedia/codex-design-tokens/dist/deprecated-aliases-wikimedia-ui-base.less'
+		];
+
 	}() );
 
 	function strip( str ) {
@@ -246,6 +252,12 @@ module.exports = function ( grunt ) {
 					banner: ''
 				},
 				files: concatOmnibusCss
+			},
+			codexTokensCss: {
+				options: {
+					banner: '// Codex Design Tokens'
+				},
+				files: concatCodexTokensCss
 			},
 			i18nMessages: {
 				options: {
@@ -329,13 +341,6 @@ module.exports = function ( grunt ) {
 					'History.md'
 				],
 				dest: 'dist/'
-			},
-			wikimediauibasevars: {
-				flatten: true,
-				src: [
-					'node_modules/wikimedia-ui-base/wikimedia-ui-base.less'
-				],
-				dest: 'dist/wikimedia-ui-base.less'
 			},
 			// Copies the necessary vendor/ files for demos without running "composer install"
 			fastcomposerdemos: {
@@ -647,7 +652,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'build-code', [ 'concat:i18nMessages', 'concat:js', 'concat:omnibusJs' ] );
 	grunt.registerTask( 'build-styling', [
 		'colorizeSvg', 'less', 'cssjanus',
-		'concat:css', 'concat:omnibusCss', 'concat:demoCss',
+		'concat:css', 'concat:omnibusCss', 'concat:codexTokensCss', 'concat:demoCss',
 		'copy:images'
 	] );
 	grunt.registerTask( 'build-styling-ltr', [
@@ -663,7 +668,6 @@ module.exports = function ( grunt ) {
 		'clean:build', 'fileExists', 'tyops',
 		'build-code', 'build-styling', 'build-i18n',
 		'copy:dist',
-		'copy:wikimediauibasevars',
 		'clean:tmp', 'demos'
 	] );
 
