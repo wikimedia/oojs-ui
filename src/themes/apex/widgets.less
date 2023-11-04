@@ -398,7 +398,7 @@
 .theme-oo-ui-labelWidget() {
 	&.oo-ui-inline-help {
 		display: block;
-		color: @color-base--deemphasized;
+		color: @color-subtle;
 		font-size: @font-size-small;
 	}
 }
@@ -1004,26 +1004,26 @@
 
 		&.oo-ui-optionWidget-selected {
 			background-color: @background-color-base;
-			color: #000;
+			color: @color-emphasized;
 			border-color: #ddd;
 		}
 
 		&.oo-ui-widget-enabled {
 			&:hover {
 				background-color: rgba( 255, 255, 255, 0.2 );
-				color: #000;
+				color: @color-emphasized;
 				border-color: #ddd;
 			}
 
 			&:active {
 				background-color: @background-color-base;
-				color: #000;
+				color: @color-emphasized;
 				border-color: #ddd;
 			}
 
 			&.oo-ui-optionWidget-selected:hover {
 				background-color: @background-color-base;
-				color: #000;
+				color: @color-emphasized;
 			}
 		}
 	}
@@ -1170,7 +1170,7 @@
 		// Opacity causes 1px measurement errors in Chrome, so force GPU rendering
 		.oo-ui-force-gpu-composite-layer();
 		box-shadow: none;
-		color: #333;
+		color: @color-base;
 		background: #eee;
 		border-color: #ccc;
 
@@ -1204,7 +1204,7 @@
 				font-size: inherit;
 				font-family: inherit;
 				background-color: transparent;
-				color: #000;
+				color: @color-emphasized;
 				vertical-align: middle;
 
 				.apex-placeholder();
@@ -1314,7 +1314,7 @@
 	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`
 	.oo-ui-inputWidget-input {
 		background-color: @background-color-base;
-		color: #000;
+		color: @color-emphasized;
 		border: @border-base;
 		border-radius: @border-radius-base;
 		padding: @padding-vertical-textinput @padding-horizontal-input-text;
@@ -1432,7 +1432,7 @@
 			background-color: @background-color-button-quiet--active;
 
 			> .oo-ui-labelElement-label {
-				color: @color-base--emphasized;
+				color: @color-emphasized;
 			}
 		}
 	}

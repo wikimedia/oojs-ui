@@ -115,22 +115,22 @@
 			}
 		}
 
-		.mw-tool-colored( ~'.oo-ui-tool-link', inherit, @background-color-interactive, @color-primary--active, @color-primary--focus, @color-tool--active );
+		.mw-tool-colored( ~'.oo-ui-tool-link', inherit, @background-color-interactive, @color-progressive--active, @color-progressive--focus, @color-progressive );
 
 		&.oo-ui-flaggedElement {
 			&-progressive {
-				.mw-tool-colored( ~'.oo-ui-tool-link', @color-primary, @background-color-interactive, @color-primary--active, @color-primary--focus );
+				.mw-tool-colored( ~'.oo-ui-tool-link', @color-progressive, @background-color-interactive, @color-progressive--active, @color-progressive--focus );
 			}
 
 			&-destructive {
-				.mw-tool-colored( ~'.oo-ui-tool-link', @color-destructive-non-primary, @background-color-interactive, @color-destructive--active, @color-destructive--focus );
+				.mw-tool-colored( ~'.oo-ui-tool-link', @color-destructive, @background-color-interactive, @color-destructive--active, @color-destructive--focus );
 			}
 		}
 
 		&.oo-ui-flaggedElement-primary {
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-primary-tool-colored( ~'.oo-ui-tool-link', @color-primary, @color-primary--hover, @color-primary--active, @color-primary--focus );
+					.mw-primary-tool-colored( ~'.oo-ui-tool-link', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 				}
 
 				&-destructive {
@@ -189,12 +189,12 @@
 				border-color: @border-color-base--disabled;
 
 				.oo-ui-tool-title {
-					color: @color-base--inverted;
+					color: @color-inverted;
 				}
 			}
 
 			&.oo-ui-tool-active > .oo-ui-tool-link {
-				background-color: mix( @color-primary--active, @background-color-disabled, 35% );
+				background-color: mix( @color-progressive--active, @background-color-disabled, 35% );
 			}
 
 			.oo-ui-iconElement-icon {
@@ -203,7 +203,7 @@
 		}
 
 		> .oo-ui-tool-link .oo-ui-tool-title {
-			color: @color-base--disabled;
+			color: @color-disabled;
 		}
 	}
 }
@@ -213,7 +213,8 @@
 		&.oo-ui-widget-enabled {
 			&:hover {
 				background-color: @background-color-interactive;
-				color: @color-tool--hover;
+				// Used here in combination with background-color turning light grey.
+				color: @color-emphasized;
 			}
 		}
 
@@ -226,14 +227,14 @@
 				}
 
 				.oo-ui-tool-link .oo-ui-tool-title {
-					color: @color-tool--active;
+					color: @color-progressive;
 				}
 			}
 		}
 
 		&.oo-ui-widget-disabled {
 			.oo-ui-tool-title {
-				color: @color-base--disabled;
+				color: @color-disabled;
 			}
 
 			.oo-ui-indicatorElement-indicator,
@@ -244,7 +245,7 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		color: @color-base--disabled;
+		color: @color-disabled;
 
 		.oo-ui-indicatorElement-indicator,
 		.oo-ui-iconElement-icon {
@@ -293,7 +294,7 @@
 
 	&.oo-ui-widget-disabled,
 	&-tools .oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {
-		color: @color-base--disabled;
+		color: @color-disabled;
 	}
 }
 
@@ -509,17 +510,17 @@
 	&.oo-ui-popupToolGroup-active {
 		> .oo-ui-popupToolGroup-handle {
 			background-color: @background-color-progressive-subtle;
-			color: @color-tool--active;
+			color: @color-progressive;
 
 			&:hover {
 				background-color: @background-color-tool--active-hover;
-				color: @color-tool--active;
+				color: @color-progressive;
 			}
 		}
 	}
 
 	&-tools .oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
-		color: @color-tool--active;
+		color: @color-progressive;
 	}
 
 	&-tools .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
@@ -529,18 +530,18 @@
 
 	&.oo-ui-flaggedElement {
 		&-progressive {
-			.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-primary, @background-color-base, @color-primary--active, @color-primary--focus );
+			.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @background-color-base, @color-progressive--active, @color-progressive--focus );
 		}
 
 		&-destructive {
-			.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-destructive-non-primary, @background-color-base, @color-destructive--active, @color-destructive--focus );
+			.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-destructive, @background-color-base, @color-destructive--active, @color-destructive--focus );
 		}
 	}
 
 	&.oo-ui-flaggedElement-primary {
 		&.oo-ui-flaggedElement {
 			&-progressive {
-				.mw-primary-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-primary, @color-primary--hover, @color-primary--active, @color-primary--focus );
+				.mw-primary-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 			}
 
 			&-destructive {

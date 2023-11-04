@@ -16,12 +16,6 @@
 @background-color-base--read-only: #f8f9fa;
 @background-color-tool--active-hover: rgba( 41, 98, 204, 0.1 );
 
-@color-base--deemphasized: @color-subtle;
-@color-taboption: @color-base--hover;
-
-// Primary 'Progressive' and 'Destructive' Colors
-@color-destructive-non-primary: #d73333; // Exemption for non-primary buttons, foremost used in VE, lightened up R50 to align to AA contrast ratio
-
 // Disabled Widgets
 @opacity-filled--disabled: 1;
 @opacity-indicator--disabled: 0.15; // equals `#c7c8cc` on background-color `#fff`
@@ -106,7 +100,7 @@
 @border-dialog-bar: @border-subtle;
 @border-menu: @border-base;
 
-@border-color-framed-progressive--hover: @color-primary--hover;
+@border-color-framed-progressive--hover: @color-progressive--hover;
 @border-color-framed-destructive--hover: @color-destructive--hover;
 @border-color-frameless: transparent;
 
@@ -169,12 +163,12 @@
 @box-shadow-toolbar-top: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.1 );
 @box-shadow-progressbar: @box-shadow-card;
-@box-shadow-progressive-filled--focus: inset 0 0 0 1px @color-primary, inset 0 0 0 2px @color-base--inverted;
-@box-shadow-frameless-indicator--focus: 0 0 0 2px @color-primary;
-@box-shadow-action--focus: @box-shadow-base--focus, 0 0 0 1px @color-primary;
-@box-shadow-toolbar-action-button--focus: inset 0 0 0 2px @color-primary, inset 0 0 0 3px @color-base--inverted;
-@box-shadow-popuptoolgroup-tool--focus: inset 0 0 0 2px @color-primary--focus;
-@box-shadow-input-binary--active: inset 0 0 0 1px @color-primary--active;
+@box-shadow-progressive-filled--focus: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px @color-inverted;
+@box-shadow-frameless-indicator--focus: 0 0 0 2px @color-progressive;
+@box-shadow-action--focus: @box-shadow-base--focus, 0 0 0 1px @color-progressive;
+@box-shadow-toolbar-action-button--focus: inset 0 0 0 2px @color-progressive, inset 0 0 0 3px @color-inverted;
+@box-shadow-popuptoolgroup-tool--focus: inset 0 0 0 2px @color-progressive--focus;
+@box-shadow-input-binary--active: inset 0 0 0 1px @color-progressive--active;
 @box-shadow-error--focus: inset 0 0 0 1px @color-error;
 
 @filter-drop-shadow-menu: drop-shadow( 0 2px 1px rgba( 0, 0, 0, 0.3 ) );
@@ -191,7 +185,7 @@
 @line-height-tagitem-label: unit( ( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small ), @ooui-unit ); // Push label down by 1 px for vertical centering.
 
 // Text Shadows
-@text-shadow-base: 0 1px 1px @color-base--inverted; // 'coined' effect
+@text-shadow-base: 0 1px 1px @color-inverted; // 'coined' effect
 @text-shadow-base--disabled: @text-shadow-base;
 
 @opacity-icon-accessory: 0.67; // Equals `#555`, closest to `#54595d` on background-color `#fff`
@@ -205,17 +199,13 @@
 @start-input-binary-icon: ( 3 / @ooui-font-size-browser / @ooui-font-size-base );
 @border-input-binary: @border-width-base @border-style-base @border-color-input-binary;
 @border-color-input-binary: @border-color-base--active;
-@border-color-input-binary--active: @color-primary--active;
-@border-color-input-binary--checked: @color-primary;
+@border-color-input-binary--active: @color-progressive--active;
+@border-color-input-binary--checked: @color-progressive;
 @border-width-radio--checked: 6px;
 
 // Dialogs
 @border-color-dialog-bar: @border-color-subtle;
 @size-dialog-menu: ( 200 / @ooui-font-size-browser / @ooui-font-size-base );
-
-// Toolbar and Tools
-@color-tool--hover: @color-base--emphasized; // Used here in combination with `:hover` background-color turning light grey
-@color-tool--active: @color-primary;
 
 // Theme mixins
 
@@ -266,7 +256,7 @@
 
 .mw-framed-primary-button-colored( @child, @color, @hover, @active, @focus ) {
 	> @{child} {
-		color: @color-base--inverted;
+		color: @color-inverted;
 		background-color: @color;
 		border-color: @color;
 	}
@@ -278,7 +268,7 @@
 
 	> @{child}:focus {
 		border-color: @focus;
-		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base--inverted;
+		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-inverted;
 		// In Windows high contrast mode the outline becomes visible.
 		outline: @outline-base--focus;
 	}
@@ -287,7 +277,7 @@
 	&.oo-ui-buttonElement-pressed > @{child},
 	&.oo-ui-buttonElement-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
-		color: @color-base--inverted;
+		color: @color-inverted;
 		background-color: @active;
 		border-color: @active;
 		box-shadow: none;
@@ -320,7 +310,7 @@
 
 .mw-primary-tool-colored( @child, @color, @hover, @active, @focus ) {
 	> @{child} {
-		color: @color-base--inverted;
+		color: @color-inverted;
 		background-color: @color;
 	}
 
@@ -330,12 +320,12 @@
 
 	> @{child}:focus {
 		outline: @border-width-base @border-style-base @focus;
-		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-base--inverted;
+		box-shadow: inset 0 0 0 1px @focus, inset 0 0 0 2px @color-inverted;
 	}
 
 	> @{child}:active,
 	&.oo-ui-tool-active > @{child} {
-		color: @color-base--inverted;
+		color: @color-inverted;
 		background-color: @active;
 		box-shadow: none;
 	}
@@ -343,7 +333,7 @@
 	&.oo-ui-widget-disabled > @{child},
 	&.oo-ui-widget-disabled > @{child}:active {
 		background-color: @background-color-disabled;
-		color: @color-filled--disabled;
+		color: @color-inverted;
 	}
 }
 

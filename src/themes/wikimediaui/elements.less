@@ -152,7 +152,7 @@
 
 				&:hover {
 					background-color: @background-color-button-quiet--hover;
-					color: @color-base--active;
+					color: @color-emphasized;
 				}
 
 				&:focus {
@@ -164,7 +164,7 @@
 			&.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
 			> .oo-ui-buttonElement-button:active {
 				background-color: @background-color-button-quiet--active;
-				color: @color-base--active;
+				color: @color-emphasized;
 				border-color: @border-color-base--active;
 				box-shadow: none;
 			}
@@ -185,7 +185,7 @@
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button', @color-primary, @color-primary--hover, @color-primary--active, @color-primary--focus );
+					.mw-frameless-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 				}
 
 				&-destructive {
@@ -205,7 +205,7 @@
 
 		&.oo-ui-widget-disabled {
 			> .oo-ui-buttonElement-button {
-				color: @color-base--disabled;
+				color: @color-disabled;
 
 				> .oo-ui-iconElement-icon,
 				> .oo-ui-indicatorElement-indicator {
@@ -271,12 +271,12 @@
 		&.oo-ui-widget-disabled {
 			> .oo-ui-buttonElement-button {
 				background-color: @background-color-disabled;
-				color: @color-filled--disabled;
+				color: @color-inverted;
 				border-color: @border-color-base--disabled;
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-				background-color: mix( @color-primary--active, @background-color-disabled, 35% );
+				background-color: mix( @color-progressive--active, @background-color-disabled, 35% );
 			}
 		}
 
@@ -308,11 +308,11 @@
 			// `.oo-ui-buttonElement-active` is the selected (toggled) one here.
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
 				background-color: @background-color-progressive--active;
-				color: @color-base--inverted;
+				color: @color-inverted;
 				border-color: @border-color-input-binary--active;
 
 				&:focus {
-					border-color: @color-primary--focus;
+					border-color: @color-progressive--focus;
 					box-shadow: @box-shadow-progressive-filled--focus;
 				}
 			}
@@ -321,25 +321,25 @@
 			> .oo-ui-buttonElement-button:active,
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 				background-color: @background-color-interactive;
-				color: @color-base--active;
+				color: @color-emphasized;
 				border-color: @border-color-base--active;
 				box-shadow: none;
 			}
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-primary, @background-color-base, @border-color-framed-progressive--hover, @color-primary--active, @color-primary--focus );
+					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-base, @border-color-framed-progressive--hover, @color-progressive--active, @color-progressive--focus );
 				}
 
 				&-destructive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive-non-primary, @background-color-base, @border-color-framed-destructive--hover, @color-destructive--active, @color-destructive--focus );
+					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive, @background-color-base, @border-color-framed-destructive--hover, @color-destructive--active, @color-destructive--focus );
 				}
 			}
 
 			&.oo-ui-flaggedElement-primary {
 				&.oo-ui-flaggedElement {
 					&-progressive {
-						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-primary, @color-primary--hover, @color-primary--active, @color-primary--focus );
+						.mw-framed-primary-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 					}
 
 					&-destructive {
