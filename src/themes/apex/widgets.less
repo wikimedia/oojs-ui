@@ -298,7 +298,7 @@
 	}
 
 	&.oo-ui-widget-enabled &-handle {
-		background-color: @background-color-main;
+		background-color: @background-color-base;
 
 		&:hover {
 			border-color: @border-color-base--hover;
@@ -327,7 +327,7 @@
 	max-width: @max-width-input-base;
 
 	select {
-		background-color: @background-color-main;
+		background-color: @background-color-base;
 		height: 2.5em;
 		padding: 0.5em;
 		font-size: inherit;
@@ -448,7 +448,7 @@
 }
 
 .theme-oo-ui-menuSelectWidget() {
-	background-color: @background-color-main;
+	background-color: @background-color-base;
 	margin-top: -@border-width-base;
 	margin-bottom: -@border-width-base;
 	border: @border-base;
@@ -489,22 +489,22 @@
 		}
 
 		&.oo-ui-flaggedElement-error {
-			background-color: @background-color-error--framed;
+			background-color: @background-color-error-subtle;
 			border-color: @border-color-error;
 		}
 
 		&.oo-ui-flaggedElement-warning {
-			background-color: @background-color-warning--framed;
+			background-color: @background-color-warning-subtle;
 			border-color: @border-color-warning;
 		}
 
 		&.oo-ui-flaggedElement-success {
-			background-color: @background-color-success--framed;
+			background-color: @background-color-success-subtle;
 			border-color: @border-color-success;
 		}
 
 		&.oo-ui-flaggedElement-notice {
-			background-color: @background-color-notice--framed;
+			background-color: @background-color-notice-subtle;
 			border-color: @border-color-notice;
 		}
 	}
@@ -599,7 +599,7 @@
 }
 
 .theme-oo-ui-outlineControlsWidget() {
-	background-color: @background-color-main;
+	background-color: @background-color-base;
 
 	&-items,
 	&-movers {
@@ -670,7 +670,7 @@
 
 .theme-oo-ui-popupWidget() {
 	&-popup {
-		background-color: @background-color-main;
+		background-color: @background-color-base;
 		border: @border-base;
 		border-radius: @border-radius-base;
 		box-shadow: 0 0.15em 0.5em 0 rgba( 0, 0, 0, 0.2 );
@@ -838,7 +838,7 @@
 	overflow: hidden;
 
 	&:not( .oo-ui-pendingElement-pending ) {
-		background-color: @background-color-main;
+		background-color: @background-color-base;
 	}
 
 	&-bar {
@@ -936,7 +936,7 @@
 
 .theme-oo-ui-selectFileWidget() {
 	&-dropTarget {
-		background-color: @background-color-main;
+		background-color: @background-color-base;
 		border: 1px solid #aaa;
 		border-radius: @border-radius-base;
 		vertical-align: middle;
@@ -1003,7 +1003,7 @@
 		border-top-right-radius: @border-radius-base;
 
 		&.oo-ui-optionWidget-selected {
-			background-color: @background-color-main;
+			background-color: @background-color-base;
 			color: #000;
 			border-color: #ddd;
 		}
@@ -1016,13 +1016,13 @@
 			}
 
 			&:active {
-				background-color: @background-color-main;
+				background-color: @background-color-base;
 				color: #000;
 				border-color: #ddd;
 			}
 
 			&.oo-ui-optionWidget-selected:hover {
-				background-color: @background-color-main;
+				background-color: @background-color-base;
 				color: #000;
 			}
 		}
@@ -1063,7 +1063,7 @@
 
 .theme-oo-ui-tabSelectWidget() {
 	&-framed {
-		background-color: @background-color-tabs;
+		background-color: @background-color-interactive;
 		box-shadow: inset 0 -0.015em 0.1em rgba( 0, 0, 0, 0.1 );
 	}
 
@@ -1084,7 +1084,7 @@
 		}
 
 		&.oo-ui-tabSelectWidget-framed::after {
-			.oo-ui-horizontal-gradient( fade( @background-color-tabs, 0 ), @background-color-tabs );
+			.oo-ui-horizontal-gradient( fade( @background-color-interactive, 0 ), @background-color-interactive );
 			// Override fallback color from mixin
 			background-color: transparent;
 		}
@@ -1104,7 +1104,7 @@
 }
 
 .theme-oo-ui-tagItemWidget() {
-	.oo-ui-vertical-gradient( @background-color-framed-start, @background-color-framed-stop );
+	.oo-ui-vertical-gradient( @background-color-interactive-subtle-start, @background-color-interactive-subtle-stop );
 	color: @color-base;
 	box-sizing: border-box;
 	width: auto;
@@ -1248,7 +1248,7 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		background-color: @background-color-main;
+		background-color: @background-color-base;
 
 		&.oo-ui-tagMultiselectWidget-inlined {
 			&:hover &-handle {
@@ -1271,7 +1271,7 @@
 
 		&.oo-ui-tagMultiselectWidget-outlined {
 			.oo-ui-tagItemWidget.oo-ui-widget-enabled {
-				background-color: @background-color-main;
+				background-color: @background-color-base;
 			}
 
 			&.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
@@ -1313,7 +1313,7 @@
 
 	// `.oo-ui-inputWidget-input` serves both, `input` and `textarea`
 	.oo-ui-inputWidget-input {
-		background-color: @background-color-main;
+		background-color: @background-color-base;
 		color: #000;
 		border: @border-base;
 		border-radius: @border-radius-base;
@@ -1327,7 +1327,7 @@
 	}
 
 	.oo-ui-pendingElement-pending {
-		background-color: @background-color-pending-stripe;
+		background-color: @background-color-interactive;
 	}
 
 	&.oo-ui-iconElement > .oo-ui-iconElement-icon,
@@ -1429,7 +1429,7 @@
 
 	&.oo-ui-widget-enabled.oo-ui-buttonElement-frameless.oo-ui-toggleWidget-on {
 		.oo-ui-buttonElement-button {
-			background-color: @background-color-frameless-start--active;
+			background-color: @background-color-button-quiet--active;
 
 			> .oo-ui-labelElement-label {
 				color: @color-base--emphasized;
@@ -1440,7 +1440,7 @@
 
 .theme-oo-ui-toggleSwitchWidget() {
 	@travelDistance: 2em;
-	.oo-ui-vertical-gradient( @background-color-framed-start--active, @background-color-framed-stop--active );
+	.oo-ui-vertical-gradient( @background-color-interactive-subtle-start--active, @background-color-interactive-subtle-stop--active );
 	width: @travelDistance + 2em;
 	height: 2em;
 	.oo-ui-inline-spacing( 0.5em );
@@ -1470,7 +1470,7 @@
 	}
 
 	&-grip {
-		.oo-ui-vertical-gradient( @background-color-framed-start, @background-color-framed-stop );
+		.oo-ui-vertical-gradient( @background-color-interactive-subtle-start, @background-color-interactive-subtle-stop );
 		top: 0.25em;
 		left: 0.25em;
 		width: 1.5em;

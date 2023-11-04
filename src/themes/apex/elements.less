@@ -62,12 +62,12 @@
 			}
 
 			&:hover {
-				background-color: @background-color-frameless-start;
+				background-color: @background-color-button-quiet--hover;
 				color: @color-base--emphasized;
 			}
 
 			&:active {
-				background-color: @background-color-frameless-start--active;
+				background-color: @background-color-button-quiet--active;
 				color: @color-base--emphasized;
 			}
 		}
@@ -171,7 +171,7 @@
 
 	&-framed {
 		> .oo-ui-buttonElement-button {
-			.oo-ui-vertical-gradient( @background-color-framed-start, @background-color-framed-stop );
+			.oo-ui-vertical-gradient( @background-color-interactive-subtle-start, @background-color-interactive-subtle-stop );
 			border: @border-base;
 			padding: @padding-base;
 			text-shadow: @text-shadow-button;
@@ -197,7 +197,7 @@
 		&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
 		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
 		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
-			.oo-ui-vertical-gradient( @background-color-framed-start--active, @background-color-framed-stop--active );
+			.oo-ui-vertical-gradient( @background-color-interactive-subtle-start--active, @background-color-interactive-subtle-stop--active );
 			color: #000;
 			border-color: @border-color-base;
 			box-shadow: inset 0 1px 4px 0 rgba( 0, 0, 0, 0.07 );
@@ -282,7 +282,7 @@
 				&,
 				&:hover,
 				&:focus {
-					.oo-ui-vertical-gradient( @background-color-framed-start--active, @background-color-framed-stop--active );
+					.oo-ui-vertical-gradient( @background-color-interactive-subtle-start--active, @background-color-interactive-subtle-stop--active );
 					box-shadow: inset 0 1px 4px 0 rgba( 0, 0, 0, 0.07 );
 				}
 			}
@@ -346,8 +346,8 @@
 
 .theme-oo-ui-pendingElement() {
 	&-pending {
-		background-color: @background-color-pending-stripe;
-		background-image: linear-gradient( 135deg, @background-color-main 25%, transparent 25%, transparent 50%, @background-color-main 50%, @background-color-main 75%, transparent 75%, transparent );
+		background-color: @background-color-interactive;
+		background-image: linear-gradient( 135deg, @background-color-base 25%, transparent 25%, transparent 50%, @background-color-base 50%, @background-color-base 75%, transparent 75%, transparent );
 		background-size: @size-icon-medium-inner @size-icon-medium-inner;
 		animation: oo-ui-pendingElement-stripes 650ms linear infinite;
 

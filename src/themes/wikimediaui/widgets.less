@@ -213,7 +213,7 @@
 			& + span::before {
 				content: ' ';
 				// `@color-base--inverted` as `background-color` due to Accent50 filled area below.
-				background-color: @color-base--inverted;
+				background-color: @background-color-base;
 				position: absolute;
 				top: 50%;
 				left: @start-input-binary-icon;
@@ -225,7 +225,7 @@
 
 		&:disabled {
 			& + span {
-				background-color: @background-color-filled--disabled;
+				background-color: @background-color-disabled;
 				border-color: @border-color-base--disabled;
 			}
 		}
@@ -253,7 +253,7 @@
 		}
 
 		&:active + span {
-			background-color: @color-primary--active;
+			background-color: @background-color-progressive--active;
 			border-color: @border-color-input-binary--active;
 			box-shadow: @box-shadow-input-binary--active;
 		}
@@ -261,23 +261,23 @@
 		&:checked,
 		&:indeterminate {
 			& + span {
-				background-color: @background-color-input-binary--checked;
+				background-color: @background-color-progressive;
 				border-color: @border-color-input-binary--checked;
 			}
 
 			&:focus + span {
-				background-color: @background-color-input-binary--checked;
+				background-color: @background-color-progressive--focus;
 				border-color: @border-color-input-binary--checked;
 				box-shadow: @box-shadow-progressive-filled--focus;
 			}
 
 			&:hover + span {
-				background-color: @color-primary--hover;
+				background-color: @background-color-progressive--hover;
 				border-color: @border-color-framed-progressive--hover;
 			}
 
 			&:active + span {
-				background-color: @background-color-input-binary--active;
+				background-color: @background-color-progressive--active;
 				border-color: @border-color-input-binary--active;
 				box-shadow: @box-shadow-input-binary--active;
 			}
@@ -360,7 +360,7 @@
 
 	&-open &-dropdownButton {
 		> .oo-ui-buttonElement-button {
-			background-color: @background-color-framed--hover;
+			background-color: @background-color-base;
 
 			.oo-ui-indicatorElement-indicator {
 				opacity: @opacity-icon-base--selected;
@@ -459,13 +459,13 @@
 	}
 
 	&.oo-ui-widget-enabled &-handle {
-		background-color: @background-color-framed;
+		background-color: @background-color-interactive-subtle;
 		color: @color-base;
 		transition-property: background-color, border-color, box-shadow;
 		transition-duration: @transition-duration-base;
 
 		&:hover {
-			background-color: @background-color-framed--hover;
+			background-color: @background-color-base;
 			color: @color-base--hover;
 			border-color: @border-color-base--hover;
 
@@ -495,7 +495,7 @@
 	}
 
 	&.oo-ui-widget-enabled&-open &-handle {
-		background-color: @background-color-framed--hover;
+		background-color: @background-color-base;
 
 		.oo-ui-iconElement-icon,
 		.oo-ui-indicatorElement-indicator {
@@ -507,7 +507,7 @@
 		color: @color-base--disabled;
 		text-shadow: @text-shadow-base--disabled;
 		border-color: @border-color-base--disabled;
-		background-color: @background-color-base--disabled;
+		background-color: @background-color-disabled-subtle;
 
 		&:focus {
 			// Support: Chrome <90 shows outline on click when element has `tabindex` attribute,
@@ -558,12 +558,12 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		background-color: @background-color-framed;
+		background-color: @background-color-interactive-subtle;
 		transition-property: background-color;
 		transition-duration: @transition-duration-base;
 
 		&:hover {
-			background-color: @background-color-framed--hover;
+			background-color: @background-color-base;
 		}
 
 		select {
@@ -590,7 +590,7 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		background-color: @background-color-base--disabled;
+		background-color: @background-color-disabled-subtle;
 
 		select {
 			color: @color-base--disabled;
@@ -645,18 +645,18 @@
 
 	&.oo-ui-optionWidget {
 		&-highlighted {
-			background-color: @background-color-base--hover;
+			background-color: @background-color-interactive;
 			color: @color-base--emphasized;
 		}
 
 		&-selected {
-			background-color: @background-color-primary;
+			background-color: @background-color-progressive;
 			color: @color-primary;
 		}
 
 		&-selected&-highlighted,
 		&-pressed&-highlighted {
-			background-color: @background-color-primary--hover;
+			background-color: @background-color-progressive--hover;
 			color: @color-primary;
 		}
 	}
@@ -726,22 +726,22 @@
 		}
 
 		&.oo-ui-flaggedElement-error {
-			background-color: @background-color-error--framed;
+			background-color: @background-color-error-subtle;
 			border-color: @border-color-error;
 		}
 
 		&.oo-ui-flaggedElement-warning {
-			background-color: @background-color-warning--framed;
+			background-color: @background-color-warning-subtle;
 			border-color: @border-color-warning;
 		}
 
 		&.oo-ui-flaggedElement-success {
-			background-color: @background-color-success--framed;
+			background-color: @background-color-success-subtle;
 			border-color: @border-color-success;
 		}
 
 		&.oo-ui-flaggedElement-notice {
-			background-color: @background-color-notice--framed;
+			background-color: @background-color-notice-subtle;
 			border-color: @border-color-notice;
 		}
 	}
@@ -841,17 +841,17 @@
 	transition-duration: @transition-duration-base;
 
 	&.oo-ui-optionWidget-highlighted {
-		background-color: @background-color-base--hover;
+		background-color: @background-color-interactive;
 		color: @color-base--emphasized;
 	}
 
 	&.oo-ui-optionWidget-selected {
-		background-color: @background-color-primary;
+		background-color: @background-color-progressive;
 		color: @color-primary;
 	}
 
 	&.oo-ui-optionWidget-pressed {
-		background-color: @background-color-primary--hover;
+		background-color: @background-color-progressive--hover;
 		color: @color-primary;
 	}
 
@@ -1098,13 +1098,13 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-progressBarWidget-bar {
-			background-color: @color-primary;
+			background-color: @background-color-progressive;
 		}
 	}
 
 	&.oo-ui-widget-disabled {
 		.oo-ui-progressBarWidget-bar {
-			background-color: @background-color-filled--disabled;
+			background-color: @background-color-disabled;
 		}
 	}
 
@@ -1185,7 +1185,7 @@
 
 		&:disabled {
 			& + span {
-				background-color: @background-color-filled--disabled;
+				background-color: @background-color-disabled;
 				border-color: @border-color-base--disabled;
 			}
 
@@ -1209,7 +1209,7 @@
 		}
 
 		&:active + span {
-			background-color: @background-color-input-binary--active;
+			background-color: @background-color-progressive--active;
 			border-color: @border-color-input-binary--active;
 		}
 
@@ -1356,7 +1356,7 @@
 		&.oo-ui-selectFileWidget-canDrop {
 			&.oo-ui-selectFileWidget-dropTarget,
 			.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
-				background-color: @background-color-primary;
+				background-color: @background-color-progressive;
 				color: @color-primary--active;
 			}
 		}
@@ -1365,7 +1365,7 @@
 	&.oo-ui-widget-disabled,
 	&.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled {
 		&.oo-ui-selectFileWidget-dropTarget {
-			background-color: @background-color-base--disabled;
+			background-color: @background-color-disabled-subtle;
 			border-color: @border-color-base--disabled;
 		}
 	}
@@ -1472,7 +1472,7 @@
 
 .theme-oo-ui-tabSelectWidget() {
 	&-framed {
-		background-color: @background-color-tabs;
+		background-color: @background-color-interactive;
 	}
 
 	&-frameless {
@@ -1534,7 +1534,7 @@
 		transition-duration: @transition-duration-base;
 
 		&:hover {
-			background-color: @background-color-framed--hover;
+			background-color: @background-color-base;
 			color: @color-base--hover;
 			border-color: @border-color-base--hover;
 		}
@@ -1546,7 +1546,7 @@
 		}
 
 		&:not( .oo-ui-tagItemWidget-fixed ) {
-			background-color: @background-color-framed;
+			background-color: @background-color-interactive-subtle;
 			padding-right: @padding-end-tagitem-remove;
 		}
 
@@ -1585,11 +1585,11 @@
 			transition-duration: @transition-duration-base;
 
 			&:hover {
-				background-color: @background-color-framed--hover;
+				background-color: @background-color-base;
 			}
 
 			&:active {
-				background-color: @background-color-framed--active;
+				background-color: @background-color-interactive;
 			}
 
 			.oo-ui-icon-close {
@@ -1606,7 +1606,7 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		background-color: @background-color-base--disabled;
+		background-color: @background-color-disabled-subtle;
 		color: @color-base--disabled;
 		border-color: @border-color-base--disabled;
 		text-shadow: @text-shadow-base--disabled;
@@ -1747,7 +1747,7 @@
 	}
 
 	&.oo-ui-widget-disabled &-handle {
-		background-color: @background-color-base--disabled;
+		background-color: @background-color-disabled-subtle;
 		color: @color-base--disabled;
 		text-shadow: @text-shadow-base--disabled;
 		border-color: @border-color-base--disabled;
@@ -1787,7 +1787,7 @@
 	}
 
 	.oo-ui-pendingElement-pending {
-		background-color: @background-color-pending-stripe;
+		background-color: @background-color-interactive;
 	}
 
 	&.oo-ui-iconElement {
@@ -1921,7 +1921,7 @@
 
 	&.oo-ui-widget-disabled {
 		.oo-ui-inputWidget-input {
-			background-color: @background-color-base--disabled;
+			background-color: @background-color-disabled-subtle;
 			// Support: Safari
 			-webkit-text-fill-color: @color-base--disabled;
 			color: @color-base--disabled;
@@ -1948,7 +1948,7 @@
 
 	&.oo-ui-widget-enabled.oo-ui-buttonElement-frameless.oo-ui-toggleWidget-on {
 		.oo-ui-buttonElement-button {
-			background-color: @background-color-frameless--active;
+			background-color: @background-color-button-quiet--active;
 			color: @color-base--active;
 
 			& > .oo-ui-iconElement-icon:not( .oo-ui-image-invert ) {
@@ -1959,7 +1959,7 @@
 }
 
 .theme-oo-ui-toggleSwitchWidget() {
-	background-color: @background-color-framed;
+	background-color: @background-color-interactive-subtle;
 	min-width: 48px;
 	width: 3.5em;
 	min-height: @min-size-interactive-pointer;
@@ -2021,16 +2021,16 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-toggleSwitchWidget-grip {
-			background-color: @background-color-framed;
+			background-color: @background-color-interactive-subtle;
 			border: @border-input-binary;
 		}
 
 		&:hover {
-			background-color: @background-color-framed--hover;
+			background-color: @background-color-base;
 			border-color: @border-color-framed-progressive--hover;
 
 			.oo-ui-toggleSwitchWidget-grip {
-				background-color: @background-color-framed--hover;
+				background-color: @background-color-base;
 				border-color: @border-color-framed-progressive--hover;
 			}
 		}
@@ -2038,7 +2038,7 @@
 		&:active,
 		&:active:hover,
 		&:active:focus {
-			background-color: @background-color-input-binary--active;
+			background-color: @background-color-progressive--active;
 			border-color: @border-color-input-binary--active;
 			box-shadow: @box-shadow-input-binary--active;
 
@@ -2059,7 +2059,7 @@
 		}
 
 		&.oo-ui-toggleWidget-on {
-			background-color: @background-color-input-binary--checked;
+			background-color: @background-color-progressive;
 			border-color: @border-color-input-binary--checked;
 
 			.oo-ui-toggleSwitchWidget-grip {
@@ -2068,13 +2068,13 @@
 			}
 
 			&:hover {
-				background-color: @color-primary--hover;
+				background-color: @background-color-progressive--hover;
 				border-color: @border-color-framed-progressive--hover;
 			}
 
 			&:active,
 			&:active:hover {
-				background-color: @background-color-input-binary--active;
+				background-color: @background-color-progressive--active;
 				border-color: @border-color-input-binary--active;
 			}
 
@@ -2089,7 +2089,7 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		background-color: @background-color-filled--disabled;
+		background-color: @background-color-disabled;
 		border-color: @border-color-base--disabled;
 		// Support: Chrome <90 shows outline on click when element has `tabindex` attribute,
 		// no matter if it's value is `-1`.
