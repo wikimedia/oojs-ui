@@ -370,7 +370,9 @@
 
 	&.oo-ui-widget-disabled {
 		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-filled--disabled;
+			// Exception for not using `@opacity-icon-base--disabled` due to inverting
+			// colors on filled disabled widgets.
+			opacity: @opacity-base;
 		}
 	}
 }
@@ -418,7 +420,7 @@
 	&.oo-ui-widget-disabled {
 		.oo-ui-iconElement-icon,
 		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-base--disabled;
+			opacity: @opacity-icon-base--disabled;
 		}
 	}
 }
@@ -516,7 +518,7 @@
 		}
 
 		.oo-ui-indicatorElement-indicator {
-			opacity: @opacity-indicator--disabled;
+			opacity: @opacity-icon-base--disabled;
 		}
 	}
 }
@@ -607,7 +609,7 @@
 	height: @size-icon-medium;
 
 	&.oo-ui-widget-disabled {
-		opacity: @opacity-base--disabled;
+		opacity: @opacity-icon-base--disabled;
 	}
 }
 
@@ -619,7 +621,7 @@
 	height: @size-icon-x-small;
 
 	&.oo-ui-widget-disabled {
-		opacity: @opacity-base--disabled;
+		opacity: @opacity-icon-base--disabled;
 	}
 }
 
@@ -803,7 +805,9 @@
 
 	&.oo-ui-widget-disabled {
 		&.oo-ui-numberInputWidget-buttoned .oo-ui-iconElement-icon {
-			opacity: 1;
+			// Exception for not using `@opacity-icon-base--disabled` due to inverting
+			// colors on filled disabled widgets.
+			opacity: @opacity-base;
 		}
 	}
 }
@@ -858,10 +862,6 @@
 	&.oo-ui-indicatorElement {
 		.oo-ui-labelElement-label {
 			padding-right: 1.5em;
-		}
-
-		.oo-ui-indicatorElement-indicator {
-			opacity: 0.5;
 		}
 	}
 
@@ -1752,12 +1752,9 @@
 		text-shadow: @text-shadow-base--disabled;
 		border-color: @border-color-base--disabled;
 
-		> .oo-ui-iconElement-icon {
-			opacity: @opacity-base--disabled;
-		}
-
+		> .oo-ui-iconElement-icon,
 		> .oo-ui-indicatorElement-indicator {
-			opacity: @opacity-indicator--disabled;
+			opacity: @opacity-icon-base--disabled;
 		}
 	}
 }
@@ -1892,7 +1889,7 @@
 		}
 
 		> .oo-ui-iconElement-icon {
-			opacity: @opacity-icon-accessory;
+			opacity: @opacity-icon-subtle;
 		}
 
 		// Indicators, when in TextInputWidget variants visible by default,
@@ -1931,7 +1928,7 @@
 
 		> .oo-ui-iconElement-icon,
 		> .oo-ui-indicatorElement-indicator {
-			opacity: @opacity-base--disabled;
+			opacity: @opacity-icon-base--disabled;
 		}
 
 		> .oo-ui-labelElement-label {
@@ -2110,6 +2107,6 @@
 	// Normalize placeholder styling, see T139034
 	.oo-ui-placeholder( {
 		color: @color-placeholder;
-		opacity: 1;
+		opacity: @opacity-base;
 	} );
 }

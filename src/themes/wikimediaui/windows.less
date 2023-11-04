@@ -347,13 +347,13 @@
 .theme-oo-ui-windowManager() {
 	&-modal > .oo-ui-dialog {
 		background-color: @background-color-backdrop-light;
-		opacity: 0;
+		opacity: @opacity-transparent;
 		transition-property: opacity;
 		transition-duration: @transition-duration-medium;
 
 		> .oo-ui-window-frame {
 			background-color: @background-color-base;
-			opacity: 0;
+			opacity: @opacity-transparent;
 			transform: scale( 0.5 );
 			transition-property: all;
 			transition-duration: @transition-duration-medium;
@@ -361,11 +361,11 @@
 
 		&.oo-ui-window-setup {
 			// Fade window overlay
-			opacity: 1;
+			opacity: @opacity-base;
 
 			> .oo-ui-window-frame {
 				// Fade frame
-				opacity: 1;
+				opacity: @opacity-base;
 				transform: scale( 1 );
 			}
 		}
