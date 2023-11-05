@@ -43,7 +43,7 @@
 
 		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
 			> .oo-ui-buttonElement-button {
-				border-left-color: @border-color-filled--disabled;
+				border-left-color: @border-color-inverted;
 			}
 		}
 	}
@@ -122,7 +122,7 @@
 
 		&.oo-ui-widget-disabled + .oo-ui-widget-disabled {
 			> .oo-ui-buttonElement-button {
-				border-left-color: @border-color-filled--disabled;
+				border-left-color: @border-color-inverted;
 			}
 		}
 	}
@@ -131,7 +131,7 @@
 		&:focus {
 			.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
 				.oo-ui-buttonElement-button {
-					border-color: @border-color-base--focus;
+					border-color: @border-color-progressive--focus;
 					box-shadow: @box-shadow-progressive-filled--focus;
 					// In Windows high contrast mode the outline becomes visible.
 					outline: @outline-base--focus;
@@ -226,7 +226,7 @@
 		&:disabled {
 			& + span {
 				background-color: @background-color-disabled;
-				border-color: @border-color-base--disabled;
+				border-color: @border-color-disabled;
 			}
 		}
 	}
@@ -242,14 +242,14 @@
 
 		// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
 		&:focus + span {
-			border-color: @border-color-base--focus;
+			border-color: @border-color-progressive--focus;
 			box-shadow: @box-shadow-base--focus;
 			// In Windows high contrast mode the outline becomes visible.
 			outline: @outline-base--focus;
 		}
 
 		&:hover + span {
-			border-color: @border-color-framed-progressive--hover;
+			border-color: @border-color-progressive--hover;
 		}
 
 		&:active + span {
@@ -273,7 +273,7 @@
 
 			&:hover + span {
 				background-color: @background-color-progressive--hover;
-				border-color: @border-color-framed-progressive--hover;
+				border-color: @border-color-progressive--hover;
 			}
 
 			&:active + span {
@@ -469,7 +469,7 @@
 		&:hover {
 			background-color: @background-color-base;
 			color: @color-base--hover;
-			border-color: @border-color-base--hover;
+			border-color: @border-color-base;
 
 			.oo-ui-iconElement-icon,
 			.oo-ui-indicatorElement-indicator {
@@ -479,11 +479,11 @@
 
 		&:active {
 			color: @color-emphasized;
-			border-color: @border-color-base--active;
+			border-color: @border-color-interactive;
 		}
 
 		&:focus {
-			border-color: @border-color-base--focus;
+			border-color: @border-color-progressive--focus;
 			outline: @outline-base--focus;
 			box-shadow: @box-shadow-base--focus;
 		}
@@ -508,7 +508,7 @@
 	&.oo-ui-widget-disabled &-handle {
 		color: @color-disabled;
 		text-shadow: @text-shadow-base--disabled;
-		border-color: @border-color-base--disabled;
+		border-color: @border-color-disabled;
 		background-color: @background-color-disabled-subtle;
 
 		&:focus {
@@ -575,16 +575,16 @@
 
 			&:hover {
 				color: @color-base--hover;
-				border-color: @border-color-base--hover;
+				border-color: @border-color-base;
 			}
 
 			&:active {
 				color: @color-emphasized;
-				border-color: @border-color-base--active;
+				border-color: @border-color-interactive;
 			}
 
 			&:focus {
-				border-color: @border-color-base--focus;
+				border-color: @border-color-progressive--focus;
 				outline: @outline-base--focus;
 				box-shadow: @box-shadow-base--focus;
 			}
@@ -596,7 +596,7 @@
 
 		select {
 			color: @color-disabled;
-			border-color: @border-color-base--disabled;
+			border-color: @border-color-disabled;
 		}
 	}
 }
@@ -690,7 +690,7 @@
 
 .theme-oo-ui-menuSelectWidget() {
 	background-color: @background-color-base;
-	border: @border-menu;
+	border: @border-base;
 	border-radius: @border-radius-base;
 	box-shadow: @box-shadow-menu;
 }
@@ -901,7 +901,7 @@
 .theme-oo-ui-popupWidget() {
 	&-popup {
 		background-color: @background-color-base;
-		border: @border-menu;
+		border: @border-base;
 		border-radius: @border-radius-base;
 		box-shadow: @box-shadow-menu;
 	}
@@ -1074,7 +1074,7 @@
 	z-index: 0;
 	max-width: @max-width-base;
 	border: @border-base;
-	border-radius: @border-radius-progressbar;
+	border-radius: @border-radius-pill;
 	box-shadow: @box-shadow-progressbar;
 	overflow: hidden;
 
@@ -1157,7 +1157,7 @@
 			height: @size-input-binary;
 			border-color: @border-color-input-binary;
 			border-style: @border-style-base;
-			border-radius: @border-radius-input-radio;
+			border-radius: @border-radius-circle;
 			border-width: @border-width-base;
 
 			// Needed for `:focus` state's inner white circle
@@ -1170,8 +1170,8 @@
 				left: @position-offset-input-radio-focus;
 				right: @position-offset-input-radio-focus;
 				bottom: @position-offset-input-radio-focus;
-				border: @border-width-base @border-style-base transparent;
-				border-radius: @border-radius-input-radio;
+				border: @border-width-base @border-style-base @border-color-transparent;
+				border-radius: @border-radius-circle;
 			}
 		}
 
@@ -1186,7 +1186,7 @@
 		&:disabled {
 			& + span {
 				background-color: @background-color-disabled;
-				border-color: @border-color-base--disabled;
+				border-color: @border-color-disabled;
 			}
 
 			&:checked + span {
@@ -1205,7 +1205,7 @@
 		}
 
 		&:hover + span {
-			border-color: @border-color-framed-progressive--hover;
+			border-color: @border-color-progressive--hover;
 		}
 
 		&:active + span {
@@ -1226,7 +1226,7 @@
 			}
 
 			&:hover + span {
-				border-color: @border-color-framed-progressive--hover;
+				border-color: @border-color-progressive--hover;
 			}
 
 			&:active + span {
@@ -1286,7 +1286,7 @@
 	&-query {
 		height: @height-search;
 		padding: @padding-panel-form-search-query; // Need to use `padding` over `margin` for horizontally continuos `border`/`box-shadow` below
-		border-bottom: @border-toolbar;
+		border-bottom: @border-subtle;
 		box-shadow: @box-shadow-toolbar-top;
 
 		.oo-ui-textInputWidget {
@@ -1366,7 +1366,7 @@
 	&.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled {
 		&.oo-ui-selectFileWidget-dropTarget {
 			background-color: @background-color-disabled-subtle;
-			border-color: @border-color-base--disabled;
+			border-color: @border-color-disabled;
 		}
 	}
 }
@@ -1436,7 +1436,7 @@
 	}
 
 	.oo-ui-tabSelectWidget-framed.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected .oo-ui-labelElement-label {
-		border-bottom-color: @border-color-base--focus;
+		border-bottom-color: @border-color-progressive--focus;
 	}
 
 	.oo-ui-tabSelectWidget-frameless & {
@@ -1448,25 +1448,25 @@
 
 		&.oo-ui-optionWidget-selected {
 			color: @color-progressive;
-			box-shadow: inset 0 -@border-width-frameless-tab 0 0 @color-progressive;
+			box-shadow: inset 0 -@border-width-thick 0 0 @color-progressive;
 		}
 
 		&.oo-ui-widget-enabled:not( .oo-ui-optionWidget-selected ) {
 			&:hover {
 				color: @color-progressive--hover;
-				box-shadow: inset 0 -@border-width-frameless-tab 0 0 @color-progressive--hover;
+				box-shadow: inset 0 -@border-width-thick 0 0 @color-progressive--hover;
 			}
 
 			&:active {
 				color: @color-progressive--active;
-				box-shadow: inset 0 -@border-width-frameless-tab 0 0 @color-progressive--active;
+				box-shadow: inset 0 -@border-width-thick 0 0 @color-progressive--active;
 			}
 		}
 	}
 
 	.oo-ui-tabSelectWidget-frameless.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected {
 		border-radius: @border-radius-base;
-		box-shadow: inset 0 0 0 @border-width-frameless-tab @color-progressive;
+		box-shadow: inset 0 0 0 @border-width-thick @color-progressive;
 	}
 }
 
@@ -1536,11 +1536,11 @@
 		&:hover {
 			background-color: @background-color-base;
 			color: @color-base--hover;
-			border-color: @border-color-base--hover;
+			border-color: @border-color-base;
 		}
 
 		&:focus {
-			border-color: @border-color-base--focus;
+			border-color: @border-color-progressive--focus;
 			box-shadow: @box-shadow-base--focus;
 			outline: @outline-base--focus;
 		}
@@ -1608,7 +1608,7 @@
 	&.oo-ui-widget-disabled {
 		background-color: @background-color-disabled-subtle;
 		color: @color-disabled;
-		border-color: @border-color-base--disabled;
+		border-color: @border-color-disabled;
 		text-shadow: @text-shadow-base--disabled;
 
 		&:focus {
@@ -1716,7 +1716,7 @@
 			}
 
 			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
-				border-color: @border-color-base--focus;
+				border-color: @border-color-progressive--focus;
 				outline: @outline-base--focus;
 				box-shadow: @box-shadow-base--focus;
 			}
@@ -1750,7 +1750,7 @@
 		background-color: @background-color-disabled-subtle;
 		color: @color-disabled;
 		text-shadow: @text-shadow-base--disabled;
-		border-color: @border-color-base--disabled;
+		border-color: @border-color-disabled;
 
 		> .oo-ui-iconElement-icon,
 		> .oo-ui-indicatorElement-indicator {
@@ -1845,7 +1845,7 @@
 			.mw-placeholder();
 
 			&:focus {
-				border-color: @border-color-base--focus;
+				border-color: @border-color-progressive--focus;
 				outline: @outline-base--focus;
 				box-shadow: @box-shadow-base--focus;
 
@@ -1867,7 +1867,7 @@
 
 				// Applying `border-color` again to show right focus color
 				&:focus {
-					border-color: @border-color-base--focus;
+					border-color: @border-color-progressive--focus;
 				}
 			}
 		}
@@ -1923,7 +1923,7 @@
 			-webkit-text-fill-color: @color-disabled;
 			color: @color-disabled;
 			text-shadow: @text-shadow-base--disabled;
-			border-color: @border-color-base--disabled;
+			border-color: @border-color-disabled;
 		}
 
 		> .oo-ui-iconElement-icon,
@@ -1961,7 +1961,7 @@
 	width: 3.5em;
 	min-height: @min-size-interactive-pointer;
 	height: 2em;
-	border: @border-input-binary;
+	border: @border-width-base @border-style-base @border-color-input-binary;
 	border-radius: @border-radius-pill;
 	.oo-ui-inline-spacing( @margin-end-widget );
 	transition-property: background-color, border-color;
@@ -1976,7 +1976,7 @@
 		left: 1px;
 		bottom: 1px;
 		right: 1px;
-		border: @border-width-base @border-style-base transparent;
+		border: @border-width-base @border-style-base @border-color-transparent;
 		border-radius: @border-radius-pill;
 		z-index: 1;
 		transition-property: border-color;
@@ -2019,16 +2019,16 @@
 	&.oo-ui-widget-enabled {
 		.oo-ui-toggleSwitchWidget-grip {
 			background-color: @background-color-interactive-subtle;
-			border: @border-input-binary;
+			border: @border-width-base @border-style-base @border-color-input-binary;
 		}
 
 		&:hover {
 			background-color: @background-color-base;
-			border-color: @border-color-framed-progressive--hover;
+			border-color: @border-color-progressive--hover;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-base;
-				border-color: @border-color-framed-progressive--hover;
+				border-color: @border-color-progressive--hover;
 			}
 		}
 
@@ -2046,12 +2046,12 @@
 		}
 
 		&:focus {
-			border-color: @border-color-base--focus;
+			border-color: @border-color-progressive--focus;
 			box-shadow: @box-shadow-base--focus;
 			outline: @outline-base--focus;
 
 			.oo-ui-toggleSwitchWidget-grip {
-				border-color: @border-color-base--focus;
+				border-color: @border-color-progressive--focus;
 			}
 		}
 
@@ -2066,7 +2066,7 @@
 
 			&:hover {
 				background-color: @background-color-progressive--hover;
-				border-color: @border-color-framed-progressive--hover;
+				border-color: @border-color-progressive--hover;
 			}
 
 			&:active,
@@ -2079,7 +2079,7 @@
 				border-color: @border-color-input-binary--checked;
 
 				&::before {
-					border-color: @color-inverted;
+					border-color: @border-color-inverted;
 				}
 			}
 		}
@@ -2087,13 +2087,13 @@
 
 	&.oo-ui-widget-disabled {
 		background-color: @background-color-disabled;
-		border-color: @border-color-base--disabled;
+		border-color: @border-color-disabled;
 		// Support: Chrome <90 shows outline on click when element has `tabindex` attribute,
 		// no matter if it's value is `-1`.
 		outline: 0;
 
 		&.oo-ui-toggleWidget-off .oo-ui-toggleSwitchWidget-grip {
-			border: @border-filled--disabled;
+			border: @border-width-base @border-style-base @border-color-inverted;
 			box-shadow: @box-shadow-filled--disabled;
 		}
 

@@ -9,7 +9,7 @@
 
 .theme-oo-ui-messageDialog() {
 	&-content > .oo-ui-window-foot {
-		outline: @border-dialog; // Use `@border-dialog` here as `outline` is `border` substitute.
+		outline: @border-base; // Use `@border-base` here as `outline` is `border` substitute.
 	}
 
 	&-title,
@@ -117,7 +117,7 @@
 	&-content {
 		> .oo-ui-window-head,
 		> .oo-ui-window-foot {
-			outline: @border-dialog-bar; // Use `@border-dialog-bar` here as `outline` is `border` substitute.
+			outline: @border-subtle; // Use `@border-subtle` here as `outline` is `border` substitute.
 		}
 
 		> .oo-ui-window-head {
@@ -166,12 +166,12 @@
 			> .oo-ui-buttonElement-button {
 				&:hover,
 				&:active {
-					border-right-color: @border-color-dialog-bar;
+					border-right-color: @border-color-subtle;
 					border-left-color: transparent;
 				}
 
 				&:focus {
-					border-color: @border-color-base--focus;
+					border-color: @border-color-progressive--focus;
 				}
 			}
 		}
@@ -208,7 +208,7 @@
 		&-primary {
 			.oo-ui-actionWidget {
 				> .oo-ui-buttonElement-button {
-					border-left-color: @border-color-dialog-bar;
+					border-left-color: @border-color-subtle;
 					border-right-color: transparent;
 				}
 
@@ -216,12 +216,12 @@
 					> .oo-ui-buttonElement-button {
 						&:hover,
 						&:active {
-							border-left-color: @border-color-dialog-bar;
+							border-left-color: @border-color-subtle;
 							border-right-color: transparent;
 						}
 
 						&:focus {
-							border-color: @border-color-base--focus;
+							border-color: @border-color-progressive--focus;
 						}
 					}
 				}
@@ -231,7 +231,7 @@
 		&-safe,
 		&-other {
 			.oo-ui-actionWidget > .oo-ui-buttonElement-button {
-				border-right-color: @border-color-dialog-bar;
+				border-right-color: @border-color-subtle;
 				border-left-color: transparent;
 			}
 		}
@@ -244,16 +244,16 @@
 
 					&:hover {
 						background-color: @background-color-interactive-subtle;
-						border-right-color: @border-color-dialog-bar;
+						border-right-color: @border-color-subtle;
 					}
 
 					&:active {
 						background-color: @background-color-interactive;
-						border-right-color: @border-color-dialog-bar;
+						border-right-color: @border-color-subtle;
 					}
 
 					&:focus {
-						border-color: @border-color-base--focus;
+						border-color: @border-color-progressive--focus;
 					}
 				}
 			}
@@ -377,7 +377,7 @@
 		bottom: 1em;
 		max-height: 100%;
 		max-height: e( 'calc( 100% - 2em )' );
-		border: @border-dialog;
+		border: @border-base;
 		border-radius: @border-radius-base;
 		box-shadow: @box-shadow-dialog;
 	}

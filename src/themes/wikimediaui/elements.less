@@ -92,7 +92,7 @@
 			> .oo-ui-buttonElement-button {
 				min-width: @min-size-interactive-pointer;
 				min-height: @min-size-interactive-pointer;
-				border-color: @border-color-frameless;
+				border-color: @border-color-transparent;
 				border-style: @border-style-base;
 				border-width: @border-width-base;
 				padding-top: @padding-top-icon-indicator;
@@ -116,7 +116,7 @@
 			}
 
 			> .oo-ui-buttonElement-button {
-				border-color: @border-color-frameless;
+				border-color: @border-color-transparent;
 				border-style: @border-style-base;
 				border-width: @border-width-base;
 				padding: @padding-frameless;
@@ -156,7 +156,7 @@
 				}
 
 				&:focus {
-					border-color: @border-color-base--focus;
+					border-color: @border-color-progressive--focus;
 					box-shadow: @box-shadow-base--focus;
 				}
 			}
@@ -165,7 +165,7 @@
 			> .oo-ui-buttonElement-button:active {
 				background-color: @background-color-button-quiet--active;
 				color: @color-emphasized;
-				border-color: @border-color-base--active;
+				border-color: @border-color-interactive;
 				box-shadow: none;
 			}
 
@@ -272,7 +272,7 @@
 			> .oo-ui-buttonElement-button {
 				background-color: @background-color-disabled;
 				color: @color-inverted;
-				border-color: @border-color-base--disabled;
+				border-color: @border-color-disabled;
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
@@ -289,7 +289,7 @@
 				&:hover {
 					background-color: @background-color-base;
 					color: @color-base--hover;
-					border-color: @border-color-base--hover;
+					border-color: @border-color-base;
 
 					> .oo-ui-iconElement-icon,
 					> .oo-ui-indicatorElement-indicator {
@@ -300,7 +300,7 @@
 				}
 
 				&:focus {
-					border-color: @border-color-base--focus;
+					border-color: @border-color-progressive--focus;
 					box-shadow: @box-shadow-base--focus;
 				}
 			}
@@ -312,7 +312,7 @@
 				border-color: @border-color-input-binary--active;
 
 				&:focus {
-					border-color: @color-progressive--focus;
+					border-color: @border-color-progressive--focus;
 					box-shadow: @box-shadow-progressive-filled--focus;
 				}
 			}
@@ -322,17 +322,17 @@
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 				background-color: @background-color-interactive;
 				color: @color-emphasized;
-				border-color: @border-color-base--active;
+				border-color: @border-color-interactive;
 				box-shadow: none;
 			}
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-base, @border-color-framed-progressive--hover, @color-progressive--active, @color-progressive--focus );
+					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-base, @border-color-progressive--hover, @color-progressive--active, @color-progressive--focus );
 				}
 
 				&-destructive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive, @background-color-base, @border-color-framed-destructive--hover, @color-destructive--active, @color-destructive--focus );
+					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive, @background-color-base, @border-color-destructive--hover, @color-destructive--active, @color-destructive--focus );
 				}
 			}
 

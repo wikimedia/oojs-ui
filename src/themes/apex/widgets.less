@@ -1025,7 +1025,7 @@
 	}
 
 	.oo-ui-tabSelectWidget-framed.oo-ui-widget-enabled:focus &.oo-ui-optionWidget-selected {
-		box-shadow: @box-shadow-base--focus, inset 0 -@border-width-frameless-tab 0 0 @color-progressive;
+		box-shadow: @box-shadow-base--focus, inset 0 -@border-width-thick 0 0 @color-progressive;
 	}
 
 	.oo-ui-tabSelectWidget-frameless & {
@@ -1038,14 +1038,14 @@
 
 		&.oo-ui-optionWidget-selected {
 			color: @color-progressive;
-			box-shadow: inset 0 -@border-width-frameless-tab 0 0 @color-progressive;
+			box-shadow: inset 0 -@border-width-thick 0 0 @color-progressive;
 		}
 
 		&.oo-ui-widget-enabled {
 			&:hover,
 			&:active {
 				color: @color-progressive;
-				box-shadow: inset 0 -@border-width-frameless-tab 0 0 @color-progressive;
+				box-shadow: inset 0 -@border-width-thick 0 0 @color-progressive;
 			}
 		}
 	}
@@ -1089,7 +1089,7 @@
 			.oo-ui-horizontal-gradient( fade( #fff, 0 ), #fff );
 			// Override fallback color from mixin
 			background-color: transparent;
-			bottom: @border-width-frameless-tab;
+			bottom: @border-width-thick;
 		}
 	}
 

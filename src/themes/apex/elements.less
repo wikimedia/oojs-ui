@@ -127,7 +127,7 @@
 					box-shadow: @box-shadow-base--focus;
 
 					&:active {
-						border-color: @border-color-frameless;
+						border-color: @border-color-transparent;
 						box-shadow: none;
 					}
 				}
@@ -239,7 +239,7 @@
 			&-progressive {
 				> .oo-ui-buttonElement-button {
 					.oo-ui-vertical-gradient( @background-color-progressive-gradient-light, @background-color-progressive-gradient-dark );
-					border: 1px solid @border-color-progressive;
+					border: @border-progressive;
 
 					&:hover {
 						border-color: @border-color-progressive--hover;
@@ -250,7 +250,7 @@
 				&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
 				&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 					.oo-ui-vertical-gradient( @background-color-progressive-gradient-dark, @background-color-progressive-gradient-light );
-					border: 1px solid @border-color-progressive;
+					border: @border-progressive;
 				}
 			}
 

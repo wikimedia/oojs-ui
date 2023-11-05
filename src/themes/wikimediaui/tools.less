@@ -6,12 +6,12 @@
 		color: @color-base;
 
 		.oo-ui-toolbar-position-top > & {
-			border-bottom: @border-toolbar;
+			border-bottom: @border-subtle;
 			box-shadow: @box-shadow-toolbar-top;
 		}
 
 		.oo-ui-toolbar-position-bottom > & {
-			border-top: @border-toolbar;
+			border-top: @border-subtle;
 			box-shadow: @box-shadow-toolbar-bottom;
 		}
 
@@ -34,11 +34,11 @@
 		}
 
 		&.oo-ui-toolbar-position-top .oo-ui-toolbar-bar::after {
-			border-bottom: @border-toolbar;
+			border-bottom: @border-subtle;
 		}
 
 		&.oo-ui-toolbar-position-bottom .oo-ui-toolbar-bar::after {
-			border-top: @border-toolbar;
+			border-top: @border-subtle;
 		}
 	}
 }
@@ -84,7 +84,7 @@
 			transition-duration: @transition-duration-base;
 
 			&:focus {
-				outline: @border-width-base @border-style-base @border-color-base--focus;
+				outline: @border-width-base @border-style-base @border-color-progressive--focus;
 				box-shadow: @box-shadow-base--focus;
 				// Slightly elevate on focus
 				z-index: 1;
@@ -186,7 +186,7 @@
 		&.oo-ui-flaggedElement-primary {
 			> .oo-ui-tool-link {
 				background-color: @background-color-disabled;
-				border-color: @border-color-base--disabled;
+				border-color: @border-color-disabled;
 
 				.oo-ui-tool-title {
 					color: @color-inverted;
@@ -402,7 +402,7 @@
 		min-width: 16em;
 		margin: 0 -@border-width-base;
 		// Toolbar menus have toolbar `border-color` applied
-		border: @border-toolbar;
+		border: @border-subtle;
 		box-shadow: @box-shadow-menu;
 
 		.oo-ui-tool-link {
@@ -471,7 +471,7 @@
 			}
 
 			&:focus {
-				outline: @border-width-base @border-style-base @border-color-base--focus;
+				outline: @border-width-base @border-style-base @border-color-progressive--focus;
 				box-shadow: @box-shadow-base--focus;
 			}
 		}
@@ -501,7 +501,7 @@
 				}
 
 				&:focus {
-					border-right-color: @border-color-base--focus;
+					border-right-color: @border-color-progressive--focus;
 				}
 			}
 		}

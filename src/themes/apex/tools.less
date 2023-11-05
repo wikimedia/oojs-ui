@@ -5,12 +5,12 @@
 		.oo-ui-vertical-gradient( #fff, #f1f7fb );
 
 		.oo-ui-toolbar-position-top > & {
-			border-bottom: 1px solid #ccc;
+			border-bottom: @border-base;
 			box-shadow: 0 2px 2px 0 rgba( 0, 0, 0, 0.1 );
 		}
 
 		.oo-ui-toolbar-position-bottom > & {
-			border-top: 1px solid #ccc;
+			border-top: @border-base;
 			box-shadow: 0 -2px 2px 0 rgba( 0, 0, 0, 0.1 );
 		}
 
@@ -51,9 +51,9 @@
 		padding: 0.3125em;
 
 		// Fake the dimensions of a normal PopupToolGroup so that the popup aligns correctly
-		border-color: transparent;
-		border-style: solid;
-		border-width: 1px 0;
+		border-color: @border-color-transparent;
+		border-style: @border-style-base;
+		border-width: @border-width-base 0;
 		margin: -1px 0;
 	}
 
@@ -67,7 +67,7 @@
 .theme-oo-ui-toolGroup() {
 	margin: 0.375em;
 	border-radius: @border-radius-base;
-	border: 1px solid transparent;
+	border: @border-width-base @border-style-base @border-color-transparent;
 	transition-property: border-color;
 	transition-duration: @transition-duration-medium;
 
@@ -87,7 +87,7 @@
 .theme-oo-ui-barToolGroup() {
 	&-tools > .oo-ui-tool {
 		margin: -1px 0 -1px -1px;
-		border: 1px solid transparent;
+		border: @border-width-base @border-style-base @border-color-transparent;
 
 		&:first-child {
 			border-top-left-radius: @border-radius-base;
@@ -164,7 +164,7 @@
 		&.oo-ui-flaggedElement {
 			&-progressive {
 				.oo-ui-vertical-gradient( @background-color-progressive-gradient-light, @background-color-progressive-gradient-dark );
-				border: 1px solid @border-color-progressive;
+				border: @border-progressive;
 
 				&:hover {
 					border-color: @border-color-progressive--hover;
@@ -172,7 +172,7 @@
 
 				&.oo-ui-tool-active.oo-ui-widget-enabled {
 					.oo-ui-vertical-gradient( @background-color-progressive-gradient-dark, @background-color-progressive-gradient-light );
-					border: 1px solid @border-color-progressive;
+					border: @border-progressive;
 				}
 
 				> .oo-ui-tool-link {
@@ -226,7 +226,7 @@
 	}
 
 	&-tools .oo-ui-tool {
-		border: 1px solid transparent;
+		border: @border-width-base @border-style-base @border-color-transparent;
 		margin: -1px 0;
 		padding: 0 0.625em 0 0;
 
@@ -448,7 +448,7 @@
 	&.oo-ui-flaggedElement {
 		&-progressive {
 			.oo-ui-vertical-gradient( @background-color-progressive-gradient-light, @background-color-progressive-gradient-dark );
-			border: 1px solid @border-color-progressive;
+			border: @border-progressive;
 
 			&:hover {
 				border-color: @border-color-progressive--hover;
@@ -456,7 +456,7 @@
 
 			&.oo-ui-popupToolGroup-active.oo-ui-widget-enabled {
 				.oo-ui-vertical-gradient( @background-color-progressive-gradient-dark, @background-color-progressive-gradient-light );
-				border: 1px solid @border-color-progressive;
+				border: @border-progressive;
 			}
 		}
 
@@ -472,7 +472,7 @@
 
 	&-tools {
 		margin: -1px;
-		border: 1px solid #ccc;
+		border: @border-width-base @border-style-base #ccc;
 		background-color: #fff;
 		box-shadow: 0 0.3125em 1.25em rgba( 0, 0, 0, 0.25 );
 	}
