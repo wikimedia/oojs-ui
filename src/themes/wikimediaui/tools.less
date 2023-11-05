@@ -7,7 +7,7 @@
 
 		.oo-ui-toolbar-position-top > & {
 			border-bottom: @border-subtle;
-			box-shadow: @box-shadow-toolbar-top;
+			box-shadow: @box-shadow-drop-small;
 		}
 
 		.oo-ui-toolbar-position-bottom > & {
@@ -85,7 +85,7 @@
 
 			&:focus {
 				outline: @border-width-base @border-style-base @border-color-progressive--focus;
-				box-shadow: @box-shadow-base--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 				// Slightly elevate on focus
 				z-index: 1;
 			}
@@ -403,7 +403,7 @@
 		margin: 0 -@border-width-base;
 		// Toolbar menus have toolbar `border-color` applied
 		border: @border-subtle;
-		box-shadow: @box-shadow-menu;
+		box-shadow: @box-shadow-drop-medium;
 
 		.oo-ui-tool-link {
 			// Tool-Links in PopupToolGroups always have a `-title` element
@@ -472,7 +472,7 @@
 
 			&:focus {
 				outline: @border-width-base @border-style-base @border-color-progressive--focus;
-				box-shadow: @box-shadow-base--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			}
 		}
 
@@ -525,7 +525,7 @@
 
 	&-tools .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
 		outline: @outline-base--focus;
-		box-shadow: @box-shadow-popuptoolgroup-tool--focus;
+		box-shadow: @box-shadow-inset-medium @box-shadow-color-progressive--focus;
 	}
 
 	&.oo-ui-flaggedElement {

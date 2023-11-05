@@ -132,7 +132,7 @@
 			.oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected {
 				.oo-ui-buttonElement-button {
 					border-color: @border-color-progressive--focus;
-					box-shadow: @box-shadow-progressive-filled--focus;
+					box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus, @box-shadow-inset-medium @box-shadow-color-inverted;
 					// In Windows high contrast mode the outline becomes visible.
 					outline: @outline-base--focus;
 				}
@@ -243,7 +243,7 @@
 		// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
 		&:focus + span {
 			border-color: @border-color-progressive--focus;
-			box-shadow: @box-shadow-base--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			// In Windows high contrast mode the outline becomes visible.
 			outline: @outline-base--focus;
 		}
@@ -255,7 +255,7 @@
 		&:active + span {
 			background-color: @background-color-progressive--active;
 			border-color: @border-color-input-binary--active;
-			box-shadow: @box-shadow-input-binary--active;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--active;
 		}
 
 		&:checked,
@@ -268,7 +268,7 @@
 			&:focus + span {
 				background-color: @background-color-progressive--focus;
 				border-color: @border-color-input-binary--checked;
-				box-shadow: @box-shadow-progressive-filled--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus, @box-shadow-inset-medium @box-shadow-color-inverted;
 			}
 
 			&:hover + span {
@@ -279,7 +279,7 @@
 			&:active + span {
 				background-color: @background-color-progressive--active;
 				border-color: @border-color-input-binary--active;
-				box-shadow: @box-shadow-input-binary--active;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--active;
 			}
 		}
 	}
@@ -485,7 +485,7 @@
 		&:focus {
 			border-color: @border-color-progressive--focus;
 			outline: @outline-base--focus;
-			box-shadow: @box-shadow-base--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 		}
 
 		.oo-ui-iconElement-icon,
@@ -586,7 +586,7 @@
 			&:focus {
 				border-color: @border-color-progressive--focus;
 				outline: @outline-base--focus;
-				box-shadow: @box-shadow-base--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			}
 		}
 	}
@@ -692,7 +692,7 @@
 	background-color: @background-color-base;
 	border: @border-base;
 	border-radius: @border-radius-base;
-	box-shadow: @box-shadow-menu;
+	box-shadow: @box-shadow-drop-medium;
 }
 
 .theme-oo-ui-menuTagMultiselectWidget() {}
@@ -894,7 +894,7 @@
 	height: 100%;
 
 	&:focus {
-		box-shadow: inset 0 0 0 2px @color-progressive;
+		box-shadow: @box-shadow-inset-medium @box-shadow-color-progressive--focus;
 	}
 }
 
@@ -903,7 +903,7 @@
 		background-color: @background-color-base;
 		border: @border-base;
 		border-radius: @border-radius-base;
-		box-shadow: @box-shadow-menu;
+		box-shadow: @box-shadow-drop-medium;
 	}
 
 	// Support: Progressively enhance for browser's which render `filter`.
@@ -1075,7 +1075,7 @@
 	max-width: @max-width-base;
 	border: @border-base;
 	border-radius: @border-radius-pill;
-	box-shadow: @box-shadow-progressbar;
+	box-shadow: @box-shadow-drop-medium;
 	overflow: hidden;
 
 	&:not( .oo-ui-pendingElement-pending ) {
@@ -1231,7 +1231,7 @@
 
 			&:active + span {
 				border-color: @border-color-input-binary--active;
-				box-shadow: @box-shadow-input-binary--active;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--active;
 
 				&::before {
 					border-color: @border-color-input-binary--active;
@@ -1287,7 +1287,7 @@
 		height: @height-search;
 		padding: @padding-panel-form-search-query; // Need to use `padding` over `margin` for horizontally continuos `border`/`box-shadow` below
 		border-bottom: @border-subtle;
-		box-shadow: @box-shadow-toolbar-top;
+		box-shadow: @box-shadow-drop-small;
 
 		.oo-ui-textInputWidget {
 			margin: @margin-search 0;
@@ -1541,7 +1541,7 @@
 
 		&:focus {
 			border-color: @border-color-progressive--focus;
-			box-shadow: @box-shadow-base--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			outline: @outline-base--focus;
 		}
 
@@ -1559,7 +1559,7 @@
 
 			&:focus {
 				border-color: @border-color-error;
-				box-shadow: @box-shadow-error--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
 			}
 		}
 
@@ -1718,7 +1718,7 @@
 			&.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
 				border-color: @border-color-progressive--focus;
 				outline: @outline-base--focus;
-				box-shadow: @box-shadow-base--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			}
 
 			&.oo-ui-flaggedElement-invalid {
@@ -1838,7 +1838,7 @@
 
 	&.oo-ui-widget-enabled {
 		.oo-ui-inputWidget-input {
-			box-shadow: @box-shadow-base; // necessary for smooth transition
+			box-shadow: @box-shadow-inset-small @box-shadow-color-transparent; // necessary for smooth transition
 			transition-property: border-color, box-shadow;
 			transition-duration: @transition-duration-medium;
 
@@ -1847,7 +1847,7 @@
 			&:focus {
 				border-color: @border-color-progressive--focus;
 				outline: @outline-base--focus;
-				box-shadow: @box-shadow-base--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 
 				~ .oo-ui-iconElement-icon,
 				~ .oo-ui-indicatorElement-indicator {
@@ -1910,7 +1910,7 @@
 
 				&:focus {
 					border-color: @border-color-error;
-					box-shadow: @box-shadow-error--focus;
+					box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
 				}
 			}
 		}
@@ -2037,7 +2037,7 @@
 		&:active:focus {
 			background-color: @background-color-progressive--active;
 			border-color: @border-color-input-binary--active;
-			box-shadow: @box-shadow-input-binary--active;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--active;
 
 			.oo-ui-toggleSwitchWidget-grip {
 				background-color: @background-color-base;
@@ -2047,7 +2047,7 @@
 
 		&:focus {
 			border-color: @border-color-progressive--focus;
-			box-shadow: @box-shadow-base--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			outline: @outline-base--focus;
 
 			.oo-ui-toggleSwitchWidget-grip {
