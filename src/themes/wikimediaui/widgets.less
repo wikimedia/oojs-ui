@@ -673,7 +673,7 @@
 .theme-oo-ui-menuSectionOptionWidget() {
 	color: @color-base--subtle;
 	padding: @padding-vertical-base @padding-horizontal-base @padding-vertical-label;
-	font-weight: bold;
+	font-weight: @font-weight-bold;
 
 	& ~ .oo-ui-menuOptionWidget {
 		padding-left: 2 * @padding-horizontal-base;
@@ -698,7 +698,7 @@
 .theme-oo-ui-menuTagMultiselectWidget() {}
 
 .theme-oo-ui-messageWidget() {
-	font-weight: bold;
+	font-weight: @font-weight-bold;
 
 	> .oo-ui-iconElement-icon {
 		background-position: 0 0;
@@ -711,7 +711,7 @@
 	&.oo-ui-messageWidget-block {
 		border: @border-width-base @border-style-base;
 		padding: @padding-vertical-message-block @padding-horizontal-message-block;
-		font-weight: normal;
+		font-weight: @font-weight-normal;
 
 		> .oo-ui-iconElement-icon {
 			background-position: 0 @padding-vertical-message-block;
@@ -1377,7 +1377,7 @@
 	padding: 0 @padding-horizontal-taboption;
 	border-color: transparent;
 	border-style: @border-style-base;
-	font-weight: bold;
+	font-weight: @font-weight-bold;
 	line-height: @line-height-reset;
 	transition-property: background-color, color, border-color;
 	transition-duration: @transition-duration-base;
