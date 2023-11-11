@@ -651,14 +651,10 @@
 			color: @color-emphasized;
 		}
 
-		&-selected {
-			background-color: @background-color-progressive;
-			color: @color-progressive;
-		}
-
+		&-selected,
 		&-selected&-highlighted,
 		&-pressed&-highlighted {
-			background-color: @background-color-progressive--hover;
+			background-color: @background-color-progressive-subtle;
 			color: @color-progressive;
 		}
 	}
@@ -849,13 +845,9 @@
 		color: @color-emphasized;
 	}
 
-	&.oo-ui-optionWidget-selected {
-		background-color: @background-color-progressive;
-		color: @color-progressive;
-	}
-
+	&.oo-ui-optionWidget-selected,
 	&.oo-ui-optionWidget-pressed {
-		background-color: @background-color-progressive--hover;
+		background-color: @background-color-progressive-subtle;
 		color: @color-progressive;
 	}
 
@@ -1354,7 +1346,7 @@
 		&.oo-ui-selectFileInputWidget-canDrop {
 			&.oo-ui-selectFileInputWidget-dropTarget,
 			.oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
-				background-color: @background-color-progressive;
+				background-color: @background-color-progressive-subtle;
 				color: @color-progressive--active;
 			}
 		}
