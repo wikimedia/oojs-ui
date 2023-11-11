@@ -1984,21 +1984,21 @@
 	// The moving element of the switch.
 	&-grip {
 		// Position vertically centered with help of `transform` further down.
-		top: 50%;
-		// Adjust for border on parent element
+		top: @size-half;
+		// Adjust for border on parent element.
 		// This avoids having to do translateX( calc( 100% + 1px ) ) below, which would not
-		// be flipped correctly by CSSJanus
-		left: 1px;
+		// be flipped correctly by CSSJanus.
+		left: @size-absolute-1;
 		min-width: @min-size-toggle-switch-grip;
-		width: @size-toggle-switch-grip;
+		width: @size-125;
 		min-height: @min-size-toggle-switch-grip;
-		height: @size-toggle-switch-grip;
+		height: @size-125;
 		border-radius: @border-radius-circle;
 		transition-property: background-color, border-color, transform;
 		transition-duration: @transition-duration-medium, @transition-duration-base, @transition-duration-base;
-		// Set starting position with `transform`
+		// Set starting position with `transform` equivalent to x position.
 		// Divide height by 50% to center the grip vertically.
-		transform: translateX( ( 4px ) ) translateY( -50% );
+		transform: translateX( ( @size-25 ) ) translateY( -@size-half );
 	}
 
 	&-glow {
@@ -2008,9 +2008,9 @@
 
 	&.oo-ui-toggleWidget-on {
 		.oo-ui-toggleSwitchWidget-grip {
-			// Move the grip to the right
+			// Move the grip to the right equivalent to x position.
 			// Continue to divide height by 50% to center the grip.
-			transform: translateX( 100% ) translateY( -50% );
+			transform: translateX( @size-full ) translateY( -@size-half );
 		}
 	}
 
