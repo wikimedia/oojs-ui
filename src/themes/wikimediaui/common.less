@@ -93,24 +93,32 @@
 
 @border-radius-frameless-indicator: 1px; // Together with `@box-shadow-frameless-indicator--focus` it results in well rounded border
 
+// Note, Codex features a spacing scale with `@spacing-100` equal `16px`.
+@padding-base: @padding-vertical-base @padding-horizontal-base;
 @padding-frameless: @padding-vertical-base @padding-horizontal-frameless;
+@padding-input-text: @padding-vertical-base @padding-horizontal-input-text;
 @padding-menu: ( @padding-vertical-base + @border-width-base ) @padding-horizontal-base;
 @padding-menu-large: @padding-vertical-tool-label @padding-horizontal-base;
-@padding-panel-form: 12px 16px 16px;
-@padding-panel-form-search-query: 0 16px;
-@padding-panel-dialog: 20px;
-@padding-horizontal-frameless: 6px;
-@padding-horizontal-message-block: 24px;
-@padding-horizontal-taboption: 8px;
+@padding-panel-form: @spacing-75 @spacing-100 @spacing-100;
+@padding-panel-form-search-query: 0 @spacing-100;
+@padding-panel-dialog: @spacing-125;
+@padding-horizontal-base: @spacing-75;
+@padding-horizontal-input-text: @spacing-50;
+@padding-horizontal-frameless: @spacing-35;
+@padding-horizontal-message-block: @spacing-150;
+@padding-horizontal-taboption: @spacing-50;
 @padding-horizontal-taboption-label: 5px;
-@padding-horizontal-tagitem: 8px;
-@padding-horizontal-toolbar-action-buttons: 16px; // Aligned relatively to `@padding-horizontal-base` but for toolbar button height.
+@padding-horizontal-tagitem: @spacing-50;
+@padding-horizontal-toolbar-action-buttons: @spacing-100; // Aligned relatively to `@padding-horizontal-base` but for toolbar button height.
 // All paddings holding icons need `em`s due to font-size derived icon scaling.
-@padding-horizontal-base-iconized: ( 12 / @ooui-font-size-browser / @ooui-font-size-base );
+@padding-horizontal-base-iconized: ( unit( @spacing-75 ) / @ooui-font-size-browser / @ooui-font-size-base );
+// Must be < `8` as it cuts off scripts like Burmese. Directly connected to `line-height` further down.
 // FIXME: Note, that Codex token value is `4px`.
 @padding-vertical-base: 5px;
-@padding-vertical-label: 4px;
-@padding-vertical-message-block: 16px;
+// Menu items don't have a border. So add it to padding.
+@padding-vertical-menu: @padding-vertical-base + @border-width-base;
+@padding-vertical-label: @spacing-25;
+@padding-vertical-message-block: @spacing-100;
 @padding-top-icon-indicator: ( 30 / @ooui-font-size-browser / @ooui-font-size-base );
 @padding-top-tool: ( 42 / @ooui-font-size-browser / @ooui-font-size-base );
 // Dialog actions feature borders.
@@ -121,7 +129,7 @@
 // All paddings holding icons/indicators need `em`s due to font-size derived icon scaling.
 @padding-start-icon-only: ( 30 / @ooui-font-size-browser / @ooui-font-size-base ); // @min-width-button-base - @padding-horizontal-base - 2 * @border-width-base.
 @padding-start-fieldset-header-iconized: unit( ( 26 / @ooui-font-size-browser / ( @ooui-font-size-base * @font-size-fieldset-header ) ), @ooui-unit );
-@padding-start-messages: ( 8 / @ooui-font-size-browser / @ooui-font-size-base );
+@padding-start-messages: ( unit( @spacing-50 ) / @ooui-font-size-browser / @ooui-font-size-base );
 // Indicator receives a little less than `@padding-horizontal-base` to make up for its fragility.
 // Also abusing `@padding-start` as `start` value.
 @padding-start-indicator: ( 10 / @ooui-font-size-browser / @ooui-font-size-base );
@@ -129,7 +137,7 @@
 @padding-start-indicator-plus: ( 30 / @ooui-font-size-browser / @ooui-font-size-base );
 @padding-start-frameless-icon-plus: @padding-start-icon-only;
 // `6px` is not aligned to Design Style Guide, as checkbox and radio sizes aren't either.
-@padding-start-fieldlayout-label: 6px;
+@padding-start-fieldlayout-label: @spacing-35;
 @padding-start-input-text-icon-label: ( 34 / @ooui-font-size-browser / @ooui-font-size-base );
 @padding-start-button-framed-icon-label: ( 38 / @ooui-font-size-browser / @ooui-font-size-base );
 @padding-start-menu-icon-label: ( 37 / @ooui-font-size-browser / @ooui-font-size-base );
@@ -138,7 +146,7 @@
 @padding-end-dropdown: @padding-start-indicator-plus;
 @padding-end-tagitem-remove: 23px;
 @padding-end-toolgroup-label-indicator: ( 26 / @ooui-font-size-browser / @ooui-font-size-base );
-@padding-end-toolgroup-indicator: ( 16 / @ooui-font-size-browser / @ooui-font-size-base );
+@padding-end-toolgroup-indicator: ( unit( @spacing-100 ) / @ooui-font-size-browser / @ooui-font-size-base );
 
 @box-shadow-toolbar-bottom: 0 -1px 1px 0 rgba( 0, 0, 0, 0.2 );
 @box-shadow-frameless-indicator--focus: 0 0 0 2px @box-shadow-color-progressive--focus;
@@ -153,7 +161,7 @@
 
 // `line-height` has to be relative/in `em` to enable user override in browser settings.
 @line-height-reset: 1; // Support: Safari, reset `line-height` in order to normalize it in a follow-up rule across browsers.
-@line-height-label: ( 20 / @ooui-font-size-browser / @ooui-font-size-base ); // Equals `1.42857143em`≈`20px` at base `font-size: 14px;
+@line-height-label: ( 20 / @ooui-font-size-browser / @ooui-font-size-base ); // Equals `1.42857143em`≈`@spacing-12520px` at base `font-size: 14px;
 @line-height-tagitem-label: unit( ( 21 / @ooui-font-size-browser / @ooui-font-size-base / @font-size-small ), @ooui-unit ); // Push label down by 1 px for vertical centering.
 
 // Text Shadows
