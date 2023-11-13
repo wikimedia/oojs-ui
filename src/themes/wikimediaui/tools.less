@@ -412,14 +412,6 @@
 			transition-property: background-color, box-shadow;
 			transition-duration: @transition-duration-base;
 
-			&:hover {
-				background-color: @background-color-interactive;
-			}
-
-			&:active {
-				background-color: @background-color-progressive;
-			}
-
 			// We don't generalize this further, as only PopupToolGroup carries them,
 			// all other ToolGroups own Tools, which come with their own icon rules
 			.oo-ui-iconElement-icon,
@@ -454,25 +446,13 @@
 		}
 	}
 
-	&.oo-ui-popupToolGroup-active {
-		> .oo-ui-popupToolGroup-handle {
-			background-color: @background-color-progressive-subtle;
-			color: @color-progressive;
-
-			&:hover {
-				background-color: @background-color-tool--active-hover;
-				color: @color-progressive;
-			}
-		}
-	}
-
-	&-tools .oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
-		color: @color-progressive;
-	}
-
 	&-tools .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
 		outline: @outline-base--focus;
 		box-shadow: @box-shadow-inset-medium @box-shadow-color-progressive--focus;
+	}
+
+	&.oo-ui-widget-enabled {
+		.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', inherit, @background-color-interactive, @color-progressive--active, @color-progressive--focus, @color-progressive );
 	}
 
 	&.oo-ui-flaggedElement {
