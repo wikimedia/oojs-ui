@@ -484,27 +484,6 @@
 				}
 			}
 		}
-
-		// Due to z-index shuffling `border` has to acts as `background` here
-		.oo-ui-toolbar-actions & {
-			> .oo-ui-popupToolGroup-handle {
-				border-right: @border-width-base @border-style-base transparent;
-				transition-property: background-color, border-color, box-shadow;
-				transition-duration: @transition-duration-base;
-
-				&:hover {
-					border-right-color: @background-color-interactive;
-				}
-
-				&:active {
-					border-right-color: @background-color-progressive;
-				}
-
-				&:focus {
-					border-right-color: @border-color-progressive--focus;
-				}
-			}
-		}
 	}
 
 	&.oo-ui-popupToolGroup-active {
