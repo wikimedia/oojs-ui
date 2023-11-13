@@ -210,28 +210,6 @@
 
 .theme-oo-ui-listToolGroup() {
 	&-tools .oo-ui-tool {
-		&.oo-ui-widget-enabled {
-			&:hover {
-				background-color: @background-color-interactive;
-				// Used here in combination with background-color turning light grey.
-				color: @color-emphasized;
-			}
-		}
-
-		&-active {
-			&.oo-ui-widget-enabled {
-				background-color: @background-color-progressive;
-
-				&:hover {
-					background-color: @background-color-tool--active-hover;
-				}
-
-				.oo-ui-tool-link .oo-ui-tool-title {
-					color: @color-progressive;
-				}
-			}
-		}
-
 		&.oo-ui-widget-disabled {
 			.oo-ui-tool-title {
 				color: @color-disabled;
@@ -279,16 +257,6 @@
 					left: @start-tool-icon - ( @size-toolbar-narrow-modifier / 2 );
 				}
 			}
-		}
-
-		&.oo-ui-widget-enabled {
-			&:hover {
-				background-color: @background-color-tool--active-hover;
-			}
-		}
-
-		&.oo-ui-tool-active {
-			background-color: @background-color-progressive;
 		}
 	}
 
