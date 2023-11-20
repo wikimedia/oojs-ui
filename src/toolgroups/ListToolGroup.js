@@ -111,7 +111,7 @@ OO.ui.ListToolGroup = function OoUiListToolGroup( toolbar, config ) {
 	// Properties (must be set before parent constructor, which calls #populate)
 	this.allowCollapse = config.allowCollapse;
 	this.forceExpand = config.forceExpand;
-	this.expanded = config.expanded !== undefined ? config.expanded : false;
+	this.expanded = !!config.expanded;
 	this.collapsibleTools = [];
 
 	// Parent constructor
