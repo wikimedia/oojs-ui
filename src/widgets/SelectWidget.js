@@ -543,15 +543,15 @@ OO.ui.SelectWidget.prototype.getItemMatcher = function ( query, mode ) {
 		mode = 'exact';
 	}
 
+	// Empty string matches everything, except in "exact" mode where it matches nothing
+	if ( !normalizedQuery ) {
+		return function () {
+			return mode !== 'exact';
+		};
+	}
+
 	return function ( item ) {
 		var matchText = normalizeForMatching( item.getMatchText() );
-
-		if ( normalizedQuery === '' ) {
-			// Empty string matches all, except if we are in 'exact'
-			// mode, where it doesn't match at all
-			return mode !== 'exact';
-		}
-
 		switch ( mode ) {
 			case 'exact':
 				return matchText === normalizedQuery;
