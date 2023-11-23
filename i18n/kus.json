@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Akudugu"
+			"Akudugu",
+			"Poasana Anabah"
 		]
 	},
+	"ooui-copytextlayout-copy": "Tu'asim",
 	"ooui-outline-control-move-down": "Vɛ'ɛgim lak la sig tɛŋir",
 	"ooui-outline-control-move-up": "Vɛ'ɛgim lak la dɔ agɔl",
 	"ooui-outline-control-remove": "Yiisim lak la",
