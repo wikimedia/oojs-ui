@@ -181,8 +181,7 @@ module.exports = function ( grunt ) {
 		}
 
 		concatCodexTokensCss[ 'dist/wikimedia-ui-base.less' ] = [
-			'node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-legacy.less',
-			'node_modules/@wikimedia/codex-design-tokens/dist/deprecated-aliases-wikimedia-ui-base.less'
+			'node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-legacy.less'
 		];
 
 	}() );
