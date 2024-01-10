@@ -13,7 +13,8 @@
     "plugins": [
         "plugins/markdown",
         "plugins/summarize",
-        "node_modules/jsdoc-class-hierarchy"
+        "node_modules/jsdoc-class-hierarchy",
+        "build/jsdoc-peculiar-static"
     ],
     "recurseDepth": 10,
     "source": {
