@@ -31,7 +31,7 @@
  * so asynchronous processing can complete. Always assume window processes are executed
  * asynchronously.
  *
- * For more information, please see the [OOUI documentation on MediaWiki] [1].
+ * For more information, please see the [OOUI documentation on MediaWiki][1].
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Windows
  *

@@ -1,7 +1,7 @@
 /**
  * IconWidget is a generic widget for {@link OO.ui.mixin.IconElement icons}.
  * In general, IconWidgets should be used with OO.ui.LabelWidget, which creates a label that
- * identifies the icon’s function. See the [OOUI documentation on MediaWiki] [1]
+ * identifies the icon’s function. See the [OOUI documentation on MediaWiki][1]
  * for a list of icons included in the library.
  *
  *     @example

@@ -24,7 +24,7 @@
  * If the help text is brief, or is essential to always expose it, set `helpInline` to `true`.
  * If it is long or not essential, leave `helpInline` to its default, `false`.
  *
- * Please see the [OOUI documentation on MediaWiki] [1] for examples and more information.
+ * Please see the [OOUI documentation on MediaWiki][1] for examples and more information.
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Layouts/Fields_and_Fieldsets
  *

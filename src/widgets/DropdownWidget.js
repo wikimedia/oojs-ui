@@ -34,7 +34,7 @@
  *
  *     dropDown.getMenu().findSelectedItem().getData(); // Returns 'b'.
  *
- * For more information, please see the [OOUI documentation on MediaWiki] [1].
+ * For more information, please see the [OOUI documentation on MediaWiki][1].
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options#Menu_selects_and_options
  *

@@ -607,7 +607,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
  * Add windows to the window manager.
  *
  * Windows can be added by reference, symbolic name, or explicitly defined symbolic names.
- * See the [OOUI documentation on MediaWiki] [2] for examples.
+ * See the [OOUI documentation on MediaWiki][2] for examples.
  * [2]: https://www.mediawiki.org/wiki/OOUI/Windows/Window_managers
  *
  * This function can be called in two manners:

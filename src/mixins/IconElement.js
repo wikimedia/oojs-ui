@@ -2,7 +2,7 @@
  * IconElement is often mixed into other classes to generate an icon.
  * Icons are graphics, about the size of normal text. They are used to aid the user
  * in locating a control or to convey information in a space-efficient way. See the
- * [OOUI documentation on MediaWiki] [1] for a list of icons
+ * [OOUI documentation on MediaWiki][1] for a list of icons
  * included in the library.
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Icons
@@ -31,7 +31,7 @@
  *  Example of an i18n map:
  *
  *     { default: 'bold-a', en: 'bold-b', de: 'bold-f' }
- *  See the [OOUI documentation on MediaWiki] [2] for a list of icons included in the library.
+ *  See the [OOUI documentation on MediaWiki][2] for a list of icons included in the library.
  * [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Icons
  */
 OO.ui.mixin.IconElement = function OoUiMixinIconElement( config ) {

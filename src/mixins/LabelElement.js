@@ -1,7 +1,7 @@
 /**
  * LabelElement is often mixed into other classes to generate a label, which
  * helps identify the function of an interface element.
- * See the [OOUI documentation on MediaWiki] [1] for more information.
+ * See the [OOUI documentation on MediaWiki][1] for more information.
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Labels
  *
@@ -14,7 +14,7 @@
  *  configuration is omitted, the label element will use a generated `<span>`.
  * @param {jQuery|string|Function|OO.ui.HtmlSnippet} [config.label] The label text. The label can be
  *  specified as a plaintext string, a jQuery selection of elements, or a function that will
- *  produce a string in the future. See the [OOUI documentation on MediaWiki] [2] for examples.
+ *  produce a string in the future. See the [OOUI documentation on MediaWiki][2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Labels
  * @param {boolean} [config.invisibleLabel=false] Whether the label should be visually hidden (but still
  *  accessible to screen-readers).

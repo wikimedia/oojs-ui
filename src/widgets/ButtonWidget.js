@@ -1,7 +1,7 @@
 /**
  * ButtonWidget is a generic widget for buttons. A wide variety of looks,
  * feels, and functionality can be customized via the class’s configuration options
- * and methods. Please see the [OOUI documentation on MediaWiki] [1] for more information
+ * and methods. Please see the [OOUI documentation on MediaWiki][1] for more information
  * and examples.
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Buttons_and_Switches

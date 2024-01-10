@@ -28,7 +28,7 @@
  *
  * {@link OO.ui.ActionWidget ActionWidgets}, which are a special kind of button that execute an
  * action, use these flags: **primary** and **safe**.
- * Please see the [OOUI documentation on MediaWiki] [1] for more information.
+ * Please see the [OOUI documentation on MediaWiki][1] for more information.
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Elements/Flagged
  *
@@ -39,7 +39,7 @@
  * @param {Object} [config] Configuration options
  * @param {string|string[]} [config.flags] The name or names of the flags (e.g., 'progressive' or 'primary')
  *  to apply.
- *  Please see the [OOUI documentation on MediaWiki] [2] for more information about available flags.
+ *  Please see the [OOUI documentation on MediaWiki][2] for more information about available flags.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Elements/Flagged
  * @param {jQuery} [config.$flagged] The flagged element. By default,
  *  the flagged functionality is applied to the element created by the class ($element).

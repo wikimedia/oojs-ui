@@ -38,7 +38,7 @@
  * @param {Object} [config] Configuration options
  * @param {OO.ui.OptionWidget[]} [config.items] An array of options to add to the select.
  *  Options are created with {@link OO.ui.OptionWidget OptionWidget} classes. See
- *  the [OOUI documentation on MediaWiki] [2] for examples.
+ *  the [OOUI documentation on MediaWiki][2] for examples.
  *  [2]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  * @param {boolean} [config.multiselect=false] Allow for multiple selections
  */

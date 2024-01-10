@@ -4,7 +4,7 @@
  * with {@link OO.ui.mixin.IconElement icons}, {@link OO.ui.mixin.IndicatorElement indicators}, an
  * optional validation-pattern (used to determine if an input value is valid or not) and an input
  * filter, which modifies incoming values rather than validating them.
- * Please see the [OOUI documentation on MediaWiki] [1] for more information and examples.
+ * Please see the [OOUI documentation on MediaWiki][1] for more information and examples.
  *
  * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *

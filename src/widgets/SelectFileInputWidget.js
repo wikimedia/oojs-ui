@@ -2,7 +2,7 @@
  * SelectFileInputWidgets allow for selecting files, using <input type="file">. These
  * widgets can be configured with {@link OO.ui.mixin.IconElement icons}, {@link
  * OO.ui.mixin.IndicatorElement indicators} and {@link OO.ui.mixin.TitledElement titles}.
- * Please see the [OOUI documentation on MediaWiki] [1] for more information and examples.
+ * Please see the [OOUI documentation on MediaWiki][1] for more information and examples.
  *
  * SelectFileInputWidgets must be used in HTML forms, as getValue only returns the filename.
  *

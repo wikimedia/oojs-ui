@@ -1,7 +1,7 @@
 /**
  * PopupWidget is a container for content. The popup is overlaid and positioned absolutely.
  * By default, each popup has an anchor that points toward its origin.
- * Please see the [OOUI documentation on MediaWiki.org] [1] for more information and examples.
+ * Please see the [OOUI documentation on MediaWiki.org][1] for more information and examples.
  *
  * Unlike most widgets, PopupWidget is initially hidden and must be shown by calling #toggle.
  *

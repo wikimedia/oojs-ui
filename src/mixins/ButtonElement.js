@@ -1,7 +1,7 @@
 /**
  * ButtonElement is often mixed into other classes to generate a button, which is a clickable
  * interface element that can be configured with access keys for keyboard interaction.
- * See the [OOUI documentation on MediaWiki] [1] for examples.
+ * See the [OOUI documentation on MediaWiki][1] for examples.
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Buttons_and_Switches#Buttons
  *

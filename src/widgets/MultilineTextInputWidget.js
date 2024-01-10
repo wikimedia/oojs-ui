@@ -3,7 +3,7 @@
  * configure number of rows visible. In addition, these widgets can be autosized to fit user
  * inputs and can show {@link OO.ui.mixin.IconElement icons} and
  * {@link OO.ui.mixin.IndicatorElement indicators}.
- * Please see the [OOUI documentation on MediaWiki] [1] for more information and examples.
+ * Please see the [OOUI documentation on MediaWiki][1] for more information and examples.
  *
  * MultilineTextInputWidgets can also be used when a single line string is required, but
  * we want to display it to the user over mulitple lines (wrapped). This is done by setting

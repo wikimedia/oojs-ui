@@ -3,7 +3,7 @@
  * button options and is used together with
  * OO.ui.ButtonOptionWidget. The ButtonSelectWidget provides an interface for
  * highlighting, choosing, and selecting mutually exclusive options. Please see
- * the [OOUI documentation on MediaWiki] [1] for more information.
+ * the [OOUI documentation on MediaWiki][1] for more information.
  *
  *     @example
  *     // A ButtonSelectWidget that contains three ButtonOptionWidgets.

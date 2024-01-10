@@ -8,7 +8,7 @@
  *   that opens a menu instead of performing an action directly, for example).
  *
  * For a list of indicators included in the library, please see the
- * [OOUI documentation on MediaWiki] [1].
+ * [OOUI documentation on MediaWiki][1].
  *
  * Note that indicators don't come with any functionality by default. See e.g.
  * {@link OO.ui.SearchInputWidget SearchInputWidget} for a working 'clear' or

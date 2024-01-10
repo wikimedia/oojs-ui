@@ -3,7 +3,7 @@
  * Unless extended to include controls, the rendered dialog box is a simple window
  * that users can close by hitting the Escape key. Dialog windows are used with OO.ui.WindowManager,
  * which opens, closes, and controls the presentation of the window. See the
- * [OOUI documentation on MediaWiki] [1] for more information.
+ * [OOUI documentation on MediaWiki][1] for more information.
  *
  *     @example
  *     // A simple dialog window.
@@ -78,7 +78,7 @@ OO.mixinClass( OO.ui.Dialog, OO.ui.mixin.PendingElement );
  * Symbolic name of dialog.
  *
  * The dialog class must have a symbolic name in order to be registered with OO.Factory.
- * Please see the [OOUI documentation on MediaWiki] [3] for more information.
+ * Please see the [OOUI documentation on MediaWiki][3] for more information.
  *
  * [3]: https://www.mediawiki.org/wiki/OOUI/Windows/Window_managers
  *
