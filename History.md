@@ -127,7 +127,6 @@
 * TextInputWidget: Use Custom Elements for #onElementAttach support (Bartosz Dziewoński)
 
 ### Code
-* doc: Switch from jsduck to jsdoc (James D. Forrester)
 * doc: Document default values for all boolean method parameters (Thiemo Kreuz)
 * doc: TagMultiselectWidget: add `placeholder` cfg (Chlod Alejandro)
 * build: Upgrade eslint-config-wikimedia from 0.25.0 to 0.25.1 (James D. Forrester)
