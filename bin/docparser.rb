@@ -181,7 +181,7 @@ def parse_file filename
 			when 'ignore', 'inheritdoc'
 				ignore = true
 			when 'inheritable', 'deprecated', 'namespace', 'throws',
-				 'chainable', 'fires', 'member',
+				 'chainable', 'fires', 'memberof',
 				 'see', 'uses', 'param-taint', 'suppress',
 				 'phpcs',
 				 /^phan-/
