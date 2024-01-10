@@ -29,8 +29,8 @@
  * @param {string} [config.type='button'] The value of the HTML `'type'` attribute:
  *  'button', 'submit' or 'reset'.
  * @param {boolean} [config.useInputTag=false] Use an `<input>` tag instead of a `<button>` tag, the
- *  default. Widgets configured to be an `<input>` do not support {@link #icon icons} and
- *  {@link #indicator indicators}, non-plaintext {@link #label labels}, or {@link #value values}. In
+ *  default. Widgets configured to be an `<input>` do not support {@link OO.ui.ButtonInputWidget#icon icons} and
+ *  {@link OO.ui.ButtonInputWidget#indicator indicators}, non-plaintext {@link OO.ui.ButtonInputWidget#label labels}, or {@link OO.ui.ButtonInputWidget#value values}. In
  *  general, useInputTag should only be set to `true` when there’s need to support IE 6 in a form
  *  with multiple buttons.
  * @param {boolean} [config.formNoValidate=false] Whether to use `formnovalidate` attribute.
@@ -127,8 +127,8 @@ OO.ui.ButtonInputWidget.prototype.setLabel = function ( label ) {
 /**
  * Set the value of the input.
  *
- * This method is disabled for button inputs configured as {@link #useInputTag <input> tags}, as
- * they do not support {@link #value values}.
+ * This method is disabled for button inputs configured as {@link OO.ui.ButtonInputWidget#useInputTag <input> tags}, as
+ * they do not support {@link OO.ui.ButtonInputWidget#value values}.
  *
  * @param {string} value New value
  * @chainable

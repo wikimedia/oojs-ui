@@ -7,8 +7,8 @@
  *
  * Every Tool subclass must implement two methods:
  *
- * - {@link #onUpdateState}
- * - {@link #onSelect}
+ * - {@link OO.ui.Tool#onUpdateState onUpdateState}
+ * - {@link OO.ui.Tool#onSelect onSelect}
  *
  * Tools are added to toolgroups ({@link OO.ui.ListToolGroup ListToolGroup},
  * {@link OO.ui.BarToolGroup BarToolGroup}, or {@link OO.ui.MenuToolGroup MenuToolGroup}), which
@@ -29,7 +29,7 @@
  * @param {OO.ui.ToolGroup} toolGroup
  * @param {Object} [config] Configuration options
  * @param {string|Function} [config.title] Title text or a function that returns text. If this config is
- *  omitted, the value of the {@link #static-title static title} property is used.
+ *  omitted, the value of the {@link OO.ui.Tool.static.title static title} property is used.
  * @param {boolean} [config.displayBothIconAndLabel] See static.displayBothIconAndLabel
  * @param {Object} [config.narrowConfig] See static.narrowConfig
  *

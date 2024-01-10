@@ -52,7 +52,7 @@
  * @param {Object} [config] Configuration options
  * @param {OO.Factory} [config.factory] Window factory to use for automatic instantiation
  *  Note that window classes that are instantiated with a factory must have
- *  a {@link OO.ui.Dialog#static-name static name} property that specifies a symbolic name.
+ *  a {@link OO.ui.Dialog.static.name static name} property that specifies a symbolic name.
  * @param {boolean} [config.modal=true] Prevent interaction outside the current window
  * @param {boolean} [config.forceTrapFocus] Force the trapping of focus within windows. This is done
  *  automatically for modal window managers and full screen windows.

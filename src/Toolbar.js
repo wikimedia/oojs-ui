@@ -17,7 +17,7 @@
  * editor's editing area, marking tools as active/inactive (e.g. a 'bold' tool would be shown as
  * active when the text cursor was inside bolded text) or enabled/disabled (e.g. a table caption
  * tool would be disabled while the user is not editing a table). A state change is signalled by
- * emitting the {@link #event-updateState 'updateState' event}, which calls Tools'
+ * emitting the {@link OO.ui.Toolbar#event:updateState 'updateState' event}, which calls Tools'
  * {@link OO.ui.Tool#onUpdateState onUpdateState method}.
  *
  * The following is an example of a basic toolbar.
@@ -141,7 +141,7 @@
  *     toolbar.emit( 'updateState' );
  *
  * The following example extends the previous one to illustrate 'menu' toolgroups and the usage of
- * {@link #event-updateState 'updateState' event}.
+ * {@link OO.ui.Toolbar#event:updateState 'updateState' event}.
  *
  *     @example
  *     // Create the toolbar

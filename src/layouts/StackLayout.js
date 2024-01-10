@@ -64,8 +64,8 @@ OO.mixinClass( OO.ui.StackLayout, OO.ui.mixin.GroupElement );
 /* Events */
 
 /**
- * A 'set' event is emitted when panels are {@link #addItems added}, {@link #removeItems removed},
- * {@link #clearItems cleared} or {@link #setItem displayed}.
+ * A 'set' event is emitted when panels are {@link OO.ui.StackLayout#addItems added}, {@link OO.ui.StackLayout#removeItems removed},
+ * {@link OO.ui.StackLayout#clearItems cleared} or {@link OO.ui.StackLayout#setItem displayed}.
  *
  * @event OO.ui.StackLayout#set
  * @param {OO.ui.Layout|null} item Current panel or `null` if no panel is shown

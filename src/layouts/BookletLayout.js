@@ -124,7 +124,7 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
 /* Events */
 
 /**
- * A 'set' event is emitted when a page is {@link #setPage set} to be displayed by the
+ * A 'set' event is emitted when a page is {@link OO.ui.BookletLayout#setPage set} to be displayed by the
  * booklet layout.
  *
  * @event OO.ui.BookletLayout#set
@@ -132,7 +132,7 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
  */
 
 /**
- * An 'add' event is emitted when pages are {@link #addPages added} to the booklet layout.
+ * An 'add' event is emitted when pages are {@link OO.ui.BookletLayout#addPages added} to the booklet layout.
  *
  * @event OO.ui.BookletLayout#add
  * @param {OO.ui.PageLayout[]} page Added pages
@@ -140,8 +140,8 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
  */
 
 /**
- * A 'remove' event is emitted when pages are {@link #clearPages cleared} or
- * {@link #removePages removed} from the booklet.
+ * A 'remove' event is emitted when pages are {@link OO.ui.BookletLayout#clearPages cleared} or
+ * {@link OO.ui.BookletLayout#removePages removed} from the booklet.
  *
  * @event OO.ui.BookletLayout#remove
  * @param {OO.ui.PageLayout[]} pages Removed pages

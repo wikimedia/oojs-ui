@@ -119,7 +119,7 @@ OO.inheritClass( OO.ui.IndexLayout, OO.ui.MenuLayout );
 /* Events */
 
 /**
- * A 'set' event is emitted when a tab panel is {@link #setTabPanel set} to be displayed by the
+ * A 'set' event is emitted when a tab panel is {@link OO.ui.IndexLayout#setTabPanel set} to be displayed by the
  * index layout.
  *
  * @event OO.ui.IndexLayout#set
@@ -127,7 +127,7 @@ OO.inheritClass( OO.ui.IndexLayout, OO.ui.MenuLayout );
  */
 
 /**
- * An 'add' event is emitted when tab panels are {@link #addTabPanels added} to the index layout.
+ * An 'add' event is emitted when tab panels are {@link OO.ui.IndexLayout#addTabPanels added} to the index layout.
  *
  * @event OO.ui.IndexLayout#add
  * @param {OO.ui.TabPanelLayout[]} tabPanel Added tab panels
@@ -135,8 +135,8 @@ OO.inheritClass( OO.ui.IndexLayout, OO.ui.MenuLayout );
  */
 
 /**
- * A 'remove' event is emitted when tab panels are {@link #clearTabPanels cleared} or
- * {@link #removeTabPanels removed} from the index.
+ * A 'remove' event is emitted when tab panels are {@link OO.ui.IndexLayout#clearTabPanels cleared} or
+ * {@link OO.ui.IndexLayout#removeTabPanels removed} from the index.
  *
  * @event OO.ui.IndexLayout#remove
  * @param {OO.ui.TabPanelLayout[]} tabPanel Removed tab panels

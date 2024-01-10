@@ -211,9 +211,9 @@ OO.ui.Dialog.prototype.getActionProcess = function ( action ) {
  *
  * @param {Object} [data] Dialog opening data
  * @param {jQuery|string|Function|null} [data.title] Dialog title, omit to use
- *  the {@link #static-title static title}
+ *  the {@link OO.ui.Dialog.static.title static title}
  * @param {Object[]} [data.actions] List of configuration options for each
- *   {@link OO.ui.ActionWidget action widget}, omit to use {@link #static-actions static actions}.
+ *   {@link OO.ui.ActionWidget action widget}, omit to use {@link OO.ui.Dialog.static.actions static actions}.
  */
 OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};

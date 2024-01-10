@@ -9,21 +9,21 @@
  * different processes are executed:
  *
  * **opening**: The opening stage begins when the window manager's
- * {@link OO.ui.WindowManager#openWindow openWindow} or the window's {@link #open open} methods are
+ * {@link OO.ui.WindowManager#openWindow openWindow} or the window's {@link OO.ui.Window#open open} methods are
  * used, and the window manager begins to open the window.
  *
- * - {@link #getSetupProcess} method is called and its result executed
- * - {@link #getReadyProcess} method is called and its result executed
+ * - {@link OO.ui.Window#getSetupProcess getSetupProcess} method is called and its result executed
+ * - {@link OO.ui.Window#getReadyProcess getReadyProcess} method is called and its result executed
  *
  * **opened**: The window is now open
  *
  * **closing**: The closing stage begins when the window manager's
  * {@link OO.ui.WindowManager#closeWindow closeWindow}
- * or the window's {@link #close} methods are used, and the window manager begins to close the
+ * or the window's {@link OO.ui.Window#close close} methods are used, and the window manager begins to close the
  * window.
  *
- * - {@link #getHoldProcess} method is called and its result executed
- * - {@link #getTeardownProcess} method is called and its result executed. The window is now closed
+ * - {@link OO.ui.Window#getHoldProcess getHoldProcess} method is called and its result executed
+ * - {@link OO.ui.Window#getTeardownProcess getTeardownProcess} method is called and its result executed. The window is now closed
  *
  * Each of the window's processes (setup, ready, hold, and teardown) can be extended in subclasses
  * by overriding the window's #getSetupProcess, #getReadyProcess, #getHoldProcess and
@@ -43,7 +43,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @param {string} [config.size] Symbolic name of the dialog size: `small`, `medium`, `large`, `larger` or
- *  `full`.  If omitted, the value of the {@link #static-size static size} property will be used.
+ *  `full`.  If omitted, the value of the {@link OO.ui.Window.static.size static size} property will be used.
  */
 OO.ui.Window = function OoUiWindow( config ) {
 	// Configuration initialization
@@ -362,7 +362,7 @@ OO.ui.Window.prototype.getSetupProcess = function () {
  *
  * The ready process is used to ready a window for use in a particular context, based on the `data`
  * argument. This method is called during the opening phase of the window’s lifecycle, after the
- * window has been {@link #getSetupProcess setup} (after the opening animation). You can focus
+ * window has been {@link OO.ui.Window#getSetupProcess setup} (after the opening animation). You can focus
  * elements in the window in this process, or open their dropdowns.
  *
  * Override this method to add additional steps to the ‘ready’ process the parent method

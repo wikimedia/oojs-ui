@@ -176,7 +176,7 @@ OO.ui.MultilineTextInputWidget.prototype.cleanUpValue = function ( value ) {
 /**
  * Automatically adjust the size of the text input.
  *
- * This only affects multiline inputs that are {@link #autosize autosized}.
+ * This only affects multiline inputs that are {@link OO.ui.MultilineTextInputWidget#autosize autosized}.
  *
  * @chainable
  * @param {boolean} [force=false] Force an update, even if the value hasn't changed

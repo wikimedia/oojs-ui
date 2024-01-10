@@ -73,7 +73,7 @@ OO.ui.mixin.RequiredElement.prototype.updateRequiredElement = function ( state )
 };
 
 /**
- * Check if the input is {@link #required required}.
+ * Check if the input is {@link OO.ui.mixin.RequiredElement#required required}.
  *
  * @return {boolean}
  */
@@ -82,7 +82,7 @@ OO.ui.mixin.RequiredElement.prototype.isRequired = function () {
 };
 
 /**
- * Set the {@link #required required} state of the input.
+ * Set the {@link OO.ui.mixin.RequiredElement#required required} state of the input.
  *
  * @param {boolean} state Make input required
  * @chainable

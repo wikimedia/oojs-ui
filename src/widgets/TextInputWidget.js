@@ -258,7 +258,7 @@ OO.ui.TextInputWidget.prototype.onDebouncedChange = function () {
 };
 
 /**
- * Check if the input is {@link #readOnly read-only}.
+ * Check if the input is {@link OO.ui.TextInputWidget#readOnly read-only}.
  *
  * @return {boolean}
  */
@@ -267,7 +267,7 @@ OO.ui.TextInputWidget.prototype.isReadOnly = function () {
 };
 
 /**
- * Set the {@link #readOnly read-only} state of the input.
+ * Set the {@link OO.ui.TextInputWidget#readOnly read-only} state of the input.
  *
  * @param {boolean} [state=false] Make input read-only
  * @chainable
@@ -547,7 +547,7 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
  * Get the validity of current value.
  *
  * This method returns a promise that resolves if the value is valid and rejects if
- * it isn't. Uses the {@link #validate validation pattern}  to check for validity.
+ * it isn't. Uses the {@link OO.ui.TextInputWidget#validate validation pattern}  to check for validity.
  *
  * @return {jQuery.Promise} A promise that resolves if the value is valid, rejects if not.
  */

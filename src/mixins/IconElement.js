@@ -113,7 +113,7 @@ OO.ui.mixin.IconElement.prototype.setIconElement = function ( $icon ) {
  * The icon parameter can also be set to a map of icon names. See the #icon config setting
  * for an example.
  *
- * @param {Object|string|null} icon A symbolic icon name, a {@link #icon map of icon names} keyed
+ * @param {Object|string|null} icon A symbolic icon name, a {@link OO.ui.mixin.IconElement.static.icon map of icon names} keyed
  *  by language code, or `null` to remove the icon.
  * @chainable
  * @return {OO.ui.Element} The element, for chaining

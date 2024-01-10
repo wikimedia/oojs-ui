@@ -140,23 +140,23 @@ OO.ui.ActionSet.static.specialFlags = [ 'safe', 'primary' ];
  */
 
 /**
- * An 'add' event is emitted when actions are {@link #method-add added} to the action set.
+ * An 'add' event is emitted when actions are {@link OO.ui.ActionSet#add added} to the action set.
  *
  * @event OO.ui.ActionSet#add
  * @param {OO.ui.ActionWidget[]} added Actions added
  */
 
 /**
- * A 'remove' event is emitted when actions are {@link #method-remove removed}
- * or {@link #clear cleared}.
+ * A 'remove' event is emitted when actions are {@link OO.ui.ActionSet#remove removed}
+ * or {@link OO.ui.ActionSet#clear cleared}.
  *
  * @event OO.ui.ActionSet#remove
  * @param {OO.ui.ActionWidget[]} added Actions removed
  */
 
 /**
- * A 'change' event is emitted when actions are {@link #method-add added}, {@link #clear cleared},
- * or {@link #method-remove removed} from the action set or when the {@link #setMode mode}
+ * A 'change' event is emitted when actions are {@link OO.ui.ActionSet#add added}, {@link OO.ui.ActionSet#clear cleared},
+ * or {@link OO.ui.ActionSet#remove removed} from the action set or when the {@link OO.ui.ActionSet#setMode mode}
  * is changed.
  *
  * @event OO.ui.ActionSet#change
@@ -416,7 +416,7 @@ OO.ui.ActionSet.prototype.remove = function ( actions ) {
 /**
  * Remove all action widgets from the set.
  *
- * To remove only specified actions, use the {@link #method-remove remove} method instead.
+ * To remove only specified actions, use the {@link OO.ui.ActionSet#remove remove} method instead.
  *
  * @chainable
  * @return {OO.ui.ActionSet} The widget, for chaining
