@@ -292,7 +292,7 @@ OO.ui.ActionSet.prototype.getOthers = function () {
  *  mode will be made visible.
  * @chainable
  * @return {OO.ui.ActionSet} The widget, for chaining
- * @fires OO.ui.ActionSet#toggle
+ * @fires OO.ui.Widget#toggle
  * @fires OO.ui.ActionSet#change
  */
 OO.ui.ActionSet.prototype.setMode = function ( mode ) {

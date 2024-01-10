@@ -219,6 +219,13 @@ OO.mixinClass( OO.ui.TagMultiselectWidget, OO.ui.mixin.TitledElement );
  */
 OO.ui.TagMultiselectWidget.static.allowedInputPositions = [ 'inline', 'outline', 'none' ];
 
+/* Events */
+
+/**
+ * @event OO.ui.TagMultiselectWidget#valid
+ * @param {boolean} valid
+ */
+
 /* Methods */
 
 /**
