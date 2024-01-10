@@ -21,7 +21,7 @@
         "includePattern": ".+\\.js$"
     },
     "tags": {
-        "allowUnknownTags": [ "chainable", "singleton" ],
+        "allowUnknownTags": [ "chainable" ],
         "dictionaries": [ "jsdoc" ]
     },
     "templates": {

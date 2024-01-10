@@ -1,8 +1,4 @@
 /**
- * @class OO.ui
- */
-
-/**
  * Lazy-initialize and return a global OO.ui.WindowManager instance, used by OO.ui.alert and
  * OO.ui.confirm.
  *

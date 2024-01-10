@@ -180,7 +180,7 @@ def parse_file filename
 				data[:abstract] = true
 			when 'ignore', 'inheritdoc'
 				ignore = true
-			when 'inheritable', 'deprecated', 'singleton', 'throws',
+			when 'inheritable', 'deprecated', 'namespace', 'throws',
 				 'chainable', 'fires', 'member',
 				 'see', 'uses', 'param-taint', 'suppress',
 				 'phpcs',

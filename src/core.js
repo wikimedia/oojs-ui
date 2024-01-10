@@ -1,8 +1,7 @@
 /**
  * Namespace for all classes, static methods and static properties.
  *
- * @class
- * @singleton
+ * @namespace
  */
 OO.ui = {};
 

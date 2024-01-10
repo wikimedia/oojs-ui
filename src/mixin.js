@@ -10,7 +10,6 @@
  * mixed in to an instance of OO.ui.Element, and OO.ui.mixin.GroupWidget
  * is intended to be mixed in to an instance of OO.ui.Widget.
  *
- * @class
- * @singleton
+ * @namespace
  */
 OO.ui.mixin = {};
