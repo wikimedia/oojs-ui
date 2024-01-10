@@ -53,15 +53,15 @@ OO.mixinClass( OO.ui.MultiselectWidget, OO.ui.mixin.TitledElement );
 /* Events */
 
 /**
- * @event change
- *
  * A change event is emitted when the set of items changes, or an item is selected or deselected.
+ *
+ * @event OO.ui.MultiselectWidget#change
  */
 
 /**
- * @event select
- *
  * A select event is emitted when an item is selected or deselected.
+ *
+ * @event OO.ui.MultiselectWidget#select
  */
 
 /* Methods */

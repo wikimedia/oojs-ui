@@ -101,7 +101,7 @@ OO.mixinClass( OO.ui.FormLayout, OO.ui.mixin.GroupElement );
 /**
  * A 'submit' event is emitted when the form is submitted.
  *
- * @event submit
+ * @event OO.ui.FormLayout#submit
  */
 
 /* Static Properties */
@@ -119,7 +119,7 @@ OO.ui.FormLayout.static.tagName = 'form';
  *
  * @private
  * @param {jQuery.Event} e Submit event
- * @fires submit
+ * @fires OO.ui.FormLayout#submit
  * @return {OO.ui.FormLayout} The layout, for chaining
  */
 OO.ui.FormLayout.prototype.onFormSubmit = function () {

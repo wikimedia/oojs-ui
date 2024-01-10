@@ -96,55 +96,49 @@ OO.mixinClass( OO.ui.SelectWidget, OO.ui.mixin.GroupWidget );
 /* Events */
 
 /**
- * @event highlight
- *
  * A `highlight` event is emitted when the highlight is changed with the #highlightItem method.
  *
+ * @event OO.ui.SelectWidget#highlight
  * @param {OO.ui.OptionWidget|null} item Highlighted item
  */
 
 /**
- * @event press
- *
  * A `press` event is emitted when the #pressItem method is used to programmatically modify the
  * pressed state of an option.
  *
+ * @event OO.ui.SelectWidget#press
  * @param {OO.ui.OptionWidget|null} item Pressed item
  */
 
 /**
- * @event select
- *
  * A `select` event is emitted when the selection is modified programmatically with the #selectItem
  * method.
  *
+ * @event OO.ui.SelectWidget#select
  * @param {OO.ui.OptionWidget[]|OO.ui.OptionWidget|null} items Currently selected items
  */
 
 /**
- * @event choose
- *
  * A `choose` event is emitted when an item is chosen with the #chooseItem method.
  *
+ * @event OO.ui.SelectWidget#choose
  * @param {OO.ui.OptionWidget} item Chosen item
  * @param {boolean} selected Item is selected
  */
 
 /**
- * @event add
- *
  * An `add` event is emitted when options are added to the select with the #addItems method.
  *
+ * @event OO.ui.SelectWidget#add
  * @param {OO.ui.OptionWidget[]} items Added items
  * @param {number} index Index of insertion point
  */
 
 /**
- * @event remove
- *
  * A `remove` event is emitted when options are removed from the select with the #clearItems
  * or #removeItems methods.
  *
+ * @event OO.ui.SelectWidget#remove
  * @param {OO.ui.OptionWidget[]} items Removed items
  */
 
@@ -695,7 +689,7 @@ OO.ui.SelectWidget.prototype.togglePressed = function ( pressed ) {
  * and any existing highlight will be removed. The highlight is mutually exclusive.
  *
  * @param {OO.ui.OptionWidget} [item] Item to highlight, omit for no highlight
- * @fires highlight
+ * @fires OO.ui.SelectWidget#highlight
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -776,7 +770,7 @@ OO.ui.SelectWidget.prototype.getItemFromLabel = function ( label, prefix ) {
  *
  * @param {string} [label] Label of the item to select.
  * @param {boolean} [prefix=false] Allow a prefix match, if only a single item matches
- * @fires select
+ * @fires OO.ui.SelectWidget#select
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -793,7 +787,7 @@ OO.ui.SelectWidget.prototype.selectItemByLabel = function ( label, prefix ) {
  * or if the item does not exist, all options will be deselected.
  *
  * @param {Object|string} [data] Value of the item to select, omit to deselect all
- * @fires select
+ * @fires OO.ui.SelectWidget#select
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -812,7 +806,7 @@ OO.ui.SelectWidget.prototype.selectItemByData = function ( data ) {
  * If no item is given, all selected items will be unselected.
  *
  * @param {OO.ui.OptionWidget} [unselectedItem] Item to unselect, or nothing to unselect all
- * @fires select
+ * @fires OO.ui.SelectWidget#select
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -834,7 +828,7 @@ OO.ui.SelectWidget.prototype.unselectItem = function ( unselectedItem ) {
  * all options will be deselected.
  *
  * @param {OO.ui.OptionWidget} [item] Item to select, omit to deselect all
- * @fires select
+ * @fires OO.ui.SelectWidget#select
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -886,7 +880,7 @@ OO.ui.SelectWidget.prototype.selectItem = function ( item ) {
  * releases the mouse.
  *
  * @param {OO.ui.OptionWidget} [item] Item to press, omit to depress all
- * @fires press
+ * @fires OO.ui.SelectWidget#press
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -928,7 +922,7 @@ OO.ui.SelectWidget.prototype.pressItem = function ( item ) {
  * additional action when users choose an item with the keyboard or mouse.
  *
  * @param {OO.ui.OptionWidget} item Item to choose
- * @fires choose
+ * @fires OO.ui.SelectWidget#choose
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -1027,7 +1021,7 @@ OO.ui.SelectWidget.prototype.findFirstSelectableItem = function () {
  *
  * @param {OO.ui.OptionWidget[]} [items] Options to add
  * @param {number} [index] Index to insert items after
- * @fires add
+ * @fires OO.ui.SelectWidget#add
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -1051,7 +1045,7 @@ OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
  * the select, you may wish to use the #clearItems method instead.
  *
  * @param {OO.ui.OptionWidget[]} items Items to remove
- * @fires remove
+ * @fires OO.ui.SelectWidget#remove
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */
@@ -1077,7 +1071,7 @@ OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
  * so that they can be reused later. To remove a subset of options from the select, use
  * the #removeItems method.
  *
- * @fires remove
+ * @fires OO.ui.SelectWidget#remove
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */

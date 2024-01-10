@@ -53,7 +53,7 @@ OO.inheritClass( OO.ui.TabPanelLayout, OO.ui.PanelLayout );
  * An 'active' event is emitted when the tab panel becomes active. Tab panels become active when
  * they are shown in a index layout that is configured to display only one tab panel at a time.
  *
- * @event active
+ * @event OO.ui.TabPanelLayout#active
  * @param {boolean} active Tab panel is active
  */
 
@@ -152,7 +152,7 @@ OO.ui.TabPanelLayout.prototype.setupTabItem = function () {
  * active state. Outside of the index context, setting the active state on a tab panel does nothing.
  *
  * @param {boolean} [active=false] Tab panel is active
- * @fires active
+ * @fires OO.ui.TabPanelLayout#active
  */
 OO.ui.TabPanelLayout.prototype.setActive = function ( active ) {
 	active = !!active;

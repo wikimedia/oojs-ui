@@ -99,14 +99,13 @@ OO.mixinClass( OO.ui.ToolGroup, OO.ui.mixin.GroupElement );
 /* Events */
 
 /**
- * @event update
+ * @event OO.ui.ToolGroup#update
  */
 
 /**
- * @event active
- *
  * An 'active' event is emitted when any popup is shown/hidden.
  *
+ * @event OO.ui.ToolGroup#active
  * @param {boolean} The popup is visible
  */
 

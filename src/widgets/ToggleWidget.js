@@ -38,10 +38,9 @@ OO.mixinClass( OO.ui.ToggleWidget, OO.ui.mixin.TitledElement );
 /* Events */
 
 /**
- * @event change
- *
  * A change event is emitted when the on/off state of the toggle changes.
  *
+ * @event OO.ui.ToggleWidget#change
  * @param {boolean} value Value representing the new state of the toggle
  */
 
@@ -60,7 +59,7 @@ OO.ui.ToggleWidget.prototype.getValue = function () {
  * Set the state of the toggle: `true` for 'on', `false` for 'off'.
  *
  * @param {boolean} [value=false] The state of the toggle
- * @fires change
+ * @fires OO.ui.ToggleWidget#change
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */

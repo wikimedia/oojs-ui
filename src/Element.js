@@ -887,7 +887,7 @@ OO.ui.Element.static.reconsiderScrollbars = function ( el ) {
  * Toggle visibility of an element.
  *
  * @param {boolean} [show] Make element visible, omit to toggle visibility
- * @fires visible
+ * @fires OO.ui.Element#visible
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  */

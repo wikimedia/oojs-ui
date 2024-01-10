@@ -173,15 +173,15 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.FloatableElement );
 /* Events */
 
 /**
- * @event ready
- *
  * The popup is ready: it is visible and has been positioned and clipped.
+ *
+ * @event OO.ui.PopupWidget#ready
  */
 
 /**
- * @event closing
- *
  * The popup is no longer visible.
+ *
+ * @event OO.ui.PopupWidget#closing
  */
 
 /* Methods */
@@ -350,7 +350,7 @@ OO.ui.PopupWidget.prototype.hasAnchor = function () {
  * Side-effects may include broken interface and exceptions being thrown. This wasn't always
  * strictly enforced, so currently it only generates a warning in the browser console.
  *
- * @fires ready
+ * @fires OO.ui.PopupWidget#ready
  * @inheritdoc
  */
 OO.ui.PopupWidget.prototype.toggle = function ( show ) {

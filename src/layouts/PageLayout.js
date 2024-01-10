@@ -47,7 +47,7 @@ OO.inheritClass( OO.ui.PageLayout, OO.ui.PanelLayout );
  * An 'active' event is emitted when the page becomes active. Pages become active when they are
  * shown in a booklet layout that is configured to display only one page at a time.
  *
- * @event active
+ * @event OO.ui.PageLayout#active
  * @param {boolean} active Page is active
  */
 
@@ -127,7 +127,7 @@ OO.ui.PageLayout.prototype.setupOutlineItem = function () {
  * state. Outside of the booklet context, setting the active state on a page does nothing.
  *
  * @param {boolean} [active=false] Page is active
- * @fires active
+ * @fires OO.ui.PageLayout#active
  */
 OO.ui.PageLayout.prototype.setActive = function ( active ) {
 	active = !!active;

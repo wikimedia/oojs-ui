@@ -77,10 +77,9 @@ OO.mixinClass( OO.ui.CheckboxInputWidget, OO.ui.mixin.RequiredElement );
 /* Events */
 
 /**
- * @event change
- *
  * A change event is emitted when the state of the input changes.
  *
+ * @event OO.ui.CheckboxInputWidget#change
  * @param {boolean} selected
  * @param {boolean} indeterminate
  */

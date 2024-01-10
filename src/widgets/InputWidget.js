@@ -106,10 +106,9 @@ OO.ui.InputWidget.static.gatherPreInfuseState = function ( node, config ) {
 /* Events */
 
 /**
- * @event change
- *
  * A change event is emitted when the value of the input changes.
  *
+ * @event OO.ui.InputWidget#change
  * @param {string} value
  */
 
@@ -180,7 +179,7 @@ OO.ui.InputWidget.prototype.setDir = function ( dir ) {
  * Set the value of the input.
  *
  * @param {string} value New value
- * @fires change
+ * @fires OO.ui.InputWidget#change
  * @chainable
  * @return {OO.ui.Widget} The widget, for chaining
  */

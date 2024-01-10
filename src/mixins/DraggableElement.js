@@ -42,23 +42,25 @@ OO.initClass( OO.ui.mixin.DraggableElement );
 /* Events */
 
 /**
- * @event dragstart
- *
  * A dragstart event is emitted when the user clicks and begins dragging an item.
+ *
+ * @event OO.ui.mixin.DraggableElement#dragstart
  * @param {OO.ui.mixin.DraggableElement} item The item the user has clicked and is dragging with
  *  the mouse.
  */
 
 /**
- * @event dragend
  * A dragend event is emitted when the user drags an item and releases the mouse,
  * thus terminating the drag operation.
+ *
+ * @event OO.ui.mixin.DraggableElement#dragend
  */
 
 /**
- * @event drop
  * A drop event is emitted when the user drags an item and then releases the mouse button
  * over a valid target.
+ *
+ * @event OO.ui.mixin.DraggableElement#drop
  */
 
 /* Static Properties */
@@ -75,7 +77,7 @@ OO.ui.mixin.DraggableElement.static.cancelButtonMouseDownEvents = false;
  * This allows users to temporarily halt the dragging operations.
  *
  * @param {boolean} [isDraggable] Widget supports draggable operations, omit to toggle
- * @fires draggable
+ * @fires OO.ui.mixin.DraggableElement#draggable
  */
 OO.ui.mixin.DraggableElement.prototype.toggleDraggable = function ( isDraggable ) {
 	isDraggable = isDraggable !== undefined ? !!isDraggable : !this.draggable;
@@ -125,7 +127,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragMouseDown = function ( e ) {
  * @private
  * @param {jQuery.Event} e Drag event
  * @return {boolean} False if the event is cancelled
- * @fires dragstart
+ * @fires OO.ui.mixin.DraggableElement#dragstart
  */
 OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	var element = this;
@@ -174,7 +176,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
  * Respond to dragend event.
  *
  * @private
- * @fires dragend
+ * @fires OO.ui.mixin.DraggableElement#dragend
  */
 OO.ui.mixin.DraggableElement.prototype.onDragEnd = function () {
 	this.$element.removeClass( 'oo-ui-draggableElement-placeholder' );
@@ -186,7 +188,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragEnd = function () {
  *
  * @private
  * @param {jQuery.Event} e Drop event
- * @fires drop
+ * @fires OO.ui.mixin.DraggableElement#drop
  */
 OO.ui.mixin.DraggableElement.prototype.onDrop = function ( e ) {
 	e.preventDefault();

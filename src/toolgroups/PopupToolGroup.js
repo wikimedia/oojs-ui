@@ -298,7 +298,7 @@ OO.ui.PopupToolGroup.prototype.isActive = function () {
  * deactivation.
  *
  * @param {boolean} [value=false] The active state to set
- * @fires active
+ * @fires OO.ui.PopupToolGroup#active
  */
 OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 	var containerWidth, containerLeft;

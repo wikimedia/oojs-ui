@@ -127,14 +127,14 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
  * A 'set' event is emitted when a page is {@link #setPage set} to be displayed by the
  * booklet layout.
  *
- * @event set
+ * @event OO.ui.BookletLayout#set
  * @param {OO.ui.PageLayout} page Current page
  */
 
 /**
  * An 'add' event is emitted when pages are {@link #addPages added} to the booklet layout.
  *
- * @event add
+ * @event OO.ui.BookletLayout#add
  * @param {OO.ui.PageLayout[]} page Added pages
  * @param {number} index Index pages were added at
  */
@@ -143,7 +143,7 @@ OO.inheritClass( OO.ui.BookletLayout, OO.ui.MenuLayout );
  * A 'remove' event is emitted when pages are {@link #clearPages cleared} or
  * {@link #removePages removed} from the booklet.
  *
- * @event remove
+ * @event OO.ui.BookletLayout#remove
  * @param {OO.ui.PageLayout[]} pages Removed pages
  */
 
@@ -394,7 +394,7 @@ OO.ui.BookletLayout.prototype.getCurrentPageName = function () {
  *
  * @param {OO.ui.PageLayout[]} pages Pages to add
  * @param {number} index Index of the insertion point
- * @fires add
+ * @fires OO.ui.BookletLayout#add
  * @chainable
  * @return {OO.ui.BookletLayout} The layout, for chaining
  */
@@ -451,7 +451,7 @@ OO.ui.BookletLayout.prototype.addPages = function ( pages, index ) {
  * To remove all pages from the booklet, you may wish to use the #clearPages method instead.
  *
  * @param {OO.ui.PageLayout[]} pages An array of pages to remove
- * @fires remove
+ * @fires OO.ui.BookletLayout#remove
  * @chainable
  * @return {OO.ui.BookletLayout} The layout, for chaining
  */
@@ -486,7 +486,7 @@ OO.ui.BookletLayout.prototype.removePages = function ( pages ) {
  *
  * To remove only a subset of pages from the booklet, use the #removePages method.
  *
- * @fires remove
+ * @fires OO.ui.BookletLayout#remove
  * @chainable
  * @return {OO.ui.BookletLayout} The layout, for chaining
  */
@@ -511,7 +511,7 @@ OO.ui.BookletLayout.prototype.clearPages = function () {
 /**
  * Set the current page by symbolic name.
  *
- * @fires set
+ * @fires OO.ui.BookletLayout#set
  * @param {string} name Symbolic name of page
  */
 OO.ui.BookletLayout.prototype.setPage = function ( name ) {

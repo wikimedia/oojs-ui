@@ -110,7 +110,7 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
 /**
  * An 'opening' event is emitted when the window begins to be opened.
  *
- * @event opening
+ * @event OO.ui.WindowManager#opening
  * @param {OO.ui.Window} win Window that's being opened
  * @param {jQuery.Promise} opened A promise resolved with a value when the window is opened
  *  successfully. This promise also emits `setup` and `ready` notifications. When this promise is
@@ -122,7 +122,7 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
 /**
  * A 'closing' event is emitted when the window begins to be closed.
  *
- * @event closing
+ * @event OO.ui.WindowManager#closing
  * @param {OO.ui.Window} win Window that's being closed
  * @param {jQuery.Promise} closed A promise resolved with a value when the window is closed
  *  successfully. This promise also emits `hold` and `teardown` notifications. When this promise is
@@ -133,7 +133,7 @@ OO.mixinClass( OO.ui.WindowManager, OO.EventEmitter );
 /**
  * A 'resize' event is emitted when a window is resized.
  *
- * @event resize
+ * @event OO.ui.WindowManager#resize
  * @param {OO.ui.Window} win Window that was resized
  */
 
@@ -397,7 +397,7 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  *  opening of the window. For backwards-compatibility, then object is also a Thenable that is
  *  resolved when the window is done opening, with nested promise for when closing starts. This
  *  behaviour is deprecated and is not compatible with jQuery 3, see T163510.
- * @fires opening
+ * @fires OO.ui.WindowManager#opening
  */
 OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, compatOpening ) {
 	var manager = this;
@@ -512,7 +512,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
  * @return {OO.ui.WindowInstance} A lifecycle object representing this particular
  *  opening of the window. For backwards-compatibility, the object is also a Thenable that is
  *  resolved when the window is done closing, see T163510.
- * @fires closing
+ * @fires OO.ui.WindowManager#closing
  */
 OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 	var manager = this,

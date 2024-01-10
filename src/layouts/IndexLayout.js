@@ -122,14 +122,14 @@ OO.inheritClass( OO.ui.IndexLayout, OO.ui.MenuLayout );
  * A 'set' event is emitted when a tab panel is {@link #setTabPanel set} to be displayed by the
  * index layout.
  *
- * @event set
+ * @event OO.ui.IndexLayout#set
  * @param {OO.ui.TabPanelLayout} tabPanel Current tab panel
  */
 
 /**
  * An 'add' event is emitted when tab panels are {@link #addTabPanels added} to the index layout.
  *
- * @event add
+ * @event OO.ui.IndexLayout#add
  * @param {OO.ui.TabPanelLayout[]} tabPanel Added tab panels
  * @param {number} index Index tab panels were added at
  */
@@ -138,7 +138,7 @@ OO.inheritClass( OO.ui.IndexLayout, OO.ui.MenuLayout );
  * A 'remove' event is emitted when tab panels are {@link #clearTabPanels cleared} or
  * {@link #removeTabPanels removed} from the index.
  *
- * @event remove
+ * @event OO.ui.IndexLayout#remove
  * @param {OO.ui.TabPanelLayout[]} tabPanel Removed tab panels
  */
 
@@ -337,7 +337,7 @@ OO.ui.IndexLayout.prototype.getCurrentTabPanelName = function () {
  *
  * @param {OO.ui.TabPanelLayout[]} tabPanels Tab panels to add
  * @param {number} index Index of the insertion point
- * @fires add
+ * @fires OO.ui.IndexLayout#add
  * @chainable
  * @return {OO.ui.IndexLayout} The layout, for chaining
  */
@@ -393,7 +393,7 @@ OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
  * To remove all tab panels from the index, you may wish to use the #clearTabPanels method instead.
  *
  * @param {OO.ui.TabPanelLayout[]} tabPanels An array of tab panels to remove
- * @fires remove
+ * @fires OO.ui.IndexLayout#remove
  * @chainable
  * @return {OO.ui.IndexLayout} The layout, for chaining
  */
@@ -423,7 +423,7 @@ OO.ui.IndexLayout.prototype.removeTabPanels = function ( tabPanels ) {
  *
  * To remove only a subset of tab panels from the index, use the #removeTabPanels method.
  *
- * @fires remove
+ * @fires OO.ui.IndexLayout#remove
  * @chainable
  * @return {OO.ui.IndexLayout} The layout, for chaining
  */
@@ -447,7 +447,7 @@ OO.ui.IndexLayout.prototype.clearTabPanels = function () {
 /**
  * Set the current tab panel by symbolic name.
  *
- * @fires set
+ * @fires OO.ui.IndexLayout#set
  * @param {string} name Symbolic name of tab panel
  */
 OO.ui.IndexLayout.prototype.setTabPanel = function ( name ) {

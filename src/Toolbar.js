@@ -354,28 +354,25 @@ OO.mixinClass( OO.ui.Toolbar, OO.ui.mixin.GroupElement );
 /* Events */
 
 /**
- * @event updateState
- *
  * An 'updateState' event must be emitted on the Toolbar (by calling
  * `toolbar.emit( 'updateState' )`) every time the state of the application using the toolbar
  * changes, and an update to the state of tools is required.
  *
+ * @event OO.ui.Toolbar#updateState
  * @param {...Mixed} data Application-defined parameters
  */
 
 /**
- * @event active
- *
  * An 'active' event is emitted when the number of active toolgroups increases from 0, or
  * returns to 0.
  *
+ * @event OO.ui.Toolbar#active
  * @param {boolean} There are active toolgroups in this toolbar
  */
 
 /**
- * @event resize
- *
  * Toolbar has resized to a point where narrow mode has changed
+ * @event OO.ui.Toolbar#resize
  */
 
 /* Methods */
@@ -548,7 +545,7 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
  * Handle active events from tool groups
  *
  * @param {boolean} active Tool group has become active, inactive if false
- * @fires active
+ * @fires OO.ui.Toolbar#active
  */
 OO.ui.Toolbar.prototype.onToolGroupActive = function ( active ) {
 	if ( active ) {

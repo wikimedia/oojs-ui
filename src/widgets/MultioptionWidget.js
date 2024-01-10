@@ -48,10 +48,9 @@ OO.mixinClass( OO.ui.MultioptionWidget, OO.ui.mixin.TitledElement );
 /* Events */
 
 /**
- * @event change
- *
  * A change event is emitted when the selected state of the option changes.
  *
+ * @event OO.ui.MultioptionWidget#change
  * @param {boolean} selected Whether the option is now selected
  */
 

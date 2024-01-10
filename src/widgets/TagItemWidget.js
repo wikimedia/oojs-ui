@@ -74,37 +74,37 @@ OO.mixinClass( OO.ui.TagItemWidget, OO.ui.mixin.DraggableElement );
 /* Events */
 
 /**
- * @event remove
- *
  * A remove action was performed on the item
+ *
+ * @event OO.ui.TagItemWidget#remove
  */
 
 /**
- * @event navigate
- * @param {string} direction Direction of the movement, forward or backwards
- *
  * A navigate action was performed on the item
+ *
+ * @event OO.ui.TagItemWidget#navigate
+ * @param {string} direction Direction of the movement, forward or backwards
  */
 
 /**
- * @event select
- *
  * The tag widget was selected. This can occur when the widget
  * is either clicked or enter was pressed on it.
+ *
+ * @event OO.ui.TagItemWidget#select
  */
 
 /**
- * @event valid
- * @param {boolean} isValid Item is valid
- *
  * Item validity has changed
+ *
+ * @event OO.ui.TagItemWidget#valid
+ * @param {boolean} isValid Item is valid
  */
 
 /**
- * @event fixed
- * @param {boolean} isFixed Item is fixed
- *
  * Item fixed state has changed
+ *
+ * @event OO.ui.TagItemWidget#fixed
+ * @param {boolean} isFixed Item is fixed
  */
 
 /* Methods */
@@ -113,7 +113,7 @@ OO.mixinClass( OO.ui.TagItemWidget, OO.ui.mixin.DraggableElement );
  * Set this item as fixed, meaning it cannot be removed
  *
  * @param {boolean} [state] Item is fixed, omit to toggle
- * @fires fixed
+ * @fires OO.ui.TagItemWidget#fixed
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.TagItemWidget.prototype.setFixed = function ( state ) {
@@ -154,7 +154,7 @@ OO.ui.TagItemWidget.prototype.isFixed = function () {
  * is called by both clicking the 'remove' button but also
  * on keypress, which is harder to override if needed.
  *
- * @fires remove
+ * @fires OO.ui.TagItemWidget#remove
  */
 OO.ui.TagItemWidget.prototype.remove = function () {
 	if ( !this.isDisabled() && !this.isFixed() ) {
@@ -165,8 +165,8 @@ OO.ui.TagItemWidget.prototype.remove = function () {
 /**
  * Handle a keydown event on the widget
  *
- * @fires navigate
- * @fires remove
+ * @fires OO.ui.TagItemWidget#navigate
+ * @fires OO.ui.TagItemWidget#remove
  * @param {jQuery.Event} e Key down event
  * @return {boolean|undefined} false to stop the operation
  */
@@ -211,7 +211,7 @@ OO.ui.TagItemWidget.prototype.onKeyDown = function ( e ) {
 /**
  * Select this item
  *
- * @fires select
+ * @fires OO.ui.TagItemWidget#select
  */
 OO.ui.TagItemWidget.prototype.select = function () {
 	if ( !this.isDisabled() ) {
@@ -223,7 +223,7 @@ OO.ui.TagItemWidget.prototype.select = function () {
  * Set the valid state of this item
  *
  * @param {boolean} [valid] Item is valid, omit to toggle
- * @fires valid
+ * @fires OO.ui.TagItemWidget#valid
  */
 OO.ui.TagItemWidget.prototype.toggleValid = function ( valid ) {
 	valid = valid === undefined ? !this.valid : !!valid;

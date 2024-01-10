@@ -133,37 +133,33 @@ OO.ui.ActionSet.static.specialFlags = [ 'safe', 'primary' ];
 /* Events */
 
 /**
- * @event click
- *
  * A 'click' event is emitted when an action is clicked.
  *
+ * @event OO.ui.ActionSet#click
  * @param {OO.ui.ActionWidget} action Action that was clicked
  */
 
 /**
- * @event add
- *
  * An 'add' event is emitted when actions are {@link #method-add added} to the action set.
  *
+ * @event OO.ui.ActionSet#add
  * @param {OO.ui.ActionWidget[]} added Actions added
  */
 
 /**
- * @event remove
- *
  * A 'remove' event is emitted when actions are {@link #method-remove removed}
- *  or {@link #clear cleared}.
+ * or {@link #clear cleared}.
  *
+ * @event OO.ui.ActionSet#remove
  * @param {OO.ui.ActionWidget[]} added Actions removed
  */
 
 /**
- * @event change
- *
  * A 'change' event is emitted when actions are {@link #method-add added}, {@link #clear cleared},
  * or {@link #method-remove removed} from the action set or when the {@link #setMode mode}
  * is changed.
  *
+ * @event OO.ui.ActionSet#change
  */
 
 /* Methods */
@@ -172,7 +168,7 @@ OO.ui.ActionSet.static.specialFlags = [ 'safe', 'primary' ];
  * Handle action change events.
  *
  * @private
- * @fires change
+ * @fires OO.ui.ActionSet#change
  */
 OO.ui.ActionSet.prototype.onActionChange = function () {
 	this.organized = false;
@@ -296,8 +292,8 @@ OO.ui.ActionSet.prototype.getOthers = function () {
  *  mode will be made visible.
  * @chainable
  * @return {OO.ui.ActionSet} The widget, for chaining
- * @fires toggle
- * @fires change
+ * @fires OO.ui.ActionSet#toggle
+ * @fires OO.ui.ActionSet#change
  */
 OO.ui.ActionSet.prototype.setMode = function ( mode ) {
 	this.changing = true;
@@ -367,8 +363,8 @@ OO.ui.ActionSet.prototype.forEach = function ( filter, callback ) {
  * @param {OO.ui.ActionWidget[]} actions Action widgets to add
  * @chainable
  * @return {OO.ui.ActionSet} The widget, for chaining
- * @fires add
- * @fires change
+ * @fires OO.ui.ActionSet#add
+ * @fires OO.ui.ActionSet#change
  */
 OO.ui.ActionSet.prototype.add = function ( actions ) {
 	this.changing = true;
@@ -396,8 +392,8 @@ OO.ui.ActionSet.prototype.add = function ( actions ) {
  * @param {OO.ui.ActionWidget[]} actions Action widgets to remove
  * @chainable
  * @return {OO.ui.ActionSet} The widget, for chaining
- * @fires remove
- * @fires change
+ * @fires OO.ui.ActionSet#remove
+ * @fires OO.ui.ActionSet#change
  */
 OO.ui.ActionSet.prototype.remove = function ( actions ) {
 	this.changing = true;
@@ -424,8 +420,8 @@ OO.ui.ActionSet.prototype.remove = function ( actions ) {
  *
  * @chainable
  * @return {OO.ui.ActionSet} The widget, for chaining
- * @fires remove
- * @fires change
+ * @fires OO.ui.ActionSet#remove
+ * @fires OO.ui.ActionSet#change
  */
 OO.ui.ActionSet.prototype.clear = function () {
 	var removed = this.list.slice();

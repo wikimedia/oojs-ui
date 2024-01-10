@@ -60,7 +60,7 @@ OO.ui.mixin.ButtonElement.static.cancelButtonMouseDownEvents = true;
 /**
  * A 'click' event is emitted when the button element is clicked.
  *
- * @event click
+ * @event OO.ui.mixin.ButtonElement#click
  */
 
 /* Methods */
@@ -144,7 +144,7 @@ OO.ui.mixin.ButtonElement.prototype.onDocumentMouseUp = function ( e ) {
  *
  * @protected
  * @param {jQuery.Event} e Mouse click event
- * @fires click
+ * @fires OO.ui.mixin.ButtonElement#click
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.mixin.ButtonElement.prototype.onClick = function ( e ) {
@@ -191,7 +191,7 @@ OO.ui.mixin.ButtonElement.prototype.onDocumentKeyUp = function ( e ) {
  *
  * @protected
  * @param {jQuery.Event} e Key press event
- * @fires click
+ * @fires OO.ui.mixin.ButtonElement#click
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.mixin.ButtonElement.prototype.onKeyPress = function ( e ) {

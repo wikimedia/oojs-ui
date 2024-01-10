@@ -106,9 +106,9 @@ OO.mixinClass( OO.ui.MenuSelectWidget, OO.ui.mixin.FloatableElement );
 /* Events */
 
 /**
- * @event ready
- *
  * The menu is ready: it is visible and has been positioned and clipped.
+ *
+ * @event OO.ui.MenuSelectWidget#ready
  */
 
 /* Static properties */
@@ -428,7 +428,7 @@ OO.ui.MenuSelectWidget.prototype.toggleScreenReaderMode = function ( screenReade
  * Side-effects may include broken interface and exceptions being thrown. This wasn't always
  * strictly enforced, so currently it only generates a warning in the browser console.
  *
- * @fires ready
+ * @fires OO.ui.MenuSelectWidget#ready
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {

@@ -53,7 +53,7 @@ OO.inheritClass( OO.ui.CopyTextLayout, OO.ui.ActionFieldLayout );
 /**
  * When the user has executed a copy command
  *
- * @event copy
+ * @event OO.ui.CopyTextLayout#copy
  * @param {boolean} Whether the copy command succeeded
  */
 
@@ -62,7 +62,7 @@ OO.inheritClass( OO.ui.CopyTextLayout, OO.ui.ActionFieldLayout );
 /**
  * Handle button click events
  *
- * @fires copy
+ * @fires OO.ui.CopyTextLayout#copy
  */
 OO.ui.CopyTextLayout.prototype.onButtonClick = function () {
 	var copied;

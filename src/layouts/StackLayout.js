@@ -67,7 +67,7 @@ OO.mixinClass( OO.ui.StackLayout, OO.ui.mixin.GroupElement );
  * A 'set' event is emitted when panels are {@link #addItems added}, {@link #removeItems removed},
  * {@link #clearItems cleared} or {@link #setItem displayed}.
  *
- * @event set
+ * @event OO.ui.StackLayout#set
  * @param {OO.ui.Layout|null} item Current panel or `null` if no panel is shown
  */
 
@@ -108,7 +108,7 @@ OO.ui.StackLayout.prototype.getCurrentItem = function () {
  *
  * @private
  * @param {OO.ui.StackLayout} layout
- * @fires set
+ * @fires OO.ui.StackLayout#set
  */
 OO.ui.StackLayout.prototype.unsetCurrentItem = function () {
 	var prevItem = this.currentItem;
@@ -170,7 +170,7 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
  * @param {OO.ui.Layout[]} itemsToRemove Panels to remove
  * @chainable
  * @return {OO.ui.StackLayout} The layout, for chaining
- * @fires set
+ * @fires OO.ui.StackLayout#set
  */
 OO.ui.StackLayout.prototype.removeItems = function ( itemsToRemove ) {
 	var isCurrentItemRemoved = itemsToRemove.indexOf( this.currentItem ) !== -1;
@@ -205,7 +205,7 @@ OO.ui.StackLayout.prototype.removeItems = function ( itemsToRemove ) {
  *
  * @chainable
  * @return {OO.ui.StackLayout} The layout, for chaining
- * @fires set
+ * @fires OO.ui.StackLayout#set
  */
 OO.ui.StackLayout.prototype.clearItems = function () {
 	this.unsetCurrentItem();
@@ -222,7 +222,7 @@ OO.ui.StackLayout.prototype.clearItems = function () {
  * @param {OO.ui.Layout} item Panel to show
  * @chainable
  * @return {OO.ui.StackLayout} The layout, for chaining
- * @fires set
+ * @fires OO.ui.StackLayout#set
  */
 OO.ui.StackLayout.prototype.setItem = function ( item ) {
 	if ( item !== this.currentItem ) {

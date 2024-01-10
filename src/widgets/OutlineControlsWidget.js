@@ -86,12 +86,12 @@ OO.mixinClass( OO.ui.OutlineControlsWidget, OO.ui.mixin.GroupElement );
 /* Events */
 
 /**
- * @event move
+ * @event OO.ui.OutlineControlsWidget#move
  * @param {number} places Number of places to move
  */
 
 /**
- * @event remove
+ * @event OO.ui.OutlineControlsWidget#remove
  */
 
 /* Methods */

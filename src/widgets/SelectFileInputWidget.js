@@ -200,10 +200,9 @@ OO.mixinClass( OO.ui.SelectFileInputWidget, OO.ui.mixin.PendingElement );
 /* Events */
 
 /**
- * @event change
- *
  * A change event is emitted when the currently selected files change
  *
+ * @event OO.ui.SelectFileInputWidget#change
  * @param {File[]} currentFiles Current file list
  */
 

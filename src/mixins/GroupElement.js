@@ -36,10 +36,9 @@ OO.mixinClass( OO.ui.mixin.GroupElement, OO.EmitterList );
 /* Events */
 
 /**
- * @event change
- *
  * A change event is emitted when the set of selected items changes.
  *
+ * @event OO.ui.mixin.GroupElement#change
  * @param {OO.ui.Element[]} items Items currently in the group
  */
 

@@ -65,11 +65,11 @@ OO.initClass( OO.ui.mixin.FlaggedElement );
 /* Events */
 
 /**
- * @event flag
  * A flag event is emitted when the #clearFlags or #setFlags methods are used. The `changes`
  * parameter contains the name of each modified flag and indicates whether it was
  * added or removed.
  *
+ * @event OO.ui.mixin.FlaggedElement#flag
  * @param {Object.<string,boolean>} changes Object keyed by flag name. A Boolean `true` indicates
  * that the flag was added, `false` that the flag was removed.
  */
@@ -133,7 +133,7 @@ OO.ui.mixin.FlaggedElement.prototype.getFlags = function () {
  *
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
- * @fires flag
+ * @fires OO.ui.mixin.FlaggedElement#flag
  */
 OO.ui.mixin.FlaggedElement.prototype.clearFlags = function () {
 	var changes = {},
@@ -165,7 +165,7 @@ OO.ui.mixin.FlaggedElement.prototype.clearFlags = function () {
  *  be added (`true`) or removed (`false`).
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
- * @fires flag
+ * @fires OO.ui.mixin.FlaggedElement#flag
  */
 OO.ui.mixin.FlaggedElement.prototype.setFlags = function ( flags ) {
 	var changes = {},

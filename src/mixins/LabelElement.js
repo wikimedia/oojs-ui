@@ -41,7 +41,7 @@ OO.initClass( OO.ui.mixin.LabelElement );
 /* Events */
 
 /**
- * @event labelChange
+ * @event OO.ui.mixin.LabelElement#labelChange
  */
 
 /* Static Properties */

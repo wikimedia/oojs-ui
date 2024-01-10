@@ -90,7 +90,7 @@ OO.inheritClass( OO.ui.MultilineTextInputWidget, OO.ui.TextInputWidget );
 /**
  * An `resize` event is emitted when the widget changes size via the autosize functionality.
  *
- * @event resize
+ * @event OO.ui.MultilineTextInputWidget#resize
  */
 
 /* Static Methods */
@@ -181,7 +181,7 @@ OO.ui.MultilineTextInputWidget.prototype.cleanUpValue = function ( value ) {
  * @chainable
  * @param {boolean} [force=false] Force an update, even if the value hasn't changed
  * @return {OO.ui.Widget} The widget, for chaining
- * @fires resize
+ * @fires OO.ui.MultilineTextInputWidget#resize
  */
 OO.ui.MultilineTextInputWidget.prototype.adjustSize = function ( force ) {
 	if ( force || this.$input.val() !== this.valCache ) {

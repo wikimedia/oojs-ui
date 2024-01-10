@@ -58,7 +58,7 @@ OO.mixinClass( OO.ui.mixin.DraggableGroupElement, OO.ui.mixin.GroupElement );
 /**
  * An item has been dragged to a new position, but not yet dropped.
  *
- * @event drag
+ * @event OO.ui.mixin.DraggableGroupElement#drag
  * @param {OO.ui.mixin.DraggableElement} item Dragged item
  * @param {number} [newIndex] New index for the item
  */
@@ -66,7 +66,7 @@ OO.mixinClass( OO.ui.mixin.DraggableGroupElement, OO.ui.mixin.GroupElement );
 /**
  * An item has been dropped at a new position.
  *
- * @event reorder
+ * @event OO.ui.mixin.DraggableGroupElement#reorder
  * @param {OO.ui.mixin.DraggableElement} item Reordered item
  * @param {number} [newIndex] New index for the item
  */
@@ -74,7 +74,7 @@ OO.mixinClass( OO.ui.mixin.DraggableGroupElement, OO.ui.mixin.GroupElement );
 /**
  * Draggable state of this widget has changed.
  *
- * @event draggable
+ * @event OO.ui.mixin.DraggableGroupElement#draggable
  * @param {boolean} [draggable] Widget is draggable
  */
 
@@ -85,7 +85,7 @@ OO.mixinClass( OO.ui.mixin.DraggableGroupElement, OO.ui.mixin.GroupElement );
  * This allows users to temporarily halt the dragging operations.
  *
  * @param {boolean} [isDraggable] Widget supports draggable operations, omit to toggle
- * @fires draggable
+ * @fires OO.ui.mixin.DraggableGroupElement#draggable
  */
 OO.ui.mixin.DraggableGroupElement.prototype.toggleDraggable = function ( isDraggable ) {
 	isDraggable = isDraggable !== undefined ? !!isDraggable : !this.draggable;
@@ -176,7 +176,7 @@ OO.ui.mixin.DraggableGroupElement.prototype.onItemDropOrDragEnd = function () {
  *
  * @private
  * @param {jQuery.Event} e Dragover event
- * @fires reorder
+ * @fires OO.ui.mixin.DraggableGroupElement#reorder
  */
 OO.ui.mixin.DraggableGroupElement.prototype.onDragOver = function ( e ) {
 	var item = this.getDragItem(),

@@ -75,7 +75,7 @@ OO.mixinClass( OO.ui.MessageWidget, OO.ui.mixin.FlaggedElement );
 /* Events */
 
 /**
- * @event close
+ * @event OO.ui.MessageWidget#close
  */
 
 /* Static Properties */
@@ -146,7 +146,7 @@ OO.ui.MessageWidget.prototype.setType = function ( type ) {
  * Handle click events on the close button
  *
  * @param {jQuery} e jQuery event
- * @fires close
+ * @fires OO.ui.MessageWidget#close
  */
 OO.ui.MessageWidget.prototype.onCloseButtonClick = function () {
 	this.toggle( false );
