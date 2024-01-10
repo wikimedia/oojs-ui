@@ -5,6 +5,8 @@
  * HTML `<input type=checkbox>` tags. Please see the [OOUI documentation on MediaWiki][1] for
  * more information about input widgets.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
+ *
  *     @example
  *     // A CheckboxMultiselectInputWidget with three options.
  *     var multiselectInput = new OO.ui.CheckboxMultiselectInputWidget( {
@@ -15,8 +17,6 @@
  *         ]
  *     } );
  *     $( document.body ).append( multiselectInput.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *
  * @class
  * @extends OO.ui.InputWidget

@@ -7,6 +7,8 @@
  * and {@link OO.ui.mixin.LabelElement labels}. Please see
  * the [OOUI documentation][1] on MediaWiki for more information.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Buttons_and_Switches#Toggle_buttons
+ *
  *     @example
  *     // Toggle buttons in the 'off' and 'on' state.
  *     var toggleButton1 = new OO.ui.ToggleButtonWidget( {
@@ -18,8 +20,6 @@
  *         } );
  *     // Append the buttons to the DOM.
  *     $( document.body ).append( toggleButton1.$element, toggleButton2.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Buttons_and_Switches#Toggle_buttons
  *
  * @class
  * @extends OO.ui.ToggleWidget

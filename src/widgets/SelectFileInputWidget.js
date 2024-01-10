@@ -6,12 +6,12 @@
  *
  * SelectFileInputWidgets must be used in HTML forms, as getValue only returns the filename.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets
+ *
  *     @example
  *     // A file select input widget.
  *     var selectFile = new OO.ui.SelectFileInputWidget();
  *     $( document.body ).append( selectFile.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets
  *
  * @class
  * @extends OO.ui.InputWidget

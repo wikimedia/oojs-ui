@@ -5,6 +5,8 @@
  * HTML `<button>` (the default) or an HTML `<input>` tags. See the
  * [OOUI documentation on MediaWiki][1] for more information.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs#Button_inputs
+ *
  *     @example
  *     // A ButtonInputWidget rendered as an HTML button, the default.
  *     var button = new OO.ui.ButtonInputWidget( {
@@ -13,8 +15,6 @@
  *         value: 'check'
  *     } );
  *     $( document.body ).append( button.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs#Button_inputs
  *
  * @class
  * @extends OO.ui.InputWidget

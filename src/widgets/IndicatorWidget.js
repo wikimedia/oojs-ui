@@ -3,6 +3,8 @@
  * attention to the status of an item or to clarify the function within a control. For a list of
  * indicators included in the library, please see the [OOUI documentation on MediaWiki][1].
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Indicators
+ *
  *     @example
  *     // An indicator widget.
  *     var indicator1 = new OO.ui.IndicatorWidget( {
@@ -16,8 +18,6 @@
  *         } )
  *     ] );
  *     $( document.body ).append( fieldset.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Indicators
  *
  * @class
  * @extends OO.ui.Widget

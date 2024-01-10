@@ -17,6 +17,8 @@
  * For more information about menus and options, please see the
  * [OOUI documentation on MediaWiki][1].
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options#Menu_selects_and_options
+ *
  *     @example
  *     // A ComboBoxInputWidget.
  *     var comboBox = new OO.ui.ComboBoxInputWidget( {
@@ -29,9 +31,7 @@
  *     } );
  *     $( document.body ).append( comboBox.$element );
  *
- * A ComboBoxInputWidget can have additional option labels:
- *
- *     @example
+ *     @example <caption>A ComboBoxInputWidget can have additional option labels:</caption>
  *     var comboBox = new OO.ui.ComboBoxInputWidget( {
  *         value: 'Option 1',
  *         options: [
@@ -50,8 +50,6 @@
  *         ]
  *     } );
  *     $( document.body ).append( comboBox.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options#Menu_selects_and_options
  *
  * @class
  * @extends OO.ui.TextInputWidget

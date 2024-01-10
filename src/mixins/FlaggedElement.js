@@ -12,6 +12,12 @@
  * - **destructive**: Destructive styling is applied to convey that the widget will remove
  *   something.
  *
+ * {@link OO.ui.ActionWidget ActionWidgets}, which are a special kind of button that execute an
+ * action, use these flags: **primary** and **safe**.
+ * Please see the [OOUI documentation on MediaWiki][1] for more information.
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Elements/Flagged
+ *
  * The flags affect the appearance of the buttons:
  *
  *     @example
@@ -25,12 +31,6 @@
  *             flags: 'destructive'
  *         } );
  *     $( document.body ).append( button1.$element, button2.$element );
- *
- * {@link OO.ui.ActionWidget ActionWidgets}, which are a special kind of button that execute an
- * action, use these flags: **primary** and **safe**.
- * Please see the [OOUI documentation on MediaWiki][1] for more information.
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Elements/Flagged
  *
  * @abstract
  * @class

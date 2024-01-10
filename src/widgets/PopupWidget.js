@@ -5,6 +5,8 @@
  *
  * Unlike most widgets, PopupWidget is initially hidden and must be shown by calling #toggle.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Popups
+ *
  *     @example
  *     // A PopupWidget.
  *     var popup = new OO.ui.PopupWidget( {
@@ -16,8 +18,6 @@
  *     $( document.body ).append( popup.$element );
  *     // To display the popup, toggle the visibility to 'true'.
  *     popup.toggle( true );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Popups
  *
  * @class
  * @extends OO.ui.Widget

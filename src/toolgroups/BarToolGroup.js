@@ -8,6 +8,13 @@
  * BarToolGroups are created by a {@link OO.ui.ToolGroupFactory tool group factory} when the toolbar
  * is set up.
  *
+ * For more information about how to add tools to a bar tool group, please see
+ * {@link OO.ui.ToolGroup toolgroup}.
+ * For more information about toolbars in general, please see the
+ * [OOUI documentation on MediaWiki][1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
+ *
  *     @example
  *     // Example of a BarToolGroup with two tools
  *     var toolFactory = new OO.ui.ToolFactory();
@@ -83,13 +90,6 @@
  *     // Here is where the toolbar is actually built. This must be done after inserting it into the
  *     // document.
  *     toolbar.initialize();
- *
- * For more information about how to add tools to a bar tool group, please see
- * {@link OO.ui.ToolGroup toolgroup}.
- * For more information about toolbars in general, please see the
- * [OOUI documentation on MediaWiki][1].
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *
  * @class
  * @extends OO.ui.ToolGroup

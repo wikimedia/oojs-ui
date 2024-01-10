@@ -6,6 +6,8 @@
  *
  * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
+ *
  *     @example
  *     // An example of selected, unselected, and disabled checkbox inputs.
  *     var checkbox1 = new OO.ui.CheckboxInputWidget( {
@@ -29,8 +31,6 @@
  *         new OO.ui.FieldLayout( checkbox3, { label: 'Disabled checkbox', align: 'inline' } ),
  *     ] );
  *     $( document.body ).append( fieldset.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *
  * @class
  * @extends OO.ui.InputWidget

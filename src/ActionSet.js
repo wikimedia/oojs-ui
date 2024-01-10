@@ -14,6 +14,8 @@
  *
  * See the [OOUI documentation on MediaWiki][1] for more information.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Windows/Process_Dialogs#Action_sets
+ *
  *     @example
  *     // Example: An action set used in a process dialog
  *     function MyProcessDialog( config ) {
@@ -81,8 +83,6 @@
  *     } );
  *     windowManager.addWindows( [ dialog ] );
  *     windowManager.openWindow( dialog );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Windows/Process_Dialogs#Action_sets
  *
  * @abstract
  * @class

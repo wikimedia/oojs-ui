@@ -10,6 +10,13 @@
  * MenuToolGroups are created by a {@link OO.ui.ToolGroupFactory tool group factory} when the
  * toolbar is set up.
  *
+ * For more information about how to add tools to a MenuToolGroup, please see
+ * {@link OO.ui.ToolGroup toolgroup}.
+ * For more information about toolbars in general, please see the
+ * [OOUI documentation on MediaWiki][1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
+ *
  *     @example
  *     // Example of a MenuToolGroup
  *     var toolFactory = new OO.ui.ToolFactory();
@@ -90,13 +97,6 @@
  *     // document.
  *     toolbar.initialize();
  *     toolbar.emit( 'updateState' );
- *
- * For more information about how to add tools to a MenuToolGroup, please see
- * {@link OO.ui.ToolGroup toolgroup}.
- * For more information about toolbars in general, please see the
- * [OOUI documentation on MediaWiki][1].
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *
  * @class
  * @extends OO.ui.PopupToolGroup

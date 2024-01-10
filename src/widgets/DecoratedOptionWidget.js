@@ -6,6 +6,8 @@
  * options. For more information about options and selects, please see the
  * [OOUI documentation on MediaWiki][1].
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
+ *
  *     @example
  *     // Decorated options in a select widget.
  *     var select = new OO.ui.SelectWidget( {
@@ -23,8 +25,6 @@
  *         ]
  *     } );
  *     $( document.body ).append( select.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.OptionWidget

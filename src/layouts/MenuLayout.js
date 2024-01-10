@@ -3,6 +3,23 @@
  * relative to the content (after, before, top, or bottom) and its size is customized with the
  * #menuSize config. The content area will fill all remaining space.
  *
+ * If menu size needs to be overridden, it can be accomplished using CSS similar to the snippet
+ * below. MenuLayout's CSS will override the appropriate values with 'auto' or '0' to display the
+ * menu correctly. If `menuPosition` is known beforehand, CSS rules corresponding to other positions
+ * may be omitted.
+ *
+ *     .oo-ui-menuLayout-menu {
+ *         width: 200px;
+ *         height: 200px;
+ *     }
+ *
+ *     .oo-ui-menuLayout-content {
+ *         top: 200px;
+ *         left: 200px;
+ *         right: 200px;
+ *         bottom: 200px;
+ *     }
+ *
  *     @example
  *     var menuLayout,
  *         menuPanel = new OO.ui.PanelLayout( {
@@ -54,23 +71,6 @@
  *          )
  *     );
  *     $( document.body ).append( menuLayout.$element );
- *
- * If menu size needs to be overridden, it can be accomplished using CSS similar to the snippet
- * below. MenuLayout's CSS will override the appropriate values with 'auto' or '0' to display the
- * menu correctly. If `menuPosition` is known beforehand, CSS rules corresponding to other positions
- * may be omitted.
- *
- *     .oo-ui-menuLayout-menu {
- *         width: 200px;
- *         height: 200px;
- *     }
- *
- *     .oo-ui-menuLayout-content {
- *         top: 200px;
- *         left: 200px;
- *         right: 200px;
- *         bottom: 200px;
- *     }
  *
  * @class
  * @extends OO.ui.Layout

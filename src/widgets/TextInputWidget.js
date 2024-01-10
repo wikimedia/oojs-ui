@@ -8,14 +8,14 @@
  *
  * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
+ *
  *     @example
  *     // A TextInputWidget.
  *     var textInput = new OO.ui.TextInputWidget( {
  *         value: 'Text input'
  *     } );
  *     $( document.body ).append( textInput.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *
  * @class
  * @extends OO.ui.InputWidget

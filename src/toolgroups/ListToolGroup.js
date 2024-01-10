@@ -15,6 +15,11 @@
  * specified along with the other configurations. For more information about how to add tools to a
  * ListToolGroup, please see {@link OO.ui.ToolGroup toolgroup}.
  *
+ * For more information about toolbars in general, please see the
+ * [OOUI documentation on MediaWiki][1].
+ *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
+ *
  *     @example
  *     // Example of a ListToolGroup
  *     var toolFactory = new OO.ui.ToolFactory();
@@ -72,11 +77,6 @@
  *     $( document.body ).append( frame.$element );
  *     // Build the toolbar. This must be done after the toolbar has been appended to the document.
  *     toolbar.initialize();
- *
- * For more information about toolbars in general, please see the
- * [OOUI documentation on MediaWiki][1].
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Toolbars
  *
  * @class
  * @extends OO.ui.PopupToolGroup

@@ -4,6 +4,8 @@
  * identifies the icon’s function. See the [OOUI documentation on MediaWiki][1]
  * for a list of icons included in the library.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Icons
+ *
  *     @example
  *     // An IconWidget with a label via LabelWidget.
  *     var myIcon = new OO.ui.IconWidget( {
@@ -15,8 +17,6 @@
  *              label: 'Help'
  *          } );
  *      $( document.body ).append( myIcon.$element, iconLabel.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Icons,_Indicators,_and_Labels#Icons
  *
  * @class
  * @extends OO.ui.Widget

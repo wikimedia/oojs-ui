@@ -7,6 +7,8 @@
  * This class should be used together with OO.ui.OptionWidget or OO.ui.DecoratedOptionWidget. For
  * more information, please see the [OOUI documentation on MediaWiki][1].
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
+ *
  *     @example
  *     // A select widget with three options.
  *     var select = new OO.ui.SelectWidget( {
@@ -26,8 +28,6 @@
  *         ]
  *     } );
  *     $( document.body ).append( select.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *
  * @abstract
  * @class

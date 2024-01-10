@@ -7,6 +7,8 @@
  * If you want to use this within an HTML form, such as a OO.ui.FormLayout, use
  * OO.ui.RadioSelectInputWidget instead.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
+ *
  *     @example
  *     // A RadioSelectWidget with RadioOptions.
  *     var option1 = new OO.ui.RadioOptionWidget( {
@@ -25,8 +27,6 @@
  *     radioSelect.selectItem( option1 );
  *
  *     $( document.body ).append( radioSelect.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.SelectWidget

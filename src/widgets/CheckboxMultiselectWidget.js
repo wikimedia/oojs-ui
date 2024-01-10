@@ -7,6 +7,8 @@
  * If you want to use this within an HTML form, such as a OO.ui.FormLayout, use
  * OO.ui.CheckboxMultiselectInputWidget instead.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
+ *
  *     @example
  *     // A CheckboxMultiselectWidget with CheckboxMultioptions.
  *     var option1 = new OO.ui.CheckboxMultioptionWidget( {
@@ -22,8 +24,6 @@
  *             items: [ option1, option2 ]
  *         } );
  *     $( document.body ).append( multiselect.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.MultiselectWidget

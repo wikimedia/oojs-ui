@@ -6,6 +6,8 @@
  *
  * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Buttons_and_Switches
  *
+ * NOTE: HTML form buttons should use the OO.ui.ButtonInputWidget class.
+ *
  *     @example
  *     // A button widget.
  *     var button = new OO.ui.ButtonWidget( {
@@ -14,8 +16,6 @@
  *         title: 'Remove'
  *     } );
  *     $( document.body ).append( button.$element );
- *
- * NOTE: HTML form buttons should use the OO.ui.ButtonInputWidget class.
  *
  * @class
  * @extends OO.ui.Widget

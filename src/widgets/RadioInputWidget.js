@@ -6,6 +6,8 @@
  *
  * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
+ *
  *     @example
  *     // An example of selected, unselected, and disabled radio inputs
  *     var radio1 = new OO.ui.RadioInputWidget( {
@@ -29,8 +31,6 @@
  *         new OO.ui.FieldLayout( radio3, { label: 'Disabled', align: 'inline' } ),
  *     ] );
  *     $( document.body ).append( fieldset.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *
  * @class
  * @extends OO.ui.InputWidget

@@ -20,9 +20,7 @@
  * emitting the {@link OO.ui.Toolbar#event:updateState 'updateState' event}, which calls Tools'
  * {@link OO.ui.Tool#onUpdateState onUpdateState method}.
  *
- * The following is an example of a basic toolbar.
- *
- *     @example
+ *     @example <caption>The following is an example of a basic toolbar.</caption>
  *     // Example of a toolbar
  *     // Create the toolbar
  *     var toolFactory = new OO.ui.ToolFactory();
@@ -140,10 +138,8 @@
  *     toolbar.initialize();
  *     toolbar.emit( 'updateState' );
  *
- * The following example extends the previous one to illustrate 'menu' toolgroups and the usage of
- * {@link OO.ui.Toolbar#event:updateState 'updateState' event}.
- *
- *     @example
+ *     @example <caption>The following example extends the previous one to illustrate 'menu' toolgroups and the usage of
+ *     {@link OO.ui.Toolbar#event:updateState 'updateState' event}.</caption>
  *     // Create the toolbar
  *     var toolFactory = new OO.ui.ToolFactory();
  *     var toolGroupFactory = new OO.ui.ToolGroupFactory();

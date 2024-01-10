@@ -5,6 +5,8 @@
  * highlighting, choosing, and selecting mutually exclusive options. Please see
  * the [OOUI documentation on MediaWiki][1] for more information.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
+ *
  *     @example
  *     // A ButtonSelectWidget that contains three ButtonOptionWidgets.
  *     var option1 = new OO.ui.ButtonOptionWidget( {
@@ -26,8 +28,6 @@
  *             items: [ option1, option2, option3 ]
  *         } );
  *     $( document.body ).append( buttonSelect.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Selects_and_Options
  *
  * @class
  * @extends OO.ui.SelectWidget

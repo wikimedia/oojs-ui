@@ -10,6 +10,8 @@
  *
  * This and OO.ui.RadioSelectInputWidget support similar configuration options.
  *
+ * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
+ *
  *     @example
  *     // A DropdownInputWidget with three options.
  *     var dropdownInput = new OO.ui.DropdownInputWidget( {
@@ -21,8 +23,6 @@
  *         ]
  *     } );
  *     $( document.body ).append( dropdownInput.$element );
- *
- * [1]: https://www.mediawiki.org/wiki/OOUI/Widgets/Inputs
  *
  * @class
  * @extends OO.ui.InputWidget
