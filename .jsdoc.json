@@ -39,6 +39,7 @@
                 "Document": "https://developer.mozilla.org/en-US/docs/Web/API/Document",
                 "Element": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
                 "Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+                "Event": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
                 "EventEmitter": "https://nodejs.org/api/events.html#events_class_eventemitter",
                 "Function": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
                 "Generator": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
