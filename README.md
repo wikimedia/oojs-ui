@@ -261,3 +261,12 @@ Then push that commit to gerrit:
 ```
 git review
 ```
+
+### Update the VisualEditor/VisualEditor repo
+In your local VisualEditor/VisualEditor repo, run the script to create a commit updating the local
+copy of OOUI, and push the commit to Gerrit:
+
+```
+$ ./bin/update-ooui.sh
+$ git review
+```
