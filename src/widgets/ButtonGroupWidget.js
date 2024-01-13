@@ -5,7 +5,7 @@
  *
  *     @example
  *     // A ButtonGroupWidget with two buttons.
- *     var button1 = new OO.ui.PopupButtonWidget( {
+ *     const button1 = new OO.ui.PopupButtonWidget( {
  *             label: 'Select a category',
  *             icon: 'menu',
  *             popup: {

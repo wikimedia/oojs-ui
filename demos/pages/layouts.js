@@ -1,17 +1,17 @@
 Demo.static.pages.layouts = function ( demo ) {
 	// Unicode LTR marker `\u200E` is added for loremIpsum text in RTL demo, as it's not translated
-	var loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
+	const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
 		$overlay = $( '<div>' ).addClass( 'demo-overlay' ).attr( 'id', 'demo-overlay' ),
 		$demo = demo.$container;
 
-	var inputForValidation = new OO.ui.TextInputWidget( {
+	const inputForValidation = new OO.ui.TextInputWidget( {
 		validate: function ( value ) {
 			return value.length % 2 === 0;
 		}
 	} );
 
-	var fieldLayoutForValidation = new OO.ui.FieldLayout( inputForValidation, {
+	const fieldLayoutForValidation = new OO.ui.FieldLayout( inputForValidation, {
 		align: 'top',
 		label: 'FieldLayout aligned top with validation errors',
 		help: 'Enter only even number of characters'
@@ -27,7 +27,7 @@ Demo.static.pages.layouts = function ( demo ) {
 		} );
 	} );
 
-	var fieldsets = [
+	const fieldsets = [
 		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-fieldLayouts',
 			label: 'Field layouts',

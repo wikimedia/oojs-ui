@@ -23,12 +23,12 @@
  *     @example <caption>The following is an example of a basic toolbar.</caption>
  *     // Example of a toolbar
  *     // Create the toolbar
- *     var toolFactory = new OO.ui.ToolFactory();
- *     var toolGroupFactory = new OO.ui.ToolGroupFactory();
- *     var toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
+ *     const toolFactory = new OO.ui.ToolFactory();
+ *     const toolGroupFactory = new OO.ui.ToolGroupFactory();
+ *     const toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
  *
  *     // We will be placing status text in this element when tools are used
- *     var $area = $( '<p>' ).text( 'Toolbar example' );
+ *     const $area = $( '<p>' ).text( 'Toolbar example' );
  *
  *     // Define the tools that we're going to place in our toolbar
  *
@@ -119,11 +119,11 @@
  *     ] );
  *
  *     // Create some UI around the toolbar and place it in the document
- *     var frame = new OO.ui.PanelLayout( {
+ *     const frame = new OO.ui.PanelLayout( {
  *         expanded: false,
  *         framed: true
  *     } );
- *     var contentFrame = new OO.ui.PanelLayout( {
+ *     const contentFrame = new OO.ui.PanelLayout( {
  *         expanded: false,
  *         padded: true
  *     } );
@@ -141,12 +141,12 @@
  *     @example <caption>The following example extends the previous one to illustrate 'menu' toolgroups and the usage of
  *     {@link OO.ui.Toolbar#event:updateState 'updateState' event}.</caption>
  *     // Create the toolbar
- *     var toolFactory = new OO.ui.ToolFactory();
- *     var toolGroupFactory = new OO.ui.ToolGroupFactory();
- *     var toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
+ *     const toolFactory = new OO.ui.ToolFactory();
+ *     const toolGroupFactory = new OO.ui.ToolGroupFactory();
+ *     const toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
  *
  *     // We will be placing status text in this element when tools are used
- *     var $area = $( '<p>' ).text( 'Toolbar example' );
+ *     const $area = $( '<p>' ).text( 'Toolbar example' );
  *
  *     // Define the tools that we're going to place in our toolbar
  *
@@ -244,11 +244,11 @@
  *     ] );
  *
  *     // Create some UI around the toolbar and place it in the document
- *     var frame = new OO.ui.PanelLayout( {
+ *     const frame = new OO.ui.PanelLayout( {
  *         expanded: false,
  *         framed: true
  *     } );
- *     var contentFrame = new OO.ui.PanelLayout( {
+ *     const contentFrame = new OO.ui.PanelLayout( {
  *         expanded: false,
  *         padded: true
  *     } );
@@ -412,7 +412,7 @@ OO.ui.Toolbar.prototype.insertItemElements = function ( item ) {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
-	var $closestWidgetToEvent = $( e.target ).closest( '.oo-ui-widget' ),
+	const $closestWidgetToEvent = $( e.target ).closest( '.oo-ui-widget' ),
 		$closestWidgetToToolbar = this.$element.closest( '.oo-ui-widget' );
 	if (
 		!$closestWidgetToEvent.length ||
@@ -506,15 +506,15 @@ OO.ui.Toolbar.prototype.initialize = function () {
  * @param {Array|string} [groups.demote] Tools to demote to the end of the toolgroup
  */
 OO.ui.Toolbar.prototype.setup = function ( groups ) {
-	var defaultType = 'bar';
+	const defaultType = 'bar';
 
 	// Cleanup previous groups
 	this.reset();
 
-	var items = [];
+	const items = [];
 	// Build out new groups
-	for ( var i = 0, len = groups.length; i < len; i++ ) {
-		var groupConfig = groups[ i ];
+	for ( let i = 0, len = groups.length; i < len; i++ ) {
+		const groupConfig = groups[ i ];
 		if ( groupConfig.include === '*' ) {
 			// Apply defaults to catch-all groups
 			if ( groupConfig.type === undefined ) {
@@ -525,9 +525,9 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 			}
 		}
 		// Check type has been registered
-		var type = this.getToolGroupFactory().lookup( groupConfig.type ) ?
+		const type = this.getToolGroupFactory().lookup( groupConfig.type ) ?
 			groupConfig.type : defaultType;
-		var toolGroup = this.getToolGroupFactory().create( type, this, groupConfig );
+		const toolGroup = this.getToolGroupFactory().create( type, this, groupConfig );
 		items.push( toolGroup );
 		this.groupsByName[ groupConfig.name ] = toolGroup;
 		toolGroup.connect( this, {
@@ -573,7 +573,7 @@ OO.ui.Toolbar.prototype.getToolGroupByName = function ( name ) {
 OO.ui.Toolbar.prototype.reset = function () {
 	this.groupsByName = {};
 	this.tools = {};
-	for ( var i = 0, len = this.items.length; i < len; i++ ) {
+	for ( let i = 0, len = this.items.length; i < len; i++ ) {
 		this.items[ i ].destroy();
 	}
 	this.clearItems();

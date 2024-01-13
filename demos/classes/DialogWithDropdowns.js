@@ -11,7 +11,7 @@ Demo.DialogWithDropdowns.prototype.getBodyHeight = function () {
 	return 300;
 };
 Demo.DialogWithDropdowns.prototype.initialize = function () {
-	var
+	const
 		loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 			'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E',
 		$spacer = $( '<div>' ).height( 350 );
@@ -207,7 +207,7 @@ Demo.DialogWithDropdowns.prototype.makeItems = function () {
 	} );
 };
 Demo.DialogWithDropdowns.prototype.makeContents = function () {
-	var loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
+	const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
 		'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u200E';
 	return $( '<p>' ).text( loremIpsum );
 };

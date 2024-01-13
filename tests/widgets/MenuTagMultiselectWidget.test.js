@@ -2,7 +2,7 @@
 	QUnit.module( 'MenuTagMultiselectWidget' );
 
 	QUnit.test( 'isAllowedData', function ( assert ) {
-		var widget;
+		let widget;
 
 		widget = new OO.ui.MenuTagMultiselectWidget( {
 			options: [
@@ -46,7 +46,7 @@
 	} );
 
 	QUnit.test( 'selected', function ( assert ) {
-		var widget;
+		let widget;
 
 		widget = new OO.ui.MenuTagMultiselectWidget( {
 			options: [

@@ -71,11 +71,11 @@ OO.inheritClass( OO.ui.SearchWidget, OO.ui.Widget );
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.SearchWidget.prototype.onQueryKeydown = function ( e ) {
-	var dir = e.which === OO.ui.Keys.DOWN ? 1 : ( e.which === OO.ui.Keys.UP ? -1 : 0 );
+	const dir = e.which === OO.ui.Keys.DOWN ? 1 : ( e.which === OO.ui.Keys.UP ? -1 : 0 );
 
 	if ( dir ) {
-		var highlightedItem = this.results.findHighlightedItem() || this.results.findSelectedItem();
-		var nextItem = this.results.findRelativeSelectableItem( highlightedItem, dir );
+		const highlightedItem = this.results.findHighlightedItem() || this.results.findSelectedItem();
+		const nextItem = this.results.findRelativeSelectableItem( highlightedItem, dir );
 		// nextItem may be null if there are no results
 		this.results.highlightItem( nextItem );
 		if ( nextItem ) {
@@ -106,7 +106,7 @@ OO.ui.SearchWidget.prototype.onQueryChange = function () {
  * @param {string} value New value
  */
 OO.ui.SearchWidget.prototype.onQueryEnter = function () {
-	var highlightedItem = this.results.findHighlightedItem();
+	const highlightedItem = this.results.findHighlightedItem();
 	if ( highlightedItem ) {
 		this.results.chooseItem( highlightedItem );
 	}

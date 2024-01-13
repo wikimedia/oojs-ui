@@ -53,7 +53,7 @@ OO.mixinClass( OO.ui.mixin.GroupElement, OO.EmitterList );
  */
 OO.ui.mixin.GroupElement.prototype.setGroupElement = function ( $group ) {
 	this.$group = $group;
-	for ( var i = 0, len = this.items.length; i < len; i++ ) {
+	for ( let i = 0, len = this.items.length; i < len; i++ ) {
 		this.$group.append( this.items[ i ].$element );
 	}
 };
@@ -68,10 +68,10 @@ OO.ui.mixin.GroupElement.prototype.setGroupElement = function ( $group ) {
  * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
  */
 OO.ui.mixin.GroupElement.prototype.findItemFromData = function ( data ) {
-	var hash = OO.getHash( data );
+	const hash = OO.getHash( data );
 
-	for ( var i = 0, len = this.items.length; i < len; i++ ) {
-		var item = this.items[ i ];
+	for ( let i = 0, len = this.items.length; i < len; i++ ) {
+		const item = this.items[ i ];
 		if ( hash === OO.getHash( item.getData() ) ) {
 			return item;
 		}
@@ -90,11 +90,11 @@ OO.ui.mixin.GroupElement.prototype.findItemFromData = function ( data ) {
  * @return {OO.ui.Element[]} Items with equivalent data
  */
 OO.ui.mixin.GroupElement.prototype.findItemsFromData = function ( data ) {
-	var hash = OO.getHash( data ),
+	const hash = OO.getHash( data ),
 		items = [];
 
-	for ( var i = 0, len = this.items.length; i < len; i++ ) {
-		var item = this.items[ i ];
+	for ( let i = 0, len = this.items.length; i < len; i++ ) {
+		const item = this.items[ i ];
 		if ( hash === OO.getHash( item.getData() ) ) {
 			items.push( item );
 		}
@@ -219,9 +219,9 @@ OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
 	}
 
 	// Remove specific items elements
-	for ( var i = 0, len = items.length; i < len; i++ ) {
-		var item = items[ i ];
-		var index = this.items.indexOf( item );
+	for ( let i = 0, len = items.length; i < len; i++ ) {
+		const item = items[ i ];
+		const index = this.items.indexOf( item );
 		if ( index !== -1 ) {
 			item.setElementGroup( null );
 			item.$element.detach();
@@ -246,7 +246,7 @@ OO.ui.mixin.GroupElement.prototype.removeItems = function ( items ) {
  */
 OO.ui.mixin.GroupElement.prototype.clearItems = function () {
 	// Remove all item elements
-	for ( var i = 0, len = this.items.length; i < len; i++ ) {
+	for ( let i = 0, len = this.items.length; i < len; i++ ) {
 		this.items[ i ].setElementGroup( null );
 		this.items[ i ].$element.detach();
 	}

@@ -66,7 +66,7 @@
  *             this.actions.setMode( 'edit' );
  *             this.stackLayout.setItem( this.panel1 );
  *         } else if ( action === 'continue' ) {
- *             var dialog = this;
+ *             const dialog = this;
  *             return new OO.ui.Process( function () {
  *                 dialog.close();
  *             } );
@@ -76,9 +76,9 @@
  *     MyProcessDialog.prototype.getBodyHeight = function () {
  *         return this.panel1.$element.outerHeight( true );
  *     };
- *     var windowManager = new OO.ui.WindowManager();
+ *     const windowManager = new OO.ui.WindowManager();
  *     $( document.body ).append( windowManager.$element );
- *     var dialog = new MyProcessDialog( {
+ *     const dialog = new MyProcessDialog( {
  *         size: 'medium'
  *     } );
  *     windowManager.addWindows( [ dialog ] );
@@ -186,7 +186,7 @@ OO.ui.ActionSet.prototype.onActionChange = function () {
  * @return {boolean} Action is special
  */
 OO.ui.ActionSet.prototype.isSpecial = function ( action ) {
-	for ( var flag in this.special ) {
+	for ( const flag in this.special ) {
 		if ( action === this.special[ flag ] ) {
 			return true;
 		}
@@ -213,24 +213,24 @@ OO.ui.ActionSet.prototype.get = function ( filters ) {
 	if ( filters ) {
 		this.organize();
 
-		var i, len;
+		let i, len;
 		// Collect candidates for the 3 categories "actions", "flags" and "modes"
-		var matches = [];
-		for ( var category in this.categorized ) {
-			var list = filters[ category ];
+		const matches = [];
+		for ( const category in this.categorized ) {
+			let list = filters[ category ];
 			if ( list ) {
 				if ( !Array.isArray( list ) ) {
 					list = [ list ];
 				}
 				for ( i = 0, len = list.length; i < len; i++ ) {
-					var actions = this.categorized[ category ][ list[ i ] ];
+					const actions = this.categorized[ category ][ list[ i ] ];
 					if ( Array.isArray( actions ) ) {
 						matches.push.apply( matches, actions );
 					}
 				}
 			}
 		}
-		var match;
+		let match;
 		// Remove by boolean filters
 		for ( i = 0, len = matches.length; i < len; i++ ) {
 			match = matches[ i ];
@@ -246,7 +246,7 @@ OO.ui.ActionSet.prototype.get = function ( filters ) {
 		// Remove duplicates
 		for ( i = 0, len = matches.length; i < len; i++ ) {
 			match = matches[ i ];
-			var index = matches.lastIndexOf( match );
+			let index = matches.lastIndexOf( match );
 			while ( index !== i ) {
 				matches.splice( index, 1 );
 				len--;
@@ -297,8 +297,8 @@ OO.ui.ActionSet.prototype.getOthers = function () {
  */
 OO.ui.ActionSet.prototype.setMode = function ( mode ) {
 	this.changing = true;
-	for ( var i = 0, len = this.list.length; i < len; i++ ) {
-		var action = this.list[ i ];
+	for ( let i = 0, len = this.list.length; i < len; i++ ) {
+		const action = this.list[ i ];
 		action.toggle( action.hasMode( mode ) );
 	}
 
@@ -322,9 +322,9 @@ OO.ui.ActionSet.prototype.setMode = function ( mode ) {
  * @return {OO.ui.ActionSet} The widget, for chaining
  */
 OO.ui.ActionSet.prototype.setAbilities = function ( actions ) {
-	for ( var i = 0, len = this.list.length; i < len; i++ ) {
-		var item = this.list[ i ];
-		var action = item.getAction();
+	for ( let i = 0, len = this.list.length; i < len; i++ ) {
+		const item = this.list[ i ];
+		const action = item.getAction();
 		if ( actions[ action ] !== undefined ) {
 			item.setDisabled( !actions[ action ] );
 		}
@@ -368,8 +368,8 @@ OO.ui.ActionSet.prototype.forEach = function ( filter, callback ) {
  */
 OO.ui.ActionSet.prototype.add = function ( actions ) {
 	this.changing = true;
-	for ( var i = 0, len = actions.length; i < len; i++ ) {
-		var action = actions[ i ];
+	for ( let i = 0, len = actions.length; i < len; i++ ) {
+		const action = actions[ i ];
 		action.connect( this, {
 			click: [ 'emit', 'click', action ],
 			toggle: [ 'onActionChange' ]
@@ -397,9 +397,9 @@ OO.ui.ActionSet.prototype.add = function ( actions ) {
  */
 OO.ui.ActionSet.prototype.remove = function ( actions ) {
 	this.changing = true;
-	for ( var i = 0, len = actions.length; i < len; i++ ) {
-		var action = actions[ i ];
-		var index = this.list.indexOf( action );
+	for ( let i = 0, len = actions.length; i < len; i++ ) {
+		const action = actions[ i ];
+		const index = this.list.indexOf( action );
 		if ( index !== -1 ) {
 			action.disconnect( this );
 			this.list.splice( index, 1 );
@@ -424,11 +424,11 @@ OO.ui.ActionSet.prototype.remove = function ( actions ) {
  * @fires OO.ui.ActionSet#change
  */
 OO.ui.ActionSet.prototype.clear = function () {
-	var removed = this.list.slice();
+	const removed = this.list.slice();
 
 	this.changing = true;
-	for ( var i = 0, len = this.list.length; i < len; i++ ) {
-		var action = this.list[ i ];
+	for ( let i = 0, len = this.list.length; i < len; i++ ) {
+		const action = this.list[ i ];
 		action.disconnect( this );
 	}
 
@@ -453,17 +453,17 @@ OO.ui.ActionSet.prototype.clear = function () {
  * @return {OO.ui.ActionSet} The widget, for chaining
  */
 OO.ui.ActionSet.prototype.organize = function () {
-	var specialFlags = this.constructor.static.specialFlags;
+	const specialFlags = this.constructor.static.specialFlags;
 
 	if ( !this.organized ) {
 		this.categorized = {};
 		this.special = {};
 		this.others = [];
-		for ( var i = 0, iLen = this.list.length; i < iLen; i++ ) {
-			var action = this.list[ i ];
-			var j, jLen;
+		for ( let i = 0, iLen = this.list.length; i < iLen; i++ ) {
+			const action = this.list[ i ];
+			let j, jLen;
 			// Populate the 3 categories "actions", "flags" and "modes"
-			for ( var category in this.categories ) {
+			for ( const category in this.categories ) {
 				if ( !this.categorized[ category ] ) {
 					this.categorized[ category ] = {};
 				}
@@ -473,12 +473,12 @@ OO.ui.ActionSet.prototype.organize = function () {
 				 * {@see OO.ui.FlaggedElement.getFlags}
 				 * {@see OO.ui.ActionWidget.getModes}
 				 */
-				var list = action[ this.categories[ category ] ]();
+				let list = action[ this.categories[ category ] ]();
 				if ( !Array.isArray( list ) ) {
 					list = [ list ];
 				}
 				for ( j = 0, jLen = list.length; j < jLen; j++ ) {
-					var item = list[ j ];
+					const item = list[ j ];
 					if ( !this.categorized[ category ][ item ] ) {
 						this.categorized[ category ][ item ] = [];
 					}
@@ -487,9 +487,9 @@ OO.ui.ActionSet.prototype.organize = function () {
 			}
 			if ( action.isVisible() ) {
 				// Populate special/others
-				var special = false;
+				let special = false;
 				for ( j = 0, jLen = specialFlags.length; j < jLen; j++ ) {
-					var flag = specialFlags[ j ];
+					const flag = specialFlags[ j ];
 					if ( !this.special[ flag ] && action.hasFlag( flag ) ) {
 						this.special[ flag ] = action;
 						special = true;

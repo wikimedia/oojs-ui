@@ -11,7 +11,7 @@
  *
  *     @example
  *     // Toggle buttons in the 'off' and 'on' state.
- *     var toggleButton1 = new OO.ui.ToggleButtonWidget( {
+ *     const toggleButton1 = new OO.ui.ToggleButtonWidget( {
  *             label: 'Toggle Button off'
  *         } ),
  *         toggleButton2 = new OO.ui.ToggleButtonWidget( {

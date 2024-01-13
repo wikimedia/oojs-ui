@@ -9,8 +9,9 @@
 	OO.mixinClass( TestElement, OO.ui.mixin.LabelElement );
 
 	QUnit.test( 'setHighlightedQuery', function ( assert ) {
-		var i,
-			element = new TestElement(),
+		let i;
+
+		const element = new TestElement(),
 			diacriticCompare = new Intl.Collator( 'en', { sensitivity: 'base' } ).compare,
 			cases = [
 				{

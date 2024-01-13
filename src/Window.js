@@ -66,7 +66,7 @@ OO.ui.Window = function OoUiWindow( config ) {
 	 *
 	 *     MyDialog.prototype.initialize = function () {
 	 *       ...
-	 *       var popupButton = new OO.ui.PopupButtonWidget( {
+	 *       const popupButton = new OO.ui.PopupButtonWidget( {
 	 *         $overlay: this.$overlay,
 	 *         label: 'Popup button',
 	 *         popup: {
@@ -221,9 +221,9 @@ OO.ui.Window.prototype.getManager = function () {
  * @return {string} Symbolic name of the size: `small`, `medium`, `large`, `larger`, `full`
  */
 OO.ui.Window.prototype.getSize = function () {
-	var viewport = OO.ui.Element.static.getDimensions( this.getElementWindow() ),
-		sizes = this.manager.constructor.static.sizes,
-		size = this.size;
+	const viewport = OO.ui.Element.static.getDimensions( this.getElementWindow() );
+	const sizes = this.manager.constructor.static.sizes;
+	let size = this.size;
 
 	if ( !sizes[ size ] ) {
 		size = this.manager.constructor.static.defaultSize;
@@ -256,7 +256,7 @@ OO.ui.Window.prototype.withoutSizeTransitions = function ( callback ) {
 	// Disable transitions first, otherwise we'll get values from when the window was animating.
 	// We need to build the transition CSS properties using these specific properties since
 	// Firefox doesn't return anything useful when asked just for 'transition'.
-	var oldTransition = this.$frame.css( 'transition-property' ) + ' ' +
+	const oldTransition = this.$frame.css( 'transition-property' ) + ' ' +
 		this.$frame.css( 'transition-duration' ) + ' ' +
 		this.$frame.css( 'transition-timing-function' ) + ' ' +
 		this.$frame.css( 'transition-delay' );
@@ -283,17 +283,17 @@ OO.ui.Window.prototype.withoutSizeTransitions = function ( callback ) {
  * @return {number} The height of the window contents (the dialog head, body and foot) in pixels
  */
 OO.ui.Window.prototype.getContentHeight = function () {
-	var win = this;
-	var body = this.$body[ 0 ];
-	var frame = this.$frame[ 0 ];
+	const win = this;
+	const body = this.$body[ 0 ];
+	const frame = this.$frame[ 0 ];
 
-	var bodyHeight;
+	let bodyHeight;
 	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements.
 	// Disable transitions first, otherwise we'll get values from when the window was animating.
 	this.withoutSizeTransitions( function () {
-		var oldHeight = frame.style.height;
-		var oldPosition = body.style.position;
-		var scrollTop = body.scrollTop;
+		const oldHeight = frame.style.height;
+		const oldPosition = body.style.position;
+		const scrollTop = body.scrollTop;
 		frame.style.height = '1px';
 		// Force body to resize to new width
 		body.style.position = 'relative';
@@ -484,14 +484,14 @@ OO.ui.Window.prototype.updateSize = function () {
  * @return {OO.ui.Window} The window, for chaining
  */
 OO.ui.Window.prototype.setDimensions = function ( dim ) {
-	var win = this,
+	const win = this,
 		styleObj = this.$frame[ 0 ].style;
 
-	var height;
+	let height;
 	// Calculate the height we need to set using the correct width
 	if ( dim.height === undefined ) {
 		this.withoutSizeTransitions( function () {
-			var oldWidth = styleObj.width;
+			const oldWidth = styleObj.width;
 			win.$frame.css( 'width', dim.width || '' );
 			height = win.getContentHeight();
 			styleObj.width = oldWidth;
@@ -555,7 +555,7 @@ OO.ui.Window.prototype.initialize = function () {
  * @param {jQuery.Event} event Focus event
  */
 OO.ui.Window.prototype.onFocusTrapFocused = function ( event ) {
-	var backwards = this.$focusTrapBefore.is( event.target );
+	const backwards = this.$focusTrapBefore.is( event.target );
 	this.focus( backwards );
 };
 
@@ -567,7 +567,7 @@ OO.ui.Window.prototype.onFocusTrapFocused = function ( event ) {
  * @return {OO.ui.Window} The window, for chaining
  */
 OO.ui.Window.prototype.focus = function ( focusLast ) {
-	var element = OO.ui.findFocusable( this.$content, !!focusLast );
+	const element = OO.ui.findFocusable( this.$content, !!focusLast );
 	if ( element ) {
 		// There's a focusable element inside the content, at the front or
 		// back depending on which focus trap we hit; select it.
@@ -635,7 +635,7 @@ OO.ui.Window.prototype.close = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is setup
  */
 OO.ui.Window.prototype.setup = function ( data ) {
-	var win = this;
+	const win = this;
 
 	this.toggle( true );
 
@@ -657,7 +657,7 @@ OO.ui.Window.prototype.setup = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is ready
  */
 OO.ui.Window.prototype.ready = function ( data ) {
-	var win = this;
+	const win = this;
 
 	this.$content.trigger( 'focus' );
 	return this.getReadyProcess( data ).execute().then( function () {
@@ -677,11 +677,11 @@ OO.ui.Window.prototype.ready = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is held
  */
 OO.ui.Window.prototype.hold = function ( data ) {
-	var win = this;
+	const win = this;
 
 	return this.getHoldProcess( data ).execute().then( function () {
 		// Get the focused element within the window's content
-		var $focus = win.$content.find(
+		const $focus = win.$content.find(
 			OO.ui.Element.static.getDocument( win.$content ).activeElement
 		);
 
@@ -706,7 +706,7 @@ OO.ui.Window.prototype.hold = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is torn down
  */
 OO.ui.Window.prototype.teardown = function ( data ) {
-	var win = this;
+	const win = this;
 
 	return this.getTeardownProcess( data ).execute().then( function () {
 		// Force redraw by asking the browser to measure the elements' widths

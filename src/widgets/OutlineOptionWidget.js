@@ -137,7 +137,7 @@ OO.ui.OutlineOptionWidget.prototype.setLevel = function ( level ) {
 		return this;
 	}
 
-	var levels = this.constructor.static.levels,
+	const levels = this.constructor.static.levels,
 		levelClass = this.constructor.static.levelClass;
 
 	if ( this.level !== undefined ) {

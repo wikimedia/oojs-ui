@@ -177,7 +177,7 @@ OO.ui.PopupToolGroup.prototype.onToolbarResize = function () {
  * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
 OO.ui.PopupToolGroup.prototype.onPopupDocumentMouseKeyUp = function ( e ) {
-	var $target = $( e.target );
+	const $target = $( e.target );
 	// Only deactivate when clicking outside the dropdown element
 	if ( $target.closest( '.oo-ui-popupToolGroup' )[ 0 ] === this.$element[ 0 ] ) {
 		return;
@@ -214,13 +214,13 @@ OO.ui.PopupToolGroup.prototype.onMouseKeyDown = function ( e ) {
 	if ( !this.isDisabled() && e.which === OO.ui.Keys.TAB ) {
 		// We can't use this.items because ListToolGroup inserts the extra fake
 		// expand/collapse tool.
-		var $focused = $( document.activeElement );
-		var $firstFocusable = OO.ui.findFocusable( this.$group );
+		const $focused = $( document.activeElement );
+		const $firstFocusable = OO.ui.findFocusable( this.$group );
 		if ( $focused[ 0 ] === $firstFocusable[ 0 ] && e.shiftKey ) {
 			this.$handle.trigger( 'focus' );
 			return false;
 		}
-		var $lastFocusable = OO.ui.findFocusable( this.$group, true );
+		const $lastFocusable = OO.ui.findFocusable( this.$group, true );
 		if ( $focused[ 0 ] === $lastFocusable[ 0 ] && !e.shiftKey ) {
 			// Focus this group's handle and let the browser's tab handling happen
 			// (no 'return false').
@@ -261,7 +261,7 @@ OO.ui.PopupToolGroup.prototype.onHandleMouseKeyUp = function ( e ) {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.PopupToolGroup.prototype.onHandleMouseKeyDown = function ( e ) {
-	var $focusable;
+	let $focusable;
 	if ( !this.isDisabled() ) {
 		// Tab on the handle jumps to the first tool in the group (if the popup is open).
 		if ( e.which === OO.ui.Keys.TAB && !e.shiftKey ) {
@@ -301,7 +301,7 @@ OO.ui.PopupToolGroup.prototype.isActive = function () {
  * @fires OO.ui.PopupToolGroup#active
  */
 OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
-	var containerWidth, containerLeft;
+	let containerWidth, containerLeft;
 	value = !!value;
 	if ( this.active !== value ) {
 		this.active = value;
@@ -326,8 +326,8 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 
 			// Tools on the left of the toolbar will try to align their
 			// popups with their left side if possible, and vice-versa.
-			var preferredSide = this.align === 'before' ? 'start' : 'end';
-			var otherSide = this.align === 'before' ? 'end' : 'start';
+			const preferredSide = this.align === 'before' ? 'start' : 'end';
+			const otherSide = this.align === 'before' ? 'end' : 'start';
 
 			// Try anchoring the popup to the preferred side first
 			this.setHorizontalPosition( preferredSide );

@@ -38,7 +38,7 @@ OO.ui.mixin.GroupWidget.prototype.setDisabled = function ( disabled ) {
 
 	// During construction, #setDisabled is called before the OO.ui.mixin.GroupElement constructor
 	if ( this.items ) {
-		for ( var i = 0, len = this.items.length; i < len; i++ ) {
+		for ( let i = 0, len = this.items.length; i < len; i++ ) {
 			this.items[ i ].updateDisabled();
 		}
 	}

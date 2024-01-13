@@ -7,7 +7,7 @@
  *
  *     @example
  *     // An indicator widget.
- *     var indicator1 = new OO.ui.IndicatorWidget( {
+ *     const indicator1 = new OO.ui.IndicatorWidget( {
  *             indicator: 'required'
  *         } ),
  *         // Create a fieldset layout to add a label.

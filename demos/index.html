@@ -13,14 +13,14 @@
 	<script>
 		if ( location.host === 'doc.wikimedia.org' ) {
 			/* eslint-disable */
-			var _paq = window._paq || [];
+			const _paq = window._paq || [];
 			_paq.push(['trackPageView']);
 			_paq.push(['enableLinkTracking']);
 			(function() {
-				var u="https://piwik.wikimedia.org/";
+				const u="https://piwik.wikimedia.org/";
 				_paq.push(['setTrackerUrl', u+'piwik.php']);
 				_paq.push(['setSiteId', '21']);
-				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				const d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
 				g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
 			})();
 			/* eslint-enable */
@@ -80,15 +80,15 @@
 	<script src="pages/toolbars.js"></script>
 	<script>
 		$( function () {
-			var lastQuery = location.search;
+			let lastQuery = location.search;
 
 			OO.ui.isDemo = true;
 
 			function setup() {
-				var prevPage = OO.ui.demo ? OO.ui.demo.mode.page : null,
+				const prevPage = OO.ui.demo ? OO.ui.demo.mode.page : null,
 					scrollPos = $( window ).scrollTop();
 
-				var oldDemo = OO.ui.demo;
+				const oldDemo = OO.ui.demo;
 				if ( oldDemo ) {
 					if ( lastQuery === location.search ) {
 						return false;
@@ -96,15 +96,15 @@
 					oldDemo.destroy();
 				}
 				lastQuery = location.search;
-				var newDemo = new Demo();
+				const newDemo = new Demo();
 				newDemo.initialize().then(
 					function () {
 						$( document.body ).append( newDemo.$element );
 						newDemo.setup();
 						// Scroll to fragment if provided
-						var hash = location.hash.slice( 1 );
+						const hash = location.hash.slice( 1 );
 						if ( hash ) {
-							var elem = document.getElementById( hash );
+							const elem = document.getElementById( hash );
 							if ( elem ) {
 								elem.scrollIntoView();
 							}

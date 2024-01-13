@@ -2,7 +2,7 @@
 	QUnit.module( 'ButtonWidget' );
 
 	QUnit.test( 'test NoFollow in constructor', function ( assert ) {
-		var widget = new OO.ui.ButtonWidget( {
+		const widget = new OO.ui.ButtonWidget( {
 			noFollow: true
 		} );
 
@@ -20,7 +20,7 @@
 	} );
 
 	QUnit.test( 'test rel in constructor', function ( assert ) {
-		var widget = new OO.ui.ButtonWidget( {
+		const widget = new OO.ui.ButtonWidget( {
 			noFollow: true,
 			rel: []
 		} );
@@ -39,7 +39,7 @@
 	} );
 
 	QUnit.test( 'rel overrides noFollow', function ( assert ) {
-		var widget = new OO.ui.ButtonWidget( {
+		const widget = new OO.ui.ButtonWidget( {
 			noFollow: false,
 			rel: [ 'nofollow' ]
 		} );
@@ -58,7 +58,7 @@
 	} );
 
 	QUnit.test( 'setNoFollow keeps other rel elements when setting nofollow', function ( assert ) {
-		var widget = new OO.ui.ButtonWidget( {
+		const widget = new OO.ui.ButtonWidget( {
 			noFollow: false,
 			rel: [ 'noreferrer' ]
 		} );
@@ -79,7 +79,7 @@
 	} );
 
 	QUnit.test( 'setNoFollow keeps other rel elements when removing nofollow', function ( assert ) {
-		var widget = new OO.ui.ButtonWidget( {
+		const widget = new OO.ui.ButtonWidget( {
 			rel: [ 'noreferrer', 'nofollow' ]
 		} );
 
@@ -93,7 +93,7 @@
 	} );
 
 	QUnit.test( 'setRel when called with the same object reference', function ( assert ) {
-		var rel = [],
+		const rel = [],
 			widget = new OO.ui.ButtonWidget( { rel: rel } );
 
 		rel.push( 'nofollow' );

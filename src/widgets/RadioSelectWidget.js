@@ -11,7 +11,7 @@
  *
  *     @example
  *     // A RadioSelectWidget with RadioOptions.
- *     var option1 = new OO.ui.RadioOptionWidget( {
+ *     const option1 = new OO.ui.RadioOptionWidget( {
  *             data: 'a',
  *             label: 'Selected radio option'
  *         } ),

@@ -6,7 +6,7 @@
  *     @example
  *     // TabIndexedElement is mixed into the ButtonWidget class
  *     // to provide a tabIndex property.
- *     var button1 = new OO.ui.ButtonWidget( {
+ *     const button1 = new OO.ui.ButtonWidget( {
  *             label: 'fourth',
  *             tabIndex: 4
  *         } ),
@@ -77,7 +77,7 @@ OO.initClass( OO.ui.mixin.TabIndexedElement );
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.TabIndexedElement.prototype.setTabIndexedElement = function ( $tabIndexed ) {
-	var tabIndex = this.tabIndex;
+	const tabIndex = this.tabIndex;
 	// Remove attributes from old $tabIndexed
 	this.setTabIndex( null );
 	// Force update of new $tabIndexed
@@ -164,7 +164,7 @@ OO.ui.mixin.TabIndexedElement.prototype.getInputId = function () {
 		return null;
 	}
 
-	var id = this.$tabIndexed.attr( 'id' );
+	let id = this.$tabIndexed.attr( 'id' );
 	if ( id === undefined ) {
 		id = OO.ui.generateElementId();
 		this.$tabIndexed.attr( 'id', id );
@@ -183,7 +183,7 @@ OO.ui.mixin.TabIndexedElement.prototype.getInputId = function () {
  * @return {boolean}
  */
 OO.ui.mixin.TabIndexedElement.prototype.isLabelableNode = function ( $node ) {
-	var
+	const
 		labelableTags = [ 'button', 'meter', 'output', 'progress', 'select', 'textarea' ],
 		tagName = ( $node.prop( 'tagName' ) || '' ).toLowerCase();
 

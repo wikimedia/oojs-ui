@@ -21,7 +21,7 @@
  *
  *     @example
  *     // Example of an ActionFieldLayout
- *     var actionFieldLayout = new OO.ui.ActionFieldLayout(
+ *     const actionFieldLayout = new OO.ui.ActionFieldLayout(
  *         new OO.ui.TextInputWidget( {
  *             placeholder: 'Field widget'
  *         } ),

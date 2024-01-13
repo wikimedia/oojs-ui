@@ -9,7 +9,7 @@
  *
  *     @example
  *     // A ButtonInputWidget rendered as an HTML button, the default.
- *     var button = new OO.ui.ButtonInputWidget( {
+ *     const button = new OO.ui.ButtonInputWidget( {
  *         label: 'Input button',
  *         icon: 'check',
  *         value: 'check'
@@ -95,7 +95,7 @@ OO.ui.ButtonInputWidget.static.tagName = 'span';
  * @protected
  */
 OO.ui.ButtonInputWidget.prototype.getInputElement = function ( config ) {
-	var type = config.type === 'submit' || config.type === 'reset' ? config.type : 'button';
+	const type = config.type === 'submit' || config.type === 'reset' ? config.type : 'button';
 	return $( '<' + ( config.useInputTag ? 'input' : 'button' ) + ' type="' + type + '">' );
 };
 

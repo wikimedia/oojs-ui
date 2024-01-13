@@ -38,7 +38,7 @@ OO.ui.Theme.prototype.getElementClasses = function () {
  * @param {OO.ui.Element} element Element for which to update classes
  */
 OO.ui.Theme.prototype.updateElementClasses = function ( element ) {
-	var domElements = [];
+	const domElements = [];
 
 	if ( element.$icon ) {
 		domElements.push( element.$icon[ 0 ] );
@@ -48,7 +48,7 @@ OO.ui.Theme.prototype.updateElementClasses = function ( element ) {
 	}
 
 	if ( domElements.length ) {
-		var classes = this.getElementClasses( element );
+		const classes = this.getElementClasses( element );
 		$( domElements )
 			.removeClass( classes.off )
 			.addClass( classes.on );
@@ -59,7 +59,7 @@ OO.ui.Theme.prototype.updateElementClasses = function ( element ) {
  * @private
  */
 OO.ui.Theme.prototype.updateQueuedElementClasses = function () {
-	for ( var i = 0; i < this.elementClassesQueue.length; i++ ) {
+	for ( let i = 0; i < this.elementClassesQueue.length; i++ ) {
 		this.updateElementClasses( this.elementClassesQueue[ i ] );
 	}
 	// Clear the queue

@@ -1,18 +1,19 @@
 Demo.static.pages.dialogs = function ( demo ) {
-	var $demo = demo.$container,
-		$fieldsets = $( [] ),
-		windowManager = new OO.ui.WindowManager(),
-		nonModalWindowManager = new OO.ui.WindowManager( {
-			modal: false,
-			classes: [ 'demo-dialogs-non-modal' ]
-		} ),
-		nonModalFocusTrapWindowManager = new OO.ui.WindowManager( {
-			modal: false,
-			forceTrapFocus: true,
-			classes: [ 'demo-dialogs-non-modal' ]
-		} );
+	const $demo = demo.$container;
+	const windowManager = new OO.ui.WindowManager();
+	const nonModalWindowManager = new OO.ui.WindowManager( {
+		modal: false,
+		classes: [ 'demo-dialogs-non-modal' ]
+	} );
+	const nonModalFocusTrapWindowManager = new OO.ui.WindowManager( {
+		modal: false,
+		forceTrapFocus: true,
+		classes: [ 'demo-dialogs-non-modal' ]
+	} );
 
-	var configs = [
+	let $fieldsets = $( [] );
+
+	const configs = [
 		{
 			name: 'Convenience functions',
 			id: 'demo-section-functions',
@@ -334,7 +335,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 	}
 
 	configs.forEach( function ( config, j ) {
-		var fieldset = new Demo.LinkedFieldsetLayout( {
+		const fieldset = new Demo.LinkedFieldsetLayout( {
 			label: config.name,
 			id: config.id
 		} );
@@ -342,7 +343,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 		$fieldsets = $fieldsets.add( fieldset.$element );
 
 		config.examples.forEach( function ( example, i ) {
-			var openButton = new OO.ui.ButtonWidget( {
+			const openButton = new OO.ui.ButtonWidget( {
 				framed: false,
 				icon: 'window',
 				label: $( '<span>' ).attr( 'dir', 'ltr' ).text( example.name )
@@ -358,10 +359,10 @@ Demo.static.pages.dialogs = function ( demo ) {
 					)
 				);
 			} else {
-				var name = 'window_' + j + '_' + i;
-				var DialogClass = example.dialogClass || Demo.SimpleDialog;
-				var manager = example.windowManager || windowManager;
-				var windows = {};
+				const name = 'window_' + j + '_' + i;
+				const DialogClass = example.dialogClass || Demo.SimpleDialog;
+				const manager = example.windowManager || windowManager;
+				const windows = {};
 				windows[ name ] = new DialogClass( example.config );
 				manager.addWindows( windows );
 				openButton.on(

@@ -3,7 +3,8 @@
 	// Demonstrate JavaScript 'infusion' of PHP-generated widgets.
 	// Used by widgets.php.
 
-	var infuseButton, $demoHeader;
+	// eslint-disable-next-line prefer-const
+	let infuseButton;
 
 	// Helper function to get high resolution profiling data, where available.
 	function now() {
@@ -15,8 +16,9 @@
 	// client-side behaviors to, or where the JS implementation provides additional features
 	// over PHP, like DropdownInputWidget. We do it here because it's a good overall test.)
 	function infuseAll() {
-		var start, end,
-			isInfused = infuseButton.isActive();
+		const isInfused = infuseButton.isActive();
+
+		let start, end;
 		if ( isInfused ) {
 			// Can't actually uninfuse, just reload the page
 			location.reload();
@@ -34,7 +36,7 @@
 	}
 
 	// eslint-disable-next-line no-jquery/no-global-selector
-	$demoHeader = $( '.demo-header' );
+	const $demoHeader = $( '.demo-header' );
 
 	OO.ui.getViewportSpacing = function () {
 		return {

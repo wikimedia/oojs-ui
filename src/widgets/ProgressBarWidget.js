@@ -13,13 +13,13 @@
  *
  *     @example
  *     // Examples of determinate and indeterminate progress bars.
- *     var progressBar1 = new OO.ui.ProgressBarWidget( {
+ *     const progressBar1 = new OO.ui.ProgressBarWidget( {
  *         progress: 33
  *     } );
- *     var progressBar2 = new OO.ui.ProgressBarWidget();
+ *     const progressBar2 = new OO.ui.ProgressBarWidget();
  *
  *     // Create a FieldsetLayout to layout progress bars.
- *     var fieldset = new OO.ui.FieldsetLayout;
+ *     const fieldset = new OO.ui.FieldsetLayout;
  *     fieldset.addItems( [
  *         new OO.ui.FieldLayout( progressBar1, {
  *             label: 'Determinate',

@@ -1,25 +1,24 @@
 ( function () {
 
 	function unstub( value ) {
-		var config;
 		if ( typeof value === 'string' && value.slice( 0, 13 ) === '_placeholder_' ) {
 			value = JSON.parse( value.slice( 13 ) );
-			config = OO.copy( value.config, null, unstub );
+			const config = OO.copy( value.config, null, unstub );
 			return new OO.ui[ value.class ]( config );
 		}
 	}
 
 	function makeJSPHPTest( className, test, infuseOnly, testSuitePHPOutput, i ) {
-		var themes = {
+		const themes = {
 			ApexTheme: new OO.ui.ApexTheme(),
 			WikimediaUITheme: new OO.ui.WikimediaUITheme()
 		};
 
 		QUnit.test( JSON.stringify( test.config ), function ( assert ) {
-			var config, instance, infused, $fromPhp, theme;
+			let instance, infused, $fromPhp, theme;
 
 			// Unstub placeholders
-			config = OO.copy( test.config, null, unstub );
+			const config = OO.copy( test.config, null, unstub );
 
 			for ( theme in themes ) {
 				OO.ui.theme = themes[ theme ];
@@ -50,7 +49,7 @@
 	}
 
 	window.makeJSPHPTests = function ( testSuiteConfigs, testSuitePHPOutput ) {
-		var className, i, tests, infuseOnly;
+		let className, i, tests, infuseOnly;
 
 		for ( className in testSuiteConfigs ) {
 			QUnit.module( 'JSPHP: ' + className );

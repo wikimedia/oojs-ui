@@ -19,12 +19,12 @@
  *
  *     @example
  *     // Example of a MenuToolGroup
- *     var toolFactory = new OO.ui.ToolFactory();
- *     var toolGroupFactory = new OO.ui.ToolGroupFactory();
- *     var toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
+ *     const toolFactory = new OO.ui.ToolFactory();
+ *     const toolGroupFactory = new OO.ui.ToolGroupFactory();
+ *     const toolbar = new OO.ui.Toolbar( toolFactory, toolGroupFactory );
  *
  *     // We will be placing status text in this element when tools are used
- *     var $area = $( '<p>' ).text( 'An example of a MenuToolGroup. Select a tool from the '
+ *     const $area = $( '<p>' ).text( 'An example of a MenuToolGroup. Select a tool from the '
  *         + 'dropdown menu.' );
  *
  *     // Define the tools that we're going to place in our toolbar
@@ -79,11 +79,11 @@
  *     ] );
  *
  *     // Create some UI around the toolbar and place it in the document
- *     var frame = new OO.ui.PanelLayout( {
+ *     const frame = new OO.ui.PanelLayout( {
  *         expanded: false,
  *         framed: true
  *     } );
- *     var contentFrame = new OO.ui.PanelLayout( {
+ *     const contentFrame = new OO.ui.PanelLayout( {
  *         expanded: false,
  *         padded: true
  *     } );
@@ -151,9 +151,9 @@ OO.ui.MenuToolGroup.static.name = 'menu';
  * @private
  */
 OO.ui.MenuToolGroup.prototype.onUpdateState = function () {
-	var labelTexts = [];
+	const labelTexts = [];
 
-	for ( var name in this.tools ) {
+	for ( const name in this.tools ) {
 		if ( this.tools[ name ].isActive() ) {
 			labelTexts.push( this.tools[ name ].getTitle() );
 		}

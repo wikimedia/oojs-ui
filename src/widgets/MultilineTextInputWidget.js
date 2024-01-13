@@ -15,7 +15,7 @@
  *
  *     @example
  *     // A MultilineTextInputWidget.
- *     var multilineTextInput = new OO.ui.MultilineTextInputWidget( {
+ *     const multilineTextInput = new OO.ui.MultilineTextInputWidget( {
  *         value: 'Text input on multiple lines'
  *     } );
  *     $( document.body ).append( multilineTextInput.$element );
@@ -99,7 +99,7 @@ OO.inheritClass( OO.ui.MultilineTextInputWidget, OO.ui.TextInputWidget );
  * @inheritdoc
  */
 OO.ui.MultilineTextInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.MultilineTextInputWidget.super.static.gatherPreInfuseState( node, config );
+	const state = OO.ui.MultilineTextInputWidget.super.static.gatherPreInfuseState( node, config );
 	if ( config.$input ) {
 		state.scrollTop = config.$input.scrollTop();
 	}
@@ -198,39 +198,39 @@ OO.ui.MultilineTextInputWidget.prototype.adjustSize = function ( force ) {
 			// https://bugzilla.mozilla.org/show_bug.cgi?id=1799404
 			// eslint-disable-next-line no-unused-expressions
 			this.$clone[ 0 ].scrollHeight;
-			var scrollHeight = this.$clone[ 0 ].scrollHeight;
+			const scrollHeight = this.$clone[ 0 ].scrollHeight;
 
 			// Remove inline height property to measure natural heights
 			this.$clone.css( 'height', '' );
-			var innerHeight = this.$clone.innerHeight();
-			var outerHeight = this.$clone.outerHeight();
+			const innerHeight = this.$clone.innerHeight();
+			const outerHeight = this.$clone.outerHeight();
 
 			// Measure max rows height
 			this.$clone
 				.attr( 'rows', this.maxRows )
 				.css( 'height', 'auto' )
 				.val( '' );
-			var maxInnerHeight = this.$clone.innerHeight();
+			const maxInnerHeight = this.$clone.innerHeight();
 
 			// Difference between reported innerHeight and scrollHeight with no scrollbars present.
 			// This is sometimes non-zero on Blink-based browsers, depending on zoom level.
-			var measurementError = maxInnerHeight - this.$clone[ 0 ].scrollHeight;
-			var idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
+			const measurementError = maxInnerHeight - this.$clone[ 0 ].scrollHeight;
+			const idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
 
 			this.$clone.addClass( 'oo-ui-element-hidden' );
 
 			// Only apply inline height when expansion beyond natural height is needed
 			// Use the difference between the inner and outer height as a buffer
-			var newHeight = idealHeight > innerHeight ? idealHeight + ( outerHeight - innerHeight ) : '';
+			const newHeight = idealHeight > innerHeight ? idealHeight + ( outerHeight - innerHeight ) : '';
 			if ( newHeight !== this.styleHeight ) {
 				this.$input.css( 'height', newHeight );
 				this.styleHeight = newHeight;
 				this.emit( 'resize' );
 			}
 		}
-		var scrollWidth = this.$input[ 0 ].offsetWidth - this.$input[ 0 ].clientWidth;
+		const scrollWidth = this.$input[ 0 ].offsetWidth - this.$input[ 0 ].clientWidth;
 		if ( scrollWidth !== this.scrollWidth ) {
-			var property = this.$element.css( 'direction' ) === 'rtl' ? 'left' : 'right';
+			const property = this.$element.css( 'direction' ) === 'rtl' ? 'left' : 'right';
 			// Reset
 			this.$label.css( { right: '', left: '' } );
 			this.$indicator.css( { right: '', left: '' } );

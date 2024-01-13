@@ -14,7 +14,7 @@
  *
  *     @example
  *     // Two LabelWidgets.
- *     var label1 = new OO.ui.LabelWidget( {
+ *     const label1 = new OO.ui.LabelWidget( {
  *             label: 'plaintext label'
  *         } ),
  *         label2 = new OO.ui.LabelWidget( {

@@ -11,13 +11,12 @@ Demo.BookletDialog.prototype.getBodyHeight = function () {
 	return 250;
 };
 Demo.BookletDialog.prototype.initialize = function () {
-	var dialog;
 	Demo.BookletDialog.super.prototype.initialize.apply( this, arguments );
 
-	dialog = this;
+	const dialog = this;
 
 	function changePage( direction ) {
-		var pageIndex = dialog.pages.indexOf( dialog.bookletLayout.getCurrentPage() );
+		let pageIndex = dialog.pages.indexOf( dialog.bookletLayout.getCurrentPage() );
 		pageIndex = ( dialog.pages.length + pageIndex + direction ) % dialog.pages.length;
 		dialog.bookletLayout.setPage( dialog.pages[ pageIndex ].getName() );
 	}

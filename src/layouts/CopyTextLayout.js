@@ -12,11 +12,11 @@
  * @param {Object} [config.button] Config for button
  */
 OO.ui.CopyTextLayout = function OoUiCopyTextLayout( config ) {
-	var TextClass;
 	config = config || {};
 
 	// Properties
-	TextClass = config.multiline ? OO.ui.MultilineTextInputWidget : OO.ui.TextInputWidget;
+	const TextClass = config.multiline ? OO.ui.MultilineTextInputWidget : OO.ui.TextInputWidget;
+
 	this.textInput = new TextClass( $.extend( {
 		value: config.copyText,
 		readOnly: true
@@ -65,7 +65,7 @@ OO.inheritClass( OO.ui.CopyTextLayout, OO.ui.ActionFieldLayout );
  * @fires OO.ui.CopyTextLayout#copy
  */
 OO.ui.CopyTextLayout.prototype.onButtonClick = function () {
-	var copied;
+	let copied;
 
 	this.selectText();
 
@@ -90,7 +90,7 @@ OO.ui.CopyTextLayout.prototype.onInputFocus = function () {
  * Select the text to copy
  */
 OO.ui.CopyTextLayout.prototype.selectText = function () {
-	var input = this.textInput.$input[ 0 ],
+	const input = this.textInput.$input[ 0 ],
 		scrollTop = input.scrollTop,
 		scrollLeft = input.scrollLeft;
 

@@ -6,15 +6,15 @@
  *
  *     @example
  *     // Example of a fieldset layout
- *     var input1 = new OO.ui.TextInputWidget( {
+ *     const input1 = new OO.ui.TextInputWidget( {
  *         placeholder: 'A text input field'
  *     } );
  *
- *     var input2 = new OO.ui.TextInputWidget( {
+ *     const input2 = new OO.ui.TextInputWidget( {
  *         placeholder: 'A text input field'
  *     } );
  *
- *     var fieldset = new OO.ui.FieldsetLayout( {
+ *     const fieldset = new OO.ui.FieldsetLayout( {
  *         label: 'Example of a fieldset layout'
  *     } );
  *
@@ -78,13 +78,13 @@ OO.ui.FieldsetLayout = function OoUiFieldsetLayout( config ) {
 	// Help
 	if ( config.help ) {
 		if ( config.helpInline ) {
-			var inlineHelpWidget = new OO.ui.LabelWidget( {
+			const inlineHelpWidget = new OO.ui.LabelWidget( {
 				label: config.help,
 				classes: [ 'oo-ui-inline-help' ]
 			} );
 			this.$element.prepend( this.$header, inlineHelpWidget.$element, this.$group );
 		} else {
-			var helpWidget = new OO.ui.PopupButtonWidget( {
+			const helpWidget = new OO.ui.PopupButtonWidget( {
 				$overlay: config.$overlay,
 				popup: {
 					padded: true

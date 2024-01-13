@@ -1,5 +1,10 @@
 Demo.static.pages.toolbars = function ( demo ) {
-	var i, toolGroups,
+	let i,
+		$containers = $(),
+		// eslint-disable-next-line prefer-const
+		toolGroups;
+
+	const
 		setDisabled = function () {
 			this.setDisabled( true );
 		},
@@ -7,7 +12,6 @@ Demo.static.pages.toolbars = function ( demo ) {
 			this.setActive( false );
 		},
 		$demo = demo.$container,
-		$containers = $(),
 		toolFactories = [],
 		toolGroupFactories = [],
 		toolbars = [],
@@ -41,7 +45,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 
 	// eslint-disable-next-line max-len
 	function createTool( toolbar, group, name, icon, title, flags, narrowConfig, init, onSelect, displayBothIconAndLabel ) {
-		var Tool = function () {
+		const Tool = function () {
 			Tool.super.apply( this, arguments );
 			this.toggled = false;
 			if ( init ) {
@@ -74,14 +78,14 @@ Demo.static.pages.toolbars = function ( demo ) {
 
 	function createToolGroup( toolbar, group ) {
 		toolGroups[ group ].forEach( function ( tool ) {
-			var args = tool.slice();
+			const args = tool.slice();
 			args.splice( 0, 0, toolbar, group );
 			toolFactories[ toolbar ].register( createTool.apply( null, args ) );
 		} );
 	}
 
 	function createDisabledToolGroup( parent, name ) {
-		var DisabledToolGroup = function () {
+		const DisabledToolGroup = function () {
 			DisabledToolGroup.super.apply( this, arguments );
 			this.setDisabled( true );
 		};
@@ -101,7 +105,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolGroupFactories[ 0 ].register( createDisabledToolGroup( OO.ui.ListToolGroup, 'disabledList' ) );
 	toolGroupFactories[ 1 ].register( createDisabledToolGroup( OO.ui.MenuToolGroup, 'disabledMenu' ) );
 
-	var AlertTool = function ( toolGroup, config ) {
+	const AlertTool = function ( toolGroup, config ) {
 		// Parent constructor
 		OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
 			padded: true,
@@ -123,7 +127,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolFactories[ 1 ].register( AlertTool );
 	toolFactories[ 2 ].register( AlertTool );
 
-	var PopupTool = function ( toolGroup, config ) {
+	const PopupTool = function ( toolGroup, config ) {
 		// Parent constructor
 		OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
 			padded: true,
@@ -145,7 +149,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 	toolFactories[ 1 ].register( PopupTool );
 	toolFactories[ 2 ].register( PopupTool );
 
-	var ToolGroupTool = function ( toolGroup, config ) {
+	const ToolGroupTool = function ( toolGroup, config ) {
 		// Parent constructor
 		OO.ui.ToolGroupTool.call( this, toolGroup, config );
 	};

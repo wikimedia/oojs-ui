@@ -7,7 +7,7 @@
  *
  *     @example
  *     // HorizontalLayout with a text input and a label.
- *     var layout = new OO.ui.HorizontalLayout( {
+ *     const layout = new OO.ui.HorizontalLayout( {
  *       items: [
  *         new OO.ui.LabelWidget( { label: 'Label' } ),
  *         new OO.ui.TextInputWidget( { value: 'Text' } )

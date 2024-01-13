@@ -19,7 +19,7 @@ OO.inheritClass( OO.ui.WikimediaUITheme, OO.ui.Theme );
  * @inheritdoc
  */
 OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
-	var
+	const
 		variants = {
 			invert: false,
 			progressive: false,
@@ -39,9 +39,9 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 		// Icon on CheckboxInputWidget
 		variants.invert = true;
 	} else if ( element.supports( 'hasFlag' ) ) {
-		var isFramed = element.supports( 'isFramed' ) && element.isFramed();
-		var isActive = element.supports( 'isActive' ) && element.isActive();
-		var isToolOrGroup =
+		const isFramed = element.supports( 'isFramed' ) && element.isFramed();
+		const isActive = element.supports( 'isActive' ) && element.isActive();
+		const isToolOrGroup =
 			// Check if the class exists, as classes that are not in the 'core' module may
 			// not be loaded.
 			( OO.ui.Tool && element instanceof OO.ui.Tool ) ||
@@ -85,7 +85,7 @@ OO.ui.WikimediaUITheme.prototype.getElementClasses = function ( element ) {
 		}
 	}
 
-	for ( var variant in variants ) {
+	for ( const variant in variants ) {
 		classes[ variants[ variant ] ? 'on' : 'off' ].push( 'oo-ui-image-' + variant );
 	}
 

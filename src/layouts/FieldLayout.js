@@ -124,7 +124,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 		}
 	} else {
 		// We can't use `label for` with non-form elements, use `aria-labelledby` instead
-		var id = OO.ui.generateElementId();
+		const id = OO.ui.generateElementId();
 		this.$label.attr( 'id', id );
 		this.fieldWidget.setLabelledBy( id );
 
@@ -351,7 +351,7 @@ OO.ui.FieldLayout.prototype.updateMessages = function () {
 		return;
 	}
 
-	var i;
+	let i;
 	for ( i = 0; i < this.errors.length; i++ ) {
 		this.$messages.append( this.makeMessage( 'error', this.errors[ i ] ) );
 	}
@@ -391,7 +391,7 @@ OO.ui.FieldLayout.prototype.formatTitleWithAccessKey = function ( title ) {
  * @return {jQuery} The element that should become `this.$help`.
  */
 OO.ui.FieldLayout.prototype.createHelpElement = function ( help, $overlay ) {
-	var helpId, helpWidget;
+	let helpId, helpWidget;
 
 	if ( this.helpInline ) {
 		helpWidget = new OO.ui.LabelWidget( {
@@ -414,7 +414,7 @@ OO.ui.FieldLayout.prototype.createHelpElement = function ( help, $overlay ) {
 		} );
 
 		helpWidget.popup.on( 'ready', function () {
-			var $popupElement = helpWidget.popup.$element;
+			const $popupElement = helpWidget.popup.$element;
 			$popupElement.attr( 'tabindex', 0 );
 			$popupElement.trigger( 'focus' );
 		} );

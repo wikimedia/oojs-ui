@@ -6,7 +6,7 @@ Demo.DelayedReadyProcessDialog.prototype.getReadyProcess = function () {
 	return Demo.DelayedReadyProcessDialog.super.prototype.getReadyProcess
 		.call( this )
 		.next( function () {
-			var deferred = $.Deferred();
+			const deferred = $.Deferred();
 			setTimeout( function () {
 				deferred.resolve();
 			}, 2000 );

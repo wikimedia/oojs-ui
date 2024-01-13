@@ -5,7 +5,7 @@
  *
  *     @example
  *     // Example of a panel layout
- *     var panel = new OO.ui.PanelLayout( {
+ *     const panel = new OO.ui.PanelLayout( {
  *         expanded: false,
  *         framed: true,
  *         padded: true,

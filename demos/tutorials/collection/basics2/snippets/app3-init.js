@@ -1,5 +1,5 @@
 ( function () {
-	var input = new OO.ui.TextInputWidget( {
+	const input = new OO.ui.TextInputWidget( {
 			placeholder: 'Add a ToDo item'
 		} ),
 		list = new OO.ui.SelectWidget( {

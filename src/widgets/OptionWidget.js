@@ -224,6 +224,6 @@ OO.ui.OptionWidget.prototype.setPressed = function ( state ) {
  * @return {string|boolean} String to match search string against
  */
 OO.ui.OptionWidget.prototype.getMatchText = function () {
-	var label = this.getLabel();
+	const label = this.getLabel();
 	return typeof label === 'string' ? label : this.$label.text();
 };

@@ -11,7 +11,7 @@ Demo.DialogWithPopupAndDropdown.prototype.getBodyHeight = function () {
 	return 300;
 };
 Demo.DialogWithPopupAndDropdown.prototype.initialize = function () {
-	var $spacer = $( '<div>' ).height( 240 );
+	const $spacer = $( '<div>' ).height( 240 );
 	Demo.DialogWithPopupAndDropdown.super.prototype.initialize.apply( this, arguments );
 	this.bookletLayout = new OO.ui.BookletLayout( {
 		outlined: true

@@ -10,7 +10,7 @@
  *
  *     @example
  *     // A button widget.
- *     var button = new OO.ui.ButtonWidget( {
+ *     const button = new OO.ui.ButtonWidget( {
  *         label: 'Button with Icon',
  *         icon: 'trash',
  *         title: 'Remove'
@@ -229,7 +229,7 @@ OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {
 	noFollow = typeof noFollow === 'boolean' ? noFollow : true;
 
 	if ( noFollow !== this.noFollow ) {
-		var rel;
+		let rel;
 		if ( noFollow ) {
 			rel = this.rel.concat( [ 'nofollow' ] );
 		} else {

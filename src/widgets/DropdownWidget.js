@@ -12,7 +12,7 @@
  *
  *     @example
  *     // A DropdownWidget with a menu that contains three options.
- *     var dropDown = new OO.ui.DropdownWidget( {
+ *     const dropDown = new OO.ui.DropdownWidget( {
  *         label: 'Dropdown menu: Select a menu option',
  *         menu: {
  *             items: [
@@ -98,7 +98,7 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	} );
 
 	// Initialization
-	var labelId = OO.ui.generateElementId();
+	const labelId = OO.ui.generateElementId();
 	this.setLabelId( labelId );
 	this.$label
 		.attr( {
@@ -148,7 +148,7 @@ OO.ui.DropdownWidget.prototype.getMenu = function () {
  * @param {OO.ui.MenuOptionWidget} item Selected menu item
  */
 OO.ui.DropdownWidget.prototype.onMenuSelect = function ( item ) {
-	var selectedLabel;
+	let selectedLabel;
 
 	if ( !item ) {
 		this.setLabel( null );
@@ -238,7 +238,7 @@ OO.ui.DropdownWidget.prototype.onBlur = function () {
  * @inheritdoc
  */
 OO.ui.DropdownWidget.prototype.setLabelledBy = function ( id ) {
-	var labelId = this.$label.attr( 'id' );
+	const labelId = this.$label.attr( 'id' );
 
 	if ( id ) {
 		this.$handle.attr( 'aria-labelledby', id + ' ' + labelId );

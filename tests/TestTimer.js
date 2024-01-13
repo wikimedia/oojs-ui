@@ -63,9 +63,9 @@ OO.ui.TestTimer.prototype.clearTimeout = function ( id ) {
  * @param {number} [interval] Apparent passed time since last call (defaults to infinite)
  */
 OO.ui.TestTimer.prototype.runPending = function ( interval ) {
-	var calls, i, len, call;
+	let i, len, call;
 	this.timestamp += ( interval || 0 );
-	calls = this.pendingCalls.splice( 0, this.pendingCalls.length ).sort( function ( a, b ) {
+	const calls = this.pendingCalls.splice( 0, this.pendingCalls.length ).sort( function ( a, b ) {
 		return a.timeout - b.timeout;
 	} );
 	for ( i = 0, len = calls.length; i < len; i++ ) {

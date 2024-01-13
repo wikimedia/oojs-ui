@@ -11,7 +11,7 @@ Demo.ProcessDialog.static.actions = [
 Demo.ProcessDialog.prototype.initialize = function () {
 	Demo.ProcessDialog.super.prototype.initialize.apply( this, arguments );
 
-	var $content = $( '<div>' ).append(
+	const $content = $( '<div>' ).append(
 		$( '<p>' ).text( 'Dialog content' ),
 		$( '<a>' )
 			.text( 'Be alert!' )
@@ -25,7 +25,7 @@ Demo.ProcessDialog.prototype.initialize = function () {
 	this.$body.append( this.content.$element );
 };
 Demo.ProcessDialog.prototype.getActionProcess = function ( action ) {
-	var dialog = this;
+	const dialog = this;
 	if ( action ) {
 		return new OO.ui.Process( function () {
 			dialog.close( { action: action } );

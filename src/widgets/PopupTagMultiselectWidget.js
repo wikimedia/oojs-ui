@@ -5,11 +5,11 @@
  *
  *     @example
  *     // A PopupTagMultiselectWidget.
- *     var widget = new OO.ui.PopupTagMultiselectWidget();
+ *     const widget = new OO.ui.PopupTagMultiselectWidget();
  *     $( document.body ).append( widget.$element );
  *
  *     // Example: A PopupTagMultiselectWidget with an external popup.
- *     var popupInput = new OO.ui.TextInputWidget(),
+ *     const popupInput = new OO.ui.TextInputWidget(),
  *         widget = new OO.ui.PopupTagMultiselectWidget( {
  *            popupInput: popupInput,
  *            popup: {
@@ -32,7 +32,7 @@
  * @deprecated
  */
 OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config ) {
-	var defaultConfig = { popup: {} };
+	const defaultConfig = { popup: {} };
 
 	config = config || {};
 
@@ -49,7 +49,7 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 		// with an input widget inside it. For any other use cases
 		// the popup needs to be populated externally and the
 		// event handled to add tags separately and manually
-		var defaultInput = new OO.ui.TextInputWidget();
+		const defaultInput = new OO.ui.TextInputWidget();
 
 		defaultConfig.popupInput = defaultInput;
 		defaultConfig.popup.$content = defaultInput.$element;

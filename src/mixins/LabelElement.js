@@ -69,17 +69,18 @@ OO.ui.mixin.LabelElement.static.label = null;
  *  sub-string wrapped in highlighted span
  */
 OO.ui.mixin.LabelElement.static.highlightQuery = function ( text, query, compare, combineMarks ) {
-	var offset = -1,
-		$result = $( '<span>' ),
+	let offset = -1,
 		comboLength = 0,
 		comboMarks = '',
 		comboRegex,
 		comboMatch;
 
+	const $result = $( '<span>' );
+
 	if ( compare ) {
-		var tLen = text.length;
-		var qLen = query.length;
-		for ( var i = 0; offset === -1 && i <= tLen - qLen; i++ ) {
+		const tLen = text.length;
+		const qLen = query.length;
+		for ( let i = 0; offset === -1 && i <= tLen - qLen; i++ ) {
 			if ( compare( query, text.slice( i, i + qLen ) ) === 0 ) {
 				offset = i;
 			}

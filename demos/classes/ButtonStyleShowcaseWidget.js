@@ -1,12 +1,12 @@
 Demo.ButtonStyleShowcaseWidget = function DemoButtonStyleShowcaseWidget( config ) {
-	var widget = this;
+	const widget = this;
 
 	Demo.ButtonStyleShowcaseWidget.super.call( this, config );
 
 	this.$element.addClass( 'demo-buttonStyleShowcaseWidget' );
 
 	this.constructor.static.styles.forEach( function ( style ) {
-		var $buttonRow = $( '<div>' );
+		const $buttonRow = $( '<div>' );
 		widget.constructor.static.states.forEach( function ( state ) {
 			$buttonRow.append(
 				new OO.ui.ButtonWidget( $.extend( {}, style, state ) ).$element

@@ -1,5 +1,5 @@
 ( function () {
-	var input = new OO.ui.TextInputWidget(),
+	const input = new OO.ui.TextInputWidget(),
 		list = new OO.ui.SelectWidget( {
 			items: [
 				new OO.ui.OptionWidget( {

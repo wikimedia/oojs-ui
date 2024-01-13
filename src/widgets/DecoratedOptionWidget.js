@@ -10,7 +10,7 @@
  *
  *     @example
  *     // Decorated options in a select widget.
- *     var select = new OO.ui.SelectWidget( {
+ *     const select = new OO.ui.SelectWidget( {
  *         items: [
  *             new OO.ui.DecoratedOptionWidget( {
  *                 data: 'a',

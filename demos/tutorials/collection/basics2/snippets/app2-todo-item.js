@@ -12,11 +12,10 @@ Widgets.ToDoItemWidget2.prototype.getCreationTime = function () {
 };
 
 Widgets.ToDoItemWidget2.prototype.getPrettyCreationTime = function () {
-	var time = new Date( this.creationTime ),
+	const time = new Date( this.creationTime ),
 		hour = time.getHours(),
 		minute = time.getMinutes(),
 		second = time.getSeconds(),
-		temp = String( ( hour > 12 ) ? hour - 12 : hour ),
 		monthNames = [
 			'Jan',
 			'Feb',
@@ -31,6 +30,8 @@ Widgets.ToDoItemWidget2.prototype.getPrettyCreationTime = function () {
 			'Nov',
 			'Dec'
 		];
+
+	let temp = String( ( hour > 12 ) ? hour - 12 : hour );
 
 	if ( hour === 0 ) {
 		temp = '12';

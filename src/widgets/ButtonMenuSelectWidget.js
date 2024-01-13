@@ -5,7 +5,7 @@
  *
  *     @example
  *     // A ButtonMenuSelectWidget with a menu that contains three options.
- *     var buttonMenu = new OO.ui.ButtonMenuSelectWidget( {
+ *     const buttonMenu = new OO.ui.ButtonMenuSelectWidget( {
  *         icon: 'menu',
  *         menu: {
  *             items: [
@@ -59,7 +59,7 @@ OO.ui.ButtonMenuSelectWidget = function OoUiButtonMenuSelectWidget( config ) {
 	this.$overlay = ( config.$overlay === true ?
 		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 
-	var MenuClass = config.menuClass || OO.ui.MenuSelectWidget;
+	const MenuClass = config.menuClass || OO.ui.MenuSelectWidget;
 
 	// Properties
 	this.clearOnSelect = config.clearOnSelect !== false;

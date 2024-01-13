@@ -37,7 +37,7 @@
 				We’ll start by adding a simple label to our page:
 			</p>
 <pre class="line-numbers"><code class="language-javascript">$( function () {
-	var input = new OO.ui.TextInputWidget( {
+	const input = new OO.ui.TextInputWidget( {
 			placeholder: 'Add a ToDo item'
 		} ),
 		list = new OO.ui.SelectWidget( {
@@ -99,7 +99,7 @@
 				Back to <code class="tutorials-inline-code">ToDoItemWidget.js</code>. I this new file,
 				we'll create our new class:
 			</p>
-<pre class="line-numbers"><code class="language-javascript">var ToDoItemWidget = function ( config ) {
+<pre class="line-numbers"><code class="language-javascript">const ToDoItemWidget = function ( config ) {
 	// Configuration object is optional
 	config = config || {};
 
@@ -148,7 +148,7 @@ OO.inheritClass( ToDoItemWidget, OO.ui.OptionWidget );</code></pre>
 			</a>
 			<hr>
 			<p>Let’s add a property that stores the creation time of our todo item.</p>
-<pre class="line-numbers"><code class="language-javascript">var ToDoItemWidget = function ( config ) {
+<pre class="line-numbers"><code class="language-javascript">const ToDoItemWidget = function ( config ) {
 	config = config || {};
 
 	// Call parent constructor
@@ -173,11 +173,10 @@ ToDoItemWidget.prototype.getCreationTime = function () {
 				We'll use this method to make the ToDo item's creation time look just the way we want.
 			</p>
 <pre class="line-numbers"><code class="language-javascript">ToDoItemWidget.prototype.getPrettyCreationTime = function () {
-	var time = new Date( this.creationTime ),
+	const time = new Date( this.creationTime ),
 		hour = time.getHours(),
 		minute = time.getMinutes(),
 		second = time.getSeconds(),
-		temp = String( ( hour > 12 ) ? hour - 12 : hour ),
 		monthNames = [
 			'Jan',
 			'Feb',
@@ -192,6 +191,8 @@ ToDoItemWidget.prototype.getCreationTime = function () {
 			'Nov',
 			'Dec'
 		];
+
+	let temp = String( ( hour > 12 ) ? hour - 12 : hour ),
 
 	if ( hour === 0 ) {
 		temp = '12';
@@ -260,7 +261,7 @@ ToDoItemWidget.prototype.getCreationTime = function () {
 				documentation</a>.
 			</p>
 			<p>In our <code class="tutorials-inline-code">ToDoItemWidget.js</code> we’ll add a button:</p>
-<pre class="line-numbers"><code class="language-javascript">var ToDoItemWidget = function ( config ) {
+<pre class="line-numbers"><code class="language-javascript">const ToDoItemWidget = function ( config ) {
 	// ... code ...
 
 	this.deleteButton = new OO.ui.ButtonWidget( {
@@ -281,7 +282,7 @@ ToDoItemWidget.prototype.getCreationTime = function () {
 				let’s do things properly and add a standalone style for it that we can then add
 				and tweak in our CSS rules.
 			</p>
-<pre class="line-numbers"><code class="language-javascript">var ToDoItemWidget = function ( config ) {
+<pre class="line-numbers"><code class="language-javascript">const ToDoItemWidget = function ( config ) {
 	// ... code ...
 
 	this.deleteButton = new OO.ui.ButtonWidget( {
@@ -343,7 +344,7 @@ ToDoItemWidget.prototype.getCreationTime = function () {
 			<p>
 				The new file <code class="tutorials-inline-code">ToDoListWidget.js</code>:
 			</p>
-<pre class="line-numbers"><code class="language-javascript">var ToDoListWidget = function ToDoListWidget( config ) {
+<pre class="line-numbers"><code class="language-javascript">const ToDoListWidget = function ToDoListWidget( config ) {
 	config = config || {};
 
 	// Call parent constructor
@@ -373,7 +374,7 @@ OO.inheritClass( ToDoListWidget, OO.ui.SelectWidget );</code></pre>
 			<hr>
 			<p>Now that we have our <code class="tutorials-inline-code">ToDoListWidget</code>we can aggregate its item events.</p>
 			<p>So how is it actually done? First, let’s have our button emit a “delete” event for our item:</p>
-<pre class="line-numbers"><code class="language-javascript">var ToDoItemWidget = function ( config ) {
+<pre class="line-numbers"><code class="language-javascript">const ToDoItemWidget = function ( config ) {
 	// ... code ...
 
 	this.deleteButton.connect( this, {
@@ -402,7 +403,7 @@ ToDoItemWidget.prototype.onDeleteButtonClick = function () {
 				Now, we need to make sure that the list is listening to this event from all of its sub-items.
 				We will first aggregate the event and then listen to the aggregated event and respond to it:
 			</p>
-<pre class="line-numbers"><code class="language-javascript">var ToDoListWidget = function ToDoListWidget( config ) {
+<pre class="line-numbers"><code class="language-javascript">const ToDoListWidget = function ToDoListWidget( config ) {
 	// ... code ...
 
 	this.aggregate( {
@@ -476,7 +477,7 @@ ToDoListWidget.prototype.onItemDelete = function ( itemWidget ) {
 
 			<p>2. Full code for <code class="tutorials-inline-code">init.js</code></p>
 <pre class="line-numbers"><code class="language-javascript">$( function () {
-	var input = new OO.ui.TextInputWidget( {
+	const input = new OO.ui.TextInputWidget( {
 			placeholder: 'Add a ToDo item'
 		} ),
 		list = new ToDoListWidget( {
@@ -522,7 +523,7 @@ ToDoListWidget.prototype.onItemDelete = function ( itemWidget ) {
 } );</code></pre>
 
 			<p>3. Full code for <code class="tutorials-inline-code">ToDoItemWidget.js</code></p>
-<pre class="line-numbers"><code class="language-javascript">var ToDoItemWidget = function ( config ) {
+<pre class="line-numbers"><code class="language-javascript">const ToDoItemWidget = function ( config ) {
 	config = config || {};
 	ToDoItemWidget.super.call( this, config );
 
@@ -548,11 +549,10 @@ ToDoItemWidget.prototype.getCreationTime = function () {
 };
 
 ToDoItemWidget.prototype.getPrettyCreationTime = function () {
-	var time = new Date( this.creationTime ),
+	const time = new Date( this.creationTime ),
 		hour = time.getHours(),
 		minute = time.getMinutes(),
 		second = time.getSeconds(),
-		temp = String( ( hour > 12 ) ? hour - 12 : hour ),
 		monthNames = [
 			'Jan',
 			'Feb',
@@ -567,6 +567,8 @@ ToDoItemWidget.prototype.getPrettyCreationTime = function () {
 			'Nov',
 			'Dec'
 		];
+
+	let temp = String( ( hour > 12 ) ? hour - 12 : hour );
 
 	if ( hour === 0 ) {
 		temp = '12';
@@ -587,7 +589,7 @@ ToDoItemWidget.prototype.onDeleteButtonClick = function () {
 };</code></pre>
 
 			<p>4. Full code for <code class="tutorials-inline-code">ToDoListWidget.js</code></p>
-<pre class="line-numbers"><code class="language-javascript">var ToDoListWidget = function ToDoListWidget( config ) {
+<pre class="line-numbers"><code class="language-javascript">const ToDoListWidget = function ToDoListWidget( config ) {
 	config = config || {};
 
 	// Call parent constructor
@@ -711,7 +713,7 @@ ToDoListWidget.prototype.onItemDelete = function ( itemWidget ) {
 	<script src="snippets/app5-init.js"></script>
 	<script>
 		$( function () {
-			var toolbar = new Tutorials.Toolbar();
+			const toolbar = new Tutorials.Toolbar();
 
 			// eslint-disable-next-line no-jquery/no-global-selector
 			$( 'nav' ).append(

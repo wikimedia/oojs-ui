@@ -6,7 +6,7 @@
  * @constructor
  */
 window.Demo = function Demo() {
-	var demo = this;
+	const demo = this;
 
 	// Parent constructor
 	Demo.super.call( this );
@@ -284,7 +284,7 @@ Demo.static.defaultPlatform = 'desktop';
  * @return {jQuery.Promise} Resolved when demo is initialized, rejects if styles failed to load
  */
 Demo.prototype.initialize = function () {
-	var demo = this,
+	const demo = this,
 		promises = this.stylesheetLinks.map( function ( el ) {
 			return $( el ).data( 'load-promise' );
 		} );
@@ -306,9 +306,9 @@ Demo.prototype.setup = function () {
 		return ( window.performance && performance.now ) ? performance.now() : Date.now();
 	}
 
-	var start = now();
+	const start = now();
 	this.constructor.static.pages[ this.mode.page ]( this );
-	var end = now();
+	const end = now();
 	window.console.log( 'Took ' + ( end - start ) + ' ms to build demo page.' );
 };
 
@@ -328,7 +328,7 @@ Demo.prototype.onModeChange = function () {
 Demo.prototype.onPageSelectChoose = function () {
 	this.updateHistoryState();
 	this.$container.empty();
-	var page = this.pageSelect.findSelectedItem().getData();
+	const page = this.pageSelect.findSelectedItem().getData();
 	this.mode.page = page;
 	this.constructor.static.pages[ page ]( this );
 };
@@ -337,7 +337,7 @@ Demo.prototype.onPageSelectChoose = function () {
  * Update the browser history state
  */
 Demo.prototype.updateHistoryState = function () {
-	var page = this.pageSelect.findSelectedItem().getData(),
+	const page = this.pageSelect.findSelectedItem().getData(),
 		theme = this.themeSelect.findSelectedItem().getData(),
 		direction = this.directionSelect.findSelectedItem().getData(),
 		platform = this.platformSelect.findSelectedItem().getData();
@@ -398,9 +398,9 @@ Demo.prototype.getUrlQuery = function ( mode, fragment ) {
  * @return {Object[]} List of mode factors, keyed by symbolic name
  */
 Demo.prototype.getFactors = function () {
-	var factors = [ {}, {}, {}, {} ];
+	const factors = [ {}, {}, {}, {} ];
 
-	var key;
+	let key;
 	for ( key in this.constructor.static.pages ) {
 		factors[ 0 ][ key ] = key;
 	}
@@ -440,12 +440,12 @@ Demo.prototype.getDefaultFactorValues = function () {
  * @return {string[]} Factor values in URL order: page, theme, direction, platform
  */
 Demo.prototype.getCurrentFactorValues = function () {
-	var factors = this.getDefaultFactorValues(),
+	const factors = this.getDefaultFactorValues(),
 		order = [ 'page', 'theme', 'direction', 'platform' ],
 		query = location.search.slice( 1 ).split( '&' );
-	for ( var i = 0; i < query.length; i++ ) {
-		var parts = query[ i ].split( '=', 2 );
-		var index = order.indexOf( parts[ 0 ] );
+	for ( let i = 0; i < query.length; i++ ) {
+		const parts = query[ i ].split( '=', 2 );
+		const index = order.indexOf( parts[ 0 ] );
 		if ( index !== -1 ) {
 			factors[ index ] = decodeURIComponent( parts[ 1 ] );
 		}
@@ -478,11 +478,11 @@ Demo.prototype.getCurrentMode = function ( factorValues ) {
  * @return {HTMLElement[]} List of link elements
  */
 Demo.prototype.getStylesheetLinks = function () {
-	var factors = this.getFactors(),
+	const factors = this.getFactors(),
 		urls = [];
 
 	// Translate modes to filename fragments
-	var fragments = this.getCurrentFactorValues().map( function ( val, index ) {
+	const fragments = this.getCurrentFactorValues().map( function ( val, index ) {
 		return factors[ index ][ val ];
 	} );
 
@@ -493,8 +493,8 @@ Demo.prototype.getStylesheetLinks = function () {
 	urls.push( 'styles/demo' + fragments[ 2 ] + '.css' );
 
 	// Add link tags
-	var links = urls.map( function ( url ) {
-		var
+	const links = urls.map( function ( url ) {
+		const
 			link = document.createElement( 'link' ),
 			$link = $( link ),
 			deferred = $.Deferred();
@@ -515,12 +515,13 @@ Demo.prototype.getStylesheetLinks = function () {
  * Normalize the URL query.
  */
 Demo.prototype.normalizeQuery = function () {
-	var factors = this.getFactors(),
-		modes = this.getDefaultFactorValues();
+	const factors = this.getFactors();
 
-	var factorValues = this.getCurrentFactorValues();
+	let modes = this.getDefaultFactorValues();
+
+	let factorValues = this.getCurrentFactorValues();
 	factors.forEach( function ( factor, i ) {
-		var factorValue = factorValues[ i ];
+		const factorValue = factorValues[ i ];
 		if ( factor[ factorValue ] !== undefined ) {
 			modes[ i ] = factorValue;
 		}
@@ -529,7 +530,7 @@ Demo.prototype.normalizeQuery = function () {
 	// Backwards-compatibility with old URLs that used the 'fragment' part to link to demo sections:
 	// if a fragment is specified and it describes valid factors, turn the URL into the new style.
 	// eslint-disable-next-line security/detect-unsafe-regex
-	var match = location.hash.match( /^#(\w+)-(\w+)-(\w+)(?:-(\w+))?$/ );
+	const match = location.hash.match( /^#(\w+)-(\w+)-(\w+)(?:-(\w+))?$/ );
 	if ( match ) {
 		factorValues = Array.prototype.slice.call( match, 1 );
 		// Backwards-compatibility with changed theme name (I8ee1fab4)
@@ -545,8 +546,8 @@ Demo.prototype.normalizeQuery = function () {
 		if ( !factorValues[ 3 ] ) {
 			factorValues[ 3 ] = 'desktop';
 		}
-		var valid = factors.every( function ( factor, i ) {
-			var factorValue = factorValues[ i ];
+		const valid = factors.every( function ( factor, i ) {
+			const factorValue = factorValues[ i ];
 			return factor[ factorValue ] !== undefined;
 		} );
 		if ( valid ) {
@@ -584,14 +585,15 @@ Demo.prototype.destroy = function () {
  * @return {jQuery} Console interface element
  */
 Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLayoutCode ) {
-	var console = window.console;
-	var $input, $log, $console, $code;
+	const console = window.console;
+	// eslint-disable-next-line prefer-const
+	let $input, $log, $console, $code;
 
 	function exec( str ) {
 		if ( str.indexOf( 'return' ) !== 0 ) {
 			str = 'return ' + str;
 		}
-		var func, ret;
+		let func, ret;
 		try {
 			// eslint-disable-next-line no-new-func
 			func = new Function( layoutName, widgetName, 'item', str );
@@ -606,12 +608,12 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 	}
 
 	function submit() {
-		var val = $input.val();
+		const val = $input.val();
 		$input.val( '' );
 		$input[ 0 ].focus();
-		var result = exec( val );
+		const result = exec( val );
 
-		var logval = String( result.value );
+		let logval = String( result.value );
 		if ( logval === '' ) {
 			logval = '""';
 		}
@@ -645,12 +647,12 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 	}
 
 	function getCode( item, toplevel ) {
-		var items = [],
+		const items = [],
 			demoLinks = [],
 			docLinks = [];
 
 		function getConstructorName( widget ) {
-			var isDemoWidget = widget.constructor.name.indexOf( 'Demo' ) === 0;
+			const isDemoWidget = widget.constructor.name.indexOf( 'Demo' ) === 0;
 			return ( isDemoWidget ? 'Demo.' : 'OO.ui.' ) + widget.constructor.name.slice( 4 );
 		}
 
@@ -659,10 +661,10 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 			return false;
 		}
 
-		var config = item.initialConfig;
+		let config = item.initialConfig;
 
 		// Prevent the default config from being part of the code
-		var defaultConfig;
+		let defaultConfig;
 		if ( item instanceof OO.ui.ActionFieldLayout ) {
 			defaultConfig = (
 				new item.constructor(
@@ -710,7 +712,7 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 
 		// The generated code needs to include different arguments, based on the object type
 		items.push( item );
-		var params;
+		let params;
 		if ( item instanceof OO.ui.ActionFieldLayout ) {
 			params = getCode( item.fieldWidget ) + ', ' + getCode( item.buttonWidget );
 			items.push( item.fieldWidget );
@@ -724,15 +726,15 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 		if ( config !== '{}' ) {
 			params += ( params ? ', ' : '' ) + config;
 		}
-		var out = 'new ' + getConstructorName( item ) + '(' +
+		const out = 'new ' + getConstructorName( item ) + '(' +
 			( params ? ' ' : '' ) + params + ( params ? ' ' : '' ) +
 			')';
 
 		if ( toplevel ) {
-			for ( var i = 0; i < items.length; i++ ) {
+			for ( let i = 0; i < items.length; i++ ) {
 				item = items[ i ];
 				// The code generated for Demo widgets cannot be copied and used
-				var url;
+				let url;
 				if ( item.constructor.name.indexOf( 'Demo' ) === 0 ) {
 					url =
 						'https://gerrit.wikimedia.org/g/oojs/ui/+/master/demos/classes/' +
@@ -755,11 +757,11 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 		);
 	}
 
-	var $toggle = $( '<span>' )
+	const $toggle = $( '<span>' )
 		.addClass( 'demo-console-toggle' )
 		.attr( 'title', 'Toggle console' )
 		.on( 'click', function ( e ) {
-			var code;
+			let code;
 			e.preventDefault();
 			// eslint-disable-next-line no-jquery/no-class-state
 			$console.toggleClass( 'demo-console-collapsed demo-console-expanded' );
@@ -791,26 +793,26 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 	$log = $( '<div>' )
 		.addClass( 'demo-console-log' );
 
-	var $label = $( '<label>' )
+	const $label = $( '<label>' )
 		.addClass( 'demo-console-label' );
 
 	$input = $( '<input>' )
 		.addClass( 'demo-console-input' )
 		.prop( 'placeholder', '... (predefined: ' + layoutName + ', ' + widgetName + ')' );
 
-	var $submit = $( '<div>' )
+	const $submit = $( '<div>' )
 		.addClass( 'demo-console-submit' )
 		.text( '↵' )
 		.on( 'click', submit );
 
-	var $form = $( '<form>' ).on( 'submit', function ( e ) {
+	const $form = $( '<form>' ).on( 'submit', function ( e ) {
 		e.preventDefault();
 		submit();
 	} );
 
 	$code = $( '<code>' ).addClass( 'language-javascript' );
 
-	var $pre = $( '<pre>' )
+	const $pre = $( '<pre>' )
 		.addClass( 'demo-sample-code' )
 		.append( $code );
 
@@ -844,9 +846,9 @@ Demo.prototype.buildLinkExample = function ( item ) {
 			return $( [] );
 		}
 	}
-	var fragment = item.elementId;
+	let fragment = item.elementId;
 	if ( !fragment ) {
-		var label = item.$label.text();
+		const label = item.$label.text();
 		fragment = label.replace( /[^\w]+/g, '-' ).replace( /^-|-$/g, '' );
 	}
 
@@ -862,7 +864,7 @@ Demo.prototype.buildLinkExample = function ( item ) {
 		);
 	}
 
-	var $linkExample = $( '<a>' )
+	const $linkExample = $( '<a>' )
 		.addClass( 'demo-link-example' )
 		.attr( 'title', 'Link to this example' )
 		.attr( 'href', '#' + fragment );

@@ -2,7 +2,7 @@
 	QUnit.module( 'TagMultiselectWidget' );
 
 	QUnit.test( 'Input positioning', function ( assert ) {
-		var widget;
+		let widget;
 
 		widget = new OO.ui.TagMultiselectWidget();
 		assert.strictEqual(
@@ -43,7 +43,7 @@
 	} );
 
 	QUnit.test( 'isAllowedData', function ( assert ) {
-		var widget;
+		let widget;
 
 		widget = new OO.ui.TagMultiselectWidget( {
 			allowArbitrary: true
@@ -92,12 +92,12 @@
 	} );
 
 	QUnit.test( 'addTag', function ( assert ) {
-		var widget,
-			getItemDatas = function ( items ) {
-				return items.map( function ( item ) {
-					return item.getData();
-				} );
-			};
+		let widget;
+		const getItemDatas = function ( items ) {
+			return items.map( function ( item ) {
+				return item.getData();
+			} );
+		};
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true, allowedValues: [ 'foo', 'bar' ] } );
 		widget.addTag( 'foo' ); // In allowed list
@@ -148,12 +148,12 @@
 	} );
 
 	QUnit.test( 'setValue', function ( assert ) {
-		var widget,
-			getItemDatas = function ( items ) {
-				return items.map( function ( item ) {
-					return item.getData();
-				} );
-			};
+		let widget;
+		const getItemDatas = function ( items ) {
+			return items.map( function ( item ) {
+				return item.getData();
+			} );
+		};
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
 		widget.setValue( [ 'foo', 'bar', 'baz' ] );
@@ -218,7 +218,7 @@
 	} );
 
 	QUnit.test( 'getValue', function ( assert ) {
-		var widget;
+		let widget;
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
 		widget.setValue( [ 'foo', 'bar', 'baz' ] );
@@ -238,7 +238,7 @@
 	} );
 
 	QUnit.test( 'getNextItem', function ( assert ) {
-		var items, widget;
+		let items, widget;
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
 		widget.setValue( [ 'foo', 'bar', 'baz' ] );
@@ -268,7 +268,7 @@
 	} );
 
 	QUnit.test( 'getPreviousItem', function ( assert ) {
-		var items, widget;
+		let items, widget;
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
 		widget.setValue( [ 'foo', 'bar', 'baz' ] );
@@ -297,14 +297,13 @@
 	} );
 
 	QUnit.test( 'doInputBackspace', function ( assert ) {
-		var widget,
-			getItemDatas = function ( items ) {
-				return items.map( function ( item ) {
-					return item.getData();
-				} );
-			};
+		const getItemDatas = function ( items ) {
+			return items.map( function ( item ) {
+				return item.getData();
+			} );
+		};
 
-		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
+		const widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
 		/* eslint-disable no-jquery/no-parse-html-literal */
 		widget.addTag( 'foo', $( '<span>foo</span>' ) );
 		widget.addTag( 'baz', $( '<span>baz</span>' ) );

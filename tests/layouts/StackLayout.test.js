@@ -17,7 +17,7 @@
 	};
 
 	QUnit.test( 'setting, getting and clearing the current item', ( assert ) => {
-		var item = makeItem(),
+		const item = makeItem(),
 			layout = new OO.ui.StackLayout( { items: [ item ] } );
 
 		assert.currentItem( layout, item, 'constructor initializes current item' );
@@ -37,7 +37,7 @@
 	} );
 
 	QUnit.test( 'removing the current item', ( assert ) => {
-		var items = makeItems( 5 ),
+		const items = makeItems( 5 ),
 			layout = new OO.ui.StackLayout( { items } );
 
 		layout.setItem( items[ 1 ] );

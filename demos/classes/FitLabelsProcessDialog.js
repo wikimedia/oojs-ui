@@ -8,7 +8,7 @@ Demo.FitLabelsProcessDialog.static.actions = [
 	{ action: 'cancel', modes: [ 'short', 'long' ], label: 'Cancel', flags: [ 'safe', 'close' ] }
 ];
 Demo.FitLabelsProcessDialog.prototype.initialize = function () {
-	var shortTitle = 'Process dialog',
+	const shortTitle = 'Process dialog',
 		longTitle = 'Process dialog (demo of a long title label)';
 
 	Demo.FitLabelsProcessDialog.super.prototype.initialize.apply( this, arguments );
@@ -48,7 +48,7 @@ Demo.FitLabelsProcessDialog.prototype.getSetupProcess = function ( data ) {
 		}, this );
 };
 Demo.FitLabelsProcessDialog.prototype.getActionProcess = function ( action ) {
-	var dialog = this;
+	const dialog = this;
 	if ( action ) {
 		return new OO.ui.Process( function () {
 			dialog.close( { action: action } );

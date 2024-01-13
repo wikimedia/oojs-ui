@@ -82,15 +82,15 @@ Demo.FloatableTest.prototype.onToggleClipping = function ( useClipping ) {
 	this.floatable.toggleClipping( useClipping );
 };
 Demo.FloatableTest.prototype.centerView = function () {
-	var offset = ( this.outerSize - this.viewportSize ) / 2,
+	const offset = ( this.outerSize - this.viewportSize ) / 2,
 		dir = this.getDir() === 'rtl' ? -1 : 1;
 	this.$body[ 0 ].scrollTop = offset;
 	OO.ui.Element.static.setScrollLeft( this.$body[ 0 ], offset * dir );
 };
 Demo.FloatableTest.prototype.getSetupProcess = function () {
 	return Demo.FloatableTest.super.prototype.getSetupProcess.call( this ).next( function () {
-		var offset = ( this.outerSize - this.innerSize ) / 2;
-		var side = this.getDir() === 'rtl' ? 'right' : 'left';
+		const offset = ( this.outerSize - this.innerSize ) / 2;
+		const side = this.getDir() === 'rtl' ? 'right' : 'left';
 		this.$floatableContainer.css( 'top', offset );
 		this.$floatableContainer.css( side, offset );
 

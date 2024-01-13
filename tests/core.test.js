@@ -22,69 +22,70 @@ QUnit.test( 'isSafeUrl', function ( assert ) {
 
 // eslint-disable-next-line qunit/require-expect
 QUnit.test( 'isFocusableElement', function ( assert ) {
-	var i, $html, result,
-		cases = [
-			{
-				msg: 'Plain DIV',
-				html: '<div>foo</div>',
-				expected: false
-			},
-			{
-				msg: 'Tabindexed span',
-				html: '<span tabindex="3">foo</span>',
-				expected: true
-			},
-			{
-				msg: 'Hidden element',
-				html: '<div tabindex="3" style="display:none;">foo</div>',
-				expected: false
-			},
-			{
-				msg: 'Invalid tabindex',
-				html: '<div tabindex="wat">foo</div>',
-				expected: false
-			},
-			{
-				msg: 'Empty tabindex',
-				html: '<div tabindex="">foo</div>',
-				expected: false
-			},
-			{
-				msg: 'Text input',
-				html: '<input type="text">',
-				expected: true
-			},
-			{
-				msg: 'Disabled text input',
-				html: '<input type="text" disabled="disabled">',
-				expected: false
-			},
-			{
-				msg: 'Link',
-				html: '<a href="Foo">Bar</a>',
-				expected: true
-			},
-			{
-				msg: 'Link with empty href',
-				html: '<a href="">Bar</a>',
-				expected: true
-			},
-			{
-				msg: 'Link without href',
-				html: '<a>Bar</a>',
-				expected: false
-			},
-			{
-				msg: 'Link without href but with tabindex',
-				html: '<a tabindex="0">Bar</a>',
-				expected: true
-			},
-			{
-				msg: 'Link with negative tabindex',
-				html: '<a href="foo" tabindex="-1">Bar</a>',
-				expected: true
-			}
-		];
+	let i, $html, result;
+
+	const cases = [
+		{
+			msg: 'Plain DIV',
+			html: '<div>foo</div>',
+			expected: false
+		},
+		{
+			msg: 'Tabindexed span',
+			html: '<span tabindex="3">foo</span>',
+			expected: true
+		},
+		{
+			msg: 'Hidden element',
+			html: '<div tabindex="3" style="display:none;">foo</div>',
+			expected: false
+		},
+		{
+			msg: 'Invalid tabindex',
+			html: '<div tabindex="wat">foo</div>',
+			expected: false
+		},
+		{
+			msg: 'Empty tabindex',
+			html: '<div tabindex="">foo</div>',
+			expected: false
+		},
+		{
+			msg: 'Text input',
+			html: '<input type="text">',
+			expected: true
+		},
+		{
+			msg: 'Disabled text input',
+			html: '<input type="text" disabled="disabled">',
+			expected: false
+		},
+		{
+			msg: 'Link',
+			html: '<a href="Foo">Bar</a>',
+			expected: true
+		},
+		{
+			msg: 'Link with empty href',
+			html: '<a href="">Bar</a>',
+			expected: true
+		},
+		{
+			msg: 'Link without href',
+			html: '<a>Bar</a>',
+			expected: false
+		},
+		{
+			msg: 'Link without href but with tabindex',
+			html: '<a tabindex="0">Bar</a>',
+			expected: true
+		},
+		{
+			msg: 'Link with negative tabindex',
+			html: '<a href="foo" tabindex="-1">Bar</a>',
+			expected: true
+		}
+	];
 	assert.expect( cases.length );
 	for ( i = 0; i < cases.length; i++ ) {
 		$html = $( cases[ i ].html ).appendTo( 'body' );
@@ -97,9 +98,10 @@ QUnit.test( 'isFocusableElement', function ( assert ) {
 } );
 
 QUnit.test( 'debounce', function ( assert ) {
-	var f,
-		log = [],
-		testTimer = new OO.ui.TestTimer(),
+	let f,
+		log = [];
+
+	const testTimer = new OO.ui.TestTimer(),
 		setTimeoutReal = window.setTimeout,
 		clearTimeoutReal = window.clearTimeout;
 	window.setTimeout = testTimer.setTimeout.bind( testTimer );
@@ -182,9 +184,10 @@ QUnit.test( 'debounce', function ( assert ) {
 } );
 
 QUnit.test( 'throttle', function ( assert ) {
-	var f,
-		log = [],
-		testTimer = new OO.ui.TestTimer(),
+	let f,
+		log = [];
+
+	const testTimer = new OO.ui.TestTimer(),
 		setTimeoutReal = window.setTimeout,
 		clearTimeoutReal = window.clearTimeout,
 		nowReal = Date.now;

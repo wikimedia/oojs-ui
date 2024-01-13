@@ -9,7 +9,7 @@
  *
  *     @example
  *     // A CheckboxMultiselectInputWidget with three options.
- *     var multiselectInput = new OO.ui.CheckboxMultiselectInputWidget( {
+ *     const multiselectInput = new OO.ui.CheckboxMultiselectInputWidget( {
  *         options: [
  *             { data: 'a', label: 'First' },
  *             { data: 'b', label: 'Second' },
@@ -70,7 +70,7 @@ OO.inheritClass( OO.ui.CheckboxMultiselectInputWidget, OO.ui.InputWidget );
  * @inheritdoc
  */
 OO.ui.CheckboxMultiselectInputWidget.static.gatherPreInfuseState = function ( node, config ) {
-	var state = OO.ui.CheckboxMultiselectInputWidget.super.static.gatherPreInfuseState(
+	const state = OO.ui.CheckboxMultiselectInputWidget.super.static.gatherPreInfuseState(
 		node, config
 	);
 	state.value = $( node ).find( '.oo-ui-checkboxInputWidget .oo-ui-inputWidget-input:checked' )
@@ -112,7 +112,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.onCheckboxesSelect = function () 
  * @inheritdoc
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.getValue = function () {
-	var value = this.$element.find( '.oo-ui-checkboxInputWidget .oo-ui-inputWidget-input:checked' )
+	const value = this.$element.find( '.oo-ui-checkboxInputWidget .oo-ui-inputWidget-input:checked' )
 		.toArray().map( function ( el ) { return el.value; } );
 	if ( !OO.compare( this.value, value ) ) {
 		this.setValue( value );
@@ -142,15 +142,15 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setValue = function ( value ) {
  * @return {string[]} Cleaned up value
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.cleanUpValue = function ( value ) {
-	var cleanValue = [];
+	const cleanValue = [];
 	if ( !Array.isArray( value ) ) {
 		return cleanValue;
 	}
-	var dataHashSet = new Set( this.checkboxMultiselectWidget.getItems().map( function ( item ) {
+	const dataHashSet = new Set( this.checkboxMultiselectWidget.getItems().map( function ( item ) {
 		return OO.getHash( item.getData() );
 	} ) );
-	for ( var i = 0; i < value.length; i++ ) {
-		var singleValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
+	for ( let i = 0; i < value.length; i++ ) {
+		const singleValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
 			.call( this, value[ i ] );
 		// Remove options that we don't have here
 		if ( !dataHashSet.has( OO.getHash( singleValue ) ) ) {
@@ -179,7 +179,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setDisabled = function ( state ) 
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options ) {
-	var value = this.getValue();
+	const value = this.getValue();
 
 	this.setOptionsData( options );
 
@@ -201,17 +201,17 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options )
  * @private
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( options ) {
-	var widget = this;
+	const widget = this;
 
 	this.optionsDirty = true;
 
 	this.checkboxMultiselectWidget
 		.clearItems()
 		.addItems( options.map( function ( opt ) {
-			var optValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
+			const optValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
 				.call( widget, opt.data );
-			var optDisabled = opt.disabled !== undefined ? opt.disabled : false;
-			var item = new OO.ui.CheckboxMultioptionWidget( {
+			const optDisabled = opt.disabled !== undefined ? opt.disabled : false;
+			const item = new OO.ui.CheckboxMultioptionWidget( {
 				data: optValue,
 				label: opt.label !== undefined ? opt.label : optValue,
 				disabled: optDisabled
@@ -231,12 +231,12 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( optio
  * @private
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.updateOptionsInterface = function () {
-	var defaultValueSet = new Set( this.defaultValue );
+	const defaultValueSet = new Set( this.defaultValue );
 
 	this.checkboxMultiselectWidget.getItems().forEach( function ( item ) {
 		// Remember original selection state. This property can be later used to check whether
 		// the selection state of the input has been changed since it was created.
-		var isDefault = defaultValueSet.has( item.getData() );
+		const isDefault = defaultValueSet.has( item.getData() );
 		item.checkbox.defaultSelected = isDefault;
 		item.checkbox.$input[ 0 ].defaultChecked = isDefault;
 	} );
