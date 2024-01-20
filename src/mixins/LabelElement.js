@@ -126,6 +126,8 @@ OO.ui.mixin.LabelElement.static.highlightQuery = function ( text, query, compare
  * If an element is already set, it will be cleaned up before setting up the new element.
  *
  * @param {jQuery} $label Element to use as label
+ * @chainable
+ * @return {OO.ui.mixin.LabelElement} The element, for chaining
  */
 OO.ui.mixin.LabelElement.prototype.setLabelElement = function ( $label ) {
 	if ( this.$label ) {
@@ -134,6 +136,7 @@ OO.ui.mixin.LabelElement.prototype.setLabelElement = function ( $label ) {
 
 	this.$label = $label.addClass( 'oo-ui-labelElement-label' );
 	this.setLabelContent( this.label );
+	return this;
 };
 
 /**
