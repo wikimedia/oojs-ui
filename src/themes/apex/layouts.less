@@ -86,8 +86,8 @@
 	&.oo-ui-fieldLayout-align-inline {
 		.oo-ui-fieldLayout-help {
 			// HACK: This PopupButtonWidget's `height` extends below the header's baseline (with align: top),
-			// causing the field widget to be narrower than it should be. 0.3em chosen experimentally.
-			margin-top: -0.3em;
+			// causing the field widget to be narrower than it should be. 0.5em chosen experimentally.
+			margin-top: -0.5em;
 			margin-right: -0.625em;
 		}
 	}
@@ -197,8 +197,11 @@
 		margin-bottom: 0.5em;
 	}
 
-	> .oo-ui-fieldsetLayout-header > .oo-ui-popupButtonWidget {
-		.oo-ui-inline-spacing( 0 );
+	.oo-ui-fieldsetLayout-help {
+		&,
+		&:last-child {
+			margin-right: -0.625em;
+		}
 	}
 }
 
