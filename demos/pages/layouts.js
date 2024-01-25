@@ -31,6 +31,7 @@ Demo.static.pages.layouts = function ( demo ) {
 		new Demo.LinkedFieldsetLayout( {
 			id: 'demo-section-fieldLayouts',
 			label: 'Field layouts',
+			icon: 'layout',
 			help: 'Fieldset help',
 			items: [
 				new OO.ui.FieldLayout(

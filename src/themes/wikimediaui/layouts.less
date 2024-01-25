@@ -200,12 +200,12 @@
 	.oo-ui-fieldsetLayout-header {
 		max-width: @max-width-base;
 
-		.oo-ui-iconElement-icon {
+		> .oo-ui-iconElement-icon {
 			height: @size-icon-medium;
 		}
 	}
 
-	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header .oo-ui-iconElement-icon {
+	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header > .oo-ui-iconElement-icon {
 		display: block;
 	}
 
@@ -230,18 +230,16 @@
 	}
 
 	.oo-ui-fieldsetLayout-help {
-		// Assuming that this is a PopupButtonWidget.
-		// HACK: This PopupButtonWidget's `height` extends below the header's baseline (with align: top),
-		// causing the field widget to be narrower than it should be.
+		// The help button is a PopupButtonWidget.
 		&,
 		&:last-child {
 			margin-right: @margin-end-fieldlayout-help;
+			// Align with header text
+			// Equivalent to removing button icon's top padding, but without changing the click target
+			margin-top: calc( ~' ( ' @min-size-icon-medium ~' - ' @padding-top-icon-indicator ~' ) / 2 ' );
 		}
 
 		.oo-ui-buttonElement-button {
-			padding-top: @size-icon-medium;
-			padding-right: 0; // Accessible label causes triggering of `.oo-ui-labelElement`, we need to reset it here
-
 			&:hover,
 			&:active {
 				background-color: transparent;
