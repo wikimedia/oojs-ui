@@ -49,7 +49,7 @@ OO.inheritClass( OO.ui.SearchInputWidget, OO.ui.TextInputWidget );
  * @inheritdoc
  * @protected
  */
-OO.ui.SearchInputWidget.prototype.getSaneType = function () {
+OO.ui.SearchInputWidget.prototype.getValidType = function () {
 	return 'search';
 };
 

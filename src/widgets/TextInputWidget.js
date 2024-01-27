@@ -56,7 +56,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	config = $.extend( {
 		labelPosition: 'after'
 	}, config );
-	config.type = this.getSaneType( config );
+	config.type = this.getValidType( config );
 	if ( config.autocomplete === false ) {
 		config.autocomplete = 'off';
 	} else if ( config.autocomplete === true ) {
@@ -362,7 +362,7 @@ OO.ui.TextInputWidget.prototype.getInputElement = function ( config ) {
  * @return {string}
  * @protected
  */
-OO.ui.TextInputWidget.prototype.getSaneType = function ( config ) {
+OO.ui.TextInputWidget.prototype.getValidType = function ( config ) {
 	const allowedTypes = [
 		'text',
 		'password',
