@@ -914,9 +914,6 @@ OO.ui.WindowManager.prototype.toggleIsolation = function ( isolate ) {
 	return this;
 };
 
-// Deprecated alias, since 0.44.1
-OO.ui.WindowManager.prototype.toggleAriaIsolation = OO.ui.WindowManager.prototype.toggleIsolation;
-
 /**
  * Destroy the window manager.
  */
