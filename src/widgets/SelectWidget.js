@@ -532,11 +532,6 @@ OO.ui.SelectWidget.prototype.getItemMatcher = function ( query, mode ) {
 	const normalizeForMatching = this.constructor.static.normalizeForMatching,
 		normalizedQuery = normalizeForMatching( query );
 
-	// Support deprecated exact=true argument
-	if ( mode === true ) {
-		mode = 'exact';
-	}
-
 	// Empty string matches everything, except in "exact" mode where it matches nothing
 	if ( !normalizedQuery ) {
 		return function () {
