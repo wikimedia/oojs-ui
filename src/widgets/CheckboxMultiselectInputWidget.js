@@ -74,7 +74,9 @@ OO.ui.CheckboxMultiselectInputWidget.static.gatherPreInfuseState = function ( no
 		node, config
 	);
 	state.value = $( node ).find( '.oo-ui-checkboxInputWidget .oo-ui-inputWidget-input:checked' )
-		.toArray().map( function ( el ) { return el.value; } );
+		.toArray().map( function ( el ) {
+			return el.value;
+		} );
 	return state;
 };
 
@@ -113,7 +115,9 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.onCheckboxesSelect = function () 
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.getValue = function () {
 	const value = this.$element.find( '.oo-ui-checkboxInputWidget .oo-ui-inputWidget-input:checked' )
-		.toArray().map( function ( el ) { return el.value; } );
+		.toArray().map( function ( el ) {
+			return el.value;
+		} );
 	if ( !OO.compare( this.value, value ) ) {
 		this.setValue( value );
 	}

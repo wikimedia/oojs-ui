@@ -143,7 +143,9 @@ Demo.static.pages.icons = function ( demo ) {
 			} )
 			.append(
 				selector.$element,
-				iconsFieldsets.map( function ( item ) { return item.$element[ 0 ]; } ),
+				iconsFieldsets.map( function ( item ) {
+					return item.$element[ 0 ];
+				} ),
 				indicatorsFieldset.$element
 			)
 	);

@@ -2927,7 +2927,9 @@ Demo.static.pages.widgets = function ( demo ) {
 			framed: true
 		} ).$element
 			.append(
-				$( fieldsets.map( function ( fieldset ) { return fieldset.$element[ 0 ]; } ) )
+				$( fieldsets.map( function ( fieldset ) {
+					return fieldset.$element[ 0 ];
+				} ) )
 			)
 	);
 

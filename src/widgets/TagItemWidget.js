@@ -54,7 +54,9 @@ OO.ui.TagItemWidget = function OoUiTagItemWidget( config ) {
 		// are more deliberate. When the tag is clicked, it will emit the
 		// selection event (similar to how #OO.ui.MultioptionWidget emits 'change')
 		// and can be handled separately.
-		.on( 'mousedown', function ( e ) { e.stopPropagation(); } );
+		.on( 'mousedown', function ( e ) {
+			e.stopPropagation();
+		} );
 
 	// Initialization
 	this.$element
