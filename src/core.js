@@ -520,3 +520,15 @@ OO.ui.getDefaultOverlay = function () {
 	}
 	return OO.ui.$defaultOverlay;
 };
+
+// Define a custom HTML element that does nothing except to expose the `connectedCallback` callback
+// as `onConnectOOUI` property. We use it in some widgets to detect when they are connected.
+if ( window.customElements ) {
+	window.customElements.define( 'ooui-connect-detector', class extends HTMLElement {
+		connectedCallback() {
+			if ( this.onConnectOOUI instanceof Function ) {
+				this.onConnectOOUI();
+			}
+		}
+	} );
+}
