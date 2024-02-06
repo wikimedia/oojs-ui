@@ -1,4 +1,4 @@
-/* eslint-disable quotes, quote-props, max-len */
+/* eslint-disable quotes, quote-props */
 
 'use strict';
 
@@ -21,9 +21,9 @@ module.exports = {
 			],
 			"customSyntax": "postcss-less",
 			"rules": {
-				"block-closing-brace-space-after": null,
 				"block-no-empty": null,
 				"no-descending-specificity": null,
+				"stylistic/block-closing-brace-space-after": null,
 				"selector-class-pattern": "^(oo-ui|mw-tool)-"
 			}
 		}
