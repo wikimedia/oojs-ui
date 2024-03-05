@@ -456,7 +456,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 	// Ensure handlers get called after preparingToOpen is set
 	this.preparingToOpen.done( function () {
 		if ( manager.isModal() ) {
-			manager.toggleGlobalEvents( true );
+			manager.toggleGlobalEvents( true, win );
 			manager.toggleIsolation( true );
 		}
 		manager.$returnFocusTo = data.$returnFocusTo !== undefined ?
@@ -774,7 +774,7 @@ OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 OO.ui.WindowManager.prototype.togglePreventIosScrolling = function ( on ) {
 	const isIos = /ipad|iphone|ipod/i.test( navigator.userAgent ),
 		$body = $( this.getElementDocument().body ),
-		stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0;
+		stackDepth = ( $body.data( 'windowManagerGlobalEvents' ) || [] ).length;
 
 	// Only if this is the first/last WindowManager (see #toggleGlobalEvents)
 	if ( !isIos || stackDepth !== 1 ) {
@@ -806,17 +806,20 @@ OO.ui.WindowManager.prototype.togglePreventIosScrolling = function ( on ) {
  *
  * @private
  * @param {boolean} [on] Bind global events
+ * @param {OO.ui.Window} [win] The just-opened window (when turning on events)
  * @chainable
  * @return {OO.ui.WindowManager} The manager, for chaining
  */
-OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
+OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on, win ) {
 	const $body = $( this.getElementDocument().body );
 	const $window = $( this.getElementWindow() );
 	// We could have multiple window managers open so only modify
 	// the body css at the bottom of the stack
-	let stackDepth = $body.data( 'windowManagerGlobalEvents' ) || 0;
+	const stack = $body.data( 'windowManagerGlobalEvents' ) || [];
 
 	on = on === undefined ? !!this.globalEvents : !!on;
+
+	const $bodyAndParent = $body.add( $body.parent() );
 
 	if ( on ) {
 		if ( !this.globalEvents ) {
@@ -825,10 +828,7 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 				'orientationchange resize': this.onWindowResizeHandler,
 				focus: this.onWindowFocusHandler
 			} );
-			if ( stackDepth === 0 ) {
-				$body.add( $body.parent() ).addClass( 'oo-ui-windowManager-modal-active' );
-			}
-			stackDepth++;
+			stack.push( win );
 			this.globalEvents = true;
 		}
 	} else if ( this.globalEvents ) {
@@ -837,13 +837,17 @@ OO.ui.WindowManager.prototype.toggleGlobalEvents = function ( on ) {
 			'orientationchange resize': this.onWindowResizeHandler,
 			focus: this.onWindowFocusHandler
 		} );
-		stackDepth--;
-		if ( stackDepth === 0 ) {
-			$body.add( $body.parent() ).removeClass( 'oo-ui-windowManager-modal-active' );
-		}
+		stack.pop();
 		this.globalEvents = false;
 	}
-	$body.data( 'windowManagerGlobalEvents', stackDepth );
+
+	if ( stack.length > 0 ) {
+		$bodyAndParent.addClass( 'oo-ui-windowManager-modal-active' );
+		$bodyAndParent.toggleClass( 'oo-ui-windowManager-modal-active-fullscreen', stack.some( ( w ) => w.getSize() === 'full' ) );
+	} else {
+		$bodyAndParent.removeClass( 'oo-ui-windowManager-modal-active oo-ui-windowManager-modal-active-fullscreen' );
+	}
+	$body.data( 'windowManagerGlobalEvents', stack );
 
 	return this;
 };
