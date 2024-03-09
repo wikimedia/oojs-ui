@@ -12,7 +12,7 @@
  *
  *     @example
  *     // A DropdownWidget with a menu that contains three options.
- *     const dropDown = new OO.ui.DropdownWidget( {
+ *     const dropdown = new OO.ui.DropdownWidget( {
  *         label: 'Dropdown menu: Select a menu option',
  *         menu: {
  *             items: [
@@ -32,11 +32,11 @@
  *         }
  *     } );
  *
- *     $( document.body ).append( dropDown.$element );
+ *     $( document.body ).append( dropdown.$element );
  *
- *     dropDown.getMenu().selectItemByData( 'b' );
+ *     dropdown.getMenu().selectItemByData( 'b' );
  *
- *     dropDown.getMenu().findSelectedItem().getData(); // Returns 'b'.
+ *     dropdown.getMenu().findSelectedItem().getData(); // Returns 'b'.
  *
  * @class
  * @extends OO.ui.Widget
