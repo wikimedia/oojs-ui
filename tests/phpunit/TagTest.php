@@ -7,7 +7,7 @@ use OOUI\Tag;
 class TagTest extends \PHPUnit\Framework\TestCase {
 
 	/**
-	 * @covers Tag::__construct
+	 * @covers \OOUI\Tag::__construct
 	 */
 	public function testConstructor() {
 		$this->assertInstanceOf( 'OOUI\Tag', new Tag() );
@@ -15,9 +15,9 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers Tag::addClasses
-	 * @covers Tag::removeClasses
-	 * @covers Tag::hasClass
+	 * @covers \OOUI\Tag::addClasses
+	 * @covers \OOUI\Tag::removeClasses
+	 * @covers \OOUI\Tag::hasClass
 	 */
 	public function testClasses() {
 		$tag = ( new Tag() )->addClasses( [ 'class1', 'class2' ] );
@@ -29,9 +29,9 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers Tag::appendContent
-	 * @covers Tag::prependContent
-	 * @covers Tag::clearContent
+	 * @covers \OOUI\Tag::appendContent
+	 * @covers \OOUI\Tag::prependContent
+	 * @covers \OOUI\Tag::clearContent
 	 */
 	public function testContent() {
 		$content = new \ReflectionProperty( 'OOUI\Tag', 'content' );
@@ -98,9 +98,9 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers Tag::appendContent
-	 * @covers Tag::prependContent
-	 * @covers Tag::removeContent
+	 * @covers \OOUI\Tag::appendContent
+	 * @covers \OOUI\Tag::prependContent
+	 * @covers \OOUI\Tag::removeContent
 	 */
 	public function testVariadicContentMethods() {
 		$tag = new Tag();
@@ -118,7 +118,7 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers Tag::appendContent
+	 * @covers \OOUI\Tag::appendContent
 	 */
 	public function testAppendContentWithArrayKeys() {
 		$tag = new Tag();
@@ -127,7 +127,7 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers Tag::prependContent
+	 * @covers \OOUI\Tag::prependContent
 	 */
 	public function testPrependContentWithArrayKeys() {
 		$tag = new Tag();
@@ -136,9 +136,9 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers Tag::setAttributes
-	 * @covers Tag::getAttribute
-	 * @covers Tag::removeAttributes
+	 * @covers \OOUI\Tag::setAttributes
+	 * @covers \OOUI\Tag::getAttribute
+	 * @covers \OOUI\Tag::removeAttributes
 	 */
 	public function testAttributes() {
 		$tag = ( new Tag() )->setAttributes( [
@@ -154,7 +154,7 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers Tag::ensureInfusableId
+	 * @covers \OOUI\Tag::ensureInfusableId
 	 */
 	public function testEnsureInfusableId() {
 		$tag = ( new Tag() )->setAttributes( [ 'id' => 'foobar' ] );
@@ -170,7 +170,7 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers Tag::toString
+	 * @covers \OOUI\Tag::toString
 	 * @dataProvider provideToString
 	 */
 	public function testToString( $tag, $expected ) {
@@ -187,7 +187,7 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers Tag::isSafeUrl
+	 * @covers \OOUI\Tag::isSafeUrl
 	 * @dataProvider provideIsSafeUrl
 	 */
 	public function testIsSafeUrl( $url, $expected ) {

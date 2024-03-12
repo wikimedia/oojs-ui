@@ -1,4 +1,5 @@
 <?php
+	// phpcs:disable Generic.WhiteSpace.ScopeIndent
 	define( 'OOUI_DEMOS', true );
 
 	$autoload = __DIR__ . '/vendor/autoload.php';
@@ -15,7 +16,7 @@
 		'wikimediaui' => 'WikimediaUI', // Do not change this line or you'll break `grunt add-theme`
 		'apex' => 'Apex',
 	];
-	// phpcs:enable
+	// phpcs:enable MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment
 	$theme = ( isset( $_GET['theme'] ) && isset( $themes[ $_GET['theme'] ] ) )
 		? $_GET['theme'] : 'wikimediaui';
 	$themeClass = 'OOUI\\' . $themes[ $theme ] . 'Theme';

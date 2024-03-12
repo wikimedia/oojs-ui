@@ -21,7 +21,7 @@ class ElementTest extends TestCase {
 	}
 
 	/**
-	 * @covers Element::getSerializedConfig
+	 * @covers \OOUI\Element::getSerializedConfig
 	 * @dataProvider provideGetSerializedConfig
 	 */
 	public function testGetSerializedConfig( $widget, $expected ) {
@@ -54,7 +54,7 @@ class ElementTest extends TestCase {
 	}
 
 	/**
-	 * @covers Element::configFromHtmlAttributes
+	 * @covers \OOUI\Element::configFromHtmlAttributes
 	 * @dataProvider provideConfigFromHtmlAttributes
 	 */
 	public function testConfigFromHtmlAttributes( $attrs, $expected ) {

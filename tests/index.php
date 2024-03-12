@@ -43,13 +43,13 @@
 	<!-- JS/PHP comparison tests -->
 	<div id="JSPHPTestSuite" style="display: none;">
 		<?php
-			foreach ( $testSuiteOutputs as $theme => $testSuite ) {
-				foreach ( $testSuite as $className => $cases ) {
-					foreach ( $cases as $index => $case ) {
-						echo "<div id='JSPHPTestSuite_$theme$className$index'>$case</div>\n";
-					}
+		foreach ( $testSuiteOutputs as $theme => $testSuite ) {
+			foreach ( $testSuite as $className => $cases ) {
+				foreach ( $cases as $index => $case ) {
+					echo "<div id='JSPHPTestSuite_$theme$className$index'>$case</div>\n";
 				}
 			}
+		}
 		?>
 	</div>
 	<script>OO.ui.JSPHPTestSuite = <?php echo $testSuiteJSON; ?></script>
