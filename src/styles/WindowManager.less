@@ -43,8 +43,11 @@
 			overflow: hidden;
 		}
 
-		html& {
+		// stylelint-disable-next-line selector-not-notation
+		html&:not( &-fullscreen ) {
 			// Prevent positioned content from shifting when the scrollbar is removed (T208436, T93476)
+			// ...except in fullscreen mode (T358250). TODO: Revisit when browser support has improved,
+			// maybe in 2025? (https://web.dev/blog/interop-2024)
 			scrollbar-gutter: stable;
 		}
 	}
