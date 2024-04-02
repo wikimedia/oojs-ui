@@ -1,5 +1,21 @@
 # OOUI Release History
 
+## v0.49.1 / 2024-04-02
+
+### Styles
+* icons: Add 'sortVertical' to 'movement' pack (Volker E.)
+* icons: Update 'destructive' colour from #d33 to #d73333 (James D. Forrester)
+* WikimediaUI theme: Increase margin for PopupWidget label to account for close button (Arthur Taylor)
+* WindowManager: Don't use scrollbar-gutter in fullscreen mode (Ed Sanders)
+
+### Code
+* build: Updating follow-redirects to 1.15.6 ([BOT] libraryupgrader)
+* build: Upgrade eslint-config-wikimedia to 0.27.0 (James D. Forrester)
+* build: Upgrade mediawiki/mediawiki-codesniffer to v43.0.0 (Umherirrender)
+* build: Update 'codex-design-tokens' to latest (Volker E.)
+* docs: Update README.md syntax for JSDoc (Bartosz Dziewoński)
+* DropdownWidget: Rename variable in code example (Umherirrender)
+
 ## v0.49.0 / 2024-02-06
 
 ### Breaking changes
