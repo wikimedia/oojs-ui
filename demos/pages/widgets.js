@@ -2371,7 +2371,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						invisibleLabel: true,
 						popup: {
 							head: true,
-							label: 'More information',
+							label: 'More information in this PopupButtonWidget with a very long title',
 							$content: $( '<p>' ).text( loremIpsum ),
 							padded: true,
 							align: 'backwards',
@@ -2379,7 +2379,7 @@ Demo.static.pages.widgets = function ( demo ) {
 						}
 					} ),
 					{
-						label: 'PopupButtonWidget (quiet, with popup head align: backwards)',
+						label: 'PopupButtonWidget (quiet, with popup head and long title, align: backwards)',
 						align: 'top'
 					}
 				),
