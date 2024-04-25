@@ -1,0 +1,12 @@
+# Build
+/coverage/
+/dist/
+/docs/
+/vendor/
+/demos/dist/
+/demos/vendor/
+.rubocop_todo.yml
+
+# Test data
+tests/JSPHP-suite.json
+tests/JSPHP.test.js

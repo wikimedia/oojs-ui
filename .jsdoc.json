@@ -1,84 +1,82 @@
 {
-    "opts": {
-        "encoding": "utf8",
-        "destination": "docs",
-        "package": "package.json",
-        "readme": "README.md",
-        "recurse": true,
-        "template": "node_modules/jsdoc-wmf-theme",
-        "class-hierarchy": {
-          "showList": true
-        }
-    },
-    "plugins": [
-        "plugins/markdown",
-        "plugins/summarize",
-        "node_modules/jsdoc-class-hierarchy",
-        "build/jsdoc-peculiar-static"
-    ],
-    "recurseDepth": 10,
-    "source": {
-        "include": [ "src" ],
-        "includePattern": ".+\\.js$"
-    },
-    "tags": {
-        "allowUnknownTags": [ "chainable" ],
-        "dictionaries": [ "jsdoc" ]
-    },
-    "templates": {
-        "cleverLinks": true,
-        "default": {
-            "useLongnameInNav": true
-        },
-        "wmf": {
-            "maintitle": "OOUI",
-            "repository": "https://gerrit.wikimedia.org/g/oojs/ui/",
-            "hideSections": [ "Events" ],
-            "linkMap": {
-                "Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
-                "Boolean": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
-                "Document": "https://developer.mozilla.org/en-US/docs/Web/API/Document",
-                "Element": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
-                "Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
-                "Event": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
-                "EventEmitter": "https://nodejs.org/api/events.html#events_class_eventemitter",
-                "Function": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
-                "Generator": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
-                "Map": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
-                "Mixed": "javascript:void(0);",
-                "Node": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
-                "Number": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
-                "Object": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-                "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
-                "RegExp": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
-                "Request": "http://expressjs.com/en/api.html#req",
-                "Response": "http://expressjs.com/en/api.html#res",
-                "Set": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
-                "String": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
-                "TextNode": "https://developer.mozilla.org/en-US/docs/Web/API/Text",
-                "File": "https://developer.mozilla.org/en-US/docs/Web/API/File",
-                "FileList": "https://developer.mozilla.org/en-US/docs/Web/API/FileList",
-                "HTMLBodyElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLBodyElement",
-                "HTMLDocument": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument",
-                "HTMLElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement",
-                "HTMLHtmlElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLHtmlElement",
-                "KeyboardEvent": "https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent",
-                "MouseEvent": "https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent",
-                "Window": "https://developer.mozilla.org/en-US/docs/Web/API/Window",
-                "jQuery":"http://api.jquery.com/",
-                "jQuery.Deferred": "http://api.jquery.com/jQuery.Deferred/",
-                "jQuery.Event": "http://api.jquery.com/Types/#Event",
-                "jQuery.Promise": "http://api.jquery.com/Types/#Promise",
-                "jQuery.jqXHR": "http://api.jquery.com/Types/#jqXHR",
-                "OO": "https://doc.wikimedia.org/oojs/master/OO.html",
-                "OO.EmitterList": "https://doc.wikimedia.org/oojs/master/OO.EmitterList.html",
-                "OO.EventEmitter": "https://doc.wikimedia.org/oojs/master/OO.EventEmitter.html",
-                "OO.Factory": "https://doc.wikimedia.org/oojs/master/OO.Factory.html",
-                "OO.Registry": "https://doc.wikimedia.org/oojs/master/OO.Registry.html",
-                "OO.SortedEmitterList": "https://doc.wikimedia.org/oojs/master/OO.SortedEmitterList.html"
-            }
-        }
-    }
+	"opts": {
+		"encoding": "utf8",
+		"destination": "docs",
+		"package": "package.json",
+		"readme": "README.md",
+		"recurse": true,
+		"template": "node_modules/jsdoc-wmf-theme",
+		"class-hierarchy": {
+			"showList": true
+		}
+	},
+	"plugins": [
+		"plugins/markdown",
+		"plugins/summarize",
+		"node_modules/jsdoc-class-hierarchy",
+		"build/jsdoc-peculiar-static"
+	],
+	"recurseDepth": 10,
+	"source": {
+		"include": [ "src" ],
+		"includePattern": ".+\\.js$"
+	},
+	"tags": {
+		"allowUnknownTags": [ "chainable" ],
+		"dictionaries": [ "jsdoc" ]
+	},
+	"templates": {
+		"cleverLinks": true,
+		"default": {
+			"useLongnameInNav": true
+		},
+		"wmf": {
+			"maintitle": "OOUI",
+			"repository": "https://gerrit.wikimedia.org/g/oojs/ui/",
+			"hideSections": [ "Events" ],
+			"linkMap": {
+				"Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+				"Boolean": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+				"Document": "https://developer.mozilla.org/en-US/docs/Web/API/Document",
+				"Element": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+				"Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+				"Event": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+				"EventEmitter": "https://nodejs.org/api/events.html#events_class_eventemitter",
+				"Function": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+				"Generator": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+				"Map": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+				"Mixed": "#",
+				"Node": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+				"Number": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+				"Object": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+				"Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+				"RegExp": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+				"Request": "http://expressjs.com/en/api.html#req",
+				"Response": "http://expressjs.com/en/api.html#res",
+				"Set": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+				"String": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+				"TextNode": "https://developer.mozilla.org/en-US/docs/Web/API/Text",
+				"File": "https://developer.mozilla.org/en-US/docs/Web/API/File",
+				"FileList": "https://developer.mozilla.org/en-US/docs/Web/API/FileList",
+				"HTMLBodyElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLBodyElement",
+				"HTMLDocument": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument",
+				"HTMLElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement",
+				"HTMLHtmlElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLHtmlElement",
+				"KeyboardEvent": "https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent",
+				"MouseEvent": "https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent",
+				"Window": "https://developer.mozilla.org/en-US/docs/Web/API/Window",
+				"jQuery": "http://api.jquery.com/",
+				"jQuery.Deferred": "http://api.jquery.com/jQuery.Deferred/",
+				"jQuery.Event": "http://api.jquery.com/Types/#Event",
+				"jQuery.Promise": "http://api.jquery.com/Types/#Promise",
+				"jQuery.jqXHR": "http://api.jquery.com/Types/#jqXHR",
+				"OO": "https://doc.wikimedia.org/oojs/master/OO.html",
+				"OO.EmitterList": "https://doc.wikimedia.org/oojs/master/OO.EmitterList.html",
+				"OO.EventEmitter": "https://doc.wikimedia.org/oojs/master/OO.EventEmitter.html",
+				"OO.Factory": "https://doc.wikimedia.org/oojs/master/OO.Factory.html",
+				"OO.Registry": "https://doc.wikimedia.org/oojs/master/OO.Registry.html",
+				"OO.SortedEmitterList": "https://doc.wikimedia.org/oojs/master/OO.SortedEmitterList.html"
+			}
+		}
+	}
 }
-
-

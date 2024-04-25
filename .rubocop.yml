@@ -2,7 +2,7 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   Include:
-    - 'bin/*.rb'
+    - bin/*.rb
 
 Metrics/LineLength:
   Max: 120
@@ -84,4 +84,3 @@ Layout/CommentIndentation:
   Enabled: false
 Layout/IndentAssignment:
   Enabled: false
-
