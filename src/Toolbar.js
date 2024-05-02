@@ -355,7 +355,7 @@ OO.mixinClass( OO.ui.Toolbar, OO.ui.mixin.GroupElement );
  * changes, and an update to the state of tools is required.
  *
  * @event OO.ui.Toolbar#updateState
- * @param {...Mixed} data Application-defined parameters
+ * @param {...any} data Application-defined parameters
  */
 
 /**

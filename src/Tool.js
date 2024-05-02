@@ -205,7 +205,7 @@ OO.ui.Tool.static.autoAddToGroup = true;
  * must also call this method so that the compatibility check can be performed.
  *
  * @static
- * @param {Mixed} data Data to check
+ * @param {any} data Data to check
  * @return {boolean} Tool can be used with data
  */
 OO.ui.Tool.static.isCompatibleWith = function () {

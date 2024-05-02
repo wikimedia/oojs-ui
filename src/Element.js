@@ -22,7 +22,7 @@
  *  Instances of OO.ui.Element will have their $element appended.
  * @param {jQuery} [config.$content] Content elements to append (after #text).
  * @param {jQuery} [config.$element] Wrapper element. Defaults to a new element with #getTagName.
- * @param {Mixed} [config.data] Custom data of any type or combination of types (e.g., string, number,
+ * @param {any} [config.data] Custom data of any type or combination of types (e.g., string, number,
  *  array, object).
  *  Data can also be specified with the #setData method.
  */
@@ -916,7 +916,7 @@ OO.ui.Element.prototype.isVisible = function () {
 /**
  * Get element data.
  *
- * @return {Mixed} Element data
+ * @return {any} Element data
  */
 OO.ui.Element.prototype.getData = function () {
 	return this.data;
@@ -925,7 +925,7 @@ OO.ui.Element.prototype.getData = function () {
 /**
  * Set element data.
  *
- * @param {Mixed} data Element data
+ * @param {any} data Element data
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  */

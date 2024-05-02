@@ -35,8 +35,6 @@
 			"repository": "https://gerrit.wikimedia.org/g/oojs/ui/",
 			"hideSections": [ "Events" ],
 			"linkMap": {
-				"Mixed": "#",
-
 				"Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
 				"Boolean": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
 				"Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",

@@ -320,8 +320,8 @@ OO.ui.mixin.LookupElement.prototype.getLookupRequest = null;
  * @protected
  * @method
  * @abstract
- * @param {Mixed} response Response from server
- * @return {Mixed} Cached result data
+ * @param {any} response Response from server
+ * @return {any} Cached result data
  */
 OO.ui.mixin.LookupElement.prototype.getLookupCacheDataFromResponse = null;
 
@@ -332,7 +332,7 @@ OO.ui.mixin.LookupElement.prototype.getLookupCacheDataFromResponse = null;
  * @protected
  * @method
  * @abstract
- * @param {Mixed} data Cached result data, usually an array
+ * @param {any} data Cached result data, usually an array
  * @return {OO.ui.MenuOptionWidget[]} Menu items
  */
 OO.ui.mixin.LookupElement.prototype.getLookupMenuOptionsFromData = null;

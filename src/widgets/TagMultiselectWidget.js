@@ -41,7 +41,7 @@
  * @param {boolean} [config.allowEditTags=true] Allow editing of the tags by clicking them
  * @param {boolean} [config.allowArbitrary=false] Allow data items to be added even if
  *  not present in the menu.
- * @param {Mixed[]} [config.allowedValues] An array representing the allowed items
+ * @param {any[]} [config.allowedValues] An array representing the allowed items
  *  by their datas.
  * @param {boolean} [config.allowDuplicates=false] Allow duplicate items to be added
  * @param {boolean} [config.allowDisplayInvalidTags=false] Allow the display of
@@ -588,7 +588,7 @@ OO.ui.TagMultiselectWidget.prototype.clearInput = function () {
  * Check whether the given value is a duplicate of an existing
  * tag already in the list.
  *
- * @param {Mixed} data Requested value
+ * @param {any} data Requested value
  * @return {boolean} Value is duplicate
  */
 OO.ui.TagMultiselectWidget.prototype.isDuplicateData = function ( data ) {
@@ -598,7 +598,7 @@ OO.ui.TagMultiselectWidget.prototype.isDuplicateData = function ( data ) {
 /**
  * Check whether a given value is allowed to be added
  *
- * @param {Mixed} data Requested value
+ * @param {any} data Requested value
  * @return {boolean} Value is allowed
  */
 OO.ui.TagMultiselectWidget.prototype.isAllowedData = function ( data ) {
@@ -628,7 +628,7 @@ OO.ui.TagMultiselectWidget.prototype.isAllowedData = function ( data ) {
 /**
  * Get the allowed values list
  *
- * @return {Mixed[]} Allowed data values
+ * @return {any[]} Allowed data values
  */
 OO.ui.TagMultiselectWidget.prototype.getAllowedValues = function () {
 	return this.allowedValues;
@@ -637,7 +637,7 @@ OO.ui.TagMultiselectWidget.prototype.getAllowedValues = function () {
 /**
  * Add a value to the allowed values list
  *
- * @param {Mixed} value Allowed data value
+ * @param {any} value Allowed data value
  */
 OO.ui.TagMultiselectWidget.prototype.addAllowedValue = function ( value ) {
 	if ( this.allowedValues.indexOf( value ) === -1 ) {
@@ -648,7 +648,7 @@ OO.ui.TagMultiselectWidget.prototype.addAllowedValue = function ( value ) {
 /**
  * Get the datas of the currently selected items
  *
- * @return {Mixed[]} Datas of currently selected items
+ * @return {any[]} Datas of currently selected items
  */
 OO.ui.TagMultiselectWidget.prototype.getValue = function () {
 	return this.getItems()
@@ -695,7 +695,7 @@ OO.ui.TagMultiselectWidget.prototype.setValue = function ( valueObject ) {
  *
  * Performs a validation check on the tag to be added.
  *
- * @param {Mixed} data Tag data
+ * @param {any} data Tag data
  * @param {string|jQuery} [label=data] Tag label. If no label is provided, the
  *  stringified version of the data will be used instead.
  * @return {boolean} Item was added successfully
@@ -739,7 +739,7 @@ OO.ui.TagMultiselectWidget.prototype.removeTagByData = function ( data ) {
  * Construct a OO.ui.TagItemWidget (or a subclass thereof) from given label and data.
  *
  * @protected
- * @param {Mixed} data Item data
+ * @param {any} data Item data
  * @param {string|jQuery} [label=data] The label text or JQuery collection.
  * @return {OO.ui.TagItemWidget}
  */

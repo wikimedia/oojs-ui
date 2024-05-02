@@ -123,7 +123,7 @@ OO.ui.mixin.RequestManager.prototype.getRequest = null;
  * @protected
  * @method
  * @abstract
- * @param {Mixed} response Response from server
- * @return {Mixed} Cached result data
+ * @param {any} response Response from server
+ * @return {any} Cached result data
  */
 OO.ui.mixin.RequestManager.prototype.getRequestCacheDataFromResponse = null;

@@ -155,10 +155,10 @@ OO.ui.getUserLanguages = function () {
 /**
  * Get a value in an object keyed by language code.
  *
- * @param {Object.<string,Mixed>} obj Object keyed by language code
+ * @param {Object.<string,any>} obj Object keyed by language code
  * @param {string|null} [lang] Language code, if omitted or null defaults to any user language
  * @param {string} [fallback] Fallback code, used if no matching language can be found
- * @return {Mixed} Local value
+ * @return {any} Local value
  */
 OO.ui.getLocalValue = function ( obj, lang, fallback ) {
 	// Requested language
@@ -369,7 +369,7 @@ OO.ui.infuse = function ( node, config ) {
  *     } );
  *
  * @param {string} key Message key
- * @param {...Mixed} [params] Message parameters
+ * @param {...any} [params] Message parameters
  * @return {string} Translated message with parameters substituted
  */
 OO.ui.msg = function ( key ) {
@@ -397,7 +397,7 @@ OO.ui.msg = function ( key ) {
  * Use this when you are statically specifying a message and the message may not yet be present.
  *
  * @param {string} key Message key
- * @param {...Mixed} [params] Message parameters
+ * @param {...any} [params] Message parameters
  * @return {Function} Function that returns the resolved message when executed
  */
 OO.ui.deferMsg = function () {
@@ -412,8 +412,8 @@ OO.ui.deferMsg = function () {
  *
  * If the message is a function it will be executed, otherwise it will pass through directly.
  *
- * @param {Function|string|Mixed} msg
- * @return {string|Mixed} Resolved message when there was something to resolve, pass through
+ * @param {Function|string|any} msg
+ * @return {string|any} Resolved message when there was something to resolve, pass through
  *  otherwise
  */
 OO.ui.resolveMsg = function ( msg ) {
