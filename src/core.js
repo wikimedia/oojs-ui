@@ -128,10 +128,10 @@ OO.ui.findFocusable = function ( $container, backwards ) {
 		$focusableCandidates = Array.prototype.reverse.call( $focusableCandidates );
 	}
 
-	$focusableCandidates.each( function () {
-		const $this = $( this );
-		if ( OO.ui.isFocusableElement( $this ) ) {
-			$focusable = $this;
+	$focusableCandidates.each( ( i, el ) => {
+		const $el = $( el );
+		if ( OO.ui.isFocusableElement( $el ) ) {
+			$focusable = $el;
 			return false;
 		}
 	} );

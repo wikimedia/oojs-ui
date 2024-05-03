@@ -34,9 +34,9 @@ Demo.OutlinedBookletDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'toggle' ) {
 		this.bookletLayout.toggleOutline();
 	} else if ( action ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.close( { action: action } );
-		}, this );
+		} );
 	}
 	return Demo.OutlinedBookletDialog.super.prototype.getActionProcess.call( this, action );
 };
@@ -45,7 +45,7 @@ Demo.OutlinedBookletDialog.prototype.onBookletLayoutSet = function ( page ) {
 };
 Demo.OutlinedBookletDialog.prototype.getSetupProcess = function ( data ) {
 	return Demo.OutlinedBookletDialog.super.prototype.getSetupProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			this.bookletLayout.setPage( this.getSize() );
-		}, this );
+		} );
 };

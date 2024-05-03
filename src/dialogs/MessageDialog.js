@@ -128,9 +128,9 @@ OO.ui.MessageDialog.prototype.toggleVerticalActionLayout = function ( value ) {
  */
 OO.ui.MessageDialog.prototype.getActionProcess = function ( action ) {
 	if ( action ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.close( { action: action } );
-		}, this );
+		} );
 	}
 	return OO.ui.MessageDialog.super.prototype.getActionProcess.call( this, action );
 };
@@ -150,7 +150,7 @@ OO.ui.MessageDialog.prototype.getSetupProcess = function ( data ) {
 
 	// Parent method
 	return OO.ui.MessageDialog.super.prototype.getSetupProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			this.title.setLabel(
 				data.title !== undefined ? data.title : this.constructor.static.title
 			);
@@ -158,7 +158,7 @@ OO.ui.MessageDialog.prototype.getSetupProcess = function ( data ) {
 				data.message !== undefined ? data.message : this.constructor.static.message
 			);
 			this.size = data.size !== undefined ? data.size : this.constructor.static.size;
-		}, this );
+		} );
 };
 
 /**
@@ -169,14 +169,14 @@ OO.ui.MessageDialog.prototype.getReadyProcess = function ( data ) {
 
 	// Parent method
 	return OO.ui.MessageDialog.super.prototype.getReadyProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			// Focus the primary action button
 			let actions = this.actions.get();
 			actions = actions.filter( ( action ) => action.getFlags().indexOf( 'primary' ) > -1 );
 			if ( actions.length > 0 ) {
 				actions[ 0 ].focus();
 			}
-		}, this );
+		} );
 };
 
 /**

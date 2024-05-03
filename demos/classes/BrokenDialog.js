@@ -29,14 +29,14 @@ Demo.BrokenDialog.prototype.initialize = function () {
 };
 Demo.BrokenDialog.prototype.getSetupProcess = function ( data ) {
 	return Demo.BrokenDialog.super.prototype.getSetupProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			this.broken = true;
-		}, this );
+		} );
 };
 Demo.BrokenDialog.prototype.getActionProcess = function ( action ) {
 	return Demo.BrokenDialog.super.prototype.getActionProcess.call( this, action )
-		.next( () => 1000, this )
-		.next( function () {
+		.next( () => 1000 )
+		.next( () => {
 			if ( action === 'save' ) {
 				if ( this.broken ) {
 					this.broken = false;
@@ -52,5 +52,5 @@ Demo.BrokenDialog.prototype.getActionProcess = function ( action ) {
 				// so that it remains in "pending" state while closing
 				return state.closed;
 			}
-		}, this );
+		} );
 };

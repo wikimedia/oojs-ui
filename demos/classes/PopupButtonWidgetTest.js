@@ -134,9 +134,9 @@ Demo.PopupButtonWidgetTest.prototype.toggleAll = function () {
 };
 Demo.PopupButtonWidgetTest.prototype.getActionProcess = function ( action ) {
 	if ( action ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.close( { action: action } );
-		}, this );
+		} );
 	}
 	return Demo.PopupButtonWidgetTest.super.prototype.getActionProcess.call( this, action );
 };

@@ -38,7 +38,7 @@
  *             dialog.getActions().get({actions: 'save'})[0].pushPending();
  *             return new OO.ui.Process()
  *             .next( 1000 )
- *             .next( function () {
+ *             .next( () => {
  *                 dialog.getActions().get({actions: 'save'})[0].popPending();
  *             } );
  *         }

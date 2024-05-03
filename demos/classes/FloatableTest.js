@@ -88,7 +88,7 @@ Demo.FloatableTest.prototype.centerView = function () {
 	OO.ui.Element.static.setScrollLeft( this.$body[ 0 ], offset * dir );
 };
 Demo.FloatableTest.prototype.getSetupProcess = function () {
-	return Demo.FloatableTest.super.prototype.getSetupProcess.call( this ).next( function () {
+	return Demo.FloatableTest.super.prototype.getSetupProcess.call( this ).next( () => {
 		const offset = ( this.outerSize - this.innerSize ) / 2;
 		const side = this.getDir() === 'rtl' ? 'right' : 'left';
 		this.$floatableContainer.css( 'top', offset );
@@ -98,28 +98,28 @@ Demo.FloatableTest.prototype.getSetupProcess = function () {
 			horizontalPosition: 'start',
 			verticalPosition: 'below'
 		} );
-	}, this );
+	} );
 };
 Demo.FloatableTest.prototype.getReadyProcess = function () {
-	return new OO.ui.Process( function () {
+	return new OO.ui.Process( () => {
 		this.centerView();
 		this.floatable.toggle( true );
 		this.floatable.togglePositioning( true );
 		this.floatable.toggleClipping( this.toggleClippingWidget.getValue() );
-	}, this );
+	} );
 };
 Demo.FloatableTest.prototype.getHoldProcess = function () {
-	return new OO.ui.Process( function () {
+	return new OO.ui.Process( () => {
 		this.floatable.toggleClipping( false );
 		this.floatable.togglePositioning( false );
 		this.floatable.toggle( false );
-	}, this );
+	} );
 };
 Demo.FloatableTest.prototype.getActionProcess = function ( action ) {
 	if ( action === 'center' ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.centerView();
-		}, this );
+		} );
 	}
 	return Demo.FloatableTest.super.prototype.getActionProcess.call( this, action );
 };

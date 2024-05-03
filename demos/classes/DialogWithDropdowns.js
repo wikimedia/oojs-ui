@@ -212,9 +212,9 @@ Demo.DialogWithDropdowns.prototype.makeContents = function () {
 
 Demo.DialogWithDropdowns.prototype.getActionProcess = function ( action ) {
 	if ( action ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.close( { action: action } );
-		}, this );
+		} );
 	}
 	return Demo.DialogWithDropdowns.super.prototype.getActionProcess.call( this, action );
 };

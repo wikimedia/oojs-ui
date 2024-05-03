@@ -48,9 +48,9 @@ Demo.ContinuousOutlinedBookletDialog.prototype.getActionProcess = function ( act
 		this.bookletLayout.toggleOutline();
 		this.setSize( this.bookletLayout.isOutlineVisible() ? 'large' : 'medium' );
 	} else if ( action ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.close( { action: action } );
-		}, this );
+		} );
 	}
 	return Demo.ContinuousOutlinedBookletDialog
 		.super.prototype.getActionProcess.call( this, action );
@@ -58,14 +58,14 @@ Demo.ContinuousOutlinedBookletDialog.prototype.getActionProcess = function ( act
 Demo.ContinuousOutlinedBookletDialog.prototype.getSetupProcess = function ( data ) {
 	return Demo.ContinuousOutlinedBookletDialog
 		.super.prototype.getSetupProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			this.bookletLayout.setPage( 'page1' );
-		}, this );
+		} );
 };
 Demo.ContinuousOutlinedBookletDialog.prototype.getTeardownProcess = function ( data ) {
 	return Demo.ContinuousOutlinedBookletDialog
 		.super.prototype.getTeardownProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			this.bookletLayout.resetScroll();
-		}, this );
+		} );
 };

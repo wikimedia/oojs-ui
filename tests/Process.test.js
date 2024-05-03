@@ -7,13 +7,13 @@ QUnit.test( 'next', function ( assert ) {
 	const result = [];
 
 	return process
-		.next( function () {
+		.next( () => {
 			result.push( 0 );
 		} )
-		.next( function () {
+		.next( () => {
 			result.push( 1 );
 		} )
-		.next( function () {
+		.next( () => {
 			result.push( 2 );
 		} )
 		.execute()
@@ -27,13 +27,13 @@ QUnit.test( 'first', function ( assert ) {
 	const result = [];
 
 	return process
-		.first( function () {
+		.first( () => {
 			result.push( 0 );
 		} )
-		.first( function () {
+		.first( () => {
 			result.push( 1 );
 		} )
-		.first( function () {
+		.first( () => {
 			result.push( 2 );
 		} )
 		.execute()
@@ -47,7 +47,7 @@ QUnit.test( 'execute (async)', function ( assert ) {
 	const result = [];
 
 	return process
-		.next( function () {
+		.next( () => {
 			const deferred = $.Deferred();
 
 			setTimeout( function () {
@@ -57,7 +57,7 @@ QUnit.test( 'execute (async)', function ( assert ) {
 
 			return deferred.promise();
 		} )
-		.first( function () {
+		.first( () => {
 			const deferred = $.Deferred();
 
 			setTimeout( function () {
@@ -67,7 +67,7 @@ QUnit.test( 'execute (async)', function ( assert ) {
 
 			return deferred.promise();
 		} )
-		.next( function () {
+		.next( () => {
 			result.push( 2 );
 		} )
 		.execute()
@@ -85,7 +85,7 @@ QUnit.test( 'execute (return false)', function ( assert ) {
 		result = [];
 
 	return process
-		.next( function () {
+		.next( () => {
 			const deferred = $.Deferred();
 
 			setTimeout( function () {
@@ -95,11 +95,11 @@ QUnit.test( 'execute (return false)', function ( assert ) {
 
 			return deferred.promise();
 		} )
-		.next( function () {
+		.next( () => {
 			result.push( 1 );
 			return false;
 		} )
-		.next( function () {
+		.next( () => {
 			// Should never be run because previous step is rejected
 			result.push( 2 );
 		} )
@@ -119,10 +119,10 @@ QUnit.test( 'execute (async reject)', function ( assert ) {
 		result = [];
 
 	return process
-		.next( function () {
+		.next( () => {
 			result.push( 0 );
 		} )
-		.next( function () {
+		.next( () => {
 			const deferred = $.Deferred();
 
 			setTimeout( function () {
@@ -132,7 +132,7 @@ QUnit.test( 'execute (async reject)', function ( assert ) {
 
 			return deferred.promise();
 		} )
-		.next( function () {
+		.next( () => {
 			// Should never be run because previous step is rejected
 			result.push( 2 );
 		} )
@@ -152,11 +152,11 @@ QUnit.test( 'execute (wait)', function ( assert ) {
 		result = [];
 
 	process
-		.next( function () {
+		.next( () => {
 			result.push( 'A' );
 			return 10;
 		} )
-		.next( function () {
+		.next( () => {
 			result.push( 'B' );
 		} );
 
@@ -184,7 +184,7 @@ QUnit.test( 'execute (thenable, success)', function ( assert ) {
 		result = [];
 
 	return process
-		.next( function () {
+		.next( () => {
 			const deferred = $.Deferred();
 
 			setTimeout( function () {
@@ -194,7 +194,7 @@ QUnit.test( 'execute (thenable, success)', function ( assert ) {
 
 			return { then: deferred.then.bind( deferred ) };
 		} )
-		.first( function () {
+		.first( () => {
 			const deferred = $.Deferred();
 
 			setTimeout( function () {
@@ -204,7 +204,7 @@ QUnit.test( 'execute (thenable, success)', function ( assert ) {
 
 			return { then: deferred.then.bind( deferred ) };
 		} )
-		.next( function () {
+		.next( () => {
 			result.push( 2 );
 		} )
 		.execute()
@@ -244,7 +244,7 @@ QUnit.test( 'execute (function returning thenable, failure)', function ( assert 
 	const process = new OO.ui.Process();
 
 	return process
-		.next( function () {
+		.next( () => {
 			const deferred = $.Deferred();
 
 			deferred.reject( 'err' );

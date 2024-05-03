@@ -461,8 +461,8 @@ input.on( 'enter', function () {
 			);
 
 			// eslint-disable-next-line no-jquery/no-global-selector
-			$( '.line-numbers.language-javascript' ).each( function () {
-				Prism.highlightElement( this );
+			$( '.line-numbers.language-javascript' ).each( ( i, el ) => {
+				Prism.highlightElement( el );
 			} );
 
 		} );

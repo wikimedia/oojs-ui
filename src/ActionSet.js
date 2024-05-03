@@ -54,9 +54,9 @@
  *     };
  *     MyProcessDialog.prototype.getSetupProcess = function ( data ) {
  *         return MyProcessDialog.super.prototype.getSetupProcess.call( this, data )
- *             .next( function () {
+ *             .next( () => {
  *                 this.actions.setMode( 'edit' );
- *             }, this );
+ *             } );
  *     };
  *     MyProcessDialog.prototype.getActionProcess = function ( action ) {
  *         if ( action === 'help' ) {
@@ -67,7 +67,7 @@
  *             this.stackLayout.setItem( this.panel1 );
  *         } else if ( action === 'continue' ) {
  *             const dialog = this;
- *             return new OO.ui.Process( function () {
+ *             return new OO.ui.Process( () => {
  *                 dialog.close();
  *             } );
  *         }

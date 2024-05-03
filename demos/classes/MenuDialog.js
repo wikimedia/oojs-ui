@@ -82,9 +82,9 @@ Demo.MenuDialog.prototype.initialize = function () {
 };
 Demo.MenuDialog.prototype.getActionProcess = function ( action ) {
 	if ( action ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.close( { action: action } );
-		}, this );
+		} );
 	}
 	return Demo.MenuDialog.super.prototype.getActionProcess.call( this, action );
 };

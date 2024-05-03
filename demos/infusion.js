@@ -25,8 +25,8 @@
 		} else {
 			start = now();
 			// eslint-disable-next-line no-jquery/no-global-selector
-			$( '*[data-ooui]' ).each( function () {
-				OO.ui.infuse( this );
+			$( '*[data-ooui]' ).each( ( i, el ) => {
+				OO.ui.infuse( el );
 			} );
 			end = now();
 			window.console.log( 'Took ' + Math.round( end - start ) + ' ms to infuse demo page.' );

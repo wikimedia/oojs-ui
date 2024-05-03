@@ -39,7 +39,7 @@
  *     MyProcessDialog.prototype.getActionProcess = function ( action ) {
  *         const dialog = this;
  *         if ( action ) {
- *             return new OO.ui.Process( function () {
+ *             return new OO.ui.Process( () => {
  *                 dialog.close( { action: action } );
  *             } );
  *         }
@@ -374,9 +374,9 @@ OO.ui.ProcessDialog.prototype.hideErrors = function () {
 OO.ui.ProcessDialog.prototype.getTeardownProcess = function ( data ) {
 	// Parent method
 	return OO.ui.ProcessDialog.super.prototype.getTeardownProcess.call( this, data )
-		.first( function () {
+		.first( () => {
 			// Make sure to hide errors.
 			this.hideErrors();
 			this.fitOnOpen = false;
-		}, this );
+		} );
 };

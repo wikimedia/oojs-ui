@@ -40,12 +40,12 @@ Demo.FitLabelsProcessDialog.prototype.initialize = function () {
 };
 Demo.FitLabelsProcessDialog.prototype.getSetupProcess = function ( data ) {
 	return Demo.FitLabelsProcessDialog.super.prototype.getSetupProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			this.longActionToggle.setValue( false );
 			this.longTitleToggle.setValue( false );
 			this.actions.setMode( 'short' );
 			this.title.setLabel( 'Process dialog' );
-		}, this );
+		} );
 };
 Demo.FitLabelsProcessDialog.prototype.getActionProcess = function ( action ) {
 	const dialog = this;

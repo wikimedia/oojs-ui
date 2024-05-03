@@ -197,13 +197,13 @@ OO.ui.Dialog.prototype.getActions = function () {
  */
 OO.ui.Dialog.prototype.getActionProcess = function ( action ) {
 	return new OO.ui.Process()
-		.next( function () {
+		.next( () => {
 			if ( !action ) {
 				// An empty action always closes the dialog without data, which should always be
 				// safe and make no changes
 				this.close();
 			}
-		}, this );
+		} );
 };
 
 /**
@@ -220,7 +220,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 
 	// Parent method
 	return OO.ui.Dialog.super.prototype.getSetupProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			const config = this.constructor.static,
 				actions = data.actions !== undefined ? data.actions : config.actions,
 				title = data.title !== undefined ? data.title : config.title;
@@ -229,7 +229,7 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 			this.actions.add( this.getActionWidgets( actions ) );
 
 			this.$element.on( 'keydown', this.onDialogKeyDownHandler );
-		}, this );
+		} );
 };
 
 /**
@@ -238,12 +238,12 @@ OO.ui.Dialog.prototype.getSetupProcess = function ( data ) {
 OO.ui.Dialog.prototype.getTeardownProcess = function ( data ) {
 	// Parent method
 	return OO.ui.Dialog.super.prototype.getTeardownProcess.call( this, data )
-		.first( function () {
+		.first( () => {
 			this.$element.off( 'keydown', this.onDialogKeyDownHandler );
 
 			this.actions.clear();
 			this.currentAction = null;
-		}, this );
+		} );
 };
 
 /**

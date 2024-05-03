@@ -43,15 +43,15 @@ Demo.IndexedDialog.prototype.initialize = function () {
 };
 Demo.IndexedDialog.prototype.getActionProcess = function ( action ) {
 	if ( action ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.close( { action: action } );
-		}, this );
+		} );
 	}
 	return Demo.IndexedDialog.super.prototype.getActionProcess.call( this, action );
 };
 Demo.IndexedDialog.prototype.getTeardownProcess = function ( data ) {
 	return Demo.IndexedDialog.super.prototype.getTeardownProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			this.indexLayout.resetScroll();
-		}, this );
+		} );
 };
