@@ -14,6 +14,9 @@
 	"rules": {
 		"mediawiki/msg-doc": "error",
 		"no-jquery/no-visibility": "error",
-		"es-x/no-regexp-prototype-flags": "off"
+		"es-x/no-regexp-prototype-flags": "off",
+		"prefer-arrow-callback": "error",
+		"implicit-arrow-linebreak": "error",
+		"arrow-body-style": "error"
 	}
 }

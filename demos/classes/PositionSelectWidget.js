@@ -6,9 +6,9 @@ Demo.PositionSelectWidget = function DemoPositionSelectWidget( config ) {
 	const verticalPositions = [ 'above', 'top', 'center', 'bottom', 'below' ];
 	const horizontalPositions = [ 'before', 'start', 'center', 'end', 'after' ];
 
-	verticalPositions.forEach( function ( v ) {
+	verticalPositions.forEach( ( v ) => {
 		const $row = $( '<div>' );
-		horizontalPositions.forEach( function ( h ) {
+		horizontalPositions.forEach( ( h ) => {
 			const option = widget.getOption( h, v );
 			option.$element.attr( 'title', v + '/' + h );
 			$row.append( option.$element );

@@ -334,7 +334,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 		manager.openWindow( name, data );
 	}
 
-	configs.forEach( function ( config, j ) {
+	configs.forEach( ( config, j ) => {
 		const fieldset = new Demo.LinkedFieldsetLayout( {
 			label: config.name,
 			id: config.id
@@ -388,7 +388,7 @@ Demo.static.pages.dialogs = function ( demo ) {
 		windowManager.$element
 	);
 
-	demo.once( 'destroy', function () {
+	demo.once( 'destroy', () => {
 		windowManager.destroy();
 		nonModalWindowManager.destroy();
 		nonModalFocusTrapWindowManager.destroy();

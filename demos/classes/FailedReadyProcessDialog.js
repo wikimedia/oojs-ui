@@ -5,7 +5,5 @@ OO.inheritClass( Demo.FailedReadyProcessDialog, Demo.SimpleDialog );
 Demo.FailedReadyProcessDialog.prototype.getReadyProcess = function () {
 	return Demo.FailedReadyProcessDialog.super.prototype.getReadyProcess
 		.call( this )
-		.next( function () {
-			return $.Deferred().reject().promise();
-		} );
+		.next( () => $.Deferred().reject().promise() );
 };

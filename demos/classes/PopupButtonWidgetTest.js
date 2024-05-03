@@ -102,8 +102,8 @@ Demo.PopupButtonWidgetTest.prototype.makeTable = function () {
 
 	this.buttons = [];
 
-	positions.forEach( function ( position ) {
-		aligns.forEach( function ( align ) {
+	positions.forEach( ( position ) => {
+		aligns.forEach( ( align ) => {
 			dialog.$table.find( '#' + position + '-' + align )
 				.empty()
 				.append( dialog.getButton( position, align ).$element );
@@ -128,7 +128,7 @@ Demo.PopupButtonWidgetTest.prototype.getButton = function ( position, align ) {
 	return button;
 };
 Demo.PopupButtonWidgetTest.prototype.toggleAll = function () {
-	this.buttons.forEach( function ( button ) {
+	this.buttons.forEach( ( button ) => {
 		button.getPopup().toggle();
 	} );
 };

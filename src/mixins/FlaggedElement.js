@@ -96,9 +96,7 @@ OO.ui.mixin.FlaggedElement.static.flags = null;
  * @param {jQuery} $flagged Element that should be flagged
  */
 OO.ui.mixin.FlaggedElement.prototype.setFlaggedElement = function ( $flagged ) {
-	const classNames = Object.keys( this.flags ).map( function ( flag ) {
-		return 'oo-ui-flaggedElement-' + flag;
-	} );
+	const classNames = Object.keys( this.flags ).map( ( flag ) => 'oo-ui-flaggedElement-' + flag );
 
 	if ( this.$flagged ) {
 		this.$flagged.removeClass( classNames );

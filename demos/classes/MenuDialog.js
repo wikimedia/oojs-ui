@@ -36,7 +36,7 @@ Demo.MenuDialog.prototype.initialize = function () {
 					label: 'Bottom'
 				} )
 			]
-		} ).on( 'select', function ( item ) {
+		} ).on( 'select', ( item ) => {
 			menuLayout.setMenuPosition( item.getData() );
 		} ),
 		{
@@ -45,7 +45,7 @@ Demo.MenuDialog.prototype.initialize = function () {
 		}
 	);
 	const showField = new OO.ui.FieldLayout(
-		new OO.ui.ToggleSwitchWidget( { value: true } ).on( 'change', function ( value ) {
+		new OO.ui.ToggleSwitchWidget( { value: true } ).on( 'change', ( value ) => {
 			menuLayout.toggleMenu( value );
 		} ),
 		{
@@ -54,7 +54,7 @@ Demo.MenuDialog.prototype.initialize = function () {
 		}
 	);
 	const expandField = new OO.ui.FieldLayout(
-		new OO.ui.ToggleSwitchWidget( { value: true } ).on( 'change', function ( value ) {
+		new OO.ui.ToggleSwitchWidget( { value: true } ).on( 'change', ( value ) => {
 			menuLayout.$element.toggleClass( 'oo-ui-menuLayout-expanded', value );
 			menuLayout.$element.toggleClass( 'oo-ui-menuLayout-static', !value );
 			menuPanel.$element.toggleClass( 'oo-ui-panelLayout-expanded', value );

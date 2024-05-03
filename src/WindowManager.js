@@ -412,7 +412,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 	// Turn lifecycle into a Thenable for backwards-compatibility with
 	// the deprecated nested-promise behaviour, see T163510.
 	[ 'state', 'always', 'catch', 'pipe', 'then', 'promise', 'progress', 'done', 'fail' ]
-		.forEach( function ( method ) {
+		.forEach( ( method ) => {
 			lifecycle[ method ] = function () {
 				OO.ui.warnDeprecation(
 					'Using the return value of openWindow as a promise is deprecated. ' +
@@ -425,10 +425,10 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 	// Argument handling
 	if ( typeof win === 'string' ) {
 		this.getWindow( win ).then(
-			function ( w ) {
+			( w ) => {
 				manager.openWindow( w, data, lifecycle, compatOpening );
 			},
-			function ( err ) {
+			( err ) => {
 				lifecycle.deferreds.opening.reject( err );
 			}
 		);
@@ -454,7 +454,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 	// If a window is currently closing, wait for it to complete
 	this.preparingToOpen = $.when( this.lifecycle && this.lifecycle.closed );
 	// Ensure handlers get called after preparingToOpen is set
-	this.preparingToOpen.done( function () {
+	this.preparingToOpen.done( () => {
 		if ( manager.isModal() ) {
 			manager.toggleGlobalEvents( true, win );
 			manager.toggleIsolation( true );
@@ -467,33 +467,33 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 		manager.preparingToOpen = null;
 		manager.emit( 'opening', win, compatOpening, data );
 		lifecycle.deferreds.opening.resolve( data );
-		setTimeout( function () {
+		setTimeout( () => {
 			manager.compatOpened = $.Deferred();
-			win.setup( data ).then( function () {
+			win.setup( data ).then( () => {
 				compatOpening.notify( { state: 'setup' } );
-				setTimeout( function () {
-					win.ready( data ).then( function () {
+				setTimeout( () => {
+					win.ready( data ).then( () => {
 						compatOpening.notify( { state: 'ready' } );
 						lifecycle.deferreds.opened.resolve( data );
 						compatOpening.resolve( manager.compatOpened.promise(), data );
 						manager.togglePreventIosScrolling( true );
-					}, function ( dataOrErr ) {
+					}, ( dataOrErr ) => {
 						lifecycle.deferreds.opened.reject();
 						compatOpening.reject();
 						manager.closeWindow( win );
 						if ( dataOrErr instanceof Error ) {
-							setTimeout( function () {
+							setTimeout( () => {
 								throw dataOrErr;
 							} );
 						}
 					} );
 				}, manager.getReadyDelay() );
-			}, function ( dataOrErr ) {
+			}, ( dataOrErr ) => {
 				lifecycle.deferreds.opened.reject();
 				compatOpening.reject();
 				manager.closeWindow( win );
 				if ( dataOrErr instanceof Error ) {
-					setTimeout( function () {
+					setTimeout( () => {
 						throw dataOrErr;
 					} );
 				}
@@ -550,7 +550,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 	// Turn lifecycle into a Thenable for backwards-compatibility with
 	// the deprecated nested-promise behaviour, see T163510.
 	[ 'state', 'always', 'catch', 'pipe', 'then', 'promise', 'progress', 'done', 'fail' ]
-		.forEach( function ( method ) {
+		.forEach( ( method ) => {
 			lifecycle[ method ] = function () {
 				OO.ui.warnDeprecation(
 					'Using the return value of closeWindow as a promise is deprecated. ' +
@@ -569,7 +569,7 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 	// If the window is currently opening, close it when it's done
 	this.preparingToClose = $.when( this.lifecycle.opened );
 	// Ensure handlers get called after preparingToClose is set
-	this.preparingToClose.always( function () {
+	this.preparingToClose.always( () => {
 		manager.preparingToClose = null;
 		manager.emit( 'closing', win, compatClosing, data );
 		lifecycle.deferreds.closing.resolve( data );
@@ -577,11 +577,11 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 		manager.compatOpened = null;
 		compatOpened.resolve( compatClosing.promise(), data );
 		manager.togglePreventIosScrolling( false );
-		setTimeout( function () {
-			win.hold( data ).then( function () {
+		setTimeout( () => {
+			win.hold( data ).then( () => {
 				compatClosing.notify( { state: 'hold' } );
-				setTimeout( function () {
-					win.teardown( data ).then( function () {
+				setTimeout( () => {
+					win.teardown( data ).then( () => {
 						compatClosing.notify( { state: 'teardown' } );
 						if ( manager.isModal() ) {
 							manager.toggleGlobalEvents( false );
@@ -694,7 +694,7 @@ OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
 		win.$element.detach();
 	}
 
-	const promises = names.map( function ( name ) {
+	const promises = names.map( ( name ) => {
 		const win = manager.windows[ name ];
 		if ( !win ) {
 			throw new Error( 'Cannot remove window' );

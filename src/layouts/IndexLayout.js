@@ -70,7 +70,7 @@ OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	if ( config.tabSelectWidget ) {
 		// If we are using a custom tabSelectWidget (e.g. infusing) then
 		// ensure the tabPanels are linked to tabItems
-		this.stackLayout.getItems().forEach( function ( tabPanel, i ) {
+		this.stackLayout.getItems().forEach( ( tabPanel, i ) => {
 			if ( !tabPanel.getTabItem() ) {
 				tabPanel.setTabItem( config.tabSelectWidget.items[ i ] || null );
 			}
@@ -188,7 +188,7 @@ OO.ui.IndexLayout.prototype.onStackLayoutSet = function ( tabPanel ) {
 OO.ui.IndexLayout.prototype.onStackLayoutBeforeMatch = function ( event ) {
 	let tabPanel;
 	// Find TabPanel from DOM node
-	this.stackLayout.getItems().some( function ( item ) {
+	this.stackLayout.getItems().some( ( item ) => {
 		if ( item.$element[ 0 ] === event.target ) {
 			tabPanel = item;
 			return true;

@@ -172,9 +172,7 @@ OO.ui.MessageDialog.prototype.getReadyProcess = function ( data ) {
 		.next( function () {
 			// Focus the primary action button
 			let actions = this.actions.get();
-			actions = actions.filter( function ( action ) {
-				return action.getFlags().indexOf( 'primary' ) > -1;
-			} );
+			actions = actions.filter( ( action ) => action.getFlags().indexOf( 'primary' ) > -1 );
 			if ( actions.length > 0 ) {
 				actions[ 0 ].focus();
 			}
@@ -210,7 +208,7 @@ OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
 
 	// Twiddle the overflow property, otherwise an unnecessary scrollbar will be produced.
 	// Need to do it after transition completes (250ms), add 50ms just in case.
-	setTimeout( function () {
+	setTimeout( () => {
 		const oldOverflow = $scrollable[ 0 ].style.overflow,
 			activeElement = document.activeElement;
 
@@ -229,7 +227,7 @@ OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
 
 	dialog.fitActions();
 	// Wait for CSS transition to finish and do it again :(
-	setTimeout( function () {
+	setTimeout( () => {
 		dialog.fitActions();
 	}, 300 );
 

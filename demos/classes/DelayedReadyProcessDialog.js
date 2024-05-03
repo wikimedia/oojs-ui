@@ -5,9 +5,9 @@ OO.inheritClass( Demo.DelayedReadyProcessDialog, Demo.SimpleDialog );
 Demo.DelayedReadyProcessDialog.prototype.getReadyProcess = function () {
 	return Demo.DelayedReadyProcessDialog.super.prototype.getReadyProcess
 		.call( this )
-		.next( function () {
+		.next( () => {
 			const deferred = $.Deferred();
-			setTimeout( function () {
+			setTimeout( () => {
 				deferred.resolve();
 			}, 2000 );
 			return deferred.promise();

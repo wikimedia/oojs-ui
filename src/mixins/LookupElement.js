@@ -246,7 +246,7 @@ OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
 	// Skip population if there is already a request pending for the current value
 	} else if ( value !== this.lookupQuery ) {
 		this.getLookupMenuItems()
-			.done( function ( items ) {
+			.done( ( items ) => {
 				widget.lookupMenu.clearItems();
 				if ( items.length ) {
 					widget.lookupMenu
@@ -257,7 +257,7 @@ OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
 					widget.lookupMenu.toggle( false );
 				}
 			} )
-			.fail( function () {
+			.fail( () => {
 				widget.lookupMenu.clearItems();
 				widget.lookupMenu.toggle( false );
 			} );
@@ -287,9 +287,7 @@ OO.ui.mixin.LookupElement.prototype.initializeLookupMenuSelection = function () 
  *   will not be rejected: it will remain pending forever.
  */
 OO.ui.mixin.LookupElement.prototype.getLookupMenuItems = function () {
-	return this.getRequestData().then( function ( data ) {
-		return this.getLookupMenuOptionsFromData( data );
-	}.bind( this ) );
+	return this.getRequestData().then( ( data ) => this.getLookupMenuOptionsFromData( data ) );
 };
 
 /**

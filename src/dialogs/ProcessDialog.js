@@ -223,7 +223,7 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
 OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
 	const dialog = this;
 	return OO.ui.ProcessDialog.super.prototype.executeAction.call( this, action )
-		.fail( function ( errors ) {
+		.fail( ( errors ) => {
 			dialog.showErrors( errors || [] );
 		} );
 };
@@ -244,7 +244,7 @@ OO.ui.ProcessDialog.prototype.setDimensions = function () {
 	// fit them.
 	dialog.$body.css( 'bottom', dialog.$foot.outerHeight( true ) );
 	// Wait for CSS transition to finish and do it again :(
-	setTimeout( function () {
+	setTimeout( () => {
 		dialog.$body.css( 'bottom', dialog.$foot.outerHeight( true ) );
 	}, 300 );
 };

@@ -142,7 +142,7 @@ OO.ui.InputWidget.prototype.onEdit = function () {
 		// TODO: This appears to only be used by TextInputWidget, and in current browsers
 		// they always the value immediately, however it is mostly harmless so this can be
 		// left in until more thoroughly tested.
-		setTimeout( function () {
+		setTimeout( () => {
 			widget.setValue( widget.$input.val() );
 		} );
 	}

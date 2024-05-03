@@ -379,7 +379,7 @@ OO.ui.msg = function ( key, ...params ) {
 	let message = messages[ key ];
 	if ( typeof message === 'string' ) {
 		// Perform $1 substitution
-		message = message.replace( /\$(\d+)/g, function ( unused, n ) {
+		message = message.replace( /\$(\d+)/g, ( unused, n ) => {
 			const i = parseInt( n, 10 );
 			return params[ i - 1 ] !== undefined ? params[ i - 1 ] : '$' + n;
 		} );

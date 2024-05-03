@@ -36,9 +36,7 @@ OO.ui.alert = function ( text, options ) {
 	return OO.ui.getWindowManager().openWindow( 'message', $.extend( {
 		message: text,
 		actions: [ OO.ui.MessageDialog.static.actions[ 0 ] ]
-	}, options ) ).closed.then( function () {
-		return undefined;
-	} );
+	}, options ) ).closed.then( () => undefined );
 };
 
 /**
@@ -67,9 +65,7 @@ OO.ui.alert = function ( text, options ) {
 OO.ui.confirm = function ( text, options ) {
 	return OO.ui.getWindowManager().openWindow( 'message', $.extend( {
 		message: text
-	}, options ) ).closed.then( function ( data ) {
-		return !!( data && data.action === 'accept' );
-	} );
+	}, options ) ).closed.then( ( data ) => !!( data && data.action === 'accept' ) );
 };
 
 /**
@@ -112,14 +108,12 @@ OO.ui.prompt = function ( text, options ) {
 	}, options ) );
 
 	// TODO: This is a little hacky, and could be done by extending MessageDialog instead.
-	instance.opened.then( function () {
-		textInput.on( 'enter', function () {
+	instance.opened.then( () => {
+		textInput.on( 'enter', () => {
 			manager.getCurrentWindow().close( { action: 'accept' } );
 		} );
 		textInput.focus();
 	} );
 
-	return instance.closed.then( function ( data ) {
-		return data && data.action === 'accept' ? textInput.getValue() : null;
-	} );
+	return instance.closed.then( ( data ) => data && data.action === 'accept' ? textInput.getValue() : null );
 };

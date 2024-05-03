@@ -192,19 +192,17 @@ Demo.DialogWithDropdowns.prototype.initialize = function () {
 			]
 		} )
 	];
-	this.bookletLayout.on( 'set', function ( page ) {
+	this.bookletLayout.on( 'set', ( page ) => {
 		page.$element[ 0 ].scrollTop = 325;
 	} );
 	this.bookletLayout.addPages( this.pages );
 	this.$body.append( this.bookletLayout.$element );
 };
 Demo.DialogWithDropdowns.prototype.makeItems = function () {
-	return [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ].map( function ( val ) {
-		return new OO.ui.MenuOptionWidget( {
-			data: val,
-			label: String( val )
-		} );
-	} );
+	return [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ].map( ( val ) => new OO.ui.MenuOptionWidget( {
+		data: val,
+		label: String( val )
+	} ) );
 };
 Demo.DialogWithDropdowns.prototype.makeContents = function () {
 	const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +

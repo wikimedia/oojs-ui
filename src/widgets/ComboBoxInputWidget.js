@@ -299,12 +299,10 @@ OO.ui.ComboBoxInputWidget.prototype.setReadOnly = function () {
 OO.ui.ComboBoxInputWidget.prototype.setOptions = function ( options ) {
 	this.getMenu()
 		.clearItems()
-		.addItems( options.map( function ( opt ) {
-			return new OO.ui.MenuOptionWidget( {
-				data: opt.data,
-				label: opt.label !== undefined ? opt.label : opt.data
-			} );
-		} ) );
+		.addItems( options.map( ( opt ) => new OO.ui.MenuOptionWidget( {
+			data: opt.data,
+			label: opt.label !== undefined ? opt.label : opt.data
+		} ) ) );
 
 	return this;
 };

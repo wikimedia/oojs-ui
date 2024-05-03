@@ -36,7 +36,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 	let options = config.options || [];
 	const selected = config.selected || [];
 	options = options.concat(
-		selected.map( function ( option ) {
+		selected.map( ( option ) => {
 			if ( typeof option === 'string' ) {
 				return {
 					data: option,
@@ -172,11 +172,11 @@ OO.ui.MenuTagMultiselectWidget.prototype.onMenuToggle = function ( isVisible ) {
 		this.menu.highlightItem( null );
 		this.menu.scrollToTop();
 	}
-	setTimeout( function () {
+	setTimeout( () => {
 		// Remove MenuSelectWidget's generic focus owner ARIA attribute
 		// TODO: Should this widget have a `role` that is compatible with this attribute?
 		this.menu.$focusOwner.removeAttr( 'aria-expanded' );
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -216,7 +216,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.removeItems = function ( items ) {
 	// Parent
 	OO.ui.MenuTagMultiselectWidget.super.prototype.removeItems.call( this, items );
 
-	items.forEach( function ( tagItem ) {
+	items.forEach( ( tagItem ) => {
 		const menuItem = widget.menu.findItemFromData( tagItem.getData() );
 		if ( menuItem ) {
 			// Synchronize the menu selection - unselect the removed tag
@@ -239,7 +239,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.setValue = function ( valueObject ) {
 	}
 
 	this.clearItems();
-	valueObject.forEach( function ( obj ) {
+	valueObject.forEach( ( obj ) => {
 		let data, label;
 
 		if ( typeof obj === 'string' ) {
@@ -261,7 +261,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.setValue = function ( valueObject ) {
 			// allow for arbitrary values
 			this.addTag( data, label );
 		}
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -333,7 +333,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.addOptions = function ( menuOptions ) {
 		optionsData = [],
 		items = [];
 
-	menuOptions.forEach( function ( obj ) {
+	menuOptions.forEach( ( obj ) => {
 		if ( optionsData.indexOf( obj.data ) === -1 ) {
 			optionsData.push( obj.data );
 			items.push(
@@ -379,9 +379,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.getAllowedValues = function () {
 	let menuDatas = [];
 	if ( this.menu ) {
 		// If the parent constructor is calling us, we're not ready yet, this.menu is not set up.
-		menuDatas = this.menu.getItems().map( function ( menuItem ) {
-			return menuItem.getData();
-		} );
+		menuDatas = this.menu.getItems().map( ( menuItem ) => menuItem.getData() );
 	}
 	return this.allowedValues.concat( menuDatas );
 };

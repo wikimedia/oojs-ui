@@ -14,7 +14,7 @@ Demo.SimpleDialog.prototype.initialize = function () {
 	const closeButton = new OO.ui.ButtonWidget( {
 		label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
 	} );
-	closeButton.on( 'click', function () {
+	closeButton.on( 'click', () => {
 		dialog.close();
 	} );
 

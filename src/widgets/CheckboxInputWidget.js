@@ -121,7 +121,7 @@ OO.ui.CheckboxInputWidget.prototype.onEdit = function () {
 	const widget = this;
 	if ( !this.isDisabled() ) {
 		// Allow the stack to clear so the value will be updated
-		setTimeout( function () {
+		setTimeout( () => {
 			widget.setSelected( widget.$input.prop( 'checked' ) );
 			widget.setIndeterminate( widget.$input.prop( 'indeterminate' ) );
 		} );

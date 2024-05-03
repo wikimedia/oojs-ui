@@ -2912,8 +2912,8 @@ Demo.static.pages.widgets = function ( demo ) {
 		} )
 	];
 
-	fieldsets.forEach( function ( fieldsetLayout ) {
-		fieldsetLayout.getItems().forEach( function ( fieldLayout ) {
+	fieldsets.forEach( ( fieldsetLayout ) => {
+		fieldsetLayout.getItems().forEach( ( fieldLayout ) => {
 			fieldLayout.$element.append(
 				demo.buildLinkExample( fieldLayout ),
 				demo.buildConsole( fieldLayout, 'layout', 'widget', false )
@@ -2927,15 +2927,13 @@ Demo.static.pages.widgets = function ( demo ) {
 			framed: true
 		} ).$element
 			.append(
-				$( fieldsets.map( function ( fieldset ) {
-					return fieldset.$element[ 0 ];
-				} ) )
+				$( fieldsets.map( ( fieldset ) => fieldset.$element[ 0 ] ) )
 			)
 	);
 
 	$overlay.appendTo( 'body' );
 
-	demo.once( 'destroy', function () {
+	demo.once( 'destroy', () => {
 		// We are removing all of the widgets from the page, so also remove their "detached"
 		// menus and stuff, otherwise they can remain visible forever.
 		$overlay.remove();

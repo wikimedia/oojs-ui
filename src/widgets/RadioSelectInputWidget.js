@@ -154,7 +154,7 @@ OO.ui.RadioSelectInputWidget.prototype.setOptionsData = function ( options ) {
 
 	this.radioSelectWidget
 		.clearItems()
-		.addItems( options.map( function ( opt ) {
+		.addItems( options.map( ( opt ) => {
 			const optValue = widget.cleanUpValue( opt.data );
 			return new OO.ui.RadioOptionWidget( {
 				data: optValue,

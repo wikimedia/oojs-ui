@@ -94,9 +94,9 @@ OO.ui.mixin.DraggableGroupElement.prototype.toggleDraggable = function ( isDragg
 		this.draggable = isDraggable;
 
 		// Tell the items their draggable state changed
-		this.getItems().forEach( function ( item ) {
+		this.getItems().forEach( ( item ) => {
 			item.toggleDraggable( this.draggable );
-		}.bind( this ) );
+		} );
 
 		// Emit event
 		this.emit( 'draggable', this.draggable );

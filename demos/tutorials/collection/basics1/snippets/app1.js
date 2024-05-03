@@ -17,7 +17,7 @@
 			]
 		} );
 
-	input.on( 'enter', function () {
+	input.on( 'enter', () => {
 		list.addItems( [
 			new OO.ui.OptionWidget( {
 				data: input.getValue(),

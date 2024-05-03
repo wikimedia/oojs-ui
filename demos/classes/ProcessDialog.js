@@ -15,7 +15,7 @@ Demo.ProcessDialog.prototype.initialize = function () {
 		$( '<p>' ).text( 'Dialog content' ),
 		$( '<a>' )
 			.text( 'Be alert!' )
-			.on( 'click', function () {
+			.on( 'click', () => {
 				OO.ui.alert( 'You are alert!' );
 			} )
 	);
@@ -27,7 +27,7 @@ Demo.ProcessDialog.prototype.initialize = function () {
 Demo.ProcessDialog.prototype.getActionProcess = function ( action ) {
 	const dialog = this;
 	if ( action ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			dialog.close( { action: action } );
 		} );
 	}

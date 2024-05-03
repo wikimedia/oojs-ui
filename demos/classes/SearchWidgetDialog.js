@@ -23,7 +23,7 @@ Demo.SearchWidgetDialog.static.actions = [
 ];
 Demo.SearchWidgetDialog.prototype.getActionProcess = function ( action ) {
 	const dialog = this;
-	return new OO.ui.Process( function () {
+	return new OO.ui.Process( () => {
 		dialog.close( { action: action } );
 	} );
 };

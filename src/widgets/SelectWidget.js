@@ -444,8 +444,8 @@ OO.ui.SelectWidget.prototype.scrollItemIntoView = function ( item ) {
 	// Chromium's Blink engine will generate spurious 'mouseover' events during programmatic
 	// scrolling and around 100-150 ms after it is finished.
 	this.blockMouseOverEvents++;
-	item.scrollElementIntoView().done( function () {
-		setTimeout( function () {
+	item.scrollElementIntoView().done( () => {
+		setTimeout( () => {
 			widget.blockMouseOverEvents--;
 		}, 200 );
 	} );
@@ -629,9 +629,7 @@ OO.ui.SelectWidget.prototype.findSelectedItems = function () {
 		return this.findFirstSelectedItem();
 	}
 
-	return this.items.filter( function ( item ) {
-		return item.isSelected();
-	} );
+	return this.items.filter( ( item ) => item.isSelected() );
 };
 
 /**

@@ -189,7 +189,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 
 	// HACK: Input size needs to be calculated after everything
 	// else is rendered
-	rAF( function () {
+	rAF( () => {
 		if ( widget.hasInput ) {
 			widget.updateInputSize();
 		}
@@ -519,7 +519,7 @@ OO.ui.TagMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
 	}
 
 	if ( this.items ) {
-		this.getItems().forEach( function ( item ) {
+		this.getItems().forEach( ( item ) => {
 			item.setDisabled( !!isDisabled );
 		} );
 	}
@@ -615,9 +615,7 @@ OO.ui.TagMultiselectWidget.prototype.isAllowedData = function ( data ) {
 
 	// Check with allowed values
 	if (
-		this.getAllowedValues().some( function ( value ) {
-			return data === value;
-		} )
+		this.getAllowedValues().some( ( value ) => data === value )
 	) {
 		return true;
 	}
@@ -652,12 +650,8 @@ OO.ui.TagMultiselectWidget.prototype.addAllowedValue = function ( value ) {
  */
 OO.ui.TagMultiselectWidget.prototype.getValue = function () {
 	return this.getItems()
-		.filter( function ( item ) {
-			return item.isValid();
-		} )
-		.map( function ( item ) {
-			return item.getData();
-		} );
+		.filter( ( item ) => item.isValid() )
+		.map( ( item ) => item.getData() );
 };
 
 /**
@@ -681,13 +675,13 @@ OO.ui.TagMultiselectWidget.prototype.setValue = function ( valueObject ) {
 	valueObject = Array.isArray( valueObject ) ? valueObject : [ valueObject ];
 
 	this.clearItems();
-	valueObject.forEach( function ( obj ) {
+	valueObject.forEach( ( obj ) => {
 		if ( typeof obj === 'object' ) {
 			this.addTag( obj.data, obj.label );
 		} else {
 			this.addTag( String( obj ) );
 		}
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -899,9 +893,7 @@ OO.ui.TagMultiselectWidget.prototype.updateIfHeightChanged = function () {
  * @return {boolean} Widget is valid
  */
 OO.ui.TagMultiselectWidget.prototype.checkValidity = function () {
-	return this.getItems().every( function ( item ) {
-		return item.isValid();
-	} );
+	return this.getItems().every( ( item ) => item.isValid() );
 };
 
 /**

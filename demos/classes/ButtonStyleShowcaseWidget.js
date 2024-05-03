@@ -5,9 +5,9 @@ Demo.ButtonStyleShowcaseWidget = function DemoButtonStyleShowcaseWidget( config 
 
 	this.$element.addClass( 'demo-buttonStyleShowcaseWidget' );
 
-	this.constructor.static.styles.forEach( function ( style ) {
+	this.constructor.static.styles.forEach( ( style ) => {
 		const $buttonRow = $( '<div>' );
-		widget.constructor.static.states.forEach( function ( state ) {
+		widget.constructor.static.states.forEach( ( state ) => {
 			$buttonRow.append(
 				new OO.ui.ButtonWidget( $.extend( {}, style, state ) ).$element
 			);

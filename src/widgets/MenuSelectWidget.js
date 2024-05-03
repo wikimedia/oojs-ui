@@ -211,9 +211,7 @@ OO.ui.MenuSelectWidget.prototype.onDocumentKeyDown = function ( e ) {
  * @return {OO.ui.MenuOptionWidget[]} Visible items
  */
 OO.ui.MenuSelectWidget.prototype.getVisibleItems = function () {
-	return this.getItems().filter( function ( item ) {
-		return item.isVisible();
-	} );
+	return this.getItems().filter( ( item ) => item.isVisible() );
 };
 
 /**
@@ -309,9 +307,9 @@ OO.ui.MenuSelectWidget.prototype.bindDocumentKeyPressListener = function () {
 				'keydown mouseup cut paste change input select',
 				this.onInputEditHandler
 			);
-			this.$input.one( 'keypress', function () {
+			this.$input.one( 'keypress', () => {
 				this.previouslySelectedValue = null;
-			}.bind( this ) );
+			} );
 			this.previouslySelectedValue = this.$input.val();
 			this.updateItemVisibility();
 		}

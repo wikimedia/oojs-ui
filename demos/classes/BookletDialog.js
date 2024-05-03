@@ -27,13 +27,13 @@ Demo.BookletDialog.prototype.initialize = function () {
 				new OO.ui.ButtonWidget( {
 					data: 'previous',
 					icon: 'previous'
-				} ).on( 'click', function () {
+				} ).on( 'click', () => {
 					changePage( -1 );
 				} ),
 				new OO.ui.ButtonWidget( {
 					data: 'next',
 					icon: 'next'
-				} ).on( 'click', function () {
+				} ).on( 'click', () => {
 					changePage( 1 );
 				} )
 			]

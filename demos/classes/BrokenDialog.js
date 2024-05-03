@@ -35,9 +35,7 @@ Demo.BrokenDialog.prototype.getSetupProcess = function ( data ) {
 };
 Demo.BrokenDialog.prototype.getActionProcess = function ( action ) {
 	return Demo.BrokenDialog.super.prototype.getActionProcess.call( this, action )
-		.next( function () {
-			return 1000;
-		}, this )
+		.next( () => 1000, this )
 		.next( function () {
 			if ( action === 'save' ) {
 				if ( this.broken ) {

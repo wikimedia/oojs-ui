@@ -61,7 +61,7 @@ window.Demo = function Demo() {
 		]
 	} );
 	this.themeSelect = new OO.ui.ButtonSelectWidget();
-	Object.keys( this.constructor.static.themes ).forEach( function ( theme ) {
+	Object.keys( this.constructor.static.themes ).forEach( ( theme ) => {
 		demo.themeSelect.addItems( [
 			new OO.ui.ButtonOptionWidget( {
 				data: theme,
@@ -285,13 +285,11 @@ Demo.static.defaultPlatform = 'desktop';
  */
 Demo.prototype.initialize = function () {
 	const demo = this,
-		promises = this.stylesheetLinks.map( function ( el ) {
-			return $( el ).data( 'load-promise' );
-		} );
+		promises = this.stylesheetLinks.map( ( el ) => $( el ).data( 'load-promise' ) );
 
 	return $.when.apply( $, promises ).then(
 		null,
-		function () {
+		() => {
 			demo.$element.append( $( '<p>' ).text( 'Demo styles failed to load.' ) );
 		}
 	);
@@ -410,7 +408,7 @@ Demo.prototype.getFactors = function () {
 	for ( key in this.constructor.static.directions ) {
 		factors[ 2 ][ key ] = this.constructor.static.directions[ key ].fileSuffix;
 	}
-	this.constructor.static.platforms.forEach( function ( platform ) {
+	this.constructor.static.platforms.forEach( ( platform ) => {
 		factors[ 3 ][ platform ] = '';
 	} );
 
@@ -482,9 +480,7 @@ Demo.prototype.getStylesheetLinks = function () {
 		urls = [];
 
 	// Translate modes to filename fragments
-	const fragments = this.getCurrentFactorValues().map( function ( val, index ) {
-		return factors[ index ][ val ];
-	} );
+	const fragments = this.getCurrentFactorValues().map( ( val, index ) => factors[ index ][ val ] );
 
 	// Theme styles
 	urls.push( 'dist/oojs-ui' + fragments.slice( 1 ).join( '' ) + '.css' );
@@ -493,7 +489,7 @@ Demo.prototype.getStylesheetLinks = function () {
 	urls.push( 'styles/demo' + fragments[ 2 ] + '.css' );
 
 	// Add link tags
-	const links = urls.map( function ( url ) {
+	const links = urls.map( ( url ) => {
 		const
 			link = document.createElement( 'link' ),
 			$link = $( link ),
@@ -520,7 +516,7 @@ Demo.prototype.normalizeQuery = function () {
 	let modes = this.getDefaultFactorValues();
 
 	let factorValues = this.getCurrentFactorValues();
-	factors.forEach( function ( factor, i ) {
+	factors.forEach( ( factor, i ) => {
 		const factorValue = factorValues[ i ];
 		if ( factor[ factorValue ] !== undefined ) {
 			modes[ i ] = factorValue;
@@ -546,7 +542,7 @@ Demo.prototype.normalizeQuery = function () {
 		if ( !factorValues[ 3 ] ) {
 			factorValues[ 3 ] = 'desktop';
 		}
-		const valid = factors.every( function ( factor, i ) {
+		const valid = factors.every( ( factor, i ) => {
 			const factorValue = factorValues[ i ];
 			return factor[ factorValue ] !== undefined;
 		} );
@@ -677,7 +673,7 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 		} else {
 			defaultConfig = ( new item.constructor() ).initialConfig;
 		}
-		Object.keys( defaultConfig ).forEach( function ( key ) {
+		Object.keys( defaultConfig ).forEach( ( key ) => {
 			if ( config[ key ] === defaultConfig[ key ] ) {
 				delete config[ key ];
 			} else if (
@@ -688,7 +684,7 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 			}
 		} );
 
-		config = javascriptStringify( config, function ( obj, indent, stringify ) {
+		config = javascriptStringify( config, ( obj, indent, stringify ) => {
 			if ( obj instanceof Function ) {
 				// Get function's source code, with extraneous indentation removed
 				return obj.toString().replace( /^\t\t\t\t\t\t/gm, '' );
@@ -760,7 +756,7 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 	const $toggle = $( '<span>' )
 		.addClass( 'demo-console-toggle' )
 		.attr( 'title', 'Toggle console' )
-		.on( 'click', function ( e ) {
+		.on( 'click', ( e ) => {
 			let code;
 			e.preventDefault();
 			// eslint-disable-next-line no-jquery/no-class-state
@@ -805,7 +801,7 @@ Demo.prototype.buildConsole = function ( layout, layoutName, widgetName, showLay
 		.text( '↵' )
 		.on( 'click', submit );
 
-	const $form = $( '<form>' ).on( 'submit', function ( e ) {
+	const $form = $( '<form>' ).on( 'submit', ( e ) => {
 		e.preventDefault();
 		submit();
 	} );

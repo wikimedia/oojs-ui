@@ -21,7 +21,7 @@ Demo.LongProcessDialog.prototype.initialize = function () {
 Demo.LongProcessDialog.prototype.getActionProcess = function ( action ) {
 	const dialog = this;
 	if ( action ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			dialog.close( { action: action } );
 		} );
 	}

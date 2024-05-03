@@ -27,7 +27,7 @@ Demo.static.pages.icons = function ( demo ) {
 		label: 'Indicators',
 		id: 'demo-section-indicators'
 	} );
-	Object.keys( imageList.indicators || {} ).forEach( function ( indicator ) {
+	Object.keys( imageList.indicators || {} ).forEach( ( indicator ) => {
 		indicatorsFieldset.addItems( [
 			new OO.ui.FieldLayout(
 				new OO.ui.IndicatorWidget( {
@@ -42,14 +42,14 @@ Demo.static.pages.icons = function ( demo ) {
 		] );
 	} );
 
-	const iconsFieldsets = iconOrder.map( function ( name ) {
+	const iconsFieldsets = iconOrder.map( ( name ) => {
 		const iconsFieldset = new Demo.LinkedFieldsetLayout( {
 			label: 'Icons – ' + name,
 			id: 'demo-section-' + name
 		} );
 
 		const icons = imageList[ 'icons-' + name ] || {};
-		Object.keys( icons ).forEach( function ( icon ) {
+		Object.keys( icons ).forEach( ( icon ) => {
 			const deprecationMessage = icons[ icon ].deprecated;
 			const iconWidget = new OO.ui.IconWidget( {
 				icon: icon,
@@ -64,7 +64,7 @@ Demo.static.pages.icons = function ( demo ) {
 				} )
 			] );
 			if ( icons[ icon ].file.lang ) {
-				Object.keys( icons[ icon ].file.lang ).forEach( function ( lang ) {
+				Object.keys( icons[ icon ].file.lang ).forEach( ( lang ) => {
 					const langs = lang.split( ',' );
 					const langList = langs.join( ', ' );
 					const title = icon + ' (' + langList + ')';
@@ -120,8 +120,8 @@ Demo.static.pages.icons = function ( demo ) {
 	} );
 
 	selector
-		.on( 'select', function ( selected ) {
-			iconsWidgets.forEach( function ( iconWidget ) {
+		.on( 'select', ( selected ) => {
+			iconsWidgets.forEach( ( iconWidget ) => {
 				iconWidget.setFlags( selected.getData() );
 			} );
 		} )
@@ -143,9 +143,7 @@ Demo.static.pages.icons = function ( demo ) {
 			} )
 			.append(
 				selector.$element,
-				iconsFieldsets.map( function ( item ) {
-					return item.$element[ 0 ];
-				} ),
+				iconsFieldsets.map( ( item ) => item.$element[ 0 ] ),
 				indicatorsFieldset.$element
 			)
 	);

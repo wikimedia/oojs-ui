@@ -67,7 +67,7 @@ Tutorials.Toolbar = function ( config ) {
 			this.links.$element
 		);
 
-	this.tutorialsDropdown.getMenu().items.forEach( function ( item ) {
+	this.tutorialsDropdown.getMenu().items.forEach( ( item ) => {
 		if ( location.pathname.indexOf( item.getData() ) !== -1 ) {
 			item.setSelected( true );
 		}

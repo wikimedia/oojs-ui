@@ -491,9 +491,9 @@ OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
 	if ( isValid !== undefined ) {
 		setFlag( isValid );
 	} else {
-		this.getValidity().then( function () {
+		this.getValidity().then( () => {
 			setFlag( true );
-		}, function () {
+		}, () => {
 			setFlag( false );
 		} );
 	}
@@ -528,9 +528,7 @@ OO.ui.TextInputWidget.prototype.getValidity = function () {
 	if ( this.validate instanceof Function ) {
 		result = this.validate( this.getValue() );
 		if ( result && typeof result.promise === 'function' ) {
-			return result.promise().then( function ( valid ) {
-				return rejectOrResolve( valid );
-			} );
+			return result.promise().then( ( valid ) => rejectOrResolve( valid ) );
 		}
 	} else {
 		// The only other type we accept is a RegExp, see #setValidation

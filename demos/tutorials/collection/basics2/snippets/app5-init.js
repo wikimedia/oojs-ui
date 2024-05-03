@@ -11,7 +11,7 @@
 		} );
 
 	// Respond to 'enter' keypress
-	input.on( 'enter', function () {
+	input.on( 'enter', () => {
 		// Check for duplicates and prevent empty input
 		if ( list.findItemFromData( input.getValue() ) ||
 				input.getValue() === '' ) {
@@ -31,7 +31,7 @@
 		input.setValue( '' );
 	} );
 
-	list.on( 'choose', function ( item ) {
+	list.on( 'choose', ( item ) => {
 		info.setLabel( item.getData() + ' (' +
 			item.getPrettyCreationTime() + ')' );
 	} );

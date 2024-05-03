@@ -72,9 +72,7 @@ OO.mixinClass( OO.ui.MultiselectWidget, OO.ui.mixin.TitledElement );
  * @return {OO.ui.MultioptionWidget[]} Selected options
  */
 OO.ui.MultiselectWidget.prototype.findSelectedItems = function () {
-	return this.items.filter( function ( item ) {
-		return item.isSelected();
-	} );
+	return this.items.filter( ( item ) => item.isSelected() );
 };
 
 /**
@@ -83,9 +81,7 @@ OO.ui.MultiselectWidget.prototype.findSelectedItems = function () {
  * @return {Object[]|string[]} Values of selected options
  */
 OO.ui.MultiselectWidget.prototype.findSelectedItemsData = function () {
-	return this.findSelectedItems().map( function ( item ) {
-		return item.data;
-	} );
+	return this.findSelectedItems().map( ( item ) => item.data );
 };
 
 /**
@@ -97,7 +93,7 @@ OO.ui.MultiselectWidget.prototype.findSelectedItemsData = function () {
  */
 OO.ui.MultiselectWidget.prototype.selectItems = function ( items ) {
 	const itemsSet = new Set( items );
-	this.items.forEach( function ( item ) {
+	this.items.forEach( ( item ) => {
 		const selected = itemsSet.has( item );
 		item.setSelected( selected );
 	} );
@@ -112,10 +108,8 @@ OO.ui.MultiselectWidget.prototype.selectItems = function ( items ) {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.MultiselectWidget.prototype.selectItemsByData = function ( datas ) {
-	const dataHashSet = new Set( datas.map( function ( data ) {
-		return OO.getHash( data );
-	} ) );
-	this.items.forEach( function ( item ) {
+	const dataHashSet = new Set( datas.map( ( data ) => OO.getHash( data ) ) );
+	this.items.forEach( ( item ) => {
 		const selected = dataHashSet.has( OO.getHash( item.getData() ) );
 		item.setSelected( selected );
 	} );

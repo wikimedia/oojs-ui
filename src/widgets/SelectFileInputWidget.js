@@ -264,7 +264,7 @@ OO.ui.SelectFileInputWidget.prototype.setValue = function ( files ) {
 	if ( this.canSetFiles ) {
 		// Convert File[] array back to FileList for setting DOM value
 		const dataTransfer = new DataTransfer();
-		Array.prototype.forEach.call( this.currentFiles || [], function ( file ) {
+		Array.prototype.forEach.call( this.currentFiles || [], ( file ) => {
 			dataTransfer.items.add( file );
 		} );
 		this.$input[ 0 ].files = dataTransfer.files;
@@ -287,9 +287,7 @@ OO.ui.SelectFileInputWidget.prototype.setValue = function ( files ) {
  * @return {string} Filename
  */
 OO.ui.SelectFileInputWidget.prototype.getFilename = function () {
-	return this.currentFiles.map( function ( file ) {
-		return file.name;
-	} ).join( ', ' );
+	return this.currentFiles.map( ( file ) => file.name ).join( ', ' );
 };
 
 /**
@@ -329,18 +327,18 @@ OO.ui.SelectFileInputWidget.prototype.updateUI = function () {
 		if ( this.showDropTarget ) {
 			if ( !this.multiple ) {
 				this.pushPending();
-				this.loadAndGetImageUrl( this.currentFiles[ 0 ] ).done( function ( url ) {
+				this.loadAndGetImageUrl( this.currentFiles[ 0 ] ).done( ( url ) => {
 					this.$thumbnail.css( 'background-image', 'url( ' + url + ' )' );
-				}.bind( this ) ).fail( function () {
+				} ).fail( () => {
 					this.$thumbnail.append(
 						new OO.ui.IconWidget( {
 							icon: 'attachment',
 							classes: [ 'oo-ui-selectFileInputWidget-noThumbnail-icon oo-ui-selectFileWidget-noThumbnail-icon' ]
 						} ).$element
 					);
-				}.bind( this ) ).always( function () {
+				} ).always( () => {
 					this.popPending();
-				}.bind( this ) );
+				} );
 			}
 			this.$element.off( 'click' );
 		}
@@ -376,7 +374,7 @@ OO.ui.SelectFileInputWidget.prototype.loadAndGetImageUrl = function ( file ) {
 	) {
 		reader.onload = function ( event ) {
 			const img = document.createElement( 'img' );
-			img.addEventListener( 'load', function () {
+			img.addEventListener( 'load', () => {
 				if (
 					img.naturalWidth === 0 ||
 					img.naturalHeight === 0 ||

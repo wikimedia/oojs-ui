@@ -161,7 +161,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	// Briefly add a 'clone' class to style the browser's native drag image
 	this.$element.addClass( 'oo-ui-draggableElement-clone' );
 	// Add placeholder class after the browser has rendered the clone
-	setTimeout( function () {
+	setTimeout( () => {
 		element.$element
 			.removeClass( 'oo-ui-draggableElement-clone' )
 			.addClass( 'oo-ui-draggableElement-placeholder' );

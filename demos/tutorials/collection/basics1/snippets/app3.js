@@ -18,7 +18,7 @@
 		} );
 
 	// Respond to 'enter' keypress
-	input.on( 'enter', function () {
+	input.on( 'enter', () => {
 		// Check for duplicates
 		if ( list.findItemFromData( input.getValue() ) ||
 				input.getValue() === '' ) {

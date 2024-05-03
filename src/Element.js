@@ -56,7 +56,7 @@ OO.ui.Element = function OoUiElement( config ) {
 		// The `content` property treats plain strings as text; use an
 		// HtmlSnippet to append HTML content.  `OO.ui.Element`s get their
 		// appropriate $element appended.
-		this.$element.append( config.content.map( function ( v ) {
+		this.$element.append( config.content.map( ( v ) => {
 			if ( typeof v === 'string' ) {
 				// Escape string so it is properly represented in HTML.
 				// Don't create empty text nodes for empty strings.
@@ -162,7 +162,7 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 			domPromise.done( data.restorePreInfuseState.bind( data, stateCache ) );
 			const infusedChildrenCache = $elem.data( 'ooui-infused-children' );
 			if ( infusedChildrenCache && infusedChildrenCache.length ) {
-				infusedChildrenCache.forEach( function ( childData ) {
+				infusedChildrenCache.forEach( ( childData ) => {
 					const childState = childData.constructor.static.gatherPreInfuseState(
 						$elem,
 						childData
@@ -206,7 +206,7 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 	$elem.data( 'ooui-infused', true ); // prevent loops
 	data.id = id; // implicit
 	const infusedChildren = [];
-	data = OO.copy( data, null, function deserialize( value ) {
+	data = OO.copy( data, null, ( value ) => {
 		let infused;
 		if ( OO.isPlainObject( value ) ) {
 			if ( value.tag && doc.getElementById( value.tag ) ) {
@@ -972,9 +972,7 @@ OO.ui.Element.prototype.supports = function ( methods ) {
 	}
 
 	const element = this;
-	return methods.every( function ( method ) {
-		return typeof element[ method ] === 'function';
-	} );
+	return methods.every( ( method ) => typeof element[ method ] === 'function' );
 };
 
 /**

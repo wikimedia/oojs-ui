@@ -243,7 +243,7 @@ OO.ui.DropdownInputWidget.prototype.updateOptionsInterface = function () {
 
 	this.$input.empty();
 
-	this.dropdownWidget.getMenu().getItems().forEach( function ( optionWidget ) {
+	this.dropdownWidget.getMenu().getItems().forEach( ( optionWidget ) => {
 		let $optionNode;
 
 		if ( !( optionWidget instanceof OO.ui.MenuSectionOptionWidget ) ) {

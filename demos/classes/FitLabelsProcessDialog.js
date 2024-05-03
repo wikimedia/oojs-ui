@@ -16,12 +16,12 @@ Demo.FitLabelsProcessDialog.prototype.initialize = function () {
 	this.longActionToggle = new OO.ui.ToggleSwitchWidget();
 	this.longTitleToggle = new OO.ui.ToggleSwitchWidget();
 
-	this.longActionToggle.on( 'change', function ( isLong ) {
+	this.longActionToggle.on( 'change', ( isLong ) => {
 		this.actions.setMode( isLong ? 'long' : 'short' );
-	}.bind( this ) );
-	this.longTitleToggle.on( 'change', function ( isLong ) {
+	} );
+	this.longTitleToggle.on( 'change', ( isLong ) => {
 		this.title.setLabel( isLong ? longTitle : shortTitle );
-	}.bind( this ) );
+	} );
 
 	this.fieldset = new OO.ui.FieldsetLayout( {
 		items: [
@@ -50,7 +50,7 @@ Demo.FitLabelsProcessDialog.prototype.getSetupProcess = function ( data ) {
 Demo.FitLabelsProcessDialog.prototype.getActionProcess = function ( action ) {
 	const dialog = this;
 	if ( action ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			dialog.close( { action: action } );
 		} );
 	}

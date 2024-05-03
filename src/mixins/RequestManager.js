@@ -43,7 +43,7 @@ OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 		this.requestQuery = value;
 		const ourRequest = this.requestRequest = this.getRequest();
 		ourRequest
-			.always( function () {
+			.always( () => {
 				// We need to pop pending even if this is an old request, otherwise
 				// the widget will remain pending forever.
 				// TODO: this assumes that an aborted request will fail or succeed soon after
@@ -54,7 +54,7 @@ OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 					widget.popPending();
 				}
 			} )
-			.done( function ( response ) {
+			.done( ( response ) => {
 				// If this is an old request (and aborting it somehow caused it to still succeed),
 				// ignore its success completely
 				if ( ourRequest === widget.requestRequest ) {
@@ -65,7 +65,7 @@ OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 					deferred.resolve( widget.requestCache[ value ] );
 				}
 			} )
-			.fail( function () {
+			.fail( () => {
 				// If this is an old request (or a request failing because it's being aborted),
 				// ignore its failure completely
 				if ( ourRequest === widget.requestRequest ) {

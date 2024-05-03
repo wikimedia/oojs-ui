@@ -189,7 +189,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
 	// Focus the first element on the newly selected panel.
 	// Don't focus if the page was set by scrolling.
 	if ( this.autoFocus && !OO.ui.isMobile() && !this.scrolling ) {
-		promise.done( function () {
+		promise.done( () => {
 			layout.focus();
 		} );
 	}
@@ -291,7 +291,7 @@ OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
 			// HACK: Kill dumb scrollbars when the sidebar stops animating, see T161798.
 			// Only necessary when outline controls are present, delay matches transition on
 			// `.oo-ui-menuLayout-menu`.
-			setTimeout( function () {
+			setTimeout( () => {
 				OO.ui.Element.static.reconsiderScrollbars( booklet.outlinePanel.$element[ 0 ] );
 			}, OO.ui.theme.getDialogTransitionDuration() );
 		}

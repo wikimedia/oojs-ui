@@ -53,12 +53,10 @@ Demo.DialogWithPopupAndDropdown.prototype.initialize = function () {
 	this.$body.append( this.bookletLayout.$element );
 };
 Demo.DialogWithPopupAndDropdown.prototype.makeItems = function () {
-	return [ 0, 1, 2, 3, 4 ].map( function ( val ) {
-		return new OO.ui.MenuOptionWidget( {
-			data: val,
-			label: String( val )
-		} );
-	} );
+	return [ 0, 1, 2, 3, 4 ].map( ( val ) => new OO.ui.MenuOptionWidget( {
+		data: val,
+		label: String( val )
+	} ) );
 };
 
 Demo.DialogWithPopupAndDropdown.prototype.getActionProcess = function ( action ) {

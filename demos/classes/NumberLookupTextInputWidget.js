@@ -26,15 +26,15 @@ Demo.NumberLookupTextInputWidget.prototype.getLookupRequest = function () {
 		deferred = $.Deferred(),
 		delay = 500 + Math.floor( Math.random() * 500 );
 
-	this.getValidity().then( function () {
+	this.getValidity().then( () => {
 		// Resolve with results after a faked delay
-		setTimeout( function () {
+		setTimeout( () => {
 			deferred.resolve( [
 				value * 1, value * 2, value * 3, value * 4, value * 5,
 				value * 6, value * 7, value * 8, value * 9, value * 10
 			] );
 		}, delay );
-	}, function () {
+	}, () => {
 		// No results when the input contains invalid content
 		deferred.resolve( [] );
 	} );

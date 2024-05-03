@@ -38,21 +38,15 @@ OO.ui.WindowInstance = function OoUiWindowInstance() {
 	/**
 	 * @property {jQuery.Promise}
 	 */
-	this.opened = this.opening.then( function () {
-		return deferreds.opened;
-	} );
+	this.opened = this.opening.then( () => deferreds.opened );
 	/**
 	 * @property {jQuery.Promise}
 	 */
-	this.closing = this.opened.then( function () {
-		return deferreds.closing;
-	} );
+	this.closing = this.opened.then( () => deferreds.closing );
 	/**
 	 * @property {jQuery.Promise}
 	 */
-	this.closed = this.closing.then( function () {
-		return deferreds.closed;
-	} );
+	this.closed = this.closing.then( () => deferreds.closed );
 };
 
 /* Setup */

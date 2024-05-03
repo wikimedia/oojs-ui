@@ -368,6 +368,7 @@ OO.mixinClass( OO.ui.Toolbar, OO.ui.mixin.GroupElement );
 
 /**
  * Toolbar has resized to a point where narrow mode has changed
+ *
  * @event OO.ui.Toolbar#resize
  */
 

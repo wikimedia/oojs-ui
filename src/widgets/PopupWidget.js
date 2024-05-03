@@ -513,7 +513,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 
 	if ( transition ) {
 		// Prevent transitioning after transition is complete
-		this.transitionTimeout = setTimeout( function () {
+		this.transitionTimeout = setTimeout( () => {
 			widget.$element.removeClass( 'oo-ui-popupWidget-transitioning' );
 		}, 200 );
 	} else {

@@ -121,7 +121,7 @@ OO.ui.CheckboxMultiselectWidget.prototype.onClick = function ( e ) {
 			// clicks on the <input> and on the <label> and there are additional fake clicks fired
 			// for non-click actions that change the checkboxes.
 			e.preventDefault();
-			setTimeout( function () {
+			setTimeout( () => {
 				if ( !items[ nowClickedIndex ].isDisabled() ) {
 					items[ nowClickedIndex ].setSelected( !wasSelected );
 				}

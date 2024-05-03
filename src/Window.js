@@ -290,7 +290,7 @@ OO.ui.Window.prototype.getContentHeight = function () {
 	let bodyHeight;
 	// Temporarily resize the frame so getBodyHeight() can use scrollHeight measurements.
 	// Disable transitions first, otherwise we'll get values from when the window was animating.
-	this.withoutSizeTransitions( function () {
+	this.withoutSizeTransitions( () => {
 		const oldHeight = frame.style.height;
 		const oldPosition = body.style.position;
 		const scrollTop = body.scrollTop;
@@ -490,7 +490,7 @@ OO.ui.Window.prototype.setDimensions = function ( dim ) {
 	let height;
 	// Calculate the height we need to set using the correct width
 	if ( dim.height === undefined ) {
-		this.withoutSizeTransitions( function () {
+		this.withoutSizeTransitions( () => {
 			const oldWidth = styleObj.width;
 			win.$frame.css( 'width', dim.width || '' );
 			height = win.getContentHeight();
@@ -639,7 +639,7 @@ OO.ui.Window.prototype.setup = function ( data ) {
 
 	this.toggle( true );
 
-	return this.getSetupProcess( data ).execute().then( function () {
+	return this.getSetupProcess( data ).execute().then( () => {
 		win.updateSize();
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.addClass( 'oo-ui-window-active oo-ui-window-setup' ).width();
@@ -660,7 +660,7 @@ OO.ui.Window.prototype.ready = function ( data ) {
 	const win = this;
 
 	this.$content.trigger( 'focus' );
-	return this.getReadyProcess( data ).execute().then( function () {
+	return this.getReadyProcess( data ).execute().then( () => {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.addClass( 'oo-ui-window-ready' ).width();
 		win.$content.addClass( 'oo-ui-window-content-ready' ).width();
@@ -679,7 +679,7 @@ OO.ui.Window.prototype.ready = function ( data ) {
 OO.ui.Window.prototype.hold = function ( data ) {
 	const win = this;
 
-	return this.getHoldProcess( data ).execute().then( function () {
+	return this.getHoldProcess( data ).execute().then( () => {
 		// Get the focused element within the window's content
 		const $focus = win.$content.find(
 			OO.ui.Element.static.getDocument( win.$content ).activeElement
@@ -708,7 +708,7 @@ OO.ui.Window.prototype.hold = function ( data ) {
 OO.ui.Window.prototype.teardown = function ( data ) {
 	const win = this;
 
-	return this.getTeardownProcess( data ).execute().then( function () {
+	return this.getTeardownProcess( data ).execute().then( () => {
 		// Force redraw by asking the browser to measure the elements' widths
 		win.$element.removeClass( 'oo-ui-window-active' ).width();
 

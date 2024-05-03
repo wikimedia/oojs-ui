@@ -233,9 +233,7 @@ OO.ui.ButtonWidget.prototype.setNoFollow = function ( noFollow ) {
 		if ( noFollow ) {
 			rel = this.rel.concat( [ 'nofollow' ] );
 		} else {
-			rel = this.rel.filter( function ( value ) {
-				return value !== 'nofollow';
-			} );
+			rel = this.rel.filter( ( value ) => value !== 'nofollow' );
 		}
 		this.setRel( rel );
 	}

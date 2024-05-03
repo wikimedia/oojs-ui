@@ -413,13 +413,13 @@ OO.ui.FieldLayout.prototype.createHelpElement = function ( help, $overlay ) {
 			invisibleLabel: true
 		} );
 
-		helpWidget.popup.on( 'ready', function () {
+		helpWidget.popup.on( 'ready', () => {
 			const $popupElement = helpWidget.popup.$element;
 			$popupElement.attr( 'tabindex', 0 );
 			$popupElement.trigger( 'focus' );
 		} );
 
-		helpWidget.popup.on( 'closing', function () {
+		helpWidget.popup.on( 'closing', () => {
 			helpWidget.$button.trigger( 'focus' );
 		} );
 

@@ -361,7 +361,8 @@ module.exports = function ( grunt ) {
 		// Lint – Code
 		eslint: {
 			options: {
-				cache: true
+				cache: true,
+				fix: grunt.option( 'fix' )
 			},
 			all: [
 				'.'

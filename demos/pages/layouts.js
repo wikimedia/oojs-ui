@@ -17,10 +17,10 @@ Demo.static.pages.layouts = function ( demo ) {
 		help: 'Enter only even number of characters'
 	} );
 
-	inputForValidation.$input.on( 'blur', function () {
-		inputForValidation.getValidity().then( function () {
+	inputForValidation.$input.on( 'blur', () => {
+		inputForValidation.getValidity().then( () => {
 			fieldLayoutForValidation.setErrors( [] );
-		}, function () {
+		}, () => {
 			fieldLayoutForValidation.setErrors( [
 				'Please enter an even number of characters'
 			] );
@@ -904,8 +904,8 @@ Demo.static.pages.layouts = function ( demo ) {
 		} )
 	];
 
-	fieldsets.forEach( function ( fieldsetLayout ) {
-		fieldsetLayout.getItems().forEach( function ( fieldLayout ) {
+	fieldsets.forEach( ( fieldsetLayout ) => {
+		fieldsetLayout.getItems().forEach( ( fieldLayout ) => {
 			fieldLayout.$element.append(
 				demo.buildLinkExample( fieldLayout ),
 				demo.buildConsole( fieldLayout, 'layout', 'widget', true )
@@ -919,15 +919,13 @@ Demo.static.pages.layouts = function ( demo ) {
 			framed: true
 		} ).$element
 			.append(
-				$( fieldsets.map( function ( fieldset ) {
-					return fieldset.$element[ 0 ];
-				} ) )
+				$( fieldsets.map( ( fieldset ) => fieldset.$element[ 0 ] ) )
 			)
 	);
 
 	$overlay.appendTo( 'body' );
 
-	demo.once( 'destroy', function () {
+	demo.once( 'destroy', () => {
 		// We are removing all of the widgets from the page, so also remove their "detached"
 		// menus and stuff, otherwise they can remain visible forever.
 		$overlay.remove();

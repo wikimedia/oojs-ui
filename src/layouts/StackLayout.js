@@ -250,7 +250,7 @@ OO.ui.StackLayout.prototype.resetScroll = function () {
 		return OO.ui.StackLayout.super.prototype.resetScroll.call( this );
 	}
 	// Reset each panel
-	this.getItems().forEach( function ( panel ) {
+	this.getItems().forEach( ( panel ) => {
 		// eslint-disable-next-line no-jquery/no-class-state
 		const hidden = panel.$element.hasClass( 'oo-ui-element-hidden' );
 		// Scroll can only be reset when panel is visible
@@ -277,7 +277,7 @@ OO.ui.StackLayout.prototype.resetScroll = function () {
 OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem ) {
 	const layout = this;
 	if ( !this.isContinuous() ) {
-		items.forEach( function ( item ) {
+		items.forEach( ( item ) => {
 			if ( !selectedItem || selectedItem !== item ) {
 				// If the panel is a TabPanelLayout which has a disabled tab, then
 				// fully hide it so we don't search inside it and automatically switch
@@ -296,7 +296,7 @@ OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem )
 			selectedItem.$element.removeAttr( 'aria-hidden' );
 		}
 	} else {
-		items.forEach( function ( item ) {
+		items.forEach( ( item ) => {
 			item.$element[ 0 ].removeAttribute( 'hidden' );
 			item.$element.removeAttr( 'aria-hidden' );
 		} );
