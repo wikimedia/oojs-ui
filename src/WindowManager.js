@@ -400,7 +400,6 @@ OO.ui.WindowManager.prototype.getCurrentWindow = function () {
  * @fires OO.ui.WindowManager#opening
  */
 OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, compatOpening ) {
-	const manager = this;
 	data = data || {};
 
 	// Internal parameter 'lifecycle' allows this method to always return
@@ -426,7 +425,7 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 	if ( typeof win === 'string' ) {
 		this.getWindow( win ).then(
 			( w ) => {
-				manager.openWindow( w, data, lifecycle, compatOpening );
+				this.openWindow( w, data, lifecycle, compatOpening );
 			},
 			( err ) => {
 				lifecycle.deferreds.opening.reject( err );
@@ -455,50 +454,50 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
 	this.preparingToOpen = $.when( this.lifecycle && this.lifecycle.closed );
 	// Ensure handlers get called after preparingToOpen is set
 	this.preparingToOpen.done( () => {
-		if ( manager.isModal() ) {
-			manager.toggleGlobalEvents( true, win );
-			manager.toggleIsolation( true );
+		if ( this.isModal() ) {
+			this.toggleGlobalEvents( true, win );
+			this.toggleIsolation( true );
 		}
-		manager.$returnFocusTo = data.$returnFocusTo !== undefined ?
+		this.$returnFocusTo = data.$returnFocusTo !== undefined ?
 			data.$returnFocusTo :
 			$( document.activeElement );
-		manager.currentWindow = win;
-		manager.lifecycle = lifecycle;
-		manager.preparingToOpen = null;
-		manager.emit( 'opening', win, compatOpening, data );
+		this.currentWindow = win;
+		this.lifecycle = lifecycle;
+		this.preparingToOpen = null;
+		this.emit( 'opening', win, compatOpening, data );
 		lifecycle.deferreds.opening.resolve( data );
 		setTimeout( () => {
-			manager.compatOpened = $.Deferred();
+			this.compatOpened = $.Deferred();
 			win.setup( data ).then( () => {
 				compatOpening.notify( { state: 'setup' } );
 				setTimeout( () => {
 					win.ready( data ).then( () => {
 						compatOpening.notify( { state: 'ready' } );
 						lifecycle.deferreds.opened.resolve( data );
-						compatOpening.resolve( manager.compatOpened.promise(), data );
-						manager.togglePreventIosScrolling( true );
+						compatOpening.resolve( this.compatOpened.promise(), data );
+						this.togglePreventIosScrolling( true );
 					}, ( dataOrErr ) => {
 						lifecycle.deferreds.opened.reject();
 						compatOpening.reject();
-						manager.closeWindow( win );
+						this.closeWindow( win );
 						if ( dataOrErr instanceof Error ) {
 							setTimeout( () => {
 								throw dataOrErr;
 							} );
 						}
 					} );
-				}, manager.getReadyDelay() );
+				}, this.getReadyDelay() );
 			}, ( dataOrErr ) => {
 				lifecycle.deferreds.opened.reject();
 				compatOpening.reject();
-				manager.closeWindow( win );
+				this.closeWindow( win );
 				if ( dataOrErr instanceof Error ) {
 					setTimeout( () => {
 						throw dataOrErr;
 					} );
 				}
 			} );
-		}, manager.getSetupDelay() );
+		}, this.getSetupDelay() );
 	} );
 
 	return lifecycle;
@@ -515,7 +514,6 @@ OO.ui.WindowManager.prototype.openWindow = function ( win, data, lifecycle, comp
  * @fires OO.ui.WindowManager#closing
  */
 OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
-	const manager = this;
 	const compatClosing = $.Deferred();
 	let lifecycle = this.lifecycle;
 
@@ -570,34 +568,34 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
 	this.preparingToClose = $.when( this.lifecycle.opened );
 	// Ensure handlers get called after preparingToClose is set
 	this.preparingToClose.always( () => {
-		manager.preparingToClose = null;
-		manager.emit( 'closing', win, compatClosing, data );
+		this.preparingToClose = null;
+		this.emit( 'closing', win, compatClosing, data );
 		lifecycle.deferreds.closing.resolve( data );
-		const compatOpened = manager.compatOpened;
-		manager.compatOpened = null;
+		const compatOpened = this.compatOpened;
+		this.compatOpened = null;
 		compatOpened.resolve( compatClosing.promise(), data );
-		manager.togglePreventIosScrolling( false );
+		this.togglePreventIosScrolling( false );
 		setTimeout( () => {
 			win.hold( data ).then( () => {
 				compatClosing.notify( { state: 'hold' } );
 				setTimeout( () => {
 					win.teardown( data ).then( () => {
 						compatClosing.notify( { state: 'teardown' } );
-						if ( manager.isModal() ) {
-							manager.toggleGlobalEvents( false );
-							manager.toggleIsolation( false );
+						if ( this.isModal() ) {
+							this.toggleGlobalEvents( false );
+							this.toggleIsolation( false );
 						}
-						if ( manager.$returnFocusTo && manager.$returnFocusTo.length ) {
-							manager.$returnFocusTo[ 0 ].focus();
+						if ( this.$returnFocusTo && this.$returnFocusTo.length ) {
+							this.$returnFocusTo[ 0 ].focus();
 						}
-						manager.currentWindow = null;
-						manager.lifecycle = null;
+						this.currentWindow = null;
+						this.lifecycle = null;
 						lifecycle.deferreds.closed.resolve( data );
 						compatClosing.resolve( data );
 					} );
-				}, manager.getTeardownDelay() );
+				}, this.getTeardownDelay() );
 			} );
-		}, manager.getHoldDelay() );
+		}, this.getHoldDelay() );
 	} );
 
 	return lifecycle;
@@ -687,20 +685,18 @@ OO.ui.WindowManager.prototype.addWindows = function ( windows ) {
  * @throws {Error} An error is thrown if the named windows are not managed by the window manager.
  */
 OO.ui.WindowManager.prototype.removeWindows = function ( names ) {
-	const manager = this;
-
-	function cleanup( name, win ) {
-		delete manager.windows[ name ];
+	const cleanup = ( name, win ) => {
+		delete this.windows[ name ];
 		win.$element.detach();
-	}
+	};
 
 	const promises = names.map( ( name ) => {
-		const win = manager.windows[ name ];
+		const win = this.windows[ name ];
 		if ( !win ) {
 			throw new Error( 'Cannot remove window' );
 		}
 		const cleanupWindow = cleanup.bind( null, name, win );
-		return manager.closeWindow( name ).closed.then( cleanupWindow, cleanupWindow );
+		return this.closeWindow( name ).closed.then( cleanupWindow, cleanupWindow );
 	} );
 
 	return $.when.apply( $, promises );

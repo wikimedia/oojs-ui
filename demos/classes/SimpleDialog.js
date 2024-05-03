@@ -4,8 +4,6 @@ Demo.SimpleDialog = function DemoSimpleDialog( config ) {
 OO.inheritClass( Demo.SimpleDialog, OO.ui.Dialog );
 Demo.SimpleDialog.static.title = 'Simple dialog';
 Demo.SimpleDialog.prototype.initialize = function () {
-	const dialog = this;
-
 	Demo.SimpleDialog.super.prototype.initialize.apply( this, arguments );
 	this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 	// eslint-disable-next-line no-jquery/no-parse-html-literal
@@ -15,7 +13,7 @@ Demo.SimpleDialog.prototype.initialize = function () {
 		label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
 	} );
 	closeButton.on( 'click', () => {
-		dialog.close();
+		this.close();
 	} );
 
 	this.content.$element.append( closeButton.$element );

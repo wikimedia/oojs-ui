@@ -211,16 +211,14 @@ OO.ui.MenuTagMultiselectWidget.prototype.onTagSelect = function ( tagItem ) {
  * @inheritdoc
  */
 OO.ui.MenuTagMultiselectWidget.prototype.removeItems = function ( items ) {
-	const widget = this;
-
 	// Parent
 	OO.ui.MenuTagMultiselectWidget.super.prototype.removeItems.call( this, items );
 
 	items.forEach( ( tagItem ) => {
-		const menuItem = widget.menu.findItemFromData( tagItem.getData() );
+		const menuItem = this.menu.findItemFromData( tagItem.getData() );
 		if ( menuItem ) {
 			// Synchronize the menu selection - unselect the removed tag
-			widget.menu.unselectItem( menuItem );
+			this.menu.unselectItem( menuItem );
 		}
 	} );
 };
@@ -329,15 +327,14 @@ OO.ui.MenuTagMultiselectWidget.prototype.createMenuWidget = function ( menuConfi
  * @param {Object[]} menuOptions Object defining options
  */
 OO.ui.MenuTagMultiselectWidget.prototype.addOptions = function ( menuOptions ) {
-	const widget = this,
-		optionsData = [],
+	const optionsData = [],
 		items = [];
 
 	menuOptions.forEach( ( obj ) => {
 		if ( optionsData.indexOf( obj.data ) === -1 ) {
 			optionsData.push( obj.data );
 			items.push(
-				widget.createMenuOptionWidget( obj.data, obj.label, obj.icon )
+				this.createMenuOptionWidget( obj.data, obj.label, obj.icon )
 			);
 		}
 	} );

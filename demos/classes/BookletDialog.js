@@ -13,13 +13,11 @@ Demo.BookletDialog.prototype.getBodyHeight = function () {
 Demo.BookletDialog.prototype.initialize = function () {
 	Demo.BookletDialog.super.prototype.initialize.apply( this, arguments );
 
-	const dialog = this;
-
-	function changePage( direction ) {
-		let pageIndex = dialog.pages.indexOf( dialog.bookletLayout.getCurrentPage() );
-		pageIndex = ( dialog.pages.length + pageIndex + direction ) % dialog.pages.length;
-		dialog.bookletLayout.setPage( dialog.pages[ pageIndex ].getName() );
-	}
+	const changePage = ( direction ) => {
+		let pageIndex = this.pages.indexOf( this.bookletLayout.getCurrentPage() );
+		pageIndex = ( this.pages.length + pageIndex + direction ) % this.pages.length;
+		this.bookletLayout.setPage( this.pages[ pageIndex ].getName() );
+	};
 
 	this.navigationField = new OO.ui.FieldLayout(
 		new OO.ui.ButtonGroupWidget( {

@@ -129,8 +129,6 @@ OO.ui.mixin.DraggableElement.prototype.onDragMouseDown = function ( e ) {
  * @fires OO.ui.mixin.DraggableElement#dragstart
  */
 OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
-	const element = this;
-
 	if ( !this.wasHandleUsed || !this.isDraggable() ) {
 		return false;
 	}
@@ -162,7 +160,7 @@ OO.ui.mixin.DraggableElement.prototype.onDragStart = function ( e ) {
 	this.$element.addClass( 'oo-ui-draggableElement-clone' );
 	// Add placeholder class after the browser has rendered the clone
 	setTimeout( () => {
-		element.$element
+		this.$element
 			.removeClass( 'oo-ui-draggableElement-clone' )
 			.addClass( 'oo-ui-draggableElement-placeholder' );
 	} );

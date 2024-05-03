@@ -29,8 +29,7 @@ OO.initClass( OO.ui.mixin.RequestManager );
  *  promise may not be rejected, depending on what jQuery feels like doing.
  */
 OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
-	const widget = this,
-		value = this.getRequestQuery(),
+	const value = this.getRequestQuery(),
 		deferred = $.Deferred();
 
 	this.abortRequest();
@@ -50,27 +49,27 @@ OO.ui.mixin.RequestManager.prototype.getRequestData = function () {
 				// being aborted, or at least eventually. It would be nice if we could popPending()
 				// at abort time, but only if we knew that we hadn't already called popPending()
 				// for that request.
-				if ( widget.showPendingRequest ) {
-					widget.popPending();
+				if ( this.showPendingRequest ) {
+					this.popPending();
 				}
 			} )
 			.done( ( response ) => {
 				// If this is an old request (and aborting it somehow caused it to still succeed),
 				// ignore its success completely
-				if ( ourRequest === widget.requestRequest ) {
-					widget.requestQuery = null;
-					widget.requestRequest = null;
-					widget.requestCache[ value ] =
-						widget.getRequestCacheDataFromResponse( response );
-					deferred.resolve( widget.requestCache[ value ] );
+				if ( ourRequest === this.requestRequest ) {
+					this.requestQuery = null;
+					this.requestRequest = null;
+					this.requestCache[ value ] =
+						this.getRequestCacheDataFromResponse( response );
+					deferred.resolve( this.requestCache[ value ] );
 				}
 			} )
 			.fail( () => {
 				// If this is an old request (or a request failing because it's being aborted),
 				// ignore its failure completely
-				if ( ourRequest === widget.requestRequest ) {
-					widget.requestQuery = null;
-					widget.requestRequest = null;
+				if ( ourRequest === this.requestRequest ) {
+					this.requestQuery = null;
+					this.requestRequest = null;
 					deferred.reject();
 				}
 			} );

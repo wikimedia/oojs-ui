@@ -22,8 +22,7 @@ Demo.SearchWidgetDialog.static.actions = [
 	{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] }
 ];
 Demo.SearchWidgetDialog.prototype.getActionProcess = function ( action ) {
-	const dialog = this;
 	return new OO.ui.Process( () => {
-		dialog.close( { action: action } );
+		this.close( { action: action } );
 	} );
 };

@@ -283,7 +283,6 @@ OO.ui.Window.prototype.withoutSizeTransitions = function ( callback ) {
  * @return {number} The height of the window contents (the dialog head, body and foot) in pixels
  */
 OO.ui.Window.prototype.getContentHeight = function () {
-	const win = this;
 	const body = this.$body[ 0 ];
 	const frame = this.$frame[ 0 ];
 
@@ -297,7 +296,7 @@ OO.ui.Window.prototype.getContentHeight = function () {
 		frame.style.height = '1px';
 		// Force body to resize to new width
 		body.style.position = 'relative';
-		bodyHeight = win.getBodyHeight();
+		bodyHeight = this.getBodyHeight();
 		frame.style.height = oldHeight;
 		body.style.position = oldPosition;
 		body.scrollTop = scrollTop;
@@ -484,16 +483,15 @@ OO.ui.Window.prototype.updateSize = function () {
  * @return {OO.ui.Window} The window, for chaining
  */
 OO.ui.Window.prototype.setDimensions = function ( dim ) {
-	const win = this,
-		styleObj = this.$frame[ 0 ].style;
+	const styleObj = this.$frame[ 0 ].style;
 
 	let height;
 	// Calculate the height we need to set using the correct width
 	if ( dim.height === undefined ) {
 		this.withoutSizeTransitions( () => {
 			const oldWidth = styleObj.width;
-			win.$frame.css( 'width', dim.width || '' );
-			height = win.getContentHeight();
+			this.$frame.css( 'width', dim.width || '' );
+			height = this.getContentHeight();
 			styleObj.width = oldWidth;
 		} );
 	} else {
@@ -635,15 +633,13 @@ OO.ui.Window.prototype.close = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is setup
  */
 OO.ui.Window.prototype.setup = function ( data ) {
-	const win = this;
-
 	this.toggle( true );
 
 	return this.getSetupProcess( data ).execute().then( () => {
-		win.updateSize();
+		this.updateSize();
 		// Force redraw by asking the browser to measure the elements' widths
-		win.$element.addClass( 'oo-ui-window-active oo-ui-window-setup' ).width();
-		win.$content.addClass( 'oo-ui-window-content-setup' ).width();
+		this.$element.addClass( 'oo-ui-window-active oo-ui-window-setup' ).width();
+		this.$content.addClass( 'oo-ui-window-content-setup' ).width();
 	} );
 };
 
@@ -657,13 +653,11 @@ OO.ui.Window.prototype.setup = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is ready
  */
 OO.ui.Window.prototype.ready = function ( data ) {
-	const win = this;
-
 	this.$content.trigger( 'focus' );
 	return this.getReadyProcess( data ).execute().then( () => {
 		// Force redraw by asking the browser to measure the elements' widths
-		win.$element.addClass( 'oo-ui-window-ready' ).width();
-		win.$content.addClass( 'oo-ui-window-content-ready' ).width();
+		this.$element.addClass( 'oo-ui-window-ready' ).width();
+		this.$content.addClass( 'oo-ui-window-content-ready' ).width();
 	} );
 };
 
@@ -677,12 +671,10 @@ OO.ui.Window.prototype.ready = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is held
  */
 OO.ui.Window.prototype.hold = function ( data ) {
-	const win = this;
-
 	return this.getHoldProcess( data ).execute().then( () => {
 		// Get the focused element within the window's content
-		const $focus = win.$content.find(
-			OO.ui.Element.static.getDocument( win.$content ).activeElement
+		const $focus = this.$content.find(
+			OO.ui.Element.static.getDocument( this.$content ).activeElement
 		);
 
 		// Blur the focused element
@@ -691,8 +683,8 @@ OO.ui.Window.prototype.hold = function ( data ) {
 		}
 
 		// Force redraw by asking the browser to measure the elements' widths
-		win.$element.removeClass( 'oo-ui-window-ready oo-ui-window-setup' ).width();
-		win.$content.removeClass( 'oo-ui-window-content-ready oo-ui-window-content-setup' ).width();
+		this.$element.removeClass( 'oo-ui-window-ready oo-ui-window-setup' ).width();
+		this.$content.removeClass( 'oo-ui-window-content-ready oo-ui-window-content-setup' ).width();
 	} );
 };
 
@@ -706,12 +698,10 @@ OO.ui.Window.prototype.hold = function ( data ) {
  * @return {jQuery.Promise} Promise resolved when window is torn down
  */
 OO.ui.Window.prototype.teardown = function ( data ) {
-	const win = this;
-
 	return this.getTeardownProcess( data ).execute().then( () => {
 		// Force redraw by asking the browser to measure the elements' widths
-		win.$element.removeClass( 'oo-ui-window-active' ).width();
+		this.$element.removeClass( 'oo-ui-window-active' ).width();
 
-		win.toggle( false );
+		this.toggle( false );
 	} );
 };

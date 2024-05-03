@@ -25,10 +25,9 @@ Demo.ProcessDialog.prototype.initialize = function () {
 	this.$body.append( this.content.$element );
 };
 Demo.ProcessDialog.prototype.getActionProcess = function ( action ) {
-	const dialog = this;
 	if ( action ) {
 		return new OO.ui.Process( () => {
-			dialog.close( { action: action } );
+			this.close( { action: action } );
 		} );
 	}
 	return Demo.ProcessDialog.super.prototype.getActionProcess.call( this, action );

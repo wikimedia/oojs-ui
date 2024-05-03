@@ -33,14 +33,13 @@
  *         return 100;
  *     }
  *     MessageDialog.prototype.getActionProcess = function ( action ) {
- *         const dialog = this;
  *         if ( action === 'save' ) {
- *             dialog.getActions().get({actions: 'save'})[0].pushPending();
+ *             this.getActions().get({actions: 'save'})[0].pushPending();
  *             return new OO.ui.Process()
- *             .next( 1000 )
- *             .next( () => {
- *                 dialog.getActions().get({actions: 'save'})[0].popPending();
- *             } );
+ *                 .next( 1000 )
+ *                 .next( () => {
+ *                     this.getActions().get({actions: 'save'})[0].popPending();
+ *                 } );
  *         }
  *         return MessageDialog.super.prototype.getActionProcess.call( this, action );
  *     };

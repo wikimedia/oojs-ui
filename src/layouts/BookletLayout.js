@@ -174,7 +174,6 @@ OO.ui.BookletLayout.prototype.onStackLayoutFocus = function ( e ) {
  * @param {OO.ui.PanelLayout|null} page The page panel that is now the current panel
  */
 OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
-	const layout = this;
 	// If everything is unselected, do nothing
 	if ( !page ) {
 		return;
@@ -190,7 +189,7 @@ OO.ui.BookletLayout.prototype.onStackLayoutSet = function ( page ) {
 	// Don't focus if the page was set by scrolling.
 	if ( this.autoFocus && !OO.ui.isMobile() && !this.scrolling ) {
 		promise.done( () => {
-			layout.focus();
+			this.focus();
 		} );
 	}
 };
@@ -281,8 +280,6 @@ OO.ui.BookletLayout.prototype.isOutlineVisible = function () {
  * @return {OO.ui.BookletLayout} The layout, for chaining
  */
 OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
-	const booklet = this;
-
 	if ( this.outlined ) {
 		show = show === undefined ? !this.outlineVisible : !!show;
 		this.outlineVisible = show;
@@ -292,7 +289,7 @@ OO.ui.BookletLayout.prototype.toggleOutline = function ( show ) {
 			// Only necessary when outline controls are present, delay matches transition on
 			// `.oo-ui-menuLayout-menu`.
 			setTimeout( () => {
-				OO.ui.Element.static.reconsiderScrollbars( booklet.outlinePanel.$element[ 0 ] );
+				OO.ui.Element.static.reconsiderScrollbars( this.outlinePanel.$element[ 0 ] );
 			}, OO.ui.theme.getDialogTransitionDuration() );
 		}
 	}

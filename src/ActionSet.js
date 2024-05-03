@@ -66,9 +66,8 @@
  *             this.actions.setMode( 'edit' );
  *             this.stackLayout.setItem( this.panel1 );
  *         } else if ( action === 'continue' ) {
- *             const dialog = this;
  *             return new OO.ui.Process( () => {
- *                 dialog.close();
+ *                 this.close();
  *             } );
  *         }
  *         return MyProcessDialog.super.prototype.getActionProcess.call( this, action );

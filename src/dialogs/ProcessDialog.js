@@ -37,10 +37,9 @@
  *         this.$body.append( this.content.$element );
  *     };
  *     MyProcessDialog.prototype.getActionProcess = function ( action ) {
- *         const dialog = this;
  *         if ( action ) {
  *             return new OO.ui.Process( () => {
- *                 dialog.close( { action: action } );
+ *                 this.close( { action: action } );
  *             } );
  *         }
  *         return MyProcessDialog.super.prototype.getActionProcess.call( this, action );
@@ -221,10 +220,9 @@ OO.ui.ProcessDialog.prototype.attachActions = function () {
  * @inheritdoc
  */
 OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
-	const dialog = this;
 	return OO.ui.ProcessDialog.super.prototype.executeAction.call( this, action )
 		.fail( ( errors ) => {
-			dialog.showErrors( errors || [] );
+			this.showErrors( errors || [] );
 		} );
 };
 
@@ -232,8 +230,6 @@ OO.ui.ProcessDialog.prototype.executeAction = function ( action ) {
  * @inheritdoc
  */
 OO.ui.ProcessDialog.prototype.setDimensions = function () {
-	const dialog = this;
-
 	// Parent method
 	OO.ui.ProcessDialog.super.prototype.setDimensions.apply( this, arguments );
 
@@ -242,10 +238,10 @@ OO.ui.ProcessDialog.prototype.setDimensions = function () {
 	// If there are many actions, they might be shown on multiple lines. Their layout can change
 	// when resizing the dialog and when changing the actions. Adjust the height of the footer to
 	// fit them.
-	dialog.$body.css( 'bottom', dialog.$foot.outerHeight( true ) );
+	this.$body.css( 'bottom', this.$foot.outerHeight( true ) );
 	// Wait for CSS transition to finish and do it again :(
 	setTimeout( () => {
-		dialog.$body.css( 'bottom', dialog.$foot.outerHeight( true ) );
+		this.$body.css( 'bottom', this.$foot.outerHeight( true ) );
 	}, 300 );
 };
 

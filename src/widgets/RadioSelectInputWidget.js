@@ -150,12 +150,10 @@ OO.ui.RadioSelectInputWidget.prototype.setOptions = function ( options ) {
  * @private
  */
 OO.ui.RadioSelectInputWidget.prototype.setOptionsData = function ( options ) {
-	const widget = this;
-
 	this.radioSelectWidget
 		.clearItems()
 		.addItems( options.map( ( opt ) => {
-			const optValue = widget.cleanUpValue( opt.data );
+			const optValue = this.cleanUpValue( opt.data );
 			return new OO.ui.RadioOptionWidget( {
 				data: optValue,
 				label: opt.label !== undefined ? opt.label : optValue

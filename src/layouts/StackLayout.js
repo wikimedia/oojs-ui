@@ -275,7 +275,6 @@ OO.ui.StackLayout.prototype.resetScroll = function () {
  * @param {OO.ui.Layout} [selectedItem] Selected item to show
  */
 OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem ) {
-	const layout = this;
 	if ( !this.isContinuous() ) {
 		items.forEach( ( item ) => {
 			if ( !selectedItem || selectedItem !== item ) {
@@ -284,7 +283,7 @@ OO.ui.StackLayout.prototype.updateHiddenState = function ( items, selectedItem )
 				// to it.
 				const isDisabled = item instanceof OO.ui.TabPanelLayout &&
 					item.getTabItem() && item.getTabItem().isDisabled();
-				const hideUntilFound = !isDisabled && layout.hideUntilFound;
+				const hideUntilFound = !isDisabled && this.hideUntilFound;
 				// jQuery "fixes" the value of the hidden attribute to always be "hidden"
 				// Browsers which don't support 'until-found' will still hide the element
 				item.$element[ 0 ].setAttribute( 'hidden', hideUntilFound ? 'until-found' : 'hidden' );

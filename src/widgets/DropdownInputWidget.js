@@ -159,8 +159,6 @@ OO.ui.DropdownInputWidget.prototype.setOptions = function ( options ) {
  * @private
  */
 OO.ui.DropdownInputWidget.prototype.setOptionsData = function ( options ) {
-	const widget = this;
-
 	this.optionsDirty = true;
 
 	// Go through all the supplied option configs and create either
@@ -173,13 +171,13 @@ OO.ui.DropdownInputWidget.prototype.setOptionsData = function ( options ) {
 		let optionWidget;
 		if ( opt.optgroup !== undefined ) {
 			// Create a <optgroup> menu item.
-			optionWidget = widget.createMenuSectionOptionWidget( opt.optgroup );
+			optionWidget = this.createMenuSectionOptionWidget( opt.optgroup );
 			previousOptgroup = optionWidget;
 
 		} else {
 			// Create a normal <option> menu item.
-			const optValue = widget.cleanUpValue( opt.data );
-			optionWidget = widget.createMenuOptionWidget(
+			const optValue = this.cleanUpValue( opt.data );
+			optionWidget = this.createMenuOptionWidget(
 				optValue,
 				opt.label !== undefined ? opt.label : optValue
 			);
@@ -239,7 +237,6 @@ OO.ui.DropdownInputWidget.prototype.updateOptionsInterface = function () {
 	let $optionsContainer = this.$input;
 
 	const defaultValue = this.defaultValue;
-	const widget = this;
 
 	this.$input.empty();
 
@@ -259,7 +256,7 @@ OO.ui.DropdownInputWidget.prototype.updateOptionsInterface = function () {
 		} else {
 			$optionNode = $( '<optgroup>' )
 				.attr( 'label', optionWidget.getLabel() );
-			widget.$input.append( $optionNode );
+			this.$input.append( $optionNode );
 			$optionsContainer = $optionNode;
 		}
 

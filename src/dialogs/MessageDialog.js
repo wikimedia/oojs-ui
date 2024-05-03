@@ -200,8 +200,7 @@ OO.ui.MessageDialog.prototype.getBodyHeight = function () {
  * @inheritdoc
  */
 OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
-	const dialog = this,
-		$scrollable = this.container.$element;
+	const $scrollable = this.container.$element;
 
 	// Parent method
 	OO.ui.MessageDialog.super.prototype.setDimensions.call( this, dim );
@@ -225,10 +224,10 @@ OO.ui.MessageDialog.prototype.setDimensions = function ( dim ) {
 		$scrollable[ 0 ].style.overflow = oldOverflow;
 	}, 300 );
 
-	dialog.fitActions();
+	this.fitActions();
 	// Wait for CSS transition to finish and do it again :(
 	setTimeout( () => {
-		dialog.fitActions();
+		this.fitActions();
 	}, 300 );
 
 	return this;

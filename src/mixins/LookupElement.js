@@ -233,8 +233,7 @@ OO.ui.mixin.LookupElement.prototype.closeLookupMenu = function () {
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
-	const widget = this,
-		value = this.getValue();
+	const value = this.getValue();
 
 	if ( this.lookupsDisabled || this.isReadOnly() ) {
 		return;
@@ -247,19 +246,19 @@ OO.ui.mixin.LookupElement.prototype.populateLookupMenu = function () {
 	} else if ( value !== this.lookupQuery ) {
 		this.getLookupMenuItems()
 			.done( ( items ) => {
-				widget.lookupMenu.clearItems();
+				this.lookupMenu.clearItems();
 				if ( items.length ) {
-					widget.lookupMenu
+					this.lookupMenu
 						.addItems( items )
 						.toggle( true );
-					widget.initializeLookupMenuSelection();
+					this.initializeLookupMenuSelection();
 				} else {
-					widget.lookupMenu.toggle( false );
+					this.lookupMenu.toggle( false );
 				}
 			} )
 			.fail( () => {
-				widget.lookupMenu.clearItems();
-				widget.lookupMenu.toggle( false );
+				this.lookupMenu.clearItems();
+				this.lookupMenu.toggle( false );
 			} );
 	}
 

@@ -118,12 +118,11 @@ OO.ui.CheckboxInputWidget.prototype.getInputElement = function () {
  * @inheritdoc
  */
 OO.ui.CheckboxInputWidget.prototype.onEdit = function () {
-	const widget = this;
 	if ( !this.isDisabled() ) {
 		// Allow the stack to clear so the value will be updated
 		setTimeout( () => {
-			widget.setSelected( widget.$input.prop( 'checked' ) );
-			widget.setIndeterminate( widget.$input.prop( 'indeterminate' ) );
+			this.setSelected( this.$input.prop( 'checked' ) );
+			this.setIndeterminate( this.$input.prop( 'indeterminate' ) );
 		} );
 	}
 };

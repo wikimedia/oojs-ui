@@ -440,13 +440,12 @@ OO.ui.SelectWidget.prototype.unbindDocumentKeyDownListener = function () {
  * @param {OO.ui.OptionWidget} item Item to scroll into view
  */
 OO.ui.SelectWidget.prototype.scrollItemIntoView = function ( item ) {
-	const widget = this;
 	// Chromium's Blink engine will generate spurious 'mouseover' events during programmatic
 	// scrolling and around 100-150 ms after it is finished.
 	this.blockMouseOverEvents++;
 	item.scrollElementIntoView().done( () => {
 		setTimeout( () => {
-			widget.blockMouseOverEvents--;
+			this.blockMouseOverEvents--;
 		}, 200 );
 	} );
 };

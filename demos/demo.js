@@ -6,8 +6,6 @@
  * @constructor
  */
 window.Demo = function Demo() {
-	const demo = this;
-
 	// Parent constructor
 	Demo.super.call( this );
 
@@ -21,9 +19,7 @@ window.Demo = function Demo() {
 	this.stylesheetLinks = this.getStylesheetLinks();
 	this.mode = this.getCurrentMode();
 
-	OO.ui.isMobile = function () {
-		return demo.mode.platform === 'mobile';
-	};
+	OO.ui.isMobile = () => this.mode.platform === 'mobile';
 	OO.ui.theme = new OO.ui[ this.constructor.static.themes[ this.mode.theme ] + 'Theme' ]();
 
 	this.$header = $( '<div>' );
@@ -62,10 +58,10 @@ window.Demo = function Demo() {
 	} );
 	this.themeSelect = new OO.ui.ButtonSelectWidget();
 	Object.keys( this.constructor.static.themes ).forEach( ( theme ) => {
-		demo.themeSelect.addItems( [
+		this.themeSelect.addItems( [
 			new OO.ui.ButtonOptionWidget( {
 				data: theme,
-				label: demo.constructor.static.themes[ theme ]
+				label: this.constructor.static.themes[ theme ]
 			} )
 		] );
 	} );
@@ -156,15 +152,13 @@ window.Demo = function Demo() {
 	// * oo-ui-platform-mobile
 	// * oo-ui-platform-desktop
 	$( document.body ).addClass( 'oo-ui-platform-' + ( OO.ui.isMobile() ? 'mobile' : 'desktop' ) );
-	OO.ui.getViewportSpacing = function () {
-		return {
-			// Contents of dialogs are shown on top of the fixed menu
-			top: demo.mode.page === 'dialogs' ? 0 : demo.$header.outerHeight(),
-			right: 0,
-			bottom: 0,
-			left: 0
-		};
-	};
+	OO.ui.getViewportSpacing = () => ( {
+		// Contents of dialogs are shown on top of the fixed menu
+		top: this.mode.page === 'dialogs' ? 0 : this.$header.outerHeight(),
+		right: 0,
+		bottom: 0,
+		left: 0
+	} );
 	if ( OO.ui.isMobile() ) {
 		this.onExpandButtonChange( false );
 	} else {
@@ -284,13 +278,12 @@ Demo.static.defaultPlatform = 'desktop';
  * @return {jQuery.Promise} Resolved when demo is initialized, rejects if styles failed to load
  */
 Demo.prototype.initialize = function () {
-	const demo = this,
-		promises = this.stylesheetLinks.map( ( el ) => $( el ).data( 'load-promise' ) );
+	const promises = this.stylesheetLinks.map( ( el ) => $( el ).data( 'load-promise' ) );
 
 	return $.when.apply( $, promises ).then(
 		null,
 		() => {
-			demo.$element.append( $( '<p>' ).text( 'Demo styles failed to load.' ) );
+			this.$element.append( $( '<p>' ).text( 'Demo styles failed to load.' ) );
 		}
 	);
 };

@@ -971,8 +971,7 @@ OO.ui.Element.prototype.supports = function ( methods ) {
 		return typeof this[ methods ] === 'function';
 	}
 
-	const element = this;
-	return methods.every( ( method ) => typeof element[ method ] === 'function' );
+	return methods.every( ( method ) => typeof this[ method ] === 'function' );
 };
 
 /**

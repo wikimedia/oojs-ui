@@ -500,8 +500,6 @@ OO.ui.PopupWidget.prototype.setSize = function ( width, height, transition ) {
  * @chainable
  */
 OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
-	const widget = this;
-
 	// Prevent transition from being interrupted
 	clearTimeout( this.transitionTimeout );
 	if ( transition ) {
@@ -514,7 +512,7 @@ OO.ui.PopupWidget.prototype.updateDimensions = function ( transition ) {
 	if ( transition ) {
 		// Prevent transitioning after transition is complete
 		this.transitionTimeout = setTimeout( () => {
-			widget.$element.removeClass( 'oo-ui-popupWidget-transitioning' );
+			this.$element.removeClass( 'oo-ui-popupWidget-transitioning' );
 		}, 200 );
 	} else {
 		// Prevent transitioning immediately

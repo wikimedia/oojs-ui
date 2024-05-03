@@ -59,7 +59,6 @@
  */
 OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	const rAF = window.requestAnimationFrame || setTimeout,
-		widget = this,
 		$tabFocus = $( '<span>' ).addClass( 'oo-ui-tagMultiselectWidget-focusTrap' );
 
 	config = config || {};
@@ -190,8 +189,8 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	// HACK: Input size needs to be calculated after everything
 	// else is rendered
 	rAF( () => {
-		if ( widget.hasInput ) {
-			widget.updateInputSize();
+		if ( this.hasInput ) {
+			this.updateInputSize();
 		}
 	} );
 };
@@ -275,12 +274,11 @@ OO.ui.TagMultiselectWidget.prototype.onInputKeyPress = function ( e ) {
  * @return {boolean}
  */
 OO.ui.TagMultiselectWidget.prototype.onInputKeyDown = function ( e ) {
-	const widget = this,
-		withMetaKey = e.metaKey || e.ctrlKey;
+	const withMetaKey = e.metaKey || e.ctrlKey;
 
-	function isMovementInsideInput( dir ) {
-		const inputRange = widget.input.getRange(),
-			inputValue = widget.hasInput && widget.input.getValue();
+	const isMovementInsideInput = ( dir ) => {
+		const inputRange = this.input.getRange(),
+			inputValue = this.hasInput && this.input.getValue();
 
 		if ( dir === 'forwards' && inputRange.to > inputValue.length - 1 ) {
 			return false;
@@ -291,7 +289,7 @@ OO.ui.TagMultiselectWidget.prototype.onInputKeyDown = function ( e ) {
 		}
 
 		return true;
-	}
+	};
 
 	if ( !this.isDisabled() ) {
 		// 'keypress' event is not triggered for Backspace key

@@ -96,7 +96,6 @@ Demo.PopupButtonWidgetTest.prototype.makeContents = function () {
 };
 Demo.PopupButtonWidgetTest.prototype.makeTable = function () {
 	const
-		dialog = this,
 		positions = [ 'above', 'below', 'before', 'after' ],
 		aligns = [ 'backwards', 'center', 'forwards' ];
 
@@ -104,9 +103,9 @@ Demo.PopupButtonWidgetTest.prototype.makeTable = function () {
 
 	positions.forEach( ( position ) => {
 		aligns.forEach( ( align ) => {
-			dialog.$table.find( '#' + position + '-' + align )
+			this.$table.find( '#' + position + '-' + align )
 				.empty()
-				.append( dialog.getButton( position, align ).$element );
+				.append( this.getButton( position, align ).$element );
 		} );
 	} );
 };

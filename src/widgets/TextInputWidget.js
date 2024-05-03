@@ -478,15 +478,14 @@ OO.ui.TextInputWidget.prototype.setValidation = function ( validate ) {
  * @param {boolean} [isValid] Optionally override validation result
  */
 OO.ui.TextInputWidget.prototype.setValidityFlag = function ( isValid ) {
-	const widget = this,
-		setFlag = function ( valid ) {
-			if ( !valid ) {
-				widget.$input.attr( 'aria-invalid', 'true' );
-			} else {
-				widget.$input.removeAttr( 'aria-invalid' );
-			}
-			widget.setFlags( { invalid: !valid } );
-		};
+	const setFlag = ( valid ) => {
+		if ( !valid ) {
+			this.$input.attr( 'aria-invalid', 'true' );
+		} else {
+			this.$input.removeAttr( 'aria-invalid' );
+		}
+		this.setFlags( { invalid: !valid } );
+	};
 
 	if ( isValid !== undefined ) {
 		setFlag( isValid );

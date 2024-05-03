@@ -199,15 +199,13 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptions = function ( options )
  * @private
  */
 OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( options ) {
-	const widget = this;
-
 	this.optionsDirty = true;
 
 	this.checkboxMultiselectWidget
 		.clearItems()
 		.addItems( options.map( ( opt ) => {
 			const optValue = OO.ui.CheckboxMultiselectInputWidget.super.prototype.cleanUpValue
-				.call( widget, opt.data );
+				.call( this, opt.data );
 			const optDisabled = opt.disabled !== undefined ? opt.disabled : false;
 			const item = new OO.ui.CheckboxMultioptionWidget( {
 				data: optValue,
@@ -215,7 +213,7 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.setOptionsData = function ( optio
 				disabled: optDisabled
 			} );
 			// Set the 'name' and 'value' for form submission
-			item.checkbox.$input.attr( 'name', widget.inputName );
+			item.checkbox.$input.attr( 'name', this.inputName );
 			item.checkbox.setValue( optValue );
 			return item;
 		} ) );

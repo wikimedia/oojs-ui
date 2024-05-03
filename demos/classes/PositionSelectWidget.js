@@ -1,6 +1,4 @@
 Demo.PositionSelectWidget = function DemoPositionSelectWidget( config ) {
-	const widget = this;
-
 	Demo.PositionSelectWidget.super.call( this, config );
 
 	const verticalPositions = [ 'above', 'top', 'center', 'bottom', 'below' ];
@@ -9,11 +7,11 @@ Demo.PositionSelectWidget = function DemoPositionSelectWidget( config ) {
 	verticalPositions.forEach( ( v ) => {
 		const $row = $( '<div>' );
 		horizontalPositions.forEach( ( h ) => {
-			const option = widget.getOption( h, v );
+			const option = this.getOption( h, v );
 			option.$element.attr( 'title', v + '/' + h );
 			$row.append( option.$element );
 		} );
-		widget.$element.append( $row );
+		this.$element.append( $row );
 	} );
 
 	this.$element.addClass( 'demo-positionSelectWidget' );
