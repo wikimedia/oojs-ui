@@ -372,10 +372,9 @@ OO.ui.infuse = function ( node, config ) {
  * @param {...any} [params] Message parameters
  * @return {string} Translated message with parameters substituted
  */
-OO.ui.msg = function ( key ) {
+OO.ui.msg = function ( key, ...params ) {
 	// `OO.ui.msg.messages` is defined in code generated during the build process
 	const messages = OO.ui.msg.messages;
-	const params = Array.prototype.slice.call( arguments, 1 );
 
 	let message = messages[ key ];
 	if ( typeof message === 'string' ) {
@@ -401,10 +400,8 @@ OO.ui.msg = function ( key ) {
  * @return {Function} Function that returns the resolved message when executed
  */
 OO.ui.deferMsg = function () {
-	const args = arguments;
-	return function () {
-		return OO.ui.msg.apply( OO.ui, args );
-	};
+	// eslint-disable-next-line mediawiki/msg-doc
+	return () => OO.ui.msg( ...arguments );
 };
 
 /**
