@@ -1131,6 +1131,16 @@ $fieldsets[] = new Demo\LinkedFieldsetLayout( [
 				'align' => 'top'
 			]
 		),
+		new OOUI\FieldLayout(
+			new OOUI\ProgressBarWidget( [
+				'progress' => false,
+				'inline' => true
+			] ),
+			[
+				'label' => 'Progress bar (indeterminate, inline)',
+				'align' => 'top'
+			]
+		),
 	]
 ] );
 

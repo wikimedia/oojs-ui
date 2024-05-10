@@ -2670,6 +2670,16 @@ Demo.static.pages.widgets = function ( demo ) {
 						label: new OO.ui.HtmlSnippet( 'Progress bar (pending, <code>widget.pushPending()</code>)' ),
 						align: 'top'
 					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.ProgressBarWidget( {
+						progress: false,
+						inline: true
+					} ),
+					{
+						label: 'Progress bar (indeterminate, inline)',
+						align: 'top'
+					}
 				)
 			]
 		} ),

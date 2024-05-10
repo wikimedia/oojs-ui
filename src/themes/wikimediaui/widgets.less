@@ -1067,10 +1067,14 @@
 	position: relative;
 	z-index: 0;
 	max-width: @max-width-base;
-	border: @border-base;
-	border-radius: @border-radius-pill;
-	box-shadow: @box-shadow-drop-medium;
 	overflow: hidden;
+
+	// stylelint-disable-next-line selector-not-notation
+	&:not( &-inline ) {
+		border: @border-base;
+		border-radius: @border-radius-pill;
+		box-shadow: @box-shadow-drop-medium;
+	}
 
 	&:not( .oo-ui-pendingElement-pending ) {
 		background-color: @background-color-base;
@@ -1080,6 +1084,10 @@
 		height: @height-progressbar-bar;
 		transition-property: width;
 		transition-duration: @transition-duration-base;
+
+		.oo-ui-progressBarWidget-inline & {
+			height: @height-progressbar-bar-inline;
+		}
 	}
 
 	&-indeterminate {
