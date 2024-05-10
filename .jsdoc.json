@@ -15,6 +15,7 @@
 		"node_modules/jsdoc-class-hierarchy",
 		"node_modules/jsdoc-wmf-theme/plugins/allow-dots-in-modules",
 		"node_modules/jsdoc-wmf-theme/plugins/betterlinks",
+		"node_modules/jsdoc-wmf-theme/plugins/externals",
 		"node_modules/jsdoc-wmf-theme/plugins/summarize",
 		"build/jsdoc-peculiar-static"
 	],
@@ -36,6 +37,12 @@
 			"maintitle": "OOUI",
 			"repository": "https://gerrit.wikimedia.org/g/oojs/ui/",
 			"hideSections": [ "Events" ],
+			"prefixMap": {
+				"OO.": "https://doc.wikimedia.org/oojs/master/{type}.html"
+			},
+			"prefixMapIgnore": [
+				"OO.ui."
+			],
 			"linkMap": {
 				"Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
 				"Boolean": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -73,14 +80,7 @@
 				"jQuery.Deferred": "http://api.jquery.com/jQuery.Deferred/",
 				"jQuery.Event": "http://api.jquery.com/Types/#Event",
 				"jQuery.jqXHR": "http://api.jquery.com/Types/#jqXHR",
-				"jQuery.Promise": "http://api.jquery.com/Types/#Promise",
-
-				"OO": "https://doc.wikimedia.org/oojs/master/OO.html",
-				"OO.EmitterList": "https://doc.wikimedia.org/oojs/master/OO.EmitterList.html",
-				"OO.EventEmitter": "https://doc.wikimedia.org/oojs/master/OO.EventEmitter.html",
-				"OO.Factory": "https://doc.wikimedia.org/oojs/master/OO.Factory.html",
-				"OO.Registry": "https://doc.wikimedia.org/oojs/master/OO.Registry.html",
-				"OO.SortedEmitterList": "https://doc.wikimedia.org/oojs/master/OO.SortedEmitterList.html"
+				"jQuery.Promise": "http://api.jquery.com/Types/#Promise"
 			}
 		}
 	}
