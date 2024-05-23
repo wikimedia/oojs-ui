@@ -62,9 +62,6 @@ p:first-child {
 	/* As WikimediaUI theme is used in MinervaNeue and Vector, we use system fonts to reflect font independent ability of theme. */
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 	font-size: 0.875em;
-	/* Support: IE 11, Trident cuts values 2 digits after decimal point.
-	   `calc` enables to set correct calculation in place again. See T102364. */
-	font-size: calc( 1em * 0.875 );
 }
 
 .oo-ui-theme-apex {
@@ -579,14 +576,6 @@ p:first-child {
 	unicode-bidi: bidi-override;
 }
 
-/*
- * Support: IE 11, Edge 15 & 16. ButtonWidgets with empty labels are oversized
- * Note, that this does not affect widgets with `invisibleLabel` set.
- */
-.oo-ui-buttonElement-button > .oo-ui-labelElement-label:empty {
-	unicode-bidi: normal;
-}
-
 .oo-ui-fieldLayout.oo-ui-fieldLayout-align-top > .oo-ui-fieldLayout-body > .oo-ui-inline-help,
 .oo-ui-checkboxMultioptionWidget.oo-ui-labelElement .oo-ui-labelElement-label,
 .oo-ui-radioOptionWidget .oo-ui-radioInputWidget,
@@ -674,9 +663,6 @@ FieldLayout left & right aligned */
 
 .oo-ui-platform-desktop.oo-ui-theme-wikimediaui {
 	font-size: 0.875em;
-	/* Support: IE 11, Trident cuts values 2 digits after decimal point.
-	   `calc` enables to set correct calculation in place again. See T102364. */
-	font-size: calc( 1em * 0.875 );
 }
 
 .oo-ui-platform-desktop.oo-ui-theme-apex {

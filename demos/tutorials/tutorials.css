@@ -216,9 +216,6 @@ th {
 
 .tutorials-toolbar {
 	font-size: 0.875em;
-	/* Support: IE 11, Trident cuts values 2 digits after decimal point.
-	   `calc` enables to set correct calculation in place again. See T102364. */
-	font-size: calc( 1em * 0.875 );
 }
 
 .tutorials-toolbar > .oo-ui-widget {

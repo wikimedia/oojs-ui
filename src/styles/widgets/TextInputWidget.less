@@ -19,17 +19,7 @@
 		box-sizing: border-box;
 	}
 
-	input {
-		// Support: IE 11, Edge 12+.
-		&::-ms-clear {
-			display: none;
-		}
-	}
-
 	textarea {
-		// Support: IE 8-11 defaults `overflow` to `scroll`. Modern browsers use `auto`.
-		overflow: auto;
-
 		&.oo-ui-textInputWidget-autosized {
 			/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 			resize: none;
@@ -75,12 +65,6 @@
 
 	&.oo-ui-labelElement > .oo-ui-labelElement-label {
 		display: block;
-	}
-
-	// Support: IE 11, Edge 12+.
-	// Remove clear buttons that conflict with identically aligned labels.
-	&-labelPosition-after.oo-ui-labelElement ::-ms-clear {
-		display: none;
 	}
 
 	// Make clicks not steal focus from input element in PHP version.
