@@ -516,9 +516,6 @@ OO.ui.Element.static.getDimensions = function ( el ) {
 			if ( definer.scrollLeft === 0 ) {
 				// Firefox, old Opera
 				rtlScrollType = 'negative';
-			} else {
-				// Internet Explorer, Edge
-				rtlScrollType = 'reverse';
 			}
 		}
 		$definer.remove();
