@@ -276,7 +276,7 @@
 			}
 
 			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
-				background-color: mix( @color-progressive--active, @background-color-disabled, 35% );
+				background-color: @background-color-tool--active-disabled;
 			}
 		}
 
@@ -328,11 +328,27 @@
 
 			&.oo-ui-flaggedElement {
 				&-progressive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-progressive, @background-color-base, @border-color-progressive--hover, @color-progressive--active, @color-progressive--focus );
+					.mw-framed-button-colored(
+						~'.oo-ui-buttonElement-button',
+						@color-progressive,
+						@background-color-base,
+						@border-color-progressive--hover,
+						@color-progressive--active,
+						@color-progressive--focus,
+						@background-color-progressive-subtle
+					);
 				}
 
 				&-destructive {
-					.mw-framed-button-colored( ~'.oo-ui-buttonElement-button', @color-destructive, @background-color-base, @border-color-destructive--hover, @color-destructive--active, @color-destructive--focus );
+					.mw-framed-button-colored(
+						~'.oo-ui-buttonElement-button',
+						@color-destructive,
+						@background-color-base,
+						@border-color-destructive--hover,
+						@color-destructive--active,
+						@color-destructive--focus,
+						@background-color-destructive-subtle
+					);
 				}
 			}
 
