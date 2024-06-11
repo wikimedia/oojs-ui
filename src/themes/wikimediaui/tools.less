@@ -115,15 +115,39 @@
 			}
 		}
 
-		.mw-tool-colored( ~'.oo-ui-tool-link', inherit, @background-color-interactive, @color-progressive--active, @color-progressive--focus, @color-progressive );
+		.mw-tool-colored(
+			~'.oo-ui-tool-link',
+			inherit,
+			@background-color-interactive,
+			@color-progressive--active,
+			@color-progressive--focus,
+			@color-progressive,
+			@background-color-progressive-subtle
+		);
 
 		&.oo-ui-flaggedElement {
 			&-progressive {
-				.mw-tool-colored( ~'.oo-ui-tool-link', @color-progressive, @background-color-interactive, @color-progressive--active, @color-progressive--focus );
+				.mw-tool-colored(
+					~'.oo-ui-tool-link',
+					@color-progressive,
+					@background-color-interactive,
+					@color-progressive--active,
+					@color-progressive--focus,
+					@color-progressive--active,
+					@background-color-progressive-subtle
+				);
 			}
 
 			&-destructive {
-				.mw-tool-colored( ~'.oo-ui-tool-link', @color-destructive, @background-color-interactive, @color-destructive--active, @color-destructive--focus );
+				.mw-tool-colored(
+					~'.oo-ui-tool-link',
+					@color-destructive,
+					@background-color-interactive,
+					@color-destructive--active,
+					@color-destructive--focus,
+					@color-destructive--active,
+					@background-color-destructive-subtle
+				);
 			}
 		}
 
@@ -194,7 +218,7 @@
 			}
 
 			&.oo-ui-tool-active > .oo-ui-tool-link {
-				background-color: mix( @color-progressive--active, @background-color-disabled, 35% );
+				background-color: @background-color-tool--active-disabled;
 			}
 
 			.oo-ui-iconElement-icon {
@@ -452,16 +476,40 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', inherit, @background-color-interactive, @color-progressive--active, @color-progressive--focus, @color-progressive );
+		.mw-tool-colored(
+			~'.oo-ui-popupToolGroup-handle',
+			inherit,
+			@background-color-interactive,
+			@color-progressive--active,
+			@color-progressive--focus,
+			@color-progressive,
+			@background-color-progressive-subtle
+		);
 	}
 
 	&.oo-ui-flaggedElement {
 		&-progressive {
-			.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-progressive, @background-color-base, @color-progressive--active, @color-progressive--focus );
+			.mw-tool-colored(
+				~'.oo-ui-popupToolGroup-handle',
+				@color-progressive,
+				@background-color-base,
+				@color-progressive--active,
+				@color-progressive--focus,
+				@color-progressive--active,
+				@background-color-progressive-subtle
+			);
 		}
 
 		&-destructive {
-			.mw-tool-colored( ~'.oo-ui-popupToolGroup-handle', @color-destructive, @background-color-base, @color-destructive--active, @color-destructive--focus );
+			.mw-tool-colored(
+				~'.oo-ui-popupToolGroup-handle',
+				@color-destructive,
+				@background-color-base,
+				@color-destructive--active,
+				@color-destructive--focus,
+				@color-destructive--active,
+				@background-color-destructive-subtle
+			);
 		}
 	}
 

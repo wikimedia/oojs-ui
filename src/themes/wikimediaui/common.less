@@ -11,8 +11,12 @@
 // See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html
 @import ( reference ) '../../../node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-legacy.less';
 
+// pull in the dark mode color tokens from Codex 1.5
+@import ( reference ) './colors.less';
+
 // Background & Text Colors
 @background-color-tool--active-hover: rgba( 41, 98, 204, 0.1 );
+@background-color-tool--active-disabled: #919fb9;
 
 // Box Sizes
 // `@*size` variables in scale are used for `*width` & `*height` properties.
@@ -194,7 +198,7 @@
 	}
 }
 
-.mw-framed-button-colored( @child, @color-text, @hover, @border-color--hover, @active, @focus ) {
+.mw-framed-button-colored( @child, @color-text, @hover, @border-color--hover, @active, @focus, @active-background ) {
 	> @{child} {
 		color: @color-text;
 	}
@@ -215,7 +219,7 @@
 	&.oo-ui-buttonElement-pressed > @{child},
 	&.oo-ui-buttonElement-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
-		background-color: lighten( @active, 60% );
+		background-color: @active-background;
 		color: @active;
 		border-color: @active;
 		box-shadow: none;
@@ -253,7 +257,7 @@
 }
 
 // For some reason the ':' in the arguments list makes the linter think this a rule.
-.mw-tool-colored( @child, @color-text, @hover, @active, @focus, @active-text: @active ) {
+.mw-tool-colored( @child, @color-text, @hover, @active, @focus, @active-text: @active, @active-background ) {
 	> @{child} {
 		color: @color-text;
 	}
@@ -270,7 +274,7 @@
 	> @{child}:active,
 	&.oo-ui-tool-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
-		background-color: lighten( @active, 60% );
+		background-color: @active-background;
 		color: @active-text;
 		box-shadow: none;
 	}
