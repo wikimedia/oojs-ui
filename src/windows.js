@@ -28,7 +28,7 @@ OO.ui.getWindowManager = function () {
  *
  *     OO.ui.alert( 'Something larger happened!', { size: 'large' } );
  *
- * @param {jQuery|string} text Message text to display
+ * @param {jQuery|string|Function} text Message text to display
  * @param {Object} [options] Additional options, see OO.ui.MessageDialog#getSetupProcess
  * @return {jQuery.Promise} Promise resolved when the user closes the dialog
  */
@@ -56,7 +56,7 @@ OO.ui.alert = function ( text, options ) {
  *         }
  *     } );
  *
- * @param {jQuery|string} text Message text to display
+ * @param {jQuery|string|Function} text Message text to display
  * @param {Object} [options] Additional options, see OO.ui.MessageDialog#getSetupProcess
  * @return {jQuery.Promise} Promise resolved when the user closes the dialog. If the user chose to
  *  confirm, the promise will resolve to boolean `true`; otherwise, it will resolve to boolean
@@ -87,7 +87,7 @@ OO.ui.confirm = function ( text, options ) {
  *         }
  *     } );
  *
- * @param {jQuery|string} text Message text to display
+ * @param {jQuery|string|Function} text Message text to display
  * @param {Object} [options] Additional options, see OO.ui.MessageDialog#getSetupProcess
  * @param {Object} [options.textInput] Additional options for text input widget,
  *  see OO.ui.TextInputWidget
