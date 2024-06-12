@@ -266,6 +266,8 @@ module.exports = {
 			"src/styles/widgets/TabSelectWidget.less",
 			"src/styles/widgets/TabOptionWidget.less",
 
+			"src/styles/widgets/ButtonMenuSelectWidget.less",
+
 			"src/styles/widgets/TagMultiselectWidget.less",
 			"src/styles/widgets/MenuTagMultiselectWidget.less",
 			"src/styles/widgets/TagItemWidget.less",
