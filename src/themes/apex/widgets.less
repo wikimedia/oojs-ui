@@ -74,7 +74,14 @@
 
 .theme-oo-ui-buttonInputWidget() {}
 
-.theme-oo-ui-buttonMenuSelectWidget() {}
+.theme-oo-ui-buttonMenuSelectWidget() {
+	> .oo-ui-menuSelectWidget {
+		// TODO: Move this spacing to JS, where we can support potential
+		// custom placement of the menu to the side of the button.
+		margin-top: 4px;
+		margin-bottom: 4px;
+	}
+}
 
 .theme-oo-ui-buttonOptionWidget() {
 	padding: 0;
