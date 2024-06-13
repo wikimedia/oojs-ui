@@ -226,11 +226,11 @@
 	}
 }
 
-.mw-framed-primary-button-colored( @child, @color, @hover, @active, @focus ) {
+.mw-framed-primary-button-colored( @child, @accent-color, @color, @hover, @active, @focus ) {
 	> @{child} {
-		color: @color-inverted;
-		background-color: @color;
-		border-color: @color;
+		color: @color;
+		background-color: @accent-color;
+		border-color: @accent-color;
 	}
 
 	> @{child}:hover {
@@ -240,7 +240,7 @@
 
 	> @{child}:focus {
 		border-color: @focus;
-		box-shadow: @box-shadow-inset-small @focus, @box-shadow-inset-medium @color-inverted;
+		box-shadow: @box-shadow-inset-small @focus, @box-shadow-inset-medium @color;
 		// In Windows high contrast mode the outline becomes visible.
 		outline: @outline-base--focus;
 	}
@@ -249,7 +249,7 @@
 	&.oo-ui-buttonElement-pressed > @{child},
 	&.oo-ui-buttonElement-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
-		color: @color-inverted;
+		color: @color;
 		background-color: @active;
 		border-color: @active;
 		box-shadow: none;
