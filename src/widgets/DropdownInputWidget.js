@@ -42,7 +42,7 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	config = config || {};
 
 	// Properties (must be done before parent constructor which calls #setDisabled)
-	this.dropdownWidget = new OO.ui.DropdownWidget( $.extend(
+	this.dropdownWidget = new OO.ui.DropdownWidget( Object.assign(
 		{
 			$overlay: config.$overlay
 		},
@@ -56,7 +56,7 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	OO.ui.DropdownInputWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.RequiredElement.call( this, $.extend( {}, {
+	OO.ui.mixin.RequiredElement.call( this, Object.assign( {}, {
 		// TODO: Display the required indicator somewhere
 		indicatorElement: null
 	}, config ) );

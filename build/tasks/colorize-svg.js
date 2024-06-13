@@ -66,9 +66,7 @@ module.exports = function ( grunt ) {
 		this.file = data.file;
 		this.variantNames = ( data.variants || [] )
 			.concat( this.list.getVariants().getGlobalVariantNames() )
-			.filter( function ( variant, index, variants ) {
-				return variants.indexOf( variant ) === index;
-			} );
+			.filter( ( variant, index, variants ) => variants.indexOf( variant ) === index );
 	}
 
 	/**
@@ -119,8 +117,8 @@ module.exports = function ( grunt ) {
 		const fileLangs = this.file.lang || {};
 		// Expand shorthands:
 		// { "en,de,fr": "foo.svg" } → { "en": "foo.svg", "de": "foo.svg", "fr": "foo.svg" }
-		const moreLangs = Object.keys( fileLangs ).reduce( function ( langs, langList ) {
-			langList.split( ',' ).forEach( function ( lang ) {
+		const moreLangs = Object.keys( fileLangs ).reduce( ( langs, langList ) => {
+			langList.split( ',' ).forEach( ( lang ) => {
 				langs[ lang ] = fileLangs[ langList ];
 			} );
 			return langs;
@@ -159,7 +157,7 @@ module.exports = function ( grunt ) {
 		}
 
 		// Variants
-		this.variantNames.forEach( function ( variantName ) {
+		this.variantNames.forEach( ( variantName ) => {
 			const variant = variants.getVariant( variantName );
 
 			if ( variant === undefined ) {
@@ -338,9 +336,7 @@ module.exports = function ( grunt ) {
 	ImageList.prototype.generate = function ( destination ) {
 		const list = this.list,
 			intro = this.getCssIntro();
-		return Q.all( Object.keys( this.list ).map( function ( key ) {
-			return list[ key ].generate( destination );
-		} ) ).then( function ( data ) {
+		return Q.all( Object.keys( this.list ).map( ( key ) => list[ key ].generate( destination ) ) ).then( ( data ) => {
 			const dataFormat = {
 				files: {},
 				rules: {
@@ -349,7 +345,7 @@ module.exports = function ( grunt ) {
 				}
 			};
 
-			data = data.reduce( function ( a, b ) {
+			data = data.reduce( ( a, b ) => {
 				for ( const destinationFilePath in b.files ) {
 					// This de-duplicates the entries, as the same file can be used by many Images
 					a.files[ destinationFilePath ] = b.files[ destinationFilePath ];
@@ -529,7 +525,7 @@ module.exports = function ( grunt ) {
 						rtl: path.join( data.destDir, 'images.rtl.less' )
 					}
 				)
-			).then( function ( totalFiles ) {
+			).then( ( totalFiles ) => {
 				grunt.log.writeln( 'Created ' + totalFiles + ' SVG files.' );
 			} );
 		}

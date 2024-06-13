@@ -37,7 +37,7 @@
  */
 OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	// Configuration initialization
-	config = $.extend( { highlightFirst: true }, config );
+	config = Object.assign( { highlightFirst: true }, config );
 
 	// Mixin constructors
 	OO.ui.mixin.RequestManager.call( this, config );
@@ -45,7 +45,7 @@ OO.ui.mixin.LookupElement = function OoUiMixinLookupElement( config ) {
 	// Properties
 	this.$overlay = ( config.$overlay === true ?
 		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
-	this.lookupMenu = new OO.ui.MenuSelectWidget( $.extend( {
+	this.lookupMenu = new OO.ui.MenuSelectWidget( Object.assign( {
 		widget: this,
 		input: this,
 		$floatableContainer: config.$container || this.$element

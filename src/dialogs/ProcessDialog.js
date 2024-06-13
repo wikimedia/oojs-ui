@@ -177,16 +177,16 @@ OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
 			( Array.isArray( config.flags ) && config.flags.indexOf( flag ) !== -1 );
 	}
 
-	config = $.extend( { framed: true }, config );
+	config = Object.assign( { framed: true }, config );
 	if ( checkFlag( 'close' ) ) {
 		// Change close buttons to icon only.
-		$.extend( config, {
+		Object.assign( config, {
 			icon: 'close',
 			invisibleLabel: true
 		} );
 	} else if ( checkFlag( 'back' ) ) {
 		// Change back buttons to icon only.
-		$.extend( config, {
+		Object.assign( config, {
 			icon: 'previous',
 			invisibleLabel: true
 		} );

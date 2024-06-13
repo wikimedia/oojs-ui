@@ -34,7 +34,7 @@
  * @param {boolean} [config.allowLinebreaks=true] Whether to allow the user to add line breaks.
  */
 OO.ui.MultilineTextInputWidget = function OoUiMultilineTextInputWidget( config ) {
-	config = $.extend( {
+	config = Object.assign( {
 		type: 'text'
 	}, config );
 

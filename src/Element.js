@@ -189,7 +189,7 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 	}
 	if ( data._ === 'Tag' ) {
 		// Special case: this is a raw Tag; wrap existing node, don't rebuild.
-		return new OO.ui.Element( $.extend( {}, config, { $element: $elem } ) );
+		return new OO.ui.Element( Object.assign( {}, config, { $element: $elem } ) );
 	}
 	const parts = data._.split( '.' );
 	const cls = OO.getProp.apply( OO, [ window ].concat( parts ) );
@@ -233,7 +233,7 @@ OO.ui.Element.static.unsafeInfuse = function ( elem, config, domPromise ) {
 	const state = cls.static.gatherPreInfuseState( $elem[ 0 ], data );
 	// rebuild widget
 	// eslint-disable-next-line new-cap
-	const obj = new cls( $.extend( {}, config, data ) );
+	const obj = new cls( Object.assign( {}, config, data ) );
 	// If anyone is holding a reference to the old DOM element,
 	// let's allow them to OO.ui.infuse() it and do what they expect, see T105828.
 	// Do not use jQuery.data(), as using it on detached nodes leaks memory in 1.x line by design.
@@ -750,7 +750,7 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
 	// Configuration initialization
 	config = config || {};
 
-	const padding = $.extend( {
+	const padding = Object.assign( {
 		top: 0,
 		bottom: 0,
 		left: 0,

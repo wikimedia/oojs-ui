@@ -37,7 +37,7 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 	config = config || {};
 
 	// Parent constructor
-	OO.ui.PopupTagMultiselectWidget.super.call( this, $.extend( {
+	OO.ui.PopupTagMultiselectWidget.super.call( this, Object.assign( {
 		inputPosition: 'none'
 	}, config ) );
 
@@ -64,7 +64,7 @@ OO.ui.PopupTagMultiselectWidget = function OoUiPopupTagMultiselectWidget( config
 		this.input.$element.add( this.$overlay ) : this.$overlay;
 
 	// Allow extending any of the above
-	config = $.extend( defaultConfig, config );
+	config = Object.assign( defaultConfig, config );
 
 	// Mixin constructors
 	OO.ui.mixin.PopupElement.call( this, config );

@@ -17,11 +17,11 @@ OO.ui.CopyTextLayout = function OoUiCopyTextLayout( config ) {
 	// Properties
 	const TextClass = config.multiline ? OO.ui.MultilineTextInputWidget : OO.ui.TextInputWidget;
 
-	this.textInput = new TextClass( $.extend( {
+	this.textInput = new TextClass( Object.assign( {
 		value: config.copyText,
 		readOnly: true
 	}, config.textInput ) );
-	this.button = new OO.ui.ButtonWidget( $.extend( {
+	this.button = new OO.ui.ButtonWidget( Object.assign( {
 		label: OO.ui.msg( 'ooui-copytextlayout-copy' ),
 		icon: 'copy'
 	}, config.button ) );

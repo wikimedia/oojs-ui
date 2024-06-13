@@ -50,7 +50,7 @@ OO.ui.SelectWidget = function OoUiSelectWidget( config ) {
 	OO.ui.SelectWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.GroupWidget.call( this, $.extend( {
+	OO.ui.mixin.GroupWidget.call( this, Object.assign( {
 		$group: this.$element
 	}, config ) );
 

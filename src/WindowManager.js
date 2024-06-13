@@ -612,36 +612,35 @@ OO.ui.WindowManager.prototype.closeWindow = function ( win, data ) {
  *
  * 1. `.addWindows( [ winA, winB, ... ] )` (where `winA`, `winB` are OO.ui.Window objects)
  *
- *    This syntax registers windows under the symbolic names defined in their `.static.name`
- *    properties. For example, if `windowA.constructor.static.name` is `'nameA'`, calling
- *    `.openWindow( 'nameA' )` afterwards will open the window `windowA`. This syntax requires the
- *    static name to be set, otherwise an exception will be thrown.
+ * This syntax registers windows under the symbolic names defined in their `.static.name`
+ * properties. For example, if `windowA.constructor.static.name` is `'nameA'`, calling
+ * `.openWindow( 'nameA' )` afterwards will open the window `windowA`. This syntax requires the
+ * static name to be set, otherwise an exception will be thrown.
  *
- *    This is the recommended way, as it allows for an easier switch to using a window factory.
+ * This is the recommended way, as it allows for an easier switch to using a window factory.
  *
  * 2. `.addWindows( { nameA: winA, nameB: winB, ... } )`
  *
- *    This syntax registers windows under the explicitly given symbolic names. In this example,
- *    calling `.openWindow( 'nameA' )` afterwards will open the window `windowA`, regardless of what
- *    its `.static.name` is set to. The static name is not required to be set.
+ * This syntax registers windows under the explicitly given symbolic names. In this example,
+ * calling `.openWindow( 'nameA' )` afterwards will open the window `windowA`, regardless of what
+ * its `.static.name` is set to. The static name is not required to be set.
  *
- *    This should only be used if you need to override the default symbolic names.
+ * This should only be used if you need to override the default symbolic names.
  *
  * Example:
  *
- *     const windowManager = new OO.ui.WindowManager();
- *     $( document.body ).append( windowManager.$element );
+ * const windowManager = new OO.ui.WindowManager();
+ * $( document.body ).append( windowManager.$element );
  *
- *     // Add a window under the default name: see OO.ui.MessageDialog.static.name
- *     windowManager.addWindows( [ new OO.ui.MessageDialog() ] );
- *     // Add a window under an explicit name
- *     windowManager.addWindows( { myMessageDialog: new OO.ui.MessageDialog() } );
+ * // Add a window under the default name: see OO.ui.MessageDialog.static.name
+ * windowManager.addWindows( [ new OO.ui.MessageDialog() ] );
+ * // Add a window under an explicit name
+ * windowManager.addWindows( { myMessageDialog: new OO.ui.MessageDialog() } );
  *
- *     // Open window by default name
- *     windowManager.openWindow( 'message' );
- *     // Open window by explicitly given name
- *     windowManager.openWindow( 'myMessageDialog' );
- *
+ * // Open window by default name
+ * windowManager.openWindow( 'message' );
+ * // Open window by explicitly given name
+ * windowManager.openWindow( 'myMessageDialog' );
  *
  * @param {Object.<string,OO.ui.Window>|OO.ui.Window[]} windows An array of window objects specified
  *  by reference, symbolic name, or explicitly defined symbolic names.

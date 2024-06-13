@@ -17,7 +17,7 @@ OO.ui.mixin.PopupElement = function OoUiMixinPopupElement( config ) {
 	config = config || {};
 
 	// Properties
-	this.popup = new OO.ui.PopupWidget( $.extend(
+	this.popup = new OO.ui.PopupWidget( Object.assign(
 		{
 			autoClose: true,
 			$floatableContainer: this.$element

@@ -11,7 +11,7 @@ Demo.DraggableHandledItemWidget = function DemoDraggableHandledItemWidget( confi
 	Demo.DraggableHandledItemWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$icon }, config ) );
+	OO.ui.mixin.DraggableElement.call( this, Object.assign( { $handle: this.$icon }, config ) );
 };
 
 /* Setup */

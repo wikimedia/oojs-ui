@@ -78,7 +78,7 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	}
 
 	// Configuration initialization
-	config = $.extend( { align: 'left', helpInline: false }, config );
+	config = Object.assign( { align: 'left', helpInline: false }, config );
 
 	if ( config.help && !config.label ) {
 		// Add an empty label. For some combinations of 'helpInline' and 'align'
@@ -90,10 +90,10 @@ OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	OO.ui.FieldLayout.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.LabelElement.call( this, $.extend( {
+	OO.ui.mixin.LabelElement.call( this, Object.assign( {
 		$label: $( '<label>' )
 	}, config ) );
-	OO.ui.mixin.TitledElement.call( this, $.extend( { $titled: this.$label }, config ) );
+	OO.ui.mixin.TitledElement.call( this, Object.assign( { $titled: this.$label }, config ) );
 
 	// Properties
 	this.fieldWidget = fieldWidget;

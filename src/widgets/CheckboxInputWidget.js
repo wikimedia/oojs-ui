@@ -49,7 +49,7 @@ OO.ui.CheckboxInputWidget = function OoUiCheckboxInputWidget( config ) {
 	OO.ui.CheckboxInputWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.RequiredElement.call( this, $.extend( {}, {
+	OO.ui.mixin.RequiredElement.call( this, Object.assign( {}, {
 		// TODO: Display the required indicator somewhere
 		indicatorElement: null
 	}, config ) );

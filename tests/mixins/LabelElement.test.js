@@ -8,7 +8,7 @@
 	OO.inheritClass( TestElement, OO.ui.Widget );
 	OO.mixinClass( TestElement, OO.ui.mixin.LabelElement );
 
-	QUnit.test( 'setHighlightedQuery', function ( assert ) {
+	QUnit.test( 'setHighlightedQuery', ( assert ) => {
 		let i;
 
 		const element = new TestElement(),

@@ -5,7 +5,7 @@ Demo.TagNumberPopupMultiselectWidget = function DemoTagNumberPopupMultiselectWid
 	} );
 
 	// Parent constructor
-	Demo.TagNumberPopupMultiselectWidget.super.call( this, $.extend( {
+	Demo.TagNumberPopupMultiselectWidget.super.call( this, Object.assign( {
 		allowArbitrary: true,
 		popup: {}
 	}, config ) );

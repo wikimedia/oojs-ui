@@ -38,13 +38,13 @@ OO.ui.StackLayout = function OoUiStackLayout( config ) {
 	// Configuration initialization
 	// Make the layout scrollable in continuous mode, otherwise each
 	// panel is responsible for its own scrolling.
-	config = $.extend( { scrollable: !!( config && config.continuous ) }, config );
+	config = Object.assign( { scrollable: !!( config && config.continuous ) }, config );
 
 	// Parent constructor
 	OO.ui.StackLayout.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.GroupElement.call( this, $.extend( { $group: this.$element }, config ) );
+	OO.ui.mixin.GroupElement.call( this, Object.assign( { $group: this.$element }, config ) );
 
 	// Properties
 	this.currentItem = null;

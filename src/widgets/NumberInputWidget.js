@@ -35,23 +35,23 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 	const $field = $( '<div>' ).addClass( 'oo-ui-numberInputWidget-field' );
 
 	// Configuration initialization
-	config = $.extend( {
+	config = Object.assign( {
 		min: -Infinity,
 		max: Infinity,
 		showButtons: true
 	}, config );
 
 	// For backward compatibility
-	$.extend( config, config.input );
+	Object.assign( config, config.input );
 	this.input = this;
 
 	// Parent constructor
-	OO.ui.NumberInputWidget.super.call( this, $.extend( config, {
+	OO.ui.NumberInputWidget.super.call( this, Object.assign( config, {
 		type: 'number'
 	} ) );
 
 	if ( config.showButtons ) {
-		this.minusButton = new OO.ui.ButtonWidget( $.extend(
+		this.minusButton = new OO.ui.ButtonWidget( Object.assign(
 			{
 				disabled: this.isDisabled(),
 				tabIndex: -1,
@@ -61,7 +61,7 @@ OO.ui.NumberInputWidget = function OoUiNumberInputWidget( config ) {
 			config.minusButton
 		) );
 		this.minusButton.$element.attr( 'aria-hidden', 'true' );
-		this.plusButton = new OO.ui.ButtonWidget( $.extend(
+		this.plusButton = new OO.ui.ButtonWidget( Object.assign(
 			{
 				disabled: this.isDisabled(),
 				tabIndex: -1,

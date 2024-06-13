@@ -268,7 +268,7 @@ OO.ui.ActionSet.prototype.get = function ( filters ) {
  */
 OO.ui.ActionSet.prototype.getSpecial = function () {
 	this.organize();
-	return $.extend( {}, this.special );
+	return Object.assign( {}, this.special );
 };
 
 /**

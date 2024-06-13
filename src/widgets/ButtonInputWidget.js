@@ -37,7 +37,7 @@
  */
 OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	// Configuration initialization
-	config = $.extend( { type: 'button', useInputTag: false, formNoValidate: false }, config );
+	config = Object.assign( { type: 'button', useInputTag: false, formNoValidate: false }, config );
 
 	// See InputWidget#reusePreInfuseDOM about config.$input
 	if ( config.$input ) {
@@ -51,7 +51,7 @@ OO.ui.ButtonInputWidget = function OoUiButtonInputWidget( config ) {
 	OO.ui.ButtonInputWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.ButtonElement.call( this, $.extend( {
+	OO.ui.mixin.ButtonElement.call( this, Object.assign( {
 		$button: this.$input
 	}, config ) );
 	OO.ui.mixin.IconElement.call( this, config );

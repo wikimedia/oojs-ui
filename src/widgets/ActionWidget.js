@@ -23,7 +23,7 @@
  */
 OO.ui.ActionWidget = function OoUiActionWidget( config ) {
 	// Configuration initialization
-	config = $.extend( { framed: false }, config );
+	config = Object.assign( { framed: false }, config );
 
 	// Parent constructor
 	OO.ui.ActionWidget.super.call( this, config );

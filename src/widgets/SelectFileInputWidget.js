@@ -37,7 +37,7 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	config = config || {};
 
 	// Construct buttons before parent method is called (calling setDisabled)
-	this.selectButton = new OO.ui.ButtonWidget( $.extend( {
+	this.selectButton = new OO.ui.ButtonWidget( Object.assign( {
 		$element: $( '<label>' ),
 		classes: [ 'oo-ui-selectFileInputWidget-selectButton' ],
 		label: OO.ui.msg(
@@ -48,7 +48,7 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	}, config.button ) );
 
 	// Configuration initialization
-	config = $.extend( {
+	config = Object.assign( {
 		accept: null,
 		placeholder: OO.ui.msg( 'ooui-selectfile-placeholder' ),
 		$tabIndexed: this.selectButton.$tabIndexed,
@@ -85,7 +85,7 @@ OO.ui.SelectFileInputWidget = function OoUiSelectFileInputWidget( config ) {
 	OO.ui.SelectFileInputWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.RequiredElement.call( this, $.extend( {}, {
+	OO.ui.mixin.RequiredElement.call( this, Object.assign( {}, {
 		// TODO: Display the required indicator somewhere
 		indicatorElement: null
 	}, config ) );
@@ -250,7 +250,7 @@ OO.ui.SelectFileInputWidget.prototype.setValue = function ( files ) {
 		// Use extend to convert to plain objects so they can be compared.
 		// File objects contains name, size, timestamp and mime type which
 		// should be unique.
-		return $.extend( {}, file );
+		return Object.assign( {}, file );
 	}
 
 	if ( !OO.compare(

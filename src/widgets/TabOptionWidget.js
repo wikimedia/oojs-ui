@@ -17,7 +17,7 @@ OO.ui.TabOptionWidget = function OoUiTabOptionWidget( config ) {
 	config = config || {};
 
 	if ( config.href ) {
-		config = $.extend( {
+		config = Object.assign( {
 			$label: $( '<a>' ).attr( 'href', config.href )
 		}, config );
 	}
@@ -64,7 +64,7 @@ OO.ui.TabOptionWidget.prototype.scrollElementIntoView = function ( config ) {
 			this.getElementGroup().$element[ 0 ].clientWidth - this.$element[ 0 ].clientWidth
 		) / 2, 0 );
 		// Parent method
-		return OO.ui.TabOptionWidget.super.prototype.scrollElementIntoView.call( this, $.extend(
+		return OO.ui.TabOptionWidget.super.prototype.scrollElementIntoView.call( this, Object.assign(
 			{
 				padding: {
 					left: padding,

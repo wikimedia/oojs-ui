@@ -1,7 +1,7 @@
 ( function () {
 	QUnit.module( 'NumberInputWidget' );
 
-	QUnit.test( 'validate number', function ( assert ) {
+	QUnit.test( 'validate number', ( assert ) => {
 		const widget = new OO.ui.NumberInputWidget( {
 			min: -10,
 			max: 10,
@@ -50,7 +50,7 @@
 		);
 	} );
 
-	QUnit.test( 'adjust value', function ( assert ) {
+	QUnit.test( 'adjust value', ( assert ) => {
 		const widget = new OO.ui.NumberInputWidget( {
 			min: -10,
 			max: 10,

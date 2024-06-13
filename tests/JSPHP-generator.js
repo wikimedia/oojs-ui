@@ -14,7 +14,7 @@
 			WikimediaUITheme: new OO.ui.WikimediaUITheme()
 		};
 
-		QUnit.test( JSON.stringify( test.config ), function ( assert ) {
+		QUnit.test( JSON.stringify( test.config ), ( assert ) => {
 			let instance, infused, $fromPhp, theme;
 
 			// Unstub placeholders

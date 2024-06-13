@@ -33,7 +33,7 @@ OO.ui.getWindowManager = function () {
  * @return {jQuery.Promise} Promise resolved when the user closes the dialog
  */
 OO.ui.alert = function ( text, options ) {
-	return OO.ui.getWindowManager().openWindow( 'message', $.extend( {
+	return OO.ui.getWindowManager().openWindow( 'message', Object.assign( {
 		message: text,
 		actions: [ OO.ui.MessageDialog.static.actions[ 0 ] ]
 	}, options ) ).closed.then( () => undefined );
@@ -63,7 +63,7 @@ OO.ui.alert = function ( text, options ) {
  *  `false`.
  */
 OO.ui.confirm = function ( text, options ) {
-	return OO.ui.getWindowManager().openWindow( 'message', $.extend( {
+	return OO.ui.getWindowManager().openWindow( 'message', Object.assign( {
 		message: text
 	}, options ) ).closed.then( ( data ) => !!( data && data.action === 'accept' ) );
 };
@@ -103,7 +103,7 @@ OO.ui.prompt = function ( text, options ) {
 			label: text
 		} );
 
-	const instance = manager.openWindow( 'message', $.extend( {
+	const instance = manager.openWindow( 'message', Object.assign( {
 		message: textField.$element
 	}, options ) );
 
