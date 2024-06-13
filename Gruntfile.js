@@ -472,7 +472,7 @@ module.exports = function ( grunt ) {
 		// Development
 		watch: {
 			files: [
-				'src/**/*.js',
+				'{src,build}/**/*.js',
 				'<%= stylelint.dev %>',
 				'src/**/*.less',
 				'php/**/*.php',
