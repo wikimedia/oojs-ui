@@ -48,7 +48,7 @@ OO.ui.RadioInputWidget = function OoUiRadioInputWidget( config ) {
 	OO.ui.RadioInputWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.RequiredElement.call( this, $.extend( {}, {
+	OO.ui.mixin.RequiredElement.call( this, Object.assign( {}, {
 		// TODO: Display the required indicator somewhere
 		indicatorElement: null
 	}, config ) );

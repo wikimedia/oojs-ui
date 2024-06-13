@@ -50,7 +50,7 @@ OO.ui.TestTimer.prototype.setTimeout = function ( f, timeout ) {
  * @param {number} id Timeout id for cancellation
  */
 OO.ui.TestTimer.prototype.clearTimeout = function ( id ) {
-	this.pendingCalls.forEach( function ( call ) {
+	this.pendingCalls.forEach( ( call ) => {
 		if ( call.id === id ) {
 			call.f = null;
 		}
@@ -65,9 +65,7 @@ OO.ui.TestTimer.prototype.clearTimeout = function ( id ) {
 OO.ui.TestTimer.prototype.runPending = function ( interval ) {
 	let i, len, call;
 	this.timestamp += ( interval || 0 );
-	const calls = this.pendingCalls.splice( 0, this.pendingCalls.length ).sort( function ( a, b ) {
-		return a.timeout - b.timeout;
-	} );
+	const calls = this.pendingCalls.splice( 0, this.pendingCalls.length ).sort( ( a, b ) => a.timeout - b.timeout );
 	for ( i = 0, len = calls.length; i < len; i++ ) {
 		call = calls[ i ];
 		if ( interval === undefined || call.timestamp <= this.timestamp ) {

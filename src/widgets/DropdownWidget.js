@@ -58,7 +58,7 @@
  */
 OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	// Configuration initialization
-	config = $.extend( { indicator: 'down' }, config );
+	config = Object.assign( { indicator: 'down' }, config );
 
 	// Parent constructor
 	OO.ui.DropdownWidget.super.call( this, config );
@@ -72,15 +72,15 @@ OO.ui.DropdownWidget = function OoUiDropdownWidget( config ) {
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.LabelElement.call( this, config );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {
+	OO.ui.mixin.TitledElement.call( this, Object.assign( {
 		$titled: this.$label
 	}, config ) );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
+	OO.ui.mixin.TabIndexedElement.call( this, Object.assign( {
 		$tabIndexed: this.$handle
 	}, config ) );
 
 	// Properties
-	this.menu = new OO.ui.MenuSelectWidget( $.extend( {
+	this.menu = new OO.ui.MenuSelectWidget( Object.assign( {
 		widget: this,
 		$floatableContainer: this.$element
 	}, config.menu ) );

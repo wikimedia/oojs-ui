@@ -368,7 +368,7 @@ Demo.prototype.onExpandButtonChange = function ( value ) {
  * @return {string} URL query part, starting with '?'
  */
 Demo.prototype.getUrlQuery = function ( mode, fragment ) {
-	mode = $.extend( this.getCurrentMode(), mode );
+	mode = Object.assign( this.getCurrentMode(), mode );
 	return '?page=' + mode.page +
 		'&theme=' + mode.theme +
 		'&direction=' + mode.direction +
@@ -518,7 +518,7 @@ Demo.prototype.normalizeQuery = function () {
 
 	// Backwards-compatibility with old URLs that used the 'fragment' part to link to demo sections:
 	// if a fragment is specified and it describes valid factors, turn the URL into the new style.
-	// eslint-disable-next-line security/detect-unsafe-regex
+
 	const match = location.hash.match( /^#(\w+)-(\w+)-(\w+)(?:-(\w+))?$/ );
 	if ( match ) {
 		factorValues = Array.prototype.slice.call( match, 1 );

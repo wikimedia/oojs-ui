@@ -63,7 +63,7 @@ OO.ui.ButtonMenuSelectWidget = function OoUiButtonMenuSelectWidget( config ) {
 
 	// Properties
 	this.clearOnSelect = config.clearOnSelect !== false;
-	this.menu = new MenuClass( $.extend( {
+	this.menu = new MenuClass( Object.assign( {
 		widget: this,
 		$floatableContainer: this.$element
 	}, config.menu ) );

@@ -48,14 +48,14 @@ OO.ui.ButtonWidget = function OoUiButtonWidget( config ) {
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.LabelElement.call( this, config );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {
+	OO.ui.mixin.TitledElement.call( this, Object.assign( {
 		$titled: this.$button
 	}, config ) );
 	OO.ui.mixin.FlaggedElement.call( this, config );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
+	OO.ui.mixin.TabIndexedElement.call( this, Object.assign( {
 		$tabIndexed: this.$button
 	}, config ) );
-	OO.ui.mixin.AccessKeyedElement.call( this, $.extend( {
+	OO.ui.mixin.AccessKeyedElement.call( this, Object.assign( {
 		$accessKeyed: this.$button
 	}, config ) );
 

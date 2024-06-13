@@ -53,7 +53,7 @@
  */
 OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Configuration initialization
-	config = $.extend( {
+	config = Object.assign( {
 		labelPosition: 'after'
 	}, config );
 	config.type = this.getValidType( config );
@@ -69,7 +69,7 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	// Mixin constructors
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
-	OO.ui.mixin.PendingElement.call( this, $.extend( { $pending: this.$input }, config ) );
+	OO.ui.mixin.PendingElement.call( this, Object.assign( { $pending: this.$input }, config ) );
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
 	OO.ui.mixin.RequiredElement.call( this, config );

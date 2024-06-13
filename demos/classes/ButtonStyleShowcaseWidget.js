@@ -7,7 +7,7 @@ Demo.ButtonStyleShowcaseWidget = function DemoButtonStyleShowcaseWidget( config 
 		const $buttonRow = $( '<div>' );
 		this.constructor.static.states.forEach( ( state ) => {
 			$buttonRow.append(
-				new OO.ui.ButtonWidget( $.extend( {}, style, state ) ).$element
+				new OO.ui.ButtonWidget( Object.assign( {}, style, state ) ).$element
 			);
 		} );
 		this.$element.append( $buttonRow );

@@ -59,7 +59,7 @@ OO.ui.MenuSelectWidget = function OoUiMenuSelectWidget( config ) {
 	OO.ui.MenuSelectWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.ClippableElement.call( this, $.extend( { $clippable: this.$group }, config ) );
+	OO.ui.mixin.ClippableElement.call( this, Object.assign( { $clippable: this.$group }, config ) );
 	OO.ui.mixin.FloatableElement.call( this, config );
 
 	// Initial vertical positions other than 'center' will result in

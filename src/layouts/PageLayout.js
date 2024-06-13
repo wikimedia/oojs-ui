@@ -23,7 +23,7 @@ OO.ui.PageLayout = function OoUiPageLayout( name, config ) {
 	}
 
 	// Configuration initialization
-	config = $.extend( { scrollable: true }, config );
+	config = Object.assign( { scrollable: true }, config );
 
 	// Parent constructor
 	OO.ui.PageLayout.super.call( this, config );

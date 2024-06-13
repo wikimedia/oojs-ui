@@ -3,7 +3,7 @@ QUnit.module( 'core' );
 /**
  * Note: Keep tests in sync with phpunit/TagTest.php
  */
-QUnit.test( 'isSafeUrl', function ( assert ) {
+QUnit.test( 'isSafeUrl', ( assert ) => {
 	// eslint-disable-next-line no-script-url
 	assert.strictEqual( OO.ui.isSafeUrl( 'javascript:evil();' ), false );
 	assert.strictEqual( OO.ui.isSafeUrl( 'foo:bar' ), false );
@@ -21,7 +21,7 @@ QUnit.test( 'isSafeUrl', function ( assert ) {
 } );
 
 // eslint-disable-next-line qunit/require-expect
-QUnit.test( 'isFocusableElement', function ( assert ) {
+QUnit.test( 'isFocusableElement', ( assert ) => {
 	let i, $html, result;
 
 	const cases = [
@@ -97,7 +97,7 @@ QUnit.test( 'isFocusableElement', function ( assert ) {
 	}
 } );
 
-QUnit.test( 'debounce', function ( assert ) {
+QUnit.test( 'debounce', ( assert ) => {
 	let f,
 		log = [];
 
@@ -183,7 +183,7 @@ QUnit.test( 'debounce', function ( assert ) {
 	}
 } );
 
-QUnit.test( 'throttle', function ( assert ) {
+QUnit.test( 'throttle', ( assert ) => {
 	let f,
 		log = [];
 

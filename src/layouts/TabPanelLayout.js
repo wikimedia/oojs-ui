@@ -25,7 +25,7 @@ OO.ui.TabPanelLayout = function OoUiTabPanelLayout( name, config ) {
 	}
 
 	// Configuration initialization
-	config = $.extend( { scrollable: true }, config );
+	config = Object.assign( { scrollable: true }, config );
 
 	// Parent constructor
 	OO.ui.TabPanelLayout.super.call( this, config );

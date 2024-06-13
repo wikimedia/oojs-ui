@@ -1,5 +1,5 @@
 Demo.SamplePage = function DemoSamplePage( name, config ) {
-	config = $.extend( { label: 'Sample page' }, config );
+	config = Object.assign( { label: 'Sample page' }, config );
 	Demo.SamplePage.super.apply( this, arguments );
 	this.label = config.label;
 	this.level = config.level;

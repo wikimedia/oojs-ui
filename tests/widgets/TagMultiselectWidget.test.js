@@ -1,7 +1,7 @@
 ( function () {
 	QUnit.module( 'TagMultiselectWidget' );
 
-	QUnit.test( 'Input positioning', function ( assert ) {
+	QUnit.test( 'Input positioning', ( assert ) => {
 		let widget;
 
 		widget = new OO.ui.TagMultiselectWidget();
@@ -42,7 +42,7 @@
 		);
 	} );
 
-	QUnit.test( 'isAllowedData', function ( assert ) {
+	QUnit.test( 'isAllowedData', ( assert ) => {
 		let widget;
 
 		widget = new OO.ui.TagMultiselectWidget( {
@@ -91,12 +91,10 @@
 		);
 	} );
 
-	QUnit.test( 'addTag', function ( assert ) {
+	QUnit.test( 'addTag', ( assert ) => {
 		let widget;
 		const getItemDatas = function ( items ) {
-			return items.map( function ( item ) {
-				return item.getData();
-			} );
+			return items.map( ( item ) => item.getData() );
 		};
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true, allowedValues: [ 'foo', 'bar' ] } );
@@ -147,12 +145,10 @@
 		);
 	} );
 
-	QUnit.test( 'setValue', function ( assert ) {
+	QUnit.test( 'setValue', ( assert ) => {
 		let widget;
 		const getItemDatas = function ( items ) {
-			return items.map( function ( item ) {
-				return item.getData();
-			} );
+			return items.map( ( item ) => item.getData() );
 		};
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
@@ -217,7 +213,7 @@
 		);
 	} );
 
-	QUnit.test( 'getValue', function ( assert ) {
+	QUnit.test( 'getValue', ( assert ) => {
 		let widget;
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
@@ -237,7 +233,7 @@
 		);
 	} );
 
-	QUnit.test( 'getNextItem', function ( assert ) {
+	QUnit.test( 'getNextItem', ( assert ) => {
 		let items, widget;
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
@@ -267,7 +263,7 @@
 		);
 	} );
 
-	QUnit.test( 'getPreviousItem', function ( assert ) {
+	QUnit.test( 'getPreviousItem', ( assert ) => {
 		let items, widget;
 
 		widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );
@@ -296,11 +292,9 @@
 		);
 	} );
 
-	QUnit.test( 'doInputBackspace', function ( assert ) {
+	QUnit.test( 'doInputBackspace', ( assert ) => {
 		const getItemDatas = function ( items ) {
-			return items.map( function ( item ) {
-				return item.getData();
-			} );
+			return items.map( ( item ) => item.getData() );
 		};
 
 		const widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true } );

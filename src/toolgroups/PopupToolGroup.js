@@ -30,7 +30,7 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	}
 
 	// Configuration initialization
-	config = $.extend( {
+	config = Object.assign( {
 		indicator: config.indicator === undefined ?
 			( toolbar.position === 'bottom' ? 'up' : 'down' ) : config.indicator
 	}, config );
@@ -52,17 +52,17 @@ OO.ui.PopupToolGroup = function OoUiPopupToolGroup( toolbar, config ) {
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.TitledElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
-	OO.ui.mixin.ClippableElement.call( this, $.extend( {
+	OO.ui.mixin.ClippableElement.call( this, Object.assign( {
 		$clippable: this.$group
 	}, config ) );
-	OO.ui.mixin.FloatableElement.call( this, $.extend( {
+	OO.ui.mixin.FloatableElement.call( this, Object.assign( {
 		$floatable: this.$group,
 		$floatableContainer: this.$handle,
 		hideWhenOutOfView: false,
 		verticalPosition: this.toolbar.position === 'bottom' ? 'above' : 'below'
 		// horizontalPosition is set in setActive
 	}, config ) );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
+	OO.ui.mixin.TabIndexedElement.call( this, Object.assign( {
 		$tabIndexed: this.$handle
 	}, config ) );
 

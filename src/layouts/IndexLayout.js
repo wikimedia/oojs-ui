@@ -44,7 +44,7 @@
  */
 OO.ui.IndexLayout = function OoUiIndexLayout( config ) {
 	// Configuration initialization
-	config = $.extend( {}, config, { menuPosition: 'top' } );
+	config = Object.assign( {}, config, { menuPosition: 'top' } );
 
 	// Parent constructor
 	OO.ui.IndexLayout.super.call( this, config );
@@ -371,7 +371,7 @@ OO.ui.IndexLayout.prototype.addTabPanels = function ( tabPanels, index ) {
 		name = tabPanel.getName();
 		this.tabPanels[ name ] = tabPanel;
 		tabItem = new OO.ui.TabOptionWidget(
-			$.extend( { data: name }, tabPanel.getTabItemConfig() )
+			Object.assign( { data: name }, tabPanel.getTabItemConfig() )
 		);
 		tabPanel.setTabItem( tabItem );
 		tabItems.push( tabItem );

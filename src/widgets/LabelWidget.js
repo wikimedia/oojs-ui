@@ -46,7 +46,7 @@ OO.ui.LabelWidget = function OoUiLabelWidget( config ) {
 	OO.ui.LabelWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.LabelElement.call( this, $.extend( {
+	OO.ui.mixin.LabelElement.call( this, Object.assign( {
 		$label: this.$element
 	}, config ) );
 	OO.ui.mixin.TitledElement.call( this, config );

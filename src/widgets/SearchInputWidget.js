@@ -13,7 +13,7 @@
  * @param {Object} [config] Configuration options
  */
 OO.ui.SearchInputWidget = function OoUiSearchInputWidget( config ) {
-	config = $.extend( {
+	config = Object.assign( {
 		icon: 'search'
 	}, config );
 

@@ -43,14 +43,14 @@ OO.ui.ToggleButtonWidget = function OoUiToggleButtonWidget( config ) {
 	OO.ui.ToggleButtonWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.ButtonElement.call( this, $.extend( {
+	OO.ui.mixin.ButtonElement.call( this, Object.assign( {
 		active: this.active
 	}, config ) );
 	OO.ui.mixin.IconElement.call( this, config );
 	OO.ui.mixin.IndicatorElement.call( this, config );
 	OO.ui.mixin.LabelElement.call( this, config );
 	OO.ui.mixin.FlaggedElement.call( this, config );
-	OO.ui.mixin.TabIndexedElement.call( this, $.extend( {
+	OO.ui.mixin.TabIndexedElement.call( this, Object.assign( {
 		$tabIndexed: this.$button
 	}, config ) );
 

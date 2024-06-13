@@ -36,17 +36,17 @@ OO.ui.IconWidget = function OoUiIconWidget( config ) {
 	OO.ui.IconWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.IconElement.call( this, $.extend( {
+	OO.ui.mixin.IconElement.call( this, Object.assign( {
 		$icon: this.$element
 	}, config ) );
-	OO.ui.mixin.TitledElement.call( this, $.extend( {
+	OO.ui.mixin.TitledElement.call( this, Object.assign( {
 		$titled: this.$element
 	}, config ) );
-	OO.ui.mixin.LabelElement.call( this, $.extend( {
+	OO.ui.mixin.LabelElement.call( this, Object.assign( {
 		$label: this.$element,
 		invisibleLabel: true
 	}, config ) );
-	OO.ui.mixin.FlaggedElement.call( this, $.extend( {
+	OO.ui.mixin.FlaggedElement.call( this, Object.assign( {
 		$flagged: this.$element
 	}, config ) );
 

@@ -132,7 +132,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 		if ( config.inputWidget ) {
 			this.input = config.inputWidget;
 		} else {
-			this.input = new OO.ui.TextInputWidget( $.extend( {
+			this.input = new OO.ui.TextInputWidget( Object.assign( {
 				placeholder: config.placeholder,
 				classes: [ 'oo-ui-tagMultiselectWidget-input' ]
 			}, config.input ) );

@@ -26,7 +26,7 @@
  */
 OO.ui.PanelLayout = function OoUiPanelLayout( config ) {
 	// Configuration initialization
-	config = $.extend( {
+	config = Object.assign( {
 		scrollable: false,
 		padded: false,
 		expanded: true,

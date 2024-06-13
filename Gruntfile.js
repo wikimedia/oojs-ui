@@ -215,9 +215,7 @@ module.exports = function ( grunt ) {
 			tmp: 'dist/tmp'
 		},
 		fileExists: {
-			src: requiredFiles.filter( function ( f ) {
-				return f.startsWith( 'src/' );
-			} )
+			src: requiredFiles.filter( ( f ) => f.startsWith( 'src/' ) )
 		},
 		tyops: {
 			options: {
@@ -569,7 +567,7 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.event.on( 'watch', function ( action, filepath ) {
+	grunt.event.on( 'watch', ( action, filepath ) => {
 		// Clear tasks set on last run.
 		grunt.config( 'watch.tasks', '' );
 		switch ( path.extname( filepath ) ) {
@@ -600,7 +598,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'git-status', function () {
 		const done = this.async();
 		// Are there unstaged changes?
-		require( 'child_process' ).exec( 'git ls-files --modified', function ( err, stdout, stderr ) {
+		require( 'child_process' ).exec( 'git ls-files --modified', ( err, stdout, stderr ) => {
 			const ret = err || stderr || stdout;
 			if ( ret ) {
 				grunt.log.error( 'Unstaged changes in these files:' );
@@ -615,7 +613,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'pre-git-build', function () {
 		const done = this.async();
-		require( 'child_process' ).exec( 'git rev-parse HEAD', function ( err, stout, stderr ) {
+		require( 'child_process' ).exec( 'git rev-parse HEAD', ( err, stout, stderr ) => {
 			if ( !stout || err || stderr ) {
 				grunt.log.err( err || stderr );
 				done( false );
@@ -627,17 +625,17 @@ module.exports = function ( grunt ) {
 		} );
 	} );
 
-	grunt.registerTask( 'note-quick-build', function () {
+	grunt.registerTask( 'note-quick-build', () => {
 		grunt.log.warn( 'You have built a no-frills, SVG-only, LTR-only version for development; some things will be broken.' );
 	} );
 
-	grunt.registerTask( 'demo-image-list', function () {
+	grunt.registerTask( 'demo-image-list', () => {
 		const imageLists = {};
 		for ( const module in modules ) {
 			if ( module.includes( 'oojs-ui-images-' ) ) {
 				const theme = modules[ module ].theme;
 				imageLists[ theme ] = imageLists[ theme ] || {};
-				modules[ module ].styles.forEach( function ( style ) {
+				modules[ module ].styles.forEach( ( style ) => {
 					const data = require( './' + style );
 					const name = path.parse( style ).name;
 					imageLists[ theme ][ name ] = data.images;
@@ -699,7 +697,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( '_ci', [ '_test', 'minify', 'demos', 'exec:composer', 'git-status' ] );
 	grunt.registerTask( 'demos', [ 'clean:demos', 'copy:demos', 'demo-image-list', 'exec:demos' ] );
 
-	grunt.registerTask( 'add-theme-check', function () {
+	grunt.registerTask( 'add-theme-check', () => {
 		if ( grunt.option( 'template' ) === 'MISSING' ) {
 			grunt.fatal( '`grunt add-theme` requires a --template=Foo option.' );
 		}

@@ -63,7 +63,7 @@ OO.ui.MenuTagMultiselectWidget = function OoUiMenuTagMultiselectWidget( config )
 		OO.ui.getDefaultOverlay() : config.$overlay ) || this.$element;
 	this.clearInputOnChoose = config.clearInputOnChoose === undefined ||
 		!!config.clearInputOnChoose;
-	this.menu = this.createMenuWidget( $.extend( {
+	this.menu = this.createMenuWidget( Object.assign( {
 		widget: this,
 		hideOnChoose: false,
 		input: this.hasInput ? this.input : null,

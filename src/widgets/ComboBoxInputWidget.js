@@ -67,7 +67,7 @@
  */
 OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	// Configuration initialization
-	config = $.extend( {
+	config = Object.assign( {
 		autocomplete: false
 	}, config );
 
@@ -89,7 +89,7 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 		invisibleLabel: true,
 		disabled: this.disabled
 	} );
-	this.menu = new OO.ui.MenuSelectWidget( $.extend(
+	this.menu = new OO.ui.MenuSelectWidget( Object.assign(
 		{
 			widget: this,
 			input: this,

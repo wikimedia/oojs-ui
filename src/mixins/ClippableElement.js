@@ -283,7 +283,7 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		$viewport = this.$clippableScrollableContainer;
 		viewportRect = $viewport[ 0 ].getBoundingClientRect();
 		// Convert into a plain object
-		viewportRect = $.extend( {}, viewportRect );
+		viewportRect = Object.assign( {}, viewportRect );
 	}
 
 	// Account for scrollbar gutter
@@ -313,7 +313,7 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 
 	let itemRect = $item[ 0 ].getBoundingClientRect();
 	// Convert into a plain object
-	itemRect = $.extend( {}, itemRect );
+	itemRect = Object.assign( {}, itemRect );
 
 	// Item might already be clipped, so we can't just use its dimensions (in case we might need to
 	// make it larger than before). Extend the rectangle to the maximum size we are allowed to take.

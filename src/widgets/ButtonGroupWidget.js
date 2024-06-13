@@ -39,7 +39,7 @@ OO.ui.ButtonGroupWidget = function OoUiButtonGroupWidget( config ) {
 	OO.ui.ButtonGroupWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.GroupElement.call( this, $.extend( {
+	OO.ui.mixin.GroupElement.call( this, Object.assign( {
 		$group: this.$element
 	}, config ) );
 	OO.ui.mixin.TitledElement.call( this, config );

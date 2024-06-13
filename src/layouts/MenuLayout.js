@@ -85,7 +85,7 @@
  */
 OO.ui.MenuLayout = function OoUiMenuLayout( config ) {
 	// Configuration initialization
-	config = $.extend( {
+	config = Object.assign( {
 		expanded: true,
 		showMenu: true,
 		menuPosition: 'before'

@@ -18,7 +18,7 @@ QUnit.module( 'Element', {
 	}
 } );
 
-QUnit.test( 'static.infuse', function ( assert ) {
+QUnit.test( 'static.infuse', ( assert ) => {
 	const
 		$textInputWidget = $( $.parseHTML( '<div aria-disabled=\'false\' id=\'ooui-php-1\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div>' ) ),
 		$unknownTypeWidget = $( $.parseHTML( '<div data-ooui=\'{"_":"Array"}\'></div>' ) ),
@@ -31,28 +31,28 @@ QUnit.test( 'static.infuse', function ( assert ) {
 		$moreThanOneInCollection = $( '<div aria-disabled=\'false\' id=\'ooui-php-1\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div><div aria-disabled=\'false\' id=\'ooui-php-2\' class=\'oo-ui-widget oo-ui-widget-enabled oo-ui-inputWidget oo-ui-textInputWidget oo-ui-textInputWidget-type-text oo-ui-textInputWidget-php\' data-ooui=\'{"_":"OO.ui.TextInputWidget"}\'><input type=\'text\' tabindex=\'0\' aria-disabled=\'false\' value=\'\' class=\'oo-ui-inputWidget-input\' /><span class=\'oo-ui-iconElement-icon\'></span><span class=\'oo-ui-indicatorElement-indicator\'></span></div>' );
 
 	assert.true( OO.ui.Element.static.infuse( $textInputWidget ) instanceof OO.ui.TextInputWidget );
-	assert.throws( function () {
+	assert.throws( () => {
 		OO.ui.Element.static.infuse( $unknownTypeWidget );
 	}, /Error: Unknown widget type/ );
-	assert.throws( function () {
+	assert.throws( () => {
 		OO.ui.Element.static.infuse( $nonExistentTypeWidget );
 	}, /Error: Unknown widget type/ );
-	assert.throws( function () {
+	assert.throws( () => {
 		OO.ui.Element.static.infuse( $invalidJsonWidget );
 	}, /Error: No valid infusion data found: undefined/ );
-	assert.throws( function () {
+	assert.throws( () => {
 		OO.ui.Element.static.infuse( $emptyTypeWidget );
 	}, /Error: No valid infusion data found: undefined/ );
-	assert.throws( function () {
+	assert.throws( () => {
 		OO.ui.Element.static.infuse( $nonWidget );
 	}, /Error: No infusion data found: undefined/ );
-	assert.throws( function () {
+	assert.throws( () => {
 		OO.ui.Element.static.infuse( $emptyCollection );
 	}, /Error: Widget not found/ );
-	assert.throws( function () {
+	assert.throws( () => {
 		OO.ui.Element.static.infuse( $unmatchedSelector );
 	}, /Error: Widget not found/ );
-	assert.throws( function () {
+	assert.throws( () => {
 		OO.ui.Element.static.infuse( $moreThanOneInCollection );
 	}, /Error: Collection contains more than one element/ );
 } );
@@ -110,12 +110,12 @@ QUnit.test( 'static.getClosestScrollableContainer', function ( assert ) {
 
 	// Chrome<=60: <body> is root scrollable
 	// Chrome>60, Firefox: <html> is root scrollable
-	[ 'body', 'documentElement' ].forEach( function ( root ) {
+	[ 'body', 'documentElement' ].forEach( ( root ) => {
 		const rootElement = document[ root ];
 		OO.ui.Element.static.getRootScrollableElement = function () {
 			return rootElement;
 		};
-		[ 'scroll', 'visible' ].forEach( function ( overflow ) {
+		[ 'scroll', 'visible' ].forEach( ( overflow ) => {
 			const msg = 'root=' + root + ', body overflow=' + overflow;
 			document.body.style.overflowY = overflow;
 			assert.strictEqual(
@@ -168,7 +168,7 @@ QUnit.test( 'static.getDocument', function ( assert ) {
 	// Test a cross-origin frame (T258256). 'data:' URLs are always considered cross-origin.
 	// This must be the first test case, so that the frame is the first in the document, otherwise
 	// it doesn't actually test for the regression.
-	this.makeFrame( 'data:text/html,', function () {
+	this.makeFrame( 'data:text/html,', () => {
 		try {
 			assert.strictEqual( OO.ui.Element.static.getDocument( win ), doc, 'Window (when a a cross-origin frame exists)' );
 		} catch ( err ) {
@@ -199,7 +199,7 @@ QUnit.test( 'static.getDocument', function ( assert ) {
 	done();
 } );
 
-QUnit.test( 'getElementDocument', function ( assert ) {
+QUnit.test( 'getElementDocument', ( assert ) => {
 	const doc = document;
 	const el = new OO.ui.Element();
 	assert.strictEqual( el.getElementDocument(), doc );

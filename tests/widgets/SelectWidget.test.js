@@ -1,7 +1,7 @@
 ( function () {
 	QUnit.module( 'SelectWidget' );
 
-	QUnit.test( 'findFirstSelectableItem', function ( assert ) {
+	QUnit.test( 'findFirstSelectableItem', ( assert ) => {
 		const optionWidget = new OO.ui.OptionWidget( {
 			data: 'a',
 			label: 'A'
@@ -18,7 +18,7 @@
 		);
 	} );
 
-	QUnit.test( 'selectItem selects option', function ( assert ) {
+	QUnit.test( 'selectItem selects option', ( assert ) => {
 		const optionWidget = new OO.ui.OptionWidget( {
 			data: 'a',
 			label: 'A',
@@ -32,7 +32,7 @@
 		assert.strictEqual( optionWidget.isSelected(), true );
 	} );
 
-	QUnit.test( 'selectItem switches option selection', function ( assert ) {
+	QUnit.test( 'selectItem switches option selection', ( assert ) => {
 		const optionWidget1 = new OO.ui.OptionWidget( {
 			data: 'a',
 			label: 'A',
@@ -52,7 +52,7 @@
 		assert.strictEqual( optionWidget2.isSelected(), true );
 	} );
 
-	QUnit.test( 'selectItem fires select event on change', function ( assert ) {
+	QUnit.test( 'selectItem fires select event on change', ( assert ) => {
 		let eventCount = 0;
 
 		const optionWidget = new OO.ui.OptionWidget( {
@@ -63,7 +63,7 @@
 		const selectWidget = new OO.ui.SelectWidget( {
 			items: [ optionWidget ]
 		} );
-		selectWidget.on( 'select', function () {
+		selectWidget.on( 'select', () => {
 			eventCount++;
 		} );
 		selectWidget.selectItem( optionWidget );
@@ -72,7 +72,7 @@
 		assert.strictEqual( eventCount, 1 );
 	} );
 
-	QUnit.test( 'selectItem ignores MenuSectionOptionWidget', function ( assert ) {
+	QUnit.test( 'selectItem ignores MenuSectionOptionWidget', ( assert ) => {
 		let selectEventWasFired = false;
 
 		const optionWidget = new OO.ui.OptionWidget( {
@@ -84,7 +84,7 @@
 		const selectWidget = new OO.ui.SelectWidget( {
 			items: [ sectionWidget, optionWidget ]
 		} );
-		selectWidget.on( 'select', function () {
+		selectWidget.on( 'select', () => {
 			selectEventWasFired = true;
 		} );
 		selectWidget.selectItem( optionWidget );

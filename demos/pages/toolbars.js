@@ -107,7 +107,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 
 	const AlertTool = function ( toolGroup, config ) {
 		// Parent constructor
-		OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
+		OO.ui.PopupTool.call( this, toolGroup, Object.assign( { popup: {
 			padded: true,
 			label: 'Alert head',
 			head: true
@@ -129,7 +129,7 @@ Demo.static.pages.toolbars = function ( demo ) {
 
 	const PopupTool = function ( toolGroup, config ) {
 		// Parent constructor
-		OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
+		OO.ui.PopupTool.call( this, toolGroup, Object.assign( { popup: {
 			padded: true,
 			label: 'Popup head',
 			head: true

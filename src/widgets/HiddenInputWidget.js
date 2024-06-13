@@ -11,7 +11,7 @@
  */
 OO.ui.HiddenInputWidget = function OoUiHiddenInputWidget( config ) {
 	// Configuration initialization
-	config = $.extend( { value: '', name: '' }, config );
+	config = Object.assign( { value: '', name: '' }, config );
 
 	// Parent constructor
 	OO.ui.HiddenInputWidget.super.call( this, config );

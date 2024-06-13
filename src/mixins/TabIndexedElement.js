@@ -43,7 +43,7 @@
  */
 OO.ui.mixin.TabIndexedElement = function OoUiMixinTabIndexedElement( config ) {
 	// Configuration initialization
-	config = $.extend( { tabIndex: 0 }, config );
+	config = Object.assign( { tabIndex: 0 }, config );
 
 	// Properties
 	this.$tabIndexed = null;

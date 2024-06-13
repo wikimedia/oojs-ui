@@ -267,7 +267,7 @@ OO.ui.MessageDialog.prototype.initialize = function () {
  */
 OO.ui.MessageDialog.prototype.getActionWidgetConfig = function ( config ) {
 	// Force unframed
-	return $.extend( {}, config, { framed: false } );
+	return Object.assign( {}, config, { framed: false } );
 };
 
 /**
