@@ -1143,7 +1143,7 @@
 		z-index: 1;
 
 		& + span {
-			background-color: @background-color-base;
+			background-color: @background-color-base-fixed;
 			position: absolute;
 			left: 0;
 			box-sizing: border-box;
@@ -1184,7 +1184,7 @@
 			}
 
 			&:checked + span {
-				background-color: @background-color-base;
+				background-color: @background-color-base-fixed;
 			}
 		}
 	}
@@ -1215,7 +1215,7 @@
 			// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
 			&:focus + span {
 				&::before {
-					border-color: @background-color-base;
+					border-color: @background-color-base-fixed;
 				}
 			}
 
