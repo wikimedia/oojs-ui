@@ -1,6 +1,5 @@
 html {
 	/* Prevent font scaling in iOS Safari */
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	-webkit-text-size-adjust: none;
 }
 

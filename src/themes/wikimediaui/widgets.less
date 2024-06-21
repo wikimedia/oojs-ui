@@ -906,6 +906,7 @@
 		// Safari can have visual glitches with lingering shadows in some contexts
 		// when using drop-shadow. This makes it be more zealous about cleaning
 		// up. (See: T226872)
+		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		.oo-ui-force-gpu-composite-layer();
 
 		&-popup {
@@ -1015,7 +1016,6 @@
 
 		> .oo-ui-iconElement-icon {
 			left: @start-framed-icon-only;
-			/* stylelint-disable-next-line function-calc-no-unspaced-operator */
 			height: calc( @size-icon-medium ~' + 2 * ' @margin-vertical-popup );
 		}
 

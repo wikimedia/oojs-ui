@@ -43,6 +43,7 @@
 				transition-property: opacity;
 				transition-duration: @transition-duration-medium;
 				// Support Webkit/Blink: `opacity` < 1 causes wiggling, see T65020
+				// stylelint-disable-next-line plugin/no-unsupported-browser-features
 				.oo-ui-force-gpu-composite-layer();
 			}
 
@@ -265,6 +266,7 @@
 			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
 				opacity: 0.5;
 				// Opacity causes 1px measurement errors in Chrome, so force GPU rendering
+				// stylelint-disable-next-line plugin/no-unsupported-browser-features
 				.oo-ui-force-gpu-composite-layer();
 				box-shadow: none;
 				color: @color-base;
@@ -313,6 +315,7 @@
 	}
 
 	// Support inverted high contrast mode in Windows (T180890)
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	@media ( forced-colors: active ) and ( prefers-color-scheme: dark ) {
 		&-icon:not( .oo-ui-image-invert ) {
 			filter: invert( 1 ) hue-rotate( 180deg );
@@ -329,6 +332,7 @@
 	}
 
 	// Support inverted high contrast mode in Windows (T180890)
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	@media ( forced-colors: active ) and ( prefers-color-scheme: dark ) {
 		&-indicator:not( .oo-ui-image-invert ) {
 			filter: invert( 1 ) hue-rotate( 180deg );
