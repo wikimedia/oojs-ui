@@ -370,7 +370,8 @@ module.exports = function ( grunt ) {
 		// Lint – Styling
 		stylelint: {
 			options: {
-				reportNeedlessDisables: true
+				reportNeedlessDisables: true,
+				fix: grunt.option( 'fix' )
 			},
 			dev: [
 				'{demos,src}/**/*.{css,less}',

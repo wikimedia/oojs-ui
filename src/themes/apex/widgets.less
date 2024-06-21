@@ -1170,6 +1170,7 @@
 	&.oo-ui-widget-disabled {
 		opacity: 0.5;
 		// Opacity causes 1px measurement errors in Chrome, so force GPU rendering
+		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		.oo-ui-force-gpu-composite-layer();
 		box-shadow: none;
 		color: @color-base;

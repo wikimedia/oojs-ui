@@ -8,7 +8,7 @@
 			"customSyntax": "postcss-less",
 			"comment": "Re-activating some rules from root config for demos.",
 			"rules": {
-				"block-closing-brace-space-after": "always-single-line",
+				"@stylistic/block-closing-brace-space-after": "always-single-line",
 				"block-no-empty": true,
 				"selector-class-pattern": "^(oo-ui|demo)-"
 			}

@@ -23,7 +23,7 @@ module.exports = {
 			"rules": {
 				"block-no-empty": null,
 				"no-descending-specificity": null,
-				"stylistic/block-closing-brace-space-after": null,
+				"@stylistic/block-closing-brace-space-after": null,
 				"selector-class-pattern": "^(oo-ui|mw-tool)-"
 			}
 		}
