@@ -25,6 +25,7 @@ Demo.FloatableTest.prototype.initialize = function () {
 	this.selectWidget = new Demo.PositionSelectWidget();
 	this.toggleOverlayWidget = new OO.ui.ToggleSwitchWidget( { value: true } );
 	this.toggleClippingWidget = new OO.ui.ToggleSwitchWidget( { value: false } );
+	this.toggleSpacingWidget = new OO.ui.ToggleSwitchWidget( { value: false } );
 
 	this.$floatableContainer = $( '<div>' ).css( { width: this.innerSize, height: this.innerSize } );
 	this.floatable = new Demo.FloatableWidget( { $floatableContainer: this.$floatableContainer } );
@@ -42,6 +43,9 @@ Demo.FloatableTest.prototype.initialize = function () {
 	this.toggleClippingWidget.connect( this, {
 		change: 'onToggleClipping'
 	} );
+	this.toggleSpacingWidget.connect( this, {
+		change: 'onToggleSpacing'
+	} );
 
 	this.fieldset = new OO.ui.FieldsetLayout( {
 		items: [
@@ -56,6 +60,10 @@ Demo.FloatableTest.prototype.initialize = function () {
 			new OO.ui.FieldLayout( this.toggleOverlayWidget, {
 				align: 'inline',
 				label: 'Use overlay'
+			} ),
+			new OO.ui.FieldLayout( this.toggleSpacingWidget, {
+				align: 'inline',
+				label: '5px outside spacing'
 			} )
 		]
 	} );
@@ -80,6 +88,10 @@ Demo.FloatableTest.prototype.onToggleOverlay = function ( useOverlay ) {
 };
 Demo.FloatableTest.prototype.onToggleClipping = function ( useClipping ) {
 	this.floatable.toggleClipping( useClipping );
+};
+Demo.FloatableTest.prototype.onToggleSpacing = function ( useSpacing ) {
+	this.floatable.spacing = useSpacing ? 5 : 0;
+	this.floatable.position();
 };
 Demo.FloatableTest.prototype.centerView = function () {
 	const offset = ( this.outerSize - this.viewportSize ) / 2,

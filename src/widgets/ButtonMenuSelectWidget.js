@@ -52,7 +52,6 @@
 OO.ui.ButtonMenuSelectWidget = function OoUiButtonMenuSelectWidget( config ) {
 	// Configuration initialization
 	config = config || {};
-
 	// Parent constructor
 	OO.ui.ButtonMenuSelectWidget.super.call( this, config );
 
@@ -65,7 +64,8 @@ OO.ui.ButtonMenuSelectWidget = function OoUiButtonMenuSelectWidget( config ) {
 	this.clearOnSelect = config.clearOnSelect !== false;
 	this.menu = new MenuClass( Object.assign( {
 		widget: this,
-		$floatableContainer: this.$element
+		$floatableContainer: this.$element,
+		spacing: 4 // @spacing-25
 	}, config.menu ) );
 
 	// Events

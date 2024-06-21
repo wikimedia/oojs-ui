@@ -29,8 +29,10 @@
  *  'start': Align the start (left in LTR, right in RTL) edge with $floatableContainer's start edge
  *  'end': Align the end (right in LTR, left in RTL) edge with $floatableContainer's end edge
  *  'center': Horizontally align the center with $floatableContainer's center
- * @param {boolean} [config.hideWhenOutOfView=true] Whether to hide the floatable element if the container
- *  is out of view
+ * @param {boolean} [config.hideWhenOutOfView=true] Whether to hide the floatable element if the
+ *   container is out of view
+ * @param {number} [config.spacing=0] Spacing from $floatableContainer, when $floatable is
+ *  positioned outside the container (i.e. below/above/before/after).
  */
 OO.ui.mixin.FloatableElement = function OoUiMixinFloatableElement( config ) {
 	// Configuration initialization
@@ -50,6 +52,7 @@ OO.ui.mixin.FloatableElement = function OoUiMixinFloatableElement( config ) {
 	this.setFloatableElement( config.$floatable || this.$element );
 	this.setVerticalPosition( config.verticalPosition || 'below' );
 	this.setHorizontalPosition( config.horizontalPosition || 'start' );
+	this.spacing = config.spacing || 0;
 	this.hideWhenOutOfView = config.hideWhenOutOfView === undefined ?
 		true : !!config.hideWhenOutOfView;
 };
@@ -346,9 +349,9 @@ OO.ui.mixin.FloatableElement.prototype.computePosition = function () {
 	containerPos.end = direction === 'rtl' ? containerPos.left : containerPos.right;
 
 	if ( this.verticalPosition === 'below' ) {
-		newPos.top = containerPos.bottom;
+		newPos.top = containerPos.bottom + this.spacing;
 	} else if ( this.verticalPosition === 'above' ) {
-		newPos.bottom = $offsetParent.outerHeight() - containerPos.top;
+		newPos.bottom = $offsetParent.outerHeight() - containerPos.top + this.spacing;
 	} else if ( this.verticalPosition === 'top' ) {
 		newPos.top = containerPos.top;
 	} else if ( this.verticalPosition === 'bottom' ) {
@@ -359,9 +362,9 @@ OO.ui.mixin.FloatableElement.prototype.computePosition = function () {
 	}
 
 	if ( this.horizontalPosition === 'before' ) {
-		newPos.end = containerPos.start;
+		newPos.end = containerPos.start - this.spacing;
 	} else if ( this.horizontalPosition === 'after' ) {
-		newPos.start = containerPos.end;
+		newPos.start = containerPos.end + this.spacing;
 	} else if ( this.horizontalPosition === 'start' ) {
 		newPos.start = containerPos.start;
 	} else if ( this.horizontalPosition === 'end' ) {
