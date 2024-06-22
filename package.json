@@ -21,16 +21,16 @@
 		"/dist/"
 	],
 	"scripts": {
-		"test": "npm run minify:svg:src && grunt test",
-		"predoc": "grunt build",
-		"doc": "grunt jsdoc",
-		"quickdoc": "grunt quick-build && npm run doc",
-		"minify:svg:src": "svgo --config=.svgo.config.js --pretty --quiet --recursive --folder ./src/themes/wikimediaui/images/",
-		"minify:svg:dist": "svgo --config=.svgo.config.js --quiet --recursive --folder ./dist/themes/wikimediaui/images/",
-		"publish-build": "grunt publish-build && npm run minify:svg:dist",
-		"prepublishOnly": "npm run publish-build",
 		"demos": "grunt publish-build && npm run minify:svg:dist && grunt demos",
-		"jenkins": "npm test && npm run doc"
+		"doc": "grunt jsdoc",
+		"jenkins": "npm test && npm run doc",
+		"minify:svg:dist": "svgo --config=.svgo.config.js --quiet --recursive --folder ./dist/themes/wikimediaui/images/",
+		"minify:svg:src": "svgo --config=.svgo.config.js --pretty --quiet --recursive --folder ./src/themes/wikimediaui/images/",
+		"predoc": "grunt build",
+		"prepublishOnly": "npm run publish-build",
+		"publish-build": "grunt publish-build && npm run minify:svg:dist",
+		"quickdoc": "grunt quick-build && npm run doc",
+		"test": "npm run minify:svg:src && grunt test"
 	},
 	"dependencies": {
 		"@wikimedia/codex-design-tokens": "1.3.5",
