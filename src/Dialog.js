@@ -334,6 +334,11 @@ OO.ui.Dialog.prototype.detachActions = function () {
  * @return {jQuery.Promise} Promise resolved when action completes, rejected if it fails
  */
 OO.ui.Dialog.prototype.executeAction = function ( action ) {
+	const actionWidgets = this.actions.get( { actions: [ action ], visible: true } );
+	// If the action is shown as an ActionWidget, but is disabled, then do nothing.
+	if ( actionWidgets.length && actionWidgets.every( ( widget ) => widget.isDisabled() ) ) {
+		return $.Deferred().reject().promise();
+	}
 	this.pushPending();
 	this.currentAction = action;
 	return this.getActionProcess( action ).execute()
