@@ -390,7 +390,7 @@ module.exports = function ( grunt ) {
 		jsdoc: {
 			dist: {
 				options: {
-					configure: '.jsdoc.json'
+					configure: 'jsdoc.json'
 				}
 			}
 		},
