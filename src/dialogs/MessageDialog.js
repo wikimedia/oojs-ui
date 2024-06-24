@@ -141,8 +141,8 @@ OO.ui.MessageDialog.prototype.getActionProcess = function ( action ) {
  * @param {Object} [data] Dialog opening data
  * @param {jQuery|string|Function|null} [data.title] Description of the action being confirmed
  * @param {jQuery|string|Function|null} [data.message] Description of the action's consequence
- * @param {string} [data.size] Symbolic name of the dialog size, see OO.ui.Window
- * @param {Object[]} [data.actions] List of OO.ui.ActionOptionWidget configuration options for each
+ * @param {string} [data.size] Symbolic name of the dialog size, see {@link OO.ui.Window}
+ * @param {Object[]} [data.actions] List of {@link OO.ui.ActionOptionWidget} configuration options for each
  *  action item
  */
 OO.ui.MessageDialog.prototype.getSetupProcess = function ( data ) {
