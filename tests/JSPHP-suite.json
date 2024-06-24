@@ -46265,6 +46265,18 @@
       {
         "class": "ProgressBarWidget",
         "config": {
+          "inline": true
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "inline": false
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
           "disabled": true
         }
       },
@@ -46272,6 +46284,62 @@
         "class": "ProgressBarWidget",
         "config": {
           "disabled": false
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "progress": 0,
+          "inline": true
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "progress": 0,
+          "inline": false
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "progress": 50,
+          "inline": true
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "progress": 50,
+          "inline": false
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "progress": 100,
+          "inline": true
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "progress": 100,
+          "inline": false
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "progress": false,
+          "inline": true
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "progress": false,
+          "inline": false
         }
       },
       {
@@ -46327,6 +46395,34 @@
         "class": "ProgressBarWidget",
         "config": {
           "progress": false,
+          "disabled": false
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "inline": true,
+          "disabled": true
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "inline": true,
+          "disabled": false
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "inline": false,
+          "disabled": true
+        }
+      },
+      {
+        "class": "ProgressBarWidget",
+        "config": {
+          "inline": false,
           "disabled": false
         }
       }

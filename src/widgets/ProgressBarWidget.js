@@ -42,6 +42,7 @@
  *  To create a determinate progress bar, specify a number that reflects the initial
  *  percent complete.
  *  By default, the progress bar is indeterminate.
+ * @param {boolean} [config.inline=false] Use a smaller inline variant on the progress bar
  */
 OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
 	// Configuration initialization
@@ -68,6 +69,10 @@ OO.ui.ProgressBarWidget = function OoUiProgressBarWidget( config ) {
 		} )
 		.addClass( 'oo-ui-progressBarWidget' )
 		.append( this.$bar );
+
+	if ( config.inline ) {
+		this.$element.addClass( 'oo-ui-progressBarWidget-inline' );
+	}
 };
 
 /* Setup */
