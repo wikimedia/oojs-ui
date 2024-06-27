@@ -1,5 +1,13 @@
 # OOUI Release History
 
+## v0.50.2 / 2024-06-27
+
+## Styles
+* WikimediaUI theme: Fix dark mode contrast for framed active button element (bwang)
+
+## Code
+* build: Update jsdoc-wmf-theme to 1.1.0 (Ed Sanders)
+
 ## v0.50.1 / 2024-06-25
 
 ## Features
