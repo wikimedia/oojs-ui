@@ -254,6 +254,19 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		return this;
 	}
 
+	function rectCopy( rect ) {
+		return {
+			left: rect.left,
+			top: rect.top,
+			right: rect.right,
+			bottom: rect.bottom,
+			x: rect.x,
+			y: rect.y,
+			width: rect.width,
+			height: rect.height
+		};
+	}
+
 	function rectIntersection( a, b ) {
 		const out = {};
 		out.top = Math.max( a.top, b.top );
@@ -283,7 +296,7 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		$viewport = this.$clippableScrollableContainer;
 		viewportRect = $viewport[ 0 ].getBoundingClientRect();
 		// Convert into a plain object
-		viewportRect = Object.assign( {}, viewportRect );
+		viewportRect = rectCopy( viewportRect );
 	}
 
 	// Account for scrollbar gutter
@@ -313,7 +326,7 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 
 	let itemRect = $item[ 0 ].getBoundingClientRect();
 	// Convert into a plain object
-	itemRect = Object.assign( {}, itemRect );
+	itemRect = rectCopy( itemRect );
 
 	// Item might already be clipped, so we can't just use its dimensions (in case we might need to
 	// make it larger than before). Extend the rectangle to the maximum size we are allowed to take.
