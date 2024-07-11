@@ -108,7 +108,7 @@
 @border-color-input-binary--active: var( --border-color-input-binary--active, #2a4b8d );
 @border-color-input-binary--focus: var( --border-color-input-binary--focus, #36c );
 @border-color-input-binary--checked: var( --border-color-input-binary--checked, #36c );
-@border-base: var( --border-base, 1px solid #a2a9b1 );
-@border-subtle: var( --border-subtle, 1px solid #c8ccd1 );
-@border-progressive: var( --border-progressive, 1px solid #36c );
-@border-destructive: var( --border-destructive, 1px solid #d73333 );
+@border-base: @border-width-base @border-style-base var( --border-color-base, #a2a9b1 );
+@border-subtle: @border-width-base @border-style-base var( --border-color-subtle, #c8ccd1 );
+@border-progressive: @border-width-base @border-style-base var( --border-color-progressive, #36c );
+@border-destructive: @border-width-base @border-style-base var( --border-color-destructive, #d73333 );
