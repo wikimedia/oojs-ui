@@ -7,7 +7,6 @@
 		<!-- Together with the above, false positives in WikimediaUITheme.php and others -->
 		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.NamingConventions.PrefixedGlobalFunctions.allowedPrefix" />
-		<exclude name="PSR2.Classes.PropertyDeclaration.Multiple" />
 	</rule>
 	<!-- Allow superglobals in entry points -->
 	<rule ref="MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals">
