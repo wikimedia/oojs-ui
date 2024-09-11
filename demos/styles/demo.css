@@ -243,7 +243,7 @@ p:first-child {
 .demo-link-example:hover::after,
 .demo-console-toggle:hover::after,
 .demo-console-label:hover::before {
-	color: #447ff5;
+	color: #4b77d6;
 }
 
 .demo-link-example {
@@ -406,7 +406,7 @@ p:first-child {
 
 .demo-console-submit:hover {
 	background: #fff;
-	color: #444;
+	color: #404244;
 }
 
 .demo-sample-code {
