@@ -12,7 +12,7 @@ a {
 }
 
 a:hover {
-	color: #a071ce;
+	color: #4b77d6;
 }
 
 /* Start footer link in a new line */
@@ -73,7 +73,7 @@ pre[ class*='language-' ] {
 }
 
 .tutorials-emphasis {
-	color: #b32424;
+	color: #9f3526;
 	font-weight: bold;
 }
 
@@ -140,8 +140,8 @@ th {
 
 .tutorials-inline-code {
 	background-color: #fff;
-	color: #b32424;
-	border: 1px solid #d3d3d3;
+	color: #9f3526;
+	border: 1px solid #dadde3;
 	padding: 0.1em 0.25em;
 }
 
@@ -265,7 +265,7 @@ th {
 }
 
 .tutorials-scroll:hover {
-	background-color: #b32424;
+	background-color: #9f3526;
 }
 
 /*
