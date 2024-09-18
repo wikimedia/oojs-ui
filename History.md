@@ -1,5 +1,19 @@
 # OOUI Release History
 
+## v0.51.0 / 2024-09-18
+
+### Features
+* Flip pending element animation direction for RTL (Ebrahim Byagowi)
+
+### Styles
+* styles, WikimediaUI theme: Use colors from expanded palette (Volker E.)
+
+### Code
+* build: Update cssjanus to 2.3.0 (Bartosz Dziewoński)
+* build: Updating body-parser to 1.20.3 ([BOT] libraryupgrader)
+* build: Updating mediawiki/mediawiki-codesniffer to 44.0.0 ([BOT] libraryupgrader)
+* build: Updating micromatch to 4.0.8 ([BOT] libraryupgrader)
+
 ## v0.50.4 / 2024-07-11
 
 ## Styles
