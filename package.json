@@ -28,7 +28,7 @@
 		"minify:svg:src": "svgo --config=.svgo.config.js --pretty --quiet --recursive --folder ./src/themes/wikimediaui/images/",
 		"predoc": "grunt build",
 		"prepublishOnly": "npm run publish-build",
-		"publish-build": "grunt publish-build && npm run minify:svg:dist",
+		"publish-build": "npm ci && grunt publish-build && npm run minify:svg:dist",
 		"quickdoc": "grunt quick-build && npm run doc",
 		"test": "npm run minify:svg:src && grunt test"
 	},
