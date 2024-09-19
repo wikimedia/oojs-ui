@@ -1,5 +1,10 @@
 # OOUI Release History
 
+## v0.51.1 / 2024-09-19
+
+* This patch release aims to fix a dist file `dist/wikimedia-ui-base.less` that was incorrectly
+built in the previous release.
+
 ## v0.51.0 / 2024-09-18
 
 ### Features
