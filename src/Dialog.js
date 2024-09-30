@@ -115,16 +115,6 @@ OO.ui.Dialog.static.title = '';
  */
 OO.ui.Dialog.static.actions = [];
 
-/**
- * Close the dialog when the Escape key is pressed.
- *
- * @deprecated Have #getEscapeAction return `null` instead
- * @static
- * @abstract
- * @property {boolean}
- */
-OO.ui.Dialog.static.escapable = true;
-
 /* Methods */
 
 /**
@@ -146,7 +136,7 @@ OO.ui.Dialog.prototype.getEscapeAction = function () {
  * @param {jQuery.Event} e Key down event
  */
 OO.ui.Dialog.prototype.onDialogKeyDown = function ( e ) {
-	if ( e.which === OO.ui.Keys.ESCAPE && this.constructor.static.escapable ) {
+	if ( e.which === OO.ui.Keys.ESCAPE ) {
 		const action = this.getEscapeAction();
 		if ( action !== null ) {
 			this.executeAction( action );
