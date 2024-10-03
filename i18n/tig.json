@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bbeshir"
+		]
+	},
+	"ooui-toolbar-more": "ዚያደት",
+	"ooui-toolgroup-expand": "ዚያደት",
+	"ooui-toolgroup-collapse": "ላሖዳ",
+	"ooui-item-remove": "ነውክ",
+	"ooui-dialog-message-accept": "ሰኒ",
+	"ooui-dialog-process-retry": "ካሊእ መረት ጀርቡ",
+	"ooui-dialog-process-continue": "ዋስል",
+	"ooui-selectfile-button-select": "ፋይል ሕረ",
+	"ooui-selectfile-button-select-multiple": "ፋይላት ሕረ",
+	"ooui-field-help": "ሰዳየት"
+}
