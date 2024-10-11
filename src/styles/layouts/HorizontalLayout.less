@@ -1,13 +1,11 @@
 @import '../common.less';
 
 .oo-ui-horizontalLayout {
-	> .oo-ui-widget {
-		display: inline-block;
-		vertical-align: middle;
-	}
+	display: flex;
+	flex-wrap: wrap;
 
-	> .oo-ui-layout {
-		display: inline-block;
+	> .oo-ui-widget {
+		align-self: center;
 	}
 
 	.theme-oo-ui-horizontalLayout();

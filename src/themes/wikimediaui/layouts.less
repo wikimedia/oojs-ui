@@ -286,16 +286,14 @@
 .theme-oo-ui-stackLayout() {}
 
 .theme-oo-ui-horizontalLayout() {
+	gap: @margin-bottom-horizontallayout-widget @margin-end-widget;
+
 	> .oo-ui-layout,
 	> .oo-ui-widget {
-		.oo-ui-inline-spacing( @margin-end-widget );
+		.oo-ui-inline-spacing( 0 );
 	}
 
 	> .oo-ui-layout {
 		margin-top: 0;
-	}
-
-	> .oo-ui-widget {
-		margin-bottom: @margin-bottom-horizontallayout-widget;
 	}
 }
