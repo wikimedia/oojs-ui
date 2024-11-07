@@ -118,6 +118,7 @@ OO.ui.Dialog.static.actions = [];
 /**
  * Close the dialog when the Escape key is pressed.
  *
+ * @deprecated Have #getEscapeAction return `null` instead
  * @static
  * @abstract
  * @property {boolean}
@@ -127,6 +128,18 @@ OO.ui.Dialog.static.escapable = true;
 /* Methods */
 
 /**
+ * The current action to perform if the Escape key is pressed.
+ *
+ * The empty string action closes the dialog (see #getActionProcess).
+ * The make the escape key do nothing, return `null` here.
+ *
+ * @return {string|null} Action name, or null if unescapable
+ */
+OO.ui.Dialog.prototype.getEscapeAction = function () {
+	return '';
+};
+
+/**
  * Handle frame document key down events.
  *
  * @private
@@ -134,9 +147,12 @@ OO.ui.Dialog.static.escapable = true;
  */
 OO.ui.Dialog.prototype.onDialogKeyDown = function ( e ) {
 	if ( e.which === OO.ui.Keys.ESCAPE && this.constructor.static.escapable ) {
-		this.executeAction( '' );
-		e.preventDefault();
-		e.stopPropagation();
+		const action = this.getEscapeAction();
+		if ( action !== null ) {
+			this.executeAction( action );
+			e.preventDefault();
+			e.stopPropagation();
+		}
 	} else if ( e.which === OO.ui.Keys.ENTER && ( e.ctrlKey || e.metaKey ) ) {
 		const actions = this.actions.get( { flags: 'primary', visible: true, disabled: false } );
 		if ( actions.length > 0 ) {
