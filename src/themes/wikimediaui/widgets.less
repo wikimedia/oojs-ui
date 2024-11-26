@@ -1902,16 +1902,11 @@
 		}
 
 		&.oo-ui-flaggedElement-invalid {
-			.oo-ui-inputWidget-input {
+			.oo-ui-inputWidget-input:not( :focus ) {
 				border-color: @border-color-error;
 
 				&:hover {
 					border-color: @border-color-error;
-				}
-
-				&:focus {
-					border-color: @border-color-error;
-					box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
 				}
 			}
 		}
