@@ -38,7 +38,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-exec' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
-	grunt.loadNpmTasks( 'grunt-jsdoc' );
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 	grunt.loadNpmTasks( 'grunt-tyops' );
@@ -384,15 +383,6 @@ module.exports = function ( grunt ) {
 		// Lint – i18n
 		banana: {
 			all: 'i18n/'
-		},
-
-		// Documentation
-		jsdoc: {
-			dist: {
-				options: {
-					configure: 'jsdoc.json'
-				}
-			}
 		},
 
 		// Test
