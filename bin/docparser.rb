@@ -261,9 +261,10 @@ def parse_file filename
 	}
 
 	# this is evil, assumes we only have one class in a file, but we'd need a proper parser to do it better
-	if current_class
+	# note, we remove everything before the first "{\n" to make sure we don't parse `use` imports.
+	if current_class && filetype == :php
 		current_class[:mixes] +=
-			text.scan(/^[ \t]*use (\w+)(?: ?\{|;)/).flatten.map(&method(:cleanup_class_name))
+			text.gsub(/\A.+?\{\n/m, '').scan(/^[ \t]*use (\w+)(?: ?\{|;)/).flatten.map(&method(:cleanup_class_name))
 	end
 
 	output << current_class if current_class
