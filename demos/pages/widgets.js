@@ -1858,12 +1858,12 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.SelectFileInputWidget( {
-						accept: [ 'image/png', 'image/jpeg' ],
+						accept: [ 'image/*' ],
 						multiple: true,
 						showDropTarget: true
 					} ),
 					{
-						label: 'SelectFileInputWidget (multiple, with drop target, accept PNG and JPEG)',
+						label: 'SelectFileInputWidget (multiple, with drop target, accept image/*)',
 						align: 'top'
 					}
 				),

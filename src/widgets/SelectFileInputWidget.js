@@ -412,18 +412,17 @@ OO.ui.SelectFileInputWidget.prototype.filterFiles = function ( files ) {
 			return true;
 		}
 
-		for ( let i = 0; i < accept.length; i++ ) {
-			let mimeTest = accept[ i ];
-			if ( mimeTest === mimeType ) {
+		return accept.some( ( acceptedType ) => {
+			if ( acceptedType === mimeType ) {
 				return true;
-			} else if ( mimeTest.slice( -2 ) === '/*' ) {
-				mimeTest = mimeTest.slice( 0, mimeTest.length - 1 );
-				if ( mimeType.slice( 0, mimeTest.length ) === mimeTest ) {
+			} else if ( acceptedType.slice( -2 ) === '/*' ) {
+				// e.g. 'image/*'
+				if ( mimeType.startsWith( acceptedType.slice( 0, -1 ) ) ) {
 					return true;
 				}
 			}
-		}
-		return false;
+			return false;
+		} );
 	}
 
 	return Array.prototype.filter.call( files, mimeAllowed );
