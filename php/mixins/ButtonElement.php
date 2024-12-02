@@ -2,8 +2,6 @@
 
 namespace OOUI;
 
-use RuntimeException;
-
 /**
  * Element with a button.
  *
@@ -33,7 +31,7 @@ trait ButtonElement {
 	public function initializeButtonElement( array $config = [] ) {
 		// Properties
 		if ( !$this instanceof Element ) {
-			throw new RuntimeException( "ButtonElement trait can only be used on Element instances" );
+			throw new Exception( "ButtonElement trait can only be used on Element instances" );
 		}
 		$target = $config['button'] ?? new Tag( 'a' );
 		$this->button = $target;

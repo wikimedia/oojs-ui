@@ -2,8 +2,6 @@
 
 namespace OOUI;
 
-use InvalidArgumentException;
-
 /**
  * Layout made of a field and optional label.
  *
@@ -102,7 +100,7 @@ class FieldLayout extends Layout {
 
 		// Make sure we have required constructor arguments
 		if ( $fieldWidget === null ) {
-			throw new InvalidArgumentException( 'Widget not found' );
+			throw new Exception( 'Widget not found' );
 		}
 
 		// Config initialization

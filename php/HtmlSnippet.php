@@ -2,8 +2,6 @@
 
 namespace OOUI;
 
-use InvalidArgumentException;
-
 /**
  * Wraps a HTML snippet for use with Tag::appendContent() and Tag::prependContent().
  */
@@ -26,7 +24,7 @@ class HtmlSnippet {
 	 */
 	public function __construct( $content ) {
 		if ( !is_string( $content ) ) {
-			throw new InvalidArgumentException( 'Content passed to HtmlSnippet must be a string' );
+			throw new Exception( 'Content passed to HtmlSnippet must be a string' );
 		}
 		$this->content = $content;
 	}
