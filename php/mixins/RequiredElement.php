@@ -2,8 +2,6 @@
 
 namespace OOUI;
 
-use RuntimeException;
-
 /**
  * Element with a required attribute.
  *
@@ -46,7 +44,7 @@ trait RequiredElement {
 		$this->indicatorElement = array_key_exists( 'indicatorElement', $config ) ? $config['indicatorElement'] : $this;
 
 		if ( $this->indicatorElement && !method_exists( $this->indicatorElement, 'getIndicator' ) ) {
-			throw new RuntimeException( 'config[\'indicatorElement\'] must use the IndicatorElement trait.' );
+			throw new Exception( 'config[\'indicatorElement\'] must use the IndicatorElement trait.' );
 		}
 
 		// Initialization

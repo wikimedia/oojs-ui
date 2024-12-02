@@ -2,8 +2,6 @@
 
 namespace OOUI;
 
-use RuntimeException;
-
 /**
  * Theme logic.
  *
@@ -30,7 +28,7 @@ abstract class Theme {
 	 */
 	public static function singleton() {
 		if ( !self::$singleton ) {
-			throw new RuntimeException( __METHOD__ . ' was called with no singleton theme set.' );
+			throw new Exception( __METHOD__ . ' was called with no singleton theme set.' );
 		}
 
 		return self::$singleton;
