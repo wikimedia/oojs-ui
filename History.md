@@ -1,5 +1,10 @@
 # OOUI Release History
 
+## v0.51.4 / 2024-12-05
+
+### Code
+* build: Partly revert SVGO config changes by not enabling pretty output (Volker E.)
+
 ## v0.51.3 / 2024-12-04
 
 ### Deprecating changes
