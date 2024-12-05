@@ -37,8 +37,9 @@ module.exports = {
 		eol: 'lf',
 		finalNewline: true,
 		// Configure the indent to tabs (default 4 spaces) used by `--pretty` here.
-		indent: '\t',
-		pretty: true
+		indent: '\t'
+		// Don't use `pretty: true` as it causes unnecessary whitespace in the dist SVGs.
+		// See T381542.
 	},
 	multipass: true
 };
