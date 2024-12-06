@@ -129,9 +129,11 @@ OO.ui.MenuTagMultiselectWidget.prototype.onInputFocus = function () {
 	// Parent method
 	OO.ui.MenuTagMultiselectWidget.super.prototype.onInputFocus.call( this );
 
-	this.menu.toggle( true );
-	if ( !valid ) {
-		this.menu.highlightItem();
+	if ( this.isUnderLimit() ) {
+		this.menu.toggle( true );
+		if ( !valid ) {
+			this.menu.highlightItem();
+		}
 	}
 };
 
@@ -260,6 +262,18 @@ OO.ui.MenuTagMultiselectWidget.prototype.setValue = function ( valueObject ) {
 			this.addTag( data, label );
 		}
 	} );
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.MenuTagMultiselectWidget.prototype.onChangeTags = function () {
+	// Parent method
+	OO.ui.MenuTagMultiselectWidget.super.prototype.onChangeTags.call( this );
+
+	if ( this.menu && !this.isUnderLimit() ) {
+		this.menu.toggle( false );
+	}
 };
 
 /**
