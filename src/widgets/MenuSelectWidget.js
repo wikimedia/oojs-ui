@@ -486,7 +486,7 @@ OO.ui.MenuSelectWidget.prototype.toggle = function ( visible ) {
 					// If flipping also causes it to be clipped, open in whichever direction
 					// we have more space
 					const flippedHeight = this.$element.height();
-					if ( originalHeight > flippedHeight ) {
+					if ( originalHeight >= flippedHeight ) {
 						this.setVerticalPosition( this.originalVerticalPosition );
 					}
 				}

@@ -411,7 +411,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 							// If that also causes it to be clipped, open in whichever direction
 							// we have more space
 							const oppositeHeight = this.$element.height();
-							if ( oppositeHeight < normalHeight ) {
+							if ( oppositeHeight <= normalHeight ) {
 								this.isAutoFlipped = !this.isAutoFlipped;
 								this.position();
 							}
@@ -434,7 +434,7 @@ OO.ui.PopupWidget.prototype.toggle = function ( show ) {
 							// If that also causes it to be clipped, open in whichever direction
 							// we have more space
 							const oppositeWidth = this.$element.width();
-							if ( oppositeWidth < normalWidth ) {
+							if ( oppositeWidth <= normalWidth ) {
 								this.isAutoFlipped = !this.isAutoFlipped;
 								// Due to T180173, horizontally clipped PopupWidgets have messed up
 								// dimensions, which causes positioning to be off. Toggle clipping
