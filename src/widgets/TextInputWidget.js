@@ -151,7 +151,7 @@ OO.mixinClass( OO.ui.TextInputWidget, OO.ui.mixin.RequiredElement );
 /* Static Properties */
 
 OO.ui.TextInputWidget.static.validationPatterns = {
-	'non-empty': /.+/,
+	'non-empty': /^./,
 	integer: /^\d+$/
 };
 
