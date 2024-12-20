@@ -759,15 +759,8 @@ Demo.static.pages.layouts = function ( demo ) {
 						new OO.ui.FieldLayout(
 							new OO.ui.Widget( {
 								content: [
-									new OO.ui.PanelLayout( {
-										expanded: false,
-										framed: true,
-										content: [
-											new OO.ui.CopyTextLayout( {
-												copyText: 'This text will be copied'
-											} )
-
-										]
+									new OO.ui.CopyTextLayout( {
+										copyText: 'This text will be copied'
 									} )
 								]
 							} ),
