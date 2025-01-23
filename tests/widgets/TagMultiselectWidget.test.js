@@ -143,6 +143,17 @@
 			false,
 			'addTag: allowArbitrary:false with allowDisplayInvalidTags:true The widget is invalid if it has non-allowed values.'
 		);
+
+		widget = new OO.ui.TagMultiselectWidget( { allowReordering: false, allowArbitrary: true, allowedValues: [ 'foo', 'bar' ] } );
+		widget.addTag( 'blip' ); // Not in allowed list
+		widget.addTag( 'bar' ); // In allowed list
+		widget.addTag( 'blop' ); // Not in allowed list
+		widget.addTag( 'foo' ); // In allowed list
+		assert.deepEqual(
+			getItemDatas( widget.getItems() ),
+			[ 'foo', 'bar', 'blip', 'blop' ],
+			'addTag: allowReordering:false Forces the predefined order of allowed values'
+		);
 	} );
 
 	QUnit.test( 'setValue', ( assert ) => {

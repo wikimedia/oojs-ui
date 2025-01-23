@@ -75,11 +75,6 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	OO.ui.mixin.DraggableGroupElement.call( this, config );
 	OO.ui.mixin.TitledElement.call( this, config );
 
-	this.toggleDraggable(
-		config.allowReordering === undefined ?
-			true : !!config.allowReordering
-	);
-
 	this.inputPosition =
 		this.constructor.static.allowedInputPositions.indexOf( config.inputPosition ) > -1 ?
 			config.inputPosition : 'inline';
@@ -90,8 +85,11 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	this.allowDisplayInvalidTags = config.allowDisplayInvalidTags;
 	this.hasInput = this.inputPosition !== 'none';
 	this.tagLimit = config.tagLimit;
+	this.allowReordering = config.allowReordering === undefined ? true : !!config.allowReordering;
 	this.height = null;
 	this.valid = true;
+
+	this.toggleDraggable( this.allowReordering );
 
 	this.$content = $( '<div>' ).addClass( 'oo-ui-tagMultiselectWidget-content' );
 	this.$handle = $( '<div>' )
@@ -699,7 +697,27 @@ OO.ui.TagMultiselectWidget.prototype.addTag = function ( data, label ) {
 	if ( this.isUnderLimit() && ( isValid || this.allowDisplayInvalidTags ) ) {
 		const newItemWidget = this.createTagItemWidget( data, label );
 		newItemWidget.toggleValid( isValid );
-		this.addItems( [ newItemWidget ] );
+		newItemWidget.toggleDraggable( this.allowReordering );
+
+		let insertIndex = this.getItems().length;
+		if ( !this.allowReordering ) {
+			// Keep predefined allowed values in the order in which they were given
+			// (before any arbitrary values, if allowArbitrary is true)
+			const allowedIndex = this.getAllowedValues().indexOf( data );
+			if ( allowedIndex !== -1 ) {
+				insertIndex = 0;
+				for ( const [ itemIndex, item ] of this.getItems().entries() ) {
+					const itemAllowedIndex = this.getAllowedValues().indexOf( item.getData() );
+					if ( itemAllowedIndex !== -1 && itemAllowedIndex <= allowedIndex ) {
+						insertIndex = itemIndex + 1;
+					} else {
+						break;
+					}
+				}
+			}
+		}
+
+		this.addItems( [ newItemWidget ], insertIndex );
 		return true;
 	}
 

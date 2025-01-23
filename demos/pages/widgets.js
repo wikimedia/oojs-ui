@@ -2128,6 +2128,21 @@ Demo.static.pages.widgets = function ( demo ) {
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.MenuTagMultiselectWidget( {
+						allowReordering: false,
+						allowArbitrary: true,
+						options: [
+							{ data: 'abc', label: 'Label for abc' },
+							{ data: 'asd', label: 'Label for asd' },
+							{ data: 'jkl', label: 'Label for jkl' }
+						]
+					} ),
+					{
+						label: 'MenuTagMultiselectWidget (allowReordering: false)',
+						align: 'top'
+					}
+				),
+				new OO.ui.FieldLayout(
+					new OO.ui.MenuTagMultiselectWidget( {
 						inputPosition: 'outline',
 						allowArbitrary: false,
 						options: [
