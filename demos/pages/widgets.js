@@ -1896,7 +1896,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								selected: true
 							} ),
 							new OO.ui.TabOptionWidget( {
-								label: 'Tab 2'
+								label: 'Tab 2 with a very long label'
 							} )
 						]
 					} ),
@@ -1914,7 +1914,7 @@ Demo.static.pages.widgets = function ( demo ) {
 								selected: true
 							} ),
 							new OO.ui.TabOptionWidget( {
-								label: 'Tab 2'
+								label: 'Tab 2 with a very long label'
 							} )
 						]
 					} ),

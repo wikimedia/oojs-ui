@@ -1068,7 +1068,7 @@ $fieldsets[] = new Demo\LinkedFieldsetLayout( [
 						'selected' => true,
 					] ),
 					new OOUI\TabOptionWidget( [
-						'label' => 'Tab 2'
+						'label' => 'Tab 2 with a very long label'
 					] )
 				]
 			] ),
@@ -1086,7 +1086,7 @@ $fieldsets[] = new Demo\LinkedFieldsetLayout( [
 						'selected' => true,
 					] ),
 					new OOUI\TabOptionWidget( [
-						'label' => 'Tab 2'
+						'label' => 'Tab 2 with a very long label'
 					] )
 				]
 			] ),
