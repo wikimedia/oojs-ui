@@ -144,7 +144,8 @@ p:first-child {
 	border-width: 1px 0 0 0;
 }
 
-.demo-pageSelect .oo-ui-tabOptionWidget {
+.demo-pageSelect .oo-ui-tabOptionWidget,
+.demo-pageSelect.oo-ui-tabSelectWidget.oo-ui-tabSelectWidget-mobile::after {
 	margin-top: 0;
 }
 

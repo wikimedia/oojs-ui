@@ -1086,10 +1086,10 @@
 		&::after {
 			content: '';
 			position: absolute;
-			bottom: 0;
 			right: 0;
-			height: @size-200;
+			margin-top: 0.5em;
 			width: 2em;
+			height: @size-200 + @size-modifier-border;
 			pointer-events: none;
 		}
 
@@ -1099,7 +1099,7 @@
 
 		&.oo-ui-tabSelectWidget-frameless::after {
 			background-image: linear-gradient( to right, fade( #fff, 0 ), #fff );
-			bottom: @border-width-thick;
+			height: @size-200 - @size-modifier-border;
 		}
 	}
 
