@@ -1094,15 +1094,11 @@
 		}
 
 		&.oo-ui-tabSelectWidget-framed::after {
-			.oo-ui-horizontal-gradient( fade( @background-color-interactive, 0 ), @background-color-interactive );
-			// Override fallback color from mixin
-			background-color: transparent;
+			background-image: linear-gradient( to right, fade( @background-color-interactive, 0 ), @background-color-interactive );
 		}
 
 		&.oo-ui-tabSelectWidget-frameless::after {
-			.oo-ui-horizontal-gradient( fade( #fff, 0 ), #fff );
-			// Override fallback color from mixin
-			background-color: transparent;
+			background-image: linear-gradient( to right, fade( #fff, 0 ), #fff );
 			bottom: @border-width-thick;
 		}
 	}

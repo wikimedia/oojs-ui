@@ -15,6 +15,11 @@
 @import ( reference ) './colors.less';
 
 // Background & Text Colors
+// Set static background color interactive as Less cannot interpret runtime CSS variables
+// like `background-color-interactive: ( var( --property ) )` for functions like `fade()` because
+// Less needs the actual color at compile time.
+@background-color-interactive-static: #eaecf0;
+
 @background-color-tool--active-hover: rgba( 41, 98, 204, 0.1 );
 @background-color-tool--active-disabled: #919fb9;
 
