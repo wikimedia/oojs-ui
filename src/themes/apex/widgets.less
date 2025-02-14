@@ -842,7 +842,7 @@
 	}
 
 	&-bar {
-		.oo-ui-vertical-gradient( @background-color-progressive-gradient-light, @background-color-progressive-gradient-dark );
+		background-image: linear-gradient( to bottom, @background-color-progressive-gradient-light, @background-color-progressive-gradient-dark );
 		height: 1em;
 		border-right: @border-base;
 		transition-property: width;
@@ -1110,7 +1110,7 @@
 }
 
 .theme-oo-ui-tagItemWidget() {
-	.oo-ui-vertical-gradient( @background-color-interactive-subtle-start, @background-color-interactive-subtle-stop );
+	background-image: linear-gradient( to bottom, @background-color-interactive-subtle-start, @background-color-interactive-subtle-stop );
 	color: @color-base;
 	box-sizing: border-box;
 	width: auto;
@@ -1447,7 +1447,7 @@
 
 .theme-oo-ui-toggleSwitchWidget() {
 	@travelDistance: 2em;
-	.oo-ui-vertical-gradient( @background-color-interactive-subtle-start--active, @background-color-interactive-subtle-stop--active );
+	background-image: linear-gradient( to bottom, @background-color-interactive-subtle-start--active, @background-color-interactive-subtle-stop--active );
 	width: @travelDistance + 2em;
 	height: 2em;
 	.oo-ui-inline-spacing( 0.5em );
@@ -1477,7 +1477,7 @@
 	}
 
 	&-grip {
-		.oo-ui-vertical-gradient( @background-color-interactive-subtle-start, @background-color-interactive-subtle-stop );
+		background-image: linear-gradient( to bottom, @background-color-interactive-subtle-start, @background-color-interactive-subtle-stop );
 		top: 0.25em;
 		left: 0.25em;
 		width: 1.5em;
@@ -1500,7 +1500,7 @@
 		box-shadow: inset 0 1px 4px 0 rgba( 0, 0, 0, 0.07 );
 		transition-property: opacity;
 		transition-duration: @transition-duration-medium;
-		.oo-ui-vertical-gradient( #b0d9ee, #eaf4fa );
+		background-image: linear-gradient( to bottom, #b0d9ee, #eaf4fa );
 		.oo-ui-unselectable();
 	}
 
