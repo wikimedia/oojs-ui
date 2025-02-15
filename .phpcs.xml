@@ -6,7 +6,6 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
 		<!-- Together with the above, false positives in WikimediaUITheme.php and others -->
 		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationProtected" />
-		<exclude name="MediaWiki.NamingConventions.PrefixedGlobalFunctions.allowedPrefix" />
 	</rule>
 	<!-- Allow superglobals in entry points -->
 	<rule ref="MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals">
@@ -14,7 +13,7 @@
 		<exclude-pattern>*/demos/widgets.php</exclude-pattern>
 	</rule>
 	<!-- Allow global functions in tests -->
-	<rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions.wfPrefix">
+	<rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions.allowedPrefix">
 		<exclude-pattern>*/tests/*.php</exclude-pattern>
 	</rule>
 	<file>.</file>
