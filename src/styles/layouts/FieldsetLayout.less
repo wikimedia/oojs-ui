@@ -17,12 +17,8 @@
 
 	&.oo-ui-iconElement > .oo-ui-fieldsetLayout-header,
 	&.oo-ui-labelElement > .oo-ui-fieldsetLayout-header {
-		color: inherit; // Correct the color inheritance from `fieldset` elements in IE
-		// Use 'inline-table' instead of just 'block' to correct the text wrapping in Edge and IE
-		display: inline-table;
-		box-sizing: border-box; // Correct the text wrapping in Edge and IE
+		display: block;
 		padding: 0;
-		white-space: normal; // Correct the text wrapping in Edge and IE
 		float: left; // Prevent positioning problems in Firefox, see T146462
 		width: 100%; // Take the whole available width, this is needed because of 'float' above
 	}
