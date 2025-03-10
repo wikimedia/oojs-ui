@@ -55,7 +55,7 @@ OO.mixinClass( OO.ui.ActionWidget, OO.ui.mixin.PendingElement );
  * @return {boolean} The action is configured with the mode
  */
 OO.ui.ActionWidget.prototype.hasMode = function ( mode ) {
-	return this.modes.indexOf( mode ) !== -1;
+	return this.modes.includes( mode );
 };
 
 /**

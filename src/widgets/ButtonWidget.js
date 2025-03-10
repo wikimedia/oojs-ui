@@ -254,7 +254,7 @@ OO.ui.ButtonWidget.prototype.setRel = function ( rel ) {
 
 	this.rel = rel;
 	// For backwards compatibility.
-	this.noFollow = rel.indexOf( 'nofollow' ) !== -1;
+	this.noFollow = rel.includes( 'nofollow' );
 	this.$button.attr( 'rel', rel.join( ' ' ) || null );
 
 	return this;

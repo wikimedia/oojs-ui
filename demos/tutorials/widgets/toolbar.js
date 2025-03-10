@@ -68,7 +68,7 @@ Tutorials.Toolbar = function ( config ) {
 		);
 
 	this.tutorialsDropdown.getMenu().items.forEach( ( item ) => {
-		if ( location.pathname.indexOf( item.getData() ) !== -1 ) {
+		if ( location.pathname.includes( item.getData() ) ) {
 			item.setSelected( true );
 		}
 	} );

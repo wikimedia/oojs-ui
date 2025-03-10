@@ -173,7 +173,7 @@ OO.ui.MenuLayout.prototype.isMenuVisible = function () {
  * @return {OO.ui.MenuLayout} The layout, for chaining
  */
 OO.ui.MenuLayout.prototype.setMenuPosition = function ( position ) {
-	if ( [ 'top', 'bottom', 'before', 'after' ].indexOf( position ) === -1 ) {
+	if ( ![ 'top', 'bottom', 'before', 'after' ].includes( position ) ) {
 		position = 'before';
 	}
 

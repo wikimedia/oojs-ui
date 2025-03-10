@@ -226,7 +226,7 @@ OO.ui.FieldLayout.prototype.makeMessage = function ( kind, text ) {
 OO.ui.FieldLayout.prototype.setAlignment = function ( value ) {
 	if ( value !== this.align ) {
 		// Default to 'left'
-		if ( [ 'left', 'right', 'top', 'inline' ].indexOf( value ) === -1 ) {
+		if ( ![ 'left', 'right', 'top', 'inline' ].includes( value ) ) {
 			value = 'left';
 		}
 		// Validate

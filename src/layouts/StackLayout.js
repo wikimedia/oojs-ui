@@ -173,14 +173,14 @@ OO.ui.StackLayout.prototype.addItems = function ( items, index ) {
  * @fires OO.ui.StackLayout#set
  */
 OO.ui.StackLayout.prototype.removeItems = function ( itemsToRemove ) {
-	const isCurrentItemRemoved = itemsToRemove.indexOf( this.currentItem ) !== -1;
+	const isCurrentItemRemoved = itemsToRemove.includes( this.currentItem );
 
 	let nextItem;
 	if ( isCurrentItemRemoved ) {
 		let i = this.items.indexOf( this.currentItem );
 		do {
 			nextItem = this.items[ ++i ];
-		} while ( nextItem && itemsToRemove.indexOf( nextItem ) !== -1 );
+		} while ( nextItem && itemsToRemove.includes( nextItem ) );
 	}
 
 	// Mixin method
@@ -228,7 +228,7 @@ OO.ui.StackLayout.prototype.setItem = function ( item ) {
 	if ( item !== this.currentItem ) {
 		this.updateHiddenState( this.items, item );
 
-		if ( this.items.indexOf( item ) !== -1 ) {
+		if ( this.items.includes( item ) ) {
 			this.currentItem = item;
 			this.emit( 'set', item );
 		} else {

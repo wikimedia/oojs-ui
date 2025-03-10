@@ -76,7 +76,7 @@ OO.ui.TagMultiselectWidget = function OoUiTagMultiselectWidget( config ) {
 	OO.ui.mixin.TitledElement.call( this, config );
 
 	this.inputPosition =
-		this.constructor.static.allowedInputPositions.indexOf( config.inputPosition ) > -1 ?
+		this.constructor.static.allowedInputPositions.includes( config.inputPosition ) ?
 			config.inputPosition : 'inline';
 	this.allowEditTags = config.allowEditTags === undefined ? true : !!config.allowEditTags;
 	this.allowArbitrary = !!config.allowArbitrary;
@@ -612,7 +612,7 @@ OO.ui.TagMultiselectWidget.prototype.isAllowedData = function ( data ) {
 
 	// Check with allowed values
 	if (
-		this.getAllowedValues().some( ( value ) => data === value )
+		this.getAllowedValues().includes( data )
 	) {
 		return true;
 	}
@@ -635,7 +635,7 @@ OO.ui.TagMultiselectWidget.prototype.getAllowedValues = function () {
  * @param {any} value Allowed data value
  */
 OO.ui.TagMultiselectWidget.prototype.addAllowedValue = function ( value ) {
-	if ( this.allowedValues.indexOf( value ) === -1 ) {
+	if ( !this.allowedValues.includes( value ) ) {
 		this.allowedValues.push( value );
 	}
 };

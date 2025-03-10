@@ -190,7 +190,7 @@ OO.ui.mixin.TabIndexedElement.prototype.isLabelableNode = function ( $node ) {
 	if ( tagName === 'input' && $node.attr( 'type' ) !== 'hidden' ) {
 		return true;
 	}
-	if ( labelableTags.indexOf( tagName ) !== -1 ) {
+	if ( labelableTags.includes( tagName ) ) {
 		return true;
 	}
 	return false;

@@ -544,7 +544,7 @@ OO.ui.SelectWidget.prototype.getItemMatcher = function ( query, mode ) {
 			case 'exact':
 				return matchText === normalizedQuery;
 			case 'substring':
-				return matchText.indexOf( normalizedQuery ) !== -1;
+				return matchText.includes( normalizedQuery );
 			// 'prefix'
 			default:
 				return matchText.indexOf( normalizedQuery ) === 0;

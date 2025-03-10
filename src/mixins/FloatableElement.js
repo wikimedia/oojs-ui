@@ -96,7 +96,7 @@ OO.ui.mixin.FloatableElement.prototype.setFloatableContainer = function ( $float
  * @param {string} position 'below', 'above', 'top', 'bottom' or 'center'
  */
 OO.ui.mixin.FloatableElement.prototype.setVerticalPosition = function ( position ) {
-	if ( [ 'below', 'above', 'top', 'bottom', 'center' ].indexOf( position ) === -1 ) {
+	if ( ![ 'below', 'above', 'top', 'bottom', 'center' ].includes( position ) ) {
 		throw new Error( 'Invalid value for vertical position: ' + position );
 	}
 	if ( this.verticalPosition !== position ) {
@@ -113,7 +113,7 @@ OO.ui.mixin.FloatableElement.prototype.setVerticalPosition = function ( position
  * @param {string} position 'before', 'after', 'start', 'end' or 'center'
  */
 OO.ui.mixin.FloatableElement.prototype.setHorizontalPosition = function ( position ) {
-	if ( [ 'before', 'after', 'start', 'end', 'center' ].indexOf( position ) === -1 ) {
+	if ( ![ 'before', 'after', 'start', 'end', 'center' ].includes( position ) ) {
 		throw new Error( 'Invalid value for horizontal position: ' + position );
 	}
 	if ( this.horizontalPosition !== position ) {

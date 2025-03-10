@@ -172,7 +172,7 @@ OO.ui.MessageDialog.prototype.getReadyProcess = function ( data ) {
 		.next( () => {
 			// Focus the primary action button
 			let actions = this.actions.get();
-			actions = actions.filter( ( action ) => action.getFlags().indexOf( 'primary' ) > -1 );
+			actions = actions.filter( ( action ) => action.getFlags().includes( 'primary' ) );
 			if ( actions.length > 0 ) {
 				actions[ 0 ].focus();
 			}

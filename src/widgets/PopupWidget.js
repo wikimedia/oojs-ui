@@ -320,7 +320,7 @@ OO.ui.PopupWidget.prototype.toggleAnchor = function ( show ) {
  * @param {string} edge 'top', 'bottom', 'start' or 'end'
  */
 OO.ui.PopupWidget.prototype.setAnchorEdge = function ( edge ) {
-	if ( [ 'top', 'bottom', 'start', 'end' ].indexOf( edge ) === -1 ) {
+	if ( ![ 'top', 'bottom', 'start', 'end' ].includes( edge ) ) {
 		throw new Error( 'Invalid value for edge: ' + edge );
 	}
 	if ( this.anchorEdge !== null ) {
@@ -691,7 +691,7 @@ OO.ui.PopupWidget.prototype.computePosition = function () {
  */
 OO.ui.PopupWidget.prototype.setAlignment = function ( align ) {
 	// Validate alignment
-	if ( [ 'force-left', 'force-right', 'backwards', 'forwards', 'center' ].indexOf( align ) > -1 ) {
+	if ( [ 'force-left', 'force-right', 'backwards', 'forwards', 'center' ].includes( align ) ) {
 		this.align = align;
 	} else {
 		this.align = 'center';
@@ -715,7 +715,7 @@ OO.ui.PopupWidget.prototype.getAlignment = function () {
  * @param {string} position 'above', 'below', 'before' or 'after'
  */
 OO.ui.PopupWidget.prototype.setPosition = function ( position ) {
-	if ( [ 'above', 'below', 'before', 'after' ].indexOf( position ) === -1 ) {
+	if ( ![ 'above', 'below', 'before', 'after' ].includes( position ) ) {
 		position = 'below';
 	}
 	this.popupPosition = position;

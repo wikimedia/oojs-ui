@@ -345,7 +345,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.addOptions = function ( menuOptions ) {
 		items = [];
 
 	menuOptions.forEach( ( obj ) => {
-		if ( optionsData.indexOf( obj.data ) === -1 ) {
+		if ( !optionsData.includes( obj.data ) ) {
 			optionsData.push( obj.data );
 			items.push(
 				this.createMenuOptionWidget( obj.data, obj.label, obj.icon )

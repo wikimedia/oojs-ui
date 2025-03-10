@@ -174,7 +174,7 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 OO.ui.ProcessDialog.prototype.getActionWidgetConfig = function ( config ) {
 	function checkFlag( flag ) {
 		return config.flags === flag ||
-			( Array.isArray( config.flags ) && config.flags.indexOf( flag ) !== -1 );
+			( Array.isArray( config.flags ) && config.flags.includes( flag ) );
 	}
 
 	config = Object.assign( { framed: true }, config );

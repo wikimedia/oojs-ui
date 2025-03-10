@@ -323,7 +323,7 @@ OO.ui.TextInputWidget.prototype.getValidType = function ( config ) {
 		'url',
 		'number'
 	];
-	return allowedTypes.indexOf( config.type ) !== -1 ? config.type : 'text';
+	return allowedTypes.includes( config.type ) ? config.type : 'text';
 };
 
 /**

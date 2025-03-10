@@ -98,7 +98,7 @@ OO.ui.isFocusableElement = function ( $element ) {
 	// (indexOf is much faster than regex in Chrome and about the
 	// same in FF: https://jsperf.com/regex-vs-indexof-array2)
 	const nodeName = element.nodeName.toLowerCase();
-	if ( [ 'input', 'select', 'textarea', 'button', 'object' ].indexOf( nodeName ) !== -1 ) {
+	if ( [ 'input', 'select', 'textarea', 'button', 'object' ].includes( nodeName ) ) {
 		return true;
 	}
 
