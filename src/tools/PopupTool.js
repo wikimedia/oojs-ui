@@ -7,7 +7,7 @@
  *     // Example of a popup tool. When selected, a popup tool displays
  *     // a popup window.
  *     function HelpTool( toolGroup, config ) {
- *        OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
+ *        OO.ui.PopupTool.call( this, toolGroup, Object.assign( { popup: {
  *            padded: true,
  *            label: 'Help',
  *            head: true

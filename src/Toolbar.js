@@ -85,7 +85,7 @@
  *     // This is a PopupTool. Rather than having a custom 'onSelect' action, it will display a
  *     // little popup window (a PopupWidget).
  *     function HelpTool( toolGroup, config ) {
- *         OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
+ *         OO.ui.PopupTool.call( this, toolGroup, Object.assign( { popup: {
  *             padded: true,
  *             label: 'Help',
  *             head: true
@@ -213,7 +213,7 @@
  *     // This is a PopupTool. Rather than having a custom 'onSelect' action, it will display a
  *     // little popup window (a PopupWidget). 'onUpdateState' is also already implemented.
  *     function HelpTool( toolGroup, config ) {
- *         OO.ui.PopupTool.call( this, toolGroup, $.extend( { popup: {
+ *         OO.ui.PopupTool.call( this, toolGroup, Object.assign( { popup: {
  *             padded: true,
  *             label: 'Help',
  *             head: true
