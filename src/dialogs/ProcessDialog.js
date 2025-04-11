@@ -325,7 +325,7 @@ OO.ui.ProcessDialog.prototype.showErrors = function ( errors ) {
 			warning = true;
 		}
 		items.push( new OO.ui.MessageWidget( {
-			type: 'error',
+			type: errors[ i ].isWarning() ? 'warning' : 'error',
 			label: errors[ i ].getMessage()
 		} ).$element[ 0 ] );
 	}
