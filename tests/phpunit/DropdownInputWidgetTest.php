@@ -20,7 +20,7 @@ class DropdownInputWidgetTest extends TestCase {
 		$this->assertSame( $expectedHtml, $html );
 	}
 
-	public function provideOptions() {
+	public static function provideOptions() {
 		yield 'empty' => [
 			[],
 			'<div><select></select></div>'
