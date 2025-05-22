@@ -522,13 +522,16 @@ OO.ui.SelectFileInputWidget.prototype.onDragEnterOrOver = function ( e ) {
 	// DataTransferItem and File both have a type property, but in Chrome files
 	// have no information at this point.
 	const itemsOrFiles = dt.items || dt.files;
-	const hasFiles = !!( itemsOrFiles && itemsOrFiles.length );
+	const hasFiles = !!itemsOrFiles &&
+		// Check some of the items are files (e.g. not just dragged text)
+		Array.prototype.some.call( itemsOrFiles, ( item ) => item.kind === 'file' );
+
 	if ( hasFiles ) {
 		if ( this.filterFiles( itemsOrFiles ).length ) {
 			hasDroppableFile = true;
 		}
 	// dt.types is Array-like, but not an Array
-	} else if ( Array.prototype.indexOf.call( OO.getProp( dt, 'types' ) || [], 'Files' ) !== -1 ) {
+	} else if ( Array.prototype.includes.call( OO.getProp( dt, 'types' ) || [], 'Files' ) ) {
 		// File information is not available at this point for security so just assume
 		// it is acceptable for now.
 		// https://bugzilla.mozilla.org/show_bug.cgi?id=640534
