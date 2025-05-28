@@ -177,6 +177,10 @@ OO.ui.PopupToolGroup.prototype.onToolbarResize = function () {
  * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
 OO.ui.PopupToolGroup.prototype.onPopupDocumentMouseKeyUp = function ( e ) {
+	if ( e.target === document.documentElement ) {
+		// This means that the scrollbar was the target of the click
+		return;
+	}
 	const $target = $( e.target );
 	// Only deactivate when clicking outside the dropdown element
 	if ( $target.closest( '.oo-ui-popupToolGroup' )[ 0 ] === this.$element[ 0 ] ) {
