@@ -273,7 +273,9 @@
 	}
 
 	&-errors {
-		background-color: rgba( 255, 255, 255, 0.9 );
+		// Apply the semi-transparent background color twice to make it less translucent
+		background-color: @background-color-backdrop-light;
+		background-image: linear-gradient( to bottom, @background-color-backdrop-light, @background-color-backdrop-light );
 		padding: 3em 3em 0 3em;
 
 		&-title {
