@@ -131,6 +131,10 @@ OO.ui.mixin.ButtonElement.prototype.onMouseDown = function ( e ) {
  * @param {MouseEvent} e Mouse up event
  */
 OO.ui.mixin.ButtonElement.prototype.onDocumentMouseUp = function ( e ) {
+	if ( e.target === document.documentElement ) {
+		// This means that the scrollbar was the target of the click
+		return;
+	}
 	if ( this.isDisabled() || e.which !== OO.ui.MouseButtons.LEFT ) {
 		return;
 	}
