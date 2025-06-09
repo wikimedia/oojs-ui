@@ -531,8 +531,8 @@
 		// Remove user agent styles.
 		-webkit-appearance: none;
 		-moz-appearance: none;
-		// Support Firefox <= 34: Anything apart from `transparent` mixes up `option` sizes.
-		background-color: transparent;
+		color: @color-base;
+		background-color: @background-color-base;
 		box-sizing: border-box;
 		// Support Firefox <= 34: `height` needed in addition to adding, otherwise oversized.
 		height: @size-200;
@@ -551,7 +551,6 @@
 	}
 
 	option {
-		background-color: transparent;
 		font-size: inherit;
 		font-family: inherit;
 		height: 1.5em;
@@ -559,21 +558,15 @@
 	}
 
 	&.oo-ui-widget-enabled {
-		background-color: @background-color-interactive-subtle;
-		transition-property: background-color;
-		transition-duration: @transition-duration-base;
-
-		&:hover {
-			background-color: @background-color-base;
-		}
-
 		select {
 			color: @color-base;
-			transition-property: border-color, box-shadow;
+			background-color: @background-color-interactive-subtle;
+			transition-property: color, background-color, border-color, box-shadow;
 			transition-duration: @transition-duration-base;
 
 			&:hover {
 				color: @color-base--hover;
+				background-color: @background-color-base;
 				border-color: @border-color-base;
 			}
 
@@ -591,10 +584,9 @@
 	}
 
 	&.oo-ui-widget-disabled {
-		background-color: @background-color-disabled-subtle;
-
 		select {
 			color: @color-disabled;
+			background-color: @background-color-disabled-subtle;
 			border-color: @border-color-disabled;
 		}
 	}

@@ -337,6 +337,7 @@
 	max-width: @max-width-input-base;
 
 	select {
+		color: @color-base;
 		background-color: @background-color-base;
 		height: 2.5em;
 		padding: 0.5em;
@@ -349,8 +350,10 @@
 	// Hide custom indicator, this theme displays the native <select>'s dropdown arrow instead
 	// (this might have been a bug once, but I don't want to change it now).
 	> .oo-ui-indicatorWidget {
-		// Somehow stylelint counts line numbers wrong, and this error suppression below has to go on the
-		// line *after* the error we're suppressing. WTF.
+		// Somehow stylelint counts line numbers wrong, and this error suppression comment below only
+		// sometimes works. If you get a build failure pointing here, try moving it before, after, or on
+		// the same line as the !important. Or try making this comment shorter or longer by a line. That
+		// makes it work sometimes too. WTF.
 		display: none !important;
 		// stylelint-disable-line declaration-no-important
 	}
