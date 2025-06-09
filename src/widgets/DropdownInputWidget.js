@@ -75,8 +75,11 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 		.append( this.dropdownWidget.$element, downIndicator.$element );
 	if ( OO.ui.isMobile() ) {
 		this.$element.addClass( 'oo-ui-isMobile' );
+	} else {
+		// On mobile, keep this.$input as the tab-indexed element.
+		// This also allows FieldLayout to use <label for> to point to it. (T396261)
+		this.setTabIndexedElement( this.dropdownWidget.$tabIndexed );
 	}
-	this.setTabIndexedElement( this.dropdownWidget.$tabIndexed );
 	this.setTitledElement( this.dropdownWidget.$handle );
 };
 
