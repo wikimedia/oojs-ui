@@ -239,6 +239,16 @@
 		height: 100%;
 	}
 
+	// The 'position: absolute' above should have been applied to direct children only
+	// (e.g. `> .oo-ui-iconElement-icon`), but it's scary to change it today,
+	// so override it only for a specific case that we've run into (T164550#10895359, T396350).
+	.oo-ui-buttonWidget {
+		.oo-ui-iconElement-icon,
+		.oo-ui-indicatorElement-indicator {
+			position: static;
+		}
+	}
+
 	.oo-ui-iconElement-icon {
 		left: 0.5em;
 		margin: 0;
