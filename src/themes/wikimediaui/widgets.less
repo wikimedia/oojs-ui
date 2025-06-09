@@ -533,7 +533,6 @@
 		-moz-appearance: none;
 		// Support Firefox <= 34: Anything apart from `transparent` mixes up `option` sizes.
 		background-color: transparent;
-		background-position: right @padding-horizontal-base center;
 		box-sizing: border-box;
 		// Support Firefox <= 34: `height` needed in addition to adding, otherwise oversized.
 		height: @size-200;
@@ -544,6 +543,11 @@
 		font-size: inherit;
 		font-family: inherit;
 		vertical-align: middle;
+	}
+
+	> .oo-ui-indicatorWidget {
+		background-position: right center;
+		right: @padding-horizontal-base;
 	}
 
 	option {

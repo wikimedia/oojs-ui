@@ -67,9 +67,12 @@ OO.ui.DropdownInputWidget = function OoUiDropdownInputWidget( config ) {
 	} );
 
 	// Initialization
+	const downIndicator = new OO.ui.IndicatorWidget( {
+		indicator: 'down'
+	} );
 	this.$element
 		.addClass( 'oo-ui-dropdownInputWidget' )
-		.append( this.dropdownWidget.$element );
+		.append( this.dropdownWidget.$element, downIndicator.$element );
 	if ( OO.ui.isMobile() ) {
 		this.$element.addClass( 'oo-ui-isMobile' );
 	}
@@ -89,7 +92,7 @@ OO.mixinClass( OO.ui.DropdownInputWidget, OO.ui.mixin.RequiredElement );
  * @protected
  */
 OO.ui.DropdownInputWidget.prototype.getInputElement = function () {
-	return $( '<select>' ).addClass( 'oo-ui-indicator-down' );
+	return $( '<select>' );
 };
 
 /**

@@ -122,7 +122,6 @@
 		}
 		// Extra stuff on PHP DropdownInputWidget's $input
 		if ( summary.type === 'select' ) {
-			summary.attributes.class = 'oo-ui-inputWidget-input';
 			delete summary.attributes.tabindex;
 			delete summary.attributes.title;
 			delete summary.attributes[ 'aria-disabled' ];

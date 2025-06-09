@@ -6,24 +6,41 @@
 	vertical-align: middle;
 	box-sizing: border-box;
 
-	.oo-ui-dropdownWidget,
-	&.oo-ui-dropdownInputWidget-php select,
-	&.oo-ui-isMobile select {
+	// Desktop with JS enabled: show the DropdownWidget, hide the native <select>
+	.oo-ui-dropdownWidget {
 		display: block;
 	}
 
-	&.oo-ui-isMobile .oo-ui-dropdownWidget {
+	select,
+	> .oo-ui-indicatorWidget {
 		display: none;
 	}
 
+	// Mobile or JS disabled: hide the DropdownWidget, show the native <select>
+	&.oo-ui-isMobile,
+	&.oo-ui-dropdownInputWidget-php {
+		.oo-ui-dropdownWidget {
+			display: none;
+		}
+
+		select,
+		> .oo-ui-indicatorWidget {
+			display: block;
+		}
+	}
+
+	// Styles for native <select>
 	select {
-		display: none;
-		// Hide the `background-image` from `.oo-ui-indicator-down` –
-		// themes can override `background-position` to display it.
-		background-position: -9999em 0;
-		background-repeat: no-repeat;
 		width: 100%;
 		box-sizing: border-box;
+	}
+
+	> .oo-ui-indicatorWidget {
+		position: absolute;
+		top: 0;
+		height: 100%;
+		// Make clicks fall-through to native <select> dropdown
+		pointer-events: none;
 	}
 
 	&.oo-ui-widget-enabled select {

@@ -23,17 +23,17 @@ class DropdownInputWidgetTest extends TestCase {
 	public static function provideOptions() {
 		yield 'empty' => [
 			[],
-			'<div><select></select></div>'
+			'<div><select></select><span></span></div>'
 		];
 
 		yield 'without label' => [
 			[ [ 'data' => 'data1' ] ],
-			"<div><select><option value='data1' selected='selected'>data1</option></select></div>"
+			"<div><select><option value='data1' selected='selected'>data1</option></select><span></span></div>"
 		];
 
 		yield 'with label' => [
 			[ [ 'data' => 'data1', 'label' => 'label1' ] ],
-			"<div><select><option value='data1' selected='selected'>label1</option></select></div>"
+			"<div><select><option value='data1' selected='selected'>label1</option></select><span></span></div>"
 		];
 
 		yield 'with group' => [
@@ -42,22 +42,22 @@ class DropdownInputWidgetTest extends TestCase {
 				[ 'data' => 'data1' ],
 			],
 			"<div><select><optgroup label='group1'>" .
-				"<option value='data1' selected='selected'>data1</option></optgroup></select></div>"
+				"<option value='data1' selected='selected'>data1</option></optgroup></select><span></span></div>"
 		];
 
 		yield 'group only' => [
 			[ [ 'optgroup' => 'group1' ] ],
-			"<div><select><optgroup label='group1'></optgroup></select></div>"
+			"<div><select><optgroup label='group1'></optgroup></select><span></span></div>"
 		];
 
 		yield 'the label "0" is not empty' => [
 			[ [ 'optgroup' => '0' ] ],
-			"<div><select><optgroup label='0'></optgroup></select></div>"
+			"<div><select><optgroup label='0'></optgroup></select><span></span></div>"
 		];
 
 		yield 'empty group name' => [
 			[ [ 'optgroup' => '' ] ],
-			"<div><select><optgroup label=''></optgroup></select></div>"
+			"<div><select><optgroup label=''></optgroup></select><span></span></div>"
 		];
 	}
 

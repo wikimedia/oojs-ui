@@ -346,6 +346,15 @@
 		border-radius: @border-radius-base;
 	}
 
+	// Hide custom indicator, this theme displays the native <select>'s dropdown arrow instead
+	// (this might have been a bug once, but I don't want to change it now).
+	> .oo-ui-indicatorWidget {
+		// Somehow stylelint counts line numbers wrong, and this error suppression below has to go on the
+		// line *after* the error we're suppressing. WTF.
+		display: none !important;
+		// stylelint-disable-line declaration-no-important
+	}
+
 	option {
 		font-size: inherit;
 		font-family: inherit;
