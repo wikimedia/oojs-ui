@@ -256,6 +256,10 @@ OO.ui.SelectWidget.prototype.onMouseDown = function ( e ) {
  * @return {undefined|boolean} False to prevent default if event is handled
  */
 OO.ui.SelectWidget.prototype.onDocumentMouseUp = function ( e ) {
+	if ( e.target === document.documentElement ) {
+		// This means that the scrollbar was the target of the click
+		return;
+	}
 	this.togglePressed( false );
 	if ( !this.selecting ) {
 		const item = this.findTargetItem( e );

@@ -193,6 +193,10 @@ OO.mixinClass( OO.ui.PopupWidget, OO.ui.mixin.FloatableElement );
  * @param {MouseEvent} e Mouse down event
  */
 OO.ui.PopupWidget.prototype.onDocumentMouseDown = function ( e ) {
+	if ( e.target === document.documentElement ) {
+		// This means that the scrollbar was the target of the click
+		return;
+	}
 	if (
 		this.isVisible() &&
 		!OO.ui.contains( this.$element.add( this.$autoCloseIgnore ).get(), e.target, true )

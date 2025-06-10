@@ -228,6 +228,10 @@ OO.ui.ToolGroup.prototype.onMouseKeyDown = function ( e ) {
  * @param {MouseEvent|KeyboardEvent} e Mouse up or key up event
  */
 OO.ui.ToolGroup.prototype.onDocumentMouseKeyUp = function ( e ) {
+	if ( e.target === document.documentElement ) {
+		// This means that the scrollbar was the target of the click
+		return;
+	}
 	this.getElementDocument().removeEventListener(
 		'mouseup',
 		this.onDocumentMouseKeyUpHandler,

@@ -139,6 +139,10 @@ OO.ui.MenuSelectWidget.static.flippedPositions = {
  * @param {MouseEvent} e Mouse down event
  */
 OO.ui.MenuSelectWidget.prototype.onDocumentMouseDown = function ( e ) {
+	if ( e.target === document.documentElement ) {
+		// This means that the scrollbar was the target of the click
+		return;
+	}
 	if (
 		this.isVisible() &&
 		!OO.ui.contains(
