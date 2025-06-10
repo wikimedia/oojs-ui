@@ -413,7 +413,8 @@ p:first-child {
 .demo-sample-code {
 	/* Need to override Prism (syntax highlighter) styles */
 	background-color: #eaecf0;
-	margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+	/* stylelint-disable-next-line declaration-no-important */
+	margin: 0 !important;
 }
 
 /* Dialogs demo */
@@ -439,8 +440,10 @@ p:first-child {
 /* Toolbars demo */
 
 .demo-container > .demo-toolbars {
-	padding-left: 0 !important; /* stylelint-disable-line declaration-no-important */
-	padding-right: 0 !important; /* stylelint-disable-line declaration-no-important */
+	/* stylelint-disable-next-line declaration-no-important */
+	padding-left: 0 !important;
+	/* stylelint-disable-next-line declaration-no-important */
+	padding-right: 0 !important;
 }
 
 .demo-toolbar + .demo-toolbar {
@@ -526,7 +529,8 @@ p:first-child {
 .demo-icons .oo-ui-fieldLayout {
 	display: inline-block;
 	vertical-align: top;
-	margin: 8px 8px 8px 0 !important; /* stylelint-disable-line declaration-no-important */
+	/* stylelint-disable-next-line declaration-no-important */
+	margin: 8px 8px 8px 0 !important;
 	width: 15.5em;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -549,7 +553,8 @@ p:first-child {
 
 .demo-icons .oo-ui-fieldLayout:hover .oo-ui-iconElement,
 .demo-icons .oo-ui-fieldLayout:hover .oo-ui-indicatorElement {
-	opacity: 1 !important; /* stylelint-disable-line declaration-no-important */
+	/* stylelint-disable-next-line declaration-no-important */
+	opacity: 1 !important;
 }
 
 /* Widgets demo */

@@ -350,12 +350,11 @@
 	// Hide custom indicator, this theme displays the native <select>'s dropdown arrow instead
 	// (this might have been a bug once, but I don't want to change it now).
 	> .oo-ui-indicatorWidget {
-		// Somehow stylelint counts line numbers wrong, and this error suppression comment below only
-		// sometimes works. If you get a build failure pointing here, try moving it before, after, or on
-		// the same line as the !important. Or try making this comment shorter or longer by a line. That
-		// makes it work sometimes too. WTF.
+		// Stylelint's parser gets confused inside nested blocks, so we have to disable
+		// this way.
+		/* stylelint-disable declaration-no-important */
 		display: none !important;
-		// stylelint-disable-line declaration-no-important
+		/* stylelint-enable declaration-no-important */
 	}
 
 	option {
@@ -629,7 +628,8 @@
 			height: 2.5em;
 			width: 2.5em;
 			/* There's a lot of weird specific margins with weird specific selectors */
-			margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+			// stylelint-disable-next-line declaration-no-important
+			margin: 0 !important;
 		}
 	}
 }
