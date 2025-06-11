@@ -588,11 +588,3 @@ OO.ui.SelectFileInputWidget.prototype.onDrop = function ( e ) {
 
 	return false;
 };
-
-// Deprecated alias
-OO.ui.SelectFileWidget = function OoUiSelectFileWidget() {
-	OO.ui.warnDeprecation( 'SelectFileWidget: Deprecated alias, use SelectFileInputWidget instead.' );
-	OO.ui.SelectFileWidget.super.apply( this, arguments );
-};
-
-OO.inheritClass( OO.ui.SelectFileWidget, OO.ui.SelectFileInputWidget );
