@@ -541,6 +541,16 @@
 	& + .oo-ui-messageWidget {
 		margin-top: @margin-top-message;
 	}
+
+	&.oo-ui-widget-disabled {
+		> .oo-ui-iconElement-icon {
+			opacity: 0.2;
+		}
+
+		> .oo-ui-labelElement-label {
+			color: #ccc;
+		}
+	}
 }
 
 .theme-oo-ui-multioptionWidget() {

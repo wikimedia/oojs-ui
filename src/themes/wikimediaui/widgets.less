@@ -746,6 +746,15 @@
 	& + .oo-ui-messageWidget {
 		margin-top: @margin-top-message;
 	}
+
+	&.oo-ui-widget-disabled {
+		color: @color-disabled;
+
+		> .oo-ui-iconElement-icon,
+		> .oo-ui-indicatorElement-indicator {
+			opacity: @opacity-icon-base--disabled;
+		}
+	}
 }
 
 .theme-oo-ui-multioptionWidget() {
@@ -821,8 +830,7 @@
 			height: @size-200;
 			width: @size-200;
 			// There's a lot of weird specific margins with weird specific selectors
-			// stylelint-disable-next-line declaration-no-important
-			margin: 0 !important;
+			margin: 0 !important; // stylelint-disable-line declaration-no-important
 		}
 	}
 }
