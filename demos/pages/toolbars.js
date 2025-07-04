@@ -204,6 +204,19 @@ Demo.static.pages.toolbars = function ( demo ) {
 			include: [ { group: 'autoDisableListTools' } ]
 		},
 		{
+			name: 'label',
+			type: 'label',
+			label: 'Label group',
+			icon: 'tag'
+		},
+		{
+			name: 'labelDisabled',
+			type: 'label',
+			label: 'Disabled',
+			disabled: true,
+			indicator: 'required'
+		},
+		{
 			name: 'catchAll',
 			label: 'Catch-all',
 			include: '*'

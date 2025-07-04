@@ -144,6 +144,7 @@ module.exports = {
 			"src/tools/PopupTool.js",
 			"src/tools/ToolGroupTool.js",
 			"src/toolgroups/BarToolGroup.js",
+			"src/toolgroups/LabelToolGroup.js",
 			"src/toolgroups/PopupToolGroup.js",
 			"src/toolgroups/ListToolGroup.js",
 			"src/toolgroups/MenuToolGroup.js"
@@ -282,6 +283,7 @@ module.exports = {
 
 			"src/styles/ToolGroup.less",
 			"src/styles/toolgroups/BarToolGroup.less",
+			"src/styles/toolgroups/LabelToolGroup.less",
 			"src/styles/toolgroups/PopupToolGroup.less",
 			"src/styles/toolgroups/ListToolGroup.less",
 			"src/styles/toolgroups/MenuToolGroup.less",

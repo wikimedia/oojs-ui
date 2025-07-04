@@ -216,6 +216,109 @@
 	}
 }
 
+.mw-toolgroup-label() {
+	height: 2.5em;
+	min-width: 2.5em;
+
+	.oo-ui-toolbar-narrow & {
+		min-width: 1.875em;
+	}
+
+	&.oo-ui-iconElement {
+		min-width: 3.125em;
+
+		.oo-ui-toolbar-narrow & {
+			min-width: 2.5em;
+		}
+	}
+
+	&.oo-ui-indicatorElement.oo-ui-iconElement {
+		min-width: 4.375em;
+
+		.oo-ui-toolbar-narrow & {
+			min-width: 3.75em;
+		}
+	}
+
+	&.oo-ui-labelElement {
+		.oo-ui-toolGroup-handle .oo-ui-labelElement-label {
+			line-height: 2.6em;
+			margin: 0 1em;
+
+			.oo-ui-toolbar-narrow & {
+				margin: 0 0.5em;
+			}
+		}
+
+		&.oo-ui-iconElement .oo-ui-toolGroup-handle .oo-ui-labelElement-label {
+			margin-left: 3em;
+
+			.oo-ui-toolbar-narrow & {
+				margin-left: 2.5em;
+			}
+		}
+
+		&.oo-ui-indicatorElement .oo-ui-toolGroup-handle .oo-ui-labelElement-label {
+			margin-right: 2.25em;
+
+			.oo-ui-toolbar-narrow & {
+				margin-right: 1.75em;
+			}
+		}
+	}
+
+	.oo-ui-toolGroup-handle {
+		height: 2.5em;
+
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			position: absolute;
+			top: 0;
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			width: 0.9375em;
+			height: 0.9375em;
+			margin: 0.78125em;
+			right: 0;
+
+			.oo-ui-toolbar-narrow & {
+				right: -0.3125em;
+			}
+		}
+
+		.oo-ui-iconElement-icon {
+			margin: 0.3125em + @size-icon-medium-outer;
+			left: 0.3125em;
+
+			.oo-ui-toolbar-narrow & {
+				left: 0;
+			}
+		}
+	}
+}
+
+.theme-oo-ui-labelToolGroup() {
+	position: relative;
+
+	.mw-toolgroup-label();
+
+	&.oo-ui-widget-enabled {
+		&:hover {
+			border-color: transparent;
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		color: #ccc;
+
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			opacity: 0.2;
+		}
+	}
+}
+
 .theme-oo-ui-listToolGroup() {
 	&-tools {
 		padding: 0.3125em;
@@ -352,85 +455,7 @@
 }
 
 .theme-oo-ui-popupToolGroup() {
-	height: 2.5em;
-	min-width: 2.5em;
-
-	.oo-ui-toolbar-narrow & {
-		min-width: 1.875em;
-	}
-
-	&.oo-ui-iconElement {
-		min-width: 3.125em;
-
-		.oo-ui-toolbar-narrow & {
-			min-width: 2.5em;
-		}
-	}
-
-	&.oo-ui-indicatorElement.oo-ui-iconElement {
-		min-width: 4.375em;
-
-		.oo-ui-toolbar-narrow & {
-			min-width: 3.75em;
-		}
-	}
-
-	&.oo-ui-labelElement {
-		.oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
-			line-height: 2.6em;
-			margin: 0 1em;
-
-			.oo-ui-toolbar-narrow & {
-				margin: 0 0.5em;
-			}
-		}
-
-		&.oo-ui-iconElement .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
-			margin-left: 3em;
-
-			.oo-ui-toolbar-narrow & {
-				margin-left: 2.5em;
-			}
-		}
-
-		&.oo-ui-indicatorElement .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
-			margin-right: 2.25em;
-
-			.oo-ui-toolbar-narrow & {
-				margin-right: 1.75em;
-			}
-		}
-	}
-
-	&-handle {
-		height: 2.5em;
-
-		.oo-ui-indicatorElement-indicator,
-		.oo-ui-iconElement-icon {
-			position: absolute;
-			top: 0;
-		}
-
-		.oo-ui-indicatorElement-indicator {
-			width: 0.9375em;
-			height: 0.9375em;
-			margin: 0.78125em;
-			right: 0;
-
-			.oo-ui-toolbar-narrow & {
-				right: -0.3125em;
-			}
-		}
-
-		.oo-ui-iconElement-icon {
-			margin: 0.3125em + @size-icon-medium-outer;
-			left: 0.3125em;
-
-			.oo-ui-toolbar-narrow & {
-				left: 0;
-			}
-		}
-	}
+	.mw-toolgroup-label();
 
 	&-header {
 		line-height: 2.6em;

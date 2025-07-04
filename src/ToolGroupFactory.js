@@ -44,6 +44,7 @@ OO.inheritClass( OO.ui.ToolGroupFactory, OO.Factory );
 OO.ui.ToolGroupFactory.static.getDefaultClasses = function () {
 	return [
 		OO.ui.BarToolGroup,
+		OO.ui.LabelToolGroup,
 		OO.ui.ListToolGroup,
 		OO.ui.MenuToolGroup
 	];

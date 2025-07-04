@@ -234,6 +234,110 @@
 	}
 }
 
+.mw-toolgroup-label() {
+	min-width: @size-tool;
+
+	.oo-ui-toolbar-narrow & {
+		min-width: @size-tool - @size-toolbar-narrow-modifier;
+	}
+
+	&.oo-ui-indicatorElement:not( .oo-ui-labelElement ):not( .oo-ui-iconElement ) {
+		min-width: @padding-end-toolgroup-label-indicator;
+	}
+
+	.oo-ui-toolGroup-handle {
+		box-sizing: border-box;
+
+		.oo-ui-iconElement-icon {
+			left: @start-tool-icon;
+
+			.oo-ui-toolbar-narrow & {
+				left: @start-tool-icon - @size-toolbar-narrow-modifier;
+			}
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			// HACK: Magic number for cross-browser positioning closer to label baseline
+			background-position: center 52%;
+			right: @end-tool-indicator;
+
+			.oo-ui-toolbar-narrow & {
+				right: @start-toolbar-narrow-tool-icon;
+			}
+		}
+	}
+
+	&.oo-ui-iconElement .oo-ui-toolGroup-handle,
+	&.oo-ui-indicatorElement .oo-ui-toolGroup-handle {
+		padding-top: @padding-top-tool;
+	}
+
+	&.oo-ui-iconElement.oo-ui-indicatorElement .oo-ui-toolGroup-handle {
+		padding-left: @padding-start-tool-icon-only;
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-start-tool-icon-only - @size-toolbar-narrow-modifier;
+		}
+	}
+
+	&.oo-ui-labelElement .oo-ui-toolGroup-handle {
+		padding: @padding-vertical-tool-label @padding-horizontal-base;
+
+		.oo-ui-labelElement-label {
+			line-height: @line-height-label;
+		}
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-horizontal-base-iconized - @size-toolbar-narrow-modifier;
+			padding-right: @padding-horizontal-base-iconized - @size-toolbar-narrow-modifier;
+		}
+	}
+
+	&.oo-ui-iconElement.oo-ui-labelElement .oo-ui-toolGroup-handle {
+		padding-left: @padding-start-tool;
+
+		.oo-ui-toolbar-narrow & {
+			padding-left: @padding-start-tool - @size-toolbar-narrow-modifier;
+		}
+	}
+
+	&.oo-ui-labelElement.oo-ui-indicatorElement .oo-ui-toolGroup-handle {
+		padding-right: @padding-end-toolgroup-label-indicator;
+
+		.oo-ui-toolbar-narrow & {
+			padding-right: @padding-end-toolgroup-label-indicator - 2 * @start-toolbar-narrow-tool-icon;
+		}
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-toolGroup-handle {
+		padding-right: @padding-end-toolgroup-indicator;
+
+		.oo-ui-toolbar-narrow & {
+			padding-right: @padding-end-toolgroup-indicator - @start-toolbar-narrow-tool-icon;
+		}
+	}
+
+	&:not( .oo-ui-labelElement ):not( .oo-ui-iconElement ) .oo-ui-indicatorElement-indicator {
+		// Override earlier fading of the indicator if it's the only thing in the button
+		opacity: @opacity-base;
+	}
+}
+
+.theme-oo-ui-labelToolGroup() {
+	position: relative;
+
+	.mw-toolgroup-label();
+
+	&.oo-ui-widget-disabled {
+		color: @color-disabled;
+
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			opacity: @opacity-low;
+		}
+	}
+}
+
 .theme-oo-ui-listToolGroup() {
 	&-tools .oo-ui-tool {
 		&.oo-ui-widget-disabled {
@@ -295,90 +399,7 @@
 .theme-oo-ui-popupToolGroup() {
 	min-width: @size-tool;
 
-	.oo-ui-toolbar-narrow & {
-		min-width: @size-tool - @size-toolbar-narrow-modifier;
-	}
-
-	&.oo-ui-indicatorElement:not( .oo-ui-labelElement ):not( .oo-ui-iconElement ) {
-		min-width: @padding-end-toolgroup-label-indicator;
-	}
-
-	&-handle {
-		box-sizing: border-box;
-
-		.oo-ui-iconElement-icon {
-			left: @start-tool-icon;
-
-			.oo-ui-toolbar-narrow & {
-				left: @start-tool-icon - @size-toolbar-narrow-modifier;
-			}
-		}
-
-		.oo-ui-indicatorElement-indicator {
-			// HACK: Magic number for cross-browser positioning closer to label baseline
-			background-position: center 52%;
-			right: @end-tool-indicator;
-
-			.oo-ui-toolbar-narrow & {
-				right: @start-toolbar-narrow-tool-icon;
-			}
-		}
-	}
-
-	&.oo-ui-iconElement &-handle,
-	&.oo-ui-indicatorElement &-handle {
-		padding-top: @padding-top-tool;
-	}
-
-	&.oo-ui-iconElement.oo-ui-indicatorElement &-handle {
-		padding-left: @padding-start-tool-icon-only;
-
-		.oo-ui-toolbar-narrow & {
-			padding-left: @padding-start-tool-icon-only - @size-toolbar-narrow-modifier;
-		}
-	}
-
-	&.oo-ui-labelElement &-handle {
-		padding: @padding-vertical-tool-label @padding-horizontal-base;
-
-		.oo-ui-labelElement-label {
-			line-height: @line-height-label;
-		}
-
-		.oo-ui-toolbar-narrow & {
-			padding-left: @padding-horizontal-base-iconized - @size-toolbar-narrow-modifier;
-			padding-right: @padding-horizontal-base-iconized - @size-toolbar-narrow-modifier;
-		}
-	}
-
-	&.oo-ui-iconElement.oo-ui-labelElement &-handle {
-		padding-left: @padding-start-tool;
-
-		.oo-ui-toolbar-narrow & {
-			padding-left: @padding-start-tool - @size-toolbar-narrow-modifier;
-		}
-	}
-
-	&.oo-ui-labelElement.oo-ui-indicatorElement &-handle {
-		padding-right: @padding-end-toolgroup-label-indicator;
-
-		.oo-ui-toolbar-narrow & {
-			padding-right: @padding-end-toolgroup-label-indicator - 2 * @start-toolbar-narrow-tool-icon;
-		}
-	}
-
-	&.oo-ui-indicatorElement &-handle {
-		padding-right: @padding-end-toolgroup-indicator;
-
-		.oo-ui-toolbar-narrow & {
-			padding-right: @padding-end-toolgroup-indicator - @start-toolbar-narrow-tool-icon;
-		}
-	}
-
-	&:not( .oo-ui-labelElement ):not( .oo-ui-iconElement ) .oo-ui-indicatorElement-indicator {
-		// Override earlier fading of the indicator if it's the only thing in the button
-		opacity: @opacity-base;
-	}
+	.mw-toolgroup-label();
 
 	&-header {
 		color: @color-base--subtle;
