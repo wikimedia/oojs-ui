@@ -125,6 +125,22 @@ Demo.static.pages.dialogs = function ( demo ) {
 					}
 				},
 				{
+					name: 'Process dialog (overridden actions)',
+					dialogClass: Demo.ProcessDialog,
+					config: {
+						size: 'large'
+					},
+					data: {
+						actions: [
+							{ action: 'save', label: 'Done', flags: [ 'primary', 'progressive' ] },
+							{ action: 'cancel', label: 'Cancel', flags: [ 'safe', 'close' ] },
+							{ action: 'back', label: 'Back', flags: [ 'safe' ], icon: 'previous' },
+							{ action: 'other', label: 'Other' },
+							{ action: 'preview', label: 'Preview', flags: [ 'safe', 'progressive' ] }
+						]
+					}
+				},
+				{
 					name: 'Broken dialog (error handling)',
 					dialogClass: Demo.BrokenDialog,
 					config: {
