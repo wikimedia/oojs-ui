@@ -8,7 +8,7 @@ function new_OOUI( $class, $config = [] ) {
 }
 
 function unstub( &$value ) {
-	if ( is_string( $value ) && substr( $value, 0, 13 ) === '_placeholder_' ) {
+	if ( is_string( $value ) && str_starts_with( $value, '_placeholder_' ) ) {
 		$value = json_decode( substr( $value, 13 ), true );
 		if ( isset( $value['config'] ) && is_array( $value['config'] ) ) {
 			array_walk_recursive( $value['config'], 'unstub' );
