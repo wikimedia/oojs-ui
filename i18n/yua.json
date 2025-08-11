@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cohuoucan"
+		]
+	},
+	"ooui-copytextlayout-copy": "Éets'",
+	"ooui-outline-control-move-down": "Péeks le ba'al tak ya'anal",
+	"ooui-outline-control-move-up": "Péeks le ba'al ka'anal",
+	"ooui-outline-control-remove": "tu'up le ba'al",
+	"ooui-toolbar-more": "U la'ak'",
+	"ooui-toolgroup-expand": "U la'ak'",
+	"ooui-toolgroup-collapse": "p'íit",
+	"ooui-item-remove": "lu'se",
+	"ooui-dialog-message-accept": "Ma'alob",
+	"ooui-dialog-message-reject": "káanselar",
+	"ooui-dialog-process-error": "Yaan ba'ax ma' jóok' ma'alobí",
+	"ooui-dialog-process-dismiss": "jóok'sik",
+	"ooui-dialog-process-retry": "ka'a meente",
+	"ooui-dialog-process-continue": "Tsaay",
+	"ooui-combobox-button-label": "K'eex le opciones",
+	"ooui-selectfile-button-select": "Yéey jump'éel archivo",
+	"ooui-selectfile-button-select-multiple": "Yéey archivos",
+	"ooui-selectfile-placeholder": "Mix jump'éel archivo yéeya'an",
+	"ooui-selectfile-dragdrop-placeholder": "ts'áaj le archivo waye'",
+	"ooui-selectfile-dragdrop-placeholder-multiple": "ts'áaj archivos waye'",
+	"ooui-popup-widget-close-button-aria-label": "K'aal",
+	"ooui-field-help": "Áantaj"
+}
