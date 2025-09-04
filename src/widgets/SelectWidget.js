@@ -389,7 +389,6 @@ OO.ui.SelectWidget.prototype.onDocumentKeyDown = function ( e ) {
 					handled = true;
 				}
 				break;
-			case OO.ui.Keys.ESCAPE:
 			case OO.ui.Keys.TAB:
 				if ( currentItem ) {
 					currentItem.setHighlighted( false );
