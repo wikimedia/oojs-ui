@@ -439,6 +439,23 @@ OO.ui.SelectWidget.prototype.unbindDocumentKeyDownListener = function () {
 };
 
 /**
+ * Attach document keydown listeners when the element is focused
+ *
+ * @param {jQuery} [$element=this.$element] Element to watch
+ * @protected
+ */
+OO.ui.SelectWidget.prototype.attachDocumentKeyDownListenerOnFocus = function ( $element ) {
+	$element = $element || this.$element;
+	$element.on( {
+		// focusin/out are bubbling and so fire before DOM changes, this
+		// means focusout fires when this.$element is detached while focused,
+		// unlike blur.
+		focusin: this.bindDocumentKeyDownListener.bind( this ),
+		focusout: this.unbindDocumentKeyDownListener.bind( this )
+	} );
+};
+
+/**
  * Scroll item into view, preventing spurious mouse highlight actions from happening.
  *
  * @param {OO.ui.OptionWidget} item Item to scroll into view

@@ -21,10 +21,7 @@ OO.ui.OutlineSelectWidget = function OoUiOutlineSelectWidget( config ) {
 	OO.ui.mixin.TabIndexedElement.call( this, config );
 
 	// Events
-	this.$element.on( {
-		focus: this.bindDocumentKeyDownListener.bind( this ),
-		blur: this.unbindDocumentKeyDownListener.bind( this )
-	} );
+	this.attachDocumentKeyDownListenerOnFocus();
 
 	// Initialization
 	this.$element.addClass( 'oo-ui-outlineSelectWidget' );
