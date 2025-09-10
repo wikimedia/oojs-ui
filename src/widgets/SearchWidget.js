@@ -103,7 +103,7 @@ OO.ui.SearchWidget.prototype.onQueryChange = function () {
  * Chooses highlighted item.
  *
  * @private
- * @param {string} value New value
+ * @param {jQuery.Event} e
  */
 OO.ui.SearchWidget.prototype.onQueryEnter = function () {
 	const highlightedItem = this.results.findHighlightedItem();

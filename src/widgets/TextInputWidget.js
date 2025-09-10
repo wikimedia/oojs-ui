@@ -161,6 +161,7 @@ OO.ui.TextInputWidget.static.validationPatterns = {
  * An `enter` event is emitted when the user presses Enter key inside the text box.
  *
  * @event OO.ui.TextInputWidget#enter
+ * @param {jQuery.Event} e
  */
 
 /* Methods */
