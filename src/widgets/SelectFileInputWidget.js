@@ -247,10 +247,16 @@ OO.ui.SelectFileInputWidget.prototype.setValue = function ( files ) {
 	}
 
 	function comparableFile( file ) {
-		// Use extend to convert to plain objects so they can be compared.
-		// File objects contains name, size, timestamp and mime type which
-		// should be unique.
-		return Object.assign( {}, file );
+		// File objects are not enumerable for comparison, so we use these simple objects.
+		// This ignores contents, so it's not a perfect comparison
+		return {
+			// Blob properties
+			size: file.size,
+			type: file.type,
+			// File properties
+			lastModified: file.lastModified,
+			name: file.name
+		};
 	}
 
 	if ( !OO.compare(
