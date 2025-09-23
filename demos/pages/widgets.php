@@ -675,6 +675,35 @@ $fieldsets[] = new Demo\LinkedFieldsetLayout( [
 				'label' => 'CheckboxMultiselectInputWidget',
 			]
 		),
+		new OOUI\ActionFieldLayout(
+			new OOUI\CheckboxMultiselectInputWidget( [
+				'disabled' => true,
+				'value' => [ 'dog', 'cat' ],
+				'options' => [
+					[
+						'data' => 'cat',
+						'label' => 'Cat'
+					],
+					[
+						'data' => 'dog',
+						'label' => "Dog (disabled)",
+						'disabled' => true
+					],
+					[
+						'data' => 'goldfish',
+						'label' => 'Goldfish'
+					],
+				]
+			] ),
+			new OOUI\ButtonWidget( [
+				'classes' => [ 'demo-CheckboxMultiselectInputWidget-disabled' ],
+				'label' => 'Toggle disabled/enabled',
+			] ),
+			[
+				'align' => 'top',
+				'label' => 'CheckboxMultiselectInputWidget (disabled)',
+			]
+		),
 		new OOUI\FieldLayout(
 			new OOUI\ToggleSwitchWidget( [
 				'href' => '?' . http_build_query( array_merge( $query, [ 'value' => !$value ] ) ),

@@ -53,4 +53,12 @@
 	infuseButton = OO.ui.infuse( $( '.demo-menu-infuse' ) )
 		.on( 'click', infuseAll )
 		.setDisabled( false );
+
+	// eslint-disable-next-line no-jquery/no-global-selector
+	OO.ui.infuse( $( '.demo-CheckboxMultiselectInputWidget-disabled' ) )
+		.on( 'click', () => {
+			// eslint-disable-next-line no-jquery/no-global-selector
+			const fieldLayout = OO.ui.infuse( $( '.demo-CheckboxMultiselectInputWidget-disabled' ).closest( '.oo-ui-fieldLayout' ) );
+			fieldLayout.getField().setDisabled( !fieldLayout.getField().isDisabled() );
+		} );
 }() );
