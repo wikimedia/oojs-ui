@@ -1067,10 +1067,7 @@ OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
 OO.ui.SelectWidget.prototype.removeItems = function ( items ) {
 	// Deselect items being removed
 	for ( let i = 0; i < items.length; i++ ) {
-		const item = items[ i ];
-		if ( item.isSelected() ) {
-			this.selectItem( null );
-		}
+		this.unselectItem( items[ i ] );
 	}
 
 	// Mixin method
