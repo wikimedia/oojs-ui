@@ -125,7 +125,7 @@ class CheckboxMultiselectInputWidget extends InputWidget {
 					'value' => $optValue,
 					'disabled' => $this->isDisabled() || $optDisabled,
 					// Distinguish the option being disabled from the whole widget being disabled
-					// for generating infusion config ()
+					// for generating infusion config (T405416)
 					'data' => [ 'optionDisabled' => $optDisabled ],
 				] ),
 				[
