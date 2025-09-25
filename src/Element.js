@@ -27,11 +27,11 @@
  *  Data can also be specified with the #setData method.
  */
 OO.ui.Element = function OoUiElement( config ) {
+	// Configuration initialization
+	config = config || {};
 	if ( OO.ui.isDemo ) {
 		this.initialConfig = config;
 	}
-	// Configuration initialization
-	config = config || {};
 
 	// Properties
 	this.elementId = null;
